@@ -829,10 +829,10 @@ void vfunc_60__13TUnk_804806E8Fv();
 void vfunc_59__13TUnk_804806E8Fv();
 void vfunc_58__13TUnk_804806E8Fv();
 void vfunc_43__13TUnk_804806E8Fv();
-void TObjPlayer__sub_80018E6C();
+void vfunc_18__13TUnk_804806E8FPUc();
 void vfunc_13__13TUnk_804AF8A0Fl();
 void vfunc_12__13TUnk_804B9870Fv();
-void add_actor_exp();
+void add_actor_exp__13TUnk_804806E8Fl();
 void apply_action_hold_status__13TUnk_804806E8Ff();
 void apply_anti_technique__13TUnk_804806E8Fl();
 void apply_attack_stat_status__13TUnk_804806E8FPv();
@@ -848,7 +848,7 @@ void check_trigger_range__6TOTrapFUl();
 void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void clear_all_status_effects__13TUnk_804806E8Fv();
 void clear_harmful_statuses__13TUnk_804806E8Fv();
-void consume_timer_field__10TObjPlayerFPvi();
+void consume_timer_field__13TUnk_804806E8Fl();
 void cure_paralysis__13TUnk_804806E8Fv();
 void cure_poison_ailment__13TUnk_804806E8Fv();
 void enemy_spawn_jellen_effect();
@@ -859,10 +859,10 @@ void vfunc_77__13TUnk_804806E8Fv();
 void vfunc_76__13TUnk_804806E8Fv();
 void vfunc_75__13TUnk_804806E8Ff();
 void vfunc_9__13TUnk_804806E8Fv();
-void get_actor_level_index();
+void get_actor_level_index__13TUnk_804806E8Fv();
 void get_pos__13TUnk_804806E8Fl();
 void get_scale__6TOTrapFUl();
-void is_actor_cadence_frame();
+void is_actor_cadence_frame__13TUnk_804806E8Fl();
 void is_any_player_matching_stat__6TOTrapFv();
 void is_target_in_attack_range__10TObjPlayerFv();
 void render_shadows__7TObjectFv();
@@ -870,16 +870,16 @@ void reset_motion_fields__13TUnk_804806E8Fv();
 void reset_pose__13TUnk_804806E8Fv();
 void submit_cursor_and_notify__6TOTrapFv();
 void trigger_switch_attack__10TObjPlayerFi();
-void update_action_hold_status__10TObjPlayerFv();
+void update_action_hold_status__13TUnk_804806E8Fv();
 void update_action_timer__10TObjPlayerFPv();
-void update_actor_ground_y();
+void update_actor_ground_y__13TUnk_804806E8Fv();
 void update_attack_stat_status();
 void update_defense_stat_status();
-void update_flag30_timer__10TObjPlayerFPv();
-void update_movement_status__10TObjPlayerFv();
+void update_flag30_timer__13TUnk_804806E8Fv();
+void update_movement_status__13TUnk_804806E8Fv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
-void update_poison_status__10TObjPlayerFv();
-void update_shock_clock__10TObjPlayerFPv();
+void update_poison_status__13TUnk_804806E8Fv();
+void update_shock_clock__13TUnk_804806E8Fv();
 void run_task__6TOTrapFv();
 extern const char lbl_80471FB8[];
 extern const char lbl_80471FD0[];
@@ -913,12 +913,12 @@ void *__vt__14TOTrapSeabed01[91] = {
     (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__13TUnk_804B9870Fv,
     (void *)&vfunc_13__13TUnk_804AF8A0Fl,
-    (void *)&add_actor_exp,
-    (void *)&consume_timer_field__10TObjPlayerFPvi,
-    (void *)&get_actor_level_index,
-    (void *)&update_actor_ground_y,
-    (void *)&TObjPlayer__sub_80018E6C,
-    (void *)&is_actor_cadence_frame,
+    (void *)&add_actor_exp__13TUnk_804806E8Fl,
+    (void *)&consume_timer_field__13TUnk_804806E8Fl,
+    (void *)&get_actor_level_index__13TUnk_804806E8Fv,
+    (void *)&update_actor_ground_y__13TUnk_804806E8Fv,
+    (void *)&vfunc_18__13TUnk_804806E8FPUc,
+    (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
     (void *)&TOTrap__sub_801792E4,
     (void *)&TOTrap__sub_801792FC,
     (void *)&TOTrapSeabed01__vt20,
@@ -934,12 +934,12 @@ void *__vt__14TOTrapSeabed01[91] = {
     (void *)&TObjPlayer::test_flag30_512,
     (void *)&TObjPlayer::has_flag_0x800,
     (void *)&TObjPlayer::test_flag_1000,
-    (void *)&update_poison_status__10TObjPlayerFv,
-    (void *)&update_action_hold_status__10TObjPlayerFv,
+    (void *)&update_poison_status__13TUnk_804806E8Fv,
+    (void *)&update_action_hold_status__13TUnk_804806E8Fv,
     (void *)&update_action_timer__10TObjPlayerFPv,
-    (void *)&update_flag30_timer__10TObjPlayerFPv,
-    (void *)&update_movement_status__10TObjPlayerFv,
-    (void *)&update_shock_clock__10TObjPlayerFPv,
+    (void *)&update_flag30_timer__13TUnk_804806E8Fv,
+    (void *)&update_movement_status__13TUnk_804806E8Fv,
+    (void *)&update_shock_clock__13TUnk_804806E8Fv,
     (void *)&update_attack_stat_status,
     (void *)&update_defense_stat_status,
     (void *)&vfunc_43__13TUnk_804806E8Fv,

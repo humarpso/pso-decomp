@@ -469,8 +469,8 @@ extern s32 lbl_805D2A38;
 u8 *TObjGrass__ct(u8 *arg0, s32 arg1, s32 arg2);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
-s32 update_movement_status__10TObjPlayerFv();
-s32 update_action_hold_status__10TObjPlayerFv();
+s32 update_movement_status__13TUnk_804806E8Fv();
+s32 update_action_hold_status__13TUnk_804806E8Fv();
 void __dt__11TBoss4Type3FPvs(void*, int);
 void mem_free(void*);
 
@@ -1515,7 +1515,7 @@ void TObjGrass::vfunc_58() {
 }
 
 s32 TObjGrass::update_movement_status() {
-    if (update_movement_status__10TObjPlayerFv() != 0) {
+    if (update_movement_status__13TUnk_804806E8Fv() != 0) {
         switch (*(s16 *)((s8 *)this + 0x326)) {
         case 0:
             *(s32 *)((s8 *)this + 0x3AC) = 0;
@@ -1529,7 +1529,7 @@ s32 TObjGrass::update_movement_status() {
 }
 
 s32 TObjGrass::update_action_hold_status() {
-    if (update_action_hold_status__10TObjPlayerFv() != 0) {
+    if (update_action_hold_status__13TUnk_804806E8Fv() != 0) {
         switch (*(s16 *)((s8 *)this + 0x326)) {
         case 0:
             *(s32 *)((s8 *)this + 0x3AC) = 0;

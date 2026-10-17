@@ -1709,7 +1709,7 @@ extern "C" {
 extern u8 TObjPlayer__sub_8001119C[];
 }
 extern "C" {
-void consume_timer_field__10TObjPlayerFPvi();
+void consume_timer_field__13TUnk_804806E8Fl();
 }
 extern "C" {
 extern u8 TObjPlayer__sub_80011210[];
@@ -1778,7 +1778,7 @@ extern "C" {
 extern u8 TObjPlayer__sub_80016944[];
 }
 extern "C" {
-void update_shock_clock__10TObjPlayerFPv();
+void update_shock_clock__13TUnk_804806E8Fv();
 }
 extern "C" {
 extern u8 TObjPlayer__sub_80016D78[];
@@ -1796,7 +1796,7 @@ extern "C" {
 extern u8 TObjPlayer__sub_8001745C[];
 }
 extern "C" {
-void TObjPlayer__sub_80018E6C();
+void vfunc_18__13TUnk_804806E8FPUc();
 }
 extern "C" {
 extern u8 TObjPlayer__sub_80018EE4[];
@@ -1958,7 +1958,7 @@ extern "C" {
 void update_action_timer__10TObjPlayerFPv();
 }
 extern "C" {
-void update_flag30_timer__10TObjPlayerFPv();
+void update_flag30_timer__13TUnk_804806E8Fv();
 }
 extern void *lbl_804E4D8C[4];
 extern void *lbl_804E4D9C[27];
@@ -2152,14 +2152,14 @@ void *__vt__12TBoss8Dragon[107] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__12TBoss8DragonFv, (void *)&run_task__12TBoss8DragonFv,
     (void *)&TBoss8Dragon__sub_802F4380, (void *)&render_shadows__12TBoss8DragonFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&fn_801A1F48,
     (void *)&TObjPlayer__sub_80018F64, (void *)&TObjPlayer__sub_80018F5C, (void *)&fn_801A2340, (void *)&fn_801A212C,
-    (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&TObjPlayer__sub_80011210, (void *)&consume_timer_field__10TObjPlayerFPvi,
-    (void *)&TObjPlayer__sub_8001119C, (void *)&TObjPlayer__sub_80018EE4, (void *)&TObjPlayer__sub_80018E6C, (void *)&TObjPlayer__sub_80011704,
+    (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&TObjPlayer__sub_80011210, (void *)&consume_timer_field__13TUnk_804806E8Fl,
+    (void *)&TObjPlayer__sub_8001119C, (void *)&TObjPlayer__sub_80018EE4, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&TObjPlayer__sub_80011704,
     (void *)&TObjPlayer__sub_80016454, (void *)&TObjPlayer__sub_80015DE8, (void *)&TObjPlayer__sub_80014108, (void *)&calc_direct_attack_damage__12TBoss8DragonFPvPvPviii,
     (void *)&TObjPlayer__sub_80011824, (void *)&TObjPlayer__sub_8001401C, (void *)&try_start_action__13TUnk_804806E8Fll, (void *)&TObjPlayer__sub_800162E0,
     (void *)&vfunc_28__12TBoss8DragonFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&TObjPlayer__sub_8001745C, (void *)&TObjPlayer::test_flag_256,
     (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&TObjPlayer__sub_800171A0,
-    (void *)&TObjPlayer__sub_80016FF8, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80016D78,
-    (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80016944, (void *)&TObjPlayer__sub_800166DC, (void *)&vfunc_43__13TUnk_804806E8Fv,
+    (void *)&TObjPlayer__sub_80016FF8, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__13TUnk_804806E8Fv, (void *)&TObjPlayer__sub_80016D78,
+    (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&TObjPlayer__sub_80016944, (void *)&TObjPlayer__sub_800166DC, (void *)&vfunc_43__13TUnk_804806E8Fv,
     (void *)&vfunc_44__12TBoss8DragonFv, (void *)&vfunc_45__12TBoss8DragonFv, (void *)&vfunc_46__12TBoss8DragonFv, (void *)&vfunc_47__12TBoss8DragonFv,
     (void *)&vfunc_48__12TBoss8DragonFl, (void *)&vfunc_49__12TBoss8DragonFv, (void *)&vfunc_50__12TBoss8DragonFv, (void *)&TObjPlayer__sub_80014E74,
     (void *)&TObjPlayer__sub_80014C78, (void *)&TObjPlayer__sub_80014C1C, (void *)&TObjPlayer__sub_80014B5C, (void *)&TObjPlayer__sub_80014900,

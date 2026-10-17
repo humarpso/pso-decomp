@@ -995,11 +995,11 @@ int initialize__9TObjEnemyFPv(void);
     extern const float lbl_805DA05C;
     extern const float lbl_805DA060;
     extern const float lbl_805DA064;
-s32 update_movement_status__10TObjPlayerFv(void *);
+s32 update_movement_status__13TUnk_804806E8Fv(void *);
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 submit_cursor_candidate(void *, int);
 extern const f32 lbl_805DA048;
-s32 update_action_hold_status__10TObjPlayerFv(void *);
+s32 update_action_hold_status__13TUnk_804806E8Fv(void *);
 u16 obj_getField1c(void *);
 int queue_destruction__7TObjectFv(void*);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
@@ -1225,7 +1225,7 @@ void TUnk_80493450::vfunc_60() {
 
 s32 TUnk_80493450::update_movement_status() {
     u8 *arg0 = (u8 *)this;
-  if (update_movement_status__10TObjPlayerFv((void *) arg0) != 0)
+  if (update_movement_status__13TUnk_804806E8Fv((void *) arg0) != 0)
   {
     if ((this->mode) != 0)
     {
@@ -1249,7 +1249,7 @@ s32 TUnk_80493450::update_movement_status() {
 
 s32 TUnk_80493450::update_action_hold_status() {
     u8 *arg0 = (u8 *)this;
-  if (update_action_hold_status__10TObjPlayerFv((void *) arg0) != 0)
+  if (update_action_hold_status__13TUnk_804806E8Fv((void *) arg0) != 0)
   {
     if ((this->mode) != 0)
     {

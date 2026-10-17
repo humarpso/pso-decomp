@@ -478,8 +478,8 @@ typedef struct Moja_800AEBB8 {
 } Moja_800AEBB8;
 
 extern "C" {
-s32 update_movement_status__10TObjPlayerFv();
-s32 update_action_hold_status__10TObjPlayerFv();
+s32 update_movement_status__13TUnk_804806E8Fv();
+s32 update_action_hold_status__13TUnk_804806E8Fv();
 
 f32 enemy_pursue_point(void *, s32, Vec_800AE18C *, void *, f32, f32);
 s32 select_enemy_destination(void *, Vec_800AE18C *, int);
@@ -1418,7 +1418,7 @@ void TObjEneMoja::vfunc_58() {
 extern "C" {
 s32 TObjEneMoja::update_movement_status() {
     void *temp_r3;
-    if (update_movement_status__10TObjPlayerFv() != 0) {
+    if (update_movement_status__13TUnk_804806E8Fv() != 0) {
         switch (this->mode) {
         case 0:
         case 1:
@@ -1440,7 +1440,7 @@ s32 TObjEneMoja::update_movement_status() {
 }
 s32 TObjEneMoja::update_action_hold_status() {
     void *temp_r3;
-    if (update_action_hold_status__10TObjPlayerFv() != 0) {
+    if (update_action_hold_status__13TUnk_804806E8Fv() != 0) {
         switch (this->mode) {
         case 0:
         case 1:

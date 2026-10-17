@@ -1973,12 +1973,12 @@ void add_actor_hp(u32, s32);
 f32 receive_physical_attack__10TObjPlayerFv(s32, s32, f32);
 s32 update_defense_stat_status(s32);
 s32 update_attack_stat_status(s32);
-s32 update_shock_clock__10TObjPlayerFPv(s32);
-s32 update_movement_status__10TObjPlayerFv(s32);
-s32 update_flag30_timer__10TObjPlayerFPv(s32);
+s32 update_shock_clock__13TUnk_804806E8Fv(s32);
+s32 update_movement_status__13TUnk_804806E8Fv(s32);
+s32 update_flag30_timer__13TUnk_804806E8Fv(s32);
 s32 update_action_timer__10TObjPlayerFPv(s32);
-s32 update_action_hold_status__10TObjPlayerFv(s32);
-s32 update_poison_status__10TObjPlayerFv(s32);
+s32 update_action_hold_status__13TUnk_804806E8Fv(s32);
+s32 update_poison_status__13TUnk_804806E8Fv(s32);
 s32 reset_motion_fields__13TUnk_804806E8Fv(void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_locally_controlled__10TObjPlayerFPv(void * a0);
@@ -4071,21 +4071,21 @@ s32 TObjPlayer__vt38(s32 arg0) {
     if ((((s32 (*)(void))reset_volopt_state__10TObjPlayerFv)() == 0) || (((s32 (*)(s32))test_flag_2000000__10TObjPlayerFPv)(arg0) != 0)) {
         return 0;
     }
-    return update_shock_clock__10TObjPlayerFPv(arg0);
+    return update_shock_clock__13TUnk_804806E8Fv(arg0);
 }
 
 s32 TObjPlayer__vt37(s32 arg0) {
     if ((((s32 (*)(void))reset_volopt_state__10TObjPlayerFv)() == 0) || (((s32 (*)(s32))test_flag_2000000__10TObjPlayerFPv)(arg0) != 0)) {
         return 0;
     }
-    return update_movement_status__10TObjPlayerFv(arg0);
+    return update_movement_status__13TUnk_804806E8Fv(arg0);
 }
 
 s32 TObjPlayer__vt36(s32 arg0) {
     if ((((s32 (*)(void))reset_volopt_state__10TObjPlayerFv)() == 0) || (((s32 (*)(s32))test_flag_2000000__10TObjPlayerFPv)(arg0) != 0)) {
         return 0;
     }
-    return update_flag30_timer__10TObjPlayerFPv(arg0);
+    return update_flag30_timer__13TUnk_804806E8Fv(arg0);
 }
 
 s32 TObjPlayer__vt35(s32 arg0) {
@@ -4099,14 +4099,14 @@ s32 TObjPlayer__vt34(s32 arg0) {
     if ((((s32 (*)(void))reset_volopt_state__10TObjPlayerFv)() == 0) || (((s32 (*)(s32))test_flag_2000000__10TObjPlayerFPv)(arg0) != 0)) {
         return 0;
     }
-    return update_action_hold_status__10TObjPlayerFv(arg0);
+    return update_action_hold_status__13TUnk_804806E8Fv(arg0);
 }
 
 s32 TObjPlayer__vt33(s32 arg0) {
     if ((((s32 (*)(void))reset_volopt_state__10TObjPlayerFv)() == 0) || (((s32 (*)(s32))test_flag_2000000__10TObjPlayerFPv)(arg0) != 0)) {
         return 0;
     }
-    return update_poison_status__10TObjPlayerFv(arg0);
+    return update_poison_status__13TUnk_804806E8Fv(arg0);
 }
 
 s32 check_flag30_bit20__10TObjPlayerFi(s32 arg0) {

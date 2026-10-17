@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneGibbles.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -2341,7 +2342,7 @@ void vfunc_101__9TObjEneDDFPUc();
 void vfunc_102__9TObjEneDDFv();
 void vfunc_29__13TUnk_804806E8Fv();
 void vfunc_73__13TUnk_804806E8Fv();
-void consume_timer_field__10TObjPlayerFPvi();
+void consume_timer_field__13TUnk_804806E8Fl();
 void vfunc_67__13TUnk_804806E8Fv();
 void vfunc_66__13TUnk_804806E8Fv();
 void vfunc_65__13TUnk_804806E8Fll();
@@ -2349,13 +2350,13 @@ void vfunc_60__13TUnk_804806E8Fv();
 void vfunc_59__13TUnk_804806E8Fv();
 void vfunc_58__13TUnk_804806E8Fv();
 void apply_slow_status__13TUnk_804806E8Fv();
-void update_shock_clock__10TObjPlayerFPv();
+void update_shock_clock__13TUnk_804806E8Fv();
 void vfunc_43__13TUnk_804806E8Fv();
-void TObjPlayer__sub_80018E6C();
+void vfunc_18__13TUnk_804806E8FPUc();
 void vfunc_13__13TUnk_804AF8A0Fl();
 void vfunc_74__9TObjEnemyFl();
 void apply_hit_message_flags__9TObjEnemyFPv();
-void add_actor_exp();
+void add_actor_exp__13TUnk_804806E8Fl();
 void apply_action_hold_status__13TUnk_804806E8Ff();
 void apply_anti_technique__13TUnk_804806E8Fl();
 void apply_attack_stat_status__13TUnk_804806E8FPv();
@@ -2382,10 +2383,10 @@ void vfunc_76__13TUnk_804806E8Fv();
 void vfunc_75__13TUnk_804806E8Ff();
 void clear_lobby_object_state__9TObjEnemyFv();
 void vfunc_9__13TUnk_804806E8Fv();
-void get_actor_level_index();
+void get_actor_level_index__13TUnk_804806E8Fv();
 void vfunc_12__9TObjEnemyFv();
 void get_pos__13TUnk_804806E8Fl();
-void is_actor_cadence_frame();
+void is_actor_cadence_frame__13TUnk_804806E8Fl();
 void is_target_in_attack_range__10TObjPlayerFv();
 void receive_direct_attack__10TObjPlayerFv();
 void receive_physical_attack__10TObjPlayerFv();
@@ -2396,15 +2397,15 @@ void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 void select_melee_contact_body__10TObjPlayerFv();
 void trigger_switch_attack__10TObjPlayerFi();
 void try_start_action__13TUnk_804806E8Fll();
-void update_action_hold_status__10TObjPlayerFv();
+void update_action_hold_status__13TUnk_804806E8Fv();
 void update_action_timer__10TObjPlayerFPv();
-void update_actor_ground_y();
+void update_actor_ground_y__13TUnk_804806E8Fv();
 void update_attack_stat_status();
 void update_defense_stat_status();
-void update_flag30_timer__10TObjPlayerFPv();
-void update_movement_status__10TObjPlayerFv();
+void update_flag30_timer__13TUnk_804806E8Fv();
+void update_movement_status__13TUnk_804806E8Fv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
-void update_poison_status__10TObjPlayerFv();
+void update_poison_status__13TUnk_804806E8Fv();
 extern RecoveredGlobal_800B22C8_lbl_8043B0FC bm3_fly_resource_binding_desc;
 typedef struct Ctl_800B47C4 {
     f32 *pv;
@@ -2442,14 +2443,14 @@ void *__vt__13TObjEneBm3Fly[107] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__13TObjEneBm3FlyFv, (void *)&run_task__13TObjEneBm3FlyFv,
     (void *)&render__13TObjEneBm3FlyFv, (void *)&render_actor_shadows_default, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
-    (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
-    (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
+    (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
+    (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker__13TUnk_804806E8FPUc, (void *)&try_start_action__13TUnk_804806E8Fll, (void *)&roll_physical_accuracy__13TUnk_804806E8FPvlf,
     (void *)&vfunc_28__13TObjEneBm3FlyFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&TObjPlayer::test_flag_256,
-    (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__10TObjPlayerFv,
-    (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
-    (void *)&update_shock_clock__10TObjPlayerFPv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&vfunc_43__13TUnk_804806E8Fv,
+    (void *)&TObjPlayer::test_flag30_512, (void *)&TObjPlayer::has_flag_0x800, (void *)&TObjPlayer::test_flag_1000, (void *)&update_poison_status__13TUnk_804806E8Fv,
+    (void *)&update_action_hold_status__13TUnk_804806E8Fv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__13TUnk_804806E8Fv, (void *)&update_movement_status__13TUnk_804806E8Fv,
+    (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&vfunc_43__13TUnk_804806E8Fv,
     (void *)&apply_poison_status__13TUnk_804806E8Fv, (void *)&apply_paralysis__13TUnk_804806E8Fv, (void *)&apply_slow_status__13TUnk_804806E8Fv, (void *)&apply_confusion_status__13TUnk_804806E8Fv,
     (void *)&apply_movement_ailment__13TUnk_804806E8Fl, (void *)&apply_shock_status__13TUnk_804806E8Fv, (void *)&clear_harmful_statuses__13TUnk_804806E8Fv, (void *)&apply_attack_stat_status__13TUnk_804806E8FPv,
     (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment__13TUnk_804806E8Fv, (void *)&cure_paralysis__13TUnk_804806E8Fv, (void *)&clear_all_status_effects__13TUnk_804806E8Fv,
@@ -2740,21 +2741,15 @@ struct VObj_18_800B1F80 : VBase_18_800B1F80 {
     virtual s32 m85(s16, s32);
 };
 
-void set_field_b8__10TObjMotionFs(void *, s16);
 void set_field_dc__10TObjPlayerFl(void *, s32);
 void set_field_d8__10TObjPlayerFl(void *, void *);
-void enemy_init_validate_period__12TObjEneDD_STFl(void *, s32);
-void enemy_init_acquire_period__12TObjEneDD_STFl(void *, s32);
 void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
-void check_state_flag_1__9TObjEneDDFv(void *);
 void init_model__9TObjEneDDFv(void *, void *, s32);
-void set_active__12TObjEneDD_STFv(void *);
-void init_position_vectors__9TObjEneDDFv(void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 
 s32 TObjEneBm3Fly::init_child_params() {
-    init_position_vectors__9TObjEneDDFv(this);
+    init_position_vectors();
     *(s32 *)((s8 *)this + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)bm3_fly_nest_resources + 0x42C)) + 8);
     *(s32 *)((s8 *)this + 0x24) = *(s32 *)((s8 *)(*(u8 **)((s8 *)bm3_fly_nest_resources + 0x42C)) + 0xC);
     init_model__9TObjEneDDFv(this, &bm3_fly_collider_params, 1);
@@ -2762,15 +2757,15 @@ s32 TObjEneBm3Fly::init_child_params() {
     set_field_dc__10TObjPlayerFl(this, *(s32 *)((s8 *)bm3_fly_nest_resources + 0x430));
     *(s16 *)((s8 *)this + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(this, *(s16 *)((s8 *)this + 0xB8));
-    set_field_b8__10TObjMotionFs(this, *(s16 *)((s8 *)this + 0xB8));
+    set_field_b8(*(s16 *)((s8 *)this + 0xB8));
     reset_hp__9TObjEneDDFv(this, bm3_fly_boss_stat_handle, TObjEneBm3Fly__attack_params, lbl_805D50E8);
-    check_state_flag_1__9TObjEneDDFv(this);
+    check_state_flag_1();
     *(void **)((s8 *)this + 0x350) = bm3_fly_decision_row;
     initialize_enemy_state__9TObjEneDDFv(this, 3);
     *(f32 *)((s8 *)this + 0x37C) = (5.0f);
-    enemy_init_acquire_period__12TObjEneDD_STFl(this, 0xA);
-    enemy_init_validate_period__12TObjEneDD_STFl(this, 0xA);
-    set_active__12TObjEneDD_STFv(this);
+    enemy_init_acquire_period(0xA);
+    enemy_init_validate_period(0xA);
+    set_active();
     *(s32 *)((s8 *)this + 0x30) |= 0x01000000;
     *(s32 *)((s8 *)this + 0x428) = 2;
     *(f32 *)((s8 *)this + 0x42C) = *(f32 *)((s8 *)this + 0x3C);

@@ -350,8 +350,8 @@ s32 update_enemy_wander_move(void *, Vec_800A9E9C *, s32, f32);
 s32 sub_8004292C__15TObjEnemyCustomFv();
 s32 play_persistent_sound(s32, void *, void *, int, int);
 void TObjPlayer__sub_800A9E9C(void *arg0_);
-s32 update_shock_clock__10TObjPlayerFPv();
-s32 update_movement_status__10TObjPlayerFv();
+s32 update_shock_clock__13TUnk_804806E8Fv();
+s32 update_movement_status__13TUnk_804806E8Fv();
 
 struct Ids_800AA82C { s16 v[2]; };
 const Ids_800AA82C lbl_805D9AD8 = {{0x1E, 0x1F}};
@@ -391,7 +391,7 @@ void TObjPlayer::clear_state7_flag() {
 
 s32 TObjPlayer::try_apply_800a89b0() {
     s32 arg0 = (s32)this;
-    if (update_movement_status__10TObjPlayerFv() != 0) {
+    if (update_movement_status__13TUnk_804806E8Fv() != 0) {
         clear_state7_flag();
         return 1;
     }
@@ -400,7 +400,7 @@ s32 TObjPlayer::try_apply_800a89b0() {
 
 s32 TObjEneDubchik::update_shock_clock() {
     s32 arg0 = (s32)this;
-    if (update_shock_clock__10TObjPlayerFPv() != 0) {
+    if (update_shock_clock__13TUnk_804806E8Fv() != 0) {
         ((TObjPlayer *)arg0)->clear_state7_flag();
         return 1;
     }

@@ -351,8 +351,8 @@ s32 project_actor_to_ground(void *, void *, int);
 extern RecoveredGlobal_80367DC8_lbl_8050BF00 lbl_8050BF00;
 extern RecoveredGlobal_80367DC8_lbl_8058D490 identity_matrix;
 void sub_80367DC8__14TObjEneIllGillFl(u8 *arg0, s32 arg1);
-s32 update_movement_status__10TObjPlayerFv(void *);
-s32 update_action_hold_status__10TObjPlayerFv(void *);
+s32 update_movement_status__13TUnk_804806E8Fv(void *);
+s32 update_action_hold_status__13TUnk_804806E8Fv(void *);
 void submit_cursor_candidate(void *, int);
 f32 step_toward_destination__10TObjPlayerFPvPvf(void *, Vec_80367860, f32);
 void TObjEneIllGill__sub_80367860(u8 *arg0);
@@ -1519,7 +1519,7 @@ void TObjEneIllGill::sub_80367DC8(s32 arg1) {
 typedef struct RecoveredFields_80367EFC_arg0 RecoveredFields_80367EFC_arg0;
 s32 TObjEneIllGill::update_movement_status() {
     u8 *arg0 = (u8 *)this;
-  if (update_movement_status__10TObjPlayerFv((void *) arg0) != 0)
+  if (update_movement_status__13TUnk_804806E8Fv((void *) arg0) != 0)
   {
     if (((RecoveredFields_80367EFC_arg0 *) arg0)->field_326 != 0)
     {
@@ -1542,7 +1542,7 @@ s32 TObjEneIllGill::update_movement_status() {
 typedef struct RecoveredFields_80367F6C_arg0 RecoveredFields_80367F6C_arg0;
 s32 TObjEneIllGill::update_action_hold_status() {
     u8 *arg0 = (u8 *)this;
-  if (0 != update_action_hold_status__10TObjPlayerFv((void *) arg0))
+  if (0 != update_action_hold_status__13TUnk_804806E8Fv((void *) arg0))
   {
     if (((RecoveredFields_80367F6C_arg0 *) arg0)->field_326 != 0)
     {

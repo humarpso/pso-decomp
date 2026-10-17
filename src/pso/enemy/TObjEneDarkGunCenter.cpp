@@ -73,7 +73,7 @@ void vfunc_6__13TUnk_804B9870FPsl();
 void vfunc_29__13TUnk_804806E8Fv();
 void vfunc_73__13TUnk_804806E8Fv();
 void vfunc_28__13TUnk_804806E8Fv();
-void consume_timer_field__10TObjPlayerFPvi();
+void consume_timer_field__13TUnk_804806E8Fl();
 void vfunc_67__13TUnk_804806E8Fv();
 void vfunc_66__13TUnk_804806E8Fv();
 void vfunc_65__13TUnk_804806E8Fll();
@@ -84,13 +84,13 @@ void vfunc_60__13TUnk_804806E8Fv();
 void vfunc_59__13TUnk_804806E8Fv();
 void vfunc_58__13TUnk_804806E8Fv();
 void apply_slow_status__13TUnk_804806E8Fv();
-void update_shock_clock__10TObjPlayerFPv();
+void update_shock_clock__13TUnk_804806E8Fv();
 void vfunc_43__13TUnk_804806E8Fv();
-void TObjPlayer__sub_80018E6C();
+void vfunc_18__13TUnk_804806E8FPUc();
 void vfunc_13__13TUnk_804AF8A0Fl();
 void vfunc_74__9TObjEnemyFl();
 void apply_hit_message_flags__9TObjEnemyFPv();
-void add_actor_exp();
+void add_actor_exp__13TUnk_804806E8Fl();
 void apply_action_hold_status__13TUnk_804806E8Ff();
 void apply_anti_technique__13TUnk_804806E8Fl();
 void apply_attack_stat_status__13TUnk_804806E8FPv();
@@ -118,10 +118,10 @@ void vfunc_76__13TUnk_804806E8Fv();
 void vfunc_75__13TUnk_804806E8Ff();
 void clear_lobby_object_state__9TObjEnemyFv();
 void vfunc_9__13TUnk_804806E8Fv();
-void get_actor_level_index();
+void get_actor_level_index__13TUnk_804806E8Fv();
 void vfunc_12__9TObjEnemyFv();
 void get_pos__13TUnk_804806E8Fl();
-void is_actor_cadence_frame();
+void is_actor_cadence_frame__13TUnk_804806E8Fl();
 void is_target_in_attack_range__10TObjPlayerFv();
 void receive_direct_attack__10TObjPlayerFv();
 void receive_physical_attack__10TObjPlayerFv();
@@ -133,15 +133,15 @@ void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 void select_melee_contact_body__10TObjPlayerFv();
 void trigger_switch_attack__10TObjPlayerFi();
 void try_start_action__13TUnk_804806E8Fll();
-void update_action_hold_status__10TObjPlayerFv();
+void update_action_hold_status__13TUnk_804806E8Fv();
 void update_action_timer__10TObjPlayerFPv();
-void update_actor_ground_y();
+void update_actor_ground_y__13TUnk_804806E8Fv();
 void update_attack_stat_status();
 void update_defense_stat_status();
-void update_flag30_timer__10TObjPlayerFPv();
-void update_movement_status__10TObjPlayerFv();
+void update_flag30_timer__13TUnk_804806E8Fv();
+void update_movement_status__13TUnk_804806E8Fv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
-void update_poison_status__10TObjPlayerFv();
+void update_poison_status__13TUnk_804806E8Fv();
 
 void *__vt__20TObjEneDarkGunCenter[83] = {
     0,
@@ -158,12 +158,12 @@ void *__vt__20TObjEneDarkGunCenter[83] = {
     (void *)classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)vfunc_12__9TObjEnemyFv,
     (void *)vfunc_13__13TUnk_804AF8A0Fl,
-    (void *)add_actor_exp,
-    (void *)consume_timer_field__10TObjPlayerFPvi,
-    (void *)get_actor_level_index,
-    (void *)update_actor_ground_y,
-    (void *)TObjPlayer__sub_80018E6C,
-    (void *)is_actor_cadence_frame,
+    (void *)add_actor_exp__13TUnk_804806E8Fl,
+    (void *)consume_timer_field__13TUnk_804806E8Fl,
+    (void *)get_actor_level_index__13TUnk_804806E8Fv,
+    (void *)update_actor_ground_y__13TUnk_804806E8Fv,
+    (void *)vfunc_18__13TUnk_804806E8FPUc,
+    (void *)is_actor_cadence_frame__13TUnk_804806E8Fl,
     (void *)select_melee_contact_body__10TObjPlayerFv,
     (void *)calc_distance_accuracy_penalty__10TObjPlayerFv,
     (void *)receive_physical_attack__10TObjPlayerFv,
@@ -179,12 +179,12 @@ void *__vt__20TObjEneDarkGunCenter[83] = {
     (void *)TObjPlayer::test_flag30_512,
     (void *)TObjPlayer::has_flag_0x800,
     (void *)TObjPlayer::test_flag_1000,
-    (void *)update_poison_status__10TObjPlayerFv,
-    (void *)update_action_hold_status__10TObjPlayerFv,
+    (void *)update_poison_status__13TUnk_804806E8Fv,
+    (void *)update_action_hold_status__13TUnk_804806E8Fv,
     (void *)update_action_timer__10TObjPlayerFPv,
-    (void *)update_flag30_timer__10TObjPlayerFPv,
-    (void *)update_movement_status__10TObjPlayerFv,
-    (void *)update_shock_clock__10TObjPlayerFPv,
+    (void *)update_flag30_timer__13TUnk_804806E8Fv,
+    (void *)update_movement_status__13TUnk_804806E8Fv,
+    (void *)update_shock_clock__13TUnk_804806E8Fv,
     (void *)update_attack_stat_status,
     (void *)update_defense_stat_status,
     (void *)vfunc_43__13TUnk_804806E8Fv,

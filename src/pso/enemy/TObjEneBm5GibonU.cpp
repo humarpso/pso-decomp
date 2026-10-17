@@ -248,12 +248,12 @@ void vfunc_88__16TObjEneBm5GibonUFv(u8 *arg0);
 void TObjEneBm5GibonU__sub_800D1268(u8 *arg0);
 void forward_hit_to_enemy_list__16TObjEneBm5GibonUFi(s32 arg0);
 void init_child_from_list__16TObjEneBm5GibonUFi(s32 arg0);
-void update_shock_clock__10TObjPlayerFPv();
+void update_shock_clock__13TUnk_804806E8Fv();
 void calc_rotated_vector__16TObjEneBm5GibonUFPviPvPv(void *arg0, s32 arg1, void *arg2, s32 *arg3);
 void vfunc_63__16TObjEneBm5GibonUFv(void *arg0);
 void vfunc_62__16TObjEneBm5GibonUFv(void* p);
 void update_center_position__16TObjEneBm5GibonUFv(u8 *arg0);
-void update_movement_status__10TObjPlayerFv();
+void update_movement_status__13TUnk_804806E8Fv();
 void update_photon_mylla__16TObjEneBm5GibonUFPv(void *arg0);
 void vfunc_83__16TObjEneBm5GibonUFv(void *arg0);
 void update_target__16TObjEneBm5GibonUFPv(void *arg0);
@@ -474,7 +474,7 @@ extern "C" {
 void vfunc_73__13TUnk_804806E8Fv();
 }
 extern "C" {
-void consume_timer_field__10TObjPlayerFPvi();
+void consume_timer_field__13TUnk_804806E8Fl();
 }
 extern "C" {
 void vfunc_67__13TUnk_804806E8Fv();
@@ -501,7 +501,7 @@ extern "C" {
 void vfunc_43__13TUnk_804806E8Fv();
 }
 extern "C" {
-void TObjPlayer__sub_80018E6C();
+void vfunc_18__13TUnk_804806E8FPUc();
 }
 extern "C" {
 void vfunc_13__13TUnk_804AF8A0Fl();
@@ -513,7 +513,7 @@ extern "C" {
 void apply_hit_message_flags__9TObjEnemyFPv();
 }
 extern "C" {
-void add_actor_exp();
+void add_actor_exp__13TUnk_804806E8Fl();
 }
 extern "C" {
 void apply_action_hold_status__13TUnk_804806E8Ff();
@@ -594,7 +594,7 @@ extern "C" {
 void vfunc_9__13TUnk_804806E8Fv();
 }
 extern "C" {
-void get_actor_level_index();
+void get_actor_level_index__13TUnk_804806E8Fv();
 }
 extern "C" {
 void vfunc_12__9TObjEnemyFv();
@@ -603,7 +603,7 @@ extern "C" {
 void get_pos__13TUnk_804806E8Fl();
 }
 extern "C" {
-void is_actor_cadence_frame();
+void is_actor_cadence_frame__13TUnk_804806E8Fl();
 }
 extern "C" {
 void is_target_in_attack_range__10TObjPlayerFv();
@@ -684,13 +684,13 @@ extern "C" {
 void try_start_action__13TUnk_804806E8Fll();
 }
 extern "C" {
-void update_action_hold_status__10TObjPlayerFv();
+void update_action_hold_status__13TUnk_804806E8Fv();
 }
 extern "C" {
 void update_action_timer__10TObjPlayerFPv();
 }
 extern "C" {
-void update_actor_ground_y();
+void update_actor_ground_y__13TUnk_804806E8Fv();
 }
 extern "C" {
 void update_attack_stat_status();
@@ -699,13 +699,13 @@ extern "C" {
 void update_defense_stat_status();
 }
 extern "C" {
-void update_flag30_timer__10TObjPlayerFPv();
+void update_flag30_timer__13TUnk_804806E8Fv();
 }
 extern "C" {
 void update_object_view_visibility__13TUnk_804B9870Fff();
 }
 extern "C" {
-void update_poison_status__10TObjPlayerFv();
+void update_poison_status__13TUnk_804806E8Fv();
 }
 void *TObjEneBm5GibonU__movement_parameters[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
@@ -769,14 +769,14 @@ void *lbl_80493F04[107] = {
     (void *)0x0, (void *)0x0, (void *)TObjEneBm5GibonU__sub_800D13B8, (void *)TObjEneBm5GibonU__sub_800D1268,
     (void *)TObjEneBm5GibonU__sub_800CD204, (void *)render_actor_shadows_default, (void *)vfunc_6__13TUnk_804B9870FPsl, (void *)apply_object_set_data__13TUnk_804B9870FPv,
     (void *)reset_motion_fields__13TUnk_804806E8Fv, (void *)vfunc_9__13TUnk_804806E8Fv, (void *)update_object_view_visibility__13TUnk_804B9870Fff, (void *)classify_actor_view_detail__13TUnk_804B9870Ffff,
-    (void *)vfunc_12__9TObjEnemyFv, (void *)vfunc_13__13TUnk_804AF8A0Fl, (void *)add_actor_exp, (void *)consume_timer_field__10TObjPlayerFPvi,
-    (void *)get_actor_level_index, (void *)update_actor_ground_y, (void *)TObjPlayer__sub_80018E6C, (void *)is_actor_cadence_frame,
+    (void *)vfunc_12__9TObjEnemyFv, (void *)vfunc_13__13TUnk_804AF8A0Fl, (void *)add_actor_exp__13TUnk_804806E8Fl, (void *)consume_timer_field__13TUnk_804806E8Fl,
+    (void *)get_actor_level_index__13TUnk_804806E8Fv, (void *)update_actor_ground_y__13TUnk_804806E8Fv, (void *)vfunc_18__13TUnk_804806E8FPUc, (void *)is_actor_cadence_frame__13TUnk_804806E8Fl,
     (void *)select_melee_contact_body__10TObjPlayerFv, (void *)calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)receive_physical_attack__10TObjPlayerFv, (void *)receive_direct_attack__10TObjPlayerFv,
     (void *)receive_weapon_special_attack__10TObjPlayerFv, (void *)apply_knockback_from_attacker__13TUnk_804806E8FPUc, (void *)try_start_action__13TUnk_804806E8Fll, (void *)roll_physical_accuracy__13TUnk_804806E8FPvlf,
     (void *)vfunc_28__16TObjEneBm5GibonUFv, (void *)vfunc_29__13TUnk_804806E8Fv, (void *)is_target_in_attack_range__10TObjPlayerFv, (void *)TObjPlayer::test_flag_256,
-    (void *)TObjPlayer::test_flag30_512, (void *)TObjPlayer::has_flag_0x800, (void *)TObjPlayer::test_flag_1000, (void *)update_poison_status__10TObjPlayerFv,
-    (void *)update_action_hold_status__10TObjPlayerFv, (void *)update_action_timer__10TObjPlayerFPv, (void *)update_flag30_timer__10TObjPlayerFPv, (void *)update_movement_status__10TObjPlayerFv,
-    (void *)update_shock_clock__10TObjPlayerFPv, (void *)update_attack_stat_status, (void *)update_defense_stat_status, (void *)vfunc_43__13TUnk_804806E8Fv,
+    (void *)TObjPlayer::test_flag30_512, (void *)TObjPlayer::has_flag_0x800, (void *)TObjPlayer::test_flag_1000, (void *)update_poison_status__13TUnk_804806E8Fv,
+    (void *)update_action_hold_status__13TUnk_804806E8Fv, (void *)update_action_timer__10TObjPlayerFPv, (void *)update_flag30_timer__13TUnk_804806E8Fv, (void *)update_movement_status__13TUnk_804806E8Fv,
+    (void *)update_shock_clock__13TUnk_804806E8Fv, (void *)update_attack_stat_status, (void *)update_defense_stat_status, (void *)vfunc_43__13TUnk_804806E8Fv,
     (void *)apply_poison_status__13TUnk_804806E8Fv, (void *)apply_paralysis__13TUnk_804806E8Fv, (void *)apply_slow_status__13TUnk_804806E8Fv, (void *)apply_confusion_status__13TUnk_804806E8Fv,
     (void *)apply_movement_ailment__13TUnk_804806E8Fl, (void *)apply_shock_status__13TUnk_804806E8Fv, (void *)clear_harmful_statuses__13TUnk_804806E8Fv, (void *)apply_attack_stat_status__13TUnk_804806E8FPv,
     (void *)TObjPlayer::apply_defense_stat_status, (void *)cure_poison_ailment__13TUnk_804806E8Fv, (void *)cure_paralysis__13TUnk_804806E8Fv, (void *)clear_all_status_effects__13TUnk_804806E8Fv,
@@ -4514,8 +4514,8 @@ void TObjEneBm5GibonU__sub_800D10A0(u8 *arg0) {
 #define update_collisions__10TObjPlayerFv ((void (*)(void *))update_collisions__10TObjPlayerFv)
 #define __nw__7TObjectFUl ((void * (*)(int))__nw__7TObjectFUl)
 #define TObjEneBm5GibonU__model_archive (*(u32 *)&TObjEneBm5GibonU__model_archive)
-#define update_shock_clock__10TObjPlayerFPv ((s32 (*)())update_shock_clock__10TObjPlayerFPv)
-#define update_movement_status__10TObjPlayerFv ((s32 (*)())update_movement_status__10TObjPlayerFv)
+#define update_shock_clock__13TUnk_804806E8Fv ((s32 (*)())update_shock_clock__13TUnk_804806E8Fv)
+#define update_movement_status__13TUnk_804806E8Fv ((s32 (*)())update_movement_status__13TUnk_804806E8Fv)
 #define obj_getField1c ((s16 (*)(s32))obj_getField1c)
 
 #include "pso/enemy/TObjEneMe1GiGue.h"
@@ -5216,7 +5216,7 @@ void TObjEneBm5GibonU::clear_flag_and_update() {
 
 s32 TObjEneBm5GibonU::check_and_update() {
     s32 arg0 = (s32)this;
-    if (update_movement_status__10TObjPlayerFv() != 0) {
+    if (update_movement_status__13TUnk_804806E8Fv() != 0) {
         clear_flag_and_update();
         return 1;
     }
@@ -5224,7 +5224,7 @@ s32 TObjEneBm5GibonU::check_and_update() {
 }
 s32 TObjEneBm5GibonU::try_activate() {
     s32 arg0 = (s32)this;
-    if (update_shock_clock__10TObjPlayerFPv() != 0) {
+    if (update_shock_clock__13TUnk_804806E8Fv() != 0) {
         clear_flag_and_update();
         return 1;
     }
@@ -5244,7 +5244,7 @@ s32 TObjEneBm5GibonU::try_activate() {
 #undef update_collisions__10TObjPlayerFv
 #undef __nw__7TObjectFUl
 #undef TObjEneBm5GibonU__model_archive
-#undef update_shock_clock__10TObjPlayerFPv
-#undef update_movement_status__10TObjPlayerFv
+#undef update_shock_clock__13TUnk_804806E8Fv
+#undef update_movement_status__13TUnk_804806E8Fv
 #undef obj_getField1c
 #pragma pop

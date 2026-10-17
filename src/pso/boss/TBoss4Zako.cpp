@@ -1195,10 +1195,10 @@ void vfunc_77__13TUnk_804806E8Fv();
 void vfunc_76__13TUnk_804806E8Fv();
 void vfunc_75__13TUnk_804806E8Ff();
 void vfunc_28__13TUnk_804806E8Fv();
-void get_actor_level_index();
-void consume_timer_field__10TObjPlayerFPvi();
-void add_actor_exp();
-void is_actor_cadence_frame();
+void get_actor_level_index__13TUnk_804806E8Fv();
+void consume_timer_field__13TUnk_804806E8Fl();
+void add_actor_exp__13TUnk_804806E8Fl();
+void is_actor_cadence_frame__13TUnk_804806E8Fl();
 void receive_weapon_special_attack__10TObjPlayerFv();
 void receive_direct_attack__10TObjPlayerFv();
 void apply_knockback_from_attacker__13TUnk_804806E8FPUc();
@@ -1230,16 +1230,16 @@ void try_start_action__13TUnk_804806E8Fll();
 void select_melee_contact_body__10TObjPlayerFv();
 void update_defense_stat_status();
 void update_attack_stat_status();
-void update_shock_clock__10TObjPlayerFPv();
-void update_movement_status__10TObjPlayerFv();
-void update_flag30_timer__10TObjPlayerFPv();
+void update_shock_clock__13TUnk_804806E8Fv();
+void update_movement_status__13TUnk_804806E8Fv();
+void update_flag30_timer__13TUnk_804806E8Fv();
 void update_action_timer__10TObjPlayerFPv();
-void update_action_hold_status__10TObjPlayerFv();
-void update_poison_status__10TObjPlayerFv();
+void update_action_hold_status__13TUnk_804806E8Fv();
+void update_poison_status__13TUnk_804806E8Fv();
 void vfunc_43__13TUnk_804806E8Fv();
 void is_target_in_attack_range__10TObjPlayerFv();
-void TObjPlayer__sub_80018E6C();
-void update_actor_ground_y();
+void vfunc_18__13TUnk_804806E8FPUc();
+void update_actor_ground_y__13TUnk_804806E8Fv();
 void vfunc_9__13TUnk_804806E8Fv();
 void reset_motion_fields__13TUnk_804806E8Fv();
 void get_pos__13TUnk_804806E8Fl();
@@ -1271,12 +1271,12 @@ s32 __vt__11TBoss4Bishi[83] = {
     (s32)classify_actor_view_detail__13TUnk_804B9870Ffff,
     (s32)vfunc_12__9TObjEnemyFv,
     (s32)vfunc_13__13TUnk_804AF8A0Fl,
-    (s32)add_actor_exp,
-    (s32)consume_timer_field__10TObjPlayerFPvi,
-    (s32)get_actor_level_index,
-    (s32)update_actor_ground_y,
-    (s32)TObjPlayer__sub_80018E6C,
-    (s32)is_actor_cadence_frame,
+    (s32)add_actor_exp__13TUnk_804806E8Fl,
+    (s32)consume_timer_field__13TUnk_804806E8Fl,
+    (s32)get_actor_level_index__13TUnk_804806E8Fv,
+    (s32)update_actor_ground_y__13TUnk_804806E8Fv,
+    (s32)vfunc_18__13TUnk_804806E8FPUc,
+    (s32)is_actor_cadence_frame__13TUnk_804806E8Fl,
     (s32)select_melee_contact_body__10TObjPlayerFv,
     (s32)calc_distance_accuracy_penalty__10TObjPlayerFv,
     (s32)receive_physical_attack__10TObjPlayerFv,
@@ -1292,12 +1292,12 @@ s32 __vt__11TBoss4Bishi[83] = {
     (s32)TObjPlayer::test_flag30_512,
     (s32)TObjPlayer::has_flag_0x800,
     (s32)TObjPlayer::test_flag_1000,
-    (s32)update_poison_status__10TObjPlayerFv,
-    (s32)update_action_hold_status__10TObjPlayerFv,
+    (s32)update_poison_status__13TUnk_804806E8Fv,
+    (s32)update_action_hold_status__13TUnk_804806E8Fv,
     (s32)update_action_timer__10TObjPlayerFPv,
-    (s32)update_flag30_timer__10TObjPlayerFPv,
-    (s32)update_movement_status__10TObjPlayerFv,
-    (s32)update_shock_clock__10TObjPlayerFPv,
+    (s32)update_flag30_timer__13TUnk_804806E8Fv,
+    (s32)update_movement_status__13TUnk_804806E8Fv,
+    (s32)update_shock_clock__13TUnk_804806E8Fv,
     (s32)update_attack_stat_status,
     (s32)update_defense_stat_status,
     (s32)vfunc_43__13TUnk_804806E8Fv,
@@ -1356,12 +1356,12 @@ s32 __vt__9TBoss4Uro[83] = {
     (s32)classify_actor_view_detail__13TUnk_804B9870Ffff,
     (s32)vfunc_12__9TObjEnemyFv,
     (s32)vfunc_13__13TUnk_804AF8A0Fl,
-    (s32)add_actor_exp,
-    (s32)consume_timer_field__10TObjPlayerFPvi,
-    (s32)get_actor_level_index,
-    (s32)update_actor_ground_y,
-    (s32)TObjPlayer__sub_80018E6C,
-    (s32)is_actor_cadence_frame,
+    (s32)add_actor_exp__13TUnk_804806E8Fl,
+    (s32)consume_timer_field__13TUnk_804806E8Fl,
+    (s32)get_actor_level_index__13TUnk_804806E8Fv,
+    (s32)update_actor_ground_y__13TUnk_804806E8Fv,
+    (s32)vfunc_18__13TUnk_804806E8FPUc,
+    (s32)is_actor_cadence_frame__13TUnk_804806E8Fl,
     (s32)select_melee_contact_body__10TObjPlayerFv,
     (s32)calc_distance_accuracy_penalty__10TObjPlayerFv,
     (s32)receive_physical_attack__10TObjPlayerFv,
@@ -1377,12 +1377,12 @@ s32 __vt__9TBoss4Uro[83] = {
     (s32)TObjPlayer::test_flag30_512,
     (s32)TObjPlayer::has_flag_0x800,
     (s32)TObjPlayer::test_flag_1000,
-    (s32)update_poison_status__10TObjPlayerFv,
-    (s32)update_action_hold_status__10TObjPlayerFv,
+    (s32)update_poison_status__13TUnk_804806E8Fv,
+    (s32)update_action_hold_status__13TUnk_804806E8Fv,
     (s32)update_action_timer__10TObjPlayerFPv,
-    (s32)update_flag30_timer__10TObjPlayerFPv,
-    (s32)update_movement_status__10TObjPlayerFv,
-    (s32)update_shock_clock__10TObjPlayerFPv,
+    (s32)update_flag30_timer__13TUnk_804806E8Fv,
+    (s32)update_movement_status__13TUnk_804806E8Fv,
+    (s32)update_shock_clock__13TUnk_804806E8Fv,
     (s32)update_attack_stat_status,
     (s32)update_defense_stat_status,
     (s32)vfunc_43__13TUnk_804806E8Fv,
@@ -1441,12 +1441,12 @@ s32 __vt__10TBoss4Zako[83] = {
     (s32)classify_actor_view_detail__13TUnk_804B9870Ffff,
     (s32)vfunc_12__9TObjEnemyFv,
     (s32)vfunc_13__13TUnk_804AF8A0Fl,
-    (s32)add_actor_exp,
-    (s32)consume_timer_field__10TObjPlayerFPvi,
-    (s32)get_actor_level_index,
-    (s32)update_actor_ground_y,
-    (s32)TObjPlayer__sub_80018E6C,
-    (s32)is_actor_cadence_frame,
+    (s32)add_actor_exp__13TUnk_804806E8Fl,
+    (s32)consume_timer_field__13TUnk_804806E8Fl,
+    (s32)get_actor_level_index__13TUnk_804806E8Fv,
+    (s32)update_actor_ground_y__13TUnk_804806E8Fv,
+    (s32)vfunc_18__13TUnk_804806E8FPUc,
+    (s32)is_actor_cadence_frame__13TUnk_804806E8Fl,
     (s32)select_melee_contact_body__10TObjPlayerFv,
     (s32)calc_distance_accuracy_penalty__10TObjPlayerFv,
     (s32)receive_physical_attack__10TObjPlayerFv,
@@ -1462,12 +1462,12 @@ s32 __vt__10TBoss4Zako[83] = {
     (s32)TObjPlayer::test_flag30_512,
     (s32)TObjPlayer::has_flag_0x800,
     (s32)TObjPlayer::test_flag_1000,
-    (s32)update_poison_status__10TObjPlayerFv,
-    (s32)update_action_hold_status__10TObjPlayerFv,
+    (s32)update_poison_status__13TUnk_804806E8Fv,
+    (s32)update_action_hold_status__13TUnk_804806E8Fv,
     (s32)update_action_timer__10TObjPlayerFPv,
-    (s32)update_flag30_timer__10TObjPlayerFPv,
-    (s32)update_movement_status__10TObjPlayerFv,
-    (s32)update_shock_clock__10TObjPlayerFPv,
+    (s32)update_flag30_timer__13TUnk_804806E8Fv,
+    (s32)update_movement_status__13TUnk_804806E8Fv,
+    (s32)update_shock_clock__13TUnk_804806E8Fv,
     (s32)update_attack_stat_status,
     (s32)update_defense_stat_status,
     (s32)vfunc_43__13TUnk_804806E8Fv,
