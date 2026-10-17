@@ -22,7 +22,6 @@ struct EndingWallTextureSet {
 typedef char EndingTextureNameSize[sizeof(EndingTextureName) == 12 ? 1 : -1];
 typedef char EndingWallTextureSetSize[sizeof(EndingWallTextureSet) == 0xB0 ? 1 : -1];
 
-extern "C" {
 extern const char ending_texture_name_ed_512kabe_a[];
 extern const char ending_texture_name_ed_512kabe_b[];
 extern const char ending_texture_name_ed_256pict00a[];
@@ -155,7 +154,6 @@ EndingWallTextureSet ending_wall_texture_sets[4] = {
         {ending_wall_texture_sets[3].names, 14}
     },
 };
-}
 
 struct RecoveredGlobal_8008CE80___vt__9TEndingAB { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8008CE80___vt__9TEndingAB_size[sizeof(RecoveredGlobal_8008CE80___vt__9TEndingAB) == 0x18 ? 1 : -1];

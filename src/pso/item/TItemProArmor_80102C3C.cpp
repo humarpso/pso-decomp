@@ -5,8 +5,4 @@
 #include "pso/misc/TOSwitchItem.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 u16 TItemProArmor::get_id() { return this->m_e4; }
-
-}

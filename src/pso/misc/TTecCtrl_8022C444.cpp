@@ -66,10 +66,9 @@ f32 calc_technique_boost(s32 technique, u16 actor) {
     return sum;
 }
 typedef char RecoveredGlobal_8022C680_lbl_80515FBC_size[sizeof(RecoveredGlobal_8022C680_lbl_80515FBC) == 0xC0 ? 1 : -1];
-extern "C" {
+
 void TItemEquipBase__sub_8022C680(s32 arg0, u16 arg1, s32 arg2) {
     if (arg1 < 4U) {
         ((TItemEquipBase *)((u8 *)&lbl_80515FBC.value + (arg1 * 0x30)))->set_slot(arg2, arg0);
     }
-}
 }

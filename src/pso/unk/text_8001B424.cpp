@@ -2,7 +2,6 @@
 #include "pso/system/vector.h"
 #include "pso/ui/TAdRicoRingCtrl.h"
 
-extern "C" {
 extern const f32 lbl_805D7E48;
 #pragma push
 #pragma fp_contract on
@@ -24,5 +23,3 @@ void TAdRicoRingCtrl::sub_8001B424(s32 arg1) {
     }
 }
 #pragma pop
-
-}

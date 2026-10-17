@@ -14,11 +14,9 @@ typedef char TChallenge_state_offset[(offsetof(TChallenge, state) == 0x1C) ? 1 :
 typedef char TChallenge_frame_offset[(offsetof(TChallenge, frame_count) == 0x20) ? 1 : -1];
 typedef char TChallenge_size[(sizeof(TChallenge) == 0x30) ? 1 : -1];
 
-extern "C" {
 s32 challenge_task;
 s32 challenge_task_created;
 s32 TLobby__data_805D4E30;
-}
 
 struct RecoveredGlobal_80070358_lbl_8048C9D8 {
     s32 value;

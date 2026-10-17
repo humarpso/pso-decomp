@@ -4,8 +4,6 @@
 #include "pso/misc/TWindowSubSymbolChatParts.h"
 #include "pso/misc/TWindowSubSymbolChat.h"
 
-extern "C" {
-
 void TWindowSubSymbolChat::set_flag60_bit1() {
     *(u8 *)((s8 *)this + 0x60) = (u8) (*(u8 *)((s8 *)this + 0x60) | 1);
 }
@@ -32,6 +30,4 @@ s32 TWindowSubSymbolChat__sub_80283998(void *arg0) {
 
 s32 fn_802839A4(void *arg0) {
     return (s8) *(u8 *)((s8 *)arg0 + 0x61) + ((s8) *(u8 *)((s8 *)arg0 + 0x62) * 2);
-}
-
 }

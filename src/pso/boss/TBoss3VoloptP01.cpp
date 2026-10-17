@@ -11,7 +11,6 @@ extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
 #include "pso/TTecZondeEff.h"
-#include "pso/player/TUnk_804806E8.h"
 
 struct Obj_80042DE8; typedef struct Obj_80042DE8 Obj_80042DE8;
 struct P_80042ED0;
@@ -64,7 +63,6 @@ struct Ent_80042974 { u16 id; s16 flag; s32 pad; };
 
 struct List_80042974 { s32 count; Ent_80042974 ents[1]; };
 
-extern "C" {
 u16 obj_getField1c(void *);
 extern s32 volopt_active_player_id;
 extern s32 lbl_805D586C;
@@ -112,8 +110,6 @@ void TObjPlayer::cast_tech_on_players() {
         }
         break;
     }
-}
-
 }
 
 #undef TObjPlayer__sub_80042ED0

@@ -249,8 +249,6 @@ extern const f32 TParticleCtrl__data_805D94E4;
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
-
 void TParticleCtrl::clear_active_flag() { *(u16*)((char*)this + 0x2c) &= 0xfffe; }
 
 u8 *create_ballistic_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5) {
@@ -451,7 +449,6 @@ void *__dt__13TUnk_8048E778Fv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
-}
 }
 #pragma push
 #pragma fp_contract on

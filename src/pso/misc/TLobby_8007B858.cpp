@@ -217,8 +217,6 @@ void TLobby::reset_and_invoke() { TLobby::reset_keyboard_state(); TLobby::invoke
 
 struct L_8007BC5C { u8 pad0; u8 count; u8 pad2[2]; s32 ids[30]; };
 
-extern "C" {
-
     extern short quest_collision_next_id;
 void TLobby__sub_8007BBEC(void) { quest_collision_next_id = 0; }
 
@@ -276,6 +274,4 @@ void TLobby::send_status_packet() {
 
     ((TLobby *)sp8)->collect_active_card_ids();
     ((TLobby *)TLobby__protocol_instance)->send_c6_packet((s32 *) sp8);
-}
-
 }

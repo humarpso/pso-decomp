@@ -55,11 +55,6 @@ void TSceneSora__sub_80207430(void);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_802072E0___vt__10TSceneSora __vt__10TSceneSora;
 u8 *__dt__10TSceneSoraFv(u8 *arg0, s16 arg1);
-}
-extern RecoveredGlobal_802075F8_lbl_80515BA0 lbl_80515BA0;
-extern s32 pending_adventure_map_floor;
-void prepare_adventure_maps(void);
-extern "C" {
 s32 get_bml_motion(int, int);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
@@ -225,6 +220,9 @@ void TSceneSora::load_sky_resources() {
 
 void TLobby__sub_802075F4(void) {  }
 }
+extern RecoveredGlobal_802075F8_lbl_80515BA0 lbl_80515BA0;
+extern s32 pending_adventure_map_floor;
+void prepare_adventure_maps(void);
 typedef char RecoveredGlobal_802075F8_lbl_80515BA0_size[sizeof(RecoveredGlobal_802075F8_lbl_80515BA0) == 0x28 ? 1 : -1];
 void prepare_adventure_maps(void) {
     randomize_adventure_maps();

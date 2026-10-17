@@ -5,8 +5,6 @@
 extern const f32 lbl_805DACD8;
 extern const f32 lbl_805DACDC;
 
-extern "C" {
-
 void TUnk_804A0DB0::update_weapon() {
     f32 temp_f2;
     temp_f2 = this->m_1fc;
@@ -16,6 +14,4 @@ void TUnk_804A0DB0::update_weapon() {
             this->m_1fc = (f32) lbl_805DACDC;
         }
     }
-}
-
 }

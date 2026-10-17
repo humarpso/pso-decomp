@@ -59,7 +59,7 @@ extern s32 shop_world_player_level;
 extern s32 shop_difficulty_tier;
 extern s32 lbl_805D6244;
 void init_shop_world_context(void);
-extern "C" {
+
 s16 TShopGetItemWindow::get_cursor_index() { return *(s16*)((char*)this + 0x74); }
 
 void TShopGetItemWindow::calc_item_count(s32 *arg1) {
@@ -82,7 +82,6 @@ void TShopGetItemWindow::calc_item_count(s32 *arg1) {
         var_r31 = 0xC7;
     }
     *arg1 = var_r31;
-}
 }
 #pragma push
 #pragma opt_dead_code off

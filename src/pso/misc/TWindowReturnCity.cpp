@@ -76,7 +76,6 @@ void return_to_city_after_defeat(void) {
         (*(s32 *)&TWindowReturnCity__client_scan_index) = 4;
     }
 }
-extern "C" {
 
 s32 TWindowReturnCity::query_battle_state() {
     struct VObj_8026D208 *o = (struct VObj_8026D208 *)get_player_by_client_id(this->m_24);
@@ -187,5 +186,4 @@ void TWindowCtrl__sub_8026D4E8(void) {
     if ((void *) TWindowCtrl__active_window != NULL) {
         *(u16 *)((s8 *)TWindowCtrl__active_window + 0x1C) = (u16) (*(u16 *)((s8 *)TWindowCtrl__active_window + 0x1C) | 0x20);
     }
-}
 }

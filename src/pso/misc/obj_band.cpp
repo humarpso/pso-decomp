@@ -319,7 +319,6 @@ void draw_motion_model_saving_joints(TObjPlayer *player) {
     TObjEneRe7Berura::set_global_state((s32)NULL);
     TObjPlayer::reset_transform_state();
 }
-extern "C" {
 
 void TObjPlayer::draw_model_with_callback() {
     s32 temp_r3;
@@ -534,5 +533,4 @@ void advance_animation_playback(Anim_80143504 *a) {
         a->frame -= a->speed;
         break;
     }
-}
 }

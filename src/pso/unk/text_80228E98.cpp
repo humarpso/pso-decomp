@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/unk/text_80228E98.h"
-extern "C" {
+
 char *fn_80228E98(s32 v, char *out) {
     u8 digits[16];
     u32 n;
@@ -33,6 +33,4 @@ char *fn_80228E98(s32 v, char *out) {
     }
     *out = 0;
     return out;
-}
-
 }

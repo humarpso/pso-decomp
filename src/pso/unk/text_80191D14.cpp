@@ -18,12 +18,11 @@ struct RecoveredGlobal_80191D34_lbl_8050DCB8 {
 
 extern RecoveredGlobal_80191D14_lbl_8050DCB8 handle_6x78_entry_table;
 typedef char RecoveredGlobal_80191D14_lbl_8050DCB8_size[sizeof(RecoveredGlobal_80191D14_lbl_8050DCB8) == 0x30 ? 1 : -1];
-extern "C" {
+
 void fn_80191D14(u16 arg0, s32 arg1) {
     if (arg0 < 0xCU) {
         *(s32 *)((s8 *)&handle_6x78_entry_table.value + ((arg0 * 4) & 0x3FFFC)) = arg1;
     }
-}
 }
 typedef char RecoveredGlobal_80191D5C_lbl_8050DCB8_size[sizeof(RecoveredGlobal_80191D5C_lbl_8050DCB8) == 0x30 ? 1 : -1];
 
@@ -34,11 +33,9 @@ s32 get_handle_6x78_entry(u16 arg0) {
     }
     return *(s32 *)((s8 *)(&(*(RecoveredGlobal_80191D34_lbl_8050DCB8 *)&handle_6x78_entry_table).value) + ((arg0 * 4) & 0x3FFFC));
 }
-extern "C" {
 
 void fn_80191D5C(u16 arg0) {
     if (arg0 < 0xCU) {
         *(s32 *)((s8 *)(&(*(RecoveredGlobal_80191D5C_lbl_8050DCB8 *)&handle_6x78_entry_table).value) + ((arg0 * 4) & 0x3FFFC)) = 0x12C;
     }
-}
 }

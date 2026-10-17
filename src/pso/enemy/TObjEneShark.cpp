@@ -20,10 +20,9 @@ extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 #include "pso/enemy/TObjEneLappy.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/player/TUnk_804806E8.h"
+
 #include "pso/enemy/TUnk_80494938.h"
-#include "pso/enemy/TUnk_80493450.h"
+
 extern "C" void test_flag_256__13TUnk_80493450Fv();
 
 #include <stddef.h>
@@ -539,10 +538,6 @@ void TObjEneShark::render() {
       ((TObjEnemy *)arg0)->render_with_position_override((u8 *)&v, 0);
     }
   }
-}
-
-extern "C" {
-
 }
 
 #include "pso/misc/TLobby.h"

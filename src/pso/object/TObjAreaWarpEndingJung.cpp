@@ -382,12 +382,6 @@ void send_6x21_inter_level_warp(void *obj, s32 value);
 void send_6x55_intra_map_warp(u16 id, void *pos, s32 c);
 s32 init__23TAdSinglePlyChrSelectGCFv();
 s32 get_floor_map_terrain(s32);
-}
-void * create_TObjWarpString(void *arg0, void *arg1);
-void bswap_6x94_inter_level_warp(void *);
-void mask_action_buttons(void *p, u32 v);
-s32 should_record_episode1_quest_completion();
-extern "C" {
 s32 play_sound_effect(s32, s32, s32, s32);
 void set_area__6TLobbyFl(void *, int, int);
 void __dl__7TObjectFPv(void *);
@@ -558,7 +552,10 @@ void *TObjAreaWarpEndingJung__ct(void *area_warp_ending_jung) {
     return area_warp_ending_jung;
 }
 }
-
+void * create_TObjWarpString(void *arg0, void *arg1);
+void bswap_6x94_inter_level_warp(void *);
+void mask_action_buttons(void *p, u32 v);
+s32 should_record_episode1_quest_completion();
 void * create_TObjWarpString(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x50);
@@ -567,7 +564,6 @@ void * create_TObjWarpString(void *arg0, void *arg1) {
     }
     return o;
 }
-extern "C" {
 
 s64 fn_8019B480(void *arg0, void *camera_ctrl) {
     s64 *p = warp_string_screen_position_table;
@@ -1421,5 +1417,4 @@ void TObjMapWarp::process_player_warps() {
             this->vfunc_14();
         }
     }
-}
 }

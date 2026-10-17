@@ -133,8 +133,6 @@ void TObjBoss2DustCtrl::run_task() {
 
 TObjBoss2DustCtrl::~TObjBoss2DustCtrl() {}
 
-extern "C" {
-
 void *TObjBoss2DustCtrl__ct(void *boss2_dust_ctrl) {
     __ct__7TObjectFP7TObject(boss2_dust_ctrl);
     *(s32 **)((s8 *)boss2_dust_ctrl + 0x18) = __vt__17TObjBoss2DustCtrl;
@@ -182,6 +180,4 @@ void fn_8003AD54(void) {
         boss2_dust_random_angles[j] = TObjPlayer::calc_random_scaled();
     }
     TObjBoss2DustCtrl_dust_counter = 0;
-}
-
 }

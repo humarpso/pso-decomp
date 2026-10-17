@@ -7,9 +7,6 @@ u16 obj_getField1c(s32);
 s32 get_type__10TObjPlayerFPv(void *p);
 f32 atan2_float(f32 y, f32 x);
 void *__ct__7TEffectFv(void *);
-}
-void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
-extern "C" {
 s32 init_collision_body_parts(u32, void *, int);
 u32 construct_collider_proxy__13TUnk_804AF8A0Fv(u32, void *);
 u32 __nw__7TObjectFUl(int);
@@ -43,7 +40,7 @@ void *TObjPlayer::destroy_technique_effect_resources(s16 arg1) {
     return this;
 }
 }
-
+void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
 TUnk_804CCC68::TUnk_804CCC68(s32 arg1, u8 *arg2, u8 *arg3, s32 arg4) : TEffect() {
     f32 dx;
     f32 dz;
@@ -118,7 +115,6 @@ TUnk_804CCC68::TUnk_804CCC68(s32 arg1, u8 *arg2, u8 *arg3, s32 arg4) : TEffect()
         init_collision_body_parts(*(u32 *)((s8 *)this + 0x128), ((u8 *)this) + 0xFC, 1);
     }
 }
-extern "C" {
 
 u8 *construct_facing_technique__10TObjPlayerFPviPvii(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4) {
     u32 var_r0;
@@ -189,5 +185,3 @@ u8 *construct_facing_technique__10TObjPlayerFPviPvii(u8 *arg0, s32 arg1, u8 *arg
 }
 
 void TUnk_804CCC68::vfunc_8(void *) {  }
-
-}

@@ -12,7 +12,6 @@ struct Stack_802B0DCC {
     s32 sp14;
 };
 
-extern "C" {
 extern s32 empty_warp_overlay_zero_vec[];
 extern s32 empty_warp_overlay_vertices[];
 extern const f32 lbl_805DE228;
@@ -29,6 +28,4 @@ void draw_empty_warp_overlay(void) {
     set_depth_buffer_settings_1();
     ((TWindowCtrlMain *)(&stack.sp8))->draw_strip_swap_color(4, 2, lbl_805DE228);
     restore_saved_depth_alpha_state();
-}
-
 }

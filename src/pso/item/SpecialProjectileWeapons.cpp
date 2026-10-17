@@ -12,17 +12,12 @@
 #include "pso/item/TItem.h"
 struct TItemEquipBase;
 #include "pso/item/TItemShootParticle.h"
-#include "pso/item/TUnk_804A204C.h"
-#include "pso/item/TUnk_804A2164.h"
-#include "pso/item/TUnk_804A2148.h"
-#include "pso/item/TUnk_804A2018.h"
 
-#include "pso/items/TItemWeapon.h"
 #include "pso/TItemAttacker.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/item/TItemMag.h"
 #include "pso/object/TObjCamera.h"
-#include "pso/player/TObjPlayer.h"
+
 struct RecoilWeaponView : TItemWeapon {
     s32 projectileVisible;
     s32 projectileSpin;
@@ -489,7 +484,7 @@ s32 drill_launcher_create_shot(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
 }
 typedef char BurstReadyOffset[offsetof(RecoilWeaponView, projectileVisible)==0x1F8 ? 1 : -1];
 typedef char BurstModeOffset[offsetof(RecoilWeaponView, recoilPhase)==0x204 ? 1 : -1];
-extern "C" {
+
 void TUnk_804A2164::emit_marker_effects() {
     WeaponVector sp8;
     s32 temp_r31;
@@ -514,7 +509,6 @@ void TUnk_804A2164::emit_marker_effects() {
     }
     ((RecoilWeaponView *)this)->deliver_projectile(&sp8, 0, 0, 1);
 }
-}
 void drill_launcher_node_callback(void *arg0) {
     s32 player_list;
     player_list = TObjPlayer::get_player_list();
@@ -530,7 +524,7 @@ void drill_launcher_node_callback(void *arg0) {
         }
     }
 }
-extern "C" {
+
 void TUnk_804A2164::update_weapon() {
     void *temp_r4;
     void *temp_r4_2;
@@ -572,7 +566,6 @@ void *__dt__13TUnk_804A2164Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-}
 void* drill_launcher_ct(void* a0, s32 _w1, void * _w2) { TItemWeapon__ct(a0); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)recoiling_projectile_weapon_vtable); *(int*)((char*)a0 + 0x1f0) = (int)drill_launcher_create_shot; *(float*)((char*)a0 + 0x1e4) = 9.0f; ((TObjPlayer *)a0)->set_status_flags((int)((void*)34)); *(int*)((char*)a0 + 0x1f8) = 1; ((TUnk_804A2164 *)a0)->m_1fc = 0; *(int*)((char*)a0 + 0x200) = 0; return a0; }
 u8 *create_drill_launcher(u8 *arg0) {
     u8 *temp_r3;
@@ -587,7 +580,7 @@ u8 *create_drill_launcher(u8 *arg0) {
     }
     return NULL;
 }
-extern "C" {
+
 void *TUnk_804A2148::dt_item_shoot_model(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = recoil_weapon_shoot_model_vtable;
@@ -598,15 +591,13 @@ void *TUnk_804A2148::dt_item_shoot_model(s16 arg1) {
     }
     return this;
 }
-}
 void drill_launcher_return_timer(void *arg0) {
     if (arg0 != NULL) {
         *(s32 *)((s8 *)arg0 + 0x1F8) = 1;
     }
 }
-extern "C" {
+
 void increment_burst_counter(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x18) = (s32) (*(s32 *)((s8 *)arg0 + 0x18) + 1);
 }
 s32 get_burst_counter(void* p) { return *(s32*)((char*)p + 0x18); }
-}

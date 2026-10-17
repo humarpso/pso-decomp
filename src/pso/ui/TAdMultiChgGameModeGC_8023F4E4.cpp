@@ -5,7 +5,6 @@
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/ui/TAdEnterSerialAccessGC.h"
 
-extern "C" {
 extern s32 multi_chg_game_mode_state;
     extern int lbl_805D384C;
 
@@ -26,5 +25,3 @@ void TAdMultiChgGameModeGC::render_scene() { init_game_mode_select_scene(); TAdM
 void TAdMultiChgGameModeGC::render_game_mode_change() { init_game_mode_select_scene(); TAdMultiChgGameModeGC::set_game_mode_changed(); render_tick(); }
 void TAdMultiChgGameModeGC__sub_8023F62C(void) { init_game_mode_select_scene(); TAdMultiChgGameModeGC::init_change_mode(); render_tick(); }
 void TAdMultiChgGameModeGC::sync_mode_state() { lbl_805D384C = (*(int *)&multi_chg_game_mode_state); }
-
-}

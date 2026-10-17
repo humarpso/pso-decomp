@@ -175,8 +175,6 @@ s32 TWindowChat::submit_keyboard_input() {
     return 1;
 }
 
-extern "C" {
-
 void TWindowChat::update() {
     s32 player;
     if (is_open() == 0) {
@@ -194,8 +192,6 @@ void TWindowChat::update() {
         this->close_all_children();
         ((TKeyBoardControl *)(this->hardKeyboard))->set_flag60_bit200();
     }
-}
-
 }
 
 void TWindowChat::open_input() {
@@ -275,8 +271,6 @@ void TWindowChat::close_all_children() {
         *(u32 *)((s8 *)arg0 + 0x24) = 0U;
     }
 }
-
-extern "C" {
 
 void TWindowChat::handle_input() {
     s32 player;
@@ -378,8 +372,6 @@ void TWindowChat::handle_chat_input() {
       ((TWindowChat*)((u8 *)((void *)((u8 *)((void *) arg0)))))->open_next_input_window();
     }
   }
-}
-
 }
 
 void TWindowChat::open_next_input_window() {
@@ -510,7 +502,6 @@ TWindowChat::TWindowChat(TObject *object, void *arg2) : TObject(object) {
     this->result = arg2;
     this->open_next_input_window();
 }
-extern "C" {
 
 void TWindowChat__sub_80247D2C(void* p) { *(u16*)((char*)p + 0x62) |= 0x4; }
 
@@ -577,5 +568,3 @@ typedef char RecoveredFields_8024792C_arg0_38_offset[offsetof(RecoveredFields_80
 typedef struct RecoveredFields_8024775C_arg0 RecoveredFields_8024775C_arg0;
 typedef struct RecoveredGlobal_8024775C_lbl_8050E208 RecoveredGlobal_8024775C_lbl_8050E208;
 typedef char RecoveredGlobal_8024775C_lbl_8050E208_size[((sizeof(RecoveredGlobal_8024775C_lbl_8050E208)) == 0x1B0) ? (1) : (-1)];
-
-}

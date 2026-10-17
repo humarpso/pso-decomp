@@ -51,9 +51,6 @@ extern const f32 lbl_805DBE2C;
 extern const f32 lbl_805DBE30;
 void *TObjHashiBase__ct(TObjHashiBase *arg0, s32 arg1, s32 arg2);
 void *__dt__13TObjHashiBaseFv(void *arg0, s16 arg1);
-}
-void handle_6x78(void *arg0);
-extern "C" {
 u8 is_current_floor_switch_set(u16, f32);
 void __dl__7TObjectFPv(void *);
 s32 bswap_6x78__11TObjInfoColFv();
@@ -133,6 +130,7 @@ void TObjHashiBase::render() {
 
 extern "C" void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 }
+void handle_6x78(void *arg0);
 typedef char BridgeSize[sizeof(TObjHashiBase)==0xD4?1:-1];
 typedef char BridgePhase[offsetof(TObjHashiBase,phase)==0xAC?1:-1];
 typedef char BridgeRaisedY[offsetof(TObjHashiBase,raisedHeight)==0xCC?1:-1];
@@ -166,7 +164,6 @@ void TObjHashiBase::run_task() {
     }
 }
 
-extern "C" {
 void *__dt__13TObjHashiBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         ((TObjHashiBase *)arg0)->m_18 = __vt__13TObjHashiBase;
@@ -203,7 +200,6 @@ void *TObjHashiBase__ct(TObjHashiBase *hashi_base, s32 arg1, s32 arg2) {
         *(f32 *)((s8 *)hashi_base + 0xD0) = (f32) lbl_805DBE34;
     }
     return hashi_base;
-}
 }
 
 void handle_6x78(void *arg0) {

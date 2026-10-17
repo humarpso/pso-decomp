@@ -8,7 +8,6 @@ extern char text_builder_buffer[];
 extern s32 lbl_8044CB60[];
 extern s32 lbl_805DC790;
 extern s32 lbl_805DC794;
-extern "C" {
 
 void TWindowSubStatusDisp::append_play_time(u32 arg0) {
     u32 h = arg0 / 3600U;
@@ -31,7 +30,6 @@ void TWindowSubStatusDisp::append_comma() {
         *text_builder_write_cursor++ = 0x2c;
         *text_builder_write_cursor = 0;
     }
-}
 }
 void append_text_space(void) {
     if (text_builder_write_cursor != text_builder_buffer) {

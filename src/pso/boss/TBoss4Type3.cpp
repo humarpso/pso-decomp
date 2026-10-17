@@ -13,9 +13,7 @@ extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
-#include "pso/player/TUnk_804806E8.h"
 
-extern "C" {
 extern const char TObjBs4CutAtk_type_name[] = "TObjBs4CutAtk";
 extern const char TBoss4Type3_type_name[] = "TBoss4Type3";
 extern const char boss4_type3_state_name_appear[] = "APPEAR";
@@ -39,7 +37,6 @@ extern const s32 boss4_type3_model_node_specs[2][3] = {{12,74,1},{14,74,1}};
 extern const s32 boss4_type3_effect_ids[8] = {326,326,326,326,328,327,327,323};
 const char *TObjBs4CutAtk_name = TObjBs4CutAtk_type_name;
 const char *TBoss4Type3_name = TBoss4Type3_type_name;
-}
 typedef TBoss4Type3Handler Type3Handler;
 struct Type3MotionView { s32 kind, flags, motions[3]; };
 
@@ -448,9 +445,6 @@ s32 get_bml_model(s32, s32);
 void fn_80044330(void *p);
 void fn_8004AA04(void *);
 void TObjPlayer__sub_80052390(f32 x);
-}
-u32 drain_player_hp(s32 id, u32 arg1);
-extern "C" {
 f32 TBoss4Type3__sub_800524E8(f32);
 void TBoss4Type3__sub_800599F4(void*, int, int);
 void TBoss4Type3__sub_80059EA8(Obj_80059EA8 *self, s32 arg1, s32 arg2);
@@ -877,7 +871,7 @@ void TUnk_80486924::apply_shock_status() {  }
 
 void TUnk_80486924::clear_harmful_statuses() {  }
 }
-
+u32 drain_player_hp(s32 id, u32 arg1);
 void TBoss4Type3::update_libera() {
     S_80058224 *o = (S_80058224 *)this;
     u16 id = o->f3ba;
@@ -895,9 +889,7 @@ void TBoss4Type3::update_libera() {
         ((TBoss4Type3 *)o)->set_action_from_table(1);
     }
 }
-extern "C" {
 
-}
 void TBoss4Type3::advance_libera() {
     S_800582B4 *o = (S_800582B4 *)this;
     if (TBoss4Type3__sub_8005254C(o->f3ba) == 0) {
@@ -952,11 +944,9 @@ void TBoss4Type3::advance_bura() {
 }
 void TBoss4Type3::enter_bura() {
     void* p = (void*)this; this->m_52c = 0; this->m_398 = 147; }
-extern "C" {
 
 struct Obj_80059ABC;
 struct TBoss4Type3;
-}
 void TBoss4Type3::update_capture() {
     u8 *arg0 = (u8 *)this;
     Vec_800584E4 v;
@@ -1062,12 +1052,10 @@ void TBoss4Type3::enter_capture() {
     this->m_52c = 0;
     this->m_398 = 0x62;
 }
-extern "C" {
 
 #pragma push
 #pragma fp_contract on
 #pragma opt_propagation off
-}
 void TBoss4Type3::update_dark_magic() {
     s32 p;
     s32 r30;
@@ -1102,10 +1090,9 @@ void TBoss4Type3::update_dark_magic() {
         ((TBoss4Type3 *)o)->set_action_from_table(1);
     }
 }
-extern "C" {
+
 #pragma pop
 
-}
 void TBoss4Type3::advance_dark_magic() {
     void* p = (void*)this; if (this->m_398 == 0) { ((int (*)(void*, void*))TBoss4Type3__sub_80059F64)(p, (void*)12); } }
 void TBoss4Type3::enter_dark_magic() {
@@ -1116,9 +1103,7 @@ void TBoss4Type3::enter_dark_magic() {
     this->m_52c = 1;
     this->m_398 = 0x62;
 }
-extern "C" {
 
-}
 void TBoss4Type3::update_light_magic() {
     void *p;
     Grant_80058A48 g;
@@ -1164,9 +1149,7 @@ void TBoss4Type3::enter_light_magic() {
     this->m_52c = 1;
     this->m_398 = 0x93;
 }
-extern "C" {
 
-}
 void TBoss4Type3::update_homing() {
     O_80058BA0 *o = (O_80058BA0 *)this;
     u8 *a;
@@ -1246,9 +1229,7 @@ void TBoss4Type3::enter_homing() {
     this->m_52c = 1;
     this->m_398 = 0xC4;
 }
-extern "C" {
 
-}
 void TBoss4Type3::update_go_down() {
     s32 temp_r0;
     this->m_39c = (f32) (TBoss4Type3__data_805D8C34 - ((f32) this->m_398 / lbl_805D8C50));
@@ -1260,9 +1241,7 @@ void TBoss4Type3::update_go_down() {
         set_action_from_table(1);
     }
 }
-extern "C" {
 
-}
 void TBoss4Type3::advance_go_down() {
     Obj_80058E64 *self = (Obj_80058E64 *)this;
     s32 t;
@@ -1291,9 +1270,7 @@ void TBoss4Type3::enter_go_down() {
     this->m_52c = 0;
     this->m_398 = 0x31;
 }
-extern "C" {
 
-}
 void TBoss4Type3::update_go_up() {
     s32 temp_r0;
     this->m_39c = (f32) (TBoss4Type3__data_805D8C34 - ((f32) this->m_398 / lbl_805D8C50));
@@ -1305,9 +1282,7 @@ void TBoss4Type3::update_go_up() {
         set_action_from_table(1);
     }
 }
-extern "C" {
 
-}
 void TBoss4Type3::advance_go_up() {
     Obj_80059010 *self = (Obj_80059010 *)this;
     s32 id;
@@ -1395,9 +1370,7 @@ void TBoss4Type3::enter_cut() {
     this->m_52c = 0;
     this->m_398 = 0x31;
 }
-extern "C" {
 
-}
 void TBoss4Type3::update_dead() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
@@ -1412,9 +1385,7 @@ void TBoss4Type3::enter_dead() {
     *(f32 *)&this->_pad3F8 = (f32) lbl_805D8C60;
     this->m_398 = 0x31;
 }
-extern "C" {
 
-}
 void TBoss4Type3::advance_wait_next() {
     Obj_80059390 *self = (Obj_80059390 *)this;
     if (self->flags & 0x800) {
@@ -1438,7 +1409,6 @@ void TBoss4Type3::advance_appear() {
     void* p = (void*)this; if (this->m_398 == 0) { TBoss4Type3__sub_800599F4(p, 0, 2); } }
 void TBoss4Type3::enter_appear() {
     void* p = (void*)this; this->m_398 = 147; }
-extern "C" {
 
 #pragma push
 #pragma opt_common_subs off
@@ -1857,8 +1827,6 @@ void TBoss4Type3::sub_8005A438() {
 
 void TBoss4Type3::copy_pair(void* q) { *(u32 *)&this->m_name = *(u32*)((char*)q + 0x0); (*(f32 *)&this->m_flags) = *(f32*)((char*)q + 0x4); }
 
-}
-
 #pragma push
 #pragma opt_propagation off
 void TBoss4Type3::draw_model_set(const s32 *tbl, f32 t) {
@@ -1904,8 +1872,6 @@ void TBoss4Type3::draw_model_set(const s32 *tbl, f32 t) {
     }
 }
 #pragma pop
-
-extern "C" {
 
 void TBoss4Type3::set_anim_state(s32 arg1) {
     if (arg1 != -1) {
@@ -1974,7 +1940,6 @@ void TBoss4Type3::advance_afterimage() {
 
 void TBoss4Type3__sub_8005A86C(void* p) { ((TBoss4Type3 *)p)->draw(); }
 
-}
 #undef TBoss4Type3__anim_state_table
 
  extern const f32 lbl_805D8CAC;
@@ -2277,7 +2242,6 @@ void TObjBs4CutAtk::run_task() {
 
 TObjBs4CutAtk::~TObjBs4CutAtk() {}
 
-extern "C" {
 void *__ct__13TObjBs4CutAtkFv(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     ((s32 (*)(void))__ct__7TObjectFP7TObject)();
     *(void **)((s8 *)arg0 + 0x18) = __vt__13TObjBs4CutAtk;
@@ -2302,6 +2266,4 @@ void * create__13TObjBs4CutAtkFPvPvPv(void *arg0, void *arg1, void *arg2) {
         o = __ct__13TObjBs4CutAtkFv((void *)o, (s32)arg0, (s32)arg1, (s32)arg2);
     }
     return o;
-}
-
 }

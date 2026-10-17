@@ -6,8 +6,6 @@
 #include "pso/misc/TCheckMemoryCard.h"
 #include "pso/misc/TWindowSubComCard.h"
 
-extern "C" {
-
 void TQuestVmDownLoadServer::init_from_keyboard_state() {
     s32 var_r31;
     s32 var_r6;
@@ -25,6 +23,4 @@ void TQuestVmDownLoadServer::init_from_keyboard_state() {
         var_r6 = TQuestVmDownLoadServer__sub_8006EF6C(0xE);
     }
     init((void*)var_r31, (void*)(-2), (void*)var_r6, (void*)0);
-}
-
 }

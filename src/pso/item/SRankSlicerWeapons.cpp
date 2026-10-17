@@ -7,12 +7,10 @@
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 struct TItemEquipBase;
-#include "pso/item/TItem.h"
+
 #include "pso/misc/TTecSlicer.h"
 #include "pso/TItemAttacker.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/item/TUnk_804A4338.h"
-#include "pso/item/TUnk_804A4238.h"
+
  extern void *s_rank_j_cutter_weapon_vtable[64]; extern void *s_rank_slicer_weapon_vtable[64];
 struct Owner_801293FC { u8 pad[0x60]; s32 f60; };
 
@@ -242,8 +240,6 @@ u8 *create_s_rank_slicer_weapon(u8 *owner) {
     }
     return NULL;
 }
-
-#include "pso/items/TItemWeapon.h"
 
 extern "C" {
 

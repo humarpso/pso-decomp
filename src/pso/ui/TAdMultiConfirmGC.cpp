@@ -172,7 +172,5 @@ TAdMultiConfirmGC::TAdMultiConfirmGC(TObject *parent) : TObject(parent) {
     ((TAdMultiPlyChrSelectGC *)(((TAdMultiConfirmGC_802FFA3C *)this)->guide))->set_entry_value(1, (u32)&lbl_805DEF30);
     fn_802FF7EC(((TAdMultiConfirmGC_802FFA3C *)this));
 }
-extern "C" {
-#pragma pop
 
-}
+#pragma pop

@@ -73,7 +73,6 @@ TChCrEffCtrlPl::TChCrEffCtrlPl(TObject *object) : TObject(object) {
     ((O_80339808 *)this)->f2c = 0.0f;
     ((O_80339808 *)this)->f34 = 0;
 }
-extern "C" {
 
 void *TChCrEffCtrlPl::create() {
     void *o = __nw__7TObjectFUl(0x38);
@@ -81,6 +80,4 @@ void *TChCrEffCtrlPl::create() {
         o = __ct__14TChCrEffCtrlPlFP7TObject((O_80339808 *)(o), this);
     }
     return o;
-}
-
 }

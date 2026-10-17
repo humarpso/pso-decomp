@@ -3,8 +3,6 @@
 #include "pso/item/TItemEquipVariant_8012C128.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 extern s32 holy_ray_weapon_vtable[];
 
 void *__dt__13TUnk_804A5150Fv(void *arg0, s16 arg1) {
@@ -16,6 +14,4 @@ void *__dt__13TUnk_804A5150Fv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
-}
-
 }

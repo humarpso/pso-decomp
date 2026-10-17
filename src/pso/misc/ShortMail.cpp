@@ -176,7 +176,6 @@ void remove_short_mail_by_id(u32 id) {
         }
     }
 }
-extern "C" {
 
 void remove_entry_at__6TLobbyFi(s32 idx) {
     if (idx < 7) {
@@ -242,5 +241,4 @@ void TLobby__sub_80225CB8(void) {
 
 void clear_lobby_flag__6TLobbyFv(void) {
     lbl_805D63FC &= 0xFFFE;
-}
 }

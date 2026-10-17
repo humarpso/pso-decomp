@@ -13,7 +13,7 @@ inline s32 gcrna_get_transfer_switch(GcrnaStream* stream) {
     return stream->flags & 1;
 }
 
-extern "C" void GCRNA_SetTransSw(GcrnaStream* stream, s32 enabled) {
+void GCRNA_SetTransSw(GcrnaStream* stream, s32 enabled) {
     if (stream == 0) {
         return;
     }
@@ -35,7 +35,6 @@ extern "C" void GCRNA_SetTransSw(GcrnaStream* stream, s32 enabled) {
 }
 #pragma pop
 
-extern "C" {
 u8* gcrna_audio_buffers[32];
 GcrnaStream gcrna_stream_pool[16];
 u8 gcrna_volume_table[1000] = {
@@ -97,4 +96,3 @@ u32 gcrna_pan_table[31] = {
     68, 72, 76, 81, 85, 89, 93, 98,
     102, 106, 110, 115, 119, 123, 127,
 };
-}

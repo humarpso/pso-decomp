@@ -42,10 +42,7 @@ s32 TObjInfoCol::is_target_in_range(f32 radius_squared) {
     return 0;
 }
 
-extern "C" {
-
 typedef char RecoveredGlobal_80191E28_lbl_8050E208_size[sizeof(RecoveredGlobal_80191E28_lbl_8050E208) == 0x1B0 ? 1 : -1];
-}
 
 void TObjInfoCol::run_task() {
     f32 radius = interaction_radius;
@@ -59,8 +56,6 @@ void TObjInfoCol::run_task() {
         open_lobby_warp_menu__6TLobbyFv();
     }
 }
-
-extern "C" {
 
 typedef char RecoveredGlobal_80191EC0___vt__11TObjInfoCol_size[sizeof(RecoveredGlobal_80191EC0___vt__11TObjInfoCol) == 0x38 ? 1 : -1];
 u8 *TObjInfoCol__ct(u8 *info_col, s32 arg1, s32 arg2) {
@@ -81,6 +76,4 @@ void *__dt__11TObjInfoColFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
-}
-
 }

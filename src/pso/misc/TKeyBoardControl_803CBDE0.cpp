@@ -17,7 +17,6 @@ void TKeyBoardControl::flush_input() {
 void wait_for_vi_retrace(void) {
     VIWaitForRetrace();
 }
-extern "C" {
 
 void TLobby__sub_803CBE20(void) {
     TLobby::run_step_60c8();
@@ -29,5 +28,4 @@ void TLobby__sub_803CBE40(u8 *arg0) {
 
 void TLobby__sub_803CBE64(u8 *arg0) {
     TLobby__sub_803CBEC8((int) (*(s32 *)((s8 *)arg0 + 0xC)));
-}
 }

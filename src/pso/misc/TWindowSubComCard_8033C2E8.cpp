@@ -4,8 +4,6 @@
 #include "pso/misc/TCheckMemoryCard.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 
-extern "C" {
-
 void TWindowSubComCard::update_display_state() {
     s32 temp_r4;
 
@@ -53,6 +51,4 @@ void TWindowSubComCard::close_and_update_display() {
     if (this->m_28 & 1) {
         ((TWindowSubComCard *)arg0)->update_card_display((void*)0, (void*)(-1), (void*)(-1), (void*)(-1));
     }
-}
-
 }

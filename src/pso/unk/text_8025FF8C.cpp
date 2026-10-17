@@ -2,7 +2,6 @@
 #include "pso/misc/TKeyBoardControl_8025CB70.h"
 #include "pso/unk/text_8025FF8C.h"
 
-extern "C" {
 extern s32 current_language;
 void fn_8025FF8C(void *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0x70) != 0U) {
@@ -19,6 +18,4 @@ void fn_8025FF8C(void *arg0) {
             break;
         }
     }
-}
-
 }

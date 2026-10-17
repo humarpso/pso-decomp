@@ -2,8 +2,6 @@
 #include "pso/misc/TCameraCtrl_801A3C24.h"
 #include "pso/misc/TCameraCtrl.h"
 
-extern "C" {
-
     extern short TCameraCtrl__camera_mode;
 void TCameraCtrl__sub_801A3C24(void) { TCameraCtrl__camera_mode = 0; }
 
@@ -14,5 +12,3 @@ void TCameraCtrl::set_mode(int a0) { TCameraCtrl__camera_mode = a0; }
 
     extern unsigned char camera_ctrl_view_state_byte;
 unsigned char TLobby__sub_801A3C40(void) {  return camera_ctrl_view_state_byte; }
-
-}

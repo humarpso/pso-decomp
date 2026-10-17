@@ -4,13 +4,9 @@
 #include "pso/TItemList.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 s32 TLobby::free_if_positive(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
         __dl__FPv();
     }
     return arg0;
-}
-
 }

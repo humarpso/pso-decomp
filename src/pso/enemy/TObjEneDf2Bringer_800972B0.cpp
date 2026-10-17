@@ -15,11 +15,9 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss4Type3.h"
-#include "pso/enemy/TObjEneDD.h"
+
 #include "pso/enemy/TUnk_8048FE08.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/enemy/TObjEneDf2Bringer.h"
-#include "pso/enemy/TObjEneDD_ST.h"
+
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/player/TUnk_80490470.h"
 
@@ -1048,7 +1046,6 @@ void bringer_render_node_callback(void) {
     }
     TObjEneDf2Bringer__render_node_index += 1;
 }
-extern "C" {
 
 void TObjEneDf2Bringer__sub_80097620(u8 *arg0, s32 arg1) {
     switch (arg1) {
@@ -1757,7 +1754,6 @@ void TObjEneDf2Bringer__vt85(s32 arg0, u32 arg1, s32 mode) {
     default:
         return;
     }
-}
 }
 #undef TObjEneDf2Bringer__data_805D9820
 #undef play_effect_if_v2__10TObjPlayerFl

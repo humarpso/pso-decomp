@@ -11,13 +11,13 @@ extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/render/depth_buffer.h"
 #include "pso/system/vector.h"
-#include "pso/player/TUnk_804806E8.h"
+
 #include "pso/object/TObjDoorJung.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TOTrapAncient02.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
+
 extern "C" {
 __declspec(section ".sdata2") extern const f32 lbl_805DE640[1] = { 1.0f };
 __declspec(section ".sdata2") extern const f32 TOTrapSeabed01__data_805DE644[1] = { 0.0f };
@@ -478,7 +478,6 @@ void render__14TOTrapSeabed01Fv(S_802CA550 *arg0) {
 #define lbl_805DE658 (lbl_805DE658[0])
 #pragma push
 
-#include "pso/misc/TOTrap.h"
 #include "pso/object/TObjSeabedSuisoBrakable.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 

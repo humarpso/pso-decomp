@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowCtrl.h"
 
-extern "C" {
-
 extern s8 *TWindowCtrl__active_window;
 
 s32 TWindowCtrl::get_window(s32 arg0) {
@@ -16,6 +14,4 @@ s32 TWindowCtrl::get_window(s32 arg0) {
         return 0;
     }
     return ((s32 *)(TWindowCtrl__active_window + 0x48))[arg0];
-}
-
 }

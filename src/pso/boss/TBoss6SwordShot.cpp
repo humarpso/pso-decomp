@@ -145,7 +145,6 @@ void damage_players_in_radius(u8 *arg0) {
         }
     }
 }
-extern "C" {
 
 void run_task__15TBoss6SwordShotFv(u8 *arg0) {
     if (query_teammate_state__9TObjEneDDFv() == 0) {
@@ -165,7 +164,6 @@ void *__dt__15TBoss6SwordShotFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
-}
 }
 
 struct Shot_80356374 {
@@ -240,8 +238,6 @@ u8 *fn_8035648C(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
 #include "pso/TBoss6SwordWave.h"
 #include "pso/boss/TBoss6Rock.h"
 #include "pso/boss/TBoss6Type2.h"
-
-extern "C" {
 
 #pragma push
 #pragma fp_contract on
@@ -493,6 +489,4 @@ void set_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1) {
   temp_r5 = spC * 4;
   new_var = ((s8 *) arg0) + temp_r5;
   *((s32 *) (((s8 *) arg0) + temp_r5)) = (*((s32 *) new_var)) | (1 << sp8);
-}
-
 }

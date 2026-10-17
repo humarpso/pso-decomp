@@ -50,7 +50,6 @@ void TChallenge4PItemSelect::close_with_callback() {
     }
     queue_destruction__7TObjectFv(this);
 }
-extern "C" {
 
 extern s32 challenge4p_item_select_text_ids[];
 extern const f32 lbl_805DFD98;
@@ -59,7 +58,6 @@ extern const f32 lbl_805DFDA0;
 extern const f32 lbl_805DFDA4;
 
 typedef char RecoveredGlobal_8034B158_lbl_804F00C8_size[sizeof(RecoveredGlobal_8034B158_lbl_804F00C8) == 0x60 ? 1 : -1];
-}
 void TChallenge4PItemSelect::submit_selected_item() {
     typedef char sp8_offset[(offsetof(Stack_8034B158, sp8) == 0x0) ? 1 : -1];
     typedef char sp9_offset[(offsetof(Stack_8034B158, sp9) == 0x1) ? 1 : -1];
@@ -123,12 +121,10 @@ void TChallenge4PItemSelect::run_task() {
         return;
     }
 }
-extern "C" {
 
 TChallenge4PItemSelect::~TChallenge4PItemSelect() {
     if (menu_window != nullptr) { TWindow__close((u8 *)menu_window); menu_window = nullptr; }
 }
- }
 TChallenge4PItemSelect::TChallenge4PItemSelect(TObject *parent, TChallenge4PResult *resultOwner) : TObject(parent) {
     m_name = (const char *)lbl_805D433C;
     result = resultOwner;

@@ -214,7 +214,6 @@ void step_fade_opacity_increase(u8 *arg0) {
     }
 }
 #pragma pop
-extern "C" {
 
 void TLobby::init_fadeout_state(s32 arg0) {
     if ((void *) screen_fade_controller != NULL) {
@@ -477,5 +476,4 @@ void TUnk_804999E8::render() {
         ((TObjCMHairMenu *)(&q))->draw_tri_fan_2d(4, 0x16, (-1e+01f));
     }
     TCameraCtrl__sub_80068EF0();
-}
 }

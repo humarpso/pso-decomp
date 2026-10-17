@@ -5,8 +5,6 @@
 #include "pso/misc/TUnk_804CF0B8.h"
 #include "pso/misc/TWindowSimpleStatus.h"
 
-extern "C" {
-
 void TWindowCtrl__sub_8024C6CC(void* p) { *(u16*)((char*)p + 0x1c) |= 0x40; }
 void TWindowCtrl__sub_8024C6DC(void* p) { *(u16*)((char*)p + 0x1c) &= 0xffffffbf; }
 void TWindowCtrl__sub_8024C6EC(void* p) { *(u16*)((char*)p + 0x1c) |= 0x2; }
@@ -37,5 +35,3 @@ int TWindowCtrl__sub_8024C7F8(void* p) { return (*(u16*)((char*)p + 0x1c) >> 4) 
 int TWindowCtrl::is_visible() { return this->m_1c & 0x1; }
 s16 TUnk_804CF0B8::get_field_20() { return *(s16 *)&(this->m_20); }
 s16 TWindowSimpleStatus::get_width() { return *(s16 *)&this->m_20; }
-
-}

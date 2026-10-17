@@ -30,15 +30,12 @@ void init_timer__13TObjCHTimeWinFv(void) { TWindowCtrl::create_alt_timer(); ((TW
 
 TObjCHTimeWin::~TObjCHTimeWin() {}
 
-extern "C" {
-
 void *__ct__13TObjCHTimeWinFv(void *obj_ch_time_win) {
     __ct__7TObjectFP7TObject(obj_ch_time_win);
     *(s32 **)((s8 *)obj_ch_time_win + 0x18) = __vt__13TObjCHTimeWin;
     *(void * *)&((TObjCHTimeWin *)obj_ch_time_win)->m_name = TObjCHTimeWin__class_name;
     *(u32 *)((s8 *)obj_ch_time_win + 0x1C) = 0;
     return obj_ch_time_win;
-}
 }
 
 void *create_ch_time_win(void *arg0) {

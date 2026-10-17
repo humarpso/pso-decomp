@@ -2,8 +2,6 @@
 #include "pso/misc/TLobby.h"
 #include "pso/TProtocol.h"
 
-extern "C" {
-
 extern void *TLobby__protocol_instance;
 
 void TLobby::disconnect_protocol() {
@@ -12,6 +10,4 @@ void TLobby::disconnect_protocol() {
     if (protocol != NULL) {
         ((TProtocol *)protocol)->send_logout();
     }
-}
-
 }

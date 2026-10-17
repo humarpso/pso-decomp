@@ -53,7 +53,6 @@ void TBoss8Dragon::bswap_packet() { read_be16_field2__10TObjPlayerFv(this); bswa
 }
 
 void build_6xA8_gol_dragon_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 168; *(u8*)((char*)p + 0x1) = 6; }
-extern "C" {
 
 void TBoss8Dragon__sub_802FDF10(void) {
     f32 temp_f1;
@@ -62,7 +61,6 @@ void TBoss8Dragon__sub_802FDF10(void) {
     lbl_805D6980 = temp_f1;
     lbl_805D6984 = lbl_805DEE40 * lbl_805D9E80;
     lbl_805D69C0 = temp_f1;
-}
 }
 
 __declspec(section ".ctors") static void *const __sinit_TBoss8Dragon_802FDDD4_cpp_ref = (void *)TBoss8Dragon__sub_802FDF10;

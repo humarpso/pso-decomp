@@ -528,8 +528,6 @@ TQuestThreadBoard::~TQuestThreadBoard() {
     quest_thread_board = 0;
 }
 
-extern "C" {
-
 u8 *TQuestThreadBoard__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((s32 (*)(void *, int))__ct__7TObjectFP7TObject)(arg0, 0);
     *(void ***)((s8 *)arg0 + 0x18) = __vt__17TQuestThreadBoard;
@@ -539,7 +537,6 @@ u8 *TQuestThreadBoard__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x190) = 0;
     (*(u8 * *)&quest_thread_board) = arg0;
     return arg0;
-}
 }
 
 #pragma push
@@ -795,7 +792,6 @@ void set_floor_handler(s32 i, s32 v) {
     }
     ((s32 *)&TQuestThread__floor_handler_ids)[i] = v;
 }
-extern "C" {
 
 void TQuestThread__sub_801F5D88(void* p) { clear_all_floor_handlers(p); }
 
@@ -807,7 +803,6 @@ void clear_all_floor_handlers(void* _w0) {
 }
 
 void clear_buffer__12TQuestThreadFPv(void* p) { if (*(unsigned int*)((char*)p + 0x2c) != 0) { memset(*(void**)((char*)p + 0x2c), (void*)0, (void*)1024); } }
-}
 
 void handle_6x77_sync_quest_register(u8 *arg0) {
     s32 var_r4;
@@ -826,7 +821,6 @@ void handle_6x77_sync_quest_register(u8 *arg0) {
         }
     }
 }
-extern "C" {
 
 char *get_quest_name__12TQuestThreadFv(void) {
     if ((*(Obj_801F5E58 * *)&quest_mission_manager) != 0) {
@@ -872,7 +866,6 @@ void destroy_quest_obj__12TQuestThreadFv(void) {
         quest_area_manager = 0U;
     }
 }
-}
 
 void load_area_dialogue_script(void) {
     s32 bank;
@@ -903,7 +896,6 @@ void load_area_dialogue_script(void) {
         }
     }
 }
-extern "C" {
 
 s32 create_by_mode__12TQuestThreadFv(void) {
     s32 temp_r31;
@@ -970,7 +962,6 @@ u8 *init_from_script__12TQuestThreadFPviii(u8 *object, s32 arg1, s32 arg2, s32 a
     }
     ((s32 (*)(void))clear_thread_state__12TQuestThreadFv)();
     return object;
-}
 }
 #pragma pop
 

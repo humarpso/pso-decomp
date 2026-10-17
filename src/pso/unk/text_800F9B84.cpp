@@ -46,7 +46,7 @@ typedef char RecoveredGlobal_800F9B84_lbl_8050113C_size[sizeof(RecoveredGlobal_8
 void clear_resource_load_tasks(void) {
     ((TObject *)(&resource_load_task_root.value))->delete_children();
 }
-extern "C" {
+
 u32 apply_pointer_relocations(Obj_800F9BAC *self, RelHdr_800F9BAC *hdr) {
     u32 i;
     u32 n = hdr->count;
@@ -58,5 +58,4 @@ u32 apply_pointer_relocations(Obj_800F9BAC *self, RelHdr_800F9BAC *hdr) {
     }
     self->root = hdr->root + self->base;
     return self->root;
-}
 }

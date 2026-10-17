@@ -2,7 +2,6 @@
 #include "pso/unk/text_803D60C8.h"
 #include "pso/audio/GcrnaError.h"
 
-extern "C" {
 extern const char lbl_8047E220[];
 extern s32 gcrna_audio_buffer_count;
 extern u32 lbl_805D7688;
@@ -27,5 +26,4 @@ void gcrna_set_audio_buffer_storage(u32 arg0, u32 arg1, s32 arg2) {
     lbl_805D7688 = arg1;
     gcrna_audio_allocation = arg0;
     gcrna_uses_caller_buffer = 1;
-}
 }

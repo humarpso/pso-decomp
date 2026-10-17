@@ -6,7 +6,6 @@
 #include "pso/player/TObjPlayer.h"
 struct Quad_80336874 { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 
-extern "C" {
 extern const f32 lbl_805DF910;
 extern const f32 lbl_805DF914;
 extern const f32 lbl_805DF918;
@@ -50,5 +49,3 @@ void draw_title_background_pulse(s32 arg0, s32 arg1, f32 farg0) {
     }
 }
 #pragma pop
-
-}

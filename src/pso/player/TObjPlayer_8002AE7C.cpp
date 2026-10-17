@@ -12,8 +12,6 @@
 
 extern s32 TLobby__data_805D6144;
 
-extern "C" {
-
 void TObjMotion::set_field_dc(s32 v) { *(s32 *)&this->motion_list = v; }
 void TObjMotion::set_field_d8(s32 v) { (*(s32 *)&this->action_table) = v; }
 void TObjPlayer::reset_lobby_model() { reset_type(); }
@@ -37,6 +35,4 @@ s32 TObjEnemy::exchange_object_state(s32 arg1, s16 arg2) {
         ((TLobby *)arg1)->copy_header((void *) (TLobby__data_805D6144 + (temp_r31 * 0xC)));
     }
     return 1;
-}
-
 }

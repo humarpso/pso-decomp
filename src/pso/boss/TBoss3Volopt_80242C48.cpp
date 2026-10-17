@@ -3,7 +3,6 @@
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 int TBoss3Volopt::is_active() { return *(u8 *)&this->m_name & 0x1; }
 #pragma push
 #pragma fp_contract on
@@ -36,5 +35,3 @@ block_5:
     }
 }
 #pragma pop
-
-}

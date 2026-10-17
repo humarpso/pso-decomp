@@ -72,7 +72,6 @@ void enemy_turn_and_move_on_ground(u8 *arg0, s32 arg1, f32 farg0) {
     ((TObjEneEpsilon *)arg0)->fire_attack_b((s32) &sp8, arg1, farg0);
     ((TBoss5Gryphon *)arg0)->try_move_actor_xz_on_ground((u8 *)&sp8);
 }
-extern "C" {
 
 void TObjEneEpsilon__sub_800B9384(u8 *arg0, s32 arg1, f32 farg0) {
     s32 sp8;
@@ -147,7 +146,6 @@ void TObjEneDD_ST::enemy_copy_target_destination() {
     if (temp_r4 != 0U) {
         copy_position__14TObjEneEpsilonFPv(this, ((void *)(temp_r4 + 0x38)));
     }
-}
 }
 
 #undef enemy_clear_target__12TObjEneDD_STFUs
@@ -263,7 +261,6 @@ struct VObj_18_8e9c4f : VBase_18_8e9c4f {
     virtual s32 m102(f32);
 };
 
-extern "C" {
 s32 TObjEneDD_ST::update_linked_position(f32 scale) {
     return enemy_tick_target_acquisition__12TObjEneDD_STFPllf((u8 *)this, (s32 *)((u8 *)this + 0x3B0),
                                *(s32 *)((s8 *)this + 0x3B4), scale);
@@ -290,7 +287,6 @@ void spawn_part__14TObjEneEpsilonFi(s32 arg0) {
     enemy_bind_or_clear_target(arg0, (s32)tmp);
 }
 
-}
 #undef enemy_bind_or_clear_target
 #undef enemy_find_nearest_player_in_range
 

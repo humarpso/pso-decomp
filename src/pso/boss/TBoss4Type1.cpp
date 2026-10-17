@@ -9,13 +9,13 @@ extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
-#include "pso/player/TUnk_804806E8.h"
+
 #include <stddef.h>
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 #include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
+
 #include "pso/TObjDFTenchuFuru.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"

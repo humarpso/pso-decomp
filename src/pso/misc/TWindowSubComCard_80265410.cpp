@@ -161,7 +161,6 @@ extern const f32 lbl_805DD174;
 extern const f32 lbl_805DD178;
 
 void update_chat_window(void* p) { void* m = *(void**)((char*)p + 0x20); if (m) TWindowChat__sub_80247D2C(m); }
-extern "C" {
 
 int TWindowSubComCard::get_flag() { return (*(u16*)((char*)this + 0x70) >> 2) & 0x1; }
 
@@ -708,7 +707,6 @@ void TAdChrSelASlotGC::check_room_seq_4(s32 arg1) {
     s32 arg0 = (s32)this;
     ((int (*)(void*, void*, void*))create_window_menu)((void*)arg0, (void*)arg1, (void*)(4));
 }
-}
 
 s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r31;
@@ -724,7 +722,6 @@ s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)((s8 *)temp_r31 + 0x2C) = (s32) (*(s32 *)((s8 *)temp_r31 + 0x2C) | 0x40);
     return temp_r31;
 }
-extern "C" {
 
 void TWindowSubComCard::draw_card_icon(s32 arg1, s32 arg2) {
     s32 arg0 = (s32)this;
@@ -887,4 +884,3 @@ s32 TWindowMenu::is_locked(s32 arg1) {
 }
 
 int TWindowMenu::sub_80266BB8() { return (this->m_70 >> 6) & 0x1; }
-}

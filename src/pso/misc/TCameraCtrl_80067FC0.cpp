@@ -76,9 +76,6 @@ Vec_8006835C *get_target__11TCameraCtrlFv(void *);
 void direction_to_pitch_yaw(u8 *arg0, s32 *arg1, s32 *arg2);
 void set_viewport_scissor__11TCameraCtrlFiPv(s32, void *);
 void GXSetScissorBoxOffset(s32, s32);
-}
-void set_camera_look_at(u8 *eye, u8 *target, u8 *up);
-extern "C" {
 f32 vector_length(void *);
 void normalize_vector(void *);
 extern Vec_8006835C lbl_804FF5E8;
@@ -125,13 +122,12 @@ void *__dt__13TUnk_80488838Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 }
-
+void set_camera_look_at(u8 *eye, u8 *target, u8 *up);
 TUnk_80488838::TUnk_80488838() : TUnk_80488A28() {
     ((O_80068018 *)this)->x38 = 0;
     ((O_80068018 *)this)->x6c = controller_input_state.sub;
     ((O_80068018 *)this)->v5();
 }
-extern "C" {
 
 void TUnk_80488DA0::set_target_pos(void*q) { *(f32 *)&this->unk_48 = *(f32*)((char*)q + 0x0); (this->m_4c) = *(f32*)((char*)q + 0x4); *(f32*)((char*)this + 0x50) = *(f32*)((char*)q + 0x8); }
 
@@ -293,7 +289,6 @@ void *__dt__13TUnk_80488A28Fv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
-}
 }
 TUnk_80488A28::TUnk_80488A28() : TObject(0) {
     this->m_3c = (f32) TCameraCtrl__data_805D8F84;

@@ -208,7 +208,6 @@ void dispatch_offline_main_frame(void);
 typedef char RecoveredGlobal_801A3540_lbl_804C1F68_size[sizeof(RecoveredGlobal_801A3540_lbl_804C1F68) == 0x180 ? 1 : -1];
 typedef char RecoveredGlobal_801A3540_lbl_80515BA0_size[sizeof(RecoveredGlobal_801A3540_lbl_80515BA0) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_801A3540_main_task_size[sizeof(RecoveredGlobal_801A3540_main_task) == 0x34 ? 1 : -1];
-extern "C" {
 
 void TLobby::reload_offline_area() {
     Obj_801A3014 holder;
@@ -355,7 +354,6 @@ void TLobby::rebuild_area_keep_players() {
     create_floor_quest_thread();
     __dt__7TObjectFv(&holder, -1);
 }
-}
 
 void run_offline_area_transfer(void) {
     Obj_801A33DC holder;
@@ -402,7 +400,6 @@ void run_offline_area_transfer(void) {
     }
     __dt__7TObjectFv(&holder, -1);
 }
-extern "C" {
 
 void TLobby::teardown_scene() {
     if (is_split_screen() != 0) {
@@ -421,7 +418,6 @@ void TLobby::teardown_scene() {
     clear_resource_load_tasks();
     TKeyBoardControl::update();
     render_tick();
-}
 }
 
 typedef char RecoveredGlobal_801A3770_main_task_size[sizeof(RecoveredGlobal_801A3770_main_task) == 0x34 ? 1 : -1];

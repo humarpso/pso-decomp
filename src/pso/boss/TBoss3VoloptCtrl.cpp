@@ -18,9 +18,6 @@ s32 get_main_phase(void);
 s32 get_current_floor();
 s32 restore_player_cameras(void);
 s32 activate_camera_mode(s32);
-}
-s32 get_story_flag(s32);
-extern "C" {
 s32 unhide_room_set_objects(s32, s32, s32);
 s32 TBoss3Volopt__sub_8003EA2C(int);
 void TObjPlayer__sub_801BA42C(void);
@@ -90,7 +87,7 @@ void TBoss3VoloptCtrl::dispatch_state(s32 arg0) {
     }
 }
 }
-
+s32 get_story_flag(s32);
 void TBoss3VoloptCtrl::run_task() {
     u8 *temp_r3;
     countdown = (countdown - 1);
@@ -140,7 +137,7 @@ void TBoss3VoloptCtrl::run_task() {
 }
 
 TBoss3VoloptCtrl::~TBoss3VoloptCtrl() {}
-extern "C" {
+
 void *TBoss3VoloptCtrl__ct(void *boss3_volopt_ctrl) {
     __ct__7TObjectFP7TObject(boss3_volopt_ctrl, tl_02);
     *(s32 **)((s8 *)boss3_volopt_ctrl + 0x18) = __vt__16TBoss3VoloptCtrl;
@@ -148,5 +145,4 @@ void *TBoss3VoloptCtrl__ct(void *boss3_volopt_ctrl) {
     ((TBoss3VoloptCtrl *)boss3_volopt_ctrl)->phase = 0;
     *(u32 *)((s8 *)boss3_volopt_ctrl + 0x1C) = 3;
     return boss3_volopt_ctrl;
-}
 }

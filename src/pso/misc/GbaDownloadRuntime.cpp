@@ -81,7 +81,6 @@ void gba_joyboot_transfer_callback(s32 arg0, s32 arg1) {
         TLobby__data_805D6CCC = 2;
     }
 }
-extern "C" {
 
 void TLobby::send_data(s32 arg0) {
     u32 temp_r3;
@@ -131,7 +130,6 @@ u8 TLobby::get_selected_slot() {
         return sp8;
     }
     return 0U;
-}
 }
 
 #include "pso/ui/TAdWarningBaseGC.h"
@@ -253,7 +251,7 @@ void update_gba_joyboot_transfer(void) {
 #pragma push
 #pragma optimization_level 1
 #pragma dont_inline on
-extern "C" {
+
 void TLobby::set_send_buffer(u8 *arg0, s32 arg1) {
     TLobby__gba_joyboot_send_buffer = arg0;
     gba_joyboot_send_buffer = arg1;
@@ -272,4 +270,3 @@ void TLobby__sub_8032CDD0(void* p) { *(s16*)((char*)p + 0x0) = 0; *(s16*)((char*
 void TLobby__sub_8032CDEC(void) { TAdWarningBaseGC__aram_alloc_size = 0; warning_aram_load_done_flag = 0; }
 
 int TAdWarningBaseGC::destroy() { return queue_destruction__7TObjectFv(this); }
-}

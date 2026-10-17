@@ -5,8 +5,6 @@
 #include "pso/misc/TPlyDispConfig_80071F1C.h"
 #include "pso/system/memory.h"
 
-extern "C" {
-
 s32 destroy__13TLockOnCursorFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         destroy__11TMainCursorFis(arg0 + 0x14, -1);
@@ -17,6 +15,4 @@ s32 destroy__13TLockOnCursorFis(s32 arg0, s16 arg1) {
         }
     }
     return arg0;
-}
-
 }

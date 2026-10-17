@@ -80,7 +80,6 @@ s32 refresh_with_default_list__20TWindowSubStatusDispFll(s32, s32 *);
 void update_chat_window(void *p);
 
 extern void *TWindowSubSymbolChat__instance;
-extern "C" {
 
 void TWindowSubSymbolChat::close_child() {
     void *temp_r3;
@@ -355,5 +354,4 @@ s32 TWindowSubSymbolChat__sub_8028233C(s32 arg0) {
     s32 r = draw_card_icon__17TWindowSubComCardFll((s32)(get_window_layout_position(0x79)), 6, (s32)(get_message_10__20TWindowSubStatusDispFl(0xA9)));
     TWindowSubSymbolChat::open_menu(arg0, r);
     return r;
-}
 }

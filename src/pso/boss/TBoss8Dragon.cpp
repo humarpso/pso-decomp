@@ -12,7 +12,7 @@ extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TMainCursor.h"
-#include "pso/enemy/TObjEneDD_ST.h"
+
 #include "pso/boss/TBoss5Gryphon.h"
 #include <stddef.h>
 #include "pso/TObject.h"
@@ -372,9 +372,6 @@ void state_turn_and_charge__12TBoss8DragonFPvUi(u8 *arg0, u32 arg1);
 u16 obj_getField1c(u8 *);
 void *spawn_particle_effect_with_rotation(void *, void *, s32, s32);
 s32 enemy_validate_retained_target(void *);
-}
-void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
-extern "C" {
 void * __nw__7TObjectFUl(int);
 void TBoss8Dragon__sub_802FC9D8(u8 *arg0);
 s32 TBoss8DragonEffBreath__ct(void *, void *, void *, void *, s32, u16);
@@ -1480,11 +1477,6 @@ void vfunc_63__12TBoss8DragonFv(void);
 void vfunc_28__12TBoss8DragonFv(void);
 u8 *TBoss8Dragon__ct(u8 *, void *, void *);
 void TBoss8Dragon__sub_802FD9D0(void);
-}
-void set_collider_contact_low(u8 *arg0);
-void set_collider_contact_high(u8 *arg0);
-void build_6xA8_gol_dragon_boss_actions(void *p);
-extern "C" {
 s32 eval_bezier_curve__12TBoss8DragonFPviiPvf(void *, int, int, void *, f32);
 void __destroy_arr(void *, void *, u32, u32);
 s32 mult_vec_array__10TObjPlayerFUll(int, void *, int, int);
@@ -2265,6 +2257,10 @@ void TBoss8Dragon::update_camera_script() {
     TBoss8Dragon__data_805D698C += 1;
 }
 }
+void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
+void set_collider_contact_low(u8 *arg0);
+void set_collider_contact_high(u8 *arg0);
+void build_6xA8_gol_dragon_boss_actions(void *p);
 
 s32 TBoss8Dragon::hasActiveRenderFade() {
     for (s32 i = 0; i < 4; ++i) {
@@ -6122,7 +6118,6 @@ void handle_6xA8_gol_dragon_boss_actions(void *boss8_dragon) {
         ((void (*)(void *, void *))apply_6xA8_action__12TBoss8DragonFPvPv)(x, boss8_dragon);
     }
 }
-extern "C" {
 
 void TBoss8Dragon::reset_tail_hp() {
     s32 arg0 = (s32)this;
@@ -6662,7 +6657,6 @@ u8 *__dt__12TBoss8DragonFv(u8 *arg0, s16 arg1) {
         }
     }
     return arg0;
-}
 }
 
 struct VBase_18_802FD47C { char pad[0x18]; };

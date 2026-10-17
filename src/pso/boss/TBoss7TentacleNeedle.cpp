@@ -311,7 +311,6 @@ void TObjPlayer__sub_802EFEC4(void) {
 }
 TBoss7Tentacle::~TBoss7Tentacle() {}
 
-extern "C" {
 void render__14TBoss7TentacleFv(u8 *arg0) {
     s32 temp_r0_2;
     s32 var_ctr;
@@ -606,7 +605,6 @@ void TBoss7Tentacle__sub_802F0B70(void* p) { *(u32*)((char*)p + 0x3c) |= 0x2; }
 
 void TBoss7Tentacle__sub_802F0B80(void* p) { *(u32*)((char*)p + 0x3c) &= 0xfffffffd; }
 
-}
 TBoss7Tentacle::TBoss7Tentacle(TObject *object, s32 arg2, s32 arg3) : TObject(object) {
     (*(s32 *)((s8 *)(this) + (0))) = lbl_805D3FD8;
     (*(s32 *)((s8 *)(this) + (0x1C))) = ((s32 (*)(s32))queue_boss_effect__10TObjPlayerFPv)(1);
@@ -635,8 +633,5 @@ TBoss7Tentacle::TBoss7Tentacle(TObject *object, s32 arg2, s32 arg3) : TObject(ob
     (*(f32 *)((s8 *)(this) + (0x28))) = TBoss7Tentacle__data_805DEC00;
     (*(f32 *)((s8 *)(this) + (0x2C))) = TBoss7Tentacle__data_805DEC00;
 }
-extern "C" {
 
 void TObjPlayer__sub_802F0D2C(void) {  }
-
-}

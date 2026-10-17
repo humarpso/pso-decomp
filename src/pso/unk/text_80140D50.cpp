@@ -75,7 +75,6 @@ void remove_value_from_id_list(s32 arg0, u32 arg1) {
         }
     }
 }
-extern "C" {
 
 void fn_80140EA8(s32 arg0, s32 arg1) {
     register_slot((Obj_80140EE4 *)((void *)arg0), (void *)((void *) (TLobby__sub_80141030((void *)arg1))));
@@ -98,5 +97,4 @@ void collect_collision_groups(Obj_80140F18 *self, Ent_80140F18 *e) {
         e++;
     }
     *p = 0;
-}
 }

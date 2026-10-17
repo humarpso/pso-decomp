@@ -252,7 +252,6 @@ void load_computer_resources(void) {
         break;
     }
 }
-extern "C" {
 
 void *__dt__12TObjComputerFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -397,5 +396,4 @@ void TObjContainerAbeEnemy::vfunc_81() {
             break;
         }
     }
-}
 }

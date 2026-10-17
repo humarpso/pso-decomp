@@ -139,7 +139,6 @@ struct Entry_80238C6C { s32 entry; u8 pad[8]; };
 
 struct Profile_80238C6C { struct Entry_80238C6C *entries; u32 count; };
 
-extern "C" {
 extern const Entry_80238C6C lbl_8044DB08[1] = {{147}};
 extern const Entry_80238C6C lbl_8044DB14[2] = {{170}, {173}};
 extern const Entry_80238C6C lbl_8044DB2C[2] = {{171}, {174}};
@@ -148,7 +147,6 @@ extern const Profile_80238C6C TTecRaZonde__band_profile_table[6] = {
     {(Entry_80238C6C *)lbl_8044DB14, 2}, {(Entry_80238C6C *)lbl_8044DB14, 2}, {(Entry_80238C6C *)lbl_8044DB2C, 2},
 };
 const char *TTecRaZonde_class_name = "TTecRaZonde";
-}
 
 struct Self_80238C6C {
     u8 pad0[0x7A];

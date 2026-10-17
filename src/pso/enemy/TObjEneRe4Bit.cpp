@@ -18,9 +18,9 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
-#include "pso/enemy/TObjEnemy.h"
+
 #include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
+
 #include "pso/player/TUnk_80490470.h"
 
 struct VBase_18_f9c8ca

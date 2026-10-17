@@ -236,7 +236,6 @@ void reload_lobby_floor_scene(void);
 void init_area_lights(void);
 void load_floor_scene(void);
 void arrive_floor_population(void);
-extern "C" {
 void TLobby::set_flag_and_update() { TLobby__new_game_setup_flags = (TLobby__new_game_setup_flags | 0x1); TLobby__sub_801A4C6C(lbl_80515BA0); }
 
 void TLobby::init_chr_select() { TKeyBoardControl::reset(); send_logout__6TLobbyFv(); init__23TAdSinglePlyChrSelectGCFv(); TKeyBoardControl__sub_8000F91C(9); TKeyBoardControl__sub_8000F9CC(18); }
@@ -281,7 +280,6 @@ void TLobby::bswap_udp_test_header() {
 
 int TLobby__sub_801A3E8C(void) { return 0; }
 void TLobby__sub_801A3E94(void) {  }
-}
 
 void reload_lobby_floor_scene(void) {
     s32 sp8[9];
@@ -329,7 +327,6 @@ void reload_lobby_floor_scene(void) {
     TLobby__data_805D5CE8 = 0;
     __dt__7TObjectFv(sp8, -1);
 }
-extern "C" {
 
 void TLobby::send_and_handle() { TLobby::blocking_vsync(this); }
 
@@ -426,7 +423,6 @@ void TLobby::free_objects() {
     TLobby::set_cleanup_flag();
     TLobby::reset_quest_counter();
     TLobby::clear_quest_state();
-}
 }
 
 typedef char RecoveredGlobal_801A4610_lbl_804C20E8_size[sizeof(RecoveredGlobal_801A4610_lbl_804C20E8) == 0x158 ? 1 : -1];
@@ -620,7 +616,6 @@ void cleanup_online_lobby_scene(void) {
     TKeyBoardControl::update();
     render_tick__Fv();
 }
-extern "C" {
 
 void TLobby::run_lobby_frame() {
     s32 temp_r0;
@@ -731,7 +726,6 @@ void TLobby::update_camera_state() {
     }
     TLobby::run_main_frame();
 }
-}
 
 void run_online_lobby_scene(void) {
     void *lobby;
@@ -827,7 +821,6 @@ void run_online_lobby_scene(void) {
     TLobby__online_lobby_frame_counter = 0;
     render_tick__Fv();
 }
-extern "C" {
 
 void TLobby::update_periodic_tick() {
     if ((TLobby__lobby_state_flags & 1) && ((actor_frame_tick % 900) == 0) && ((u32) TLobby__protocol_instance != 0U)) {
@@ -837,4 +830,3 @@ void TLobby::update_periodic_tick() {
 void TLobby__sub_801A4C6C(void* p) { *(u32*)((char*)p + 0x20) |= 0x1; }
 void TLobby::set_value(s32 v) { *(s32 *)&this->m_next = v; }
 void TLobby::reset_counter() { challenge_task_created = 0; }
-}

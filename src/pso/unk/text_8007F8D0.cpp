@@ -51,7 +51,6 @@ void init_disc_error_messages(void) {
     fn_8042ED98(3, lbl_80438CB0);
 }
 #pragma pop
-extern "C" {
 
 s32 launch_switcher_dol(const char *arg0) {
     char buf[0x100];
@@ -71,5 +70,4 @@ s32 launch_switcher_dol(const char *arg0) {
     fn_8042EAD4((u8 *)buf, strlen(buf) + 1);
     fn_8042EBA4(v, r);
     return 1;
-}
 }

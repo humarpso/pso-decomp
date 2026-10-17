@@ -7,14 +7,12 @@
 
 extern u8 *photon_blast_shared_resource;
 extern u32 golla_photon_blast_buffer_pair;
-extern "C" {
 
 void TObjPlayer::destroy_static_buffer_pair() {
     if ((u32) golla_photon_blast_buffer_pair != 0U) {
         destroy_buffer_pair((void *)golla_photon_blast_buffer_pair, 1);
     }
     golla_photon_blast_buffer_pair = 0U;
-}
 }
 void create_golla_photon_blast_model(void) {
     s32 temp_r3;

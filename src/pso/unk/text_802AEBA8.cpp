@@ -4,7 +4,6 @@
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 struct Obj_802AEBA8 { u8 pad[0xa4]; s32 a4; s32 a8; s32 ac; u8 pad2[0x6bc - 0xb0]; s32 arr[16]; s32 f6fc; s32 f700; };
 
-extern "C" {
 typedef struct { f32 x, y; } V2_802AEBE4;
 typedef struct { f32 x, y, x2, y2; f32 pad[4]; } Quad_802AEBE4;
 
@@ -53,6 +52,4 @@ void TLevelSelect::add_item_rect(void *src) {
         self->q2[self->count].y2 = self->q2[self->count].y + self->h;
         self->count++;
     }
-}
-
 }

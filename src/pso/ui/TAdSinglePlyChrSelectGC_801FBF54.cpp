@@ -57,17 +57,15 @@ struct SubtractiveRng {
     SubtractiveRng();
     u32 state[58];
 };
-extern "C" {
+
 u32 lbl_805137C8[4];
 u32 chr_select_buffer_ptr_table[8];
 u32 chr_select_request_buffer[9];
-}
 SubtractiveRng chr_select_rng_state;
-extern "C" {
+
 u32 char_select_date_stamp[3];
 __declspec(section ".data") s32 chr_select_serial_seeds[2];
 __declspec(section ".data") s32 lbl_80513918[2];
-}
 
 struct RecoveredGlobal_801FC564_lbl_804C89BC {
     s32 value;

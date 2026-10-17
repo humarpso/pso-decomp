@@ -2,8 +2,6 @@
 #include "pso/ui/TAdSinglePlyChrSelectGC_801334D4.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
-
 s32 TAdSinglePlyChrSelectGC::get_selected_slot() { return *(s32*)((char*)this + 0xac); }
 s32 TAdSinglePlyChrSelectGC__sub_801334DC(void* p) { return *(s32*)((char*)p + 0xa4); }
 void TAdSinglePlyChrSelectGC__sub_801334E4(void) {  }
@@ -15,5 +13,3 @@ void TAdSinglePlyChrSelectGC__sub_80133530(void* p, void* q) { *(f32*)((char*)p 
 void TAdSinglePlyChrSelectGC__sub_80133544(void) {  }
 void TAdSinglePlyChrSelectGC__sub_80133548(void) {  }
 void TAdSinglePlyChrSelectGC::set_vec3(void* q) { *(f32 *)&this->m_prev = *(f32*)((char*)q + 0x0); *(f32 *)&this->m_next = *(f32*)((char*)q + 0x4); *(f32 *)&this->m_up = *(f32*)((char*)q + 0x8); }
-
-}

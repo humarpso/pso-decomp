@@ -1,6 +1,5 @@
 #include "pso/quest/AreaDialogueScripts.h"
 
-extern "C" {
 extern const char area_dialogue_file_city_off_j[] = "map_city_off_j.bin";
 extern const char area_dialogue_file_city_on_j[] = "map_city_on_j.bin";
 extern const char area_dialogue_file_forest_j[] = "map_forest_j.bin";
@@ -257,5 +256,3 @@ const char *area_dialogue_ultimate_script_files[5][12] = {
         area_dialogue_file_seabed_s_u,
     },
 };
-
-}

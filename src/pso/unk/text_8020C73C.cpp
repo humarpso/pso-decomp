@@ -49,7 +49,7 @@ Set_8020C73C *resolve_matching_object__6TLobbyFv(s32);
 }
 s32 construct_enemy_from_set_row(u8 *row);
 extern u8 *TLobby__data_805D6144;
-extern "C" {
+
 s32 TLobby::unhide_enemies_at(s32 arg0, s32 arg1, s32 arg2) {
     s32 n;
     s32 count;
@@ -95,5 +95,4 @@ s32 TLobby::unhide_enemies_at(s32 arg0, s32 arg1, s32 arg2) {
         }
     }
     return count;
-}
 }

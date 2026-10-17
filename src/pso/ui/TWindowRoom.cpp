@@ -50,17 +50,14 @@ void *TWindowRoom::get_title_entry() {
     return (void *)get_array_entry__13TUnk_804CE018Fi(this, 0);
 }
 
-extern "C" {
 void TWindowSubStatusDisp::set_entry_display_value(s32 arg1) {
     set_text_entry_string((u8 *)(get_array_entry__13TUnk_804CE018Fi(this, 0)), arg1, 0x60);
-}
 }
 
 void TWindowRoom::draw_tab(void *context) {
     draw_window_tab((s32)context, (s32)((u8 *)context + 0x10), 3, tabParameter);
 }
 
-extern "C" {
 void TWindowRoom::draw_status() {
     s32 temp_r3;
     s32 arg0 = (s32)this;
@@ -83,7 +80,6 @@ void *__dt__11TWindowRoomFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_8026D674_lbl_804D08DC_size[sizeof(RecoveredGlobal_8026D674_lbl_804D08DC) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_8026D674___vt__11TWindowRoom_size[sizeof(RecoveredGlobal_8026D674___vt__11TWindowRoom) == 0x18 ? 1 : -1];
-}
 
 TWindowRoom::TWindowRoom(char *title) {
     RoomTitleEntry *entry;
@@ -100,8 +96,6 @@ TWindowRoom::TWindowRoom(char *title) {
     tabParameter = TWindowSubStatusDisp__sub_802877A4(unknown48 - lbl_805DD2F4);
 }
 
-extern "C" {
-
 s32 clamp_list_scroll_offset(struct Pos_8026D740 *a, struct Pos_8026D740 *b, struct Pos_8026D740 *c) {
     f32 room;
     if (a->y < c->y || b->y < lbl_805DD2F8) {
@@ -114,6 +108,4 @@ s32 clamp_list_scroll_offset(struct Pos_8026D740 *a, struct Pos_8026D740 *b, str
         return 1;
     }
     return 0;
-}
-
 }

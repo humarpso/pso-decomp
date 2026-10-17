@@ -2,8 +2,6 @@
 #include "pso/item/TUnk_804A1098.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 void TUnk_804A1098::update_weapon() {
     s32 temp_r0;
     s32 temp_r4;
@@ -28,6 +26,4 @@ void TUnk_804A1098::update_weapon() {
             }
         }
     }
-}
-
 }

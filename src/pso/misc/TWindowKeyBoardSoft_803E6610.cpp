@@ -38,7 +38,6 @@ struct Req_803E6868 { s32 id; s32 a; s32 b; };
 typedef s32 (*Fn_803E6610)(void *);
 struct S_803E6610 { s32 idx; s32 rest; };
 
-extern "C" {
 extern Fn_803E6610 keyboard_soft_dispatch_fn_table[];
 s32 TWindowKeyBoardSoft::dispatch_by_index() {
     S_803E6610 *arg0 = (S_803E6610 *)this;
@@ -169,6 +168,4 @@ void TWindowKeyBoardSoft::dispatch_request_0f(s32 a, s32 b) {
     req.a = a;
     req.b = b;
     ((TWindowKeyBoardSoft *)(&req))->dispatch_by_index();
-}
-
 }

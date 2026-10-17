@@ -516,7 +516,6 @@ void set_lobby_map_state_code(s32 arg0) {
 void subtract_network_queue_timeout(s32 arg0) {
     TLobby__queue_timeout_remaining -= arg0;
 }
-extern "C" {
 
 s32 TLobby::map_state_to_mode_id() {
     switch ((*(u32 *)&lobby_map_state_code)) {
@@ -906,6 +905,5 @@ void TLobby::init_net_config() {
     c->f3C = buf + 0x1E0;
     c->f40 = 8;
     c->f44 = buf;
-}
 }
 #pragma pop

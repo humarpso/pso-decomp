@@ -14,7 +14,6 @@ struct Stack_80352A54 {
     u8 trailing_storage[0x11];
 };
 
-extern "C" {
 void TUnk_804F0FF0::vfunc_44() {
     s32 arg0 = (s32)this;
     typedef char sp8_offset[(offsetof(Stack_80352A54, sp8) == 0x0) ? 1 : -1];
@@ -27,6 +26,4 @@ void TUnk_804F0FF0::vfunc_44() {
         stack.spA = ((TItem *)arg0)->sub_80100474();
         replace_item_with_new_code((&stack.sp8), (arg0));
     }
-}
-
 }

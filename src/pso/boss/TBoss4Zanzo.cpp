@@ -463,9 +463,6 @@ s32 pick_random_target_player__11TBoss4Type3Fv(void);
 s32 TBoss4DarkFalz__sub_8004AF5C(s32, s16 *, s16 *);
 s32 TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 s32 TObjPlayer__sub_80052390(f32);
-}
-u32 drain_player_hp(s32 id, u32 arg1);
-extern "C" {
 s32 TBoss4Type2__sub_80055300();
 void find_target_pos__11TBoss4Type2FPvPv(O_80056C30 *self, Vec_80056C30 *out);
 S_800578E8 * __dt__13TUnk_80486924Fv(S_800578E8 *o, s16 flag);
@@ -664,6 +661,7 @@ __declspec(section ".data") s32 boss4_zanzo_bml_index_table[2] = {
     0xb, 0xa,
 };
 }
+u32 drain_player_hp(s32 id, u32 arg1);
 Def_804867C8 TBoss4Type2__attack_pattern_table = {
     0x0, {
         0x0, 0x52, 0x51, 0x2, 0x0, 0xd, 0xc, 0x1, 0x0, 0x12, 0x11, 0x2, 0x5, 0x31, 0x30, 0x2, 0x0, 0x33, 0x32, 0x2, 0x0, 0x3f, 0x3e, 0x2, 0x0, 0x3, 0x2, 0x2, 0x0, 0x7, 0x6, 0x2, 0x9, 0x52, 0x44, 0x2, 0x0, 0x52, 0x3e,

@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/unk/text_8000F740.h"
-extern "C" {
+
 u8 fn_8000F740(s32 *p) {
     s32 r = 0;
     s32 v = *p;
@@ -8,6 +8,4 @@ u8 fn_8000F740(s32 *p) {
         r = 1;
     }
     return r;
-}
-
 }

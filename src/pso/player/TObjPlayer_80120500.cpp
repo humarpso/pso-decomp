@@ -2,8 +2,6 @@
 #include "pso/items/TItemWeapon.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 void TItemWeapon::vfunc_49() {
     s32 i;
     void *temp_r3;
@@ -17,6 +15,4 @@ void TItemWeapon::vfunc_49() {
         i += 1;
         *(s8 *)((s8 *)temp_r3 + 1) = 0;
     } while (i != 3);
-}
-
 }

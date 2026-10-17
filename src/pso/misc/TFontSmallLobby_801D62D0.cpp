@@ -107,7 +107,6 @@ void add_photon_blast_charge(u8 *arg0, f32 farg0) {
         }
     }
 }
-extern "C" {
 
 void TFontSmallLobby::send_photon_blast_ready() {
     if (get_player_by_client_id(((u16 (*)())get_type__15TFontSmallLobbyFPv)()) != 0U) {
@@ -149,7 +148,6 @@ void TFontSmallLobby::reset_state() {
         *fp = 0;
     }
     ((TFontSmallLobby *)((u8 *)arg0 + 0x4C))->reset_fields();
-}
 }
 
 struct Pkt_801D698C { u8 cmd; u8 size; u8 pad[2]; u16 a; u16 b; };

@@ -1,16 +1,12 @@
 #include "types.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
-extern "C" {
-
 s32 TWindowSubStatusDisp::calc_layout_hash() {
     return TWindowSubStatusDisp::get_layout_id() * 0x8C9F;
 }
 
 s32 TWindowSubStatusDisp::calc_entry_offset() {
     return TWindowSubStatusDisp::get_layout_id() * 0x12C;
-}
-
 }
 
 #include "pso/misc/TLobby.h"

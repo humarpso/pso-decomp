@@ -449,7 +449,6 @@ s32 mag_owner_freezes_follow(void *arg0) {
     }
     return var_r31;
 }
-extern "C" {
 
 s32 TItemMag::check_action_probability(s32 arg1) {
     u8 *arg0 = (u8 *)this;
@@ -1398,7 +1397,6 @@ void TItemMag::apply_auto_support_techniques() {
         request_support_action((s32)((void*)(1)));
     }
 }
-}
 #pragma push
 #pragma dont_inline on
 
@@ -1834,11 +1832,6 @@ void TItemMag::load_data_files() {
 
 }
 void TItemMagSub::set_flags(u32 value) { flags |= value; }
-extern "C" {
-
-extern "C" {
-
-}
 
 extern "C" {
 
@@ -1846,7 +1839,6 @@ extern "C" {
 void TItemMagSub::set_node_id(s32 index, s32 id) { node_ids[index] = id; }
 void TItemMagSub::set_material_node(s32 node, void* parameters) { node_ids[0] = node; if (parameters != 0) ((TRaderMapCore *)material_parameters)->copy_vec4(parameters); }
 
-}
 void TItemMagSub::set_model(void* model_arg, u32 textures_arg, void* animation_arg) {
     void* arg0=this; s32 arg1=(s32)model_arg; s32 arg2=(s32)textures_arg; void* arg3=animation_arg;
     *(s32 *)((s8 *)arg0 + 0x24) = arg1;
@@ -1858,11 +1850,7 @@ void TItemMagSub::set_model(void* model_arg, u32 textures_arg, void* animation_a
     }
 }
 void TItemMagSub::scale_owner_height(f32 factor) { owner_height_scale *= factor; }
-extern "C" {
-}
 int TItemMagSub::is_growth_inactive() {
     void* p=this; return (((TItemMagSub *)p)->test_flags(64)) == 0; }
-extern "C" {
 
-}
 #pragma pop

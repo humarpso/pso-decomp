@@ -3,8 +3,6 @@
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowTradeRequest.h"
 
-extern "C" {
-
 extern u8 TLobby__trade_proposal_state;
 
 void TWindowTradeRequest::reset_trade() {
@@ -13,6 +11,4 @@ void TWindowTradeRequest::reset_trade() {
         TWindowTradeRequest::close_request_window();
         reset__6TLobbyFv();
     }
-}
-
 }

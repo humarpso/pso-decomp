@@ -86,7 +86,6 @@ extern s32 ginja_draw_flags;
 void set_ginja_draw_flags(s32 arg0) {
     ginja_draw_flags = arg0;
 }
-extern "C" {
 
 void TObjPlayer__sub_803DD6DC(struct Obj_803DD6DC *arg0, s32 arg1) {
     s32 idx;
@@ -394,7 +393,6 @@ void replace_gvm_texture_directory(GvmTextureList_803DDDC8* list, s32 stride, co
         index++;
     }
 }
-}
 #pragma pop
 
 s32 calc_gvm_entry_stride(u16 arg0) {
@@ -405,7 +403,6 @@ s32 calc_gvm_entry_stride(u16 arg0) {
     if (arg0 & 8) r += 4;
     return r;
 }
-extern "C" {
 
 void TLobby::seek_gvrt_chunk() {
     s32 spC;
@@ -642,5 +639,4 @@ relocate:
         }
     }
     return buf;
-}
 }

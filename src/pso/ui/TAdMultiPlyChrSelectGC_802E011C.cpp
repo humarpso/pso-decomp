@@ -4,8 +4,6 @@
 
 extern u32 secondary_card_character_save_buffer;
 
-extern "C" {
-
     extern int lbl_805D69E8;
 int TAdMultiPlyChrSelectGC::get_chr_select_state() {  return lbl_805D69E8; }
 
@@ -20,6 +18,4 @@ u8 TAdSinglePlyChrSelectGC::check_slot_flags(s32 arg0, u32 arg1) {
         return (flags & arg1) != 0;
     }
     return 0;
-}
-
 }

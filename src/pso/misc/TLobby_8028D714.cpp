@@ -14,7 +14,6 @@ struct RecoveredGlobal_8028D738_lbl_80518860 {
     u8 remaining[0x1C];
 };
 
-extern "C" {
 extern RecoveredGlobal_8028D738_lbl_80518850 lbl_80518850;
 extern RecoveredGlobal_8028D738_lbl_80518860 chr_select_load_buffer_table;
 extern u32 chr_select_load_buffer_base;
@@ -71,6 +70,4 @@ void TLobby::free_chr_select_singleton() {
         TAdSinglePlyChrSelectGC::safe_free((u32)((void*)((void*)chr_select_load_buffer_base)));
         chr_select_load_buffer_base = 0U;
     }
-}
-
 }

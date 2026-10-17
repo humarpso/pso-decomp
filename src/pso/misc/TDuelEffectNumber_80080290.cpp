@@ -22,7 +22,7 @@ TDuelEffectNumber::TDuelEffectNumber(TObject *object, void *arg2, void *arg3) : 
     *(void **)((s8 *)this + 0x24) = arg3;
     *(u32 *)((s8 *)this + 0x28) = 0;
 }
-extern "C" {
+
 typedef char RecoveredGlobal_80080438_lbl_80438DD4_size[sizeof(RecoveredGlobal_80080438_lbl_80438DD4) == 0x18 ? 1 : -1];
 
 void TDuelEffectNumber::render_pair(f32 f) {
@@ -35,6 +35,4 @@ void TDuelEffectNumber::render_pair(f32 f) {
 void TDuelEffectNumber::render_number_default(f32 farg0) {
     u8 *arg0 = (u8 *)this;
     TDuelEffectNumber__sub_800802F8(arg0, &duel_number_default_layout.value, farg0);
-}
-
 }

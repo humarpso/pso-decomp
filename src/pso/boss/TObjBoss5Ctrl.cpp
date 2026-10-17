@@ -38,8 +38,6 @@ TObjBoss5Ctrl::~TObjBoss5Ctrl() {
     boss5_ctrl_instance = 0;
 }
 
-extern "C" {
-
 void *TObjBoss5Ctrl__ct(void *boss5_pillar_ctrl) {
     f32 temp_f2;
     f32 temp_f3;
@@ -71,6 +69,4 @@ void *TObjBoss5Ctrl__ct(void *boss5_pillar_ctrl) {
         }
     }
     return boss5_pillar_ctrl;
-}
-
 }

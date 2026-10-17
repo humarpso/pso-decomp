@@ -53,7 +53,7 @@ s32 poll_serial_access__22TQuestVmDownLoadServerFv();
 
 }
 s32 TQuestListOnline::get_selection_stage() { return selection_stage; }
-extern "C" {
+
 void TWindowSubComCard::clear_flag_and_release() {
     u32 temp;
     *(u16 *)((s8 *)this + 0x70) = (u16) (*(u16 *)((s8 *)this + 0x70) & 0xFFFFFFFD);
@@ -101,6 +101,4 @@ void TQuestListVM::vfunc_6() {
     if (o != NULL) {
         o->m4();
     }
-}
-
 }

@@ -122,15 +122,13 @@ void __ct__13TUnk_804CCC68FlPUcPUcl();
 extern s32 tec_barta_class_name_ptr;
 TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _w2, void * _w3, void * _w4);
 void construct_facing_technique__10TObjPlayerFPviPvii();
-}
-extern const f32 lbl_805DC7A8;
-u8 *construct_tec_barta_facing(TTecBarta *arg0, void *_w1, void *_w2, void *_w3, void *_w4);
-extern "C" {
 s32 get_bml_model(s32, s32);
 void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
 void *find_entity_by_id(u16 id);
 }
+extern const f32 lbl_805DC7A8;
+u8 *construct_tec_barta_facing(TTecBarta *arg0, void *_w1, void *_w2, void *_w3, void *_w4);
 void move_ground_technique_projectile(void *p);
 extern s32 technique_effect_bml;
 extern s32 lbl_805D63B0;
@@ -372,7 +370,6 @@ u8 *construct_tec_barta_facing(TTecBarta *tec_barta, void * _w1, void * _w2, voi
     }
     return (u8 *)tec_barta;
 }
-extern "C" {
 
 void TUnk_804CCC68::vfunc_6() {  }
 struct TechniqueParticleEmitter;
@@ -400,5 +397,4 @@ void TUnk_804CC148::apply_technique_to_area_targets() {
             ((VObj_8022BD74 *)((Tec_8022BD74 *)this))->m4(id);
         }
     }
-}
 }

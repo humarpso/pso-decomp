@@ -8,7 +8,6 @@ struct Stack_80203470 {
     u8 trailing_storage[0x8];
 };
 
-extern "C" {
 extern s32 current_floor_index;
 extern s32 current_floor_area_type;
 extern s32 boss_area_id_table[];
@@ -28,6 +27,4 @@ void set_current_floor_area(s32 arg0) {
     if (get_floor_map_selection((arg0), (u8 *)&stack.sp8) == 1) {
         current_floor_area_type = stack.sp8;
     }
-}
-
 }

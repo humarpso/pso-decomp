@@ -35,9 +35,7 @@ extern const f32 lbl_805D84A8;
 TUnk_80482C58::~TUnk_80482C58() {
     if (this->m_11c != NULL) { queue_destruction__7TObjectFv(this->m_11c); *(s32 *)((s8 *)this + 0x11C) = 0; }
 }
-extern "C" {
 
-}
 TUnk_80482C58::TUnk_80482C58(TObject *parent, s32 arg2, s32 arg3) : TObject(parent) {
     s32 i;
     for (i = 0; i < 20; i++) {
@@ -52,7 +50,6 @@ TUnk_80482C58::TUnk_80482C58(TObject *parent, s32 arg2, s32 arg3) : TObject(pare
     ((S_80037264 *)this)->a11c = 0;
     ((S_80037264 *)this)->a120 = 0;
 }
-extern "C" {
 
 void TBoss2LaserLight::render() {  }
 
@@ -113,7 +110,6 @@ void TBoss2LaserLight::run_task() {
 void TBoss2LaserLight__sub_80037474(void* p) { *(s32*)((char*)p + 0x24) = 2; }
 void TBoss2LaserLight__sub_80037480(void* p) { *(s32*)((char*)p + 0x24) = 1; }
 
-}
 TBoss2LaserLight::~TBoss2LaserLight() {
     if (*(void **)((s8 *)this + 0x40) != NULL) { ((TObjLight *)(*(void **)((s8 *)this + 0x40)))->unregister_and_free(); this->m_40 = 0; }
 }

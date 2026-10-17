@@ -8,7 +8,6 @@ struct RecoveredGlobal_8015C048___vt__26TOContainerAncientItemRare {
     u8 remaining[0x148];
 };
 
-extern "C" {
 extern RecoveredGlobal_8015C048___vt__26TOContainerAncientItemRare __vt__26TOContainerAncientItemRare;
 extern s32 lbl_805D2F00;
 extern s32 *ancient_container_fragment_texture_lists;
@@ -19,6 +18,4 @@ u8 *TOContainerAncientItemRare__ct(u8 *container_ancient_item_rare, s32 arg1) {
     *(s32 *)((s8 *)container_ancient_item_rare + 0) = (s32) lbl_805D2F00;
     ((TOContainerAncientItemRare *)container_ancient_item_rare)->texture_id = (s32) *ancient_container_fragment_texture_lists;
     return container_ancient_item_rare;
-}
-
 }

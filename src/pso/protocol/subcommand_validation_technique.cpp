@@ -23,12 +23,10 @@ s32 validate_technique_parameters(void *parameters) {
 s32 validate_cast_target_entry(void *parameters) {
     return ((u32) *(s16 *)((s8 *)parameters + 2) >> 0x1FU) ^ 1;
 }
-extern "C" {
 
 s32 validate_6x46_attack_finished(G_ClientIDHeader *packet) {
     if (validate_subcommand_client(packet) == 0) {
         return 0;
     }
     return validate_attack_target_list((s32 *)((u8 *)packet + 4)) != 0 ? 1 : 0;
-}
 }

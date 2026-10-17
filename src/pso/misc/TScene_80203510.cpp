@@ -180,7 +180,6 @@ void *get_player_by_client_id(s32 i);
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
-extern "C" {
 
 struct Cam_80204688 { u8 pad[0x178]; f32 x; f32 y; f32 z; u8 pad184[0x194 - 0x184]; s32 a194; u8 pad198[4]; s32 a19C; };
 struct Task_80204688 { u8 pad[0x1C]; s32 count; };
@@ -244,7 +243,6 @@ SceneMaterialSection *find_scene_room_by_id(s32 id) {
         }
     }
     return NULL;
-}
 }
 
 void TScene::tick_material_fmt2() {
@@ -1042,7 +1040,6 @@ void TScene::update_records_in_range() {
     }
 }
 
-extern "C" {
 void TScene::update_room_object_visibility(SceneMaterialSection *room) {
     SceneMaterialStatic *object;
     s32 i;
@@ -1129,7 +1126,6 @@ void advance_scene_object_animations(void) {
             }
         }
     }
-}
 }
 
 void TScene::dispatch_material_animation() {

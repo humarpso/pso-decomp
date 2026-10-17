@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/unk/TUnk_804B0BB8.h"
 
-extern "C" {
-
 s32 TUnk_804B0BB8::init_door_switch_binding() {
     s32 temp_r0;
 
@@ -16,6 +14,4 @@ s32 TUnk_804B0BB8::init_door_switch_binding() {
         this->m_cc = 2;
     }
     return *(s32 *)&this->unk_C8;
-}
-
 }

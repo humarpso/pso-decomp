@@ -7,7 +7,5 @@ extern AllocatorCallbacks *global_allocator;
 void xfree(void *arg0) {
     global_allocator->release(arg0, global_allocator);
 }
-extern "C" {
-#pragma pop
 
-}
+#pragma pop

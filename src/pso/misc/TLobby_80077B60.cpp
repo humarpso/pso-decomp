@@ -3,7 +3,6 @@
 #include "pso/system/memory.h"
 #include "pso/misc/TLobby.h"
 
-extern "C" {
 extern u32 lbl_805D4E58;
 extern u32 lbl_805D4E5C;
 
@@ -18,5 +17,3 @@ void TLobby::free_static_windows() {
     }
 }
 void TLobby__sub_80077BAC(void) { (*(int *)&lbl_805D4E58) = 0; (*(int *)&lbl_805D4E5C) = 0; }
-
-}

@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 void TObjPlayer::set_tech_level(s16 arg1) {
     s16 var_r4;
 
@@ -11,6 +9,4 @@ void TObjPlayer::set_tech_level(s16 arg1) {
         var_r4 = 0;
     }
     this->m_id = var_r4;
-}
-
 }

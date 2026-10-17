@@ -3,8 +3,6 @@
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEnePanarms.h"
 
-extern "C" {
-
 int TObjEnePanarms__sub_800DFB74(u8 *arg0) {
     u8 var_r4;
     var_r4 = 0;
@@ -23,5 +21,3 @@ u8 TObjEnePanarms__sub_800DFBB0(u8 *arg0) {
 }
 
 int TObjEnePanarms__sub_800DFBC4(void* p) { return (*(u32*)((char*)p + 0x30) >> 4) & 0x1; }
-
-}

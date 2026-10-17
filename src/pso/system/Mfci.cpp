@@ -77,7 +77,7 @@ void mfci_close(MfciFileEntry *mfci_file_entry) {
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)
-extern "C" {
+
 inline void parse_803D4290(char *s, u32 *hi, u32 *lo) {
     char *end;
     u32 v;
@@ -122,7 +122,6 @@ inline MfciFileEntry *find_free_803D4058(void) {
         }
     }
     return r;
-}
 }
 MfciFileEntry *mfci_open(const char *name, s32 arg1, s32 mode) {
     char *base = lbl_8047DF90;

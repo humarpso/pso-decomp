@@ -25,15 +25,14 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/boss/TObjBoss2CeilJunk.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
-#include "pso/enemy/TObjEneDD.h"
-#include "pso/enemy/TObjEneDD_ST.h"
+
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
+
 #include <stddef.h>
 #pragma push
 namespace constructor_data {
@@ -717,7 +716,6 @@ struct RecoveredGlobal_8002F5AC_lbl_804FE30C {
     u8 remaining[0xC];
 };
 
-extern "C" {
 extern RecoveredGlobal_8002F5AC_lbl_804FE30C lbl_804FE30C;
 extern s32 TBoss2DeRolLe__current_attack_id;
 extern s32 TBoss2DeRolLe__sequence_match_index;
@@ -736,8 +734,6 @@ void fn_8002F5AC(u8 *arg0) {
     lbl_805D4BBC = *(s32 *)((s8 *)arg0 + 0x61C);
     lbl_805D4BC0 = *(s32 *)((s8 *)arg0 + 0x618);
     lbl_805D4BB8 = arg0 + 0x4E8;
-}
-
 }
 
 #pragma pop

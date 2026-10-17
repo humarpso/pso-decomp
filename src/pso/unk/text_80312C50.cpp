@@ -43,7 +43,6 @@ void release_photon_blast_requests(void *registry) {
         }
     }
 }
-extern "C" {
 
 void *TObjPlayer::find_by_section_id(s32 section) {
     s32 n;
@@ -149,5 +148,4 @@ void TObjPlayer__sub_80313010(void *o, s32 id) {
             return;
         }
     }
-}
 }

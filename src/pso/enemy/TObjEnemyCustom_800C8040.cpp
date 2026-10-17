@@ -27,7 +27,6 @@ void handle_6x09_legacy_kill_enemy(s32 arg0) {
         }
     }
 }
-extern "C" {
 
 void TLobby__sub_800C80D0(void) {  }
 void TLobby::clear_table_80500C38() {
@@ -35,5 +34,4 @@ void TLobby::clear_table_80500C38() {
     for (i = 0; i < 0x80; i++) {
         legacy_enemy_kill_received_flags[i] = 0;
     }
-}
 }

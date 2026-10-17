@@ -55,10 +55,8 @@ int update_players__19TPlayerBattleCtrl4PFv(void*);
 
 }
 void TPlayerBattleCtrl4P::sub_80311800() {  }
-extern "C" {
-}
+
 void TPlayerBattleCtrl4P::sub_80311804() {  }
-extern "C" {
 
     extern unsigned char lobby_rule_settings[];
     extern int evt2_random_enemies_mode;
@@ -66,7 +64,6 @@ void TPlayerBattleCtrl4P::reset_random_enemies_mode() { TLobby::clear_counter();
 
 extern void *tl_00;
 
-}
 void TPlayerBattleCtrl4P::return_to_hunters_guild() {
     void *o;
     o = __nw__7TObjectFUl(0x28);
@@ -85,9 +82,7 @@ void TPlayerBattleCtrl4P::finish_battle_reload() {
         set_score((s32)((void*)(3)));
     }
 }
-extern "C" {
 
-}
 void TPlayerBattleCtrl4P::begin_battle_reload_fade() {
     if (--this->frame_timer <= 0) {
         TLobby__sub_8020BC50();
@@ -116,13 +111,11 @@ void TPlayerBattleCtrl4P::begin_battle_reload() {
     frame_timer = 0xF;
     set_score((s32)((void*)(1)));
 }
-extern "C" {
 
 extern s8 controller_input_state[];
 
 typedef char RecoveredGlobal_80311A64_TPlayerBattleCtrl4P__data_80542E90_size[sizeof(RecoveredGlobal_80311A64_TPlayerBattleCtrl4P__data_80542E90) == 0x20 ? 1 : -1];
 
-}
 void TPlayerBattleCtrl4P::close_battle_results() {
     s32 i;
     u32 p;
@@ -168,11 +161,9 @@ void TPlayerBattleCtrl4P::wait_for_rematch_menu_button() {
         set_score((s32)((void*)(5)));
     }
 }
-extern "C" {
 
 #pragma push
 #pragma scheduling off
-}
 void TPlayerBattleCtrl4P::close_rematch_menu() {
     u32 var_r31;
     if ((u32) this->intro_window != 0U) {
@@ -192,11 +183,9 @@ void TPlayerBattleCtrl4P::close_rematch_menu() {
     } while ((s32) var_r31 < 4);
     set_score((s32)((void*)(7)));
 }
-extern "C" {
 
 #pragma pop
 
-}
 void TPlayerBattleCtrl4P::update_rematch_menu() {
     if (has_player_active_menu__11TWindowCtrlFv(local_client_id) == 0) {
         if (((O_80311C2C *)this)->w0 == NULL) {
@@ -232,10 +221,8 @@ void TPlayerBattleCtrl4P::update_rematch_menu() {
     }
 }
 void TPlayerBattleCtrl4P::wait_for_result_window_close() { if (close_windows_on_button() != 0) { close_player_windows(); update_players__19TPlayerBattleCtrl4PFv(this); set_score((s32)((void*)((void*)5))); } }
-extern "C" {
 
 #pragma scheduling off
-}
 #pragma push
 #pragma optimization_level 1
 void TPlayerBattleCtrl4P::open_result_windows() {

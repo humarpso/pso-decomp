@@ -13,7 +13,6 @@ s32 validate_subcommand_client(void *);
 }
 s32 validate_photon_blast_parameters(void *);
 s32 validate_cast_target_entry(void *);
-extern "C" {
 s32 TObjEneHoldEffect::validate_6x49_packet() {
     struct Pkt_8036BBF4 *packet = (struct Pkt_8036BBF4 *)this;
     s32 i;
@@ -29,5 +28,4 @@ s32 TObjEneHoldEffect::validate_6x49_packet() {
         }
     }
     return 1;
-}
 }

@@ -9,7 +9,6 @@ struct Body_8034C1D0 { u32 w[0x234]; };
 
 struct Big_8034C1D0 { u32 a; Body_8034C1D0 b; };
 
-extern "C" {
 extern s32 info_board_state_flags;
 extern u32 information_board_response_buffer;
 void TLobby::init_once(s32 arg0) {
@@ -33,6 +32,4 @@ void *TLobby::get_info_board_ptr() {
         return p;
     }
     return NULL;
-}
-
 }

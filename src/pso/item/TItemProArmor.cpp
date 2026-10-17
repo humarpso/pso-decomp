@@ -146,7 +146,6 @@ u8 *create_item_grinder(u8 *arg0) {
     }
     return NULL;
 }
-extern "C" {
 
 void TItemProArmor::init_effect_flags() {
     TItemProArmor_8011781C *self = (TItemProArmor_8011781C *)this;
@@ -525,5 +524,4 @@ void *TUnk_804A0688::ct() {
     TItemTimerEvent__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804A0688;
     return this;
-}
 }

@@ -2,7 +2,6 @@
 #include "pso/unk/text_801A6A28.h"
 #include "pso/unk/text_801A6A5C.h"
 
-extern "C" {
 void map_c_stick_to_buttons(u8 *arg0, s16 arg1, s16 arg2, s32 arg3) {
     if (arg2 > 0x30) {
         fn_801A6A28(arg0, 0x08000000, arg3);
@@ -31,7 +30,6 @@ void map_main_stick_to_buttons(u8 *arg0, s16 arg1, s16 arg2, s32 arg3) {
         fn_801A6A28(arg0, 0x400000, arg3);
     }
 }
-}
 void update_button_hold_counter(void *arg0, void *arg1, int mask, int held) {
     s16 value = *(s16 *)arg1;
     if (held & mask) {
@@ -41,7 +39,7 @@ void update_button_hold_counter(void *arg0, void *arg1, int mask, int held) {
     }
     *(s16 *)arg1 = value;
 }
-extern "C" {
+
 void update_button_hold_counters(u8 *arg0) {
     update_button_hold_counter(arg0, arg0 + 0x2C, 0x10, (int) (*(s32 *)((s8 *)arg0 + 0x48)));
     update_button_hold_counter(arg0, arg0 + 0x2E, 0x20, (int) (*(s32 *)((s8 *)arg0 + 0x48)));
@@ -57,5 +55,4 @@ void update_button_hold_counters(u8 *arg0) {
     update_button_hold_counter(arg0, arg0 + 0x42, 0x20000000, (int) (*(s32 *)((s8 *)arg0 + 0x48)));
     update_button_hold_counter(arg0, arg0 + 0x44, 0x20000, (int) (*(s32 *)((s8 *)arg0 + 0x48)));
     update_button_hold_counter(arg0, arg0 + 0x46, 0x10000, (int) (*(s32 *)((s8 *)arg0 + 0x48)));
-}
 }

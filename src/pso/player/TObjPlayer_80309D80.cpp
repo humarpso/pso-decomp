@@ -134,7 +134,6 @@ void emit_water_step_particles(s32 owner, s32 position) {
     emit_player_model_particle(owner, position, 0x239, 0);
     emit_player_particle((void*)owner, (void*)position, (void*)(0x238));
 }
-extern "C" {
 
 void TObjPlayer::create_right_hand_ptcl(void *arg1) {
     void *o;
@@ -164,7 +163,6 @@ s32 TObjPlayer::dt_follow_particle_ctrl(s32 arg0, s16 arg1) {
     return arg0;
 }
 void*TObjPlayer::init_follow_particle_ctrl() { TPlyFollowParticleCtrl__sub_8030A694(this); *(int*)(this) = 0; *(int*)((char*)this + 0x4) = 0; return this; }
-}
 
 typedef struct Stack_8030A1E4 Stack_8030A1E4;
 
@@ -180,7 +178,6 @@ s32 emit_player_model_particle(s32 owner, s32 position, s32 entry, s32 model) {
   }
   return emitter;
 }
-extern "C" {
 
 s32 create_attached_oneshot_emitter(unsigned long long arg1, s32 arg2) {
   Stack_8030A1E4 stack;
@@ -226,5 +223,4 @@ s32 TPlyPtclObjectRightHand__vt7(s32 arg0) {
     }
     ((VObj_PTR18_8030A400 *) player)->m63(0x30, get_position_ptr__10TObjPlayerFv(arg0));
     return get_position_ptr__10TObjPlayerFv(arg0);
-}
 }

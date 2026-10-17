@@ -6,7 +6,7 @@
 #pragma dont_inline off
 
 struct ChunkMaterialColor { f32 alpha, red, green, blue; };
-extern "C" {
+
 extern ChunkMaterialColor model_material_color;
 extern const f32 lbl_805E0FC0, lbl_805E0FBC;
 extern s32 chunk_polygon_flags_or_mask, chunk_polygon_flags_and_mask;
@@ -33,4 +33,3 @@ void TUnk_80494AE0::set_chunk_material_color() {
     model_material_color.blue = clampMaterialChannel(((f32 *)this)[3], lbl_805E0FC0, lbl_805E0FBC);
 }
 #pragma pop
-}

@@ -166,9 +166,6 @@ extern const f32 lbl_805DAA88;
 u8 *__ct__13TItemAttackerFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 __nw__7TObjectFUl(int);
 void TItemAttacker__sub_8010349C(u32);
-}
-void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3);
-extern "C" {
 u8 *find_item_by_id(s32);
 f32 horizontal_distance_squared(void *, void *);
 void *resolve_hittable_target(u16 actorId, s16 collider);
@@ -241,7 +238,7 @@ void deliver_delayed_weapon_hit(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x34) = 1;
 }
 }
-
+void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3);
 void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3) {
     s32 var_r0;
     if ((arg0 != 0) && (arg3 != NULL) && (arg1 != 0U) && ((u16) *(u16 *)((s8 *)arg3 + 0xC) != 65535U) && ((u16) *(u16 *)((s8 *)arg3 + 0xE) != 65535U)) {

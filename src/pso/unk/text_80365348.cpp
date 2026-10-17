@@ -19,7 +19,7 @@ void free_object_table(void) {
         }
     }
 }
-extern "C" {
+
 void fn_803653A4(void) {
     s32 i;
     Ent_803653A4 *e;
@@ -38,5 +38,4 @@ void fn_803653A4(void) {
             e++;
         }
     }
-}
 }

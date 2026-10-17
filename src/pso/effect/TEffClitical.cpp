@@ -180,7 +180,6 @@ TEffClitical::TEffClitical(void *arg1) : TEffect() {
     *(f32 *)((s8 *)this + 0x44) = lbl_805D93B0;
     *(u32 *)((s8 *)this + 0x74) = 0;
 }
-extern "C" {
 
 void TEffClitical::create() {
     void *o;
@@ -206,6 +205,4 @@ void approach_position_if_far(u8 *arg0, u8 *arg1, f32 farg0) {
     if (temp_f1 > farg0) {
         approach_vector_fixed_distance(arg0, arg1, arg0, temp_f1 * farg0);
     }
-}
-
 }

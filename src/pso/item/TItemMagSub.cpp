@@ -332,9 +332,7 @@ void TItemMagSub::reset_oscillation() {
     *(f32 *)((s8 *)arg0 + 0x98) = (f32) mag_sub_zero;
     *(f32 *)((s8 *)arg0 + 0x94) = (f32) mag_sub_zero;
 }
-extern "C" {
 
-}
 void TItemMagSub::apply_node_oscillation(void* _w1) {
 
     s32 i;
@@ -382,12 +380,11 @@ void accumulate_mag_axis_oscillation(f32 *arg0, s32 *arg1, void *arg2) {
 
 #pragma push
 #pragma fp_contract on
-extern "C" {
+
 void lerp_follow_anchor(Vec_80114CD8 *target, Vec_80114CD8 *cur, f32 *t) {
     cur->x += *t * (target->x - cur->x);
     cur->y += *t * (target->y - cur->y);
     cur->z += *t * (target->z - cur->z);
-}
 }
 #pragma pop
 
@@ -448,9 +445,7 @@ void TItemMagSub::apply_placement_matrix() {
   temp_f1 = this->owner_height_scale;
   scale_matrix(0, (f32) temp_f1, (f32) temp_f1, (f32) temp_f1);
 }
-extern "C" {
 
-}
 void TItemMagSub::render_shadows() {
     TItemMagSub_80114F0C* self = (TItemMagSub_80114F0C*)this;
     TObjPlayer::reset_transform_state();
@@ -545,9 +540,7 @@ s32 TItemMagSub::resolve_owner_heading() {
     }
     return temp_r3;
 }
-extern "C" {
 
-}
 void TItemMagSub::update_special_pose() {
     MagSub_801151E0* self=(MagSub_801151E0*)this;
     if (self->joint != NULL) {
@@ -578,11 +571,9 @@ void TItemMagSub::update_transition() {
     }
     ((TItemMagSub *)self)->update_follow();
 }
-extern "C" {
 
 #pragma push
 #pragma opt_common_subs off
-}
 void TItemMagSub::update_follow() {
     Sub_80115334* self=(Sub_80115334*)this;
     Vec_80115334 v;
@@ -621,10 +612,9 @@ void TItemMagSub::update_follow() {
         update_mag_node_oscillation_state(&self->st[i]);
     }
 }
-extern "C" {
+
 #pragma pop
 
-}
 void TItemMagSub::run_task() {
     u8* arg0 = (u8*)this;
     if (test_flags__11TItemMagSubFUl(arg0, 0x80U) != 0U) {
@@ -674,11 +664,9 @@ void TItemMagSub::reset() {
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
     *(s32 *)&this->motion = 0;
 }
-extern "C" {
 
 #pragma push
 #pragma fp_contract on
-}
 TItemMagSub::TItemMagSub(MagDrawOwner* player, TObject* parent) : TItemHeapObject(parent) {
     s32 i;
     m_name = (const char*)TItemMagSub_name;
@@ -701,10 +689,8 @@ TItemMagSub::TItemMagSub(MagDrawOwner* player, TObject* parent) : TItemHeapObjec
     disallow_rendering_shadows();
 }
 
-extern "C" {
 #pragma pop
 
-}
 void TObject::disallow_rendering_shadows() { m_flags = (u16)(m_flags | 0x100); }
 void TItemMagSub::clear_growth_flag() {
     void* p=this; ((TItemMagSub *)p)->clear_flags(64); }

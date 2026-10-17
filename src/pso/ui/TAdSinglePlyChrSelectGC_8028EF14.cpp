@@ -73,19 +73,6 @@ void push_matrix();
 s32 pop_matrix(void);
 int fn_8001ED90(void *p);
 void update_pair__23TAdSinglePlyChrSelectGCFPv(void* p);
-}
-extern u32 creation_player_character;
-extern u32 creation_figure_object;
-void request_creation_motion(s32 arg0);
-extern s32 chara_select_creation_shape_rel_files[];
-extern u32 creation_figure_rotation_y;
-void map_shape_region_samples(s32 region, s32 *samples);
-extern CreationShapeBlend creation_shape_blend;
-s32 clear_creation_shape_eval_masks(f32 *dst, const f32 *a, const f32 *b, const f32 *c);
-s32 scan_creation_resources(void *arg0);
-u32 relocate_data_block_pointers(u32 arg0, u32 arg1);
-extern s32 char_select_active_flag;
-extern "C" {
 int TAdSinglePlyChrSelectGC__sub_802905B8(void);
 void close_if_active__23TAdSinglePlyChrSelectGCFv(u8 * _w0);
 int TAdSinglePlyChrSelectGC__sub_8029071C(void*);
@@ -1053,6 +1040,17 @@ s32 load_resource_from_descriptor(s32, s32, s32, s32, s32, s32);
 s32 TObjMotion__ct(void *, void *);
 void *mem_alloc(u32 size);
 }
+extern u32 creation_player_character;
+extern u32 creation_figure_object;
+void request_creation_motion(s32 arg0);
+extern s32 chara_select_creation_shape_rel_files[];
+extern u32 creation_figure_rotation_y;
+void map_shape_region_samples(s32 region, s32 *samples);
+extern CreationShapeBlend creation_shape_blend;
+s32 clear_creation_shape_eval_masks(f32 *dst, const f32 *a, const f32 *b, const f32 *c);
+s32 scan_creation_resources(void *arg0);
+u32 relocate_data_block_pointers(u32 arg0, u32 arg1);
+extern s32 char_select_active_flag;
 void reset_character_creation_figure_rotation(void);
 extern s32 lbl_805D3BBC;
 extern void *creation_menu_main_obj;
@@ -1225,7 +1223,7 @@ void reset_creation_body_shapes() {
   while (group < 7);
 }
 #pragma pop
-extern "C" {
+
 void TCharaMaking__bind_body_shape_nodes(CharacterAppearanceFields *appearance, void *model) {
     reset_creation_body_shapes();
     TObjPlayer::clear_next_entry((s32)model, (u8 *)&creation_body_shape_destination);
@@ -1269,7 +1267,6 @@ void TAdSinglePlyChrSelectGC::free_field_FC() {
     TAdSinglePlyChrSelectGC::safe_free(*(s32 *)((s8 *)this + 0xFC));
     *(s32 *)((s8 *)this + 0xFC) = 0;
 }
-}
 
 void TCMCharacter::run_task() {
     static void (TCMCharacter::*modes[2])() = {
@@ -1280,7 +1277,7 @@ void TCMCharacter::run_task() {
 
 #undef creation_region_sample_index_table
 #undef lbl_804D4054
-extern "C" {
+
 void *creation_region_sample_index_table[24] = {
     (void *)0x1, (void *)0x3, (void *)0x0, (void *)0x0,
     (void *)0x4, (void *)0x3, (void *)0x3, (void *)0x5,
@@ -1308,7 +1305,6 @@ void *lbl_804D4054[21] = {
 #define creation_region_sample_index_table ((s32 *)creation_region_sample_index_table)
 #define lbl_804D4054 ((s32 *)lbl_804D4054)
 
-}
 void TCMCharacter::apply_character_appearance() {
     struct Opaque_80290088 *app;
     CharacterAppearanceFields *raw;
@@ -1368,7 +1364,7 @@ void request_creation_motion(s32 arg0) {
     }
     ((TObjMotion *)creation_figure_object)->set_field_b8(arg0 * 3 + creation_motion_group(creation_player_character));
 }
-extern "C" {
+
 void TAdSinglePlyChrSelectGC::draw_player_model() { set_motion_interpolation_flag__10TObjMotionFv(this); draw_model_with_callback__10TObjPlayerFv(this); }
 void close_if_active__23TAdSinglePlyChrSelectGCFv(u8 * ad_single_ply_chr_select_gc) {
     if ((s32) char_select_active_flag != 0) {
@@ -1417,7 +1413,6 @@ void TAdSinglePlyChrSelectGC::draw_creation_figure() {
         pop_matrix();
         TParticleCtrl::end_effect_render();
     }
-}
 }
 s32 scan_creation_resources(void *arg0) {
     CreationTextureCacheEntry *p;
@@ -1494,7 +1489,7 @@ void map_shape_region_samples(s32 region, s32 *samples) {
         samples[i] = sample;
     }
 }
-extern "C" {
+
 void TAdSinglePlyChrSelectGC::get_sorted_region_samples(s32 *samples) {
     s32 j;
     s32 y;
@@ -1513,7 +1508,6 @@ void TAdSinglePlyChrSelectGC::get_sorted_region_samples(s32 *samples) {
         }
     }
 }
-}
 #pragma push
 #pragma fp_contract on
 s32 clear_creation_shape_eval_masks(f32 *dst, const f32 *a, const f32 *b, const f32 *c) {
@@ -1524,7 +1518,7 @@ s32 clear_creation_shape_eval_masks(f32 *dst, const f32 *a, const f32 *b, const 
     return 1;
 }
 #pragma pop
-extern "C" {
+
 s32 TAdSinglePlyChrSelectGC::map_button_code(s32 arg0) {
     switch (arg0) {
     case 0x29:
@@ -1603,7 +1597,6 @@ void TAdSinglePlyChrSelectGC::update_char_panels() {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x2F8) != 0) {
         TLobby__sub_803DA16C(arg0 + 0x460);
     }
-}
 }
 
 #pragma defer_codegen off

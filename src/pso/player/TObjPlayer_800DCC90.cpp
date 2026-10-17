@@ -7,8 +7,7 @@
 #include "pso/object/TObjGyaranzoMissile.h"
 
 struct Vec_800DCD04 { f32 x, y, z; };
-extern "C" { extern const Vec_800DCD04 lbl_8043C920 = {0.0f, 0.0f, 0.0f}; }
-
+ extern const Vec_800DCD04 lbl_8043C920 = {0.0f, 0.0f, 0.0f};
 typedef struct Parm_800DC4B4 {
     s32 a;
     f32 b;

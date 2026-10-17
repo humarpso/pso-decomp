@@ -2,8 +2,6 @@
 #include "pso/TObjBoss5Ctrl.h"
 #include "pso/boss/TObjBoss5PillarCtrl.h"
 
-extern "C" {
-
 extern void *boss5_ctrl_instance;
 
 void TObjBoss5Ctrl::play_pillar_sound() {
@@ -12,6 +10,4 @@ void TObjBoss5Ctrl::play_pillar_sound() {
     if (sp4 != NULL && (u32) *(u32 *)((s8 *)sp4 + 0x28) != 0U) {
         ((TObjBoss5PillarCtrl *)(*(void **)((s8 *)sp4 + 0x28)))->play_sound_once();
     }
-}
-
 }

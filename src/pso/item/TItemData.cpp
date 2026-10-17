@@ -661,8 +661,6 @@ int TItemData::isValidGroundDrop() {
     } else return 0;
 }
 
-extern "C" {
-
 void TItemData__sub_8010CA08(TItemData *arg0, u32 arg1, u8 arg2) {
     s8 sp8[10];
     init__9TItemDataFv();
@@ -775,7 +773,6 @@ s32 TItemData::get_item_use_result() {
 
 }
 
-}
 #undef lookup_item_pmt_record
 #undef lookup_item_def__9TItemDataFPv
 #undef init__9TItemDataFv
@@ -1715,7 +1712,6 @@ s32 format_item_description(u8 *item) {
     }
     return lbl_805D2B10;
 }
-extern "C" {
 
 void TItemData::format_item_name(char *buf) {
     u8 *arg0 = (u8 *)this;
@@ -1940,7 +1936,6 @@ s32 TItemData::check_item_flags() {
         return is_wrapped__9TItemDataFPv() != 0 ? 1 : 0;
     }
     return 1;
-}
 }
 #undef calc_clock_bonus__9TItemDataFPv
 #undef add_armor_stat_contribution__9TItemDataFPviiPv

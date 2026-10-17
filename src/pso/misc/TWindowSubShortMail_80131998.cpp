@@ -8,8 +8,6 @@
 #include "pso/misc/TWindowMakeTeam.h"
 #include "pso/misc/TWindowSubTradeMain.h"
 
-extern "C" {
-
 void TWindowSubShortMail__sub_80131998(void *arg0) {
     u16 temp_r3;
 
@@ -37,6 +35,4 @@ void TWindowSubShortMail::hide_window() {
             window_request_show(*(void * *)&this->m_28);
         }
     }
-}
-
 }

@@ -3,8 +3,6 @@
 #include "pso/misc/TLoadCtrl.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
-
 extern u8 lbl_805D4A78;
 
 u8 TAdSinglePlyChrSelectGC::get_chr_select_state() {
@@ -23,6 +21,4 @@ void TLoadCtrl::set_field1C(s32 arg0) {
     if ((void *) TLoadCtrl__instance != NULL) {
         *(s32 *)((s8 *)TLoadCtrl__instance + 0x1C) = arg0;
     }
-}
-
 }

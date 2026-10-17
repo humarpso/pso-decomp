@@ -2,8 +2,6 @@
 #include "pso/TProtocol.h"
 #include "pso/protocol.h"
 
-extern "C" {
-
 void TProtocol::handle_cmd_90(packet &pkt) {
     s32 *arg1 = (s32 *)&pkt;
     u8 *arg0 = (u8 *)this;
@@ -16,6 +14,4 @@ void TProtocol::handle_cmd_90(packet &pkt) {
     if (temp_r12 != NULL) {
         temp_r12(*(u8 *)((s8 *)&sp8 + 0x1));
     }
-}
-
 }

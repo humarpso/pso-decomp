@@ -8,10 +8,8 @@ extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
-#include "pso/enemy/TObjEneDarkGunCenter.h"
-#include "pso/enemy/TObjEnemy.h"
+
 extern "C" void render__20TObjEneDarkGunCenterFv();
-#include "pso/player/TObjPlayer.h"
 
 struct VBase_800A0B20 { u8 pad[0x18]; };
 

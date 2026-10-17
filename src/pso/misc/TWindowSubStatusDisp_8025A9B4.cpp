@@ -190,7 +190,6 @@ void set_text_entry_string(u8 *arg0, u32 str, s32 arg2) {
     *(u16 *)((s8 *)arg0 + 0) = (u16) (*(u16 *)((s8 *)arg0 + 0) | (arg2 & 0x2C1));
 }
 #pragma pop
-extern "C" {
 
 int TWindowDuelResult::set_default_status(void* p, int a1) { return ((int (*)(void *, int, int))set_text_entry_string)(p, a1, 0); }
 
@@ -233,7 +232,6 @@ void render_text_entry(Win_8025AD5C *arg0, Ref_8025AD5C *arg1) {
     }
     }
 }
-}
 #pragma pop
 
 #pragma push
@@ -247,7 +245,6 @@ void advance_text_entry_reveal(u8 *arg0) {
     }
 }
 #pragma pop
-extern "C" {
 
 void *TWindowSubStatusDisp__sub_8025AF0C(void *window_sub_status_disp, s16 arg1) {
     u16 temp_r3;
@@ -267,7 +264,6 @@ void *TWindowSubStatusDisp__sub_8025AF0C(void *window_sub_status_disp, s16 arg1)
         }
     }
     return window_sub_status_disp;
-}
 }
 
 u8 *construct_text_entry(u8 *arg0, u8 *arg1, s32 arg2) {

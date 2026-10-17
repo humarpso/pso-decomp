@@ -27,7 +27,7 @@ extern s32 local_client_id;
 }
 
 struct TMedicalCenterMesInput { u8 pad[0x20]; u8 buttons[0x30]; };
-extern "C" TMedicalCenterMesInput controller_input_state[];
+TMedicalCenterMesInput controller_input_state[];
 
 #include "pso/misc/TShopGenerator.h"
 #include "pso/misc/TWindowCtrl.h"
@@ -376,7 +376,7 @@ TMedicalCenterMes::~TMedicalCenterMes() {
     }
 }
 
-extern "C" void TMedicalCenterMes__sub_80216260(void) {
+void TMedicalCenterMes__sub_80216260(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
         TMedicalCenterMes__slot_flags[i] = 0;

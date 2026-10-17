@@ -14,11 +14,10 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjDFHorming.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/player/TUnk_804806E8.h"
+
 #include "dolphin/mtx.h"
 #include <stddef.h>
-#include "pso/TObject.h"
+
 #include "pso/TObjDFTenchuFuru.h"
 class TObjDFJisin : public TObject {
 public:
@@ -750,11 +749,7 @@ void *__vt__13TObjDFRecBall[] = {
     (void *)render__7TObjectFv,
     (void *)render_shadows__7TObjectFv,
 };
-}
 
-#include "pso/boss/TObjDFRecover.h"
-
-extern "C" {
 void *__dt__13TObjDFRecoverFv(void *arg0, s16 arg1);
 void run_task__13TObjDFRecoverFv();
 void __dt__7TObjectFv(void *, s16);
@@ -827,7 +822,6 @@ void TObjDFRecover::run_task() {
 }
 #pragma pop
 
-extern "C" {
 void *__dt__13TObjDFRecoverFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void **)((s8 *)arg0 + 0x18) = __vt__13TObjDFRecover;
@@ -838,7 +832,6 @@ void *__dt__13TObjDFRecoverFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
-}
 }
 
 extern const char *TObjDFRecover__name;

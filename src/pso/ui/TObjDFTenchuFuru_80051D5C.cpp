@@ -58,7 +58,6 @@ void boss6type2_draw_models(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u3
         }
     }
 }
-extern "C" {
 
 void TObjPlayer::draw_player_model_by_id(s32 arg0, f32 alpha) {
     u8 *p;
@@ -121,5 +120,4 @@ void TObjPlayer::draw_player_model_by_id(s32 arg0, f32 alpha) {
         pop_matrix();
         TCharaMaking::clear_flag_bit0();
     }
-}
 }

@@ -138,8 +138,6 @@ struct VObj_801D4A6C : Base_801D4A6C {
     virtual void m27(s16);
 };
 
-extern "C" {
-
 void remove_equipped_item__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
     s16 temp_r4;
     void *temp_r3;
@@ -154,6 +152,4 @@ void remove_equipped_item__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
         ((VObj_801D4A6C *)temp_r3)->m27(temp_r4);
         ((s32 (*)(s32)) queue_destruction__7TObjectFv)(arg2);
     }
-}
-
 }

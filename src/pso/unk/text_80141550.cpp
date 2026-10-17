@@ -49,7 +49,7 @@ u32 photon_chair_color_vec4[4];
 Cfg_80141604 depth_buffer_settings;
 Cfg_80141604 depth_buffer_config_copy;
 Cfg_80141604 saved_depth_alpha_scene_state;
-extern "C" {
+
 void TObjPlayer::init_default_config() {
     depth_buffer_settings.a = 7;
     depth_buffer_settings.b = 1;
@@ -60,7 +60,6 @@ void TObjPlayer::init_default_config() {
     depth_buffer_settings.g = 1;
     ((TObjPlayer *)(&depth_buffer_config_copy))->copy_config(&depth_buffer_settings);
     ((TObjPlayer *)(&saved_depth_alpha_scene_state))->copy_config(&depth_buffer_settings);
-}
 }
 
 struct RecoveredGlobal_80141860_lbl_8050C000 {
@@ -141,11 +140,9 @@ void set_depth_buffer_settings_id(u32 arg0) {
 void restore_depth_buffer_settings(void) {
     ((TObjPlayer *)(&(*(RecoveredGlobal_80141788_lbl_8050C000 *)&(*(RecoveredGlobal_80141860_lbl_8050C000 *)&depth_buffer_settings)).value))->copy_config((void*)((void *) (&(*(RecoveredGlobal_80141788_lbl_8050C028 *)&(*(RecoveredGlobal_80141730_lbl_8050C028 *)&saved_depth_alpha_scene_state)).value)));
 }
-extern "C" {
 
 typedef char RecoveredGlobal_801417B8_lbl_8050C000_size[sizeof(RecoveredGlobal_801417B8_lbl_8050C000) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_801417B8_lbl_8050C028_size[sizeof(RecoveredGlobal_801417B8_lbl_8050C028) == 0x18 ? 1 : -1];
-}
 void save_depth_buffer_settings(void) {
     ((TObjPlayer *)(&(*(RecoveredGlobal_801417B8_lbl_8050C028 *)&(*(RecoveredGlobal_80141730_lbl_8050C028 *)&saved_depth_alpha_scene_state)).value))->copy_config((void*)((void *) (&(*(RecoveredGlobal_801417B8_lbl_8050C000 *)&(*(RecoveredGlobal_80141860_lbl_8050C000 *)&depth_buffer_settings)).value)));
 }
@@ -169,7 +166,4 @@ void set_depth_buffer_settings_2(void) {
     GXSetZCompLoc(0);
     GXSetZMode(1U, 7, 0);
     set_material_alpha_compare_reference(0);
-}
-extern "C" {
-
 }

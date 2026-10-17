@@ -3,8 +3,6 @@
 #include "pso/item/TItemEquipVariant_8012312C.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 extern s32 lbl_804A1668[];
 
 void *__dt__13TUnk_804A1668Fv(void *arg0, s16 arg1) {
@@ -29,6 +27,4 @@ void *__dt__13TUnk_804A1760Fv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
-}
-
 }

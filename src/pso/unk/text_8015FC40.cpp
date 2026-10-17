@@ -12,7 +12,6 @@ struct Obj_8015FC40 { u8 pad[4]; s16 kind; };
 
 struct Self_8015FC40 { u8 pad[0x1C]; u16 id; u8 pad1e[0x80 - 0x1E]; Obj_8015FC40 *obj; };
 
-extern "C" {
 void TODoorAncient08::door_ancient08_sync_state(void *src_arg) {
     Self_8015FC40 *self = (Self_8015FC40 *)this;
     State_8015FC40 *src = (State_8015FC40 *)src_arg;
@@ -32,6 +31,4 @@ void TODoorAncient08::door_ancient08_sync_state(void *src_arg) {
         pkt.kind = obj->kind;
         update_and_send_60__6TLobbyFPv(&pkt);
     }
-}
-
 }

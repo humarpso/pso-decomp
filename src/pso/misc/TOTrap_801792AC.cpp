@@ -51,7 +51,6 @@ struct VObj_80179358_801792AC : Base_80179358_801792AC {
     virtual void m20(int, f32);
 };
 
-extern "C" {
 void TOTrap::vfunc_86() {  }
 void TOTrap::vfunc_88() {  }
 
@@ -88,6 +87,4 @@ f32 TOTrap::get_scale(u32 arg1) {
         arg0->m20(0, TOTrap__data_805DBA38);
     }
     return TOTrap__data_805DBA3C;
-}
-
 }

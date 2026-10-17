@@ -42,8 +42,6 @@ TBoss5GryphonSnarl::~TBoss5GryphonSnarl() {
     }
 }
 
-extern "C" {
-
 #pragma push
 #pragma opt_common_subs off
 Obj_80066DC8 *TBoss5GryphonSnarl__ct(Obj_80066DC8 *self, void *parent, void *arg2) {
@@ -86,6 +84,4 @@ void TLobby__sub_80066EC0(void) {
     }
     TLobby__sub_8001FE7C(lbl_805D4DD8, 1);
     lbl_805D4DD8 = 0;
-}
-
 }

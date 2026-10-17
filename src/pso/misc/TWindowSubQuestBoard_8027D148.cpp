@@ -26,10 +26,7 @@ TWindowSubQuestBoard::TWindowSubQuestBoard(TObject *object, void *arg2) : TObjec
     this->m_1c = 0;
     TWindowCtrl__sub_8027D214();
 }
-extern "C" {
 
 u8 TWindowSubQuestBoard::get_page_index() { return *(u8*)((char*)this + 0x61); }
 int TWindowSubQuestBoardSelect::is_open() { return this->m_60 & 0x1; }
 int TWindowSubQuestBoard__sub_8027D1DC(void* p) { return *(u8*)((char*)p + 0x60) & 0x2; }
-
-}

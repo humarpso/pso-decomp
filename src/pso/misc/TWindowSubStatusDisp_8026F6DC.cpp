@@ -23,9 +23,6 @@ int obj_getArrWord_254(void *p, int i);
 void * get_player_by_client_id();
 void *__nw__7TObjectFUl(int);
 void TWindow__close(u8 *arg0);
-}
-s32 get_status_effect_icon_index(u32 arg0);
-extern "C" {
 void TWindowComCard__sub_80249D7C(u8 *arg0, s32 arg1);
 void *TWindowComCard__sub_80249ED8(void *, void *, void *, s32, s32, s32);
 extern const f32 lbl_805DD38C;
@@ -110,6 +107,7 @@ s32 get_width__19TWindowSimpleStatusFv();
 s32 apply_context_transform_to_rect(u8 *, Rect_80270394 *);
 s32 start_text_color_transition(void *, s32, f32);
 }
+s32 get_status_effect_icon_index(u32 arg0);
 void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1);
 extern "C" {

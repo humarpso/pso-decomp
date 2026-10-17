@@ -5,8 +5,4 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
-
 int TWindowInputNumber::is_confirmed() { return (this->inputFlags >> 1) & 0x1; }
-
-}

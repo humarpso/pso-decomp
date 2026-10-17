@@ -30,9 +30,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/misc/TScene.h"
 #include "pso/misc/TTecResta.h"
 #include "pso/misc/TTecSifta.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/enemy/TObjEneDD_ST.h"
-#include "pso/enemy/TObjEneMe3StelthReal.h"
 
 extern "C" int draw_model__16TObjEneMe3StelthFPv(void* p);
 extern "C" void sub_800F5874__12TObjEneDD_STFl(u8 *arg0, s32 arg1);

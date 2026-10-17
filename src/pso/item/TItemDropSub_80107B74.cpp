@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/item/TItemDropSub_80107B74.h"
 
-extern "C" {
-
 extern void *TItemDropSub__instance;
 
 s32 TItemDropSub__sub_80107B74(void) {
@@ -10,6 +8,4 @@ s32 TItemDropSub__sub_80107B74(void) {
         return *(s32 *)((s8 *)TItemDropSub__instance + 0x1C);
     }
     return 0xA;
-}
-
 }

@@ -167,7 +167,6 @@ TUnk_8049F130::TUnk_8049F130(TObject *parent, s16 a, u8 b) : TObject(parent) {
     ((Obj_8010A1D0 *)this)->f_2A = b;
     ((Obj_8010A1D0 *)this)->f_2C = get_item_system_generation();
 }
-extern "C" {
 
 void TUnk_8049F148::run_task() {
     s32 sp8[6];
@@ -207,6 +206,4 @@ void TUnk_8049F148::run_task() {
     } else {
         queue_destruction__7TObjectFv(this);
     }
-}
-
 }

@@ -3,8 +3,6 @@
 #include "pso/misc/TLobby_803CE478.h"
 #include "pso/misc/TLobby.h"
 
-extern "C" {
-
 void TLobby::update_scroll() {
     u8 *arg0 = (u8 *)this;
     s32 spC;
@@ -35,6 +33,4 @@ void TLobby__sub_803CE544(u32 arg0, s32 arg1) {
     }
     cvfs_completion_callback = arg0;
     lbl_805D75FC = arg1;
-}
-
 }

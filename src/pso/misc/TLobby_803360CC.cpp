@@ -294,7 +294,5 @@ void initialize_lobby_title_scene(void) {
     TLobby::reset_counter();
     set_current_floor_area(0);
 }
-extern "C" {
 
 void TAdMultiPlyChrSelectGC__sub_803367E8(void) { lbl_805D68C8 = 0; }
-}

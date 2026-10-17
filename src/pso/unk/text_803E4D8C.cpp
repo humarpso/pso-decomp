@@ -91,7 +91,6 @@ typedef char RecoveredGlobal_803D77C0_lbl_8047E3C8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_803D77C0_lbl_804FA500_size[sizeof(RecoveredGlobal_803D77C0_lbl_804FA500) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_803D77C0_lbl_804FA50C_size[sizeof(RecoveredGlobal_803D77C0_lbl_804FA50C) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_803D77C0_lbl_804FA51C_size[sizeof(RecoveredGlobal_803D77C0_lbl_804FA51C) == 0x24 ? 1 : -1];
-extern "C" {
 
 void draw_motion_bound__10TObjPlayerFiiPvfi(s32 child, s32 arg1, u8 *arg2, f32 farg0, s32 arg3) {
     u8 *p = model_draw_context;
@@ -343,5 +342,4 @@ void TObjPlayer__sub_803E53F8(u8 *arg0, f32 farg0) {
 typedef char RecoveredGlobal_803E5458_lbl_8058DC00_size[sizeof(RecoveredGlobal_803E5458_lbl_8058DC00) == 0x48 ? 1 : -1];
 void TObjPlayer__sub_803E5458(s32 arg0) {
     lbl_805D7818 = (u8 *)&lbl_8058DC00.value + (arg0 * 0x24);
-}
 }

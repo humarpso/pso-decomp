@@ -82,11 +82,8 @@ TWindowEffectParty::TWindowEffectParty(TObject *object, s8 arg2, s8 arg3, void *
     *(s32 *)&this->m_30 = (s32)spawn_continuous_particle_effect_with_flags((void *)&p, (s32)arg4, 0xC0);
     *(s8 *)&this->m_1c = 0;
 }
-extern "C" {
 
 void *TWindowCtrl__sub_8024FB80(s8 i) {
     if (TWindowCtrl__active_window == 0) return 0;
     return TWindowCtrl__active_window->arr[i];
-}
-
 }

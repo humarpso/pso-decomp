@@ -2,8 +2,6 @@
 #include "pso/unk/text_8036A3CC.h"
 #include "pso/unk/text_8036A5B4.h"
 
-extern "C" {
-
 u8 check_flag_index_set(s32 arg0) {
     s32 sp8;
     s32 *temp_r3;
@@ -19,6 +17,4 @@ u8 check_flag_index_set(s32 arg0) {
         return 0U;
     }
     return (u8) ((*temp_r3 & sp8) != 0);
-}
-
 }

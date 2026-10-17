@@ -6,7 +6,6 @@
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
 extern u8 boss4_zako_draw_buffers[];
 extern u32 dark_falz_controller_instance;
 extern s32 TBoss4ZakoDraw__draw_buffer_index;
@@ -27,5 +26,3 @@ void TBoss4ZakoDraw::run_task() {
     }
 }
 TBoss4ZakoDraw::~TBoss4ZakoDraw() {}
-
-}

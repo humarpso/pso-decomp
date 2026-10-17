@@ -6,8 +6,4 @@
 #include "pso/misc/TWindowKeyBoardHard.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 void TObjMotion::set_field_b8(s16 v) { this->m_b8 = v; }
-
-}

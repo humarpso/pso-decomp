@@ -94,4 +94,4 @@ TEnding::TEnding() : TObject(tl_window) {
     if (text != NULL) __ct__10TAdEndTextFv(text, this);
 }
 
-extern "C" void TEnding__sub_8008C9F8() {}
+void TEnding__sub_8008C9F8() {}

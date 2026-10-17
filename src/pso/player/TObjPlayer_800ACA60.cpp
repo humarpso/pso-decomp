@@ -618,8 +618,6 @@ void TObjEneMoja::vfunc_62() {
     appearance = 0;
 }
 
-extern "C" {
-
 extern const s32 lbl_805D9BFC;
 
 void TObjPlayer::update_invincibility() {
@@ -638,8 +636,6 @@ void TObjPlayer::update_invincibility() {
         *(s16 *)&this->unk_33C = (s16) *(s16 *)((s8 *)this + 0x33A);
         this->m_33e = (s16) this->hp;
     }
-}
-
 }
 
 void TObjEneMoja::vfunc_61() {
@@ -662,8 +658,6 @@ void TObjEneMoja::vfunc_61() {
     }
     appearance = 0;
 }
-
-extern "C" {
 
 void update_attack_jump__11TObjEneMojaFv(Obj_800ACFE8 *arg0) {
     Vec_800ACFE8 delta;
@@ -1156,8 +1150,6 @@ s32 TObjEneMoja::update_approach_state() {
     ((TObjPlayer *)arg0)->update_collisions();
 }
 
-}
-
 void TObjEneMoja::vfunc_59() {
     MojaCollisionState *moja_collision_state;
 
@@ -1180,8 +1172,6 @@ void TObjEneMoja::vfunc_59() {
         appearance = 0;
     }
 }
-
-extern "C" {
 
 #pragma push
 #pragma dont_inline off
@@ -1379,8 +1369,6 @@ void TObjEneMoja::update_idle_state() {
     ((TUnk_804B9870 *)self)->obj_clearFlags30(0x200000);
 }
 
-}
-
 void TObjEneMoja::vfunc_58() {
     s32 temp_r0;
 
@@ -1406,7 +1394,6 @@ void TObjEneMoja::vfunc_58() {
     }
 }
 
-extern "C" {
 s32 TObjEneMoja::update_movement_status() {
     void *temp_r3;
     if (update_movement_status__13TUnk_804806E8Fv() != 0) {
@@ -1662,6 +1649,4 @@ void TObjEneMoja::run_task() {
     temp_f1 = this->m_2b4;
     this->m_2b4 = (f32) (temp_f1 + lbl_805D9BDC);
     minimap_render_dot((u8 *)&this->position, -0x5DB4, 1, 0, temp_f1);
-}
-
 }

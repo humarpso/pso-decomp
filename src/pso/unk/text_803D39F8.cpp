@@ -35,8 +35,6 @@ extern s32 mfci_error_callback_context;
 extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047E0F8;
 extern G_803D3A4C lbl_8047E0E0;
 
-extern "C" {
-
 typedef char RecoveredGlobal_803D39F8_lbl_8047E0C8_size[sizeof(RecoveredGlobal_803D39F8_lbl_8047E0C8) == 0x18 ? 1 : -1];
 s32 TLobby::get_handle_field_checked() {
     u8 *arg0 = (u8 *)this;
@@ -85,6 +83,4 @@ s32 TLobby::get_handle_value_checked_b() {
         return 0;
     }
     return arg0->f;
-}
-
 }

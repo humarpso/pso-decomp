@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/misc/TUnk_804ED7D0.h"
 
-extern "C" {
-
 int TUnk_804ED7D0::vfunc_24() { return 0x6; }
 int TUnk_804ED7D0::vfunc_26() { return 0x7; }
 int TUnk_804ED7D0::vfunc_28() { return 0x8; }
@@ -52,5 +50,3 @@ int TUnk_804ED7D0::vfunc_70() { return 0x33; }
 int TUnk_804ED7D0::vfunc_71() { return 0x34; }
 int TUnk_804ED7D0::vfunc_72() { return 0x35; }
 int TUnk_804ED7D0::vfunc_75() { return 0x38; }
-
-}

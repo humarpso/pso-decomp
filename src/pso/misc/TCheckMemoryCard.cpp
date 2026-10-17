@@ -97,7 +97,6 @@ TCheckMemoryCard::TCheckMemoryCard(TObject *object, void *arg2, void *arg3, void
     *(void **)((s8 *)this + 0x4C) = arg3;
     ((TWindowSubComCard *)this)->reset();
 }
-extern "C" {
 
 void *TCheckMemoryCard::create(void *arg1, void *arg2) {
     void *o;
@@ -106,6 +105,4 @@ void *TCheckMemoryCard::create(void *arg1, void *arg2) {
         o = __ct__16TCheckMemoryCardFP7TObjectPvPvPv(o, this, arg1, arg2, (void *)(1));
     }
     return o;
-}
-
 }

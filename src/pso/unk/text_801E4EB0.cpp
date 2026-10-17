@@ -12,8 +12,6 @@ struct Obj_801E4EB0 {
     Info_801E4EB0 *info;
 };
 
-extern "C" {
-
 void TUnk_804C57F0::quad_sprite_reset_entries() {
     Obj_801E4EB0 *o = (Obj_801E4EB0 *)this;
     s32 i;
@@ -22,6 +20,4 @@ void TUnk_804C57F0::quad_sprite_reset_entries() {
         o->ptrs[i] = &o->ents[i];
     }
     o->f24 = 0;
-}
-
 }

@@ -28,14 +28,12 @@ extern const f32 lbl_805DDC2C;
 extern const f32 lbl_805DDC30;
 void get_creation_pad_stick(s32 *arg0, f32 *arg1);
 extern const f32 lbl_805DDC20;
-extern "C" {
 
 f32 TObjCMProportion::get_ratio() {
     return (f32) *(u16 *)((s8 *)(get_creation_pad()) + 0x18) / lbl_805DDC20;
 }
 f32 TObjCMProportion::get_right_trigger_ratio() {
     return (f32) *(u16 *)((s8 *)(get_creation_pad()) + 0x1A) / lbl_805DDC20;
-}
 }
 typedef char RecoveredGlobal_8029914C_lbl_805409C8_size[sizeof(RecoveredGlobal_8029914C_lbl_805409C8) == 0x18 ? 1 : -1];
 
@@ -65,7 +63,6 @@ void get_creation_pad_stick(s32 *arg0, f32 *arg1) {
     }
 }
 #pragma pop
-extern "C" {
 
 u8 TObjCMProportion__sub_8029914C(s32 arg0) {
     return (u8) ((*(s32 *)((s8 *)(&creation_input_state.value) + 0xC) & arg0) != 0);
@@ -105,5 +102,4 @@ void TObjCMProportion::poll_pad_buttons() {
         G_80299238(0xC) |= 2;
     }
     G_80299238(0x10) = G_80299238(0xC) & ~old;
-}
 }

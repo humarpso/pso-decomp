@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
 
-extern "C" {
-
 s32 TWindowKeyBoardSoft::strnlen(s8 *str, u32 max) {
     u32 i;
     if (str == 0) {
@@ -17,6 +15,4 @@ s32 TWindowKeyBoardSoft::strnlen(s8 *str, u32 max) {
         i++;
     }
     return i;
-}
-
 }

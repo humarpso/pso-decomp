@@ -5,12 +5,9 @@
 
 struct O_80099F00 { u8 pad[0xb0]; s32 xb0; };
 
-extern "C" {
 s32 TItem::get_field_d8() { return (*(s32 *)&(*(void * *)((u8 *)this + 0xD8))); }
 void TUnk_8048FE08::render() {
     if (((O_80099F00 *)this)->xb0 == 0) {
         return;
     }
-}
-
 }

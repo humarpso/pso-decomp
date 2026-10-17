@@ -7,7 +7,6 @@
 #include "pso/enemy/TObjEneEpsilonGuard.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
 void TObjEneEpsilonBody::run_task() {
     if (TObjPlayer::check_demo_mode() != 0) {
         this->vfunc_105();
@@ -26,6 +25,4 @@ void TObjEneEpsilonBody::run_task() {
     ((TObjEneEpsilonGuard *)((u8 *)this))->update_position();
     ((TBoss8Dragon *)((u8 *)this))->set_player_state_default();
     this->vfunc_100();
-}
-
 }

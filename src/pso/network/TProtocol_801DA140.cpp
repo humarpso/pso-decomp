@@ -3,7 +3,7 @@
 
 extern "C" void bswap__17TSendDownloadHeadFv(TSendDownloadHead *);
 
-extern "C" void fn_801DA140(TProtocol *self, s8 flags, const char *filename) {
+void fn_801DA140(TProtocol *self, s8 flags, const char *filename) {
     TSendDownloadHead pkt;
     memset(&pkt, 0, sizeof(pkt));
     pkt.header.command = 0xD7;

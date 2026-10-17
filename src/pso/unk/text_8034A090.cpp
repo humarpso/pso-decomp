@@ -87,7 +87,6 @@ TAdLoadQuestPrtTxtGC::~TAdLoadQuestPrtTxtGC() {
         }
     }
 }
-extern "C" {
 
 s32 get_or_create_prt_txt__14TAdLoadQuestGCFii(s32 arg0, s32 arg1) {
     s32 temp_r30;
@@ -103,6 +102,4 @@ s32 get_or_create_prt_txt__14TAdLoadQuestGCFii(s32 arg0, s32 arg1) {
         *(s32 *)((s8 *)&quest_load_prt_txt_by_slot.value + temp_r30) = var_r0;
     }
     return *(s32 *)((s8 *)&quest_load_prt_txt_by_slot.value + temp_r30);
-}
-
 }

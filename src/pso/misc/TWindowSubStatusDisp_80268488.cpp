@@ -6,8 +6,4 @@
 #include "pso/misc/TWindowSubTradeMain.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
-
 int TWindowSubStatusDisp::is_flag80_set() { return *(u16 *)&this->m_name & 0x80; }
-
-}

@@ -475,10 +475,6 @@ extern u8 lobby_ppp_read_buf;
 B_803FADA0 *init_net_buffer_entry__6TLobbyFUs(s32);
 extern u8 lbl_805D7A74[1];
 void TLobby__sub_803FADA0(B_803FADA0 **arg0, A_803FADA0 *arg1, s32 arg2, s32 arg3, void *arg4);
-}
-void NetYieldThread(void);
-s32 NetSetDefaultThreadPriority(s32 arg0);
-extern "C" {
 void TLobby__sub_803FA234(void);
 void TLobby__sub_803FA238(u8 *arg0);
 void TLobby__sub_803FA280(void);
@@ -599,11 +595,11 @@ void TLobby::signal_alarm_queue(void *alarm) {
     }
 }
 }
-
+void NetYieldThread(void);
+s32 NetSetDefaultThreadPriority(s32 arg0);
 void NetYieldThread(void) {
     OSYieldThread();
 }
-extern "C" {
 
 void TLobby::resume_thread() {
     OSResumeThread();
@@ -659,7 +655,6 @@ s32 TLobby::run_current_thread_callback() {
         e->fn(e);
     }
     return 0;
-}
 }
 
 s32 NetSetDefaultThreadPriority(s32 arg0) {

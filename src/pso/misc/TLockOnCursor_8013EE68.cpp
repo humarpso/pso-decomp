@@ -3,8 +3,6 @@
 #include "pso/system/memory.h"
 #include "pso/misc/TLockOnCursor.h"
 
-extern "C" {
-
 extern s32 lbl_804A7248[];
 
 void *TLockOnCursor::destroy(s16 arg1) {
@@ -19,5 +17,3 @@ void *TLockOnCursor::destroy(s16 arg1) {
 }
 
 void TLockOnCursor::sub_8013EEC0(s16 v) { *(s16*)((char*)this + 0x20) = v; }
-
-}

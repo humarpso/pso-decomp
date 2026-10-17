@@ -69,7 +69,6 @@ struct Ent_8020B1E4 { u8 pad[2]; s16 f2; s16 f4; s16 f6; };
 
 struct Grp_8020B1E4 { u8 pad[4]; s32 count; u8 pad2[0xC]; Ent_8020B1E4 *ents; };
 
-extern "C" {
 extern RecoveredGlobal_8020B118_lbl_8044BBF0 lbl_8044BBF0;
 extern RecoveredGlobal_8020B118_lbl_8044BC04 lbl_8044BC04;
 extern s32 map_set_data_handle_a;
@@ -158,6 +157,4 @@ s32 TLobby__sub_8020B308(void) {
     s32 i;
     for (i = 0; i < 18; i++) sum += TLobby__data_80513C80[i];
     return sum;
-}
-
 }

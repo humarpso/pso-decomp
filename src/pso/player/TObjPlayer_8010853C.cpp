@@ -2,8 +2,6 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/TObject.h"
 
-extern "C" {
-
 void TObjPlayer::create_item_eff_cane(TItem* item, s32 attachment, s32 effect_id) {
     if (this != NULL && item != NULL &&
         ((TObject *)item)->all_parents_unqueued_for_destruction() != 0) {
@@ -24,5 +22,4 @@ void TObjPlayer::spawn_cane_effects(TItem* item, s32 first_attachment, s32 secon
         new TItemEffCane(this, item, first_attachment, 0x1BD);
         new TItemEffCane(this, item, second_attachment, 0x1BD);
     }
-}
 }

@@ -45,7 +45,6 @@ void init_proto1_adx(void *parent) {
     TBoss4DarkFalz::dispatch_by_main_phase(0x56);
     TBoss6Demo10_TYPE1_APPEAR__create(parent);
 }
-extern "C" {
 
 void TBoss6PlotFalz::advance_intro_timer() {
     if ((s32) *(s32 *)((s8 *)this + 0x3CC) == 0x69) {
@@ -58,4 +57,3 @@ void TBoss6PlotFalz::advance_intro_timer() {
 }
 void TBoss6PlotFalz::advance_if_ready() { if (is_ready__14TBoss6PlotFalzFv(this) != 0) { send_6xA3_action((s8)((void*)2)); } }
 void TBoss6PlotFalz__sub_802B0A34(void* p) { *(s32*)((char*)p + 0x3d0) = 0; *(s32*)((char*)p + 0x3cc) = 0; }
-}

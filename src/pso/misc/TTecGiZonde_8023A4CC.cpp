@@ -63,14 +63,12 @@ s32 queue_destruction__7TObjectFv(void *);
 u8 *csnVecterUnder(s32 *, s32);
 u8 *csnVector(f32 *, f32 *, s32);
 s32 angle_difference_abs(int, int);
+void step_ground_technique_projectile(RecoveredFields_8023A510_arg0 *arg0);
 }
 void direction_to_rotation_xy(u8 *arg0, s32 *arg1, s32 *arg2);
 extern const f32 lbl_805DC918;
 extern const f32 lbl_805DC91C;
 extern const f32 lbl_805DC920;
-extern "C" {
-void step_ground_technique_projectile(RecoveredFields_8023A510_arg0 *arg0);
-}
 void move_ground_technique_projectile(void* p);
 
 void TUnk_804CCC68::render() {  }
@@ -102,7 +100,7 @@ typedef char RecoveredFields_8023A510_temp_r3_2_4_offset[offsetof(RecoveredField
 typedef char RecoveredFields_8023A510_temp_r6_C_offset[offsetof(RecoveredFields_8023A510_temp_r6, field_C) == 0xC ? 1 : -1];
 typedef char RecoveredFields_8023A510_temp_r6_10_offset[offsetof(RecoveredFields_8023A510_temp_r6, field_10) == 0x10 ? 1 : -1];
 typedef char RecoveredFields_8023A510_temp_r6_14_offset[offsetof(RecoveredFields_8023A510_temp_r6, field_14) == 0x14 ? 1 : -1];
-extern "C" {
+
 void step_ground_technique_projectile(RecoveredFields_8023A510_arg0 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_8023A510, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8023A510, spC) == 0x4) ? 1 : -1];
@@ -154,7 +152,6 @@ void step_ground_technique_projectile(RecoveredFields_8023A510_arg0 *arg0) {
             queue_destruction__7TObjectFv((void *)((void *) (((u8 *)arg0))));
         }
     }
-}
 }
 #pragma pop
 

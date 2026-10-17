@@ -179,19 +179,6 @@ void TLobby__sub_801C36E4(void *arg0, void *arg1);
 s32 TLobby__sub_801C4FC4(void *p);
 extern Team_801C343C lbl_80475B78[];
 s32 calculate_split_screen_battle_rankings(void *);
-}
-extern char lbl_80475B90[];
-extern char lbl_80475B98[];
-extern char lbl_80475BA0[];
-extern char *TPlayerBattleCtrl4P_player_name_formats[];
-void request_split_screen_battle_event(void* p);
-extern s16 battle_event_second_table[];
-extern s32 local_client_id;
-extern s32 TLobby__designated_client_id;
-s32 get_split_screen_battle_timer_limit(u8 *arg0);
-void reset_cameras_to_actor(void *actor, s32 arg1);
-void refresh_split_screen_battle_alive_flags(void* p);
-extern "C" {
 void TLobby__sub_801B09A4(void);
 void play_cue_stream_file(s32 name);
 void show_duel_result_window(s32 arg0, s32 arg1);
@@ -326,9 +313,18 @@ void TPlayerBattleCtrl4P::update_player_alive_flags() {
     }
 }
 }
-
+extern char lbl_80475B90[];
+extern char lbl_80475B98[];
+extern char lbl_80475BA0[];
+extern char *TPlayerBattleCtrl4P_player_name_formats[];
+void request_split_screen_battle_event(void* p);
+extern s16 battle_event_second_table[];
+extern s32 local_client_id;
+extern s32 TLobby__designated_client_id;
+s32 get_split_screen_battle_timer_limit(u8 *arg0);
+void reset_cameras_to_actor(void *actor, s32 arg1);
+void refresh_split_screen_battle_alive_flags(void* p);
 void refresh_split_screen_battle_alive_flags(void* p) { ((TPlayerBattleCtrl4P *)p)->update_player_alive_flags(); }
-extern "C" {
 
 void TPlayerBattleCtrl4P::reset_ctrl_to_default() {
     void *temp_r3;
@@ -450,10 +446,9 @@ void TPlayerBattleCtrl4P::start_match() {
     }
     TPlayerBattleCtrl4P::notify_lobby(this, lbl_80475BA0, (void *)0x3C);
 }
-}
 
 void request_split_screen_battle_event(void* p) { *(s32*)((char*)p + 0x260) = 1; }
-extern "C" {
+
 void TPlayerBattleCtrl4P::update_timed_events(s32 frames) {
     s32 i;
     switch (((Ctl_80310910 *)this)->state) {
@@ -723,13 +718,11 @@ void TPlayerBattleCtrl4P::apply_rule_configuration(s32 arg1) {
     }
   }
 }
-}
 #pragma pop
 
 s32 get_split_screen_battle_timer_limit(u8 *arg0) {
     return *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x1C)) + 0x24) * 0x3C;
 }
-extern "C" {
 
 void TPlayerBattleCtrl4P::set_score(s32 v) { this->phase_state = v; }
 
@@ -902,7 +895,6 @@ void TPlayerBattleCtrl4P::init_battle() {
     for (j = 0; j < 4; j++) {
         ((Ctl_8031171C *)this)->ok[j] = 1;
     }
-}
 }
 
 #undef get_player_by_client_id

@@ -59,7 +59,6 @@ extern const f32 lbl_805DFAD0;
 void play_indirect_effect_recipe(u8 arg0, u16 sampler, s32 second);
 char *get_shared_capture_texture_list(void);
 void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map);
-extern "C" {
 
 void init_particle_effect__10TObjPlayerFv(void) { get_shared_capture_texture_list(); set_global_param__8TObjFishFl(); load_list_texture(0, 0, 0, 2); }
 
@@ -145,5 +144,4 @@ void TUnk_804EFA88::run_task() {
         TLobby__sub_8033EE38(&arg0->items[i]);
     }
     this->m_20 = 0;
-}
 }

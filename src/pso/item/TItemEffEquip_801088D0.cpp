@@ -2,10 +2,8 @@
 #include "pso/TObject.h"
 #include "pso/item/TItemEffEquip_801088D0.h"
 
-extern "C" {
 void retire_equipment_effect(TObject* effect) {
     if (effect != 0) {
         effect->queue_destruction();
     }
-}
 }

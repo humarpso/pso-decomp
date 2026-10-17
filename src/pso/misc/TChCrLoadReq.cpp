@@ -8,7 +8,7 @@
 struct RecoveredGlobal_8028D360___vt__12TChCrLoadReq { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8028D360___vt__12TChCrLoadReq_size[sizeof(RecoveredGlobal_8028D360___vt__12TChCrLoadReq) == 0x18 ? 1 : -1];
 
-extern "C" { s32 chr_select_load_slot_count; }
+ s32 chr_select_load_slot_count;
 
 struct B_8028D214 { s32 a0; s32 a4; s32 a8; };
 
@@ -56,8 +56,6 @@ void TChCrLoadReq::run_task() {
     (this->*tbl[state])();
 }
 
-extern "C" {
-
 void *__dt__12TChCrLoadReqFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TChCrLoadReq;
@@ -90,13 +88,11 @@ void TChCrLoadReq::reset_request() {
     arg0->f60 = 0;
 }
 
-}
 TChCrLoadReq::TChCrLoadReq(TObject *object, void *arg2) : TObject(object) {
     *(void * *)&this->m_name = lbl_805D3B60;
     ((TChCrLoadReq *)((char *)this + 56))->copy(arg2);
     this->reset_request();
 }
-extern "C" {
 
 void TChCrLoadReq::copy(void* q) { *(u32 *)&this->m_name = *(u32*)((char*)q + 0x0); *(u32 *)&this->m_flags = *(u32*)((char*)q + 0x4); *(u32 *)&this->m_prev = *(u32*)((char*)q + 0x8); *(u32 *)&this->m_next = *(u32*)((char*)q + 0xc); *(u32 *)&this->m_up = *(u32*)((char*)q + 0x10); *(u32 *)&this->m_down = *(u32*)((char*)q + 0x14); *(u32*)((char*)this + 0x18) = *(u32*)((char*)q + 0x18); *(u32*)((char*)this + 0x1c) = *(u32*)((char*)q + 0x1c); }
 
@@ -115,7 +111,6 @@ u8 *TChCrLoadReq__sub_8028D360(TChCrLoadReq *ch_cr_load_req, s32 arg1) {
     ch_cr_load_req->reset_request();
     return (u8 *)ch_cr_load_req;
 }
-}
 
 void * create_ch_cr_load_req(void *arg0, void *arg1) {
     void *o;
@@ -125,7 +120,6 @@ void * create_ch_cr_load_req(void *arg0, void *arg1) {
     }
     return o;
 }
-extern "C" {
 
 void *TChCrLoadReq::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x90);
@@ -133,5 +127,4 @@ void *TChCrLoadReq::create(void *arg0) {
         o = TChCrLoadReq__sub_8028D360((TChCrLoadReq *)((u8 *)o), (s32)arg0);
     }
     return o;
-}
 }

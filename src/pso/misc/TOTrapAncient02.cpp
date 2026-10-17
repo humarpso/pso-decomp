@@ -13,19 +13,18 @@ extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/render/depth_buffer.h"
 #include "pso/system/vector.h"
-#include "pso/player/TUnk_804806E8.h"
+
 #include "pso/misc/TTecZonde.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/misc/TOKeyMachine01.h"
-#include "pso/misc/TOTrap.h"
+
 #include "pso/misc/TTecFoie.h"
 #include "pso/misc/TTecGiBarta.h"
 #include "pso/misc/TTecGiFoie.h"
 #include "pso/misc/TTecMegid.h"
 #include "pso/object/TObjFish.h"
 #include "pso/object/TObjSeabedSuisoBrakable.h"
-#include "pso/player/TObjPlayer.h"
 
 struct Vec_8017A3C0 { f32 x, y, z; };
 
@@ -332,9 +331,6 @@ void TLobby__sub_8001FE7C(void*, int);
 void * load_resource_from_descriptor(void *, int, char *, int, int, int);
 s32 check_player_flag1__6TLobbyFv();
 void * alloc__23TAdSinglePlyChrSelectGCFv(u32);
-}
-void setup_particle_tev(s32 arg0);
-extern "C" {
 void func_80141618__Fv(void);
 s32 free_collision_body_parts(void *);
 void init_collision_body_parts(void *, void *, s32);
@@ -992,6 +988,7 @@ void TOTrapAncient02::vfunc_82() {
     }
 }
 }
+void setup_particle_tev(s32 arg0);
 
 void TOTrapAncient02::vfunc_81() {
     TOTrapAncient02 *self = this;
@@ -1061,8 +1058,6 @@ void TOTrapAncient02::vfunc_81() {
         break;
     }
 }
-
-extern "C" {
 
 void TOTrapAncient02::render_particle_chain() {
     u8 *temp_r31;
@@ -1276,6 +1271,4 @@ void *TOTrapAncient02__ct(void *arg0, void *arg1, void *arg2) {
 void TOTrapAncient02R::submit_cursor_and_notify() {
     struct VObj_8017B84C_8017AC98 *o = (struct VObj_8017B84C_8017AC98 *)this;
     o->m77();
-}
-
 }

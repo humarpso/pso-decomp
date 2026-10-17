@@ -36,7 +36,6 @@ typedef struct Self_801E2FEC { f32 x, y, z; u8 padC[0xC]; s32 param; Rect_801E2F
 
 s32 set_texture_num(s32 i);
 void draw_particle_strip(void *arg0, void *arg1, void *arg2);
-extern "C" {
 
 void TObjPlayer::draw_shadow_quad(s32 arg1, s32 flags) {
     Self_801E2FEC *self = (Self_801E2FEC *)this;
@@ -88,7 +87,6 @@ void TObjPlayer::draw_shadow_quad(s32 arg1, s32 flags) {
     v[3].z = z;
     v[3].color = 0xFF000000;
     draw_particle_strip((void *)v, (void *)(4), (void *)(1));
-}
 }
 
 struct Rect_801E317C { f32 x0, y0, x1, y1; };
@@ -562,7 +560,6 @@ void render_tick(void) {
     fn_803DCF0C();
     TKeyBoardControl__sub_8000F7FC();
 }
-extern "C" {
 
 s32 TKeyBoardControl__sub_801E3E24(s32 id, s32 name, s32 arg2) {
     s32 temp_r3;
@@ -596,13 +593,11 @@ loop_1:
     }
     return temp_r3;
 }
-}
 void bswap_16(u16 *p) {
     u32 v = *p;
     *p = (u16) (((v >> 8) & 0xFF) | ((v << 8) & 0xFF00));
 }
-extern "C" {
-}
+
 void bswap_32(u32 *p) {
     u32 v = *p;
     *p = (v >> 24) | ((v >> 8) & 0xFF00) | ((v << 8) & 0xFF0000) | (v << 24);

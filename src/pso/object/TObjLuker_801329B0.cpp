@@ -8,7 +8,6 @@ struct RecoveredGlobal_801329B0_lbl_8043EA58 {
     u8 remaining[0x8C];
 };
 
-extern "C" {
 extern u8 *text_language_group_table;
 extern s32 game_difficulty_selection;
 extern RecoveredGlobal_801329B0_lbl_8043EA58 floor_destination_text_id_table;
@@ -38,6 +37,4 @@ s32 enemy_name_for_rt_index(s32 arg0) {
         return *(s32 *)((s8 *)(*(s32 *)((s8 *)text_language_group_table + 0xC)) + (var_r3 * 4));
     }
     return *(s32 *)((s8 *)(*(s32 *)((s8 *)text_language_group_table + 8)) + (var_r3 * 4));
-}
-
 }

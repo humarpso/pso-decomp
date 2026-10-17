@@ -8,10 +8,6 @@
 extern "C" {
 s32 get_mode__11TCameraCtrlFPv(void *p);
 void restore_saved_depth_alpha_state();
-}
-void reset_player_transform();
-void draw_untextured_trail_strip(void *arg0, void *arg1);
-extern "C" {
 void TObjPlayer__sub_803DF768(s32);
 void set_flag_9__7TObjectFv(void*);
 void *mem_alloc(u32 size);
@@ -47,6 +43,8 @@ void *__dt__13TUnk_804F28E0Fv(void *arg0, s16 arg1) {
 void TItemEffectWeapon__sub_8036340C(void) {  }
 void TItemEffectWeapon__sub_80363410(void) {  }
 }
+void reset_player_transform();
+void draw_untextured_trail_strip(void *arg0, void *arg1);
 
 void TItemEffectWeapon::run_task() {
     s32 offset;
@@ -112,8 +110,6 @@ void TItemEffectWeapon::render_trail() {
     }
 }
 
-extern "C" {
-
 extern void *__vt__17TItemEffectWeapon[];
 
 void *__dt__17TItemEffectWeaponFv(void *self, s32 flag) {
@@ -143,8 +139,6 @@ void *__ct__17TItemEffectWeaponFv(void *self, s32 arg1, s32 param) {
 
     extern TItemEffectWeapon::TrailVertex* item_weapon_trail_vertex_buffer;
     extern s32* weapon_trail_slot_bitmap;
-
-}
 
 void TItemEffectWeapon::release_trail_buffer(void* buffer) {
     if (buffer != NULL) {

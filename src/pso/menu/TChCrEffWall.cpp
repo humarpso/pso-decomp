@@ -64,13 +64,11 @@ TChCrEffWall::~TChCrEffWall() {}
 TChCrEffWall::TChCrEffWall(TObject *object) : TObject(object) {
     *(void * *)&this->m_name = TChCrEffWall__name;
 }
-extern "C" {
+
 void *fn_8029AE88(void *arg0) {
     void *o = __nw__7TObjectFUl(0x1C);
     if (o != NULL) {
         o = __ct__12TChCrEffWallFP7TObject(o, arg0);
     }
     return o;
-}
-
 }

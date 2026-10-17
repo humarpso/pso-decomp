@@ -61,7 +61,7 @@ void yasminkov_7000v_node_callback(void* p) { if (get_player_list__10TObjPlayerF
 
 #pragma push
 #pragma opt_common_subs off
-extern "C" {
+
 void TUnk_804A6DC0::update_weapon() {
     f32 buffer_14[3];
     s32 buffer_8[3];
@@ -116,7 +116,6 @@ void *__dt__13TUnk_804A6DC0Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-}
 void* yasminkov_7000v_ct(void* a0, s32 _w1, void * _w2) { TItemWeapon__ct(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_804A6DC0); *(int*)((char*)a0 + 0x1f0) = 0; *(int*)((char*)a0 + 0x1ec) = (int)spawn_weapon_impact_effect; *(float*)((char*)a0 + 0x1e4) = lbl_805DB060; *(int*)((char*)a0 + 0x1f8) = 0; *(float*)((char*)a0 + 0x204) = lbl_805DB054; ((TUnk_804A6DC0 *)a0)->m_200 = lbl_805DB054; ((TUnk_804A6DC0 *)a0)->m_1fc = lbl_805DB054; return a0; }
 u8 *create_yasminkov_7000v(u8 *arg0) {
     u8 *temp_r3;
@@ -131,7 +130,6 @@ u8 *create_yasminkov_7000v(u8 *arg0) {
     }
     return NULL;
 }
-extern "C" {
 
 void TObjGyaranzoMissile__sub_80131488(Obj_80131488 *self) {
     u32 i;
@@ -165,6 +163,5 @@ void TObjPlayer::horizontal_distance(u8 *arg1) {
     temp_f3 = *(f32 *)((s8 *)arg0 + 8) - *(f32 *)((s8 *)arg1 + 8);
     temp_f1 = temp_f2 - *(f32 *)((s8 *)arg1 + 0);
     ((f32 (*)(f32, f32, f32))newton_sqrtf)((temp_f1 * temp_f1) + (temp_f3 * temp_f3), temp_f2, temp_f3);
-}
 }
 #pragma pop

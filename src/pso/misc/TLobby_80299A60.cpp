@@ -37,7 +37,6 @@ s32 load_dragon2_scene(void);
 void stop_cue_stream(void);
 void create_boss8_demo_objects(void);
 void init_scene_boss2_tunnel(void);
-extern "C" {
 
 void TLobby::refresh_lobby_state() { TLobby::refresh_render_state(); TLobby::stop_audio_streams(); stop_cue_stream(); unload_current_floor_resources(); TLobby::update_current_floor(); TLobby::clear_session_buffers(); }
 
@@ -60,7 +59,6 @@ s32 TLobby::init_particle_model() {
 }
 
 void TLobby::update_field_state() { TLobby::refresh_render_state(); TLobby::stop_audio_streams(); stop_cue_stream(); fn_802FE9E0(); unload_current_floor_resources(); TLobby::update_current_floor(); TLobby::clear_session_buffers(); }
-}
 
 extern s32 lbl_804651A0[];
 
@@ -77,10 +75,8 @@ s32 load_dragon2_scene(void) {
     play_area_music(lbl_804651A0);
     return 1;
 }
-extern "C" {
 
 void TLobby::update_subsystems() { TLobby::refresh_render_state(); TLobby::stop_audio_streams(); stop_cue_stream(); fn_802F105C(); unload_current_floor_resources(); TLobby::update_current_floor(); TLobby::clear_session_buffers(); }
-}
 
 extern s32 lbl_804651B0[];
 
@@ -102,7 +98,6 @@ s32 init_scene_delo2(void) {
     }
     return 1;
 }
-extern "C" {
 
 void TLobby::update_floor_state_deferred() { TLobby::refresh_render_state(); TLobby::stop_audio_streams(); unload_current_floor_resources(); TLobby::update_current_floor(); TLobby::clear_session_buffers(); }
 
@@ -133,7 +128,6 @@ s32 TLobby__sub_80299C7C(void) {
 }
 
 void TLobby::update_scene_alt() { TLobby::refresh_render_state(); TLobby::stop_audio_streams(); unload_current_floor_resources(); TLobby::update_current_floor(); TLobby::clear_session_buffers(); }
-}
 
 #define CIS ((s32 (*)(s32, s32))create_instance__10TSceneSoraFPv)
 extern s32 lbl_804651C8[];
@@ -467,7 +461,6 @@ TObjChallenge4PRetry::TObjChallenge4PRetry(TObject *parent) : TObject(parent) {
     *(s32 *)((s8 *)this + 0x30) = 0;
     *(s32 *)((s8 *)this + 0x1C) = 0;
 }
-extern "C" {
 
 void *TObjChallenge4PRetry::create(void *arg0) {
     void *o = ((void *(*)(int))__nw__7TObjectFUl)(0x34);
@@ -475,6 +468,4 @@ void *TObjChallenge4PRetry::create(void *arg0) {
         o = __ct__20TObjChallenge4PRetryFP7TObject(o, arg0);
     }
     return o;
-}
-
 }

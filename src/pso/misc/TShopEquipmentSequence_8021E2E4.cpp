@@ -30,6 +30,5 @@ void *create_medical_center_sequence(void *arg0) {
 }
 
     extern int TMedicalCenterSequence__data_80513E90[];
-extern "C" {
+
 int TMedicalCenterSequence__sub_8021E390(int a0) {  return TMedicalCenterSequence__data_80513E90[a0]; }
-}

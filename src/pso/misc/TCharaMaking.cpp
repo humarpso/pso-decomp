@@ -89,10 +89,6 @@ extern s32 model_render_flags;
 extern s32 lbl_805DD930;
 extern const f32 lbl_805DD934;
 s32 calc_section_id_from_name(s8 *arg0);
-}
-extern P_8028DCCC character_proportion_height_table[];
-f32 calc_character_height(void *p);
-extern "C" {
 s32 TLobby__sub_803DA16C(void *);
 
 extern u32 creation_main_menu_obj;
@@ -116,7 +112,8 @@ s32 calc_section_id_from_name(s8 *arg0) {
     return sum;
 }
 }
-
+extern P_8028DCCC character_proportion_height_table[];
+f32 calc_character_height(void *p);
 #pragma push
 #pragma fp_contract on
 #pragma opt_common_subs off
@@ -138,7 +135,7 @@ f32 calc_character_height(void *p) {
 #pragma push
 #pragma opt_dead_assignments off
 #pragma opt_propagation off
-extern "C" {
+
 void TCharaMaking__draw_colored_hair(f32 farg0, s32 arg0, CharacterAppearanceFields *character_appearance_fields, s32 arg2) {
     struct Color { f32 a, r, g, b; } color;
     s32 temp_r3;
@@ -215,7 +212,6 @@ void TCharaMaking::update_body_parts() {
     *(f32 *)((s8 *)arg0 + 0xD48) = calc_character_height(arg0 + 0x85C);
     ((s32 (*)(void *, void *, void *, void *))TCharaMaking__bind_appearance_texture_lists)(arg0 + 0x8B8, arg0 + 0xA24, arg0 + 0xB90, arg0 + 0x85C);
     TChCrLoadReq::create(arg0);
-}
 }
 
 s32 validate_player_visual_record(void *arg0) {
@@ -319,7 +315,6 @@ s32 validate_player_visual_record(void *arg0) {
     }
     return ok;
 }
-extern "C" {
 
 void TCharaMaking::clear_flag_bit0() { restore_default_scene(); model_render_flags = (model_render_flags & 0xfffffffe); }
 
@@ -368,5 +363,4 @@ s32 TCharaMaking__sub_8028E3A0(f32 *arg0) {
         return 1;
     }
     return 0;
-}
 }

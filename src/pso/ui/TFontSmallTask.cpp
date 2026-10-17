@@ -46,13 +46,6 @@ s32 fn_800FCCF4(void* p);
 s32 *get_shared_text_buffer(void);
 void TWindowSubStatusDisp__sub_80228F5C(s32 arg0);
 void text_builder_append(u8 *str);
-}
-extern const f32 lbl_805DAA30;
-extern const f32 lbl_805DAA00;
-extern const f32 lbl_805DAA04;
-f32 calc_small_font_scale(void);
-void text_builder_reset(void);
-extern "C" {
 s32 __nw__7TObjectFUl(s32);
 
 void fn_800FCCC8(s32 arg0, s32 arg1) {
@@ -60,6 +53,11 @@ void fn_800FCCC8(s32 arg0, s32 arg1) {
 }
 s32 fn_800FCCF4(void* p) { return *(s32*)((char*)p + 0x874); }
 }
+extern const f32 lbl_805DAA30;
+extern const f32 lbl_805DAA00;
+extern const f32 lbl_805DAA04;
+f32 calc_small_font_scale(void);
+void text_builder_reset(void);
 
 extern s32 lbl_805DAA34;
 
@@ -224,8 +222,6 @@ void TFontSmallTask::run_task() {
     }
 }
 
-extern "C" {
-
 s32 create_font_small_task(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 *arg4, s32 arg5, s32 arg6) {
     s32 var_r31;
 
@@ -284,8 +280,6 @@ s32 TOCtrlDubchik::create_font(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
         var_r31 = ((s32 (*)(s32, s32, s32, s32, s32, s32, s32))__ct__14TFontSmallTaskFv)(var_r31, arg0, arg1, arg2, 0, (s32)get_shared_text_buffer(), 0xFFFF);
     }
     return var_r31;
-}
-
 }
 
 TFontSmallTask::~TFontSmallTask() {}
@@ -366,7 +360,7 @@ void set_world_section_id(void* p, s32 v);
 
 #pragma push
 #pragma fp_contract on
-extern "C" {
+
 TFontSmallTask_800FD4D4 *__ct__14TFontSmallTaskFv(TFontSmallTask_800FD4D4 *self, Vec_800FD4D4 *pos, u32 color, s32 life, s32 delay, const char *text, u16 view) {
     __ct__7TObjectFP7TObject(self, get_instance__15TWindowCtrlMainFv());
     self->vt = __vt__14TFontSmallTask;
@@ -390,17 +384,13 @@ TFontSmallTask_800FD4D4 *__ct__14TFontSmallTaskFv(TFontSmallTask_800FD4D4 *self,
     self->ofs_x -= lbl_805DAA20 * self->width * ((f32 (*)(void *))calc_small_font_scale)(self);
     return self;
 }
-}
 #pragma pop
 
 void set_world_section_id(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
-extern "C" {
 s32 TFontSmallTask::get_task_id() { return *(s32 *)&this->m_flags; }
-}
 void reset_leader_selection(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
-extern "C" {
 
 void find_leader_section_id(struct Out_800FD614 *out, s32 arg1) {
     s32 n;
@@ -445,7 +435,6 @@ s32 run_load_callback_table(Ent_800FD6F8 *p, u32 size) {
 
 void TLobby::reset_leader_selection_static() {
     reset_leader_selection(&TLobby__data_805011D8.value);
-}
 }
 typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8000F8FC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8FC_lbl_804FE120) == 0x18 ? 1 : -1];

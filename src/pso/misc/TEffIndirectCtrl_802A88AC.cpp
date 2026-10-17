@@ -183,7 +183,7 @@ s32 update_indirect_texture_wave(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg
 #pragma pop
 
 typedef struct Cell_802A8FD8 Cell_802A8FD8;
-extern "C" {
+
 void deform_indirect_texture_scroll(u8 *p, u32 px, u32 py, u8 amp, u32 phase) {
   Cell_802A8FD8 buf[64];
   s32 pxm;
@@ -313,7 +313,6 @@ s32 get_indirect_source_pixels(u8 arg0) {
         var_r3 = 0;
     }
     return *(s32 *)((s8 *)&TEffIndirectCtrl__source_buffers.value + ((var_r3 * 4) & 0x3FC)) + 0x20;
-}
 }
 typedef char RecoveredGlobal_802A925C_TEffIndirectCtrl__data_80540AF0_size[sizeof(RecoveredGlobal_802A925C_TEffIndirectCtrl__data_80540AF0) == 0x20 ? 1 : -1];
 s32 get_indirect_source_id(u8 arg0) {

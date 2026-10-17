@@ -249,11 +249,6 @@ extern u8 adx_stream_ring_buffer_storage[];
 extern u8 adx_stream_ring_buffer[];
 void TLobby__sub_803C5B50(Obj_803C5B50 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 adx_write_encoded_blocks(Obj_803C7C10 *arg0);
-}
-extern char lbl_8047C5D8[];
-extern char music_stream_afs_filename_buffer[];
-void append_music_stream_segment(u8 *arg0, s32 arg1, s32 arg2);
-extern "C" {
 void TLobby__sub_803C5D00(u8 *arg0);
 void TLobby__sub_803C5E58(void);
 void TLobby__sub_803C5E68(void);
@@ -357,7 +352,9 @@ void TLobby__sub_803C5D24(u8 *lobby) {
     TLobby::release_ref();
 }
 }
-
+extern char lbl_8047C5D8[];
+extern char music_stream_afs_filename_buffer[];
+void append_music_stream_segment(u8 *arg0, s32 arg1, s32 arg2);
 void append_music_stream_segment(u8 *arg0, s32 arg1, s32 arg2) {
     char buf[16];
     s32 a;
@@ -1499,9 +1496,6 @@ extern const u32 lbl_805E0D64[1];
 extern "C" {
 s32 TLobby__sub_803CC030(int, int);
 s32 dispatch_packet__6TLobbyFv(int, int);
-}
-void stop_audio_stream(u8 *arg0);
-extern "C" {
 s32 calc_adx_predictor_coeffs(void *, void *, void *, void *);
 s8 TLobby__sub_803C9CB0(u8 *arg0);
 void TLobby__sub_803CB7F8(s32 arg0, s32 arg1);
@@ -1530,9 +1524,6 @@ SjMemoryBuffer *sj_memory_buffer_create(void *arg0, s32 arg1);
 extern char adxt_start_mem_idx_stream_create_error[];
 void TLobby__sub_803CE544(void *, int);
 void TLobby__sub_803CFAA8(const char *, void *, int);
-}
-void set_dvd_synchronous_read_mode(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-extern "C" {
 void* initialize_dvd_file_driver(void);
 char *TLobby__sub_803D43B8(void);
 extern const char lbl_805E0D70[4];
@@ -1752,7 +1743,8 @@ s8 TLobby__sub_803C9CB0(u8 *arg0) {
   return (s8) new_var2;
 }
 }
-
+void stop_audio_stream(u8 *arg0);
+void set_dvd_synchronous_read_mode(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 #pragma push
 #pragma fp_contract on
 #pragma push

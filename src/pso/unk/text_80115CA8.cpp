@@ -18,8 +18,6 @@ struct Money_80115CA8 {
 };
 struct Data_80115CA8 { u8 pad[0x10]; s32 amount; };
 
-extern "C" {
-
 #pragma push
 #pragma opt_propagation off
 u8 *TItemMoney__ct(void *self, s32 parent, void *datav) {
@@ -51,6 +49,4 @@ u8 *fn_80115D10(u8 *datav) {
         return var_r0;
     }
     return NULL;
-}
-
 }

@@ -795,7 +795,6 @@ TAdChrSelASlotGC::TAdChrSelASlotGC(TObject *object, void *arg2) : TObject(object
     this->init((s32)arg2);
     this->create_children((s32)arg2);
 }
-extern "C" {
 
 u8 *get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1) {
     u8 *ad_chr_sel_a_slot_gc;
@@ -813,5 +812,3 @@ u8 *get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1) {
 }
 
 s32 TAdChrSelASlotGC::get_slot_index() { return this->m_1c; }
-
-}

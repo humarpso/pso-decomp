@@ -141,7 +141,7 @@ void TItemTexLoad::free_textures() {
     item_texture_afs_work_buffer = 0;
 }
 
-extern "C" void load_item_kt_afs(void) {
+void load_item_kt_afs(void) {
     item_texture_afs_work_buffer = mem_alloc(0x40C);
     item_texture_filename_buffer = (char*)mem_alloc(0x1C);
     strncpy(item_texture_filename_buffer, item_kt_archive_filename, 0x1C);

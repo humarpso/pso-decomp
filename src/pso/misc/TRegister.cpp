@@ -56,10 +56,7 @@ void TMenuList<QuestListEntry, 30, 0>::bswap() {
     }
 }
 
-extern "C" {
-
 int fn_801E0018(void* p) { return bswap__16TPlyGuildCardTagFv(p); }
-}
 
 struct PacketHeaderCopy_801E0038 { u8 bytes[sizeof(packet_header)]; };
 struct QuestListEntryRaw_801E0038 { u8 bytes[sizeof(QuestListEntry)]; };
@@ -78,12 +75,9 @@ TMenuList<QuestListEntry, 30, 0>::TMenuList(const TMenuList &o) {
     } while (d < end);
 }
 
-extern "C" {
 s32 __ct__14QuestListEntryFRC14QuestListEntry(s32 arg0, s32 arg1) {
     __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
     *(ByteBlock_20 *)(arg0 + 4 + 4) = *(const ByteBlock_20 *)(arg1 + 4 + 4);
     *(ByteBlock_70 *)(arg0 + 0x24 + 4) = *(const ByteBlock_70 *)(arg1 + 0x24 + 4);
     return arg0;
-}
-
 }

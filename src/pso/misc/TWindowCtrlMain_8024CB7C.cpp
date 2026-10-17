@@ -80,7 +80,7 @@ WindowControlState* get_window_control_state(s32 viewport_index) {
     }
     return TWindowCtrlMain__viewport_states;
 }
-extern "C" {
+
 void TWindowCtrlMain::update_fade_alphas() {
     s32 i;
     for (i = 0; i < 4; i++) {
@@ -132,7 +132,6 @@ s32 is_window_display_enabled(void) {
 
 bool TWindowCtrlMain__sub_8024CE58(void) {
     return TWindowCtrlMain__window_task_root != 0;
-}
 }
 
 #pragma push

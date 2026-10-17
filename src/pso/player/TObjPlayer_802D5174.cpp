@@ -479,8 +479,6 @@ void spawn_item_thunk__10TObjPlayerFii(s32 arg0, s32 arg1) {
 
 }
 
-extern "C" {
-
 extern s32 lbl_804E22F4[];
 extern s32 alloc_and_init__10TObjPlayerFlll[];
 extern s32 create_and_init_effect__10TObjPlayerFlPUll[];
@@ -505,8 +503,6 @@ void *TUnk_804E1F04::init_vtable_and_handlers_341() {
     *(s32 **)((s8 *)this + 0x204) = TItemWpnCardEffect__sub_8032E588;
     this->m_208 = create_aux_object__10TObjPlayerFlPUll;
     return this;
-}
-
 }
 
 namespace P802D5ABC {

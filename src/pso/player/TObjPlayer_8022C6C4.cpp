@@ -6,7 +6,7 @@
 #include "pso/player/TObjPlayer.h"
 extern "C" void render__8TTecCtrlFv();
 extern "C" void run_task__8TTecCtrlFv();
-#include "pso/TTecCtrl.h"
+
 #include "pso/misc/TLockOnCursor.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TTecAnti.h"
@@ -237,7 +237,6 @@ void create_technique_charge_light(u32 kind, void *owner) {
     }
 }
 #pragma pop
-extern "C" {
 
 void capture_technique_targets__10TObjPlayerFv(int kind, Owner_8022CDE8 *owner) {
     Cursor_8022CDE8 *c;
@@ -495,5 +494,4 @@ void launch_technique__10TObjPlayerFv(s32 tech, s32 unused, Player_8022D27C *pl)
         }
         break;
     }
-}
 }

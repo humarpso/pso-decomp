@@ -72,7 +72,6 @@ int get_flag_bit0__6TLobbyFv(void);
 void set_status_flag_80__12TQuestThreadFPv(void *p);
 }
 void update_chat_window(void *p);
-extern "C" {
 
 void TWindowSubShortMail__sub_8027E620(void* p) { select_cursor_entry__22TWindowSubShortCutListFv((void*)(*(void**)((char*)p + 0x38))); get_card_entry__17TWindowSubComCardFi(); send_find_user_self_tag__6TLobbyFi(*(void**)((char*)p + 0x2c)); }
 
@@ -301,7 +300,6 @@ s32 TWindowSubShortMail::create_list_item() {
     ((TUnk_804D0618 *)temp_r31)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl(0x2E));
     ((TWindowSubShortCutList *)temp_r31)->set_flag70_bit10();
     return temp_r31;
-}
 }
 
 struct VBase_18_8027EF98 { char pad[0x18]; };
@@ -698,7 +696,6 @@ TWindowSubShortMail::TWindowSubShortMail(TObject *object, void *arg2) : TObject(
     this->m_30 = 0;
     *(u8 *)((s8 *)this + 0x1C) = 0;
 }
-extern "C" {
 
 void TWindowSubShortMail__sub_8027FAD0(u8 *arg0) {
     *(u8 *)((s8 *)arg0 + 0xCC) = (u8) (*(u8 *)((s8 *)arg0 + 0xCC) & ~0xA);
@@ -755,6 +752,4 @@ void *TUnk_804D1AD0::destroy(s16 arg1) {
         }
     }
     return this;
-}
-
 }

@@ -211,7 +211,6 @@ u8 *__ct__10TEndingPicFv(u8 *ending_pic, u8 *arg1) {
 }
 
 int get_ending_ab_wall_texture_list(void) {  return ending_ab_wall_texture_list; }
-extern "C" {
 
 void TEndingPic::send_obj_position_event(s32 arg1) {
     T_80353018 *arg0 = (T_80353018 *)this;
@@ -251,4 +250,3 @@ void TEndingPic__sub_80353194(void *arg0) {
 void TEndingPic__sub_803531D0(void* a0) { send_nearby_player_ids((void*)(*(int*)((char*)a0 + 0xf0)), lbl_805DFF34); }
 
 void TEndingPic__sub_803531F8(void) {  }
-}

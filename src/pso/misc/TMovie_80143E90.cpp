@@ -2,8 +2,6 @@
 #include "pso/misc/TMovie.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 extern f32 lbl_805DB178;
 
 s32 TMovie::stop_if_advanced() {
@@ -11,6 +9,4 @@ s32 TMovie::stop_if_advanced() {
         TObjPlayer::draw_screen_quad(-1, 0, lbl_805DB178);
     }
     return 1;
-}
-
 }

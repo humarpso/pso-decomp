@@ -79,9 +79,6 @@ THunterGuildSeqOnlineTask::~THunterGuildSeqOnlineTask() {}
 extern "C" {
 
 void *THunterGuildSeqOnlineTask__ct(void *arg0);
-}
-void handle_6x73_exit_quest(void);
-extern "C" {
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -95,7 +92,7 @@ void *THunterGuildSeqOnlineTask__ct(void *hunter_guild_seq_online_task) {
     return hunter_guild_seq_online_task;
 }
 }
-
+void handle_6x73_exit_quest(void);
 extern void *tl_00;
 extern unsigned char reset_random_enemies_mode[];
 
@@ -106,7 +103,7 @@ void handle_6x73_exit_quest(void) {
         ((THunterGuildSeqOffline *)o)->init(tl_00, reset_random_enemies_mode);
     }
 }
-extern "C" {
+
 void TQuestListOnline::close_windows_and_reset() {
     u8 *q;
     if (TKeyBoardControl::get_input() == 0) {
@@ -239,5 +236,4 @@ void TLobby::handle_quest_download_chunk() {
         }
         send_quest_barrier__9TProtocolFv(TLobby__protocol_instance);
     }
-}
 }

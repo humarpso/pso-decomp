@@ -9,7 +9,7 @@
 #include "pso/camera/CameraArrivalReset.h"
 #include "pso/camera/FollowCameraController.h"
 extern "C" __declspec(section ".rodata") FollowVector lbl_80438528 = { 0.0f, 0.0f, 45.42f };
-extern "C" __declspec(section ".rodata") FollowVector lbl_80438534 = { 0.0f, 0.0f, 45.42f };
+__declspec(section ".rodata") FollowVector lbl_80438534 = { 0.0f, 0.0f, 45.42f };
 
 struct Base_8006CE78_8006CC30 { char pad[0x18]; };
 struct VObj_8006CE78_8006CC30 : Base_8006CE78_8006CC30 {
@@ -561,7 +561,6 @@ void apply_follow_camera_offsets(void *arg0, void *arg1, s32 arg2, u16 arg3) {
     }
 }
 #undef REG_8006D344
-extern "C" {
 
 void TCameraCtrl::set_active_camera_flag() {
     u8 *temp_r3;
@@ -581,7 +580,6 @@ void end_conversation_camera(void) {
             ((TCameraCtrl *)temp_r3)->set_field_100(0);
         }
     }
-}
 }
 
 #pragma push
@@ -610,7 +608,6 @@ s32 conversation_camera_obstructed(FollowController *self,s32 heading) {
     if(((u32)csnVector(&eye, &candidate, (u32)(0x100))))return 1;
     return ((u32)csnVector(&candidate, &camera_ctrl_instance->target, (u32)(0x100))) ? 1 : 0;
 }
-extern "C" {
 
 void begin_conversation_camera(void) {
     s32 temp_r30;
@@ -1106,4 +1103,3 @@ s32 TCameraCtrl::set_field_100(s32 v) { *(s32 *)&this->unk_100 = v; }
 s32 TUnk_80488E00::sub_8006E7FC() { return this->m_10c; }
 
 void TCameraCtrl__sub_8006E804(void* a0) { *(int*)((char*)a0 + 0x18) = 0; *(float*)((char*)a0 + 0x0) = (0.0f); *(float*)((char*)a0 + 0x4) = (0.0f); *(float*)((char*)a0 + 0x8) = (0.0f); *(float*)((char*)a0 + 0xc) = (0.0f); *(float*)((char*)a0 + 0x10) = (0.0f); *(float*)((char*)a0 + 0x14) = (0.0f); }
-}

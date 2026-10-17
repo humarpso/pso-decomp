@@ -6,10 +6,6 @@
 extern "C" {
 
 s32 is_item_stackable(s32 arg0, s32 arg1);
-}
-int get_sorted_item_registry_entry(int a0);
-int get_item_registry_count(void);
-extern "C" {
 u8 *find_item_by_id(s32 id);
 
 void TItemObject::copy_and_register_item_data() {
@@ -35,13 +31,13 @@ s32 is_item_stackable(s32 arg0, s32 arg1) {
     return 0;
 }
 }
-
+int get_sorted_item_registry_entry(int a0);
+int get_item_registry_count(void);
     extern int* item_registry_sorted_entries;
 int get_sorted_item_registry_entry(int a0) {  return item_registry_sorted_entries[a0]; }
 
     extern int item_registry_count;
 int get_item_registry_count(void) {  return item_registry_count; }
-extern "C" {
 
 u8 *find_item_by_id(s32 id) {
     s32 lo;
@@ -64,5 +60,4 @@ u8 *find_item_by_id(s32 id) {
         return item;
     }
     return NULL;
-}
 }

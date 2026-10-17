@@ -63,8 +63,6 @@ void resolve_chat_balloon_overlaps(void) {
         }
     }
 }
-extern "C" {
 
 void TWindowFukidasi__sub_80249788(void* p) { *(u32*)((char*)p + 0x2c) |= 0x400; }
 void TWindowFukidasi::hide() { *(u32*)((char*)this + 0x2c) &= 0xfffffbff; }
-}

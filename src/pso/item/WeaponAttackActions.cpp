@@ -349,11 +349,6 @@ void TItemWeapon__sub_8011E5C4(void);
 void TItemWeapon__sub_8011E5C8(void);
 void TItemWeapon__sub_8011E5CC(void);
 void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot);
-}
-void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3);
-void spawn_land_hit_effect(s32 arg0, u32 arg1, u32 arg2, u32 arg3, s32 arg4);
-u32 pack_weapon_trail_color(void *arg0);
-extern "C" {
 V4_8011EA10 get_weapon_color__11TItemWeaponFPv(void *);
 void set_status_flags__10TObjPlayerFUl(void *, u32);
 void query_extended_state__10TObjPlayerFv(void *);
@@ -455,6 +450,9 @@ void TItemWeapon::emit_marker_effects() {  }
 
 void TObjPlayer::copy_field6_from(void* a1) { memcpy((char*)this + 0x6, (char*)a1 + 0x1a4, (void*)6); }
 }
+void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3);
+void spawn_land_hit_effect(s32 arg0, u32 arg1, u32 arg2, u32 arg3, s32 arg4);
+u32 pack_weapon_trail_color(void *arg0);
 
 void TItemWeapon::vfunc_17(s32 value) {
     technique_roll = value;
@@ -464,8 +462,6 @@ void TItemWeapon::roll_technique() {
     previous_technique_roll = technique_roll;
     send_6x61_activate_mag_effect__14TItemEquipBaseFl(this, (s32) ((f32) technique_roll_range * (lbl_805DAC8C * (f32) rand())));
 }
-
-extern "C" {
 
 void TObjPlayer::set_flag_8_if_check_passes() {
     u8 *var_r31;
@@ -557,13 +553,11 @@ void TItemWeapon::create_weapon_trail_effects() {
         }
     }
 }
-}
 
 u32 pack_weapon_trail_color(void *weapon) {
     V4_8011EA10 w = get_weapon_color__11TItemWeaponFPv(weapon);
     return (__cvt_fp2unsigned(lbl_805DAC90 * w.a) << 24 | __cvt_fp2unsigned(lbl_805DAC90 * w.b) << 16 | __cvt_fp2unsigned(lbl_805DAC90 * w.c) << 8) | __cvt_fp2unsigned(lbl_805DAC90 * w.d);
 }
-extern "C" {
 
 void spawn_pg_effect__10TObjPlayerFPvPvif(u8 *arg0, Vec_8011EAB8 *arg1, s32 item, f32 farg0) {
     Params_8011EAB8 prm;
@@ -837,5 +831,4 @@ void TUnk_804A69DC::for_each_target_in_range(f32 range) {
         }
         this->restore_action_type();
     }
-}
 }

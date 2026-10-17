@@ -42,8 +42,6 @@ struct Movie_80143FB0 {
     u8 fA4[4];
 };
 
-extern "C" {
-
 extern s32 (*TMovie__decode_frame_callback)(void **, u32 *);
 extern s32 (*lbl_805D6B3C)(void **);
 
@@ -133,6 +131,4 @@ s32 TMovie::decode_frame() {
     }
     *(s32 *)((s8 *)arg0 + 0x58) = temp_r3_2;
     return 1;
-}
-
 }

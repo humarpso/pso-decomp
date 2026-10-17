@@ -2,8 +2,6 @@
 #include "pso/object/TObjDoor_801F3754.h"
 #include "pso/object/TObjDoor.h"
 
-extern "C" {
-
 extern s32 TObjDoor__data_805D5BC8;
 
 void TObjDoor__sub_801F3754(void) {
@@ -15,5 +13,3 @@ void TObjDoor__sub_801F3760(void) { switch_doors_force_closed = 1; }
 
     extern int city_main_warp_destination_id;
 void TObjDoor::set_main_warp_id(int a0) { city_main_warp_destination_id = a0; }
-
-}

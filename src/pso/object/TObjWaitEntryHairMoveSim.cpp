@@ -49,11 +49,9 @@ void T_OWEHMS_Exp::start_bone_rotation() {
     TObjWaitEntryHairMoveSim__sub_800FE3BC(bone);
     TObjEZBoneRotPlayer::create((void *)player, (void *)bone, (void *)((u8*)&(*(RecoveredGlobal_800FE364_lbl_8049DC78 *)&hair_bone_rotation_descriptor).value + descriptor_index * 0x14));
 }
-extern "C" {
 
 void TObjWaitEntryHairMoveSim__sub_800FE3BC(int _w0) {  }
 
-}
 void T_OWEHMS_Exp::run_task() {
     if (player->m_cfc == 0) {
         start_bone_rotation();
@@ -103,7 +101,6 @@ T_OWEHMS_Exp* T_OWEHMS_Exp::create(TObjPlayer* p) {
 
 #pragma push
 
-#include "pso/TObject.h"
 class TObjWaitEntryHairMoveSim : public TObject {
 public:
     virtual ~TObjWaitEntryHairMoveSim();
@@ -712,7 +709,6 @@ void TObjWaitEntryHairMoveSim::run_task() {
         queue_destruction__7TObjectFv(arg0);
     }
 }
-extern "C" {
 
 extern s32 __vt__24TObjWaitEntryHairMoveSim[];
 extern void *TObjWaitEntryHairMoveSim__name;
@@ -785,7 +781,5 @@ s32 TObjWaitEntryHairMoveSim__sub_800FE73C(s32 arg0) {
     return 0;
 }
 TObjWaitEntryHairMoveSim::~TObjWaitEntryHairMoveSim() {}
-
-}
 
 #pragma pop

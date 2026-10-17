@@ -106,7 +106,6 @@ void TBoss2Fin::run_task() {
     ((TObjEZRopeBase *)arg0)->sub_800FF788((void *)&stack.sp8);
 }
 
-extern "C" {
 void TBoss2Fin::init_link_points() {
     u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0x30) = 0;
@@ -119,7 +118,6 @@ void TBoss2Fin::init_link_points() {
     VecCopy((Vec *)(arg0 + 0x64), (const Vec *)(*(u8 **)((s8 *)arg0 + 0x84)));
     *(f32 *)((s8 *)arg0 + 0x68) = (f32) (*(f32 *)((s8 *)arg0 + 0x68) - lbl_805D8458);
     *(f32 *)((s8 *)arg0 + 0x6C) = (f32) (*(f32 *)((s8 *)arg0 + 0x6C) + lbl_805D8458);
-}
 }
 
 TBoss2Fin::~TBoss2Fin() {}

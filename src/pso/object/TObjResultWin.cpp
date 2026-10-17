@@ -173,7 +173,7 @@ ChallengeResultRecord* copy_challenge_result_record(ChallengeResultRecord* desti
 TObjResultWin* TObjResultWin::create(const ChallengeResultRecord* result) {
     return new TObjResultWin(tl_07, result);
 }
-extern "C" {
+
 __declspec(section ".sdata2") extern const f32 challenge_result_split_screen_position = 0.75f;
 __declspec(section ".sdata2") extern const f32 challenge_result_window_depth = 36999.0f;
 __declspec(section ".rodata") extern const char TObjResultWin_class_name[] = "TObjResultWin";
@@ -185,4 +185,3 @@ __declspec(section ".rodata") extern const char challenge_result_slower_time_for
 __declspec(section ".rodata") extern const char challenge_result_faster_time_format[] = "  -%1d'%02d\"%02d  %s\n";
 __declspec(section ".rodata") extern const char challenge_result_value_format[] = "%s\n  %s\n";
 __declspec(section ".rodata") extern const char challenge_result_changed_value_format[] = "%s\n  %s -> %s\n";
-}

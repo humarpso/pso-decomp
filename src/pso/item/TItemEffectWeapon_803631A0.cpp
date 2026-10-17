@@ -28,7 +28,6 @@ void s_rank_launcher_slide_node(void *arg0) {
         translate_matrix(0, lbl_805E0268, *(f32 *)((s8 *)arg0 + 0x1FC), lbl_805E0268);
     }
 }
-extern "C" {
 
 void s_rank_launcher_collider_block(Src_803631E8 *weapon, Obj_803631E8 *arg1) {
     u8 sp8[16];
@@ -49,5 +48,4 @@ void TUnk_804F28E0::emit_marker_effects() {
     spawn_particle_effect(&sp8, 9);
     ((TItemWeapon *)arg0)->spawn_light_task();
     fire_shot_at_target__11TItemWeaponFv(arg0, &sp8, 0, 0);
-}
 }

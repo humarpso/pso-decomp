@@ -17,8 +17,7 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/enemy/TObjEneMe1GiGueMissile.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TOKeyMachine01.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/player/TUnk_804806E8.h"
+
 #include "pso/enemy/TUnk_80494938.h"
 #include <stddef.h>
 #include "types.h"
@@ -457,8 +456,6 @@ f32 TObjEneMe1GiGue::receive_physical_attack(void *, f32) {
 
 struct O_802CAC04 { u8 pad[0x326]; s16 v; };
 
-extern "C" {
-
 void TObjEneMe1GiGueBarrier::clear_flag388_bit80000() { *(u32*)((char*)this + 0x388) &= 0xfff7ffff; }
 void TObjEneMe1GiGueBarrier__sub_802CABF4(void* p) { *(u32*)((char*)p + 0x388) |= 0x80000; }
 
@@ -479,8 +476,6 @@ done:
 s32 TObjEneMe1GiGueBarrier::get_field_44c() { return *(s32*)((char*)this + 0x44c); }
 s32 TObjEneMe1GiGueBarrier::get_timer() { return this->rotation_y; }
 void*TObjEneMe1GiGueBarrier::update_and_get_pos() { TObjEneMe1GiGue__sub_802CB03C((u8 *)this); return (char*)this + 0x3b4; }
-
-}
 
 struct RecoveredGlobal_802CB03C_lbl_8058D490 {
     s32 value;
@@ -724,8 +719,6 @@ struct VObj410 : Base410 {
     virtual void m4(); virtual s32 m5(); virtual void m6();
 };
 
-extern "C" {
-
 void init__15TObjEneMe1GiGueFPv(u8 *arg0) {
     s32 temp_r4;
     s32 temp_r5;
@@ -802,8 +795,6 @@ void TObjEneMe1GiGue__sub_802CB378(u8 *arg0) {
         break;
     }
     apply_actor_gravity(arg0, 0, (f32) (0.0f));
-}
-
 }
 
 #undef update_if_active__15TObjEneMe1GiGueFl
@@ -2222,7 +2213,6 @@ s32 get_gigue_int_parameter(s32 self, s32 i) {
 f32 get_gigue_float_parameter(s32 arg0, s32 arg1) {
     return *(f32 *)((s8 *)(TObjEneMe1GiGue__param_table + (arg1 * 4)) + 0);
 }
-extern "C" {
 
 void TObjEneMe1GiGue__sub_802CDAE8(void) {  }
 
@@ -2230,6 +2220,5 @@ void TObjEneMe1GiGue::load_params_from_table(s32 i) {
     O_802CDAEC *self = (O_802CDAEC *)this;
     self->f34 = GIGUE_DATA_6838->e[i].c;
     self->f24 = GIGUE_DATA_6838->e[i].d;
-}
 }
 #undef GIGUE_DATA_6838

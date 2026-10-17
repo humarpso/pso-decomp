@@ -2,11 +2,9 @@
 #include "pso/misc/TWindowSubTradeMain_802D3924.h"
 
 extern u16 trade_protocol_flags;
-extern "C" {
 
 bool is_trade_range_bit_set(s32 arg0) {
     return (trade_protocol_flags & (1 << arg0)) != 0;
-}
 }
 
 void clear_trade_range_bit(s32 arg0) {

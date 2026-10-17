@@ -165,7 +165,7 @@ extern const f32 lbl_805E0E08;
 void euler_zyx_to_quaternion(u8 *arg0, u8 *arg1);
 void euler_yxz_to_quaternion(u8 *arg0, u8 *arg1);
 extern const f32 lbl_805E0E88;
-extern "C" {
+
 void TCameraCtrl::update_camera_state(f32 _w0, f32 _w1, f32 _w2) {
     TCameraCtrl::translate_view_negated(_w0, _w1, _w2);
 }
@@ -191,7 +191,6 @@ s32 TCameraCtrl::translate_view_negated(f32 x, f32 y, f32 z) {
 void TCameraCtrl__sub_803D65F8(u8 * _w0) {
 
 }
-}
 
 #pragma push
 #pragma scheduling off
@@ -204,7 +203,7 @@ void set_camera_look_at(u8* eye, u8* target, u8* up) {
 #pragma opt_common_subs off
 #pragma scheduling off
 typedef char RecoveredGlobal_803D662C_lbl_8058D4D0_size[sizeof(RecoveredGlobal_803D662C_lbl_8058D4D0) == 0x28 ? 1 : -1];
-extern "C" {
+
 void TCameraCtrl::set_clamped_offsets(f32 farg0, f32 farg1) {
     f32 var_f1;
     f32 var_f2;
@@ -224,7 +223,6 @@ void TCameraCtrl::set_clamped_offsets(f32 farg0, f32 farg1) {
     }
     *(f32 *)((s8 *)&camera_clip_parameters.value + 4) = (f32) -var_f1;
     *(f32 *)((s8 *)&camera_clip_parameters.value + 0) = (f32) -var_f2;
-}
 }
 #pragma pop
 
@@ -248,7 +246,7 @@ void set_screen_size(f32 farg0, f32 farg1) {
 
 #pragma push
 #pragma opt_common_subs off
-extern "C" {
+
 void TCameraCtrl::update_projection_params() {
     Cam_803D66DC *arg0 = (Cam_803D66DC *)this;
     f32 c, b, a;
@@ -301,7 +299,6 @@ void set_perspective_projection_from_fov(s32 arg0, f32 farg0, f32 farg1, f32 far
     lbl_8058D4F8.f14 = one / (f32)(f64)b;
     *(f32 *)((s8 *)&camera_clip_parameters.value + 0) = farg2;
     *(f32 *)((s8 *)&camera_clip_parameters.value + 4) = farg1;
-}
 }
 
 void sample_camera_motion(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
@@ -385,7 +382,7 @@ s32 sample_motion_vector_channel(s32 arg0) {
 }
 
 #define G_803D6C1C ((St_803D6C1C *)current_motion_context)
-extern "C" {
+
 s32 TObjPlayer__sub_803D6C1C(s32 arg0) {
     if (G_803D6C1C->keys[G_803D6C1C->idx] != 0) {
         G_803D6C1C->fn2c(G_803D6C1C->keys[G_803D6C1C->idx], G_803D6C1C->vals[G_803D6C1C->idx], arg0, G_803D6C1C->t);
@@ -418,7 +415,6 @@ s32 TObjPlayer::sample_next_quaternion_key(s32 output) {
     }
     G_803D6D0C->idx = G_803D6D0C->idx + 1;
     return 0;
-}
 }
 
 void interpolate_motion_quaternion_keys(u32 keys, u32 count, s32 output,
@@ -473,7 +469,7 @@ void interpolate_motion_vector_keys_xy(u8 *keys, s32 count, u8 *arg2, f32 farg0)
 
 #pragma push
 #pragma scheduling off
-extern "C" {
+
 void TObjPlayer::interpolate_motion_key(s32 count, s32 *arg2, f32 farg0) {
     u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_803D6F20, sp8) == 0x0) ? 1 : -1];
@@ -486,7 +482,6 @@ void TObjPlayer::interpolate_motion_key(s32 count, s32 *arg2, f32 farg0) {
     find_motion_key_interval(arg0, 8, count, farg0, &stack.spC, &stack.sp8, &stack.sp10);
     temp_r5 = *(s32 *)((s8 *)stack.spC + 4);
     *arg2 = (s32) ((f32) temp_r5 + (stack.sp10 * (f32) (s16) (*(s32 *)((s8 *)stack.sp8 + 4) - temp_r5)));
-}
 }
 #pragma pop
 
@@ -533,7 +528,6 @@ void sample_motion_angle_keys_s16(u8 *keys, s32 count, u8 *arg2, f32 farg0) {
     *(s32 *)((s8 *)arg2 + 8) = (s32) ((f32) temp_r5_3 + (stack.sp10 * (f32) (s16) (*(s16 *)((s8 *)stack.sp8 + 6) - temp_r5_3)));
 }
 #pragma pop
-extern "C" {
 
 void interpolate_spline_cyclic_cubic(struct SplineKey_803D7288 *keys, u32 count, f32 frame, f32 *output) {
     f32 tbl[2] = { 1.0f, 1.0f };
@@ -573,7 +567,6 @@ void bind_motion_blend_channels(u8 *arg0, f32 farg0) {
     select_motion_context(0);
     bind_motion_channel_samplers((int)((int) (*(s32 *)((s8 *)arg0 + 0))), (f32) (*(f32 *)((s8 *)arg0 + 8)));
     motion_blend_factor = farg0;
-}
 }
 #pragma pop
 
@@ -641,7 +634,7 @@ typedef char RecoveredGlobal_803D77C0_lbl_804FA51C_size[sizeof(RecoveredGlobal_8
 #pragma scheduling off
 #pragma opt_common_subs off
 #pragma peephole off
-extern "C" {
+
 void TObjPlayer::apply_motion_node_transform() {
     struct Vec_803D7CA4 trans;
     struct Vec_803D7CA4 scale;
@@ -662,7 +655,6 @@ void TObjPlayer::apply_motion_node_transform() {
         break;
     }
     scale_current_matrix(&scale);
-}
 }
 #pragma pop
 
@@ -804,11 +796,10 @@ void find_motion_key_interval(void *keys, s32 stride, s32 count, f32 t, void *k0
 
 #pragma push
 #pragma scheduling off
-extern "C" {
+
 void bind_motion_context(s32 arg0, f32 farg0) {
     select_motion_context(0);
     bind_motion_channel_samplers(arg0, farg0);
-}
 }
 #pragma pop
 
@@ -837,7 +828,6 @@ void bind_motion_channel_samplers(int arg0, f32 farg0) {
     }
     *(void **)((s8 *)current_motion_context + 0x38) = (void *)TObjPlayer__sub_803D7FD0;
 }
-extern "C" {
 
 void compose_motion_node_matrix(void *arg0) {
     struct Vec_803D7CA4 trans;
@@ -859,7 +849,6 @@ void compose_motion_node_matrix(void *arg0) {
         break;
     }
     scale_current_matrix(&scale);
-}
 }
 
 #define G_803D7D30 ((Smp_803D7D30 *)current_motion_context)
@@ -945,7 +934,6 @@ s32 sample_motion_node_transform(void *arg0, void *arg1, void *arg2, void *arg3,
 #undef qQ
 }
 #pragma pop
-extern "C" {
 
 s32 TObjPlayer__sub_803D7FD0(void) {
     return 0;
@@ -953,5 +941,4 @@ s32 TObjPlayer__sub_803D7FD0(void) {
 
 s32 TObjPlayer__sub_803D7FD8(void) {
     return 0;
-}
 }

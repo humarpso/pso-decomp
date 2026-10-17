@@ -220,7 +220,7 @@ void * create_random_particle(void *arg0, void *arg1, void *arg2) {
     }
     return o;
 }
-extern "C" {
+
 void TUnk_8048E7A8::check_radial_particle_retire() {
     u8 *arg0 = (u8 *)this;
     if ((this->m_58 >= TParticleCtrl__data_805D9558) || (TParticleCtrl__data_805D955C == vec_squared_length((arg0 + 0x3C)))) {
@@ -346,7 +346,6 @@ void *__dt__13TUnk_8048E7A8Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-}
 
 #pragma push
 #pragma fp_contract on
@@ -393,7 +392,6 @@ u8 *construct_radial_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, 
     return arg0;
 }
 #pragma pop
-extern "C" {
 
 u8 *TParticleCtrl::init_random_particle(u8 *arg1, u8 *arg2, s32 arg3) {
     struct Fields_arg0 { u8 pad_0[24]; s32 * field_18; u16 field_1C; u8 pad_1E[6]; u16 field_24; u8 pad_26[2]; f32 field_28; f32 field_2C; f32 field_30; f32 field_34; f32 field_38; f32 field_3C; f32 field_40; f32 field_44; u8 pad_48[20]; f32 field_5C; u8 pad_60[8]; f32 field_68; u8 pad_6C[4]; f32 field_70; f32 field_74; f32 field_78; };
@@ -428,4 +426,3 @@ u8 *TParticleCtrl::init_random_particle(u8 *arg1, u8 *arg2, s32 arg3) {
 #pragma pop
 
 void destroy_keyboard_objects(void * _w0) { queue_destruction__7TObjectFv((_w0)); TKeyBoardControl__sub_8000F91C(2); TKeyBoardControl__sub_8000F9CC(18); TLobby::stop_audio_streams(); stop_cue_stream(); }
-}

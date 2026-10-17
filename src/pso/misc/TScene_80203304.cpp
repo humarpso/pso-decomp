@@ -6,7 +6,6 @@
 
 struct Tbl_8020335C { s32 v[8]; };
 
-extern "C" {
 extern struct Tbl_8020335C group_selection_area_id_table;
     extern int TScene__render_callback;
 
@@ -41,6 +40,4 @@ s32 TContainerAncient01::is_global_state_in_table() {
         }
     }
     return 0;
-}
-
 }

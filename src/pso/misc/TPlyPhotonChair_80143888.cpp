@@ -5,8 +5,6 @@
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TPlyPhotonChair.h"
 
-extern "C" {
-
 extern s32 lbl_804A7478[];
 
 void *TUnk_804A7478::destroy(s16 arg1) {
@@ -46,6 +44,4 @@ void TObjMotion::set_motion_interpolation_flag() {
 
 u8 TObjMotion::sub_80143960(s32 arg1) {
     return (u8) ((this->animationFlags & arg1) != 0);
-}
-
 }

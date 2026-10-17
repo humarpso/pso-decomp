@@ -67,7 +67,7 @@ TAdDrawLineCtrl::TAdDrawLineCtrl(TObject *object, void *arg2, f32 farg0) : TObje
     this->set_draw_line_param_all_nodes(farg0);
     fn_80019B08(this, -1);
 }
-extern "C" {
+
 u8 *create_draw_line_ctrl__13TAdMcSelectGCFiif(s32 arg0, s32 arg1, f32 farg0) {
     u8 *ad_draw_line_ctrl;
     u8 *var_r0;
@@ -80,6 +80,4 @@ u8 *create_draw_line_ctrl__13TAdMcSelectGCFiif(s32 arg0, s32 arg1, f32 farg0) {
         return var_r0;
     }
     return NULL;
-}
-
 }

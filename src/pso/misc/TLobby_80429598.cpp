@@ -477,7 +477,6 @@ void enable_network_multicast_address(void *arg0) {
   }
   EXIUnlock(0);
 }
-extern "C" {
 
 u8 TLobby::exi_read_status_byte() {
     u8 val;
@@ -504,7 +503,6 @@ u8 TLobby::exi_read_status_byte() {
     ret = val;
     EXIUnlock(0);
     return ret;
-}
 }
 
 #pragma push

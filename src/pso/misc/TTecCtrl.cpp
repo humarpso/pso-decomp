@@ -40,7 +40,6 @@ s32 clamp_nonnegative_int(s32 x) {
     }
     return x;
 }
-extern "C" {
 
 void* get_technique_base_params(int a0) {  return (char*)technique_param_table + a0 * 44; }
 
@@ -80,7 +79,6 @@ void TLobby__sub_8022F068(void) {
         TLobby__sub_8001FE7C(technique_effect_bml, 1);
     }
     technique_effect_bml = NULL;
-}
 }
 void load_technique_resources(void) {
     u8 *p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);

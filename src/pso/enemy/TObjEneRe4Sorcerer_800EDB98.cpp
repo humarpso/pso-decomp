@@ -11,12 +11,10 @@ extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/TParticleCtrl.h"
-#include "pso/enemy/TObjEneDD.h"
+
 #include "pso/enemy/TObjEneRe4Bit.h"
 #include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/enemy/TObjEneRe4Sorcerer.h"
-#include "pso/enemy/TObjEneDD_ST.h"
+
 #include "pso/player/TUnk_80490470.h"
 
 extern "C" {

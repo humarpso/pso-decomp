@@ -2,8 +2,6 @@
 #include "pso/misc/TLobby_803D3988.h"
 #include "pso/misc/TLobby.h"
 
-extern "C" {
-
 extern s32 (*mfci_error_callback)(s32, s32 *, s32);
 
 extern s32 lbl_8047E0C8[];
@@ -20,6 +18,4 @@ void TLobby::release_handle() {
         *(s8 *)((s8 *)arg0 + 1) = 0;
         TLobby__sub_803D3988();
     }
-}
-
 }

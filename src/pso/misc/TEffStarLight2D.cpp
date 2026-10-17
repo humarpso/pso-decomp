@@ -98,11 +98,8 @@ void TEffStarLight2D::copy_from(void* q) { *(f32 *)&this->m_name = *(f32*)((char
 
 TEffStarLight2D::~TEffStarLight2D() {}
 
-extern "C" {
-
 #pragma push
 #pragma opt_common_subs off
-}
 TEffStarLight2D::TEffStarLight2D(void *arg1, void *arg2, TObject *object) : TObject(object) {
     P2_80085388 p;
     ((O_80085388 *)this)->f0 = lbl_805D292C;
@@ -114,7 +111,7 @@ TEffStarLight2D::TEffStarLight2D(void *arg1, void *arg2, TObject *object) : TObj
     ((O_80085388 *)this)->f1c = ((O_80085388 *)this)->f24;
     ((O_80085388 *)this)->f20 = ((O_80085388 *)this)->f28;
 }
-extern "C" {
+
 #pragma pop
 
 void TEffStarLightChild::render() {  }
@@ -154,11 +151,7 @@ void run_task__18TEffStarLightChildFv(Star_80085424 *self) {
     }
 }
 
-}
-
 TEffStarLightChild::~TEffStarLightChild() {}
-
-extern "C" {
 
 #pragma push
 #pragma fp_contract on
@@ -194,5 +187,3 @@ Star_800855F8 *__ct__18TEffStarLightChildFv(Star_800855F8 *self, Pt_800855F8 *a,
     return self;
 }
 #pragma pop
-
-}

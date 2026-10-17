@@ -2,8 +2,6 @@
 #include "pso/misc/TLobby_803CFE68.h"
 #include "pso/misc/TLobby.h"
 
-extern "C" {
-
 extern s32 (*cvfs_completion_callback)(s32);
 
 extern s32 lbl_805D75FC;
@@ -15,7 +13,5 @@ void TLobby::call_callback() {
 }
 
 void TLobby__sub_803CFE9C(void) {
-
-}
 
 }

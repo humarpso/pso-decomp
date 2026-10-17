@@ -224,7 +224,6 @@ struct RecoveredGlobal_803640F8_lbl_8058D4C0 {
 
 struct Rec_80364028 { f32 a; s32 b; s32 c; s32 d; };
 
-extern "C" {
 extern Rec_80364028 lbl_80479FF8;
 extern const f32 lbl_805E0288;
 void TObjPlayer::spawn_cleanup_helper(void *arg0) {
@@ -301,11 +300,7 @@ void TObjPlayer::alloc_and_init_object_b4() {
     (*(void **)&lbl_805D6FB8) = o;
 }
 
-}
-
 struct Elt80364258_80364258 { s32 f0; };
-
-extern "C" {
 
 void TObjPlayer::push_to_list(s32 arg1) {
     s32 temp_r0;
@@ -333,5 +328,4 @@ s32 TObjPlayer::run_and_return_arg(s32 arg0) {
     return arg0;
 }
 
-}
 #undef reset_id_array__10TObjPlayerFPv

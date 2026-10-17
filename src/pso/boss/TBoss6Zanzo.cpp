@@ -105,8 +105,7 @@ TBoss6Zanzo::~TBoss6Zanzo() {
     }
     mem_free(((Obj_80320950 *)this)->arr);
 }
-extern "C" {
-}
+
 TBoss6Zanzo::TBoss6Zanzo(TObject *object, s32 arg2, s32 arg3) : TObject(object) {
     Src_803209F0 *p;
     Src_803209F0 *end;

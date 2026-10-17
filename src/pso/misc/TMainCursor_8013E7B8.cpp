@@ -46,8 +46,6 @@ struct Rec_8013E870 { u8 pad[0x124]; };
 
 struct Obj_8013E870 { u8 pad[0x5c]; Rec_8013E870 recs[1]; };
 
-extern "C" {
-
 void copy_target_record__11TMainCursorFPvPv(u8 *arg0, u8 *arg1) {
     *(u16 *)((s8 *)arg0 + 0) = (u16) *(u16 *)((s8 *)arg1 + 0);
     *(s16 *)((s8 *)arg0 + 2) = (s16) *(s16 *)((s8 *)arg1 + 2);
@@ -57,12 +55,8 @@ void TMainCursor::init_slot(s32 i) {
     TMainCursor__sub_8013E8A0((void*)(&((Obj_8013E870 *)this)->recs[i]));
 }
 
-}
-
 #include "pso/TAdRicoRing.h"
 #include "pso/player/TObjPlayer.h"
-
-extern "C" {
 
 int TMainCursor__sub_8013E8A0(void* p) { return TObjPlayer__sub_8013DEF8(p); }
 int TMainCursor::get_selected_entry() { return is_channel_active__11TMainCursorFv(this); }
@@ -89,5 +83,3 @@ int TMainCursor__sub_8013E9A0(void* p) { return TMainCursor__sub_8013DFC4(p); }
 int TMainCursor__sub_8013E9C0(void* p) { return set_slot__20TWindowActionPaletteFUc(p); }
 int TMainCursor__sub_8013E9E0(void* p) { return set_mode__20TWindowActionPaletteFUc(p); }
 void TMainCursor__sub_8013EA00(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
-
-}

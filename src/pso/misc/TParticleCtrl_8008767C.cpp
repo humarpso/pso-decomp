@@ -7,11 +7,10 @@
 
 #include "types.h"
 #pragma readonly_strings on
-extern "C" {
+
 extern const f32 TParticleCtrl__data_805D94E0[1] = {0.0f};
 extern const f32 TParticleCtrl__data_805D94E4[1] = {1.0f};
 const char *TParticleCtrl__class_name_descriptor[2] = {"TParticleCtrl", 0};
-}
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off

@@ -143,7 +143,6 @@ void ws_data_load(void) {
         return;
     }
 }
-extern "C" {
 
 s32 TWindowDD__sub_80346DB8(s32 arg0) {
   s32 var_r31;
@@ -219,5 +218,4 @@ s16 TWindowDD_read_resolved_value(s32 entry_id, s32 value_index) {
 
 s32 TWindowDD__sub_80346F30(u8 *arg0) {
     return *(s16 *)((s8 *)arg0 + 0x1C) != -1;
-}
 }

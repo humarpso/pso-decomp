@@ -239,7 +239,7 @@ void run_task__15TAdPlayerLoadGCFv(u8 *arg0) {
 
 }
 TAdPlayerLoadGC::~TAdPlayerLoadGC() {}
-extern "C" {
+
 void *__ct__15TAdPlayerLoadGCFv(void *object, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(object);
     *(s32 **)((s8 *)object + 0x18) = (s32 *)__vt__15TAdPlayerLoadGC;
@@ -248,7 +248,6 @@ void *__ct__15TAdPlayerLoadGCFv(void *object, void *arg1, void *arg2) {
     *(void **)((s8 *)object + 0x20) = arg2;
     set_state__15TAdPlayerLoadGCFi(0);
     return object;
-}
 }
 
     extern int TAdPlayerLoadGC__load_state;

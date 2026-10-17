@@ -48,7 +48,7 @@ extern void *TLobby__trade_main_window;
 
 typedef struct RecoveredGlobal_802D2870_TLobby__data_80540BD0 RecoveredGlobal_802D2870_TLobby__data_80540BD0;
 typedef char RecoveredGlobal_802D2870_TLobby__data_80540BD0_size[((sizeof(RecoveredGlobal_802D2870_TLobby__data_80540BD0)) == 0x3E0) ? (1) : (-1)];
-extern "C" {
+
 void TWindowSubTradeMain__sub_802D2870(void) {
   s32 *temp_r31;
   snapshot_player_trade_inventory((s32)(&(*(RecoveredGlobal_802D2870_TLobby__data_80540BD0 *)&TLobby__trade_window_state).value), local_client_id);
@@ -71,5 +71,4 @@ void TWindowSubTradeMain::draw_request(void *arg0, void *arg1) {
     if (TLobby__trade_main_window != NULL) {
         ((TWindowSubTradeMain *)TLobby__trade_main_window)->draw_item_slot();
     }
-}
 }

@@ -411,11 +411,6 @@ void * TObjCMMainMenu__ct(void *arg0, void *parent);
 u8 is_not_dressing_room_mode__14TObjCMMainMenuFv(void);
 s32 * TObjCMMainMenu__sub_80298DD4(void);
 s32 get_creation_pad(void);
-}
-void reset_character_creation_figure_rotation(void);
-void draw_creation_ruler_lines(f32 farg0);
-void get_creation_pad_stick(s32*,f32*);
-extern "C" {
 s32 TObjCMProportion__sub_8029914C(int);
 void fn_802993F0(void);
 void fn_8029945C(u8 *arg0);
@@ -552,9 +547,11 @@ void *create__10TObjCMNameFPv(void *arg0) {
     return o;
 }
 }
+void reset_character_creation_figure_rotation(void);
+void draw_creation_ruler_lines(f32 farg0);
+void get_creation_pad_stick(s32*,f32*);
 TObjCMName::~TObjCMName() {}
 
-extern "C" {
 void *__ct__10TObjCMNameFv(void *obj_cm_name) {
     __ct__7TObjectFP7TObject(obj_cm_name);
     *(s32 **)((s8 *)obj_cm_name + 0x18) = __vt__10TObjCMName;
@@ -569,7 +566,6 @@ void *__ct__10TObjCMNameFv(void *obj_cm_name) {
     return obj_cm_name;
 }
 
-}
 #pragma push
 #pragma fp_contract on
 void TObjCMProportion::run_task() {
@@ -662,7 +658,6 @@ void TObjCMProportion::run_task() {
 }
 #pragma pop
 
-extern "C" {
 void *create__16TObjCMProportionFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x2C);
     if (o != NULL) {
@@ -963,9 +958,7 @@ void *TObjCMHairMenu::create() {
     }
     return o;
 }
-}
 TObjCMHairMenu::~TObjCMHairMenu() {}
-extern "C" {
 
 Hair_802964B0 *__ct__14TObjCMHairMenuFv(Hair_802964B0 *arg0, void *arg1) {
     s32 i;
@@ -1380,7 +1373,6 @@ void * create__16TObjCMAssignMenuFPvPv(void *parent, void *kind) {
         o = __ct__16TObjCMAssignMenuFv(o, parent, kind);
     }
     return o;
-}
 }
 TObjCMAssignMenu::~TObjCMAssignMenu() {}
 extern "C" {
@@ -1895,7 +1887,7 @@ void TObjCMMainMenu::sub_802984FC() {
 
 #pragma push
 #pragma fp_contract on
-extern "C" {
+
 void TObjCMMainMenu::update_menu_reveal() {
     M_80298450 *self = (M_80298450 *)this;
     f32 v;
@@ -1982,7 +1974,6 @@ void TObjCMMainMenu::update_random_proportion_action(void * _w0) {
     }
 }
 void TObjCMMainMenu__sub_80298310(void) {  }
-}
 
 void TObjCMMainMenu::render() {
     set_depth_buffer_settings_1();
@@ -2004,7 +1995,6 @@ void TObjCMMainMenu::render() {
 void TObjCMMainMenu::sub_802981BC() {  }
 
 #pragma defer_codegen off
-extern "C" {
 
 void *TObjCMMainMenu::create() {
     void *o = __nw__7TObjectFUl(0x58);
@@ -2119,6 +2109,4 @@ s32 *TObjCMMainMenu__sub_80298DD4(void) {
 
 s32 get_creation_pad(void) {
     return *(s32 *)((s8 *)&controller_physical_port_bank.value + (TChCrEffCtrlPl::get_clamped_player_index() * 4));
-}
-
 }

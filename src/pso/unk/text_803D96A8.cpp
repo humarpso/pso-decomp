@@ -188,7 +188,6 @@ u32 *find_gvrt_texture_chunk(TLobby *lobby, u32 *arg1, u32 *arg2) {
     } while (tag != 0x54525647);
     return p;
 }
-extern "C" {
 
 s32 TObjPlayer__sub_803D9DA8(A_803D9DA8 *arg0, B_803D9DA8 *arg1) {
     if (fn_803DA12C(arg0->p + 4, arg1->b, arg1->c, arg1->a) != 0) {
@@ -262,5 +261,4 @@ block_7:
         *(u32 *)((s8 *)arg3 + 0) = (u32) (*(s32 *)((s8 *)temp_r31 + 8) & 0xFC000000) >> 0x1AU;
     }
     return 0;
-}
 }

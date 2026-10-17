@@ -3,8 +3,6 @@
 #include "pso/item/TItemMoney.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 extern s32 __vt__10TItemMoney[];
 
 void *__dt__10TItemMoneyFv(void *arg0, s16 arg1) {
@@ -16,6 +14,4 @@ void *__dt__10TItemMoneyFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
-}
-
 }

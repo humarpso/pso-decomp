@@ -48,7 +48,7 @@ void stop_adx_audio(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0x3CC) = 0;
     create_boss6_type2_appearance(arg0);
 }
-extern "C" {
+
 void TBoss6PlotFalz::update_cutscene_fade() {
     s32 t = ((Boss_802B057C *)this)->f3CC;
     if (t <= 0x2D) {
@@ -60,7 +60,6 @@ void TBoss6PlotFalz::update_cutscene_fade() {
         ((void (*)(void)) end_cutscene_camera__14TBoss6PlotFalzFPv)();
     }
     ((Boss_802B057C *)this)->f3CC = ((Boss_802B057C *)this)->f3CC + 1;
-}
 }
 
 #include "pso/boss/TBoss6EmptyWarp.h"
@@ -88,7 +87,7 @@ void init_hall_boss_scene(void *boss6_plot_falz) {
     *(s32 *)((s8 *)boss6_plot_falz + 0x3CC) = 0;
     *(s32 *)((s8 *)boss6_plot_falz + 0x3DC) = alloc__8TObjFishFPv(boss6_plot_falz);
 }
-extern "C" {
+
 void TBoss6PlotFalz__sub_802B06D0(void *boss6_plot_falz) {
     f32 f;
     refresh_players_equipment__14TBoss6PlotFalzFPv();
@@ -102,5 +101,4 @@ void TBoss6PlotFalz__sub_802B06D0(void *boss6_plot_falz) {
     if (++*(s32 *)((s8 *)boss6_plot_falz + 0x3CC) > 0x101) {
         ((TBoss6PlotFalz *)boss6_plot_falz)->set_state(4);
     }
-}
 }

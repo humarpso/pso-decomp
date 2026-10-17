@@ -12,7 +12,6 @@ TItemEffLavis::TItemEffLavis(void* owner, const Vec* start,
     m_name = TItemEffLavis__class_name;
 }
 
-extern "C" {
 TItemEffLavis* create_lavis_shot(void* owner, const Vec* start,
                               const Vec* endpoint, f32 life) {
     TItemEffLavis* result = 0;
@@ -20,5 +19,4 @@ TItemEffLavis* create_lavis_shot(void* owner, const Vec* start,
         result = new TItemEffLavis(owner, start, endpoint, life);
     }
     return result;
-}
 }

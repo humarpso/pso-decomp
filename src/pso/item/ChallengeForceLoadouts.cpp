@@ -1,7 +1,5 @@
 #include "pso/item/ChallengeStageLoadouts.h"
 
-extern "C" {
-
 TPlyInventoryItem challenge_force_items_stage_00[6] = {
     { { 1, 0, 0, 0 }, 0x00000008U, { { { 0x00, 0x0A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 } }, 0xFFFFFFFFU, { { 0x00, 0x00, 0x00, 0x00 } } } },
     { { 1, 0, 0, 0 }, 0x00000008U, { { { 0x01, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 } }, 0xFFFFFFFFU, { { 0x00, 0x00, 0x00, 0x00 } } } },
@@ -296,4 +294,3 @@ ChallengeStageStart force_stage_start_parameters[16] = {
     { 50, 4, challenge_force_items_stage_14, challenge_force_techniques_stages_00_12_13_14_15 },
     { 99, 4, challenge_force_items_stage_15, challenge_force_techniques_stages_00_12_13_14_15 },
 };
-}

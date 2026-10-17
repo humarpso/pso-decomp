@@ -13,11 +13,10 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/render/depth_buffer.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TLobby.h"
-#include "pso/player/TUnk_804806E8.h"
+
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEneLappy.h"
 #include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80042888_lbl_80483DD4 {
     s32 value;

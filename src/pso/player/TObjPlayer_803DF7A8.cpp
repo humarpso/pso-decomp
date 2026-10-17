@@ -137,7 +137,6 @@ static inline CollisionPoint collisionNormalize(CollisionPoint p) {
     return collisionScale(p,lbl_805E1018/collisionRoot(collisionDot(p,p)));
 }
 
-
 #pragma use_lmw_stmw off
 s32 test_box_overlap__10TObjPlayerFPvPv(Vec_803E1B1C *boxA, Vec_803E1B1C *boxB) {
     Vec_803E1B1C qa[4];
@@ -222,11 +221,9 @@ s32 test_box_sphere_contact(CollisionPoint* box,CollisionSphere* sphere) {
 #pragma pop
 
 
-
 __declspec(section ".sdata2") extern const f64 lbl_805E1040;
 __declspec(section ".sdata2") extern const f64 lbl_805E1048;
 }
-
 
 s32 spheres_overlap(u8 *arg0, u8 *arg1) {
     f32 temp_f2;
@@ -241,10 +238,9 @@ s32 spheres_overlap(u8 *arg0, u8 *arg1) {
 }
 
 
-
 #pragma push
 #pragma scheduling off
-extern "C" {
+
 f32 project_point_onto_line(V_803E18C0 *p, Line_803E18C0 *l, V_803E18C0 *out) {
     f32 t;
     f32 x;
@@ -303,7 +299,6 @@ f32 xyz_distance(Vec_803E1A58 *a, Vec_803E1A58 *b) {
 #pragma pop
 
 
-
 void calc_bounds_min_max__10TObjPlayerFPvPvPv(struct Vec_803E1B1C *pts, struct Vec_803E1B1C *mn, struct Vec_803E1B1C *mx) {
     s32 i;
     mn->x = pts->x;
@@ -332,11 +327,9 @@ void TObjPlayer::calc_bounds(u8 *arg1, u8 *arg2) {
     *(f32 *)((s8 *)arg2 + 4) = (f32) (*(f32 *)((s8 *)arg0 + 4) + *(f32 *)((s8 *)arg0 + 0xC));
     *(f32 *)((s8 *)arg2 + 8) = (f32) (*(f32 *)((s8 *)arg0 + 8) + *(f32 *)((s8 *)arg0 + 0xC));
 }
-}
 
 
 extern s8 scene_fog_enable_flag;
-
 
 
 #pragma push
@@ -348,16 +341,12 @@ void load_current_pos_matrix(s32 arg0) {
 #pragma pop
 
 
-
 #pragma push
 #pragma scheduling off
 void load_current_tex_matrix(s32 i) {
     GXLoadTexMtxImm((void *)current_matrix, tex_matrix_id_table[i], 0);
 }
 #pragma pop
-
-
-
 
 
 void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map) {
@@ -377,7 +366,7 @@ void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map) {
     }
     GXLoadTexObj(&list_texture_tex_obj, list_texture_map_table[map]);
 }
-extern "C" {
+
 
 void TObjPlayer::reload_texture(s32 arg1, u32 arg2, void *arg3) {
     s32 size;
@@ -396,5 +385,4 @@ void TObjPlayer::set_effect_active() {
 
 void TObjPlayer::reset_particle_counter() {
     scene_fog_enable_flag = 0;
-}
 }

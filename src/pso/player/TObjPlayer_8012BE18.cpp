@@ -2,8 +2,6 @@
 #include "pso/unk/text_803D853C.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 void TObjPlayer::apply_conveyor_effect() {
     s32 player_list;
 
@@ -12,6 +10,4 @@ void TObjPlayer::apply_conveyor_effect() {
     if (player_list == 9) {
         TObjPlayer::play_particle_effect_once();
     }
-}
-
 }

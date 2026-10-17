@@ -51,7 +51,7 @@ void handle_6x5D_drop_stacked_item(u8 *lobby) {
         spawn_dropped_item_from_msg(&drop.floor, 0);
     }
 }
-extern "C" {
+
 void send_drop_item_6x5D__5TItemFPviPv(void *item, s32 id, Pos_80101FEC *pos) {
     Msg_80101FEC m;
     s32 h;
@@ -69,5 +69,4 @@ void send_drop_item_6x5D__5TItemFPviPv(void *item, s32 id, Pos_80101FEC *pos) {
     ((TLobby *)(m.item))->copy_item_data(item);
     normalize__9TItemDataFv(m.item);
     ((TLobby *)(&m))->send_6x5D();
-}
 }

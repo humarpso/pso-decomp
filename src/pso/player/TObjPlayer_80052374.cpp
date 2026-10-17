@@ -6,7 +6,6 @@
 
 struct C_80052390 { f32 a, b, c, d; };
 
-extern "C" {
 extern int lbl_805D5660;
 extern int lbl_805D5664;
 extern int lbl_805D5668;
@@ -29,6 +28,4 @@ void TObjPlayer__sub_80052390(f32 x) {
     c.a = lbl_805D8AEC + x;
     c.b = c.c = c.d = lbl_805D8ADC;
     ((TUnk_80494AE0 *)((f32 *)&c))->set_chunk_material_color();
-}
-
 }

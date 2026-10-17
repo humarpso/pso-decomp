@@ -70,7 +70,7 @@ void draw_masked_password_field(s32 arg0) {
         __dt__19TAdPlyChrSelPlateGCFv(&plate, -1);
     }
 }
-extern "C" {
+
 void fn_8032AC24(void) {
     Plate_8032AC24 plate;
     Arg_8032AC24 p1;
@@ -81,5 +81,4 @@ void fn_8032AC24(void) {
     Word_8032AC24 w = lbl_805DF768;
     TAdEnterSerialAccessGC__sub_802C4B64(&plate, lbl_80477200, &w, 0);
     __dt__19TAdPlyChrSelPlateGCFv(&plate, -1);
-}
 }

@@ -2,8 +2,6 @@
 #include "pso/item/TItemEquipBase_8022F1C0.h"
 #include "pso/item/TItemEquipBase.h"
 
-extern "C" {
-
 void TItemEquipBase::set_slot(s32 arg1, s32 arg2) {
     s32 arg0 = (s32)this;
     if (arg1 < 6) {
@@ -18,5 +16,3 @@ void TItemEquipBase__sub_8022F1F4(void *arg0, void *arg1) {
 }
 
 void TItemEquipBase::init_slots() { { int i; for (i = 0; i < 6; i++) { ((TItemEquipBase *)((char*)this + i * 8))->init_slot(); } } }
-
-}

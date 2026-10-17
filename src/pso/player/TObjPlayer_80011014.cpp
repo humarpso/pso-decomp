@@ -16,7 +16,7 @@ extern "C" void apply_anti_technique__13TUnk_804806E8Fl();
 #include "dolphin/mtx.h"
 #include <stddef.h>
 #include "pso/TEffClitical.h"
-#include "pso/TObject.h"
+
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOCtrlDubchik.h"
@@ -898,17 +898,6 @@ s32 create_font_small_task_default_color(u32, s32, s32, s32, s32 *, s16);
 s32 create_damage_font__19TObjEneEpsilonGuardFllll(u32, s32, s32, s16);
 f32 horizontal_distance_squared(void *, void *);
 s32 angle_difference_abs(s32, s32);
-}
-void spawn_confusion_feedback_effect(s32 arg0, s32 arg1);
-void spawn_paralysis_feedback_effect(s32 arg0, s32 arg1);
-s32 is_entity_locally_controlled(s32 id);
-void move_with_wall_slide(u8 *arg0);
-void obj_clearArrS16_FC(ObjArrFC* p, int i);
-f64 fabs_double(f64 x);
-void *create_timed_particle_emitter_with_flags(void *pos, s32 id, s32 a, s32 b, s32 c);
-void *create_oneshot_particle_emitter(void *pos, void *dir, s32 id, s32 flags);
-void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
-extern "C" {
 s32 lerp_angle_half__10TObjPlayerFUsUs(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
 void __dt__10TObjMotionFv(void *, int);
@@ -1069,7 +1058,15 @@ void play_shock_feedback__10TObjPlayerFii(s32 arg0, s32 arg1) {
     }
 }
 }
-
+void spawn_confusion_feedback_effect(s32 arg0, s32 arg1);
+void spawn_paralysis_feedback_effect(s32 arg0, s32 arg1);
+s32 is_entity_locally_controlled(s32 id);
+void move_with_wall_slide(u8 *arg0);
+void obj_clearArrS16_FC(ObjArrFC* p, int i);
+f64 fabs_double(f64 x);
+void *create_timed_particle_emitter_with_flags(void *pos, s32 id, s32 a, s32 b, s32 c);
+void *create_oneshot_particle_emitter(void *pos, void *dir, s32 id, s32 flags);
+void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
 void spawn_confusion_feedback_effect(s32 arg0, s32 arg1) {
     s32 particle_effect_with_flags;
     if (((s32)((int (*)(void*, int))obj_testFlags30__13TUnk_804AF8A0FUl)((void*)arg0, 0x02000000)) == 0) {
@@ -1082,7 +1079,6 @@ void spawn_confusion_feedback_effect(s32 arg0, s32 arg1) {
         }
     }
 }
-extern "C" {
 
 void spawn_slow_effect__10TObjPlayerFii(s32 arg0, s32 arg1) {
     s32 particle_effect_with_flags;
@@ -1095,7 +1091,6 @@ void spawn_slow_effect__10TObjPlayerFii(s32 arg0, s32 arg1) {
             play_sound_effect(0xB20D, arg0 + 0x38, 0, 0);
         }
     }
-}
 }
 
 void spawn_paralysis_feedback_effect(s32 arg0, s32 arg1) {
@@ -1110,7 +1105,6 @@ void spawn_paralysis_feedback_effect(s32 arg0, s32 arg1) {
         }
     }
 }
-extern "C" {
 
 void spawn_poison_effect__10TObjPlayerFii(s32 arg0, s32 arg1) {
     s32 particle_effect_with_flags;
@@ -1123,7 +1117,6 @@ void spawn_poison_effect__10TObjPlayerFii(s32 arg0, s32 arg1) {
             play_sound_effect(0xCD0B, arg0 + 0x38, 0, 0);
         }
     }
-}
 }
 
 s32 calc_freeze_chance(TObjPlayer *actor, TObjPlayer *arg1, TObjPlayer *arg2, f32 farg0) {
@@ -1350,7 +1343,6 @@ s32 is_entity_locally_controlled(s32 id) {
     }
     return ((s32 (*)(void *))is_locally_controlled__10TObjPlayerFPv)(p);
 }
-extern "C" {
 
 void handle_6x9A_update_entity_stat(Pkt_80010C54 *pkt) {
     s16 v;
@@ -1418,7 +1410,6 @@ void TUnk_804806E8::sub_80010DE8(u16 a, u8 b, u8 c) {
     pkt.f6 = b;
     pkt.f7 = c;
     ((TObjPlayer *)(&pkt))->send_head();
-}
 }
 
 void empty_post_damage_hook(void *defender, void *attacker) {  }
@@ -3524,7 +3515,6 @@ void display_exp_gain(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
         create_font_small_task(arg1, 0xFFFF00FF, 0x14, arg2, (s32 *)lbl_805D7DA8, arg3, ((s32 (*)(s32))obj_getField1c)(arg0));
     }
 }
-extern "C" {
 
 void show_meseta_label(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
     s32 size;
@@ -3535,7 +3525,6 @@ void show_meseta_label(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
         }
         ((void (*)(u32, s32, s32, s32, void *, s16, s32))create_font_small_task)(arg1, -0x100, size, arg2, lbl_804340A8, arg3, ((s32 (*)(s32))obj_getField1c)(arg0));
     }
-}
 }
 
 const char lbl_805D7DAC[] = "TP";
@@ -3553,7 +3542,6 @@ void draw_hp_label(void *arg0, u32 arg1, s32 arg2, s16 arg3) {
         create_font_small_task_default_color(arg1, 0xFF00FF00, 0x14, arg2, (s32 *)lbl_805D7DB0, (s16)arg3);
     }
 }
-extern "C" {
 
 void TUnk_804806E8::try_apply_damage(u32 arg1, s32 arg2) {
     if ((((s32 (*)(void *, s32))obj_testFlags30__13TUnk_804AF8A0FUl)(this, 0x02000000) == 0) && (((s32 (*)(void *))is_locally_controlled__10TObjPlayerFPv)(this) == 0) && (arg1 != 0U) && ((s16) arg2 >= 0) && ((TObjPlayer::get_player_count() == 0) || ((u16) this->m_1c >= 0x1000U))) {
@@ -3567,7 +3555,6 @@ void TUnk_804806E8::show_miss_popup(const float *pos) {
             TOCtrlDubchik::create_font((s32)pos, 0xFFFF0000, 0x14, (s32)lbl_804340B0);
         }
     }
-}
 }
 void TObjPlayer::show_miss_for_collider(int collider) {
     show_miss_popup__13TUnk_804806E8FPCf(this, (const float*)((*(u32 *)&this->m_a4) + collider*0x2C + 0x1C));
@@ -4149,7 +4136,6 @@ void move_with_wall_slide(u8 *arg0) {
   }
 }
 #pragma pop
-extern "C" {
 
 void enemy_set_heading_velocity(TObjEnemy *enemy, s32 arg1, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_8001806C, sp8) == 0x0) ? 1 : -1];
@@ -4584,7 +4570,6 @@ void TUnk_804806E8::get_pos(s32 arg1) {
     s32 arg0 = (s32)this;
     ((s32 (*)(s32, s32, s32))VecCopy__FP3VecPC3Vec)(arg1, arg0 + 0x2FC, arg0);
 }
-}
 #pragma push
 #pragma scheduling off
 void VecCopy(Vec* dst, const Vec* src) {
@@ -4596,7 +4581,7 @@ void VecCopy(Vec* dst, const Vec* src) {
 
 #pragma push
 #pragma scheduling off
-extern "C" {
+
 u8 is_locally_controlled__10TObjPlayerFPv(u8 *arg0) {
     return (u8) (((TUnk_804806E8 *)arg0)->m_324 == 1);
 }
@@ -4625,7 +4610,6 @@ f32 TObjPlayer__sub_800192C4(Obj800192C4 *self, s32 i) {
 }
 
 s16 TUnk_804806E8::get_s16_2c4() { return (this->m_2c4); }
-}
 
 void reset_status_effect_row(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0) = 0;
@@ -4635,7 +4619,7 @@ void reset_status_effect_row(u8 *arg0) {
 
 #pragma push
 #pragma scheduling off
-extern "C" {
+
 int obj_getArrWord_254(ObjArr254* p, int i) {
     return p->arr[i].w;
 }
@@ -4653,7 +4637,6 @@ void obj_setArrS16_FC(ObjArrFC* p, int i, s16 v) {
 u16 obj_getArrU16_FC(ObjArrFC* p, int i) {
     return p->arr[i];
 }
-}
 #pragma pop
 
 #pragma push
@@ -4668,7 +4651,7 @@ void obj_clearArrS16_FC(ObjArrFC* p, int i) {
 #pragma scheduling off
 #pragma scheduling on
 #pragma scheduling off
-extern "C" {
+
 u8 TUnk_804806E8::obj_isState2_324() {
     return this->m_324 == 2;
 }
@@ -4726,7 +4709,6 @@ s16 obj_getS16_32C(u8* p) {
 u8 TUnk_804806E8::obj_testFlag_2E4(u32 mask) {
     return (this->m_2e4 & mask) != 0;
 }
-}
 #pragma pop
 
 #pragma push
@@ -4742,7 +4724,7 @@ s16 obj_getS16_118(u8* p) {
 #pragma scheduling off
 #pragma scheduling on
 #pragma scheduling off
-extern "C" {
+
 s16 TObjPlayer::obj_getS16_116() {
     return this->m_116;
 }
@@ -4754,7 +4736,6 @@ s16 TObjPlayer::obj_getS16_116() {
 #pragma scheduling off
 u8 TUnk_804806E8::obj_isState3_324() {
     return this->m_324 == 3;
-}
 }
 #pragma pop
 
@@ -4906,7 +4887,7 @@ f64 fabs_double(f64 x) { return __fabs(x); }
 
 #pragma push
 #pragma fp_contract on
-extern "C" {
+
 f32 newton_sqrtf(f32 x) {
     volatile f32 y;
     if (x > (0.0f)) {
@@ -4933,5 +4914,4 @@ void TObjPlayer::clear_ground_candidates() {
     for (i = 0; i < 16; i++) {
         self->arr[i] = 0;
     }
-}
 }

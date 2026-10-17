@@ -140,9 +140,6 @@ extern s32 player_particle_effect_enabled;
 extern u8 corpse_mark_resource_descriptor[];
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
-}
-void set_chunk_blend(u32 x);
-extern "C" {
 void set_chunk_material_override_pair(s32 arg0, s32 arg1);
 
 void TObjPlayer::destroy_static_lobby() {
@@ -152,7 +149,7 @@ void TObjPlayer::destroy_static_lobby() {
     }
 }
 }
-
+void set_chunk_blend(u32 x);
 extern s32 model_render_flags;
 
 void load_corpse_mark_resource(void) {

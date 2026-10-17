@@ -6,9 +6,6 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/unk/TUnk_804E1BB0.h"
 struct TItemEquipBase;
-#include "pso/player/TObjPlayer.h"
-#include "pso/item/TItem.h"
-#include "pso/items/TItemWeapon.h"
 
 extern "C" {
 void *alloc_from_obj_heap__10TObjPlayerFPv(u32);

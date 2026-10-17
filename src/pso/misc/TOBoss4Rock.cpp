@@ -14,8 +14,6 @@ void *mem_alloc(u32 size);
 void xfree(void *p);
 void *xmalloc(u32 size);
 
-extern "C" {
-
 void mem_free(void *p) {
     if (p != NULL) {
         xfree(p);
@@ -37,6 +35,4 @@ void * TObjNpcAHM01__create(void *arg0) {
         o2 = TObjNpcAHM01__ct((u8 *)o2, (s32)o, (s32)arg0);
     }
     return o2;
-}
-
 }

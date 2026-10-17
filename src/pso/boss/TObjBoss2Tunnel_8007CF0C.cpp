@@ -70,7 +70,6 @@ void load_data_buffers(void) {
 }
 
 extern s32 TObjBoss2Tunnel__data_80438A08[];
-extern "C" {
 
 s32 memcard_check_snapshot(s32 arg0, s32 *arg1) {
     s32 temp_r3;
@@ -260,5 +259,4 @@ void TObjBoss2Tunnel::reset_state() {
     TObjBoss2Tunnel__snapshot_state = 0;
     TObjBoss2Tunnel__snapshot_saved_flag = 0;
     TQuestListVM::reset();
-}
 }

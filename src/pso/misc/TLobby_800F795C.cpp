@@ -143,13 +143,10 @@ void init_6x9C_enemy_low_game_flags_packet(u8 *arg0) {
     *(u8 *)((s8 *)arg0 + 0) = 0x9C;
     *(s8 *)((s8 *)arg0 + 1) = 2;
 }
-extern "C" {
 
 void TLobby::bswap_enemy_state() { read_be16_field2__10TObjPlayerFv(this); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); }
-}
 void send_6x0A_enemy_state_packet(void* p) { ((TLobby *)p)->bswap_enemy_state(); TLobby__send_and_handle_60((u8 *)p); }
 void init_6x0A_enemy_state_packet(void* p) { *(u8*)((char*)p + 0x0) = 10; *(u8*)((char*)p + 0x1) = 3; }
-extern "C" {
 int get_attack_credit_slot_count(void) { return 4; }
 
 typedef char RecoveredGlobal_800F7A6C_lbl_804DB1F0_size[sizeof(RecoveredGlobal_800F7A6C_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
@@ -160,7 +157,6 @@ f32 TLobby__sub_800F7A6C(void) {
 typedef char RecoveredGlobal_800F7A7C_lbl_8048C9D8_size[sizeof(RecoveredGlobal_800F7A7C_lbl_8048C9D8) == 0x748 ? 1 : -1];
 f32 TLobby__sub_800F7A7C(void) {
     return *(f32 *)((s8 *)&challenge_mode_state.value + 4);
-}
 }
 
 void unload_floor_resources(s32 arg0) {

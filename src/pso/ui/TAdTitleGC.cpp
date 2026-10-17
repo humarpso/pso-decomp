@@ -145,7 +145,5 @@ TAdTitleGC::TAdTitleGC(TObject *parent, s32 idx) : TObject(parent) {
     }
     ((TAdTitleGC_802A0E08 *)this)->f130 = (u32)create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)((TAdTitleGC_802A0E08 *)this), 8, (f32)(0.0f));
 }
-extern "C" {
-#pragma pop
 
-}
+#pragma pop

@@ -369,7 +369,6 @@ void create_quest_telepipe_for_client(u16 arg0) {
         ((TTecLuker *)player)->create(player + 0x38, player + 0x2FC, NULL);
     }
 }
-extern "C" {
 
 Vec_80233E78 *consume_telepipe_arrival(u16 slot, s32 *heading) {
     Player_80233E78 *p;
@@ -463,7 +462,6 @@ void TTecLuker::send_telepipe_packet() {
     stack.sp20 = *(s32 *)&this->m_down;
     ((TTecLuker *)(&stack.sp8))->send_swapped_telepipe_packet();
 }
-}
 
 void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4) {
     u8 *player;
@@ -478,7 +476,6 @@ void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4) {
         }
     }
 }
-extern "C" {
 
 void handle_6x68_set_telepipe_state(Pkt_802341B0 *pkt) {
     u8 *player;
@@ -983,12 +980,10 @@ void TTecLuker__sub_80234F48(void) {
 
 void TTecLuker__sub_80234F68(void* p) { *(s32*)((char*)p + 0x0) = 6; }
 s16 get_field_2__9TTecLukerFPv(void* p) { return *(s16*)((char*)p + 0x2); }
-}
 
 void clear_pipe_interaction_latch(void* p) { *(s32*)((char*)p + 0xb0) = 0; }
 
 s32 get_pipe_interaction_latch(void* p) { return *(s32*)((char*)p + 0xb0); }
-extern "C" {
 
 void TTecLuker::send_swapped_telepipe_packet() { byteswap_telepipe_packet(); TLobby__send_and_handle_60((u8 *)this); }
 
@@ -1002,10 +997,8 @@ void TTecLuker::byteswap_telepipe_packet() {
     bswap_32((u32 *)((void *)((char *)this + 20)));
     bswap_32((u32 *)((void *)((char *)this + 24)));
 }
-}
 
 void init_telepipe_packet_header(void* p) { *(u8*)((char*)p + 0x0) = 104; *(u8*)((char*)p + 0x1) = 7; }
-extern "C" {
 
 void TTecLuker__sub_8023503C(void* p) { *(s32*)((char*)p + 0x38) = 1; }
 
@@ -1014,5 +1007,4 @@ void TTecLuker__sub_80235048(void* p) { *(s32*)((char*)p + 0x38) = 0; }
 int TTecLuker__sub_80235054(void* p) { return fn_80235078((void *)((char*)p + 0x4)); }
 int fn_80235078(void *arg0) {
     return (u8) (*(s32 *)((s8 *)arg0 + 0x0) == 2);
-}
 }

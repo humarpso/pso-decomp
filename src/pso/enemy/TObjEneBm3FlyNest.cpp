@@ -12,7 +12,7 @@ extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
-#include "pso/enemy/TObjEnemy.h"
+
 #include "pso/enemy/TObjEneDD_ST.h"
 #include <stddef.h>
 #include "pso/TObject.h"
@@ -23,7 +23,7 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/misc/RenderFadeState.h"
 #include "pso/misc/TLobby.h"
-#include "pso/player/TObjPlayer.h"
+
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct VBase_800B3EB8 { char pad[0x18]; };

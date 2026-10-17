@@ -136,10 +136,6 @@ s32 TLobby__sub_8042558C(void *);
 extern u8 lbl_805E1190[6];
 s32 TLobby__sub_80426660(u8 *arg0);
 void TLobby__sub_804089A8(s32, s32, void *, void *);
-}
-void enable_network_multicast_address(void *arg0);
-void dispatch_received_ethernet_frame(void *q, void *a, void *b);
-extern "C" {
 s32 TLobby__sub_80426440(void);
 
 #pragma push
@@ -231,7 +227,8 @@ void TLobby__sub_80425D88(u8 v) {
     OSSendMessage(lbl_805CF380, (void *)v, 0);
 }
 }
-
+void enable_network_multicast_address(void *arg0);
+void dispatch_received_ethernet_frame(void *q, void *a, void *b);
 #define self ((EthernetReceiveFilter *)q)
 #define pkt ((EthernetFrameHeader *)a)
 void dispatch_received_ethernet_frame(void *q, void *a, void *b) {

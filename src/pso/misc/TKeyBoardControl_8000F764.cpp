@@ -230,7 +230,7 @@ typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8000F8FC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8FC_lbl_804FE120) == 0x18 ? 1 : -1];
 
 typedef char RecoveredGlobal_8000F8EC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8EC_lbl_804FE120) == 0x18 ? 1 : -1];
-extern "C" {
+
 s32 TKeyBoardControl__sub_8000F8EC(void) {
     return *(s32 *)((s8 *)(&(*(RecoveredGlobal_8000F8EC_lbl_804FE120 *)&main_phase_state).value) + 0x14);
 }
@@ -307,7 +307,6 @@ void TKeyBoardControl__sub_8000F9E4(void) {
     *(s32 *)((s8 *)&main_phase_state.value + 8) = 1;
     *(s32 *)((s8 *)&main_phase_state.value + 0xC) = 1;
     *(s32 *)((s8 *)&main_phase_state.value + 0x14) = 1;
-}
 }
 void init_gx_lighting_defaults(void) {
     GXColor_8000FA00 c0 = lbl_805D7D00;

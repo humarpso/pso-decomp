@@ -8,7 +8,6 @@ struct Stack_8003AED4 {
     f32 spC;
 };
 
-extern "C" {
 extern const f32 lbl_805D85B0;
 void TObjBoss2RaftSplash::run_task() {
     u8 *arg0 = (u8 *)this;
@@ -26,5 +25,3 @@ void TObjBoss2RaftSplash::run_task() {
     }
 }
 TObjBoss2RaftSplash::~TObjBoss2RaftSplash() {}
-
-}

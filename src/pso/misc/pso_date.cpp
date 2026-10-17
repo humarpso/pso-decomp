@@ -30,9 +30,6 @@ struct DateStamp_801E2B24 {
 extern "C" {
 void bind_motion_blend_channels(void *);
 void prepare_ginja_model(void *);
-}
-void end_ginja_model_draw();
-extern "C" {
 void draw_ginja_model_lists();
 extern void *model_draw_context;
 extern const Tbl_801E2B24 date_month_start_days[] = {
@@ -55,6 +52,7 @@ void DateToSeconds__FP9DateStampPi(DateStamp_801E2B24 *ds, s32 *out) {
     *out = ds->sec + ((ds->min + ((ds->hour + d * 0x18) * 0x3C))) * 0x3C;
 }
 }
+void end_ginja_model_draw();
 #pragma pop
 
 int getDateStamp(DateStamp* out) {
@@ -83,7 +81,6 @@ int VISetBlack(int);
 void fn_801E2C50(void) {  }
 }
 void reset_system(void) { VISetBlack(1); VIFlush(); VIWaitForRetrace(); OSResetSystem(1, 0, 0); }
-extern "C" {
 void system_reset(void) { VISetBlack(1); VIFlush(); VIWaitForRetrace(); OSResetSystem(1, 0, 1); }
 void TObjPlayer::draw_ginja_model_tree(void *arg1) {
     bind_motion_blend_channels(arg1);
@@ -92,5 +89,4 @@ void TObjPlayer::draw_ginja_model_tree(void *arg1) {
     prepare_ginja_model(g);
     TObjPlayer::render_model_tree(this);
     end_ginja_model_draw();
-}
 }

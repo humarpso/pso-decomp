@@ -77,7 +77,6 @@ void calc_projection_screen_offset(f32 *arg0, f32 *arg1) {
     *arg0 = (lbl_805D93F4 * dx) / lbl_805D93F8;
     *arg1 = (lbl_805D93FC * dy) / lbl_805D9400;
 }
-extern "C" {
 
 void TCameraCtrl::copy_position_vectors(void *arg1, void *arg2) {
     VecCopy__FP3VecPC3Vec((void *)((char *)this + 32));
@@ -158,5 +157,4 @@ void *TUnk_8048E5DC::dt(s16 arg1) {
         }
     }
     return this;
-}
 }

@@ -2,8 +2,6 @@
 #include "pso/system/byteswap.h"
 #include "pso/misc/TLobby.h"
 
-extern "C" {
-
 extern u32 lbl_805D60C4;
 extern s32 lbl_805D60C8;
 
@@ -24,6 +22,4 @@ void TLobby::append_entity_entry() {
         ((TLobby *)(lbl_805D60C4 + lbl_805D60C8))->move_data((s32 *)arg0, 1);
         lbl_805D60C8 += 1;
     }
-}
-
 }

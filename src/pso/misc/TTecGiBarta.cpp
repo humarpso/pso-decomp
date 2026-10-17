@@ -203,7 +203,7 @@ void TTecGiBarta::update_technique_by_phase() {
 #pragma dont_inline off
 }
 struct Raw_802304A0 { u8 b[12]; };
-extern "C" {
+
 void TTecGiBarta::create_particles() {
     extern Band_802304A0 TTecGiBarta__emitter_profile_table[];
     Shot_802304A0 *shot = (Shot_802304A0 *)this;
@@ -409,5 +409,3 @@ u8 *TTecGiBarta::construct_facing(void * _w1, void * _w2, void * _w3, void * _w4
 }
 
 void TTecGiBarta::render() {  }
-
-}

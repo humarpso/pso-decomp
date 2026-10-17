@@ -1786,7 +1786,6 @@ typedef char RecoveredGlobal_80275228_lbl_80517EE0_size[sizeof(RecoveredGlobal_8
 s32 *get_selected_guild_card_record(void) {
     return &selected_guild_card_record.value;
 }
-extern "C" {
 
 void*TWindowSubComCard::get_card_data_ptr() { return (char*)this + 0x3b; }
 void* TWindowSubComCard__sub_8027523C(void* p) { return (char*)p + 0x2a; }
@@ -1799,6 +1798,4 @@ void TWindowSubComCard::set_flag_10() { *(u16*)((char*)this + 0x70) |= 0x10; }
 void TWindowSubComCard::set_display_page() {
     s32 arg0 = (s32)this;
     set_page((s16)((int) (((s16 (*)(void))get_selected_menu_value)())));
-}
-
 }

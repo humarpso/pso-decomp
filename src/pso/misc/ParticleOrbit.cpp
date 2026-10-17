@@ -415,7 +415,7 @@ u8 *init_orbit_sprite_particle(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4,
 
 #pragma push
 #pragma fp_contract on
-extern "C" {
+
 void *TUnk_8048E790::init_random_particle(void *arg1, void *arg2, void *arg3, void *arg4) {
     OObj_8008B060 *o = (OObj_8008B060 *)this;
     ODesc_8008B060 *d = (ODesc_8008B060 *)arg1;
@@ -453,6 +453,5 @@ void *TUnk_8048E790::init_random_particle(void *arg1, void *arg2, void *arg3, vo
         ((TParticleCtrl *)((void *)0x1F))->get_object();
     }
     return this;
-}
 }
 #pragma pop

@@ -18,15 +18,13 @@ s32 process_format_result__17TMCFormatSequenceFv();
 s32 open_windows__17TMCFormatSequenceFv();
 void *TMCFormatSequence__ct(TMCFormatSequence *arg0, void *arg1, void *arg2);
 void __ct__7TObjectFP7TObject(void *);
-}
-extern s32 __vt__17TMCFormatSequence[];
-extern void *TMCFormatSequence__class_name;
-extern "C" {
 char TQuestVmDownLoadServer__data_804C8690[0xC] = "\xB8\xB4\xBD\xC4\xCC\xA7\xB2\xD9";
 s32 TWindowShortListCtrl__check_controller_button(void*, s32);
 struct RecoveredGlobal_801F6C74_lbl_8050E208;
 void TQuestVmDownLoadServer__sub_801F6B98(void);
 }
+extern s32 __vt__17TMCFormatSequence[];
+extern void *TMCFormatSequence__class_name;
 extern RecoveredGlobal_801F6C74_lbl_8050E208 controller_input_state;
 extern s32 TQuestVmDownLoadServer__instance;
 
@@ -47,13 +45,11 @@ s32 get_localized_text_entry(s32 arg0, s32 arg1);
 void return_to_main_menu__6TLobbyFv(void);
 s32 __ct__22TQuestVmDownLoadServerFP7TObject(void *, s32);
 void *__nw__7TObjectFUl(s32);
+typedef char RecoveredGlobal_801F6C74_lbl_8050E208_size[sizeof(RecoveredGlobal_801F6C74_lbl_8050E208) == 0x1B0 ? 1 : -1];
+typedef char RecoveredGlobal_801F6C74_lbl_8050E208_size[sizeof(RecoveredGlobal_801F6C74_lbl_8050E208) == 0x1B0 ? 1 : -1];
 }
 extern s32 quest_download_in_progress;
 extern s32 tl_00;
-extern "C" {
-typedef char RecoveredGlobal_801F6C74_lbl_8050E208_size[sizeof(RecoveredGlobal_801F6C74_lbl_8050E208) == 0x1B0 ? 1 : -1];
-typedef char RecoveredGlobal_801F6C74_lbl_8050E208_size[sizeof(RecoveredGlobal_801F6C74_lbl_8050E208) == 0x1B0 ? 1 : -1];
-}
 
 struct Pair_801F6E08 { s32 a; s32 b; };extern "C" {
 s32 create_window__24TMessageWindowControllerFll(void*, s32, void*);
@@ -208,17 +204,13 @@ u8 *init_shop_judgment_window(void *p);
 s32 TQuestVmDownLoadServer__sub_801F8538(void *data, s32 size);
 s32 get_selected_menu_value(u32);
 s32 draw_window_bg__23TAdSinglePlyChrSelectGCFllll(s32, void *, s32, s32);
+typedef char RecoveredGlobal_801F6C74_lbl_8050E208_size[sizeof(RecoveredGlobal_801F6C74_lbl_8050E208) == 0x1B0 ? 1 : -1];
 }
 extern s32 tl_03;
 extern s32 lbl_8044BEF4[];
-extern "C" {
-typedef char RecoveredGlobal_801F6C74_lbl_8050E208_size[sizeof(RecoveredGlobal_801F6C74_lbl_8050E208) == 0x1B0 ? 1 : -1];
-}
-
-typedef char RecoveredGlobal_801F84AC_lbl_80512BDC_size[sizeof(RecoveredGlobal_801F84AC_lbl_80512BDC) == 0x3C ? 1 : -1];extern "C" {
+typedef char RecoveredGlobal_801F84AC_lbl_80512BDC_size[sizeof(RecoveredGlobal_801F84AC_lbl_80512BDC) == 0x3C ? 1 : -1];
 typedef char SubtractiveRng_size[sizeof(SubtractiveRng) == 0xE8 ? 1 : -1];
 struct SubtractiveRng;
-}
 
 struct Src_801F87CC {
     u8 pad0[0x10];
@@ -259,7 +251,6 @@ struct Src_801F8F14 {
     u32 f38;
 };
 
-extern "C" {
 void TQuestVmDownLoadServer::reset_download_state() {
     TQuestVmDownLoadServer__dat_download_complete = 0;
     TQuestVmDownLoadServer__bin_download_complete = 0;
@@ -558,7 +549,6 @@ s32 TQuestVmDownLoadServer::verify_checksum(s32 arg0, s32 arg1) {
   TAdSinglePlyChrSelectGC::safe_free((u32)temp_r3);
   return ((u32) __cntlzw((u32) (temp_r31 - temp_r29))) >> 5;
 }
-}
 s32 *get_quest_download_file_header(void) {
     return &quest_download_file_header.value;
 }
@@ -698,7 +688,7 @@ void TQuestVmDownLoadServer::run_task() {
         break;
     }
 }
-extern "C" {
+
 void TQuestVmDownLoadServer::sub_801F7FEC() {
     Slot_801F7FEC *s;
     u32 n;
@@ -1350,5 +1340,4 @@ void TMCFormatSequence::run_task() {
         update_wait_confirm__17TMCFormatSequenceFPv();
         return;
     }
-}
 }

@@ -47,10 +47,8 @@ void swap_sprite_u_edges(u8 *arg0) {
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) *(f32 *)((s8 *)arg0 + 0x24);
     *(f32 *)((s8 *)arg0 + 0x24) = temp_f1;
 }
-extern "C" {
 
 void set_sprite_uv_bounds(void* p, f32 a, f32 b, f32 c, f32 d) { *(f32*)((char*)p + 0x1c) = a; *(f32*)((char*)p + 0x20) = b; *(f32*)((char*)p + 0x24) = c; *(f32*)((char*)p + 0x28) = d; }
-}
 
 void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1) {
     f32 x, y;
@@ -66,7 +64,7 @@ void set_sprite_dimensions(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0x10) = a
 
 #pragma push
 #pragma fp_contract on
-extern "C" {
+
 void draw_window_uv_sprite_part(Win_8025B0D0 *arg0, Ref_8025B0D0 *arg1) {
     Quad_8025B0D0 q;
     f32 x;
@@ -175,5 +173,4 @@ u8 *init_part_scaled__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2)
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)arg1 + 0x28);
     *(s16 *)((s8 *)arg0 + 0) = (s16) *(s32 *)((s8 *)arg1 + 0x2C);
     return arg0;
-}
 }

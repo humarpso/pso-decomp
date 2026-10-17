@@ -14,17 +14,17 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TUnk_804E6FA8.h"
-#include "pso/enemy/TObjEneDD_ST.h"
+
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/player/TUnk_80490470.h"
 #include "pso/enemy/TObjEneDellBiter_Eff_Rush.h"
 #include <stddef.h>
-#include "pso/enemy/TObjEneDellBiter.h"
+
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/boss/TBoss4Type3.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
-#include "pso/enemy/TObjEneDD.h"
+
 #include "pso/enemy/TObjEneEpsilon.h"
 #include "pso/enemy/TObjEneMe3ShinowaReal.h"
 #include "pso/enemy/TObjEnePanarms.h"
@@ -36,7 +36,7 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/misc/TNowLoading.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
+
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct VBase_14_aa9368 { char pad[0x14]; };

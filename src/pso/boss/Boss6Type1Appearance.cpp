@@ -169,13 +169,11 @@ TBoss6Demo10_TYPE1_APPEAR::~TBoss6Demo10_TYPE1_APPEAR() {
         *(u32 *)((s8 *)this + 0x64) = 0U;
     }
 }
-extern "C" {
 
 #pragma push
 #pragma opt_common_subs off
 typedef struct Ent_8033CB4C Ent_8033CB4C;
 typedef struct Fish_8033CB4C Fish_8033CB4C;
-}
 TBoss6Demo10_TYPE1_APPEAR::TBoss6Demo10_TYPE1_APPEAR(TObject *parent) : TObject(parent) {
     s32 k;
     s32 n;
@@ -200,7 +198,7 @@ TBoss6Demo10_TYPE1_APPEAR::TBoss6Demo10_TYPE1_APPEAR(TObject *parent) : TObject(
     ((Fish_8033CB4C *)this)->x34 = lbl_805DFA50.value;
     ((Fish_8033CB4C *)this)->x38 = 0;
 }
-extern "C" {
+
 #pragma pop
 
 void *TBoss6Demo10_TYPE1_APPEAR__create(void *parent) {
@@ -224,4 +222,3 @@ __declspec(section ".sdata") AppearanceClassTag TBoss6Demo10_TYPE1_APPEAR__name 
 __declspec(section ".sdata2") const f32 lbl_805DFA48 = 0.7f;
 __declspec(section ".sdata2") const f32 lbl_805DFA4C = 349.0f;
 __declspec(section ".sdata2") const AppearanceZero lbl_805DFA50 = {0.0f, 0};
-}

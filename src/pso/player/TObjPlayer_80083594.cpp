@@ -38,7 +38,6 @@ void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map);
 
 extern s32 shared_capture_texture_list[];
 extern s32 model_render_flags;
-extern "C" {
 
 void TObjPlayer::setup_tev_stage() {
     if (is_split_screen() == 0) {
@@ -51,7 +50,6 @@ void TObjPlayer::setup_tev_stage() {
         set_ginja_post_tev_stage_count(1);
         set_ginja_post_texgen_count(1);
     }
-}
 }
 
 void setup_particle_tev(s32 arg0) {
@@ -92,7 +90,6 @@ void load_projected_texture_matrix(f32 farg0) {
         load_current_pos_matrix(0);
     }
 }
-extern "C" {
 
 void TOTrapAncient02::load_projection_tex_matrix() {
     s32 arg0 = (s32)this;
@@ -115,5 +112,4 @@ void TOTrapAncient02::load_projection_tex_matrix() {
         pop_matrix();
         load_current_pos_matrix(0);
     }
-}
 }

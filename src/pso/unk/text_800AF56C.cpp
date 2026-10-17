@@ -2,7 +2,6 @@
 #include "pso/unk/text_800AF56C.h"
 struct TObjEnemy;
 #include "pso/object/TObject_80019A50.h"
-#include "pso/unk/text_800AF56C.h"
 
 extern "C" {
 void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);

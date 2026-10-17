@@ -4,7 +4,6 @@
 #include "pso/misc/TMainCursor.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
-extern "C" {
     extern const float TObjPlayer__data_805DC278;
 
 u8 TObjPlayer__sub_801BF918(u8 *arg0) {
@@ -20,5 +19,3 @@ void TObjPlayer__sub_801BF954(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
 s32 TObjPlayer__sub_801BF95C(void* p) { return *(s32*)((char*)p + 0x0); }
 
 void zero_vec3(void* a0) { *(float*)((char*)a0 + 0x0) = TObjPlayer__data_805DC278; *(float*)((char*)a0 + 0x4) = TObjPlayer__data_805DC278; *(float*)((char*)a0 + 0x8) = TObjPlayer__data_805DC278; }
-
-}

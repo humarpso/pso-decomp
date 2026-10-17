@@ -1171,7 +1171,6 @@ struct VObj_18 : VBase_18 {
     virtual void m106();
     virtual s32 m107();
 };
-extern "C" {
 
 void TBoss2Mine::vfunc_62() { clear_attack_receipts(); }
 
@@ -1196,8 +1195,6 @@ void TBoss2Mine::run_task() {
         this->vfunc_100();
     }
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-}
-
 }
 
 #undef transition_enemy_state__9TObjEneDDFs

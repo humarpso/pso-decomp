@@ -8,7 +8,6 @@ struct Stack_8031C190 {
     f32 spC;
 };
 
-extern "C" {
 extern s32 actor_frame_tick;
 extern const f32 TObjEneRecon__data_805DF3C0;
 void TObjEneRecon::update_ground_probe() {
@@ -29,6 +28,4 @@ void TObjEneRecon::update_ground_probe() {
     if (*(s32 *)((s8 *)arg0 + 0x418) & 0x4000) {
         TObjEneRecon::set_active();
     }
-}
-
 }

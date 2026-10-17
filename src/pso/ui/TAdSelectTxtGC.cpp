@@ -107,7 +107,6 @@ TAdSelectTxtGC::TAdSelectTxtGC(TObject *object, void *arg1_arg, void *arg3) : TO
     *(void * *)&this->m_name = lbl_805D3D88;
     this->init_slot_entries((Src_802A1838 *)(arg1_arg), arg3);
 }
-extern "C" {
 
 void TLobby__sub_802A1918(void) {
     if ((u32) ad_select_text_texture_handle != 0U) {
@@ -123,6 +122,4 @@ void TLobby__sub_802A194C(void) {
     s32 v = b.v[i];
     ad_select_text_texture_handle = v;
     TLobby__sub_8023E4B4(a.v[i], v);
-}
-
 }

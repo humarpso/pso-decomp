@@ -165,7 +165,6 @@ void set_partner_common_remark(s32 kind, const char *text) {
         strcpy((char *)&npc_partner_dialogue_state[kind], buf);
     }
 }
-extern "C" {
 
 void clear_partner_dialogue_flags(void) {
     s32 i;
@@ -199,7 +198,6 @@ void TNpcPlayer::play_effect(int arg0) {
     if ((player != 0) && (obj_isState2_324__13TUnk_804806E8Fv() == 0)) {
         play_effect_default__10TObjPlayerFii(player, -1);
     }
-}
 }
 
 void quest_player_face_actor(u16 src, u16 dst) {
@@ -273,7 +271,6 @@ void quest_player_look_at_partner(u16 src) {
         ((TNpcPlayer *)(&pkt))->send_6x3E();
     }
 }
-extern "C" {
 
 void TNpcPlayer::send_stop_at_position(u16 id, void *pos, s16 arg) {
     struct Pkt_8034E3A0 pkt;
@@ -307,7 +304,6 @@ void TNpcPlayer::enable_all_battle_ctrl() {
         }
         var_r31 += 1;
     } while (var_r31 < 4);
-}
 }
 void quest_remove_npc_player(u16 arg0) {
     s32 player;
@@ -345,7 +341,6 @@ void show_partner_chatter_for_key(s16 key) {
         }
     }
 }
-extern "C" {
 
 void TNpcPlayer::send_6x3e_to_all_players(void *pos, s16 arg) {
     Pkt_8034E64C pkt;
@@ -573,7 +568,6 @@ void TNpcPlayer::send_npc_create(s16 arg0, s16 arg1) {
 }
 
 void TNpcPlayer__sub_8034EDB8(void) { lbl_805D6EA0 = 0; }
-}
 
 void init_partner_dialogue(void) {
     s32 i;
@@ -588,7 +582,6 @@ void init_partner_dialogue(void) {
         }
     }
 }
-extern "C" {
 
 void TNpcPlayer::reset_player_lobby_model(u16 arg0) {
     u32 player;
@@ -621,4 +614,3 @@ void set_npc_control_flag__10TNpcPlayerFPvs(void* p, s16 v) { *(s16*)((char*)p +
 void TNpcPlayer::byteswap_header() { read_be16_field2__10TObjPlayerFv(this); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); bswap_16((u16 *)((char*)this + 0x8)); bswap_16((u16 *)((char*)this + 0xa)); }
 void TNpcPlayer::send_state_60() { byteswap_header(); TLobby__send_and_handle_60((u8 *)this); }
 void build_6x69_npc_control(void* p) { *(u8*)((char*)p + 0x0) = 105; *(u8*)((char*)p + 0x1) = 3; }
-}

@@ -10,8 +10,7 @@ extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 #include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
-#include "pso/player/TUnk_804806E8.h"
-#include "pso/enemy/TUnk_80493450.h"
+
 #include "pso/enemy/TUnk_80494938.h"
 extern "C" void test_flag_256__13TUnk_80493450Fv();
 
@@ -27,7 +26,7 @@ struct Pl_800D5614 { u8 pad0[0x38]; u8 pos[0xC]; };
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
+
 struct Stack_800D5060 {
     f32 sp8;
     f32 spC;

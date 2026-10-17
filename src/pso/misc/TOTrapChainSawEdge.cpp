@@ -11,7 +11,7 @@ extern "C" void vfunc_16__18TOTrapChainSawEdgeFv();
 extern "C" void vfunc_25__18TOTrapChainSawEdgeFv();
 extern "C" void vfunc_25__17TOTrapChainSawKeyFv();
 extern "C" void update_extension__14TOTrapChainSawFv();
-#include "pso/misc/TOTrapChainSawEdge.h"
+
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TLobby.h"
@@ -20,7 +20,7 @@ extern "C" void update_extension__14TOTrapChainSawFv();
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/npc/TObjNpcEnemy.h"
 #include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
+
 #pragma readonly_strings on
 
 extern "C" {

@@ -436,7 +436,6 @@ void init_single_player_char_select_scene(void) {
     ((TLobby *)lobby_rule_settings)->reset_settings_to_default();
     render_tick();
 }
-extern "C" {
 
 void close_window__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     void *object = *(void **)((s8 *)arg0 + 0x3C);
@@ -449,7 +448,6 @@ void close_window__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
 }
 void TAdSinglePlyChrSelectGC::init_warp() { close_window__23TAdSinglePlyChrSelectGCFPv(this); *(int*)((char*)this + 0x3c) = check_room_seq_4__16TAdChrSelASlotGCFl(lbl_80477D58, (void*)2); forward_trade_action_default__16TObjCityMainWarpFPviii((void*)(*(int*)((char*)this + 0x3c)), (void*)((int)TQuestVmDownLoadServer__sub_8006EF6C((s32)((void*)14))), (void*)6, (void*)1); ((TWindowSubComCardList *)(*(int*)((char*)this + 0x3c)))->update_layout_height(lbl_805DFA30); }
 void TAdSinglePlyChrSelectGC::init_warps() { close_window__23TAdSinglePlyChrSelectGCFPv(this); *(int*)((char*)this + 0x3c) = check_room_seq_4__16TAdChrSelASlotGCFl(lbl_80477D58, (void*)2); forward_trade_action_default__16TObjCityMainWarpFPviii((void*)(*(int*)((char*)this + 0x3c)), (void*)((int)TQuestVmDownLoadServer__sub_8006EF6C((s32)((void*)13))), (void*)6, (void*)0); forward_trade_action_default__16TObjCityMainWarpFPviii((void*)(*(int*)((char*)this + 0x3c)), (void*)((int)TQuestVmDownLoadServer__sub_8006EF6C((s32)((void*)14))), (void*)6, (void*)1); ((TWindowSubComCardList *)(*(int*)((char*)this + 0x3c)))->update_layout_height(lbl_805DFA30); }
-}
 
 typedef char RecoveredGlobal_8033B264_lbl_804EF728_size[sizeof(RecoveredGlobal_8033B264_lbl_804EF728) == 0x198 ? 1 : -1];
 typedef char RecoveredGlobal_8033B264_main_task_size[sizeof(RecoveredGlobal_8033B264_main_task) == 0x34 ? 1 : -1];
@@ -570,7 +568,6 @@ void seed_character_select_serial_rng(s32 arg0) {
     *(s32 *)((s8 *)&chr_select_serial_seeds.value + 4) = arg0;
     *(s32 *)((s8 *)&chr_select_serial_seeds.value + 0) = arg0;
 }
-extern "C" {
 
 s32 TAdSinglePlyChrSelectGC::get_field_44() { return *(s32*)((char*)this + 0x44); }
 
@@ -591,7 +588,6 @@ s32 TAdSinglePlyChrSelectGC::has_no_save_files() {
 
 bool TAdSinglePlyChrSelectGC__sub_8033BA84(void *self) {
     return !find_card_file__15TAdPlayerLoadGCFiPv(self, pso_system_card_filename);
-}
 }
 
 #pragma pop

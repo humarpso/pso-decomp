@@ -18,15 +18,13 @@ const char *get_selected_entry__16TQuestListOnlineFv();
 s32 get_game_play_mode();
 char *get_quest_name__12TQuestThreadFv(void);
 s32 get_shop_text(s32 arg0);
-}
-s32 get_guild_text(s32 arg0);
-s32 get_appraisal_text(s32 arg0);
-extern "C" {
 TWindowMessagePage *create__18TWindowMessagePageFllll(s32, s32, s32, s32);
 TWindowMessagePage *set_text__18TWindowMessagePageFlll(s32, s32, s32);
 void TWindow__close(u8 *arg0);
 __declspec(section ".rodata") extern const char message_tag_error[];
 }
+s32 get_guild_text(s32 arg0);
+s32 get_appraisal_text(s32 arg0);
 struct MessageTagCommand {
     const char *name;
     void (TMessageWindowController::*callback)();
@@ -109,7 +107,7 @@ void TMessageWindowController::parse_tag_command() {
         n++;
     }
 }
-extern "C" __declspec(section ".rodata") const char message_tag_error[] = "ERROR";
+__declspec(section ".rodata") const char message_tag_error[] = "ERROR";
 s32 TMessageWindowController::at_end() { return (u8)((s8)*input == 0); }
 u8 TMessageWindowController::read_byte() {
     const char *old = input;

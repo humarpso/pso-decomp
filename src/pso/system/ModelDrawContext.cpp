@@ -70,9 +70,6 @@ extern RecoveredCallback_1268626c296b motion_node_draw_callback;
 void draw_motion_node_tree_with_context(struct Node_803DCB40 *arg0);
 __declspec(section ".rodata") extern const Tbl_803DCC34 gx_blend_mode_table;
 void set_cached_blend_factor(s32 arg0, s32 arg1);
-}
-void get_current_matrix(void *m);
-extern "C" {
 s32 apply_quat_rotation__10TObjPlayerFf(void *, f32);
 s32 rotate_matrix_by_node_angles(void *, void *);
 s32 scale_current_matrix(void *);
@@ -96,7 +93,7 @@ void draw_ginja_model_with_motion(void *arg0, void *arg1) {
     }
 }
 }
-
+void get_current_matrix(void *m);
 #pragma push
 #pragma peephole off
 #pragma scheduling off
@@ -124,7 +121,6 @@ void draw_ginja_motion_node_tree(u8 *arg0) {
     } while (child != NULL);
 }
 #pragma pop
-extern "C" {
 
 void copy_rotation_to_current_matrix(struct Mtx_803DC994 *src) {
     struct Mtx_803DC994 *dst = (struct Mtx_803DC994 *)current_matrix;
@@ -244,4 +240,3 @@ void apply_cached_blend_mode(s32 arg0) {
 
 __declspec(section ".rodata") extern const Tbl_803DCC34 gx_blend_mode_table = {{255, 255, 6, 2, 7, 3, 5, 3, 4, 2, 1, 0}};
 __declspec(section ".rodata") extern const u32 cached_blend_factor_table[8] = {0, 1, 2, 3, 4, 5, 6, 7};
-}

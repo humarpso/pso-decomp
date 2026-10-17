@@ -140,8 +140,6 @@ void TOSignCave03::render() {
     }
 }
 
-extern "C" {
-
 void *TOSignCave03::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC8);
     if (o != NULL) {
@@ -189,6 +187,4 @@ u8 *TOSignCave03__ct(u8 *sign_cave03, s32 arg1, s32 arg2) {
     ((TOSignCave03 *)sign_cave03)->m_c0 = (f32) lbl_805DB9E0;
     *(f32 *)((s8 *)sign_cave03 + 0xC4) = (f32) lbl_805DB9E4;
     return sign_cave03;
-}
-
 }

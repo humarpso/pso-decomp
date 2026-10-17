@@ -170,9 +170,6 @@ Lobby_8001FE7C *TLobby__sub_8001FE7C(Lobby_8001FE7C *self, s16 del);
 void open__8TGStreamFPvPvi(void *, s32, s32);
 s32 get_gstream_file_size(void *);
 void destroy_gstream(void *, s32);
-}
-void align_gstream_read_offset(void *, s32);
-extern "C" {
 u32 prs_decompress_buffer(s32 arg0, s32 arg1);
 void debug_printf_nop(void *, ...);
 void *mem_alloc(u32 size);
@@ -505,6 +502,7 @@ void increment_ref_and_set_flag__6TLobbyFPv(void *arg0) {
     *(*(s32 **)((s8 *)arg0 + 4)) |= 1;
 }
 }
+void align_gstream_read_offset(void *, s32);
 void load_bin_motion_callback(void *arg0) {
     s32 spC;
     s32 sp8;
@@ -523,7 +521,7 @@ void load_bin_motion_callback(void *arg0) {
 }
 
 struct Obj_8001F8D8;
-extern "C" {
+
 void TLobby::load_bin_model_callback() {
     Lobby_8001FA1C *self = (Lobby_8001FA1C *)this;
     char name[0x20];
@@ -856,5 +854,4 @@ Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, De
         TLobby::add_named_entry((s32)self, desc->name);
     }
     return self;
-}
 }

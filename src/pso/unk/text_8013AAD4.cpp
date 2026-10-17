@@ -14,7 +14,6 @@ struct ByteBlock_50 { u8 bytes[0x50]; };
 
 struct ByteBlock_348 { u8 bytes[0x348]; };
 
-extern "C" {
 u8 *fn_8013AAD4(u8 *arg0, u8 *arg1) {
     u8 *temp_r4;
     u8 *temp_r4_2;
@@ -34,6 +33,4 @@ u8 *fn_8013AAD4(u8 *arg0, u8 *arg1) {
     temp_r4_2 = (arg1 + 0x404);
     *(ByteBlock_14 *)((s32) temp_r5 + 4) = *(const ByteBlock_14 *)((s32) temp_r4_2 + 4);
     return arg0;
-}
-
 }

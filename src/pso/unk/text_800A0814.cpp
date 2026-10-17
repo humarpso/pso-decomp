@@ -4,7 +4,6 @@
 #include "pso/player/TObjPlayer.h"
 struct Obj_800A0814 { u8 pad[0x374]; s32 mode; s32 timer; s32 count; u8 pad2[4]; u16 ids[1]; };
 
-extern "C" {
 void TObjEneDarkGunCenter::hide_linked_enemies() {
     Obj_800A0814 *self = (Obj_800A0814 *)this;
     s32 i;
@@ -16,6 +15,4 @@ void TObjEneDarkGunCenter::hide_linked_enemies() {
     }
     *(s32 *)&this->m_378 = 0x78;
     *(s32 *)&this->m_374 = 4;
-}
-
 }

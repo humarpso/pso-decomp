@@ -5,7 +5,6 @@
 
 struct Names_8017E1E4 { const char *name[2]; };
 
-extern "C" {
 extern Names_8017E1E4 lbl_80443898[];
 extern char lbl_804438A0[];
 extern char lbl_804438B0[];
@@ -61,5 +60,3 @@ void TObjBgmColCtrl::play_lobby_theme_music() {
 }
 
 void TObjBgmColCtrl::render() {  }
-
-}

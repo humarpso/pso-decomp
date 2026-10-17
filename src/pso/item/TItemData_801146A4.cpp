@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/item/TItemData_801146A4.h"
 
-extern "C" {
-
 s16 TItemData__sub_801146A4(void *arg0) {
     return (s16) (*(s16 *)((s8 *)arg0 + 0xA) % 100);
 }
@@ -17,6 +15,4 @@ s16 TItemData__sub_801146DC(void *arg0) {
 
 s16 TItemData__sub_801146F8(void *arg0) {
     return (s16) (*(s16 *)((s8 *)arg0 + 4) % 100);
-}
-
 }

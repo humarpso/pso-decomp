@@ -29,7 +29,6 @@ void fn_802F105C(void) { TObjBoss7DustCtrl__sub_802F1450(); TObjBoss2Tunnel__sub
 void fn_802F1084(void) { TObjBoss2Tunnel__sub_802F2C50(); fn_802F19C0(); TObjBoss7DustCtrl::create(); }
 }
 void init_scene_boss2_tunnel(void) { load_boss7_common_resources(); TObjBoss2Tunnel__sub_802F2C84(); fn_802F1454(); }
-extern "C" {
 void TObjBoss7Dust::render() { boss7_dust_draw_at((s32 *)((char*)this + 0x24), (s32)(*(void**)((char*)this + 0x20))); }
 
 extern const f32 lbl_805DEC68;
@@ -51,5 +50,4 @@ u8 *__ct__13TObjBoss7DustFv(u8 *object, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)object + 0x1C) = 0;
     *(s32 *)((s8 *)object + 0x20) = TObjBoss7DustCtrl__sub_802F125C();
     return object;
-}
 }

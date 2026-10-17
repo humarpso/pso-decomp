@@ -13,7 +13,7 @@ extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
-#include "pso/player/TUnk_804806E8.h"
+
 #include <stddef.h>
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -1354,7 +1354,6 @@ void update_effect_fade_lifetime(u8 *object) {
     }
 }
 #pragma pop
-extern "C" {
 
 void fn_800E95F4(u8 *arg0) {
     u8 *object;
@@ -2144,5 +2143,4 @@ s32 TObjEneSlimeOne::try_spawn_child(void *arg1) {
     }
     play_sound_effect(0x4003A619, &pos, 0, 0);
     return spawn_slime_in_slot((void *) origin, i, &pos, &dir);
-}
 }

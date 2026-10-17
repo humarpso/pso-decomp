@@ -104,7 +104,7 @@ void spawn_item_follow_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
         construct_item_follow_effect((u8 *)obj, (s32)arg0, (s32)arg1, (s32)arg2, (s32)arg3);
     }
 }
-extern "C" {
+
 void TObjPlayer::cast_gifoie() {
     s32 sp8;
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
@@ -139,5 +139,4 @@ void TUnk_804A2678::update_weapon() {
             spawn_item_follow_effect((s32)tl_05, (u32)this, 2, 0x1AE);
         }
     }
-}
 }

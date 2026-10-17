@@ -60,8 +60,6 @@ extern u8 lbl_8043E1A0[];
 
 #include "pso/TItemEffFlame.h"
 #include "pso/TItemAttacker.h"
-#include "pso/TObject.h"
-#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 

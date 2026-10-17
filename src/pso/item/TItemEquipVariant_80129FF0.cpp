@@ -3,8 +3,6 @@
 #include "pso/item/TItemEquipVariant_8012A82C.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 extern s32 s_rank_needle_weapon_vtable[];
 
 void *__dt__13TUnk_804A4648Fv(void *arg0, s16 arg1) {
@@ -16,6 +14,4 @@ void *__dt__13TUnk_804A4648Fv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
-}
-
 }

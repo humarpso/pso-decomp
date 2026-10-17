@@ -116,7 +116,6 @@ void TQuestListOnline::close_windows() {
         list_window = 0U;
     }
 }
-extern "C" {
 
 void TQuestListOnline__sub_802176DC(s32 arg0) {
     if ((u32) (*(u32 *)&TQuestListOnline__decompression_cursor) != 0U) {
@@ -144,7 +143,6 @@ s32 TQuestListOnline::init() {
     return 0;
 }
 
-}
 void TQuestListOnline::invoke_callback_2c_and_queue_destruction() {
     s32 (*temp_r12)();
 
@@ -172,12 +170,9 @@ void TQuestListOnline::invoke_callback_28_and_queue_destruction() {
     }
     queue_destruction__7TObjectFv(this);
 }
-extern "C" {
 
 void TQuestListOnline::ensure_online_quests_loaded() {
     if (TLobby__sub_8001EEF4() == 0) {
         TLobby__sub_8001EDF4((u8 *)&lbl_8044BEB0);
     }
-}
-
 }

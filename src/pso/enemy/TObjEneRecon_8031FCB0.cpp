@@ -13,13 +13,12 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
 #include "pso/enemy/TUnk_80494938.h"
 #include "pso/boss/TBoss8Dragon.h"
-#include "pso/enemy/TObjEneDD.h"
+
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/enemy/TObjEneRecon.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
-#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 

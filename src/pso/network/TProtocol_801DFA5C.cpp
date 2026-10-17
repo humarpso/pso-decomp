@@ -18,9 +18,6 @@ void TCreateGame::bswap() {
     tag.bswap();
 }
 
-extern "C" {
-}
-
 void TFindUser::bswap() {
     header.bswap();
     tag.bswap();
@@ -34,11 +31,4 @@ void TRoomChange::bswap() {
     tag.bswap();
 }
 
-extern "C" {
-}
-
 TRoomChange::TRoomChange() {}
-
-extern "C" {
-
-}

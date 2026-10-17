@@ -4,8 +4,6 @@
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 
-extern "C" {
-
 s32 TObjEnemy::send_entity_set_flags() {
     if ((u32) this->m_80 != 0U) {
         send_6x76_set_entity_set_flags(this, 8);
@@ -23,8 +21,6 @@ s32 TUnk_804AF8A0::set_flag8() {
         return 1;
     }
     return 0;
-}
-
 }
 
 #include "pso/misc/TLobby.h"

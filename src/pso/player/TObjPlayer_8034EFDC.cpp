@@ -359,7 +359,6 @@ u8 *construct_gi_gue_bazooka(u8 *arg0, u8 *arg1, s32 _w2) {
     *(s32 *)((s8 *)arg0 + 0x200) = 0x238E;
     return arg0;
 }
-extern "C" {
 
 u8 *TObjPlayer::create_gi_gue_bazooka(s32 arg0) {
     u8 *temp_r3;
@@ -406,5 +405,4 @@ void *__dt__13TUnk_804F0AF8Fv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
-}
 }

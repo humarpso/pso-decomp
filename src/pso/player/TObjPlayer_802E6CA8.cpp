@@ -350,7 +350,6 @@ TUnk_804E3BD8::~TUnk_804E3BD8() {
         temp_r3->m0(1);
     }
 }
-extern "C" {
 
 void *TObjPlayer::init_zeroed_object() {
     __ct__7TObjectFP7TObject(this);
@@ -438,5 +437,3 @@ void TObjFish::update_attached_orientation() {
 }
 
 void TObjFish::destroy_child() { if (*(unsigned int*)((char*)this + 0x7b0) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)this + 0x7b0)); *(int*)((char*)this + 0x7b0) = 0; } }
-
-}

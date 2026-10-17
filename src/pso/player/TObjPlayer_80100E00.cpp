@@ -72,7 +72,6 @@ u8 *find_item_by_id(s32 id);
 void setup_particle_tev(s32 arg0);
 
 extern f32 lbl_805DAA90;
-extern "C" {
 
 f32 TObjPlayer::get_mag_scale() {
     u32 temp_r3;
@@ -218,7 +217,6 @@ void TItemEquipBase::send_6x61_activate_mag_effect(s32 arg1) {
         stack.sp10 = arg1;
         ((TObjPlayer *)(&stack.sp8))->bswap_and_send_6x61();
     }
-}
 }
 void handle_6x61_activate_mag_effect(TObjPlayer *player) {
     struct VObj_80101350_80100E00 *obj;

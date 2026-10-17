@@ -73,7 +73,7 @@ void get_current_matrix(void *m) {
 
 #pragma push
 #pragma scheduling off
-extern "C" {
+
 void TObjPlayer::invert_matrix_in_place(u32 arg0) {
     u32 var_r3;
     var_r3 = arg0;
@@ -97,7 +97,6 @@ void rotate_matrix_zyx(void *m, s32 x, s32 y, s32 z) {
     if (x != 0) {
         rotate_matrix_x(m, x);
     }
-}
 }
 #pragma pop
 

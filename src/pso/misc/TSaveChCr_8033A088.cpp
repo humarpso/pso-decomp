@@ -118,8 +118,6 @@ TSaveChCr::~TSaveChCr() {
     }
 }
 
-extern "C" {
-
 typedef char RecoveredGlobal_8033A34C___vt__9TSaveChCr_size[sizeof(RecoveredGlobal_8033A34C___vt__9TSaveChCr) == 0x18 ? 1 : -1];
 
 u8 *TSaveChCr__ct(TSaveChCr *save_ch_cr, u8 *arg1, s32 arg2) {
@@ -143,6 +141,4 @@ void *TSaveChCr::create(void *arg0) {
         o = TSaveChCr__ct((TSaveChCr *)((u8 *)o), (u8 *)tl_03, (s32)arg0);
     }
     return o;
-}
-
 }

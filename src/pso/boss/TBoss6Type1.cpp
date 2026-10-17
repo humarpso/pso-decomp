@@ -364,9 +364,6 @@ void TBoss6Type1__sub_802B6C30(Boss_802B6C30 *self);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 void clear_render_callback__8TObjFishFv(u32);
-}
-void draw_model_blend_motion(void *arg0, void *arg1, f32 farg0);
-extern "C" {
 void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern s32 lbl_804DF614[];
 extern const s32 lbl_805DE3C8;
@@ -1045,6 +1042,7 @@ s32 TBoss6Type1__sub_802B6060(u8 *arg0) {
 
 void TBoss6Type1::set_part_default_value(int a0, void* a1) { *(float*)((char*)a1 + 0x4) = TBoss6Type1__data_805DE344; }
 }
+void draw_model_blend_motion(void *arg0, void *arg1, f32 farg0);
 
 void TBoss6Type1::update_effect_points() {
     Boss6EffectPoint points[2];
@@ -1079,11 +1077,7 @@ void TBoss6Type1::update_trail_points() {
     ((TBoss6Type1 *)trail_point_receiver)->set_effect_points((f32 *)points, (u32 *)boss6_type1_trail_point_offsets);
 }
 
-extern "C" {
-
 void TBoss6Type1::init_parts() { TBoss6Type1::set_part_default_value((int)this, (void*)((char*)this + 0x5d8)); TBoss6Type1::set_part_default_value((int)this, (void*)((char*)this + 0x5e4)); TBoss6Type1::set_part_default_value((int)this, (void*)((char*)this + 0x5f0)); this->update_trail_points(); }
-
-}
 
 #pragma inline_depth(1)
 #pragma auto_inline off

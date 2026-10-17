@@ -2,7 +2,6 @@
 #include "pso/unk/text_803D619C.h"
 #include "pso/boss/TBoss8Dragon.h"
 
-extern "C" {
 extern f32 lbl_805D76A8;
 
 #pragma push
@@ -69,4 +68,3 @@ f32 fn_803D6308(f32 x) {
     return modff_803D6308(x, &lbl_805D76A8);
 }
 #pragma pop
-}

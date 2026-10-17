@@ -77,8 +77,6 @@ u8 *init__13TObjSuisoChipFPvPv(u8 *chip, u8 *arg1) {
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TOBarrierEnergy01.h"
 #include "pso/misc/TOKey.h"
-#include "pso/misc/TORockCave.h"
-#include "pso/player/TObjPlayer.h"
 
 extern "C" int get_instance__23TObjSeabedSuisoBrakableFv(void);
 extern "C" u8 * get_model__23TObjSeabedSuisoBrakableFi(s32 arg0);

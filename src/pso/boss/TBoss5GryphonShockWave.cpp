@@ -113,7 +113,6 @@ TBoss5GryphonShockWave::TBoss5GryphonShockWave(TObject *arg1_parent, s32 arg2, u
     this->m_20 = 0;
     this->m_1c = 0;
 }
-extern "C" {
 
 void TBoss8Dragon__sub_80066A4C(void) {  }
 void TBoss8Dragon::set_default_on_state0() {
@@ -122,6 +121,4 @@ void TBoss8Dragon::set_default_on_state0() {
         gryphon_shockwave_particle_ids_ptr = lbl_80437F40;
         break;
     }
-}
-
 }

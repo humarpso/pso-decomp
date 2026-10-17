@@ -4,8 +4,6 @@
 #include "pso/misc/TUnk_8048E1A4.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 void TUnk_8048E1A4::apply_knockback_from_attacker(u8 *) {  }
 void TObjPlayer::set_position_xy(f32 a, f32 b) { this->position[2] = a; *(f32 *)&this->m_44 = b; }
 
@@ -16,5 +14,3 @@ u8 TObjPlayer::test_action_mask(s32 arg1) {
 }
 
 s32 TObjPlayer__sub_80082300(void* p) { return *(s32*)((char*)p + 0xc); }
-
-}

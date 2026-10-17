@@ -163,7 +163,6 @@ void frozen_shooter_freeze_hit(int arg0, u8 *arg1) {
     }
 }
 #pragma pop
-extern "C" {
 
 void frozen_shooter_collider_block(Obj_80126180 *self, Out_80126180 *o) {
     if (self->b == 0) {
@@ -188,5 +187,4 @@ void TUnk_804A2960::emit_marker_effects() {
     } else {
         ((Pl_801261BC *)this)->m49(p, 0, 0, 1);
     }
-}
 }

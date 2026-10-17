@@ -24,10 +24,8 @@ struct Vec3_80352240 {
     f32 z;
 };
 
-extern "C" {
 extern const s32 lbl_80479078[18] = {5, 5, 5, 5, 5, 5, 5, 0, 1, 2, 5, 5, 5, 5, 5, 3, 4, 4};
 const char *lbl_805D4370 = "TObjLobbyMain";
-}
 
 struct Base_8035240C { u8 pad[0x18]; };
 

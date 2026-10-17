@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowSubCustomEquip.h"
 
-extern "C" {
-
 s32 TWindowSubCustomEquip::is_type_valid() {
 
     switch ((s8) this->m_62) {
@@ -22,6 +20,4 @@ s32 TWindowSubCustomEquip::get_saved_slot_for_index(s32 arg0, s8 arg1) {
     case 2: break;
     }
     return 3;
-}
-
 }

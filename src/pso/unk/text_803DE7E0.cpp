@@ -19,10 +19,9 @@ void fill_memory(void *p, u8 c, u32 n) {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-extern "C" {
+
 void fn_803DE804(u8 *start, s32 size) {
     sys_heap_handle = OSCreateHeap(start, start + size);
     global_allocator = sys_allocator_func_table;
-}
 }
 #pragma pop

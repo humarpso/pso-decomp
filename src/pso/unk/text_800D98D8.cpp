@@ -13,7 +13,6 @@ struct RecoveredGlobal_800D98D8_lbl_80500FA4 {
     u8 remaining[0x8];
 };
 
-extern "C" {
 extern RecoveredGlobal_800D98D8_lbl_80500F8C TObjEneMe3ShinowaMirage_motion_trail_points;
 extern RecoveredGlobal_800D98D8_lbl_80500FA4 lbl_80500FA4;
 typedef char RecoveredGlobal_800D98D8_lbl_80500F8C_size[sizeof(RecoveredGlobal_800D98D8_lbl_80500F8C) == 0x18 ? 1 : -1];
@@ -24,6 +23,4 @@ void TObjEneMe3ShinowaMirage__sub_800D98D8(u8 *boss4_type3, s32 arg1, s32 arg2, 
     VecCopy((Vec *)&TObjEneMe3ShinowaMirage_motion_trail_points.value, (const Vec *)arg4);
     VecCopy((Vec *)((u8 *)&TObjEneMe3ShinowaMirage_motion_trail_points.value + 0xC), (const Vec *)arg5);
     ((TBoss4Type3 *)boss4_type3)->draw_motion_trail(arg1, arg2, (s32) &lbl_80500FA4.value, (s32) &TObjEneMe3ShinowaMirage_motion_trail_points.value);
-}
-
 }

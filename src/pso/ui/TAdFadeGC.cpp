@@ -150,7 +150,7 @@ TAdFadeGC::TAdFadeGC(TObject *object, void *arg2) : TObject(object) {
     *(void **)((s8 *)this + 0x28) = arg2;
     this->start_fade((void *)(*(void **)((s8 *)this + 0x28)));
 }
-extern "C" {
+
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
@@ -177,5 +177,3 @@ bool TObjTradeCollision::is_player_outside_trade_radius(u32 arg1) {
     return (xz_distance_squared((void *)(player + 0x38), (void *)(arg0 + 0x38)) < temp_f31) == 0;
 }
 #pragma pop
-
-}

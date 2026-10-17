@@ -10,15 +10,14 @@ extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
-#include "pso/object/TObjMotion.h"
+
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/animation/ActorAnimationState.h"
 #include "pso/boss/TBoss8Dragon.h"
-#include "pso/enemy/TObjEneDD.h"
+
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
-#include "pso/player/TObjPlayer.h"
 
 struct VBase_14_2f517b { char pad[0x14]; };
 

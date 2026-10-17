@@ -4,7 +4,6 @@
 #include "pso/misc/TOTrapChainSaw.h"
 #include "pso/misc/TOTrapChainSawDamage.h"
 
-extern "C" {
 void TOTrapChainSawDamage::set_damage(s32 v) { this->m_f8 = v; }
 
 void TOTrapChainSawDamage__sub_802C9C00(u8 *arg0, s32 arg1) {
@@ -13,5 +12,3 @@ void TOTrapChainSawDamage__sub_802C9C00(u8 *arg0, s32 arg1) {
 
 void TOTrapChainSaw::vfunc_25() {  }
 void TOTrapChainSaw::vfunc_16() {  }
-
-}

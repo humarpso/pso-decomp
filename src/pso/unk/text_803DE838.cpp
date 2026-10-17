@@ -10,7 +10,5 @@ extern AllocatorCallbacks *global_allocator;
 void * xmalloc(u32 bytes) {
     return global_allocator->allocate(bytes, global_allocator);
 }
-extern "C" {
-#pragma pop
 
-}
+#pragma pop

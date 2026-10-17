@@ -166,8 +166,6 @@ void TBoss4Thanks::render() {
   }
 }
 
-extern "C" {
-
 void TBoss4Thanks::update_fade_out() {
     s32 temp_r3;
 
@@ -256,6 +254,4 @@ u8 *TBoss4Thanks__ct(u8 *object, u8 *arg1) {
     *(f32 *)((s8 *)object + 0x2C) = (f32) lbl_805E0188;
     *(s32 *)((s8 *)object + 0x30) = 0;
     return object;
-}
-
 }

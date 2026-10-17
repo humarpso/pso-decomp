@@ -86,9 +86,6 @@ typedef FloorLifecycleEntry E_80208020;
 extern "C" {
 s32 is_area_transfer_pending();
 void run_floor_cleanup_callbacks__6TLobbyFi(s32 arg0);
-}
-s32 run_floor_initialize_callbacks(s32 arg0);
-extern "C" {
 s32 bswap_16__FPUs(u16 *, s32);
 s32 bswap_32__FPUl(s32 *, s32);
 
@@ -120,6 +117,7 @@ void run_floor_cleanup_callbacks__6TLobbyFi(s32 arg0) {
 
 void TLobby::update_current_floor() { TOKeyMachine01::get_global_state(); ((void (*)(void))run_floor_cleanup_callbacks__6TLobbyFi)(); }
 }
+s32 run_floor_initialize_callbacks(s32 arg0);
 s32 run_floor_initialize_callbacks(s32 arg0) {
     E_80208020 *p = floor_lifecycle_callback_tables[arg0];
     Fn_80208020 f;
@@ -135,10 +133,8 @@ s32 run_floor_initialize_callbacks(s32 arg0) {
     }
     return 1;
 }
-extern "C" {
 
 void TLobby::update_key_machine() { TOKeyMachine01::get_global_state(); ((int (*)(void))run_floor_initialize_callbacks)(); }
-}
 void bswap_enemy_set_row(void *arg0) {
     ((s32 (*)(s32))bswap_16__FPUs)((s32)arg0);
     bswap_enemy_set_row_fields((void *)((void *)((char *)arg0 + 4)));
@@ -283,14 +279,6 @@ struct Pkt_8020851C {
 
 extern "C" {
 void set_destroy_event__6TLobbyFi(int a0);
-}
-extern s32 local_client_id;
-extern s32 wave_event_trigger_count;
-void send_6x67_wave_trigger_event(s32 arg0);
-extern s32 wave_event_first_switch_set;
-void send_6x05_wave_set_switch(s16 arg0);
-void send_6x05_wave_clear_switch(s32 arg0);
-extern "C" {
 int link_matching_objects__6TLobbyFss(void);
 
 void TLobby::load_item_data() {
@@ -320,6 +308,12 @@ void TLobby::load_item_data() {
     extern int wave_event_stop_requested;
 void TLobby::relink_objects() { link_matching_objects__6TLobbyFss(); wave_event_stop_requested = 1; }
 }
+extern s32 local_client_id;
+extern s32 wave_event_trigger_count;
+void send_6x67_wave_trigger_event(s32 arg0);
+extern s32 wave_event_first_switch_set;
+void send_6x05_wave_set_switch(s16 arg0);
+void send_6x05_wave_clear_switch(s32 arg0);
 void send_6x67_wave_trigger_event(s32 arg0) {
     Pkt_802084B0 pkt;
     s32 t = wave_event_trigger_count;
@@ -364,21 +358,17 @@ extern "C" {
 int link_matching_objects__6TLobbyFPv(void* p);
 int spawn_objects_at_pos__6TLobbyFPv(void* p);
 void TLobby__sub_80208648(void);
-}
-void request_wave_event_stop(void);
-void dispatch_wave_event_action(s32 arg0);
-extern "C" {
 int spawn_objects_at_pos__6TLobbyFss(void*);
 
 int link_matching_objects__6TLobbyFPv(void* p) { return ((int (*)(void *))link_matching_objects__6TLobbyFss)(p); }
 int spawn_objects_at_pos__6TLobbyFPv(void* p) { return spawn_objects_at_pos__6TLobbyFss(p); }
 }
+void request_wave_event_stop(void);
+void dispatch_wave_event_action(s32 arg0);
 
 void request_wave_event_stop(void) { wave_event_stop_requested = 1; }
-extern "C" {
 
 void TLobby__sub_80208648(void) {  }
-}
 
 typedef struct {
     s32 x0;
@@ -472,7 +462,6 @@ s32 run_wave_event_actions(void);
 #define wave_event_stream_base (*(unsigned char * *)&wave_event_stream_base)
 #define wave_event_stream_cursor (*(int *)&wave_event_stream_cursor)
 unsigned char read_stream_u8(void) { return wave_event_stream_base[wave_event_stream_cursor++]; }
-extern "C" {
 
 s32 run_wave_event_actions(void) {
     wave_event_stop_requested = 0;
@@ -482,7 +471,6 @@ s32 run_wave_event_actions(void) {
         wave_event_action_table[read_stream_u8()].fn();
     }
     return wave_event_trigger_count;
-}
 }
 
 #undef wave_event_action_table
@@ -593,7 +581,6 @@ void bswap_floor_event_set(s32 idx) {
         }
     }
 }
-extern "C" {
 
 void clear_floor_event_flags(void) {
     Grp_802089B0 **t;
@@ -681,7 +668,6 @@ s32 TLobby::export_sync_records(s16 *arg0) {
     } while (i < 0x12);
     return ret;
 }
-}
 
 s32 set_floor_event_flags(s32 arg0, s32 arg1, s32 arg2) {
     Grp_80208B7C *g = ((Grp_80208B7C * *)&lobby_slot_ptr_table)[arg0];
@@ -701,7 +687,6 @@ s32 set_floor_event_flags(s32 arg0, s32 arg1, s32 arg2) {
     }
     return 1;
 }
-extern "C" {
 
 void activate_triggered_floor_events(void) {
     Fn_80208BD8 *tbl;
@@ -722,7 +707,6 @@ void activate_triggered_floor_events(void) {
         }
     }
 }
-}
 
 s32 activate_first_floor_event(s32 idx, s32 id) {
     Grp_80208BD8 *g = ((Grp_80208BD8 **)&lobby_slot_ptr_table)[idx];
@@ -741,7 +725,6 @@ s32 activate_first_floor_event(s32 idx, s32 id) {
     }
     return 0;
 }
-extern "C" {
 
 u8 *TLobby::alloc_heap_slot(s32 arg0, s32 arg1) {
     s32 temp_r30;
@@ -759,7 +742,6 @@ u8 *TLobby::alloc_heap_slot(s32 arg0, s32 arg1) {
         return temp_r3;
     }
     return NULL;
-}
 }
 
 #undef wave_event_stream_base

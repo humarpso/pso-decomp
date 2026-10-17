@@ -76,7 +76,7 @@ void apply_photon_blast_action_hold(s32 arg0, s32 arg1, s32 arg2);
 
 #pragma push
 #pragma fp_contract on
-extern "C" {
+
 f32 TObjPlayer::calc_photon_blast_power(s32 arg1, f32 farg0) {
     u8 *arg0 = (u8 *)this;
     f32 var_f30;
@@ -130,7 +130,6 @@ loop_1:
         return 0;
     }
     goto loop_1;
-}
 }
 
 s32 is_photon_blast_presentation_admitted(u32 owner_id, void *records) {

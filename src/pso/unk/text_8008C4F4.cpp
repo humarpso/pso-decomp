@@ -25,10 +25,6 @@ extern "C" {
 s32 TKeyBoardControl__sub_8000F92C();
 s32 TKeyBoardControl__sub_8000F9CC(int);
 s8 func_801A5E54__Fv();
-}
-void process_async_file_reads(void);
-void update_sound_request_slots(void);
-extern "C" {
 s32 render_screen_overlay__9TMainTaskFv(void *);
 s32 some_empty_func__9TMainTaskFv(void *);
 s32 render__9TMainTaskFv(void *);
@@ -55,7 +51,8 @@ void fn_8008C4F4(void) {
     render_tick();
 }
 }
-
+void process_async_file_reads(void);
+void update_sound_request_slots(void);
 void run_game_frame(void) {
     s32 *var_r3;
     func_803DCDFC__Fv();

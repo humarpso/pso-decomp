@@ -6,8 +6,6 @@
 #include "pso/system/memory.h"
 #include "pso/player/TUnk_80490470.h"
 
-extern "C" {
-
 extern const f32 lbl_805D9958;
 extern const f32 lbl_805D995C;
 extern const f32 lbl_805D9960;
@@ -45,8 +43,6 @@ void TUnk_80490470::reset_obstruction_fade() { *(float *)&this->unk_18 = lbl_805
 
     extern const float lbl_805D995C;
 void TUnk_80490470::vfunc_4() { *(float *)&this->unk_18 = lbl_805D995C; *(float *)&this->unk_0 = lbl_805D9958; this->m_4 = lbl_805D9958; *(float *)&this->unk_8 = lbl_805D9958; this->m_c = lbl_805D9958; }
-
-}
 
 struct Base_800A04F0 { f32 v0, v4, v8, vc; f32 rate; };
 

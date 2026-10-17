@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
 
-extern "C" {
-
 extern void *async_file_read_current_request;
 
 void TLobby::pop_and_close() {
@@ -11,6 +9,4 @@ void TLobby::pop_and_close() {
     temp_r31 = *(void **)((s8 *)async_file_read_current_request + 0x38);
     ((TLobby *)async_file_read_current_request)->pop_stack_entry(1);
     async_file_read_current_request = temp_r31;
-}
-
 }

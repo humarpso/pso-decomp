@@ -105,7 +105,6 @@ TKeyBoardControl::~TKeyBoardControl() {
     if (*(void **)((s8 *)this + 0x24) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)this + 0x24))); }
     if (*(void **)((s8 *)this + 0x20) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)this + 0x20))); }
 }
-extern "C" {
 
 void TKeyBoardControl__sub_80131F5C(void) {  }
 void TKeyBoardControl__sub_80131F60(void) {  }
@@ -378,6 +377,4 @@ typedef char RecoveredGlobal_801328F8_TKeyBoardControl__data_80506270_size[sizeo
 void TKeyBoardControl::reset_global_keys_b() {
     ((TKeyBoardControl *)(&(*(RecoveredGlobal_801328F8_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value))->clear_key_state();
     ((TKeyBoardControl *)(&(*(RecoveredGlobal_801328F8_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value))->reset_keys();
-}
-
 }

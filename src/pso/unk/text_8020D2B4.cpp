@@ -103,7 +103,6 @@ void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2) {
     *(s32 *)((s8 *)arg1 + 4) = (s32) (*(s32 *)((s8 *)arg1 + 4) + *(s32 *)((s8 *)arg2 + 0x14));
     *(s32 *)((s8 *)arg1 + 8) = (s32) (*(s32 *)((s8 *)arg1 + 8) + *(s32 *)((s8 *)arg2 + 0x18));
 }
-extern "C" {
 
 void apply_room_transform_to_enemy_rows(SpawnRecord_8020D36C *rows, s32 count) {
     SpawnRecord_8020D36C *row;
@@ -139,7 +138,6 @@ void apply_room_transform_to_object_rows(Rec_8020D3F0 *arr, s32 n) {
             apply_room_transform((s32)p->a, p->b, (u8 *)sec);
         }
     }
-}
 }
 
 s32 resolve_set_row_factory_indices(void *arg0, int arg1, int arg2) {
@@ -209,7 +207,6 @@ void spawn_decorations_in_range(void *arg0) {
         }
     }
 }
-extern "C" {
 
 void TSetManager::update_decoration_spawning() { spawn_decorations_in_range(this); }
 #pragma push
@@ -242,6 +239,5 @@ void TSetManager::apply_floor_set_rows() {
         resolve_set_row_factory_indices(arg0, TLobby__data_805D611C, TLobby__data_805D6120);
     }
     *(s32 *)((s8 *)arg0 + 0x1C) = 1;
-}
 }
 #pragma pop

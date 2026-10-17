@@ -43,7 +43,7 @@ s32 any_player_has_listed_equipment(void) {
     }
     return 0;
 }
-extern "C" {
+
 void fn_8035D3E0(Obj_8035D3E0 *weapon, Out_8035D3E0 *arg1) {
     f32 sp8[4];
     arg1->f40 |= 0x1C;
@@ -51,5 +51,4 @@ void fn_8035D3E0(Obj_8035D3E0 *weapon, Out_8035D3E0 *arg1) {
     ((TRaderMapCore *)(arg1->v60))->copy_vec4(sp8);
     arg1->f44 = weapon->f188;
     arg1->f70 = (void *)TObjPlayer::forward_item_effect_callback;
-}
 }

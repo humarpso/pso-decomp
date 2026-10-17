@@ -119,7 +119,7 @@ void apply_weapon_node_material() {
 
 #pragma push
 #pragma opt_common_subs off
-extern "C" {
+
 void TItemWeapon::advance_weapon_photon_phase() {
     u8 *arg0 = (u8 *)this;
     if (((TItemWeapon *)arg0)->test_flags_1b8(0x02000000U) == 0U) {
@@ -192,5 +192,4 @@ void TItemWeapon__write_item_data(Src_80120454 *arg0, Dst_80120454 *arg1) {
     if (ok == 0) {
         arg1->f4 = arg1->f4 | lbl_805DACA4;
     }
-}
 }

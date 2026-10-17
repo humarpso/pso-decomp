@@ -11,17 +11,16 @@ extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
-#include "pso/enemy/TObjEneDD_ST.h"
+
 #include "pso/player/TUnk_804928CC.h"
-#include "pso/player/TUnk_804806E8.h"
+
 #include "pso/enemy/TUnk_80494938.h"
 #include "pso/enemy/TObjEneBm9Mericarol_Bomb.h"
 #include "pso/boss/TBoss8Dragon.h"
-#include "pso/enemy/TObjEneDD.h"
+
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/misc/TLobby.h"
-#include "pso/player/TObjPlayer.h"
 
 struct SubBase { char pad[0x14]; };
 

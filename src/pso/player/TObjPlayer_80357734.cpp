@@ -241,38 +241,6 @@ void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 s32 get_bml_motion(s32, s32);
 s32 get_bml_model(s32, s32);
 void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
-}
-extern RecoveredGlobal_80358048_lbl_804793E4 lbl_804793E4;
-extern s32 inward_orbit_effect_vtable[];
-extern const f32 lbl_805E0068;
-extern const f32 lbl_805E0070;
-u8 *create_inward_orbit_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3);
-extern Trip_8035862C lbl_804793D8;
-extern s32 tl_07;
-extern const f32 lbl_805E0048;
-extern const f32 lbl_805E0080;
-void weapon_special_lightning_bolt_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-extern s32 tl_particle;
-extern const f32 lbl_805E0088;
-extern const f32 lbl_805E008C;
-extern const f32 lbl_805E0090;
-void weapon_fire_explosion_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-extern const f32 lbl_805E004C;
-extern const f32 lbl_805E0050;
-extern const f32 lbl_805E0054;
-extern const f32 lbl_805E0058;
-extern const f32 lbl_805E005C;
-extern const f32 lbl_805E0060;
-extern const f32 lbl_805E0064;
-void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1);
-void weapon_fractional_hp_effect(void *arg0, void *arg1, s32 arg2, s32 arg3);
-void prepare_shock_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void prepare_freeze_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void weapon_dim_shadow_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void weapon_hell_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void weapon_dark_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void *create_timed_particle_emitter_with_flags(void *pos, s32 id, s32 a, s32 b, s32 c);
-extern "C" {
 void TItemWeapon__ct(void *);
 s32 TObjPlayer__sub_802E451C();
 void __dl__7TObjectFPv(void *);
@@ -387,7 +355,36 @@ u8 *TObjPlayer::create_state_34_alt() {
     return NULL;
 }
 }
-
+extern RecoveredGlobal_80358048_lbl_804793E4 lbl_804793E4;
+extern s32 inward_orbit_effect_vtable[];
+extern const f32 lbl_805E0068;
+extern const f32 lbl_805E0070;
+u8 *create_inward_orbit_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3);
+extern Trip_8035862C lbl_804793D8;
+extern s32 tl_07;
+extern const f32 lbl_805E0048;
+extern const f32 lbl_805E0080;
+void weapon_special_lightning_bolt_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+extern s32 tl_particle;
+extern const f32 lbl_805E0088;
+extern const f32 lbl_805E008C;
+extern const f32 lbl_805E0090;
+void weapon_fire_explosion_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+extern const f32 lbl_805E004C;
+extern const f32 lbl_805E0050;
+extern const f32 lbl_805E0054;
+extern const f32 lbl_805E0058;
+extern const f32 lbl_805E005C;
+extern const f32 lbl_805E0060;
+extern const f32 lbl_805E0064;
+void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1);
+void weapon_fractional_hp_effect(void *arg0, void *arg1, s32 arg2, s32 arg3);
+void prepare_shock_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+void prepare_freeze_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+void weapon_dim_shadow_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+void weapon_hell_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void weapon_dark_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void *create_timed_particle_emitter_with_flags(void *pos, s32 id, s32 a, s32 b, s32 c);
 #pragma push
 #pragma fp_contract on
 void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1) {
@@ -478,7 +475,7 @@ void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1) {
 
 #pragma push
 #pragma fp_contract on
-extern "C" {
+
 void TUnk_804F166C::update_inward_orbit_point() {
     u8 *arg0 = (u8 *)this;
     this->m_34 = (f32) ((this->m_40 * sin_table_lookup((void *)(*(s32 *)&this->unk_44))) + *(f32 *)((s8 *)arg0 + 0x1C));
@@ -519,7 +516,6 @@ void *TUnk_804F166C::dt_with_child_queue(s16 arg1) {
     }
     return this;
 }
-}
 
 #pragma push
 #pragma fp_contract on
@@ -547,7 +543,6 @@ u8 *create_inward_orbit_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {
     return arg0;
 }
 #pragma pop
-extern "C" {
 
 void TObjPlayer::update_battle_control_on_unlock(void *arg0, void *arg1, void *arg2, s32 arg3) {
     if (arg3 == 0) {
@@ -587,7 +582,6 @@ void TObjPlayer::dispatch_effect_by_type(s32 arg1, s32 arg2, s32 arg3) {
         spawn_particle_effect((s32 *)(arg0 + 0x2FC), 0x10A);
     }
 }
-}
 
 void weapon_fractional_hp_effect(void *arg0, void *arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
@@ -597,7 +591,6 @@ void weapon_fractional_hp_effect(void *arg0, void *arg1, s32 arg2, s32 arg3) {
         spawn_particle_effect((s32 *)arg2, 0x1AC);
     }
 }
-extern "C" {
 
 void TObjPlayer::handle_symbol_chat_action(s32 arg1, s32 arg2, s32 arg3) {
     s32 arg0 = (s32)this;
@@ -637,7 +630,6 @@ void TObjPlayer::trigger_biter_effect(s32 arg1, s32 arg2, s32 arg3) {
         o->m63(0x30, &sp8);
         spawn_particle_effect((s32 *)((s32 *) &sp8), 0x1AB);
     }
-}
 }
 
 void prepare_shock_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
@@ -691,7 +683,6 @@ void weapon_dim_shadow_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
         create_timed_particle_emitter_with_flags((void *)arg2, 0x101, 0, 0x1E, 0x40);
     }
 }
-extern "C" {
 
 void TObjPlayer::dispatch_attack_event(void *arg1, s32 arg2, s32 arg3) {
     s32 arg0 = (s32)this;
@@ -711,7 +702,6 @@ void TObjPlayer::dispatch_by_type(void *arg1, s32 arg2, s32 arg3) {
     if (arg3 == 1) {
         spawn_scattered_lightning_strikes((u8 *)arg2, 4);
     }
-}
 }
 
 extern s32 technique_effect_bml;
@@ -738,7 +728,6 @@ void weapon_special_lightning_bolt_effect(void *arg0, s32 arg1, s32 arg2, s32 ar
         }
     }
 }
-extern "C" {
 
 void TObjPlayer::spawn_effect_by_type(s32 arg1, s32 arg2, s32 arg3) {
     s32 arg0 = (s32)this;
@@ -769,7 +758,6 @@ void TObjPlayer::spawn_hit_effect(s32 arg1, s32 arg2, s32 arg3) {
         }
     }
 }
-}
 
 void prepare_freeze_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 sp8[0x18];
@@ -799,7 +787,6 @@ void weapon_fire_explosion_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
         }
     }
 }
-extern "C" {
 
 void TObjPlayer::spawn_mirror_pair(void *arg1, s32 arg2, s32 arg3) {
     s32 arg0 = (s32)this;
@@ -847,5 +834,4 @@ void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
             }
         }
     }
-}
 }

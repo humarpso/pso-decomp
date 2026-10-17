@@ -85,9 +85,7 @@ int attack_target_history_contains(void* object, void* target) {
     }
     return 0;
 }
-extern "C" {
 
 s32 fn_800BC758(u8 *arg0) {
     return *(s32 *)((s8 *)arg0 + 8) < *(s32 *)((s8 *)arg0 + 0xC);
-}
 }

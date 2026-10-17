@@ -5,8 +5,6 @@
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestListVM.h"
 
-extern "C" {
-
 struct Base_8021277C { char pad[0x18]; };
 struct VObj_8021277C : Base_8021277C {
     virtual void m0();
@@ -33,5 +31,3 @@ void THunterGuildSeqOffline::set_state_close2() {
 void THunterGuildSeqOffline::set_enemy_mode_5() { TLobby::set_enemy_mode_flag(); evt2_random_enemies_mode = 5; TKeyBoardControl__sub_8000F950(); }
 
 void THunterGuildSeqOffline::set_enemy_mode_1() { TLobby::set_enemy_mode_flag(); evt2_random_enemies_mode = 1; TKeyBoardControl__sub_8000F950(); }
-
-}

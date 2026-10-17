@@ -4,8 +4,6 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TUnk_804A1E28.h"
 
-extern "C" {
-
 void TUnk_804A1E28::update_idle() {
     s16 temp_r0;
 
@@ -35,6 +33,4 @@ void *__dt__13TUnk_804A1E28Fv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
-}
-
 }

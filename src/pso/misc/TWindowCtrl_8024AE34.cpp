@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowCtrl.h"
 
-extern "C" {
-
 void TWindowCtrl::init_all_slots() {
     s32 var_r31;
 
@@ -21,6 +19,4 @@ void TWindowCtrl::init_all_slots2() {
         ((TWindowCtrl *)var_r31)->unsuppress_slot();
         var_r31 += 1;
     } while (var_r31 < 0xC);
-}
-
 }

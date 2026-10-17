@@ -119,7 +119,6 @@ void handle_6x97_select_challenge_mode_failure_option(void *arg0) {
         *(s32 *)((s8 *)&challenge_mode_state + 0x24) = var_r0;
     }
 }
-extern "C" {
 
 void handle_6x95_set_challenge_time(Pkt_80072230 *pkt) {
     s32 idx;
@@ -225,5 +224,4 @@ void TLobby::send_challenge_records(u32 _w0) {
     packet.__base_G_SetChallengeRecordsBase_6x7C.client_id = (s16) local_client_id;
     TLobby__sub_800703D0(&packet.records[0], (void *) (get_character_save_record(0xFFFF) + 0x21C4));
     ((TLobby *)(&packet.__base_G_SetChallengeRecordsBase_6x7C.header))->send_6x7C_packet();
-}
 }

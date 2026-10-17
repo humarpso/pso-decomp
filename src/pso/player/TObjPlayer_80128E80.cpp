@@ -5,8 +5,6 @@
 #include "pso/TAdRicoRing.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 void TUnk_804A403C::reserved_53() {
     s32 temp_r31;
     u8 *arg0 = (u8 *)this;
@@ -20,6 +18,4 @@ void TUnk_804A403C::reserved_53() {
     draw_weapon_at_joint((s32)arg0, 0x23);
     ((TObjPlayer *)arg0)->draw_icon(1, (s32)(arg0 + 0x20C));
     *(s32 *)((s8 *)arg0 + 0xF4) = temp_r31;
-}
-
 }

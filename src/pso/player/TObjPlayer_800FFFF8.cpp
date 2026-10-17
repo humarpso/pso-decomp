@@ -68,10 +68,7 @@ void TItem::apply_item_flags(s32 arg1) {
 }
 }
 void TItem::render_following_owner() { }
-extern "C" {
-}
 void TItem::render_owned() { }
-extern "C" {
 
 typedef char RecoveredGlobal_80100070_lbl_8049E8F8_size[sizeof(RecoveredGlobal_80100070_lbl_8049E8F8) == 0x60 ? 1 : -1];
 typedef char RecoveredGlobal_80100070_lbl_8049E958_size[sizeof(RecoveredGlobal_80100070_lbl_8049E958) == 0x138 ? 1 : -1];
@@ -164,6 +161,4 @@ void TObjPlayer::submit_computer_command() {
     s32 a, b, c;
     scroll_ginja_mesh_uvs(*(s32 *)((s8 *)this + 4), a, b, c, 1);
     PPCSync();
-}
-
 }

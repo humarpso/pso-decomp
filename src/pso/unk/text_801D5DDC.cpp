@@ -48,12 +48,6 @@ s32 TFontSmallLobby__sub_801D6804(void *, void *);
 s32 validate_6x3B_clear_temporary_photon_blast_state_flags(void *);
 s32 clear_photon_blast_ready_flag__15TFontSmallLobbyFv(void *, void *);
 s32 validate_6x3A_clear_photon_blast_ready_flag(void *);
-}
-void handle_6x39_set_photon_blast_ready_flag(s32 arg0);
-void handle_6x3B_clear_temporary_photon_blast_state_flags(s32 arg0);
-void reinit_photon_blast_gauge(u16 *arg0);
-void handle_6x3A_clear_photon_blast_ready_flag(s32 arg0);
-extern "C" {
 void TFontSmallLobby::set_section_index(s16 arg1) {
     s16 var_r4;
 
@@ -64,7 +58,10 @@ void TFontSmallLobby::set_section_index(s16 arg1) {
     *(s16 *)((s8 *)this + 4) = var_r4;
 }
 }
-
+void handle_6x39_set_photon_blast_ready_flag(s32 arg0);
+void handle_6x3B_clear_temporary_photon_blast_state_flags(s32 arg0);
+void reinit_photon_blast_gauge(u16 *arg0);
+void handle_6x3A_clear_photon_blast_ready_flag(s32 arg0);
 void handle_6x3B_clear_temporary_photon_blast_state_flags(s32 arg0) {
     struct { s16 a; u16 b; } sp8;
     s32 temp_r3;
@@ -104,7 +101,6 @@ void handle_6x3A_clear_photon_blast_ready_flag(s32 arg0) {
         }
     }
 }
-extern "C" {
 
 void send_6x3A_clear_photon_blast_ready_flag(u16 *arg0) {
     struct Pkt_801D5FC0 pkt;
@@ -113,7 +109,6 @@ void send_6x3A_clear_photon_blast_ready_flag(u16 *arg0) {
         pkt.id = *arg0;
         ((TFontSmallLobby *)(&pkt))->draw_and_send();
     }
-}
 }
 
 void handle_6x39_set_photon_blast_ready_flag(s32 arg0) {
@@ -136,14 +131,12 @@ void handle_6x39_set_photon_blast_ready_flag(s32 arg0) {
         }
     }
 }
-extern "C" {
 
 void send_6x39_photon_blast_ready(u16 *p) {
     Pkt_801D60B4 pk;
     ((TFontSmallLobby *)(&pk))->init_6x39_packet();
     pk.b = *p;
     ((TFontSmallLobby *)(&pk))->update_and_send_60();
-}
 }
 
 struct Cmd_801D61A0 { u8 hdr[2]; u16 client; u8 body[8]; };
@@ -154,7 +147,6 @@ s32 validate_6x38_donate_to_photon_blast(void *);
 }
 void handle_6x38_donate_to_photon_blast(s32 arg0);
 extern const f32 lbl_805DC3D8;
-extern "C" {
 
 s32 TFontSmallLobby::is_ready() {
     u8 *arg0 = (u8 *)this;
@@ -169,7 +161,6 @@ void TFontSmallLobby::reset_targets() {
     ((TFontSmallLobby *)(arg0 + 0x4C))->set_target_index(0);
     ((TFontSmallLobby *)(arg0 + 0x4C))->set_target_count(0);
     ((TFontSmallLobby *)arg0)->check_flag_at_40();
-}
 }
 void handle_6x38_donate_to_photon_blast(s32 arg0) {
     Cmd_801D61A0 cmd;

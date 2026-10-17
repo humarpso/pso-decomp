@@ -68,7 +68,6 @@ void handle_6x75_update_quest_flag_dc(TLobby *lobby) {
         clear_story_flag_in_bank(((s32) *(s16 *)((s8 *)lobby + 8)), ((s32) lobby->m_flags));
     }
 }
-extern "C" {
 
 void prepare_offline_quest_filenames(const char* identity) {
  switch(current_language) {
@@ -81,13 +80,11 @@ void prepare_offline_quest_filenames(const char* identity) {
  }
  replace_file_extension__6TLobbyFPvPvPv(offline_quest_filename_buffer_b,identity,lbl_80449D00);
 }
-}
 
 void send_and_handle_6x75(TLobby *lobby) {
     lobby->byteswap_6x75_packet();
     TLobby__send_and_handle_60((u8 *)lobby);
 }
-extern "C" {
 
 void TLobby::byteswap_6x75_packet() {
     read_be16_field2__10TObjPlayerFv(this);
@@ -95,7 +92,6 @@ void TLobby::byteswap_6x75_packet() {
     bswap_16((u16 *)((void *)((char *)this + 6)));
     bswap_16((u16 *)((void *)((char *)this + 8)));
     bswap_16((u16 *)((void *)((char *)this + 10)));
-}
 }
 
 void build_6x75_update_quest_flag_dc(void* p) { *(u8*)((char*)p + 0x0) = 117; *(u8*)((char*)p + 0x1) = 3; }

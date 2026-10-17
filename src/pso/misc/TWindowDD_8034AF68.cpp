@@ -20,7 +20,6 @@ struct G_8034AF68 {
 
 struct Ent_8034B050 { s32 *list; s32 count; s32 result; };
 
-extern "C" {
 extern RecoveredGlobal_8034B008_lbl_80478B78 word_select_type_state_table;
 extern G_8034AF68 lbl_804F0070;
 extern H_8034AF68 *TWindowDD__ws_data_base;
@@ -95,6 +94,4 @@ s32 TWindowDD::lookup_item_category(s32 arg0) {
         r = 1;
     }
     return r;
-}
-
 }

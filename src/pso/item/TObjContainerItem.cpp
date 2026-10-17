@@ -11,12 +11,10 @@ extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
-#include "pso/object/TObjMotion.h"
-#include "pso/player/TUnk_804B6C24.h"
+
 extern "C" void roll_physical_accuracy__13TUnk_804B6C24FPvlf();
 #include "pso/item/TObjContainerBase.h"
 #include "pso/misc/TOKeyMachine01.h"
-#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80189BE0_lbl_804B63BC {
     s32 value;
@@ -37,9 +35,6 @@ extern s32 __vt__17TObjContainerItem[];
 extern s32 TObjContainerItem__name;
 u8 *TObjContainerItem__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 play_sound_effect(int, void *, int, int);
-}
-void play_container_break_sound(s32 arg0);
-extern "C" {
 void *__dt__21TObjContainerAbeEnemyFv(void *arg0, s16 arg1);
 void run_task__13TUnk_804B6C24Fv();
 void render__13TUnk_804B6C24Fv();
@@ -264,6 +259,7 @@ void TUnk_804B6C24::spawn_item(s32 arg1) {
     request_box_item_drop__13TUnk_804806E8FPvs(arg1, (u8 *)&this->position, this->m_360, arg0);
 }
 }
+void play_container_break_sound(s32 arg0);
 void play_container_break_sound(s32 arg0) {
     u32 global_state;
     global_state = TOKeyMachine01::get_global_state();

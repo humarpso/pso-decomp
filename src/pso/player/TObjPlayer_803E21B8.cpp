@@ -72,7 +72,6 @@ void setup_opaque_color_draw(void) {
     TObjPlayer__sub_803E24E0();
     TObjPlayer::setup_vertex_format();
 }
-extern "C" {
 
 void TObjPlayer__sub_803E21DC(void) {
     TObjPlayer::apply_blend_mode_1();
@@ -83,17 +82,14 @@ void TObjPlayer::setup_render() {
     TObjPlayer__sub_803E24E0();
     TObjPlayer::setup_vtx_desc();
 }
-}
 
 void setup_blended_textured_draw(void) {
     TObjPlayer::apply_blend_mode_1();
     TObjPlayer::setup_vtx_desc();
 }
-extern "C" {
 
 void TObjPlayer__sub_803E2248(void) {
 
-}
 }
 
 void load_context_texture_obj(void) {
@@ -129,7 +125,6 @@ void load_context_texture_obj(void) {
     }
     GXLoadTexObj(&context_texture_obj, 0);
 }
-extern "C" {
 
 void TObjPlayer::setup_vertex_format() {
     GXClearVtxDesc();
@@ -179,7 +174,6 @@ void TObjPlayer::set_tev_passclr() {
     GXSetNumTevStages((void *)(1));
     GXSetTevOrder(0, 0xFF, 0xFF, 4);
     GXSetTevOp(0, 4);
-}
 }
 #pragma pop
 

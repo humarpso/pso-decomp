@@ -47,7 +47,6 @@ s32 find_particle_texture_index(s32 id) {
     }
     return r;
 }
-extern "C" {
 
 void copy_slot_to_anim_frame(struct Copy_80082954 *c) {
     (*c->animation)[c->frame].z = (*c->destination)[c->slot].z;
@@ -59,7 +58,6 @@ void fn_800829E0(struct Copy_800829E0 *c) {
     (*c->destination)[c->slot].z = (*c->animation)[c->frame].z;
     (*c->destination)[c->slot].y = (*c->animation)[c->frame].y;
     (*c->destination)[c->slot].x = (*c->animation)[c->frame].x;
-}
 }
 
 void load_critical_effect_resources(void) {

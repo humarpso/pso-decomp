@@ -195,12 +195,10 @@ void TQuestListOnline::handle_quest_confirm() {
         set_field_20__15TShopWindowBaseFl(this, 1);
     }
 }
-extern "C" {
 
 #pragma push
 #pragma optimization_level 2
 #pragma dont_inline on
-}
 void TQuestListOnline::decompress_quest_list_buffers() {
     quest_bin_decompressed_size = prs_decompress_buffer(TQuestListOnline__bin_download_state.f38, TQuestListOnline__decompression_cursor);
     online_quest_bin_data = TQuestListOnline__decompression_cursor;
@@ -209,11 +207,9 @@ void TQuestListOnline::decompress_quest_list_buffers() {
     online_quest_dat_buffer = TQuestListOnline__decompression_cursor;
     set_field_20__15TShopWindowBaseFl(this, (int)((void *)7));
 }
-extern "C" {
 
 #pragma pop
 
-}
 void TQuestListOnline::request_download_buffer() {
     if (TLobby__sub_8001EEF4() != 0) {
         TQuestListOnline__decompression_cursor = TLobby::tmp_buf_use_req((const char *)lbl_8044BEB0);
@@ -221,9 +217,7 @@ void TQuestListOnline::request_download_buffer() {
     }
 }
 int TQuestListOnline::begin_buffer_request() { return set_field_20__15TShopWindowBaseFl(this, 5); }
-extern "C" {
 
-}
 void TQuestListOnline::handle_list_selection() {
     if (((VObj_18_80217C1C*)sequence)->m8() == 0) {
         return;
@@ -307,9 +301,7 @@ void TQuestListOnline::show_info_window() {
     }
     set_field_20__15TShopWindowBaseFl((void*)this, 3);
 }
-extern "C" {
 
-}
 void TQuestListOnline::build_list_window() {
     u16 id;
     s32 off;
@@ -356,7 +348,4 @@ void TQuestListOnline::build_list_window() {
         selected_index = 0;
         set_field_20__15TShopWindowBaseFl(this, 3);
     }
-}
-extern "C" {
-
 }

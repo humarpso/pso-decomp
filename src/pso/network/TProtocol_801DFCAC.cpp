@@ -15,8 +15,6 @@ typedef char PasswordActionPasswordOffset[(offsetof(TSendAction<2>, password) ==
 typedef char NamedPasswordActionNameOffset[(offsetof(TSendAction<3>, name) == 0xC) ? 1 : -1];
 typedef char NamedPasswordActionPasswordOffset[(offsetof(TSendAction<3>, password) == 0x1C) ? 1 : -1];
 
-extern "C" {
-
 s32 destroy__9TProtocolFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         __dt__12TPlyCharDataFv(arg0 + 4, -1);
@@ -31,8 +29,6 @@ s32 TProtocol::init_char_data() {
     s32 arg0 = (s32)this;
     __ct__12TPlyCharDataFv(arg0 + 4);
     return arg0;
-}
-
 }
 
 template<> void TSendAction<0>::bswap() {

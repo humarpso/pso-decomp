@@ -551,7 +551,6 @@ void TObjControl::run_task() {
 
 TObjControl::~TObjControl() {}
 
-extern "C" {
 void *TObjControl__ct(void *control) {
     __ct__7TObjectFP7TObject(control);
     *(s32 **)((s8 *)control + 0x18) = __vt__11TObjControl;
@@ -1078,7 +1077,6 @@ void TUnk_80493450::link_into_group_chain() {
     }
 }
 
-}
 s32 TUnk_80493450::countChildren() {
     TObjEnemy* child = children;
     s32 count = 0;
@@ -1093,13 +1091,11 @@ s32 TUnk_80493450::countChildren() {
     return count;
 }
 
-extern "C" {
 s32 TObjPlayer::is_action_available() {
     TObjEnemy*_w0 = (TObjEnemy*)this;
     return ((s32)_w0->groupRoot()) ? 1 : 0;
 }
 
-}
 TObjEnemy* TObjEnemy::groupRoot() {
     TObjEnemy* current=this;
     while(current->previous) current=current->previous;
@@ -1108,7 +1104,6 @@ TObjEnemy* TObjEnemy::groupRoot() {
     return 0;
 }
 
-extern "C" {
 s32 TObjEnemy::bind_enemy_combat_stats(u8 *arg1, u8 *arg2, u8 *arg3) {
     f32 temp_f31;
     f32 temp_f31_2;
@@ -1180,6 +1175,4 @@ block_14:
     ((TUnk_804806E8 *)((u8 *)this))->add_to_field_2ca((s32)((f32)((TUnk_804806E8 *)((u8 *)this))->get_field_2c2() * TObjPlayer__sub_800192C4((s32)((u8 *)this), 2)));
     ((TUnk_804806E8 *)((u8 *)this))->add_to_field_2ce((s32)((f32)((TUnk_804806E8 *)((u8 *)this))->get_atp() * TObjPlayer__sub_800192C4((s32)((u8 *)this), 3)));
     return 1;
-}
-
 }

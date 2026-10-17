@@ -13,7 +13,7 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
 #include "pso/misc/TCameraCtrl.h"
-#include "pso/player/TUnk_804806E8.h"
+
 #include "pso/enemy/TUnk_80494938.h"
 
 struct RecoveredGlobal_800D9E8C_lbl_8058D490 {
@@ -261,9 +261,6 @@ extern "C" {
 u16 find_nearest_visible_player(void *, s32, f32);
 s32 apply_actor_gravity(void *, int, f32);
 s32 enemy_wander_home__9TObjEnemyFlfff(void *, int, f32, f32, f32);
-}
-void move_with_wall_slide(u8 *arg0);
-extern "C" {
 void enemy_set_heading_velocity(void *, f32, s32);
 f32 atan2_float(f32 y, f32 x);
 s32 update_if_active__15TObjEneMe1GiGueFl(void *, s32, s32);
@@ -358,6 +355,7 @@ void TObjEneNanoDrago::sub_800DA2A0() {
     }
 }
 }
+void move_with_wall_slide(u8 *arg0);
 
 struct Rec_800DA4B4 { s32 a; s32 b; s32 c; };
 

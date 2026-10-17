@@ -3,8 +3,6 @@
 #include "pso/misc/TPlyDispConfig.h"
 #include "pso/system/memory.h"
 
-extern "C" {
-
 s32 __dt__12TPlyCharDataFv(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         __dt__14TPlyDispConfigFv(arg0 + 0x3C0, -1);
@@ -13,6 +11,4 @@ s32 __dt__12TPlyCharDataFv(s32 arg0, s16 arg1) {
         }
     }
     return arg0;
-}
-
 }

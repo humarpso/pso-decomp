@@ -11,8 +11,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss6Rock.h"
 #include "pso/boss/TBoss6Type2.h"
-#include "pso/player/TUnk_804806E8.h"
-#include "pso/boss/TBoss6Mag.h"
 
 struct Stack_8032EAE4
 {
@@ -73,7 +71,7 @@ struct RecoveredFields_8032F174_arg0
 };
 
 #include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
+
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
@@ -177,7 +175,7 @@ struct T_8033053C { u8 pad[4]; };
 typedef void (T_8033053C::*Fn_8033053C)();
 struct Ent_8033053C { u8 pad[0x18]; Fn_8033053C fn; };
 #pragma readonly_strings on
-extern "C" {
+
 const char *lbl_805D4220 = "TBoss6Mag";
 extern const E_8032E7B4 TBoss6Type2__effect_emitter_id_table[4] = { {555, -1}, {556, -1}, {537, -1}, {542, 0} };
 extern const u32 lbl_804773DC[8] = { 3, 0, 0, 0, 0xFFFFFFFF, 0, 0, 0 };
@@ -186,7 +184,6 @@ extern const RecoveredGlobal_803300C8_lbl_80477404 boss6_type2_zero_vec3_block =
 extern const RecoveredGlobal_803300C8_lbl_80477428 boss6_type2_initial_state = { 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0x3D, 0x88, 0x88, 0x89 } };
 extern const s32 lbl_80477444[3] = { -0x2000, 0, 0x2000 };
 extern const char lbl_80477450[8] = { 0 };
-}
 struct P_80330240 { s32 a; s32 b; };
 struct O_80330240 { u8 pad[0x388]; s32 f388; };
 extern "C" {

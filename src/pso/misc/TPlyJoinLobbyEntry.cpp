@@ -95,12 +95,6 @@ void bswap_6x6E_sync_game_state__6TLobbyFPv(void *p);
 void sync_game_state__6TLobbyFv(void *, u16);
 void import_sync_records__6TLobbyFPs(void *, u16);
 void activate_triggered_floor_events(void);
-}
-void send_6x6F_quest_flags(s32 arg0);
-void restore_switch_table(s32 arg0, s32 arg1);
-extern char lbl_8043EE90[];
-extern s16 TLobby__data_805D5CE8;
-extern "C" {
 void handle_6x6E_sync_game_state(Pkt_8013566C *arg0);
 struct Stack_80135458 {
     s8 sp8;
@@ -374,18 +368,6 @@ void init__23TAdSinglePlyChrSelectGCFv(void);
 u8 * get_character_save_record(u32);
 void * get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
 void set_area__6TLobbyFl(void *, s32, s32);
-}
-void set_world_section_id(void *, s32);
-void handle_6x6F_set_quest_flags_v2(s32 arg0);
-void handle_6x72_done_loading_into_game(void);
-void bswap_object_source_record(void *);
-void set_area_random_seed(int a0);
-void *create_remote_player_object(void *arg0);
-void set_floor_map_variant(s32 arg0, s32 arg1);
-s32 request_story_select_state(s32 arg0);
-int serialize_area_set_flags(void *p);
-u32 copy_switch_table(void *destination);
-extern "C" {
 s32 clear_flag3_all_tasks__9TMainTaskFv(void *);
 void * __nw__7TObjectFUl(u32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -607,7 +589,20 @@ void TLobby::open_udp_socket_for_player() {
     }
 }
 }
-
+void send_6x6F_quest_flags(s32 arg0);
+void restore_switch_table(s32 arg0, s32 arg1);
+extern char lbl_8043EE90[];
+extern s16 TLobby__data_805D5CE8;
+void set_world_section_id(void *, s32);
+void handle_6x6F_set_quest_flags_v2(s32 arg0);
+void handle_6x72_done_loading_into_game(void);
+void bswap_object_source_record(void *);
+void set_area_random_seed(int a0);
+void *create_remote_player_object(void *arg0);
+void set_floor_map_variant(s32 arg0, s32 arg1);
+s32 request_story_select_state(s32 arg0);
+int serialize_area_set_flags(void *p);
+u32 copy_switch_table(void *destination);
 void handle_6x71_unblock_game_join(void) {
     LEntry_801352C0 *e;
     s32 *pend;
@@ -646,7 +641,6 @@ void handle_6x71_unblock_game_join(void) {
         TLobby__data_805D5594 = 0xF;
     }
 }
-extern "C" {
 
 void TLobby::send_6x71_to_player() {
     s32 arg0 = (s32)this;
@@ -693,7 +687,6 @@ void send_6x70_player_data__6TLobbyFi(s32 arg0) {
         mem_free((int)temp_r3);
     }
 }
-}
 
 #pragma push
 #pragma peephole off
@@ -706,7 +699,7 @@ void handle_6x6F_set_quest_flags_v2(s32 arg0) {
 
 typedef struct Hdr_8013566C Hdr_8013566C;
 typedef struct Pkt_8013566C Pkt_8013566C;
-extern "C" {
+
 void handle_6x6E_sync_game_state(Pkt_8013566C *arg0) {
   u8 *new_var;
   u8 *new_var2;
@@ -804,7 +797,6 @@ void handle_6x6B_sync_game_state(Pkt_801358B4 *arg0) {
             }
         }
     }
-}
 }
 
 void send_6x6F_quest_flags(s32 arg0) {

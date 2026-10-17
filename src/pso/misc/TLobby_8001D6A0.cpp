@@ -11,12 +11,10 @@
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TRaderMapCore.h"
 
-extern "C" {
 void* get_player_entry__6TLobbyFii(int a0, int a1);
 void* TLobby__sub_8001E270(int a0, int a1);
 void* TLobby__sub_8001E2A8(int a0, int a1);
 void* get_entry__6TLobbyFii(int a0, int a1);
-}
 
 struct Ent_8001D768 { u32 f0; u32 f4; u32 f8; u32 fc; };
 
@@ -396,7 +394,6 @@ void load_battle_param_entry(void) {
  ;
   }
 }
-extern "C" {
 
 void TLobby::broadcast(void* a0) { ((int (*)(void*, void*))broadcast_to_players__6TLobbyFii)((void*)TLobby__lobby_instance, a0); }
 
@@ -405,7 +402,6 @@ void TLobby__sub_8001DE30(void* a0) { ((int (*)(void*, void*))TLobby__sub_8001DF
 void TLobby::copy_all_entries(void* a0) { ((int (*)(void*, void*))copy_all_entries__6TLobbyFii)((void*)TLobby__lobby_instance, a0); }
 
 void TLobby::copy_data(void* a0) { ((int (*)(void*, void*))copy_all_data__6TLobbyFii)((void*)TLobby__lobby_instance, a0); }
-}
 
 #pragma inline_depth(1)
 #pragma auto_inline off

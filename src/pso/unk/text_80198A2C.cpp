@@ -341,10 +341,6 @@ struct Ang_801994DC { s32 x, y, z; };
 extern s32 lbl_804B8E00[];
 extern "C" {
 u8 *TWindowTimer__sub_80199410(u8 *arg0, u8 *arg1);
-}
-void handle_6x79_gogo_ball(u8 *arg0);
-void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
-extern "C" {
 s32 rotate_matrix_y(int, s32);
 s32 rotate_matrix_z(int, int);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
@@ -542,6 +538,8 @@ u8 *TWindowTimer__sub_80199410(u8 *object, u8 *arg1) {
     return object;
 }
 }
+void handle_6x79_gogo_ball(u8 *arg0);
+void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
 typedef char RecoveredGlobal_80199470_lbl_8050DDAC_size[sizeof(RecoveredGlobal_80199470_lbl_8050DDAC) == 0x1C ? 1 : -1];
 void handle_6x79_gogo_ball(u8 *arg0) {
     bswap_6x79_gogo_ball__12TWindowTimerFi();

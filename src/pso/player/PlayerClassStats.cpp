@@ -1,6 +1,5 @@
 #include "pso/player/PlayerClassStats.h"
 
-extern "C" {
 extern const PlayerProfessionStatFactors player_profession_stat_factors[3] = {
     { 2.0f, 1.0f },
     { 1.850000023841858f, 1.0f },
@@ -49,7 +48,6 @@ stats* player_class_base_stat_tables[12] = {
     (stats*)&player_class_base_stats_10,
     (stats*)&player_class_base_stats_11,
 };
-}
 
 typedef char StatsSize[(sizeof(stats)==14)?1:-1];
 typedef char PlayerStatsSize[(sizeof(player_stats)==36)?1:-1];

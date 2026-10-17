@@ -54,7 +54,6 @@ void notify_stealth_enemies_10(int arg0) {
         ((TObjEneDD_ST *)temp)->sub_800F5864(0x10);
     }
 }
-extern "C" {
 
 void TItemEquipBase__sub_80119168(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
@@ -82,5 +81,4 @@ void fn_80119204(int arg0) {
     if (temp != 0U) {
         ((TObjEneDD_ST *)temp)->sub_800F5864(1);
     }
-}
 }

@@ -54,7 +54,6 @@ f32 get_item_star_row_width(u8 *arg0) {
     }
     return 17.0f * (f32) var_r0;
 }
-extern "C" {
 
 void render_item_rarity_stars(Item_8025A650 *item, Ctx_8025A650 *ctx) {
     Quad_8025A650 q;
@@ -140,5 +139,4 @@ u8 *TWindowHelpItem__sub_8025A95C(u8 *arg0, s32 arg1, s32 arg2) {
     ((TWindowSubSymbolChatPartsSet *)(arg0 + 8))->copy_vec2((void *)(arg1 + 4));
     *(s32 *)((s8 *)arg0 + 0x10) = 0;
     return arg0;
-}
 }

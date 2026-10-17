@@ -61,7 +61,6 @@ void launch_slicer_shot(u8 *weapon) {
     ((TObjPlayer *)weapon)->draw_icon(2, (s32)launch.second);
     TTecSlicer::create((u16*)&launch);
 }
-extern "C" {
 
 void TUnk_804A5B20::update_idle() {
     u8 *arg0 = (u8 *)this;
@@ -106,7 +105,6 @@ void TUnk_804A5B20::update_attack() {
       TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x1F8), 0x2AAA, 0);
       break;
   }
-}
 }
 
 typedef char RecoveredGlobal_8012DBF4_lbl_804A5B20_size[sizeof(RecoveredGlobal_8012DBF4_lbl_804A5B20) == 0xF8 ? 1 : -1];

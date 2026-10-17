@@ -66,7 +66,6 @@ u8 get_material_limit_for_class(s32 arg0) {
     }
     return 0xFA;
 }
-extern "C" {
 
 T_803374C4 *TObjPlayer__sub_803374C4(T_803374C4 *self) {
     s32 i;
@@ -75,5 +74,4 @@ T_803374C4 *TObjPlayer__sub_803374C4(T_803374C4 *self) {
         self->b[i] = 0;
     }
     return self;
-}
 }

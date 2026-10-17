@@ -11,7 +11,7 @@
 #include "pso/enemy/TObjEneIllGill.h"
 extern "C" void render__15TObjIllGillKageFv();
 #include "pso/enemy/TUnk_80494938.h"
-#include "pso/TObject.h"
+
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -23,7 +23,7 @@ extern "C" void render__15TObjIllGillKageFv();
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjFish.h"
-#include "pso/object/TObjIllGillKage.h"
+
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct IllGillBase_80367984_8036690C { char pad[0x14]; };

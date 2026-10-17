@@ -81,6 +81,4 @@ TObjSoloPlayWin* TObjSoloPlayWin::create(TObject* parent) {
     return new TObjSoloPlayWin(parent);
 }
 
-extern "C" {
 __declspec(section ".sdata2") extern const f32 solo_play_result_window_depth = 70200.0f;
-}

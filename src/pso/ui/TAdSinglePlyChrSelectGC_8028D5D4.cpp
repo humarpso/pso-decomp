@@ -1,12 +1,8 @@
 #include "types.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC_8028D5D4.h"
 
-extern "C" {
-
 u8 is_selection_done__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     return (u8) (*(s32 *)((s8 *)arg0 + 0x2C) == 2);
-}
-
 }
 
 #include "pso/misc/TLobby.h"

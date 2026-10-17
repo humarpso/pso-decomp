@@ -54,11 +54,10 @@ u8 *frozen_shooter_create(s32 arg0) {
     return NULL;
 }
 typedef char RecoveredGlobal_80126414_lbl_804A05E8_size[sizeof(RecoveredGlobal_80126414_lbl_804A05E8) == 0x20 ? 1 : -1];
-extern "C" {
+
 u8 *freeze_curse_timer_ct(u8 *arg0, s16 arg1, s32 arg2, f32 farg0) {
     TItemTimerEvent__ct(arg0, arg1, arg2);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A05E8.value;
     *(f32 *)((s8 *)arg0 + 0x2C) = farg0;
     return arg0;
-}
 }

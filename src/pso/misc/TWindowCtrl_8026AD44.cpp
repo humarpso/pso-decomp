@@ -2,8 +2,6 @@
 #include "pso/misc/TWindowCtrl_8026AD44.h"
 #include "pso/misc/TWindowCtrl.h"
 
-extern "C" {
-
 extern void *TWindowCtrl__active_window;
 
 s32 TWindowCtrl::get_field44() {
@@ -23,6 +21,4 @@ void TWindowCtrl__sub_8026AD78(s32 arg0) {
     if ((void *) TWindowCtrl__active_window != NULL) {
         *(s32 *)((s8 *)TWindowCtrl__active_window + 0x44) = arg0;
     }
-}
-
 }

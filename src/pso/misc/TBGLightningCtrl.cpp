@@ -4,8 +4,7 @@
 #include "pso/object/TObjMotion.h"
 extern "C" void render__16TBGLightningCtrlFv();
 #include "pso/unk/text_803DA798.h"
-#include "pso/misc/TBGLightningCtrl.h"
-#include "pso/TObject.h"
+
 class TBGLightning : public TObject {
 public:
     virtual void render_shadows();
@@ -165,9 +164,8 @@ void TBGLightningCtrl::destroy_instance() {
 }
 
 void load_bg_lightning(void) { bg_lightning_texture_handle = (int)load_gvm_texture_file((s32)lbl_8046FCA0); }
-extern "C" {
+
 __declspec(section ".rodata") extern unsigned char lbl_8046FCA0[] = "bg_lightning.gvm";
-}
 
 extern const f32 lbl_805DE040 = 0.0f;
 void submit_particle_quad(void *arg0, f32 *p, f32 *d, s32 c) {
@@ -189,7 +187,7 @@ void submit_particle_quad(void *arg0, f32 *p, f32 *d, s32 c) {
 
 #pragma push
 #pragma fp_contract on
-extern "C" {
+
 void fn_802A9DF4(Obj_802A9DF4 *self, Vec_802A9DF4 *dir) {
     Vec_802A9DF4 p;
     Vec_802A9DF4 d;
@@ -296,7 +294,6 @@ u8 *create__12TBGLightningFiif(s32 arg0, s32 arg1, f32 farg0) {
         var_r0 = (u8 *)(__ct__12TBGLightningFv((u8 *)bg_lightning, (void *)arg0, (s32)arg1, farg0));
     }
     return var_r0;
-}
 }
 TBGLightning::~TBGLightning() {}
 

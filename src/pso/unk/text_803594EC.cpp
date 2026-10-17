@@ -30,7 +30,6 @@ typedef struct Quad_803594EC
   u32 col[4];
 } Quad_803594EC;
 
-extern "C" {
 extern u8 TBoss4Fade__fullscreen_vertices[];
 extern const f32 lbl_805E0098;
 extern const f32 lbl_805E009C;
@@ -66,6 +65,4 @@ void TBoss4Fade::run_task() {
     O_8035959C *self = (O_8035959C *)this;
     self->idx ^= 1;
     self->e[self->idx].a = 0;
-}
-
 }

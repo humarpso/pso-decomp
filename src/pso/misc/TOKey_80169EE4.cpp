@@ -123,7 +123,6 @@ void handle_6x05_write_switch_flag(void *arg0) {
     }
     clear_floor_switch_flag(*(u16 *)((s8 *)arg0 + 8), *(s8 *)((s8 *)arg0 + 0xA));
 }
-extern "C" {
 
 void TOKey::vfunc_13(s32 arg1) {
     u8 *arg0 = (u8 *)this;
@@ -198,5 +197,4 @@ s32 TOKey::is_confirm_pressed() {
         return 1;
     }
     return 0;
-}
 }

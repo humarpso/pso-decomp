@@ -12,15 +12,14 @@ extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/object/obj_band.h"
 #include "pso/boss/TBoss4Type3.h"
-#include "pso/enemy/TObjEneDD_ST.h"
+
 #include "pso/player/TUnk_80490470.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
-#include "pso/enemy/TObjEneDD.h"
+
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/misc/TLobby.h"
-#include "pso/player/TObjPlayer.h"
 
 #define CAT2(a, b) a##b
 #define CAT(a, b) CAT2(a, b)

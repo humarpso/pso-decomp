@@ -110,7 +110,7 @@ TAdGuideButtonGC::TAdGuideButtonGC(TObject *parent) : TObject(parent) {
     guide_button_texture_handle = TAdMultiPlyChrSelectGC__sub_802C6FA8();
     active = 0;
 }
-extern "C" void create_guide_button(TObject *parent, GuideButtonSpec *spec) {
+void create_guide_button(TObject *parent, GuideButtonSpec *spec) {
     if (guide_button_instance == NULL) {
         guide_button_instance = new TAdGuideButtonGC(parent);
         if (guide_button_instance != NULL) guide_button_instance->setup_button(spec);
@@ -118,7 +118,7 @@ extern "C" void create_guide_button(TObject *parent, GuideButtonSpec *spec) {
 }
 #pragma push
 #pragma readonly_strings on
-extern "C" void init_guide_button_params(GuideButtonSpec *spec) {
+void init_guide_button_params(GuideButtonSpec *spec) {
     spec->kind = 0;
     spec->from.x = 0.0f;
     spec->from.y = 0.0f;

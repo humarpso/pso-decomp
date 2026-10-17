@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/unk/text_801C5454.h"
 
-extern "C" {
-
 void clear_trap_counts(s8 *arg0) {
     s32 var_ctr;
 
@@ -10,6 +8,4 @@ void clear_trap_counts(s8 *arg0) {
         *arg0 = 0;
         arg0 += 1;
     }
-}
-
 }

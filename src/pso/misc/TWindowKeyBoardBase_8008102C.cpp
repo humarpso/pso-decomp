@@ -41,7 +41,6 @@ void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2) {
     *(u32 *)((s8 *)arg0 + 8) = arg1;
     *(s32 *)((s8 *)arg0 + 0xC) = (s32) (arg2 * 0x14);
 }
-extern "C" {
 
 u32 *destroy__19TWindowKeyBoardBaseFPvs(u32 *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -86,5 +85,4 @@ u8 *TEF_LensFlare__create(s32 arg0) {
         var_r0 = (u8 *)(TEF_LensFlare__ct(temp_r3, tl_05, arg0));
     }
     return var_r0;
-}
 }

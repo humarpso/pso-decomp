@@ -22,8 +22,6 @@ struct Stack_801DB554 {
     s16 spA;
 };
 
-extern "C" {
-
 void TLobby::send_6F_burst_done() {
     u8 *arg0 = (u8 *)this;
     Stack_801DB554 stack;
@@ -34,6 +32,4 @@ void TLobby::send_6F_burst_done() {
         ((packet_header *)((s32) &stack.sp8))->bswap();
         ((VObj_18_44382c *)(arg0))->m8(&stack.sp8, 4);
     }
-}
-
 }

@@ -370,7 +370,6 @@ void upload_font_glyph(u16 c, void *arg1) {
     menu_font_upload_flags |= 1;
 }
 #undef g
-extern "C" {
 
 s32 TWindowSubStatusDisp::upload_glyph_if_needed(u16 arg0, u8 *arg1, void **arg2) {
     u8 temp_r7;
@@ -532,5 +531,4 @@ void draw_menu_font_string(const char *s, s32 arg1, u32 flags, f32 x, f32 y, f32
     }
   }
   ((int (*)(void)) end_render_forward__20TWindowSubStatusDispFPv)();
-}
 }

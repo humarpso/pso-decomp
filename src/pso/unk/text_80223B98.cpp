@@ -128,7 +128,6 @@ s32 classify_tool_shop_level_bracket(s32 arg0) {
     }
     return -1;
 }
-extern "C" {
 
 s32 TLobby__sub_80223D48(s32 arg0) {
     if ((arg0 >= 1) && (arg0 <= 0xA)) {
@@ -200,7 +199,6 @@ void roll_shop_technique_level(Obj_80223EE0 *arg0, s32 arg1) {
         break;
     }
     }
-}
 }
 
 void generate_shop_technique_pool(s32 arg0) {
@@ -328,12 +326,10 @@ void generate_shop_common_tool_pool(s32 arg0) {
 void clear_shop_tool_flags(void) {
     memset(&shop_tool_flags.value, 0, 0x10);
 }
-extern "C" {
 
 void TLobby::copy_shop_item_entry(s32 arg1, s32 arg2) {
     s32 arg0 = (s32)this;
     *(ByteBlock_14 *)(arg0) = *(const ByteBlock_14 *)(*(s32 *)((s8 *)&shop_tool_stock_buffers.value + (arg2 * 4)) + (arg1 * 0x14));
-}
 }
 void mark_shop_tool_sold_out(s32 a, s32 b) {
     E_8022444C *arr = ((E_8022444C * *)&shop_tool_stock_buffers)[b];

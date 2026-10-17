@@ -3,8 +3,6 @@
 #include "pso/player/TObjPlayer_801D4CB8.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
     extern s32 inventory_walk_visit_count;
     extern s32 player_owner_collect_cursor;
 int TObjPlayer::count_matching_items(int a1) { player_owner_collect_cursor = a1; inventory_walk_visit_count = 0; ((TObjPlayer *)(*(int *)&this->unk_1C4))->collect_item_owners_recursive(); return inventory_walk_visit_count; }
@@ -13,8 +11,6 @@ int TObjPlayer::apply_shop_judgment(int a1) { player_owner_collect_cursor = a1; 
 
     extern s32 item_reduce_target_player;
 void TObjPlayer::set_flag_and_update(int a1) { item_reduce_target_player = a1; ((TObjPlayer *)(*(int *)&this->unk_1C4))->unequip_invalid_items_recursive(); }
-
-}
 
 struct Base_801D4D48 { char pad[0x18]; };
 struct VObj_801D4D48 : Base_801D4D48 {

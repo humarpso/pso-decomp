@@ -20,9 +20,7 @@ void TLobby::prepare_and_send_trade_packet(void* a1) { this->prepare_trade_packe
 void build_6xA6_modify_trade_proposal(void* p) { *(u8*)((char*)p + 0x0) = 166; *(u8*)((char*)p + 0x1) = 4; }
 
 extern u16 lbl_805D63FC;
-extern "C" {
 
 void TLobby__sub_802D3AA8(void) {
     lbl_805D63FC |= 8;
-}
 }

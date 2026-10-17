@@ -142,7 +142,6 @@ s32 request_item_model_load(u8 *item) {
     }
     return -1;
 }
-extern "C" {
 
 void *TItemLoad::find_node_by_id(s32 id) {
     Node_8011038C *n;
@@ -188,5 +187,4 @@ void TItemLoad::update() {
             }
         }
     }
-}
 }

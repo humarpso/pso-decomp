@@ -235,7 +235,6 @@ void normalize_drop_area(s32 *p) {
         }
     }
 }
-extern "C" {
 
 void TLobby::forward_to_player(int arg0, void *item) {
     s32 player;
@@ -279,5 +278,4 @@ void TLobby::handle_player_event(s32 arg0, s32 arg1) {
             send_6x26_unequip_item__10TObjPlayerFPvPv((void *)temp_r3, (void *)(get_field_d8__5TItemFv()));
         }
     }
-}
 }

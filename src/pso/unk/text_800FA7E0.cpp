@@ -5,8 +5,6 @@ extern s32 async_file_read_current_request;
 extern u32 lobby_stack_entry_list_tail;
 extern s32 lobby_list_entry_count;
 
-extern "C" {
-
 u8 *TLobby::pop_stack_entry(s16 arg1) {
     u8 *arg0 = (u8 *)this;
     if (arg0 != NULL) {
@@ -20,6 +18,4 @@ u8 *TLobby::pop_stack_entry(s16 arg1) {
         }
     }
     return arg0;
-}
-
 }

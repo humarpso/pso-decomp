@@ -96,7 +96,6 @@ void calc_duel_number_uv(s32 arg0, u8 *arg1, s32 arg2) {
     *(f32 *)((s8 *)arg1 + 0x1C) *= (0.00390625f);
 }
 #pragma pop
-extern "C" {
 
 void TDuelEffectNumber::render() {
     char sp8[0x20];
@@ -117,7 +116,6 @@ void TDuelEffectNumber::run_task() {
     if ((f32) *(s32 *)((s8 *)arg0 + 0x28) >= (3e+01f)) {
         queue_destruction__7TObjectFv(arg0);
     }
-}
 }
 
 TDuelEffectNumber::~TDuelEffectNumber() {}

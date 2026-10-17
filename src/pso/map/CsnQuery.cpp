@@ -168,20 +168,6 @@ extern const f32 lbl_805D9208;
 extern const f32 lbl_805D920C;
 CsnGroup **get_data_ptr__10TObjMapCsnFv();
 M_80079C64 *refill_csn_candidate_cache(P_80079C64 *arg0, M_80079C64 **arg1, u32 arg2);
-}
-extern s32 csn_query_map_object[];
-extern s32 lbl_80438988[];
-void *query_prepared_wall_polygons(void *self);
-extern s32 lbl_804389A8[];
-void vsub(void *, void *, void *);
-extern E_80079580 *wall_query_scene_buffer;
-extern f32 csn_query_nearest_hit_t;
-extern s32 wall_query_hit_result;
-extern const f32 lbl_805D91F4;
-s32 query_wall_segment(void *arg0, void *arg1, void *arg2, s32 arg3);
-CsnGroup *select_ground_query_groups(CsnVector *arg0, u32 arg1);
-s32 prepare_wall_query_polygons(void *arg0, f32 r, s32 mask);
-extern "C" {
 f32 newton_sqrtf(f32);
 void TObjPlayer__sub_80079114(void);
 f32 vector_length(void *);
@@ -241,6 +227,18 @@ s32 calc_segment_xz_distance_sq(Vec_8007A138 *c, Vec_8007A138 *o, Vec_8007A138 *
     return dist <= radius * radius;
 }
 }
+extern s32 csn_query_map_object[];
+extern s32 lbl_80438988[];
+void *query_prepared_wall_polygons(void *self);
+extern s32 lbl_804389A8[];
+void vsub(void *, void *, void *);
+extern E_80079580 *wall_query_scene_buffer;
+extern f32 csn_query_nearest_hit_t;
+extern s32 wall_query_hit_result;
+extern const f32 lbl_805D91F4;
+s32 query_wall_segment(void *arg0, void *arg1, void *arg2, s32 arg3);
+CsnGroup *select_ground_query_groups(CsnVector *arg0, u32 arg1);
+s32 prepare_wall_query_polygons(void *arg0, f32 r, s32 mask);
 #pragma pop
 
 s32 query_wall_segment(void *arg0, void *arg1, void *arg2, s32 arg3) {
@@ -261,7 +259,7 @@ s32 query_wall_segment(void *arg0, void *arg1, void *arg2, s32 arg3) {
 
 #pragma push
 #pragma fp_contract on
-extern "C" {
+
 s32 select_deepest_wall_ray(Query_80079608 *q, Result_80079608 *r) {
     Vec_80079608 end;
     s32 i;
@@ -479,7 +477,6 @@ M_80079C64 *refill_csn_candidate_cache(P_80079C64 *arg0, M_80079C64 **arg1, u32 
     *arg1 = 0;
     return *first;
 }
-}
 #pragma pop
 
 CsnGroup *select_ground_query_groups(CsnVector *origin, u32 mask) {
@@ -586,7 +583,6 @@ s32 prepare_wall_query_polygons(void *arg0, f32 r, s32 mask) {
     return cnt;
 }
 #pragma pop
-extern "C" {
 
 void TObjPlayer::copy_wall_polygon(u8 *arg1) {
     u8 *arg0 = (u8 *)this;
@@ -642,7 +638,6 @@ Wall_8007A138 *query_collision_segment_groups(Vec_8007A138 *a, Vec_8007A138 *b, 
     ((void (*)(void *))TObjPlayer__sub_80079114)(lbl_804FFD40);
     return (Wall_8007A138 *)lbl_804FFD40[0];
 }
-}
 
 void *query_prepared_wall_polygons(void *self) {
     void *r;
@@ -654,7 +649,6 @@ void *query_prepared_wall_polygons(void *self) {
     TObjPlayer__sub_80079118(lbl_80438988);
     return r;
 }
-extern "C" {
 
 void *query_wall_radial(Obj_8007A32C *self) {
     void *r;
@@ -722,5 +716,4 @@ s32 *csnVecterUnder(s32 origin, s32 mask) {
     }
     TObjPlayer__sub_80079118(lbl_804389E8);
     return var_r31;
-}
 }

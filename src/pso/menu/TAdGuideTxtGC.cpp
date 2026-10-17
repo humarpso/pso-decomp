@@ -71,7 +71,6 @@ void run_task__13TAdGuideTxtGCFv(TAdGuideTxtGC_802B1878 *o) {
 TAdGuideTxtGC::~TAdGuideTxtGC() {
 
 }
-extern "C" {
 
 #pragma push
 #pragma opt_common_subs off
@@ -97,5 +96,3 @@ void reset__15TLobby_802D2F7CFPv(u8 *arg0) {
 }
 
 extern void *__vt__13TAdGuideTxtGC[];
-
-}

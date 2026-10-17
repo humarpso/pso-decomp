@@ -497,7 +497,6 @@ u16 calculate_crc16_ccitt(const u8* bytes, s32 count) {
     }
     return crc;
 }
-extern "C" {
 
 u16 update_crc16_ccitt__6TLobbyFUsUc(u16 crc, u8 c) {
     s32 i;
@@ -574,7 +573,6 @@ void update__6TLobbyFPv(void *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x64) > 0x3FFF) {
         *(s32 *)((s8 *)arg0 + 0x64) = 0x3FFF;
     }
-}
 }
 
 #undef lbl_805162EC
@@ -739,7 +737,6 @@ s32 tick_sound_voice(SoundRequestVoice *v) {
     }
     return 0;
 }
-extern "C" {
 
 void update_random_flip_flag__6TLobbyFPv(u8 *arg0) {
     switch (*(s32 *)((s8 *)arg0 + 0x10)) {
@@ -865,7 +862,6 @@ void TLobby__sub_80241798(Sound_80241798 *arg0) {
 }
 
 void TLobby__sub_80241A0C(void) {  }
-}
 
 extern const f32 lbl_805DC9EC;
 
@@ -911,7 +907,6 @@ void send_voice_controller_updates(u8 *arg0) {
         break;
     }
 }
-extern "C" {
 
 void clamp_params__6TLobbyFPv(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0x28) = (((*(s32 *)((s8 *)arg0 + 0x48) + *(s32 *)((s8 *)arg0 + 0x40)) + *(s32 *)((s8 *)arg0 + 0x3C)) + *(s32 *)((s8 *)arg0 + 0x44)) + 0x7F;
@@ -1005,7 +1000,6 @@ s32 init_sound_voice__6TLobbyFPviiii(void *lobby, s32 arg1, s32 arg2, s32 arg3, 
         break;
     }
     return 0;
-}
 }
 #pragma pop
 

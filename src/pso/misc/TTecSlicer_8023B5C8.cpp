@@ -327,8 +327,6 @@ s32 TTecSlicer::create(u16 *arg0) {
     return var_r31;
 }
 
-extern "C" {
-
 void TTecSlicer::render() {
     u8 *arg0 = (u8 *)this;
     if (all_parents_unqueued_for_destruction__7TObjectFv() == 0 ||
@@ -473,5 +471,3 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4) {
 #pragma pop
 #undef self
 #undef init
-
-}

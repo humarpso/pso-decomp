@@ -3,8 +3,6 @@
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TScene.h"
 
-extern "C" {
-
     extern int quest_active_flag;
 void TLobby::clear_counter() { quest_active_flag = 0; }
 
@@ -18,5 +16,3 @@ void TLobby::clear_quest_state() { lobby_online_ready_flag = 0; }
 
     extern int scene_resource_index;
 void TScene::set_scene(int a0) { scene_resource_index = a0; }
-
-}

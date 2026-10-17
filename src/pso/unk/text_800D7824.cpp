@@ -24,8 +24,6 @@ struct Obj_800D7824 : B_800D7824 {
     s32 w124;
 };
 
-extern "C" {
-
 void TUnk_80494968::vfunc_6(void *p0_arg, void *p1_arg) {
     Obj_800D7824 *self = (Obj_800D7824 *)this;
     Vec_800D7824 *p0 = (Vec_800D7824 *)p0_arg;
@@ -64,6 +62,4 @@ void TUnk_80494968::shift_line_buffer_down() {
         TAdDrawLineTask__sub_80019A8C(p++, q++);
     }
     arg0->count = arg0->count - 1;
-}
-
 }

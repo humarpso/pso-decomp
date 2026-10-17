@@ -244,8 +244,6 @@ TWindowInputNumber::TWindowInputNumber(void *position, s32 low, s32 high,
     align_digits();
 }
 
-extern "C" {
-
 typedef char RecoveredGlobal_80256B0C_lbl_8050E208_size[sizeof(RecoveredGlobal_80256B0C_lbl_8050E208) == 0x1B0 ? 1 : -1];
 u8 TWindowInputNumber::test_input_flag() {
     if (this->inputFlags & 0x20) {
@@ -259,6 +257,4 @@ s32 TWindowInputNumber::is_locked(s32 arg1) {
         return 0;
     }
     return TWindowChoiceSetting::apply_choice((s32)(controller_input_state + 0x160), (s32)arg1, 6, 1);
-}
-
 }

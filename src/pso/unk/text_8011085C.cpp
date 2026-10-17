@@ -1,7 +1,6 @@
 #include "types.h"
 #include "pso/unk/text_8011085C.h"
 
-extern "C" {
 void fn_8011085C(u8 *arg0, s32 arg1) {
     s32 (*temp_r12)(s32);
     s32 temp_r5;
@@ -37,6 +36,4 @@ void fn_801108C8(u8 *arg0, s32 arg1) {
         temp_r4 = *(s32 *)((s8 *)arg0 + 0x20);
         *(s32 *)((s8 *)temp_r4 + temp_r31) = *(s32 *)((s8 *)temp_r4 + temp_r31) + 1;
     }
-}
-
 }

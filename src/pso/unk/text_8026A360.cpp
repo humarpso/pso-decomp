@@ -3,8 +3,6 @@
 #include "pso/misc/TWindowMessageLog.h"
 extern char *chat_log_lines[];
 
-extern "C" {
-
 void TWindowMessageLog::load_chat_history() {
     s32 i;
     for (i = 0; i < 30; i++) {
@@ -14,6 +12,4 @@ void TWindowMessageLog::load_chat_history() {
     }
     complete_reveal();
     this->clamp_scroll_offset();
-}
-
 }

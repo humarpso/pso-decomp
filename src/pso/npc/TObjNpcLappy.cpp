@@ -11,11 +11,8 @@ extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
-#include "pso/npc/TObjNpcLappy.h"
-#include "pso/player/TUnk_804806E8.h"
-#include "pso/enemy/TObjEnemy.h"
+
 #include "pso/npc/TObjNpcMaleBase.h"
-#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 

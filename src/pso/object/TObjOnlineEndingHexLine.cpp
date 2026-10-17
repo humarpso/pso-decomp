@@ -332,7 +332,7 @@ void handle_6x92(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-extern "C" {
+
 s32 calc_rotated_hex_point__23TObjOnlineEndingHexLineFPvPv(V2_802E55B8 *arg0, P2_802E55B8 *arg1) {
     V2_802E5B0C p;
     f32 s;
@@ -425,7 +425,6 @@ void update_line_params__23TObjOnlineEndingHexLineFv(void) {
         }
     }
 }
-}
 
 #undef CUR_802E5CB0
 
@@ -503,8 +502,6 @@ void TObjOnlineEndingHexMove::run_task() {
 
 TObjOnlineEndingHexMove::~TObjOnlineEndingHexMove() {}
 
-extern "C" {
-
 u8 *TObjOnlineEndingHexMove__ct(u8 *object, void *origin) {
     s32 i;
     __ct__7TObjectFP7TObject(object, origin);
@@ -532,6 +529,4 @@ void * fn_802E6218(void *origin) {
 void fn_802E6260(void) {
     copy_move_params__23TObjOnlineEndingHexMoveFPvPv(&TObjOnlineEndingHexLine__hex_line_params,
         ((void *(*)(void *, void *))copy_move_params__23TObjOnlineEndingHexMoveFPvPv)(&online_ending_hex_line_param, lbl_804E3A98));
-}
-
 }

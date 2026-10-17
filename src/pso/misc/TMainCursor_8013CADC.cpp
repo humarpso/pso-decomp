@@ -46,9 +46,6 @@ extern "C" {
 s32 check_visible__11TMainCursorFv(void *, int, void *, void *);
 int TLockOnCursor__sub_8013EB34(void);
 void *get_player_by_client_id(s32 i);
-}
-void offset_point_toward_camera(u8 *arg0, u8 *arg1, f32 farg0);
-extern "C" {
 void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 s32 rotate_matrix_y(int, int);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
@@ -454,6 +451,7 @@ void publish_target_list__11TMainCursorFPvi(Self_8013D4A0 *arg0, s32 arg1) {
     set_cursor_id__11TMainCursorFs(TObjPlayer__sub_80116620(sub->x9C, count), 0xFFFF);
 }
 }
+void offset_point_toward_camera(u8 *arg0, u8 *arg1, f32 farg0);
 
 typedef char RecoveredGlobal_8013D7E0_lbl_804A7164_size[sizeof(RecoveredGlobal_8013D7E0_lbl_804A7164) == 0x60 ? 1 : -1];
 void TLockOnCursor::renderSecondaryCursor(u8 *arg1, s32 arg2, s32 arg3) {

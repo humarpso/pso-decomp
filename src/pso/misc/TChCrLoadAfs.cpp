@@ -159,8 +159,6 @@ typedef void (TChCrLoadAfs::*Handler_8028BA64)();
 
 s32 chcr_load_afs_busy_flag;
 
-extern "C" {
-
 void TChCrLoadAfs::run_task() {
     Afs_8028BA64 *arg0 = (Afs_8028BA64 *)this;
     if (--arg0->wait < 0) {
@@ -174,8 +172,6 @@ void TChCrLoadAfs::run_task() {
         &TChCrLoadAfs::sub_8028B940,
     };
     (this->*tbl[arg0->state])();
-}
-
 }
 
 TChCrLoadAfs::~TChCrLoadAfs() {
@@ -204,7 +200,6 @@ TChCrLoadAfs::TChCrLoadAfs(TObject *object, void *arg2, void *arg3) : TObject(ob
     *(u32 *)((s8 *)this + 0x30) = 0;
     *(u32 *)((s8 *)this + 0x34) = 900;
 }
-extern "C" {
 
 void *TChCrLoadAfs::create(void *arg1, void *arg2) {
     void *o;
@@ -213,7 +208,6 @@ void *TChCrLoadAfs::create(void *arg1, void *arg2) {
         o = __ct__12TChCrLoadAfsFP7TObjectPvPv(o, this, arg1, arg2);
     }
     return o;
-}
 }
 
 s32 find_player_texture_name_ordinal(u8 *object) {
@@ -257,7 +251,6 @@ s32 find_player_texture_name_ordinal(u8 *object) {
     queue_destruction__7TObjectFv(object);
     return 0;
 }
-extern "C" {
 
 void TChCrLoadAfsTextureReq::update_loading(void *) {
     Ld_8028BE00 *arg0 = (Ld_8028BE00 *)this;
@@ -324,7 +317,6 @@ void TChCrLoadAfsTextureReq::start_read(void *) {
             arg0->f2c = 2;
         }
     }
-}
 }
 
 #undef TLobby__sub_803CC4C0

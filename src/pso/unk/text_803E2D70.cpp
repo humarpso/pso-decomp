@@ -472,14 +472,12 @@ void apply_chunk_texture_command(s32 arg0, s32 arg1) {
     chunk_texture_record_index = var_r31;
 }
 #pragma pop
-extern "C" {
 
 void TObjPlayer::setup_tev_passclr() {
     GXSetNumTevStages(1);
     GXSetNumTexGens(0U);
     GXSetTevOp(0, 4);
     GXSetTevOrder(0, 0xFF, 0xFF, 4);
-}
 }
 
 #pragma push
@@ -622,7 +620,6 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
         GXSetZMode(1, 3, 0);
     }
 }
-extern "C" {
 
 void TObjPlayer::setup_model_draw_state(void *) {
     Mtx_803E4354 scale;
@@ -702,7 +699,6 @@ s32 draw_chunk_vertices_cached__10TObjPlayerFPv(void* arg) {
         if (model->polygons) dispatch_chunk_polygon_list(model->polygons, cache);
         return 0;
     }
-}
 }
 
 void draw_chunk_model(void *arg0) {

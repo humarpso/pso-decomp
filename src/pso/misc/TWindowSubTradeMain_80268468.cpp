@@ -6,10 +6,6 @@
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
-
 void TWindowSubTradeMain::clear_flag() { this->m_70 &= 0xffffffbf; }
 
 void TWindowSubTradeMain::clear_flag70_bit80() { this->m_70 &= 0xffffff7f; }
-
-}

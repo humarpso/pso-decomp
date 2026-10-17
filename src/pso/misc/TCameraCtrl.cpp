@@ -176,10 +176,6 @@ extern u8 *camera_ctrl_instance;
 s32 obj_getField1c(void *);
 s32 *get_character_select_request_buffer(void);
 s32 is_boss_area(void);
-}
-void select_camera_controller(s32 arg0);
-void reset_cameras_to_actor(void *actor, s32 arg1);
-extern "C" {
 void reset__11TCameraCtrlFv(void);
 void TCameraCtrl__sub_80068354(void);
 
@@ -224,6 +220,8 @@ void TCameraCtrl::reset_view_state() {
     TCameraCtrl__data_805D4E0A = 0;
 }
 }
+void select_camera_controller(s32 arg0);
+void reset_cameras_to_actor(void *actor, s32 arg1);
 typedef char RecoveredGlobal_8006A5DC_TCameraCtrl__data_804FF628_size[sizeof(RecoveredGlobal_8006A5DC_TCameraCtrl__data_804FF628) == 0xC ? 1 : -1];
 
 typedef struct Ctrl_8006A410 Ctrl_8006A410;
@@ -402,7 +400,7 @@ typedef char RecoveredGlobal_8006A7D8_TCameraCtrl__data_804FF628_size[((sizeof(R
 #define PSO_VCALL_VObj_18_9639c7_m1(_self) (((VObj_18_9639c7 *)(_self))->m1())
 #define PSO_VCALL_VObj_18_9639c7_m4(_self, _arg0) (((VObj_18_9639c7 *)(_self))->m4((_arg0)))
 #define PSO_VCALL_VObj_18_9639c7_m9(_self) (((VObj_18_9639c7 *)(_self))->m9())
-extern "C" {
+
 void TCameraCtrl::update_active_controller() {
   s32 temp_r3;
   s32 var_r27;
@@ -491,7 +489,6 @@ void TCameraCtrl::update_active_controller() {
       *((s32 *) (((s8 *) ((u8 *)this)) + 0x94)) = this->m_194;
     }
   }
-}
 }
 
 #undef camera_controller_registry

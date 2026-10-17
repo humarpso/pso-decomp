@@ -4,8 +4,6 @@
 #include "pso/unk/text_8026AC50.h"
 #include "pso/misc/TWindowCtrl.h"
 
-extern "C" {
-
 extern u32 TWindowCtrl__active_window;
 
 void TWindowCtrl::shutdown() {
@@ -15,6 +13,4 @@ void TWindowCtrl::shutdown() {
     }
     fn_8026AC50();
     TWindowMainMenu__sub_8024E3CC();
-}
-
 }

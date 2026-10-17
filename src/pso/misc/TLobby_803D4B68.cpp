@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
 
-extern "C" {
-
 u32 TLobby::get_packet_size() {
     u8 *arg0 = (u8 *)this;
     s32 var_r0;
@@ -65,6 +63,4 @@ u32 TLobby::get_available_size() {
         }
     }
     return (u32) var_r3 >> 1U;
-}
-
 }

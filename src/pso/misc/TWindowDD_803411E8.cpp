@@ -6,7 +6,6 @@
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 
-extern "C" {
 extern const f32 TWindowDD__data_805DFB58;
 extern const f32 lbl_805DFC98;
 void TWindowDD::init_and_set_field50(void *arg1) {
@@ -47,6 +46,4 @@ void TWindowDD::set_first_entry_text(u32 str) {
     if (temp_r3 != NULL) {
         set_text_entry_string(temp_r3, str, 0x80);
     }
-}
-
 }

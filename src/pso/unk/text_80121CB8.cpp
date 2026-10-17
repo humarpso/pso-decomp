@@ -69,7 +69,6 @@ struct Self_80121CB8 : Pl_80121CB8 {
     s32 f1f8;
 };
 
-extern "C" {
 extern const f32 lbl_805DACD0;
 void TUnk_804A0CB8::emit_marker_effects() {
     Self_80121CB8 *self = (Self_80121CB8 *)this;
@@ -86,6 +85,4 @@ void TUnk_804A0CB8::emit_marker_effects() {
         ((TObjPlayer *)self)->draw_icon(1, (s32)&v);
         self->m49(&v, 0, 0, 1);
     }
-}
-
 }

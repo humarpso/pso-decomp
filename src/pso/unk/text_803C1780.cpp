@@ -5,7 +5,6 @@
 typedef void (*RecoveredCallback_1268626c296b)(void *);
 struct Obj_803C1A24 { u8 pad[0xAC]; void *fac; };
 
-extern "C" {
 extern RecoveredCallback_1268626c296b lbl_805D7514;
 extern s32 (*lbl_805D7510)();
 
@@ -21,6 +20,4 @@ void TLobby::invoke_notify_callback() {
     if (arg0->fac != 0) {
         lbl_805D7514(arg0->fac);
     }
-}
-
 }

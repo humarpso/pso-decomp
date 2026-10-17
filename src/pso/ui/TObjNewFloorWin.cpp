@@ -25,7 +25,6 @@ TObjNewFloorWin::TObjNewFloorWin(TObject *object, void *arg2) : TObject(object) 
     *(u32 *)((s8 *)this + 0x28) = 150;
     *(u32 *)((s8 *)this + 0x1C) = 0;
 }
-extern "C" {
 
 u8 *TLobby::create_new_floor_windows() {
   u32 var_r30;
@@ -67,5 +66,3 @@ u8 *TLobby::create_new_floor_windows() {
 }
 
 int fn_800740DC(void* p) { return close_active_window__11TWindowCtrlFv(p); }
-
-}

@@ -209,7 +209,6 @@ int set_symbol_chat_face_sprite(void *arg0, u8 b) {
     return w->f2c = TWindowSubSymbolChatPartsSet::get_parts_entry((b >> 2) & 7);
 }
 #undef w
-extern "C" {
 
 void fn_802483C8(void *arg0, u8 _w1) {
     set_symbol_chat_face_sprite((void *)((void*)(*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x4)) + 0x0))), _w1);
@@ -281,6 +280,5 @@ void render__17TWindowChatSymbolFv(u8 *window_chat_symbol) {
     temp_f1 = temp_f2 - lbl_805DCB98;
     *(f32 *)((s8 *)c_arg + 0x14) = (f32) ((lbl_805DCB7C * temp_f1) + *(f32 *)((s8 *)c_arg + 0x14));
     draw_visible_window_entries(window_chat_symbol, window_chat_symbol + 0x24, c_arg, temp_f1, temp_f2, lbl_805DCB7C);
-}
 }
 #pragma pop

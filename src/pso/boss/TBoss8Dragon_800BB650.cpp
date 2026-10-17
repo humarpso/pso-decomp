@@ -48,7 +48,6 @@ s32 enemy_nearest_visible_player_sq(u8 *arg0, f32 farg0) {
     }
     return result;
 }
-extern "C" {
 
 void TBoss8Dragon::refresh_and_send_entity_flags() { refresh_lobby_state__10TObjPlayerFv(this); send_entity_set_flags__9TObjEnemyFv(this); }
 
@@ -69,4 +68,3 @@ void TBoss8Dragon__sub_800BB7D4(void) {  }
 void TBoss8Dragon__sub_800BB7D8(void) {  }
 void TBoss8Dragon__sub_800BB7DC(void) {  }
 int TBoss8Dragon::set_player_state_default() { return submit_cursor_candidate(this, -1); }
-}

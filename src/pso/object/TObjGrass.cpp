@@ -21,7 +21,7 @@ extern "C" void render__12TObjGrassWebFv();
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/object/TObjFish.h"
-#include "pso/object/TObjGrassWeb.h"
+
 #include "pso/player/TObjPlayer.h"
 #pragma readonly_strings on
 

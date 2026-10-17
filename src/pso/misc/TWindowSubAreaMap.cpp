@@ -78,7 +78,7 @@ TWindowSubAreaMap::TWindowSubAreaMap(TObject *object, void *arg2) : TObject(obje
     }
     *(void **)((s8 *)this + 0x24) = o;
 }
-extern "C" {
+
 typedef char RecoveredGlobal_802715F0_lbl_8050E208_size[sizeof(RecoveredGlobal_802715F0_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void TWindowSubAreaMapDisp::update_manual_scroll() {
     u8 *temp_r31;
@@ -109,6 +109,4 @@ void TWindowSubAreaMapDisp::update_manual_scroll() {
         this->m_64 = (f32) (this->m_64 * lbl_805DD47C);
         *(f32 *)&this->unk_68 = (f32) (*(f32 *)&this->unk_68 * lbl_805DD47C);
     }
-}
-
 }

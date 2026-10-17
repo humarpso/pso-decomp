@@ -119,7 +119,6 @@ struct RecoveredGlobal_80069A6C_TCameraCtrl__data_804FF628 {
     u8 remaining[0xB];
 };
 
-extern "C" {
 extern RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 cm_icon_screen_position;
 typedef char RecoveredGlobal_80069094_camera_controller_registry_size[sizeof(RecoveredGlobal_80069094_camera_controller_registry) == 0x68 ? 1 : -1];
 typedef char RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4_size[sizeof(RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4) == 0xC ? 1 : -1];
@@ -148,5 +147,3 @@ typedef char RecoveredGlobal_80069C94_camera_controller_registry_size[sizeof(Rec
 typedef char RecoveredGlobal_80069C94_TCameraCtrl__data_804FF628_size[sizeof(RecoveredGlobal_80069C94_TCameraCtrl__data_804FF628) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_80069D04_camera_controller_registry_size[sizeof(RecoveredGlobal_80069D04_camera_controller_registry) == 0x68 ? 1 : -1];
 typedef char RecoveredGlobal_80069D04_TCameraCtrl__data_804FF628_size[sizeof(RecoveredGlobal_80069D04_TCameraCtrl__data_804FF628) == 0xC ? 1 : -1];
-
-}

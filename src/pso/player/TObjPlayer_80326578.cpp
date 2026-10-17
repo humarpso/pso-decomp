@@ -37,14 +37,6 @@ void *__dt__13TUnk_804ECFB0Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804ED0A8Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804ED1A0Fv(void *arg0, s16 arg1);
 void TObjPlayer__sub_80326794(void* p);
-}
-u8 *dark_bridge_create(u8 *arg0);
-void * morning_glory_ct(void *, s32, void *);
-u8 *create_morning_glory(u8 *arg0);
-extern void *lbl_804A0568[8];
-u8 *paralysis_curse_timer_ct(u8 *self, u32 base_arg, s32 tag, s32 timer, f32 value);
-void dark_bridge_start_timers(void *arg0);
-extern "C" {
 s32 rotate_matrix_x(s32, s32);
 s32 add_actor_tp(u8 *arg0, s32 arg1);
 int refresh_owner_stats__14TItemEquipBaseFv(void*);
@@ -140,6 +132,12 @@ void TUnk_804ECFB0::update_weapon() {
 }
 void TObjPlayer__sub_80326794(void* p) { ((TUnk_804ECFB0 *)p)->m_1fc = -1; *(s32*)((char*)p + 0x1f8) = 0; }
 }
+u8 *dark_bridge_create(u8 *arg0);
+void * morning_glory_ct(void *, s32, void *);
+u8 *create_morning_glory(u8 *arg0);
+extern void *lbl_804A0568[8];
+u8 *paralysis_curse_timer_ct(u8 *self, u32 base_arg, s32 tag, s32 timer, f32 value);
+void dark_bridge_start_timers(void *arg0);
 
 extern const f32 lbl_805DF658;
 
@@ -165,7 +163,6 @@ void dark_bridge_start_timers(void *arg0) {
         }
     }
 }
-extern "C" {
 
 void *__dt__13TUnk_804ECFB0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -185,7 +182,6 @@ u8 *TObjPlayer__sub_803268D8(u8 *arg0, u8 *arg1, s32 _w2) {
     ((TUnk_804ECFB0 *)arg0)->m_1fc = -1;
     *(s32 *)((s8 *)arg0 + 0x1F8) = 0;
     return arg0;
-}
 }
 
 u8 *dark_bridge_create(u8 *arg0) {
@@ -208,7 +204,6 @@ u8 *paralysis_curse_timer_ct(u8 *self, u32 base_arg, s32 tag, s32 timer, f32 val
     *(f32 *)((s8 *)self + 0x2C) = value;
     return self;
 }
-extern "C" {
 
 void TObjPlayer::apply_container_item() {
     s32 player_list;
@@ -278,7 +273,6 @@ u8 *TObjPlayer::create_state_1536() {
 
 void TUnk_804ED1A0::update_weapon() { refresh_owner_stats__14TItemEquipBaseFv(this); }
 void TUnk_804ED1A0::reserved_53() { draw_weapon_at_joint((s32)this, (s8)((void*)48)); update_trail_slot__11TItemWeaponFPvi(this, (void*)0); update_trail_slot__11TItemWeaponFPvi(this, (void*)1); update_trail_slot__11TItemWeaponFPvi(this, (void*)2); }
-}
 
 extern s32 lbl_804ED1A0[];
 

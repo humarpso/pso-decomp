@@ -322,9 +322,7 @@ struct RecoveredGlobal_8009A704_lbl_8048FE7C {
     u8 remaining[0x14];
 };
 
-extern "C" {
 typedef char RecoveredGlobal_8009A704_lbl_8048FE7C_size[sizeof(RecoveredGlobal_8009A704_lbl_8048FE7C) == 0x18 ? 1 : -1];
-}
 TUnk_8048FE7C::TUnk_8048FE7C(TObject *object, u8 *arg2, f32 farg0) : TObject(object) {
     *(s32 *)((s8 *)this + 0) = (s32) bringer_tp_absorb_effect_name;
     VecCopy((Vec *)(((u8 *)this) + 0x20), (const Vec *)arg2);
@@ -396,7 +394,6 @@ void init_bringer_effect_tables(void) {
   }
 
 }
-extern "C" {
 
 void TObjEneDf2Bringer_Eff_Rush::render() {  }
 
@@ -434,7 +431,6 @@ void *__dt__26TObjEneDf2Bringer_Eff_RushFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
-}
 }
 
 u8 *construct_bringer_rush_effect(u8 *ene_df2_bringer_eff_rush, s32 arg1, u8 *arg2, s32 arg3, f32 farg0) {

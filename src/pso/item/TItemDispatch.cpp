@@ -296,9 +296,6 @@ void advance_item_system_generation(void);
 extern s32 item_registry_count;
 extern u32 item_registry_sorted_entries;
 extern u32 player_rock_objects_handle;
-}
-int get_item_system_generation(void);
-extern "C" {
 int dispatch_item_by_type__6TLobbyFv(void*);
 void mem_free(void*);
 int heap_alloc__5THeapFUl(void*, void*);
@@ -309,10 +306,9 @@ void TObjPlayer::free_obj_heap(void* a0) { heap_free__5THeapFPv((void*)obj_heap,
 
 void TObjPlayer::alloc_from_obj_heap(void* a0) { heap_alloc__5THeapFUl((void*)obj_heap, a0); }
 }
-
+int get_item_system_generation(void);
     extern int item_system_generation;
 int get_item_system_generation(void) {  return item_system_generation; }
-extern "C" {
 
 void advance_item_system_generation(void) {
     int temp_r3 = item_system_generation;
@@ -366,7 +362,6 @@ void TObjPlayer::add_item_flags(u32 v) { *(u32 *)&this->motion_list |= v; }
 int TObjPlayer::has_flag_128() { return test_item_flags((u32)((u32)(128))); }
 s8 TItem::sub_80102C30() {
     return (s8) this->render_mode;
-}
 }
 
 __declspec(section ".ctors") static void *const __sinit_TObjPlayer_80102A58_cpp_ref = (void *)TObjPlayer::init_forward_default;

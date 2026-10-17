@@ -1,7 +1,5 @@
 #include "pso/misc/CharacterAppearanceTables.h"
 
-extern "C" {
-
 extern const char player_asset_pxtAb_01z_w_huku1[] = "pxtAb_01z_w_huku1";
 extern const char player_asset_pxtAb_01z_w_huku2[] = "pxtAb_01z_w_huku2";
 extern const char player_asset_pxtAb_01z_w_huku3[] = "pxtAb_01z_w_huku3";
@@ -6660,5 +6658,3 @@ const char *player_ply_head_model_names[1] = {
 CharacterTextureList *player_ply_head_texture_lists[1] = {
     &player_ply_head_00_textures,
 };
-
-}

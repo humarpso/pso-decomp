@@ -85,7 +85,5 @@ s32 feed_item_to_mag(u8 *arg0, u32 arg1) {
     }
     return 0;
 }
-extern "C" {
 
 void TItem__sub_80100648(void) {  }
-}

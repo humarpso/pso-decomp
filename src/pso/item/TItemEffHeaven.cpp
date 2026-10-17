@@ -61,7 +61,7 @@ extern s32 TItemEffHeaven__class_name;
 extern const f32 lbl_805DAB34;
 }
 
-extern "C" int destroy__14TItemEffHeavenFPv(void* p) { return queue_destruction__7TObjectFv(p); }
+int destroy__14TItemEffHeavenFPv(void* p) { return queue_destruction__7TObjectFv(p); }
 
 void TItemEffHeaven::run_task() {
     Self_8010900C *self = (Self_8010900C *)this;
@@ -127,9 +127,6 @@ TItemEffHeaven::~TItemEffHeaven() {
     }
 }
 
-extern "C" {
-
-}
 TItemEffHeaven::TItemEffHeaven(TObject *parent, s32 a, s16 b, s32 c) : TObject(parent) {
     s32 i;
     *(s32 *)this = TItemEffHeaven__class_name;
@@ -145,7 +142,4 @@ TItemEffHeaven::TItemEffHeaven(TObject *parent, s32 a, s16 b, s32 c) : TObject(p
         ((Obj_801092A8 *)this)->arr[i] = 0;
     }
     disallow_rendering__7TObjectFv(this);
-}
-extern "C" {
-
 }

@@ -106,8 +106,6 @@ void TObjPlayer::set_position_history_entry(s32 arg1, f32 farg0, f32 farg1) {
 
 #include "pso/misc/TPlyPhotonChair.h"
 
-extern "C" {
-
 void TObjPlayer::set_action_flag_2() { this->m_334 |= 0x2; }
 void set_flag_400000__10TObjPlayerFi(s32 arg0) {
     ((TObjPlayer *)arg0)->set_state_flags(0x400000);
@@ -119,5 +117,3 @@ int TObjPlayer__sub_801BEABC(void* p) { return ((TObjPlayer *)p)->end_camera_pan
 int TObjPlayer::start_freeze_self() { return start_freeze(); }
 void TObjPlayer::set_floor(s32 v) { this->m_3e4 = v; }
 void TObjPlayer::set_floor_index(s32 v) { *(s32*)((char*)this + 0x3e0) = v; }
-
-}

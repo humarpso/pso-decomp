@@ -7,8 +7,6 @@ struct VObj_8031E650 : Base_8031E650 {
     virtual void m0(int);
 };
 
-extern "C" {
-
 extern struct VObj_8031E650 *boss3_volopt_instance;
 
 void TObjEneRecon::release_static_instance() {
@@ -19,6 +17,4 @@ void TObjEneRecon::release_static_instance() {
         }
         boss3_volopt_instance = 0;
     }
-}
-
 }

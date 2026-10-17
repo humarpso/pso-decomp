@@ -23,8 +23,6 @@ s32 TMainCursor::delete_this(s16 arg1) {
 #include "pso/misc/TLockOnCursor.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 s32 destroy__11TMainCursorFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         TPlyDispConfig::free_if_valid(arg0, -1);
@@ -41,5 +39,3 @@ int TMainCursor::get_action_palette() { return set_slot__20TWindowActionPaletteF
 int TMainCursor__sub_8013E6E0(void* p) { return ((TMainCursor *)((char*)p + 0x60))->update_action_palette(); }
 int TMainCursor::update_action_palette() { return set_mode__20TWindowActionPaletteFUc(this); }
 void TMainCursor::sub_8013E724(f32 v) { this->m_2c = v; }
-
-}

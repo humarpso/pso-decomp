@@ -56,7 +56,7 @@ u8 *TDPBShower__ct(u8 *dpb_shower, u8 *arg1, u8 *arg2) {
     return dpb_shower;
 }
 
-extern "C" void* create_TDPBShower(void* arg0, void* arg1) {
+void* create_TDPBShower(void* arg0, void* arg1) {
     void* o = __nw__7TObjectFUl(0x30);
     if (o != NULL) {
         o = TDPBShower__ct((u8 *)o, (u8 *)arg0, (u8 *)arg1);

@@ -11,7 +11,6 @@ struct Stack_80315D60 {
     f32 sp14;
 };
 
-extern "C" {
 extern const f32 TObjEneDelDepth__data_805DF258;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -52,5 +51,3 @@ void TObjEneDelDepth::setup_draw_material(f32 farg0, f32 farg1, f32 farg2, f32 f
 }
 
 int TObjEneDelDepth::get_data() {  return TObjEneDelDepth__shared_resource; }
-
-}

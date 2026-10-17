@@ -28,11 +28,10 @@ void *sys_calloc(s32 arg0, s32 arg1) {
     fill_memory(p, 0, arg0 * arg1);
     return p;
 }
-extern "C" {
+
 void *fn_803DE960(void *arg0, void *size) {
     void *p = OSAllocFromHeap(sys_heap_handle, (u32)size);
     move_data__6TLobbyFPCvUl(p, arg0, size);
     OSFreeToHeap(sys_heap_handle, arg0);
     return p;
-}
 }

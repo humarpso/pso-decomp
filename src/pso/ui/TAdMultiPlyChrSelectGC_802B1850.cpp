@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 
-extern "C" {
-
 void TAdMultiPlyChrSelectGC::set_entry_value(s32 arg1, u32 arg2) {
     s32 arg0 = (s32)this;
     u8 *temp_r3;
@@ -13,6 +11,4 @@ void TAdMultiPlyChrSelectGC::set_entry_value(s32 arg1, u32 arg2) {
         *(s32 *)((s8 *)temp_r3 + 0x3C) = 0;
     }
     *(u32 *)((s8 *)temp_r3 + 0x24) = arg2;
-}
-
 }

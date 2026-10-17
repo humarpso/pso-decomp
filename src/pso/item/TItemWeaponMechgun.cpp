@@ -78,8 +78,6 @@ void TItemWeaponMechgun::prepareMarker() {
     arg0->effectFrame = 1;
 }
 
-extern "C" {
-
 void TUnk_804A3260::update_weapon() {
     s32 temp_r4;
     if ((s32) this->m_218 != -1) {
@@ -121,7 +119,6 @@ void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *item) {
         ((TObjPlayer *)arg0)->set_atp(-1);
     }
     return arg0;
-}
 }
 
 u8 *create_mechgun_weapon(u8 *item) {

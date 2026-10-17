@@ -97,7 +97,6 @@ TAdRicoRingCtrl::~TAdRicoRingCtrl() {
         }
     }
 }
-extern "C" {
 
 u8 *TAdRicoRingCtrl__ct(TAdRicoRingCtrl *ad_rico_ring_ctrl, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_8001B8AC, sp8) == 0x0) ? 1 : -1];
@@ -162,6 +161,4 @@ void TAdRicoRingCtrl::start_anim(f32 farg0) {
         *(f32 *)((s8 *)arg0 + 0x40) = temp_f0;
         *(f32 *)((s8 *)arg0 + 0x44) = temp_f0;
     }
-}
-
 }

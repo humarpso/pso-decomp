@@ -21,7 +21,6 @@ struct Rec_8031EDF8
   u16 ids[1];
 };
 
-extern "C" {
 extern s32 actor_frame_tick;
 extern const f32 lbl_805DF448;
 
@@ -76,6 +75,4 @@ void TObjEneRecobox::update_floor_probe() {
     if (*(s32 *)((s8 *)arg0 + 0x3E0) & 0x4000) {
         TObjEneRecon::set_active();
     }
-}
-
 }

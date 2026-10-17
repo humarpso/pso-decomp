@@ -28,7 +28,6 @@ void rocket_punch_return_timer(u32 arg0) {
         ((TAdRicoRing *)(arg0 + 0x1F8))->clear_flags(2);
     }
 }
-extern "C" {
 
 s32 TObjPlayer::get_hp_by_flag() {
     u8 *arg0 = (u8 *)this;
@@ -36,5 +35,4 @@ s32 TObjPlayer::get_hp_by_flag() {
         return *(s32 *)((s8 *)arg0 + 0x188);
     }
     return this->m_184;
-}
 }

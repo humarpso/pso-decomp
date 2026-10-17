@@ -14,12 +14,10 @@ s32 get_selected_entry_value(void) {
     }
     return -1;
 }
-extern "C" {
 
 s32 *fn_801F4C98(void) {
     if ((s32) item_name_selection_index >= 0) {
         return (s32 *)get_text_collection(*(s32 *)((s8 *)item_name_selection_table + (item_name_selection_index * 8)));
     }
     return &lbl_805DC4FC;
-}
 }

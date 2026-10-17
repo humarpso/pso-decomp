@@ -144,8 +144,6 @@ void TBoss6DPB::run_task() {
 
 TBoss6DPB::~TBoss6DPB() {}
 
-extern "C" {
-
 u8 *__ct__9TBoss6DPBFv(u8 *object, s32 arg1, s32 arg2, f32 farg0) {
     f32 temp_f1;
     f32 temp_f2;
@@ -201,6 +199,4 @@ f32 TObjEneEpsilonGuard__vt21(s32 arg0, s32 att, Msg_8035DD18 *msg, void *coll, 
     }
     ((TUnk_804806E8 *)arg0)->try_apply_damage(arg0 + 0x2FC, 0);
     return TObjEneEpsilonGuard__data_805E01D8;
-}
-
 }

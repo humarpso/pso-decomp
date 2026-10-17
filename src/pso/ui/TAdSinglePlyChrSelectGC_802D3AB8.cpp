@@ -140,7 +140,6 @@ void finish_character_selection_transition(void *arg0) {
         }
     }
 }
-extern "C" {
 
 void TAdSinglePlyChrSelectGC::close_and_change_scene() {
     s32 temp_r4;
@@ -483,5 +482,4 @@ void TAdSinglePlyChrSelectGC__sub_802D486C(void *arg0) {
             *(u32 *)((s8 *)arg0 + 0x3C) = TAdChrSelASlotGC__sub_8030CB08(*(s32 *)((s8 *)arg0 + 0x28), 0, 0x16);
         }
     }
-}
 }

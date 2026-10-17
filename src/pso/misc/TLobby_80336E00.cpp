@@ -19,10 +19,9 @@ void *TUnk_804EEF80::construct(void *arg1) {
 void TLobby__sub_80336E44(void) {  }
 }
 void clear_lobby_global_flags(void) { lobby_global_flags = 0; }
-extern "C" {
+
 void TLobby::set_global_flags(s32 arg0) {
     (*(s32 *)&lobby_global_flags) |= arg0;
 }
 void TLobby__sub_80336E64(void) {  }
 void TLobby__sub_80336E68(void) {  }
-}

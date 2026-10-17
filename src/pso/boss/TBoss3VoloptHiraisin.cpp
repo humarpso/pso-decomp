@@ -14,10 +14,7 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
-#include "pso/player/TUnk_804806E8.h"
 
-extern "C" {
 void *TBoss3VoloptHiraisin__init_param_table[45] = {
     (void *)0x14, (void *)0x3d75c28f, (void *)0x3fc00000, (void *)0x3f666666,
     (void *)0x3df5c28f, (void *)0x3f0ccccd, (void *)0x3f000000, (void *)0x10000,
@@ -40,7 +37,6 @@ s32 lbl_805D4C7C;
 s32 TBoss3VoloptHiraisin__resource_bundle;
 u8 *volopt_hiraisin_model_data;
 s32 TBoss3VoloptHiraisin__breakup_model;
-}
 
 struct VBase_18_345191 { char pad[0x18]; };
 
@@ -954,7 +950,7 @@ extern "C" void vfunc_59__15TObjEnemyCustomFv();
 extern "C" void update_movement_status__13TUnk_804806E8Fv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 extern "C" void update_poison_status__13TUnk_804806E8Fv();
-extern "C" {
+
 void *__vt__20TBoss3VoloptHiraisin[83] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__20TBoss3VoloptHiraisinFv, (void *)&run_task__20TBoss3VoloptHiraisinFv,
     (void *)&render__20TBoss3VoloptHiraisinFv, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
@@ -978,4 +974,3 @@ void *__vt__20TBoss3VoloptHiraisin[83] = {
     (void *)&vfunc_76__13TUnk_804806E8Fv, (void *)&vfunc_77__13TUnk_804806E8Fv, (void *)&vfunc_78__13TUnk_804806E8Fl, (void *)&vfunc_79__15TObjEnemyCustomFv,
     (void *)&apply_hit_message_flags__9TObjEnemyFPv, (void *)&apply_set_data__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv,
 };
-}

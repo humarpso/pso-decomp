@@ -5,8 +5,6 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/TAdRicoRing.h"
 
-extern "C" {
-
 extern const f32 TObjPlayer__data_805DC278;
 
 void TObjPlayer::reset_state() {
@@ -31,6 +29,4 @@ void TObjPlayer::reset_state() {
     (*(f32 *)&this->m_30c) = (f32) TObjPlayer__data_805DC278;
     *(f32 *)&this->unk_308 = (f32) TObjPlayer__data_805DC278;
     zero_vec3(&this->m_5fc);
-}
-
 }

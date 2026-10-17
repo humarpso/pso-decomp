@@ -8,8 +8,4 @@
 #include "pso/object/TObjCityMainWarp.h"
 #include "pso/ui/TAdChrSelASlotGC.h"
 
-extern "C" {
-
 void TWindowSubShortMail::notify_warp_flag70() { void* m = *(void* *)&this->m_2c; if (m) ((TWindowSubComCardList *)m)->set_flag70_bit10(); }
-
-}

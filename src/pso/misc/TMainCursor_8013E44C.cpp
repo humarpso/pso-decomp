@@ -27,9 +27,5 @@ int TMainCursor__sub_8013E40C(TMainCursor *main_cursor, u16 arg1) {
 #include "pso/misc/TLockOnCursor.h"
 #include "pso/misc/TWindowActionPalette.h"
 
-extern "C" {
-
 void*TMainCursor::get_list() { return (char*)this + 0xc; }
 int TMainCursor::update_target_sub() { return set_flags__10TObjPlayerFUl((char*)this + 0x20, 1); }
-
-}

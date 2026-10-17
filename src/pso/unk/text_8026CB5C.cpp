@@ -1,7 +1,6 @@
 #include "types.h"
 #include "pso/unk/text_8026CB5C.h"
 
-extern "C" {
 extern char lbl_8044F4D0[];
 extern char lbl_8044F4C8[];
 extern char lbl_8044F4D8[];
@@ -15,6 +14,4 @@ char *fn_8026CB68(void) {
 }
 char *get_zero_vec2(void) {
     return lbl_8044F4C8;
-}
-
 }

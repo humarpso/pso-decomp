@@ -213,7 +213,7 @@ u8 *construct_photon_magic_square_normal(u8 *photon_magic_square, s32 arg1, s32 
     ((TPhotonMagicSquare *)photon_magic_square)->m_cc = 0xFFFFFF;
     return photon_magic_square;
 }
-extern "C" {
+
 u8 *TPhotonMagicSquare::construct_at_owner(s32 arg1, s32 arg2, s32 arg3) {
     s32 entity;
     construct_world_actor_base(this);
@@ -241,5 +241,4 @@ u8 *TPhotonMagicSquare::construct_at_owner(s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)&this->m_cc = 2;
     play_sound_effect(0x4002AD2E, 0, 0, 0);
     return ((u8 *)this);
-}
 }

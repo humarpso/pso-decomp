@@ -11,7 +11,6 @@ struct Stack_8029E7BC
   u8 trailing_storage[0x4];
 };
 
-extern "C" {
 extern const f32 lbl_805DDD88;
 typedef struct Stack_8029E7BC Stack_8029E7BC;
 s32 fn_8029E7BC(s32 arg0, u8 *arg1) {
@@ -48,6 +47,4 @@ s32 fn_8029E7BC(s32 arg0, u8 *arg1) {
     return 1;
   }
   return 0;
-}
-
 }

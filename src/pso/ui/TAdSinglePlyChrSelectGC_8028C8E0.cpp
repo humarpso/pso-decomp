@@ -305,8 +305,6 @@ s32 TChCrLoadReq::calc_preview_last_index(s32 display_index, s32 region_index) {
     return stride + region_index * stride - 1 + chr_select_preview_base_offset_table[display_index];
 }
 
-extern "C" {
-
 void *TAdSinglePlyChrSelectGC::calc_preview_offset(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     return (void *)(arg2 + (arg3 * chr_select_preview_stride_table[arg1] + chr_select_preview_base_offset_table[arg1]));
 }
@@ -324,5 +322,3 @@ void close_and_destroy__12TChCrLoadReqFv(void *arg0) {
 }
 
 void TChCrLoadReq::try_advance_state() { if (TAdSinglePlyChrSelectGC__sub_8028C998(this) != 0) { start_preview_loads__23TAdSinglePlyChrSelectGCFPv((Gc_8028CB6C *)(this)); this->state = 2; } }
-
-}

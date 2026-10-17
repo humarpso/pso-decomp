@@ -205,11 +205,9 @@ void measure_traffic_path_lengths(void) {
     }
   }
 }
-extern "C" {
 
 s32 get_city_common_motion(s32 i) {
     return city_common_model_archive->entries[i].b;
-}
 }
 s32 get_city_common_model(s32 i) {
     return (*(O_801819E4 * *)&city_common_model_archive)->entries[i].c;

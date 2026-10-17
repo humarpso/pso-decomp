@@ -186,10 +186,8 @@ void init_6x27_use_item_cmd(u8 *arg0) {
     *(s8 *)((s8 *)arg0 + 0) = 0x27;
     *(s8 *)((s8 *)arg0 + 1) = 2;
 }
-extern "C" {
 
 void TObjPlayer::send_use_item_cmd() { bswap_cmd_u32(); TLobby__send_and_handle_60((u8 *)this); }
-}
 
 #undef TFontSmallLobby__sub_801C0228
 #undef bswap_pkt_u16x2_u32__10TObjPlayerFPv
@@ -462,13 +460,11 @@ void init_6x1F_floor_packet(u8 *arg0) {
     *(s8 *)((s8 *)arg0 + 0) = 0x1F;
     *(s8 *)((s8 *)arg0 + 1) = 2;
 }
-extern "C" {
 
 void TObjPlayer::bswap_and_send_set_floor() { bswap_set_floor_packet(); send_60_sized__6TLobbyFv((s32)this); }
 
 void TObjPlayer::bswap_warp_packet() { read_be16_field2__10TObjPlayerFv(this); bswap_32((u32 *)((char*)this + 0x4)); }
 
 void*TObjPlayer::copy_warp_target(void* a1) { TFontSmallLobby__sub_801C0228(this); *(void**)((char*)this + 0x4) = *(void**)((char*)a1 + 0x4); return this; }
-}
 
 #undef TFontSmallLobby__sub_801C0228

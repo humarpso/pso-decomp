@@ -84,7 +84,6 @@ void handle_6xA6_modify_trade_proposal(u8 *arg0) {
         }
     }
 }
-extern "C" {
 
 void TLobby::clear_flag400() {
     if (trade_protocol_flags & 0x400) {
@@ -118,7 +117,6 @@ void TLobby::cancel_trade() {
     case 9:
         break;
     }
-}
 }
 
 struct VObj_802D2E28_0x30_802D2B64 {
@@ -154,7 +152,6 @@ s32 format_trade_out_of_range_message(s32 arg0) {
     text_builder_append();
     return get_shared_text_buffer();
 }
-extern "C" {
 
 s32 TLobby::show_event_message(s32 arg0, s32 arg1, s32 arg2) {
     void *item;
@@ -226,7 +223,6 @@ void reset__6TLobbyFv(void) {
             reset__15TLobby_802D2F7CFPv((u8 *)(*(const u32 *)&TLobby__data_805D6894));
         }
     }
-}
 }
 
 #include "pso/protocol/subcmd_6x.h"
@@ -308,7 +304,6 @@ void send_trade_busy_reply(s32 arg0) {
     packet.result = 0;
     ((TLobby *)(&packet.header))->prepare_and_send_trade_packet((void *)arg0);
 }
-extern "C" {
 
 void TLobby::build_trade_item_list() {
     Item_802D3134 item;
@@ -394,10 +389,8 @@ block_6:
         (*(s8 *)&TLobby__trade_proposal_state) = 1;
     }
 }
-}
 
 void ignore_trade_proposal_event(void) {  }
-extern "C" {
 
 void handle_trade_member_out_of_range(O_802D3384 *self) {
     switch (self->state) {
@@ -418,7 +411,6 @@ void handle_trade_state_cancel__6TLobbyFPv(O_802D33C0 *self) {
         ((TProtocol *)(*(void **)&TLobby__protocol_instance))->send_cancel_trade();
         break;
     }
-}
 }
 void handle_trade_partner_cancel(void *arg0) {
     switch (*(u8 *)((s8 *)arg0 + 5)) {
@@ -514,7 +506,6 @@ void handle_trade_offer_confirmation(void *arg0) {
         break;
     }
 }
-extern "C" {
 
 void handle_trade_item_amount__6TLobbyFPv(S_802D3544 *arg0) {
     s32 t = arg0->f5;
@@ -588,7 +579,6 @@ void update_status_message__6TLobbyFPv(O_802D368C *self) {
         break;
     }
 }
-}
 
 void handle_trade_request_reply(void *arg0) {
     switch ((s32) (*(u8 *)((s8 *)arg0 + 5))) {
@@ -611,7 +601,7 @@ void handle_trade_request_reply(void *arg0) {
         return;
     }
 }
-extern "C" {
+
 void handle_state_init__6TLobbyFPv(O_802D377C *self) {
     switch (self->state) {
     case 0:
@@ -624,7 +614,6 @@ void handle_state_init__6TLobbyFPv(O_802D377C *self) {
     case 2:
         break;
     }
-}
 }
 
 struct Half_802D38B4 { u8 data[0x1F0]; };
@@ -681,7 +670,7 @@ void TLobby::reset_trade_state() {
 }
 
 #undef TLobby__trade_window_state
-extern "C" TradeProposalHandler trade_proposal_state_handlers[10][8] = {
+TradeProposalHandler trade_proposal_state_handlers[10][8] = {
     { (TradeProposalHandler)handle_state_init__6TLobbyFPv, 0, 0, 0, 0, 0, 0, 0 },
     { (TradeProposalHandler)handle_trade_request_reply, 0, 0, 0, 0, 0, (TradeProposalHandler)update_status_message__6TLobbyFPv, (TradeProposalHandler)handle_trade_member_out_of_range },
     { 0, 0, 0, 0, 0, (TradeProposalHandler)handle_trade_request_state_b__6TLobbyFPv, 0, (TradeProposalHandler)handle_trade_request_state_a__6TLobbyFPv },

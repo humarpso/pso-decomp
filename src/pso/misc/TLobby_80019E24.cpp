@@ -12,8 +12,6 @@ extern RecoveredGlobal_80019E60_lbl_804340D8 lbl_804340D8;
 extern s32 lbl_805D49D8;
 extern u32 item_loader_instance;
 
-extern "C" {
-
 void TLobby::free_item_loader() {
     if ((u32) item_loader_instance != 0U) {
         __dt__9TItemLoadFPvs((s32 *)item_loader_instance, 1);
@@ -33,6 +31,4 @@ void TLobby::load_draw_line_task() {
     if ((u32) var_r0 != 0U) {
         lbl_805D49D8 = ((TItemMag *)var_r0)->get_type();
     }
-}
-
 }

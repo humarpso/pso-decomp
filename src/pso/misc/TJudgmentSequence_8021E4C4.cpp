@@ -38,7 +38,6 @@ void *TJudgmentSequence::create(void *arg0) {
 
     extern int TJudgmentSequence__slot_flags[];
 int get_judgment_shop_slot_flags(int a0) {  return TJudgmentSequence__slot_flags[a0]; }
-extern "C" {
 
 void TShopGetItemWindow::vfunc_7() {
     struct VObj_8021E524_8021E4C4 *o = (struct VObj_8021E524_8021E4C4 *)this->m_5c;
@@ -52,5 +51,4 @@ void TShopGetItemWindow::vfunc_6() {
     if (o != NULL) {
         o->m4();
     }
-}
 }

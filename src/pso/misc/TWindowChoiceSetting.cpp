@@ -109,7 +109,7 @@ extern const f32 lbl_805DD1EC;
 extern const f32 lbl_805DD1F0;
 #pragma push
 #pragma fp_contract on
-extern "C" {
+
 void TUnk_804D0658::update_scroll_offset() {
     W_802689EC *w = (W_802689EC *)this;
     f32 v;
@@ -135,10 +135,8 @@ void TUnk_804D0658::clamp_scroll() {
         clamp_list_scroll_offset((int) (*(u32 *)&this->unk_7C), arg0 + 0x68, &stack.sp8);
     }
 }
-}
 
 void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2);
-extern "C" {
 
 void TUnk_804D0658::draw_setting(s32 arg1) {
     u16 *temp_r3;
@@ -168,7 +166,6 @@ void TWindowMenuInfomation__ct(u8 *lobby, u32 arg1) {
     }
     ((TLobby *)lobby)->set_field_1c(lbl_805DD1F4);
 }
-}
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -196,12 +193,10 @@ s32 create_information_counter_window(s32 arg0) {
     ((s32 (*)(s32, s32 *))create_sub_window__20TWindowChoiceSettingFPvi)(var_r31, lbl_8044F3B8);
     return var_r31;
 }
-extern "C" {
 
 void fn_80268C5C(V_80268C5C v, s32 x) {
     choice_setting_popup_window_descriptor[0] = v;
     lbl_804D0638[1] = x;
-}
 }
 
 struct RecoveredGlobal_80268D08_lbl_8050E208 {

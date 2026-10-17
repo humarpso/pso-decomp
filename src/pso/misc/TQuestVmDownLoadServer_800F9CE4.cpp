@@ -2,8 +2,6 @@
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TLobby.h"
 
-extern "C" {
-
 extern s32 lbl_805D49B4;
 extern s32 quest_download_server_ready;
 extern s32 quest_download_in_progress;
@@ -17,6 +15,4 @@ s32 TQuestVmDownLoadServer::is_ready() {
         return 0;
     }
     return quest_download_server_ready ? 1 : 0;
-}
-
 }

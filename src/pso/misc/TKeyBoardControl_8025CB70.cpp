@@ -4,7 +4,6 @@
 #include "pso/misc/TWindowKeyBoardHard.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
 
-extern "C" {
 extern s32 current_language;
 
 void TWindowChat::reset_input() {
@@ -54,6 +53,4 @@ void TWindowKeyBoardHard__sub_8025CC48(void *arg0) {
         *(s32 *)((s8 *)arg0 + 0xB4) = 6;
         break;
     }
-}
-
 }

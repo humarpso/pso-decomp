@@ -134,7 +134,6 @@ s32 is_unsealable_item(u8 *id) {
     }
     return 0;
 }
-extern "C" {
 
 s32 TObjPlayer::get_shield_pmt_entry(u8 arg0) {
     if (arg0 == 0) {
@@ -207,7 +206,6 @@ f32 TObjPlayer::get_drop_random_float(u32 arg0) {
     }
     return lbl_805DAC70 * (f32) rand();
 }
-}
 
 void roll_item_channel_below(u32 count, s32 arg1) {
     if ((u32) (*(u32 *)&item_mgr) != 0U) {
@@ -216,7 +214,6 @@ void roll_item_channel_below(u32 count, s32 arg1) {
     }
     __cvt_fp2unsigned((f32) count * TObjPlayer::get_drop_random_float(arg1));
 }
-extern "C" {
 
 void TObjPlayer::drop_item_from_slot(s32 area, s32 arg1, s32 arg2) {
     s32 sp8;
@@ -251,7 +248,6 @@ void TObjPlayer::drop_meseta_from_slot(s32 arg0, s32 arg1) {
         generate_drop_item__9TItemDropFPviPv((u8 *)(*(u32 *)&item_mgr), (s32)temp_r4, (u8 *)arg1);
     }
 }
-}
 
 s32 get_item_stat_boost_record(s32 arg0, s32 type, s32 id) {
     s32 idx;
@@ -281,7 +277,6 @@ s32 get_item_stat_boost_record(s32 arg0, s32 type, s32 id) {
     }
     return *(s32 *)((s8 *)item_pmt_tbl + 0x38);
 }
-extern "C" {
 
 s32 get_unit_attribute_index__10TObjPlayerFUc(u8 arg0) {
     if ((arg0 & 0x3F) && !(arg0 & 0x80)) {
@@ -359,7 +354,6 @@ s32 get_item_star_count(s32 id) {
     }
     return 0;
 }
-}
 
 s32 get_mag_feed_result(s32 arg0, s32 arg1) {
     if ((arg0 >= 0) && (arg0 < 8)) {
@@ -367,7 +361,6 @@ s32 get_mag_feed_result(s32 arg0, s32 arg1) {
     }
     return 0;
 }
-extern "C" {
 
 u8 roll_weapon_special_for_stars(u8 arg0) {
     u32 n;
@@ -453,5 +446,4 @@ Entry_8011CB18 *get_weapon_range_record(Item_8011CB18 *item, s16 mode) {
         return &(*(Pmt_8011CB18 **)&item_pmt_tbl)->entries[item->m41()];
     }
     return (*(Pmt_8011CB18 **)&item_pmt_tbl)->entries;
-}
 }

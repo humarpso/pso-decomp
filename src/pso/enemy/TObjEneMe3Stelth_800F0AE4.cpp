@@ -37,7 +37,7 @@ void TObjEneMe3Stelth::destroy_resources() {
 }
 }
 void load_ha_u032_kage(void) { (*(int *)&blob_shadow_texture_list) = (int)load_gvm_texture_file((s32)lbl_8043D438); }
-extern "C" {
+
 s32 TObjEneMe3Stelth::try_spawn_ground_effect(s32 arg1) {
     s32 arg0 = (s32)this;
   Stack_800F0B4C stack;
@@ -74,7 +74,6 @@ void TObjEneMe3Stelth__sub_800F0C90(u8 *arg0) {
     if ((objInBand((GameObj *)arg0, (f32)lbl_805DA814) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805DA818)) != 0)) {
         ((TObjEneMe3Stelth *)arg0)->try_spawn_ground_effect((s32)(arg0 + 0x38));
     }
-}
 }
 
 typedef struct Stack_800F0B4C Stack_800F0B4C;

@@ -21,7 +21,6 @@ struct RecoveredGlobal_801F3718_THunterGuildSeqOffline__data_80513DC8 {
     u8 remaining[0xC];
 };
 
-extern "C" {
 extern RecoveredGlobal_801F3728_THunterGuildSeqOffline__data_80513DC8 THunterGuildSeqOffline__quest_result_callbacks;
 typedef char RecoveredGlobal_801F3728_THunterGuildSeqOffline__data_80513DC8_size[sizeof(RecoveredGlobal_801F3728_THunterGuildSeqOffline__data_80513DC8) == 0x10 ? 1 : -1];
 
@@ -40,6 +39,4 @@ void set_quest_success_callback(s32 arg0) {
 typedef char RecoveredGlobal_801F3748_THunterGuildSeqOffline__data_80513DC8_size[sizeof(RecoveredGlobal_801F3748_THunterGuildSeqOffline__data_80513DC8) == 0x10 ? 1 : -1];
 void THunterGuildSeqOffline__sub_801F3748(s32 arg0) {
     (*(RecoveredGlobal_801F3748_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__quest_result_callbacks).value = arg0;
-}
-
 }

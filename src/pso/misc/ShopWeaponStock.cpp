@@ -100,9 +100,6 @@ extern RecoveredGlobal_8022559C_lbl_80513F50 shop_weapon_stock_generated_flags;
 extern G_80225550 shop_weapon_stock_buffers;
 void get_shop_weapon_stock_item(C14_80225550 *dst, s32 idx, s32 tbl);
 s32 is_split_screen(void);
-}
-s32 create_named_object(s32 arg0);
-extern "C" {
 s32 mem_alloc(s32);
 void mem_free(void *p);
 extern u32 lobby_weapon_random_tables_ptr;
@@ -526,7 +523,7 @@ void roll_shop_weapon_grind(Item_80225064 *it) {
 
 void TLobby__sub_80225238(int a0, int a1) { shop_weapon_stock_level = a1; generate_shop_weapon_stock(a0); }
 }
-
+s32 create_named_object(s32 arg0);
 typedef char RecoveredGlobal_8022559C_lbl_80513F50_size[sizeof(RecoveredGlobal_8022559C_lbl_80513F50) == 0x10 ? 1 : -1];
 
 #pragma push
@@ -629,11 +626,10 @@ void generate_shop_weapon_stock(s32 tbl) {
 
 #pragma push
 #pragma optimization_level 1
-extern "C" {
+
 void get_shop_weapon_stock_item(C14_80225550 *dst, s32 idx, s32 tbl) {
     C14_80225550 *arr = ((C14_80225550 **)&shop_weapon_stock_buffers)[tbl];
     *dst = arr[idx];
-}
 }
 #pragma pop
 
@@ -643,7 +639,7 @@ void clear_shop_weapon_flags(void) {
 
 #pragma push
 #pragma optimization_level 1
-extern "C" {
+
 void TLobby::clear_slot_field_f10(s32 a, s32 b) {
     E_802255CC *arr = ((E_802255CC **)&shop_weapon_stock_buffers)[b];
     if (a >= 0 && a <= 0xf) {
@@ -668,7 +664,6 @@ void TLobby::free_lobby_resources() {
         TLobby::free_nodes_with_id((u32)((void *)lobby_weapon_random_tables_ptr));
         lobby_weapon_random_tables_ptr = 0;
     }
-}
 }
 #pragma pop
 

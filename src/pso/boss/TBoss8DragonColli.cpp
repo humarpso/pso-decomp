@@ -58,7 +58,7 @@ TBoss8DragonColli::~TBoss8DragonColli() {
 
 #include <stddef.h>
 #include "pso/misc/TLobby.h"
-#include "pso/player/TObjPlayer.h"
+
 struct Stack_802F2F68 {
     f32 sp8;
     f32 spC;

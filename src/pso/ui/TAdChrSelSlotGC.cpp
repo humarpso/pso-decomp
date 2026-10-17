@@ -205,7 +205,6 @@ TUnk_804E0B28::TUnk_804E0B28(TObject*parent, s32 client) : TObject((TObject*)(pa
     ((CharacterSelectTransitionState*)this)->statusWindow = window;
     ((CharacterSelectTransitionState*)this)->callback = update_display__20TWindowSubSymbolChatFl(TAdMultiPlyChrSelectGC::update_transition_anim_if_active);
 }
-extern "C" {
 
 void TAdChrSelSlotGC::draw_slot_icons() {
     TAdChrSelSlotGC_802C7314 *self = (TAdChrSelSlotGC_802C7314 *)this;
@@ -274,8 +273,6 @@ void TAdMcSelectGC::init_slot(s32 arg1, void *arg2) {
     arg0->b[arg1] = 0;
 }
 
-}
-
 void TAdChrSelSlotGC::run_task() {
     ++frame;
     for (u32 i = 0; i < 5; ++i) {
@@ -303,10 +300,8 @@ void TAdChrSelSlotGC::run_task() {
 
 TAdChrSelSlotGC::~TAdChrSelSlotGC() {}
 
-extern "C" {
 #pragma push
 #pragma fp_contract on
-}
 TAdChrSelSlotGC::TAdChrSelSlotGC(TObject*object) : TObject((TObject*)(object)) {
     u32 i;
     u32 j;
@@ -335,7 +330,7 @@ TAdChrSelSlotGC::TAdChrSelSlotGC(TObject*object) : TObject((TObject*)(object)) {
         ((S_802C7758 *)this)->e2[k].w = (24.0f * (k + 1) + 64.0f) / 256.0f;
     }
 }
-extern "C" {
+
 #pragma pop
 
 void TLobby__sub_802C78EC(void) {
@@ -351,6 +346,4 @@ void TLobby__sub_802C7920(void) {
     s32 r4 = b.v[current_language];
     lbl_805D67F0 = r4;
     TLobby__sub_8023E4B4(a.v[current_language], r4);
-}
-
 }

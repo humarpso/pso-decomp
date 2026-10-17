@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowCtrl.h"
 
-extern "C" {
-
 extern void *TWindowCtrl__active_window;
 
 s32 TWindowCtrl::get_field24() {
@@ -10,6 +8,4 @@ s32 TWindowCtrl::get_field24() {
         return -0x1600;
     }
     return *(s32 *)((s8 *)TWindowCtrl__active_window + 0x24);
-}
-
 }

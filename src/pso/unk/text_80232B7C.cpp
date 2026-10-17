@@ -69,7 +69,6 @@ extern SGrp_80232C50 technique_effect_entry_table[];
 extern void *tl_07;
 extern s32 technique_effect_bml;
 extern s32 lbl_805D63B0;
-extern "C" {
 
 Obj_80232B7C *construct_grants_flash(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C *pos, f32 scale) {
     __ct__7TObjectFP7TObject(self, parent);
@@ -164,5 +163,4 @@ Obj_80232E0C *__dt__13TUnk_804CC888Fv(Obj_80232E0C *arg0, s16 arg1) {
         }
     }
     return arg0;
-}
 }

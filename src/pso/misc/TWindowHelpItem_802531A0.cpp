@@ -63,7 +63,6 @@ extern s32 current_language;
 extern const f32 TWindowHelpItem__data_805DCDE4;
 extern const f32 lbl_805DCDE8;
 extern const f32 lbl_805DCDEC;
-extern "C" {
 
 void TWindowHelpItem__sub_802531A0(void) {  }
 
@@ -178,5 +177,4 @@ void TWindowHelpItem__vt11(u8 *window) {
             draw_action_palette_icon(((void *)get_array_entry__13TUnk_804CE018Fi(window, slot + 1)), 0, 0);
         }
     }
-}
 }

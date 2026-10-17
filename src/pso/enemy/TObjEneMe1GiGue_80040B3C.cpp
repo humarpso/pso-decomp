@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
 
-extern "C" {
-
 void TObjEneMe1GiGue::update_if_active(s32 _w1) {
     if (!(this->m_388 & 1)) {
         set_state(_w1);
@@ -15,6 +13,4 @@ void TObjEneMe1GiGue::set_state(s32 arg1) {
         this->m_380 = (s32) temp_r0;
         this->next_action = arg1;
     }
-}
-
 }

@@ -12,9 +12,7 @@ extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/object/obj_band.h"
-#include "pso/player/TUnk_804806E8.h"
-#include "pso/enemy/TObjEnemy.h"
-#include "pso/enemy/TObjEneDD_ST.h"
+
 #include <stddef.h>
 #include "pso/TObjBoss5Ctrl.h"
 #include "pso/TObject.h"
@@ -31,7 +29,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
 
 struct Fade_800653C4 { char b[0x1C]; };
 
@@ -645,10 +642,6 @@ extern const f32 lbl_805D8E80;
 extern const f32 lbl_805D8E84;
 extern const f32 lbl_805D8E88;
 void TBoss8Dragon__sub_80062BA0(u8 *arg0, u32 arg1);
-}
-void set_collider_contact_low(u8 *arg0);
-void set_collider_contact_high(u8 *arg0);
-extern "C" {
 s32 update_local_colliders_from_world(void *, void *);
 extern const f32 lbl_805D8E10;
 extern const f32 lbl_805D8EAC;
@@ -1291,10 +1284,6 @@ void TBoss8Dragon__sub_800648C8(u8 *arg0);
 int emit_part_attack_effect__13TBoss5GryphonFPvi(void *arg0, int arg1);
 void TBoss8Dragon__sub_80064AB0(O_80064AB0 *self);
 void apply_remote_action__13TBoss5GryphonFPvPv(u8 *arg0, u8 *arg1);
-}
-void handle_6xA0_gal_gryphon_boss_actions(TBoss8Dragon *arg0);
-void handle_6x9F_gal_gryphon_boss_actions(void *arg0);
-extern "C" {
 void TBoss8Dragon__sub_80064DB8(u8 *arg0);
 void TBoss8Dragon__sub_80064E3C(u8 *arg0);
 void spawn_ancient_trap__12TBoss8DragonFii(s32 arg0, s32 arg1);
@@ -4601,6 +4590,10 @@ void TBoss8Dragon::copy_action_state(u8 *arg1) {
     *(ByteBlock_10 *)((s32) (u8 *)&this->unk_4) = *(const ByteBlock_10 *)((s32) arg1 + 4);
 }
 }
+void set_collider_contact_low(u8 *arg0);
+void set_collider_contact_high(u8 *arg0);
+void handle_6xA0_gal_gryphon_boss_actions(TBoss8Dragon *arg0);
+void handle_6x9F_gal_gryphon_boss_actions(void *arg0);
 #pragma pop
 
 #pragma push
@@ -4645,12 +4638,11 @@ void handle_6xA0_gal_gryphon_boss_actions(TBoss8Dragon *boss8_dragon) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-extern "C" {
+
 void TBoss5Gryphon::set_target_from_action(void *arg1) {
     enemy_set_target_id(this, (u16) *(s32 *)((s8 *)arg1 + 4));
     this->m_394 = (f32) *(f32 *)((s8 *)arg1 + 8);
     this->m_39c = (f32) *(f32 *)((s8 *)arg1 + 0xC);
-}
 }
 #pragma pop
 

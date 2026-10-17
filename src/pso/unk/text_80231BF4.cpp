@@ -115,7 +115,6 @@ struct VObj_18_9c98dd : VBase_18_9c98dd {
     virtual s32 m21(s32, Elec_80238E14, s32, s32, s32);
 };
 
-extern "C" {
 typedef char RecoveredGlobal_802384E0_lbl_804CCB28_size[sizeof(RecoveredGlobal_802384E0_lbl_804CCB28) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_802385EC_lbl_804CCB28_size[sizeof(RecoveredGlobal_802385EC_lbl_804CCB28) == 0x18 ? 1 : -1];
 #pragma push
@@ -148,5 +147,3 @@ void TTecGiZonde::vfunc_8(void *arg1_arg) {
 #define self ((Self_80239070 *)self_)
 #undef self
 #pragma pop
-
-}

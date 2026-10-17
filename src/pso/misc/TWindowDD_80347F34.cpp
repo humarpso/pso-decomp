@@ -3,7 +3,6 @@
 #include "pso/misc/TWindowDD_80347F34.h"
 #include "pso/misc/TWindowDD.h"
 
-extern "C" {
 extern const s32 TWindowDD__data_805DFB50;
 extern const f32 TWindowDD__data_805DFC10;
 
@@ -53,6 +52,4 @@ void TWindowDD::update(s32 arg1) {
         ((TWindowDD *)(this->m_98))->set_scale(((TWindowDD *)arg1)->get_field_0x74(), (s32) lbl_805DFB54);
         ((TWindowDD *)(this->m_98))->set_value_f32(TWindowDD__sub_8034217C((u8 *)arg1));
     }
-}
-
 }

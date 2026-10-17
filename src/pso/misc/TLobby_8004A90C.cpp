@@ -2,8 +2,6 @@
 #include "pso/misc/TLobby.h"
 #include "pso/boss/TBoss4Uro.h"
 
-extern "C" {
-
 extern void* dark_falz_controller_instance;
 extern s32 game_difficulty_selection;
 
@@ -18,6 +16,4 @@ int TLobby::is_boss_phase_reached() {
         return (temp_r3 >= 9) ? 1 : 0;
     }
     return (temp_r3 >= 0xE) ? 1 : 0;
-}
-
 }

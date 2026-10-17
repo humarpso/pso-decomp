@@ -105,7 +105,6 @@ void *__dt__13TUnk_804E70A8Fv(void *arg0, s16 arg1) {
 char *get_shared_capture_texture_list(void) {
     return shared_capture_texture_list;
 }
-extern "C" {
 
 void TUnk_804E71A0::render() {  }
 
@@ -134,5 +133,4 @@ void *__dt__13TUnk_804E71A0Fv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
-}
 }

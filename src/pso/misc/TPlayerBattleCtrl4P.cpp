@@ -67,9 +67,7 @@ void TPlayerBattleCtrl4P::wait_after_battle_end() {
         set_score((s32)((void*)(2)));
     }
 }
-extern "C" {
 
-}
 void TPlayerBattleCtrl4P::begin_battle_results() {
     s32 i;
     VObj_18_26c590 *p;
@@ -154,9 +152,7 @@ void TPlayerBattleCtrl4P::update_ready_wait() {
         }
     }
 }
-extern "C" {
 
-}
 void TPlayerBattleCtrl4P::begin_ready_wait() {
     ready_timer = 0x384;
     set_score((s32)((void*)(6)));

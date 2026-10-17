@@ -108,7 +108,7 @@ Def_804C2308 controller_default_pad_state = { 0, 0, 0, 0xFFFFFFFF, 0, 0, 0, 0, 0
 u32 TKeyBoardControl_key_bit_table[6] = { 16, 32, 64, 128, 4, 2 };
 u32 keyboard_poll_key_codes[6] = { 94, 93, 92, 95, 97, 76 };
 s32 controller_device_id_table[4] = { 0, 6, 12, 18 };
-extern "C" {
+
 void TObjPlayer::reset_fields() { *(s32*)((char*)this + 0x0) = 0; *(s32*)((char*)this + 0x4) = 0; *(s32*)((char*)this + 0x8) = 0; }
 
 typedef struct RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270 RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270;
@@ -247,7 +247,6 @@ void TKeyBoardControl::update_input_frame() {
         ((TKeyBoardControl *)key_board_control)->poll_key_state();
         update_button_hold_counters((int)key_board_control);
     }
-}
 }
 #pragma push
 #pragma fp_contract on
@@ -399,10 +398,8 @@ void controller_stuff(void) {
         update_pad_recalibration();
     }
 }
-extern "C" {
-#pragma pop
 
-}
+#pragma pop
 
 #pragma push
 #define controller_input_state ((s32 *)&controller_input_state)

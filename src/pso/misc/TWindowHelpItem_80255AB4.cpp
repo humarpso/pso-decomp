@@ -126,7 +126,6 @@ TWindowHelpItem::TWindowHelpItem(void *pos, u16 idx) {
     ((TWindowHelpItem *)self)->dispatch_item_help();
     call_if_split_screen(self, self->m_20);
 }
-extern "C" {
 
 s32 get_help_text_string(s32 arg0) {
     return *(s32 *)((s8 *)(*(s32 *)((s8 *)text_language_group_table + 0x18)) + (arg0 * 4));
@@ -134,5 +133,3 @@ s32 get_help_text_string(s32 arg0) {
 
 s32 TWindowHelpItem__sub_80255DDC(void* p) { return *(s32*)((char*)p + 0x1c); }
 void TWindowHelpItem::set_flag0_bit20() { *(u16*)((char*)this + 0x0) |= 0x20; }
-
-}

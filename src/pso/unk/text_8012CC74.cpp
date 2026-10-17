@@ -76,7 +76,6 @@ u8 *create_saber_weapon(u8 *arg0) {
     }
     return NULL;
 }
-extern "C" {
 
 void TUnk_804A5648::emit_marker_effects() {
     Pl_8012CCCC *arg0 = (Pl_8012CCCC *)this;
@@ -90,5 +89,4 @@ void TUnk_804A5648::emit_marker_effects() {
 void TUnk_804A5648::reserved_53() {
     u8 *arg0 = (u8 *)this;
     ((TObjPlayer *)arg0)->draw_status_icons(arg0 + 0x1F8, arg0 + 0x204);
-}
 }

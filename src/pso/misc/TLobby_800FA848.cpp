@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
 
-extern "C" {
-
 extern void *async_file_read_current_request;
 extern void *lobby_stack_entry_list_tail;
 extern s32 lobby_list_entry_count;
@@ -23,6 +21,4 @@ void TLobby::link_into_list() {
     *(s32 *)((s8 *)this + 0x2C) = 0;
     lobby_list_entry_count += 1;
     *(s32 *)&this->m_flags = lobby_list_next_id++;
-}
-
 }

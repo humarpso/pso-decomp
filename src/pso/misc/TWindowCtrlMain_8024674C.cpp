@@ -72,7 +72,6 @@ void load_hud_palette_textures(void) {
     TLanguage::set_entry_index(0xA, 1);
     window_ui_theme_index = 0;
 }
-extern "C" {
 
 u8 TUnk_804CE018::sub_80246948() {
     Obj_80246948 *self = (Obj_80246948 *)this;
@@ -162,5 +161,4 @@ void TWindowSubStatusDisp::update_entry_visibility() {
             ((TWindowHelpItem *)temp_r24)->set_flag0_bit2();
         }
     }
-}
 }

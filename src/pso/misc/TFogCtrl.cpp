@@ -188,11 +188,6 @@ void TFogCtrl__sub_800FBA54(void);
 void TFogCtrl__sub_800FBA58(void);
 void TFogCtrl__sub_800FBAAC(void);
 void create_area_fog_ctrl(void);
-}
-void copy_fog_entry(u8 *arg0, u8 *arg1);
-s32 apply_fog_entry(void *arg0);
-void init_scene_fog_system(void);
-extern "C" {
 void mem_free(void *p);
 void *mem_alloc(u32 size);
 void __dl__7TObjectFPv(s32);
@@ -260,6 +255,9 @@ s32 TFogCtrl::restore_fog_for_player(s32 arg1, s32 arg0) {
 #pragma dont_inline off
 s32 TFogCtrl__sub_800FAC84(void* p) { return *(s32*)((char*)*(void**)((char*)p + 0x174) + 0x40); }
 }
+void copy_fog_entry(u8 *arg0, u8 *arg1);
+s32 apply_fog_entry(void *arg0);
+void init_scene_fog_system(void);
 #pragma pop
 
 #pragma push
@@ -292,7 +290,7 @@ void copy_fog_entry(u8 *arg0, u8 *arg1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-extern "C" {
+
 void*TFogCtrl::get_entry(int a0) {  return (char*)((*(int *)&fog_entry_array)) + a0 * 64; }
 #pragma pop
 
@@ -352,7 +350,6 @@ void TFogCtrl::clear_active_flag() {
         apply_fog_entry(this);
         this->m_1c = (s32) (this->m_1c & 0xFFFFFFFE);
     }
-}
 }
 #pragma pop
 

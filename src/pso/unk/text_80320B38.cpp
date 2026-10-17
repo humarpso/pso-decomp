@@ -8,7 +8,6 @@ struct Q_80320B38 { u8 b[0x20]; };
 
 struct W_80320B38 { u8 pad[0x1C]; Q_80320B38 q[5]; s32 tex; };
 
-extern "C" {
 extern s32 TAdGameStartShadowGC__texture_list;
 extern const f32 lbl_805DF478;
 void TAdGameStartShadowGC::sub_80320B38() {
@@ -21,6 +20,4 @@ void TAdGameStartShadowGC::sub_80320B38() {
         draw_textured_quad_at_depth((f32 *)&arg0->q[i], lbl_805DF478);
     }
     TWindowSubStatusDisp::get_player();
-}
-
 }

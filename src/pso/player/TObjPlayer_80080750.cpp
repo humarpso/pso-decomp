@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 extern s16 demo_camera_controller_index;
 extern u8 lbl_805D4ECA;
 
@@ -22,6 +20,4 @@ ret1:
         return 1;
     }
     return 0;
-}
-
 }

@@ -57,8 +57,6 @@ static inline s32 finish_800F9448(Drop_800F9448 *d, s32 r) {
     return r;
 }
 
-extern "C" {
-
 s32 TItemDrop__sub_800F9448(s32 arg0, s32 arg1) {
     Drop_800F9448 d;
 
@@ -97,6 +95,4 @@ void TLobby::free_nodes_with_id(u32 arg0) {
         }
         n = *(N_800F957C **)((u8 *)n + 0xC);
     }
-}
-
 }

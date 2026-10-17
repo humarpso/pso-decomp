@@ -2,8 +2,6 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
 
-extern "C" {
-
 extern u32 log_printf_callback;
 extern s32 lobby_log_callback_arg;
 
@@ -23,6 +21,4 @@ void TLobby::notify_dvd_read() {
 
 void TLobby::enter_lock() {
     middleware_interrupt_lock_enter();
-}
-
 }

@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
 
-extern "C" {
-
 extern u8 *async_file_read_current_request;
 extern s32 async_file_read_state;
 
@@ -20,6 +18,4 @@ void TLobby::notify_and_close() {
     }
     TLobby::pop_and_close();
     async_file_read_state = 0;
-}
-
 }

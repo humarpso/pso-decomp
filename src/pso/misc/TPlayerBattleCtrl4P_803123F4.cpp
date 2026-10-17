@@ -61,9 +61,7 @@ void TPlayerBattleCtrl4P::show_intro_text() {
     this->frame_timer = 240;
     set_score(2);
 }
-extern "C" {
 
-}
 void TPlayerBattleCtrl4P::open_intro_window() {
     if (((BattleIntroWindowState *)this)->intro_window == NULL) {
         BattleIntroWindowSize size = lbl_80475B60;
@@ -73,52 +71,39 @@ void TPlayerBattleCtrl4P::open_intro_window() {
     lbl_805D6AB0 = 0;
     set_score(1);
 }
-extern "C" {
 
 #pragma defer_codegen on
 
-}
 void TPlayerBattleCtrl4P::run_task() {
     static BattleAction tbl[6] = { &TPlayerBattleCtrl4P::initialize_battle, &TPlayerBattleCtrl4P::update_intro_phase, &TPlayerBattleCtrl4P::update_battle_phase, &TPlayerBattleCtrl4P::update_results_phase, &TPlayerBattleCtrl4P::update_return_phase, &TPlayerBattleCtrl4P::update_reload_phase };
     (this->*tbl[phase])();
 }
 void TPlayerBattleCtrl4P::initialize_battle() { init_battle(); set_split_screen_battle_phase((s32)((void*)1)); }
-extern "C" {
 
-}
 void TPlayerBattleCtrl4P::update_intro_phase() {
     static BattleAction tbl[9] = { &TPlayerBattleCtrl4P::open_intro_window, &TPlayerBattleCtrl4P::show_intro_text, &TPlayerBattleCtrl4P::wait_for_intro_text, &TPlayerBattleCtrl4P::show_team_matchup, &TPlayerBattleCtrl4P::wait_for_team_matchup, &TPlayerBattleCtrl4P::begin_ready_wait, &TPlayerBattleCtrl4P::update_ready_wait, &TPlayerBattleCtrl4P::wait_for_start_countdown, &TPlayerBattleCtrl4P::close_intro_and_start_battle };
     (this->*tbl[phase_state])();
 }
-extern "C" {
 
-}
 void TPlayerBattleCtrl4P::update_battle_phase() {
     static BattleAction tbl[2] = { &TPlayerBattleCtrl4P::start_battle, &TPlayerBattleCtrl4P::update_battle_time_and_rankings };
     (this->*tbl[phase_state])();
 }
-extern "C" {
 
-}
 void TPlayerBattleCtrl4P::update_results_phase() {
     static BattleAction tbl[10] = { &TPlayerBattleCtrl4P::begin_battle_results, &TPlayerBattleCtrl4P::wait_after_battle_end, &TPlayerBattleCtrl4P::wait_before_recording_results, &TPlayerBattleCtrl4P::open_result_windows, &TPlayerBattleCtrl4P::wait_for_result_window_close, &TPlayerBattleCtrl4P::update_rematch_menu, &TPlayerBattleCtrl4P::close_rematch_menu, &TPlayerBattleCtrl4P::wait_for_rematch_menu_button, &TPlayerBattleCtrl4P::record_battle_results_after_delay, &TPlayerBattleCtrl4P::close_battle_results };
     (this->*tbl[phase_state])();
 }
-extern "C" {
 
-}
 void TPlayerBattleCtrl4P::update_return_phase() {
     static BattleAction tbl[3] = { &TPlayerBattleCtrl4P::return_to_hunters_guild, &TPlayerBattleCtrl4P::sub_80311804, &TPlayerBattleCtrl4P::sub_80311800 };
     (this->*tbl[phase_state])();
 }
-extern "C" {
 
-}
 void TPlayerBattleCtrl4P::update_reload_phase() {
     static BattleAction tbl[4] = { &TPlayerBattleCtrl4P::begin_battle_reload, &TPlayerBattleCtrl4P::begin_battle_reload_fade, &TPlayerBattleCtrl4P::finish_battle_reload, &TPlayerBattleCtrl4P::sub_80311890 };
     (this->*tbl[phase_state])();
 }
-extern "C" {
 
 #pragma defer_codegen off
 
@@ -130,7 +115,6 @@ void *__vt__19TPlayerBattleCtrl4P[6] = {
     (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv,
 };
 #define __vt__19TPlayerBattleCtrl4P ((s32 *)__vt__19TPlayerBattleCtrl4P)
-}
 TPlayerBattleCtrl4P* TPlayerBattleCtrl4P::destroy(s16 should_free) {
     if (((void *)this) != NULL) {
         *(s32 **)((s8 *)((void *)this) + 0x18) = __vt__19TPlayerBattleCtrl4P;

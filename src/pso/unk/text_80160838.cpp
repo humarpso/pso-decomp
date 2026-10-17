@@ -12,7 +12,6 @@ struct Obj_80160838 { u8 pad[4]; s16 kind; };
 
 struct Self_80160838 { u8 pad[0x1C]; u16 id; u8 pad1e[0x80 - 0x1E]; Obj_80160838 *obj; };
 
-extern "C" {
 void TODoorAncient09::door_ancient09_sync_state(void *src_arg) {
     Self_80160838 *self = (Self_80160838 *)this;
     State_80160838 *src = (State_80160838 *)src_arg;
@@ -32,6 +31,4 @@ void TODoorAncient09::door_ancient09_sync_state(void *src_arg) {
         pkt.kind = obj->kind;
         update_and_send_60__6TLobbyFPv(&pkt);
     }
-}
-
 }

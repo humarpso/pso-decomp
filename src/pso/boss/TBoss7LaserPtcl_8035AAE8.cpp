@@ -115,8 +115,6 @@ void TBoss7LaserPtcl::run_task() {
 }
 #pragma pop
 
-extern "C" {
-
 void *__dt__15TBoss7LaserPtclFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TBoss7LaserPtcl;
@@ -200,5 +198,3 @@ u8 *TBoss7LaserPtcl__sub_8035AE54(u8 *object, s32 arg1, s32 arg2) {
 void TBoss7LaserPtcl__sub_8035AF0C(void) {  }
 void TBoss7LaserPtcl__sub_8035AF10(void) {  }
 void TBoss7LaserPtcl__sub_8035AF14(void) {  }
-
-}

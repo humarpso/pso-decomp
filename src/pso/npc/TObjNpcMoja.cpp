@@ -11,12 +11,10 @@ extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
-#include "pso/npc/TObjNpcMoja.h"
-#include "pso/player/TUnk_804806E8.h"
-#include "pso/enemy/TObjEnemy.h"
+
 #include "pso/npc/TObjNpcNFM00.h"
 #include "pso/misc/TLobby.h"
-#include "pso/player/TObjPlayer.h"
+
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct VBase_8014C780 { char pad[0x18]; };

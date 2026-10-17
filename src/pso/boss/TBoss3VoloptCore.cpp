@@ -11,7 +11,7 @@ extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
-#include "pso/player/TUnk_804806E8.h"
+
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEneLappy.h"
 #include "pso/enemy/TObjEnePanarms.h"
@@ -399,9 +399,6 @@ void render__13TUnk_80483A10Fv(u8 *arg0);
 void TObjPlayer__sub_80040558(void * _w0);
 void run_task__13TUnk_80483A10Fv(u8 *arg0);
 void TBoss3VoloptCore__sub_80040788(void);
-}
-void cache_volopt_resource_ptrs(void);
-extern "C" {
 void * TBoss3VoloptCore__sub_800407E0(void *arg0);
 void * destroy__13TUnk_80483A10Fs(void *arg0, s16 arg1);
 void sub_80040894__13TUnk_80483A10Fv(VObj_80040894 *arg0);
@@ -1294,9 +1291,8 @@ void TUnk_80483A10::run_task() {
 
 void TBoss3VoloptCore__sub_80040788(void) {  }
 }
-
+void cache_volopt_resource_ptrs(void);
 void cache_volopt_resource_ptrs(void) { volopt_resource_table_ptr = boss3_volopt_resources; lbl_805D4C50 = register_boss__6TLobbyFl((void*)33); lbl_805D4C54 = dispatch_shared_handler_b__6TLobbyFl((void*)33); lbl_805D4C58 = register_object__6TLobbyFl((void*)33); volopt_array_resource_ptr = dispatch_shared_handler_a__6TLobbyFl((void*)33); }
-extern "C" {
 
 void *TBoss3VoloptCore__sub_800407E0(void *arg0) {
     void *o = __nw__7TObjectFUl(0x3D4);
@@ -1384,5 +1380,4 @@ void TUnk_80483A10::load_entry_params_volopt(s32 i) {
     O_80040AF8 *self = (O_80040AF8 *)this;
     self->f34 = (*(G_80040AF8 * *)&volopt_resource_table_ptr)->entries[i].f8;
     self->f24 = (*(G_80040AF8 * *)&volopt_resource_table_ptr)->entries[i].fc;
-}
 }

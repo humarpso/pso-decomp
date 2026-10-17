@@ -6,11 +6,7 @@
 #include "pso/misc/TOSwitchItem.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 int TItemEquipBase::get_flag_40() { return this->m_dc & 0x40; }
 
 void TItem::sub_80102C58() { this->m_dc |= 0x40; }
 void TItem::sub_80102C68() { this->m_dc &= 0xffffffbf; }
-
-}

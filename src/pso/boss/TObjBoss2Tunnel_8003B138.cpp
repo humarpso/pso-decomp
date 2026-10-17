@@ -678,8 +678,6 @@ extern s32 boss2_tunnel_queue_table[];
 extern s32 lbl_804834D4[];
 extern s32 boss2_tunnel_shift_queue_table[];
 
-extern "C" {
-
 void enable_fog__15TObjBoss2TunnelFPv(TObjBoss2Tunnel *boss2_tunnel) {
     TFogCtrl::update_all(boss2_tunnel->m_b0, 1);
     (*(s32 *)&TObjBoss2Tunnel__global_flags) |= 4;
@@ -726,8 +724,6 @@ void TObjBoss2Tunnel::init_queue_from_start() {
     for (j = 0; i < 6; i++, j++) {
         ((Obj_8003C374 *)this)->q[i] = lbl_804834D4[j];
     }
-}
-
 }
 
 #define init_queue_from_start__15TObjBoss2TunnelFv ((void (*)(Tunnel_8003C45C *))init_queue_from_start__15TObjBoss2TunnelFv)

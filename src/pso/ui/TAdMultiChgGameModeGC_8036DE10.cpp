@@ -177,7 +177,6 @@ void close_windows_and_cleanup(void *arg0) {
         ((TLobby *)(*(u32 *)((s8 *)arg0 + 0x30)))->send_and_handle(TAdMultiChgGameModeGC__sub_8036DE10((s32)arg0, 3, (s32)(*(s32 *)((s8 *)arg0 + 0x24))), 3);
     }
 }
-extern "C" {
 
 void TAdMultiChgGameModeGC::update_card_confirm_selection() {
     s32 selected_menu_value;
@@ -486,7 +485,6 @@ void *__dt__13TUnk_804F3A20Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-}
 
 TUnk_804F3A20::TUnk_804F3A20(TObject *object) : TObject(object) {
     *(s32 *)((s8 *)this + 0x1C) = -1;
@@ -504,7 +502,4 @@ TUnk_804F3A20::TUnk_804F3A20(TObject *object) : TObject(object) {
     }
     TLobby::stop_audio_streams();
     TKeyBoardControl__sub_8000F90C(9);
-}
-extern "C" {
-
 }

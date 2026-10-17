@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
-
     extern int chr_select_game_mode;
 int TAdSinglePlyChrSelectGC::get_game_mode() {  return chr_select_game_mode; }
 
@@ -14,6 +12,4 @@ u8 TAdSinglePlyChrSelectGC::is_both_confirmed() {
         var_r4 = 1;
     }
     return (u8)var_r4;
-}
-
 }

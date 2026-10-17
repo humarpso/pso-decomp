@@ -47,7 +47,7 @@ u8 *init_ancient_container(u8 *arg0, s32 arg1) {
 
 #pragma push
 #pragma fp_contract on
-extern "C" {
+
 void fn_8015C5F8(void) {
     s32 var_r31;
     s32 var_r30;
@@ -71,6 +71,5 @@ void fn_8015C5F8(void) {
         TLobby__sub_8001FE7C(p, 1);
         ancient_container_resource_bundle = 0U;
     }
-}
 }
 #pragma pop

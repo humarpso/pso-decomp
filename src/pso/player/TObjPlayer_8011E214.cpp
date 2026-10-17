@@ -2,11 +2,7 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/items/TItemWeapon.h"
 
-extern "C" {
-
 void TObjPlayer::set_flag_10000() {
     set_state_flags(0x10000);
 }
 void TObjPlayer::set_state_flags(u32 v) { this->m_334 |= v; }
-
-}

@@ -4,8 +4,6 @@
 #include "pso/item/TItemEffOrgaFlowShot.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 extern const f32 lbl_805DAED0;
 extern const f32 lbl_805DAED4;
 
@@ -26,6 +24,4 @@ void TUnk_804A4F60::update_attack() {
     if (lbl_805DAEC8 == this->m_274) {
         TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x278), -0x71C, 0);
     }
-}
-
 }

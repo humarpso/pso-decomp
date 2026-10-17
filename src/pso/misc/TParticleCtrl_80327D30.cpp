@@ -153,7 +153,6 @@ u8 *create_telepipe_marker(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 a
     ((TUnk_804ED598 *)arg0)->m_3c = arg6;
     return arg0;
 }
-extern "C" {
 
 void TParticleCtrl::set_tev_direct(s32 arg0) {
     if (arg0 != 0) {
@@ -164,12 +163,10 @@ void TParticleCtrl::set_tev_direct(s32 arg0) {
     GXSetNumIndStages(0);
     set_ginja_post_texgen_count(0);
 }
-}
 
 void play_indirect_effect_recipe(u8 arg0, u16 sampler, s32 second) {
     TObjPlayer::play_particle_at_active_slot((s32) arg0, (s32) sampler, 0, 0, 0, second);
 }
-extern "C" {
 
 int TParticleCtrl::get_object() { return register_indirect_effect_ctrl(this); }
 void TParticleCtrl::reset_ind_tev_stages(void * _w0) { GXSetTevDirect(1); GXSetNumIndStages(0); set_ginja_post_texgen_count(0); }
@@ -188,5 +185,4 @@ void *__dt__13TUnk_804ED5B0Fv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
-}
 }

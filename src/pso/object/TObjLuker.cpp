@@ -108,14 +108,6 @@ s32 play_persistent_sound(int, void *, void *, int, int);
 void *__nw__7TObjectFUl(int);
 s32 TTecLuker__sub_8023401C(void *);
 void *create_telepipe_visual(void *, void *, int, int);
-}
-extern Pad_801A0F34 controller_input_state[];
-s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range);
-void offset_point_toward_camera(u8 *arg0, u8 *arg1, f32 farg0);
-extern s32 local_client_id;
-extern s32 tl_07;
-extern const f32 lbl_805DC080;
-extern "C" {
 s32 obj_getField1c(int);
 s32 is_player_in_range__9TObjLukerFv(s32 arg0, f32 farg0);
 s32 get_main_phase();
@@ -212,7 +204,12 @@ void TObjLuker::open_destination_windows() {
     }
 }
 }
-
+extern Pad_801A0F34 controller_input_state[];
+s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range);
+void offset_point_toward_camera(u8 *arg0, u8 *arg1, f32 farg0);
+extern s32 local_client_id;
+extern s32 tl_07;
+extern const f32 lbl_805DC080;
 s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range) {
     s32 ret;
     s32 flag;
@@ -273,7 +270,7 @@ s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range) {
 #define C38_801A10A0 ((void (*)(void *, int))hide_part__9TObjLukerFPvUs)
 #define DB4_801A10A0 ((void (*)(void *))close_windows__9TObjLukerFPv)
 #define PBC_801A10A0 ((u32 (*)(void *))get_player_by_client_id)
-extern "C" {
+
 s32 is_player_in_range__9TObjLukerFv(s32 arg0, f32 farg0) {
     u32 p;
     s32 found;
@@ -536,5 +533,4 @@ void *TObjLuker__create(void *arg0) {
         o = TObjLuker__ct(o, tl_05, arg0);
     }
     return o;
-}
 }

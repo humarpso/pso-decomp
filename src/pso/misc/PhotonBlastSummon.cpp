@@ -85,7 +85,6 @@ void queue_deferred_photon_blast_hit(u32 arg0, s32 arg1, s32 arg2) {
         }
     }
 }
-extern "C" {
 
 void queue_photon_blast_hit(u32 identity, s32 kind, s32 allow_duplicate) {
     const f32 *entry;
@@ -114,13 +113,12 @@ void queue_photon_blast_hit(u32 identity, s32 kind, s32 allow_duplicate) {
 void queue_deferred_photon_blast_support(void) {
     ((s32 (*)(f32))queue_deferred_photon_blast_hit)(1.0f);
 }
-}
 
 void queue_photon_blast_support(void) {
     ((s32 (*)(f32))queue_photon_blast_hit)(1.0f);
 }
 typedef char RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628_size[sizeof(RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628) == 0xC ? 1 : -1];
-extern "C" {
+
 void TUnk_804C3248::begin_photon_summon_camera(s8 arg1) {
     u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_801A7310, sp8) == 0x0) ? 1 : -1];
@@ -142,7 +140,6 @@ void TUnk_804C3248::begin_photon_summon_camera(s8 arg1) {
     temp_r3 = (long) (arg0 + 0x38);
     set_scripted_camera_pose(temp_r3, temp_r3, (u8 *)&this->m_5c);
     *(s32 *)((s8 *)arg0 + 0xFC) = 1;
-}
 }
 
 #pragma pop

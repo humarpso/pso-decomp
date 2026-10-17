@@ -1345,10 +1345,6 @@ s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
 s32 initialize__9TObjEnemyFPv();
 u16 register_entity_by_id(void *ov);
-}
-s32 create_boss4_fade();
-extern s32 lbl_805D3E50;
-extern "C" {
 s32 TBoss6PlotFalz__ct(s32, s32, s32);
 void TItemEffOrgaFlowShot__sub_80357204(void);
 int TLobby__sub_8001FE7C(void*, void*);
@@ -1396,6 +1392,8 @@ struct Msg_802AC86C { u16 h; u16 a; s8 b; s8 c; u8 pad[0x12]; };
 struct Boss_802AC86C { u8 pad[0x1C]; u16 f1C; u8 pad2[0x374 - 0x1E]; s32 f374; };
 void fn_802ACD60(void *);
 }
+s32 create_boss4_fade();
+extern s32 lbl_805D3E50;
 void build_6xA3_olga_flow_boss_actions(void *);
 extern "C" {
 

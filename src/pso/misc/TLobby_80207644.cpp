@@ -54,11 +54,6 @@ extern int selected_episode;
 extern const f32 lbl_805DC610;
 void randomize_adventure_maps(void);
 s32 memset(void *, int, int);
-}
-extern struct Ids_80207C60 floor_map_registry_id_table;
-void init_floor_map_registry(void);
-extern struct Ids_80207C60 boss_warp_area_id_table;
-extern "C" {
 void TLobby__sub_80207BB0(void);
 s32 get_current_floor();
 s32 get_game_play_mode();
@@ -93,7 +88,9 @@ s32 TLobby::get_player_floor(s32 idx) {
     return -1;
 }
 }
-
+extern struct Ids_80207C60 floor_map_registry_id_table;
+void init_floor_map_registry(void);
+extern struct Ids_80207C60 boss_warp_area_id_table;
 extern s32 story_select_pending_state;
 
 void set_floor_map_variant(s32 arg0, s32 arg1) {
@@ -106,7 +103,6 @@ void set_floor_map_variant(s32 arg0, s32 arg1) {
 #pragma push
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_80207798_lbl_80513920_size[sizeof(RecoveredGlobal_80207798_lbl_80513920) == 0xD8 ? 1 : -1];
-extern "C" {
 
 s32 get_floor_map_terrain(s32 arg0) {
     if (arg0 > 0x11) {
@@ -114,7 +110,6 @@ s32 get_floor_map_terrain(s32 arg0) {
     }
     s32 *p = (s32 *)&floor_map_registry;
     return p[arg0 * 3 + 1];
-}
 }
 
 s32 set_floor_map_selection(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
@@ -135,7 +130,7 @@ s32 set_floor_map_selection(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 #pragma push
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_802077CC_lbl_80513920_size[sizeof(RecoveredGlobal_802077CC_lbl_80513920) == 0xD8 ? 1 : -1];
-extern "C" {
+
 s32 get_floor_map_selection(s32 arg0, u8 *arg1) {
     s32 temp_r6;
     u8 *temp_r5;
@@ -232,7 +227,6 @@ void TLobby__sub_80207BB0(void) {
         ((struct Map_80207C60 *)&floor_map_registry)[i].map = ids.w[i];
     }
 }
-}
 #pragma pop
 
 void init_floor_map_registry(void) {
@@ -246,12 +240,10 @@ void init_floor_map_registry(void) {
         ((struct Map_80207C60 *)&floor_map_registry)[i].map = ids.w[i];
     }
 }
-extern "C" {
 
 void TLobby::reset_story_select_state() {
     if ((s32) story_select_pending_state != -1) {
         TAdStorySelectGC::set_state((s32)((void*)story_select_pending_state));
         story_select_pending_state = -1;
     }
-}
 }

@@ -369,8 +369,6 @@ struct B_801F4340 { s32 a; s16 b; u8 rest[6]; };
 extern A_801F4340* TLobby__data_805D6140;
 extern B_801F4340* TLobby__data_805D6144;
 
-extern "C" {
-
 extern s16 TLobby__data_805D6134;
 
 void open_session__6TLobbyFi(s32 arg0) {
@@ -401,6 +399,4 @@ void TLobby::init_id_tables() {
         n++;
         TLobby__data_805D6144[i].b = v;
     }
-}
-
 }

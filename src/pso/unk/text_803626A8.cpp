@@ -165,10 +165,6 @@ void s_rank_knuckle_equip(u8 *arg0);
 void * init_s_rank_knuckle(void *, s32, void *);
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-}
-extern s32 tl_05;
-u8 *create_s_rank_knuckle(u8 *arg0);
-extern "C" {
 s32 matrix_mult_vec(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
@@ -335,7 +331,8 @@ void TUnk_804F26E0::vfunc_62() {
     ((TItemProUnit *)(*(s32 *)&this->player + 0x7CC))->set_evp(lbl_805E0258);
 }
 }
-
+extern s32 tl_05;
+u8 *create_s_rank_knuckle(u8 *arg0);
 void s_rank_knuckle_equip(u8 *arg0) {
     ((TItemProUnit *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC))->set_evp(lbl_805E025C);
 }
@@ -344,13 +341,12 @@ typedef struct S_80362C80 S_80362C80;
 typedef struct T_80362C80 T_80362C80;
 typedef struct VBase_18_c22f9c VBase_18_c22f9c;
 typedef struct VObj_18_c22f9c VObj_18_c22f9c;
-extern "C" {
+
 void s_rank_knuckle_marker(T_80362C80 *arg0) {
   u8 sp8[0x10];
   s32 n;
   arg0->obj->m63(knuckle_marker_joint_table[(((TObjPlayer *)(arg0->obj))->has_valid_handle() * 3) + get_validated_attack_stage(((u8 *) arg0->obj) + 0x7CC)], sp8);
   spawn_particle_effect(sp8, 0x1D0);
-}
 }
 
 void *init_s_rank_knuckle(void *arg0, s32 _w1, void * _w2) {

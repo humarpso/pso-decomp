@@ -31,10 +31,6 @@ void *get_player_by_client_id(s32 i);
 extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
 u8 is_local_client_floor_leader(void);
-}
-u16 get_enemy_target_id(void* p);
-extern "C" {
-
 void TUnk_80493450::vfunc_83() { this->mode = 1; }
 void TUnk_80493450::vfunc_93() {  }
 void TUnk_80493450::vfunc_94() {  }
@@ -44,8 +40,9 @@ void TUnk_80493450::vfunc_97() {  }
 void TUnk_80493450::vfunc_98() {  }
 void TUnk_80493450::vfunc_101() {  }
 }
+u16 get_enemy_target_id(void* p);
 u16 get_enemy_target_id(void* p) { return *(u16*)((char*)p + 0x338); }
-extern "C" {
+
 void TObjEnemyCustom::release_destroyed_target() {
     O_800C6A18 *self = (O_800C6A18 *)this;
     if (self->p != 0 && (self->p->flags & 0x800)) {
@@ -131,6 +128,5 @@ u8 is_local_client_floor_leader(void) {
         return local_client_id == id;
     }
     return 1;
-}
 }
 #pragma pop

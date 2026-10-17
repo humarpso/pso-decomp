@@ -49,16 +49,12 @@ extern const f32 light_position_distance;
 void GXBegin(int, int, u16);
 
 
-
-
-
 void TObjLight::assert_light_id(s32 arg0) {
     if (arg0 < 0 || arg0 > 5) {
         OSPanic(lbl_804FC75C, 0x12, lbl_804FC768);
     }
 }
 }
-
 
 
 void set_light_ambient_color(f32 r, f32 g, f32 b) {
@@ -91,9 +87,7 @@ void submit_light0(s32 arg0, s32 arg1) {
 }
 
 
-
 typedef char RecoveredGlobal_803DF528_TObjLight__data_8058D528_size[sizeof(RecoveredGlobal_803DF528_TObjLight__data_8058D528) == 0x140 ? 1 : -1];
-
 
 #pragma push
 #pragma scheduling off
@@ -107,7 +101,6 @@ void set_gx_light_color(s32 idx, f32 r, f32 g, f32 b) {
     GXInitLightColor((u8 *)&TObjLight__gx_light_objects + (idx << 6), c);
 }
 #pragma pop
-
 
 
 #pragma push
@@ -126,8 +119,6 @@ void load_gx_light_slot(s32 arg0) {
     TObjLight::assert_light_id((s32)arg0);
     GXLoadLightObjImm((void *) ((u8 *)&TObjLight__gx_light_objects.value + (arg0 << 6)), (int) (*(s32 *)((s8 *)((u8 *)light_slot_mask_table + (arg0 * 4)) + 0)));
 }
-extern "C" {
-
 
 
 void TObjPlayer::draw_trail_strip(void *arg1, s32 arg2) {
@@ -135,13 +126,10 @@ void TObjPlayer::draw_trail_strip(void *arg1, s32 arg2) {
     draw_untextured_trail_strip(this, arg1);
     reset_player_transform();
 }
-}
 
 void reset_player_transform(void) {
     TObjPlayer__sub_803E2248();
 }
-
-
 
 #pragma push
 #pragma dont_inline off
@@ -171,7 +159,7 @@ void draw_untextured_trail_strip(void *arg0, void *arg1) {
     }
 }
 #pragma pop
-extern "C" {
+
 
 void TObjPlayer__sub_803DF768(s32 arg0) {
     load_camera_view_matrix();
@@ -180,5 +168,4 @@ void TObjPlayer__sub_803DF768(s32 arg0) {
         return;
     }
     setup_opaque_color_draw();
-}
 }

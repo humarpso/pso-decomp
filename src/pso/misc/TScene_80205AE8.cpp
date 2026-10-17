@@ -230,8 +230,6 @@ void TScene::initialize_fmt2_materials() {
     }
 }
 
-extern "C" {
-
 void TScene::initialize_fmt1_materials() {
     SceneMaterialSection *room;
     s32 section;
@@ -253,6 +251,4 @@ void TScene::initialize_fmt1_materials() {
             if ((anim->flags & 0x40) && !load_texture_sequence_frame(this, (Cyc_80205D24 *)anim->cycle)) anim->flags &= ~0x40;
         }
     }
-}
-
 }

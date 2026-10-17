@@ -27,7 +27,7 @@ u8 *create_guld_milla(s32 arg0) {
     }
     return NULL;
 }
-extern "C" {
+
 void apply_blade_dance_model_scale(Self_801223E0 *self) {
     if (((TItem *)self)->get_slot_count() == 5) {
         s32 n = TObjPlayer::get_player_list();
@@ -38,5 +38,4 @@ void apply_blade_dance_model_scale(Self_801223E0 *self) {
             break;
         }
     }
-}
 }

@@ -130,8 +130,6 @@ struct Data_801200C0 { u8 pad[0x16]; u8 max; u8 pad17[0x27 - 0x17]; u8 flags; };
 
 struct Self_801200C0 { u8 pad[0x1a4]; Pair_801200C0 pairs[3]; u8 pad1aa[0x1d1 - 0x1aa]; u8 cur; u8 pad1d2[0x1dc - 0x1d2]; Data_801200C0 *data; };
 
-extern "C" {
-
 void TItemWeapon::vfunc_14() {
     Self_801200C0 *self = (Self_801200C0 *)this;
     s32 i;
@@ -154,5 +152,3 @@ void TItemWeapon::vfunc_14() {
 }
 
 void TItemWeapon::vfunc_50() { ((int (*)(void *, int))set_status_flags__10TObjPlayerFUl)(this, 4); }
-
-}

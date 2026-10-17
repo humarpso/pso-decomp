@@ -102,7 +102,6 @@ s32 load_area_object_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     load_object_set_entries__6TLobbyFlPUcUl(arg0, TLobby__map_set_file_buffer, len);
     return 1;
 }
-extern "C" {
 
 s32 TLobby::load_all_floor_enemy_sets() {
     Stack_8020AF0C stack;
@@ -147,5 +146,4 @@ block_6:
         return 1;
     }
     goto loop_1;
-}
 }

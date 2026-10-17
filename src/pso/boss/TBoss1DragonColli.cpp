@@ -81,7 +81,7 @@ TBoss1DragonColli::~TBoss1DragonColli() {
 
 #include "pso/TBoss1DragonDemo.h"
 #include "pso/misc/TLobby.h"
-#include "pso/player/TObjPlayer.h"
+
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off

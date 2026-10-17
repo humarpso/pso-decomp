@@ -15,7 +15,7 @@ void *lbl_804C9460[6] = {
     (void *)0x0, (void *)0x0,
 };
 }
-extern "C" void TSetManager__sub_8020D7D4(void) {  }
+void TSetManager__sub_8020D7D4(void) {  }
 typedef void (TSetManager::*Pmf_8020D7D8)();
 
 void TSetManager::run_task() {

@@ -63,7 +63,6 @@ TObjEnemy* TObjEnemy::initialize(void* parent) {
     return self;
 }
 
-extern "C" {
 s32 TObjEnemy::apply_by_index(s16 arg0) {
     if (arg0 > 0xB4F) {
         return 0;
@@ -75,5 +74,3 @@ s32 TObjEnemy::apply_by_index(s16 arg0) {
 int TObjEnemy::apply_player_54a00() { return unregister_object_by_id__13TUnk_804AF8A0Fv(this); }
 void TUnk_804AF8A0::clear_shadow_flag() { this->m_flags &= 0xfffffbff; }
 void TUnk_804AF8A0::set_shadow_flag() { this->m_flags |= 0x400; }
-
-}

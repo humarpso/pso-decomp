@@ -131,7 +131,6 @@ void clear_state(void) {
         memset(instance + 0x1154C, 0, 0x10);
     }
 }
-extern "C" {
 
 void TAdEnterSerialAccessGC::store_serial_access_key(s32 arg0, s32 arg1, s32 arg2) {
     s32 instance;
@@ -192,4 +191,3 @@ int validate_input__22TAdEnterSerialAccessGCFPviPv(void *arg0, s32 arg1, char *a
 }
 
 int TAdEnterSerialAccessGC::forward_input(void* p) { return ((int (*)(void *))validate_input__22TAdEnterSerialAccessGCFPviPv)(p); }
-}

@@ -23,9 +23,6 @@ extern s32 __vt__15TWindowCallBack[];
 extern s32 lbl_805D3E58;
 u8 *TWindowCallBack__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3);
 void *__dt__15TWindowCallBackFv(void *arg0, s16 arg1);
-}
-void build_6xA3_olga_flow_boss_actions(void* p);
-extern "C" {
 int fn_802ACD40(void* p);
 void fn_802ACD60(void* p);
 void run_task__15TWindowCallBackFv(void* p);
@@ -41,10 +38,9 @@ void TBoss6Type2::init_packet() { *(u8*)((char*)this + 0x0) = 165; *(u8*)((char*
 int fn_802ACD40(void* p) { return read_be16_field2__10TObjPlayerFv(p); }
 void fn_802ACD60(void* p) { fn_802ACD40(p); TLobby__send_and_handle_60((u8 *)p); }
 }
+void build_6xA3_olga_flow_boss_actions(void* p);
 void build_6xA3_olga_flow_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 163; *(u8*)((char*)p + 0x1) = 5; }
-extern "C" {
 void set_field_60__15TWindowCallBackFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x60) = v; }
-}
 
 class TWindowCallBack {
 public:
@@ -59,8 +55,6 @@ void TWindowCallBack::render() {
         callback(this, r);
     }
 }
-
-extern "C" {
 
 void run_task__15TWindowCallBackFv(void* p) { ((TWindowDD *)p)->initialize_subwindow(); ((TUnk_804CE018 *)p)->update_fade(); }
 
@@ -84,6 +78,4 @@ u8 *TWindowCallBack__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {
     ((TUnk_804CE018 *)arg0)->save_position();
     set_field_60__15TWindowCallBackFPvi(arg0, arg3);
     return arg0;
-}
-
 }

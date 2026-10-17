@@ -9,8 +9,6 @@ void TPlyGuildCardTag::bswap() {
     bswap_16(&m_tag2);
 }
 
-extern "C" {
-
 extern u16 lbl_805D63FC;
 
 void TWindowSubShortMail__sub_8007B824(void) {
@@ -29,5 +27,3 @@ s8 TPlyPhotonChair::get_actor_section_id() {
 }
 
 void* TObjPlayer__vt10(void* p) { return (char*)p + 0x85c; }
-
-}

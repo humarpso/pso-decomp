@@ -49,7 +49,7 @@ TAdLoadQuestCellGC::TAdLoadQuestCellGC(TObject *object, void *arg2) : TObject(ob
     *(void **)((s8 *)this + 0x1C) = arg2;
     this->m_frameCount = -1;
 }
-extern "C" {
+
 s32 get_or_create_cell__14TAdLoadQuestGCFii(s32 arg0, s32 arg1) {
     s32 temp_r30;
     s32 temp_r3;
@@ -64,6 +64,4 @@ s32 get_or_create_cell__14TAdLoadQuestGCFii(s32 arg0, s32 arg1) {
         *(s32 *)((s8 *)((s32 *)ad_load_quest_cell_table) + temp_r30) = var_r0;
     }
     return *(s32 *)((s8 *)((s32 *)ad_load_quest_cell_table) + temp_r30);
-}
-
 }

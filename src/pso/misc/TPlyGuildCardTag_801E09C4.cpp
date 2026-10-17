@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/misc/TPlyGuildCardTag_801E09C4.h"
 
-extern "C" {
-
 u8 __eq__16TPlyGuildCardTagFR16TPlyGuildCardTag(void *arg0, void *arg1) {
     int var_r6;
 
@@ -11,6 +9,4 @@ u8 __eq__16TPlyGuildCardTagFR16TPlyGuildCardTag(void *arg0, void *arg1) {
         var_r6 = 1;
     }
     return (u8)var_r6;
-}
-
 }

@@ -21,8 +21,6 @@ extern s32 TLobby__current_floor_enemy_set_count;
 extern Rec_8020C500 *TLobby__data_805D610C;
 extern s32 TLobby__current_floor_object_set_count;
 
-extern "C" {
-
 s32 TObjEnemy::mask_sub_flags(s32 arg1) {
     void *temp_r5;
 
@@ -90,6 +88,4 @@ s32 TLobby::clear_record_flags_b() {
         }
     }
     return 1;
-}
-
 }

@@ -113,9 +113,6 @@ typedef struct Pl_8012A470
 
 extern "C" {
 s8 sub_80102C30__5TItemFv();
-}
-void receive_srank_hit(TItemWeapon *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0);
-extern "C" {
 u8 * TObjPlayer__sub_8012A3B4(void *, s32, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
@@ -191,7 +188,7 @@ s32 TUnk_804A4948::send_srank_stat_extra(u32 arg1, s32 arg2) {
     }
 }
 }
-
+void receive_srank_hit(TItemWeapon *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0);
 void receive_srank_hit(TItemWeapon *item_weapon, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0) {
     u32 f;
     if (sub_80102C30__5TItemFv() == 2) {
@@ -218,7 +215,7 @@ typedef struct VObj_18_24931d VObj_18_24931d;
 #define PSO_VCALL_VObj_18_24931d_m60(_self) (((VObj_18_24931d *)(_self))->m60())
 #define PSO_VCALL_VObj_18_24931d_m30(_self) (((VObj_18_24931d *)(_self))->m30())
 #define PSO_VCALL_VObj_18_24931d_m49(_self, _arg0, _arg1, _arg2, _arg3) (((VObj_18_24931d *)(_self))->m49((_arg0), (_arg1), (_arg2), (_arg3)))
-extern "C" {
+
 void TUnk_804A4948::emit_marker_effects() {
     u8 *arg0 = (u8 *)this;
   s32 sp8;
@@ -256,5 +253,4 @@ void TUnk_804A4948::emit_marker_effects() {
     ((TObjPlayer *)arg0)->draw_status_icon((s32)&sp8);
     PSO_VCALL_VObj_18_24931d_m49(arg0, &sp8, 0, 0, 1);
   }
-}
 }

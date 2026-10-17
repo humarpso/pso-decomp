@@ -3,8 +3,6 @@
 #include "pso/misc/TOJungleDesign.h"
 #pragma fp_contract on
 
-extern "C" {
-
 extern s32 jungle_design_variant_table[];
 
 void TOJungleDesign::init_design_variant() {
@@ -17,6 +15,4 @@ void TOJungleDesign::init_design_variant() {
     }
     this->m_ac = (s32)fn_802FF064(jungle_design_variant_table[this->m_b0]);
     this->texture_id = (s32)fn_802FF028(0);
-}
-
 }

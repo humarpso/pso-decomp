@@ -14,7 +14,6 @@ s32 request_story_select_state(s32 arg0) {
 }
 
 extern s32 selected_episode;
-extern "C" {
 
 void TAdStorySelectGC::set_state(s32 arg0) {
     selected_episode = arg0;
@@ -26,5 +25,4 @@ void TAdStorySelectGC::set_state(s32 arg0) {
         TLobby__sub_80207BB0();
         return;
     }
-}
 }

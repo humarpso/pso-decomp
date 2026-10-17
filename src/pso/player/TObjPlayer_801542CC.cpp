@@ -590,12 +590,10 @@ s32 test_collider_sphere_overlap_xz(s32 arg0, u8 *arg1, u32 arg2) {
     }
     return 0;
 }
-extern "C" {
 
 void TObjPlayer__sub_801550B8(u8 *arg0, u8 *arg1) {
     *(ByteBlock_C *)(arg0) = *(const ByteBlock_C *)(arg1);
     *(f32 *)((s8 *)arg0 + 0xC) = (f32) *(f32 *)((s8 *)arg1 + 0xC);
-}
 }
 
 s32 resolve_actor_sphere_contact(u8 *arg0, s32 arg1, s32 arg2) {

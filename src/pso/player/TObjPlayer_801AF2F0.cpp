@@ -3619,7 +3619,6 @@ u32 TObjPlayer::find_revival_item() {
     return found;
 }
 
-extern "C" {
 void TObjPlayer::set_state_flag_604B() {
     if (((s32 (*)(void))obj_isState3_324__13TUnk_804806E8Fv)() != 0) {
         this->m_698 = 0x604B;
@@ -3789,7 +3788,6 @@ void for_each_player_slot__10TObjPlayerFv(void (*arg0)(void *)) {
 
 void TObjPlayer::check_flag_40000() {
     check_flag__10TObjPlayerFl(this, 0x40000);
-}
 }
 
 struct Pkt_801B1B08 { u16 f0; u16 client; u32 pad; };
@@ -5501,7 +5499,6 @@ TObjPlayer::ActionPalette* TObjPlayer::select_action_palette(int secondary) {
     return (ActionPalette*)fn_801C1E44((s32)action_palettes);
 }
 
-extern "C" {
 s32 TObjPlayer::refresh_effect() {
     s32 arg0 = (s32)this;
     if (TObjPlayer__sub_801C1F50(arg0 + 0x4AC) != 0) {
@@ -6332,7 +6329,6 @@ void handle_6x2B_create_inventory_item(s32 arg0) {
             }
         }
     }
-}
 }
 
 void TObjPlayer::request_inventory_item(TItemData* item) {

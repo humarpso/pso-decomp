@@ -3,8 +3,6 @@
 #include "pso/system/byteswap.h"
 #include "pso/TPlyGuildCardTag.h"
 
-extern "C" {
-
 void bswap__21TPlyMeetUserExtensionFv(s32 arg0) {
     s32 var_r31;
     s32 var_r30;
@@ -17,6 +15,4 @@ void bswap__21TPlyMeetUserExtensionFv(s32 arg0) {
         var_r31 += 8;
     } while (var_r30 < 8);
     bswap_32((u32 *)(arg0 + 0x40));
-}
-
 }

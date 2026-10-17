@@ -3,8 +3,6 @@
 #include "pso/item/TItemEquipBase.h"
 #include "pso/item/TItemProShield.h"
 
-extern "C" {
-
 void TItemProShield::vfunc_26() {
     s32 temp_r31;
     if (this->m_19c & 8) {
@@ -16,6 +14,4 @@ void TItemProShield::vfunc_26() {
         return;
     }
     ((TItemProShield *)((u8 *)this))->deactivate_shield_effect((s32) ((TItemWeapon *)((u8 *)this))->get_attach_joint());
-}
-
 }

@@ -24,8 +24,7 @@ void set_depth_buffer_settings_1(void) {
     GXSetZMode(1U, 3, 0);
     set_material_alpha_compare_reference(0);
 }
-extern "C" {
-}
+
 void set_depth_buffer_settings_3(void) {
     depth_buffer_settings.value = 7;
     *(s8 *)((s8 *)(&depth_buffer_settings.value) + 4) = 1;

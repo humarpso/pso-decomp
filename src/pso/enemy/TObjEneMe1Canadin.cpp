@@ -12,18 +12,17 @@ extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
-#include "pso/player/TUnk_804806E8.h"
-#include "pso/enemy/TObjEneDD_ST.h"
+
 #include "pso/enemy/TUnk_80494938.h"
 #include <stddef.h>
-#include "pso/enemy/TObjEneMe1Canadin.h"
+
 #include "pso/enemy/TObjEneMe1CanadinLeader.h"
 #include "pso/TObject.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
-#include "pso/enemy/TObjEneDD.h"
+
 #include "pso/enemy/TObjEneEpsilon.h"
 #include "pso/enemy/TObjEneMe1Gee.h"
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
@@ -31,7 +30,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
 
 #define VIRT(n) virtual void m##n() = 0;
 #define F_8009C510(off) (*(f32 *)(arg0 + (off)))
@@ -1713,10 +1711,6 @@ bool is_vec_xz_cross_negative(u8 *arg0, u8 *arg1);
 f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
 void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
 void * __dt__26TObjEneDf2Bringer_Eff_RushFv(void *arg0, s16 arg1);
-}
-void bringer_effect_cleanup_noop(void);
-u8 * construct_bringer_rush_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);
-extern "C" {
 void TObjEneMe1CanadinLeader__vt110(Leader_8009AB4C *obj, s32 mode);
 u8 TObjEneMe1CanadinLeader__vt107(void *arg0);
 void TObjEneMe1CanadinLeader__vt111(void *arg0);
@@ -2234,11 +2228,6 @@ u32 lbl_80500954[3];
 #define lbl_80500954 ((s32 *)lbl_80500954)
 
 void *__dt__26TObjEneDf2Bringer_Eff_RushFv(void *arg0, s16 arg1);
-}
-
-u8 *construct_bringer_rush_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);
-extern "C" {
-
 void TObjEneMe1CanadinLeader__vt110(Leader_8009AB4C *obj, s32 mode) {
     s32 i;
     Fields_8009AB4C *self;
@@ -4255,3 +4244,6 @@ void *TObjEneMe1Canadin::init(void *arg1, void *arg2, void *arg3) {
     return this;
 }
 }
+void bringer_effect_cleanup_noop(void);
+u8 * construct_bringer_rush_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);
+u8 *construct_bringer_rush_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);

@@ -84,8 +84,6 @@ struct CE4C_VObj_8020ce4c : CE4C_VBase_8020ce4c {
     virtual void m79(s32);
 };
 
-extern "C" {
-
 extern s32 TLobby__data_805D6144;
 
 void TLobby::assign_display_objects(u8 *arg0, s32 arg1) {
@@ -117,6 +115,4 @@ void TLobby::assign_display_objects(u8 *arg0, s32 arg1) {
             *(s16 *)((s8 *)ptr + 2) = (s16) (*(s16 *)((s8 *)ptr + 2) & 0xFFFFFFFE);
         }
     }
-}
-
 }

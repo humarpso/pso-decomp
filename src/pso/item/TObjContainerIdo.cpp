@@ -30,8 +30,6 @@ struct VObj_8017E184_8017E154 : Base_8017E184_8017E154 {
     virtual void m12();
 };
 
-extern "C" {
-
 void TUnk_804B97C0::vfunc_14() {  }
 
 void TUnk_804B97C0::run_task() {
@@ -47,5 +45,3 @@ void TUnk_804B97C0::render() {
 }
 
 void TUnk_804B97C0::vfunc_15() {  }
-
-}

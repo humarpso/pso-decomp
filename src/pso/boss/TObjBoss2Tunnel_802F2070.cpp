@@ -103,8 +103,7 @@ s32 TObjBoss2Tunnel__sub_802F2070(void) {
 }
 }
 struct TunnelVector3 { f32 x,y,z; };
-extern "C" { extern const f32 lbl_805DEC9C,lbl_805DECAC,lbl_805DECB0,lbl_805DECB4; }
-void TunnelSceneController::spawn_segment_row_a() {
+ extern const f32 lbl_805DEC9C,lbl_805DECAC,lbl_805DECB0,lbl_805DECB4; void TunnelSceneController::spawn_segment_row_a() {
     TunnelVector3 position;
     position.x=segment_x;
     position.y=lbl_805DEC9C;
@@ -129,8 +128,6 @@ void TunnelSceneController::spawn_segment_row_b() {
         }
     }
 }
-
-extern "C" {
 
 void TUnk_804E4B3C::spawn(s32 arg1, s32 arg2) {
     void *new_obj = (void *) __nw__7TObjectFUl(0x78);
@@ -451,5 +448,3 @@ typedef char RecoveredGlobal_802F2400_lbl_804E4A1C_size[sizeof(RecoveredGlobal_8
 #pragma push
 #pragma opt_common_subs off
 #pragma pop
-
-}

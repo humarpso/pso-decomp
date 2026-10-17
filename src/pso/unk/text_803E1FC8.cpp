@@ -10,12 +10,11 @@ extern Rgb_803E1FC8 scene_fog_color;
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-extern "C" {
+
 void fn_803E1FC8(u32 c) {
     scene_fog_color.r = (c & 0xFF000000) >> 24;
     scene_fog_color.g = (c & 0x00FF0000) >> 16;
     scene_fog_color.b = (c & 0x0000FF00) >> 8;
-}
 }
 #pragma pop
 

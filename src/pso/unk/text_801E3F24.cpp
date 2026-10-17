@@ -52,7 +52,7 @@ void handle_6x04_legacy_activate_switch_by_token(void *arg0) {
 
 void handle_6x03(void) {  }
 void handle_6x02(void) {  }
-extern "C" {
+
 void dispatch_6x_subcommand(Msg_801E3FA4 *arg0) {
     s32 i;
     char buf[0x80];
@@ -65,5 +65,4 @@ void dispatch_6x_subcommand(Msg_801E3FA4 *arg0) {
             return;
         }
     }
-}
 }

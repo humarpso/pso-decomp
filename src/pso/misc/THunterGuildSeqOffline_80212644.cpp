@@ -3,8 +3,6 @@
 #include "pso/misc/THunterGuildSeqOffline.h"
 #include "pso/misc/TQuestListVM.h"
 
-extern "C" {
-
 struct Base_80212644 { char pad[0x18]; };
 struct VObj_80212644 : Base_80212644 {
     virtual void m0();
@@ -24,6 +22,4 @@ void THunterGuildSeqOffline::set_state_3() {
         *(s32 *)((s8 *)THunterGuildSeqOffline__active_instance + 0x38) = 3;
         ((TShopWindowBase *)THunterGuildSeqOffline__active_instance)->set_field_20(5);
     }
-}
-
 }

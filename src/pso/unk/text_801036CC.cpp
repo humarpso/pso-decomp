@@ -66,12 +66,6 @@ void queue_destruction__7TObjectFv(void *);
 extern void *tl_05;
 void TLobby__sub_801036CC(void);
 void TLobby__sub_801041BC(void *, void *);
-}
-extern s32 local_client_id;
-extern s32 TLobby__designated_client_id;
-extern Ent_801037A0 **floor_item_row_table;
-void evict_lowest_key_floor_item(s32 n);
-extern "C" {
 void bswap_sync_item_state_header(void *);
 void set_boss_buf_entry__6TLobbyFii(s32, u16);
 void TLobby__sub_80104258(void *, void *);
@@ -102,7 +96,10 @@ void TLobby__sub_801036CC(void) {
     TLobby::reset_floor_items();
 }
 }
-
+extern s32 local_client_id;
+extern s32 TLobby__designated_client_id;
+extern Ent_801037A0 **floor_item_row_table;
+void evict_lowest_key_floor_item(s32 n);
 void handle_6x63_destroy_floor_item(void *arg0) {
     struct VObj_80103748 *o;
 
@@ -136,7 +133,6 @@ void evict_lowest_key_floor_item(s32 n) {
         ((TLobby *)(&m))->update_and_send();
     }
 }
-extern "C" {
 
 s32 TLobby::is_stat_over_limit(s32 arg0) {
     if ((arg0 >= 0) && (arg0 < 0x12) && ((s32) *(s32 *)((s8 *)floor_item_counts_by_floor + (arg0 * 4)) < 0x32)) {
@@ -382,5 +378,4 @@ s32 TLobby::insert_sorted_entry() {
         }
     }
     return 0;
-}
 }

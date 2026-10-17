@@ -6,8 +6,6 @@
 #include "pso/misc/TPlyDispConfigSmth.h"
 #include "pso/misc/TPlyInventoryItem.h"
 
-extern "C" {
-
 void bswap__12TPlyCharDataFv(s32 arg0) {
     s32 off;
     s32 i;
@@ -21,5 +19,3 @@ void bswap__12TPlyCharDataFv(s32 arg0) {
 }
 
 void TPlyDispConfig::bswap_pair() { bswap__18TPlyDispConfigSmthFv((s32)this); bswap__18TPlyDispConfigSmthFv((s32)((char*)this + 0x24)); }
-
-}

@@ -42,15 +42,13 @@ extern const f32 lbl_805DD9B0;
 extern "C" {
 void update_creation_camera_auto(Cam_80291784 *arg0);
 f32 TObjCMProportion::get_ratio(void),TObjCMProportion::get_right_trigger_ratio(void);
-}
-void get_creation_pad_stick(s32 *arg0, f32 *arg1);
-extern "C" {
 s32 TObjCMProportion__sub_8029914C(s32);
 f32 sin_table_lookup(s32),cos_table_lookup(s32);
 extern const f32 lbl_805DD974,lbl_805DD978,lbl_805DD9B4,lbl_805DD9B8,lbl_805DD9BC,lbl_805DD9C0;
 void *__nw__7TObjectFUl(int);
 void update_creation_camera_auto(Cam_80291784*);
 }
+void get_creation_pad_stick(s32 *arg0, f32 *arg1);
 
 #include "pso/misc/TCameraCtrl.h"
 
@@ -84,7 +82,7 @@ s32 *TLobby__sub_80291D4C(void) {
 }
 u32 get_character_creation_selected_entry_id(void) {  return TObjCMMainMenu__selected_entry_id; }
 void* construct_creation_camera(void* a0) { __ct__13TUnk_80488A28Fv(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_804DAB08); ((TUnk_804DAB08 *)a0)->m_38 = 0; *(float*)((char*)a0 + 0x48) = lbl_805DD974; ((TUnk_804DAB08 *)a0)->m_4c = lbl_805DD9C4; *(float*)((char*)a0 + 0x50) = lbl_805DD974; *(float*)((char*)a0 + 0x6c) = lbl_805DD9C8; *(int*)((char*)a0 + 0x74) = 0; ((TUnk_804DAB08 *)a0)->m_70 = 0; ((TUnk_804DAB08 *)a0)->m_78 = 2; *(int*)((char*)a0 + 0x7c) = 0; ((TUnk_804DAB08 *)a0)->m_88 = lbl_805DD974; *(float*)((char*)a0 + 0x8c) = lbl_805DD974; creation_camera_mode = 0; ((TUnk_804DAB08 *)a0)->m_54 = 17294; return a0; }
-extern "C" {
+
 void *TCameraCtrl__sub_80291C64(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)&lbl_804DAB08;
@@ -94,7 +92,6 @@ void *TCameraCtrl__sub_80291C64(void *arg0, s16 arg1) {
         }
     }
     return arg0;
-}
 }
 
 void CreationCamera::run_task() {
@@ -246,7 +243,6 @@ void CreationCamera::advance_manual(){
 
 void CreationCamera::update_auto(){ update_creation_camera_auto((Cam_80291784*)this); }
 
-extern "C" {
 void update_creation_camera_auto(Cam_80291784 *arg0) {
     s32 want;
     switch (get_character_creation_selected_entry_id()) {
@@ -284,7 +280,6 @@ void update_creation_camera_auto(Cam_80291784 *arg0) {
             break;
         }
     }
-}
 }
 
 #pragma push

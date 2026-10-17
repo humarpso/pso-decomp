@@ -156,7 +156,6 @@ s32 init_modem_session_config(void) {
     init_modem_buffer_config((void *) (&(*(RecoveredGlobal_8042839C_lbl_805D0A40 *)&lobby_net_session_state).value));
     return 0;
 }
-extern "C" {
 
 s32 TLobby::wait_timeout_loop() {
     u8 *arg0 = (u8 *)this;
@@ -223,7 +222,6 @@ void TLobby::reset_buffer_pool() {
     TLobby__buffer_pool_start = 0U;
     TLobby__buffer_pool_limit = 0;
     lbl_805D7C20 = 0;
-}
 }
 
 #pragma push

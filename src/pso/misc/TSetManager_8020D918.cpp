@@ -120,7 +120,7 @@ s32 load_map_decoration_rows(s32 map, s32 grp, s32 room) {
 
 #pragma push
 #pragma scheduling off
-extern "C" {
+
 void TLobby::clear_floor_flags_and_depart() {
     s32 unused;
     TLobby__sub_8020D94C();
@@ -203,5 +203,4 @@ void depart_floor_population(int unused) {
         TAdSinglePlyChrSelectGC::safe_free((u32)TLobby__data_805D610C);
         TLobby__data_805D610C = 0;
     }
-}
 }

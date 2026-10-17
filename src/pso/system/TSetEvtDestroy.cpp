@@ -14,7 +14,7 @@ const char* TSetEvtDestroy_name = TSetEvtDestroy_class_name;
 s32 check_value_equals__13TUnk_804B6C24Fl(void*, s32);
 }
 
-extern "C" void queue_destroy_event_descendants(TObject* root) {
+void queue_destroy_event_descendants(TObject* root) {
     TObject* p = root->m_down;
     TObject* cur;
     while (root->m_down != 0 && p != 0) {
@@ -123,11 +123,10 @@ s32 get_area_event_data(s32 arg0) {
     }
     return 0;
 }
-extern "C" {
+
 s32 next_event_shuffle_entry(EventShuffleTable *s) {
     if (s->count < s->cursor) return 0;
     return s->entries[s->cursor++];
-}
 }
 void shuffle_event_entries(EventShuffleTable *event_shuffle_table) {
     EventShuffleTable *s = event_shuffle_table;

@@ -2,8 +2,6 @@
 #include "pso/network/TProtocol.h"
 #include "pso/TProtocol.h"
 
-extern "C" {
-
 void TProtocol::handle_cmd_AB(packet &pkt) {
     void *arg1 = &pkt;
     s32 (*temp_r12)(u16);
@@ -13,6 +11,4 @@ void TProtocol::handle_cmd_AB(packet &pkt) {
     if (temp_r12 != NULL) {
         temp_r12(((TProtocol *)arg1)->m_flags);
     }
-}
-
 }

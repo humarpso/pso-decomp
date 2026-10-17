@@ -57,7 +57,6 @@ struct VObj_18 : VBase_18 {
     virtual s32 m49(void *, s32, s32, s32);
 };
 
-extern "C" {
 void TUnk_804A4748::emit_marker_effects() {
     u8 *arg0 = (u8 *)this;
     TObjPlayer__sub_80128A70();
@@ -70,6 +69,4 @@ void TUnk_804A4748::emit_marker_effects() {
 void TUnk_804A4748::reserved_53() {
     u8 *arg0 = (u8 *)this;
     ((TObjPlayer *)arg0)->draw_status_icons(arg0 + 0x1FC, arg0 + 0x208);
-}
-
 }

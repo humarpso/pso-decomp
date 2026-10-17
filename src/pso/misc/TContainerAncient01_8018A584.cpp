@@ -9,12 +9,11 @@ extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
-#include "pso/player/TUnk_804806E8.h"
+
 #include "pso/misc/TContainerAncient01.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
 
 struct Base_8018AC68_8018A584 { char pad[0x18]; };
 struct VObj_8018AC68_8018A584 : Base_8018AC68_8018A584 {

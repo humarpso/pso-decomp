@@ -264,7 +264,6 @@ struct TObjLazerFenceNorm_80192CCC {
     Motion_80192CCC *motion;
 };
 
-extern "C" {
 void TObjLazerFenceNorm::draw_model() {
     TObjFish::set_global_param((s32)lazer_fence_norm_texture_list);
     push_matrix();
@@ -304,6 +303,4 @@ void TObjLazerFenceNorm::reset_by_door() {
         set_indexed_flags(0, 1);
         *(s32 *)&this->m_b4 = 0;
     }
-}
-
 }

@@ -280,8 +280,5 @@ TWindowSubShortCut::TWindowSubShortCut(TObject *object, void *arg2) : TObject(ob
     this->m_24 = 0;
     this->m_1c = 0;
 }
-extern "C" {
 
 void TWindowSubShortCut::set_flag1e_bit80() { this->m_1e |= 0x80; }
-
-}

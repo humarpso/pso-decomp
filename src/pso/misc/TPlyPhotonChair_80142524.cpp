@@ -104,7 +104,6 @@ void TPlyPhotonChair::save_state(s32 _w0) { lbl_805D566C = (*(int *)&model_rende
 void restore_actor_draw_lighting(void) {  }
 }
 void setup_actor_draw_lighting(void) {  }
-extern "C" {
 
 void TPlyPhotonChair::draw_model() {
     draw_model_motion((void *)((s32)get_id()), (void *)(sub_80143930__13TUnk_804A7478Fv(this)), get_float_c());
@@ -162,4 +161,3 @@ void TPlyPhotonChair::update_bob_motion() {
 }
 void TUnk_804A7488::vfunc_3() { ((TPlyPhotonChair *)this)->get_id(); draw_chunk_object(); }
 int TLobby__sub_80142944(void* p) { return (*(u32*)((char*)p + 0xb0) >> 4) & 0x1; }
-}

@@ -7,14 +7,12 @@
 
 extern u8 *photon_blast_shared_resource;
 extern u32 leilla_photon_buffer_pair;
-extern "C" {
 
 void TObjPlayer::destroy_buffer_pair_instance() {
     if ((u32) leilla_photon_buffer_pair != 0U) {
         destroy_buffer_pair((void *)leilla_photon_buffer_pair, 1);
     }
     leilla_photon_buffer_pair = 0U;
-}
 }
 void create_leilla_photon_blast_model(void) {
     s32 temp_r3;

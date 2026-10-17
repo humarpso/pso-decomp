@@ -120,7 +120,6 @@ s32 validate_6x83_place_trap(G_ClientIDHeader *packet) {
     }
     return ((u32) *(s16 *)((s8 *)packet + 6) >> 0x1FU) ^ 1;
 }
-extern "C" {
 
 s32 validate_6x3B_clear_temporary_photon_blast_state_flags(G_ClientIDHeader *packet) {
     return validate_subcommand_client(packet) ? 1 : 0;
@@ -153,7 +152,6 @@ s32 validate_6x33_revive_player(G_ClientIDHeader *packet) {
         return 0;
     }
     return (u32) __cntlzw(TObjRoomId__sub_801A1DB8(*(u16 *)((s8 *)packet + 4))) >> 5;
-}
 }
 
 s32 validate_6xA1_revive_player_v3(G_ClientIDHeader *packet) {

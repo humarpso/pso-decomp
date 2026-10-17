@@ -2,8 +2,6 @@
 #include "pso/object/TObject_80019A50.h"
 #include "pso/boss/TBoss7LaserPtcl.h"
 
-extern "C" {
-
 void TBoss7LaserPtcl::destroy_particles() {
     s32 arg0 = (s32)this;
   void **var_r30;
@@ -23,6 +21,4 @@ void TBoss7LaserPtcl::destroy_particles() {
     var_r30 = (void **) ((u8 *) ((void **) (((u8 *) var_r30) + 4)));
   }
   while (var_r29 != 0);
-}
-
 }

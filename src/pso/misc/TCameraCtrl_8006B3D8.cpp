@@ -134,7 +134,7 @@ u8 *create_conversation_camera(s32 arg0) {
 }
 
 typedef char RecoveredGlobal_8006B4A0_lbl_804381E0_size[sizeof(RecoveredGlobal_8006B4A0_lbl_804381E0) == 0x1E0 ? 1 : -1];
-extern "C" {
+
 void TUnk_80488AD8::run_task() {
     u8 *arg0 = (u8 *)this;
     approach_camera_vector((u8 *)&this->unk_1C, (u8 *)&fixed_npc_camera_destination_table.value + (this->m_34 * 0x18), lbl_805D8FF8);
@@ -284,5 +284,4 @@ u8 *__dt__13TUnk_80488B08Fv(u8 *arg0, s16 arg1) {
         }
     }
     return arg0;
-}
 }

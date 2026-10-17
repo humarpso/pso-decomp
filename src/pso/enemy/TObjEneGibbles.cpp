@@ -8,7 +8,7 @@ extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
-#include "pso/player/TUnk_804806E8.h"
+
 #include "pso/enemy/TUnk_80494938.h"
 #include <stddef.h>
 #include "pso/TParticleCtrl.h"
@@ -184,27 +184,6 @@ extern s32 gibbles_boss_stat_handle;
 extern s32 gibbles_combat_stats_handle;
 extern u32 TObjEneGibbles__resource_bundle;
 void copy_position__20TBoss3VoloptHiraisinFv(s32 arg0);
-}
-void gibbles_render_node_callback(void);
-extern s32 lbl_805D5660;
-extern s32 lbl_805D5664;
-extern s32 lbl_805D5668;
-extern s32 TObjEneGibbles__render_node_index;
-extern s32 TObjEneGibbles__render_rotation_x;
-extern s32 chunk_polygon_flags_or_mask;
-extern s32 chunk_polygon_flags_and_mask;
-extern s32 model_render_flags;
-extern const f32 lbl_805DE87C;
-extern const f32 lbl_805DE880;
-extern const f32 lbl_805DE884;
-extern s32 lbl_80472768[];
-extern s32 lbl_80472774[];
-extern s32 lbl_805D586C;
-extern s32 lbl_805D5870;
-extern const f32 lbl_805DE824;
-void move_with_wall_slide(u8 *arg0);
-int initialize_enemy_photon_effect(void *p);
-extern "C" {
 void init_collision_body_parts(void *, void *, int);
 void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
 void * __nw__7TObjectFUl(int);
@@ -944,6 +923,25 @@ void render_and_get_joint_pos__14TObjEneGibblesFPvii(u8 *enemy, s32 arg1, s32 ar
     TObjPlayer::clear_global_state();
 }
 }
+void gibbles_render_node_callback(void);
+extern s32 lbl_805D5660;
+extern s32 lbl_805D5664;
+extern s32 lbl_805D5668;
+extern s32 TObjEneGibbles__render_node_index;
+extern s32 TObjEneGibbles__render_rotation_x;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
+extern const f32 lbl_805DE87C;
+extern const f32 lbl_805DE880;
+extern const f32 lbl_805DE884;
+extern s32 lbl_80472768[];
+extern s32 lbl_80472774[];
+extern s32 lbl_805D586C;
+extern s32 lbl_805D5870;
+extern const f32 lbl_805DE824;
+void move_with_wall_slide(u8 *arg0);
+int initialize_enemy_photon_effect(void *p);
 
 u32 TObjEneGibbles::resolve_sound_id(u32 sound_id) {
   s32 iVar1;

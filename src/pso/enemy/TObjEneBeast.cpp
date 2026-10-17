@@ -12,13 +12,11 @@
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
-#include "pso/enemy/TUnk_80493450.h"
-#include "pso/player/TUnk_804806E8.h"
+
 extern "C" void vfunc_101__12TObjEneBeastFv();
 extern "C" void test_flag_256__13TUnk_80493450Fv();
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEnePanarms.h"
-#include "pso/player/TObjPlayer.h"
 
 struct Ent_8009241C { u8 pad0[0xC]; f32 radius; u8 pad10[0x2C - 0x10]; };
 struct Mdl_8009241C { u8 pad0[8]; s32 f8; s32 fC; };

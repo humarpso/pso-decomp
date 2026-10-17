@@ -2,8 +2,6 @@
 #include "pso/misc/TRaderMapCore_801A6CEC.h"
 #include "pso/misc/TRaderMapCore.h"
 
-extern "C" {
-
 s32 TRaderMapCore::pack_color_bits(s32 arg1, s32 arg2) {
     s32 temp_r3;
 
@@ -21,6 +19,4 @@ s32 pack_flags__13TRaderMapCoreFii(s32 arg1, s32 arg2) {
 
 u8 TRaderMapCore::has_flag() {
     return (u8) ((*(s32 *)&this->m_flags & ((s32 (*)())pack_flags__13TRaderMapCoreFii)()) != 0);
-}
-
 }

@@ -1176,10 +1176,6 @@ void TObjFish__sub_802EC468(s32 arg0, f32 farg0, f32 farg1);
 void TBoss7DeRolLeC__sub_802EC994(void* p);
 void fn_802EC9A4(void *arg0, void *arg1);
 void fn_802EC9F0(TObjEneDD *arg0, void *arg1);
-}
-void handle_6xAA_barba_ray_boss_actions(void *arg0);
-void handle_6xA9_barba_ray_boss_actions(void *arg0);
-extern "C" {
 void TObjFish__sub_802ECBDC(Fish_802ECBDC *self);
 void TObjFish__sub_802ECC44(Fish_802ECC44 *self);
 
@@ -3303,7 +3299,8 @@ void fn_802EC9F0(TObjEneDD *arg0, void *arg1) {
     arg0->transition_enemy_state(*(s16 *)((s8 *)arg1 + 4));
 }
 }
-
+void handle_6xAA_barba_ray_boss_actions(void *arg0);
+void handle_6xA9_barba_ray_boss_actions(void *arg0);
 void handle_6xAA_barba_ray_boss_actions(void *boss7_joint) {
     void *x;
     ((TBoss7Joint *)boss7_joint)->read_state();

@@ -113,7 +113,6 @@ TObjLiveCameraCtrl::TObjLiveCameraCtrl(TObject *parent) : TObject(parent) {
     }
     ((Cam_8030BED4 *)this)->f50 = p;
 }
-extern "C" {
 
 s32 TObjLiveCameraCtrl::get_table_entry(s32 arg0) {
     if (arg0 < 0) {
@@ -127,7 +126,6 @@ s32 TObjLiveCameraCtrl::get_table_entry(s32 arg0) {
 
 s32 TObjLiveMonitor__sub_8030C050(void* p) { return *(s32*)((char*)p + 0x20); }
 void fn_8030C058(void) {  }
-}
 
 void reset_globals_805D6A84(void) {
     live_camera_controller_next_slot = 0;

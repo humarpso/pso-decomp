@@ -218,7 +218,7 @@ void TAdMultiOkGC::run_task() {
 TAdMultiOkGC::~TAdMultiOkGC() {}
 #pragma push
 #pragma fp_contract on
-extern "C" {
+
 Ok_80307034 *__ct__12TAdMultiOkGCFv(Ok_80307034 *self, void *parent, Cfg_80307034 *cfg) {
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = __vt__12TAdMultiOkGC;
@@ -272,7 +272,6 @@ Ok_80307034 *__ct__12TAdMultiOkGCFv(Ok_80307034 *self, void *parent, Cfg_8030703
         }
     }
     return self;
-}
 }
 #pragma pop
 

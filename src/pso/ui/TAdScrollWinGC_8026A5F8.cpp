@@ -116,7 +116,6 @@ void cache_last_chat_line(u32 text) {
         strncpy((int)var_r3, (void *)text, (int)size);
     }
 }
-extern "C" {
 
 void chat_log_add_line(s32 arg0) {
     s32 temp_r29;
@@ -137,5 +136,4 @@ void chat_log_add_line(s32 arg0) {
     *(s32 *)((s8 *)((u8 *)&chat_log_lines.value + temp_r30) + 0) = var_r28;
     strncpy((int) (*(s32 *)((s8 *)((u8 *)&chat_log_lines.value + temp_r30) + 0)), (void *)arg0, (int)temp_r29);
     *(s8 *)((s8 *)(temp_r29 + *(s32 *)((s8 *)((u8 *)&chat_log_lines.value + temp_r30) + 0)) + 0) = 0;
-}
 }

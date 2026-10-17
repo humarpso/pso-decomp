@@ -124,8 +124,6 @@ void TWindowActionPalette::set_bank_panel_art(unsigned short state) {
     set_sprite_uv_from_pixels((u8 *)sprite, TWindowActionPalette__bank_panel_uv_origins[state][0], TWindowActionPalette__bank_panel_uv_origins[state][1]);
 }
 
-extern "C" {
-
 #define self ((Obj_80243968 *)arg0)
 void TWindowActionPalette::update_slot_icon(void *arg0, int idx, int mode, int slot) {
     if (((u32 (*)(int))get_player_by_client_id)(self->id) != 0) {
@@ -167,8 +165,6 @@ void TWindowActionPalette::update_slot_sprites(int idx, int mode, u16 slot) {
             draw_action_palette_icon(help, mode, slot);
         }
     }
-}
-
 }
 
 #define SELF ((TWindowActionPalette *)arg0)

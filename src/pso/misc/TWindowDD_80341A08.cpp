@@ -5,7 +5,6 @@
 #include "pso/misc/TWindowDD_80341A08.h"
 #include "pso/misc/TUnk_804CE018.h"
 
-extern "C" {
 #define sub_80341AC0__17TWindowDD_WS_WordFv ((s32 (*)(void))sub_80341AC0__17TWindowDD_WS_WordFv)
 
 s32 TWindowDD_WS_Word::can_scroll(s32 arg1) {
@@ -47,8 +46,6 @@ void TWindowDD__sub_80341AE0(u8 *arg0) {
 void TWindowDD__sub_80341AF8(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0x60) & 0xFFFFFFFE);
     *(s32 *)((s8 *)arg0 + 0x8C) = 1;
-}
-
 }
 
 #include "pso/misc/TWindowDD.h"

@@ -101,7 +101,6 @@ void draw_quest_load_letterbox_bars(void) {
         i++;
     } while (i < 2);
 }
-extern "C" {
 
 void fn_80349844(void) {
     f32 pos[8];
@@ -131,5 +130,4 @@ void fn_80349844(void) {
         d.col[3] = 0xFF001A36;
         draw_color_lines(&d, 4, 3, lbl_805DFD14);
     }
-}
 }

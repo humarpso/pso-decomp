@@ -1,11 +1,7 @@
 #include "types.h"
 #include "pso/player/TObjPlayer_801D9E10.h"
 
-extern "C" {
-
 void TObjPlayer__sub_801D9E10(void* p, s16 v) { *(s16*)((char*)p + 0x8) = v; }
-
-}
 
 struct Ent_801D9E18 { u8 d[4]; };
 
@@ -28,9 +24,5 @@ void TObjPlayer__sub_801D9E2C(Obj_801D9E2C *p, s16 i) {
 
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 void TObjPlayer::set_field_1c(f32 v) { *(f32*)((char*)this + 0x1c) = v; }
 void TObjPlayer::set_field18(f32 v) { *(f32*)((char*)this + 0x18) = v; }
-
-}

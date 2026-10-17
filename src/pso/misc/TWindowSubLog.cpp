@@ -114,12 +114,9 @@ TWindowSubLog::TWindowSubLog(TObject *arg1, void *arg2) : TObject(arg1) {
     ((Lg_8027B194 *)this)->f28 = w;
     fn_8027B2A8((void*)(((Lg_8027B194 *)this)->f28));
 }
-extern "C" {
 
 void TWindowSubLog::clear_flag4c_bit8() { this->m_4c &= 0xfffffff7; }
 int TWindowSubLog::cleanup() { return show_child_window__17TWindowMainMenu4PFv(this); }
 void TWindowSubLog::set_flag4c_bit8() { this->m_4c |= 0x8; }
 int fn_8027B288(void* p) { return update_trade_submenu__15TWindowMainMenuFv(p); }
 void fn_8027B2A8(void* p) { *(u16*)((char*)p + 0x1e) |= 0x200; }
-
-}

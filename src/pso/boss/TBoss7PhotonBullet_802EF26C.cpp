@@ -9,7 +9,7 @@
 #include "pso/boss/TBoss7PhotonBullet.h"
 #include "pso/player/TUnk_804928CC.h"
 extern "C" void render__15TBoss7PhotonPadFv();
-#include "pso/TBoss7PhotonPad.h"
+
 #include "pso/boss/TBoss7Joint.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/misc/TNowLoading.h"

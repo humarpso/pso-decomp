@@ -174,7 +174,6 @@ void handle_6x66_use_star_atomizer(u8 *arg0) {
         } while (var_r28 != 4);
     }
 }
-extern "C" {
 
 void send_nearby_player_ids(Obj_80116004 *self, f32 range) {
     Msg_80116004 msg;
@@ -225,7 +224,6 @@ void*TItemObject::vfunc_9() {
         return (unsigned char *) (temp_r4 + 0x38);
     }
     return (u8 *)&this->position;
-}
 }
 
 struct Base_8011626C_80115D6C { char pad[0x18]; };

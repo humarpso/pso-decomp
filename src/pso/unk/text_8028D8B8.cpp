@@ -31,7 +31,6 @@ void alloc_quest_download_buffer(void) {
         if ((chr_select_load_buffer_base = alloc__22TQuestVmDownLoadServerFv(0x28000)) == 0) return;
     }
 }
-extern "C" {
 
 void fn_8028D8F4(void) {
     if ((u32) *(u32 *)((s8 *)(&(*(RecoveredGlobal_8028D8F4_lbl_8051C070 *)&lbl_8051C070).value) + 0) != 0U) {
@@ -49,5 +48,4 @@ void fn_8028D940(void) {
     if (TChCrEffCtrlPl__sub_80298F6C() != 0) {
         *(s32 *)((s8 *)&lbl_8051C070.value + 8) = create__14TChCrEffCtrlPlFv(tl_03);
     }
-}
 }

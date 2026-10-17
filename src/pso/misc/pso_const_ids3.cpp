@@ -2,8 +2,6 @@
 #include "pso/misc/TUnk_804DDD28.h"
 #include "pso/misc/TUnk_804DDBF0.h"
 
-extern "C" {
-
 int TUnk_804DDBF0::vfunc_15() { return 0; }
 int TUnk_804DDBF0::vfunc_16() { return 1; }
 int TUnk_804DDBF0::vfunc_17() { return 2; }
@@ -26,5 +24,3 @@ int TUnk_804DDD28::vfunc_13() { return 0; }
 int TUnk_804DDD28::vfunc_12() { return 0; }
 int TUnk_804DDD28::vfunc_73() { return -1; }
 int TUnk_804DDD28::vfunc_74() { return -1; }
-
-}

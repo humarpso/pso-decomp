@@ -7,7 +7,7 @@
 
 #include <stddef.h>
 #include "pso/player/TObjPlayer.h"
-extern "C" {
+
 void TUnk_804A5930::vfunc_31() {
     s32 arg0 = (s32)this;
     TItemData item_data;
@@ -17,6 +17,4 @@ void TUnk_804A5930::vfunc_31() {
         item_data.data1.data_u8[2] = 0;
         replace_item_with_new_code((&item_data.data1.data_u8[0]), (arg0));
     }
-}
-
 }

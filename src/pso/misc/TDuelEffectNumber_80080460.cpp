@@ -93,12 +93,9 @@ TDuelEffectString::TDuelEffectString(TObject *object, void *arg2, void *arg3) : 
     *(void **)((s8 *)this + 0x24) = arg3;
     *(u32 *)((s8 *)this + 0x28) = 0;
 }
-extern "C" {
 
 f32 TBoss8Dragon__sub_8008072C(void) {
     return (f32) pow();
-}
-
 }
 
 #pragma pop

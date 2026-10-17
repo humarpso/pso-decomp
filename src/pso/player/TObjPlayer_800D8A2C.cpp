@@ -3,8 +3,6 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
 
-extern "C" {
-
 extern s32 player_particle_effect_enabled;
 
 void TObjPlayer::toggle_particle_effect() {
@@ -18,5 +16,3 @@ void TObjPlayer::toggle_particle_effect() {
 void TObjPlayer__sub_800D8A60(void) { player_particle_effect_enabled = 0; }
 
 void TObjPlayer__sub_800D8A6C(void) { player_particle_effect_enabled = 1; }
-
-}

@@ -141,7 +141,6 @@ f32 newton_sqrtf(f32);
 void calc_wall_clamped_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist);
 extern const f32 TObjEneDD__data_805D9E8C;
 void calc_wall_slide_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist);
-extern "C" {
 
 int TObjEneDD::has_move_failures(s32 arg1) {
     u8 *arg0 = (u8 *)this;
@@ -244,7 +243,6 @@ u8 *TBoss5Gryphon::try_move_actor_xz_on_ground(u8 *arg1) {
         this->m_384 = (this->m_384 + 1);
     }
     return temp_r3;
-}
 }
 #pragma push
 #pragma fp_contract on

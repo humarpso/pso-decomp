@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/unk/text_801C53D4.h"
 
-extern "C" {
-
 s32 decrement_clamped(s32 *arg0, s32 arg1) {
     *arg0 -= arg1;
     if ((s32) *arg0 < 0) {
@@ -30,6 +28,4 @@ void fn_801C5420(s32 *arg0, s32 arg1) {
         var_r4 = 0;
     }
     *arg0 = var_r4;
-}
-
 }

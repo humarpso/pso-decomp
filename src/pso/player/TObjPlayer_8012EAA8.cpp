@@ -37,7 +37,6 @@ void s_red_blade_equip_rolls(void* p) { roll_technique__11TItemWeaponFv(p); roll
 void s_red_blade_turn_node(void* p) { if (get_player_list__10TObjPlayerFv(p) == 1) { rotate_matrix_x((void*)0, *(void**)((char*)p + 0x1f8)); } }
 
 extern s32 lbl_804A5F18[];
-extern "C" {
 
 void *TObjPlayer::init_variant_a() {
     TItemWeapon__ct(this);
@@ -46,5 +45,4 @@ void *TObjPlayer::init_variant_a() {
     set_status_flags(1570);
     set_effect_state(2);
     return this;
-}
 }

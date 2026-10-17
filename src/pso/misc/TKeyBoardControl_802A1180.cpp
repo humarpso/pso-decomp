@@ -69,7 +69,6 @@ void update_movie_phase(void) {
     }
     render_tick();
 }
-extern "C" {
 
 void TKeyBoardControl::update_menu_scene() {
     set_copy_clear_color_argb(0, 0, 0);
@@ -106,5 +105,4 @@ void *__dt__13TUnk_804DCB64Fv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
-}
 }

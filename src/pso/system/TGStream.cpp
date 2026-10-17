@@ -34,9 +34,6 @@ s32 strcmp(void *, void *);
 s32 strlen(char *);
 s32 strncpy(char *, char *, s32);
 u32 adxf_open__6TLobbyFUii(char *, s32);
-}
-s32 get_gstream_buffered_bytes();
-extern "C" {
 s32 TLobby__sub_803CC578(s32, s32, s32);
 extern char lbl_8043DB04[];
 extern char lbl_8043DB14[];
@@ -243,7 +240,7 @@ void TGStream__sub_800FDD64(void) {  }
 
 int get_gstream_file_size(void) {  return gstream_file_size; }
 }
-
+s32 get_gstream_buffered_bytes();
 GslArchiveEntry *find_gsl_entry(void *name) {
     GslArchiveEntry *e;
     s32 i;
@@ -258,7 +255,6 @@ GslArchiveEntry *find_gsl_entry(void *name) {
     }
     return 0;
 }
-extern "C" {
 
 void close_gsl_archive(void) {
     char buf[32];
@@ -324,12 +320,10 @@ loop_1:
     TLobby::reset_read_state();
     gstream_read_offset += arg1 << 0xB;
 }
-}
 
 void align_gstream_read_offset(void *self, s32 n) {
     gstream_buffer_read_offset = n * ((gstream_buffer_read_offset + n - 1) / n);
 }
-extern "C" {
 
 s32 TGStream::read_data(s32 dst, s32 size) {
     TGStreamPrefix *arg0 = (TGStreamPrefix *)this;
@@ -352,7 +346,6 @@ s32 TGStream::read_data(s32 dst, s32 size) {
         gstream_buffer_read_offset += n;
     }
     return total;
-}
 }
 
 s32 get_gstream_buffered_bytes(void) {
@@ -382,7 +375,6 @@ s32 refill_gstream_buffer(s32 arg0) {
     }
     return get_gstream_buffered_bytes();
 }
-extern "C" {
 
 TGStreamPrefix *destroy_gstream(TGStreamPrefix *g_stream_prefix, s16 arg1) {
     if (g_stream_prefix != NULL) {
@@ -433,7 +425,6 @@ TGStreamPrefix *open__8TGStreamFPvPvi(TGStreamPrefix *g_stream_prefix, void *fil
 }
 
 void TItemDrop__sub_800FE2D8(void) {  }
-}
 
 void reset_gstream_globals(void) {
     gstream_tmp_buffer = 0;

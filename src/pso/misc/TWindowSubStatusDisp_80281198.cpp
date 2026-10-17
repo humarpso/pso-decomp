@@ -334,7 +334,6 @@ void TWindowSubStatusDisp::dispatch_page_update() {
 
 #pragma defer_codegen off
 
-extern "C" {
 void TWindowSubStatusDisp::render() {
     s32 temp_r3;
 
@@ -395,6 +394,4 @@ SD_80281760 *TWindowSubStatusDisp__ct(SD_80281760 *arg0, s32 arg1) {
     arg0->f68 = w;
     ((TWindowSubStatusDisp *)arg0)->dispatch_page_init();
     return arg0;
-}
-
 }

@@ -194,7 +194,6 @@ TUnk_804CC148::TUnk_804CC148(s32 arg1, s32 arg2, s32 arg4) : TEffect() {
         init_collision_body_parts(this->m_e8, ((u8 *)this) + 0xBC, 1);
     }
 }
-extern "C" {
 
 u8 *construct_area_technique_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u32 var_r0;
@@ -247,8 +246,6 @@ u8 *construct_area_technique_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 ar
         init_collision_body_parts(((TUnk_804CC148 *)arg0)->m_e8, arg0 + 0xBC, 1);
     }
     return arg0;
-}
-
 }
 
 #undef __vt__13TUnk_804CC148

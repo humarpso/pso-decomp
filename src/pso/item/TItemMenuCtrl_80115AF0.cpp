@@ -33,7 +33,6 @@ u8 *spawn_star_light_2d(s32 arg0, s32 arg1, s32 arg2) {
     return NULL;
 }
 #pragma pop
-extern "C" {
 
 void TItemEffOrgaFlowShot::approach_value(f32 *arg0, f32 farg0, f32 farg1) {
     *arg0 += farg0;
@@ -55,7 +54,6 @@ void TObjPlayer::add_angle_clamped(s32 *arg0, s32 arg1, s32 arg2) {
     } else if ((s32) *arg0 < arg2) {
         *arg0 = arg2;
     }
-}
 }
 
 void advance_angle_wrap(s32 *arg0, s32 arg1) {

@@ -3,8 +3,6 @@
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
-
 extern s32 lbl_805D6C84;
 
 void TLobby::apply_state_6c84() {
@@ -25,6 +23,4 @@ void TLobby::set_flag_1_at_6c84() {
 
 void TLobby::clear_flag_at_6c84() {
     ((TObjPlayer *)(&lbl_805D6C84))->clear_id();
-}
-
 }

@@ -248,15 +248,6 @@ s32 TObjEnemyCustom__ct(void *, int);
 int reset_photon_effect__10TObjPlayerFv(void*);
 void TObjPlayer__sub_801BA42C(void);
 void TLobby__send_and_handle_60(u8 *arg0);
-}
-void handle_6x17_set_entity_position_and_angle(u8 *arg0);
-void handle_6x16_vol_opt_boss_actions(TBoss3Volopt *arg0);
-void reset_vol_opt_state(void* a0);
-void clear_volopt_cage_flag(void);
-void cache_volopt_resource_ptrs(void);
-void reset_cameras_to_actor(void *actor, s32 arg1);
-s32 get_story_flag(s32);
-extern "C" {
 void play_area_music(char *name);
 void __dl__7TObjectFPv(void *);
 int update_if_active__12TBoss3VoloptFl(void*);
@@ -333,14 +324,19 @@ void handle_6x85_vol_opt_phase2_boss_actions(Obj_8003CA2C *self) {
     }
 }
 }
-
+void handle_6x17_set_entity_position_and_angle(u8 *arg0);
+void handle_6x16_vol_opt_boss_actions(TBoss3Volopt *arg0);
+void reset_vol_opt_state(void* a0);
+void clear_volopt_cage_flag(void);
+void cache_volopt_resource_ptrs(void);
+void reset_cameras_to_actor(void *actor, s32 arg1);
+s32 get_story_flag(s32);
 void handle_6x84_vol_opt_boss_actions(TBoss3Volopt *arg0) {
     arg0->bswap_actions();
     ((TLobby *)boss3_volopt_player_target_ids)->move_data((void *)((char *)arg0 + 4), 6);
     volopt_active_player_id = *(s16 *)((s8 *)arg0 + 0xC);
     TCameraCtrl::set_player_targets(*(s16 *)((s8 *)arg0 + 0xA));
 }
-extern "C" {
 
 void TBoss3Volopt::update_phase() {
     TBoss4DarkFalz::dispatch_by_main_phase(0x2A);
@@ -366,7 +362,6 @@ void TBoss3Volopt::alloc_idle_event() { TBoss3Volopt::alloc_event((s16)((void*)1
 bool is_volopt_death_active(void) {
     return (*(s32 *)&volopt_death_active) != 0;
 }
-}
 
 void handle_6x17_set_entity_position_and_angle(u8 *arg0) {
     u8 *temp_r3;
@@ -382,7 +377,6 @@ void handle_6x17_set_entity_position_and_angle(u8 *arg0) {
         }
     }
 }
-extern "C" {
 
 void send_position_message__12TBoss3VoloptFPvPvi(void *obj, V3_8003CC18 *pos, s32 arg) {
     Msg_8003CC18 m;
@@ -393,7 +387,6 @@ void send_position_message__12TBoss3VoloptFPvPvi(void *obj, V3_8003CC18 *pos, s3
         m.arg = arg;
         ((TBoss3Volopt *)(&m))->send_state();
     }
-}
 }
 
 void handle_6x16_vol_opt_boss_actions(TBoss3Volopt *arg0) {
@@ -907,7 +900,7 @@ void reset_vol_opt_state(void* a0) {
 
 #pragma push
 #pragma fp_contract on
-extern "C" {
+
 void select_and_send_attack__12TBoss3VoloptFPv(void *arg0_) {
     void *e;
     s32 n;
@@ -1474,4 +1467,3 @@ void TBoss3Volopt::send_update_60() { bswap_actions(); TLobby__send_and_handle_6
 void TBoss3Volopt__sub_8003F384(void* p) { *(u8*)((char*)p + 0x0) = 132; *(u8*)((char*)p + 0x1) = 4; }
 
 int TBoss3Volopt__sub_8003F398(void) {  return lbl_805D4C40; }
-}

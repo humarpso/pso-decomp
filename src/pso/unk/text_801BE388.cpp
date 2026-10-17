@@ -9,11 +9,7 @@ struct RecoveredGlobal_801BE388_lbl_8050EA40 {
 
 extern RecoveredGlobal_801BE388_lbl_8050EA40 lobby_rule_settings;
 
-extern "C" {
-
 typedef char RecoveredGlobal_801BE388_lbl_8050EA40_size[sizeof(RecoveredGlobal_801BE388_lbl_8050EA40) == 0x30 ? 1 : -1];
 s8 TObjPlayer::get_rule_field_0() {
     return ((TLobby *)(&lobby_rule_settings.value))->get_rule_field_0();
-}
-
 }

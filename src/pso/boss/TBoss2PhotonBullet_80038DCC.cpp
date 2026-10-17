@@ -10,7 +10,7 @@
 extern "C" void render__15TBoss2PhotonPadFv();
 
 #include <stddef.h>
-#include "pso/TBoss2PhotonPad.h"
+
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer.h"

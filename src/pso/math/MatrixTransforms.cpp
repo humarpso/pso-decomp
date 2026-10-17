@@ -87,7 +87,7 @@ void euler_yxz_to_quaternion(u8 *arg0, u8 *arg1) {
 
 #pragma push
 #pragma scheduling off
-extern "C" {
+
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z) {
     u32 var_r3;
     u32 phi_r3;
@@ -97,6 +97,5 @@ void translate_matrix(u32 arg0, f32 x, f32 y, f32 z) {
         phi_r3 = current_matrix;
     }
     matrix_apply_translation(phi_r3, x, y, z);
-}
 }
 #pragma pop

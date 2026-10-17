@@ -9,9 +9,6 @@ extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #include "pso/system/vector.h"
-#include "pso/enemy/TObjEnemy.h"
-#include "pso/enemy/TObjEnemyCustom.h"
-#include "pso/player/TObjPlayer.h"
 
 struct Obj_800C7DF8 { u8 pad0[0x326]; s16 state; };
 

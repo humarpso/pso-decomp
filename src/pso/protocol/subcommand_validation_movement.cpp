@@ -91,12 +91,10 @@ s32 validate_6x9B_level_up_all_techniques(G_ClientIDHeader *packet) {
     }
     return (u8) *(u8 *)((s8 *)packet + 4) <= 0x1DU ? 1 : 0;
 }
-extern "C" {
 
 s32 validate_subcommand_client(G_ClientIDHeader *packet) {
     if (find_entity_by_id(packet->client_id) == 0U) {
         return 0;
     }
     return (u32) __cntlzw(is_matching_id__6TLobbyFlUs(packet, packet->client_id)) >> 5;
-}
 }

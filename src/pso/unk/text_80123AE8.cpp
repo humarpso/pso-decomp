@@ -5,8 +5,6 @@
 extern const f32 lbl_805DAD10;
 extern const f32 lbl_805DAD14;
 
-extern "C" {
-
 void TUnk_804A1D30::update_idle() {
     TUnk_804A1D30 *self = this;
     if (lbl_805DAD10 < self->m_200) {
@@ -15,6 +13,4 @@ void TUnk_804A1D30::update_idle() {
             self->m_200 = lbl_805DAD10;
         }
     }
-}
-
 }

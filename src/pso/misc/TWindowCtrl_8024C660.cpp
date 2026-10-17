@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowCtrl.h"
 
-extern "C" {
-
 extern void *TWindowCtrl__active_window;
 
 s32 TWindowCtrl::get_flag_bit5() {
@@ -10,6 +8,4 @@ s32 TWindowCtrl::get_flag_bit5() {
         return 0;
     }
     return ((u16) *(u16 *)((s8 *)TWindowCtrl__active_window + 0x1C) >> 5U) & 1;
-}
-
 }

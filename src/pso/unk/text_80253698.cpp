@@ -3,7 +3,6 @@
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
-extern "C" {
 #pragma push
 #pragma opt_propagation off
 s32 are_status_entries_ready__13TWindowSubMagFi(s32 arg0) {
@@ -42,5 +41,3 @@ s32 are_status_entries_ready__13TWindowSubMagFi(s32 arg0) {
     return var_r3;
 }
 #pragma pop
-
-}

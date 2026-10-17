@@ -3,8 +3,6 @@
 #include "pso/boss/TBoss6Demo15_TYPE2_WAIT.h"
 #include "pso/boss/TBoss4Type2.h"
 
-extern "C" {
-
 extern const f32 lbl_805DFB08;
 extern const f32 lbl_805DFB0C;
 
@@ -14,5 +12,3 @@ void TBoss6Demo15_TYPE2_WAIT::advance_offset() {
 }
 
 void TObjFish__sub_8033FF64(void* p) { *(s32*)((char*)p + 0x58) = 24576; *(s32*)((char*)p + 0x5c) = 0; }
-
-}

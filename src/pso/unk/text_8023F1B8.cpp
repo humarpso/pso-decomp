@@ -56,7 +56,7 @@ extern const f32 lbl_805DC9BC;
 typedef char RecoveredGlobal_8023F1B8_lbl_804CCDA8_size[sizeof(RecoveredGlobal_8023F1B8_lbl_804CCDA8) == 0xB8 ? 1 : -1];
 typedef char RecoveredGlobal_8023F1B8_lbl_804CCE60_size[sizeof(RecoveredGlobal_8023F1B8_lbl_804CCE60) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_8023F1B8_main_task_size[sizeof(RecoveredGlobal_8023F1B8_main_task) == 0x34 ? 1 : -1];
-extern "C" {
+
 void TLobby::release_scene_resources() {
     TLobby::refresh_render_state();
     TLobby::stop_audio_streams();
@@ -121,5 +121,4 @@ void init_game_mode_select_scene(void) {
     }
     game_mode_scene_instance = 0;
     load_floor_sound_bank(0);
-}
 }

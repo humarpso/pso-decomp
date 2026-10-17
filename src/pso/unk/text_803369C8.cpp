@@ -37,7 +37,6 @@ void rotate_title_background_quad(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 fa
     *(f32 *)((s8 *)arg1 + 0x18) = temp_f5;
 }
 #pragma pop
-extern "C" {
 
 void TUnk_804EEF80::render() {
     u8 *arg0 = (u8 *)this;
@@ -55,7 +54,6 @@ void TUnk_804EEF80::render() {
 
 void TUnk_804EEF80::run_task() {
     this->m_20 = (this->m_20 + 1);
-}
 }
 TUnk_804EEF80::~TUnk_804EEF80() {
 

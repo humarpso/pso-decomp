@@ -123,7 +123,6 @@ void generate_shop_shield_pool(s32 arg0) {
         }
     }
 }
-extern "C" {
 
 void TLobby::clear_shop_entry_value(s32 i, s32 j) {
     Ent_8020EC68 *e = ((Ent_8020EC68 * *)&lbl_80513D78)[j];
@@ -131,15 +130,12 @@ void TLobby::clear_shop_entry_value(s32 i, s32 j) {
         if (e[i].v != -1) e[i].v = -1;
     }
 }
-}
 
 void clear_shop_armor_flags(void) {
     memset(&shop_armor_stock_generated_flags.value, 0, 0x10);
 }
-extern "C" {
 
 void TLobby::copy_armor_shop_entry(s32 arg1, s32 arg2) {
     s32 arg0 = (s32)this;
     *(ByteBlock_14 *)(arg0) = *(const ByteBlock_14 *)(*(s32 *)((s8 *)&lbl_80513D78.value + (arg2 * 4)) + (arg1 * 0x14));
-}
 }

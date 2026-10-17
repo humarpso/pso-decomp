@@ -682,7 +682,7 @@ void TProtocol::recv_room_info(packet &pkt) {
 #pragma auto_inline off
 #pragma dont_inline off
 #pragma scheduling off
-extern "C" u8 *__as__14LobbyListEntryFRC14LobbyListEntry(void *arg0, const void *arg1) {
+u8 *__as__14LobbyListEntryFRC14LobbyListEntry(void *arg0, const void *arg1) {
     *(ByteBlock_C *)(arg0) = *(const ByteBlock_C *)(arg1);
     return (u8 *)arg0;
 }
@@ -929,7 +929,7 @@ void TProtocol::recv_text_list(packet &pkt) {
 #pragma scheduling off
 #define arg0 ((Game_801DDB44 *)arg0_)
 #define arg1 ((const Game_801DDB44 *)arg1_)
-extern "C" Game_801DDB44 *__as__13GameListEntryFRC13GameListEntry(void *arg0_, const void *arg1_) {
+Game_801DDB44 *__as__13GameListEntryFRC13GameListEntry(void *arg0_, const void *arg1_) {
     arg0->tag = arg1->tag;
     arg0->difficulty_tag = arg1->difficulty_tag;
     arg0->num_players = arg1->num_players;
@@ -1295,7 +1295,7 @@ typedef char RecoveredFields_801DD33C_arg1_1_offset[offsetof(RecoveredFields_801
 typedef char RecoveredFields_801DD33C_arg1_2_offset[offsetof(RecoveredFields_801DD33C_arg1, field_2) == 0x2 ? 1 : -1];
 typedef char RecoveredFields_801DD33C_arg1_4_offset[offsetof(RecoveredFields_801DD33C_arg1, field_4) == 0x4 ? 1 : -1];
 
-extern "C" void bswap_cmd_AB__9TProtocolFPv(void *p) {
+void bswap_cmd_AB__9TProtocolFPv(void *p) {
 	((packet_header *)p)->bswap();
 	bswap_16((u16 *)((char *)p + 4));
 }

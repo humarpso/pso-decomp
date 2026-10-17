@@ -146,7 +146,6 @@ s32 setup_indirect_tev_alternate(s32 arg0, s32 unused, s32 sampler, s32 arg3) {
         load_list_texture(0, sampler, sampler, 5);
     }
 }
-extern "C" {
 
 void TEffIndirectCtrl::update_scroll_mode() {
     Ctrl_802A8728 *self = (Ctrl_802A8728 *)this;
@@ -156,7 +155,6 @@ void TEffIndirectCtrl::update_scroll_mode() {
     self->phase = self->phase + (s8) self->recipe[3];
     deform_indirect_texture_scroll(self->buf, self->amp, self->period, rate, self->phase);
     DCFlushRange(self->buf, 0x1000);
-}
 }
 
 void update_eff_indirect(TEffIndirectCtrl *eff_indirect_ctrl) {

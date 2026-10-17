@@ -17,7 +17,6 @@ void start_guardianna_wall_card(s32 arg0, s32 arg1, s32 arg2) {
         __ct__13TUnk_804EDD44FP7TObjectPfPfll(obj, tl_05, arg1, arg2, -0x100, arg0);
     }
 }
-extern "C" {
 
 void TObjPlayer::start_guardianna_hit_card(s32 arg0, u32 *arg1, s32 arg2) {
     void *obj;
@@ -64,5 +63,4 @@ void TObjPlayer::create_network_object(s32 arg0, u32 *arg1, s32 arg2) {
             construct_card_effect_on_target(obj, tl_05, arg1, arg2, 0, arg0);
         }
     }
-}
 }

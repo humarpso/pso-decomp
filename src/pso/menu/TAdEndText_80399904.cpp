@@ -16,7 +16,6 @@ struct RecoveredGlobal_80399928_lbl_804F5900 {
     u8 remaining[0xFC];
 };
 
-extern "C" {
 extern RecoveredGlobal_8039994C_lbl_804F5800 lbl_804F5800;
 extern RecoveredGlobal_80399904_lbl_804F5A00 lbl_804F5A00;
 extern RecoveredGlobal_80399928_lbl_804F5900 lbl_804F5900;
@@ -40,6 +39,4 @@ u32 TAdEndText__sub_80399928(s32 arg0) {
 
 s32 TAdEndText__sub_8039994C(u8 arg0) {
     return *(u8 *)((s8 *)((u8 *)&lbl_804F5800.value + arg0) + 0) & 0x40;
-}
-
 }

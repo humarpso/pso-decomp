@@ -97,7 +97,6 @@ extern void *lbl_805D7720;
 
 
 #define active_gx_render_mode ((RMode_803DCDFC *)active_gx_render_mode)
-
 void func_803DCDFC__Fv(void) {
     RMode_803DCDFC *rmode = active_gx_render_mode;
     if (rmode->field_rendering) {
@@ -109,7 +108,6 @@ void func_803DCDFC__Fv(void) {
     GXInvalidateTexAll();
 }
 #undef active_gx_render_mode
-
 
 
 void fn_803DCEC8(void) {
@@ -124,7 +122,6 @@ void fn_803DCF0C(void) {
     present_frame_and_wait_vsync();
 }
 }
-
 
 
 void present_frame_and_wait_vsync(void) {
@@ -150,12 +147,11 @@ void present_frame_and_wait_vsync(void) {
 
 
 #define frame_update_callback (*(s32 (**)())&frame_update_callback)
-extern "C" {
+
 void TMovie::run_callback() {
     if (((s32 (*)()) frame_update_callback) != NULL) {
         frame_update_callback();
     }
-}
 }
 
 void init_locked_cache_heap(u8 *arg0) {
@@ -175,7 +171,6 @@ void init_locked_cache_heap(u8 *arg0) {
 }
 
 
-
 void set_present_interval(s32 *arg0, s32 arg1) {
     s32 var_r4;
     var_r4 = arg1;
@@ -191,7 +186,6 @@ void set_present_interval(s32 *arg0, s32 arg1) {
 }
 
 #define rmode ((RMode_803DD0D8 *)active_gx_render_mode)
-
 void init_gx_display(void) {
     s32 i;
     s32 n;
@@ -224,7 +218,6 @@ void init_gx_display(void) {
 }
 #undef rmode
 extern "C" {
-
 
 void fn_803DD294(void) {
     VISetNextFrameBuffer((void *) ((*(s32 *)&video_initial_display_framebuffer)));
@@ -321,7 +314,6 @@ struct Fmt_803DD3DC { u8 pad0[4]; u16 w; u16 pad6; u16 h; u8 rest[0x3A]; };
 extern "C" {
 E_803DD3C8 *fn_803DD3C8(s32 i);
 s32 fn_803DD3DC(Fmt_803DD3DC *arg0);
-
 #pragma push
 #pragma scheduling off
 #pragma peephole off
@@ -329,7 +321,6 @@ E_803DD3C8 *fn_803DD3C8(s32 i) {
     return &gx_tlut_region_table[i];
 }
 #pragma pop
-
 
 s32 fn_803DD3DC(Fmt_803DD3DC *rmode) {
     Fmt_803DD3DC sp8;
@@ -382,7 +373,6 @@ void OSSetArenaLo(void *);
 f64 cos(f64);
 f64 sin(f64);
 extern SinCos_803DD4EC *sin_cos_table;
-
 void get_render_mode_for_tv_format(GXRenderModeObj_803DD430 *rmode, GXRenderModeObj_803DD430 *out) {
     switch (VIGetTvFormat()) {
     case 0:
@@ -401,7 +391,6 @@ void get_render_mode_for_tv_format(GXRenderModeObj_803DD430 *rmode, GXRenderMode
     GXAdjustForOverscan(rmode, out, 0, 0);
 }
 }
-
 #pragma push
 #pragma optimize_for_size on
 #pragma use_lmw_stmw off

@@ -435,7 +435,7 @@ void __dt__7TObjectFv(void *, int);
 
 }
 struct RecoveredGlobal_802384E0_lbl_804CCB28;
-extern "C" {
+
 extern RecoveredGlobal_802384E0_lbl_804CCB28 lbl_804CCB28;
 
 void *__dt__13TUnk_804CCB28Fv(void *arg0, s16 arg1) {
@@ -447,8 +447,6 @@ void *__dt__13TUnk_804CCB28Fv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
-}
-
 }
 
 struct Stack_802384E0 {
@@ -603,7 +601,6 @@ u8 *create_rafoie_explosion(u8 *arg0, s32 *arg1, s16 arg2, s16 arg3, s32 arg4, f
     ((TUnk_804CCB28 *)arg0)->m_40 = (f32) (1.9f);
     return arg0;
 }
-extern "C" {
 
 u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_802385EC, sp8) == 0x0) ? 1 : -1];
@@ -800,7 +797,6 @@ u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *ori
     ((TTecRaFoie *)self)->vfunc_8(0);
     ((TTecRaFoie *)self)->vfunc_9();
     return self;
-}
 }
 
 #pragma push

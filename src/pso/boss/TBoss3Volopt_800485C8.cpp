@@ -149,8 +149,6 @@ void TUnk_804848A0::run_task() {
 extern u32 TBoss3Volopt__fade_active_flag;
 extern const f32 lbl_805D8858;
 
-extern "C" {
-
 extern s32 lbl_804848A0[];
 
 void *__dt__13TUnk_804848A0Fv(void *arg0, s16 arg1) {
@@ -239,6 +237,4 @@ void *TUnk_804999E8::init_object(void *) {
     ((void (*)(void *))__ct__7TObjectFP7TObject)(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804999E8;
     return this;
-}
-
 }
