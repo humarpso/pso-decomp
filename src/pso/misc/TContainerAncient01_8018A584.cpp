@@ -529,8 +529,8 @@ void TContainerAncient01R::vfunc_6(s16 *arg1, s32 arg2) {
     this->m_338 = (s16) *arg1;
     if (arg2 != 0) {
         if ((this->hp - this->m_338) <= 0) {
-            ((TContainerAncient01R *)this)->reset_hp();
-            ((TContainerAncient01R *)this)->open_container();
+            this->reset_hp();
+            this->open_container();
             this->m_360 = 1;
         }
     } else if ((this->hp - this->m_338) <= 0) {

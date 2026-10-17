@@ -53,8 +53,8 @@ void TWindowSubStatusDisp::render_status_and_children() {
     s32 temp_r3;
 
     temp_r3 = get_draw_context__11TWindowBaseFPv();
-    draw_window_frame(((u8 *)this), temp_r3);
-    draw_visible_window_entries(((u8 *)this), ((u8 *)this) + 0x24, temp_r3);
+    draw_window_frame(this, temp_r3);
+    draw_visible_window_entries(this, ((u8 *)this) + 0x24, temp_r3);
     ((TUnk_804D0618 *)((u8 *)this))->draw_selected_list_entry(temp_r3);
     if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x80) != 0U) {
         forward_render__20TWindowSubStatusDispFv(*(u32 *)((s8 *)((u8 *)this) + 0x80), temp_r3);

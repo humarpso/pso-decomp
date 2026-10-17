@@ -264,7 +264,7 @@ void TWindowKeyBoardSoft::handle_page_cycle_input(s32 arg1) {
     temp_r30 = (u8 *)&controller_input_state.value + (arg1 * 0x50) + 0x20;
     if (((s32 (*)(int, int))TWindowShortListCtrl__check_controller_button)((int)temp_r30, 0x30000) != 0) {
         play_sound_effect(0x54100, 0, 0, 0);
-        calc_cursor_step__19TWindowKeyBoardSoftFiPvPv((s32) (((u8 *)this)), &spC, &sp8);
+        calc_cursor_step__19TWindowKeyBoardSoftFiPvPv((s32)this, &spC, &sp8);
         if (((s32 (*)(int, int))TWindowShortListCtrl__check_controller_button)((int)temp_r30, 0x10000) != 0) {
             *(f32 *)((s8 *)((u8 *)this) + 0x68) = (f32) TWindowKeyBoardSoft__data_805DD088;
             *(u8 *)((s8 *)((u8 *)this) + 0x64) = (u8) (*(u8 *)((s8 *)((u8 *)this) + 0x64) + 1);
@@ -279,7 +279,7 @@ void TWindowKeyBoardSoft::handle_page_cycle_input(s32 arg1) {
         if ((s8) *(u8 *)((s8 *)((u8 *)this) + 0x64) > sp8) {
             *(u8 *)((s8 *)((u8 *)this) + 0x64) = (u8) spC;
         }
-        ((TWindowKeyBoardSoft *)((u8 *)this))->update_focus_flags();
+        this->update_focus_flags();
     }
 }
 #pragma pop
@@ -357,8 +357,8 @@ void TWindowKeyBoardSoft::spawn_key_effect(s32 arg1, s32 arg2) {
     Vec2_802615B8 pos;
     s32 kind;
 
-    ((void (*)(void *, s32, s32 *, s32))TWindowKeyBoardSoft__sub_80260760)(((u8 *)this), ((s32 (*)(void *, s32, s32))calc_key_index__19TWindowKeyBoardSoftFiii)(((u8 *)this), arg1, arg2), &type, 0);
-    pos.x = *(f32 *)(((u8 *)this) + 0x40) + ((f32 (*)(void *, s32, s32))calc_key_x__19TWindowKeyBoardSoftFiii)(((u8 *)this), arg1, arg2);
+    ((void (*)(void *, s32, s32 *, s32))TWindowKeyBoardSoft__sub_80260760)(this, ((s32 (*)(void *, s32, s32))calc_key_index__19TWindowKeyBoardSoftFiii)(this, arg1, arg2), &type, 0);
+    pos.x = *(f32 *)(((u8 *)this) + 0x40) + ((f32 (*)(void *, s32, s32))calc_key_x__19TWindowKeyBoardSoftFiii)(this, arg1, arg2);
     pos.y = TWindowKeyBoardSoft__data_805DD094 + (TWindowKeyBoardSoft__data_805DD088 + (TWindowKeyBoardSoft__data_805DD07C * (f32)arg2 + *(f32 *)(((u8 *)this) + 0x44)));
     switch (type) {
     case 1:

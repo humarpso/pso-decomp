@@ -2444,21 +2444,21 @@ void TObjPlayer::update_warp_relocation() {
             *(s32 *)((s8 *)((u8 *)this) + 0x60) = *(s32 *)((s8 *)((u8 *)this) + 0x65C);
             ((TBoss4DarkFalz *)((u8 *)this))->set_position_from(((u8 *)this) + 0x660);
             refresh_equipment_slot();
-            ((TObjPlayer *)((u8 *)this))->clear_flag_4000();
-            ((TUnk_804806E8 *)(((u8 *)this)))->update_actor_ground_y();
-            if (((s32 (*)(void *))is_on_current_floor__10TObjPlayerFi)(((u8 *)this)) != 0) {
-                ((s32 (*)(void *, int))send_field_state_if_active__10TObjPlayerFii)(((u8 *)this), 0x40003206);
+            this->clear_flag_4000();
+            ((TUnk_804806E8 *)(this))->update_actor_ground_y();
+            if (((s32 (*)(void *))is_on_current_floor__10TObjPlayerFi)(this) != 0) {
+                ((s32 (*)(void *, int))send_field_state_if_active__10TObjPlayerFii)(this, 0x40003206);
             }
-            if (is_locally_controlled__10TObjPlayerFPv(((u8 *)this)) != 0) {
-                TObjPlayer::calc_circle_offset_pos(*(s32 *)((s8 *)((u8 *)this) + 0x60) + 0x8000, (void *)((TObjPlayer *)((u8 *)this))->get_position_ptr(), &sp8, 10.0f);
+            if (is_locally_controlled__10TObjPlayerFPv(this) != 0) {
+                TObjPlayer::calc_circle_offset_pos(*(s32 *)((s8 *)((u8 *)this) + 0x60) + 0x8000, (void *)this->get_position_ptr(), &sp8, 10.0f);
                 send_6x3e_to_all_players__10TNpcPlayerFPvs(&sp8, *(s32 *)((s8 *)((u8 *)this) + 0x60));
-                reset_cameras_to_actor(((u8 *)this), 1);
+                reset_cameras_to_actor(this, 1);
             }
         }
         *(f32 *)((s8 *)((u8 *)this) + 0x624) = var_f31;
         break;
     case 1:
-        if (((s32 (*)(void *))is_inactive__10TObjPlayerFv)(((u8 *)this)) != 0) {
+        if (((s32 (*)(void *))is_inactive__10TObjPlayerFv)(this) != 0) {
             *(s16 *)((s8 *)((u8 *)this) + 0x328) = 2;
             *(s32 *)((s8 *)((u8 *)this) + 0x658) = 4;
         }
@@ -2471,14 +2471,14 @@ void TObjPlayer::update_warp_relocation() {
         if (temp <= 0) {
             *(s16 *)((s8 *)((u8 *)this) + 0x328) = 3;
             activate_body_collision();
-            if (((s32 (*)(void *))is_on_current_floor__10TObjPlayerFi)(((u8 *)this)) != 0) {
-                ((s32 (*)(void *))obj_getField1c)(((u8 *)this));
+            if (((s32 (*)(void *))is_on_current_floor__10TObjPlayerFi)(this) != 0) {
+                ((s32 (*)(void *))obj_getField1c)(this);
                 spawn_appearance_effect__10TObjPlayerFl();
             }
         }
         break;
     case 3:
-        ((TObjPlayer *)((u8 *)this))->set_flag_4000();
+        this->set_flag_4000();
         var_f2 = *(f32 *)((s8 *)((u8 *)this) + 0x624);
         var_f2 += 0.1f;
         if (var_f2 >= 1.0f) {
@@ -7955,7 +7955,7 @@ void TObjPlayer::reset_movement_state() {
     *(f32 *)((s8 *)((u8 *)this) + 0x24) = (f32) lbl_805DC3BC;
     *(f32 *)((s8 *)((u8 *)this) + 0x28) = (f32) lbl_805DC3BC;
     *(f32 *)((s8 *)((u8 *)this) + 0x2C) = (f32) lbl_805DC3C4;
-    clear_lockon_list__10TObjPlayerFPvPvff((s32 *)((void *)(((u8 *)this) + 0x30)), (void *)((void *)(((u8 *)this))), lbl_805DC3C0, lbl_805DC3BC);
+    clear_lockon_list__10TObjPlayerFPvPvff((s32 *)((void *)(((u8 *)this) + 0x30)), (void *)((void *)(this)), lbl_805DC3C0, lbl_805DC3BC);
 }
 extern int fold_flush_47;
 #pragma pop

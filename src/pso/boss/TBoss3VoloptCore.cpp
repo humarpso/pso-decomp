@@ -1080,7 +1080,7 @@ s32 TObjPlayer::check_target_collision() {
     }
     found = 0;
     TObjPlayer::init_all_slots();
-    ((TObjPlayer *)((u8 *)this))->check_object_collisions();
+    this->check_object_collisions();
     if (*(s32 *)((s8 *)this->m_a4 + 0x18) & 0x80000) {
         for (i = 0; i < 0x10; i++) {
             obj = (VObj_18_c44252 *)TObjPlayer::get_battle_param(i);
@@ -1088,9 +1088,9 @@ s32 TObjPlayer::check_target_collision() {
                 break;
             }
             if (((s32 (*)(void *))obj_is_hit_receivable)(obj) != 0) {
-                if (obj->m18(((u8 *)this), lbl_805D86B0) != 0) {
-                    obj->m23(((u8 *)this), lbl_805D86D4);
-                    obj->m20(((u8 *)this), lbl_805D86B0);
+                if (obj->m18(this, lbl_805D86B0) != 0) {
+                    obj->m23(this, lbl_805D86D4);
+                    obj->m20(this, lbl_805D86B0);
                 }
                 if ((u32) obj == (u32) this->target) {
                     found = 1;

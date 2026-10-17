@@ -247,9 +247,9 @@ TechniqueContactList *TObjPlayer::collect_technique_contacts(void *src) {
     s32 n;
     TechniqueContactBody *r;
     VecCopy((Vec *)&a, (const Vec *)(&((Obj_802A41CC *)this)->pos));
-    ((void (*)(void *))clear_technique_contacts__10TObjPlayerFv)(((Obj_802A41CC *)this));
+    ((void (*)(void *))clear_technique_contacts__10TObjPlayerFv)(this);
     if (((Obj_802A41CC *)this)->body == 0) return &L_802A41CC;
-    sd = (Vec_802A41CC *)get_shoot_data__12TNeedleShootFv(((Obj_802A41CC *)this));
+    sd = (Vec_802A41CC *)get_shoot_data__12TNeedleShootFv(this);
     d.x = a.x - sd->x;
     d.y = a.y - sd->y;
     d.z = a.z - sd->z;

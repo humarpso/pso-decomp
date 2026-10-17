@@ -966,7 +966,7 @@ void TObjEneMe1GiGue::apply_hit_shake(u32 arg1) {
 void TObjEneMe1GiGue::init_move() {
     VecCopy((Vec *)(((u8 *)this) + 0x44), (const Vec *)(((u8 *)this) + 0x38));
     this->actorFlags = (s32) (this->actorFlags | 0x01000000);
-    update_if_active__15TObjEneMe1GiGueFl((void *)(((u8 *)this)), 0xE);
+    update_if_active__15TObjEneMe1GiGueFl(this, 0xE);
     this->m_378 = 1;
     refresh_collision_body_centers();
 }
@@ -977,26 +977,26 @@ void TObjEneMe1GiGue::sub_802CB6D4() {
     switch (this->mode) {
     case 0:
         if (this->is_actor_cadence_frame(0x1E) != 0) {
-            if (find_nearest_visible_player(((u8 *)this), 0, **(f32 * *)&this->movementParameters) != 0xFFFF) {
-                find_target_in_range__15TObjEnemyCustomFf(((u8 *)this), **(f32 * *)&this->movementParameters);
+            if (find_nearest_visible_player(this, 0, **(f32 * *)&this->movementParameters) != 0xFFFF) {
+                find_target_in_range__15TObjEnemyCustomFf(this, **(f32 * *)&this->movementParameters);
                 if (this->m_388 & 0x40000) {
                     init_move();
                 } else {
-                    update_if_active__15TObjEneMe1GiGueFl(((u8 *)this), 1);
+                    update_if_active__15TObjEneMe1GiGueFl(this, 1);
                 }
             }
         }
         break;
     case 1:
-        if (find_nearest_visible_player(((u8 *)this), 0, 50.0f) != 0xFFFF) {
-            if (calc_boss4_scale__10TObjPlayerFi(((u8 *)this)) <= this->m_444) {
-                update_if_active__15TObjEneMe1GiGueFl(((u8 *)this), 0xB);
+        if (find_nearest_visible_player(this, 0, 50.0f) != 0xFFFF) {
+            if (calc_boss4_scale__10TObjPlayerFi(this) <= this->m_444) {
+                update_if_active__15TObjEneMe1GiGueFl(this, 0xB);
             } else {
-                update_if_active__15TObjEneMe1GiGueFl(((u8 *)this), 0xD);
+                update_if_active__15TObjEneMe1GiGueFl(this, 0xD);
                 this->m_378 = 1;
             }
-        } else if (find_nearest_visible_player(((u8 *)this), 0, 50.0f + **(f32 * *)&this->movementParameters) == 0xFFFF) {
-            update_if_active__15TObjEneMe1GiGueFl(((u8 *)this), 0);
+        } else if (find_nearest_visible_player(this, 0, 50.0f + **(f32 * *)&this->movementParameters) == 0xFFFF) {
+            update_if_active__15TObjEneMe1GiGueFl(this, 0);
         }
         break;
     case 13:
@@ -1760,24 +1760,24 @@ void TObjEneMe1GiGue::sub_802CCF2C() {
         this->m_384 = 0x96;
         ((void (*)(u8 *)) sub_8004292C__15TObjEnemyCustomFv)(((u8 *)this));
     case 1:
-        advance_animation_playback(((u8 *)this));
-        move_around_center__15TObjEneMe1GiGueFPvPvf((Obj_802CB8F0 *) ((u8 *)this), (Vec_802CB8F0 *) (((u8 *)this) + 0x50), *(f32 *)((s8 *)((u8 *)this) + 0x358));
+        advance_animation_playback(this);
+        move_around_center__15TObjEneMe1GiGueFPvPvf((Obj_802CB8F0 *) this, (Vec_802CB8F0 *) (((u8 *)this) + 0x50), *(f32 *)((s8 *)((u8 *)this) + 0x358));
         this->m_384 -= 1;
         if (this->m_384 <= 0) {
             this->m_b8 = 0;
             this->state = 2;
             this->m_384 = 0x5A;
         }
-        check_object_collisions__10TObjPlayerFv(((u8 *)this));
-        check_enemy_body_collisions(((u8 *)this));
-        update_enemy_collision_flags__10TObjPlayerFv(((u8 *)this));
-        apply_actor_gravity(((u8 *)this), 0, 0.0f);
+        check_object_collisions__10TObjPlayerFv(this);
+        check_enemy_body_collisions(this);
+        update_enemy_collision_flags__10TObjPlayerFv(this);
+        apply_actor_gravity(this, 0, 0.0f);
         break;
     case 2:
-        advance_animation_playback(((u8 *)this));
-        check_object_collisions__10TObjPlayerFv(((u8 *)this));
-        check_enemy_body_collisions(((u8 *)this));
-        update_enemy_collision_flags__10TObjPlayerFv(((u8 *)this));
+        advance_animation_playback(this);
+        check_object_collisions__10TObjPlayerFv(this);
+        check_enemy_body_collisions(this);
+        update_enemy_collision_flags__10TObjPlayerFv(this);
         this->m_384 -= 1;
         if (this->m_384 <= 0) {
             this->state = 0;

@@ -350,7 +350,7 @@ s32 TOHealGeneral::update_heal_gauge_state() {
     } else {
         *(s32 *)&this->unk_C8 = 2;
     }
-    set_script_entry((s32)(this->m_88));
+    set_script_entry((s32)this->m_88);
     set_enable_count(this->m_8c);
     return *(s32 *)&this->_padD0;
 }

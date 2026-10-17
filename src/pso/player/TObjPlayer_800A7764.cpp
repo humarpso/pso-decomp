@@ -152,7 +152,7 @@ int TObjPlayer__sub_800A7774(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 
 
 void TObjEnemy::sub_800A7798(f32 farg0) {
     *(f32 *)((s8 *)((u8 *)this) + 0xD0) = farg0;
-    ((TObjEnemy *)((u8 *)this))->set_flags_B0((u32)(0x100U));
+    this->set_flags_B0((u32)(0x100U));
 }
 
 void TObjEnemy::set_flags_B0(u32 v) { *(u32*)((char*)this + 0xb0) |= v; }

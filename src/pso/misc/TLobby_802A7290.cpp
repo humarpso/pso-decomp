@@ -147,7 +147,7 @@ int TUnk_804DDBF0::vfunc_5(s32 arg1) {
     s32 b = ((TObjPlayer *)this)->sub_802a7290_fwd();
     s32 r = load_action_motion_pairs(arg1, a, b);
     if (r != 0) {
-        ((TUnk_804DDBF0 *)this)->vfunc_14();
+        this->vfunc_14();
     }
     return r;
 }

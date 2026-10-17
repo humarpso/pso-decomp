@@ -15,11 +15,11 @@ void TItemAttackCol::check_object_hits() {
     TObjPlayer__sub_8015431C(((u8 *)this) + 0x1C);
     for (i = 0; i != TObjOnlineEnding::get_instance(); i++) {
         e = get_attack_entry__16TObjOnlineEndingFi(i);
-        if (try_add_hit_target__14TItemAttackColFPvPv(((u8 *)this), e) != 0) {
+        if (try_add_hit_target__14TItemAttackColFPvPv(this, e) != 0) {
             this->vfunc_6((s32 *)e);
             this->m_a4 -= 1;
             if (this->m_a4 == 0) {
-                queue_destruction__7TObjectFv(((u8 *)this));
+                queue_destruction__7TObjectFv(this);
                 reset_global_table();
                 return;
             }

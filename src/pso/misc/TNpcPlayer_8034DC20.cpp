@@ -109,7 +109,7 @@ u8 *TNpcPlayer::construct_party_area(void *parent) {
     void *task;
     s32 slot;
     u8 *player;
-    __ct__7TObjectFP7TObject(((u8 *)this), parent);
+    __ct__7TObjectFP7TObject(this, parent);
     *(void **)((s8 *)((u8 *)this) + 0x18) = &lbl_804F07C8;
     this->m_1c = 0;
     for (slot = 0; slot < 4; slot++) {

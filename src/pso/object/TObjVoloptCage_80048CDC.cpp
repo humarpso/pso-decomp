@@ -245,7 +245,7 @@ void TObjVoloptCage::update_capture() {
         temp_r0_2 = *(s32 *)&this->unk_38C - 1;
         *(s32 *)&this->unk_38C = temp_r0_2;
         if (temp_r0_2 <= 0) {
-            obj_setFlags30(((u8 *)this), 0x800);
+            obj_setFlags30(this, 0x800);
             this->vfunc_63();
         }
         break;

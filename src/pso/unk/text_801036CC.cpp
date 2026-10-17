@@ -150,7 +150,7 @@ void TLobby::apply_sync_item_state() {
     Ent_801037A0 *p;
     s32 n;
     TLobby::reset_floor_items();
-    bswap_sync_item_state_header(((Save_80103890 *)this));
+    bswap_sync_item_state_header(this);
     for (i = 0; i < 0x10; i++) {
         floor_item_next_sort_keys[i] = ((Save_80103890 *)this)->slots[i];
     }
@@ -337,7 +337,7 @@ s32 TLobby::insert_sorted_entry() {
     s32 val;
     s32 hi;
     Ent_80103DD8 *p;
-    if (((Ent_80103DD8 *)this) != NULL) {
+    if (this != NULL) {
         if (TLobby::is_stat_over_limit(((Ent_80103DD8 *)this)->n) != 0) {
             evict_lowest_key_floor_item(((Ent_80103DD8 *)this)->n);
         }
@@ -371,7 +371,7 @@ s32 TLobby::insert_sorted_entry() {
                 if (floor_item_next_sort_keys[((Ent_80103DD8 *)this)->n] != 0xFFFF) {
                     floor_item_next_sort_keys[((Ent_80103DD8 *)this)->n]++;
                 }
-                TLobby__sub_80104258(&list[lo], ((Ent_80103DD8 *)this));
+                TLobby__sub_80104258(&list[lo], this);
                 counts[idx]++;
                 return 1;
             }

@@ -50,25 +50,25 @@ void TObjEneRecon::retarget() {
     s32 i;
     p = find_entity_by_id(((Recon_8031D898 *)this)->owner);
     if (p == 0) {
-        queue_destruction__7TObjectFv(((Recon_8031D898 *)this));
+        queue_destruction__7TObjectFv(this);
         return;
     }
     if (((TObjEneRecon *)p)->is_below_child_limit(((Recon_8031D898 *)this)->target) != 0) {
         ((Recon_8031D898 *)this)->f470 = 0;
-        transition_enemy_state(((Recon_8031D898 *)this), 3);
+        transition_enemy_state(this, 3);
         return;
     }
-    n = collect_enemy_target_candidates(((Recon_8031D898 *)this), hits, lbl_805DF420);
+    n = collect_enemy_target_candidates(this, hits, lbl_805DF420);
     for (i = 0; i < n; i++) {
         id = hits[i].id;
         if (id != ((Recon_8031D898 *)this)->target && ((TObjEneRecon *)p)->is_below_child_limit(id) != 0) {
             ((Recon_8031D898 *)this)->f470 = 0;
-            enemy_set_target_id(((Recon_8031D898 *)this), id);
-            transition_enemy_state(((Recon_8031D898 *)this), 3);
+            enemy_set_target_id(this, id);
+            transition_enemy_state(this, 3);
             return;
         }
     }
-    transition_enemy_state(((Recon_8031D898 *)this), 4);
+    transition_enemy_state(this, 4);
     ((Recon_8031D898 *)this)->f474 = 0;
 }
 
@@ -80,25 +80,25 @@ void TObjEneRecon::select_next_target() {
     s32 i;
     p = find_entity_by_id(((Recon_8031D994 *)this)->owner);
     if (p == 0) {
-        queue_destruction__7TObjectFv(((Recon_8031D994 *)this));
+        queue_destruction__7TObjectFv(this);
         return;
     }
     if (((TObjEneRecon *)p)->is_below_child_limit(((Recon_8031D994 *)this)->target) != 0) {
         ((Recon_8031D994 *)this)->f46C = 0;
-        transition_enemy_state(((Recon_8031D994 *)this), 2);
+        transition_enemy_state(this, 2);
         return;
     }
-    n = collect_enemy_target_candidates(((Recon_8031D994 *)this), hits, lbl_805DF420);
+    n = collect_enemy_target_candidates(this, hits, lbl_805DF420);
     for (i = 0; i < n; i++) {
         id = hits[i].id;
         if (id != ((Recon_8031D994 *)this)->target && ((TObjEneRecon *)p)->is_below_child_limit(id) != 0) {
             ((Recon_8031D994 *)this)->f46C = 0;
-            enemy_set_target_id(((Recon_8031D994 *)this), id);
-            transition_enemy_state(((Recon_8031D994 *)this), 2);
+            enemy_set_target_id(this, id);
+            transition_enemy_state(this, 2);
             return;
         }
     }
-    transition_enemy_state(((Recon_8031D994 *)this), 4);
+    transition_enemy_state(this, 4);
     ((Recon_8031D994 *)this)->f474 = 0;
 }
 

@@ -1614,7 +1614,7 @@ void TObjEneDolmOlm::vfunc_60() {
                 temp_f31 = horizontal_distance_squared(player + 0x38, (void *) (((u8 *)this) + 0x38));
                 var_f30 = fabs_float(*(f32 *)((s8 *)player + 0x3C) - *(f32 *)((s8 *)((u8 *)this) + 0x3C));
                 if (((TObjPlayer *)player)->get_field_3e4() == get_current_floor()) {
-                    if ((temp_f31 < (*(f32 *)((s8 *)(*(s32 *)((s8 *)TObjEneDolmOlm__behavior_params_by_variant + (this->variant * 4))) + 0x10) * *(f32 *)((s8 *)(*(s32 *)((s8 *)TObjEneDolmOlm__behavior_params_by_variant + (this->variant * 4))) + 0x10))) && (((f32 (*)(void *)) calc_boss4_scale__10TObjPlayerFi)(((u8 *)this)) < this->m_3d0)) {
+                    if ((temp_f31 < (*(f32 *)((s8 *)(*(s32 *)((s8 *)TObjEneDolmOlm__behavior_params_by_variant + (this->variant * 4))) + 0x10) * *(f32 *)((s8 *)(*(s32 *)((s8 *)TObjEneDolmOlm__behavior_params_by_variant + (this->variant * 4))) + 0x10))) && (((f32 (*)(void *)) calc_boss4_scale__10TObjPlayerFi)(this) < this->m_3d0)) {
                         var_r29 = 1;
                     }
                 }
@@ -1628,7 +1628,7 @@ void TObjEneDolmOlm::vfunc_60() {
         if (var_r29 == 1) {
             this->mode = 0xB;
             this->phase = 0;
-            obj_setFlags30((void *) (((u8 *)this)), 0x200000);
+            obj_setFlags30(this, 0x200000);
             obj_clearFlags30(0x04040000);
             ((TObjPlayer *)((u8 *)this))->clear_player_status_flag(0, 0x0A000000);
             return;
@@ -1636,12 +1636,12 @@ void TObjEneDolmOlm::vfunc_60() {
         if (var_f30 < TObjEneDolmOlm__data_805DEF6C) {
             this->mode = 5;
             this->phase = 1;
-            if (TObjEneDolmOlm__data_805DEF5C < ((f32 (*)(void *)) calc_boss4_scale__10TObjPlayerFi)(((u8 *)this))) {
+            if (TObjEneDolmOlm__data_805DEF5C < ((f32 (*)(void *)) calc_boss4_scale__10TObjPlayerFi)(this)) {
                 this->m_b8 = 3;
             } else {
                 this->m_b8 = 4;
             }
-            obj_setFlags30((void *) (((u8 *)this)), 0x200000);
+            obj_setFlags30(this, 0x200000);
             obj_clearFlags30(0x04040000);
             ((TObjPlayer *)((u8 *)this))->clear_player_status_flag(0, 0x0A000000);
         }
@@ -1668,7 +1668,7 @@ void TObjEneDolmOlm::check_path_ahead(s32 arg1, f32 farg0) {
     rotate_vector_by_matrix(0, &stack.sp8, &stack.sp8);
     pop_matrices(1);
     vec3_add_to(&stack.sp8, (void *) (((u8 *)this) + 0x2FC));
-    check_path_obstructed((void *) (((u8 *)this)), &stack.sp8);
+    check_path_obstructed(this, &stack.sp8);
 }
 #pragma pop
 void TObjEneDolmOlm::sub_80301148() {
@@ -1681,7 +1681,7 @@ void TObjEneDolmOlm::sub_80301148() {
         *(s32 *)&this->variant = 1;
         ((TObjEneLappy *)((u8 *)this))->set_param(0x41);
     }
-    ((TObjEneDolmOlm *)((u8 *)this))->load_params_from_table(*(s32 *)&this->variant);
+    this->load_params_from_table(*(s32 *)&this->variant);
     TObjPlayer::set_global_flag();
     draw_trail_with_colors(TObjEneDolmOlm__data_805D6A14,
         ((T_80301148 *)TObjEneDolmOlm__resource_bundle)->a[*(s32 *)&this->variant].v,

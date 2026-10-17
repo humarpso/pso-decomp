@@ -601,19 +601,19 @@ void play_cursor_sound__15TWindowMainMenuFv(Menu_802AE4DC *m, int d) {
 
 void TWindowMenuMainMenu::handle_navigation_input() {
     u8 *temp_r31;
-    if ((is_window_reveal_complete__13TUnk_804CE018Fv() != 0) && (((TWindowMenuMainMenu *)((u8 *)this))->get_menu_flag() == 0) && (((TWindowMenuMainMenu *)((u8 *)this))->is_flag_set() == 0) && !(this->m_60 & 4)) {
+    if ((is_window_reveal_complete__13TUnk_804CE018Fv() != 0) && (this->get_menu_flag() == 0) && (this->is_flag_set() == 0) && !(this->m_60 & 4)) {
         temp_r31 = (u8 *)&controller_input_state.value + (is_player_input_active((*(s16 *)&this->m_20)) * 0x50) + 0x20;
         if ((apply_choice__20TWindowChoiceSettingFllll(temp_r31, 0x10, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x10, 6, 1) != 0)) {
-            play_cursor_sound__15TWindowMainMenuFv((Menu_802AE4DC *)((void *) (((u8 *)this))), -1);
+            play_cursor_sound__15TWindowMainMenuFv((Menu_802AE4DC *)(this), -1);
         }
         if ((apply_choice__20TWindowChoiceSettingFllll(temp_r31, 0x20, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x20, 6, 1) != 0)) {
-            play_cursor_sound__15TWindowMainMenuFv((Menu_802AE4DC *)((void *) (((u8 *)this))), 1);
+            play_cursor_sound__15TWindowMainMenuFv((Menu_802AE4DC *)(this), 1);
         }
         if ((TWindowShortListCtrl__check_controller_button((int)temp_r31, 4) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 4) != 0)) {
-            ((TWindowMenuMainMenu *)((u8 *)this))->handle_confirm();
+            this->handle_confirm();
         }
-        if ((((TWindowMenuMainMenu *)((u8 *)this))->get_menu_flag() == 0) && ((TWindowShortListCtrl__check_controller_button((int)temp_r31, 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 2) != 0))) {
-            ((TWindowMenuMainMenu *)((u8 *)this))->handle_cancel();
+        if ((this->get_menu_flag() == 0) && ((TWindowShortListCtrl__check_controller_button((int)temp_r31, 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 2) != 0))) {
+            this->handle_cancel();
         }
     }
 }

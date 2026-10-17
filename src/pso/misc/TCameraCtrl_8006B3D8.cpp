@@ -156,7 +156,7 @@ typedef struct RecoveredFields_8006B588_arg0 RecoveredFields_8006B588_arg0;
 typedef struct RecoveredGlobal_8006B588_lbl_80488AD8 RecoveredGlobal_8006B588_lbl_80488AD8;
 u8 *TCameraCtrl::init_conversation_camera(s32 i, s32 arg2, s32 arg3) {
   void *new_var;
-  __ct__7TObjectFP7TObject((void *) ((u8 *)this), (void *) arg3);
+  __ct__7TObjectFP7TObject((void *) this, (void *) arg3);
   ((RecoveredFields_8006B588_arg0 *) ((u8 *)this))->field_18 = &(*(RecoveredGlobal_8006B588_lbl_80488AD8 *)&lbl_80488AD8).value;
   ((RecoveredFields_8006B588_arg0 *) ((u8 *)this))->field_34 = arg2;
   activate_camera_mode(9);

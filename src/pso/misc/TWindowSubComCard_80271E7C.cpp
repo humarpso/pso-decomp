@@ -456,8 +456,8 @@ s32 TWindowSubComCard::create_option_list_window(s32 arg1, s32 key) {
     ChrSel_80272B60 *cs;
     win = draw_card_icon__17TWindowSubComCardFll(get_window_layout_position(0x8D), 0x20, find_entry_value_by_id__17TWindowSubComCardFl(this->m_7c, key));
     if (key == 0) {
-        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)win, (int)(((u8* (*)(void*, void*))get_message_10__17TWindowSubComCardFPvPv)((void *)(((u8 *)this)), (void *)(0))), 6, 0);
-        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)win, (int)(((u8* (*)(void*, void*))get_message_10__17TWindowSubComCardFPvPv)((void *)(((u8 *)this)), (void *)(1))), 6, 1);
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)win, (int)(((u8* (*)(void*, void*))get_message_10__17TWindowSubComCardFPvPv)(this, (void *)(0))), 6, 0);
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)win, (int)(((u8* (*)(void*, void*))get_message_10__17TWindowSubComCardFPvPv)(this, (void *)(1))), 6, 1);
         ((TWindowSubComCardList *)win)->set_selected_index(open_hard_keyboard__6TLobbyFPv((void *)this->m_20));
     } else {
         sel = ((TWindowSubComCard *)arg1)->find_value_by_key(key);
@@ -500,7 +500,7 @@ s32 TWindowSubComCard::create_entry_list_window() {
     hard = open_hard_keyboard__6TLobbyFPv(*(void **)(((u8 *)this) + 0x20));
     w = create_choice_setting_window__17TWindowSubComCardFiii((s32)(get_window_layout_position(0x8C)), (s32)lbl_8044F6BC, 6);
     create_sub_window__20TWindowChoiceSettingFPvi((void *)w, (s32)(((void* (*)(int))get_message_10__20TWindowSubStatusDispFl)(0x6D)));
-    ((TWindowSubComCard *)w)->update_next_entry((s32)(((void* (*)(int))get_message_10__20TWindowSubStatusDispFl)(0x6D)), (s32)(((GetMsg_80272CB0)get_message_10__17TWindowSubComCardFPvPv)(((u8 *)this), (void *)hard)), 0);
+    ((TWindowSubComCard *)w)->update_next_entry((s32)(((void* (*)(int))get_message_10__20TWindowSubStatusDispFl)(0x6D)), (s32)(((GetMsg_80272CB0)get_message_10__17TWindowSubComCardFPvPv)(this, (void *)hard)), 0);
     l = *(List_80272CB0 **)(((u8 *)this) + 0x58);
     idx = -1;
     n = l->count;
@@ -509,7 +509,7 @@ s32 TWindowSubComCard::create_entry_list_window() {
         if (e->type == 0) {
             idx++;
             if (e->id >= 500) {
-                ((TWindowSubComCard *)w)->update_next_entry((s32)e->name, (s32)(((TWindowSubComCard *)((u8 *)this))->find_entry_rest(card + 0x22EC, idx)), (s32)e->id);
+                ((TWindowSubComCard *)w)->update_next_entry((s32)e->name, (s32)(this->find_entry_rest(card + 0x22EC, idx)), (s32)e->id);
                 if (hard != 0) {
                     ((TWindowSubComCard *)w)->disable_entry_by_id(e->id);
                 }
@@ -653,7 +653,7 @@ extern const f32 lbl_805DD524;
 
 s32 TWindowSubComCard::sub_802730E0() {
     s32 temp_r30;
-    temp_r30 = create__19TWindowMessageYesNoFPvPvPvPv(((u8 *)this), this->m_20, 0, 0);
+    temp_r30 = create__19TWindowMessageYesNoFPvPvPvPv(this, this->m_20, 0, 0);
     forward_slot_selection__16TAdChrSelASlotGCFPvPv(temp_r30, ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)(0xFC), get_window_layout_position(0x96), (*(f32 *)&TWindowSubComCard__data_805DD520));
     free_member__17TWindowSubComCardFv(temp_r30, 1);
     ((TWindowSubShortMail *)temp_r30)->notify_warp_flag70();

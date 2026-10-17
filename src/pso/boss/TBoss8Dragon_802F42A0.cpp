@@ -27,7 +27,7 @@ void TBoss8Dragon::draw() {
     temp_r31 = this->m_34;
     temp_r4 = (unsigned char *) (*(void **)((s8 *)TBoss8Dragon__data_805D6988 + 0x42C));
     this->m_34 = (s32) *(s32 *)((s8 *)temp_r4 + 0x28);
-    draw__16TObjEneRe7BeruraFv((void *) (((u8 *)this)), (int)temp_r4);
+    draw__16TObjEneRe7BeruraFv(this, (int)temp_r4);
     this->m_34 = temp_r31;
     pop_matrix();
 }

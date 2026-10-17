@@ -597,27 +597,27 @@ void TBoss3Volopt::sub_8003D340() {
     switch (this->state) {
     case 0:
         for (i = 0; i < 6; i++) {
-            volopt_target_entity_ids[i] = GPO(((u8 *)this), i + 1);
+            volopt_target_entity_ids[i] = GPO(this, i + 1);
             o = (void *)__nw__7TObjectFUl(0x418);
             if (o != NULL) {
-                TBoss3VoloptP01__ct(o, ((u8 *)this), i, volopt_target_entity_ids[i], GAA(((u8 *)this), i + 1));
+                TBoss3VoloptP01__ct(o, this, i, volopt_target_entity_ids[i], GAA(this, i + 1));
             }
         }
-        boss3_volopt_monitor_base_actor_id = GPO(((u8 *)this), 7);
+        boss3_volopt_monitor_base_actor_id = GPO(this, 7);
         for (j = 0; j < 0x18; j++) {
             r = (s32)(lbl_805D8670 * (lbl_805D8674 * (lbl_805D8658 * (f32)rand())) + lbl_805D866C);
             o = (void *)__nw__7TObjectFUl(0x394);
             if (o != NULL) {
-                init_with_slot__19TBoss3VoloptMonitorFPvPviiii(o, ((u8 *)this), boss3_volopt_monitor_base_actor_id + j, GAA(((u8 *)this), j + 7), j, r);
+                init_with_slot__19TBoss3VoloptMonitorFPvPviiii(o, this, boss3_volopt_monitor_base_actor_id + j, GAA(this, j + 7), j, r);
             }
         }
-        lbl_805D271C = GPO(((u8 *)this), 0x22);
-        fn_8003F468(((u8 *)this), lbl_805D271C, GAA(((u8 *)this), 0x22));
-        lbl_805D271A = GPO(((u8 *)this), 0x21);
+        lbl_805D271C = GPO(this, 0x22);
+        fn_8003F468(this, lbl_805D271C, GAA(this, 0x22));
+        lbl_805D271A = GPO(this, 0x21);
         if (TBoss3Volopt__sub_8003F398() == 0) {
             o = (void *)__nw__7TObjectFUl(0x390);
             if (o != NULL) {
-                TBoss3VoloptHiraisin__ct(o, ((u8 *)this), lbl_805D271A, GAA(((u8 *)this), 0x21));
+                TBoss3VoloptHiraisin__ct(o, this, lbl_805D271A, GAA(this, 0x21));
             }
         }
         this->next_action = 1;

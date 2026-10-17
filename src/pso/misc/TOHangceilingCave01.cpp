@@ -504,12 +504,12 @@ void reset_state(u8 *arg0) {
 
 void TUnk_804B2578::sub_801682E4(s32 arg1) {
     s16 sp8;
-    if (arg1 != ((Obj_801682E4 *)this)->mode) {
-        ((Obj_801682E4 *)this)->mode = arg1;
+    if (arg1 != this->mode) {
+        this->mode = arg1;
         if (access_object_saved_state(&sp8, 1) != 0) {
-            sp8 = ((Obj_801682E4 *)this)->mode;
+            sp8 = this->mode;
         }
-        switch (((Obj_801682E4 *)this)->mode) {
+        switch (this->mode) {
         case 0:
         case 1:
             break;
@@ -559,7 +559,7 @@ void TUnk_804B2578::sub_80168398() {
         break;
     }
     if (id != 0) {
-        play_persistent_sound((s32)id, (s32)((u8 *)this), (u32)(((u8 *)this) + 0x38), 0, 0);
+        play_persistent_sound((s32)id, (s32)this, (u32)(((u8 *)this) + 0x38), 0, 0);
     }
 }
 
@@ -585,7 +585,7 @@ void TUnk_804B2578::sub_80168488() {
                 t.b = ((VO_80168488 *)this)->m79(this->m_338);
                 hit_80168488(temp_r3, ((VO_80168488 *)this), t);
                 obj_setFlags30(temp_r3, 0x400);
-                ((s32 (*)(void *, void *))fn_80168280)(((VO_80168488 *)this), temp_r3);
+                ((s32 (*)(void *, void *))fn_80168280)(this, temp_r3);
             }
         }
         var_r30 += 1;

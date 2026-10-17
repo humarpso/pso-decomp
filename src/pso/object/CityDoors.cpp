@@ -1050,7 +1050,7 @@ void TUnk_804B5BA8::city_door_tick_closing() {
  CityDoorFields* door = (CityDoorFields*)this;
  if (((CityDoorProbe3*)this)->m12(door->parameters->openingDistanceSquared) != 0) {
   door->phase = 1;
-  ((TUnk_804B5BA8 *)this)->city_door_play_open_sound();
+  this->city_door_play_open_sound();
  } else {
   door->frame -= door->parameters->speed;
   if (door->frame <= lbl_805DBBE8[0]) {

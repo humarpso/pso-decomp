@@ -174,12 +174,12 @@ void frozen_shooter_collider_block(Obj_80126180 *self, Out_80126180 *o) {
 void TUnk_804A2960::emit_marker_effects() {
     u8 buf[16];
     void *p;
-    ((TObjPlayer *)((Pl_801261BC *)this))->draw_status_icon((s32)buf);
+    ((TObjPlayer *)this)->draw_status_icon((s32)buf);
     ((Pl_801261BC *)this)->f1fc = 0;
     p = buf;
-    if (((TObjPlayer *)((Pl_801261BC *)this))->is_mode_two_and_ready() != 0) {
+    if (((TObjPlayer *)this)->is_mode_two_and_ready() != 0) {
         fire_shot_at_target__11TItemWeaponFv(((Pl_801261BC *)this), p, ((Pl_801261BC *)this)->f188, 0);
-    } else if (((TItemProShield *)((Pl_801261BC *)this))->get_slot_count() == 1) {
+    } else if (((TItemProShield *)this)->get_slot_count() == 1) {
         ((Pl_801261BC *)this)->f1fc = 1;
         fire_shot_at_target__11TItemWeaponFv(((Pl_801261BC *)this), p, ((Pl_801261BC *)this)->f188, 0);
     } else {

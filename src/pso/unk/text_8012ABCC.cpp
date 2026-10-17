@@ -207,12 +207,12 @@ void TUnk_804A4B80::vfunc_17(s32 arg1) {
       {
         if (arg1 == 0)
         {
-          PSO_VCALL_VObj_18_382324_m49(((u8 *)this), ((u8 *) ((u8 *)this)) + 0x224, 0, 0, 1);
+          PSO_VCALL_VObj_18_382324_m49(this, ((u8 *) ((u8 *)this)) + 0x224, 0, 0, 1);
           return;
         }
         if (arg1 == 1)
         {
-          heaven_punisher_strike_locks((Pl_8012AC68 *)((void *) ((u8 *)this)));
+          heaven_punisher_strike_locks((Pl_8012AC68 *)this);
         }
       }
     }
@@ -246,11 +246,11 @@ void TUnk_804A4B80::emit_marker_effects() {
         if (!((TLobby::get_internet_beat() / 100) & 1)) {
             var_r31 = 1;
         }
-        send_6x61_activate_mag_effect__14TItemEquipBaseFl((void *) (((u8 *)this)), var_r31);
+        send_6x61_activate_mag_effect__14TItemEquipBaseFl(this, var_r31);
         return;
     }
     ((TObjPlayer *)((u8 *)this))->draw_status_icon((s32)&sp8);
-    ((VObj_18 *)(((u8 *)this)))->m49(&sp8, 0, 0, 1);
+    ((VObj_18 *)(this))->m49(&sp8, 0, 0, 1);
 }
 u32 *copy_attack_targets(u32 *dst, u32 *src) {
     u32 *d = dst;

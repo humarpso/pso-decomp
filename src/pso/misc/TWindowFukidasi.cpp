@@ -340,10 +340,10 @@ void TWindowFukidasi::rearm_balloon(s32 arg1) {
     if (((s32 (*)(void))sub_80246948__13TUnk_804CE018Fv)() != 0) {
         *(s8 *)((s8 *)((u8 *)this) + 0x70) = 5;
     }
-    ((s32 (*)(void *, void *))init_flags__15TWindowFukidasiFPvi)((void *) (((u8 *)this)), (void *)arg1);
+    ((s32 (*)(void *, void *))init_flags__15TWindowFukidasiFPvi)(this, (void *)arg1);
     switch ((s32) (*(u8 *)((s8 *)((u8 *)this) + 0x72))) {
     case 0:
-        n = TWindowKeyBoardSoft::strnlen((s8 *)(((void * (*)(void *))get_field_20__17TWindowSubComCardFv)(((void * (*)(void *, int))get_array_entry__13TUnk_804CE018Fi)(((u8 *)this), 0))), (u32)0x100);
+        n = TWindowKeyBoardSoft::strnlen((s8 *)(((void * (*)(void *))get_field_20__17TWindowSubComCardFv)(((void * (*)(void *, int))get_array_entry__13TUnk_804CE018Fi)(this, 0))), (u32)0x100);
         *(s16 *)((s8 *)((u8 *)this) + 0x74) = (s16) ((lbl_805DCCF0 * (f32) n) + lbl_805DCCEC);
         break;
     case 1:
@@ -1013,8 +1013,8 @@ void TWindowFukidasi::draw_tail(void *view, u32 color, f32 *off, f32 depth) {
     f32 s;
     f32 y0;
     s32 angle;
-    if (((TUnk_804CF0B8 *)((Fuki_802521E8 *)this))->is_balloon_visible() != 0) {
-        ((TWindowFukidasi *)((Fuki_802521E8 *)this))->project_anchor(pos, scr);
+    if (((TUnk_804CF0B8 *)this)->is_balloon_visible() != 0) {
+        ((TWindowFukidasi *)this)->project_anchor(pos, scr);
         cx = ((Fuki_802521E8 *)this)->center[0];
         cy = ((Fuki_802521E8 *)this)->center[1];
         angle = TWindowFukidasi__data_8044ED70 * atan2_float(cy - scr[1], cx - scr[0]);

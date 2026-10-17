@@ -195,7 +195,7 @@ void TOTrapAncient01::vfunc_6(s16 *arg1, s32 arg2) {
         if (arg2 == 1) {
             this->play_sounds();
         }
-        ((TOTrapAncient01 *)this)->release_trapped_player();
+        this->release_trapped_player();
         set_flag8();
         queue_destruction__7TObjectFv(this);
     }
@@ -226,7 +226,7 @@ void TOTrapAncient01::release_trapped_player() {
 }
 
 f32 TOTrapAncient01::receive_physical_attack(void *arg1, f32 farg0) {
-    ((TOTrapAncient01 *)this)->release_trapped_player();
+    this->release_trapped_player();
     receive_physical_attack__6TOTrapFPvf(this, arg1, farg0);
 }
 
@@ -237,13 +237,13 @@ extern void *tl_05;
 void TOTrapAncient01::vfunc_82() {
     s32 i;
     VObj_801797D4 *p;
-    ((TUnk_804806E8 *)((Trap_801797D4 *)this))->calc_attach_pos();
+    ((TUnk_804806E8 *)this)->calc_attach_pos();
     ((Trap_801797D4 *)this)->f354 -= lbl_805DBA48;
     if (((Trap_801797D4 *)this)->f354 < TOTrapAncient01__data_805DBA4C) {
         ((Trap_801797D4 *)this)->fA4->fC = lbl_805DBA54;
-        set_indexed_flags(((Trap_801797D4 *)this), 0, 0x100);
+        set_indexed_flags(this, 0, 0x100);
         TObjPlayer::init_all_slots();
-        ((TObjPlayer *)((Trap_801797D4 *)this))->check_object_collisions();
+        ((TObjPlayer *)this)->check_object_collisions();
         for (i = 0; i < 16; i++) {
             p = get_battle_param__10TObjPlayerFi(i);
             if (p == 0) {
@@ -257,7 +257,7 @@ void TOTrapAncient01::vfunc_82() {
             }
             {
             Pair_801797D4 v = ((Trap_801797D4 *)this)->f344;
-            p->m21(((Trap_801797D4 *)this), &v, 0, -1, -1);
+            p->m21(this, &v, 0, -1, -1);
             }
             if (((Trap_801797D4 *)this)->f344.a < 5) {
                 p->m23(((Trap_801797D4 *)this), TOTrapAncient01__data_805DBA4C);

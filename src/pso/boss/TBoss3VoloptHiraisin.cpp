@@ -254,10 +254,10 @@ typedef char RecoveredFields_800413C8_arg0_B4_offset[offsetof(RecoveredFields_80
 typedef char RecoveredFields_800413C8_arg0_38C_offset[offsetof(RecoveredFields_800413C8_arg0, field_38C) == 0x38C ? 1 : -1];
 
 void TBoss3VoloptHiraisin::sub_8004118C() {
-    switch (((Obj_8004118C *)this)->state) {
+    switch (this->state) {
     case 0:
         ((Obj_8004118C *)this)->anim = 0;
-        ((Obj_8004118C *)this)->state = 1;
+        this->state = 1;
         break;
     case 1:
         break;
@@ -707,11 +707,11 @@ void TBoss3VoloptHiraisin::init_params() {
     prm = &TBoss3VoloptHiraisin__init_param_table;
     VecCopy((Vec *)((s32)((Hira_800418C8 *)this)->home), (const Vec *)((s32)((Hira_800418C8 *)this)->pos));
     ((Hira_800418C8 *)this)->home[1] -= (3e+01f);
-    copy_position__20TBoss3VoloptHiraisinFi((s32)((Hira_800418C8 *)this));
+    copy_position__20TBoss3VoloptHiraisinFi((s32)this);
     ((Hira_800418C8 *)this)->unkDC = *(s32 *)(TBoss3VoloptHiraisin__resource_bundle + 0x430);
     ((Hira_800418C8 *)this)->unkD8 = prm->unk1C;
     ((TObjPlayer *)((Hira_800418C8 *)this))->set_field_d8((s32)(((Hira_800418C8 *)this)->unkD8));
-    init_collision_body_parts(((Hira_800418C8 *)this), prm->unk88, 1);
+    init_collision_body_parts(this, prm->unk88, 1);
     ((Hira_800418C8 *)this)->unk368 = 0;
     ((Hira_800418C8 *)this)->unk350 = prm->unk6C;
     recalc_combat_stats((void *)lbl_805D4C70, (void *)volopt_hiraisin_shared_handler_b, (void *)volopt_hiraisin_object_handle, (f32)((1.0f)), (f32)((1.0f)));
@@ -721,12 +721,12 @@ void TBoss3VoloptHiraisin::init_params() {
     ((Hira_800418C8 *)this)->hp32C = ((Hira_800418C8 *)this)->hp2B8;
     ((Hira_800418C8 *)this)->hp32E = ((Hira_800418C8 *)this)->hp2BA;
     ((Hira_800418C8 *)this)->unk33E = ((Hira_800418C8 *)this)->hp32C;
-    ((TObjEneLappy *)((Hira_800418C8 *)this))->set_param(0x2E);
-    ((TBoss3Volopt *)((Hira_800418C8 *)this))->reset_photon_effect();
-    ((TBoss3VoloptHiraisin *)((Hira_800418C8 *)this))->load_params_from_table(0x10);
-    sub_800C7860__15TObjEnemyCustomFv(((Hira_800418C8 *)this));
-    ((TUnk_804806E8 *)((Hira_800418C8 *)this))->add_flags_2e4(4);
-    obj_setFlags30(((Hira_800418C8 *)this), 0x8000);
+    ((TObjEneLappy *)this)->set_param(0x2E);
+    ((TBoss3Volopt *)this)->reset_photon_effect();
+    ((TBoss3VoloptHiraisin *)this)->load_params_from_table(0x10);
+    sub_800C7860__15TObjEnemyCustomFv(this);
+    ((TUnk_804806E8 *)this)->add_flags_2e4(4);
+    obj_setFlags30(this, 0x8000);
     this->clear_lobby_object_state();
 }
 

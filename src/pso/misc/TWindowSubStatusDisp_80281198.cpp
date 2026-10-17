@@ -341,9 +341,9 @@ void TWindowSubStatusDisp::update_status() {
     s32 temp_r3;
 
     if (get_player_by_client_id(this->m_20) != 0U) {
-        temp_r3 = ((TUnk_804CE018 *)((u8 *)this))->setup_window_draw_context((s32)(((u8 *)this) + 0x6C));
-        draw_window_frame(((u8 *)this), temp_r3);
-        draw_visible_window_entries(((u8 *)this), ((u8 *)this) + 0x24, temp_r3);
+        temp_r3 = this->setup_window_draw_context((s32)(((u8 *)this) + 0x6C));
+        draw_window_frame(this, temp_r3);
+        draw_visible_window_entries(this, ((u8 *)this) + 0x24, temp_r3);
         draw_list_page_indicator(this->m_68, temp_r3);
     }
 }

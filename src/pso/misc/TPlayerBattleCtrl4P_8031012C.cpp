@@ -310,7 +310,7 @@ void TPlayerBattleCtrl4P::update_player_alive_flags() {
     for (i = 0; i < 4; i++) {
         e = (Ent_803104CC *)get_player_by_client_id(i);
         if (e != NULL) {
-            ((s32 (*)(void *, void *))calc_battle_score__19TPlayerBattleCtrl4PFPvPv)(((Ctl_803104CC *)this), e);
+            ((s32 (*)(void *, void *))calc_battle_score__19TPlayerBattleCtrl4PFPvPv)(this, e);
             v = 1;
             if (e->flags & 0x800) {
                 if (TLobby__sub_801D7100(lobby_rule_settings) == 1) {
@@ -456,7 +456,7 @@ void TPlayerBattleCtrl4P::update_timed_events(s32 frames) {
             for (i = 0; i < 8; i++) {
                 if (((Ctl_80310910 *)this)->flags[i] != 0 && frames / 60 == battle_event_second_table[i]) {
                     ((Ctl_80310910 *)this)->flags[i] = 0;
-                    request_split_screen_battle_event((void*)(((Ctl_80310910 *)this)));
+                    request_split_screen_battle_event(this);
                 }
             }
         }
@@ -770,7 +770,7 @@ void TPlayerBattleCtrl4P::reset_players() {
             reset_cameras_to_actor(p, 0);
         }
     }
-    destroy_matching_children__19TPlayerBattleCtrl4PFPvPv((void *)(((Ctl_80311380 *)this)), (Par_80311304 *)(tl_05));
+    destroy_matching_children__19TPlayerBattleCtrl4PFPvPv(this, (Par_80311304 *)(tl_05));
     TAdSinglePlyChrSelectGC::destroy();
 }
 
@@ -846,17 +846,17 @@ void TPlayerBattleCtrl4P::start_duel() {
     TObjEneRe4Sorcerer__sub_801E3F18();
     ((O_80311618 *)this)->time = OSGetTime();
     for (i = 0; i < 4; i++) {
-        ((void (*)(void *, u16, s32))send_code_45_to_window__19TPlayerBattleCtrl4PFPvii)(((O_80311618 *)this), i, 1);
+        ((void (*)(void *, u16, s32))send_code_45_to_window__19TPlayerBattleCtrl4PFPvii)(this, i, 1);
         p = get_player_by_client_id(i);
         if (p != 0) {
             obj_clear_flag30_20000((void *)p);
         }
     }
-    ((TPlayerBattleCtrl4P *)((O_80311618 *)this))->reset_score_counters();
+    ((TPlayerBattleCtrl4P *)this)->reset_score_counters();
     name = TOKeyMachine01::get_global_state() == 0x10 ? lbl_80475BAC : lbl_80475BB8;
     w = __nw__7TObjectFUl(0x40);
     if (w != NULL) {
-        init_with_name__6TLobbyFPvPvPvPv(w, ((O_80311618 *)this), name, 0x2D);
+        init_with_name__6TLobbyFPvPvPvPv(w, this, name, 0x2D);
     }
     for (j = 0; j < 8; j++) {
         ((O_80311618 *)this)->flags[j] = 1;
@@ -875,9 +875,9 @@ void TPlayerBattleCtrl4P::init_battle() {
     TWindowCtrl::create_alt_timer();
     ((TWindowCtrl *)(((Ctl_8031171C *)this)->f244))->set_timer_window_time();
     TOMineTrap::destroy_matching_traps();
-    ((TPlayerBattleCtrl4P *)((Ctl_8031171C *)this))->apply_rule_configuration(1);
+    ((TPlayerBattleCtrl4P *)this)->apply_rule_configuration(1);
     for (i = 0; i < 4; i++) {
-        TPlayerBattleCtrl4P::remove_player(((Ctl_8031171C *)this), i, 1);
+        TPlayerBattleCtrl4P::remove_player(this, i, 1);
         p = (u8 *)get_player_by_client_id(i);
         if (p != 0) {
             obj_set_flag_20000();
@@ -890,7 +890,7 @@ void TPlayerBattleCtrl4P::init_battle() {
         }
     }
     ((Ctl_8031171C *)this)->f248 = 0x5A;
-    calculate_split_screen_battle_rankings((void *)(((Ctl_8031171C *)this)));
+    calculate_split_screen_battle_rankings(this);
     for (j = 0; j < 4; j++) {
         ((Ctl_8031171C *)this)->ok[j] = 1;
     }

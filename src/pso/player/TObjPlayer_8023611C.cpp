@@ -284,7 +284,7 @@ s32 TObjPlayer::collect_body_contacts(int target, void *_w2, void *arg3) {
 
 void TUnk_804CC148::find_area_contact(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    find_area_technique_contact((void *)arg0, (int)(this->m_e8), arg0 + 0xBC, (void *)arg1);
+    find_area_technique_contact((void *)arg0, this->m_e8, arg0 + 0xBC, (void *)arg1);
 }
 
 void TObjPlayer::collect_body_contacts_for_target(s32 arg1) {
@@ -294,7 +294,7 @@ void TObjPlayer::collect_body_contacts_for_target(s32 arg1) {
 
 void TObjPlayer::find_support_technique_contact_for_target(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    find_support_technique_contact((void *)arg0, (int)(this->motion_list), arg0 + 0xb0, (void *)arg1);
+    find_support_technique_contact((void *)arg0, (int)this->motion_list, arg0 + 0xb0, (void *)arg1);
 }
 
 void TObjPlayer::gather_contacts_for_self(s32 arg1) {

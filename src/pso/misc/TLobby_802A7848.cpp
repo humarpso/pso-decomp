@@ -131,7 +131,7 @@ s32 TUnk_804DDD28::load_action_motion_pairs(s32 arg1, s32 arg2, s32 arg3) {
     for (i = 0; i < this->vfunc_75(); i++) {
         ((void (*)(s32, void *))set_slot_position__6TLobbyFii)(*slots, &sp8);
         f4 = ((TLobby *)(&sp8))->get_field_04();
-        pkt = ((TLobby *)((VObj_802A7994 *)this))->send_packet(arg1, i, f4, ((TLobby *)(&sp8))->get_param());
+        pkt = ((TLobby *)this)->send_packet(arg1, i, f4, ((TLobby *)(&sp8))->get_param());
         if (pkt != 0) {
             drop = (s32 *)TItemDrop__sub_800F9448(((VObj_802A7994 *)this)->m0(arg1, i), pkt);
         }
@@ -145,11 +145,11 @@ s32 TUnk_804DDD28::load_action_motion_pairs(s32 arg1, s32 arg2, s32 arg3) {
 void TUnk_804DDD28::copy_motion_pair(void*q) { *(u32*)((char*)this + 0x0) = *(u32*)((char*)q + 0x0); this->m_4 = *(u32*)((char*)q + 0x4); }
 
 u8 *TUnk_804DDD28::vfunc_3(s16 arg1) {
-    if (((u8 *)this) != NULL) {
+    if (this != NULL) {
         *(s32 **)((s8 *)((u8 *)this) + 8) = &lbl_804DDD28.value;
-        TLobby::free_if_positive((s32) ((u8 *)this), -1);
+        TLobby::free_if_positive((s32) this, -1);
         if (arg1 > 0) {
-            free__10TObjPlayerFPv((((u8 *)this)));
+            free__10TObjPlayerFPv((this));
         }
     }
     return ((u8 *)this);

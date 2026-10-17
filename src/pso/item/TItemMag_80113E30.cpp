@@ -180,9 +180,9 @@ void TItemMag::add_stat_level_capped(s16 arg1) {
     s16 temp_r3_2;
     s16 var_r30;
     var_r30 = arg1;
-    temp_r31 = TItemData__sub_801146DC((void *) (((u8 *)this)));
+    temp_r31 = TItemData__sub_801146DC(this);
     if ((var_r30 > 0) || ((var_r30 < 0) && (-var_r30 < temp_r31))) {
-        mag_total_level = get_mag_total_level((void *) (((u8 *)this)));
+        mag_total_level = get_mag_total_level(this);
         if (mag_total_level < 0xC8) {
             *(s16 *)((s8 *)((u8 *)this) + 6) = *(s16 *)((s8 *)((u8 *)this) + 6) + var_r30;
             return;

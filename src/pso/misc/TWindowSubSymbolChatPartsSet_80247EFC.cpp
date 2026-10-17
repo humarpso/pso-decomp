@@ -131,7 +131,7 @@ void TWindowSubSymbolChatPartsSet::set_part_sprite(void *arg0, s16 id, s32 a, s3
 #pragma pop
 
 void TWindowSubSymbolChatPartsSet::get_entry_offset_d(s32 arg1) {
-    ((TUnk_804CE018 *)this)->get_array_entry(arg1 + 0xD);
+    this->get_array_entry(arg1 + 0xD);
 }
 
 void apply_part_to_window__28TWindowSubSymbolChatPartsSetFPvPvi(Obj_80248088 *arg0, Part_80248088 *arg1, s32 arg2) {
@@ -188,7 +188,7 @@ void TWindowSubSymbolChatPartsSet__sub_802482B8(s32 arg0, s32 arg1) {
 }
 
 void TWindowSubSymbolChatPartsSet::get_parts_entry(s32 arg1) {
-    ((TUnk_804CE018 *)this)->get_array_entry(arg1 + 9);
+    this->get_array_entry(arg1 + 9);
 }
 
 void get_parts_entry__28TWindowSubSymbolChatPartsSetFii(s32 arg0, s32 arg1) {

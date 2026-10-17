@@ -422,13 +422,13 @@ extern s32 lbl_804820C0[];
 #pragma push
 #pragma opt_common_subs off
 void TBoss2DeRolLe::render_body() {
-    Self_8002EFE8 *self = (Self_8002EFE8 *)((u8 *)this);
+    Self_8002EFE8 *self = (Self_8002EFE8 *)this;
     s32 i;
     Model_8002EFE8 *model;
     s32 idx;
     f32 frame;
     f32 max;
-    ((TBoss2DeRolLe *)(((u8 *)this)))->update_object_view_visibility(lbl_805D8278, lbl_805D8278);
+    ((TBoss2DeRolLe *)(this))->update_object_view_visibility(lbl_805D8278, lbl_805D8278);
     lbl_805D5660 = model_render_flags;
     TObjEneDD::clear_global_flag_400();
     push_matrix();
@@ -477,7 +477,7 @@ void TBoss2DeRolLe::render_body() {
 }
 #pragma pop
 
-int TBoss2DeRolLe::vfunc_105() { return ((TObjEneDD *)this)->get_target_info(); }
+int TBoss2DeRolLe::vfunc_105() { return this->get_target_info(); }
 
 }
 

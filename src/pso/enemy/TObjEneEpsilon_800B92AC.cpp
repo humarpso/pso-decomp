@@ -251,7 +251,7 @@ void TObjEneDD_ST::enemy_copy_target_destination() {
     u32 temp_r4;
     temp_r4 = *(u32 *)((s8 *)((u8 *)this) + 0x390);
     if (temp_r4 != 0U) {
-        copy_position__14TObjEneEpsilonFPv(((void *)(((u8 *)this))), ((void *)(temp_r4 + 0x38)));
+        copy_position__14TObjEneEpsilonFPv(((void *)this), ((void *)(temp_r4 + 0x38)));
     }
 }
 
@@ -376,12 +376,12 @@ s32 TObjEneDD_ST::update_linked_position(f32 scale) {
 }
 s32 TObjEneDD_ST::enemy_tick_target_acquisition(s32 *counter, s32 limit, f32 scale) {
     s32 var_r31;
-    if (tick_period_counter((s32)((u8 *)this), counter, limit) != 0) {
-        var_r31 = ((VObj_18_8e9c4f *)(((u8 *)this)))->m102(scale);
+    if (tick_period_counter((s32)this, counter, limit) != 0) {
+        var_r31 = ((VObj_18_8e9c4f *)(this))->m102(scale);
     } else {
         var_r31 = enemy_has_live_target();
         if (var_r31 == 0) {
-            enemy_clear_target__12TObjEneDD_STFUs((void *) (((u8 *)this)));
+            enemy_clear_target__12TObjEneDD_STFUs(this);
         }
     }
     return var_r31;

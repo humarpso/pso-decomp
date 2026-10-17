@@ -40,15 +40,15 @@ u8 *confusion_curse_timer_ct(u8 *arg0, s16 arg1, s32 arg2, f32 farg0) {
 
 void TUnk_804A3830::reserved_53() {
     s32 temp_r31;
-    draw_weapon_at_joint((void *) (((u8 *)this)), 0x31);
-    update_trail_slot__11TItemWeaponFPvi((void *) (((u8 *)this)), 0);
-    update_trail_slot__11TItemWeaponFPvi((void *) (((u8 *)this)), 1);
+    draw_weapon_at_joint(this, 0x31);
+    update_trail_slot__11TItemWeaponFPvi(this, 0);
+    update_trail_slot__11TItemWeaponFPvi(this, 1);
     temp_r31 = *(s32 *)((s8 *)((u8 *)this) + 0xF4);
     *(s32 *)((s8 *)((u8 *)this) + 0xF4) = (s32) this->projectile;
-    draw_weapon_at_joint((void *) (((u8 *)this)), 0x24);
+    draw_weapon_at_joint(this, 0x24);
     *(s32 *)((s8 *)((u8 *)this) + 0xF4) = temp_r31;
-    update_trail_slot__11TItemWeaponFPvi((void *) (((u8 *)this)), 2);
-    update_trail_slot__11TItemWeaponFPvi((void *) (((u8 *)this)), 3);
+    update_trail_slot__11TItemWeaponFPvi(this, 2);
+    update_trail_slot__11TItemWeaponFPvi(this, 3);
 }
 
 }

@@ -128,7 +128,7 @@ void TObjEneGyaranzo::render_anim_model_at_pos() {
     push_matrix_from(&identity_matrix.value);
     post_translate_matrix((void *) (((u8 *)this) + 0x38));
     rotate_matrix_y(0, this->rotation_y);
-    ((TObjEnemy *)((u8 *)this))->render_anim_model(this->m_c0);
+    this->render_anim_model(this->m_c0);
     pop_matrix();
 }
 

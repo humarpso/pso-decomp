@@ -682,10 +682,10 @@ void TCameraCtrl::update_follow_motion_state() {
             if (temp_r3_3 & 1) {
                 if (temp_r3_3 & 0x10) {
                     *(f32 *)((s8 *)((u8 *)this) + 0x58) = (f32) (0.05f);
-                    this->m_30 = TCameraCtrl::clamp_distance(this->m_30, (s32)((void *) (TCameraCtrl__sub_8006E7FC((void*)((void *) (((u8 *)this)))))), 0x16C);
+                    this->m_30 = TCameraCtrl::clamp_distance(this->m_30, (s32)((void *) (TCameraCtrl__sub_8006E7FC((void*)(this)))), 0x16C);
                 } else {
                     *(f32 *)((s8 *)((u8 *)this) + 0x58) = (f32) (0.67f);
-                    ((VObj_18_f70dca *)(((u8 *)this)))->m12(*(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x1C)) + 0x60) + 0x8000);
+                    ((VObj_18_f70dca *)(this))->m12(*(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x1C)) + 0x60) + 0x8000);
                     this->m_30 = (s32) (*(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x1C)) + 0x60) + 0x8000);
                 }
             } else {
@@ -696,7 +696,7 @@ void TCameraCtrl::update_follow_motion_state() {
                     var_r4_2 = 1;
                 }
                 if (var_r4_2 == 0) {
-                    this->m_30 = TCameraCtrl::clamp_distance(this->m_30, (s32)((void *) (TCameraCtrl__sub_8006E7FC((void*)((void *) (((u8 *)this)))))), var_r4);
+                    this->m_30 = TCameraCtrl::clamp_distance(this->m_30, (s32)((void *) (TCameraCtrl__sub_8006E7FC((void*)(this)))), var_r4);
                 }
             }
             if (var_r31 == 0) {
@@ -705,8 +705,8 @@ void TCameraCtrl::update_follow_motion_state() {
             }
             break;
         case 2:
-            ((VObj_18_f70dca *)(((u8 *)this)))->m12(*(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x1C)) + 0x60) + 0x8000);
-            this->m_30 = TCameraCtrl::clamp_distance(this->m_30, (s32)((void *) (TCameraCtrl__sub_8006E7FC((void*)((void *) (((u8 *)this)))))), 3);
+            ((VObj_18_f70dca *)(this))->m12(*(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x1C)) + 0x60) + 0x8000);
+            this->m_30 = TCameraCtrl::clamp_distance(this->m_30, (s32)((void *) (TCameraCtrl__sub_8006E7FC((void*)(this)))), 3);
             if (var_r31 != 0) {
                 *(s32 *)&this->unk_F8 = 1;
                 this->m_f4 = 0;

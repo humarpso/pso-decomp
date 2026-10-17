@@ -1100,7 +1100,7 @@ void TBoss3VoloptP01::sub_80043758() {
     case 0:
         this->actorFlags |= 0x40000;
         this->m_b8 = 0;
-        advance_animation_playback((int)((u8 *)this));
+        advance_animation_playback((int)this);
         *(f32 *)((s8 *)((u8 *)this) + 0x38C) = (-4e+01f);
         reset_look_state__11TCameraCtrlFv(this->m_3b8);
         *(s32 *)((s8 *)((u8 *)this) + 0x3A8) = 0;
@@ -1367,30 +1367,30 @@ void *__dt__15TBoss3VoloptP01Fv(void *arg0, s16 arg1) {
 
 void TBoss3VoloptP01::init_params() {
     void *p;
-    F(((VObj_80044038 *)this), s32, 0xDC) = F(TBoss3VoloptP01__resource_bundle, s32, 0x430);
-    F(((VObj_80044038 *)this), s32, 0xD8) = (s32) volopt_p01_action_table;
-    ((TObjPlayer *)((VObj_80044038 *)this))->set_field_d8(F(((VObj_80044038 *)this), s32, 0xD8));
-    init_collision_body_parts(((VObj_80044038 *)this), (void *) lbl_804841EC, 1);
-    F(((VObj_80044038 *)this), s32, 0x368) = 0;
-    F(((VObj_80044038 *)this), s32, 0x350) = (s32) lbl_804841D0;
+    F(this, s32, 0xDC) = F(TBoss3VoloptP01__resource_bundle, s32, 0x430);
+    F(this, s32, 0xD8) = (s32) volopt_p01_action_table;
+    ((TObjPlayer *)this)->set_field_d8(F(this, s32, 0xD8));
+    init_collision_body_parts(this, (void *) lbl_804841EC, 1);
+    F(this, s32, 0x368) = 0;
+    F(this, s32, 0x350) = (s32) lbl_804841D0;
     recalc_combat_stats((void *)volopt_p01_boss_stat_handle_a, (void *)volopt_p01_shared_handler_b, (void *)volopt_p01_object_handle, (f32)((1.0f)), (f32)((1.0f)));
-    F(((VObj_80044038 *)this), s16, 0xB8) = 0;
-    set_animation__10TObjPlayerFPvs(((VObj_80044038 *)this), F(((VObj_80044038 *)this), s16, 0xB8));
-    ((TObjMotion *)((VObj_80044038 *)this))->set_field_b8(F(((VObj_80044038 *)this), s16, 0xB8));
-    F(((VObj_80044038 *)this), s16, 0x32C) = F(((VObj_80044038 *)this), s16, 0x2B8);
-    F(((VObj_80044038 *)this), s16, 0x32E) = F(((VObj_80044038 *)this), s16, 0x2BA);
-    F(((VObj_80044038 *)this), s16, 0x33E) = F(((VObj_80044038 *)this), s16, 0x32C);
-    ((TObjEneLappy *)((VObj_80044038 *)this))->set_param(0x2E);
-    ((TObjEnemy *)((VObj_80044038 *)this))->update_prev_position();
-    ((TBoss3Volopt *)((VObj_80044038 *)this))->reset_photon_effect();
+    F(this, s16, 0xB8) = 0;
+    set_animation__10TObjPlayerFPvs(this, F(this, s16, 0xB8));
+    ((TObjMotion *)this)->set_field_b8(F(this, s16, 0xB8));
+    F(this, s16, 0x32C) = F(this, s16, 0x2B8);
+    F(this, s16, 0x32E) = F(this, s16, 0x2BA);
+    F(this, s16, 0x33E) = F(this, s16, 0x32C);
+    ((TObjEneLappy *)this)->set_param(0x2E);
+    ((TObjEnemy *)this)->update_prev_position();
+    ((TBoss3Volopt *)this)->reset_photon_effect();
     load_volopt_param_entry(0x11);
-    reset_state__15TBoss3VoloptP01FPv(((VObj_80044038 *)this));
-    p = F(((VObj_80044038 *)this), void *, 0xA4);
+    reset_state__15TBoss3VoloptP01FPv(this);
+    p = F(this, void *, 0xA4);
     F(p, u32, 0x18) &= ~1;
-    F(((VObj_80044038 *)this), s32, 0x3AC) = 0;
-    F(((VObj_80044038 *)this), s32, 0x3B0) = 0;
-    ((TUnk_804806E8 *)((VObj_80044038 *)this))->add_flags_2e4(4);
-    obj_setFlags30(((VObj_80044038 *)this), 0x8000);
+    F(this, s32, 0x3AC) = 0;
+    F(this, s32, 0x3B0) = 0;
+    ((TUnk_804806E8 *)this)->add_flags_2e4(4);
+    obj_setFlags30(this, 0x8000);
     this->clear_lobby_object_state();
 }
 

@@ -27,7 +27,7 @@ void TAdSinglePlyChrSelectGC__sub_80133508(s32);
 
 u8 *TBoss7LaserLight::construct_with_params(s32 arg1, s32 arg2, s32 arg3) {
     s32 i;
-    __ct__7TObjectFP7TObject(((u8 *)this), arg1);
+    __ct__7TObjectFP7TObject(this, arg1);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = lbl_804E4788;
     for (i = 0; i < 20; i++) {
         ((Obj_802EEF10 *)((u8 *)this))->v[i].x = TBoss7LaserLight__data_805DEBC4;

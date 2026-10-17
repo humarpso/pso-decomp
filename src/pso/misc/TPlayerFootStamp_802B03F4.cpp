@@ -29,10 +29,10 @@ void TBoss6PlotFalz::advance_timer() {
     temp_r0 = *(s32 *)((s8 *)this + 0x3CC) + 1;
     *(s32 *)((s8 *)this + 0x3CC) = temp_r0;
     if (temp_r0 > 0x198) {
-        ((TBoss6PlotFalz *)this)->set_state(6);
+        this->set_state(6);
     }
 }
-void TBoss6PlotFalz::advance_phase_if_ready() { if (is_ready__14TBoss6PlotFalzFv(this) != 0) { ((TBoss6PlotFalz *)this)->send_6xA3_action((s8)((void*)6)); } }
+void TBoss6PlotFalz::advance_phase_if_ready() { if (is_ready__14TBoss6PlotFalzFv(this) != 0) { this->send_6xA3_action((s8)((void*)6)); } }
 
 extern s32 lbl_80470990[];
 
@@ -50,9 +50,9 @@ void stop_adx_audio(void *arg0) {
 void TBoss6PlotFalz::update_cutscene_fade() {
     s32 t = ((Boss_802B057C *)this)->f3CC;
     if (t <= 0x2D) {
-        apply_fade_alpha__14TBoss6PlotFalzFlf(((Boss_802B057C *)this), 1.0f, 0);
+        apply_fade_alpha__14TBoss6PlotFalzFlf(this, 1.0f, 0);
     } else if (t > 0x2D && t < 0x10E) {
-        apply_fade_alpha__14TBoss6PlotFalzFlf(((Boss_802B057C *)this), (f32)(0x10E - t) / 225.0f, 0);
+        apply_fade_alpha__14TBoss6PlotFalzFlf(this, (f32)(0x10E - t) / 225.0f, 0);
     }
     if (((Boss_802B057C *)this)->f3CC == 0x2D) {
         ((void (*)(void)) end_cutscene_camera__14TBoss6PlotFalzFPv)();

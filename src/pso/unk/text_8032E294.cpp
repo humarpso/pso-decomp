@@ -35,7 +35,7 @@ void TUnk_804EDD44::sub_8032E294() {
   u8 *var_r31;
   s32 *new_var;
   u8 *var_r3;
-  var_r31 = (u8 *) ((u8 *)this);
+  var_r31 = (u8 *) this;
   new_var = &(*((s32 *) (((s8 *) var_r31) + 0x2C)));
   var_r4 = lbl_805D4218;
   *((s32 *) (((s8 *) ((u8 *)this)) + 0)) = var_r4;
@@ -83,5 +83,5 @@ TUnk_804EDD44::TUnk_804EDD44(TObject *parent, f32 *arg2, f32 *arg3, s32 arg4, s3
     VecCopy((Vec *)(((Eff_8032E34C *)this)->f64), (const Vec *)arg2);
     ((Eff_8032E34C *)this)->f58 = (s32)(lbl_804773A8[0] * atan2_float(arg3[0], arg3[2]));
     ((Eff_8032E34C *)this)->f50 = arg4;
-    ((TUnk_804EDD44 *)((Eff_8032E34C *)this))->sub_8032E294();
+    ((TUnk_804EDD44 *)this)->sub_8032E294();
 }

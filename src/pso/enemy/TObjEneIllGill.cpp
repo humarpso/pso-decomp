@@ -960,7 +960,7 @@ void TObjEneIllGill::vfunc_62() {
     if ((s16) *(s16 *)((s8 *)this + 0x326) != 7) {
         *(s16 *)((s8 *)this + 0x326) = 7;
         *(s16 *)((s8 *)this + 0xB8) = 5;
-        ((TObjEneIllGill *)this)->free_resources();
+        this->free_resources();
     }
     *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) & 0xFFFBFFFF);
     *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) & 0xFFDFFFFF);
@@ -1218,12 +1218,12 @@ s32 TObjEneIllGill::is_target_in_attack_range() {
     u8 *pl;
 
     if (F(u8 *, 0x2A8) != NULL && F(u32, 0x318) != 0 && !(*(s32 *)((s8 *)(F(u8 *, 0x2A8)) + 0x30) & 0x02000800)) {
-        if (obj_testFlags30(((u8 *)this), 0x2000) != 0) {
+        if (obj_testFlags30(this, 0x2000) != 0) {
             F(s32, 0x394) = 3;
-            bind_enemy_combat_stats(((u8 *)this), 0, ill_gill_combat_parameter_variants[F(s32, 0x394)], 0);
+            bind_enemy_combat_stats(this, 0, ill_gill_combat_parameter_variants[F(s32, 0x394)], 0);
             return 1;
         }
-        dist = calc_xz_distance_sq__10TObjPlayerFiUiPv(((u8 *)this), F(u8 *, 0x2A8), &v);
+        dist = calc_xz_distance_sq__10TObjPlayerFiUiPv(this, F(u8 *, 0x2A8), &v);
         ang = angle_difference_abs(F(s32, 0x60), (s32)(TObjEneIllGill__data_8047A348 * atan2_float(v.x, v.z)));
         pl = F(u8 *, 0x2A8);
         if (*(u8 **)((s8 *)pl + 0xA4) != NULL) {
@@ -1240,7 +1240,7 @@ s32 TObjEneIllGill::is_target_in_attack_range() {
                 if (dist <= (rad + ((TObjPlayer *)(F(s32, 0x318)))->get_pos_x()) * (rad + ((TObjPlayer *)(F(s32, 0x318)))->get_pos_x()) &&
                     ang <= ((TObjPlayer *)(F(s32, 0x318)))->get_field_0c()) {
                     F(s32, 0x394) = 0;
-                    bind_enemy_combat_stats(((u8 *)this), 0, ill_gill_combat_parameter_variants[F(s32, 0x394)], 0);
+                    bind_enemy_combat_stats(this, 0, ill_gill_combat_parameter_variants[F(s32, 0x394)], 0);
                     return 1;
                 }
                 return 0;
@@ -1253,7 +1253,7 @@ s32 TObjEneIllGill::is_target_in_attack_range() {
                 m = ((TObjPlayer *)(F(s32, 0x318)))->get_field_0c();
                 if (dist <= r2 && ang <= m) {
                     F(s32, 0x394) = i;
-                    bind_enemy_combat_stats(((u8 *)this), 0, ill_gill_combat_parameter_variants[F(s32, 0x394)], 0);
+                    bind_enemy_combat_stats(this, 0, ill_gill_combat_parameter_variants[F(s32, 0x394)], 0);
                     return 1;
                 }
             }
@@ -1262,7 +1262,7 @@ s32 TObjEneIllGill::is_target_in_attack_range() {
             if (dist <= (rad + ((TObjPlayer *)(F(s32, 0x318)))->get_pos_x()) * (rad + ((TObjPlayer *)(F(s32, 0x318)))->get_pos_x()) &&
                 ang <= ((TObjPlayer *)(F(s32, 0x318)))->get_field_0c()) {
                 F(s32, 0x394) = 0;
-                bind_enemy_combat_stats(((u8 *)this), 0, ill_gill_combat_parameter_variants[F(s32, 0x394)], 0);
+                bind_enemy_combat_stats(this, 0, ill_gill_combat_parameter_variants[F(s32, 0x394)], 0);
                 return 1;
             }
         }
@@ -1491,7 +1491,7 @@ void TObjEneIllGill::sub_80367DC8(s32 arg1) {
     rotate_vector_by_matrix(0, (void *)&lbl_8050BF00.value, (void *)&lbl_8050BF00.value);
     pop_matrices(1);
     vec3_add_to((void *)&lbl_8050BF00.value, (void *) (((u8 *)this) + 0x38));
-    project_actor_to_ground((void *) (((u8 *)this)), (void *)&lbl_8050BF00.value, 0);
+    project_actor_to_ground(this, (void *)&lbl_8050BF00.value, 0);
 }
 
 typedef struct RecoveredFields_80367EFC_arg0 RecoveredFields_80367EFC_arg0;

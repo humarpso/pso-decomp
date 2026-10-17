@@ -58,12 +58,12 @@ void TMainCursor::refresh_target_marker() {
     s32 temp_r3_2;
     temp_r3 = check_field_24__11TMainCursorFv();
     if (temp_r3 == 0) {
-        queue_destruction__7TObjectFv((((u8 *)this)));
+        queue_destruction__7TObjectFv((this));
         return;
     }
-    temp_r3_2 = check_visible__11TMainCursorFv((void *)(temp_r3 + 0x500), temp_r3, (void *) (update_sub_60__11TMainCursorFv((void *) (((u8 *)this)))), (u8) ((TMainCursor *)((u8 *)this))->forward_13E338_at_60());
+    temp_r3_2 = check_visible__11TMainCursorFv((void *)(temp_r3 + 0x500), temp_r3, (void *) (update_sub_60__11TMainCursorFv((void *)this)), (u8) this->forward_13E338_at_60());
     if (temp_r3_2 == -1) {
-        queue_destruction__7TObjectFv((((u8 *)this)));
+        queue_destruction__7TObjectFv((this));
         return;
     }
     this->m_1c = 0;
@@ -72,11 +72,11 @@ void TMainCursor::refresh_target_marker() {
     *(f32 *)&this->unk_38 = lbl_805DB0D8 + *(f32 *)&this->unk_28;
     *(f32 *)&this->unk_30 = *(f32 *)&this->unk_38;
     this->m_3c = lbl_805DB0DC;
-    ((TMainCursor *)((u8 *)this))->update_position();
-    if (check_can_pickup__11TMainCursorFi((s32)(((u8 *)this))) != 0) {
-        ((TMainCursor *)((u8 *)this))->check_flag_4();
+    this->update_position();
+    if (check_can_pickup__11TMainCursorFi((s32)this) != 0) {
+        this->check_flag_4();
     }
-    if (((TMainCursor *)((u8 *)this))->update() != 0) {
+    if (this->update() != 0) {
         get_rader_map__11TMainCursorFv((void *) (((u8 *)this) + 0x4C), (void *) ((u8 *)&target_cursor_color_table.value + 0x40));
         return;
     }

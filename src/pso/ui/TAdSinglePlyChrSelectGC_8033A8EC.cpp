@@ -354,7 +354,7 @@ void TAdSinglePlyChrSelectGC__sub_8033B0AC(void *arg0) {
 
 void TAdSinglePlyChrSelectGC::start_check_memory_card() {
     u8 *temp_r3;
-    *(u8 **)((s8 *)((u8 *)this) + 0x40) = create_check_memory_card__23TAdSinglePlyChrSelectGCFPvPvPv(((u8 *)this), NULL, NULL);
+    *(u8 **)((s8 *)((u8 *)this) + 0x40) = create_check_memory_card__23TAdSinglePlyChrSelectGCFPvPvPv(this, NULL, NULL);
     temp_r3 = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x40));
     if (temp_r3 != NULL) {
         TAdSinglePlyChrSelectGC__sub_8033B9E0(temp_r3);

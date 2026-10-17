@@ -28,7 +28,7 @@ void TWindowSubMagPhoton::init_photon_blast_entries() {
     for (i = 0; i < 3; i++) {
         s32 blast = ((TItemMag *)mag)->get_photon_blast_at_slot(i);
         ((Win_8027C188 *)this)->pb[lbl_805DD678[i]] = blast;
-        void *e = get_array_entry__13TUnk_804CE018Fi(((Win_8027C188 *)this), i + 1);
+        void *e = get_array_entry__13TUnk_804CE018Fi(this, i + 1);
         if (blast != -1) {
             draw_action_palette_icon(e, 5, blast);
         } else {

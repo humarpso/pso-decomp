@@ -61,7 +61,7 @@ int transition_enemy_state(void*, void*);
 #pragma push
 #pragma fp_contract on
 void TObjEneRecon::set_orbit_destination(s32 arg1) {
-    enemy_copy_target_destination__12TObjEneDD_STFv(((u8 *)this));
+    enemy_copy_target_destination__12TObjEneDD_STFv(this);
     *(f32 *)((s8 *)((u8 *)this) + 0x394) = (f32) ((*(f32 *)((s8 *)((u8 *)this) + 0x468) * sin_table_lookup(arg1)) + *(f32 *)((s8 *)((u8 *)this) + 0x394));
     *(f32 *)((s8 *)((u8 *)this) + 0x398) = (f32) *(f32 *)((s8 *)((u8 *)this) + 0x460);
     *(f32 *)((s8 *)((u8 *)this) + 0x39C) = (f32) ((*(f32 *)((s8 *)((u8 *)this) + 0x468) * cos_table_lookup(arg1)) + *(f32 *)((s8 *)((u8 *)this) + 0x39C));

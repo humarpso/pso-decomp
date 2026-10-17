@@ -126,16 +126,16 @@ TAdMultiConfirmGC::TAdMultiConfirmGC(TObject *parent) : TObject(parent) {
         ((TAdMultiConfirmGC_802FFA3C *)this)->players[i] = 0;
     }
     if ((p = __nw__7TObjectFUl(0x24)) != 0) {
-        __ct__9TAdBackGCFv(p, ((TAdMultiConfirmGC_802FFA3C *)this));
+        __ct__9TAdBackGCFv(p, this);
     }
     if ((p = __nw__7TObjectFUl(0x28)) != 0) {
-        __ct__12TAdBackTxtGCFv(p, ((TAdMultiConfirmGC_802FFA3C *)this));
+        __ct__12TAdBackTxtGCFv(p, this);
     }
     if ((p = __nw__7TObjectFUl(0x138)) != 0) {
-        __ct__10TAdTitleGCFP7TObjectl(p, ((TAdMultiConfirmGC_802FFA3C *)this), 0x10);
+        __ct__10TAdTitleGCFP7TObjectl(p, this, 0x10);
     }
     if ((p = __nw__7TObjectFUl(0x9C)) != 0) {
-        __ct__13TAdTitleTexGCFv(p, ((TAdMultiConfirmGC_802FFA3C *)this));
+        __ct__13TAdTitleTexGCFv(p, this);
     }
     ((TAdMultiConfirmGC_802FFA3C *)this)->count = 0;
     for (i = 0; i < 4; i++) {

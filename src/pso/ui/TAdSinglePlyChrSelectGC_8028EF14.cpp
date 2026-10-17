@@ -1370,7 +1370,7 @@ void close_if_active__23TAdSinglePlyChrSelectGCFv(u8 * _w0) {
 void TAdSinglePlyChrSelectGC::draw_creation_figure() {
     u32 v;
     TParticleCtrl::begin_effect_render();
-    if (scan_creation_resources((void *)(((u8 *)this))) == 0) {
+    if (scan_creation_resources(this) == 0) {
         char_creation_figure_draw_flag = 0;
         return;
     }
@@ -1380,7 +1380,7 @@ void TAdSinglePlyChrSelectGC::draw_creation_figure() {
         translate_matrix_vec3(0, ((u8 *)this) + 0x38);
         rotate_matrix_y(0, creation_figure_rotation_y);
         TObjFish::set_global_param((s32)((u8 *)char_select_current_entry + 0x460));
-        ((TAdSinglePlyChrSelectGC *)((u8 *)this))->draw_player_model();
+        this->draw_player_model();
         ((TObjMotion *)((u8 *)this))->get_item_ptr(0x3A);
         push_matrix_from();
         TObjFish::set_global_param((s32)((u8 *)char_select_current_entry + 0x2EC));

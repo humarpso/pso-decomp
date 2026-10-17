@@ -176,7 +176,7 @@ void TShopEquipmentSequence::open_sell_window() {
     o->cb0 = (void *)exit__22TShopEquipmentSequenceFPv;
     o->cb1 = (void *)init_window__22TShopEquipmentSequenceFPv;
     reset_controller_input_state();
-    set_field_20__15TShopWindowBaseFl(((S_8021D6D8 *)this), 7);
+    set_field_20__15TShopWindowBaseFl(this, 7);
 }
 
 void TShopEquipmentSequence::open_buy_window() {
@@ -186,7 +186,7 @@ void TShopEquipmentSequence::open_buy_window() {
     }
     o->cb0 = (void *)exit__22TShopEquipmentSequenceFPv;
     reset_controller_input_state();
-    set_field_20__15TShopWindowBaseFl(((S_8021D750 *)this), 7);
+    set_field_20__15TShopWindowBaseFl(this, 7);
 }
 
 void TShopEquipmentSequence::update_buy_sell_choice() {

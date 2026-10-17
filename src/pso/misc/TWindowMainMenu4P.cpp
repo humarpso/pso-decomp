@@ -20,7 +20,7 @@ void __dl__7TObjectFPv(void *);
 u8 *__dt__15TWindowMainMenuFv(u8 *arg0, s16 arg1);
 s32 close_and_clear_flags__15TWindowMainMenuFv();
 
-void TWindowMainMenu4P::vfunc_9() { if (close_active_submenu() != 0) { ((TWindowMainMenu4P *)this)->show_child_window(); } }
+void TWindowMainMenu4P::vfunc_9() { if (close_active_submenu() != 0) { this->show_child_window(); } }
 
 void TWindowMainMenu4P::vfunc_8() {
     if (this->m_4c & 1) {

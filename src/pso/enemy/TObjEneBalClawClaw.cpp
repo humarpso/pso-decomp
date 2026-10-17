@@ -212,12 +212,12 @@ void update_drop__18TObjEneBalClawClawFPv(Claw_800906C8 *self) {
 
 void TObjEneBalClawClaw::sub_80090798() {
     *(s32 *)((s8 *)((u8 *)this) + 0x388) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x388) & 0xEFFFFFFF);
-    obj_clearFlags30__13TUnk_804B9870FUl(((u8 *)this), 0x06040000U);
+    obj_clearFlags30__13TUnk_804B9870FUl(this, 0x06040000U);
     *(s32 *)((s8 *)((u8 *)this) + 0x374) = 0xB;
 }
 
 void TObjEneBalClawClaw::set_claw_flags() {
-    obj_setFlags30(((u8 *)this), 0x04040000U);
+    obj_setFlags30(this, 0x04040000U);
     *(s32 *)((s8 *)((u8 *)this) + 0x388) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x388) & 0xDFFFFFFF);
     *(s32 *)((s8 *)((u8 *)this) + 0x388) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x388) | 0x10000000);
 }
@@ -371,8 +371,8 @@ void TObjEneBalClawClaw::enter_hit_state(s16 arg1) {
     *(s32 *)((s8 *)((u8 *)this) + 0x388) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x388) | 0x20000000);
     *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0xFFFBFFFF);
     *(f32 *)((s8 *)((u8 *)this) + 0x3C0) = (f32) (1e+05f);
-    update_if_active__15TObjEneMe1GiGueFl((void *) (((u8 *)this)), 0xA);
-    ((TObjEnemyCustom *)(((u8 *)this)))->clear_all_status_effects();
+    update_if_active__15TObjEneMe1GiGueFl(this, 0xA);
+    ((TObjEnemyCustom *)(this))->clear_all_status_effects();
 }
 
 s32 TObjEneBalClawClaw::check_active() {
@@ -1217,23 +1217,23 @@ void TObjEneBalClawClaw::update_attack_distance_state() {
     s32 temp_r31;
     u32 temp_r3;
 
-    if (((TObjEneBalClawClaw *)((u8 *)this))->is_actor_cadence_frame(0x1E) != 0) {
+    if (this->is_actor_cadence_frame(0x1E) != 0) {
         find_target_in_range((f32) ((2.5e+02f)));
     }
     switch (*(s16 *)((s8 *)((u8 *)this) + 0x326)) {
     case 8:
     case 0:
-        if (((TObjEneBalClawClaw *)((u8 *)this))->is_actor_cadence_frame(0x1E) != 0) {
+        if (this->is_actor_cadence_frame(0x1E) != 0) {
             if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x2A8) != 0U) {
-                update_if_active__15TObjEneMe1GiGueFl((void *) (((u8 *)this)), 1);
+                update_if_active__15TObjEneMe1GiGueFl(this, 1);
                 *(s32 *)((s8 *)((u8 *)this) + 0x38C) = 2;
                 return;
             }
             if (xz_distance_squared((void *) (((u8 *)this) + 0x38), (void *) (((u8 *)this) + 0x50)) > (1e+02f)) {
-                update_if_active__15TObjEneMe1GiGueFl((void *) (((u8 *)this)), 8);
+                update_if_active__15TObjEneMe1GiGueFl(this, 8);
                 return;
             }
-            reset_active_state__18TObjEneBalClawClawFPv((void *) (((u8 *)this)));
+            reset_active_state__18TObjEneBalClawClawFPv(this);
         }
         return;
     case 1:
@@ -1249,7 +1249,7 @@ void TObjEneBalClawClaw::update_attack_distance_state() {
                 break;
             case 1:
                 if (temp_f1 < (4e+02f)) {
-                    clear_attack_flag__14TObjEneBalClawFv((void *) (((u8 *)this)));
+                    clear_attack_flag__14TObjEneBalClawFv(this);
                     *(s32 *)((s8 *)((u8 *)this) + 0x38C) = 0;
                 } else if (temp_f1 > (1e+04f)) {
                     *(s32 *)((s8 *)((u8 *)this) + 0x38C) = 2;
@@ -1257,7 +1257,7 @@ void TObjEneBalClawClaw::update_attack_distance_state() {
                 break;
             case 2:
                 if (temp_f1 < (6.4e+03f)) {
-                    ((TObjEneBalClaw *)((u8 *)this))->set_attack_distance_flag();
+                    this->set_attack_distance_flag();
                     *(s32 *)((s8 *)((u8 *)this) + 0x38C) = 1;
                 }
                 break;
@@ -1266,18 +1266,18 @@ void TObjEneBalClawClaw::update_attack_distance_state() {
             if (temp_r31 != temp_r0_2) {
                 switch (temp_r0_2) {
                 case 0:
-                    update_if_active__15TObjEneMe1GiGueFl((void *) (((u8 *)this)), 2);
+                    update_if_active__15TObjEneMe1GiGueFl(this, 2);
                     return;
                 case 1:
-                    clear_attack_flag__14TObjEneBalClawFv((void *) (((u8 *)this)));
+                    clear_attack_flag__14TObjEneBalClawFv(this);
                     return;
                 case 2:
-                    ((TObjEneBalClaw *)((u8 *)this))->set_attack_distance_flag();
+                    this->set_attack_distance_flag();
                     return;
                 }
             }
         } else {
-            update_if_active__15TObjEneMe1GiGueFl((void *) (((u8 *)this)), 8);
+            update_if_active__15TObjEneMe1GiGueFl(this, 8);
         }
         break;
     }

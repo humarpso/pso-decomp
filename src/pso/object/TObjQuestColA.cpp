@@ -34,7 +34,7 @@ int TObjQuestColA::vfunc_15() {
             enable_action_input__10TObjPlayerFPv((void *)temp_r3);
             return 0;
         }
-        temp_r3_2 = ((TObjQuestColBase *)this)->update_trigger_state(*(f32 *)&this->unk_AC);
+        temp_r3_2 = this->update_trigger_state(*(f32 *)&this->unk_AC);
         if (temp_r3_2 == 1) {
             ((TObjPlayer *)temp_r3)->disable_primary_action_input();
         }

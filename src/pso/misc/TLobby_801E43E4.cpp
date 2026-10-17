@@ -82,7 +82,7 @@ void TLobby::send_subcommand_to_client(u32 arg1) {
 void TLobby::send_60_sized() {
     int size = ((u8 *)this)[1] * 4;
     if (TLobby__protocol_instance != 0) {
-        TProtocol__send_60(TLobby__protocol_instance, (int)((u8 *)this), size);
+        TProtocol__send_60(TLobby__protocol_instance, (int)this, size);
     }
 }
 

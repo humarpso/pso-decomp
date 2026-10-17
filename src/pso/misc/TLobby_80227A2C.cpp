@@ -726,13 +726,13 @@ void TUnk_804CC048::render() {
 void TLobby::tokenize_args(char *s) {
     char *start;
     s32 quoted;
-    clear_work_buffer((u8 *)((O_80228A74 *)this));
+    clear_work_buffer((u8 *)this);
     start = s;
     quoted = 0;
     for (;;) {
         switch (*s) {
         case 0:
-            ((TLobby *)((O_80228A74 *)this))->add_token(start);
+            ((TLobby *)this)->add_token(start);
             return;
         case '"':
             if (quoted) {
@@ -752,7 +752,7 @@ void TLobby::tokenize_args(char *s) {
             } else {
                 *s = 0;
                 s++;
-                ((TLobby *)((O_80228A74 *)this))->add_token(start);
+                ((TLobby *)this)->add_token(start);
                 start = s;
             }
             break;
@@ -766,13 +766,13 @@ void TLobby::tokenize_args(char *s) {
 void TLobby::parse_csv_line(char *s) {
     char *start;
     s32 quoted;
-    clear_work_buffer((u8 *)((O_80228A74 *)this));
+    clear_work_buffer((u8 *)this);
     start = s;
     quoted = 0;
     for (;;) {
         switch (*s) {
         case 0:
-            ((TLobby *)((O_80228A74 *)this))->add_token(start);
+            ((TLobby *)this)->add_token(start);
             return;
         case '"':
             if (quoted) {
@@ -793,7 +793,7 @@ void TLobby::parse_csv_line(char *s) {
             } else {
                 *s = 0;
                 s++;
-                ((TLobby *)((O_80228A74 *)this))->add_token(start);
+                ((TLobby *)this)->add_token(start);
                 start = s;
             }
             break;

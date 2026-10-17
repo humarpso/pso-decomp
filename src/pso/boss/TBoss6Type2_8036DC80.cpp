@@ -21,7 +21,7 @@ void TBoss6Type2::apply_pending_effect() {
         temp_r31 = (unsigned char *) (boss6_type2_player_snapshot_table + (temp_r3 * 0x2C));
         if ((s32) *(s32 *)((s8 *)temp_r31 + 0) != 0) {
             *(s32 *)((s8 *)temp_r31 + 0) = 0;
-            if (is_state_1f__14TBoss6PlotFalzFUi((u32)(((u8 *)this))) != 0) {
+            if (is_state_1f__14TBoss6PlotFalzFUi((u32)this) != 0) {
                 ((TBoss6Type2 *)(((u8 *)this) + 0xCF4))->copy_vec2(temp_r31 + 4);
                 ((TBoss6Type2 *)(((u8 *)this) + 0xA1C))->copy_vec2(temp_r31 + 0xC);
                 ((TBoss6Type2 *)(((u8 *)this) + 0xB88))->copy_vec2(temp_r31 + 0x14);

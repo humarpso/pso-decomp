@@ -570,7 +570,7 @@ void TObjEneLappy::vfunc_63() {
         *(s16 *)((s8 *)((u8 *)this) + 0xB8) = 7;
         if (!(*(s16 *)((s8 *)((u8 *)this) + 0x374) & 0x10)) {
             play_sound_effect((s32)(((s32)remap_area_sound_id(0x3AE10, 5))), (u32)(((u8 *)this) + 0x38), 0, 0);
-            ((TObjEnemy *)((u8 *)this))->distribute_experience();
+            this->distribute_experience();
             ((TObjPlayer *)((u8 *)this))->set_flag_and_notify();
         }
         *(s16 *)((s8 *)((u8 *)this) + 0x380) = 0;
@@ -607,7 +607,7 @@ void TObjEneLappy::vfunc_62() {
     s32 temp_r3;
     *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0xFFDFFFFF);
     if (*(s16 *)((s8 *)((u8 *)this) + 0x374) & 2) {
-        ((TUnk_804B9870 *)((u8 *)this))->obj_clearFlags30(0x23F);
+        this->obj_clearFlags30(0x23F);
         return;
     }
     if ((s16) *(s16 *)((s8 *)((u8 *)this) + 0x326) != 4) {
@@ -967,7 +967,7 @@ void TObjEneLappy::vfunc_58() {
     if (!(flags & 2) && !(*(s32 *)((s8 *)this + 0x30) & 0xA00)) {
         if (flags & 0x20) {
             *(s16 *)((s8 *)this + 0x374) = flags & ~0x20;
-            ((TUnk_804B9870 *)this)->obj_clearFlags30(0x02000000);
+            this->obj_clearFlags30(0x02000000);
             Vec_800C1144 v = *(Vec_800C1144 *)((s8 *)this + 0x38);
             if (project_actor_to_ground(this, &v, 0) == 1) {
                 *(f32 *)((s8 *)this + 0x3C) = lbl_805D9F7C + v.y;

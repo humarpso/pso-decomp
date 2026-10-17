@@ -703,7 +703,7 @@ extern s32 __vt__25TObjCity_Season_SonicAdv2[];
 void *TObjCity_Season_SonicAdv2::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = __vt__25TObjCity_Season_SonicAdv2;
-        ((TUnk_804B5E48 *)this)->destroy_seasonal_object(0);
+        this->destroy_seasonal_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }
@@ -1220,7 +1220,7 @@ void *TObjCity_Season_XmasTree::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = __vt__24TObjCity_Season_XmasTree;
         if (*(void * *)&this->unk_B4 != NULL) { queue_destruction__7TObjectFv(*(void * *)&this->unk_B4); *(s32 *)&this->unk_B4 = 0; }
-        ((TUnk_804B5E48 *)this)->destroy_seasonal_object(0);
+        this->destroy_seasonal_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }

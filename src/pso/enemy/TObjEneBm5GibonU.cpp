@@ -3410,7 +3410,7 @@ void TObjEneBm5GibonU::run_idle_state(s32 arg1) {
       b->x = 0.0f;
       b->y = 0.0f;
       b->z = 0.0f;
-      ((TObjEneDD_ST *)((u8 *)this))->set_active();
+      this->set_active();
       break;
 
     case 3:
@@ -4040,7 +4040,7 @@ void TObjEneBm5GibonU::handle_state(s32 arg1) {
     case 4:
       *((s32 *) (((s8 *) ((u8 *)this)) + 0x51C)) = 0;
       set_field_378(0);
-      PSO_VCALL_VObj_18_599a64_m93(((u8 *)this));
+      PSO_VCALL_VObj_18_599a64_m93(this);
       *((s32 *) (((s8 *) ((u8 *)this)) + 0x4AC)) = (s32) ((*((s32 *) (((s8 *) ((u8 *)this)) + 0x4AC))) | 2);
       return;
     case 3:
@@ -4049,10 +4049,10 @@ void TObjEneBm5GibonU::handle_state(s32 arg1) {
     {
       if (((s32) (*((s32 *) (((s8 *) ((u8 *)this)) + 0x470)))) < 1)
       {
-        transition_enemy_state((void *)((void *) ((u8 *)this)), 1);
+        transition_enemy_state((void *)this, 1);
         return;
       }
-      transition_enemy_state((void *)((void *) ((u8 *)this)), 2);
+      transition_enemy_state((void *)this, 2);
     }
     case 5:
       return;
@@ -4257,9 +4257,9 @@ void TObjEneBm5GibonU__sub_800D0AE8(Obj_800D0AE8 *self, Vec_800D0AE8 *dir) {
 
 s32 TObjEneBm5GibonU::play_sound_variant() {
     if ((s32) *(s32 *)((s8 *)this + 0x464) != 0) {
-        return ((TObjEneDD_ST *)this)->update_linked_position(lbl_805DA244);
+        return this->update_linked_position(lbl_805DA244);
     }
-    return ((TObjEneDD_ST *)this)->update_linked_position(lbl_805DA248);
+    return this->update_linked_position(lbl_805DA248);
 }
 
 void update_target__16TObjEneBm5GibonUFPv(void *arg0) {

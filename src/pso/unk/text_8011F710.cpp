@@ -163,7 +163,7 @@ void TItemWeapon::deliver_hit(s32 arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0)
         temp_r3 = (u8 *)this->player;
         if ((temp_r3 != NULL) && (arg2 != NULL)) {
             attack_accuracy_scale = get_attack_accuracy_scale((s16 *)(temp_r3 + 0x7CC));
-            if ((arg3 == 2) && (((VObj_18_f8c4e0 *)(((u8 *)this)))->m33() == 0)) {
+            if ((arg3 == 2) && (((VObj_18_f8c4e0 *)(this))->m33() == 0)) {
                 attack_accuracy_scale *= lbl_805DAC94;
             }
             temp_r31 = arg4 * 0x2C;
@@ -182,7 +182,7 @@ void TItemWeapon::deliver_hit(s32 arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0)
                     break;
                 }
                 if (((s32 (*)(s32, void *, s32, s32)) *(s32 (**)(s32, void *, s32, s32))((s8 *)((u8 *)this) + 0x1F4)) != NULL) {
-                    (*(s32 (**)(s32, void *, s32, s32))((s8 *)((u8 *)this) + 0x1F4))(tl_05, ((u8 *)this), obj_getField1c(arg2), arg4);
+                    (*(s32 (**)(s32, void *, s32, s32))((s8 *)((u8 *)this) + 0x1F4))(tl_05, this, obj_getField1c(arg2), arg4);
                 }
                 temp_r31_2 = (s32) var_f31_2;
                 TObjPlayer::calc_photon_blast_charge(this->player, temp_r31_2);

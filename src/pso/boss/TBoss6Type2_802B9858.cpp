@@ -31,13 +31,13 @@ void TBoss6Type2::render_body_effects() {
     if (var_r31 != 0) {
         TBoss6PlotFalz__sub_802AC008((f32) (*(f32 *)&this->unk_4FC), this->m_500);
     }
-    ((TBoss6Type2 *)((u8 *)this))->draw_body_models();
+    this->draw_body_models();
     if (var_r31 != 0) {
         TBoss6PlotFalz::update_camera_target();
     }
     pop_matrix();
     TParticleCtrl::end_effect_render();
-    ((TBoss6Type2 *)((u8 *)this))->restore_effect_values();
+    this->restore_effect_values();
 }
 
 }

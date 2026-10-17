@@ -363,7 +363,7 @@ extern const f32 lbl_805D8488;
 
 void TBoss2Joint::vfunc_62() {
     s32 temp_r31;
-    struct TBJ_8003688C *self = (struct TBJ_8003688C *)((u8 *)this);
+    struct TBJ_8003688C *self = (struct TBJ_8003688C *)this;
 
     temp_r31 = *(s16 *)((s8 *)self + 0x2B8) - *(s16 *)((s8 *)self + 0x32C);
     if (!(*(s32 *)((s8 *)self + 0x38C) & 1)) {

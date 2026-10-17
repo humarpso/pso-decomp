@@ -2253,7 +2253,7 @@ void TBoss5Gryphon::render_with_fade(s32 arg1) {
     TObjEneDD::clear_global_flag_400();
     lbl_805D5660 = model_render_flags;
     set_material_alpha_compare_reference(0);
-    if (TBoss8Dragon__sub_8005DC0C((Obj_8005DC0C *) (((u8 *)this))) != 0) {
+    if (TBoss8Dragon__sub_8005DC0C((Obj_8005DC0C *) (this)) != 0) {
         ((RenderFadeState *)(&((Boss_8005DD68 *)((u8 *)this))->fades[arg1]))->fadeOut();
     } else {
         ((RenderFadeState *)(&((Boss_8005DD68 *)((u8 *)this))->fades[arg1]))->restore();
@@ -2269,7 +2269,7 @@ void TBoss5Gryphon::render_with_fade(s32 arg1) {
     rotate_matrix_z(0, this->rotation_z);
     scale_matrix(0, lbl_805D8D58, lbl_805D8D58, lbl_805D8D58);
     TObjPlayer::toggle_particle_effect();
-    draw__16TObjEneRe7BeruraFv((void *) (((u8 *)this)));
+    draw__16TObjEneRe7BeruraFv((void *) (this));
     TParticleCtrl::end_effect_render();
     TObjLight__sub_801337F8((void *)current_scene_light);
     pop_matrix();
@@ -2291,7 +2291,7 @@ void TBoss5Gryphon::render_model() {
     temp_r31 = *(s32 *)&this->model;
     temp_r4 = (unsigned char *) (*(void **)((s8 *)boss5_gryphon_body_bml_resource + 0x42C));
     *(s32 *)&this->model = (s32) *(s32 *)((s8 *)temp_r4 + 0x18);
-    ((s32 (*)(void *, int))draw__16TObjEneRe7BeruraFv)((void *) (((u8 *)this)), (int)temp_r4);
+    ((s32 (*)(void *, int))draw__16TObjEneRe7BeruraFv)((void *) (this), (int)temp_r4);
     *(s32 *)&this->model = temp_r31;
     pop_matrix();
 }
@@ -2321,12 +2321,12 @@ void TBoss5Gryphon::draw_body() {
     TObjEneRe7Berura::set_global_state((s32)((void *)TBoss8Dragon__sub_8005E17C));
     ((void (*)(void))push_matrix)();
     TObjPlayer::set_global_flag();
-    ((void (*)(void *))post_translate_matrix)((u8 *)((Obj_8005E0C0 *)this) + 0x38);
+    ((void (*)(void *))post_translate_matrix)((u8 *)this + 0x38);
     ((void (*)(int, int))rotate_matrix_y)(0, ((Obj_8005E0C0 *)this)->f60);
     ((void (*)(int, int))rotate_matrix_x)(0, ((Obj_8005E0C0 *)this)->f5c);
     ((void (*)(int, int))rotate_matrix_z)(0, ((Obj_8005E0C0 *)this)->f64);
     ((void (*)(int, f32, f32, f32))scale_matrix)(0, lbl_805D8D58, lbl_805D8D58, lbl_805D8D58);
-    ((TObjEneDD_ST *)((Obj_8005E0C0 *)this))->get_speed_or_default();
+    ((TObjEneDD_ST *)this)->get_speed_or_default();
     ((TBoss8Dragon *)((void *)((Obj_8005E0C0 *)this)->f34))->render_model_tree((void *)((Obj_8005E0C0 *)this)->ff8);
     TObjPlayer::clear_global_state();
     ((void (*)(void))pop_matrix)();
@@ -2745,9 +2745,9 @@ void TBoss8Dragon::play_animation_index(s32 arg1) {
     ((TBoss8Dragon *)(&sp8))->init_color();
     temp_r5 = *(s32 *)((s8 *)((u8 *)this) + 0x778);
     this->m_774 = (s32) *(s32 *)((s8 *)temp_r5 + (arg1 * 4));
-    ((s32 (*)(void *, void *, int))trigger_effect__12TBoss8DragonFPvi)((void *) (((u8 *)this)), (void *) (&sp8), temp_r5);
-    TBoss8Dragon__sub_8005F684((void *) (((u8 *)this)), (void *) (&sp8));
-    ((TBoss8Dragon *)((u8 *)this))->copy_spawn_params((void *) (&sp8));
+    ((s32 (*)(void *, void *, int))trigger_effect__12TBoss8DragonFPvi)((void *) (this), (void *) (&sp8), temp_r5);
+    TBoss8Dragon__sub_8005F684((void *) (this), (void *) (&sp8));
+    this->copy_spawn_params((void *) (&sp8));
 }
 
 void set_animation_by_state__12TBoss8DragonFPv(void *arg0) {
@@ -2895,8 +2895,8 @@ void TBoss5Gryphon::apply_velocity() {
         v.y = lbl_805D8D5C;
         v.z = ((Obj_8005FBC4 *)this)->vel.z;
         len = ((TObjBoss2Tunnel *)(&v))->clamp_velocity();
-        ((TBoss5Gryphon *)((Obj_8005FBC4 *)this))->calc_shot_position((u8 *)(&shot), (f32)v.x, (f32)v.z, (f32)len);
-        ((TBoss5Gryphon *)((Obj_8005FBC4 *)this))->try_move_actor_xz_on_ground((u8 *)&shot);
+        ((TBoss5Gryphon *)this)->calc_shot_position((u8 *)(&shot), (f32)v.x, (f32)v.z, (f32)len);
+        ((TBoss5Gryphon *)this)->try_move_actor_xz_on_ground((u8 *)&shot);
     } else {
         ((Obj_8005FBC4 *)this)->pos.x += ((Obj_8005FBC4 *)this)->vel.x;
         ((Obj_8005FBC4 *)this)->pos.y += ((Obj_8005FBC4 *)this)->vel.y;
@@ -3998,7 +3998,7 @@ void TBoss5Gryphon::spawn_lightning_effect() {
     segs[1].w = lbl_805D8D5C;
     o = __nw__7TObjectFUl(0x264);
     if (o != NULL) {
-        o = __ct__25TBoss5GryphonLightningEffFv(o, ((u8 *)this), segs, 3, lbl_805D8D5C, lbl_805D8D88, lbl_805D8D54);
+        o = __ct__25TBoss5GryphonLightningEffFv(o, this, segs, 3, lbl_805D8D5C, lbl_805D8D88, lbl_805D8D54);
     }
     TBoss5GryphonLightningEff__sub_80325064(o);
 }

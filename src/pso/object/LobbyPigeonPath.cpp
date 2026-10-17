@@ -1100,7 +1100,7 @@ struct Ent_802C26E4;
 struct Vec_802C1660;
 s32 TUnk_804E094C::update_path_follow_rotation(void *, f32) {
     s32 r;
-    Obj_802C22A4 *self = (Obj_802C22A4 *)((Pl_802C26E4 *)this);
+    Obj_802C22A4 *self = (Obj_802C22A4 *)this;
     Entry_802C2548 *e;
     s32 old;
     s32 diff;

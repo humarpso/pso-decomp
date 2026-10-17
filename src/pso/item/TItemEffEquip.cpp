@@ -274,7 +274,7 @@ void *TUnk_8049F038::destroy(s16 arg1) {
             TLobby__sub_80103B04();
             set_item_count__13TUnk_804B9870Fs(this, 0xFFFF);
         }
-        ((TUnk_804AF8A0 *)this)->destroy_particle_controller(0);
+        this->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }

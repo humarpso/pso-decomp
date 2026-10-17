@@ -121,7 +121,7 @@ s32 TBoss8Dragon__sub_802F3F20(u8 *arg0) {
 
 void TBoss8Dragon::sub_802F4098(u8 *arg1) {
     VecCopy((Vec *)arg1, (const Vec *)(((u8 *)this) + 0x38));
-    if ((get_mode__11TCameraCtrlFPv(&(*(RecoveredGlobal_802F4098_main_task *)&main_task).value) & 0x10) && (TBoss8Dragon__sub_802FCCBC(((u8 *)this)) == 0) && !(this->m_c0 > lbl_805DED68)) {
+    if ((get_mode__11TCameraCtrlFPv(&(*(RecoveredGlobal_802F4098_main_task *)&main_task).value) & 0x10) && (TBoss8Dragon__sub_802FCCBC(this) == 0) && !(this->m_c0 > lbl_805DED68)) {
         *(f32 *)((s8 *)arg1 + 8) = (f32) (*(f32 *)((s8 *)arg1 + 8) + lbl_805DED6C);
     }
 }

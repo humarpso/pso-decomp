@@ -80,7 +80,7 @@ void TWindowSubCustomEquip::sub_80275F08(void *arg1) {
     } else {
         idx = ((u8 *)this)[0x61] + (1 - ((u8 *)this)[0x62]) * 3;
     }
-    u8 *e = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), lbl_8044F738[idx]);
+    u8 *e = get_array_entry__13TUnk_804CE018Fi(this, lbl_8044F738[idx]);
     ((TWindowSubCustomEquip *)arg1)->set_relative_pos(e);
 }
 
@@ -97,8 +97,8 @@ void TWindowSubCustomEquip::update_palette_slot(s32 arg1, s32 kind, s32 arg3) {
     u8 *b;
     pl = get_player_by_client_id(this->m_20);
     if (pl != NULL) {
-        a = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), lbl_8044F738[arg1]);
-        b = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), lbl_8044F740[arg1]);
+        a = get_array_entry__13TUnk_804CE018Fi(this, lbl_8044F738[arg1]);
+        b = get_array_entry__13TUnk_804CE018Fi(this, lbl_8044F740[arg1]);
         if (can_use_palette_action__10TObjPlayerFPvUcUc(pl, kind, arg3) != 0) {
             *(s32 *)(a + 0x2C) = -1;
         } else {

@@ -290,11 +290,11 @@ s16 TLobby::pppoe_recv_packet(u16 bufLen, u16 *outLen) {
         ret = 0;
         NetMemcpy(&len, (u8 *)pkt + 0x12, 2);
         src = (u8 *)pkt + 0x14;
-        if (((u8 *)this) != NULL && len <= bufLen) {
+        if (this != NULL && len <= bufLen) {
             e = ((Ent_80427D40 *)TLobby__sub_80427C6C(pkt, id));
             if (e != NULL && e->state == 4) {
                 ret = e - TBL_80427D40;
-                NetMemcpy(((u8 *)this), src, len);
+                NetMemcpy(this, src, len);
                 if (outLen != NULL) {
                     *outLen = len;
                 }

@@ -227,7 +227,7 @@ void TWindowSubComCardList::reset_entries() {
     ((Win_802655E4 *)this)->f74 = 0;
     r = ((Win_802655E4 *)this)->f80;
     for (i = 0; i < ((Win_802655E4 *)this)->f76; i++, r++) {
-        e = ((void *)((s32 (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(((Win_802655E4 *)this), i));
+        e = ((void *)((s32 (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(this, i));
         TWindowDuelResult::set_default_status(e, 0);
         refresh_status_display__9TWindowDDFv(e);
         r->a = 0;
@@ -478,7 +478,7 @@ void TWindowSubComCard::calc_layout_height(f32 farg0) {
     Ent_80265C30 *e;
     h = 0.0f;
     for (i = 0; i < *(s16 *)(((u8 *)this) + 0x76); i++) {
-        e = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), i);
+        e = get_array_entry__13TUnk_804CE018Fi(this, i);
         if (get_field_20__17TWindowSubComCardFv(e) != 0 && !(e->h <= lbl_8044F330)) {
             measure_message_text_width(e, farg0);
             h += lbl_805DD16C + e->h;
@@ -509,7 +509,7 @@ void TWindowSubComCardList::update_layout_height(f32 x) {
     f32 sum = 0.0f;
     u32 i;
     for (i = 0; i < ((Win_80265E60 *)this)->count; i++) {
-        Ent_80265E60 *e = ((Ent_80265E60 *)get_array_entry__13TUnk_804CE018Fi(((Win_80265E60 *)this), i));
+        Ent_80265E60 *e = ((Ent_80265E60 *)get_array_entry__13TUnk_804CE018Fi(this, i));
         if (get_field_20__17TWindowSubComCardFv(e) != 0) {
             if (!(e->h <= lbl_8044F330)) {
                 sum += lbl_805DD16C + e->h;
@@ -531,7 +531,7 @@ void TWindowSubComCard::calc_window_size() {
     f32 sum = width;
     u32 i;
     for (i = 0; i < ((Win_80265F60 *)this)->count; i++) {
-        Ent_80265F60 *e = (Ent_80265F60 *)get_array_entry__13TUnk_804CE018Fi(((Win_80265F60 *)this), i);
+        Ent_80265F60 *e = (Ent_80265F60 *)get_array_entry__13TUnk_804CE018Fi(this, i);
         if (get_field_20__17TWindowSubComCardFv(e) != 0) {
             if (e->w > width) {
                 width = e->w;
@@ -562,7 +562,7 @@ void TWindowMenu::layout_entries() {
     gap = lbl_805DD16C;
     zero = lbl_8044F330;
     for (i = 0; i < *(s16 *)&this->m_76; i++) {
-        e = (u8 *)get_array_entry__13TUnk_804CE018Fi(((u8 *)this), i);
+        e = (u8 *)get_array_entry__13TUnk_804CE018Fi(this, i);
         if (((u32 (*)(void))get_field_20__17TWindowSubComCardFv)() != 0) {
             *(f32 *)(e + 0xC) = y;
             h = *(f32 *)(e + 0x14);
@@ -734,7 +734,7 @@ void TWindowMenu::draw_selected_bar(u8 *arg1) {
     if (!(actor_frame_tick & 0x10)) {
         temp_r4 = *(s16 *)&this->unk_7A;
         if (temp_r4 >= 0) {
-            temp_r3 = (u16 *)(((s32)((u16 * (*)(void *, int))get_array_entry__13TUnk_804CE018Fi)(((u8 *)this), (s32) temp_r4)));
+            temp_r3 = (u16 *)(((s32)((u16 * (*)(void *, int))get_array_entry__13TUnk_804CE018Fi)(this, (s32) temp_r4)));
             if (*temp_r3 & 1) {
                 draw_selection_bar((arg1), (u8 *)temp_r3, 1);
             }

@@ -541,7 +541,7 @@ void TOTrapChainSawDamage::vfunc_27() {
     if (((s32) *(s32 *)((s8 *)((u8 *)this) + 0x100) == 0xA) && ((p = *(void **)((s8 *)((u8 *)this) + 0x108)) != NULL)) {
         TOTrapChainSawDamage__sub_802C9C00((u8 *)p, 1);
     }
-    ((s32 (*)(s32, void *, void *, int, int))play_persistent_sound)(((s32 (*)(void *, int))get_area_table_value__17TOTrapChainSawKeyFii)((void *) (((u8 *)this)), 0), (void *) (((u8 *)this)), (void *) (((u8 *)this) + 0x38), 0, 0);
+    ((s32 (*)(s32, void *, void *, int, int))play_persistent_sound)(((s32 (*)(void *, int))get_area_table_value__17TOTrapChainSawKeyFii)(this, 0), this, (void *) (((u8 *)this) + 0x38), 0, 0);
 }
 #pragma pop
 
@@ -789,13 +789,13 @@ int TOTrapChainSaw::check_player_contact() {
             p = (s32)get_player_by_client_id(i);
             if (p != 0 && this->consume_counter((void *)p) == 0) {
                 if (((TObjPlayer *)p)->get_field_3e4() == ((s32 (*)(void))get_current_floor)()) {
-                    t = *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0x60);
-                    *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0x60) = t + *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0xD4);
+                    t = *(s32 *)((s8 *)this + 0x60);
+                    *(s32 *)((s8 *)this + 0x60) = t + *(s32 *)((s8 *)this + 0xD4);
                     if (check_actor_body_contact((void *)p, (f32)((1e+02f))) != 0) {
                         ((VObj_802C91DC *)this)->m16(p);
                         this->set_hit_cooldown_for_player((void *)p);
                     }
-                    *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0x60) = t;
+                    *(s32 *)((s8 *)this + 0x60) = t;
                 }
             }
         }
@@ -805,20 +805,20 @@ int TOTrapChainSaw::check_player_contact() {
         q = (s32)get_player_by_client_id(local_client_id);
         if (q != 0 && this->consume_counter((void *)q) == 0) {
             if (((TObjPlayer *)q)->get_field_3e4() == ((s32 (*)(void))get_current_floor)()) {
-                t2 = *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0x60);
-                *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0x60) = t2 + *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0xD4);
+                t2 = *(s32 *)((s8 *)this + 0x60);
+                *(s32 *)((s8 *)this + 0x60) = t2 + *(s32 *)((s8 *)this + 0xD4);
                 if (check_actor_body_contact((void *)q, (f32)((1e+02f))) != 0) {
                     ((VObj_802C91DC *)this)->m16(q);
                     this->set_hit_cooldown_for_player((void *)q);
                 }
-                *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0x60) = t2;
+                *(s32 *)((s8 *)this + 0x60) = t2;
             }
         }
     }
 }
 
 void TOTrapChainSaw::update_extension() {
-    VObj_802C936C *self = (VObj_802C936C *)((u8 *)this);
+    VObj_802C936C *self = (VObj_802C936C *)this;
 
     if (*(s32 *)((s8 *)((u8 *)this) + 0xF0) == 0) {
         if (*(s32 *)((s8 *)((u8 *)this) + 0xEC) > 0) {

@@ -44,9 +44,9 @@ struct VObj_8021B288 : Base_8021B288 {
 };
 
 void TShopEquipmentGearSequence::open_gear_shop() {
-    if (((struct VObj_8021B288 *)this) != NULL) {
+    if (this != NULL) {
         ((struct VObj_8021B288 *)this)->m4(0x1B, 1);
-        ((TShopWindowBase *)((struct VObj_8021B288 *)this))->set_field_20(7);
+        ((TShopWindowBase *)this)->set_field_20(7);
         lbl_805D6218 = 0x1A;
         lbl_805D621C = 2;
     }
@@ -56,14 +56,14 @@ void TShopEquipmentGearSequence::enter_quest_list() {
     struct VObj_8021B2E8 *o = (struct VObj_8021B2E8 *)this;
     if (o != NULL) {
         o->m4(0x1A, 1);
-        ((TShopWindowBase *)this)->set_field_20(2);
+        this->set_field_20(2);
     }
 }
 
 void TShopEquipmentGearSequence::handle_confirm() {
     if ((this->vfunc_10() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
         ((VObj_8021B338*)this)->m4(lbl_805D6218, 1);
-        ((TShopWindowBase *)this)->set_field_20(lbl_805D621C);
+        this->set_field_20(lbl_805D621C);
     }
 }
 

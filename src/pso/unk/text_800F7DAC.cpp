@@ -261,12 +261,12 @@ s32 TLobby::get_quest_thread_state() {
 }
 
 u8 *TLobby::dtor_clear_singleton(s16 arg1) {
-    if (((u8 *)this) != NULL) {
+    if (this != NULL) {
         *(s32 **)((s8 *)((u8 *)this) + 0x18) = &lbl_80499970.value;
         (*(s32 *)&screen_fade_controller) = 0;
-        __dt__7TObjectFv((void *) (((u8 *)this)), 0);
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            ((s32 (*)(void *))__dl__7TObjectFPv)((void *) (((u8 *)this)));
+            ((s32 (*)(void *))__dl__7TObjectFPv)(this);
         }
     }
     return ((u8 *)this);

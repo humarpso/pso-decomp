@@ -69,11 +69,11 @@ void TBoss8Dragon::fill_follow_camera_params(u8 *arg1, u8 *arg2) {
 
 void TBoss8Dragon::get_follow_camera_offsets(u8 *arg1) {
     if ((void *) (*(u8 * *)&boss5_gryphon_instance) == NULL) {
-        VecCopy((Vec *)((u8 *)this), (const Vec *)&boss8_dragon_follow_camera_offsets.value);
+        VecCopy((Vec *)this, (const Vec *)&boss8_dragon_follow_camera_offsets.value);
         VecCopy((Vec *)arg1, (const Vec *)&lbl_80487CD8.value);
         return;
     }
-    ((TBoss8Dragon *)(*(u8 * *)&boss5_gryphon_instance))->fill_follow_camera_params((u8 *)((u8 *)(((u8 *)this))), arg1);
+    ((TBoss8Dragon *)(*(u8 * *)&boss5_gryphon_instance))->fill_follow_camera_params((u8 *)(this), arg1);
 }
 
 typedef char RecoveredGlobal_80065F08_lbl_80437938_size[sizeof(RecoveredGlobal_80065F08_lbl_80437938_80065C90) == 0xC ? 1 : -1];

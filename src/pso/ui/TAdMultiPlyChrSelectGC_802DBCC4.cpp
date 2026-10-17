@@ -153,7 +153,7 @@ s32 TAdMultiPlyChrSelectGC::get_state_result() {
 }
 
 void TAdMultiPlyChrSelectGC::sub_802DC118(s32 arg1) {
-    Sel_802DC118 *s = (Sel_802DC118 *)((u8 *)this);
+    Sel_802DC118 *s = (Sel_802DC118 *)this;
     if (s->win != 0) {
         switch (arg1) {
         case -1:
@@ -162,7 +162,7 @@ void TAdMultiPlyChrSelectGC::sub_802DC118(s32 arg1) {
                 set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s->win, 1, &TAdMultiPlyChrSelectGC__data_805DE898);
                 return;
             }
-            set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s->win, 0, TAdMultiPlyChrSelectGC::format_player_number_text((s32)((u8 *)this), TAdMultiPlyChrSelectGC::get_clamped_cursor()));
+            set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s->win, 0, TAdMultiPlyChrSelectGC::format_player_number_text((s32)this, TAdMultiPlyChrSelectGC::get_clamped_cursor()));
             set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s->win, 1, &TAdMultiPlyChrSelectGC__data_805DE898);
             break;
         default:
@@ -171,7 +171,7 @@ void TAdMultiPlyChrSelectGC::sub_802DC118(s32 arg1) {
                 set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s->win, 1, &TAdMultiPlyChrSelectGC__data_805DE898);
                 return;
             }
-            set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s->win, 0, TAdMultiPlyChrSelectGC::format_player_number_text((s32)((u8 *)this), arg1));
+            set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s->win, 0, TAdMultiPlyChrSelectGC::format_player_number_text((s32)this, arg1));
             set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s->win, 1, &TAdMultiPlyChrSelectGC__data_805DE898);
             break;
         }

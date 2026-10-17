@@ -19,7 +19,7 @@ void *get_bml_model(s32, s32);
 void *__nw__7TObjectFUl(s32);
 int fn_8030B370(void*);
 
-void TObjLiveMonitorSmall::render() { ((TObjLiveMonitor *)this)->render_live_monitor_screen(); }
+void TObjLiveMonitorSmall::render() { this->render_live_monitor_screen(); }
 void TObjLiveMonitorSmall::run_task() { fn_8030B370(this); }
 
 extern s32 __vt__20TObjLiveMonitorSmall[];

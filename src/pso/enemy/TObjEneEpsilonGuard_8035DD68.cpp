@@ -678,7 +678,7 @@ void TObjEneEpsilonGuard::handle_message(s32 arg1) {
     case 4:
         ((struct VObj_8035E3B8_8035DD68 *) this)->m93();
         *(s32 *)((s8 *)this + 0x46C) = (s32) (*(s32 *)((s8 *)this + 0x46C) | 0x14);
-        ((TObjEnemy *)this)->send_entity_set_flags();
+        this->send_entity_set_flags();
         return;
     case 3:
         queue_destruction__7TObjectFv(this);
@@ -704,7 +704,7 @@ void TObjEneEpsilonGuard::handle_break_state(s32 arg1) {
         set_field_378(4);
         ((G_8035E430 *)this)->flags |= 0x40;
         ((G_8035E430 *)this)->flags &= ~0x14;
-        ((VO_8035E430 *)((G_8035E430 *)this))->m94();
+        ((VO_8035E430 *)this)->m94();
         TObjPlayer::spawn_effect_f8((s32)(((G_8035E430 *)this)->x460), 0x14);
         ((G_8035E430 *)this)->x430 = 0;
         ((G_8035E430 *)this)->x434 = 0;
@@ -717,7 +717,7 @@ void TObjEneEpsilonGuard::handle_break_state(s32 arg1) {
     case 5:
         break;
     case 0:
-        advance_animation_playback(((G_8035E430 *)this));
+        advance_animation_playback(this);
         ((G_8035E430 *)this)->x434++;
         if (((G_8035E430 *)this)->x434 >= 0x14) {
             ((VO_8035E430 *)((G_8035E430 *)this))->m94();
@@ -804,7 +804,7 @@ void TObjEneEpsilonGuard::state_orbit(s32 arg1) {
 block_23:
                 *(s32 *)((s8 *)this + 0x438) = (s32) (*(s32 *)((s8 *)this + 0x438) + *(s32 *)((s8 *)this + 0x43C));
                 set_orbit_destination(*(s32 *)((s8 *)this + 0x438));
-                ((TObjEneDD *)this)->update_velocity();
+                this->update_velocity();
                 move_with_wall_slide_commit__9TObjEneDDFfff(this, TObjEneEpsilonGuard__movement_params, *(f32 *)((s8 *)this + 0x3A0), *(f32 *)((s8 *)this + 0x3A8), *(f32 *)((s8 *)TObjEneEpsilonGuard__movement_params + 8));
             }
             break;
@@ -954,8 +954,8 @@ void TObjEneEpsilonGuard::sub_8035EA90() {
                         Pair_8035EA90 pr;
                         pr.a = ((TObjEneEpsilonGuard *)t)->get_table_value_by_index();
                         pr.b = *(f32 *)((s8 *)TObjEneEpsilonGuard__movement_params + 0xC);
-                        p->m21(((u8 *)this), pr, 0, -1, -1);
-                        p->m23(((u8 *)this));
+                        p->m21(this, pr, 0, -1, -1);
+                        p->m23(this);
                     }
                 }
             }
@@ -983,9 +983,9 @@ void TObjEneEpsilonGuard::update_guard_state() {
         entity = (s32)find_entity_by_id((*(u16 *)((s8 *)((u8 *)this) + 0x470)));
         if ((entity == 0) || (TObjEneEpsilonGuard__sub_8035F950() == 1)) {
             if (*(s32 *)((s8 *)((u8 *)this) + 0x46C) & 0x10) {
-                ((s32 (*)(void *, int))transition_enemy_state)((void *) (((u8 *)this)), 5);
+                ((s32 (*)(void *, int))transition_enemy_state)(this, 5);
             } else {
-                ((s32 (*)(void *, int))transition_enemy_state)((void *) (((u8 *)this)), 4);
+                ((s32 (*)(void *, int))transition_enemy_state)(this, 4);
             }
         } else {
             *(s32 *)((s8 *)((u8 *)this) + 0x390) = entity;
@@ -994,12 +994,12 @@ void TObjEneEpsilonGuard::update_guard_state() {
             sub_8035EA90();
         }
         if (*(s32 *)((s8 *)((u8 *)this) + 0x46C) & 0x20) {
-            play_persistent_sound(0x4003A846, (s32)(((u8 *)this)), (u32)(((u8 *)this) + 0x38), 0, 0);
+            play_persistent_sound(0x4003A846, (s32)this, (u32)(((u8 *)this) + 0x38), 0, 0);
             return;
         }
         temp_r0 = *(s16 *)((s8 *)((u8 *)this) + 0x326);
         if ((temp_r0 != 4) && (temp_r0 != 5)) {
-            play_persistent_sound(0x4003AD43, (s32)(((u8 *)this)), (u32)(((u8 *)this) + 0x38), 0, 0);
+            play_persistent_sound(0x4003AD43, (s32)this, (u32)(((u8 *)this) + 0x38), 0, 0);
         }
     }
 }
@@ -1236,7 +1236,7 @@ void *__vt__19TObjEneEpsilonGuard[105] = {
 s32 TObjEneEpsilonGuard::calc_angle_to_target() {
     f32 temp_f3;
 
-    ((TObjEneDD_ST *)((u8 *)this))->enemy_copy_target_destination();
+    this->enemy_copy_target_destination();
     temp_f3 = *(f32 *)((s8 *)((u8 *)this) + 0x38);
     return (s32) (lbl_80479C88 * atan2_float((f32) (temp_f3 - *(f32 *)((s8 *)((u8 *)this) + 0x394)), (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x40) - *(f32 *)((s8 *)((u8 *)this) + 0x39C)), temp_f3));
 }
@@ -1244,7 +1244,7 @@ s32 TObjEneEpsilonGuard::calc_angle_to_target() {
 #pragma push
 #pragma fp_contract on
 void TObjEneEpsilonGuard::set_orbit_destination(s32 arg1) {
-    ((TObjEneDD_ST *)((u8 *)this))->enemy_copy_target_destination();
+    this->enemy_copy_target_destination();
     *(f32 *)((s8 *)((u8 *)this) + 0x394) = (f32) ((*(f32 *)((s8 *)(*(f32 * *)&TObjEneEpsilonGuard__movement_params) + 0) * sin_table_lookup(arg1)) + *(f32 *)((s8 *)((u8 *)this) + 0x394));
     *(f32 *)((s8 *)((u8 *)this) + 0x39C) = (f32) ((*(f32 *)((s8 *)(*(f32 * *)&TObjEneEpsilonGuard__movement_params) + 0) * cos_table_lookup(arg1)) + *(f32 *)((s8 *)((u8 *)this) + 0x39C));
 }

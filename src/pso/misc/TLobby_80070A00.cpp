@@ -560,7 +560,7 @@ typedef char RecoveredGlobal_80291F9C_lbl_804DB1F0_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80292200_lbl_804DB1F0_size[sizeof(RecoveredGlobal_80292200_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
 typedef char RecoveredGlobal_80292574_lbl_804DB1F0_size[sizeof(RecoveredGlobal_80292574_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
 void TLobby::set_player_name_and_color(s32 arg1) {
-    TLobby::encode_name_xor((u8 *)((u8 *)&(*(RecoveredGlobal_80292574_lbl_804DB1F0 *)&challenge_mode_state).value + 0x50), (u8 *)((u8 *)this), 0xC);
+    TLobby::encode_name_xor((u8 *)((u8 *)&(*(RecoveredGlobal_80292574_lbl_804DB1F0 *)&challenge_mode_state).value + 0x50), (u8 *)this, 0xC);
     *(s32 *)((s8 *)(&(*(RecoveredGlobal_80292574_lbl_804DB1F0 *)&challenge_mode_state).value) + 0x18) = (s32) (arg1 | 0xFF000000);
 }
 typedef char RecoveredGlobal_802925C4_lbl_80540968_size[sizeof(RecoveredGlobal_802925C4_lbl_80540968) == 0x20 ? 1 : -1];

@@ -37,7 +37,7 @@ void TUnk_804F0C48::vfunc_44() {
             e++;
         }
     }
-    consume_item_by_id(((TItem *)this)->get_field_d8());
+    consume_item_by_id(this->get_field_d8());
 }
 
 }

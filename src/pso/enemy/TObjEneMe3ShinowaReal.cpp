@@ -126,7 +126,7 @@ void *__nw__7TObjectFUl(int);
 int init_mirage__23TObjEneMe3ShinowaMirageFv(void);
 
 void TObjEneMe3ShinowaReal::spawn_mirages() { { int i; for (i = 0; i < 4; i++) { get_or_create_mirage((s32)((void*)((void*)i))); init_mirage__23TObjEneMe3ShinowaMirageFv(); } } }
-void TObjEneMe3ShinowaReal::vfunc_111() { ((TObjEneMe3ShinowaReal *)this)->try_spawn_mirages(); }
+void TObjEneMe3ShinowaReal::vfunc_111() { this->try_spawn_mirages(); }
 
 void TObjEneMe3ShinowaReal::vfunc_107() {
     u8 *arg0 = (u8 *)this;
@@ -165,8 +165,8 @@ void TObjEneMe3ShinowaReal::try_spawn_mirages() {
     }
 }
 
-void TObjEneMe3ShinowaReal::vfunc_62() { ((TObjEneMe3ShinowaReal *)this)->try_spawn_mirages(); vfunc_62__17TObjEneMe3ShinowaFv(this); }
-void TObjEneMe3ShinowaReal::vfunc_63() { ((TObjEneMe3ShinowaReal *)this)->try_spawn_mirages(); vfunc_63__17TObjEneMe3ShinowaFv(this); }
+void TObjEneMe3ShinowaReal::vfunc_62() { this->try_spawn_mirages(); vfunc_62__17TObjEneMe3ShinowaFv(this); }
+void TObjEneMe3ShinowaReal::vfunc_63() { this->try_spawn_mirages(); vfunc_63__17TObjEneMe3ShinowaFv(this); }
 
 void *__dt__21TObjEneMe3ShinowaRealFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

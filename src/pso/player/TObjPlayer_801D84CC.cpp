@@ -583,7 +583,7 @@ void TObjPlayer::select_normal_attack_marker() {
   move_mode = get_move_mode();
   new_var = ((TObjPlayer *)(((u8 *)this) + 0x7CC))->get_stage_strike_count();
   temp_r30 = new_var;
-  temp_r31 = ((TObjPlayer *)((u8 *)this))->get_falz_phase();
+  temp_r31 = this->get_falz_phase();
   lookup_attack_marker((s32) get_handle_value(), temp_r31, temp_r30, move_mode);
 }
 

@@ -160,7 +160,7 @@ void close__20TShopItemTecSequenceFPv(void *arg0) {
 s32 TShopItemTecSequence::handle_select() {
     if ((this->vfunc_10() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
         ((VObj_8021FF30_8021FE6C*)this)->m4(lbl_805D6248, 1);
-        ((TShopWindowBase *)this)->set_field_20(lbl_805D624C);
+        this->set_field_20(lbl_805D624C);
     }
 }
 
@@ -184,7 +184,7 @@ void TShopItemTecSequence::open_sell_window() {
     o->cb0 = (void *)close__20TShopItemTecSequenceFPv;
     o->cb1 = (void *)select_and_advance__20TShopItemTecSequenceFPv;
     reset_controller_input_state();
-    ((TShopWindowBase *)((S_80220030 *)this))->set_field_20(5);
+    ((TShopWindowBase *)this)->set_field_20(5);
 }
 
 void TShopItemTecSequence::open_item_list_window() {
@@ -194,7 +194,7 @@ void TShopItemTecSequence::open_item_list_window() {
     }
     o->cb0 = (void *)close__20TShopItemTecSequenceFPv;
     reset_controller_input_state();
-    ((TShopWindowBase *)((S_802200A8 *)this))->set_field_20(5);
+    ((TShopWindowBase *)this)->set_field_20(5);
 }
 
 void TShopItemTecSequence::update_buy_sell_choice() {
@@ -237,11 +237,11 @@ s32 TShopItemTecSequence::open_greeting() {
   Stack_802202BC stack;
   stack.sp8 = lbl_805DC700;
   stack.spC = lbl_805DC704;
-  ((TShopSequence *)((u8 *)this))->create_message_window(get_window_layout_position(0x2C, (f32) lbl_805DC700), (s32)&stack.sp8);
-  (((VObj_18_a93f07 *)(((u8 *)this)))->m4(0x2E, 1));
-  this->m_2c = create_meseta_window((s32) ((((((TShopSequence *)((u8 *)this))->get_child_field1c() & 0xFFFF) & 0xFFFF) & 0xFFFF) & 0xFFFF));
-  ((TShopWindowBase *)((u8 *)this))->set_field_20(2);
-  this->m_34 = set_service_counter_camera((void *) ((u8 *)this), 5);
+  this->create_message_window(get_window_layout_position(0x2C, (f32) lbl_805DC700), (s32)&stack.sp8);
+  (((VObj_18_a93f07 *)(this))->m4(0x2E, 1));
+  this->m_2c = create_meseta_window((s32) ((((this->get_child_field1c() & 0xFFFF) & 0xFFFF) & 0xFFFF) & 0xFFFF));
+  this->set_field_20(2);
+  this->m_34 = set_service_counter_camera((void *) this, 5);
 }
 
 typedef char RecoveredGlobal_802203E4___vt__20TShopItemTecSequence_size[sizeof(RecoveredGlobal_802203E4___vt__20TShopItemTecSequence) == 0x38 ? 1 : -1];

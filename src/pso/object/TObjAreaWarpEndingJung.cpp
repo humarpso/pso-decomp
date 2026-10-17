@@ -1171,7 +1171,7 @@ void confirm_area_transfer__12TObjAreaWarpFPvi(u8 *arg0, s32 arg1) {
 }
 
 void TObjAreaWarp::handle_area_selection() {
-    Data_8019CAB0 *d = (Data_8019CAB0 *)((VObj_8019CAB0 *)this);
+    Data_8019CAB0 *d = (Data_8019CAB0 *)this;
     s32 found;
     s32 i;
     void *t;

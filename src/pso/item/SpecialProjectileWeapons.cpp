@@ -187,7 +187,7 @@ void TUnk_804A204C::emit_marker_effects() {
         if (((TObjPlayer *)this)->draw_icon(5, (s32)&sp8) != 0) {
             temp_r31 = this->player;
             create_ex__9TTecMegidFllll(temp_r31, &sp8, *(s32 *)((s8 *)temp_r31 + 0x60), ((TObjPlayer *)this)->get_tp());
-            ((TItemWeapon *)this)->roll_technique();
+            this->roll_technique();
         }
     } else {
         ((TObjPlayer *)this)->update_active_game_effect();

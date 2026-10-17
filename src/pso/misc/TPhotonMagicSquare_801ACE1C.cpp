@@ -212,7 +212,7 @@ u8 *construct_photon_magic_square_normal(u8 *arg0, s32 arg1, s32 arg2, s32 arg3,
 }
 u8 *TPhotonMagicSquare::construct_at_owner(s32 arg1, s32 arg2, s32 arg3) {
     s32 entity;
-    construct_world_actor_base((void *) (((u8 *)this)));
+    construct_world_actor_base(this);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_801AD330___vt__18TPhotonMagicSquare *)&__vt__18TPhotonMagicSquare).value;
     *(s32 *)&this->m_name = (s32) TPhotonMagicSquare__data_805D3508;
     *(s32 *)&this->model = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x28);

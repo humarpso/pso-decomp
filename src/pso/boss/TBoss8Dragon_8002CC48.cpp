@@ -574,21 +574,21 @@ f32 TBoss8Dragon::apply_velocity_scale(f32 farg0, f32 farg1) {
     f32 var_f31;
     s32 temp_r31;
 
-    temp_f1 = ((TObjBoss2Tunnel *)((f32 *)this))->clamp_velocity();
+    temp_f1 = ((TObjBoss2Tunnel *)this)->clamp_velocity();
     if (temp_f1 > farg0) {
         var_f31 = lbl_805D8198;
-        *(f32 *)((s8 *)((f32 *)this) + 0) = var_f31;
+        *(f32 *)((s8 *)this + 0) = var_f31;
         *(f32 *)&this->unk_4 = (f32) lbl_805D81F4;
         this->m_8 = var_f31;
     } else {
         temp_r31 = (s32) (lbl_805D81F8 * (temp_f1 / farg0));
         var_f31 = farg1 * (lbl_805D81F4 + cos_table_lookup(temp_r31, lbl_805D81F8));
         temp_f1_2 = sin_table_lookup(temp_r31);
-        temp_f2 = *(f32 *)((s8 *)((f32 *)this) + 0) * temp_f1_2;
-        *(f32 *)((s8 *)((f32 *)this) + 0) = temp_f2;
+        temp_f2 = *(f32 *)((s8 *)this + 0) * temp_f1_2;
+        *(f32 *)((s8 *)this + 0) = temp_f2;
         *(f32 *)&this->unk_4 = (f32) lbl_805D81F4;
         this->m_8 = (f32) (this->m_8 * temp_f1_2);
-        update_scale__15TObjBoss2TunnelFv(((f32 *)this), temp_f1_2);
+        update_scale__15TObjBoss2TunnelFv(this, temp_f1_2);
     }
     return var_f31;
 }

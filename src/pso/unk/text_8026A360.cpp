@@ -13,7 +13,7 @@ void TWindowMessageLog::load_chat_history() {
         }
     }
     complete_reveal();
-    ((TWindowMessageLog *)this)->clamp_scroll_offset();
+    this->clamp_scroll_offset();
 }
 
 }

@@ -147,7 +147,7 @@ TItemEffHeaven::TItemEffHeaven(TObject *parent, s32 a, s16 b, s32 c) : TObject(p
     for (i = 0; i < 3; i++) {
         ((Obj_801092A8 *)this)->arr[i] = 0;
     }
-    disallow_rendering__7TObjectFv(((Obj_801092A8 *)this));
+    disallow_rendering__7TObjectFv(this);
 }
 extern "C" {
 

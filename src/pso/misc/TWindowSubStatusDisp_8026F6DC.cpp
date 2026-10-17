@@ -213,10 +213,10 @@ s32 TWindowSubStatusDisp::update_hp_entry() {
     get_width__19TWindowSimpleStatusFv();
     player = (u8 *)(((u8 *)get_player_by_client_id()));
     if (player == NULL) {
-        ((TWindowSubStatusDisp *)((u8 *)this))->init_gauge_entry();
+        this->init_gauge_entry();
         return 0xFF00FF15;
     }
-    temp_r31 = (u8 *)(((u8 *)get_array_entry__13TUnk_804CE018Fi(((u8 *)this), 3)));
+    temp_r31 = (u8 *)(((u8 *)get_array_entry__13TUnk_804CE018Fi(this, 3)));
     *(f32 *)((s8 *)temp_r31 + 0x20) = (f32) ((TItemProShield *)player)->get_field_2b8();
     if (*(f32 *)((s8 *)temp_r31 + 0x24) > (f32) *(s16 *)((s8 *)player + 0x32C)) {
         *(s32 *)((s8 *)((u8 *)this) + 0x60) = 4;
@@ -466,7 +466,7 @@ void TWindowSimpleStatus::draw_background(u8 *arg1) {
     } else {
         f = lbl_805DD388;
     }
-    draw_photon_blast_gauge_ring((s32)(((u8 *)this)), (Params_80270244 *)(arg1), (const Vec2_80270244 *)(lbl_8044F5E4), f, lbl_805DD3DC);
+    draw_photon_blast_gauge_ring((s32)this, (Params_80270244 *)(arg1), (const Vec2_80270244 *)(lbl_8044F5E4), f, lbl_805DD3DC);
     pos.x = lbl_805DD3E0 + *(f32 *)((s8 *)arg1 + 0x10);
     pos.y = lbl_805DD398 + *(f32 *)((s8 *)arg1 + 0x14);
     size.x = lbl_805DD3E4;

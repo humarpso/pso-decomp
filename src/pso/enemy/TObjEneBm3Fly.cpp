@@ -1540,8 +1540,8 @@ u16 get_active_id__13TObjEneBm3FlyFPv(void *arg0) {
 #pragma push
 #pragma fp_contract on
 void TObjEneBm3Fly::sub_800B1634() {
-    *(f32 *)((s8 *)((u8 *)this) + 0x444) = (f32) (((2.0f) * calc_elapsed_scaled__9TObjEneDDFv((void *) (((u8 *)this)))) + ((45.0f) + *(f32 *)((s8 *)((u8 *)this) + 0x420)));
-    *(s32 *)((s8 *)((u8 *)this) + 0x448) = get_random_scaled__9TObjEneDDFv((void *) (((u8 *)this)));
+    *(f32 *)((s8 *)((u8 *)this) + 0x444) = (f32) (((2.0f) * calc_elapsed_scaled__9TObjEneDDFv(this)) + ((45.0f) + *(f32 *)((s8 *)((u8 *)this) + 0x420)));
+    *(s32 *)((s8 *)((u8 *)this) + 0x448) = get_random_scaled__9TObjEneDDFv(this);
 }
 #pragma pop
 
@@ -1608,11 +1608,11 @@ void TObjEneBm3Fly::vfunc_88() {
     f32 temp_f31;
     temp_f31 = *(f32 *)((s8 *)((u8 *)this) + 0x42C) - *(f32 *)((s8 *)((u8 *)this) + 0x3C);
     if (temp_f31 >= (3e+01f)) {
-        ((TObjEneBm3Fly *)(((u8 *)this)))->vfunc_97();
+        ((TObjEneBm3Fly *)(this))->vfunc_97();
     } else {
-        ((TObjEneBm3Fly *)(((u8 *)this)))->vfunc_98();
+        ((TObjEneBm3Fly *)(this))->vfunc_98();
     }
-    *(f32 *)((s8 *)(*(u8 * *)&((TObjEneBm3Fly *)((u8 *)this))->m_a4) + 4) = temp_f31;
+    *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 4) = temp_f31;
 }
 
 void TObjEneBm3Fly::vfunc_89() { vfunc_89__9TObjEneDDFv(this); clamp_flight_height__13TObjEneBm3FlyFv(this); }

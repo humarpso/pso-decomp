@@ -340,7 +340,7 @@ void TMedicalCenterSequence::show_fee_prompt() {
     v = obj_getField1c(((VObj_802164A4 *)this)->f24);
     ((VObj_802164A4 *)this)->f30 = (s32)create_yes_no_window(((s32 (*)(int))get_window_layout_position)(0x2B), v, 0, 0);
     ((TUnk_804CDFE8 *)(((VObj_802164A4 *)this)->f30))->set_position_xy(get_scale__15TShopWindowBaseFv(((VObj_802164A4 *)this)), get_scale__15TShopWindowBaseFv(((VObj_802164A4 *)this)));
-    ((TShopWindowBase *)((VObj_802164A4 *)this))->set_field_20((s32)((void *)3));
+    ((TShopWindowBase *)this)->set_field_20((s32)((void *)3));
 }
 
 s32 TMedicalCenterSequence::handle_window_input() {

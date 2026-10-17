@@ -103,7 +103,7 @@ s32 TLobby::add_trade_item(u32 arg1, s32 arg2) {
     u32 found;
     s32 i;
     if (arg1 == 0xFFFFFF01) {
-        s32 *t = (s32 *) ((TLobby *)((Entry_802D20C8 *)this))->get_trade_obj_ptr();
+        s32 *t = (s32 *) ((TLobby *)this)->get_trade_obj_ptr();
         t[1] += arg2;
         return t[1] > 999999;
     }
@@ -129,7 +129,7 @@ s32 TLobby::add_trade_item(u32 arg1, s32 arg2) {
             }
         }
     }
-    e = find_free_trade_slot__6TLobbyFPv(((Entry_802D20C8 *)this));
+    e = find_free_trade_slot__6TLobbyFPv(this);
     if (e == NULL) {
         return 3;
     }

@@ -71,7 +71,7 @@ void TBoss4Type3::draw_motion_trail(s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
         motion_trail_node_index = 0;
         set_matrix_identity(0);
         bind_motion_context(arg2, f);
-        transform_motion_node_points(((Arg_800D9994 *)this), arg1, 0);
+        transform_motion_node_points(this, arg1, 0);
         f += ((Arg_800D9994 *)this)->step;
     }
     pop_matrix();

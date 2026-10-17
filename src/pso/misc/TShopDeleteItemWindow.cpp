@@ -168,19 +168,19 @@ void TShopDeleteItemWindow::handle_number_input() {
             *(void **)(((u8 *)this) + 0x34) = create_yes_no_window((s32)(get_window_layout_position(0x2B)), id, 0, 0);
             ((TCheckRoomSequence *)(*(void **)(((u8 *)this) + 0x34)))->set_ready_flag();
             ((TWindowSubComCardList *)(*(void **)(((u8 *)this) + 0x34)))->set_selected_index(1);
-            ((TUnk_804CDFE8 *)(*(void **)(((u8 *)this) + 0x34)))->set_position_xy(get_scale__15TShopWindowBaseFv(((u8 *)this)), get_scale__15TShopWindowBaseFv(((u8 *)this)));
+            ((TUnk_804CDFE8 *)(*(void **)(((u8 *)this) + 0x34)))->set_position_xy(get_scale__15TShopWindowBaseFv(this), get_scale__15TShopWindowBaseFv(this));
         }
         *(s32 *)(((u8 *)this) + 0x5C) = ((TShopEquipmentSellWindow *)(*(void **)(((u8 *)this) + 0x38)))->get_result();
         TWindow__close(*(void **)(((u8 *)this) + 0x38));
         *(void **)(((u8 *)this) + 0x38) = 0;
-        ((TShopWindowBase *)((u8 *)this))->set_field_20(3);
-        ((VObj_80337B00 *)(((u8 *)this)))->m4(0x4D, 1);
+        this->set_field_20(3);
+        ((VObj_80337B00 *)(this))->m4(0x4D, 1);
         return;
     }
     if (*(void **)(((u8 *)this) + 0x38) != 0 && ((TShopEquipmentSellWindow *)(*(void **)(((u8 *)this) + 0x38)))->is_confirmed() != 0) {
         TWindow__close(*(void **)(((u8 *)this) + 0x38));
         *(void **)(((u8 *)this) + 0x38) = 0;
-        ((TShopWindowBase *)((u8 *)this))->set_field_20(4);
+        this->set_field_20(4);
     }
 }
 

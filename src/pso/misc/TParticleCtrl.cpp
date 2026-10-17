@@ -266,9 +266,9 @@ void *TParticleCtrl__sub_80085878(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_800858D0_lbl_8048E6A8_size[sizeof(RecoveredGlobal_800858D0_lbl_8048E6A8) == 0x34 ? 1 : -1];
 u8 *TParticleCtrl::construct_particle_obj(s32 arg1, s32 arg2) {
-    construct_world_actor_base((void *) (((u8 *)this)), (void *)arg2);
+    construct_world_actor_base(this, (void *)arg2);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_800858D0_lbl_8048E6A8 *)&lbl_8048E6A8).value;
-    ((VObj_18_1a504b *)(((u8 *)this)))->m5(arg1);
+    ((VObj_18_1a504b *)(this))->m5(arg1);
     return ((u8 *)this);
 }
 
@@ -354,9 +354,9 @@ typedef char RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70_size[sizeof(R
 
 typedef char RecoveredGlobal_80085E78_lbl_8048E6DC_size[sizeof(RecoveredGlobal_80085E78_lbl_8048E6DC) == 0x34 ? 1 : -1];
 u8 *TParticleCtrl::init_particle_obj(s32 arg1, s32 arg2) {
-    construct_world_actor_base((void *) (((u8 *)this)), (void *)arg2);
+    construct_world_actor_base(this, (void *)arg2);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80085E78_lbl_8048E6DC *)&lbl_8048E6DC).value;
-    ((VObj_18_1a504b *)(((u8 *)this)))->m5(arg1);
+    ((VObj_18_1a504b *)(this))->m5(arg1);
     *(f32 *)((s8 *)((u8 *)this) + 0xA4) = (f32) lbl_805D9484;
     lbl_805D2930 = 1;
     return ((u8 *)this);

@@ -259,16 +259,16 @@ void add_battle_stat_entry(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
 
 void TUnk_804CE7E8::advance_all_entries(s32 arg1) {
     s32 i;
-    ((s32 (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(((u8 *)this), *(s16 *)(((u8 *)this) + 0x74));
+    ((s32 (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(this, *(s16 *)(((u8 *)this) + 0x74));
     if (((s32 (*)(void))is_flag80_set__20TWindowSubStatusDispFv)() == 0) {
         if (arg1 != 0) {
             play_sound_effect(0x52D01, 0, 0, 0);
         }
         for (i = 0; i < this->m_76; i++) {
-            ((s32 (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(((u8 *)this), i);
+            ((s32 (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(this, i);
             advance_state__20TWindowSubStatusDispFv();
         }
-        ((s32 (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(((u8 *)this), *(s16 *)(((u8 *)this) + 0x74));
+        ((s32 (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(this, *(s16 *)(((u8 *)this) + 0x74));
         ((s32 (*)(void))finalize_state__20TWindowSubStatusDispFv)();
     }
 }
@@ -318,7 +318,7 @@ void TWindowSubStatusDisp::append_entry(s32 arg1, s32 arg2, s32 arg3, s32 arg4, 
     u8 *p;
 
     if (*(s16 *)(((u8 *)this) + 0x72) < *(s16 *)(((u8 *)this) + 0x76)) {
-        e = (u16 *)((void *(*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(((u8 *)this), *(s16 *)(((u8 *)this) + 0x72));
+        e = (u16 *)((void *(*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(this, *(s16 *)(((u8 *)this) + 0x72));
         init_status_entry_by_flag__20TWindowSubStatusDispFl(e, arg1, arg2, arg3);
         if (arg4 != 0) {
             *e |= 0x400;
@@ -328,7 +328,7 @@ void TWindowSubStatusDisp::append_entry(s32 arg1, s32 arg2, s32 arg3, s32 arg4, 
             i = 0;
             *e |= 0x1000;
             while (i < *(s16 *)(((u8 *)this) + 0x76)) {
-                p = (u8 *)((void *(*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(((u8 *)this), i);
+                p = (u8 *)((void *(*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(this, i);
                 *(f32 *)(p + 0xC) = k * (f32)i++;
             }
         }
@@ -684,8 +684,8 @@ void TWindowSubStatusDisp::render_card_and_list() {
     s32 temp_r3;
 
     temp_r3 = get_draw_context__11TWindowBaseFPv();
-    draw_window_frame(((u8 *)this), temp_r3);
-    draw_visible_window_entries(((u8 *)this), ((u8 *)this) + 0x24, temp_r3);
+    draw_window_frame(this, temp_r3);
+    draw_visible_window_entries(this, ((u8 *)this) + 0x24, temp_r3);
     ((TUnk_804D0618 *)((u8 *)this))->draw_selected_list_entry(temp_r3);
     if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x80) != 0U) {
         forward_render__20TWindowSubStatusDispFv(*(u32 *)((s8 *)((u8 *)this) + 0x80), temp_r3);

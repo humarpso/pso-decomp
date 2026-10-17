@@ -254,17 +254,17 @@ void TWindowLockOn::refresh_enemy_statuses() {
     i = 0;
     do {
         mode = get_status_effect_icon_index(obj_getArrWord_254(ent, i));
-        ((TWindowComCard *)(((TUnk_804CE018 *)((u8 *)this))->get_array_entry(i + 3)))->set_help_mode(mode);
+        ((TWindowComCard *)(this->get_array_entry(i + 3)))->set_help_mode(mode);
         i++;
     } while (i < 4);
     {
-        g = (Gauge_80262E90 *)((TUnk_804CE018 *)((u8 *)this))->get_array_entry(7);
+        g = (Gauge_80262E90 *)this->get_array_entry(7);
         g->cur = ((TItemProShield *)ent)->get_field_2b8();
         g->max = ent->f32c;
         ((TWindowHelpItem *)g)->set_flag0_bit2();
     }
     {
-        g = (Gauge_80262E90 *)((TUnk_804CE018 *)((u8 *)this))->get_array_entry(8);
+        g = (Gauge_80262E90 *)this->get_array_entry(8);
         g->cur = obj_getS16_2BA(ent);
         g->max = ent->f32e;
         ((TWindowHelpItem *)g)->set_flag0_bit2();

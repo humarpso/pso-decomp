@@ -99,7 +99,7 @@ void set_sound_stream_volume(Obj_803D4540 *o, s32 vol) {
 
 void TLobby::set_stream_frequency(s32 rate) {
     s32 i;
-    if (((Obj_803D4654 *)this) == 0) {
+    if (this == 0) {
         return;
     }
     ((Obj_803D4654 *)this)->rate = rate;

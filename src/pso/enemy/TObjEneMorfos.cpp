@@ -1435,7 +1435,7 @@ s32 TObjEneMorfos::render_model_if_visible() {
             ((TObjEneRe7Berura *)((u8 *)this))->draw();
             pop_matrix();
             if (*(s32 *)((s8 *)((u8 *)this) + 0x3C0) & 0x10) {
-                ((TObjEneMorfos *)((u8 *)this))->draw_body();
+                this->draw_body();
             }
             restore_render_scissor(1);
         }

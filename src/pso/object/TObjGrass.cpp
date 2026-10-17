@@ -1131,10 +1131,10 @@ s32 TObjGrass::is_target_in_attack_range() {
 
     tgt = *(u8 **)((s8 *)((u8 *)this) + 0x2A8);
     if (tgt != NULL && T318 != 0 && !(*(s32 *)((s8 *)tgt + 0x30) & 0x02000800)) {
-    if (obj_testFlags30(((u8 *)this), 0x2000) != 0) {
+    if (obj_testFlags30(this, 0x2000) != 0) {
         BIND(2)
     }
-    dist = calc_xz_distance_sq__10TObjPlayerFiUiPv(((u8 *)this), *(u8 **)((s8 *)((u8 *)this) + 0x2A8), &v);
+    dist = calc_xz_distance_sq__10TObjPlayerFiUiPv(this, *(u8 **)((s8 *)((u8 *)this) + 0x2A8), &v);
     ang = angle_difference_abs(*(s32 *)((s8 *)((u8 *)this) + 0x60), (s32)((10430.38043493439) * atan2_float(v.x, v.z)));
     t = *(u8 **)((s8 *)((u8 *)this) + 0x2A8);
     if (*(u8 **)((s8 *)t + 0xA4) != NULL) {

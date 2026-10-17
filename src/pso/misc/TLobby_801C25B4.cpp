@@ -182,7 +182,7 @@ void TLobby::update_battle_sync(s32 t) {
             for (i = 0; i < 8; i++) {
                 if (((Lobby_801C2898 *)this)->pending[i] != 0 && t / 60 == battle_event_second_table[i]) {
                     ((Lobby_801C2898 *)this)->pending[i] = 0;
-                    TLobby::send_battle_mode_data((void *)(((Lobby_801C2898 *)this)));
+                    TLobby::send_battle_mode_data(this);
                 }
             }
         }

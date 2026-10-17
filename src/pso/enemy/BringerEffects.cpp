@@ -149,7 +149,7 @@ void TObjEneDf2Bringer::update_projectile_motion() {
     temp_f2 = 6.0f * *(f32 *)&this->m_50;
     if (temp_f2 >= *(f32 *)&this->m_4c) {
         VecCopy((Vec *)(((u8 *)this) + 0x1C), (const Vec *)((const void *)(((u8 *)this) + 0x34)));
-        queue_destruction__7TObjectFv(((u8 *)this));
+        queue_destruction__7TObjectFv(this);
         return;
     }
     *(f32 *)&this->m_1c = (f32) ((*(f32 *)((s8 *)((u8 *)this) + 0x40) * temp_f2) + *(f32 *)&this->m_28);

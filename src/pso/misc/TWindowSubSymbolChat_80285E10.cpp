@@ -48,9 +48,9 @@ s32 TWindowSubSymbolChat::select_symbol_chat_record(s8 *arg1, s32 *arg2) {
         **(s32 **)((s8 *)((u8 *)this) + 0x7C) = *(u8 *)((s8 *)temp_r29 + 3) & 1;
         **(s32 **)((s8 *)((u8 *)this) + 0x80) = ((u8) *(u8 *)((s8 *)temp_r29 + 3) >> 1U) & 1;
         do {
-            temp_r28_2 = get_parts_entry__28TWindowSubSymbolChatPartsSetFii(((u8 *)this), var_r31);
-            temp_r29_2 = get_parts_entry__28TWindowSubSymbolChatPartsSetFl(((u8 *)this), var_r31);
-            temp_r3_3 = TWindowSubSymbolChatPartsSet__sub_802482B8(((u8 *)this), var_r31);
+            temp_r28_2 = get_parts_entry__28TWindowSubSymbolChatPartsSetFii(this, var_r31);
+            temp_r29_2 = get_parts_entry__28TWindowSubSymbolChatPartsSetFl(this, var_r31);
+            temp_r3_3 = TWindowSubSymbolChatPartsSet__sub_802482B8(this, var_r31);
             var_r31 += 1;
             *temp_r28_2 |= 2;
             *temp_r29_2 |= 2;
@@ -112,9 +112,9 @@ void TWindowSubSymbolChat::init_symbol_layout(s32 *arg1) {
   var_r29 = 0;
   do
   {
-    temp_r30 = (u16 *) get_parts_entry__28TWindowSubSymbolChatPartsSetFii(((u8 *)this), var_r29);
-    temp_r31 = (u16 *) get_parts_entry__28TWindowSubSymbolChatPartsSetFl(((u8 *)this), var_r29);
-    temp_r3 = (u16 *) TWindowSubSymbolChatPartsSet__sub_802482B8(((u8 *)this), var_r29);
+    temp_r30 = (u16 *) get_parts_entry__28TWindowSubSymbolChatPartsSetFii(this, var_r29);
+    temp_r31 = (u16 *) get_parts_entry__28TWindowSubSymbolChatPartsSetFl(this, var_r29);
+    temp_r3 = (u16 *) TWindowSubSymbolChatPartsSet__sub_802482B8(this, var_r29);
     var_r29 += 1;
     *temp_r30 |= 2;
     *temp_r31 |= 2;

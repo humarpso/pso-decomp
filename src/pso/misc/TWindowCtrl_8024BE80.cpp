@@ -39,7 +39,7 @@ void TWindowCtrl::update_party_status_rows() {
         if (w != NULL && ((TWindowCtrl *)w)->is_flag_2_set() == 0) {
             pl = get_player_by_client_id(get_width__19TWindowSimpleStatusFv(w));
             if (pl == NULL || has_player_active_menu__11TWindowCtrlFv(local_client_id) != 0 ||
-                is_slot_visible__11TWindowCtrlFv(local_client_id) != 0 || TWindowCtrl__sub_8024B048(((Ctrl_8024BE80 *)this)) != 0 ||
+                is_slot_visible__11TWindowCtrlFv(local_client_id) != 0 || TWindowCtrl__sub_8024B048(this) != 0 ||
                 is_script_controlled__10TObjPlayerFv(pl) != 0 ||
                 (obj_isState3_324__13TUnk_804806E8Fv(pl) != 0 &&
                  (((TObjPlayer *)pl)->get_field_828() != 0 || ((TNpcPlayer *)pl)->get_action_flags() == 0xFFFF))) {

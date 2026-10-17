@@ -38,11 +38,11 @@ void *TUnk_804E1BB0::init_state_513(s32 _w1, void *_w2) {
 u8 *TObjPlayer::create_state_513() {
     u8 *temp_r3;
     u8 *var_r0;
-    if (((u8 *)this) != NULL) {
+    if (this != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
         var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TUnk_804E1BB0 *)temp_r3)->init_state_513(tl_05, (void *)(((u8 *)this)))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_804E1BB0 *)temp_r3)->init_state_513(tl_05, this)));
         }
         return var_r0;
     }
@@ -332,7 +332,7 @@ void TUnk_804E21F8::reserved_53() {
     E_802D56F0 *p;
     s32 n;
     draw_weapon_model();
-    if (get_flag_40__8TItemMagFv(((u8 *)this)) == 0) {
+    if (get_flag_40__8TItemMagFv(this) == 0) {
         n = *(s16 *)(((u8 *)this) + 0x24A);
         p = ((S_802D56F0 *)((u8 *)this))->e;
         while (n != 0) {

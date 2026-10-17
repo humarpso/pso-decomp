@@ -229,7 +229,7 @@ u8 *TBoss5Gryphon::try_move_actor_xz_on_ground(u8 *arg1) {
     f32 temp_f31;
     u8 *temp_r3;
     temp_f31 = *(f32 *)((s8 *)((u8 *)this) + 0x3C);
-    temp_r3 = (unsigned char *) (((VObj_18_3f4583 *)(((u8 *)this)))->m101());
+    temp_r3 = (unsigned char *) (((VObj_18_3f4583 *)(this))->m101());
     if (temp_r3 != NULL) {
         *(f32 *)&this->m_44 = (f32) *(f32 *)((s8 *)((u8 *)this) + 0x38);
         *(f32 *)&this->m_48 = temp_f31;

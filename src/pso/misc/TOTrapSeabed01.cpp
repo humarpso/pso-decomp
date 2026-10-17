@@ -247,7 +247,7 @@ int TOTrapSeabed01::vfunc_67() {
         o = (VObj_802C9F70 *)TObjPlayer::get_battle_param(i);
         if (is_valid_and_active__10TObjPlayerFUl() != 0 && check_value_equals__13TQuestColCtrlFPll(o, lbl_805D3530) != 0) {
             Pair_802C9F70 p = ((Trap_802C9F70 *)this)->pair;
-            o->m21(((Trap_802C9F70 *)this), &p, 0, -1, -1);
+            o->m21(this, &p, 0, -1, -1);
             if (((Trap_802C9F70 *)this)->pair.a < 5) {
                 o->m23(((Trap_802C9F70 *)this), TOTrapSeabed01__data_805DE644);
             }
@@ -447,7 +447,7 @@ void TOTrapSeabed01::draw() {
         push_matrix();
         post_translate_matrix(((u8 *)this) + 0x38);
         ((s32 (*)(int, int))rotate_matrix_y)(0, (int)(*(s32 *)((s8 *)((u8 *)this) + 0x60)));
-        ((TOTrapSeabed01 *)((u8 *)this))->draw_object_tree((u8 *)(*(s32 *)((s8 *)((u8 *)this) + 0x34)));
+        this->draw_object_tree((u8 *)(*(s32 *)((s8 *)((u8 *)this) + 0x34)));
         pop_matrix();
         TParticleCtrl::end_effect_render();
         func_80141618__Fv();

@@ -805,7 +805,7 @@ s32 TObjPlayer::apply_area_attack_hits(u8 *arg1, s32 arg2, u32 object, f32 range
         mask |= 0x80000;
     }
     if (*(s32 *)((s8 *)arg1 + 4) & 2) {
-        ((TUnk_804AF8A0 *)((u8 *)this))->mark_enemy_body_contacts();
+        this->mark_enemy_body_contacts();
         mask |= 0x100000;
     }
     if (*(u32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0xA4)) + 0x18) & mask) {
@@ -815,14 +815,14 @@ s32 TObjPlayer::apply_area_attack_hits(u8 *arg1, s32 arg2, u32 object, f32 range
                 break;
             }
             if (obj_is_hit_receivable(obj) != 0 && (u32)obj != *(u32 *)((s8 *)((u8 *)this) + 0xAC) &&
-                is_area_attack_target_eligible(((u8 *)this), *(u32 *)((s8 *)obj + 0x30)) != 0 &&
+                is_area_attack_target_eligible(this, *(u32 *)((s8 *)obj + 0x30)) != 0 &&
                 !(fabs_float(*(f32 *)((s8 *)((u8 *)this) + 0xB8) - *(f32 *)((s8 *)obj + 0x300)) > lbl_805DE758)) {
                 ok = 1;
                 if (object != 0 && attack_target_history_add(object, obj) == 0) {
                     ok = 0;
                 }
                 if (ok != 0) {
-                    ((VObj_18_0ab400 *)(((u8 *)this)))->m19(obj, arg1, arg2);
+                    ((VObj_18_0ab400 *)(this))->m19(obj, arg1, arg2);
                     hit = 1;
                 }
             }

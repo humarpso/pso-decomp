@@ -174,7 +174,7 @@ u8 *TTecReverser__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
 void TUnk_804CCC68::dispatch_technique_contact() {
     u8 *var_r31;
     if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x128) == 0U) {
-        queue_destruction__7TObjectFv((((u8 *)this)));
+        queue_destruction__7TObjectFv((this));
         return;
     }
     if ((u16) obj_getField1c((int) (*(s32 *)((s8 *)((u8 *)this) + 0x1C))) < 4U) {
@@ -188,7 +188,7 @@ void TUnk_804CCC68::dispatch_technique_contact() {
     }
     if (var_r31 == NULL) {
         this->vfunc_6();
-        queue_destruction__7TObjectFv((((u8 *)this)));
+        queue_destruction__7TObjectFv((this));
         return;
     }
     if (TObjPlayer::is_valid_and_active((int) (*(u32 *)((s8 *)var_r31 + 0))) != 0) {
@@ -204,7 +204,7 @@ void TUnk_804CCC68::dispatch_all_technique_contacts() {
     List_8023A244 *list;
     s32 i;
     if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x128) == 0U) {
-        queue_destruction__7TObjectFv((((u8 *)this)));
+        queue_destruction__7TObjectFv((this));
         return;
     }
     if ((u16) obj_getField1c((int) (*(s32 *)((s8 *)((u8 *)this) + 0x1C))) < 4U) {
@@ -218,7 +218,7 @@ void TUnk_804CCC68::dispatch_all_technique_contacts() {
     }
     if (list == NULL) {
         this->vfunc_6();
-        queue_destruction__7TObjectFv((((u8 *)this)));
+        queue_destruction__7TObjectFv((this));
         return;
     }
     for (i = 0; i < list->count; i++) {

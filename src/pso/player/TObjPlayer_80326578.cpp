@@ -106,11 +106,11 @@ void *TUnk_804ECEB8::init_vtable_variant(s32 _w1, void *_w2) {
 u8 *TObjPlayer::create_vtable_variant() {
     u8 *temp_r3;
     u8 *var_r0;
-    if (((u8 *)this) != NULL) {
+    if (this != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
         var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TUnk_804ECEB8 *)temp_r3)->init_vtable_variant(tl_05, (void *)(((u8 *)this)))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_804ECEB8 *)temp_r3)->init_vtable_variant(tl_05, this)));
         }
         return var_r0;
     }
@@ -259,11 +259,11 @@ void *TUnk_804ED0A8::init_state_1536(s32 _w1, void *_w2) {
 u8 *TObjPlayer::create_state_1536() {
     u8 *temp_r3;
     u8 *var_r0;
-    if (((u8 *)this) != NULL) {
+    if (this != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x200));
         var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TUnk_804ED0A8 *)temp_r3)->init_state_1536(tl_05, (void *)(((u8 *)this)))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_804ED0A8 *)temp_r3)->init_state_1536(tl_05, this)));
         }
         return var_r0;
     }
@@ -377,11 +377,11 @@ extern const f32 lbl_805DF688;
 u8 *TObjPlayer::create_mode_floats_state() {
     u8 *temp_r3;
     u8 *var_r0;
-    if (((u8 *)this) != NULL) {
+    if (this != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x200));
         var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TUnk_804ED298 *)temp_r3)->set_mode_floats(tl_05, (void *)(((u8 *)this)))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_804ED298 *)temp_r3)->set_mode_floats(tl_05, this)));
         }
         return var_r0;
     }
@@ -443,11 +443,11 @@ void*TUnk_804ED390::init_vtable_1f8(s32 _w1, void *_w2) { ((int (*)())TItemWeapo
 u8 *TObjPlayer::create_vtable_1f8_state() {
     u8 *temp_r3;
     u8 *var_r0;
-    if (((u8 *)this) != NULL) {
+    if (this != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
         var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)((TUnk_804ED390 *)temp_r3)->init_vtable_1f8(tl_05, (void *)(((u8 *)this)))));
+            var_r0 = (u8 *)(((u8 *)((TUnk_804ED390 *)temp_r3)->init_vtable_1f8(tl_05, this)));
         }
         return var_r0;
     }

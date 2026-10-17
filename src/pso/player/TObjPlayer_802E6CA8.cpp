@@ -209,7 +209,7 @@ void *__dt__13TUnk_804E3BA8Fv(void *arg0, s16 arg1) {
 u8 *TObjPlayer::init_breakup_pieces(void *arg1, s32 arg2) {
     Part_802E6F10 *part;
     s32 i;
-    ((TObjPlayer *)((u8 *)this))->init_zeroed_object();
+    this->init_zeroed_object();
     *(u8 **)((s8 *)((u8 *)this) + 0x18) = ((u8 *)&lbl_804E3BA8);
     ((TUnk_804E3BD8 *)((u8 *)this))->alloc_breakup_model(((s32)queue_boss_effect__10TObjPlayerFPv(2)));
     *(s32 *)((s8 *)((u8 *)this) + 0x2C) = arg2;

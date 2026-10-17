@@ -73,7 +73,7 @@ void TBoss6Rock::spawn_crush_rocks(s32 kind) {
     if (TBoss6CrushRock::is_falz_alive() == 0) {
         return;
     }
-    ((TBoss6CrushPtcl *)((Vec_8035A460 *)this))->create();
+    ((TBoss6CrushPtcl *)this)->create();
     radius = lbl_805E00D8;
     base = 5;
     n = 2;

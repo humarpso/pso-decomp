@@ -3124,14 +3124,14 @@ void cast_technique__18TObjEneMe3SinowZoaFPv(u8 *arg0) {
 }
 
 void TObjEneMe3SinowZoa::sub_8031A3D8() {
-    if (((s32 (*)(void *))sub_8031A454__18TObjEneMe3SinowZoaFv)((void *) (((u8 *)this))) != 0) {
+    if (((s32 (*)(void *))sub_8031A454__18TObjEneMe3SinowZoaFv)(this) != 0) {
         *(s32 **)((s8 *)((u8 *)this) + 0x24) = &lbl_80542FDC.value;
-        initialize_enemy_state__9TObjEneDDFv((void *) (((u8 *)this)), 0x46);
+        initialize_enemy_state__9TObjEneDDFv(this, 0x46);
         *(s32 *)((s8 *)((u8 *)this) + 0x3C8) = 1;
         return;
     }
     *(s32 **)((s8 *)((u8 *)this) + 0x24) = (s32 *) *(s32 **)((s8 *)(*(u8 **)((s8 *)TObjEneMe3SinowZoa__data_805D6AD8 + 0x42C)) + 0xC);
-    initialize_enemy_state__9TObjEneDDFv((void *) (((u8 *)this)), 0x45);
+    initialize_enemy_state__9TObjEneDDFv(this, 0x45);
     *(s32 *)((s8 *)((u8 *)this) + 0x3C8) = 0;
 }
 
@@ -3277,7 +3277,7 @@ u8 TObjEneMe3SinowZoa::check_body_collision_at(s32 arg1, f32 farg0) {
     s->f14 = 1;
     s->f18 = 0x9D01;
     ((Obj_800E750C *)this)->f60 = arg1;
-    ((void (*)(void *, s32, f32, f32))check_enemy_body_collisions)(((Obj_800E750C *)this), arg1, TObjEneMe3SinowZoa__data_805DF31C, f2);
+    ((void (*)(void *, s32, f32, f32))check_enemy_body_collisions)(this, arg1, TObjEneMe3SinowZoa__data_805DF31C, f2);
     res = (s->f18 & 0x380000) != 0;
     fn_8002B630(s, sinow_zoa_collision_parts, s->f18 & 0x380000);
     s->f18 = b;
@@ -3442,32 +3442,32 @@ void TObjEneMe3SinowZoaReal::init_enemy() {
     sub_8031A3D8();
     temp_r6 = (u8 *)(*(u8 **)((s8 *)TObjEneMe3SinowZoa__data_805D6AD8 + 0x42C));
     *(s32 *)((s8 *)((u8 *)this) + 0x34) = (s32) *(s32 *)((s8 *)temp_r6 + 8);
-    init_model__9TObjEneDDFv((void *) (((u8 *)this)), ((void * *)sinow_zoa_collision_parts), 1, (int)temp_r6);
+    init_model__9TObjEneDDFv((void *)this, ((void * *)sinow_zoa_collision_parts), 1, (int)temp_r6);
     *(s32 *)((s8 *)((u8 *)this) + 0xB0) = 0;
     ((TObjPlayer *)((u8 *)this))->set_field_d8((s32)lbl_804E8880);
     ((TObjPlayer *)((u8 *)this))->set_field_dc((int) (*(s32 *)((s8 *)TObjEneMe3SinowZoa__data_805D6AD8 + 0x430)));
-    set_animation__10TObjPlayerFPvs((((u8 *)this)), (*(s16 *)((s8 *)((u8 *)this) + 0xB8)));
+    set_animation__10TObjPlayerFPvs((this), (*(s16 *)((s8 *)((u8 *)this) + 0xB8)));
     temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x3C8);
     {
         s32 *a = tbl->t[0];
         s32 *b = tbl->t[1];
         s32 *c = tbl->t[2];
-        reset_hp__9TObjEneDDFv((void *) (((u8 *)this)), a[temp_r0], b[temp_r0], c[temp_r0]);
+        reset_hp__9TObjEneDDFv((void *)this, a[temp_r0], b[temp_r0], c[temp_r0]);
     }
-    ((TObjEneDD *)((u8 *)this))->check_state_flag_4();
+    this->check_state_flag_4();
     *(void **)((s8 *)((u8 *)this) + 0x350) = TObjEneMe3SinowZoa_init_params;
     *(f32 *)((s8 *)((u8 *)this) + 0x37C) = (f32) TObjEneMe3SinowZoa__data_805DF314;
     enemy_init_acquire_period(0x1E);
     enemy_init_validate_period(0x1E);
     *(s32 *)((s8 *)((u8 *)this) + 0x3CC) = 0;
     *(s32 *)((s8 *)((u8 *)this) + 0x3D0) = 0;
-    VecCopy((Vec *)((u8 *)(((u8 *)this)) + 0x3D4), (const Vec *)((u8 *)(((u8 *)this)) + 0x38));
+    VecCopy((Vec *)((u8 *)this + 0x3D4), (const Vec *)((u8 *)this + 0x38));
     *(f32 *)((s8 *)((u8 *)this) + 0x3E0) = (*(f32 *)((s8 *)((u8 *)this) + 0x3C));
     *(f32 *)((s8 *)((u8 *)this) + 0x3E4) = (f32) TObjEneMe3SinowZoa__data_805DF31C;
     *(s32 *)((s8 *)((u8 *)this) + 0x3F8) = 0;
     *(s32 *)((s8 *)((u8 *)this) + 0x3FC) = 0;
     *(s16 *)((s8 *)((u8 *)this) + 0x404) = (s16) *(s16 *)((s8 *)((u8 *)this) + 0x2CC);
-    ((VObj_14_2ab9de *)((u8 *)(((u8 *)this)) + (1044)))->m3();
+    ((VObj_14_2ab9de *)((u8 *)this + (1044)))->m3();
     *(s32 *)((s8 *)((u8 *)this) + 0x434) = 0;
     *(s32 *)((s8 *)((u8 *)this) + 0x438) = 0;
     *(s32 *)((s8 *)((u8 *)this) + 0x43C) = 0;
@@ -3479,7 +3479,7 @@ void TObjEneMe3SinowZoaReal::init_enemy() {
     *(s32 *)((s8 *)((u8 *)this) + 0x454) = 0;
     *(s32 *)((s8 *)((u8 *)this) + 0x458) = 0;
     if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x3C0) == 1) {
-        set_indexed_flags((void *) (((u8 *)this)), 0, 0x08000000);
+        set_indexed_flags((void *)this, 0, 0x08000000);
     } else {
         ((TObjPlayer *)((u8 *)this))->clear_player_status_flag(0, 0x08000000);
     }

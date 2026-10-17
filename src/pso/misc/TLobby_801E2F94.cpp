@@ -262,7 +262,7 @@ void TWindowCtrlMain::draw_strip_swap_color(s32 n, s32 flags, f32 scale) {
     u32 x;
     u32 *p;
     if (!(flags & 2)) {
-        ((TObjCMHairMenu *)((Ctrl_801E352C *)this))->draw_tri_fan_2d(n, flags, scale);
+        ((TObjCMHairMenu *)this)->draw_tri_fan_2d(n, flags, scale);
         return;
     }
     p = ((Ctrl_801E352C *)this)->data;
@@ -271,7 +271,7 @@ void TWindowCtrlMain::draw_strip_swap_color(s32 n, s32 flags, f32 scale) {
         *p = (x << 8) | (x >> 24);
         p++;
     }
-    ((TObjCMHairMenu *)((Ctrl_801E352C *)this))->draw_tri_fan_2d(n, flags, scale);
+    ((TObjCMHairMenu *)this)->draw_tri_fan_2d(n, flags, scale);
     {
     u32 *q = ((Ctrl_801E352C *)this)->data;
     u32 y;

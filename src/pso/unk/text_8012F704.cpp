@@ -54,7 +54,7 @@ void TUnk_804A64E8::emit_marker_effects() {
 
     init_slicer_launch_state((SlicerState_801295FC *)&tec);
     tec.id = obj_getField1c(((Self_8012F704 *)this)->owner);
-    tec.fC = ((TItem *)((Self_8012F704 *)this))->get_field_d8();
+    tec.fC = ((TItem *)this)->get_field_d8();
     tec.f4 = ((Self_8012F704 *)this)->f24;
     tec.f8 = ((Self_8012F704 *)this)->f188;
     tec.f10 = TObjPlayer__sub_801D2F4C((s16 *)((u8 *)((Self_8012F704 *)this)->owner + 0x7CC));
@@ -65,8 +65,8 @@ void TUnk_804A64E8::emit_marker_effects() {
     tec.f20 = lbl_805DAFB8;
     tec.f24 = lbl_805DAFC4;
     tec.f28 = ((Self_8012F704 *)this)->owner->f60;
-    ((TObjPlayer *)((Self_8012F704 *)this))->draw_icon(5, (s32)&tec.pos);
-    ((TObjPlayer *)((Self_8012F704 *)this))->draw_icon(4, (s32)&tec.dir);
+    ((TObjPlayer *)this)->draw_icon(5, (s32)&tec.pos);
+    ((TObjPlayer *)this)->draw_icon(4, (s32)&tec.dir);
     TTecSlicer::create((u16*)&tec);
 }
 

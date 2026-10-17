@@ -67,8 +67,8 @@ s32 TLobby::lz_compress_packet(void *src, s32 size, s32 *hdr) {
     s32 t1;
     out = hdr;
     t0 = TLobby__sub_803DF1CC();
-    ((TLobby *)((Lz_8013F99C *)this))->set_range((int)src, size, (s32)(hdr + 2));
-    ((TLobby *)((Lz_8013F99C *)this))->init_lookup_tables();
+    ((TLobby *)this)->set_range((int)src, size, (s32)(hdr + 2));
+    ((TLobby *)this)->init_lookup_tables();
     code_buf[0] = 0;
     mask = code_buf_ptr = 1;
     ((Lz_8013F99C *)this)->codesize = 0;
@@ -78,8 +78,8 @@ s32 TLobby::lz_compress_packet(void *src, s32 size, s32 *hdr) {
         ((Lz_8013F99C *)this)->text_buf[i] = 0;
     }
     for (len = 0; len < 0x12; len++) {
-        c = GET_8013F99C((u8 *)((Lz_8013F99C *)this));
-        if (EOF_8013F99C((u8 *)((Lz_8013F99C *)this)) != 0) {
+        c = GET_8013F99C((u8 *)this);
+        if (EOF_8013F99C((u8 *)this) != 0) {
             break;
         }
         ((Lz_8013F99C *)this)->text_buf[0xFEE + len] = c;
@@ -88,9 +88,9 @@ s32 TLobby::lz_compress_packet(void *src, s32 size, s32 *hdr) {
         return ((Lz_8013F99C *)this)->codesize;
     }
     for (i = 1; i <= 0x12; i++) {
-        lzss_insert_ring_node((Lz_8013FDC4 *)((Lz_8013F99C *)this), r - i);
+        lzss_insert_ring_node((Lz_8013FDC4 *)this, r - i);
     }
-    lzss_insert_ring_node((Lz_8013FDC4 *)((Lz_8013F99C *)this), r);
+    lzss_insert_ring_node((Lz_8013FDC4 *)this, r);
     do {
         if (((Lz_8013F99C *)this)->match_length > len) {
             ((Lz_8013F99C *)this)->match_length = len;

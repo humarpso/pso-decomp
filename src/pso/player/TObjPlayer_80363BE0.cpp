@@ -262,8 +262,8 @@ typedef char RecoveredGlobal_8036414C_lbl_8058D4C0_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_803640F8_lbl_8058D4C0_size[sizeof(RecoveredGlobal_803640F8_lbl_8058D4C0) == 0x10 ? 1 : -1];
 void TObjPlayer::push_model_fade_color() {
     copy_vec4__13TRaderMapCoreFPvPv((void *)((*(s32 *)&(*(void **)&lbl_805D6FB8)) + 0x1C), (&(*(RecoveredGlobal_803640F8_lbl_8058D4C0 *)&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)).value));
-    if (((s32 *)this) != NULL) {
-        copy_vec4__13TRaderMapCoreFPvPv((&(*(RecoveredGlobal_803640F8_lbl_8058D4C0 *)&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)).value), (((s32 *)this)));
+    if (this != NULL) {
+        copy_vec4__13TRaderMapCoreFPvPv((&(*(RecoveredGlobal_803640F8_lbl_8058D4C0 *)&(*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)).value), (this));
     }
 }
 

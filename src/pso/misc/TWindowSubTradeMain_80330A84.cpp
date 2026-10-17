@@ -320,7 +320,7 @@ s32 TWindowSubTradeMain::create_trade_window() {
 
 u8 *TWindowSubTradeMain::open_confirm_prompt() {
     u8 *w;
-    w = create__19TWindowMessageYesNoFPvPvPvPv(((u8 *)this), *(void **)(((u8 *)this) + 0x28), NULL, NULL);
+    w = create__19TWindowMessageYesNoFPvPvPvPv(this, *(void **)(((u8 *)this) + 0x28), NULL, NULL);
     open_yes_no_prompt(w, get_message_10__20TWindowSubStatusDispFl(0x20), get_message_10__20TWindowSubStatusDispFl(0xE4), get_window_layout_position(0x5F), TWindowSubTradeMain__data_805DF858);
     free_member__17TWindowSubComCardFv(w, 1);
     return w;

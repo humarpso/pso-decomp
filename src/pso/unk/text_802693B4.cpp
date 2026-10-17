@@ -40,7 +40,7 @@ void TWindowMessage::complete_reveal() {
     ((Win_80269454 *)this)->f5c = 0x01000000;
     ((Win_80269454 *)this)->f6c = ((Win_80269454 *)this)->f84;
     for (i = 0; i < ((Win_80269454 *)this)->count; i++) {
-        e = get_array_entry__13TUnk_804CE018Fi(((Win_80269454 *)this), i);
+        e = get_array_entry__13TUnk_804CE018Fi(this, i);
         lines = ((Win_80269454 *)this)->lines;
         if (get_field_20__17TWindowSubComCardFv(e) != 0) {
             if (lines[i].flags & 8) {

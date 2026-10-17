@@ -18,24 +18,24 @@ void TUnk_804A4C78::reserved_53() {
     s32 savedF4;
     saved = sub_8012B1F8();
     savedF4 = ((Obj_8012AFF8 *)this)->unkF4;
-    if (is_rand_below_threshold__10TObjPlayerFv(((Obj_8012AFF8 *)this)) == 0) {
+    if (is_rand_below_threshold__10TObjPlayerFv(this) == 0) {
         sub_8012B1F0(8);
         ((TObjPlayer *)(&lbl_805D53EC))->set_flags(4);
     }
-    draw_weapon_model(((Obj_8012AFF8 *)this));
+    draw_weapon_model(this);
     if (sub_8012B1F8() != 8) {
-        update_trail_slot__11TItemWeaponFPvi(((Obj_8012AFF8 *)this), 0);
+        update_trail_slot__11TItemWeaponFPvi(this, 0);
     }
     ((Obj_8012AFF8 *)this)->unkF4 = ((Obj_8012AFF8 *)this)->unk188;
-    if (is_rand_below_threshold__10TObjPlayerFv(((Obj_8012AFF8 *)this)) == 0) {
+    if (is_rand_below_threshold__10TObjPlayerFv(this) == 0) {
         sub_8012B1F0(8);
         ((TObjPlayer *)(&lbl_805D53EC))->set_flags(4);
     } else {
         sub_8012B1F0(saved);
     }
-    draw_weapon_at_joint((s32)((Obj_8012AFF8 *)this), 0x23);
+    draw_weapon_at_joint((s32)this, 0x23);
     if (sub_8012B1F8() != 8) {
-        update_trail_slot__11TItemWeaponFPvi(((Obj_8012AFF8 *)this), 1);
+        update_trail_slot__11TItemWeaponFPvi(this, 1);
     }
     ((Obj_8012AFF8 *)this)->unkF4 = savedF4;
     sub_8012B1F0(saved);

@@ -383,7 +383,7 @@ u16 TUnk_804AF8A0::unregister_object_by_id() {
     if ((Obj_80154A00 *)TObjPlayer__data_8050D460[lo] == ((Obj_80154A00 *)this)) {
         memcpy(&TObjPlayer__data_8050D460[lo], &TObjPlayer__data_8050D460[lo + 1], (count - (lo + 1)) * 4);
         lbl_805D5868--;
-        u16 k = obj_getField1c((int)(((Obj_80154A00 *)this)));
+        u16 k = obj_getField1c((int)this);
         if (k < 0x1000) {
             lbl_805D586C--;
         } else if (k < 0x4000) {

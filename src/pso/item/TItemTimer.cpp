@@ -266,20 +266,20 @@ extern f32 lbl_805DAC80;
 void TUnk_804A0608::vfunc_6() {
     struct VObj_8011D94C_8011D414 *o;
 
-    if (obj_testFlags30((void *)(this->m_28), 0x800) == 0) {
+    if (obj_testFlags30((void *)this->m_28, 0x800) == 0) {
         o = (struct VObj_8011D94C_8011D414 *)this->m_28;
         o->m73(lbl_805DAC80);
     }
 }
 
 void TUnk_804A0628::vfunc_6() {
-    if (obj_testFlags30((void *)(this->m_28), 0x800) == 0) {
+    if (obj_testFlags30((void *)this->m_28, 0x800) == 0) {
         add_actor_tp((u8 *)this->m_28, 1);
     }
 }
 
 void TUnk_804A0648::vfunc_6() {
-    if (obj_testFlags30((void *)(this->m_28), 0x800) == 0) {
+    if (obj_testFlags30((void *)this->m_28, 0x800) == 0) {
         add_actor_hp((u8 *)this->m_28, 1);
     }
 }

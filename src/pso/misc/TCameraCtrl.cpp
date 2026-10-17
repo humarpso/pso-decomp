@@ -454,7 +454,7 @@ void TCameraCtrl::update_active_controller() {
     {
       if ((*((s32 *) (((s8 *) temp_r30) + 0x38))) & 1)
       {
-        resolve_anchor_obstruction__11TCameraCtrlFv((void *) ((u8 *)this), (int) temp_r30);
+        resolve_anchor_obstruction__11TCameraCtrlFv((void *) this, (int) temp_r30);
       }
       temp_r3 = *((s32 *) (((s8 *) temp_r30) + 0x38));
       if (temp_r3 & 4)
@@ -472,7 +472,7 @@ void TCameraCtrl::update_active_controller() {
       }
       if ((*((s32 *) (((s8 *) temp_r30) + 0x38))) & 1)
       {
-        clamp_to_target_obstruction__11TCameraCtrlFv((void *) ((u8 *)this), (int) temp_r30);
+        clamp_to_target_obstruction__11TCameraCtrlFv((void *) this, (int) temp_r30);
       }
       update_shake();
     }
@@ -817,11 +817,11 @@ void TCameraCtrl::calc_rotated_axes() {
     stack.spC = *(s32 *)((s8 *)&lbl_80438198.value + 4);
     stack.sp10 = *(s32 *)((s8 *)&lbl_80438198.value + 8);
     push_matrix_from((void *) (&(*(RecoveredGlobal_8006AC70_lbl_8058D490 *)&identity_matrix).value));
-    rotate_matrix_y(0, (void *)(this->m_194));
+    rotate_matrix_y(0, (void *)this->m_194);
     rotate_vector_by_current_matrix((void *)&stack.sp14, (void *) (&(*(RecoveredGlobal_8006AC70_lbl_804FF610 *)&lbl_804FF610).value));
     pop_matrix();
     push_matrix_from((void *) (&(*(RecoveredGlobal_8006AC70_lbl_8058D490 *)&identity_matrix).value));
-    rotate_matrix_x(0, (void *)(this->m_190));
+    rotate_matrix_x(0, (void *)this->m_190);
     rotate_vector_by_current_matrix((void *)&stack.sp8, (void *) (&(*(RecoveredGlobal_8006AC70_lbl_804FF61C *)&camera_pitch_rotated_up_vector).value));
     pop_matrix();
 }

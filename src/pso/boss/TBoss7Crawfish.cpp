@@ -121,9 +121,9 @@ void TBoss7Crawfish::register_attack_hits() {
     Slot_803086A8 *e;
     s32 j;
     reset_global_table();
-    msg.p = (u8 *)((Obj_803086A8 *)this) + 0x374;
+    msg.p = (u8 *)this + 0x374;
     msg.one = 1;
-    VecCopy((Vec *)&msg.pos, (const Vec *)((u8 *)((Obj_803086A8 *)this) + 0x38));
+    VecCopy((Vec *)&msg.pos, (const Vec *)((u8 *)this + 0x38));
     msg.id = this->rotation_y;
     TObjPlayer::apply_status_effect((s32)&msg);
     for (i = 0; i != TObjOnlineEnding::get_instance(); i++) {
@@ -163,7 +163,7 @@ s32 TBoss7Crawfish::is_visible() {
         }
         goto block_5;
     }
-    if (((VObj_18_26a62c *)(((u8 *)this)))->m8(lbl_805DF0D0, lbl_805DF0D4) == 0) {
+    if (((VObj_18_26a62c *)(this))->m8(lbl_805DF0D0, lbl_805DF0D4) == 0) {
         return 0;
     }
 block_5:

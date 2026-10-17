@@ -26,7 +26,7 @@ void TChCrCharSelect::tick_and_apply_selection() {
         *(s8 *)((s8 *)temp_r31 + 0x30) = -1;
         *(s8 *)((s8 *)temp_r31 + 0) = 0;
         TCharaMaking::create((void *)tl_03, (void *)temp_r31);
-        queue_destruction__7TObjectFv((((u8 *)this)));
+        queue_destruction__7TObjectFv((this));
     }
 }
 

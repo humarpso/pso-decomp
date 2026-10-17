@@ -194,9 +194,9 @@ void TODoorFourLightBase::draw_node_tree(u8 *arg1) {
     do {
         temp_r31 = *(s32 *)((s8 *)var_r30 + 0);
         if (temp_r31 & 0x100000) {
-            TObjFish::set_global_param((s32)((void *) (((VObj_18_721d61 *)(((u8 *)this)))->m20())));
+            TObjFish::set_global_param((s32)((void *) (((VObj_18_721d61 *)(this))->m20())));
         } else {
-            TObjFish::set_global_param((s32)((void *) (((VObj_18_721d61 *)(((u8 *)this)))->m19())));
+            TObjFish::set_global_param((s32)((void *) (((VObj_18_721d61 *)(this))->m19())));
         }
         if (*(s32 *)((s8 *)var_r30 + 0) & 0x200000) {
             TParticleCtrl::begin_effect_render();

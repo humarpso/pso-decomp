@@ -67,7 +67,7 @@ void TBoss6Demo11_TYPE1_DEAD::render_fade_model() {
     }
 }
 
-void TBoss6Demo11_TYPE1_DEAD::render() { ((TBoss6Demo11_TYPE1_DEAD *)this)->render_fade_model(); }
+void TBoss6Demo11_TYPE1_DEAD::render() { this->render_fade_model(); }
 
 extern s32 lbl_804EF9EC[];
 

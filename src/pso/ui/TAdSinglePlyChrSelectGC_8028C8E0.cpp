@@ -239,7 +239,7 @@ void TAdSinglePlyChrSelectGC::request_model_loads() {
     r1.ctx = ((Sel_8028CD18 *)this)->f40;
     r1.type = 0x40;
     r1.flags = ((Sel_8028CD18 *)this)->f3C;
-    if (create_ch_cr_load_gm_nj_req(((Sel_8028CD18 *)this), &r1) == 0) return;
+    if (create_ch_cr_load_gm_nj_req(this, &r1) == 0) return;
     idx = ((Sel_8028CD18 *)this)->f38->f40;
     ((Sel_8028CD18 *)this)->f48[1] = 0;
     tbl = ((Sel_8028CD18 *)this)->f5C->f14;
@@ -249,7 +249,7 @@ void TAdSinglePlyChrSelectGC::request_model_loads() {
         r2.ctx = ((Sel_8028CD18 *)this)->f40;
         r2.type = 8;
         r2.flags = ((Sel_8028CD18 *)this)->f3C;
-        if (create_ch_cr_load_gm_nj_req(((Sel_8028CD18 *)this), &r2) == 0) return;
+        if (create_ch_cr_load_gm_nj_req(this, &r2) == 0) return;
     } else {
         *((Sel_8028CD18 *)this)->f3C &= ~8;
     }
@@ -261,7 +261,7 @@ void TAdSinglePlyChrSelectGC::request_model_loads() {
         r3.ctx = ((Sel_8028CD18 *)this)->f40;
         r3.type = 0x10;
         r3.flags = ((Sel_8028CD18 *)this)->f3C;
-        if (create_ch_cr_load_gm_nj_req(((Sel_8028CD18 *)this), &r3) == 0) return;
+        if (create_ch_cr_load_gm_nj_req(this, &r3) == 0) return;
     } else {
         *((Sel_8028CD18 *)this)->f3C &= ~0x10;
     }
@@ -271,7 +271,7 @@ void TAdSinglePlyChrSelectGC::request_model_loads() {
     r4.ctx = ((Sel_8028CD18 *)this)->f40;
     r4.type = 0x20;
     r4.flags = ((Sel_8028CD18 *)this)->f3C;
-    if (create_ch_cr_load_gm_nj_req(((Sel_8028CD18 *)this), &r4) == 0) return;
+    if (create_ch_cr_load_gm_nj_req(this, &r4) == 0) return;
 }
 
 void TChCrLoadReq::sub_8028CEEC(s32 *) {

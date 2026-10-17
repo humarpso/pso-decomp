@@ -78,9 +78,9 @@ TWindowEffectParty::TWindowEffectParty(TObject *arg1, s8 arg2, s8 arg3, void *ar
     Pos_8024FAD8 p;
     *(s32 *)this = TWindowEffectParty__name;
     *(s8 *)&this->m_1d = arg2;
-    TWindowEffectParty::set_slot_position((s32)((u8 *)this), (s32)(*(s8 *)&this->m_1d), (void *)(((u8 *)this) + 0x20));
+    TWindowEffectParty::set_slot_position((s32)this, (s32)(*(s8 *)&this->m_1d), (void *)(((u8 *)this) + 0x20));
     *(s8 *)&this->m_1e = arg3;
-    TWindowEffectParty::set_slot_position((s32)((u8 *)this), (s32)(*(s8 *)&this->m_1e), (void *)(((u8 *)this) + 0x28));
+    TWindowEffectParty::set_slot_position((s32)this, (s32)(*(s8 *)&this->m_1e), (void *)(((u8 *)this) + 0x28));
     this->calc_effect_position(&p);
     *(s32 *)&this->m_30 = (s32)spawn_continuous_particle_effect_with_flags((void *)&p, (s32)arg4, 0xC0);
     *(s8 *)&this->m_1c = 0;

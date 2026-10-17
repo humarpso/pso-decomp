@@ -111,7 +111,7 @@ TUnk_804CCC68::TUnk_804CCC68(s32 arg1, u8 *arg2, u8 *arg3, s32 arg4) : TEffect()
     }
     var_r0 = __nw__7TObjectFUl(0xAC);
     if (var_r0 != 0U) {
-        var_r0 = construct_collider_proxy__13TUnk_804AF8A0Fv(var_r0, ((u8 *)this));
+        var_r0 = construct_collider_proxy__13TUnk_804AF8A0Fv(var_r0, this);
     }
     *(u32 *)((s8 *)this + 0x128) = var_r0;
     if (*(u32 *)((s8 *)this + 0x128) != 0U) {

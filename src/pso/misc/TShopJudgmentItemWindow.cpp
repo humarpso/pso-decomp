@@ -254,11 +254,11 @@ void TShopJudgmentItemWindow::invoke_callback_170_and_destroy() {
 void TShopJudgmentItemWindow::handle_pay_confirm() {
     s32 selected_menu_value;
 
-    if (((TShopWindowBase *)(((u8 *)this)))->vfunc_10() != 0) {
+    if (((TShopWindowBase *)(this))->vfunc_10() != 0) {
         if ((u32) this->m_158 == 0U) {
             this->m_158 = (s32)create_yes_no_window(get_window_layout_position(0x2B), obj_getField1c(this->m_24), 0, 0);
             ((TWindowSubComCardList *)((void *)this->m_158))->set_selected_index(0);
-            ((TUnk_804CDFE8 *)(this->m_158))->set_position_xy(get_scale__15TShopWindowBaseFv((void *) (((u8 *)this))), get_scale__15TShopWindowBaseFv((void *) (((u8 *)this))));
+            ((TUnk_804CDFE8 *)(this->m_158))->set_position_xy(get_scale__15TShopWindowBaseFv(this), get_scale__15TShopWindowBaseFv(this));
         }
         if (((u32) this->m_158 != 0U) && (((TWindowMenu *)(this->m_158))->is_visible() != 0)) {
             selected_menu_value = get_selected_menu_value(this->m_158);
@@ -283,15 +283,15 @@ void TShopJudgmentItemWindow::handle_pay_confirm() {
                 TWindow__close((u8 *)this->m_158);
                 this->m_158 = 0U;
                 try_spend_actor_meseta((u8 *)this->m_24, 0x64);
-                ((VObj_18 *)(((u8 *)this)))->m6(0xA, 1);
-                ((TShopWindowBase *)((u8 *)this))->set_field_20(5);
+                ((VObj_18 *)(this))->m6(0xA, 1);
+                this->set_field_20(5);
                 return;
             }
             if (selected_menu_value == 1) {
                 TWindow__close((u8 *)this->m_158);
                 this->m_158 = 0U;
-                ((VObj_18 *)(((u8 *)this)))->m6(8, 1);
-                ((TShopWindowBase *)((u8 *)this))->set_field_20(4);
+                ((VObj_18 *)(this))->m6(8, 1);
+                this->set_field_20(4);
                 return;
             }
             goto block_17;
@@ -300,8 +300,8 @@ block_17:
         if (((u32) this->m_158 != 0U) && (((TWindowSubComCard *)(this->m_158))->get_status_flag() != 0)) {
             TWindow__close((u8 *)this->m_158);
             this->m_158 = 0U;
-            ((VObj_18 *)(((u8 *)this)))->m6(8, 1);
-            ((TShopWindowBase *)((u8 *)this))->set_field_20(4);
+            ((VObj_18 *)(this))->m6(8, 1);
+            this->set_field_20(4);
         }
     }
 }

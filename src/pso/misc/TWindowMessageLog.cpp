@@ -62,12 +62,12 @@ void TWindowMessageLog::update_scroll_position() {
     if (var_r30 < 0) {
         var_r30 = this->m_8c - 1;
     }
-    temp_r31 = ((TUnk_804CE018 *)((u8 *)this))->get_array_entry(temp_r4);
-    temp_r3 = ((TUnk_804CE018 *)((u8 *)this))->get_array_entry(var_r30);
+    temp_r31 = this->get_array_entry(temp_r4);
+    temp_r3 = this->get_array_entry(var_r30);
     stack.sp8 = (this->m_48 - lbl_805DD248) - lbl_805DD24C;
     stack.spC = (*(f32 *)((s8 *)temp_r3 + 0xC) + *(f32 *)((s8 *)temp_r3 + 0x14)) - *(f32 *)((s8 *)temp_r31 + 0xC);
     ((TWindowMenu *)(*(u8 **)((s8 *)((u8 *)this) + 0x90)))->copy_position(&stack.sp8);
-    ((TWindowMessageLog *)((u8 *)this))->clamp_scroll_offset();
+    this->clamp_scroll_offset();
 }
 
 }

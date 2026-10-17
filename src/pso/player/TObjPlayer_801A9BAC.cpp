@@ -20,7 +20,7 @@ void *get_player_by_client_id(s32 i);
 s32 queue_deferred_photon_blast_support(s32, s32, s32);
 
 void TUnk_804C349C::update_and_destroy() {
-    SA9_801a9bac *self = (SA9_801a9bac *)((u8 *)this);
+    SA9_801a9bac *self = (SA9_801a9bac *)this;
     s32 temp_r0;
     s32 var_r31;
     s32 var_r30;
@@ -41,8 +41,8 @@ void TUnk_804C349C::update_and_destroy() {
                 }
             }
         }
-        deliver_photon_blast_results_delayed(((u8 *)this));
-        queue_destruction__7TObjectFv(((u8 *)this));
+        deliver_photon_blast_results_delayed(this);
+        queue_destruction__7TObjectFv(this);
     }
 }
 

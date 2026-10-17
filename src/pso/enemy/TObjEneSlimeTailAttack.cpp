@@ -916,7 +916,7 @@ void TObjPlayer::draw_blob_shadows() {
         Vec_800E81B4 v = ((Obj_800E81B4 *)this)->pts[i];
         Rot_800E81B4 rot;
         v.y += k;
-        if (((s32 (*)(void *, Vec_800E81B4 *, Rot_800E81B4 *))project_actor_to_ground)(((Obj_800E81B4 *)this), &v, &rot) != 0) {
+        if (((s32 (*)(void *, Vec_800E81B4 *, Rot_800E81B4 *))project_actor_to_ground)(this, &v, &rot) != 0) {
             push_matrix();
             translate_matrix(0, v.x, lbl_805DA670 + v.y, v.z);
             direction_to_rotation_xz((u8 *)&rot, &spC, &sp8);

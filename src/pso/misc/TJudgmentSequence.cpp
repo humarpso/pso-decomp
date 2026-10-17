@@ -105,7 +105,7 @@ void TJudgmentSequence::open_judgment_window() {
     o->cb0 = (void *)TJudgmentSequence__sub_80215BCC;
     o->cb2 = (void *)TJudgmentSequence__sub_80215BA0;
     o->cb1 = (void *)TJudgmentSequence__sub_80215BF8;
-    ((TShopWindowBase *)((Seq_80215CB8 *)this))->set_field_20((s32)((void *)5));
+    ((TShopWindowBase *)this)->set_field_20((s32)((void *)5));
 }
 
 void TJudgmentSequence::handle_confirm() {
@@ -142,16 +142,16 @@ void TJudgmentSequence::vfunc_11() {
         this->restore_player_state();
         break;
     case 1:
-        ((TJudgmentSequence *)this)->setup_counter_camera();
+        this->setup_counter_camera();
         break;
     case 2:
-        ((TJudgmentSequence *)this)->handle_confirm();
+        this->handle_confirm();
         break;
     case 3:
         open_judgment_window();
         break;
     case 4:
-        ((TJudgmentSequence *)this)->handle_close_input();
+        this->handle_close_input();
         break;
     case 5:
         break;

@@ -688,7 +688,7 @@ f32 TObjEneEpsilonBody::receive_physical_attack(void *arg1_arg, f32 farg0) {
     s32 temp_r5;
     temp_r5 = *(s32 *)((s8 *)((u8 *)this) + 0x438);
     if (!(temp_r5 & 2) && !(temp_r5 & 0x40)) {
-        return receive_physical_attack__10TObjPlayerFv(((u8 *)this), att, farg0);
+        return receive_physical_attack__10TObjPlayerFv(this, att, farg0);
     }
     try_apply_damage((u32) (((u8 *)this) + 0x2FC), 0);
     return lbl_805E0208;
@@ -749,7 +749,7 @@ s32 TObjEneEpsilonGuard::assign_guard_targets() {
             return 0;
         }
     }
-    near = calc_boss4_scale__10TObjPlayerFi((s32)((Guard_8035F970 *)this)) < lbl_80479E88;
+    near = calc_boss4_scale__10TObjPlayerFi((s32)this) < lbl_80479E88;
     for (i = 0; i < 4; i++) {
         p = find_entity_by_id(((Guard_8035F970 *)this)->h[i]);
         if (p != 0) {

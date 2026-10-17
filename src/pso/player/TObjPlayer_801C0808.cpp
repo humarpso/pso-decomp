@@ -272,7 +272,7 @@ void TObjPlayer::bswap_cmd_item_data() {
     bswap__9TItemDataFv(arg0 + 4);
 }
 
-void*TObjPlayer::copy(void* a1) { TObjPlayer__sub_801C0F10((u8 *)((u8 *)this), (u8 *)a1); *(unsigned char*)((char*)this + 0x18) = *(unsigned char*)((char*)a1 + 0x18); *(unsigned char*)((char*)this + 0x19) = *(unsigned char*)((char*)a1 + 0x19); *(short*)((char*)this + 0x1a) = *(unsigned short*)((char*)a1 + 0x1a); return this; }
+void*TObjPlayer::copy(void* a1) { TObjPlayer__sub_801C0F10((u8 *)this, (u8 *)a1); *(unsigned char*)((char*)this + 0x18) = *(unsigned char*)((char*)a1 + 0x18); *(unsigned char*)((char*)this + 0x19) = *(unsigned char*)((char*)a1 + 0x19); *(short*)((char*)this + 0x1a) = *(unsigned short*)((char*)a1 + 0x1a); return this; }
 
 u8 *TObjPlayer__sub_801C0F10(u8 *arg0, u8 *arg1) {
     TFontSmallLobby__sub_801C0228(arg0, arg1);

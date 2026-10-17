@@ -10,7 +10,7 @@ extern s32 *TOBarrierEnergy01__texture_lists;
 
 void TOBarrierEnergy01::vfunc_17() {
     update_anim_phase__13TUnk_804AFBF8Fv();
-    ((TOBarrierEnergy01 *)this)->play_ambient_loop_sound();
+    this->play_ambient_loop_sound();
     if (!(this->m_d0 & 1)) {
         this->m_ac = 3;
         ((TObjPlayer *)this)->clear_player_status_flag(0, 8);

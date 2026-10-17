@@ -115,7 +115,7 @@ void TShopEquipmentGearSequence::open_sell_window() {
     o->cb0 = (void *)enter_quest_list__26TShopEquipmentGearSequenceFv;
     o->cb1 = (void *)open_gear_shop__26TShopEquipmentGearSequenceFv;
     reset_controller_input_state();
-    ((TShopWindowBase *)((S_8021B438 *)this))->set_field_20(5);
+    ((TShopWindowBase *)this)->set_field_20(5);
 }
 
 void TShopEquipmentGearSequence::open_armor_list_window() {
@@ -125,7 +125,7 @@ void TShopEquipmentGearSequence::open_armor_list_window() {
     }
     o->cb0 = (void *)enter_quest_list__26TShopEquipmentGearSequenceFv;
     reset_controller_input_state();
-    ((TShopWindowBase *)((S_8021B4B0 *)this))->set_field_20(5);
+    ((TShopWindowBase *)this)->set_field_20(5);
 }
 
 #define arg0 ((Seq_8021B518 *) self)
@@ -170,11 +170,11 @@ s32 TShopEquipmentGearSequence::open_greeting() {
   Stack_8021D948 stack;
   stack.sp8 = lbl_805DC6C8;
   stack.spC = lbl_805DC6CC;
-  ((TShopSequence *)((u8 *)this))->create_message_window(get_window_layout_position(0x2C, (f32) lbl_805DC6C8), (s32)&stack.sp8);
-  PSO_VCALL_VObj_18_a93f07_m4(((u8 *)this), 0x2b, 1);
-  this->m_30 = create_meseta_window((s32) get_child_field1c__13TShopSequenceFv(((u8 *)this)));
-  ((TShopWindowBase *)((u8 *)this))->set_field_20(2);
-  *((s32 *) (((s8 *) ((u8 *)this)) + 0x34)) = set_service_counter_camera((void *) ((u8 *)this), 0x4);
+  this->create_message_window(get_window_layout_position(0x2C, (f32) lbl_805DC6C8), (s32)&stack.sp8);
+  PSO_VCALL_VObj_18_a93f07_m4(this, 0x2b, 1);
+  this->m_30 = create_meseta_window((s32) get_child_field1c__13TShopSequenceFv(this));
+  this->set_field_20(2);
+  *((s32 *) (((s8 *) ((u8 *)this)) + 0x34)) = set_service_counter_camera((void *) this, 0x4);
 }
 typedef char RecoveredGlobal_8021B7D0___vt__26TShopEquipmentGearSequence_size[sizeof(RecoveredGlobal_8021B7D0___vt__26TShopEquipmentGearSequence) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0_size[sizeof(RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0) == 0x10 ? 1 : -1];

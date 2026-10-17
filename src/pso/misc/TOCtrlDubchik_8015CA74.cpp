@@ -219,7 +219,7 @@ void TOCtrlDubchik::update_spin() {
 
     *(s32 *)&this->m_380 = (s32) (((f32) (*(s32 *)&this->m_380)) + TOCtrlDubchik__data_805DB3B4);
     this->m_37c = (f32) (TOCtrlDubchik__data_805DB3B8 + sin_table_lookup(*(s32 *)&this->m_380));
-    apply_actor_gravity((u8 *)((u8 *)this), (s32 *)(((u8 *)this) + 0x390), (f32)this->m_37c);
+    apply_actor_gravity((u8 *)this, (s32 *)(((u8 *)this) + 0x390), (f32)this->m_37c);
     *(s32 *)&this->m_38c = (s32) (*(s32 *)&this->m_38c + 0x147);
 }
 
@@ -235,7 +235,7 @@ void TOCtrlDubchik::sub_8015CCF4() {
   new_var3 = ((s8 *) ((u8 *)this)) + 0x380;
   *((f32 *) (((s8 *) ((u8 *)this)) + 0x37C)) = (f32) (TOCtrlDubchik__data_805DB3B8 + sin_table_lookup((s32)(*((s32 *) new_var3))));
   new_var = &(*((f32 *) (((s8 *) ((u8 *)this)) + 0x37C)));
-  apply_actor_gravity((u8 *)((u8 *)this), (s32 *)(((u8 *)this) + 0x390), (f32)(*new_var));
+  apply_actor_gravity((u8 *)this, (s32 *)(((u8 *)this) + 0x390), (f32)(*new_var));
   new_var4 = *((f32 *) (((s8 *) ((u8 *)this)) + 0x388));
   *((f32 *) (((s8 *) ((u8 *)this)) + 0x388)) = (f32) (new_var4 + TOCtrlDubchik__data_805DB3B0);
   if (TOCtrlDubchik__data_805DB3AC < (*((f32 *) (((s8 *) ((u8 *)this)) + 0x388))))
@@ -244,7 +244,7 @@ void TOCtrlDubchik::sub_8015CCF4() {
     *((f32 *) (((s8 *) ((u8 *)this)) + 0x388)) = new_var2;
     *((s16 *) (((s8 *) ((u8 *)this)) + 0x326)) = 3;
     ((TObjPlayer *)((u8 *)this))->clear_player_status_flag(0, 0x08000004);
- do { set_indexed_flags(((u8 *)this), 0, 2); } while (0 != 0U);
+ do { set_indexed_flags(this, 0, 2); } while (0 != 0U);
   }
   new_var4 = new_var4;
 }
@@ -254,7 +254,7 @@ void TOCtrlDubchik::sub_8015CCF4() {
 void TOCtrlDubchik::update_bobbing() {
     *(s32 *)&this->m_380 = (s32) (((f32) (*(s32 *)&this->m_380)) + TOCtrlDubchik__data_805DB3B4);
     this->m_37c = (f32) (TOCtrlDubchik__data_805DB3B8 + sin_table_lookup((s32)((int) (*(s32 *)&this->m_380))));
-    apply_actor_gravity((u8 *)(((u8 *)this)), (s32 *)(((u8 *)this) + 0x390), this->m_37c);
+    apply_actor_gravity((u8 *)this, (s32 *)(((u8 *)this) + 0x390), this->m_37c);
     *(f32 *)&this->unk_384 = (f32) (*(f32 *)&this->unk_384 + TOCtrlDubchik__data_805DB3B0);
     if (TOCtrlDubchik__data_805DB3AC < *(f32 *)&this->unk_384) {
         *(f32 *)&this->unk_384 = (f32) TOCtrlDubchik__data_805DB3AC;
@@ -268,7 +268,7 @@ void TOCtrlDubchik::sub_8015CE80() {
     u8 *p;
     *(s32 *)(((u8 *)this) + 0x380) = (f32)*(s32 *)(((u8 *)this) + 0x380) + TOCtrlDubchik__data_805DB3B4;
     *(f32 *)(((u8 *)this) + 0x37C) = lbl_805DB3BC + sin_table_lookup(*(s32 *)(((u8 *)this) + 0x380));
-    apply_actor_gravity((u8 *)((u8 *)this), (s32 *)(((u8 *)this) + 0x390), (f32)(*(f32 *)(((u8 *)this) + 0x37C)));
+    apply_actor_gravity((u8 *)this, (s32 *)(((u8 *)this) + 0x390), (f32)(*(f32 *)(((u8 *)this) + 0x37C)));
     for (i = lbl_805D586C; i < lbl_805D586C + lbl_805D5870; i++) {
         p = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (p != NULL && p != ((u8 *)this) && obj_testFlags30(p, 0x800) != 0 &&

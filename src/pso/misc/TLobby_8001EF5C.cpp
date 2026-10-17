@@ -638,9 +638,9 @@ s32 TLobby::load_bin_model(s32 arg1, s32 arg2) {
         debug_print__6TLobbyFle(lbl_80434D94, size - 0x40000);
     }
     set_stream_state__6TLobbyFi(arg1, lobby_download_buffer);
-    bind_bml_model((Lobby_8001FBEC *)(((Lobby_8001FD98 *)this)), size, arg2, lobby_download_buffer);
+    bind_bml_model((Lobby_8001FBEC *)(this), size, arg2, lobby_download_buffer);
     if (((Lobby_8001FD98 *)this)->entries[arg2].texture != NULL) {
-        ((TLobby *)((Lobby_8001FD98 *)this))->load_texture_sub((void *)arg1, (s32)arg2);
+        ((TLobby *)this)->load_texture_sub((void *)arg1, (s32)arg2);
     }
     return 1;
 }

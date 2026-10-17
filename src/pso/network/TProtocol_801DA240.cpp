@@ -221,7 +221,7 @@ void TProtocol::send_disable_auto_reply() {
     send((u8*)&header, sizeof(header));
 }
 void TLobby::send_text_packet_c7(char *str) {
-    if (*(s32 *)((char *)((VObj_18_801DA734 *)this) + 0x1910) != 0) {
+    if (*(s32 *)((char *)this + 0x1910) != 0) {
     Pkt_801DA734 pkt;
     s32 n;
     memset(&pkt, 0, 0x204);

@@ -1021,7 +1021,7 @@ f32 enemy_backstep_from_point(void *, void *, f32);
 s32 update_angle__10TObjPlayerFlPv(void *, void *, void *);
 s32 angle_difference_abs(s32, s32);
 void TUnk_80493450::sub_800C4E08() {
-    if (obj_testFlags30((void *)(((u8 *)this)), 0x100000) != 0) {
+    if (obj_testFlags30(this, 0x100000) != 0) {
         *(f32 *)((s8 *)((u8 *)this) + 0x394) = (f32) *(f32 *)((s8 *)((u8 *)this) + 0x39C);
         this->m_c8 = (f32) *(f32 *)((s8 *)((u8 *)this) + 0x3A4);
         return;

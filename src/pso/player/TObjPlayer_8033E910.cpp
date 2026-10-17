@@ -123,13 +123,13 @@ void TObjPlayer::draw_ginja_item_list() {
         post_translate_matrix(((O_8033EB4C *)this)->items[i].a);
         rotate_matrix_by_node_angles(((O_8033EB4C *)this)->items[i].b, 1);
         play_indirect_effect_recipe(((O_8033EB4C *)this)->items[i].obj, 1, 1);
-        ((void (*)(void *))init_particle_effect__10TObjPlayerFv)(((O_8033EB4C *)this));
-        ((void (*)(void *))setup_projection_tex_matrix__10TObjPlayerFv)(((O_8033EB4C *)this));
+        ((void (*)(void *))init_particle_effect__10TObjPlayerFv)(this);
+        ((void (*)(void *))setup_projection_tex_matrix__10TObjPlayerFv)(this);
         ((void (*)(s32))set_global_param__8TObjFishFl)(((O_8033EB4C *)this)->items[i].p18);
         draw_ginja_object((void *)(((O_8033EB4C *)this)->items[i].p1C));
         pop_matrix();
         TParticleCtrl::set_tev_direct(1);
-        ((void (*)(void *))reset_effects__10TObjPlayerFv)(((O_8033EB4C *)this));
+        ((void (*)(void *))reset_effects__10TObjPlayerFv)(this);
     }
 }
 

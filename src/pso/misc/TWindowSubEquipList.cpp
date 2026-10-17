@@ -36,8 +36,8 @@ u8 *create_equip_list_window(s32 arg0, s32 arg1, s16 arg2) {
 void TWindowSubEquipList::render() {
     s32 temp_r3;
     temp_r3 = get_draw_context__11TWindowBaseFPv();
-    draw_window_frame((void *) (((u8 *)this)), temp_r3);
-    draw_visible_window_entries((void *) (((u8 *)this)), (void *) (((u8 *)this) + 0x24), temp_r3);
+    draw_window_frame(this, temp_r3);
+    draw_visible_window_entries(this, (void *) (((u8 *)this) + 0x24), temp_r3);
     draw_selected_list_entry(temp_r3);
     if ((u32) this->m_80 != 0U) {
         forward_render__20TWindowSubStatusDispFv(this->m_80, temp_r3);

@@ -106,7 +106,7 @@ u8 TItemObject::get_tool_pmt_amount_byte() {
 void TItemObject::vfunc_14() {
 
     if (this->vfunc_36() > (((s32 (*)())copy_and_register_item_data__11TItemObjectFv)())) {
-        ((TItem *)this)->refresh_if_current_player();
+        this->refresh_if_current_player();
     }
 }
 
@@ -294,9 +294,9 @@ s32 update_pickup_flag__5TItemFl();
 int TItemObject::vfunc_38(s32 arg1) {
     s32 temp_r31;
 
-    temp_r31 = arg1 + ((TItemObject *)this)->vfunc_36();
+    temp_r31 = arg1 + this->vfunc_36();
     if (temp_r31 <= copy_and_register_item_data__11TItemObjectFv(this)) {
-        ((TItemObject *)this)->store_encoded_value(temp_r31);
+        this->store_encoded_value(temp_r31);
         return 1;
     }
     return 0;
@@ -316,18 +316,18 @@ s32 TItemObject__vt35(void *arg0, s32 arg1) {
 void TItemObject::vfunc_31() {
     struct VObj_8011626C_80115D6C *o = (struct VObj_8011626C_80115D6C *)this;
     if (check_flag_400__20TWindowSubStatusDispFv() != 0) {
-        ((TItemObject *)this)->set_flag_1024();
+        this->set_flag_1024();
         return;
     }
     if ((u32) this->m_f0 != 0U) {
         this->m_101 = 0U;
         o->m42();
         if ((u8) this->m_101 == 0) {
-            ((TItem *)this)->apply_switch_attack(0x1AF);
-            ((TItem *)this)->notify_owner(0x5B211);
+            this->apply_switch_attack(0x1AF);
+            this->notify_owner(0x5B211);
         }
-        if (((TItem *)this)->get_item_flags() & 0x10) {
-            ((TItem *)this)->get_field_d8();
+        if (this->get_item_flags() & 0x10) {
+            this->get_field_d8();
             consume_item_by_id();
         }
     }

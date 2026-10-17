@@ -106,9 +106,9 @@ extern "C" {
 TEffStarLight2D::TEffStarLight2D(void *arg1, void *arg2, TObject *arg3) : TObject(arg3) {
     P2_80085388 p;
     ((O_80085388 *)this)->f0 = lbl_805D292C;
-    ((TEffStarLight2D *)((u8 *)((O_80085388 *)this) + 0x38))->copy_from(arg2);
-    VecCopy((Vec *)((u8 *)((O_80085388 *)this) + 0x2C), (const Vec *)arg1);
-    project_world_to_screen(0, (u8 *)((O_80085388 *)this) + 0x2C, &p);
+    ((TEffStarLight2D *)((u8 *)this + 0x38))->copy_from(arg2);
+    VecCopy((Vec *)((u8 *)this + 0x2C), (const Vec *)arg1);
+    project_world_to_screen(0, (u8 *)this + 0x2C, &p);
     ((O_80085388 *)this)->f24 = p.x;
     ((O_80085388 *)this)->f28 = p.z;
     ((O_80085388 *)this)->f1c = ((O_80085388 *)this)->f24;

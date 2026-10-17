@@ -19,17 +19,17 @@ s32 submit_cursor_candidate(void *, s32);
 void TItem::try_pick_up_item(s32 id) {
     Msg_801022FC m;
     if ((u16)id != 0xFFFF) {
-        if (can_pickup_item_by_id__10TObjPlayerFii(get_player_by_client_id(id), ((Player_801022FC *)this)) != 0 && sub_8010319C__13TUnk_804AF8A0Fv((s32)(((Player_801022FC *)this))) == 0) {
-            vfunc_13__13TUnk_804AF8A0Fl(((Player_801022FC *)this), id);
+        if (can_pickup_item_by_id__10TObjPlayerFii(get_player_by_client_id(id), this) != 0 && sub_8010319C__13TUnk_804AF8A0Fv((s32)this) == 0) {
+            vfunc_13__13TUnk_804AF8A0Fl(this, id);
             TLobby__sub_801030EC((u8 *)&m);
             m.id = id;
-            m.v = ((TItem *)((Player_801022FC *)this))->get_field_d8();
+            m.v = ((TItem *)this)->get_field_d8();
             m.w = get_current_floor();
             ((TLobby *)(&m))->send_pick_up_item_request();
             ((Player_801022FC *)this)->fE6 = 0;
         }
     } else {
-        vfunc_13__13TUnk_804AF8A0Fl(((Player_801022FC *)this), 0xFFFF);
+        vfunc_13__13TUnk_804AF8A0Fl(this, 0xFFFF);
     }
 }
 

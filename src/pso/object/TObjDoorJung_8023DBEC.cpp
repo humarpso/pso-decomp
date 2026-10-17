@@ -12,7 +12,7 @@ void set_material_texture_slot(void *);
 s32 TObjDoorJung::find_entry_by_name(const char *name) {
     Ent_8023DBEC *ents;
     u32 i;
-    if (((List_8023DBEC *)this) != NULL) {
+    if (this != NULL) {
         ents = ((List_8023DBEC *)this)->ents;
         if (ents != NULL) {
             for (i = 0; i < ((List_8023DBEC *)this)->count; i++) {

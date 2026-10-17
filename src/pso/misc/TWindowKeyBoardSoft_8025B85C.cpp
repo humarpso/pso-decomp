@@ -532,7 +532,7 @@ void TWindowKeyBoardBase::insert_character(u16 arg1) {
         return;
     }
     if (!(*(u16 *)((s8 *)((u8 *)this) + 0x60) & 0x80) && *(u8 *)((s8 *)((u8 *)this) + 0x64) >= 1U) {
-        TWindowKeyBoardSoft__sub_8025DBDC(((u8 *)this), 1);
+        TWindowKeyBoardSoft__sub_8025DBDC(this, 1);
         if (*(u8 *)((s8 *)((u8 *)this) + 0x64) == 2) {
             *(u16 *)((s8 *)((u8 *)this) + 0x60) |= 0x80;
         }
@@ -567,7 +567,7 @@ void TWindowKeyBoardBase::insert_character(u16 arg1) {
     }
     ((s32 (*)(int, u16))TWindowKeyBoardSoft__sub_800808FC)(*(int *)((s8 *)((u8 *)this) + 0x68), arg1);
     if (*(u8 *)((s8 *)((u8 *)this) + 0x64) == 0 && !(*(u16 *)((s8 *)((u8 *)this) + 0x60) & 0x80)) {
-        TWindowKeyBoardSoft__sub_8025DBDC(((u8 *)this), 0);
+        TWindowKeyBoardSoft__sub_8025DBDC(this, 0);
     }
 }
 

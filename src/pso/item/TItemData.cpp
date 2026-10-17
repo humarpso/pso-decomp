@@ -424,9 +424,9 @@ void TItemData::add_weapon_stat_bonuses(s32 player, s16 *out, s32 unused, s16 *o
   s16 hi;
   s32 i;
   Parm_8010C320 *parm;
-  f32 mult = get_set_bonus_multiplier__9TItemDataFPvi(((u8 *)this), player);
+  f32 mult = get_set_bonus_multiplier__9TItemDataFPvi(this, player);
   f32 add = ((f32 (*)(u8 *, s32)) calc_clock_bonus__9TItemDataFPv)(((u8 *)this), player);
-  parm = (Parm_8010C320 *) ((Parm_8010C1E0 *)lookup_item_pmt_record((u8 *)(((u8 *)this))));
+  parm = (Parm_8010C320 *) ((Parm_8010C1E0 *)lookup_item_pmt_record(this));
   if (parm != 0)
   {
     if (out != 0)
@@ -460,7 +460,7 @@ void TItemData::set_wrapped() {
         ((struct Item_8010C498 *)this)->b4 |= lbl_805DAB68;
         break;
     case 3:
-        if (lookup_item_def__9TItemDataFPv((void *)(((struct Item_8010C498 *)this))) == 0) {
+        if (lookup_item_def__9TItemDataFPv(this) == 0) {
             ((struct Item_8010C498 *)this)->b3 |= lbl_805DAB68;
         }
         break;
@@ -722,9 +722,9 @@ void TItemData::pack_three_colors(u8 *in) {
   {
     for (i = 0; i != 3; i++)
     {
-      s8 a = TItemData::char_to_letter_index(((u8 *)this), (s8) in[(i * 3) + 0]);
-      s8 b = TItemData::char_to_letter_index(((u8 *)this), (s8) in[(i * 3) + 1]);
-      s8 c = TItemData::char_to_letter_index(((u8 *)this), (s8) in[(i * 3) + 2]);
+      s8 a = TItemData::char_to_letter_index(this, (s8) in[(i * 3) + 0]);
+      s8 b = TItemData::char_to_letter_index(this, (s8) in[(i * 3) + 1]);
+      s8 c = TItemData::char_to_letter_index(this, (s8) in[(i * 3) + 2]);
       u32 v = c | (((a << 1) << 9) | (b << 5));
       u8 *o = &((u8 *)this)[i * 2];
       a = ((u8) (v >> 8)) | 0x80;
@@ -986,18 +986,18 @@ s32 TItemData::calc_action_flags(s32 mask, u8 *player) {
   {
     return 0;
   }
-  if (is_item_usable__9TItemDataFlPUc(player, ((u8 *)this)) != 0)
+  if (is_item_usable__9TItemDataFlPUc(player, this) != 0)
   {
     result |= 2;
   }
-  if (((s32 (*)(void *)) is_wrapped__9TItemDataFPv)(((u8 *)this)) != 0)
+  if (((s32 (*)(void *)) is_wrapped__9TItemDataFPv)(this) != 0)
   {
     return result & mask;
   }
   if (((u8 *)this)[0] != 3)
   {
     result |= 8;
-    if (check_equip_requirements(player, ((u8 *)this), 0) == 0)
+    if (check_equip_requirements(player, this, 0) == 0)
     {
       result |= 0x10000;
     }
@@ -1526,7 +1526,7 @@ extern const f32 lbl_805DAB80;
 extern const f32 lbl_805DAB84;
 extern const f32 lbl_805DAB88;
 s32 TItemData::calc_price() {
-  Item_8010DF9C *item = (Item_8010DF9C *) ((u8 *)this);
+  Item_8010DF9C *item = (Item_8010DF9C *) this;
   Pmt_8010DF9C *pmt;
   s32 price;
   f32 coef;
@@ -1587,8 +1587,8 @@ s32 TItemData::calc_price() {
       pmt = (Pmt_8010DF9C *) lookup_item_pmt_record(((u8 *)this));
       if ((lbl_805DAB6C != coef) && (pmt != 0))
       {
-        s32 a = getS16_06__9TItemDataFPv(((u8 *)this));
-        atp = (f32) (((pmt->dfp + pmt->evp) + a) + get_bswap16_field8__9TItemDataFPv(((u8 *)this)));
+        s32 a = getS16_06__9TItemDataFPv(this);
+        atp = (f32) (((pmt->dfp + pmt->evp) + a) + get_bswap16_field8__9TItemDataFPv(this));
         {
           s32 dv = (s32) ((atp * atp) / coef);
           f32 sl = lbl_805DAB88 * ((f32)(item->slots + 1));
@@ -1600,7 +1600,7 @@ s32 TItemData::calc_price() {
     else
     {
       coef = get_item_price_coefficient(item->type, item->sub);
-      stars = (f32) ((u8) ((TItemData *)((u8 *)this))->calc_display_grade());
+      stars = (f32) ((u8) this->calc_display_grade());
       price = (s32) (stars * coef);
     }
       break;

@@ -167,31 +167,31 @@ void TChallenge4PResult::show_message(s32 text_handle) {
 extern "C" {
 
 void TChallenge4PResult::init_timer() {
-    ((TChallenge4PResult *)(this))->show_message((s32)((s32)(get_localized_text_entry(0x2B, 5))));
+    this->show_message((s32)((s32)(get_localized_text_entry(0x2B, 5))));
     this->wait_frames = 0x5A;
     *(s32 *)((s8 *)this + 0x1C) = 5;
 }
 void TChallenge4PResult::init_result_state() {
-    ((TChallenge4PResult *)(this))->show_message((s32)((s32)(get_localized_text_entry(0x2B, 4))));
+    this->show_message((s32)((s32)(get_localized_text_entry(0x2B, 4))));
     this->wait_frames = 0x5A;
     *(s32 *)((s8 *)this + 0x1C) = 5;
 }
 void TChallenge4PResult::init() {
-    ((TChallenge4PResult *)(this))->show_message((s32)((s32)(get_localized_text_entry(0x2B, 3))));
+    this->show_message((s32)((s32)(get_localized_text_entry(0x2B, 3))));
     this->wait_frames = 0x5A;
     *(s32 *)((s8 *)this + 0x1C) = 5;
 }
 void TChallenge4PResult::sub_8034B8B0() { *(s32*)((char*)this + 0x1c) = 3; }
 
 void TChallenge4PResult::sub_8034B8BC() {
-    ((TChallenge4PResult *)((void *)((void *) (((u8 *)this)))))->show_message((s32)((s32)((int) (get_localized_text_entry(0x2B, 1)))));
+    ((TChallenge4PResult *)((void *)(this)))->show_message((s32)((s32)((int) (get_localized_text_entry(0x2B, 1)))));
     TLobby__sub_802924B4((s32)(((u8 *)this) + 0x34), (this->slot_index));
     this->wait_frames = 0x5A;
     *(s32 *)((s8 *)((u8 *)this) + 0x1C) = 5;
 }
 
 void TChallenge4PResult::sub_8034B918() {
-    ((TChallenge4PResult *)((void *)((void *) (((u8 *)this)))))->show_message((s32)((s32)((int) (get_localized_text_entry(0x2B, 2)))));
+    ((TChallenge4PResult *)((void *)(this)))->show_message((s32)((s32)((int) (get_localized_text_entry(0x2B, 2)))));
     TLobby__sub_802924B4((s32)(((u8 *)this) + 0x48), (this->slot_index));
     this->wait_frames = 0x5A;
     *(s32 *)((s8 *)((u8 *)this) + 0x1C) = 5;
@@ -275,7 +275,7 @@ void TChallenge4PResult::update_input() {
     u32 p;
 
     if ((u32) this->message_window == 0U) {
-        ((TChallenge4PResult *)(this))->show_message((s32)((s32)(get_localized_text_entry(0x2B, 6))));
+        this->show_message((s32)((s32)(get_localized_text_entry(0x2B, 6))));
     }
     p = *(u32 *)&this->message_window;
     if ((p != 0U) && (((TWindowMessagePage *)p)->is_message_window_ready() != 0)) {

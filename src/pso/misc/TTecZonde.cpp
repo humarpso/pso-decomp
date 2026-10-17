@@ -100,7 +100,7 @@ void TTecZonde::vfunc_8(void *arg1_arg) {
     VObj_18_0c879f *arg1 = (VObj_18_0c879f *)arg1_arg;
     HitInfo_8023C6B4 h;
     h.type = 3;
-    h.power = ((Obj_8023C6B4 *)this)->power;
+    h.power = this->power;
     if (test_elt_flag__13TUnk_80493450Fll(arg1, 0, 0x80) == 0) {
         HitInfo_8023C6B4 c = h;
         arg1->m21(((Obj_8023C6B4 *)this)->source, &c, 0, 6, -1);

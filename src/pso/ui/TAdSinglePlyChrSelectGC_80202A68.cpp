@@ -239,7 +239,7 @@ void *TAdSinglePlyChrSelectGC__sub_80202D7C(void *a0, void *a1) {
 #undef arg1
 
 u8 *TAdSinglePlyChrSelectGC::copy_character_data(u8 *arg1) {
-    S_80202DD4 *d = (S_80202DD4 *)((u8 *)this);
+    S_80202DD4 *d = (S_80202DD4 *)this;
     S_80202DD4 *s = (S_80202DD4 *)arg1;
     Elem_80202DD4 *p;
     Elem_80202DD4 *q;

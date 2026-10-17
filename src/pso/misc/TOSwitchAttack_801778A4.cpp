@@ -217,7 +217,7 @@ u8 *TOSwitchAttack__ct(u8 *arg0, s32 arg1, s32 arg2) {
 void TOSwitchItem::send_switch_on() {
     Pkt_80177CF4 pkt;
     ((TLobby *)(&pkt))->init_6x05_switch_changed();
-    pkt.object = obj_getField1c(((Self_80177CF4 *)this));
+    pkt.object = obj_getField1c(this);
     pkt.zero = 0;
     pkt.switchId = ((Self_80177CF4 *)this)->switchId;
     pkt.area = get_current_floor();

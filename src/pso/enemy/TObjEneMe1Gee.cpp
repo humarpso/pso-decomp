@@ -2438,7 +2438,7 @@ void TObjEneMe1Gee::state_orbit(s32 arg1) {
         advance_animation_playback();
         *(f32 *)((s8 *)this + 0x3F8) = (f32) (*(f32 *)((s8 *)this + 0x3C) + *(f32 *)((s8 *)this + 0x3EC));
         *(f32 *)((s8 *)this + 0x300) = (f32) *(f32 *)((s8 *)this + 0x3F8);
-        ((TObjEneDD *)this)->move_with_wall_slide_commit(*(f32 *)((s8 *)this + 0x448), *(f32 *)((s8 *)this + 0x44C), lbl_805DA0C4);
+        this->move_with_wall_slide_commit(*(f32 *)((s8 *)this + 0x448), *(f32 *)((s8 *)this + 0x44C), lbl_805DA0C4);
     case 3:
     case 5:
     case 1:
@@ -2501,36 +2501,36 @@ void TObjEneMe1Gee::state_return_home(s32 arg1) {
     switch (arg1) {
     case 4:
         set_field_378(0xF);
-        *(s32 *)((s8 *)((VObj *)this) + 0x3C8) = (s32) (*(s32 *)((s8 *)((VObj *)this) + 0x3C8) & 0xFFBFFFFF);
+        *(s32 *)((s8 *)this + 0x3C8) = (s32) (*(s32 *)((s8 *)this + 0x3C8) & 0xFFBFFFFF);
         this->vfunc_96();
-        *(s32 *)((s8 *)((VObj *)this) + 0x434) = 0;
+        *(s32 *)((s8 *)this + 0x434) = 0;
         return;
     case 3:
-        if ((s32) *(s32 *)((s8 *)((VObj *)this) + 0x434) == 2) {
+        if ((s32) *(s32 *)((s8 *)this + 0x434) == 2) {
             this->vfunc_105();
         }
     case 5:
         return;
     case 0:
         advance_animation_playback();
-        if (((TObjEneDD_ST *)((VObj *)this))->update_linked_position(TObjEneMe1Gee__data_805DA0A8) != 0) {
-            *(s32 *)((s8 *)((VObj *)this) + 0x434) = 2;
+        if (((TObjEneDD_ST *)this)->update_linked_position(TObjEneMe1Gee__data_805DA0A8) != 0) {
+            *(s32 *)((s8 *)this + 0x434) = 2;
         }
-        switch (*(s32 *)((s8 *)((VObj *)this) + 0x434)) {
+        switch (*(s32 *)((s8 *)this + 0x434)) {
         case 0:
-            *(s32 *)((s8 *)((VObj *)this) + 0x438) = (s32) (*(s32 *)((s8 *)((VObj *)this) + 0x438) + 1);
-            if ((s32) *(s32 *)((s8 *)((VObj *)this) + 0x438) >= 0x3C) {
-                *(s32 *)((s8 *)((VObj *)this) + 0x434) = 1;
+            *(s32 *)((s8 *)this + 0x438) = (s32) (*(s32 *)((s8 *)this + 0x438) + 1);
+            if ((s32) *(s32 *)((s8 *)this + 0x438) >= 0x3C) {
+                *(s32 *)((s8 *)this + 0x434) = 1;
             }
-            ((s32 (*)(void *, f32))sub_800CBE6C__13TObjEneMe1GeeFv)(((VObj *)this), *(f32 *)((s8 *)((VObj *)this) + 0x3C) + *(f32 *)((s8 *)((VObj *)this) + 0x3F4));
+            ((s32 (*)(void *, f32))sub_800CBE6C__13TObjEneMe1GeeFv)(this, *(f32 *)((s8 *)this + 0x3C) + *(f32 *)((s8 *)this + 0x3F4));
             break;
         case 1:
-            copy_position__14TObjEneEpsilonFPv(((VObj *)this), (u8 *)((VObj *)this) + 0x50);
-            ((TObjEneDD *)((VObj *)this))->update_velocity();
+            copy_position__14TObjEneEpsilonFPv(this, (u8 *)this + 0x50);
+            ((TObjEneDD *)this)->update_velocity();
             update_angle();
             set_move_speed_x();
-            if (*(f32 *)((s8 *)((VObj *)this) + 0x3AC) > lbl_805DA0CC) {
-                ((TObjEneDD *)((VObj *)this))->move_with_wall_slide_commit(*(f32 *)((s8 *)((VObj *)this) + 0x3A0), *(f32 *)((s8 *)((VObj *)this) + 0x3A8), lbl_805DA0D0);
+            if (*(f32 *)((s8 *)this + 0x3AC) > lbl_805DA0CC) {
+                ((TObjEneDD *)this)->move_with_wall_slide_commit(*(f32 *)((s8 *)this + 0x3A0), *(f32 *)((s8 *)this + 0x3A8), lbl_805DA0D0);
             }
             break;
         }
@@ -3210,7 +3210,7 @@ void TObjEneMe1Gee::state_attack(s32 arg1) {
         return;
     case 0:
         advance_animation_playback();
-        ((TObjEneDD_ST *)this)->update_linked_position(TObjEneMe1Gee__data_805DA0A8);
+        this->update_linked_position(TObjEneMe1Gee__data_805DA0A8);
         switch (*(s32 *)((s8 *)this + 0x434)) {
         case 0:
             temp_r3 = *(s32 *)((s8 *)this + 0x3C8);
@@ -3225,19 +3225,19 @@ void TObjEneMe1Gee::state_attack(s32 arg1) {
                 }
             }
             update__13TObjEneMe1GeeFPv(this);
-            ((TObjEneMe1Gee *)this)->update_animation_frame();
+            this->update_animation_frame();
             break;
         case 1:
             if ((s32) *(s32 *)((s8 *)this + 0x47C) == 0) {
                 *(s32 *)((s8 *)this + 0x434) = 3;
             }
             update__13TObjEneMe1GeeFPv(this);
-            ((TObjEneMe1Gee *)this)->update_animation_frame();
+            this->update_animation_frame();
             break;
         case 2:
             update__13TObjEneMe1GeeFPv(this);
             if ((s32) *(s32 *)((s8 *)this + 0x47C) != 0) {
-                ((TObjEneMe1Gee *)this)->update_animation_frame();
+                this->update_animation_frame();
             } else {
                 ((s32 (*)(void *, f32))sub_800CBE6C__13TObjEneMe1GeeFv)(this, *(f32 *)((s8 *)this + 0x3C) + *(f32 *)((s8 *)this + 0x3F0));
                 if (*(s32 *)((s8 *)this + 0x3C8) & 0x80000) {
@@ -3367,7 +3367,7 @@ void TObjEneMe1Gee::state_hover(s32 arg1) {
             if (temp_r3 & 1) {
                 *(s32 *)((s8 *)this + 0x3C8) = (s32) (temp_r3 & 0xFFFFFFFE);
                 transition_enemy_state(this, 4);
-            } else if (((TObjEneDD_ST *)this)->enemy_has_live_target() != 0) {
+            } else if (this->enemy_has_live_target() != 0) {
                 transition_enemy_state(this, 4);
             }
         }
@@ -3375,12 +3375,12 @@ void TObjEneMe1Gee::state_hover(s32 arg1) {
     case 0:
         advance_animation_playback();
         if ((s32) *(s32 *)((s8 *)this + 0x3C4) != 1) {
-            ((TObjEneDD_ST *)this)->update_linked_position(TObjEneMe1Gee__data_805DA0A8);
+            this->update_linked_position(TObjEneMe1Gee__data_805DA0A8);
         }
         if ((s32) *(s32 *)((s8 *)this + 0x3C4) == 2) {
             ((s32 (*)(void *, f32))sub_800CBE6C__13TObjEneMe1GeeFv)(this, lbl_805DA0AC + *(f32 *)((s8 *)this + 0x3C));
         } else {
-            ((TObjEneMe1Gee *)this)->update_hover_height();
+            this->update_hover_height();
         }
         this->vfunc_89();
         break;
@@ -3458,16 +3458,16 @@ void TObjEneMe1Gee::state_move(s32 arg1) {
         return;
     case 3:
         if (((V_Sub *) (((u8 *)this) + 0x3CC))->m5() != 0) {
-            transition_enemy_state(((u8 *)this), 3);
+            transition_enemy_state(this, 3);
         }
     case 5:
         return;
     case 0:
         advance_animation_playback();
         if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x3C4) == 2) {
-            ((s32 (*)(void *, f32))sub_800CBE6C__13TObjEneMe1GeeFv)(((u8 *)this), lbl_805DA0AC + *(f32 *)((s8 *)((u8 *)this) + 0x3C));
+            ((s32 (*)(void *, f32))sub_800CBE6C__13TObjEneMe1GeeFv)(this, lbl_805DA0AC + *(f32 *)((s8 *)((u8 *)this) + 0x3C));
         } else {
-            ((TObjEneMe1Gee *)((u8 *)this))->update_hover_height();
+            this->update_hover_height();
         }
         this->vfunc_88();
         break;

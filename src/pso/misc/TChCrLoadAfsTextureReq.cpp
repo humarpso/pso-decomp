@@ -259,7 +259,7 @@ void TLobby::update_model_load() {
             temp_r5 = *(s32 **)((s8 *)((u8 *)this) + 0x28);
             temp_r4 = *temp_r5;
             *temp_r5 = temp_r4 & ~*(s32 *)((s8 *)((u8 *)this) + 0x20);
-            queue_destruction__7TObjectFv((void *) (((u8 *)this)), (int)temp_r4, (int)temp_r5);
+            queue_destruction__7TObjectFv(this, (int)temp_r4, (int)temp_r5);
         }
     }
 }

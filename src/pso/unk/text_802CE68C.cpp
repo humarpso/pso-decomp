@@ -158,7 +158,7 @@ void TObjEneBm9Mericarol::draw_color_variant() {
     s32 s2;
     if (((VObj_802CE740 *) ((u8 *)this))->m8(lbl_805DE700, lbl_805DE704) != 0) {
         Vec_802CE740 v = lbl_8047249C;
-        update_player_state__9TObjEneDDFv(((u8 *)this), &v, 0);
+        update_player_state__9TObjEneDDFv(this, &v, 0);
         switch (*(s32 *)&this->variant) {
         case 1:
             s0 = (**(s32 ** *)&this->texture_id)[2];

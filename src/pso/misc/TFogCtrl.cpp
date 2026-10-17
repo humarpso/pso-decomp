@@ -416,15 +416,15 @@ s32 TFogCtrl::restore_fog(s32 arg1) {
 #pragma auto_inline off
 #pragma dont_inline off
 s32 TFogCtrl::select_fog(s32 arg1, s32 arg2) {
-    struct Ctrl_800FAFE0 *self = (struct Ctrl_800FAFE0 *)((u8 *)this);
-    if (((TFogCtrl *)((u8 *)this))->get_param() != 0) {
+    struct Ctrl_800FAFE0 *self = (struct Ctrl_800FAFE0 *)this;
+    if (this->get_param() != 0) {
         return 0;
     }
     if (self->slots[self->selected]->identity == arg1) {
         return 1;
     }
-    ((TFogCtrl *)((u8 *)this))->load_entry_into_slot(2, arg1);
-    ((TFogCtrl *)((u8 *)this))->request_transition(1, arg2);
+    this->load_entry_into_slot(2, arg1);
+    this->request_transition(1, arg2);
     return 1;
 }
 #pragma pop

@@ -581,7 +581,7 @@ void TObjEneRe7Berura::demo_frame_callback() {
 }
 
 void TObjEneRe7Berura::update_death_state(s32 mode) {
-    F_8009331C *self = (F_8009331C *)((VObj_18_444bc5 *)this);
+    F_8009331C *self = (F_8009331C *)this;
     switch (mode) {
     case 4:
         self->fB8 = 7;

@@ -212,7 +212,7 @@ void TItemEquipBase::send_6x61_activate_mag_effect(s32 arg1) {
     Stack_801012DC stack;
     if (((u32) this->m_f0 != 0U) && (TOKeyMachine01::get_global_state() != 0xF) && (obj_isState2_324__13TUnk_804806E8Fv(this->m_f0) == 0)) {
         TObjPlayer__sub_80102D84((u8 *)&stack.sp8);
-        stack.spC = ((TItem *)((u8 *)this))->get_field_d8();
+        stack.spC = this->get_field_d8();
         stack.sp10 = arg1;
         ((TObjPlayer *)(&stack.sp8))->bswap_and_send_6x61();
     }

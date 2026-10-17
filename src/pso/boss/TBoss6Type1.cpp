@@ -922,10 +922,10 @@ void TBoss6Type1::sub_802B5CB4() {
     case 13:
     case 14:
     case 15:
-        TBoss6Type1__sub_802B5970((s32) ((u8 *)this));
+        TBoss6Type1__sub_802B5970((s32) this);
         break;
     case 22:
-        TBoss6Type1__sub_802B59CC(((u8 *)this));
+        TBoss6Type1__sub_802B59CC(this);
         break;
     case 21:
         TBoss6Type1__sub_802B59A8();
@@ -935,13 +935,13 @@ void TBoss6Type1::sub_802B5CB4() {
         break;
     case 30:
     case 31:
-        TBoss6Type1__sub_802B5970((s32) ((u8 *)this));
+        TBoss6Type1__sub_802B5970((s32) this);
         break;
     case 27:
-        TBoss6Type1__sub_802B5970((s32) ((u8 *)this));
+        TBoss6Type1__sub_802B5970((s32) this);
         break;
     case 32:
-        TBoss6Type1__sub_802B5970((s32) ((u8 *)this));
+        TBoss6Type1__sub_802B5970((s32) this);
         break;
     case 16:
     case 17:
@@ -951,16 +951,16 @@ void TBoss6Type1::sub_802B5CB4() {
     case 34:
     case 35:
     case 36:
-        ((TBoss6Type1 *)((u8 *)this))->request_default_jittered_camera();
+        this->request_default_jittered_camera();
         break;
     case 37:
         if ((s32) *(s32 *)&this->unk_410 > (s32) ((f32) this->m_40c - lbl_805DE348)) {
-            ((TBoss6Type1 *)((u8 *)this))->request_default_jittered_camera();
+            this->request_default_jittered_camera();
             break;
         }
         break;
     default:
-        TBoss6Type1::request_jittered_camera((void *)((void *)((s32) ((u8 *)this))), NULL, NULL, 0xFFFF);
+        TBoss6Type1::request_jittered_camera((void *)((void *)((s32) this)), NULL, NULL, 0xFFFF);
         break;
     }
 }
@@ -1080,7 +1080,7 @@ void TBoss6Type1::update_trail_points() {
 
 extern "C" {
 
-void TBoss6Type1::init_parts() { TBoss6Type1::set_part_default_value((int)this, (void*)((char*)this + 0x5d8)); TBoss6Type1::set_part_default_value((int)this, (void*)((char*)this + 0x5e4)); TBoss6Type1::set_part_default_value((int)this, (void*)((char*)this + 0x5f0)); ((TBoss6Type1*)this)->update_trail_points(); }
+void TBoss6Type1::init_parts() { TBoss6Type1::set_part_default_value((int)this, (void*)((char*)this + 0x5d8)); TBoss6Type1::set_part_default_value((int)this, (void*)((char*)this + 0x5e4)); TBoss6Type1::set_part_default_value((int)this, (void*)((char*)this + 0x5f0)); this->update_trail_points(); }
 
 }
 
@@ -1172,7 +1172,7 @@ void TBoss6Type1::spawn_grav_ball() {
         v.x += r * sin_table_lookup(ang);
         v.z += r * cos_table_lookup(ang);
     }
-    TBoss6Type1::create_grav_ball(((Boss_802B683C *)this), &v);
+    TBoss6Type1::create_grav_ball(this, &v);
 }
 #pragma pop
 
@@ -1193,7 +1193,7 @@ void TBoss6Type1::damage_players_in_range() {
                 a[1].kind = 1;
                 a[1].v.f = (f32)r;
                 a[0].v.i = a[1].v.i;
-                p->m21(((Boss_802B6B34 *)this), a, 0, -1, -1);
+                p->m21(this, a, 0, -1, -1);
             }
         }
     }
@@ -1938,7 +1938,7 @@ void TBoss6Type1::vfunc_63() { if (*(int *)&this->m_374 != 40) { set_action_stat
 void TBoss6Type1::vfunc_62() {
     this->actorFlags = (s32) (this->actorFlags & 0xFFFFFDFF);
     this->m_4d4 = (f32) TBoss6Type1__data_805DE2E4;
-    play_sound_effect(0x39E01, ((u8 *)this) + 0x584, 0, 1, ((u8 *)this));
+    play_sound_effect(0x39E01, ((u8 *)this) + 0x584, 0, 1, this);
 }
 
 struct T1_802B529C;

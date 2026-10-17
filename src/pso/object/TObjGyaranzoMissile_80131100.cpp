@@ -90,7 +90,7 @@ void TUnk_804A6DC0::update_weapon() {
         buffer_8[0] = 0x4000;
         buffer_8[1] = *(s32 *)((s8 *)this->player + 0x60);
         buffer_8[2] = 0;
-        TObjPlayer::launch_weapon_casing(tl_05, (u32) ((u8 *)this), 2, (u32) &buffer_14[0], (u32) &buffer_8[0]);
+        TObjPlayer::launch_weapon_casing(tl_05, (u32) this, 2, (u32) &buffer_14[0], (u32) &buffer_8[0]);
         break;
     }
 }

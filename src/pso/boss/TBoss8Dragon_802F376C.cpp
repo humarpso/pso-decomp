@@ -43,7 +43,7 @@ s32 TBoss8Dragon::is_closest_part() {
     len = ((TObjBoss2Tunnel *)(&v))->clamp_velocity();
     for (i = 1; i < 6; i++) {
         u16 id = ((TBoss8Dragon *)boss8_dragon_leader_part)->get_part_count_plus(i);
-        if (id != obj_getField1c(((Ent_802F376C *)this))) {
+        if (id != obj_getField1c(this)) {
             Ent_802F376C *e = (Ent_802F376C *)get_enemy_entity(id);
             if (e != NULL) {
                 v.x = e->x - ((Ent_802F376C *)this)->x;
@@ -69,7 +69,7 @@ s32 TBoss8Dragon::push_apart_from_parts() {
     }
     for (i = 0; i < 6; i++) {
         u16 id = ((TBoss8Dragon *)boss8_dragon_leader_part)->get_part_count_plus(i);
-        if (id != obj_getField1c(((Ent_802F3878 *)this))) {
+        if (id != obj_getField1c(this)) {
             Ent_802F3878 *e = ((Ent_802F3878 *)get_enemy_entity(id));
             if (e != NULL) {
                 v.x = e->x - ((Ent_802F3878 *)this)->x;
@@ -96,7 +96,7 @@ s32 TBoss8Dragon::is_near_other_part() {
     }
     for (i = 0; i < 6; i++) {
         u16 id = ((TBoss8Dragon *)boss8_dragon_leader_part)->get_part_count_plus(i);
-        if (id != obj_getField1c(((Ent_802F3974 *)this))) {
+        if (id != obj_getField1c(this)) {
             Ent_802F3974 *e = ((Ent_802F3974 *)get_enemy_entity(id));
             if (e != NULL) {
                 v.x = e->x - ((Ent_802F3974 *)this)->x;

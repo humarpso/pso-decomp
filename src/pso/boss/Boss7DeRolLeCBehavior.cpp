@@ -3217,7 +3217,7 @@ void TBoss7DeRolLeC::advance_action_sequence() {
         var_r4 = *(s32 *)((s8 *)(*(s32 *)((s8 *)((u8 *)(&(*(RecoveredGlobal_802EC7F0_lbl_804E3C2C *)&lbl_804E3C2C).value) + (game_difficulty_selection * 4)) + 0) + (this->m_6d0 * 8)) + 0);
         switch (var_r4) {
         case 0x1E:
-            if (calc_elapsed_scaled__9TObjEneDDFv((void *) (((u8 *)this))) > lbl_805DEA10) {
+            if (calc_elapsed_scaled__9TObjEneDDFv(this) > lbl_805DEA10) {
                 var_r4 = 8;
             } else {
                 var_r4 = 6;
@@ -3231,7 +3231,7 @@ void TBoss7DeRolLeC::advance_action_sequence() {
             }
             break;
         case 0x20:
-            if (calc_elapsed_scaled__9TObjEneDDFv((void *) (((u8 *)this))) > lbl_805DEA10) {
+            if (calc_elapsed_scaled__9TObjEneDDFv(this) > lbl_805DEA10) {
                 var_r4 = 0xC;
             } else {
                 var_r4 = 0xE;
@@ -3285,7 +3285,7 @@ void TBoss7DeRolLeC::advance_action_sequence() {
             break;
         }
     } while (var_r30 != 0);
-    set_state_and_send__14TBoss7DeRolLeCFl((void *) (((u8 *)this)), var_r4);
+    set_state_and_send__14TBoss7DeRolLeCFl(this, var_r4);
 }
 
 void TBoss7DeRolLeC__sub_802EC994(void* p) { *(s32*)((char*)p + 0x6b0) = 0; *(s32*)((char*)p + 0x6b4) = 0; }
@@ -3342,12 +3342,12 @@ u8 TBoss7DeRolLeC::sub_802ECB10() {
 
 void TObjFish::set_hooked_effect_target() {
     *(s32 *)((s8 *)((u8 *)this) + 0x628) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x628) | 0x88);
-    TObjFish::set_effect_target_position(((u8 *)this), (void *)0x3A312, ((u8 *)this) + 0x38);
+    TObjFish::set_effect_target_position(this, (void *)0x3A312, ((u8 *)this) + 0x38);
 }
 
 void TObjFish::apply_damage_and_set_effect(s32 arg1) {
     *(s32 *)((s8 *)((u8 *)this) + 0x6FC) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x6FC) - (s32) (lbl_805DEA14 * (f32) arg1));
-    TObjFish::set_effect_target_position(((u8 *)this), (void *)0x3B213, ((u8 *)this) + 0x38);
+    TObjFish::set_effect_target_position(this, (void *)0x3B213, ((u8 *)this) + 0x38);
 }
 
 void TObjFish__sub_802ECBDC(Fish_802ECBDC *self) {
@@ -3373,7 +3373,7 @@ void TObjFish::pick_random_target() {
     s32 i;
     n = TLobby::get_game_mode();
     if (n == 0) {
-        enemy_clear_target__12TObjEneDD_STFUs(((u8 *)this));
+        enemy_clear_target__12TObjEneDD_STFUs(this);
         return;
     }
     if (n == 1) {
@@ -3381,8 +3381,8 @@ void TObjFish::pick_random_target() {
         ((TObjEneDD_ST *)((u8 *)this))->set_target_player(p);
         return;
     }
-    idx = (s32)get_random_float__21TObjEneMe3ShinowaRealFv((f32)n * calc_boss4_scale__10TObjPlayerFi(((u8 *)this)));
-    enemy_clear_target__12TObjEneDD_STFUs(((u8 *)this));
+    idx = (s32)get_random_float__21TObjEneMe3ShinowaRealFv((f32)n * calc_boss4_scale__10TObjPlayerFi(this));
+    enemy_clear_target__12TObjEneDD_STFUs(this);
     for (i = 0; i < n; i++) {
         p = (u8 *)get_player_data__10TObjPlayerFi(idx);
         if (is_alive__9TObjEneDDFv() != 0) {
@@ -3825,7 +3825,7 @@ void TBoss7DeRolLeC::set_state_and_send(s32 arg1) {
 
 void TBoss7DeRolLeC::flee_if_disturbed() {
     if (*(s32 *)((s8 *)this->m_a4 + 0x18) & 1) {
-        set_player_state_default__12TBoss8DragonFv((void *) (((u8 *)this)));
+        set_player_state_default__12TBoss8DragonFv(this);
         add_radar_scaled_marker((void *) (((u8 *)this) + 0x38), -0x5DB4, 1, 1, lbl_805DEA44);
     }
 }
@@ -3836,7 +3836,7 @@ void TBoss7DeRolLeC::vfunc_88() {
     s32 clr;
     s32 i;
     VecCopy__FP3VecPC3Vec(sp8, ((u8 *)this) + 0x434);
-    update_local_colliders_from_world(((u8 *)this), sp8);
+    update_local_colliders_from_world(this, sp8);
     f = *(f32 *)((s8 *)((u8 *)this) + 0x3C);
     if (f < lbl_805DEA1C) {
         set = 0;

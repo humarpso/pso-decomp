@@ -63,16 +63,16 @@ void TItemWeapon::vfunc_27() {
 }
 void TItemWeapon::vfunc_26() {
     s32 count;
-    if (((u32) this->player != 0U) && (test_flags_1b8__11TItemWeaponFUl(((u8 *)this), 0xCU) == 0xCU) && (test_flags_1b8__11TItemWeaponFUl(((u8 *)this), 0x80U) == 0U)) {
-        if (test_flags_1b8__11TItemWeaponFUl(((u8 *)this), 0x800U) != 0U) {
-            TObjPlayer::push_id_to_list(get_field_d8__5TItemFv(((u8 *)this)));
+    if (((u32) this->player != 0U) && (test_flags_1b8__11TItemWeaponFUl(this, 0xCU) == 0xCU) && (test_flags_1b8__11TItemWeaponFUl(this, 0x80U) == 0U)) {
+        if (test_flags_1b8__11TItemWeaponFUl(this, 0x800U) != 0U) {
+            TObjPlayer::push_id_to_list(get_field_d8__5TItemFv(this));
             return;
         }
-        ((TItemWeapon *)(((u8 *)this)))->reserved_53();
-        ((TItemWeapon *)((u8 *)this))->update_trails();
+        ((TItemWeapon *)(this))->reserved_53();
+        this->update_trails();
         count = 0;
         do {
-            void *trail = ((Trails_8011FE04 *)((u8 *)this))->trails[count];
+            void *trail = this->trails[count];
             if (trail) {
                 ((TItemEffectWeapon *)trail)->render_trail();
             }

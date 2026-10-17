@@ -646,24 +646,24 @@ s32 TObjEnemy::vfunc_74(s32 kind) {
     s32 ret;
     ret = 0;
     if (this->m_1c >= 0x1000 && this->m_1c < 0x4000) {
-        exchange_object_state__9TObjEnemyFls(((u8 *)this), &pkt, 1);
+        exchange_object_state__9TObjEnemyFls(this, &pkt, 1);
         pkt.diff = this->hpmax - this->hp;
         pkt.id = this->actorFlags;
         switch (kind) {
         case 9:
         case 11:
             pkt.a = kind;
-            pkt.av = lbl_805DA8C0 * ((f32)TObjPlayer__sub_8001943C(((u8 *)this), 2) / lbl_805DA8C4 - lbl_805DA8C8);
+            pkt.av = lbl_805DA8C0 * ((f32)TObjPlayer__sub_8001943C(this, 2) / lbl_805DA8C4 - lbl_805DA8C8);
             break;
         case 10:
         case 12:
             pkt.b = kind;
-            pkt.bv = lbl_805DA8C0 * ((f32)TObjPlayer__sub_8001943C(((u8 *)this), 3) / lbl_805DA8C4 - lbl_805DA8C8);
+            pkt.bv = lbl_805DA8C0 * ((f32)TObjPlayer__sub_8001943C(this, 3) / lbl_805DA8C4 - lbl_805DA8C8);
             break;
         }
-        ret = exchange_object_state__9TObjEnemyFls(((u8 *)this), &pkt, 0);
+        ret = exchange_object_state__9TObjEnemyFls(this, &pkt, 0);
         if (ret != 0) {
-            send_6x0A_enemy_state(((u8 *)this), &pkt);
+            send_6x0A_enemy_state(this, &pkt);
         }
     }
     return ret;
@@ -678,20 +678,20 @@ void TObjEnemy::apply_hit_message_flags(void *arg1_arg) {
         flags = arg1->flags & ~0x3F;
     } else {
         flags = arg1->flags;
-        if ((flags & 2) && obj_testFlags30(((VObj_800F673C *)this), 2) == 0) {
+        if ((flags & 2) && obj_testFlags30(this, 2) == 0) {
             this->apply_paralysis();
         }
-        if ((flags & 4) && obj_testFlags30(((VObj_800F673C *)this), 4) == 0) {
+        if ((flags & 4) && obj_testFlags30(this, 4) == 0) {
             this->apply_shock_status();
         }
-        if ((flags & 0x10) && obj_testFlags30(((VObj_800F673C *)this), 0x10) == 0) {
+        if ((flags & 0x10) && obj_testFlags30(this, 0x10) == 0) {
             this->apply_confusion_status();
         }
-        if ((flags & 0x20) && obj_testFlags30(((VObj_800F673C *)this), 0x20) == 0) {
+        if ((flags & 0x20) && obj_testFlags30(this, 0x20) == 0) {
             this->apply_movement_ailment(0);
         }
     }
-    obj_setFlags30(((VObj_800F673C *)this), flags);
+    obj_setFlags30(this, flags);
     p.a = arg1->b8;
     p.b = arg1->b9;
     arg1->b8 = 0;
@@ -772,13 +772,13 @@ void TObjEnemy::distribute_experience() {
     if (is_split_screen() == 0) {
         ((void (*)(void *, u16))award_enemy_experience__9TObjEnemyFl)(((TObjPlayer_800F6B68 *)this), ((TObjPlayer_800F6B68 *)this)->attacker_id);
     } else {
-        count = get_attack_credit_slot_count(((TObjPlayer_800F6B68 *)this));
+        count = get_attack_credit_slot_count(this);
         for (i = 0; i < count; i++) {
-            id = obj_getArrU16_FC(((TObjPlayer_800F6B68 *)this), i);
+            id = obj_getArrU16_FC(this, i);
             if (id == 0xFFFF) {
                 break;
             }
-            ((void (*)(void *, u16))award_enemy_experience__9TObjEnemyFl)(((TObjPlayer_800F6B68 *)this), id);
+            ((void (*)(void *, u16))award_enemy_experience__9TObjEnemyFl)(this, id);
         }
     }
 }
@@ -794,9 +794,9 @@ void TObjEnemy::award_enemy_experience(s32 arg1) {
     val = *(s32 *)(this->m_2b0 + 0x1C);
     if ((u16)arg1 == this->m_2d4) {
         if (((TLobby *)lobby_rule_settings)->get_rule_field_0() == 1) {
-            fn_801B0480(p, ((u8 *)this), 1);
+            fn_801B0480(p, this, 1);
             draw_player_status(p, p, &lbl_805DA8CC);
-            draw_player_status(p, ((u8 *)this), &lbl_805DA8D0);
+            draw_player_status(p, this, &lbl_805DA8D0);
         }
         ((TObjPlayer *)p)->add_capped_counter_999(1);
     } else {

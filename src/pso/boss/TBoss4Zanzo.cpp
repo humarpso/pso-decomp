@@ -1314,7 +1314,7 @@ void TBoss4Type2::spawn_afterimages() {
         z.f10 = TObjFish__sub_8001EDB0(((Obj_8005676C *)this)->f390, boss4_zanzo_bml_index_table[i]);
         z.f14 = get_bml_model(((Obj_8005676C *)this)->f390, boss4_zanzo_bml_index_table[i]);
         z.f18 = get_bml_motion(((Obj_8005676C *)this)->f390, ((Row_8005676C *)&TBoss4Type2__attack_pattern_table)[((Obj_8005676C *)this)->f3c8].c[i]);
-        TBoss4Type2::create_zanzo(((Obj_8005676C *)this), &z);
+        TBoss4Type2::create_zanzo(this, &z);
     }
 }
 
@@ -1384,7 +1384,7 @@ void TBoss4Type2::choose_next_action() {
     Grid_80056A54 grid;
     s32 r;
     s32 id;
-    id = ((s32 (*)(void *))pick_random_target_player__11TBoss4Type3Fv)(((Obj_80056A54 *)this));
+    id = ((s32 (*)(void *))pick_random_target_player__11TBoss4Type3Fv)(this);
     if (((Obj_80056A54 *)this)->f32c <= ((Obj_80056A54 *)this)->f3ec && (u16)id != 0xFFFF) {
         r = TBoss4Type2::pick_weighted_random(4, (f32 *)(tbl + 0x544), (s32 *)(tbl + 0x554));
     } else {
@@ -1696,7 +1696,7 @@ void TUnk_80486924::vfunc_62() {
     *(s32 *)((s8 *)((u8 *)this) + 0x3E4) = 1;
     *(f32 *)((s8 *)((u8 *)this) + 0x3F0) = (f32) TBoss4Type2__data_805D8BD8;
     *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0xFFFFFDFF);
-    ((s32 (*)(int, void *, int, int, void *))play_sound_effect)(0x4003B723, ((u8 *)this) + 0x38, 0, 1, ((u8 *)this));
+    ((s32 (*)(int, void *, int, int, void *))play_sound_effect)(0x4003B723, ((u8 *)this) + 0x38, 0, 1, this);
 }
 
 S_800578E8 *__dt__13TUnk_80486924Fv(S_800578E8 *o, s16 flag) {

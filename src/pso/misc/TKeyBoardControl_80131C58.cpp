@@ -237,7 +237,7 @@ s32 TKeyBoardControl__sub_801323C8(K_801323C8 *arg0, u8 arg1) {
 u8 get_key_state__16TKeyBoardControlFPv(void* p) { return *(u8*)((char*)p + 0x1); }
 
 void TKeyBoardControl::push_key_to_buffer(u8 arg1) {
-    K_8013239C *arg0 = (K_8013239C *)((Kb_801324F8 *)this);
+    K_8013239C *arg0 = (K_8013239C *)this;
     u8 t;
     if ((get_key_state__16TKeyBoardControlFPv(&TKeyBoardControl__global_key_state) != 0 && arg1 == 0x5B) || (u8)(arg1 - 0x54) <= 2 || arg1 == 0x57) {
         return;

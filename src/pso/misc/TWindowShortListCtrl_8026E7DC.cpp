@@ -258,7 +258,7 @@ void TWindowShortListCtrl::cycle_list_page() {
         if (((s8) temp_r31_2) != ((s8) ((RecoveredFields_8026EA60_arg0 *) ((u8 *)this))->field_1C))
         {
           TWindowShortListCtrl::set_card_window_flags((int) ((RecoveredFields_8026EA60_arg0 *) ((u8 *)this))->field_24, (s32)((int) ((s32) ((s8) temp_r3_6))));
-          ((TWindowShortListCtrl *)((u8 *)this))->destroy_children();
+          this->destroy_children();
           sub_8026EA48();
         }
       }

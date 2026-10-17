@@ -35,7 +35,7 @@ s32 check_trade_offer_inventory(S_802D1D48 *arg0, s32 *arg1) {
 void TLobby::transfer_trade_item_amount(u32 arg1, s32 arg2) {
     u8 *temp_r3;
     u8 *temp_r3_2;
-    temp_r3 = (u8 *)(TLobby__sub_802D2334(((u8 *)this), arg1));
+    temp_r3 = (u8 *)(TLobby__sub_802D2334(this, arg1));
     if (temp_r3 != NULL) {
         *(s32 *)((s8 *)temp_r3 + 4) = (s32) (*(s32 *)((s8 *)temp_r3 + 4) - arg2);
         if ((s32) *(s32 *)((s8 *)temp_r3 + 4) <= 0) {
@@ -55,7 +55,7 @@ void TLobby::move_trade_item_amount(u32 arg1, s32 arg2) {
   if (temp_r3 != 0)
   {
     *((s32 *) (((s8 *) temp_r3) + 4)) = (s32) ((*((s32 *) (((s8 *) temp_r3) + 4))) - arg2);
-    temp_r3_2 = (u8 *) TLobby__sub_802D2334(((u8 *)this), arg1);
+    temp_r3_2 = (u8 *) TLobby__sub_802D2334(this, arg1);
     if (temp_r3_2)
     {
       *((s32 *) (((s8 *) temp_r3_2) + 4)) = (s32) ((*((s32 *) (((s8 *) temp_r3_2) + 4))) + arg2);
@@ -63,11 +63,11 @@ void TLobby::move_trade_item_amount(u32 arg1, s32 arg2) {
     }
     if (((u32) (arg1 + (0x10000 & 0xFF))) == (-0xFFU))
     {
-      var_r3 = get_trade_obj_ptr__6TLobbyFv((s32) ((u8 *)this));
+      var_r3 = get_trade_obj_ptr__6TLobbyFv((s32) this);
     }
     else
     {
-      var_r3 = (long) find_free_trade_slot__6TLobbyFPv(((u8 *)this));
+      var_r3 = (long) find_free_trade_slot__6TLobbyFPv(this);
     }
     *((u32 *) (((s8 *) var_r3) + 0)) = arg1;
     *((s32 *) (((s8 *) var_r3) + 4)) = arg2;

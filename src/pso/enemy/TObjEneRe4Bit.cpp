@@ -743,7 +743,7 @@ void TObjEneRe4Bit::reset_transform() {
     *(f32 *)((s8 *)this + 0x3FC) = TObjEneRe4Bit__data_805DA770;
     *(f32 *)((s8 *)this + 0x400) = TObjEneRe4Bit__data_805DA770;
     update_position_flag();
-    ((TObjEneDD *)this)->transform_part_positions();
+    this->transform_part_positions();
 }
 
 struct ED300Base_800ed300_800ED258 { char pad[0x14]; };

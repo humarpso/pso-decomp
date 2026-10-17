@@ -141,7 +141,7 @@ void TObjEneRe7BeruraPunch::update_flight() {
         *(f32 *)&this->m_dc = stack.sp8;
         this->m_e4 = stack.sp10;
     }
-    ((TObjEneRe7BeruraPunch *)((u8 *)this))->snap_to_ground();
+    this->snap_to_ground();
     if ((var_r31 != 0) || (sub_80096150() != 0) || (this->m_114 > this->m_c8)) {
         this->m_b4 = 2;
         if (find_entity_by_id(this->m_b0) != NULL) {

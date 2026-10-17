@@ -264,7 +264,7 @@ void TBoss6Rock::break_rocks_in_radius(f32 r) {
         if (p != NULL && ((s32 (*)(s32))is_rock_state_2__10TBoss6RockFi)(i) != 0 && !(((Vec_80353B7C *)this)->y > r + p->f8)) {
             f32 lim = r + p->f4;
             VecCopy((Vec *)&v, (const Vec *)(&((Vec_80353B7C *)TBoss6Rock__rock_point_table)[i]));
-            subtract_vector(&v, ((Vec_80353B7C *)this));
+            subtract_vector(&v, this);
             v.y = TBoss6Rock__data_805DFF50;
             if (vector_length(&v) <= lim) {
                 TBoss6Rock::clear_rock_state(i);
@@ -282,7 +282,7 @@ s32 TBoss6Rock::push_out_of_rocks(f32 r) {
     hit = 0;
     for (i = 0; i < 0x20; i++) {
         f32 d;
-        VecCopy((Vec *)&v, (const Vec *)((Vec_80353C60 *)this));
+        VecCopy((Vec *)&v, (const Vec *)this);
         subtract_vector(&v, &((Vec_80353C60 *)TBoss6Rock__rock_point_table)[i]);
         v.y = y;
         d = vector_length(&v);
@@ -293,7 +293,7 @@ s32 TBoss6Rock::push_out_of_rocks(f32 r) {
             normalize_vector(&v);
             v.x *= lim;
             v.z *= lim;
-            vec3_add_to(((Vec_80353C60 *)this), &v);
+            vec3_add_to(this, &v);
             hit = 1;
         }
     }

@@ -166,7 +166,7 @@ void TObjEneBalClawBody::sub_8008FF50() {
     switch (temp_r0)
     {
       case 0:
-        ((TObjEneBalClawBody *)((u8 *)this))->update_dragon_boss_state();
+        this->update_dragon_boss_state();
         return;
       case 1:
         TObjPlayer__sub_8008FAD0();

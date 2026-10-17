@@ -68,7 +68,7 @@ void TAdSinglePlyChrSelectGC::transform_vertex_list() {
             v[0] = TAdSinglePlyChrSelectGC__sub_80141EA0(p[0]);
             v[1] = TAdSinglePlyChrSelectGC__sub_80141EA0(p[1]);
             v[2] = TAdSinglePlyChrSelectGC__sub_80141EA0(p[2]);
-            if (((TObjPlayer *)((Self_800FFB38 *)this))->interpolate_along_curve(v) != 0) {
+            if (((TObjPlayer *)this)->interpolate_along_curve(v) != 0) {
                 p[0] = TAdSinglePlyChrSelectGC__sub_80141E8C(v[0]);
                 p[1] = TAdSinglePlyChrSelectGC__sub_80141E8C(v[1]);
                 p[2] = TAdSinglePlyChrSelectGC__sub_80141E8C(v[2]);

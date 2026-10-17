@@ -124,14 +124,14 @@ void TObjPlayer::update_ground_effect() {
     u8 *temp_r4;
 
     ((s32 (*)())advance_animation_playback)();
-    if (objInBand((GameObj *)(((u8 *)this)), lbl_805D9BD8) != 0) {
-        ((s32 (*)(void *, void *, int, int))play_sound_effect)(((void * (*)(void *, int))copy_target_state__14TObjEnePanarmsFPv)((void *) (((u8 *)this)), 0x3A807), (void *) (((u8 *)this) + 0x38), 0, 0);
+    if (objInBand((GameObj *)(this), lbl_805D9BD8) != 0) {
+        ((s32 (*)(void *, void *, int, int))play_sound_effect)(((void * (*)(void *, int))copy_target_state__14TObjEnePanarmsFPv)(this, 0x3A807), (void *) (((u8 *)this) + 0x38), 0, 0);
         TObjPlayer::play_effect_if_v2(-0x300);
     }
     this->m_310 = (f32) lbl_805D9BD8;
     *(f32 *)&this->unk_308 = (f32) lbl_805D9BD8;
-    apply_actor_gravity((void *) (((u8 *)this)), 0, lbl_805D9BD8);
-    ((TObjPlayer *)((u8 *)this))->update_collisions();
+    apply_actor_gravity(this, 0, lbl_805D9BD8);
+    this->update_collisions();
     if ((u32) this->m_b4 != 8U) {
         this->actorFlags = (s32) (this->actorFlags & 0xFBFFF9FF);
         temp_r4 = (unsigned char *) (this->m_a4);
@@ -1043,7 +1043,7 @@ s32 TObjEneMoja::is_target_in_attack_range() {
     Vec_800AE18C d;
     if (this->mode > 1 && (t = this->target) != NULL &&
         this->m_318 != 0 && !(*(u32 *)((s8 *)t + 0x30) & 0x02000800)) {
-        dist = calc_xz_distance_sq__10TObjPlayerFiUiPv(((u8 *)this), t, &d);
+        dist = calc_xz_distance_sq__10TObjPlayerFiUiPv(this, t, &d);
         angd = angle_difference_abs(this->rotation_y,
                                     (s32)(lbl_8043B0C8[0] * atan2_float(d.x, d.z)));
         c = *(u8 **)(this->target + 0xA4);
@@ -1067,33 +1067,33 @@ s32 TObjEneMoja::is_target_in_attack_range() {
                     return 1;
                 case 1:
                     if (this->attackSequence != -1 && !(this->techniqueChance < lbl_805D9C1C)) {
-                        if (((f32 (*)(void *))calc_boss4_scale__10TObjPlayerFi)(((u8 *)this)) < this->techniqueChance) {
+                        if (((f32 (*)(void *))calc_boss4_scale__10TObjPlayerFi)(this) < this->techniqueChance) {
                             return 1;
                         }
                         this->attackSequence = -1;
                         {
                             Vec_800AE18C v = *(Vec_800AE18C *)(((u8 *)this) + 0x2FC);
-                            select_enemy_destination(((u8 *)this), &v, 1);
+                            select_enemy_destination(this, &v, 1);
                         }
                         {
                             Vec_800AE18C v2 = *(Vec_800AE18C *)(((u8 *)this) + 0x2FC);
-                            copy_position_if_valid__10TObjPlayerFii(((u8 *)this), &v2);
+                            copy_position_if_valid__10TObjPlayerFii(this, &v2);
                         }
                     }
                     break;
                 case 2:
                     if (this->attackSequence != -1) {
-                        if (lbl_805D9C30 < dist && ((f32 (*)(void *))calc_boss4_scale__10TObjPlayerFi)(((u8 *)this)) < this->jumpChance) {
+                        if (lbl_805D9C30 < dist && ((f32 (*)(void *))calc_boss4_scale__10TObjPlayerFi)(this) < this->jumpChance) {
                             return 1;
                         }
                         this->attackSequence = -1;
                         {
                             Vec_800AE18C v = *(Vec_800AE18C *)(((u8 *)this) + 0x2FC);
-                            select_enemy_destination(((u8 *)this), &v, 1);
+                            select_enemy_destination(this, &v, 1);
                         }
                         {
                             Vec_800AE18C v2 = *(Vec_800AE18C *)(((u8 *)this) + 0x2FC);
-                            copy_position_if_valid__10TObjPlayerFii(((u8 *)this), &v2);
+                            copy_position_if_valid__10TObjPlayerFii(this, &v2);
                         }
                     }
                     break;

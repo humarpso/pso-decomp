@@ -324,11 +324,11 @@ s32 TOAttackableCol::select_melee_contact_body(void *, f32) { return 1; }
 
 int TOAttackableCol::calc_distance_accuracy_penalty(void *, void *, void *, float) { return 1; }
 
-f32 TOAttackableCol::receive_physical_attack(void *_w1, f32) { return ((TOAttackableCol *)this)->apply_hit((s32)_w1); }
+f32 TOAttackableCol::receive_physical_attack(void *_w1, f32) { return this->apply_hit((s32)_w1); }
 
-f32 TOAttackableCol::receive_direct_attack(void *_w1, void *, void *, s32, s32) { return ((TOAttackableCol *)this)->apply_hit((s32)_w1); }
+f32 TOAttackableCol::receive_direct_attack(void *_w1, void *, void *, s32, s32) { return this->apply_hit((s32)_w1); }
 
-f32 TOAttackableCol::receive_weapon_special_attack(void *_w1, void *) { return ((TOAttackableCol *)this)->apply_hit((s32)_w1); }
+f32 TOAttackableCol::receive_weapon_special_attack(void *_w1, void *) { return this->apply_hit((s32)_w1); }
 
 void TOAttackableCol::apply_knockback_from_attacker(u8 *) {  }
 

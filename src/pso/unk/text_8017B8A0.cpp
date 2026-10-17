@@ -168,7 +168,7 @@ void TOVS2Wall01::save_and_send_state(u16 arg1) {
     }
     if ((((Obj_8017BAFC *)this)->sub != NULL) && (((TUnk_804AF8A0 *)((Obj_8017BAFC *)this))->access_object_saved_state(&sp8, 1) != 0)) {
         sp8 = v;
-        ((TUnk_804AF8A0 *)((Obj_8017BAFC *)this))->access_object_saved_state(&sp8, 0);
+        ((TUnk_804AF8A0 *)this)->access_object_saved_state(&sp8, 0);
         sub = ((Obj_8017BAFC *)this)->sub;
         ((TOVS2Wall01 *)(&pkt))->init();
         pkt.b = ((Obj_8017BAFC *)this)->f1C;

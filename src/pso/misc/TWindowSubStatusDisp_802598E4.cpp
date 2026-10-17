@@ -256,7 +256,7 @@ void TWindowSubStatusDisp::update_pb_counter_approach() {
     f32 temp_f30;
     if (*(f32 *)((s8 *)((u8 *)this) + 0x28) != *(f32 *)((s8 *)((u8 *)this) + 0x24)) {
         if (*(u16 *)((s8 *)((u8 *)this) + 0) & 8) {
-            play_persistent_sound(0x44E03, (s32)(((u8 *)this)), 0, 0, 0);
+            play_persistent_sound(0x44E03, (s32)this, 0, 0, 0);
         }
         temp_f2 = *(f32 *)((s8 *)((u8 *)this) + 0x28);
         temp_f30 = temp_f2 - *(f32 *)((s8 *)((u8 *)this) + 0x24);

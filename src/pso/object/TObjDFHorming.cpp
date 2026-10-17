@@ -287,7 +287,7 @@ void TBoss4DarkFalz::sub_8004B084() {
   member_action.words[2] = *((s32 *) (((s8 *) temp_r6) + 0x30));
   if (member_action.action != 0)
   {
-    (((TBoss4DarkFalz *)((void *) ((u8 *)this)))->*( member_action.action))();
+    (((TBoss4DarkFalz *)this)->*( member_action.action))();
   }
 }
 
@@ -304,7 +304,7 @@ void TBoss4DarkFalz::sub_8004B0F8() {
   member_action.words[2] = *((s32 *) (((s8 *) temp_r6) + 0x24));
   if (member_action.action != 0)
   {
-    (((TBoss4DarkFalz *)((void *) ((u8 *)this)))->*( member_action.action))();
+    (((TBoss4DarkFalz *)this)->*( member_action.action))();
   }
 }
 
@@ -391,7 +391,7 @@ void TBoss4DarkFalz::spawn_zako_rings() {
     s32 ang;
     s32 step;
     s32 i;
-    p.owner = (s32)((u8 *)this);
+    p.owner = (s32)this;
     r = lbl_805D891C;
     dr = lbl_805D8920;
     TBoss4DarkFalz__sub_8004B4F0(p.a, TBoss4DarkFalz__data_804FF1E8);

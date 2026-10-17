@@ -93,7 +93,7 @@ void TCineCtrl::update_letterbox_hide() {
         this->m_20 = (f32) TCineCtrl__data_805D91D0;
         temp_r12 = *(s32 (**)(void *))((s8 *)((u8 *)this) + 0x2C);
         if (temp_r12 != NULL) {
-            temp_r12(((u8 *)this));
+            temp_r12(this);
         }
         *(s32 *)((s8 *)((u8 *)this) + 0x28) = 0;
     }
@@ -125,7 +125,7 @@ void TCineCtrl::update_letterbox_show() {
         this->m_20 = (f32) lbl_805D91EC;
         temp_r12 = *(s32 (**)(void *))((s8 *)((u8 *)this) + 0x2C);
         if (temp_r12 != NULL) {
-            temp_r12(((u8 *)this));
+            temp_r12(this);
         }
         *(s32 *)((s8 *)((u8 *)this) + 0x28) = 0;
     }

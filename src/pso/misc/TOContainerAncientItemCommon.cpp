@@ -87,7 +87,7 @@ void TOContainerAncientItemCommon::vfunc_6(s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {
         if (arg2 != 0) {
             ((struct VObj_8015C098 *) this)->m77();
-            ((TUnk_804B6C24 *)this)->spawn_item((s32)this);
+            this->spawn_item((s32)this);
         }
         this->mode = 1;
         set_flag8();

@@ -93,7 +93,7 @@ void TWindowInputNumber::align_digits() {
     pos = scale * (((InNum_802561E8 *)this)->x - lbl_805DCE20) + scale * (f32)(((InNum_802561E8 *)this)->ndigits * 12);
     pos -= lbl_805DCE18;
     for (; i < ((InNum_802561E8 *)this)->ndigits; i++) {
-        Digit_802561E8 *d = (Digit_802561E8 *)((TUnk_804CE018 *)((InNum_802561E8 *)this))->get_array_entry(i);
+        Digit_802561E8 *d = (Digit_802561E8 *)((TUnk_804CE018 *)this)->get_array_entry(i);
         d->x = scale * d->w + pos;
         pos -= step;
     }

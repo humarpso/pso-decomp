@@ -32,9 +32,9 @@ s32 __dl__7TObjectFPv(void *);
 void *TOHangceilingCave01KeyQuick::destroy_hanging_object(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804B2578;
-        ((TUnk_804AF8A0 *)this)->unregister_object_by_id();
+        this->unregister_object_by_id();
         free_collision_body_parts(this);
-        ((TUnk_804806E8 *)this)->destroy_motion_object(0);
+        this->destroy_motion_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
         }
@@ -46,13 +46,13 @@ typedef char RecoveredGlobal_80168C6C_lbl_804B2174_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80168C6C_lbl_804B2578_size[sizeof(RecoveredGlobal_80168C6C_lbl_804B2578) == 0x148 ? 1 : -1];
 u8 *TOHangceilingCave01KeyQuick::init_base(s32 arg1, s32 arg2) {
     u8 *temp_r4;
-    construct_actor_base__10TObjPlayerFPvPv((void *) (((u8 *)this)));
+    construct_actor_base__10TObjPlayerFPvPv(this);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80168C6C_lbl_804B2578 *)&lbl_804B2578).value;
     this->apply_object_set_data((void *)arg2);
     *(s32 *)&this->model = get_bml_model((void *)TOHangceilingCave01__model_archive, (void *)turiten_singo_key_model_index);
     this->unknownF8 = get_bml_motion((void *)TOHangceilingCave01__model_archive, (void *)hanging_ceiling_motion_index);
-    init_collision_body_parts((void *) (((u8 *)this)), &lbl_804B2174.value, 1);
-    ((TUnk_804AF8A0 *)((u8 *)this))->refresh_collision_body_centers();
+    init_collision_body_parts(this, &lbl_804B2174.value, 1);
+    this->refresh_collision_body_centers();
     ((TObjPlayer *)((u8 *)this))->reset_photon_effect();
     reset_state((((u8 *)this)));
     temp_r4 = (u8 *)this->m_a4;

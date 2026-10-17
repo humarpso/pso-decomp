@@ -71,7 +71,7 @@ void *__dt__13TUnk_804AF7B0Fv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_80153084_lbl_804AF7B0_size[sizeof(RecoveredGlobal_80153084_lbl_804AF7B0) == 0x18 ? 1 : -1];
 u8 *TObjFogCollisionPoison::init_base(u8 *arg1, s16 arg2) {
-    __ct__7TObjectFP7TObject(((u8 *)this), arg1);
+    __ct__7TObjectFP7TObject(this, arg1);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80153084_lbl_804AF7B0 *)&lbl_804AF7B0).value;
     *(s16 *)&this->m_28 = arg2;
     *(s32 *)&this->m_1c = 0x96;
@@ -161,11 +161,11 @@ u8 *__dt__24TObjFogCollision_ManagerFv(u8 *arg0, s16 arg1) {
 }
 
 u8 *TObjFogCollisionPoison::construct_with_index(u8 *arg1, s32 arg2) {
-    __ct__7TObjectFP7TObject(((u8 *)this), arg1);
+    __ct__7TObjectFP7TObject(this, arg1);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &lbl_804AF7C8.value;
     *(s32 *)&this->m_name = (s32) lbl_805D2E84;
     *(s32 *)&this->m_28 = arg2;
-    *(s32 *)((s8 *)&TObjFogCollisionPoison__instances.value + (*(s32 *)&this->m_28 * 4)) = (long) (((u8 *)this));
+    *(s32 *)((s8 *)&TObjFogCollisionPoison__instances.value + (*(s32 *)&this->m_28 * 4)) = (long) (this);
     *(s32 *)&this->m_1c = 0;
     *(s32 *)((s8 *)((u8 *)this) + 0x20) = 0;
     this->texture_id = 1;

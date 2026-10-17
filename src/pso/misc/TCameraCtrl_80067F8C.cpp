@@ -5,6 +5,6 @@
 
 extern "C" {
 
-void TUnk_80488838::run_task() { target_player0__11TCameraCtrlFi((s32)this); ((TUnk_80488838 *)this)->update_orbit_camera(); }
+void TUnk_80488838::run_task() { target_player0__11TCameraCtrlFi((s32)this); this->update_orbit_camera(); }
 
 }

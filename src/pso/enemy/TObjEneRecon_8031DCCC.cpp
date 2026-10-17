@@ -35,7 +35,7 @@ void TObjEneRecon::vfunc_89() {
     struct VObj_8031DCCC *o = (struct VObj_8031DCCC *)this;
     o->m86();
     vfunc_89__9TObjEneDDFv(this);
-    ((TObjEneRecon *)this)->clamp_min_height();
+    this->clamp_min_height();
 }
 
 }

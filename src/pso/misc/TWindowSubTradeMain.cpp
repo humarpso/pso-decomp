@@ -103,7 +103,7 @@ void TObjEneMorfos::vfunc_106() {
     }
 }
 
-s32 TObjEneMorfos::vfunc_83() { if (get_target_info() != 0) { ((TObjEneMorfos *)this)->init_target_offsets(); } }
+s32 TObjEneMorfos::vfunc_83() { if (get_target_info() != 0) { this->init_target_offsets(); } }
 
 void TObjEneMorfos::update_ground_probe() {
     u8 *arg0 = (u8 *)this;

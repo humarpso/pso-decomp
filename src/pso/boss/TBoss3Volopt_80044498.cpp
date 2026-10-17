@@ -1107,7 +1107,7 @@ void TBoss3Volopt::spawn_ambient_particles() {
         stack.sp10 = (temp_f31 * sin_table_lookup(temp_r31)) + *(f32 *)((s8 *)((u8 *)this) + 0x40);
         spawn_particle_effect(&stack.sp8, 0xFB);
     }
-    play_persistent_sound(0x4003AD21, (s32) ((u8 *)this), (u32) (((u8 *)this) + 0x38), 0, 0);
+    play_persistent_sound(0x4003AD21, (s32) this, (u32) (((u8 *)this) + 0x38), 0, 0);
 }
 #pragma pop
 
@@ -1195,7 +1195,7 @@ void TBoss3Volopt::update_fade_state() {
         this->m_b8 = 8;
         this->state = 2;
     case 2:
-        advance_animation_playback(((u8 *)this));
+        advance_animation_playback(this);
         temp_f1 = this->m_c0;
         var_r4 = 0;
         if (temp_f1 >= TBoss3Volopt__data_805D87D8) {

@@ -2845,7 +2845,7 @@ void TObjEneMe1Canadin::render_canadin_model_with_debug_type() {
     }
 }
 
-void TObjEneMe1Canadin::update_if_ready() { if (get_target_info() != 0) { ((TObjEneMe1Canadin *)this)->update_by_field_0x354(); } }
+void TObjEneMe1Canadin::update_if_ready() { if (get_target_info() != 0) { this->update_by_field_0x354(); } }
 
 void TObjEneMe1Canadin::render() {
     u8 *arg0 = (u8 *)this;
@@ -3607,7 +3607,7 @@ void TObjEneMe1Canadin::vfunc_111(s32 arg1) {
         advance_animation_playback();
         update_linked_position(TObjEneMe1Canadin__data_805D988C);
         TObjEneMe1Canadin::update_move(this);
-        ((TObjEneMe1Canadin *)this)->update_hover_height();
+        this->update_hover_height();
         this->vfunc_89();
         ((s32 (*)(void *))noop__17TObjEneMe1CanadinFv)(this);
         break;
@@ -4140,7 +4140,7 @@ void TObjEneMe1Canadin__sub_8009EB14(u8 *arg0, f32 height) {
 }
 
 void TObjEneMe1Canadin::update_position_with_offset() {
-    TObjEneMe1Canadin__sub_8009EB98((u8 *)((u8 *)this), *(f32 *)((s8 *)this + 0x3C) + *(f32 *)((s8 *)this + 0x3E8));
+    TObjEneMe1Canadin__sub_8009EB98((u8 *)this, *(f32 *)((s8 *)this + 0x3C) + *(f32 *)((s8 *)this + 0x3E8));
 }
 
 void TObjEneMe1Canadin__sub_8009EB98(u8 *arg0, f32 farg0) {

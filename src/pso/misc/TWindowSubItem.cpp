@@ -396,7 +396,7 @@ s32 TWindowSubItem::create_menu_window() {
     titled_window_menu = create_titled_window_menu(((int)get_window_layout_position(6)), 2, get_message_10__20TWindowSubStatusDispFl(0x27), this->m_24);
     forward_trade_action_default__16TObjCityMainWarpFPviii(titled_window_menu, (s32)((int) (get_message_10__20TWindowSubStatusDispFl(0x5D))), 6, 0);
     forward_trade_action_default__16TObjCityMainWarpFPviii(titled_window_menu, (s32)((int) (get_message_10__20TWindowSubStatusDispFl(0x5E))), 6, 1);
-    TWindowSubEquip__sub_80263AF8((s32)(this->m_2c), 2);
+    TWindowSubEquip__sub_80263AF8(this->m_2c, 2);
     set_field_1c__6TLobbyFf(titled_window_menu);
     ((TWindowSubComCardList *)titled_window_menu)->set_flag70_bit10();
     ((TWindowSubComCardList *)titled_window_menu)->update_layout_height(lbl_805DD630);
@@ -408,13 +408,13 @@ s32 TWindowSubItem::open_purpose_window(s32 arg1) {
     s32 titled_window_menu;
     titled_window_menu = create_titled_window_menu(((int)get_window_layout_position(4)), 3, get_message_10__20TWindowSubStatusDispFl(0x26), this->m_24);
     if (arg1 == -0xFF) {
-        TWindowSubItem::add_meseta_purpose_actions((s32)((void *) (((u8 *)this))), titled_window_menu);
+        TWindowSubItem::add_meseta_purpose_actions((s32)(this), titled_window_menu);
     } else if ((s32) (arg1 & 0xFFFFFFF0) == -0x10) {
-        TWindowSubItem::draw_slot((s32)((void *) (((u8 *)this))), titled_window_menu, arg1);
+        TWindowSubItem::draw_slot((s32)(this), titled_window_menu, arg1);
     } else {
-        add_item_purpose_actions((u8 *)((void *) (((u8 *)this))), titled_window_menu, arg1);
+        add_item_purpose_actions((u8 *)(this), titled_window_menu, arg1);
     }
-    TWindowSubEquip__sub_80263AF8((s32)(this->m_2c), 1);
+    TWindowSubEquip__sub_80263AF8(this->m_2c, 1);
     set_field_1c__6TLobbyFf(titled_window_menu);
     ((TWindowSubComCardList *)titled_window_menu)->set_flag70_bit10();
     ((TWindowSubComCardList *)titled_window_menu)->update_layout_height(lbl_805DD630);
@@ -757,7 +757,7 @@ void TWindowSubItem::gray_out_unusable_entries() {
     En_8027AA80 *e;
 
     for (i = 0; i < ((Wn_8027AA80 *)this)->f76; i++) {
-        e = (En_8027AA80 *)((s32 (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(((Wn_8027AA80 *)this), i);
+        e = (En_8027AA80 *)((s32 (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(this, i);
         if (is_flag_4_set__20TWindowSubStatusDispFv() != 0 && ((s32 (*)(void *))get_cursor_pos__14TWindowSubItemFv)(e) == -0xFF) {
             e->c2c = 0xFFAAAAAA;
             e->c34 = 0xFF909090;

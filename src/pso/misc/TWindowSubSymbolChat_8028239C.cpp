@@ -578,7 +578,7 @@ void TWindowSubSymbolChat::run_task() {
         if ((void *) this->m_34 == NULL) {
             *(u8 * *)&this->m_34 = ((u8 *)TWindowSubSymbolChat::create_chat_symbol_window((s32)arg0, 1));
         }
-        *(s32 *)((s8 *)(this->m_34) + 0x64) = 1;
+        *(s32 *)(this->m_34 + 0x64) = 1;
         this->m_38 = ((u32)create_symbol_list_card());
         apply_symbol();
         this->m_1c = 0x1FU;

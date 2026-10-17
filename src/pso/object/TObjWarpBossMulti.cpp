@@ -1138,19 +1138,19 @@ void TObjWarpBoss::update() {
     ((s32 (*)())update_warp_boss_visibility__12TObjWarpBossFv)();
     switch (*(s16 *)((s8 *)this + 0xDE)) {
     case 0:
-        ((TObjWarpBoss *)this)->update_warp_confirmation();
+        this->update_warp_confirmation();
         return;
     case 1:
-        ((TObjWarpBoss *)this)->update_warp_state();
+        this->update_warp_state();
         return;
     case 2:
-        ((TObjWarpBoss *)this)->update_state();
+        this->update_state();
         return;
     case 3:
         warp_boss_handle_window();
         return;
     case 4:
-        ((TObjWarpBoss *)this)->update_floor_switch_state();
+        this->update_floor_switch_state();
         return;
     }
 }

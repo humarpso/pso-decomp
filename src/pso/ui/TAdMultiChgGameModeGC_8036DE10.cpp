@@ -277,7 +277,7 @@ void TAdMultiChgGameModeGC::handle_menu_input() {
                 switch (selected_menu_value) {
                 case 0:
                     close_window_30();
-                    close_window__21TAdMultiChgGameModeGCFPv((void*)(((u8 *)this)));
+                    close_window__21TAdMultiChgGameModeGCFPv(this);
                     set_state(4);
                     return;
                 case 1:
@@ -422,7 +422,7 @@ void TAdMultiChgGameModeGC::set_state(s32 arg1) {
         member_action.words[1] = *(s32 *)((s8 *)temp_r6 + 4);
         member_action.words[2] = *(s32 *)((s8 *)temp_r6 + 8);
         if (member_action.action != 0) {
-            (((TAdMultiChgGameModeGC *)((void *) (((u8 *)this))))->*member_action.action)();
+            (((TAdMultiChgGameModeGC *)(this))->*member_action.action)();
         }
     }
 }

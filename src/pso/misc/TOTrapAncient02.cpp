@@ -1153,9 +1153,9 @@ void TOTrapAncient02::render() {
         if (((s32) this->m_340 == 1) && (((s32) this->m_358 == 0) || (is_split_screen() != 0) || (dispatch_input_to_instance__18TAdEnterPasswordGCFi(this) == 0))) {
             set_depth_buffer_settings_id(3);
             if ((s32) this->m_358 != 0) {
-                ((TOTrapAncient02 *)this)->render_particle_chain();
+                this->render_particle_chain();
             } else {
-                ((TOTrapAncient02 *)this)->draw_effect_chain();
+                this->draw_effect_chain();
             }
             func_80141618__Fv();
         }

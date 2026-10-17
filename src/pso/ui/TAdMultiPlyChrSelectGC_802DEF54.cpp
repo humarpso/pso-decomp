@@ -414,49 +414,49 @@ void TAdMultiPlyChrSelectGC::create_widgets() {
     u32 p;
     p = __nw__7TObjectFUl(0x24);
     if (p != 0) {
-        __ct__9TAdBackGCFv((void *) p, ((u8 *)this));
+        __ct__9TAdBackGCFv((void *) p, this);
     }
     p = __nw__7TObjectFUl(0x28);
     if (p != 0) {
-        __ct__12TAdBackTxtGCFv((void *) p, ((u8 *)this));
+        __ct__12TAdBackTxtGCFv((void *) p, this);
     }
     switch (this->m_48) {
     case 0:
     case 2:
         p = __nw__7TObjectFUl(0x138);
         if (p != 0) {
-            __ct__10TAdTitleGCFP7TObjectl((void *) p, ((u8 *)this), 0);
+            __ct__10TAdTitleGCFP7TObjectl((void *) p, this, 0);
         }
-        *(s32 *)&this->unk_68 = (s32)get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii((s32)((u8 *)this), 1);
-        *(s32 *)&this->unk_60 = get_or_create_player__22TAdMultiPlyChrSelectGCFiiii((s32)((u8 *)this), 1, -1, 0);
+        *(s32 *)&this->unk_68 = (s32)get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii((s32)this, 1);
+        *(s32 *)&this->unk_60 = get_or_create_player__22TAdMultiPlyChrSelectGCFiiii((s32)this, 1, -1, 0);
         break;
     case 1: {
         p = __nw__7TObjectFUl(0x138);
         if (p != 0) {
-            __ct__10TAdTitleGCFP7TObjectl((void *) p, ((u8 *)this), 8);
+            __ct__10TAdTitleGCFP7TObjectl((void *) p, this, 8);
         }
-        *(s32 *)&this->unk_68 = (s32)get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii((s32)((u8 *)this), 2);
-        this->m_6c = create__16TAdChrSelBSlotGCFPv(((u8 *)this));
+        *(s32 *)&this->unk_68 = (s32)get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii((s32)this, 2);
+        this->m_6c = create__16TAdChrSelBSlotGCFPv(this);
         I2_802DF9B4 pos = lbl_80472828[0];
         p = __nw__7TObjectFUl(0x708);
         if (p != 0) {
-            p = __ct__14TAdSelectCurGCFv((void *) p, ((u8 *)this), &pos, lbl_80472808);
+            p = __ct__14TAdSelectCurGCFv((void *) p, this, &pos, lbl_80472808);
         }
         *(u32 *)&this->unk_70 = p;
-        *(s32 *)&this->unk_60 = get_or_create_player__22TAdMultiPlyChrSelectGCFiiii((s32)((u8 *)this), 2, -1, 0);
+        *(s32 *)&this->unk_60 = get_or_create_player__22TAdMultiPlyChrSelectGCFiiii((s32)this, 2, -1, 0);
         break;
     }
     }
     p = __nw__7TObjectFUl(0x44);
     if (p != 0) {
-        p = __ct__13TAdGuideTxtGCFv((void *) p, ((u8 *)this));
+        p = __ct__13TAdGuideTxtGCFv((void *) p, this);
     }
     this->m_64 = p;
     set_entry_value__22TAdMultiPlyChrSelectGCFlUl(this->m_64, 0, &TAdMultiPlyChrSelectGC__data_805DE898);
     set_entry_value__22TAdMultiPlyChrSelectGCFlUl(this->m_64, 1, &TAdMultiPlyChrSelectGC__data_805DE898);
     p = __nw__7TObjectFUl(0x9C);
     if (p != 0) {
-        p = __ct__13TAdTitleTexGCFv((void *) p, ((u8 *)this));
+        p = __ct__13TAdTitleTexGCFv((void *) p, this);
     }
     Blk_802DF9B4 blk = multi_chr_select_layout_table[0];
     fn_802D50B8((void *)p, (void *)&blk.a, (void *)&blk.b, (void *)&blk.c);

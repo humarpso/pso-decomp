@@ -73,7 +73,7 @@ void TAdMcCheckGC::run_task() {
     case 1:
         if ((((TAdPlayerLoadGC *)(this->m_28))->probe_and_check_card() == 0) && ((u32) (TAdPlayerLoadGC::get_load_result((void *)this->m_28) + 0x10000) == 0xFF83U)) {
             if (((s32) this->m_24 > 0xA) && ((u32) this->m_2c == 0U)) {
-                this->m_2c = create((s32)(this->m_28 + 2));
+                this->m_2c = create(this->m_28 + 2);
             }
         } else {
             this->m_1c = 2;
@@ -86,7 +86,7 @@ void TAdMcCheckGC::run_task() {
     case 2:
         if ((((TAdPlayerLoadGC *)(this->m_28))->probe_and_check_card() == 0) && ((u32) (TAdPlayerLoadGC::get_load_result((void *)this->m_28) + 0x10000) == 0xFF21U)) {
             if (((s32) this->m_24 > 0xA) && ((u32) this->m_30 == 0U)) {
-                this->m_30 = create((s32)(this->m_28 + 4));
+                this->m_30 = create(this->m_28 + 4);
             }
         } else {
             this->m_1c = 3;
@@ -108,7 +108,7 @@ void TAdMcCheckGC::run_task() {
                 this->m_34 = 0U;
             }
         } else if (((s32) this->m_24 > 0xA) && ((u32) this->m_34 == 0U)) {
-            this->m_34 = create((s32)(this->m_28 + 6));
+            this->m_34 = create(this->m_28 + 6);
         }
         break;
     case 4:
@@ -119,7 +119,7 @@ void TAdMcCheckGC::run_task() {
                 this->m_38 = 0U;
             }
         } else if (((s32) this->m_24 > 0xA) && ((u32) this->m_38 == 0U)) {
-            this->m_38 = create((s32)(this->m_28 + 8));
+            this->m_38 = create(this->m_28 + 8);
         }
         break;
     case 5:

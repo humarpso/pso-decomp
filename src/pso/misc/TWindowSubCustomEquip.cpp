@@ -164,7 +164,7 @@ void TWindowSubCustomEquip::place_bank_slot_on_ring(s32 arg1, s32 arg2) {
     }
     temp_f30 = sin_table_lookup(arg1);
     temp_f31 = cos_table_lookup(arg1);
-    temp_r3 = (u8 *)(((TUnk_804CE018 *)((u8 *)this))->get_array_entry(arg2));
+    temp_r3 = (u8 *)(this->get_array_entry(arg2));
     *(f32 *)((s8 *)temp_r3 + 8) = (f32) ((TWindowSubCustomEquip__ring_scale * temp_f31) + lbl_805DD58C);
     *(f32 *)((s8 *)temp_r3 + 0xC) = (f32) ((lbl_805D6478 * temp_f30) + lbl_805DD590);
     if ((arg1 - 0x7200) & 0x8000) {

@@ -83,7 +83,7 @@ void TDuelEffectCtrl::update_duel_start_countdown() {
         play_cue_stream_file((s32)lbl_80438D58);
         break;
     case 0xB4:
-        queue_destruction__7TObjectFv(((Obj_8007FB14 *)this));
+        queue_destruction__7TObjectFv(this);
         break;
     }
 }

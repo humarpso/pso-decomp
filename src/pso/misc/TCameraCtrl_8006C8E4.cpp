@@ -87,7 +87,7 @@ void TCameraCtrl::update_debug_camera() {
     }
     ((void (*)(void *))get_target_position__11TCameraCtrlFv)(&v);
     VecCopy((Vec *)&target, (const Vec *)&v);
-    ((TUnk_80488DA0 *)((Cam_8006C964 *)this))->set_target_pos(&target);
+    ((TUnk_80488DA0 *)this)->set_target_pos(&target);
     if (is_on_current_screen__11TCameraCtrlFv(pad, 0x200) != 0) {
         if (is_on_current_screen__11TCameraCtrlFv(pad, 0x10) != 0) {
             ((Cam_8006C964 *)this)->dist -= (2.0f);

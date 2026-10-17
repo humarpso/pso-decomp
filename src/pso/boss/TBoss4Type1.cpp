@@ -1273,7 +1273,7 @@ void TBoss4Type2::calc_scale_slot_indices(s32 *a, s32 *b) {
         v -= 4;
     }
     *a = v;
-    s = calc_boss4_scale__10TObjPlayerFi(((S_80053B48 *)this));
+    s = calc_boss4_scale__10TObjPlayerFi(this);
     if (s <= lbl_805D8B68) {
         *b = 0;
     } else if (s <= lbl_805D8B6C) {
@@ -1548,7 +1548,7 @@ void TBoss4Type1::update_boss4_phase_timer() {
 }
 #pragma pop
 
-void TBoss4Type1::render_effects() { toggle_particle_effect__10TObjPlayerFv(this); push_matrix(); post_translate_matrix((char*)this + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)this + 0x60)); ((TBoss4Type1 *)this)->draw_parts(); pop_matrix(); TParticleCtrl::end_effect_render(); }
+void TBoss4Type1::render_effects() { toggle_particle_effect__10TObjPlayerFv(this); push_matrix(); post_translate_matrix((char*)this + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)this + 0x60)); this->draw_parts(); pop_matrix(); TParticleCtrl::end_effect_render(); }
 
 void TBoss4Type1::snapshot_position() {
     u8 *arg0 = (u8 *)this;

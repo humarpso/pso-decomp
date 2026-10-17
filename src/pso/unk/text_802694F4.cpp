@@ -71,7 +71,7 @@ void TWindowMessage::scroll_up_line(u8 *arg1) {
     this->m_6c -= d;
     *(f32 *)(((u8 *)this) + 0x80) -= d;
     for (; i < *(s32 *)&this->m_8c; i++) {
-        e = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), i);
+        e = get_array_entry__13TUnk_804CE018Fi(this, i);
         *(f32 *)(e + 0xC) -= d;
     }
     *(f32 *)(arg1 + 0xC) = lbl_805DD21C;
@@ -107,7 +107,7 @@ void TWindowMessage::update_line_timers() {
     s32 idx;
     f32 h;
     for (i = 0; i < (u32)((Q_80269664 *)this)->capacity; i++) {
-        if (get_field_20__17TWindowSubComCardFv(get_array_entry__13TUnk_804CE018Fi(((Q_80269664 *)this), i)) != 0) {
+        if (get_field_20__17TWindowSubComCardFv(get_array_entry__13TUnk_804CE018Fi(this, i)) != 0) {
             if ((((Q_80269664 *)this)->meta[i].flags & 4) && ((Q_80269664 *)this)->meta[i].timer > 0) {
                 ((Q_80269664 *)this)->meta[i].timer--;
             }
@@ -198,8 +198,8 @@ s32 TWindowOptionCtrl::add_label_value_line(const char *arg1, const char *arg2, 
     text_builder_append((u8 *)arg1);
     text_builder_append((u8 *)sep);
     text_builder_append((u8 *)arg2);
-    e = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), *(s32 *)(((u8 *)this) + 0x88));
-    r = append_message_window_line(((u8 *)this), get_shared_text_buffer(), arg3 | 2, -1);
+    e = get_array_entry__13TUnk_804CE018Fi(this, *(s32 *)(((u8 *)this) + 0x88));
+    r = append_message_window_line(this, get_shared_text_buffer(), arg3 | 2, -1);
     if (r != 0) {
         x = (0.5f) * (*(f32 *)(((u8 *)this) + 0x38) - lbl_805DD234);
         x -= (f32)calc_text_width((char *)arg1);

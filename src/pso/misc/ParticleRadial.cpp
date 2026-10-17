@@ -398,7 +398,7 @@ u8 *TParticleCtrl::init_random_particle(u8 *arg1, u8 *arg2, s32 arg3) {
     struct Fields_arg1 { u8 pad_0[24]; f32 field_18; f32 field_1C; f32 field_20; f32 field_24; f32 field_28; u8 pad_2C[4]; f32 field_30; u8 pad_34[4]; f32 field_38; u8 pad_3C[12]; s32 field_48; s32 field_4C; u8 pad_50[56]; u8 field_88; };
     struct Fields_arg2 { f32 field_0; f32 field_4; f32 field_8; };
     s32 temp_r0;
-    init_particle_base(((u8 *)this), arg1, arg3);
+    init_particle_base(this, arg1, arg3);
     ((Fields_arg0*)((u8 *)this))->field_18 = &(*(RecoveredGlobal_8008C21C_TParticleCtrl__data_8048E7A8 *)&TParticleCtrl__data_8048E7A8).value;
     ((Fields_arg0*)((u8 *)this))->field_70 = (f32) ((((Fields_arg1*)arg1)->field_18 * ((lbl_805D9568 * (f32) rand()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_0);
     ((Fields_arg0*)((u8 *)this))->field_74 = (f32) ((((Fields_arg1*)arg1)->field_1C * ((lbl_805D9568 * (f32) rand()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_4);

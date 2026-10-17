@@ -328,11 +328,11 @@ void *__dt__13TUnk_804CC9D4Fv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80233D18_lbl_804CC9A8_size[sizeof(RecoveredGlobal_80233D18_lbl_804CC9A8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80233D18_lbl_804CC9D4_size[sizeof(RecoveredGlobal_80233D18_lbl_804CC9D4) == 0x38 ? 1 : -1];
 u8 *TTecLuker::construct_field_collider(s32 arg1, s32 arg2, s32 ac) {
-    construct_collider_proxy__13TUnk_804AF8A0Fv((void *) (((u8 *)this)), (void *)arg2);
+    construct_collider_proxy__13TUnk_804AF8A0Fv(this, (void *)arg2);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80233D18_lbl_804CC9D4 *)&telepipe_field_collider_vtable).value;
     VecCopy((Vec *)(((u8 *)this) + 0x38), (const Vec *)(arg1));
-    init_collision_body_parts((void *) (((u8 *)this)), &telepipe_field_collision_body_template.value, 1);
-    obj_setFlags30((void *) (((u8 *)this)), 0x40000000);
+    init_collision_body_parts(this, &telepipe_field_collision_body_template.value, 1);
+    obj_setFlags30(this, 0x40000000);
     ((TObjPlayer *)((u8 *)this))->reset_photon_effect();
     TTecLuker__sub_80234F68((void*)((void *) (((u8 *)this) + 0x98)));
     *(s32 *)&this->unk_B0 = 0;

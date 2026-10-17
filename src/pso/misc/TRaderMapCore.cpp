@@ -746,7 +746,7 @@ void TRaderMapCore::gather_player_markers() {
             me->unkC = p->unk60;
             me->id = local_client_id;
             ((Core_801F9E9C *)this)->unk134 = 0;
-            if (SHOW(((Core_801F9E9C *)this)) != 0) {
+            if (SHOW(this) != 0) {
                 if (team == 1) {
                     copy_vec4__13TRaderMapCoreFPvPv(&me->color, &radar_player_slot_color_table[0]);
                 } else if (team == 2) {
@@ -768,7 +768,7 @@ void TRaderMapCore::gather_player_markers() {
         if (i == local_client_id) {
             continue;
         }
-        if (SHOW(((Core_801F9E9C *)this)) == 0) {
+        if (SHOW(this) == 0) {
             p = (Player_801F9E9C *)get_player_by_client_id(i);
             if (p != NULL && floor == get_field_3e4__10TObjPlayerFv() &&
                 test_flag_2000000__10TObjPlayerFPv((u32)p) == 0) {
@@ -833,7 +833,7 @@ void TRaderMapCore::draw_enemy_gate_markers() {
     model_render_flags |= this->m_194;
     set_chunk_material_override_pair(-0xFF01, 0x100);
     for (i = 0, g = (Gate_801FA1E0 *)&TRaderMapCore__marker_buffer; i < TRaderMapCore__data_805D5F30; i++, g++) {
-        TRaderMapCore__sub_801F967C(((u8 *)this), g->color);
+        TRaderMapCore__sub_801F967C(this, g->color);
         push_matrix();
         translate_matrix(0, g->x, TRaderMapCore__data_805DC528, g->z);
         rotate_matrix_y(0, g->rot);

@@ -52,7 +52,7 @@ void TNeedleShoot::check_wall_hit() {
     temp_r3 = (u8 *)(csnVector(&stack.sp8, &stack.sp14, 0x100));
     if (temp_r3 != NULL) {
         VecCopy((Vec *)(((u8 *)this) + 0x6C), (const Vec *)(*(s32 *)((s8 *)temp_r3 + 4)));
-        ((TNeedleShoot *)(((u8 *)this)))->vfunc_6();
+        ((TNeedleShoot *)(this))->vfunc_6();
     }
 }
 #pragma pop

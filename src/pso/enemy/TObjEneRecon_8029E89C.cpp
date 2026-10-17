@@ -73,7 +73,7 @@ s32 TObjEneRecon::push_reflect_matrix() {
     if ((u16) scene_sora_reflect_active == 0) {
         return 1;
     }
-    if (((u8 *)this) == NULL) {
+    if (this == NULL) {
         return 0;
     }
     stack.sp8 = *(f32 *)&this->m_name;
@@ -82,7 +82,7 @@ s32 TObjEneRecon::push_reflect_matrix() {
     stack.sp14 = lbl_805DDD8C;
     stack.sp18 = lbl_805DDD90;
     stack.sp1C = stack.sp14;
-    temp_r3 = TObjEneRecon__sub_8029EA4C(((u8 *)this), 1);
+    temp_r3 = TObjEneRecon__sub_8029EA4C(this, 1);
     if (temp_r3 != 0) {
         push_matrix();
         reflect_matrix_in_plane(0, (s32 *)&stack.sp8);

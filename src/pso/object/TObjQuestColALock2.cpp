@@ -129,7 +129,7 @@ int TObjQuestColALock2::vfunc_15() {
             return 0;
         }
         submit_cursor_candidate(this, -1);
-        temp_r3_2 = ((TObjQuestColBase *)this)->update_trigger_state(*(f32 *)&this->unk_AC);
+        temp_r3_2 = this->update_trigger_state(*(f32 *)&this->unk_AC);
         if (temp_r3_2 == 1) {
             ((TObjPlayer *)temp_r3)->disable_primary_action_input();
         }

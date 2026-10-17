@@ -142,7 +142,7 @@ void TObjEneSlime::init_slots() {
     for (i = 0; i < 4; i++) {
         TObjEneSlime__sub_800EB9F0(&((Obj_800EB984 *)this)->slots[i], (void *)&lbl_8043D218);
     }
-    spawn_slime_in_slot(((Obj_800EB984 *)this), 0, 0, 0);
+    spawn_slime_in_slot(this, 0, 0, 0);
 }
 
 void TObjEneSlime__sub_800EB9F0(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
@@ -198,6 +198,6 @@ void TObjEneSlime::run_task() {
     }
 }
 
-void TObjEneSlime::vfunc_63() { ((TObjEneSlime *)this)->release_split_slimes(); }
+void TObjEneSlime::vfunc_63() { this->release_split_slimes(); }
 
 }

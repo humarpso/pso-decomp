@@ -52,8 +52,8 @@ void TWindowEffectLight::draw_outline_quad(s32 color) {
     f32 s;
     f32 w;
     f32 h;
-    color |= ((TWindowEffectLight *)((Light_802AD1CC *)this))->calc_alpha();
-    s = ((TWindowEffectLight *)((Light_802AD1CC *)this))->calc_scale();
+    color |= ((TWindowEffectLight *)this)->calc_alpha();
+    s = ((TWindowEffectLight *)this)->calc_scale();
     if (TCameraCtrl::get_camera_id() <= 2 && TCameraCtrl::get_camera_id() == 2) {
         s *= lbl_805DE10C;
     }

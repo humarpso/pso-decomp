@@ -46,7 +46,7 @@ void TUnk_804CE018::sub_8026CC28() {
     f32 lim;
     f32 t;
     if (TWindowCtrlMain__sub_8024CE58() != 0) {
-        ((TUnk_804CE018 *)((Win_8026CC28 *)this))->get_scale();
+        ((TUnk_804CE018 *)this)->get_scale();
         window_depth_order_cursor -= lbl_805DD2C8;
         lim = ((Win_8026CC28 *)this)->f54;
         for (n = ((Win_8026CC28 *)this)->f10->f14; n != NULL; n = n->fC) {

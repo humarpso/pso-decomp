@@ -407,12 +407,12 @@ void TUnk_804CE018::sub_80244F2C(u8 *arg1, u8 *arg2, s16 arg3) {
     *(s32 *)((s8 *)((u8 *)this) + 0) = (s32) lbl_805D3888;
     ((s32 (*)(void *, void *))copy_vec2__28TWindowSubSymbolChatPartsSetFPv)((void *) (((u8 *)this) + 0x30), arg2);
     ((s32 (*)(void *, void *))copy_vec2__28TWindowSubSymbolChatPartsSetFPv)((void *) (((u8 *)this) + 0x38), arg1);
-    ((s32 (*)(void *))save_position__13TUnk_804CE018Fv)((void *) (((u8 *)this)));
+    ((s32 (*)(void *))save_position__13TUnk_804CE018Fv)(this);
     temp_f1 = *(f32 *)((s8 *)arg1 + 8);
     *(f32 *)((s8 *)((u8 *)this) + 0x1C) = temp_f1;
     *(f32 *)((s8 *)((u8 *)this) + 0x54) = (f32) lbl_805DCAE0;
     *(s32 *)((s8 *)((u8 *)this) + 0x2C) = (s32) *(s32 *)((s8 *)arg1 + 0x10);
-    ((s32 (*)(void *, f32))resort_window_order__15TWindowCtrlMainFv)((void *) (((u8 *)this)), temp_f1);
+    ((s32 (*)(void *, f32))resort_window_order__15TWindowCtrlMainFv)(this, temp_f1);
     *(s32 *)((s8 *)((u8 *)this) + 0x50) = 0;
     *(s16 *)((s8 *)((u8 *)this) + 0x20) = arg3;
     init_window_layout_entries((void *) (((u8 *)this) + 0x24), (int) (*(s32 *)((s8 *)arg1 + 0xC)), (int) (*(s16 *)((s8 *)((u8 *)this) + 0x20)));
@@ -420,7 +420,7 @@ void TUnk_804CE018::sub_80244F2C(u8 *arg1, u8 *arg2, s16 arg3) {
     *(s16 *)((s8 *)((u8 *)this) + 0x22) = 0;
     temp_r3 = *(s32 *)((s8 *)((u8 *)this) + 0x2C);
     if (!(temp_r3 & 1) && !(temp_r3 & 2)) {
-        ((s32 (*)(void *))disallow_rendering__7TObjectFv)((void *) (((u8 *)this)));
+        ((s32 (*)(void *))disallow_rendering__7TObjectFv)(this);
     }
     temp_r3_2 = *(s32 *)((s8 *)((u8 *)this) + 0x2C);
     if ((temp_r3_2 & 1) && (temp_r3_2 & 2) && !(temp_r3_2 & 0x20)) {

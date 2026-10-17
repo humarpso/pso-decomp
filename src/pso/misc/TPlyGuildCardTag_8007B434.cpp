@@ -29,7 +29,7 @@ void TLobby::fill_guild_card_from_char(s32 arg1) {
             if ((void *) TLobby__protocol_instance != NULL) {
                 u8 *src = TLobby__protocol_instance + 0x1900;
                 if ((u32) *(u32 *)((s8 *)src + 4) != 0U) {
-                    __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag((void *) (((u8 *)this)), (void *) src);
+                    __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(this, (void *) src);
                 }
             }
         }

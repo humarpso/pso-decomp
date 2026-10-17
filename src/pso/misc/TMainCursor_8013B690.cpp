@@ -94,64 +94,64 @@ extern const f32 lbl_805DB0D0;
 void TMainCursor::validate_target() {
     Target_8013B70C *t;
     ((TAdRicoRing *)(((u8 *)this) + 0x20))->clear_flags(0xB);
-    t = (Target_8013B70C *)((TMainCursor *)((u8 *)this))->check_field_24();
+    t = (Target_8013B70C *)this->check_field_24();
     if (t == NULL) {
-        ((TMainCursor *)((u8 *)this))->update_target_sub();
+        this->update_target_sub();
         return;
     }
     if (t->f424 == NULL) {
-        ((TMainCursor *)((u8 *)this))->update_target_sub();
+        this->update_target_sub();
         return;
     }
     if (((TMainCursor *)(((u8 *)this) + 0x60))->is_same_target(((TMainCursor *)(t->f424 + 0x4EC))->get_list()) == 0) {
-        ((TMainCursor *)((u8 *)this))->update_target_sub();
+        this->update_target_sub();
         return;
     }
     if (TMainCursor__sub_8013E358(((u8 *)this) + 0x60) != 1) {
         if (check_visible__11TMainCursorFv((u8 *)t + 0x500, t, TMainCursor__sub_8013E358(((u8 *)this) + 0x60),
                                             TMainCursor__sub_8013E338(((u8 *)this) + 0x60)) == -1) {
             set_target_index__11TMainCursorFs(t->f424 + 0x4F8, 0xFFFF);
-            ((TMainCursor *)((u8 *)this))->update_target_sub();
+            this->update_target_sub();
             return;
         }
     }
     if (TObjPlayer::is_any_teammate_in_state() != 0) {
-        TMainCursor__sub_8013E310(((u8 *)this));
+        TMainCursor__sub_8013E310(this);
         return;
     }
     switch (TMainCursor__sub_8013E358(((u8 *)this) + 0x60)) {
     case 0:
-        ((TMainCursor *)((u8 *)this))->update_target_sub();
+        this->update_target_sub();
         return;
     case 1:
         return;
     case 2:
         if (((TObjPlayer *)t)->can_perform_physical_action() == 0) {
-            ((TMainCursor *)((u8 *)this))->update_target_sub();
+            this->update_target_sub();
             return;
         }
         return;
     case 3:
         if (is_invalid_slot__10TObjPlayerFUc(get_cast_technique_level((u8 *)t + 0x428, TMainCursor__sub_8013E338(((u8 *)this) + 0x60))) != 0) {
-            ((TMainCursor *)((u8 *)this))->update_target_sub();
+            this->update_target_sub();
             return;
         }
         if (check_flag_100__10TObjPlayerFPv(t) == 0 && obj_testFlags30((s32)t, 0x20006) != 0) {
-            ((TMainCursor *)((u8 *)this))->update_target_sub();
+            this->update_target_sub();
             return;
         }
         if (test_action_mask__10TObjPlayerFl(t, 0x548000) != 0) {
-            ((TMainCursor *)((u8 *)this))->update_target_sub();
+            this->update_target_sub();
             return;
         }
         if (reset_key_machine_state__10TObjPlayerFv() == 0) {
-            ((TMainCursor *)((u8 *)this))->update_target_sub();
+            this->update_target_sub();
             return;
         }
         if (t->f32E - *(s16 *)(calc_technique_parameters(TMainCursor__sub_8013E338(((u8 *)this) + 0x60),
                                                       get_cast_technique_level((u8 *)t + 0x428, TMainCursor__sub_8013E338(((u8 *)this) + 0x60)),
                                                       obj_getField1c(t)) + 0x10) < 0) {
-            ((TMainCursor *)((u8 *)this))->update_target_sub();
+            this->update_target_sub();
             return;
         }
         return;
@@ -159,15 +159,15 @@ void TMainCursor::validate_target() {
         return;
     case 5:
         if (fn_8013F24C((u8 *)t + 0x4AC, TMainCursor__sub_8013E338(((u8 *)this) + 0x60)) != TMainCursor__sub_8013F244()) {
-            ((TMainCursor *)((u8 *)this))->update_target_sub();
+            this->update_target_sub();
             return;
         }
         if (test_action_mask__10TObjPlayerFl(t, 0x548000) != 0) {
-            ((TMainCursor *)((u8 *)this))->update_target_sub();
+            this->update_target_sub();
             return;
         }
         if (reset_key_machine_state__10TObjPlayerFv() == 0) {
-            ((TMainCursor *)((u8 *)this))->update_target_sub();
+            this->update_target_sub();
         }
         return;
     case 6:

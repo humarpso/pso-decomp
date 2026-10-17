@@ -1265,7 +1265,7 @@ void TObjEneDellBiter::vfunc_106() {
     }
 }
 
-s32 TObjEneDellBiter::vfunc_83() { if (get_target_info() != 0) { ((TObjEneDellBiter *)this)->init_target_offsets(); } }
+s32 TObjEneDellBiter::vfunc_83() { if (get_target_info() != 0) { this->init_target_offsets(); } }
 
 #define F(t, o) (*(t *)(arg0 + (o)))
 #define VO ((VObj_18_1fdb47 *)(arg0))
@@ -2204,7 +2204,7 @@ void TObjEneDellBiter::sub_803055C8() {
     if (temp_r3 < 0x1000U) {
         player = (s32)get_player_by_client_id(temp_r3);
         if (player != 0) {
-            ((TObjEneDD_ST *)((u8 *)this))->set_target_player((void *)player);
+            this->set_target_player((void *)player);
         }
         *(s32 *)((s8 *)((u8 *)this) + 0x3C0) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3C0) | 8);
     }

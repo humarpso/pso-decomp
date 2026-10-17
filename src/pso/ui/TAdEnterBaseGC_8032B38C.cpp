@@ -41,11 +41,11 @@ void TAdEnterBaseGC::create_parts() {
     u32 var_r0_2;
     temp_r3 = __nw__7TObjectFUl(0x24);
     if (temp_r3 != 0U) {
-        __ct__9TAdBackGCFv(temp_r3, (void *) (((u8 *)this)));
+        __ct__9TAdBackGCFv(temp_r3, this);
     }
     temp_r3_2 = __nw__7TObjectFUl(0x28);
     if (temp_r3_2 != 0U) {
-        __ct__12TAdBackTxtGCFv(temp_r3_2, (void *) (((u8 *)this)));
+        __ct__12TAdBackTxtGCFv(temp_r3_2, this);
     }
     if ((s32) (*(s32 *)&TAdEnterBaseGC__entry_mode) == 3) {
         temp_r3_3 = __nw__7TObjectFUl(0x708);

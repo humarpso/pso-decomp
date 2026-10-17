@@ -55,7 +55,7 @@ u32 TLobby__sub_8022318C(u8 *arg0, u8 *arg1) {
 void TLobby::swap_item_data(s32 *arg1) {
     s32 sp8[8];
 
-    ((TLobby *)sp8)->copy_item_data(((s32 *)this));
+    ((TLobby *)sp8)->copy_item_data(this);
     copy_item_data(arg1);
     ((TLobby *)arg1)->copy_item_data(sp8);
 }

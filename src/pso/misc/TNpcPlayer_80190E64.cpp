@@ -65,7 +65,7 @@ void TUnk_804B7C04::run_task() { if (this->m_2c == 1) { queue_destruction__7TObj
 u8 *TNpcPlayer::destroy_and_materialize_player(s16 arg1) {
     u8 *temp_r3;
 
-    if (((u8 *)this) != NULL) {
+    if (this != NULL) {
         *(s32 **)((s8 *)((u8 *)this) + 0x18) = lbl_804B7C04;
         temp_r3 = create_player_object(*(u16 *)((s8 *)((u8 *)this) + 0x30), 6, build_npc_player_record__10TNpcPlayerFl(*(s32 *)((s8 *)((u8 *)this) + 0x34)));
         if (temp_r3 != NULL) {
@@ -76,9 +76,9 @@ u8 *TNpcPlayer::destroy_and_materialize_player(s16 arg1) {
             }
             send_6x24_teleport_player(*(u16 *)((s8 *)((u8 *)this) + 0x30), ((u8 *)this) + 0x1C, *(s32 *)&this->_pad28);
         }
-        __dt__7TObjectFv(((u8 *)this), 0);
+        __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(((u8 *)this));
+            __dl__7TObjectFPv(this);
         }
     }
     return ((u8 *)this);

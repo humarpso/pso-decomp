@@ -3649,7 +3649,7 @@ void TNpcPlayer__sub_80152A34(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x84) = arg2;
 }
 
-void*TNpcPlayer::init() { TNpcPlayer__sub_80152A78((s16 *)((void*)(this))); return this; }
+void*TNpcPlayer::init() { TNpcPlayer__sub_80152A78((s16 *)this); return this; }
 
 void TNpcPlayer__sub_80152A78(s16 *self) {
     s32 i;

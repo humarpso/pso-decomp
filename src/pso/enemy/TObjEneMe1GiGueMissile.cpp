@@ -92,9 +92,9 @@ void TObjEneMe1GiGueMissile::explode(void *pos) {
 }
 #pragma pop
 
-int TObjEneMe1GiGueMissile::vfunc_6() { ((TObjEneMe1GiGueMissile *)this)->explode((char*)this + 0x6c); queue_destruction__7TObjectFv(this); }
+int TObjEneMe1GiGueMissile::vfunc_6() { this->explode((char*)this + 0x6c); queue_destruction__7TObjectFv(this); }
 
-void TObjEneMe1GiGueMissile::vfunc_9(void *a1) { ((TObjEneMe1GiGueMissile *)this)->explode((char*)a1 + 0x38); queue_destruction__7TObjectFv(this); }
+void TObjEneMe1GiGueMissile::vfunc_9(void *a1) { this->explode((char*)a1 + 0x38); queue_destruction__7TObjectFv(this); }
 
 void TObjEneMe1GiGueMissile::create(s32 arg0, s32 from, s32 arg2, f32 farg0, f32 farg1) {
     void *temp_r3;

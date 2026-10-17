@@ -1149,10 +1149,10 @@ void TObjEneGyaranzo::sub_800D2900() {
             end = 0xD;
             break;
         }
-        render_anim_model_at_pos__15TObjEneGyaranzoFv(((u8 *)this));
+        render_anim_model_at_pos__15TObjEneGyaranzoFv(this);
         for (i = start; i < end; i++) {
             idx = gyaranzo_flagged_resource_index_table[i];
-            ((VObj_18_5c0ed3 *)(((u8 *)this)))->m63(gyaranzo_resource_index_table[idx], &v.x);
+            ((VObj_18_5c0ed3 *)(this))->m63(gyaranzo_resource_index_table[idx], &v.x);
             {
                 Params_800D2900 p = lbl_8043C35C;
                 p.pos.x = v.x;
@@ -1184,14 +1184,14 @@ void TObjPlayer::update_aim_and_fire() {
         this->m_37c = 1;
     case 1:
         var_r30 = 0;
-        if (((TObjEnemy *)(((u8 *)this)))->is_actor_cadence_frame(0x1E) != 0) {
+        if (((TObjEnemy *)(this))->is_actor_cadence_frame(0x1E) != 0) {
             ((TObjEnemyCustom *)((u8 *)this))->find_target_in_range(lbl_805DA274);
         }
         temp_r6 = this->target;
         if (temp_r6 != NULL) {
             Vec_800D2CE4 v = *(Vec_800D2CE4 *)(temp_r6 + 0x38);
             subtract_vector(&v, (void *) (((u8 *)this) + 0x38));
-            temp_r3 = update_angle__10TObjPlayerFlPv((void *) (((u8 *)this)), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x350)) + 8)), &v);
+            temp_r3 = update_angle__10TObjPlayerFlPv(this, (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x350)) + 8)), &v);
             temp_r4 = temp_r3 >> 0x1F;
             if ((s32) ((temp_r4 ^ temp_r3) - temp_r4) < 0xE38) {
                 var_r30 = 1;
@@ -1222,9 +1222,9 @@ void TObjPlayer::update_aim_and_fire() {
         *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 & 0xFFFBFFFF);
         break;
     }
-    advance_animation_playback((void *) (((u8 *)this)));
-    apply_actor_gravity((void *) (((u8 *)this)), 0, lbl_805DA258);
-    update_collisions__10TObjPlayerFv((void *) (((u8 *)this)));
+    advance_animation_playback(this);
+    apply_actor_gravity(this, 0, lbl_805DA258);
+    update_collisions__10TObjPlayerFv(this);
 }
 
 void TObjPlayer__sub_800D2E8C(Ene_800D2E8C *arg0) {
@@ -1484,7 +1484,7 @@ void TObjEneGyaranzo::sub_800D37F4() {
     case 0:
     case 8:
         if (this->is_actor_cadence_frame(0x1E) != 0) {
-            select_targets__19TObjGyaranzoMissileFPv(((u8 *)this));
+            select_targets__19TObjGyaranzoMissileFPv(this);
             if (*(s32 *)&this->unk_3CC > 0) {
                 switch (*(s32 *)&this->m_3a8) {
                 case 0:
@@ -1496,40 +1496,40 @@ void TObjEneGyaranzo::sub_800D37F4() {
                         a = 1;
                     }
                     if (this->targetId != 0xFFFF) {
-                        update_if_active__15TObjEneMe1GiGueFl(((u8 *)this), a);
+                        update_if_active__15TObjEneMe1GiGueFl(this, a);
                         *(s32 *)&this->m_378 = 2;
                     }
                     break;
                 case 1:
                     this->targetId = this->m_3c0;
                     if (this->targetId != 0xFFFF) {
-                        update_if_active__15TObjEneMe1GiGueFl(((u8 *)this), 9);
+                        update_if_active__15TObjEneMe1GiGueFl(this, 9);
                         *(s32 *)&this->m_378 = 2;
                     }
                     break;
                 case 2:
                     this->targetId = *(s32 *)((s8 *)((u8 *)this) + 0x3BC);
                     if (this->targetId != 0xFFFF) {
-                        update_if_active__15TObjEneMe1GiGueFl(((u8 *)this), 9);
+                        update_if_active__15TObjEneMe1GiGueFl(this, 9);
                         *(s32 *)&this->m_378 = 2;
                     }
                     break;
                 }
             } else if (this->is_actor_cadence_frame(0x1E) != 0 &&
                        xz_distance_squared(((u8 *)this) + 0x38, ((u8 *)this) + 0x50) > lbl_805DA25C) {
-                update_if_active__15TObjEneMe1GiGueFl(((u8 *)this), 8);
+                update_if_active__15TObjEneMe1GiGueFl(this, 8);
             }
         }
         break;
     case 1:
         if (this->is_actor_cadence_frame(0x1E) != 0) {
             f32 *p = *(f32 * *)&this->movementParameters;
-            r = find_nearest_visible_player(((u8 *)this), 0, (int)p, lbl_805DA290 + *p);
+            r = find_nearest_visible_player(this, 0, (int)p, lbl_805DA290 + *p);
             if (this->targetId == 0xFFFF) {
                 this->targetId = r;
             }
             if (this->targetId == 0xFFFF) {
-                update_if_active__15TObjEneMe1GiGueFl(((u8 *)this), 8);
+                update_if_active__15TObjEneMe1GiGueFl(this, 8);
             }
         }
         break;

@@ -102,7 +102,7 @@ void TItemProShield::vfunc_16() {
     if (this->m_19c & 4) {
         refresh_owner_stats();
     }
-    ((TItemEquipBase *)this)->bind_loaded_resources();
+    this->bind_loaded_resources();
 }
 void TItemProShield__vt16(void *arg0, void *arg1) {
     set_dfp_bonus__9TItemDataFs((s32)arg1, (int)(((TItemProShield *)arg0)->m_198));
@@ -115,21 +115,21 @@ void TItemProShield::vfunc_44() {
     s32 temp_r3_4;
     s32 temp_r3_5;
     u8 temp_r3;
-    if (get_flag_40__8TItemMagFv((void *)(((u8 *)this))) == 0) {
+    if (get_flag_40__8TItemMagFv(this) == 0) {
         play_sound_effect(0x4000B20A, this->m_f0 + 0x38, 0, 0);
     }
     if ((u32) this->m_174 != 0U) {
-        temp_r3 = ((TItemProShield *)((u8 *)this))->get_slot_count();
+        temp_r3 = this->get_slot_count();
         switch ((s32) temp_r3) {
         case 39:
             if ((u32) this->m_174 != 0U) {
                 temp_r3_2 = __nw__15TItemHeapObjectFUl(0x2C);
                 if (temp_r3_2 != 0) {
-                    init_item_timer_event__13TUnk_804A0648Fv(temp_r3_2, this->m_174, (void *) (get_id__13TItemProArmorFv((void *) (((u8 *)this)))), 0x1C2);
+                    init_item_timer_event__13TUnk_804A0648Fv(temp_r3_2, this->m_174, (void *) (get_id__13TItemProArmorFv(this)), 0x1C2);
                 }
                 temp_r3_3 = __nw__15TItemHeapObjectFUl(0x2C);
                 if (temp_r3_3 != 0) {
-                    construct_timer_event__13TUnk_804A0628Fv(temp_r3_3, this->m_174, (void *) (get_id__13TItemProArmorFv((void *) (((u8 *)this)))), 0x1C2);
+                    construct_timer_event__13TUnk_804A0628Fv(temp_r3_3, this->m_174, (void *) (get_id__13TItemProArmorFv(this)), 0x1C2);
                 }
             }
             break;
@@ -137,7 +137,7 @@ void TItemProShield::vfunc_44() {
             if ((u32) this->m_174 != 0U) {
                 temp_r3_4 = __nw__7TObjectFUl(0x2C);
                 if (temp_r3_4 != 0) {
-                    ct_init__14TItemEffShieldFPUcs(temp_r3_4, this->m_174, (void *) (get_id__13TItemProArmorFv((void *) (((u8 *)this)))));
+                    ct_init__14TItemEffShieldFPUcs(temp_r3_4, this->m_174, (void *) (get_id__13TItemProArmorFv(this)));
                 }
             }
             break;
@@ -145,7 +145,7 @@ void TItemProShield::vfunc_44() {
         if ((temp_r3 >= 0x53U) && (temp_r3 <= 0x82U)) {
             temp_r3_5 = __nw__7TObjectFUl(0x30);
             if (temp_r3_5 != 0) {
-                __ct__13TUnk_8049F130FP7TObjectsUc(temp_r3_5, this->m_174, (void *) (get_id__13TItemProArmorFv((void *) (((u8 *)this)))), temp_r3);
+                __ct__13TUnk_8049F130FP7TObjectsUc(temp_r3_5, this->m_174, (void *) (get_id__13TItemProArmorFv(this)), temp_r3);
             }
         }
     }
@@ -157,13 +157,13 @@ void TItemProShield::vfunc_30() {
         if (get_flag_40__8TItemMagFv(this) == 0) {
             create_shield_effect__14TItemProShieldFlUsUl(tl_05, get_id__13TItemProArmorFv(this), this->m_190);
             ((TObjPlayer *)(&st))->reset_status_block();
-            st.a = ((TItem *)this)->get_field_ed();
-            st.b = ((TItemProShield *)this)->get_slot_count();
+            st.a = this->get_field_ed();
+            st.b = this->get_slot_count();
             st.c = this->m_f0;
             play_shield_sound_cue(&st);
         }
         if (this->m_19c & 1) {
-            switch (((TItemProShield *)this)->get_slot_count()) {
+            switch (this->get_slot_count()) {
             case 34:
                 add_actor_hp((u8 *)this->m_f0, (lbl_805DABF0 * (f32)((TItemProShield *)(this->m_f0))->get_field_2b8()));
                 break;

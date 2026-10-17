@@ -421,13 +421,13 @@ void TObjDFJisin::run_task() {
         v.x = ((Obj_80050EB4 *)this)->radius * sin_table_lookup(ang) + ((Obj_80050EB4 *)this)->cx;
         v.z = ((Obj_80050EB4 *)this)->radius * cos_table_lookup(ang) + ((Obj_80050EB4 *)this)->cz;
         if (!(vector_length(&v) > max)) {
-            ((void (*)(void *, Vec_80050EB4 *))fn_spawn_particle_f3_with_flags)(((Obj_80050EB4 *)this), &v);
-            ((void (*)(void *, Vec_80050EB4 *))damage_players_near_point)(((Obj_80050EB4 *)this), &v);
+            ((void (*)(void *, Vec_80050EB4 *))fn_spawn_particle_f3_with_flags)(this, &v);
+            ((void (*)(void *, Vec_80050EB4 *))damage_players_near_point)(this, &v);
             count++;
         }
     }
     if (((Obj_80050EB4 *)this)->radius > lbl_805D8AA0 && count == 0) {
-        queue_destruction__7TObjectFv(((Obj_80050EB4 *)this));
+        queue_destruction__7TObjectFv(this);
         return;
     }
     ((Obj_80050EB4 *)this)->radius += lbl_805D8AA4;

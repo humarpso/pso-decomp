@@ -513,37 +513,37 @@ void TItemMag::copy_owner_pair(void *a, void *b) {
 
 void TItemMag::apply_transform_action(u8 arg1) {
     u8 temp_r31;
-    temp_r31 = ((u8 (*)(void *))get_field_ed__5TItemFv)((void *) (((u8 *)this)));
+    temp_r31 = ((u8 (*)(void *))get_field_ed__5TItemFv)(this);
     switch ((s32) arg1) {
     case 0:
         if (*(u8 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0xF0)) + 0x88C) & 1) {
-            ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), 0x1D);
+            ((s32 (*)(void *, int))try_add_action__8TItemMagFii)(this, 0x1D);
         } else {
-            ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), 0x21);
+            ((s32 (*)(void *, int))try_add_action__8TItemMagFii)(this, 0x21);
         }
         break;
     case 1:
         if (*(u8 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0xF0)) + 0x88C) & 1) {
-            ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), 0x22);
+            ((s32 (*)(void *, int))try_add_action__8TItemMagFii)(this, 0x22);
         } else {
-            ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), 0x27);
+            ((s32 (*)(void *, int))try_add_action__8TItemMagFii)(this, 0x27);
         }
         break;
     case 2:
-        ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), 0x28);
+        ((s32 (*)(void *, int))try_add_action__8TItemMagFii)(this, 0x28);
         break;
     case 3:
-        ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), 0x29);
+        ((s32 (*)(void *, int))try_add_action__8TItemMagFii)(this, 0x29);
         break;
     case 4:
-        ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), 0x2A);
+        ((s32 (*)(void *, int))try_add_action__8TItemMagFii)(this, 0x2A);
         break;
     case 5:
-        ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), 0x2B);
+        ((s32 (*)(void *, int))try_add_action__8TItemMagFii)(this, 0x2B);
         break;
     }
-    if (temp_r31 != ((u8 (*)(void *))get_field_ed__5TItemFv)((void *) (((u8 *)this)))) {
-        ((TItemMag *)((u8 *)this))->apply_form_change();
+    if (temp_r31 != ((u8 (*)(void *))get_field_ed__5TItemFv)(this)) {
+        this->apply_form_change();
     }
 }
 
@@ -1003,16 +1003,16 @@ void TItemMag::apply_natural_evolution() {
   s32 stage;
   s16 level;
   u8 before;
-  stage = ((s8 (*)(void *))get_evolution_stage__8TItemMagFPv)(((Self_801124C4 *)this));
+  stage = ((s8 (*)(void *))get_evolution_stage__8TItemMagFPv)(this);
   level = get_mag_total_level(((Self_801124C4 *)this)->data);
-  before = get_field_ed__5TItemFv((s32) ((Self_801124C4 *)this));
+  before = get_field_ed__5TItemFv((s32) this);
   {
-    new_var = (s32) ((Self_801124C4 *)this);
+    new_var = (s32) this;
     if ((lbl_8043E534[0] <= level) && (level < lbl_8043E534[1]))
     {
       if (stage < 1)
       {
-        ((TItemMag *)((Self_801124C4 *)this))->evolve_first_form();
+        ((TItemMag *)this)->evolve_first_form();
       }
     }
     else
@@ -1024,13 +1024,13 @@ void TItemMag::apply_natural_evolution() {
       }
     }
     else
-      if ((((lbl_8043E534[2] <= level) && ((level % 5) == 0)) && (stage <= 3)) && (((s32 (*)(void *))evolve_rare_form__8TItemMagFPv)(((Self_801124C4 *)this)) == 0))
+      if ((((lbl_8043E534[2] <= level) && ((level % 5) == 0)) && (stage <= 3)) && (((s32 (*)(void *))evolve_rare_form__8TItemMagFPv)(this) == 0))
     {
-      ((TItemMag *)((Self_801124C4 *)this))->update_feed_anim();
+      ((TItemMag *)this)->update_feed_anim();
     }
     if (before != get_field_ed__5TItemFv(new_var))
     {
-      ((TItemMag *)((Self_801124C4 *)this))->apply_form_change();
+      ((TItemMag *)this)->apply_form_change();
     }
   }
 }
@@ -1265,14 +1265,14 @@ void TItemMag__vt15(void* p, s32 _w1) { ((TItemMag *)p)->select_support_action(_
 
 void TItemMag::select_support_action(s32 arg1) {
     s32 temp_r4;
-    ((TItemMag *)((u8 *)this))->apply_feed_delta();
+    this->apply_feed_delta();
     *(s32 *)((s8 *)((u8 *)this) + 0x18C) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x18C) & 0xF0);
     temp_r4 = *(s32 *)((s8 *)((u8 *)this) + 0x18C) | arg1;
     *(s32 *)((s8 *)((u8 *)this) + 0x18C) = temp_r4;
     *(f32 *)((s8 *)((u8 *)this) + 0x1C8) = (f32) lbl_805DABB4;
     *(s32 *)((s8 *)((u8 *)this) + 0x1CC) = 0;
-    ((s32 (*)(void *, int))select_action_motion__8TItemMagFPv)((void *) (((u8 *)this)), temp_r4);
-    ((TItemMag *)((u8 *)this))->set_subs_visible(1);
+    ((s32 (*)(void *, int))select_action_motion__8TItemMagFPv)(this, temp_r4);
+    this->set_subs_visible(1);
 }
 
 void TItemMag::request_support_action(s32 arg1) {

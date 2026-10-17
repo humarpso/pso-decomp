@@ -51,7 +51,7 @@ void TBoss7Joint::vfunc_62() {
 
     temp_r4 = *(s16 *)((s8 *)((u8 *)this) + 0x32C);
     temp_r31 = *(s16 *)((s8 *)((u8 *)this) + 0x2B8) - temp_r4;
-    if (is_part_active__11TBoss7JointFv((void *) (((u8 *)this)), temp_r4) != 0U) {
+    if (is_part_active__11TBoss7JointFv(this, temp_r4) != 0U) {
         TObjFish__sub_802EC468((s32)(((u8 *)this) + 0x38), lbl_805DEBB0, lbl_805DEBB4);
         apply_damage_and_set_effect__8TObjFishFl((int) (*(s32 *)((s8 *)((u8 *)this) + 0x10)), temp_r31, (int) (*(u16 *)((s8 *)((u8 *)this) + 0x2D4)));
     } else {

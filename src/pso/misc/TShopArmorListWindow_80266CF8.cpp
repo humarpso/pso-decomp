@@ -35,7 +35,7 @@ void TShopArmorListWindow::reset_list() {
     this->m_72 = 0;
     this->m_74 = 0;
     for (i = 0; i < (u32)*(s16 *)&this->unk_76; i++) {
-        reset__20TWindowSubStatusDispFPv(get_array_entry__13TUnk_804CE018Fi(((u8 *)this), i));
+        reset__20TWindowSubStatusDispFPv(get_array_entry__13TUnk_804CE018Fi(this, i));
     }
 }
 

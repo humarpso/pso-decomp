@@ -376,12 +376,12 @@ void TObjEneDubchik::sub_800A8B8C() {
   u8 *var_r31;
   u8 *var_r3;
   var_r4 = (s32 *) ((u8 *) 0);
-  var_r31 = (u8 *) ((u8 *)this);
+  var_r31 = (u8 *) this;
   var_r4 = (s32 *)&lbl_804910F4.value;
   var_r3 = (u8 *) var_r31;
   var_r5 = (s32 *)&lbl_804910F4.value;
   var_r4 = (s32 *) ((u8 *) ((s32 *) 3));
-  *((f32 *) (((s8 *)&lbl_804910F4.value) + 0x28)) = ((TObjEneDubchik *)((u8 *)this))->sub_800AAF78(0);
+  *((f32 *) (((s8 *)&lbl_804910F4.value) + 0x28)) = this->sub_800AAF78(0);
   temp_f1 = ((TObjEneDubchik *)var_r3)->sub_800AAF78(3);
   var_r5 = (var_r4 = (s32 *)&lbl_804910F4.value);
   var_r3 = (u8 *) var_r31;
@@ -925,13 +925,13 @@ void TObjEneDubchik::sub_800AA10C() {
     switch (this->mode) {
     case 8:
     case 0:
-        if ((((TObjEneDubchik *)(((u8 *)this)))->is_actor_cadence_frame(0x1E) != 0) && (find_target_in_range__15TObjEnemyCustomFf((void *) (((u8 *)this)), this->m_3d0) != 0)) {
+        if ((((TObjEneDubchik *)(this))->is_actor_cadence_frame(0x1E) != 0) && (find_target_in_range__15TObjEnemyCustomFf(this, this->m_3d0) != 0)) {
             ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active(1);
         }
         break;
     case 1:
-        if (((TObjEneDubchik *)(((u8 *)this)))->is_actor_cadence_frame(0x1E) != 0) {
-            find_target_in_range__15TObjEnemyCustomFf((void *) (((u8 *)this)), (f32) (lbl_805D9B10 + this->m_3d0));
+        if (((TObjEneDubchik *)(this))->is_actor_cadence_frame(0x1E) != 0) {
+            find_target_in_range__15TObjEnemyCustomFf(this, (f32) (lbl_805D9B10 + this->m_3d0));
         }
         temp_r0_2 = *(u32 *)((s8 *)((u8 *)this) + 0x2A8);
         if (temp_r0_2 == 0U) {
@@ -940,14 +940,14 @@ void TObjEneDubchik::sub_800AA10C() {
         }
         if (this->m_3a4 >= lbl_805D9B14) {
             this->m_3a4 = (f32) lbl_805D9AE0;
-            if ((*(f32 *)((s8 *)((u8 *)this) + 0x354) >= lbl_805D9AE0) && (calc_boss4_scale__10TObjPlayerFi((s32)(((u8 *)this))) < lbl_805D9B18)) {
+            if ((*(f32 *)((s8 *)((u8 *)this) + 0x354) >= lbl_805D9AE0) && (calc_boss4_scale__10TObjPlayerFi((s32)this) < lbl_805D9B18)) {
                 this->targetId = pick_random_nearby_player__10TObjPlayerFPvf((((u8 *)this)), lbl_805D9B1C);
                 if (this->targetId != 0xFFFF) {
                     *(u32 *)((s8 *)((u8 *)this) + 0x2A8) = find_active_entity_by_id(this->targetId);
                     ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active(9);
                     return;
                 }
-                find_target_in_range__15TObjEnemyCustomFf((void *) (((u8 *)this)), (f32) (lbl_805D9B10 + this->m_3d0));
+                find_target_in_range__15TObjEnemyCustomFf(this, (f32) (lbl_805D9B10 + this->m_3d0));
                 return;
             }
         } else if (temp_r0_2 != 0U) {
@@ -960,8 +960,8 @@ void TObjEneDubchik::sub_800AA10C() {
                 ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active(2);
                 return;
             }
-        } else if (((TObjEneDubchik *)(((u8 *)this)))->is_actor_cadence_frame(0x1E) != 0) {
-            find_target_in_range__15TObjEnemyCustomFf((void *) (((u8 *)this)), (f32) (lbl_805D9B10 + this->m_3d0));
+        } else if (((TObjEneDubchik *)(this))->is_actor_cadence_frame(0x1E) != 0) {
+            find_target_in_range__15TObjEnemyCustomFf(this, (f32) (lbl_805D9B10 + this->m_3d0));
         }
         break;
     }

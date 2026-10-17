@@ -83,17 +83,17 @@ extern "C" {
 void TPlayerBattleCtrl4P::begin_battle_results() {
     s32 i;
     VObj_18_26c590 *p;
-    update__19TPlayerBattleCtrl4PFv(((void *)this));
+    update__19TPlayerBattleCtrl4PFv(this);
     {
         void *temp = __nw__7TObjectFUl(0x28);
         if (temp != 0) {
-            __ct__15TDuelEffectCtrlFP7TObjectUc(temp, ((void *)this), 1);
+            __ct__15TDuelEffectCtrlFP7TObjectUc(temp, this, 1);
         }
     }
     frame_timer = 0x1E;
     TWindowCtrl::close_timer_window();
     for (i = 0; i < 4; i++) {
-        TPlayerBattleCtrl4P::remove_player(((void *)this), i, 1);
+        TPlayerBattleCtrl4P::remove_player(this, i, 1);
     }
     for (i = 0; i < 4; i++) {
         p = (VObj_18_26c590 *)get_player_by_client_id(i);
@@ -101,7 +101,7 @@ void TPlayerBattleCtrl4P::begin_battle_results() {
             set_type__10TObjPlayerFl((u8 *)p + 0x644, 0xE10);
         }
     }
-    ((s32 (*)(void *))update_all_players__19TPlayerBattleCtrl4PFv)(((void *)this));
+    ((s32 (*)(void *))update_all_players__19TPlayerBattleCtrl4PFv)(this);
     set_score((s32)((void *)1));
 }
 void TPlayerBattleCtrl4P::update_battle_time_and_rankings() {
@@ -115,7 +115,7 @@ void TPlayerBattleCtrl4P::update_battle_time_and_rankings() {
         set_split_screen_battle_phase(3);
         return;
     }
-    if (is_battle_decided__19TPlayerBattleCtrl4PFv(((Ctl_80311FA0 *)this)) != 0) {
+    if (is_battle_decided__19TPlayerBattleCtrl4PFv(this) != 0) {
         if (--result_confirm_timer <= 0) {
             set_split_screen_battle_phase(3);
         }
@@ -127,7 +127,7 @@ void TPlayerBattleCtrl4P::update_battle_time_and_rankings() {
         update_player_alive_flags();
         player_refresh_timer = 0x5A;
     }
-    calculate_split_screen_battle_rankings(((Ctl_80311FA0 *)this));
+    calculate_split_screen_battle_rankings(this);
 }
 void TPlayerBattleCtrl4P::start_battle() { start_duel(); set_score((s32)((void*)((void*)((void*)1)))); }
 void TPlayerBattleCtrl4P::close_intro_and_start_battle() {
@@ -149,14 +149,14 @@ void TPlayerBattleCtrl4P::wait_for_start_countdown() {
 }
 void TPlayerBattleCtrl4P::update_ready_wait() {
     ready_timer = (ready_timer - 1);
-    if ((check_all_players_flag__19TPlayerBattleCtrl4PFv(((void *)this)) != 0) || ((s32) ready_timer >= 0)) {
+    if ((check_all_players_flag__19TPlayerBattleCtrl4PFv(this) != 0) || ((s32) ready_timer >= 0)) {
         if (this->intro_window != (void *) 0) {
         TWindow__close((u8 *)this->intro_window);
         this->intro_window = 0U;
         {
             void *temp = __nw__7TObjectFUl(0x28);
             if (temp != 0) {
-                __ct__15TDuelEffectCtrlFP7TObjectUc(temp, ((void *)this), 0);
+                __ct__15TDuelEffectCtrlFP7TObjectUc(temp, this, 0);
             }
         }
         frame_timer = 0x96;

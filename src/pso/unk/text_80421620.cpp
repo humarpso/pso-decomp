@@ -842,7 +842,7 @@ s32 TLobby::build_dhcp_release() {
     s32 m;
     u8 *p;
     u16 len;
-    NetMemset(((u8 *)this), 0, 0x5DC);
+    NetMemset(this, 0, 0x5DC);
     ((u8 *)this)[0] = 1;
     ((u8 *)this)[1] = 1;
     ((u8 *)this)[2] = 6;
@@ -884,7 +884,7 @@ s32 TLobby::dhcp_build_packet() {
     u8 *p;
     u16 len;
     u32 tmp;
-    NetMemset(((u8 *)this), 0, 0x5DC);
+    NetMemset(this, 0, 0x5DC);
     ((u8 *)this)[0] = 1;
     ((u8 *)this)[1] = 1;
     ((u8 *)this)[2] = 6;
@@ -949,7 +949,7 @@ s32 TLobby::build_dhcp_discover_packet() {
     u8 *p;
     u16 len;
     s32 n;
-    NetMemset(((u8 *)this), 0, 0x5DC);
+    NetMemset(this, 0, 0x5DC);
     ((u8 *)this)[0] = 1;
     ((u8 *)this)[1] = 1;
     ((u8 *)this)[2] = 6;

@@ -25,7 +25,7 @@ s32 TWindowSubComCard::find_entry_value_by_id(s32 arg1) {
     s32 i;
     Ent_802684BC *e;
     for (i = 0; i < ((Win_802684BC *)this)->f76; i++) {
-        e = ((Ent_802684BC *(*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(((Win_802684BC *)this), i);
+        e = ((Ent_802684BC *(*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(this, i);
         if (e != NULL && is_flag_4_set__17TWindowSubComCardFv(e) != 0 && arg1 == ((s32 (*)(void *))get_entry_id__17TWindowSubComCardFv)(e)) {
             return e->f1C;
         }
@@ -36,7 +36,7 @@ void TWindowSubComCard::mark_entry_by_id(s32 arg1) {
     s32 i;
     u8 *e;
     for (i = 0; i < *(s16 *)(((u8 *)this) + 0x76); i++) {
-        e = ((u8 *(*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(((u8 *)this), i);
+        e = ((u8 *(*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(this, i);
         if (e != 0 && ((s32 (*)(void))is_flag_4_set__17TWindowSubComCardFv)() != 0 && arg1 == ((s32 (*)(u8 *))get_entry_id__17TWindowSubComCardFv)(e)) {
             *(u16 *)e |= 1;
             *(s32 *)(e + 0x24) = -1;
@@ -47,7 +47,7 @@ void TWindowSubComCard::disable_entry_by_id(s32 arg1) {
     s32 i;
     u8 *e;
     for (i = 0; i < *(s16 *)(((u8 *)this) + 0x76); i++) {
-        e = ((u8 *(*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(((u8 *)this), i);
+        e = ((u8 *(*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(this, i);
         if (e != 0 && ((s32 (*)(void))is_flag_4_set__17TWindowSubComCardFv)() != 0 && arg1 == ((s32 (*)(u8 *))get_entry_id__17TWindowSubComCardFv)(e)) {
             *(u16 *)e &= 0xFFFE;
             *(s32 *)(e + 0x24) = 0xFF909090;
@@ -58,7 +58,7 @@ void TWindowMakeTeam::set_entry_string_by_id(void *arg1, s32 arg2) {
     s32 i;
     u8 *e;
     for (i = 0; i < *(s16 *)(((u8 *)this) + 0x76); i++) {
-        e = ((u8 *(*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(((u8 *)this), i);
+        e = ((u8 *(*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(this, i);
         if (e != 0 && ((s32 (*)(void))is_flag_4_set__17TWindowSubComCardFv)() != 0 && arg2 == ((s32 (*)(u8 *))get_entry_id__17TWindowSubComCardFv)(e)) {
             set_string__20TWindowSubStatusDispFUl(e, arg1);
         }

@@ -414,23 +414,23 @@ void TBoss6Mag::sub_8032E8DC() {
     case 24:
     case 25:
     case 26:
-        if (((TBoss6Mag *)((Obj_8032E8DC *)this))->is_phase_active() != 0) {
-            ((TBoss6Type2 *)((Obj_8032E8DC *)this))->ensure_particle_emitter(1);
+        if (((TBoss6Mag *)this)->is_phase_active() != 0) {
+            ((TBoss6Type2 *)this)->ensure_particle_emitter(1);
         } else {
-            ((TBoss6Type2 *)((Obj_8032E8DC *)this))->destroy_part_object(1);
+            ((TBoss6Type2 *)this)->destroy_part_object(1);
         }
-        ((TBoss6Type2 *)((Obj_8032E8DC *)this))->destroy_part_object(2);
+        ((TBoss6Type2 *)this)->destroy_part_object(2);
         break;
     case 5:
     case 9:
     case 10:
     case 11:
-        ((TBoss6Type2 *)((Obj_8032E8DC *)this))->destroy_part_object(1);
-        ((TBoss6Type2 *)((Obj_8032E8DC *)this))->ensure_particle_emitter(2);
+        ((TBoss6Type2 *)this)->destroy_part_object(1);
+        ((TBoss6Type2 *)this)->ensure_particle_emitter(2);
         break;
     default:
         ((TBoss6Type2 *)((Obj_8032E8DC *)this))->destroy_part_object(1);
-        ((TBoss6Type2 *)((Obj_8032E8DC *)this))->destroy_part_object(2);
+        ((TBoss6Type2 *)this)->destroy_part_object(2);
         break;
     }
     if (!(((Obj_8032E8DC *)this)->f3C8 & 0x1F) && is_active__11TBoss6Type2Fv(((Obj_8032E8DC *)this)->f378) != 0) {
@@ -805,7 +805,7 @@ void TBoss6Type2::turn_toward_target() {
         } else {
             s32 ang;
             u8 *t;
-            ang = (s32)((12288.0f) * ((TBoss6Type2 *)((u8 *)this))->apply_direction_sign((1.0f)) + (f32)*(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x378)) + 0x60));
+            ang = (s32)((12288.0f) * this->apply_direction_sign((1.0f)) + (f32)*(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x378)) + 0x60));
             t = *(u8 **)((s8 *)((u8 *)this) + 0x378);
             VecCopy((Vec *)&v, (const Vec *)(t + 0x38));
             v.x += (5e+01f) * ((f32 (*)(s32))sin_table_lookup)(ang);
@@ -816,7 +816,7 @@ void TBoss6Type2::turn_toward_target() {
         VecCopy((Vec *)&v, (const Vec *)(p + 0x38));
         v.y = (3e+01f);
     }
-    if (project_actor_to_ground(((u8 *)this), &v, 0) != 0) {
+    if (project_actor_to_ground(this, &v, 0) != 0) {
         v.y += (3e+01f);
     }
     ((f32 (*)(void *, void *))subtract_vector)(&v, ((u8 *)this) + 0x38);
@@ -824,8 +824,8 @@ void TBoss6Type2::turn_toward_target() {
     if (((TBoss6Type2 *)(*(s32 *)((s8 *)((u8 *)this) + 0x378)))->get_state() == 0xE) {
         turn = 0x6D0;
     }
-    calc_dir_angles__11TBoss6Type2FPvPvPvPv((void *)(((u8 *)this)), &a, &b, (Vec_8032EF34 *)((struct Vec_8032EF34 *)&v));
-    *(s32 *)((s8 *)((u8 *)this) + 0x60) = ((TBoss6Type2 *)((u8 *)this))->step_angle_toward(*(s32 *)((s8 *)((u8 *)this) + 0x60), a, turn);
+    calc_dir_angles__11TBoss6Type2FPvPvPvPv(this, &a, &b, (Vec_8032EF34 *)((struct Vec_8032EF34 *)&v));
+    *(s32 *)((s8 *)((u8 *)this) + 0x60) = this->step_angle_toward(*(s32 *)((s8 *)((u8 *)this) + 0x60), a, turn);
     *(s32 *)((s8 *)((u8 *)this) + 0x5C) = approach_angle_limited(*(s32 *)((s8 *)((u8 *)this) + 0x5C), b, 0x1B4);
 }
 #pragma pop
@@ -1124,13 +1124,13 @@ void TBoss6Mag::set_action(s32 arg1) {
     u8 *temp_r31;
     *(s32 *)((s8 *)((u8 *)this) + 0x380) = arg1;
     temp_r31 = (u8 *)((void *)((u8 *)boss6_type2_action_table + (*(s32 *)((s8 *)((u8 *)this) + 0x380) * 0x24)));
-    ((TBoss6Mag *)((u8 *)this))->change_motion((s32)((int) (*(s32 *)((s8 *)temp_r31 + 4))));
+    this->change_motion((s32)((int) (*(s32 *)((s8 *)temp_r31 + 4))));
     *(s32 *)((s8 *)((u8 *)this) + 0x388) = (s32) *(s32 *)((s8 *)temp_r31 + 8);
     member_action.words[0] = *(s32 *)((s8 *)temp_r31 + 0xC);
     member_action.words[1] = *(s32 *)((s8 *)temp_r31 + 0x10);
     member_action.words[2] = *(s32 *)((s8 *)temp_r31 + 0x14);
     if (member_action.action != 0) {
-        (((TBoss6Type2 *)((void *) (((u8 *)this))))->*member_action.action)();
+        (((TBoss6Type2 *)(this))->*member_action.action)();
     }
 }
 
@@ -1204,7 +1204,7 @@ void TBoss6Mag::sub_8033040C() {
     s32 var_r31;
     TObjPlayer::toggle_particle_effect();
     push_matrix();
-    post_translate_matrix((void *) ((u8 *)(((u8 *)this)) + 0x38));
+    post_translate_matrix((void *) ((u8 *)this + 0x38));
     rotate_matrix_y(0, (int) (*(s32 *)((s8 *)((u8 *)this) + 0x60)));
     rotate_matrix_x(0, (int) (*(s32 *)((s8 *)((u8 *)this) + 0x5C)));
     temp_f1 = *(f32 *)((s8 *)((u8 *)this) + 0x3F8);
@@ -1219,7 +1219,7 @@ void TBoss6Mag::sub_8033040C() {
             var_r31 = 1;
         }
     }
-    ((TBoss6Mag *)((u8 *)this))->draw_model_motion_blend();
+    this->draw_model_motion_blend();
     if (var_r31 != 0) {
         TBoss6PlotFalz::update_camera_target();
     }
@@ -1237,7 +1237,7 @@ void TBoss6Mag::spawn_trap_by_stat() {
             var_r3 = 0x6B518;
         }
     }
-    play_persistent_sound(var_r3, ((u8 *)this), ((u8 *)this) + 0x38, 0, 0);
+    play_persistent_sound(var_r3, this, ((u8 *)this) + 0x38, 0, 0);
 }
 
 void TBoss6Mag::render() { sub_8033040C(); }

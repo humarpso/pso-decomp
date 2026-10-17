@@ -75,7 +75,7 @@ void TPlayerBattleCtrl4P::return_to_hunters_guild() {
     if (o != NULL) {
         ((THunterGuildSeqOffline *)o)->init(tl_00, (s32 *)TPlayerBattleCtrl4P::reset_random_enemies_mode);
     }
-    queue_destruction__7TObjectFv(((void *)this));
+    queue_destruction__7TObjectFv(this);
 }
 void TPlayerBattleCtrl4P::sub_80311890() {  }
 
@@ -145,7 +145,7 @@ void TPlayerBattleCtrl4P::close_battle_results() {
     }
     TWindowCtrl::close_timer_window();
     for (i = 0; i < 4; i++) {
-        TPlayerBattleCtrl4P::remove_player(((Ctl_803119BC *)this), i, 1);
+        TPlayerBattleCtrl4P::remove_player(this, i, 1);
     }
 }
 void TPlayerBattleCtrl4P::record_battle_results_after_delay() {
@@ -153,10 +153,10 @@ void TPlayerBattleCtrl4P::record_battle_results_after_delay() {
     TPlayerBattleCtrl4P::update_all_players();
     temp_r4 = ready_timer;
     ready_timer = (temp_r4 - 1);
-    if ((set_state__19TPlayerBattleCtrl4PFv((void *) (((u8 *)this)), temp_r4) != 0) || ((s32) ready_timer <= 0)) {
+    if ((set_state__19TPlayerBattleCtrl4PFv(this, temp_r4) != 0) || ((s32) ready_timer <= 0)) {
         reset_score_counters();
-        calculate_split_screen_battle_rankings((void *) (((u8 *)this)));
-        record_split_screen_battle_results((void *) (((u8 *)this)));
+        calculate_split_screen_battle_rankings(this);
+        record_split_screen_battle_results(this);
         if ((s32) split_screen_battle_rankings.value == (s32) local_client_id) {
             TPlayerBattleCtrl4P::notify_lobby((void*)this, (void*)lbl_80475BC4, (void*)0x96);
         } else {
@@ -188,7 +188,7 @@ void TPlayerBattleCtrl4P::close_rematch_menu() {
     var_r31 = 0;
     do {
         if ((((s32)get_player_by_client_id(var_r31)) != 0U) && (check_player_flag1__6TLobbyFv() != 0)) {
-            send_code_45_to_window__19TPlayerBattleCtrl4PFPvii((((u8 *)this)), ((u16) var_r31), 1);
+            send_code_45_to_window__19TPlayerBattleCtrl4PFPvii((this), ((u16) var_r31), 1);
         }
         var_r31 += 1;
     } while ((s32) var_r31 < 4);
@@ -233,7 +233,7 @@ void TPlayerBattleCtrl4P::update_rematch_menu() {
         }
     }
 }
-void TPlayerBattleCtrl4P::wait_for_result_window_close() { if (close_windows_on_button() != 0) { close_player_windows(); update_players__19TPlayerBattleCtrl4PFv(((void*)this)); set_score((s32)((void*)((void*)5))); } }
+void TPlayerBattleCtrl4P::wait_for_result_window_close() { if (close_windows_on_button() != 0) { close_player_windows(); update_players__19TPlayerBattleCtrl4PFv(this); set_score((s32)((void*)((void*)5))); } }
 extern "C" {
 
 #pragma scheduling off

@@ -196,10 +196,10 @@ void TTecFoie::vfunc_8(void *target_arg) {
     Target_80230004 *target = (Target_80230004 *)target_arg;
     Dmg_80230004 d;
     d.kind = 1;
-    d.amount = ((Tec_80230004 *)this)->power;
+    d.amount = this->power;
     target->receive(((Tec_80230004 *)this)->owner, d, ((Tec_80230004 *)this)->f8, 0, -1);
     play_sound_effect(0x4002A828, target->pos, 0, 0);
-    queue_destruction__7TObjectFv(((Tec_80230004 *)this));
+    queue_destruction__7TObjectFv(this);
 }
 
 void TTecFoie::create_ex(void *arg0, void *arg1, void *arg2, void *arg3) {

@@ -92,7 +92,7 @@ void TUnk_804A4F60::psycho_wand_roll_extra() {
     }
     ((Self_8012B9B4 *)this)->f264 = ((Self_8012B9B4 *)this)->owner->f60;
     VecCopy((Vec *)(((Self_8012B9B4 *)this)->f268), (const Vec *)(((Self_8012B9B4 *)this)->owner->pos));
-    send_6x61_activate_mag_effect__14TItemEquipBaseFl(((Self_8012B9B4 *)this), lbl_805DAEC0 * (lbl_805DAEC4 * (f32)rand()));
+    send_6x61_activate_mag_effect__14TItemEquipBaseFl(this, lbl_805DAEC0 * (lbl_805DAEC4 * (f32)rand()));
 }
 
 }

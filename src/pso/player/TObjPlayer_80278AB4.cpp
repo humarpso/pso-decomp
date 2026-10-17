@@ -41,7 +41,7 @@ void TObjPlayer::build_shop_item_list() {
         if (*(s16 *)((s8 *)((u8 *)this) + 0x72) <= 0) {
             ((TWindowSubStatusDisp *)((u8 *)this))->add_list_entry(-1);
         }
-        calc_list_content_extent(((u8 *)this));
+        calc_list_content_extent(this);
     }
 }
 

@@ -470,7 +470,7 @@ void TObjCityAreaWarp::confirm_area_transfer(s32) {
     TLobby__data_805D5CE8 = 1;
 }
 
-void TObjCityAreaWarp::debug_print_area_num() { ((TObjCityAreaWarp *)this)->do_warp(); }
+void TObjCityAreaWarp::debug_print_area_num() { this->do_warp(); }
 
 void TObjCityAreaWarp::render() { if (is_main_phase_15__9TObjEneDDFv(this) != 0) { do_warp(); } }
 

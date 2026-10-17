@@ -71,7 +71,7 @@ u8 *TWindowUserSort__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TWindowMainMenu1P::vfunc_9() { if (close_active_submenu() != 0) { ((TWindowMainMenu1P *)this)->create_char_select_slot(); } }
+void TWindowMainMenu1P::vfunc_9() { if (close_active_submenu() != 0) { this->create_char_select_slot(); } }
 
 void TWindowMainMenu1P::vfunc_7() {
     u8 *arg0 = (u8 *)this;

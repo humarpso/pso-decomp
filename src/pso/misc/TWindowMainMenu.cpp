@@ -105,7 +105,7 @@ void TWindowMainMenu::open_menu_with_entry(s16 arg1) {
     temp_r31 = *(u32 *)((s8 *)((u8 *)this) + 0x1C);
     append_child_rows__15TWindowMainMenuFPvi((int)temp_r31, (void *)arg1);
     TWindowMainMenu__sub_802ADADC(temp_r31, 0);
-    ((TWindowMainMenu *)((u8 *)this))->update_submenu();
+    this->update_submenu();
 }
 
 void populate_menu__15TWindowMainMenuFPvPv(u8 *arg0, Ent_802646E4 *arg1) {
@@ -156,7 +156,7 @@ void TWindowMainMenu::handle_menu_selection() {
                 return;
             }
             close_child_window();
-            ((TWindowMainMenu *)((Menu_802647CC *)this))->update_submenu();
+            ((TWindowMainMenu *)this)->update_submenu();
             create_submenu(id);
             return;
         }

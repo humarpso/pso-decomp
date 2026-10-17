@@ -49,7 +49,7 @@ void refresh_quest_list__6TLobbyFi(s32 arg0) {
 }
 
 void TLobby::bswap_enemy_set_rows(u32 arg1) {
-    Ent_801F3A80* p = (Ent_801F3A80*)((u8*)this);
+    Ent_801F3A80* p = (Ent_801F3A80*)this;
     u32 n = arg1 / sizeof(Ent_801F3A80);
     u32 i;
     for (i = 0; i < n; i++, p++) {

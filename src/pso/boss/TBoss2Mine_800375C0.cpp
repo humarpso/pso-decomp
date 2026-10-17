@@ -293,19 +293,19 @@ void TUnk_80482EC0::vfunc_106(s32 arg1) {
         *(s32 *)((s8 *)((u8 *)this) + 0x5C) = 0x8000;
         *(s32 *)((s8 *)((u8 *)this) + 0x3B0) = 0;
         *(s32 *)((s8 *)((u8 *)this) + 0x3C8) = 0;
-        temp_r7 = (s32) ((3e+01f) * calc_elapsed_scaled__9TObjEneDDFv((void *) (((u8 *)this)), 0x8000, temp_r5));
+        temp_r7 = (s32) ((3e+01f) * calc_elapsed_scaled__9TObjEneDDFv(this, 0x8000, temp_r5));
         *(s32 *)((s8 *)((u8 *)this) + 0x3CC) = (temp_r7 + 0xB4);
         play_sound_effect(0x4003A804, (void *) (((u8 *)this) + 0x2FC), 0, 0, temp_r7);
-        init_params__10TBoss2MineFlf((void *) (((u8 *)this)), 0x1E, (f32) ((0.25f)));
+        init_params__10TBoss2MineFlf(this, 0x1E, (f32) ((0.25f)));
         return;
     case 3:
         temp_r4 = *(s32 *)((s8 *)((u8 *)this) + 0x38C);
         if (temp_r4 & 0x100) {
             *(s32 *)((s8 *)((u8 *)this) + 0x38C) = (s32) (temp_r4 & 0xFFFFFEFF);
-            transition_enemy_state((void *) (((u8 *)this)), 1);
+            transition_enemy_state(this, 1);
         }
         if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x3C8) == 2) {
-            transition_enemy_state((void *) (((u8 *)this)), 3);
+            transition_enemy_state(this, 3);
         }
         break;
     case 5:
@@ -325,8 +325,8 @@ void TUnk_80482EC0::vfunc_106(s32 arg1) {
             if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x3CC) <= 0) {
                 *(s32 *)((s8 *)((u8 *)this) + 0x3C8) = 2;
             }
-            ((TBoss2Mine *)((u8 *)this))->set_state_by_distance((int) (*(s32 *)((s8 *)((u8 *)this) + 0x3CC)));
-            update_pulse_state__10TBoss2MineFv((void *) (((u8 *)this)));
+            this->set_state_by_distance((int) (*(s32 *)((s8 *)((u8 *)this) + 0x3CC)));
+            update_pulse_state__10TBoss2MineFv(this);
             break;
         }
         break;

@@ -58,11 +58,11 @@ void TUnk_804A3358::emit_marker_effects() {
     u8 pos[12];
     Rec_80127694 rec;
     void *st;
-    draw_icon__10TObjPlayerFll(((u8 *)this), 2, pos);
+    draw_icon__10TObjPlayerFll(this, 2, pos);
     spawn_particle_effect(pos, 0x1BE);
-    draw_icon__10TObjPlayerFll(((u8 *)this), 3, pos);
+    draw_icon__10TObjPlayerFll(this, 3, pos);
     spawn_particle_effect(pos, 0x1BE);
-    draw_icon__10TObjPlayerFll(((u8 *)this), 0, pos);
+    draw_icon__10TObjPlayerFll(this, 0, pos);
     if (is_status_subsystem_ready__10TObjPlayerFv(this->player) == 2) {
         if (((VObj_18 *)((u8 *)this))->m33() == 1) {
             st = ((TObjPlayer *)(this->player))->get_extended_state();

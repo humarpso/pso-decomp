@@ -58,15 +58,15 @@ void TItem::copy_item_data_and_process() {
 u32 TItem::get_usable_action_flags(u32 mask, u32 kind) {
     u8 item[0x14];
     u32 r;
-    ((TItem *)((Player_8010147C *)this))->copy_to_item_data(item);
+    ((TItem *)this)->copy_to_item_data(item);
     if (kind == 0) {
         kind = ((Player_8010147C *)this)->f_F0;
     }
     r = ((TItemData *)item)->calc_action_flags((s32)mask, (u8 *)kind);
-    if (test_item_flags__10TObjPlayerFUl(((Player_8010147C *)this), 0x200) != 0) {
+    if (test_item_flags__10TObjPlayerFUl(this, 0x200) != 0) {
         r |= 2;
     }
-    if (r == 0 && ((TObjPlayer *)((Player_8010147C *)this))->has_flag_128() != 0) {
+    if (r == 0 && ((TObjPlayer *)this)->has_flag_128() != 0) {
         r |= 0x10;
         r &= ~2;
     }

@@ -58,7 +58,7 @@ void TBoss6Type2::start_death_sequence(u8 *arg0) {
 void TBoss6Type2::update_zako_spawn_timer() {
     s32 temp_r0;
 
-    if (((s32) *(s32 *)&this->unk_504 == 0) && (((TBoss6Type2 *)this)->turn_toward_target_position() == 0)) {
+    if (((s32) *(s32 *)&this->unk_504 == 0) && (this->turn_toward_target_position() == 0)) {
         *(s32 *)&this->unk_504 = 1;
     }
     update_zako();
@@ -105,7 +105,7 @@ void TBoss6Type2::reset_timers_and_spawn_particle() {
 void TBoss6Type2::update_zako_phase() {
     s32 temp_r0;
 
-    if (((s32) *(s32 *)&this->unk_504 == 0) && (((TBoss6Type2 *)this)->turn_toward_target_position() == 0)) {
+    if (((s32) *(s32 *)&this->unk_504 == 0) && (this->turn_toward_target_position() == 0)) {
         *(s32 *)&this->unk_504 = 1;
     }
     update_zako();

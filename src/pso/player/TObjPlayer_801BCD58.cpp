@@ -13,7 +13,7 @@ extern "C" {
 void TObjPlayer::init_control_mode(s32 arg1) {
     if (is_locally_controlled__10TObjPlayerFPv() != 0) {
         this->m_3d0 = (s32) (arg1 & 3);
-        init_pad_binding((void *) (((u8 *)this) + 0x550), (void *) (obj_getField1c((void *) (((u8 *)this)))), (int) ((s16) this->m_3d0));
+        init_pad_binding((void *) (((u8 *)this) + 0x550), (void *) (obj_getField1c(this)), (int) ((s16) this->m_3d0));
         return;
     }
     TObjPlayer__sub_801BEF60((void *) (((u8 *)this) + 0x550), 0);

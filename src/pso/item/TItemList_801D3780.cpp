@@ -254,10 +254,10 @@ void *__dt__13TUnk_804C4480Fv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_801D3BD4_lbl_804C4480_size[sizeof(RecoveredGlobal_801D3BD4_lbl_804C4480) == 0x18 ? 1 : -1];
 u8 *TItemList::ct_init_placement_ring(u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8 arg5) {
-    construct_placement_search_base((u8 *)(((u8 *)this)), arg1, arg3, arg4, arg5);
+    construct_placement_search_base((u8 *)this, arg1, arg3, arg4, arg5);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_801D3BD4_lbl_804C4480 *)&placement_search_task_vtable).value;
     *(s32 *)((s8 *)((u8 *)this) + 0x54) = arg2;
-    TItemList__sub_801D5884((((u8 *)this)), (0U));
+    TItemList__sub_801D5884((this), (0U));
     ((TUnk_804C4498 *)((u8 *)this))->reset_placement_search_ring();
     return ((u8 *)this);
 }

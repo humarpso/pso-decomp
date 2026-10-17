@@ -91,7 +91,7 @@ void TAdYesNoBaseGC::vfunc_11() {
     switch (this->m_1c) {
     case 0:
         this->m_40 = sub_8032C0B4();
-        this->m_44 = ((TAdYesNoBaseGC *)this)->create_menu_window();
+        this->m_44 = this->create_menu_window();
         this->m_1c = 1;
         break;
     case 1:

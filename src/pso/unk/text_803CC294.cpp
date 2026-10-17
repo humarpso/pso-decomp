@@ -437,20 +437,20 @@ void TLobby::close_adxf_handle() {
         e->type = 3;
         e->phase = 0;
         e->seq = seq;
-        e->a = (s32)((Slot_803CD16C *)this);
+        e->a = (s32)this;
         e->b = -1;
         e->c = -1;
         adxf_log_write_index = i + 1;
     }
-    if (((Slot_803CD16C *)this) != NULL) {
+    if (this != NULL) {
         TLobby::init_once();
-        if ((s32)((Hdr_803CCE9C *)((Slot_803CD16C *)this))->f1 == 2) {
-            close_803CCE9C((Snd_803CC980 *)((Slot_803CD16C *)this));
+        if ((s32)((Hdr_803CCE9C *)this)->f1 == 2) {
+            close_803CCE9C((Snd_803CC980 *)this);
         }
         if (((Slot_803CD16C *)this)->f4 != 0) {
             TLobby__sub_803C8B38((u8 *)(((Slot_803CD16C *)this)->f4));
         }
-        memset(((Slot_803CD16C *)this), 0, 0x138);
+        memset(this, 0, 0x138);
         TLobby::release_ref();
         {
             s32 i = adxf_log_write_index % 256;
@@ -458,7 +458,7 @@ void TLobby::close_adxf_handle() {
             e->type = 3;
             e->phase = 1;
             e->seq = ((LogHdr_803CCE9C *)&lbl_8057B7B0)->seq;
-            e->a = (s32)((Slot_803CD16C *)this);
+            e->a = (s32)this;
             e->b = -1;
             e->c = -1;
             adxf_log_write_index = i + 1;

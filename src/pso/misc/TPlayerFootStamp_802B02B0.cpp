@@ -45,19 +45,19 @@ void TBoss6PlotFalz::finish_and_dispatch_next_phase() {
         ((TBoss6Type2 *)TBoss6PlotFalz__type2_instance)->get_phase_values((u16 *)(((u8 *)this) + 0x2D6), (u16 *)(((u8 *)this) + 0x2D4), (u16 *)sp8);
         i = 0;
         do {
-            obj_setArrS16_FC((void *) (((u8 *)this)), (int)i, (void *)sp8[i]);
+            obj_setArrS16_FC(this, (int)i, (void *)sp8[i]);
             i += 1;
         } while (i < 4);
     }
-    TBoss6PlotFalz::get_target_pos_a((s32)((void *) (((u8 *)this))), (s32)sp10);
-    destroy_static_instance__14TBoss6PlotFalzFv((void *) (((u8 *)this)));
+    TBoss6PlotFalz::get_target_pos_a((s32)(this), (s32)sp10);
+    destroy_static_instance__14TBoss6PlotFalzFv(this);
     TLobby::stop_audio_streams();
     TBoss6PlotFalz::freeze_all_players();
     *(s32 *)((s8 *)((u8 *)this) + 0x3D0) = 0;
     *(s32 *)((s8 *)((u8 *)this) + 0x3CC) = 0;
     TBoss4DarkFalz::dispatch_by_main_phase(0x57);
     TBoss6Thanks::try_dispatch_darkfalz_phase();
-    create_boss6_type2_death((((u8 *)this)), (sp10));
+    create_boss6_type2_death((this), (sp10));
 }
 
 }
