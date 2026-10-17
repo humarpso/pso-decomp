@@ -208,7 +208,7 @@ s32 player_motion_provider0_get_clip_indices(s32 arg0, s32 arg1, s32 arg2) {
     return 0;
 }
 extern s32 *lbl_804ED728[];
-int TUnk_804ED7D0::vfunc_7() {
+int TUnk_804ED7D0::vfunc_7(s32, s32) {
     s32 i = ((s32 (*)(void))is_valid_state__6TLobbyFPvi)();
     if (((s32 (*)(void))TLobby__sub_802A7278)() != 0) {
         return *lbl_804ED728[i];
@@ -221,8 +221,8 @@ s32 apply_player_flag_2__6TLobbyFv();
 void mem_free(void*);
 s32 set_flag_1_at_6c84__6TLobbyFv();
 
-int TUnk_804ED7D0::vfunc_6() { return 1; }
-int TUnk_804ED7D0::vfunc_5() {
+int TUnk_804ED7D0::vfunc_6(s32, s32, s32) { return 1; }
+int TUnk_804ED7D0::vfunc_5(s32) {
     s32 arg0 = (s32)this;
     if (set_flag_1_at_6c84__6TLobbyFv() == 0) {
         TLobby::init_object_flag();

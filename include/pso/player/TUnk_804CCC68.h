@@ -11,7 +11,7 @@ public:
     virtual ~TUnk_804CCC68();
     virtual void vfunc_6();
     virtual void debug_print_tech_params();
-    virtual void vfunc_8();
+    virtual void vfunc_8(void *);
     void advance_lifetime_or_destroy();
     void dispatch_all_technique_contacts();
     void dispatch_technique_contact();

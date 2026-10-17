@@ -164,8 +164,8 @@ u8 *TLobby__sub_802A7B50(u8 *arg0) {
 
 int TLobby__sub_802A7B8C(void) { return 0; }
 int TUnk_804DDD28::vfunc_4() { return 0; }
-int TUnk_804DDD28::vfunc_8() { return 0; }
-int TUnk_804DDD28::vfunc_9() { return 0; }
+int TUnk_804DDD28::vfunc_8(s32, s32) { return 0; }
+int TUnk_804DDD28::vfunc_9(s32, s32, s32) { return 0; }
 void TUnk_804DDD28::vfunc_14() {  }
 int TUnk_804DDD28::vfunc_75() { return 0; }
 s32 TLobby::get_param() { return *(s32 *)&this->m_name; }

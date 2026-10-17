@@ -14,12 +14,12 @@ struct TItem : public TUnk_804AF8A0 {
     virtual void vfunc_16();
     virtual void vfunc_17();
     virtual void vfunc_18();
-    virtual void vfunc_19();
+    virtual void vfunc_19(s8);
     virtual void vfunc_20();
     virtual s32 vfunc_21(u8 *, s32, s32, s32);
-    virtual void vfunc_22();
-    virtual void vfunc_23();
-    virtual void vfunc_24();
+    virtual void vfunc_22(s32);
+    virtual void vfunc_23(s32);
+    virtual void vfunc_24(s32, s32, s16 *);
     virtual void vfunc_25();
     virtual void vfunc_26();
     virtual void vfunc_27();
@@ -32,8 +32,8 @@ struct TItem : public TUnk_804AF8A0 {
     virtual void vfunc_34();
     virtual int vfunc_35();
     virtual int vfunc_36();
-    virtual int vfunc_37();
-    virtual int vfunc_38();
+    virtual int vfunc_37(s32);
+    virtual int vfunc_38(s32);
     virtual int vfunc_39();
     virtual void vfunc_40();
     virtual int vfunc_41();

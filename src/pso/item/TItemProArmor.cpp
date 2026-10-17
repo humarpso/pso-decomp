@@ -230,12 +230,12 @@ void TItem__sub_801005E0();
 void vfunc_16__5TItemFv();
 void vfunc_17__5TItemFv();
 void TItemObject__vt16();
-void vfunc_19__5TItemFv();
+void vfunc_19__5TItemFSc();
 void vfunc_20__5TItemFv();
 void vfunc_21__5TItemFPUclll();
-void vfunc_22__5TItemFv();
-void vfunc_23__5TItemFv();
-void vfunc_24__5TItemFv();
+void vfunc_22__5TItemFl();
+void vfunc_23__5TItemFl();
+void vfunc_24__5TItemFllPs();
 void vfunc_25__5TItemFv();
 void vfunc_26__5TItemFv();
 void vfunc_27__5TItemFv();
@@ -295,12 +295,12 @@ void *lbl_8049FF88[46] = {
     (void *)vfunc_16__5TItemFv,
     (void *)vfunc_17__5TItemFv,
     (void *)TItemObject__vt16,
-    (void *)vfunc_19__5TItemFv,
+    (void *)vfunc_19__5TItemFSc,
     (void *)vfunc_20__5TItemFv,
     (void *)vfunc_21__5TItemFPUclll,
-    (void *)vfunc_22__5TItemFv,
-    (void *)vfunc_23__5TItemFv,
-    (void *)vfunc_24__5TItemFv,
+    (void *)vfunc_22__5TItemFl,
+    (void *)vfunc_23__5TItemFl,
+    (void *)vfunc_24__5TItemFllPs,
     (void *)vfunc_25__5TItemFv,
     (void *)vfunc_26__5TItemFv,
     (void *)vfunc_27__5TItemFv,

@@ -22,7 +22,7 @@ u8 is_action_id_none(s32 arg0) {
 
 int TObjPlayer::get_hold_effect_count() {  return player_action_provider_selector; }
 
-int TUnk_804DDD28::vfunc_7() { return 0; }
+int TUnk_804DDD28::vfunc_7(s32, s32) { return 0; }
 int TUnk_804DDD28::vfunc_76() { return 0; }
 
 u8 TObjPlayer__sub_801C010C(O_801C010C *self, s16 i) {

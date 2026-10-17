@@ -765,8 +765,8 @@ void TBoss2Mine::vfunc_107(s32 arg1) {
   }
 }
 
-void TBoss2Mine::vfunc_106() {  }
-void TBoss2Mine::vfunc_105() {  }
+void TBoss2Mine::vfunc_106(s32) {  }
+void TBoss2Mine::vfunc_105(s32) {  }
 
 }
 

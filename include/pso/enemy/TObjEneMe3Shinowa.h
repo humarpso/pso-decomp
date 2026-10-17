@@ -17,9 +17,9 @@ struct TObjEneMe3Shinowa : public TObjEneDD_ST {
     virtual void vfunc_111();
     virtual void apply_effect_pair();
     virtual void action(s32);
-    virtual void vfunc_114();
+    virtual void vfunc_114(s32);
     virtual void vfunc_115();
-    virtual void vfunc_116();
+    virtual void vfunc_116(s32);
     virtual void update_mirage();
     virtual void vfunc_118();
     void init_enemy();

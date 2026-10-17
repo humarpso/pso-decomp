@@ -9,8 +9,8 @@ public:
     virtual int vfunc_12();
     virtual int vfunc_13();
     virtual int vfunc_11();
-    virtual int vfunc_5();
-    virtual int vfunc_6();
+    virtual int vfunc_5(s32);
+    virtual int vfunc_6(s32, s32, s32);
     virtual int vfunc_76();
     virtual int vfunc_75();
     virtual int vfunc_72();
@@ -63,7 +63,7 @@ public:
     virtual int vfunc_24();
     virtual int vfunc_4();
     virtual int vfunc_10();
-    virtual int vfunc_7();
+    virtual int vfunc_7(s32, s32);
     virtual int vfunc_23();
     virtual int vfunc_22();
     virtual int vfunc_30();

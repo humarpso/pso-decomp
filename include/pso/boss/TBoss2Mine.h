@@ -9,8 +9,8 @@ struct TBoss2Mine : public TObjEneDD {
     void set_node_offsets();
     void init_params(s32, f32);
     void update_pulse_state();
-    virtual void vfunc_105();
-    virtual void vfunc_106();
+    virtual void vfunc_105(s32);
+    virtual void vfunc_106(s32);
     virtual void vfunc_107(s32);
     virtual void vfunc_108(s32);
     virtual void vfunc_109();

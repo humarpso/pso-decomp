@@ -59,9 +59,9 @@ u8 *TObjPlayer::copy_hold_params(u8 *arg1) {
 }
 
 s16 TBoss7Crawfish::get_floor() { return this->m_b8; }
-int TUnk_804DDD28::vfunc_77() { return 0; }
+int TUnk_804DDD28::vfunc_77(s32) { return 0; }
 int TUnk_804DDD28::vfunc_10() { return 0; }
-int TUnk_804DDD28::vfunc_5() { return 0; }
+int TUnk_804DDD28::vfunc_5(s32) { return 0; }
 int TObjPlayer::sub_802a7290_fwd() { return get_valid_child__6TLobbyFv(this); }
 int TObjPlayer::is_handle_valid() { return TLobby::validate_handle((s32 *)this); }
 

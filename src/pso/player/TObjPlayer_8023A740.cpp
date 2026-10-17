@@ -188,6 +188,6 @@ u8 *construct_facing_technique__10TObjPlayerFPviPvii(u8 *arg0, s32 arg1, u8 *arg
     return arg0;
 }
 
-void TUnk_804CCC68::vfunc_8() {  }
+void TUnk_804CCC68::vfunc_8(void *) {  }
 
 }

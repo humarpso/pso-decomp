@@ -195,13 +195,13 @@ s32 check_flag_400__20TWindowSubStatusDispFv();
 
 void TItem::vfunc_34() {  }
 void TItem::vfunc_17() {  }
-void TItem::vfunc_19() {  }
+void TItem::vfunc_19(s8) {  }
 int TItem::vfunc_32() { return 0; }
 void TItem::vfunc_28() {  }
 void TItem::vfunc_27() {  }
 void TItem::vfunc_26() {  }
 void TItem::vfunc_25() {  }
-void TItem::vfunc_24() {  }
+void TItem::vfunc_24(s32, s32, s16 *) {  }
 
 typedef struct VBase_18_94668e VBase_18_94668e;
 typedef struct VObj_18_94668e VObj_18_94668e;
@@ -229,8 +229,8 @@ void TItem::refresh_owner_stats() {
   }
 }
 
-void TItem::vfunc_23() {  }
-void TItem::vfunc_22() {  }
+void TItem::vfunc_23(s32) {  }
+void TItem::vfunc_22(s32) {  }
 void TItem::update_pickup_flag(s32 arg0) {
     if (check_flag_400__20TWindowSubStatusDispFv() != 0) {
         ((TItemObject *)arg0)->set_flag_1024();

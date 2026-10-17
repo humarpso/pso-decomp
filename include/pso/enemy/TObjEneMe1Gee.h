@@ -21,7 +21,7 @@ struct TObjEneMe1Gee : public TObjEneDD_ST {
     virtual void vfunc_114();
     virtual void vfunc_115();
     virtual int vfunc_116();
-    virtual void vfunc_117();
+    virtual void vfunc_117(u32);
     virtual void vfunc_28();
     virtual void vfunc_63();
     virtual void vfunc_62();

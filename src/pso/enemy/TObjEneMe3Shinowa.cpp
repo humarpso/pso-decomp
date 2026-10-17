@@ -1485,8 +1485,8 @@ s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 void __dt__13TUnk_80494938Fv(void *, int);
 s32 TBoss3Volopt__sub_800D8D88(void *, f32);
 void update_mirage__17TObjEneMe3ShinowaFv(void* p);
-void vfunc_116__17TObjEneMe3ShinowaFv(void);
-void vfunc_114__17TObjEneMe3ShinowaFv(void);
+void vfunc_116__17TObjEneMe3ShinowaFl(void);
+void vfunc_114__17TObjEneMe3ShinowaFl(void);
 void TObjEneMe3ShinowaMirage__sub_800E4FE8(u8 *arg0, s32 arg1);
 void TObjEneMe3ShinowaMirage__sub_800E50D8(u8 *arg0, s32 arg1);
 void TObjEneMe3ShinowaMirage__sub_800E5220(void *arg0, s32 arg1);
@@ -1959,8 +1959,8 @@ void *__vt__23TObjEneMe3ShinowaMirage[119] = {
     (void *)&vfunc_100__9TObjEneDDFv, (void *)&vfunc_101__9TObjEneDDFPUc, (void *)&vfunc_102__9TObjEneDDFv, (void *)&vfunc_103__9TObjEneDDFPUc,
     (void *)&select_and_apply_target__23TObjEneMe3ShinowaMirageFPv, (void *)&vfunc_105__23TObjEneMe3ShinowaMirageFv, (void *)&can_hit_same_target__23TObjEneMe3ShinowaMirageFv, (void *)&vfunc_107__23TObjEneMe3ShinowaMirageFv,
     (void *)&update_player_state_default__23TObjEneMe3ShinowaMirageFv, (void *)&update_effect__23TObjEneMe3ShinowaMirageFv, (void *)&dispatch_if_active__23TObjEneMe3ShinowaMirageFv, (void *)&vfunc_111__17TObjEneMe3ShinowaFv,
-    (void *)&apply_effect_pair__23TObjEneMe3ShinowaMirageFv, (void *)&action__17TObjEneMe3ShinowaFl, (void *)&vfunc_114__17TObjEneMe3ShinowaFv, (void *)&TObjEneMe3ShinowaMirage__vt113,
-    (void *)&vfunc_116__17TObjEneMe3ShinowaFv, (void *)&update_mirage__17TObjEneMe3ShinowaFv, (void *)&TObjEneMe3ShinowaMirage__sub_800E47DC,
+    (void *)&apply_effect_pair__23TObjEneMe3ShinowaMirageFv, (void *)&action__17TObjEneMe3ShinowaFl, (void *)&vfunc_114__17TObjEneMe3ShinowaFl, (void *)&TObjEneMe3ShinowaMirage__vt113,
+    (void *)&vfunc_116__17TObjEneMe3ShinowaFl, (void *)&update_mirage__17TObjEneMe3ShinowaFv, (void *)&TObjEneMe3ShinowaMirage__sub_800E47DC,
 };
 #define shinowa_mirage_model_init_data ((u8 *)shinowa_mirage_model_init_data)
 
@@ -2032,11 +2032,11 @@ void TObjEneMe3ShinowaMirage::advance_camera_ctrl_step() {
     TObjEneMe3ShinowaMirage__render_node_index += 1;
 }
 
-void TObjEneMe3Shinowa::vfunc_116() {  }
+void TObjEneMe3Shinowa::vfunc_116(s32) {  }
 
 void TObjEneMe3Shinowa::vfunc_115() {  }
 
-void TObjEneMe3Shinowa::vfunc_114() {  }
+void TObjEneMe3Shinowa::vfunc_114(s32) {  }
 
 #pragma push
 #pragma fp_contract on

@@ -9,11 +9,11 @@ public:
     virtual ~TUnk_804DDD28();
     virtual u8 *vfunc_3(s16);
     virtual int vfunc_4();
-    virtual int vfunc_5();
-    virtual int vfunc_6();
-    virtual int vfunc_7();
-    virtual int vfunc_8();
-    virtual int vfunc_9();
+    virtual int vfunc_5(s32);
+    virtual int vfunc_6(s32, s32, s32);
+    virtual int vfunc_7(s32, s32);
+    virtual int vfunc_8(s32, s32);
+    virtual int vfunc_9(s32, s32, s32);
     virtual int vfunc_10();
     virtual int vfunc_11();
     virtual int vfunc_12();
@@ -81,7 +81,7 @@ public:
     virtual int vfunc_74();
     virtual int vfunc_75();
     virtual int vfunc_76();
-    virtual int vfunc_77();
+    virtual int vfunc_77(s32);
     void copy_motion_pair(void*);
     s32 load_action_motion_pairs(s32, s32, s32);
     void sub_802A7318();

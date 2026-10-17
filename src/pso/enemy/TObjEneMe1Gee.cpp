@@ -3721,7 +3721,7 @@ void TObjEneMe1Gee__sub_800CB560(u8 *arg0) {
 
 int TObjEneMe1Gee::vfunc_116() { return 1; }
 
-void TObjEneMe1Gee::vfunc_117() {  }
+void TObjEneMe1Gee::vfunc_117(u32) {  }
 
 s32 TObjEneMe1Gee__sub_800CB584(u8 *arg0) {
     if (*(s32 *)((s8 *)arg0 + 0x3C8) & 0x40000) {
