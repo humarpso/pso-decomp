@@ -5,6 +5,7 @@
 #include "pso/TObject.h"
 
 struct TMovie : public TObject {
+    TMovie(TObject *parent, s8 *name, s32 a3, s32 a4, s32 a5);
     virtual ~TMovie();
     virtual void run_task();
     u32 m_1c;

@@ -7,7 +7,7 @@ s32 get_current_floor();
 s32 is_room_enemy_set_cleared(s32, s32);
 void *__nw__7TObjectFUl(s32);
 s32 spawn_for_each_fish__20TObjLiveMonitorSmallFi(s32);
-s32 TObjLiveCameraCtrl__ct(void *, s32);
+s32 __ct__18TObjLiveCameraCtrlFP7TObject(void *, s32);
 s32 __ct__17TObjBoss8DemoRoomFv(void *, s32);
 extern void *tl_05;
 void create_boss8_demo_objects(void);
@@ -22,7 +22,7 @@ void create_boss8_piller_ctrl(s32 arg0, s32 arg1, f32 farg0) {
 void create_boss8_demo_objects(void) {
     void *obj;
     if ((is_split_screen() == 0) && ((obj = __nw__7TObjectFUl(0x13C)) != 0)) {
-        TObjLiveCameraCtrl__ct(obj, (*(s32 *)&tl_05));
+        __ct__18TObjLiveCameraCtrlFP7TObject(obj, (*(s32 *)&tl_05));
     }
     TObjLiveMonitor::create((void *)(*(s32 *)&tl_05));
     spawn_for_each_fish__20TObjLiveMonitorSmallFi((*(s32 *)&tl_05));

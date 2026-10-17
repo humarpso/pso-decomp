@@ -5,6 +5,7 @@
 
 class TUnk_8049F130 : public TObject {
 public:
+    TUnk_8049F130(TObject *parent, s16 a, u8 b);
     virtual ~TUnk_8049F130();
     virtual void run_task();
     u8 unk_1C[0x4];

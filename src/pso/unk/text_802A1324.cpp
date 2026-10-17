@@ -10,7 +10,7 @@ struct RecoveredGlobal_802A1324_lbl_804DCB64 {
 
 extern "C" {
 void __ct__7TObjectFP7TObject(void *,void *);
-u8 *TMovie__ct(void *,void *,const s8 *,void (*)(s32),s32,s32,s32);
+u8 *__ct__6TMovieFP7TObjectPSclll(void *,void *,const s8 *,void (*)(s32),s32,s32,s32);
 void set_movie_finished_flag(s32);
 extern const s8 *opening_movie_path_table[10];
 u8 *__nw__7TObjectFUl(s32);
@@ -35,13 +35,13 @@ u8 *create_opening_movie_sequence(u8 *arg0) {
     if ((s8) opening_movie_purpose == 0) {
         temp_r3 = (u8 *)(__nw__7TObjectFUl(0x4C));
         if (temp_r3 != NULL) {
-            TMovie__ct(temp_r3, tl_00, opening_movie_path_table[current_language + (opening_movie_selector * 5)], set_movie_finished_flag, 1, 1, 0);
+            __ct__6TMovieFP7TObjectPSclll(temp_r3, tl_00, opening_movie_path_table[current_language + (opening_movie_selector * 5)], set_movie_finished_flag, 1, 1, 0);
         }
         opening_movie_selector = 1 - opening_movie_selector;
     } else {
         temp_r3_2 = (u8 *)(__nw__7TObjectFUl(0x4C));
         if (temp_r3_2 != NULL) {
-            TMovie__ct(temp_r3_2, tl_00, opening_movie_path_table[current_language], set_movie_finished_flag, 1, 1, 0);
+            __ct__6TMovieFP7TObjectPSclll(temp_r3_2, tl_00, opening_movie_path_table[current_language], set_movie_finished_flag, 1, 1, 0);
         }
     }
     return arg0;

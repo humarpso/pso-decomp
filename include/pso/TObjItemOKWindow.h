@@ -11,6 +11,7 @@ public:
  void* m_60;
  void* m_64;
 public:
+    TObjItemOKWindow(TObject *parent);
     virtual ~TObjItemOKWindow();
 public:
     static void *create(void *arg0);

@@ -55,7 +55,7 @@ u8 *__nw__7TObjectFUl(s32);
 extern u32 TAdChrSel__global_slot_data;
 u8 *get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1);
 s32 __ct__19TAdPlyChrSelPlateGCFv(int, void *, void *);
-s32 __ct__15TAdChrSelSlotGCFv(int, void *);
+s32 __ct__15TAdChrSelSlotGCFP7TObject(int, void *);
 s32 __ct__15TAdPlayerLoadGCFv(int, void *, int);
 s32 __ct__15TAdSubPlyItemGCFv(int, void *);
 s32 __ct__20TAdChrSelMovePlateGCFv(int, void *);
@@ -630,7 +630,7 @@ void TAdChrSelASlotGC::create_children(s32 arg1) {
     temp_r3 = ((s32)__nw__7TObjectFUl((s32)((int) (0x128))));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = __ct__15TAdChrSelSlotGCFv((int) (temp_r3), (void *) (arg0));
+        var_r0 = __ct__15TAdChrSelSlotGCFP7TObject((int) (temp_r3), (void *) (arg0));
     }
     *(s32 *)&this->_pad2C = var_r0;
     switch (arg1) {

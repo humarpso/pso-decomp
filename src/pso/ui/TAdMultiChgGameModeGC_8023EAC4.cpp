@@ -11,7 +11,7 @@ void *TAdEp3Exist__ct(void *, s32);
 void *TAdExNetConfirmGC__ct(void *, s32);
 void *TAdLicAgreementGC__ct(void *, s32);
 void *__ct__13TUnk_804F3A20FP7TObject(void *, s32);
-void *TAdMultiConfirmGC__ct(void *, s32);
+void *__ct__17TAdMultiConfirmGCFP7TObject(void *, s32);
 void *TAdMultiSaveGC__ct(void *, s32);
 void *TAdPsoPassSaveGC__ct(void *, s32);
 void *TAdSinglePlyChrSelectGC__ct(void *, s32);
@@ -178,7 +178,7 @@ void TAdMultiChgGameModeGC::create_mode_scene() {
     case 10:
         p = __nw__7TObjectFUl(0x4C);
         if (p != NULL) {
-            p = TAdMultiConfirmGC__ct(p, tl_01);
+            p = __ct__17TAdMultiConfirmGCFP7TObject(p, tl_01);
         }
         game_mode_scene_instance = (s32)p;
         break;

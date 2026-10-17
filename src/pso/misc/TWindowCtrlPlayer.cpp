@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrlPlayer.h"
 #include "pso/TObject.h"
 #include "pso/misc/TWindowCtrlPlayer.h"
 #include "pso/misc/TWindowCtrl.h"
@@ -61,45 +62,43 @@ void *__dt__17TWindowCtrlPlayerFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-struct Ctl_8024E2A8 *TWindowCtrlPlayer__ct(struct Ctl_8024E2A8 *arg0, void *parent, s32 arg2) {
+}
+TWindowCtrlPlayer::TWindowCtrlPlayer(TObject *parent, s32 arg2) : TObject(parent) {
     void *p;
-
-    __ct__7TObjectFP7TObject(arg0, parent);
-    arg0->vt = __vt__17TWindowCtrlPlayer;
-    arg0->f0 = TWindowCtrlPlayer__name;
-    arg0->f1c = 0;
-    arg0->f1e = 0;
-    arg0->f20 = 0;
-    arg0->f24 = arg2;
-    arg0->f28 = 0;
-    arg0->f2c = 0;
-    arg0->f30 = 0;
-    arg0->f34 = 0;
-    arg0->f38 = 0;
-    arg0->f3c = 0;
+    ((struct Ctl_8024E2A8 *)this)->f0 = TWindowCtrlPlayer__name;
+    ((struct Ctl_8024E2A8 *)this)->f1c = 0;
+    ((struct Ctl_8024E2A8 *)this)->f1e = 0;
+    ((struct Ctl_8024E2A8 *)this)->f20 = 0;
+    ((struct Ctl_8024E2A8 *)this)->f24 = arg2;
+    ((struct Ctl_8024E2A8 *)this)->f28 = 0;
+    ((struct Ctl_8024E2A8 *)this)->f2c = 0;
+    ((struct Ctl_8024E2A8 *)this)->f30 = 0;
+    ((struct Ctl_8024E2A8 *)this)->f34 = 0;
+    ((struct Ctl_8024E2A8 *)this)->f38 = 0;
+    ((struct Ctl_8024E2A8 *)this)->f3c = 0;
     if (is_split_screen() != 0) {
         p = __nw__7TObjectFUl(0x60);
         if (p != 0) {
-            p = TWindowMainMenu4P__ct(p, arg0, arg0->f24);
+            p = TWindowMainMenu4P__ct(p, ((struct Ctl_8024E2A8 *)this), ((struct Ctl_8024E2A8 *)this)->f24);
         }
-        arg0->f28 = p;
+        ((struct Ctl_8024E2A8 *)this)->f28 = p;
     } else {
         p = __nw__7TObjectFUl(0xAC);
         if (p != 0) {
-            p = TWindowMainMenu1P__ct(p, arg0, arg0->f24);
+            p = TWindowMainMenu1P__ct(p, ((struct Ctl_8024E2A8 *)this), ((struct Ctl_8024E2A8 *)this)->f24);
         }
-        arg0->f28 = p;
+        ((struct Ctl_8024E2A8 *)this)->f28 = p;
     }
-    arg0->f2c = create_message_information_window(get_window_layout_position(0x20), lbl_8044EC4C, arg0->f24);
-    arg0->f30 = create_status_window(arg0->f24);
-    ((TObject *)(arg0->f30))->set_flag_4();
+    ((struct Ctl_8024E2A8 *)this)->f2c = create_message_information_window(get_window_layout_position(0x20), lbl_8044EC4C, ((struct Ctl_8024E2A8 *)this)->f24);
+    ((struct Ctl_8024E2A8 *)this)->f30 = create_status_window(((struct Ctl_8024E2A8 *)this)->f24);
+    ((TObject *)(((struct Ctl_8024E2A8 *)this)->f30))->set_flag_4();
     p = __nw__7TObjectFUl(0x78);
     if (p != 0) {
-        p = TWindowActionPalette__ct(p, arg0->f24);
+        p = TWindowActionPalette__ct(p, ((struct Ctl_8024E2A8 *)this)->f24);
     }
-    arg0->f34 = p;
-    ((TObject *)(arg0->f34))->set_flag_4();
-    return arg0;
+    ((struct Ctl_8024E2A8 *)this)->f34 = p;
+    ((TObject *)(((struct Ctl_8024E2A8 *)this)->f34))->set_flag_4();
 }
+extern "C" {
 
 }

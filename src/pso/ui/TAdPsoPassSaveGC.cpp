@@ -41,7 +41,7 @@ s32 get_localized_text_entry(s32, s32);
 void TAdYesNoBaseGC__ct(void *);
 void __dt__14TAdYesNoBaseGCFv(void *, int);
 s32 TKeyBoardControl__sub_8000F9CC(s32);
-void *__ct__10TAdTitleGCFv(void *, void *, int);
+void *__ct__10TAdTitleGCFP7TObjectl(void *, void *, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -93,7 +93,7 @@ void *TAdPsoPassSaveGC__ct(void *parent) {
     *(void **)((s8 *)parent + 0x0) = lbl_805D4310;
     o = __nw__7TObjectFUl(0x138);
     if (o != NULL) {
-        __ct__10TAdTitleGCFv(o, parent, 18);
+        __ct__10TAdTitleGCFP7TObjectl(o, parent, 18);
     }
     return parent;
 }

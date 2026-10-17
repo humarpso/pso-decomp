@@ -5,6 +5,7 @@
 
 class TEffStarLight2D : public TObject {
 public:
+    TEffStarLight2D(void *arg1, void *arg2, TObject *arg3);
     virtual ~TEffStarLight2D();
     virtual void render();
     virtual void run_task();

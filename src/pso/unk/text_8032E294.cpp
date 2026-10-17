@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/item/TUnk_804EDD44.h"
+#include "pso/item/TUnk_804EDD44.h"
 
 struct Eff_8032E34C {
     u8 pad0[0x18];
@@ -28,8 +29,8 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 atan2_float(f32, f32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern const f64 lbl_804773A8[];
-extern void *lbl_804EDD44[];
-Eff_8032E34C *construct_card_effect_at_point(Eff_8032E34C *self, void *parent, f32 *arg2, f32 *arg3, s32 arg4, s32 arg5);
+extern void *__vt__13TUnk_804EDD44[];
+Eff_8032E34C *__ct__13TUnk_804EDD44FP7TObjectPfPfll(Eff_8032E34C *self, void *parent, f32 *arg2, f32 *arg3, s32 arg4, s32 arg5);
 #pragma fp_contract on
 void TUnk_804EDD44::sub_8032E294() {
   f32 var_f0;
@@ -76,19 +77,18 @@ void TUnk_804EDD44::sub_8032E294() {
   var_r3 = (u8 *) var_r31;
   anchor_card_effect((int) var_r3);
 }
-Eff_8032E34C *construct_card_effect_at_point(Eff_8032E34C *self, void *parent, f32 *arg2, f32 *arg3, s32 arg4, s32 arg5) {
-    __ct__7TObjectFP7TObject(self, parent);
-    self->vt = lbl_804EDD44;
-    self->f28 = 0;
-    self->f2C = 0;
-    self->f34 = 0xFFFF;
-    self->f60 = arg5;
-    VecCopy__FP3VecPC3Vec(self->f38, arg3);
-    VecCopy__FP3VecPC3Vec(self->f64, arg2);
-    self->f58 = (s32)(lbl_804773A8[0] * atan2_float(arg3[0], arg3[2]));
-    self->f50 = arg4;
-    ((TUnk_804EDD44 *)self)->sub_8032E294();
-    return self;
 }
+TUnk_804EDD44::TUnk_804EDD44(TObject *parent, f32 *arg2, f32 *arg3, s32 arg4, s32 arg5) : TObject(parent) {
+    ((Eff_8032E34C *)this)->f28 = 0;
+    ((Eff_8032E34C *)this)->f2C = 0;
+    ((Eff_8032E34C *)this)->f34 = 0xFFFF;
+    ((Eff_8032E34C *)this)->f60 = arg5;
+    VecCopy__FP3VecPC3Vec(((Eff_8032E34C *)this)->f38, arg3);
+    VecCopy__FP3VecPC3Vec(((Eff_8032E34C *)this)->f64, arg2);
+    ((Eff_8032E34C *)this)->f58 = (s32)(lbl_804773A8[0] * atan2_float(arg3[0], arg3[2]));
+    ((Eff_8032E34C *)this)->f50 = arg4;
+    ((TUnk_804EDD44 *)((Eff_8032E34C *)this))->sub_8032E294();
+}
+extern "C" {
 
 }

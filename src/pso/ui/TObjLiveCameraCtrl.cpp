@@ -43,7 +43,7 @@ extern const f32 lbl_805DF1B4;
 extern const f32 lbl_805DF1D8;
 extern const f32 lbl_805DF1DC;
 extern const f32 lbl_805DF1E0;
-Cam_8030BED4 *TObjLiveCameraCtrl__ct(Cam_8030BED4 *arg0, void *parent);
+Cam_8030BED4 *__ct__18TObjLiveCameraCtrlFP7TObject(Cam_8030BED4 *arg0, void *parent);
 s32 TObjLiveMonitor__sub_8030C050(void* p);
 void fn_8030C058(void);
 void reset_globals_805D6A84(void);
@@ -76,48 +76,47 @@ TObjLiveCameraCtrl *__dt__18TObjLiveCameraCtrlFv(TObjLiveCameraCtrl *self, s16 f
     }
     return self;
 }
-Cam_8030BED4 *TObjLiveCameraCtrl__ct(Cam_8030BED4 *arg0, void *parent) {
+}
+TObjLiveCameraCtrl::TObjLiveCameraCtrl(TObject *parent) : TObject(parent) {
     void *p;
     s32 n;
-    __ct__7TObjectFP7TObject(arg0, parent);
-    arg0->vt = __vt__18TObjLiveCameraCtrl;
-    __ct__14SubtractiveRngFv(arg0->f54);
-    arg0->f0 = TObjLiveCameraCtrl__class_name;
+    __ct__14SubtractiveRngFv(((Cam_8030BED4 *)this)->f54);
+    ((Cam_8030BED4 *)this)->f0 = TObjLiveCameraCtrl__class_name;
     n = live_camera_controller_next_slot;
-    *(Cam_8030BED4 **)((s8 *)((u8 *)(&TObjLiveCameraCtrl__instances) + n * 4) + 0) = arg0;
+    *(Cam_8030BED4 **)((s8 *)((u8 *)(&TObjLiveCameraCtrl__instances) + n * 4) + 0) = ((Cam_8030BED4 *)this);
     live_camera_controller_next_slot = n + 1;
-    arg0->f4c = n;
-    arg0->f1c = 0;
-    arg0->f1e = 0;
-    arg0->f20 = 1;
-    arg0->f24 = 0xFFFF;
-    arg0->f28 = 0;
-    arg0->f2c = 0;
-    arg0->f30 = lbl_805DF1B4;
-    arg0->f34[0] = lbl_805DF1B4;
-    arg0->f34[1] = lbl_805DF1B4;
-    arg0->f34[2] = lbl_805DF1B4;
-    arg0->f40[0] = lbl_805DF1B4;
-    arg0->f40[1] = lbl_805DF1B4;
-    arg0->f40[2] = lbl_805DF168;
-    subtractive_rng_seed(arg0->f54, 0);
+    ((Cam_8030BED4 *)this)->f4c = n;
+    ((Cam_8030BED4 *)this)->f1c = 0;
+    ((Cam_8030BED4 *)this)->f1e = 0;
+    ((Cam_8030BED4 *)this)->f20 = 1;
+    ((Cam_8030BED4 *)this)->f24 = 0xFFFF;
+    ((Cam_8030BED4 *)this)->f28 = 0;
+    ((Cam_8030BED4 *)this)->f2c = 0;
+    ((Cam_8030BED4 *)this)->f30 = lbl_805DF1B4;
+    ((Cam_8030BED4 *)this)->f34[0] = lbl_805DF1B4;
+    ((Cam_8030BED4 *)this)->f34[1] = lbl_805DF1B4;
+    ((Cam_8030BED4 *)this)->f34[2] = lbl_805DF1B4;
+    ((Cam_8030BED4 *)this)->f40[0] = lbl_805DF1B4;
+    ((Cam_8030BED4 *)this)->f40[1] = lbl_805DF1B4;
+    ((Cam_8030BED4 *)this)->f40[2] = lbl_805DF168;
+    subtractive_rng_seed(((Cam_8030BED4 *)this)->f54, 0);
     if (is_room_enemy_set_cleared(get_current_floor(), 1) == 0) {
-        arg0->f1c = 5;
-        arg0->f1e = -1;
-        arg0->f34[0] = lbl_805DF1B4;
-        arg0->f34[1] = lbl_805DF1D8;
-        arg0->f34[2] = lbl_805DF1DC;
-        arg0->f40[0] = lbl_805DF1B4;
-        arg0->f40[1] = lbl_805DF1D8;
-        arg0->f40[2] = lbl_805DF1E0;
+        ((Cam_8030BED4 *)this)->f1c = 5;
+        ((Cam_8030BED4 *)this)->f1e = -1;
+        ((Cam_8030BED4 *)this)->f34[0] = lbl_805DF1B4;
+        ((Cam_8030BED4 *)this)->f34[1] = lbl_805DF1D8;
+        ((Cam_8030BED4 *)this)->f34[2] = lbl_805DF1DC;
+        ((Cam_8030BED4 *)this)->f40[0] = lbl_805DF1B4;
+        ((Cam_8030BED4 *)this)->f40[1] = lbl_805DF1D8;
+        ((Cam_8030BED4 *)this)->f40[2] = lbl_805DF1E0;
     }
     p = __nw__7TObjectFUl(0x3C);
     if (p != 0) {
-        p = fn_800832EC(p, tl_particlemodel, lbl_804757E0[arg0->f4c], arg0->f34, arg0->f40, lbl_805DF19C);
+        p = fn_800832EC(p, tl_particlemodel, lbl_804757E0[((Cam_8030BED4 *)this)->f4c], ((Cam_8030BED4 *)this)->f34, ((Cam_8030BED4 *)this)->f40, lbl_805DF19C);
     }
-    arg0->f50 = p;
-    return arg0;
+    ((Cam_8030BED4 *)this)->f50 = p;
 }
+extern "C" {
 
 s32 TObjLiveCameraCtrl::get_table_entry(s32 arg0) {
     if (arg0 < 0) {

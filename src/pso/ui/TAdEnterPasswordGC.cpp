@@ -86,7 +86,7 @@ extern RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterPasswo
 void set_password__18TAdEnterPasswordGCFi(s32 arg0);
 s32 TKeyBoardControl__sub_8000F9CC(int);
 u32 __nw__7TObjectFUl(int);
-s32 __ct__10TAdTitleGCFv(int, void *, int);
+s32 __ct__10TAdTitleGCFP7TObjectl(int, void *, int);
 s32 TAdEnterBaseGC__ct(void *);
 extern s32 __vt__18TAdEnterPasswordGC[];
 extern s32 TAdEnterPasswordGC__class_name;
@@ -295,7 +295,7 @@ u8 *TAdEnterPasswordGC__ct(u8 *parent) {
     ((TAdEnterBaseGC *)parent)->create_parts();
     temp_r3 = __nw__7TObjectFUl((int) (0x138));
     if (temp_r3 != 0U) {
-        __ct__10TAdTitleGCFv((int) (temp_r3), (void *) (parent), (int) (0xC));
+        __ct__10TAdTitleGCFP7TObjectl((int) (temp_r3), (void *) (parent), (int) (0xC));
     }
     return parent;
 }

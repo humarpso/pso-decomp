@@ -5,6 +5,7 @@
 #include "pso/TObject.h"
 
 struct TWindowCtrlPlayer : public TObject {
+    TWindowCtrlPlayer(TObject *parent, s32 arg2);
     virtual ~TWindowCtrlPlayer();
     void sub_8024E0F0();
     u16 m_1c;

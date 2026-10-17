@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6Zanzo.h"
 #include "pso/boss/TBoss6Type1.h"
 #include "pso/boss/TBoss6Zanzo.h"
 #include "pso/player/TObjPlayer.h"
@@ -43,7 +44,7 @@ void run_task__11TBoss6ZanzoFv(Obj_803208CC *arg0);
 u8 *mem_alloc(s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 TBoss6Zanzo__name;
-Obj_803209F0 *TBoss6Zanzo__ct(Obj_803209F0 *arg0, void *arg1, s32 arg2, s32 arg3);
+Obj_803209F0 *__ct__11TBoss6ZanzoFP7TObjectll(Obj_803209F0 *arg0, void *arg1, s32 arg2, s32 arg3);
 s32 fn_803204B0(void* p);
 int TBoss6Zanzo__sub_803205C4(void*);
 int restore_saved_depth_alpha_state(void);
@@ -104,47 +105,40 @@ void run_task__11TBoss6ZanzoFv(Obj_803208CC *arg0) {
     }
 }
 
-Obj_80320950 *__dt__11TBoss6ZanzoFv(Obj_80320950 *arg0, s16 arg1) {
+}
+TBoss6Zanzo::~TBoss6Zanzo() {
     Src_80320950 *p;
     Src_80320950 *end;
-    if (arg0 != 0) {
-        arg0->vt = __vt__11TBoss6Zanzo;
-        mem_free(arg0->last->p);
-        __dl__FPv(arg0->last);
-        for (p = arg0->arr, end = p + arg0->n; p < end; p++) {
-            mem_free(p->p);
-        }
-        mem_free(arg0->arr);
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
+    mem_free(((Obj_80320950 *)this)->last->p);
+    __dl__FPv(((Obj_80320950 *)this)->last);
+    for (p = ((Obj_80320950 *)this)->arr, end = p + ((Obj_80320950 *)this)->n; p < end; p++) {
+        mem_free(p->p);
     }
-    return arg0;
+    mem_free(((Obj_80320950 *)this)->arr);
 }
-Obj_803209F0 *TBoss6Zanzo__ct(Obj_803209F0 *arg0, void *arg1, s32 arg2, s32 arg3) {
+extern "C" {
+}
+TBoss6Zanzo::TBoss6Zanzo(TObject *arg1, s32 arg2, s32 arg3) : TObject(arg1) {
     Src_803209F0 *p;
     Src_803209F0 *end;
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    arg0->vt = __vt__11TBoss6Zanzo;
-    arg0->f0 = TBoss6Zanzo__name;
-    arg0->n = arg2;
-    if (arg0->n < 2) {
-        arg0->n = 2;
+    ((Obj_803209F0 *)this)->f0 = TBoss6Zanzo__name;
+    ((Obj_803209F0 *)this)->n = arg2;
+    if (((Obj_803209F0 *)this)->n < 2) {
+        ((Obj_803209F0 *)this)->n = 2;
     }
-    arg0->m = arg3;
-    if (arg0->m < 2) {
-        arg0->m = 2;
+    ((Obj_803209F0 *)this)->m = arg3;
+    if (((Obj_803209F0 *)this)->m < 2) {
+        ((Obj_803209F0 *)this)->m = 2;
     }
-    arg0->arr = (Src_803209F0 *)mem_alloc(arg0->m * 8);
-    for (p = arg0->arr, end = p + arg0->m; p < end; p++) {
+    ((Obj_803209F0 *)this)->arr = (Src_803209F0 *)mem_alloc(((Obj_803209F0 *)this)->m * 8);
+    for (p = ((Obj_803209F0 *)this)->arr, end = p + ((Obj_803209F0 *)this)->m; p < end; p++) {
         p->a = 0;
-        p->p = mem_alloc(arg0->n * 0x10);
+        p->p = mem_alloc(((Obj_803209F0 *)this)->n * 0x10);
     }
-    arg0->last = (Src_803209F0 *)((TAdSinglePlyChrSelectGC *)8)->alloc();
-    arg0->last->a = 0;
-    arg0->last->p = mem_alloc(arg0->n * 0x10);
-    return arg0;
+    ((Obj_803209F0 *)this)->last = (Src_803209F0 *)((TAdSinglePlyChrSelectGC *)8)->alloc();
+    ((Obj_803209F0 *)this)->last->a = 0;
+    ((Obj_803209F0 *)this)->last->p = mem_alloc(((Obj_803209F0 *)this)->n * 0x10);
 }
+extern "C" {
 
 }

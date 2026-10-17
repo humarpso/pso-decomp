@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/ui/TAdMultiConfirmGC.h"
+#include "pso/ui/TAdMultiConfirmGC.h"
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 
@@ -38,7 +39,7 @@ void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
 void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);
-void __ct__10TAdTitleGCFv(void *, void *, s32);
+void __ct__10TAdTitleGCFP7TObjectl(void *, void *, s32);
 void __ct__13TAdTitleTexGCFv(void *, void *);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
 s32 is_multiplayer_character_slot_selected(u32);
@@ -49,7 +50,7 @@ void __ct__18TAdMultiPlayerNoGCFv(void *, void *, u32, u32, s32);
 extern s32 __vt__17TAdMultiConfirmGC[];
 extern s32 TAdMultiConfirmGC__name;
 extern u8 lbl_805DEF30;
-TAdMultiConfirmGC_802FFA3C *TAdMultiConfirmGC__ct(TAdMultiConfirmGC_802FFA3C *self, void *parent);
+TAdMultiConfirmGC_802FFA3C *__ct__17TAdMultiConfirmGCFP7TObject(TAdMultiConfirmGC_802FFA3C *self, void *parent);
 void *__dt__17TAdMultiConfirmGCFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -114,66 +115,65 @@ void *__dt__17TAdMultiConfirmGCFv(void *arg0, s16 arg1) {
 }
 #pragma push
 #pragma opt_common_subs off
-TAdMultiConfirmGC_802FFA3C *TAdMultiConfirmGC__ct(TAdMultiConfirmGC_802FFA3C *self, void *parent) {
+}
+TAdMultiConfirmGC::TAdMultiConfirmGC(TObject *parent) : TObject(parent) {
     OkArg_802FFA3C arg;
     u32 i;
     u32 j;
     u32 n;
     void *p;
-    __ct__7TObjectFP7TObject(self, parent);
-    self->vt = __vt__17TAdMultiConfirmGC;
-    self->x0 = TAdMultiConfirmGC__name;
-    self->state = 0;
-    self->guide = 0;
+    ((TAdMultiConfirmGC_802FFA3C *)this)->x0 = TAdMultiConfirmGC__name;
+    ((TAdMultiConfirmGC_802FFA3C *)this)->state = 0;
+    ((TAdMultiConfirmGC_802FFA3C *)this)->guide = 0;
     for (i = 0; i < 4; i++) {
-        self->players[i] = 0;
+        ((TAdMultiConfirmGC_802FFA3C *)this)->players[i] = 0;
     }
     if ((p = __nw__7TObjectFUl(0x24)) != 0) {
-        __ct__9TAdBackGCFv(p, self);
+        __ct__9TAdBackGCFv(p, ((TAdMultiConfirmGC_802FFA3C *)this));
     }
     if ((p = __nw__7TObjectFUl(0x28)) != 0) {
-        __ct__12TAdBackTxtGCFv(p, self);
+        __ct__12TAdBackTxtGCFv(p, ((TAdMultiConfirmGC_802FFA3C *)this));
     }
     if ((p = __nw__7TObjectFUl(0x138)) != 0) {
-        __ct__10TAdTitleGCFv(p, self, 0x10);
+        __ct__10TAdTitleGCFP7TObjectl(p, ((TAdMultiConfirmGC_802FFA3C *)this), 0x10);
     }
     if ((p = __nw__7TObjectFUl(0x9C)) != 0) {
-        __ct__13TAdTitleTexGCFv(p, self);
+        __ct__13TAdTitleTexGCFv(p, ((TAdMultiConfirmGC_802FFA3C *)this));
     }
-    self->count = 0;
+    ((TAdMultiConfirmGC_802FFA3C *)this)->count = 0;
     for (i = 0; i < 4; i++) {
-        self->ids[i] = 0;
+        ((TAdMultiConfirmGC_802FFA3C *)this)->ids[i] = 0;
     }
     for (i = 0; i < 4; i++) {
         if (is_multiplayer_character_slot_selected(i) != 0) {
-            self->ids[self->count] = i;
-            self->count++;
+            ((TAdMultiConfirmGC_802FFA3C *)this)->ids[((TAdMultiConfirmGC_802FFA3C *)this)->count] = i;
+            ((TAdMultiConfirmGC_802FFA3C *)this)->count++;
         }
     }
-    arg.count = self->count;
+    arg.count = ((TAdMultiConfirmGC_802FFA3C *)this)->count;
     arg.mask = 0;
-    for (j = 0; j < (n = self->count); j++) {
-        self->players[j] = get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(self, n + 1, j, self->ids[j]);
+    for (j = 0; j < (n = ((TAdMultiConfirmGC_802FFA3C *)this)->count); j++) {
+        ((TAdMultiConfirmGC_802FFA3C *)this)->players[j] = get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(((TAdMultiConfirmGC_802FFA3C *)this), n + 1, j, ((TAdMultiConfirmGC_802FFA3C *)this)->ids[j]);
         if ((p = __nw__7TObjectFUl(0x48)) != 0) {
-            __ct__18TAdMultiPlayerNoGCFv(p, self, self->count, j, self->ids[j]);
+            __ct__18TAdMultiPlayerNoGCFv(p, ((TAdMultiConfirmGC_802FFA3C *)this), ((TAdMultiConfirmGC_802FFA3C *)this)->count, j, ((TAdMultiConfirmGC_802FFA3C *)this)->ids[j]);
         }
-        arg.mask |= 1 << self->ids[j];
+        arg.mask |= 1 << ((TAdMultiConfirmGC_802FFA3C *)this)->ids[j];
     }
     p = __nw__7TObjectFUl(0x984);
     if (p != 0) {
-        p = __ct__12TAdMultiOkGCFv(p, self, &arg);
+        p = __ct__12TAdMultiOkGCFv(p, ((TAdMultiConfirmGC_802FFA3C *)this), &arg);
     }
-    self->ok = p;
+    ((TAdMultiConfirmGC_802FFA3C *)this)->ok = p;
     p = __nw__7TObjectFUl(0x44);
     if (p != 0) {
-        p = __ct__13TAdGuideTxtGCFv(p, self);
+        p = __ct__13TAdGuideTxtGCFv(p, ((TAdMultiConfirmGC_802FFA3C *)this));
     }
-    self->guide = p;
-    ((TAdMultiPlyChrSelectGC *)(self->guide))->set_entry_value((s32)0, (u32)(get_localized_text_entry(0x25, 0)));
-    ((TAdMultiPlyChrSelectGC *)(self->guide))->set_entry_value((s32)1, (u32)(&lbl_805DEF30));
-    fn_802FF7EC(self);
-    return self;
+    ((TAdMultiConfirmGC_802FFA3C *)this)->guide = p;
+    ((TAdMultiPlyChrSelectGC *)(((TAdMultiConfirmGC_802FFA3C *)this)->guide))->set_entry_value((s32)0, (u32)(get_localized_text_entry(0x25, 0)));
+    ((TAdMultiPlyChrSelectGC *)(((TAdMultiConfirmGC_802FFA3C *)this)->guide))->set_entry_value((s32)1, (u32)(&lbl_805DEF30));
+    fn_802FF7EC(((TAdMultiConfirmGC_802FFA3C *)this));
 }
+extern "C" {
 #pragma pop
 
 }

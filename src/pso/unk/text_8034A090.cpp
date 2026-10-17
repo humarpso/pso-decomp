@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/ui/TAdLoadQuestPrtTxtGC.h"
+#include "pso/ui/TAdLoadQuestPrtTxtGC.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TNowLoading.h"
 
@@ -78,26 +79,20 @@ void TAdLoadQuestPrtTxtGC::run_task() {
     }
 }
 
-T_8034A198 *__dt__20TAdLoadQuestPrtTxtGCFv(T_8034A198 *arg0, s16 arg1) {
+}
+TAdLoadQuestPrtTxtGC::~TAdLoadQuestPrtTxtGC() {
     s32 i;
-    if (arg0 != NULL) {
-        arg0->vt = __vt__20TAdLoadQuestPrtTxtGC;
-        if (((u32 *)&quest_load_prt_txt_by_slot)[arg0->slot] != 0) {
-            ((u32 *)&quest_load_prt_txt_by_slot)[arg0->slot] = 0;
-        }
-        for (i = 0; i < arg0->count; i++) {
-            if (arg0->objs[i] != NULL) {
-                queue_destruction__7TObjectFv(arg0->objs[i]);
-                arg0->objs[i] = NULL;
-            }
-        }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+    if (((u32 *)&quest_load_prt_txt_by_slot)[((T_8034A198 *)this)->slot] != 0) {
+        ((u32 *)&quest_load_prt_txt_by_slot)[((T_8034A198 *)this)->slot] = 0;
+    }
+    for (i = 0; i < ((T_8034A198 *)this)->count; i++) {
+        if (((T_8034A198 *)this)->objs[i] != NULL) {
+            queue_destruction__7TObjectFv(((T_8034A198 *)this)->objs[i]);
+            ((T_8034A198 *)this)->objs[i] = NULL;
         }
     }
-    return arg0;
 }
+extern "C" {
 
 s32 get_or_create_prt_txt__14TAdLoadQuestGCFii(s32 arg0, s32 arg1) {
     s32 temp_r30;

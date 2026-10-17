@@ -56,7 +56,7 @@ void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *);
 void *TWindowBreakIn__ct(void *);
 void *__ct__11TWindowChatFP7TObjectPv(void *, s32, void *);
-void *TWindowCtrlPlayer__ct(void *, void *, s32);
+void *__ct__17TWindowCtrlPlayerFP7TObjectl(void *, void *, s32);
 void *create_party_status_window(s32);
 extern s32 lbl_805D38C8;
 extern s32 local_client_id;
@@ -171,7 +171,7 @@ TWindowCtrl_8024C308 *TWindowCtrl__ct(TWindowCtrl_8024C308 *self) {
         for (i = 0; i < 4; i++) {
             p = __nw__7TObjectFUl(0x40);
             if (p != NULL) {
-                p = TWindowCtrlPlayer__ct(p, self, i);
+                p = __ct__17TWindowCtrlPlayerFP7TObjectl(p, self, i);
             }
             self->objs[i] = p;
             ((TObject *)(self->objs[i]))->set_flag_4();
@@ -179,7 +179,7 @@ TWindowCtrl_8024C308 *TWindowCtrl__ct(TWindowCtrl_8024C308 *self) {
     } else {
         p = __nw__7TObjectFUl(0x40);
         if (p != NULL) {
-            p = TWindowCtrlPlayer__ct(p, self, local_client_id);
+            p = __ct__17TWindowCtrlPlayerFP7TObjectl(p, self, local_client_id);
         }
         self->objs[local_client_id] = p;
         for (i = 0; i < 3; i++) {

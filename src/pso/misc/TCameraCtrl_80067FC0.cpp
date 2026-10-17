@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_80488838.h"
 #include "pso/misc/TUnk_80488A28.h"
 #include "pso/misc/TUnk_80488DA0.h"
 #include "pso/misc/TUnk_80488E00.h"
@@ -67,8 +68,8 @@ struct Cam_8006809C { u8 pad0[0x1C]; Obj_8006809C *obj; u8 pad20[0x60 - 0x20]; V
 
 extern "C" {
 extern G_80068018 controller_input_state;
-extern s32 lbl_80488838[];
-O_80068018 *construct_derived__11TCameraCtrlFPv(O_80068018 *self);
+extern s32 __vt__13TUnk_80488838[];
+O_80068018 *__ct__13TUnk_80488838Fv(O_80068018 *self);
 Vec_8006835C *get_target__11TCameraCtrlFv(void *);
 void direction_to_pitch_yaw(void *, void *, void *);
 void set_viewport_scissor__11TCameraCtrlFiPv(s32, void *);
@@ -118,7 +119,7 @@ void __dt__7TObjectFv(void *, int);
 
 void *__dt__13TUnk_80488838Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80488838;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TUnk_80488838;
         __dt__13TUnk_80488A28Fv((void *)(arg0), (s16)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -127,14 +128,13 @@ void *__dt__13TUnk_80488838Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-O_80068018 *construct_derived__11TCameraCtrlFPv(O_80068018 *self) {
-    __ct__13TUnk_80488A28Fv((void *)(self));
-    *(void **)((u8 *)self + 0x18) = ((char *)&lbl_80488838);
-    self->x38 = 0;
-    self->x6c = controller_input_state.sub;
-    self->v5();
-    return self;
 }
+TUnk_80488838::TUnk_80488838() : TUnk_80488A28() {
+    ((O_80068018 *)this)->x38 = 0;
+    ((O_80068018 *)this)->x6c = controller_input_state.sub;
+    ((O_80068018 *)this)->v5();
+}
+extern "C" {
 
 void TUnk_80488DA0::set_target_pos(void*q) { *(f32 *)&this->unk_48 = *(f32*)((char*)q + 0x0); (this->m_4c) = *(f32*)((char*)q + 0x4); *(f32*)((char*)this + 0x50) = *(f32*)((char*)q + 0x8); }
 

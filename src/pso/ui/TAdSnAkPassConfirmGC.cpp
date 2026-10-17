@@ -36,7 +36,7 @@ struct Obj_8032C004 { s32 f0; u8 pad[0x14]; void *vt; u8 pad2[0x48 - 0x1C]; s32 
 
 extern "C" {
 void *__nw__7TObjectFUl(u32);
-void __ct__10TAdTitleGCFv(void *, void *, int);
+void __ct__10TAdTitleGCFP7TObjectl(void *, void *, int);
 void TAdYesNoBaseGC__ct(void *);
 extern u8 lbl_804772C0[];
 extern u8 lbl_804772C8[];
@@ -93,7 +93,7 @@ Obj_8032C004 *TAdSnAkPassConfirmGC__ct(Obj_8032C004 *parent) {
     parent->f0 = lbl_805D41F0;
     p = __nw__7TObjectFUl(0x138);
     if (p != 0) {
-        __ct__10TAdTitleGCFv(p, parent, 0x11);
+        __ct__10TAdTitleGCFP7TObjectl(p, parent, 0x11);
     }
     parent->f48 = ((TWindowOptionCtrl *)lbl_804772C0)->create_serial_info_window(0);
     ((TAdYesNoBaseGC *)parent)->init_parts(lbl_804772C8, lbl_804772D0);

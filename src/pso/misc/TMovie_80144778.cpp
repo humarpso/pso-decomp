@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TMovie.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TMovie.h"
 
@@ -32,7 +33,7 @@ char *strncpy(char *, const char *, u32);
 extern u8 lbl_8043F380[];
 extern s32 __vt__6TMovie[];
 extern s32 TMovie__name;
-TMovie_80144910 *TMovie__ct(TMovie_80144910 *self, void *parent, s8 *name, s32 a3, s32 a4, s32 a5);
+TMovie_80144910 *__ct__6TMovieFP7TObjectPSclll(TMovie_80144910 *self, void *parent, s8 *name, s32 a3, s32 a4, s32 a5);
 s32 queue_destruction__7TObjectFv(void *);
 u8 *__ct__10TAdEndTextFv(void *, void *);
 s32 TAdEndText__sub_8001B41C();
@@ -98,28 +99,27 @@ void run_task__6TMovieFv(u8 *arg0) {
     queue_destruction__7TObjectFv(arg0);
 }
 
-TMovie_80144910 *TMovie__ct(TMovie_80144910 *self, void *parent, s8 *name, s32 a3, s32 a4, s32 a5) {
+}
+TMovie::TMovie(TObject *parent, s8 *name, s32 a3, s32 a4, s32 a5) : TObject(parent) {
     u8 *p;
-    __ct__7TObjectFP7TObject(self, parent);
-    self->vt = __vt__6TMovie;
-    self->name = TMovie__name;
-    self->f44 = a3;
-    self->obj1C = 0;
-    self->f48 = a4;
-    self->obj20 = 0;
-    strncpy(self->path, (const char *)name, 0x20);
+    ((TMovie_80144910 *)this)->name = TMovie__name;
+    ((TMovie_80144910 *)this)->f44 = a3;
+    ((TMovie_80144910 *)this)->obj1C = 0;
+    ((TMovie_80144910 *)this)->f48 = a4;
+    ((TMovie_80144910 *)this)->obj20 = 0;
+    strncpy(((TMovie_80144910 *)this)->path, (const char *)name, 0x20);
     p = alloc__23TAdSinglePlyChrSelectGCFv(8);
     if (p != 0) {
         p = load_rel_module(p, lbl_8043F380);
     }
-    self->obj1C = p;
+    ((TMovie_80144910 *)this)->obj1C = p;
     p = alloc__23TAdSinglePlyChrSelectGCFv(0xD0);
     if (p != 0) {
-        p = initialize_movie_with_soundtrack(p, name, self->f48, (u8)!self->f48, a5);
+        p = initialize_movie_with_soundtrack(p, name, ((TMovie_80144910 *)this)->f48, (u8)!((TMovie_80144910 *)this)->f48, a5);
     }
-    self->obj20 = p;
-    return self;
+    ((TMovie_80144910 *)this)->obj20 = p;
 }
+extern "C" {
 
     extern int opening_movie_selector;
 int get_opening_movie_selector(void) {  return opening_movie_selector; }

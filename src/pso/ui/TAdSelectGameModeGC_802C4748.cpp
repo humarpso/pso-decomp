@@ -45,7 +45,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 void *__ct__9TAdBackGCFv(void *, void *);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__8TAdRayGCFv(void *, void *);
-void *__ct__10TAdTitleGCFv(void *, void *, int);
+void *__ct__10TAdTitleGCFP7TObjectl(void *, void *, int);
 void *__ct__14TAdSelectTxtGCFP7TObjectPvPv(void *, void *, void *, int);
 void __ct__13TAdTitleTexGCFv(void *, void *);
 void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
@@ -124,7 +124,7 @@ u8 *__ct__19TAdSelectGameModeGCFv(u8 *arg0, void *parent) {
         __ct__8TAdRayGCFv(p, arg0);
     }
     if ((p = __nw__7TObjectFUl(0x138)) != 0) {
-        __ct__10TAdTitleGCFv(p, arg0, 4);
+        __ct__10TAdTitleGCFP7TObjectl(p, arg0, 4);
     }
     if ((p = __nw__7TObjectFUl(0x9C)) != 0) {
         __ct__13TAdTitleTexGCFv(p, arg0);

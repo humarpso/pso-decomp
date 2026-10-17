@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_8049F130.h"
 #include "pso/item/TUnk_8049F148.h"
 #include "pso/player/TUnk_8049F130.h"
 #include "pso/player/TObjPlayer.h"
@@ -90,8 +91,8 @@ u32 get_item_system_generation();
 void __ct__7TObjectFP7TObject(void *, void *);
 extern const s32 lbl_8043E280[];
 extern const s32 lbl_8043E2A0[];
-extern s32 lbl_8049F130[];
-Obj_8010A1D0 *TObjPlayer__sub_8010A1D0(Obj_8010A1D0 *self, void *parent, s16 a, u8 b);
+extern s32 __vt__13TUnk_8049F130[];
+Obj_8010A1D0 *__ct__13TUnk_8049F130FP7TObjectsUc(Obj_8010A1D0 *self, void *parent, s16 a, u8 b);
 s32 TObjPlayer__sub_8010A058(void* p);
 void *__dt__13TUnk_8049F130Fv(void *arg0, s16 arg1);
 s32 get_field_3e0__12TBoss3VoloptFv();
@@ -151,7 +152,7 @@ void TUnk_8049F130::run_task() {
 
 void *__dt__13TUnk_8049F130Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049F130;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TUnk_8049F130;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -159,17 +160,16 @@ void *__dt__13TUnk_8049F130Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-Obj_8010A1D0 *TObjPlayer__sub_8010A1D0(Obj_8010A1D0 *self, void *parent, s16 a, u8 b) {
-    __ct__7TObjectFP7TObject(self, parent);
-    self->vt = lbl_8049F130;
-    self->f_1C = 0;
-    self->f_20 = lbl_8043E2A0[(b - 0x53) % 8];
-    self->f_24 = lbl_8043E280[(b - 0x53) % 8];
-    self->f_28 = a;
-    self->f_2A = b;
-    self->f_2C = get_item_system_generation();
-    return self;
 }
+TUnk_8049F130::TUnk_8049F130(TObject *parent, s16 a, u8 b) : TObject(parent) {
+    ((Obj_8010A1D0 *)this)->f_1C = 0;
+    ((Obj_8010A1D0 *)this)->f_20 = lbl_8043E2A0[(b - 0x53) % 8];
+    ((Obj_8010A1D0 *)this)->f_24 = lbl_8043E280[(b - 0x53) % 8];
+    ((Obj_8010A1D0 *)this)->f_28 = a;
+    ((Obj_8010A1D0 *)this)->f_2A = b;
+    ((Obj_8010A1D0 *)this)->f_2C = get_item_system_generation();
+}
+extern "C" {
 
 void TUnk_8049F148::run_task() {
     s32 sp8[6];

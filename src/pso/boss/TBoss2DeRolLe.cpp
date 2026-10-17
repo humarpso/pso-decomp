@@ -1295,7 +1295,7 @@ void activate_laser_light__13TBoss2DeRolLeFPv(void *arg0);
 void calc_offset_position__13TBoss2DeRolLeFPv(u8 *arg0);
 void set_position_index__13TBoss2DeRolLeFPvi(void *, s32);
 void push_trail_position__13TBoss2DeRolLeFPvPv(void *, void *);
-void *ct_init_points__16TBoss2LaserLightFPvPvii(void *, void *, int, int);
+void *__ct__13TUnk_80482C58FP7TObjectll(void *, void *, int, int);
 u8 *csnVector(void *, void *, int);
 s32 spawn_particle_effect_with_flags(void *, int, int);
 void *spawn_continuous_particle_effect_with_flags(void *, int, int);
@@ -2120,7 +2120,7 @@ void TBoss2DeRolLe__sub_8002FE60(void *arg0, u32 arg1) {
                     if (self->laser1 == NULL) {
                         void *o = __nw__7TObjectFUl(0x124);
                         if (o != NULL) {
-                            o = ct_init_points__16TBoss2LaserLightFPvPvii(o, self, 6, 0x124);
+                            o = __ct__13TUnk_80482C58FP7TObjectll(o, self, 6, 0x124);
                         }
                         self->laser1 = o;
                     } else {
@@ -2129,7 +2129,7 @@ void TBoss2DeRolLe__sub_8002FE60(void *arg0, u32 arg1) {
                     if (self->laser2 == NULL) {
                         void *o = __nw__7TObjectFUl(0x124);
                         if (o != NULL) {
-                            o = ct_init_points__16TBoss2LaserLightFPvPvii(o, self, 0xF, 0x125);
+                            o = __ct__13TUnk_80482C58FP7TObjectll(o, self, 0xF, 0x125);
                         }
                         self->laser2 = o;
                     } else {

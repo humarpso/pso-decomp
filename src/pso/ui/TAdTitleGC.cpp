@@ -50,7 +50,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 u32 create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 extern u8 __vt__10TAdTitleGC[];
 extern s32 ad_title_gc_class_name;
-TAdTitleGC_802A0E08 *__ct__10TAdTitleGCFv(TAdTitleGC_802A0E08 *self, void *parent, s32 idx);
+TAdTitleGC_802A0E08 *__ct__10TAdTitleGCFP7TObjectl(TAdTitleGC_802A0E08 *self, void *parent, s32 idx);
 extern f32 title_rect_scale_table[];
 void run_task__10TAdTitleGCFv(u8 *arg0);
 s32 get_localized_text_entry(s32, s32);
@@ -131,27 +131,26 @@ void run_task__10TAdTitleGCFv(u8 *arg0) {
 #pragma push
 #pragma opt_common_subs off
 TAdTitleGC::~TAdTitleGC() {}
-TAdTitleGC_802A0E08 *__ct__10TAdTitleGCFv(TAdTitleGC_802A0E08 *self, void *parent, s32 idx) {
+}
+TAdTitleGC::TAdTitleGC(TObject *parent, s32 idx) : TObject(parent) {
     s32 off;
     s32 i;
-    __ct__7TObjectFP7TObject(self, parent);
-    self->vtable = __vt__10TAdTitleGC;
-    self->name = ad_title_gc_class_name;
-    self->idx = idx;
-    self->f128 = -1;
-    self->f12C = 0;
-    self->f134 = 1;
-    self->f130 = 0;
-    off = (self->idx > 11) ? -12 : 0;
+    ((TAdTitleGC_802A0E08 *)this)->name = ad_title_gc_class_name;
+    ((TAdTitleGC_802A0E08 *)this)->idx = idx;
+    ((TAdTitleGC_802A0E08 *)this)->f128 = -1;
+    ((TAdTitleGC_802A0E08 *)this)->f12C = 0;
+    ((TAdTitleGC_802A0E08 *)this)->f134 = 1;
+    ((TAdTitleGC_802A0E08 *)this)->f130 = 0;
+    off = (((TAdTitleGC_802A0E08 *)this)->idx > 11) ? -12 : 0;
     for (i = 0; i < 8; i++) {
-        self->recs[i].a = (0.0f);
-        self->recs[i].b = (4e+01f) * (f32)(self->idx + off) / 512.0f;
-        self->recs[i].c = 1.0f;
-        self->recs[i].d = (4e+01f) * (f32)(self->idx + off + 1) / 512.0f;
+        ((TAdTitleGC_802A0E08 *)this)->recs[i].a = (0.0f);
+        ((TAdTitleGC_802A0E08 *)this)->recs[i].b = (4e+01f) * (f32)(((TAdTitleGC_802A0E08 *)this)->idx + off) / 512.0f;
+        ((TAdTitleGC_802A0E08 *)this)->recs[i].c = 1.0f;
+        ((TAdTitleGC_802A0E08 *)this)->recs[i].d = (4e+01f) * (f32)(((TAdTitleGC_802A0E08 *)this)->idx + off + 1) / 512.0f;
     }
-    self->f130 = create_draw_line_ctrl__13TAdMcSelectGCFiif(self, 8, (0.0f));
-    return self;
+    ((TAdTitleGC_802A0E08 *)this)->f130 = create_draw_line_ctrl__13TAdMcSelectGCFiif(((TAdTitleGC_802A0E08 *)this), 8, (0.0f));
 }
+extern "C" {
 #pragma pop
 
 }

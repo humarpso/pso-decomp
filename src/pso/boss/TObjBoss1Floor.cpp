@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss1Floor.h"
 #include "pso/boss/TObjBoss1MokoHill_Solo.h"
 #include "pso/object/TObjFish.h"
 
@@ -8,7 +9,7 @@ void TObjBoss1Floor__sub_8002CB40(void);
 void TObjBoss1Floor__sub_8002CB78(void);
 void create_instance__14TObjBoss1FloorFv(void);
 s32 update_dragon_trail_uvs(void *);
-s32 TObjBoss1Floor__ct(void*, s32);
+s32 __ct__14TObjBoss1FloorFP7TObject(void*, s32);
 s32 draw_chunk_object(void *);
 s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
@@ -21,10 +22,7 @@ void TObjBoss1Floor__sub_8002CB40(void) {  }
 extern s32 tl_02;
 
 void create_instance__14TObjBoss1FloorFv(void) {
-    void* obj = __nw__7TObjectFUl(0x38);
-    if (obj != 0) {
-        TObjBoss1Floor__ct(obj, tl_02);
-    }
+    void* obj = new TObjBoss1Floor((TObject *)tl_02);
 }
 
 void TObjBoss1Floor__sub_8002CB78(void) {  }

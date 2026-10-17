@@ -8,7 +8,7 @@
 extern "C" {
 void advance_angle_wrap(s32 *arg0, s32 arg1);
 s32 is_split_screen(void);
-u8 * __ct__15TEffStarLight2DFv(void *, s32, s32, s32);
+u8 * __ct__15TEffStarLight2DFPvPvP7TObject(void *, s32, s32, s32);
 u8 *__nw__7TObjectFUl(s32);
 u8 *spawn_star_light_2d(s32 arg0, s32 arg1, s32 arg2);
 int set_flags__10TObjPlayerFUl(void*);
@@ -26,7 +26,7 @@ u8 *spawn_star_light_2d(s32 arg0, s32 arg1, s32 arg2) {
         temp_r3 = (u8 *)(__nw__7TObjectFUl(0x4C));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(__ct__15TEffStarLight2DFv(temp_r3, arg0, arg1, arg2));
+            var_r0 = (u8 *)(__ct__15TEffStarLight2DFPvPvP7TObject(temp_r3, arg0, arg1, arg2));
         }
         return var_r0;
     }

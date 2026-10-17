@@ -37,7 +37,7 @@ s32 TAdMultiPlyChrSelectGC__sub_80299454(void);
 void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__8TAdRayGCFv(void *, void *);
-void __ct__10TAdTitleGCFv(void *, void *, s32);
+void __ct__10TAdTitleGCFP7TObjectl(void *, void *, s32);
 void __ct__14TAdSelectTxtGCFP7TObjectPvPv(void *, void *, void *, s32);
 void __ct__13TAdTitleTexGCFv(void *, void *);
 void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
@@ -121,7 +121,7 @@ Self_802C3400 *__ct__16TAdStorySelectGCFv(Self_802C3400 *self, void *parent) {
     }
     p = __nw__7TObjectFUl(0x138);
     if (p != NULL) {
-        __ct__10TAdTitleGCFv(p, self, 1);
+        __ct__10TAdTitleGCFP7TObjectl(p, self, 1);
     }
     p = __nw__7TObjectFUl(0x9C);
     if (p != NULL) {

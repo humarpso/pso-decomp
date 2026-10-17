@@ -657,7 +657,7 @@ struct TAdEnterSerialAccessGC_80321F60 {
     s32 field_60;
 };
 u32 calc_text_width(void *);
-void *__ct__10TAdTitleGCFv(void *, void *, s32);
+void *__ct__10TAdTitleGCFP7TObjectl(void *, void *, s32);
 void run_task__22TAdEnterSerialAccessGCFv(TAdEnterSerialAccessGC_80321F60 *self) {
     void *p;
     f32 w;
@@ -674,7 +674,7 @@ void run_task__22TAdEnterSerialAccessGCFv(TAdEnterSerialAccessGC_80321F60 *self)
         self->field_60 = 0;
         p = __nw__7TObjectFUl(0x138);
         if (p != NULL) {
-            p = __ct__10TAdTitleGCFv(p, self, 0xA);
+            p = __ct__10TAdTitleGCFP7TObjectl(p, self, 0xA);
         }
         self->field_50 = p;
         self->field_58 = TAdEnterSerialAccessGC::open_message_window(self, (void *)0);
@@ -699,7 +699,7 @@ void run_task__22TAdEnterSerialAccessGCFv(TAdEnterSerialAccessGC_80321F60 *self)
         }
         p = __nw__7TObjectFUl(0x138);
         if (p != NULL) {
-            p = __ct__10TAdTitleGCFv(p, self, 0xB);
+            p = __ct__10TAdTitleGCFP7TObjectl(p, self, 0xB);
         }
         self->field_50 = p;
         self->field_58 = TAdEnterSerialAccessGC::open_message_window(self, (void *)1);

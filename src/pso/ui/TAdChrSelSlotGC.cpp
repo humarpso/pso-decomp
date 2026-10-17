@@ -1,5 +1,6 @@
 #include "pso/ui/TAdChrSelSlotGC.h"
 #include "pso/ui/TUnk_804E0B28.h"
+#include "pso/ui/TUnk_804E0B28.h"
 
 #include "types.h"
 
@@ -111,7 +112,7 @@ extern u32 lbl_805D67F0;
 void TLobby__sub_802C7920(void);
 extern u8 __vt__15TAdChrSelSlotGC[];
 extern s32 TAdChrSelSlotGC__name;
-S_802C7758 *__ct__15TAdChrSelSlotGCFv(S_802C7758 *self, TObject* _w1);
+S_802C7758 *__ct__15TAdChrSelSlotGCFP7TObject(S_802C7758 *self, TObject* _w1);
 void begin_screen_draw(int);
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(int, int);
@@ -122,10 +123,10 @@ s32 __ct__7TObjectFP7TObject(CharacterSelectTransitionState*, TObject* parent);
 void* __nw__7TObjectFUl(u32 size);
 StatusWindow* TWindowSubStatusDisp__ct(void* storage, s32 client);
 CallbackTask* update_display__20TWindowSubSymbolChatFl(void (*callback)());
-extern s32 lbl_804E0B28[];
+extern s32 __vt__13TUnk_804E0B28[];
 extern s32 lbl_805D67E8;
 extern const f32 lbl_805DE5B8, lbl_805DE5BC, lbl_805DE5C0;
-CharacterSelectTransitionState* construct_character_select_transition(CharacterSelectTransitionState* self, TObject* parent, s32 client);
+CharacterSelectTransitionState* __ct__13TUnk_804E0B28FP7TObjectl(CharacterSelectTransitionState* self, TObject* parent, s32 client);
 void TAdChrSelSlotGC__sub_802C7498(struct S802C7498_802C70AC *arg0, s32 arg1);
 void TLobby__sub_802C78EC(void);
 void *__dt__13TUnk_804E0B28Fv(void *arg0, s16 arg1);
@@ -175,7 +176,7 @@ void TUnk_804E0B28::run_task() {
 
 void *__dt__13TUnk_804E0B28Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E0B28;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TUnk_804E0B28;
         if ((u32) *(u32 *)((s8 *)arg0 + 0x4C) != 0U) {
             TWindow__close(*(void **)((s8 *)arg0 + 0x4C));
             *(u32 *)((s8 *)arg0 + 0x4C) = 0U;
@@ -193,29 +194,28 @@ void *__dt__13TUnk_804E0B28Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-CharacterSelectTransitionState* construct_character_select_transition(CharacterSelectTransitionState* self, TObject* parent, s32 client) {
-    __ct__7TObjectFP7TObject((CharacterSelectTransitionState*)(self), (TObject*)(parent));
-    self->vtable = ((const u32 *)&lbl_804E0B28);
-    self->parent = parent;
-    self->position0X = lbl_805DE5B8;
-    self->position0Y = lbl_805DE5BC;
-    self->target0X = lbl_805DE5C0 + TLobby::calc_phase_offset();
-    self->target0Y = lbl_805DE5BC;
-    self->position1X = lbl_805DE5B8;
-    self->position1Y = lbl_805DE5BC;
-    self->target1X = lbl_805DE5B8;
-    self->target1Y = lbl_805DE5BC;
-    self->client = client;
-    self->timer = 0;
-    (*(CharacterSelectTransitionState* *)&lbl_805D67E8) = self;
+}
+TUnk_804E0B28::TUnk_804E0B28(TObject*parent, s32 client) : TObject((TObject*)(parent)) {
+    ((CharacterSelectTransitionState*)this)->parent = parent;
+    ((CharacterSelectTransitionState*)this)->position0X = lbl_805DE5B8;
+    ((CharacterSelectTransitionState*)this)->position0Y = lbl_805DE5BC;
+    ((CharacterSelectTransitionState*)this)->target0X = lbl_805DE5C0 + TLobby::calc_phase_offset();
+    ((CharacterSelectTransitionState*)this)->target0Y = lbl_805DE5BC;
+    ((CharacterSelectTransitionState*)this)->position1X = lbl_805DE5B8;
+    ((CharacterSelectTransitionState*)this)->position1Y = lbl_805DE5BC;
+    ((CharacterSelectTransitionState*)this)->target1X = lbl_805DE5B8;
+    ((CharacterSelectTransitionState*)this)->target1Y = lbl_805DE5BC;
+    ((CharacterSelectTransitionState*)this)->client = client;
+    ((CharacterSelectTransitionState*)this)->timer = 0;
+    (*(CharacterSelectTransitionState* *)&lbl_805D67E8) = ((CharacterSelectTransitionState*)this);
     StatusWindow* window = (StatusWindow*)__nw__7TObjectFUl(0x74);
     if (window) {
-        window = TWindowSubStatusDisp__ct(window, self->client);
+        window = TWindowSubStatusDisp__ct(window, ((CharacterSelectTransitionState*)this)->client);
     }
-    self->statusWindow = window;
-    self->callback = update_display__20TWindowSubSymbolChatFl(TAdMultiPlyChrSelectGC::update_transition_anim_if_active);
-    return self;
+    ((CharacterSelectTransitionState*)this)->statusWindow = window;
+    ((CharacterSelectTransitionState*)this)->callback = update_display__20TWindowSubSymbolChatFl(TAdMultiPlyChrSelectGC::update_transition_anim_if_active);
 }
+extern "C" {
 
 void TAdChrSelSlotGC::draw_slot_icons() {
     TAdChrSelSlotGC_802C7314 *self = (TAdChrSelSlotGC_802C7314 *)this;
@@ -316,37 +316,36 @@ TAdChrSelSlotGC::~TAdChrSelSlotGC() {}
 extern "C" {
 #pragma push
 #pragma fp_contract on
-S_802C7758 *__ct__15TAdChrSelSlotGCFv(S_802C7758 *self, TObject* _w1) {
+}
+TAdChrSelSlotGC::TAdChrSelSlotGC(TObject*_w1) : TObject((TObject*)(_w1)) {
     u32 i;
     u32 j;
     u32 k;
     f32 t;
-    __ct__7TObjectFP7TObject((CharacterSelectTransitionState*)(self), (TObject*)(_w1));
-    self->vt = __vt__15TAdChrSelSlotGC;
-    self->f0 = TAdChrSelSlotGC__name;
-    self->f1C = -1;
-    self->f124 = 1;
+    ((S_802C7758 *)this)->f0 = TAdChrSelSlotGC__name;
+    ((S_802C7758 *)this)->f1C = -1;
+    ((S_802C7758 *)this)->f124 = 1;
     for (i = 0; i < 5; i++) {
-        self->aFC[i] = 0;
-        self->aE8[i] = 0;
+        ((S_802C7758 *)this)->aFC[i] = 0;
+        ((S_802C7758 *)this)->aE8[i] = 0;
     }
     for (j = 0; j < 2; j++) {
-        self->a110[j] = NULL;
-        self->e[j].x = 0.0f;
+        ((S_802C7758 *)this)->a110[j] = NULL;
+        ((S_802C7758 *)this)->e[j].x = 0.0f;
         t = 32.0f * (f32)j;
-        self->e[j].y = t / 256.0f;
-        self->e[j].z = 174.0f / 256.0f;
-        self->e[j].w = (32.0f + t) / 256.0f;
+        ((S_802C7758 *)this)->e[j].y = t / 256.0f;
+        ((S_802C7758 *)this)->e[j].z = 174.0f / 256.0f;
+        ((S_802C7758 *)this)->e[j].w = (32.0f + t) / 256.0f;
     }
     for (k = 0; k < 3; k++) {
-        self->a118[k] = NULL;
-        self->e2[k].x = 0.0f;
-        self->e2[k].y = (24.0f * (f32)k + 64.0f) / 256.0f;
-        self->e2[k].z = 174.0f / 256.0f;
-        self->e2[k].w = (24.0f * (f32)(k + 1) + 64.0f) / 256.0f;
+        ((S_802C7758 *)this)->a118[k] = NULL;
+        ((S_802C7758 *)this)->e2[k].x = 0.0f;
+        ((S_802C7758 *)this)->e2[k].y = (24.0f * (f32)k + 64.0f) / 256.0f;
+        ((S_802C7758 *)this)->e2[k].z = 174.0f / 256.0f;
+        ((S_802C7758 *)this)->e2[k].w = (24.0f * (f32)(k + 1) + 64.0f) / 256.0f;
     }
-    return self;
 }
+extern "C" {
 #pragma pop
 
 void TLobby__sub_802C78EC(void) {

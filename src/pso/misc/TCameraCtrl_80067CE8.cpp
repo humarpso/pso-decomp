@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_80488838.h"
 #include "pso/misc/TUnk_80488E00.h"
 #include "pso/misc/TUnk_80488838.h"
 
@@ -42,7 +43,7 @@ struct Obj_80067D20 {
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-void *construct_derived__11TCameraCtrlFPv(void *);
+void *__ct__13TUnk_80488838Fv(void *);
 s32 set_target_pos__13TUnk_80488DA0FPv(void *, void *, f32);
 u8 *get_player_by_client_id(s32);
 extern const f32 lbl_805D8F78;
@@ -57,10 +58,7 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void * TCameraCtrl__vt7(void) {
     void *o;
-    o = __nw__7TObjectFUl(0x74);
-    if (o != NULL) {
-        o = construct_derived__11TCameraCtrlFPv(o);
-    }
+    o = new TUnk_80488838();
     return o;
 }
 

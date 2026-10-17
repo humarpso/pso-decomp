@@ -16,7 +16,7 @@ void __ct__7TObjectFP7TObject(void *);
 extern u8 lbl_80477C70[];
 extern u8 __vt__14TChCrEffCtrlPl[];
 extern s32 TChCrEffCtrlPl__name;
-O_80339808 *__ct__14TChCrEffCtrlPlFv(O_80339808 *arg0, void * _w1);
+O_80339808 *__ct__14TChCrEffCtrlPlFP7TObject(O_80339808 *arg0, void * _w1);
 f32 sin_table_lookup(s32);
 extern const f32 lbl_80477C78[];
 void *__nw__7TObjectFUl(int);
@@ -66,22 +66,21 @@ void TChCrEffCtrlPl::run_task() {
 
 TChCrEffCtrlPl::~TChCrEffCtrlPl() {}
 
-O_80339808 *__ct__14TChCrEffCtrlPlFv(O_80339808 *arg0, void * _w1) {
-    __ct__7TObjectFP7TObject(arg0);
-    arg0->vt = __vt__14TChCrEffCtrlPl;
-    arg0->f0 = TChCrEffCtrlPl__name;
-    arg0->f1c = TChCrEffCtrlPl::get_clamped_player_index() + 0x8B;
-    arg0->f20 = TChCrEffCtrlPl::get_clamped_player_index() + 0xBC;
-    ((TWindowSubSymbolChatPartsSet *)(arg0->v))->copy_vec2(lbl_80477C70);
-    arg0->f2c = 0.0f;
-    arg0->f34 = 0;
-    return arg0;
 }
+TChCrEffCtrlPl::TChCrEffCtrlPl(TObject *_w1) : TObject(_w1) {
+    ((O_80339808 *)this)->f0 = TChCrEffCtrlPl__name;
+    ((O_80339808 *)this)->f1c = TChCrEffCtrlPl::get_clamped_player_index() + 0x8B;
+    ((O_80339808 *)this)->f20 = TChCrEffCtrlPl::get_clamped_player_index() + 0xBC;
+    ((TWindowSubSymbolChatPartsSet *)(((O_80339808 *)this)->v))->copy_vec2(lbl_80477C70);
+    ((O_80339808 *)this)->f2c = 0.0f;
+    ((O_80339808 *)this)->f34 = 0;
+}
+extern "C" {
 
 void *TChCrEffCtrlPl::create() {
     void *o = __nw__7TObjectFUl(0x38);
     if (o != NULL) {
-        o = __ct__14TChCrEffCtrlPlFv((O_80339808 *)(o), (void *)(this));
+        o = __ct__14TChCrEffCtrlPlFP7TObject((O_80339808 *)(o), (void *)(this));
     }
     return o;
 }

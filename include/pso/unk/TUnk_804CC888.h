@@ -5,6 +5,7 @@
 
 class TUnk_804CC888 : public TObject {
 public:
+    TUnk_804CC888(u8 *src, s32 level, TObject *parent);
     virtual ~TUnk_804CC888();
     u8 unk_1C[0x20];
 };

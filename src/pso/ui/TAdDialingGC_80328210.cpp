@@ -36,7 +36,7 @@ void spawn_title_screen__12TAdDialingGCFl(void *arg0, s32);
 s32 update_status_message__12TAdDialingGCFv();
 s32 create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 s32 TLobby__sub_803FB184(void *);
-s32 __ct__10TAdTitleGCFv(u32, void *, s32);
+s32 __ct__10TAdTitleGCFP7TObjectl(u32, void *, s32);
 u32 __nw__7TObjectFUl(s32);
 s8 func_801A5E54__Fv();
 s32 handle_state__12TAdDialingGCFv();
@@ -164,7 +164,7 @@ void TAdDialingGC::spawn_title_screen(s32) {
     if (!(*(s32 *)&this->m_a4 & 1)) {
         u32 temp_nw;
         if (((s32) *(s32 *)&this->m_1c == 0) && ((temp_nw = __nw__7TObjectFUl(0x138)) != 0U)) {
-            __ct__10TAdTitleGCFv(temp_nw, this, 5);
+            __ct__10TAdTitleGCFP7TObjectl(temp_nw, this, 5);
         }
         create_draw_line_ctrl__13TAdMcSelectGCFiif(this, 0x11, lbl_805DF6E0);
         *(s32 *)&this->m_a4 = (s32) (*(s32 *)&this->m_a4 | 1);

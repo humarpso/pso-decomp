@@ -206,11 +206,11 @@ void TObjPlayer::init_offset_vectors() { (*(int *)&this->m_70) = 0; *(float *)&t
 
 void *init_offsets_object__13TUnk_804EDD20Fv(void *arg0);
 void *init_effect_object__13TUnk_804EDD20Fv(void *arg0);
-void construct_card_effect_at_point(void *);
+void __ct__13TUnk_804EDD44FP7TObjectPfPfll(void *);
 void construct_card_effect_on_target(void *);
 
 void *TUnk_804EDD20::init_offsets_object() {
-    construct_card_effect_at_point(this);
+    __ct__13TUnk_804EDD44FP7TObjectPfPfll(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804EDD20;
     ((TObjPlayer *)this)->init_offset_vectors();
     return this;

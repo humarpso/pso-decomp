@@ -16,7 +16,7 @@ s32 TWindowShortListCtrl__sub_801A513C(void* p);
 int TWindowShortListCtrl__sub_801A5144(void* p);
 void TKeyBoardControl__sub_8000F90C(int);
 void *TWindowOptionCtrl__ct(void *, void *);
-void *__ct__10TAdTitleGCFv(void *, void *, int);
+void *__ct__10TAdTitleGCFP7TObjectl(void *, void *, int);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 void *__ct__9TAdBackGCFv(void *, void *);
@@ -62,7 +62,7 @@ void *construct_option_scene(void *parent) {
     }
     o3 = __nw__7TObjectFUl(0x138);
     if (o3 != NULL) {
-        __ct__10TAdTitleGCFv(o3, parent, 3);
+        __ct__10TAdTitleGCFP7TObjectl(o3, parent, 3);
     }
     TKeyBoardControl__sub_8000F90C(9);
     *(u32 *)((s8 *)parent + 0x20) = 4;

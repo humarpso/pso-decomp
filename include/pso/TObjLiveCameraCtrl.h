@@ -6,6 +6,7 @@
 
 class TObjLiveCameraCtrl : public TObject {
 public:
+    TObjLiveCameraCtrl(TObject *parent);
     virtual ~TObjLiveCameraCtrl();
     void sub_8030B818(int);
     virtual void run_task();

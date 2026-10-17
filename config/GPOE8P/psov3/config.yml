@@ -389,6 +389,7 @@ force_active:
   - __ct__14LobbyListEntryFv
   - __ct__14QuestListEntryFRC14QuestListEntry
   - __ct__14QuestListEntryFv
+  - __ct__14TChCrEffCtrlPlFP7TObject
   - __ct__15TAdDrawLineCtrlFP7TObjectPvf
   - __ct__15TBoss6CrushRockFv
   - __ct__15TObjDeadListWinFP7TObject

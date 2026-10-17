@@ -1,9 +1,10 @@
 #include "types.h"
+#include "pso/ui/TAdChrSelSlotGC.h"
 #include "pso/ui/TAdChrSelBSlotGC.h"
 
 extern "C" {
 
-void *__ct__15TAdChrSelSlotGCFv(void *, void *);
+void *__ct__15TAdChrSelSlotGCFP7TObject(void *, void *);
 void *__ct__15TAdSubPlyItemGCFv(void *, void *);
 void *__ct__19TAdPlyChrSelPlateGCFv(void *, void *, void *);
 void *__ct__20TAdChrSelMovePlateGCFv(void *, void *);
@@ -16,10 +17,7 @@ void TAdChrSelBSlotGC::create_children() {
     void *o2;
     void *o3;
     void *o4;
-    o = __nw__7TObjectFUl(0x128);
-    if (o != NULL) {
-        o = __ct__15TAdChrSelSlotGCFv(o, this);
-    }
+    o = new TAdChrSelSlotGC(this);
     *(void * *)&this->unk_28 = o;
     o2 = __nw__7TObjectFUl(0x3B4);
     if (o2 != NULL) {

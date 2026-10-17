@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/ui/TAdLdQuestPrtGC.h"
+#include "pso/ui/TAdLdQuestPrtGC.h"
 
 struct RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 {
     s32 value;
@@ -53,23 +54,17 @@ Obj_80322E90 *__dt__15TAdLdQuestPrtGCFv(Obj_80322E90 *arg0, s16 arg1);
 void TAdLdQuestPrtGC::render() {  }
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 
-Obj_80322E90 *__dt__15TAdLdQuestPrtGCFv(Obj_80322E90 *arg0, s16 arg1) {
+}
+TAdLdQuestPrtGC::~TAdLdQuestPrtGC() {
     u32 i;
-    if (arg0 != 0) {
-        arg0->vt = __vt__15TAdLdQuestPrtGC;
-        for (i = 0; i < 4; i++) {
-            if (arg0->items[i] != 0) {
-                queue_destruction__7TObjectFv(arg0->items[i]);
-                arg0->items[i] = 0;
-            }
-        }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+    for (i = 0; i < 4; i++) {
+        if (((Obj_80322E90 *)this)->items[i] != 0) {
+            queue_destruction__7TObjectFv(((Obj_80322E90 *)this)->items[i]);
+            ((Obj_80322E90 *)this)->items[i] = 0;
         }
     }
-    return arg0;
 }
+extern "C" {
 
 int TAdLdQuestPrtGC::get_abs() { return ansi_fp_abs(this); }
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];

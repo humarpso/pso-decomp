@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804CC888.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -27,60 +28,59 @@ s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern Profile_80232EC0 grants_effect_emitter_table[];
-extern void *lbl_804CC888[];
-Task_80232EC0 *construct_grants_effect__12TBoss3VoloptFPvPviPv(Task_80232EC0 *self, u8 *src, s32 level, void *parent);
-Task_80232EC0 *construct_grants_effect__12TBoss3VoloptFPvPviPv(Task_80232EC0 *self, u8 *src, s32 level, void *parent) {
+extern void *__vt__13TUnk_804CC888[];
+Task_80232EC0 *__ct__13TUnk_804CC888FPUclP7TObject(Task_80232EC0 *self, u8 *src, s32 level, void *parent);
+}
+TUnk_804CC888::TUnk_804CC888(u8 *src, s32 level, TObject *parent) : TObject(parent) {
     u32 i;
-    __ct__7TObjectFP7TObject(self, parent);
-    self->vt = lbl_804CC888;
-    VecCopy__FP3VecPC3Vec(self->pos, src + 0x38);
-    self->x2c = 0;
-    self->owner = obj_getField1c(src);
-    self->level = level;
-    if (self->level < 0) {
-        self->level = 0;
+    VecCopy__FP3VecPC3Vec(((Task_80232EC0 *)this)->pos, src + 0x38);
+    ((Task_80232EC0 *)this)->x2c = 0;
+    ((Task_80232EC0 *)this)->owner = obj_getField1c(src);
+    ((Task_80232EC0 *)this)->level = level;
+    if (((Task_80232EC0 *)this)->level < 0) {
+        ((Task_80232EC0 *)this)->level = 0;
     } else if (level >= 0x1E) {
-        self->level = 0x1E;
+        ((Task_80232EC0 *)this)->level = 0x1E;
     }
-    self->tier = TObjPlayer::get_level_tier(self->level);
-    self->emitters = mem_alloc(grants_effect_emitter_table[self->tier].count * 4);
-    for (i = 0; i < grants_effect_emitter_table[self->tier].count; i++) {
-        self->emitters[i] = spawn_continuous_particle_effect_with_flags(self->pos, grants_effect_emitter_table[self->tier].parts[i].id, 0x10);
-        if (self->emitters[i] != 0) {
-            ((TParticleCtrl *)(self->emitters[i]))->set_owner_id(self->owner);
+    ((Task_80232EC0 *)this)->tier = TObjPlayer::get_level_tier(((Task_80232EC0 *)this)->level);
+    ((Task_80232EC0 *)this)->emitters = mem_alloc(grants_effect_emitter_table[((Task_80232EC0 *)this)->tier].count * 4);
+    for (i = 0; i < grants_effect_emitter_table[((Task_80232EC0 *)this)->tier].count; i++) {
+        ((Task_80232EC0 *)this)->emitters[i] = spawn_continuous_particle_effect_with_flags(((Task_80232EC0 *)this)->pos, grants_effect_emitter_table[((Task_80232EC0 *)this)->tier].parts[i].id, 0x10);
+        if (((Task_80232EC0 *)this)->emitters[i] != 0) {
+            ((TParticleCtrl *)(((Task_80232EC0 *)this)->emitters[i]))->set_owner_id(((Task_80232EC0 *)this)->owner);
         }
     }
-    switch (self->tier) {
+    switch (((Task_80232EC0 *)this)->tier) {
     case 0:
-        self->sound = play_sound_effect(0x4002A90C, self->pos, 0, 0);
-        if (self->sound >= 0) {
-            update_technique_slot__10TTecRaFoieFl(self->sound, 0x100, 0);
+        ((Task_80232EC0 *)this)->sound = play_sound_effect(0x4002A90C, ((Task_80232EC0 *)this)->pos, 0, 0);
+        if (((Task_80232EC0 *)this)->sound >= 0) {
+            update_technique_slot__10TTecRaFoieFl(((Task_80232EC0 *)this)->sound, 0x100, 0);
         }
         break;
     case 1:
-        self->sound = play_sound_effect(0x4002A90C, self->pos, 0, 0);
+        ((Task_80232EC0 *)this)->sound = play_sound_effect(0x4002A90C, ((Task_80232EC0 *)this)->pos, 0, 0);
         break;
     case 2:
     case 3:
-        self->sound = play_sound_effect(0x4002A90C, self->pos, 0, 0);
-        if (self->sound >= 0) {
-            update_technique_slot__10TTecRaFoieFl(self->sound, -0x180, 0);
+        ((Task_80232EC0 *)this)->sound = play_sound_effect(0x4002A90C, ((Task_80232EC0 *)this)->pos, 0, 0);
+        if (((Task_80232EC0 *)this)->sound >= 0) {
+            update_technique_slot__10TTecRaFoieFl(((Task_80232EC0 *)this)->sound, -0x180, 0);
         }
         break;
     case 4:
-        self->sound = play_sound_effect(0x4002A90C, self->pos, 0, 0);
-        if (self->sound >= 0) {
-            update_technique_slot__10TTecRaFoieFl(self->sound, -0x250, 0);
+        ((Task_80232EC0 *)this)->sound = play_sound_effect(0x4002A90C, ((Task_80232EC0 *)this)->pos, 0, 0);
+        if (((Task_80232EC0 *)this)->sound >= 0) {
+            update_technique_slot__10TTecRaFoieFl(((Task_80232EC0 *)this)->sound, -0x250, 0);
         }
         break;
     case 5:
-        self->sound = play_sound_effect(0x4002A90C, self->pos, 0, 0);
-        if (self->sound >= 0) {
-            update_technique_slot__10TTecRaFoieFl(self->sound, -0x100, 0);
+        ((Task_80232EC0 *)this)->sound = play_sound_effect(0x4002A90C, ((Task_80232EC0 *)this)->pos, 0, 0);
+        if (((Task_80232EC0 *)this)->sound >= 0) {
+            update_technique_slot__10TTecRaFoieFl(((Task_80232EC0 *)this)->sound, -0x100, 0);
         }
         break;
     }
-    return self;
 }
+extern "C" {
 
 }

@@ -56,7 +56,7 @@ void __ct__7TObjectFP7TObject(void *);
 void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__8TAdRayGCFv(void *, void *);
-void __ct__10TAdTitleGCFv(void *, void *, s32);
+void __ct__10TAdTitleGCFP7TObjectl(void *, void *, s32);
 void *__ct__14TAdSelectTxtGCFP7TObjectPvPv(void *, void *, void *, s32);
 void __ct__13TAdTitleTexGCFv(void *, void *);
 void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
@@ -222,7 +222,7 @@ Obj_8030095C *__ct__21TAdMultiSelGameModeGCFv(Obj_8030095C *self, s32 parent, s3
         __ct__8TAdRayGCFv(p, self);
     }
     if ((p = __nw__7TObjectFUl(0x138)) != NULL) {
-        __ct__10TAdTitleGCFv(p, self, 0xE);
+        __ct__10TAdTitleGCFP7TObjectl(p, self, 0xE);
     }
     if ((p = __nw__7TObjectFUl(0x9C)) != NULL) {
         __ct__13TAdTitleTexGCFv(p, self);

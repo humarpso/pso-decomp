@@ -40,7 +40,7 @@ void TItemProShield__vt16(void *arg0, void *arg1);
 int TItemEquipBase__sub_8010A82C(void*);
 s32 play_sound_effect(int, int, int, int);
 s32 ct_init__14TItemEffShieldFPUcs(int, int, void *);
-s32 TObjPlayer__sub_8010A1D0(int, int, void *, int);
+s32 __ct__13TUnk_8049F130FP7TObjectsUc(int, int, void *, int);
 s32 __nw__7TObjectFUl(int);
 s32 __nw__15TItemHeapObjectFUl(int);
 s32 construct_timer_event__13TUnk_804A0628Fv(int, int, void *, int);
@@ -169,7 +169,7 @@ void TItemProShield::vfunc_44() {
         if ((temp_r3 >= 0x53U) && (temp_r3 <= 0x82U)) {
             temp_r3_5 = __nw__7TObjectFUl((int) (0x30));
             if (temp_r3_5 != 0) {
-                TObjPlayer__sub_8010A1D0((int) (temp_r3_5), (int) (this->m_174), (void *) (get_id__13TItemProArmorFv((void *) (((u8 *)this)))), (int) (temp_r3));
+                __ct__13TUnk_8049F130FP7TObjectsUc((int) (temp_r3_5), (int) (this->m_174), (void *) (get_id__13TItemProArmorFv((void *) (((u8 *)this)))), (int) (temp_r3));
             }
         }
     }

@@ -17,11 +17,11 @@ s16 obj_getField1c(void *);
 f32 atan2_float(f32, f32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern const f64 lbl_804773A8[];
-extern u8 lbl_804EDD44[];
+extern u8 __vt__13TUnk_804EDD44[];
 Obj_8032E400 *construct_card_effect_on_target(Obj_8032E400 *arg0, void *arg1, Ref_8032E400 *arg2, Vec_8032E400 *arg3, s32 arg4, s32 arg5);
 Obj_8032E400 *construct_card_effect_on_target(Obj_8032E400 *arg0, void *arg1, Ref_8032E400 *arg2, Vec_8032E400 *arg3, s32 arg4, s32 arg5) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    arg0->vt = lbl_804EDD44;
+    arg0->vt = __vt__13TUnk_804EDD44;
     arg0->f34 = obj_getField1c(arg2->owner);
     arg0->f60 = arg5;
     ((TItemAttackCol *)(arg0->col))->copy_pos(arg2);

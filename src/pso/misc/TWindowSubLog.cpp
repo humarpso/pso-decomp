@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubLog.h"
 #include "pso/misc/TWindowChat.h"
 #include "pso/misc/TWindowSubLog.h"
 #include "pso/ui/TAdScrollWinGC.h"
@@ -49,7 +50,7 @@ extern u8 lbl_8044F9C8[];
 extern u8 lbl_8044F9D0[];
 extern s32 __vt__13TWindowSubLog[];
 extern s32 TWindowSubLog__class_name;
-Lg_8027B194 *TWindowSubLog__ct(Lg_8027B194 *arg0, void *arg1, void *arg2);
+Lg_8027B194 *__ct__13TWindowSubLogFP7TObjectPv(Lg_8027B194 *arg0, void *arg1, void *arg2);
 void *__dt__13TWindowSubLogFv(void *arg0, s16 arg1);
 void TWindowCtrl__sub_8024ADF0(void *);
 void TWindow__close(void *);
@@ -109,22 +110,21 @@ void *__dt__13TWindowSubLogFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-Lg_8027B194 *TWindowSubLog__ct(Lg_8027B194 *arg0, void *arg1, void *arg2) {
-    void *w;
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    arg0->vt = ((u8 *)&__vt__13TWindowSubLog);
-    arg0->f0 = TWindowSubLog__class_name;
-    arg0->f20 = arg1;
-    arg0->f1c = arg2;
-    TWindowCtrl__sub_8024ADAC(arg0->f1c);
-    fn_8027B288((void*)(arg0->f20));
-    ((TWindowSubLog *)(arg0->f20))->set_flag4c_bit8();
-    arg0->f24 = create_message_log_window(lbl_8044F9C8, lbl_8044F9D0, arg0->f1c);
-    w = new TWindowChat((TObject *)arg0, (void *)arg0->f2c);
-    arg0->f28 = w;
-    fn_8027B2A8((void*)(arg0->f28));
-    return arg0;
 }
+TWindowSubLog::TWindowSubLog(TObject *arg1, void *arg2) : TObject(arg1) {
+    void *w;
+    ((Lg_8027B194 *)this)->f0 = TWindowSubLog__class_name;
+    ((Lg_8027B194 *)this)->f20 = arg1;
+    ((Lg_8027B194 *)this)->f1c = arg2;
+    TWindowCtrl__sub_8024ADAC(((Lg_8027B194 *)this)->f1c);
+    fn_8027B288((void*)(((Lg_8027B194 *)this)->f20));
+    ((TWindowSubLog *)(((Lg_8027B194 *)this)->f20))->set_flag4c_bit8();
+    ((Lg_8027B194 *)this)->f24 = create_message_log_window(lbl_8044F9C8, lbl_8044F9D0, ((Lg_8027B194 *)this)->f1c);
+    w = new TWindowChat((TObject *)((Lg_8027B194 *)this), (void *)((Lg_8027B194 *)this)->f2c);
+    ((Lg_8027B194 *)this)->f28 = w;
+    fn_8027B2A8((void*)(((Lg_8027B194 *)this)->f28));
+}
+extern "C" {
 
 void TWindowSubLog::clear_flag4c_bit8() { this->m_4c &= 0xfffffff7; }
 int TWindowSubLog::cleanup() { return show_child_window__17TWindowMainMenu4PFv(this); }

@@ -5,6 +5,7 @@
 
 class TUnk_80488838 : public TUnk_80488A28 {
 public:
+    TUnk_80488838();
     virtual ~TUnk_80488838();
     void update_orbit_camera();
     virtual void run_task();

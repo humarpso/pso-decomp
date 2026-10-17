@@ -5,6 +5,7 @@
 #include "pso/TObject.h"
 
 struct TAdMultiConfirmGC : public TObject {
+    TAdMultiConfirmGC(TObject *parent);
     virtual ~TAdMultiConfirmGC();
     u32 m_1c;
     u32 m_20;

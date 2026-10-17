@@ -15,7 +15,7 @@ extern "C" {
 u32 __nw__7TObjectFUl(int);
 s32 __ct__9TAdBackGCFv(void *, void *);
 s32 __ct__12TAdBackTxtGCFv(void *, void *);
-s32 __ct__10TAdTitleGCFv(void *, void *, int);
+s32 __ct__10TAdTitleGCFP7TObjectl(void *, void *, int);
 u32 __ct__13TAdTitleTexGCFv(void *, void *);
 u32 __ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
 s32 set_entry_value__22TAdMultiPlyChrSelectGCFlUl(u32, int, void *);
@@ -434,7 +434,7 @@ void TAdMultiPlyChrSelectGC::create_widgets() {
     case 2:
         p = __nw__7TObjectFUl(0x138);
         if (p != 0) {
-            __ct__10TAdTitleGCFv((void *) p, ((u8 *)this), 0);
+            __ct__10TAdTitleGCFP7TObjectl((void *) p, ((u8 *)this), 0);
         }
         *(s32 *)&this->unk_68 = get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(((u8 *)this), 1);
         *(s32 *)&this->unk_60 = get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(((u8 *)this), 1, -1, 0);
@@ -442,7 +442,7 @@ void TAdMultiPlyChrSelectGC::create_widgets() {
     case 1: {
         p = __nw__7TObjectFUl(0x138);
         if (p != 0) {
-            __ct__10TAdTitleGCFv((void *) p, ((u8 *)this), 8);
+            __ct__10TAdTitleGCFP7TObjectl((void *) p, ((u8 *)this), 8);
         }
         *(s32 *)&this->unk_68 = get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(((u8 *)this), 2);
         this->m_6c = create__16TAdChrSelBSlotGCFPv(((u8 *)this));

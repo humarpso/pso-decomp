@@ -5,6 +5,7 @@
 
 class TAdTitleGC : public TObject {
 public:
+    TAdTitleGC(TObject *parent, s32 idx);
     virtual ~TAdTitleGC();
     virtual void run_task();
     virtual void render();

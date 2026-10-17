@@ -68,7 +68,7 @@ extern "C" {
 s32 TObjRoomId__sub_80141CF4(void *, void *, int, int, int, void *, f32);
 extern RecoveredGlobal_80084C10_lbl_804393AC star_light_2d_base_color;
 extern const f32 lbl_805D9450;
-u8 * __ct__15TEffStarLight2DFv(void *, s32, s32, s32);
+u8 * __ct__15TEffStarLight2DFPvPvP7TObject(void *, s32, s32, s32);
 u8 * construct_world_actor_base(void *);
 void * __nw__7TObjectFUl(s32, s32);
 extern s32 lbl_8048E640[];
@@ -157,7 +157,7 @@ u8 *TEffStarLight2D_Base__ct(u8 *arg0, s32 arg1, s32 arg2) {
     temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((s32)(0x4C), (s32)(temp_r4))));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(__ct__15TEffStarLight2DFv(temp_r3, (s32) (arg0 + 0x38), (s32) &stack.sp8, (*(s32 *)&tl_particle)));
+        var_r0 = (u8 *)(__ct__15TEffStarLight2DFPvPvP7TObject(temp_r3, (s32) (arg0 + 0x38), (s32) &stack.sp8, (*(s32 *)&tl_particle)));
     }
     *(u8 **)((s8 *)arg0 + 0x90) = var_r0;
     return arg0;

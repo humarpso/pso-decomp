@@ -47,7 +47,7 @@ void mem_free(void *);
 void stop_sound_request(s32);
 void __dl__7TObjectFPv(void *);
 extern Ent_80232E0C grants_effect_emitter_table[];
-extern u8 lbl_804CC888[];
+extern u8 __vt__13TUnk_804CC888[];
 Obj_80232E0C *__dt__13TUnk_804CC888Fv(Obj_80232E0C *arg0, s16 arg1);
 void VecCopy__FP3VecPC3Vec(Vec_80232B7C *, Vec_80232B7C *);
 void __ct__7TObjectFP7TObject(void *self, void *parent);
@@ -148,7 +148,7 @@ void grants_presentation_update(Ctl_80232C50 *arg0) {
 Obj_80232E0C *__dt__13TUnk_804CC888Fv(Obj_80232E0C *arg0, s16 arg1) {
     u32 i;
     if (arg0 != NULL) {
-        arg0->vt = lbl_804CC888;
+        arg0->vt = __vt__13TUnk_804CC888;
         for (i = 0; i < grants_effect_emitter_table[arg0->kind].count; i++) {
             if (arg0->items[i] != NULL) {
                 queue_destruction__7TObjectFv(arg0->items[i]);

@@ -121,7 +121,7 @@ extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 void TObjChip__vt10(u8 *arg0);
 s32 is_split_screen(void);
-void *__ct__15TEffStarLight2DFv(void *, void *, void *, void *);
+void *__ct__15TEffStarLight2DFPvPvP7TObject(void *, void *, void *, void *);
 void init_map_object_base(void *);
 void fn_8017F550(void *);
 void *__nw__7TObjectFUl(int);
@@ -228,7 +228,7 @@ u8 *TObjCamera__ct(u8 *arg0, s32 arg1, s32 arg2) {
         for (i = 0; i < 8; i++) {
             obj = __nw__7TObjectFUl(0x4C);
             if (obj != 0) {
-                obj = __ct__15TEffStarLight2DFv(obj, arg0 + 0x38, &c, arg0);
+                obj = __ct__15TEffStarLight2DFPvPvP7TObject(obj, arg0 + 0x38, &c, arg0);
             }
             ((Cam_8017FA9C *)arg0)->arr[i] = obj;
         }

@@ -5,6 +5,7 @@
 #include "pso/TObject.h"
 
 struct TBoss6Zanzo : public TObject {
+    TBoss6Zanzo(TObject *arg1, s32 arg2, s32 arg3);
     virtual ~TBoss6Zanzo();
     void copy_trail_buffer(void *, void *);
     virtual void run_task();

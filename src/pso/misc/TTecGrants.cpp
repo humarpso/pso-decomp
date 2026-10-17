@@ -78,7 +78,7 @@ struct VObj_802386F8 : VBase_802386F8 {
 
 extern "C" {
 u8 * find_entity_by_id(u16);
-u8 * construct_grants_effect__12TBoss3VoloptFPvPviPv(void *, s32, s32, s32);
+u8 * __ct__13TUnk_804CC888FPUclP7TObject(void *, s32, s32, s32);
 s32 queue_destruction__7TObjectFv(void *);
 void *__nw__7TObjectFUl(int);
 extern s32 tl_07;
@@ -134,7 +134,7 @@ void run_task__10TTecGrantsFv(u8 *arg0) {
     if ((TTecLuker::is_parents_unqueued(temp_r3) != 0) && (TObjPlayer::is_valid_and_active(temp_r3) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x148) == 0)) {
         temp_r3_2 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x3C))));
         if (temp_r3_2 != NULL) {
-            construct_grants_effect__12TBoss3VoloptFPvPviPv(temp_r3_2, (s32) temp_r3, (s32) *(s16 *)((s8 *)arg0 + 0x78), tl_07);
+            __ct__13TUnk_804CC888FPUclP7TObject(temp_r3_2, (s32) temp_r3, (s32) *(s16 *)((s8 *)arg0 + 0x78), tl_07);
         }
     }
     *(s32 *)((s8 *)arg0 + 0x148) = (s32) (*(s32 *)((s8 *)arg0 + 0x148) + 1);

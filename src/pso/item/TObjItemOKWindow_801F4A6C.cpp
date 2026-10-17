@@ -48,39 +48,37 @@ extern const f32 lbl_805DC4F0;
 extern const f32 lbl_805DC4F4;
 extern const f32 lbl_805DC4F8;
 
-Self_801F4B10 *TObjItemOKWindow__ct(Self_801F4B10 *self, void *parent) {
+}
+TObjItemOKWindow::TObjItemOKWindow(TObject *parent) : TObject(parent) {
     Pos_801F4B10 pos;
     s32 n;
-
-    __ct__7TObjectFP7TObject(self, parent);
-    self->vtable = __vt__16TObjItemOKWindow;
-    self->name = TObjItemOKWindow__class_name;
-    self->win60 = init_shop_judgment_window(get_window_layout_position(0x57));
-    if (self->win60 != NULL) {
-        ((TWindowSubComCardList *)(self->win60))->set_scroll_target(lbl_805DC4E0, lbl_805DC4E4);
-        align_menu_entry_positions(self->win60);
+    ((Self_801F4B10 *)this)->name = TObjItemOKWindow__class_name;
+    ((Self_801F4B10 *)this)->win60 = init_shop_judgment_window(get_window_layout_position(0x57));
+    if (((Self_801F4B10 *)this)->win60 != NULL) {
+        ((TWindowSubComCardList *)(((Self_801F4B10 *)this)->win60))->set_scroll_target(lbl_805DC4E0, lbl_805DC4E4);
+        align_menu_entry_positions(((Self_801F4B10 *)this)->win60);
     }
-    self->win5C = check_room_seq_4__16TAdChrSelASlotGCFl(get_window_layout_position(0x56), 1);
-    if (self->win5C != NULL) {
+    ((Self_801F4B10 *)this)->win5C = check_room_seq_4__16TAdChrSelASlotGCFl(get_window_layout_position(0x56), 1);
+    if (((Self_801F4B10 *)this)->win5C != NULL) {
         n = fn_801F4C98();
         if (n != 0) {
-            sprintf(self->buf, lbl_8044A638, TObjItemOKWindow__sub_801F3268(), n);
+            sprintf(((Self_801F4B10 *)this)->buf, lbl_8044A638, TObjItemOKWindow__sub_801F3268(), n);
         } else {
-            sprintf(self->buf, lbl_805DC4E8, TObjItemOKWindow__sub_801F3268());
+            sprintf(((Self_801F4B10 *)this)->buf, lbl_805DC4E8, TObjItemOKWindow__sub_801F3268());
         }
-        self->term = 0;
-        forward_trade_action_default__16TObjCityMainWarpFPviii(self->win5C, self->buf, 0x81, 0);
+        ((Self_801F4B10 *)this)->term = 0;
+        forward_trade_action_default__16TObjCityMainWarpFPviii(((Self_801F4B10 *)this)->win5C, ((Self_801F4B10 *)this)->buf, 0x81, 0);
     }
-    ((TWindowSubComCardList *)(self->win5C))->set_scroll_target(lbl_805DC4EC, lbl_805DC4F0);
-    align_menu_entry_positions(self->win5C);
-    set_status_flag_80__12TQuestThreadFPv(self->win5C);
+    ((TWindowSubComCardList *)(((Self_801F4B10 *)this)->win5C))->set_scroll_target(lbl_805DC4EC, lbl_805DC4F0);
+    align_menu_entry_positions(((Self_801F4B10 *)this)->win5C);
+    set_status_flag_80__12TQuestThreadFPv(((Self_801F4B10 *)this)->win5C);
     pos.x = lbl_805DC4F4;
     pos.y = lbl_805DC4F8;
-    self->win64 = update_window_mode_from_progress__6TLobbyFPv(get_window_layout_position(0x55), &pos);
-    if (self->win64 != NULL) {
-        send_and_handle__6TLobbyFii(self->win64, TQuestVmDownLoadServer__sub_8006EF6C(0x48), 0x81);
+    ((Self_801F4B10 *)this)->win64 = update_window_mode_from_progress__6TLobbyFPv(get_window_layout_position(0x55), &pos);
+    if (((Self_801F4B10 *)this)->win64 != NULL) {
+        send_and_handle__6TLobbyFii(((Self_801F4B10 *)this)->win64, TQuestVmDownLoadServer__sub_8006EF6C(0x48), 0x81);
     }
-    return self;
 }
+extern "C" {
 
 }

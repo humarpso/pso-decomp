@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/boss/TBoss6Demo21_TYPE2_DEAD.h"
+#include "pso/boss/TBoss6Demo21_TYPE2_DEAD.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss6PlotFalz.h"
@@ -361,37 +362,31 @@ void run_task__23TBoss6Demo21_TYPE2_DEADFv(Fish_8033E0F0 *arg0) {
 }
 #pragma pop
 
-O_8033E5A8 *__dt__23TBoss6Demo21_TYPE2_DEADFv(O_8033E5A8 *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        s32 i;
-        arg0->vt = __vt__23TBoss6Demo21_TYPE2_DEAD;
-        for (i = 0; i < 4; i++) {
-            if (arg0->fa0[i] != NULL) {
-                TBoss4Type2::request_destroy((u32)(arg0->fa0[i]));
-                arg0->fa0[i] = NULL;
-            }
-        }
-        restore_player_cameras();
-        refresh_players_equipment__14TBoss6PlotFalzFPv();
-        if (arg0->f70 != NULL) {
-            TObjFish::init_state_1(arg0->f70);
-            arg0->f70 = NULL;
-        }
-        if (arg0->f80 != NULL) {
-            TObjFish::init_state_1(arg0->f80);
-            arg0->f80 = NULL;
-        }
-        if (arg0->f9c != NULL) {
-            TObjFish::init_state_1(arg0->f9c);
-            arg0->f9c = NULL;
-        }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+}
+TBoss6Demo21_TYPE2_DEAD::~TBoss6Demo21_TYPE2_DEAD() {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        if (((O_8033E5A8 *)this)->fa0[i] != NULL) {
+            TBoss4Type2::request_destroy((u32)(((O_8033E5A8 *)this)->fa0[i]));
+            ((O_8033E5A8 *)this)->fa0[i] = NULL;
         }
     }
-    return arg0;
+    restore_player_cameras();
+    refresh_players_equipment__14TBoss6PlotFalzFPv();
+    if (((O_8033E5A8 *)this)->f70 != NULL) {
+        TObjFish::init_state_1(((O_8033E5A8 *)this)->f70);
+        ((O_8033E5A8 *)this)->f70 = NULL;
+    }
+    if (((O_8033E5A8 *)this)->f80 != NULL) {
+        TObjFish::init_state_1(((O_8033E5A8 *)this)->f80);
+        ((O_8033E5A8 *)this)->f80 = NULL;
+    }
+    if (((O_8033E5A8 *)this)->f9c != NULL) {
+        TObjFish::init_state_1(((O_8033E5A8 *)this)->f9c);
+        ((O_8033E5A8 *)this)->f9c = NULL;
+    }
 }
+extern "C" {
 
 #pragma push
 #pragma opt_common_subs off
@@ -460,7 +455,4 @@ void * create_boss6_type2_death(void *arg0, void *arg1) {
 void render_shadows__7TObjectFv();
 }
 #undef __vt__23TBoss6Demo21_TYPE2_DEAD
-extern "C" void *__vt__23TBoss6Demo21_TYPE2_DEAD[6] = {
-    0, 0, (void *)&__dt__23TBoss6Demo21_TYPE2_DEADFv, (void *)&run_task__23TBoss6Demo21_TYPE2_DEADFv,
-    (void *)&render__23TBoss6Demo21_TYPE2_DEADFv, (void *)&render_shadows__7TObjectFv,
-};
+extern void *__vt__23TBoss6Demo21_TYPE2_DEAD[];

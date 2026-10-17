@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss1Floor.h"
 #include "pso/misc/TLobby.h"
 #include "pso/TMainTask.h"
 #include "pso/boss/TBoss8Dragon.h"
@@ -31,7 +32,7 @@ void __ct__7TObjectFP7TObject(void *self, void *parent);
 extern char __vt__14TObjBoss1Floor[];
 extern s32 TObjBoss1Floor__name;
 extern const f32 lbl_805D8174;
-Obj_8002CACC *TObjBoss1Floor__ct(Obj_8002CACC *self, void *parent);
+Obj_8002CACC *__ct__14TObjBoss1FloorFP7TObject(Obj_8002CACC *self, void *parent);
 void queue_destruction__7TObjectFv(void *);
 void *create_particle_emitter(Vec_8002C968 *, s32);
 Player_8002C968 *get_player_by_client_id(s32);
@@ -131,18 +132,17 @@ u8 *__dt__14TObjBoss1FloorFv(u8 *self, s16 flag) {
     return self;
 }
 
-Obj_8002CACC *TObjBoss1Floor__ct(Obj_8002CACC *self, void *parent) {
-    s32 i;
-    __ct__7TObjectFP7TObject(self, parent);
-    self->vt = __vt__14TObjBoss1Floor;
-    self->f0 = TObjBoss1Floor__name;
-    self->f1c = lbl_805D8174;
-    self->f20 = lbl_805D8174;
-    self->f24 = lbl_805D8174;
-    for (i = 0; i < 4; i++) {
-        self->f28[i] = 0;
-    }
-    return self;
 }
+TObjBoss1Floor::TObjBoss1Floor(TObject *parent) : TObject(parent) {
+    s32 i;
+    ((Obj_8002CACC *)this)->f0 = TObjBoss1Floor__name;
+    ((Obj_8002CACC *)this)->f1c = lbl_805D8174;
+    ((Obj_8002CACC *)this)->f20 = lbl_805D8174;
+    ((Obj_8002CACC *)this)->f24 = lbl_805D8174;
+    for (i = 0; i < 4; i++) {
+        ((Obj_8002CACC *)this)->f28[i] = 0;
+    }
+}
+extern "C" {
 
 }

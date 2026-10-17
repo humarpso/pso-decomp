@@ -235,7 +235,7 @@ s32 TWindowSubEquip__sub_80275CB0(int, void *, int);
 s32 TWindowSubEquip__ct(int, void *, int);
 s32 TWindowSubGameEnd__ct(int, void *, int);
 s32 TWindowSubItem__ct(int, void *, int);
-s32 TWindowSubLog__ct(int, void *, int);
+s32 __ct__13TWindowSubLogFP7TObjectPv(int, void *, int);
 s32 TWindowSubMag__ct(int, void *, int);
 s32 TWindowSubQuestBoard__sub_8027CE74(int, void *, int);
 s32 __ct__20TWindowSubQuestBoardFP7TObjectPv(int, void *, int);
@@ -248,7 +248,7 @@ s32 __ct__15TWindowSubTradeFP7TObjectPv(int, void *, int);
 s32 __ct__19TWindowSubTradeMainFP7TObjectPv(int, void *, int);
 s32 __ct__22TWindowSubTradeMessageFP7TObjectl(int, void *, int);
 s32 __ct__26TWindowSubInformationBoardFP7TObjectPv(int, void *, int);
-void *construct_character_select_transition(void *, void *, void *);
+void *__ct__13TUnk_804E0B28FP7TObjectl(void *, void *, void *);
 
 void TWindowMainMenu1P::create_char_select_slot() {
     void *o;
@@ -256,7 +256,7 @@ void TWindowMainMenu1P::create_char_select_slot() {
     set_scale_f();
     o = __nw__7TObjectFUl(0x50);
     if (o != NULL) {
-        o = construct_character_select_transition(o, this, this->m_54);
+        o = __ct__13TUnk_804E0B28FP7TObjectl(o, this, this->m_54);
     }
     *(void * *)&this->m_20 = o;
 }
@@ -419,7 +419,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_14 = ((s32)__nw__7TObjectFUl((int) (0x80)));
         var_r0_14 = temp_r3_14;
         if (var_r0_14 != 0) {
-            var_r0_14 = TWindowSubLog__ct((int) (temp_r3_14), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_14 = __ct__13TWindowSubLogFP7TObjectPv((int) (temp_r3_14), (void *) (((u8 *)this)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_14;
         return;

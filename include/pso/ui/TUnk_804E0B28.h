@@ -5,6 +5,7 @@
 
 class TUnk_804E0B28 : public TObject {
 public:
+    TUnk_804E0B28(TObject*parent, s32 client);
     virtual ~TUnk_804E0B28();
     virtual void render();
     virtual void run_task();
