@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/boss/TBoss8Dragon_80065C90.h"
 #include "pso/misc/TParticleCtrl_800867E4.h"
 #include "pso/object/TObject_80019A50.h"
@@ -173,11 +174,11 @@ void TUnk_8048E1A4::render() {
         case 2:
             lbl_805D5660 = model_render_flags;
             model_render_flags = lbl_805D5660 | 0x8820;
-            set_chunk_material_color__13TUnk_80494AE0Fv(&this->m_340);
+            ((TUnk_80494AE0 *)(&this->m_340))->set_chunk_material_color();
             draw_ginja_object(this->model);
             model_render_flags &= 0xFFFF77DF;
             set_chunk_material_override_pair(0xFF00, 0);
-            set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)chunk_material_color_half_alpha_f32);
+            ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
             model_render_flags = lbl_805D5660;
             break;
         }

@@ -28,7 +28,6 @@ extern const f32 lbl_805DB410;
 extern const f32 lbl_805DB414;
 extern const f32 lbl_805DB418;
 extern const f32 lbl_805DB41C;
-void set_indexed_flags__13TUnk_804AF8A0Fll(void *, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern u8 *TODoorAncient05__switch_texture_lists;
 extern const f32 lbl_805DB424;
@@ -82,7 +81,7 @@ void TODoorAncient05::play_proximity_sound() {
         this->texture_id = (s32) *(s32 *)((s8 *)TODoorAncient05__switch_texture_lists + 4);
         if (is_any_player_within_radius_xz((u8 *)((s32) arg0), lbl_805DB424) == 1) {
             this->m_ac = 1;
-            set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 8);
+            ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 8);
             play_sound_effect(0x4004B708, (u8 *)&this->position, 0, 0);
         }
     } else {

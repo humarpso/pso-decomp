@@ -282,7 +282,6 @@ extern u8 TCameraCtrl__override_flags;
 extern "C" {
 s32 get_player_by_client_id(u32);
 extern u16 TCameraCtrl__camera_override_client_id;
-s32 sub_8006CDD0__13TUnk_80488E00Fv(u8 *arg0);
 extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
 extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__view_state;
 void end_conversation_camera(void);
@@ -329,8 +328,6 @@ void get_camera_offsets__12TBoss8DragonFPvPv(Vec_8006D9F0 *, Vec_8006D9F0 *);
 extern Vec_8006D9F0 follow_camera_offset_default;
 s32 sub_8006E7FC__13TUnk_80488E00Fv(void* p);
 s32 is_flag_set__11TCameraCtrlFv(void);
-void sub_8006CF38__13TUnk_80488E00Fv(void *);
-void sub_8006DCC8__13TUnk_80488E00Fv(void* p);
 s32 fn_8006E82C(s32);
 s32 approach_angle_limited(s32, s32, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
@@ -1022,9 +1019,9 @@ void TCameraCtrl::update_follow_camera() {
         *(f32 *)&this->unk_E0 = (20.43f);
     }
     ((VObj_18 *)(arg0))->m10();
-    if (sub_8006CDD0__13TUnk_80488E00Fv(arg0) != 0) {
+    if (((TUnk_80488E00 *)arg0)->sub_8006CDD0() != 0) {
         end_conversation_camera();
-        sub_8006DCC8__13TUnk_80488E00Fv(arg0);
+        ((TUnk_80488E00 *)arg0)->sub_8006DCC8();
         return;
     }
     switch (*(s32 *)&this->m_24) {
@@ -1047,7 +1044,7 @@ void TCameraCtrl::update_follow_camera() {
         }
         if (((s32 (*)(void *))is_flag_set__11TCameraCtrlFv)(arg0) != 0) {
             this->m_f4 = 0;
-            sub_8006CF38__13TUnk_80488E00Fv(arg0);
+            ((TUnk_80488E00 *)arg0)->sub_8006CF38();
         } else {
             flags = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x30);
             if ((flags & 0x100000) || (flags & 0x20)) {
@@ -1063,7 +1060,7 @@ void TCameraCtrl::update_follow_camera() {
         compute_follow_target();
         break;
     }
-    sub_8006DCC8__13TUnk_80488E00Fv(arg0);
+    ((TUnk_80488E00 *)arg0)->sub_8006DCC8();
 }
 
 void *TCameraCtrl::deleting_dtor(s16 arg1) {

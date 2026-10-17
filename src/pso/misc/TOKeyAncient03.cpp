@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/misc/TOKeyAncient03.h"
 #include "pso/misc/TOKeyCave01.h"
 #include "pso/TParticleCtrl.h"
@@ -86,7 +87,6 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 void draw_ginja_model(s32 model);
-void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
@@ -173,7 +173,7 @@ void TOKeyAncient03::render() {
             temp_r4 = model_render_flags;
             lbl_805D5660 = temp_r4;
             model_render_flags = temp_r4 | 0x10;
-            set_chunk_material_color__13TUnk_80494AE0Fv(&this->m_e8);
+            ((TUnk_80494AE0 *)(&this->m_e8))->set_chunk_material_color();
         }
         temp_r31_2 = *(u8 **)((s8 *)temp_r31 + 0x2C);
         push_matrix();
@@ -189,7 +189,7 @@ void TOKeyAncient03::render() {
         pop_matrix();
         pop_matrix();
         if ((s32) *(s32 *)&this->m_d4 != 1) {
-            set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)chunk_material_color_half_alpha_f32);
+            ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
             model_render_flags = lbl_805D5660;
         }
         pop_matrix();

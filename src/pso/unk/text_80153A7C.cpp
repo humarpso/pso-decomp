@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/object/TObjFogCollisionPoison.h"
 #include "pso/system/ChunkMaterialState.h"
@@ -105,23 +107,23 @@ void TObjFogCollision::draw_volume() {
         Color_80153B64 c3 = fog_collision_color_a;
         Color_80153B64 cd = fog_collision_color_b;
         lbl_805D5660 = model_render_flags;
-        copy_vec4__13TRaderMapCoreFPv(saved_model_draw_color, model_material_color);
+        ((TRaderMapCore *)saved_model_draw_color)->copy_vec4(model_material_color);
         lbl_805D5664 = chunk_polygon_flags_and_mask;
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         model_render_flags |= 0x810;
         set_chunk_material_override_pair(0xFF00, 0x800);
         switch (this->m_90) {
         case 0:
-            set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&c0);
+            ((TUnk_80494AE0 *)((f32 *)&c0))->set_chunk_material_color();
             break;
         case 1:
         case 2:
         case 4:
         case 5:
-            set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&cd);
+            ((TUnk_80494AE0 *)((f32 *)&cd))->set_chunk_material_color();
             break;
         case 3:
-            set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&c3);
+            ((TUnk_80494AE0 *)((f32 *)&c3))->set_chunk_material_color();
             break;
         }
         push_matrix();
@@ -132,7 +134,7 @@ void TObjFogCollision::draw_volume() {
         pop_matrix();
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;
-        copy_vec4__13TRaderMapCoreFPv(model_material_color, saved_model_draw_color);
+        ((TRaderMapCore *)model_material_color)->copy_vec4(saved_model_draw_color);
         model_render_flags = lbl_805D5660;
     }
 }

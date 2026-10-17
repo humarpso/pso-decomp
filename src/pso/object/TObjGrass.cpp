@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -319,7 +320,6 @@ extern s32 lbl_805D514C;
 extern s32 TObjGrass__render_node_index;
 extern u32 lbl_805D5158;
 extern u32 lbl_805D515C;
-s32 copy_position__20TBoss3VoloptHiraisinFv(void *);
 void TObjGrass__sub_800BCA2C(void *);
 s32 submit_cursor_candidate(void *, int);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
@@ -356,19 +356,16 @@ s32 approach_angle_limited(s32, s32, s32);
 s32 project_actor_to_ground(void *, void *, s32);
 extern Vec_800BE8FC lbl_8050BEE0;
 extern Vec_800BE8FC lbl_8050BF00;
-s32 set_indexed_flags__13TUnk_804AF8A0Fll(void *, int, int);
 f32 get_collision_body_radius(void *, int);
 s32 select_enemy_destination(void *, Vec_800BD4D8, int);
 s32 copy_position_if_valid__10TObjPlayerFii(void *, Vec_800BD4D8);
 s32 obj_is_hit_receivable(void *);
-u32 find_actor_body_contact__13TUnk_804AF8A0FPUcf(void *, void *, f32);
 s32 is_split_screen();
 extern s32 local_client_id;
 s32 create__12TObjEneSaverFPvPv(int, int);
 s32 set_param__9TObjEnemyFl(void *, int, int);
 s32 bind_enemy_combat_stats(void *, int, int, int);
 s32 initialize__9TObjEnemyFPv(void *, s32, s32);
-void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 s32 init_collision_body_parts(void *, void *, int);
 extern "C" u8 lbl_8043B6A0[];
 extern "C" u8 lbl_8043B6B4[];
@@ -857,7 +854,7 @@ void TObjGrass::sub_800BD4D8() {
                     o->state = 3;
                     o->fb8 = 7;
                     obj_setFlags30(o, 0x4000000);
-                    set_indexed_flags__13TUnk_804AF8A0Fll(o, 0, 0x80);
+                    ((TUnk_804AF8A0 *)o)->set_indexed_flags(0, 0x80);
                     copy_position_if_valid__10TObjPlayerFii(o, o->p2fc);
                     play_sound_effect((void *)copy_target_state__14TObjEnePanarmsFPv(o, 0x4003A806), &o->pos, 0, 0);
                     TObjPlayer::play_effect_if_v2(-0x200);
@@ -876,7 +873,7 @@ void TObjGrass::sub_800BD4D8() {
         break;
     case 3:
         obj_setFlags30(o, 0x4000000);
-        set_indexed_flags__13TUnk_804AF8A0Fll(o, 0, 0x80);
+        ((TUnk_804AF8A0 *)o)->set_indexed_flags(0, 0x80);
         advance_animation_playback(o);
         apply_actor_gravity(o, 0, (0.0f));
         if (o->fb4 != 0x20) {
@@ -903,7 +900,7 @@ void TObjGrass::sub_800BD4D8() {
                 if ((u16)obj_getField1c(p) >= 0x1000) {
                     break;
                 }
-                if (obj_is_hit_receivable(p) != 0 && find_actor_body_contact__13TUnk_804AF8A0FPUcf(o, p, (1e+04f)) != 0 &&
+                if (obj_is_hit_receivable(p) != 0 && ((TUnk_804AF8A0 *)o)->find_actor_body_contact((u8*)p, (f32)((1e+04f))) != 0 &&
                     p->m18(o, (1.0f)) != 0) {
                     f32 dmg = p->m20(o, (1.0f));
                     obj_setFlags30(p, 0x400);
@@ -1704,7 +1701,7 @@ void TObjGrass::run_task() {
         this->target = NULL;
     }
     ((TObjEnemy *)arg0)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFv(arg0);
+    ((TBoss3VoloptHiraisin *)arg0)->copy_position();
     submit_cursor_candidate(arg0, -1);
     this->m_2b4 += (1.0f);
 }
@@ -1829,7 +1826,7 @@ u8 *TObjGrass__ct(u8 *arg0, s32 arg1, s32 arg2) {
         *(s16 *)((s8 *)arg0 + 0x39C) = 1;
     }
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-    set_animation__10TObjMotionFs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    ((TObjMotion *)arg0)->set_animation(*(s16 *)((s8 *)arg0 + 0xB8));
     ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     init_collision_body_parts(arg0, &((E2C_800BF924 *)lbl_80492A00)[*(s32 *)((s8 *)arg0 + 0x368)], 1);
     *(s16 *)((s8 *)arg0 + 0x39E) = 0;
@@ -1837,7 +1834,7 @@ u8 *TObjGrass__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(u8 **)((s8 *)arg0 + 0x350) = (u8 *)&((E1C_800BF924 *)lbl_804929E4)[*(s32 *)((s8 *)arg0 + 0x368)];
     *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x32C);
     ((TObjEnemy *)arg0)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFv(arg0);
+    ((TBoss3VoloptHiraisin *)arg0)->copy_position();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(f32 *)((s8 *)arg0 + 0x398) = (0.0f);
     *(s16 *)((s8 *)arg0 + 0x326) = 0;

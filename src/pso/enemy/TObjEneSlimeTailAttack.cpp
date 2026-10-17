@@ -99,13 +99,11 @@ void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 u8 *get_instance__15TObjEneSlimeOneFv();
 s32 fn_800ECA28(void *, void *);
 s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
-void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 s32 init_collision_body_parts(void *, void *, int);
 extern const f32 lbl_805DA754;
 extern void *lbl_80496574[90];
 extern void *lbl_80496368[2];
 extern void *lbl_8049639C[118];
-void initialize_slime_instance_state__15TObjEneSlimeOneFv(u8 *arg0);
 struct RecoveredGlobal_800E8128_lbl_80496704 {
     s32 value;
     u8 remaining[0x8];
@@ -308,7 +306,6 @@ S_800E80E8 * TObjPlayer__sub_800E80E8(S_800E80E8 *dst, S_800E80E8 *src);
 void TObjPlayer__sub_800E8128(void);
 void TObjPlayer__sub_800E81A8(void);
 void draw_stretched_segment__10TObjPlayerFPvPvPvf(u8 *arg0, Vec_800E82B8 *arg1, Vec_800E82B8 *arg2, f32 t);
-void sub_800E841C__22TObjEneSlimeTailAttackFv(u8 *arg0);
 void render__22TObjEneSlimeTailAttackFv(u8 *arg0);
 s32 TObjPlayer__sub_800E85BC();
 void run_task__22TObjEneSlimeTailAttackFv(u8 *arg0);
@@ -1011,7 +1008,7 @@ void TObjEneSlimeTailAttack::sub_800E841C() {
 void TObjEneSlimeTailAttack::render() {
   f32 temp_f1;
   f32 temp_f3;
-  sub_800E841C__22TObjEneSlimeTailAttackFv(((u8 *)this));
+  sub_800E841C();
   if (((s32) (*((s32 *) (((s8 *) ((u8 *)this)) + 0x378)))) != 0)
   {
     temp_f3 = this->m_c0;
@@ -1108,7 +1105,7 @@ void *TObjEneSlimeTailAttack__ct(TObjEneSlimeTailAttack *arg0, void *arg1, s32 a
   *((s32 *) (((s8 *) arg0) + 0xDC)) = *((s32 *) (((s8 *) inst) + 0x430));
   ((TObjMotion *)arg0)->set_field_dc(*((s32 *) (((s8 *) inst) + 0x430)));
   arg0->m_b8 = 6;
-  set_animation__10TObjMotionFs((arg0), arg0->m_b8);
+  ((TObjMotion *)arg0)->set_animation(arg0->m_b8);
   ((TObjMotion *)arg0)->set_field_b8(arg0->m_b8);
   arg0->rotation_y = arg3;
   VecCopy((Vec *)(((u8 *) arg0) + 0x38), (const Vec *)arg2);
@@ -2015,7 +2012,7 @@ void TObjEneSlimeOne::initialize_slime_instance_state() {
   *((s32 *) (((s8 *) actor) + 0x38C)) = init_collision_body_parts(actor, lbl_80496370, 1);
   ((TObjMotion *)actor)->set_field_d8((s32)lbl_8049639C);
   ((TObjMotion *)actor)->set_field_dc(*((s32 *) (((s8 *) (((TObjEneSlimeOne *)actor)->m_380)) + 0x430)));
-  set_animation__10TObjMotionFs(actor, 0);
+  ((TObjMotion *)actor)->set_animation(0);
   ((TObjMotion *)actor)->set_field_b8(0);
   VecCopy((Vec *)(new_var = actor + 0x2FC), (const Vec *)(actor + 0x38));
   ((TObjEneSlimeOne *)actor)->m_310 = lbl_805DA6B4;
@@ -2068,7 +2065,7 @@ u8 *TObjEneSlimeOne__ct(u8 *actor, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     }
     ((TObjEneSlimeOne *)actor)->m_3f0 = arg2;
     VecCopy((Vec *)(actor + 0x3DC), (const Vec *)(arg4));
-    initialize_slime_instance_state__15TObjEneSlimeOneFv(actor);
+    ((TObjEneSlimeOne *)actor)->initialize_slime_instance_state();
     ((TObjEneSlimeOne *)actor)->set_state((s32)((void*)(0xE)));
     return actor;
 }
@@ -2088,7 +2085,7 @@ u8 *init__15TObjEneSlimeOneFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
         exchange_object_state__9TObjEnemyFls(arg0, &stack.sp8, 0);
     }
     ((TObjEneSlimeOne *)arg0)->m_3f0 = arg2;
-    initialize_slime_instance_state__15TObjEneSlimeOneFv(arg0);
+    ((TObjEneSlimeOne *)arg0)->initialize_slime_instance_state();
     project_actor_to_ground(arg0, arg0 + 0x38, 0);
     ((TObjEneSlimeOne *)arg0)->set_state((s32)((void*)(0)));
     return arg0;

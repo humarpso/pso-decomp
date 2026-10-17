@@ -29,7 +29,6 @@ extern const f32 lbl_805DD434;
 extern void *lbl_805D63F0;
 
 s16 obj_getS16_2BA(u8 *p);
-s32 update_hp_gauge__20TWindowSubStatusDispFv(s32 arg0);
 u8 *get_player_by_client_id();
 s32 get_width__19TWindowSimpleStatusFv();
 s32 draw_right_aligned_number(void *);
@@ -85,7 +84,7 @@ void update_hp_tp_values__20TWindowSubStatusDispFPv(u8 *arg0) {
         d = get_array_entry__13TUnk_804CE018Fi(arg0, 0xC);
         *(s32 *)((s8 *)b + 0x20) = obj_getS16_2BA(pl);
         *(s32 *)((s8 *)a + 0x20) = *(s16 *)((s8 *)pl + 0x32E);
-        v = update_hp_gauge__20TWindowSubStatusDispFv((s32)arg0);
+        v = ((TWindowSubStatusDisp *)arg0)->update_hp_gauge();
         *(s32 *)((s8 *)a + 0x1C) = v;
         *(s32 *)((s8 *)c + 0x24) = v;
         *(s32 *)((s8 *)b + 0x1C) = v;

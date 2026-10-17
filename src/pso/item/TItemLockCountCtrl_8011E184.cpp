@@ -23,7 +23,7 @@ void TItemLockCountCtrl::create_instance() {
 
 void fn_8011E1D4(TObjPlayer *arg0) {
     if (!(arg0->m_890 & 0x10)) {
-        sub_8011E204__10TObjPlayerFl(arg0, 0x10000);
+        ((TObjPlayer *)arg0)->sub_8011E204(0x10000);
     }
 }
 void TObjPlayer::sub_8011E204(s32 arg1) {

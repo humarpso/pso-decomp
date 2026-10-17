@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/misc/TTecSlicer_8023B5C8.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TTecSlicer.h"
@@ -186,14 +188,12 @@ s32 rotate_matrix_x(s32, s32);
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 void draw_ginja_object(void *child);
-void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 lbl_805DC95C;
 extern const f32 lbl_805DC960;
 void disallow_rendering__7TObjectFv(TObject *);
-void copy_vec4__13TRaderMapCoreFPv(void *, void *);
 s32 find_item_by_id(s32);
 void set_item_count__13TUnk_804B9870Fs(void *, s32);
 s32 pop_free_id__6TLobbyFv(void);
@@ -339,7 +339,7 @@ void TTecSlicer::render() {
     lbl_805D5660 = model_render_flags;
     if (this->useColorOverride != 0) {
         model_render_flags |= 0x10;
-        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&this->argb);
+        ((TUnk_80494AE0 *)((f32 *)&this->argb))->set_chunk_material_color();
     }
     if (this->textureHandle != 0U && this->model != 0U) {
         TObjPlayer::notify_fish_if_valid(this->textureHandle);
@@ -351,7 +351,7 @@ void TTecSlicer::render() {
         rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
         scale_current_matrix((u8 *)&this->scale);
         draw_ginja_object(this->model);
-        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)chunk_material_color_half_alpha_f32);
+        ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
         TParticleCtrl::end_effect_render();
     }
     pop_matrix();
@@ -433,7 +433,7 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4) {
     self->f11c = init->f10;
     self->f11e = init->f12;
     self->f120 = init->f14;
-    copy_vec4__13TRaderMapCoreFPv(self->color, init->color);
+    ((TRaderMapCore *)(self->color))->copy_vec4(init->color);
     self->f138 = init->f2c;
     self->f13c = 1;
     self->dir.x = sin_table_lookup(arg4);

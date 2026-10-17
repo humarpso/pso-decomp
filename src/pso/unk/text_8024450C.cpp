@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/misc/TWindowSubStatusDisp_80144B14.h"
 #include "pso/object/TObjResultWin.h"
@@ -11,7 +12,6 @@ s32 TWindowArea__ct();
 u8 *get_title_entry__11TWindowRoomFv(s32);
 extern const f32 lbl_805DCABC;
 extern const f32 lbl_805DCAC0;
-void *get_field_20__17TWindowSubComCardFv(void *);
 void fn_8024450C(s32 arg0) {
     s32 var_r30;
     s32 var_r31;
@@ -53,7 +53,7 @@ s32 create_window_area(void) {
     fn_802449E0((u8 *)var_r30);
     fn_8024450C(var_r30);
     temp_r31 = get_title_entry__11TWindowRoomFv(var_r30);
-    *(f32 *)((s8 *)temp_r31 + 8) = (f32) -((lbl_805DCAC0 * (f32) calc_text_width((char *)(get_field_20__17TWindowSubComCardFv(temp_r31)))) - lbl_805DCABC);
+    *(f32 *)((s8 *)temp_r31 + 8) = (f32) -((lbl_805DCAC0 * (f32) calc_text_width((char *)(((TWindowSubComCard *)temp_r31)->get_field_20()))) - lbl_805DCABC);
     return var_r30;
 }
 #pragma pop

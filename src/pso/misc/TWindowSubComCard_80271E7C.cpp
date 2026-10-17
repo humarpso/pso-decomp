@@ -1,6 +1,7 @@
 #pragma push
 
 #include "types.h"
+#include "pso/misc/TWindowSubComCard.h"
 class TChCrTagPlBack;
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowComCard.h"
@@ -614,7 +615,6 @@ void window_request_show(void *arg0);
 s32 is_com_card_active();
 extern "C" {
 void TWindowSubComCard__sub_80249144(void *arg0);
-s32 create_com_card_window__17TWindowSubComCardFl(s32 arg0);
 void fn_8024AB54(s32 arg0);
 void TWindowSubComCard__sub_8024AB98(s32 arg0);
 s32 update_selected_entry__17TWindowSubComCardFv(int);
@@ -848,7 +848,7 @@ void run_task__17TWindowSubComCardFv(TWindowSubComCard *arg0) {
             arg0->m_68 = 0U;
         }
         if ((u32) arg0->m_74 == 0U) {
-            arg0->m_74 = create_com_card_window__17TWindowSubComCardFl(get_window_layout_position(0x81));
+            arg0->m_74 = TWindowSubComCard::create_com_card_window(get_window_layout_position(0x81));
         }
         if ((u32) arg0->m_64 == 0U) {
             arg0->m_64 = ((s32 (*)(void *)) TWindowSubComCard__sub_8027353C)((void *)arg0);

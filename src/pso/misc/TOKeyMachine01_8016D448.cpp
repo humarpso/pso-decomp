@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/misc/TLanguage_801E4874.h"
 #include "pso/misc/TOKeyMachine01_8016D448.h"
@@ -91,7 +92,7 @@ void TOKeyMachine01::render() {
             temp_r4 = model_render_flags;
             lbl_805D5660 = temp_r4;
             model_render_flags = temp_r4 | 0x10;
-            set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)(arg0 + 0xE8));
+            ((TUnk_80494AE0 *)(arg0 + 0xE8))->set_chunk_material_color();
         }
         TParticleCtrl::begin_effect_render();
         temp_r31_2 = *(u8 **)((s8 *)temp_r31 + 0x2C);
@@ -107,7 +108,7 @@ void TOKeyMachine01::render() {
         pop_matrix();
         TParticleCtrl::end_effect_render();
         if ((s32) *(s32 *)&this->m_d4 != 1) {
-            set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)chunk_material_color_half_alpha_f32);
+            ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
             model_render_flags = lbl_805D5660;
         }
         pop_matrix();

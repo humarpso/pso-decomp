@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/boss/TBoss3VoloptMonitor.h"
@@ -89,7 +90,6 @@ extern const f32 lbl_805D8738;
 extern const f32 lbl_805D873C;
 void render__19TBoss3VoloptMonitorFv(TBoss3VoloptMonitor *arg0);
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, int);
-void copy_position__20TBoss3VoloptHiraisinFv(s32 arg0);
 void TBoss3VoloptMonitor__sub_800420D8(void);
 s32 submit_cursor_candidate(void *, int);
 s32 minimap_render_dot(void *, int, int, int);
@@ -326,7 +326,7 @@ void run_task__19TBoss3VoloptMonitorFv(TBoss3VoloptMonitor *arg0) {
     arg0->update_state();
     ((TObjEnemy *)arg0)->update_prev_position();
     if (obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x800) == 0) {
-        copy_position__20TBoss3VoloptHiraisinFv((s32)arg0);
+        ((TBoss3VoloptHiraisin *)arg0)->copy_position();
         submit_cursor_candidate(arg0, -1);
         minimap_render_dot((u8 *)arg0 + 0x38, -0x5DB4, 1, 0);
     }

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/math/MatrixTransforms.h"
 #include "pso/player/TObjPlayer_801ADC6C.h"
@@ -131,18 +133,18 @@ void TPhotonPilla::render() {
         rotate_matrix_y(0, self->f60);
         ((TUnk_804C3248 *)self)->set_photon_blast_joint_callback();
         lbl_805D5660 = model_render_flags;
-        copy_vec4__13TRaderMapCoreFPv(&saved_model_draw_color, &model_material_color);
+        ((TRaderMapCore *)(&saved_model_draw_color))->copy_vec4(&model_material_color);
         lbl_805D5664 = chunk_polygon_flags_and_mask;
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         model_render_flags |= 0x200820;
         TObjPlayer::set_global_flag();
         set_chunk_material_override_pair(-1, 0x800);
-        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&self->color);
+        ((TUnk_80494AE0 *)((f32 *)&self->color))->set_chunk_material_color();
         ((TObjEneRe7Berura *)self)->draw();
         TObjPlayer::clear_global_state();
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;
-        copy_vec4__13TRaderMapCoreFPv(&model_material_color, &saved_model_draw_color);
+        ((TRaderMapCore *)(&model_material_color))->copy_vec4(&saved_model_draw_color);
         model_render_flags = lbl_805D5660;
         clear_render_context__10TObjPlayerFv(self);
         pop_matrix();

@@ -61,7 +61,6 @@ extern "C" {
 
 void queue_destruction__7TObjectFv(void *);
 s32 *get_shared_text_buffer(void);
-char * get_message_10__20TWindowSubStatusDispFl(s32);
 u32 get_quest_id__12TQuestListVMFv(void);
 void __dl__FPv(void);
 }
@@ -198,7 +197,7 @@ void TWindowSetLevelUp::update_stat_messages() {
     VObj_8026DA44 *pl;
 
     text_builder_reset();
-    text_builder_append((u8 *)(get_message_10__20TWindowSubStatusDispFl(0x46)));
+    text_builder_append((u8 *)(TWindowSubStatusDisp::get_message_10(0x46)));
     switch (self->state) {
     case 0:
     case 1:
@@ -228,7 +227,7 @@ void TWindowSetLevelUp::update_stat_messages() {
         }
     case 4:
         if (self->d24 > 0) {
-            text_builder_append((u8 *)(get_message_10__20TWindowSubStatusDispFl(0x83)));
+            text_builder_append((u8 *)(TWindowSubStatusDisp::get_message_10(0x83)));
             text_builder_append((u8 *)lbl_805DD338);
             TWindowSubStatusDisp__sub_80228F5C(self->d24);
             ((TWindowCtrl *)(self->client))->set_window_flags_off((s32)get_shared_text_buffer());
@@ -237,7 +236,7 @@ void TWindowSetLevelUp::update_stat_messages() {
         }
     case 5:
         if (self->d26 > 0) {
-            text_builder_append((u8 *)(get_message_10__20TWindowSubStatusDispFl(0x84)));
+            text_builder_append((u8 *)(TWindowSubStatusDisp::get_message_10(0x84)));
             text_builder_append((u8 *)lbl_805DD338);
             TWindowSubStatusDisp__sub_80228F5C(self->d26);
             ((TWindowCtrl *)(self->client))->set_window_flags_off((s32)get_shared_text_buffer());
@@ -246,7 +245,7 @@ void TWindowSetLevelUp::update_stat_messages() {
         }
     case 6:
         if (self->d28 > 0) {
-            text_builder_append((u8 *)(get_message_10__20TWindowSubStatusDispFl(0x85)));
+            text_builder_append((u8 *)(TWindowSubStatusDisp::get_message_10(0x85)));
             text_builder_append((u8 *)lbl_805DD338);
             TWindowSubStatusDisp__sub_80228F5C(self->d28);
             ((TWindowCtrl *)(self->client))->set_window_flags_off((s32)get_shared_text_buffer());
@@ -255,7 +254,7 @@ void TWindowSetLevelUp::update_stat_messages() {
         }
     case 7:
         if (self->d2a > 0) {
-            text_builder_append((u8 *)(get_message_10__20TWindowSubStatusDispFl(0x86)));
+            text_builder_append((u8 *)(TWindowSubStatusDisp::get_message_10(0x86)));
             text_builder_append((u8 *)lbl_805DD338);
             TWindowSubStatusDisp__sub_80228F5C(self->d2a);
             ((TWindowCtrl *)(self->client))->set_window_flags_off((s32)get_shared_text_buffer());
@@ -264,7 +263,7 @@ void TWindowSetLevelUp::update_stat_messages() {
         }
     case 8:
         if (self->d2c > 0) {
-            text_builder_append((u8 *)(get_message_10__20TWindowSubStatusDispFl(0x87)));
+            text_builder_append((u8 *)(TWindowSubStatusDisp::get_message_10(0x87)));
             text_builder_append((u8 *)lbl_805DD338);
             TWindowSubStatusDisp__sub_80228F5C(self->d2c);
             ((TWindowCtrl *)(self->client))->set_window_flags_off((s32)get_shared_text_buffer());

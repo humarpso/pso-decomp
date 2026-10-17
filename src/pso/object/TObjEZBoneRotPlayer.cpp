@@ -66,9 +66,8 @@ extern "C" {
 void matrix_mult_vec(s32, void *, void *);
 void push_matrix(void);
 extern u8 TObjEZBoneRotPlayer__chain_gravity[];
-int sub_800FF2D0__21TObjHMS_EZRope_PlayerFv(void*);
 
-void TObjHMS_EZRope_Player::render() { sub_800FF2D0__21TObjHMS_EZRope_PlayerFv(this); }
+void TObjHMS_EZRope_Player::render() { sub_800FF2D0(); }
 void TObjHMS_EZRope_Player::run_task() {
     RotSrc_800FEEA4 *rs;
     RotDst_800FEEA4 *rd;

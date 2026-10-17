@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/item/TItemEquipBase.h"
 #include "pso/item/TUnk_804A69DC.h"
 #include "pso/TItemAttacker.h"
@@ -64,7 +65,6 @@ struct VObj_18_382324 : VBase_18_382324 {
 
 extern "C" {
 s32 get_current_floor();
-s8 sub_80102C30__5TItemFv(u8 *arg0);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 update_technique_slot__10TTecRaFoieFl(int, int, int);
 s32 play_sound_effect(int, int, int, int);
@@ -100,7 +100,7 @@ void TUnk_804A69DC::vfunc_17(s32) {
   if ((((u32) (*((u32 *) (((s8 *) arg0) + 0xF0)))) != 0U) && (reset_key_machine_state__10TObjPlayerFv() != 0))
   {
     ;
-    if ((get_current_floor() == ((TObjPlayer *)(*((u32 *) (((s8 *) arg0) + 0xF0))))->get_field_3e4()) && (sub_80102C30__5TItemFv(arg0) == 2))
+    if ((get_current_floor() == ((TObjPlayer *)(*((u32 *) (((s8 *) arg0) + 0xF0))))->get_field_3e4()) && (((TItem *)arg0)->sub_80102C30() == 2))
     {
       if (!arg0)
       {

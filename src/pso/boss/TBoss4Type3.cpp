@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/boss/TBoss4DarkFalz.h"
+#include "pso/boss/TBoss4Type2.h"
+#include "pso/boss/TBoss4Type3.h"
+#include "pso/misc/TNowLoading.h"
+#include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/boss/TUnk_80486924.h"
 #include "pso/misc/TLobby.h"
@@ -154,7 +159,6 @@ union TypedVector_80059B78 {
 };
 
 extern "C" {
-void copy_pos__11TNowLoadingFPv(void *, void *);
 void copy_positions_to_parts__11TBoss4Type3FPv(Obj_8005A1AC *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 add_radar_scaled_marker(void *, u32, int, int, f32);
@@ -495,8 +499,6 @@ s32 pop_matrix();
 f32 post_translate_matrix(void *);
 f32 xyz_distance(Vec_80056C30 *, Vec_80056C30 *);
 void draw_model_motion(void *arg0, void *arg1, f32 farg0);
-s32 set_global_flag__10TObjPlayerFv();
-s32 clear_global_state__10TObjPlayerFv();
 
 extern const f32 TBoss4Type3__data_805D8C34;
 extern void* __vt__13TObjBs4CutAtk[];
@@ -1004,7 +1006,7 @@ void TBoss4Type3::update_capture() {
         }
     }
     if (*(void **)((s8 *)arg0 + 0x42C) != NULL) {
-        copy_pos__11TNowLoadingFPv(*(void **)((s8 *)arg0 + 0x42C), pos);
+        ((TNowLoading *)(*(void **)((s8 *)arg0 + 0x42C)))->copy_pos(pos);
     }
     if (this->m_398 == 0x21) {
         TBoss4Type3::create_yutai((void *)arg0, (void *)0, (void *)((void *)this->m_3b8));
@@ -1042,10 +1044,10 @@ void TBoss4Type3::update_capture() {
         }
     }
     if (*(void **)((s8 *)arg0 + 0x430) != NULL) {
-        copy_pos__11TNowLoadingFPv(*(void **)((s8 *)arg0 + 0x430), pos);
+        ((TNowLoading *)(*(void **)((s8 *)arg0 + 0x430)))->copy_pos(pos);
     }
     if (*(void **)((s8 *)arg0 + 0x434) != NULL) {
-        copy_pos__11TNowLoadingFPv(*(void **)((s8 *)arg0 + 0x434), pos);
+        ((TNowLoading *)(*(void **)((s8 *)arg0 + 0x434)))->copy_pos(pos);
     }
     if (--this->m_398 < 0) {
         ((TBoss4Type3 *)arg0)->set_action_from_table(1);
@@ -1233,10 +1235,10 @@ void TBoss4Type3::update_homing() {
         v += step;
     }
     if (o->f424 != 0) {
-        copy_pos__11TNowLoadingFPv(o->f424, a);
+        ((TNowLoading *)(o->f424))->copy_pos(a);
     }
     if (o->f428 != 0) {
-        copy_pos__11TNowLoadingFPv(o->f428, b);
+        ((TNowLoading *)(o->f428))->copy_pos(b);
     }
     if (--o->f398 < 0) {
         ((TBoss4Type3 *)o)->set_action_from_table(1);
@@ -1799,13 +1801,13 @@ void copy_positions_to_parts__11TBoss4Type3FPv(Obj_8005A1AC *arg0) {
     s32 i;
     for (i = 0; i < 8; i++, p++) {
         if (arg0->f404[i] != 0 && *p != 0) {
-            copy_pos__11TNowLoadingFPv(arg0->f404[i], *p);
+            ((TNowLoading *)(arg0->f404[i]))->copy_pos(*p);
         }
     }
     if (arg0->f3ba == 0xFFFF) {
-        copy_pos__11TNowLoadingFPv(arg0->f404[7], lbl_80487150);
+        ((TNowLoading *)(arg0->f404[7]))->copy_pos(lbl_80487150);
     } else {
-        copy_pos__11TNowLoadingFPv(arg0->f404[7], &arg0->f480);
+        ((TNowLoading *)(arg0->f404[7]))->copy_pos(&arg0->f480);
     }
 }
 
@@ -1894,7 +1896,7 @@ void TBoss4Type3::draw_model_set(const s32 *tbl, f32 t) {
     }
     model_render_flags |= 0x20000;
     TObjEneRe4Sorcerer__sub_801E3F1C(TBoss4Type3__data_805D8C40, this->m_3dc);
-    set_global_flag__10TObjPlayerFv();
+    TObjPlayer::set_global_flag();
     for (i = 0; i < 3; i++) {
         TObjFish::set_global_param(TObjFish__sub_8001EDB0(this->m_390, tbl[i]));
         off = i;
@@ -1902,7 +1904,7 @@ void TBoss4Type3::draw_model_set(const s32 *tbl, f32 t) {
         draw_model_motion((void *)(get_bml_model(this->m_390, tbl[i])), (void *)(get_bml_motion(this->m_390, ((Type3MotionView *)&TBoss4Type3__anim_state_table)[this->m_3f0].motions[i])), this->m_3f4);
         clear_render_callback__8TObjFishFv((s32)this->render_lists[off]);
     }
-    clear_global_state__10TObjPlayerFv();
+    TObjPlayer::clear_global_state();
     model_render_flags &= ~0x20000;
     if (t < TBoss4Type3__data_805D8C34) {
         TObjPlayer::sync_player_globals();
@@ -1989,15 +1991,12 @@ void TBoss4Type3__sub_8005A86C(void* p) { ((TBoss4Type3 *)p)->draw(); }
  extern const f32 lbl_805D8CAC;
 
 extern "C" {
-s32 is_field378_zero__14TBoss4DarkFalzFv(void *);
 void update_collisions__10TObjPlayerFv(void *);
 void submit_cursor_candidate(void *, int);
 struct O_80059618;
 struct Obj_8005A1AC;
 struct Ply_80059ABC;
-void scroll_strips__11TBoss4Type2Fv(void *);
 
-void draw_motion_trail__11TBoss4Type3Fllll(void *, s32, s32, void *, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 init_trail_buffer__11TBoss4Type3FPvifff(void *, s32, f32, f32, f32);
 
@@ -2018,7 +2017,7 @@ void TBoss4Type3::run_task() {
     if (this->m_3b8 != 0xFFFF && TBoss4Type3__sub_8005254C(this->m_3b8) == 0) {
         this->m_3b8 = 0xFFFF;
     }
-    if (is_field378_zero__14TBoss4DarkFalzFv((void *)this->m_38c)) {
+    if (((TBoss4DarkFalz *)((void *)this->m_38c))->is_field378_zero()) {
         fn = boss4_type3_states[this->m_374].advance;
         if (fn) {
             (this->*fn)();
@@ -2043,7 +2042,7 @@ void TBoss4Type3::run_task() {
     handle_damage_taken__11TBoss4Type3FPv((O_80059618 *)this);
     if (this->m_374 != 2) {
         copy_positions_to_parts__11TBoss4Type3FPv((Obj_8005A1AC *)this);
-        scroll_strips__11TBoss4Type2Fv(&this->m_378);
+        ((TBoss4Type2 *)(&this->m_378))->scroll_strips();
     }
     if (this->m_3ba == 0xFFFF) {
         if ((this->m_3c8 -= 0.06666667f) < 0.0f) {
@@ -2071,11 +2070,9 @@ void TBoss4Type3::run_task() {
     if (p != 0) {
         p = (void *)init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lim, lim, lbl_805D8CAC);
     }
-    set_global_flag__10TObjPlayerFv();
-    draw_motion_trail__11TBoss4Type3Fllll(p, get_bml_model(this->m_390, ((s32 *)lbl_80486FB0)[0]),
-        get_bml_motion(this->m_390, TBoss4Type3__anim_state_table[this->m_3f0].motions[0]),
-        boss4_type3_run_task_params, 0);
-    clear_global_state__10TObjPlayerFv();
+    TObjPlayer::set_global_flag();
+    ((TBoss4Type3 *)p)->draw_motion_trail((s32)(get_bml_model(this->m_390, ((s32 *)lbl_80486FB0)[0])), (s32)(get_bml_motion(this->m_390, TBoss4Type3__anim_state_table[this->m_3f0].motions[0])), (s32)boss4_type3_run_task_params, (s32)0);
+    TObjPlayer::clear_global_state();
     e = ((u8 *(*)(void *, f32))lookup_entry_by_value__10TObjPlayerFPvf)(p, lim);
     push_matrix();
     set_matrix_identity(0);
@@ -2086,10 +2083,10 @@ void TBoss4Type3::run_task() {
     pop_matrix();
     if (e != 0) {
         if (this->effect_parts[5] != 0) {
-            copy_pos__11TNowLoadingFPv(this->effect_parts[5], v[0]);
+            ((TNowLoading *)(this->effect_parts[5]))->copy_pos(v[0]);
         }
         if (this->effect_parts[6] != 0) {
-            copy_pos__11TNowLoadingFPv(this->effect_parts[6], v[1]);
+            ((TNowLoading *)(this->effect_parts[6]))->copy_pos(v[1]);
         }
     }
     __dt__11TBoss4Type3FPvs((s32 *)p, 1);
@@ -2190,7 +2187,7 @@ Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 parent, s32 *arg2) {
     for (i = 0; i < 3; i++) {
         self->a438[i] = TObjFish__sub_800E3124((u8 *)(((void **)boss4_type3_effect_desc_ptr_table)[i]), (s32)&self->a444[i]);
     }
-    set_global_flag__10TObjPlayerFv();
+    TObjPlayer::set_global_flag();
     model = get_bml_model(self->f390, ((s32 *)lbl_80486FB0)[0]);
     p = (s32)alloc__23TAdSinglePlyChrSelectGCFv(0x18);
     if (p != 0) {
@@ -2206,7 +2203,7 @@ Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 parent, s32 *arg2) {
     *(s32 *)((u8 *)self + 0x520) = p;
     draw_trail_with_colors((u8 *)(*(s32 *)((u8 *)self + 0x520)), model, get_bml_motion(self->f390, ((s32 *)&TBoss4Type3__anim_state_table)[0x58 / 4]), 9, 10);
     *(s32 *)((u8 *)self + 0x528) = create__12TObjEneSaverFPvPv(0xA0303030, 0xFFFF0088);
-    clear_global_state__10TObjPlayerFv();
+    TObjPlayer::clear_global_state();
     ((TBoss4Type3 *)self)->create_particle_emitters();
     init_model_node_tables(self->f378, (void *)boss4_type3_model_node_specs, 2);
     self->f3D4 = self->f32C;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
 #include "pso/unk/text_80120908.h"
 #include "pso/player/TUnk_804A2B98.h"
 #include "pso/player/TObjPlayer.h"
@@ -15,7 +16,7 @@ void TUnk_804A2B98::reserved_53() {
     s32 arg0 = (s32)this;
     if (get_slot_count__5TItemFv() == 3) {
         knuckle_second_hand_pass = 0;
-        draw_weapon_model__11TItemWeaponFv((TItemWeapon *)((void *)arg0));
+        ((TItemWeapon *)arg0)->draw_weapon_model();
         knuckle_second_hand_pass = 1;
         draw_weapon_at_joint(arg0, 0x23);
     }

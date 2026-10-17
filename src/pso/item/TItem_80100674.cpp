@@ -185,7 +185,6 @@ s16 obj_getS16_32E(u8 *p);
 s16 obj_getS16_32C(u8 *p);
 int is_locally_controlled__10TObjPlayerFPv(void *);
 u8 *find_item_by_id(s32);
-void send_unequip_held_item__10TObjPlayerFv(u32);
 s32 consume_item_by_id(s32 arg0);
 s32 get_id__13TItemProArmorFv(void *);
 s32 init__9TItemDataFv(void *);
@@ -279,7 +278,7 @@ s32 consume_item_by_id(s32 arg0) {
   ((TObjPlayer *)temp_r3_2)->dispatch_action(arg0, 1);
   if (is_locally_controlled__10TObjPlayerFPv((void *) temp_r3_2) != 0)
   {
-    send_unequip_held_item__10TObjPlayerFv((u32) temp_r3_2);
+    ((TObjPlayer *)temp_r3_2)->send_unequip_held_item();
   }
   if ((find_item_by_id(temp_r30) != 0) && (temp_r31 < 2))
   {

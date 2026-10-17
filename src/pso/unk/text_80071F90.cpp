@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TPlyDispData.h"
 #include "pso/misc/TPlyDispConfig_80071F1C.h"
 #include "pso/unk/text_80072004.h"
 struct Elem_80071F90 { s32 v; };
@@ -9,8 +10,8 @@ extern "C" {
 void *__construct_array(void *, void *, void *, u32, u32);
 Obj_80071F90 *fn_80071F90(Obj_80071F90 *self);
 Obj_80071F90 *fn_80071F90(Obj_80071F90 *self) {
-    __construct_array(self->a, (void *)init_gc_tag, (void *)free_if_valid__14TPlyDispConfigFls, 4, 4);
-    __construct_array(self->b, (void *)init_gc_tag, (void *)free_if_valid__14TPlyDispConfigFls, 4, 4);
+    __construct_array(self->a, (void *)init_gc_tag, (void *)TPlyDispConfig::free_if_valid, 4, 4);
+    __construct_array(self->b, (void *)init_gc_tag, (void *)TPlyDispConfig::free_if_valid, 4, 4);
     self->f0 = 0;
     return self;
 }

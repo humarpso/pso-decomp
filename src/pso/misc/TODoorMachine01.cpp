@@ -80,7 +80,6 @@ struct Door_80162D7C : VObj_80162D7C {
 };
 
 extern "C" {
-void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 s32 is_any_player_within_radius_xz(f32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805DB4F4;
@@ -143,7 +142,7 @@ void TODoorMachine01::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
     if ((this->m_d0 & 1) && (is_any_player_within_radius_xz(lbl_805DB4F4) == 1)) {
         this->m_ac = 1;
-        set_indexed_flags__13TUnk_804AF8A0Fll((arg0), 0, 8);
+        ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 8);
         play_sound_effect(0x4004BC01, (u8 *)&this->position, 0, 0);
     }
     if (this->m_d0 & 0x100000) {

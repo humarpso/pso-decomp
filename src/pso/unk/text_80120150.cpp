@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
 #include "pso/misc/item_param.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/player/TObjPlayer_80100E00.h"
@@ -146,8 +147,8 @@ WeaponArgb get_weapon_color__11TItemWeaponFPv(void *weapon) {
     if (*(s16 *)((s8 *)weapon + 0x1E8) != -1) {
         descriptor = (WeaponColorDescriptor_80120304 *)get_photon_color_record(*(s16 *)((s8 *)weapon + 0x1E8));
         if (descriptor->mode == 1) {
-            copy_vec4__13TRaderMapCoreFPv(&first, &descriptor->first);
-            copy_vec4__13TRaderMapCoreFPv(&second, &descriptor->second);
+            ((TRaderMapCore *)(&first))->copy_vec4(&descriptor->first);
+            ((TRaderMapCore *)(&second))->copy_vec4(&descriptor->second);
             first.alpha = *(f32 *)((s8 *)weapon + 0x1C8) * (second.alpha - first.alpha) + first.alpha;
             first.red = *(f32 *)((s8 *)weapon + 0x1C8) * (second.red - first.red) + first.red;
             first.green = *(f32 *)((s8 *)weapon + 0x1C8) * (second.green - first.green) + first.green;

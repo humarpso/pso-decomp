@@ -493,7 +493,6 @@ extern "C" {
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 * collect_and_count__12TBoss3VoloptFUll(u32 arg0, s32 arg1);
 s32 angle_diff_s16(s32);
-void set_animation__10TObjMotionFs(void *, s16);
 void mem_free(void*);
 void *mem_alloc(u32 size);
 void free_collision_body_parts(void *);
@@ -1154,7 +1153,7 @@ void TObjEneRe7Berura::init_enemy() {
     ((TObjMotion *)arg0)->set_field_d8((s32)(((u8 *)TObjEneRe7Berura__animation_definitions)));
     ((TObjMotion *)arg0)->set_field_dc(*(s32 *)((s8 *)(*(u8 * *)&TObjEneRe7Berura__shared_resource) + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-    set_animation__10TObjMotionFs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    ((TObjMotion *)arg0)->set_animation(*(s16 *)((s8 *)arg0 + 0xB8));
     ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     reset_hp__9TObjEneDDFv(arg0, TObjEneRe7Berura__stat_handle_table[TObjEneRe7Berura__data_80439DA8[0]],
         TObjEneRe7Berura__data_805007D4[TObjEneRe7Berura__data_80439DB0[0]],

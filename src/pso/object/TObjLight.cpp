@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/object/TObject_8001A448.h"
@@ -218,7 +219,7 @@ u8 *TObjLight__ct(TObjLight *arg0, s32 arg1, u8 *arg2) {
     *(f32 *)((s8 *)arg0 + 0xE8) = (f32) (0.0f);
     arg0->m_ec = (f32) (0.0f);
     arg0->m_9c = 0;
-    copy_vec4__13TRaderMapCoreFPv(((u8 *)arg0 + 0xBC), ((u8 *)&TObjLight__scene_light_state.value + 0x24));
+    ((TRaderMapCore *)((u8 *)arg0 + 0xBC))->copy_vec4(((u8 *)&TObjLight__scene_light_state.value + 0x24));
     VecCopy((Vec *)((u8 *)arg0 + 0xD8), (const Vec *)((u8 *)&TObjLight__scene_light_state.value + 0xC));
     *(f32 *)((s8 *)arg0 + 0xF0) = (f32) 0.5f;
     arg0->m_f4 = (f32) (0.0f);

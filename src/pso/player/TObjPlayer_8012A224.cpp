@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
 #include "pso/item/TItemMenuCtrl_80115AF0.h"
 #include "pso/player/TObjPlayer_8012A224.h"
 #include "pso/unk/text_80120908.h"
@@ -22,7 +23,7 @@ void TUnk_804A4848::reserved_53() {
         if ((s32) *(s32 *)((s8 *)this + 0x208) == 0) {
             *temp_r31 |= 0x10;
         }
-        draw_weapon_model__11TItemWeaponFv(this);
+        draw_weapon_model();
         update_trail_slot__11TItemWeaponFPvi(this, 0);
         if ((s32) *(s32 *)((s8 *)this + 0x208) == 0) {
             *temp_r31 &= 0xFFFFFFEF;

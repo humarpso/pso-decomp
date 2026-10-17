@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
 #include "pso/system/vector.h"
 #include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
@@ -126,7 +127,6 @@ s16 TObjPlayer__sub_801D2F4C(s16 *arg0);
 s16 get_validated_attack_stage(u8 *arg0);
 f32 query_extended_state__10TObjPlayerFv(void *);
 void get_weapon_color__11TItemWeaponFPv(f32 *, void *);
-void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 u8 *create__10TTecSlicerFPUs(SlicerLaunchData_8012D9C8 *);
 extern const f32 lbl_805DFDF8;
 void launch_rappys_fan_slicer__10TObjPlayerFPv(u8 *weapon);
@@ -143,7 +143,6 @@ void *__dt__13TUnk_804F0908Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804F0A00Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804F0AF8Fv(void *arg0, s16 arg1);
 s32 rotate_matrix_x(s32, s32);
-int add_angle_clamped__10TObjPlayerFPlll(void*, void*, void*);
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);
 void draw_weapon_at_joint(s32 arg0, s8 arg1);
 void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
@@ -164,8 +163,8 @@ void TObjPlayer::rotate_by_player_list() {
 }
 
 void TUnk_804F0810::reserved_53() { draw_weapon_at_joint((s32)this, (s8)((void*)49)); update_trail_slot__11TItemWeaponFPvi(this, (void*)0); update_trail_slot__11TItemWeaponFPvi(this, (void*)1); }
-void TUnk_804F0810::update_idle() { add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1f8), (void*)(1820), (void*)(13653)); }
-void TUnk_804F0810::update_attack() { add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1f8), (void*)(-4551), (void*)(0)); }
+void TUnk_804F0810::update_idle() { TObjPlayer::add_angle_clamped((s32 *)((char*)this + 0x1f8), (s32)((void*)(1820)), (s32)((void*)(13653))); }
+void TUnk_804F0810::update_attack() { TObjPlayer::add_angle_clamped((s32 *)((char*)this + 0x1f8), (s32)((void*)(-4551)), (s32)((void*)(0))); }
 
 extern s32 lbl_804F0810[];
 
@@ -228,7 +227,7 @@ void launch_rappys_fan_slicer__10TObjPlayerFPv(u8 *weapon) {
     launch.stage = get_validated_attack_stage(*(u8 * *)&((TUnk_804F0908 *)weapon)->player + 0x7CC);
     launch.multiplier = query_extended_state__10TObjPlayerFv(*(u8 * *)&((TUnk_804F0908 *)weapon)->player);
     get_weapon_color__11TItemWeaponFPv(tmp, weapon);
-    copy_vec4__13TRaderMapCoreFPv(launch.color, tmp);
+    ((TRaderMapCore *)(launch.color))->copy_vec4(tmp);
     launch.facing = *(s32 *)((s8 *)(*(u8 * *)&((TUnk_804F0908 *)weapon)->player) + 0x60);
     launch.spin = 0;
     ((TObjPlayer *)weapon)->draw_icon(3, (s32)launch.first);
@@ -334,9 +333,9 @@ void TObjPlayer::pose_gi_gue_bazooka_nodes() {
     }
 }
 
-void TUnk_804F0A00::update_idle() { add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1f8), (void*)((void*)1820), (void*)((void*)7281)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1fc), (void*)((void*)-1820), (void*)((void*)-5461)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x200), (void*)((void*)1820), (void*)((void*)9102)); }
+void TUnk_804F0A00::update_idle() { TObjPlayer::add_angle_clamped((s32 *)((char*)this + 0x1f8), (s32)((void*)((void*)1820)), (s32)((void*)((void*)7281))); TObjPlayer::add_angle_clamped((s32 *)((char*)this + 0x1fc), (s32)((void*)((void*)-1820)), (s32)((void*)((void*)-5461))); TObjPlayer::add_angle_clamped((s32 *)((char*)this + 0x200), (s32)((void*)((void*)1820)), (s32)((void*)((void*)9102))); }
 
-void TUnk_804F0A00::update_attack() { add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1f8), (void*)((void*)-3640), (void*)((void*)0)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1fc), (void*)((void*)2730), (void*)((void*)0)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x200), (void*)((void*)-1820), (void*)((void*)0)); }
+void TUnk_804F0A00::update_attack() { TObjPlayer::add_angle_clamped((s32 *)((char*)this + 0x1f8), (s32)((void*)((void*)-3640)), (s32)((void*)((void*)0))); TObjPlayer::add_angle_clamped((s32 *)((char*)this + 0x1fc), (s32)((void*)((void*)2730)), (s32)((void*)((void*)0))); TObjPlayer::add_angle_clamped((s32 *)((char*)this + 0x200), (s32)((void*)((void*)-1820)), (s32)((void*)((void*)0))); }
 
 void *__dt__13TUnk_804F0A00Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -392,9 +391,9 @@ void TObjPlayer::dispatch_by_state() {
 
 void TUnk_804F0AF8::reserved_53() { draw_weapon_at_joint((s32)this, (s8)((void*)49)); update_trail_slot__11TItemWeaponFPvi(this, (void*)0); update_trail_slot__11TItemWeaponFPvi(this, (void*)1); }
 
-void TUnk_804F0AF8::update_idle() { add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1f8), (void*)((void*)-8192), (void*)((void*)-30947)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1fc), (void*)((void*)-1820), (void*)((void*)-7281)); }
+void TUnk_804F0AF8::update_idle() { TObjPlayer::add_angle_clamped((s32 *)((char*)this + 0x1f8), (s32)((void*)((void*)-8192)), (s32)((void*)((void*)-30947))); TObjPlayer::add_angle_clamped((s32 *)((char*)this + 0x1fc), (s32)((void*)((void*)-1820)), (s32)((void*)((void*)-7281))); }
 
-void TUnk_804F0AF8::update_attack() { add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1f8), (void*)((void*)16384), (void*)((void*)0)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1fc), (void*)((void*)3640), (void*)((void*)0)); }
+void TUnk_804F0AF8::update_attack() { TObjPlayer::add_angle_clamped((s32 *)((char*)this + 0x1f8), (s32)((void*)((void*)16384)), (s32)((void*)((void*)0))); TObjPlayer::add_angle_clamped((s32 *)((char*)this + 0x1fc), (s32)((void*)((void*)3640)), (s32)((void*)((void*)0))); }
 
 extern s32 lbl_804F0AF8[];
 

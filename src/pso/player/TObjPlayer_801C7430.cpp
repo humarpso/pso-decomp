@@ -1219,7 +1219,6 @@ s32 lerp_angle_half__10TObjPlayerFUsUs(s32, s32);
 f32 sample_attack_root_motion(void *, void *, void *);
 s32 is_anim_finished__10TObjPlayerFv(void *);
 s32 objInBand__FP7GameObjf(void *);
-s32 set_animation__10TObjMotionFs(void *, int);
 s32 sub_80143960__10TObjMotionFl(void *, s32);
 }
 void bswap_6x45_packet(void *p);
@@ -1236,7 +1235,6 @@ void init_6x43_attack_packet(u8 *arg0);
 }
 void init_6x40_walk_packet(void *cmd);
 extern "C" {
-void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 void *resolve_hittable_target(u16 actorId, s16 collider);
 u8 * find_entity_by_id(s32);
 s32 get_trap_type__10TOMineTrapFv(int);
@@ -1273,7 +1271,6 @@ void complete_deferred_player_death();
 s32 is_flag_400_set__10TObjPlayerFPv(void *);
 s32 enable_action_input__10TObjPlayerFPv(void *);
 s32 classify_action_state__10TObjPlayerFv(void *);
-void emit_footstep_effect__10TObjPlayerFff(void *, f32, f32);
 void play_footstep_sound__10TObjPlayerFv(void *, f32, f32);
 s32 TObjPlayer__sub_801B4430(u32);
 s32 send_code_49_1__10TObjPlayerFi(u32);
@@ -1329,7 +1326,6 @@ s32 calc_death_pose_height_offset(s32, s32);
 void calc_death_sink_offset(void *arg0);
 void reset_player_appearance_opacity(void *a0);
 extern "C" {
-s32 revive_or_spawn_marker__10TObjPlayerFv(void *);
 s32 apply_stat_multipliers_and_reset__10TObjPlayerFPv(void *, void *, f32);
 s32 apply_stats_and_update__10TObjPlayerFPv(void *, void *);
 f32 apply_stat_multipliers_default__10TObjPlayerFv(void *, void *);
@@ -2183,7 +2179,7 @@ void TObjPlayer__sub_801C869C(s32 arg0, s16 arg1) {
   }
 }
 
-void TObjPlayer::init_effects() { TObjPlayer__sub_801BE9A8((s32)this); sub_8011E204__10TObjPlayerFl(this, (void*)5); activate_body_collision(); set_indexed_flags__13TUnk_804AF8A0Fll(this, (s32)((void*)0), (s32)((void*)1)); reset_player_appearance_opacity(((char*)this + 0x608)); }
+void TObjPlayer::init_effects() { TObjPlayer__sub_801BE9A8((s32)this); sub_8011E204__10TObjPlayerFl(this, (void*)5); activate_body_collision(); set_indexed_flags((s32)((void*)0), (s32)((void*)1)); reset_player_appearance_opacity(((char*)this + 0x608)); }
 
 int TObjPlayer__deactivate_off_floor_body(void* p) { return deactivate_body_collision__10TObjPlayerFv(p); }
 
@@ -2438,7 +2434,7 @@ void send_6x55_intra_map_warp(u16 id, void *pos, s32 c) {
     }
 }
 
-void TObjPlayer::init_flags_vec4() { set_indexed_flags__13TUnk_804AF8A0Fll(this, (s32)((void*)0), (s32)((void*)1)); ((TObjPlayer *)((char*)this + 0x608))->set_vec4_const(); }
+void TObjPlayer::init_flags_vec4() { set_indexed_flags((s32)((void*)0), (s32)((void*)1)); ((TObjPlayer *)((char*)this + 0x608))->set_vec4_const(); }
 
 void TObjPlayer::update_warp_relocation() {
     s32 sp8;
@@ -3107,7 +3103,7 @@ void TObjPlayer::update_active_state() {
             ((TObjPlayer *)arg0)->restart_death_pose();
         }
         ((TObjPlayer *)(arg0 + 0x5FC))->set_pos_z(TObjPlayer__data_805DC360);
-        revive_or_spawn_marker__10TObjPlayerFv(arg0);
+        ((TObjPlayer *)arg0)->revive_or_spawn_marker();
     }
 }
 
@@ -3129,7 +3125,7 @@ void handle_6x4E_player_revivable(void *arg0) {
         p = get_player_by_client_id(m.id);
         if (p != NULL && is_in_tl03_state__10TObjPlayerFv(p) != 0) {
             ((TObjPlayer *)p)->update_action_render();
-            revive_or_spawn_marker__10TObjPlayerFv(p);
+            ((TObjPlayer *)p)->revive_or_spawn_marker();
         }
     }
 }
@@ -3156,7 +3152,7 @@ void TObjPlayer::update_action_render() {
     } else {
         *(s16 *)((s8 *)arg0 + 0xB8) = ((s16 (*)(void *))get_model_field_m25__10TObjPlayerFv)((void *) (arg0));
     }
-    set_animation__10TObjMotionFs((void *) (arg0), (int) (*(s16 *)((s8 *)arg0 + 0xB8)));
+    ((TObjMotion *)arg0)->set_animation((int) (*(s16 *)((s8 *)arg0 + 0xB8)));
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) (*(f32 *)((s8 *)arg0 + 0xC4) - TObjPlayer__data_805DC360);
     draw__10TObjPlayerFPvf((void *) (arg0), (f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
     set_action_flag_40();
@@ -5420,7 +5416,7 @@ void TObjPlayer::update_run_movement() {
         set_flags__10TObjPlayerFUl(self->flags, 4);
     }
     play_footstep_sound__10TObjPlayerFv(self, TObjPlayer__data_805DC360, lbl_805DC370);
-    emit_footstep_effect__10TObjPlayerFff(self, TObjPlayer__data_805DC360, lbl_805DC370);
+    ((TObjPlayer *)self)->emit_footstep_effect(TObjPlayer__data_805DC360, lbl_805DC370);
 }
 
 void start_action__10TObjPlayerFPv(u8 *arg0) {
@@ -5698,7 +5694,7 @@ void TObjPlayer::update_walk_movement() {
         set_flags__10TObjPlayerFUl(self->flags, 4);
     }
     play_footstep_sound__10TObjPlayerFv(self, TObjPlayer__data_805DC360, lbl_805DC394);
-    emit_footstep_effect__10TObjPlayerFff(self, TObjPlayer__data_805DC360, lbl_805DC394);
+    ((TObjPlayer *)self)->emit_footstep_effect(TObjPlayer__data_805DC360, lbl_805DC394);
 }
 
 void set_attack_state__10TObjPlayerFPv(u8 *arg0) {

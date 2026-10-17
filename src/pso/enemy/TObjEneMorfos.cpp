@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneMorfos.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
@@ -2090,12 +2091,9 @@ struct Arr_80334D74 { u8 pad[0x424]; Elem_80334D74 e[4]; };
 struct Hdr_80334D74 { u8 b[0x1C]; };
 struct Res_80334D74 { u8 pad[0x18]; s32 f18; s32 f1C; };
 struct Mgr_80334D74 { u8 pad[0x42C]; Res_80334D74 *res; s32 f430; };
-void set_field_dc__10TObjMotionFl(void *, s32);
-void set_field_d8__10TObjMotionFl(void *, void *);
 void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
 void init_model__9TObjEneDDFv(void *, void *, s32);
-void set_animation__10TObjMotionFs(void *, s16);
 extern s32 lbl_804774A8[];
 extern s32 lbl_804774B0[];
 extern s32 lbl_804774B8[];
@@ -2110,10 +2108,10 @@ void TObjEneMorfos::init_instance() {
     *(s32 *)((s8 *)this + 0x34) = ((Mgr_80334D74 *)TObjEneMorfos__instance)->res->f18;
     *(s32 *)((s8 *)this + 0x24) = ((Mgr_80334D74 *)TObjEneMorfos__instance)->res->f1C;
     init_model__9TObjEneDDFv(this, lbl_804EE0DC, 1);
-    set_field_d8__10TObjMotionFl(this, morfos_motion_param_table);
-    set_field_dc__10TObjMotionFl(this, ((Mgr_80334D74 *)TObjEneMorfos__instance)->f430);
+    set_field_d8((s32)morfos_motion_param_table);
+    set_field_dc(((Mgr_80334D74 *)TObjEneMorfos__instance)->f430);
     *(s16 *)((s8 *)this + 0xB8) = 0;
-    set_animation__10TObjMotionFs(this, *(s16 *)((s8 *)this + 0xB8));
+    set_animation(*(s16 *)((s8 *)this + 0xB8));
     set_field_b8(*(s16 *)((s8 *)this + 0xB8));
     reset_hp__9TObjEneDDFv(this, lbl_805D6D08[lbl_804774A8[0]], lbl_805434DC[lbl_804774B0[0]], lbl_805D6D0C[lbl_804774B8[0]]);
     ((void (*)(void *))TObjEneMorfos__sub_80334704)(this);

@@ -802,7 +802,6 @@ void *destroy_buffer_pair(void *arg0, s16 arg1);
 extern "C" {
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 approach_angle_limited(s32, s32, s32);
-void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 s32 play_sound_effect(void *, void *, int, int);
@@ -2359,7 +2358,7 @@ void TObjEneRe4Sorcerer::init_enemy() {
     ((TObjMotion *)arg0)->set_field_d8((s32)((void *) re4_sorcerer_action_params));
     ((TObjMotion *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)(*(u8 * *)&sorcerer_bml_resource) + 0x430)));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-    set_animation__10TObjMotionFs((arg0), (*(s16 *)((s8 *)arg0 + 0xB8)));
+    ((TObjMotion *)arg0)->set_animation((*(s16 *)((s8 *)arg0 + 0xB8)));
     ((TObjMotion *)arg0)->set_field_b8((int) (*(s16 *)((s8 *)arg0 + 0xB8)));
     reset_hp__9TObjEneDDFv((void *)arg0, (void *)lbl_805D52D0, (void *)TObjEneRe4Sorcerer__attack_params, (void *)TObjEneRe4Sorcerer__resistance_params);
     ((TObjEneDD *)arg0)->set_state_8();

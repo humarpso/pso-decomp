@@ -412,7 +412,6 @@ void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
 s32 TObjEnemyCustom__ct();
 s32 angle_difference_abs(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
-void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 void * find_entity_by_id(u16);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, s32);
@@ -1329,7 +1328,7 @@ void TUnk_80483A10::sub_80040894() {
     ((TUnk_80483A10 *)((VObj_80040894 *)this))->movementParameters = lbl_804839C8;
     ((TUnk_804806E8 *)((VObj_80040894 *)this))->recalc_combat_stats((void *)(*(s32 *)&lbl_805D4C50), (void *)(*(s32 *)&lbl_805D4C54), (void *)(*(s32 *)&lbl_805D4C58), (f32)lbl_805D86B0, (f32)lbl_805D86B0);
     ((TUnk_80483A10 *)((VObj_80040894 *)this))->m_b8 = 0;
-    set_animation__10TObjMotionFs(((VObj_80040894 *)this), ((TUnk_80483A10 *)((VObj_80040894 *)this))->m_b8);
+    set_animation(((TUnk_80483A10 *)((VObj_80040894 *)this))->m_b8);
     ((TObjMotion *)((VObj_80040894 *)this))->set_field_b8(((TUnk_80483A10 *)((VObj_80040894 *)this))->m_b8);
     ((TUnk_80483A10 *)((VObj_80040894 *)this))->hp = ((TUnk_80483A10 *)((VObj_80040894 *)this))->hpmax;
     ((TUnk_80483A10 *)((VObj_80040894 *)this))->m_32e = ((TUnk_80483A10 *)((VObj_80040894 *)this))->m_2ba;

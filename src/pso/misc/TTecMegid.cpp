@@ -211,7 +211,6 @@ s32 push_matrix_from(void *src);
 void rotate_matrix_y(s32, s32);
 void matrix_mult_vec(s32, Vec_80235740 *, Vec_80235740 *);
 s32 pop_matrices(s32 arg0);
-void move_technique_projectile__13TUnk_804CCC68Fv(u8 *arg0);
 void dispatch_technique_contact__13TUnk_804CCC68Fv(Obj_80235740 *, s32);
 extern Vec_80235740 tec_megid_offset_vec;
 extern u8 identity_matrix[];
@@ -432,7 +431,7 @@ void run_task__9TTecMegidFv(Obj_80235740 *self) {
             ((TNowLoading *)(self->emitters[i]))->copy_pos(&self->pos);
         }
     }
-    move_technique_projectile__13TUnk_804CCC68Fv((u8 *)self);
+    ((TUnk_804CCC68 *)self)->move_technique_projectile();
     ((TUnk_804CCC68 *)self)->advance_lifetime_or_destroy();
     dispatch_technique_contact__13TUnk_804CCC68Fv(self, 1);
 }

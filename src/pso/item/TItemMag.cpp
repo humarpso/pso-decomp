@@ -1,5 +1,6 @@
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "pso/item/TItemMagSub.h"
+#include "pso/misc/TRaderMapCore.h"
 #include "pso/system/byteswap.h"
 #include "pso/TItemAttacker.h"
 #include "pso/TItemLoad.h"
@@ -153,7 +154,6 @@ s32 apply_switch_attack__5TItemFl(void *, s32);
 int fn_80100D9C(s32, s32);
 s32 send_6x61_activate_mag_effect__14TItemEquipBaseFl(void *, s32);
 s32 get_item_info__10TObjPlayerFllPs(int, int, int);
-s8 sub_80102C30__5TItemFv(u8 *arg0);
 s32 check_class_equip_permission(void *, int);
 s32 activate_d04_slot__10TObjPlayerFv();
 u8 get_slot_count__5TItemFv();
@@ -987,7 +987,7 @@ void TItemMag::apply_form_change() {
     if (temp_r3 != NULL) {
         ((TItemMag *)(arg0 + 0x198))->add_photon_blast((int) (*(u8 *)((s8 *)temp_r3 + 0xA)));
     }
-    if (sub_80102C30__5TItemFv(arg0) == 2) {
+    if (((TItem *)arg0)->sub_80102C30() == 2) {
         ((VObj_18_8b050c *)(arg0))->m45();
         *(s32 *)&this->m_18c = (s32) (*(s32 *)&this->m_18c | 0x40);
         ((VObj_18_8b050c *)(arg0))->m44();
@@ -1247,7 +1247,7 @@ s32 TItemMag::apply_feed_stats(u8 *arg1) {
         TItemMag::add_stat_clamped((s16 *)(arg0 + 0x198), (s32)((int) (*(s16 *)((s8 *)arg1 + 0))));
         ((TItemMag *)(arg0 + 0x198))->add_clamped_stat((int) (*(s16 *)((s8 *)arg1 + 2)));
         ((TItemMag *)arg0)->set_field_EE((u8)((void *) (((u8 (*)(void *))get_mag_total_level)(arg0 + 0x198))));
-        if (sub_80102C30__5TItemFv((arg0)) == 2) {
+        if (((TItem *)arg0)->sub_80102C30() == 2) {
             ((TItemEquipBase *)arg0)->refresh_owner_stats();
             if (obj_isState2_324__13TUnk_804806E8Fv((int)this->m_f0) == 0) {
                 arg1 = (u8 *) get_item_field_6__10TObjPlayerFPv(this->m_f0);
@@ -1531,7 +1531,6 @@ void serialize_mag__9TItemDataFPvPv(void *, const void *);
 s32 request_model_load__14TItemEquipBaseFl(s32, u8);
 void *__dt__14TItemEquipBaseFv(void *arg0, s16 arg1);
 s32 *__dt__9TItemLoadFPvs(s32 *arg0, s16 arg1);
-void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 int fn_800F953C(void*);
 
 void TItemMag::update() {
@@ -1842,7 +1841,7 @@ extern "C" {
 
 }
 void TItemMagSub::set_node_id(s32 index, s32 id) { node_ids[index] = id; }
-void TItemMagSub::set_material_node(s32 node, void* parameters) { node_ids[0] = node; if (parameters != 0) copy_vec4__13TRaderMapCoreFPv(material_parameters, parameters); }
+void TItemMagSub::set_material_node(s32 node, void* parameters) { node_ids[0] = node; if (parameters != 0) ((TRaderMapCore *)material_parameters)->copy_vec4(parameters); }
 
 }
 void TItemMagSub::set_model(void* model_arg, u32 textures_arg, void* animation_arg) {

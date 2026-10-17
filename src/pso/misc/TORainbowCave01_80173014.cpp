@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/misc/TOKey_8015845C.h"
 #include "pso/misc/TORainbowCave01_80173014.h"
 #include "pso/system/ChunkMaterialState.h"
@@ -104,14 +105,14 @@ void TORainbowCave01::render() {
         } else {
             c.a = self->fCC;
         }
-        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&c);
+        ((TUnk_80494AE0 *)((f32 *)&c))->set_chunk_material_color();
         push_matrix();
         post_translate_matrix(self->pos38);
         rotate_matrix_y(0, self->f60);
         scale_current_matrix(self->fD4);
         draw_ginja_object((void *)self->f34);
         pop_matrix();
-        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)chunk_material_color_half_alpha_f32);
+        ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
         model_render_flags = lbl_805D5660;
         TParticleCtrl::end_effect_render();
     }

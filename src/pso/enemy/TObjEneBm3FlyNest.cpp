@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBm3Fly.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneBm3FlyNest.h"
@@ -741,7 +742,6 @@ s32 get_camera_mode__11TCameraCtrlFv();
 s32 get_flag_b4__9TObjEneDDFv(void *);
 void rotate_xz_pair_by_angle(f32 *arg0, f32 *arg1, s32 arg2);
 void *spawn_particle_effect(void *pos, s32 id);
-u16 get_active_id__13TObjEneBm3FlyFv(void *);
 void render_with_state_debug__17TObjEneBm3FlyNestFv(u8 *arg0);
 void render__17TObjEneBm3FlyNestFv(u8 *arg0);
 void handle_attachment_sample__17TObjEneBm3FlyNestFi(s32 arg0);
@@ -1225,7 +1225,7 @@ s32 TObjEneBm3FlyNest::has_free_attack_slot(u16 id) {
     s32 i;
     for (i = 0; i < self->count; i++) {
         u8 *p = (u8 *)find_entity_by_id(self->ids[i]);
-        if (p != 0 && id == get_active_id__13TObjEneBm3FlyFv(p)) {
+        if (p != 0 && id == ((TObjEneBm3Fly *)p)->get_active_id()) {
             n++;
         }
     }
@@ -1888,7 +1888,6 @@ void __construct_array(void *, void *, void *, int, int);
 void init_and_activate__10TObjPlayerFv(void *);
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 void init_model__9TObjEneDDFv(void *, void *, int);
-void set_animation__10TObjMotionFs(void *, s16);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
 s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
 
@@ -1912,7 +1911,7 @@ void *TObjEneBm3FlyNest__ct(void *arg0, void *arg1, void *arg2) {
     ((TObjMotion *)self)->set_field_d8((s32)bm3_flynest_hit_action_table);
     ((TObjMotion *)self)->set_field_dc(*(s32 *)((int)lbl_805D5108 + 0x430));
     self->fB8 = 0;
-    set_animation__10TObjMotionFs(self, self->fB8);
+    ((TObjMotion *)self)->set_animation(self->fB8);
     ((TObjMotion *)self)->set_field_b8(self->fB8);
     reset_hp__9TObjEneDDFv(self, lbl_805D50F8, lbl_805D50FC, lbl_805D5100);
     ((TObjEneDD *)self)->check_state_flag_1();

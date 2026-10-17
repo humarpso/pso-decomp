@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjDoorJung.h"
 #include "pso/object/TObjMotion.h"
@@ -89,7 +90,6 @@ extern u32 door_resource_handle;
 u8 *TObjDoorJung__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *TObjDoorJung__create(void *arg0);
 void update_opening_glow__8TObjDoorFPv(u8 *arg0);
-void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 extern DoorMotionHeader* TObjDoor__motion_table[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
@@ -103,8 +103,6 @@ s32 draw_locked__8TObjDoorFPv(Door_8018E74C *arg0);
 void set_active_camera_pose(u8 *arg0, u8 *arg1);
 s32 restore_player_cameras(void);
 s32 activate_camera_mode(s32);
-void clear_player_status_flag__13TUnk_804AF8A0FlUl(TObjDoor*,s32,u32);
-void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 }
 s32 check_player_door_proximity(s32 arg0, s32 arg1, f32 farg0);
 extern "C" {
@@ -243,7 +241,7 @@ void render__8TObjDoorFPv(Door_8018E40C *arg0) {
     model_render_flags |= 0x10;
     Color_8018E40C color = TObjDoor__label_color_table[arg0->fD0];
     color.a = arg0->fC4;
-    set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&color);
+    ((TUnk_80494AE0 *)((f32 *)&color))->set_chunk_material_color();
     Glob_8018E40C *g0 = ((Glob_8018E40C *)&TObjDoor__model_resource_ptrs);
     ((TObjDoorJung *)(g0->c->f4))->free_children((void *)((u16)arg0->fD0));
     draw_ginja_object(g0->c);
@@ -286,7 +284,7 @@ s32 draw_closed__8TObjDoorFPv(Door_8018E5F4 *arg0) {
     model_render_flags |= 0x10;
     Color_8018E5F4 color = ((Color_8018E5F4 *)TObjDoor__label_color_table)[arg0->fD0];
     color.a = arg0->fC4;
-    set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)((Color_8018E40C *)(&color)));
+    ((TUnk_80494AE0 *)(&color))->set_chunk_material_color();
     Glob_8018E5F4 *g0 = ((Glob_8018E5F4 *)&TObjDoor__model_resource_ptrs);
     ((TObjDoorJung *)(g0->c->f4))->free_children((void *)((u16)arg0->fD0));
     draw_ginja_object(g0->c);
@@ -321,7 +319,7 @@ s32 draw_locked__8TObjDoorFPv(Door_8018E74C *arg0) {
     model_render_flags |= 0x10;
     Color_8018E74C color = ((Color_8018E74C *)TObjDoor__label_color_table)[arg0->fD0];
     color.a = arg0->fC4;
-    set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)((Color_8018E40C *)(&color)));
+    ((TUnk_80494AE0 *)(&color))->set_chunk_material_color();
     Glob_8018E74C *g0 = ((Glob_8018E74C *)&TObjDoor__model_resource_ptrs);
     ((TObjDoorJung *)(g0->c->f4))->free_children((void *)((u16)arg0->fD0));
     draw_ginja_object(g0->c);
@@ -447,7 +445,7 @@ void TObjDoor::update_state() {
             if(this->cameraMode==0)this->state=2;
             else this->state=1;
         }
-        set_indexed_flags__13TUnk_804AF8A0Fll(this,0,1);return;
+        set_indexed_flags(0, 1);return;
     case 1:
         if(this->cameraMode==1 && activate_camera_mode(9)!=0) {
             VecCopy((Vec *)target, (const Vec *)this->position);
@@ -464,9 +462,9 @@ void TObjDoor::update_state() {
         }
         return;
     case 2:
-        set_indexed_flags__13TUnk_804AF8A0Fll(this,0,1);
+        set_indexed_flags(0, 1);
         if(check_player_door_proximity((s32)this, 0, (7e+01f))!=0) {
-            this->frame=(0.0f);this->state=4;clear_player_status_flag__13TUnk_804AF8A0FlUl(this,0,1);
+            this->frame=(0.0f);this->state=4;clear_player_status_flag(0, 1);
         }
         break;
     case 4:
@@ -482,8 +480,8 @@ void TObjDoor::update_state() {
         if(this->frame<0.0f) {this->frame=0.0f;this->state=2;}
         break;
     case 5:
-        clear_player_status_flag__13TUnk_804AF8A0FlUl(this,0,1);
-        if(check_player_door_proximity((s32)this, 1, 100.0f)!=0) {this->state=3;set_indexed_flags__13TUnk_804AF8A0Fll((void *)this, 0, 1);}
+        clear_player_status_flag(0, 1);
+        if(check_player_door_proximity((s32)this, 1, 100.0f)!=0) {this->state=3;set_indexed_flags(0, 1);}
         break;
     }
 }
@@ -510,7 +508,7 @@ void run_task__8TObjDoorFv(VObj_8018EF70 *self) {
 
     if (TObjDoor__data_805D5BC8 != 0) {
         ((TObjDoor *)self)->state = 0;
-        set_indexed_flags__13TUnk_804AF8A0Fll((TObjDoor *) self, 0, 1);
+        ((TUnk_804AF8A0 *)self)->set_indexed_flags(0, 1);
     } else {
         ((TObjDoor *)self)->update_state();
     }

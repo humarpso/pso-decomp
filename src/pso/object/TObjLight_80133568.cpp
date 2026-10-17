@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
 #include "pso/object/TUnk_804A6FA8.h"
 #include "pso/object/TUnk_804A6F78.h"
 #include "pso/object/TObjLight_80133568.h"
@@ -147,7 +148,6 @@ extern s32 TObjLight__gx_light_objects[];
 s32 rotate_vector_by_matrix(int, void *, void *);
 extern s32 lbl_804A6F90[];
 extern u8 *lbl_805D5558;
-void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 extern s32 TObjLight__actor_light_count;
 u32 __nw__7TObjectFUl(int);
 f32 vector_length(void *);
@@ -621,11 +621,11 @@ void TObjLight::find_light_params(f32 *dir, f32 *color, u32 id) {
         LightEntry_801344A4 *e = &((LightEntry_801344A4 *)&TObjLight__data_8050637C)[i];
         if (id == e->id) {
             VecCopy((Vec *)dir, (const Vec *)e->dir);
-            copy_vec4__13TRaderMapCoreFPv(color, e->color);
+            ((TRaderMapCore *)color)->copy_vec4(e->color);
             return;
         }
     }
-    copy_vec4__13TRaderMapCoreFPv(color, (*(LightDefault_801344A4 *)&TObjLight__scene_light_state).color);
+    ((TRaderMapCore *)color)->copy_vec4((*(LightDefault_801344A4 *)&TObjLight__scene_light_state).color);
     VecCopy((Vec *)dir, (const Vec *)((*(LightDefault_801344A4 *)&TObjLight__scene_light_state).dir));
 }
 
@@ -671,7 +671,7 @@ void publish_light_direction_color(u32 id, void *dir, void *color) {
             if (id == e->id) {
                 TObjLight__data_805068FC[i].id = id;
                 VecCopy((Vec *)e, (const Vec *)dir);
-                copy_vec4__13TRaderMapCoreFPv(e->color, color);
+                ((TRaderMapCore *)(e->color))->copy_vec4(color);
                 add = 0;
                 TObjLight__data_805068FC[i].f24 |= 2;
                 break;
@@ -683,7 +683,7 @@ void publish_light_direction_color(u32 id, void *dir, void *color) {
         if (add) {
             TObjLight__data_805068FC[TObjLight__light_count].id = id;
             VecCopy((Vec *)&TObjLight__data_805068FC[TObjLight__light_count], (const Vec *)dir);
-            copy_vec4__13TRaderMapCoreFPv(TObjLight__data_805068FC[TObjLight__light_count].color, color);
+            ((TRaderMapCore *)(TObjLight__data_805068FC[TObjLight__light_count].color))->copy_vec4(color);
             TObjLight__data_805068FC[TObjLight__light_count].f24 |= 2;
             TObjLight__light_count++;
         }
@@ -696,7 +696,7 @@ void register_actor_light(s32 arg0, s32 arg1) {
         temp_r5 = (u8 *)TObjLight__data_8050637C + (TObjLight__actor_light_count * 0x2C);
         *(s32 *)((s8 *)temp_r5 + 0x28) = arg0;
         VecCopy((Vec *)(temp_r5), (const Vec *)(arg1 + 0xE4));
-        copy_vec4__13TRaderMapCoreFPv(((u8 *)TObjLight__data_8050637C + (TObjLight__actor_light_count * 0x2C) + 0xC), (void *)(arg1 + 0xF0));
+        ((TRaderMapCore *)((u8 *)TObjLight__data_8050637C + (TObjLight__actor_light_count * 0x2C) + 0xC))->copy_vec4((void *)(arg1 + 0xF0));
         TObjLight__actor_light_count += 1;
     }
 }

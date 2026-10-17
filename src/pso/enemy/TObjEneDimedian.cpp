@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneDimedian.h"
@@ -93,7 +94,6 @@ extern const f32 lbl_805D9AB8;
 extern const f32 lbl_805D9AC0;
 extern const f32 lbl_805D9AC4;
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-void copy_position__20TBoss3VoloptHiraisinFv(void *);
 void init_enemy_base__13TUnk_80493450Fv(void *);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
 }
@@ -465,7 +465,7 @@ void *TObjEneDimedian__ct(void *arg0_, void *arg1_, void *arg2_) {
     ((TObjMotion *)arg0)->set_field_d8((s32)(*(u8 **)((s8 *)arg0 + 0xD8)));
     *(s32 *)((s8 *)arg0 + 0xDC) = *(s32 *)((s8 *)(*(u8 **)&dimedian_resource_ptr) + 0x430);
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-    set_animation__10TObjMotionFs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    ((TObjMotion *)arg0)->set_animation(*(s16 *)((s8 *)arg0 + 0xB8));
     ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     init_collision_body_parts(arg0, dimedian_collision_body_table + *(s32 *)((s8 *)arg0 + 0x334) * 0x2C, 1);
     bind_enemy_combat_stats(arg0, (*(s32 **)&dimedian_boss_object_buf)[*(s32 *)((s8 *)arg0 + 0x334)],
@@ -473,7 +473,7 @@ void *TObjEneDimedian__ct(void *arg0_, void *arg1_, void *arg2_) {
     *(u8 **)((s8 *)arg0 + 0x350) = dimedian_movement_params + *(s32 *)((s8 *)arg0 + 0x334) * 0x1C;
     *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x32C);
     ((TObjEnemy *)arg0)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFv(arg0);
+    ((TBoss3VoloptHiraisin *)arg0)->copy_position();
     initialize_enemy_photon_effect(arg0);
     f = lbl_805D9ACC * calc_boss4_scale__10TObjPlayerFi(arg0);
     *(s32 *)((s8 *)arg0 + 0x2AC) = (s32)(lbl_805D9AC8 * f);

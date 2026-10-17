@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/system/TODummyKeyCave01Sound.h"
 #include "pso/system/ChunkMaterialState.h"
 #include "pso/system/GinjaMaterial.h"
@@ -82,7 +83,7 @@ void TODummyKeyCave01::render() {
             id = model_render_flags;
             lbl_805D5660 = id;
             model_render_flags = id | 0x10;
-            set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&this->m_9c);
+            ((TUnk_80494AE0 *)((f32 *)&this->m_9c))->set_chunk_material_color();
         }
         TParticleCtrl::begin_effect_render();
         node = *(u8 **)(node + 0x2C);
@@ -97,7 +98,7 @@ void TODummyKeyCave01::render() {
         post_translate_matrix(node + 8);
         draw_ginja_model(*(s32 *)(node + 4));
         if (*(u16 *)(arg0 + 0x9A) == 0) {
-            set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)chunk_material_color_half_alpha_f32);
+            ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
             model_render_flags = lbl_805D5660;
         }
         TParticleCtrl::end_effect_render();

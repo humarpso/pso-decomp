@@ -43,7 +43,6 @@ extern const f32 TObjDoaEx01__data_805DBDA0;
 extern const f32 TObjDoaEx01__data_805DBDA8;
 void play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805DBDA4;
-void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 extern const f32 lbl_805DBDAC;
 extern const f32 lbl_805DBDB0;
 void TLobby__sub_8001FE7C(void*, int);
@@ -142,7 +141,7 @@ void TObjDoaEx01::play_proximity_sound() {
     if (self->flags & 1) {
         if (is_any_player_within_radius_xz((u8 *)self, (f32)lbl_805DBDAC) == 1) {
             self->state = 1;
-            set_indexed_flags__13TUnk_804AF8A0Fll(self, 0, 8);
+            ((TUnk_804AF8A0 *)self)->set_indexed_flags(0, 8);
             switch (TOKeyMachine01::get_global_state()) {
             case 19:
             case 20:

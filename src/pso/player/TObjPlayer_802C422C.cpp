@@ -90,7 +90,6 @@ void split_capped_value__10TObjPlayerFUcPUcPSc(s32, u8 *, E_802C4698 *);
 s32 TObjPlayer__sub_802A1018();
 extern s32 current_language;
 void is_slot_within_limit__10TObjPlayerFllUc(u8 id, s16 i, u8 v);
-void sub_8011E204__10TObjPlayerFl(TObjPlayer *arg0, s32 arg1);
 int init_action_config__10TObjPlayerFv(void*);
 int set_palette_entry__20TWindowActionPaletteFlllll(void*);
 
@@ -188,6 +187,6 @@ extern "C" {
 
 int TObjPlayer__sub_802C46E0(void* p) { return set_palette_entry__20TWindowActionPaletteFlllll(p); }
 
-void TObjPlayer::set_flag_524288() { sub_8011E204__10TObjPlayerFl(this, (s32)((void*)524288)); }
+void TObjPlayer::set_flag_524288() { sub_8011E204((s32)((void*)524288)); }
 void TObjPlayer::set_flag_80000() { set_state_flags((u32)((void*)524288)); }
 }

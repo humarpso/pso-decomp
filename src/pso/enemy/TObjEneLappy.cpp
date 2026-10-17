@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneLappy.h"
@@ -1413,10 +1414,8 @@ void __dl__7TObjectFPv(void *);
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 
 s32 add_flags_2e4__13TUnk_804806E8FUl(void *, int, f32, f32);
-s32 copy_position__20TBoss3VoloptHiraisinFv(void *);
 s32 bind_enemy_combat_stats(void *, int, int, int);
 s32 initialize__9TObjEnemyFPv(void *, s32, void *);
-void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 s32 init_collision_body_parts(void *, void *, int);
 
 extern s32 lbl_805D2A40;
@@ -1921,7 +1920,7 @@ u8 *TObjEneLappy__ct(u8 *self, s32 arg1, Set_800C1C4C *set) {
     *(s16 *)(self + 0x32E) = *(s16 *)(self + 0x2BA);
     *(s16 *)(self + 0x33E) = *(s16 *)(self + 0x32C);
     ((TObjEnemy *)self)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFv(self);
+    ((TBoss3VoloptHiraisin *)self)->copy_position();
     ((TObjPlayer *)self)->reset_photon_effect();
     scale = lbl_805D9F84 * (lbl_805D9F60 + calc_boss4_scale__10TObjPlayerFi(self));
     *(s16 *)(self + 0x37E) = lbl_805D9F2C * scale;
@@ -1930,7 +1929,7 @@ u8 *TObjEneLappy__ct(u8 *self, s32 arg1, Set_800C1C4C *set) {
     *(void **)(self + 0xD8) = (u8 *)rappy_variant_speed_table;
     ((TObjMotion *)self)->set_field_d8((s32)(*(void **)(self + 0xD8)));
     *(s16 *)(self + 0xB8) = 0;
-    set_animation__10TObjMotionFs(self, *(s16 *)(self + 0xB8));
+    ((TObjMotion *)self)->set_animation(*(s16 *)(self + 0xB8));
     ((TObjMotion *)self)->set_field_b8(*(s16 *)(self + 0xB8));
     *(u8 *)(self + 0x379) = *(u8 *)(self + 0x378);
     if (TObjEneDD::check_v2_mode() != 0 && calc_boss4_scale__10TObjPlayerFi(self) < lbl_805D9F98) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
 #include "pso/unk/text_80120908.h"
 #include "pso/player/TUnk_804A4C78.h"
 #include "pso/player/TObjPlayer.h"
@@ -22,7 +23,7 @@ void TUnk_804A4C78::reserved_53() {
         sub_8012B1F0(8);
         ((TObjPlayer *)(&lbl_805D53EC))->set_flags(4);
     }
-    draw_weapon_model__11TItemWeaponFv(this);
+    draw_weapon_model();
     if (sub_8012B1F8() != 8) {
         update_trail_slot__11TItemWeaponFPvi(this, 0);
     }

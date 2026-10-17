@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
 #include "pso/enemy/TObjEneEpsilon.h"
 #include "pso/misc/TBreakUpMdl.h"
 #include "pso/player/TObjPlayer.h"
@@ -182,7 +183,6 @@ s32 __destroy_arr(void *, void *, int, int);
 extern s32 __dt__13TUnk_804949A8Fv[];
 extern s32 __vt__14TObjEneEpsilon[];
 u8 *__dt__14TObjEneEpsilonFv(u8 *arg0, s16 arg1);
-void copy_vec4__13TRaderMapCoreFPv(void *, void *);
 void get_weapon_color__11TItemWeaponFPv(void *, void *);
 void TObjPlayer__sub_8032E648(s32 arg0, s32 arg1, s32 arg2);
 extern const f32 lbl_805E0260;
@@ -389,7 +389,7 @@ void init_weapon_effect_descriptor__10TObjPlayerFPvPv(void *weapon, Obj_80362DE8
     arg1->i58 = 0xC000;
     arg1->flags |= 0x282;
     get_weapon_color__11TItemWeaponFPv(sp8, weapon);
-    copy_vec4__13TRaderMapCoreFPv(arg1->v60, sp8);
+    ((TRaderMapCore *)(arg1->v60))->copy_vec4(sp8);
     arg1->fn74 = (void *)TObjPlayer::create_network_object;
     arg1->fn70 = (void *)TObjPlayer__sub_8032E648;
 }

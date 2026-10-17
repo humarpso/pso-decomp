@@ -1,6 +1,7 @@
 #pragma push
 
 #include "types.h"
+#include "pso/object/TObjMapWarp.h"
 #include "pso/misc/TLobby_8030A6A8.h"
 #include "pso/object/TObjGoalWarpAncient_8017CB60.h"
 #include "pso/system/GinjaMaterial.h"
@@ -150,7 +151,6 @@ struct VObj_8017CED8_more_8017cca4_1 : VObjBase_8017CED8_more_8017cca4_1 {
 };
 
 extern "C" {
-void process_player_warps__11TObjMapWarpFv(void *);
 void *TObjMapWarpAncient__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
@@ -243,7 +243,7 @@ void TObjMapWarpAncient::run_task() {
     {
       *((f32 *) (((s8 *) arg0) + 0xFC)) = (f32) lbl_805DBAC4;
     }
-    process_player_warps__11TObjMapWarpFv(arg0);
+    ((TObjMapWarp *)arg0)->process_player_warps();
   }
 }
 

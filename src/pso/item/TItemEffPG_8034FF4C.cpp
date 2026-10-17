@@ -16,7 +16,6 @@ extern s32 __vt__10TItemEffPG[];
 extern s32 lbl_805D4350;
 extern const float lbl_805DFE14;
 extern const f32 lbl_805DFE18;
-void check_hits__13TUnk_804E355CFv(u8 *arg0);
 int TObjPlayer__sub_802E451C(void);
 void __dl__7TObjectFPv(void *);
 s32 has_game_join_id__13TUnk_804E355CFv();
@@ -42,7 +41,7 @@ void TItemEffPG::run_task() {
                 this->m_40 = temp_f1_2;
             }
         }
-        check_hits__13TUnk_804E355CFv((u8 *)this);
+        check_hits();
         return;
     }
     if ((u32) this->m_down == 0U) {

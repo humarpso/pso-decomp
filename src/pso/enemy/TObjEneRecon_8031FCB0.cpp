@@ -127,7 +127,6 @@ void TObjEneMe3SinowZoa__sub_800D758C(void *);
 void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 void init_and_activate__10TObjPlayerFv();
-void set_animation__10TObjMotionFs(void *, s16);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void TObjEneRecon__sub_8031F408(void *arg0, s32 arg1);
@@ -418,7 +417,7 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TObjMotion *)arg0)->set_field_d8((s32)TObjEneRecobox__animation_entries);
     ((TObjMotion *)arg0)->set_field_dc(*(s32 *)((s8 *)TObjEneRecobox__static_instance + 0x430));
     ((TObjEneRecobox *)arg0)->m_b8 = 0;
-    set_animation__10TObjMotionFs(arg0, ((TObjEneRecobox *)arg0)->m_b8);
+    ((TObjMotion *)arg0)->set_animation(((TObjEneRecobox *)arg0)->m_b8);
     ((TObjMotion *)arg0)->set_field_b8(((TObjEneRecobox *)arg0)->m_b8);
     reset_hp__9TObjEneDDFv(arg0, recobox_boss_register_id, lbl_805D6B14, TObjEneRecobox__shared_object_handle);
     ((TObjEneDD *)arg0)->check_state_flag_4();

@@ -10,7 +10,6 @@ extern "C" {
 s32 TObjEneBalClawClaw__sub_8008DC90(void *);
 void TObjEneBalClaw__sub_8008D68C(void);
 s32 TObjEneMe1GiGue__sub_8008FC0C(void *);
-void sub_8008FC10__18TObjEneBalClawBodyFv(u8 *arg0);
 s32 submit_cursor_candidate(void *, int, int, f32, f32);
 s32 minimap_render_dot(void *, int, int, int);
 
@@ -29,7 +28,7 @@ void TObjPlayer::update_control_state() {
     if ((*(s32 *)&this->unk_388 & 0x02000000) && (((TObjPlayer *)arg0)->get_flag_0x388_b24() == 0)) {
         ((TObjEneMe1GiGue *)arg0)->update_if_active(2);
     } else {
-        sub_8008FC10__18TObjEneBalClawBodyFv((arg0));
+        ((TObjEneBalClawBody *)arg0)->sub_8008FC10();
     }
     if ((s16) this->mode != (s32) *(s32 *)&this->m_374) {
         if ((s32) this->m_37c != -1) {

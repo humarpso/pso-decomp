@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/misc/TMainCursor_8013F104.h"
 #include "pso/object/TObject_80019A50.h"
@@ -300,7 +301,7 @@ u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 parent) {
 int TPlyPhotonChair__sub_8035B520(void* p) { return *(u32*)((char*)p + 0x94) == 0; }
 u16 TPlyPhotonChair::sub_8035B530() { return *(u16 *)&this->unk_90; }
 void TPlyPhotonChair::set_field90(s32 v) { *(s16 *)&this->unk_90 = v; }
-void TPlyPhotonChair::render(void* p, void* a1) { copy_vec4__13TRaderMapCoreFPv(a1, p); }
+void TPlyPhotonChair::render(void* p, void* a1) { ((TRaderMapCore *)a1)->copy_vec4(p); }
 void TPlyPhotonChair__sub_8035B56C(void* p, f32 v) { *(f32*)((char*)p + 0x14) = v; }
 void TPlyPhotonChair::set_state_ready() { *(s32*)((char*)this + 0x18) = 2; }
 

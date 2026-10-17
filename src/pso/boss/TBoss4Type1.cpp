@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/boss/TBoss4Type1.h"
 #include "pso/misc/TLobby.h"
@@ -309,7 +310,6 @@ void TBoss4Type2__sub_800531BC(void* p);
 void fn_80053440(Obj_80053440 *arg0);
 void TBoss4Type2__sub_80053504(TBoss4Type2 *arg0);
 void TBoss4Type2__sub_800535A8(Boss_800535A8 *arg0);
-void sub_80053670__11TBoss4Type1Fv(u8 *arg0);
 void pick_target_position__13TRaderMapCoreFPvPv(O_80053914 *self, Vec_80053914 *out);
 f32 calc_wave_offset__11TBoss4Type2Ff(f32 farg0);
 void set_pos_from_scaled_offset__11TBoss4Type2FPvPvPv(S_80054224 *o, void *src, V_80054224 *in);
@@ -331,7 +331,6 @@ s32 clear_render_callback__8TObjFishFv(s32);
 s32 TObjControl__ct(s32, s32);
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 s32 angle_diff_s16(s32, s32);
-void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 void free_collision_body_parts(void *);
 s32 project_actor_to_ground(void *, void *, int);
 s32 submit_cursor_candidate(void *, s32);
@@ -1416,7 +1415,7 @@ void TBoss4Type1::push_players_out_of_colliders() {
             if (((f32 (*)(void *, void *))xyz_distance)(get_position_ptr__10TObjPlayerFv(pl), &pos) > lbl_805D8B20) {
                 ((TBoss4DarkFalz *)pl)->set_position_from(&pos);
                 ((TBoss4DarkFalz *)pl)->save_position();
-                set_indexed_flags__13TUnk_804AF8A0Fll(pl, 0, 0x900000);
+                ((TUnk_804AF8A0 *)pl)->set_indexed_flags(0, 0x900000);
                 *(u32 *)(pl + 0x30) &= ~0x20;
             }
         }
@@ -1578,7 +1577,7 @@ void TBoss4Type2__sub_80054738(Obj_80054738 *self) {
     ((TBoss4Type1 *)self)->sub_80053D4C();
     ((TObjPlayer *)self)->update_collisions();
     submit_cursor_candidate(self, -1);
-    ((s32 (*)(void *))sub_80053670__11TBoss4Type1Fv)(self);
+    ((TBoss4Type1 *)self)->sub_80053670();
     ((s32 (*)(void *))fn_80053440)(self);
     {
         f32 x = self->x3dc;

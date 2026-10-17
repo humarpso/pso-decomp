@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/npc/TObjNpcBase.h"
@@ -108,8 +109,6 @@ struct VObj_18_3eea3b : VBase_18_3eea3b {
 };
 
 extern "C" {
-void copy_position__20TBoss3VoloptHiraisinFv(s32);
-void set_indexed_flags__13TUnk_804AF8A0Fll(void *, s32, s32);
 s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1);
 s32 advance_animation_playback(void *);
 s32 submit_cursor_candidate(void *, int);
@@ -179,7 +178,7 @@ void TObjNpcBase::run_task() {
   if ((((s32) (*((s32 *) (((s8 *) ((u8 *)this)) + ((((((((((0x3A0 & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu))))) <= 0) && (((s32)this->m_3a4) <= 0))
   {
     this->m_390 = 1;
-    set_indexed_flags__13TUnk_804AF8A0Fll(this, 0, 1);
+    set_indexed_flags(0, 1);
   }
   else
   {
@@ -197,7 +196,7 @@ void TObjNpcBase::run_task() {
       if (get_register__12TQuestThreadFPvi(var_r31, temp_r4) != 0)
       {
         this->m_390 = 1;
-        set_indexed_flags__13TUnk_804AF8A0Fll(this, 0, 1);
+        set_indexed_flags(0, 1);
       }
       else
       {
@@ -230,7 +229,7 @@ void TObjNpcBase::run_task() {
   advance_animation_playback((void *) ((u8 *)this));
   this->update_prev_position();
   new_var = ((u8 *)this);
-  copy_position__20TBoss3VoloptHiraisinFv((s32) new_var);
+  ((TBoss3VoloptHiraisin *)new_var)->copy_position();
   if ((((s32)this->m_3a8) > 0) && (TRaderMapCore::is_not_split_screen() == 0))
   {
     submit_cursor_candidate((void *) this, -1);

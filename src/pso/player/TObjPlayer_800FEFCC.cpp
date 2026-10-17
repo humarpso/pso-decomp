@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/system/vector.h"
 #include "pso/TObjEZRopeBase.h"
 #include "pso/object/TObjHMS_EZRope_Player.h"
@@ -77,7 +78,6 @@ s32 normalize_vector(void *);
 s32 push_matrix();
 s32 pop_matrix();
 void set_chunk_material_override_pair(s32 arg0, s32 arg1);
-void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 void draw_chunk_object(void *child);
 extern const f64 lbl_8043DF40;
 extern u8 lbl_8048DEF4[];
@@ -243,7 +243,7 @@ void TObjHMS_EZRope_Player::sub_800FF2D0() {
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         model_render_flags |= 0x10;
         set_chunk_material_override_pair(0, 0x800);
-        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)ezrope_chunk_material_color_table);
+        ((TUnk_80494AE0 *)ezrope_chunk_material_color_table)->set_chunk_material_color();
         for (b = arg0->blobs; b->scale >= lbl_805DAA58; b++) {
             f32 s;
             push_matrix();

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/misc/TOKey_8015845C.h"
 #include "pso/system/ChunkMaterialState.h"
@@ -110,7 +111,7 @@ void TODoorVoShip::render() {
         temp_r4 = model_render_flags;
         lbl_805D5660 = temp_r4;
         model_render_flags = temp_r4 | 0x20;
-        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)(arg0 + 0xDC));
+        ((TUnk_80494AE0 *)(arg0 + 0xDC))->set_chunk_material_color();
         TParticleCtrl::begin_effect_render();
         temp_r31 = *(u8 * *)&this->m_d4;
         push_matrix();
@@ -138,7 +139,7 @@ void TODoorVoShip::render() {
         }
         pop_matrix();
         TParticleCtrl::end_effect_render();
-        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)chunk_material_color_half_alpha_f32);
+        ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
         model_render_flags = lbl_805D5660;
         pop_matrix();
     }

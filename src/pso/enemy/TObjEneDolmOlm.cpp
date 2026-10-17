@@ -516,7 +516,6 @@ s32 get_mode__11TCameraCtrlFPv(void *);
 }
 void restore_render_scissor(s32 arg0);
 extern "C" {
-s32 set_indexed_flags__13TUnk_804AF8A0Fll(void *, s32, s32);
 
 s32 init_enemy_base__13TUnk_80493450Fv(void *, s32);
 s32 create__12TObjEneSaverFPvPv(u32, u32);
@@ -524,7 +523,6 @@ s32 create__12TObjEneSaverFPvPv(u32, u32);
 int initialize_enemy_photon_effect(void *p);
 extern "C" {
 s32 bind_enemy_combat_stats(void *, int, int, int);
-s32 set_animation__10TObjMotionFs(void *, int);
 s32 init_collision_body_parts(void *, void *, int);
 extern s32 obj_ene_dolm_olm_class_name;
 extern const f32 lbl_805DEF94;
@@ -957,7 +955,7 @@ u8 *TObjEneDolmOlm__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjMotion *)arg0)->set_field_d8((s32)(*(void * *)&((TObjEneDolmOlm *)arg0)->action_table));
     *(s32 *)((s8 *)arg0 + 0xDC) = *(s32 *)((s8 *)TObjEneDolmOlm__resource_bundle + 0x430);
     ((TObjEneDolmOlm *)arg0)->m_b8 = 0;
-    set_animation__10TObjMotionFs(arg0, ((TObjEneDolmOlm *)arg0)->m_b8);
+    ((TObjMotion *)arg0)->set_animation(((TObjEneDolmOlm *)arg0)->m_b8);
     ((TObjMotion *)arg0)->set_field_b8(((TObjEneDolmOlm *)arg0)->m_b8);
     init_collision_body_parts(arg0, (u8 *) lbl_804E68D0 + *(s32 *)&((TObjEneDolmOlm *)arg0)->variant * 0x2C, 1);
     bind_enemy_combat_stats(arg0, ((s32 *) dolm_olm_combat_stat_id_pair)[*(s32 *)&((TObjEneDolmOlm *)arg0)->variant],
@@ -1547,7 +1545,7 @@ void TObjEneDolmOlm::vfunc_58() {
         this->phase = 0;
         ((VObj_80301690_80300CE4 *) this)->m100();
         obj_setFlags30(this, 0x04040000);
-        set_indexed_flags__13TUnk_804AF8A0Fll(this, 0, 0x0A000000);
+        set_indexed_flags(0, 0x0A000000);
         break;
     }
 }

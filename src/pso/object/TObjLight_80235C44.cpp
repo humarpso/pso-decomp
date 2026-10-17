@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
 #include "pso/system/vector.h"
 #include "pso/object/TUnk_804CCAA8.h"
 #include "pso/object/TObjLight.h"
@@ -42,7 +43,6 @@ struct Base_80235C44 { u8 pad[0x1C]; f32 f1c; f32 f20; };
 
 extern "C" {
 s32 obj_getField1c(int);
-void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804CCAA8[];
 extern const f32 lbl_805DC888;
@@ -82,7 +82,7 @@ void TUnk_804CCAA8::run_task() {
         amb1 = frac * (arg0->peak - TObjLight__scene_light_state.f20) + TObjLight__scene_light_state.f20;
         inten1 = frac * (arg0->intensity - TObjLight__scene_light_state.f1c) + TObjLight__scene_light_state.f1c;
         publish_actor_light_scalars((u16) obj_getField1c(arg0->source), inten1, amb1);
-        copy_vec4__13TRaderMapCoreFPv(&unused, &baseColor);
+        ((TRaderMapCore *)(&unused))->copy_vec4(&baseColor);
         approach_vector_fixed_distance(&arg0->direction, &arg0->desired, &arg0->direction, arg0->step);
         TObjLight__sub_800827E0(&unused, &arg0->color, lbl_805DC894);
     } else {
@@ -118,7 +118,7 @@ u8 *TObjLight::construct_actor_light(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32
     Stack_80235E9C stack;
     __ct__7TObjectFP7TObject(this, (void *)arg5);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80235E9C_lbl_804CCAA8 *)&lbl_804CCAA8).value;
-    copy_vec4__13TRaderMapCoreFPv((((u8 *)this) + 0x24), (void *)arg1);
+    ((TRaderMapCore *)(((u8 *)this) + 0x24))->copy_vec4((void *)arg1);
     VecCopy((Vec *)(((u8 *)this) + 0x34), (const Vec *)(arg2));
     *(s32 *)&this->m_1c = arg3;
     *(s32 *)&this->m_4c = 0;
@@ -136,7 +136,7 @@ u8 *construct_actor_light_task(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u8 *arg4,
     s32 sp8;
     __ct__7TObjectFP7TObject(arg0, arg5);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80235F60_lbl_804CCAA8 *)&lbl_804CCAA8).value;
-    copy_vec4__13TRaderMapCoreFPv(arg0 + 0x24, arg1);
+    ((TRaderMapCore *)(arg0 + 0x24))->copy_vec4(arg1);
     VecCopy((Vec *)(arg0 + 0x34), (const Vec *)arg2);
     *(s32 *)((s8 *)arg0 + 0x1C) = arg3;
     ((TUnk_804CCAA8 *)arg0)->m_4c = 0;

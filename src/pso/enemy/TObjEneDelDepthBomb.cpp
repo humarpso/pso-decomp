@@ -330,9 +330,6 @@ typedef char RecoveredGlobal_80315A40___vt__15TObjEneDelDepth_size[sizeof(Recove
 
 s32 construct_actor_base__10TObjPlayerFPvPv(void *);
 void queue_destruction__7TObjectFv(void *);
-s32 register_object__6TLobbyFl(int);
-s32 dispatch_shared_handler_b__6TLobbyFl(int);
-s32 register_boss__6TLobbyFl(int);
 s32 TObjFish__sub_8001EDB0(u8 *, int);
 s32 get_bml_model(int, int);
 s32 get_mode__11TCameraCtrlFPv(void *);
@@ -345,7 +342,6 @@ s32 initialize__9TObjEnemyFPv(void *);
 }
 void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
 extern "C" {
-void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, int);
 void __dl__7TObjectFPv(void *);
@@ -1433,14 +1429,14 @@ void TObjEneDelDepth::init() {
     *(s32 *)((s8 *)arg0 + 0x380) = init_collision_body_parts(arg0, TObjEneDelDepth_collision_body_parts, 1);
     ((TObjMotion *)arg0)->set_field_d8((s32)lbl_804E8194);
     ((TObjMotion *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)TObjEneDelDepth__shared_resource + 0x430)));
-    set_animation__10TObjMotionFs((arg0), 0);
+    ((TObjMotion *)arg0)->set_animation(0);
     ((TObjMotion *)arg0)->set_field_b8(0);
     VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     this->m_310 = (f32) TObjEneDelDepth__data_805DF258;
     *(f32 *)((s8 *)arg0 + 0x30C) = (f32) TObjEneDelDepth__data_805DF258;
     *(f32 *)((s8 *)arg0 + 0x308) = (f32) TObjEneDelDepth__data_805DF258;
     *(s32 *)((s8 *)arg0 + 0x2A8) = 0;
-    bind_enemy_combat_stats((arg0), (u8 *)(register_boss__6TLobbyFl(0x30)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(0x30)), (u8 *)(register_object__6TLobbyFl(0x30)));
+    bind_enemy_combat_stats((arg0), (u8 *)(TLobby::register_boss(0x30)), (u8 *)(TLobby::dispatch_shared_handler_b(0x30)), (u8 *)(TLobby::register_object(0x30)));
     this->referenceHp = (s16) this->hp;
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
     *(s32 *)((s8 *)arg0 + 0x350) = 0;

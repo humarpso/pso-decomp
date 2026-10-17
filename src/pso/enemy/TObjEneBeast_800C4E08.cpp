@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneRe2Flower_EffCurse3.h"
@@ -559,7 +560,6 @@ extern const f32 lbl_805DA040;
 int unlink_enemy_group_relations__13TUnk_80493450Fv(void*);
 int send_entity_set_flags__9TObjEnemyFv(void*);
 s32 obj_setFlags30(void *, s32);
-void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 void __dl__7TObjectFPv(void *);
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 extern s32 lbl_80493450[];
@@ -570,7 +570,6 @@ int initialize__9TObjEnemyFPv(void);
     extern const float lbl_805DA060;
     extern const float lbl_805DA064;
 s32 update_movement_status__13TUnk_804806E8Fv(void *);
-void copy_position__20TBoss3VoloptHiraisinFv(s32 arg0);
 s32 submit_cursor_candidate(void *, int);
 extern const f32 lbl_805DA048;
 s32 update_action_hold_status__13TUnk_804806E8Fv(void *);
@@ -1144,7 +1143,7 @@ void TObjPlayer::tick_freeze_state() {
         this->phase = 0;
         ((CV_800c63cc *)this)->vf100();
         obj_setFlags30(this, 0x04040000);
-        set_indexed_flags__13TUnk_804AF8A0Fll(this, 0, 0x0A000000);
+        set_indexed_flags(0, 0x0A000000);
         break;
     }
 }
@@ -1196,7 +1195,7 @@ void TUnk_80493450::run_task() {
     }
   }
   ((TObjEnemy *)arg0)->update_prev_position();
-  copy_position__20TBoss3VoloptHiraisinFv((s32)arg0);
+  ((TBoss3VoloptHiraisin *)arg0)->copy_position();
   submit_cursor_candidate((void *) arg0, -1);
   this->m_2b4 = (f32) ((this->m_2b4) + lbl_805DA048);
 }

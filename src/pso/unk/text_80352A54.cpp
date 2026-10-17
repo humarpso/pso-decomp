@@ -24,7 +24,7 @@ void TUnk_804F0FF0::vfunc_44() {
     if ((((TItem *)arg0)->get_slot_count() == 0) && (((TItem *)arg0)->get_item_flags() & 0x100)) {
         stack.sp8 = 3;
         stack.sp9 = 0x17;
-        stack.spA = sub_80100474__5TItemFv((void *)arg0);
+        stack.spA = ((TItem *)arg0)->sub_80100474();
         replace_item_with_new_code((&stack.sp8), (arg0));
     }
 }

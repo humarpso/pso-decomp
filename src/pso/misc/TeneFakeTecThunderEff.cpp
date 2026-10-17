@@ -1,4 +1,5 @@
 #include "pso/TEneEffHamon.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TeneFakeTecThunderEff.h"
 
@@ -67,7 +68,6 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_80490A18[];
 extern s32 lbl_805D29E0;
 u8 *TObjPlayer__sub_800A4204(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4);
-void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
@@ -352,7 +352,7 @@ void TeneFakeTecThunderEff::render() {
     p[1].color = color;
     TObjPlayer::init_xyz_limits();
     ((TWindowDD *)verts)->draw_transformed_primitive((void*)(o->count * 2), (void*)TObjPlayer__effect_count, (void*)1);
-    set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)chunk_material_color_half_alpha_f32);
+    ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
     model_render_flags = lbl_805D5660;
 }
 #pragma pop

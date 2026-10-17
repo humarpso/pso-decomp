@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/system/memory.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TObjBoss1MokoHill_Solo.h"
@@ -190,7 +191,6 @@ f32 cos_table_lookup(s32, f32);
 s32 update_scale__15TObjBoss2TunnelFv(void *, f32);
 void rotate_matrix_y(int, int);
 void rotate_matrix_x(int, int);
-void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 }
 
 s32 is_dragon_trail_damaging(u8 *arg0);
@@ -617,7 +617,7 @@ void TObjBoss1Rock::render() {
         lbl_805D5660 = model_render_flags;
         model_render_flags = lbl_805D5660 | 0x810;
         ((void (*)(s32, s32))set_chunk_material_override_pair)(0xFF00, 0x800);
-        set_chunk_material_color__13TUnk_80494AE0Fv(&self->color);
+        ((TUnk_80494AE0 *)(&self->color))->set_chunk_material_color();
         push_matrix();
         TObjFish::set_global_param(dragon_common_texture_list);
         post_translate_matrix(self->pos);

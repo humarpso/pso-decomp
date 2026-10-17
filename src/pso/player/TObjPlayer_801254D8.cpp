@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804E355C.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/player/TUnk_804A2548.h"
 #include "pso/player/TObjPlayer.h"
@@ -6,7 +7,6 @@
 extern "C" {
 
 s32 has_game_join_id__13TUnk_804E355CFv();
-void check_hits__13TUnk_804E355CFv(u8 *arg0);
 
 extern f32 lbl_805DAD50;
 
@@ -25,7 +25,7 @@ void TUnk_804A2548::run_task() {
         } else {
             queue_destruction__7TObjectFv(this);
         }
-        check_hits__13TUnk_804E355CFv((u8 *)this);
+        check_hits();
     }
 }
 

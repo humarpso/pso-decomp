@@ -497,7 +497,6 @@ s32 check_switch__22TObjFogCollisionPoisonFv(s32);
 void TObjFogCollisionPoison__sub_80153520(s32 arg0);
 void TObjFogCollisionPoison__sub_801535D0(s32 arg0);
 Actor_8014F424 * find_entity_by_id(s32);
-void *find_actor_body_contact__13TUnk_804AF8A0FPUcf(u8 *arg0, u8 *arg1, f32 limit);
 s32 free_collision_body_parts(u32);
 void init_collision_body_parts(void *, void *, s32);
 void * construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
@@ -2211,7 +2210,7 @@ s32 partner_probe_obstacles(View_8014F140 *view) {
     for (i = TLobby::get_game_mode(); i < TLobby::get_game_mode() + TObjEneDD::get_enemy_count() + ((s32 (*)(void))get_registered_object_count)(); i++) {
         actor = (Actor_8014F140 *)get_player_data__10TObjPlayerFi(i);
         if ((actor != NULL) && !(actor->flags30 & 0x80000000)) {
-            contact = (Contact_8014F140 *)find_actor_body_contact__13TUnk_804AF8A0FPUcf((u8 *)view->probe, (u8 *)actor, (f32)lbl_805DB210);
+            contact = (Contact_8014F140 *)((TUnk_804AF8A0 *)((u8 *)view->probe))->find_actor_body_contact((u8 *)actor, (f32)lbl_805DB210);
             if (contact != NULL) {
                 if (actor->flags30 & 0x40000000) {
                     if (!(contact->flags18 & 8) && !(contact->flags18 & 0x100) && !(contact->flags18 & 0x200)) {

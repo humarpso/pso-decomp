@@ -115,7 +115,7 @@ void TWindowDD::handle_scroll_input() {
         if (apply_both_choices__9TWindowDDFll(arg0 + 0x60, 0x20) != 0) {
             temp_r4 = *(s32 *)((s8 *)arg0 + 0x68);
             if (temp_r4 < (s32) (*(s32 *)((s8 *)arg0 + 0x74) - 1)) {
-                switch (can_scroll__17TWindowDD_WS_WordFl(arg0, 1)) {
+                switch (((TWindowDD_WS_Word *)arg0)->can_scroll(1)) {
                 case 0:
                     *(s32 *)((s8 *)arg0 + 0x6C) = (s32) (*(s32 *)((s8 *)arg0 + 0x6C) + 1);
                     break;
@@ -131,7 +131,7 @@ void TWindowDD::handle_scroll_input() {
             }
         } else if (apply_both_choices__9TWindowDDFll(arg0 + 0x60, 0x10) != 0) {
             if ((s32) *(s32 *)((s8 *)arg0 + 0x68) > 0) {
-                switch (can_scroll__17TWindowDD_WS_WordFl(arg0, -1)) {
+                switch (((TWindowDD_WS_Word *)arg0)->can_scroll(-1)) {
                 case 0:
                     *(s32 *)((s8 *)arg0 + 0x6C) = (s32) (*(s32 *)((s8 *)arg0 + 0x6C) - 1);
                     break;

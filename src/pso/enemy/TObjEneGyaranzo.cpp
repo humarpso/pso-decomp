@@ -305,7 +305,6 @@ extern "C" {
 void init_params_from_table__15TObjEneGyaranzoFv(u8 *arg0);
 s32 check_path_obstructed(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
-s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, int);
 u16 obj_getField1c(void *);
 s32 subtract_vector(void *, void *);
 extern Entry_800D20BC TObjGyaranzoMissile_target_slots[];
@@ -374,7 +373,7 @@ void TObjEneGyaranzo::select_targets() {
     TObjGyaranzoMissile_target_slots[0].dist = lbl_805DA258;
     n = 0;
     best = 0;
-    k = obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x10);
+    k = ((TUnk_804AF8A0 *)arg0)->obj_testFlags30(0x10);
     count = lbl_805D586C;
     if (k != 0) {
         count += lbl_805D5870;
@@ -740,7 +739,6 @@ void * TObjControl__ct(void *, void *);
 s32 bind_enemy_combat_stats(void *, void *, void *, void *);
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
-s32 set_animation__10TObjMotionFs(void *, int);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 submit_cursor_candidate(void *, s32);
@@ -1708,7 +1706,7 @@ u8 *TObjEneGyaranzo__ct(TObjEneGyaranzo *arg0, s32 arg1, u8 *arg2) {
     bind_enemy_combat_stats((void *)arg0, (void *)gyaranzo_boss_stats_handle, (void *)gyaranzo_boss_stats_ptr_b, (void *)gyaranzo_object_handle);
     init_params_from_table__15TObjEneGyaranzoFv(arg0);
     arg0->m_b8 = 0;
-    set_animation__10TObjMotionFs(arg0, arg0->m_b8);
+    ((TObjMotion *)arg0)->set_animation(arg0->m_b8);
     ((TObjMotion *)arg0)->set_field_b8(arg0->m_b8);
     arg0->hp = (s16) arg0->hpmax;
     arg0->m_32e = (s16) arg0->m_2ba;

@@ -129,7 +129,7 @@ void render__12TWindowTimerFv(s32 arg0) {
 void run_task__12TWindowTimerFv(TWindowTimer *arg0) {
   if ((arg0->m_60) & 1)
   {
-    arg0->draw((s32)((int) get_timer_value__12TWindowTimerFl(0)), (s32)((int) get_timer_value__12TWindowTimerFl(1)));
+    arg0->draw((s32)((int) TWindowTimer::get_timer_value(0)), (s32)((int) TWindowTimer::get_timer_value(1)));
   }
  do { ((TWindowDD *)arg0)->initialize_subwindow(); arg0->update_chat_parts(); arg0->ease_window_timer_position(); ((TUnk_804CE018 *)arg0)->update_window_entry_list((u8 *)arg0 + 0x24); } while (0);
 }

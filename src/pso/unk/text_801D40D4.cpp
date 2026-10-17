@@ -38,7 +38,6 @@ extern "C" {
 u8 get_field_ec__5TItemFv(void *, int);
 s32 is_item_equipped(void *, int);
 s32 start_inventory_update__10TObjPlayerFi(void *, void *);
-s32 set_field_1c__10TObjPlayerFl(int, int);
 u8 *get_ptr_4__10TObjPlayerFv();
 void mem_free(void *p);
 void *mem_alloc(u32 size);
@@ -121,7 +120,7 @@ int reset(void* p) { return memset(p, 0, 28); }
 
 s32 export_inventory_entry__10TObjPlayerFiPv(s32 arg0, u8 *arg1) {
     if (((TItem *)arg0)->copy_to_item_data(arg1 + 8) != 0) {
-        *(s8 *)((s8 *)arg1 + 0) = sub_80102C30__5TItemFv((u8 *)arg0);
+        *(s8 *)((s8 *)arg1 + 0) = ((TItem *)arg0)->sub_80102C30();
         *(s32 *)((s8 *)arg1 + 4) = ((TItem *)arg0)->get_item_flags();
         return 1;
     }
@@ -216,8 +215,8 @@ s32 TObjPlayer__sub_801D47EC(s32 arg0, s32 arg1, s32 arg2) {
     if (temp_r3_4 == 0) {
         return 0;
     }
-    set_field_1c__10TObjPlayerFl(temp_r3, temp_r3_4);
-    set_field_1c__10TObjPlayerFl(temp_r3_2, temp_r3_3);
+    ((TObjPlayer *)temp_r3)->set_field_1c(temp_r3_4);
+    ((TObjPlayer *)temp_r3_2)->set_field_1c(temp_r3_3);
     return 1;
 }
 

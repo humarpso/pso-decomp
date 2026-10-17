@@ -328,7 +328,6 @@ void TCameraCtrl__sub_800689E8(void);
 s32 is_split_screen();
 s32 approach_camera_vector(void *, void *, f32);
 extern int TCameraCtrl__pose_snap_flags;
-void set_target__11TCameraCtrlFii(int a0, int a1);
 s32 GXSetViewport(f32, f32, f32, f32, f32, f32);
 s32 GXSetScissor(int, int, int, int);
 s32 GXSetScissorBoxOffset(int, int);
@@ -503,7 +502,7 @@ extern f32 lbl_805D8FC8;
 
 void TCameraCtrl::set_fullscreen_viewport() {
     TCameraCtrl::set_target_coords(0, 0);
-    set_target__11TCameraCtrlFii(0x280, 0x1E0);
+    TCameraCtrl::set_target(0x280, 0x1E0);
     GXSetViewport((f32) TCameraCtrl__viewport_x, (f32) TCameraCtrl__viewport_y, (f32) TCameraCtrl__viewport_size, (f32) TCameraCtrl__viewport_height, (f32) ((*(const f32 *)&TCameraCtrl__data_805D8FA8)), (f32) ((*(const f32 *)&TCameraCtrl__data_805D8FAC)));
     GXSetScissor((int) ((s32) TCameraCtrl__viewport_x), (int) ((s32) TCameraCtrl__viewport_y), (int) ((s32) TCameraCtrl__viewport_size), (int) ((s32) TCameraCtrl__viewport_height));
     GXSetScissorBoxOffset(0, 0);
@@ -514,7 +513,7 @@ void TCameraCtrl::set_fullscreen_viewport() {
 #pragma inline_depth(4)
 inline void quad_80068B34(s32 i) {
     TCameraCtrl::set_target_coords((s32)(320.0f * (f32)(i % 2)), (s32)(240.0f * (f32)(i / 2)));
-    set_target__11TCameraCtrlFii(0x140, 0xF0);
+    TCameraCtrl::set_target(0x140, 0xF0);
 }
 inline void viewport_80068B34(void) {
     GXSetViewport(TCameraCtrl__viewport_x, TCameraCtrl__viewport_y, TCameraCtrl__viewport_size, TCameraCtrl__viewport_height, 0.0f, 1.0f);
@@ -527,7 +526,7 @@ void TCameraCtrl::set_split_viewport(s32 arg0, s32 i) {
         break;
     case 2:
         TCameraCtrl::set_target_coords(0, 0);
-        set_target__11TCameraCtrlFii(0x280, 0xF0);
+        TCameraCtrl::set_target(0x280, 0xF0);
         GXSetViewport(0.0f, 0.0f, 640.0f, 480.0f, 0.0f, 1.0f);
         if (i == 0) {
             GXSetScissor(0, 0x6A, 0x280, 0xF0);
@@ -542,7 +541,7 @@ void TCameraCtrl::set_split_viewport(s32 arg0, s32 i) {
             quad_80068B34(i);
         } else {
             TCameraCtrl::set_target_coords(0xA0, 0xF0);
-            set_target__11TCameraCtrlFii(0x140, 0xF0);
+            TCameraCtrl::set_target(0x140, 0xF0);
         }
         viewport_80068B34();
         break;
@@ -697,7 +696,7 @@ void TCameraCtrl::reset_default_view() {
     Stack_80069318 stack;
     TCameraCtrl__camera_mode = 0;
     TCameraCtrl::set_target_coords(0, 0);
-    set_target__11TCameraCtrlFii(0x280, 0x1E0);
+    TCameraCtrl::set_target(0x280, 0x1E0);
     TCameraCtrl::set_fullscreen_viewport();
     TCameraCtrl::reset_viewport_scissor();
     fn_803D64F8(&lbl_804FF5E8.value);
@@ -734,7 +733,7 @@ void TCameraCtrl::init_default_view() {
     Stack_800693F4 stack;
     TCameraCtrl__camera_mode = 0;
     TCameraCtrl::set_target_coords(0, 0);
-    set_target__11TCameraCtrlFii(0x280, 0x1E0);
+    TCameraCtrl::set_target(0x280, 0x1E0);
     stack.sp10 = TCameraCtrl__data_805D8FC0;
     stack.sp14 = TCameraCtrl__data_805D8FC4;
     stack.sp30 = TCameraCtrl__data_805D8FB8;

@@ -85,7 +85,7 @@ u8 *TPhotonGolla__ct(u8 *arg0, u8 *arg1) {
     ((TObjMotion *)arg0)->set_field_d8((s32) photon_blast_golla_params);
     ((TObjMotion *)arg0)->set_field_dc(*(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
     ((TPhotonGolla *)arg0)->m_b8 = 1;
-    set_animation__10TObjMotionFs(arg0, ((TPhotonGolla *)arg0)->m_b8);
+    ((TObjMotion *)arg0)->set_animation(((TPhotonGolla *)arg0)->m_b8);
     ((TObjMotion *)arg0)->set_field_b8(((TPhotonGolla *)arg0)->m_b8);
     ((TPhotonGolla *)arg0)->m_1b8 = 1;
     ((TPhotonGolla *)arg0)->m_1bc = *(s32 *)((s8 *)arg1 + 0x10);
@@ -110,7 +110,7 @@ u8 *TPhotonGolla__ct(u8 *arg0, u8 *arg1) {
         break;
     }
     ((TPhotonGolla *)arg0)->m_19c = 0;
-    collect_hit_targets__12TPhotonGollaFPv(arg0);
+    TPhotonGolla::collect_hit_targets(arg0);
     ((void (*)(void *, int)) sub_801AB688__12TPhotonGollaFv)(arg0, *(u8 *)((s8 *)arg1 + 0x1C));
     if (*(s32 *)((s8 *)arg0 + 0x1C0) == 1) {
         *(s32 *)((s8 *)arg0 + 0x154) |= 1;

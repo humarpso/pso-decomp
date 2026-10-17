@@ -5566,7 +5566,6 @@ s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
 s32 init_model__9TObjEneDDFv(void *, void *, int, void *);
 s32 invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
-void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 Buf_8003563C *mem_alloc(int);
 void *__nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -5825,7 +5824,7 @@ void *TBoss2DeRolLe__ct(void *arg0, void *arg1, void *arg2) {
     ((TObjMotion *)self)->set_field_d8((s32)((u8 *)lbl_804823A8));
     ((TObjMotion *)self)->set_field_dc(*(s32 *)((s8 *)lbl_805D4BA4 + 0x430));
     *(s16 *)((s8 *)self + 0xB8) = 0;
-    set_animation__10TObjMotionFs(self, *(s16 *)((s8 *)self + 0xB8));
+    ((TObjMotion *)self)->set_animation(*(s16 *)((s8 *)self + 0xB8));
     ((TObjMotion *)self)->set_field_b8(*(s16 *)((s8 *)self + 0xB8));
     reset_hp__9TObjEneDDFv(self, TBoss2DeRolLe__base_params, ((s32 *)TBoss2DeRolLe__attack_params_table)[0], TBoss2DeRolLe__resistance_params);
     ((TObjEneDD *)self)->check_state_flag_2();

@@ -188,7 +188,6 @@ void * __dt__25TOHangceilingCave01NormalFv(void *arg0, s16 arg1);
 void * TOHangceilingCave01Normal__ct(void *arg0);
 f32 TOHangceilingCave01Normal__sub_801681D0(f32 farg0);
 void advance_wrap_offset__13TUnk_804B2578Fv(void *arg0);
-void sub_80168280__13TUnk_804B2578FUl(Obj_80168280 *self, u32 v);
 void reset_state(u8 *arg0);
 void sub_801682E4__13TUnk_804B2578Fl(Obj_801682E4 *o, s32 arg1);
 void init_base__27TOHangceilingCave01KeyQuickFll(void *);
@@ -585,7 +584,7 @@ void TUnk_804B2578::sub_80168488() {
                 t.b = ((VO_80168488 *)this)->m79(this->m_338);
                 hit_80168488(temp_r3, ((VO_80168488 *)this), t);
                 obj_setFlags30(temp_r3, 0x400);
-                ((s32 (*)(void *, void *))sub_80168280__13TUnk_804B2578FUl)(this, temp_r3);
+                sub_80168280((u32)temp_r3);
             }
         }
         var_r30 += 1;

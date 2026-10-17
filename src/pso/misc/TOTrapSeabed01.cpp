@@ -166,7 +166,6 @@ struct Trap_802C9F70 {
 };
 
 extern "C" {
-void set_indexed_flags__13TUnk_804AF8A0Fll(void *, s32, s32);
 s32 submit_cursor_candidate(void *, int);
 void vfunc_82__14TOTrapSeabed01Fv(u8 *arg0);
 u16 find_nearest_visible_player(void *, int, f32);
@@ -292,7 +291,7 @@ void TOTrapSeabed01::vfunc_82() {
     *(s32 *)((s8 *)arg0 + 0x348) = temp_r0;
     if (temp_r0 < 0) {
         *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0xC) = (f32) lbl_805DE64C;
-        set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 0x100);
+        ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 0x100);
         TObjPlayer::init_all_slots();
         ((TObjPlayer *)arg0)->check_object_collisions();
         ((VObj_18_f37bb9 *)(arg0))->m65(lbl_805DE640);
@@ -311,7 +310,7 @@ void TOTrapSeabed01::vfunc_81() {
         *(s16 *)((s8 *)arg0 + 0x326) = 3;
         ((TUnk_804806E8 *)arg0)->calc_attach_pos();
         ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 0x08001F04U);
-        set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 0x8003);
+        ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 0x8003);
         ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x40000U);
         check_hold_player__14TOTrapSeabed01FPv(arg0);
     }

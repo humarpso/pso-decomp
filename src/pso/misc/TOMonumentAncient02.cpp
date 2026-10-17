@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/math/MatrixTransforms.h"
 #include "pso/misc/TLobby_8030A6A8.h"
@@ -190,9 +191,9 @@ void TOMonumentAncient02::render() {
             TParticleCtrl::begin_effect_render();
             lbl_805D5660 = model_render_flags;
             model_render_flags = model_render_flags | 0x20;
-            set_chunk_material_color__13TUnk_80494AE0Fv(&self->fD8);
+            ((TUnk_80494AE0 *)(&self->fD8))->set_chunk_material_color();
             draw_ginja_model(n->f4);
-            set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)chunk_material_color_half_alpha_f32);
+            ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
             model_render_flags = lbl_805D5660;
             TParticleCtrl::end_effect_render();
             pop_matrix();

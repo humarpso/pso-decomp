@@ -365,7 +365,6 @@ union MemberActionStorage_802AB2B8 { s32 words[3]; void (TBoss6PlotFalz::*action
 
 extern "C" {
 extern RecoveredGlobal_802AB1C8_TBoss6PlotFalz__data_804DE66C TBoss6PlotFalz__data_804DE66C;
-void call_state_action__14TBoss6PlotFalzFv(TBoss6PlotFalz *arg0);
 void TBoss6EmptyWarp__sub_802B1004(void *p);
 
 s32 is_state_1f__14TBoss6PlotFalzFUi(u32 arg0) {
@@ -839,7 +838,6 @@ extern RecoveredGlobal_802ABC14_lbl_804705C0 lbl_804705C0;
 s32 TBoss6Type1__sub_802ABDEC(s32 seed);
 s32 is_locally_controlled__10TObjPlayerFPv(s32);
 f32 xyz_distance(void *, void *);
-void ensure_field384__14TBoss6PlotFalzFv(void *arg0);
 u32 create__10TBoss6TubeFPv();
 
 void TBoss6PlotFalz::release_object() { if (*(unsigned int*)((char*)this + 0x384) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)this + 0x384)); *(int*)((char*)this + 0x384) = 0; } }
@@ -1243,7 +1241,6 @@ void TBoss6EmptyWarp::init_warp() { place_players_in_warp_circle(); TBoss6PlotFa
 void release_all_players_control_lock(void);
 void end_cutscene_camera__14TBoss6PlotFalzFPv(void *self);
 void start_freeze__10TObjPlayerFv();
-void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 void TBoss6PlotFalz__sub_802AC724(u8 *arg0, u32 arg1);
 void end_cutscene_camera__14TBoss6PlotFalzFPv(void *self) {
     s32 i;
@@ -1273,7 +1270,7 @@ void TBoss6PlotFalz__sub_802AC724(u8 *arg0, u32 arg1) {
     }
     set_position_from__14TBoss4DarkFalzFPv();
     ((TBoss4DarkFalz *)arg0)->save_position();
-    set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 0x900000);
+    ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 0x900000);
     *(u32 *)(arg0 + 0x30) &= 0xFFFFFFDF;
 }
 }
@@ -1366,7 +1363,7 @@ void TBoss6PlotFalz::run_task() {
     if (query_teammate_state__9TObjEneDDFv() == 0) {
         set_visible_flag__14TBoss6PlotFalzFv(arg0);
         if ((s32) *(s32 *)((s8 *)arg0 + 0x374) == 0) {
-            call_state_action__14TBoss6PlotFalzFv((TBoss6PlotFalz *)(arg0));
+            ((TBoss6PlotFalz *)arg0)->call_state_action();
         }
         ((TBoss6PlotFalz *)arg0)->run_phase_action();
     }
@@ -1512,7 +1509,7 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x3D8) = 0;
     *(s32 *)((s8 *)arg0 + 0x380) = create_boss4_fade();
     *(s32 *)((s8 *)arg0 + 0x384) = 0;
-    ensure_field384__14TBoss6PlotFalzFv((arg0));
+    ((TBoss6PlotFalz *)arg0)->ensure_field384();
     (*(s32 *)&TBoss6PlotFalz__type1_instance) = 0;
     (*(s32 *)&TBoss6PlotFalz__type2_instance) = 0;
     *(s32 *)((s8 *)arg0 + 0x3DC) = 0;

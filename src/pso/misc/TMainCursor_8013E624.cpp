@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TPlyDispData.h"
 #include "pso/misc/TMainCursor_8013E624.h"
 #include "pso/misc/TPlyDispConfig_80071F1C.h"
 #include "pso/misc/TMainCursor.h"
@@ -26,7 +27,7 @@ extern "C" {
 
 s32 destroy__11TMainCursorFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
-        free_if_valid__14TPlyDispConfigFls(arg0, -1);
+        TPlyDispConfig::free_if_valid(arg0, -1);
         if (arg1 > 0) {
             __dl__FPv((void*)arg0);
         }

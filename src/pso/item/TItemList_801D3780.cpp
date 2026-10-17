@@ -112,7 +112,6 @@ void send_6x29_delete_item__10TObjPlayerFPvii(void *, s32, s32);
 void *get_player_by_client_id(u16);
 void *get_ptr_0x44__9TItemListFPv(void *);
 s32 sub_801D58DC__13TUnk_804C4468Fv(void *);
-void sub_801D591C__13TUnk_804C4468Fv(void *);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
 s32 *csnVecterUnder(s32 origin, s32 mask);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
@@ -142,7 +141,7 @@ void TUnk_804C4468::run_task() {
         return;
     case 1:
         TItemList__sub_801D59A0(this, *(s32 *)(((u8 *)this) + 0x54));
-        sub_801D591C__13TUnk_804C4468Fv(this);
+        sub_801D591C();
         r = (Req_801D3780 *)run_item_count_update__9TItemListFv(this);
         player = get_player_by_client_id(sub_801D58DC__13TUnk_804C4468Fv(this));
         if (player != NULL) {

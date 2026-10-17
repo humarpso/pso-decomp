@@ -1,4 +1,5 @@
 #include "pso/TEffClitical.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/effect/TEffClitical.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/ChunkMaterialState.h"
@@ -88,7 +89,7 @@ void TEffClitical::render() {
     lbl_805D5660 = temp_r3;
     model_render_flags = temp_r3 | 0x10;
     begin_effect_render__13TParticleCtrlFv(temp_r3);
-    set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)(arg0 + 0x2C));
+    ((TUnk_80494AE0 *)(arg0 + 0x2C))->set_chunk_material_color();
     fn_800829E0(&sp8);
     push_matrix();
     TObjFish::set_global_param((s32)lbl_8048E2E0);

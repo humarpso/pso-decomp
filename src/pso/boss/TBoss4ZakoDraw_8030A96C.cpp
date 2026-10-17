@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss4DarkFalz.h"
 #include "pso/boss/TBoss4Zako.h"
@@ -58,7 +59,6 @@ struct Tbl_8030A9B0 { s32 count; Ent_8030A9B0 ents[1]; };
 struct Col_8030A9B0 { f32 r, g, b, a; };
 
 void set_chunk_material_override_pair(int, int);
-void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 f32 xyz_distance(void *, void *);
 }
 void draw_chunk_model(void *arg0);
@@ -145,7 +145,7 @@ void TObjPlayer__sub_8030A9B0() {
         col.b = lbl_805DF14C;
         col.r = lbl_805DF13C * k + lbl_805DF14C;
         col.g = lbl_805DF14C;
-        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&col);
+        ((TUnk_80494AE0 *)((f32 *)&col))->set_chunk_material_color();
         draw_chunk_model((void *)falz_zako_chunk_model);
         pop_matrix();
     }

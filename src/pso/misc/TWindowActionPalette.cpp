@@ -1,4 +1,5 @@
 #include "pso/misc/TWindowActionPalette.h"
+#include "pso/TPlyDispData.h"
 #include "pso/misc/TWindowHelpItem.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TWindowDD.h"
@@ -71,7 +72,6 @@ extern u8 controller_input_state[];
 void run_task__20TWindowActionPaletteFv(u8 *arg0);
 s32 get_window_layout_position(s32);
 void *__construct_array(void *, void *, void *, u32, u32);
-s32 free_if_valid__14TPlyDispConfigFls(s32 arg0, s16 arg1);
 s32 init_gc_tag(s32 arg0);
 extern u8 twindow_action_palette_layout[];
 extern u32 __vt__20TWindowActionPalette[6];
@@ -311,7 +311,7 @@ extern "C" u8 *__dt__20TWindowActionPaletteFv(u8 *self, s16 delete_flag) {
     if (self != NULL) {
         *(u32 **)(self + 0x18) = __vt__20TWindowActionPalette;
         __destroy_arr(self + 0x60,
-                               (void *)free_if_valid__14TPlyDispConfigFls, 4, 3);
+                               (void *)TPlyDispConfig::free_if_valid, 4, 3);
         ((TWindowDD *)self)->destroy_window_base(0);
         if (delete_flag > 0) {
             __dl__7TObjectFPv(self);
@@ -323,7 +323,7 @@ Pal_80244108 *TWindowActionPalette__ct(Pal_80244108 *self, s16 slot) {
     u32 i;
     ((TWindowDD *)self)->construct_base((u8 *)twindow_action_palette_layout, (s16)slot, (u8 *)(get_window_layout_position(0x1F)));
     self->vt = __vt__20TWindowActionPalette;
-    __construct_array(self->arr, (void *)init_gc_tag, (void *)free_if_valid__14TPlyDispConfigFls, 4, 3);
+    __construct_array(self->arr, (void *)init_gc_tag, (void *)TPlyDispConfig::free_if_valid, 4, 3);
     self->f0 = lbl_805D3870;
     if (TCameraCtrl::get_camera_id() > 2) {
         self->f70 = lbl_805DCA2C;

@@ -209,7 +209,6 @@ void copy_position__20TBoss3VoloptHiraisinFv(s32 arg0);
 int initialize_enemy_photon_effect(void *p);
 extern "C" {
 s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
-void set_animation__10TObjMotionFs(void *, s16);
 void init_collision_body_parts(void *, void *, int);
 void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
 void * __nw__7TObjectFUl(int);
@@ -373,7 +372,6 @@ struct VObj_18_22e4b0 : VBase_18_22e4b0 {
 };
 
 s32 get_main_phase();
-f32 enemy_wander_home__9TObjEnemyFlfff(u8 *arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2);
 f32 calc_distance_to_client__10TObjPlayerFlUsUl(void *, u16, Vec_802D8828 *);
 s32 obj_setFlags30(void *, int);
 s32 queue_destruction__7TObjectFv();
@@ -1981,7 +1979,7 @@ void TObjEneGibbles::update_wander() {
     var_f3 = var_f2;
     var_f1 = *(f32 *)((s8 *)var_r4 + 4);
     var_r4 = (u8 *)(*(u8 **)((s8 *)var_r4 + 8));
-    enemy_wander_home__9TObjEnemyFlfff((u8 *)var_r3, (s32)var_r4, (f32)var_f1, (f32)var_f2, (f32)var_f3);
+    ((TObjEnemy *)var_r3)->enemy_wander_home((s32)var_r4, (f32)var_f1, (f32)var_f2, (f32)var_f3);
     var_r3 = var_r31;
     ((TUnk_804AF8A0 *)var_r3)->refresh_collision_body_centers();
     var_r3 = var_r31;
@@ -2536,7 +2534,7 @@ u8 *TObjEneGibbles__ct(u8 *arg0, void *parent, s32 arg2) {
     ((TObjMotion *)arg0)->set_field_d8((s32)(((TObjEneGibbles *)arg0)->action_table));
     *(s32 *)((s8 *)arg0 + 0xDC) = *(s32 *)((s8 *)TObjEneGibbles__resource_bundle + 0x430);
     ((TObjEneGibbles *)arg0)->m_b8 = 0;
-    set_animation__10TObjMotionFs(arg0, ((TObjEneGibbles *)arg0)->m_b8);
+    ((TObjMotion *)arg0)->set_animation(((TObjEneGibbles *)arg0)->m_b8);
     ((TObjMotion *)arg0)->set_field_b8(((TObjEneGibbles *)arg0)->m_b8);
     init_collision_body_parts(arg0, lbl_804E296C, 1);
     ((TObjEneGibbles *)arg0)->m_37c = 0;

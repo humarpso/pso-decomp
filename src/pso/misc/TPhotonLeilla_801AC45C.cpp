@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
@@ -52,7 +54,6 @@ extern const f32 lbl_805DC1C8;
 extern const f32 lbl_805DC1CC;
 extern const f32 lbl_805DC1D0;
 extern const f32 lbl_805DC1D4;
-void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 s32 scroll_strip_uvs(void *, s16, int);
 s32 clear_render_context__10TObjPlayerFv(void *);
 s32 rotate_matrix_y(int, int);
@@ -60,7 +61,6 @@ s32 push_matrix();
 s32 pop_matrix();
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 void set_chunk_material_override_pair(s32 arg0, s32 arg1);
-void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 extern Color_801AC45C saved_model_draw_color;
 extern Color_801AC45C model_material_color;
 extern s32 lbl_805D5660;
@@ -81,20 +81,20 @@ void TPhotonLeilla::render() {
         translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
         rotate_matrix_y(0, self->f60);
         lbl_805D5660 = model_render_flags;
-        copy_vec4__13TRaderMapCoreFPv(&saved_model_draw_color, &model_material_color);
+        ((TRaderMapCore *)(&saved_model_draw_color))->copy_vec4(&model_material_color);
         lbl_805D5664 = chunk_polygon_flags_and_mask;
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         model_render_flags |= 0x200820;
         TObjPlayer::set_global_flag();
         set_chunk_material_override_pair(-1, 0x800);
-        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&self->color);
+        ((TUnk_80494AE0 *)((f32 *)&self->color))->set_chunk_material_color();
         ((TUnk_804C3248 *)self)->set_photon_blast_joint_callback();
         ((TObjEneRe7Berura *)self)->draw();
         TObjPlayer::clear_global_state();
         clear_render_context__10TObjPlayerFv(self);
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;
-        copy_vec4__13TRaderMapCoreFPv(&model_material_color, &saved_model_draw_color);
+        ((TRaderMapCore *)(&model_material_color))->copy_vec4(&saved_model_draw_color);
         model_render_flags = lbl_805D5660;
         pop_matrix();
         TParticleCtrl::end_effect_render();

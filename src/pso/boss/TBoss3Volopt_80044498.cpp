@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
@@ -588,7 +589,6 @@ s32 minimap_render_dot(void *, s32, s16, s32);
 }
 void reset_status_effect_row(u8 *arg0);
 extern "C" {
-void copy_position__20TBoss3VoloptHiraisinFv(s32 arg0);
 s32 update_obstruction_fade(void *);
 s32 submit_cursor_candidate(void *, int);
 extern u8 *TBoss3Volopt__data_805D4D00;
@@ -1770,7 +1770,7 @@ void TUnk_80484610::run_task() {
             }
             ((TUnk_80484610 *)arg0)->run_state();
             ((TObjEnemy *)arg0)->update_prev_position();
-            copy_position__20TBoss3VoloptHiraisinFv((s32)arg0);
+            ((TBoss3VoloptHiraisin *)arg0)->copy_position();
             submit_cursor_candidate(arg0, -1);
             minimap_render_dot((u8 *)&this->position, -0x5DB4, 1, 0);
             update_obstruction_fade((u8 *)&this->unk_490);

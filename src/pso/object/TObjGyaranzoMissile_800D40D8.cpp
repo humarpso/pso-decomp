@@ -85,7 +85,6 @@ void check_enemy_body_collisions(void *arg0);
 s32 play_sound_effect(void *, void *, int, int);
 extern Hit_800D4200 lbl_8043C440[];
 extern const f32 lbl_805DA2A8;
-void sub_800D4200__13TUnk_8049442CFv(u8 *arg0);
 s32 rotate_matrix_y(s32, s32);
 s32 pop_matrix();
 s32 push_matrix_from(void *src);
@@ -226,7 +225,7 @@ void TUnk_8049442C::run_task() {
         } else {
             ((TObjPlayer *)self)->update_collisions();
             if (self->info->flags & 0x380000) {
-                sub_800D4200__13TUnk_8049442CFv((u8 *)self);
+                ((TUnk_8049442C *)self)->sub_800D4200();
                 break;
             }
         }
@@ -243,7 +242,7 @@ void TUnk_8049442C::run_task() {
     VecCopy(&self->fE0, &self->pos);
     self->fE0.y += lbl_805DA2A8;
     if (self->timer >= 0x96) {
-        sub_800D4200__13TUnk_8049442CFv((u8 *)self);
+        ((TUnk_8049442C *)self)->sub_800D4200();
     }
 }
 }

@@ -258,7 +258,6 @@ struct Ene_800DA2A0 : Base_800DA2A0 {
 typedef NanoDragoVector Vec_800DB5A8;
 extern "C" {
 u16 find_nearest_visible_player(void *, s32, f32);
-s32 select_nearest_target__15TObjEnemyCustomFf(void *, f32);
 s32 apply_actor_gravity(void *, int, f32);
 s32 enemy_wander_home__9TObjEnemyFlfff(void *, int, f32, f32, f32);
 }
@@ -336,7 +335,7 @@ void TObjEneNanoDrago::sub_800DA2A0() {
     case 0:
         if (this->is_actor_cadence_frame(0x1E) != 0) {
             if (find_nearest_visible_player(((Ene_800DA2A0 *)this), 0, *((Ene_800DA2A0 *)this)->param) != 0xFFFF) {
-                select_nearest_target__15TObjEnemyCustomFf(((Ene_800DA2A0 *)this), *((Ene_800DA2A0 *)this)->param);
+                select_nearest_target(*((Ene_800DA2A0 *)this)->param);
                 if (((Ene_800DA2A0 *)this)->f388 & 0x40000) {
                     sub_800DA1F4();
                 } else {
@@ -1024,7 +1023,7 @@ void TObjEneNanoDrago::update_circling_state() {
         }
         e->t += e->speed;
         if (e->t > 100.0f) {
-            if (select_nearest_target__15TObjEnemyCustomFf(arg0, (*(NanoDragoMovementParams * *)&e->movementParameters)->f0) != 0) {
+            if (((TObjEnemyCustom *)arg0)->select_nearest_target((*(NanoDragoMovementParams * *)&e->movementParameters)->f0) != 0) {
                 e->accum = 0;
                 e->state = 1;
             } else {
@@ -1207,7 +1206,6 @@ int initialize_enemy_photon_effect(void *p);
 extern "C" {
 void * TObjControl__ct(void *, void *);
 s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
-void set_animation__10TObjMotionFs(void *, s16);
 s32 free_collision_body_parts(void *);
 void init_collision_body_parts(void *, void *, s32);
 s32 submit_cursor_candidate(void *, int);
@@ -1808,7 +1806,7 @@ u8 *TObjEneNanoDrago__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     bind_enemy_combat_stats(arg0, (u8 *)lbl_805D5248, (u8 *)lbl_805D524C, (u8 *)lbl_805D5250);
     ((void (*)(void *))TObjPlayer__sub_800D9E08)(arg0);
     ((TObjEneNanoDrago *)arg0)->m_b8 = 0;
-    set_animation__10TObjMotionFs(arg0, ((TObjEneNanoDrago *)arg0)->m_b8);
+    ((TObjMotion *)arg0)->set_animation(((TObjEneNanoDrago *)arg0)->m_b8);
     ((TObjMotion *)arg0)->set_field_b8(((TObjEneNanoDrago *)arg0)->m_b8);
     ((TObjEneNanoDrago *)arg0)->hp = ((TObjEneNanoDrago *)arg0)->hpmax;
     ((TObjEneNanoDrago *)arg0)->m_32e = ((TObjEneNanoDrago *)arg0)->m_2ba;

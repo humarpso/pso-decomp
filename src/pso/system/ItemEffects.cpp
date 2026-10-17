@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
 #include "pso/item/TItemEquipBase.h"
 #include "pso/player/TObjPlayer_80100CC8.h"
 #include "pso/system/ItemEffects.h"
@@ -130,7 +131,7 @@ void TObjPlayer::create_pro_armor() {
 void TUnk_804A2678::update_weapon() {
     s32 temp_r3;
     temp_r3 = TOKeyMachine01::get_global_state();
-    if ((temp_r3 != (s32) *(s32 *)&this->unk_1F8) && (item_model_is_shown__11TItemWeaponFv(this) != 0)) {
+    if ((temp_r3 != (s32) *(s32 *)&this->unk_1F8) && (item_model_is_shown() != 0)) {
         *(s32 *)&this->unk_1F8 = temp_r3;
         if (is_item_area_enabled(temp_r3) != 0) {
             spawn_item_follow_effect((s32)tl_05, (u32)this, 1, 0x1AE);

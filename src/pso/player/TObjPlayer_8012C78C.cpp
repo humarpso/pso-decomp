@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/items/TItemWeapon.h"
 #include "pso/item/TUnk_804A535C.h"
 #include "pso/player/TObjPlayer_8012C78C.h"
 #include "pso/unk/text_80120908.h"
@@ -13,7 +14,7 @@ void TUnk_804A535C::reserved_53() {
 
     temp_r31 = *(s32 *)((s8 *)arg0 + 0xF4);
     ((TObjPlayer *)(arg0 + 0x1F8))->set_flags(1);
-    draw_weapon_model__11TItemWeaponFv((TItemWeapon *)arg0);
+    ((TItemWeapon *)arg0)->draw_weapon_model();
     ((TObjPlayer *)arg0)->draw_icon(1, (s32)(arg0 + 0x1FC));
     *(s32 *)((s8 *)arg0 + 0xF4) = (s32) *(s32 *)((s8 *)arg0 + 0x180);
     ((TAdRicoRing *)(arg0 + 0x1F8))->clear_flags(1);

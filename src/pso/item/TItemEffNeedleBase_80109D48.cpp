@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/item/TItemEffNeedleBase_80109D48.h"
 #include "pso/object/TObject_80019A50.h"
@@ -48,8 +50,8 @@ void TItemEffNeedleBase::render() {
     if (self->m_3c != NULL) {
         lbl_805D5660 = model_render_flags;
         model_render_flags = lbl_805D5660 | 0x20;
-        copy_vec4__13TRaderMapCoreFPv(saved_model_draw_color, model_material_color);
-        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)self->m_1c);
+        ((TRaderMapCore *)saved_model_draw_color)->copy_vec4(model_material_color);
+        ((TUnk_80494AE0 *)((f32 *)self->m_1c))->set_chunk_material_color();
         TObjPlayer::notify_fish_if_valid(self->m_40);
         TParticleCtrl::begin_effect_render();
         push_matrix();
@@ -58,7 +60,7 @@ void TItemEffNeedleBase::render() {
         draw_ginja_object(self->m_3c);
         pop_matrix();
         TParticleCtrl::end_effect_render();
-        copy_vec4__13TRaderMapCoreFPv(model_material_color, saved_model_draw_color);
+        ((TRaderMapCore *)model_material_color)->copy_vec4(saved_model_draw_color);
         model_render_flags = lbl_805D5660;
     }
 }

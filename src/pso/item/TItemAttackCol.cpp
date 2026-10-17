@@ -156,7 +156,6 @@ s32 copy_position__15TEffStarLight2DFPv(int, void *);
 f32 vec_distance_squared(u8 *arg0, u8 *arg1);
 extern "C" {
 s32 has_game_join_id__13TUnk_804E355CFv(void *);
-s32 check_hits__13TUnk_804E355CFv(void *);
 u8 *find_item_by_id(s32 id);
 s32 play_weapon_hit_sound(void *);
 void apply_camera_shake__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
@@ -306,7 +305,7 @@ void TItemAttackCol::run_task() {
     if (temp_r3_4 != 0U) {
         ((TNowLoading *)temp_r3_4)->copy_pos((u8 *)&this->m_24);
     }
-    check_hits__13TUnk_804E355CFv(arg0);
+    ((TUnk_804E355C *)arg0)->check_hits();
     if ((this->m_dc <= vec_distance_squared((u8 *)&this->m_24, (u8 *)&this->m_c4)) || (test_flags_any((u8 *)&this->m_e0, 1) != 0)) {
         queue_destruction__7TObjectFv(arg0);
     }

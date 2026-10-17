@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
 #include "pso/object/obj_band.h"
 #include "pso/boss/TBoss7PhotonBullet.h"
 #include "pso/TBoss7Tentacle.h"
@@ -459,7 +460,6 @@ extern s32 lbl_805D6930;
 extern s32 lbl_805D6934;
 extern s32 lbl_805D6944;
 void TObjPlayer__sub_802E8274(void);
-void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 s32 get_mode__11TCameraCtrlFPv(void *);
 s32 TObjPlayer__sub_802E7FC0(void *);
 extern RecoveredGlobal_802E80F4_lbl_8050BEC0 saved_model_draw_color;
@@ -508,7 +508,7 @@ void TBoss7DeRolLeC::render() {
         lbl_805D5660 = model_render_flags;
         lbl_805D5664 = chunk_polygon_flags_and_mask;
         lbl_805D5668 = chunk_polygon_flags_or_mask;
-        copy_vec4__13TRaderMapCoreFPv((&saved_model_draw_color.value), (&model_material_color.value));
+        ((TRaderMapCore *)(&saved_model_draw_color.value))->copy_vec4((&model_material_color.value));
         TObjEneDD::clear_global_flag_400();
         TParticleCtrl::begin_effect_render();
         push_matrix();
@@ -523,7 +523,7 @@ void TBoss7DeRolLeC::render() {
         }
         pop_matrix();
         TParticleCtrl::end_effect_render();
-        copy_vec4__13TRaderMapCoreFPv((&model_material_color.value), (&saved_model_draw_color.value));
+        ((TRaderMapCore *)(&model_material_color.value))->copy_vec4((&saved_model_draw_color.value));
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;
         model_render_flags = lbl_805D5660;

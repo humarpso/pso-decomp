@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TChCrTagOccupation.h"
 extern "C" void render__18TChCrTagOccupationFv();
 #include "pso/TChCrCharSelect.h"
 #include "pso/TChCrTagOccupation.h"
@@ -148,7 +149,6 @@ extern const f32 lbl_805DDEF0;
 extern const f32 lbl_805DDEF4;
 extern const f32 lbl_805DDEF8;
 extern const f32 lbl_805DDEFC;
-void sub_802A2DF4__18TChCrTagOccupationFv(Tag_802A2DF4 *self);
 extern void *__vt__18TChCrTagOccupation[];
 void *__dt__18TChCrTagOccupationFv(void *self, s16 m);
 extern s32 chcr_tag_occupation_class_name;
@@ -193,7 +193,7 @@ void TChCrTagOccupation::sub_802A2DF4() {
 }
 #pragma pop
 
-void TChCrTagOccupation::render() { ((int (*)(void *))sub_802A2DF4__18TChCrTagOccupationFv)(this); }
+void TChCrTagOccupation::render() { sub_802A2DF4(); }
 
 int TChCrTagOccupation__vt4(Obj_802A2F78 *self) {
     if (get_selected_char__15TChCrCharSelectFv(self) == self->f20) return 1;

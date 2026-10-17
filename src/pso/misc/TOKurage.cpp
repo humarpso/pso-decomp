@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/misc/TOKey_8015845C.h"
 #include "pso/system/ChunkMaterialState.h"
 #include "pso/unk/text_803D853C.h"
@@ -353,9 +354,9 @@ void TOKurage::render() {
             model_render_flags |= 0x10;
             break;
         }
-        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&this->m_104);
+        ((TUnk_80494AE0 *)((f32 *)&this->m_104))->set_chunk_material_color();
         TObjEneSlimeOne__sub_803E4B54((void *)(*(s32 *)(arg0 + 0x34)), (void *)(*(s32 *)(arg0 + 0xBC)), (void *)(*(s32 *)(arg0 + 0xC8)), *(f32 *)(arg0 + 0xB0));
-        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)chunk_material_color_half_alpha_f32);
+        ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
         model_render_flags = lbl_805D5660;
         pop_matrix();
     }

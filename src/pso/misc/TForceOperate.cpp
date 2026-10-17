@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/misc/TForceOperate.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TMainCursor.h"
@@ -241,7 +243,6 @@ struct RecoveredGlobal_801C5B68_lbl_8058D4C0 {
 struct Obj_801C5C38 { u8 pad[4]; s32 n; };
 
 extern "C" {
-void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 }
 extern RecoveredGlobal_801C5B68_lbl_8058D4C0 model_material_color;
 extern s32 chunk_polygon_flags_or_mask;
@@ -256,7 +257,6 @@ extern "C" {
 void update_target_lock__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 get_current_floor();
 s32 TObjPlayer__sub_801C6F90();
-void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 int clear_flags__11TAdRicoRingFUl(void*, void*);
 s32 clear_target_lock_flag__10TObjPlayerFPv(s32);
 s32 fn_801C6F2C(void *);
@@ -282,7 +282,7 @@ void TObjPlayer::enter_battle_state() {
 void reset_player_appearance_opacity(void* a0) { *(float*)((char*)a0 + 0x1c) = lbl_805DC320[0]; }
 extern "C" {
 
-void TObjPlayer::write_ids() { set_some_id__FUl((s32)this->m_name); set_chunk_material_override_pair((s32)(*(void**)((char*)this + 0x4)), (s32)this->m_prev); set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)((char*)this + 0xc)); }
+void TObjPlayer::write_ids() { set_some_id__FUl((s32)this->m_name); set_chunk_material_override_pair((s32)(*(void**)((char*)this + 0x4)), (s32)this->m_prev); ((TUnk_80494AE0 *)((char*)this + 0xc))->set_chunk_material_color(); }
 }
 
 typedef char RecoveredGlobal_801C5B68_lbl_8058D4C0_size[sizeof(RecoveredGlobal_801C5B68_lbl_8058D4C0) == 0x10 ? 1 : -1];
@@ -290,7 +290,7 @@ void save_render_material_state(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) model_render_flags;
     *(s32 *)((s8 *)arg0 + 4) = (s32) chunk_polygon_flags_and_mask;
     *(s32 *)((s8 *)arg0 + 8) = (s32) chunk_polygon_flags_or_mask;
-    copy_vec4__13TRaderMapCoreFPv((arg0 + 0xC), (&model_material_color.value));
+    ((TRaderMapCore *)(arg0 + 0xC))->copy_vec4((&model_material_color.value));
 }
 extern "C" {
 

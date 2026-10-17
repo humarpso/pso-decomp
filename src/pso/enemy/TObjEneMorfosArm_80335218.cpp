@@ -92,7 +92,7 @@ u8 *TObjEneMorfosArm__ct(TObjEneMorfosArm *arg0, s32 arg1, u8 *arg2) {
     set_field_d8__10TObjMotionFl((void *)arg0, &morfos_arm_motion_params.value, (int)temp_r5);
     ((TObjMotion *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)(*(u8 * *)&TObjEneMorfosArm__parent_morfos_instance) + 0x430)));
     arg0->m_b8 = 0;
-    set_animation__10TObjMotionFs((arg0), (arg0->m_b8));
+    ((TObjMotion *)arg0)->set_animation((arg0->m_b8));
     ((TObjMotion *)arg0)->set_field_b8(arg0->m_b8);
     return (u8 *)arg0;
 }

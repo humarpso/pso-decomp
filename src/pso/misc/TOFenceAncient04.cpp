@@ -53,7 +53,6 @@ void TLobby__sub_8001FE7C(void*, int);
 Big_8016775C * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void mem_free(void *p);
 void *mem_alloc(u32 size);
-void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, int, int, f32);
 s32 init_fields__13TUnk_804B1B80Fv();
@@ -83,7 +82,7 @@ void TOFenceAncient04::vfunc_16() {  }
 
 void TOFenceAncient04::vfunc_15() { *(int *)&this->m_ac = 0; *(int *)&this->unk_D0 = 0; { int i; for (i = 0; i < 4; i++) { ((TUnk_804AF8A0 *)this)->clear_player_status_flag((s32)((void*)i), (u32)((void*)8)); } } }
 
-void TOFenceAncient04::vfunc_14() { *(int *)&this->m_ac = 1; *(int *)&this->unk_D0 = 1; { int i; for (i = 0; i < 4; i++) { set_indexed_flags__13TUnk_804AF8A0Fll(this, i, (s32)((void*)8)); } } }
+void TOFenceAncient04::vfunc_14() { *(int *)&this->m_ac = 1; *(int *)&this->unk_D0 = 1; { int i; for (i = 0; i < 4; i++) { set_indexed_flags(i, (s32)((void*)8)); } } }
 
 void *TOFenceAncient04::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD8);

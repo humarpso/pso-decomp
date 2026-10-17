@@ -33,7 +33,6 @@ s32 copy_item_data_and_process__5TItemFv(int);
 int get_sorted_item_registry_entry(int a0);
 int get_item_registry_count(void);
 extern "C" {
-s8 sub_80102C30__5TItemFv(u8 *);
 f32 horizontal_distance_squared(Pos_80177E24 *, Pos_80177E24 *);
 s32 is_state_ec1_ed3__10TObjPlayerFv(int);
 void run_task__12TOSwitchItemFv(u8 *arg0);
@@ -86,7 +85,7 @@ void run_task__12TOSwitchItemFv(u8 *arg0) {
     var_r29 = 0;
     while (var_r29 != temp_r31) {
         sorted_item_registry_entry = (u8 *)(get_sorted_item_registry_entry(var_r29));
-        if ((sub_80102C30__5TItemFv(sorted_item_registry_entry) == 0) && (horizontal_distance_squared(&((Obj_80177E24 *)sorted_item_registry_entry)->pos, &((Obj_80177E24 *)arg0)->pos) < ((TOSwitchItem *)arg0)->m_e8)) {
+        if ((((TItem *)sorted_item_registry_entry)->sub_80102C30() == 0) && (horizontal_distance_squared(&((Obj_80177E24 *)sorted_item_registry_entry)->pos, &((Obj_80177E24 *)arg0)->pos) < ((TOSwitchItem *)arg0)->m_e8)) {
             switch (((TOSwitchItem *)arg0)->m_f0) {
             case 0:
                 var_r30 += 1;

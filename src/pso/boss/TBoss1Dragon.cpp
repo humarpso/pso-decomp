@@ -1,4 +1,5 @@
 #include "pso/boss/TBoss1Dragon.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -1344,7 +1345,6 @@ s32 translate_matrix(s32, f32, f32, f32);
 s32 rotate_matrix_x(s32, s32);
 void set_material_alpha_compare_reference(s32);
 void set_chunk_material_override_pair(s32, s32);
-void set_chunk_material_color__13TUnk_80494AE0Fv(Color_80020B54 *);
 }
 void dragon_capture_node_points(void);
 extern Color_80020B54 dragon_boss1_render_color;
@@ -1481,7 +1481,6 @@ void initialize_enemy_state__9TObjEneDDFv(void *, s32);
 void init_model__9TObjEneDDFv(void *, void *, s32);
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
-void set_animation__10TObjMotionFs(void *, s16);
 void __ct__7TObjectFP7TObject(void *, void *);
 void __construct_array(void *, void *, void *, int, int);
 extern u8 init_and_activate__10TObjPlayerFv[];
@@ -1926,7 +1925,7 @@ void TBoss1Dragon::render() {
             *(s32 *)((s8 *)((u8 *)this) + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)TBoss1Dragon__data_805D4B08 + 0x42C)) + 0x18);
             lbl_805D5660 = model_render_flags;
             model_render_flags = lbl_805D5660 | 0x10;
-            set_chunk_material_color__13TUnk_80494AE0Fv(&color);
+            ((TUnk_80494AE0 *)(&color))->set_chunk_material_color();
             ((TObjEneRe7Berura *)((u8 *)this))->draw();
             model_render_flags = lbl_805D5660;
             *(s32 *)((s8 *)((u8 *)this) + 0x34) = saved;
@@ -6531,7 +6530,7 @@ u8 *TBoss1Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
     ((TObjMotion *)arg0)->set_field_d8((s32)((void *)lbl_80481010));
     ((TObjMotion *)arg0)->set_field_dc(F_29DE4(TBoss1Dragon__data_805D4B08, u32, 0x430));
     F_29DE4(arg0, s16, 0xB8) = 0;
-    set_animation__10TObjMotionFs(arg0, F_29DE4(arg0, s16, 0xB8));
+    ((TObjMotion *)arg0)->set_animation(F_29DE4(arg0, s16, 0xB8));
     ((TObjMotion *)arg0)->set_field_b8(F_29DE4(arg0, s16, 0xB8));
     reset_hp__9TObjEneDDFv(arg0, (&TBoss1Dragon__data_805D4B00)[boss1_dragon_base_stat_indices[0]],
                             ((s32 *)&TBoss1Dragon__part_hp_stats)[boss1_dragon_attack_stat_indices[0]],

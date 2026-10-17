@@ -376,7 +376,6 @@ s32 TObjWarpBase__ct();
 int TAdStorySelectGC__sub_8019DC14(void);
 s32 register_area_warp_object__16TAdStorySelectGCFPv(int);
 s32 register_warp__16TObjMapForceWarpFPv(int);
-void * get_dest_area__17TObjAreaWarpQuestFv(void *);
 void TObjAreaWarpQuest__sub_8019DCD8(void *, s32);
 }
 void bswap_6x94_inter_level_warp(void *);
@@ -902,9 +901,9 @@ void TObjAreaWarpQuest__vt17(Warp_8019C05C *arg0, void *arg1) {
             }
         }
     }
-    get_dest_area__17TObjAreaWarpQuestFv(((u8 *)&lbl_80515BA0));
+    ((TObjAreaWarpQuest *)((u8 *)&lbl_80515BA0))->get_dest_area();
     send_inter_level_warp_all__10TNpcPlayerFl();
-    send_6x21_inter_level_warp(arg1, (s32)(get_dest_area__17TObjAreaWarpQuestFv(((u8 *)&lbl_80515BA0))));
+    send_6x21_inter_level_warp(arg1, (s32)(((TObjAreaWarpQuest *)((u8 *)&lbl_80515BA0))->get_dest_area()));
 }
 
 void TObjAreaWarpQuest::debug_print_area_num() {
@@ -1153,11 +1152,11 @@ void handle_6x94_inter_level_warp(Pkt_8019C988 *arg0) {
         set_area__6TLobbyFl(((u8 *)&lbl_80515BA0), arg0->f4, get_floor_map_terrain(arg0->f4));
         mark_area_change_pending();
         ((TWindowCtrl *)local_client_id)->suppress_slot();
-        get_dest_area__17TObjAreaWarpQuestFv(((u8 *)&lbl_80515BA0));
+        ((TObjAreaWarpQuest *)((u8 *)&lbl_80515BA0))->get_dest_area();
         send_inter_level_warp_all__10TNpcPlayerFl();
         void *p = get_player_by_client_id(local_client_id);
         if (p != 0) {
-            send_6x21_inter_level_warp(p, (s32)(get_dest_area__17TObjAreaWarpQuestFv(((u8 *)&lbl_80515BA0))));
+            send_6x21_inter_level_warp(p, (s32)(((TObjAreaWarpQuest *)((u8 *)&lbl_80515BA0))->get_dest_area()));
         }
     }
 }
@@ -1165,9 +1164,9 @@ void handle_6x94_inter_level_warp(Pkt_8019C988 *arg0) {
 void confirm_area_transfer__12TObjAreaWarpFPvi(u8 *arg0, s32 arg1) {
     ((s32 (*)(void *, int, int))set_area__6TLobbyFl)(&lbl_80515BA0.value, (int) (*(s32 *)((s8 *)arg0 + 0xBC)), (int) (get_floor_map_terrain(*(s32 *)((s8 *)arg0 + 0xBC))));
     ((s32 (*)(void))mark_area_change_pending)();
-    ((s32 (*)(void *))get_dest_area__17TObjAreaWarpQuestFv)(&lbl_80515BA0.value);
+    ((TObjAreaWarpQuest *)(&lbl_80515BA0.value))->get_dest_area();
     ((s32 (*)(void))send_inter_level_warp_all__10TNpcPlayerFl)();
-    send_6x21_inter_level_warp((void *)arg1, (((s32 (*)(void *))get_dest_area__17TObjAreaWarpQuestFv)(&lbl_80515BA0.value)));
+    send_6x21_inter_level_warp((void *)arg1, (((TObjAreaWarpQuest *)(&lbl_80515BA0.value))->get_dest_area()));
     ((s32 (*)(s32, u32, s16, s32))play_sound_effect)(0x40003205, 0U, 0, 0);
 }
 

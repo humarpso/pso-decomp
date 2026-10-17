@@ -933,7 +933,6 @@ s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
 s32 init_model__9TObjEneDDFv(void *, void *, int);
 u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
-void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 s32 init_collision_body_parts(void *, void *, int);
 void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, s32);
 void *__nw__7TObjectFUl(int);
@@ -2590,7 +2589,7 @@ void TObjEneDellBiter::init_params() {
     ((TObjMotion *)self)->set_field_d8((s32)&dell_biter_param_table);
     ((TObjMotion *)self)->set_field_dc(((Glob_80306468 *)TObjEneDellBiter__shared_model_resource)->f430);
     self->fB8 = 0;
-    set_animation__10TObjMotionFs(self, self->fB8);
+    ((TObjMotion *)self)->set_animation(self->fB8);
     ((TObjMotion *)self)->set_field_b8(self->fB8);
     reset_hp__9TObjEneDDFv(self, dellbiter_boss_stat_handle, TObjEneDellBiter__shared_handler_param, dellbiter_object_stat_handle);
     ((TObjEneDD *)self)->set_state_8();

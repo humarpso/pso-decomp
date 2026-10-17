@@ -39,7 +39,7 @@ void run_task__8TTecFoieFv(Foie_802301EC *self) {
             ((TNowLoading *)(self->emitters[i]))->copy_pos(self->pos);
         }
     }
-    move_technique_projectile__13TUnk_804CCC68Fv((u8 *)self);
+    ((TUnk_804CCC68 *)self)->move_technique_projectile();
     ((TUnk_804CCC68 *)self)->advance_lifetime_or_destroy();
     dispatch_technique_contact__13TUnk_804CCC68Fv(self, 1);
 }

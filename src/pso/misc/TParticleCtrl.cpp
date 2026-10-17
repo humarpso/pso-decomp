@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_8048E728.h"
 #include "pso/misc/TUnk_8048E778.h"
@@ -175,7 +176,6 @@ extern Col_80085798 demo_mode_particle_color;
 extern const f32 lbl_805D9478;
 void TObjRoomId__sub_80141CF4(void *dst, Col_80085798 *src, f32 t);
 void set_color_blend_mode(s32 a, s32 b, s32 c, s32 d);
-void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 }
 s32 find_particle_texture_index(s32 id);
 extern "C" {
@@ -536,7 +536,7 @@ void TUnk_8048E728::apply_particle_model_fade_color(s32 mode) {
         f.g = 0.0f;
         f.b = 0.0f;
     }
-    set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&f);
+    ((TUnk_80494AE0 *)((f32 *)&f))->set_chunk_material_color();
 }
 
 u8 *__dt__13TUnk_8048E728Fv(u8 *arg0, s16 arg1) {

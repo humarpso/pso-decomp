@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/object/TObjCamera_8017F80C.h"
 #include "pso/object/TObject_8001A448.h"
 #include "pso/misc/TUnk_804AFBF8.h"
@@ -101,7 +102,6 @@ extern "C" {
 void scale_matrix(int, f32, f32, f32);
 void draw_ginja_object(int);
 void set_color_blend_mode(int, int, int, int, s32, s32);
-void set_chunk_material_color__13TUnk_80494AE0Fv(void *);
 extern Color_8017FCD0 chip_color_white_c;
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
@@ -264,14 +264,14 @@ void TObjChip__vt10(u8 *arg0) {
         for (i = 0; i < *(s32 *)(arg0 + 0x54); i++, p++) {
             Color_8017FCD0 c = chip_color_white_c;
             c.a = p->x30;
-            set_chunk_material_color__13TUnk_80494AE0Fv(&c);
+            ((TUnk_80494AE0 *)(&c))->set_chunk_material_color();
             push_matrix();
             post_translate_matrix(p);
             rotate_matrix_yxz(0, p->x18, p->x1c, p->x20);
             scale_matrix(0, *(f32 *)(arg0 + 0x60), *(f32 *)(arg0 + 0x60), *(f32 *)(arg0 + 0x60));
             draw_ginja_object(*(s32 *)(arg0 + 0x64));
             pop_matrix();
-            set_chunk_material_color__13TUnk_80494AE0Fv(chunk_material_color_half_alpha_f32);
+            ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
         }
         model_render_flags = lbl_805D5660;
         chunk_polygon_flags_and_mask = lbl_805D5664;

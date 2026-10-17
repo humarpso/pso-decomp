@@ -387,7 +387,7 @@ void TBoss7Tentacle::switch_state() {
     if (state != (s32) *(s32 *)((s8 *)this + 0x30)) {
         switch (state) {
         case 0:
-            sub_802F09EC__14TBoss7TentacleFv((void*)(this));
+            sub_802F09EC();
             break;
         case 1:
             TBoss7Tentacle__sub_802F09C8((void*)(this));
@@ -427,7 +427,7 @@ void run_task__14TBoss7TentacleFv(u8 *arg0) {
     case 2:
         *(s32 *)((s8 *)arg0 + 0x13C) = approach_angle_limited(*(s32 *)((s8 *)arg0 + 0x13C), 0, 0x80);
         if (*(s32 *)((s8 *)arg0 + 0x13C) == 0) {
-            sub_802F09FC__14TBoss7TentacleFv(arg0);
+            ((TBoss7Tentacle *)arg0)->sub_802F09FC();
         }
         break;
     case 3: {

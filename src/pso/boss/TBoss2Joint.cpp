@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
 #include "pso/enemy/TObjEneDD_800BB804.h"
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
@@ -228,7 +229,6 @@ extern const f32 lbl_805D8480;
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
 extern s32 __vt__11TBoss2Joint[];
 extern s32 TBoss2Joint__name;
-void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 extern RecoveredGlobal_80036A90_lbl_80435A68 TBoss2Joint__joint_offset_vec4_table;
 extern const f32 TBoss2Joint__data_805D8474;
 extern const f32 lbl_805D8498;
@@ -294,7 +294,7 @@ void TBoss2Joint::call_36A90_with_1() { init_joint_offset(1); }
 typedef char RecoveredGlobal_80036A90_lbl_80435A68_size[sizeof(RecoveredGlobal_80036A90_lbl_80435A68) == 0x20 ? 1 : -1];
 void TBoss2Joint::init_joint_offset(s32 arg1) {
     this->m_3a8 = (f32) TBoss2Joint__data_805D8474;
-    copy_vec4__13TRaderMapCoreFPv(((u8 *)&this->unk_3AC), ((u8 *)&TBoss2Joint__joint_offset_vec4_table.value + (arg1 * 0x10)));
+    ((TRaderMapCore *)((u8 *)&this->unk_3AC))->copy_vec4(((u8 *)&TBoss2Joint__joint_offset_vec4_table.value + (arg1 * 0x10)));
 }
 
 struct Ent_80036ACC { s32 a; s32 b; };
@@ -443,7 +443,7 @@ s32 TBoss2Joint::init_params() {
     self->unk3A0 = -1;
     self->unk3A4 = TBoss2Joint__data_805D8474;
     self->unk3A8 = lbl_805D846C;
-    copy_vec4__13TRaderMapCoreFPv(self->unk3AC, &TBoss2Joint__joint_offset_vec4_table);
+    ((TRaderMapCore *)(self->unk3AC))->copy_vec4(&TBoss2Joint__joint_offset_vec4_table);
 }
 #pragma pop
 

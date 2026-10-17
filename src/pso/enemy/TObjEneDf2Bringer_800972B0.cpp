@@ -2529,7 +2529,6 @@ void initialize_enemy_state__9TObjEneDDFv(void *, s32);
 void init_model__9TObjEneDDFv(void *, void *, s32);
 u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
-void set_animation__10TObjMotionFs(void *, s16);
 extern s32 bringer_boss_stats_handle;
 extern s32 bringer_boss_stats_ptr_b;
 extern s32 bringer_object_handle;
@@ -2581,7 +2580,7 @@ void TObjEneDf2Bringer::init_enemy() {
     ((TObjMotion *)arg0)->set_field_d8((s32)&lbl_8048FAF8);
     ((TObjMotion *)arg0)->set_field_dc(*(s32 *)((s8 *)TObjEneDf2Bringer__resource_bundle + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-    set_animation__10TObjMotionFs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    ((TObjMotion *)arg0)->set_animation(*(s16 *)((s8 *)arg0 + 0xB8));
     ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     reset_hp__9TObjEneDDFv(arg0, bringer_boss_stats_handle, bringer_boss_stats_ptr_b, bringer_object_handle);
     ((TObjEneDD *)arg0)->set_state_8();

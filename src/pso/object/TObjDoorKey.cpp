@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/object/TObjEnvSoundGlobal.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/ChunkMaterialState.h"
@@ -161,13 +162,13 @@ s32 TObjDoorKey::draw_active_beam() {
     TParticleCtrl::begin_effect_render();
     lbl_805D5660 = model_render_flags;
     model_render_flags |= 0x10;
-    set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)door_key_beam_color_table[arg0->f8C]);
+    ((TUnk_80494AE0 *)((f32 *)door_key_beam_color_table[arg0->f8C]))->set_chunk_material_color();
     draw_ginja_object((void *)TObjDoorKey__ginja_model_table[1]);
     rotate_matrix_y(0, arg0->fF0);
     s32 *g = TObjDoorKey__ginja_model_table;
     ((TObjDoorJung *)(((Node_8018FBB8 *)g[2])->f4))->free_children((void *)((u16)arg0->f8C));
     draw_ginja_object((void *)g[2]);
-    set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)chunk_material_color_half_alpha_f32);
+    ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
     model_render_flags = lbl_805D5660;
     TParticleCtrl::end_effect_render();
     pop_matrix();
@@ -183,11 +184,11 @@ s32 TObjDoorKey::draw_inactive_badge() {
     TParticleCtrl::begin_effect_render();
     lbl_805D5660 = model_render_flags;
     model_render_flags |= 0x10;
-    set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)door_key_beam_color_table[arg0->f8C]);
+    ((TUnk_80494AE0 *)((f32 *)door_key_beam_color_table[arg0->f8C]))->set_chunk_material_color();
     s32 *g = TObjDoorKey__ginja_model_table;
     ((TObjDoorJung *)(((Node_8018FCD8 *)g[2])->f4))->free_children((void *)((u16)arg0->f8C));
     draw_ginja_object((void *)g[2]);
-    set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)chunk_material_color_half_alpha_f32);
+    ((TUnk_80494AE0 *)chunk_material_color_half_alpha_f32)->set_chunk_material_color();
     model_render_flags = lbl_805D5660;
     TParticleCtrl::end_effect_render();
     pop_matrix();

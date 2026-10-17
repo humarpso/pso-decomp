@@ -124,7 +124,6 @@ s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 s32 init_model__9TObjEneDDFv(void *, void *, int, int);
 void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
-void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 void *find_entity_by_id(u16 id);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
@@ -433,7 +432,7 @@ void TObjEneRecon::init_state() {
     ((TObjMotion *)arg0)->set_field_d8((s32)((void *) TObjEneRecon__animation_entries));
     ((TObjMotion *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)TObjEneRecon__recobox_static_instance + 0x430)));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-    set_animation__10TObjMotionFs((arg0), (*(s16 *)((s8 *)arg0 + 0xB8)));
+    ((TObjMotion *)arg0)->set_animation((*(s16 *)((s8 *)arg0 + 0xB8)));
     ((TObjMotion *)arg0)->set_field_b8((int) (*(s16 *)((s8 *)arg0 + 0xB8)));
     reset_hp__9TObjEneDDFv((void *)arg0, (void *)lbl_805D6AF0, (int)TObjEneRecon__attack_params, (void *)TObjEneRecon__resistance_params);
     ((TObjEneDD *)arg0)->check_state_flag_4();

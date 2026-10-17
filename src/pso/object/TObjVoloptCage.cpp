@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/misc/TQuestColCtrl_8003F3BC.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
@@ -41,7 +42,6 @@ typedef struct Obj_80049430 {
 } Obj_80049430;
 
 extern "C" {
-void copy_position__20TBoss3VoloptHiraisinFv(s32 arg0);
 s32 TObjVoloptCage__sub_800C76F0(void *);
 s32 submit_cursor_candidate(void *, int);
 s32 is_locally_controlled__10TObjPlayerFPv();
@@ -113,7 +113,7 @@ void TObjVoloptCage::run_task() {
     }
     update_state();
     ((TObjEnemy *)arg0)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFv((s32)arg0);
+    ((TBoss3VoloptHiraisin *)arg0)->copy_position();
     submit_cursor_candidate(arg0, -1);
 }
 

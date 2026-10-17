@@ -34,7 +34,6 @@ extern RecoveredGlobal_8018F9CC_lbl_804B788C TObjDoorJung__collision_desc;
 extern s32 __vt__12TObjDoorJung[];
 extern s32 TObjDoorJung__class_name;
 u8 *TObjDoorJung__ct(u8 *arg0, s32 arg1, s32 arg2);
-void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 u8 is_current_floor_switch_set(int);
 struct Node_8018F4AC;
 Node_8018F4AC *get_bml_model(void *, int);
@@ -144,7 +143,7 @@ void TObjDoorJung::update_door_switch_state() {
     }
     if (ok != 0) {
         ((Jung_8018F808 *)this)->fD0 |= 1;
-        set_indexed_flags__13TUnk_804AF8A0Fll(((Jung_8018F808 *)this), 0, 8);
+        set_indexed_flags(0, 8);
         return;
     }
     ((Jung_8018F808 *)this)->fD0 &= ~1;

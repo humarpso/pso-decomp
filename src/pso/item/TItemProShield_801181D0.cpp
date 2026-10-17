@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemData.h"
 #include "pso/system/byteswap.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/item/TItem.h"
@@ -12,8 +13,6 @@ struct RecoveredGlobal_801186EC___vt__14TItemProShield { s32 value; u8 remaining
 struct Status_80118558 { s8 a; u8 b; u8 pad[2]; u32 c; s32 d; s32 e; s32 f; };
 
 extern "C" {
-s32 set_dfp_bonus__9TItemDataFs(s32 a0, int a1);
-s32 set_bswapped_field_8__9TItemDataFs(s32 a0, int a1);
 void TItemProShield__vt16(TItemProShield *arg0, void *arg1);
 void TItemEquipBase__sub_8010A82C(s32 arg0);
 s32 play_sound_effect(int, int, int, int);
@@ -22,7 +21,6 @@ s32 __ct__13TUnk_8049F130FP7TObjectsUc(int, int, void *, int);
 s32 __nw__7TObjectFUl(int);
 s32 __nw__15TItemHeapObjectFUl(int);
 s32 construct_timer_event__13TUnk_804A0628Fv(int, int, void *, int);
-s32 get_flag_40__14TItemEquipBaseFv(void *);
 s32 get_id__13TItemProArmorFv(void *);
 s32 init_item_timer_event__13TUnk_804A0648Fv(int, int, void *, int);
 int fn_800F953C(void*);
@@ -59,7 +57,7 @@ s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
 extern s32 model_render_flags;
 
 void TItemProShield::deactivate_shield_effect(s32 arg1) {
-    if (((u32) this->m_f4 != 0U) && ((u32) this->m_f0 != 0U) && (obj_testFlags30__13TUnk_804AF8A0FUl(this, 0x08000000) == 0) && (get_flag_40__14TItemEquipBaseFv(this) == 0)) {
+    if (((u32) this->m_f4 != 0U) && ((u32) this->m_f0 != 0U) && (obj_testFlags30__13TUnk_804AF8A0FUl(this, 0x08000000) == 0) && (get_flag_40() == 0)) {
         ((TObjMotion *)(this->m_f0))->get_item_ptr(arg1);
         push_matrix_from();
         TObjPlayer__sub_80364198();
@@ -83,8 +81,8 @@ void TItemProShield::deactivate_shield_effect(s32 arg1) {
 void TItemProShield::vfunc_46() { update_with_player(); }
 void TItemProShield::vfunc_51() {  }
 void TItemProShield::set_params(s32 arg0, void *arg1) {
-    set_dfp_bonus__9TItemDataFs(arg0, *(u8 *)((s8 *)arg1 + 0x198));
-    set_bswapped_field_8__9TItemDataFs(arg0, *(u8 *)((s8 *)arg1 + 0x199));
+    ((TItemData *)arg0)->set_dfp_bonus(*(u8 *)((s8 *)arg1 + 0x198));
+    ((TItemData *)arg0)->set_bswapped_field_8(*(u8 *)((s8 *)arg1 + 0x199));
 }
 
 void TItemProShield::vfunc_14() {
@@ -105,8 +103,8 @@ void TItemProShield::vfunc_16() {
     this->bind_loaded_resources();
 }
 void TItemProShield__vt16(TItemProShield *arg0, void *arg1) {
-    set_dfp_bonus__9TItemDataFs((s32)arg1, arg0->m_198);
-    set_bswapped_field_8__9TItemDataFs((s32)arg1, arg0->m_199);
+    ((TItemData *)arg1)->set_dfp_bonus(arg0->m_198);
+    ((TItemData *)arg1)->set_bswapped_field_8(arg0->m_199);
 }
 void TItemProShield::vfunc_45() { TItemEquipBase__sub_8010A82C((s32)this); }
 void TItemProShield::vfunc_44() {
@@ -115,7 +113,7 @@ void TItemProShield::vfunc_44() {
     s32 temp_r3_4;
     s32 temp_r3_5;
     u8 slot_count;
-    if (get_flag_40__14TItemEquipBaseFv(this) == 0) {
+    if (get_flag_40() == 0) {
         play_sound_effect(0x4000B20A, this->m_f0 + 0x38, 0, 0);
     }
     if ((u32) this->m_174 != 0U) {
@@ -154,7 +152,7 @@ void TItemProShield::vfunc_44() {
 void TItemProShield::vfunc_30() {
     Status_80118558 st;
     if ((u32) this->m_f0 != 0U) {
-        if (get_flag_40__14TItemEquipBaseFv(this) == 0) {
+        if (get_flag_40() == 0) {
             create_shield_effect__14TItemProShieldFlUsUl(tl_05, get_id__13TItemProArmorFv(this), this->m_190);
             ((TObjPlayer *)(&st))->reset_status_block();
             st.a = this->get_field_ed();

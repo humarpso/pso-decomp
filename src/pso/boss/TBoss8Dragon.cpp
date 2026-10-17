@@ -6782,7 +6782,6 @@ void initialize_enemy_state__9TObjEneDDFv(void *, int);
 void init_model__9TObjEneDDFv(void *, void *, int);
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
-void set_animation__10TObjMotionFs(void *, s16);
 void __ct__7TObjectFP7TObject(void *, void *);
 u8 *TBoss8DragonColli__ct(u8 *arg0, s32 arg1);
 void *TBoss8Dragon__sub_802F3C24(void *arg0, void *arg1);
@@ -6831,7 +6830,7 @@ u8 *TBoss8Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
     ((TObjMotion *)arg0)->set_field_d8((s32)lbl_804E4E18);
     ((TObjMotion *)arg0)->set_field_dc(*(s32 *)((s8 *)TBoss8Dragon__data_805D6988 + 0x430));
     ((TBoss8Dragon *)arg0)->m_b8 = 0;
-    set_animation__10TObjMotionFs(arg0, ((TBoss8Dragon *)arg0)->m_b8);
+    ((TObjMotion *)arg0)->set_animation(((TBoss8Dragon *)arg0)->m_b8);
     ((TObjMotion *)arg0)->set_field_b8(((TBoss8Dragon *)arg0)->m_b8);
     reset_hp__9TObjEneDDFv(arg0, register_boss__6TLobbyFl(0x12), TBoss8Dragon__data_80541DC8[TBoss8Dragon__data_804E4C28[0]], register_object__6TLobbyFl(0x12));
     ((TObjEneDD *)arg0)->check_state_flag_1();

@@ -470,9 +470,6 @@ u32 drain_player_hp(s32 id, u32 arg1);
 extern "C" {
 s32 TBoss4Type2__sub_80055300();
 void find_target_pos__11TBoss4Type2FPvPv(O_80056C30 *self, Vec_80056C30 *out);
-void sub_80056F90__11TBoss4Type2Fll(Obj_80056F90 *self, s32 arg1, s32 arg2);
-void sub_80056FEC__11TBoss4Type2Fl(Obj_80056FEC *self, s32 arg1);
-s32 sub_80057224__11TBoss4Type2Fv(Obj_80057224 *self);
 S_800578E8 * __dt__13TUnk_80486924Fv(S_800578E8 *o, s16 flag);
 void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0);
 void update_target_effect_timer__11TBoss4Type3FPv(void *arg0);
@@ -897,7 +894,7 @@ void TBoss4Type2__vt23(void *arg0) {
             ((TBoss4Type2 *)arg0)->choose_next_action();
             return;
         }
-        ((s32 (*)(void *, s32, s32))sub_80056F90__11TBoss4Type2Fll)(arg0, 4, ((s32 (*)(void *))sub_80057224__11TBoss4Type2Fv)(arg0));
+        ((TBoss4Type2 *)arg0)->sub_80056F90(4, ((TBoss4Type2 *)arg0)->sub_80057224());
     }
 }
 
@@ -1253,7 +1250,7 @@ void TBoss4Type2__vt9(u8 *arg0) {
     }
 }
 
-void TBoss4Type2__vt8(void* p) { if (*(int*)((char*)p + 0x398) == 0) { ((int (*)(void*))sub_80056998__11TBoss4Type2Fv)(p); } }
+void TBoss4Type2__vt8(void* p) { if (*(int*)((char*)p + 0x398) == 0) { ((TBoss4Type2 *)p)->sub_80056998(); } }
 
 void TBoss4Type2__vt7(void *arg0) {
     *(f32 *)((s8 *)arg0 + 0x3E8) = (f32) (*(f32 *)&TBoss4Type2__data_805D8BAC);
@@ -1276,7 +1273,7 @@ void TBoss4Type2__vt4(void* p) { *(s32*)((char*)p + 0x398) = 75; }
 
 void TBoss4Type2__vt3(u8 *arg0) {
     if (*(s32 *)((s8 *)arg0 + 0x30) & 0x800) {
-        sub_80056FEC__11TBoss4Type2Fl((Obj_80056FEC *)(arg0), 2);
+        ((TBoss4Type2 *)arg0)->sub_80056FEC(2);
         return;
     }
     ((s32 (*)(void *, s32))TBoss4Type2__sub_80057048)(arg0, 9);
@@ -1293,7 +1290,7 @@ void TBoss4Type2__vt2(void *arg0) {
 
 void TBoss4Type2__vt1(u8 *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x398) == 0) {
-        sub_80056F90__11TBoss4Type2Fll((Obj_80056F90 *)(arg0), 4, (s32)((int) (sub_80057224__11TBoss4Type2Fv((Obj_80057224 *)(arg0)))));
+        ((TBoss4Type2 *)arg0)->sub_80056F90(4, (s32)((int) (((TBoss4Type2 *)arg0)->sub_80057224())));
     }
 }
 
@@ -1357,7 +1354,7 @@ void TBoss4Type2::sub_80056998() {
     s32 var_r4;
     s32 var_r5;
     if (((s32) *(s32 *)((s8 *)((u8 *)this) + 0x3E0) < 3) && (calc_boss4_scale__10TObjPlayerFi(((u8 *)this)) < lbl_805D8BE4)) {
-        sub_80056F90__11TBoss4Type2Fll((Obj_80056F90 *)(((u8 *)this)), 4, (s32)((int)((void *) (sub_80057224__11TBoss4Type2Fv((Obj_80057224 *)(((u8 *)this)))))));
+        sub_80056F90(4, (s32)((int)((void *) (sub_80057224()))));
         return;
     }
     if (calc_boss4_scale__10TObjPlayerFi(((u8 *)this)) < lbl_805D8BE4) {
@@ -1396,13 +1393,13 @@ void TBoss4Type2::choose_next_action() {
     case 7:
         find_target_pos__11TBoss4Type2FPvPv((O_80056C30 *)(((Obj_80056A54 *)this)), (Vec_80056C30 *)(&grid));
         ((TBoss4Type2 *)((Obj_80056A54 *)this))->set_grid_pos(&grid);
-        sub_80056FEC__11TBoss4Type2Fl((Obj_80056FEC *)((Obj_80056A54 *)this), r);
+        sub_80056FEC(r);
         break;
     case 13:
         ((TBoss4Type2 *)((Obj_80056A54 *)this))->send_attack_code(r, id);
         break;
     default:
-        sub_80056FEC__11TBoss4Type2Fl((Obj_80056FEC *)((Obj_80056A54 *)this), r);
+        sub_80056FEC(r);
         break;
     }
 }
@@ -1431,7 +1428,7 @@ void TBoss4Type2__sub_80056B3C(void *arg0, s32 lo, s32 hi) {
         }
         acc += step;
     }
-    sub_80056FEC__11TBoss4Type2Fl((Obj_80056FEC *)arg0, i);
+    ((TBoss4Type2 *)arg0)->sub_80056FEC(i);
 }
 
 #pragma push

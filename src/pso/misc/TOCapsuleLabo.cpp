@@ -54,7 +54,6 @@ extern s32 *capsule_labo_switch_flags_ptr;
 s32 is_split_screen();
 s32 queue_destruction__7TObjectFv(void *);
 s32 TObjFish__sub_8001EDB0(int, int);
-s32 set_indexed_flags__13TUnk_804AF8A0Fll(void *, int, int);
 s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_802AF4F4_lbl_804DE450 TOCapsuleLabo__collision_parts;
 extern s32 __vt__13TOCapsuleLabo[];
@@ -155,7 +154,7 @@ u8 *TOCapsuleLabo__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *)((int) ((*(s32 *)&TOCapsuleLabo__model_resource))), 0);
     ((TOCapsuleLabo *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOCapsuleLabo__model_resource)), 0);
     init_collision_body_parts(arg0, &TOCapsuleLabo__collision_parts.value, 1);
-    set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 0x1288);
+    ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 0x1288);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOHealGeneral *)arg0)->update_heal_gauge_state();

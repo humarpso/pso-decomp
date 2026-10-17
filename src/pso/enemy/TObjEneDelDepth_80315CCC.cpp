@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/system/ChunkMaterialState.h"
 #include "pso/unk/text_803E2D70.h"
 #include "pso/enemy/TObjEneDelDepth.h"
@@ -47,7 +48,7 @@ void TObjEneDelDepth::setup_draw_material(f32 farg0, f32 farg1, f32 farg2, f32 f
     stack.sp10 = farg2;
     stack.sp8 = lbl_805DF2E0 + farg0;
     stack.sp14 = farg3;
-    set_chunk_material_color__13TUnk_80494AE0Fv((&stack.sp8));
+    ((TUnk_80494AE0 *)(&stack.sp8))->set_chunk_material_color();
 }
 
 int TObjEneDelDepth::get_data() {  return TObjEneDelDepth__shared_resource; }

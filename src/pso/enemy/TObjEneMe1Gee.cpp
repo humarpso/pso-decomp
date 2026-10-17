@@ -59,7 +59,6 @@ void TObjEneMe1Gee__sub_800CB4DC(u8 *arg0);
 void sub_800CB764__13TUnk_8049387CFl(u8 *arg0, s32 arg1);
 void sub_800CBE6C__13TObjEneMe1GeeFv(u8 *arg0);
 void sub_800CC0C4__13TObjEneMe1GeeFv(u8 *arg0);
-void init_state__13TObjEneMe1GeeFv(u8 *arg0);
 void vfunc_114__13TObjEneMe1GeeFv(void* p);
 void vfunc_115__13TObjEneMe1GeeFv(u8 *arg0);
 void vfunc_62__13TObjEneMe1GeeFv(void* p);
@@ -888,7 +887,6 @@ s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
 s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
 s32 set_part_position__9TObjEneDDFPvPvi(void *, int, int);
 s32 init_model__9TObjEneDDFv(void *, void *, int);
-void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 s32 rand(f32);
 extern const f32 lbl_805DA0B8;
 extern const f32 TObjEneMe1Gee__data_805DA0C0;
@@ -3800,7 +3798,7 @@ void TObjEneMe1Gee::init_state() {
     ((TObjMotion *)((u8 *)this))->set_field_d8((s32)((void *) TObjEneMe1Gee__motion_parameters));
     ((TObjMotion *)((u8 *)this))->set_field_dc((int) (*(s32 *)((s8 *)(*(u8 * *)&(*(int *)&TObjEneMe1Gee__resource_bundle)) + 0x430)));
     *(s16 *)((s8 *)((u8 *)this) + 0xB8) = 0;
-    set_animation__10TObjMotionFs((((u8 *)this)), (*(s16 *)((s8 *)((u8 *)this) + 0xB8)));
+    set_animation((*(s16 *)((s8 *)((u8 *)this) + 0xB8)));
     ((TObjMotion *)((u8 *)this))->set_field_b8((int) (*(s16 *)((s8 *)((u8 *)this) + 0xB8)));
     reset_hp__9TObjEneDDFv(((u8 *)this), gee_boss_stat_handle_table[*(s32 *)((s8 *)((u8 *)this) + 0x3C4)], lbl_80500E44[*(s32 *)((s8 *)((u8 *)this) + 0x3C4)], lbl_80500E50[*(s32 *)((s8 *)((u8 *)this) + 0x3C4)]);
     ((TObjEneDD *)((u8 *)this))->check_state_flag_1();
@@ -3872,7 +3870,7 @@ u8 *TObjEneMe1Gee__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4, s16 arg5
     *(s32 *)((s8 *)arg0 + 0x60) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x3C0)) + 0x60);
     *(s32 *)((s8 *)arg0 + 0x3C8) = 0;
     *(s32 *)((s8 *)arg0 + 0x3C4) = 1;
-    init_state__13TObjEneMe1GeeFv(arg0);
+    ((TObjEneMe1Gee *)arg0)->init_state();
     return arg0;
 }
 
@@ -3900,7 +3898,7 @@ void *init__13TObjEneMe1GeeFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *a
     sub_800CC0C4__13TObjEneMe1GeeFv(arg0);
     *(void **)((s8 *)arg0 + 0x3C0) = arg0;
     *(void **)((s8 *)arg0 + 0x3C4) = arg3;
-    init_state__13TObjEneMe1GeeFv((u8 *)arg0);
+    ((TObjEneMe1Gee *)arg0)->init_state();
     return arg0;
 }
 

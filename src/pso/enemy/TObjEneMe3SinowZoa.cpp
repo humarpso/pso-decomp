@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
@@ -570,8 +571,6 @@ s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
 s32 TBoss3Volopt__sub_800D8D88(void *, f32);
 f32 * TBoss3Volopt__sub_800F059C(void *);
-void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
-s32 set_indexed_flags__13TUnk_804AF8A0Fll(void *, int, int);
 s32 check_enemy_body_collisions(void *);
 void free_collision_body_parts(void *);
 void send_6x26_unequip_item__10TObjPlayerFPvPv(void *, s32);
@@ -593,7 +592,6 @@ struct Ene_80318F7C;
 void TObjEneMe3SinowZoa__sub_80318F7C(Ene_80318F7C *, s32);
 void TObjEneMe3SinowZoa__sub_80319748(u8 *arg0, s32 arg1);
 void TObjEneMe3SinowZoa__sub_80319B8C(u8 *arg0, s32 arg1);
-void sub_80319E74__18TObjEneMe3SinowZoaFl(u8 *arg0, s32 arg1);
 void action__18TObjEneMe3SinowZoaFPvi(u8 *arg0, s32 arg1);
 void dispatch_state__18TObjEneMe3SinowZoaFPvUii(u8 *arg0, u32 arg1, s32 arg2);
 void cast_technique__18TObjEneMe3SinowZoaFPv(u8 *arg0);
@@ -615,7 +613,6 @@ void vfunc_95__18TObjEneMe3SinowZoaFv(void* p);
 void vfunc_88__18TObjEneMe3SinowZoaFv(void *arg0);
 void vfunc_61__18TObjEneMe3SinowZoaFv(void);
 void vfunc_28__18TObjEneMe3SinowZoaFv(void);
-void sub_8031AC74__18TObjEneMe3SinowZoaFv(u8 *arg0);
 void run_task__18TObjEneMe3SinowZoaFv(u8 *arg0);
 void * __dt__18TObjEneMe3SinowZoaFv(void *arg0, s16 arg1);
 f32 sin_table_lookup(s32);
@@ -1203,7 +1200,6 @@ struct Zoa_8031786C {
     VObj_14_aa9368 sub;
 };
 
-void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 rotate_matrix_y(int, int);
@@ -1253,7 +1249,7 @@ void TObjEneMe3SinowZoa::render() {
         lbl_805D5660 = model_render_flags;
         lbl_805D5664 = chunk_polygon_flags_and_mask;
         lbl_805D5668 = chunk_polygon_flags_or_mask;
-        copy_vec4__13TRaderMapCoreFPv(saved_model_draw_color, model_material_color);
+        ((TRaderMapCore *)saved_model_draw_color)->copy_vec4(model_material_color);
         if (!(o->f3D0 & 0x4000)) {
             v->m106();
             TObjEneDD::clear_global_flag_400();
@@ -1296,7 +1292,7 @@ void TObjEneMe3SinowZoa::render() {
         if (v->m108() == 0 && TObjEneMe3SinowZoa__sub_800D72A4(&o->sub) != 0) {
             o->sub.m7();
         }
-        copy_vec4__13TRaderMapCoreFPv(model_material_color, saved_model_draw_color);
+        ((TRaderMapCore *)model_material_color)->copy_vec4(saved_model_draw_color);
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;
         model_render_flags = lbl_805D5660;
@@ -1344,7 +1340,7 @@ void TObjEneMe3SinowZoa__sub_80317B50(void *arg0_, s32 arg1) {
         if (*(s32 *)((s8 *)arg0 + 0x434) == 2) {
             *(s32 *)((s8 *)arg0 + 0x3C0) = 1;
             *(s32 *)((s8 *)arg0 + 0x3CC) |= 0x40000;
-            set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 0x08000000);
+            ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 0x08000000);
             if (calc_boss4_scale__10TObjPlayerFi((s32)arg0) <= *(f32 *)((s8 *)arg0 + 0x3E8)) {
                 if (((s32 (*)(u8 *))sub_8031A454__18TObjEneMe3SinowZoaFv)(arg0) != 0) {
                     if (calc_boss4_scale__10TObjPlayerFi((s32)arg0) > TObjEneMe3SinowZoa__kind_param_tbls[*(s32 *)((s8 *)arg0 + 0x3C8)][5]) {
@@ -1787,7 +1783,7 @@ void TObjEneMe3SinowZoa__sub_80318564(u8 *arg0, s32 arg1) {
             if (VS->s4() != 0) {
                 F(s32, 0x434) = 2;
                 F(s32, 0x3CC) |= 0x40000;
-                set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 0x08000000);
+                ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 0x08000000);
             }
             break;
         }
@@ -2204,7 +2200,7 @@ void TObjEneMe3SinowZoa__sub_80318C0C(void *arg0_, s32 arg1) {
             if (((VObj_14_6ea8ee *)(arg0 + 0x414))->m4() != 0) {
                 *(s32 *)((s8 *)arg0 + 0x434) = 4;
                 *(s32 *)((s8 *)arg0 + 0x3CC) |= 0x40000;
-                set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 0x08000000);
+                ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 0x08000000);
             }
             break;
         }
@@ -2437,7 +2433,7 @@ void TObjEneMe3SinowZoa__sub_80318F7C(Ene_80318F7C *self, s32 arg1) {
                 self->f3CC &= ~0x100000;
                 self->f434 = 6;
                 self->f3CC |= 0x40000;
-                set_indexed_flags__13TUnk_804AF8A0Fll(self, 0, 0x08000000);
+                ((TUnk_804AF8A0 *)self)->set_indexed_flags(0, 0x08000000);
             }
         case 6:
             advance_animation_playback(self);
@@ -2948,7 +2944,7 @@ void dispatch_state__18TObjEneMe3SinowZoaFPvUii(u8 *arg0, u32 arg1, s32 arg2) {
         v->f111(arg2);
         return;
     case 1:
-        ((s32 (*)(void *, s32))sub_80319E74__18TObjEneMe3SinowZoaFl)(arg0, arg2);
+        ((TObjEneMe3SinowZoa *)arg0)->sub_80319E74(arg2);
         return;
     case 3:
         ((s32 (*)(void *, s32))TObjEneMe3SinowZoa__sub_80319B8C)(arg0, arg2);
@@ -3279,7 +3275,7 @@ void TObjEneMe3SinowZoa::sub_8031AC74() {
             if ((s32) *(s32 *)((s8 *)arg0 + 0x3C0) != 0) {
                 if (((VObj_14_c143b1 *)(arg0 + (1044)))->m4() != 0) {
                     *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 0x40000);
-                    set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 0x08000000);
+                    ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 0x08000000);
                 }
             } else if (((VObj_14_c143b1 *)(arg0 + (1044)))->m5() != 0) {
                 *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 0x40000);
@@ -3298,7 +3294,7 @@ void TObjEneMe3SinowZoa::run_task() {
     if (this->vfunc_83() != 4) {
         this->vfunc_85();
     }
-    sub_8031AC74__18TObjEneMe3SinowZoaFv(((u8 *)this));
+    sub_8031AC74();
     this->copy_pos_with_height_offset();
     this->vfunc_88();
     temp_r3 = *(s32 *)((s8 *)((u8 *)this) + 0x3CC);
@@ -3345,7 +3341,7 @@ void TObjEneMe3SinowZoaReal::init_enemy() {
     *(s32 *)((s8 *)((u8 *)this) + 0xB0) = 0;
     ((TObjMotion *)((u8 *)this))->set_field_d8((s32)lbl_804E8880);
     ((TObjMotion *)((u8 *)this))->set_field_dc((int) (*(s32 *)((s8 *)TObjEneMe3SinowZoa__data_805D6AD8 + 0x430)));
-    set_animation__10TObjMotionFs((this), (*(s16 *)((s8 *)((u8 *)this) + 0xB8)));
+    set_animation((*(s16 *)((s8 *)((u8 *)this) + 0xB8)));
     temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x3C8);
     {
         s32 *a = tbl->t[0];
@@ -3378,7 +3374,7 @@ void TObjEneMe3SinowZoaReal::init_enemy() {
     *(s32 *)((s8 *)((u8 *)this) + 0x454) = 0;
     *(s32 *)((s8 *)((u8 *)this) + 0x458) = 0;
     if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x3C0) == 1) {
-        set_indexed_flags__13TUnk_804AF8A0Fll((void *)this, 0, 0x08000000);
+        set_indexed_flags(0, 0x08000000);
     } else {
         ((TUnk_804AF8A0 *)((u8 *)this))->clear_player_status_flag(0, 0x08000000);
     }

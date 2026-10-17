@@ -15,7 +15,6 @@ s32 obj_is_hit_receivable(void *);
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, u32);
 u16 obj_getField1c(void *);
 s32 is_technique_ready__8TTecCtrlFv();
-s32 try_add_hit_target__13TUnk_804E355CFPv(u8 *arg0, Hit_802E4798 *arg1);
 void queue_destruction__7TObjectFv(void *arg0);
 void TObjPlayer__sub_801542F4(s32 a);
 void TObjPlayer__sub_8015431C(u8 *arg0);
@@ -82,7 +81,7 @@ void TUnk_804E355C::check_hits() {
     }
     for (i = 0; i != TObjOnlineEnding::get_instance(); i++) {
         e = get_attack_entry__16TObjOnlineEndingFi(i);
-        if (try_add_hit_target__13TUnk_804E355CFPv(arg0, e) != 0) {
+        if (((TUnk_804E355C *)arg0)->try_add_hit_target(e) != 0) {
             ((TUnk_804E355C *)arg0)->vfunc_6((s32 *)((s32)e));
             ((TUnk_804E355C *)arg0)->m_a4 -= 1;
             if (((TUnk_804E355C *)arg0)->m_a4 == 0) {

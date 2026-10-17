@@ -527,7 +527,6 @@ u8 *TObjEnemyCustom__ct(u8 *arg0);
 void * collect_and_count__12TBoss3VoloptFUll(s32, s32);
 void restore_scene_lighting(void);
 void select_actor_lighting(s32 obj);
-void set_animation__10TObjMotionFs(void *, s16);
 s32 advance_animation_playback(void *);
 void free_collision_body_parts(void *);
 void init_collision_body_parts(void *, void *, s32);
@@ -1287,7 +1286,7 @@ void TBoss3VoloptP01::init_params() {
     F(this, s32, 0x350) = (s32) lbl_804841D0;
     recalc_combat_stats((void *)volopt_p01_boss_stat_handle_a, (void *)volopt_p01_shared_handler_b, (void *)volopt_p01_object_handle, (f32)((1.0f)), (f32)((1.0f)));
     F(this, s16, 0xB8) = 0;
-    set_animation__10TObjMotionFs(this, F(this, s16, 0xB8));
+    set_animation(F(this, s16, 0xB8));
     this->set_field_b8(F(this, s16, 0xB8));
     F(this, s16, 0x32C) = F(this, s16, 0x2B8);
     F(this, s16, 0x32E) = F(this, s16, 0x2BA);

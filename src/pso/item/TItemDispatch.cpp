@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
 #include "pso/misc/TLobby.h"
 #include "pso/TObject.h"
 #include "pso/item/TItemProArmor.h"
@@ -74,8 +75,6 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void *get_player_by_client_id(s32 i);
 s32 push_to_player_list__5TItemFPv();
-void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
-s8 sub_80102C30__5TItemFv(u8 *);
 void func_80141618__Fv(void);
 s32 set_depth_buffer_settings_id__FUl(int);
 s32 reset_key_machine_state__10TObjPlayerFv();
@@ -131,14 +130,14 @@ void TItem::render_shadows() {
     u8 *arg0 = (u8 *)this;
     if (((TObject *)arg0)->all_parents_unqueued_for_destruction() != 0) {
         ((TUnk_804AF8A0 *)arg0)->set_shadow_flag();
-        if ((sub_80102C30__5TItemFv(arg0) == 2) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
+        if ((((TItem *)arg0)->sub_80102C30() == 2) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
             set_depth_buffer_settings_id__FUl(1);
             lbl_805D5660 = model_render_flags;
             lbl_805D5664 = chunk_polygon_flags_and_mask;
             lbl_805D5668 = chunk_polygon_flags_or_mask;
-            copy_vec4__13TRaderMapCoreFPv((&saved_model_draw_color.value), (&model_material_color.value));
+            ((TRaderMapCore *)(&saved_model_draw_color.value))->copy_vec4((&model_material_color.value));
             this->vfunc_27();
-            copy_vec4__13TRaderMapCoreFPv((&model_material_color.value), (&saved_model_draw_color.value));
+            ((TRaderMapCore *)(&model_material_color.value))->copy_vec4((&saved_model_draw_color.value));
             chunk_polygon_flags_and_mask = lbl_805D5664;
             chunk_polygon_flags_or_mask = lbl_805D5668;
             model_render_flags = lbl_805D5660;
@@ -176,7 +175,7 @@ void TItem::dispatch_state() {
             &TItem::render_following_owner,
             0,
         };
-        fn = tbl[sub_80102C30__5TItemFv((u8 *)this)];
+        fn = tbl[sub_80102C30()];
         if (fn) {
             (this->*fn)();
         }
@@ -188,7 +187,7 @@ void TItem::dispatch_state() {
 void TItem::run_task() {
     u8 *arg0 = (u8 *)this;
     u32 temp_r4;
-    switch (sub_80102C30__5TItemFv(arg0)) {
+    switch (((TItem *)arg0)->sub_80102C30()) {
     case 0:
         ((TItem *)arg0)->update_timer();
         return;
@@ -297,7 +296,6 @@ void advance_item_system_generation(void);
 extern s32 item_registry_count;
 extern u32 item_registry_sorted_entries;
 extern u32 player_rock_objects_handle;
-s8 sub_80102C30__5TItemFv(u8 *arg0);
 }
 int get_item_system_generation(void);
 extern "C" {

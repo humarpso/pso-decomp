@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TPlyDispData.h"
 #include "pso/misc/TPlyDispConfig.h"
 #include "pso/misc/TPlyDispConfig_80071F1C.h"
 #include "pso/system/memory.h"
@@ -20,8 +21,8 @@ s32 __dt__14TPlyDispConfigFv(s32 arg0, s16 arg1) {
 }
 s32 destroy_arrays__14TPlyDispConfigFii(s32 self, s32 del) {
     if (self != 0) {
-        __destroy_arr(((O_80071EA8 *)self)->b, (void *)free_if_valid__14TPlyDispConfigFls, 4, 4);
-        __destroy_arr(((O_80071EA8 *)self)->a, (void *)free_if_valid__14TPlyDispConfigFls, 4, 4);
+        __destroy_arr(((O_80071EA8 *)self)->b, (void *)TPlyDispConfig::free_if_valid, 4, 4);
+        __destroy_arr(((O_80071EA8 *)self)->a, (void *)TPlyDispConfig::free_if_valid, 4, 4);
         if ((s16)del > 0) {
             ::operator delete((void *)self);
         }

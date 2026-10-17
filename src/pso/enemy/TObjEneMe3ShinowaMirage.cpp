@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/system/ChunkMaterialState.h"
 #include "pso/enemy/TObjEneMe3ShinowaReal.h"
 #include "pso/system/vector.h"
@@ -320,7 +321,7 @@ extern s32 model_render_flags;
 s32 TObjEneMe3ShinowaMirage::update_effect() {
     s32 arg0 = (s32)this;
     model_render_flags |= 0x820;
-    set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)(arg0 + 0x430));
+    ((TUnk_80494AE0 *)(arg0 + 0x430))->set_chunk_material_color();
     set_chunk_material_override_pair(0xFF00, 0x800);
     return 0;
 }

@@ -278,8 +278,6 @@ void fn_800A0FDC(TObjEneLappy *arg0);
 void TObjPlayer__sub_800A100C(s32 _w0);
 s32 update_action_hold_status__17TObjEneDarkGunnerFv(s32 arg0);
 void init_scale_global__10TObjPlayerFv(void);
-void sub_800A1520__17TObjEneDarkGunnerFv(u8 *arg0);
-void sub_800A159C__17TObjEneDarkGunnerFv(Obj_800A159C *o);
 void vfunc_61__17TObjEneDarkGunnerFv(u8 *arg0);
 int TObjPlayer__sub_800A1808(void* p);
 void TObjPlayer__sub_800A1974(void);
@@ -292,7 +290,6 @@ u8 *TObjPlayer__sub_800A2F94(u8 *, s32, u8 *);
 void vfunc_28__17TObjEneDarkGunnerFv(void);
 void vfunc_58__17TObjEneDarkGunnerFv(void);
 void vfunc_59__17TObjEneDarkGunnerFv(void);
-s32 sub_800A3290__13TUnk_804909C4Fl(Obj_800A3290 *self, s32 id);
 void * __dt__13TUnk_804909C4Fv(void *arg0, s16 arg1);
 u8 * TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 void TEneEffHamon__sub_800A380C(void);
@@ -340,7 +337,6 @@ void TObjEnemyCustom__ct(void *, s32, void *);
 int initialize_enemy_photon_effect(void *p);
 extern "C" {
 s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
-void set_animation__10TObjMotionFs(void *, s16);
 extern Atk_800A2F94 dark_gunner_attack_binding_desc;
 extern s32 dark_gunner_class_name_ptr;
 extern s32 lbl_805D4FF8[1];
@@ -1409,7 +1405,7 @@ u8 *TObjPlayer__sub_800A2F94(u8 *self, s32 arg1, u8 *arg2) {
     F(void *, 0xD8) = lbl_80490668;
     ((TObjMotion *)self)->set_field_d8(F(s32, 0xD8));
     F(s16, 0xB8) = 0;
-    set_animation__10TObjMotionFs(self, F(s16, 0xB8));
+    ((TObjMotion *)self)->set_animation(F(s16, 0xB8));
     ((TObjMotion *)self)->set_field_b8(F(s16, 0xB8));
     init_collision_body_parts(self, lbl_80490780, 1);
     F(void *, 0x350) = lbl_80490748;
@@ -1510,7 +1506,7 @@ void TUnk_804909C4::run_task() {
             ((TNowLoading *)p)->copy_pos((u8 *)&this->position);
         }
     }
-    if (sub_800A3290__13TUnk_804909C4Fl((Obj_800A3290 *)(arg0), (s32)((int) (*(u16 *)((s8 *)arg0 + 0xC8)))) != 0) {
+    if (((TUnk_804909C4 *)arg0)->sub_800A3290((s32)((int) (*(u16 *)((s8 *)arg0 + 0xC8)))) != 0) {
         queue_destruction__7TObjectFv((arg0));
         return;
     }

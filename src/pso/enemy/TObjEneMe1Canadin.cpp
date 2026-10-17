@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDf2Bringer_Eff_Rush.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
@@ -1709,8 +1710,6 @@ void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
 }
 void bringer_effect_cleanup_noop(void);
 extern "C" {
-void render__26TObjEneDf2Bringer_Eff_RushFv(void);
-void run_task__26TObjEneDf2Bringer_Eff_RushFv(u8 *arg0);
 void * __dt__26TObjEneDf2Bringer_Eff_RushFv(void *arg0, s16 arg1);
 }
 u8 * construct_bringer_rush_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);
@@ -1794,7 +1793,6 @@ void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
 void TBoss3Volopt__sub_800D8D88(s32 arg0);
 s32 trigger_dell_biter_events__10TObjPlayerFv(void *, f32);
 s32 approach_angle_limited(s32, s32, s32);
-void set_animation__10TObjMotionFs(void *, s16);
 void *find_entity_by_id(u16 id);
 void free_collision_body_parts(void *);
 void *get_player_by_client_id(s32 i);
@@ -4157,7 +4155,7 @@ void TObjEneMe1Canadin::setup_enemy() {
     ((TObjMotion *)arg0)->set_field_d8((s32)lbl_8048FF30);
     ((TObjMotion *)arg0)->set_field_dc(*(s32 *)((s8 *)(*(u8 * *)&lbl_805D4FD0) + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-    set_animation__10TObjMotionFs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    ((TObjMotion *)arg0)->set_animation(*(s16 *)((s8 *)arg0 + 0xB8));
     ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     reset_hp__9TObjEneDDFv(arg0, lbl_80500930[*(s32 *)((s8 *)arg0 + 0x3C4)], lbl_8050093C[*(s32 *)((s8 *)arg0 + 0x3C4)], lbl_80500948[*(s32 *)((s8 *)arg0 + 0x3C4)]);
     ((TObjEneDD *)arg0)->check_state_flag_4();

@@ -131,33 +131,33 @@ void *lbl_8049FBC0[45] = {
 void TUnk_8049FBC0::vfunc_44() {
     switch (get_slot_count__5TItemFv()) {
     case 0:
-        add_stat_and_item__10TObjPlayerFUc(this->m_f0, 2);
+        ((TObjPlayer *)(this->m_f0))->add_stat_and_item(2);
         break;
     case 1:
         if (check_class_equip_permission((void *)this->m_f0, 0xD7) == 0) {
-            add_mst_and_item__10TObjPlayerFUc(this->m_f0, 2);
+            ((TObjPlayer *)(this->m_f0))->add_mst_and_item(2);
         }
         break;
     case 2:
-        add_evp_material__10TObjPlayerFUc(this->m_f0, 2);
+        ((TObjPlayer *)(this->m_f0))->add_evp_material(2);
         break;
     case 3:
         obj_getField1c((void *)this->m_f0);
         if (calc_equip_bonus__10TObjPlayerFUs() < 0xFA) {
-            apply_speed_with_camera_scale__10TObjPlayerFUc(this->m_f0, (u8)(2));
+            ((TObjPlayer *)(this->m_f0))->apply_speed_with_camera_scale((u8)(2));
         }
         break;
     case 4:
         obj_getField1c((void *)this->m_f0);
         if ((calc_stat_bonus_sum__10TObjPlayerFUs() < 0xFA) && (check_class_equip_permission((void *)this->m_f0, 0xD7) == 0)) {
-            set_speed_scaled_by_camera__10TObjPlayerFUc(this->m_f0, (u8)(2));
+            ((TObjPlayer *)(this->m_f0))->set_speed_scaled_by_camera((u8)(2));
         }
         break;
     case 5:
-        add_dfp_material__10TObjPlayerFUc(this->m_f0, 2);
+        ((TObjPlayer *)(this->m_f0))->add_dfp_material(2);
         break;
     case 6:
-        apply_luck_reward__10TObjPlayerFUc(this->m_f0, 2);
+        ((TObjPlayer *)(this->m_f0))->apply_luck_reward(2);
         break;
     }
     ((VObj_18_ddf499 *)(this->m_f0))->m71();

@@ -58,7 +58,6 @@ extern s32 tl_00;
 extern const f32 lbl_805DB2C8;
 s32 construct_actor_base__10TObjPlayerFPvPv(void *, int);
 s32 obj_setFlags30(void *, int);
-void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_80157AD8_lbl_804AF9A8 TOAttackableCol__collision_parts;
 extern s32 __vt__15TOAttackableCol[];
@@ -107,7 +106,7 @@ void TOAttackableCol::init_params() {
         this->m_34c = -1;
     }
     if (this->target_scale < lbl_805DB2C8) {
-        set_indexed_flags__13TUnk_804AF8A0Fll(this, 0, 0x08000000);
+        set_indexed_flags(0, 0x08000000);
     } else {
         clear_player_status_flag__13TUnk_804AF8A0FlUl(this, 0, 0x08000000);
     }
@@ -307,7 +306,7 @@ u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1) {
     ((TUnk_804806E8 *)arg0)->calc_attach_pos();
     obj_setFlags30(arg0, 0x60000000);
     init_collision_body_parts(arg0, &TOAttackableCol__collision_parts.value, 1);
-    set_indexed_flags__13TUnk_804AF8A0Fll((arg0), 0, 0x718);
+    ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 0x718);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOAttackableCol *)arg0)->mode = 0;
     *(f32 *)((s8 *)arg0 + 0x334) = (f32) lbl_805DB2CC;

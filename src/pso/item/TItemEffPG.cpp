@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/item/TItemEffPG_8034FF4C.h"
@@ -89,9 +91,9 @@ void TUnk_804F0BF0::render() {
             lbl_805D5660 = model_render_flags;
             lbl_805D5664 = chunk_polygon_flags_and_mask;
             lbl_805D5668 = chunk_polygon_flags_or_mask;
-            copy_vec4__13TRaderMapCoreFPv((saved_model_draw_color), (model_material_color));
+            ((TRaderMapCore *)saved_model_draw_color)->copy_vec4((model_material_color));
             model_render_flags |= 0x20;
-            set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)(arg0 + 0x28));
+            ((TUnk_80494AE0 *)(arg0 + 0x28))->set_chunk_material_color();
             TParticleCtrl::begin_effect_render();
             TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
             push_matrix();
@@ -108,7 +110,7 @@ void TUnk_804F0BF0::render() {
             pop_matrix();
             pop_matrix();
             TParticleCtrl::end_effect_render();
-            copy_vec4__13TRaderMapCoreFPv((model_material_color), (saved_model_draw_color));
+            ((TRaderMapCore *)model_material_color)->copy_vec4((saved_model_draw_color));
             chunk_polygon_flags_and_mask = lbl_805D5664;
             chunk_polygon_flags_or_mask = lbl_805D5668;
             model_render_flags = lbl_805D5660;

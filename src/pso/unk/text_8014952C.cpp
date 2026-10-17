@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss3VoloptHiraisin.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -11,7 +12,6 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
-void copy_position__20TBoss3VoloptHiraisinFv(s32 arg0);
 void TObjNpcBase__ct(void *, void *);
 void init_collision_body_parts(void *, void *, s32);
 extern u8 npc_default_battle_stats[];
@@ -159,7 +159,7 @@ u8 *TObjNpcBringer__ct(u8 *self, void *parent, s32 arg2) {
     init_collision_body_parts(self, lbl_804A7EC0, 2);
     ((TObjPlayer *)self)->reset_photon_effect();
     ((TObjEnemy *)self)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFv((s32)self);
+    ((TBoss3VoloptHiraisin *)self)->copy_position();
     return self;
 }
 

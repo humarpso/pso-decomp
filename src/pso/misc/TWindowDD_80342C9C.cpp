@@ -8,14 +8,13 @@ s32 update_numeric_parameter_input__9TWindowDDFPv();
 s32 update_close_flag__9TWindowDDFPv(void *);
 s32 apply_entry_layout__9TWindowDDFPv(void *);
 s32 TWindowDD__sub_803435A0(void *);
-s32 update_selection_state__9TWindowDDFv(void *);
 s32 TWindowDD__sub_80347C50();
 s32 TWindowDD__sub_803482B0(void *);
 extern s32 TWindowDD__window_mode;
 void TWindowDD__sub_80342D14(u8 *arg0);
 void TWindowDD::update_transition() {
     TWindowDD__sub_80347C50();
-    update_selection_state__9TWindowDDFv(this);
+    update_selection_state();
     if (test_input_flag_4() != 0) {
         TWindowDD::play_sound();
         *(s32 *)((s8 *)this + 0xB4) = 6;
@@ -34,7 +33,7 @@ void TWindowDD__sub_80342D14(u8 *arg0) {
     switch (*(s32 *)((s8 *)arg0 + 0xB8)) {
     case 0:
         TWindowDD__sub_80347C50();
-        update_selection_state__9TWindowDDFv(arg0);
+        ((TWindowDD *)arg0)->update_selection_state();
         if (((TWindowDD *)arg0)->test_input_flag_4() != 0) {
             TWindowDD::play_sound();
             var_r31 = !update_close_flag__9TWindowDDFPv(arg0);

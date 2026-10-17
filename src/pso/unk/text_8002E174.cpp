@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/boss/TBoss8Dragon_8002CC48.h"
 #include "pso/player/TObjPlayer_8002E784.h"
 #include "pso/system/vector.h"
@@ -124,7 +125,6 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 void set_chunk_material_override_pair(s32 arg0, s32 arg1);
-void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 }
 void set_chunk_blend(u32 x);
 void draw_chunk_model(void *arg0);
@@ -211,7 +211,7 @@ void TUnk_80482090::render() {
                 lbl_805D5660 = model_render_flags;
                 model_render_flags = lbl_805D5660 | 0x8810;
                 c.a = p->f24;
-                set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&c);
+                ((TUnk_80494AE0 *)((f32 *)&c))->set_chunk_material_color();
                 set_chunk_material_override_pair(0xFF00, 0x800);
                 set_chunk_blend(0x2500);
                 draw_chunk_model((void *)n->f4);

@@ -1,5 +1,6 @@
 #pragma defer_codegen on
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/boss/TObjBoss5Pillar_8028B810.h"
 #include "pso/boss/TObjBoss5Pillar_8028B714.h"
 #include "pso/misc/obj_band.h"
@@ -38,7 +39,6 @@ struct Stack_802E0468
 extern "C" {
 void play_phase_transition_sound__10TObjPlayerFl(s32);
 void set_chunk_material_override_pair(s32, s32);
-void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -54,7 +54,6 @@ s32 push_matrix_from();
 s32 push_matrix();
 s32 pop_matrix();
 s32 set_global_param__8TObjFishFl();
-int set_motion_interpolation_flag__10TObjMotionFv(void*);
 
 }
 
@@ -325,7 +324,7 @@ void TUnk_804E3008::run_task() {
             F(0x170, void *) = p;
             break;
         }
-        sub_802E0784__13TUnk_804E3008Fv(arg0);
+        ((TUnk_804E3008 *)arg0)->sub_802E0784();
         F(0xFC, s32) = 2;
         break;
     case 2:
@@ -379,7 +378,7 @@ void TUnk_804E3008::sub_802E0784() {
     ((TObjMotion *)((u8 *)this))->set_field_d8((s32)&lbl_804E2F78.value);
     ((TObjMotion *)((u8 *)this))->set_field_dc((int) (*(s32 *)((s8 *)TAdMultiPlyChrSelectGC__resource_bundle + 0x430)));
     set_cursor_index__13TUnk_804E3008Fl(((u8 *)this), 0);
-    set_animation__10TObjMotionFs((((u8 *)this)), (((TUnk_804E3008 *)((u8 *)this))->m_b8));
+    set_animation((((TUnk_804E3008 *)((u8 *)this))->m_b8));
 }
 
 void TUnk_804E3008::set_cursor_index(s32 arg1) {
@@ -439,7 +438,7 @@ void TObjPlayer::update_chara_making() {
     pop_matrix();
 }
 
-void TObjPlayer::draw_model_with_arg(void* a1) { this->model = a1; set_motion_interpolation_flag__10TObjMotionFv(this); draw_model_with_callback(); }
+void TObjPlayer::draw_model_with_arg(void* a1) { this->model = a1; set_motion_interpolation_flag(); draw_model_with_callback(); }
 
 void TObjPlayer__sub_802E0580(void * _w0, int _w1, void * _w2) {
     ((s32 (*)(f32))TObjPlayer__sub_802E0468)(lbl_805DE8A8);
@@ -461,7 +460,7 @@ void TObjPlayer__sub_802E0468(long long arg1, u8 *arg2, f32 farg0) {
   stack.spC = lbl_805DE8AC * ((f32) (*((s16 *) (((s8 *) arg2) + 0x42))));
   stack.sp10 = lbl_805DE8AC * ((f32) (*((s16 *) (((s8 *) arg2) + 0x44))));
   stack.sp14 = lbl_805DE8AC * ((f32) (*((s16 *) (((s8 *) arg2) + 0x46))));
-  set_chunk_material_color__13TUnk_80494AE0Fv(&stack.sp8);
+  ((TUnk_80494AE0 *)(&stack.sp8))->set_chunk_material_color();
   play_phase_transition_sound__10TObjPlayerFl(arg1);
   chunk_polygon_flags_and_mask = lbl_805D5664;
   chunk_polygon_flags_or_mask = lbl_805D5668;

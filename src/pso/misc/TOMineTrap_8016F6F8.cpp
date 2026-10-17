@@ -101,7 +101,6 @@ struct VObj_18_1da615 : VBase_18_1da615 {
 struct Pair_80170DD8 { s32 a; s32 b; };
 
 extern "C" {
-void set_indexed_flags__13TUnk_804AF8A0Fll(void *, s32, s32);
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
 s32 get_localized_text_entry(s32 arg0, s32 arg1);
 s32 get_main_phase();
@@ -194,14 +193,14 @@ s32 TOMineTrap::find_target_in_range() {
 void TOMineTrap::set_triggered() {
     u8 *arg0 = (u8 *)this;
     this->mode = 3;
-    set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 1);
+    ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 1);
     this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
 }
 
 void TOMineTrap::vfunc_86() {
     u8 *arg0 = (u8 *)this;
     this->mode = 2;
-    set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 1);
+    ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 1);
     this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
 }
 
@@ -393,7 +392,7 @@ void TOMine::vfunc_6(s16 *arg1, s32 arg2) {
     }
     if (temp_r0 == 3) {
         this->mode = temp_r0;
-        set_indexed_flags__13TUnk_804AF8A0Fll(this, 0, 1);
+        set_indexed_flags(0, 1);
         this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
         this->calc_attach_pos();
         refresh_collision_body_centers();
@@ -480,7 +479,7 @@ void TOMine::update_trigger() {
 void TOMine::vfunc_86() {
     u8 *arg0 = (u8 *)this;
     this->mode = 2;
-    set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 1);
+    ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 1);
     this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
     ((TUnk_804806E8 *)arg0)->calc_attach_pos();
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
@@ -568,7 +567,7 @@ void TOMineTrap::sync_position() { VecCopy((Vec *)((char*)this + 0x38), (const V
 void TOMine::detonate() {
     s32 i;
     u8 *obj;
-    set_indexed_flags__13TUnk_804AF8A0Fll(this, 0, 2);
+    set_indexed_flags(0, 2);
     *(f32 *)(*(u8 * *)&this->m_a4 + 0xC) = this->m_350;
     TObjPlayer::init_all_slots();
     ((TObjPlayer *)((u8 *)this))->check_object_collisions();

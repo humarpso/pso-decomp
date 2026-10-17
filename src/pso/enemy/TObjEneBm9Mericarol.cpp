@@ -173,7 +173,6 @@ void TObjEneBm9Mericarol__sub_802CF368(u8 *actor, s32 arg1);
 void TObjEneBm9Mericarol__sub_802CF4F8(u8 *arg0, s32 arg1);
 void TObjEneDD__sub_802CF7B4(u8 *arg0, s32 arg1);
 void TObjPlayer__sub_802CFB64(u8 *arg0, s32 arg1);
-void handle_shot_state__19TObjEneBm9MericarolFl(u8 *arg0, s32 arg1);
 void TObjEneBm9Mericarol__sub_802D01D8(u8 *actor, s32 arg1);
 void TObjEneBm9Mericarol__sub_802D05BC(u8 *arg0, s32 arg1);
 void dispatch_state_handler__19TObjEneBm9MericarolFiUii(s32 arg0, u32 arg1, s32 arg2);
@@ -376,7 +375,6 @@ void init_object__12TObjEneDD_STFv(void *, void *);
 void __construct_array(void *, void *, void *, u32, u32);
 void invoke_initialization_hook__9TObjEneDDFv(void *, s32);
 void init_model__9TObjEneDDFv(void *, void *, s32);
-void set_animation__10TObjMotionFs(void *, s16);
 void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
@@ -583,7 +581,7 @@ void dispatch_state_handler__19TObjEneBm9MericarolFiUii(s32 actor, u32 arg1, s32
         TObjEneBm9Mericarol__sub_802D01D8((u8 *)actor, (msg));
         return;
     case 4:
-        handle_shot_state__19TObjEneBm9MericarolFl((u8 *)actor, (msg));
+        ((TObjEneBm9Mericarol *)actor)->handle_shot_state((msg));
         return;
     case 5:
         TObjPlayer__sub_802CFB64((u8 *)actor, (msg));
@@ -668,7 +666,7 @@ Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *self, void *parent, s32 arg2
     ((TObjMotion *)self)->set_field_d8((s32)lbl_804E1634);
     ((TObjMotion *)self)->set_field_dc(((Res_802D0D3C *)lbl_805D6868)->f430);
     self->fB8 = 2;
-    set_animation__10TObjMotionFs(self, self->fB8);
+    ((TObjMotion *)self)->set_animation(self->fB8);
     ((TObjMotion *)self)->set_field_b8(self->fB8);
     ph = ((TObjEneBm9Mericarol *)self)->get_phase();
     reset_hp__9TObjEneDDFv(self, bm9_mericarol_phase_hp_table[ph], lbl_80540B64[ph], lbl_80540B70[ph]);

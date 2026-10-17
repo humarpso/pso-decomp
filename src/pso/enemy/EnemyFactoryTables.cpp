@@ -1,4 +1,5 @@
 #include "pso/enemy/EnemyFactoryTables.h"
+#include "pso/npc/TObjNpcBringer.h"
 #include "pso/npc/TObjNpcFemaleChild.h"
 #include "pso/npc/TObjNpcFemaleDwarf.h"
 #include "pso/npc/TObjNpcFemaleFat.h"
@@ -87,7 +88,6 @@ void* create__12TObjEneSlimeFl(void* placement);
 void* create__18TObjEneRe4SorcererFv(void* placement);
 void* create_real__16TObjEneMe3StelthFv(void* placement);
 void* TObjNpcAHM01__create(void* placement);
-void* create__14TObjNpcBringerFPv(void* placement);
 void* TObjNpcFemaleBase__create(void* placement);
 void* TObjNpcFemaleChild__create(void* placement);
 void* TObjNpcMaleChild__create(void* placement);
@@ -241,7 +241,7 @@ EnemyFactoryEntry enemy_factories_floor_09[10] = {
     { 0x00A6, TObjEneDimedian::create, 250000.0f, 0 },
     { 0x00A7, TObjEneBalClawBody::create, 250000.0f, 4 },
     { 0x00A8, create__18TObjEneBalClawClawFv, 250000.0f, 0 },
-    { 0x00A9, create__14TObjNpcBringerFPv, 250000.0f, 0 },
+    { 0x00A9, TObjNpcBringer::create, 250000.0f, 0 },
     { 0x0033, TObjNpcEnemy__create, 250000.0f, 0 },
     { -1, 0, 250000.0f, 0 },
 };
@@ -255,7 +255,7 @@ EnemyFactoryEntry enemy_factories_floor_10[11] = {
     { 0x00A6, TObjEneDimedian::create, 250000.0f, 0 },
     { 0x00A7, TObjEneBalClawBody::create, 250000.0f, 4 },
     { 0x00A8, create__18TObjEneBalClawClawFv, 250000.0f, 0 },
-    { 0x00A9, create__14TObjNpcBringerFPv, 250000.0f, 0 },
+    { 0x00A9, TObjNpcBringer::create, 250000.0f, 0 },
     { 0x0033, TObjNpcEnemy__create, 250000.0f, 0 },
     { -1, 0, 250000.0f, 0 },
 };

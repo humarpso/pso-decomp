@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/boss/TBoss8Dragon_8002CC48.h"
 #include "pso/boss/TObjBoss2Tunnel_8007E418.h"
 #include "pso/misc/TCameraCtrl_803D6538.h"
@@ -153,7 +154,7 @@ void TBreakUpMdl::render() {
         model_render_flags |= 0x810;
         set_chunk_material_override_pair(0xFF00, 0x800);
         color.a = self->alpha;
-        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&color);
+        ((TUnk_80494AE0 *)((f32 *)&color))->set_chunk_material_color();
     }
     for (i = 0; i < self->count; i++) {
         part = &self->parts[i];

@@ -143,7 +143,6 @@ struct Vec_80316B20 { f32 x, y, z; };
 extern "C" {
 void transition_enemy_state(void *, s16);
 void advance_animation_playback(void *);
-void set_indexed_flags__13TUnk_804AF8A0Fll(void *, s32, s32);
 s32 play_sound_effect(s32, u32, s16, s32);
 s32 pack_debug_text_position(s32, s32);
 s32 sub_8031A454__18TObjEneMe3SinowZoaFv(void *);
@@ -374,7 +373,7 @@ void TObjEneMe3SinowZoa__sub_80316C3C(Obj_80316C3C *arg0, s32 arg1) {
             if (arg0->sub.m4() != 0) {
                 arg0->state = 5;
                 arg0->flags |= 0x40000;
-                set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 0x08000000);
+                ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 0x08000000);
             }
             break;
         }
@@ -435,7 +434,7 @@ void TObjEneMe3SinowZoa__sub_80317254(u8 *arg0, s32 arg1) {
             transition_enemy_state(arg0, 6);
             *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & ~5);
             *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 0x40000);
-            set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 0x08000000);
+            ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 0x08000000);
             break;
         }
     case 5:

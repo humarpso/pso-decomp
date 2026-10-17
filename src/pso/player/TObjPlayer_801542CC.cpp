@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/enemy/TUnk_80493450.h"
@@ -144,7 +145,6 @@ s32 push_matrix_from(void *);
 s32 rotate_vector_by_current_matrix(void *, void *);
 s32 pop_matrix();
 extern f32 identity_matrix[12];
-void refresh_collision_body_centers__13TUnk_804AF8A0Fv(Obj_80154E3C *arg0);
 u8 * TObjPlayer__sub_80155028(s32 arg0, s32 arg1);
 s32 build_collision_box_corners(s32 arg0, s32 arg1, Box_80154EF8 *box, u32 out);
 s32 subtract_vector(void *, void *);
@@ -198,7 +198,6 @@ extern const f32 lbl_805DB280;
 s32 resolve_actor_sphere_contact(u8 *arg0, s32 arg1, s32 arg2);
 extern "C" {
 void* refresh_actor_body_spheres(CollisionBody_80155FBC, CollisionBody_80155FBC);
-void* find_actor_body_contact__13TUnk_804AF8A0FPUcf(u8* arg0, u8* arg1, f32 limit);
 extern s32 TObjPlayer__data_8050D460[];
 void *mem_alloc(u32 size);
 void fn_8002B630(u8 *arg0, u8 *arg1);
@@ -236,7 +235,6 @@ u8 test_elt_flag__13TUnk_80493450Fll(void *arg0, s32 arg1, s32 arg2);
 s32 obj_is_hit_receivable(void *);
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, u32);
 void *resolve_hittable_target(u16 actorId, s16 collider);
-int get_or_assign_actor_id__13TUnk_804806E8Fl(void*, void*);
 u16 register_entity_by_id(void*);
 int memset(void*, void*, void*);
 
@@ -406,7 +404,7 @@ u16 TUnk_804AF8A0::unregister_object_by_id() {
     return 0xFFFF;
 }
 
-void TObjPlayer::reset_photon_effect() { get_or_assign_actor_id__13TUnk_804806E8Fl(this, (void*)0); register_entity_by_id(this); }
+void TObjPlayer::reset_photon_effect() { get_or_assign_actor_id((s32)((void*)0)); register_entity_by_id(this); }
 
 #define o ((Obj_80154B60 *)ov)
 #define TBL ((Obj_80154B60 **)TObjPlayer__data_8050D460)
@@ -1045,7 +1043,7 @@ void TObjPlayer::update_enemy_collision_flags() {
         for (j = lbl_805D586C + lbl_805D5870; j < (s32) lbl_805D5868; j++) {
             temp_r3 = get_player_data__10TObjPlayerFi(j);
             if (temp_r3 != 0) {
-                actor_body_contact = find_actor_body_contact__13TUnk_804AF8A0FPUcf((u8*)this, (u8*)temp_r3, TObjPlayer__data_805DB298);
+                actor_body_contact = find_actor_body_contact((u8*)temp_r3, TObjPlayer__data_805DB298);
                 if ((actor_body_contact != NULL) && (TObjPlayer::check_flag_pair(*(s32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 0x18), *(s32 *)((s8 *)actor_body_contact + 0x18)) == 0) && (respond_to_body_contact((u8 *)this, (u32)temp_r3, (u8 *)actor_body_contact) != 0)) {
                     temp_r3_3 = *(void **)((s8 *)this + 0xA4);
                     *(s32 *)((s8 *)temp_r3_3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3_3 + 0x18) | 0x01200000);
@@ -1066,7 +1064,7 @@ void check_enemy_body_collisions(void *arg0) {
             other = (Player_801564A0 *)get_player_data__10TObjPlayerFi(i);
             if (other != 0) {
                 if (self->room == other->room || self->id < 0x1000) {
-                    ct = (Coll_801564A0 *)find_actor_body_contact__13TUnk_804AF8A0FPUcf((u8 *)self, (u8 *)other, TObjPlayer__data_805DB298);
+                    ct = (Coll_801564A0 *)((TUnk_804AF8A0 *)self)->find_actor_body_contact((u8 *)other, TObjPlayer__data_805DB298);
                     if (ct != 0) {
                         self->coll->flags |= 0x100000;
                         if (TObjPlayer::check_flag_pair(self->coll->flags, ct->flags) == 0 &&
@@ -1093,7 +1091,7 @@ void TObjPlayer::check_object_collisions() {
         for (j = 0; j < (s32) lbl_805D586C; j++) {
             temp_r3 = ((void *)get_player_data__10TObjPlayerFi(j));
             if ((temp_r3 != NULL) && ((u16) *(u16 *)((s8 *)temp_r3 + 0x1C) < 0x1000U)) {
-                actor_body_contact = find_actor_body_contact__13TUnk_804AF8A0FPUcf((u8*)this, (u8*)temp_r3, TObjPlayer__data_805DB298);
+                actor_body_contact = find_actor_body_contact((u8*)temp_r3, TObjPlayer__data_805DB298);
                 if (actor_body_contact != NULL) {
                     temp_r3_3 = *(void **)((s8 *)this + 0xA4);
                     *(s32 *)((s8 *)temp_r3_3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3_3 + 0x18) | 0x80000);
@@ -1105,13 +1103,13 @@ void TObjPlayer::check_object_collisions() {
             }
         }
         if (!(*(s32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 0x18) & 0x480000)) {
-            refresh_collision_body_centers__13TUnk_804AF8A0Fv((Obj_80154E3C *)(this));
+            refresh_collision_body_centers();
         }
     }
 }
 void TObjPlayer::update_collisions() { check_object_collisions(); check_enemy_body_collisions(this); }
 void TUnk_804AF8A0::clear_obj_links() { *(s32*)((char*)this + 0x9c) = 0; *(s32*)((char*)this + 0xa4) = 0; }
-void*TUnk_804AF8A0::initialize_linked_object_reference(void*a1) { *(int*)((char*)this + 0xa8) = 1; *(void**)((char*)this + 0xa4) = a1; *(void**)((char*)this + 0x9c) = (char*)this + 0xa0; refresh_collision_body_centers__13TUnk_804AF8A0Fv((Obj_80154E3C *)(this)); return *(void**)((char*)this + 0xa4); }
+void*TUnk_804AF8A0::initialize_linked_object_reference(void*a1) { *(int*)((char*)this + 0xa8) = 1; *(void**)((char*)this + 0xa4) = a1; *(void**)((char*)this + 0x9c) = (char*)this + 0xa0; refresh_collision_body_centers(); return *(void**)((char*)this + 0xa4); }
 
 void free_collision_body_parts(G_80156720 *arg0) {
     u8 *p = arg0->f9c;
@@ -1136,7 +1134,7 @@ Part_80156780 *init_collision_body_parts(Obj_80156780 *self, Part_80156780 *src,
         for (i = 0; i < self->count; i++) {
             fn_8002B630((u8 *)&self->parts[i], (u8 *)(src++));
         }
-        refresh_collision_body_centers__13TUnk_804AF8A0Fv((Obj_80154E3C *)(self));
+        ((TUnk_804AF8A0 *)self)->refresh_collision_body_centers();
     }
     if (self->f9c == 0) {
         n = self->count;

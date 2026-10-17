@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneGibbles.h"
@@ -506,7 +507,6 @@ extern s32 lbl_8043B0B4[];
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 void acquire_target__11TObjEneMojaFPv(u8 *arg0);
-void copy_position__20TBoss3VoloptHiraisinFv(s32 arg0);
 s32 TObjPlayer__sub_800ACA0C(void *);
 
 void update_attack_jump__11TObjEneMojaFv(Obj_800ACFE8 *);
@@ -1650,7 +1650,7 @@ void TObjEneMoja::run_task() {
         }
     }
     ((TObjEnemy *)arg0)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFv((s32)arg0);
+    ((TBoss3VoloptHiraisin *)arg0)->copy_position();
     submit_cursor_candidate(arg0, -1);
     temp_r4 = this->target;
     if ((temp_r4 != NULL) && (*(s32 *)((s8 *)temp_r4 + 0x30) & 0x02000800)) {

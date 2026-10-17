@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/ChunkMaterialState.h"
 #include "pso/system/GinjaMaterial.h"
@@ -47,9 +48,9 @@ void TSlicerHistory::render() {
             rotate_matrix_z(0, (int) (*(s32 *)((s8 *)arg0 + 0x24)));
             rotate_matrix_x(0, (int) (*(s32 *)((s8 *)arg0 + 0x1C)));
             scale_current_matrix(arg0 + 0x4C);
-            set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&col);
+            ((TUnk_80494AE0 *)((f32 *)&col))->set_chunk_material_color();
             draw_ginja_object((void *)(*(u32 *)((s8 *)arg0 + 0x34)));
-            set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&chunk_material_color_half_alpha_f32);
+            ((TUnk_80494AE0 *)((f32 *)&chunk_material_color_half_alpha_f32))->set_chunk_material_color();
             TParticleCtrl::end_effect_render();
         }
         pop_matrix();

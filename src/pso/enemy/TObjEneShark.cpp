@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/enemy/TObjEneSaver.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
@@ -999,7 +1000,6 @@ struct Shark_800AC6B0 : VObj_800AC6B0 {
 
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-void copy_position__20TBoss3VoloptHiraisinFv(void *);
 
 void init_enemy_base__13TUnk_80493450Fv(void *);
 }
@@ -1033,7 +1033,7 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
     ((TObjMotion *)self)->set_field_d8((s32)self->fD8);
     self->fDC = *(s32 *)(shark_bml_resource + 0x430);
     self->fB8 = 0;
-    set_animation__10TObjMotionFs(self, self->fB8);
+    ((TObjMotion *)self)->set_animation(self->fB8);
     ((TObjMotion *)self)->set_field_b8(self->fB8);
     init_collision_body_parts(self, lbl_80491608 + self->f334 * 0x2C, 1);
     bind_enemy_combat_stats(self, ((s32 *)TObjEneShark__resource_node)[self->f334], ((s32 *)TObjEneShark__resource_buf)[self->f334],
@@ -1041,7 +1041,7 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
     self->f350 = lbl_804915B4 + self->f334 * 0x1C;
     self->f33E = self->f32C;
     ((TObjEnemy *)self)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFv(self);
+    ((TBoss3VoloptHiraisin *)self)->copy_position();
     initialize_enemy_photon_effect(self);
     self->f2AC = (s32)(lbl_805D9BD0 * (lbl_805D9BD4 * calc_boss4_scale__10TObjPlayerFi(self)));
     self->f33A = 0xF;

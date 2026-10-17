@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/player/TObjPlayer_800EBE2C.h"
 #include "pso/system/ChunkMaterialState.h"
 #include "pso/enemy/TObjEneSlimeTailAttack.h"
@@ -39,7 +40,7 @@ void TObjPlayer::push_material_color_override(f32 farg0, f32 farg1, f32 farg2, f
     stack.sp10 = farg2;
     stack.sp8 = lbl_805DA6F8 + farg0;
     stack.sp14 = farg3;
-    set_chunk_material_color__13TUnk_80494AE0Fv((&stack.sp8));
+    ((TUnk_80494AE0 *)(&stack.sp8))->set_chunk_material_color();
 }
 int TObjEneSlimeTailAttack::find_nearest_enemy_with_flag(f32 farg0) {
     u8 *arg0 = (u8 *)this;

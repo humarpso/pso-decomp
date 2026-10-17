@@ -51,7 +51,6 @@ f32 receive_weapon_special_attack__15TObjEneMe1GiGueFPvPv(u8 *arg0);
 f32 receive_attack__15TObjEneMe1GiGueFPviii(S_802CAAF0 *arg0, s32 arg1, V_802CAAF0 arg2, s32 arg3);
 f32 receive_physical_attack__15TObjEneMe1GiGueFPvf(u8 *arg0);
 void TObjEneMe1GiGueBarrier__sub_802CABF4(void* p);
-void sub_802CACD8__15TObjEneMe1GiGueFv(u8 *arg0);
 s32 update_action_hold_status__15TObjEneMe1GiGueFv(s32 arg0);
 void find_open_direction__15TObjEneMe1GiGueFPvPv(u8 *arg0, Vec_802CAD98 *arg1);
 void load_params__15TObjEneMe1GiGueFv(s32 arg0);
@@ -592,7 +591,7 @@ void TObjEneMe1GiGue::sub_802CACD8() {
 s32 TObjEneMe1GiGue::update_action_hold_status() {
     s32 arg0 = (s32)this;
     if (update_action_hold_status__13TUnk_804806E8Fv() != 0) {
-        sub_802CACD8__15TObjEneMe1GiGueFv((u8 *)arg0);
+        ((TObjEneMe1GiGue *)arg0)->sub_802CACD8();
         return 1;
     }
     return 0;
@@ -2124,7 +2123,6 @@ s32 TObjEnemyCustom__ct(void *, s32);
 int initialize_enemy_photon_effect(void *p);
 extern "C" {
 s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
-void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 s32 init_collision_body_parts(void *, void *, int);
 extern s32 lbl_805D3F18;
 
@@ -2166,7 +2164,7 @@ u8 *TObjEneMe1GiGue__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TObjEneMe1GiGue *)arg0)->update_direction();
     ((void (*)(void *))load_params__15TObjEneMe1GiGueFv)(arg0);
     ((TObjEneMe1GiGue *)arg0)->m_b8 = 0;
-    set_animation__10TObjMotionFs(arg0, ((TObjEneMe1GiGue *)arg0)->m_b8);
+    ((TObjMotion *)arg0)->set_animation(((TObjEneMe1GiGue *)arg0)->m_b8);
     ((TObjMotion *)arg0)->set_field_b8(((TObjEneMe1GiGue *)arg0)->m_b8);
     ((TObjEneMe1GiGue *)arg0)->hp = ((TObjEneMe1GiGue *)arg0)->hpmax;
     ((TObjEneMe1GiGue *)arg0)->m_32e = ((TObjEneMe1GiGue *)arg0)->m_2ba;

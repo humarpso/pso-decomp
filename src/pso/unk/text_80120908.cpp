@@ -43,7 +43,6 @@ extern u8 *weapon_render_callback_object;
 extern s32 model_render_flags;
 extern const f32 lbl_805DACA8;
 extern const f32 lbl_805DACAC;
-s32 draw_weapon_model__11TItemWeaponFv(TItemWeapon *arg0);
 
 s32 TItemWeapon::draw_weapon_model() {
     s32 var_r30;
@@ -130,7 +129,7 @@ void draw_weapon_at_joint(s32 arg0, s8 arg1) {
     s8 temp_r31;
     temp_r31 = get_attach_joint__11TItemWeaponFv((void *)arg0);
     ((TItemEquipBase *)arg0)->set_equip_flag(arg1);
-    draw_weapon_model__11TItemWeaponFv((TItemWeapon *)((void *)arg0));
+    ((TItemWeapon *)arg0)->draw_weapon_model();
     ((TItemEquipBase *)arg0)->set_equip_flag(temp_r31);
 }
 }

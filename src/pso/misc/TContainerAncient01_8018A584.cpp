@@ -189,7 +189,6 @@ struct Obj_8018B030 : VBase_8018B030 {
 extern "C" {
 void construct_actor_base__10TObjPlayerFPvPv(void *, void *, void *);
 s32 TObjFish__sub_8001EDB0(int, int);
-void set_animation__10TObjMotionFs(void *, s16);
 void init_collision_body_parts(void *, void *, int);
 extern s32 TContainerAncient01R__name;
 extern const f32 lbl_805DBD5C;
@@ -697,7 +696,7 @@ void *TContainerAncient01R__ct(Obj_8018B030 *self, void *arg1, void *parent) {
     ((TObjMotion *)self)->set_field_d8((s32)self->animTbl);
     self->xdc = ((Res_8018B030 *)TContainerAncient01R__bml_resource)->x430;
     self->anim = 0;
-    set_animation__10TObjMotionFs(self, self->anim);
+    ((TObjMotion *)self)->set_animation(self->anim);
     ((TObjMotion *)self)->set_field_b8(self->anim);
     self->flags |= 0x60000000;
     init_collision_body_parts(self, (void *)&TContainerAncient01__collision_body_parts, 1);

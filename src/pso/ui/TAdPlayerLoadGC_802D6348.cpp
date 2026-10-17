@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
 #include "pso/ui/TUnk_804E24F0.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/math/MatrixTransforms.h"
@@ -41,7 +42,7 @@ void TAdPlayerLoadGC__sub_802D6390(A_802D6390 *weapon, B_802D6390 *arg1) {
     u8 sp8[16];
     arg1->f40 |= 0x11C;
     get_weapon_color__11TItemWeaponFPv(sp8, weapon);
-    copy_vec4__13TRaderMapCoreFPv(arg1->v60, sp8);
+    ((TRaderMapCore *)(arg1->v60))->copy_vec4(sp8);
     arg1->f44 = weapon->f188;
     arg1->f10 = 4;
     arg1->f4C = lbl_805DE7AC;

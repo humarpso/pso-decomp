@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/player/TUnk_804EDC28.h"
 #include "pso/player/TUnk_804EDD20.h"
 #include "pso/item/TUnk_804EDD44.h"
@@ -28,7 +30,6 @@ extern const f32 lbl_805DF7D8;
 extern const f32 lbl_805DF7DC;
 extern const f32 lbl_805DF7E0;
 extern "C" {
-void copy_vec4__13TRaderMapCoreFPv(void *p, void *q);
 s32 *query_game_join_id__10TObjPlayerFv(s32 *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 notify_fish_if_valid__10TObjPlayerFUl();
@@ -38,7 +39,6 @@ s32 pop_matrix();
 s32 scale_current_matrix(int);
 s32 post_translate_matrix(int);
 void draw_ginja_object(void *child);
-void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 extern RecoveredGlobal_8032DC94_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_8032DC94_lbl_8058D4C0 model_material_color;
 extern s32 lbl_805D5660;
@@ -146,10 +146,10 @@ void TUnk_804EDD20::render() {
         lbl_805D5660 = model_render_flags;
         var_r3 = &saved_model_draw_color.value;
         var_r4 = &model_material_color.value;
-        copy_vec4__13TRaderMapCoreFPv((&saved_model_draw_color.value), (&model_material_color.value));
+        ((TRaderMapCore *)(&saved_model_draw_color.value))->copy_vec4((&model_material_color.value));
         var_r3 = (s32 *)(var_r29 + 0x80);
         model_render_flags |= 0x20;
-        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)var_r3);
+        ((TUnk_80494AE0 *)var_r3)->set_chunk_material_color();
         var_r3 = (s32 *) var_r31;
         ((TObjPlayer *)var_r3)->get_entity_id();
         notify_fish_if_valid__10TObjPlayerFUl();
@@ -168,7 +168,7 @@ void TUnk_804EDD20::render() {
         var_r4 = &saved_model_draw_color.value;
         var_r3 = &model_material_color.value;
         var_r4 = &saved_model_draw_color.value;
-        copy_vec4__13TRaderMapCoreFPv((&model_material_color.value), (&saved_model_draw_color.value));
+        ((TRaderMapCore *)(&model_material_color.value))->copy_vec4((&saved_model_draw_color.value));
         model_render_flags = lbl_805D5660;
       }
     }
@@ -253,7 +253,6 @@ void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 void *spawn_particle_effect(void *pos, s32 id);
 extern const f32 lbl_805DF7E8;
 void *find_entity_by_id(u16 id);
-void anchor_card_effect__13TUnk_804EDD44Fv(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 u8 *find_item_by_id(s32 id);
 s8 sub_80102C30__5TItemFv();
@@ -326,7 +325,7 @@ void TUnk_804EDD44::run_task() {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    anchor_card_effect__13TUnk_804EDD44Fv(arg0);
+    ((TUnk_804EDD44 *)arg0)->anchor_card_effect();
     for (i = 0; i != 3; i++) {
         if (((O_8032DFF8 *)arg0)->o[i] != NULL) {
             ((TNowLoading *)(((O_8032DFF8 *)arg0)->o[i]))->copy_pos((u8 *)&this->unk_64);

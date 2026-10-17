@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/player/TObjPlayer_80100E00.h"
 #include "pso/player/TObjPlayer_80102C78.h"
 #include "pso/item/TItemEquipBase.h"
@@ -54,12 +56,10 @@ s32 test_flag_2000000__10TObjPlayerFPv(int);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 test_flags_any(s32 *, s32);
 extern s32 lbl_805D53EC;
-s32 copy_vec4__13TRaderMapCoreFPv(void *, void *);
 extern RecoveredGlobal_80101088_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_80101088_lbl_8058D4C0 model_material_color;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-s32 set_chunk_material_color__13TUnk_80494AE0Fv(s32);
 void copy_to_item_data__5TItemFPv(void *, void *);
 void *get_player_by_client_id(s32 i);
 s16 *get_stat_bonus_ptr__14TItemEquipBaseFv();
@@ -145,7 +145,7 @@ void TObjPlayer::play_particle_effect_once() {
 }
 void TObjPlayer__sub_80101088(void) {
     if (test_flags_any(&lbl_805D53EC, 1) != 0) {
-        copy_vec4__13TRaderMapCoreFPv(&model_material_color.value, &saved_model_draw_color.value);
+        ((TRaderMapCore *)(&model_material_color.value))->copy_vec4(&saved_model_draw_color.value);
         model_render_flags = lbl_805D5660;
         ((TAdRicoRing *)(&lbl_805D53EC))->clear_flags(1);
     }
@@ -156,7 +156,7 @@ void TObjPlayer::enable_flag20(s32 arg0) {
         temp_r0 = (*(volatile s32 *)&model_render_flags) & 0xFFFFFFEF;
         (*(volatile s32 *)&model_render_flags) = temp_r0;
         (*(volatile s32 *)&model_render_flags) = temp_r0 | 0x20;
-        set_chunk_material_color__13TUnk_80494AE0Fv(arg0);
+        ((TUnk_80494AE0 *)arg0)->set_chunk_material_color();
         ((TObjPlayer *)(&lbl_805D53EC))->set_flags(1);
     }
 }
@@ -165,7 +165,7 @@ void TObjPlayer::enable_first_time_flag(s32 arg0) {
     if ((arg0 != 0) && (test_flags_any(&lbl_805D53EC, 1) == 0)) {
         model_render_flags &= 0xFFFFFFDF;
         model_render_flags |= 0x10;
-        set_chunk_material_color__13TUnk_80494AE0Fv(arg0);
+        ((TUnk_80494AE0 *)arg0)->set_chunk_material_color();
         ((TObjPlayer *)(&lbl_805D53EC))->set_flags(1);
     }
 }

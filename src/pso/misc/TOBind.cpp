@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TOBind.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -6,7 +7,6 @@ extern "C" {
 
 s32 TOBind__sub_80158608(void *);
 s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1);
-s32 clear_player_status_flag__13TUnk_804AF8A0FlUl(void *, s32, s32);
 
 extern s32 quest_mission_manager;
 
@@ -30,7 +30,7 @@ void TOBind::run_task() {
     if ((s32) this->m_b0 != 1) {
         if (get_register__12TQuestThreadFPvi((u8 *)quest_mission_manager, this->m_b4) != 0) {
             this->m_b0 = 1;
-            clear_player_status_flag__13TUnk_804AF8A0FlUl(this, 0, 1);
+            clear_player_status_flag(0, 1);
         }
         sub_8015860C();
     }

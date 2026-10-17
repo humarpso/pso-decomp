@@ -56,7 +56,6 @@ extern "C" {
 s32 construct_actor_base__10TObjPlayerFPvPv(void *);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_8018BD00_TContainerAncient01__data_804B6DC0 TContainerAncient01__collision_body_parts;
 extern RecoveredGlobal_8018BD00_lbl_804B6DEC TContainerAncient01__anim_table;
@@ -108,7 +107,7 @@ u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjMotion *)arg0)->set_field_d8((s32)((void *) (((TContainerAncient01 *)arg0)->action_table)));
     *(s32 *)((s8 *)arg0 + 0xDC) = (s32) *(s32 *)((s8 *)(*(u8 * *)&TContainerAncient01__bml_resource) + 0x430);
     ((TContainerAncient01 *)arg0)->m_b8 = 0;
-    set_animation__10TObjMotionFs((arg0), (((TContainerAncient01 *)arg0)->m_b8));
+    ((TObjMotion *)arg0)->set_animation((((TContainerAncient01 *)arg0)->m_b8));
     ((TObjMotion *)arg0)->set_field_b8((int) (((TContainerAncient01 *)arg0)->m_b8));
     ((TContainerAncient01 *)arg0)->actorFlags = (s32) (((TContainerAncient01 *)arg0)->actorFlags | 0x60000000);
     init_collision_body_parts(arg0, (void *)&TContainerAncient01__collision_body_parts.value, 1);

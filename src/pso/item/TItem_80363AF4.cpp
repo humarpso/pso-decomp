@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
 #include "pso/player/TObjPlayer_80363BE0.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/player/TUnk_804F29F8.h"
@@ -45,13 +46,13 @@ extern u32 lbl_805D5660, lbl_805D5664, lbl_805D5668;
 extern Color saved_model_draw_color, model_material_color;
 extern EquippedItemDrawQueue *player_item_id_list;
 
-void TItem::push_to_player_list(void* a0) { push_to_list__10TObjPlayerFl((u8 *)player_item_id_list, (s32)a0); }
+void TItem::push_to_player_list(void* a0) { ((TObjPlayer *)player_item_id_list)->push_to_list((s32)a0); }
 void TUnk_804F29F8::render() {
     TObjPlayer::reset_transform_state();
     lbl_805D5660 = model_render_flags;
     lbl_805D5664 = chunk_polygon_flags_and_mask;
     lbl_805D5668 = chunk_polygon_flags_or_mask;
-    copy_vec4__13TRaderMapCoreFPv(&saved_model_draw_color, &model_material_color);
+    ((TRaderMapCore *)(&saved_model_draw_color))->copy_vec4(&model_material_color);
     u32 *id = player_item_id_list->item_ids;
     s32 remaining = player_item_id_list->count;
     while (remaining != 0) {
@@ -59,7 +60,7 @@ void TUnk_804F29F8::render() {
         if (item) {
             item->render();
             TObjPlayer::reset_transform_state();
-            copy_vec4__13TRaderMapCoreFPv(&model_material_color, &saved_model_draw_color);
+            ((TRaderMapCore *)(&model_material_color))->copy_vec4(&saved_model_draw_color);
             chunk_polygon_flags_and_mask = lbl_805D5664;
             chunk_polygon_flags_or_mask = lbl_805D5668;
             model_render_flags = lbl_805D5660;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/misc/PhotonBlastSummon.h"
 #include "pso/misc/obj_band.h"
@@ -71,14 +72,14 @@ void TPhotonYoulla::render() {
         post_translate_matrix(&self->pos);
         rotate_matrix_y(0, self->f60);
         lbl_805D5660 = model_render_flags;
-        copy_vec4__13TRaderMapCoreFPv(&saved_model_draw_color, &model_material_color);
+        ((TRaderMapCore *)(&saved_model_draw_color))->copy_vec4(&model_material_color);
         lbl_805D5664 = chunk_polygon_flags_and_mask;
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         model_render_flags |= 0x200820;
         TObjPlayer::set_global_flag();
         set_material_alpha_compare_reference(0);
         set_chunk_material_override_pair(-1, 0x800);
-        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&self->color);
+        ((TUnk_80494AE0 *)((f32 *)&self->color))->set_chunk_material_color();
         ((TUnk_804C3248 *)self)->set_photon_blast_joint_callback();
         ((TObjEneRe7Berura *)self)->draw();
         TObjPlayer::clear_global_state();
@@ -86,7 +87,7 @@ void TPhotonYoulla::render() {
         clear_render_context__10TObjPlayerFv(self);
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;
-        copy_vec4__13TRaderMapCoreFPv(&model_material_color, &saved_model_draw_color);
+        ((TRaderMapCore *)(&model_material_color))->copy_vec4(&saved_model_draw_color);
         model_render_flags = lbl_805D5660;
         pop_matrix();
         TParticleCtrl::end_effect_render();
@@ -153,7 +154,7 @@ u8 *TPhotonYoulla__ct(TPhotonYoulla *arg0, u8 *arg1) {
     ((TObjMotion *)arg0)->set_field_d8((s32) photon_blast_youlla_params);
     ((TObjMotion *)arg0)->set_field_dc(*(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
     arg0->m_b8 = 1;
-    set_animation__10TObjMotionFs(arg0, arg0->m_b8);
+    ((TObjMotion *)arg0)->set_animation(arg0->m_b8);
     ((TObjMotion *)arg0)->set_field_b8(arg0->m_b8);
     arg0->m_194 = 1;
     arg0->m_198 = (s32) *(s32 *)((s8 *)arg1 + 0x10);

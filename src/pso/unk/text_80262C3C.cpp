@@ -209,7 +209,7 @@ void TWindowLockOn::validate_target() {
         }
       }
       else
-        if ((((s32 (*)(void *, s32))obj_testFlags30__13TUnk_804AF8A0FUl)(item, 0x80000000) != 0) && (sub_80102C30__5TItemFv(item) != 0))
+        if ((((s32 (*)(void *, s32))obj_testFlags30__13TUnk_804AF8A0FUl)(item, 0x80000000) != 0) && (((TItem *)item)->sub_80102C30() != 0))
       {
         this->m_60 = 0xFFFFU;
         if (((f32) (*(s32 *)&this->m_64)) > lbl_805DD100)

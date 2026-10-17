@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/boss/TBoss8Dragon_8002CC48.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/ChunkMaterialState.h"
@@ -165,7 +166,7 @@ void TObjBoss2CeilJunk::render() {
     {
       Color_8003A1B4 c = boss2_ceil_junk_render_color;
       c.a = (-1.0f) + self->fB4;
-      set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&c);
+      ((TUnk_80494AE0 *)((f32 *)&c))->set_chunk_material_color();
     }
     set_chunk_material_override_pair(0xFF00, 0x800);
     set_chunk_blend(0x2500);

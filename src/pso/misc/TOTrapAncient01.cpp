@@ -151,7 +151,6 @@ extern s32 TOTrapAncient01__class_name;
 extern const f32 lbl_805DBA54;
 extern const f32 lbl_805DBA6C;
 extern const f32 lbl_805DBA74;
-void set_indexed_flags__13TUnk_804AF8A0Fll(void *, int, int);
 VObj_801797D4 *get_battle_param__10TObjPlayerFi(s32);
 s32 obj_is_hit_receivable(void *);
 s32 check_value_equals__13TUnk_804B6C24Fl(void *, s32);
@@ -241,7 +240,7 @@ void TOTrapAncient01::vfunc_82() {
     ((Trap_801797D4 *)this)->f354 -= lbl_805DBA48;
     if (((Trap_801797D4 *)this)->f354 < TOTrapAncient01__data_805DBA4C) {
         ((Trap_801797D4 *)this)->fA4->fC = lbl_805DBA54;
-        set_indexed_flags__13TUnk_804AF8A0Fll(this, 0, 0x100);
+        set_indexed_flags(0, 0x100);
         TObjPlayer::init_all_slots();
         ((TObjPlayer *)this)->check_object_collisions();
         for (i = 0; i < 16; i++) {

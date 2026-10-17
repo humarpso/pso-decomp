@@ -1053,7 +1053,6 @@ struct Sel_802902CC {
 };
 
 s32 load_resource_from_descriptor(s32, s32, s32, s32, s32, s32);
-void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 s32 TObjMotion__ct(void *, void *);
 void *mem_alloc(u32 size);
 }
@@ -1103,7 +1102,7 @@ void *TCMCharacter__ct(void *arg0, void *arg1) {
     ((TObjMotion *)arg0)->set_field_d8((s32)((void *)character_making_action_table));
     ((TObjMotion *)arg0)->set_field_dc(*(s32 *)((s8 *)creation_menu_main_obj + 0x430));
     ((TObjMotion *)arg0)->m_b8 = creation_motion_group(creation_player_character);
-    set_animation__10TObjMotionFs(arg0, ((TObjMotion *)arg0)->m_b8);
+    ((TObjMotion *)arg0)->set_animation(((TObjMotion *)arg0)->m_b8);
     *(s32 *)((s8 *)arg0 + 0xE0) = (s32)mem_alloc(0xC00);
     *(f32 *)((s8 *)arg0 + 0x40) = lbl_805DD940;
     *(f32 *)((s8 *)arg0 + 0x3C) = lbl_805DD940;

@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer_8012105C.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/items/TItemWeapon.h"
 
 extern "C" {
 
-int obj_testFlags30__13TUnk_804AF8A0FUl(void*, void*);
 int get_attack_damage_scale(void*);
 int TObjPlayer__sub_801D2F4C(void*);
 
@@ -28,7 +28,7 @@ void TObjPlayer::set_model_id(s16 v) { this->m_116 = v; }
 int TObjPlayer::is_status_subsystem_ready() { return TObjPlayer__sub_801D2F4C((char*)this + 0x7cc); }
 void*TObjPlayer::get_extended_state() { return ((TObjPlayer *)((char*)this + 0x7cc))->get_state_ptr(); }
 int TObjPlayer::query_extended_state() { return get_attack_damage_scale((char*)this + 0x7cc); }
-void TObjPlayer::test_flag30_bit0x100000() { obj_testFlags30__13TUnk_804AF8A0FUl(this, (void*)1048576); }
+void TObjPlayer::test_flag30_bit0x100000() { obj_testFlags30((u32)((void*)1048576)); }
 void* get_model_joint_matrix(void* a0, int a1) {  return (char*)(*(int*)((char*)a0 + 0xdb4)) + a1 * 48; }
 void TObjPlayer::set_action_type(s16 v) { *(s16*)((char*)this + 0x0) = v; }
 

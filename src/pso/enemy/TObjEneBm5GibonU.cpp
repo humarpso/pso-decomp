@@ -248,7 +248,6 @@ void * __nw__7TObjectFUl(u32);
 void render__16TObjEneBm5GibonUFv(u8 *arg0);
 void TObjEneBm5GibonU__sub_800D0738(u8 *arg0, u32 arg1, s32 arg2);
 void TObjEneBm5GibonU__sub_800D0AE8(Obj_800D0AE8 *self, Vec_800D0AE8 *dir);
-void sub_800D10A0__16TObjEneBm5GibonUFv(u8 *arg0);
 void vfunc_88__16TObjEneBm5GibonUFv(u8 *arg0);
 void run_task__16TObjEneBm5GibonUFv(u8 *arg0);
 void update_shock_clock__13TUnk_804806E8Fv();
@@ -1901,7 +1900,7 @@ s32 TObjEneBm5GibonU::vfunc_83() {
 
     if (get_target_info__9TObjEneDDFv() != 0) {
         temp_r31 = *(s32 *)((s8 *)this + 0x464);
-        sub_800D10A0__16TObjEneBm5GibonUFv((u8 *)this);
+        sub_800D10A0();
         if (temp_r31 != (s32) *(s32 *)((s8 *)this + 0x464)) {
             if (temp_r31 != 0) {
                 forward_hit_to_enemy_list();
@@ -4308,7 +4307,6 @@ void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
 void init_model__9TObjEneDDFv(void *, void *, s32);
 void invoke_initialization_hook__9TObjEneDDFv(void *, s32);
-void set_animation__10TObjMotionFs(void *, s16);
 void init_collision_body_parts(void *, void *, s32);
 void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, s32);
 void __construct_array(void *, void *, void *, int, int);
@@ -4433,7 +4431,7 @@ u8 *TObjEneBm5GibonU__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjPlayer *)(arg0 + 0x4B0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D2A70;
     invoke_initialization_hook__9TObjEneDDFv(arg0, arg2);
-    sub_800D10A0__16TObjEneBm5GibonUFv(arg0);
+    ((TObjEneBm5GibonU *)arg0)->sub_800D10A0();
     ((TObjEneDD *)arg0)->init_position_vectors();
     if (*(s32 *)((s8 *)arg0 + 0x464) == 1) {
         init_model__9TObjEneDDFv(arg0, &gibon_collision_body_templates[1], 1);
@@ -4443,7 +4441,7 @@ u8 *TObjEneBm5GibonU__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjMotion *)arg0)->set_field_d8((s32)gibon_u_action_table);
     ((TObjMotion *)arg0)->set_field_dc(*(s32 *)((s8 *)(*(u8 * *)&(*(u32 *)&TObjEneBm5GibonU__model_archive)) + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-    set_animation__10TObjMotionFs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    ((TObjMotion *)arg0)->set_animation(*(s16 *)((s8 *)arg0 + 0xB8));
     ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     b = *(s32 *)((s8 *)arg0 + 0x464) ? 1 : 0;
     reset_hp__9TObjEneDDFv(arg0, ((s32 *)&(*(G_800D1D14 *)&TObjEneBm5GibonU__data_80500E78))[b],

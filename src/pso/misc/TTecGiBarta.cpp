@@ -365,7 +365,7 @@ void TTecGiBarta::run_task() {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    move_technique_projectile__13TUnk_804CCC68Fv((u8 *)this);
+    move_technique_projectile();
     advance_lifetime_or_destroy();
     dispatch_all_technique_contacts();
 }

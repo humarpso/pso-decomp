@@ -964,7 +964,6 @@ struct VObj_18_b31a3c : VBase_18_b31a3c {
 };
 extern "C" {
 s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
-void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 s32 init_collision_body_parts(void *, void *, int);
 extern s32 lbl_805D2978;
 extern s32 lbl_805D4F28;
@@ -986,7 +985,6 @@ void set_matrix_identity(u8 *arg0);
 extern void *beast_claw_trail_instance;
 extern void *boss4_type3_instance;
 extern const f32 lbl_805D96E4;
-void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 update_obstruction_fade(void *);
@@ -1387,7 +1385,7 @@ s32 TObjEneBalClawClaw__ct(void *arg0) {
     bind_enemy_combat_stats(self, (u8 *)lbl_805D4F28, (u8 *)lbl_805D4F2C, (u8 *)lbl_805D4F30);
     TObjEneBalClawClaw__sub_80090824(self);
     *(s16 *)((s8 *)self + 0xB8) = 0;
-    set_animation__10TObjMotionFs(self, *(s16 *)((s8 *)self + 0xB8));
+    ((TObjMotion *)self)->set_animation(*(s16 *)((s8 *)self + 0xB8));
     ((TObjMotion *)self)->set_field_b8(*(s16 *)((s8 *)self + 0xB8));
     *(s16 *)((s8 *)self + 0x32C) = *(s16 *)((s8 *)self + 0x2B8);
     *(s16 *)((s8 *)self + 0x32E) = *(s16 *)((s8 *)self + 0x2BA);
@@ -1555,7 +1553,7 @@ void TObjEneBeast::vfunc_83() {
         } else {
             *(s16 *)((s8 *)arg0 + 0x328) = 1;
             *(s16 *)((s8 *)arg0 + 0xB8) = 0xB;
-            set_indexed_flags__13TUnk_804AF8A0Fll((arg0), 0, 0x0A000000);
+            ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 0x0A000000);
             obj_setFlags30(arg0, 0x04000000);
             play_sound_effect(0x4003AB32, (s32)(arg0 + 0x38), 0, 0);
         }

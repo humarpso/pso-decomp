@@ -36,7 +36,6 @@ void draw_ginja_object(void *);
 void rotate_matrix_y(int, void *);
 void push_matrix(void);
 s32 pop_matrix(void);
-void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 
 extern void *lazer_fence_norm_texture_list;
 
@@ -66,7 +65,6 @@ void render__19TObjLazerFenceExtraFv(TObjLazerFenceExtra *arg0) {
     }
 }
 
-extern "C" void clear_player_status_flag__13TUnk_804AF8A0FlUl(void *, s32, u32);
 extern const f32 lbl_805DBE58;
 extern const f32 lbl_805DBE64;
 
@@ -76,14 +74,14 @@ void TObjLazerFenceExtra::update_wait_switch() {
         ((TObjLazerFenceExtra_801926D0 *)this)->frame = lbl_805DBE58;
     }
     if (is_current_floor_switch_set((u16)((TObjLazerFenceExtra_801926D0 *)this)->switchId) == 1) {
-        clear_player_status_flag__13TUnk_804AF8A0FlUl(((TObjLazerFenceExtra_801926D0 *)this), 0, 1);
+        clear_player_status_flag(0, 1);
         ((TObjLazerFenceExtra_801926D0 *)this)->state = 1;
     }
 }
 
 void reset_by_door__19TObjLazerFenceExtraFPv(void *arg0) {
     if (is_current_floor_switch_set((u16) *(s16 *)((s8 *)arg0 + 0xB0)) == 0) {
-        set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 1);
+        ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 1);
         *(s32 *)((s8 *)arg0 + 0xB4) = 0;
     }
 }
@@ -179,7 +177,7 @@ void *TObjLazerFenceExtra__ct(void *arg0, void *arg1, void *arg2) {
     ((TUnk_804AF8A0 *)self)->refresh_collision_body_centers();
     if (*(s32 *)((s8 *)self + 0xD8) == 0) {
         for (i = 1; i < *(s32 *)((s8 *)self + 0xA8); i++) {
-            clear_player_status_flag__13TUnk_804AF8A0FlUl(self, i, 1);
+            ((TUnk_804AF8A0 *)self)->clear_player_status_flag(i, 1);
         }
     }
     return arg0;
@@ -296,14 +294,14 @@ void TObjLazerFenceNorm::update_closed() {
         ((TObjLazerFenceNorm_80192CCC *)this)->frame = lbl_805DBE58;
     }
     if (is_current_floor_switch_set((u16)((TObjLazerFenceNorm_80192CCC *)this)->switchId) == 1) {
-        clear_player_status_flag__13TUnk_804AF8A0FlUl(((TObjLazerFenceNorm_80192CCC *)this), 0, 1);
+        clear_player_status_flag(0, 1);
         ((TObjLazerFenceNorm_80192CCC *)this)->state = 1;
     }
 }
 
 void TObjLazerFenceNorm::reset_by_door() {
     if (is_current_floor_switch_set((u16) *(s16 *)&this->m_b0) == 0) {
-        set_indexed_flags__13TUnk_804AF8A0Fll(this, 0, 1);
+        set_indexed_flags(0, 1);
         *(s32 *)&this->m_b4 = 0;
     }
 }

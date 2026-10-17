@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TRaderMapCore.h"
+#include "pso/player/TUnk_80494AE0.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/misc/TLobby_80335E08.h"
 #include "pso/system/ChunkMaterialState.h"
@@ -117,10 +119,10 @@ void TAdTrialAgreementGC::render_screen() {
         TParticleCtrl::begin_effect_render();
         TCameraCtrl::restore_full_screen_view();
         lbl_805D5660 = model_render_flags;
-        copy_vec4__13TRaderMapCoreFPv((&saved_model_draw_color.value), (&model_material_color.value));
+        ((TRaderMapCore *)(&saved_model_draw_color.value))->copy_vec4((&model_material_color.value));
         if ((s32) this->m_24 == 0) {
             model_render_flags |= 0x10;
-            set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)(arg0 + 0x28));
+            ((TUnk_80494AE0 *)(arg0 + 0x28))->set_chunk_material_color();
             bind_title_texture_list();
             TLobby::draw_with_camera((int) (TLobby::get_record(0xA)), 0xA, 0x22, lbl_805DF8B0);
         }
@@ -133,7 +135,7 @@ void TAdTrialAgreementGC::render_screen() {
             } while (var_r31 != 0xF);
             bind_title_texture_list();
             TObjPlayer::init_xyz_limits();
-            temp_r31 = sub_8033596C__13TUnk_804EE458Fv(arg0);
+            temp_r31 = ((TUnk_804EE458 *)arg0)->sub_8033596C();
             if ((s32) this->m_24 == 1) {
                 draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *)(temp_r31 + 0xF), 0xF);
                 draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *)(temp_r31 + 0x13), 0x13);
@@ -146,7 +148,7 @@ void TAdTrialAgreementGC::render_screen() {
             }
             TObjPlayer::reset_transform_state();
         }
-        copy_vec4__13TRaderMapCoreFPv((&model_material_color.value), (&saved_model_draw_color.value));
+        ((TRaderMapCore *)(&model_material_color.value))->copy_vec4((&saved_model_draw_color.value));
         model_render_flags = lbl_805D5660;
         TCameraCtrl__sub_80068EF0();
         TParticleCtrl::end_effect_render();

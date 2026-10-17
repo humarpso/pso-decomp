@@ -62,7 +62,6 @@ extern void *TODoorAncient09__texture_lists;
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 is_any_player_within_radius_xz(u8 *self, f32 radius);
 extern const f32 lbl_805DB488;
-void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 extern const f32 lbl_805DB48C;
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
@@ -313,7 +312,7 @@ void TODoorAncient09::play_proximity_sound() {
     if ((*(s32 *)(arg0 + 0xD0) & 1) && is_any_player_within_radius_xz(arg0, lbl_805DB48C) == 1) {
         *(s32 *)(arg0 + 0xAC) = 1;
         *(s32 *)(arg0 + 0x24) = ((s32 *)TODoorAncient09__texture_lists)[1];
-        set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 8);
+        ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 8);
         *(s32 *)(arg0 + 0xE0) = 1;
         switch ((u32)TOKeyMachine01::get_global_state()) {
         case 3:
