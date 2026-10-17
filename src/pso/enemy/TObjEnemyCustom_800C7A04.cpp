@@ -53,7 +53,7 @@ void TObjEnemyCustom::update_state_machine() {
     case 1:
         advance_animation_playback(this);
         if (!(*(s32 *)&this->actorFlags & 0x800000)) {
-            apply_actor_gravity((TObjEnemy *)((u8 *)this), (s32 *)(0), lbl_805DA070);
+            apply_actor_gravity((TObjEnemy *)this, (s32 *)(0), lbl_805DA070);
         }
         update_collisions__10TObjPlayerFv(this);
         temp_r4 = *(s16 *)&this->timer;

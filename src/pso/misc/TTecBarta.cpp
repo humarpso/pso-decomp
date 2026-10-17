@@ -255,7 +255,7 @@ void TTecBarta::create_ex(void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x178);
     if (o != NULL) {
-        construct_tec_barta_facing((TTecBarta *)((u8 *)o), (void *)((void *)this), (void *)((void *)arg1), (void *)((void *)arg2), (void *)((void *)arg3));
+        construct_tec_barta_facing((TTecBarta *)((u8 *)o), (void *)this, (void *)((void *)arg1), (void *)((void *)arg2), (void *)((void *)arg3));
     }
 }
 

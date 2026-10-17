@@ -434,7 +434,7 @@ void TObjEneBalClawClaw::sub_80090D3C() {
         *(s32 *)((s8 *)this + 0x37C) = 1;
     case 1:
         advance_animation_playback(this);
-        apply_actor_gravity((TObjEnemy *)((u8 *)this), (s32 *)(0), (0.0f));
+        apply_actor_gravity((TObjEnemy *)this, (s32 *)(0), (0.0f));
         return;
     case -1:
         *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) & 0xFFFBFFFF);

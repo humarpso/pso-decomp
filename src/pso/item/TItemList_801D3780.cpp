@@ -181,7 +181,7 @@ void *TItemList::create_node(void *arg0, void *arg1, void *arg2, s8 arg3) {
 void *TItemList::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = item_drop_search_task_vtable;
-        clear_placement_search_slot((TItemList *)((u8 *)this), *(s32 *)((s8 *)this + 0x54));
+        clear_placement_search_slot((TItemList *)this, *(s32 *)((s8 *)this + 0x54));
         decrement_placement_search_pending(this, (void *)(*(s32 *)((s8 *)this + 0x54)));
         __dt__13TUnk_804C4498Fv(this, (s16)(0));
         if (arg1 > 0) {

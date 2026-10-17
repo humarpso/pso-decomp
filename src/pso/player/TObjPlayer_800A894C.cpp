@@ -481,7 +481,7 @@ void TObjPlayer::update_timed_state() {
         this->m_37c = 1;
     case 1:
         if (!(this->actorFlags & 0x800000)) {
-            apply_actor_gravity((TObjEnemy *)((u8 *)this), (s32 *)(0), lbl_805D9AE0);
+            apply_actor_gravity((TObjEnemy *)this, (s32 *)(0), lbl_805D9AE0);
         }
         if (this->actorFlags & 0x40000) {
             temp_r4 = *(s16 *)&this->unk_33C;

@@ -412,7 +412,7 @@ s32 TWindowSubItem::open_purpose_window(s32 arg1) {
     } else if ((s32) (arg1 & 0xFFFFFFF0) == -0x10) {
         TWindowSubItem::draw_slot((s32)this, titled_window_menu, arg1);
     } else {
-        add_item_purpose_actions((TWindowSubItem *)((u8 *)this), titled_window_menu, arg1);
+        add_item_purpose_actions((TWindowSubItem *)this, titled_window_menu, arg1);
     }
     TWindowSubEquip__sub_80263AF8(this->m_2c, 1);
     set_field_1c__6TLobbyFf(titled_window_menu);

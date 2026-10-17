@@ -1025,7 +1025,7 @@ void TObjEneGibbles::sub_802D8140() {
     case 0:
       this->phase = 1;
       *((f32 *) (((s8 *) ((u8 *)this)) + 0x3A0)) = (f32) TObjEneGibbles__data_805DE7E4;
-      apply_actor_gravity((TObjEnemy *)((u8 *)this), (s32 *)(0), TObjEneGibbles__data_805DE7E4);
+      apply_actor_gravity((TObjEnemy *)this, (s32 *)(0), TObjEneGibbles__data_805DE7E4);
       play_sound_effect((int)((void *) ((s32)this->resolve_sound_id((u32)(0x3A333)))), (void *)(((u8 *)this) + 0x38), 0, 0);
       return;
     case 1:
@@ -1696,7 +1696,7 @@ void TObjEneGibbles::sub_802DA0BC() {
                 Vec_802DA0BC v2 = *(Vec_802DA0BC *)(((u8 *)this) + 0x2FC);
                 copy_position_if_valid__10TObjPlayerFii((s32)this, (s32)&v2);
             }
-            apply_actor_gravity((TObjEnemy *)((u8 *)this), (s32 *)(0), TObjEneGibbles__data_805DE7E4);
+            apply_actor_gravity((TObjEnemy *)this, (s32 *)(0), TObjEneGibbles__data_805DE7E4);
             *(f32 *)((s8 *)((u8 *)this) + 0x3A0) = TObjEneGibbles__data_805DE7E4;
         } else {
             this->phase = 0;
@@ -1913,7 +1913,7 @@ void TObjEneGibbles::sub_802DA7A4() {
         this->m_b8 = 5;
         this->m_38c = (f32) TObjEneGibbles__data_805DE7E4;
         *(f32 *)&this->unk_390 = (f32) lbl_805DE874;
-        apply_actor_gravity((TObjEnemy *)(((u8 *)this)), (s32 *)(0), TObjEneGibbles__data_805DE7E4);
+        apply_actor_gravity((TObjEnemy *)(this), (s32 *)(0), TObjEneGibbles__data_805DE7E4);
         break;
     case 1:
         if (objInBand__FP7GameObjf((void *) (this), TObjEneGibbles__data_805DE7F8) != 0) {
@@ -1922,7 +1922,7 @@ void TObjEneGibbles::sub_802DA7A4() {
             play_sound_effect((int)(this->resolve_sound_id((u32)(0x3A82F))), (void *) (((u8 *)this) + 0x38), 0, 0);
             ((V_802DA7A4 *)(((u8 *)this) + 0x3C0))->m2();
         }
-        apply_actor_gravity((TObjEnemy *)(((u8 *)this)), (s32 *)(0), TObjEneGibbles__data_805DE7E4);
+        apply_actor_gravity((TObjEnemy *)(this), (s32 *)(0), TObjEneGibbles__data_805DE7E4);
         break;
     case 2:
         if (((V_802DA7A4 *)(((u8 *)this) + 0x3C0))->m4() == 1) {

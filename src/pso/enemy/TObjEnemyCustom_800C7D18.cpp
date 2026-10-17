@@ -192,7 +192,7 @@ void TObjEnemyCustom::update_state() {
     case 1:
         advance_animation_playback(this);
         if (!(this->actorFlags & 0x800000)) {
-            apply_actor_gravity((TObjEnemy *)((u8 *)this), (s32 *)(0), lbl_805DA070);
+            apply_actor_gravity((TObjEnemy *)this, (s32 *)(0), lbl_805DA070);
         }
         break;
     case -1:

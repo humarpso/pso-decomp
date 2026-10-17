@@ -206,7 +206,7 @@ void TObjEneBalClawBody::update_dragon_boss_state() {
         this->state = 1;
     case 1:
         advance_animation_playback(this);
-        apply_actor_gravity((TObjEnemy *)((u8 *)this), (s32 *)(0), (f32)lbl_805D9620);
+        apply_actor_gravity((TObjEnemy *)this, (s32 *)(0), (f32)lbl_805D9620);
         return;
     case -1:
         this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
