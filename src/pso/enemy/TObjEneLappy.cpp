@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -278,7 +279,6 @@ extern const f32 lbl_805D9F9C;
 
 extern "C" {
 s32 remap_area_sound_id(s32, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 apply_actor_gravity(void *, s32, f32);
 s32 move_with_wall_slide(void *);
@@ -468,7 +468,7 @@ loop_7:
 
 void TObjEneLappy::play_walk_sound() {
     u8 *arg0 = (u8 *)this;
-    if (((s16) this->m_b8 == 3) && ((objInBand__FP7GameObjf(arg0, lbl_805D9F28) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805D9F2C) != 0))) {
+    if (((s16) this->m_b8 == 3) && ((objInBand((GameObj *)arg0, (f32)lbl_805D9F28) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805D9F2C)) != 0))) {
         play_sound_effect(remap_area_sound_id(0x3D20C, 5), (u32) (arg0 + 0x38), 0, 0);
     }
 }
@@ -652,7 +652,7 @@ void TObjEneLappy::update_attacking() {
     case 0:
         enemy_turn_toward_dest(arg0, (void *) *(s32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 8));
         apply_actor_gravity(arg0, 0, lbl_805D9F4C);
-        if (objInBand__FP7GameObjf(arg0, lbl_805D9F54) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)lbl_805D9F54) != 0) {
             enemy_set_heading_velocity(arg0, *(s32 *)((s8 *)arg0 + 0x60), *(f32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 4));
             *(f32 *)((s8 *)arg0 + 0x30C) = lbl_805D9F4C;
             this->phase = 1;
@@ -665,7 +665,7 @@ void TObjEneLappy::update_attacking() {
         *(f32 *)((s8 *)arg0 + 0x40) += *(f32 *)((s8 *)arg0 + 0x310);
         *(f32 *)((s8 *)arg0 + 0x310) *= lbl_805D9F58;
         apply_actor_gravity(arg0, 0, lbl_805D9F4C);
-        if (objInBand__FP7GameObjf(arg0, lbl_805D9F5C) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)lbl_805D9F5C) != 0) {
             temp_r3 = this->target;
             if (temp_r3 != NULL && ((VObj_18_800C0588 *) temp_r3)->m18(arg0, lbl_805D9F60) != 0) {
                 ((VObj_18_800C0588 *) this->target)->m20(arg0, lbl_805D9F60);
@@ -821,7 +821,7 @@ void TObjEneLappy::update_moving() {
                 *(s16 *)&this->m_37a = 4;
                 play_sound_effect(remap_area_sound_id(0x3AF12, 5), (u32) (arg0 + 0x38), 0, 0);
             }
-            if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D9F2C)) != 0) {
+            if (objInBand((GameObj *)(arg0), (f32) (lbl_805D9F2C)) != 0) {
                 play_sound_effect(remap_area_sound_id(0x3AA11, 5), (u32) (arg0 + 0x38), 0, 0);
             }
             goto block_48;

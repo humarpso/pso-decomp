@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TWindowHelpItem.h"
@@ -14,7 +15,6 @@ s32 strcmp(void *, int);
 extern u8 lbl_805DD898;
 u8 *init_heading_entry__20TWindowSubStatusDispFPvPvici(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s32 arg4);
 extern u8 lbl_8044FCF0[];
-s32 __dl__FPv(s32 a0 = 0);
 int update__20TWindowSubStatusDispFPv(void*);
 int TWindowSubStatusDisp__sub_802879B0(void*);
 
@@ -24,7 +24,7 @@ s32 TWindowSubStatusDisp::destroy_status_display(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         TWindowSubStatusDisp::deleting_destructor(arg0, 0);
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete((void *)arg0);
         }
     }
     return arg0;

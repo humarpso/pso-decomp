@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 #include "pso/enemy/TObjEneDD_ST.h"
@@ -239,7 +240,6 @@ struct Ent_800F0F84 { u8 pad0[0x18]; u32 f18; };
 extern "C" {
 s32 is_split_screen();
 s32 transition_enemy_state(void *, int);
-s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
 s32 play_sound_effect(int, void *, int, int);
 extern const Quad_800F1440 me3_stelth_offset_vec;
@@ -376,7 +376,7 @@ void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1) {
                 F(s32, 0x428) = 0;
                 F(s32, 0x424) = 2;
             }
-            if (objInBand__FP7GameObjf(arg0, TObjEneMe3Stelth__data_805DA824) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)TObjEneMe3Stelth__data_805DA824) != 0) {
                 advance_animation_playback(arg0);
                 push_matrix_from(identity_matrix);
                 post_translate_matrix(arg0 + 0x38);
@@ -449,7 +449,7 @@ void TObjEneMe3Stelth__sub_800F1440(u8 *arg0, s32 arg1) {
         } else if (is_split_screen() != 0) {
             switch (F(s32, 0x424)) {
             case 0:
-                if (objInBand__FP7GameObjf(arg0, lbl_805DA828) != 0) {
+                if (objInBand((GameObj *)arg0, (f32)lbl_805DA828) != 0) {
                     F(s32, 0x3CC) |= 8;
                     q.a = me3_stelth_offset_vec.a;
                     q.b = me3_stelth_offset_vec.b;
@@ -467,9 +467,9 @@ void TObjEneMe3Stelth__sub_800F1440(u8 *arg0, s32 arg1) {
                 }
                 break;
             }
-        } else if (objInBand__FP7GameObjf(arg0, lbl_805DA828) != 0) {
+        } else if (objInBand((GameObj *)arg0, (f32)lbl_805DA828) != 0) {
             F(s32, 0x3CC) |= 8;
-        } else if (objInBand__FP7GameObjf(arg0, lbl_805DA82C) != 0) {
+        } else if (objInBand((GameObj *)arg0, (f32)lbl_805DA82C) != 0) {
             F(s32, 0x3CC) &= ~8;
             F(s32, 0x3C0) = 0;
         }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneGibbles.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -60,7 +61,6 @@ u16 obj_getField1c(void *);
 void spawn_particle_effect(void *, int);
 void enemy_clear_target__12TObjEneDD_STFUs(void *);
 f32 horizontal_distance_squared(void *, void *);
-s32 objInBand__FP7GameObjf(void *, f32);
 void advance_animation_playback(void *);
 void play_sound_effect(s32, void *, s32, s32);
 s32 is_valid_and_active__10TObjPlayerFUl();
@@ -853,7 +853,7 @@ void TObjEneRecon__sub_8031CCFC(u8 *arg0, s32 arg1) {
             }
             break;
         case 1:
-            if (objInBand__FP7GameObjf(arg0, lbl_805DF3F8) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)lbl_805DF3F8) != 0) {
                 play_sound_effect(TObjEneRecobox::remap_area_sound_id(0x4003A80A), arg0 + 0x38, 0, 0);
                 TObjEneRecon::create_bomb(arg0, arg0, arg0 + 0x40C);
             } else if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
@@ -935,13 +935,13 @@ void TObjEneRecon__sub_8031CF30(u8 *arg0, s32 arg1) {
             ((TObjEneRecon *)arg0)->update_flag_0x444();
             break;
         case 2:
-            if (objInBand__FP7GameObjf(arg0, lbl_805DF400) != 0 || objInBand__FP7GameObjf(arg0, lbl_805DF404) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)lbl_805DF400) != 0 || objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805DF404)) != 0) {
                 spawn_particle_effect(arg0 + 0x2FC, 0x218);
             }
-            if (objInBand__FP7GameObjf(arg0, lbl_805DF408) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)lbl_805DF408) != 0) {
                 F(s32, 0x3C8) = 1;
                 play_sound_effect(TObjEneRecobox::remap_area_sound_id(0x4003A809), arg0 + 0x38, 0, 0);
-            } else if (objInBand__FP7GameObjf(arg0, lbl_805DF40C) != 0) {
+            } else if (objInBand((GameObj *)arg0, (f32)lbl_805DF40C) != 0) {
                 F(s32, 0x3C8) = 0;
             }
             if (F(s32, 0x3C8) == 1) {

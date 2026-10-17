@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/player/TUnk_80490470.h"
 
 extern "C" {
@@ -90,7 +91,6 @@ void TObjPlayer__sub_800A0554(Obj_800A0554 *self) {
 
 void *__dt__13TUnk_80490470Fv(void *arg0, s16 arg1);
 s32 __dt__13TUnk_80494AE0Fv(void *, s16);
-s32 __dl__FPv(void *);
 
 extern s32 lbl_80490470[];
 
@@ -99,7 +99,7 @@ void *__dt__13TUnk_80490470Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x14) = lbl_80490470;
         __dt__13TUnk_80494AE0Fv(arg0, 0);
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

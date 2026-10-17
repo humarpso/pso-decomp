@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -178,7 +179,6 @@ void enemy_set_heading_velocity(void *, s32, f32);
 s32 move_with_wall_slide(void *);
 void subtract_vector(void *, void *);
 s32 update_angle__10TObjPlayerFlPv(void *, s32, void *);
-s32 objInBand__FP7GameObjf(void *, f32);
 s32 push_matrix_from(void *);
 s32 matrix_mult_vec(int, Vec_80316C3C, void *);
 void create__11TTecRaBartaFPvPvPvPv(void *, void *, void *, s32);
@@ -325,7 +325,7 @@ void TObjEneMe3SinowZoa__sub_80316C3C(Obj_80316C3C *arg0, s32 arg1) {
                 arg0->timer = 0;
                 arg0->state = 3;
             }
-            if (objInBand__FP7GameObjf(arg0, TObjEneMe3SinowZoa__data_805DF314) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)TObjEneMe3SinowZoa__data_805DF314) != 0) {
                 advance_animation_playback(arg0);
                 push_matrix_from(identity_matrix);
                 post_translate_matrix(&arg0->pos);

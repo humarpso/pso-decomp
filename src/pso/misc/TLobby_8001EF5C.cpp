@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TGStream.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
@@ -164,7 +165,6 @@ s32 create_file_load_entry__6TLobbyFllUllPPv(void *, s32, void *, void *, void *
 extern s32 lbl_80434C70[];
 extern s32 lbl_80434C98[];
 s32 TLobby__sub_8001EDF4(void *);
-void __dl__FPv(void *);
 s32 TLobby__sub_800F9FF4(s32);
 s32 mem_free(void *);
 s32 TLobby__sub_803DA16C(void *);
@@ -677,7 +677,7 @@ Lobby_8001FE7C *TLobby__sub_8001FE7C(Lobby_8001FE7C *self, s16 del) {
         }
         mem_free(self->ents8);
         if (del > 0) {
-            __dl__FPv(self);
+            ::operator delete(self);
         }
     }
     return self;

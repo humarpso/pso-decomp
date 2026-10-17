@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/item/TItemData.h"
 #include "pso/misc/TUnk_804CF930.h"
@@ -794,7 +795,6 @@ void TWindowSubStatusDisp::check_flag_4_noop() {
 #undef update_item_colors__20TWindowSubStatusDispFPvi
 
 s32 deleting_destructor__20TWindowSubStatusDispFs(void *, s32);
-s32 __dl__FPv(void *);
 
 extern s32 lbl_804CF9B0[];
 
@@ -820,7 +820,7 @@ void *TWindowSubStatusDisp::dispose(s16 arg1) {
         }
         deleting_destructor__20TWindowSubStatusDispFs(this, 0);
         if (arg1 > 0) {
-            __dl__FPv(this);
+            ::operator delete(this);
         }
     }
     return this;

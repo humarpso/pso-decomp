@@ -1,5 +1,6 @@
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "pso/player/TPlayerReadyCallback.h"
+#include "pso/system/memory.h"
 
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
@@ -89,7 +90,6 @@ void TObjPlayer__sub_801BEDB0(void* p, u8 v);
 void TObjPlayer__sub_801BEDB8(void* p, u8 v);
 void *TObjPlayer__sub_801BEDC0(void *arg0, s16 arg1);
 void TObjPlayer__sub_801BF47C(void* p);
-s32 __dl__FPv(void *);
 int clear_flags__11TAdRicoRingFUl(void*, int);
 int set_flags__10TObjPlayerFUl(void*, int);
 int set_mode__20TWindowActionPaletteFUc(void*);
@@ -134,7 +134,7 @@ void *TObjPlayer__sub_801BEDC0(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 8) = lbl_804C3E44;
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

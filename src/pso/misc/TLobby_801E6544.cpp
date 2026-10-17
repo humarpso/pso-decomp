@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/date.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/TAdStorySelectGC.h"
@@ -2065,8 +2066,6 @@ void * set_mode_and_refresh_object__10TObjPlayerFPvi(void *, Item_801EE77C *);
 void * start_inventory_update__10TObjPlayerFi(void *, s32);
 void * get_owner_if_alive__10TObjPlayerFv(void *);
 s32 fn_801DA140(int, int, int);
-s32 DateToSeconds__FP9DateStampPi(void *, void *);
-s32 getDateStamp__FP9DateStamp(void *);
 void* __ct__13TQuestBgmCtrlFP7TObject(void*, s32);
 void TLobby__sub_801E72B4(u8 i);
 void TLobby__sub_801E7408(void);
@@ -7999,8 +7998,8 @@ void qst_op_at_coords_call(u8 arg0) {
 void qst_op_gettime(u8 arg0) {
     s32 spC;
     s32 sp8;
-    getDateStamp__FP9DateStamp((void *) (&spC));
-    DateToSeconds__FP9DateStampPi((void *) (&spC), (void *) (&sp8));
+    getDateStamp((DateStamp *)(&spC));
+    DateToSeconds((DateStamp *)(&spC), (int *)(&sp8));
     ((s32 *) (*(s32 *)&TLobby__script_reg_array))[arg0] = sp8;
 }
 #pragma pop

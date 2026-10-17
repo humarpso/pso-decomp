@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneRe2Flower_EffCurse3.h"
 #include "pso/object/TObjMotion.h"
@@ -976,7 +977,6 @@ s32 apply_actor_gravity(void *, int, f32);
 s32 move_with_wall_slide(void *);
 s32 obj_testFlags30(void *, int);
 s32 spawn_particle_effect(void *, int);
-s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback();
 extern const f32 lbl_805DA034;
 extern const f32 lbl_805DA038;
@@ -1071,10 +1071,10 @@ int TUnk_80493450::beast_retire_corpse() { return queue_destruction__7TObjectFv(
 void TUnk_80493450::beast_update_dead() {
     u8 *arg0 = (u8 *)this;
     advance_animation_playback();
-    if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805DA034)) != 0) {
+    if (objInBand((GameObj *)(arg0), (f32) (lbl_805DA034)) != 0) {
         ((VObj_18_90ef41 *)(arg0))->m96();
     }
-    if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805DA038)) != 0) {
+    if (objInBand((GameObj *)(arg0), (f32) (lbl_805DA038)) != 0) {
         spawn_particle_effect((void *) (arg0 + 0x38), (int) (0xF3));
         ((VObj_18_90ef41 *)(arg0))->m92();
     }
@@ -1115,7 +1115,7 @@ void TUnk_80493450::beast_update_hurt() {
         o->f308 = o->f310 = lbl_805DA034;
     }
     ((TObjPlayer *)o)->update_collisions();
-    if (objInBand__FP7GameObjf(o, lbl_805DA034) != 0) {
+    if (objInBand((GameObj *)o, (f32)lbl_805DA034) != 0) {
         ((VObj_18_965ca6 *)(arg0))->m95();
     }
     if (o->fB4 != 8) {
@@ -1160,7 +1160,7 @@ void beast_update_attack(Self_800C53DC *arg0) {
     case 0:
         arg0->f328 = 1;
     case 1:
-        if (objInBand__FP7GameObjf(arg0, lbl_805DA04C) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)lbl_805DA04C) != 0) {
             if (arg0->target != NULL && arg0->target->m18(arg0, lbl_805DA048) != 0) {
                 arg0->target->m20(arg0, lbl_805DA048);
                 arg0->target->m23(arg0, lbl_805DA050);
@@ -1318,7 +1318,7 @@ void TUnk_80493450::beast_update_approach() {
     case 0:
         apply_actor_gravity(arg0, 0, lbl_805DA034);
         ((void (*)(void *))advance_animation_playback)(arg0);
-        if (objInBand__FP7GameObjf(arg0, lbl_805DA034) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)lbl_805DA034) != 0) {
             ((VObj_18_d4e8d1 *)(arg0))->m93();
         }
         if (this->m_b4 != 0x20U) {
@@ -1366,7 +1366,7 @@ void TUnk_80493450::update_turn_toward_target() {
     advance_animation_playback();
     switch (arg0->field_328) {
     case 0:
-        if (objInBand__FP7GameObjf(arg0, lbl_805DA034) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)lbl_805DA034) != 0) {
             arg0->m93();
         }
         if (arg0->field_B4 != 0x20) {

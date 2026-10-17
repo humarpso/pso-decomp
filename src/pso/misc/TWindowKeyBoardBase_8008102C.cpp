@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TEF_LensFlare.h"
 #include "pso/misc/TWindowKeyBoardBase.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -16,7 +17,6 @@ void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2);
 u32 *destroy__19TWindowKeyBoardBaseFPvs(u32 *arg0, s16 arg1);
 f32 horizontal_distance_squared(s32, s32);
 u32 get_player_by_client_id(s32);
-s32 __dl__FPv(u32 *);
 
 void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2) {
     s16 *temp_r3;
@@ -49,7 +49,7 @@ u32 *destroy__19TWindowKeyBoardBaseFPvs(u32 *arg0, s16 arg1) {
             mem_free(*arg0);
         }
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

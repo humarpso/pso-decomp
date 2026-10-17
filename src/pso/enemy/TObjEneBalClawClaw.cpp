@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneBalClaw.h"
@@ -638,7 +639,6 @@ s32 play_persistent_sound(int, void *, void *, int, int);
 void TObjEneBalClawClaw__sub_80091200(Claw_80091200 *self);
 Claw_80091354 *find_active_entity_by_id(u16);
 void update_chase__18TObjEneBalClawClawFPv(Claw_80091354 *self);
-s32 objInBand__FP7GameObjf(void *, f32);
 void TObjEneBalClawClaw__sub_80090ECC(Claw_80090ECC *self);
 struct En0Base_80090DD0 { char pad[0x14]; };
 struct En0VObj_80090DD0 : En0Base_80090DD0 {
@@ -725,7 +725,7 @@ void TObjEneBalClawClaw__sub_80090ECC(Claw_80090ECC *self) {
         Vec_80090ECC v = ((Claw_80090ECC *)self->target)->pos;
         SEEK_80090ECC(self, &v, (0.7f));
         update_angle__10TObjPlayerFlPv(self, self->info->f8, self->f308);
-        if (objInBand__FP7GameObjf(self, (8.0f)) != 0) {
+        if (objInBand((GameObj *)self, (f32)(8.0f)) != 0) {
             play_sound_effect(0x4003B032, self->f38, 0, 0);
             if (self->target->m18(self, (1.0f)) != 0) {
                 self->target->m23(self, (3.0f));

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneDD_ST.h"
@@ -601,7 +602,6 @@ s32 TBoss8Dragon__sub_8005FAE0(u8 *arg0);
 void set_flag_4e4__12TBoss8DragonFPv(void* p);
 s32 spawn_particle_effect_with_flags(void *, s32, s32);
 void * spawn_continuous_particle_effect_with_flags(void *, s32, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
 void advance_animation_playback(void *);
 void * __nw__7TObjectFUl(u32);
 f32 sin_table_lookup(s32);
@@ -3014,7 +3014,7 @@ void TBoss8Dragon__sub_80060020(Dragon_80060020 *self, u32 arg1) {
             s = ((TObjEneDD_ST *)self)->get_speed_or_default();
             self->f5C = lbl_805D8D7C - lbl_805D8DD8 * (lbl_805D8D88 - s / lbl_805D8DDC);
             self->f64 = lbl_805D8DE0 * (lbl_805D8DDC - s) * (lbl_805D8DDC - s);
-            if (objInBand__FP7GameObjf(self, lbl_805D8DDC) != 0) {
+            if (objInBand((GameObj *)self, (f32)lbl_805D8DDC) != 0) {
                 self->f5C = 0;
                 self->f64 = 0;
                 self->f6DC = 2;
@@ -3024,7 +3024,7 @@ void TBoss8Dragon__sub_80060020(Dragon_80060020 *self, u32 arg1) {
         case 2:
             ((void (*)(f32, void *, s32))move_along_angle__13TBoss5GryphonFPvif)(lbl_805D8D88, self, self->f60);
             self->pos.y -= self->f6F4;
-            if (objInBand__FP7GameObjf(self, lbl_805D8DE4) != 0) {
+            if (objInBand((GameObj *)self, (f32)lbl_805D8DE4) != 0) {
                 ((TBoss8Dragon *)self)->clear_timer();
                 ((TBoss8Dragon *)self)->reset_angle();
                 PLAY_SE(self, 0x40032D0D);
@@ -3100,7 +3100,7 @@ void state_move__13TBoss5GryphonFPvi(Obj_80060F4C *arg0, s32 arg1) {
             speed = lbl_805D8D88;
             scale = lbl_805D8E08;
         }
-        if (objInBand__FP7GameObjf(arg0, lbl_805D8D74) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)lbl_805D8D74) != 0) {
             ang += 0x500;
             speed += lbl_805D8E14;
         }
@@ -3158,7 +3158,7 @@ void handle_descend_state__13TBoss5GryphonFPvi(u8 *arg0, s32 arg1) {
             ((void (*)(f32, void *, s32))move_along_angle__13TBoss5GryphonFPvif)(lbl_805D8E38, arg0, *(s32 *)((s8 *)arg0 + 0x60));
             eval_bezier_curve__12TBoss8DragonFPviiPvf(boss5_gryphon_descend_bezier_points, 4, 0, &out, ((TObjEneDD_ST *)arg0)->get_speed_or_default() / lbl_805D8DE4);
             *(f32 *)((s8 *)arg0 + 0x3C) = out.y;
-            if (objInBand__FP7GameObjf(arg0, lbl_805D8DE4) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)lbl_805D8DE4) != 0) {
                 ((TBoss8Dragon *)arg0)->clear_timer();
                 ((TBoss8Dragon *)arg0)->reset_angle();
                 ((TBoss5Gryphon *)arg0)->play_se(0x40032D0D);
@@ -3177,7 +3177,7 @@ void handle_descend_state__13TBoss5GryphonFPvi(u8 *arg0, s32 arg1) {
             }
             break;
         }
-        if (objInBand__FP7GameObjf(arg0, lbl_805D8DCC) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)lbl_805D8DCC) != 0) {
             ((TBoss5Gryphon *)arg0)->spawn_ground_splash();
         }
         break;
@@ -3252,7 +3252,7 @@ void update_dive_motion__12TBoss8DragonFPvi(u8 *arg0, s32 arg1) {
             f = *(f32 *)((s8 *)arg0 + 0xC4) - lbl_805D8E10;
             d = ((TObjEneDD_ST *)arg0)->get_speed_or_default() - lbl_805D8E10;
             *(f32 *)((s8 *)arg0 + 0x3C) = lbl_805D8E4C - lbl_805D8E50 * sin_table_lookup((s32)(lbl_805D8E28 * d / f));
-            if (objInBand__FP7GameObjf(arg0, lbl_805D8DE4) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)lbl_805D8DE4) != 0) {
                 ((TBoss5Gryphon *)arg0)->spawn_ground_splash();
             }
             if (TBoss8Dragon__sub_8005FAE0(arg0) != 0) {
@@ -3387,33 +3387,33 @@ void TBoss3Volopt__sub_800627E4(u8 *arg0, u32 arg1) {
             }
             switch (*(s32 *)((s8 *)arg0 + 0x6E4)) {
             case 0:
-                if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D8E60)) != 0) {
+                if (objInBand((GameObj *)(arg0), (f32) (lbl_805D8E60)) != 0) {
                     ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (sp8), (void *) (boss5_gryphon_waypoint_vecs));
                     ((s32 (*)(void *, void *, int))spawn_particle_effect_with_flags)((void *) (sp8), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x5F0)) + 4)), (int) (0x40));
                     TBoss3Volopt::queue_event_1D((int) (0x1C), (int) (0x3C));
-                } else if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D8E64)) != 0) {
+                } else if (objInBand((GameObj *)(arg0), (f32) (lbl_805D8E64)) != 0) {
                     ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (sp8), (void *) ((u8 *)(boss5_gryphon_waypoint_vecs) + 0xC));
                     ((s32 (*)(void *, void *, int))spawn_particle_effect_with_flags)((void *) (sp8), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x5F0)) + 4)), (int) (0x40));
                     TBoss3Volopt::queue_event_1D((int) (0xC0), (int) (0xF));
-                } else if ((objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D8E68)) != 0) || (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D8E6C)) != 0)) {
+                } else if ((objInBand((GameObj *)(arg0), (f32) (lbl_805D8E68)) != 0) || (objInBand((GameObj *)(arg0), (f32) (lbl_805D8E6C)) != 0)) {
                     ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (sp8), (void *) ((u8 *)(boss5_gryphon_waypoint_vecs) + 0xC));
                     ((s32 (*)(void *, void *, int))spawn_particle_effect_with_flags)((void *) (sp8), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x5F0)) + 0)), (int) (0x40));
                 }
-                if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D8E70)) != 0) {
+                if (objInBand((GameObj *)(arg0), (f32) (lbl_805D8E70)) != 0) {
                     play_sound_effect((int) (0x40032A00), (void *) (0), (int) (0), (int) (0));
                     TBoss3Volopt::queue_event_1D((int) (0xA0), (int) (0x3C));
                 }
-                if ((objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D8D6C)) != 0) || (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D8E74)) != 0)) {
+                if ((objInBand((GameObj *)(arg0), (f32) (lbl_805D8D6C)) != 0) || (objInBand((GameObj *)(arg0), (f32) (lbl_805D8E74)) != 0)) {
                     play_sound_effect((int) (0x40033409), (void *) (0), (int) (0), (int) (0));
                 }
-                if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D8E64)) != 0) {
+                if (objInBand((GameObj *)(arg0), (f32) (lbl_805D8E64)) != 0) {
                     play_sound_effect((int) (0x40032D0D), (void *) (0), (int) (0), (int) (0));
                 }
-                if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D8E78)) != 0) {
+                if (objInBand((GameObj *)(arg0), (f32) (lbl_805D8E78)) != 0) {
                     play_sound_effect((int) (0x40033409), (void *) (0), (int) (0), (int) (0));
                     TBoss3Volopt::queue_event_1D((int) (0x80), (int) (7));
                 }
-                if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D8E7C)) != 0) {
+                if (objInBand((GameObj *)(arg0), (f32) (lbl_805D8E7C)) != 0) {
                     TObjBoss5Ctrl::play_pillar_sound();
                 }
                 break;
@@ -3499,7 +3499,7 @@ void TBoss8Dragon__sub_80062BA0(u8 *arg0, u32 arg1) {
         advance_animation_playback(arg0);
         switch (TBoss8Dragon__sub_8005D700()) {
         case 0:
-        if (objInBand__FP7GameObjf(arg0, lbl_805D8E84) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)lbl_805D8E84) != 0) {
             v.x = F(f32, 0x38);
             v.y = lbl_805D8E88;
             v.z = F(f32, 0x40);
@@ -3569,7 +3569,7 @@ void TBoss8Dragon__sub_80062E94(u8 *arg0, u32 arg1) {
         switch (*(s32 *)((s8 *)arg0 + 0x6DC)) {
         case 0:
             ((void (*)(f32, void *, s32))move_along_angle__13TBoss5GryphonFPvif)(lbl_805D8E04, arg0, *(s32 *)((s8 *)arg0 + 0x60));
-            if (objInBand__FP7GameObjf(arg0, lbl_805D8D88) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)lbl_805D8D88) != 0) {
                 *(s32 *)((s8 *)arg0 + 0x6DC) = 1;
             }
             break;
@@ -3577,7 +3577,7 @@ void TBoss8Dragon__sub_80062E94(u8 *arg0, u32 arg1) {
             d = ((TObjEneDD_ST *)arg0)->get_speed_or_default() - lbl_805D8D88;
             *(f32 *)((s8 *)arg0 + 0x3C) = (*(const f32 *)&lbl_805D8DEC) + lbl_805D8E8C * -(d * d) / lbl_805D8E90;
             move_along_angle__13TBoss5GryphonFPvif(arg0, *(s32 *)((s8 *)arg0 + 0x60), lbl_805D8E04);
-            if (objInBand__FP7GameObjf(arg0, lbl_805D8E94) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)lbl_805D8E94) != 0) {
                 ((TBoss8Dragon *)arg0)->clear_timer();
                 ((TBoss8Dragon *)arg0)->reset_angle();
                 ((TBoss5Gryphon *)arg0)->play_se((s32)(0x40032D0D));
@@ -3596,7 +3596,7 @@ void TBoss8Dragon__sub_80062E94(u8 *arg0, u32 arg1) {
             }
             break;
         }
-        if (objInBand__FP7GameObjf(arg0, lbl_805D8E98) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)lbl_805D8E98) != 0) {
             ((TBoss5Gryphon *)arg0)->spawn_ground_splash();
         }
         break;
@@ -3661,13 +3661,13 @@ void TBoss8Dragon__sub_80063088(Obj_80063088 *self, u32 arg1) {
         case 0:
             self->state = 1;
         case 1:
-            if (objInBand__FP7GameObjf(self, lbl_805D8D54) != 0) {
+            if (objInBand((GameObj *)self, (f32)lbl_805D8D54) != 0) {
                 ((TBoss5Gryphon *)self)->play_se(0x40033203);
             }
-            if (objInBand__FP7GameObjf(self, lbl_805D8D50) != 0) {
+            if (objInBand((GameObj *)self, (f32)lbl_805D8D50) != 0) {
                 ((TBoss5Gryphon *)self)->play_se(0x40033204);
             }
-            if (objInBand__FP7GameObjf(self, lbl_805D8D80) != 0) {
+            if (objInBand((GameObj *)self, (f32)lbl_805D8D80) != 0) {
                 ((TBoss5Gryphon *)self)->spawn_ground_splash();
             }
             speed = ((TObjEneDD_ST *)self)->get_speed_or_default();
@@ -3681,7 +3681,7 @@ void TBoss8Dragon__sub_80063088(Obj_80063088 *self, u32 arg1) {
                 queue_destruction__7TObjectFv(self->fx);
                 self->fx = NULL;
             }
-            if (objInBand__FP7GameObjf(self, lbl_805D8E9C) != 0) {
+            if (objInBand((GameObj *)self, (f32)lbl_805D8E9C) != 0) {
                 pos.x = self->f394;
                 pos.y = ((Vec_80063088 *)lbl_80437938)->y;
                 pos.z = self->f39C;
@@ -3736,7 +3736,7 @@ void TBoss8Dragon__sub_80063320(u8 *arg0, u32 arg1) {
         advance_animation_playback(arg0);
         switch (*(s32 *)((s8 *)arg0 + 0x6E0)) {
         case 0:
-            if (objInBand__FP7GameObjf(arg0, lbl_805D8DF4) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)lbl_805D8DF4) != 0) {
                 ((void (*)(f32, void *, s32))move_along_angle__13TBoss5GryphonFPvif)(lbl_805D8DF8, arg0, *(s32 *)((s8 *)arg0 + 0x60));
                 *(u32 *)((s8 *)arg0 + 0x4C0) |= 4;
                 ((TBoss8Dragon *)arg0)->run_default_state();
@@ -3751,7 +3751,7 @@ void TBoss8Dragon__sub_80063320(u8 *arg0, u32 arg1) {
             d = lbl_805D8DD0 * (d * d);
             *(f32 *)((s8 *)arg0 + 0x3C) = d * lbl_805D8E34 + (*(const f32 *)&lbl_805D8D84);
             move_along_angle__13TBoss5GryphonFPvif(arg0, *(s32 *)((s8 *)arg0 + 0x60), lbl_805D8D88);
-            if (objInBand__FP7GameObjf(arg0, lbl_805D8EA8) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)lbl_805D8EA8) != 0) {
                 *(s32 *)((s8 *)arg0 + 0x6E0) = 2;
             }
             break;
@@ -3759,7 +3759,7 @@ void TBoss8Dragon__sub_80063320(u8 *arg0, u32 arg1) {
             d = lbl_805D8EAC - ((TObjEneDD_ST *)arg0)->get_speed_or_default();
             *(f32 *)((s8 *)arg0 + 0x3C) = (*(const f32 *)&lbl_805D8DEC) + (*(const f32 *)&lbl_805D8D84) * -(d * d) / lbl_805D8E14;
             move_along_angle__13TBoss5GryphonFPvif(arg0, *(s32 *)((s8 *)arg0 + 0x60), lbl_805D8D88);
-            if (objInBand__FP7GameObjf(arg0, lbl_805D8EAC) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)lbl_805D8EAC) != 0) {
                 *(f32 *)((s8 *)arg0 + 0x3C) = (*(const f32 *)&lbl_805D8DEC);
                 *(s32 *)((s8 *)arg0 + 0x6E0) = 3;
             }
@@ -3771,7 +3771,7 @@ void TBoss8Dragon__sub_80063320(u8 *arg0, u32 arg1) {
             }
             break;
         }
-        if (objInBand__FP7GameObjf(arg0, lbl_805D8D50) != 0 || objInBand__FP7GameObjf(arg0, lbl_805D8EB0) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)lbl_805D8D50) != 0 || objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805D8EB0)) != 0) {
             ((TBoss5Gryphon *)arg0)->spawn_ground_splash();
         }
         break;
@@ -4017,7 +4017,7 @@ void TBoss5Gryphon::spawn_lightning_effect() {
 #pragma auto_inline off
 #pragma dont_inline off
 void TBoss8Dragon__sub_80063EF4(s32 arg0) {
-    if (objInBand__FP7GameObjf((void *)arg0, (f32) (lbl_805D8EBC)) != 0) {
+    if (objInBand((GameObj *)arg0, (f32) (lbl_805D8EBC)) != 0) {
         ((TBoss5Gryphon *)arg0)->spawn_ground_splash();
     }
 }
@@ -4405,19 +4405,19 @@ int TBoss8Dragon::query_default() { return emit_part_attack_effect__13TBoss5Gryp
 #pragma auto_inline off
 #pragma dont_inline off
 void TBoss8Dragon__sub_80064828(u8 *arg0) {
-    if (objInBand__FP7GameObjf(arg0, lbl_805D8D80) != 0) {
+    if (objInBand((GameObj *)arg0, (f32)lbl_805D8D80) != 0) {
         ((TBoss8Dragon *)arg0)->query_default();
         return;
     }
-    if (objInBand__FP7GameObjf(arg0, lbl_805D8D54) != 0) {
+    if (objInBand((GameObj *)arg0, (f32)lbl_805D8D54) != 0) {
         ((TBoss8Dragon *)arg0)->attack_default();
         return;
     }
-    if (objInBand__FP7GameObjf(arg0, lbl_805D8E00) != 0) {
+    if (objInBand((GameObj *)arg0, (f32)lbl_805D8E00) != 0) {
         ((TBoss8Dragon *)arg0)->set_state_2();
         return;
     }
-    if (objInBand__FP7GameObjf(arg0, lbl_805D8E0C) != 0) {
+    if (objInBand((GameObj *)arg0, (f32)lbl_805D8E0C) != 0) {
         ((TBoss8Dragon *)arg0)->update_state_3();
     }
 }
@@ -4440,19 +4440,19 @@ void TBoss8Dragon__sub_80064828(u8 *arg0) {
 #pragma auto_inline off
 #pragma dont_inline off
 void TBoss8Dragon__sub_800648C8(u8 *arg0) {
-    if (objInBand__FP7GameObjf(arg0, lbl_805D8EC0) != 0) {
+    if (objInBand((GameObj *)arg0, (f32)lbl_805D8EC0) != 0) {
         ((TBoss8Dragon *)arg0)->query_default();
         return;
     }
-    if (objInBand__FP7GameObjf(arg0, lbl_805D8DF8) != 0) {
+    if (objInBand((GameObj *)arg0, (f32)lbl_805D8DF8) != 0) {
         ((TBoss8Dragon *)arg0)->attack_default();
         return;
     }
-    if (objInBand__FP7GameObjf(arg0, lbl_805D8D50) != 0) {
+    if (objInBand((GameObj *)arg0, (f32)lbl_805D8D50) != 0) {
         ((TBoss8Dragon *)arg0)->set_state_2();
         return;
     }
-    if (objInBand__FP7GameObjf(arg0, lbl_805D8D54) != 0) {
+    if (objInBand((GameObj *)arg0, (f32)lbl_805D8D54) != 0) {
         ((TBoss8Dragon *)arg0)->update_state_3();
     }
 }
@@ -4861,7 +4861,7 @@ void TBoss8Dragon::clear_timer() { this->m_4e4 = 0; }
 #pragma auto_inline off
 #pragma dont_inline off
 void TBoss8Dragon__sub_80064DB8(u8 *arg0) {
-    if ((objInBand__FP7GameObjf(arg0, lbl_805D8D80) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805D8D54) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805D8E00) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805D8E0C) != 0)) {
+    if ((objInBand((GameObj *)arg0, (f32)lbl_805D8D80) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805D8D54)) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805D8E00)) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805D8E0C)) != 0)) {
         ((TBoss5Gryphon *)arg0)->play_se(0x40032D08);
     }
 }
@@ -4884,7 +4884,7 @@ void TBoss8Dragon__sub_80064DB8(u8 *arg0) {
 #pragma auto_inline off
 #pragma dont_inline off
 void TBoss8Dragon__sub_80064E3C(u8 *arg0) {
-    if ((objInBand__FP7GameObjf(arg0, lbl_805D8EC0) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805D8DF8) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805D8D50) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805D8D54) != 0)) {
+    if ((objInBand((GameObj *)arg0, (f32)lbl_805D8EC0) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805D8DF8)) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805D8D50)) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805D8D54)) != 0)) {
         ((TBoss5Gryphon *)arg0)->play_se(0x40032D08);
     }
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -719,7 +720,6 @@ s32 spawn_particle_effect(void *, int);
 #define step_angle_clamped__10TObjPlayerFPvi ((s32 (*)(void*, int))(step_angle_clamped__10TObjPlayerFPvi))
 #define copy_target_state__14TObjEnePanarmsFPv ((s32 (*)(void*, int))(copy_target_state__14TObjEnePanarmsFPv))
 u8 *get_enemy_entity(u16);
-s32 objInBand__FP7GameObjf(void *, f32);
 
 #define get_player_by_client_id ((u8* (*)(u16))(get_player_by_client_id))
 #define play_sound_effect ((s32 (*)(int, void*, int, int))(play_sound_effect))
@@ -832,7 +832,7 @@ void TObjPlayer__sub_800A4D9C(u8 *arg0) {
         if (!(F(u32, 0x30) & 0x800000)) {
             apply_actor_gravity(arg0, 0, lbl_805D9A14);
         }
-        if (objInBand__FP7GameObjf(arg0, lbl_805D9A28) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)lbl_805D9A28) != 0) {
             u8 *t = F(u8 *, 0x2A8);
             if (t == NULL) {
                 goto fail;
@@ -878,7 +878,7 @@ void TObjPlayer__sub_800A4D9C(u8 *arg0) {
                 }
             }
         }
-        if (objInBand__FP7GameObjf(arg0, lbl_805D9A38) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)lbl_805D9A38) != 0) {
             ((TObjPlayer *)arg0)->check_object_collisions();
             check_enemy_body_collisions(arg0);
             F(s16, 0x328) = 2;
@@ -990,7 +990,7 @@ void TObjPlayer__sub_800A5154(void *arg0) {
         if (!(o->flags & 0x800000)) {
             apply_actor_gravity(o, 0, lbl_805D9A14);
         }
-        if (objInBand__FP7GameObjf(o, lbl_805D9A3C) != 0) {
+        if (objInBand((GameObj *)o, (f32)lbl_805D9A3C) != 0) {
             if (o->target != NULL && o->target->m18(o, lbl_805D9A40) != 0) {
                 f32 d = o->target->m20(o, lbl_805D9A40);
                 o->target->m23(o);
@@ -1084,54 +1084,54 @@ void TObjPlayer__sub_800A54B4(u8 *arg0) {
         break;
     case 1:
         F(s16, 0xB8) = 2;
-        if (objInBand__FP7GameObjf(arg0, lbl_805D9A44) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)lbl_805D9A44) != 0) {
             F(s16, 0x328) = 2;
             play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003A801), arg0 + 0x38, 0, 0);
         }
         break;
     case 2:
         F(s16, 0xB8) = 2;
-        if (objInBand__FP7GameObjf(arg0, lbl_805D9A48) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)lbl_805D9A48) != 0) {
             TObjPlayer__sub_800A5960((void *)(arg0));
         }
         if (lbl_805D9A2C <= F(f32, 0xC0) && F(f32, 0xC0) <= lbl_805D9A4C) {
             apply_lookup_entry_effect__12TObjEneSaverFv(arg0);
         }
-        if (objInBand__FP7GameObjf(arg0, lbl_805D9A50) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)lbl_805D9A50) != 0) {
             F(s16, 0x328) = 3;
         }
         break;
     case 3:
         F(s16, 0xB8) = 2;
         move_with_wall_slide(arg0);
-        if (objInBand__FP7GameObjf(arg0, lbl_805D9A54) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)lbl_805D9A54) != 0) {
             F(s16, 0x328) = 4;
             play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003A801), arg0 + 0x38, 0, 0);
         }
         break;
     case 4:
         F(s16, 0xB8) = 2;
-        if (objInBand__FP7GameObjf(arg0, lbl_805D9A58) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)lbl_805D9A58) != 0) {
             TObjPlayer__sub_800A5960((void *)(arg0));
         }
         if (lbl_805D9A54 <= F(f32, 0xC0) && F(f32, 0xC0) <= lbl_805D9A5C) {
             apply_lookup_entry_effect__12TObjEneSaverFv(arg0);
         }
-        if (objInBand__FP7GameObjf(arg0, lbl_805D9A60) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)lbl_805D9A60) != 0) {
             F(s16, 0x328) = 5;
         }
         break;
     case 5:
         F(s16, 0xB8) = 2;
         move_with_wall_slide(arg0);
-        if (objInBand__FP7GameObjf(arg0, lbl_805D9A64) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)lbl_805D9A64) != 0) {
             F(s16, 0x328) = 6;
             play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003A801), arg0 + 0x38, 0, 0);
         }
         break;
     case 6:
         F(s16, 0xB8) = 2;
-        if (objInBand__FP7GameObjf(arg0, lbl_805D9A68) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)lbl_805D9A68) != 0) {
             TObjPlayer__sub_800A5960((void *)(arg0));
         }
         if (lbl_805D9A64 <= F(f32, 0xC0) && F(f32, 0xC0) <= lbl_805D9A6C) {

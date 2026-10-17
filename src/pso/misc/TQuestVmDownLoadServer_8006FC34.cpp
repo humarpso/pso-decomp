@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/date.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TLobby.h"
@@ -60,7 +61,6 @@ s32 get_current_floor();
 char *get_unit_list__6TLobbyFv(void);
 char *TLobby__sub_80070ACC(u8, u8, s32);
 Unit_8006FC7C *find_entity_by_id(void);
-void getDateStamp__FP9DateStamp(Date_8006FC7C *);
 Card_8006FC7C *get_character_save_record(u32);
 void fn_8026A1C4(char *, char *, s32);
 char *strncpy(char *, const char *, u32);
@@ -109,7 +109,7 @@ void TLobby::update_card_save_info() {
         card->f2228 = 0x270F;
     }
     VecCopy((Vec *)&card->pos, (const Vec *)&ply->pos);
-    getDateStamp__FP9DateStamp(&date);
+    getDateStamp((DateStamp *)&date);
     if (date.year / 100 != 20) {
         v = 0xF;
     } else {

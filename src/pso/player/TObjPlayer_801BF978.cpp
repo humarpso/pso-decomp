@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_801BF9F0_lbl_804C3E50 {
@@ -7,7 +8,6 @@ struct RecoveredGlobal_801BF9F0_lbl_804C3E50 {
 };
 
 extern "C" {
-s32 __dl__FPv(s32);
 s32 free_if_valid__14TPlyDispConfigFis(void *, int);
 extern RecoveredGlobal_801BF9F0_lbl_804C3E50 lbl_804C3E50;
 u8 *TObjPlayer__sub_801BF9F0(u8 *arg0, s16 arg1);
@@ -39,7 +39,7 @@ u8 *TObjPlayer__sub_801BF9F0(u8 *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 8) = &lbl_804C3E50.value;
         free_if_valid__14TPlyDispConfigFis((void *) (arg0 + 4), (int) (-1));
         if (arg1 > 0) {
-            __dl__FPv((s32)((void *) (arg0)));
+            ::operator delete(((void *) (arg0)));
         }
     }
     return arg0;
@@ -49,7 +49,7 @@ s32 TObjPlayer__sub_801BFA4C(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         TObjPlayer::free_if_valid(arg0, 0);
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete((void *)arg0);
         }
     }
     return arg0;

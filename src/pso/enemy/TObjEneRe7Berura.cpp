@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/boss/TBoss4Type3.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/player/TUnk_80490470.h"
@@ -488,7 +489,6 @@ void destroy_buffer_pair(void*, int);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 * collect_and_count__12TBoss3VoloptFUll(u32 arg0, s32 arg1);
 s32 angle_diff_s16(s32);
-s32 objInBand__FP7GameObjf(void *, f32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 void mem_free(void*);
 u8 * mem_alloc(s32);
@@ -831,7 +831,7 @@ s32 TObjEneRe7Berura::check_death_trigger() {
 #pragma fp_contract on
 void TObjEneRe7Berura::play_band_sound() {
     u8 *arg0 = (u8 *)this;
-    if ((objInBand__FP7GameObjf(arg0, lbl_805D9770) != 0) || (objInBand__FP7GameObjf(arg0, TObjEneRe7Berura__data_805D9764) != 0)) {
+    if ((objInBand((GameObj *)arg0, (f32)lbl_805D9770) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)TObjEneRe7Berura__data_805D9764)) != 0)) {
         play_sound_effect(copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (int) (0x4003BC1F)), (u32) (arg0 + 0x38), 0, 0);
     }
 }

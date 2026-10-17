@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneDf2Bringer.h"
 #include "pso/misc/TBreakUpMdl.h"
@@ -139,7 +140,6 @@ u8 *TBreakUpMdl__ct(u8 *arg0, void *arg1, Model_80096AD8 *arg2, void *arg3, s32 
 void *__dt__11TBreakUpMdlFv(void *arg0, s16 arg1);
 void *__dt_deleting__11TBreakUpMdlFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-s32 __dl__FPv(void *);
 void __dt__7TObjectFv(void *, int);
 void mem_free(void *);
 
@@ -337,7 +337,7 @@ void *__dt_deleting__11TBreakUpMdlFPvs(void *arg0, s16 arg1) {
         mem_free((void *)(*(s32 *)((s8 *)arg0 + 4)));
         *(s32 *)((s8 *)arg0 + 4) = 0;
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

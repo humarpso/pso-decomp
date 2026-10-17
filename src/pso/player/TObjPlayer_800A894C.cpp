@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TBreakUpMdl.h"
@@ -118,7 +119,6 @@ u32 create_particle_emitter(void *, int);
 s32 TObjPlayer__sub_800AB31C(void *, void *, s32, void *, s32);
 s32 render_anim_model_at_pos__15TObjEneGyaranzoFv();
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
 s32 check_enemy_body_collisions(void *);
 s32 play_sound_effect(s32, void *, int, int);
@@ -683,10 +683,10 @@ void TObjPlayer__sub_800A8FB4(void *arg0_) {
         r = 0;
         if (*(s16 *)((s8 *)arg0 + 0x392) != 0) {
             if (*(s16 *)((s8 *)arg0 + 0xB8) != 9) {
-                r = objInBand__FP7GameObjf(arg0, lbl_805D9ADC);
+                r = objInBand((GameObj *)arg0, (f32)lbl_805D9ADC);
             }
         } else if (*(s16 *)((s8 *)arg0 + 0xB8) != 8) {
-            r = objInBand__FP7GameObjf(arg0, lbl_805D9ADC);
+            r = objInBand((GameObj *)arg0, (f32)lbl_805D9ADC);
         }
         if (r != 0) {
             ((s32 (*)(void *))render_anim_model_at_pos__15TObjEneGyaranzoFv)(arg0);
@@ -731,9 +731,9 @@ void TObjPlayer__sub_800A8FB4(void *arg0_) {
         check_enemy_body_collisions(arg0);
         if (*(s16 *)((s8 *)arg0 + 0x38E) > 0) {
             if (*(s16 *)((s8 *)arg0 + 0x392) != 0) {
-                r = objInBand__FP7GameObjf(arg0, lbl_805D9AE8);
+                r = objInBand((GameObj *)arg0, (f32)lbl_805D9AE8);
             } else {
-                r = objInBand__FP7GameObjf(arg0, lbl_805D9AEC);
+                r = objInBand((GameObj *)arg0, (f32)lbl_805D9AEC);
             }
             if (r != 0) {
                 *(s16 *)((s8 *)arg0 + 0x33C) = 0xF;
@@ -805,11 +805,11 @@ void TObjPlayer__sub_800A93E4(void *arg0_) {
         }
         advance_animation_playback(arg0);
         act = -1;
-        if (objInBand__FP7GameObjf(arg0, player_band_threshold_table[e->kind]) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)player_band_threshold_table[e->kind]) != 0) {
             if (e->f39c == 0) {
                 act = 4;
             }
-        } else if (objInBand__FP7GameObjf(arg0, player_band_threshold_table[e->kind + 2]) != 0 && e->f398 == 0) {
+        } else if (objInBand((GameObj *)arg0, (f32)player_band_threshold_table[e->kind + 2]) != 0 && e->f398 == 0) {
             act = 3;
         }
         if (act >= 0) {

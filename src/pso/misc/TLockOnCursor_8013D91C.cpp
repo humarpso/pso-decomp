@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TLockOnCursor.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TMainCursor.h"
@@ -77,7 +78,6 @@ s32 is_channel_active__11TMainCursorFv(s32);
 void TMainCursor__sub_8013F1F0(void *);
 void __construct_array(void *, void *, void *, int, int);
 void __ct__7TObjectFP7TObject(void *);
-s32 __dl__FPv(s32);
 void fn_8013F0A0(void *);
 
 #pragma push
@@ -225,7 +225,7 @@ s32 TLockOnCursor::dt(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         TLockOnCursor::free_if_owned(arg0, 0);
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete((void *)arg0);
         }
     }
     return arg0;

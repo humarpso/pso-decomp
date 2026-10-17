@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItem.h"
 #include "pso/item/TItemProShield.h"
@@ -40,7 +41,6 @@ s32 TObjPlayer__sub_801D47EC(s32 arg0, s32 arg1, s32 arg2);
 u8 *get_ptr_4__10TObjPlayerFv();
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
 s32 fn_801D4270(s32 arg0);
-void __dl__FPv(void *);
 void mem_free(int);
 u8 *TObjPlayer__sub_801D4678(u8 *arg0, s16 arg1);
 void *mem_alloc(void *);
@@ -166,7 +166,7 @@ u8 *TObjPlayer__sub_801D4678(u8 *arg0, s16 arg1) {
             }
         }
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

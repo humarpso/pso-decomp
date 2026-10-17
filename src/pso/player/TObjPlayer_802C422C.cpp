@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/date.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TAdSelectGameModeGC.h"
 #include "pso/TPlyOnCreated.h"
@@ -94,11 +95,9 @@ extern s32 current_language;
 void is_slot_within_limit__10TObjPlayerFllUc(u8 id, s16 i, u8 v);
 int init_character_action_config(void* p);
 int TObjPlayer__sub_802C46E0(void* p);
-s32 DateToSeconds__FP9DateStampPi(s32 *, s32 *);
 int TObjPlayer__sub_8011E204(void*, void*);
 int init_action_config__10TObjPlayerFv(void*);
 int set_palette_entry__20TWindowActionPaletteFlllll(void*);
-s32 getDateStamp__FP9DateStamp(s32 *);
 
 void TObjPlayer::init_battle_selection() { get_char_index__23TAdSinglePlyChrSelectGCFUi((void*)65535); ((int (*)(void))update_battle__10TObjPlayerFi)(); }
 
@@ -160,8 +159,8 @@ void TObjPlayer::set_current_time() {
     s32 arg0 = (s32)this;
     s32 spC;
     s32 sp8;
-    getDateStamp__FP9DateStamp((s32 *)((void *) (&spC)));
-    DateToSeconds__FP9DateStampPi((s32 *)((void *) (&spC)), (s32 *)((void *) (&sp8)));
+    getDateStamp((DateStamp *)((s32 *)((void *) (&spC))));
+    DateToSeconds((DateStamp *)((s32 *)((void *) (&spC))), (int *)((s32 *)((void *) (&sp8))));
     TObjPlayer__sub_802C4648((Obj_802C4648 *)((void*)((void*)((void *) (arg0)))), (u32)((void*)((void*)((int) (sp8)))));
 }
 

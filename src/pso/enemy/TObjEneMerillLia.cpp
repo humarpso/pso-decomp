@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneMerillLia.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -490,7 +491,6 @@ s32 obj_testFlags30(void *, int);
 void vfunc_59__16TObjEneMerillLiaFv(Ene_800D51C8 *arg0);
 s16 find_nearest_visible_player(void *, s32, f32);
 s32 obj_setFlags30(void *, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
 s32 set_indexed_flags(void *, s32, s32);
 void vfunc_83__16TObjEneMerillLiaFv(Ene_800D64F0 *arg0);
 void vfunc_60__16TObjEneMerillLiaFv(Ene_800D52DC *arg0);
@@ -757,7 +757,7 @@ void spawn_ground_effect__16TObjEneMerillLiaFPv(u8 *arg0) {
             }
             spawn_particle_effect(*(s32 *)((s8 *)temp_r3 + 4) + 0x38, 0xA4);
         }
-        if ((objInBand__FP7GameObjf(arg0, lbl_805DA2F8) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805DA2FC) != 0)) {
+        if ((objInBand((GameObj *)arg0, (f32)lbl_805DA2F8) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805DA2FC)) != 0)) {
             fn_800D88E4((s32) (arg0 + 0x38));
         }
     }
@@ -1093,7 +1093,7 @@ s32 TObjEneMerillLia::update_kafun_attack(void *p) {
         clear_player_status_flag__10TObjPlayerFlUl((void *) (arg0), 0, 0x0A000000);
         break;
     case 1:
-        if (objInBand__FP7GameObjf((void *) (arg0), lbl_805DA30C) != 0) {
+        if (objInBand((GameObj *)(arg0), (f32)lbl_805DA30C) != 0) {
             advance_animation_playback((void *) (arg0));
             push_matrix_from((void *) (&identity_matrix));
             post_translate_matrix((void *) ((u8 *)(arg0) + 0x38));
@@ -1369,7 +1369,7 @@ void TObjEneMerillLia::vfunc_83() {
         break;
     case 1:
         spawn_ground_effect__16TObjEneMerillLiaFPv((u8 *)(arg0));
-        if (objInBand__FP7GameObjf(arg0, lbl_805DA304) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)lbl_805DA304) != 0) {
             TObjEneMerillLia__sub_800D501C((s32)arg0);
         }
         if (arg0->fB4 != 0x20) {

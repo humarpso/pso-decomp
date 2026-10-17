@@ -12,7 +12,6 @@ s32 read_disc_file(void *, void *);
 u8 *fn_803204B0(void *);
 s32 OSLink(void *, void *);
 u8 *load_rel_module(u8 *arg0, s32 arg1);
-void __dl__FPv(void *);
 void OSUnlink(void *);
 S_80320358 *fn_80320358(S_80320358 *arg0, s16 arg1);
 
@@ -33,7 +32,7 @@ S_80320358 *fn_80320358(S_80320358 *arg0, s16 arg1) {
             arg0->a = NULL;
         }
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

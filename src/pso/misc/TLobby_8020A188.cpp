@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -11,7 +12,6 @@ u32 find_type5_header__6TLobbyFPvi(s32, s32);
 u32 find_chunk_by_id__6TLobbyFPvi(s32, s32);
 u32 find_header_by_id__6TLobbyFPvi(s32, s32);
 s32 TLobby__sub_80209D34(s32);
-int __dl__FPv(void*);
 
 extern u32 lbl_805D60A8;
 extern u32 lbl_805D60AC;
@@ -46,6 +46,6 @@ void init_buffers__6TLobbyFii(s32 id, s32 arg1) {
 
     extern int item_drop_rng;
     extern int lbl_805D60A4;
-void TLobby::free_boss4rock() { free_boss4rock__6TLobbyFs((void*)(lbl_805D60A4), (void*)1); lbl_805D60A4 = 0; __dl__FPv((void*)(item_drop_rng)); item_drop_rng = 0; }
+void TLobby::free_boss4rock() { free_boss4rock__6TLobbyFs((void*)(lbl_805D60A4), (void*)1); lbl_805D60A4 = 0; ::operator delete((void *)(item_drop_rng)); item_drop_rng = 0; }
 
 }

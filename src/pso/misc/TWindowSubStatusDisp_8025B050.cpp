@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TUnk_804CF930.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
@@ -29,7 +30,6 @@ void draw_window_uv_sprite_part(Win_8025B0D0 *arg0, Ref_8025B0D0 *arg1);
 void *TWindowSubStatusDisp__sub_8025B2DC(void *arg0, s16 arg1);
 void set_sprite_dimensions(void* p, f32 a, f32 b);
 void set_sprite_uv_bounds(void* p, f32 a, f32 b, f32 c, f32 d);
-s32 __dl__FPv(void *);
 u8 *init_part_scaled__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 s32 sub_80256BDC__13TUnk_804CF930Fs(void *, void *);
 
@@ -135,7 +135,7 @@ void *TWindowSubStatusDisp__sub_8025B2DC(void *arg0, s16 arg1) {
         *(void ***)((s8 *)arg0 + 4) = window_uv_sprite_part_vtable;
         ((TUnk_804CF930 *)arg0)->destroy(0);
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

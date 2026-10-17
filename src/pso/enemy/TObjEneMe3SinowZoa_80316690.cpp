@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 #include "pso/TParticleCtrl.h"
@@ -8,7 +9,6 @@ struct Vec_80316690 { f32 x, y, z; };
 struct Hit_80316690 { s32 flags; u8 *obj; };
 
 extern "C" {
-s32 objInBand__FP7GameObjf(void *, f32);
 extern const f32 TObjEneMe3SinowZoa__data_805DF2FC;
 extern const f32 lbl_805DF300;
 void TObjEneMe3SinowZoa__sub_80316840(u8 *arg0);
@@ -68,7 +68,7 @@ void TObjEneMe3SinowZoa::check_and_notify() {
     }
 }
 void TObjEneMe3SinowZoa__sub_80316840(u8 *arg0) {
-    if ((objInBand__FP7GameObjf(arg0, TObjEneMe3SinowZoa__data_805DF2FC) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805DF300) != 0)) {
+    if ((objInBand((GameObj *)arg0, (f32)TObjEneMe3SinowZoa__data_805DF2FC) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805DF300)) != 0)) {
         ((TObjEneMe3SinowZoa *)arg0)->check_floor_contact((void *)((void *) (arg0 + 0x38)));
     }
 }

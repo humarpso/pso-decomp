@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TObjBoss1MokoHill_Solo.h"
 #include "pso/boss/TObjBoss1MokoHill_SoloM.h"
@@ -180,7 +181,6 @@ void draw_chunk_object(void *);
 void queue_destruction__7TObjectFv();
 void *__nw__7TObjectFUl(int);
 s32 mem_free(s32);
-s32 __dl__FPv(void *);
 void *mem_alloc(u32);
 f32 newton_sqrtf(f32);
 f32 calc_nearest_crater_distance(void *);
@@ -480,7 +480,7 @@ void *destroy__12TBoss8DragonFPvs(void *arg0, s16 arg1) {
         *(s32 *)((s8 *)arg0 + 0x18) = 0;
         *(s32 *)((s8 *)arg0 + 0x1C) = 0;
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

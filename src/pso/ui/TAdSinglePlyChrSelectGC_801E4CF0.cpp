@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
@@ -8,7 +9,6 @@ extern "C" {
 
 s32 TLobby__sub_803DA16C(s32);
 s32 set_texture_name(void *, void *, int, int);
-s32 __dl__FPv(void *);
 
 void TAdSinglePlyChrSelectGC::advance_wrapped_cursor() {
     s32 temp_r0;
@@ -30,7 +30,7 @@ void *TAdSinglePlyChrSelectGC::destroy_and_free(s16 arg1) {
         TLobby__sub_803DA16C(this->m_3c);
         TAdSinglePlyChrSelectGC::safe_free(this->m_44);
         if (arg1 > 0) {
-            __dl__FPv(this);
+            ::operator delete(this);
         }
     }
     return this;

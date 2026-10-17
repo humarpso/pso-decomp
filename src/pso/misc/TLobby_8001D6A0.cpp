@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/date.h"
 #include "pso/system/byteswap.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TLobby.h"
@@ -55,7 +56,6 @@ u32 *free_and_delete__6TLobbyFPvs(u32 *arg0, s16 arg1);
 
 s32 aram_read_sync__6TLobbyFllll(s32, s32);
 s32 aram_transfer_sync__6TLobbyFlUlll(s32, void *, s32);
-s32 __dl__FPv(u32 *);
 u8 *fn_803DE864(s32, s32);
 
 void TLobby::send_or_handle_packet(void *arg0, void *arg1, void *arg2, void *arg3, u32 arg4) {
@@ -154,7 +154,7 @@ u32 *free_and_delete__6TLobbyFPvs(u32 *arg0, s16 arg1) {
             *arg0 = 0U;
         }
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;
@@ -778,7 +778,6 @@ struct DateStamp_8001E8FC
   u8 pad8[4];
 };
 u8 *get_global_state__23TAdSinglePlyChrSelectGCFv();
-s32 getDateStamp__FP9DateStamp(void *);
 s32 TLobby::get_clock_frames() {
   u8 *new_var;
   u8 *g;
@@ -794,7 +793,7 @@ s32 TLobby::get_clock_frames() {
   {
     base = *((s32 *) (g + 8));
   }
-  getDateStamp__FP9DateStamp(&d);
+  getDateStamp((DateStamp *)&d);
   s32 secs = (*new_var) * 60;
   s32 mins = d.m;
   if (g && g)

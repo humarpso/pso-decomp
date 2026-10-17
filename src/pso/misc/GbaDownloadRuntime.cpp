@@ -1,4 +1,5 @@
 #include "pso/network/GbaJoybootState.h"
+#include "pso/system/date.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TDLGraph.h"
 
@@ -143,8 +144,6 @@ struct Rec_8032C9A8 { u32 a; u32 b; u32 c; };
 
 extern "C" {
 s32 TLobby__sub_801F34F8(void);
-void DateToSeconds__FP9DateStampPi(DateStamp_8032C9A8 *, u32 *);
-void getDateStamp__FP9DateStamp(DateStamp_8032C9A8 *);
 void *memmove(void *, const void *, u32);
 s32 rand();
 void *memset(void *, int, u32);
@@ -178,8 +177,8 @@ void TLobby__sub_8032C9A8(s32 arg0, s32 arg1) {
     st = TAdSinglePlyChrSelectGC::get_global_state();
     if (st != 0) {
         if (arg1 != 0) {
-            getDateStamp__FP9DateStamp(&ds);
-            DateToSeconds__FP9DateStampPi(&ds, &secs);
+            getDateStamp((DateStamp *)&ds);
+            DateToSeconds((DateStamp *)&ds, (int *)&secs);
             secs = lbl_805DF7A8 * (lbl_805DF7AC * rand()) + secs;
             memmove(&rec.a, (void *) (st + 0x118), 4);
             memmove(&rec.b, &secs, 4);

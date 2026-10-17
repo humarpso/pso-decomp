@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TUnk_804A7478.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TPlyPhotonChair.h"
@@ -7,7 +8,6 @@ extern "C" {
 
 void *__dt__13TUnk_804A7488Fv(void *arg0, s16 arg1);
 s32 TPlyPhotonChair__sub_80143930(void* p);
-s32 __dl__FPv(void *);
 
 extern s32 lbl_804A7478[];
 
@@ -16,7 +16,7 @@ void *TUnk_804A7478::destroy(s16 arg1) {
         *(s32 * *)&(*(u16 *)((u8 *)this + 0x4)) = lbl_804A7478;
         __dt__13TUnk_804A7488Fv((void *)(this), (s16)(0));
         if (arg1 > 0) {
-            __dl__FPv(this);
+            ::operator delete(this);
         }
     }
     return this;
@@ -28,7 +28,7 @@ void *__dt__13TUnk_804A7488Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 4) = lbl_804A7488;
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

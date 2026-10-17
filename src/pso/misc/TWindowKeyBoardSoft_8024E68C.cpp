@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -58,7 +59,6 @@ extern const f32 lbl_805DCCA4;
 u32 init_text_window_layout(Win_8024EA50 *win, f32 *pos, f32 *size, f32 *scale, u32 flags, f32 depth);
 u32 open_singleton__19TWindowKeyBoardSoftFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, u32 _w4, f32 _w5);
 s32 try_open__19TWindowKeyBoardSoftFii(s32 arg0, s32 arg1);
-s32 __dl__FPv(u32);
 
 typedef struct RecoveredFields_8024E754_arg0 RecoveredFields_8024E754_arg0;
 #pragma fp_contract on
@@ -300,7 +300,7 @@ u32 TWindowKeyBoardSoft::free_singleton(u32 arg0, s16 arg1) {
             soft_keyboard_instance = 0U;
         }
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete((void *)arg0);
         }
     }
     return arg0;

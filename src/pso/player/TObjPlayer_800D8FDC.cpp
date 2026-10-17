@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/player/TUnk_80494AE0.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -258,7 +259,6 @@ extern s32 lbl_80494AE0[];
 extern const f32 lbl_805DA3E4;
 V_800D9718 *TObjPlayer__sub_800D9718(V_800D9718 *self);
 void *__dt__13TUnk_80494AE0Fv(void *arg0, s16 arg1);
-s32 __dl__FPv(void *);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32, f32);
 
 void TUnk_80494AE0::vfunc_4() { *(float *)&this->unk_0 = lbl_805DA3DC; this->m_4 = lbl_805DA3DC; *(float *)&this->unk_8 = lbl_805DA3DC; this->m_c = lbl_805DA3DC; }
@@ -273,7 +273,7 @@ void *__dt__13TUnk_80494AE0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x14) = lbl_80494AE0;
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

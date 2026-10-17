@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -11,7 +12,6 @@ s32 destroy_char_data__10TObjPlayerFis(s32 arg0, s16 arg1);
 s32 is_quest_active();
 int subtract_photon_blast_charge(void*);
 int add_photon_blast_chain_charge(void*);
-s32 __dl__FPv(s32);
 s32 __dt__12TPlyCharDataFv(s32, s32);
 int set_flags__10TObjPlayerFUl(void*, int);
 
@@ -19,7 +19,7 @@ s32 destroy_char_data__10TObjPlayerFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         __dt__12TPlyCharDataFv(arg0 + 0xC, -1);
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete((void *)arg0);
         }
     }
     return arg0;

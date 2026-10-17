@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TTecLuker.h"
 
@@ -22,7 +23,6 @@ extern "C" {
 s32 TObjPlayer__sub_801C2044(s32 *arg0);
 u8 TObjPlayer__sub_801C21C4(O_801C21C4 *self, s32 i);
 void is_slot_within_limit__10TObjPlayerFllUc(u8 id, s16 i, u8 v);
-void __dl__FPv(void *);
 void __destroy_arr(void *, void *, int, int);
 void TObjPlayer__sub_801AA528(void);
 void *fn_801C2308(void *arg0, s16 arg1);
@@ -147,7 +147,7 @@ void *fn_801C2308(void *arg0, s16 arg1) {
     if (arg0 != 0) {
         __destroy_arr(arg0, (void *)TObjPlayer__sub_801AA528, 0x18, 4);
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

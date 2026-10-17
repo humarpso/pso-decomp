@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/system/main_loop.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/TItemReverseTech.h"
@@ -79,7 +80,6 @@ int TItemReverseTech__sub_8011A580(void);
 void TItemReverseTech__sub_8011A5A4(void);
 void free__16TItemReverseTechFv(void);
 s32 TItemReverseTech__ct(void *, s32);
-int __dl__FPv(void*);
 int free_texture_if_valid(void*);
 int set_global_flags__6TLobbyFl(void*);
 
@@ -92,7 +92,7 @@ void TItemReverseTech::create() {
     }
 }
 
-void free__16TItemReverseTechFv(void) { free_texture_if_valid((void*)(TItemReverseTech__texture_archive)); mem_free((void*)(TItemReverseTech__name_buffer)); TItemReverseTech__name_buffer = 0; mem_free((void*)(TItemReverseTech__entry_table)); TItemReverseTech__entry_table = 0; __dl__FPv((void*)(TItemReverseTech__texture_archive)); TItemReverseTech__texture_archive = 0; }
+void free__16TItemReverseTechFv(void) { free_texture_if_valid((void*)(TItemReverseTech__texture_archive)); mem_free((void*)(TItemReverseTech__name_buffer)); TItemReverseTech__name_buffer = 0; mem_free((void*)(TItemReverseTech__entry_table)); TItemReverseTech__entry_table = 0; ::operator delete((void *)(TItemReverseTech__texture_archive)); TItemReverseTech__texture_archive = 0; }
 
 typedef char RecoveredGlobal_8011A350_main_task_size[sizeof(RecoveredGlobal_8011A350_main_task) == 0x34 ? 1 : -1];
 

@@ -1,4 +1,5 @@
 #include "pso/boss/TBoss1Dragon.h"
+#include "pso/object/obj_band.h"
 #include "pso/boss/TObjBoss1Crater.h"
 #include "pso/misc/TMainCursor.h"
 #include "pso/TObject.h"
@@ -1248,7 +1249,6 @@ s32 isV2Mode__12TBoss1DragonFv(void);
 u8 *__nw__7TObjectFUl(s32);
 u8 *__ct__16TBoss1DragonDemoFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 request_state_change__12TBoss1DragonFPvs(void *vself, s16 state32);
-s32 objInBand__FP7GameObjf(void *, f32);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 spawn_particle_effect_with_flags(void *, s32, s32);
 s32 play_cue_stream_file(void *, int);
@@ -2150,22 +2150,22 @@ void TBoss1Dragon::update_appearance_state(u32 reason) {
             }
             switch (self->stage) {
             case 0:
-                if (objInBand__FP7GameObjf(self, TBoss1Dragon__data_805D7F24) != 0) {
+                if (objInBand((GameObj *)self, (f32)TBoss1Dragon__data_805D7F24) != 0) {
                     play_sound_effect(0x4003A804, 0, 0, 0);
                     self->stage++;
                 }
                 break;
             case 1:
-                if (objInBand__FP7GameObjf(self, lbl_805D7F4C) != 0) {
+                if (objInBand((GameObj *)self, (f32)lbl_805D7F4C) != 0) {
                     play_sound_effect(0x4003AD0E, 0, 0, 0);
                 }
-                if (objInBand__FP7GameObjf(self, TBoss1Dragon__data_805D7F50) != 0) {
+                if (objInBand((GameObj *)self, (f32)TBoss1Dragon__data_805D7F50) != 0) {
                     spawn_particle_effect_with_flags(&self->pos, self->tbl->e8, 0x40);
                     self->stage++;
                 }
                 break;
             case 2:
-                if (objInBand__FP7GameObjf(self, lbl_805D7F54) != 0) {
+                if (objInBand((GameObj *)self, (f32)lbl_805D7F54) != 0) {
                     play_sound_effect(0x4003AD06, 0, 0, 0);
                     self->stage++;
                     self->ticks = 0;
@@ -2182,7 +2182,7 @@ void TBoss1Dragon::update_appearance_state(u32 reason) {
                 }
                 break;
             case 4:
-                if (objInBand__FP7GameObjf(self, lbl_805D7F5C) != 0) {
+                if (objInBand((GameObj *)self, (f32)lbl_805D7F5C) != 0) {
                     ((s32 (*)(void *)) play_cue_stream_file)((void*)boss1_dragon_death_cue_filename);
                     self->stage++;
                     self->ticks = 0;
@@ -2217,21 +2217,21 @@ void TBoss1Dragon::update_appearance_state(u32 reason) {
             }
             switch (self->stage) {
             case 0:
-                if (objInBand__FP7GameObjf(self, TBoss1Dragon__data_805D7F64) != 0 ||
-                    objInBand__FP7GameObjf(self, TBoss1Dragon__data_805D7F68) != 0) {
+                if (objInBand((GameObj *)self, (f32)TBoss1Dragon__data_805D7F64) != 0 ||
+                    objInBand((GameObj *)self, (f32)TBoss1Dragon__data_805D7F68) != 0) {
                     play_sound_effect(0x4003A804, 0, 0, 0);
                 }
-                if (objInBand__FP7GameObjf(self, lbl_805D7F6C) != 0) {
+                if (objInBand((GameObj *)self, (f32)lbl_805D7F6C) != 0) {
                     play_sound_effect(0x4003AD0E, 0, 0, 0);
                 }
-                if (objInBand__FP7GameObjf(self, lbl_805D7F70) != 0) {
+                if (objInBand((GameObj *)self, (f32)lbl_805D7F70) != 0) {
                     play_sound_effect(0x4003A804, 0, 0, 0);
                     spawn_particle_effect_with_flags(&self->pos, self->tbl->e8, 0x40);
                     self->stage++;
                 }
                 break;
             case 1:
-                if (objInBand__FP7GameObjf(self, lbl_805D7F74) != 0) {
+                if (objInBand((GameObj *)self, (f32)lbl_805D7F74) != 0) {
                     play_sound_effect(0x4003AD06, 0, 0, 0);
                     self->stage++;
                     self->ticks = 0;
@@ -2248,7 +2248,7 @@ void TBoss1Dragon::update_appearance_state(u32 reason) {
                 }
                 break;
             case 3:
-                if (objInBand__FP7GameObjf(self, lbl_805D7F7C) != 0) {
+                if (objInBand((GameObj *)self, (f32)lbl_805D7F7C) != 0) {
                     ((s32 (*)(void *)) play_cue_stream_file)((void*)boss1_dragon_death_cue_filename);
                     self->stage++;
                     self->ticks = 0;
@@ -2283,23 +2283,23 @@ void TBoss1Dragon::update_appearance_state(u32 reason) {
             }
             switch (self->stage) {
             case 0:
-                if (objInBand__FP7GameObjf(self, TBoss1Dragon__data_805D7F24) != 0) {
+                if (objInBand((GameObj *)self, (f32)TBoss1Dragon__data_805D7F24) != 0) {
                     play_sound_effect(0x4003A804, 0, 0, 0);
                     self->stage++;
                 }
                 break;
             case 1:
-                if (objInBand__FP7GameObjf(self, TBoss1Dragon__data_805D7F84) != 0) {
+                if (objInBand((GameObj *)self, (f32)TBoss1Dragon__data_805D7F84) != 0) {
                     play_sound_effect(0x4003AD0E, 0, 0, 0);
                 }
-                if (objInBand__FP7GameObjf(self, lbl_805D7F88) != 0) {
+                if (objInBand((GameObj *)self, (f32)lbl_805D7F88) != 0) {
                     spawn_particle_effect_with_flags(&self->pos, self->tbl->e8, 0x40);
                     spawn_particle_effect_with_flags(&self->pos, 0x203, 0x40);
                     self->stage++;
                 }
                 break;
             case 2:
-                if (objInBand__FP7GameObjf(self, lbl_805D7F54) != 0) {
+                if (objInBand((GameObj *)self, (f32)lbl_805D7F54) != 0) {
                     play_sound_effect(0x4003AD06, 0, 0, 0);
                     self->stage++;
                     self->ticks = 0;
@@ -2311,7 +2311,7 @@ void TBoss1Dragon::update_appearance_state(u32 reason) {
                 }
                 break;
             case 4:
-                if (objInBand__FP7GameObjf(self, lbl_805D7F5C) != 0) {
+                if (objInBand((GameObj *)self, (f32)lbl_805D7F5C) != 0) {
                     ((s32 (*)(void *)) play_cue_stream_file)((void*)boss1_dragon_death_cue_filename);
                     self->stage++;
                     self->ticks = 0;
@@ -2443,10 +2443,10 @@ void TBoss1Dragon::handleFallState(u32 reason) {
             if (this->m_c0 >= lbl_805D8020) {
                 this->stateStep = 1;
             }
-            if (objInBand__FP7GameObjf((void *) (this), (f32) (TBoss1Dragon__data_805D7F24)) != 0) {
+            if (objInBand((GameObj *)(this), (f32) (TBoss1Dragon__data_805D7F24)) != 0) {
                 play_se_at_pos__12TBoss1DragonFii((s32)((void *) (this)), (s32)((int) (0x4003A804)));
             }
-            if (objInBand__FP7GameObjf((void *) (this), (f32) (lbl_805D8024)) != 0) {
+            if (objInBand((GameObj *)(this), (f32) (lbl_805D8024)) != 0) {
                 update_switch_attack();
             }
             break;
@@ -3060,9 +3060,9 @@ void TBoss1Dragon__sub_800228E8(u8 *arg0, u32 arg1) {
         if ((s16) *(s16 *)((s8 *)arg0 + 0xB8) == 1) {
             TBoss1Dragon__sub_80028BE0(arg0);
         }
-        if (objInBand__FP7GameObjf((void *) (arg0), (f32) (TBoss1Dragon__data_805D7F9C)) != 0) {
+        if (objInBand((GameObj *)(arg0), (f32) (TBoss1Dragon__data_805D7F9C)) != 0) {
             ((TBoss1Dragon *)arg0)->initDefault();
-        } else if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D7FA0)) != 0) {
+        } else if (objInBand((GameObj *)(arg0), (f32) (lbl_805D7FA0)) != 0) {
             ((TBoss1Dragon *)arg0)->setState1();
         }
         *(f32 *)((s8 *)arg0 + 0xC8) = (f32) lbl_805D7FA8;
@@ -3267,7 +3267,7 @@ void update_death_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
         advance_animation_playback();
         switch (F(s32, 0x864)) {
         case 0:
-            if (objInBand__FP7GameObjf(arg0, TBoss1Dragon__data_805D7F84) != 0 || objInBand__FP7GameObjf(arg0, lbl_805D7FB4) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)TBoss1Dragon__data_805D7F84) != 0 || objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805D7FB4)) != 0) {
                 play_sound_effect(0x4003AD07, 0, 0, 0);
                 TBoss3Volopt::queue_event_1D(0xA0, 0xF);
             }
@@ -3284,7 +3284,7 @@ void update_death_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
                 queue_destruction__7TObjectFv(F(void *, 0x8AC));
                 F(u32, 0x8AC) = 0;
             }
-            if (objInBand__FP7GameObjf(arg0, lbl_805D7FB8) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)lbl_805D7FB8) != 0) {
                 eff1 = *(Eff_80022EE0 *)TBoss1Dragon__head_fall_effect_params;
                 *(f32 *)&eff1.w[2] = TBoss1Dragon__data_805D7F38;
                 ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&v, lbl_80434EC8);
@@ -3302,7 +3302,7 @@ void update_death_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
                 reset_hp__9TObjEneDDFv(arg0, 0, RES(0), 0);
                 spawn_particle_effect_with_flags(&v, *(s32 *)((s8 *)(F(u8 *, 0x778)) + 8), 0x40);
             }
-            if (objInBand__FP7GameObjf(arg0, lbl_805D7FBC) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)lbl_805D7FBC) != 0) {
                 eff2 = *(Eff_80022EE0 *)TBoss1Dragon__head_fall_effect_params;
                 *(f32 *)&eff2.w[2] = TBoss1Dragon__data_805D7F3C;
                 ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&v, lbl_80434ED4);
@@ -3320,7 +3320,7 @@ void update_death_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
                 reset_hp__9TObjEneDDFv(arg0, 0, RES(0), 0);
                 spawn_particle_effect_with_flags(&v, *(s32 *)((s8 *)(F(u8 *, 0x778)) + 8), 0x40);
             }
-            if (objInBand__FP7GameObjf(arg0, lbl_805D7FC0) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)lbl_805D7FC0) != 0) {
                 ((TBoss1Dragon *)arg0)->sweep_death_body_attack();
             }
             if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
@@ -4065,7 +4065,7 @@ void TBoss1Dragon::update_stretch_state(u32 arg1) {
         return;
     case 0:
         advance_animation_playback();
-        if (objInBand__FP7GameObjf((void *) (arg0), (f32) (TBoss1Dragon__data_805D7F1C)) != 0) {
+        if (objInBand((GameObj *)(arg0), (f32) (TBoss1Dragon__data_805D7F1C)) != 0) {
             play_cue_stream_file((void *) (lbl_80435388));
             return;
         }
@@ -4142,11 +4142,11 @@ void TBoss1Dragon::update_head_down_attack_state(u32 arg1) {
         temp_r0 = this->impactAge;
         switch (temp_r0) {
         case 0:
-            if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D8014)) != 0) {
+            if (objInBand((GameObj *)(arg0), (f32) (lbl_805D8014)) != 0) {
                 apply_head_fall_attack();
-            } else if (objInBand__FP7GameObjf((void *) (arg0), (f32) (TBoss1Dragon__data_805D8018)) != 0) {
+            } else if (objInBand((GameObj *)(arg0), (f32) (TBoss1Dragon__data_805D8018)) != 0) {
                 ((void (*)(void *))update_from_data__12TBoss1DragonFv)(arg0);
-            } else if (objInBand__FP7GameObjf((void *) (arg0), (f32) (TBoss1Dragon__data_805D8008)) != 0) {
+            } else if (objInBand((GameObj *)(arg0), (f32) (TBoss1Dragon__data_805D8008)) != 0) {
                 ((void (*)(void *))sweep_head_fall_spheres_late__12TBoss1DragonFv)(arg0);
             }
             if ((s16) this->m_b8 != 8) {
@@ -4273,13 +4273,13 @@ void update_air_fire_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
             }
             break;
         case 2:
-            if (objInBand__FP7GameObjf(arg0, TBoss1Dragon__data_805D7F24) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)TBoss1Dragon__data_805D7F24) != 0) {
                 play_se_at_pos__12TBoss1DragonFii((s32)arg0, 0x4003A804);
             }
-            if (objInBand__FP7GameObjf(arg0, lbl_805D8048) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)lbl_805D8048) != 0) {
                 play_se_at_pos__12TBoss1DragonFii((s32)arg0, 0x4003AD0A);
             }
-            if (objInBand__FP7GameObjf(arg0, TBoss1Dragon__data_805D8018) != 0 || objInBand__FP7GameObjf(arg0, lbl_805D804C) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)TBoss1Dragon__data_805D8018) != 0 || objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805D804C)) != 0) {
                 ((TBoss1Dragon *)arg0)->update_switch_attack();
             }
             if (*(void **)((s8 *)arg0 + 0x8AC) == NULL) {
@@ -4292,7 +4292,7 @@ void update_air_fire_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
                 queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x8AC));
                 *(u32 *)((s8 *)arg0 + 0x8AC) = 0;
             }
-            if (objInBand__FP7GameObjf(arg0, lbl_805D8050) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)lbl_805D8050) != 0) {
                 VecCopy__FP3VecPC3Vec(&d, tgt);
                 subtract_vector(&d, arg0 + 0x38);
                 dist = ((f32 (*)(void *))clamp_velocity__15TObjBoss2TunnelFv)(&d);
@@ -4508,13 +4508,13 @@ void TBoss1Dragon::update_lift_state(u32 arg1) {
             break;
         }
         ((s32 (*)(void *))advance_animation_playback)(self);
-        if (objInBand__FP7GameObjf(self, TBoss1Dragon__data_805D8018) != 0) {
+        if (objInBand((GameObj *)self, (f32)TBoss1Dragon__data_805D8018) != 0) {
             play_se_at_pos__12TBoss1DragonFii((s32)self, 0x4003A804);
         }
-        if (objInBand__FP7GameObjf(self, lbl_805D8068) != 0) {
+        if (objInBand((GameObj *)self, (f32)lbl_805D8068) != 0) {
             play_se_at_pos__12TBoss1DragonFii((s32)self, 0x4003A803);
         }
-        if (objInBand__FP7GameObjf(self, lbl_805D806C) != 0) {
+        if (objInBand((GameObj *)self, (f32)lbl_805D806C) != 0) {
             spawn_particle_effect_with_flags(&self->position[0], (s32)self->effectResource->unknown00[1], 0x40);
         }
         switch (self->impactAge) {
@@ -4563,14 +4563,14 @@ void TBoss1Dragon::update_tail_attack_state(u32 arg1) {
     case 0:
         advance_animation_playback();
         self->f864++;
-        if (objInBand__FP7GameObjf(self, TBoss1Dragon__data_805D7F28) != 0 ||
-            objInBand__FP7GameObjf(self, TBoss1Dragon__data_805D7F38) != 0) {
+        if (objInBand((GameObj *)self, (f32)TBoss1Dragon__data_805D7F28) != 0 ||
+            objInBand((GameObj *)self, (f32)TBoss1Dragon__data_805D7F38) != 0) {
             play_se_at_pos__12TBoss1DragonFii((s32)self, 0x4003AD09);
         }
         if (self->f864 > 1) {
-            if (objInBand__FP7GameObjf(self, TBoss1Dragon__data_805D8010) != 0) {
+            if (objInBand((GameObj *)self, (f32)TBoss1Dragon__data_805D8010) != 0) {
                 ((TBoss1DragonEffTail *)(self->tail))->disable();
-            } else if (objInBand__FP7GameObjf(self, lbl_805D8070) != 0) {
+            } else if (objInBand((GameObj *)self, (f32)lbl_805D8070) != 0) {
                 ((TBoss1DragonEffTail *)(self->tail))->enable();
             }
             self->tail->m1();
@@ -4843,9 +4843,9 @@ void TBoss1Dragon::update_walking_state(u32 arg1) {
         TBoss1Dragon__sub_80028BE0(arg0);
         update_velocity__9TObjEneDDFv(arg0);
         calc_target_vector__12TBoss1DragonFPv(arg0);
-        if (objInBand__FP7GameObjf(arg0, TBoss1Dragon__data_805D7F9C) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)TBoss1Dragon__data_805D7F9C) != 0) {
             ((TBoss1Dragon *)arg0)->initDefault();
-        } else if (objInBand__FP7GameObjf(arg0, lbl_805D7FA0) != 0) {
+        } else if (objInBand((GameObj *)arg0, (f32)lbl_805D7FA0) != 0) {
             ((TBoss1Dragon *)arg0)->setState1();
         }
         v = this->m_c0;
@@ -5953,13 +5953,13 @@ void TBoss1Dragon__sub_80028B28(u8 *arg0) {
 
 void TBoss1Dragon::play_nearby_se() {
     s32 arg0 = (s32)this;
-    if (objInBand__FP7GameObjf((void *)arg0, (f32) (TBoss1Dragon__data_805D7FF8)) != 0) {
+    if (objInBand((GameObj *)arg0, (f32) (TBoss1Dragon__data_805D7FF8)) != 0) {
         play_se_at_pos__12TBoss1DragonFii((s32)((void *) (arg0)), (s32)((int) (0x4003A804)));
     }
 }
 
 void TBoss1Dragon__sub_80028BE0(u8 *arg0) {
-    if ((objInBand__FP7GameObjf(arg0, TBoss1Dragon__data_805D7F98) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805D80B0) != 0)) {
+    if ((objInBand((GameObj *)arg0, (f32)TBoss1Dragon__data_805D7F98) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805D80B0)) != 0)) {
         play_se_at_pos__12TBoss1DragonFii((s32) arg0, 0x4003A801);
     }
 }
@@ -6356,7 +6356,7 @@ void TBoss1Dragon__sub_8002AB6C(u8 *arg0);
 void copy_model_node(u8 *arg0, u8 *arg1);
 
 void TBoss1Dragon__sub_800274A4(s32 arg0) {
-    if (objInBand__FP7GameObjf((void *)arg0, (f32) (TBoss1Dragon__data_805D8018)) != 0) {
+    if (objInBand((GameObj *)arg0, (f32) (TBoss1Dragon__data_805D8018)) != 0) {
         ((TBoss1Dragon *)arg0)->update_switch_attack();
     }
 }

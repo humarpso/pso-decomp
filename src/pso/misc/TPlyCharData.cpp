@@ -1,16 +1,16 @@
 #include "types.h"
+#include "pso/system/memory.h"
 
 extern "C" {
 
 s32 __dt__12TPlyCharDataFv(s32 arg0, s16 arg1);
-s32 __dl__FPv(s32);
 s32 __dt__14TPlyDispConfigFv(s32, s32);
 
 s32 __dt__12TPlyCharDataFv(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         __dt__14TPlyDispConfigFv(arg0 + 0x3C0, -1);
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete((void *)arg0);
         }
     }
     return arg0;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/item/TUnk_8049F41C.h"
 #include "pso/item/TUnk_8049F40C.h"
 #include "pso/TItemLoad.h"
@@ -38,7 +39,6 @@ struct VObj_8010F52C : Base_8010F52C {
 void *__dt__13TUnk_8049F41CFv(void *arg0, s16 arg1);
 s32 __dt__13TUnk_8049F42CFv(void *, s32);
 s32 load_gvm_texture_archive(s32, s32);
-s32 __dl__FPv(void *);
 s32 mem_free(s32);
 
 void TItemLoad::free_all_models() {
@@ -137,7 +137,7 @@ void *TUnk_8049F40C::dt(s16 arg1) {
         *(s32 * *)&(*(TObject * *)((u8 *)this + 0x14)) = lbl_8049F40C;
         __dt__13TUnk_8049F42CFv(this, 0);
         if (arg1 > 0) {
-            __dl__FPv(this);
+            ::operator delete(this);
         }
     }
     return this;
@@ -184,7 +184,7 @@ void *__dt__13TUnk_8049F41CFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x14) = lbl_8049F41C;
         __dt__13TUnk_8049F42CFv(arg0, 0);
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

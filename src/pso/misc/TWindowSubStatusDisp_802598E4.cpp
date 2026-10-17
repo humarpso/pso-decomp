@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
 struct RecoveredGlobal_8025A0A4_lbl_804CF9E0 {
@@ -52,7 +53,6 @@ void render_numeric_digit_entries(u8 *arg0, u8 *arg1);
 void TWindowSubStatusDisp__sub_80259CE0(void);
 void *TWindowSubStatusDisp__sub_80259CE4(void *arg0, s16 arg1);
 void *TWindowSubStatusDisp__sub_8025A04C(void *arg0, s16 arg1);
-s32 __dl__FPv(void *);
 s32 deleting_destructor__20TWindowSubStatusDispFs(void *, s32);
 
     extern unsigned char lbl_804CF9B0[];
@@ -178,7 +178,7 @@ void *TWindowSubStatusDisp__sub_80259CE4(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 4) = lbl_804CF9C8;
         deleting_destructor__20TWindowSubStatusDispFs(arg0, 0);
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;
@@ -277,7 +277,7 @@ void *TWindowSubStatusDisp__sub_8025A04C(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 4) = lbl_804CF9E0;
         TWindowSubStatusDisp__sub_80259CE4((void *)((void *)(arg0)), (s16)((s16)(0)));
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

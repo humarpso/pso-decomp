@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/item/TItemDrop.h"
 #include "pso/TFontSmallTask.h"
 #include "pso/item/TItemData.h"
@@ -390,7 +391,6 @@ u32 roll_channel_below__9TItemDropFPviUi(u8 *arg0, s32 arg1, u32 arg2);
 s32 calc_random_ratio__10TObjPlayerFv(void *);
 void roll_table_ratio__9TItemDropFPvUi(u8 *arg0, u32 arg1);
 s32 __dt__7TObjectFv(void *, int);
-s32 __dl__FPv(int);
 s32 TItemDrop__sub_8010F168(int, int);
 s32 mem_free(s32);
 s32 __dl__7TObjectFPv(void *);
@@ -1086,7 +1086,7 @@ u8 *TItemDrop__sub_80107840(u8 *arg0, s16 arg1) {
     TItemDrop__second_relocatable_load_buffer = 0;
     do
     {
-      __dl__FPv((int) (*((s32 *) (((s8 *) (*((s32 *) (((s8 *) arg0) + 0x20)))) + var_r31))));
+      ::operator delete((void *)(*((s32 *) (((s8 *) (*((s32 *) (((s8 *) arg0) + 0x20)))) + var_r31))));
       var_r30 += 1;
       var_r31 += 4;
     }

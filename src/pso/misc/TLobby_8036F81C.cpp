@@ -1,17 +1,17 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdEp3Exist.h"
 
 extern "C" {
 
 s32 TAdEp3Exist__sub_8036F574();
-s32 __dl__FPv(s32);
 
 s32 TLobby::destroy_ep3_exist(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         TAdEp3Exist::free_if_valid(arg0, 0);
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete((void *)arg0);
         }
     }
     return arg0;

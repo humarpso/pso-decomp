@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -172,7 +173,6 @@ void calc_velocity_toward_destination(void *, Vec_8008F910, Vec_8008F910, f32);
 s32 select_enemy_destination(void *, Vec_8008F910, s32);
 void copy_position_if_valid__10TObjPlayerFii(void *, Vec_8008F910);
 f32 xz_distance_squared(void *, void *);
-s32 objInBand__FP7GameObjf(void *, f32);
 extern Pair_8008EDE8 lbl_80439B54[];
 extern const f32 lbl_805D9644;
 extern const f32 lbl_805D9648;
@@ -322,7 +322,7 @@ void TObjPlayer__sub_8008EDE8(P_8008EDE8 *arg0) {
                     move_with_wall_slide(arg0);
                 }
             }
-            if (objInBand__FP7GameObjf(arg0, lbl_805D964C) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)lbl_805D964C) != 0) {
                 if (arg0->target->m18(arg0, lbl_805D9650) != 0) {
                     if (calc_boss4_scale__10TObjPlayerFi(arg0) <= lbl_805D9654) {
                         Pair_8008EDE8 q = lbl_80439B54[0];
@@ -434,7 +434,7 @@ void TObjPlayer__sub_8008F1DC(void *arg0) {
             }
         }
         ((TObjPlayer *)o)->update_angle((s32)(o->f350->f8), (void *)(&o->vel));
-        if (objInBand__FP7GameObjf(o, lbl_805D964C) != 0) {
+        if (objInBand((GameObj *)o, (f32)lbl_805D964C) != 0) {
             play_sound_effect(0x4003B034, (u8 *)o + 0x38, 0, 0);
             if (FLD(T_8008F1DC *, 0x2A8)->m18(o, lbl_805D9650) != 0) {
                 FLD(T_8008F1DC *, 0x2A8)->m20(o, lbl_805D9650);

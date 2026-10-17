@@ -1,4 +1,5 @@
 #include <dolphin/mtx.h>
+#include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
@@ -1194,7 +1195,6 @@ extern "C" {
 #define sub_8004292C__15TObjEnemyCustomFv ((s32 (*)())sub_8004292C__15TObjEnemyCustomFv)
 #define csnVector ((u32 (*)(void *, void *, s32))csnVector)
 s32 TObjPlayer__sub_800DC478(void *, int, f32);
-s32 objInBand__FP7GameObjf(void *, f32);
 #define play_sound_effect ((s32 (*)(void *, void *, int, int))play_sound_effect)
 #define check_vector_bit__15TObjEneMe1GiGueFii ((s32 (*)(void *, void *))check_vector_bit__15TObjEneMe1GiGueFii)
 #define find_open_direction__15TObjEneMe1GiGueFPvPv ((s32 (*)(void *, void *))find_open_direction__15TObjEneMe1GiGueFPvPv)
@@ -1276,7 +1276,7 @@ void update_rush_attack__15TObjEneMe1GiGueFPv(Obj_802CBCC0 *o) {
                 o->v308.x = o->v308.z = 0.0f;
             }
         }
-        if (objInBand__FP7GameObjf(o, 10.0f) != 0 && check_vector_bit__15TObjEneMe1GiGueFii(o, &o->pos) != 0) {
+        if (objInBand((GameObj *)o, (f32)(10.0f)) != 0 && check_vector_bit__15TObjEneMe1GiGueFii(o, &o->pos) != 0) {
             spawn_particle_effect(&o->pos, 0xF0);
         }
         ((TUnk_804AF8A0 *)o)->refresh_collision_body_centers();

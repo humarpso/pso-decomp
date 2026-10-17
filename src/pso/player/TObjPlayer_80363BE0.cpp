@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/player/TUnk_804F2A10.h"
 #include "pso/player/TUnk_804F29F8.h"
@@ -61,11 +62,10 @@ void TObjPlayer::create_cleanup_object(void *arg0) {
 #undef TObjPlayer__sub_80363C5C
 
 #define player_item_id_list (*(u32 *)&player_item_id_list)
-void __dl__FPv(void*);
 
 void TObjPlayer::free_static_buffer() {
     if ((u32) player_item_id_list != 0U) {
-        __dl__FPv((void*)player_item_id_list);
+        ::operator delete((void *)player_item_id_list);
         player_item_id_list = 0U;
     }
 }
@@ -315,7 +315,7 @@ void TObjPlayer__sub_80364198(void) {
 #define lbl_805D6FB8 (*(u32 *)&lbl_805D6FB8)
 void TObjPlayer::free_global_805D6FB8() {
     if ((u32) lbl_805D6FB8 != 0U) {
-        __dl__FPv((void*)lbl_805D6FB8);
+        ::operator delete((void *)lbl_805D6FB8);
         lbl_805D6FB8 = 0U;
     }
 }

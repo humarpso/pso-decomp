@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/player/TUnk_8048E5F4.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
@@ -7,7 +8,6 @@
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
-void __dl__FPv(void*);
 s32 init_render_target__10TObjPlayerFv();
 extern u32 camera_render_target_singleton;
 s32 TCameraCtrl__sub_80068EF0();
@@ -29,7 +29,7 @@ void TObjPlayer::free_singleton() {
         ((TObjPlayer *)camera_render_target_singleton)->reset_lobby_subobject();
     }
     if ((u32) camera_render_target_singleton != 0U) {
-        __dl__FPv((void*)camera_render_target_singleton);
+        ::operator delete((void *)camera_render_target_singleton);
         camera_render_target_singleton = 0U;
     }
 }

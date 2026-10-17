@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/item/TUnk_8049F3F4.h"
 #include "pso/item/TUnk_8049F42C.h"
 #include "pso/TItemLoad.h"
@@ -43,7 +44,6 @@ s32 TItemLoad__sub_801107F4(void *);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-s32 __dl__FPv(void *);
 s32 mem_free(s32);
 
 void *TUnk_8049F42C::sub_80110010(s16 arg1) {
@@ -52,7 +52,7 @@ void *TUnk_8049F42C::sub_80110010(s16 arg1) {
         ((TItemLoad *)this)->free_texture();
         mem_free(*(s32 *)((s8 *)this + 0));
         if (arg1 > 0) {
-            __dl__FPv(this);
+            ::operator delete(this);
         }
     }
     return this;

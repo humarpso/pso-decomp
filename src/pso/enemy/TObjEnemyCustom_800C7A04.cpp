@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -40,7 +41,6 @@ s32 update_collisions__10TObjPlayerFv(void *);
 extern const f32 lbl_805DA070;
 int update_if_active__15TObjEneMe1GiGueFl(void*, int);
 s32 enemy_turn_toward_dest(void *, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
 
 void TObjEnemyCustom::update_state_machine() {
     s16 temp_r4;
@@ -94,7 +94,7 @@ void TObjEnemyCustom::update() {
     case 1:
         enemy_turn_toward_dest(this, *(s32 *)((s8 *)(*(void * *)&this->movementParameters) + 8));
         advance_animation_playback(this);
-        if (objInBand__FP7GameObjf(this, lbl_805DA068) != 0) {
+        if (objInBand((GameObj *)this, (f32)lbl_805DA068) != 0) {
             temp_r3 = *(Obj2A8_800c7ae4 * *)&this->target;
             if (temp_r3->v18(this, lbl_805DA074) != 0) {
                 temp_r3_2 = *(Obj2A8_800c7ae4 * *)&this->target;

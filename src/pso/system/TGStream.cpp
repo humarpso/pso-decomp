@@ -1,4 +1,5 @@
 #include "pso/system/TGStream.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TGStream.h"
 #include "pso/misc/TLobby.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -44,7 +45,6 @@ u32 adxf_open__6TLobbyFUii(char *, s32);
 void align_gstream_read_offset(void *, s32);
 s32 get_gstream_buffered_bytes();
 s32 refill_gstream_buffer(s32);
-s32 __dl__FPv(void *);
 void TItemDrop__sub_800FE2D8();
 void reset_gstream_globals();
 s32 TLobby__sub_8001EEF4();
@@ -400,7 +400,7 @@ TGStreamPrefix *destroy_gstream(TGStreamPrefix *arg0, s16 arg1) {
             ((TLobby *)lbl_8043DAF8)->tmp_buf_release();
         }
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

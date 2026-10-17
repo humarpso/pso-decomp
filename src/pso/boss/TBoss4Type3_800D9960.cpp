@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/boss/TBoss4Type3.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -46,7 +47,6 @@ extern s32 lbl_805D523C;
 extern s32 TBoss4Type3__motion_trail_points;
 s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1);
 int mem_free(s32);
-int __dl__FPv(s32 *);
 
 typedef char RecoveredGlobal_800D9960_lbl_80500FA4_size[sizeof(RecoveredGlobal_800D9960_lbl_80500FA4) == 0xC ? 1 : -1];
 void draw_trail_with_colors(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
@@ -84,7 +84,7 @@ s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1) {
         mem_free(*arg0);
         *arg0 = 0;
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TMainCursor.h"
 #include "pso/misc/TLockOnCursor.h"
 #include "pso/player/TObjPlayer.h"
@@ -29,7 +30,6 @@ s32 TMainCursor__sub_8013F168(void* p);
 void TMainCursor__sub_8013F170(void* p, s32 v);
 void TMainCursor__sub_8013F180(void* p, f32 v);
 int TMainCursor__sub_8013F244(void);
-s32 __dl__FPv(void *);
 int copy_vec4__13TRaderMapCoreFPvPv(void*);
 
 void TMainCursor__sub_8013F104(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
@@ -62,7 +62,7 @@ void *TMainCursor::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 * *)&this->m_up = lbl_804A7254;
         if (arg1 > 0) {
-            __dl__FPv(this);
+            ::operator delete(this);
         }
     }
     return this;

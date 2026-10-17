@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 s8 TObjPlayer__sub_801D6D28(void *arg0);
 s32 destroy__10TObjPlayerFis(s32 arg0, s16 arg1);
-s32 __dl__FPv(s32);
 s32 destroy_particle__13TParticleCtrlFv();
 int clear_player_sub_object_slots(void*);
 
@@ -18,7 +18,7 @@ s32 destroy__10TObjPlayerFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         destroy_particle__13TParticleCtrlFv();
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete((void *)arg0);
         }
     }
     return arg0;

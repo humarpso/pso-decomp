@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/boss/TBoss6Zanzo.h"
 #include "pso/boss/TBoss6Type1.h"
 #include "pso/player/TObjPlayer.h"
@@ -33,7 +34,6 @@ struct Obj_803209F0 { s32 f0; u8 pad[0x14]; void *vt; Src_803209F0 *arr; Src_803
 extern "C" {
 void TBoss6Zanzo__sub_803205A0(s32 *arg0, s32 *arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void __dl__FPv(void *);
 void mem_free(void *);
 void run_task__11TBoss6ZanzoFv(Obj_803208CC *arg0);
 u8 *mem_alloc(s32);
@@ -103,7 +103,7 @@ TBoss6Zanzo::~TBoss6Zanzo() {
     Src_80320950 *p;
     Src_80320950 *end;
     mem_free(((Obj_80320950 *)this)->last->p);
-    __dl__FPv(((Obj_80320950 *)this)->last);
+    ::operator delete(((Obj_80320950 *)this)->last);
     for (p = ((Obj_80320950 *)this)->arr, end = p + ((Obj_80320950 *)this)->n; p < end; p++) {
         mem_free(p->p);
     }

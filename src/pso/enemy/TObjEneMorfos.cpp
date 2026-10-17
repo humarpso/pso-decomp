@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneRecon.h"
@@ -469,7 +470,6 @@ extern const f32 lbl_805DF890;
 void TObjEneMorfos__sub_80333AD0(u8 *arg0, s32 arg1);
 s32 get_flag_b4__9TObjEneDDFv();
 void spawn_particle_effect(void *, int);
-s32 objInBand__FP7GameObjf(void *, f32);
 s32 play_sound_effect(s32, u32, s16, s32);
 u8 * TObjEneMorfos__sub_80337824(void *, void *, s32, s32);
 void * __nw__7TObjectFUl(int);
@@ -1728,7 +1728,7 @@ void TObjEneMorfos__sub_80332FD4(u8 *arg0, s32 arg1) {
             }
             break;
         case 1:
-            if ((objInBand__FP7GameObjf(arg0, lbl_805DF880) != 0) && (((TObjEneDD_ST *)arg0)->enemy_check_target_valid() != 0)) {
+            if ((objInBand((GameObj *)arg0, (f32)lbl_805DF880) != 0) && (((TObjEneDD_ST *)arg0)->enemy_check_target_valid() != 0)) {
                 temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x390));
                 if (((VObj_18_76ddf3 *)(temp_r3))->m18(arg0, TObjEneMorfos__data_805DF884) != 0) {
                     temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x390));
@@ -1832,12 +1832,12 @@ void state_rotating_projectile_burst__13TObjEneMorfosFPvi(u8 *arg0, s32 arg1) {
         }
         case 2:
             spawn_particle_effect(arg0 + 0x498, 0x212);
-            if (objInBand__FP7GameObjf(arg0, TObjEneMorfos__data_805DF884) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)TObjEneMorfos__data_805DF884) != 0) {
                 F(0x4B0, s32) = 3;
             }
             break;
         case 3:
-            if (objInBand__FP7GameObjf(arg0, lbl_805DF88C) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)lbl_805DF88C) != 0) {
                 play_sound_effect(0x4003AD24, (u32)(arg0 + 0x38), 0, 0);
                 p = __nw__7TObjectFUl(0xFC);
                 if (p != NULL) {
@@ -1915,12 +1915,12 @@ void TObjEneMorfos__sub_80333690(u8 *arg0, s32 arg1) {
             }
             break;
         case 1:
-            if (objInBand__FP7GameObjf(arg0, TObjEneMorfos__data_805DF884) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)TObjEneMorfos__data_805DF884) != 0) {
                 *(s32 *)((s8 *)arg0 + 0x4B0) = 2;
             }
             break;
         case 2:
-            if (objInBand__FP7GameObjf(arg0, lbl_805DF88C) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)lbl_805DF88C) != 0) {
                 play_sound_effect(0x4003AD24, (u32) (arg0 + 0x38), 0, 0);
                 temp_r3 = (u8 *)(__nw__7TObjectFUl(0xFC));
                 if (temp_r3 != NULL) {
@@ -2275,7 +2275,7 @@ s32 TObjEneMorfos__sub_803344F0(void *arg0) {
 
 void TObjEneMorfos::play_sound_in_band() {
     u8 *arg0 = (u8 *)this;
-    if ((objInBand__FP7GameObjf(arg0, lbl_805DF898) != 0) || (objInBand__FP7GameObjf(arg0, TObjEneMorfos__data_805DF89C) != 0)) {
+    if ((objInBand((GameObj *)arg0, (f32)lbl_805DF898) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)TObjEneMorfos__data_805DF89C)) != 0)) {
         play_sound_effect(0x4003A823, (u32) (arg0 + 0x38), 0, 0);
     }
 }

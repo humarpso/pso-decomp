@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/date.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -20,7 +21,6 @@ f32 TAdSinglePlyChrSelectGC__sub_80141EA0(s32 v);
 s32 TAdSinglePlyChrSelectGC__sub_80141E8C(f32 v);
 u16 angle_difference_abs(s32 a, s32 b);
 s16 angle_diff_s16(s32 a, s32 b);
-void getDateStamp__FP9DateStamp(DS_80142108 *);
 u16 approach_angle_limited(s32 arg0, s32 arg1, s32 arg2);
 void fn_80141EB4(void);
 void setSpriteInverseColorBlend(void);
@@ -138,7 +138,7 @@ s32 TObjPlayer::clamp_s32(s32 arg0, s32 arg1, s32 arg2) {
 void TAdSinglePlyChrSelectGC::get_current_date_stamp() {
     DS_80142108 *arg0 = (DS_80142108 *)this;
     DS_80142108 d;
-    getDateStamp__FP9DateStamp(&d);
+    getDateStamp((DateStamp *)&d);
     arg0->y = d.y;
     arg0->b2 = d.b2;
     arg0->b3 = d.b3;

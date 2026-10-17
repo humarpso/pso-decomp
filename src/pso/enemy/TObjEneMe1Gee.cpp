@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/TObject.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -2980,7 +2981,6 @@ struct Gee_800C9DF8 : VObj_800C9DF8 {
 
 extern "C" {
 s32 TObjEneEpsilon__sub_800B92AC(void *, int, f32);
-s32 objInBand__FP7GameObjf(void *, f32);
 extern Pair_800C9DF8 lbl_8043BE88[];
 extern const f32 lbl_805DA100;
 extern const f32 lbl_805DA104;
@@ -3135,7 +3135,7 @@ void TObjEneMe1Gee__sub_800C9DF8(void *o_, s32 arg1) {
                         }
                     }
                 }
-            } else if (objInBand__FP7GameObjf(o, lbl_805DA0B8) != 0) {
+            } else if (objInBand((GameObj *)o, (f32)lbl_805DA0B8) != 0) {
                 o->f408++;
                 if (TObjEneMe1Gee__sub_800CBA80((u8 *)o) != 0) {
                     if (o->f390->m18(o, TObjEneMe1Gee__data_805DA0EC) != 0) {

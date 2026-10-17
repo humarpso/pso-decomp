@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/TParticleCtrl.h"
@@ -894,7 +895,6 @@ struct VObj_800B150C_800B07D0 : Base_800B150C_800B07D0 {
 void TObjEneBm3Fly__vt102(void *arg0, f32 farg0);
 void execute_action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1);
 s32 can_attack_target__13TObjEneBm3FlyFPv(u8 *arg0);
-s32 objInBand__FP7GameObjf(void *, f32);
 s32 spawn_part__14TObjEneEpsilonFi(void *, f32);
 void update_height_offset__13TObjEneBm3FlyFPv(void *arg0);
 
@@ -1166,7 +1166,7 @@ void execute_action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
             update_collide_flag__13TObjEneBm3FlyFv((void *) (arg0));
             break;
         case 2:
-            if (objInBand__FP7GameObjf((void *) (arg0), (f32) ((9.0f))) != 0) {
+            if (objInBand((GameObj *)(arg0), (f32) ((9.0f))) != 0) {
                 *(s32 *)((s8 *)arg0 + 0x440) = (s32) (*(s32 *)((s8 *)arg0 + 0x440) + 1);
                 temp_r3 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x390));
                 if ((temp_r3 != NULL) && (((VObjB0_800b07d0 *)temp_r3)->v18(arg0, (1.0f)) != 0)) {

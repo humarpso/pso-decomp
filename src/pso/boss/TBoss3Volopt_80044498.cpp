@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
@@ -651,7 +652,6 @@ extern const f32 lbl_805D87F0;
 s32 get_main_phase();
 s32 TBoss3Volopt__sub_80049E9C(void *, void *, Vec_80046260 *, s32, u16);
 s32 approach_angle_limited(s32, s32, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
 extern s16 lbl_8048441C[];
 extern const f32 TBoss3Volopt__data_805D87A8;
 extern const f32 lbl_805D8810;
@@ -1254,7 +1254,7 @@ void TBoss3Volopt::update_pillar_heal_state(void *arg0_) {
         f32 f;
         f32 t;
         advance_animation_playback(arg0);
-        if (objInBand__FP7GameObjf(arg0, TBoss3Volopt__data_805D87D8) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)TBoss3Volopt__data_805D87D8) != 0) {
             play_sound_effect(0x4003A80B, (u32) (arg0 + 0x38), 0, 0);
         }
         t = lbl_805D8800 * (*(f32 *)((s8 *)arg0 + 0xC0) - lbl_805D8804);
@@ -1366,7 +1366,7 @@ void TBoss3Volopt__sub_80046260(void *arg0_) {
         break;
     case 2:
         advance_animation_playback(arg0);
-        if (objInBand__FP7GameObjf(arg0, TBoss3Volopt__data_805D87A8) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)TBoss3Volopt__data_805D87A8) != 0) {
             play_sound_effect(0x4003A811, (u32)(arg0 + 0x38), 0, 0);
         }
         if (F(f32, 0xC0) >= lbl_805D8810) {
@@ -1416,7 +1416,7 @@ void TBoss3Volopt__sub_80046260(void *arg0_) {
         break;
     case 6:
         advance_animation_playback(arg0);
-        if (objInBand__FP7GameObjf(arg0, lbl_805D87C8) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)lbl_805D87C8) != 0) {
             play_sound_effect(0x4003A312, (u32)(arg0 + 0x38), 0, 0);
         }
         if (F(u32, 0xB4) != 4) {
@@ -1500,7 +1500,7 @@ void TBoss3Volopt__sub_80046CB8(void *arg0_) {
         }
         ((TBoss3Volopt *)arg0)->collect_targets_in_arc();
         ((TBoss3Volopt *)arg0)->rebuild_parts();
-        if (objInBand__FP7GameObjf(arg0, TBoss3Volopt__data_805D87A8) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)TBoss3Volopt__data_805D87A8) != 0) {
             play_sound_effect(0x4003A818, (u32)(arg0 + 0x38), 0, 0);
         }
         break;

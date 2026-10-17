@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TNpcPlayer.h"
 #include "pso/object/TObjMotion.h"
@@ -401,7 +402,6 @@ s32 queue_destruction__7TObjectFv(void *);
 void __dt__12TPlyCharDataFv(void *self, s32 flag);
 void * __ct__12TPlyCharDataFv(void *self);
 u8 * csnVector(s32, s32, s32);
-s32 __dl__FPv(void *);
 void * alloc__23TAdSinglePlyChrSelectGCFv(u32);
 s32 is_alive__9TObjEneDDFv(void *);
 s32 find_active_entity_by_id(void *);
@@ -2335,7 +2335,7 @@ void *TNpcPlayer::dt(s16 arg1) {
             *(u32 *)((s8 *)this + 0xA8) = 0U;
         }
         if (arg1 > 0) {
-            __dl__FPv(this);
+            ::operator delete(this);
         }
     }
     return this;

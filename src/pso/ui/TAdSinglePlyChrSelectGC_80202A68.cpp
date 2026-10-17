@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Ent_80202B38 { s32 a; s32 b; s32 c[5]; };
@@ -98,7 +99,6 @@ extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80202A68(u8 *arg0);
 int fn_8020325C(void *arg0);
 s32 __destroy_arr(s32, s32 *, s32, s32);
-s32 __dl__FPv(s32);
 extern int card_character_save_buffer;
 extern s32 *active_character_save_record;
 extern int TAdSinglePlyChrSelectGC__selection_index;
@@ -129,7 +129,7 @@ s32 destroy_chardata_array__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         __destroy_arr(arg0 + 4, (s32 *)TAdSinglePlyChrSelectGC::free_chardata, 0x39b4, 7);
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete((void *)arg0);
         }
     }
     return arg0;
@@ -139,7 +139,7 @@ s32 TAdSinglePlyChrSelectGC::free_chardata(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         __dt__12TPlyCharDataFv(arg0, -1);
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete((void *)arg0);
         }
     }
     return arg0;

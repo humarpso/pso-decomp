@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/date.h"
 #include "pso/system/memory.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -68,8 +69,6 @@ s32 CARDUnmount();
 s32 read_disc_file(const char*, void*);
 extern Names_801E13C4 memory_card_banner_filenames;
 extern char lbl_804496A8[];
-void __dl__FPv(void *);
-void getDateStamp__FP9DateStamp(DateStamp_801E17F4 *);
 s32 TAdSinglePlyChrSelectGC__sub_80201204(void *, s32, s32);
 int sprintf(char *, const char *, ...);
 char *strncpy(char *, const char *, u32);
@@ -301,7 +300,7 @@ s32 build_save_file_image__15TAdPlayerLoadGCFPvPv(u8 *arg0, Src_801E17F4 *arg1) 
     memset(h->title, 0, 0x20);
     memset(h->sub, 0, 0x20);
     strncpy(h->title, lbl_804496B8, 0x20);
-    getDateStamp__FP9DateStamp(&ds);
+    getDateStamp((DateStamp *)&ds);
     memset(buf, 0, 0x80);
     if (arg1->flag != 0) {
         sprintf(buf, lbl_805DC410, arg1->name);
@@ -320,7 +319,7 @@ s32 build_save_file_image__15TAdPlayerLoadGCFPvPv(u8 *arg0, Src_801E17F4 *arg1) 
     }
     memcpy(arg0, h, 0x2048);
     memcpy(arg0 + 0x2048, arg1->data, arg1->size);
-    __dl__FPv(h);
+    ::operator delete(h);
     return size / 8192 + 3;
 }
 

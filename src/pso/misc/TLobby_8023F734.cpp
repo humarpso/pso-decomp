@@ -489,7 +489,6 @@ void TLobby__sub_802409E4(void* p);
 int TLobby__sub_802409F0(void);
 void set_field0__6TLobbyFPvi(void* p, s32 v);
 void update__6TLobbyFPv(void *arg0);
-s32 __dl__FPv(void *);
 s32 get_field_308__6TLobbyFPv(void* p);
 
 void *TLobby__sub_80240808(void *arg0, s16 arg1) {
@@ -498,7 +497,7 @@ void *TLobby__sub_80240808(void *arg0, s16 arg1) {
         *(s32 *)((s8 *)arg0 + 0x290) = 0;
         *(s32 *)((s8 *)arg0 + 0x288) = -1;
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;
@@ -1106,7 +1105,7 @@ void *TLobby__sub_80242148(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 *)((s8 *)arg0 + 4) = 0;
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

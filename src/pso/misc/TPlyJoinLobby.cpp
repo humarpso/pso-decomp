@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 
 extern "C" {
 
@@ -6,7 +7,6 @@ u8 *__ct__13TPlyJoinLobbyFRC13TPlyJoinLobby(u8 *arg0, u8 *arg1);
 s32 __dt__13TPlyJoinLobbyFv(s32 arg0, s16 arg1);
 s32 TLobby__sub_8013AA64(int, int);
 s32 __destroy_arr(s32, s32 *, s32, s32);
-s32 __dl__FPv(s32);
 
 u8 *__ct__13TPlyJoinLobbyFRC13TPlyJoinLobby(u8 *arg0, u8 *arg1) {
     u32 var_r30;
@@ -41,7 +41,7 @@ s32 __dt__13TPlyJoinLobbyFv(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         __destroy_arr(arg0 + 0x10, __dt__18TPlyJoinLobbyEntryFv, 0x43C, 0xC);
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete((void *)arg0);
         }
     }
     return arg0;

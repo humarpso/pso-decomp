@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TEffIndirectCtrl.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -66,7 +67,6 @@ void *__dt__16TEffIndirectCtrlFv(void *arg0, s16 arg1);
 s32 DCFlushRange(s32, s32);
 void TLobby__sub_803DA16C(void *);
 void __dl__7TObjectFPv(void *);
-void __dl__FPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 memcpy(s32, s32, s32);
 
@@ -80,8 +80,8 @@ void TEffIndirectCtrl::copy_and_flush_texture(s32 arg1) {
 void *__dt__16TEffIndirectCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TEffIndirectCtrl;
-        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { TLobby__sub_803DA16C(*(void **)((s8 *)arg0 + 0x2C)); __dl__FPv(*(void **)((s8 *)arg0 + 0x2C)); }
-        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { __dl__FPv(*(void **)((s8 *)arg0 + 0x28)); }
+        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { TLobby__sub_803DA16C(*(void **)((s8 *)arg0 + 0x2C)); ::operator delete(*(void **)((s8 *)arg0 + 0x2C)); }
+        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { ::operator delete(*(void **)((s8 *)arg0 + 0x28)); }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

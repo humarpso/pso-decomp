@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneMe3Stelth.h"
 #include "pso/TParticleCtrl.h"
@@ -23,7 +24,6 @@ s32 TObjEneGibbles__sub_800D8988(void *);
 extern const f32 TObjEneMe3Stelth__data_805DA808;
 extern const f32 TObjEneMe3Stelth__data_805DA80C;
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
 extern const f32 lbl_805DA814;
 extern const f32 lbl_805DA818;
 void TObjEneMe3Stelth__sub_800F0C90(u8 *arg0);
@@ -70,7 +70,7 @@ void TObjEneMe3Stelth::play_hit_effect() {
     play_sound_effect(0x3A836, arg0 + 0x38, 0, 0);
 }
 void TObjEneMe3Stelth__sub_800F0C90(u8 *arg0) {
-    if ((objInBand__FP7GameObjf(arg0, lbl_805DA814) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805DA818) != 0)) {
+    if ((objInBand((GameObj *)arg0, (f32)lbl_805DA814) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805DA818)) != 0)) {
         ((TObjEneMe3Stelth *)arg0)->try_spawn_ground_effect((s32)((s32)((void *) (arg0 + 0x38))));
     }
 }

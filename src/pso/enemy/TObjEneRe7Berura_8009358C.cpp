@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneDD_ST.h"
@@ -284,7 +285,6 @@ void TObjEneRe7Berura__sub_800940E8(u8 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 s32 get_field_3D4_shifted__16TObjEneRe7BeruraFPv(void *);
 s32 enemy_validate_retained_target(void *);
-s32 objInBand__FP7GameObjf(void *, f32);
 s32 play_sound_effect(s32, u32, s16, s32);
 s32 push_matrix(void);
 s32 pop_matrix(void);
@@ -588,10 +588,10 @@ void TObjEneRe7Berura__sub_80093888(u8 *actor, s32 arg1) {
             }
             break;
         case 1:
-            if (objInBand__FP7GameObjf(actor, lbl_805D9744) != 0) {
+            if (objInBand((GameObj *)actor, (f32)lbl_805D9744) != 0) {
                 play_sound_effect(copy_target_state__14TObjEnePanarmsFPv((void *) (actor), (int) (0x4003AD22)), (u32) (actor + 0x38), 0, 0);
             }
-            if ((objInBand__FP7GameObjf(actor, lbl_805D9748) != 0) && (((TObjEneDD_ST *)actor)->enemy_check_target_valid() != 0)) {
+            if ((objInBand((GameObj *)actor, (f32)lbl_805D9748) != 0) && (((TObjEneDD_ST *)actor)->enemy_check_target_valid() != 0)) {
                 temp_r3 = (u8 *)(*(u8 **)((s8 *)actor + 0x390));
                 if (((VObj_18_a5c788 *)(temp_r3))->m18(actor, lbl_805D974C) != 0) {
                     temp_r3_2 = (u8 *)(*(u8 **)((s8 *)actor + 0x390));
@@ -710,7 +710,7 @@ void TObjEneRe7Berura__sub_80093C80(u8 *arg0, s32 arg1) {
                     }
                 }
             }
-            if (objInBand__FP7GameObjf(arg0, F(f32, 0x4D0)) != 0) {
+            if (objInBand((GameObj *)arg0, (f32)(F(f32, 0x4D0))) != 0) {
                 ARMF[F(s32, 0x3F4)] |= 3;
                 SUB->m3();
                 VecCopy((Vec *)&v, (const Vec *)&TObjEneRe7Berura__detached_part_states[F(s32, 0x3F4)].ofs);

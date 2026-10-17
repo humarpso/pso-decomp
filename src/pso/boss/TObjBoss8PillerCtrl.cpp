@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TObjBoss8PillerCtrl.h"
 
@@ -45,7 +46,6 @@ extern const f32 lbl_805E0178;
 void run_task__19TObjBoss8PillerCtrlFv(Self_8035C03C *self);
 void *__dt__19TObjBoss8PillerCtrlFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void __dl__FPv(void *);
 void __dt__7TObjectFv(void *, int);
 
 void TObjBoss8PillerCtrl__sub_8035C034(void * _w0, void * _w1) {  }
@@ -86,7 +86,7 @@ void run_task__19TObjBoss8PillerCtrlFv(Self_8035C03C *self) {
 void *__dt__19TObjBoss8PillerCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TObjBoss8PillerCtrl;
-        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { __dl__FPv(*(void **)((s8 *)arg0 + 0x30)); *(s32 *)((s8 *)arg0 + 0x30) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { ::operator delete(*(void **)((s8 *)arg0 + 0x30)); *(s32 *)((s8 *)arg0 + 0x30) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

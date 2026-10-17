@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/TPlayerFootStamp.h"
@@ -64,7 +65,6 @@ struct VOff_80309DD0_arg0_80309dd0_80309D80 { char pad_0[0x4]; char f_4[1]; };
 
 s32 TObjPlayer__sub_80309E4C(s32 arg0, s16 arg1);
 int TPlyFollowParticleCtrl__sub_8030A694(void*);
-s32 __dl__FPv(s32 a0 = 0);
 s32 __dt__22TPlyFollowParticleCtrlFis(s32 a0 = 0, s32 a1 = 0);
 s32 obj_getField1c(void *);
 s32 set_type__22TPlyFollowParticleCtrlFs(void *, void *);
@@ -92,7 +92,7 @@ s32 TObjPlayer__sub_80309E4C(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         TObjPlayer::dt_follow_particle_ctrl((s32)(arg0 + 4), (s16)(-1));
         if (arg1 > 0) {
-            __dl__FPv((s32)(arg0));
+            ::operator delete((void *)(arg0));
         }
     }
     return arg0;
@@ -154,7 +154,7 @@ s32 TObjPlayer::dt_follow_particle_ctrl(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         __dt__22TPlyFollowParticleCtrlFis(arg0, 0);
         if (arg1 > 0) {
-            __dl__FPv((s32)(arg0));
+            ::operator delete((void *)(arg0));
         }
     }
     return arg0;

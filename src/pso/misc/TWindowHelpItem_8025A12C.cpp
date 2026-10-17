@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TUnk_804CF930.h"
 #include "pso/misc/TWindowHelpItem.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
@@ -50,7 +51,6 @@ void TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append(void *);
 void *destroy__15TWindowHelpItemFPvs(void *arg0, s16 arg1);
 void tick_display_timer__15TWindowHelpItemFPv(void *arg0);
-s32 __dl__FPv(void *);
 s32 measure_string_len__20TWindowSubStatusDispFv(u32);
 
 void *lbl_804CF9F8[6] = {
@@ -190,7 +190,7 @@ void *destroy__15TWindowHelpItemFPvs(void *arg0, s16 arg1) {
         mem_free(*(s32 *)((s8 *)arg0 + 0x18));
         ((TUnk_804CF930 *)arg0)->destroy((s16)(0));
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

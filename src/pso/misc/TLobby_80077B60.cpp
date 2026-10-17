@@ -1,19 +1,19 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 extern u32 lbl_805D4E58;
 extern u32 lbl_805D4E5C;
 void TLobby__sub_80077BAC(void);
-void __dl__FPv(void*);
 
 void TLobby::free_static_windows() {
     if ((u32) lbl_805D4E5C != 0U) {
-        __dl__FPv((void*)lbl_805D4E5C);
+        ::operator delete((void *)lbl_805D4E5C);
         lbl_805D4E5C = 0U;
     }
     if ((u32) lbl_805D4E58 != 0U) {
-        __dl__FPv((void*)lbl_805D4E58);
+        ::operator delete((void *)lbl_805D4E58);
         lbl_805D4E58 = 0U;
     }
 }

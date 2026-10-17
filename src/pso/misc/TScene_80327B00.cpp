@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TScene.h"
 
 struct Pt_80327B40 { s16 x, y; };
@@ -11,7 +12,6 @@ struct Scene_80327B40 { u8 pad0[4]; s32 count; Entry_80327B40 *entries; };
 
 extern "C" {
 void DCFlushRangeNoSync(void *, u32);
-s32 __dl__FPv(void *);
 s32 mem_alloc(s32);
 s32 visit_matching_models(void *, s32, s32);
 s32 visit_model_tree_recursive();
@@ -54,7 +54,7 @@ void *TScene::destroy_buffers(s16 arg1) {
             *(u32 *)&this->m_prev = 0U;
         }
         if (arg1 > 0) {
-            __dl__FPv(this);
+            ::operator delete(this);
         }
     }
     return this;

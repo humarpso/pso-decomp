@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804B1B80.h"
 #include "pso/misc/TOHangceilingCave01KeyQuick.h"
@@ -642,7 +643,6 @@ extern s32 camera_ctrl_instance;
 extern const f32 lbl_805DB698;
 extern const f32 lbl_805DB69C;
 extern const f32 lbl_805DB6A0;
-s32 objInBand__FP7GameObjf(void *, f32);
 
 extern const f32 lbl_805DB690;
 
@@ -739,7 +739,7 @@ void TUnk_804B2578::run_task() {
     if (TObjPlayer::check_demo_mode() == 0) {
         this->vfunc_80();
         ((TUnk_804B2578 *)arg0)->sub_80168398();
-        if ((((s32 (*)(void *))TOHangceilingCave01__sub_801688C0)(arg0) != 0) && ((s16) this->mode != 3) && (objInBand__FP7GameObjf(arg0, lbl_805DB694) != 0)) {
+        if ((((s32 (*)(void *))TOHangceilingCave01__sub_801688C0)(arg0) != 0) && ((s16) this->mode != 3) && (objInBand((GameObj *)arg0, (f32)lbl_805DB694) != 0)) {
             spawn_particle_effect((u8 *)&this->position, 0x64);
         }
     }

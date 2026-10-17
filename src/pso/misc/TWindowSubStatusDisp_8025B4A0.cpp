@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #pragma readonly_strings on
@@ -21,7 +22,6 @@ s32 mem_alloc(s32);
 s32 mem_free(s32);
 s32 strncpy(s32, u32, s32);
 s32 deleting_destructor__20TWindowSubStatusDispFs(void *, s32);
-s32 __dl__FPv(void *);
 void reset_entry__20TWindowSubStatusDispFPv(void*, int);
 
 void *window_label_value_part_vtable[6] = {
@@ -102,7 +102,7 @@ void *destroy_free_buffers__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1) {
         mem_free(*(s32 *)((s8 *)arg0 + 0x1C));
         deleting_destructor__20TWindowSubStatusDispFs(arg0, 0);
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

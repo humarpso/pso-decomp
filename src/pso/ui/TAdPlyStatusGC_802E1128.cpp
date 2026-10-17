@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/date.h"
 #include "pso/menu/T_ATS_DrawCalendar.h"
 #include "pso/ui/TAdPlyStatusGC.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -16,7 +17,6 @@ extern "C" {
 char *get_localized_text_entry(s32, s32);
 u32 calc_text_width(void *);
 u32 TWindowSubStatusDisp__sub_80144E9C(void *);
-void getDateStamp__FP9DateStamp(void *);
 int sprintf(char *, const char *, ...);
 extern char ply_status_date_format[];
 extern char ply_status_date_format_mdy[];
@@ -73,7 +73,7 @@ void T_ATS_DrawCalendar::render() {
         s = get_localized_text_entry(0x1C, 0xC);
         ((TAdSinglePlyChrSelectGC *)s)->render_status_disp(-(lbl_805DE8E8 * (f32)calc_text_width(s) - pos.x), pos.y);
         pos.y += lbl_805DE8EC;
-        getDateStamp__FP9DateStamp(&date);
+        getDateStamp((DateStamp *)&date);
         wd = date.wday + 13;
         switch (current_language) {
         case 0:

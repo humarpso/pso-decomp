@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TUnk_804CF930.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -52,13 +53,12 @@ void draw_status_gauge_bar__13TUnk_804CF930FPvPvff(Gauge_80256E0C *self, void *c
 void TWindowSubStatusDisp__sub_80256BF8(void);
 void TWindowSubStatusDisp__sub_80256BFC(void);
 void *destroy__13TUnk_804CF930Fs(void *arg0, s16 arg1);
-s32 __dl__FPv(void *);
 
 void *TUnk_804CF930::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 4) = lbl_804CF918;
         if (arg1 > 0) {
-            __dl__FPv(this);
+            ::operator delete(this);
         }
     }
     return this;
@@ -174,7 +174,7 @@ void *TWindowSubStatusDisp__sub_80257298(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 4) = lbl_804CF930;
         destroy__13TUnk_804CF930Fs(arg0, 0);
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

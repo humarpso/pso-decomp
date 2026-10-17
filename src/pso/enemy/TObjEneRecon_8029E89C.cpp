@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TSceneSora.h"
 #include "pso/enemy/TObjEneRecon.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -140,7 +141,6 @@ void TObjEneRecon::notify_scene(s32 arg0) {
 
 extern "C" {
 
-void __dl__FPv(void*);
 s32 init_render_target__10TObjPlayerFv();
 
 extern u32 scene_sora_recon_object;
@@ -152,7 +152,7 @@ void TObjEneRecon::destroy_instance() {
             ((TObjPlayer *)scene_sora_recon_object)->reset_lobby_subobject();
         }
         if ((u32) scene_sora_recon_object != 0U) {
-            __dl__FPv((void*)scene_sora_recon_object);
+            ::operator delete((void *)scene_sora_recon_object);
             scene_sora_recon_object = 0U;
         }
     }

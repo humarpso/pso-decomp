@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubSymbolChat.h"
 
@@ -33,7 +34,6 @@ struct Tbl_800777C4 { u8 f0; u8 count; u8 pad[2]; Ent_800777C4 e[1]; };
 struct Out_800778B4 { s32 a; s32 b; };
 
 extern "C" {
-void __dl__FPv(void*);
 extern s32 lbl_805D4E5C;
 extern s32 lbl_805D4E58;
 u8 * copy_struct28__17TWindowSubComCardFii(s32 arg0, s32 arg1);
@@ -103,7 +103,7 @@ s32 TWindowSubComCard::get_com_count() {
 }
 void TWindowSubComCard::release() {
     if ((u32) (*(u32 *)&lbl_805D4E5C) != 0U) {
-        __dl__FPv((void*)(*(u32 *)&lbl_805D4E5C));
+        ::operator delete((void *)(*(u32 *)&lbl_805D4E5C));
         (*(u32 *)&lbl_805D4E5C) = 0U;
     }
 }

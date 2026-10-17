@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/network/packet_copy.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowKeyBoardHard.h"
 #include "pso/misc/TPacket.h"
@@ -11,7 +12,6 @@ extern s32 deferred_packet_buffer;
 extern s32 deferred_packet_buffer_used;
 extern s32 lbl_805D5D04;
 void buffer_reset(void);
-void copy_packet__FP6packet(void *arg0);
 void set_fresh_card_flag(void *arg0);
 void *get_character_save_record();
 s32 memcpy(s32, void *, u16);
@@ -60,7 +60,8 @@ void TLobby::drain_deferred_packets() {
     }
 }
 
-void copy_packet__FP6packet(void *arg0) {
+}
+void copy_packet(packet *arg0) {
     s32 len;
 
     len = (u16) to_be_uint16_t__FUs(*(u16 *)((s8 *)arg0 + 2));
@@ -69,6 +70,7 @@ void copy_packet__FP6packet(void *arg0) {
         deferred_packet_buffer_used += len;
     }
 }
+extern "C" {
 
 extern s32 lbl_805D5D00;
 

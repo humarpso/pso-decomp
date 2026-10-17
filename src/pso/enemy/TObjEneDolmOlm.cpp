@@ -1,6 +1,7 @@
 #pragma defer_codegen on
 
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneRecon.h"
 #include "pso/player/TObjPlayer.h"
@@ -546,7 +547,6 @@ s32 is_locally_controlled__10TObjPlayerFPv(void *);
 s32 obj_getField1c(void *);
 f64 atan2_float(f32, f32);
 s32 angle_difference_abs(s32, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
 s32 minimap_render_dot(void *, int, int, int);
 void subtract_vector(void *, void *);
 extern const f64 lbl_804750C8[];
@@ -1574,7 +1574,7 @@ s32 TObjEneDolmOlm__sub_8030177C(void *arg0_) {
                 }
             }
         }
-        if (objInBand__FP7GameObjf(arg0, arg0->fc4 - TObjEneDolmOlm__data_805DEF50 - arg0->fc8) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)(arg0->fc4 - TObjEneDolmOlm__data_805DEF50 - arg0->fc8)) != 0) {
             arg0->fb8 = arg0->f328 = 2;
         }
         break;

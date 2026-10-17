@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TUnk_804CF930.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
@@ -31,7 +32,6 @@ extern s32 lbl_805D63F0;
 void render_item_rarity_stars(Item_8025A650 *item, Ctx_8025A650 *ctx);
 void TWindowHelpItem__sub_8025A900(void);
 void *TWindowHelpItem__sub_8025A904(void *arg0, s16 arg1);
-s32 __dl__FPv(void *);
 
 extern const UV_8025A650 item_rarity_star_uv_table[4] = {
     { 0.0f, 239.0f }, { 17.0f, 239.0f }, { 34.0f, 239.0f }, { 51.0f, 239.0f },
@@ -125,7 +125,7 @@ void *TWindowHelpItem__sub_8025A904(void *arg0, s16 arg1) {
         *(void ***)((s8 *)arg0 + 4) = lbl_804CFA10;
         ((TUnk_804CF930 *)arg0)->destroy((s16)(0));
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

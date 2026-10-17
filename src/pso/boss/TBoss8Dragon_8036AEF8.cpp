@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -33,13 +34,12 @@ void DVDConvertEntrynumToPath(f32 *q);
 void TBoss8Dragon__sub_8036AF50(f32 *o, f32 *p, s32 a, s32 b);
 s32 **TBoss8Dragon__sub_8036AEF8(s32 **arg0, s16 arg1);
 void fn_8036B18C(void);
-s32 __dl__FPv(void *);
 
 s32 **TBoss8Dragon__sub_8036AEF8(s32 **arg0, s16 arg1) {
     if (arg0 != NULL) {
         *arg0 = lbl_804F3610;
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -149,7 +150,6 @@ s32 noop__9TObjEneDDFv(void *);
 s32 fn_800C3A60(void *, int);
 s32 check_hit_flag__16TObjEneRe2FlowerFv(void *);
 s32 TObjPlayer__sub_800C4A5C(int, void *, void *, int);
-s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
 s32 play_sound_effect(void *, void *, int, int);
 u32 __nw__7TObjectFUl(int);
@@ -199,7 +199,7 @@ void fn_800C3088(u8 *arg0, int arg1) {
       switch (temp_r0)
     {
       case 0:
-        if (objInBand__FP7GameObjf((void *) arg0, (f32) ((((RecoveredFields_800C3088_arg0 *) arg0)->field_C4 - lbl_805D9FC0) - ((RecoveredFields_800C3088_arg0 *) arg0)->field_C8)) != 0)
+        if (objInBand((GameObj *)arg0, (f32) ((((RecoveredFields_800C3088_arg0 *) arg0)->field_C4 - lbl_805D9FC0) - ((RecoveredFields_800C3088_arg0 *) arg0)->field_C8)) != 0)
       {
         ((RecoveredFields_800C3088_arg0 *) arg0)->field_418 = (int) (((RecoveredFields_800C3088_arg0 *) arg0)->field_418 + 1);
         if (((f32) ((RecoveredFields_800C3088_arg0 *) arg0)->field_418) >= lbl_805D9FD4)
@@ -209,7 +209,7 @@ void fn_800C3088(u8 *arg0, int arg1) {
         }
       }
       else
-        if (objInBand__FP7GameObjf((void *) arg0, (f32) lbl_805D9FC4) != 0)
+        if (objInBand((GameObj *)arg0, (f32)((f32) lbl_805D9FC4)) != 0)
       {
         if (((TObjEneDD_ST *)arg0)->enemy_check_target_valid() != 0)
         {
@@ -281,7 +281,7 @@ void fn_800C32DC(u8 *owner, s32 arg1) {
                 ((TParticleCtrl *)temp_r3_2)->enable();
             }
         }
-        if (objInBand__FP7GameObjf((void *) (owner), (f32) (lbl_805D9FDC)) != 0) {
+        if (objInBand((GameObj *)(owner), (f32) (lbl_805D9FDC)) != 0) {
             VecCopy((Vec *)(&stack.sp8), (const Vec *)(owner + 0x3DC));
             stack.spC = lbl_805D9FDC + *(f32 *)((s8 *)owner + 0x3C);
             if ((((TObjEneRe2Flower *)owner)->get_flag_11() != 0) || (TObjEneDD::check_v2_mode() != 0)) {

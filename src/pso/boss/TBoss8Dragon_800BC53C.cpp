@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/object/TObjGrassWeb.h"
 
@@ -11,7 +12,6 @@ struct AreaAttackHistory {
 
 extern "C" {
 s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1);
-s32 __dl__FPv(u32 *);
 u32 *free_buffer__12TBoss8DragonFPvs(u32 *arg0, s16 arg1);
 s32 fn_800BC758(u8 *arg0);
 s32 attack_target_history_add(s32 arg0, s32 arg1);
@@ -34,7 +34,7 @@ s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         free_buffer__12TBoss8DragonFPvs((u32 *)(arg0), (s16)(0));
         if (arg1 > 0) {
-            __dl__FPv((u32 *)(arg0));
+            ::operator delete((u32 *)(arg0));
         }
     }
     return arg0;
@@ -64,7 +64,7 @@ u32 *free_buffer__12TBoss8DragonFPvs(u32 *arg0, s16 arg1) {
             *arg0 = 0U;
         }
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

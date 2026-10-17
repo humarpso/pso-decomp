@@ -1,4 +1,5 @@
 #include "pso/TItemList.h"
+#include "pso/system/memory.h"
 #include "pso/item/TUnk_804C4480.h"
 
 TItemList::~TItemList() {}
@@ -23,7 +24,6 @@ void decrement_placement_search_pending(void* p, void* a1);
 void *TItemList__sub_801D5B10(void *arg0, s16 arg1);
 void *__dt__9TItemListFPvs(void *arg0, s16 arg1);
 void* reset_position__9TItemListFPv(void* a0);
-s32 __dl__FPv(void *);
 s32 check_value_equals__13TQuestColCtrlFPll(s32, s32);
 
 void TItemList__sub_801D59DC(void* p) { *(s32*)((char*)p + 0x0) = 2; }
@@ -68,7 +68,7 @@ void *TItemList__sub_801D5B10(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x24) = lbl_804C445C;
         __dt__9TItemListFPvs((void *)((void *)(arg0)), (s16)((s16)(0)));
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;
@@ -81,7 +81,7 @@ void *__dt__9TItemListFPvs(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x24) = lbl_804C4450;
         ((TItemList *)arg0)->dt((s16)(0));
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;
@@ -91,7 +91,7 @@ void *TItemList::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x24) = lbl_804C4444;
         if (arg1 > 0) {
-            __dl__FPv(this);
+            ::operator delete(this);
         }
     }
     return this;

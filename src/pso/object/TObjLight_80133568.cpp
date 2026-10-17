@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/system/byteswap.h"
 #include "pso/system/vector.h"
 
@@ -169,7 +170,6 @@ extern u32 TObjLight__light_entry_data;
 extern const f32 lbl_805DB0A4;
 void init_area_lights(void);
 extern s32 TObjLight__active_light_count;
-void __dl__FPv(void *);
 extern s32 light_entry_file_size;
 __declspec(section ".rodata") char lbl_8043ED80[] = "lightentry.bin";
 s32 read_disc_file(void *, u32);
@@ -234,7 +234,7 @@ void TObjLight::unregister_and_free() {
         }
         q++;
     }
-    __dl__FPv(this);
+    ::operator delete(this);
 }
 
 u32 TObjLight::alloc_light_slot() {

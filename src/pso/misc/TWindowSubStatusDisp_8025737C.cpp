@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/ui/TAdChrMoveEffectGC.h"
@@ -37,7 +38,6 @@ void step_gauge_bar_width(Gauge_802571B4 *g);
 void draw_status_gauge_bar__13TUnk_804CF930FPvPvff(Gauge_80256E0C *self, void *ctx, Pos_80256E0C *pos, f32 depth, f32 len);
 void *destroy__13TUnk_804CF930Fs(void *arg0, s16 arg1);
 void *TWindowSubStatusDisp__sub_80257298(void *arg0, s16 arg1);
-s32 __dl__FPv(void *);
 }
 
 struct Gauge_80257784 {
@@ -264,7 +264,7 @@ void *TWindowSubStatusDisp__sub_80257AF4(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 4) = lbl_804CF948;
         TWindowSubStatusDisp__sub_80257298(arg0, 0);
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

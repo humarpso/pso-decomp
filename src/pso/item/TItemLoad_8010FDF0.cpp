@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/item/TUnk_8049C658.h"
 #include "pso/TItemLoad.h"
 #include "pso/item/TItemDrop.h"
@@ -29,7 +30,6 @@ s32 TItemBuff__ct();
 s32 apply_rel_relocations(s32 *);
 s32 read_disc_file(u32, s32);
 s32 read_checked_align__6TLobbyFlll(s32, s32, s32, void *);
-s32 __dl__FPv(s32 *);
 int mem_alloc(void*);
 s32 create_item_buff(s32);
 s32 prs_decompress_alloc(s32, u32, s32);
@@ -43,7 +43,7 @@ s32 *__dt__9TItemLoadFPvs(s32 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         mem_free(*arg0);
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

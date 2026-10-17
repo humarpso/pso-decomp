@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/system/date.h"
+#include "pso/system/memory.h"
 #include "pso/system/byteswap.h"
 #include "pso/system/main_loop.h"
 #include "pso/misc/TWindowMessage.h"
@@ -87,7 +89,6 @@ void * open_default__23TShopJudgmentItemWindowFl(void *);
 extern char lbl_8043EFF8[];
 extern void *TLobby__list_window;
 void open_information_list__6TLobbyFiPv(s32 arg0, Ent_80136FA0 *arg1);
-void __dl__FPv(void *);
 void * alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 TLobby__sub_8013F810(void *, void *, s32, void *);
 void bswap_6x6E_sync_game_state__6TLobbyFPv(void *p);
@@ -372,8 +373,6 @@ s32 fill_player_record__10TObjPlayerFPvPv(void *, void *);
 s32 init_player_join_record(void *);
 Plr_801354AC * create_remote_player_object(void *);
 void send_player_data_98__9TProtocolFPvPvPvPvPvPvPv(void *, void *, void *, void *, void *, void *, void *);
-s32 DateToSeconds__FP9DateStampPi(void *, void *);
-s32 getDateStamp__FP9DateStamp(void *);
 void init__23TAdSinglePlyChrSelectGCFv(void);
 u8 * get_character_save_record(u32);
 void * get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
@@ -531,8 +530,8 @@ void update_idle_timeout__6TLobbyFPv(u8 *arg0) {
     DateStamp_80134F9C ds;
     u32 limit;
     u32 elapsed;
-    getDateStamp__FP9DateStamp(&ds);
-    DateToSeconds__FP9DateStampPi(&ds, &t->now);
+    getDateStamp((DateStamp *)&ds);
+    DateToSeconds((DateStamp *)&ds, (int *)&t->now);
     if (TWindowCtrlMain__sub_8024CE58() == 0) {
         (*(Obj_80134F9C * *)&TLobby__idle_timeout_object) = 0;
     }
@@ -577,8 +576,8 @@ u8 *TLobby__sub_80135198(u8 *arg0, s32 arg1) {
     s32 sp8;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A7008.value;
-    getDateStamp__FP9DateStamp((void *) (&sp8));
-    DateToSeconds__FP9DateStampPi((void *) (&sp8), (void *) (arg0 + 0x1C));
+    getDateStamp((DateStamp *)(&sp8));
+    DateToSeconds((DateStamp *)(&sp8), (int *)(arg0 + 0x1C));
     *(s32 *)((s8 *)arg0 + 0x20) = (s32) *(s32 *)((s8 *)arg0 + 0x1C);
     *(s32 *)((s8 *)arg0 + 0x24) = get_table_entry_by_index__6TLobbyFv((void *) (local_client_id));
     *(s8 *)((s8 *)arg0 + 0x28) = 0;
@@ -717,7 +716,7 @@ void handle_6x6E_sync_game_state(Pkt_8013566C *arg0) {
         new_var2 = buf->data;
         new_var = new_var2;
         TLobby__sub_8013F810(tmp, arg0->data, arg0->len, buf);
-        __dl__FPv(tmp);
+        ::operator delete(tmp);
         bswap_6x6E_sync_game_state__6TLobbyFPv(buf);
         sync_game_state__6TLobbyFv(new_var, buf->f2);
         n = buf->f2;
@@ -729,7 +728,7 @@ void handle_6x6E_sync_game_state(Pkt_8013566C *arg0) {
         restore_switch_table(&buf->data[n], buf->f6);
         activate_triggered_floor_events();
       }
-      __dl__FPv((0, buf));
+      ::operator delete((0, buf));
     }
   }
 }
@@ -746,7 +745,7 @@ void handle_6x6D_sync_game_state(Pkt_8013574C *arg0) {
             tmp = alloc__23TAdSinglePlyChrSelectGCFv(0x7230);
             if (tmp != NULL) {
                 TLobby__sub_8013F810(tmp, arg0->data + 0, len, buf);
-                __dl__FPv(tmp);
+                ::operator delete(tmp);
             }
             ((TLobby *)buf)->apply_sync_item_state();
             mem_free((int)buf);
@@ -765,7 +764,7 @@ void handle_6x6C_sync_game_state(Pkt_801357F8 *arg0) {
         p = (u32 *)alloc__23TAdSinglePlyChrSelectGCFv(0x7230);
         if (p != NULL) {
             r = ((u32)TLobby__sub_8013F810(p, arg0->data, n, TLobby__data_805D6140));
-            __dl__FPv(p);
+            ::operator delete(p);
             n = r >> 2;
             p = TLobby__data_805D6140;
             TLobby__data_805D6148 = n;
@@ -787,7 +786,7 @@ void handle_6x6B_sync_game_state(Pkt_801358B4 *arg0) {
         p = (S12_801358B4 *)alloc__23TAdSinglePlyChrSelectGCFv(0x7230);
         if (p != NULL) {
             r = ((u32)TLobby__sub_8013F810(p, arg0->data, n, TLobby__data_805D6144));
-            __dl__FPv(p);
+            ::operator delete(p);
             n = r / 12;
             p = TLobby__data_805D6144;
             TLobby__data_805D614C = n;
@@ -830,9 +829,9 @@ void send_6x6E_sync_game_state__6TLobbyFi(s32 arg0) {
             tmp = alloc__23TAdSinglePlyChrSelectGCFv(0x7230);
             if (tmp != NULL) {
                 len = ((TLobby *)tmp)->lz_compress_packet((void *)hdr, (s32)n, (s32 *)(buf->data));
-                __dl__FPv(tmp);
+                ::operator delete(tmp);
             }
-            __dl__FPv(hdr);
+            ::operator delete(hdr);
         }
         buf->cmd = 0x6E;
         buf->flag = 0;
@@ -860,7 +859,7 @@ void TLobby::send_6x6D_item_state() {
             tmp = alloc__23TAdSinglePlyChrSelectGCFv(0x7230);
             if (tmp != NULL) {
                 len = ((TLobby *)tmp)->lz_compress_packet((void *)src, (s32)n, (s32 *)(buf->data));
-                __dl__FPv(tmp);
+                ::operator delete(tmp);
             }
             mem_free((int)src);
         }
@@ -897,7 +896,7 @@ void send_compressed_packet_6c__6TLobbyFi(s32 arg0) {
             }
             len = ((TLobby *)tmp)->lz_compress_packet((void *)p, (s32)size, (s32 *)(buf->data));
             mem_free((int)p);
-            __dl__FPv(tmp);
+            ::operator delete(tmp);
             buf->cmd = 0x6C;
             buf->flag = 0;
             buf->f2 = 0;
@@ -932,7 +931,7 @@ void send_cmd_6B__6TLobbyFi(s32 arg0) {
             }
             len = ((TLobby *)tmp)->lz_compress_packet((void *)p, (s32)size, (s32 *)(buf->data));
             mem_free((int)p);
-            __dl__FPv(tmp);
+            ::operator delete(tmp);
             buf->cmd = 0x6B;
             buf->flag = 0;
             buf->f2 = 0;
@@ -1027,7 +1026,7 @@ s32 __dt__18TPlyJoinLobbyEntryFv(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         __dt__12TPlyCharDataFv(arg0 + 0x20, -1);
         if (arg1 > 0) {
-            ((s32 (*)(s32))__dl__FPv)(arg0);
+            ::operator delete((void *)arg0);
         }
     }
     return arg0;
@@ -3325,8 +3324,6 @@ s32 init_serial_access__6TLobbyFv(void);
 s32 TAdDialingGC__sub_8013ADBC(int);
 void reset_controller_input_state(void);
 s32 socket_set_server_info(u32, const void *, const void *, s32, s32, s32, u16);
-void DateToSeconds__FP9DateStampPi(Date_801399B8 *, s32 *);
-void getDateStamp__FP9DateStamp(Date_801399B8 *);
 void *__nw__7TObjectFUl(u32);
 s8 TAdSinglePlyChrSelectGC__sub_8033605C(void);
 extern u32 TLobby__protocol_instance;
@@ -3358,8 +3355,8 @@ void run_join_lobby_connect__6TLobbyFi(s32 arg0) {
 
     if (lbl_805D55C0 == 0) {
         reset_controller_input_state();
-        getDateStamp__FP9DateStamp(&date);
-        DateToSeconds__FP9DateStampPi(&date, &TLobby__date_seconds);
+        getDateStamp((DateStamp *)&date);
+        DateToSeconds((DateStamp *)&date, (int *)&TLobby__date_seconds);
         p = __nw__7TObjectFUl(0x2C);
         if (p != NULL) {
             TLobby__sub_80135198(p, arg0);

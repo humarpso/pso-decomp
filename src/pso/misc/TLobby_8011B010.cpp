@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/system/byteswap.h"
 #include "pso/misc/TLobby.h"
 
@@ -11,7 +12,6 @@ extern s32 item_id_counter_table;
 int TLobby__send_and_handle_60(void*);
 int read_be16_field2__10TObjPlayerFv(void*);
 extern s32 TLobby__data_805D6140;
-s32 __dl__FPv(s32);
 s32 mem_free(s32);
 
 s32 TLobby::free_rock_objects(s32 arg0, s16 arg1) {
@@ -21,7 +21,7 @@ s32 TLobby::free_rock_objects(s32 arg0, s16 arg1) {
         mem_free(item_id_counter_table);
         item_id_counter_table = 0;
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete((void *)arg0);
         }
     }
     return arg0;

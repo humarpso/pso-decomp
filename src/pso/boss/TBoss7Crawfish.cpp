@@ -1,4 +1,5 @@
 #include <dolphin/mtx.h>
+#include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "types.h"
 
@@ -106,7 +107,6 @@ int rotate_matrix_yxz(void*, void*, void*, void*);
 int push_matrix(void);
 int pop_matrix(void);
 int draw__16TObjEneRe7BeruraFv(void*);
-s32 objInBand__FP7GameObjf(s32, f32);
 int queue_destruction__7TObjectFv(void*);
 
 extern f32 lbl_805DF0C8;
@@ -238,7 +238,7 @@ void TBoss7Crawfish::clear_object_state_exchange() {
 
 void TBoss7Crawfish::check_band_and_destroy() {
     s32 arg0 = (s32)this;
-    if (objInBand__FP7GameObjf(arg0, lbl_805DF0EC) != 0) {
+    if (objInBand((GameObj *)arg0, (f32)lbl_805DF0EC) != 0) {
         spawn_ground_effects();
     }
     if (TBoss7Crawfish__data_805DF0D8 == ((TBoss7Crawfish *)arg0)->get_health()) {

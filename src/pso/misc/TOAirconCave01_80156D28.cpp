@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TUnk_804AF8D8.h"
 #include "pso/misc/TOAirconCave01.h"
 
@@ -26,7 +27,6 @@ extern int chunk_polygon_flags_and_mask;
 extern int model_render_flags;
 s32 __dt__13TUnk_80494AE0Fv(s32, s32 *);
 void TObjPlayer__sub_800D9718(void *);
-s32 __dl__FPv(void *);
 
 void TUnk_804AF8D8::clear_flag_and_notify() { copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color); chunk_polygon_flags_and_mask = lbl_805D5664; chunk_polygon_flags_or_mask = lbl_805D5668; model_render_flags = lbl_805D5660; }
 
@@ -50,7 +50,7 @@ void *TUnk_804AF8D8::destroy(s16 arg1) {
         *(s32 * *)&(*(TObject * *)((u8 *)this + 0x14)) = lbl_804AF8D8;
         __dt__13TUnk_80494AE0Fv((s32)this, 0);
         if (arg1 > 0) {
-            __dl__FPv(this);
+            ::operator delete(this);
         }
     }
     return this;

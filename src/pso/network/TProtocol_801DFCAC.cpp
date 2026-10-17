@@ -1,4 +1,5 @@
 #include "pso/packet_classes.h"
+#include "pso/system/memory.h"
 #include <stddef.h>
 #include "pso/TProtocol.h"
 typedef char SendActionSize[(sizeof(TSendAction<0>) == 12) ? 1 : -1];
@@ -13,14 +14,13 @@ typedef char NamedPasswordActionPasswordOffset[(offsetof(TSendAction<3>, passwor
 
 extern "C" {
 s32 __ct__12TPlyCharDataFv(s32);
-s32 __dl__FPv(s32);
 s32 __dt__12TPlyCharDataFv(s32, s32);
 
 s32 destroy__9TProtocolFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         __dt__12TPlyCharDataFv(arg0 + 4, -1);
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete((void *)arg0);
         }
     }
     return arg0;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 
 struct RecoveredGlobal_8036AE2C_lbl_804F3628 {
     s32 value;
@@ -18,7 +19,6 @@ struct RecoveredGlobal_8036AEA4_lbl_804F3628 {
 
 extern "C" {
 u8 * TBoss8Dragon__sub_8036AEF8(void *, s16);
-s32 __dl__FPv(void *);
 s32 memset(void *, int, int);
 extern RecoveredGlobal_8036AE2C_lbl_804F3628 lbl_804F3628;
 u8 *__dt__15PSOV3EncryptionFv(u8 *arg0, s16 arg1);
@@ -33,7 +33,7 @@ u8 *__dt__15PSOV3EncryptionFv(u8 *arg0, s16 arg1) {
         *(s32 *)((s8 *)arg0 + 0x830) = 0;
         TBoss8Dragon__sub_8036AEF8(arg0, 0);
         if (arg1 > 0) {
-            __dl__FPv((void *) (arg0));
+            ::operator delete((arg0));
         }
     }
     return arg0;

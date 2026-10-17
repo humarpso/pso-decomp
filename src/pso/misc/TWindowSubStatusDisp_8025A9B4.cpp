@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TWindowDuelResult.h"
 #include "pso/misc/TWindowHelpItem.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
@@ -43,7 +44,6 @@ s32 draw_window_text(void *, void *, s32, s32, f32);
 void set_text_draw_params(void *, u8, s32, f32, f32);
 void render_text_entry(Win_8025AD5C *arg0, Ref_8025AD5C *arg1);
 void *TWindowSubStatusDisp__sub_8025AF0C(void *arg0, s16 arg1);
-s32 __dl__FPv(void *);
 s32 deleting_destructor__20TWindowSubStatusDispFs(void *, s32);
 
 void *lbl_804CFA28[6] = {
@@ -264,7 +264,7 @@ void *TWindowSubStatusDisp__sub_8025AF0C(void *arg0, s16 arg1) {
         }
         deleting_destructor__20TWindowSubStatusDispFs(arg0, 0);
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

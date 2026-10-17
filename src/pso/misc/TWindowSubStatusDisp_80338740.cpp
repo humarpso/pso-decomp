@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
 extern "C" {
@@ -8,7 +9,6 @@ int get_field_38_ptr__16TEneParticleCtrlFv(void*);
     extern const float lbl_805DF9CC;
 int TWindowSubStatusDisp__sub_80338B88(void* p);
 int reset_entry__20TWindowSubStatusDispFPv(void*, int);
-s32 __dl__FPv(void *);
 s32 deleting_destructor__20TWindowSubStatusDispFs(void *, s32);
 s32 mem_free(void *);
 extern u8 lbl_804EF440[];
@@ -167,7 +167,7 @@ void *TWindowSubStatusDisp::destroy_with_free(s16 arg1) {
         }
         deleting_destructor__20TWindowSubStatusDispFs(this, 0);
         if (arg1 > 0) {
-            __dl__FPv(this);
+            ::operator delete(this);
         }
     }
     return this;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TLobby.h"
 #include "pso/TObject.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
@@ -65,7 +66,6 @@ void TAdYesNoBaseGC__ct(void *);
 void __dt__14TAdYesNoBaseGCFv(void *, int);
 s32 VecCopy__FP3VecPC3Vec(void *);
 void __dl__7TObjectFPv(void *);
-s32 __dl__FPv(void *);
 int VIWaitForRetrace(void);
 int VIConfigure(void*);
 int VIFlush(void);
@@ -128,7 +128,7 @@ void *destroy__13TAdVIConfigGCFPvs(void *arg0, s16 arg1) {
             *(u32 *)((s8 *)arg0 + 0x24) = 0U;
         }
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

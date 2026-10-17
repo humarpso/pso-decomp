@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/player/TObjPlayer.h"
 
 struct Base_800D7BFC { char pad[0x14]; };
@@ -14,7 +15,6 @@ void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 s32 __dt__13TUnk_80494AE0Fv(s32, s32 *);
 void TObjPlayer__sub_800D9718(void *);
 int set_chunk_blend(int);
-s32 __dl__FPv(void *);
 
 void TObjPlayer::activate_and_dispatch() {
     struct VObj_800D7BFC *o = (struct VObj_800D7BFC *)this;
@@ -31,7 +31,7 @@ void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x14) = lbl_804949A8;
         __dt__13TUnk_80494AE0Fv((s32)arg0, 0);
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

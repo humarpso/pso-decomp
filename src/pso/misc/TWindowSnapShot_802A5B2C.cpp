@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/memory.h"
 #include "pso/misc/TWindowSnapShot.h"
 #include "pso/misc/TGStream.h"
 #include "pso/misc/TLobby.h"
@@ -17,7 +18,6 @@ void mem_free(void *);
 int fn_802A5B74(s32, s32);
 void fn_802A5B2C(s32 arg0);
 int fn_802A5BFC(s32, s32);
-s32 __dl__FPv(void *);
 extern s32 lbl_804DD098[];
 void *TWindowSnapShot__sub_802A5EDC(void *arg0, s16 arg1);
 s32 alloc_buffer__15TWindowSnapShotFPv(void *arg0);
@@ -126,7 +126,7 @@ void *TWindowSnapShot__sub_802A5EDC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x3C) = lbl_804DD098;
         if (arg1 > 0) {
-            __dl__FPv(arg0);
+            ::operator delete(arg0);
         }
     }
     return arg0;

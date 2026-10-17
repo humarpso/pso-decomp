@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -353,7 +354,6 @@ extern "C" {
 s32 spawn_particle_effect(s32, s32);
 s32 apply_actor_gravity(void *, s32, f32);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
 s32 minimap_render_dot(void *, s32, s32, s32);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
@@ -603,7 +603,7 @@ void TObjGrass::update_dying(void *arg0_) {
         *(s16 *)((s8 *)arg0 + 0x328) = 0;
     case 0:
         apply_actor_gravity(arg0, 0, (0.0f));
-        if (objInBand__FP7GameObjf(arg0, (0.0f)) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)(0.0f)) != 0) {
             play_sound_effect((void *)copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003A804), arg0 + 0x38, 0, 0);
             *(s16 *)((s8 *)arg0 + 0x328) = 1;
         }
@@ -612,13 +612,13 @@ void TObjGrass::update_dying(void *arg0_) {
         move_with_wall_slide(arg0);
         *(f32 *)((s8 *)arg0 + 0x308) *= (0.5f);
         *(f32 *)((s8 *)arg0 + 0x310) *= (0.5f);
-        if (objInBand__FP7GameObjf(arg0, (23.0f)) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)(23.0f)) != 0) {
             *(s16 *)((s8 *)arg0 + 0x328) = 2;
             spawn_particle_effect((s32)(arg0 + 0x38), 0xF0);
         }
         break;
     case 2:
-        if (objInBand__FP7GameObjf(arg0, (32.0f)) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)(32.0f)) != 0) {
             Vec_800BCA30 v;
             v.y = (0.0f);
             v.x = (0.0f);
@@ -734,7 +734,7 @@ s32 TObjGrass::sub_800BCE44() {
   *((f32 *) (((s8 *) arg0) + 0x308)) = (f32) (0.0f);
   apply_actor_gravity((void *)((void *) arg0), (s32)((int) 0), (f32) (0.0f));
   ((TObjPlayer *)arg0)->update_collisions();
-  if (objInBand__FP7GameObjf((void *) arg0, (f32) (0.0f)) != 0)
+  if (objInBand((GameObj *)arg0, (f32) (0.0f)) != 0)
   {
     play_sound_effect((void *) ((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) arg0), (s32)((int) 0x4003A603))), (void *) (arg0 + 0x38), (int) 0, (int) 0);
     TObjPlayer::play_effect_if_v2((s32)((int) (-0x200)));
@@ -1103,7 +1103,7 @@ void TObjGrass::sub_800BDD70() {
         break;
     case 1:
         apply_actor_gravity(arg0, 0, (0.0f));
-        if (objInBand__FP7GameObjf(arg0, (14.0f)) != 0) {
+        if (objInBand((GameObj *)arg0, (f32)(14.0f)) != 0) {
             if (*(VObj_800BDD70 **)((s8 *)arg0 + 0x2A8) != NULL && (*(VObj_800BDD70 **)((s8 *)arg0 + 0x2A8))->m18(arg0, (1.0f)) != 0) {
                 (*(VObj_800BDD70 **)((s8 *)arg0 + 0x2A8))->m20(arg0, (1.0f));
                 (*(VObj_800BDD70 **)((s8 *)arg0 + 0x2A8))->m23(arg0);

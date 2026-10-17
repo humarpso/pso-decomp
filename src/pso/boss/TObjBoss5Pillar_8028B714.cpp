@@ -1,8 +1,8 @@
 #include "types.h"
+#include "pso/system/memory.h"
 
 extern "C" {
 
-s32 __dl__FPv(void *);
 s32 free_texture_if_valid(void *);
 s32 is_unloaded__12TChCrLoadAfsFv();
 
@@ -39,7 +39,7 @@ u8 *free_chcr_resources(u8 *arg0, s16 arg1) {
             *(s32 *)((s8 *)arg0 + 0x32C) = 0;
         }
         if (arg1 > 0) {
-            __dl__FPv((void *) (arg0));
+            ::operator delete((arg0));
         }
     }
     return arg0;

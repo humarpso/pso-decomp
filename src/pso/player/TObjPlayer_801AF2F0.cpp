@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/obj_band.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneRecon.h"
@@ -2053,7 +2054,6 @@ s32 fn_8013F264(s32);
 s32 set_shadow_material_state();
 void direction_to_rotation_xz(void *, void *, void *);
 s32 draw_model_with_callback__10TObjPlayerFllf(void *, s32, s32, f32);
-s32 objInBand__FP7GameObjf(void *, f32);
 s32 draw_motion_model_saving_joints(void *);
 s32 set_animation__10TObjPlayerFPvs(s32, s32);
 s32 advance_animation_playback(void *);
@@ -4808,10 +4808,10 @@ int TObjPlayer::update_foot_stamp(int arg1) {
 }
 
 s32 test_ordered_anim_markers__10TObjPlayerFPvff(u8 *arg0, f32 farg0, f32 farg1) {
-    if (objInBand__FP7GameObjf(arg0, farg0) != 0) {
+    if (objInBand((GameObj *)arg0, (f32)farg0) != 0) {
         return 1;
     }
-    return (objInBand__FP7GameObjf(arg0, farg1) != 0) ? 2 : 0;
+    return (objInBand((GameObj *)arg0, (f32)farg1) != 0) ? 2 : 0;
 }
 
 void emit_footstep_effect__10TObjPlayerFiff(s32 arg0, f32 farg0, f32 farg1) {
