@@ -1706,7 +1706,7 @@ void TLobby::adxt_set_out_pan(s32 arg1, s16 arg2) {
     S_803C96F0 *arg0 = (S_803C96F0 *)this;
     arg0->vals[arg1] = arg2;
     if (arg1 < arg0->count) {
-        TLobby__sub_803CBF50(*(void * *)&this->m_next);
+        TLobby__sub_803CBF50(this->m_next);
         return;
     }
     TLobby::notify_error((const char *)adx_out_pan_parameter_error);

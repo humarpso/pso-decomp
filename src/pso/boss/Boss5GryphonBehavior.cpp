@@ -5207,9 +5207,9 @@ void TBoss5Gryphon::run_task() {
     ((TBoss5Gryphon *)(arg0))->vfunc_42();
     if (temp_r31_2 == 0) {
         if (((s32 (*)(void *))get_flag_bit6__12TBoss8DragonFv)(arg0) != 0) {
-            *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x800);
+            this->actorFlags = (s32) (this->actorFlags | 0x800);
         } else {
-            *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFFF7FF);
+            this->actorFlags = (s32) (this->actorFlags & 0xFFFFF7FF);
         }
         if ((s32) *(s32 *)((s8 *)arg0 + 0x4E0) != 1) {
             if (((TBoss5Gryphon *)(arg0))->test_flag30_512() != 0) {

@@ -125,7 +125,7 @@ void run_task__12TTecReverserFv(u8 *tec_reverser) {
         queue_destruction__7TObjectFv((tec_reverser));
         return;
     }
-    if ((s32) *(s32 *)&((TTecReverser *)tec_reverser)->m_ec == 0) {
+    if ((s32) ((TTecReverser *)tec_reverser)->m_ec == 0) {
         queue_destruction__7TObjectFv((tec_reverser));
         return;
     }
@@ -166,7 +166,7 @@ u8 *TTecReverser__ct(u8 *tec_reverser, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     play_sound_effect(0x4002A812, tec_reverser + 0x20, 0, 0);
     temp_r3 = ((TTecReverser *)tec_reverser)->source;
     if (temp_r3 != 0U) {
-        *(s16 *)&((TTecReverser *)tec_reverser)->m_b4 = obj_getField1c(temp_r3);
+        ((TTecReverser *)tec_reverser)->m_b4 = obj_getField1c(temp_r3);
     }
     return tec_reverser;
 }

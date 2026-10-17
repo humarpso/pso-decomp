@@ -953,7 +953,7 @@ void init_flags__15TWindowFukidasiFPvi(void *arg0, s32 arg1) {
     ((TUnk_804CF0B8 *)arg0)->m_58 = (f32) TWindowFukidasi__data_805DCD30;
     set_field_1c__6TLobbyFf(lbl_805DCD58);
     if (sub_80246948__13TUnk_804CE018Fv(arg0) != 0) {
-        *(s32 *)&((TUnk_804CF0B8 *)arg0)->m_2c = (s32) (*(s32 *)&((TUnk_804CF0B8 *)arg0)->m_2c | 1);
+        ((TUnk_804CF0B8 *)arg0)->m_2c = (s32) (((TUnk_804CF0B8 *)arg0)->m_2c | 1);
     }
     ((TUnk_804CF0B8 *)arg0)->m_71 = (u8) (((TUnk_804CF0B8 *)arg0)->m_71 & ~0x50);
     if (arg1 & 2) {

@@ -34,14 +34,14 @@ u8 *TWindowSubStatusDisp::init_layout_entry_rect(u8 *arg1, s16 arg2) {
 }
 
 void TWindowSubStatusDisp::advance_state() {
-    if ((u8) *(u8 *)&this->m_1d == 0x14) {
-        *(u8 *)&this->m_1d = 0x15U;
+    if ((u8) this->m_1d == 0x14) {
+        this->m_1d = 0x15U;
     }
 }
 
 void TWindowSubStatusDisp::finalize_state() {
-    if ((u8) *(u8 *)&this->m_1d == 0x15) {
-        *(u8 *)&this->m_1d = 0x14U;
+    if ((u8) this->m_1d == 0x15) {
+        this->m_1d = 0x14U;
     }
 }
 
@@ -578,7 +578,7 @@ void TWindowSubStatusDisp::set_item_info(void* a1, int a2, void* a3) {
     *(int*)((char*)this + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii(this, (void*)get_shared_text_buffer(), (void*)(*(int*)((char*)this + 0x20)), (void*)8, (void*)1);
     update_stat_line_if_positive__20TWindowSubStatusDispFPvi(this, a3);
     update_item_colors((s32)a1);
-    *(int *)&this->m_34 = *(int*)((char*)this + 0x30);
+    this->m_34 = *(int*)((char*)this + 0x30);
     *(int*)((char*)this + 0x18) = a2;
     *(short*)((char*)this + 0x0) = (*(unsigned short*)((char*)this + 0x0) | 0x45);
 }

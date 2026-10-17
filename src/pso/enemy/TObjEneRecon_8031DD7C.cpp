@@ -29,7 +29,7 @@ extern f32 *TObjEneRecon__data_805D6AFC;
 void TObjEneRecon::update_collide_flag() {
     void *temp_r5;
 
-    temp_r5 = *(void * *)&this->movementParameters;
+    temp_r5 = this->movementParameters;
     if (TObjEneEpsilon__sub_800B92F8(this, *(s32 *)((s8 *)temp_r5 + 8), temp_r5, *TObjEneRecon__data_805D6AFC) != 0U) {
         *(s32 *)((s8 *)this + 0x444) = (s32) (*(s32 *)((s8 *)this + 0x444) | 2);
         return;
@@ -77,7 +77,7 @@ void TObjEneRecon::sync_height() {
     *(f32 *)((s8 *)this + 0x398) = (f32) *(f32 *)((s8 *)this + 0x460);
 }
 void TObjEneRecon::vfunc_61() {  }
-void TObjEneRecon::vfunc_62() { if (*(short *)&this->mode != 6) { transition_enemy_state(this, (void*)6); } }
+void TObjEneRecon::vfunc_62() { if (this->mode != 6) { transition_enemy_state(this, (void*)6); } }
 
 void TObjEneRecon::vfunc_63() {
     u8 *arg0 = (u8 *)this;

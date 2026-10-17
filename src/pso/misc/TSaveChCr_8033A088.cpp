@@ -38,7 +38,7 @@ int begin_action_from_char_select__10TObjPlayerFv(void*);
 
 void TSaveChCr::close_window() {
     if ((u32) *(u32 *)((s8 *)this + 0x3C) != 0U) {
-        TWindow__close((u8 *)(*(void * *)&this->owned_window));
+        TWindow__close((u8 *)(this->owned_window));
         *(u32 *)((s8 *)this + 0x3C) = 0U;
         this->timer = 7;
     }

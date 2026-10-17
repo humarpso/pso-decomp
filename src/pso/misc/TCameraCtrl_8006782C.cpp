@@ -46,7 +46,7 @@ s16 obj_getField1c(u32);
 void TUnk_80488A28::set_target(u32 arg1) {
     *(u32 *)((s8 *)this + 0x1C) = arg1;
     if (arg1 != 0U) {
-        *(s16 *)&this->m_20 = obj_getField1c(arg1);
+        this->m_20 = obj_getField1c(arg1);
     }
 }
 

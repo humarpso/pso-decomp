@@ -270,7 +270,7 @@ void fn_802449E0(u8 *arg0) {
 
 void TWindow__close(u8 *window_lock_on) {
     ((TWindowLockOn *)window_lock_on)->request_close();
-    *(s32 *)&((TWindowLockOn *)window_lock_on)->m_2c = (s32) (*(s32 *)&((TWindowLockOn *)window_lock_on)->m_2c | 0x10);
+    ((TWindowLockOn *)window_lock_on)->m_2c = (s32) (((TWindowLockOn *)window_lock_on)->m_2c | 0x10);
 }
 
 void TWindowLockOn::request_close() {

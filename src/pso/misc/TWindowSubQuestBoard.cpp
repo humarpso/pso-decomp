@@ -101,10 +101,10 @@ typedef char RecoveredGlobal_8027CE74_lbl_804D1818_size[sizeof(RecoveredGlobal_8
 u8 *TWindowSubQuestBoard__sub_8027CE74(u8 *arg0, u8 *arg1, s32 arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8027CE74_lbl_804D1818 *)&__vt__19TWindowSubQuestBoard).value;
-    *(u8 * *)&((TUnk_804D1818 *)arg0)->m_24 = arg1;
+    ((TUnk_804D1818 *)arg0)->m_24 = arg1;
     ((TUnk_804D1818 *)arg0)->m_20 = arg2;
     *(s32 *)((s8 *)arg0 + 0x28) = ((TUnk_804D1818 *)arg0)->create_option_menu_window();
-    *(s32 *)&((TUnk_804D1818 *)arg0)->m_2c = 0;
+    ((TUnk_804D1818 *)arg0)->m_2c = 0;
     *(s8 *)&((TUnk_804D1818 *)arg0)->unk_1C = 0;
     return arg0;
 }
@@ -166,7 +166,7 @@ void *__dt__20TWindowSubQuestBoardFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TWindowSubQuestBoard;
         TWindowCtrl__sub_8027D1F8();
-        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x28))); *(s32 *)&((TWindowSubQuestBoard *)arg0)->m_28 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x28))); ((TWindowSubQuestBoard *)arg0)->m_28 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

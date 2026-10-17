@@ -1367,7 +1367,7 @@ void state_spawn__17TObjEneBm3FlyNestFPvi(void *ene_bm3_fly_nest, s32 arg1) {
         *(f32 *)((s8 *)ene_bm3_fly_nest + 0x4B0) = (f32) 0.0f;
         return;
     case 3:
-        if (*(s32 *)&((TObjEneBm3FlyNest *)ene_bm3_fly_nest)->animationFlags & 0x10) {
+        if (((TObjEneBm3FlyNest *)ene_bm3_fly_nest)->animationFlags & 0x10) {
             transition_enemy_state(ene_bm3_fly_nest, 5);
         }
         break;
@@ -1377,7 +1377,7 @@ void state_spawn__17TObjEneBm3FlyNestFPvi(void *ene_bm3_fly_nest, s32 arg1) {
     case 0:
         if (((s32 (*)(f32))objInBand__FP7GameObjf)(lbl_805D9D30) != 0) {
             ((TObjEneBm3FlyNest *)ene_bm3_fly_nest)->spawn_child();
-            *(s32 *)&((TObjEneBm3FlyNest *)ene_bm3_fly_nest)->m_4d4 = (s32) (*(s32 *)&((TObjEneBm3FlyNest *)ene_bm3_fly_nest)->m_4d4 - 1);
+            ((TObjEneBm3FlyNest *)ene_bm3_fly_nest)->m_4d4 = (s32) (((TObjEneBm3FlyNest *)ene_bm3_fly_nest)->m_4d4 - 1);
         }
         advance_animation_playback(ene_bm3_fly_nest);
         ((TObjEneDD *)ene_bm3_fly_nest)->vfunc_102();
@@ -1431,7 +1431,7 @@ void TObjEneBm3FlyNest__sub_800B318C(u8 *ene_dd, s32 arg1) {
         *(f32 *)((s8 *)ene_dd + 0x4B0) = (f32) -5.0f;
         break;
     case 3:
-        if (*(s32 *)&((TObjEneDD *)ene_dd)->animationFlags & 0x10) {
+        if (((TObjEneDD *)ene_dd)->animationFlags & 0x10) {
             transition_enemy_state(ene_dd, 5);
             break;
         }
@@ -1472,7 +1472,7 @@ void handle_event__17TObjEneBm3FlyNestFPvi(void *ene_bm3_fly_nest, s32 arg1) {
         *(f32 *)((s8 *)ene_bm3_fly_nest + 0x4B0) = (f32) -5.0f;
         return;
     case 3:
-        if (*(s32 *)&((TObjEneBm3FlyNest *)ene_bm3_fly_nest)->animationFlags & 0x10) {
+        if (((TObjEneBm3FlyNest *)ene_bm3_fly_nest)->animationFlags & 0x10) {
             transition_enemy_state(ene_bm3_fly_nest, 2);
         }
         break;
@@ -1482,7 +1482,7 @@ void handle_event__17TObjEneBm3FlyNestFPvi(void *ene_bm3_fly_nest, s32 arg1) {
         advance_animation_playback(ene_bm3_fly_nest);
         if (objInBand__FP7GameObjf(ene_bm3_fly_nest, lbl_805D9D30) != 0) {
             ((TObjEneBm3FlyNest *)ene_bm3_fly_nest)->spawn_child();
-            *(s32 *)&((TObjEneBm3FlyNest *)ene_bm3_fly_nest)->m_4d4 = (s32) (*(s32 *)&((TObjEneBm3FlyNest *)ene_bm3_fly_nest)->m_4d4 - 1);
+            ((TObjEneBm3FlyNest *)ene_bm3_fly_nest)->m_4d4 = (s32) (((TObjEneBm3FlyNest *)ene_bm3_fly_nest)->m_4d4 - 1);
         }
         ((TObjEneDD *)ene_bm3_fly_nest)->vfunc_102();
         break;

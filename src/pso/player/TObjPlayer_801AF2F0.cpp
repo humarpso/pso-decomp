@@ -4122,12 +4122,12 @@ void TObjPlayer::cancel_status_effects() {
     f32 temp_f31_4;
     f32 temp_f31_5;
     f32 v;
-    *(s32 *)&((TUnk_804806E8 *)arg0)->actorFlags = (s32) (*(s32 *)&((TUnk_804806E8 *)arg0)->actorFlags & 0xFFFFFFFC);
+    ((TUnk_804806E8 *)arg0)->actorFlags = (s32) (((TUnk_804806E8 *)arg0)->actorFlags & 0xFFFFFFFC);
     temp_f31 = -TObjPlayer__sub_800192C4(arg0, 0);
     v = ((TUnk_804806E8 *)arg0)->get_s16_2c4();
     ((TUnk_804806E8 *)arg0)->sub_800192B4((s32) (v * temp_f31));
     reset_status_effect_row(arg0 + 0x254);
-    *(s32 *)&((TUnk_804806E8 *)arg0)->actorFlags = (s32) (*(s32 *)&((TUnk_804806E8 *)arg0)->actorFlags & 0xFFFFFFC3);
+    ((TUnk_804806E8 *)arg0)->actorFlags = (s32) (((TUnk_804806E8 *)arg0)->actorFlags & 0xFFFFFFC3);
     temp_f31_2 = -TObjPlayer__sub_800192C4(arg0, 1);
     v = ((TUnk_804806E8 *)arg0)->get_s16_2c4();
     ((TUnk_804806E8 *)arg0)->sub_800192B4((s32) (v * temp_f31_2));
@@ -4160,7 +4160,7 @@ void remove_status_effect__10TObjPlayerFUiPv(u32 arg0_, Pair_801B2C04 *arg1_) {
     temp_r0 = *arg1;
     switch (temp_r0) {
     case 0:
-        *(s32 *)&((TUnk_804806E8 *)arg0)->actorFlags = (s32) (*(s32 *)&((TUnk_804806E8 *)arg0)->actorFlags & 0xFFFFFFFC);
+        ((TUnk_804806E8 *)arg0)->actorFlags = (s32) (((TUnk_804806E8 *)arg0)->actorFlags & 0xFFFFFFFC);
         temp_f31 = -TObjPlayer__sub_800192C4((void *) arg0, 0);
         v = ((TUnk_804806E8 *)arg0)->get_s16_2c4();
         v *= temp_f31;
@@ -4168,7 +4168,7 @@ void remove_status_effect__10TObjPlayerFUiPv(u32 arg0_, Pair_801B2C04 *arg1_) {
         reset_status_effect_row(arg0 + 0x254);
         return;
     case 1:
-        *(s32 *)&((TUnk_804806E8 *)arg0)->actorFlags = (s32) (*(s32 *)&((TUnk_804806E8 *)arg0)->actorFlags & 0xFFFFFFC3);
+        ((TUnk_804806E8 *)arg0)->actorFlags = (s32) (((TUnk_804806E8 *)arg0)->actorFlags & 0xFFFFFFC3);
         temp_f31_2 = -TObjPlayer__sub_800192C4((void *) arg0, 1);
         v = ((TUnk_804806E8 *)arg0)->get_s16_2c4();
         v *= temp_f31_2;
@@ -5893,7 +5893,7 @@ void TObjPlayer::check_level_up() {
     if ((((s32 (*)(void))is_locally_controlled__10TObjPlayerFPv)() != 0) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
         temp_r30 = ((s32 (*)(void *))clamp_nested_index__10TObjPlayerFv)(arg0) + 1;
         if (temp_r30 <= TObjPlayer::get_max_level()) {
-            if (((s32 (*)(void *, int))get_current_state_field__10TObjPlayerFScl)((void *) (((s32 (*)(void *))get_class_index__10TObjPlayerFv)(arg0)), temp_r30) <= (s32) *(s32 *)((s8 *)(*(void * *)&this->m_2b0) + 0x1C)) {
+            if (((s32 (*)(void *, int))get_current_state_field__10TObjPlayerFScl)((void *) (((s32 (*)(void *))get_class_index__10TObjPlayerFv)(arg0)), temp_r30) <= (s32) *(s32 *)((s8 *)(this->m_2b0) + 0x1C)) {
                 ((TObjPlayer *)(&sp40))->reset_sub_status_disp();
                 ((TObjPlayer *)(&sp24))->reset_sub_status_disp();
                 ((TObjPlayer *)(&sp8))->reset_sub_status_disp();
@@ -5905,9 +5905,9 @@ void TObjPlayer::check_level_up() {
                     }
                     var_r30 += 1;
                 } while (var_r30 < 0xD);
-                init_shield_params__10TObjPlayerFl(&sp40, arg0, (void *) (*(void * *)&this->m_2b0), (int) (*(s32 *)&this->m_318), (int) (*(s32 *)((s8 *)arg0 + 0x31C)));
+                init_shield_params__10TObjPlayerFl(&sp40, arg0, (void *) (this->m_2b0), (int) (this->m_318), (int) (*(s32 *)((s8 *)arg0 + 0x31C)));
                 ((TObjPlayer *)arg0)->apply_exp_level_growth();
-                init_shield_params__10TObjPlayerFl(&sp24, arg0, (void *) (*(void * *)&this->m_2b0), (int) (*(s32 *)&this->m_318), (int) (*(s32 *)((s8 *)arg0 + 0x31C)));
+                init_shield_params__10TObjPlayerFl(&sp24, arg0, (void *) (this->m_2b0), (int) (this->m_318), (int) (*(s32 *)((s8 *)arg0 + 0x31C)));
                 var_r31 = 0;
                 do {
                     temp_r30_2 = get_slot_value__10TObjPlayerFPvi((u8 *)&this->m_d04, var_r31);
@@ -6632,18 +6632,18 @@ void *pickup_item__10TObjPlayerFv(u8 *player, u8 *arg1) {
     case 2:
         o = ((void * (*)(u32))__nw__7TObjectFUl)(0x20);
         if (o != NULL) {
-            o = ((void * (*)(void *, s32))__ct__9TItemListFv)(o, *(s32 *)((s8 *)(*(u8 * *)&((TObjPlayer *)player)->inventory_objects) + 0x1C4));
+            o = ((void * (*)(void *, s32))__ct__9TItemListFv)(o, *(s32 *)((s8 *)(((TObjPlayer *)player)->inventory_objects) + 0x1C4));
         }
         list = o;
         break;
     case 3:
         if (TObjPlayer__sub_801C1AC8(arg1) != 0) {
             ((TItem *)arg1)->copy_to_item_data(&sp8);
-            id = ((s32 (*)(void *, void *))set_mode_and_refresh_object__10TObjPlayerFPvi)(*(u8 * *)&((TObjPlayer *)player)->inventory_objects, &sp8);
+            id = ((s32 (*)(void *, void *))set_mode_and_refresh_object__10TObjPlayerFPvi)(((TObjPlayer *)player)->inventory_objects, &sp8);
             if (id == 0) {
                 o = ((void * (*)(u32))__nw__7TObjectFUl)(0x20);
                 if (o != NULL) {
-                    o = ((void * (*)(void *, s32))__ct__9TItemListFv)(o, *(s32 *)((s8 *)(*(u8 * *)&((TObjPlayer *)player)->inventory_objects) + 0x1C4));
+                    o = ((void * (*)(void *, s32))__ct__9TItemListFv)(o, *(s32 *)((s8 *)(((TObjPlayer *)player)->inventory_objects) + 0x1C4));
                 }
                 list = o;
                 break;
@@ -6661,7 +6661,7 @@ void *pickup_item__10TObjPlayerFv(u8 *player, u8 *arg1) {
         }
         o = ((void * (*)(u32))__nw__7TObjectFUl)(0x20);
         if (o != NULL) {
-            o = ((void * (*)(void *, s32))__ct__9TItemListFv)(o, *(s32 *)((s8 *)(*(u8 * *)&((TObjPlayer *)player)->inventory_objects) + 0x1C4));
+            o = ((void * (*)(void *, s32))__ct__9TItemListFv)(o, *(s32 *)((s8 *)(((TObjPlayer *)player)->inventory_objects) + 0x1C4));
         }
         list = o;
         break;
@@ -6671,7 +6671,7 @@ void *pickup_item__10TObjPlayerFv(u8 *player, u8 *arg1) {
         inv = *(u8 * *)&((TObjPlayer *)player)->inventory_objects;
         TObjPlayer__sub_801C1B0C(arg1, (*(s16 *)((s8 *)inv + 0x1C))++);
         ((TItem *)arg1)->set_mode(1);
-        ((TObject *)arg1)->set_parent((TObject *)(*(void **)((s8 *)(*(u8 * *)&((TObjPlayer *)player)->inventory_objects) + 0x1C8)));
+        ((TObject *)arg1)->set_parent((TObject *)(*(void **)((s8 *)(((TObjPlayer *)player)->inventory_objects) + 0x1C8)));
         set_owner_client__5TItemFUs(arg1, ((s16 (*)(void *))obj_getField1c)(player));
         return list;
     }

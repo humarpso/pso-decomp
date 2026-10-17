@@ -13,10 +13,10 @@ u8 TBoss4Type2::is_active() {
 void TBoss4Type2::scroll_strips() {
     Obj_8004A98C *self = (Obj_8004A98C *)this;
     s32 i;
-    *(s32 *)&this->m_24 += 8;
+    this->m_24 += 8;
     for (i = 0; i < self->count; i++) {
         if (self->items[i] != 0) {
-            scroll_strip_uvs(self->items[i], *(s32 *)&this->m_24, self->y);
+            scroll_strip_uvs(self->items[i], this->m_24, self->y);
         }
     }
 }

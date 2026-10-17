@@ -24,7 +24,7 @@ void TObjLazerFenceExtra::draw_lazer_fence_extra_model() {
     push_matrix();
     post_translate_matrix(arg0->f38);
     rotate_matrix_y(0, this->rotation_y);
-    draw_ginja_object((void *)*(s32 *)&this->m_d8);
+    draw_ginja_object((void *)this->m_d8);
     TParticleCtrl::begin_effect_render();
     draw_ginja_model_with_motion(arg0->fC0, this->m_c4, arg0->fB8);
     TParticleCtrl::end_effect_render();

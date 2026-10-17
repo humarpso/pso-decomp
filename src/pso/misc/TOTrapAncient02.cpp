@@ -883,7 +883,7 @@ void TOTrapAncient02::vfunc_84() {
         lbl_805D5ADC = actor_frame_tick;
         scroll_ginja_mesh_uvs(lbl_805D5AE0, 0, 0xE, lbl_805D5AE4, 1);
     }
-    *(s32 *)&this->m_34c += 0x888;
+    this->m_34c += 0x888;
     switch (this->mode) {
     case 1:
     case 2:

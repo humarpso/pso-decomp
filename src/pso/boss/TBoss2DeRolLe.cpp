@@ -2108,7 +2108,7 @@ void state_ceiling_attack__13TBoss2DeRolLeFPvUi(u8 *arg0, u32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x654) = 3;
         ((s32 (*)(void *, int))set_position_index__13TBoss2DeRolLeFPvi)(arg0, *(s32 *)((s8 *)arg0 + 0x654));
         *(s32 *)((s8 *)arg0 + 0x6E0) = 0;
-        *(s32 *)&((TBoss2DeRolLe *)arg0)->m_6f8 = 0;
+        ((TBoss2DeRolLe *)arg0)->m_6f8 = 0;
         return;
     case 2:
         if (((TBoss2DeRolLe *)arg0)->m_b8 == 0xF) {
@@ -3469,7 +3469,7 @@ void handle_debug_pad_input__13TBoss2DeRolLeFPvPv(void *arg0_, void *arg1_) {
         break;
     case 0:
         advance_animation_playback(arg0);
-        if (!(*(s32 *)&((TBoss2DeRolLe *)arg0)->animationFlags & 4)) {
+        if (!(((TBoss2DeRolLe *)arg0)->animationFlags & 4)) {
             ((TBoss2DeRolLe *)arg0)->m_c8 -= 0.03f;
             if (((TBoss2DeRolLe *)arg0)->m_c8 < 0.6f) {
                 ((TBoss2DeRolLe *)arg0)->m_c8 = 0.6f;
@@ -5820,7 +5820,7 @@ void *TBoss2DeRolLe__ct(void *arg0, void *arg1, void *arg2) {
         self->f24 = *(s32 *)((s8 *)q + 0x2C);
         init_model__9TObjEneDDFv(self, (u8 *)lbl_804822A8, 3, q);
     }
-    *(s32 *)&((TBoss2DeRolLe *)self)->animationFlags = 0;
+    ((TBoss2DeRolLe *)self)->animationFlags = 0;
     ((TObjMotion *)self)->set_field_d8((s32)((u8 *)lbl_804823A8));
     ((TObjMotion *)self)->set_field_dc(*(s32 *)((s8 *)lbl_805D4BA4 + 0x430));
     ((TBoss2DeRolLe *)self)->m_b8 = 0;
@@ -5828,7 +5828,7 @@ void *TBoss2DeRolLe__ct(void *arg0, void *arg1, void *arg2) {
     ((TObjMotion *)self)->set_field_b8(((TBoss2DeRolLe *)self)->m_b8);
     reset_hp__9TObjEneDDFv(self, TBoss2DeRolLe__base_params, ((s32 *)TBoss2DeRolLe__attack_params_table)[0], TBoss2DeRolLe__resistance_params);
     ((TObjEneDD *)self)->check_state_flag_2();
-    *(u8 * *)&((TBoss2DeRolLe *)self)->movementParameters = (u8 *)lbl_8048228C;
+    ((TBoss2DeRolLe *)self)->movementParameters = (u8 *)lbl_8048228C;
     initialize_enemy_state__9TObjEneDDFv(self, 0x2D);
     ((TBoss2DeRolLe *)self)->m_37c = TBoss2DeRolLe__data_805D8294;
     ((TObjEneDD_ST *)self)->enemy_init_acquire_period(0x1E);

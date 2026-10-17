@@ -523,7 +523,7 @@ s32 TObjEneBm9Mericarol::find_nearby_target() {
 }
 
 s32 TObjEneBm9Mericarol::try_set_mode8_if_flag2() {
-    if (*(s32 *)&this->m_454 & 2) {
+    if (this->m_454 & 2) {
         transition_enemy_state(this, 8);
         return 1;
     }
@@ -545,7 +545,7 @@ void TObjEneBm9Mericarol::sync_center_position() {
 void TObjEneBm9Mericarol::vfunc_61() {  }
 void TObjEneBm9Mericarol::vfunc_62() {
     if ((s16) this->mode != 0xA) {
-        if (*(s32 *)&this->m_454 & 0x20) {
+        if (this->m_454 & 0x20) {
             clear_attack_receipts__9TObjEneDDFv();
             return;
         }
@@ -620,13 +620,13 @@ void TObjEneBm9Mericarol::run_task() {
         this->vfunc_105();
         return;
     }
-    temp_r3 = *(s32 *)&this->m_454;
+    temp_r3 = this->m_454;
     if (temp_r3 & 0x10) {
-        if ((u32) *(u32 *)&this->m_390 == 0U) {
-            *(s32 *)&this->m_454 = (s32) (temp_r3 & 0xFFFFFFEF);
+        if ((u32) this->m_390 == 0U) {
+            this->m_454 = (s32) (temp_r3 & 0xFFFFFFEF);
         }
-    } else if ((u32) *(u32 *)&this->m_390 != 0U) {
-        *(s32 *)&this->m_454 = (s32) (temp_r3 | 0x10);
+    } else if ((u32) this->m_390 != 0U) {
+        this->m_454 = (s32) (temp_r3 | 0x10);
     }
     if (this->vfunc_83() != 4) {
         this->vfunc_85();
@@ -806,7 +806,7 @@ s32 TObjPlayer::apply_area_attack_hits(u8 *arg1, s32 arg2, u32 object, f32 range
         this->mark_enemy_body_contacts();
         mask |= 0x100000;
     }
-    if (*(u32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0x18) & mask) {
+    if (*(u32 *)((s8 *)(this->m_a4) + 0x18) & mask) {
         for (i = 0; i < 0x10; i++) {
             obj = TObjPlayer::get_battle_param(i);
             if (obj == 0) {

@@ -66,7 +66,7 @@ void TPhotonMagicSquare::render() {
     }
     ((TUnk_80494AE0 *)((f32 *)&self->color))->set_chunk_material_color();
     TObjPlayer::set_global_flag();
-    draw_model_motion((void *)self->f34, (void *)*(s32 *)&this->m_90, self->f9C);
+    draw_model_motion((void *)self->f34, (void *)this->m_90, self->f9C);
     TObjPlayer::clear_global_state();
     ((TUnk_80494AE0 *)((f32 *)&chunk_material_color_half_alpha_f32))->set_chunk_material_color();
     model_render_flags = lbl_805D5660;
@@ -98,9 +98,9 @@ struct Self_801ACF24 {
 void TPhotonMagicSquare::run_task() {
     Self_801ACF24 *self = (Self_801ACF24 *)this;
     if (this->m_b0 > this->m_c4) {
-        *(s32 *)&this->m_b4 = 1;
+        this->m_b4 = 1;
     }
-    switch (*(s32 *)&this->m_b4) {
+    switch (this->m_b4) {
     case 0:
         if (self->fA0 < (1.0f)) {
             self->fA0 = (2.0f) * self->fC8 + self->fA0;

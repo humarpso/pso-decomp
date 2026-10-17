@@ -488,7 +488,7 @@ void *TObjWarpBossMulti::create() {
     return o;
 }
 
-void TObjWarpBossMulti::init_warp_params() { *(int *)&this->m_f0 = get_boss_warp_base_model(); *(int *)&this->m_f4 = get_boss_warp_confirmation_model(); *(int*)((char*)this + 0xdc) = get_boss_warp_model(); *(int*)((char*)this + 0xe0) = get_boss_warp_motion(); *(int*)((char*)this + 0xe4) = get_boss_warp_bml_motion(); *(int*)((char*)this + 0xe8) = get_boss_warp_model_handle(); *(int*)((char*)this + 0xec) = fn_8019F9AC(); *(float *)&this->m_f8 = lbl_805DC000; *(float*)((char*)this + 0xfc) = lbl_805DC004; }
+void TObjWarpBossMulti::init_warp_params() { this->m_f0 = get_boss_warp_base_model(); this->m_f4 = get_boss_warp_confirmation_model(); *(int*)((char*)this + 0xdc) = get_boss_warp_model(); *(int*)((char*)this + 0xe0) = get_boss_warp_motion(); *(int*)((char*)this + 0xe4) = get_boss_warp_bml_motion(); *(int*)((char*)this + 0xe8) = get_boss_warp_model_handle(); *(int*)((char*)this + 0xec) = fn_8019F9AC(); this->m_f8 = lbl_805DC000; *(float*)((char*)this + 0xfc) = lbl_805DC004; }
 
 void TObjWarpBossMulti::update() {
     s32 temp_r0;
@@ -523,7 +523,7 @@ void TObjWarpBossMulti::debug_print_area_num() {
 
 void render__17TObjWarpBossMultiFv(u8 *warp_boss_multi) {
 
-    if ((s32) *(s32 *)&((TObjWarpBossMulti *)warp_boss_multi)->m_d8 == 0xE) {
+    if ((s32) ((TObjWarpBossMulti *)warp_boss_multi)->m_d8 == 0xE) {
         if (xz_distance_squared(camera_ctrl_instance + 0x178, warp_boss_multi + 0x38) > lbl_805DC008) {
             return;
         }
@@ -535,12 +535,12 @@ block_4:
         post_translate_matrix(warp_boss_multi + 0x38);
         rotate_matrix_y(0, ((TObjWarpBossMulti *)warp_boss_multi)->rotation_y);
         TObjFish::set_global_param(*(s32 *)((s8 *)warp_boss_multi + 0xE8));
-        draw_ginja_object((void *)(*(s32 *)&((TObjWarpBossMulti *)warp_boss_multi)->m_f0));
+        draw_ginja_object((void *)(((TObjWarpBossMulti *)warp_boss_multi)->m_f0));
         TParticleCtrl::begin_effect_render();
         TObjFish::set_global_param(*(s32 *)((s8 *)warp_boss_multi + 0xEC));
         switch (*(s32 *)((s8 *)warp_boss_multi + 0xF0)) {
         case 0:
-            draw_ginja_model_with_motion(*(s32 *)&((TObjWarpBossMulti *)warp_boss_multi)->m_f4, *(s32 *)((s8 *)warp_boss_multi + 0xE0), ((TObjWarpBossMulti *)warp_boss_multi)->m_f8);
+            draw_ginja_model_with_motion(((TObjWarpBossMulti *)warp_boss_multi)->m_f4, *(s32 *)((s8 *)warp_boss_multi + 0xE0), ((TObjWarpBossMulti *)warp_boss_multi)->m_f8);
             break;
         case 1:
             draw_ginja_model_with_motion(*(s32 *)((s8 *)warp_boss_multi + 0xDC), *(s32 *)((s8 *)warp_boss_multi + 0xE4), ((TObjWarpBossMulti *)warp_boss_multi)->m_f8);

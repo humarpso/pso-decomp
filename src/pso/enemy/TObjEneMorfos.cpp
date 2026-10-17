@@ -1931,7 +1931,7 @@ f32 TObjEneMorfos__vt20(Obj_80334A4C *arg0, Obj_80334A4C *att, f32 scale) {
     return ret;
 }
 
-void TObjEneMorfos::vfunc_63() { if (*(short *)&this->mode != 11) { ((int (*)(void*, void*))transition_enemy_state)(this, (void*)11); } }
+void TObjEneMorfos::vfunc_63() { if (this->mode != 11) { ((int (*)(void*, void*))transition_enemy_state)(this, (void*)11); } }
 
 void TObjEneMorfos::vfunc_28() {  }
 
@@ -2109,7 +2109,7 @@ void TObjEneMorfos::init_instance() {
     reset_hp__9TObjEneDDFv(this, lbl_805D6D08[lbl_804774A8[0]], lbl_805434DC[lbl_804774B0[0]], lbl_805D6D0C[lbl_804774B8[0]]);
     ((void (*)(void *))TObjEneMorfos__sub_80334704)(this);
     set_state_8();
-    *(Hdr_80334D74 * *)&this->movementParameters = (Hdr_80334D74 *)lbl_804EE0C0;
+    this->movementParameters = (Hdr_80334D74 *)lbl_804EE0C0;
     initialize_enemy_state__9TObjEneDDFv(this, 0x42);
     *(f32 *)((s8 *)this + 0x37C) = lbl_805DF8A8;
     enemy_init_acquire_period(0x3C);

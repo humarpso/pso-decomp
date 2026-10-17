@@ -44,7 +44,7 @@ void TTecReverser::sub_8022BE64(u8 *arg1, s32 arg2) {
 void TUnk_804CC148::render() {
     T_8022BEAC *self = (T_8022BEAC *)this;
     V3_8022BEAC v = TTecLuker__render_scale_vec;
-    switch (*(s32 *)&this->field_6c) {
+    switch (this->field_6c) {
     case 0:
         break;
     case 1:

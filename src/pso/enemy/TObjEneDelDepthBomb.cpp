@@ -899,7 +899,7 @@ void TObjEneDelDepth__sub_803142DC(u8 *ene_del_depth) {
             ((TObjEneDelDepth *)ene_del_depth)->rotation_y = approach_angle_limited(((TObjEneDelDepth *)ene_del_depth)->rotation_y, (s32)(TObjEneDelDepth__data_80475DD0 * atan2_float(w.x, w.z)), 0x280);
         }
         if (((TObjEneDelDepth *)ene_del_depth)->m_384 > lim) {
-            set_motion__15TObjEneDelDepthFl((void *)*(s32 *)&((TObjEneDelDepth *)ene_del_depth)->m_37c, (void *)0);
+            set_motion__15TObjEneDelDepthFl((void *)((TObjEneDelDepth *)ene_del_depth)->m_37c, (void *)0);
             ((TObjEneDelDepth *)ene_del_depth)->m_384 = lim;
         } else if (--((TObjEneDelDepth *)ene_del_depth)->m_384 <= 0) {
             if (((TObjEneDelDepth *)ene_del_depth)->m_3c4 == 0xFFFF) {
@@ -1099,7 +1099,7 @@ void TObjEneDelDepth::start_move_toward_player() {
     temp_f1 = (lbl_805DF2B8 * calc_boss4_scale__10TObjPlayerFi(actor)) + lbl_805DF2B4;
     this->m_38c = temp_f1;
     this->m_398 = (*(const f32 *)&TObjEneDelDepth__data_805DF260);
-    ((int (*)(s32, int, f32))set_motion__15TObjEneDelDepthFl)(*(s32 *)&this->m_37c, 7, temp_f1);
+    ((int (*)(s32, int, f32))set_motion__15TObjEneDelDepthFl)(this->m_37c, 7, temp_f1);
     ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)(actor, (void *)3);
 }
 #pragma pop

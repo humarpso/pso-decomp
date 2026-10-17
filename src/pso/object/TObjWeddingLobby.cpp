@@ -88,17 +88,17 @@ void TObjWeddingLobby::run_task() {
     if (TObjPlayer::check_demo_mode() == 1) {
         ((void (*)(Obj_8035BCE8 *))TObjWeddingLobby__sub_8035BC20)(self);
     }
-    switch (*(s32 *)&this->m_c8) {
+    switch (this->m_c8) {
     case 0:
         if (TLobby::get_filtered_event_theme() == 0xA) {
-            *(s32 *)&this->m_c8 = 2;
+            this->m_c8 = 2;
         }
         break;
     case 2: {
         self->cc += 0.1f;
         if (self->cc >= 1.0f) {
             self->cc = 1.0f;
-            *(s32 *)&this->m_c8 = 3;
+            this->m_c8 = 3;
         }
         break;
     }
@@ -106,14 +106,14 @@ void TObjWeddingLobby::run_task() {
         self->cc -= 0.1f;
         if (self->cc <= 0.0f) {
             self->cc = 0.0f;
-            *(s32 *)&this->m_c8 = 0;
+            this->m_c8 = 0;
         }
         break;
     }
     case 3:
     default:
         if (TLobby::get_filtered_event_theme() != 0xA) {
-            *(s32 *)&this->m_c8 = 1;
+            this->m_c8 = 1;
         }
         break;
     }

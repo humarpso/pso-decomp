@@ -190,7 +190,7 @@ void TAdSinglePlyChrSelectGC::set_state(int a0) { lbl_805D5FA0 = a0; }
 void TAdSinglePlyChrSelectGC::clear_slot_lists() {
     Obj_80202C08 *self = (Obj_80202C08 *)this;
     s32 i;
-    *(s32 *)&this->m_20 = 0;
+    this->m_20 = 0;
     for (i = 0; i < 4; i++) {
         self->a[i] = -1;
         self->b[i] = -1;
@@ -202,7 +202,7 @@ void TAdSinglePlyChrSelectGC::set_chr_select_state(int a0) { chr_select_game_mod
 void TAdSinglePlyChrSelectGC::reset_slot_lists() {
     Obj_80202C3C *self = (Obj_80202C3C *)this;
     s32 i;
-    *(s32 *)&this->m_20 = 0;
+    this->m_20 = 0;
     for (i = 0; i < 4; i++) {
         self->a[i] = -1;
         self->b[i] = -1;

@@ -194,12 +194,12 @@ void TItemAttackCol::shift_collision_bounds() {
 
 void TItemAttackCol::vfunc_6(s32 *a) {
     Obj_802E3C4C *o = (Obj_802E3C4C *)this;
-    if (!(*(s32 *)&this->m_e4 & 0x80)) {
+    if (!(this->m_e4 & 0x80)) {
         if (((TUnk_804E355C *)o)->resolve_attack_col_hit((u8 *)a) != 0) {
             if (o->cb != NULL) {
                 o->cb(this->m_ac, a, o->fD0);
             }
-            if (*(s32 *)&this->m_e4 & 0x100) {
+            if (this->m_e4 & 0x100) {
                 this->m_b4 = this->m_b4 * lbl_805DE910;
             }
         }
@@ -207,7 +207,7 @@ void TItemAttackCol::vfunc_6(s32 *a) {
         if (o->cb != NULL) {
             o->cb(this->m_ac, a, o->fD0);
         }
-        if (*(s32 *)&this->m_e4 & 0x200) {
+        if (this->m_e4 & 0x200) {
             VObj_802E3C4C *p = (VObj_802E3C4C *)find_item_by_id(this->m_ac);
             u8 *b = (u8 *)get_player_by_client_id(this->m_a8);
             if (p != NULL) {

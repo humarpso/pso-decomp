@@ -58,7 +58,7 @@ void TObjDFUsoTower::run_task() {
     Obj_80052090 *arg0 = (Obj_80052090 *)this;
     f32 d;
     f32 r;
-    switch (*(s32 *)&this->m_90) {
+    switch (this->m_90) {
     case 0: {
         Vec_80052090 v = *(Vec_80052090 *)(camera_ctrl_instance + 0x178);
         subtract_vector(&v, &arg0->pos);

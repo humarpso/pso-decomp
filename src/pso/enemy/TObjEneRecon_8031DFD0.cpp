@@ -355,7 +355,7 @@ void run_task__12TObjEneReconFv(u8 *arg0) {
     }
     temp_r0 = ((TObjEneRecon *)arg0)->mode;
     if ((temp_r0 != 8) && (temp_r0 != 7) && (is_anim_6__12TObjEneReconFv(entity) == 1)) {
-        *(s32 *)&((TObjEneRecon *)arg0)->m_2dc = (s32) (*(s32 *)&((TObjEneRecon *)arg0)->m_2dc | 4);
+        ((TObjEneRecon *)arg0)->m_2dc = (s32) (((TObjEneRecon *)arg0)->m_2dc | 4);
         ((TObjPlayer *)arg0)->set_hp_clamped(0);
         obj_setFlags30(arg0, 0xA00U);
         ((TObjEneRecon *)(arg0))->vfunc_74(0);
@@ -408,7 +408,7 @@ void *__dt__12TObjEneReconFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjEneRecon;
         ((TObjEnemy *)arg0)->send_entity_set_flags();
         free_collision_body_parts(arg0);
-        if (*(void **)((s8 *)arg0 + 0x478) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x478)); *(s32 *)&((TObjEneRecon *)arg0)->m_494 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x478) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x478)); ((TObjEneRecon *)arg0)->m_494 = 0; }
         __dt__13TUnk_80494938Fv((s8 *)arg0 + 0x480, -1);
         __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {

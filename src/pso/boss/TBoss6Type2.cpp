@@ -934,7 +934,7 @@ void TBoss6Type2::aim_toward_point(void *arg1_arg) {
     } else {
         VecCopy((Vec *)&v, (const Vec *)arg1);
         subtract_vector(&v, &arg0->pos);
-        ang = (s16)((s32)(TBoss6Type2__data_804713C0 * atan2_float(v.x, v.z)) - *(s32 *)&this->m_60);
+        ang = (s16)((s32)(TBoss6Type2__data_804713C0 * atan2_float(v.x, v.z)) - this->m_60);
     }
     if (ang < -0x2800 || ang > 0x2800) {
         ang = 0;
@@ -1748,8 +1748,8 @@ void TBoss6Type2::init_segment_range() {
     if (min > e->v[4]) { min = e->v[4]; } else if (max < e->v[4]) { max = e->v[4]; }
     o->min = min;
     this->m_454 = max;
-    ((TLobby *)(&o->local))->copy_entry(*(Ent_802BC050 * *)&this->m_31c);
-    *(Ent_802BC050 * *)&this->m_31c = &o->local;
+    ((TLobby *)(&o->local))->copy_entry(this->m_31c);
+    this->m_31c = &o->local;
     update_segments();
 }
 
@@ -2209,7 +2209,7 @@ void TBoss6Type2::init_motion_entries() {
         Ent_802BCEF4 *e = &o->ents[i];
         s32 r;
         ((TBoss6Type2 *)e)->copy_transform(boss6_type2_motion_entry_transform);
-        r = get_bml_motion(*(s32 *)&this->m_3fc, ((Tb_802BCEF4 *)TBoss6Type2__motion_table)->v[i]);
+        r = get_bml_motion(this->m_3fc, ((Tb_802BCEF4 *)TBoss6Type2__motion_table)->v[i]);
         e->f14 = r;
         e->f0 = r;
         e->f8 = *(f32 *)((u8 *)TBoss6Type2__motion_table + 0xC);
@@ -2569,7 +2569,7 @@ s32 TBoss6Type2::choose_next_index() {
 
 s32 TBoss6Type2::pick_random_other_index() {
     TBoss6Type2 *o = this;
-    s32 t = TBoss6Type2::find_index_in_table(*(s32 *)&o->m_2e4);
+    s32 t = TBoss6Type2::find_index_in_table(o->m_2e4);
     s32 r = t + (s32)(lbl_805DE4C4 * (TBoss6Type2__data_805DE468 * (f32)rand())) + 1;
     if (r >= 4) {
         r -= 4;

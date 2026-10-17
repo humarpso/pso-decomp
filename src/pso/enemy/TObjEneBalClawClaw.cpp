@@ -145,23 +145,23 @@ typedef char RecoveredFields_8009060C_arg0_388_offset[offsetof(RecoveredFields_8
 
 void TObjEneBalClawClaw::update_chase_state() {
     u8 *temp_r5;
-    switch (*(s32 *)&this->state) {
+    switch (this->state) {
     case -1:
         break;
     case 0:
-        *(s32 *)&this->actorFlags &= ~0x100;
+        this->actorFlags &= ~0x100;
         this->m_b8 = 1;
-        *(s32 *)&this->state = 1;
+        this->state = 1;
         *(s16 *)((s8 *)((u8 *)this) + 0x3C8) = 0x78;
         break;
     case 1:
-        if (*(void * *)&this->target == NULL || --*(s16 *)((s8 *)((u8 *)this) + 0x3C8) <= 0) {
+        if (this->target == NULL || --*(s16 *)((s8 *)((u8 *)this) + 0x3C8) <= 0) {
             update_if_active__15TObjEneMe1GiGueFl(this, 0);
             break;
         }
         *(f32 *)((s8 *)((u8 *)this) + 0x30C) = (0.0f);
-        move_along_ground_avoiding_walls__10TObjPlayerFPviff(this, *(Vec_80090504 *)((s8 *)(this->target) + 0x2FC), *(u8 * *)&this->m_a4, (-0.6f), *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0xC));
-        update_angle__10TObjPlayerFlPv(this, *(s32 *)((s8 *)(*(void * *)&this->movementParameters) + 8), ((u8 *)this) + 0x308);
+        move_along_ground_avoiding_walls__10TObjPlayerFPviff(this, *(Vec_80090504 *)((s8 *)(this->target) + 0x2FC), this->m_a4, (-0.6f), *(f32 *)((s8 *)(this->m_a4) + 0xC));
+        update_angle__10TObjPlayerFlPv(this, *(s32 *)((s8 *)(this->movementParameters) + 8), ((u8 *)this) + 0x308);
         advance_animation_playback(this);
         apply_actor_gravity((TObjEnemy *)this, (s32 *)(0), (0.0f));
         update_collisions__10TObjPlayerFv(this);
@@ -211,15 +211,15 @@ void update_drop__18TObjEneBalClawClawFPv(Claw_800906C8 *self) {
 }
 
 void TObjEneBalClawClaw::sub_80090798() {
-    *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 & 0xEFFFFFFF);
+    this->m_388 = (s32) (this->m_388 & 0xEFFFFFFF);
     obj_clearFlags30__13TUnk_804B9870FUl(this, 0x06040000U);
-    *(s32 *)&this->next_action = 0xB;
+    this->next_action = 0xB;
 }
 
 void TObjEneBalClawClaw::set_claw_flags() {
     obj_setFlags30(this, 0x04040000U);
-    *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 & 0xDFFFFFFF);
-    *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 | 0x10000000);
+    this->m_388 = (s32) (this->m_388 & 0xDFFFFFFF);
+    this->m_388 = (s32) (this->m_388 | 0x10000000);
 }
 
 void TObjEneBalClawClaw__sub_80090824(void) {  }
@@ -301,25 +301,25 @@ s32 set_global_param__8TObjFishFl(s32);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 
 void TObjEneBalClawClaw::clear_flag() {
-    *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 & 0xDFFFFFFF);
+    this->m_388 = (s32) (this->m_388 & 0xDFFFFFFF);
     reset_active_state__18TObjEneBalClawClawFPv();
 }
 
 void TObjEneBalClawClaw::enter_hit_state(s16 arg1) {
     this->m_3c6 = arg1;
-    *(s16 *)&this->targetId = arg1;
-    *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 | 0x20000000);
-    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
+    this->targetId = arg1;
+    this->m_388 = (s32) (this->m_388 | 0x20000000);
+    this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
     *(f32 *)((s8 *)((u8 *)this) + 0x3C0) = (f32) (1e+05f);
     update_if_active__15TObjEneMe1GiGueFl(this, 0xA);
     this->clear_all_status_effects();
 }
 
 s32 TObjEneBalClawClaw::check_active() {
-    if (*(s32 *)&this->actorFlags & 0xA00) {
+    if (this->actorFlags & 0xA00) {
         return 0;
     }
-    return (u32) __cntlzw(*(s32 *)&this->m_388 & 0x10000000) >> 5;
+    return (u32) __cntlzw(this->m_388 & 0x10000000) >> 5;
 }
 
 extern s32 model_render_flags;
@@ -366,7 +366,7 @@ void TObjEneBalClawClaw::render() {
     s32 var_r29;
     u8 *arg0 = (u8 *)this;
 
-    if (!(*(s32 *)&this->actorFlags & 0x02000000)) {
+    if (!(this->actorFlags & 0x02000000)) {
         temp_r3 = ((VA_80090950 *)arg0)->m9((1.2e+02f), (4e+02f), (1e+01f));
         if (temp_r3 != 0) {
             var_r30 = 1;
@@ -385,7 +385,7 @@ void TObjEneBalClawClaw::render() {
                 post_translate_matrix((u8 *)&this->position);
                 rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
                 rotate_matrix_y(0, this->rotation_y);
-                if (*(s32 *)&this->m_388 & 4) {
+                if (this->m_388 & 4) {
                     if (((VB_80090950 *)(arg0 + 0x390))->m8() != 0) {
                         ((VB_80090950 *)(arg0 + 0x390))->m6();
                         var_r29 = 1;
@@ -427,17 +427,17 @@ void sub_80090D3C__18TObjEneBalClawClawFv(void *arg0);
 
 void TObjEneBalClawClaw::sub_80090D3C() {
 
-    switch (*(s32 *)&this->state) {
+    switch (this->state) {
     case 0:
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x40000);
+        this->actorFlags = (s32) (this->actorFlags | 0x40000);
         this->m_b8 = 0;
-        *(s32 *)&this->state = 1;
+        this->state = 1;
     case 1:
         advance_animation_playback(this);
         apply_actor_gravity((TObjEnemy *)this, (s32 *)(0), (0.0f));
         return;
     case -1:
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
+        this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
         return;
     }
 }
@@ -595,29 +595,29 @@ void action__18TObjEneBalClawClawFPv(u8 *ene_bal_claw_claw) {
     s32 temp_r4_2;
     s32 temp_r5;
 
-    switch (*(s32 *)&((TObjEneBalClawClaw *)ene_bal_claw_claw)->state) {
+    switch (((TObjEneBalClawClaw *)ene_bal_claw_claw)->state) {
     case 0:
-        *(s32 *)&((TObjEneBalClawClaw *)ene_bal_claw_claw)->m_388 = (s32) (*(s32 *)&((TObjEneBalClawClaw *)ene_bal_claw_claw)->m_388 | 4);
-        temp_r4 = *(s32 *)&((TObjEneBalClawClaw *)ene_bal_claw_claw)->actorFlags | 0x04000000;
-        *(s32 *)&((TObjEneBalClawClaw *)ene_bal_claw_claw)->actorFlags = temp_r4;
+        ((TObjEneBalClawClaw *)ene_bal_claw_claw)->m_388 = (s32) (((TObjEneBalClawClaw *)ene_bal_claw_claw)->m_388 | 4);
+        temp_r4 = ((TObjEneBalClawClaw *)ene_bal_claw_claw)->actorFlags | 0x04000000;
+        ((TObjEneBalClawClaw *)ene_bal_claw_claw)->actorFlags = temp_r4;
         ((TObjEneBalClawClaw *)ene_bal_claw_claw)->m_b8 = 0;
         play_area_se_with_particle__12TBoss3VoloptFv(ene_bal_claw_claw + 0x38, temp_r4);
         TObjPlayer__sub_800A0554(ene_bal_claw_claw + 0x390);
-        *(s32 *)&((TObjEneBalClawClaw *)ene_bal_claw_claw)->state = 1;
+        ((TObjEneBalClawClaw *)ene_bal_claw_claw)->state = 1;
     case 1:
         advance_animation_playback(ene_bal_claw_claw);
         apply_actor_gravity((TObjEnemy *)ene_bal_claw_claw, (s32 *)(0), (0.0f));
         if (((En0VObj_80090DD0*)(ene_bal_claw_claw + 0x390))->m5() == 1) {
-            temp_r5 = *(s32 *)&((TObjEneBalClawClaw *)ene_bal_claw_claw)->m_388;
+            temp_r5 = ((TObjEneBalClawClaw *)ene_bal_claw_claw)->m_388;
             temp_r4_2 = temp_r5 & ~5;
-            *(s32 *)&((TObjEneBalClawClaw *)ene_bal_claw_claw)->m_388 = temp_r4_2;
-            *(s32 *)&((TObjEneBalClawClaw *)ene_bal_claw_claw)->state = -1;
+            ((TObjEneBalClawClaw *)ene_bal_claw_claw)->m_388 = temp_r4_2;
+            ((TObjEneBalClawClaw *)ene_bal_claw_claw)->state = -1;
             reset_active_state__18TObjEneBalClawClawFPv(ene_bal_claw_claw, temp_r4_2, temp_r5);
         }
         return;
     case -1:
-        *(s32 *)&((TObjEneBalClawClaw *)ene_bal_claw_claw)->m_388 = (s32) (*(s32 *)&((TObjEneBalClawClaw *)ene_bal_claw_claw)->m_388 & ~5);
-        *(s32 *)&((TObjEneBalClawClaw *)ene_bal_claw_claw)->actorFlags = (s32) (*(s32 *)&((TObjEneBalClawClaw *)ene_bal_claw_claw)->actorFlags & 0xFBFFFFFF);
+        ((TObjEneBalClawClaw *)ene_bal_claw_claw)->m_388 = (s32) (((TObjEneBalClawClaw *)ene_bal_claw_claw)->m_388 & ~5);
+        ((TObjEneBalClawClaw *)ene_bal_claw_claw)->actorFlags = (s32) (((TObjEneBalClawClaw *)ene_bal_claw_claw)->actorFlags & 0xFBFFFFFF);
         break;
     }
 }
@@ -1409,7 +1409,7 @@ s32 TObjEneBalClawClaw__ct(void *arg0) {
 u8 *TObjEneBalClawClaw__sub_80091B98(u8 *ene_bal_claw_claw, s32 arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *arg5, s32 arg6, s32 _w7) {
     TObjEneBalClaw__ct((TObjEneBalClaw *)ene_bal_claw_claw);
     *(s32 **)((s8 *)ene_bal_claw_claw + 0x18) = &(*(RecoveredGlobal_80091B98_lbl_8048F148 *)__vt__18TObjEneBalClawClaw).value;
-    *(s16 *)&((TObjEneBalClawClaw *)ene_bal_claw_claw)->m_1c = arg3;
+    ((TObjEneBalClawClaw *)ene_bal_claw_claw)->m_1c = arg3;
     *(s16 *)((s8 *)ene_bal_claw_claw + 0x2C) = arg4;
     *(s16 *)((s8 *)ene_bal_claw_claw + 0x28) = (s16) *(s16 *)((s8 *)arg2 + 0x28);
     *(s16 *)((s8 *)ene_bal_claw_claw + 0x2A) = (s16) *(s16 *)((s8 *)arg2 + 0x2A);
@@ -1420,7 +1420,7 @@ u8 *TObjEneBalClawClaw__sub_80091B98(u8 *ene_bal_claw_claw, s32 arg1, u8 *arg2, 
     ((TObjEneBalClawClaw *)ene_bal_claw_claw)->rotation_y = arg6;
     TObjEneBalClawClaw__ct(ene_bal_claw_claw);
     *(s32 *)((s8 *)ene_bal_claw_claw + 0x80) = 0;
-    *(s32 *)&((TObjEneBalClawClaw *)ene_bal_claw_claw)->m_3b8 = (s32) *(s32 *)((s8 *)arg2 + 0x3B8);
+    ((TObjEneBalClawClaw *)ene_bal_claw_claw)->m_3b8 = (s32) *(s32 *)((s8 *)arg2 + 0x3B8);
     *(f32 *)((s8 *)ene_bal_claw_claw + 0x3BC) = (f32) *(f32 *)((s8 *)arg2 + 0x3BC);
     ((TObjEneBalClawClaw *)ene_bal_claw_claw)->m_3b4 = (f32) *(f32 *)((s8 *)arg2 + 0x3B4);
     sub_80090798__18TObjEneBalClawClawFv(ene_bal_claw_claw);

@@ -3557,7 +3557,7 @@ f32 TObjEneMe3Stelth::get_node_world_y() {
     v.y = TObjEneMe3Stelth__data_805DA840;
     v.z = TObjEneMe3Stelth__data_805DA840;
     push_matrix_from(identity_matrix);
-    bind_motion_context(*(s32 *)&self->unknownF8, self->m_c0);
+    bind_motion_context(self->unknownF8, self->m_c0);
     node = *(Node_800F4D68 * *)&self->model;
     compose_motion_node_matrix(node);
     compose_motion_node_matrix(node->child);
@@ -3610,7 +3610,7 @@ void TObjEneMe3Stelth::vfunc_62() {
     }
 }
 
-void TObjEneMe3Stelth::vfunc_63() { if (*(short *)&this->mode != 15) { transition_enemy_state(this, (void*)15); } }
+void TObjEneMe3Stelth::vfunc_63() { if (this->mode != 15) { transition_enemy_state(this, (void*)15); } }
 
 void TObjEneMe3Stelth::vfunc_28() {  }
 

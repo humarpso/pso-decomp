@@ -117,7 +117,7 @@ void fn_80040FDC(u8 *arg0) {
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
         ((void (*)(u8 *))advance_animation_playback)(arg0);
         *(f32 *)((s8 *)arg0 + 0x3C) = 80.0f;
-        *(s32 *)&((TUnk_804AF8A0 *)arg0)->actorFlags |= 0x40000;
+        ((TUnk_804AF8A0 *)arg0)->actorFlags |= 0x40000;
         p = *(u8 * *)&((TUnk_804AF8A0 *)arg0)->m_a4;
         *(s32 *)((s8 *)p + 0x18) |= 4;
         p = *(u8 * *)&((TUnk_804AF8A0 *)arg0)->m_a4;
@@ -129,7 +129,7 @@ void fn_80040FDC(u8 *arg0) {
         if (*(f32 *)((s8 *)arg0 + 0x3C) <= 50.0f) {
             *(f32 *)((s8 *)arg0 + 0x3C) = 50.0f;
             *(s32 *)((s8 *)arg0 + 0x388) &= ~1;
-            *(s32 *)&((TUnk_804AF8A0 *)arg0)->actorFlags &= ~0x40000;
+            ((TUnk_804AF8A0 *)arg0)->actorFlags &= ~0x40000;
             ((VObj_18_345191 *)(arg0))->m57();
         }
         break;
@@ -233,12 +233,12 @@ void start_attack__20TBoss3VoloptHiraisinFPv(u8 *enemy_custom) {
     TBoss3Volopt::create_breakup_mdl((s32)TBoss3VoloptHiraisin__breakup_model, (s32)TBoss3VoloptHiraisin__init_param_table, (s32)(TObjFish__sub_8001EDB0(TBoss3VoloptHiraisin__resource_bundle, 0x10)), (s32)(enemy_custom + 0x2FC), (s32)(((TObjEnemyCustom *)enemy_custom)->rotation_y));
     ((TObjPlayer *)(enemy_custom + 0x2FC))->trigger_dell_biter_events();
     play_sound_effect(0x4001C112, enemy_custom + 0x38, 0, 0);
-    *(s32 *)&((TObjEnemyCustom *)enemy_custom)->m_388 = (s32) (*(s32 *)&((TObjEnemyCustom *)enemy_custom)->m_388 & 0xFFFFFFFE);
+    ((TObjEnemyCustom *)enemy_custom)->m_388 = (s32) (((TObjEnemyCustom *)enemy_custom)->m_388 & 0xFFFFFFFE);
     temp_r4 = ((TObjEnemyCustom *)enemy_custom)->hpmax;
     ((TObjEnemyCustom *)enemy_custom)->referenceHp = temp_r4;
     ((TObjEnemyCustom *)enemy_custom)->hp = temp_r4;
-    temp_r4_2 = *(s32 *)&((TObjEnemyCustom *)enemy_custom)->actorFlags;
-    *(s32 *)&((TObjEnemyCustom *)enemy_custom)->actorFlags = (s32) (temp_r4_2 & ~0xA00);
+    temp_r4_2 = ((TObjEnemyCustom *)enemy_custom)->actorFlags;
+    ((TObjEnemyCustom *)enemy_custom)->actorFlags = (s32) (temp_r4_2 & ~0xA00);
     sub_800C7860__15TObjEnemyCustomFv(enemy_custom, temp_r4_2);
 }
 #pragma push
@@ -306,14 +306,14 @@ void TBoss3VoloptHiraisin__sub_80041314(void *arg0) {
     case -1:
         break;
     case 0:
-        *(s32 *)&((TUnk_804AF8A0 *)arg0)->actorFlags = (s32) (*(s32 *)&((TUnk_804AF8A0 *)arg0)->actorFlags & 0xFFDFFFFF);
+        ((TUnk_804AF8A0 *)arg0)->actorFlags = (s32) (((TUnk_804AF8A0 *)arg0)->actorFlags & 0xFFDFFFFF);
         *(s16 *)((s8 *)arg0 + 0xB8) = 3;
         *(s32 *)((s8 *)arg0 + 0x37C) = 1;
     case 1:
         advance_animation_playback(arg0);
         if ((u32) *(u32 *)((s8 *)arg0 + 0xB4) != 8U) {
             *(s16 *)((s8 *)arg0 + 0x33E) = (s16) *(s16 *)((s8 *)arg0 + 0x32C);
-            *(s32 *)&((TUnk_804AF8A0 *)arg0)->actorFlags = (s32) (*(s32 *)&((TUnk_804AF8A0 *)arg0)->actorFlags & 0xFFFFFDFF);
+            ((TUnk_804AF8A0 *)arg0)->actorFlags = (s32) (((TUnk_804AF8A0 *)arg0)->actorFlags & 0xFFFFFDFF);
             *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & 0xFFFFFFFE);
             ((VObj18*)arg0)->m57();
         }

@@ -79,13 +79,13 @@ void draw_label_value__20TWindowSubStatusDispFPvPv(u8 *window_sub_com_card, u8 *
         stack.sp8 = *(f32 *)((s8 *)arg1 + 0x10) + *(f32 *)((s8 *)window_sub_com_card + 8);
         stack.spC = *(f32 *)((s8 *)arg1 + 0x14) + *(f32 *)((s8 *)window_sub_com_card + 0xC);
         set_text_draw_params((s32) arg1, 1, 1, (-1.0f) / ((0.0897f) + *(f32 *)((s8 *)arg1 + 0x38)), (1e+05f));
-        draw_window_text((f32 *)&stack.sp8, (const char *)(*(u8 **)((s8 *)window_sub_com_card + 0x1C)), (*(s32 *)&((TWindowSubComCard *)window_sub_com_card)->m_24), 1, (f32)(1e+05f));
+        draw_window_text((f32 *)&stack.sp8, (const char *)(*(u8 **)((s8 *)window_sub_com_card + 0x1C)), (((TWindowSubComCard *)window_sub_com_card)->m_24), 1, (f32)(1e+05f));
         if (!(*(u16 *)((s8 *)window_sub_com_card + 0) & 0x10)) {
             stack.sp8 += (154.0f);
-            draw_window_text(&stack.sp8, (const char *)((void *)":"), *(s32 *)&((TWindowSubComCard *)window_sub_com_card)->m_24, 0, (1e+05f));
+            draw_window_text(&stack.sp8, (const char *)((void *)":"), ((TWindowSubComCard *)window_sub_com_card)->m_24, 0, (1e+05f));
         }
         stack.sp8 += (12.0f);
-        draw_window_text((f32 *)&stack.sp8, (const char *)(*(u8 **)((s8 *)window_sub_com_card + 0x20)), (*(s32 *)&((TWindowSubComCard *)window_sub_com_card)->m_24), 1, (f32)(1e+05f));
+        draw_window_text((f32 *)&stack.sp8, (const char *)(*(u8 **)((s8 *)window_sub_com_card + 0x20)), (((TWindowSubComCard *)window_sub_com_card)->m_24), 1, (f32)(1e+05f));
     }
 }
 void TWindowSubStatusDisp__sub_8025B760(void *p) {

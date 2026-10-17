@@ -351,9 +351,9 @@ void render__25TWindowSubSymbolChatPartsFv(u8 *arg0) {
         fn_80285314(arg0, temp_r3);
         break;
     }
-    draw_window_scrollbar(*(s32 *)&((TWindowSubSymbolChatParts *)arg0)->m_8c, temp_r3, arg0 + 0x68);
+    draw_window_scrollbar(((TWindowSubSymbolChatParts *)arg0)->m_8c, temp_r3, arg0 + 0x68);
     ((TWindowSubSymbolChatParts *)arg0)->sub_80285274((u8 *)temp_r3);
-    forward_render__20TWindowSubStatusDispFv(*(s32 *)&((TWindowSubSymbolChatParts *)arg0)->m_88, temp_r3);
+    forward_render__20TWindowSubStatusDispFv(((TWindowSubSymbolChatParts *)arg0)->m_88, temp_r3);
 }
 
 void run_task__25TWindowSubSymbolChatPartsFv(Parts_80285B84 *arg0) {

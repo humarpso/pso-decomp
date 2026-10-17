@@ -445,7 +445,7 @@ void clear_battle_player_ready_flags(void) {
 
 void TLobby::destroy_matching_children() {
     void *var_r31;
-    var_r31 = *(void * *)&this->m_down;
+    var_r31 = this->m_down;
 while (var_r31 != NULL) {
         if (check_value_equals__13TUnk_804B6C24Fl(var_r31, lbl_805D2A98) != 0) {
             queue_destruction__7TObjectFv(var_r31);

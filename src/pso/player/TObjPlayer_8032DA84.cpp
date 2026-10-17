@@ -203,7 +203,7 @@ void TUnk_804EDD20::start_card_effect_flash() { *(u32*)((char*)this + 0x70) |= 0
     extern const float lbl_805DF7D8;
     extern const float lbl_805DF7E0;
     extern const float lbl_805DF7E4;
-void TUnk_804EDD20::init_offset_vectors() { (*(int *)&(*(u32 *)((u8 *)this + 0x70))) = 0; *(float *)&(this->m_74) = lbl_805DF7E4; (*(float *)&(*(u32 *)((u8 *)this + 0x78))) = lbl_805DF7E4; *(float *)&(this->m_7c) = lbl_805DF7E4; (*(float *)&this->m_80) = lbl_805DF7D8; *(float *)&(*(s32 *)((u8 *)this + 0x84)) = lbl_805DF7E0; (*(float *)&(this->m_88)) = lbl_805DF7E0; *(float*)((char*)this + 0x8c) = lbl_805DF7E0; }
+void TUnk_804EDD20::init_offset_vectors() { (*(int *)&(*(u32 *)((u8 *)this + 0x70))) = 0; *(float *)&(this->m_74) = lbl_805DF7E4; (*(float *)&(*(u32 *)((u8 *)this + 0x78))) = lbl_805DF7E4; *(float *)&(this->m_7c) = lbl_805DF7E4; (this->m_80) = lbl_805DF7D8; *(float *)&(*(s32 *)((u8 *)this + 0x84)) = lbl_805DF7E0; (*(float *)&(this->m_88)) = lbl_805DF7E0; *(float*)((char*)this + 0x8c) = lbl_805DF7E0; }
 
 void *init_offsets_object__13TUnk_804EDD20Fv(void *arg0);
 void *init_effect_object__13TUnk_804EDD20Fv(void *arg0);

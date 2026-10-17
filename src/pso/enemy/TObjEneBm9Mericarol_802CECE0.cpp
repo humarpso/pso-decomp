@@ -916,7 +916,7 @@ void TObjEneBm9Mericarol__sub_802CF368(u8 *actor, s32 arg1) {
       TObjEneBm9Mericarol__sub_802D073C((void *)((void *)((void *) actor)));
       return;
     case 5:
-      *(s32 *)&((TObjEneDD *)actor)->actorFlags = (s32) ((*(s32 *)&((TObjEneDD *)actor)->actorFlags) & 0xFFFFFDFF);
+      ((TObjEneDD *)actor)->actorFlags = (s32) ((((TObjEneDD *)actor)->actorFlags) & 0xFFFFFDFF);
       *((s32 *) (((s8 *) actor) + 0x438)) = (s32) ((*((s32 *) (((s8 *) actor) + 0x438))) & 0xFFFFFFFD);
       clear_attack_receipts__9TObjEneDDFv();
       break;
@@ -936,21 +936,21 @@ void TObjEneBm9Mericarol__sub_802CF4F8(u8 *ene_bm9_mericarol, s32 arg1) {
       (((TObjEneBm9Mericarol *)(ene_bm9_mericarol))->vfunc_96());
       (((TObjEneBm9Mericarol *)(ene_bm9_mericarol))->vfunc_91());
       TObjEneBm9Mericarol__sub_802D093C((void *) ene_bm9_mericarol);
-      *(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_454 = (s32) ((*(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_454) & 0xFFFFFFF7);
-      *(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_454 = (s32) ((*(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_454) | 0x20);
-      *(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_4ac = 0;
+      ((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_454 = (s32) ((((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_454) & 0xFFFFFFF7);
+      ((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_454 = (s32) ((((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_454) | 0x20);
+      ((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_4ac = 0;
       *((s32 *) (((s8 *) ene_bm9_mericarol) + 0x494)) = 0;
       return;
       return;
     case 3:
-      if (((s32) (*(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_4ac)) >= 0x1E)
+      if (((s32) (((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_4ac)) >= 0x1E)
     {
       transition_enemy_state((void *)((void *) ene_bm9_mericarol), 3);
     }
       return;
     case 0:
       ((s32)advance_animation_playback((void *) ene_bm9_mericarol));
-      temp_r0 = *(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_4ac;
+      temp_r0 = ((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_4ac;
       if (temp_r0 == 6)
     {
       temp_r3 = ((TObjEneBm9Mericarol *)ene_bm9_mericarol)->find_nearby_target();
@@ -971,15 +971,15 @@ void TObjEneBm9Mericarol__sub_802CF4F8(u8 *ene_bm9_mericarol, s32 arg1) {
     {
       ((TObjPlayer *)(((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_390))->set_facing(0);
     }
-      temp_r4 = *(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_4ac;
-      *(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_4ac = (temp_r4 + 1);
+      temp_r4 = ((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_4ac;
+      ((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_4ac = (temp_r4 + 1);
       (((VObj_18_3b55b6 *)(ene_bm9_mericarol))->m100((temp_r4)));
       (((TObjEneBm9Mericarol *)(ene_bm9_mericarol))->vfunc_88());
       TObjEneBm9Mericarol__sub_802D073C((void *)((void *) ene_bm9_mericarol));
       return;
     case 5:
-      *(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->actorFlags = (s32) ((*(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->actorFlags) & 0xFBFFFFFF);
-      *(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_454 = (s32) ((*(s32 *)&((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_454) & 0xFFFFFFFD);
+      ((TObjEneBm9Mericarol *)ene_bm9_mericarol)->actorFlags = (s32) ((((TObjEneBm9Mericarol *)ene_bm9_mericarol)->actorFlags) & 0xFBFFFFFF);
+      ((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_454 = (s32) ((((TObjEneBm9Mericarol *)ene_bm9_mericarol)->m_454) & 0xFFFFFFFD);
       break;
   }
 }
@@ -1233,8 +1233,8 @@ void TObjEneBm9Mericarol::handle_shot_state(s32 arg1) {
         this->m_b8 = 0;
         ((TObjEneDD *)(arg0))->vfunc_96();
         TObjEneBm9Mericarol__sub_802D0940(arg0);
-        *(s32 *)&this->m_454 &= ~8;
-        *(s32 *)&this->m_454 |= 0x20;
+        this->m_454 &= ~8;
+        this->m_454 |= 0x20;
         ((s32 (*)(void *, s32))set_field_378__9TObjEneDDFl)(arg0, 3);
         *(u32 *)((s8 *)arg0 + 0x4AC) = 0;
         break;
@@ -1260,7 +1260,7 @@ void TObjEneBm9Mericarol::handle_shot_state(s32 arg1) {
         ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
         ((TObjEneDD *)arg0)->update_velocity();
         *(s32 *)((s8 *)arg0 + 0x4A0) = (s32)(lbl_804724B8 * atan2_float(this->m_3a0, *(f32 *)((s8 *)arg0 + 0x3A8)));
-        this->rotation_y = approach_angle_limited(this->rotation_y, *(s32 *)((s8 *)arg0 + 0x4A0), (void *)*(s32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 8));
+        this->rotation_y = approach_angle_limited(this->rotation_y, *(s32 *)((s8 *)arg0 + 0x4A0), (void *)*(s32 *)((s8 *)(this->movementParameters) + 8));
         this->rotation_y = (s16)this->rotation_y;
         ((TObjEneDD *)(arg0))->vfunc_102();
         ((TObjEneDD *)(arg0))->vfunc_88();

@@ -155,7 +155,7 @@ void *TWindowSubStatusDisp::destroy_with_free(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 4) = (s32*)lbl_804EF440;
         if ((u32) *(u32 *)((s8 *)this + 0x24) != 0U) {
-            mem_free(*(void * *)&this->m_24);
+            mem_free(this->m_24);
             *(u32 *)((s8 *)this + 0x24) = 0U;
         }
         deleting_destructor__20TWindowSubStatusDispFs(this, 0);

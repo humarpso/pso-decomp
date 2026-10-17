@@ -558,7 +558,7 @@ void TObjGrass::update_dying(void *arg0_) {
         }
         *(f32 *)((s8 *)arg0 + 0x35C) -= (0.01f);
         if (*(f32 *)((s8 *)arg0 + 0x35C) < (-5.0f)) {
-            *(s32 *)&((TObjEnePanarms *)arg0)->actorFlags |= 0x02000000;
+            ((TObjEnePanarms *)arg0)->actorFlags |= 0x02000000;
             *(f32 *)((s8 *)arg0 + 0x35C) = (-5.0f);
             queue_destruction__7TObjectFv(arg0);
         }
@@ -649,14 +649,14 @@ s32 TObjGrass::sub_800BCE44() {
   }
   if (((u32) (this->m_b4)) != 8U)
   {
-    *(s32 *)&this->actorFlags = (s32) ((*(s32 *)&this->actorFlags) & 0xFFFFF9FF);
-    temp_r3 = (u8 *) (*(u8 * *)&this->m_a4);
+    this->actorFlags = (s32) ((this->actorFlags) & 0xFFFFF9FF);
+    temp_r3 = (u8 *) (this->m_a4);
     *((s32 *) (((s8 *) temp_r3) + 0x18)) = (s32) ((*((s32 *) (((s8 *) temp_r3) + 0x18))) & 0xFBFFFFFF);
     if (((f32) (this->hp)) < (((f32) (this->hpmax)) * (*((f32 *) (((s8 *) arg0) + 0x354)))))
     {
-      *(s32 *)&this->actorFlags = (s32) ((*(s32 *)&this->actorFlags) | 0x2000);
+      this->actorFlags = (s32) ((this->actorFlags) | 0x2000);
       *((s32 *) (((s8 *) arg0) + 0x2A8)) = 0;
-      *(s16 *)&this->targetId = (float) 0xFFFF;
+      this->targetId = (float) 0xFFFF;
       VecCopy((Vec *)(0x290 + arg0), (const Vec *)(arg0 + 0x2FC));
       VecCopy((Vec *)(arg0 + 0x29C), (const Vec *)(arg0 + 0x2FC));
       this->m_398 = (f32) (0.0f);
@@ -672,9 +672,9 @@ void TObjGrass::vfunc_62() {
     if ((s16) this->mode != 7) {
         this->mode = 7;
         this->m_b8 = 5;
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
+        this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
     }
-    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFDFFFFF);
+    this->actorFlags = (s32) (this->actorFlags & 0xFFDFFFFF);
 }
 
 s32 TObjGrass::update() {
@@ -704,7 +704,7 @@ void TObjGrass::vfunc_61() {
         this->mode = 6;
         this->m_b8 = 0;
     }
-    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFF9BFFFF);
+    this->actorFlags = (s32) (this->actorFlags & 0xFF9BFFFF);
 }
 
 s32 TObjGrass::update_web_attack() {
@@ -1103,8 +1103,8 @@ void TObjGrass::vfunc_60() {
     }
     this->phase = 0;
     this->m_b8 = 1;
-    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x200000);
-    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
+    this->actorFlags = (s32) (this->actorFlags | 0x200000);
+    this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
 }
 
 struct Vec_800BE1CC { f32 x, y, z; };
@@ -1424,7 +1424,7 @@ s32 TObjGrass::update_movement_status() {
     if (update_movement_status__13TUnk_804806E8Fv() != 0) {
         switch (this->mode) {
         case 0:
-            *(s32 *)&this->m_3ac = 0;
+            this->m_3ac = 0;
             this->phase = 2;
             this->m_b8 = 1;
             obj_clearFlags30((u32)(0x04040000));
@@ -1438,7 +1438,7 @@ s32 TObjGrass::update_action_hold_status() {
     if (update_action_hold_status__13TUnk_804806E8Fv() != 0) {
         switch (this->mode) {
         case 0:
-            *(s32 *)&this->m_3ac = 0;
+            this->m_3ac = 0;
             this->phase = 2;
             this->m_b8 = 1;
             obj_clearFlags30((u32)(0x04040000));

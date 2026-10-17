@@ -121,11 +121,11 @@ void TODoorCave03::vfunc_17() {
     u8 *arg0 = (u8 *)this;
     if (this->m_d0 & 1) {
         if (is_any_player_within_radius_xz(arg0, lbl_805DB4D8) != 1) {
-            *(s32 *)&this->m_ac = 3;
+            this->m_ac = 3;
             ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 8U);
         }
     } else {
-        *(s32 *)&this->m_ac = 3;
+        this->m_ac = 3;
         ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 8U);
     }
 }
@@ -154,7 +154,7 @@ void TODoorCave03::play_proximity_sound() {
     temp_r4 = this->m_d0;
     if (temp_r4 & 1) {
         if (is_any_player_within_radius_xz(arg0, lbl_805DB4E0) == 1) {
-            *(s32 *)&this->m_ac = 1;
+            this->m_ac = 1;
             ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 8);
         }
     } else if (temp_r4 & 0x10000) {

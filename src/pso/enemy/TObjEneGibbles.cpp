@@ -1146,7 +1146,7 @@ int TObjEneGibbles::test_flag_256() {
     if ((flags & 4) && this->mode != 6 && this->m_388 > 0) {
         for (i = 0; i < lbl_805D586C; i++) {
             pl = get_player_data__10TObjPlayerFi(i);
-            if (pl != NULL && !(*(s32 *)&((TObjPlayer *)pl)->actorFlags & 0x800)
+            if (pl != NULL && !(((TObjPlayer *)pl)->actorFlags & 0x800)
                 && calc_distance_to_client__10TObjPlayerFlUsUl(arg0, i, &v) < lbl_805DE824
                 && angle_difference_abs(this->rotation_y, (s32) (TObjEneGibbles__data_80472798 * atan2_float(v.x, v.z))) < 0x2AAA
                 && test_action_mask__10TObjPlayerFl(pl, 0xE0) != 0) {

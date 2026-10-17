@@ -1013,10 +1013,10 @@ void TBoss3Volopt__sub_800456E4(u8 *ene_gyaranzo) {
     s32 sp8;
     s32 temp_r4;
     u8 *temp_r5;
-    temp_r4 = *(s32 *)&((TObjEneGyaranzo *)ene_gyaranzo)->m_388;
+    temp_r4 = ((TObjEneGyaranzo *)ene_gyaranzo)->m_388;
     if (!(temp_r4 & 0x40000)) {
-        *(s32 *)&((TObjEneGyaranzo *)ene_gyaranzo)->m_388 = (s32) (temp_r4 | 0x40000);
-        temp_r5 = (u8 *)(*(u8 * *)&((TObjEneGyaranzo *)ene_gyaranzo)->m_a4);
+        ((TObjEneGyaranzo *)ene_gyaranzo)->m_388 = (s32) (temp_r4 | 0x40000);
+        temp_r5 = (u8 *)(((TObjEneGyaranzo *)ene_gyaranzo)->m_a4);
         *(s32 *)((s8 *)temp_r5 + 0x70) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x70) & 0xEFFFFFFE);
         ((TObjEneGyaranzo *)ene_gyaranzo)->render_anim_model_at_pos();
         ((VObj_18_f1aa6a *)(ene_gyaranzo))->m63(0x22, &sp8);
@@ -1033,10 +1033,10 @@ void TBoss3Volopt__sub_800457A0(u8 *ene_gyaranzo) {
     s32 sp8;
     s32 temp_r4;
     u8 *temp_r5;
-    temp_r4 = *(s32 *)&((TObjEneGyaranzo *)ene_gyaranzo)->m_388;
+    temp_r4 = ((TObjEneGyaranzo *)ene_gyaranzo)->m_388;
     if (!(temp_r4 & 0x20000)) {
-        *(s32 *)&((TObjEneGyaranzo *)ene_gyaranzo)->m_388 = (s32) (temp_r4 | 0x20000);
-        temp_r5 = (u8 *)(*(u8 * *)&((TObjEneGyaranzo *)ene_gyaranzo)->m_a4);
+        ((TObjEneGyaranzo *)ene_gyaranzo)->m_388 = (s32) (temp_r4 | 0x20000);
+        temp_r5 = (u8 *)(((TObjEneGyaranzo *)ene_gyaranzo)->m_a4);
         *(s32 *)((s8 *)temp_r5 + 0x44) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x44) & 0xEFFFFFFE);
         ((TObjEneGyaranzo *)ene_gyaranzo)->render_anim_model_at_pos();
         ((VObj_18_f1aa6a *)(ene_gyaranzo))->m63(0x32, &sp8);
@@ -1601,12 +1601,12 @@ void TBoss3Volopt__sub_80046CB8(void *arg0_) {
 
 void TUnk_80484610::sub_800472D4() {
     Obj_800472D4 *self = (Obj_800472D4 *)this;
-    switch (*(s32 *)&this->state) {
+    switch (this->state) {
     case 0:
         this->actorFlags &= ~0x40000;
         this->m_b8 = 0;
         ((TUnk_80484610 *)self)->reset_visual_state();
-        *(s32 *)&this->state = 1;
+        this->state = 1;
     case 1:
         advance_animation_playback(self);
         break;
@@ -1618,22 +1618,22 @@ void TUnk_80484610::sub_800472D4() {
 void update_state__12TBoss3VoloptFPv(void *arg0) {
     s32 temp_r0_2;
     s32 temp_r0_3;
-    switch (*(s32 *)&((TUnk_80484610 *)arg0)->state) {
+    switch (((TUnk_80484610 *)arg0)->state) {
     case 0:
         ((TUnk_80484610 *)arg0)->m_46c = 6;
         ((TUnk_80484610 *)arg0)->distribute_part_damage();
-        *(s32 *)&((TUnk_80484610 *)arg0)->state = 1;
+        ((TUnk_80484610 *)arg0)->state = 1;
     case 1:
         *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (lbl_805D8818 * sin_table_lookup(((TUnk_80484610 *)arg0)->m_46c * 0x3000));
         temp_r0_2 = ((TUnk_80484610 *)arg0)->m_46c - 1;
         ((TUnk_80484610 *)arg0)->m_46c = temp_r0_2;
         if (temp_r0_2 <= 0) {
-            *(s32 *)&((TUnk_80484610 *)arg0)->actorFlags = (s32) (*(s32 *)&((TUnk_80484610 *)arg0)->actorFlags & 0xFFFFFDFF);
-            *(s32 *)&((TUnk_80484610 *)arg0)->m_388 = (s32) (*(s32 *)&((TUnk_80484610 *)arg0)->m_388 & 0xFFFFFFFE);
-            temp_r0_3 = *(s32 *)&((TUnk_80484610 *)arg0)->m_380;
-            *(s32 *)&((TUnk_80484610 *)arg0)->next_action = temp_r0_3;
+            ((TUnk_80484610 *)arg0)->actorFlags = (s32) (((TUnk_80484610 *)arg0)->actorFlags & 0xFFFFFDFF);
+            ((TUnk_80484610 *)arg0)->m_388 = (s32) (((TUnk_80484610 *)arg0)->m_388 & 0xFFFFFFFE);
+            temp_r0_3 = ((TUnk_80484610 *)arg0)->m_380;
+            ((TUnk_80484610 *)arg0)->next_action = temp_r0_3;
             ((TUnk_80484610 *)arg0)->mode = (s16) temp_r0_3;
-            *(s32 *)&((TUnk_80484610 *)arg0)->state = (s32) ((TUnk_80484610 *)arg0)->m_470;
+            ((TUnk_80484610 *)arg0)->state = (s32) ((TUnk_80484610 *)arg0)->m_470;
         }
         break;
     case -1:

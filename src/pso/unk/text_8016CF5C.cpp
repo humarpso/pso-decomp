@@ -105,7 +105,7 @@ void TOKeyMachine01::send_switch_changed(s32 flags) {
     ((TLobby *)(&pkt))->init_6x05_switch_changed();
     pkt.object = self->m_1c;
     pkt.zero = local_client_id;
-    pkt.switchId = *(s32 *)&self->m_e4;
+    pkt.switchId = self->m_e4;
     pkt.area = get_current_floor();
     pkt.flags = flags;
     ((TLobby *)(&pkt))->finalize_and_send_60();

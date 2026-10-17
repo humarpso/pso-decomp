@@ -310,10 +310,10 @@ extern "C" {
 void TObjPlayer::push_to_list(s32 arg1) {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)&this->animationFlags;
+    temp_r0 = this->animationFlags;
     if (temp_r0 < 0x20) {
         ((struct Elt80364258_80364258 *)(((u8 *)this) + 0x30))[temp_r0].f0 = arg1;
-        *(s32 *)&this->animationFlags = (s32) (*(s32 *)&this->animationFlags + 1);
+        this->animationFlags = (s32) (this->animationFlags + 1);
     }
 }
 

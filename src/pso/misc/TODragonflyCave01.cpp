@@ -226,7 +226,7 @@ void TODragonfly::move_toward_target() {
     Self_8016492C *self = (Self_8016492C *)this;
     f32 d = horizontal_distance_squared(self->target, self->pos);
     if (d < (lbl_805DB584 + self->radius) * (lbl_805DB584 + self->radius)) {
-        *(s32 *)&this->m_ac = 2;
+        this->m_ac = 2;
     } else {
         vec3_add_to(self->pos, self->vec);
     }
@@ -259,14 +259,14 @@ void TODragonfly::sub_80164A90() {
     f32 d;
     if (is_any_player_within_radius_xz((u8 *)arg0, lbl_805DB590) == 1) {
         if (((TODragonfly *)arg0)->pick_random_destination(lbl_805DB578 + this->target_scale) == 1) {
-            *(s32 *)&this->m_ac = 3;
-            *(s32 *)&this->m_cc = 0;
+            this->m_ac = 3;
+            this->m_cc = 0;
         }
     } else {
         d = horizontal_distance_squared(arg0->d4, arg0->pos);
         t = lbl_805DB584 + arg0->f70;
         if (d < t * t) {
-            *(s32 *)&this->m_ac = 0;
+            this->m_ac = 0;
             return;
         }
         vec3_add_to(arg0->pos, arg0->e0);

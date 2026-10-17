@@ -1589,7 +1589,7 @@ void TBoss6Type1::update_part_positions() {
     s32 i;
     Vec_802B79DC *base;
     Ent_802B79DC *e;
-    if (*(Ent_802B79DC * *)&this->m_a4 != NULL) {
+    if (this->m_a4 != NULL) {
         for (i = 0; i < 7; i++) {
             Tbl_802B79DC *t;
             e = &arg0->ents[i];

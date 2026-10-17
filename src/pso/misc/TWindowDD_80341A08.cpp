@@ -96,8 +96,8 @@ void mem_free(void *);
 s32 get_array_entry__13TUnk_804CE018Fi(void * a0 = 0, s32 a1 = 0);
 s32 get_field_20__17TWindowSubComCardFv(void);
 
-void TWindowDD::set_mode_2() { *(s32 *)&this->m_80 = 2; }
-void TWindowDD::reset_cursor() { *(s32 *)&this->m_80 = 0; }
+void TWindowDD::set_mode_2() { this->m_80 = 2; }
+void TWindowDD::reset_cursor() { this->m_80 = 0; }
 
 #pragma push
 #pragma fp_contract on
@@ -192,7 +192,7 @@ void TWindowDD::handle_scroll_input() {
 }
 #pragma pop
 
-void TWindowDD::init_and_mark_field8C() { init_layout_entries(); load_element_list(); *(int *)&this->m_a8 = 1; }
+void TWindowDD::init_and_mark_field8C() { init_layout_entries(); load_element_list(); this->m_a8 = 1; }
 
 void TWindowDD::free_child() {
     if (*(void **)((s8 *)this + 0x80) != NULL) {
@@ -204,16 +204,16 @@ void TWindowDD::free_child() {
     this->m_98 = 0;
 }
 
-void TWindowDD::init_child(void* a1) { free_child(); *(void**)((char*)this + 0x70) = a1; init_layout_entries(); load_element_list(); reset_fields(); *(int *)&this->m_a8 = 1; }
+void TWindowDD::init_child(void* a1) { free_child(); *(void**)((char*)this + 0x70) = a1; init_layout_entries(); load_element_list(); reset_fields(); this->m_a8 = 1; }
 
 typedef char RecoveredGlobal_80341F9C_TWindowDD__data_804EFC50_size[sizeof(RecoveredGlobal_80341F9C_TWindowDD__data_804EFC50) == 0x40 ? 1 : -1];
 void TWindowDD::init_layout_entries() {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)((s8 *)&TWindowDD__data_804EFC50.value + 4) = (s32) *(s32 *)&this->m_94;
+    *(s32 *)((s8 *)&TWindowDD__data_804EFC50.value + 4) = (s32) this->m_94;
     init_window_layout_entries(arg0 + 0x24, (void *)&TWindowDD__data_804EFC50.value, (int) (*(s16 *)((s8 *)arg0 + 0x20)));
 }
 
-void TWindowDD::reset_fields() { *(float*)((char*)this + 0x88) = TWindowDD__data_805DFCA8; *(float*)((char*)this + 0x84) = TWindowDD__data_805DFCA8; *(int *)&this->m_84 = 0; *(int *)&this->m_88 = 0; *(int *)&this->m_a8 = 1; }
+void TWindowDD::reset_fields() { *(float*)((char*)this + 0x88) = TWindowDD__data_805DFCA8; *(float*)((char*)this + 0x84) = TWindowDD__data_805DFCA8; this->m_84 = 0; this->m_88 = 0; this->m_a8 = 1; }
 
 extern s32 TWindowDD__data_805DFB50;
 
@@ -253,7 +253,7 @@ void TWindowDD::set_pos_and_data(f32 farg0) {
     *(s32 *)((s8 *)arg0 + 0x50) = (s32) TWindowDD__data_805DFB50;
 }
 
-s32 TWindowDD::get_field_0x74() { return *(s32 *)&this->m_90; }
+s32 TWindowDD::get_field_0x74() { return this->m_90; }
 
 s16 TWindowDD__sub_8034214C(u8 *arg0) {
     return (s16) *(s32 *)((s8 *)arg0 + 0x70);
@@ -272,10 +272,10 @@ s32 TWindowDD__sub_8034217C(u8 *arg0) {
     return *(s32 *)((s8 *)arg0 + 0x68) - *(s32 *)((s8 *)arg0 + 0x6C);
 }
 
-s32 TWindowDD::get_cursor_index() { return *(s32 *)&this->m_88; }
+s32 TWindowDD::get_cursor_index() { return this->m_88; }
 s32 TWindowDD::update_if_field28_set() {
     if ((u32) this->m_44 != 0U) {
-        get_array_entry__13TUnk_804CE018Fi(this, *(s32 *)&this->m_88);
+        get_array_entry__13TUnk_804CE018Fi(this, this->m_88);
         return get_field_20__17TWindowSubComCardFv();
     }
     return 0;
@@ -290,8 +290,8 @@ void TWindowDD::get_cursor_pos(u8 *arg1) {
 }
 #pragma pop
 
-s32 TWindowDD::get_field_68() { return *(s32 *)&this->m_84; }
-void TWindowDD::add_scroll_offset(int a1) { *(int *)&this->m_84 = (*(int *)&this->m_84 + a1); *(int *)&this->m_a8 = 1; TWindowDD::spawn_window(); }
+s32 TWindowDD::get_field_68() { return this->m_84; }
+void TWindowDD::add_scroll_offset(int a1) { this->m_84 = (this->m_84 + a1); this->m_a8 = 1; TWindowDD::spawn_window(); }
 
 }
 

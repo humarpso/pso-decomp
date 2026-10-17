@@ -18,7 +18,7 @@ u8 *TObjPlayer__sub_801272B4(void *self_, s32 a, void *b) {
     self->vt = lbl_804A3168;
     ((TObjPlayer *)self)->set_status_flags(0x100622);
     self->f1f0 = (void *)create_lavis_shot;
-    *(f32 *)&((TObjPlayer *)self)->m_1e4 = lbl_805DADC8;
+    ((TObjPlayer *)self)->m_1e4 = lbl_805DADC8;
     return (u8 *)self;
 }
 

@@ -552,7 +552,7 @@ void TAdSinglePlyChrSelectGC__sub_802E1FAC(u8 *ad_time_set_gc) {
     }
     switch (get_selected_menu_value((int) (*(u32 *)((s8 *)ad_time_set_gc + 0x54)))) {
     case 0:
-        *(s32 *)&((TAdTimeSetGC *)ad_time_set_gc)->unknown_5c = 1;
+        ((TAdTimeSetGC *)ad_time_set_gc)->unknown_5c = 1;
         change_state__12TAdTimeSetGCFl(ad_time_set_gc, 0x18);
         break;
     case 1:
@@ -825,7 +825,7 @@ void TAdSinglePlyChrSelectGC__sub_802E289C(void *ad_single_ply_chr_select_gc) {
         if ((s32) *(s32 *)((s8 *)ad_single_ply_chr_select_gc + 0x64) == 0) {
             close_windows__23TAdSinglePlyChrSelectGCFPv(ad_single_ply_chr_select_gc);
             if ((s32) *(s32 *)((s8 *)ad_single_ply_chr_select_gc + 0x60) == 0) {
-                *(s32 *)&((TAdSinglePlyChrSelectGC *)ad_single_ply_chr_select_gc)->m_34 = 1;
+                ((TAdSinglePlyChrSelectGC *)ad_single_ply_chr_select_gc)->m_34 = 1;
                 ((s32 (*)(void *, s32))change_state__12TAdTimeSetGCFl)(ad_single_ply_chr_select_gc, 0);
             }
         }

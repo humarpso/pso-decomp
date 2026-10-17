@@ -548,7 +548,7 @@ void TObjEneRe4Bit__sub_800ECC14(u8 *ene_panarms, s32 arg1) {
         }
         break;
     case 5:
-        *(s32 *)&((TObjEnePanarms *)ene_panarms)->actorFlags = (s32) (*(s32 *)&((TObjEnePanarms *)ene_panarms)->actorFlags & 0xFFFFF7FF);
+        ((TObjEnePanarms *)ene_panarms)->actorFlags = (s32) (((TObjEnePanarms *)ene_panarms)->actorFlags & 0xFFFFF7FF);
         ((TObjEnePanarms *)ene_panarms)->hp = (s16) ((TObjEnePanarms *)ene_panarms)->hpmax;
         ((s32 (*)())TObjEneRe4Sorcerer__sub_800ED47C)();
         *(f32 *)((s8 *)ene_panarms + 0x3D8) = (f32) TObjEneRe4Bit__data_805DA770;
@@ -626,7 +626,7 @@ void TObjEneRe4Bit__sub_800ECED0(TObjEneRe4Bit *ene_re4_bit, s32 arg1) {
         *(s32 *)((s8 *)ene_re4_bit + 0x3CC) = (s32) (*(s32 *)((s8 *)ene_re4_bit + 0x3CC) | 0x1000);
         ene_re4_bit->m_408 = 0;
         *(s32 *)((s8 *)ene_re4_bit + 0x404) = 1;
-        *(s32 *)((s8 *)ene_re4_bit + 0x3D0) = (s32) *(s32 *)&ene_re4_bit->m_3f0;
+        *(s32 *)((s8 *)ene_re4_bit + 0x3D0) = (s32) ene_re4_bit->m_3f0;
         return;
     case 3:
         temp_r4 = *(s32 *)((s8 *)ene_re4_bit + 0x3CC);
@@ -988,7 +988,7 @@ void TObjEneRe4Bit::update_homing_velocity() {
     Obj_800ED4BC *arg0 = (Obj_800ED4BC *)this;
     Vec_800ED4BC sp;
     f32 s;
-    VecCopy((Vec *)(&sp), (const Vec *)(*(Vec_800ED4BC * *)&this->m_3dc));
+    VecCopy((Vec *)(&sp), (const Vec *)(this->m_3dc));
     sp.y = sp.y + arg0->f3D8;
     subtract_vector(&sp, &arg0->v2FC);
     s = lbl_805DA77C * ((TObjBoss2Tunnel *)(&sp))->update_scale();
@@ -1125,7 +1125,7 @@ u8 *TObjEneRe4Bit__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2AE8;
     ((TObjEneDD *)arg0)->init_common_from((u8 *)arg2);
     *(s16 *)((s8 *)arg0 + 0x3C4) = obj_getField1c((void *)arg2);
-    *(s16 *)&((TObjEneRe4Bit *)arg0)->m_1c = arg5;
+    ((TObjEneRe4Bit *)arg0)->m_1c = arg5;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg6;
     *(s32 *)((s8 *)arg0 + 0x3C0) = arg3;
     *(s32 *)((s8 *)arg0 + 0x3C8) = arg4;

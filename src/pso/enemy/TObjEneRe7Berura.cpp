@@ -1091,7 +1091,7 @@ void TObjEneRe7Berura::vfunc_62() {
     }
 }
 
-void TObjEneRe7Berura::vfunc_63() { if (*(short *)&this->mode != 11) { transition_enemy_state(this, (void*)11); } }
+void TObjEneRe7Berura::vfunc_63() { if (this->mode != 11) { transition_enemy_state(this, (void*)11); } }
 
 void TObjEneRe7Berura::vfunc_28() {  }
 
@@ -1102,8 +1102,8 @@ void run_task__16TObjEneRe7BeruraFv(u8 *arg0) {
     }
     if (((VObj_18 *)(arg0))->m81() != 4) {
         ((TObjEneRe7Berura *)(arg0))->vfunc_85();
-        *(s32 *)&((TObjEneRe7Berura *)arg0)->m_3ec = (s32) (*(s32 *)&((TObjEneRe7Berura *)arg0)->m_3ec + *(s32 *)((s8 *)arg0 + 0x3CC));
-        *(s32 *)&((TObjEneRe7Berura *)arg0)->m_3ec = (s32) (u8) *(s32 *)&((TObjEneRe7Berura *)arg0)->m_3ec;
+        ((TObjEneRe7Berura *)arg0)->m_3ec = (s32) (((TObjEneRe7Berura *)arg0)->m_3ec + *(s32 *)((s8 *)arg0 + 0x3CC));
+        ((TObjEneRe7Berura *)arg0)->m_3ec = (s32) (u8) ((TObjEneRe7Berura *)arg0)->m_3ec;
     }
     ((TObjEneRe7Berura *)arg0)->update_collision_center();
     ((TBoss8Dragon *)arg0)->set_player_state_default();

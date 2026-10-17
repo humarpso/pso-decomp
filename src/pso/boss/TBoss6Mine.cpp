@@ -209,7 +209,7 @@ void TBoss6Mine::explode_damage_players() {
             v.y = TBoss6Mine__data_805DF580;
             if (!(vector_length(&v) > lbl_805DF590)) {
                 Hit_803240F8 h;
-                s32 r = TBoss6PlotFalz::rand_vary_count(*(s32 *)&this->m_384, lbl_805DF594);
+                s32 r = TBoss6PlotFalz::rand_vary_count(this->m_384, lbl_805DF594);
                 h.a = 1;
                 h.c = 1;
                 h.d = r;
@@ -386,11 +386,11 @@ s32 TBoss6Mine__ct(s32 arg0, s32 parent, s32 arg2) {
     ((TObjEnemy *)arg0)->initialize((void*)parent);
     *(s32 **)((s8 *)THIS + 0x18) = __vt__10TBoss6Mine;
     *(s32 *)((s8 *)THIS + 0) = lbl_805D4178;
-    *(s32 *)&((TBoss3Volopt *)THIS)->m_378 = *(s32 *)((s8 *)arg2 + 0x40);
+    ((TBoss3Volopt *)THIS)->m_378 = *(s32 *)((s8 *)arg2 + 0x40);
     VecCopyP(THIS + 0x38, (u8 *)arg2 + 0x44);
     VecCopyP(THIS + 0x3BC, (u8 *)arg2 + 0x50);
-    *(s32 *)&((TBoss3Volopt *)THIS)->state = *(s32 *)((s8 *)arg2 + 0x5C);
-    *(s32 *)&((TBoss3Volopt *)THIS)->m_388 = *(s32 *)((s8 *)arg2 + 0x60);
+    ((TBoss3Volopt *)THIS)->state = *(s32 *)((s8 *)arg2 + 0x5C);
+    ((TBoss3Volopt *)THIS)->m_388 = *(s32 *)((s8 *)arg2 + 0x60);
     ((TUnk_804806E8 *)THIS)->add_flags_2e4(8);
     ((TBoss3Volopt *)THIS)->apply_set_data((void *)arg2);
     if (exchange_object_state__9TObjEnemyFls(THIS, &tmp, 1) != 0) {
@@ -398,7 +398,7 @@ s32 TBoss6Mine__ct(s32 arg0, s32 parent, s32 arg2) {
         tmp.b = 0;
         exchange_object_state__9TObjEnemyFls(THIS, &tmp, 0);
     }
-    *(s32 *)&((TBoss3Volopt *)THIS)->next_action = TObjFish::get_fish_count();
+    ((TBoss3Volopt *)THIS)->next_action = TObjFish::get_fish_count();
     ((TBoss3Volopt *)THIS)->texture_id = 0;
     *(s32 *)((s8 *)THIS + 0x34) = 0;
     VecCopyP(THIS + 0x44, VecCopyP(THIS + 0x50, VecCopyP(THIS + 0x74, THIS + 0x38)));
@@ -428,7 +428,7 @@ s32 TBoss6Mine__ct(s32 arg0, s32 parent, s32 arg2) {
     *(s32 *)((s8 *)THIS + 0x394) = 0;
     ((TBoss3Volopt *)THIS)->m_398 = 0;
     *(s32 *)((s8 *)THIS + 0x38C) = 0;
-    *(s32 *)&((TBoss3Volopt *)THIS)->m_380 = 0;
+    ((TBoss3Volopt *)THIS)->m_380 = 0;
     *(u32 *)((s8 *)THIS + 0x3CC) = (u32)create_particle_emitter(THIS + 0x38, 0x146);
     if (*(u32 *)((s8 *)THIS + 0x3CC) != 0) {
         ((TBoss4Type2 *)(*(u32 *)((s8 *)THIS + 0x3CC)))->set_flags(0x40);

@@ -93,7 +93,7 @@ void TBoss6Type2::reset_timers_and_spawn_particle() {
     this->m_460 = 0x4B;
     arg0->f504 = 0;
     TBoss6Type2__sub_802BB7C0(arg0);
-    switch (*(s32 *)&this->m_374) {
+    switch (this->m_374) {
     case 9:
     case 10:
     case 11:

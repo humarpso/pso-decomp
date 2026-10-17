@@ -124,7 +124,7 @@ void TObjFogCollisionSwitch::vfunc_14() {
     } else {
         debug_printf_at(0x13001E, lbl_804400A4);
     }
-    debug_printf_at(0x130022, lbl_804400B8, *(s32 *)&this->m_8c);
+    debug_printf_at(0x130022, lbl_804400B8, this->m_8c);
 }
 
 void run_task__22TObjFogCollisionSwitchFv(TObjFogCollisionSwitch *arg0) {

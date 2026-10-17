@@ -519,7 +519,7 @@ void TShopJudgmentItemWindow::handle_judge_confirm() {
         if ((*(void **)((s8 *)arg0 + 0x158) != NULL) && (((TWindowMenu *)(*(void **)((s8 *)arg0 + 0x158)))->is_visible() != 0)) {
             selected_menu_value = get_selected_menu_value((int) (this->m_158));
             if ((selected_menu_value == 0) && ((u32) this->m_154 != 0U)) {
-                if (obj_getPtr2B0_20((u8 *)(*(s32 *)&this->m_24)) < 0x64) {
+                if (obj_getPtr2B0_20((u8 *)(this->m_24)) < 0x64) {
                     TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x158)));
                     this->m_158 = 0U;
                     ((VObj_18 *) arg0)->m6(5, 1);

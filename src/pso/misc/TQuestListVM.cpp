@@ -706,12 +706,12 @@ void TQuestListVM::process_download_entry() {
 void TQuestListVM::load_selected_player_slot() {
     Obj_8021969C *arg0 = (Obj_8021969C *)this;
     if (this->m_2388 != 0) {
-        if (TAdPlayerLoadGC__sub_801E1B50(arg0->recs[*(s32 *)&this->m_2368].slot) == 0) {
-            if (((TAdSinglePlyChrSelectGC *)(arg0->recs[*(s32 *)&this->m_2368].slot))->load_player_slot((int)((char *)&arg0->recs[*(s32 *)&this->m_2368]), this->m_2388) == 0) {
+        if (TAdPlayerLoadGC__sub_801E1B50(arg0->recs[this->m_2368].slot) == 0) {
+            if (((TAdSinglePlyChrSelectGC *)(arg0->recs[this->m_2368].slot))->load_player_slot((int)((char *)&arg0->recs[this->m_2368]), this->m_2388) == 0) {
                 ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)((void *)4)));
                 return;
             }
-            *(s32 *)&this->m_2398 += 2;
+            this->m_2398 += 2;
             ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)((void *)2)));
         }
     } else {

@@ -69,13 +69,13 @@ void TObjPlayer::update_homing_shot() {
         return;
     }
     obj = find_active_entity_by_id(arg0->owner);
-    switch (*(s32 *)&this->m_fc) {
+    switch (this->m_fc) {
     case 0:
         this->m_ec--;
         if (this->m_ec <= 0) {
             this->m_ec = 0;
             VecCopy((Vec *)&arg0->pos, (const Vec *)arg0->target);
-            *(s32 *)&this->m_fc = 1;
+            this->m_fc = 1;
             play_sound_effect(0x4003A328, &arg0->pos, 0, 0);
             return;
         }

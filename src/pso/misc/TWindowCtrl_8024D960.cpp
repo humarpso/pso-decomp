@@ -170,7 +170,7 @@ void TWindowCtrl::update_main_menu_request() {
     if (*(void **)((s8 *)this + 0x28) == NULL) {
         return;
     }
-    p = get_player_by_client_id(*(s32 *)&this->m_24);
+    p = get_player_by_client_id(this->m_24);
     if (p == 0) {
         return;
     }
@@ -182,7 +182,7 @@ void TWindowCtrl::update_main_menu_request() {
         return;
     }
     {
-        s32 idx = is_player_input_active(*(s32 *)&this->m_24);
+        s32 idx = is_player_input_active(this->m_24);
         key = ((s16 (*)(void *))get_function_key_menu__16TKeyBoardControlFPv)(this);
         if (TWindowShortListCtrl__check_controller_button(controller_input_state[idx].btn, 0x108) == 0 && key == 0x1F) {
             return;
@@ -243,7 +243,7 @@ void TWindowCtrl::update_child_window_visibility() {
     u8 *arg0 = (u8 *)this;
     u32 temp_r31;
     if (((u32) this->m_34 != 0U) && (((TWindowCtrl *)((void *) this->m_34))->is_flag_2_set() == 0)) {
-        temp_r31 = get_player_by_client_id((int) (*(s32 *)&this->m_24));
+        temp_r31 = get_player_by_client_id((int) (this->m_24));
         if ((get_active_menu() != 0) || (((TWindowCtrl *)arg0)->is_visible() != 0) || (((TWindowCtrl *)arg0)->is_enabled() != 0) || (temp_r31 == 0U)) {
             ((TWindowLockOn *)(this->m_34))->request_close();
             return;
@@ -255,7 +255,7 @@ void TWindowCtrl::update_child_window_visibility() {
 void TWindowCtrl::update_trade_window_visibility() {
     u8 *arg0 = (u8 *)this;
     if (((u32) this->m_30 != 0U) && (((TWindowCtrl *)((void *) this->m_30))->is_flag_2_set() == 0)) {
-        if ((get_player_by_client_id((int) (*(s32 *)&this->m_24)) == 0U) || (((TWindowCtrl *)arg0)->is_visible() != 0) || (TWindowCtrl__sub_8024C7F8(arg0) != 0) || ((is_split_screen() != 0) && (get_active_menu() != 0))) {
+        if ((get_player_by_client_id((int) (this->m_24)) == 0U) || (((TWindowCtrl *)arg0)->is_visible() != 0) || (TWindowCtrl__sub_8024C7F8(arg0) != 0) || ((is_split_screen() != 0) && (get_active_menu() != 0))) {
             ((TWindowLockOn *)(this->m_30))->request_close();
             return;
         }

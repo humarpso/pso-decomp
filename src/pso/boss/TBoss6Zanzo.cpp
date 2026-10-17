@@ -67,7 +67,7 @@ void TBoss6Zanzo::copy_trail_buffer(void *arg1_arg, void *arg2_arg) {
     if (arg1->a != 0) {
         dst = arg1->p;
         src = arg2->p;
-        end = dst + (*(s32 *)&arg0->m_24 << 4);
+        end = dst + (arg0->m_24 << 4);
         for (; dst < end; dst += 0x10, src += 0x10) {
             TBoss6Zanzo__sub_803205A0((s32 *)dst, (s32 *)src);
         }

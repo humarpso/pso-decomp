@@ -1500,7 +1500,7 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     temp_r6 = register_object__6TLobbyFl(0x2C);
     bind_enemy_combat_stats((arg0), (u8 *)temp_r30, (u8 *)temp_r29, (u8 *)temp_r6);
     register_entity_by_id((arg0));
-    *(s32 *)&((TBoss6PlotFalz *)arg0)->actorFlags = (s32) (*(s32 *)&((TBoss6PlotFalz *)arg0)->actorFlags | 0x02000000);
+    ((TBoss6PlotFalz *)arg0)->actorFlags = (s32) (((TBoss6PlotFalz *)arg0)->actorFlags | 0x02000000);
     set_visible_flag__14TBoss6PlotFalzFv(arg0);
     update_active_flag__14TBoss6PlotFalzFv();
     *(s32 *)((s8 *)arg0 + 0x3CC) = 0;
@@ -1514,7 +1514,7 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     (*(s32 *)&TBoss6PlotFalz__type2_instance) = 0;
     *(s32 *)((s8 *)arg0 + 0x3DC) = 0;
     TBoss6PlotFalz__fade_amount = (-1.0f);
-    *(s8 *)&((TBoss6PlotFalz *)arg0)->m_37c = 0;
+    ((TBoss6PlotFalz *)arg0)->m_37c = 0;
     ((TBoss6PlotFalz *)arg0)->m_378 = -1;
     ((TBoss6PlotFalz *)arg0)->set_state(0);
     return self;

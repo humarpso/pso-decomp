@@ -769,7 +769,7 @@ void TUnk_80493450::vfunc_60() {
         break;
     case 1:
         this->phase = 0;
-        if (*(void * *)&this->children == NULL) {
+        if (this->children == NULL) {
             this->mode = 3;
             this->m_b8 = 7;
         } else {

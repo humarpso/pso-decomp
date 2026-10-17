@@ -37,9 +37,9 @@ void fn_80278518(void *arg0, s32 arg1) {
     for (i = 0; i < *(s16 *)((s8 *)arg0 + 0x76); i++) {
         temp_r30 = ((u16 *(*)(void *, s32)) get_array_entry__13TUnk_804CE018Fi)(arg0, i);
         if ((is_flag_4_set__20TWindowSubStatusDispFv() != 0) && (arg1 == ((TWindowSubItem *)temp_r30)->get_cursor_pos())) {
-            *(s32 *)&((TWindowSubItem *)temp_r30)->m_2c = 0xFFAAAAAA;
-            *(s32 *)&((TWindowSubItem *)temp_r30)->m_30 = 0xFF909090;
-            *(s32 *)&((TWindowSubItem *)temp_r30)->m_34 = 0xFF909090;
+            ((TWindowSubItem *)temp_r30)->m_2c = 0xFFAAAAAA;
+            ((TWindowSubItem *)temp_r30)->m_30 = 0xFF909090;
+            ((TWindowSubItem *)temp_r30)->m_34 = 0xFF909090;
             *(u16 *)((s8 *)temp_r30 + 0) = (u16) (*(u16 *)((s8 *)temp_r30 + 0) | 0x80);
         }
     }

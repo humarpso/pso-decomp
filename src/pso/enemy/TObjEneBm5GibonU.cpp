@@ -3769,7 +3769,7 @@ s32 TObjEneBm5GibonU__sub_800D0968(u8 *arg0, int _w1) {
     f32 temp_f4;
     f32 temp_f5;
     f32 var_f0;
-    if (transform_relative_position__9TObjEneDDFPv(arg0, (int) (*(s32 *)&((TObjEneBm5GibonU *)arg0)->m_390)) != 0) {
+    if (transform_relative_position__9TObjEneDDFPv(arg0, (int) (((TObjEneBm5GibonU *)arg0)->m_390)) != 0) {
         ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
         ((TObjEneDD *)arg0)->update_velocity();
         if (is_active__16TObjEneBm5GibonUFPv(arg0) != 0) {
@@ -4327,7 +4327,7 @@ void TObjEneBm5GibonU::update_center_position() {
 }
 
 void TObjEneBm5GibonU::vfunc_61() {  }
-void TObjEneBm5GibonU::vfunc_62() { if (*(short *)&this->mode != 16) { transition_enemy_state(this, (void*)16); } }
+void TObjEneBm5GibonU::vfunc_62() { if (this->mode != 16) { transition_enemy_state(this, (void*)16); } }
 void TObjEneBm5GibonU::vfunc_63() {
     s16 temp_r0;
 
@@ -4350,10 +4350,10 @@ void TObjEneBm5GibonU::run_task() {
         all_parents_unqueued_for_destruction__7TObjectFv();
     }
     if (this->vfunc_83() != 4) {
-        temp_r3 = *(s32 *)&this->m_52c;
+        temp_r3 = this->m_52c;
         if (temp_r3 != 0) {
-            *(s32 *)&this->m_52c = (temp_r3 - 1);
-            if ((s32) *(s32 *)&this->m_52c == 0) {
+            this->m_52c = (temp_r3 - 1);
+            if ((s32) this->m_52c == 0) {
                 temp_r0 = this->mode;
                 if ((temp_r0 != 0x11) && (temp_r0 != 0x12)) {
                     transition_enemy_state(this, (void*)(0xF));
@@ -4616,7 +4616,7 @@ void TObjEneBm5GibonU::push_list_node(void **arg1, void **arg2) {
         *(void * *)&this->m_name = temp_r0;
         *(void **)((s8 *)(*arg2) + 4) = arg0;
     } else {
-        *(void * *)&this->m_name = NULL;
+        this->m_name = NULL;
         *arg1 = arg0;
     }
     *arg2 = arg0;

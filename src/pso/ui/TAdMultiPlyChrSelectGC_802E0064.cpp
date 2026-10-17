@@ -28,7 +28,7 @@ s32 TAdMultiPlyChrSelectGC::get_mode() { return this->m_1c; }
 
 s32 TAdMultiPlyChrSelectGC::is_state_closing() {
     TAdMultiPlyChrSelectGC *self = this;
-    switch (*(s32 *)&self->m_1c) {
+    switch (self->m_1c) {
     case 6:
     case 8:
     case 9:

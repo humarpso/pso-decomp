@@ -68,7 +68,7 @@ s32 TAdYesNoBaseGC::create_menu_window() {
     s32 r = (s32)init_shop_judgment_window(&t);
     update_layout_height__21TWindowSubComCardListFf(lbl_805DF788);
     align_menu_entry_positions(r);
-    ((TWindowSubComCardList *)r)->set_selected_index((s16)*(s32 *)&arg0->m_2c);
+    ((TWindowSubComCardList *)r)->set_selected_index((s16)arg0->m_2c);
     return r;
 }
 

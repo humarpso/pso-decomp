@@ -68,13 +68,13 @@ extern const f32 lbl_805DCE54;
 void TWindowInputNumber::create(s32 arg1) {
     u32 var_r0;
 
-    if ((u32) *(u32 *)&this->unknown70 == 0U) {
+    if ((u32) this->unknown70 == 0U) {
         var_r0 = ((TAdSinglePlyChrSelectGC *)0x24)->alloc();
         if (var_r0 != 0U) {
             u32 saved = var_r0;
             var_r0 = construct_type1_heading__20TWindowSubStatusDispFll(saved, arg1, this->clientIndex);
         }
-        *(u32 *)&this->unknown70 = var_r0;
+        this->unknown70 = var_r0;
         this->m_2c = (s32) (this->m_2c | 0x40);
         *(f32 *)((s8 *)this + 0x3C) = (f32) (*(f32 *)((s8 *)this + 0x3C) + lbl_805DCE18);
     }
@@ -143,7 +143,7 @@ void render__18TWindowInputNumberFv(u8 *arg0) {
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     draw_arrows__18TWindowInputNumberFv(arg0, temp_r3, (int) (((TUnk_804CE018 *)arg0)->get_array_entry((int) ((TWindowInputNumber *)arg0)->selectedDigit)), ((TWindowInputNumber *)arg0)->is_confirmed());
     {
-        void *temp_ptr = (void *) *(u32 *)&((TWindowInputNumber *)arg0)->unknown70;
+        void *temp_ptr = (void *) ((TWindowInputNumber *)arg0)->unknown70;
         if (temp_ptr != NULL) {
             forward_render__20TWindowSubStatusDispFv(temp_ptr, temp_r3);
         }
@@ -211,7 +211,7 @@ void TWindowInputNumber::run_task() {
 
 void *__dt__18TWindowInputNumberFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        *(s32 * *)&((TWindowInputNumber *)arg0)->objectVtable = __vt__18TWindowInputNumber;
+        ((TWindowInputNumber *)arg0)->objectVtable = __vt__18TWindowInputNumber;
         if (*(void **)((s8 *)arg0 + 0x70) != NULL) { TWindowSubStatusDisp::destroy_status_display((s32)(*(void **)((s8 *)arg0 + 0x70)), (s16)1); }
         ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {

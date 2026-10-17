@@ -387,7 +387,7 @@ void TBoss6Rock::sub_80353F5C() {
     VecCopy((Vec *)&blk.v1, (const Vec *)(((u8 *) o) + 0xD4));
     ((TObjPlayer *)(&blk.v2))->copy_xyz(lbl_80479280);
     new_var2 = (u8 *) ((Elem_80353F5C *)&TBoss6Rock__data_80479258);
-    new_var2 = (*(s32 *)&this->m_b4 * 0x14) + new_var2;
+    new_var2 = (this->m_b4 * 0x14) + new_var2;
     new_var = (Elem_80353F5C *) new_var2;
     e = new_var;
     blk.a = 2;

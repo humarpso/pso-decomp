@@ -702,7 +702,7 @@ void TTecLuker::vfunc_6(void *o_arg) {
     P_802346F8 d;
     d.t = 0xE;
     d.v = lbl_805DC858;
-    o->m21(*(s32 *)&self->source, d, 0, -1, -1);
+    o->m21(self->source, d, 0, -1, -1);
 }
 
 void TTecLuker::create(void *arg1, void *arg2, void *arg3) {

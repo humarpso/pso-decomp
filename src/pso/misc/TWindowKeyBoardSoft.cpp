@@ -141,7 +141,7 @@ void TWindowKeyBoardBase::init_keyboard_text_field(u32 arg1, u32 arg2) {
     *(f32 *)((s8 *)arg0 + 0x4C) = (f32) *(f32 *)((s8 *)arg0 + 0x3C);
     init_keyboard_text_buffer((u8 *)&this->m_6c, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x68) = (unsigned char *) (arg0 + 0x6C);
-    *(s16 *)&this->m_60 = 0;
+    this->m_60 = 0;
 }
 
 #define self ((KbSoft_8025CFA8 *)arg0)
@@ -628,7 +628,7 @@ void TWindowKeyBoardBase::sub_8025E6DC(u8 *arg1) {
             stack.spC = stack.sp14;
         }
         temp_r3_4 = *(s32 *)((s8 *)((u8 *)this) + 0x70);
-        temp_r7_2 = *(s32 *)&this->m_7c - temp_r3_4;
+        temp_r7_2 = this->m_7c - temp_r3_4;
         if (temp_r7_2 != 0) {
             TWindowSubStatusDisp__sub_8025E530(this, arg1, &stack.sp10, (int) (*(s32 *)((s8 *)((u8 *)this) + 0x6C) + (temp_r3_4 * 2)), temp_r7_2, 1);
         }

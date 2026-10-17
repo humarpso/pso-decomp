@@ -56,7 +56,7 @@ void TWindowDD::init_item_slots() {
     S_80348DFC *self = (S_80348DFC *)this;
     s32 i;
     self->unk2 = 0;
-    *(s16 *)&this->m_1c = 0;
+    this->m_1c = 0;
     for (i = 0; i < 8; i++) {
         self->items[i] = -1;
     }

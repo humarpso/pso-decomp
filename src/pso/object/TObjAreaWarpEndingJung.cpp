@@ -549,12 +549,12 @@ void *TObjAreaWarpEndingJung__ct(void *area_warp_ending_jung) {
     ((s32 (*)(void))TObjAreaWarpEnding__ct)();
     *(s32 **)((s8 *)area_warp_ending_jung + 0x18) = __vt__22TObjAreaWarpEndingJung;
     *(s32 *)((s8 *)area_warp_ending_jung + 0) = (s32) TObjAreaWarpEndingJung__name;
-    if ((s32) *(s32 *)&((TObjAreaWarpEndingJung *)area_warp_ending_jung)->m_8c < 0) {
-        *(s32 *)&((TObjAreaWarpEndingJung *)area_warp_ending_jung)->m_8c = 0;
+    if ((s32) ((TObjAreaWarpEndingJung *)area_warp_ending_jung)->m_8c < 0) {
+        ((TObjAreaWarpEndingJung *)area_warp_ending_jung)->m_8c = 0;
     }
-    temp_r0 = *(s32 *)&((TObjAreaWarpEndingJung *)area_warp_ending_jung)->m_8c;
+    temp_r0 = ((TObjAreaWarpEndingJung *)area_warp_ending_jung)->m_8c;
     temp_r4 = (u32) temp_r0 >> 0x1FU;
-    *(s32 *)&((TObjAreaWarpEndingJung *)area_warp_ending_jung)->m_8c = (s32) (((temp_r0 & 1) ^ temp_r4) - temp_r4);
+    ((TObjAreaWarpEndingJung *)area_warp_ending_jung)->m_8c = (s32) (((temp_r0 & 1) ^ temp_r4) - temp_r4);
     return area_warp_ending_jung;
 }
 }
@@ -675,7 +675,7 @@ void TObjMapForceWarp::create_warp_id_string(void *arg) {
 }
 
 s32 TObjMapForceWarp__vt16(TObjMapForceWarp *map_force_warp, u16 arg1) {
-    if ((s32) *(s32 *)&((TObjMapForceWarp *)map_force_warp)->m_fc != 0) {
+    if ((s32) ((TObjMapForceWarp *)map_force_warp)->m_fc != 0) {
         map_force_warp->create_warp_id_string((void *)arg1);
     }
     return 1;
@@ -717,10 +717,10 @@ void *TObjMapForceWarp__ct(void *map_force_warp) {
     TObjMapWarp__ct();
     *(s32 **)((s8 *)map_force_warp + 0x18) = __vt__16TObjMapForceWarp;
     *(s32 *)((s8 *)map_force_warp + 0) = (s32) TObjMapForceWarp__name;
-    if ((s32) *(s32 *)&((TObjMapForceWarp *)map_force_warp)->m_8c > 0) {
-        *(s32 *)&((TObjMapForceWarp *)map_force_warp)->m_fc = 0;
+    if ((s32) ((TObjMapForceWarp *)map_force_warp)->m_8c > 0) {
+        ((TObjMapForceWarp *)map_force_warp)->m_fc = 0;
     } else {
-        *(s32 *)&((TObjMapForceWarp *)map_force_warp)->m_fc = 1;
+        ((TObjMapForceWarp *)map_force_warp)->m_fc = 1;
     }
     if ((u32) ((TObjMapForceWarp *)map_force_warp)->m_b4 != 0U) {
         disallow_rendering__7TObjectFv((TObject *)(*(void **)((s8 *)map_force_warp + 0xB4)));
@@ -1044,7 +1044,7 @@ void TObjAreaWarpForest::render() {
         n = self->fD4->next2C;
         while (n != NULL) {
             if (n->f4 != 0) {
-                ((TObjDoorJung *)(n->f4))->free_children((void *)cols.c[*(s32 *)&this->m_8c]);
+                ((TObjDoorJung *)(n->f4))->free_children((void *)cols.c[this->m_8c]);
             }
             n = n->next2C;
         }

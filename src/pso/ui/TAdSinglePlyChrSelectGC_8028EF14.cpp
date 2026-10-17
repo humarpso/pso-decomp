@@ -1128,7 +1128,7 @@ u8 *TAdSinglePlyChrSelectGC__sub_802908CC(u8 *arg0, s16 arg1) {
         (*(s32 *)&chara_select_head_node) = 0;
         (*(s32 *)&chara_select_hair_node_b) = 0;
         (*(s32 *)&chara_select_hair_node_a) = 0;
-        *(s32 *)&((TAdSinglePlyChrSelectGC *)arg0)->m_34 = 0;
+        ((TAdSinglePlyChrSelectGC *)arg0)->m_34 = 0;
         mem_free((void *)(*(s32 *)((s8 *)arg0 + 0xE0)));
         creation_resource_ready_state = 0;
         creation_figure_object = 0;

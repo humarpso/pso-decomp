@@ -547,7 +547,7 @@ void TWindowChat__sub_80247E50(u8 *window_chat) {
     if (((TWindowChat *)window_chat)->is_mode_bit4() != 0) {
         ((TWindowChat *)window_chat)->flags = (u16) (((TWindowChat *)window_chat)->flags & 0xFFFFFFEF);
         if ((u32) *(u32 *)((s8 *)window_chat + 0x20) != 0U) {
-            ((TWindowChat *)(*(void * *)&((TWindowChat *)window_chat)->composer))->flush_if_flagged();
+            ((TWindowChat *)(((TWindowChat *)window_chat)->composer))->flush_if_flagged();
         }
         ((TWindowChat*)(window_chat))->open_next_input_window();
     }

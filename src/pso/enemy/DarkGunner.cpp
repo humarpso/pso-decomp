@@ -820,7 +820,7 @@ void TObjPlayer::update_move_to_destination() {
         this->m_37c = 1;
     case 1: {
         advance_animation_playback(o);
-        if (!(*(s32 *)&this->actorFlags & 0x800000)) {
+        if (!(this->actorFlags & 0x800000)) {
             ((s32 (*)(void *, int, f32))apply_actor_gravity)(o, 0, lbl_805D9984);
         }
         calc_velocity_toward_destination(o, o->pos, o->dest, ((f32 (*)(int))TObjPlayer__sub_800A3200)(0));
@@ -943,13 +943,13 @@ void TObjPlayer__sub_800A16C4(u8 *player) {
         ((TUnk_804B9870 *)player)->obj_clearFlags30(0x100);
         *(s16 *)((s8 *)player + 0x33C) = (s16) *(s16 *)((s8 *)player + 0x33A);
         ((TObjPlayer *)player)->m_b8 = 0;
-        *(s32 *)&((TObjPlayer *)player)->actorFlags = (s32) (*(s32 *)&((TObjPlayer *)player)->actorFlags & 0xFF9FFFFF);
+        ((TObjPlayer *)player)->actorFlags = (s32) (((TObjPlayer *)player)->actorFlags & 0xFF9FFFFF);
         ((TObjPlayer *)player)->m_37c = 1;
         goto case1;
     case 1:
     case1:
         advance_animation_playback(player);
-        if (!(*(s32 *)&((TObjPlayer *)player)->actorFlags & 0x800000)) {
+        if (!(((TObjPlayer *)player)->actorFlags & 0x800000)) {
             apply_actor_gravity(player, 0, lbl_805D9984);
         }
         ((TObjPlayer *)player)->update_collisions();
@@ -1019,7 +1019,7 @@ void TObjPlayer__sub_800A1D70(u8 *arg0) {
     f32 temp_f31;
     switch (((TObjPlayer *)arg0)->m_37c) {
     case 0:
-        *(s32 *)&((TObjPlayer *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjPlayer *)arg0)->actorFlags & 0xFFDFFFFF);
+        ((TObjPlayer *)arg0)->actorFlags = (s32) (((TObjPlayer *)arg0)->actorFlags & 0xFFDFFFFF);
         if (*(s32 *)((s8 *)arg0 + 0x388) & 0x800000) {
             ((TObjPlayer *)arg0)->m_b8 = 9;
         } else {

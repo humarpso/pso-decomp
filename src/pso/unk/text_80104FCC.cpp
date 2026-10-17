@@ -218,7 +218,7 @@ void TUnk_804806E8::request_box_item_drop(void *unused, s16 arg2) {
                     pkt.f18 = self->f70;
                     pkt.f1c = this->m_84;
                     pkt.f20 = self->f88;
-                    pkt.f24 = *(s32 *)&this->m_8c;
+                    pkt.f24 = this->m_8c;
                     ((TLobby *)(&pkt))->process_and_dispatch_packet();
                 }
             }

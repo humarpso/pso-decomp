@@ -135,7 +135,7 @@ int TOAttackableCol::send_state_change(u16 state) {
         msg.id = id;
         msg.type = *(s16 *)(parent + 4);
         msg.state = state;
-        msg.f0E = *(s32 *)&this->m_33c;
+        msg.f0E = this->m_33c;
         if (this->m_344 == 0 && self->f348 >= 0 && state == 1) {
             msg.f10 = self->f348;
             msg.flag = 1;

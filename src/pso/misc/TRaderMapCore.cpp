@@ -952,7 +952,7 @@ void TRaderMapCore::render_region_records(void * _w1) {
     ((TRaderMapCore *)saved_model_draw_color)->copy_vec4(model_material_color);
     lbl_805D5664 = chunk_polygon_flags_and_mask;
     lbl_805D5668 = chunk_polygon_flags_or_mask;
-    model_render_flags |= *(s32 *)&arg0->m_194;
+    model_render_flags |= arg0->m_194;
     set_chunk_material_override_pair(-0xFF01, 0x900);
     if (MAP_801FAAEC->tex != 0) {
         TObjFish::set_global_param(MAP_801FAAEC->tex);

@@ -30,7 +30,7 @@ void TAdDialingGC::handle_state() {
 }
 void TAdDialingGC::update_status_display() {
     Obj_80328990 *arg0 = (Obj_80328990 *)this;
-    switch (*(u32 *)&this->m_9c) {
+    switch (this->m_9c) {
     case 1:
         refresh_display__12TAdDialingGCFv(arg0);
         return;

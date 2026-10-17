@@ -4322,7 +4322,7 @@ f32 TObjPlayer::calc_distance_to_client(s32 arg0, u16 arg1, u32 arg2) {
   if (arg1 < 0x1000U)
   {
     temp_r3 = ((s32 (*)(u32))get_player_by_client_id)((u32) arg1);
-    if ((temp_r3 != 0) && (!((*(s32 *)&((TObjPlayer *)temp_r3)->actorFlags) & 0x800)))
+    if ((temp_r3 != 0) && (!((((TObjPlayer *)temp_r3)->actorFlags) & 0x800)))
     {
       ;
       if (((TObjPlayer *)temp_r3)->get_field_3e4() == get_current_floor())
@@ -4487,10 +4487,10 @@ void TUnk_804806E8::reset_motion_fields() {
     self->v29c.x = self->v29c.y = self->v29c.z = (0.0f);
     this->m_248 = this->m_250 = (0.0f);
     self->f24c = (1.0f);
-    *(s32 *)&this->m_2ac = 0;
+    this->m_2ac = 0;
     this->m_2b4 = (0.0f);
     this->m_2d4 = 0xFFFF;
-    *(s32 *)&this->m_2dc = 0;
+    this->m_2dc = 0;
     this->phase = self->f32a = 0;
     self->f320 = 0;
     self->v2fc.x = self->v2fc.y = self->v2fc.z = self->v308.x = self->v308.y = self->v308.z = (0.0f);

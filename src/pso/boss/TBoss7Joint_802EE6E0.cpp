@@ -69,17 +69,17 @@ void TBoss7Joint::vfunc_88() {
     u8 *temp_r4_5;
     temp_f2 = *(f32 *)((s8 *)arg0 + 0x3C);
     if (temp_f2 < (lbl_805DE9F0 - lbl_805DEBA8)) {
-        temp_r4 = (u8 *)(*(u8 * *)&this->m_a4);
+        temp_r4 = (u8 *)(this->m_a4);
         *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) & 0xFFFFFFF8);
     } else if (temp_f2 >= lbl_805DEBAC) {
-        temp_r4_2 = (u8 *)(*(u8 * *)&this->m_a4);
+        temp_r4_2 = (u8 *)(this->m_a4);
         *(s32 *)((s8 *)temp_r4_2 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4_2 + 0x18) | 5);
-        temp_r4_3 = (u8 *)(*(u8 * *)&this->m_a4);
+        temp_r4_3 = (u8 *)(this->m_a4);
         *(s32 *)((s8 *)temp_r4_3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4_3 + 0x18) & 0xFFFFFFFD);
     } else {
-        temp_r4_4 = (u8 *)(*(u8 * *)&this->m_a4);
+        temp_r4_4 = (u8 *)(this->m_a4);
         *(s32 *)((s8 *)temp_r4_4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4_4 + 0x18) | 3);
-        temp_r4_5 = (u8 *)(*(u8 * *)&this->m_a4);
+        temp_r4_5 = (u8 *)(this->m_a4);
         *(s32 *)((s8 *)temp_r4_5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4_5 + 0x18) & 0xFFFFFFFB);
     }
     ((TObjEneDD *)arg0)->transform_part_positions();

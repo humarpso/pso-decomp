@@ -210,8 +210,8 @@ BOOL TObjEnemyCustom::select_nearest_target(f32 radius) {
         da = xz_distance_squared(arg0->pos, find_entity_by_id(a)->pos);
         this->targetId = da < xz_distance_squared(arg0->pos, find_entity_by_id(b)->pos) ? a : b;
     }
-    *(void * *)&this->target = find_active_entity_by_id(this->targetId);
-    if (*(void * *)&this->target != NULL) {
+    this->target = find_active_entity_by_id(this->targetId);
+    if (this->target != NULL) {
         return 1;
     }
     return 0;

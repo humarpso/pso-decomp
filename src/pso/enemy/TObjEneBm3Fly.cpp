@@ -967,12 +967,12 @@ void TObjEneBm3Fly__sub_800B02C8(u8 *arg0, s32 arg1) {
         ((TObjEneBm3Fly *)(arg0))->vfunc_96();
         *(s32 *)((s8 *)arg0 + 0x428) = (s32) (*(s32 *)((s8 *)arg0 + 0x428) & 0xFFFFFFFE);
         *(s32 *)((s8 *)arg0 + 0x428) = (s32) (*(s32 *)((s8 *)arg0 + 0x428) | 2);
-        *(s32 *)&((TObjEneBm3Fly *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjEneBm3Fly *)arg0)->actorFlags | 0x01000000);
+        ((TObjEneBm3Fly *)arg0)->actorFlags = (s32) (((TObjEneBm3Fly *)arg0)->actorFlags | 0x01000000);
         sub_800B1634__13TObjEneBm3FlyFv(arg0);
         *(f32 *)((s8 *)arg0 + 0x394) = (f32) (((3e+01f) * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x448)))) + *(f32 *)((s8 *)arg0 + 0x41C));
         ((TObjEneBm3Fly *)arg0)->m_398 = (f32) *(f32 *)((s8 *)arg0 + 0x444);
         *(f32 *)((s8 *)arg0 + 0x39C) = (f32) (((3e+01f) * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x448)))) + *(f32 *)((s8 *)arg0 + 0x424));
-        temp_r4 = (u8 *)(*(u8 * *)&((TObjEneBm3Fly *)arg0)->movementParameters);
+        temp_r4 = (u8 *)(((TObjEneBm3Fly *)arg0)->movementParameters);
         ((TObjEneBm3Fly *)arg0)->m_3e0 = (f32) ((2.0f) + calc_scaled_value__15TObjBoss2TunnelFlf((int) (*(s32 *)((s8 *)temp_r4 + 8)), (int)temp_r4, (f32) (*(f32 *)((s8 *)temp_r4 + 4)), (f32) ((3e+01f))));
         ((TObjEneDD *)arg0)->update_velocity();
         break;
@@ -1098,7 +1098,7 @@ void TObjEneBm3Fly::execute_action(s32 arg1) {
         this->vfunc_96();
         *(s32 *)((s8 *)((u8 *)this) + 0x428) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x428) & 0xFFFFFFFE);
         *(s32 *)((s8 *)((u8 *)this) + 0x428) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x428) | 2);
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFEFFFFFF);
+        this->actorFlags = (s32) (this->actorFlags & 0xFEFFFFFF);
         *(s32 *)((s8 *)((u8 *)this) + 0x3C4) = 0;
         this->m_3c0 = 0;
         *(s32 *)((s8 *)((u8 *)this) + 0x454) = 1;
@@ -1568,7 +1568,7 @@ s32 TObjEneBm3Fly::can_attack_target() {
     f32 temp_f31;
     if ((this->m_3ac < ((5.0f) + ((TObjPlayer *)TObjEneBm3Fly__attack_params)->get_pos_x())) && (fabs_float((f32) (*(f32 *)((s8 *)((u8 *)this) + 0x42C) - this->m_398)) < (1.0f))) {
         temp_f31 = vec3_dot(((u8 *)this) + 0x430, ((u8 *)this) + 0x3A0);
-        ((TObjPlayer *)(*(s32 *)&this->m_318))->get_field_0c();
+        ((TObjPlayer *)(this->m_318))->get_field_0c();
         if (temp_f31 >= cos_table_lookup()) {
             return 1;
         }
@@ -2126,7 +2126,7 @@ void TObjEneBm3Fly::store_position() {
 
 void TObjEneBm3Fly::update_state_flag() {
 
-    if (TObjEneEpsilon__sub_800B92F8(this, *(void **)((s8 *)(*(void * *)&this->movementParameters) + 8), *(*(f32 **)&lbl_805D50EC)) != 0U) {
+    if (TObjEneEpsilon__sub_800B92F8(this, *(void **)((s8 *)(this->movementParameters) + 8), *(*(f32 **)&lbl_805D50EC)) != 0U) {
         *(s32 *)((s8 *)this + 0x428) = (s32) (*(s32 *)((s8 *)this + 0x428) | 2);
         return;
     }

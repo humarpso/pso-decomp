@@ -200,7 +200,7 @@ void TObjLuker::open_destination_windows() {
                 self->wins[i] = check_room_seq_4__16TAdChrSelASlotGCFl(get_window_layout_position(0x33), 1);
             }
             if (self->wins[i] != 0) {
-                *(s32 *)&this->m_a0 = target;
+                this->m_a0 = target;
                 ((TWindowSubTradeMain *)(self->wins[i]))->add_text_entry(get_floor_destination_name(TLobby::get_player_floor(target)), 2, 0, -1);
                 ((TAdChrSelASlotGC *)(self->wins[i]))->set_flag_40();
                 ((TWindowSubComCard *)(self->wins[i]))->calc_window_size();
