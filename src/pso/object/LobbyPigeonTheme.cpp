@@ -6,16 +6,16 @@ extern "C" {
 s32 filter_lobby_pigeon_theme(void);
 
 s32 filter_lobby_pigeon_theme(void) {
-    s32 var_r3;
+    s32 filtered_event_theme;
 
-    var_r3 = TLobby::get_filtered_event_theme();
-    switch (var_r3) {
+    filtered_event_theme = TLobby::get_filtered_event_theme();
+    switch (filtered_event_theme) {
     case 3:
     case 9:
-        var_r3 = 3;
+        filtered_event_theme = 3;
         break;
     }
-    return var_r3;
+    return filtered_event_theme;
 }
 
 }

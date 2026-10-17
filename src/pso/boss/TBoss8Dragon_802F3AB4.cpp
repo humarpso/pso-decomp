@@ -64,11 +64,11 @@ void *TUnk_804E4BF0::ct(void *arg1, void *arg1p) {
     return this;
 }
 
-void * TBoss8Dragon__sub_802F3C24(void *arg0, void *arg1) {
+void * TBoss8Dragon__sub_802F3C24(void *arg0, void *arg1p) {
     void *o;
     o = __nw__7TObjectFUl(0x5C);
     if (o != NULL) {
-        o = ((TUnk_804E4BF0 *)o)->ct((void *)(arg0), (void *)(arg1));
+        o = ((TUnk_804E4BF0 *)o)->ct((void *)(arg0), (void *)(arg1p));
     }
     return o;
 }

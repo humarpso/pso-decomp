@@ -207,12 +207,12 @@ f32 TObjPlayer::get_drop_random_float(u32 arg0) {
     return lbl_805DAC70 * (f32) rand();
 }
 
-void roll_item_channel_below(u32 arg0, s32 arg1) {
+void roll_item_channel_below(u32 count, s32 arg1) {
     if ((u32) (*(u32 *)&item_mgr) != 0U) {
-        roll_channel_below__9TItemDropFPviUi((int) ((*(u32 *)&item_mgr)), (void *) (arg0), (void *) (arg1));
+        roll_channel_below__9TItemDropFPviUi((int) ((*(u32 *)&item_mgr)), (void *) (count), (void *) (arg1));
         return;
     }
-    __cvt_fp2unsigned((f32) arg0 * TObjPlayer::get_drop_random_float((u32)((void *) (arg1))));
+    __cvt_fp2unsigned((f32) count * TObjPlayer::get_drop_random_float((u32)((void *) (arg1))));
 }
 
 void TObjPlayer::drop_item_from_slot(s32 area, s32 arg1, s32 arg2) {

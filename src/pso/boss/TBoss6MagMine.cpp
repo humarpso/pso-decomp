@@ -572,15 +572,15 @@ s32 TBoss6MagMine__ct(s32 arg0, s32 parent, s32 arg2) {
 
 s32 create__13TBoss6MagMineFi(s32 arg0) {
     s32 var_r31;
-    s32 var_r4;
+    s32 parent;
 
     var_r31 = __nw__7TObjectFUl(0x3B4);
     if (var_r31 != 0) {
-        var_r4 = __nw__7TObjectFUl(0x20);
-        if (var_r4 != 0) {
-            var_r4 = TObjControl__ct(var_r4, tl_04);
+        parent = __nw__7TObjectFUl(0x20);
+        if (parent != 0) {
+            parent = TObjControl__ct(parent, tl_04);
         }
-        var_r31 = TBoss6MagMine__ct((s32)(var_r31), (s32)(var_r4), (s32)(arg0));
+        var_r31 = TBoss6MagMine__ct((s32)(var_r31), (s32)(parent), (s32)(arg0));
     }
     return var_r31;
 }

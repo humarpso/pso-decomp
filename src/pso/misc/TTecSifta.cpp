@@ -130,19 +130,19 @@ void TTecSifta::update_effect_params() {
     this->m_74 = (f32) (this->m_98 * this->m_a4);
 }
 
-void TTecSifta::create_instance(void *arg1, void *arg2, void *arg3) {
+void TTecSifta::create_instance(void *pos, void *arg2, void *level) {
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {
-        TTecSifta__ct((void *)(o), (void *)(this), (void *)(arg1), (void *)(arg2), (void *)(arg3));
+        TTecSifta__ct((void *)(o), (void *)(this), (void *)(pos), (void *)(arg2), (void *)(level));
     }
 }
 
-void TTecSifta::create(void *arg0, void *arg1, void *arg2) {
+void TTecSifta::create(void *arg0, void *pos, void *level) {
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {
-        TTecSifta__sub_8023B17C((u8 *)(o), (s32)(arg0), (s32)(arg1), (s32)(arg2));
+        TTecSifta__sub_8023B17C((u8 *)(o), (s32)(arg0), (s32)(pos), (s32)(level));
     }
 }
 

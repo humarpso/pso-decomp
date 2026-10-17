@@ -2389,10 +2389,10 @@ inline Node_803EB8BC *Last_803EB8BC(Node_803EB8BC *p) {
     return p;
 }
 
-void append_unique_node__22TQuestVmDownLoadServerFiPvPvPv(s32 arg0, Node_803EB8BC **headp, Node_803EB8BC **tailp, Node_803EB8BC *n) {
+void append_unique_node__22TQuestVmDownLoadServerFiPvPvPv(s32 start, Node_803EB8BC **headp, Node_803EB8BC **tailp, Node_803EB8BC *n) {
     s32 len;
 
-    len = Conv_803EB8BC(arg0, lbl_805D78EC, n, lbl_805A0340);
+    len = Conv_803EB8BC(start, lbl_805D78EC, n, lbl_805A0340);
     len = TQuestVmDownLoadServer__sub_803EC71C(lbl_805A0340, (u8 *)lbl_805A02A8, len);
     if (Find_803EB8BC((u8 *)lbl_805A02A8, len)) {
         ((TQuestVmDownLoadServer *)n)->free_node_list();
@@ -2439,12 +2439,12 @@ inline Node_803EBA98 *Next_803EBA98(Node_803EBA98 *p) {
     }
     return p->next;
 }
-void TQuestVmDownLoadServer__sub_803EBA98(s32 arg0, Node_803EBA98 *arg1) {
+void TQuestVmDownLoadServer__sub_803EBA98(s32 start, Node_803EBA98 *arg1) {
     s32 n;
     s32 len;
     quest_download_text_write_ptr = quest_download_text_buffer;
     while (arg1 != NULL) {
-        n = Conv_803EBA98(arg0, lbl_805D78EC, arg1, lbl_805A0340);
+        n = Conv_803EBA98(start, lbl_805D78EC, arg1, lbl_805A0340);
         len = TQuestVmDownLoadServer__sub_803EC71C(lbl_805A0340, quest_download_text_write_ptr + 1, n);
         *quest_download_text_write_ptr++ = len;
         quest_download_text_write_ptr += len;

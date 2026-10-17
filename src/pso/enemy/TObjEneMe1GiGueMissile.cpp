@@ -96,11 +96,11 @@ int TObjEneMe1GiGueMissile::vfunc_6() { ((TObjEneMe1GiGueMissile *)this)->explod
 
 void TObjEneMe1GiGueMissile::vfunc_9(void *a1) { ((TObjEneMe1GiGueMissile *)this)->explode((char*)a1 + 0x38); queue_destruction__7TObjectFv(this); }
 
-void TObjEneMe1GiGueMissile::create(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
+void TObjEneMe1GiGueMissile::create(s32 arg0, s32 from, s32 arg2, f32 farg0, f32 farg1) {
     void *temp_r3;
     temp_r3 = (void *) __nw__7TObjectFUl(0xC4);
     if ((u32) temp_r3 != 0U) {
-        TObjEneMe1GiGueMissile__ct((u8 *)(temp_r3), (s32)(arg0), (u8 *)(arg1), (u8 *)(arg2), farg0, farg1);
+        TObjEneMe1GiGueMissile__ct((u8 *)(temp_r3), (s32)(arg0), (u8 *)(from), (u8 *)(arg2), farg0, farg1);
     }
 }
 

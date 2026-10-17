@@ -272,11 +272,11 @@ extern "C" {
 void create_timed_particle_emitter(void *, s32, s32, s32, void *);
 void spawn_particle_effect(void *, s32, void *);
 void run_task__11TTecRaZondeFv(Obj_80238F84 *self);
-void TTecRaZonde::create(void *arg1, void *arg2) {
+void TTecRaZonde::create(void *origin, void *level) {
     void *o;
     o = __nw__7TObjectFUl(0x150);
     if (o != NULL) {
-        TTecRaZonde__ct((void *)(o), (void *)(this), (void *)(arg1), (void *)(arg2));
+        TTecRaZonde__ct((void *)(o), (void *)(this), (void *)(origin), (void *)(level));
     }
 }
 

@@ -564,46 +564,46 @@ extern u32 TBoss4Type3_shared_instance;
 extern u32 lbl_805D6864;
 extern u32 lbl_805D6868;
 
-void dispatch_state_handler__19TObjEneBm9MericarolFiUii(s32 arg0, u32 arg1, s32 msg) {
+void dispatch_state_handler__19TObjEneBm9MericarolFiUii(s32 actor, u32 arg1, s32 msg) {
     switch (arg1) {
     case 0:
-        ((TObjEneBm9Mericarol *)arg0)->handle_action((s32)((void *) (msg)));
+        ((TObjEneBm9Mericarol *)actor)->handle_action((s32)((void *) (msg)));
         return;
     case 1:
-        TObjEneBm9Mericarol__sub_802D05BC((void *) (arg0), (void *) (msg));
+        TObjEneBm9Mericarol__sub_802D05BC((void *) (actor), (void *) (msg));
         return;
     case 2:
-        ((TObjEneBm9Mericarol *)arg0)->handle_event((s32)((void *) (msg)));
+        ((TObjEneBm9Mericarol *)actor)->handle_event((s32)((void *) (msg)));
         return;
     case 3:
-        TObjEneBm9Mericarol__sub_802D01D8((void *) (arg0), (void *) (msg));
+        TObjEneBm9Mericarol__sub_802D01D8((void *) (actor), (void *) (msg));
         return;
     case 4:
-        handle_shot_state__19TObjEneBm9MericarolFPvi((void *) (arg0), (void *) (msg));
+        handle_shot_state__19TObjEneBm9MericarolFPvi((void *) (actor), (void *) (msg));
         return;
     case 5:
-        TObjPlayer__sub_802CFB64((void *) (arg0), (void *) (msg));
+        TObjPlayer__sub_802CFB64((void *) (actor), (void *) (msg));
         return;
     case 6:
-        TObjEneDD__sub_802CF7B4((void *) (arg0), (void *) (msg));
+        TObjEneDD__sub_802CF7B4((void *) (actor), (void *) (msg));
         return;
     case 10:
-        TObjEneBm9Mericarol__sub_802CF368((void *) (arg0), (void *) (msg));
+        TObjEneBm9Mericarol__sub_802CF368((void *) (actor), (void *) (msg));
         return;
     case 11:
-        ((TObjEneBm9Mericarol *)arg0)->state_burrow((s32)((void *) (msg)));
+        ((TObjEneBm9Mericarol *)actor)->state_burrow((s32)((void *) (msg)));
         return;
     case 7:
-        TObjEneBm9Mericarol__sub_802CF4F8((void *) (arg0), (void *) (msg));
+        TObjEneBm9Mericarol__sub_802CF4F8((void *) (actor), (void *) (msg));
         return;
     case 8:
-        ((TObjEneBm9Mericarol *)arg0)->handle_motion_event((s32)((void *) (msg)));
+        ((TObjEneBm9Mericarol *)actor)->handle_motion_event((s32)((void *) (msg)));
         return;
     case 9:
-        TObjEneBm9Mericarol__sub_802CEDA0((void *) (arg0), (void *) (msg));
+        TObjEneBm9Mericarol__sub_802CEDA0((void *) (actor), (void *) (msg));
         return;
     case 12:
-        ((TObjEneBm9Mericarol *)arg0)->handle_state_message((s32)((void *) (msg)));
+        ((TObjEneBm9Mericarol *)actor)->handle_state_message((s32)((void *) (msg)));
     default:
         return;
     }

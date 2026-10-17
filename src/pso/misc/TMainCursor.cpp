@@ -42,12 +42,12 @@ void destroy__11TMainCursorFis(void *, int);
 
 void TMainCursor::update_position() {
     s32 arg0 = (s32)this;
-    void *temp_r3;
+    void *entity;
 
     ((TMainCursor *)(arg0 + 0x60))->get_id();
-    temp_r3 = find_entity_by_id();
-    if (temp_r3 != NULL) {
-        s32 base = *(s32 *)((s8 *)temp_r3 + 0xA4) + ((TMainCursor *)arg0)->is_position_moved() * 0x2C;
+    entity = find_entity_by_id();
+    if (entity != NULL) {
+        s32 base = *(s32 *)((s8 *)entity + 0xA4) + ((TMainCursor *)arg0)->is_position_moved() * 0x2C;
         VecCopy__FP3VecPC3Vec(arg0 + 0x40, base + 0x1C);
     }
 }

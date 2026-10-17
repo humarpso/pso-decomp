@@ -1255,9 +1255,9 @@ extern Obj_800EDAB4 *sorcerer_bml_resource;
 void TObjEneRe4Bit__sub_800EDAB0(void);
 void *__nw__7TObjectFUl(int);
 
-void TObjEneRe4Bit::create_enabled(s32 arg1, s32 arg2, s32 arg3) {
+void TObjEneRe4Bit::create_enabled(s32 arg1, s32 arg2, s32 kind) {
     s32 arg0 = (s32)this;
-    TObjEneRe4Bit::create((void *)(arg0), (void *)(arg1), (void *)(1), (void *)(arg2), (void *)(arg3));
+    TObjEneRe4Bit::create((void *)(arg0), (void *)(arg1), (void *)(1), (void *)(arg2), (void *)(kind));
 }
 
 void TObjEneRe4Bit::create_disabled(s32 arg1, s32 arg2, s32 kind) {

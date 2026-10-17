@@ -60,14 +60,14 @@ void *TUnk_8049F42C::sub_80110010(s16 arg1) {
 
 extern s32 TItemLoad__bml_resource;
 
-Load_8011006C *init_buffer__9TItemLoadFPviii(Load_8011006C *self, s32 arg1, s32 arg2, s32 count) {
+Load_8011006C *init_buffer__9TItemLoadFPviii(Load_8011006C *self, s32 id, s32 arg2, s32 count) {
     s32 n = (count + 1) * 2;
     self->f14 = lbl_8049F43C;
     self->buf = mem_alloc((n + 0x116) & ~3);
     self->f8 = arg2;
     self->f4 = 0;
     self->fC = 0;
-    TLobby__sub_801E3E9C(arg2, arg1, self->buf, 0);
+    TLobby__sub_801E3E9C(arg2, id, self->buf, 0);
     self->f10 = 1;
     return self;
 }

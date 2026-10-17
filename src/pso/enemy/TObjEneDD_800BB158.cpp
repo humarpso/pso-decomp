@@ -24,8 +24,8 @@ void TBoss5Gryphon::calc_shot_position(u8 *arg1, f32 farg0, f32 farg1, f32 farg2
     u8 *arg0 = (u8 *)this;
     s32 temp_r5;
 
-    f32 temp_f3 = farg2 + this->m_37c;
-    if (((TBoss5Gryphon *)arg0)->enemy_probe_wall_ahead(farg0, farg1, temp_f3) == 0U) {
+    f32 reach = farg2 + this->m_37c;
+    if (((TBoss5Gryphon *)arg0)->enemy_probe_wall_ahead(farg0, farg1, reach) == 0U) {
         *(f32 *)((s8 *)arg1 + 0) = (f32) ((farg0 * farg2) + *(f32 *)((s8 *)arg0 + 0x38));
         *(f32 *)((s8 *)arg1 + 4) = (f32) *(f32 *)((s8 *)arg0 + 0x3C);
         *(f32 *)((s8 *)arg1 + 8) = (f32) ((farg1 * farg2) + *(f32 *)((s8 *)arg0 + 0x40));

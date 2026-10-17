@@ -2158,14 +2158,14 @@ Obj_800A73F8 *__dt__12TObjEneSaverFv(Obj_800A73F8 *arg0, s16 arg1) {
 }
 
 #undef VecCopy__FP3VecPC3Vec
-u8 *TObjEneSaver__ct(u8 *arg0, void *arg1, void *arg2) {
+u8 *TObjEneSaver__ct(u8 *arg0, void *arg1, void *arg1_arg) {
     s16 t;
     void *p;
-    initialize__9TObjEnemyFPv(arg0, arg1, arg2);
+    initialize__9TObjEnemyFPv(arg0, arg1, arg1_arg);
     *(u8 **)((s8 *)arg0 + 0x18) = (u8 *)TObjEneSaver__vtable;
     ((TUnk_80490470 *)(arg0 + 0x3A4))->init_vtable_and_field18();
     *(s32 *)((s8 *)arg0 + 0) = TObjEneSaver__class_name;
-    ((TObjEneSaver *)arg0)->apply_set_data(arg2);
+    ((TObjEneSaver *)arg0)->apply_set_data(arg1_arg);
     ((TObjPlayer *)arg0)->init_position_vectors();
     *(f32 *)((s8 *)arg0 + 0x70) = 1.0f;
     *(f32 *)((s8 *)arg0 + 0x6C) = 1.0f;

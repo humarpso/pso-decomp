@@ -6,11 +6,11 @@ extern "C" {
 s32 get_current_matrix(s32);
 
 void TObjPlayer::apply_conveyor_effect() {
-    s32 temp_r3;
+    s32 player_list;
 
-    temp_r3 = TObjPlayer::get_player_list();
-    get_current_matrix(*(s32 *)((s8 *)(*(void * *)&this->unk_F0) + 0xDB4) + (temp_r3 * 0x30));
-    if (temp_r3 == 9) {
+    player_list = TObjPlayer::get_player_list();
+    get_current_matrix(*(s32 *)((s8 *)(*(void * *)&this->unk_F0) + 0xDB4) + (player_list * 0x30));
+    if (player_list == 9) {
         TObjPlayer::play_particle_effect_once();
     }
 }

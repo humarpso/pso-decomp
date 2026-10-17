@@ -166,8 +166,8 @@ void TParticleCtrl::set_tev_direct(s32 arg0) {
     set_ginja_post_texgen_count(0);
 }
 
-void play_indirect_effect_recipe(u8 arg0, u16 arg1, s32 arg2) {
-    TObjPlayer::play_particle_at_active_slot((s32) arg0, (s32) arg1, 0, 0, 0, arg2);
+void play_indirect_effect_recipe(u8 arg0, u16 sampler, s32 second) {
+    TObjPlayer::play_particle_at_active_slot((s32) arg0, (s32) sampler, 0, 0, 0, second);
 }
 
 int TParticleCtrl::get_object() { return register_indirect_effect_ctrl(this); }

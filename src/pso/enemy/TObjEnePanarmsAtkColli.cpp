@@ -124,17 +124,17 @@ Obj_800E31C4 *fn_800E31C4(Obj_800E31C4 *self, Entry_800E31C4 *list, Vec_800E31C4
 }
 
 void fn_800E322C(void *p, void *t) {
-    Obj_800E322C *arg0 = (Obj_800E322C *)p;
-    Vec_800E322C sp = arg0->pos;
+    Obj_800E322C *target = (Obj_800E322C *)p;
+    Vec_800E322C sp = target->pos;
     s32 r;
     u32 ent;
-    VecCopy__FP3VecPC3Vec(&arg0->pos, t);
-    if ((r = find_nearest_hittable_enemy__10TObjPlayerFiPvf(arg0, 0, arg0->f378)) != 0xFFFF) {
-        if ((ent = get_enemy_entity(r)) != 0 && ent != arg0->f10) {
-            fn_800E32C0((Obj_800E32C0 *)arg0, (V_800E32C0 *)ent);
+    VecCopy__FP3VecPC3Vec(&target->pos, t);
+    if ((r = find_nearest_hittable_enemy__10TObjPlayerFiPvf(target, 0, target->f378)) != 0xFFFF) {
+        if ((ent = get_enemy_entity(r)) != 0 && ent != target->f10) {
+            fn_800E32C0((Obj_800E32C0 *)target, (V_800E32C0 *)ent);
         }
     }
-    VecCopy__FP3VecPC3Vec(&arg0->pos, &sp);
+    VecCopy__FP3VecPC3Vec(&target->pos, &sp);
 }
 
 void fn_800E32C0(Obj_800E32C0 *target, V_800E32C0 *arg1) {

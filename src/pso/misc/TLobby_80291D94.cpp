@@ -989,16 +989,16 @@ s32 TLobby__sub_80292DA0(s32 seed, u16 card) {
 #define lbl_804DB1F0 (*(s32 (*)[1])&lbl_804DB1F0)
 
 s32 TLobby::get_clamped_time_limit() {
-    s32 var_r3;
+    s32 valid_slot;
 
     if (is_challenge_mode_active() == 0) {
         return 0x12C;
     }
-    var_r3 = TLobby::get_valid_slot(*(s32 *)((s8 *)lbl_804DB1F0 + 0x10));
-    if ((var_r3 < 0x3C) || (var_r3 > 0xE10)) {
-        var_r3 = 0x12C;
+    valid_slot = TLobby::get_valid_slot(*(s32 *)((s8 *)lbl_804DB1F0 + 0x10));
+    if ((valid_slot < 0x3C) || (valid_slot > 0xE10)) {
+        valid_slot = 0x12C;
     }
-    return var_r3;
+    return valid_slot;
 }
 
 }

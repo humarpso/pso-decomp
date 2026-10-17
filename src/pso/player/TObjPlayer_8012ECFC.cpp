@@ -9,10 +9,10 @@ s32 get_attack_stage__11TItemWeaponFv();
 s32 rotate_matrix_y(s32, s32);
 
 void twinkle_star_turn_stars(void *arg0) {
-    s32 temp_r3;
+    s32 player_list;
 
-    temp_r3 = TObjPlayer::get_player_list();
-    switch (temp_r3) {
+    player_list = TObjPlayer::get_player_list();
+    switch (player_list) {
     case 1:
         TObjPlayer::play_particle_effect_once();
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x1F8));

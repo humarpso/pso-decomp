@@ -3,8 +3,8 @@
 
 extern "C" {
 
-void TLobby::set_flag_4(s8 arg1) {
-    *(s8 *)&this->m_flags = arg1;
+void TLobby::set_flag_4(s8 flags) {
+    *(s8 *)&this->m_flags = flags;
 }
 
 void TLobby::set_client_slot(s8 arg1) {

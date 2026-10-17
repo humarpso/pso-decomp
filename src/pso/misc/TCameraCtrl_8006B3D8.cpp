@@ -115,17 +115,17 @@ void TCameraCtrl::update_battle_camera() {
 }
 
 u8 *create_conversation_camera(s32 arg0) {
-    s32 temp_r31;
+    s32 i;
     u8 *temp_r3;
     u8 *var_r0;
     if (is_split_screen() != 0) {
         return NULL;
     }
-    temp_r31 = local_client_id;
+    i = local_client_id;
     temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x38))));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(((TCameraCtrl *)temp_r3)->init_conversation_camera((s32)(temp_r31), (s32)(arg0), (s32)(tl_07)));
+        var_r0 = (u8 *)(((TCameraCtrl *)temp_r3)->init_conversation_camera((s32)(i), (s32)(arg0), (s32)(tl_07)));
     }
     return var_r0;
 }

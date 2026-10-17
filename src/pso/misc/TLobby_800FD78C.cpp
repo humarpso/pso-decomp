@@ -6,11 +6,11 @@ extern "C" {
 u8 fn_800FD7C0(void *arg0);
 s32 TCameraCtrl__sub_8006B370(f32);
 
-void TLobby::init_range(s32 arg1) {
+void TLobby::init_range(s32 flags) {
     s32 temp_r5;
 
-    *(s32 *)&this->m_flags = arg1;
-    temp_r5 = arg1 + 1;
+    *(s32 *)&this->m_flags = flags;
+    temp_r5 = flags + 1;
     *(s32 *)&this->m_prev = temp_r5;
     *(s32 *)&this->m_next = temp_r5;
     *(s32 *)&this->m_up = 0;

@@ -132,15 +132,15 @@ void set_field_0__13TForceOperateFs(void *, void *);
 
 void run_task__13TForceOperateFv(s32 arg0) {
     void *temp_r31;
-    void *temp_r3;
+    void *entity;
 
     if (TObjPlayer__sub_801C6DAC(arg0 + 0x1C) != 0) {
         temp_r31 = get_state__11TMainCursorFv(arg0 + 0x1C);
         if ((is_target_valid__10TObjPlayerFv() != 0) && (((TObjPlayer *)temp_r31)->has_action_palette_entry() != 0)) {
             ((TMainCursor *)(*(s32 *)((s8 *)temp_r31 + 0x424) + 0x4F8))->get_id();
-            temp_r3 = find_entity_by_id();
-            if (temp_r3 != NULL) {
-                ((VObj_801C57D0 *)temp_r3)->m11(obj_getField1c(temp_r31));
+            entity = find_entity_by_id();
+            if (entity != NULL) {
+                ((VObj_801C57D0 *)entity)->m11(obj_getField1c(temp_r31));
                 queue_destruction__7TObjectFv(arg0);
             }
         }

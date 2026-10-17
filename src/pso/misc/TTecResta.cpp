@@ -233,19 +233,19 @@ Resta_8023967C *construct_self_recovery__9TTecRestaFPvPviPv(Resta_8023967C *self
 }
 #pragma pop
 
-void create__9TTecRestaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
+void create__9TTecRestaFPvPvPvPv(void *owner, void *pos, void *arg2, void *level) {
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {
-        TTecResta__ct((void *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2), (void *)(arg3));
+        TTecResta__ct((void *)(o), (void *)(owner), (void *)(pos), (void *)(arg2), (void *)(level));
     }
 }
 
-void TTecResta::create(void *arg0, void *arg1, void *arg2) {
+void TTecResta::create(void *arg0, void *pos, void *level) {
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {
-        TTecResta__sub_80239C48((u8 *)(o), (s32)(arg0), (s32)(arg1), (s32)(arg2));
+        TTecResta__sub_80239C48((u8 *)(o), (s32)(arg0), (s32)(pos), (s32)(level));
     }
 }
 

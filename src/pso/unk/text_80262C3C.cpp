@@ -186,12 +186,12 @@ void *__dt__13TWindowLockOnFv(void *arg0, s16 arg1);
 #define PSO_VCALL_VObj_18_7b8813_m31(_self) (((VObj_18_7b8813 *)(_self))->m31())
 void TWindowLockOn::validate_target() {
   u16 temp_r3;
-  u8 *temp_r3_2;
+  u8 *item;
   temp_r3 = this->m_60;
   if (temp_r3 != ((-1U) & 0xFFFFu))
   {
-    temp_r3_2 = (u8 *) ((u8 *(*)(u16))find_entity_by_id)(temp_r3);
-    if ((temp_r3_2 == 0) || (((TObject *)temp_r3_2)->all_parents_unqueued_for_destruction() == 0))
+    item = (u8 *) ((u8 *(*)(u16))find_entity_by_id)(temp_r3);
+    if ((item == 0) || (((TObject *)item)->all_parents_unqueued_for_destruction() == 0))
     {
       this->m_60 = 0xFFFFU;
       if (((f32) (*(s32 *)&this->m_64)) > lbl_805DD100)
@@ -200,11 +200,11 @@ void TWindowLockOn::validate_target() {
       }
     }
     else
-      if (((s32 (*)(void *, s32))obj_testFlags30)(temp_r3_2, 0x10000000) == 0)
+      if (((s32 (*)(void *, s32))obj_testFlags30)(item, 0x10000000) == 0)
     {
-      if (((s32 (*)(void *, s32))obj_testFlags30)(temp_r3_2, 0x20000000) != 0)
+      if (((s32 (*)(void *, s32))obj_testFlags30)(item, 0x20000000) != 0)
       {
-        if (PSO_VCALL_VObj_18_7b8813_m31(temp_r3_2) != 0)
+        if (PSO_VCALL_VObj_18_7b8813_m31(item) != 0)
         {
           this->m_60 = 0xFFFFU;
           if (((f32) (*(s32 *)&this->m_64)) > lbl_805DD100)
@@ -214,7 +214,7 @@ void TWindowLockOn::validate_target() {
         }
       }
       else
-        if ((((s32 (*)(void *, s32))obj_testFlags30)(temp_r3_2, 0x80000000) != 0) && (TObjPlayer__sub_80102C30(temp_r3_2) != 0))
+        if ((((s32 (*)(void *, s32))obj_testFlags30)(item, 0x80000000) != 0) && (TObjPlayer__sub_80102C30(item) != 0))
       {
         this->m_60 = 0xFFFFU;
         if (((f32) (*(s32 *)&this->m_64)) > lbl_805DD100)

@@ -728,21 +728,21 @@ void TLobby__sub_803C3B5C(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x8C) = arg2;
 }
 
-s32 TLobby__sub_803C3B68(s32 arg0, u16 *arg1, s32 arg2) {
-    if ((u16) *(u16 *)((s8 *)arg1 + 0) == 0x8000) {
-        return TRK__write_aram((void *)((void *)arg0), (void *)(arg1), (void *)((void *)arg2));
+s32 TLobby__sub_803C3B68(s32 arg0, u16 *hdr, s32 size) {
+    if ((u16) *(u16 *)((s8 *)hdr + 0) == 0x8000) {
+        return TRK__write_aram((void *)((void *)arg0), (void *)(hdr), (void *)((void *)size));
     }
-    if (((TLobby *)arg1)->is_spsd_header() != 0) {
-        return TLobby__sub_803C43A8((void *)((void *) (arg0)), (void *)((void *) (arg1)), (void *)((void *) (arg2)));
+    if (((TLobby *)hdr)->is_spsd_header() != 0) {
+        return TLobby__sub_803C43A8((void *)((void *) (arg0)), (void *)((void *) (hdr)), (void *)((void *) (size)));
     }
-    if (((TLobby *)arg1)->is_riff_wave() != 0) {
-        return DVDReadPrio((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    if (((TLobby *)hdr)->is_riff_wave() != 0) {
+        return DVDReadPrio((void *) (arg0), (void *) (hdr), (void *) (size));
     }
-    if (((TLobby *)arg1)->is_aiff_header() != 0) {
-        return ((TLobby *)arg0)->parse_stream_header((void *)((void *) (arg1)), (void *)((void *) (arg2)));
+    if (((TLobby *)hdr)->is_aiff_header() != 0) {
+        return ((TLobby *)arg0)->parse_stream_header((void *)((void *) (hdr)), (void *)((void *) (size)));
     }
-    if (((TLobby *)arg1)->is_snd_header() != 0) {
-        return TLobby__sub_803C30E8((u8 *)((u8 *) (arg0)), (s32)((s32) (arg1)), (s32)((s32) (arg2)));
+    if (((TLobby *)hdr)->is_snd_header() != 0) {
+        return TLobby__sub_803C30E8((u8 *)((u8 *) (arg0)), (s32)((s32) (hdr)), (s32)((s32) (size)));
     }
     return 0;
 }

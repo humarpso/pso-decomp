@@ -48,16 +48,16 @@ s32 init_timer_window_layout_alt(s32);
 
 void TWindowTimer::update_chat_parts() {
     u8 *arg0 = (u8 *)this;
-    s32 var_r3;
+    s32 window_layout_position;
 
     if (*(s32 *)&this->m_60 & 1) {
-        var_r3 = get_window_layout_position(0xA9);
+        window_layout_position = get_window_layout_position(0xA9);
     } else if ((TWindowSubShortMail::is_active() != 0) || (is_com_card_active() != 0) || (is_guild_card_receive_active() != 0)) {
-        var_r3 = get_window_layout_position(0xA8);
+        window_layout_position = get_window_layout_position(0xA8);
     } else {
-        var_r3 = get_window_layout_position(0x22);
+        window_layout_position = get_window_layout_position(0x22);
     }
-    ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x30))->copy_vec2((void*)var_r3);
+    ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x30))->copy_vec2((void*)window_layout_position);
 }
 
 extern s32 lbl_8044FCE0[];

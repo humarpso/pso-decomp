@@ -80,10 +80,10 @@ void export_state_to_record__10TObjPlayerFPvPv(u8 *arg0, s8 *arg1);
 int init_character_stats_for_level(s32, s8 *, s32);
 int copy_item_entry_array(s8, s32, s32);
 
-s32 TNpcPlayer::send_command(s32 arg0, s8 arg1, s32 arg2, s32 arg3, s8 *arg4) {
+s32 TNpcPlayer::send_command(s32 cls, s8 arg1, s32 src, s32 level, s8 *arg4) {
     *arg4 = arg1;
-    copy_item_entry_array(arg1, arg2, get_ptr_4__10TObjPlayerFv(arg4));
-    init_character_stats_for_level(arg0, arg4, arg3);
+    copy_item_entry_array(arg1, src, get_ptr_4__10TObjPlayerFv(arg4));
+    init_character_stats_for_level(cls, arg4, level);
     return 1;
 }
 void export_character_data__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {

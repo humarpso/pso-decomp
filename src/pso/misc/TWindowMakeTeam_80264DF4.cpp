@@ -46,15 +46,15 @@ s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 create_information_counter_window(s32);
 
 s32 TWindowMakeTeam::create_menu() {
-    s32 temp_r31;
+    s32 information_counter_window;
 
-    temp_r31 = create_information_counter_window(5);
-    ((TWindowSubComCard *)temp_r31)->update_next_entry(get_message_10__20TWindowSubStatusDispFl(0x4D), 0, 0);
-    ((TWindowSubComCard *)temp_r31)->update_next_entry(get_message_10__20TWindowSubStatusDispFl(0x4E), 0, 1);
-    ((TWindowSubComCard *)temp_r31)->update_next_entry(get_message_10__20TWindowSubStatusDispFl(0x4F), 0, 2);
-    ((TWindowSubComCard *)temp_r31)->update_next_entry(get_message_10__20TWindowSubStatusDispFl(0x50), 0, 3);
-    ((TWindowSubStatusDisp *)temp_r31)->add_text_entry(get_message_10__20TWindowSubStatusDispFl(0x51), 4);
-    return temp_r31;
+    information_counter_window = create_information_counter_window(5);
+    ((TWindowSubComCard *)information_counter_window)->update_next_entry(get_message_10__20TWindowSubStatusDispFl(0x4D), 0, 0);
+    ((TWindowSubComCard *)information_counter_window)->update_next_entry(get_message_10__20TWindowSubStatusDispFl(0x4E), 0, 1);
+    ((TWindowSubComCard *)information_counter_window)->update_next_entry(get_message_10__20TWindowSubStatusDispFl(0x4F), 0, 2);
+    ((TWindowSubComCard *)information_counter_window)->update_next_entry(get_message_10__20TWindowSubStatusDispFl(0x50), 0, 3);
+    ((TWindowSubStatusDisp *)information_counter_window)->add_text_entry(get_message_10__20TWindowSubStatusDispFl(0x51), 4);
+    return information_counter_window;
 }
 void TWindowMakeTeam::render() {  }
 void TWindowMakeTeam::run_task() {

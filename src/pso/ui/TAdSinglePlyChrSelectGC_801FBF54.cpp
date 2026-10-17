@@ -1481,9 +1481,9 @@ void TAdSinglePlyChrSelectGC__sub_801FDC14(void) {
     }
 }
 
-s32 swap_characters__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1) {
+s32 swap_characters__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 i) {
     s32 result;
-    if ((arg0 >= 7) || (arg1 >= 7)) {
+    if ((arg0 >= 7) || (i >= 7)) {
         return 0;
     }
     if ((u32) card_character_save_buffer == 0U) {
@@ -1492,11 +1492,11 @@ s32 swap_characters__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1) {
     if ((u32) secondary_card_character_save_buffer == 0U) {
         goto return_zero;
     }
-    if (check_page_cross__23TAdSinglePlyChrSelectGCFiiii((s32)(secondary_card_character_save_buffer), (s32)(arg0), (s32)(card_character_save_buffer), (s32)(arg1)) == 0) {
+    if (check_page_cross__23TAdSinglePlyChrSelectGCFiiii((s32)(secondary_card_character_save_buffer), (s32)(arg0), (s32)(card_character_save_buffer), (s32)(i)) == 0) {
         goto return_zero;
     }
     increment_counters__23TAdSinglePlyChrSelectGCFv();
-    TAdSinglePlyChrSelectGC__sub_801FE380((P_801FE380 *)(secondary_card_character_save_buffer), (s32)(arg0), (P_801FE380 *)(card_character_save_buffer), (s32)(arg1));
+    TAdSinglePlyChrSelectGC__sub_801FE380((P_801FE380 *)(secondary_card_character_save_buffer), (s32)(arg0), (P_801FE380 *)(card_character_save_buffer), (s32)(i));
     return 1;
 return_zero:
     return 0;

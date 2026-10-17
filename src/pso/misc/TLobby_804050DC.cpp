@@ -4606,7 +4606,7 @@ s16 TLobby__sub_804145D4(void *, void *);
 
 s32 NetIPv6SendRouterSolicitation(s32 arg0) {
     u8 address[0x1C];
-    u8 spC[0x10];
+    u8 addr[0x10];
     s32 temp_r31;
     u8 *free_entry;
 
@@ -4617,10 +4617,10 @@ s32 NetIPv6SendRouterSolicitation(s32 arg0) {
     *(s32 *)((s8 *)free_entry + 4) = 0;
     *(s32 *)((s8 *)free_entry + 8) = 0;
     init_ipv6_all_routers_multicast_address((u8 *)((void *) (address)), (s8)((int) (2)));
-    if (TLobby__sub_804145D4((void *) (spC), (void *) (arg0)) < 0) {
-        NetMemset((void *) (spC), (int) (0), (int) (0x10));
+    if (TLobby__sub_804145D4((void *) (addr), (void *) (arg0)) < 0) {
+        NetMemset((void *) (addr), (int) (0), (int) (0x10));
     }
-    temp_r31 = NetIPv6EmitRouterSolicitation((NetPacket *)((int) (free_entry)), (NetIPv6SendParameters *)((void *) (spC)), (s32)((void *) (arg0)));
+    temp_r31 = NetIPv6EmitRouterSolicitation((NetPacket *)((int) (free_entry)), (NetIPv6SendParameters *)((void *) (addr)), (s32)((void *) (arg0)));
     ((TUdpSocket *)free_entry)->release_entry();
     return temp_r31;
 }

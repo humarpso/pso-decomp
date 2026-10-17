@@ -147,14 +147,14 @@ s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 void TTecBarta::update_technique_by_state() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
-    s32 temp_r3;
+    s32 handle;
 
     temp_r0 = this->band;
     switch (temp_r0) {
     case 0:
-        temp_r3 = play_sound_effect(0x4002A604, (int) (arg0 + 0x20), 0, 0);
-        if (temp_r3 >= 0) {
-            update_technique_slot__10TTecRaFoieFl(temp_r3, 0x100, 0);
+        handle = play_sound_effect(0x4002A604, (int) (arg0 + 0x20), 0, 0);
+        if (handle >= 0) {
+            update_technique_slot__10TTecRaFoieFl(handle, 0x100, 0);
         }
         return;
     case 1:
@@ -162,21 +162,21 @@ void TTecBarta::update_technique_by_state() {
         return;
     case 2:
     case 3:
-        temp_r3 = play_sound_effect(0x4002A604, (int) (arg0 + 0x20), 0, 0);
-        if (temp_r3 >= 0) {
-            update_technique_slot__10TTecRaFoieFl(temp_r3, -0x180, 0);
+        handle = play_sound_effect(0x4002A604, (int) (arg0 + 0x20), 0, 0);
+        if (handle >= 0) {
+            update_technique_slot__10TTecRaFoieFl(handle, -0x180, 0);
         }
         break;
     case 4:
-        temp_r3 = play_sound_effect(0x4002A604, (int) (arg0 + 0x20), 0, 0);
-        if (temp_r3 >= 0) {
-            update_technique_slot__10TTecRaFoieFl(temp_r3, -0x250, 0);
+        handle = play_sound_effect(0x4002A604, (int) (arg0 + 0x20), 0, 0);
+        if (handle >= 0) {
+            update_technique_slot__10TTecRaFoieFl(handle, -0x250, 0);
         }
         break;
     case 5:
-        temp_r3 = play_sound_effect(0x4002A604, (int) (arg0 + 0x20), 0, 0);
-        if (temp_r3 >= 0) {
-            update_technique_slot__10TTecRaFoieFl(temp_r3, -0x100, 0);
+        handle = play_sound_effect(0x4002A604, (int) (arg0 + 0x20), 0, 0);
+        if (handle >= 0) {
+            update_technique_slot__10TTecRaFoieFl(handle, -0x100, 0);
         }
         break;
     }

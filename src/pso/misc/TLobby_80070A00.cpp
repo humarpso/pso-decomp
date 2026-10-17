@@ -548,16 +548,16 @@ extern "C" {
 #define challenge_mode_state (*(s8 (*)[1])challenge_mode_state)
 s32 add_entry__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 
-s32 add_entry__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
-    u8 *temp_r30;
+s32 add_entry__6TLobbyFiii(s32 src, s32 arg1, s32 arg2) {
+    u8 *dst;
 
     if ((((s32 (*)(void))is_flag_set__6TLobbyFv)() == 0) || ((s32) *(s32 *)((s8 *)challenge_mode_state + 0x1C) < 0) || ((s32) *(s32 *)((s8 *)challenge_mode_state + 0x1C) >= 0x10)) {
         return 0;
     }
-    temp_r30 = (unsigned char *) (challenge_mode_state + (*(s32 *)((s8 *)challenge_mode_state + 0x1C) * 0x1C) + 0x5C);
-    TLobby::encode_name_xor((u8 *)temp_r30, (u8 *)arg0, (s32)((int) (0xC)));
-    TLobby::encode_name_xor((u8 *)(temp_r30 + 0xC), (u8 *)arg1, (s32)((int) (0xC)));
-    *(s32 *)((s8 *)temp_r30 + 0x18) = arg2;
+    dst = (unsigned char *) (challenge_mode_state + (*(s32 *)((s8 *)challenge_mode_state + 0x1C) * 0x1C) + 0x5C);
+    TLobby::encode_name_xor((u8 *)dst, (u8 *)src, (s32)((int) (0xC)));
+    TLobby::encode_name_xor((u8 *)(dst + 0xC), (u8 *)arg1, (s32)((int) (0xC)));
+    *(s32 *)((s8 *)dst + 0x18) = arg2;
     *(s32 *)((s8 *)challenge_mode_state + 0x1C) = (s32) (*(s32 *)((s8 *)challenge_mode_state + 0x1C) + 1);
     return 1;
 }

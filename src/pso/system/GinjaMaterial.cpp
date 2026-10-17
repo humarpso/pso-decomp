@@ -130,10 +130,10 @@ extern RecoveredCallback_b52dc2a08a00 ginja_post_texgen_callback;
 extern RecoveredCallback_b52dc2a08a00 ginja_post_tev_callback;
 void set_ginja_channel_counts(s32 arg0, s32 arg1);
 
-void draw_ginja_object(void *arg0) {
+void draw_ginja_object(void *child) {
     prepare_ginja_model();
     init_model_draw_queue((void *) draw_ginja_model_lists);
-    traverse_model_node_tree(arg0, (void *) queue_model_draw_current_matrix);
+    traverse_model_node_tree(child, (void *) queue_model_draw_current_matrix);
     flush_model_draw_queue();
     if (ginja_draw_end_callback != NULL) {
         ginja_draw_end_callback();

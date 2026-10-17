@@ -7,8 +7,8 @@ void send_6xAD_olga_flow_subordinate_boss_actions(void *);
 void TBoss6Type2__sub_803570C8(void *);
 void TBoss6Type2__sub_80356E50(s32 arg0, s32 arg1, s32 arg2);
 
-void TBoss6Type2__sub_80356E50(s32 arg0, s32 arg1, s32 arg2) {
-    TBoss6Type2::send_subordinate_actions(0, arg0, arg1, arg2, arg0);
+void TBoss6Type2__sub_80356E50(s32 arg0, s32 arg1, s32 force) {
+    TBoss6Type2::send_subordinate_actions(0, arg0, arg1, force, arg0);
 }
 
 struct Pkt_80356F28 { u8 b[0x40]; };

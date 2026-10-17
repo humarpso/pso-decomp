@@ -215,18 +215,18 @@ void TLobby::free_if_not_owner(void* a1) { if (*(unsigned int*)((char*)this + 0x
 
 s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 base, s32 arg2, s32 arg3) {
     u32 sp8;
-    s32 temp_r31;
+    s32 buf;
     u32 temp_r4;
     u32 temp_r7;
 
     temp_r7 = *(u32 *)((s8 *)arg0 + 0x424);
     if (temp_r7 != 0U) {
-        temp_r31 = temp_r7 + *(s32 *)((s8 *)arg0 + 0x428);
-        TLobby__sub_801E38A0(base, arg2, arg3, temp_r31, &sp8);
+        buf = temp_r7 + *(s32 *)((s8 *)arg0 + 0x428);
+        TLobby__sub_801E38A0(base, arg2, arg3, buf, &sp8);
         temp_r4 = ((sp8 >> 5U) + 1) << 5;
         sp8 = temp_r4;
         *(s32 *)((s8 *)arg0 + 0x428) = (s32) (*(s32 *)((s8 *)arg0 + 0x428) + temp_r4);
-        return temp_r31;
+        return buf;
     }
     return load_nj_chunk_model_resource(base, arg2, arg3);
 }

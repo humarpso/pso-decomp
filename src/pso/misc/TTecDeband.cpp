@@ -118,18 +118,18 @@ void TTecDeband::vfunc_7(void *arg1_arg) {
     }
 }
 
-void TTecDeband::create(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void TTecDeband::create(s32 arg0, s32 pos, s32 arg2, s32 level) {
     u32 obj;
     obj = __nw__7TObjectFUl(0x140);
     if (obj != 0U) {
-        TTecDeband__ct((u32)(obj), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3));
+        TTecDeband__ct((u32)(obj), (s32)(arg0), (s32)(pos), (s32)(arg2), (s32)(level));
     }
 }
-void TTecDeband::create(s32 arg0, s32 arg1, s32 arg2) {
+void TTecDeband::create(s32 arg0, s32 pos, s32 level) {
     u32 obj;
     obj = __nw__7TObjectFUl(0x140);
     if (obj != 0U) {
-        TTecDeband__sub_8022F948((u8 *)(obj), (s32)(arg0), (s32)(arg1), (s32)(arg2));
+        TTecDeband__sub_8022F948((u8 *)(obj), (s32)(arg0), (s32)(pos), (s32)(level));
     }
 }
 void TTecDeband::render() {  }

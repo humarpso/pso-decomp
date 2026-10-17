@@ -22,14 +22,14 @@ u16 TLobby__sub_801A20C8(s32);
 u16 fn_801A210C(s32);
 
 s16 TUnk_804B9870::get_stat_by_key_state() {
-    s32 temp_r3;
+    s32 global_state;
 
     if ((TOKeyMachine01::get_global_state() == 0) || (TOKeyMachine01::get_global_state() == 0x12)) {
         return 0;
     }
     if ((u16) this->m_1c < 0x1000U) {
-        temp_r3 = TOKeyMachine01::get_global_state();
-        if (((u32) (temp_r3 - 1) <= 1U) || (TContainerAncient01::is_global_state_in_table() != 0) || (temp_r3 == 0xC) || (temp_r3 == 0x20)) {
+        global_state = TOKeyMachine01::get_global_state();
+        if (((u32) (global_state - 1) <= 1U) || (TContainerAncient01::is_global_state_in_table() != 0) || (global_state == 0xC) || (global_state == 0x20)) {
             return *(s16 *)&(*(short *)((u8 *)this + 0x2E));
         }
         return *(s16 *)&this->m_28;

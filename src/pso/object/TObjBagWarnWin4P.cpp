@@ -24,31 +24,31 @@ s32 send_and_handle__6TLobbyFii(u32, void *, s32);
 s32 strncpy(void *, s32, s32);
 
 s32 TObjBagWarnWin4P::check_can_open(void * _w0) {
-    s32 var_r31;
+    s32 i;
     s32 var_r30;
 
-    for (var_r31 = 0; var_r31 < 4; var_r31++) {
-        if ((get_player_by_client_id(var_r31) != 0U) && (has_player_active_menu__11TWindowCtrlFv(obj_getField1c()) != 0)) {
+    for (i = 0; i < 4; i++) {
+        if ((get_player_by_client_id(i) != 0U) && (has_player_active_menu__11TWindowCtrlFv(obj_getField1c()) != 0)) {
             return 0;
         }
     }
-    for (var_r31 = 0; var_r31 < 4; var_r31++) {
-        if ((get_player_by_client_id(var_r31) != 0U) && (is_slot_visible__11TWindowCtrlFv(obj_getField1c()) != 0)) {
+    for (i = 0; i < 4; i++) {
+        if ((get_player_by_client_id(i) != 0U) && (is_slot_visible__11TWindowCtrlFv(obj_getField1c()) != 0)) {
             return 0;
         }
     }
     if (is_active__19THunterGuildWarningFv() != 0) {
         return 0;
     }
-    var_r31 = 0;
+    i = 0;
     var_r30 = 0;
     do {
         if ((get_player_by_client_id(var_r30) != 0U) && (get_character_save_record(var_r30) != 0U) && (is_level_capped__23TAdSinglePlyChrSelectGCFv() != 0)) {
-            var_r31 = 1;
+            i = 1;
         }
         var_r30 += 1;
     } while (var_r30 < 4);
-    return var_r31;
+    return i;
 }
 
 extern s32 TObjBagWarnWin4P__message_window_size[];

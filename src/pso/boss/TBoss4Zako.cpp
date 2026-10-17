@@ -430,15 +430,15 @@ s32 TBoss4Uro__sub_8005D698(void *arg0) {
 #pragma push
 s32 TBoss4Zako::create(s32 arg0) {
     s32 var_r31;
-    s32 var_r4;
+    s32 parent;
 
     var_r31 = __nw__7TObjectFUl(0x3C4);
     if (var_r31 != 0) {
-        var_r4 = __nw__7TObjectFUl(0x20);
-        if (var_r4 != 0) {
-            var_r4 = TObjControl__ct(var_r4, tl_04);
+        parent = __nw__7TObjectFUl(0x20);
+        if (parent != 0) {
+            parent = TObjControl__ct(parent, tl_04);
         }
-        var_r31 = TBoss4Zako__ct((s32)(var_r31), (s32)(var_r4), (s32)(arg0));
+        var_r31 = TBoss4Zako__ct((s32)(var_r31), (s32)(parent), (s32)(arg0));
     }
     return var_r31;
 }
@@ -900,12 +900,12 @@ V2_8005BF68 TBoss4Bishi_spawn_offsets[4] = {
     { -4.0f, -4.0f }, { 4.0f, -4.0f }, { -4.0f, 4.0f }, { 4.0f, 4.0f },
 };
 #pragma push
-void vt4__9TBoss4UroFv(void *arg0) {
-    struct VOff_8005C450_arg0_8005BABC *self = (struct VOff_8005C450_arg0_8005BABC *)arg0;
-    update_target_position__10TBoss4ZakoFPv((u8 *)(arg0));
-    ((TBoss4Zako *)arg0)->update_orbit_velocity();
-    VecCopy__FP3VecPC3Vec((void *)((void *)((char *)arg0 + 68)), (void *)(self->f_38));
-    vec3_add_to(self->f_38, (void *)((char *)arg0 + 908));
+void vt4__9TBoss4UroFv(void *actor) {
+    struct VOff_8005C450_arg0_8005BABC *self = (struct VOff_8005C450_arg0_8005BABC *)actor;
+    update_target_position__10TBoss4ZakoFPv((u8 *)(actor));
+    ((TBoss4Zako *)actor)->update_orbit_velocity();
+    VecCopy__FP3VecPC3Vec((void *)((void *)((char *)actor + 68)), (void *)(self->f_38));
+    vec3_add_to(self->f_38, (void *)((char *)actor + 908));
 }
 #pragma pop
 #pragma push
@@ -1018,11 +1018,11 @@ s32 create__11TBoss4BishiFi(s32 arg0) {
 #pragma pop
 #pragma push
 #pragma opt_common_subs off
-s32 TBoss4Bishi__ct(s32 arg0, s32 arg1, s32 arg2) {
+s32 TBoss4Bishi__ct(s32 arg0, s32 parent, s32 arg2) {
 #define o ((Obj_8005BF68 *)arg0)
     s32 id;
     s32 pl;
-    TBoss4Zako__ct(arg0, arg1, arg2);
+    TBoss4Zako__ct(arg0, parent, arg2);
     o->vt = __vt__11TBoss4Bishi;
     o->f0 = lbl_805D27F0;
     if ((id = find_nearest_visible_player(o, 0, lbl_805D8CDC)) == 0xFFFF ||

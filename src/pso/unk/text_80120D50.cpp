@@ -28,31 +28,31 @@ extern const f32 lbl_805DAC98;
 extern u8 lbl_805DACA4;
 extern const f32 lbl_805DACB0;
 u8 *TItemWeapon__ct(u8 *arg0, void *arg1, u8 *arg2);
-u8 *TItemWeapon__ct(u8 *arg0, void *arg1, u8 *arg2) {
+u8 *TItemWeapon__ct(u8 *arg0, void *parent, u8 *item) {
     s32 temp_r3;
     u8 temp_r0;
     u8 *temp_r4;
     u8 *temp_r6;
     u8 *temp_r6_2;
-    TItemEquipBase__ct(arg0, arg1, arg2);
+    TItemEquipBase__ct(arg0, parent, item);
     *(void ***)((s8 *)arg0 + 0x18) = __vt__11TItemWeapon;
     ((V_80120D50 *)arg0)->v17(6);
-    *(void **)((s8 *)arg0 + 0x1DC) = lookup_item_pmt_record(arg2);
+    *(void **)((s8 *)arg0 + 0x1DC) = lookup_item_pmt_record(item);
     *(s32 *)((s8 *)arg0 + 0x1E0) = TObjPlayer::get_shield_pmt_entry(*(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x1DC)) + 0x26));
     temp_r4 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x1DC));
     *(s16 *)((s8 *)arg0 + 0x1E8) = (s16) (s8) *(u8 *)((s8 *)temp_r4 + 0x17);
-    *(u8 *)((s8 *)arg0 + 0x1D1) = (u8) *(u8 *)((s8 *)arg2 + 3);
-    temp_r3 = ((TItemData *)arg2)->check_item_flags();
+    *(u8 *)((s8 *)arg0 + 0x1D1) = (u8) *(u8 *)((s8 *)item + 3);
+    temp_r3 = ((TItemData *)item)->check_item_flags();
     temp_r0 = *(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x1DC)) + 0x18);
     if (temp_r0 == 0) {
-        *(u8 *)((s8 *)arg0 + 0x1D2) = (u8) (*(u8 *)((s8 *)arg2 + 4) & 0xFFFFFFBF);
+        *(u8 *)((s8 *)arg0 + 0x1D2) = (u8) (*(u8 *)((s8 *)item + 4) & 0xFFFFFFBF);
     } else {
         *(u8 *)((s8 *)arg0 + 0x1D2) = temp_r0;
     }
     if (temp_r3 == 0) {
         *(u8 *)((s8 *)arg0 + 0x1D2) = (u8) (*(u8 *)((s8 *)arg0 + 0x1D2) | lbl_805DACA4);
     }
-    memcpy((void *) (arg0 + 0x1A4), (void *) (arg2 + 6), (int) (6));
+    memcpy((void *) (arg0 + 0x1A4), (void *) (item + 6), (int) (6));
     *(s32 *)((s8 *)arg0 + 0x1EC) = 0;
     *(s32 *)((s8 *)arg0 + 0x1F4) = 0;
     *(void **)((s8 *)arg0 + 0x1F0) = (void *)create_gun_shot;

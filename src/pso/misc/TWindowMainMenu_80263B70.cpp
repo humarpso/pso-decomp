@@ -13,16 +13,16 @@ void destroy_submenu__15TWindowMainMenuFv(void* p);
 void TWindowMainMenu::try_open_battle_menu(s16 arg1) {
     s32 spC;
     s16 sp8;
-    s32 temp_r3;
+    s32 player;
 
     sp8 = arg1;
-    temp_r3 = get_player_by_client_id(*(s32 *)((s8 *)this + 0x54));
-    if ((temp_r3 != 0) && !(*(s32 *)((s8 *)this + 0x4C) & 1) && (filter_menu_entry(&sp8, &spC) != 0) && (spC != 0)) {
+    player = get_player_by_client_id(*(s32 *)((s8 *)this + 0x54));
+    if ((player != 0) && !(*(s32 *)((s8 *)this + 0x4C) & 1) && (filter_menu_entry(&sp8, &spC) != 0) && (spC != 0)) {
         *(s32 *)((s8 *)this + 0x4C) = (s32) (*(s32 *)((s8 *)this + 0x4C) | 1);
         *(s32 *)((s8 *)this + 0x5C) = 0;
         open_menu_with_entry(sp8);
         ((TWindowMainMenu *)this)->create_submenu(sp8);
-        ((TObjPlayer *)temp_r3)->reset_equip_slots();
+        ((TObjPlayer *)player)->reset_equip_slots();
         this->vfunc_7();
     }
 }

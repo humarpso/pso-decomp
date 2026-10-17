@@ -24,19 +24,19 @@ void TUnk_804C349C::update_and_destroy() {
     s32 temp_r0;
     s32 var_r31;
     s32 var_r30;
-    s32 var_r28;
-    s32 var_r27;
+    s32 j;
+    s32 i;
     s32 inner;
 
     self->f44 += 1;
     if (self->f48 < self->f44) {
-        for (var_r28 = 0; var_r28 < 4; var_r28++) {
-            temp_r0 = self->arr50[var_r28];
+        for (j = 0; j < 4; j++) {
+            temp_r0 = self->arr50[j];
             if ((temp_r0 == 4) || (temp_r0 == 5)) {
-                for (var_r27 = 0; var_r27 < 4; var_r27++) {
-                    inner = self->arr60[var_r27];
+                for (i = 0; i < 4; i++) {
+                    inner = self->arr60[i];
                     if ((u32) inner < 4U) {
-                        queue_deferred_photon_blast_support(inner, self->arr50[var_r28], 1);
+                        queue_deferred_photon_blast_support(inner, self->arr50[j], 1);
                     }
                 }
             }

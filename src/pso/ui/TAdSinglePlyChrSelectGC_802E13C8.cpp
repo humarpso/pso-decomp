@@ -431,19 +431,19 @@ extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_8001C5F0();
 
 s32 TAdSinglePlyChrSelectGC::count_selected_flags() {
-    s32 var_r31;
+    s32 selected_count;
 
-    var_r31 = 0;
+    selected_count = 0;
     if (this->m_44 & 0x400) {
-        var_r31 = TAdSinglePlyChrSelectGC::get_selected_count();
+        selected_count = TAdSinglePlyChrSelectGC::get_selected_count();
     }
     if (this->m_44 & 0x800) {
-        var_r31 += TAdSinglePlyChrSelectGC::get_flag_count();
+        selected_count += TAdSinglePlyChrSelectGC::get_flag_count();
     }
     if (this->m_44 & 0x1000) {
-        var_r31 += TAdSinglePlyChrSelectGC__sub_8001C5F0();
+        selected_count += TAdSinglePlyChrSelectGC__sub_8001C5F0();
     }
-    return var_r31;
+    return selected_count;
 }
 
 s32 count_flags__23TAdSinglePlyChrSelectGCFPv(void *arg0) {

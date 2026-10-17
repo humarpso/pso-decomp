@@ -22,9 +22,9 @@ s32 mem_alloc(s32);
 s32 fill_value_array(void *);
 s32 mem_free(u32);
 
-s32 attack_target_history_add(s32 arg0, s32 arg1) {
-    if ((fn_800BC758((u8 *)(arg0)) != 0) && (((s32)attack_target_history_contains((void*)((void *)((void *) (arg0))), (void*)((void *)((void *) (arg1))))) == 0)) {
-        ((s32)push_attack_target_entry((u8 *)((void *)((void *) (arg0))), (s32)((void *)((void *) (arg1)))));
+s32 attack_target_history_add(s32 object, s32 target) {
+    if ((fn_800BC758((u8 *)(object)) != 0) && (((s32)attack_target_history_contains((void*)((void *)((void *) (object))), (void*)((void *)((void *) (target))))) == 0)) {
+        ((s32)push_attack_target_entry((u8 *)((void *)((void *) (object))), (s32)((void *)((void *) (target)))));
         return 1;
     }
     return 0;

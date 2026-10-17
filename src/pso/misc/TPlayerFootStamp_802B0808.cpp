@@ -39,13 +39,13 @@ void TBoss6PlotFalz__sub_802B08F0(void* p) { if (is_ready__14TBoss6PlotFalzFv(p)
 
 extern s32 lbl_804709B4[];
 
-void init_proto1_adx(void *arg0) {
+void init_proto1_adx(void *parent) {
     play_area_music(lbl_804709B4);
     TBoss6PlotFalz::freeze_all_players();
-    *(s32 *)((s8 *)arg0 + 0x3D0) = 0;
-    *(s32 *)((s8 *)arg0 + 0x3CC) = 0;
+    *(s32 *)((s8 *)parent + 0x3D0) = 0;
+    *(s32 *)((s8 *)parent + 0x3CC) = 0;
     TBoss4DarkFalz::dispatch_by_main_phase(0x56);
-    TBoss6Demo10_TYPE1_APPEAR__create(arg0);
+    TBoss6Demo10_TYPE1_APPEAR__create(parent);
 }
 
 void TBoss6PlotFalz::advance_intro_timer() {

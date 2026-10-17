@@ -92,7 +92,7 @@ extern s32 TLobby__data_805D614C;
 extern s32 lbl_805DC620;
 extern s32 lbl_805DC624;
 
-void load_map_set_data(s32 arg0, s32 arg1) {
+void load_map_set_data(s32 idx, s32 arg1) {
     map_set_data_handle_a = 0;
     map_set_data_handle_b = 0;
     map_set_object_id_counter = 0;
@@ -102,8 +102,8 @@ void load_map_set_data(s32 arg0, s32 arg1) {
     copy_name(&lbl_805DC620);
     TLobby__data_805D6134 = 0;
     if (TLobby::init_handle(0x8000) != 0) {
-        load_object_set_file(arg0, arg1);
-        load_enemy_set_file(arg0, arg1);
+        load_object_set_file(idx, arg1);
+        load_enemy_set_file(idx, arg1);
         advance_object_id_counter((u16) map_object_id_counter);
         TLobby__data_805D6148 = map_set_object_id_counter;
         advance_enemy_id_counter((u16) map_set_enemy_id_counter);

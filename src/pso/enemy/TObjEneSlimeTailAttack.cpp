@@ -2126,25 +2126,25 @@ void initialize_slime_instance_state(u8 *actor) {
   ((TObjEneSlimeOne *)actor)->copy_position();
 }
 
-u8 *TObjEneSlimeOne__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+u8 *TObjEneSlimeOne__ct(u8 *actor, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     typedef char sp8_offset[(offsetof(Stack_800EB3D4, sp8) == 0x0) ? 1 : -1];
     typedef char spE_offset[(offsetof(Stack_800EB3D4, spE) == 0x6) ? 1 : -1];
     Stack_800EB3D4 stack;
-    initialize__9TObjEnemyFPv((void *) (arg0));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800EB3D4___vt__15TObjEneSlimeOne *)&__vt__15TObjEneSlimeOne).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneSlimeOne_class_name;
-    ((TUnk_804806E8 *)arg0)->add_flags_2e4((int) (2));
-    ((VObj_18_aa4667 *)(arg0))->m79(arg3);
-    if (exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&stack.sp8), (int) (1)) != 0) {
+    initialize__9TObjEnemyFPv((void *) (actor));
+    *(s32 **)((s8 *)actor + 0x18) = &(*(RecoveredGlobal_800EB3D4___vt__15TObjEneSlimeOne *)&__vt__15TObjEneSlimeOne).value;
+    *(s32 *)((s8 *)actor + 0) = (s32) TObjEneSlimeOne_class_name;
+    ((TUnk_804806E8 *)actor)->add_flags_2e4((int) (2));
+    ((VObj_18_aa4667 *)(actor))->m79(arg3);
+    if (exchange_object_state__9TObjEnemyFls((void *) (actor), (void *) (&stack.sp8), (int) (1)) != 0) {
         stack.sp8 = 0;
         stack.spE = 0;
-        exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&stack.sp8), (int) (0));
+        exchange_object_state__9TObjEnemyFls((void *) (actor), (void *) (&stack.sp8), (int) (0));
     }
-    *(s32 *)((s8 *)arg0 + 0x3F0) = arg2;
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x3DC), (void *) (arg4));
-    initialize_slime_instance_state((u8 *)((void *) (arg0)));
-    ((TObjEneSlimeOne *)arg0)->set_state((s32)((void*)((int) (0xE))));
-    return arg0;
+    *(s32 *)((s8 *)actor + 0x3F0) = arg2;
+    VecCopy__FP3VecPC3Vec((void *) (actor + 0x3DC), (void *) (arg4));
+    initialize_slime_instance_state((u8 *)((void *) (actor)));
+    ((TObjEneSlimeOne *)actor)->set_state((s32)((void*)((int) (0xE))));
+    return actor;
 }
 
 u8 *init__15TObjEneSlimeOneFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {

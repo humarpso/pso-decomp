@@ -12,23 +12,23 @@ s32 calc_scaled_offset__13TItemProArmorFv(void *);
 u8 get_slot_count__14TItemProShieldFv();
 
 void TItemProArmor::apply_armor_stat() {
-    s32 var_r31;
+    s32 stat_value;
     u8 temp_r3;
 
-    var_r31 = 0;
+    stat_value = 0;
     temp_r3 = get_slot_count__14TItemProShieldFv();
     switch ((s32) temp_r3) {
     case 0:
-        var_r31 = calc_armor_value__13TItemProArmorFv(this);
+        stat_value = calc_armor_value__13TItemProArmorFv(this);
         break;
     case 1:
-        var_r31 = calc_scaled_offset__13TItemProArmorFv(this);
+        stat_value = calc_scaled_offset__13TItemProArmorFv(this);
         break;
     case 2:
-        var_r31 = get_stat_value();
+        stat_value = get_stat_value();
         break;
     }
-    add_actor_tp(*(s32 *)&this->m_f0, var_r31);
+    add_actor_tp(*(s32 *)&this->m_f0, stat_value);
 }
 
 extern s32 lbl_8049FE00[];

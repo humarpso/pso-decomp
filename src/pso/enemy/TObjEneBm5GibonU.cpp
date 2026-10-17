@@ -4088,70 +4088,70 @@ void TObjEneBm5GibonU::handle_state(s32 arg1) {
   }
 }
 
-void TObjEneBm5GibonU__sub_800D0738(u8 *arg0, u32 arg1, s32 msg) {
+void TObjEneBm5GibonU__sub_800D0738(u8 *actor, u32 arg1, s32 msg) {
     switch (arg1) {
     case 0:
-        ((TObjEneBm5GibonU *)arg0)->handle_state(msg);
+        ((TObjEneBm5GibonU *)actor)->handle_state(msg);
         break;
     case 1:
-        TObjEneBm5GibonU__sub_800D0420((u8 *)(arg0), (s32)(msg));
+        TObjEneBm5GibonU__sub_800D0420((u8 *)(actor), (s32)(msg));
         break;
     case 2:
-        TObjEneBm5GibonU__sub_800D02F8((Gibon_800D02F8 *)(arg0), (s32)(msg));
+        TObjEneBm5GibonU__sub_800D02F8((Gibon_800D02F8 *)(actor), (s32)(msg));
         break;
     case 3:
-        TObjEneBm5GibonU__sub_800D01DC(arg0, msg);
+        TObjEneBm5GibonU__sub_800D01DC(actor, msg);
         break;
     case 4:
-        TObjEneBm5GibonU__sub_800CFE30((u8 *)(arg0), (s32)(msg));
+        TObjEneBm5GibonU__sub_800CFE30((u8 *)(actor), (s32)(msg));
         break;
     case 5:
-        TObjEneBm5GibonU__sub_800D00F0(arg0, msg);
+        TObjEneBm5GibonU__sub_800D00F0(actor, msg);
         break;
     case 6:
-        TObjEneBm5GibonU__sub_800CFFBC(arg0, msg);
+        TObjEneBm5GibonU__sub_800CFFBC(actor, msg);
         break;
     case 7:
-        TObjEneBm5GibonU__sub_800CFE34((u8 *)(arg0), (s32)(msg));
+        TObjEneBm5GibonU__sub_800CFE34((u8 *)(actor), (s32)(msg));
         break;
     case 8:
-        TObjEneBm5GibonU__sub_800CFA48(arg0, msg);
+        TObjEneBm5GibonU__sub_800CFA48(actor, msg);
         break;
     case 9:
-        TObjEneBm5GibonU__sub_800CF7CC((u8 *)(arg0), (s32)(msg));
+        TObjEneBm5GibonU__sub_800CF7CC((u8 *)(actor), (s32)(msg));
         break;
     case 10:
-        TObjEneBm5GibonU__sub_800CF4BC((u8 *)(arg0), (s32)(msg));
+        TObjEneBm5GibonU__sub_800CF4BC((u8 *)(actor), (s32)(msg));
         break;
     case 11:
-        ((TObjEneBm5GibonU *)arg0)->run_idle_state(msg);
+        ((TObjEneBm5GibonU *)actor)->run_idle_state(msg);
         break;
     case 12:
-        TObjEneBm5GibonU__sub_800CEBD8((u8 *)(arg0), (s32)(msg));
+        TObjEneBm5GibonU__sub_800CEBD8((u8 *)(actor), (s32)(msg));
         break;
     case 13:
-        TObjEneBm5GibonU__sub_800CE978((u8 *)(arg0), (s32)(msg));
+        TObjEneBm5GibonU__sub_800CE978((u8 *)(actor), (s32)(msg));
         break;
     case 14:
-        TObjEneBm5GibonU__sub_800CE694((u8 *)(arg0), (s32)(msg));
+        TObjEneBm5GibonU__sub_800CE694((u8 *)(actor), (s32)(msg));
         break;
     case 15:
-        action__16TObjEneBm5GibonUFPvi(arg0, msg);
+        action__16TObjEneBm5GibonUFPvi(actor, msg);
         break;
     case 16:
-        TObjEneBm5GibonU__sub_800CE370((u8 *)(arg0), (s32)(msg));
+        TObjEneBm5GibonU__sub_800CE370((u8 *)(actor), (s32)(msg));
         break;
     case 17:
-        TObjEneBm5GibonU__sub_800CE060((u8 *)(arg0), (s32)(msg));
+        TObjEneBm5GibonU__sub_800CE060((u8 *)(actor), (s32)(msg));
         break;
     case 18:
-        ((TObjEneBm5GibonU *)arg0)->handle_message(msg);
+        ((TObjEneBm5GibonU *)actor)->handle_message(msg);
         break;
     case 19:
-        TObjEneBm5GibonU__sub_800CDB98((Obj_800CDB98 *)(arg0), (s32)(msg));
+        TObjEneBm5GibonU__sub_800CDB98((Obj_800CDB98 *)(actor), (s32)(msg));
         break;
     case 20:
-        ((TObjEneBm5GibonU *)arg0)->state_cast_technique((s32)(msg));
+        ((TObjEneBm5GibonU *)actor)->state_cast_technique((s32)(msg));
         break;
     }
 }

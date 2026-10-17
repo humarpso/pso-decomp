@@ -32,13 +32,13 @@ u16 get_lifetime__22TPlyFollowParticleCtrlFv();
 s32 get_position_ptr__10TObjPlayerFv(s32);
 
 s32 TPlyPtclObjectLeftHand::update_attachment(s32 arg0) {
-    void *temp_r3;
+    void *player;
 
-    temp_r3 = get_player_by_client_id((u16) get_lifetime__22TPlyFollowParticleCtrlFv());
-    if (temp_r3 == NULL) {
+    player = get_player_by_client_id((u16) get_lifetime__22TPlyFollowParticleCtrlFv());
+    if (player == NULL) {
         return 0;
     }
-    ((VObj_PTR18_8030A400 *) temp_r3)->m63(0x23, get_position_ptr__10TObjPlayerFv(arg0));
+    ((VObj_PTR18_8030A400 *) player)->m63(0x23, get_position_ptr__10TObjPlayerFv(arg0));
     return get_position_ptr__10TObjPlayerFv(arg0);
 }
 

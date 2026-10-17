@@ -249,15 +249,15 @@ extern const f32 lbl_805DC8C4 = 5.0f;
 
 void TTecRaBarta::vfunc_9() {
     s16 temp_r0;
-    s32 temp_r3;
+    s32 handle;
 
     temp_r0 = *(s16 *)&this->unk_7A;
     switch (temp_r0) {
     case 0:
         *(s32 *)&this->m_ec = play_sound_effect(0x4002A706, *(s32 *)&this->source + 0x2FC, 0, 0);
-        temp_r3 = *(s32 *)&this->m_ec;
-        if (temp_r3 >= 0) {
-            update_technique_slot__10TTecRaFoieFl(temp_r3, 0x100, 0);
+        handle = *(s32 *)&this->m_ec;
+        if (handle >= 0) {
+            update_technique_slot__10TTecRaFoieFl(handle, 0x100, 0);
         }
         return;
     case 1:
@@ -266,23 +266,23 @@ void TTecRaBarta::vfunc_9() {
     case 2:
     case 3:
         *(s32 *)&this->m_ec = play_sound_effect(0x4002A706, *(s32 *)&this->source + 0x2FC, 0, 0);
-        temp_r3 = *(s32 *)&this->m_ec;
-        if (temp_r3 >= 0) {
-            update_technique_slot__10TTecRaFoieFl(temp_r3, -0x180, 0);
+        handle = *(s32 *)&this->m_ec;
+        if (handle >= 0) {
+            update_technique_slot__10TTecRaFoieFl(handle, -0x180, 0);
         }
         break;
     case 4:
         *(s32 *)&this->m_ec = play_sound_effect(0x4002A706, *(s32 *)&this->source + 0x2FC, 0, 0);
-        temp_r3 = *(s32 *)&this->m_ec;
-        if (temp_r3 >= 0) {
-            update_technique_slot__10TTecRaFoieFl(temp_r3, -0x250, 0);
+        handle = *(s32 *)&this->m_ec;
+        if (handle >= 0) {
+            update_technique_slot__10TTecRaFoieFl(handle, -0x250, 0);
         }
         break;
     case 5:
         *(s32 *)&this->m_ec = play_sound_effect(0x4002A706, *(s32 *)&this->source + 0x2FC, 0, 0);
-        temp_r3 = *(s32 *)&this->m_ec;
-        if (temp_r3 >= 0) {
-            update_technique_slot__10TTecRaFoieFl(temp_r3, -0x100, 0);
+        handle = *(s32 *)&this->m_ec;
+        if (handle >= 0) {
+            update_technique_slot__10TTecRaFoieFl(handle, -0x100, 0);
         }
         break;
     }
@@ -422,11 +422,11 @@ s32 stop_sound_request(void *);
 void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *level);
 void create__11TTecRaBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 
-void create__11TTecRaBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
+void create__11TTecRaBartaFPvPvPvPv(void *source, void *origin, void *pos, void *level) {
     void *o;
     o = __nw__7TObjectFUl(0x13C);
     if (o != NULL) {
-        TTecRaBarta__ct((void *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2), (void *)(arg3));
+        TTecRaBarta__ct((void *)(o), (void *)(source), (void *)(origin), (void *)(pos), (void *)(level));
     }
 }
 

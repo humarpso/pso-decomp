@@ -2042,8 +2042,8 @@ s32 TLobby__sub_80403730(u8 *dst, unsigned short n) {
 
 #pragma push
 #pragma opt_common_subs on
-s32 TLobby__sub_804037B0(s32 arg0, u16 arg1) {
-    if (send_network_frame(arg1, (u8 *)arg0) != 0) {
+s32 TLobby__sub_804037B0(s32 src, u16 len) {
+    if (send_network_frame(len, (u8 *)src) != 0) {
         return -1;
     }
     return 0;

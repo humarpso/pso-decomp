@@ -4329,14 +4329,14 @@ void TObjPlayer__vt76(s32 arg0, s32 arg1) {
 }
 
 s32 TObjPlayer::get_next_level_exp() {
-    s32 temp_r31;
+    s32 actor_level_index;
     s32 max_level;
     max_level = TObjPlayer::get_max_level();
     if (this->get_actor_level_index() >= max_level) {
         return 0;
     }
-    temp_r31 = this->get_actor_level_index();
-    return ((s32 (*)(s8, s32))get_current_state_field__10TObjPlayerFScl)(((s8 (*)(void *))get_class_index__10TObjPlayerFPv)(((u8 *)this)), temp_r31 + 1);
+    actor_level_index = this->get_actor_level_index();
+    return ((s32 (*)(s8, s32))get_current_state_field__10TObjPlayerFScl)(((s8 (*)(void *))get_class_index__10TObjPlayerFPv)(((u8 *)this)), actor_level_index + 1);
 }
 
 s32 calc_scaled_value__10TObjPlayerFii(s32 arg0, s32 arg1) {
@@ -5483,8 +5483,8 @@ void TObjPlayer::set_action_palette_entry(s32 arg1, s32 arg2, s32 arg3, s32 arg4
 
 #pragma push
 #pragma scheduling off
-void TObjPlayer__sub_801B5A44(s32 arg0, s32 secondary, s32 arg2, s32 arg3, s32 arg4) {
-    TWindowActionPalette::set_slot_by_index((s32)((TObjPlayer*)arg0)->select_action_palette(secondary), arg2, arg3, arg4);
+void TObjPlayer__sub_801B5A44(s32 arg0, s32 secondary, s32 i, s32 arg3, s32 arg4) {
+    TWindowActionPalette::set_slot_by_index((s32)((TObjPlayer*)arg0)->select_action_palette(secondary), i, arg3, arg4);
 }
 #pragma pop
 

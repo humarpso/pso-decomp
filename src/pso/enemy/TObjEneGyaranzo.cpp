@@ -1685,18 +1685,18 @@ Obj_800D3E54 *fn_800D3E54(Obj_800D3E54 *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TObjEneGyaranzo__ct(u8 *arg0, s32 arg1, u8 *arg2) {
+u8 *TObjEneGyaranzo__ct(u8 *arg0, s32 arg1, u8 *arg1_arg) {
     s16 temp_r6;
     s32 temp_r5;
     s32 i;
     s32 var_r31;
 
-    ((void (*)(void *, s32, void *)) TObjEnemyCustom__ct)(arg0, arg1, arg2);
+    ((void (*)(void *, s32, void *)) TObjEnemyCustom__ct)(arg0, arg1, arg1_arg);
     *(u8 **)((s8 *)arg0 + 0x18) = (u8 *) ((void * *)gyaranzo_actor_vtable_ops);
     ((TUnk_80494938 *)((u8 *)(arg0) + 0x3D0))->init_common();
     __construct_array((void *) ((u8 *)(arg0) + 0x3EC), (void *) (&init_and_activate__10TObjPlayerFv), (void *) (&__dt__13TUnk_804949A8Fv), (int) (0x1C), (int) (4));
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2A78;
-    ((TObjEneGyaranzo *)(arg0))->apply_set_data(arg2);
+    ((TObjEneGyaranzo *)(arg0))->apply_set_data(arg1_arg);
     VecCopy__FP3VecPC3Vec((u8 *)(arg0) + 0x290, VecCopy__FP3VecPC3Vec((u8 *)(arg0) + 0x29C, (u8 *)(arg0) + 0x38));
     *(s32 *)((s8 *)arg0 + 0xDC) = (s32) *(s32 *)((s8 *)(*(u8 * *)&gyaranzo_bml_resource) + 0x430);
     *(u8 **)((s8 *)arg0 + 0xD8) = (u8 *) gyaranzo_action_table;
@@ -1727,7 +1727,7 @@ u8 *TObjEneGyaranzo__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&gyaranzo_bml_resource) + 0x42C)) + 0x38);
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&gyaranzo_bml_resource) + 0x42C)) + 0x3C);
-    if (*(s16 *)((s8 *)arg2 + 0xA) != 0) {
+    if (*(s16 *)((s8 *)arg1_arg + 0xA) != 0) {
         ((TObjEnemyCustom *)arg0)->sub_800C7860();
     }
     for (i = 0; i < 4; i++) {

@@ -2990,15 +2990,15 @@ void TBoss6Type2__sub_802BE4E0(s32 *arg0, s32 *arg1) {
 #pragma dont_inline off
 s32 TBoss6Type2::create(s32 arg2_) {
     s32 arg0_;
-    s32 var_r4;
+    s32 parent;
 
     arg0_ = __nw__7TObjectFUl(0x7B4);
     if (arg0_ != 0) {
-        var_r4 = __nw__7TObjectFUl(0x20);
-        if (var_r4 != 0) {
-            var_r4 = TObjControl__ct(var_r4, tl_04);
+        parent = __nw__7TObjectFUl(0x20);
+        if (parent != 0) {
+            parent = TObjControl__ct(parent, tl_04);
         }
-        arg0_ = TBoss6Type2__ct((s32)(arg0_), (s32)(var_r4), (s32)(arg2_));
+        arg0_ = TBoss6Type2__ct((s32)(arg0_), (s32)(parent), (s32)(arg2_));
     }
     return arg0_;
 }

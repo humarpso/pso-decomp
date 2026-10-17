@@ -567,9 +567,9 @@ u32 pack_weapon_trail_color(void *weapon) {
     return (__cvt_fp2unsigned(lbl_805DAC90 * w.a) << 24 | __cvt_fp2unsigned(lbl_805DAC90 * w.b) << 16 | __cvt_fp2unsigned(lbl_805DAC90 * w.c) << 8) | __cvt_fp2unsigned(lbl_805DAC90 * w.d);
 }
 
-void spawn_pg_effect__10TObjPlayerFPvPvif(u8 *arg0, Vec_8011EAB8 *arg1, s32 arg2, f32 farg0) {
+void spawn_pg_effect__10TObjPlayerFPvPvif(u8 *arg0, Vec_8011EAB8 *arg1, s32 item, f32 farg0) {
     Params_8011EAB8 prm;
-    if (arg2 < 0 || arg2 >= 200) {
+    if (item < 0 || item >= 200) {
         return;
     }
     if (is_active_in_game__11TItemWeaponFv(arg0) == 0) {
@@ -585,7 +585,7 @@ void spawn_pg_effect__10TObjPlayerFPvPvif(u8 *arg0, Vec_8011EAB8 *arg1, s32 arg2
     if (is_locally_controlled__10TObjPlayerFPv(*(s32 *)(arg0 + 0xF0)) != 0) {
         create__10TItemEffPGFPvPv(tl_05, &prm);
     } else {
-        create__10TItemEffPGFPvPvPv(tl_05, &prm, arg2);
+        create__10TItemEffPGFPvPvPv(tl_05, &prm, item);
     }
     ((TItemWeapon *)arg0)->restore_action_type();
 }

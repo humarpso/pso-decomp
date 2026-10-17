@@ -122,7 +122,7 @@ void *__ct__12TChCrLoadAfsFP7TObjectPvPv(void *arg0, void *arg1, void *arg2, voi
 void *__nw__7TObjectFUl(int);
 
 void TChCrLoadAfs::start_download() {
-    s32 temp_r3_2;
+    s32 count;
     u32 temp_r3;
     u32 temp_r3_3;
 
@@ -133,14 +133,14 @@ void TChCrLoadAfs::start_download() {
             *(s32 *)((s8 *)this + 0x2C) = 3;
             return;
         }
-        temp_r3_2 = TLobby__sub_803CC53C(*(u32 *)((s8 *)this + 0x1C));
-        temp_r3_3 = ((TQuestVmDownLoadServer *)(temp_r3_2 << 0xB))->alloc();
+        count = TLobby__sub_803CC53C(*(u32 *)((s8 *)this + 0x1C));
+        temp_r3_3 = ((TQuestVmDownLoadServer *)(count << 0xB))->alloc();
         *(u32 *)((s8 *)this + 0x28) = temp_r3_3;
         if (temp_r3_3 == 0U) {
             *(s32 *)((s8 *)this + 0x2C) = 3;
             return;
         }
-        TLobby::read_checked_align(*(u32 *)((s8 *)this + 0x1C), temp_r3_2, *(u32 *)((s8 *)this + 0x28));
+        TLobby::read_checked_align(*(u32 *)((s8 *)this + 0x1C), count, *(u32 *)((s8 *)this + 0x28));
         *(s32 *)((s8 *)this + 0x2C) = 1;
     }
 }

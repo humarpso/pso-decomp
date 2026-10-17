@@ -49,34 +49,34 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
 s32 TWindowSubEquip::open_equip_kind_list(u32 arg1) {
-    s32 temp_r31;
-    temp_r31 = create_equip_kind_window(get_window_layout_position(1), (void *) (lbl_8044F920), (int) (*(s32 *)&this->m_28));
+    s32 equip_kind_window;
+    equip_kind_window = create_equip_kind_window(get_window_layout_position(1), (void *) (lbl_8044F920), (int) (*(s32 *)&this->m_28));
     TWindowSubEquip__sub_80263AF8((int) (*(s32 *)&this->m_2c), (int) (1));
-    set_field_1c__6TLobbyFf((int) (temp_r31));
-    ((TUnk_804D0618 *)temp_r31)->ensure_status_display((int) (TWindowSubStatusDisp::get_message_10((int) (0x24))));
-    ((TWindowSubShortCutList *)temp_r31)->set_flag70_bit10();
+    set_field_1c__6TLobbyFf((int) (equip_kind_window));
+    ((TUnk_804D0618 *)equip_kind_window)->ensure_status_display((int) (TWindowSubStatusDisp::get_message_10((int) (0x24))));
+    ((TWindowSubShortCutList *)equip_kind_window)->set_flag70_bit10();
     switch (arg1) {
     case 6:
-        ((TWindowSubMag *)temp_r31)->init_and_setup((void*)0);
+        ((TWindowSubMag *)equip_kind_window)->init_and_setup((void*)0);
         break;
     case 2:
-        ((TShopArmorListWindow *)temp_r31)->save_and_refresh_cursor((void*)1, (void*)1);
+        ((TShopArmorListWindow *)equip_kind_window)->save_and_refresh_cursor((void*)1, (void*)1);
         break;
     case 9:
     case 10:
     case 11:
     case 12:
-        ((TShopArmorListWindow *)temp_r31)->save_and_refresh_cursor((void*)1, (void*)3);
+        ((TShopArmorListWindow *)equip_kind_window)->save_and_refresh_cursor((void*)1, (void*)3);
         break;
     case 3:
-        ((TShopArmorListWindow *)temp_r31)->save_and_refresh_cursor((void*)1, (void*)2);
+        ((TShopArmorListWindow *)equip_kind_window)->save_and_refresh_cursor((void*)1, (void*)2);
         break;
     case 1:
-        ((TWindowSubMag *)temp_r31)->init_and_setup((void*)2);
+        ((TWindowSubMag *)equip_kind_window)->init_and_setup((void*)2);
         break;
     }
-    mark_unequippable_items((int) (temp_r31));
-    return temp_r31;
+    mark_unequippable_items((int) (equip_kind_window));
+    return equip_kind_window;
 }
 
 void TWindowSubEquip::render() {  }

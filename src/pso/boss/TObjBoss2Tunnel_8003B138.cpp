@@ -19,12 +19,12 @@ struct Obj_8003B250;
 void release_children__15TObjBoss2TunnelFPvf(Obj_8003B250 *arg0, f32 farg0);
 void *__nw__7TObjectFUl(s32);
 
-void TObjBoss2Tunnel::create_particle_effect(s32 arg0, s32 arg1, f32 farg0) {
+void TObjBoss2Tunnel::create_particle_effect(s32 position, s32 arg1, f32 farg0) {
     void *var_r31;
 
     var_r31 = __nw__7TObjectFUl(0x78);
     if (var_r31 != NULL) {
-        var_r31 = ((TParticleCtrl *)var_r31)->initialize_with_flags((const void *)arg0, (s32)(TParticleCtrl::get_particle_by_index(arg1)), (s32)1, (s32)0, (s32)0, (s32)1, (u16)0x40);
+        var_r31 = ((TParticleCtrl *)var_r31)->initialize_with_flags((const void *)position, (s32)(TParticleCtrl::get_particle_by_index(arg1)), (s32)1, (s32)0, (s32)0, (s32)1, (u16)0x40);
     }
 #define release_children__15TObjBoss2TunnelFPvf ((s32 (*)(void *, f32))release_children__15TObjBoss2TunnelFPvf)
     if (var_r31 != NULL) {

@@ -34,16 +34,16 @@ int queue_destruction__7TObjectFv(void*);
 
 u8 *__ct__13TItemAttackerFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u8* temp_r5;
-    u8 *temp_r3;
+    u8 *entity;
     __ct__7TObjectFP7TObject(arg0,arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TItemAttacker;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TItemAttacker__name;
     ((TItemAttacker *)(arg0 + 0x1C))->copy_from((void *) (arg4));
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg2));
-    temp_r3 = (u8 *)(find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x2A)));
-    if (temp_r3 != NULL) {
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), ((M_80103368 *)temp_r3)->recs[*(s16 *)((s8 *)arg0 + 0x2C)].v);
+    entity = (u8 *)(find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x2A)));
+    if (entity != NULL) {
+        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), ((M_80103368 *)entity)->recs[*(s16 *)((s8 *)arg0 + 0x2C)].v);
     } else {
         *(s32 *)((s8 *)arg0 + 0x34) = 1;
     }

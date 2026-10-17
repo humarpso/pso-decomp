@@ -653,10 +653,10 @@ void TContainerAncient01R::run_task() {
 
 extern void *tl_05;
 
-void *TContainerAncient01R__create(void *arg0) {
+void *TContainerAncient01R__create(void *parent) {
     void *o = __nw__7TObjectFUl(0x374);
     if (o != NULL) {
-        o = TContainerAncient01R__ct((Obj_8018B030 *)o, tl_05, arg0);
+        o = TContainerAncient01R__ct((Obj_8018B030 *)o, tl_05, parent);
     }
     return o;
 }

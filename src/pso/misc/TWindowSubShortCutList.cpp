@@ -40,7 +40,7 @@ void delete_if_allocated(void *, int);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
 
 void TWindowSubShortCutList::refresh_entries() {
-    s32 *temp_r3;
+    s32 *chat_shortcut;
     s32 temp_r0;
     s32 var_r30;
     s32 var_r29;
@@ -50,21 +50,21 @@ void TWindowSubShortCutList::refresh_entries() {
     var_r30 = 0;
     var_r29 *= 4;
     do {
-        temp_r3 = get_chat_shortcut(var_r29);
-        switch (*temp_r3) {
+        chat_shortcut = get_chat_shortcut(var_r29);
+        switch (*chat_shortcut) {
         case 0:
             draw_entry(var_r29, 0x33, 0, var_r29);
             break;
         case 1:
-            temp_r0 = fn_80076BC4(temp_r3 + 1);
+            temp_r0 = fn_80076BC4(chat_shortcut + 1);
             draw_entry(var_r29, 0x12, temp_r0, var_r29);
             break;
         case 2:
-            update_state__9TWindowDDFv(temp_r3 + 1, get_shared_text_buffer(), (u16) local_client_id);
+            update_state__9TWindowDDFv(chat_shortcut + 1, get_shared_text_buffer(), (u16) local_client_id);
             draw_entry(var_r29, 0x10, get_shared_text_buffer(), var_r29);
             break;
         case 3:
-            TWindowChat::open_symbol_chat(temp_r3 + 1);
+            TWindowChat::open_symbol_chat(chat_shortcut + 1);
             {
                 s32 d = get_symbol_chat_data__20TWindowSubSymbolChatFv();
                 draw_entry(var_r29, 0x11, d, var_r29);

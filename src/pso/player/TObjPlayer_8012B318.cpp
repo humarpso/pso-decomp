@@ -10,7 +10,7 @@ s32 rotate_matrix_z(int, int);
 
 void TObjPlayer::update_area_effect_objects() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r3_2;
+    s32 player_list;
     u8 temp_r3;
 
     temp_r3 = get_slot_count__14TItemProShieldFv();
@@ -21,8 +21,8 @@ void TObjPlayer::update_area_effect_objects() {
         }
         break;
     case 5:
-        temp_r3_2 = TObjPlayer::get_player_list();
-        switch (temp_r3_2) {
+        player_list = TObjPlayer::get_player_list();
+        switch (player_list) {
         case 1:
             post_translate_matrix((void *) (arg0 + 0x208));
             return;

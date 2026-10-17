@@ -1358,10 +1358,10 @@ void TBoss3VoloptCore__sub_80040788(void) {  }
 
 void cache_volopt_resource_ptrs(void) { volopt_resource_table_ptr = boss3_volopt_resources; lbl_805D4C50 = register_boss__6TLobbyFl((void*)33); lbl_805D4C54 = dispatch_shared_handler_b__6TLobbyFl((void*)33); lbl_805D4C58 = register_object__6TLobbyFl((void*)33); volopt_array_resource_ptr = dispatch_shared_handler_a__6TLobbyFl((void*)33); }
 
-void *TBoss3VoloptCore__sub_800407E0(void *arg0) {
+void *TBoss3VoloptCore__sub_800407E0(void *arg1_arg) {
     void *o = __nw__7TObjectFUl(0x3D4);
     if (o != NULL) {
-        o = TBoss3VoloptCore__sub_80040A7C((void *)(o), (void *)(tl_04), (void *)(arg0));
+        o = TBoss3VoloptCore__sub_80040A7C((void *)(o), (void *)(tl_04), (void *)(arg1_arg));
     }
     return o;
 }

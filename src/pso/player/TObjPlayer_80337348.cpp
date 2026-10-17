@@ -17,10 +17,10 @@ int fn_803374F0(s32, s32, u8);
 s32 fn_803374F8(s32, s32);
 
 s32 TObjPlayer::try_add_item_count(s32 arg0, s32 arg1, s32 arg2, u8 arg3) {
-    s32 temp_r31;
+    s32 total_materials_used;
 
-    temp_r31 = get_total_materials_used((s32)(arg0));
-    if ((u8) (temp_r31 + arg3) > get_material_limit_for_class((s32)(arg1))) {
+    total_materials_used = get_total_materials_used((s32)(arg0));
+    if ((u8) (total_materials_used + arg3) > get_material_limit_for_class((s32)(arg1))) {
         return 0;
     }
     fn_803374F0(arg0, arg2, (u8) (arg3 + fn_803374F8(arg0, arg2)));

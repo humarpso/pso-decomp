@@ -82,15 +82,15 @@ s32 disallow_rendering__7TObjectFv(void *);
 extern s32 TItemEffArmorParticle__class_name;
 
 }
-TItemEffArmorParticle::TItemEffArmorParticle(TObject *arg1, s32 arg2, s32 arg3, s32 arg4) : TObject(arg1) {
+TItemEffArmorParticle::TItemEffArmorParticle(TObject *arg1, s32 item_id, s32 player_id, s32 arg4) : TObject(arg1) {
     void *player;
     u32 p;
     *(s32 *)((s8 *)this + 0) = (s32) TItemEffArmorParticle__class_name;
     disallow_rendering__7TObjectFv(this);
-    this->m_item_id = arg2;
-    *(s16 *)&this->m_player_id = (s16) arg3;
+    this->m_item_id = item_id;
+    *(s16 *)&this->m_player_id = (s16) player_id;
     *(s32 *)&this->m_item_ctrl = get_item_system_generation();
-    player = get_player_by_client_id((u16) arg3);
+    player = get_player_by_client_id((u16) player_id);
     if (player != NULL) {
         *(u32 *)((s8 *)this + 0x20) = spawn_continuous_particle_effect_with_flags(((V_A_80364364 *) player)->m7(), arg4, 0x10);
         p = *(u32 *)((s8 *)this + 0x20);

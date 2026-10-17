@@ -48,15 +48,15 @@ s32 __dl__7TObjectFPv(void *);
 s32 fn_8019DD24(s32, s32);
 
 void TObjWarpBase::vfunc_14() {
-    u32 temp_r3;
+    u32 player;
 
-    temp_r3 = (u32) *(u32 *)((s8 *)this + 0xB0);
-    if (temp_r3 != 0U) {
-        TWindow__close(temp_r3);
+    player = (u32) *(u32 *)((s8 *)this + 0xB0);
+    if (player != 0U) {
+        TWindow__close(player);
         *(u32 *)((s8 *)this + 0xB0) = 0U;
-        temp_r3 = get_player_by_client_id(*(u16 *)((s8 *)this + 0xB8));
-        if (temp_r3 != 0U) {
-            fn_8019DD24(temp_r3 + 0x550, 4);
+        player = get_player_by_client_id(*(u16 *)((s8 *)this + 0xB8));
+        if (player != 0U) {
+            fn_8019DD24(player + 0x550, 4);
         }
         *(u16 *)((s8 *)this + 0xB8) = 0xFFFFU;
     }

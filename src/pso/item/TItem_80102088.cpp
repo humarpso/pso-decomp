@@ -14,11 +14,11 @@ s32 get_field_d8__10TObjPlayerFv();
 s32 TLobby__sub_8011AA44(s32, s32);
 s32 advance_item_id_counter(s32);
 
-void TItem::assign_id_and_init(s32 arg1, s32 arg2) {
+void TItem::assign_id_and_init(s32 arg1, s32 pos) {
     if ((s32) *(s32 *)&this->m_next == -1) {
         *(s32 *)&this->m_next = advance_item_id_counter(arg1);
     }
-    send_drop_item_6x5D__5TItemFPviPv(this, arg1, arg2);
+    send_drop_item_6x5D__5TItemFPviPv(this, arg1, pos);
 }
 
 void TItem::send_field_state(s16 arg1, s32 arg2) {

@@ -92,9 +92,9 @@ void draw_model_motion(void *arg0, void *arg1, f32 farg0) {
     TObjPlayer::end_chunk_draw();
 }
 
-void TObjEneSlimeOne__sub_803E4B54(void *arg0, void *arg1, void *arg2, f32 farg0) {
+void TObjEneSlimeOne__sub_803E4B54(void *child, void *arg1, void *arg2, f32 farg0) {
     setup_model_draw_state__10TObjPlayerFPv();
-    draw_motion_bound__10TObjPlayerFiiPvfi(arg0, arg1, arg2, farg0, draw_chunk_vertices_cached__10TObjPlayerFPv);
+    draw_motion_bound__10TObjPlayerFiiPvfi(child, arg1, arg2, farg0, draw_chunk_vertices_cached__10TObjPlayerFPv);
     TObjPlayer::end_chunk_draw();
 }
 

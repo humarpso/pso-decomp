@@ -9,10 +9,10 @@ int advance_angle_wrap(void*, int);
 void TItemWeapon__ct(void *);
 
 void TObjPlayer::update_boss2tunnel_move() {
-    s32 temp_r3;
+    s32 player_list;
 
-    temp_r3 = TObjPlayer::get_player_list();
-    switch (temp_r3) {
+    player_list = TObjPlayer::get_player_list();
+    switch (player_list) {
     case 1:
         TObjPlayer::play_particle_effect_once();
         rotate_matrix_z(0, *(s32 *)&this->unk_1F8);

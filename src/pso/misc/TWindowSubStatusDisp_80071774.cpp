@@ -31,13 +31,13 @@ s32 TWindowSubStatusDisp__sub_800718D0(void);
 s32 TLobby__sub_80071654(u16);
 
 s32 TWindowSubStatusDisp::get_status_index(int arg0) {
-    u32 temp_r3;
+    u32 character_save_record;
 
-    temp_r3 = get_character_save_record((u16)arg0);
-    if (temp_r3 == 0U) {
+    character_save_record = get_character_save_record((u16)arg0);
+    if (character_save_record == 0U) {
         return -1;
     }
-    return TWindowSubStatusDisp::get_status_index_or_default((u16 *)(temp_r3 + 0x21C4));
+    return TWindowSubStatusDisp::get_status_index_or_default((u16 *)(character_save_record + 0x21C4));
 }
 
 s32 TWindowSubStatusDisp::get_status_index_or_default(u16 *arg0) {

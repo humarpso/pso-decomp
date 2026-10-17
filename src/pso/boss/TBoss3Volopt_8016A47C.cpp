@@ -34,9 +34,9 @@ s32 play_sound_effect(int, void *, int, int);
 extern s32 enable_v2_features;
 void TOKey::vfunc_23() {
     s32 arg0 = (s32)this;
-    u32 temp_r3;
-    temp_r3 = TOKeyMachine01::get_global_state();
-    switch (temp_r3) {
+    u32 global_state;
+    global_state = TOKeyMachine01::get_global_state();
+    switch (global_state) {
     case 1:
     case 2:
         play_sound_effect((int) (0x4AD0C), (void *) (arg0 + 0x38), (int) (0), (int) (0));

@@ -4,9 +4,9 @@ extern "C" {
 u8 * load_encrypted_text_archive(s32, void *);
 s32 TLobby__sub_800F9A60(void *, void *, int);
 void load_encrypted_archive_data(s32 arg0);
-void load_encrypted_archive_data(s32 arg0) {
+void load_encrypted_archive_data(s32 name) {
     s32 sp8;
-    TLobby__sub_800F9A60((void *) (arg0), (void *) (load_encrypted_text_archive(arg0, &sp8)), (int) (sp8));
+    TLobby__sub_800F9A60((void *) (name), (void *) (load_encrypted_text_archive(name, &sp8)), (int) (sp8));
 }
 
 extern s32 resource_load_task_root[];

@@ -58,17 +58,17 @@ void TAdChrSelBSlotGC::render() {
     }
 }
 
-bool TAdChrSelBSlotGC::is_slot_state_one(s32 arg0, u32 arg1) {
+bool TAdChrSelBSlotGC::is_slot_state_one(s32 arg0, u32 i) {
     u8 *temp_r3;
-    temp_r3 = (u8 *)(TAdSinglePlyChrSelectGC__sub_801FE3E4(arg1));
+    temp_r3 = (u8 *)(TAdSinglePlyChrSelectGC__sub_801FE3E4(i));
     if ((u32)(temp_r3) == 0) {
         return 0;
     }
     return *(s32 *)((s8 *)temp_r3 + 8) == 1;
 }
 
-G_8030E3BC *TAdChrSelBSlotGC__sub_8030E3BC(s32 arg0, s32 arg1, s32 arg2, void *arg3) {
-    S_8030E3BC *e = (S_8030E3BC *)TAdSinglePlyChrSelectGC__sub_801FE3E4(arg2);
+G_8030E3BC *TAdChrSelBSlotGC__sub_8030E3BC(s32 arg0, s32 arg1, s32 i, void *arg3) {
+    S_8030E3BC *e = (S_8030E3BC *)TAdSinglePlyChrSelectGC__sub_801FE3E4(i);
     lbl_80542E78.a = arg1;
     lbl_80542E78.b = e != NULL ? e->x : get_localized_text_entry(0x16, 0x1C);
     lbl_80542E78.c = e != NULL ? e->y + 1 : 0;

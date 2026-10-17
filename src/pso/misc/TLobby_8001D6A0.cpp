@@ -454,13 +454,13 @@ Obj_8001DF0C *copy_pair__6TLobbyFPvPv(Obj_8001DF0C *d, Obj_8001DF0C *s) {
 
 void copy_data__6TLobbyFPvPv(void *arg0, void *arg1);
 
-void TLobby__sub_8001DF58(s32 arg0, s32 arg1) {
+void TLobby__sub_8001DF58(s32 arg0, s32 ent) {
     s32 var_r31;
 
     if (((s32 (*)(void))is_valid_player_index__6TLobbyFi)() != 0) {
         var_r31 = 0;
         do {
-            ((TLobby *)(((s32 (*)(s32, s32))get_entry__6TLobbyFii)(var_r31, arg0)))->copy_entry((void *)(arg1));
+            ((TLobby *)(((s32 (*)(s32, s32))get_entry__6TLobbyFii)(var_r31, arg0)))->copy_entry((void *)(ent));
             var_r31 += 1;
         } while (var_r31 < 4);
     }

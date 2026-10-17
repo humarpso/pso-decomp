@@ -294,8 +294,8 @@ s32 TLobby::handle_msg_type1(s32 arg0) {
     s32 sp14;
     s32 sp10;
     s32 spC;
-    s32 sp8;
-    u8 *temp_r31;
+    s32 byte_size;
+    u8 *rows;
     u8 *var_r31;
 
     if ((var_r31 = (u8 *)TLobby__data_805D5EE0) != NULL) {
@@ -303,16 +303,16 @@ loop_1:
         sp14 = *(s32 *)((s8 *)var_r31 + 0);
         sp10 = *(s32 *)((s8 *)var_r31 + 4);
         spC = *(s32 *)((s8 *)var_r31 + 8);
-        sp8 = *(s32 *)((s8 *)var_r31 + 0xC);
+        byte_size = *(s32 *)((s8 *)var_r31 + 0xC);
         bswap_32__FPUl(&sp14);
         bswap_32__FPUl(&sp10);
         bswap_32__FPUl(&spC);
-        bswap_32__FPUl(&sp8);
+        bswap_32__FPUl(&byte_size);
         if ((sp14 == 1) && (spC == arg0)) {
-            temp_r31 = var_r31 + 0x10;
-            convert_quest_object_rows((struct QuestObjRow_801F3AD8 *)temp_r31, sp8);
-            ((TLobby *)temp_r31)->assign_object_ids((s32)((u32) sp8 / 68U), (void *)(TLobby::get_player_floor(spC)));
-            TLobby::load_object_set_entries(spC, temp_r31, sp8);
+            rows = var_r31 + 0x10;
+            convert_quest_object_rows((struct QuestObjRow_801F3AD8 *)rows, byte_size);
+            ((TLobby *)rows)->assign_object_ids((s32)((u32) byte_size / 68U), (void *)(TLobby::get_player_floor(spC)));
+            TLobby::load_object_set_entries(spC, rows, byte_size);
             return 1;
         }
         if (sp14 != 0) {

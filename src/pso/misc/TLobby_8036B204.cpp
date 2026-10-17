@@ -40,9 +40,9 @@ void TLobby::send_slot_entity_or_local(u16 arg0, s32 arg1) {
     TLobby__sub_8036B1AC(arg1);
 }
 
-void dispatch_by_index__6TLobbyFUsi(u16 arg0, s32 arg1) {
+void dispatch_by_index__6TLobbyFUsi(u16 arg0, s32 src) {
     if (((u32) slot_entity_dispatcher_instance != 0U) && (arg0 < 4U)) {
-        ((TLobby *)slot_entity_dispatcher_instance)->start_entry_timer(arg0, arg1);
+        ((TLobby *)slot_entity_dispatcher_instance)->start_entry_timer(arg0, src);
     }
 }
 void TLobby::send_slot_entity(u16 arg1, s32 arg2) {

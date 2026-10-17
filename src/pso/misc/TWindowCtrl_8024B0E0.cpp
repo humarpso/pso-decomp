@@ -7,16 +7,16 @@ s32 get_main_menu_message__15TWindowCtrlMainFv();
 s32 get_window_layout_position(s32);
 
 s32 TWindowCtrl::get_message_by_type(s8 arg0, s32 arg1) {
-    s32 temp_r3;
+    s32 window;
     s32 var_r3;
 
-    temp_r3 = TWindowCtrl::get_window(arg1);
-    if (temp_r3 == 0) {
+    window = TWindowCtrl::get_window(arg1);
+    if (window == 0) {
         return 0;
     }
     if (get_main_menu_message__15TWindowCtrlMainFv() != 0) {
         var_r3 = 0x4D;
-    } else if (((TWindowCtrl *)temp_r3)->get_active_menu() != 0) {
+    } else if (((TWindowCtrl *)window)->get_active_menu() != 0) {
         var_r3 = 0x48;
     } else {
         var_r3 = 0x43;
