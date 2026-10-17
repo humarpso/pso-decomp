@@ -210,7 +210,7 @@ void TObjMapWarpAncient::render() {
     if (((VObj_8017CED8_more_8017cca4_1*)arg0)->m8(lbl_805DBAB8, lbl_805DBABC) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, this->sourceYaw);
+        rotate_matrix_y(0, this->rotation_y);
         TParticleCtrl::begin_effect_render();
         if ((s32) *(s32 *)((s8 *)arg0 + 0x88) >= 0) {
             TObjFish::set_global_param(*(s32 *)&this->m_10c);

@@ -253,7 +253,7 @@ void TObjLaboMapWarp::render() {
         ((s32 (*)(void))set_global_param__8TObjFishFl)();
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, this->sourceYaw);
+        rotate_matrix_y(0, this->rotation_y);
         if (is_field88_zero() != 0) {
             get_bml_model(TObjLaboMapWarp__resource_bundle, 1);
             ((s32 (*)(void))draw_ginja_object)();
@@ -379,7 +379,7 @@ void TObjCityMapWarp::render() {
         set_global_param__8TObjFishFl(city_common_texture_list);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, this->sourceYaw);
+        rotate_matrix_y(0, this->rotation_y);
         if (is_field88_zero() != 0) {
             draw_ginja_object(*(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x42C)) + 0xD8));
             TParticleCtrl::begin_effect_render();

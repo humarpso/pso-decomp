@@ -1,34 +1,13 @@
 #ifndef PSO_OBJECT_TOBJMAPWARP_H
 #define PSO_OBJECT_TOBJMAPWARP_H
 #include "types.h"
-struct TObjMapWarpPrefix {u32 type;u8 base04[0x14];};
-struct TObjMapWarp : TObjMapWarpPrefix {
-    virtual void slot08();
-    virtual void run_task();
-    virtual void render();
-    virtual void render_shadows();
-    virtual void vfunc_6();
-    virtual void vfunc_7();
-    virtual void reset_motion_fields();
-    virtual void vfunc_9();
-    virtual void update_object_view_visibility();
-    virtual void vfunc_11();
-    virtual void vfunc_12();
-    virtual void vfunc_13();
-    virtual void vfunc_14();
-    virtual void slot3C();
-    virtual void vfunc_16();
-    virtual void vfunc_17();
-    virtual void vfunc_18();
+#include "pso/object/TObjWarpBase.h"
+struct TObjMapWarp : public TObjWarpBase {
+    virtual ~TObjMapWarp();
+    void vfunc_14();
     virtual void slot4C();
     virtual void closePlayerWindow(u16);
-    u8 base1C[0x44];
-    s32 sourceYaw;
-    u8 base64[4];
-    f32 destination[3];
-    u8 parameters74[0x10];
-    s32 destinationFacing;
-    u8 base88[0x34];
+    u8 unk_AC[0x10];
     f32 destinations[4][3];
     void* playerPopups[4];
     void draw_debug_destinations();
