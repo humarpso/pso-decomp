@@ -4,7 +4,7 @@
 #include "pso/object/TObjWarpBase.h"
 struct TObjMapWarp : public TObjWarpBase {
     virtual ~TObjMapWarp();
-    void vfunc_14();
+    virtual void vfunc_14();
     virtual void slot4C();
     virtual void closePlayerWindow(u16);
     u8 unk_AC[0x10];
