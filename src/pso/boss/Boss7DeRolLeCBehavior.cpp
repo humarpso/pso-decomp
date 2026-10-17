@@ -3213,7 +3213,7 @@ void TBoss7DeRolLeC::advance_action_sequence() {
     s32 var_r4;
     do {
         var_r30 = 0;
-        this->m_6d0 = (s32) (this->m_6d0 + 1);
+        this->m_6d0 = (this->m_6d0 + 1);
         var_r4 = *(s32 *)((s8 *)(*(s32 *)((s8 *)((u8 *)(&(*(RecoveredGlobal_802EC7F0_lbl_804E3C2C *)&lbl_804E3C2C).value) + (game_difficulty_selection * 4)) + 0) + (this->m_6d0 * 8)) + 0);
         switch (var_r4) {
         case 0x1E:

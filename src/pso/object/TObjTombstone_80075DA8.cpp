@@ -105,7 +105,7 @@ void TObjTombstone::run_task() {
     if (is_player_nearby() != 0) {
         TObjTombstone__sub_80075DFC(this);
     }
-    this->m_230 = (s32) (this->m_230 + 1);
+    this->m_230 = (this->m_230 + 1);
     tombstone_first_run_flag = 0;
 }
 

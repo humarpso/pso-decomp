@@ -85,7 +85,7 @@ void TWindowSubTechnique::rebuildTechniqueList(s32 list, s32 category) {
 s32 TWindowSubTechnique::create_title_window() {
   s32 titled_window_menu;
   titled_window_menu = create_titled_window_menu((int) get_window_layout_position(0x13), 5, (0, get_message_10__20TWindowSubStatusDispFl(0x30)), (this->playerIndex));
-  TWindowSubEquip__sub_80263AF8((u8 *)(this->m_30), 1);
+  TWindowSubEquip__sub_80263AF8((u8 *)this->m_30, 1);
   set_field_1c__6TLobbyFf((int) titled_window_menu);
   ((TWindowSubComCardList *)titled_window_menu)->set_flag70_bit100();
   ((TWindowSubComCardList *)titled_window_menu)->set_flag70_bit10();

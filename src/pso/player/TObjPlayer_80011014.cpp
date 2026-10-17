@@ -4418,7 +4418,7 @@ void TUnk_804806E8::calc_attach_pos() {
     u8 *arg0 = (u8 *)this;
     if ((void *) this->m_2b0 != NULL) {
         this->m_2fc = (f32) this->position[0];
-        this->m_300 = (f32) (((0.5f) * *(f32 *)((s8 *)(this->m_2b0) + 0x10)) + this->position[1]);
+        this->m_300 = (f32) (((0.5f) * *(f32 *)(this->m_2b0 + 0x10)) + this->position[1]);
         this->m_304 = (f32) this->position[2];
         return;
     }
@@ -4745,7 +4745,7 @@ void obj_copyVec2_0(u8* d, u8* s) {
 }
 #pragma pop
 
-s16 TUnk_804806E8::get_actor_attack_params_atp_min() { return get_attack_params_atp_min((void*)(this->m_318)); }
+s16 TUnk_804806E8::get_actor_attack_params_atp_min() { return get_attack_params_atp_min((void*)this->m_318); }
 
 s16 get_attack_params_atp_min(void* p) { return *(s16*)((char*)p + 0x0); }
 
@@ -4787,11 +4787,11 @@ s32 TObjPlayer::add_status_effect_timer(s32 i, s32 v) {
     return self->recs[i].c += v;
 }
 
-s16 TUnk_804806E8::sub_800194C4() { return TObjPlayer__sub_800194E8((void*)(this->m_318)); }
+s16 TUnk_804806E8::sub_800194C4() { return TObjPlayer__sub_800194E8((void*)this->m_318); }
 
 s16 TObjPlayer__sub_800194E8(void* p) { return *(s16*)((char*)p + 0x4); }
 
-s16 TUnk_804806E8::get_stats_atp_max() { return get_attack_params_atp_max((void*)(this->m_318)); }
+s16 TUnk_804806E8::get_stats_atp_max() { return get_attack_params_atp_max((void*)this->m_318); }
 
 s16 get_attack_params_atp_max(void* p) { return *(s16*)((char*)p + 0x2); }
 

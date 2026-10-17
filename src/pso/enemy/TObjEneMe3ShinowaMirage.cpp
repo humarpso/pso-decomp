@@ -364,7 +364,7 @@ void TObjEneMe3ShinowaMirage::activate_mirage(s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x3C4) = temp_r4_2;
         this->m_b8 = 0xA;
         advance_animation_playback(arg0, temp_r4_2);
-        this->m_c0 = (f32) (u32) (*(s32 *)((s8 *)(this->unknownF8) + 4) - 1);
+        this->m_c0 = (f32) (u32) (*(s32 *)(this->unknownF8 + 4) - 1);
         transition_enemy_state(arg0, 8);
         clear_mirage();
     }

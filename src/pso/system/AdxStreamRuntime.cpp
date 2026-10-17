@@ -747,7 +747,7 @@ s32 adx_write_encoded_blocks(Obj_803C7C10 *arg0) {
 
 void TLobby::set_field_10_and_notify(s32 up) {
     *(s32 *)&this->m_up = up;
-    ((TLobby *)(this->m_prev))->cv_fs_seek((int) (this->m_up), 0);
+    ((TLobby *)(this->m_prev))->cv_fs_seek((int)this->m_up, 0);
     ((TLobby *)(this->m_prev))->cv_fs_tell();
 }
 
@@ -954,7 +954,7 @@ s32 TLobby::init_stream_position() {
 
 s32 TLobby::get_file_offset_relative() {
     u8 *temp_r3;
-    temp_r3 = (u8 *)(this->m_prev);
+    temp_r3 = (u8 *)this->m_prev;
     if (temp_r3 != NULL) {
         return ((TLobby *)temp_r3)->cv_fs_tell() - *(s32 *)&this->m_up;
     }
@@ -1686,7 +1686,7 @@ s16 TLobby__sub_803C96B0(u8 *arg0) {
 
 void TLobby::set_field_40_and_notify(s16 arg1) {
     *(s16 *)((s8 *)((u8 *)this) + 0x40) = arg1;
-    trigger_sub_task__6TLobbyFv((int) (this->m_next));
+    trigger_sub_task__6TLobbyFv((int)this->m_next);
 }
 
 s16 TLobby__sub_803C96E0(Obj_803C96E0 *self, s32 i) {

@@ -151,7 +151,7 @@ void TPlayerBattleCtrl4P::update_ready_wait() {
     ready_timer = (ready_timer - 1);
     if ((check_all_players_flag__19TPlayerBattleCtrl4PFv(((void *)this)) != 0) || ((s32) ready_timer >= 0)) {
         if (this->intro_window != (void *) 0) {
-        TWindow__close((u8 *)(this->intro_window));
+        TWindow__close((u8 *)this->intro_window);
         this->intro_window = 0U;
         {
             void *temp = __nw__7TObjectFUl(0x28);

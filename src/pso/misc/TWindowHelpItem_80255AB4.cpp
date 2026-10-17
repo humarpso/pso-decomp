@@ -90,7 +90,7 @@ void TWindowHelpItem::update_display() {
 void *TWindowHelpItem::dt(s16 arg1) {
     if (this != NULL) {
         this->m_vtable18 = TWindowHelpItem__object_vtable;
-        delete_if_allocated((s32)(this->m_64), 1);
+        delete_if_allocated(this->m_64, 1);
         destroy_window_base__9TWindowDDFs(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

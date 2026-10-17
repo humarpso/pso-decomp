@@ -1184,7 +1184,7 @@ void TObjEneBm3FlyNest::render_with_state_debug() {
         TObjEneDD::clear_global_flag_400();
         TObjPlayer::toggle_particle_effect();
         TObjPlayer::set_global_flag();
-        draw_model_motion((void *)(this->model), var_r30, var_f31);
+        draw_model_motion(this->model, var_r30, var_f31);
         TObjPlayer::clear_global_state();
         TParticleCtrl::end_effect_render();
         ((void (*)(void))pop_matrix)();

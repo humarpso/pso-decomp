@@ -195,7 +195,7 @@ f32 TOAttackableCol::apply_hit(s32 arg1) {
       return lbl_805DB2C8;
     }
     this->m_33c = (s32) ((this->m_33c) - 1);
-    if (((s32) (this->m_33c)) <= 0)
+    if (((s32)this->m_33c) <= 0)
     {
       this->m_33c = 0;
       send_state_change((u16)(1));

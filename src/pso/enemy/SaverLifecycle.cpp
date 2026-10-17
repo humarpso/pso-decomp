@@ -1263,7 +1263,7 @@ void TObjEneSaver::update_move_toward_target() {
     f32 temp_f0;
     f32 temp_f1;
     u8 *temp_r8;
-    *(s32 *)((s8 *)((u8 *)(this->m_a4)) + 0x18) |= 1;
+    *(s32 *)((s8 *)(this->m_a4) + 0x18) |= 1;
     this->actorFlags &= 0xF9DBFFFF;
     temp_r8 = this->target;
     if (temp_r8 != NULL) {
@@ -1283,14 +1283,14 @@ void TObjEneSaver::update_move_toward_target() {
         }
         case 1: {
             Vec_800A5DC4 v3 = *(Vec_800A5DC4 *)(temp_r8 + 0x2FC);
-            enemy_move_toward((void *) (((u8 *)this)), *(s32 *)((s8 *)(this->movementParameters) + 8), &v3, 0, lbl_805D504C, lbl_805D504C[2]);
+            enemy_move_toward((void *) (((u8 *)this)), *(s32 *)((s8 *)this->movementParameters + 8), &v3, 0, lbl_805D504C, lbl_805D504C[2]);
             temp_f1 = horizontal_distance_squared((int) (((u8 *)this) + 0x29C), (void *) (((u8 *)this) + 0x38));
             if (temp_f1 < lbl_805D9A78) {
                 *(s32 *)&this->m_390 &= ~0x10;
             } else {
                 *(s32 *)&this->m_390 |= 0x10;
             }
-            temp_f0 = *(f32 *)((s8 *)(this->movementParameters) + 4) + *(f32 *)((s8 *)(this->m_a4) + 0xC);
+            temp_f0 = *(f32 *)((s8 *)this->movementParameters + 4) + *(f32 *)((s8 *)this->m_a4 + 0xC);
             if (temp_f1 < (temp_f0 * temp_f0)) {
                 this->phase = 2;
             }
@@ -1349,7 +1349,7 @@ void TObjEneSaver::advance_motion_state() {
         apply_actor_gravity(((u8 *)this), 0, lbl_805D9A14);
         return;
     case 1:
-        if (horizontal_distance_squared((int) (this->target + 0x2FC), (void *) (((u8 *)this) + 0x2FC)) < lbl_805D9A7C) {
+        if (horizontal_distance_squared((int)(this->target + 0x2FC), (void *) (((u8 *)this) + 0x2FC)) < lbl_805D9A7C) {
             this->phase = 2;
         }
         return;

@@ -83,7 +83,7 @@ s32 TWindowSubTechnique::open_menu() {
     s32 titled_window_menu;
 
     titled_window_menu = create_titled_window_menu(get_window_layout_position(0x12), 5, get_message_10__20TWindowSubStatusDispFl(0x2F), this->playerIndex);
-    TWindowSubEquip__sub_80263AF8((u8 *)(this->m_30), 0);
+    TWindowSubEquip__sub_80263AF8((u8 *)this->m_30, 0);
     set_field_1c__6TLobbyFf(titled_window_menu);
     ((TWindowSubComCardList *)titled_window_menu)->set_flag70_bit100();
     forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)(get_message_10__20TWindowSubStatusDispFl(0x9C)), 6, 0);

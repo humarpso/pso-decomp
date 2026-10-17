@@ -52,11 +52,11 @@ void TObjBoss5Pillar::render() {
         TObjFish::set_global_param(boss5_common_texture_list);
         post_translate_matrix(arg0 + 0x2C);
         if ((s32) this->m_1c != 3) {
-            fn_8028ADDC((void *)(this->m_48));
-            draw_ginja_model_with_motion((int) (this->m_38), (int) (this->m_40), (f32) (*(f32 *)((s8 *)arg0 + 0x20)));
+            fn_8028ADDC((void *)this->m_48);
+            draw_ginja_model_with_motion(this->m_38, this->m_40, (f32) (*(f32 *)((s8 *)arg0 + 0x20)));
             TObjBoss5PillarDemo__sub_8028ADB0((this->m_48));
         }
-        draw_ginja_model_with_motion((int) (this->m_3c), (int) (this->m_44), (f32) (*(f32 *)((s8 *)arg0 + 0x20)));
+        draw_ginja_model_with_motion(this->m_3c, this->m_44, (f32) (*(f32 *)((s8 *)arg0 + 0x20)));
         pop_matrix();
     }
 }

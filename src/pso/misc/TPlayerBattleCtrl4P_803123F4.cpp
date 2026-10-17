@@ -134,11 +134,11 @@ TPlayerBattleCtrl4P* TPlayerBattleCtrl4P::destroy(s16 should_free) {
     if (((void *)this) != NULL) {
         *(s32 **)((s8 *)((void *)this) + 0x18) = __vt__19TPlayerBattleCtrl4P;
         if ((u32) this->intro_window != 0U) {
-            TWindow__close((u8 *)(this->intro_window));
+            TWindow__close((u8 *)this->intro_window);
             this->intro_window = 0U;
         }
         if ((u32) this->menu_window != 0U) {
-            TWindow__close((u8 *)(this->menu_window));
+            TWindow__close((u8 *)this->menu_window);
             this->menu_window = 0U;
         }
         close_player_windows();

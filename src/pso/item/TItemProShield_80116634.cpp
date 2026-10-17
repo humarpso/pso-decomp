@@ -164,7 +164,7 @@ void TUnk_8049F8E0::vfunc_44() {
     s32 temp_r3;
     u32 temp_r424;
     if (sub_801A1DDC__10TObjPlayerFv(*(void * *)&this->m_f0) != 0) {
-        temp_r424 = (u32) *(u32 *)((s8 *)(this->m_f0) + 0x424);
+        temp_r424 = (u32) *(u32 *)(this->m_f0 + 0x424);
         if (temp_r424 != 0U) {
             temp_r3 = ((TMainCursor *)temp_r424)->find_by_pos(4, 9);
             if (temp_r3 != 0) {

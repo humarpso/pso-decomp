@@ -49,7 +49,7 @@ u8 *TTecFoie::construct_aimed(s32 arg1, u8 *arg2, u8 *arg3, s16 arg4) {
     u8 *temp_r3;
     __ct__13TUnk_804CCC68FlPUcPUcl(arg0, arg1, arg2, arg3, arg4);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__8TTecFoie.value;
-    temp_r3 = (u8 *)(this->source);
+    temp_r3 = (u8 *)this->source;
     if (temp_r3 != NULL) {
         this->sourceId = obj_getField1c(temp_r3);
     }

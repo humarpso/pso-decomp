@@ -1090,7 +1090,7 @@ void TQuestVmDownLoadServer::write_quest_data_named() {
     u8 *arg0 = (u8 *)this;
     TAdSinglePlyChrSelectGC::set_quest_download_server(this->m_25c);
     lbl_805D49B4 = 1;
-    if (draw_window_bg__23TAdSinglePlyChrSelectGCFllll(this->m_25c, arg0 + 0x27D, (s32)(this->m_260), this->m_268) == 0) {
+    if (draw_window_bg__23TAdSinglePlyChrSelectGCFllll(this->m_25c, arg0 + 0x27D, (s32)this->m_260, this->m_268) == 0) {
         this->state = 0xD;
         show_status_message(TQuestVmDownLoadServer__sub_8006EF6C(0xC), 1);
         return;

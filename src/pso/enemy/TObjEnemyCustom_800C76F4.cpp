@@ -46,7 +46,7 @@ void TObjEnemyCustom::render() {
         rotate_matrix_y(0, this->rotation_y);
         model_render_flags &= 0xFFFFFBFF;
         if (TObjPlayer::check_demo_mode() == 1) {
-            draw_chunk_object((void *)(this->model));
+            draw_chunk_object(this->model);
         } else {
             ((TObjEneRe7Berura *)arg0)->draw();
         }

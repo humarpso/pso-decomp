@@ -269,7 +269,7 @@ void TAdChrSelASlotGC__sub_8030CEEC(u8 *arg0) {
 void TAdChrSelASlotGC::update_window_78() {
     if (((TAdChrSelASlotGC *)(this->m_30))->get_slot_index() > 0xB) {
         if ((u32) this->m_78 != 0U) {
-            TWindow__close((u8 *)(this->m_78));
+            TWindow__close((u8 *)this->m_78);
             this->m_78 = 0U;
         }
         this->m_24 = 0xC;
@@ -311,7 +311,7 @@ void TAdChrSelASlotGC::update_window_74() {
 void TAdChrSelASlotGC::update_window_70() {
     if (((TAdChrSelASlotGC *)(this->m_30))->get_slot_index() > 7) {
         if ((u32) this->m_70 != 0U) {
-            TWindow__close((u8 *)(this->m_70));
+            TWindow__close((u8 *)this->m_70);
             this->m_70 = 0U;
         }
         this->m_24 = 9;
@@ -339,7 +339,7 @@ void TAdChrSelASlotGC::update_window_6c() {
 void TAdChrSelASlotGC::update_slot5() {
     if (((TAdChrSelASlotGC *)(this->m_30))->get_slot_index() > 5) {
         if ((u32) this->m_68 != 0U) {
-            TWindow__close((u8 *)(this->m_68));
+            TWindow__close((u8 *)this->m_68);
             this->m_68 = 0U;
         }
         this->m_24 = 7;
@@ -367,7 +367,7 @@ void TAdChrSelASlotGC::update_slot4() {
 void TAdChrSelASlotGC::update_slot3() {
     if (((TAdChrSelASlotGC *)(this->m_30))->get_slot_index() > 3) {
         if ((u32) this->m_60 != 0U) {
-            TWindow__close((u8 *)(this->m_60));
+            TWindow__close((u8 *)this->m_60);
             this->m_60 = 0U;
         }
         this->m_24 = 5;
@@ -395,7 +395,7 @@ void TAdChrSelASlotGC::update_slot2() {
 void TAdChrSelASlotGC::update_slot1() {
     if (((TAdChrSelASlotGC *)(this->m_30))->get_slot_index() > 1) {
         if ((u32) this->m_58 != 0U) {
-            TWindow__close((u8 *)(this->m_58));
+            TWindow__close((u8 *)this->m_58);
             this->m_58 = 0U;
         }
         this->m_24 = 3;

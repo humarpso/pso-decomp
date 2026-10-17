@@ -172,7 +172,7 @@ u8 *TItemTimer__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     if ((s32) ((TItemTimer *)arg0)->m_1C< 1) {
         ((TItemTimer *)arg0)->m_1C = 1;
     }
-    TItemTimer__sub_8011D598((u8 *)(arg0 + 0x20), arg1, arg2);
+    TItemTimer__sub_8011D598(arg0 + 0x20, arg1, arg2);
     disallow_rendering__7TObjectFv((arg0));
     return arg0;
 }
@@ -239,7 +239,7 @@ void TUnk_804A05C8::vfunc_6() {
 
     if ((test_flag_2000000__10TObjPlayerFPv(this->m_28) == 0) && (is_flag_20000_set__10TObjPlayerFv(this->m_28) == 0)) {
         ((TBoss3Volopt *)(this->m_28))->get_field_3e0();
-        if ((is_item_area_enabled() == 1) && (obj_testFlags30((void *)(this->m_28), 0x800) == 0)) {
+        if ((is_item_area_enabled() == 1) && (obj_testFlags30((void *)this->m_28, 0x800) == 0)) {
             particle_effect_with_flags = (s32)spawn_particle_effect_with_flags((void *)(*(s32 *)&this->m_28 + 0x2FC), *(s32 *)&this->unk_2C, 0x10);
             if (particle_effect_with_flags != 0) {
                 set_owner_id__13TParticleCtrlFUs(particle_effect_with_flags, obj_getField1c(this->m_28));
@@ -266,27 +266,27 @@ extern f32 lbl_805DAC80;
 void TUnk_804A0608::vfunc_6() {
     struct VObj_8011D94C_8011D414 *o;
 
-    if (obj_testFlags30((void *)((void *)(this->m_28)), 0x800) == 0) {
+    if (obj_testFlags30((void *)(this->m_28), 0x800) == 0) {
         o = (struct VObj_8011D94C_8011D414 *)this->m_28;
         o->m73(lbl_805DAC80);
     }
 }
 
 void TUnk_804A0628::vfunc_6() {
-    if (obj_testFlags30((void *)((void *)(this->m_28)), 0x800) == 0) {
-        add_actor_tp((u8 *)(this->m_28), 1);
+    if (obj_testFlags30((void *)(this->m_28), 0x800) == 0) {
+        add_actor_tp((u8 *)this->m_28, 1);
     }
 }
 
 void TUnk_804A0648::vfunc_6() {
-    if (obj_testFlags30((void *)((void *)(this->m_28)), 0x800) == 0) {
-        add_actor_hp((u8 *)(this->m_28), 1);
+    if (obj_testFlags30((void *)(this->m_28), 0x800) == 0) {
+        add_actor_hp((u8 *)this->m_28, 1);
     }
 }
 
 void TUnk_804A0668::vfunc_6() {
     ((TBoss3Volopt *)(this->m_28))->get_field_3e0();
-    if ((is_item_area_enabled() == 1) && (obj_isState3_324__13TUnk_804806E8Fv(this->m_28) == 0) && (obj_testFlags30((void *)(this->m_28), 0x800) == 0)) {
+    if ((is_item_area_enabled() == 1) && (obj_isState3_324__13TUnk_804806E8Fv(this->m_28) == 0) && (obj_testFlags30((void *)this->m_28, 0x800) == 0)) {
         ((TUnk_804806E8 *)(this->m_28))->subtract_actor_tp(1);
     }
 }

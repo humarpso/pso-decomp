@@ -256,7 +256,7 @@ void TShopJudgmentItemWindow::handle_pay_confirm() {
 
     if (((TShopWindowBase *)(((u8 *)this)))->vfunc_10() != 0) {
         if ((u32) this->m_158 == 0U) {
-            this->m_158 = (s32)create_yes_no_window(get_window_layout_position(0x2B), obj_getField1c((s32) (this->m_24)), 0, 0);
+            this->m_158 = (s32)create_yes_no_window(get_window_layout_position(0x2B), obj_getField1c(this->m_24), 0, 0);
             ((TWindowSubComCardList *)((void *)this->m_158))->set_selected_index(0);
             ((TUnk_804CDFE8 *)(this->m_158))->set_position_xy(get_scale__15TShopWindowBaseFv((void *) (((u8 *)this))), get_scale__15TShopWindowBaseFv((void *) (((u8 *)this))));
         }
@@ -264,15 +264,15 @@ void TShopJudgmentItemWindow::handle_pay_confirm() {
             selected_menu_value = get_selected_menu_value(this->m_158);
             if (selected_menu_value == 0) {
                 if ((u32) this->m_160 != 0U) {
-                    TWindow__close((u8 *)(this->m_160));
+                    TWindow__close((u8 *)this->m_160);
                     this->m_160 = 0U;
                 }
                 if ((u32) this->m_154 != 0U) {
-                    TWindow__close((u8 *)(this->m_154));
+                    TWindow__close((u8 *)this->m_154);
                     this->m_154 = 0U;
                 }
                 if ((u32) this->m_15c != 0U) {
-                    TWindow__close((u8 *)(this->m_15c));
+                    TWindow__close((u8 *)this->m_15c);
                     this->m_15c = 0U;
                 }
                 if ((u32) this->m_50 != 0U) {
@@ -280,15 +280,15 @@ void TShopJudgmentItemWindow::handle_pay_confirm() {
                     this->m_50 = 0U;
                 }
                 *(s32 *)&this->_pad14C = 3;
-                TWindow__close((u8 *)(this->m_158));
+                TWindow__close((u8 *)this->m_158);
                 this->m_158 = 0U;
-                try_spend_actor_meseta((u8 *)(this->m_24), 0x64);
+                try_spend_actor_meseta((u8 *)this->m_24, 0x64);
                 ((VObj_18 *)(((u8 *)this)))->m6(0xA, 1);
                 ((TShopWindowBase *)((u8 *)this))->set_field_20(5);
                 return;
             }
             if (selected_menu_value == 1) {
-                TWindow__close((u8 *)(this->m_158));
+                TWindow__close((u8 *)this->m_158);
                 this->m_158 = 0U;
                 ((VObj_18 *)(((u8 *)this)))->m6(8, 1);
                 ((TShopWindowBase *)((u8 *)this))->set_field_20(4);
@@ -298,7 +298,7 @@ void TShopJudgmentItemWindow::handle_pay_confirm() {
         }
 block_17:
         if (((u32) this->m_158 != 0U) && (((TWindowSubComCard *)(this->m_158))->get_status_flag() != 0)) {
-            TWindow__close((u8 *)(this->m_158));
+            TWindow__close((u8 *)this->m_158);
             this->m_158 = 0U;
             ((VObj_18 *)(((u8 *)this)))->m6(8, 1);
             ((TShopWindowBase *)((u8 *)this))->set_field_20(4);
@@ -482,7 +482,7 @@ void TShopJudgmentItemWindow::create_result_windows() {
             TItemData__clear_unidentified_flag(((u8 *)&this->unk_28));
             this->m_34 = advance_item_id_counter(((u16) local_client_id));
             this->m_50 = ((TLobby *)(arg0 + 0x28))->dispatch_item_by_type();
-            ((TShopJudgmentItemWindow *)(this->m_154))->add_list_entry((int) (this->m_50), 0);
+            ((TShopJudgmentItemWindow *)(this->m_154))->add_list_entry(this->m_50, 0);
             ((TWindowSubShortCutList *)(this->m_154))->set_flag70_bit10();
             ((TWindowSubTradeMain *)(this->m_154))->set_visible();
             ((TWindowSubTradeMain *)(this->m_154))->set_close_flag();

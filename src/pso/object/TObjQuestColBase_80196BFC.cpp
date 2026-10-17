@@ -126,7 +126,7 @@ void TObjQuestColBase::render() {  }
 void TObjQuestColBase::run_task() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
-    temp_r3 = (u8 *)(this->m_b8);
+    temp_r3 = (u8 *)this->m_b8;
     if ((temp_r3 != NULL) && (((TObject *)temp_r3)->all_parents_unqueued_for_destruction() == 0)) {
         this->m_b8 = NULL;
     }

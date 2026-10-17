@@ -371,7 +371,7 @@ void TWindowSubStatusDisp__sub_80281644(u8 *arg0) {
 void *TWindowSubStatusDisp::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = __vt__20TWindowSubStatusDisp;
-        delete_if_allocated((s32)(this->m_68), 1);
+        delete_if_allocated(this->m_68, 1);
         destroy_window_base__9TWindowDDFs(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

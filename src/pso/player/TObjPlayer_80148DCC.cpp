@@ -159,7 +159,7 @@ void TObjPlayer::draw_model() {
         rotate_matrix_y(0, this->rotation_y);
         TObjPlayer::set_global_flag();
         if ((s32) this->m_394 != 0) {
-            draw_chunk_object((void *)(this->model));
+            draw_chunk_object(this->model);
         } else {
             ((TObjEneRe7Berura *)arg0)->draw();
         }

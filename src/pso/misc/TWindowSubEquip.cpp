@@ -16,7 +16,7 @@ void TWindowSubEquip::update_displayed_item() {
     temp_r3 = select_cursor_entry__22TWindowSubShortCutListFv(this->m_38);
     if (temp_r3 != (s32) this->m_24) {
         this->m_24 = temp_r3;
-        TWindowHelpItem__set_displayed_item_by_id((u8 *)(this->m_30), temp_r3);
+        TWindowHelpItem__set_displayed_item_by_id((u8 *)this->m_30, temp_r3);
     }
 }
 
@@ -35,7 +35,7 @@ void TWindowSubEquip::update() {
         }
         if (var_r3 != (s32) this->m_20) {
             this->m_20 = var_r3;
-            show_item_by_id__15TWindowHelpItemFPvi((u8 *)(this->m_30), var_r3);
+            show_item_by_id__15TWindowHelpItemFPvi((u8 *)this->m_30, var_r3);
         }
     }
 }

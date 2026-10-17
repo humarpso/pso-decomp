@@ -165,7 +165,7 @@ void TAdTrialAgreementGC::run_state() {
     case 2:
         break;
     }
-    this->m_38 = (s32) (this->m_38 + 1);
+    this->m_38 = (this->m_38 + 1);
 }
 
 extern s32 lbl_804EE458[];

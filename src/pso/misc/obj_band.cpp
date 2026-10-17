@@ -329,9 +329,9 @@ void TObjPlayer::draw_model_with_callback() {
         TObjEneRe7Berura::set_global_state((s32)save_joint_matrix_callback);
         temp_r3 = this->animationFlags;
         if ((temp_r3 & 4) && !(temp_r3 & 0x400)) {
-            draw_model_blend_motion((void *)(this->model), (void *)&this->unk_E4, this->m_c0);
+            draw_model_blend_motion(this->model, (void *)&this->unk_E4, this->m_c0);
         } else {
-            draw_model_motion((void *)(this->model), (void *)(this->unknownF8), this->m_c0);
+            draw_model_motion((void *)this->model, (void *)this->unknownF8, this->m_c0);
         }
         TObjEneRe7Berura::set_global_state(NULL);
         TObjPlayer::reset_transform_state();
@@ -341,10 +341,10 @@ void TObjPlayer::draw_model_with_callback() {
 void TObjEnemy::render_world_model() {
     TObjPlayer::set_global_flag();
     if (this->animationFlags & 4) {
-        draw_model_blend_motion((void *)(this->model), (void *)&this->unk_E4, this->m_c0);
+        draw_model_blend_motion(this->model, (void *)&this->unk_E4, this->m_c0);
     } else {
         TObjEneRe7Berura::set_global_state(chunk_model_node_callback);
-        draw_model_motion((void *)(this->model), (void *)(this->unknownF8), this->m_c0);
+        draw_model_motion((void *)this->model, (void *)this->unknownF8, this->m_c0);
         TObjEneRe7Berura::set_global_state((s32)((s32 *)(0)));
     }
     TObjPlayer::reset_transform_state();
@@ -355,10 +355,10 @@ void TObjEneRe7Berura::draw() {
     TObjPlayer::set_global_flag();
     setup_actor_draw_lighting();
     if (this->animationFlags & 4) {
-        draw_model_blend_motion((void *)(this->model), (void *)&this->unk_E4, this->m_c0);
+        draw_model_blend_motion(this->model, (void *)&this->unk_E4, this->m_c0);
     } else {
         TObjEneRe7Berura::set_global_state((s32)chunk_model_node_callback);
-        draw_model_motion((void *)(this->model), (void *)(this->unknownF8), this->m_c0);
+        draw_model_motion((void *)this->model, (void *)this->unknownF8, this->m_c0);
         TObjEneRe7Berura::set_global_state(0);
     }
     TObjPlayer::reset_transform_state();

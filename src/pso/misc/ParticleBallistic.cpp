@@ -276,7 +276,7 @@ void *TParticleCtrl::create_random_spread(void *arg0, void *arg1, void *arg2) {
 void TUnk_8048E778::retire_ballistic_particle_if_done() {
     u8 *arg0 = (u8 *)this;
     Stack_80088844 stack;
-    if (*(u8 *)((s8 *)(this->m_20) + 0x88) & 8) {
+    if (*(u8 *)((s8 *)this->m_20 + 0x88) & 8) {
         stack.sp8 = this->m_70 - this->m_30;
         stack.spC = *(f32 *)&this->unk_74 - *(f32 *)((s8 *)arg0 + 0x34);
         stack.sp10 = this->m_78 - this->m_38;

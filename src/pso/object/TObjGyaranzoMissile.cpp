@@ -244,7 +244,7 @@ void TObjGyaranzoMissile::render() {
     set_global_param__8TObjFishFl();
     push_matrix();
     post_translate_matrix(arg0 + 0x38);
-    rotate_matrix_x(0, (int) (this->m_5c));
+    rotate_matrix_x(0, (int)this->m_5c);
     rotate_matrix_y(0, this->rotation_y);
     translate_matrix(0, lbl_805DA2C4, (f32) (*(f32 *)&this->_padD4 * sin_table_lookup((int) (*(s32 *)&this->m_cc))), lbl_805DA2C4);
     model_render_flags &= 0xFFFFFBFF;

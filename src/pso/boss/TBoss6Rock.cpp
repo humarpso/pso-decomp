@@ -475,7 +475,7 @@ void TBoss6Rock::update_fall() {
 
 void TBoss6Rock::init_spin_params() {
   s32 temp_r4;
-  if (((s32) (this->m_c8)) != 0)
+  if (((s32)this->m_c8) != 0)
   {
     f32 k = TBoss6Rock__data_805DFF4C;
     f32 s = lbl_805DFF98;
@@ -485,8 +485,8 @@ void TBoss6Rock::init_spin_params() {
     temp_r4 = this->m_ac;
     *((f32 *) (((s8 *) this) + 0xCC)) = (f32) (s * ((k * (((f32) (temp_r4 & 3)) / TBoss6Rock__data_805DFF48)) + (k * (((f32) temp_r4) * lbl_805DFFA4))));
     this->m_c4 = 1;
-    this->m_b4 = (s32) (this->m_b8);
-    this->m_bc = (s32) (this->m_c0);
+    this->m_b4 = (s32)this->m_b8;
+    this->m_bc = (s32)this->m_c0;
   }
 }
 void TBoss6Rock::draw_model() {

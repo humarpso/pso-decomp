@@ -85,7 +85,7 @@ void TObjEnemyCustom::update() {
         this->actorFlags = (s32) (this->actorFlags | 0x200000);
         this->state = 1;
     case 1:
-        enemy_turn_toward_dest(this, *(s32 *)((s8 *)(this->movementParameters) + 8));
+        enemy_turn_toward_dest(this, *(s32 *)((s8 *)this->movementParameters + 8));
         advance_animation_playback(this);
         if (objInBand((GameObj *)this, (f32)lbl_805DA068) != 0) {
             if ((*(Obj2A8_800c7ae4 * *)&this->target)->v18(this, lbl_805DA074) != 0) {
@@ -129,7 +129,7 @@ void TObjEnemyCustom::update_wander_state() {
             if ((*(f32 *)((s8 *)temp_r3 + 0) < temp_f1) || (temp_f1 < *(f32 *)((s8 *)temp_r3 + 4))) {
                 this->target = NULL;
             }
-            ((TObjPlayer *)arg0)->update_angle((s32)((void *) (*(s32 *)((s8 *)(this->movementParameters) + 8))), arg0 + 0x308);
+            ((TObjPlayer *)arg0)->update_angle((s32)((void *) (*(s32 *)((s8 *)this->movementParameters + 8))), arg0 + 0x308);
         }
         apply_actor_gravity(arg0, (s32 *)(0), lbl_805DA070);
         update_collisions__10TObjPlayerFv(arg0);

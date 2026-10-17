@@ -11,7 +11,7 @@ s32 obj_isState3_324__13TUnk_804806E8Fv(void *);
 void TObjQuestColBase__ct(void *);
 int destroy_board__17TQuestThreadBoardFv(void*);
 
-int TObjQuestColApc::vfunc_16() { destroy_board__17TQuestThreadBoardFv(this); create__12TQuestThreadFi((s32)(this->m_b0)); }
+int TObjQuestColApc::vfunc_16() { destroy_board__17TQuestThreadBoardFv(this); create__12TQuestThreadFi(this->m_b0); }
 
 extern s32 __vt__15TObjQuestColApc[];
 extern void *obj_quest_col_apc_class_name;

@@ -13,7 +13,7 @@ extern s32 local_client_id;
 void TObjQuestColBase__ct(void *);
 int destroy_board__17TQuestThreadBoardFv(void*);
 
-int TObjQuestColApcIN::vfunc_16() { destroy_board__17TQuestThreadBoardFv(this); create__12TQuestThreadFi((s32)(this->m_b0)); }
+int TObjQuestColApcIN::vfunc_16() { destroy_board__17TQuestThreadBoardFv(this); create__12TQuestThreadFi(this->m_b0); }
 
 extern s32 __vt__17TObjQuestColApcIN[];
 extern void *lbl_805D33FC;

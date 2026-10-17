@@ -50,7 +50,7 @@ extern s32 TAdPlyStatusGC__window_offset_index;
 void TAdPlyStatusGC::close_window(s32 arg1) {
     TAdPlyStatusGC__window_offset_index = arg1;
     if ((u32) this->m_6c != 0U) {
-        TWindow__close((u8 *)(this->m_6c));
+        TWindow__close((u8 *)this->m_6c);
         this->m_6c = 0U;
     }
 }

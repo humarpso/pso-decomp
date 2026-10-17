@@ -1081,7 +1081,7 @@ s32 TObjPlayer::check_target_collision() {
     found = 0;
     TObjPlayer::init_all_slots();
     ((TObjPlayer *)((u8 *)this))->check_object_collisions();
-    if (*(s32 *)((s8 *)(this->m_a4) + 0x18) & 0x80000) {
+    if (*(s32 *)((s8 *)this->m_a4 + 0x18) & 0x80000) {
         for (i = 0; i < 0x10; i++) {
             obj = (VObj_18_c44252 *)TObjPlayer::get_battle_param(i);
             if (obj == NULL) {
@@ -1255,7 +1255,7 @@ void TUnk_80483A10::render() {
             rotate_matrix_y(0, this->rotation_y);
         }
         if (TObjPlayer::check_demo_mode() == 1) {
-            draw_chunk_object((void *)(this->model));
+            draw_chunk_object(this->model);
         } else {
             ((TObjEneRe7Berura *)arg0)->draw();
         }
@@ -1321,14 +1321,14 @@ void TUnk_80483A10::run_task() {
   }
   else
   {
-    if ((this->mode) != ((s32) (this->next_action)))
+    if ((this->mode) != ((s32)this->next_action))
     {
-      if (((s32) (this->state)) != (-1))
+      if (((s32)this->state) != (-1))
       {
         this->state = -1;
         ((TObjPlayer *)arg0)->dispatch_reaction_state();
       }
-      this->mode = (s16) (this->next_action);
+      this->mode = (s16)this->next_action;
       this->state = 0;
     }
     ((TObjPlayer *)arg0)->dispatch_reaction_state();

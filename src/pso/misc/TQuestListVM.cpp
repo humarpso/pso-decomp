@@ -252,19 +252,19 @@ s32 TQuestListVM::update_load_status() {
 
 void TQuestListVM::close_windows() {
     if ((u32) this->m_2378 != 0U) {
-        TWindow__close((u8 *)(this->m_2378));
+        TWindow__close((u8 *)this->m_2378);
         this->m_2378 = 0U;
     }
     if ((u32) this->m_2380 != 0U) {
-        TWindow__close((u8 *)(this->m_2380));
+        TWindow__close((u8 *)this->m_2380);
         this->m_2380 = 0U;
     }
     if ((u32) this->m_237c != 0U) {
-        TWindow__close((u8 *)(this->m_237c));
+        TWindow__close((u8 *)this->m_237c);
         this->m_237c = 0U;
     }
     if ((u32) this->m_2374 != 0U) {
-        TWindow__close((u8 *)(this->m_2374));
+        TWindow__close((u8 *)this->m_2374);
         this->m_2374 = 0U;
     }
 }
@@ -282,7 +282,7 @@ s32 TQuestListVM::handle_click() {
     VObj_802186E4_80218570 *obj = (VObj_802186E4_80218570 *) this;
     if (obj->m8() != 0) {
         obj->m7(0x19, 1);
-        set_field_20((s32)((void*)(this->m_23b4)));
+        set_field_20((s32)(this->m_23b4));
     }
 }
 
@@ -331,12 +331,12 @@ void TQuestListVM::update_close() {
     p = *(void * *)&this->m_2374;
     if ((p != NULL) && (((TLobby *)p)->get_flag_bit2() != 0)) {
         if ((u32) this->m_2380 != 0U) {
-            TWindow__close((u8 *)(this->m_2380));
+            TWindow__close((u8 *)this->m_2380);
             this->m_2380 = 0U;
         }
         if ((u32) this->m_2374 != 0U) {
             ((TWindowSubItem *)(this->m_2374))->clear_selected_and_update_entry();
-            TQuestVmDownLoadServer__sub_80219EC4((void*)(this->m_2374));
+            TQuestVmDownLoadServer__sub_80219EC4((void*)this->m_2374);
         }
         ((VObj18_80218570 *) this)->vf24(0x19, 1);
         close_windows();
@@ -402,7 +402,7 @@ void TQuestListVM::load_selected_slot() {
         i = select_cursor_entry__22TWindowSubShortCutListFv(this->m_2374);
         if (TAdPlayerLoadGC__sub_801E1B50(q->recs[i].slot) == 0) {
             sprintf(buf, lbl_8044BF50, lbl_8044BEE8, q->recs[i].num + 1);
-            if (((TAdSinglePlyChrSelectGC *)(q->recs[i].slot))->load_player_slot((int)buf, (int)(this->m_2388)) == 0) {
+            if (((TAdSinglePlyChrSelectGC *)(q->recs[i].slot))->load_player_slot((int)buf, this->m_2388) == 0) {
                 ((TShopWindowBase *)((u8 *)this))->set_field_20((s32)((void *)0xc));
                 return;
             }
@@ -419,15 +419,15 @@ void TQuestListVM::handle_confirm_window() {
         if (((TWindowMenu *)(this->m_2378))->is_visible() != 0) {
             switch (get_selected_menu_value(*(void * *)&this->m_2378)) {
             case 0:
-                TWindow__close((u8 *)(this->m_2378));
+                TWindow__close((u8 *)this->m_2378);
                 this->m_2378 = NULL;
                 ((TShopWindowBase *)arg0)->set_field_20(0xB);
                 return;
             case 1:
-                TWindow__close((u8 *)(this->m_2378));
+                TWindow__close((u8 *)this->m_2378);
                 this->m_2378 = NULL;
                 if (this->m_2380 != NULL) {
-                    TWindow__close((u8 *)(this->m_2380));
+                    TWindow__close((u8 *)this->m_2380);
                     this->m_2380 = NULL;
                 }
                 if (this->m_2374 != NULL) {
@@ -442,10 +442,10 @@ void TQuestListVM::handle_confirm_window() {
             }
         }
         if (((TWindowSubComCard *)(this->m_2378))->get_status_flag() != 0) {
-            TWindow__close((u8 *)(this->m_2378));
+            TWindow__close((u8 *)this->m_2378);
             this->m_2378 = NULL;
             if (this->m_2380 != NULL) {
-                TWindow__close((u8 *)(this->m_2380));
+                TWindow__close((u8 *)this->m_2380);
                 this->m_2380 = NULL;
             }
             if (this->m_2374 != NULL) {
@@ -538,7 +538,7 @@ void TQuestListVM::sub_80219064() {
     if (this->m_2374 != 0 && this->m_2388 != 0) {
         i = select_cursor_entry__22TWindowSubShortCutListFv(this->m_2374);
         if (TAdPlayerLoadGC__sub_801E1B50(q->ents[i].id) == 0) {
-            if (((TAdSinglePlyChrSelectGC *)(q->ents[i].id))->load_player_slot((int)q->ents[i].data, (int)(this->m_2388)) == 0) {
+            if (((TAdSinglePlyChrSelectGC *)(q->ents[i].id))->load_player_slot((int)q->ents[i].data, this->m_2388) == 0) {
                 ((TShopWindowBase *)((u8 *)this))->set_field_20((s32)((void *)9));
                 return;
             }
@@ -552,7 +552,7 @@ void TQuestListVM::sub_80219064() {
 s32 TQuestListVM::quest_vm_load() {
     if (TLobby__sub_8001EEF4() != 0) {
         this->m_2384 = TLobby::tmp_buf_use_req((const char *)TQuestListVM__data_8044BF20);
-        ((TShopWindowBase *)this)->set_field_20((s32)((void*)(this->m_2370)));
+        ((TShopWindowBase *)this)->set_field_20((s32)(this->m_2370));
     }
 }
 

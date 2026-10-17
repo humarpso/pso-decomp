@@ -761,16 +761,16 @@ s32 TItemWeapon::launch_shot(u8 *arg1, s32 i, s32 arg3, s32 arg4) {
             if (var_r23 == 0) {
                 ShotVector fallback;
                 push_matrix_from(identity_matrix);
-                weapon_range_record = (f32 *)(get_weapon_range_record(((u8 *)this), ((s16 (*)(void *))is_status_subsystem_ready__10TObjPlayerFv)((void *) (this->player))));
+                weapon_range_record = (f32 *)(get_weapon_range_record(((u8 *)this), ((s16 (*)(void *))is_status_subsystem_ready__10TObjPlayerFv)((void *)this->player)));
                 fallback.y = lbl_805DAC98;
                 fallback.x = lbl_805DAC98;
                 fallback.z = *(f32 *)((s8 *)weapon_range_record + 0);
-                rotate_matrix_y(0, (void *) (*(s32 *)((s8 *)(this->player) + 0x60) + arg3));
+                rotate_matrix_y(0, (void *) (*(s32 *)((s8 *)this->player + 0x60) + arg3));
                 transform_point_by_current_matrix(&fallback.x, &endpoint.x);
                 pop_matrix();
                 vec3_add_to(&endpoint.x, arg1);
             }
-            ShotVector rayOrigin = *(ShotVector *)(((u8 *)(this->player)) + 0x2FC);
+            ShotVector rayOrigin = *(ShotVector *)(((u8 *)this->player) + 0x2FC);
             rayOrigin.y = *(f32 *)((s8 *)arg1 + 4);
             temp_r3_3 = (u8 *)(csnVector(&rayOrigin.x, &endpoint.x, 0x8100));
             if (temp_r3_3 == NULL) {
@@ -781,12 +781,12 @@ s32 TItemWeapon::launch_shot(u8 *arg1, s32 i, s32 arg3, s32 arg4) {
                     if (arg4 != 0) {
                         ((void (*)(void *))remap_extra_attack_type)((void *) (((u8 *)this)));
                         hit.reserved = 0;
-                        hit.kind = (s32) ((s16 (*)(void *))is_status_subsystem_ready__10TObjPlayerFv)((void *) (this->player));
-                        hit.source = obj_getField1c((void *) (this->player));
+                        hit.kind = (s32) ((s16 (*)(void *))is_status_subsystem_ready__10TObjPlayerFv)((void *)this->player);
+                        hit.source = obj_getField1c((void *)this->player);
                         hit.target = obj_getField1c(var_r29);
                         hit.weapon = ((TItem *)((u8 *)this))->get_field_d8();
                         hit.collider = get_captured_target_collider_index(temp_r22_3);
-                        hit.damage = ((f32 (*)(void *))query_extended_state__10TObjPlayerFv)((void *) (this->player));
+                        hit.damage = ((f32 (*)(void *))query_extended_state__10TObjPlayerFv)((void *)this->player);
                         spawn_item_attacker(tl_05, arg1, (int) ((s32) var_f31), &hit.reserved);
                         var_r31 = 1;
                         ((TItemWeapon *)((u8 *)this))->restore_action_type();

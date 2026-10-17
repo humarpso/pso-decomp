@@ -102,7 +102,7 @@ u8 *TItemProArmor::create_instance() {
 void TUnk_8049FF88::vfunc_44() {
     s32 temp_r3;
 
-    temp_r3 = get_item_field_6__10TObjPlayerFPv((void *)(this->m_f0));
+    temp_r3 = get_item_field_6__10TObjPlayerFPv((void *)this->m_f0);
     if (temp_r3 != 0) {
         add_weapon_grind(temp_r3, get_tool_pmt_amount_byte__11TItemObjectFv(this));
     }

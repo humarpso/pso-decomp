@@ -277,7 +277,7 @@ s32 TUnk_804D1818::sub_8027C884(s32 arg1) {
     }
     ((TWindowSubStatusDisp *)temp_r31)->set_selected_index(var_r29);
     ((TWindowSubShortCutList *)temp_r31)->set_flag70_bit10();
-    TWindowSubEquip__sub_80263AF8((int) (this->m_24), 1);
+    TWindowSubEquip__sub_80263AF8((int)this->m_24, 1);
     set_field_1c__6TLobbyFf(temp_r31);
     return temp_r31;
 }

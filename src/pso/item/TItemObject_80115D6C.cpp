@@ -100,7 +100,7 @@ void *__vt__11TItemObject[] = {
 u8 TItemObject::sub_80115D7C() { return this->m_100; }
 
 u8 TItemObject::get_tool_pmt_amount_byte() {
-    return (u8) *(u16 *)((s8 *)(this->m_f8) + 8);
+    return (u8) *(u16 *)(this->m_f8 + 8);
 }
 
 void TItemObject::vfunc_14() {

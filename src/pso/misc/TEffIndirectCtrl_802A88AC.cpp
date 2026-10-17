@@ -67,7 +67,7 @@ void TEffIndirectCtrl::render() {  }
 
 void TEffIndirectCtrl::copy_and_flush_texture(s32 arg1) {
     memcpy(this->m_1c, arg1, 0x1000);
-    DCFlushRange((s32)(this->m_1c), 0x1000);
+    DCFlushRange(this->m_1c, 0x1000);
 }
 
 void *__dt__16TEffIndirectCtrlFv(void *arg0, s16 arg1) {

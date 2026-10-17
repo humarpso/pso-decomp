@@ -23,7 +23,7 @@ void TOHealGeneral::update_closing() {
     s16 temp_r3_2;
     u8 *player;
     apply_heal_to_target();
-    this->m_cc = (s32) (this->m_cc + 0x147);
+    this->m_cc = (this->m_cc + 0x147);
     *(f32 *)&this->_padD0 = (f32) (*(f32 *)&this->_padD0 - lbl_805DB6B8);
     *(f32 *)((s8 *)arg0 + 0xE4) = (f32) ((lbl_805DB6BC + *(f32 *)((s8 *)arg0 + 0x3C)) - *(f32 *)&this->_padD0);
     if (*(f32 *)&this->_padD0 <= lbl_805DB6C0) {
@@ -45,7 +45,7 @@ void TOHealGeneral::update_closing() {
 void TOHealGeneral::update_opening() {
     u8 *arg0 = (u8 *)this;
     apply_heal_to_target();
-    this->m_cc = (s32) (this->m_cc + 0x147);
+    this->m_cc = (this->m_cc + 0x147);
     *(f32 *)&this->_padD0 = (f32) (*(f32 *)&this->_padD0 + lbl_805DB6B8);
     *(f32 *)((s8 *)arg0 + 0xE4) = (f32) ((lbl_805DB6BC + *(f32 *)((s8 *)arg0 + 0x3C)) - *(f32 *)&this->_padD0);
     if (lbl_805DB6BC <= *(f32 *)&this->_padD0) {

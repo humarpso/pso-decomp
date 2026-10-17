@@ -107,7 +107,7 @@ void TContainerAncient01::render() {
             scale_current_matrix((u8 *)&this->m_360);
         }
         if (TObjPlayer::check_demo_mode() == 1) {
-            draw_ginja_object((void *)(this->model));
+            draw_ginja_object(this->model);
         } else {
             draw_ginja_model_with_motion(*(s32 *)&this->model, *(s32 *)&this->unknownF8, this->m_c0);
         }

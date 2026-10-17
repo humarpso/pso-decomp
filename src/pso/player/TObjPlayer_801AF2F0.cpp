@@ -6300,13 +6300,13 @@ void TObjPlayer::create_inventory() {
     if (var_r0_2 != NULL) {
         var_r0_2 = (u8 *)(__ct__9TItemListFv(temp_r3_2, this->inventory_objects));
     }
-    *(void **)((s8 *)(this->inventory_objects) + 0x1C4) = var_r0_2;
+    *(void **)((s8 *)this->inventory_objects + 0x1C4) = var_r0_2;
     temp_r3_3 = (u8 *)(((u8 * (*)(s32))__nw__7TObjectFUl)(0x1C));
     var_r0_3 = temp_r3_3;
     if (var_r0_3 != NULL) {
         var_r0_3 = (u8 *)(__ct__7TObjectFP7TObject(temp_r3_3, ((u8 *)this)));
     }
-    *(void **)((s8 *)(this->inventory_objects) + 0x1C8) = var_r0_3;
+    *(void **)((s8 *)this->inventory_objects + 0x1C8) = var_r0_3;
     TObjPlayer__sub_801BF8F8((s32 *)(((u8 *)this) + 0xD04));
 }
 

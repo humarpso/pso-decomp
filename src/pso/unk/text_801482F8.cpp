@@ -613,7 +613,7 @@ void TObjNpcBase::update_standing() {
         break;
     case 2:
         if (this->rotation_y != this->m_384) {
-            this->rotation_y = approach_angle_limited(this->rotation_y, this->m_384, *(s32 *)((s8 *)(this->movementParameters) + 8));
+            this->rotation_y = approach_angle_limited(this->rotation_y, this->m_384, *(s32 *)((s8 *)this->movementParameters + 8));
         } else {
             this->phase = 1;
             ((VObj18_801482f8 *) arg0)->vf160(0);

@@ -57,7 +57,7 @@ void TCheckMemoryCard::run_task() {
     if (member_action.action != 0) {
         (((TCheckMemoryCard *)(arg0))->*member_action.action)();
     }
-    this->m_38 = (s32) (this->m_38 - 1);
+    this->m_38 = (this->m_38 - 1);
     if ((s32) this->m_38 < 0) {
         this->m_38 = 0;
     }

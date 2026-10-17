@@ -1306,7 +1306,7 @@ void TObjMapWarpForest::render() {
         ((s32 (*)(void))push_matrix)();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
-        draw_ginja_object((void *)(this->baseModel));
+        draw_ginja_object(this->baseModel);
         TParticleCtrl::begin_effect_render();
         ((s32 (*)(s32, s32, f32))draw_ginja_model_with_motion)(*(s32 *)&this->beamModel, *(s32 *)&this->motion, this->frame);
         TParticleCtrl::end_effect_render();

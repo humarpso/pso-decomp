@@ -37,7 +37,7 @@ void TItemProShield::sub_80117FEC() {
         ((TItemEquipBase *)arg0)->set_equip_flag(0x22);
         this->m_19c = (s32) (this->m_19c | 2);
     }
-    switch ((s32) (*(u8 *)((s8 *)(this->m_18c) + 0x1A))) {
+    switch ((s32) (*(u8 *)(this->m_18c + 0x1A))) {
     case 1:
         this->m_19c = (s32) (this->m_19c | 4);
         return;

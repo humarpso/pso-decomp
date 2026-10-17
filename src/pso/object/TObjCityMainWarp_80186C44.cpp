@@ -38,7 +38,7 @@ void TObjCityMainWarp::close_windows() {
         *(u32 *)((s8 *)this + 0x168) = 0U;
     }
     if ((u32) this->m_b0 != 0U) {
-        TWindow__close((u8 *)(this->m_b0));
+        TWindow__close((u8 *)this->m_b0);
         this->m_b0 = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x164) != 0U) {

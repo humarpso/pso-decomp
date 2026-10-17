@@ -4669,7 +4669,7 @@ void TBoss1Dragon::update_breath_attack_state(u32 arg1) {
                     this->impactAge = 0;
                 }
                 if ((u32) *(u32 *)((s8 *)arg0 + 0x8AC) == 0U) {
-                    *(u32 *)((s8 *)arg0 + 0x8AC) = spawn_particle_effect_with_rotation(arg0 + 0x40C, &sp8, (void *) (*(s32 *)((s8 *)(this->effectResource) + 0x10)), 0x40);
+                    *(u32 *)((s8 *)arg0 + 0x8AC) = spawn_particle_effect_with_rotation(arg0 + 0x40C, &sp8, (void *) (*(s32 *)((s8 *)this->effectResource + 0x10)), 0x40);
                     if ((u32) *(u32 *)((s8 *)arg0 + 0x8AC) != 0U) {
                         ((TParticleCtrl *)(*(void **)((s8 *)arg0 + 0x8AC)))->enable();
                     }
@@ -4678,7 +4678,7 @@ void TBoss1Dragon::update_breath_attack_state(u32 arg1) {
                     ((TBoss4Type2 *)(*(void **)((s8 *)arg0 + 0x8AC)))->copy_vec3(&sp8);
                 }
                 if ((u32) *(u32 *)((s8 *)arg0 + 0x8B4) == 0U) {
-                    *(u32 *)((s8 *)arg0 + 0x8B4) = spawn_particle_effect_with_rotation(arg0 + 0x40C, &sp8, (void *) (*(s32 *)((s8 *)(this->effectResource) + 0x14)), 0x40);
+                    *(u32 *)((s8 *)arg0 + 0x8B4) = spawn_particle_effect_with_rotation(arg0 + 0x40C, &sp8, (void *) (*(s32 *)((s8 *)this->effectResource + 0x14)), 0x40);
                     if ((u32) *(u32 *)((s8 *)arg0 + 0x8B4) != 0U) {
                         ((TParticleCtrl *)(*(void **)((s8 *)arg0 + 0x8B4)))->enable();
                         return;
@@ -5235,7 +5235,7 @@ u16 TBoss1Dragon::find_player_on_floor(void *arg0) {
 #pragma pop
 
 void TBoss1Dragon::update_switch_attack() {
-    spawn_particle_effect_with_flags(&this->position, *(s32 *)((s8 *)(this->effectResource) + 4), 0x40);
+    spawn_particle_effect_with_flags(&this->position, *(s32 *)((s8 *)this->effectResource + 4), 0x40);
 }
 
 s32 TBoss1Dragon__sub_80027514(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {
@@ -5507,7 +5507,7 @@ int TBoss1Dragon::apply_foot_step_attack(int arg1) {
         break;
     }
     reset_hp__9TObjEneDDFv(((u8 *)this), 0, TBoss1Dragon__part_hp_stats.value, 0);
-    spawn_particle_effect_with_flags(b, *(s32 *)((s8 *)(this->effectResource) + 0xC), 0x40);
+    spawn_particle_effect_with_flags(b, *(s32 *)((s8 *)this->effectResource + 0xC), 0x40);
 }
 
 void TBoss1Dragon::apply_head_fall_attack() {
@@ -6091,7 +6091,7 @@ f32 TBoss1Dragon::sample_root_height() {
     push_matrix_from(identity_matrix);
     scale_matrix(0, TBoss1Dragon__data_805D7F24, TBoss1Dragon__data_805D7F24, TBoss1Dragon__data_805D7F24);
     bind_motion_context(this->unknownF8, this->m_c0);
-    compose_motion_node_matrix((void *)(this->model));
+    compose_motion_node_matrix(this->model);
     matrix_mult_vec(0, &v, &v);
     pop_matrix();
     return v.y;

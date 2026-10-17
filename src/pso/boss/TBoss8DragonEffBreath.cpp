@@ -46,7 +46,7 @@ void TBoss8DragonEffBreath::run_task() {
         return;
     }
     if ((temp_f1 < lbl_805DEEF4) && ((ent = (u32)get_enemy_entity((this->m_38))) != 0U)) {
-        TBoss8Dragon::setup_breath_instance((void *)ent, (int)(arg0 + 0x1C), (u32)((int) (this->m_34)), (int)((int) (this->m_3c)));
+        TBoss8Dragon::setup_breath_instance((void *)ent, (int)(arg0 + 0x1C), (u32)((int)this->m_34), (int)((int)this->m_3c));
     }
 }
 

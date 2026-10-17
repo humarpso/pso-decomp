@@ -344,7 +344,7 @@ void TKeyBoardControl::clear_key_state() {
 
 void TKeyBoardControl__sub_801327DC(s32 arg0, u8 chan) {
     s32 sp8;
-    if (poll_keyboard_port(chan, (u8 *)(&sp8)) == 0) {
+    if (poll_keyboard_port(chan, (u8 *)&sp8) == 0) {
         TKeyBoardControl__sub_803F0E90(chan, (void *)(0));
     }
 }

@@ -209,7 +209,7 @@ void TObjEneRecobox::draw_with_debug_info() {
         }
         TObjEneDD::clear_global_flag_400();
         TObjPlayer::toggle_particle_effect();
-        draw_chunk_object((void *)(this->model));
+        draw_chunk_object(this->model);
         TParticleCtrl::end_effect_render();
         pop_matrix();
     }

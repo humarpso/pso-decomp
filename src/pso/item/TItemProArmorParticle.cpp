@@ -51,7 +51,7 @@ void TItemProArmorParticle::vfunc_16() {
         if (temp_r3 != (s32) this->m_198) {
             this->m_198 = temp_r3;
             if (is_item_area_enabled() != 0) {
-                TItemProArmorParticle::create(tl_05, (s32)(((TItem *)this)->get_field_d8()), (s32)(get_id__13TItemProArmorFv(this)), (s32)(this->m_19c));
+                TItemProArmorParticle::create(tl_05, (s32)(((TItem *)this)->get_field_d8()), (s32)(get_id__13TItemProArmorFv(this)), this->m_19c);
             }
         }
     }
@@ -71,7 +71,7 @@ void TItemProArmorParticle::vfunc_44() {
     if (((s32) this->m_1a0 == 1) && ((u32) this->m_174 != 0U)) {
         temp_r3 = __nw__15TItemHeapObjectFUl(0x30);
         if (temp_r3 != 0) {
-            ((TUnk_804A05C8 *)temp_r3)->initialize((void *)this->m_174, (void *)(get_id__13TItemProArmorFv(this)), (void *)(0x78), (void *)(this->m_19c));
+            ((TUnk_804A05C8 *)temp_r3)->initialize((void *)this->m_174, (void *)(get_id__13TItemProArmorFv(this)), (void *)(0x78), (void *)this->m_19c);
         }
     }
 }

@@ -322,7 +322,7 @@ s32 TBoss3Volopt__sub_800D8D88(void *, s32);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 
 void TObjEneGyaranzo::init_params_from_table() {
-    *(f32 *)((s8 *)(this->movementParameters) + 4) = get_gyaranzo_missile_float_parameter(1);
+    *(f32 *)((s8 *)this->movementParameters + 4) = get_gyaranzo_missile_float_parameter(1);
     lbl_805D51F0 = get_gyaranzo_missile_float_parameter(2);
     TObjGyaranzoMissile__speed_scale = get_gyaranzo_missile_float_parameter(3);
     TObjGyaranzoMissile__max_range = get_gyaranzo_missile_float_parameter(4);
@@ -1187,7 +1187,7 @@ void TObjPlayer::update_aim_and_fire() {
         if (((TObjEnemy *)(((u8 *)this)))->is_actor_cadence_frame(0x1E) != 0) {
             ((TObjEnemyCustom *)((u8 *)this))->find_target_in_range(lbl_805DA274);
         }
-        temp_r6 = (u8 *)(this->target);
+        temp_r6 = this->target;
         if (temp_r6 != NULL) {
             Vec_800D2CE4 v = *(Vec_800D2CE4 *)(temp_r6 + 0x38);
             subtract_vector(&v, (void *) (((u8 *)this) + 0x38));
@@ -1315,7 +1315,7 @@ void TObjEneGyaranzo::vfunc_62() {
   unsigned long var_r3;
   if ((this->mode) != 4)
   {
-    if (((s32) (this->m_3b8)) <= 0)
+    if (((s32)this->m_3b8) <= 0)
     {
       this->m_3b8 = 0x3C;
       fn_800D2A68((void *) arg0);

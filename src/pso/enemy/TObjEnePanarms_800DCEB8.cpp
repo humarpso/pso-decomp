@@ -226,7 +226,7 @@ void TObjEnePanarms::update_spin() {
 
 void TObjEnePanarms::enter_down_state() {
     u8 *temp_r5;
-    temp_r5 = (u8 *)(this->m_390);
+    temp_r5 = (u8 *)this->m_390;
     *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) | 1);
     obj_clearFlags30(0x04040000U);
     this->m_388 = 0x1E;
@@ -280,12 +280,12 @@ extern const f32 lbl_805DA4E0;
 void TObjEnePanarms::merge_halves() {
     u8 *temp_r5;
     this->m_3dc = 0;
-    temp_r5 = (u8 *)(this->m_390);
+    temp_r5 = (u8 *)this->m_390;
     *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) & 0xFFFFFFFE);
     obj_clearFlags30(0x40000U);
     obj_setFlags30((void *)(((u8 *)this)), (int)(0x04000000U));
     TObjEnePanarms__sub_800DE430((s32)((void *) (((u8 *)this))), 0x2D, 0x25);
-    this->hp = (s16) (*(s16 *)((s8 *)(this->m_3e4) + 0x32C) + *(s16 *)((s8 *)(this->m_3e8) + 0x32C));
+    this->hp = (s16) (*(s16 *)(this->m_3e4 + 0x32C) + *(s16 *)(this->m_3e8 + 0x32C));
     TObjEnePanarms__sub_800E1D94(*(u8 * *)&this->m_3e4);
     TObjEnePanarms__sub_800E1D94(*(u8 * *)&this->m_3e8);
     this->m_388 = 0x40;
@@ -293,19 +293,19 @@ void TObjEnePanarms::merge_halves() {
 
 void TObjEnePanarms::update_separated_parts() {
     s32 temp_r0;
-    this->hp = (s16) ((*(s16 *)((s8 *)(this->m_3e4) + 0x32C)) + *(s16 *)((s8 *)(this->m_3e8) + 0x32C));
-    if ((TObjEnePanarms__sub_800DFBB0((void *) (this->m_3e4)) != 0) && (TObjEnePanarms__sub_800DFBB0((void *) (this->m_3e8)) != 0)) {
+    this->hp = (s16) ((*(s16 *)(this->m_3e4 + 0x32C)) + *(s16 *)(this->m_3e8 + 0x32C));
+    if ((TObjEnePanarms__sub_800DFBB0((void *)this->m_3e4) != 0) && (TObjEnePanarms__sub_800DFBB0((void *)this->m_3e8) != 0)) {
         ((TObjEnemy *)((u8 *)this))->send_entity_set_flags();
         queue_destruction__7TObjectFv((void *) (((u8 *)this)));
         return;
     }
-    if (TObjEnePanarms__sub_800DFB44((s32)((void *) (this->m_3e4))) == 0) {
-        switch (TObjEnePanarms__sub_800DFB44((s32)((void *) (this->m_3e8)))) {
+    if (TObjEnePanarms__sub_800DFB44((s32)(this->m_3e4)) == 0) {
+        switch (TObjEnePanarms__sub_800DFB44((s32)(this->m_3e8))) {
         case 0:
         this->m_388 = (this->m_388 - 1);
         temp_r0 = this->m_388;
         if (temp_r0 == 0) {
-            if ((TObjEnePanarms__sub_800DFB9C((void *) (this->m_3e4)) != 0) || (TObjEnePanarms__sub_800DFB9C((void *) (this->m_3e8)) != 0)) {
+            if ((TObjEnePanarms__sub_800DFB9C((void *)this->m_3e4) != 0) || (TObjEnePanarms__sub_800DFB9C((void *)this->m_3e8) != 0)) {
                 this->m_388 = (s32) ((f32) this->m_388 + lbl_805DA498);
                 return;
             }
@@ -315,7 +315,7 @@ void TObjEnePanarms::update_separated_parts() {
             return;
         }
         if (temp_r0 < 0) {
-            if ((TObjEnePanarms__sub_800DFB74((void *) (this->m_3e4)) != 0) && (TObjEnePanarms__sub_800DFB74((void *) (this->m_3e8)) != 0)) {
+            if ((TObjEnePanarms__sub_800DFB74((void *)this->m_3e4) != 0) && (TObjEnePanarms__sub_800DFB74((void *)this->m_3e8) != 0)) {
                 if ((((TObjEnePanarms *)(this->m_3e4))->get_state_flag() != 0) || (((TObjEnePanarms *)(this->m_3e8))->get_state_flag() != 0)) {
                     this->m_388 = -1;
                     return;
@@ -324,8 +324,8 @@ void TObjEnePanarms::update_separated_parts() {
                 return;
             }
             if ((s32) this->m_388 < -0x12C) {
-                TObjEnePanarms::do_action_2((void *) (this->m_3e4));
-                TObjEnePanarms::do_action_2((void *) (this->m_3e8));
+                TObjEnePanarms::do_action_2((void *)this->m_3e4);
+                TObjEnePanarms::do_action_2((void *)this->m_3e8);
                 this->m_388 = 0x384;
             }
         }
@@ -435,7 +435,7 @@ void TObjEnePanarms::update_particle_emitters() {
 
 void TObjEnePanarms::set_flags_and_field_b8() {
     u8 *temp_r5;
-    temp_r5 = (u8 *)(this->m_390);
+    temp_r5 = (u8 *)this->m_390;
     *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) | 1);
     obj_clearFlags30(0x04040000U);
     set_field_b8__10TObjMotionFs(((u8 *)this), 8);
@@ -496,7 +496,7 @@ void TObjEnePanarms::update_particle_emitters_set2() {
 
 void TObjEnePanarms::set_state_flags_6() {
     u8 *temp_r5;
-    temp_r5 = (u8 *)(this->m_390);
+    temp_r5 = (u8 *)this->m_390;
     *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) | 1);
     obj_clearFlags30(0x04040000U);
     set_field_b8__10TObjMotionFs(((u8 *)this), 6);

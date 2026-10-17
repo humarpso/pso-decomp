@@ -102,7 +102,7 @@ bool TWindowCtrl__sub_8024701C(Win_8024701C *w) {
 s32 TWindowChat::sub_80247080() {
     s32 *temp_r31;
     u8 *temp_r3;
-    temp_r3 = (u8 *)(this->symbolChatWindow);
+    temp_r3 = (u8 *)this->symbolChatWindow;
     if (temp_r3 == NULL) {
         return 0;
     }
@@ -154,7 +154,7 @@ s32 TWindowChat::submit_keyboard_input() {
         return 0;
     }
     if (((TKeyBoardControl *)kb)->is_active() != 0) {
-        reset_input__11TWindowChatFv((int) (this->composer));
+        reset_input__11TWindowChatFv((int)this->composer);
         ((TWindowChat *)arg0)->set_input_active();
         return 1;
     }
@@ -163,15 +163,15 @@ s32 TWindowChat::submit_keyboard_input() {
     }
     ((TWindowChat *)arg0)->set_active_flag();
     if (((TWindowChat *)(this->composer))->get_flag() != 0) {
-        TAdSinglePlyChrSelectGC__sub_80076D9C((s32)(this->result), (s32)(get_chat_shortcut((s32)((int) (s8)(((TWindowChat *)(this->composer))->get_input_mode())))));
+        TAdSinglePlyChrSelectGC__sub_80076D9C((s32)this->result, (s32)(get_chat_shortcut((s32)((int) (s8)(((TWindowChat *)(this->composer))->get_input_mode())))));
         if (((u32) **(u32 * *)&this->result == 3U) && (((TWindowChat *)arg0)->is_mode_bit6() == 0)) {
             TWindowChat::open_symbol_chat((s32 *)((u8 *) this->result + 4));
             update_selected_symbol__20TWindowSubSymbolChatFv();
         }
     } else {
-        export_keyboard_text((int) (this->composer), (void *) ((u8 *) this->result + 4));
+        export_keyboard_text((int)this->composer, (void *) ((u8 *) this->result + 4));
     }
-    reset_input__11TWindowChatFv((int) (this->composer));
+    reset_input__11TWindowChatFv((int)this->composer);
     return 1;
 }
 
@@ -190,7 +190,7 @@ void TWindowChat::update() {
             }
             end_player_keyboard_hold(local_client_id);
         }
-        reset_input__11TWindowChatFv((int)(this->composer));
+        reset_input__11TWindowChatFv((int)this->composer);
         ((TWindowChat*)(this))->close_all_children();
         ((TKeyBoardControl *)(this->hardKeyboard))->set_flag60_bit200();
     }
@@ -470,19 +470,19 @@ TWindowChat::~TWindowChat() {
         *(u32 *)((s8 *)this + 0x34) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x2C) != 0U) {
-        TWindow__close((u8 *)(this->auxiliaryWindow));
+        TWindow__close((u8 *)this->auxiliaryWindow);
         *(u32 *)((s8 *)this + 0x2C) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x24) != 0U) {
-        TWindow__close((u8 *)(this->softKeyboard));
+        TWindow__close((u8 *)this->softKeyboard);
         *(u32 *)((s8 *)this + 0x24) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x28) != 0U) {
-        TWindow__close((u8 *)(this->hardKeyboard));
+        TWindow__close((u8 *)this->hardKeyboard);
         *(u32 *)((s8 *)this + 0x28) = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x20) != 0U) {
-        TWindow__close((u8 *)(this->composer));
+        TWindow__close((u8 *)this->composer);
         *(u32 *)((s8 *)this + 0x20) = 0U;
     }
 }
@@ -497,10 +497,10 @@ TWindowChat::TWindowChat(TObject *arg1, void *arg2) : TObject(arg1) {
         o = TWindowKeyBoardBase__ct((u8 *)o);
     }
     this->composer = o;
-    init_keyboard_text_field((u8 *)(this->composer), 200, 2);
+    init_keyboard_text_field((u8 *)this->composer, 200, 2);
     o2 = ((void *)__nw__7TObjectFUl(0x74));
     if (o2 != NULL) {
-        o2 = TWindowKeyBoardHard__ct((u8 *)o2, (s32)(this->composer));
+        o2 = TWindowKeyBoardHard__ct((u8 *)o2, (s32)this->composer);
     }
     this->hardKeyboard = o2;
     *(u32 *)((s8 *)this + 0x24) = 0;

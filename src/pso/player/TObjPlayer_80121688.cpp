@@ -21,7 +21,7 @@ void TUnk_804A0AA8::render() {
         TObjPlayer::notify_fish_if_valid(*(u32 *)&this->m_5C);
         post_translate_matrix(arg0 + 0x1C);
         rotate_matrix_by_node_angles((u8 *)&this->m_28, 1);
-        draw_ginja_object((void *)(this->m_58));
+        draw_ginja_object(this->m_58);
         TParticleCtrl::end_effect_render();
         pop_matrix();
     }

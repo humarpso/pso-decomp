@@ -43,7 +43,7 @@ void TObjRainbowLobby::render() {
             temp_f1 = *(f32 *)&this->unk_CC;
             scale_matrix(0, temp_f1, (f32) (1.0f), temp_f1);
         }
-        draw_ginja_object((void *)(this->model));
+        draw_ginja_object(this->model);
         pop_matrix();
         TParticleCtrl::end_effect_render();
     }

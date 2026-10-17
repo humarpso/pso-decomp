@@ -5799,7 +5799,7 @@ void TBoss8Dragon::spawn_ground_effect() {
         temp_f1 = *(f32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 4)) + 4);
         if (!(temp_f1 > TBoss8Dragon__data_805DED9C)) {
             stack.spC = temp_f1;
-            spawn_particle_effect_with_flags(&stack.sp8, (void *) (*(s32 *)((s8 *)(this->m_760) + 4)), 0x40);
+            spawn_particle_effect_with_flags(&stack.sp8, (void *) (*(s32 *)((s8 *)this->m_760 + 4)), 0x40);
         }
     }
 }

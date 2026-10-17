@@ -116,7 +116,7 @@ void TItemProShield::vfunc_44() {
     s32 temp_r3_5;
     u8 temp_r3;
     if (get_flag_40__8TItemMagFv((void *)(((u8 *)this))) == 0) {
-        play_sound_effect(0x4000B20A, (int) (this->m_f0 + 0x38), 0, 0);
+        play_sound_effect(0x4000B20A, this->m_f0 + 0x38, 0, 0);
     }
     if ((u32) this->m_174 != 0U) {
         temp_r3 = ((TItemProShield *)((u8 *)this))->get_slot_count();

@@ -60,12 +60,12 @@ void TWindowSubLog::run_task() {
     u8 *temp_r31;
     u8 *temp_r3;
     if ((((TWindowChat *)(this->m_28))->is_mode_bit4() != 0) && (chat_accept_submission((s32)(arg0 + 0x2C)) != 0)) {
-        TWindowChat__sub_80247E50((u8 *)(this->m_28));
+        TWindowChat__sub_80247E50((u8 *)this->m_28);
     }
     if (((TWindowChat *)(this->m_28))->is_visible() != 0) {
-        TWindowChat__sub_80247DFC((u8 *)(this->m_28));
+        TWindowChat__sub_80247DFC((u8 *)this->m_28);
     }
-    if (TWindowCtrl__sub_8024701C((int) (this->m_28)) != 0) {
+    if (TWindowCtrl__sub_8024701C(this->m_28) != 0) {
         TWindowSubLog__sub_8026A664((*(u8 * *)&this->m_24), lbl_805DD638);
         return;
     }
@@ -77,10 +77,10 @@ void TWindowSubLog::run_task() {
     if ((is_on_current_screen__11TCameraCtrlFv((int)temp_r31, 0x20) != 0) || (is_flag_set__11TLoadingCurFv((void *) ((u8 *)&controller_input_state.value + 0x160), 0x20) != 0)) {
         ((TAdScrollWinGC *)(this->m_24))->advance_scroll(lbl_805DD644);
     }
-    temp_r3 = (u8 *)(this->m_24);
+    temp_r3 = (u8 *)this->m_24;
     if ((*(f32 *)((s8 *)temp_r3 + 0x3C) == *(f32 *)((s8 *)temp_r3 + 0x4C)) && ((TWindowShortListCtrl__check_controller_button((int)temp_r31, 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 2) != 0))) {
         play_sound_effect(0x52F16, 0, 0, 0);
-        ((VObj_18_204a81 *)((u8 *)(this->m_20)))->m7();
+        ((VObj_18_204a81 *)(this->m_20))->m7();
         ((TWindowSubLog *)(this->m_20))->clear_flag4c_bit8();
     }
 }

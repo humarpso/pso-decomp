@@ -116,11 +116,11 @@ void TAdYesNoBaseGC::vfunc_11() {
         break;
     case 2:
         if ((u32) this->m_40 != 0U) {
-            TWindow__close((u8 *)(this->m_40));
+            TWindow__close((u8 *)this->m_40);
             this->m_40 = 0U;
         }
         if ((u32) this->m_44 != 0U) {
-            TWindow__close((u8 *)(this->m_44));
+            TWindow__close((u8 *)this->m_44);
             this->m_44 = 0U;
         }
         temp_r4 = this->m_28 + 1;

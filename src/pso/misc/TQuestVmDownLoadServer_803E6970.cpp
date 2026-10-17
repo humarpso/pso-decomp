@@ -1256,7 +1256,7 @@ s32 TQuestVmDownLoadServer__sub_803E8084(void) {
   {
     return -1;
   }
-  if (((s32)TQuestVmDownLoadServer::aram_dma_read((void *)((void *)((void *) lbl_805D7904)), (void *)(&quest_name_index_table.value), 0x1000)) != 0x1000)
+  if (((s32)TQuestVmDownLoadServer::aram_dma_read((void *)((void *)((void *) lbl_805D7904)), &quest_name_index_table.value, 0x1000)) != 0x1000)
   {
     return -1;
   }

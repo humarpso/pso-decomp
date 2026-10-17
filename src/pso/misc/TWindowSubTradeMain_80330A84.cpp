@@ -279,7 +279,7 @@ s32 TWindowSubTradeMain::create_list() {
     equip_kind_window = create_equip_kind_window(get_window_layout_position(0x64), lbl_80477494, this->m_28);
     ((TUnk_804D0618 *)equip_kind_window)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl(0x24));
     ((TWindowSubTradeMain *)equip_kind_window)->refresh_item_list((void*)(TLobby__sub_802D298C()));
-    TWindowSubEquip__sub_80263AF8((u8 *)(this->m_2c), 2);
+    TWindowSubEquip__sub_80263AF8((u8 *)this->m_2c, 2);
     set_field_1c__6TLobbyFf(equip_kind_window);
     return equip_kind_window;
 }

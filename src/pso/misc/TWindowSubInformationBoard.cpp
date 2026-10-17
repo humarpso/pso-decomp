@@ -58,11 +58,11 @@ void TWindowSubInformationBoard::run_task() {
     case 2:
         set_message_index__26TWindowSubInformationBoardFl((void *)arg0, (get_cursor_pos__20TWindowShortListCtrlFv((int)this->m_2c)));
         if (((TWindowSubComCard *)(this->m_2c))->get_status_flag() != 0) {
-            ((VObj_18_204a81 *)((u8 *)(this->m_28)))->m7();
+            ((VObj_18_204a81 *)(this->m_28))->m7();
             this->m_1c = 0xCU;
         } else if (((TWindowMenu *)(this->m_2c))->is_visible() != 0) {
             if ((u32) this->m_34 != 0U) {
-                TWindow__close((u8 *)(this->m_34));
+                TWindow__close((u8 *)this->m_34);
                 this->m_34 = 0U;
             }
             this->m_1c = get_selected_menu_value((int)this->m_2c);
@@ -102,14 +102,14 @@ void TWindowSubInformationBoard::run_task() {
         break;
     case 8:
         if ((u32) this->m_30 != 0U) {
-            TWindow__close((u8 *)(this->m_30));
+            TWindow__close((u8 *)this->m_30);
             this->m_30 = 0U;
         }
         this->m_1c = 5U;
         break;
     case 9:
         if ((u32) this->m_2c != 0U) {
-            TWindow__close((u8 *)(this->m_2c));
+            TWindow__close((u8 *)this->m_2c);
             this->m_2c = 0U;
         }
         if ((u32) this->m_3c == 0U) {

@@ -123,7 +123,7 @@ void TAdDialingGC::update_dial_state(s32 arg1) {
             this->m_20 = 3;
             return;
         }
-        this->m_a0 = (s32) (this->m_a0 + 1);
+        this->m_a0 = (this->m_a0 + 1);
         switch (this->m_9c) {
         case 16:
         case 0:

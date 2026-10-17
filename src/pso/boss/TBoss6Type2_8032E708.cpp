@@ -1098,7 +1098,7 @@ void TBoss6Mag::update_motion_playback() {
 
 void TBoss6Type2__sub_803300C8(u8 *arg0) {
     s32 bml_motion;
-    copy_vec3__11TBoss6Type2Fii((s32)(arg0 + 0x3D4), (s32)(&boss6_type2_zero_vec3_block.value));
+    copy_vec3__11TBoss6Type2Fii((s32)(arg0 + 0x3D4), (s32)&boss6_type2_zero_vec3_block.value);
     ((TBoss6Type2 *)(arg0 + 0x3DC))->copy_state((void*)&boss6_type2_initial_state.value);
     bml_motion = get_bml_motion((int) (*(s32 *)((s8 *)arg0 + 0x374)), (int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_803300C8_lbl_804EDD94 *)boss6_type2_motion_table).value) + 8)));
     *(s32 *)((s8 *)arg0 + 0x3F0) = bml_motion;

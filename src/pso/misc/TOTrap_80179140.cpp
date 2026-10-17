@@ -38,9 +38,9 @@ void TOTrap::render() {
             rotate_matrix_y(0, this->rotation_y);
             TObjFish::set_global_param(this->texture_id);
             if (TObjPlayer::check_demo_mode() == 1) {
-                draw_chunk_object((void *)(this->model));
+                draw_chunk_object(this->model);
             } else {
-                draw_model_motion((void *)(this->model), (void *)(this->unknownF8), this->m_c0);
+                draw_model_motion((void *)this->model, (void *)this->unknownF8, this->m_c0);
             }
             pop_matrix();
         }

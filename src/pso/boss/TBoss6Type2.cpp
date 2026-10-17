@@ -862,7 +862,7 @@ void TBoss6Type2::update_footstep_effects() {
         *((s32 *) (((s8 *) (((u8 *) arg0) + temp_r4)) + 0)) = 1;
         ((s32 (*)(s32, u32, s16, s32))play_sound_effect)(0x4006A300, (u32) temp_r29, 0, 0);
         spawn_particle_effect_with_flags(temp_r29, 0x220, 0x40);
-        if (((s32) (this->m_418)) == 0)
+        if (((s32)this->m_418) == 0)
         {
           spawn_particle_effect(temp_r29, 0x222);
         }
@@ -1870,7 +1870,7 @@ void TBoss6Type2::play_phase_sound() {
 void TBoss6Type2::play_sound_if_no_target() {
     u8 *arg0 = (u8 *)this;
     if (is_target_valid() == 0) {
-        play_sound_effect((s32)(*(s32 *)((s8 *)&TBoss6Type2__no_target_sound_ids.value + (TBoss6Type2::find_index_in_table(this->m_2e4) * 4))), (void *)(arg0 + 0x38), 0, 1);
+        play_sound_effect((s32)(*(s32 *)((s8 *)&TBoss6Type2__no_target_sound_ids.value + (TBoss6Type2::find_index_in_table(this->m_2e4) * 4))), arg0 + 0x38, 0, 1);
     }
 }
 
@@ -2302,7 +2302,7 @@ void TBoss6Type2::run_task() {
     ((TBoss6Type2 *)arg0)->sub_802BB498();
     ((TBoss6Type2 *)arg0)->sub_802BC124();
     ((TBoss6PlotFalz *)(arg0 + 0x768))->scroll_strips_uv(8, 0);
-    TObjPlayer__sub_8023DEE0((s16 *)(*(s32 *)((s8 *)(*(u8 **)((s8 *)(TBoss3Volopt::collect_and_count(get_bml_model((s32)(this->m_3fc), 1), 1)) + 4)) + 4)), 8, 0, 0);
+    TObjPlayer__sub_8023DEE0((s16 *)(*(s32 *)((s8 *)(*(u8 **)((s8 *)(TBoss3Volopt::collect_and_count(get_bml_model(this->m_3fc, 1), 1)) + 4)) + 4)), 8, 0, 0);
     ((TBoss6Type2 *)arg0)->sub_802BB554();
     copy_vec_array();
     if ((s32) this->m_418 != 0) {

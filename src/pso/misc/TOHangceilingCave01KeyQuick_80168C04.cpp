@@ -55,7 +55,7 @@ u8 *TOHangceilingCave01KeyQuick::init_base(s32 arg1, s32 arg2) {
     ((TUnk_804AF8A0 *)((u8 *)this))->refresh_collision_body_centers();
     ((TObjPlayer *)((u8 *)this))->reset_photon_effect();
     reset_state((((u8 *)this)));
-    temp_r4 = (u8 *)(this->m_a4);
+    temp_r4 = (u8 *)this->m_a4;
     *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) | 0x1080);
     return ((u8 *)this);
 }

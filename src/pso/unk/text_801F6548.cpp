@@ -44,7 +44,7 @@ s32 *TQuestThread__sub_801F6548(void) {
     return &offline_quest_filename_buffer_a.value;
 }
 
-void TMCFormatSequence::close_window() { if (this->m_34 != 0) { TWindow__close((u8 *)(this->m_34)); this->m_34 = 0; } }
+void TMCFormatSequence::close_window() { if (this->m_34 != 0) { TWindow__close((u8 *)this->m_34); this->m_34 = 0; } }
 
 void TMCFormatSequence::show_message(s32 arg1, s32 arg2) {
     u32 v = this->m_34;
@@ -123,12 +123,12 @@ void TMCFormatSequence::process_format_result() {
             close_window();
             this->m_24 = 4;
         }
-        TWindow__close((u8 *)(this->m_38));
+        TWindow__close((u8 *)this->m_38);
         this->m_38 = 0U;
     }
     if (((u32) this->m_38 != 0U) && (((TWindowSubComCard *)(this->m_38))->get_status_flag() != 0)) {
         this->m_24 = 4;
-        TWindow__close((u8 *)(this->m_38));
+        TWindow__close((u8 *)this->m_38);
         this->m_38 = 0U;
         close_window();
     }

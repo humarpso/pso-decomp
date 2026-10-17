@@ -987,15 +987,15 @@ void TObjEneIllGill__sub_803669B0(u8 *arg0) {
 void TObjEneIllGill::vfunc_61() { obj_clearFlags30(256); }
 void TObjEneIllGill::free_resources() {
     if ((u32) this->m_414 != 0U) {
-        TBoss4Type2::request_destroy((u32)(this->m_414));
+        TBoss4Type2::request_destroy(this->m_414);
         this->m_414 = 0U;
     }
     if ((u32) this->m_418 != 0U) {
-        TBoss4Type2::request_destroy((u32)(this->m_418));
+        TBoss4Type2::request_destroy(this->m_418);
         this->m_418 = 0U;
     }
     if ((u32) this->m_41c != 0U) {
-        TBoss4Type2::request_destroy((u32)(this->m_41c));
+        TBoss4Type2::request_destroy(this->m_41c);
         this->m_41c = 0U;
     }
 }

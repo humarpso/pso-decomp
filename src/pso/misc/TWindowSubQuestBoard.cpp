@@ -87,7 +87,7 @@ void TUnk_804D1818::run_task() {
 void *TUnk_804D1818::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = __vt__19TWindowSubQuestBoard;
-        if (this->m_2c != NULL) { TWindow__close((u8 *)(this->m_2c)); this->m_2c = 0; }
+        if (this->m_2c != NULL) { TWindow__close((u8 *)this->m_2c); this->m_2c = 0; }
         if (*(void * *)&(this->unk_28) != NULL) { TWindow__close((u8 *)(*(void * *)&(this->unk_28))); *(s32 *)&(this->unk_28) = 0; }
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
@@ -138,7 +138,7 @@ void TWindowSubQuestBoard::run_task() {
         fn_8027D1E8(this->m_28);
         this->m_1c = 2;
     case 2:
-        if (TWindowSubQuestBoard__sub_8027D1DC((void *)(this->m_28)) != 0) {
+        if (TWindowSubQuestBoard__sub_8027D1DC((void *)this->m_28) != 0) {
             (*(VO_8027CFC8 * *)&this->m_24)->m7();
             this->m_1c = 5;
             break;

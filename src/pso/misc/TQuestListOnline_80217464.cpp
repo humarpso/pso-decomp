@@ -100,19 +100,19 @@ u8 TQuestListOnline::get_unlocked_tier() {
 }
 void TQuestListOnline::close_windows() {
     if ((u32) confirm_window != 0U) {
-        TWindow__close((u8 *)(this->confirm_window));
+        TWindow__close((u8 *)this->confirm_window);
         confirm_window = 0U;
     }
     if ((u32) info_window != 0U) {
-        TWindow__close((u8 *)(this->info_window));
+        TWindow__close((u8 *)this->info_window);
         info_window = 0U;
     }
     if ((u32) description_window != 0U) {
-        TWindow__close((u8 *)(this->description_window));
+        TWindow__close((u8 *)this->description_window);
         description_window = 0U;
     }
     if ((u32) list_window != 0U) {
-        TWindow__close((u8 *)(this->list_window));
+        TWindow__close((u8 *)this->list_window);
         list_window = 0U;
     }
 }

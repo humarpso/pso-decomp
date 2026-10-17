@@ -273,7 +273,7 @@ void TObjPlayer::enter_battle_state() {
 
 void reset_player_appearance_opacity(void* a0) { *(float*)((char*)a0 + 0x1c) = lbl_805DC320[0]; }
 
-void TObjPlayer::write_ids() { set_some_id__FUl((s32)(this->m_name)); set_chunk_material_override_pair((s32)(*(void**)((char*)this + 0x4)), (s32)(this->m_prev)); set_chunk_material_color((f32 *)((char*)this + 0xc)); }
+void TObjPlayer::write_ids() { set_some_id__FUl((s32)this->m_name); set_chunk_material_override_pair((s32)(*(void**)((char*)this + 0x4)), (s32)this->m_prev); set_chunk_material_color((f32 *)((char*)this + 0xc)); }
 
 typedef char RecoveredGlobal_801C5B68_lbl_8058D4C0_size[sizeof(RecoveredGlobal_801C5B68_lbl_8058D4C0) == 0x10 ? 1 : -1];
 void save_render_material_state(u8 *arg0) {

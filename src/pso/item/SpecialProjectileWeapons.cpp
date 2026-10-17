@@ -259,7 +259,7 @@ void TUnk_804A204C::reserved_53() {
             ((TObjPlayer *)this)->get_mag_scale();
             set_model_fade_alpha__10TObjPlayerFf();
             post_translate_matrix(&sp8);
-            rotate_matrix_y(0, (int)(*(s32 *)((s8 *)(this->player) + 0x60)));
+            rotate_matrix_y(0, (int)(*(s32 *)((s8 *)this->player + 0x60)));
             *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) | 0x11);
             draw_ginja_object(temp_r31);
             TParticleCtrl::begin_effect_render();
@@ -436,7 +436,7 @@ void TUnk_804A2148::render() {
             *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) & 0xFFFFFFFB);
             *(f32 *)((s8 *)temp_r31 + 0x20) = (f32) 10.0f;
             push_matrix();
-            TObjPlayer::notify_fish_if_valid((int) (this->m_5C));
+            TObjPlayer::notify_fish_if_valid((int)this->m_5C);
             post_translate_matrix(arg0 + 0x1C);
             rotate_matrix_y(0, this->m_count);
             rotate_matrix_x(0, this->m_28 - 0x4000);

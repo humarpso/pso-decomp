@@ -79,7 +79,7 @@ void TMotorcycle::render() {
             push_matrix();
             post_translate_matrix(arg0 + 0x38);
             rotate_matrix_yxz(0, (*(s32 *)&this->m_5c), (this->rotation_y), (this->rotation_z));
-            get_bml_model((void *) ((*(s32 *)&TMotorcycle__bml_resource)), (int) (this->m_bc));
+            get_bml_model((void *) ((*(s32 *)&TMotorcycle__bml_resource)), this->m_bc);
             draw_ginja_object();
             pop_matrix();
         }

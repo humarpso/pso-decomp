@@ -130,7 +130,7 @@ void TOCapsuleLabo::render() {
 }
 
 void TOCapsuleLabo::vfunc_15() {
-    this->m_e4 = (s32) (this->m_e4 + 0x222);
+    this->m_e4 = (this->m_e4 + 0x222);
 }
 
 void *__dt__13TOCapsuleLaboFv(void *arg0, s16 arg1) {

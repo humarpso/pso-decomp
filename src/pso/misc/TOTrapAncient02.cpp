@@ -1100,7 +1100,7 @@ void TOTrapAncient02::render_particle_chain() {
     push_matrix();
     temp_r31_4 = (unsigned char *) (*(void **)((s8 *)temp_r31_3 + 0x30));
     post_translate_matrix(temp_r31_4 + 8);
-    rotate_matrix_y(0, (int) (this->m_34c));
+    rotate_matrix_y(0, this->m_34c);
     setup_particle_tev(0);
     TObjFish::set_global_param(this->texture_id);
     ((TOTrapAncient02 *)0x38E)->load_projection_tex_matrix();
@@ -1139,7 +1139,7 @@ void TOTrapAncient02::draw_effect_chain() {
     push_matrix();
     temp_r31_4 = (unsigned char *) (*(void **)((s8 *)temp_r31_3 + 0x30));
     post_translate_matrix(temp_r31_4 + 8);
-    rotate_matrix_y(0, (int) (this->m_34c));
+    rotate_matrix_y(0, this->m_34c);
     draw_ginja_model((*(s32 *)((s8 *)temp_r31_4 + 4)));
     pop_matrix();
     TParticleCtrl::end_effect_render();

@@ -429,14 +429,14 @@ void TItemMagSub::apply_placement_matrix() {
   s32 a3;
   s32 a4;
   post_translate_matrix(arg0 + 0xA0);
-  if (obj_isState7_324((void *) (this->owner)) != 0)
+  if (obj_isState7_324((void *)this->owner) != 0)
   {
     feed = (void *) ((TItemMagSub *)arg0)->resolve_owner_heading();
     rotate_matrix_y(0, feed);
   }
   else
   {
-    rotate_matrix_y(0, (void *) (*((s32 *) (((s8 *) (this->owner)) + 0x60))));
+    rotate_matrix_y(0, (void *) (*((s32 *) (((s8 *)this->owner) + 0x60))));
   }
   post_translate_matrix(arg0 + 0xAC);
   temp_r6 = (unsigned char *) (this->motion);

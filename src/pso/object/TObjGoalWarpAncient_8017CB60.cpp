@@ -213,10 +213,10 @@ void TObjMapWarpAncient::render() {
             draw_ginja_model_with_motion(*(s32 *)&this->m_100, *(s32 *)&this->m_118, *(f32 *)&this->unk_FC);
         }
         TObjFish::set_global_param(this->m_110);
-        draw_ginja_object((void *)(this->m_104));
+        draw_ginja_object((void *)this->m_104);
         TParticleCtrl::end_effect_render();
         TObjFish::set_global_param(this->m_114);
-        draw_ginja_object((void *)(this->m_108));
+        draw_ginja_object((void *)this->m_108);
         pop_matrix();
     }
 }

@@ -950,7 +950,7 @@ void TBoss4Type3::advance_bura() {
         this->m_3ba = 0xFFFF;
     }
     if ((s32) this->m_398 == 0) {
-        this->m_3bc = (s32) (this->m_3bc + 1);
+        this->m_3bc = (this->m_3bc + 1);
         temp_r0 = this->m_3bc;
         if ((temp_r0 >= 5) || ((temp_r0 >= 2) && (calc_boss4_scale__10TObjPlayerFi(arg0) < lbl_805D8C3C))) {
             ((s32 (*)(void *, s32))TBoss4Type3__sub_80059F64)(arg0, 9);

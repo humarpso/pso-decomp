@@ -95,7 +95,7 @@ s32 TWindowSubShortCut::open_menu() {
 
 void TWindowSubShortCut::open_com_card_list() {
     s32 tmp = get_window_layout_position(0x72);
-    ((TWindowSubShortCutList *)tmp)->create((void *)(this->m_24));
+    ((TWindowSubShortCutList *)tmp)->create((void *)this->m_24);
 }
 void TWindowSubShortCut::render() {  }
 
@@ -117,11 +117,11 @@ void TWindowSubShortCut::run_task() {
             this->m_34 = 0U;
         }
         if ((u32) this->m_3c != 0U) {
-            TWindow__close((u8 *)(this->m_3c));
+            TWindow__close((u8 *)this->m_3c);
             this->m_3c = 0U;
         }
         if ((u32) this->m_30 != 0U) {
-            TWindow__close((u8 *)(this->m_30));
+            TWindow__close((u8 *)this->m_30);
             this->m_30 = 0U;
         }
         if ((u32) this->m_2c == 0U) {
@@ -132,7 +132,7 @@ void TWindowSubShortCut::run_task() {
         this->m_1c = 2U;
     case 2:
         if (((TLobby *)(this->m_2c))->get_flag_bit2() != 0) {
-            ((VObj_18_204a81 *)((u8 *)(this->m_28)))->m7();
+            ((VObj_18_204a81 *)(this->m_28))->m7();
             this->m_1c = 0xBU;
             return;
         }
@@ -163,12 +163,12 @@ void TWindowSubShortCut::run_task() {
         break;
     case 5:
         if ((u32) this->m_30 != 0U) {
-            TWindow__close((u8 *)(this->m_30));
+            TWindow__close((u8 *)this->m_30);
             this->m_30 = 0U;
         }
         if ((u32) this->m_2c != 0U) {
             this->m_24 = select_cursor_entry__22TWindowSubShortCutListFv(this->m_2c);
-            TWindow__close((u8 *)(this->m_2c));
+            TWindow__close((u8 *)this->m_2c);
             this->m_2c = 0U;
         }
         if ((u32) this->m_38 == 0U) {

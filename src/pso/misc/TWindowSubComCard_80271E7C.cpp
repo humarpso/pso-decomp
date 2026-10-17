@@ -458,7 +458,7 @@ s32 TWindowSubComCard::create_option_list_window(s32 arg1, s32 key) {
     if (key == 0) {
         forward_trade_action_default__16TObjCityMainWarpFPviii((void *)win, (int)(((u8* (*)(void*, void*))get_message_10__17TWindowSubComCardFPvPv)((void *)(((u8 *)this)), (void *)(0))), 6, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii((void *)win, (int)(((u8* (*)(void*, void*))get_message_10__17TWindowSubComCardFPvPv)((void *)(((u8 *)this)), (void *)(1))), 6, 1);
-        ((TWindowSubComCardList *)win)->set_selected_index(open_hard_keyboard__6TLobbyFPv((void *)(this->m_20)));
+        ((TWindowSubComCardList *)win)->set_selected_index(open_hard_keyboard__6TLobbyFPv((void *)this->m_20));
     } else {
         sel = ((TWindowSubComCard *)arg1)->find_value_by_key(key);
         cs = get_chr_select__17TWindowSubComCardFv();

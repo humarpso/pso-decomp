@@ -48,25 +48,25 @@ s32 set_flag_10000__10TObjPlayerFv();
 
 void TUnk_804A0668::vfunc_7() {
     if (test_action_mask__10TObjPlayerFl(this->m_28, 0x1C) != 0) {
-        this->m_24 = (s32) (this->m_24 + 1);
+        this->m_24 = (this->m_24 + 1);
     }
 }
 
 void TUnk_804A0688::vfunc_6() {
     ((TBoss3Volopt *)(this->m_28))->get_field_3e0();
     if ((is_item_area_enabled() == 1) && (obj_isState3_324__13TUnk_804806E8Fv(this->m_28) == 0) && (obj_testFlags30(this->m_28, 0x800) == 0)) {
-        TObjectV8047c128_subtract_hp((u8 *)(this->m_28), 1);
+        TObjectV8047c128_subtract_hp((u8 *)this->m_28, 1);
     }
 }
 
 void TUnk_804A0688::vfunc_7() {
     if (test_action_mask__10TObjPlayerFl(this->m_28, 0x1C) != 0) {
-        this->m_24 = (s32) (this->m_24 + 1);
+        this->m_24 = (this->m_24 + 1);
     }
 }
 
 void TItemTimerEvent::vfunc_7() {
-    this->m_24 = (s32) (this->m_24 + 1);
+    this->m_24 = (this->m_24 + 1);
 }
 
 void TItemTimerEvent::run_task() {

@@ -53,7 +53,7 @@ void TWindowSubTrade::run_task() {
             this->m_34 = 0U;
         }
         if ((u32) this->m_30 != 0U) {
-            TWindow__close((u8 *)(this->m_30));
+            TWindow__close((u8 *)this->m_30);
             this->m_30 = 0U;
         }
         if ((u32) this->m_2c == 0U) {
@@ -74,7 +74,7 @@ void TWindowSubTrade::run_task() {
             this->m_24 = get_selected_menu_value(this->m_2c);
         }
         if ((u32) this->m_34 == 0U) {
-            this->m_34 = ((TWindowSubTrade *)arg0)->open_trade_confirm_prompt((int) (this->m_24));
+            this->m_34 = ((TWindowSubTrade *)arg0)->open_trade_confirm_prompt(this->m_24);
         }
         this->m_1c = 4U;
     case 4:
@@ -94,7 +94,7 @@ void TWindowSubTrade::run_task() {
             this->m_34 = 0U;
         }
         if ((u32) this->m_30 == 0U) {
-            this->m_30 = ((TWindowSubTrade *)arg0)->open_player_message_window((int) (this->m_24), (int) (TWindowSubStatusDisp::get_message_10(0xD7)));
+            this->m_30 = ((TWindowSubTrade *)arg0)->open_player_message_window(this->m_24, (int) (TWindowSubStatusDisp::get_message_10(0xD7)));
         }
         send_modify_trade_proposal__6TLobbyFi((this->m_24));
         this->m_1c = 6U;

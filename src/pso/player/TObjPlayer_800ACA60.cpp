@@ -78,7 +78,7 @@ void TObjEneMoja::update_death_state() {
     if (objInBand((GameObj *)arg0, (f32)lbl_805D9BE4) != 0) {
         v.x = lbl_805D9BD8;
         v.y = lbl_805D9BE8;
-        v.z = lbl_805D9BEC * *(f32 *)((s8 *)(this->m_2b0) + 0x10);
+        v.z = lbl_805D9BEC * *(f32 *)(this->m_2b0 + 0x10);
         push_matrix_from(identity_matrix);
         rotate_matrix_y(0, this->rotation_y);
         rotate_vector_by_matrix(0, &v, &v);
@@ -109,7 +109,7 @@ void TObjEneMoja::vfunc_63() {
     if ((s16) this->mode != 9) {
         this->mode = 9;
         this->m_b8 = 7;
-        temp_r6 = (u8 *)(this->m_a4);
+        temp_r6 = (u8 *)this->m_a4;
         *(s32 *)((s8 *)temp_r6 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r6 + 0x18) & 0xFFFF7FFE);
         spawn_particle_effect((s32)(arg0 + 0x2FC), 0xF1);
         ((TObjPlayer *)arg0)->refresh_lobby_state();
@@ -633,7 +633,7 @@ void TObjPlayer::update_invincibility() {
     *(s16 *)&this->unk_33C = (temp_r4 - 1);
     if (temp_r4 < 0) {
         this->actorFlags &= 0xFFFFFEFF;
-        *(s32 *)((s8 *)(this->m_a4) + 0x18) |= lbl_805D9BFC;
+        *(s32 *)((s8 *)this->m_a4 + 0x18) |= lbl_805D9BFC;
         *(s16 *)&this->unk_33C = (s16) *(s16 *)((s8 *)this + 0x33A);
         this->m_33e = (s16) this->hp;
     }

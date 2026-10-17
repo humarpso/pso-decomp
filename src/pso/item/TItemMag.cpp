@@ -281,9 +281,9 @@ void TItemMag::resolve_sentinel_color() {
     u8 v;
 
     if (check_class_equip_permission(this->m_f0, 0xD7) != 0) {
-        v = (u8) *(s16 *)((s8 *)(this->m_f0) + 0x896);
+        v = (u8) *(s16 *)((s8 *)this->m_f0 + 0x896);
     } else {
-        v = (u8) *(s16 *)((s8 *)(this->m_f0) + 0x894);
+        v = (u8) *(s16 *)((s8 *)this->m_f0 + 0x894);
     }
     v = v % 9;
     if (v >= 7) {
@@ -963,17 +963,17 @@ void TItemMag::do_action_by_class() {
 void TItemMag::evolve_first_form() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
-    temp_r3 = (u8 *)(this->m_f0);
+    temp_r3 = (u8 *)this->m_f0;
     if (temp_r3 != NULL) {
         if (((s32 (*)(void *, s32))check_class_equip_permission)(temp_r3, 0xF9) != 0) {
             ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)((s32) arg0), 1);
             return;
         }
-        if (((s32 (*)(void *, s32))check_class_equip_permission)((void *)(this->m_f0), 0xFA) != 0) {
+        if (((s32 (*)(void *, s32))check_class_equip_permission)(this->m_f0, 0xFA) != 0) {
             ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)((s32) arg0), 0xD);
             return;
         }
-        if (((s32 (*)(void *, s32))check_class_equip_permission)((void *)(this->m_f0), 0xFC) != 0) {
+        if (((s32 (*)(void *, s32))check_class_equip_permission)(this->m_f0, 0xFC) != 0) {
             ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)((s32) arg0), 0x19);
         }
     }
@@ -1248,10 +1248,10 @@ s32 TItemMag::apply_feed_stats(u8 *arg1) {
         ((TItemMag *)arg0)->set_field_EE((u8)((void *) (((u8 (*)(void *))get_mag_total_level)(arg0 + 0x198))));
         if (TObjPlayer__sub_80102C30((arg0)) == 2) {
             ((TItem *)arg0)->refresh_owner_stats();
-            if (obj_isState2_324__13TUnk_804806E8Fv((int) (this->m_f0)) == 0) {
-                arg1 = (u8 *) get_item_field_6__10TObjPlayerFPv((void *)(this->m_f0));
-                if ((arg1 != NULL) && (get_item_info__10TObjPlayerFllPs((int)arg1, (int) (this->m_f0), 0) == 0)) {
-                    send_6x26_unequip_item__10TObjPlayerFPvPv((void *)(this->m_f0), (void *)(get_field_d8__5TItemFv((int)arg1)));
+            if (obj_isState2_324__13TUnk_804806E8Fv((int)this->m_f0) == 0) {
+                arg1 = (u8 *) get_item_field_6__10TObjPlayerFPv(this->m_f0);
+                if ((arg1 != NULL) && (get_item_info__10TObjPlayerFllPs((int)arg1, (int)this->m_f0, 0) == 0)) {
+                    send_6x26_unequip_item__10TObjPlayerFPvPv(this->m_f0, (void *)(get_field_d8__5TItemFv((int)arg1)));
                 }
             }
         }

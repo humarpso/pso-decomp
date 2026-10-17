@@ -350,7 +350,7 @@ void TTecSlicer::render() {
         rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0x64));
         rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
         scale_current_matrix((u8 *)&this->scale);
-        draw_ginja_object((void *)(this->model));
+        draw_ginja_object(this->model);
         set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
         TParticleCtrl::end_effect_render();
     }

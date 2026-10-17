@@ -158,10 +158,10 @@ void TQuestListOnline::handle_quest_confirm() {
             return;
         }
         if (v == 1) {
-            TWindow__close((u8 *)(this->confirm_window));
+            TWindow__close((u8 *)this->confirm_window);
             this->confirm_window = NULL;
             if (this->info_window != NULL) {
-                TWindow__close((u8 *)(this->info_window));
+                TWindow__close((u8 *)this->info_window);
                 this->info_window = NULL;
             }
             if (this->list_window != NULL) {
@@ -178,10 +178,10 @@ void TQuestListOnline::handle_quest_confirm() {
         }
     }
     if (this->confirm_window != NULL && ((TWindowSubComCard *)(this->confirm_window))->get_status_flag() != 0) {
-        TWindow__close((u8 *)(this->confirm_window));
+        TWindow__close((u8 *)this->confirm_window);
         this->confirm_window = NULL;
         if (this->info_window != NULL) {
-            TWindow__close((u8 *)(this->info_window));
+            TWindow__close((u8 *)this->info_window);
             this->info_window = NULL;
         }
         if (this->list_window != NULL) {

@@ -50,8 +50,8 @@ void __dt__7TObjectFv(void *, int);
 
 s32 TWindowSubEquip::open_equip_kind_list(u32 arg1) {
     s32 equip_kind_window;
-    equip_kind_window = create_equip_kind_window(get_window_layout_position(1), lbl_8044F920, (int) (this->m_28));
-    TWindowSubEquip__sub_80263AF8((u8 *)(this->m_2c), 1);
+    equip_kind_window = create_equip_kind_window(get_window_layout_position(1), lbl_8044F920, this->m_28);
+    TWindowSubEquip__sub_80263AF8((u8 *)this->m_2c, 1);
     set_field_1c__6TLobbyFf(equip_kind_window);
     ((TUnk_804D0618 *)equip_kind_window)->ensure_status_display((int) (TWindowSubStatusDisp::get_message_10(0x24)));
     ((TWindowSubShortCutList *)equip_kind_window)->set_flag70_bit10();
@@ -93,7 +93,7 @@ void TWindowSubEquip::run_task() {
     case 1:
         if ((u32) this->m_38 != 0U) {
             TWindowSubEquip__sub_80263AF4(*(void * *)&this->m_2c, 1);
-            TWindow__close((u8 *)(this->m_38));
+            TWindow__close((u8 *)this->m_38);
             this->m_38 = 0U;
         }
         fn_80255A38(this->m_30);

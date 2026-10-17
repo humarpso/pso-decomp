@@ -113,7 +113,7 @@ void TOVS2Wall01::render() {
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
-        draw_ginja_object((void *)(this->model));
+        draw_ginja_object(this->model);
         pop_matrix();
         if (var_r31 != 0) {
             ((VObj_14_1eb8da *)(arg0 + (832)))->m7();

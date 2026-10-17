@@ -2023,8 +2023,8 @@ void *TObjCMMainMenu::destroy(s16 arg1) {
             }
             this->nodes = NULL;
         }
-        *(s32 *)((s8 *)(this->character) + 0x18) = -1;
-        *(s8 *)((s8 *)(this->character) + 0x33) = 2;
+        *(s32 *)((s8 *)this->character + 0x18) = -1;
+        *(s8 *)((s8 *)this->character + 0x33) = 2;
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

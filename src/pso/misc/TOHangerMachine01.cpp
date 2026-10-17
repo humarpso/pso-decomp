@@ -57,7 +57,7 @@ s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
 void TOHangerMachine01::run_task() {
-    this->m_c8 = (s32) (this->m_c8 + 0x888);
+    this->m_c8 = (this->m_c8 + 0x888);
 }
 
 #pragma push

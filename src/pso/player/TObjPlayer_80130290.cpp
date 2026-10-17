@@ -21,7 +21,7 @@ void TUnk_804A69C0::render() {
         post_translate_matrix(arg0 + 0x1C);
         rotate_matrix_y(0, this->m_count);
         rotate_matrix_x(0, this->m_28);
-        draw_ginja_object((void *)(this->m_58));
+        draw_ginja_object(this->m_58);
         pop_matrix();
     }
 }

@@ -143,7 +143,7 @@ void TChallenge4PResult::set_entry_item(void *arg1, s32 arg2) {
     arg0->f[arg2].v = 1;
 }
 
-void TChallenge4PResult::close_window() { if (this->message_window != 0) { TWindow__close((u8 *)(this->message_window)); this->message_window = 0; } }
+void TChallenge4PResult::close_window() { if (this->message_window != 0) { TWindow__close((u8 *)this->message_window); this->message_window = 0; } }
 
 }
 

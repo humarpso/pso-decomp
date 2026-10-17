@@ -20,7 +20,7 @@ extern s32 lbl_804CC74C[];
 void *TObjLight::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804CC74C;
-        stop_sound_request((s32)(this->actorFlags));
+        stop_sound_request(this->actorFlags);
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

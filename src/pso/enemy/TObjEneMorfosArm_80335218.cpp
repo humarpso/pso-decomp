@@ -55,7 +55,7 @@ void TObjEneMorfosArm::run_task() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     advance_animation_playback();
-    temp_r3 = (u8 *)(this->m_fc);
+    temp_r3 = (u8 *)this->m_fc;
     if (temp_r3 == NULL) {
         queue_destruction__7TObjectFv((arg0));
         return;

@@ -2050,7 +2050,7 @@ void TObjEneRe4Sorcerer__vt85(s32 arg0p, u32 arg1, s32 arg1p) {
 }
 
 void TObjEneRe4Sorcerer__sub_800EF214(s32 arg0) {
-    play_persistent_sound((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003A81D)))), (s32)arg0, (u32)(arg0 + 0x38), 0, 0);
+    play_persistent_sound((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((void *)arg0, 0x4003A81D)))), (s32)arg0, arg0 + 0x38, 0, 0);
 }
 
 void TObjEneRe4Sorcerer::create_effect() {

@@ -35,7 +35,7 @@ extern const f32 lbl_805DF6B8;
 extern const f32 lbl_805DF6BC;
 extern const f32 lbl_805DF6C0;
 
-void TAdScrollWinGC::close_window() { if (this->m_40 != 0) { TWindow__close((u8 *)(this->m_40)); this->m_40 = 0; } }
+void TAdScrollWinGC::close_window() { if (this->m_40 != 0) { TWindow__close((u8 *)this->m_40); this->m_40 = 0; } }
 
 void TAdScrollWinGC::run_task() {
     u8 *arg0 = (u8 *)this;

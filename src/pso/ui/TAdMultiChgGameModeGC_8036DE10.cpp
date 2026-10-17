@@ -235,7 +235,7 @@ void TAdMultiChgGameModeGC::close_window_30() {
         TWindow__close((u8 *)temp_r3);
         *(u32 *)((s8 *)this + 0x30) = 0U;
     }
-    close_window__21TAdMultiChgGameModeGCFPv((void*)(this));
+    close_window__21TAdMultiChgGameModeGCFPv(this);
 }
 void close_window__21TAdMultiChgGameModeGCFPv(void* p) { if (*(unsigned int*)((char*)p + 0x34) != 0) { TWindow__close((u8 *)((void*)(*(void**)((char*)p + 0x34)))); *(int*)((char*)p + 0x34) = 0; } }
 

@@ -86,7 +86,7 @@ void TOTrap::vfunc_82() {
     refresh_collision_body_centers();
     if ((s32) this->m_84 < 0) {
         u32 p;
-        this->receive_physical_attack((void *)(this->target), TOTrap__data_805DBA38);
+        this->receive_physical_attack(this->target, TOTrap__data_805DBA38);
         p = *(u32 *)&this->target;
         if (p != 0U) {
             u32 v = (u16) obj_getField1c(p);

@@ -144,7 +144,7 @@ void TBoss6Tube::spawn_trap() {
 }
 
 void TBoss6Tube::update_timer() {
-    this->m_20 = (s32) (this->m_20 + 1);
+    this->m_20 = (this->m_20 + 1);
     if ((s32) this->m_20 >= 0x10E) {
         this->m_20 = 0;
         this->m_1c = 1;

@@ -995,7 +995,7 @@ void TBoss3Volopt::trigger_breakup() {
     temp_r4 = this->m_388;
     if (!(temp_r4 & 0x80000)) {
         this->m_388 = (s32) (temp_r4 | 0x80000);
-        temp_r5 = (u8 *)(this->m_a4);
+        temp_r5 = (u8 *)this->m_a4;
         *(s32 *)((s8 *)temp_r5 + 0x9C) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x9C) & 0xEFFFFFFE);
         ((TObjEneGyaranzo *)((u8 *)this))->render_anim_model_at_pos();
         this->vfunc_65(0x29, (s32)&sp8);

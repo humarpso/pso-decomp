@@ -135,9 +135,9 @@ void TWindowDD::handle_input() {
     s32 temp_r3;
     temp_r31 = this->m_84;
     if (TWindowDD::apply_both_choices((s32)(arg0 + 0x60), 0x10) != 0) {
-        this->m_84 = (s32) (this->m_84 - 1);
+        this->m_84 = (this->m_84 - 1);
     } else if (TWindowDD::apply_both_choices((s32)(arg0 + 0x60), 0x20) != 0) {
-        this->m_84 = (s32) (this->m_84 + 1);
+        this->m_84 = (this->m_84 + 1);
     } else if (TWindowDD::apply_both_choices((s32)(arg0 + 0x60), 0x20000) != 0) {
         this->m_84 = 0;
     } else if (TWindowDD::apply_both_choices((s32)(arg0 + 0x60), 0x10000) != 0) {

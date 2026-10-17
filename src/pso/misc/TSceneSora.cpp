@@ -93,9 +93,9 @@ void TSceneSora::render() {
         push_matrix();
         rotate_matrix_y(0, this->rotation_y);
         if ((u32) this->m_94 != 0U) {
-            draw_ginja_model_with_motion((int) (this->m_90), (int) (this->m_94), this->m_a0);
+            draw_ginja_model_with_motion(this->m_90, this->m_94, this->m_a0);
         } else {
-            draw_ginja_object((void *)(this->m_90));
+            draw_ginja_object((void *)this->m_90);
         }
         pop_matrix();
         TParticleCtrl::end_effect_render();

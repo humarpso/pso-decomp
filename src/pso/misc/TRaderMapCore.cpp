@@ -840,11 +840,11 @@ void TRaderMapCore::draw_enemy_gate_markers() {
         switch (g->kind) {
         case 0:
             scale_matrix(0, lbl_805DC57C * g->scale, lbl_805DC580, lbl_805DC584 * g->scale);
-            draw_ginja_object((void *)(this->m_180));
+            draw_ginja_object(this->m_180);
             break;
         case 1:
             scale_matrix(0, lbl_805DC580 * g->scale, lbl_805DC580, lbl_805DC580 * g->scale);
-            draw_ginja_object((void *)(this->m_17c));
+            draw_ginja_object(this->m_17c);
             break;
         }
         pop_matrix();
@@ -877,7 +877,7 @@ void TRaderMapCore::draw_player_markers() {
             translate_matrix(0, *(f32 *)((s8 *)var_r31 + 0x0), TRaderMapCore__data_805DC528, *(f32 *)((s8 *)var_r31 + 0x8));
             rotate_matrix_y(0, *(s32 *)((s8 *)var_r31 + 0xC));
             scale_matrix(0, *(f32 *)((s8 *)var_r31 + 0x10), *(f32 *)((s8 *)var_r31 + 0x10), *(f32 *)((s8 *)var_r31 + 0x10));
-            draw_ginja_object((void *)(this->m_178));
+            draw_ginja_object(this->m_178);
             pop_matrix();
             set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
         }

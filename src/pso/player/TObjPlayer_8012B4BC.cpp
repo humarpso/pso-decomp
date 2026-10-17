@@ -12,7 +12,7 @@ void TUnk_804A4D70::update_weapon() {
     s32 var_r4;
 
     if (get_slot_count__14TItemProShieldFv() == 6) {
-        var_r4 = obj_getPtr2B0_20((u8 *)(this->player)) / 100000;
+        var_r4 = obj_getPtr2B0_20((u8 *)this->player) / 100000;
         var_r4 = var_r4 * 0x222;
         if (var_r4 > 0x1555) {
             var_r4 = 0x1555;

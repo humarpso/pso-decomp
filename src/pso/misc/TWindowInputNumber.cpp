@@ -56,13 +56,13 @@ void TWindowInputNumber::update_value() {
 
 void TWindowInputNumber::handle_decrement() {
     play_sound_effect(0x54100, 0, 0, 0);
-    this->selectedDigit = (u8) (this->selectedDigit - 1);
+    this->selectedDigit = (this->selectedDigit - 1);
     if ((s8) this->selectedDigit < 0) {
         if (this->inputFlags & 1) {
             this->selectedDigit = 0U;
             return;
         }
-        this->selectedDigit = (u8) (this->digitCount - 1);
+        this->selectedDigit = (this->digitCount - 1);
     }
 }
 

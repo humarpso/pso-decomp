@@ -33,7 +33,7 @@ void TObjPlayer::draw_node_tree(void *arg1) {
         temp_r31 = *(s32 *)((s8 *)var_r30 + 0);
         push_matrix();
         TObjPlayer::concat_matrix(0, node_matrix_array_base + (this->actorFlags * 0x30));
-        this->actorFlags = (s32) (this->actorFlags + 1);
+        this->actorFlags = (this->actorFlags + 1);
         temp_r12 = *(s32 (**)(void *))((s8 *)this + 0x34);
         if (temp_r12 != NULL) {
             temp_r12(var_r30);

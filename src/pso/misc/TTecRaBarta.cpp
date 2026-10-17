@@ -511,7 +511,7 @@ void *TTecRaBarta::construct_area(void *source, void *origin, void *level) {
     this->m_f0 = 0;
     calc_parameters__11TTecRaBartaFv(this);
     if (this->m_e8 != NULL) {
-        *(f32 *)((s8 *)(*(u8 **)((s8 *)(this->m_e8) + 0xA4)) + 0xC) = this->m_90;
+        *(f32 *)((s8 *)(*(u8 **)(this->m_e8 + 0xA4)) + 0xC) = this->m_90;
     }
     for (i = 0; i < 32; i++) {
         ((Ids_80237CCC *) this)->ids[i] = 0xFFFF;

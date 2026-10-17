@@ -126,7 +126,7 @@ void TObjDFDemo3::run_task() {
     u32 temp_r3;
     if ((s32) this->m_b0 >= 0x5A) {
         if ((u32) this->m_90 != 0U) {
-            TBoss4Type2::request_destroy((u32)(this->m_90));
+            TBoss4Type2::request_destroy(this->m_90);
             this->m_90 = 0U;
         }
     } else {

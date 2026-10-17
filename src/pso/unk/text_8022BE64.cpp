@@ -72,7 +72,7 @@ void TUnk_804CC148::count_if_within_range() {
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x28);
     stack.sp10 = temp_f1 - this->m_84;
     if (vector_length(&stack.sp8, temp_f1) <= *(f32 *)((s8 *)arg0 + 0x64)) {
-        this->field_6c = (s32) (this->field_6c + 1);
+        this->field_6c = (this->field_6c + 1);
     }
 }
 

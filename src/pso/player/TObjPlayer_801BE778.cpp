@@ -79,7 +79,7 @@ s32 TObjPlayer::clamp_index_to_max(s32 arg0) {
     return max_level;
 }
 void TObjPlayer::clamp_nested_index() {
-    TObjPlayer::clamp_index_to_max(*(s32 *)((s8 *)(this->m_2b0) + 0x18));
+    TObjPlayer::clamp_index_to_max(*(s32 *)(this->m_2b0 + 0x18));
 }
 void TObjPlayer__sub_801BE9A8(s32 arg0) {
     TObjPlayer__sub_8011E204((void *)arg0, 0x20000);

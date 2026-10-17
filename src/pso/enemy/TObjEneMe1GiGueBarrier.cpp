@@ -101,7 +101,7 @@ void TObjEneMe1GiGueBarrier::run_task() {
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(((TObjEneMe1GiGueBarrier *)temp_r0)->update_and_get_pos()));
     this->rotation_y = ((TObjEneMe1GiGueBarrier *)(this->m_fc))->get_timer();
     advance_animation_playback(arg0);
-    this->m_108 = (s32) (this->m_108 - 1);
+    this->m_108 = (this->m_108 - 1);
     switch (this->m_104) {
     case 0:
         if (this->animationFlags & 0x10) {

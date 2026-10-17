@@ -18,7 +18,7 @@ s32 TObjPlayer::get_target_field_1c() {
         return 0;
     }
     if (get_flag_1() != 0) {
-        return *(s32 *)((s8 *)(this->m_next) + 0x1C);
+        return *(s32 *)((s8 *)this->m_next + 0x1C);
     }
     return 0;
 }
@@ -30,7 +30,7 @@ f32 TObjPlayer::get_attached_float_24() {
         return lbl_805DFEC8;
     }
     if (get_flag_1() != 0) {
-        return *(f32 *)((s8 *)(this->m_next) + 0x24);
+        return *(f32 *)((s8 *)this->m_next + 0x24);
     }
     return lbl_805DFEC8;
 }

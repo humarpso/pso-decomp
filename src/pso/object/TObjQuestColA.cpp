@@ -15,7 +15,7 @@ s32 check_flag_100__10TObjPlayerFPv();
 u32 create__12TQuestThreadFi(s32 arg0);
 int destroy_board__17TQuestThreadBoardFv(void*);
 
-int TObjQuestColA::vfunc_16() { destroy_board__17TQuestThreadBoardFv(this); create__12TQuestThreadFi((s32)(this->m_b0)); }
+int TObjQuestColA::vfunc_16() { destroy_board__17TQuestThreadBoardFv(this); create__12TQuestThreadFi(this->m_b0); }
 
 extern s8 controller_input_state[];
 extern s32 local_client_id;

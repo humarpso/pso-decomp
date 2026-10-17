@@ -198,14 +198,14 @@ void TWindowSubCustomEquip::update_rotate_anim() {
     if (this->m_68 & 0x8000) {
         this->m_64 = 0;
         this->m_65 = 1;
-        place_bank_slot_on_ring((s32)(this->m_68), 9);
-        place_bank_slot_on_ring((s32)(this->m_68 + 0x8000), 0);
+        place_bank_slot_on_ring(this->m_68, 9);
+        place_bank_slot_on_ring(this->m_68 + 0x8000, 0);
         return;
     }
     this->m_64 = 1;
     this->m_65 = 0;
-    place_bank_slot_on_ring((s32)(this->m_68 + 0x8000), 9);
-    place_bank_slot_on_ring((s32)(this->m_68), 0);
+    place_bank_slot_on_ring(this->m_68 + 0x8000, 9);
+    place_bank_slot_on_ring(this->m_68, 0);
 }
 
 void TWindowSubCustomEquip::handle_cancel() {

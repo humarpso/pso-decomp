@@ -188,7 +188,7 @@ void TItemAttackCol::add_to_active_list(void* a0) { fn_802E3BA8((void*)attack_co
 
 void TItemAttackCol::shift_collision_bounds() {
     *(s32 *)&this->_pad104 = (s32) (*(s32 *)&this->_pad104 + 0xCCC);
-    this->m_11c = (s32) (this->m_11c - 0xCCC);
+    this->m_11c = (this->m_11c - 0xCCC);
 }
 
 void TItemAttackCol::vfunc_6(s32 *a) {
@@ -252,7 +252,7 @@ void TItemAttackCol::render() {
     {
         if ((u32) this->m_e8 != 0U) {
             if ((u32) this->m_ec != 0U) {
-                TObjPlayer::notify_fish_if_valid((u32)(this->m_ec));
+                TObjPlayer::notify_fish_if_valid(this->m_ec);
             }
             TParticleCtrl::begin_effect_render();
             attack_collider_render_owner = (int)arg0;
@@ -285,7 +285,7 @@ void TItemAttackCol::run_task() {
         shift_collision_bounds();
     }
     if (this->m_e4 & 0x20) {
-        this->m_100 = (s32) (this->m_100 + 0x888);
+        this->m_100 = (this->m_100 + 0x888);
     }
     this->vfunc_7();
     temp_r3 = this->m_12c;

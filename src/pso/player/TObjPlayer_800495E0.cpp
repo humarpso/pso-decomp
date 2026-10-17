@@ -108,7 +108,7 @@ s32 TUnk_80484A94::sub_800495F8() {
     void *cage;
     TObjPlayer::init_all_slots();
     ((TObjPlayer *)this)->check_object_collisions();
-    if (*(s32 *)((s8 *)(this->m_a4) + 0x18) & 0x80000) {
+    if (*(s32 *)((s8 *)this->m_a4 + 0x18) & 0x80000) {
         for (i = 0; i < 0x10; i++) {
             p = get_battle_param__10TObjPlayerFi(i);
             if (p == NULL) {
@@ -157,7 +157,7 @@ void TUnk_80484A94::run_task() {
   vec3_add_to(arg0 + 0x38, arg0 + 0xB4);
   direction_to_rotation_yx((u8 *)(arg0 + 0xB4), (s32 *)(arg0 + 0x60), (s32 *)(arg0 + 0x64));
   this->rotation_z = (s32) ((this->rotation_z) - 0x4000);
-  temp_r3_2 = (u8 *) (this->m_d4);
+  temp_r3_2 = (u8 *)this->m_d4;
   if (temp_r3_2 != 0)
   {
     ((TNowLoading *)temp_r3_2)->copy_pos((u8 *)&this->position);
@@ -194,7 +194,7 @@ void *TUnk_80484A94::destroy(s16 arg1) {
         free_collision_body_parts(this);
         if (this->m_d4 != NULL) { queue_destruction__7TObjectFv(this->m_d4); }
         if (*(void * *)&(*(s32 *)((u8 *)this + 0xD8)) != NULL) { queue_destruction__7TObjectFv(*(void * *)&(*(s32 *)((u8 *)this + 0xD8))); }
-        if (this->m_up != NULL) { TObjPlayer__sub_80049A0C((void*)(this->m_up)); }
+        if (this->m_up != NULL) { TObjPlayer__sub_80049A0C(this->m_up); }
         destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

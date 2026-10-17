@@ -1558,11 +1558,11 @@ void TObjEneBm5Wolf::repositioning_state(s32 arg1) {
             }
             dx = lbl_805D9DB8 * sin_table_lookup(this->m_42c);
             dz = lbl_805D9DB8 * cos_table_lookup(this->m_42c);
-            *(f32 *)((s8 *)(this->m_410) + 0x38) = *(f32 *)((s8 *)arg0 + 0x38) + dx;
-            *(f32 *)((s8 *)(this->m_410) + 0x3C) = *(f32 *)((s8 *)arg0 + 0x3C);
-            *(f32 *)((s8 *)(this->m_410) + 0x40) = *(f32 *)((s8 *)arg0 + 0x40) + dz;
+            *(f32 *)(this->m_410 + 0x38) = *(f32 *)((s8 *)arg0 + 0x38) + dx;
+            *(f32 *)(this->m_410 + 0x3C) = *(f32 *)((s8 *)arg0 + 0x3C);
+            *(f32 *)(this->m_410 + 0x40) = *(f32 *)((s8 *)arg0 + 0x40) + dz;
             ((TObjPlayer *)(this->m_410))->update_collisions();
-            if (!(*(s32 *)((s8 *)(*(void **)((s8 *)(this->m_410) + 0xA4)) + 0x18) & 0x380000)) {
+            if (!(*(s32 *)((s8 *)(*(void **)(this->m_410 + 0xA4)) + 0x18) & 0x380000)) {
                 dx *= TObjEneBm5Wolf__data_805D9DBC;
                 dz *= TObjEneBm5Wolf__data_805D9DBC;
                 if (((TBoss5Gryphon *)arg0)->enemy_probe_wall_ahead(dx, dz, TObjEneBm5Wolf__data_805D9D8C) == 0U) {
@@ -1748,22 +1748,22 @@ void TObjEneBm5Wolf::update_lunge(s32 arg1) {
             if (objInBand__FP7GameObjf(arg0, (f32) ((*(f32 *)&TObjEneBm5Wolf__data_805D9D74))) != 0) {
                 this->nearTarget = 0;
                 if (enemy_validate_retained_target(arg0) != 0) {
-                    if (((VObj_18_a3e1a1 *)((u8 *)(this->target)))->m18(arg0, (*(f32 *)&TObjEneBm5Wolf__data_805D9D8C)) != 0) {
-                        ((VObj_18_a3e1a1 *)((u8 *)(this->target)))->m20(arg0, (*(f32 *)&TObjEneBm5Wolf__data_805D9D8C));
-                        ((VObj_18_a3e1a1 *)((u8 *)(this->target)))->m23(arg0, TObjEneBm5Wolf__data_805D9DEC);
+                    if (((VObj_18_a3e1a1 *)(this->target))->m18(arg0, (*(f32 *)&TObjEneBm5Wolf__data_805D9D8C)) != 0) {
+                        ((VObj_18_a3e1a1 *)(this->target))->m20(arg0, (*(f32 *)&TObjEneBm5Wolf__data_805D9D8C));
+                        ((VObj_18_a3e1a1 *)(this->target))->m23(arg0, TObjEneBm5Wolf__data_805D9DEC);
                         this->nearTarget = 1;
                         if ((check_v2_mode__9TObjEneDDFv() != 0) && (calc_boss4_scale__10TObjPlayerFi((s32)arg0) <= (*(f32 *)&TObjEneBm5Wolf__data_805D9DA8))) {
                             if ((s32) this->m_3d8 != 0) {
-                                TObjEneDD__sub_800BA378(arg0, (void *) (this->target));
+                                TObjEneDD__sub_800BA378(arg0, this->target);
                             } else {
-                                TObjEneDD::send_damage_message((s32)arg0, (u8 *)(this->target));
+                                TObjEneDD::send_damage_message((s32)arg0, (u8 *)this->target);
                             }
                         }
                     }
                 }
             }
             approach_target__14TObjEneBm5WolfFPvf(arg0, (f32) ((*(f32 *)&TObjEneBm5Wolf__data_805D9DA8)));
-            this->rotation_y = approach_angle_limited(this->rotation_y, (int) (this->m_42c), 0x1000);
+            this->rotation_y = approach_angle_limited(this->rotation_y, this->m_42c, 0x1000);
             this->rotation_y = (s32) (s16) this->rotation_y;
             advance_pose_turn__14TObjEneBm5WolfFPvi(arg0, this->rotation_y);
             if (this->m_c0 <= TObjEneBm5Wolf__data_805D9DF0) {
@@ -3133,8 +3133,8 @@ void TObjEneBm5Wolf::turn_pose_to_target() {
     x = *(f32 *)((s8 *)this + 0x38) + (*(f32 *)&TObjEneBm5Wolf__data_805D9D78);
     cos_table_lookup(this->rotation_y);
     z = *(f32 *)((s8 *)this + 0x40) + (*(f32 *)&TObjEneBm5Wolf__data_805D9D78);
-    f32 dx = *(f32 *)((s8 *)(this->target) + 0x38) - x;
-    f32 dz = *(f32 *)((s8 *)(this->target) + 0x40) - z;
+    f32 dx = *(f32 *)((s8 *)this->target + 0x38) - x;
+    f32 dz = *(f32 *)((s8 *)this->target + 0x40) - z;
     z = atan2_float((0, dx), dz);
     advance_pose_turn__14TObjEneBm5WolfFPvi((Wolf_800B7DDC *)this, (s32) ((*(f64 *)&TObjEneBm5Wolf__data_8043B5B0) * z));
 }

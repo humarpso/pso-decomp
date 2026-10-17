@@ -51,7 +51,7 @@ void TOJungleDesign::render() {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_yxz(0, (*(s32 *)&this->m_5c), (this->rotation_y), (this->rotation_z));
-        draw_ginja_object((void *)(this->m_ac));
+        draw_ginja_object((void *)this->m_ac);
         pop_matrix();
     }
 }

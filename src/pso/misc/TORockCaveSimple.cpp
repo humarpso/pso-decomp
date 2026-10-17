@@ -30,7 +30,7 @@ void TORockCaveSimple::play_trigger_effect() {
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
-        draw_ginja_object((void *)(this->model));
+        draw_ginja_object(this->model);
         pop_matrix();
     }
 }

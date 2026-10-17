@@ -97,7 +97,7 @@ void TWindowSubShortMail::update_mail_count() {
     s32 temp_r3;
 
     if ((u32) this->m_3c != 0U) {
-        temp_r3 = select_cursor_entry__22TWindowSubShortCutListFv((void*)(this->m_38));
+        temp_r3 = select_cursor_entry__22TWindowSubShortCutListFv((void*)this->m_38);
         if ((s32) this->m_24 != temp_r3) {
             this->m_24 = temp_r3;
             if (find_short_mail_by_id__6TLobbyFUi(this->m_24) != 0U) {
@@ -274,7 +274,7 @@ s32 TWindowSubShortMail::refresh_mail_list(void *arg1) {
     if (n <= 0) {
         ((TWindowSubShortMail *)arg1)->advance_line(-1);
         if (this->m_3c != 0) {
-            TWindow__close((u8 *)(this->m_3c));
+            TWindow__close((u8 *)this->m_3c);
             this->m_3c = 0;
         }
     } else if (this->m_3c == 0) {

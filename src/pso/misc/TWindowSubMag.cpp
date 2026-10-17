@@ -145,7 +145,7 @@ void TWindowSubMag::update_displayed_item() {
     temp_r3 = select_cursor_entry__22TWindowSubShortCutListFv(this->m_34);
     if (temp_r3 != (s32) this->m_24) {
         this->m_24 = temp_r3;
-        TWindowHelpItem__set_displayed_item_by_id((u8 *)(this->m_40), temp_r3);
+        TWindowHelpItem__set_displayed_item_by_id((u8 *)this->m_40, temp_r3);
     }
 }
 
@@ -269,7 +269,7 @@ s32 TWindowSubMag::create_list() {
     s32 equip_kind_window;
 
     s32 window_layout_position = get_window_layout_position(0xD);
-    equip_kind_window = create_equip_kind_window(window_layout_position, lbl_8044F9F8, (s32)(this->m_28));
+    equip_kind_window = create_equip_kind_window(window_layout_position, lbl_8044F9F8, this->m_28);
     ((TUnk_804D0618 *)equip_kind_window)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl(0x24));
     TWindowSubEquip__sub_80263AF8(this->m_30, 2);
     set_field_1c__6TLobbyFf((void *)equip_kind_window);
@@ -285,7 +285,7 @@ s32 TWindowSubMag::setup_list() {
     s32 window_layout_position;
 
     window_layout_position = get_window_layout_position(7);
-    equip_kind_window = create_equip_kind_window(window_layout_position, lbl_8044F9F0, (s32)(this->m_28));
+    equip_kind_window = create_equip_kind_window(window_layout_position, lbl_8044F9F0, this->m_28);
     ((TUnk_804D0618 *)equip_kind_window)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl(0x29));
     TWindowSubEquip__sub_80263AF8(this->m_30, 0);
     set_field_1c__6TLobbyFf((void *)equip_kind_window);

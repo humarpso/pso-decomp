@@ -2165,7 +2165,7 @@ int spawn_landing_effect__16TObjEneBm5GibonUFPvPv(Ene_800CCC6C *arg0, void *arg1
 #pragma fp_contract on
 void TObjEneBm5GibonU__sub_800CCD8C(u8 *arg0) {
     if ((objInBand__FP7GameObjf(arg0, TObjEneBm5GibonU__data_805DA170) != 0) || (objInBand__FP7GameObjf(arg0, TObjEneBm5GibonU__data_805DA174) != 0)) {
-        spawn_landing_effect__16TObjEneBm5GibonUFPvPv((Ene_800CCC6C *)(arg0), (void *)(arg0 + 0x38));
+        spawn_landing_effect__16TObjEneBm5GibonUFPvPv((Ene_800CCC6C *)(arg0), arg0 + 0x38);
     }
 }
 #pragma pop
