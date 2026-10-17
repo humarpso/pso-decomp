@@ -27,6 +27,7 @@ void __dt__19TAdPlyChrSelPlateGCFv(void *, int);
 void *__ct__19TAdPlyChrSelPlateGCFv(void *, s32, void *);
 void *memset(void *, int, u32);
 s32 strlen(const char *);
+}
 extern u8 lbl_80477210[];
 extern f32 lbl_80477218[];
 extern f32 lbl_80477220[];
@@ -69,6 +70,7 @@ void draw_masked_password_field(s32 arg0) {
         __dt__19TAdPlyChrSelPlateGCFv(&plate, -1);
     }
 }
+extern "C" {
 void fn_8032AC24(void) {
     Plate_8032AC24 plate;
     Arg_8032AC24 p1;
@@ -80,5 +82,4 @@ void fn_8032AC24(void) {
     TAdEnterSerialAccessGC__sub_802C4B64(&plate, lbl_80477200, &w, 0);
     __dt__19TAdPlyChrSelPlateGCFv(&plate, -1);
 }
-
 }
