@@ -2187,37 +2187,37 @@ void TObjEneBm3Fly::vfunc_63() {
 
 void TObjEneBm3Fly::vfunc_28() {  }
 
-void TObjEneBm3Fly__vt85(s32 arg0, u32 arg1, s32 arg2) {
+void TObjEneBm3Fly__vt85(s32 arg0, u32 arg1, s32 msg) {
     switch (arg1) {
     case 0:
-        TObjEneBm3Fly__sub_800B1214((u8 *)arg0, (arg2));
+        TObjEneBm3Fly__sub_800B1214((u8 *)arg0, (msg));
         return;
     case 1:
-        TObjEneBm3Fly__sub_800B0F70((u8 *)arg0, (arg2));
+        TObjEneBm3Fly__sub_800B0F70((u8 *)arg0, (msg));
         return;
     case 2:
-        TObjEneBm3Fly__sub_800B0B20((u8 *)arg0, (arg2));
+        TObjEneBm3Fly__sub_800B0B20((u8 *)arg0, (msg));
         return;
     case 3:
-        ((TObjEneBm3Fly *)arg0)->execute_action((arg2));
+        ((TObjEneBm3Fly *)arg0)->execute_action((msg));
         return;
     case 4:
-        ((TObjEneBm3Fly *)arg0)->state_circle_target((arg2));
+        ((TObjEneBm3Fly *)arg0)->state_circle_target((msg));
         return;
     case 6:
-        ((TObjEneBm3Fly *)arg0)->update_recoil_state((arg2));
+        ((TObjEneBm3Fly *)arg0)->update_recoil_state((msg));
         return;
     case 8:
-        ((TObjEneBm3Fly *)arg0)->state_death_fall((arg2));
+        ((TObjEneBm3Fly *)arg0)->state_death_fall((msg));
         return;
     case 5:
-        TObjEneBm3Fly__sub_800B02C8((u8 *)arg0, (arg2));
+        TObjEneBm3Fly__sub_800B02C8((u8 *)arg0, (msg));
         return;
     case 7:
-        action__13TObjEneBm3FlyFPvi((u8 *)arg0, (arg2));
+        action__13TObjEneBm3FlyFPvi((u8 *)arg0, (msg));
         return;
     case 9:
-        ((TObjEneBm3Fly *)arg0)->handle_message((arg2));
+        ((TObjEneBm3Fly *)arg0)->handle_message((msg));
     default:
         return;
     }
