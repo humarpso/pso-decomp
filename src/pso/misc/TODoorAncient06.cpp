@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TODoorAncient06_8015F3B8.h"
+#include "pso/unk/text_80158360.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TODoorAncient06.h"
@@ -27,11 +29,9 @@ extern const f32 lbl_805DB434;
 extern const f32 lbl_805DB438;
 extern const f32 lbl_805DB43C;
 void set_indexed_flags__13TUnk_804AF8A0Fll(void *, s32, s32);
-s32 is_any_player_within_radius_xz(u8 *self, f32 radius);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern u8 *TODoorAncient06__texture_lists;
 extern const f32 lbl_805DB444;
-u8 *TODoorAncient06__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
 
 extern const f32 lbl_805DB440;

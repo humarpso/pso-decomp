@@ -95,18 +95,7 @@ void TObjEneBm3Fly__vt85(s32 arg0, u32 arg1, s32 arg2);
 void *__dt__13TObjEneBm3FlyFv(void *arg0, s16 arg1);
 void action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1);
 f32 approach_value__13TObjEneBm3FlyFff(f32 farg0, f32 farg1);
-s32 can_attack_target__13TObjEneBm3FlyFv(u8 *arg0);
-void circle_destination__13TObjEneBm3FlyFl(void *arg0, s32 arg1);
-void execute_action__13TObjEneBm3FlyFl(u8 *arg0, s32 arg1);
-u16 get_active_id__13TObjEneBm3FlyFv(void *arg0);
-void handle_message__13TObjEneBm3FlyFl(void *arg0, s32 arg1);
-void state_circle_target__13TObjEneBm3FlyFl(u8 *arg0, s32 arg1);
-void state_death_fall__13TObjEneBm3FlyFl(u8 *arg0, s32 arg1);
-void update__13TObjEneBm3FlyFv(void *arg0);
 void update_dd_flag__13TObjEneBm3FlyFPv(void *arg0);
-void update_height_offset__13TObjEneBm3FlyFv(void *arg0);
-void update_recoil_state__13TObjEneBm3FlyFl(u8 *arg0, s32 arg1);
-void update_state_flag__13TObjEneBm3FlyFv(void *arg0);
 }
 
 #endif

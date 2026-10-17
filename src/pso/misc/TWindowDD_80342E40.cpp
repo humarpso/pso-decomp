@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowDD_80342E40.h"
+#include "pso/misc/TWindowDD_80348D0C.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/TObject.h"
 #include "pso/misc/TShopEquipmentSellWindow.h"
@@ -22,9 +24,7 @@ s32 open_numeric_parameter_input__9TWindowDDFPviii(void *, int, void *, void *);
 s32 classify_id__9TWindowDDFs();
 s32 TWindowDD__sub_80347CC8(void *, void *);
 s32 get_current_child_index__9TWindowDDFv();
-s32 TWindowDD__sub_80348D88(void *);
 extern void *word_select_numeric_limits[];
-u8 update_numeric_parameter_input__9TWindowDDFPv(u8 *arg0);
 s32 TWindowDD__sub_80342158(s32);
 s32 TWindowDD__sub_803435A0(void *);
 s32 TWindowDD__sub_80347C50();

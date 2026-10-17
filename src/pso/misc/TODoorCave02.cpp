@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80158360.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TODoorCave02.h"
@@ -8,7 +9,6 @@
 
 extern "C" {
 void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
-s32 is_any_player_within_radius_xz(u8 *self, f32 radius);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805DB4B4;
 extern const f32 lbl_805DB4B8;

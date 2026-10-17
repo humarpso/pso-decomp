@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TODoorAncient01_8015DDE8.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/unk/TUnk_804B0BB8.h"
@@ -63,8 +64,6 @@ extern RecoveredGlobal_8015E188_lbl_804B0D68 TODoorAncient01__collision_body;
 extern s32 __vt__15TODoorAncient01[];
 extern s32 lbl_805D2F20;
 extern const f32 lbl_805DB3EC;
-u8 *TODoorAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
-void *__dt__15TODoorAncient01Fv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, void *, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
 s32 is_any_player_within_radius_xz(f32);

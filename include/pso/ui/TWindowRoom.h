@@ -37,7 +37,6 @@ typedef char RoomTabParameterOffset[offsetof(TWindowRoom, tabParameter) == 0x60 
 
 extern "C" {
 void *__dt__11TWindowRoomFv(void *arg0, s16 arg1);
-void draw_status__11TWindowRoomFv(s32 arg0);
 }
 
 #endif

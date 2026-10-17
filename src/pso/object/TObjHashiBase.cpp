@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80191D14.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/object/TObjHashiBase.h"
 #include <stddef.h>
@@ -54,9 +55,6 @@ void handle_6x78(void *arg0);
 u8 is_current_floor_switch_set(u16, f32);
 void __dl__7TObjectFPv(void *);
 s32 bswap_6x78__11TObjInfoColFv();
-void fn_80191D14(u16 arg0, s32 arg1);
-s32 get_handle_6x78_entry(u16);
-void fn_80191D5C(u16 arg0);
 s32 init_map_object_base();
 
 extern s32 __vt__13TObjHashiBase[];

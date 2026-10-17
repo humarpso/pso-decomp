@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe3SinowZoa_80316A74.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
@@ -144,8 +145,6 @@ void transition_enemy_state(void *, s16);
 void advance_animation_playback(void *);
 void set_indexed_flags__13TUnk_804AF8A0Fll(void *, s32, s32);
 s32 play_sound_effect(s32, u32, s16, s32);
-void TObjEneMe3SinowZoa__sub_80317254(u8 *arg0, s32 arg1);
-void TObjEneMe3SinowZoa__sub_803170F0(u8 *arg0, s32 arg1);
 s32 pack_debug_text_position(s32, s32);
 s32 sub_8031A454__18TObjEneMe3SinowZoaFv(void *);
 s32 is_outside_visible_range__18TObjEneMe3SinowZoaFv(void *);
@@ -200,7 +199,6 @@ u16 obj_getField1c(int);
 s32 fn_8002B630(int, void *);
 u32 get_valid_target_player__10TNpcPlayerFv(int);
 extern u8 sinow_zoa_collision_parts[];
-u32 check_move_collision__18TObjEneMe3SinowZoaFPvPv(u8 *arg0, void *arg1);
 
 #pragma push
 #pragma dont_inline off
