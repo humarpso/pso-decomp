@@ -21,17 +21,6 @@ extern BmlResourceDescriptor TObjStendGlassLobby__resource_descriptor;
 struct RecoveredGlobal_80359944_lbl_804F1A30 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80359944_lbl_804F1A30_size[sizeof(RecoveredGlobal_80359944_lbl_804F1A30) == 0x10 ? 1 : -1];
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_803599F4___vt__19TObjStendGlassLobby {
     s32 value;
     u8 remaining[0x34];
@@ -172,7 +161,7 @@ u8 *TObjStendGlassLobby__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_map_object_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_803599F4___vt__19TObjStendGlassLobby *)&__vt__19TObjStendGlassLobby).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjStendGlassLobby__name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TObjStendGlassLobby *)(arg0))->apply_object_set_data((void *)arg2);
     ((TObjStendGlassLobby *)arg0)->update_state();
     *(f32 *)((s8 *)arg0 + 0xCC) = 1.0f;
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjStendGlassLobby__static_model_resource) + 0x42C)) + 8);

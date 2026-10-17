@@ -9,17 +9,6 @@
 struct RecoveredGlobal_80194988___vt__10TObjMapCsn { s32 value; u8 remaining[0x38]; };
 typedef char RecoveredGlobal_80194988___vt__10TObjMapCsn_size[sizeof(RecoveredGlobal_80194988___vt__10TObjMapCsn) == 0x3C ? 1 : -1];
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_801949FC___vt__10TObjMapCsn { s32 value; u8 remaining[0x38]; };
 
 struct Vec_801946D0 { f32 x, y, z; };
@@ -185,7 +174,7 @@ u8 *TObjMapCsn__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801949FC___vt__10TObjMapCsn *)&__vt__10TObjMapCsn).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjMapCsn__class_name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TObjMapCsn *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)&((TObjMapCsn *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjMapCsn *)arg0)->actorFlags| 0x40000000);
     ((TObjMapCsn *)arg0)->update_state();
     ((TObjMapCsn *)arg0)->build_box_triangles();

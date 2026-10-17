@@ -29,15 +29,6 @@ struct VObj18_8035346c : VBase18_8035346c {
     virtual s32 m8(f32, f32);
 };
 
-struct TObjBase803537_803536DC { char pad[0x18]; };
-struct TObjKabochaLobby803537_803536DC : TObjBase803537_803536DC {
-    virtual void v0(s32);
-    virtual void v1(s32);
-    virtual void v2(s32);
-    virtual void v3(s32);
-    virtual void v4(s32);
-    virtual void ct(s32);
-};
 struct Kabocha_80353520 {
     u8 pad0[0xC8];
     s32 state;
@@ -157,7 +148,7 @@ void *TObjKabochaLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     init_map_object_base();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjKabochaLobby;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4384;
-    ((TObjKabochaLobby803537_803536DC *)arg0)->ct(arg2);
+    ((TObjKabochaLobby *)arg0)->apply_object_set_data((void *)arg2);
     if (TLobby::get_filtered_event_theme() == 5) {
         *(s32 *)&((TObjKabochaLobby *)arg0)->m_c8 = 3;
     } else {

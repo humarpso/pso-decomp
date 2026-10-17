@@ -7,17 +7,6 @@
 #include "pso/misc/TNpcPlayer.h"
 #include "pso/player/TObjPlayer.h"
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_8019118C_lbl_804B7BD8 {
     s32 value;
     u8 remaining[0x28];
@@ -172,7 +161,7 @@ Obj_801910F4 *__dt__13TUnk_804B7C1CFv(Obj_801910F4 *arg0, s16 arg1) {
 u8 *TLobby__sub_8019118C(u8 *arg0, s32 arg1, s32 arg2) {
     ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804B7C1C.value;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TUnk_804B7C1C *)(arg0))->apply_object_set_data((void *)arg2);
     *(s16 *)((s8 *)arg0 + 0xAC) = 3;
     ((TUnk_804B7C1C *)arg0)->m_b0 = (s32) ((TUnk_804B7C1C *)arg0)->m_84;
     *(s32 *)((s8 *)arg0 + 0xB4) = 0;

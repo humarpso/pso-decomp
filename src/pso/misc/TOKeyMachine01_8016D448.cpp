@@ -18,17 +18,6 @@ typedef char RecoveredGlobal_8016D714_lbl_80441E24_size[sizeof(RecoveredGlobal_8
 struct RecoveredGlobal_8016D714_lbl_804B2DD8 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8016D714_lbl_804B2DD8_size[sizeof(RecoveredGlobal_8016D714_lbl_804B2DD8) == 0x10 ? 1 : -1];
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_8016D7F0___vt__14TOKeyMachine01 { s32 value; u8 remaining[0x6C]; };
 
 struct VBase_8016D540 { char pad[0x18]; };
@@ -176,7 +165,7 @@ u8 *TOKeyMachine01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     TOKey__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016D7F0___vt__14TOKeyMachine01 *)&__vt__14TOKeyMachine01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKeyMachine01__name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TOKeyMachine01 *)(arg0))->apply_object_set_data((void *)arg2);
     ((TOKey *)arg0)->init_switch_id();
     ((TOKeyMachine01 *)arg0)->texture_id = (s32) *TOKeyMachine01__texture_lists;
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&key_machine_model_archive) + 0x42C)) + 8);

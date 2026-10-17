@@ -21,17 +21,6 @@ struct JDVObj_802feeb4 : JDBase_802feeb4 {
     virtual s32 m8(f32, f32);
 };
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_802FEF98_lbl_804E6580 {
     s32 value;
     u8 remaining[0x80];
@@ -85,7 +74,7 @@ u8 *TOJungleDesign__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802FEF98___vt__14TOJungleDesign *)&__vt__14TOJungleDesign).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOJungleDesign__name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TOJungleDesign *)(arg0))->apply_object_set_data((void *)arg2);
     ((TOJungleDesign *)arg0)->init_design_variant();
     init_collision_body_parts((void *) (arg0), (int) ((u8 *)&TOJungleDesign__collision_desc_table.value + (*(s32 *)&((TOJungleDesign *)arg0)->m_b0* 0x2C)), (int) (1));
     ((TObjPlayer *)arg0)->reset_photon_effect();

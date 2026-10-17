@@ -54,17 +54,6 @@ struct Mon_80172220 : VObj_80172220 {
     f32 fD0;
 };
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct Obj_80172550 {
     s32 f0;
     u8 pad4[0x18 - 0x4];
@@ -270,7 +259,7 @@ void *TOMonitorMachine01__ct(void *arg0_, void *arg1) {
     init_map_object_base(arg0_, tl_05);
     self->vt = __vt__18TOMonitorMachine01;
     self->f0 = TOMonitorMachine01__name;
-    ((VObj_18_1a504b *)(arg0_))->m5((s32)arg1);
+    ((TOMonitorMachine01 *)(arg0_))->apply_object_set_data((void *)((s32)arg1));
     self->f34 = get_bml_model(TOMonitorMachine01__shared_bml_archive, 0);
     self->f24 = TObjFish__sub_8001EDB0(TOMonitorMachine01__shared_bml_archive, 0);
     self->fC0 = lbl_805DB90C;

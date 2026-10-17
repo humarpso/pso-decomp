@@ -8,17 +8,6 @@
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
 
-struct VBase_18_c5489a { char pad[0x18]; };
-
-struct VObj_18_c5489a : VBase_18_c5489a {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(int);
-};
-
 struct RecoveredGlobal_80165538___vt__20TODragonflyMachine01 {
     s32 value;
     u8 remaining[0x3C];
@@ -147,7 +136,7 @@ u8 *TODragonflyMachine01__ct(u8 *arg0, int arg1) {
     TODragonfly__ct(arg0);
     ((Fields_arg0*)arg0)->field_18 = &(*(RecoveredGlobal_80165538___vt__20TODragonflyMachine01 *)&__vt__20TODragonflyMachine01).value;
     ((Fields_arg0*)arg0)->field_0 = (int) TODragonflyMachine01__class_name;
-    ((VObj_18_c5489a *)(arg0))->m5(arg1);
+    ((TODragonflyMachine01 *)(arg0))->apply_object_set_data((void *)arg1);
     ((Fields_arg0*)arg0)->field_34 = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyMachine01__model_resource) + 0x42C)) + 8));
     ((Fields_arg0*)arg0)->field_24 = (int) *(int *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyMachine01__model_resource) + 0x42C)) + 0xC);
     ((Fields_arg0*)arg0)->field_BC = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyMachine01__model_resource) + 0x430)) + 4));

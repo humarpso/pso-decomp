@@ -15,29 +15,6 @@
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct VBase_18_4a4f5b { char pad[0x18]; };
-
-struct VObj_18_4a4f5b : VBase_18_4a4f5b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual s32 m17();
-};
-
 struct Tbl_80289EE0 { s32 v[8]; };
 
 struct Door_80289EE0 { u8 pad[0xD8]; s32 sw[8]; };
@@ -309,7 +286,7 @@ u8 *TODoorFourLightSpace__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_door_base();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TODoorFourLightSpace;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3B1C;
-    ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
+    ((TODoorFourLightSpace *)(arg0))->apply_object_set_data((void *)arg2);
     ((TODoorFourLightSpace *)(arg0))->init_door_switch_binding();
     init_collision_body_parts((void *) (arg0), (void *) (TODoorFourLight__collision_body_params), (int) (1));
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
@@ -560,7 +537,7 @@ u8 *TODoorFourLightRuins__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_door_base();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TODoorFourLightRuins;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3B18;
-    ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
+    ((TODoorFourLightRuins *)(arg0))->apply_object_set_data((void *)arg2);
     ((TODoorFourLightRuins *)(arg0))->init_door_switch_binding();
     init_collision_body_parts((void *) (arg0), (void *) (TODoorFourLight__collision_body_params), (int) (1));
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();

@@ -267,17 +267,6 @@ void TOSensorAncient01::vfunc_16() {
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct VBase_80175994 { char pad[0x18]; };
 struct VObj_80175994 : VBase_80175994 {
     virtual void m0();
@@ -480,7 +469,7 @@ u8 *TOSensorAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((s32 (*)(void *))TOSensor__ct)((void *) (arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80175E2C___vt__17TOSensorAncient01 *)&__vt__17TOSensorAncient01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOSensorAncient01_class_name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TOSensorAncient01 *)(arg0))->apply_object_set_data((void *)arg2);
     ((TOKey *)arg0)->init_switch_id();
     temp_r0 = *(s32 *)&((TOSensorAncient01 *)arg0)->m_8c;
     if (temp_r0 < 0) {

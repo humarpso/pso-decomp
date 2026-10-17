@@ -19,17 +19,6 @@
 struct RecoveredGlobal_801982D4_lbl_804B8DAC { s32 value; u8 remaining[0x20]; };
 typedef char RecoveredGlobal_801982D4_lbl_804B8DAC_size[sizeof(RecoveredGlobal_801982D4_lbl_804B8DAC) == 0x24 ? 1 : -1];
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_80198228___vt__12TObjSinBoard {
     s32 value;
     u8 remaining[0x34];
@@ -128,7 +117,7 @@ u8 *TObjSinBoard__ct(u8 *arg0, s32 parent, s32 arg2) {
     construct_world_actor_base((void *) (arg0), (void *) (parent));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80198228___vt__12TObjSinBoard *)&__vt__12TObjSinBoard).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjSinBoard__class_name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TObjSinBoard *)(arg0))->apply_object_set_data((void *)arg2);
     return arg0;
 }
 

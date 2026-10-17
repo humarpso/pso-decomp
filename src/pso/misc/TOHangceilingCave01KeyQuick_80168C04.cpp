@@ -6,17 +6,6 @@
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/misc/TUnk_804B2578.h"
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_80168C6C_lbl_804B2174 {
     s32 value;
     u8 remaining[0x28];
@@ -59,7 +48,7 @@ u8 *TOHangceilingCave01KeyQuick::init_base(s32 arg1, s32 arg2) {
     u8 *temp_r4;
     construct_actor_base__10TObjPlayerFPvPv((void *) (((u8 *)this)));
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80168C6C_lbl_804B2578 *)&lbl_804B2578).value;
-    ((VObj_18_1a504b *)(((u8 *)this)))->m5(arg2);
+    this->apply_object_set_data((void *)arg2);
     *(s32 *)&this->model = get_bml_model((void *) (TOHangceilingCave01__model_archive), (void *) (turiten_singo_key_model_index));
     *(s32 *)&this->unknownF8 = get_bml_motion((void *) (TOHangceilingCave01__model_archive), (void *) (hanging_ceiling_motion_index));
     init_collision_body_parts((void *) (((u8 *)this)), (void *) (&lbl_804B2174.value), (int) (1));

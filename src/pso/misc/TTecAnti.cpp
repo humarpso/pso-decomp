@@ -63,17 +63,6 @@ struct Obj_8022AE10 {
     Vec_8022AE10 ground;
 };
 
-struct VBase_8022B150 { u8 pad[0x18]; };
-
-struct VObj_8022B150 : VBase_8022B150 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5(u32 target);
-};
-
 struct Target_8022B150 { u16 id; u8 pad[6]; };
 
 struct Anti_8022B150 {
@@ -277,20 +266,20 @@ void run_task__8TTecAntiFv(Anti_8022B150 *self) {
     }
     if (self->captured != 0) {
         if (self->level == 0) {
-            ((VObj_8022B150 *)self)->m5(self->source);
+            ((TTecAnti *)self)->vfunc_7((void *)self->source);
         } else {
-            ((VObj_8022B150 *)self)->m5(self->source);
+            ((TTecAnti *)self)->vfunc_7((void *)self->source);
             if (self->count != 0) {
                 for (i = 0; i < self->count; i++) {
                     target = (u32)find_entity_by_id(self->targets[i].id);
                     if ((is_parents_unqueued__9TTecLukerFUl() != 0) && (TObjPlayer::is_valid_and_active(target) != 0)) {
-                        ((VObj_8022B150 *)self)->m5(target);
+                        ((TTecAnti *)self)->vfunc_7((void *)target);
                     }
                 }
             }
         }
     } else if (self->level == 0) {
-        ((VObj_8022B150 *)self)->m5(self->source);
+        ((TTecAnti *)self)->vfunc_7((void *)self->source);
     } else {
         deliver_technique_to_party_targets(self);
     }

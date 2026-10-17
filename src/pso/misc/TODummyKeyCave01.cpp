@@ -9,17 +9,6 @@
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_80165EE8___vt__16TODummyKeyCave01 { s32 value; u8 remaining[0x34]; };
 
 struct VBase_80165B50 { char pad[0x18]; };
@@ -204,7 +193,7 @@ u8 *TODummyKeyCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     construct_world_actor_base(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80165EE8___vt__16TODummyKeyCave01 *)&__vt__16TODummyKeyCave01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TODummyKeyCave01__class_name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TODummyKeyCave01 *)(arg0))->apply_object_set_data((void *)arg2);
     *(f32 *)((s8 *)arg0 + 0xA8) = (f32) 1.0f;
     ((TODummyKeyCave01 *)arg0)->m_a4 = (f32) 1.0f;
     *(f32 *)((s8 *)arg0 + 0xA0) = (f32) 1.0f;

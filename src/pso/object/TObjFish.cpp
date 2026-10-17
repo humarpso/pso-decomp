@@ -94,15 +94,6 @@ struct RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8 {
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_8029D438_lbl_804DC5A0 {
     s32 value;
     u8 remaining[0x28];
@@ -283,7 +274,7 @@ u8 *TOKeyJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     TOKey__ct((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8029D438___vt__15TOKeyJungleMain *)&__vt__15TOKeyJungleMain).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3D50;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TOKeyJungleMain *)(arg0))->apply_object_set_data((void *)arg2);
     ((TOKey *)arg0)->init_switch_id();
     init_collision_body_parts((void *) (arg0), (void *) (&TOKeyJungleMain_collision_body_parts.value), (int) (1));
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();

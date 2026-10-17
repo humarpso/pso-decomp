@@ -7,17 +7,6 @@
 #include "pso/misc/TOBarrierEnergy01.h"
 #include "pso/player/TObjPlayer.h"
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_80157AD8_lbl_804AF9A8 {
     s32 value;
     u8 remaining[0x28];
@@ -316,7 +305,7 @@ u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1) {
     construct_actor_base__10TObjPlayerFPvPv((void *) (arg0), (int) (tl_05));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80157AD8___vt__15TOAttackableCol *)&__vt__15TOAttackableCol).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2E98;
-    ((VObj_18_1a504b *)(arg0))->m5(arg1);
+    ((TOAttackableCol *)(arg0))->apply_object_set_data((void *)arg1);
     ((TUnk_804806E8 *)arg0)->calc_attach_pos();
     obj_setFlags30((void *) (arg0), (int) (0x60000000));
     init_collision_body_parts((void *) (arg0), (void *) (&TOAttackableCol__collision_parts.value), (int) (1));

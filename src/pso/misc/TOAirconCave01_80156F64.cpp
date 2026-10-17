@@ -8,17 +8,6 @@
 struct RecoveredGlobal_80156F9C_lbl_804AF910 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80156F9C_lbl_804AF910_size[sizeof(RecoveredGlobal_80156F9C_lbl_804AF910) == 0x10 ? 1 : -1];
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_80157044___vt__14TOAirconCave01 {
     s32 value;
     u8 remaining[0x34];
@@ -69,7 +58,7 @@ u8 *TOAirconCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_map_object_base((void *) (arg0), (void *) (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80157044___vt__14TOAirconCave01 *)&__vt__14TOAirconCave01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2E8C;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TOAirconCave01 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOAirconCave01__model_archive) + 0x42C)) + 8);
     ((TOAirconCave01 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOAirconCave01__model_archive) + 0x42C)) + 0xC);
     ((TOAirconCave01 *)arg0)->m_c0 = (f32) lbl_805DB2B8;

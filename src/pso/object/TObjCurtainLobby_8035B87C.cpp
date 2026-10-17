@@ -18,15 +18,6 @@ extern const char *bm_obj_lobby_curtain_model_names[2];
 extern BmlResourceDescriptor lobby_curtain_resource_descriptor;
 extern const char *bm_obj_lobby_curtain_motion_names[1];
 
-struct TObjBase8035BB_8035BB24 { char pad[0x18]; };
-struct TObjCurtainLobby8035BB_8035BB24 : TObjBase8035BB_8035BB24 {
-    virtual void v0(s32);
-    virtual void v1(s32);
-    virtual void v2(s32);
-    virtual void v3(s32);
-    virtual void v4(s32);
-    virtual void ct(s32);
-};
 struct Curtain_8035B94C {
     u8 pad[0xC8];
     s32 state;
@@ -158,7 +149,7 @@ void *TObjCurtainLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     init_map_object_base();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjCurtainLobby;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjCurtainLobby__class_name;
-    ((TObjCurtainLobby8035BB_8035BB24 *)arg0)->ct(arg2);
+    ((TObjCurtainLobby *)arg0)->apply_object_set_data((void *)arg2);
     if (((s32 (*)(void *))get_lobby_theme_clamped__16TObjCurtainLobbyFv)(arg0) == 0xC) {
         *(s32 *)&((TObjCurtainLobby *)arg0)->m_c8 = 3;
     } else {

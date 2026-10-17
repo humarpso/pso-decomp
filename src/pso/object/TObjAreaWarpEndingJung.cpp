@@ -1211,7 +1211,7 @@ void TObjAreaWarp::handle_area_selection() {
                     }
                     if (((VObj_8019CAB0 *)this)->m16(i) != 0) {
                         this->vfunc_14();
-                        ((VObj_8019CAB0 *)this)->m17(t);
+                        this->confirm_area_transfer((s32)t);
                     }
                 }
             }
@@ -1224,7 +1224,7 @@ void TObjAreaWarp::handle_area_selection() {
                 ((VObj_8019CAB0 *)this)->m13(local_client_id);
                 if (((VObj_8019CAB0 *)this)->m16(((TRaderMapCore *)t2)->get_map_id()) != 0) {
                     this->vfunc_14();
-                    ((VObj_8019CAB0 *)this)->m17(t2);
+                    this->confirm_area_transfer((s32)t2);
                 }
             } else {
                 this->vfunc_14();

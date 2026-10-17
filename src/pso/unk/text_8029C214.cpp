@@ -10,17 +10,6 @@
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct VBase_8029C214 { char pad[0x18]; };
-
-struct VObj_8029C214 : VBase_8029C214 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct Inner_8029C214 { u8 pad[0x58]; s32 v; };
 
 struct Copy_8029C214 { u32 w[15]; };
@@ -87,7 +76,7 @@ u8 *TORockJungleL01__ct(u8 *arg0, s32 arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)lbl_804DC448;
     ((TObjPlayer *)(arg0 + 0xB4))->init_and_activate();
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3D44;
-    ((VObj_8029C214 *)(arg0))->m5(arg1);
+    ((TORockJungleL01 *)(arg0))->apply_object_set_data((void *)arg1);
     *(u8 * *)&((TORockJungleL01 *)arg0)->model = TORockJungleS01::get_model(4);
     ((TORockJungleL01 *)arg0)->texture_id = get_jungle_rock_texture_resource(4);
     ((TORockJungleL01 *)arg0)->m_b0 = lbl_805DDD1C + *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&((TORockJungleL01 *)arg0)->model) + 4)) + 0x14);

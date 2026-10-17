@@ -18,29 +18,6 @@ struct RecoveredGlobal_80176308_lbl_804B4278 {
     u8 remaining[0xC];
 };
 
-struct VBase_18_4a4f5b { char pad[0x18]; };
-
-struct VObj_18_4a4f5b : VBase_18_4a4f5b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual s32 m17();
-};
-
 struct RecoveredGlobal_80164340_lbl_804B17F0 {
     s32 value;
     u8 remaining[0x28];
@@ -289,7 +266,7 @@ u8 *TODoorVS2Door01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_door_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80164340___vt__15TODoorVS2Door01 *)&__vt__15TODoorVS2Door01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TODoorVS2Door01__class_name;
-    ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
+    ((TODoorVS2Door01 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&door_vs2_shared_bml_archive) + 0x42C)) + 8);
     ((TODoorVS2Door01 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 * *)&TODoorVS2Door01__texture_lists) + 4);
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) 30.0f;

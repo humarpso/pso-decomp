@@ -23,17 +23,6 @@ typedef char RecoveredGlobal_8016C474_lbl_804B2BB8_size[sizeof(RecoveredGlobal_8
 struct RecoveredGlobal_8016C474_lbl_804B2BD0 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8016C474_lbl_804B2BD0_size[sizeof(RecoveredGlobal_8016C474_lbl_804B2BD0) == 0x10 ? 1 : -1];
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_8016C5F8___vt__11TOKeyCave01 { s32 value; u8 remaining[0x6C]; };
 
 struct Pkt_8016C79C { u8 code, words; u16 object, zero, reserved, switchId; u8 area, flags; };
@@ -248,7 +237,7 @@ u8 *TOKeyCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     TOKey__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016C5F8___vt__11TOKeyCave01 *)&__vt__11TOKeyCave01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKeyCave01__class_name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TOKeyCave01 *)(arg0))->apply_object_set_data((void *)arg2);
     ((TOKey *)arg0)->init_switch_id();
     ((TOKeyCave01 *)arg0)->texture_id = (s32) *TOKeyCave01__texture_lists;
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOKeyCave01__resource_bundle) + 0x42C)) + 8);

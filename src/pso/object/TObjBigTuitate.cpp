@@ -42,17 +42,6 @@ struct Vec_8019AA18 { f32 x, y, z; };
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct ByteBlock_3C { u8 bytes[0x3c]; };
 
 extern "C" {
@@ -149,7 +138,7 @@ void *TObjBigTuitate__ct(void *arg0, void *arg1, void *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjBigTuitate;
     ((TObjPlayer *)((u8 *)arg0 + 0xAC))->init_and_activate();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3454;
-    ((VObj_18_1a504b *)(arg0))->m5((s32)arg2);
+    ((TObjBigTuitate *)(arg0))->apply_object_set_data((void *)((s32)arg2));
     init_collision_body_parts((void *) (arg0), (void *) (big_tuitate_collision_body), (int) (1));
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();

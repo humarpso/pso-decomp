@@ -64,16 +64,6 @@ struct VObj_802386F8 : VBase_802386F8 {
     virtual s32 m21(s32, Damage_802386F8, s32, s32, s32, void *);
 };
 
-struct VBase_18_4560ce { char pad[0x18]; };
-
-struct VObj_18_4560ce : VBase_18_4560ce {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual s32 m4(u32);
-};
-
 struct Entry_802336F0 { u16 id; u8 pad[6]; };
 
 struct Self_802336F0 {
@@ -200,7 +190,7 @@ void run_task__9TTecJelinFv(struct Self_802336F0 *self) {
         for (i = 0; i < self->count; i++) {
             id = (u32)find_entity_by_id(self->entries[i].id);
             if (TTecLuker::is_parents_unqueued(id) != 0) {
-                ((VObj_18_4560ce *)(self))->m4(id);
+                ((TTecJelin *)(self))->vfunc_6((void *)id);
             }
         }
     } else {

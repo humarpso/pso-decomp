@@ -12,17 +12,6 @@
 struct RecoveredGlobal_801587D8_lbl_804AFC44 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_801587D8_lbl_804AFC44_size[sizeof(RecoveredGlobal_801587D8_lbl_804AFC44) == 0x10 ? 1 : -1];
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_80158890_lbl_804AFC54 {
     s32 value;
     u8 remaining[0x54];
@@ -134,7 +123,7 @@ u8 *TOBind__ct(u8 *arg0, s32 arg1) {
     construct_collider_proxy__13TUnk_804AF8A0Fv((void *) (arg0), (int) (tl_05));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80158890___vt__6TOBind *)&__vt__6TOBind).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2EA8;
-    ((VObj_18_1a504b *)(arg0))->m5(arg1);
+    ((TOBind *)(arg0))->apply_object_set_data((void *)arg1);
     *(s32 *)&((TOBind *)arg0)->m_b0 = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TOBind__static_model_resource)), (int) (0));
     ((TOBind *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__static_model_resource)), (int) (0));

@@ -419,7 +419,7 @@ u8 *TObjCity_Season_FireWorkCtrl__ct(u8 *arg0, s32 parent, s32 arg2) {
     construct_world_actor_base((void *) (arg0), (void *) (parent));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8018386C_lbl_804B5C58 *)&__vt__28TObjCity_Season_FireWorkCtrl).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjCity_Season_FireWorkCtrl__name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TObjCity_Season_FireWorkCtrl *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x90) = 0;
     return arg0;
 }
@@ -613,7 +613,7 @@ u8 *TObjCity_Season_Board__ct(u8 *arg0, s32 parent, s32 arg2) {
     construct_world_actor_base((void *) (arg0), (void *) (parent));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80183A38_lbl_804B5C90 *)&__vt__21TObjCity_Season_Board).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjCity_Season_Board__name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TObjCity_Season_Board *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x90) = 0;
     return arg0;
 }
@@ -1038,7 +1038,7 @@ u8 *TObjCity_Season_HalloweenPumpkin__ct(u8 *arg0, s32 parent, s32 arg2) {
     construct_world_actor_base((void *) (arg0), (void *) (parent));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8018411C_lbl_804B5D38 *)&__vt__32TObjCity_Season_HalloweenPumpkin).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjCity_Season_HalloweenPumpkin__name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TObjCity_Season_HalloweenPumpkin *)(arg0))->apply_object_set_data((void *)arg2);
     return arg0;
 }
 
@@ -1135,7 +1135,7 @@ u8 *TObjCity_Season_XmasWreath__ct(u8 *arg0, s32 parent, s32 arg2) {
     construct_world_actor_base((void *) (arg0), (void *) (parent));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801842B4_lbl_804B5D6C *)&__vt__26TObjCity_Season_XmasWreath).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjCity_Season_XmasWreath__name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TObjCity_Season_XmasWreath *)(arg0))->apply_object_set_data((void *)arg2);
     return arg0;
 }
 
@@ -1561,7 +1561,7 @@ u8 *init_city_season_object(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
     u8 *temp_r4;
     ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80184B44_lbl_804B5E48 *)&lbl_804B5E48).value;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TUnk_804B5E48 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0xAC) = arg3;
     if (((u32 (*)(void *))get_anim_frame__13TUnk_804B5E48Fv)((void *) (arg0)) != 0U) {
         temp_r4 = (u8 *)&city_season_collision_template.value - 4;

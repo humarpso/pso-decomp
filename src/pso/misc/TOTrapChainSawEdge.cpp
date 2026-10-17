@@ -145,31 +145,6 @@ struct VObj_18_52534d : VBase_18_52534d {
     virtual s32 m23();
 };
 
-struct VBase_18_fd30ee { char pad[0x18]; };
-
-struct VObj_18_fd30ee : VBase_18_fd30ee {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual s32 m19();
-};
-
 struct RecoveredGlobal_802C9890___vt__14TOTrapChainSaw {
     s32 value;
     u8 remaining[0x78];
@@ -816,13 +791,13 @@ int TOTrapChainSaw::check_player_contact() {
     if (TRaderMapCore::is_not_split_screen() == 1) {
         for (i = 0; i < 4; i++) {
             p = (s32)get_player_by_client_id(i);
-            if (p != 0 && ((VObj_802C91DC *)this)->m17(p) == 0) {
+            if (p != 0 && this->consume_counter((void *)p) == 0) {
                 if (((TObjPlayer *)p)->get_field_3e4() == ((s32 (*)(void))get_current_floor)()) {
                     t = *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0x60);
                     *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0x60) = t + *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0xD4);
                     if (check_actor_body_contact((void *)p, (f32)((1e+02f))) != 0) {
                         ((VObj_802C91DC *)this)->m16(p);
-                        ((VObj_802C91DC *)this)->m18(p);
+                        this->set_hit_cooldown_for_player((void *)p);
                     }
                     *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0x60) = t;
                 }
@@ -832,13 +807,13 @@ int TOTrapChainSaw::check_player_contact() {
         s32 q;
         s32 t2;
         q = (s32)get_player_by_client_id(local_client_id);
-        if (q != 0 && ((VObj_802C91DC *)this)->m17(q) == 0) {
+        if (q != 0 && this->consume_counter((void *)q) == 0) {
             if (((TObjPlayer *)q)->get_field_3e4() == ((s32 (*)(void))get_current_floor)()) {
                 t2 = *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0x60);
                 *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0x60) = t2 + *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0xD4);
                 if (check_actor_body_contact((void *)q, (f32)((1e+02f))) != 0) {
                     ((VObj_802C91DC *)this)->m16(q);
-                    ((VObj_802C91DC *)this)->m18(q);
+                    this->set_hit_cooldown_for_player((void *)q);
                 }
                 *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0x60) = t2;
             }
@@ -971,7 +946,7 @@ u8 *TOTrapChainSaw__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_map_object_base((void *) (arg0), (void *) (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802C9890___vt__14TOTrapChainSaw *)&__vt__14TOTrapChainSaw).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOTrapChainSaw__name;
-    ((VObj_18_fd30ee *)(arg0))->m5(arg2);
+    ((TOTrapChainSaw *)(arg0))->apply_object_set_data((void *)arg2);
     ((TOTrapChainSaw *)(arg0))->clear_field_d8();
     *(s32 *)((s8 *)arg0 + 0xD4) = 0;
     *(s32 *)((s8 *)arg0 + 0xCC) = 0;

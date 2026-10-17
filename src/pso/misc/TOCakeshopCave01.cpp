@@ -19,17 +19,6 @@ struct TOCakeshopCave01_80159E24 {
     u8 state[8];
 };
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct TOCakeshopCave01_8015A1C0 {
     u8 pad0[0xCC];
     f32 val[8];
@@ -189,7 +178,7 @@ void *TOCakeshopCave01__ct(void *arg0_, void *arg1) {
     init_map_object_base(arg0, tl_05);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TOCakeshopCave01;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2EC4;
-    ((VObj_18_1a504b *)(arg0))->m5((s32)arg1);
+    ((TOCakeshopCave01 *)(arg0))->apply_object_set_data((void *)((s32)arg1));
     *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)TOCakeshopCave01__model_resource + 0x42C)) + 8);
     *(s32 *)((s8 *)arg0 + 0x24) = *(s32 *)((s8 *)(*(u8 **)((s8 *)TOCakeshopCave01__model_resource + 0x42C)) + 0xC);
     *(f32 *)((s8 *)arg0 + 0xC0) = lbl_805DB36C;

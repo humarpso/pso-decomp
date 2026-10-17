@@ -63,17 +63,6 @@ struct Piece_8017FCD0 {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct VBase_8017FA9C { char pad[0x18]; };
-
-struct VObj_8017FA9C : VBase_8017FA9C {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5(s32);
-};
-
 struct Cam_8017FA9C { u8 pad[0xCC]; void *arr[8]; };
 
 struct Copy_8017FA9C { u32 w[5]; };
@@ -213,7 +202,7 @@ u8 *TObjCamera__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjCamera;
     *(s32 *)((s8 *)arg0 + 0) = TObjCamera__name;
     Copy_8017FA9C c = camera_object_init_params;
-    ((VObj_8017FA9C *)(arg0))->m5(arg2);
+    ((TObjCamera *)(arg0))->apply_object_set_data((void *)arg2);
     ((TObjCamera *)arg0)->m_b0 = TObjCamera__data_805DBB58;
     ((TObjCamera *)arg0)->m_b8 = lbl_805DBB70;
     *(f32 *)((s8 *)arg0 + 0xB4) = *(u32 *)(get_bml_motion(TObjCamera__bml_resource, 0) + 4);

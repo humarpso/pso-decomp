@@ -2,16 +2,6 @@
 #include "pso/misc/TShopGenerator.h"
 #include "pso/misc/TRaderMapCore.h"
 
-struct Base_8021E068_8021E010 { char pad[0x18]; };
-struct VObj_8021E068_8021E010 : Base_8021E068_8021E010 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5(s32);
-};
-
 struct RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 {
     s32 value;
     u8 remaining[0xC];
@@ -209,7 +199,7 @@ void *TShopGenerator__ct(void *arg0, s32 arg1) {
     construct_world_actor_base(arg0, tl_05);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TShopGenerator;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TShopGenerator__class_name;
-    ((VObj_8021E068_8021E010 *)arg0)->m5(arg1);
+    ((TShopGenerator *)arg0)->apply_object_set_data((void *)arg1);
     *(s32 *)&((TShopGenerator *)arg0)->m_90 = 0;
     *(s32 *)&((TShopGenerator *)arg0)->m_94 = 5;
     temp_r0 = ((TShopGenerator *)arg0)->m_84;

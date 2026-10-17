@@ -2,16 +2,6 @@
 #include "pso/misc/TOKeyCol.h"
 #include "pso/misc/TOKey.h"
 
-struct TOKeyBase8016_8016C7FC { char pad[0x18]; };
-struct TOKeyCol8016_8016C7FC : TOKeyBase8016_8016C7FC {
-    virtual void v0(s32);
-    virtual void v1(s32);
-    virtual void v2(s32);
-    virtual void v3(s32);
-    virtual void v4(s32);
-    virtual void ct(s32);
-};
-
 extern "C" {
 
 void *TOKeyCol__ct(void *arg0, s32 arg1, s32 arg2);
@@ -81,7 +71,7 @@ void *TOKeyCol__ct(void *arg0, s32 arg1, s32 arg2) {
     TOKey__ct();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TOKeyCol;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKeyCol__name;
-    ((TOKeyCol8016_8016C7FC *)arg0)->ct(arg2);
+    ((TOKeyCol *)arg0)->apply_object_set_data((void *)arg2);
     ((TOKey *)arg0)->init_switch_id();
     ((TOKeyCol *)arg0)->m_c0 = (f32) lbl_805DB758;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB75C;

@@ -10,16 +10,6 @@ struct Hit_802E4798 { u8 *obj; s32 idx; };
 
 struct Rec_802E4798 { u8 pad[0x18]; s32 flags; u8 pad2[0x2C - 0x1C]; };
 
-struct VBase_18_909b87 { char pad[0x18]; };
-
-struct VObj_18_909b87 : VBase_18_909b87 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual s32 m4(s32);
-};
-
 extern "C" {
 s32 obj_is_hit_receivable(void *);
 s32 obj_testFlags30(void *, u32);
@@ -90,7 +80,7 @@ void check_hits__14TItemAttackColFPv(u8 *arg0) {
     for (i = 0; i != TObjOnlineEnding::get_instance(); i++) {
         e = get_attack_entry__16TObjOnlineEndingFi(i);
         if (try_add_hit_target__14TItemAttackColFPvPv(arg0, e) != 0) {
-            ((VObj_18_909b87 *)arg0)->m4((s32)e);
+            ((TUnk_804E355C *)arg0)->vfunc_6((s32 *)((s32)e));
             ((TUnk_804E355C *)arg0)->m_a4 -= 1;
             if (((TUnk_804E355C *)arg0)->m_a4 == 0) {
                 queue_destruction__7TObjectFv(arg0);

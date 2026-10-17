@@ -3,16 +3,6 @@
 #include "pso/object/TObjBgmCol.h"
 #include "pso/TParticleCtrl.h"
 
-struct TObjBase8017E8_8017E7F0 { char pad[0x18]; };
-struct TObjBgmCol8017E8_8017E7F0 : TObjBase8017E8_8017E7F0 {
-    virtual void v0(s32);
-    virtual void v1(s32);
-    virtual void v2(s32);
-    virtual void v3(s32);
-    virtual void v4(s32);
-    virtual void ct(s32);
-};
-
 extern "C" {
 
 s32 construct_world_actor_base();
@@ -37,7 +27,7 @@ void *TObjBgmCol__ct(void *arg0, s32 arg1, s32 arg2) {
     construct_world_actor_base();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjBgmCol;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjBgmCol__name;
-    ((TObjBgmCol8017E8_8017E7F0 *)arg0)->ct(arg2);
+    ((TObjBgmCol *)arg0)->apply_object_set_data((void *)arg2);
     *(s32 *)&((TObjBgmCol *)arg0)->m_90 = 1;
     ((TObjBgmCol *)arg0)->m_98 = (f32) ((TObjBgmCol *)arg0)->scale;
     *(s32 *)&((TObjBgmCol *)arg0)->m_9c = (s32) (((TObjBgmCol *)arg0)->m_84% 6);

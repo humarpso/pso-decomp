@@ -6,16 +6,6 @@
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 
-struct Base_A_80178BC0 { char pad[0x18]; };
-struct V_A_80178BC0 : Base_A_80178BC0 {
-    virtual void m0();   virtual void m1();   virtual void m2();   virtual void m3();
-    virtual void m4();   virtual void m5();   virtual void m6();   virtual void m7();
-    virtual void m8();   virtual void m9();   virtual void m10();  virtual void m11();
-    virtual void m12();  virtual void m13();  virtual void m14();  virtual void m15();
-    virtual void m16();  virtual void m17();  virtual void m18();  virtual void m19();
-    virtual void m20(u32, f32);
-};
-
 struct Obj_80178CF8 {
     u8 pad[0x38];
     f32 pos[3];
@@ -96,7 +86,7 @@ void TOTrap::vfunc_82() {
     refresh_collision_body_centers();
     if ((s32) this->m_84 < 0) {
         u32 p;
-        ((V_A_80178BC0 *)this)->m20(*(u32 *)&this->target, TOTrap__data_805DBA38);
+        this->receive_physical_attack((void *)(*(u32 *)&this->target), TOTrap__data_805DBA38);
         p = *(u32 *)&this->target;
         if (p != 0U) {
             u32 v = (u16) obj_getField1c(p);

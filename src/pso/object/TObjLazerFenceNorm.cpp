@@ -4,17 +4,6 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_80192E70_lbl_804B7FB0 {
     s32 value;
     u8 remaining[0x104];
@@ -76,7 +65,7 @@ u8 *TObjLazerFenceNorm__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80192E70___vt__18TObjLazerFenceNorm *)&__vt__18TObjLazerFenceNorm).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) obj_lazer_fence_norm_class_name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TObjLazerFenceNorm *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)&((TObjLazerFenceNorm *)arg0)->m_b4 = 0;
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DBE58;
     *(s32 *)&((TObjLazerFenceNorm *)arg0)->m_ac = (s32) ((TObjLazerFenceNorm *)arg0)->scale;

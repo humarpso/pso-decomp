@@ -13,17 +13,6 @@
 struct RecoveredGlobal_80172758_lbl_804B38E0 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80172758_lbl_804B38E0_size[sizeof(RecoveredGlobal_80172758_lbl_804B38E0) == 0x10 ? 1 : -1];
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_80172810_lbl_804B38F0 {
     s32 value;
     u8 remaining[0x28];
@@ -101,7 +90,7 @@ u8 *TOMonumentAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TUnk_804B27D8 *)arg0)->init();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80172810___vt__19TOMonumentAncient01 *)&__vt__19TOMonumentAncient01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOMonumentAncient01__name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TOMonumentAncient01 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TOMonumentAncient01__resource_bundle)), (int) (2));
     ((TOMonumentAncient01 *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOMonumentAncient01__resource_bundle)), (int) (2));
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B38F0.value), (int) (1));

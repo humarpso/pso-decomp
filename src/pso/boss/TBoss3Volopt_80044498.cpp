@@ -998,7 +998,7 @@ void TBoss3Volopt::trigger_breakup() {
         temp_r5 = (u8 *)(*(u8 * *)&this->m_a4);
         *(s32 *)((s8 *)temp_r5 + 0x9C) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x9C) & 0xEFFFFFFE);
         ((TObjEneGyaranzo *)((u8 *)this))->render_anim_model_at_pos();
-        ((VObj_18_f1aa6a *)(((u8 *)this)))->m63(0x29, &sp8);
+        this->vfunc_65((s32)0x29, (s32)&sp8);
         TBoss3Volopt::create_breakup_mdl(*(s32 *)((s8 *)(&TBoss3Volopt__breakup_model_ids.value) + 0x10), (s32) &TBoss3Volopt__data_804845E8.value, this->texture_id, (s32) (((u8 *)this) + 0x2FC), this->rotation_y);
         TBoss3Volopt::set_flag8_list((u32 **)(&volopt_breakup_flag_list.value));
         play_sound_effect(0x4003A80F, (u32) (((u8 *)this) + 0x38), 0, 1);
@@ -1059,9 +1059,9 @@ void TBoss3Volopt::spawn_breakup_models() {
     if (!(temp_r4 & 0x10000)) {
         *(s32 *)&this->m_388 = (s32) (temp_r4 | 0x10000);
         ((TObjEneGyaranzo *)((u8 *)this))->render_anim_model_at_pos();
-        ((VObj_18_f1aa6a *)(((u8 *)this)))->m63(2, &sp8);
+        this->vfunc_65((s32)2, (s32)&sp8);
         TBoss3Volopt::create_breakup_mdl((s32)((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__breakup_model_ids).value) + 0))), (s32)((void *) (&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value)), (s32)((int) (this->texture_id)), (s32)((void *) (&sp8)), (s32)((int) (this->rotation_y)));
-        ((VObj_18_f1aa6a *)(((u8 *)this)))->m63(0x12, &sp8);
+        this->vfunc_65((s32)0x12, (s32)&sp8);
         TBoss3Volopt::create_breakup_mdl((s32)((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__breakup_model_ids).value) + 4))), (s32)((void *) (&(*(RecoveredGlobal_8004585C_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value)), (s32)((int) (this->texture_id)), (s32)((void *) (&sp8)), (s32)((int) (this->rotation_y)));
         TBoss3Volopt::set_flag8_list((u32 **)(&TBoss3Volopt__breakup_flag_list.value));
     }

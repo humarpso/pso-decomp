@@ -917,17 +917,6 @@ struct VObj_80182A58_8018291C : Base_80182A58_8018291C {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct ByteBlock_2C { u8 bytes[0x2c]; };
 
 struct RecoveredGlobal_80182D8C_lbl_804B5BA8 {
@@ -1141,7 +1130,7 @@ u8 *init_city_door(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3) {
     u8 *count;
     construct_collider_proxy__13TUnk_804AF8A0Fv();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80182D8C_lbl_804B5BA8 *)&city_door_base_vtable).value;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TUnk_804B5BA8 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0xAC) = 0;
     temp_r4 = (u8 *)&city_door_init_params.value - 4;
     ((TUnk_804B5BA8 *)arg0)->m_b0 = lbl_805DBBE8[0];

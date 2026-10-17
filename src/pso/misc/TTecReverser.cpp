@@ -8,15 +8,6 @@
 #include "pso/misc/TTecAnti.h"
 #include "pso/player/TObjPlayer.h"
 
-struct VBase_18 { char pad[0x18]; };
-struct VObj_18 : VBase_18 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual s32 m4(u32);
-};
-
 struct RecoveredGlobal_8023A094_lbl_804CC1CC { s32 value; u8 remaining[0x340]; };
 typedef char RecoveredGlobal_8023A094_lbl_804CC1CC_size[sizeof(RecoveredGlobal_8023A094_lbl_804CC1CC) == 0x344 ? 1 : -1];
 
@@ -140,7 +131,7 @@ void run_task__12TTecReverserFv(u8 *arg0) {
     }
     temp_r31 = (u32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0xF0)));
     if ((is_active__12TTecReverserFv() == 0) && (TObjPlayer::is_valid_and_active((int) (temp_r31)) != 0)) {
-        ((VObj_18 *)(arg0))->m4(temp_r31);
+        ((TTecReverser *)(arg0))->vfunc_6((void *)temp_r31);
     }
     queue_destruction__7TObjectFv((arg0));
 }

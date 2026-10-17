@@ -10,15 +10,6 @@
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_80350808_lbl_804F0DF0 { s32 value; u8 remaining[0xC]; };
-struct TObjBase803508_80350858 { char pad[0x18]; };
-struct TObjRainbowLobby803508_80350858 : TObjBase803508_80350858 {
-    virtual void v0(s32);
-    virtual void v1(s32);
-    virtual void v2(s32);
-    virtual void v3(s32);
-    virtual void v4(s32);
-    virtual void ct(s32);
-};
 struct Obj_803506A4 { u8 pad[0xC8]; s32 state; f32 val; };
 
 extern "C" {
@@ -129,7 +120,7 @@ void *TObjRainbowLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     init_map_object_base();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjRainbowLobby;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D435C;
-    ((TObjRainbowLobby803508_80350858 *)arg0)->ct(arg2);
+    ((TObjRainbowLobby *)arg0)->apply_object_set_data((void *)arg2);
     if (is_lobby_event_active() != 0) {
         *(s32 *)&((TObjRainbowLobby *)arg0)->m_c8 = 0;
     } else {

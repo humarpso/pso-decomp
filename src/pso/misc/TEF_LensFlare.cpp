@@ -9,17 +9,6 @@ struct VObj_8008194C_80081278 : Base_8008194C_80081278 {
     virtual void m1();
 };
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_800818D8_lbl_8048E040 {
     s32 value;
     u8 remaining[0xEC];
@@ -56,7 +45,7 @@ u8 *TEF_LensFlare__ct(u8 *arg0, s32 parent, s32 arg2) {
     construct_world_actor_base((void *) (arg0), (void *) (parent));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800818D8_lbl_8048E130 *)&lbl_8048E130).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TEF_LensFlare__class_name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TEF_LensFlare *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 **)((s8 *)arg0 + 0x90) = &lens_flare_reflected_element_descriptors.value;
     return arg0;
 }

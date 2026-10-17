@@ -21,16 +21,6 @@ extern const char *bm_obj_lobby_tree_motion_names[1];
 struct RecoveredGlobal_80364A1C_lbl_804F2B18 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80364A1C_lbl_804F2B18_size[sizeof(RecoveredGlobal_80364A1C_lbl_804F2B18) == 0x10 ? 1 : -1];
 
-struct TObjBase80364A_80364A74 { char pad[0x18]; };
-struct TObjTreeLobby80364A_80364A74 : TObjBase80364A_80364A74 {
-    virtual void v0(s32);
-    virtual void v1(s32);
-    virtual void v2(s32);
-    virtual void v3(s32);
-    virtual void v4(s32);
-    virtual void ct(s32);
-};
-
 struct Base_80364B6C { char pad[0x18]; };
 
 struct Ctrl_80364B6C : Base_80364B6C {
@@ -180,7 +170,7 @@ void *TObjTreeLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     init_map_object_base();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjTreeLobby;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjTreeLobby__class_name;
-    ((TObjTreeLobby80364A_80364A74 *)arg0)->ct(arg2);
+    ((TObjTreeLobby *)arg0)->apply_object_set_data((void *)arg2);
     if (is_lobby_event_active() != 0) {
         *(s32 *)&((TObjTreeLobby *)arg0)->m_c8 = 0;
     } else {

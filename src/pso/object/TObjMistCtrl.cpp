@@ -10,17 +10,6 @@
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 
-struct VBase_18_023f9f { char pad[0x18]; };
-
-struct VObj_18_023f9f : VBase_18_023f9f {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(u32);
-};
-
 struct RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl {
     s32 value;
     u8 remaining[0x34];
@@ -74,7 +63,7 @@ u8 *TObjMistCtrl__ct(u8 *arg0, s32 parent, u32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl *)&__vt__12TObjMistCtrl).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3E80;
     if (arg2 != 0U) {
-        ((VObj_18_023f9f *)(arg0))->m5(arg2);
+        ((TObjMistCtrl *)(arg0))->apply_object_set_data((void *)arg2);
     }
     *(s32 *)((s8 *)arg0 + 0x90) = (s32)spawn_continuous_particle_effect_with_flags((arg0 + 0x38), (0x200), (0x800));
     return arg0;

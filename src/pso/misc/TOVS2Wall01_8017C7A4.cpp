@@ -10,17 +10,6 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_8017C8EC_lbl_804B4ECC {
     s32 value;
     u8 remaining[0x130];
@@ -105,7 +94,7 @@ u8 *TOVS2Wall01::init_wreck_object(s32 arg1, s32 arg2) {
     init_map_object_base((void *) (((u8 *)this)), (int) ((*(s32 *)&tl_05)));
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_8017C8EC_lbl_804B528C *)&lbl_804B528C).value;
     *(s32 *)&this->m_name = (s32) lbl_805D31C4;
-    ((VObj_18_1a504b *)(((u8 *)this)))->m5(arg1);
+    this->apply_object_set_data((void *)arg1);
     *(u8 * *)&this->model = get_bml_model((*(s32 *)&TOVS2Wall01__bml_resource), arg2);
     *(f32 *)&this->unk_C4 = (f32) (lbl_805DBAB0 + *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&this->model) + 4)) + 0x14));
     this->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOVS2Wall01__bml_resource)), (void *) (arg2));

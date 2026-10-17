@@ -29,17 +29,6 @@ struct RecoveredGlobal_8016BC84_lbl_804B2B30 {
     u8 remaining[0xC];
 };
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_8016BD60___vt__14TOKeyAncient03 { s32 value; u8 remaining[0x6C]; };
 
 struct Obj_8016B9A4 { u8 pad[0x6c]; f32 f; };
@@ -263,7 +252,7 @@ u8 *TOKeyAncient03__ct(u8 *arg0, s32 arg1, s32 arg2) {
     TOKey__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016BD60___vt__14TOKeyAncient03 *)&__vt__14TOKeyAncient03).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKeyAncient03__class_name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TOKeyAncient03 *)(arg0))->apply_object_set_data((void *)arg2);
     ((TOKey *)arg0)->init_switch_id();
     ((TOKeyAncient03 *)arg0)->texture_id = (s32) *(*(s32 * *)&TOKeyAncient03__texture_variants);
     *(u8 * *)&((TOKeyAncient03 *)arg0)->model = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOKeyAncient03__model_archive) + 0x42C)) + 8));

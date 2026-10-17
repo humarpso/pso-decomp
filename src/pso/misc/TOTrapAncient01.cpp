@@ -522,7 +522,7 @@ void *TOTrapAncient01__ct(void *arg0, void *arg1, void *arg2) {
     *(s32 **)((s8 *)self + 0x18) = __vt__15TOTrapAncient01;
     __construct_array(self + 0x358, (void *)init_and_activate__10TObjPlayerFv, (void *)__dt__13TUnk_804949A8Fv, 0x1C, 4);
     *(s32 *)((s8 *)self + 0) = TOTrapAncient01__class_name;
-    ((VObj_18_a8c792 *)arg0)->m5((s32)arg2);
+    ((TOTrapAncient01 *)arg0)->apply_object_set_data((void *)((s32)arg2));
     ((TObjPlayer *)arg0)->init_position_vectors();
     ((TUnk_804806E8 *)arg0)->calc_attach_pos();
     *(s32 *)((s8 *)self + 0x34) = get_bml_model((void *)TOTrapAncient01__bml_resource, 3);

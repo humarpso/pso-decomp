@@ -297,7 +297,7 @@ void TOTrapSeabed01::vfunc_82() {
         TObjPlayer::init_all_slots();
         ((TObjPlayer *)arg0)->check_object_collisions();
         ((VObj_18_f37bb9 *)(arg0))->m65(lbl_805DE640);
-        ((VObj_18_f37bb9 *)(arg0))->m20(*(s32 *)((s8 *)arg0 + 0x2A8), lbl_805DE640);
+        this->receive_physical_attack((void *)(*(s32 *)((s8 *)arg0 + 0x2A8)), lbl_805DE640);
     }
     submit_cursor_candidate((void *) (arg0), (int) (-1));
 }
@@ -495,17 +495,6 @@ struct VObj_802CA8C8_eabed01 : Base_802CA8C8_eabed01 {
     V(80)V(81)V(82)
 #undef V
     virtual void m83();
-};
-
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
 };
 
 struct SeabedTrapResourceDescriptor {
@@ -780,7 +769,7 @@ u8 *TOTrapSeabed01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     TOTrap__ct((void *) (arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802CA9AC___vt__14TOTrapSeabed01 *)&__vt__14TOTrapSeabed01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOTrapSeabed01_class_name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TOTrapSeabed01 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&(*(u32 *)&TOTrapSeabed01__bml_resource))), (int) (0));
     *(s32 *)((s8 *)arg0 + 0xF8) = get_bml_motion((int) ((*(s32 *)&(*(u32 *)&TOTrapSeabed01__bml_resource))), (int) (0));
     *(f32 *)((s8 *)arg0 + 0xC8) = (f32) lbl_805DE640;

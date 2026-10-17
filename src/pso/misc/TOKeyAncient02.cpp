@@ -23,17 +23,6 @@ struct RecoveredGlobal_8016B5A4_lbl_804B2A7C {
     u8 remaining[0xC];
 };
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_8016B6A4_lbl_804B2A8C { s32 value; u8 remaining[0x28]; };
 
 struct RecoveredGlobal_8016B6A4___vt__14TOKeyAncient02 { s32 value; u8 remaining[0x6C]; };
@@ -233,7 +222,7 @@ u8 *TOKeyAncient02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     TOKey__ct((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016B6A4___vt__14TOKeyAncient02 *)&__vt__14TOKeyAncient02).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKeyAncient02__class_name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TOKeyAncient02 *)(arg0))->apply_object_set_data((void *)arg2);
     ((TOKey *)arg0)->init_switch_id();
     *(u8 * *)&((TOKeyAncient02 *)arg0)->model = ((u8 *)get_bml_model((void *)((*(s32 *)&TOKeyAncient02__model_archive)), (s32)(1)));
     ((TOKeyAncient02 *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *)((void *) ((*(s32 *)&TOKeyAncient02__model_archive))), (s32)((int) (1)));

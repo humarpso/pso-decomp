@@ -126,17 +126,6 @@ struct RecoveredGlobal_8019A880___vt__8TObjTank {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct ByteBlock_3C { u8 bytes[0x3c]; };
 
 struct RecoveredGlobal_8029B924_lbl_804DC014 {
@@ -397,7 +386,7 @@ u8 *TODoorJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_door_base(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8029B924___vt__16TODoorJungleMain *)&__vt__16TODoorJungleMain).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TODoorJungleMain__name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TODoorJungleMain *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)&((TODoorJungleMain *)arg0)->m_bc = get_bml_motion((*(u8 * *)&TODoorJungleMain__bml_resource), 0);
     ((TODoorJungleMain *)arg0)->m_b8 = (f32) lbl_805DDCD8;
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) lbl_805DDCDC;

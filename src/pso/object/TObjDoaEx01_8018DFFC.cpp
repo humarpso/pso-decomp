@@ -18,29 +18,6 @@ extern BmlResourceDescriptor TObjDoaEx01__resource_descriptor;
 struct RecoveredGlobal_8018E1E0_lbl_804B7588 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8018E1E0_lbl_804B7588_size[sizeof(RecoveredGlobal_8018E1E0_lbl_804B7588) == 0x10 ? 1 : -1];
 
-struct VBase_18_4a4f5b { char pad[0x18]; };
-
-struct VObj_18_4a4f5b : VBase_18_4a4f5b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual s32 m17();
-};
-
 struct RecoveredGlobal_8018E064_lbl_804B7598 {
     s32 value;
     u8 remaining[0x28];
@@ -92,7 +69,7 @@ u8 *TObjDoaEx01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_door_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8018E064___vt__11TObjDoaEx01 *)&__vt__11TObjDoaEx01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjDoaEx01__name;
-    ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
+    ((TObjDoaEx01 *)(arg0))->apply_object_set_data((void *)arg2);
     ((TObjDoaEx01 *)(arg0))->init_door_switch_binding();
     init_collision_body_parts((void *) (arg0), (void *) (&TObjDoaEx01__collision_body_parts.value), (int) (1));
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();

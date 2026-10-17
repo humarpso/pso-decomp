@@ -7,17 +7,6 @@
 #include "pso/TParticleCtrl.h"
 #include "pso/TQuestThreadBoard.h"
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_80195720___vt__13TObjPlayerSet {
     s32 value;
     u8 remaining[0x34];
@@ -70,7 +59,7 @@ u8 *TObjPlayerSet__ct(u8 *arg0, s32 arg1, s32 arg2) {
     construct_world_actor_base(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80195720___vt__13TObjPlayerSet *)&__vt__13TObjPlayerSet).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjPlayer__player_set_class_name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TObjPlayerSet *)(arg0))->apply_object_set_data((void *)arg2);
     if (((TObjPlayerSet *)arg0)->scale< lbl_805DBEF0) {
         ((TObjPlayerSet *)arg0)->scale = (f32) lbl_805DBEF0;
     }

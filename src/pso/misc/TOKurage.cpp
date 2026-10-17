@@ -15,17 +15,6 @@
 struct RecoveredGlobal_8016E800_lbl_804B2E6C { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8016E800_lbl_804B2E6C_size[sizeof(RecoveredGlobal_8016E800_lbl_804B2E6C) == 0x10 ? 1 : -1];
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct VBase_18_26a62c { char pad[0x18]; };
 struct VObj_18_26a62c : VBase_18_26a62c {
     virtual void m0();
@@ -414,7 +403,7 @@ u8 *TOKurage__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_map_object_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016E8A8___vt__8TOKurage *)&__vt__8TOKurage).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKurage__name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TOKurage *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TOKurage__static_model_resource)), (int) (0));
     ((TOKurage *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOKurage__static_model_resource)), (int) (0));
     *(u8 **)((s8 *)arg0 + 0xBC) = get_bml_motion((*(s32 *)&TOKurage__static_model_resource), 0);

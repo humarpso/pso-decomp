@@ -15,17 +15,6 @@
 #pragma auto_inline off
 #pragma dont_inline off
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct ByteBlock_3C { u8 bytes[0x3C]; };
 
 struct RecoveredGlobal_8029C9C8_lbl_804DC3A0 {
@@ -169,7 +158,7 @@ u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1) {
     TORockCaveBrakable__ct((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8029C9C8___vt__15TORockJungleS01 *)&__vt__15TORockJungleS01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TORockJungleS01__name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg1);
+    ((TORockJungleS01 *)(arg0))->apply_object_set_data((void *)arg1);
     *(u8 * *)&((TORockJungleS01 *)arg0)->model = TORockJungleS01::get_model(0);
     ((TORockJungleS01 *)arg0)->texture_id = get_jungle_rock_texture_resource((s32)((int) (0)));
     ((TORockJungleS01 *)arg0)->m_b0 = (f32) (lbl_805DDD1C + *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&((TORockJungleS01 *)arg0)->model) + 4)) + 0x14));

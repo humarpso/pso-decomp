@@ -15,29 +15,6 @@ typedef char RecoveredGlobal_80158078_lbl_80440200_size[sizeof(RecoveredGlobal_8
 struct RecoveredGlobal_80158078_lbl_804AFB24 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80158078_lbl_804AFB24_size[sizeof(RecoveredGlobal_80158078_lbl_804AFB24) == 0x10 ? 1 : -1];
 
-struct VBase_18_4a4f5b { char pad[0x18]; };
-
-struct VObj_18_4a4f5b : VBase_18_4a4f5b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual s32 m17();
-};
-
 struct RecoveredGlobal_80158188_lbl_804AFB34 {
     s32 value;
     u8 remaining[0x28];
@@ -122,7 +99,7 @@ u8 *TOBarrierEnergy01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_door_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80158188___vt__17TOBarrierEnergy01 *)&__vt__17TOBarrierEnergy01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2EA0;
-    ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
+    ((TOBarrierEnergy01 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *)((void *) ((*(s32 *)&barrier_energy_shared_bml_archive))), (s32)((int) (1)));
     ((TOBarrierEnergy01 *)arg0)->texture_id = (s32) *TOBarrierEnergy01__texture_lists;
     *(u8 **)((s8 *)arg0 + 0xBC) = get_bml_motion((*(s32 *)&barrier_energy_shared_bml_archive), 0);

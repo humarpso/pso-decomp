@@ -3,16 +3,6 @@
 #include "pso/object/TObjMesBase.h"
 #include "pso/object/TObjMotion.h"
 
-struct TObjBase80194_80194C98 { char pad[0x18]; };
-struct TObjMesBase80194_80194C98 : TObjBase80194_80194C98 {
-    virtual void v0(s32);
-    virtual void v1(s32);
-    virtual void v2(s32);
-    virtual void v3(s32);
-    virtual void v4(s32);
-    virtual void ct(s32);
-};
-
 #include "pso/TObject.h"
 #include "pso/npc/TObjNpcEnemy.h"
 #include "pso/player/TObjPlayer.h"
@@ -125,7 +115,7 @@ void *TObjMesBase__ct(void *arg0, s32 arg1, s32 arg2) {
     construct_collider_proxy__13TUnk_804AF8A0Fv();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjMesBase;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjMesBase__class_name;
-    ((TObjMesBase80194_80194C98 *)arg0)->ct(arg2);
+    ((TObjMesBase *)arg0)->apply_object_set_data((void *)arg2);
     ((TObjMesBase *)arg0)->messageLabel = (s32) ((TObjMesBase *)arg0)->m_84;
     ((TObjMesBase *)arg0)->messageBank = (s32) *(s32 *)&((TObjMesBase *)arg0)->m_8c;
     if ((s32) ((TObjMesBase *)arg0)->messageBank< 0) {

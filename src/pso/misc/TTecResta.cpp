@@ -27,17 +27,6 @@ struct Row_8023967C { s32 delay; s32 duration; s32 entry; u32 flags; };
 
 struct Resta_8023967C { u8 pad[0x18]; s32 *vt; void *emitters[3]; s32 owner; s32 x2c; };
 
-struct VBase_802399F8 { u8 pad[0x18]; };
-
-struct VObj_802399F8 : VBase_802399F8 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5(u32 target);
-};
-
 struct Target_802399F8 { u16 id; u8 pad[6]; };
 
 struct Resta_802399F8 {
@@ -303,20 +292,20 @@ void run_task__9TTecRestaFv(Resta_802399F8 *self) {
     }
     if (self->captured != 0) {
         if (self->level <= 1) {
-            ((VObj_802399F8 *)self)->m5(self->source);
+            ((TTecResta *)self)->vfunc_7((void *)self->source);
         } else {
-            ((VObj_802399F8 *)self)->m5(self->source);
+            ((TTecResta *)self)->vfunc_7((void *)self->source);
             if (self->count != 0) {
                 for (i = 0; i < self->count; i++) {
                     target = (u32)find_entity_by_id(self->targets[i].id);
                     if (TTecLuker::is_parents_unqueued(target) != 0) {
-                        ((VObj_802399F8 *)self)->m5(target);
+                        ((TTecResta *)self)->vfunc_7((void *)target);
                     }
                 }
             }
         }
     } else if (self->level <= 1) {
-        ((VObj_802399F8 *)self)->m5(self->source);
+        ((TTecResta *)self)->vfunc_7((void *)self->source);
     } else {
         deliver_technique_to_party_targets(self);
     }

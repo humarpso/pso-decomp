@@ -238,17 +238,6 @@ void *__dt__5TItemFv(void *arg0, s16 arg1) {
 
 }
 
-struct VBase_18_801028D8 { char pad[0x18]; };
-
-struct TItem_801028D8 : VBase_18_801028D8 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5(u32);
-};
-
 extern "C" {
 void obj_setFlags30(void *, u32);
 void fn_8002B630(u8 *arg0, u8 *arg1);
@@ -290,7 +279,7 @@ u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
         sub_8010043C__5TItemFUc(self, lbl_8043DF94[TObjPlayer::clamp_s32(((TItem *)self)->get_field_ec(), 0, 4)]);
     }
     if (lbl_805D5438 != 0) {
-        ((TItem_801028D8 *)self)->m5(lbl_805D5438);
+        ((TItem *)self)->apply_object_set_data((void *)lbl_805D5438);
         set_item_count__13TUnk_804B9870Fs(self, 0xFFFF);
         ((TItem *)self)->set_mode(0);
     } else {

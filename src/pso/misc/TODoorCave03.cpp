@@ -30,29 +30,6 @@ typedef char RecoveredGlobal_80162740_lbl_804B1518_size[sizeof(RecoveredGlobal_8
 struct RecoveredGlobal_80162740_lbl_804B1538 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80162740_lbl_804B1538_size[sizeof(RecoveredGlobal_80162740_lbl_804B1538) == 0x10 ? 1 : -1];
 
-struct VBase_18_4a4f5b { char pad[0x18]; };
-
-struct VObj_18_4a4f5b : VBase_18_4a4f5b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual s32 m17();
-};
-
 struct RecoveredGlobal_80162848_lbl_804B1548 {
     s32 value;
     u8 remaining[0x28];
@@ -281,7 +258,7 @@ u8 *TODoorCave03__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_door_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80162848___vt__12TODoorCave03 *)&__vt__12TODoorCave03).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TODoorCave03__class_name;
-    ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
+    ((TODoorCave03 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODoorCave03__model_resource) + 0x42C)) + 8);
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODoorCave03__model_resource) + 0x42C)) + 0xC);
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B1548.value), (int) (1));

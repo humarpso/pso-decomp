@@ -6,29 +6,6 @@
 #include "pso/misc/TODoorAncient01.h"
 #include "pso/player/TObjPlayer.h"
 
-struct VBase_18_4a4f5b { char pad[0x18]; };
-
-struct VObj_18_4a4f5b : VBase_18_4a4f5b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual s32 m17();
-};
-
 struct RecoveredGlobal_8015FB38_lbl_804B1048 {
     s32 value;
     u8 remaining[0x28];
@@ -125,7 +102,7 @@ u8 *TODoorAncient07__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_door_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8015FB38___vt__15TODoorAncient07 *)&__vt__15TODoorAncient07).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2F48;
-    ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
+    ((TODoorAncient07 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODoorAncient07__bml_resource) + 0x42C)) + 8);
     ((TODoorAncient07 *)arg0)->texture_id = (s32) *(*(s32 * *)&TODoorAncient07__texture_lists);
     *(u8 **)((s8 *)arg0 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODoorAncient07__bml_resource) + 0x430)) + 4));

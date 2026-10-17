@@ -36,17 +36,6 @@ struct VObj802AF370_802af370_802AF2C8 : VBase802AF370_802af370_802AF2C8 {
 struct RecoveredGlobal_802AF300_lbl_804DE440 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_802AF300_lbl_804DE440_size[sizeof(RecoveredGlobal_802AF300_lbl_804DE440) == 0x10 ? 1 : -1];
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_802AF4F4_lbl_804DE450 {
     s32 value;
     u8 remaining[0x28];
@@ -162,7 +151,7 @@ u8 *TOCapsuleLabo__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TUnk_804B27D8 *)arg0)->init();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802AF4F4___vt__13TOCapsuleLabo *)&__vt__13TOCapsuleLabo).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3E7C;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TOCapsuleLabo *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *)((int) ((*(s32 *)&TOCapsuleLabo__model_resource))), (s32)((int) (0)));
     ((TOCapsuleLabo *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOCapsuleLabo__model_resource)), (int) (0));
     init_collision_body_parts((void *) (arg0), (void *) (&TOCapsuleLabo__collision_parts.value), (int) (1));

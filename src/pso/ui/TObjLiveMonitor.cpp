@@ -100,17 +100,6 @@ void *TObjLiveMonitor::create(void *arg0) {
 struct RecoveredGlobal_8030B658_lbl_804E76C0 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8030B658_lbl_804E76C0_size[sizeof(RecoveredGlobal_8030B658_lbl_804E76C0) == 0x10 ? 1 : -1];
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_8030B708___vt__14TObjLiveCamera {
     s32 value;
     u8 remaining[0x30];
@@ -159,7 +148,7 @@ u8 *TObjLiveCamera__ct(u8 *arg0, s32 parent, s32 arg2) {
     construct_world_actor_base((void *) (arg0), (void *) (parent));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8030B708___vt__14TObjLiveCamera *)&__vt__14TObjLiveCamera).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjLiveCamera__class_name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TObjLiveCamera *)(arg0))->apply_object_set_data((void *)arg2);
     return arg0;
 }
 

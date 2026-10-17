@@ -302,17 +302,6 @@ void reset_state__13TObjLobbyMainFPv(void *arg0) {
 struct RecoveredGlobal_803527F0_lbl_804F0F24 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_803527F0_lbl_804F0F24_size[sizeof(RecoveredGlobal_803527F0_lbl_804F0F24) == 0x10 ? 1 : -1];
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_80352940_lbl_804F0F34 {
     s32 value;
     u8 remaining[0x28];
@@ -413,7 +402,7 @@ u8 *TObjLobbyMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_map_object_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80352940___vt__13TObjLobbyMain *)&__vt__13TObjLobbyMain).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4370;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TObjLobbyMain *)(arg0))->apply_object_set_data((void *)arg2);
     ((TObjLobbyMain *)arg0)->m_d8 = (u32)create_particle_emitter((arg0 + 0x38), (0x222));
     temp_r3 = ((TObjLobbyMain *)arg0)->m_d8;
     if (temp_r3 != 0U) {

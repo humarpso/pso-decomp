@@ -36,17 +36,6 @@ struct VBase18 { char pad[0x18]; };
 
 struct VObj18 : VBase18 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7(); virtual s32 m8(f32, f32); };
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_8016B0A0_lbl_804B29D0 { s32 value; u8 remaining[0x28]; };
 
 struct RecoveredGlobal_8016B0A0___vt__14TOKeyAncient01 { s32 value; u8 remaining[0x70]; };
@@ -196,7 +185,7 @@ u8 *TOKeyAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     TOKey__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016B0A0___vt__14TOKeyAncient01 *)&__vt__14TOKeyAncient01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKeyAncient01__class_name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TOKeyAncient01 *)(arg0))->apply_object_set_data((void *)arg2);
     ((TOKey *)arg0)->init_switch_id();
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x88);
     if (temp_r0 < 0) {

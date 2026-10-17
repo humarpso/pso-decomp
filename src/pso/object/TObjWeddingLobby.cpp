@@ -21,17 +21,6 @@ extern BmlResourceDescriptor wedding_lobby_resource_descriptor;
 struct RecoveredGlobal_8035BEB8_lbl_804F1DF4 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8035BEB8_lbl_804F1DF4_size[sizeof(RecoveredGlobal_8035BEB8_lbl_804F1DF4) == 0x10 ? 1 : -1];
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_8035BF68___vt__16TObjWeddingLobby {
     s32 value;
     u8 remaining[0x38];
@@ -177,7 +166,7 @@ u8 *TObjWeddingLobby__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_map_object_base((void *) (arg0), (void *) (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8035BF68___vt__16TObjWeddingLobby *)&__vt__16TObjWeddingLobby).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjWeddingLobby__class_name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TObjWeddingLobby *)(arg0))->apply_object_set_data((void *)arg2);
     if (TLobby::get_filtered_event_theme() == 0xA) {
         *(s32 *)&((TObjWeddingLobby *)arg0)->m_c8 = 3;
     } else {

@@ -5,17 +5,6 @@
 #include "pso/misc/TOFenceAncient01.h"
 #include "pso/player/TObjPlayer.h"
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_8016713C_lbl_804B1CD0 {
     s32 value;
     u8 remaining[0x80];
@@ -133,7 +122,7 @@ u8 *TOFenceAncient02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_fields__13TUnk_804B1B80Fv();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016713C___vt__16TOFenceAncient02 *)&__vt__16TOFenceAncient02).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOFenceAncient02__class_name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TOFenceAncient02 *)(arg0))->apply_object_set_data((void *)arg2);
     temp_r4 = (u8 *)(*(u8 **)((s8 *)TOFenceAncient02__model_resource + 0x42C));
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)temp_r4 + 8);
     ((TOFenceAncient02 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)((*(s32 *)&TOFenceAncient02__texture_variants) + (((TUnk_804B1B80 *)arg0)->sub_80166EA8((int) (temp_r4)) * 4)) + 0);

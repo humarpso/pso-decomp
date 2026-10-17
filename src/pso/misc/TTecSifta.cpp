@@ -45,17 +45,6 @@ struct VObj_18_b27ba1 : VBase_18_b27ba1 {
 
 struct Obj_8023AE8C { u8 pad[0x1C]; u8 *source; u8 pad20[0x74 - 0x20]; f32 power; };
 
-struct VBase_8023AF94 { u8 pad[0x18]; };
-
-struct VObj_8023AF94 : VBase_8023AF94 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5(u32 target);
-};
-
 struct Target_8023AF94 { u16 id; u8 pad[6]; };
 
 struct Sifta_8023AF94 {
@@ -184,20 +173,20 @@ void run_task__9TTecSiftaFv(Sifta_8023AF94 *self) {
     }
     if (self->captured != 0) {
         if (self->level <= 1) {
-            ((VObj_8023AF94 *)self)->m5(self->source);
+            ((TTecSifta *)self)->vfunc_7((void *)self->source);
         } else {
-            ((VObj_8023AF94 *)self)->m5(self->source);
+            ((TTecSifta *)self)->vfunc_7((void *)self->source);
             if (self->count != 0) {
                 for (i = 0; i < self->count; i++) {
                     target = (u32)find_entity_by_id(self->targets[i].id);
                     if (TTecLuker::is_parents_unqueued(target) != 0) {
-                        ((VObj_8023AF94 *)self)->m5(target);
+                        ((TTecSifta *)self)->vfunc_7((void *)target);
                     }
                 }
             }
         }
     } else if (self->level <= 1) {
-        ((VObj_8023AF94 *)self)->m5(self->source);
+        ((TTecSifta *)self)->vfunc_7((void *)self->source);
     } else {
         deliver_technique_to_party_targets(self);
     }

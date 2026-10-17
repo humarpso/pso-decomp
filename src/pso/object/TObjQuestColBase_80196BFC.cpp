@@ -155,7 +155,7 @@ u8 *TObjQuestColBase__ct(u8 *arg0, s32 arg1, s32 arg2) {
   ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
   ((RecoveredFields_80196DB4_arg0 *) arg0)->field_18 = &(*(RecoveredGlobal_80196DB4___vt__16TObjQuestColBase *)&__vt__16TObjQuestColBase).value;
   ((RecoveredFields_80196DB4_arg0 *) arg0)->field_0 = quest_col_base_class_name;
-  (((VObj_18_1a504b *)(arg0))->m5((arg2)));
+  (((TObjQuestColBase *)(arg0))->apply_object_set_data((void *)(arg2)));
   temp_r6 = -1;
   if (((RecoveredFields_80196DB4_arg0 *) arg0)->field_1C == temp_r6)
   {

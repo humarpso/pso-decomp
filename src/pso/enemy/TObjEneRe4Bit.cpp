@@ -837,110 +837,6 @@ int TObjEneRe4Sorcerer__sub_800ED498(u8 *arg0) {
 
 }
 
-struct BaseV_800ed578 { char pad[0x18]; };
-struct VObjV_800ed578 : BaseV_800ed578 {
-    virtual s32 m0();
-    virtual s32 m1();
-    virtual s32 m2();
-    virtual s32 m3();
-    virtual s32 m4();
-    virtual s32 m5();
-    virtual s32 m6();
-    virtual s32 m7();
-    virtual s32 m8();
-    virtual s32 m9();
-    virtual s32 m10();
-    virtual s32 m11();
-    virtual s32 m12();
-    virtual s32 m13();
-    virtual s32 m14();
-    virtual s32 m15();
-    virtual s32 m16();
-    virtual s32 m17();
-    virtual s32 m18();
-    virtual s32 m19();
-    virtual s32 m20();
-    virtual s32 m21();
-    virtual s32 m22();
-    virtual s32 m23();
-    virtual s32 m24();
-    virtual s32 m25();
-    virtual s32 m26();
-    virtual s32 m27();
-    virtual s32 m28();
-    virtual s32 m29();
-    virtual s32 m30();
-    virtual s32 m31();
-    virtual s32 m32();
-    virtual s32 m33();
-    virtual s32 m34();
-    virtual s32 m35();
-    virtual s32 m36();
-    virtual s32 m37();
-    virtual s32 m38();
-    virtual s32 m39();
-    virtual s32 m40();
-    virtual s32 m41();
-    virtual s32 m42();
-    virtual s32 m43();
-    virtual s32 m44();
-    virtual s32 m45();
-    virtual s32 m46();
-    virtual s32 m47();
-    virtual s32 m48();
-    virtual s32 m49();
-    virtual s32 m50();
-    virtual s32 m51();
-    virtual s32 m52();
-    virtual s32 m53();
-    virtual s32 m54();
-    virtual s32 m55();
-    virtual s32 m56();
-    virtual s32 m57();
-    virtual s32 m58();
-    virtual s32 m59();
-    virtual s32 m60();
-    virtual s32 m61();
-    virtual s32 m62();
-    virtual s32 m63();
-    virtual s32 m64();
-    virtual s32 m65();
-    virtual s32 m66();
-    virtual s32 m67();
-    virtual s32 m68();
-    virtual s32 m69();
-    virtual s32 m70();
-    virtual s32 m71();
-    virtual s32 m72();
-    virtual s32 m73();
-    virtual s32 m74();
-    virtual s32 m75();
-    virtual s32 m76();
-    virtual s32 m77();
-    virtual s32 m78();
-    virtual s32 m79();
-    virtual s32 m80();
-    virtual s32 m81();
-    virtual s32 m82();
-    virtual s32 m83();
-    virtual s32 m84();
-    virtual s32 m85();
-    virtual s32 m86();
-    virtual s32 m87();
-    virtual s32 m88();
-    virtual s32 m89();
-    virtual s32 m90();
-    virtual s32 m91();
-    virtual s32 m92();
-    virtual s32 m93();
-    virtual s32 m94();
-    virtual s32 m95();
-    virtual s32 m96();
-    virtual s32 m97();
-    virtual s32 m98();
-    virtual s32 m99(s32 *);
-};
-
 struct LBase_800ED7FC { char pad[0x14]; };
 struct Light_800ED7FC : LBase_800ED7FC {
     virtual void l0();
@@ -1111,7 +1007,7 @@ void TObjEneRe4Bit::update_position_flag() {
     s32 sp8;
 
     VecCopy((Vec *)(&sp8), (const Vec *)(((u8 *)this) + 0x2FC));
-    if (((VObjV_800ed578 *)((u8 *)this))->m99(&sp8) == 0U) {
+    if (this->vfunc_101((u8 *)&sp8) == 0U) {
         *(s32 *)((s8 *)((u8 *)this) + 0x3CC) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3CC) & 0xFFFFF7FF);
         return;
     }

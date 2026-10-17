@@ -30,17 +30,6 @@ struct RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 {
     u8 remaining[0xC];
 };
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_8015B644_lbl_804AFFF8 {
     s32 value;
     u8 remaining[0x28];
@@ -172,7 +161,7 @@ u8 *TOComputerMachine01__ct(u8 *arg0, s32 arg1) {
     init__13TUnk_804B27D8Fv((void *) (arg0), (int) (tl_05));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8015B644___vt__19TOComputerMachine01 *)&__vt__19TOComputerMachine01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2EEC;
-    ((VObj_18_1a504b *)(arg0))->m5(arg1);
+    ((TOComputerMachine01 *)(arg0))->apply_object_set_data((void *)arg1);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TOComputerMachine01__model_resource + 0x42C)) + 8);
     ((TOComputerMachine01 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TOComputerMachine01__model_resource + 0x42C)) + 0xC);
     ((TOComputerMachine01 *)arg0)->m_c0 = (f32) lbl_805DB390;

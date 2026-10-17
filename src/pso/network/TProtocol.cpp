@@ -226,7 +226,7 @@ void TProtocol::send_subcommand_to_client(s32 flag, s8 *src, s32 len) {
         size = pkt.size;
         memcpy(pkt.data, src, len);
         bswap__12TRecvPsoDataFv(&pkt);
-        ((VObj_18_801DC084 *)this)->m8(&pkt, size);
+        this->send((u8 *)&pkt, size);
     }
 }
 
@@ -247,19 +247,6 @@ void TProtocol__send_60(VObj_18_801DC084 *obj, s8 *src, u32 len) {
 }
 
 }
-
-struct VBase_801DC1E4 { char pad[0x18]; };
-struct VObj_801DC1E4 : VBase_801DC1E4 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual s16 send(void *, u32);
-};
 
 extern "C" {
 
@@ -307,25 +294,12 @@ void send_player_data_98__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC1E4 *self, u8 *ch
         tmp.size = packet_size & ~3;
         TItem__sub_80101CF8(tmp.char_data);
         bswap_player_record_upload((u8 *)&tmp);
-        ((VObj_801DC1E4 *)self)->send(&tmp, packet_size & ~3);
+        ((TProtocol *)self)->send((u8 *)&tmp, packet_size & ~3);
         destroy__9TProtocolFis((s32)&tmp, -1);
     }
 }
 
 }
-
-struct VBase_801DC34C { char pad[0x18]; };
-struct VObj_801DC34C : VBase_801DC34C {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual s16 send(void *, u32);
-};
 
 extern "C" {
 
@@ -369,7 +343,7 @@ void send_player_data_61__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC34C *self, u8 *ch
         tmp.size = packet_size & ~3;
         TItem__sub_80101CF8(tmp.char_data);
         bswap_player_record_upload((u8 *)&tmp);
-        ((VObj_801DC34C *)self)->send(&tmp, packet_size & ~3);
+        ((TProtocol *)self)->send((u8 *)&tmp, packet_size & ~3);
         destroy__9TProtocolFis((s32)&tmp, -1);
     }
 }

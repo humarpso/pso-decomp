@@ -13,17 +13,6 @@
 
 #include "types.h"
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_8018BD00_TContainerAncient01__data_804B6DC0 {
     s32 value;
     u8 remaining[0x28];
@@ -112,7 +101,7 @@ u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     construct_actor_base__10TObjPlayerFPvPv((void *) (arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8018BD00___vt__19TContainerAncient01 *)&__vt__19TContainerAncient01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TContainerAncient01__name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TContainerAncient01 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(u8 * *)&TContainerAncient01__bml_resource)), (int) (0));
     ((TContainerAncient01 *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(u8 * *)&TContainerAncient01__bml_resource)), (int) (0));
     *(s32 * *)&((TContainerAncient01 *)arg0)->action_table = &TContainerAncient01__anim_table.value;
@@ -449,17 +438,6 @@ struct Obj_8018CB44 { u8 pad0[0x1C]; u16 f1C; u8 pad1[0x62]; u32 f80; s32 f84; }
 
 struct Pkt_8018CB44 { u16 a; u16 b; s32 c; s32 d; s32 e; };
 
-struct VBase_8018C7BC { char pad[0x18]; };
-
-struct VObj_8018C7BC : VBase_8018C7BC {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5(s32);
-};
-
 struct Ido_8018C7BC { u8 pad[0xCC]; s32 ids[4]; };
 
 extern "C" {
@@ -534,7 +512,7 @@ u8 *TObjContainerIdo__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjContainerIdo;
     ((TObjPlayer *)(arg0 + 0xF0))->init_and_activate();
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D330C;
-    ((VObj_8018C7BC *)(arg0))->m5(arg2);
+    ((TObjContainerIdo *)(arg0))->apply_object_set_data((void *)arg2);
     VecCopy((Vec *)(arg0 + 0xC0), (const Vec *)(arg0 + 0x38));
     VecCopy((Vec *)(arg0 + 0xB4), (const Vec *)(arg0 + 0x38));
     *(f32 *)&((TObjContainerIdo *)arg0)->m_b0 = lbl_805DBD7C;

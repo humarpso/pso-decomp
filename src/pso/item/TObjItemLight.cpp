@@ -18,16 +18,6 @@ s32 is_item_light_interaction_blocked();
 f32 xz_distance_squared(void *, void *);
 Ply_80191F90 *get_player_by_client_id(s32);
 void run_task__13TObjItemLightFv(Light_80191F90 *arg0);
-struct VObjItemLight_80192060 {
-    char pad[0x18];
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5(s32);
-};
-
 u8 *TObjItemLight__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__dt__13TObjItemLightFv(void *arg0, s16 arg1);
 void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
@@ -78,7 +68,7 @@ u8 *TObjItemLight__ct(u8 *arg0, s32 arg1, s32 arg2) {
     construct_world_actor_base();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjItemLight;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjItemLight__class_name;
-    ((VObjItemLight_80192060 *)arg0)->m5(arg2);
+    ((TObjItemLight *)arg0)->apply_object_set_data((void *)arg2);
     ((TObjItemLight *)arg0)->m_94 = 0;
     *(f32 *)((s8 *)arg0 + 0x90) = (f32) ((TObjItemLight *)arg0)->scale;
     if (*(f32 *)((s8 *)arg0 + 0x90) < lbl_805DBE40) {

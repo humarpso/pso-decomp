@@ -1,12 +1,6 @@
 #include "types.h"
 #include "pso/misc/TOExplosiveMachine02.h"
 
-struct Base_80166194_801660F4 { char pad[0x18]; };
-struct VObj_80166194_801660F4 : Base_80166194_801660F4 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(s32);
-};
-
 extern "C" {
 
 s32 TOExplosiveMachine__ct();
@@ -44,7 +38,7 @@ void *TOExplosiveMachine02__ct(void *arg0, s32 arg1) {
     TOExplosiveMachine__ct();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TOExplosiveMachine02;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOExplosiveMachine02__class_name;
-    ((VObj_80166194_801660F4 *)arg0)->m5(arg1);
+    ((TOExplosiveMachine02 *)arg0)->apply_object_set_data((void *)arg1);
     *(void * *)&((TOExplosiveMachine02 *)arg0)->model = get_bml_model(explosive_machine_model_archive, 3);
     ((TOExplosiveMachine02 *)arg0)->texture_id = TObjFish__sub_8001EDB0(explosive_machine_model_archive, 3);
     ((TOExplosiveMachine02 *)arg0)->m_94 = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&((TOExplosiveMachine02 *)arg0)->model) + 4)) + 0x14);

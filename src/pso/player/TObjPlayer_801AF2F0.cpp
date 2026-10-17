@@ -5619,7 +5619,7 @@ s32 TObjPlayer::resolve_move_collision() {
     p.x = ((Obj_801B5EA4 *)this)->pos.x + ((Obj_801B5EA4 *)this)->vel.x;
     p.y = ((Obj_801B5EA4 *)this)->pos.y + ((Obj_801B5EA4 *)this)->vel.y;
     p.z = ((Obj_801B5EA4 *)this)->pos.z + ((Obj_801B5EA4 *)this)->vel.z;
-    if (((Obj_801B5EA4 *)this)->v16(&p) == 0U) {
+    if (this->vfunc_18((u8 *)&p) == 0U) {
         TObjPlayer__sub_8001053C((u8 *)((Obj_801B5EA4 *)this));
         return 1;
     }
@@ -6841,7 +6841,7 @@ void TObjPlayer::use_current_item() {
         ((VObj_801B95C8*)temp_r3)->m28();
         return;
     }
-    ((VObj_801B95C8*)this)->m63(0x24, &sp8);
+    this->vfunc_65((s32)0x24, (s32)&sp8);
     TEffGuard::create((const Vec*)(&sp8));
 }
 

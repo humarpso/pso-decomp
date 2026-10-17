@@ -5,17 +5,6 @@
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TRaderMapCore.h"
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_80197490___vt__16TObjRaderHideCol {
     s32 value;
     u8 remaining[0x30];
@@ -66,7 +55,7 @@ u8 *TObjRaderHideCol__ct(u8 *arg0, s32 arg1, s32 arg2) {
     construct_world_actor_base((void *) (arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80197490___vt__16TObjRaderHideCol *)&__vt__16TObjRaderHideCol).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3414;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TObjRaderHideCol *)(arg0))->apply_object_set_data((void *)arg2);
     *(f32 *)((s8 *)arg0 + 0x90) = (f32) ((TObjRaderHideCol *)arg0)->scale;
     *(s32 *)&((TObjRaderHideCol *)arg0)->m_94 = 0;
     disallow_rendering__7TObjectFv((arg0));

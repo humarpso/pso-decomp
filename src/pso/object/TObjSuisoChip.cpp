@@ -90,17 +90,6 @@ struct RecoveredGlobal_802A6438_lbl_804DD388 {
     u8 remaining[0x35C];
 };
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_802A6668_lbl_804DD6E8 {
     s32 value;
     u8 remaining[0x80];
@@ -307,7 +296,7 @@ u8 *TObjSeabedSuisoBrakable__ct(u8 *arg0, s32 arg1) {
     TORockCaveBrakable__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802A6668___vt__23TObjSeabedSuisoBrakable *)&__vt__23TObjSeabedSuisoBrakable).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjSeabedSuisoBrakable__name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg1);
+    ((TObjSeabedSuisoBrakable *)(arg0))->apply_object_set_data((void *)arg1);
     *(s32 *)&((TObjSeabedSuisoBrakable *)arg0)->m_bc = (s32) fabs_float((f32) *(s32 *)((s8 *)arg0 + 0x88));
     if ((s32) *(s32 *)&((TObjSeabedSuisoBrakable *)arg0)->m_bc> 2) {
         *(s32 *)&((TObjSeabedSuisoBrakable *)arg0)->m_bc = 2;

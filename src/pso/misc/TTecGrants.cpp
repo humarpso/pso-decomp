@@ -3,16 +3,6 @@
 #include "pso/misc/TTecGrants.h"
 #include "pso/unk/TUnk_804CC148.h"
 
-struct VBase_18_4560ce { char pad[0x18]; };
-
-struct VObj_18_4560ce : VBase_18_4560ce {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual s32 m4(u32);
-};
-
 struct RecoveredGlobal_80233350___vt__10TTecGrants {
     s32 value;
     u8 remaining[0x24];
@@ -140,7 +130,7 @@ void run_task__10TTecGrantsFv(u8 *arg0) {
     *(s32 *)&((TTecGrants *)arg0)->m_148 = (s32) (*(s32 *)&((TTecGrants *)arg0)->m_148+ 1);
     if ((s32) *(s32 *)&((TTecGrants *)arg0)->m_148> 0x1E) {
         if ((temp_r3 != 0) && (TTecLuker::is_parents_unqueued(temp_r3) != 0) && (TObjPlayer::is_valid_and_active(temp_r3) != 0)) {
-            ((VObj_18_4560ce *)(arg0))->m4(temp_r3);
+            ((TTecGrants *)(arg0))->vfunc_6((void *)temp_r3);
         }
         queue_destruction__7TObjectFv((arg0));
     }

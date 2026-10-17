@@ -4,17 +4,6 @@
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TOKeyMachine01.h"
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_80190484___vt__18TObjEnvSoundGlobal {
     s32 value;
     u8 remaining[0x30];
@@ -116,7 +105,7 @@ u8 *TObjEnvSoundGlobal__ct(u8 *arg0, s32 parent, s32 arg2) {
     construct_world_actor_base((void *) (arg0), (void *) (parent));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80190484___vt__18TObjEnvSoundGlobal *)&__vt__18TObjEnvSoundGlobal).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEnvSoundGlobal__class_name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TObjEnvSoundGlobal *)(arg0))->apply_object_set_data((void *)arg2);
     ((TObjEnvSoundGlobal *)arg0)->setup_sound();
     return arg0;
 }
@@ -230,7 +219,7 @@ u8 *TObjEnvSoundEx__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((s32 (*)(void *))construct_world_actor_base)((void *) (arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8019080C___vt__14TObjEnvSoundEx *)&__vt__14TObjEnvSoundEx).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEnvSoundEx__class_name;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TObjEnvSoundEx *)(arg0))->apply_object_set_data((void *)arg2);
     ((TObjEnvSoundEx *)arg0)->init_sound_params();
     *(f32 *)((s8 *)arg0 + 0x94) = (f32) (-127.0f);
     disallow_rendering__7TObjectFv((arg0));

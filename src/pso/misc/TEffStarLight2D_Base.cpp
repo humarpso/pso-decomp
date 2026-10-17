@@ -29,17 +29,6 @@ struct Stack_80084DD4 {
     u8 trailing_storage[0x4];
 };
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_80084DD4_lbl_8048E640 { s32 value; u8 remaining[0x30]; };
 
 struct Sprite_80084C64 {
@@ -142,7 +131,7 @@ u8 *TEffStarLight2D_Base__ct(u8 *arg0, s32 arg1, s32 arg2) {
     u8 *var_r0;
     construct_world_actor_base(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80084DD4_lbl_8048E640 *)&lbl_8048E640).value;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TUnk_8048E640 *)(arg0))->apply_object_set_data((void *)arg2);
     stack.sp8 = ((TUnk_8048E640 *)arg0)->scale;
     stack.spC = ((TUnk_8048E640 *)arg0)->target_scale;
     stack.sp10 = (s8) *(f32 *)((s8 *)arg0 + 0x70);
