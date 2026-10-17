@@ -2420,7 +2420,7 @@ void action__16TObjEneBm5GibonUFPvi(TObjEneBm5GibonU *arg0, s32 arg1) {
     case 4:
         arg0->vfunc_96();
         ((TObjEneDD *)arg0)->set_field_378(8);
-        *(s16 *)((s8 *)arg0 + 0xB8) = 9;
+        arg0->m_b8 = 9;
         *(s32 *)((s8 *)arg0 + 0x518) = 0;
         find_enemy_by_id__16TObjEneBm5GibonUFi(*(s32 *)((s8 *)arg0 + 0x46C));
         return;
@@ -2432,7 +2432,7 @@ void action__16TObjEneBm5GibonUFPvi(TObjEneBm5GibonU *arg0, s32 arg1) {
         return;
     case 0:
         advance_animation_playback(arg0);
-        turn_toward_angle__16TObjEneBm5GibonUFPvi(arg0, *(s32 *)((s8 *)arg0 + 0x60));
+        turn_toward_angle__16TObjEneBm5GibonUFPvi(arg0, arg0->rotation_y);
         if (objInBand__FP7GameObjf(arg0, TObjEneBm5GibonU__data_805DA178) != 0) {
             play_sound_effect((void *)copy_target_state__14TObjEnePanarmsFPv(arg0, 0x3AA22), (u8 *)arg0 + 0x38, 0, 0);
         }
@@ -4021,9 +4021,9 @@ s32 TObjEneBm5GibonU::face_target() {
     Obj_800D0F44 *arg0 = (Obj_800D0F44 *)this;
     Vec_800D0F44 off;
     Vec_800D0F44 q;
-    off.x = sin_table_lookup(arg0->h) * 0.0f;
+    off.x = sin_table_lookup(this->rotation_y) * 0.0f;
     q.x = arg0->pos.x + off.x;
-    off.z = cos_table_lookup(arg0->h) * 0.0f;
+    off.z = cos_table_lookup(this->rotation_y) * 0.0f;
     q.z = arg0->pos.z + off.z;
     q.x = arg0->target->pos.x - q.x;
     q.z = arg0->target->pos.z - q.z;

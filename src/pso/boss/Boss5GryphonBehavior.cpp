@@ -3331,7 +3331,7 @@ void TBoss8Dragon__sub_80062550(Obj_80062550 *arg0, s32 arg1) {
 void update_active_player_count__19TPlayerBattleCtrl4PFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 0;
+        ((TObjEneDD *)arg0)->m_b8 = 0;
         *(s32 *)((s8 *)arg0 + 0x6DC) = 0;
         return;
     case 3:
@@ -4567,11 +4567,11 @@ void apply_remote_action__13TBoss5GryphonFPvPv(u8 *arg0, u8 *arg1) {
     s16 temp_r4;
     VecCopy__FP3VecPC3Vec((void*)((void *) (arg0 + 0x484)), (void*)((void *) (arg1 + 4)));
     ((f32 (*)(void *, void *))subtract_vector)((void *) (arg0 + 0x484), (void *) (arg0 + 0x38));
-    *(s32 *)((s8 *)arg0 + 0x60) = (s32) *(s32 *)((s8 *)arg1 + 0x10);
+    ((TObjEneDD *)arg0)->rotation_y = (s32) *(s32 *)((s8 *)arg1 + 0x10);
     ((TBoss8Dragon *)(arg0 + 0x494))->copy_action_state((u8 *)((void *) (arg1 + 0x14)));
     *(s16 **)((s8 *)arg0 + 0x4BC) = (s16 *) (arg0 + 0x494);
     temp_r4 = **(s16 **)((s8 *)arg0 + 0x4BC);
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != temp_r4) {
+    if ((s16) ((TObjEneDD *)arg0)->mode != temp_r4) {
         ((TObjEneDD *)arg0)->transition_enemy_state(temp_r4);
     }
     *(s32 *)((s8 *)arg0 + 0x4C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x4C0) | 2);

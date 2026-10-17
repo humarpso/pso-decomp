@@ -1384,7 +1384,7 @@ void TObjMapWarp::process_player_warps() {
                     if (((TObjPlayer *)t)->is_target_valid() != 0 && ((VObj_8019D250 *)this)->m16(((TRaderMapCore *)t)->get_map_id()) != 0) {
                         for (j = 0; j < 4; j++) {
                             if (test_player_body_overlap_at(this, t, &d->ends[j]) == 0) {
-                                send_6x55_intra_map_warp(obj_getField1c(t), &d->ends[j], d->f84);
+                                send_6x55_intra_map_warp(obj_getField1c(t), &d->ends[j], this->m_84);
                             }
                         }
                     }
@@ -1396,16 +1396,16 @@ void TObjMapWarp::process_player_warps() {
         return;
     }
     if (((VObj_8019D250 *)this)->m14() == 0) {
-        if (d->fB0 != NULL) {
-            TWindow__close(d->fB0);
-            d->fB0 = NULL;
+        if (this->m_b0 != NULL) {
+            TWindow__close(this->m_b0);
+            this->m_b0 = NULL;
         }
     } else {
         void *t2;
         s32 j2;
-        if (d->fB0 != NULL) {
-            ((TQuestVmDownLoadServer *)(d->fB0))->clear_flag4_bit4();
-            allow_rendering__7TObjectFv((TObject *)d->fB0);
+        if (this->m_b0 != NULL) {
+            ((TQuestVmDownLoadServer *)(this->m_b0))->clear_flag4_bit4();
+            allow_rendering__7TObjectFv((TObject *)this->m_b0);
         }
         t2 = find_warp_player_in_range(((VObj_8019D250 *)this), local_client_id, d->fAC);
         if (t2 != NULL) {
@@ -1413,7 +1413,7 @@ void TObjMapWarp::process_player_warps() {
             if (((TObjPlayer *)t2)->is_target_valid() != 0 && ((VObj_8019D250 *)this)->m16(((TRaderMapCore *)t2)->get_map_id()) != 0) {
                 for (j2 = 0; j2 < 4; j2++) {
                     if (test_player_body_overlap_at(((VObj_8019D250 *)this), t2, &d->ends[j2]) == 0) {
-                        send_6x55_intra_map_warp(obj_getField1c(t2), &d->ends[j2], d->f84);
+                        send_6x55_intra_map_warp(obj_getField1c(t2), &d->ends[j2], this->m_84);
                     }
                 }
             }

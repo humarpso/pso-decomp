@@ -362,7 +362,7 @@ void TObjChallenge4PRetry::handle_retry_menu_select() {
             TLobby::set_retry_selection(retry_selection_value_table[selected_menu_value]);
             ((s32 (*)(void *))send_giveup_to_all_players__6TLobbyFv)(this);
             play_effect_all_players__6TLobbyFPv(this);
-            *(s32 *)((s8 *)this + 0x24) = 1;
+            this->m_24 = 1;
             *(s32 *)((s8 *)this + 0x1C) = 3;
         }
     }
@@ -408,7 +408,7 @@ void TObjChallenge4PRetry::update_giveup() {
         }
     }
     if (flag != 0) {
-        if (*(s32 *)((s8 *)this + 0x20) != 0) {
+        if (this->m_20 != 0) {
             ((s32 (*)(void *))send_giveup_to_all_players__6TLobbyFv)(this);
             close_giveup_window__6TLobbyFPv(this);
             *(s32 *)((s8 *)this + 0x1C) = 2;

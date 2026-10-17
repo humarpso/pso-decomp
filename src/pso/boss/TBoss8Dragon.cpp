@@ -2413,7 +2413,7 @@ void TBoss8Dragon__sub_802F4B90(u8 *boss8_dragon, u32 arg1) {
 void action__12TBoss8DragonFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 0;
+        ((TObjEneDD *)arg0)->m_b8 = 0;
         *(s32 *)((s8 *)arg0 + 0x84C) = 0;
         *(f32 *)((s8 *)arg0 + 0x3C) = (f32) TBoss8Dragon__data_805DED50;
         return;
