@@ -5983,12 +5983,12 @@ s32 TBoss8Dragon::check_damage_reaction() {
 }
 
 void TBoss8Dragon__sub_802FBA1C(TBoss8Dragon *arg0) {
-    if ((s32) *(s32 *)&arg0->m_74c != 0) {
+    if ((s32) arg0->m_74c != 0) {
         arg0->pick_next_action();
         return;
     }
     if (arg0->check_damage_reaction() == 0) {
-        *(s32 *)&arg0->m_674 = (s32) *(s32 *)((s8 *)&boss8_dragon_state_transition_table.value + (*(s32 *)&arg0->m_674 * 4));
+        arg0->m_674 = (s32) *(s32 *)((s8 *)&boss8_dragon_state_transition_table.value + (arg0->m_674 * 4));
         arg0->pick_next_action();
     }
 }

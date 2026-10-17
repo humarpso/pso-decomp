@@ -1372,7 +1372,7 @@ void fn_800E95F4(u8 *arg0) {
 }
 
 void TObjEneSlimeOne__sub_800E969C(TObjEneSlimeOne *arg0) {
-    if (*(s32 *)&arg0->animationFlags & 0x10) {
+    if (arg0->animationFlags & 0x10) {
         arg0->set_state(5);
     }
 }
@@ -1395,7 +1395,7 @@ void update_tick__15TObjEneSlimeOneFPv(TObjEneSlimeOne *arg0) {
     if (!(temp_r3 & 3)) {
         spawn_particle_effect(((u8 *)arg0 + 0x2FC), 0xE0);
     }
-    if (*(s32 *)&arg0->animationFlags & 0x10) {
+    if (arg0->animationFlags & 0x10) {
         if (arg0->is_timer_active() != 0) {
             arg0->set_state(7);
             return;

@@ -49,7 +49,7 @@ s32 TObjPlayer__sub_801BFFA0(void* p) { return *(s32*)((char*)p + 0x0); }
 
 u8 *TObjPlayer::copy_hold_params(u8 *arg1) {
     TFontSmallLobby__sub_801C0228();
-    *(s16 *)&this->m_flags = (s16) *(s16 *)((s8 *)arg1 + 4);
+    this->m_flags = (s16) *(s16 *)((s8 *)arg1 + 4);
     this->m_id = (s16) *(s16 *)((s8 *)arg1 + 6);
     *(ByteBlock_8 *)((s32) ((u8 *)this) + 8) = *(const ByteBlock_8 *)((s32) arg1 + 8);
     *(f32 *)((s8 *)((u8 *)this) + 0x10) = (f32) *(f32 *)((s8 *)arg1 + 0x10);
