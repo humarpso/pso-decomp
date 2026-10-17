@@ -202,7 +202,7 @@ void run_task__7TObjectFv();
 void render__7TObjectFv();
 void render_shadows__7TObjectFv();
 void vfunc_6__13TUnk_804B9870FPsl();
-void apply_object_set_data();
+void apply_object_set_data__13TUnk_804B9870FPv();
 void release_member_90__10TObjPlayerFv();
 void vfunc_9__13TUnk_804B9870Fv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
@@ -229,7 +229,7 @@ s32 lbl_804E4BB4[] = {
     (s32)render__19TBoss8DragonColli_CFv,
     (s32)render_shadows__7TObjectFv,
     (s32)vfunc_6__13TUnk_804B9870FPsl,
-    (s32)apply_object_set_data,
+    (s32)apply_object_set_data__13TUnk_804B9870FPv,
     (s32)release_member_90__10TObjPlayerFv,
     (s32)vfunc_9__13TUnk_804B9870Fv,
     (s32)update_object_view_visibility__13TUnk_804B9870Fff,

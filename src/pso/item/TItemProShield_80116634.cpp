@@ -418,7 +418,7 @@ void TItem__sub_80100B8C();
 void vfunc_6__13TUnk_804B9870FPsl();
 void vfunc_33__5TItemFv();
 void vfunc_43__5TItemFv();
-void apply_object_set_data();
+void apply_object_set_data__13TUnk_804B9870FPv();
 void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void destroy__5TItemFv();
 void dispatch_state__5TItemFv();
@@ -438,7 +438,7 @@ void *item_hp_recovery_vtable[46] = {
     (void *)&dispatch_state__5TItemFv,
     (void *)&render_shadows__5TItemFv,
     (void *)&vfunc_6__13TUnk_804B9870FPsl,
-    (void *)&apply_object_set_data,
+    (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&release_member_90__10TObjPlayerFv,
     (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,
@@ -486,7 +486,7 @@ void *item_mag_transform_vtable[46] = {
     (void *)&dispatch_state__5TItemFv,
     (void *)&render_shadows__5TItemFv,
     (void *)&vfunc_6__13TUnk_804B9870FPsl,
-    (void *)&apply_object_set_data,
+    (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&release_member_90__10TObjPlayerFv,
     (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,
@@ -534,7 +534,7 @@ void *item_moon_atomizer_vtable[46] = {
     (void *)&dispatch_state__5TItemFv,
     (void *)&render_shadows__5TItemFv,
     (void *)&vfunc_6__13TUnk_804B9870FPsl,
-    (void *)&apply_object_set_data,
+    (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&release_member_90__10TObjPlayerFv,
     (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,
@@ -582,7 +582,7 @@ void *item_status_cure_vtable[46] = {
     (void *)&dispatch_state__5TItemFv,
     (void *)&render_shadows__5TItemFv,
     (void *)&vfunc_6__13TUnk_804B9870FPsl,
-    (void *)&apply_object_set_data,
+    (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&release_member_90__10TObjPlayerFv,
     (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,
@@ -630,7 +630,7 @@ void *item_sol_atomizer_vtable[46] = {
     (void *)&dispatch_state__5TItemFv,
     (void *)&render_shadows__5TItemFv,
     (void *)&vfunc_6__13TUnk_804B9870FPsl,
-    (void *)&apply_object_set_data,
+    (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&release_member_90__10TObjPlayerFv,
     (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,
@@ -678,7 +678,7 @@ void *item_star_atomizer_vtable[46] = {
     (void *)&dispatch_state__5TItemFv,
     (void *)&render_shadows__5TItemFv,
     (void *)&vfunc_6__13TUnk_804B9870FPsl,
-    (void *)&apply_object_set_data,
+    (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&release_member_90__10TObjPlayerFv,
     (void *)&vfunc_9__11TItemObjectFv,
     (void *)&TItem__sub_80100B8C,

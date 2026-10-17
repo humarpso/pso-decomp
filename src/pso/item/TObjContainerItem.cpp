@@ -33,7 +33,7 @@ void run_task__13TUnk_804B6C24Fv();
 void render__13TUnk_804B6C24Fv();
 void render_shadows__7TObjectFv();
 void vfunc_6__21TObjContainerAbeEnemyFPsl();
-void apply_object_set_data();
+void apply_object_set_data__13TUnk_804B9870FPv();
 void reset_motion_fields__13TUnk_804806E8Fv();
 void vfunc_9__13TUnk_804806E8Fv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
@@ -111,7 +111,7 @@ void *__vt__21TObjContainerAbeEnemy[83] = {
     (void *)render__13TUnk_804B6C24Fv,
     (void *)render_shadows__7TObjectFv,
     (void *)vfunc_6__21TObjContainerAbeEnemyFPsl,
-    (void *)apply_object_set_data,
+    (void *)apply_object_set_data__13TUnk_804B9870FPv,
     (void *)reset_motion_fields__13TUnk_804806E8Fv,
     (void *)vfunc_9__13TUnk_804806E8Fv,
     (void *)update_object_view_visibility__13TUnk_804B9870Fff,

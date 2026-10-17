@@ -82,7 +82,7 @@ void try_start_action__6TOMineFll();
 void apply_knockback_from_attacker__6TOMineFPUc();
 void vfunc_79__6TOMineFv();
 void spawn_disp_objects__10TOMineTrapFPv();
-void vfunc_7__6TOMineFPv();
+void apply_object_set_data__6TOMineFPv();
 void vfunc_85__6TOMineFv();
 void vfunc_6__6TOMineFPsl();
 void receive_direct_attack__6TOMineFPvPvPvll();
@@ -161,7 +161,7 @@ void *__vt__12TOMineIcon04[87] = {
     (void *)render__6TOMineFv,
     (void *)render_shadows__7TObjectFv,
     (void *)vfunc_6__6TOMineFPsl,
-    (void *)vfunc_7__6TOMineFPv,
+    (void *)apply_object_set_data__6TOMineFPv,
     (void *)reset_motion_fields__13TUnk_804806E8Fv,
     (void *)vfunc_9__13TUnk_804806E8Fv,
     (void *)update_object_view_visibility__13TUnk_804B9870Fff,

@@ -155,7 +155,7 @@ void *TOVS2Wall01__ct(void *arg0, void *arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TOVS2Wall01;
     ((TObjPlayer *)((u8 *)arg0 + 0x340))->init_and_activate();
     *(s32 *)((s8 *)arg0 + 0) = TOVS2Wall01__class_name;
-    ((TOVS2Wall01 *)arg0)->vfunc_7(arg1);
+    ((TOVS2Wall01 *)arg0)->apply_object_set_data(arg1);
     ((TUnk_804806E8 *)arg0)->calc_attach_pos();
     obj_setFlags30(arg0, 0x60000000);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(TOVS2Wall01__bml_resource, 6);

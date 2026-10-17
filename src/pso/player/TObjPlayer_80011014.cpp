@@ -1838,7 +1838,7 @@ void run_task__7TObjectFv(void);
 void render__7TObjectFv(void);
 void render_shadows__7TObjectFv(void);
 void vfunc_6__13TUnk_804B9870FPsl(void);
-void apply_object_set_data(void);
+void apply_object_set_data__13TUnk_804B9870FPv(void);
 void update_object_view_visibility__13TUnk_804B9870Fff(void);
 void classify_actor_view_detail__13TUnk_804B9870Ffff(void);
 void vfunc_12__13TUnk_804B9870Fv(void);
@@ -1868,7 +1868,7 @@ void *lbl_804806E8[] = {
     (void *)render__7TObjectFv,
     (void *)render_shadows__7TObjectFv,
     (void *)vfunc_6__13TUnk_804B9870FPsl,
-    (void *)apply_object_set_data,
+    (void *)apply_object_set_data__13TUnk_804B9870FPv,
     (void *)reset_motion_fields__13TUnk_804806E8Fv,
     (void *)vfunc_9__13TUnk_804806E8Fv,
     (void *)update_object_view_visibility__13TUnk_804B9870Fff,

@@ -6,7 +6,7 @@ class TUnk_804B9870 : public TObject {
 public:
     virtual ~TUnk_804B9870();
     virtual void vfunc_6(s16 *, s32);
-    virtual void vfunc_7(void *);
+    virtual void apply_object_set_data(void *);
     virtual void reset_motion_fields();
     virtual void*vfunc_9();
     virtual s16 update_object_view_visibility(f32, f32);

@@ -21,7 +21,7 @@ void __dt__15TObjEnemyCustomFv();
 void render__15TObjEnemyCustomFv();
 void render_actor_shadows_default();
 void vfunc_6__13TUnk_804B9870FPsl();
-void apply_object_set_data();
+void apply_object_set_data__13TUnk_804B9870FPv();
 void reset_motion_fields__13TUnk_804806E8Fv();
 void vfunc_9__13TUnk_804806E8Fv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
@@ -97,7 +97,7 @@ void *__vt__15TObjEnemyCustom[83] = {
     (void *)render__15TObjEnemyCustomFv,
     (void *)render_actor_shadows_default,
     (void *)vfunc_6__13TUnk_804B9870FPsl,
-    (void *)apply_object_set_data,
+    (void *)apply_object_set_data__13TUnk_804B9870FPv,
     (void *)reset_motion_fields__13TUnk_804806E8Fv,
     (void *)vfunc_9__13TUnk_804806E8Fv,
     (void *)update_object_view_visibility__13TUnk_804B9870Fff,

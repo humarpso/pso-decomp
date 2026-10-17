@@ -396,7 +396,7 @@ void apply_anti_technique__13TUnk_804806E8Fl();
 void apply_attack_stat_status__13TUnk_804806E8FPv();
 void apply_confusion_status__13TUnk_804806E8Fv();
 void apply_movement_ailment__13TUnk_804806E8Fl();
-void apply_object_set_data();
+void apply_object_set_data__13TUnk_804B9870FPv();
 void apply_paralysis__13TUnk_804806E8Fv();
 void apply_poison_status__13TUnk_804806E8Fv();
 void apply_shock_status__13TUnk_804806E8Fv();
@@ -496,7 +496,7 @@ s32 __vt__16TOTrapAncient02R[90] = {
     (s32)&render__15TOTrapAncient02Fv,
     (s32)&render_shadows__7TObjectFv,
     (s32)&vfunc_6__6TOTrapFPsl,
-    (s32)&apply_object_set_data,
+    (s32)&apply_object_set_data__13TUnk_804B9870FPv,
     (s32)&reset_motion_fields__13TUnk_804806E8Fv,
     (s32)&vfunc_9__13TUnk_804806E8Fv,
     (s32)&update_object_view_visibility__13TUnk_804B9870Fff,
@@ -838,7 +838,7 @@ void *TOTrapAncient02R__ct(void *arg0, void *arg1, void *arg2) {
     ((s32 (*)(void *, void *))TOTrapAncient02__ct)(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TOTrapAncient02R;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D31B8;
-    ((TOTrapAncient02R *)arg0)->vfunc_7(arg2);
+    ((TOTrapAncient02R *)arg0)->apply_object_set_data(arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();
     ((TUnk_804806E8 *)arg0)->calc_attach_pos();
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&TOTrapAncient02__shared_resource) + 0x42C)) + 8);

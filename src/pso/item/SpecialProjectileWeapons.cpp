@@ -309,7 +309,7 @@ extern "C" void TItem__sub_80100B8C();
 extern "C" void vfunc_6__13TUnk_804B9870FPsl();
 extern "C" void add_equip_stats__14TItemEquipBaseFl();
 extern "C" void vfunc_44__11TItemWeaponFv();
-extern "C" void apply_object_set_data();
+extern "C" void apply_object_set_data__13TUnk_804B9870FPv();
 extern "C" void vfunc_48__11TItemWeaponFv();
 extern "C" void classify_actor_view_detail__13TUnk_804B9870Ffff();
 extern "C" void deliver_hit__11TItemWeaponFlPUcllf();
@@ -345,7 +345,7 @@ extern "C" void vfunc_34__11TItemWeaponFv();
 extern "C" void vfunc_28__11TItemWeaponFv();
 void *megid_projectile_weapon_vtable[63] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__13TUnk_804A204CFv, (void *)&run_task__5TItemFv,
-    (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data,
+    (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&release_member_90__10TObjPlayerFv, (void *)&get_motion_ptr__11TItemWeaponFv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFl, (void *)&vfunc_14__11TItemWeaponFv, (void *)&TItem__sub_801005E0,
     (void *)&vfunc_16__11TItemWeaponFv, (void *)&vfunc_17__11TItemWeaponFl, (void *)&TItemWeapon__write_item_data, (void *)&set_attach_slot__14TItemEquipBaseFSc,
@@ -367,7 +367,7 @@ void *recoil_weapon_shoot_model_vtable[7] = {
 };
 void *recoiling_projectile_weapon_vtable[63] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__13TUnk_804A2164Fv, (void *)&run_task__5TItemFv,
-    (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data,
+    (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&release_member_90__10TObjPlayerFv, (void *)&get_motion_ptr__11TItemWeaponFv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&register_attack__5TItemFv, (void *)&try_pick_up_item__5TItemFl, (void *)&vfunc_14__11TItemWeaponFv, (void *)&TItem__sub_801005E0,
     (void *)&vfunc_16__11TItemWeaponFv, (void *)&vfunc_17__11TItemWeaponFl, (void *)&TItemWeapon__write_item_data, (void *)&set_attach_slot__14TItemEquipBaseFSc,

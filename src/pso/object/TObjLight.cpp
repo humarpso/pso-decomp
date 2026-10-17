@@ -212,7 +212,7 @@ u8 *TObjLight__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     construct_world_actor_base((void *) (arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80194528___vt__9TObjLight *)&__vt__9TObjLight).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D33B8;
-    ((TObjLight *)(arg0))->vfunc_7(arg2);
+    ((TObjLight *)(arg0))->apply_object_set_data(arg2);
     *(s32 *)((s8 *)arg0 + 0x90) = (s32) *(s16 *)((s8 *)arg2 + 8);
     *(f32 *)((s8 *)arg0 + 0xF0) = (f32) 0.5f;
     *(f32 *)((s8 *)arg0 + 0xF4) = (f32) *(f32 *)((s8 *)arg0 + 0x68);

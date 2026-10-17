@@ -191,7 +191,7 @@ void apply_confusion_status__13TUnk_804806E8Fv();
 void apply_hit_message_flags__9TObjEnemyFPv();
 void apply_knockback_from_attacker__13TUnk_804806E8FPUc();
 void apply_movement_ailment__13TUnk_804806E8Fl();
-void apply_object_set_data();
+void apply_object_set_data__13TUnk_804B9870FPv();
 void apply_paralysis__13TUnk_804806E8Fv();
 void apply_poison_status__13TUnk_804806E8Fv();
 void apply_set_data__9TObjEnemyFPv();
@@ -287,7 +287,7 @@ void *saver_collision_body_part_table[11] = {
 };
 void *TObjEneSaver__vtable[83] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__12TObjEneSaverFv, (void *)&TObjPlayer__sub_800A6EC0,
-    (void *)&TObjPlayer__sub_800A6C54, (void *)&render_actor_shadows_default, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data,
+    (void *)&TObjPlayer__sub_800A6C54, (void *)&render_actor_shadows_default, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__12TObjEneSaverFv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,

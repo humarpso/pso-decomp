@@ -68,7 +68,7 @@ s32 TItemObject__vt36(void *arg0, s32 arg1);
 void vfunc_44__11TItemObjectFv(void *arg0);
 s32 vfunc_36__11TItemObjectFv(void);
 void run_task__5TItemFv(); void dispatch_state__5TItemFv(); void render_shadows__5TItemFv();
-void vfunc_6__13TUnk_804B9870FPsl(); void apply_object_set_data(); void release_member_90__10TObjPlayerFv();
+void vfunc_6__13TUnk_804B9870FPsl(); void apply_object_set_data__13TUnk_804B9870FPv(); void release_member_90__10TObjPlayerFv();
 void TItem__sub_80100B8C(); void classify_actor_view_detail__13TUnk_804B9870Ffff(); void register_attack__5TItemFv();
 void try_pick_up_item__5TItemFl(); void TItem__sub_801005E0(); void vfunc_16__5TItemFv();
 void vfunc_17__5TItemFv(); void vfunc_19__5TItemFv(); void vfunc_20__5TItemFv();
@@ -81,7 +81,7 @@ void TItem__sub_801005E4(); void TItem__sub_801005D8(); void vfunc_43__5TItemFv(
 void *__vt__11TItemObject[] = {
     0, 0,
     (void *)__dt__11TItemObjectFv, (void *)run_task__5TItemFv, (void *)dispatch_state__5TItemFv,
-    (void *)render_shadows__5TItemFv, (void *)vfunc_6__13TUnk_804B9870FPsl, (void *)apply_object_set_data,
+    (void *)render_shadows__5TItemFv, (void *)vfunc_6__13TUnk_804B9870FPsl, (void *)apply_object_set_data__13TUnk_804B9870FPv,
     (void *)release_member_90__10TObjPlayerFv, (void *)vfunc_9__11TItemObjectFv, (void *)TItem__sub_80100B8C,
     (void *)classify_actor_view_detail__13TUnk_804B9870Ffff, (void *)register_attack__5TItemFv, (void *)try_pick_up_item__5TItemFl,
     (void *)vfunc_14__11TItemObjectFv, (void *)TItem__sub_801005E0, (void *)vfunc_16__5TItemFv,

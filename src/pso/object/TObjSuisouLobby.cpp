@@ -50,7 +50,7 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void queue_destruction__7TObjectFv(void *);
 
-void render_shadows__7TObjectFv(); void vfunc_6__13TUnk_804B9870FPsl(); void apply_object_set_data(); void release_member_90__10TObjPlayerFv();
+void render_shadows__7TObjectFv(); void vfunc_6__13TUnk_804B9870FPsl(); void apply_object_set_data__13TUnk_804B9870FPv(); void release_member_90__10TObjPlayerFv();
 void vfunc_9__13TUnk_804B9870Fv(); void update_object_view_visibility__13TUnk_804B9870Fff(); void classify_actor_view_detail__13TUnk_804B9870Ffff();
 void vfunc_12__13TUnk_804B9870Fv(); void vfunc_13__13TUnk_804AF8A0Fl();
 #pragma readonly_strings on
@@ -62,7 +62,7 @@ void *lobby_suisou_resource_descriptor[4] = { (void *)"bm_obj_lobby_suisou.bml",
 char *lbl_805D44C4 = "TObjSuisouLobby";
 void *__vt__15TObjSuisouLobby[14] = {
     0, 0, (void *)__dt__15TObjSuisouLobbyFv, (void *)run_task__15TObjSuisouLobbyFv, (void *)render__15TObjSuisouLobbyFv,
-    (void *)render_shadows__7TObjectFv, (void *)vfunc_6__13TUnk_804B9870FPsl, (void *)apply_object_set_data,
+    (void *)render_shadows__7TObjectFv, (void *)vfunc_6__13TUnk_804B9870FPsl, (void *)apply_object_set_data__13TUnk_804B9870FPv,
     (void *)release_member_90__10TObjPlayerFv, (void *)vfunc_9__13TUnk_804B9870Fv, (void *)update_object_view_visibility__13TUnk_804B9870Fff,
     (void *)classify_actor_view_detail__13TUnk_804B9870Ffff, (void *)vfunc_12__13TUnk_804B9870Fv, (void *)vfunc_13__13TUnk_804AF8A0Fl,
 };
@@ -193,7 +193,7 @@ void *TObjSuisouLobby__ct(void *arg0, void *arg1, void *arg2) {
     init_map_object_base(arg0, arg1);
     *(void ***)((u8 *)arg0 + 0x18) = ((void * *)__vt__15TObjSuisouLobby);
     *(s32 *)arg0 = (s32)lbl_805D44C4;
-    ((TObjSuisouLobby *)arg0)->vfunc_7(arg2);
+    ((TObjSuisouLobby *)arg0)->apply_object_set_data(arg2);
     {
         Vec_80369ED4 v = lbl_8047A3D0[0];
         push_matrix();

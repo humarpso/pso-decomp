@@ -242,7 +242,7 @@ void *TOHealGeneral__ct(void *arg0, void *arg1) {
     init_map_object_base(self, tl_05);
     self->vtable = __vt__13TOHealGeneral;
     self->f0 = TOHealGeneral__class_name;
-    ((TOHealGeneral *)self)->vfunc_7(arg1);
+    ((TOHealGeneral *)self)->apply_object_set_data(arg1);
     self->f34 = *(s32 *)((s8 *)(*(u8 **)((s8 *)TOHealGeneral__model_archive + 0x42C)) + 8);
     model = *(u8 **)((s8 *)TOHealGeneral__model_archive + 0x42C);
     self->f24 = *(s32 *)((s8 *)model + 0xC);

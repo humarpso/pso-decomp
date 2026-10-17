@@ -174,7 +174,7 @@ u8 *TODragonflyCave01__ct(u8 *arg0, void *arg1) {
     TODragonfly__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TODragonflyCave01;
     *(s32 *)((s8 *)arg0 + 0) = TODragonflyCave01__class_name;
-    ((TODragonflyCave01 *)(arg0))->vfunc_7(arg1);
+    ((TODragonflyCave01 *)(arg0))->apply_object_set_data(arg1);
     *(void **)((s8 *)arg0 + 0x34) = *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyCave01__static_model_resource) + 0x42C)) + 8);
     *(s32 *)((s8 *)arg0 + 0x24) = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyCave01__static_model_resource) + 0x42C)) + 0xC);
     *(void **)((s8 *)arg0 + 0xBC) = *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyCave01__static_model_resource) + 0x430)) + 4);

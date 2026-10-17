@@ -33,7 +33,7 @@ struct TItemWeapon : WeaponObjectPrefix {
     virtual void render();
     virtual void render_shadows();
     virtual void vfunc_6();
-    virtual void vfunc_7();
+    virtual void apply_object_set_data();
     virtual void reset_motion_fields();
     virtual void vfunc_9();
     virtual void update_object_view_visibility();

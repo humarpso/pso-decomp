@@ -595,7 +595,7 @@ extern "C" {
 void apply_movement_ailment__13TUnk_804806E8Fl();
 }
 extern "C" {
-void apply_object_set_data();
+void apply_object_set_data__13TUnk_804B9870FPv();
 }
 extern "C" {
 void apply_paralysis__13TUnk_804806E8Fv();
@@ -916,7 +916,7 @@ void *slime_tail_attack_transform[3] = {
 };
 void *__vt__22TObjEneSlimeTailAttack[83] = {
     (void *)0x0, (void *)0x0, (void *)&dt__22TObjEneSlimeTailAttackFPvs, (void *)&TObjPlayer__sub_800E87FC,
-    (void *)&TObjPlayer__sub_800E84F8, (void *)&render_actor_shadows_default, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data,
+    (void *)&TObjPlayer__sub_800E84F8, (void *)&render_actor_shadows_default, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,

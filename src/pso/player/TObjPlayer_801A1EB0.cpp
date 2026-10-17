@@ -14,7 +14,7 @@ struct Dst_801A1F48 { u8 pad[0x1C]; u16 id; u8 pad1e[0xA]; s16 kind; u8 pad2a[0x
 
 extern "C" {
 Vec_801A1F48 *VecCopy__FP3VecPC3Vec(Vec_801A1F48 *, const Vec_801A1F48 *);
-void apply_object_set_data(Dst_801A1F48 *self, Src_801A1F48 *src);
+void apply_object_set_data__13TUnk_804B9870FPv(Dst_801A1F48 *self, Src_801A1F48 *src);
 extern u16 lbl_805D5CD4;
 extern u16 lbl_805D5CD6;
 void vfunc_6__13TUnk_804B9870FPsl(void);
@@ -37,7 +37,9 @@ s16 TUnk_804B9870::get_stat_by_key_state() {
     return *(s16 *)&this->m_28;
 }
 
-void apply_object_set_data(Dst_801A1F48 *self, Src_801A1F48 *src) {
+void TUnk_804B9870::apply_object_set_data(void *src_arg) {
+    Dst_801A1F48 *self = (Dst_801A1F48 *)this;
+    Src_801A1F48 *src = (Src_801A1F48 *)src_arg;
     s32 i;
     self->id = src->id;
     VecCopy__FP3VecPC3Vec(&self->pos2, VecCopy__FP3VecPC3Vec(&self->pos, &src->pos));

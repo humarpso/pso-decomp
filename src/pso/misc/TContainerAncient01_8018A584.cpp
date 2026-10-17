@@ -285,7 +285,7 @@ extern "C" void apply_anti_technique__13TUnk_804806E8Fl();
 extern "C" void apply_attack_stat_status__13TUnk_804806E8FPv();
 extern "C" void apply_confusion_status__13TUnk_804806E8Fv();
 extern "C" void apply_movement_ailment__13TUnk_804806E8Fl();
-extern "C" void apply_object_set_data();
+extern "C" void apply_object_set_data__13TUnk_804B9870FPv();
 extern "C" void apply_paralysis__13TUnk_804806E8Fv();
 extern "C" void apply_poison_status__13TUnk_804806E8Fv();
 extern "C" void apply_shock_status__13TUnk_804806E8Fv();
@@ -363,7 +363,7 @@ void *TContainerAncient01__anim_table[12] = {
 };
 void *__vt__20TContainerAncient01R[79] = {
     (void *)0x0, (void *)0x0, (void *)&dt__20TContainerAncient01RFPvs, (void *)&run_task__20TContainerAncient01RFv,
-    (void *)&render__20TContainerAncient01RFv, (void *)&render_shadows__7TObjectFv, (void *)&vfunc_6__20TContainerAncient01RFPsl, (void *)&apply_object_set_data,
+    (void *)&render__20TContainerAncient01RFv, (void *)&render_shadows__7TObjectFv, (void *)&vfunc_6__20TContainerAncient01RFPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__13TUnk_804B9870Fv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,

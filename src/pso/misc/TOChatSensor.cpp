@@ -34,7 +34,7 @@ u32 TOChatSensor__ct(int arg0, void *parent, void *arg2) {
     construct_world_actor_base((void *) arg0, parent);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TOChatSensor;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D2ED8;
-    ((TOChatSensor *)arg0)->vfunc_7(arg2);
+    ((TOChatSensor *)arg0)->apply_object_set_data(arg2);
     *(s32 *)((s8 *)arg0 + 0xC4) = 0;
     *(s32 *)((s8 *)arg0 + 0xA0) = 0;
     ((TOChatSensor *)arg0)->init_params();

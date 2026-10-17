@@ -201,7 +201,7 @@ void *TOSensorGeneral01__ct(void *arg0, void *arg1, void *arg2) {
     TOSensor__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TOSensorGeneral01;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3154;
-    ((TOSensorGeneral01 *)arg0)->vfunc_7(arg2);
+    ((TOSensorGeneral01 *)arg0)->apply_object_set_data(arg2);
     ((TOKey *)arg0)->init_switch_id();
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *TOSensorGeneral01__texture_lists;
     *(void **)((s8 *)arg0 + 0x34) = (void *) *(void **)((s8 *)(*(void **)((s8 *)(*(void * *)&sensor_general_shared_bml_archive) + 0x42C)) + 8);

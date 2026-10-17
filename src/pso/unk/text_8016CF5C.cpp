@@ -52,7 +52,7 @@ void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source) {
     TOKey__ct(arg0, parent);
     *(void **)((s8 *)arg0 + 0x18) = __vt__14TOKeyGenericSw;
     *(s32 *)((s8 *)arg0 + 0) = TOKeyGenericSw__name;
-    ((TOKeyGenericSw *)arg0)->vfunc_7(source);
+    ((TOKeyGenericSw *)arg0)->apply_object_set_data(source);
     ((TOKey *)arg0)->init_switch_id();
     *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(void **)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1] + 0x42C)) + 8);
     *(void **)((s8 *)arg0 + 0xBC) = *(void **)((s8 *)(*(void **)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1] + 0x430)) + 4);

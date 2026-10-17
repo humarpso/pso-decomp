@@ -838,7 +838,7 @@ void apply_anti_technique__13TUnk_804806E8Fl();
 void apply_attack_stat_status__13TUnk_804806E8FPv();
 void apply_confusion_status__13TUnk_804806E8Fv();
 void apply_movement_ailment__13TUnk_804806E8Fl();
-void apply_object_set_data();
+void apply_object_set_data__13TUnk_804B9870FPv();
 void apply_paralysis__13TUnk_804806E8Fv();
 void apply_poison_status__13TUnk_804806E8Fv();
 void apply_shock_status__13TUnk_804806E8Fv();
@@ -906,7 +906,7 @@ void *__vt__14TOTrapSeabed01[91] = {
     (void *)&render__14TOTrapSeabed01Fv,
     (void *)&render_shadows__7TObjectFv,
     (void *)&vfunc_6__14TOTrapSeabed01FPsl,
-    (void *)&apply_object_set_data,
+    (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv,
     (void *)&vfunc_9__13TUnk_804806E8Fv,
     (void *)&update_object_view_visibility__13TUnk_804B9870Fff,

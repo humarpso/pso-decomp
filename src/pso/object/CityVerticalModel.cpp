@@ -182,7 +182,7 @@ __declspec(section ".sdata2") extern const f32 city_vertical_model_max_y_offset 
 __declspec(section ".sdata2") extern const f32 city_vertical_model_y_step = 2.0f;
 void render_shadows__7TObjectFv();
 void vfunc_6__13TUnk_804B9870FPsl();
-void apply_object_set_data();
+void apply_object_set_data__13TUnk_804B9870FPv();
 void reset_motion_fields__13TUnk_804B9870Fv();
 void vfunc_9__13TUnk_804B9870Fv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
@@ -196,7 +196,7 @@ s32 city_vertical_model_vtable[14] = {
     (s32)render__13TUnk_804B5C08Fv,
     (s32)render_shadows__7TObjectFv,
     (s32)vfunc_6__13TUnk_804B9870FPsl,
-    (s32)apply_object_set_data,
+    (s32)apply_object_set_data__13TUnk_804B9870FPv,
     (s32)reset_motion_fields__13TUnk_804B9870Fv,
     (s32)vfunc_9__13TUnk_804B9870Fv,
     (s32)update_object_view_visibility__13TUnk_804B9870Fff,

@@ -81,7 +81,7 @@ void *TObjEnvSound__ct(Obj_80190AA0 *self, void *parent, void *arg2) {
     construct_world_actor_base(self, parent);
     self->vtbl = __vt__12TObjEnvSound;
     self->unk0 = TObjEnvSound__class_name;
-    ((TObjEnvSound *)self)->vfunc_7(arg2);
+    ((TObjEnvSound *)self)->apply_object_set_data(arg2);
     table = environment_sound_tables_by_area[TOKeyMachine01::get_global_state()];
     if (table != NULL) {
         copy_pair__18TObjEnvSoundGlobalFPvPv(&self->sound, &table[self->index]);

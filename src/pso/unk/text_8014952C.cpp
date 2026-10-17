@@ -137,7 +137,7 @@ extern "C" void apply_attack_stat_status__13TUnk_804806E8FPv();
 extern "C" void apply_confusion_status__13TUnk_804806E8Fv();
 extern "C" void apply_knockback_from_attacker__13TUnk_804806E8FPUc();
 extern "C" void apply_movement_ailment__13TUnk_804806E8Fl();
-extern "C" void apply_object_set_data();
+extern "C" void apply_object_set_data__13TUnk_804B9870FPv();
 extern "C" void apply_paralysis__13TUnk_804806E8Fv();
 extern "C" void apply_poison_status__13TUnk_804806E8Fv();
 extern "C" void apply_set_data__9TObjEnemyFPv();
@@ -207,7 +207,7 @@ void *lbl_804A7EC0[22] = {
 };
 void *__vt__14TObjNpcBringer[94] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__14TObjNpcBringerFv, (void *)&run_task__11TObjNpcBaseFPv,
-    (void *)&draw_model__10TObjPlayerFv, (void *)&render_actor_shadows_default, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data,
+    (void *)&draw_model__10TObjPlayerFv, (void *)&render_actor_shadows_default, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&handle_message_event__17TObjNpcFemaleBaseFUs, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,

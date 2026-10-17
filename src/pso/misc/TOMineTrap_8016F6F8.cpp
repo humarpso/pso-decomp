@@ -104,7 +104,7 @@ struct Pair_80170DD8 { s32 a; s32 b; };
 extern "C" {
 void set_indexed_flags(void *, s32, s32);
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
-s32 apply_object_set_data();
+s32 apply_object_set_data__13TUnk_804B9870FPv();
 int get_localized_text_entry(void*, void*);
 s32 get_main_phase();
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -325,9 +325,9 @@ void spawn_disp_objects__10TOMineTrapFPv(u8 *arg0) {
     }
 }
 
-void TOMine::vfunc_7(void *) {
+void TOMine::apply_object_set_data(void *set_data) {
     u8 *arg0 = (u8 *)this;
-    apply_object_set_data();
+    TUnk_804B9870::apply_object_set_data(set_data);
     this->spawn_disp_objects();
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x334), (void *) (arg0 + 0x38));
 }
