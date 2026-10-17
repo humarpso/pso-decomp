@@ -145,7 +145,7 @@ extern "C" void render_shadows__9TObjEnemyFv(u8 *arg0);
 extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__13TUnk_804806E8Fv();
 extern "C" void roll_physical_accuracy__13TUnk_804806E8FPvlf();
-extern "C" void run_task__13TBoss2DeRolLeFPv();
+extern "C" void run_task__13TBoss2DeRolLeFPv(u8 *arg0);
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
 extern "C" void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 extern "C" void try_start_action__13TUnk_804806E8Fll();
@@ -342,7 +342,7 @@ extern "C" {
 int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern u8 *lbl_805D4BA4;
 void TObjPlayer__sub_8002E7C8(void);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 create_particle__17TObjBoss2CeilJunkFv(void *, s32);
 f32 vec3_add_to(void *, void *);
 void scale_matrix(int, f32, f32, f32);
@@ -5126,14 +5126,14 @@ extern const f32 TBoss2DeRolLe__data_805D82BC;
 extern const f32 lbl_805D844C;
 void TBoss2DeRolLe__sub_800360A8(void *arg0);
 s32 advance_action_sequence__13TBoss2DeRolLeFPv(void *);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 construct_piece_controller__10TObjPlayerFPvii(int, void *, int);
-s32 advance_phase_wrap__13TBoss2DeRolLeFPv(void *);
-s32 update_projectile_spawns__13TBoss2DeRolLeFPv(void *);
+void advance_phase_wrap__13TBoss2DeRolLeFPv(u8 *arg0);
+void update_projectile_spawns__13TBoss2DeRolLeFPv(u8 *arg0);
 s32 update_particle_ctrls__13TBoss2DeRolLeFPv(void *);
 s32 TBoss2DeRolLe__sub_80034034(void *);
 s32 is_ready__13TBoss2DeRolLeFPv(void *);
-s32 backup_pos__13TBoss2DeRolLeFi(void *);
+void backup_pos__13TBoss2DeRolLeFi(s32 arg0);
 void TBoss2DeRolLe__sub_8003508C(void *arg0);
 s32 query_teammate_state__9TObjEneDDFv();
 s32 is_main_phase_15__9TObjEneDDFv();
@@ -5143,7 +5143,7 @@ extern const f32 TBoss2DeRolLe__data_805D82A0;
 void run_task__13TBoss2DeRolLeFPv(u8 *arg0);
 extern RecoveredGlobal_800365C8_lbl_80435A44 lbl_80435A44;
 s32 __dt__7TObjectFv(void *, int);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 free_if_positive__13TBoss2DeRolLeFis(s32 arg0, s16 arg1);
 void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1);
 s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1);
@@ -5274,7 +5274,7 @@ void run_task__13TBoss2DeRolLeFPv(u8 *arg0) {
   if (temp_r3 & 0x8000)
   {
     ((TObjEnemy *)arg0)->send_entity_set_flags();
-    queue_destruction__7TObjectFv((void *) arg0);
+    queue_destruction__7TObjectFv(arg0);
     return;
   }
   if (temp_r3 & 0x80)
@@ -5362,12 +5362,12 @@ void run_task__13TBoss2DeRolLeFPv(u8 *arg0) {
       }
       (((VObj_18_bd2ad6 *)(arg0))->m85((((TBoss2DeRolLe *)arg0)->mode), 0));
     }
-    advance_phase_wrap__13TBoss2DeRolLeFPv((void *) arg0);
-    update_projectile_spawns__13TBoss2DeRolLeFPv((void *) arg0);
+    advance_phase_wrap__13TBoss2DeRolLeFPv(arg0);
+    update_projectile_spawns__13TBoss2DeRolLeFPv(arg0);
   }
   ((TObjEneDD *)arg0)->sub_800BBA0C();
   (((VObj_18_bd2ad6 *)(arg0))->m86());
-  backup_pos__13TBoss2DeRolLeFi((void *) arg0);
+  backup_pos__13TBoss2DeRolLeFi((s32)arg0);
   ((TBoss8Dragon *)arg0)->set_player_state_default();
   add_radar_scaled_marker(arg0 + 0x38, -0x5DB4, 1, 1, (f32) TBoss2DeRolLe__data_805D82A0);
   update_particle_ctrls__13TBoss2DeRolLeFPv((void *) arg0);
@@ -5698,7 +5698,7 @@ extern "C" void render_shadows__9TObjEnemyFv(u8 *arg0);
 extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__13TUnk_804806E8Fv();
 extern "C" void roll_physical_accuracy__13TUnk_804806E8FPvlf();
-extern "C" void run_task__13TBoss2DeRolLeFPv();
+extern "C" void run_task__13TBoss2DeRolLeFPv(u8 *arg0);
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
 extern "C" void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 extern "C" void try_start_action__13TUnk_804806E8Fll();
