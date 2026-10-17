@@ -609,11 +609,9 @@ void TOTrapAncient02R::calc_trap_count() {
 void TOTrapAncient02R::vfunc_82() {
     f32 temp_f1;
     f32 temp_f1_2;
-    s16 temp_r0;
     set_indexed_flags(this, 0, 1);
     submit_cursor_candidate(this, -1);
-    temp_r0 = this->phase;
-    switch (temp_r0) {
+    switch (this->phase) {
     case 0:
     case 1:
         this->phase = 2;

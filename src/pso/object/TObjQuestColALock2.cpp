@@ -161,7 +161,6 @@ void *__dt__18TObjQuestColALock2Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 u8 *TObjQuestColALock2__ct(u8 *arg0, s32 arg1, s32 _w2) {
-    s32 temp_r0;
     u8 *temp_r4;
     TObjQuestColBase__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80195BEC___vt__18TObjQuestColALock2 *)&__vt__18TObjQuestColALock2).value;
@@ -180,8 +179,7 @@ u8 *TObjQuestColALock2__ct(u8 *arg0, s32 arg1, s32 _w2) {
     if ((s32) ((TObjQuestColALock2 *)arg0)->m_c0> 1) {
         ((TObjQuestColALock2 *)arg0)->m_c0 = 1;
     }
-    temp_r0 = ((TObjQuestColALock2 *)arg0)->m_c0;
-    switch (temp_r0) {
+    switch (((TObjQuestColALock2 *)arg0)->m_c0) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0xBC) = (s32) quest_mission_manager;
         break;

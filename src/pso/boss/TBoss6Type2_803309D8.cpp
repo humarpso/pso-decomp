@@ -38,10 +38,8 @@ s32 TBoss6Type2::create_mag(s32 arg0) {
 }
 
 void fn_80330A40(u8 *arg0) {
-    u8 *temp_r3;
 
-    temp_r3 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x2C));
-    ((VObj_803309D8 *) temp_r3)->m7();
+    ((VObj_803309D8 *) ((unsigned char *) (*(void **)((s8 *)arg0 + 0x2C))))->m7();
     *(s8 *)((s8 *)arg0 + 0x1C) = 0x22;
 }
 

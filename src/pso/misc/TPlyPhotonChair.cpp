@@ -204,7 +204,6 @@ void TPlyPhotonChair::render() {
 
 void TPlyPhotonChair::run_task() {
     u8 *arg0 = (u8 *)this;
-    u32 temp_r0;
     if (get_player_by_client_id((((TPlyPhotonChair *)arg0)->sub_8035B530())) == 0U) {
         queue_destruction__7TObjectFv((arg0));
         return;
@@ -216,8 +215,7 @@ void TPlyPhotonChair::run_task() {
         ((TPlyPhotonChair *)(arg0 + 0xB4))->set_state_ready();
         TPlyPhotonChair__sub_8035B56C((void*)(arg0 + 0xB4), lbl_805E0128);
     }
-    temp_r0 = this->m_94;
-    switch ((s32) temp_r0) {
+    switch ((s32) this->m_94) {
     case 0:
         ((TPlyPhotonChair *)(arg0 + 0x98))->update_bob_motion();
         ((TPlyPhotonChair *)(arg0 + 0xB4))->update_bob_motion();

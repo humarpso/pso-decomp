@@ -90,11 +90,9 @@ void TBoss3VoloptCtrl::dispatch_state(s32 arg0) {
 }
 
 void TBoss3VoloptCtrl::run_task() {
-    s32 temp_r0;
     u8 *temp_r3;
     countdown = (countdown - 1);
-    temp_r0 = phase;
-    switch (temp_r0) {
+    switch (phase) {
     case 0:
         phase = 1;
         break;

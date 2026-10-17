@@ -101,7 +101,6 @@ u32 prs_decompress_buffer(s32 arg0, s32 arg1) {
   s32 var_r5;
   s32 var_r6;
   u32 var_r30;
-  u32 var_r30_2;
   u32 var_r31;
   u32 var_r3;
   u32 phi_r30;
@@ -122,8 +121,7 @@ u32 prs_decompress_buffer(s32 arg0, s32 arg1) {
     src = var_r29;
     var_r5 = var_r28;
     var_r6 = 0;
-    var_r30_2 = prs_decompress((int) var_r3, (int) src, (int) var_r5, 0);
-    phi_r30 = var_r30_2;
+    phi_r30 = (prs_decompress((int) var_r3, (int) src, (int) var_r5, 0));
   }
   if (var_r31 != 0U)
   {
@@ -168,10 +166,8 @@ void render_screen_fade(Fade_800F7E28 *self) {
 }
 
 void TLobby::dispatch_state() {
-    s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x24);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)this + 0x24)) {
     case 1:
         step_fade_opacity_decrease__13TUnk_80499970Fv((u8 *)this);
         return;

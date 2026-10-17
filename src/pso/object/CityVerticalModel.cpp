@@ -103,9 +103,7 @@ void TUnk_804B5C08::render() {
 #define PSO_VCALL_VObj_18_26a62c_m8(_self, _arg0, _arg1) (((VObj_18_26a62c *)(_self))->m8((_arg0), (_arg1)))
 void TUnk_804B5C08::run_task() {
     u8 *arg0 = (u8 *)this;
-  s32 temp_r0;
-  temp_r0 = *((s32 *) (((s8 *) arg0) + 0x90));
-  switch (temp_r0)
+  switch (*((s32 *) (((s8 *) arg0) + 0x90)))
   {
     case 0:
       *((s32 *) (((s8 *) arg0) + 0x98)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x98))) - 1);

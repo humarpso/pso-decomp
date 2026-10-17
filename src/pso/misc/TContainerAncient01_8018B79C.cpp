@@ -118,11 +118,9 @@ void TContainerAncient01::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     f32 temp_f1_2;
-    s16 temp_r0;
     if (TObjPlayer::check_demo_mode() == 0) {
         if ((s32) *(s32 *)&this->m_35c == 0) {
-            temp_r0 = this->mode;
-            switch (temp_r0) {
+            switch (this->mode) {
             case 0:
                 ((TContainerAncient01 *)arg0)->update_wait_for_player();
                 break;

@@ -2474,13 +2474,11 @@ void TObjEneMe1Gee::vfunc_112(s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_800C9318, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800C9318, spC) == 0x4) ? 1 : -1];
     Stack_800C9318 stack;
-    u8 *temp_r3;
     switch (arg1) {
     case 4:
         if ((s32) *(s32 *)((s8 *)arg0 + 0x3C4) == 1) {
             *(u8 **)((s8 *)arg0 + 0x3C0) = (u8 *)find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x48C));
-            temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x3C0));
-            ((VObj_18_0f49f2 *)(temp_r3))->m115(arg0);
+            ((VObj_18_0f49f2 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x3C0))))->m115(arg0);
         }
         create_breakup_mdl__12TBoss3VoloptFlllll(TObjEneMe1Gee__data_805D51C4, 0, *(s32 *)((s8 *)arg0 + 0x24), (s32)(arg0 + 0x2FC), *(s32 *)((s8 *)arg0 + 0x60));
         play_sound_effect(TObjEneMe1Gee::handle_message((s32) arg0, 0x3A843), (u32)(arg0 + 0x38), 0, 0);
@@ -2499,7 +2497,6 @@ void TObjEneMe1Gee::vfunc_112(s32 arg1) {
 }
 
 void TObjEneMe1Gee::state_return_home(s32 arg1) {
-    s32 temp_r0;
 
     switch (arg1) {
     case 4:
@@ -2519,8 +2516,7 @@ void TObjEneMe1Gee::state_return_home(s32 arg1) {
         if (((TObjEneDD_ST *)((VObj *)this))->update_linked_position(TObjEneMe1Gee__data_805DA0A8) != 0) {
             *(s32 *)((s8 *)((VObj *)this) + 0x434) = 2;
         }
-        temp_r0 = *(s32 *)((s8 *)((VObj *)this) + 0x434);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)((VObj *)this) + 0x434)) {
         case 0:
             *(s32 *)((s8 *)((VObj *)this) + 0x438) = (s32) (*(s32 *)((s8 *)((VObj *)this) + 0x438) + 1);
             if ((s32) *(s32 *)((s8 *)((VObj *)this) + 0x438) >= 0x3C) {
@@ -2546,7 +2542,6 @@ void TObjEneMe1Gee::state_return_home(s32 arg1) {
 #pragma push
 #pragma opt_common_subs off
 void TObjEneMe1Gee__sub_800C9580(u8 *arg0, s32 arg1) {
-    u8 *temp_r3;
     switch (arg1) {
     case 4:
         ((RecoveredFields_800C9580_arg0 *)arg0)->field_B8 = 0;
@@ -2556,8 +2551,7 @@ void TObjEneMe1Gee__sub_800C9580(u8 *arg0, s32 arg1) {
         ((RecoveredFields_800C9580_arg0 *)arg0)->field_30 = (s32) (((RecoveredFields_800C9580_arg0 *)arg0)->field_30 | 0x800);
         if ((s32) ((RecoveredFields_800C9580_arg0 *)arg0)->field_3C4 == 1) {
             ((RecoveredFields_800C9580_arg0 *)arg0)->field_3C0 = (u8 *)find_entity_by_id(((RecoveredFields_800C9580_arg0 *)arg0)->field_48C);
-            temp_r3 = (u8 *)(((RecoveredFields_800C9580_arg0 *)arg0)->field_3C0);
-            ((VObj_18_455f6b *)(temp_r3))->m115(arg0);
+            ((VObj_18_455f6b *)((u8 *)(((RecoveredFields_800C9580_arg0 *)arg0)->field_3C0)))->m115(arg0);
         } else {
             ((TObjEnemy *)arg0)->send_entity_set_flags();
         }
@@ -3195,7 +3189,6 @@ void TObjEneMe1Gee__sub_800CA454(void *arg0, s32 arg1) {
 #pragma pop
 
 void TObjEneMe1Gee::state_attack(s32 arg1) {
-    s32 temp_r0;
     s32 temp_r3;
 
     switch (arg1) {
@@ -3218,8 +3211,7 @@ void TObjEneMe1Gee::state_attack(s32 arg1) {
     case 0:
         advance_animation_playback();
         ((TObjEneDD_ST *)this)->update_linked_position(TObjEneMe1Gee__data_805DA0A8);
-        temp_r0 = *(s32 *)((s8 *)this + 0x434);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)this + 0x434)) {
         case 0:
             temp_r3 = *(s32 *)((s8 *)this + 0x3C8);
             if (temp_r3 & 4) {
@@ -3288,8 +3280,6 @@ void TObjEneMe1Gee::vfunc_111(s32 arg1) {
 
 void TObjEneMe1Gee::vfunc_110(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
-    s32 temp_r0_2;
     s32 temp_r3;
 
     switch (arg1) {
@@ -3323,8 +3313,7 @@ void TObjEneMe1Gee::vfunc_110(s32 arg1) {
     case 0:
         ((void (*)())advance_animation_playback)();
         ((TObjEneDD_ST *)arg0)->update_linked_position(TObjEneMe1Gee__data_805DA0A8);
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x434);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x434)) {
         case 2:
             break;
         case 0:
@@ -3337,8 +3326,7 @@ void TObjEneMe1Gee::vfunc_110(s32 arg1) {
         case 1:
             if ((s32) *(s32 *)((s8 *)arg0 + 0x47C) == 0) {
                 *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C8) | 0x8000);
-                temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x3C4);
-                switch (temp_r0_2) {
+                switch (*(s32 *)((s8 *)arg0 + 0x3C4)) {
                 case 0:
                     set_flag3c8_bit2__13TObjEneMe1GeeFv(arg0);
                 case 1:
@@ -3407,7 +3395,6 @@ void TObjEneMe1Gee::state_hover(s32 arg1) {
 void TObjEneMe1Gee__sub_800CAFD8(u8 *arg0, s32 arg1) {
     Stack_800CAFD8 stack;
     f32 temp_f0;
-    s32 temp_r0;
     switch (arg1) {
     case 4:
         ((RecoveredFields_800CAFD8_arg0 *)arg0)->field_B8 = 0;
@@ -3434,8 +3421,7 @@ void TObjEneMe1Gee__sub_800CAFD8(u8 *arg0, s32 arg1) {
         return;
     case 0:
         ((void (*)(void *))advance_animation_playback)(arg0);
-        temp_r0 = ((RecoveredFields_800CAFD8_arg0 *)arg0)->field_434;
-        switch (temp_r0) {
+        switch (((RecoveredFields_800CAFD8_arg0 *)arg0)->field_434) {
         case 0:
             if (((VObj_14_948132 *)(arg0 + (972)))->m5() != 0) {
                 ((RecoveredFields_800CAFD8_arg0 *)arg0)->field_434 = 1;
@@ -3777,14 +3763,12 @@ s32 TObjEneMe1Gee__sub_800CBA80(u8 *arg0) {
 s32 TObjEneMe1Gee::check_can_attack() {
     f32 sp8;
     s32 var_r31;
-    void *temp_r3;
 
     var_r31 = 0;
     if (*(f32 *)((s8 *)this + 0x3AC) < lbl_805DA0FC) {
         var_r31 = 1;
         *(void **)((s8 *)this + 0x3C0) = find_entity_by_id(*(u16 *)((s8 *)this + 0x48C));
-        temp_r3 = *(void **)((s8 *)this + 0x3C0);
-        if ((((VObj_800CBA98 *)temp_r3)->m114(*(s32 *)((s8 *)this + 0x390)) == 0) && (((s32 (*)(void *, f32 *, f32))find_attack_target__13TObjEneMe1GeeFPvPv)(this, &sp8, lbl_805DA138) != 0) && (sp8 > lbl_805DA0FC)) {
+        if ((((VObj_800CBA98 *)(*(void **)((s8 *)this + 0x3C0)))->m114(*(s32 *)((s8 *)this + 0x390)) == 0) && (((s32 (*)(void *, f32 *, f32))find_attack_target__13TObjEneMe1GeeFPvPv)(this, &sp8, lbl_805DA138) != 0) && (sp8 > lbl_805DA0FC)) {
             var_r31 = 0;
         }
     }

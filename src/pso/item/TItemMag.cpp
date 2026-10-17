@@ -450,7 +450,6 @@ s32 mag_owner_freezes_follow(void *arg0) {
 s32 TItemMag::check_action_probability(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
-    u8 temp_r0_2;
     u8 temp_r3;
     u8 var_r31;
     u8 var_r5;
@@ -471,8 +470,7 @@ s32 TItemMag::check_action_probability(s32 arg1) {
     temp_r4 = arg0 + arg1;
     var_r31 = 0;
     if ((u8) *(u8 *)((s8 *)temp_r4 + 0x1BD) != 0) {
-        temp_r0_2 = *(u8 *)((s8 *)temp_r4 + 0x1C1);
-        switch ((s32) temp_r0_2) {
+        switch ((s32) (*(u8 *)((s8 *)temp_r4 + 0x1C1))) {
         case 0:
             var_r31 = *(u8 *)((s8 *)arg0 + 0x1BC);
             break;
@@ -1692,15 +1690,13 @@ void TItemMag__vt43(u8 *arg0) {
 }
 
 void TItemMag__vt42(u8 *arg0) {
-    u8 *temp_r3;
     *(s32 *)((s8 *)arg0 + 0x18C) = 0;
     if (((s32 (*)(void *))obj_isState2_324__13TUnk_804806E8Fv)((void *) (*(u8 **)((s8 *)arg0 + 0xF0))) == 0) {
         *(s32 *)((s8 *)arg0 + 0x18C) = 0x10;
         ((s32 (*)(void *))register_photon_blasts__8TItemMagFPv)(arg0);
     }
     ((TItemMag *)arg0)->request_support_action(1);
-    temp_r3 = *(u8 **)((s8 *)arg0 + 0xF0);
-    *(s16 *)((s8 *)arg0 + 0x1D4) = ((VObj_18 *)(temp_r3))->m14();
+    *(s16 *)((s8 *)arg0 + 0x1D4) = ((VObj_18 *)(*(u8 **)((s8 *)arg0 + 0xF0)))->m14();
     if ((s16) *(s16 *)((s8 *)arg0 + 0x1D6) == -1) {
         *(s16 *)((s8 *)arg0 + 0x1D6) = TOKeyMachine01::get_global_state();
     }

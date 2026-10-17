@@ -214,9 +214,7 @@ typedef char RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90_size
 
 void TMedicalCenterSequence::vfunc_11() {
     u8 *arg0 = (u8 *)this;
-    u32 temp_r0;
-    temp_r0 = this->m_20;
-    switch (temp_r0) {
+    switch (this->m_20) {
     case 0:
         this->restore_player_state();
         return;

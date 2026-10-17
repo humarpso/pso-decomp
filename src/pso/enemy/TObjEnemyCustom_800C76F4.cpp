@@ -59,9 +59,7 @@ void TObjEnemyCustom::render() {
 
 #define K_800C77A4 (*(const f32 *)&lbl_805DA07C)
 void TObjEnemyCustom__sub_800C77A4(u8 *arg0) {
-    s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case -1:
         break;
     case 0:
@@ -96,10 +94,8 @@ void TObjEnemyCustom::vfunc_63() {
 }
 
 void TObjEnemyCustom::update_knockback_state() {
-    s32 temp_r0;
 
-    temp_r0 = *(s32 *)&this->state;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->state) {
     case 0:
         *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFDFFFFF);
         this->m_b8 = 3;

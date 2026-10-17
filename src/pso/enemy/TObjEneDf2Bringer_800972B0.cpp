@@ -1291,10 +1291,8 @@ void TObjEneDf2Bringer__sub_80097E9C(u8 *arg0, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_80097E9C, sp8) == 0x0) ? 1 : -1];
     typedef char sp14_offset[(offsetof(Stack_80097E9C, sp14) == 0xC) ? 1 : -1];
     Stack_80097E9C stack;
-    s32 temp_r0;
     s32 temp_r3;
     s32 entry;
-    u8 *temp_r3_3;
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 4;
@@ -1323,8 +1321,7 @@ void TObjEneDf2Bringer__sub_80097E9C(u8 *arg0, s32 arg1) {
         ((s32 (*)())advance_animation_playback)();
         temp_r3 = *(s32 *)((s8 *)arg0 + 0x60);
         *(s32 *)((s8 *)arg0 + 0x480) = turn_toward_angle_limited__15TObjBoss2TunnelFlllll(temp_r3, (s32)((int) (*(s32 *)((s8 *)arg0 + 0x480))), temp_r3, 0x200, 0x2000);
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x4B0);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x4B0)) {
         case 0:
             if (objInBand((GameObj *)(arg0), TObjEneDf2Bringer__data_805D97F4) != 0) {
                 spawn_offset_particle__17TObjEneDf2BringerFPv(arg0);
@@ -1338,8 +1335,7 @@ void TObjEneDf2Bringer__sub_80097E9C(u8 *arg0, s32 arg1) {
                 matrix_mult_vec(0, (void *)(entry + 0x18), (void *)&stack.sp8);
                 matrix_mult_vec(0, (void *)entry, &stack.sp14);
                 pop_matrix();
-                temp_r3_3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x4A4));
-                ((VObj_18_d3b6b2 *)(temp_r3_3))->m4((s32 *)stack.sp8, (s32 *)stack.sp14);
+                ((VObj_18_d3b6b2 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x4A4))))->m4((s32 *)stack.sp8, (s32 *)stack.sp14);
             }
             update_attack_child__17TObjEneDf2BringerFPv(arg0);
             if (objInBand((GameObj *)(arg0), lbl_805D980C) != 0) {
@@ -1538,7 +1534,6 @@ void TObjEneDf2Bringer__sub_8009859C(u8 *arg0, s32 arg1) {
 
 void TObjEneDf2Bringer__sub_800987E8(u8 *arg0, s32 arg1) {
     s32 temp_r0;
-    s32 temp_r0_2;
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
@@ -1559,8 +1554,7 @@ void TObjEneDf2Bringer__sub_800987E8(u8 *arg0, s32 arg1) {
         break;
     case 0:
         advance_animation_playback(arg0);
-        temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x4AC);
-        switch (temp_r0_2) {
+        switch (*(s32 *)((s8 *)arg0 + 0x4AC)) {
         case 0:
             if (update_linked_position__12TObjEneDD_STFf(arg0, TObjEneDf2Bringer__data_805D9820) != 0) {
                 *(s32 *)((s8 *)arg0 + 0x4AC) = 2;
@@ -1728,7 +1722,6 @@ extern const f32 lbl_805D9824;
 
 void TObjEneDf2Bringer::exec(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
 
     switch (arg1) {
     case 4:
@@ -1756,8 +1749,7 @@ void TObjEneDf2Bringer::exec(s32 arg1) {
         advance_animation_playback();
         update_linked_position__12TObjEneDD_STFf(arg0, TObjEneDf2Bringer__data_805D9820);
         *(s32 *)((s8 *)arg0 + 0x4AC) = (s32) (*(s32 *)((s8 *)arg0 + 0x4AC) + 1);
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x4B0);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x4B0)) {
         case 0:
             if ((s32) *(s32 *)((s8 *)arg0 + 0x4AC) > 0x14) {
                 *(s32 *)((s8 *)arg0 + 0x4B0) = 1;

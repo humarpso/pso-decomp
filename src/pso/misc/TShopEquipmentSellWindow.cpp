@@ -234,20 +234,16 @@ void TShopEquipmentSellWindow::handle_sell_confirm() {
 }
 
 void TShopEquipmentSellWindow::handle_input_window_result() {
-    f32 temp_f31;
-    u16 temp_r31;
 
     if (((u32) *(u32 *)((s8 *)this + 0x394) != 0U) && (((TWindowInputNumber *)(*(u32 *)((s8 *)this + 0x394)))->is_confirmed() != 0)) {
         if ((u32) *(u32 *)((s8 *)this + 0x390) == 0U) {
-            temp_r31 = (u16) obj_getField1c(*(s32 *)((s8 *)this + 0x24));
-            *(u32 *)((s8 *)this + 0x390) = create_window_menu(get_window_layout_position(0x2B), 2, temp_r31);
+            *(u32 *)((s8 *)this + 0x390) = create_window_menu(get_window_layout_position(0x2B), 2, (u16) obj_getField1c(*(s32 *)((s8 *)this + 0x24)));
             forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)this + 0x390), get_shop_text(6), 6, 0);
             forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)this + 0x390), get_shop_text(7), 6, 1);
             ((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x390)))->calc_window_size();
             align_menu_entry_positions(*(u32 *)((s8 *)this + 0x390));
             ((TCheckRoomSequence *)(*(u32 *)((s8 *)this + 0x390)))->set_ready_flag();
-            temp_f31 = get_scale__15TShopWindowBaseFv(this);
-            ((TUnk_804CDFE8 *)(*(u32 *)((s8 *)this + 0x390)))->set_position_xy(get_scale__15TShopWindowBaseFv(this), temp_f31);
+            ((TUnk_804CDFE8 *)(*(u32 *)((s8 *)this + 0x390)))->set_position_xy(get_scale__15TShopWindowBaseFv(this), get_scale__15TShopWindowBaseFv(this));
         }
         *(s32 *)((s8 *)this + 0x37C) = ((TShopEquipmentSellWindow *)(*(u32 *)((s8 *)this + 0x394)))->get_result();
         TWindow__close((u8 *)(*(u32 *)((s8 *)this + 0x394)));
@@ -422,9 +418,7 @@ void TShopEquipmentSellWindow::vfunc_11() {
     u8 *arg0 = (u8 *)this;
     s32 (*temp_r12)(s32);
     s32 (*temp_r12_2)(s32);
-    u32 temp_r0;
-    temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
-    switch (temp_r0) {
+    switch (*(u32 *)((s8 *)arg0 + 0x20)) {
     case 0:
         ((TShopEquipmentSellWindow *)arg0)->build_sell_list();
         return;

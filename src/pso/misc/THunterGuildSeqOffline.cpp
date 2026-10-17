@@ -199,16 +199,12 @@ block_3:
 }
 
 void THunterGuildSeqOffline::open_judgment_window() {
-    f32 temp_f31;
-    u16 temp_r31;
 
     if ((this->vfunc_10() != 0)
         && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
-        temp_r31 = (u16)obj_getField1c(this->m_24);
-        *(s32 *)&this->m_2c = (s32)create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
+        *(s32 *)&this->m_2c = (s32)create_yes_no_window(get_window_layout_position(0x2B), (u16)obj_getField1c(this->m_24), 0, 0);
         ((TWindowSubComCardList *)(*(s32 *)&this->m_2c))->set_selected_index(1);
-        temp_f31 = get_scale__15TShopWindowBaseFv(this);
-        ((TUnk_804CDFE8 *)(*(s32 *)&this->m_2c))->set_position_xy(get_scale__15TShopWindowBaseFv(this), temp_f31);
+        ((TUnk_804CDFE8 *)(*(s32 *)&this->m_2c))->set_position_xy(get_scale__15TShopWindowBaseFv(this), get_scale__15TShopWindowBaseFv(this));
         ((VObj_802136A4_80212e50_80212D9C *)this)->m9(8, 1);
         set_field_20((s32)((void*)(6)));
     }
@@ -430,16 +426,12 @@ void THunterGuildSeqOffline::handle_confirm_window() {
 }
 
 void THunterGuildSeqOffline::open_judgment_item_window() {
-    f32 temp_f31;
-    u16 temp_r31;
 
     if ((this->vfunc_10() != 0)
         && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
-        temp_r31 = (u16)obj_getField1c(this->m_24);
-        *(s32 *)((s8 *)this + 0x3C) = (s32)create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
+        *(s32 *)((s8 *)this + 0x3C) = (s32)create_yes_no_window(get_window_layout_position(0x2B), (u16)obj_getField1c(this->m_24), 0, 0);
         ((TWindowSubComCardList *)(*(s32 *)((s8 *)this + 0x3C)))->set_selected_index(1);
-        temp_f31 = get_scale__15TShopWindowBaseFv(this);
-        ((TUnk_804CDFE8 *)(*(s32 *)((s8 *)this + 0x3C)))->set_position_xy(get_scale__15TShopWindowBaseFv(this), temp_f31);
+        ((TUnk_804CDFE8 *)(*(s32 *)((s8 *)this + 0x3C)))->set_position_xy(get_scale__15TShopWindowBaseFv(this), get_scale__15TShopWindowBaseFv(this));
         ((VObj_802136A4_80212D9C *)this)->m9(8, 1);
         set_field_20((s32)((void*)(7)));
     }

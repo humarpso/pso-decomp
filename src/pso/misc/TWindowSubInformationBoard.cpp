@@ -44,7 +44,6 @@ void TWindowSubInformationBoard::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r30;
     u8 temp_r0;
-    u8 *temp_r3;
     switch (this->m_1c) {
     case 0:
     case 1:
@@ -59,8 +58,7 @@ void TWindowSubInformationBoard::run_task() {
     case 2:
         set_message_index__26TWindowSubInformationBoardFl((void *)arg0, (get_cursor_pos__20TWindowShortListCtrlFv((int)this->m_2c)));
         if (((TWindowSubComCard *)(this->m_2c))->get_status_flag() != 0) {
-            temp_r3 = (u8 *)(*(u8 * *)&this->m_28);
-            ((VObj_18_204a81 *)(temp_r3))->m7();
+            ((VObj_18_204a81 *)((u8 *)(*(u8 * *)&this->m_28)))->m7();
             this->m_1c = 0xCU;
         } else if (((TWindowMenu *)(this->m_2c))->is_visible() != 0) {
             if ((u32) this->m_34 != 0U) {

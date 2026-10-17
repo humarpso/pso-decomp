@@ -533,14 +533,8 @@ void TObjEneRe7Berura__sub_80093888(u8 *actor, s32 arg1) {
     Vec3_80093888 sp20;
     Vec3_80093888 sp14;
     Vec3_80093888 sp8;
-    s32 temp_r0;
     s32 i;
     s32 entry;
-    u8 *temp_r3;
-    u8 *temp_r3_2;
-    u8 *temp_r3_3;
-    u8 *temp_r3_5;
-    u8 *temp_r3_6;
 
     switch (arg1) {
     case 4:
@@ -570,8 +564,7 @@ void TObjEneRe7Berura__sub_80093888(u8 *actor, s32 arg1) {
         break;
     case 0:
         advance_animation_playback();
-        temp_r0 = *(s32 *)((s8 *)actor + 0x4C0);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)actor + 0x4C0)) {
         case 0:
             if (enemy_validate_retained_target(actor) != 0) {
                 ((TObjEneDD_ST *)actor)->enemy_copy_target_destination();
@@ -592,10 +585,8 @@ void TObjEneRe7Berura__sub_80093888(u8 *actor, s32 arg1) {
                 play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(actor, 0x4003AD22), (u32) (actor + 0x38), 0, 0);
             }
             if ((objInBand((GameObj *)actor, (f32)lbl_805D9748) != 0) && (((TObjEneDD_ST *)actor)->enemy_check_target_valid() != 0)) {
-                temp_r3 = (u8 *)(*(u8 **)((s8 *)actor + 0x390));
-                if (((VObj_18_a5c788 *)(temp_r3))->m18(actor, lbl_805D974C) != 0) {
-                    temp_r3_2 = (u8 *)(*(u8 **)((s8 *)actor + 0x390));
-                    if (((VObj_18_a5c788 *)(temp_r3_2))->m20(actor, lbl_805D974C) > TObjEneRe7Berura__data_805D972C) {
+                if (((VObj_18_a5c788 *)((u8 *)(*(u8 **)((s8 *)actor + 0x390))))->m18(actor, lbl_805D974C) != 0) {
+                    if (((VObj_18_a5c788 *)((u8 *)(*(u8 **)((s8 *)actor + 0x390))))->m20(actor, lbl_805D974C) > TObjEneRe7Berura__data_805D972C) {
                         if (TObjEneDD::check_v2_mode() != 0) {
                             if (calc_boss4_scale__10TObjPlayerFi((s32) actor) <= lbl_805D9750) {
                                 TObjEneDD__sub_800BA378((s32)actor, (*(u8 **)((s8 *)actor + 0x390)));
@@ -604,8 +595,7 @@ void TObjEneRe7Berura__sub_80093888(u8 *actor, s32 arg1) {
                             TObjEneDD__sub_800BA378((s32)actor, (*(u8 **)((s8 *)actor + 0x390)));
                         }
                     }
-                    temp_r3_3 = (u8 *)(*(u8 **)((s8 *)actor + 0x390));
-                    ((VObj_18_a5c788 *)(temp_r3_3))->m23(actor, lbl_805D9758);
+                    ((VObj_18_a5c788 *)((u8 *)(*(u8 **)((s8 *)actor + 0x390))))->m23(actor, lbl_805D9758);
                 }
             }
             entry = TObjPlayer::lookup_entry_by_value(belra_trail_buffer, *(f32 *)((s8 *)actor + 0xC0));
@@ -616,10 +606,8 @@ void TObjEneRe7Berura__sub_80093888(u8 *actor, s32 arg1) {
                 rotate_matrix_y(0, (int) (*(s32 *)((s8 *)actor + 0x60)));
                 mult_vec_array__10TObjPlayerFUll(0, entry, (void *) (&sp8), 4);
                 pop_matrix();
-                temp_r3_5 = (u8 *)(*(u8 **)((s8 *)actor + 0x440));
-                ((VObj_18_a5c788 *)(temp_r3_5))->m4(&sp8, &sp14);
-                temp_r3_6 = (u8 *)(*(u8 **)((s8 *)actor + 0x444));
-                ((VObj_18_a5c788 *)(temp_r3_6))->m4(&sp20, &sp2C);
+                ((VObj_18_a5c788 *)((u8 *)(*(u8 **)((s8 *)actor + 0x440))))->m4(&sp8, &sp14);
+                ((VObj_18_a5c788 *)((u8 *)(*(u8 **)((s8 *)actor + 0x444))))->m4(&sp20, &sp2C);
             }
             if (((TObjEneDD *)actor)->get_flag_b4() != 0) {
                 *(s32 *)((s8 *)actor + 0x4C0) = 2;
@@ -754,7 +742,6 @@ void TObjEneRe7Berura__sub_80093C80(u8 *arg0, s32 arg1) {
 }
 
 void TObjEneRe7Berura__sub_800940E8(u8 *arg0, s32 arg1) {
-    s32 temp_r0;
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 1;
@@ -791,8 +778,7 @@ void TObjEneRe7Berura__sub_800940E8(u8 *arg0, s32 arg1) {
             ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
             ((TObjEneDD *)arg0)->update_velocity();
         }
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x4C4);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x4C4)) {
         case 0:
             if (((TObjEneDD_ST *)arg0)->enemy_has_live_target() != 0) {
                 *(s32 *)((s8 *)arg0 + 0x4C8) = (s32) (u16) (s32) (lbl_80439EF0 * atan2_float((f32) (*(f32 *)((s8 *)arg0 + 0x3A0)), (f32) (*(f32 *)((s8 *)arg0 + 0x3A8))));
@@ -849,7 +835,6 @@ void TObjEneRe7Berura__sub_800940E8(u8 *arg0, s32 arg1) {
 void TObjEneRe7Berura::handle_state(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    s32 temp_r0_2;
     switch (arg1) {
     case 4:
         this->m_b8 = 0;
@@ -872,8 +857,7 @@ void TObjEneRe7Berura::handle_state(s32 arg1) {
         break;
     case 0:
         advance_animation_playback();
-        temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x4C0);
-        switch (temp_r0_2) {
+        switch (*(s32 *)((s8 *)arg0 + 0x4C0)) {
         case 0:
             if (((TObjEneDD_ST *)arg0)->update_linked_position(TObjEneRe7Berura__data_805D9724) != 0) {
                 ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
@@ -930,7 +914,6 @@ void TObjEneRe7Berura__sub_80094624(u8 *arg0, s32 arg1) {
 }
 
 void TObjEneRe7Berura__sub_8009472C(u8 *arg0, s32 arg1) {
-    s32 temp_r0;
     s32 temp_r3;
     s32 temp_r3_2;
     s32 var_r4;
@@ -955,8 +938,7 @@ void TObjEneRe7Berura__sub_8009472C(u8 *arg0, s32 arg1) {
         }
         break;
     case 0:
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x4C0);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x4C0)) {
         case 0:
             if (((TObjEneDD_ST *)arg0)->update_linked_position(TObjEneRe7Berura__data_805D9724) != 0) {
                 *(s32 *)((s8 *)arg0 + 0x4C0) = 1;

@@ -312,10 +312,8 @@ void TObjEneMe3ShinowaMirage::apply_effect_pair() {  }
 
 void TObjEneMe3ShinowaMirage::dispatch_if_active() {
     s32 arg0 = (s32)this;
-    u8 *temp_r3;
 
-    temp_r3 = (unsigned char *) (arg0 + 0x3E8);
-    ((VObj_800e3a88_800E3A58 *) temp_r3)->m7();
+    ((VObj_800e3a88_800E3A58 *) ((unsigned char *) (arg0 + 0x3E8)))->m7();
 }
 
 extern s32 model_render_flags;
@@ -469,7 +467,6 @@ void TObjEneMe3ShinowaReal::vfunc_116(s32 arg1) {
     typedef char spC_offset[(offsetof(Stack_800E3F8C, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800E3F8C, sp10) == 0x8) ? 1 : -1];
     Stack_800E3F8C stack;
-    s32 temp_r0;
     s32 temp_r3;
     u8 *temp_r3_2;
     u8 *temp_r3_3;
@@ -490,8 +487,7 @@ void TObjEneMe3ShinowaReal::vfunc_116(s32 arg1) {
         }
         return;
     case 0:
-        temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x404);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)((u8 *)this) + 0x404)) {
         case 0:
             advance_animation_playback((void *)(((u8 *)this)), arg1);
             if (((TObjEneDD *)((u8 *)this))->get_flag_b4() != 0) {

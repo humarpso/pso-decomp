@@ -565,9 +565,7 @@ void TWindowDD__sub_803435A0(u8 *arg0) {
 }
 
 void run_state__9TWindowDDFPv(u8 *arg0) {
-    u32 temp_r0;
-    temp_r0 = *(u32 *)((s8 *)arg0 + 0xB0);
-    switch (temp_r0) {
+    switch (*(u32 *)((s8 *)arg0 + 0xB0)) {
     case 0:
         handle_confirm_input__9TWindowDDFPv(arg0);
         return;

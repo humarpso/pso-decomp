@@ -562,7 +562,6 @@ void TItemEquipBase::remove_equip_stats(s32 arg1) {
   s32 temp_r31;
   s32 temp_r30;
   int new_var;
-  u8 *temp_r3_2;
   temp_r3 = (u8 *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0;
   if (temp_r3 != 0)
   {
@@ -575,8 +574,7 @@ void TItemEquipBase::remove_equip_stats(s32 arg1) {
       add_actor_hp_bonus((void *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0, (int) ((s32) ((s16) (-((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_16C))));
       add_actor_tp_bonus((void *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0, (int) ((s32) ((s16) (-((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_16E))));
       (this->vfunc_49());
-      temp_r3_2 = (u8 *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0;
-      (((VObj_18_8e31a0 *)(temp_r3_2))->m71());
+      (((VObj_18_8e31a0 *)((u8 *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0))->m71());
       ((TUnk_804806E8 *)((void *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0))->clamp_value();
       ((TObjPlayer *)((void *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0))->clamp_field_32E();
     }

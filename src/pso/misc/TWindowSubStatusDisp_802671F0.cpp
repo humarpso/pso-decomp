@@ -522,12 +522,10 @@ void TUnk_804D0618::create_menu_scroll_bar() {
     typedef char spC_offset[(offsetof(Stack_80267B18, spC) == 0x4) ? 1 : -1];
     Stack_80267B18 stack;
     f32 temp_f1;
-    f32 temp_f2;
     u32 temp_r3;
     u32 var_r0;
     if ((u32) *(u32 *)&this->unk_84 == 0U) {
-        temp_f2 = this->m_38;
-        temp_f1 = temp_f2 - lbl_805DD180;
+        temp_f1 = this->m_38 - lbl_805DD180;
         stack.spC = (*(const f32 *)&lbl_805DD188);
         stack.sp8 = temp_f1;
         temp_r3 = ((TAdSinglePlyChrSelectGC *)0xC)->alloc();

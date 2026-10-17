@@ -167,10 +167,6 @@ typedef struct RecoveredFields_800C3088_arg0 RecoveredFields_800C3088_arg0;
 typedef struct VBase_18_880cfd VBase_18_880cfd;
 typedef struct VObj_18_880cfd VObj_18_880cfd;
 void fn_800C3088(u8 *arg0, int arg1) {
-  int temp_r0;
-  u8 *temp_r3;
-  u8 *temp_r3_2;
-  u8 *temp_r3_3;
   switch (arg1)
   {
     case 4:
@@ -194,8 +190,7 @@ void fn_800C3088(u8 *arg0, int arg1) {
     case 0:
       advance_animation_playback((void *) arg0);
       enemy_validate_retained_target(arg0);
-      temp_r0 = ((RecoveredFields_800C3088_arg0 *) arg0)->field_414;
-      switch (temp_r0)
+      switch (((RecoveredFields_800C3088_arg0 *) arg0)->field_414)
     {
       case 0:
         if (objInBand((GameObj *)arg0, (f32) ((((RecoveredFields_800C3088_arg0 *) arg0)->field_C4 - lbl_805D9FC0) - ((RecoveredFields_800C3088_arg0 *) arg0)->field_C8)) != 0)
@@ -212,13 +207,10 @@ void fn_800C3088(u8 *arg0, int arg1) {
       {
         if (((TObjEneDD_ST *)arg0)->enemy_check_target_valid() != 0)
         {
-          temp_r3 = (u8 *) ((RecoveredFields_800C3088_arg0 *) arg0)->field_390;
-          if ((((VObj_18_880cfd *)(temp_r3))->m18((arg0), (lbl_805D9FC0))) != 0)
+          if ((((VObj_18_880cfd *)((u8 *) ((RecoveredFields_800C3088_arg0 *) arg0)->field_390))->m18((arg0), (lbl_805D9FC0))) != 0)
           {
-            temp_r3_2 = (u8 *) ((RecoveredFields_800C3088_arg0 *) arg0)->field_390;
-            (((VObj_18_880cfd *)(temp_r3_2))->m20((arg0), (lbl_805D9FC0)));
-            temp_r3_3 = (u8 *) ((RecoveredFields_800C3088_arg0 *) arg0)->field_390;
-            (((VObj_18_880cfd *)(temp_r3_3))->m23((arg0), (lbl_805D9FD4)));
+            (((VObj_18_880cfd *)((u8 *) ((RecoveredFields_800C3088_arg0 *) arg0)->field_390))->m20((arg0), (lbl_805D9FC0)));
+            (((VObj_18_880cfd *)((u8 *) ((RecoveredFields_800C3088_arg0 *) arg0)->field_390))->m23((arg0), (lbl_805D9FD4)));
           }
         }
         play_sound_effect((void *) fn_800C3A60((s32)arg0, 0x4003A814), arg0 + 0x38, 0, 0);

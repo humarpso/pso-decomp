@@ -105,14 +105,12 @@ s32 pop_matrix();
 void *__nw__7TObjectFUl(int);
 
 void TOHealGeneral::run_task() {
-    s32 temp_r0;
 
     if (TObjPlayer::check_demo_mode() == 1) {
         TOHangerMachine01__sub_80169168(this);
         return;
     }
-    temp_r0 = *(s32 *)&this->m_ac;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_ac) {
     case 0:
         find_heal_target__13TOHealGeneralFPv(this);
         return;
@@ -300,10 +298,8 @@ void TOHealGeneral::accept_player(u16 arg1) {
 }
 
 s32 TOHealGeneral::update_active_state() {
-    s32 temp_r0;
 
-    temp_r0 = *(s32 *)&this->unk_C8;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->unk_C8) {
     case 1:
         if (is_any_player_within_radius_xz(lbl_805DB6D8) != 0) {
             *(s32 *)&this->m_cc = 1;

@@ -136,14 +136,12 @@ void TWindowInputNumber::calc_digit_count() {
 }
 
 void render__18TWindowInputNumberFv(u8 *arg0) {
-    s32 temp_r31;
     s32 temp_r3;
 
     temp_r3 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)(arg0 + 0x74));
     draw_window_frame(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
-    temp_r31 = ((TWindowInputNumber *)arg0)->is_confirmed();
-    draw_arrows__18TWindowInputNumberFv(arg0, temp_r3, (int) (((TUnk_804CE018 *)arg0)->get_array_entry((int) *(s8 *)((s8 *)arg0 + 0x63))), temp_r31);
+    draw_arrows__18TWindowInputNumberFv(arg0, temp_r3, (int) (((TUnk_804CE018 *)arg0)->get_array_entry((int) *(s8 *)((s8 *)arg0 + 0x63))), ((TWindowInputNumber *)arg0)->is_confirmed());
     {
         void *temp_ptr = (void *) *(u32 *)((s8 *)arg0 + 0x70);
         if (temp_ptr != NULL) {

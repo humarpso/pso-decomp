@@ -532,10 +532,8 @@ void TAdTimeSetGC::sub_802E1F14() {
 }
 
 void update_state__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
-    s32 temp_r0;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x60) <= 0) {
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x5C);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x5C)) {
         case 0:
             apply_settings__23TAdSinglePlyChrSelectGCFi();
             return;

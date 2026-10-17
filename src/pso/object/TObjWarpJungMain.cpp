@@ -259,14 +259,12 @@ void *TObjWarpJung__create(void *arg0) {
 
 void TObjWarpJung::render() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
 
     if (((VObj_801A0070_more_8019fe60_1*)arg0)->m8(lbl_805DC040, lbl_805DC044) != 0) {
         if (TObjWarpJung::update_warp_display() != 0) {
             PPCSync();
         }
-        temp_r0 = *(s32 *)&this->m_8c;
-        switch (temp_r0) {
+        switch (*(s32 *)&this->m_8c) {
         case 0:
             TObjWarpJung__sub_801A0404(0);
             break;

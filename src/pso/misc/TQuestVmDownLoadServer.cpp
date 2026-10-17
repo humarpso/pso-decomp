@@ -784,7 +784,6 @@ void TQuestVmDownLoadServer::close_window() {
 }
 void TQuestVmDownLoadServer::update_mc_select() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
     if (((u32) *(u32 *)&this->m_294 == 0U) || (((TMessageWindowController *)(arg0 + 0x1C))->is_ready() != 0)) {
         if ((void *) *(u8 * *)&this->m_29c == NULL) {
             TScene::reset_counter();
@@ -803,8 +802,7 @@ void TQuestVmDownLoadServer::update_mc_select() {
             return;
         }
         if ((u32) *(u32 *)&this->m_294 == 0U) {
-            temp_r0 = *(s32 *)((s8 *)arg0 + 0x2A4);
-            switch (temp_r0) {
+            switch (*(s32 *)((s8 *)arg0 + 0x2A4)) {
             case 0:
                 show_status_message((int) (get_localized_text_entry(0x29, 0)), 1);
                 return;
@@ -1355,9 +1353,7 @@ TMCFormatSequence::~TMCFormatSequence() {
     close_window();
 }
 void TMCFormatSequence::run_task() {
-    s32 temp_r0;
-    temp_r0 = this->m_24;
-    switch (temp_r0) {
+    switch (this->m_24) {
     case 0:
         open_windows__17TMCFormatSequenceFv();
         return;

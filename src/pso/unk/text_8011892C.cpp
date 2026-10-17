@@ -166,12 +166,10 @@ void TItemProUnit::vfunc_48() {
 
 void TItemProUnit::vfunc_44() {
     u8 *arg0 = (u8 *)this;
-  s16 temp_r0;
   s32 temp_r3;
   s32 temp_r3_2;
   s32 temp_r3_3;
-  temp_r0 = *((s16 *) (((s8 *) arg0) + 0x18C));
-  switch (temp_r0)
+  switch (*((s16 *) (((s8 *) arg0) + 0x18C)))
   {
     case 15:
       if ((this->m_174) != 0U)
@@ -299,9 +297,7 @@ void *__vt__12TItemProUnit[51] = {
 
 void TItemProUnit::apply_unit_effect_flags() {
     u8 *arg0 = (u8 *)this;
-    s16 temp_r4;
-    temp_r4 = *(s16 *)((s8 *)arg0 + 0x18C);
-    switch (temp_r4) {
+    switch (*(s16 *)((s8 *)arg0 + 0x18C)) {
     case 18:
         *(s16 *)((s8 *)arg0 + 0x190) = (s16) this->m_18e;
         return;

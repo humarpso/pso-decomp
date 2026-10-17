@@ -99,7 +99,6 @@ void TUnk_804A3260::reserved_53() {
 }
 
 void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *item) {
-    u8 temp_r0;
     TItemWeapon__ct((u8 *)arg0, (void *)parent, (u8 *)item);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A3260;
     ((TObjPlayer *)arg0)->set_status_flags(0x203);
@@ -108,8 +107,7 @@ void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *item) {
     *(s32 *)((s8 *)arg0 + 0x214) = 0;
     ((TUnk_804A3260 *)arg0)->m_218 = -1;
     *(s32 *)((s8 *)arg0 + 0x21C) = 0;
-    temp_r0 = *(u8 *)((s8 *)item + 2);
-    switch ((s32) temp_r0) {
+    switch ((s32) (*(u8 *)((s8 *)item + 2))) {
     case 6:
         break;
     case 5:

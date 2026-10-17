@@ -84,13 +84,11 @@ extern s8 controller_physical_port_bank[];
 extern const f32 lbl_805DF78C;
 
 void TAdYesNoBaseGC::vfunc_11() {
-    s32 temp_r0;
     s32 selected_menu_value;
     s32 temp_r4;
 
     *(s32 *)&this->m_20 = (s32) *(s32 *)&this->m_1c;
-    temp_r0 = *(s32 *)&this->m_1c;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_1c) {
     case 0:
         this->m_40 = sub_8032C0B4();
         this->m_44 = ((TAdYesNoBaseGC *)this)->create_menu_window();

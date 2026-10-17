@@ -3341,12 +3341,10 @@ void TUnk_804806E8::apply_movement_ailment(s32 arg1) {
 
 void TUnk_804806E8::apply_confusion_status() {
     f32 temp_f31;
-    s32 temp_r3;
 
     if ((((s32 (*)(void *, s32))obj_testFlag_2E4__13TUnk_804806E8FUl)(this, 0x10) == 0) && (((TUnk_804806E8 *)this)->test_immunity_flags(0x10) == 0)) {
         ((s32 (*)(void *, s32))spawn_confusion_feedback_effect)(this, 0);
-        temp_r3 = ((s32 (*)(void *, s32))obj_getArrWord_254)(this, 1);
-        switch (temp_r3) {
+        switch (((s32 (*)(void *, s32))obj_getArrWord_254)(this, 1)) {
         case 2:
         case 3:
             sub_800192B4((s32) ((f32) ((TUnk_804806E8 *)this)->get_s16_2c4() * -((f32 (*)(void *, s32))TObjPlayer__sub_800192C4)(this, 1)));
@@ -3367,11 +3365,9 @@ struct O_8001940C;
 struct O_8001941C;
 void TUnk_804806E8::apply_slow_status() {
     f32 temp_f31;
-    s32 temp_r3;
     if (((u16) this->m_1c <= 0x1000U) && (((TUnk_804806E8 *)this)->test_immunity_flags(8) == 0)) {
         ((void (*)(void *, s32))spawn_slow_effect__10TObjPlayerFii)(this, 0);
-        temp_r3 = ((s32 (*)(void *, s32))obj_getArrWord_254)(this, 1);
-        switch (temp_r3) {
+        switch (((s32 (*)(void *, s32))obj_getArrWord_254)(this, 1)) {
         case 2:
         case 3:
             sub_800192B4((s32) ((f32) ((TUnk_804806E8 *)this)->get_s16_2c4() * -((f32 (*)(void *, s32))TObjPlayer__sub_800192C4)(this, 1)));
@@ -3432,11 +3428,9 @@ void TObjPlayer::spawn_recovery_effect() {
 }
 
 void trigger_switch_attack__10TObjPlayerFPvi(void *arg0, s32 arg1) {
-    s32 temp_r0;
 
     if (((s32 (*)(void *, s32))obj_testFlags30)(arg0, 0x02000000) == 0) {
-        temp_r0 = *(s32 *)&((TUnk_804806E8 *)arg0)->m_2e4;
-        switch (temp_r0) {
+        switch (*(s32 *)&((TUnk_804806E8 *)arg0)->m_2e4) {
         case 1:
             spawn_particle_effect_with_flags(arg1, 0xF1, 0x40);
             return;

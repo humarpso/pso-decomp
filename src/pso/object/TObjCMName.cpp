@@ -576,9 +576,7 @@ void TObjCMProportion::run_task() {
     f32 temp_f0;
     f32 temp_f1;
     f32 temp_f1_2;
-    f32 temp_f1_3;
     f32 temp_f1_4;
-    f32 temp_f2;
     f32 temp_f2_2;
     f32 temp_f31;
     f32 var_f1;
@@ -620,10 +618,8 @@ void TObjCMProportion::run_task() {
             arg0->fade = 1.0f;
         }
         get_creation_pad_stick(&spC, &sp8);
-        temp_f1_3 = sp8 * sin_table_lookup(spC);
-        var_f30 = lbl_805DDAE4 * temp_f1_3;
-        temp_f2 = sp8 * -cos_table_lookup(spC);
-        var_f29 = lbl_805DDAE4 * temp_f2;
+        var_f30 = lbl_805DDAE4 * (sp8 * sin_table_lookup(spC));
+        var_f29 = lbl_805DDAE4 * (sp8 * -cos_table_lookup(spC));
         if (lbl_805DDA90 == (fabs_float(var_f30) + fabs_float(var_f29))) {
             if (((s32 (*)(s32))TObjCMProportion__sub_8029914C)(0x80) != 0) {
                 var_f30 = lbl_805DDAE8;
@@ -1796,7 +1792,6 @@ void TObjCMMainMenu::run_task() {
 void TObjCMMainMenu::handle_creation_input() {
     s32 temp_r0;
     s32 temp_r3;
-    s32 temp_r5;
     if (((s32 (*)(void))is_not_dressing_room_mode__14TObjCMMainMenuFv)() != 0) {
         TChCrEffTag::set_eff_tag(1);
     } else {
@@ -1826,8 +1821,7 @@ void TObjCMMainMenu::handle_creation_input() {
             play_sound_effect(0x54100, 0, 0, 0);
         }
         if (TObjCMProportion__sub_8029916C(4) != 0) {
-            temp_r5 = *(s32 *)&this->entries;
-            (reinterpret_cast<TObjCMMainMenu*>(this)->*(*reinterpret_cast<CreationMenuCallback*>((u8*)&TObjCMMainMenu__data_804DB9C8 + (*(s32 *)((s8 *)(temp_r5 + (this->selected_entry * 4)) + 0) * 0x10) + 4)))();
+            (reinterpret_cast<TObjCMMainMenu*>(this)->*(*reinterpret_cast<CreationMenuCallback*>((u8*)&TObjCMMainMenu__data_804DB9C8 + (*(s32 *)((s8 *)((*(s32 *)&this->entries) + (this->selected_entry * 4)) + 0) * 0x10) + 4)))();
         }
     }
 }
@@ -2019,7 +2013,6 @@ void *TObjCMMainMenu::create() {
 
 void *TObjCMMainMenu::destroy(s16 arg1) {
     void *temp_r3;
-    void *temp_r5;
 
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804DBDA8;
@@ -2031,8 +2024,7 @@ void *TObjCMMainMenu::destroy(s16 arg1) {
             *(void * *)&this->nodes = NULL;
         }
         *(s32 *)((s8 *)(*(void * *)&this->character) + 0x18) = -1;
-        temp_r5 = *(void * *)&this->character;
-        *(s8 *)((s8 *)temp_r5 + 0x33) = 2;
+        *(s8 *)((s8 *)(*(void * *)&this->character) + 0x33) = 2;
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);

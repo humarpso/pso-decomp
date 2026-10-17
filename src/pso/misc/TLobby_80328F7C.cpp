@@ -174,9 +174,7 @@ typedef char RecoveredGlobal_80329088_lbl_805432A8_size[sizeof(RecoveredGlobal_8
 s32 *TLobby::get_state_table(s32 _w1) {
     s32 unused = (s32)this;
     s32 *var_r3;
-    s32 temp_r3;
-    temp_r3 = is_valid_state__6TLobbyFPvi((void *)unused, (s32)_w1);
-    switch (temp_r3) {
+    switch (is_valid_state__6TLobbyFPvi((void *)unused, (s32)_w1)) {
     case 0:
         var_r3 = &lbl_805430E8.value;
         var_r3 = &lbl_805430E8.value;

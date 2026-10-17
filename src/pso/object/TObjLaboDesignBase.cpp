@@ -323,7 +323,6 @@ u8 *TObjLaboDesignBase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     struct CopyStack_80365210 { u8 bytes[0x3C]; };
     CopyStack_80365210 copy_storage_80365210;
     s32 temp_r0;
-    s32 temp_r4;
     construct_collider_proxy__13TUnk_804AF8A0Fv();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80365210___vt__18TObjLaboDesignBase *)&__vt__18TObjLaboDesignBase).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjLaboDesignBase_class_name;
@@ -337,8 +336,7 @@ u8 *TObjLaboDesignBase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)((s8 *)arg0 + 0xBC) = 0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0xB0);
     if ((temp_r0 == 3) || (temp_r0 == 4)) {
-        temp_r4 = arg2 - 4;
-        *(ByteBlock_3C *)(copy_storage_80365210.bytes) = *(const ByteBlock_3C *)(temp_r4 + 4);
+        *(ByteBlock_3C *)(copy_storage_80365210.bytes) = *(const ByteBlock_3C *)((arg2 - 4) + 4);
         (*(f32 *)(copy_storage_80365210.bytes + 0x24)) = lbl_805E02A8;
         (*(f32 *)(copy_storage_80365210.bytes + 0x28)) = lbl_805E02AC;
         (*(f32 *)(copy_storage_80365210.bytes + 0x2C)) = lbl_805E02B0;

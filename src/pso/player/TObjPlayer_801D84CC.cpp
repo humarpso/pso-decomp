@@ -496,9 +496,7 @@ s32 TObjPlayer::get_hospital_yaw() {
 }
 
 u8 *TObjPlayer::get_hospital_position() {
-    s32 temp_r31;
-    temp_r31 = obj_getField1c(this) * 0xC;
-    return lbl_804C49E0[TLobby::get_instance()] + temp_r31;
+    return lbl_804C49E0[TLobby::get_instance()] + (obj_getField1c(this) * 0xC);
 }
 
 s32 get_class_starting_inventory(s8 arg0) {

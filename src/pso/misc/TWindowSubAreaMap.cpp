@@ -46,11 +46,9 @@ extern s32 __vt__17TWindowSubAreaMap[];
 
 typedef char RecoveredGlobal_80271480_lbl_8050E208_size[sizeof(RecoveredGlobal_80271480_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void TWindowSubAreaMap::run_task() {
-    u8 *temp_r3;
     if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 2) != 0)) {
         play_sound_effect(0x52F16, 0, 0, 0);
-        temp_r3 = (u8 *)(*(u8 * *)&this->m_20);
-        ((VObj_18_204a81 *)(temp_r3))->m7();
+        ((VObj_18_204a81 *)((u8 *)(*(u8 * *)&this->m_20)))->m7();
     }
 }
 

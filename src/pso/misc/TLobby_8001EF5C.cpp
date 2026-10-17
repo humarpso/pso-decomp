@@ -498,13 +498,11 @@ void check_bin_model_loaded__6TLobbyFPvPv(Obj_8001F8D8 *self, void * _w1) {
 }
 
 void increment_ref_and_set_flag__6TLobbyFPv(void *arg0) {
-    s32 *temp_r3;
     void *temp_r4;
     temp_r4 = *(void **)((s8 *)arg0 + 0);
     *(s32 *)((s8 *)temp_r4 + 0xC) = (s32) (*(s32 *)((s8 *)temp_r4 + 0xC) + 1);
     check_bin_model_loaded__6TLobbyFPvPv((Obj_8001F8D8 *)(*(void **)((s8 *)arg0 + 0)), temp_r4);
-    temp_r3 = *(s32 **)((s8 *)arg0 + 4);
-    *temp_r3 |= 1;
+    *(*(s32 **)((s8 *)arg0 + 4)) |= 1;
 }
 void load_bin_motion_callback(void *arg0) {
     s32 spC;

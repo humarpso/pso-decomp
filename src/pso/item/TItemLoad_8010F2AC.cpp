@@ -13,13 +13,11 @@ extern s32 item_load_model_buffer;
 
 void TUnk_8049F3F4::run_task() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
     s32 temp_r3;
     s32 var_r31;
     s32 i;
 
-    temp_r0 = this->m_20;
-    switch (temp_r0) {
+    switch (this->m_20) {
     case 1:
         if (((u32) item_model_chunk_loader != 0U) && ((u32) item_texture_archive_loader != 0U)) {
             ((TItemLoad *)item_model_chunk_loader)->start_load_with_id(item_load_model_buffer + (*(s32 *)&this->unk_1C * 0x2C00), *(s32 *)&this->unk_24);

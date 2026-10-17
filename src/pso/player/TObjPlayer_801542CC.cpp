@@ -601,7 +601,6 @@ s32 resolve_actor_sphere_contact(u8 *arg0, s32 arg1, s32 arg2) {
     Vec_801550DC displacement;
     f32 tangentScale;
     s32 var_r31;
-    f32 temp_f1;
     u16 temp_r3;
     if (horizontal_distance_squared(arg0 + 0x38, arg0 + 0x44) < lbl_805DB27C) {
         return 0;
@@ -628,8 +627,7 @@ block_7:
         if (lbl_805DB284 < ((displacement.x * displacement.x) + (displacement.z * displacement.z))) {
             displacement.y = TObjPlayer__data_805DB270;
             normalize_vector(&displacement);
-            temp_f1 = displacement.x * tangentScale;
-            displacement.x = temp_f1;
+            displacement.x = (displacement.x * tangentScale);
             displacement.z *= tangentScale;
             vec3_add_to(&displacement, arg0 + 0x44);
             if (project_actor_to_ground((Obj_80156844 *)(arg0), (Vec_80156844 *)(&displacement), (Vec_80156844 *)(0)) != 0) {

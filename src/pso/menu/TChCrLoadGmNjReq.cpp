@@ -21,15 +21,13 @@ extern void *lbl_805D3B58;
 void TChCrLoadGmNjReq::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    s32 temp_r0_2;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x70) - 1;
     *(s32 *)((s8 *)arg0 + 0x70) = temp_r0;
     if (temp_r0 < 0) {
         queue_destruction__7TObjectFv();
         return;
     }
-    temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x2C);
-    switch (temp_r0_2) {
+    switch (*(s32 *)((s8 *)arg0 + 0x2C)) {
     case 0:
         start_character_load_task__23TAdSinglePlyChrSelectGCFv();
         return;

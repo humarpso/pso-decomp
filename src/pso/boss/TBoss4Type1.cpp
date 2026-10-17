@@ -1516,11 +1516,9 @@ void TBoss4Type2::set_motion_index(s32 arg1) {
 void TBoss4Type1::update_boss4_phase_timer() {
     f32 temp_f1;
     f32 temp_f1_2;
-    s32 temp_r0;
     *(s32 *)((s8 *)((u8 *)this) + 0x3F4) = 0;
     *(f32 *)((s8 *)((u8 *)this) + 0x3E8) = (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x3E8) + *(f32 *)((s8 *)((u8 *)this) + 0x3EC));
-    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x3F0);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)((u8 *)this) + 0x3F0)) {
     case 0:
         temp_f1 = *(f32 *)((s8 *)((u8 *)this) + 0x3E8);
         if (temp_f1 >= lbl_805D8B78) {

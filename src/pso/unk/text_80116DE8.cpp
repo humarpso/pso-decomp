@@ -129,10 +129,7 @@ void *lbl_8049FBC0[45] = {
 };
 
 void TUnk_8049FBC0::vfunc_44() {
-    u8 temp_r3;
-    u8 *temp_r3_2;
-    temp_r3 = get_slot_count__14TItemProShieldFv();
-    switch (temp_r3) {
+    switch (get_slot_count__14TItemProShieldFv()) {
     case 0:
         add_stat_and_item__10TObjPlayerFiUc((s32)(*(u8 * *)&this->m_f0), 2);
         break;
@@ -163,8 +160,7 @@ void TUnk_8049FBC0::vfunc_44() {
         apply_luck_reward__10TObjPlayerFiUc((s32)(*(u8 * *)&this->m_f0), 2);
         break;
     }
-    temp_r3_2 = (u8 *)(*(u8 * *)&this->m_f0);
-    ((VObj_18_ddf499 *)(temp_r3_2))->m71();
+    ((VObj_18_ddf499 *)((u8 *)(*(u8 * *)&this->m_f0)))->m71();
 }
 void *__dt__13TUnk_8049FBC0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

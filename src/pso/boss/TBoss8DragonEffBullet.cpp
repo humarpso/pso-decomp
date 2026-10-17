@@ -72,13 +72,11 @@ void TBoss8DragonEffBullet::run_task() {
     f32 temp_f0;
     f32 temp_f1;
     f32 var_f2;
-    s32 temp_r0;
     u8 *temp_r3;
     u8 *temp_r3_2;
     u8 *temp_r3_3;
     u8 *temp_r3_4;
-    temp_r0 = arg0->field_38;
-    switch (temp_r0) {
+    switch (arg0->field_38) {
     case 0:
         var_f2 = lbl_805DEF00;
         arg0->field_3C += var_f2;
@@ -157,7 +155,6 @@ typedef char RecoveredGlobal_802FE378_lbl_80474B74_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_802FE378_lbl_80474B80_size[sizeof(RecoveredGlobal_802FE378_lbl_80474B80) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_802FE378___vt__21TBoss8DragonEffBullet_size[sizeof(RecoveredGlobal_802FE378___vt__21TBoss8DragonEffBullet) == 0x18 ? 1 : -1];
 u8 *TBoss8DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5) {
-    s32 temp_r0;
     __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802FE378___vt__21TBoss8DragonEffBullet *)&__vt__21TBoss8DragonEffBullet).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss8DragonEffBullet__name;
@@ -173,8 +170,7 @@ u8 *TBoss8DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, 
     *(s32 *)&((TBoss8DragonEffBullet *)arg0)->m_4c = 0;
     *(s32 *)&((TBoss8DragonEffBullet *)arg0)->m_50 = 0;
     play_sound_effect(0x4003B20B, arg0 + 0x1C, 0, 0);
-    temp_r0 = *(s32 *)&((TBoss8DragonEffBullet *)arg0)->m_44;
-    switch (temp_r0) {
+    switch (*(s32 *)&((TBoss8DragonEffBullet *)arg0)->m_44) {
     case 1:
         *(s32 **)((s8 *)arg0 + 0x54) = &lbl_80474B68.value;
         break;

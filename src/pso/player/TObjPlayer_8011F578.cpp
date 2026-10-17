@@ -45,12 +45,10 @@ struct VObj_8011F578 : Base_8011F578 {
 };
 
 void TUnk_804A4D70::apply_scale_if_active(f32 farg0) {
-    void *temp_r3;
 
     if (is_active_in_game__11TItemWeaponFv() != 0) {
         remap_extra_attack_type((u8 *)this);
-        temp_r3 = *(void * *)&this->player;
-        ((VObj_8011F578 *)temp_r3)->m65(farg0);
+        ((VObj_8011F578 *)(*(void * *)&this->player))->m65(farg0);
         restore_action_type__11TItemWeaponFv(this);
     }
 }
@@ -58,12 +56,10 @@ void TUnk_804A4D70::apply_scale_if_active(f32 farg0) {
 extern f32 lbl_805DAC9C;
 
 void TObjPlayer::update_active_game_effect() {
-    void *temp_r3;
 
     if (is_active_in_game__11TItemWeaponFv() != 0) {
         remap_extra_attack_type((u8 *)this);
-        temp_r3 = *(void * *)&this->unk_F0;
-        ((VObj_8011F5E0 *)temp_r3)->v67(lbl_805DAC9C);
+        ((VObj_8011F5E0 *)(*(void * *)&this->unk_F0))->v67(lbl_805DAC9C);
         restore_action_type__11TItemWeaponFv(this);
     }
 }

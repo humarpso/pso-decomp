@@ -488,7 +488,6 @@ s32 TLobby__sub_803C30E8(u8 *arg0, s32 arg1, s32 arg2) {
     s32 sp10;
     s32 spC;
     s32 sp8;
-    s16 temp_r6;
     s16 var_r31;
     s32 var_r5;
     u32 temp_r3;
@@ -538,8 +537,7 @@ s32 TLobby__sub_803C30E8(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x68) = (s32) *(s32 *)((s8 *)arg0 + 0x40);
     *(s32 *)((s8 *)arg0 + 0x6C) = (s32) *(s32 *)((s8 *)arg0 + 0x44);
     *(s16 *)((s8 *)arg0 + 0x7C) = (s16) *(s16 *)((s8 *)arg0 + 0x48);
-    temp_r6 = *(s16 *)((s8 *)arg0 + 0x4A);
-    *(s16 *)((s8 *)arg0 + 0x7E) = temp_r6;
+    *(s16 *)((s8 *)arg0 + 0x7E) = (*(s16 *)((s8 *)arg0 + 0x4A));
     *(u8 **)((s8 *)arg0 + 0x80) = temp_r3_2;
     *(s32 *)((s8 *)arg0 + 0x9C) = 0;
     *(s32 *)((s8 *)arg0 + 0x98) = 0;
@@ -736,7 +734,6 @@ s32 TRK__write_aram(void *arg0p, void *hdr, void *size) {
     s32 sp18;
     s32 sp14;
     s16 sp10;
-    s16 temp_r6;
     u8 *temp_r3;
     *(s16 *)((s8 *)arg0 + 2) = 1;
     if (ARStartDMA((u8 *)hdr, (s32)size, (s16 *)&sp10, (u8 *)(arg0 + 0xC), (s8 *)(arg0 + 0xD), (s8 *)(arg0 + 0xF), (u8 *)(arg0 + 0xE), (s32 *)(arg0 + 0x14), (s32 *)(arg0 + 0x18), (s32 *)(arg0 + 0x10)) < 0) {
@@ -772,8 +769,7 @@ block_11:
     *(s32 *)((s8 *)arg0 + 0x68) = (s32) *(s32 *)((s8 *)arg0 + 0x40);
     *(s32 *)((s8 *)arg0 + 0x6C) = (s32) *(s32 *)((s8 *)arg0 + 0x44);
     *(s16 *)((s8 *)arg0 + 0x7C) = (s16) *(s16 *)((s8 *)arg0 + 0x48);
-    temp_r6 = *(s16 *)((s8 *)arg0 + 0x4A);
-    *(s16 *)((s8 *)arg0 + 0x7E) = temp_r6;
+    *(s16 *)((s8 *)arg0 + 0x7E) = (*(s16 *)((s8 *)arg0 + 0x4A));
     *(u8 **)((s8 *)arg0 + 0x80) = temp_r3;
     *(s32 *)((s8 *)arg0 + 0x9C) = 0;
     memset(temp_r3, 0, 4);

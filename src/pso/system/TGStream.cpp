@@ -350,12 +350,10 @@ s32 TGStream::read_data(s32 dst, s32 size) {
 
 s32 get_gstream_buffered_bytes(void) {
   unsigned long new_var;
-  s32 temp_r3;
   new_var = gstream_buffer_read_offset;
   new_var = gstream_buffer_valid_size - new_var;
   gstream_buffer_read_offset = gstream_buffer_read_offset;
-  temp_r3 = new_var;
-  return (gstream_buffer_valid_size - gstream_buffer_read_offset) & (((s32) ((-temp_r3) & (~new_var))) >> 0x1F);
+  return (gstream_buffer_valid_size - gstream_buffer_read_offset) & (((s32) ((-new_var) & (~new_var))) >> 0x1F);
 }
 
 s32 refill_gstream_buffer(s32 arg0) {

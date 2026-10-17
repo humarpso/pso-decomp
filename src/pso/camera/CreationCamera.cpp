@@ -317,7 +317,6 @@ void CreationCamera::advance_review(){
 #pragma fp_contract on
 void CreationCamera::update_idle(){
     s32 temp_r0;
-    s32 temp_r0_2;
     if (TObjCMProportion__sub_8029916C(0x6F0) != 0) {
         *(u32 *)((s8 *)this + 0x84) = 0U;
         creation_camera_mode = 4;
@@ -335,8 +334,7 @@ void CreationCamera::update_idle(){
                 *(s32 *)((s8 *)this + 0x70) = temp_r0 - 0x6D;
             }
         }
-        temp_r0_2 = ((u32) *(u32 *)((s8 *)this + 0x84) >> 9U) & 3;
-        switch (temp_r0_2) {
+        switch (((u32) *(u32 *)((s8 *)this + 0x84) >> 9U) & 3) {
         case 0:
             *(s32 *)((s8 *)this + 0x74) = (s32) (*(s32 *)((s8 *)this + 0x74) + 0xDA);
             return;

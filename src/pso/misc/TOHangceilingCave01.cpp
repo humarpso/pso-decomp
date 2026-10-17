@@ -264,11 +264,9 @@ void TOHangceilingCave01KeyQuick::vfunc_79() {
 void TOHangceilingCave01KeyQuick::vfunc_80() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
-    s16 temp_r0;
     u8 *temp_r3;
     u8 *temp_r4;
-    temp_r0 = this->mode;
-    switch (temp_r0) {
+    switch (this->mode) {
     case 3:
         if ((is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_35C)) == 1) && (this->m_c0 <= *(f32 *)&this->unk_C4)) {
             ((s32 (*)(void *, int))sub_801682E4__13TUnk_804B2578Fl)(arg0, 2);
@@ -760,7 +758,6 @@ bool TOHangceilingCave01__sub_801688C0(u8 *arg0) {
 }
 
 s32 TOHangceilingCave01__create(u8 *arg0) {
-  s32 temp_r0;
   s32 temp_r3;
   s32 temp_r3_2;
   s32 temp_r3_3;
@@ -769,8 +766,7 @@ s32 TOHangceilingCave01__create(u8 *arg0) {
   s32 var_r0_3;
   if (arg0 != 0)
   {
-    temp_r0 = *((s32 *) (((s8 *) arg0) + 0x38));
-    switch (temp_r0)
+    switch (*((s32 *) (((s8 *) arg0) + 0x38)))
     {
       case 0:
         temp_r3 = ((s32 (*)(int))__nw__7TObjectFUl)(0x360);

@@ -105,10 +105,7 @@ void TWindowSubShortCut::run_task() {
     u8 *arg0 = (u8 *)this;
     u32 var_r0;
     void *var_r30;
-    u8 temp_r0;
-    u8 *temp_r3;
-    temp_r0 = this->m_1c;
-    switch (temp_r0) {
+    switch (this->m_1c) {
     case 0:
     case 1:
         if ((u32) this->m_38 != 0U) {
@@ -135,8 +132,7 @@ void TWindowSubShortCut::run_task() {
         this->m_1c = 2U;
     case 2:
         if (((TLobby *)(this->m_2c))->get_flag_bit2() != 0) {
-            temp_r3 = (u8 *)(*(u8 * *)&this->m_28);
-            ((VObj_18_204a81 *)(temp_r3))->m7();
+            ((VObj_18_204a81 *)((u8 *)(*(u8 * *)&this->m_28)))->m7();
             this->m_1c = 0xBU;
             return;
         }

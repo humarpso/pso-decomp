@@ -133,7 +133,6 @@ extern void *tl_05;
 void *TObjBigTuitate__ct(void *arg0, void *arg1, void *arg2) {
     struct CopyStack_8019ABE8 { u8 bytes[0x3C]; };
     CopyStack_8019ABE8 copy_storage_8019ABE8;
-    s32 temp_r4;
     construct_collider_proxy__13TUnk_804AF8A0Fv();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjBigTuitate;
     ((TObjPlayer *)((u8 *)arg0 + 0xAC))->init_and_activate();
@@ -142,8 +141,7 @@ void *TObjBigTuitate__ct(void *arg0, void *arg1, void *arg2) {
     init_collision_body_parts(arg0, big_tuitate_collision_body, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    temp_r4 = (s32)arg2 - 4;
-    *(ByteBlock_3C *)(copy_storage_8019ABE8.bytes) = *(const ByteBlock_3C *)(temp_r4 + 4);
+    *(ByteBlock_3C *)(copy_storage_8019ABE8.bytes) = *(const ByteBlock_3C *)(((s32)arg2 - 4) + 4);
     (*(f32 *)(copy_storage_8019ABE8.bytes + 0x24)) = lbl_805DBFB4;
     (*(f32 *)(copy_storage_8019ABE8.bytes + 0x28)) = lbl_805DBFB8;
     (*(f32 *)(copy_storage_8019ABE8.bytes + 0x2C)) = lbl_805DBFBC;

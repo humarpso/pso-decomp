@@ -335,15 +335,13 @@ s32 is_speech_balloon_ready(u8 *arg0) {
 #pragma push
 #pragma fp_contract on
 void TWindowFukidasi::rearm_balloon(s32 arg1) {
-    u8 temp_r0;
     u32 n;
 
     if (((s32 (*)(void))sub_80246948__13TUnk_804CE018Fv)() != 0) {
         *(s8 *)((s8 *)((u8 *)this) + 0x70) = 5;
     }
     ((s32 (*)(void *, void *))init_flags__15TWindowFukidasiFPvi)((void *) (((u8 *)this)), (void *)arg1);
-    temp_r0 = *(u8 *)((s8 *)((u8 *)this) + 0x72);
-    switch ((s32) temp_r0) {
+    switch ((s32) (*(u8 *)((s8 *)((u8 *)this) + 0x72))) {
     case 0:
         n = TWindowKeyBoardSoft::strnlen((s8 *)(((void * (*)(void *))get_field_20__17TWindowSubComCardFv)(((void * (*)(void *, int))get_array_entry__13TUnk_804CE018Fi)(((u8 *)this), 0))), (u32)0x100);
         *(s16 *)((s8 *)((u8 *)this) + 0x74) = (s16) ((lbl_805DCCF0 * (f32) n) + lbl_805DCCEC);
@@ -1174,9 +1172,7 @@ void render__15TWindowFukidasiFPv(Fuki_80252764 *b) {
 
 void TWindowFukidasi::run_task() {
     u8 *arg0 = (u8 *)this;
-  u8 temp_r0;
-  temp_r0 = *((u8 *) (((s8 *) arg0) + 0x70));
-  switch (temp_r0)
+  switch (*((u8 *) (((s8 *) arg0) + 0x70)))
   {
     case 1:
       ((void (*)(void *, void *))calc_text_size__15TWindowFukidasiFPvPv)(arg0, ((u8 *) arg0) + 0x38);

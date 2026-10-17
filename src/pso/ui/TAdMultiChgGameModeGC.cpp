@@ -88,7 +88,6 @@ typedef struct RecoveredFields_802FFCE4_arg0 RecoveredFields_802FFCE4_arg0;
 typedef struct RecoveredGlobal_802FFCE4_lbl_8050E208 RecoveredGlobal_802FFCE4_lbl_8050E208;
 void TAdMultiChgGameModeGC::run_task() {
     RecoveredFields_802FFCE4_arg0 *arg0 = (RecoveredFields_802FFCE4_arg0 *)this;
-  s32 temp_r3;
   s32 *new_var;
   s32 temp_r4;
   TAdMultiChgGameModeGC::set_default_camera();
@@ -106,8 +105,7 @@ void TAdMultiChgGameModeGC::run_task() {
   else
     if (1 == ((TAdSinglePlyChrSelectGC *)((int) arg0->field_2C))->get_selected_slot())
   {
-    temp_r3 = TAdSinglePlyChrSelectGC__sub_801334DC((void *)(*new_var));
-    switch (temp_r3)
+    switch (TAdSinglePlyChrSelectGC__sub_801334DC((void *)(*new_var)))
     {
       case 0:
         TAdMultiChgGameModeGC::set_mode_state_0d();

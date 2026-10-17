@@ -87,7 +87,6 @@ void TAdRicoRing::run_task() {
 }
 TAdRicoRing::~TAdRicoRing() {}
 u8 *__ct__11TAdRicoRingFv(u8 *arg0) {
-    s32 temp_r3;
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__11TAdRicoRing.value;
     ((TObjPlayer *)(arg0 + 0x2C))->init_forward();
@@ -111,8 +110,7 @@ u8 *__ct__11TAdRicoRingFv(u8 *arg0) {
     *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805D7E4C;
     *(s32 *)((s8 *)arg0 + 0x30) = 0x5B0;
     ((TObjPlayer *)(arg0 + 0x2C))->set_flags((s32)(4U));
-    temp_r3 = TKeyBoardControl__sub_8000F828();
-    switch (temp_r3) {
+    switch (TKeyBoardControl__sub_8000F828()) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0x48) = 0x12;
         break;

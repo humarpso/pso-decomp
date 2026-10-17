@@ -547,11 +547,9 @@ Rect_802AE2B0 *setup_content_frame__15TWindowMainMenuFPv(u8 *arg0) {
 }
 
 void TWindowMainMenu::update_slide_position() {
-    s16 temp_r4;
     if (sub_80246948__13TUnk_804CE018Fv() != 0) {
         set_target_y(lbl_805DE158);
-        temp_r4 = *(s16 *)((s8 *)this + 0x22);
-        *(u32 *)((s8 *)this + 0x50) = (u32) (lbl_805DE1A8 - (f32) temp_r4);
+        *(u32 *)((s8 *)this + 0x50) = (u32) (lbl_805DE1A8 - (f32) (*(s16 *)((s8 *)this + 0x22)));
         return;
     }
     update_scaled_position();

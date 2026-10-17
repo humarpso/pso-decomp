@@ -139,11 +139,9 @@ void TObjLazerFence4::sub_801933C8() {
 }
 
 void TObjLazerFence4::render() {
-    s32 temp_r0;
 
     if (((LazerFence4VObj_801930E8*)this)->m8(lbl_805DBE70, lbl_805DBE74) != 0) {
-        temp_r0 = *(s32 *)&this->m_ac;
-        switch (temp_r0) {
+        switch (*(s32 *)&this->m_ac) {
         case 0:
             draw_model();
             return;

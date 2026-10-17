@@ -9,12 +9,10 @@ s32 get_window_layout_position(int);
 #pragma push
 #pragma scheduling off
 s32 create_meseta_window(s32 arg0) {
-    s32 temp_r31;
     s32 var_r30;
     var_r30 = __nw__7TObjectFUl(0x74);
     if (var_r30 != 0) {
-        temp_r31 = get_message_10__20TWindowSubStatusDispFl(0x82);
-        var_r30 = (s32)TWindowMeseta__ct((void *)var_r30, (get_window_layout_position(0x28)), (arg0), (temp_r31));
+        var_r30 = (s32)TWindowMeseta__ct((void *)var_r30, (get_window_layout_position(0x28)), (arg0), (get_message_10__20TWindowSubStatusDispFl(0x82)));
     }
     return var_r30;
 }

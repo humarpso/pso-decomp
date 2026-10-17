@@ -63,10 +63,8 @@ void yasminkov_7000v_node_callback(void* p) { if (get_player_list__10TObjPlayerF
 void TUnk_804A6DC0::update_weapon() {
     f32 buffer_14[3];
     s32 buffer_8[3];
-    s32 temp_r0;
     s32 temp_r31;
-    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x1F8);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)((u8 *)this) + 0x1F8)) {
     case 1:
         this->m_200 = (f32) (this->m_200 - lbl_805DB050);
         if (this->m_200 <= (*(const f32 *)&lbl_805DB054)) {

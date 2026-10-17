@@ -518,7 +518,6 @@ void TObjWarpBossMulti::debug_print_area_num() {
 }
 
 void render__17TObjWarpBossMultiFv(u8 *arg0) {
-    s32 temp_r0;
 
     if ((s32) *(s32 *)((s8 *)arg0 + 0xBC) == 0xE) {
         if (xz_distance_squared(camera_ctrl_instance + 0x178, arg0 + 0x38) > lbl_805DC008) {
@@ -535,8 +534,7 @@ block_4:
         draw_ginja_object((void *)(*(s32 *)((s8 *)arg0 + 0xD4)));
         TParticleCtrl::begin_effect_render();
         TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xEC));
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0xF0);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0xF0)) {
         case 0:
             draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0xD8), *(s32 *)((s8 *)arg0 + 0xE0), *(f32 *)((s8 *)arg0 + 0xF8));
             break;
@@ -788,10 +786,8 @@ void TObjWarpBoss::warp_player(s32 arg1) {
 
 void TObjWarpBoss::update_floor_switch_state() {
     u8 *arg0 = (u8 *)this;
-    s16 temp_r0;
     s32 temp_r0_2;
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0xE0);
-    switch (temp_r0) {
+    switch (*(s16 *)((s8 *)arg0 + 0xE0)) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0xD0) = 0;
         *(s16 *)((s8 *)arg0 + 0xE0) = 1;
@@ -808,10 +804,8 @@ void TObjWarpBoss::update_floor_switch_state() {
 }
 
 void TObjWarpBoss::warp_boss_handle_window() {
-    s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)this + 0xE0);
-    switch (temp_r0) {
+    switch (*(s16 *)((s8 *)this + 0xE0)) {
     case 0:
         *(s16 *)((s8 *)this + 0xE0) = 1;
         *(s32 *)((s8 *)this + 0xD0) = 0;
@@ -856,12 +850,10 @@ void TObjWarpBoss::warp_boss_handle_window() {
 }
 
 void TObjWarpBoss::update_state() {
-    s16 temp_r0;
     s32 temp_r0_2;
     s32 temp_r3;
 
-    temp_r0 = *(s16 *)((s8 *)this + 0xE0);
-    switch (temp_r0) {
+    switch (*(s16 *)((s8 *)this + 0xE0)) {
     case 0:
         *(s32 *)((s8 *)this + 0x17C) = 0x96;
         *(s16 *)((s8 *)this + 0xE0) = 1;
@@ -895,11 +887,9 @@ void TObjWarpBoss::update_state() {
 
 void TObjWarpBoss::update_warp_state() {
     u8 *arg0 = (u8 *)this;
-    s16 temp_r0;
     s32 var_r3;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0xE0);
-    switch (temp_r0) {
+    switch (*(s16 *)((s8 *)arg0 + 0xE0)) {
     case 2:
         break;
     case 0:
@@ -1144,11 +1134,9 @@ s32 TObjWarpBoss::update_warp_dialogs() {
 }
 
 void TObjWarpBoss::update() {
-    s16 temp_r0;
 
     ((s32 (*)())update_warp_boss_visibility__12TObjWarpBossFv)();
-    temp_r0 = *(s16 *)((s8 *)this + 0xDE);
-    switch (temp_r0) {
+    switch (*(s16 *)((s8 *)this + 0xDE)) {
     case 0:
         ((TObjWarpBoss *)this)->update_warp_confirmation();
         return;

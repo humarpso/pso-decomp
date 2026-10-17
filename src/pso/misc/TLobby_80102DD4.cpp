@@ -219,14 +219,11 @@ void TItem__sub_801031C0(void* p) { *(s32*)((char*)p + 0x0) = 4; }
 void deliver_delayed_weapon_hit(u8 *arg0) {
     u8 *temp_r3;
     u8 *temp_r30;
-    f32 temp_f31;
-    u8* temp_r5;
     u32 player;
     u8 *item;
     temp_r3 = (u8 *)(resolve_hittable_target(*(u16 *)((s8 *)arg0 + 0x2A), *(s16 *)((s8 *)arg0 + 0x2C)));
     if (temp_r3 != NULL) {
-        temp_r5 = *(u8 **)((s8 *)temp_r3 + 0xA4);
-        temp_r30 = (u8 *)&((Tbl_801031CC *)temp_r5)->r[*(s16 *)((s8 *)arg0 + 0x2C)];
+        temp_r30 = (u8 *)&((Tbl_801031CC *)(*(u8 **)((s8 *)temp_r3 + 0xA4)))->r[*(s16 *)((s8 *)arg0 + 0x2C)];
         if (horizontal_distance_squared(arg0 + 0x38, temp_r30) < lbl_805DAAA8) {
             player = (u32)get_player_by_client_id((*(u16 *)((s8 *)arg0 + 0x28)));
             item = (u8 *)(find_item_by_id(*(s32 *)((s8 *)arg0 + 0x24)));
@@ -234,8 +231,7 @@ void deliver_delayed_weapon_hit(u8 *arg0) {
                 ((AttackWeapon*)item)->m59(player,temp_r3,*(s32*)((s8 *)arg0 + 0x20),*(f32*)((s8 *)arg0 + 0x30),*(s16*)((s8 *)arg0 + 0x2C));
             }
         } else {
-            temp_f31 = horizontal_distance_squared(arg0 + 0x38, arg0 + 0x44);
-            if (horizontal_distance_squared(temp_r30, arg0 + 0x44) < temp_f31) {
+            if (horizontal_distance_squared(temp_r30, arg0 + 0x44) < horizontal_distance_squared(arg0 + 0x38, arg0 + 0x44)) {
                 ((TObjPlayer *)temp_r3)->show_miss_for_collider((int) (*(s16 *)((s8 *)arg0 + 0x2C)));
             }
         }

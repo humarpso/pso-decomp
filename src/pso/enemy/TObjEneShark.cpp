@@ -302,15 +302,13 @@ void TObjEneShark::vfunc_93() {
 void TObjEneShark::apply_clamped_mode_param() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    s32 temp_r0_2;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x334);
     if (temp_r0 < 0) {
         *(s32 *)((s8 *)arg0 + 0x334) = 0;
     } else if (temp_r0 > 2) {
         *(s32 *)((s8 *)arg0 + 0x334) = 2;
     }
-    temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x334);
-    switch (temp_r0_2) {
+    switch (*(s32 *)((s8 *)arg0 + 0x334)) {
     case 2:
         *(s32 *)((s8 *)arg0 + 0x368) = 1;
         ((TObjEneLappy *)arg0)->set_param(0x12);

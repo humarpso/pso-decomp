@@ -2016,7 +2016,6 @@ extern const f32 lbl_805DF340;
 extern const f32 lbl_805DF344;
 #define arg0 ((u8 *)arg0_)
 void TObjEneMe3SinowZoa__sub_8031884C(void *arg0_, s32 arg1) {
-    s32 temp_r0;
     s32 temp_r5;
     s32 zero;
 
@@ -2065,8 +2064,7 @@ void TObjEneMe3SinowZoa__sub_8031884C(void *arg0_, s32 arg1) {
         break;
     case 0:
         advance_animation_playback(arg0);
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x434);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x434)) {
         case 0:
             *(s32 *)((s8 *)arg0 + 0x60) = approach_angle_limited((int) (*(s32 *)((s8 *)arg0 + 0x60)), (int) (*(s32 *)((s8 *)arg0 + 0x43C)), 0x31C7);
             if ((*(f32 *)((s8 *)arg0 + 0xC0) + *(f32 *)((s8 *)arg0 + 0xC8)) >= TObjEneMe3SinowZoa__data_805DF2F0) {
@@ -2574,7 +2572,6 @@ void TObjEneMe3SinowZoa__sub_80318F7C(Ene_80318F7C *self, s32 arg1) {
 #pragma fp_contract on
 void TObjEneMe3SinowZoa::state_chase_target(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    f32 temp_f31;
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0xA;
@@ -2606,8 +2603,7 @@ void TObjEneMe3SinowZoa::state_chase_target(s32 arg1) {
             ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
             ((TObjEneDD *)arg0)->update_velocity();
             TObjEneMe3SinowZoa__sub_80316840(arg0);
-            temp_f31 = *(f32 *)((s8 *)arg0 + 0x3A8) * cos_table_lookup((s32)((int) (*(s32 *)((s8 *)arg0 + 0x60))));
-            *(f32 *)((s8 *)arg0 + 0x444) = (f32) ((*(f32 *)((s8 *)arg0 + 0x3A0) * sin_table_lookup((s32)((int) (*(s32 *)((s8 *)arg0 + 0x60))))) + temp_f31);
+            *(f32 *)((s8 *)arg0 + 0x444) = (f32) ((*(f32 *)((s8 *)arg0 + 0x3A0) * sin_table_lookup((s32)((int) (*(s32 *)((s8 *)arg0 + 0x60))))) + (*(f32 *)((s8 *)arg0 + 0x3A8) * cos_table_lookup((s32)((int) (*(s32 *)((s8 *)arg0 + 0x60))))));
             if (*(f32 *)((s8 *)arg0 + 0x444) < cos_table_lookup(0x1000)) {
                 ((TObjEneEpsilon *)arg0)->update_angle(0x500);
                 this->vfunc_102();
@@ -2625,7 +2621,6 @@ void TObjEneMe3SinowZoa__sub_80319748(u8 *arg0, s32 arg1) {
     f32 temp_f1;
     f32 temp_f1_2;
     f32 temp_f31;
-    s32 temp_r0;
 
     switch (arg1) {
     case 4:
@@ -2647,8 +2642,7 @@ void TObjEneMe3SinowZoa__sub_80319748(u8 *arg0, s32 arg1) {
         }
         break;
     case 0:
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x434);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x434)) {
         case 0:
             temp_f31 = ((TObjEneMe3SinowZoa *)arg0)->get_node_height();
             advance_animation_playback(arg0);
@@ -2901,7 +2895,6 @@ void TObjEneMe3SinowZoa__sub_80319B8C(u8 *arg0, s32 arg1) {
 }
 void TObjEneMe3SinowZoa::state_chase(s32 arg1) {
 #define arg0 ((u8 *)this)
-    f32 temp_f31;
     s32 temp_r0;
     s32 temp_r4;
 
@@ -2943,8 +2936,7 @@ void TObjEneMe3SinowZoa::state_chase(s32 arg1) {
         if (((TObjEneDD_ST *)arg0)->update_linked_position(TObjEneMe3SinowZoa__data_805DF324) != 0) {
             ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
             ((TObjEneDD *)arg0)->update_velocity();
-            temp_f31 = *(f32 *)((s8 *)arg0 + 0x3A8) * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)));
-            *(f32 *)((s8 *)arg0 + 0x444) = (f32) ((*(f32 *)((s8 *)arg0 + 0x3A0) * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)))) + temp_f31);
+            *(f32 *)((s8 *)arg0 + 0x444) = (f32) ((*(f32 *)((s8 *)arg0 + 0x3A0) * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)))) + (*(f32 *)((s8 *)arg0 + 0x3A8) * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)))));
             if (*(f32 *)((s8 *)arg0 + 0x444) < cos_table_lookup(0x1000)) {
                 ((TObjEneEpsilon *)arg0)->update_angle(0x500);
                 ((VObj_18_bb4b7f *)(arg0))->m100();
@@ -3185,11 +3177,9 @@ void TObjEneMe3SinowZoa::vfunc_111() {  }
 
 s32 TObjEneMe3SinowZoa::try_run_effect_m7() {
     u8 *arg0 = (u8 *)this;
-    u8 *temp_r3;
 
     if (*(s32 *)((s8 *)arg0 + 0x3CC) & 4) {
-        temp_r3 = arg0 + 0x414;
-        ((VObj8031A598*)temp_r3)->m7();
+        ((VObj8031A598*)(arg0 + 0x414))->m7();
         return 1;
     }
     return 0;
@@ -3197,11 +3187,9 @@ s32 TObjEneMe3SinowZoa::try_run_effect_m7() {
 
 s32 TObjEneMe3SinowZoa::try_run_effect_m6() {
     u8 *arg0 = (u8 *)this;
-    u8 *temp_r3;
 
     if (*(s32 *)((s8 *)arg0 + 0x3CC) & 4) {
-        temp_r3 = arg0 + 0x414;
-        ((VObj8031A5E0*)temp_r3)->m6();
+        ((VObj8031A5E0*)(arg0 + 0x414))->m6();
         return 1;
     }
     return 0;
@@ -3257,7 +3245,6 @@ void TObjEneMe3SinowZoa__sub_8031A6A0(u8 *arg0) {
 #pragma fp_contract on
 bool TObjEneMe3SinowZoa__sub_8031A820(u8 *arg0) {
     f32 temp_f31;
-    f32 temp_f31_2;
     if (fabs_float(*(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x390)) + 0x3C) - *(f32 *)((s8 *)arg0 + 0x3C)) >= TObjEneMe3SinowZoa__data_805DF320) {
         if (calc_boss4_scale__10TObjPlayerFi((s32) arg0) <= *(f32 *)((s8 *)arg0 + 0x3F4)) {
             transition_enemy_state(arg0, 0xC);
@@ -3269,8 +3256,7 @@ block_4:
     if (*(f32 *)((s8 *)arg0 + 0x3AC) > lbl_805DF350) {
         return 0;
     }
-    temp_f31_2 = *(f32 *)((s8 *)arg0 + 0x3A8) * cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
-    temp_f31 = (*(f32 *)((s8 *)arg0 + 0x3A0) * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x60))) + temp_f31_2;
+    temp_f31 = (*(f32 *)((s8 *)arg0 + 0x3A0) * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x60))) + (*(f32 *)((s8 *)arg0 + 0x3A8) * cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x60)));
     return (temp_f31 < cos_table_lookup(0x1E00)) == 0;
 }
 #pragma pop
@@ -3448,7 +3434,6 @@ void *__dt__18TObjEneMe3SinowZoaFv(void *arg0, s16 arg1) {
 #pragma push
 #pragma opt_propagation off
 void TObjEneMe3SinowZoaReal::init_enemy() {
-    f32 temp_f1;
     s32 temp_r0;
     u8 *temp_r6;
     Tbl_8031AF88 *tbl = &lbl_80542FB0;
@@ -3477,8 +3462,7 @@ void TObjEneMe3SinowZoaReal::init_enemy() {
     *(s32 *)((s8 *)((u8 *)this) + 0x3CC) = 0;
     *(s32 *)((s8 *)((u8 *)this) + 0x3D0) = 0;
     VecCopy((Vec *)((u8 *)(((u8 *)this)) + 0x3D4), (const Vec *)((u8 *)(((u8 *)this)) + 0x38));
-    temp_f1 = *(f32 *)((s8 *)((u8 *)this) + 0x3C);
-    *(f32 *)((s8 *)((u8 *)this) + 0x3E0) = temp_f1;
+    *(f32 *)((s8 *)((u8 *)this) + 0x3E0) = (*(f32 *)((s8 *)((u8 *)this) + 0x3C));
     *(f32 *)((s8 *)((u8 *)this) + 0x3E4) = (f32) TObjEneMe3SinowZoa__data_805DF31C;
     *(s32 *)((s8 *)((u8 *)this) + 0x3F8) = 0;
     *(s32 *)((s8 *)((u8 *)this) + 0x3FC) = 0;

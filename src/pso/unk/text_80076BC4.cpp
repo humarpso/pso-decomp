@@ -41,10 +41,8 @@ void send_chat_shortcut(void);
 void TAdSinglePlyChrSelectGC__sub_80076DF4(void* p, void* q);
 
 void chat_dispatch_accepted_result(s32 *arg0) {
-    s32 temp_r0;
 
-    temp_r0 = *arg0;
-    switch (temp_r0) {
+    switch (*arg0) {
     case 1:
         ((s32 (*)(void *)) submit_chat_text)((s8 *)arg0 + 4);
         return;

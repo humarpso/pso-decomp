@@ -217,10 +217,8 @@ void TOCtrlDubchik::decay_timer_and_finish() {
 
 void TOCtrlDubchik::update_spin() {
     f32 temp_f1;
-    s32 temp_r4;
 
-    temp_r4 = *(s32 *)&this->m_380;
-    temp_f1 = (f32) temp_r4;
+    temp_f1 = (f32) (*(s32 *)&this->m_380);
     *(s32 *)&this->m_380 = (s32) (temp_f1 + TOCtrlDubchik__data_805DB3B4);
     this->m_37c = (f32) (TOCtrlDubchik__data_805DB3B8 + sin_table_lookup(*(s32 *)&this->m_380));
     apply_actor_gravity((u8 *)((u8 *)this), (s32 *)(((u8 *)this) + 0x390), (f32)this->m_37c);
@@ -257,9 +255,7 @@ void TOCtrlDubchik::sub_8015CCF4() {
 #pragma opt_common_subs off
 void TOCtrlDubchik::update_bobbing() {
     f32 temp_f1;
-    s32 temp_r4;
-    temp_r4 = *(s32 *)&this->m_380;
-    temp_f1 = (f32) temp_r4;
+    temp_f1 = (f32) (*(s32 *)&this->m_380);
     *(s32 *)&this->m_380 = (s32) (temp_f1 + TOCtrlDubchik__data_805DB3B4);
     this->m_37c = (f32) (TOCtrlDubchik__data_805DB3B8 + sin_table_lookup((s32)((int) (*(s32 *)&this->m_380))));
     apply_actor_gravity((u8 *)(((u8 *)this)), (s32 *)(((u8 *)this) + 0x390), this->m_37c);

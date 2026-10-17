@@ -215,7 +215,6 @@ typedef char RecoveredGlobal_802A6438_lbl_804DD388_size[sizeof(RecoveredGlobal_8
 void TObjSeabedSuisoBrakable::sub_802A6438() {
     u8 *arg0 = (u8 *)this;
     s32 *var_r3;
-    f32 var_f0;
     u8 *var_r31;
     var_r31 = arg0;
     var_r3 = (s32 *)&TObjSeabedSuisoBrakable__chip_record_set_table.value;
@@ -224,8 +223,7 @@ void TObjSeabedSuisoBrakable::sub_802A6438() {
     *(s32 *)((s8 *)var_r31 + 0x34) = ((s32 (*)(int))get_model__23TObjSeabedSuisoBrakableFi)((int)var_r3);
     var_r3 = (s32 *)NULL;
     *(s32 *)((s8 *)var_r31 + 0x24) = ((s32 (*)(int))get_instance__23TObjSeabedSuisoBrakableFv)(0);
-    var_f0 = lbl_805DDFFC;
-    *(f32 *)((s8 *)var_r31 + 0xB0) = var_f0;
+    *(f32 *)((s8 *)var_r31 + 0xB0) = lbl_805DDFFC;
 }
 
 void TObjSeabedSuisoBrakable__vt14(Obj_802A6490 *self) {
@@ -427,10 +425,8 @@ s32 draw_ginja_model_with_motion(s32, void *, f32);
 void draw_model__23TObjSeabedSuisoBrakableFPv(u8 *arg0);
 
 void TObjSeabedSuiso_CH::update_state() {
-    s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0xC8);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)this + 0xC8)) {
     case 2:
         ((s32 (*)(void))notify_break__23TObjSeabedSuisoBrakableFPv)();
         return;

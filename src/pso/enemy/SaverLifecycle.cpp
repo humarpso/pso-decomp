@@ -346,9 +346,7 @@ void TObjEneSaver::apply_lookup_entry_effect() {
 }
 
 void TObjEneSaver::sub_800A435C() {
-    s32 temp_r0;
-    temp_r0 = *(s32 *)&this->m_39c;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_39c) {
     case 0x0:
         if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x3A0) != 0U) {
             ((TEneParticleCtrl *)(*(void **)((s8 *)((u8 *)this) + 0x3A0)))->free_particle_ctrl();
@@ -397,11 +395,9 @@ void TObjEneSaver::calc_move_state() {
 }
 
 void update_collapse_and_destroy__10TObjPlayerFPv(u8 *arg0) {
-    s16 temp_r0;
     s32 prev_r3;
     advance_animation_playback();
-    temp_r0 = ((TObjEneSaver *)arg0)->phase;
-    switch (temp_r0) {
+    switch (((TObjEneSaver *)arg0)->phase) {
     case 0:
         ((TObjEneSaver *)arg0)->phase = 1;
         ((TObjPlayer *)(arg0 + 0x38))->request_two_effects();
@@ -447,13 +443,11 @@ void TObjEneSaver::vfunc_63() {
 }
 
 void TObjEneSaver::update_entry_motion() {
-    s16 temp_r0;
     u8 *temp_r3;
 
     advance_animation_playback();
     step_angle_clamped__10TObjPlayerFPvi((void *) (((u8 *)this)), 0);
-    temp_r0 = this->phase;
-    switch (temp_r0) {
+    switch (this->phase) {
     case 0:
         this->phase = 1;
         apply_actor_gravity((((u8 *)this)), 0, lbl_805D9A14);
@@ -526,12 +520,10 @@ void update_knockback_state__12TObjEneSaverFv(u8 *arg0);
 #define minimap_render_dot ((s32 (*)(void*, s32, s32, s32))(minimap_render_dot))
 
 void TObjEneSaver::update_knockback_state() {
-    s16 temp_r0;
 
     advance_animation_playback();
     step_angle_clamped__10TObjPlayerFPvi(((u8 *)this), 0);
-    temp_r0 = this->phase;
-    switch (temp_r0) {
+    switch (this->phase) {
     case 0:
         this->phase = 1;
         apply_actor_gravity(((u8 *)this), 0, lbl_805D9A14);
@@ -1270,10 +1262,8 @@ s32 TObjEneSaver::is_target_in_attack_range() {
 void TObjEneSaver::update_move_toward_target() {
     f32 temp_f0;
     f32 temp_f1;
-    u8 *temp_r5;
     u8 *temp_r8;
-    temp_r5 = (u8 *)(*(u8 * *)&this->m_a4);
-    *(s32 *)((s8 *)temp_r5 + 0x18) |= 1;
+    *(s32 *)((s8 *)((u8 *)(*(u8 * *)&this->m_a4)) + 0x18) |= 1;
     *(s32 *)&this->actorFlags &= 0xF9DBFFFF;
     temp_r8 = this->target;
     if (temp_r8 != NULL) {
@@ -1321,15 +1311,13 @@ void TObjEneSaver::update_move_toward_target() {
 }
 
 void TObjPlayer__sub_800A5FA8(u8 *arg0) {
-    s16 temp_r0;
     u8 *temp_r4;
     *(s32 *)&((TObjEneSaver *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjEneSaver *)arg0)->actorFlags& 0xFFDFFFFF);
     *(s32 *)&((TObjEneSaver *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjEneSaver *)arg0)->actorFlags| 0x06040000);
     temp_r4 = (unsigned char *) (((TObjEneSaver *)arg0)->m_a4);
     *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) & 0xFFFFFFFE);
     advance_animation_playback((void *)arg0, (int)temp_r4);
-    temp_r0 = ((TObjEneSaver *)arg0)->phase;
-    switch (temp_r0) {
+    switch (((TObjEneSaver *)arg0)->phase) {
     case 0:
         ((TObjEneSaver *)arg0)->phase = 1;
         ((TBoss3Volopt *)(arg0 + 0x38))->play_area_se_with_particle();
@@ -1351,13 +1339,11 @@ void TObjPlayer__sub_800A5FA8(u8 *arg0) {
 }
 
 void TObjEneSaver::advance_motion_state() {
-    s16 temp_r0;
 
     *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFDFFFFF);
     *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x06040000);
     *(s32 *)((s8 *)this->m_a4 + 0x18) = (s32) (*(s32 *)((s8 *)this->m_a4 + 0x18) & 0xFFFFFFFE);
-    temp_r0 = this->phase;
-    switch (temp_r0) {
+    switch (this->phase) {
     case 0:
         this->phase = 1;
         apply_actor_gravity(((u8 *)this), 0, lbl_805D9A14);
@@ -1509,13 +1495,11 @@ s32 lerp_angle_half__10TObjPlayerFUsUs(s32, s32);
 s32 obj_setFlags30(void *, int);
 
 void TObjEneSaver::vfunc_59() {
-    s16 temp_r0;
     s32 temp_r4;
     void *temp_r3;
     void *temp_r3_2;
 
-    temp_r0 = this->mode;
-    switch (temp_r0) {
+    switch (this->mode) {
     default:
         temp_r4 = *(s32 *)&this->m_390;
         if (temp_r4 & 4) {
@@ -1579,7 +1563,6 @@ extern const f32 lbl_805D9A88;
 #undef sub_800A62D4__12TObjEneSaverFv
 void TObjEneSaver::sub_800A62D4() {
     f32 temp_f1;
-    s16 temp_r0;
     s16 temp_r4_2;
 
     *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFDFFFFF);
@@ -1587,8 +1570,7 @@ void TObjEneSaver::sub_800A62D4() {
     *(s32 *)&this->m_390 = (s32) (*(s32 *)&this->m_390 & 0xFFFFFFF8);
     *(s32 *)((s8 *)this->m_a4 + 0x18) = (s32) (*(s32 *)((s8 *)this->m_a4 + 0x18) & 0xFFFFFFFE);
     advance_animation_playback((int) (((u8 *)this)));
-    temp_r0 = this->phase;
-    switch (temp_r0) {
+    switch (this->phase) {
     case 0:
     default:
         temp_r4_2 = *(s16 *)((s8 *)((u8 *)this) + 0x37E);
@@ -1644,11 +1626,9 @@ void TObjEneSaver::init_render_flags() {
 
 void TObjEneSaver::vfunc_58() {
     u8 *arg0 = (u8 *)this;
-    s16 temp_r0;
     u8 *temp_r3;
 
-    temp_r0 = this->mode;
-    switch (temp_r0) {
+    switch (this->mode) {
     case 0:
         if (((VObj800A64E8_800a64e8_800A4288 *)(arg0 + 0x3A4))->m8() != 0) {
             this->mode = 0xB;

@@ -745,12 +745,10 @@ void TBoss6Type1::set_phase_timer_3E() {
 }
 
 void TBoss6Type1::update_action_timer() {
-    s32 temp_r0;
     s32 temp_r0_2;
 
     interpolate_pos_to_target(*(s32 *)((s8 *)this + 0x410), *(s32 *)((s8 *)this + 0x40C));
-    temp_r0 = *(s32 *)((s8 *)this + 0x410);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)this + 0x410)) {
     case 0x48:
     case 0x3E:
     case 0x52:

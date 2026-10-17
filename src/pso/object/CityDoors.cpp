@@ -1009,10 +1009,8 @@ void TUnk_804B5BA8::vfunc_22() {
 }
 
 void TUnk_804B5BA8::dispatch_state() {
-    s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0xAC);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)this + 0xAC)) {
     case 0:
         this->begin_state_1();
         return;
@@ -1039,10 +1037,8 @@ void TUnk_804B5BA8::city_door_play_close_sound() {
 }
 
 void TUnk_804B5BA8::check_ground_or_fall() {
-    void *temp_r4;
 
-    temp_r4 = *(void * *)&this->unk_B8;
-    if (((VObj_80182A58_8018291C *)this)->m12(*(f32 *)((s8 *)temp_r4 + 8)) == 0) {
+    if (((VObj_80182A58_8018291C *)this)->m12(*(f32 *)((s8 *)(*(void * *)&this->unk_B8) + 8)) == 0) {
         *(s32 *)((s8 *)this + 0xAC) = 3;
         this->city_door_play_close_sound();
     }
@@ -1078,11 +1074,9 @@ if(F(this,f32,0xB4)>=last) {F(this,f32,0xB4)=F(this,f32,0xB0);F(this,s32,0xAC)=2
 
 void TUnk_804B5BA8::begin_state_1() {
     void *temp_r3;
-    void *temp_r4;
     VObj_80182C04_8018291C *obj = (VObj_80182C04_8018291C *)this;
 
-    temp_r4 = *(void * *)&this->unk_B8;
-    if (obj->m12(*(f32 *)((s8 *)temp_r4 + 4)) != 0) {
+    if (obj->m12(*(f32 *)((s8 *)(*(void * *)&this->unk_B8) + 4)) != 0) {
         *(s32 *)((s8 *)this + 0xAC) = 1;
         obj->m18();
         temp_r3 = this->m_a4;

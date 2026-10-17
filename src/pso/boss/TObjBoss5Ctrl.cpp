@@ -41,7 +41,6 @@ TObjBoss5Ctrl::~TObjBoss5Ctrl() {
 extern "C" {
 
 void *TObjBoss5Ctrl__ct(void *arg0) {
-    s32 temp_r3;
     f32 temp_f2;
     f32 temp_f3;
 
@@ -55,8 +54,7 @@ void *TObjBoss5Ctrl__ct(void *arg0) {
     temp_f3 = (f32) rand();
     temp_f2 = lbl_805D8F18 * temp_f3;
     *(s16 *)((s8 *)arg0 + 0x2C) = (s16) (lbl_805D8F14 * temp_f2 + lbl_805D8F10);
-    temp_r3 = get_current_floor(lbl_805D8F14, temp_f2, temp_f3);
-    if (is_room_enemy_set_cleared(temp_r3, 1) == 0) {
+    if (is_room_enemy_set_cleared(get_current_floor(lbl_805D8F14, temp_f2, temp_f3), 1) == 0) {
         if (is_split_screen() == 0) {
             if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 0U) {
                 *(u32 *)((s8 *)arg0 + 0x1C) = create__19TObjBoss5FloorGrassFv();

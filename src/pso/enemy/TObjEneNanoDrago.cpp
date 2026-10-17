@@ -277,12 +277,10 @@ u32 get_player_by_client_id(s32);
 s32 play_area_sound_effect__12TBoss3VoloptFv(void *, s32);
 
 void TObjPlayer::update_death_state() {
-    s32 temp_r0;
     s32 temp_r4;
     s32 temp_r5;
 
-    temp_r0 = this->m_37c;
-    switch (temp_r0) {
+    switch (this->m_37c) {
     case 0:
         *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 4);
         temp_r4 = *(s32 *)&this->actorFlags | 0x04000000;
@@ -524,9 +522,7 @@ inline f32 fmax_800DA5FC(f32 a, f32 b) {
 }
 void update_death_sequence__10TObjPlayerFPv(u8 *arg0) {
     f32 var_f1;
-    s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case 0:
         refresh_lobby_state__10TObjPlayerFv();
         ((TObjEnemy *)arg0)->send_entity_set_flags();
@@ -592,11 +588,9 @@ void TObjPlayer__sub_800DA7E4(u8 *arg0) {
     f32 temp_r5;
     s16 temp_r4;
     s16 var_r3;
-    s32 temp_r0;
     u32 entity;
     s32 var_r30;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case 0:
         var_r3 = 3;
         *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFDFFFFF);

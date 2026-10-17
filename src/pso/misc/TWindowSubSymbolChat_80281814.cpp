@@ -340,10 +340,8 @@ s32 TWindowSubSymbolChat::create_parts() {
 extern const f32 lbl_805DD744;
 
 void TWindowSubSymbolChat::open_menu(s32 arg0, s32 arg1) {
-    s32 temp_r3;
     ((TWindowSubComCardList *)arg1)->reset_entries();
-    temp_r3 = refresh_parts__20TWindowSubSymbolChatFv();
-    if (temp_r3 > 0) {
+    if (refresh_parts__20TWindowSubSymbolChatFv() > 0) {
         forward_trade_action_default__16TObjCityMainWarpFPviii((void *)arg1, (int)(get_message_10__20TWindowSubStatusDispFl(0xAE)), 6, 0xC);
     } else {
         TWindowSubComCard::draw_text_gray(arg1, get_message_10__20TWindowSubStatusDispFl(0xAE), 6, 0xC);

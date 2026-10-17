@@ -28,10 +28,8 @@ void TItemLoad::reset_ring_state() {
 }
 
 void TItemLoad::update_state() {
-    s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x18);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)this + 0x18)) {
     case 1:
         advance_load_state__9TItemLoadFv();
         return;

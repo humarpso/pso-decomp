@@ -1928,11 +1928,9 @@ void TBoss4Type3::set_anim_state(s32 arg1) {
 void update_phase_timer__11TBoss4Type3FPv(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f1_2;
-    s32 temp_r0;
     *(s32 *)((s8 *)arg0 + 0x3FC) = 0;
     *(f32 *)((s8 *)arg0 + 0x3F4) = (f32) (*(f32 *)((s8 *)arg0 + 0x3F4) + *(f32 *)((s8 *)arg0 + 0x3F8));
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x400);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x400)) {
     case 0:
         temp_f1 = *(f32 *)((s8 *)arg0 + 0x3F4);
         if (temp_f1 >= lbl_805D8C9C) {

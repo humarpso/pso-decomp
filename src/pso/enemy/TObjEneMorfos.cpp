@@ -1685,10 +1685,6 @@ struct O_80334588;
 
 void TObjEneMorfos__sub_80332FD4(u8 *arg0, s32 arg1) {
     s32 temp_r0;
-    s32 temp_r0_2;
-    u8 *temp_r3;
-    u8 *temp_r3_2;
-    u8 *temp_r3_3;
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
@@ -1714,8 +1710,7 @@ void TObjEneMorfos__sub_80332FD4(u8 *arg0, s32 arg1) {
         break;
     case 0:
         advance_animation_playback(arg0);
-        temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x4B0);
-        switch (temp_r0_2) {
+        switch (*(s32 *)((s8 *)arg0 + 0x4B0)) {
         case 0:
             if (enemy_validate_retained_target(arg0) != 0) {
                 ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
@@ -1733,12 +1728,9 @@ void TObjEneMorfos__sub_80332FD4(u8 *arg0, s32 arg1) {
             break;
         case 1:
             if ((objInBand((GameObj *)arg0, (f32)lbl_805DF880) != 0) && (((TObjEneDD_ST *)arg0)->enemy_check_target_valid() != 0)) {
-                temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x390));
-                if (((VObj_18_76ddf3 *)(temp_r3))->m18(arg0, TObjEneMorfos__data_805DF884) != 0) {
-                    temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x390));
-                    ((VObj_18_76ddf3 *)(temp_r3_2))->m20(arg0, TObjEneMorfos__data_805DF884);
-                    temp_r3_3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x390));
-                    ((VObj_18_76ddf3 *)(temp_r3_3))->m23(arg0, lbl_805DF888);
+                if (((VObj_18_76ddf3 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x390))))->m18(arg0, TObjEneMorfos__data_805DF884) != 0) {
+                    ((VObj_18_76ddf3 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x390))))->m20(arg0, TObjEneMorfos__data_805DF884);
+                    ((VObj_18_76ddf3 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x390))))->m23(arg0, lbl_805DF888);
                 }
             }
             if (((s32 (*)(void *))get_flag_b4__9TObjEneDDFv)(arg0) != 0) {
@@ -1883,7 +1875,6 @@ void state_rotating_projectile_burst__13TObjEneMorfosFPvi(u8 *arg0, s32 arg1) {
 #pragma pop
 
 void TObjEneMorfos__sub_80333690(u8 *arg0, s32 arg1) {
-    s32 temp_r0;
     u8 *temp_r3;
     switch (arg1) {
     case 4:
@@ -1909,8 +1900,7 @@ void TObjEneMorfos__sub_80333690(u8 *arg0, s32 arg1) {
         break;
     case 0:
         ((s32 (*)(void))advance_animation_playback)();
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x4B0);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x4B0)) {
         case 0:
             if (((TObjEneMorfos *)arg0)->approach_value(*(s32 *)((s8 *)arg0 + 0x4BC), *(s32 *)((s8 *)(*(u8 * *)&TObjEneMorfos__param_table) + 0x1C)) != 0) {
                 *(s32 *)((s8 *)arg0 + 0x4B0) = 1;
@@ -1991,7 +1981,6 @@ void TObjEneMorfos__sub_80333690(u8 *arg0, s32 arg1) {
 }
 
 void TObjEneMorfos__sub_80333AD0(u8 *arg0, s32 arg1) {
-    s32 temp_r0;
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
@@ -2030,8 +2019,7 @@ void TObjEneMorfos__sub_80333AD0(u8 *arg0, s32 arg1) {
             ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
             ((TObjEneDD *)arg0)->update_velocity();
         }
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x4B4);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x4B4)) {
         case 0:
             if (((TObjEneDD_ST *)arg0)->enemy_has_live_target() != 0) {
                 *(s32 *)((s8 *)arg0 + 0x4BC) = (s32) (u16) (s32) (TObjEneMorfos__data_80477610 * ((f64 (*)(f32, f32)) atan2_float)((f32) (*(f32 *)((s8 *)arg0 + 0x3A0)), (f32) (*(f32 *)((s8 *)arg0 + 0x3A8))));
@@ -2168,7 +2156,6 @@ void TObjEneMorfos__sub_80334030(u8 *arg0, s32 arg1) {
 }
 
 void TObjEneMorfos::state_appear(s32 arg1) {
-    s32 temp_r0;
 
     switch (arg1) {
     case 4:
@@ -2186,8 +2173,7 @@ void TObjEneMorfos::state_appear(s32 arg1) {
         }
         break;
     case 0:
-        temp_r0 = *(s32 *)((s8 *)this + 0x4B0);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)this + 0x4B0)) {
         case 0:
             if (update_linked_position__12TObjEneDD_STFf(TObjEneMorfos__data_805DF86C) != 0) {
                 *(s32 *)((s8 *)this + 0x4B0) = 1;

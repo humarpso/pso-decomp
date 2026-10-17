@@ -1809,12 +1809,10 @@ s32 TObjEneBm3FlyNest__sub_800B3AC8(u8 *arg0) {
 
 void TObjEneBm3FlyNest::update_replenish() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
     s32 temp_r0_2;
     s32 temp_r0_3;
     s32 var_r5;
-    temp_r0 = *(s32 *)&this->m_4d0;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_4d0) {
     case 0:
         if (((s32) *(s32 *)((s8 *)arg0 + 0x3B0) <= (s32) ((s32) *(s32 *)&this->m_3ac / 2)) || ((s32) *(s32 *)((s8 *)arg0 + 0x3A8) != 0)) {
             *(s32 *)&this->m_4d0 = 1;

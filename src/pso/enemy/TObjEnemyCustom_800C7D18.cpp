@@ -184,10 +184,8 @@ void TObjEnemyCustom::vfunc_59() { update_if_active__15TObjEneMe1GiGueFl(this, 1
 extern f32 lbl_805DA070;
 
 void TObjEnemyCustom::update_state() {
-    s32 temp_r0;
 
-    temp_r0 = *(s32 *)&this->state;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->state) {
     case 0:
         this->m_b8 = 0;
         *(s32 *)&this->state = 1;

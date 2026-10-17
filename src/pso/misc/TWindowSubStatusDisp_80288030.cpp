@@ -40,7 +40,6 @@ u8 *TWindowSubStatusDisp::construct_type1_heading(s32 arg1, s32 arg2) {
 void TWindowSubStatusDisp::fill_card_text_entries(s32 arg1) {
     u8 *temp_r3;
     s32 temp_r31;
-    u8 *temp_r31_2;
     s32 temp_r30;
     s32 temp_r29;
     s32 temp_r28;
@@ -76,8 +75,7 @@ void TWindowSubStatusDisp::fill_card_text_entries(s32 arg1) {
         ((TWindowHelpItem *)temp_r27)->set_flag0_bit2();
         ((TWindowHelpItem *)temp_r28)->set_flag0_bit2();
     }
-    temp_r31_2 = (u8 *)(((TWindowSubStatusDisp *)arg1)->get_sub_disp_ptr());
-    if (strcmp((void *) (((TWindowSubComCard *)arg1)->get_sub_obj()), (int)temp_r31_2) != 0) {
+    if (strcmp((void *) (((TWindowSubComCard *)arg1)->get_sub_obj()), (int)((u8 *)(((TWindowSubStatusDisp *)arg1)->get_sub_disp_ptr()))) != 0) {
         text_builder_reset();
         text_builder_append((u8 *)(((TWindowSubComCard *)arg1)->get_sub_obj()));
         text_builder_append((u8 *)(TWindowSubStatusDisp::get_message_10(0x45)));

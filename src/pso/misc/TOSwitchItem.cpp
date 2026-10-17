@@ -118,7 +118,6 @@ void run_task__12TOSwitchItemFv(u8 *arg0) {
     s32 temp_r31;
     s32 var_r30;
     s32 var_r29;
-    u32 temp_r0;
     u8 *sorted_item_registry_entry;
     ((TOSwitchItem *)(arg0))->update_armed_switch();
     var_r30 = 0;
@@ -127,8 +126,7 @@ void run_task__12TOSwitchItemFv(u8 *arg0) {
     while (var_r29 != temp_r31) {
         sorted_item_registry_entry = (u8 *)(get_sorted_item_registry_entry(var_r29));
         if ((TObjPlayer__sub_80102C30(sorted_item_registry_entry) == 0) && (horizontal_distance_squared(&((Obj_80177E24 *)sorted_item_registry_entry)->pos, &((Obj_80177E24 *)arg0)->pos) < ((TOSwitchItem *)arg0)->m_e8)) {
-            temp_r0 = *(u32 *)&((TOSwitchItem *)arg0)->m_f0;
-            switch (temp_r0) {
+            switch (*(u32 *)&((TOSwitchItem *)arg0)->m_f0) {
             case 0:
                 var_r30 += 1;
                 break;

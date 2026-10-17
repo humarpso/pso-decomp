@@ -73,10 +73,8 @@ s32 enable__13TParticleCtrlFv(void *);
 void TObjLobbyMain__sub_803520D8(void) {  }
 
 void TObjLobbyMain::resolve_theme_index() {
-    u32 temp_r0;
     *(u32 *)&this->_padCC = ((u32)get_theme_lobby_type());
-    temp_r0 = *(u32 *)&this->_padCC;
-    switch (temp_r0) {
+    switch (*(u32 *)&this->_padCC) {
     case 1:
         this->m_d0 = 0xC;
         return;
@@ -111,9 +109,7 @@ void TObjLobbyMain::resolve_theme_index() {
 }
 
 void TObjLobbyMain::set_mode_index_from_state() {
-    u32 temp_r0;
-    temp_r0 = *(u32 *)&this->m_84;
-    switch (temp_r0) {
+    switch (*(u32 *)&this->m_84) {
     case 1:
         *(s16 *)&this->unk_D2 = 1;
         return;
@@ -325,13 +321,11 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
 void TObjLobbyMain::run_task() {
-    s32 temp_r0;
 
     if (TObjPlayer::check_demo_mode() == 1) {
         TObjLobbyMain__sub_803520D8(this);
     }
-    temp_r0 = *(s32 *)&this->m_c8;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_c8) {
     case 0:
         update_fade__13TObjLobbyMainFv(this);
         break;

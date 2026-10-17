@@ -257,10 +257,8 @@ void TObjChallengeRetry::update_destroy_countdown() {
     }
 }
 void TObjChallengeRetry::handle_loss_sequence() {
-    s32 temp_r3;
     play_player_default_effect__6TLobbyFv((s32)this);
-    temp_r3 = TLobby__sub_80070DA8();
-    switch (temp_r3) {
+    switch (TLobby__sub_80070DA8()) {
     case 0:
         play_cue_stream_file((s32)lbl_804385D4);
         TLobby::send_45_and_close_windows(this);
@@ -397,10 +395,8 @@ void *TObjChallengeRetry__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 void TObjChallengeRetry::run_task() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
     this->m_20 = ((s32 (*)(void *))is_challenge_lobby__6TLobbyFv)(arg0);
-    temp_r0 = *(s32 *)&this->_pad1c;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->_pad1c) {
     case 0:
         ((TObjChallengeRetry *)arg0)->sub_8007313C();
         break;

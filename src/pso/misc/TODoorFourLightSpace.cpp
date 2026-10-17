@@ -226,12 +226,10 @@ s32 TODoorFourLightSpace::draw_lights() {
 
 void TODoorFourLightSpace::render() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
     s32 cc;
 
     if ((((VObj_802898E8 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) == 1) && (((TUnk_804AFBF8 *)arg0)->is_in_view_depth(lbl_805DD8F0) == 1)) {
-        temp_r0 = *(s32 *)&this->m_ac;
-        switch (temp_r0) {
+        switch (*(s32 *)&this->m_ac) {
         case 1:
         case 3:
             push_matrix();
@@ -460,12 +458,10 @@ s32 TODoorFourLightRuins::draw_model_and_lights(void *arg0) {
 
 void TODoorFourLightRuins::render() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
     s32 cc;
 
     if ((((VObj_8028A030 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) == 1) && (((TUnk_804AFBF8 *)arg0)->is_in_view_depth(lbl_805DD8F0) == 1)) {
-        temp_r0 = *(s32 *)&this->m_ac;
-        switch (temp_r0) {
+        switch (*(s32 *)&this->m_ac) {
         case 1:
         case 3:
             push_matrix();

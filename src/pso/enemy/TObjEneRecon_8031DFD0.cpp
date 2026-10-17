@@ -423,8 +423,6 @@ void *__dt__12TObjEneReconFv(void *arg0, s16 arg1) {
 #pragma fp_contract on
 void TObjEneRecon::init_state() {
     u8 *arg0 = (u8 *)this;
-    f32 temp_f1;
-    s32 temp_r5;
     u8 *temp_r6;
 
     ((TObjEneDD *)arg0)->init_position_vectors();
@@ -445,11 +443,9 @@ void TObjEneRecon::init_state() {
     ((TObjEneDD_ST *)arg0)->enemy_init_acquire_period(0xA);
     ((TObjEneDD_ST *)arg0)->enemy_init_validate_period(0xA);
     ((TObjEneDD_ST *)arg0)->set_active();
-    temp_r5 = *(s32 *)((s8 *)arg0 + 0x30) | 0x01000000;
-    *(s32 *)((s8 *)arg0 + 0x30) = temp_r5;
+    *(s32 *)((s8 *)arg0 + 0x30) = (*(s32 *)((s8 *)arg0 + 0x30) | 0x01000000);
     *(s32 *)((s8 *)arg0 + 0x444) = 2;
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0x3C);
-    *(f32 *)((s8 *)arg0 + 0x448) = temp_f1;
+    *(f32 *)((s8 *)arg0 + 0x448) = (*(f32 *)((s8 *)arg0 + 0x3C));
     *(f32 *)((s8 *)arg0 + 0x44C) = (f32) TObjEneRecon__data_805DF3C4;
     *(f32 *)((s8 *)arg0 + 0x450) = (f32) TObjEneRecon__data_805DF3C4;
     *(f32 *)((s8 *)arg0 + 0x454) = (f32) TObjEneRecon__data_805DF3C4;

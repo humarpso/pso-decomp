@@ -10,10 +10,8 @@ void *__ct__18TAdLoadQuestCellGCFP7TObjectPv(void *arg0, void *arg1, void *arg2)
 __declspec(section ".data") TAdLoadQuestCellGC *ad_load_quest_cell_table[3] = { 0, 0, 0 };
 
 void TAdLoadQuestCellGC::render_state() {
-    s32 temp_r0;
 
-    temp_r0 = this->m_state;
-    switch (temp_r0) {
+    switch (this->m_state) {
     case 0:
         fn_80349844();
         return;

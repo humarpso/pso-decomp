@@ -264,7 +264,6 @@ void *lbl_80482A60[20] = {
 
 void TBoss2Joint__sub_8003688C(u8 *arg0) {
   u32 temp_r5;
-  s32 *temp_r3;
   s32 *temp_r4;
   u32 temp_r5_2;
   u8 *temp_r6;
@@ -287,8 +286,7 @@ void TBoss2Joint__sub_8003688C(u8 *arg0) {
   *((s32 *) (((s8 *) temp_r6_2) + 0)) = (s32) (((((temp_r5_2 >> 0x10U) & new_var) | ((temp_r5_2 << 0x10) & 0xFF000000)) & (~0xFF0000)) | ((temp_r5_2 << 0x10) & 0xFF0000));
   *((u16 *) (((s8 *) temp_r6_2) + 0x10)) = (u16) ((*((u16 *) (((s8 *) temp_r6_2) + 0x10))) & 0xFFFFF7FF);
   *((s16 *) (((s8 *) temp_r6_2) + (-4))) = 0x2517;
-  temp_r3 = (s32 *) (*((s32 **) (((s8 *) arg0) + 0x39C)));
-  *temp_r3 |= 0xFF00;
+  *((s32 *) (*((s32 **) (((s8 *) arg0) + 0x39C)))) |= 0xFF00;
 }
 
 void TBoss2Joint::call_36A90_with_1() { init_joint_offset(1); }

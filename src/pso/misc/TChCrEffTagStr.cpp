@@ -49,9 +49,7 @@ void TChCrEffTagStr::run_task() {
     f32 temp_f0;
     f32 temp_f1;
     f32 temp_f2;
-    s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x1C)) {
     case 0:
         temp_f2 = *(f32 *)((s8 *)arg0 + 0x24);
         if (!(temp_f2 >= lbl_805DDCB8)) {

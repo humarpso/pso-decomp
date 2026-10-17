@@ -26,7 +26,6 @@ extern const f32 lbl_805DCCD4;
 
 void TWindowEffectParty::run_task() {
     s32 sp8;
-    u8 temp_r0;
     u8 temp_r3;
 
     temp_r3 = this->m_1e;
@@ -34,8 +33,7 @@ void TWindowEffectParty::run_task() {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    temp_r0 = this->m_1c;
-    switch ((s8) temp_r0) {
+    switch ((s8) this->m_1c) {
     case 0:
         this->m_1c = 1U;
     case 1:

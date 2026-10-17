@@ -89,10 +89,8 @@ s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 
 void TObjContainerNoItem::vfunc_80() {
-    s16 temp_r0;
 
-    temp_r0 = this->mode;
-    switch (temp_r0) {
+    switch (this->mode) {
     case 0:
         if ((s32) this->m_364 != 0) {
             submit_cursor_candidate(this, -1);

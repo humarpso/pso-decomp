@@ -501,14 +501,12 @@ void TObjAreaWarpEndingJung__vt18(Warp_8019B170 *arg0) {
 
 void TObjAreaWarpEndingJung::render() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
 
     if (((VObj_8019B124*)arg0)->m8(lbl_805DBFD4, lbl_805DBFD8) != 0) {
         if (TObjWarpJung::update_warp_display() != 0) {
             PPCSync();
         }
-        temp_r0 = *(s32 *)&this->m_8c;
-        switch (temp_r0) {
+        switch (*(s32 *)&this->m_8c) {
         case 0:
             TObjWarpJung__sub_801A0404(0);
             break;
@@ -637,10 +635,8 @@ void TObjWarpString::sub_8019B77C() {
 }
 
 void TObjWarpString::run_task() {
-    s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x4C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)this + 0x4C)) {
     case 0:
         ((s32 (*)(void))sub_8019B77C__14TObjWarpStringFv)();
         return;
@@ -738,10 +734,8 @@ void *TObjMapForceWarp__ct(void *arg0) {
 }
 
 void TKeyBoardControl::dispatch_select_phase() {
-    s32 temp_r3;
 
-    temp_r3 = TAdStorySelectGC__sub_8019DC14();
-    switch (temp_r3) {
+    switch (TAdStorySelectGC__sub_8019DC14()) {
     case 0:
         if (should_record_episode1_quest_completion() != 0) {
             TBoss4DarkFalz::dispatch_by_main_phase(0x3FE);

@@ -7,7 +7,6 @@ extern "C" {
 u8 get_slot_count__14TItemProShieldFv();
 void TItemProShield::sub_80117FEC() {
     u8 *arg0 = (u8 *)this;
-    u8 temp_r0;
     u8 temp_r3;
     temp_r3 = get_slot_count__14TItemProShieldFv();
     switch (temp_r3) {
@@ -38,8 +37,7 @@ void TItemProShield::sub_80117FEC() {
         ((TItemEquipBase *)arg0)->set_equip_flag(0x22);
         *(s32 *)&this->m_19c = (s32) (*(s32 *)&this->m_19c | 2);
     }
-    temp_r0 = *(u8 *)((s8 *)(*(u8 * *)&this->m_18c) + 0x1A);
-    switch ((s32) temp_r0) {
+    switch ((s32) (*(u8 *)((s8 *)(*(u8 * *)&this->m_18c) + 0x1A))) {
     case 1:
         *(s32 *)&this->m_19c = (s32) (*(s32 *)&this->m_19c | 4);
         return;

@@ -868,12 +868,10 @@ void TObjEnePanarms::update_hit_state() {
 void TObjEnePanarms::restore_from_linked_object() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r4;
-    u8 *temp_r5;
     temp_r4 = (u8 *)(*(u8 * *)&this->unk_37C);
     *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) & 0xFFFFFFFE);
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(*(u8 * *)&this->m_39c + 0x38));
-    temp_r5 = (u8 *)(*(u8 * *)&this->m_39c);
-    this->rotation_y = (s32) *(s32 *)((s8 *)temp_r5 + 0x60);
+    this->rotation_y = (s32) *(s32 *)((s8 *)((u8 *)(*(u8 * *)&this->m_39c)) + 0x60);
     *(s32 *)&this->animationFlags = (s32) (*(s32 *)&this->animationFlags | 1);
     set_field_b8__10TObjMotionFs(arg0, 8);
 }
@@ -1100,15 +1098,13 @@ void TObjEnePanarms::handle_split_flag() {
 }
 
 void TObjEnePanarms::init_split() {
-    s16 temp_r5;
     void *temp_r7;
 
     temp_r7 = *(void * *)&this->unk_37C;
     *(s32 *)((s8 *)temp_r7 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r7 + 0x18) & 0xFFFFFFFE);
     *(s32 *)&this->unk_384 = 1;
     this->m_388 = 0;
-    temp_r5 = *(s16 *)((s8 *)(*(void * *)&this->m_39c) + 0x32C);
-    this->hp = (s16) ((temp_r5 + 1) / 2);
+    this->hp = (s16) (((*(s16 *)((s8 *)(*(void * *)&this->m_39c) + 0x32C)) + 1) / 2);
     this->m_3bc = (s32) this->hp;
     *(s32 *)&this->unk_3C0 = 0;
     sub_800E2DE4(0x10);

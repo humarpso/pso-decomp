@@ -105,7 +105,6 @@ void TAdMultiPlyChrSelectGC::close_windows() {
 }
 
 void update__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
-    s32 temp_r3;
 
     if (((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x68)))->get_player_index() == 1) {
         TAdMultiPlyChrSelectGC::reset_slot_selections();
@@ -123,8 +122,7 @@ void update__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         return;
     }
     if (((TWindowMessageYesNo *)(*(s32 *)((s8 *)arg0 + 0x8C)))->is_child_visible() != 0) {
-        temp_r3 = ((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x8C)))->get_slot_or_neg1();
-        switch (temp_r3) {
+        switch (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x8C)))->get_slot_or_neg1()) {
         case 1:
             ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x5C)))->set_state_ready();
             *(s32 *)((s8 *)arg0 + 0x20) = 3;
@@ -141,7 +139,6 @@ void update__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
 }
 
 void TAdMultiPlyChrSelectGC::update_card_select() {
-    s32 temp_r3;
 
     if (((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x68)))->get_player_index() == 1) {
         if ((u32) *(u32 *)((s8 *)this + 0x7C) != 0U) {
@@ -168,8 +165,7 @@ void TAdMultiPlyChrSelectGC::update_card_select() {
         return;
     }
     if (((TWindowMessageYesNo *)(*(u32 *)((s8 *)this + 0x98)))->is_child_visible() != 0) {
-        temp_r3 = ((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x98)))->get_slot_or_neg1();
-        switch (temp_r3) {
+        switch (((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x98)))->get_slot_or_neg1()) {
         case 1:
             ((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x7C)))->clear_transition_flag();
             ((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x7C)))->clear_flag_and_release();
@@ -247,7 +243,6 @@ void TAdMultiPlyChrSelectGC::update_state_option() {
 extern s32 lbl_805D68C8;
 
 void TAdMultiPlyChrSelectGC::update_card_confirm() {
-    s32 temp_r3;
 
     if (((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x68)))->get_player_index() == 1) {
         TAdMultiPlyChrSelectGC::reset_slot_selections();
@@ -265,8 +260,7 @@ void TAdMultiPlyChrSelectGC::update_card_confirm() {
         return;
     }
     if (((TWindowMessageYesNo *)(*(u32 *)((s8 *)this + 0x90)))->is_child_visible() != 0) {
-        temp_r3 = ((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x90)))->get_slot_or_neg1();
-        switch (temp_r3) {
+        switch (((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x90)))->get_slot_or_neg1()) {
         case 1:
             ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x5C)))->set_state_ready();
             *(s32 *)((s8 *)this + 0x20) = 3;

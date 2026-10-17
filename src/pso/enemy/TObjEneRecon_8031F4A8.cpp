@@ -10,12 +10,10 @@ s32 get_flag_b4__9TObjEneDDFv();
 s32 is_out_of_range__12TObjEneReconFv();
 
 void TObjEneRecon::handle_action_state(s32 arg1) {
-    s32 temp_r4;
 
     switch (arg1) {
     case 4:
-        temp_r4 = *(s32 *)&this->m_428 & 0xFFFFFFFE;
-        *(s32 *)&this->m_428 = temp_r4;
+        *(s32 *)&this->m_428 = (*(s32 *)&this->m_428 & 0xFFFFFFFE);
         this->m_b8 = 2;
         this->vfunc_96();
         set_field_378(2);

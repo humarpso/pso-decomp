@@ -173,7 +173,6 @@ void TObjPlayer::draw_model() {
 typedef struct VBase_18_3eea3b VBase_18_3eea3b;
 typedef struct VObj_18_3eea3b VObj_18_3eea3b;
 void run_task__11TObjNpcBaseFPv(u8 *arg0) {
-  s16 temp_r0;
   s32 temp_r4;
   s32 temp_r4_2;
   u8 *new_var;
@@ -214,8 +213,7 @@ void run_task__11TObjNpcBaseFPv(u8 *arg0) {
       ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1U);
     }
   }
-  temp_r0 = *((s16 *) (((s8 *) arg0) + 0x326));
-  switch (temp_r0)
+  switch (*((s16 *) (((s8 *) arg0) + 0x326)))
   {
     case 0:
       (((TObjNpcBase *)(arg0))->vfunc_83());

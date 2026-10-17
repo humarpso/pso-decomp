@@ -225,12 +225,10 @@ void TObjVoloptCage::update_collision_state() {
 }
 
 void TObjVoloptCage::update_capture() {
-    s32 temp_r0;
     s32 temp_r0_2;
     s32 player;
 
-    temp_r0 = *(s32 *)&this->state;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->state) {
     case -1:
         break;
     case 0:
@@ -258,9 +256,7 @@ void TObjVoloptCage::update_capture() {
 #pragma opt_common_subs off
 void TObjVoloptCage::sub_80049000() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
-    temp_r0 = *(s32 *)&this->state;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->state) {
     case 0:
         *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x40000);
         *(s32 *)&this->state = 1;

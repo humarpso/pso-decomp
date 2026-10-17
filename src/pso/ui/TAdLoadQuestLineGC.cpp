@@ -11,10 +11,8 @@ s32 init_quest_line_draw_colors();
 s32 fn_80349E5C();
 
 void TAdLoadQuestLineGC::render_by_state() {
-    s32 temp_r0;
 
-    temp_r0 = this->m_state;
-    switch (temp_r0) {
+    switch (this->m_state) {
     case 0:
         fn_80349E5C();
         return;

@@ -775,11 +775,9 @@ void TObjPlayer::set_grabbed_state(s32 arg0) {
 
 void TObjPlayer::update_topple_state() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
     s32 temp_r0_2;
 
-    temp_r0 = this->m_37c;
-    switch (temp_r0) {
+    switch (this->m_37c) {
     case -1:
         break;
     case 0:
@@ -867,10 +865,8 @@ void TObjPlayer__sub_8003F81C(u8 *arg0) {
     s16 temp_r3;
     s16 temp_r4;
     s16 var_r0;
-    s32 temp_r0;
     s32 temp_r5;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 0x10000);
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
@@ -1044,10 +1040,8 @@ s32 TObjPlayer::calc_spin_value() {
 
 void TObjPlayer::update_state_spin() {
     s32 temp_r3;
-    s32 temp_r0;
 
-    temp_r0 = this->m_37c;
-    switch (temp_r0) {
+    switch (this->m_37c) {
     case 0:
         *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x40000);
         *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x20000);
@@ -1138,9 +1132,7 @@ void TObjPlayer::update_reaction_animation() {
 }
 
 void TObjPlayer::update_grabbed_state() {
-    s32 temp_r0;
-    temp_r0 = this->m_37c;
-    switch (temp_r0) {
+    switch (this->m_37c) {
     case 0:
         if (obj_testFlags30(this, 0x02000000) != 0) {
             *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x40000);
@@ -1384,7 +1376,6 @@ void *TUnk_80483A10::destroy(s16 arg1) {
 }
 
 void TBoss3VoloptCore__ct(VObj_80040894 *arg0) {
-    void *temp_r4;
 
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D2728;
     *(s32 *)((s8 *)arg0 + 0xDC) = *(s32 *)((s8 *)(*(void * *)&volopt_resource_table_ptr) + 0x430);
@@ -1406,8 +1397,7 @@ void TBoss3VoloptCore__ct(VObj_80040894 *arg0) {
     ((TObjPlayer *)arg0)->load_entry_params_volopt(0x18);
     *(s32 *)&((TUnk_80483A10 *)arg0)->m_388 |= 0x10000;
     ((TUnk_80483A10 *)arg0)->m_390 = 0;
-    temp_r4 = ((TUnk_80483A10 *)arg0)->m_a4;
-    *(s32 *)((s8 *)temp_r4 + 0x18) |= 0xC00;
+    *(s32 *)((s8 *)(((TUnk_80483A10 *)arg0)->m_a4) + 0x18) |= 0xC00;
     arg0->m56();
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(4);
     ((TUnk_80483A10 *)arg0)->m_3c8 = 0;

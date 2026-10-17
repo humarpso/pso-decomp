@@ -59,16 +59,13 @@ void TCameraCtrl::update_target_follow() {
     Stack_8006786C stack;
     f32 temp_f1;
     f32 temp_f1_2;
-    f32 temp_f2;
-    s32 temp_r0;
     u8 *temp_r3;
     u8 *temp_r4;
     temp_r3 = (u8 *)(TCameraCtrl__sub_8003CFF4());
     if (temp_r3 != NULL) {
         temp_r4 = *(u8 **)((s8 *)arg0 + 0x1C);
         stack.sp8 = *(f32 *)((s8 *)temp_r4 + 0x38) - *(f32 *)((s8 *)temp_r3 + 0);
-        temp_f2 = *(f32 *)((s8 *)temp_r4 + 0x40);
-        temp_f1 = temp_f2 - *(f32 *)((s8 *)temp_r3 + 8);
+        temp_f1 = (*(f32 *)((s8 *)temp_r4 + 0x40)) - *(f32 *)((s8 *)temp_r3 + 8);
         stack.spC = lbl_805D8F38;
         stack.sp10 = temp_f1;
         temp_f1_2 = vector_length(&stack.sp8);
@@ -77,8 +74,7 @@ void TCameraCtrl::update_target_follow() {
         } else {
             return;
         }
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x114);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x114)) {
         case 0:
             *(f32 *)((s8 *)arg0 + 0x48) = (f32) *(f32 *)((s8 *)temp_r3 + 0);
             *(f32 *)((s8 *)arg0 + 0x50) = (f32) *(f32 *)((s8 *)temp_r3 + 8);

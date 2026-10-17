@@ -21,24 +21,20 @@ void TWindowDD__sub_80347F48(u8 *arg0) {
 
 void TWindowDD::init_entry_field_64(s32 arg1) {
     s32 arg0 = (s32)this;
-    s32 var_r4;
     u8 *var_r3;
     var_r3 = (u8 *)(arg0 + (arg1 * 4));
     var_r3 = (u8 *)(*(u8 **)((s8 *)var_r3 + 0x64));
     if (var_r3 != NULL) {
-        var_r4 = (*(s32 *)&TWindowDD__data_805DFB50);
-        ((TWindowDD *)var_r3)->init_and_set_field50((void *)var_r4);
+        ((TWindowDD *)var_r3)->init_and_set_field50((void *)((*(s32 *)&TWindowDD__data_805DFB50)));
     }
 }
 
 void TWindowDD__sub_80347FA0(s32 arg0, s32 arg1) {
-    s32 var_r4;
     u8 *var_r3;
     var_r3 = (u8 *)(arg0 + (arg1 * 4));
     var_r3 = (u8 *)(*(u8 **)((s8 *)var_r3 + 0x64));
     if (var_r3 != NULL) {
-        var_r4 = (*(s32 *)&TWindowDD__data_805DFB50);
-        ((TWindowDD *)var_r3)->update_position(var_r4);
+        ((TWindowDD *)var_r3)->update_position((*(s32 *)&TWindowDD__data_805DFB50));
     }
 }
 

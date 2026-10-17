@@ -56,7 +56,6 @@ extern void *TDuelEffectString__class_name;
 void render__17TDuelEffectStringFv(u8 *arg0) {
     f32 spC;
     f32 sp8;
-    s32 temp_r0;
     s32 temp_r31;
     TDuelEffectNumber::calc_digit_transform((s32)((s32) arg0), &spC, &sp8, (s32)(*(s32 *)((s8 *)arg0 + 0x28)));
     temp_r31 = __cvt_fp2unsigned(lbl_805D932C * sp8) | 0xFF0000 | 0xFFFF;
@@ -64,8 +63,7 @@ void render__17TDuelEffectStringFv(u8 *arg0) {
     begin_screen_draw(1);
     TObjFish::set_global_param(lbl_805D63F0);
     set_draw_texture_and_color(6, temp_r31);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x24);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x24)) {
     case 0:
         ((TDuelEffectNumber *)arg0)->render_number_default(spC);
         break;

@@ -35,18 +35,14 @@ s32 TObjEneMe3SinowZoa::advance_timer(f32 farg0) {
 
 s32 TUnk_80494938::advance_toward_max() {
     u8 *arg0 = (u8 *)this;
-    f32 temp_f1;
-    temp_f1 = *(f32 *)&this->unk_18;
-    *(f32 *)&this->unk_18 = (f32) (temp_f1 + *(f32 *)&this->unk_10);
+    *(f32 *)&this->unk_18 = (f32) ((*(f32 *)&this->unk_18) + *(f32 *)&this->unk_10);
     ((TUnk_80494938 *)arg0)->sub_800D741C();
     return *(f32 *)&this->unk_18 >= lbl_805DA34C;
 }
 
 s32 TUnk_80494938::decay_value_toward_floor() {
     u8 *arg0 = (u8 *)this;
-    f32 temp_f1;
-    temp_f1 = *(f32 *)&this->unk_18;
-    *(f32 *)&this->unk_18 = (f32) (temp_f1 - *(f32 *)&this->unk_10);
+    *(f32 *)&this->unk_18 = (f32) ((*(f32 *)&this->unk_18) - *(f32 *)&this->unk_10);
     ((TUnk_80494938 *)arg0)->sub_800D741C();
     return *(f32 *)&this->unk_18 <= (*(const f32 *)&lbl_805DA348);
 }

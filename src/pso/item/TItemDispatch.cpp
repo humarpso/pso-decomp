@@ -187,10 +187,8 @@ void TItem::dispatch_state() {
 #pragma fp_contract on
 void TItem::run_task() {
     u8 *arg0 = (u8 *)this;
-    s8 temp_r3;
     u32 temp_r4;
-    temp_r3 = TObjPlayer__sub_80102C30(arg0);
-    switch (temp_r3) {
+    switch (TObjPlayer__sub_80102C30(arg0)) {
     case 0:
         ((TItem *)arg0)->update_timer();
         return;

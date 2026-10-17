@@ -145,8 +145,6 @@ void TObjNpcEnemy::vfunc_88() {
 extern const f32 lbl_805DE7D8;
 
 void TObjNpcEnemy::set_npc_data(void *arg1) {
-    u16 temp_r0;
-    void *temp_r3;
     void *temp_r5;
 
     *(void * *)&this->m_3b8 = arg1;
@@ -159,11 +157,9 @@ void TObjNpcEnemy::set_npc_data(void *arg1) {
         return;
     }
     *(s32 *)&this->model = (s32) *(s32 *)((s8 *)temp_r5 + 8);
-    temp_r3 = *(void * *)&this->m_3b8;
-    this->texture_id = (s32) *(s32 *)((s8 *)temp_r3 + 0xC);
+    this->texture_id = (s32) *(s32 *)((s8 *)(*(void * *)&this->m_3b8) + 0xC);
     this->m_b8 = (s16) *(s16 *)((s8 *)temp_r5 + 0x1C);
-    temp_r0 = *(u16 *)((s8 *)(*(void * *)&this->m_3b8) + 2);
-    switch ((s32) temp_r0) {
+    switch ((s32) (*(u16 *)((s8 *)(*(void * *)&this->m_3b8) + 2))) {
     case 0:
     case 2:
     case 4:
@@ -217,11 +213,9 @@ void TObjNpcEnemy::draw_debug_info() {
 
 void TObjNpcEnemy::update_state() {
     void *sp4;
-    u16 temp_r0;
 
     sp4 = *(void * *)&this->m_3b8;
-    temp_r0 = *(u16 *)((s8 *)sp4 + 2);
-    switch ((s32) temp_r0) {
+    switch ((s32) (*(u16 *)((s8 *)sp4 + 2))) {
     case 0:
         set_global_flag__10TObjPlayerFv(this);
         draw_chunk_object((void *)(*(s32 *)&this->model));

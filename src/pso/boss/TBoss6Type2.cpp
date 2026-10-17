@@ -1707,7 +1707,6 @@ void TBoss6Type2::copy_vec_array() {
 
 void TBoss6Type2::update_segments() {
     s16 temp_r0;
-    s32 temp_r0_2;
 
     temp_r0 = this->m_454;
     this->m_43e = temp_r0;
@@ -1715,8 +1714,7 @@ void TBoss6Type2::update_segments() {
     this->m_43a = temp_r0;
     *(s16 *)&this->unk_438 = temp_r0;
     this->m_436 = temp_r0;
-    temp_r0_2 = *(s32 *)&this->m_42c;
-    switch (temp_r0_2) {
+    switch (*(s32 *)&this->m_42c) {
     case 1:
         this->m_436 = (s16) *(s16 *)&this->unk_456;
         break;
@@ -1845,11 +1843,9 @@ void TBoss6Type2::update_attack_switch() {
 void TBoss6Type2::play_phase_sound() {
     u8 *arg0 = (u8 *)this;
     s32 var_r3;
-    s32 temp_r0;
 
     if (is_target_valid() == 0) {
-        temp_r0 = *(s32 *)&this->m_42c;
-        switch (temp_r0) {
+        switch (*(s32 *)&this->m_42c) {
         case 1:
             var_r3 = 0x6852C;
             break;
@@ -2429,15 +2425,13 @@ f32 TBoss6Type2__vt20(void *arg0, u32 att, f32 scale) {
     s32 var_r31;
     s32 var_r30;
     s32 var_r29;
-    u8 temp_r0;
 
     var_r31 = 1;
     if (((s32) *(s32 *)&((TBoss6Type2 *)arg0)->m_418 != 0) && (att != 0U)) {
         var_r30 = 0;
         var_r29 = 0;
         do {
-            temp_r0 = *get_attribute_entry__10TObjPlayerFl(att, var_r29);
-            switch ((s32) temp_r0) {
+            switch ((s32) (*get_attribute_entry__10TObjPlayerFl(att, var_r29))) {
             case 1:
                 var_r30 |= 1;
                 break;

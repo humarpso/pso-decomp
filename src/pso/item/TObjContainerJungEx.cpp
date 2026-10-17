@@ -131,10 +131,8 @@ void TObjContainerJungEx::vfunc_6(s16 *arg1, s32 arg2) {
 }
 
 void TObjContainerJungEx::vfunc_81() {
-    s16 temp_r0;
 
-    temp_r0 = this->mode;
-    switch (temp_r0) {
+    switch (this->mode) {
     case 0:
         TObjContainerJungEx__sub_8018D900(0);
         set_global_param__8TObjFishFl();
@@ -155,10 +153,8 @@ void TObjContainerJungEx::vfunc_81() {
 }
 
 void TObjContainerJungEx::vfunc_80() {
-    s16 temp_r0;
 
-    temp_r0 = this->mode;
-    switch (temp_r0) {
+    switch (this->mode) {
     case 0:
         if ((s32) this->m_364 != 0) {
             submit_cursor_candidate(this, -1);

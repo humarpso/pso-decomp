@@ -187,7 +187,6 @@ void fn_800C2A88(void *self, s32 msg) {
 void fn_800C2AC4(u8 *arg0, int arg1) {
   Stack_800C2AC4 stack;
   f32 temp_f1;
-  int temp_r0;
   switch (arg1)
   {
     return;
@@ -211,8 +210,7 @@ void fn_800C2AC4(u8 *arg0, int arg1) {
     case 5:
       return;
     case 0:
-      temp_r0 = ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_410;
-      switch (temp_r0)
+      switch (((RecoveredFields_800C2AC4_arg0 *) arg0)->field_410)
     {
       case 0:
         advance_animation_playback((void *) arg0);

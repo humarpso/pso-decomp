@@ -280,7 +280,6 @@ extern "C" {
 
 void TWindowChat::handle_input() {
     s32 player;
-    u8 temp_r0;
     player = (s32)get_player_by_client_id(local_client_id);
     if (player != 0) {
         if (this->flags & 2) {
@@ -289,8 +288,7 @@ void TWindowChat::handle_input() {
                 ((TWindowChat*)(this))->close_all_children();
             }
         } else {
-            temp_r0 = this->inputMode;
-            switch ((s8) temp_r0) {
+            switch ((s8) this->inputMode) {
             case 0:
                 if ((((TWindowChat*)(this))->submit_keyboard_input() != 0) && (sub_80247EC0() != 0)) {
                     if (is_mode_bit6() != 0) {
@@ -392,15 +390,13 @@ void TWindowChat::open_next_input_window() {
     s32 var_r0;
     s32 var_r0_2;
     s32 var_r0_3;
-    u8 temp_r0;
     if (((RecoveredFields_8024792C_arg0 *)arg0)->field_1E & 2) {
         *((RecoveredFields_8024792C_arg0 *)arg0)->field_38 = 1;
         ((TWindowSubSymbolChatPartsSet *)(((RecoveredFields_8024792C_arg0 *)arg0)->field_20 + 0x30))->copy_vec2((void*)(get_window_layout_position(0xB7)));
         *(s32 *)((s8 *)(((RecoveredFields_8024792C_arg0 *)arg0)->field_20) + 0x50) = 3;
         return;
     }
-    temp_r0 = ((RecoveredFields_8024792C_arg0 *)arg0)->field_1C;
-    switch ((s8) temp_r0) {
+    switch ((s8) (((RecoveredFields_8024792C_arg0 *)arg0)->field_1C)) {
     case 0:
         *((RecoveredFields_8024792C_arg0 *)arg0)->field_38 = 1;
         temp_r3 = __nw__7TObjectFUl(0x70);

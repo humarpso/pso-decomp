@@ -83,10 +83,8 @@ void TObjMesBase::clear_ref_if_destroyed() {
 void TObjMesBase::vfunc_14() {  }
 
 void TObjMesBase::run_task() {
-    s32 temp_r0;
 
-    temp_r0 = this->messagePhase;
-    switch (temp_r0) {
+    switch (this->messagePhase) {
     case 0:
         this->vfunc_14();
         return;

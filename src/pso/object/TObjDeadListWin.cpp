@@ -80,13 +80,11 @@ void TObjDeadListWin::refresh_names() {
 }
 
 void TObjDeadListWin::run_task() {
-    s32 temp_r0;
     if (get_player_by_client_id(local_client_id) == 0U) {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    temp_r0 = m_phase;
-    switch (temp_r0) {
+    switch (m_phase) {
     case 0: refresh_names(); return;
     case 1: update_countdown(); return;
     }

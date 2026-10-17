@@ -184,12 +184,10 @@ void calc_death_sink_offset(void *arg0) {
 void update_player_appear_fade(u8 *arg0) {
     f32 var_f31;
     s16 temp_r3_2;
-    s32 temp_r0;
     u8 *temp_r3;
     temp_r3 = (u8 *)(get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0)));
     if (temp_r3 != NULL) {
-        temp_r0 = *(s32 *)((s8 *)arg0 + 4);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 4)) {
         case 2:
         default:
             break;
@@ -299,11 +297,9 @@ s32 tick_battle_music_timer(Obj_801C5C38 *p) {
 }
 
 void update_target_lock__10TObjPlayerFii(s32 arg0, s32 arg1) {
-    s32 temp_r31;
 
     if (TObjPlayer__sub_801C6F90() == 0) {
-        temp_r31 = get_stat_by_key_state__13TUnk_804B9870Fv(arg1);
-        if (is_room_free_of_active_enemies(get_current_floor(), temp_r31) != 0) {
+        if (is_room_free_of_active_enemies(get_current_floor(), get_stat_by_key_state__13TUnk_804B9870Fv(arg1)) != 0) {
             if (set_lock_flag__10TObjPlayerFPv(arg0) != 0) {
                 clear_target_lock_flag__10TObjPlayerFPv(arg0);
                 set_lock_timer__10TObjPlayerFPvi((void*)arg0, (void*)(0x5A));

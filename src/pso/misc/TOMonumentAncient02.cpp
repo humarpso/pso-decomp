@@ -124,10 +124,8 @@ void *__nw__7TObjectFUl(int);
 
 void TOMonumentAncient02::run_task() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
 
-    temp_r0 = *(s32 *)&this->m_ac;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_ac) {
     default:
         *(s32 *)&this->m_ac = 1;
         if ((u32) this->m_e8 != 0U) {

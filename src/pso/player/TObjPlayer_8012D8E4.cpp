@@ -22,11 +22,8 @@ void enlarge_flight_cutter_slicer(void *arg0) {
 
 void TObjPlayer::setup_item_render() {
     s32 player_list;
-    s32 temp_r3_3;
-    u8 temp_r3;
 
-    temp_r3 = get_slot_count__14TItemProShieldFv();
-    switch ((s32) temp_r3) {
+    switch ((s32) get_slot_count__14TItemProShieldFv()) {
     case 5:
         player_list = TObjPlayer::get_player_list();
         switch (player_list) {
@@ -39,8 +36,7 @@ void TObjPlayer::setup_item_render() {
         }
         break;
     case 7:
-        temp_r3_3 = TObjPlayer::get_player_list();
-        switch (temp_r3_3) {
+        switch (TObjPlayer::get_player_list()) {
         case 4:
             post_translate_matrix((u8 *)&this->m_1fc);
             return;

@@ -164,11 +164,9 @@ s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 
 void TTecGiBarta::update_technique_by_phase() {
     u8 *arg0 = (u8 *)this;
-    s16 temp_r0;
     s32 handle;
 
-    temp_r0 = this->band;
-    switch (temp_r0) {
+    switch (this->band) {
     case 0:
         handle = play_sound_effect(0x4002A605, (int)(arg0 + 0x20), 0, 0);
         if (handle >= 0) {

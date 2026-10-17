@@ -28,12 +28,10 @@ void TWindowDD::update_transition() {
     }
 }
 void TWindowDD__sub_80342D14(u8 *arg0) {
-    s32 temp_r0;
     s32 var_r31;
     var_r31 = 0;
     *(s16 *)((s8 *)arg0 + 0xC6) = 1;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xB8);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0xB8)) {
     case 0:
         TWindowDD__sub_80347C50();
         update_selection_state__9TWindowDDFPv(arg0);

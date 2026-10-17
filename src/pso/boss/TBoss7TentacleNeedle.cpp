@@ -265,10 +265,8 @@ void TBoss7TentacleNeedle::render() {
 }
 
 void TBoss7TentacleNeedle::run_task() {
-    s32 temp_r0;
 
-    temp_r0 = *(s32 *)&this->m_38;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_38) {
     case 0:
         ((s32 (*)(void))advance_needle_timer__20TBoss7TentacleNeedleFPv)();
         return;
@@ -315,7 +313,6 @@ TBoss7Tentacle::~TBoss7Tentacle() {}
 
 extern "C" {
 void render__14TBoss7TentacleFv(u8 *arg0) {
-    s32 temp_r0;
     s32 temp_r0_2;
     s32 var_ctr;
     s32 var_r3;
@@ -325,8 +322,7 @@ void render__14TBoss7TentacleFv(u8 *arg0) {
     u8 *temp_r8;
     ((s32 (*)(void))draw_effect__10TObjPlayerFv)();
     ((s32 (*)(void))push_matrix)();
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x30);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x30)) {
     case 0:
         TObjPlayer::set_global_flag();
         TObjPlayer::concat_matrix(0, (int) (*(s32 *)((s8 *)arg0 + 0x130)));

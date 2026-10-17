@@ -90,14 +90,11 @@ void TAdFadeGC::render() { if (all_parents_unqueued_for_destruction() != 0) { dr
 
 void TAdFadeGC::run_task() {
     f32 temp_f0;
-    f32 temp_f1;
     f32 temp_f1_2;
     f32 var_f2;
-    s32 temp_r0;
     if (((s32)all_parents_unqueued_for_destruction()) != 0) {
         *(s32 *)((s8 *)this + 0x1C) = (s32) (*(s32 *)((s8 *)this + 0x1C) + 1);
-        temp_r0 = *(s32 *)((s8 *)this + 0x28);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)this + 0x28)) {
         case 0:
             *(f32 *)((s8 *)this + 0x20) += 60.0f;
             *(f32 *)((s8 *)this + 0x20) = (*(f32 *)((s8 *)this + 0x20) > (6.4e+02f)) ? (6.4e+02f) : *(f32 *)((s8 *)this + 0x20);
@@ -109,8 +106,7 @@ void TAdFadeGC::run_task() {
                 queue_destruction__7TObjectFv(this);
                 return;
             }
-            temp_f1 = *(f32 *)((s8 *)this + 0x2C);
-            *(s32 *)((s8 *)this + 0x30) = (s32) (((s32) ((255.0f) * temp_f1) << 0x18) | 0xFF0000 | 0xFFFF);
+            *(s32 *)((s8 *)this + 0x30) = (s32) (((s32) ((255.0f) * (*(f32 *)((s8 *)this + 0x2C))) << 0x18) | 0xFF0000 | 0xFFFF);
             return;
         }
         case 2: {

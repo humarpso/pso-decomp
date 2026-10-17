@@ -9,7 +9,6 @@ s32 debug_printf_at(s32, s32 *, ...);
 extern s32 lbl_80446854[];
 void TObjWarpJungMain::debug_print_area_num() {  }
 void TObjWarpLobby::debug_print_area_num() {
-    s32 temp_r0;
     s32 base;
     debug_print_area_num__12TObjAreaWarpFv();
     if ((s32) *(s32 *)&this->m_88 < 0) {
@@ -18,8 +17,7 @@ void TObjWarpLobby::debug_print_area_num() {
     if ((s32) *(s32 *)&this->m_88 > 1) {
         *(s32 *)&this->m_88 = 1;
     }
-    temp_r0 = *(s32 *)&this->m_88;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_88) {
     case 0:
         *(s32 *)((s8 *)this + 0xCC) = 1;
         break;

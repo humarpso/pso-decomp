@@ -63,13 +63,11 @@ void TBoss1DragonEffBullet::run_task() {
     f32 temp_f0;
     f32 temp_f1;
     f32 var_f2;
-    s32 temp_r0;
     u8 *temp_r3;
     u8 *temp_r3_2;
     u8 *temp_r3_3;
     u8 *temp_r3_4;
-    temp_r0 = arg0->field_38;
-    switch (temp_r0) {
+    switch (arg0->field_38) {
     case 0:
         var_f2 = lbl_805D8140;
         arg0->field_3C += var_f2;
@@ -162,9 +160,7 @@ u8 *TBoss1DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
 }
 
 void TBoss1Dragon::select_fireball_particle_table() {
-    s32 temp_r3;
-    temp_r3 = isV2Mode__12TBoss1DragonFv();
-    switch (temp_r3) {
+    switch (isV2Mode__12TBoss1DragonFv()) {
     case 0:
         dragon_fireball_particle_ids = &lbl_80435410.value;
         return;

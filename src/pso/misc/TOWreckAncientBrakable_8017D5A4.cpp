@@ -13,15 +13,13 @@ s32 TOWreckAncientBrakable__sub_8017D444(void *);
 
 void TOWreckAncientBrakable::run_task() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
     s32 temp_r0_2;
 
     if (TObjPlayer::check_demo_mode() == 1) {
         TOWreckAncientBrakable__sub_8017D444(arg0);
         return;
     }
-    temp_r0 = *(s32 *)&this->m_b4;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_b4) {
     default:
         *(s32 *)&this->m_b4 = 0;
     case 0:

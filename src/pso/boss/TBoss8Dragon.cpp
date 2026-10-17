@@ -2280,11 +2280,9 @@ typedef char Induction_802F46F4_var_r31_size_check[sizeof(Induction_802F46F4_var
 typedef char Induction_802F46F4_var_r31_offset_check[offsetof(Induction_802F46F4_var_r31_owner, elements) == 0x6DC ? 1 : -1];
 s32 TBoss8Dragon__sub_802F46F4(s32 arg0) {
     s32 var_r30;
-    u8 *temp_r3;
     var_r30 = 0;
     loop_1:
-    temp_r3 = (unsigned char *) ((s32)&((Induction_802F46F4_var_r31_owner *)arg0)->elements[var_r30]);
-    if (((VObj_14_8d1630 *)(temp_r3))->m8() != 0) {
+    if (((VObj_14_8d1630 *)((unsigned char *) ((s32)&((Induction_802F46F4_var_r31_owner *)arg0)->elements[var_r30])))->m8() != 0) {
         return 1;
     }
     var_r30 += 1;
@@ -2301,14 +2299,12 @@ s32 TBoss8Dragon__sub_802F4760(f32 farg0) {
     typedef char spC_offset[(offsetof(Stack_802F4760, spC) == 0x4) ? 1 : -1];
     Stack_802F4760 stack;
     f32 temp_f1;
-    f32 temp_f31;
     ((s32 (*)(void *))VecCopy__FP3VecPC3Vec)(&stack.sp8);
     stack.spC = TBoss8Dragon__data_805DED50;
     ((s32 (*)(void *, void *))subtract_vector)(&stack.sp8, &boss8_dragon_reference_pos_vec.value);
     temp_f1 = clamp_velocity__15TObjBoss2TunnelFv(&stack.sp8);
     if ((temp_f1 + farg0) < boss8_dragon_visibility_distance) {
-        temp_f31 = temp_f1 * (TBoss8Dragon__data_805DED74 / newton_sqrtf((f32) ((temp_f1 * temp_f1) + (farg0 * farg0))));
-        if (vec3_dot(&stack.sp8, &dragon_forward_reference_vec.value) >= temp_f31) {
+        if (vec3_dot(&stack.sp8, &dragon_forward_reference_vec.value) >= (temp_f1 * (TBoss8Dragon__data_805DED74 / newton_sqrtf((f32) ((temp_f1 * temp_f1) + (farg0 * farg0)))))) {
             return 1;
         }
     }
@@ -2700,7 +2696,6 @@ void TBoss8Dragon__sub_802F51DC(u8 *arg0, u32 arg1) {
 void TBoss8Dragon__sub_802F5434(u8 *arg0, u32 arg1) {
     extern u8 TBoss8Dragon__data_804744A8[];
     f32 temp_f1;
-    s32 temp_r4;
     s32 i;
     s32 j;
     s32 var_r30;
@@ -2716,8 +2711,7 @@ void TBoss8Dragon__sub_802F5434(u8 *arg0, u32 arg1) {
         for (i = 0; i < 4; i++) {
             ((TBoss8Dragon *)(&((Self_802F5434 *)arg0)->arr[i]))->set_speed(lbl_805DEDC4);
         }
-        temp_r4 = *(s32 *)((s8 *)arg0 + 0x3C0) | 0x100;
-        *(s32 *)((s8 *)arg0 + 0x3C0) = temp_r4;
+        *(s32 *)((s8 *)arg0 + 0x3C0) = (*(s32 *)((s8 *)arg0 + 0x3C0) | 0x100);
         *(s32 *)((s8 *)arg0 + 0x84C) = 0;
         temp_f1 = *(f32 *)((s8 *)TBoss8Dragon__data_80541DDC[0] + 0x10);
         *(f32 *)((s8 *)arg0 + 0x864) = (f32) (TBoss8Dragon__data_805DEDC8 + TObjBoss2Tunnel::calc_scaled_value((s32) (TBoss8Dragon__data_805DED7C * temp_f1), temp_f1));
@@ -4073,7 +4067,6 @@ void handle_spiral_state__12TBoss8DragonFPvUi(u8 *arg0, u32 arg1) {
 #pragma fp_contract on
 void TBoss8Dragon__sub_802F75C8(u8 *arg0, u32 arg1) {
     struct { f32 x, y, z; } sp8;
-    f32 temp_f1;
     f32 temp_f2;
     f32 temp_f2_2;
     switch (arg1) {
@@ -4111,8 +4104,7 @@ void TBoss8Dragon__sub_802F75C8(u8 *arg0, u32 arg1) {
             *(f32 *)((s8 *)arg0 + 0x3A0) = ((f32 (*)(int))sin_table_lookup)((int) (*(s32 *)((s8 *)arg0 + 0x60)));
             *(f32 *)((s8 *)arg0 + 0x3A8) = ((f32 (*)(int))cos_table_lookup)((int) (*(s32 *)((s8 *)arg0 + 0x60)));
         }
-        temp_f1 = TBoss8Dragon__data_805DEE28 * *(f32 *)((s8 *)arg0 + 0x3A0);
-        *(f32 *)((s8 *)arg0 + 0x394) = temp_f1;
+        *(f32 *)((s8 *)arg0 + 0x394) = (TBoss8Dragon__data_805DEE28 * *(f32 *)((s8 *)arg0 + 0x3A0));
         *(f32 *)((s8 *)arg0 + 0x398) = (f32) TBoss8Dragon__data_805DED50;
         *(f32 *)((s8 *)arg0 + 0x39C) = (f32) (TBoss8Dragon__data_805DEE28 * *(f32 *)((s8 *)arg0 + 0x3A8));
         ((TBoss8Dragon *)arg0)->save_position();
@@ -4561,7 +4553,6 @@ void TBoss8Dragon__sub_802F8270(u8 *arg0, u32 arg1) {
     f32 temp_f30;
     f32 temp_f29;
     f32 temp_f1;
-    s32 temp_r0;
     s32 temp_r5;
     switch (arg1) {
     case 4:
@@ -4605,8 +4596,7 @@ void TBoss8Dragon__sub_802F8270(u8 *arg0, u32 arg1) {
         return;
     case 0:
         advance_animation_playback();
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x850);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x850)) {
         case 0:
             if (objInBand__FP7GameObjf(arg0, lbl_805DEE40) != 0) {
                 TBoss8Dragon__sub_802FB70C((s32)arg0);
@@ -5158,7 +5148,6 @@ void state_turn_and_charge__12TBoss8DragonFPvUi(u8 *arg0, u32 arg1) {
 
 void TBoss8Dragon__sub_802F9850(void *arg0p, u32 arg1) {
     struct { f32 x, y, z; } sp8;
-    s32 temp_r0;
 
     switch (arg1) {
     case 4:
@@ -5202,8 +5191,7 @@ void TBoss8Dragon__sub_802F9850(void *arg0p, u32 arg1) {
         if (objInBand__FP7GameObjf((void *) (((u8 *)arg0p)), lbl_805DEE98) != 0) {
             ((TBoss8Dragon *)arg0p)->spawn_ground_effect();
         }
-        temp_r0 = *(s32 *)((s8 *)((u8 *)arg0p) + 0x84C);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)((u8 *)arg0p) + 0x84C)) {
         case 0:
             if (objInBand__FP7GameObjf((void *) (((u8 *)arg0p)), TBoss8Dragon__data_805DEE9C) != 0) {
                 *(s32 *)((s8 *)((u8 *)arg0p) + 0x3C0) = (s32) (*(s32 *)((s8 *)((u8 *)arg0p) + 0x3C0) | 0x30);
@@ -5628,8 +5616,6 @@ f32 TBoss8Dragon::clamp_step_in_radius(f32 a, f32 b, f32 s) {
 #pragma pop
 
 void release_grabbed_player__12TBoss8DragonFPv(u8 *arg0) {
-    s16 temp_r3_2;
-    s16 temp_r3_3;
     s32 var_r31;
     u16 temp_r4;
     u8 *temp_r3;
@@ -5649,8 +5635,7 @@ void release_grabbed_player__12TBoss8DragonFPv(u8 *arg0) {
         var_r31 = 0;
         if (is_health_low__12TBoss8DragonFPv(arg0) != 0) {
             *(s32 *)&((TBoss8Dragon *)arg0)->m_674 = 0;
-            temp_r3_2 = ((TBoss8Dragon *)arg0)->m_326;
-            switch (temp_r3_2) {
+            switch (((TBoss8Dragon *)arg0)->m_326) {
             case 24:
             case 25:
                 var_r31 = 1;
@@ -5682,8 +5667,7 @@ void release_grabbed_player__12TBoss8DragonFPv(u8 *arg0) {
             }
         } else {
             *(s32 *)&((TBoss8Dragon *)arg0)->m_674 = 0;
-            temp_r3_3 = ((TBoss8Dragon *)arg0)->m_326;
-            switch (temp_r3_3) {
+            switch (((TBoss8Dragon *)arg0)->m_326) {
             case 24:
             case 25:
                 var_r31 = 1;

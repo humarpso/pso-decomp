@@ -52,15 +52,13 @@ void update_slot_state__16TAdChrSelBSlotGCFPv(void *arg0) {
 }
 
 void update_card_select__16TAdChrSelBSlotGCFPv(void *arg0) {
-    s32 temp_r3;
 
     if ((u32) *(u32 *)((s8 *)arg0 + 0x6C) != 0U) {
         ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x6C)))->close();
         *(u32 *)((s8 *)arg0 + 0x6C) = 0U;
     }
     if (((TWindowMessageYesNo *)(*(s32 *)((s8 *)arg0 + 0x70)))->is_child_visible() != 0) {
-        temp_r3 = ((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x70)))->get_slot_or_neg1();
-        switch (temp_r3) {
+        switch (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x70)))->get_slot_or_neg1()) {
         case 1:
             *(s32 *)((s8 *)arg0 + 0x1C) = 7;
             return;
@@ -111,12 +109,10 @@ void TAdChrSelBSlotGC__sub_8030EF74(void *arg0) {
 }
 
 void update_card_confirm__16TAdChrSelBSlotGCFPv(void *arg0) {
-    s32 temp_r3;
     s32 var_r31;
 
     if (((TWindowMessageYesNo *)(*(s32 *)((s8 *)arg0 + 0x6C)))->is_child_visible() != 0) {
-        temp_r3 = ((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x6C)))->get_slot_or_neg1();
-        switch (temp_r3) {
+        switch (((TWindowSubComCard *)(*(s32 *)((s8 *)arg0 + 0x6C)))->get_slot_or_neg1()) {
         case 1:
             *(s32 *)((s8 *)arg0 + 0x1C) = 7;
             return;

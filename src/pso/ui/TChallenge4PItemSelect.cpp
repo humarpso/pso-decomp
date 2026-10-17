@@ -111,9 +111,7 @@ void TChallenge4PItemSelect::open_menu() {
 extern void *lbl_805D433C;
 
 void TChallenge4PItemSelect::run_task() {
-    s32 temp_r0;
-    temp_r0 = state;
-    switch (temp_r0) {
+    switch (state) {
     case 0:
         open_menu();
         return;

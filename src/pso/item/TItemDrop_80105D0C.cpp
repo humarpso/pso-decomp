@@ -957,7 +957,6 @@ void generate_tool_drop__9TItemDropFiiPv(s32 arg0, s32 off, void *arg2) {
 s32 try_generate_rare_item__9TItemDropFiPvPv(s32 arg0, u8 *arg1, u8 *arg2) {
     s32 var_r5;
     u32 temp_r3;
-    u8 temp_r0;
     u8 temp_r31;
     u32 tmp;
     if ((arg1 != NULL) && (arg2 != NULL)) {
@@ -972,8 +971,7 @@ s32 try_generate_rare_item__9TItemDropFiPvPv(s32 arg0, u8 *arg1, u8 *arg2) {
                 *(u8 *)((s8 *)arg2 + 0) = (u8) *(u8 *)((s8 *)arg1 + 1);
                 *(u8 *)((s8 *)arg2 + 1) = (u8) *(u8 *)((s8 *)arg1 + 2);
                 *(u8 *)((s8 *)arg2 + 2) = (u8) *(u8 *)((s8 *)arg1 + 3);
-                temp_r0 = *(u8 *)((s8 *)arg2 + 0);
-                switch ((s32) temp_r0) {
+                switch ((s32) (*(u8 *)((s8 *)arg2 + 0))) {
                 case 0:
                     tmp = roll_channel_below__9TItemDropFPviUi((u8 *)arg0, 0xA, 7);
                     roll_rare_weapon_attributes__9TItemDropFiPvi(arg0, (Obj_80106F4C *)(arg2), tmp);

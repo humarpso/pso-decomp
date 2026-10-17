@@ -409,10 +409,8 @@ void TObjPlayer__sub_800A8C1C(u8 *arg0) {
 
 void TObjPlayer__sub_800A8C4C(u8 *arg0) {
     f32 var_f31;
-    s32 temp_r0;
     s32 var_r0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case -1:
         break;
     case 0:
@@ -454,15 +452,10 @@ void TObjPlayer__sub_800A8C4C(u8 *arg0) {
 }
 
 void TObjPlayer__sub_800A8E04(u8 *arg0) {
-    s32 temp_r0;
-    s32 temp_r4;
-    s32 temp_r5;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 4);
-        temp_r4 = *(s32 *)((s8 *)arg0 + 0x30) | 0x04000000;
-        *(s32 *)((s8 *)arg0 + 0x30) = temp_r4;
+        *(s32 *)((s8 *)arg0 + 0x30) = (*(s32 *)((s8 *)arg0 + 0x30) | 0x04000000);
         *(s16 *)((s8 *)arg0 + 0xB8) = 5;
         advance_animation_playback(arg0);
         TBoss3Volopt__sub_800D8D88((s32)(arg0 + 0x2FC));
@@ -474,8 +467,7 @@ void TObjPlayer__sub_800A8E04(u8 *arg0) {
         }
         return;
     case -1:
-        temp_r5 = *(s32 *)((s8 *)arg0 + 0x388);
-        *(s32 *)((s8 *)arg0 + 0x388) = (s32) (temp_r5 & ~5);
+        *(s32 *)((s8 *)arg0 + 0x388) = (s32) ((*(s32 *)((s8 *)arg0 + 0x388)) & ~5);
         *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFBFFFFFF);
         ((TObjEneMe1GiGue *)arg0)->update_if_active(0);
         break;
@@ -483,9 +475,7 @@ void TObjPlayer__sub_800A8E04(u8 *arg0) {
 }
 void TObjPlayer::update_timed_state() {
     s16 temp_r4;
-    s32 temp_r0;
-    temp_r0 = this->m_37c;
-    switch (temp_r0) {
+    switch (this->m_37c) {
     case 0:
         *(s16 *)&this->m_b8 = (s16) ((*(u32 *)&this->unk_388 & 0x1000000) ? 0 : 5);
         *(u32 *)&this->unk_388 = (u32) (*(u32 *)&this->unk_388 | 0x800000);
@@ -931,11 +921,8 @@ void TObjPlayer__sub_800A9E9C(void *arg0_) {
 
 void TObjEneDubchik::sub_800AA10C() {
     f32 temp_f31;
-    f32 temp_f31_2;
-    s16 temp_r0;
     u32 temp_r0_2;
-    temp_r0 = this->mode;
-    switch (temp_r0) {
+    switch (this->mode) {
     case 8:
     case 0:
         if ((((TObjEneDubchik *)(((u8 *)this)))->is_actor_cadence_frame(0x1E) != 0) && (find_target_in_range__15TObjEnemyCustomFf((void *) (((u8 *)this)), this->m_3d0) != 0)) {
@@ -964,8 +951,7 @@ void TObjEneDubchik::sub_800AA10C() {
                 return;
             }
         } else if (temp_r0_2 != 0U) {
-            temp_f31_2 = ((TObjPlayer *)(*(s32 *)&this->m_318))->get_pos_x() * ((TObjPlayer *)(*(s32 *)&this->m_318))->get_pos_x();
-            if (xz_distance_squared((void *) (((u8 *)this) + 0x38), (void *) (*(u32 *)((s8 *)((u8 *)this) + 0x2A8) + 0x38)) < temp_f31_2) {
+            if (xz_distance_squared((void *) (((u8 *)this) + 0x38), (void *) (*(u32 *)((s8 *)((u8 *)this) + 0x2A8) + 0x38)) < (((TObjPlayer *)(*(s32 *)&this->m_318))->get_pos_x() * ((TObjPlayer *)(*(s32 *)&this->m_318))->get_pos_x())) {
                 this->m_390 = (this->m_390+ 1);
                 if ((s16) this->m_390> 3) {
                     this->m_390 = 0;

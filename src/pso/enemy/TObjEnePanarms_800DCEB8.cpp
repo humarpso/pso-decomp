@@ -292,10 +292,8 @@ void TObjEnePanarms::merge_halves() {
 }
 
 void TObjEnePanarms::update_separated_parts() {
-    s16 temp_r4;
     s32 temp_r0;
-    temp_r4 = *(s16 *)((s8 *)(*(u8 * *)&this->m_3e4) + 0x32C);
-    this->hp = (s16) (temp_r4 + *(s16 *)((s8 *)(*(u8 * *)&this->m_3e8) + 0x32C));
+    this->hp = (s16) ((*(s16 *)((s8 *)(*(u8 * *)&this->m_3e4) + 0x32C)) + *(s16 *)((s8 *)(*(u8 * *)&this->m_3e8) + 0x32C));
     if ((TObjEnePanarms__sub_800DFBB0((void *) (*(u8 * *)&this->m_3e4)) != 0) && (TObjEnePanarms__sub_800DFBB0((void *) (*(u8 * *)&this->m_3e8)) != 0)) {
         ((TObjEnemy *)((u8 *)this))->send_entity_set_flags();
         queue_destruction__7TObjectFv((void *) (((u8 *)this)));

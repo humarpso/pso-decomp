@@ -159,7 +159,6 @@ void TItemWeapon::deliver_hit(s32 arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0)
     s32 temp_r31;
     s32 temp_r31_2;
     u8 *temp_r3;
-    u8 *temp_r3_2;
     if (TObjPlayer__sub_80102C30() == 2) {
         temp_r3 = (u8 *)(*(u8 * *)&this->player);
         if ((temp_r3 != NULL) && (arg2 != NULL)) {
@@ -187,8 +186,7 @@ void TItemWeapon::deliver_hit(s32 arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0)
                 }
                 temp_r31_2 = (s32) var_f31_2;
                 TObjPlayer::calc_photon_blast_charge((void *) (*(u8 * *)&this->player), temp_r31_2);
-                temp_r3_2 = (u8 *)(*(u8 * *)&this->player);
-                ((VObj_18_f8c4e0 *)(temp_r3_2))->m73();
+                ((VObj_18_f8c4e0 *)((u8 *)(*(u8 * *)&this->player)))->m73();
                 apply_camera_shake__10TObjPlayerFiii((s32)(*(u8 * *)&this->player), (s32)arg2, (s32)temp_r31_2);
                 ((TObjPlayer *)(&stack.sp8))->reset_status_block();
                 stack.sp8 = ((TItem *)((u8 *)this))->get_field_ed();

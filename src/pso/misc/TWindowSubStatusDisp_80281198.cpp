@@ -349,15 +349,13 @@ void TWindowSubStatusDisp::update_status() {
 }
 
 void TWindowSubStatusDisp__sub_80281644(u8 *arg0) {
-  s16 temp_r3;
   if (!((((TWindowSubStatusDisp *)arg0)->m_2c) & 2))
   {
     *(s32 *)&((TWindowSubStatusDisp *)arg0)->m_5c = 0x01000000;
   }
   if ((handle_list_page_flip_input((int) (*(s32 *)&((TWindowSubStatusDisp *)arg0)->m_68)) != 0) || (((s16) (((TWindowSubStatusDisp *)arg0)->m_60)) != ((s16) (*(s16 *)&((TWindowSubStatusDisp *)arg0)->m_62))))
   {
-    temp_r3 = *(s16 *)&((TWindowSubStatusDisp *)arg0)->m_62;
-    if (((s16) (((TWindowSubStatusDisp *)arg0)->m_60)) != temp_r3)
+    if (((s16) (((TWindowSubStatusDisp *)arg0)->m_60)) != (*(s16 *)&((TWindowSubStatusDisp *)arg0)->m_62))
     {
       ((TWindowSubStatusDisp *)arg0)->m_60 = *(s16 *)&((TWindowSubStatusDisp *)arg0)->m_62;
       fn_8026C7AC((void *)(*(s32 *)&((TWindowSubStatusDisp *)arg0)->m_68), ((s8) (*((u8 *) (((s8 *) (((u8 *)&lbl_805DD6F4) + (((TWindowSubStatusDisp *)arg0)->m_60))) + 0)))));

@@ -357,9 +357,7 @@ void calc_slot_offset_position__10TObjPlayerFPviPvPv(Obj_8008E18C *self, s32 slo
 }
 
 void TObjPlayer__sub_8008E254(void *arg0_) {
-    s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)arg0_ + 0x37C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0_ + 0x37C)) {
     case -1:
         break;
     case 0:

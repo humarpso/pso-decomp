@@ -125,12 +125,10 @@ void TObjPlayer__sub_8032DC94(u8 *arg0) {
   s32 *var_r4;
   s32 *new_var;
   f32 var_f0;
-  f32 var_f1;
   u8 *var_r29;
   var_f0 = lbl_805DF7D8;
   var_r29 = (u8 *) arg0;
-  var_f1 = ((TUnk_804EDD20 *)arg0)->m_80;
-  if ((!(var_f1 <= var_f0)) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0))
+  if ((!((((TUnk_804EDD20 *)arg0)->m_80) <= var_f0)) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0))
   {
     var_r3 = (s32 *) (*((s32 **) (((s8 *) var_r29) + 0x60)));
     var_r31 = (s32 *) query_game_join_id__10TObjPlayerFv(var_r3);

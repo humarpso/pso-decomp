@@ -281,10 +281,8 @@ void render__19TBoss3VoloptMonitorFv(void *arg0) {
 
 void TBoss3VoloptMonitor__sub_800420D8(void) {  }
 void TBoss3VoloptMonitor::update_state() {
-    s16 temp_r0;
 
-    temp_r0 = this->mode;
-    switch (temp_r0) {
+    switch (this->mode) {
     case 0:
         update_state__20TBoss3VoloptHiraisinFv();
         return;

@@ -68,12 +68,10 @@ void TObjEneRecobox::sub_8031F6C0(s32 arg1) {
 
 void TObjEneRecon::handle_state(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r4;
 
     switch (arg1) {
     case 4:
-        temp_r4 = *(s32 *)((s8 *)arg0 + 0x40C) & 0xFFFFFFFE;
-        *(s32 *)((s8 *)arg0 + 0x40C) = temp_r4;
+        *(s32 *)((s8 *)arg0 + 0x40C) = (*(s32 *)((s8 *)arg0 + 0x40C) & 0xFFFFFFFE);
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
         this->vfunc_95();
         ((TObjEneDD *)arg0)->set_field_378(0);

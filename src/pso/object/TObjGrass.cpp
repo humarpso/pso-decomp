@@ -1090,10 +1090,8 @@ void TObjGrass::sub_800BDD70() {
 }
 
 void TObjGrass::vfunc_60() {
-    s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)this + 0x39E);
-    switch (temp_r0) {
+    switch (*(s16 *)((s8 *)this + 0x39E)) {
     default:
         *(s16 *)((s8 *)this + 0x39E) = 0;
     case 0:

@@ -216,7 +216,6 @@ void TMainCursor::render() {
 
 void TMainCursor::run_task() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
 
     if ((s32) *(s32 *)&this->m_1c != 2) {
         ((TMainCursor *)arg0)->validate_target();
@@ -224,8 +223,7 @@ void TMainCursor::run_task() {
             *(s32 *)&this->m_1c = 2;
         }
     }
-    temp_r0 = *(s32 *)&this->m_1c;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_1c) {
     case 0:
         *(f32 *)&this->unk_30 = (f32) (*(f32 *)&this->unk_30 - TMainCursor__data_805DB0CC);
         if (!(*(f32 *)&this->unk_30 > *(f32 *)&this->m_34)) {

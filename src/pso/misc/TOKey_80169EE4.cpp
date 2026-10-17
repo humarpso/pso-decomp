@@ -81,7 +81,6 @@ s16 TOKey::update_object_view_visibility(f32, f32) {
 }
 
 void TOKey::handle_switch_trigger(void *arg1) {
-    s32 temp_r0;
 
     if ((*(u8 *)((s8 *)arg1 + 0xB) & 2) && ((s8) *(u8 *)((s8 *)arg1 + 0xA) == get_current_floor())) {
         play_sound_effect(0x4005281F, 0, 0, 0);
@@ -91,8 +90,7 @@ void TOKey::handle_switch_trigger(void *arg1) {
     } else {
         clear_current_floor_switch(*(u16 *)((s8 *)arg1 + 8));
     }
-    temp_r0 = *(s32 *)&this->m_d4;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_d4) {
     case 0:
         this->trigger_activate_sound();
         *(s32 *)&this->m_d4 = 1;

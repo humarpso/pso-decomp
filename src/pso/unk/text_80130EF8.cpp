@@ -41,10 +41,8 @@ void TUnk_804A6CC8::update_attack() {
 void TUnk_804A6CC8::update_weapon() {
     f32 buffer_14[3];
     s32 buffer_8[3];
-    s32 temp_r0;
     s32 temp_r31;
-    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x208);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)((u8 *)this) + 0x208)) {
     case 1:
         this->m_210 = (f32) (this->m_210 - lbl_805DB040);
         if (this->m_210 <= lbl_805DB044) {

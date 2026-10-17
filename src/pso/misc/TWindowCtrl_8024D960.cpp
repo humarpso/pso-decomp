@@ -266,12 +266,10 @@ void TWindowCtrl::run_all_updates() { update_trade_window_visibility(); update_c
 #pragma scheduling off
 void TWindowCtrlPlayer::sub_8024E0F0() {
     u8 *arg0 = (u8 *)this;
-    s16 temp_r0;
     s16 temp_r3_3;
     u32 temp_r3;
     u32 temp_r3_2;
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x1E);
-    switch (temp_r0) {
+    switch (*(s16 *)((s8 *)arg0 + 0x1E)) {
     case 18:
         temp_r3 = *(u32 *)((s8 *)arg0 + 0x30);
         if (temp_r3 != 0U) {

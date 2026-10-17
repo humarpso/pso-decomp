@@ -3042,9 +3042,6 @@ __declspec(section ".sdata2") const f32 TObjEneBm5GibonU__data_805DA1D0[1] = { 1
 void TObjEneBm5GibonU__sub_800CEBD8(u8 *actor, s32 arg1) {
     f32 temp_f0;
     s32 temp_r4;
-    u8 *temp_r3;
-    u8 *temp_r3_2;
-    u8 *temp_r3_3;
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)actor + 0xB8) = 0xA;
@@ -3091,12 +3088,9 @@ void TObjEneBm5GibonU__sub_800CEBD8(u8 *actor, s32 arg1) {
             if (objInBand__FP7GameObjf(actor, lbl_805DA1DC) != 0) {
                 *(s32 *)((s8 *)actor + 0x564) = 0;
                 if (enemy_validate_retained_target(actor) != 0) {
-                    temp_r3 = (u8 *)(*(u8 **)((s8 *)actor + 0x390));
-                    if (((VObj_18_a3e1a1 *)(temp_r3))->m18(actor, TObjEneBm5GibonU__data_805DA168) != 0) {
-                        temp_r3_2 = (u8 *)(*(u8 **)((s8 *)actor + 0x390));
-                        ((VObj_18_a3e1a1 *)(temp_r3_2))->m20(actor, TObjEneBm5GibonU__data_805DA168);
-                        temp_r3_3 = (u8 *)(*(u8 **)((s8 *)actor + 0x390));
-                        ((VObj_18_a3e1a1 *)(temp_r3_3))->m23(actor, TObjEneBm5GibonU__data_805DA170);
+                    if (((VObj_18_a3e1a1 *)((u8 *)(*(u8 **)((s8 *)actor + 0x390))))->m18(actor, TObjEneBm5GibonU__data_805DA168) != 0) {
+                        ((VObj_18_a3e1a1 *)((u8 *)(*(u8 **)((s8 *)actor + 0x390))))->m20(actor, TObjEneBm5GibonU__data_805DA168);
+                        ((VObj_18_a3e1a1 *)((u8 *)(*(u8 **)((s8 *)actor + 0x390))))->m23(actor, TObjEneBm5GibonU__data_805DA170);
                         *(s32 *)((s8 *)actor + 0x564) = 1;
                         if ((TObjEneDD::check_v2_mode() != 0) && (calc_boss4_scale__10TObjPlayerFi((s32)actor) <= TObjEneBm5GibonU__data_805DA1B0)) {
                             if ((s32) *(s32 *)((s8 *)actor + 0x464) != 0) {

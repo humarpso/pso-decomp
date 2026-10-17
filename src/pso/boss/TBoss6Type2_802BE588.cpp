@@ -325,7 +325,6 @@ void TBoss6Type2::init_timer() {
 
 void TBoss6Type2::update_attack_sequence() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
     s32 temp_r0_2;
 
     if ((s32) *(s32 *)((s8 *)arg0 + 0x460) == (s32) (*(s32 *)((s8 *)arg0 + 0x45C) - 0x3C)) {
@@ -334,8 +333,7 @@ void TBoss6Type2::update_attack_sequence() {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x460) == (s32) (*(s32 *)((s8 *)arg0 + 0x45C) - 0x78)) {
         TBoss6Type2__sub_802BAD04((s32)arg0);
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x460);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x460)) {
     case 0xA0:
         ((TBoss6Type2 *)arg0)->spawn_particle_slot(8);
         ((TBoss6Type2 *)arg0)->spawn_particle_slot(9);

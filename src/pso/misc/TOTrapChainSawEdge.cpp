@@ -329,11 +329,9 @@ void TOTrapChainSawEdge::vfunc_25() {
 }
 
 void TOTrapChainSawEdge::update_sweep() {
-    s32 temp_r0;
     s32 temp_r4;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x104);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)this + 0x104)) {
     case 0:
         temp_r4 = *(s32 *)((s8 *)this + 0x100);
         if (temp_r4 > 0) {
@@ -350,12 +348,10 @@ void TOTrapChainSawEdge::update_sweep() {
 
 extern const f32 lbl_805DE620 = -1.0f;
 void TOTrapChainSawEdge::update_extension() {
-    s32 temp_r0;
     s32 temp_r4;
     s32 temp_r4_2;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x104);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)this + 0x104)) {
     case 0:
         temp_r4 = *(s32 *)((s8 *)this + 0x100);
         if (temp_r4 > 0) {

@@ -1496,10 +1496,8 @@ extern s32 lbl_804B5E48[];
 
 void *TUnk_804B5E48::destroy_seasonal_object(s16 arg1) {
     if (this != NULL) {
-        u32 var_r0;
         *(s32 **)((s8 *)this + 0x18) = lbl_804B5E48;
-        var_r0 = (u32) *(u32 *)&this->m_a4;
-        if (var_r0 != 0U) {
+        if (((u32) *(u32 *)&this->m_a4) != 0U) {
             unregister_object_by_id();
             free_collision_body_parts(this);
         }
@@ -1558,14 +1556,12 @@ typedef char RecoveredGlobal_80184B44_lbl_804B5E48_size[sizeof(RecoveredGlobal_8
 u8 *init_city_season_object(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
     struct CopyStack_80184B44 { u8 bytes[0x2C]; };
     CopyStack_80184B44 copy_storage_80184B44;
-    u8 *temp_r4;
     ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80184B44_lbl_804B5E48 *)&lbl_804B5E48).value;
     ((TUnk_804B5E48 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0xAC) = arg3;
     if (((u32 (*)(void *))get_anim_frame__13TUnk_804B5E48Fv)(arg0) != 0U) {
-        temp_r4 = (u8 *)&city_season_collision_template.value - 4;
-        *(ByteBlock_2C *)(copy_storage_80184B44.bytes) = *(const ByteBlock_2C *)((s32) temp_r4 + 4);
+        *(ByteBlock_2C *)(copy_storage_80184B44.bytes) = *(const ByteBlock_2C *)((s32) ((u8 *)&city_season_collision_template.value - 4) + 4);
         (*(f32 *)(copy_storage_80184B44.bytes + 0xC)) = farg0;
         init_collision_body_parts(arg0, (void *) ((copy_storage_80184B44.bytes)), 1);
         ((TObjPlayer *)arg0)->reset_photon_effect();

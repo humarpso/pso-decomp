@@ -237,10 +237,8 @@ typedef char RecoveredGlobal_8030CEEC_lbl_80475818_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8030CEEC_lbl_80475858_size[sizeof(RecoveredGlobal_8030CEEC_lbl_80475858) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_8030CEEC_lbl_80475878_size[sizeof(RecoveredGlobal_8030CEEC_lbl_80475878) == 0x18 ? 1 : -1];
 void TAdChrSelASlotGC__sub_8030CEEC(u8 *arg0) {
-    s32 temp_r0;
     if (((TAdChrSelASlotGC *)(*(s32 *)((s8 *)arg0 + 0x30)))->get_slot_index() >= 0xC) {
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x20);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x20)) {
         case 0:
             push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x34)), &lbl_80475818.value);
             push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x34)), (void *) ((u8 *)&lbl_80475818.value + 8));
@@ -409,7 +407,6 @@ void TAdChrSelASlotGC::update_slot1() {
 }
 
 void TAdChrSelASlotGC__sub_8030D5DC(void *arg0) {
-    s32 temp_r0;
 
     if ((u32) *(u32 *)((s8 *)arg0 + 0x58) != 0U) {
         TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x58)));
@@ -451,8 +448,7 @@ void TAdChrSelASlotGC__sub_8030D5DC(void *arg0) {
         TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x7C)));
         *(u32 *)((s8 *)arg0 + 0x7C) = 0U;
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x20);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x20)) {
     case 0:
         ((TAdPlyChrSelPlateGC *)(*(s32 *)((s8 *)arg0 + 0x34)))->reset_selection_slots();
         TAdSubPlyItemGC__sub_802D6D88(*(s32 *)((s8 *)arg0 + 0x3C));
@@ -498,8 +494,6 @@ extern s32 lbl_80475840[];
 extern s32 lbl_804758A0[];
 
 void TAdChrSelASlotGC::close_windows() {
-    s32 temp_r0;
-    s32 temp_r0_2;
 
     ((TAdChrSelSlotGC *)(*(s32 *)&this->_pad2C))->reset_all_slots();
     if ((u32) this->m_48 != 0U) {
@@ -558,8 +552,7 @@ void TAdChrSelASlotGC::close_windows() {
         TWindow__close((u8 *)(*(void * *)&this->unk_7C));
         *(u32 *)&this->unk_7C = 0U;
     }
-    temp_r0 = *(s32 *)&this->_pad20;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->_pad20) {
     case 0:
         ((TAdPlyChrSelPlateGC *)(*(s32 *)&this->unk_34))->reset_selection_slots();
         TAdSubPlyItemGC__sub_802D6D88(*(s32 *)&this->unk_3C);
@@ -575,8 +568,7 @@ void TAdChrSelASlotGC::close_windows() {
         TAdSubPlyItemGC__sub_802D6D88(this->m_40);
         break;
     }
-    temp_r0_2 = *(s32 *)&this->_pad20;
-    switch (temp_r0_2) {
+    switch (*(s32 *)&this->_pad20) {
     case 0:
         *(u32 *)&this->unk_4C = (u32)create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)this, 0xC, (f32)lbl_805DF218);
         ((TAdMcSelectGC *)(*(s32 *)&this->_pad2C))->init_slot(0, lbl_80475840);

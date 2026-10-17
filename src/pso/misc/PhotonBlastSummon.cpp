@@ -401,9 +401,7 @@ void reset_state__10TSceneSoraFv(s32 _w0) {
     }
 }
 void TUnk_804C3248::update_state() {
-    s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)this + 0xFC);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)this + 0xFC)) {
     case 0:
         ((s32 (*)(f32))update_photon_blast_camera_pose)(1.0f);
         return;

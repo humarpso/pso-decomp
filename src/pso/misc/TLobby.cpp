@@ -112,10 +112,8 @@ void TLobby::apply_lobby_markers() {
 extern s32 TLobby__net_session_mode;
 
 s32 TLobby::get_option_state() {
-    s32 temp_r3;
 
-    temp_r3 = get_option_field_C__17TWindowOptionCtrlFv();
-    switch (temp_r3) {
+    switch (get_option_field_C__17TWindowOptionCtrlFv()) {
     case 0:
         return TLobby__net_session_mode;
     case 1:

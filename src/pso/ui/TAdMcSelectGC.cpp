@@ -69,10 +69,8 @@ void TAdMcSelectGC::select_if_mc_present() {
 }
 
 void TAdMcSelectGC::run_task() {
-    s32 temp_r0;
 
-    temp_r0 = *(s32 *)&this->m_1c;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_1c) {
     case 0:
         *(s32 *)&this->m_1c = 1;
         return;

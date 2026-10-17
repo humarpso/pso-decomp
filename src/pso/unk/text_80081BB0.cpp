@@ -117,7 +117,6 @@ void TUnk_8048E1A4::freeze_shell_grow() {
 }
 
 void TUnk_8048E1A4::run_task() {
-    s32 temp_r0;
     u32 active_entity;
     u16 id = *(u16 *)((s8 *)this + 0x358);
     if ((id != 0xffffU) && (id < 0x4000U)) {
@@ -135,8 +134,7 @@ void TUnk_8048E1A4::run_task() {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    temp_r0 = *(s32 *)((s8 *)this + 0x334);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)this + 0x334)) {
     case 0:
         freeze_shell_grow();
         return;

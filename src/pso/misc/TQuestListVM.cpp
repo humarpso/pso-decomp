@@ -823,13 +823,11 @@ s32 TQuestListVM::init() { memset((char*)this + 0x28, (void*)0, (void*)9024); *(
 
 void TQuestListVM::vfunc_11() {
     u8 *arg0 = (u8 *)this;
-    u32 temp_r0;
     if (((TQuestListVM *)arg0)->update_load_status() != 0) {
         ((VObj_18_a70a39 *)(arg0))->m5(TQuestVmDownLoadServer__sub_8006EF6C(0x44), 1);
         ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(0x12)));
     }
-    temp_r0 = this->m_20;
-    switch (temp_r0) {
+    switch (this->m_20) {
     case 0:
         ((TQuestListVM *)arg0)->init();
         return;

@@ -337,12 +337,10 @@ void TWindowSubSymbolChat::open(s32 arg1) {
 
 void render__25TWindowSubSymbolChatPartsFv(u8 *arg0) {
     s32 temp_r3;
-    u8 temp_r0;
 
     temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame(arg0, temp_r3);
-    temp_r0 = *(u8 *)((s8 *)arg0 + 0x71);
-    switch ((s8) temp_r0) {
+    switch ((s8) (*(u8 *)((s8 *)arg0 + 0x71))) {
     case 0:
         fn_802857C4((Win_802857C4 *)(arg0), (Rect_802857C4 *)(temp_r3));
         break;

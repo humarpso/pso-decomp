@@ -12,10 +12,8 @@ extern s32 lbl_8044F49C[];
 
 s32 TWindowOptionCtrl::create_option_menu() {
     s32 temp_r31;
-    s32 temp_r3;
 
-    temp_r3 = get_option_entry__17TWindowOptionCtrlFi(0xD0);
-    temp_r31 = refresh_with_default_list__20TWindowSubStatusDispFll(temp_r3, lbl_8044F49C);
+    temp_r31 = refresh_with_default_list__20TWindowSubStatusDispFll(get_option_entry__17TWindowOptionCtrlFi(0xD0), lbl_8044F49C);
     TWindowOptionCtrl::add_menu_item(temp_r31, get_localized_text_entry(0xF, 0x10), 0);
     TWindowOptionCtrl::add_menu_item(temp_r31, get_localized_text_entry(0xF, 0x11), 1);
     TWindowOptionCtrl::add_menu_item(temp_r31, get_localized_text_entry(0xF, 0x12), 2);

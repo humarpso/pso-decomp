@@ -30,7 +30,6 @@ extern "C" {
 
 void TBoss6Type2::start_death_sequence(u8 *arg0) {
     s32 temp_r0;
-    s32 temp_r0_2;
     u8 *temp_r31;
     u8 *var_r3;
 
@@ -39,8 +38,7 @@ void TBoss6Type2::start_death_sequence(u8 *arg0) {
     temp_r0 = *(s32 *)((s8 *)var_r3 + 0x4C8);
     *(s32 *)((s8 *)var_r3 + 0x45C) = temp_r0;
     *(s32 *)((s8 *)var_r3 + 0x460) = temp_r0;
-    temp_r0_2 = *(s32 *)((s8 *)var_r3 + 0x47C);
-    switch (temp_r0_2) {
+    switch (*(s32 *)((s8 *)var_r3 + 0x47C)) {
     case 15:
         var_r3 = (unsigned char *) ((void *)0x68522);
         break;
@@ -72,10 +70,8 @@ void TBoss6Type2::update_zako_spawn_timer() {
 }
 
 void TBoss6Type2::send_state_action() {
-    s32 temp_r0;
     if ((s32) this->m_460 == 0) {
-        temp_r0 = *(s32 *)&this->m_374;
-        switch (temp_r0) {
+        switch (*(s32 *)&this->m_374) {
         case 6:
             *(s32 *)&this->m_46c = 0;
             send_action_packet((s8)((void*)(0xC)));
@@ -120,13 +116,11 @@ void TBoss6Type2::update_zako_phase() {
     }
 }
 void TBoss6Type2::init_attack_params() {
-    s32 temp_r0;
 
     *(s32 *)&this->unk_45C = 0x4B;
     this->m_460 = 0x4B;
     *(s32 *)&this->unk_504 = 0;
-    temp_r0 = *(s32 *)&this->m_374;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_374) {
     case 4:
         *(s32 *)&this->m_46c = 0;
         break;

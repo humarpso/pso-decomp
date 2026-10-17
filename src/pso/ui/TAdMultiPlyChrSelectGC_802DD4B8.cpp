@@ -48,7 +48,6 @@ void TAdMultiPlyChrSelectGC::update_state() {
 }
 
 void TAdMultiPlyChrSelectGC::update_card_select_state() {
-    s32 temp_r3;
 
     if (((TAdMultiPlyChrSelectGC *)(this->m_6c))->get_mode() <= 1) {
         ((TAdMultiPlyChrSelectGC *)(this->m_5c))->set_state_ready();
@@ -78,8 +77,7 @@ void TAdMultiPlyChrSelectGC::update_card_select_state() {
         return;
     }
     if (((TWindowMessageYesNo *)(this->m_8c))->is_child_visible() != 0) {
-        temp_r3 = ((TWindowSubComCard *)(this->m_8c))->get_slot_or_neg1();
-        switch (temp_r3) {
+        switch (((TWindowSubComCard *)(this->m_8c))->get_slot_or_neg1()) {
         case 1:
             ((TAdMultiPlyChrSelectGC *)(this->m_5c))->set_state_ready();
             *(s32 *)&this->m_20 = 0xE;

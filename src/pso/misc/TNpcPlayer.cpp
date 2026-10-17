@@ -2827,12 +2827,10 @@ void TNpcPlayer::update_condition_flags() {
 }
 
 void TNpcPlayer::init_state() {
-    s32 temp_r0;
 
     ((TNpcPlayer *)(*(s32 *)((s8 *)this + 0x74)))->reset_fields_8c();
     ((TNpcPlayer *)(*(s32 *)((s8 *)this + 0x78)))->reset_fields_8c();
-    temp_r0 = *(s32 *)((s8 *)this + 0x28);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)this + 0x28)) {
     case 0:
         init_follow_target();
         *(s32 *)((s8 *)this + 0x28) = 1;
@@ -3234,7 +3232,6 @@ void TNpcPlayer::decide_action() {
     f32 temp_f1;
     f32 temp_f2;
     f32 var_f31;
-    s32 temp_r0;
     s32 temp_r3;
     s32 temp_r3_2;
     s32 temp_r3_3;
@@ -3243,8 +3240,7 @@ void TNpcPlayer::decide_action() {
         change_ai_state(1);
         return;
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x1C)) {
     case 0:
         if (((TNpcPlayer *)(*(u8 **)((s8 *)arg0 + 0x78)))->get_action_state() & 2) {
             *(s32 *)((s8 *)arg0 + 0x1C) = 1;

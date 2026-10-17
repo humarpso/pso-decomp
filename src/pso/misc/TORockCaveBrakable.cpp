@@ -77,15 +77,13 @@ void TORockCaveBrakable::spawn_break_effect() {
 }
 
 void TORockCaveBrakable::update_break_state() {
-    s32 temp_r0;
     s32 temp_r0_2;
 
     if (TObjPlayer::check_demo_mode() == 1) {
         this->vfunc_19();
         return;
     }
-    temp_r0 = *(s32 *)&this->m_b4;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_b4) {
     default:
         *(s32 *)&this->m_b4 = 0;
     case 0:

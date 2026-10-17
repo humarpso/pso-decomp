@@ -526,11 +526,9 @@ void TContainerAncient01::init_positions() {
 #pragma pop
 
 void TContainerAncient01R::vfunc_6(s16 *arg1, s32 arg2) {
-    s16 temp_r4;
     this->m_338 = (s16) *arg1;
     if (arg2 != 0) {
-        temp_r4 = this->m_338;
-        if ((this->hp - temp_r4) <= 0) {
+        if ((this->hp - this->m_338) <= 0) {
             ((TContainerAncient01R *)this)->reset_hp();
             ((TContainerAncient01R *)this)->open_container();
             this->m_360 = 1;
@@ -610,11 +608,9 @@ void TContainerAncient01R::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     f32 temp_f1_2;
-    s16 temp_r0;
     if (TObjPlayer::check_demo_mode() == 0) {
         if ((s32) this->m_360 == 0) {
-            temp_r0 = this->mode;
-            switch (temp_r0) {
+            switch (this->mode) {
             case 0:
                 ((TContainerAncient01R *)arg0)->check_open_trigger();
                 break;

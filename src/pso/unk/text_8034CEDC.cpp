@@ -13,9 +13,7 @@ s32 get_window_layout_position(int);
 extern const f32 lbl_805DFDE0;
 s32 create_info_board_menu(void) {
   s32 temp_r31;
-  s32 temp_r31_2;
-  temp_r31_2 = (0, get_message_10__20TWindowSubStatusDispFl(0x1D));
-  temp_r31 = draw_card_icon__17TWindowSubComCardFll((int) get_window_layout_position(0xA4), 2, (int) temp_r31_2);
+  temp_r31 = draw_card_icon__17TWindowSubComCardFll((int) get_window_layout_position(0xA4), 2, (int) ((0, get_message_10__20TWindowSubStatusDispFl(0x1D))));
   if (get_main_phase() == 0xF)
   {
     forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)((int) get_message_10__20TWindowSubStatusDispFl(0x117)), 6, 3);

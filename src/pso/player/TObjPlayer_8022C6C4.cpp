@@ -144,10 +144,8 @@ void *__vt__8TTecCtrl[6] = {
 };
 
 s32 TObjPlayer::get_level_tier(s32 arg0) {
-    s32 temp_r0;
 
-    temp_r0 = arg0 / 5;
-    switch (temp_r0) {
+    switch (arg0 / 5) {
     case 0:
         return 0;
     case 1:

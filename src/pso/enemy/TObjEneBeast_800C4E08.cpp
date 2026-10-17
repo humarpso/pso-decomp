@@ -1414,12 +1414,10 @@ void TUnk_80493450::update_turn_toward_target() {
 
 void TUnk_80493450::vfunc_59() {
     u8 *arg0 = (u8 *)this;
-    s16 temp_r0;
     if (obj_testFlags30(arg0, 0x1000) != 0) {
         this->mode = 4;
     }
-    temp_r0 = this->mode;
-    switch (temp_r0) {
+    switch (this->mode) {
     case 1:
         this->phase = 0;
         if ((u32) *(u32 *)&this->children == 0U) {
@@ -1558,9 +1556,7 @@ end:
 }
 
 void TObjPlayer::tick_freeze_state() {
-    s16 temp_r0;
-    temp_r0 = this->mode;
-    switch (temp_r0) {
+    switch (this->mode) {
     case 1:
         if ((s32) *(s32 *)&this->unk_390 != 0) {
             this->mode = 0;

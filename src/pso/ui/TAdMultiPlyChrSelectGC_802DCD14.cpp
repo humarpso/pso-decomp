@@ -36,11 +36,9 @@ s32 load_tables();
 s32 swap_characters__23TAdSinglePlyChrSelectGCFii(u32, s32);
 
 void TAdMultiPlyChrSelectGC__sub_802DCD14(void *arg0) {
-    s32 temp_r0;
 
     TAdMultiPlyChrSelectGC::reset_slot_selections();
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x48);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x48)) {
     case 0:
         if (TAdMultiPlyChrSelectGC::get_chr_select_state() != 0) {
             TAdMultiChgGameModeGC::begin_change_game_mode();

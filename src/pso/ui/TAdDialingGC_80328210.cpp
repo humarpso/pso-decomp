@@ -43,11 +43,9 @@ s32 handle_state__12TAdDialingGCFv();
 s32 queue_destruction__7TObjectFv();
 
 void TAdDialingGC::update_dial_state() {
-    s32 temp_r0;
     s32 temp_r0_2;
 
-    temp_r0 = *(s32 *)&this->m_20;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_20) {
     case 0:
         *(s32 *)&this->m_20 = 1;
         return;
@@ -76,11 +74,9 @@ block_12:
 }
 
 void TAdDialingGC::update_state() {
-    s32 temp_r0;
     s32 temp_r0_2;
 
-    temp_r0 = *(s32 *)&this->m_20;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_20) {
     case 0:
         *(s32 *)&this->m_20 = 1;
         return;
@@ -110,11 +106,8 @@ block_12:
 
 void TAdDialingGC::update_dial_state(s32 arg1) {
     s32 temp_r4;
-    s32 temp_r0;
-    s32 temp_r0_2;
 
-    temp_r0 = *(s32 *)&this->m_20;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_20) {
     case 0:
         temp_r4 = *(s32 *)&this->m_a0;
         *(s32 *)&this->m_a0 = temp_r4 + 1;
@@ -131,8 +124,7 @@ void TAdDialingGC::update_dial_state(s32 arg1) {
             return;
         }
         *(s32 *)&this->m_a0 = (s32) (*(s32 *)&this->m_a0 + 1);
-        temp_r0_2 = this->m_9c;
-        switch (temp_r0_2) {
+        switch (this->m_9c) {
         case 16:
         case 0:
             if ((s32) *(s32 *)&this->m_a0 > 0x5A) {
@@ -279,10 +271,8 @@ void TAdDialingGC__sub_80328730(s32 arg0) {
 }
 
 void TAdDialingGC::update() {
-    s32 temp_r0;
 
-    temp_r0 = *(s32 *)&this->m_1c;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_1c) {
     case 0:
         if ((s32) *(s32 *)&this->m_20 != 0) {
             update_state_display();

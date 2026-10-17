@@ -39,7 +39,6 @@ extern const f32 lbl_805D92B0;
 #pragma fp_contract on
 void fn_8007ECF0(u8 *arg0, s32 arg1, s32 arg2) {
     f32 temp_f1;
-    s32 temp_r0;
     s32 temp_r0_2;
     s32 temp_r3;
     s32 var_r3;
@@ -57,8 +56,7 @@ void fn_8007ECF0(u8 *arg0, s32 arg1, s32 arg2) {
             if (var_r3 > 0x464F) {
                 var_r3 = 0x464F;
             }
-            temp_r0 = *(s32 *)((s8 *)arg0 + 0x28);
-            switch (temp_r0) {
+            switch (*(s32 *)((s8 *)arg0 + 0x28)) {
             case 0:
                 break;
             case -1:

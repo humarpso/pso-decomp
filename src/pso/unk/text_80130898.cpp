@@ -73,9 +73,7 @@ extern const f32 lbl_805DB010;
 #pragma opt_common_subs off
 void TUnk_804A6AD8::update_weapon() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1F8);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x1F8)) {
     case 1:
         *(f32 *)((s8 *)arg0 + 0x200) = (f32) (*(f32 *)((s8 *)arg0 + 0x200) - lbl_805DB008);
         if (*(f32 *)((s8 *)arg0 + 0x200) <= lbl_805DB00C) {

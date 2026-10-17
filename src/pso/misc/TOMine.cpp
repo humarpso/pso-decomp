@@ -87,15 +87,12 @@ int TOMine::find_target_player() {
 
 void TOMine::run_task() {
     u8 *arg0 = (u8 *)this;
-    s16 temp_r0;
-    s32 temp_r0_2;
     s32 temp_r3;
 
     if (TObjPlayer::check_demo_mode() != 1) {
         this->vfunc_79();
         ((TOMine *)arg0)->update_float_height();
-        temp_r0 = this->mode;
-        switch (temp_r0) {
+        switch (this->mode) {
         case 2:
         case 0:
             find_target_player();
@@ -108,8 +105,7 @@ void TOMine::run_task() {
             if (temp_r3 < 0) {
                 this->mode = 4;
             }
-            temp_r0_2 = *(s32 *)&this->m_344;
-            switch (temp_r0_2) {
+            switch (*(s32 *)&this->m_344) {
             default:
                 TOMineTrap__sub_80170CD4((arg0));
                 break;

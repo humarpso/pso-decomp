@@ -88,13 +88,11 @@ void euler_yxz_to_quaternion(u8 *arg0, u8 *arg1) {
 #pragma scheduling off
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z) {
     u32 var_r3;
-    u32 var_r3_2;
     u32 phi_r3;
     var_r3 = arg0;
     phi_r3 = var_r3;
     if (var_r3 == 0U) {
-        var_r3_2 = current_matrix;
-        phi_r3 = var_r3_2;
+        phi_r3 = current_matrix;
     }
     matrix_apply_translation(phi_r3, x, y, z);
 }

@@ -175,7 +175,6 @@ void TEndingAB::run_task() { advance_fade_sequence(); }
 
 TEndingAB::~TEndingAB() {}
 u8 *__ct__9TEndingABFv(u8 *arg0, u8 *arg1) {
-    s32 temp_r3;
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__9TEndingAB.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) ending_ab_class_name;
@@ -185,8 +184,7 @@ u8 *__ct__9TEndingABFv(u8 *arg0, u8 *arg1) {
     *(s32 *)((s8 *)arg0 + 0x28) = 0;
     *(s32 *)((s8 *)arg0 + 0x24) = 0;
     ((TEndingAB *)arg0)->init_float_table();
-    temp_r3 = TKeyBoardControl__sub_8000F828();
-    switch (temp_r3) {
+    switch (TKeyBoardControl__sub_8000F828()) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0xEC) = 0x1E;
         break;

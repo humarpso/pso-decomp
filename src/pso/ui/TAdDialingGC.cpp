@@ -21,10 +21,8 @@ s32 update_state__12TAdDialingGCFv();
 s32 update_dial_state__12TAdDialingGCFl();
 
 void TAdDialingGC::run_task() {
-    s32 temp_r0;
 
-    temp_r0 = *(s32 *)&this->m_1c;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_1c) {
     case 0:
         update_dial_state__12TAdDialingGCFl();
         break;

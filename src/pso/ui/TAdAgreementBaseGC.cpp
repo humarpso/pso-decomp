@@ -97,20 +97,16 @@ void TAdAgreementBaseGC::create_agreement_callback() {
 
 void TAdAgreementBaseGC::update_state() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
-    s32 temp_r3;
     s32 temp_r4;
     *(s32 *)&this->_pad20 = (s32) *(s32 *)&this->m_1c;
-    temp_r0 = *(s32 *)&this->m_1c;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_1c) {
     case 0:
         this->m_2c = ((VObj_18_fbe024 *)(arg0))->m8();
         *(s32 *)&this->m_1c = 1;
         break;
     case 1:
         if (((TAdSinglePlyChrSelectGC *)(*(s32 *)&this->m_30))->get_selected_slot() == 1) {
-            temp_r3 = TAdSinglePlyChrSelectGC__sub_801334DC((void *)(*(s32 *)&this->m_30));
-            switch (temp_r3) {
+            switch (TAdSinglePlyChrSelectGC__sub_801334DC((void *)(*(s32 *)&this->m_30))) {
             case 0:
                 *(s32 *)&this->m_1c = 2;
                 *(s32 *)&this->m_24 = 3;

@@ -11,7 +11,6 @@ s32 get_option_entry__17TWindowOptionCtrlFi(s32);
 extern s32 lbl_8044F494[];
 
 s32 TWindowOptionCtrl::create_sound_mode_menu() {
-    s16 temp_r0;
     s32 temp_r31;
 
     s32 temp_r3_after_cba4 = get_option_entry__17TWindowOptionCtrlFi(0xCF);
@@ -19,8 +18,7 @@ s32 TWindowOptionCtrl::create_sound_mode_menu() {
     TWindowOptionCtrl::add_menu_item(temp_r31, get_localized_text_entry(0xF, 0xE), 0);
     TWindowOptionCtrl::add_menu_item(temp_r31, get_localized_text_entry(0xF, 0xD), 1);
     TWindowOptionCtrl::add_menu_item(temp_r31, get_localized_text_entry(0xF, 0xF), 2);
-    temp_r0 = *(s16 *)((s8 *)this + 0x20);
-    switch (temp_r0) {
+    switch (*(s16 *)((s8 *)this + 0x20)) {
     case 0:
         ((TWindowSubStatusDisp *)temp_r31)->set_selected_index(0);
         break;

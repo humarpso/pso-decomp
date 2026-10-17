@@ -91,10 +91,8 @@ TAdGuideTxtGC_802B19E8 *__ct__13TAdGuideTxtGCFv(TAdGuideTxtGC_802B19E8 *o) {
 #pragma pop
 
 void reset__15TLobby_802D2F7CFPv(u8 *arg0) {
-    u8 *temp_r3;
 
-    temp_r3 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x28));
-    ((VObj_802b1a70_802B1990 *)temp_r3)->m7();
+    ((VObj_802b1a70_802B1990 *)((unsigned char *) (*(void **)((s8 *)arg0 + 0x28))))->m7();
     *(s8 *)((s8 *)arg0 + 0x1C) = 7;
 }
 

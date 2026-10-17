@@ -22,12 +22,10 @@ extern s32 (*framebuffer_flush_callback)(s32, s32, s32);
 extern s32 (*movie_flush_framebuffer_callback)(s32, s32, s32);
 
 void flush_framebuffer(s32 arg1, s32 arg2, s32 arg3) {
-    s32 temp_r31;
 
     movie_flush_framebuffer_callback(arg2, 0x280, 0x1E0);
     framebuffer_flush_callback(arg2, arg3, TObjPlayer__sub_800845F8());
-    temp_r31 = GXGetTexBufferSize(0x280, 0x1E0, 6, 0, 0);
-    DCFlushRangeNoSync(TObjPlayer__sub_800845F8(), temp_r31);
+    DCFlushRangeNoSync(TObjPlayer__sub_800845F8(), GXGetTexBufferSize(0x280, 0x1E0, 6, 0, 0));
 }
 
 }

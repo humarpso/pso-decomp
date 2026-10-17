@@ -44,7 +44,6 @@ s32 TAdMcCheckGC::create(s32 arg1) {
 }
 
 void TAdMcCheckGC::run_task() {
-    s32 temp_r0;
 
     if (((TAdPlayerLoadGC *)(*(s32 *)&this->m_28))->probe_card_slot() == 0) {
         *(s32 *)&this->m_1c = 0;
@@ -65,8 +64,7 @@ void TAdMcCheckGC::run_task() {
             this->m_38 = 0U;
         }
     }
-    temp_r0 = *(s32 *)&this->m_1c;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_1c) {
     case 0:
         if (((TAdPlayerLoadGC *)(*(s32 *)&this->m_28))->probe_card_slot() != 0) {
             *(s32 *)&this->m_1c = 1;

@@ -428,13 +428,11 @@ void TUnk_804A2148::render() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r31;
     u8 *temp_r3;
-    u8 *temp_r3_2;
 
     if (is_owner_alive__15TItemShootModelFv() != 0) {
         temp_r3 = (unsigned char *) (*(void * *)&this->m_58);
         if ((temp_r3 != NULL) && ((u32) *(u32 *)&this->m_5C != 0U)) {
-            temp_r3_2 = (unsigned char *) (*(void **)((s8 *)temp_r3 + 0x2C));
-            temp_r31 = (unsigned char *) (*(void **)((s8 *)temp_r3_2 + 0x30));
+            temp_r31 = (unsigned char *) (*(void **)((s8 *)((unsigned char *) (*(void **)((s8 *)temp_r3 + 0x2C))) + 0x30));
             *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) & 0xFFFFFFFB);
             *(f32 *)((s8 *)temp_r31 + 0x20) = (f32) 10.0f;
             push_matrix();
@@ -517,7 +515,6 @@ void drill_launcher_node_callback(void *arg0) {
     }
 }
 void TUnk_804A2164::update_weapon() {
-    s32 temp_r0;
     void *temp_r4;
     void *temp_r4_2;
     this->m_1fc = (this->m_1fc + 0x1999);
@@ -527,8 +524,7 @@ void TUnk_804A2164::update_weapon() {
         *(s32 *)((s8 *)temp_r4_2 + 0) = (s32) (*(s32 *)((s8 *)temp_r4_2 + 0) & 0xFFFFFFFD);
         *(s32 *)((s8 *)temp_r4_2 + 0x18) = (s32) this->m_1fc;
     }
-    temp_r0 = this->m_204;
-    switch (temp_r0) {
+    switch (this->m_204) {
     case 1:
         *(s32 *)((s8 *)this + 0x200) = (s32) (*(s32 *)((s8 *)this + 0x200) + 0xE38);
         if ((s32) *(s32 *)((s8 *)this + 0x200) >= 0) {

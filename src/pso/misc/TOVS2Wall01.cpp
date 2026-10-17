@@ -45,10 +45,8 @@ void TOVS2Wall01::spawn_debris(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     struct CopyStack_8017BC10 { u8 bytes[0x4C]; };
     CopyStack_8017BC10 copy_storage_8017BC10;
-    u8 *temp_r5;
     u8 *chip;
-    temp_r5 = (u8 *)((void *)((u8 *)&vs2_wall_debris_desc.value + -4));
-    *(ByteBlock_4C *)(copy_storage_8017BC10.bytes) = *(const ByteBlock_4C *)((s32) temp_r5 + 4);
+    *(ByteBlock_4C *)(copy_storage_8017BC10.bytes) = *(const ByteBlock_4C *)((s32) ((u8 *)((void *)((u8 *)&vs2_wall_debris_desc.value + -4))) + 4);
     (*(f32 *)(copy_storage_8017BC10.bytes + 0xC)) = this->m_2fc;
     (*(f32 *)(copy_storage_8017BC10.bytes + 0x10)) = *(f32 *)&this->m_300;
     (*(f32 *)(copy_storage_8017BC10.bytes + 0x14)) = this->m_304;

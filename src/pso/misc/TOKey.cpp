@@ -83,11 +83,9 @@ void TOKey::update_lock_state() {
 
 void TOKey::update_armed_switch() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
     s32 temp_r0_2;
     this->update_lock_state();
-    temp_r0 = *(s32 *)&this->m_d4;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_d4) {
     case 0:
         if ((s32) *(s32 *)((s8 *)arg0 + 0xE0) != 0) {
             temp_r0_2 = *(s32 *)((s8 *)arg0 + 0xDC) - 1;

@@ -1188,10 +1188,8 @@ void TBoss3Volopt::update_death_sequence() {
 #pragma fp_contract on
 void TBoss3Volopt::update_fade_state() {
     f32 temp_f1;
-    s32 temp_r0;
     s8 var_r4;
-    temp_r0 = *(s32 *)&this->state;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->state) {
     case 0:
         *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x40000);
         this->m_b8 = 8;
@@ -1617,11 +1615,9 @@ void TUnk_80484610::sub_800472D4() {
 }
 
 void update_state__12TBoss3VoloptFPv(void *arg0) {
-    s32 temp_r0;
     s32 temp_r0_2;
     s32 temp_r0_3;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0x46C) = 6;
         ((TUnk_80484610 *)arg0)->distribute_part_damage();

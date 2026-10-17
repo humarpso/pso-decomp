@@ -247,11 +247,9 @@ void TTecRaBarta::vfunc_8(void *pos) {
 extern const f32 lbl_805DC8C4 = 5.0f;
 
 void TTecRaBarta::vfunc_9() {
-    s16 temp_r0;
     s32 handle;
 
-    temp_r0 = *(s16 *)&this->unk_7A;
-    switch (temp_r0) {
+    switch (*(s16 *)&this->unk_7A) {
     case 0:
         *(s32 *)&this->m_ec = play_sound_effect(0x4002A706, *(s32 *)&this->source + 0x2FC, 0, 0);
         handle = *(s32 *)&this->m_ec;

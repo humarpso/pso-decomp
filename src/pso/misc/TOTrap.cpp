@@ -193,15 +193,13 @@ f32 TOTrap::receive_physical_attack(void *arg1, f32) {
 }
 
 void TOTrap::run_task() {
-    s16 temp_r0;
     if (TObjPlayer::check_demo_mode() == 1) {
         this->vfunc_88();
         return;
     }
     if (TObjPlayer::is_any_teammate_in_state() == 0) {
         this->vfunc_84();
-        temp_r0 = this->mode;
-        switch (temp_r0) {
+        switch (this->mode) {
         case 0:
             if (this->is_any_player_matching_stat() != 0) {
                 this->mode = 1;

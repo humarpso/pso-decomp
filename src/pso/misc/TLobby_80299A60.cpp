@@ -300,11 +300,9 @@ extern s32 lbl_804651E8[];
 extern s32 evt2_random_enemies_mode;
 
 void giveup_window_handle_select(void *arg0) {
-    s32 temp_r3;
 
     ((s32 (*)())play_effect_all_players__6TLobbyFPv)();
-    temp_r3 = TLobby__sub_80291F9C();
-    switch (temp_r3) {
+    switch (TLobby__sub_80291F9C()) {
     case 0:
         play_cue_stream_file((s32)lbl_804651E8);
         ((s32 (*)(void *))send_giveup_to_all_players__6TLobbyFv)(arg0);
@@ -419,10 +417,8 @@ void *__ct__20TObjChallenge4PRetryFP7TObject(void *, void *);
 
 void TObjChallenge4PRetry::run_task() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
     this->m_20 = ((s32 (*)(void *))TLobby__sub_8029A16C)(arg0);
-    temp_r0 = *(s32 *)&this->_pad1c;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->_pad1c) {
     case 0:
         ((TLobby *)arg0)->update_giveup();
         break;

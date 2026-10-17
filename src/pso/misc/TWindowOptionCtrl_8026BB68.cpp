@@ -13,11 +13,9 @@ s32 get_option_entry__17TWindowOptionCtrlFi(s32);
 extern const f32 lbl_805DD268;
 
 s32 TWindowOptionCtrl::create_menu() {
-    s32 temp_r3;
     s32 temp_r31;
 
-    temp_r3 = get_option_entry__17TWindowOptionCtrlFi(0xCE);
-    temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFl(temp_r3, 9);
+    temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFl(get_option_entry__17TWindowOptionCtrlFi(0xCE), 9);
     forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_localized_text_entry(0xF, 0)), 6, 3);
     forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_localized_text_entry(0xF, 1)), 6, 7);
     forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_localized_text_entry(0xF, 2)), 6, 5);

@@ -921,18 +921,13 @@ void send_sound_request_reverb(SoundRequestVoice *voice) {
 }
 
 void send_voice_controller_updates(u8 *arg0) {
-    s32 temp_r3;
-    s32 temp_r3_2;
-    s32 temp_r3_3;
     switch ((s32) *(s32 *)((s8 *)arg0 + 0xC)) {
     case 0:
-    temp_r3 = *(s32 *)((s8 *)arg0 + 0x24);
-    if (temp_r3 != (s32) *(s32 *)((s8 *)arg0 + 0x28)) {
+    if ((*(s32 *)((s8 *)arg0 + 0x24)) != (s32) *(s32 *)((s8 *)arg0 + 0x28)) {
         *(s32 *)((s8 *)arg0 + 0x24) = *(s32 *)((s8 *)arg0 + 0x28);
         sndFXCtrl((int) (*(s32 *)((s8 *)arg0 + 0x20)), 7, (int) ((u8) *(s32 *)((s8 *)arg0 + 0x28)));
     }
-    temp_r3_2 = *(s32 *)((s8 *)arg0 + 0x2C);
-    if (temp_r3_2 != (s32) *(s32 *)((s8 *)arg0 + 0x30)) {
+    if ((*(s32 *)((s8 *)arg0 + 0x2C)) != (s32) *(s32 *)((s8 *)arg0 + 0x30)) {
         *(s32 *)((s8 *)arg0 + 0x2C) = *(s32 *)((s8 *)arg0 + 0x30);
         sndFXCtrl((int) (*(s32 *)((s8 *)arg0 + 0x20)), 0xA, (int) ((u8) *(s32 *)((s8 *)arg0 + 0x30)));
     }
@@ -940,8 +935,7 @@ void send_voice_controller_updates(u8 *arg0) {
         sndFXCtrl((int) (*(s32 *)((s8 *)arg0 + 0x20)), 0x83, (int) (0U));
         return;
     }
-    temp_r3_3 = *(s32 *)((s8 *)arg0 + 0x34);
-    if (temp_r3_3 != (s32) *(s32 *)((s8 *)arg0 + 0x38)) {
+    if ((*(s32 *)((s8 *)arg0 + 0x34)) != (s32) *(s32 *)((s8 *)arg0 + 0x38)) {
         *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)arg0 + 0x38);
         sndFXCtrl((int) (*(s32 *)((s8 *)arg0 + 0x20)), 0x83, (int) ((u8) *(s32 *)((s8 *)arg0 + 0x38)));
     }

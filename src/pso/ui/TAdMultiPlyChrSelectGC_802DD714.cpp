@@ -18,7 +18,6 @@ extern s32 lbl_80472868[];
 
 void TAdMultiPlyChrSelectGC::update_state_wait_card() {
     s32 temp_r31;
-    s32 temp_r3;
     s32 temp_r3_2;
 
     if (((TAdMultiPlyChrSelectGC *)(this->m_6c))->get_mode() <= 1) {
@@ -50,8 +49,7 @@ void TAdMultiPlyChrSelectGC::update_state_wait_card() {
         return;
     }
     if (((TWindowMessageYesNo *)(*(s32 *)&this->unk_88))->is_child_visible() != 0) {
-        temp_r3 = ((TWindowSubComCard *)(*(s32 *)&this->unk_88))->get_slot_or_neg1();
-        switch (temp_r3) {
+        switch (((TWindowSubComCard *)(*(s32 *)&this->unk_88))->get_slot_or_neg1()) {
         case 1:
             ((TAdMultiPlyChrSelectGC *)(this->m_5c))->set_state_ready();
             *(s32 *)&this->m_20 = 0xC;

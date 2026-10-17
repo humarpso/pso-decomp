@@ -3011,13 +3011,11 @@ void TObjEneMe1Canadin::vfunc_112(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     Stack_8009BF0C stack;
     f32 temp_f1;
-    u8 *temp_r3;
     switch (arg1) {
     case 4:
         if ((s32) *(s32 *)((s8 *)arg0 + 0x3C4) == 1) {
             *(u8 **)((s8 *)arg0 + 0x3C0) = (u8 *)find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x4C8));
-            temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x3C0));
-            ((VObj_18_0f49f2 *)(temp_r3))->m115(arg0);
+            ((VObj_18_0f49f2 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x3C0))))->m115(arg0);
         }
         TBoss3Volopt::create_breakup_mdl(lbl_805D4FE0, 0, (s32)((int) (*(s32 *)((s8 *)arg0 + 0x24))), (s32)(arg0 + 0x2FC), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x60))));
         *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C8) | 0x400000);
@@ -3037,7 +3035,6 @@ void TObjEneMe1Canadin::vfunc_112(s32 arg1) {
 }
 
 void TObjEneMe1Canadin__sub_8009BFF8(u8 *arg0, s32 arg1) {
-    s32 temp_r0;
 
     switch (arg1) {
     case 4:
@@ -3057,8 +3054,7 @@ void TObjEneMe1Canadin__sub_8009BFF8(u8 *arg0, s32 arg1) {
         if (((TObjEneDD_ST *)arg0)->update_linked_position(TObjEneMe1Canadin__data_805D988C) != 0) {
             *(s32 *)((s8 *)arg0 + 0x470) = 2;
         }
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x470);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x470)) {
         case 0:
             *(s32 *)((s8 *)arg0 + 0x474) = (s32) (*(s32 *)((s8 *)arg0 + 0x474) + 1);
             if ((s32) *(s32 *)((s8 *)arg0 + 0x474) >= 0x3C) {
@@ -3084,7 +3080,6 @@ void TObjEneMe1Canadin__sub_8009BFF8(u8 *arg0, s32 arg1) {
 }
 
 void TObjEneMe1Canadin__sub_8009C178(u8 *arg0, s32 arg1) {
-    u8 *temp_r3;
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
@@ -3094,8 +3089,7 @@ void TObjEneMe1Canadin__sub_8009C178(u8 *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x800);
         if ((s32) *(s32 *)((s8 *)arg0 + 0x3C4) == 1) {
             *(u8 **)((s8 *)arg0 + 0x3C0) = (u8 *)find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x4C8));
-            temp_r3 = *(u8 **)((s8 *)arg0 + 0x3C0);
-            ((VObj_18_p4 *)(temp_r3))->m115(arg0);
+            ((VObj_18_p4 *)(*(u8 **)((s8 *)arg0 + 0x3C0)))->m115(arg0);
         } else {
             ((TObjEnemy *)arg0)->send_entity_set_flags();
         }
@@ -3528,7 +3522,6 @@ void TObjEneMe1Canadin__sub_8009D320(void *arg0, s32 arg1) {
 #pragma pop
 
 void TObjEneMe1Canadin::move(s32 arg1) {
-    s32 temp_r0;
     s32 temp_r3;
 
     switch (arg1) {
@@ -3551,8 +3544,7 @@ void TObjEneMe1Canadin::move(s32 arg1) {
     case 0:
         advance_animation_playback();
         update_linked_position(TObjEneMe1Canadin__data_805D988C);
-        temp_r0 = *(s32 *)((s8 *)this + 0x470);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)this + 0x470)) {
         case 0:
             temp_r3 = *(s32 *)((s8 *)this + 0x3C8);
             if (temp_r3 & 4) {
@@ -3624,8 +3616,6 @@ void TObjEneMe1Canadin::vfunc_111(s32 arg1) {
 
 void TObjEneMe1Canadin::vfunc_110(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
-    s32 temp_r0_2;
     s32 temp_r3;
     f32 temp_f1;
 
@@ -3662,8 +3652,7 @@ void TObjEneMe1Canadin::vfunc_110(s32 arg1) {
     case 0:
         advance_animation_playback();
         ((TObjEneDD_ST *)arg0)->update_linked_position(TObjEneMe1Canadin__data_805D988C);
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x470);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x470)) {
         case 2:
             break;
         case 0:
@@ -3677,8 +3666,7 @@ void TObjEneMe1Canadin::vfunc_110(s32 arg1) {
         case 1:
             if ((s32) *(s32 *)((s8 *)arg0 + 0x4B8) == 0) {
                 *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C8) | 0x8000);
-                temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x3C4);
-                switch (temp_r0_2) {
+                switch (*(s32 *)((s8 *)arg0 + 0x3C4)) {
                 case 0:
                     ((TObjEneMe1CanadinLeader *)arg0)->set_attack_flag();
                 case 1:
@@ -3869,9 +3857,7 @@ void dispatch_state__17TObjEneMe1CanadinFPvUii(Canadin_8009E0AC *self, u32 which
 void fn_8009E1D4(u8 *arg0, s32 arg1) {
     struct CopyStack_8009E1D4 { u8 bytes[0x14]; };
     CopyStack_8009E1D4 copy_storage_8009E1D4;
-    u8 *temp_r6;
-    temp_r6 = (u8 *)((void *)((u8 *)&canadin_behavior_params.value + -4));
-    *(ByteBlock_14 *)(copy_storage_8009E1D4.bytes) = *(const ByteBlock_14 *)((s32) temp_r6 + 4);
+    *(ByteBlock_14 *)(copy_storage_8009E1D4.bytes) = *(const ByteBlock_14 *)((s32) ((u8 *)((void *)((u8 *)&canadin_behavior_params.value + -4))) + 4);
     (*(f32 *)(copy_storage_8009E1D4.bytes + 0x4)) = *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x468)) + 4);
     TObjEneDD::setup(arg0, arg1, (s32)copy_storage_8009E1D4.bytes);
 }
@@ -4061,14 +4047,12 @@ void TObjEneMe1Canadin::advance_state_4_to_5() {
 s32 TObjEneMe1Canadin::check_target() {
     f32 sp8;
     s32 var_r31;
-    void *temp_r3;
 
     var_r31 = 0;
     if (*(f32 *)((s8 *)this + 0x3AC) < lbl_805D98E4) {
         var_r31 = 1;
         *(void **)((s8 *)this + 0x3C0) = find_entity_by_id(*(u16 *)((s8 *)this + 0x4C8));
-        temp_r3 = *(void **)((s8 *)this + 0x3C0);
-        if ((((VObj_8009E7C4_8009E474 *)temp_r3)->m114(*(s32 *)((s8 *)this + 0x390)) == 0) && (TObjEneMe1Canadin__sub_8009E860((Canadin_8009E860 *)(this), &sp8, lbl_805D9920) != 0) && (sp8 > lbl_805D98E4)) {
+        if ((((VObj_8009E7C4_8009E474 *)(*(void **)((s8 *)this + 0x3C0)))->m114(*(s32 *)((s8 *)this + 0x390)) == 0) && (TObjEneMe1Canadin__sub_8009E860((Canadin_8009E860 *)(this), &sp8, lbl_805D9920) != 0) && (sp8 > lbl_805D98E4)) {
             var_r31 = 0;
         }
     }

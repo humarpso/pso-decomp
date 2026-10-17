@@ -639,7 +639,6 @@ void begin_conversation_camera(void) {
 void TCameraCtrl::update_follow_motion_state() {
     FollowVector d;
     s32 var_r4;
-    s32 temp_r0;
     s32 temp_r3_2;
     s32 temp_r3_3;
     s32 var_r31;
@@ -662,8 +661,7 @@ void TCameraCtrl::update_follow_motion_state() {
         } else {
             var_r31 = 1;
         }
-        temp_r0 = *(s32 *)&this->unk_F8;
-        switch (temp_r0) {
+        switch (*(s32 *)&this->unk_F8) {
         case 0:
             if (var_r31 != 0) {
                 *(s32 *)&this->unk_F8 = 1;
@@ -812,7 +810,6 @@ void TCameraCtrl__sub_8006DCC8(void* p) { ((TUnk_80488E00 *)p)->m_fc = 0; }
 
 void TUnk_80488E00::vfunc_9(u8 *arg1, u8 *arg2) {
     struct RecoveredFields_8006DCD4_arg0 *arg0 = (struct RecoveredFields_8006DCD4_arg0 *)this;
-    f32 temp_f1;
     u8 *temp_r3;
     if (arg1 != NULL) {
         arg0->field_48 = *(f32 *)((s8 *)arg1 + 0x38);
@@ -820,8 +817,7 @@ void TUnk_80488E00::vfunc_9(u8 *arg1, u8 *arg2) {
         arg0->field_50 = *(f32 *)((s8 *)arg1 + 0x40);
         arg0->field_3C = arg0->field_48 + *(f32 *)((s8 *)arg2 + 0);
         arg0->field_40 = arg0->field_4C + *(f32 *)((s8 *)arg2 + 4);
-        temp_f1 = arg0->field_50;
-        arg0->field_44 = temp_f1 + *(f32 *)((s8 *)arg2 + 8);
+        arg0->field_44 = arg0->field_50 + *(f32 *)((s8 *)arg2 + 8);
         temp_r3 = (u8 *)(csnVector(&arg0->field_48, &arg0->field_3C, 0x100));
         if (temp_r3 != NULL) {
             VecCopy((Vec *)(&arg0->field_3C), (const Vec *)(*(s32 *)((s8 *)temp_r3 + 4)));

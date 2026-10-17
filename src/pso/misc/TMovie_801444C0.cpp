@@ -21,7 +21,6 @@ extern s8 controller_physical_port_bank[];
 s32 TMovie::check_skip_input() {
     void *var_r31;
     s32 var_r30;
-    s8 temp_r3;
 
     if (TAdEndText__sub_8001B41C() != 0) {
         if ((TLobby::run_disk_error_check() == 0) || (is_playback_finished__6TMovieFv(*(s32 *)&this->m_20) != 0) || (func_801A5E54__Fv() != 0)) {
@@ -32,8 +31,7 @@ s32 TMovie::check_skip_input() {
         }
         goto block_return0;
     }
-    temp_r3 = get_opening_movie_purpose();
-    switch (temp_r3) {
+    switch (get_opening_movie_purpose()) {
     case 0:
         var_r31 = controller_physical_port_bank + 0x20;
         if (TWindowShortListCtrl__check_controller_button(var_r31, 4) != 0) goto block_fn_8000F91C;

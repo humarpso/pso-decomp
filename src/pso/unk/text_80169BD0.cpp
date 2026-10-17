@@ -45,7 +45,6 @@ void TUnk_804B27D8::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f0;
     f32 temp_f1;
-    s32 temp_r0;
     s32 temp_r0_2;
     s32 player;
     u32 temp_r3;
@@ -59,8 +58,7 @@ void TUnk_804B27D8::run_task() {
         this->vfunc_16();
         return;
     }
-    temp_r0 = *(s32 *)&this->m_ac;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_ac) {
     case 0:
         if ((this->update_active_state() != 0) && (is_any_player_within_radius_xz((arg0), lbl_805DB6D8) != 0) && ((s32) *(s32 *)&this->unk_D8 > 0)) {
             *(s32 *)&this->m_ac = 1;

@@ -165,9 +165,7 @@ s32 TOExplosiveMachine::check_trigger() {
 }
 
 s32 TOExplosiveMachine::update_trigger() {
-    s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)this + 0xC8);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)this + 0xC8)) {
     case 0:
         break;
     case 1:
@@ -187,14 +185,12 @@ s32 TOExplosiveMachine::update_trigger() {
 void TOExplosiveMachine::update() {
     f32 temp_f0;
     f32 temp_f1;
-    s32 temp_r0;
 
     if (TObjPlayer::check_demo_mode() == 1) {
         ((V_A_801668cc_80166568 *)this)->m14();
         return;
     }
-    temp_r0 = *(s32 *)((s8 *)this + 0xAC);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)this + 0xAC)) {
     case 0:
         check_trigger();
         break;

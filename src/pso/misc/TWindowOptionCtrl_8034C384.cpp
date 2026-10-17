@@ -62,10 +62,8 @@ void TWindowOptionCtrl::handle_save_result() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 temp_r0_2;
-    s32 temp_r3;
     if (!(*(s32 *)((s8 *)arg0 + 0x20) & 1)) {
-        temp_r3 = TObjBoss2Tunnel::save_snapshot();
-        switch (temp_r3) {
+        switch (TObjBoss2Tunnel::save_snapshot()) {
         case 1:
             *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) | 2);
             *(s32 *)&this->m_24 = 1;

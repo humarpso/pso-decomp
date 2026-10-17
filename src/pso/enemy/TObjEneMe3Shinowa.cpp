@@ -2130,7 +2130,6 @@ void TObjEneMe3ShinowaMirage__sub_800E4FE8(u8 *arg0, s32 arg1) {
 }
 
 void TObjEneMe3ShinowaMirage__sub_800E50D8(u8 *arg0, s32 arg1) {
-  s32 temp_r0;
   s32 temp_r3;
   switch (arg1)
   {
@@ -2159,8 +2158,7 @@ void TObjEneMe3ShinowaMirage__sub_800E50D8(u8 *arg0, s32 arg1) {
       return;
     case 0:
       advance_animation_playback(arg0, arg1);
-      temp_r0 = ((RecoveredFields_800E50D8_arg0 *) arg0)->field_404;
-      switch (temp_r0)
+      switch (((RecoveredFields_800E50D8_arg0 *) arg0)->field_404)
     {
       case 0:
         if (((TObjEneDD *)arg0)->get_flag_b4() != 0)
@@ -2400,7 +2398,6 @@ void TObjEneMe3ShinowaMirage__sub_800E54E8(void *arg0_, s32 arg1) {
 #undef VO
 
 void TObjEneMe3ShinowaReal__sub_800E5950(u8 *arg0, s32 arg1) {
-    s32 temp_r0;
     s32 temp_r5;
     switch (arg1) {
     case 4:
@@ -2442,8 +2439,7 @@ void TObjEneMe3ShinowaReal__sub_800E5950(u8 *arg0, s32 arg1) {
         break;
     case 0:
         ((s32 (*)(void))advance_animation_playback)();
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x404);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x404)) {
         case 0:
             *(s32 *)((s8 *)arg0 + 0x60) = approach_angle_limited((int) (*(s32 *)((s8 *)arg0 + 0x60)), (int) (*(s32 *)((s8 *)arg0 + 0x40C)), 0x31C7);
             if ((*(f32 *)((s8 *)arg0 + 0xC0) + *(f32 *)((s8 *)arg0 + 0xC8)) >= TObjEneMe3ShinowaReal__data_805DA5CC) {
@@ -2731,7 +2727,6 @@ void TObjEneMe3ShinowaMirage__sub_800E5F64(u8 *arg0, s32 arg1) {
 #pragma fp_contract on
 void TObjEneMe3ShinowaMirage::state_chase_target(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    f32 temp_f31;
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 9;
@@ -2763,8 +2758,7 @@ void TObjEneMe3ShinowaMirage::state_chase_target(s32 arg1) {
         if (((s32 (*)(void *, f32))update_linked_position__12TObjEneDD_STFf)(arg0, TObjEneMe3ShinowaMirage__data_805DA5F4) != 0) {
             ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
             ((TObjEneDD *)arg0)->update_velocity();
-            temp_f31 = *(f32 *)((s8 *)arg0 + 0x3A8) * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)));
-            *(f32 *)((s8 *)arg0 + 0x414) = (f32) ((*(f32 *)((s8 *)arg0 + 0x3A0) * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)))) + temp_f31);
+            *(f32 *)((s8 *)arg0 + 0x414) = (f32) ((*(f32 *)((s8 *)arg0 + 0x3A0) * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)))) + (*(f32 *)((s8 *)arg0 + 0x3A8) * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)))));
             if (*(f32 *)((s8 *)arg0 + 0x414) < cos_table_lookup(0x1000)) {
                 ((TObjEneEpsilon *)arg0)->update_angle(0x500);
                 this->vfunc_102();
@@ -2782,7 +2776,6 @@ void TObjEneMe3ShinowaMirage__sub_800E66FC(u8 *arg0, s32 arg1) {
     f32 temp_f1;
     f32 temp_f1_2;
     f32 temp_f31;
-    s32 temp_r0;
 
     switch (arg1) {
     case 4:
@@ -2807,8 +2800,7 @@ void TObjEneMe3ShinowaMirage__sub_800E66FC(u8 *arg0, s32 arg1) {
         }
         return;
     case 0:
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x404);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x404)) {
         case 0:
             temp_f31 = ((TObjEneMe3Shinowa *)arg0)->get_node_world_y();
             ((s32 (*)(void *))advance_animation_playback)(arg0);
@@ -3093,8 +3085,6 @@ void TObjEneMe3Shinowa::apply_effect_pair() {
     s32 sp8[8];
     u32 entry;
     u32 temp_r3_3;
-    u8 *temp_r3_2;
-    u8 *temp_r3_4;
 
     push_matrix();
     set_matrix_identity(0);
@@ -3103,14 +3093,12 @@ void TObjEneMe3Shinowa::apply_effect_pair() {
     entry = TObjPlayer::lookup_entry_by_value((void *)TObjEneMe3ShinowaMirage__data_805D52A4, (f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
     if (entry != 0U) {
         mult_vec_array__10TObjPlayerFUll(0, entry, &sp8, 2);
-        temp_r3_2 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x3E0));
-        ((VObj18b_800e70d4_800E47DC *) temp_r3_2)->m4(&sp8, &sp8[3]);
+        ((VObj18b_800e70d4_800E47DC *) ((unsigned char *) (*(void **)((s8 *)arg0 + 0x3E0))))->m4(&sp8, &sp8[3]);
     }
     temp_r3_3 = TObjPlayer::lookup_entry_by_value((void *)TObjEneMe3ShinowaMirage__data_805D52A8, (f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
     if (temp_r3_3 != 0U) {
         mult_vec_array__10TObjPlayerFUll(0, temp_r3_3, &sp8, 2);
-        temp_r3_4 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x3E4));
-        ((VObj18b_800e70d4_800E47DC *) temp_r3_4)->m4(&sp8, &sp8[3]);
+        ((VObj18b_800e70d4_800E47DC *) ((unsigned char *) (*(void **)((s8 *)arg0 + 0x3E4))))->m4(&sp8, &sp8[3]);
     }
     pop_matrix();
 }
@@ -3197,18 +3185,12 @@ void TObjEneMe3Shinowa::update_player_state_default() {
 void TObjEneMe3Shinowa::vfunc_105() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r31;
-    u8 *temp_r3;
-    u8 *temp_r3_2;
-    u8 *temp_r3_3;
     temp_r31 = objInBand((GameObj *)arg0, (f32)lbl_805DA640);
     if ((objInBand((GameObj *)arg0, (f32)lbl_805DA644) != 0) || (temp_r31 != 0)) {
         if (((TObjEneDD_ST *)arg0)->enemy_check_target_valid() != 0) {
-            temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x390));
-            if (((VObj_18_c44252 *)(temp_r3))->m18(arg0, TObjEneMe3ShinowaMirage__data_805DA5DC) != 0) {
-                temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x390));
-                ((VObj_18_c44252 *)(temp_r3_2))->m20(arg0, TObjEneMe3ShinowaMirage__data_805DA5DC);
-                temp_r3_3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x390));
-                ((VObj_18_c44252 *)(temp_r3_3))->m23(arg0, TObjEneMe3ShinowaMirage__data_805DA608);
+            if (((VObj_18_c44252 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x390))))->m18(arg0, TObjEneMe3ShinowaMirage__data_805DA5DC) != 0) {
+                ((VObj_18_c44252 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x390))))->m20(arg0, TObjEneMe3ShinowaMirage__data_805DA5DC);
+                ((VObj_18_c44252 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x390))))->m23(arg0, TObjEneMe3ShinowaMirage__data_805DA608);
                 if ((temp_r31 != 0) && (calc_boss4_scale__10TObjPlayerFi((s32) arg0) <= lbl_805DA648)) {
                     TObjEneDD__sub_800BA438((s32)arg0, (*(u8 **)((s8 *)arg0 + 0x390)));
                 }

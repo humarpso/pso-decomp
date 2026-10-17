@@ -1351,21 +1351,13 @@ void TObjEneRe7Berura::load_static_resources() {
 }
 
 void fn_80095DD0(u8 *arg0) {
-    s32 *temp_r3;
-    s32 *temp_r4;
-    temp_r4 = *(s32 **)((s8 *)arg0 + 0x18);
-    *temp_r4 &= 0xFFFFFFF7;
-    temp_r3 = *(s32 **)((s8 *)arg0 + 0x1C);
-    *temp_r3 &= 0xFFFFFFF7;
+    *(*(s32 **)((s8 *)arg0 + 0x18)) &= 0xFFFFFFF7;
+    *(*(s32 **)((s8 *)arg0 + 0x1C)) &= 0xFFFFFFF7;
 }
 
 void fn_80095DF4(u8 *arg0) {
-    s32 *temp_r3;
-    s32 *temp_r4;
-    temp_r4 = *(s32 **)((s8 *)arg0 + 0x18);
-    *temp_r4 |= 8;
-    temp_r3 = *(s32 **)((s8 *)arg0 + 0x1C);
-    *temp_r3 |= 8;
+    *(*(s32 **)((s8 *)arg0 + 0x18)) |= 8;
+    *(*(s32 **)((s8 *)arg0 + 0x1C)) |= 8;
 }
 
 #undef RES

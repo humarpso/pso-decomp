@@ -624,11 +624,9 @@ void TObjEneDelDepth__sub_803138F8(void* a0) { *(float*)((char*)a0 + 0x39c) = TO
 void TObjEneDelDepth__sub_80313954(u8 *arg0) {
     s32 sp8;
     f32 temp_f1;
-    s32 temp_r0;
     s32 temp_r0_2;
     s32 temp_r0_3;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x378);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x378)) {
     case 0:
         temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x384) - 1;
         *(s32 *)((s8 *)arg0 + 0x384) = temp_r0_2;
@@ -683,7 +681,6 @@ void TObjEneDelDepth::update_ai_state() {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
     s32 temp_r0;
-    u16 temp_r3;
 
     if (((TObjEneDelDepth *)(*(s32 *)((s8 *)arg0 + 0x37C)))->get_type() < 6) {
         if (*(s32 *)((s8 *)arg0 + 0xB0) & 0x10) {
@@ -693,8 +690,7 @@ void TObjEneDelDepth::update_ai_state() {
         temp_r0 = *(s32 *)((s8 *)arg0 + 0x384) - 1;
         *(s32 *)((s8 *)arg0 + 0x384) = temp_r0;
         if (temp_r0 <= 0) {
-            temp_r3 = ((u16 (*)(void *, void *, f32))find_nearest_visible_player)(arg0, &sp8, TObjEneDelDepth__data_805DF280);
-            if ((temp_r3 != 0xFFFF) && (vector_length(&sp8) > TObjEneDelDepth__data_805DF270)) {
+            if (((((u16 (*)(void *, void *, f32))find_nearest_visible_player)(arg0, &sp8, TObjEneDelDepth__data_805DF280)) != 0xFFFF) && (vector_length(&sp8) > TObjEneDelDepth__data_805DF270)) {
                 ((TObjEneDelDepth *)arg0)->set_action_state(4);
                 return;
             }

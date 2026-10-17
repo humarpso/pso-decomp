@@ -297,13 +297,11 @@ void TBoss8Dragon::choose_next_camera_shot() {
 #pragma fp_contract on
 void TBoss8Dragon::update_live_camera() {
     u8 *arg0 = (u8 *)this;
-    s16 temp_r0;
     u32 temp_r3_4;
     u8 *player;
     u8 *temp_r3_2;
     u8 *enemy_entity;
-    temp_r0 = *(s16 *)&this->unk_1C;
-    switch (temp_r0) {
+    switch (*(s16 *)&this->unk_1C) {
     case 1:
         player = (u8 *)(get_player_by_client_id((s32) *(u16 *)((s8 *)arg0 + 0x24)));
         if (player != NULL) {

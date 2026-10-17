@@ -39,7 +39,6 @@ extern RecoveredGlobal_802DCA20_lbl_804727E8 multi_chr_select_item_rect_table;
 extern s32 controller_physical_port_bank[];
 s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
 void TAdMultiPlyChrSelectGC::update_input_state() {
-    s32 temp_r3;
 
     if (TWindowShortListCtrl__check_controller_button((s8 *)controller_physical_port_bank + 0x20, 2) != 0) {
         play_sound_effect(0x52F16, 0, 0, 0);
@@ -63,8 +62,7 @@ void TAdMultiPlyChrSelectGC::update_input_state() {
         return;
     }
     if (((TWindowMessageYesNo *)(this->m_94))->is_child_visible() != 0) {
-        temp_r3 = ((TWindowSubComCard *)(this->m_94))->get_slot_or_neg1();
-        switch (temp_r3) {
+        switch (((TWindowSubComCard *)(this->m_94))->get_slot_or_neg1()) {
         case 0:
             *(s32 *)&this->m_20 = 0x21;
             return;

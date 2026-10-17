@@ -10,10 +10,8 @@ struct Vec_8022675C;
 s32 play_sound_effect(s32 id, Vec_8022675C *src, s32 a2, s32 flags);
 
 void fn_80041E88(u8 *arg0) {
-    s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case -1:
         break;
     case 0:

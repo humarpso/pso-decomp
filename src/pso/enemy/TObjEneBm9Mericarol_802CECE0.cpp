@@ -776,7 +776,6 @@ void TObjEneBm9Mericarol__sub_802CEDA0(u8 *arg0, s32 arg1) {
 
 void TObjEneBm9Mericarol::handle_motion_event(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r4;
     s32 temp_r5;
 
     switch (arg1) {
@@ -799,8 +798,7 @@ void TObjEneBm9Mericarol::handle_motion_event(s32 arg1) {
         return;
     case 0:
         advance_animation_playback(arg0);
-        temp_r4 = *(s32 *)&this->m_4ac;
-        *(s32 *)&this->m_4ac = (temp_r4 + 1);
+        *(s32 *)&this->m_4ac = ((*(s32 *)&this->m_4ac) + 1);
         TObjEneBm9Mericarol__sub_802D073C(arg0);
         return;
     case 5:
@@ -827,7 +825,6 @@ void TObjEneBm9Mericarol::state_burrow(s32 arg1) {
     u8 *arg0 = (u8 *)this;
   f32 temp_f1;
   Stack_802CF1B4 stack;
-  s32 temp_r0;
   switch (arg1)
   {
     case 4:
@@ -850,8 +847,7 @@ void TObjEneBm9Mericarol::state_burrow(s32 arg1) {
     case 5:
       return;
     case 0:
-      temp_r0 = *((s32 *) (((s8 *) arg0) + 0x490));
-      switch (temp_r0)
+      switch (*((s32 *) (((s8 *) arg0) + 0x490)))
     {
       case 0:
         ((s32)advance_animation_playback((void *)((void *)((void *) arg0))));
@@ -885,15 +881,13 @@ typedef struct VObj_18_9e83f9 VObj_18_9e83f9;
 void TObjEneBm9Mericarol__sub_802CF368(u8 *actor, s32 arg1) {
   s16 temp_r3;
   s16 temp_r4;
-  s32 temp_r5;
   switch (arg1)
   {
     case 4:
       *((s16 *) (((s8 *) actor) + 0xB8)) = 5;
       (((VObj_18_9e83f9 *)(actor))->m94());
       TObjEneBm9Mericarol__sub_802D093C((void *) actor);
-      temp_r5 = *((s32 *) (((s8 *) actor) + 0x438));
-      *((s32 *) (((s8 *) actor) + 0x438)) = (s32) (temp_r5 & (~0x28));
+      *((s32 *) (((s8 *) actor) + 0x438)) = (s32) ((*((s32 *) (((s8 *) actor) + 0x438))) & (~0x28));
       TBoss8Dragon__sub_800BB7D4((void *)((void *) actor), 0xF2);
       play_sound_effect((s32)(((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) actor), 0x3AA0C))), (void *)(actor + 0x38), 0, 0);
       return;
@@ -1021,7 +1015,6 @@ s32 TObjEneBm9Mericarol::check_attack_hits() {
 
 void TObjEneDD__sub_802CF7B4(u8 *arg0, s32 arg1) {
     f32 temp_f1;
-    s32 temp_r0;
     s32 temp_r4;
     s32 temp_r5;
     s32 var_r30;
@@ -1056,8 +1049,7 @@ void TObjEneDD__sub_802CF7B4(u8 *arg0, s32 arg1) {
         return;
     case 0:
         ((s32 (*)())advance_animation_playback)();
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x490);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x490)) {
         case 0:
             ((TObjEneBm9Mericarol *)arg0)->sync_center_position();
             if (((TBoss5Gryphon *)arg0)->enemy_probe_wall_ahead((f32) (*(f32 *)((s8 *)arg0 + 0x3A0)), (f32) (*(f32 *)((s8 *)arg0 + 0x3A8)), lbl_805DE720) != 0U) {

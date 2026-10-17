@@ -732,16 +732,12 @@ u16 obj_getField1c(s32);
 s32 restore_player_state__13TShopSequenceFv();
 
 void create_judgment_item_window__15TShopWindowBaseFPv(void *arg0) {
-    f32 temp_f31;
-    u16 temp_r31;
     VObj_802143AC *vobj = (VObj_802143AC *)arg0;
 
     if ((vobj->m8r() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (sub_802239EC__13TShopSequenceFv(arg0) != 0))) {
-        temp_r31 = (u16)obj_getField1c(*(s32 *)((s8 *)arg0 + 0x24));
-        *(s32 *)((s8 *)arg0 + 0x38) = (s32)create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
+        *(s32 *)((s8 *)arg0 + 0x38) = (s32)create_yes_no_window(get_window_layout_position(0x2B), (u16)obj_getField1c(*(s32 *)((s8 *)arg0 + 0x24)), 0, 0);
         ((TWindowSubComCardList *)(*(s32 *)((s8 *)arg0 + 0x38)))->set_selected_index(1);
-        temp_f31 = get_scale__15TShopWindowBaseFv(arg0);
-        ((TUnk_804CDFE8 *)(*(s32 *)((s8 *)arg0 + 0x38)))->set_position_xy(get_scale__15TShopWindowBaseFv(arg0), temp_f31);
+        ((TUnk_804CDFE8 *)(*(s32 *)((s8 *)arg0 + 0x38)))->set_position_xy(get_scale__15TShopWindowBaseFv(arg0), get_scale__15TShopWindowBaseFv(arg0));
         vobj->m7(8, 1);
         ((TShopWindowBase *)arg0)->set_field_20(7);
     }
@@ -782,15 +778,12 @@ block_3:
 }
 
 void THunterGuildSeqOffline__sub_802145F8(u8 *arg0) {
-    s32 temp_r0;
-    s32 temp_r3;
     if (((TShopWindowBase *)(arg0))->vfunc_10() != 0) {
         if (sub_80223A48__15TShopWindowBaseFv(arg0) != 0) {
             *(s32 *)((s8 *)arg0 + 0x40) = 0;
         }
         if ((s32) *(s32 *)((s8 *)arg0 + 0x40) == 0) {
-            temp_r0 = *(s32 *)((s8 *)arg0 + 0x30);
-            switch (temp_r0) {
+            switch (*(s32 *)((s8 *)arg0 + 0x30)) {
             case 3:
                 break;
             case 0:
@@ -798,8 +791,7 @@ void THunterGuildSeqOffline__sub_802145F8(u8 *arg0) {
                     *(s32 *)((s8 *)arg0 + 0x30) = 2;
                     return;
                 }
-                temp_r3 = THunterGuildSeqOffline::check_party_gathered();
-                switch (temp_r3) {
+                switch (THunterGuildSeqOffline::check_party_gathered()) {
                 case 1:
                     *(s32 *)((s8 *)arg0 + 0x30) = 2;
                     return;

@@ -1147,7 +1147,6 @@ void action_destroy__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1) {
 }
 
 void update_fade__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
-    s32 temp_r0;
     s32 temp_r4;
     switch (arg1) {
     case 4:
@@ -1167,8 +1166,7 @@ void update_fade__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
         break;
     case 0:
         advance_animation_playback((void *)((void *)((void *)(arg0))));
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x4E4);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x4E4)) {
         case 0:
             *(u32 *)((s8 *)arg0 + 0x44C) = (u32) (*(u32 *)((s8 *)arg0 + 0x44C) + 0x22);
             if ((u32) *(u32 *)((s8 *)arg0 + 0x44C) > 0xFFU) {
@@ -1198,7 +1196,6 @@ void update_fade__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
 #pragma push
 #pragma fp_contract on
 void TObjEneEpsilonGuard__sub_80360BF8(u8 *arg0, s32 arg1) {
-    s32 temp_r0;
     s32 temp_r4;
     switch (arg1) {
     case 4:
@@ -1221,8 +1218,7 @@ void TObjEneEpsilonGuard__sub_80360BF8(u8 *arg0, s32 arg1) {
         break;
     case 0:
         advance_animation_playback((void *)(arg0));
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x4E4);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x4E4)) {
         case 0:
             if (!(*(s32 *)((s8 *)arg0 + 0x438) & 0x80)) {
                 *(s32 *)((s8 *)arg0 + 0x4E4) = 2;
@@ -1410,7 +1406,6 @@ void TObjEneEpsilonGuard__sub_803610D0(u8 *arg0, s32 arg1) {
 }
 
 void action__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
-    s32 temp_r0;
     s32 temp_r3;
     s32 temp_r4;
     switch (arg1) {
@@ -1433,8 +1428,7 @@ void action__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
     case 0:
         advance_animation_playback(arg0);
         ((TObjEneEpsilonGuard *)arg0)->tick_stun_timer();
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x4E4);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x4E4)) {
         case 0:
             temp_r3 = *(s32 *)((s8 *)arg0 + 0x438);
             if (((temp_r3 & 4) || (temp_r3 & 0x80)) && (TObjEneEpsilonGuard__sub_8035FCEC((W_8035FCEC *)(arg0)) != 0)) {

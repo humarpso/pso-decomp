@@ -53,11 +53,9 @@ void TUnk_804B9870::apply_object_set_data(void *src_arg) {
 
 void TUnk_804B9870::vfunc_6(s16 *, s32) {  }
 u16 TUnk_804806E8::get_or_assign_actor_id(s32 arg1) {
-    s32 temp_r3;
 
     if (this->m_1c == 0xFFFF) {
-        temp_r3 = *(s32 *)&this->actorFlags & 0x70000000;
-        switch (temp_r3) {
+        switch (*(s32 *)&this->actorFlags & 0x70000000) {
         case 0x10000000:
             this->m_1c = fn_801A210C(arg1);
             break;

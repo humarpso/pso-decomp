@@ -13,11 +13,9 @@ u8 get_slot_count__14TItemProShieldFv();
 
 void TItemProArmor::apply_armor_stat() {
     s32 stat_value;
-    u8 temp_r3;
 
     stat_value = 0;
-    temp_r3 = get_slot_count__14TItemProShieldFv();
-    switch ((s32) temp_r3) {
+    switch ((s32) get_slot_count__14TItemProShieldFv()) {
     case 0:
         stat_value = calc_armor_value__13TItemProArmorFv(this);
         break;

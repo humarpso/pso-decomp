@@ -31,14 +31,12 @@ extern s32 TChCrTagInformationStr__class_name;
 #pragma push
 #pragma opt_common_subs off
 void run_task__22TChCrTagInformationStrFv(u8 *arg0) {
-    s32 temp_r0;
     s32 temp_r0_2;
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) (*(s32 *)((s8 *)arg0 + 0x34) + 1);
     if (((s32) *(s32 *)((s8 *)arg0 + 0x1C) != 2) && ((s32) *(s32 *)((s8 *)arg0 + 0x20) != (s32) char_creation_tag_info_selected_index)) {
         *(s32 *)((s8 *)arg0 + 0x1C) = 2;
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x1C)) {
     case 0:
         temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x2C) - 1;
         *(s32 *)((s8 *)arg0 + 0x2C) = temp_r0_2;

@@ -6,10 +6,8 @@ struct Obj_80328990 { u8 pad[0x9C]; u32 state; };
 extern "C" {
 s32 refresh_display__12TAdDialingGCFv(void *);
 void TAdDialingGC::handle_state() {
-    s32 temp_r0;
 
-    temp_r0 = this->m_9c;
-    switch (temp_r0) {
+    switch (this->m_9c) {
     case 11:
         TAdDialingGC::update_dialing_display(0x11);
         return;

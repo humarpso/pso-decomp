@@ -14,11 +14,9 @@ s32 __ct__7TObjectFP7TObject(s32, s32);
 
 void TChCrEffFade::render() {
     f32 temp_f0;
-    s32 temp_r0;
 
     TCameraCtrl::restore_full_screen_view();
-    temp_r0 = *(s32 *)((s8 *)this + 0x2C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)this + 0x2C)) {
     case 0:
         draw_fade_strip__12TChCrEffFadeFf(this, *(f32 *)((s8 *)this + 0x28));
         break;

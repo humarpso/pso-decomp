@@ -49,12 +49,10 @@ s32 get_main_phase();
 extern s32 city_main_warp_destination_id;
 
 void TObjCityMainWarp::update_state() {
-    s16 temp_r0;
     s32 temp_r0_2;
     s32 temp_r3;
 
-    temp_r0 = *(s16 *)((s8 *)this + 0xE0);
-    switch (temp_r0) {
+    switch (*(s16 *)((s8 *)this + 0xE0)) {
     case 0:
         *(s32 *)((s8 *)this + 0x17C) = 0x96;
         *(s16 *)((s8 *)this + 0xE0) = 1;

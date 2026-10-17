@@ -88,11 +88,9 @@ s32 TWindowReturnCity::query_battle_state() {
 void TWindowReturnCity::render() {  }
 
 void TWindowReturnCity::run_task() {
-    s32 temp_r0;
     s32 temp_r3;
     if ((s32) lbl_805D55C0 != 1) {
-        temp_r0 = *(s32 *)&this->m_20;
-        switch (temp_r0) {
+        switch (*(s32 *)&this->m_20) {
         case 2:
             break;
         case 0:

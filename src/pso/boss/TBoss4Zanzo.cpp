@@ -1571,11 +1571,9 @@ void TBoss4Type2::update_phase_timer() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     f32 temp_f1_2;
-    s32 temp_r0;
     *(s32 *)((s8 *)arg0 + 0x3d8) = 0;
     *(f32 *)((s8 *)arg0 + 0x3d0) = (f32) (*(f32 *)((s8 *)arg0 + 0x3d0) + *(f32 *)((s8 *)arg0 + 0x3d4));
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x3dc);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x3dc)) {
     case 0:
         temp_f1 = *(f32 *)((s8 *)arg0 + 0x3d0);
         if (temp_f1 >= lbl_805D8C0C) {

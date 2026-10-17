@@ -65,10 +65,8 @@ typedef char RecoveredGlobal_802F3CA0_lbl_80474530_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_802F3CA0_lbl_80474558_size[sizeof(RecoveredGlobal_802F3CA0_lbl_80474558) == 0x28 ? 1 : -1];
 void TBoss8Dragon::set_mode_params(s8 arg1) {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
     *(s32 *)((s8 *)arg0 + 0x3E8) = (s32) arg1;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x3E8);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x3E8)) {
     case 0:
         *(s32 *)&this->unk_75C = 1;
         this->m_760 = &boss8_dragon_mode_params.value;

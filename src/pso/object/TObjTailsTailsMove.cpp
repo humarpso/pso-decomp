@@ -16,9 +16,7 @@ extern void *TObjTailsTailsMove__name;
 
 void TObjTailsTailsMove::run_task() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x24);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x24)) {
     case 0:
         sub_800FFC6C__18TObjTailsTailsMoveFv();
         return;

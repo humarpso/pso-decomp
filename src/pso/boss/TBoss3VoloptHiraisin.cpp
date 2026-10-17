@@ -302,9 +302,7 @@ void update_drop__20TBoss3VoloptHiraisinFPv(Hira_800411F0 *self) {
 }
 
 void TBoss3VoloptHiraisin__sub_80041314(void *arg0) {
-    s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case -1:
         break;
     case 0:
@@ -454,10 +452,8 @@ void run_task__20TBoss3VoloptHiraisinFv(u8 *arg0);
 void destroy__20TBoss3VoloptHiraisinFv(void);
 
 void TBoss3VoloptHiraisin::dispatch_state() {
-    s16 temp_r0;
 
-    temp_r0 = this->mode;
-    switch (temp_r0) {
+    switch (this->mode) {
     case 0:
     case 1:
         sub_8004118C__20TBoss3VoloptHiraisinFv();
@@ -802,10 +798,8 @@ void TBoss3VoloptHiraisin::damage_player_if_aligned() {
 
 void TBoss3VoloptHiraisin::update_state() {
     s16 temp_r4;
-    s32 temp_r0;
 
-    temp_r0 = *(s32 *)&this->state;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->state) {
     case 0:
         *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x02040000);
         *(s32 *)&this->state = 1;

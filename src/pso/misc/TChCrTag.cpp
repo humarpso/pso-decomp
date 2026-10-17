@@ -38,7 +38,6 @@ void update_fade__8TChCrTagFPv(u8 *arg0) {
     f32 temp_f2;
     f32 temp_f2_2;
     f32 temp_f2_3;
-    s32 temp_r0;
     if (((VObj_18_c1c33b *)(arg0))->m4() != 0) {
         temp_f2 = *(f32 *)((s8 *)arg0 + 0x30);
         if (temp_f2 < lbl_805DDE00) {
@@ -56,8 +55,7 @@ void update_fade__8TChCrTagFPv(u8 *arg0) {
             }
         }
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x1C)) {
     case 0:
         temp_f2_3 = *(f32 *)((s8 *)arg0 + 0x24);
         if (temp_f2_3 < lbl_805DDE00) {

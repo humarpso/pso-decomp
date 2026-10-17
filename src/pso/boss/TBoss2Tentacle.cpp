@@ -133,7 +133,6 @@ void TBoss2Tentacle__sub_8003A0A8(void);
 
 struct G_80039C44;
 void render__14TBoss2TentacleFv(u8 *arg0) {
-    s32 temp_r0;
     s32 temp_r0_2;
     s32 i;
     s32 var_r3;
@@ -144,8 +143,7 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
     TObjPlayer::set_global_flag();
     TObjFish::set_global_param(lbl_805D4BD8);
     push_matrix();
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x1C)) {
     case 0:
         TObjPlayer::concat_matrix(0, (int) (*(s32 *)((s8 *)arg0 + 0x110)));
         rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x11C)));

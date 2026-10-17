@@ -41,11 +41,9 @@ typedef char RecoveredGlobal_80065EA0_lbl_80487CD8_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_80065DB4_lbl_804FF5B4_size[sizeof(RecoveredGlobal_80065DB4_lbl_804FF5B4_80065C90) == 0xC ? 1 : -1];
 void TBoss8Dragon::fill_follow_camera_params(u8 *arg1, u8 *arg2) {
-    s32 temp_r0;
     *(f32 *)((s8 *)arg1 + 0) = (f32) lbl_805D8D5C;
     *(f32 *)((s8 *)arg2 + 0) = (f32) lbl_805D8D5C;
-    temp_r0 = this->m_4e4;
-    switch (temp_r0) {
+    switch (this->m_4e4) {
     default:
     case 2:
     case 0:

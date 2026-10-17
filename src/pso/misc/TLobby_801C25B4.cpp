@@ -1834,9 +1834,7 @@ s32 fn_801C4CE0(void *arg0) {
 }
 
 void update_player_battle_ctrl_state(void *arg0) {
-    u32 temp_r0;
-    temp_r0 = *(u32 *)((s8 *)arg0 + 0x1C);
-    switch (temp_r0) {
+    switch (*(u32 *)((s8 *)arg0 + 0x1C)) {
     case 0:
         fn_801C4CE0(arg0);
         return;

@@ -94,10 +94,8 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TEffectFv(void *, int);
 
 void TUnk_804CC148::run_task() {
-    s32 temp_r0;
 
-    temp_r0 = *(s32 *)&this->field_6c;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->field_6c) {
     case 0:
         sub_8022C008__13TUnk_804CC148Fv();
         count_if_within_range__13TUnk_804CC148Fv(this);

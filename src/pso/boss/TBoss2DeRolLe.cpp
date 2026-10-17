@@ -4316,10 +4316,8 @@ void TBoss2DeRolLe__sub_800344A4(DeRolLe_800344A4 *self, s32 idx, s32 arg2) {
 
 u8 TBoss2DeRolLe__sub_80034574(u8 *arg0) {
     f32 var_f2;
-    s32 temp_r0;
     advance_scalar_motion_profile(arg0 + 0x664);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x660);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x660)) {
     case 2:
         break;
     case 1:
@@ -4357,11 +4355,9 @@ extern const f32 TBoss2DeRolLe__data_805D82B4;
 extern const f32 TBoss2DeRolLe__data_805D8328;
 
 u8 update_state__13TBoss2DeRolLeFPv(u8 *arg0) {
-    s32 temp_r0;
 
     advance_scalar_motion_profile(arg0 + 0x684);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x65C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x65C)) {
     case 0:
         *(f32 *)((s8 *)arg0 + 0xC8) = (f32) TBoss2DeRolLe__data_805D8280;
         if (*(f32 *)((s8 *)arg0 + 0x69C) > TBoss2DeRolLe__data_805D82B4) {
@@ -4403,10 +4399,8 @@ extern const f32 TBoss2DeRolLe__data_805D83DC;
 
 u8 TBoss2DeRolLe__sub_80034800(u8 *arg0) {
   const f32 *new_var;
-  s32 temp_r0;
   advance_scalar_motion_profile(arg0 + 0x664);
-  temp_r0 = *((s32 *) (((s8 *) arg0) + 0x660));
-  switch (temp_r0)
+  switch (*((s32 *) (((s8 *) arg0) + 0x660)))
   {
     case 0:
       if ((*((f32 *) (((s8 *) arg0) + 0x67C))) > lbl_805D8438)
@@ -4444,10 +4438,8 @@ void init_movement__13TBoss2DeRolLeFPv(u8 *arg0) {
 #pragma push
 #pragma opt_common_subs off
 u8 update_phase_is_done__13TBoss2DeRolLeFPv(u8 *arg0) {
-    s32 temp_r0;
     advance_scalar_motion_profile(arg0 + 0x684);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x65C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x65C)) {
     case 0:
         if (*(f32 *)((s8 *)arg0 + 0x69C) > lbl_805D8440) {
             *(s32 *)((s8 *)arg0 + 0x65C) = 1;
@@ -5322,7 +5314,6 @@ typedef struct VBase_18_bd2ad6 VBase_18_bd2ad6;
 typedef struct VObj_18_bd2ad6 VObj_18_bd2ad6;
 void run_task__13TBoss2DeRolLeFPv(u8 *arg0) {
   s16 temp_r0_2;
-  s32 temp_r0;
   s32 temp_r0_3;
   s32 temp_r30;
   s32 temp_r3;
@@ -5362,8 +5353,7 @@ void run_task__13TBoss2DeRolLeFPv(u8 *arg0) {
   }
   if ((((s32) (*((s32 *) (((s8 *) arg0) + 0x3C8)))) != 0) && ((*((s32 *) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x3CC)))) + 8))) & 0x10000))
   {
-    temp_r0 = *((s32 *) (((s8 *) arg0) + 0x3F4));
-    switch (temp_r0)
+    switch (*((s32 *) (((s8 *) arg0) + 0x3F4)))
     {
       case 1:
         *((s32 *) (((s8 *) arg0) + 0x3F4)) = 0;
@@ -6171,9 +6161,7 @@ void load_resources__13TBoss2DeRolLeFv(void) {
 s32 advance_scalar_motion_profile(void *arg0) {
     f32 temp_f1;
     f32 temp_f1_2;
-    s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0)) {
     case 0:
         *(f32 *)((s8 *)arg0 + 0x10) = (f32) (*(f32 *)((s8 *)arg0 + 0x10) + *(f32 *)((s8 *)arg0 + 4));
         if (*(f32 *)((s8 *)arg0 + 0x10) > *(f32 *)((s8 *)arg0 + 0xC)) {

@@ -13,10 +13,8 @@ extern "C" {
 
 void TUnk_804A68C8::update_attack() {
     u8 *arg0 = (u8 *)this;
-    u8 temp_r3;
     if ((s32) this->m_1fc == 0) {
-        temp_r3 = ((TItemProShield *)arg0)->get_slot_count();
-        switch ((s32) temp_r3) {
+        switch ((s32) (((TItemProShield *)arg0)->get_slot_count())) {
         case 5:
             break;
         case 4:

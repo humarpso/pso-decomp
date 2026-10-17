@@ -1693,11 +1693,7 @@ void TObjEneBm5Wolf::update_lunge(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     f32 temp_f2;
     f32 temp_f3;
-    s32 temp_r0;
     s32 temp_r4;
-    u8 *temp_r3;
-    u8 *temp_r3_2;
-    u8 *temp_r3_3;
     switch (arg1) {
     case 4:
         this->m_b8 = 0xC;
@@ -1728,8 +1724,7 @@ void TObjEneBm5Wolf::update_lunge(s32 arg1) {
         }
         break;
     case 0:
-        temp_r0 = this->roamingSubstate;
-        switch (temp_r0) {
+        switch (this->roamingSubstate) {
         case 0:
             advance_animation_playback(arg0);
             if (((s32 (*)(void *))get_flag_b4__9TObjEneDDFv)(arg0) != 0) {
@@ -1753,12 +1748,9 @@ void TObjEneBm5Wolf::update_lunge(s32 arg1) {
             if (objInBand__FP7GameObjf(arg0, (f32) ((*(f32 *)&TObjEneBm5Wolf__data_805D9D74))) != 0) {
                 this->nearTarget = 0;
                 if (enemy_validate_retained_target(arg0) != 0) {
-                    temp_r3 = (u8 *)(*(u8 * *)&this->target);
-                    if (((VObj_18_a3e1a1 *)(temp_r3))->m18(arg0, (*(f32 *)&TObjEneBm5Wolf__data_805D9D8C)) != 0) {
-                        temp_r3_2 = (u8 *)(*(u8 * *)&this->target);
-                        ((VObj_18_a3e1a1 *)(temp_r3_2))->m20(arg0, (*(f32 *)&TObjEneBm5Wolf__data_805D9D8C));
-                        temp_r3_3 = (u8 *)(*(u8 * *)&this->target);
-                        ((VObj_18_a3e1a1 *)(temp_r3_3))->m23(arg0, TObjEneBm5Wolf__data_805D9DEC);
+                    if (((VObj_18_a3e1a1 *)((u8 *)(*(u8 * *)&this->target)))->m18(arg0, (*(f32 *)&TObjEneBm5Wolf__data_805D9D8C)) != 0) {
+                        ((VObj_18_a3e1a1 *)((u8 *)(*(u8 * *)&this->target)))->m20(arg0, (*(f32 *)&TObjEneBm5Wolf__data_805D9D8C));
+                        ((VObj_18_a3e1a1 *)((u8 *)(*(u8 * *)&this->target)))->m23(arg0, TObjEneBm5Wolf__data_805D9DEC);
                         this->nearTarget = 1;
                         if ((check_v2_mode__9TObjEneDDFv() != 0) && (calc_boss4_scale__10TObjPlayerFi((s32)arg0) <= (*(f32 *)&TObjEneBm5Wolf__data_805D9DA8))) {
                             if ((s32) *(s32 *)&this->m_3d8 != 0) {
@@ -2114,7 +2106,6 @@ void TObjEneBm5Wolf::roaming_state(int event) {
     f32 temp_f31;
     f32 temp_f3;
     f32 square;
-    s32 temp_r0;
     s32 temp_r30;
     u8 *temp_r3;
     switch (event) {
@@ -2156,8 +2147,7 @@ void TObjEneBm5Wolf::roaming_state(int event) {
         } else {
             advance_pose_turn__14TObjEneBm5WolfFPvi(this, this->rotation_y);
         }
-        temp_r0 = this->roamingSubstate;
-        switch (temp_r0) {
+        switch (this->roamingSubstate) {
         case 0:
             play_footsteps__14TObjEneBm5WolfFPv(this);
             update_velocity__9TObjEneDDFv(this);
@@ -3460,11 +3450,9 @@ extern s32 lbl_805D2A20;
 void TLobby__sub_8001FE7C(void*, int);
 
 void TObjEneBm5Wolf::update_collision_center() {
-    f32 temp_f2;
 
     this->m_2fc = (f32) *(f32 *)((s8 *)((u8 *)this) + 0x38);
-    temp_f2 = *(f32 *)&this->_pad40C;
-    *(f32 *)((s8 *)((u8 *)this) + 0x300) = (f32) (temp_f2 + ((*(f32 *)&TObjEneBm5Wolf__data_805D9DB4) + *(f32 *)((s8 *)((u8 *)this) + 0x3C)));
+    *(f32 *)((s8 *)((u8 *)this) + 0x300) = (f32) ((*(f32 *)&this->_pad40C) + ((*(f32 *)&TObjEneBm5Wolf__data_805D9DB4) + *(f32 *)((s8 *)((u8 *)this) + 0x3C)));
     this->m_304 = (f32) *(f32 *)((s8 *)((u8 *)this) + 0x40);
     VecCopy((Vec *)(((u8 *)this) + 0x74), (const Vec *)(((u8 *)this) + 0x2FC));
 }

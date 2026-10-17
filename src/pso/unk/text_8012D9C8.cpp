@@ -64,9 +64,7 @@ void launch_slicer_shot(u8 *weapon) {
 void TObjPlayer::update_slicer_hinge_idle() {
     u8 *arg0 = (u8 *)this;
   int new_var;
-  u8 temp_r3;
-  temp_r3 = get_slot_count__14TItemProShieldFv();
-  switch ((s32) temp_r3)
+  switch ((s32) get_slot_count__14TItemProShieldFv())
   {
     case 5:
     {
@@ -90,9 +88,7 @@ void TObjPlayer::update_slicer_hinge_idle() {
 
 void TUnk_804A5B20::update_attack() {
     u8 *arg0 = (u8 *)this;
-  u8 temp_r3;
-  temp_r3 = get_slot_count__14TItemProShieldFv();
-  switch ((s32) temp_r3)
+  switch ((s32) get_slot_count__14TItemProShieldFv())
   {
     case 5:
       TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x204), (f32)((f32) lbl_805DAF50), (f32)((f32) lbl_805DAF38));
@@ -112,13 +108,11 @@ void TUnk_804A5B20::update_attack() {
 
 typedef char RecoveredGlobal_8012DBF4_lbl_804A5B20_size[sizeof(RecoveredGlobal_8012DBF4_lbl_804A5B20) == 0xF8 ? 1 : -1];
 u8 *construct_slicer_weapon(u8 *arg0, u8 *arg1, u8 *arg2) {
-    u8 temp_r0;
     TItemWeapon__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A5B20.value;
     ((TObjPlayer *)arg0)->set_status_flags(2);
     *(s32 *)((s8 *)arg0 + 0x1F8) = 0;
-    temp_r0 = *(u8 *)((s8 *)arg2 + 2);
-    switch ((s32) temp_r0) {
+    switch ((s32) (*(u8 *)((s8 *)arg2 + 2))) {
     case 6:
         break;
     case 5:

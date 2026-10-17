@@ -13,13 +13,11 @@ extern s32 item_texture_archive_loader;
 extern s32 item_model_chunk_loader;
 
 void *__dt__13TUnk_8049F3F4Fv(void *arg0, s16 arg1) {
-    s32 temp_r0;
     void **temp_r3;
 
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049F3F4;
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x20);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x20)) {
         case 2:
             ((TItemLoad *)item_model_chunk_loader)->reset_ring_state();
             break;

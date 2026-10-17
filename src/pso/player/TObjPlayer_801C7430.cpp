@@ -1726,15 +1726,13 @@ void handle_6xAF_turn_or_move_lobby_chair(void *arg0) {
 }
 
 void TObjPlayer::update_state_group() {
-    void *temp_r3;
 
     ((s32 (*)(void))TObjPlayer__sub_8001053C)();
     clear_state_flag();
     ((s32 (*)(void *))TObjPlayer__sub_801D0D8C)(this);
     ((s32 (*)(void *))TObjPlayer__sub_801D0D7C)(this);
     ((s32 (*)(void *))TObjPlayer__sub_801D0D58)(this);
-    temp_r3 = *(void **)((s8 *)this + 0x380);
-    set_field_dc(((VObj_801C7538 *)temp_r3)->m74());
+    set_field_dc(((VObj_801C7538 *)(*(void **)((s8 *)this + 0x380)))->m74());
 }
 
 void TObjPlayer__sub_801C75A4(u8 *arg0) {
@@ -1806,14 +1804,12 @@ void handle_6xAB(void *arg0) {
 
 void TObjPlayer::send_state_sync() {
     s32 sp8[2];
-    void *temp_r3;
     s32 temp_r12;
 
     if (this == NULL || ((s32 (*)(void))obj_isState2_324__13TUnk_804806E8Fv)() == 0) {
         ((s32 (*)(s32 *))TObjPlayer__sub_801D1284)(sp8);
         *(s16 *)((s8 *)sp8 + 2) = obj_getField1c(this);
-        temp_r3 = *(void **)((s8 *)this + 0x380);
-        temp_r12 = ((VBase_380_801c77c8*)temp_r3)->m66();
+        temp_r12 = ((VBase_380_801c77c8*)(*(void **)((s8 *)this + 0x380)))->m66();
         if ((s16) *(s16 *)((s8 *)this + 0x3C0) == temp_r12) {
             ((s32 (*)(s32 *))TObjPlayer__sub_801D12E8)(sp8);
         }
@@ -1913,250 +1909,154 @@ void TObjPlayer__sub_801C7A6C(s32 arg0, s16 arg1) {
 
 s16 TObjPlayer::select_idle_action() {
     u8 *arg0 = (u8 *)this;
-    u8 *temp_r3;
-    u8 *temp_r3_10;
-    u8 *temp_r3_11;
-    u8 *temp_r3_12;
-    u8 *temp_r3_13;
-    u8 *temp_r3_14;
-    u8 *temp_r3_15;
-    u8 *temp_r3_16;
-    u8 *temp_r3_17;
-    u8 *temp_r3_18;
-    u8 *temp_r3_19;
-    u8 *temp_r3_20;
-    u8 *temp_r3_21;
-    u8 *temp_r3_22;
-    u8 *temp_r3_23;
-    u8 *temp_r3_24;
-    u8 *temp_r3_25;
-    u8 *temp_r3_26;
-    u8 *temp_r3_27;
-    u8 *temp_r3_28;
-    u8 *temp_r3_29;
-    u8 *temp_r3_2;
-    u8 *temp_r3_30;
-    u8 *temp_r3_31;
-    u8 *temp_r3_32;
-    u8 *temp_r3_33;
-    u8 *temp_r3_34;
-    u8 *temp_r3_35;
-    u8 *temp_r3_36;
-    u8 *temp_r3_37;
-    u8 *temp_r3_38;
-    u8 *temp_r3_39;
-    u8 *temp_r3_3;
-    u8 *temp_r3_40;
-    u8 *temp_r3_41;
-    u8 *temp_r3_42;
-    u8 *temp_r3_43;
-    u8 *temp_r3_44;
-    u8 *temp_r3_45;
-    u8 *temp_r3_46;
-    u8 *temp_r3_47;
-    u8 *temp_r3_48;
-    u8 *temp_r3_4;
-    u8 *temp_r3_5;
-    u8 *temp_r3_6;
-    u8 *temp_r3_7;
-    u8 *temp_r3_8;
-    u8 *temp_r3_9;
     if ((void *) *(u8 **)((s8 *)arg0 + 0x380) == NULL) {
         return -1;
     }
     if ((TObjPlayer::get_hold_effect_count() == 0) && (is_lobby_floor_15__15TFontSmallLobbyFv() != 0)) {
         if (((TKeyBoardControl__sub_801A58B0() != 0) && (TKeyBoardControl::is_key_down(0x24) != 0)) || ((check_flag_100__10TObjPlayerFPv((void *) (arg0)) == 0) && (((TObjPlayer *)(arg0 + 0x550))->try_ground_action(0x400) != 0) && (((TObjPlayer *)(arg0 + 0x550))->check_action_usable(4) != 0))) {
-            temp_r3_48 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-            return ((VObj_8_1cc697 *)(temp_r3_48))->m65();
+            return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m65();
         }
         if (((TKeyBoardControl__sub_801A58B0() != 0) && (TKeyBoardControl::is_key_down(0x18) != 0)) || ((check_flag_100__10TObjPlayerFPv((void *) (arg0)) == 0) && (((TObjPlayer *)(arg0 + 0x550))->try_ground_action(0x400) != 0) && (((TObjPlayer *)(arg0 + 0x550))->check_action_usable(2) != 0))) {
-            temp_r3_47 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-            return ((VObj_8_1cc697 *)(temp_r3_47))->m66();
+            return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m66();
         }
         if (TKeyBoardControl__sub_801A58B0() != 0) {
             if (TKeyBoardControl::is_key_down(0x40) != 0) {
-                temp_r3_46 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_46))->m22();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m22();
             }
             if (TKeyBoardControl::is_key_down(0x41) != 0) {
-                temp_r3_45 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_45))->m24();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m24();
             }
             if (TKeyBoardControl::is_key_down(0x42) != 0) {
-                temp_r3_44 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_44))->m26();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m26();
             }
             if (TKeyBoardControl::is_key_down(0x43) != 0) {
-                temp_r3_43 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_43))->m19();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m19();
             }
             if (TKeyBoardControl::is_key_down(0x44) != 0) {
-                temp_r3_42 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_42))->m29();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m29();
             }
             if (TKeyBoardControl::is_key_down(0x45) != 0) {
-                temp_r3_41 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_41))->m30();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m30();
             }
             if (TKeyBoardControl::is_key_down(0x46) != 0) {
-                temp_r3_40 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_40))->m31();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m31();
             }
             if (TKeyBoardControl::is_key_down(0x47) != 0) {
-                temp_r3_39 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_39))->m32();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m32();
             }
             if (TKeyBoardControl::is_key_down(0x48) != 0) {
-                temp_r3_38 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_38))->m33();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m33();
             }
             if (TKeyBoardControl::is_key_down(0x49) != 0) {
-                temp_r3_37 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_37))->m34();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m34();
             }
             if (TKeyBoardControl::is_key_down(0x4A) != 0) {
-                temp_r3_36 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_36))->m35();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m35();
             }
             if (TKeyBoardControl::is_key_down(0x4B) != 0) {
-                temp_r3_35 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_35))->m36();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m36();
             }
             if (TKeyBoardControl::is_key_down(0x1C) != 0) {
-                temp_r3_34 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_34))->m25();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m25();
             }
             if (TKeyBoardControl::is_key_down(0x2E) != 0) {
-                temp_r3_33 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_33))->m18();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m18();
             }
             if (TKeyBoardControl::is_key_down(0x2F) != 0) {
-                temp_r3_32 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_32))->m37();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m37();
             }
             if (TKeyBoardControl::is_key_down(0x30) != 0) {
-                temp_r3_31 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_31))->m38();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m38();
             }
             if (TKeyBoardControl::is_key_down(0x31) != 0) {
-                temp_r3_30 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_30))->m39();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m39();
             }
             if (TKeyBoardControl::is_key_down(0x32) != 0) {
-                temp_r3_29 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_29))->m40();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m40();
             }
             if (TKeyBoardControl::is_key_down(0x33) != 0) {
-                temp_r3_28 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_28))->m41();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m41();
             }
             if (TKeyBoardControl::is_key_down(0x17) != 0) {
-                temp_r3_27 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_27))->m42();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m42();
             }
             if (TKeyBoardControl::is_key_down(0x11) != 0) {
-                temp_r3_26 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_26))->m43();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m43();
             }
             if (TKeyBoardControl::is_key_down(0x1E) != 0) {
-                temp_r3_25 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_25))->m44();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m44();
             }
             if (TKeyBoardControl::is_key_down(0x1D) != 0) {
-                temp_r3_24 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_24))->m45();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m45();
             }
             if (TKeyBoardControl::is_key_down(0x20) != 0) {
-                temp_r3_23 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_23))->m46();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m46();
             }
             if (TKeyBoardControl::is_key_down(0x19) != 0) {
-                temp_r3_22 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_22))->m47();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m47();
             }
             if (TKeyBoardControl::is_key_down(0x21) != 0) {
-                temp_r3_21 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_21))->m48();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m48();
             }
             if (TKeyBoardControl::is_key_down(0x1A) != 0) {
-                temp_r3_20 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_20))->m49();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m49();
             }
             if (TKeyBoardControl::is_key_down(0x26) != 0) {
-                temp_r3_19 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_19))->m50();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m50();
             }
             if (TKeyBoardControl::is_key_down(0x22) != 0) {
-                temp_r3_18 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_18))->m51();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m51();
             }
             if (TKeyBoardControl::is_key_down(0x23) != 0) {
-                temp_r3_17 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_17))->m52();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m52();
             }
             if (TKeyBoardControl::is_key_down(0x12) != 0) {
-                temp_r3_16 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_16))->m53();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m53();
             }
             if (TKeyBoardControl::is_key_down(0x13) != 0) {
-                temp_r3_15 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_15))->m54();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m54();
             }
             if (TKeyBoardControl::is_key_down(0x15) != 0) {
-                temp_r3_14 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_14))->m55();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m55();
             }
             if (TKeyBoardControl::is_key_down(0x16) != 0) {
-                temp_r3_13 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_13))->m56();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m56();
             }
             if (TKeyBoardControl::is_key_down(0x28) != 0) {
-                temp_r3_12 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_12))->m57();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m57();
             }
             if (TKeyBoardControl::is_key_down(0x1F) != 0) {
-                temp_r3_11 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_11))->m58();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m58();
             }
             if (TKeyBoardControl::is_key_down(0x10) != 0) {
-                temp_r3_10 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_10))->m59();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m59();
             }
             if (TKeyBoardControl::is_key_down(0x14) != 0) {
-                temp_r3_9 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_9))->m60();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m60();
             }
             if (TKeyBoardControl::is_key_down(0x29) != 0) {
-                temp_r3_8 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_8))->m61();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m61();
             }
             if (TKeyBoardControl::is_key_down(0x27) != 0) {
-                temp_r3_7 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_7))->m62();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m62();
             }
             if (TKeyBoardControl::is_key_down(0x25) != 0) {
-                temp_r3_6 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_6))->m63();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m63();
             }
             if (TKeyBoardControl::is_key_down(0x1B) != 0) {
-                temp_r3_5 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_5))->m64();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m64();
             }
             if (TKeyBoardControl::is_key_down(0x2A) != 0) {
-                temp_r3_4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_4))->m67();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m67();
             }
             if (TKeyBoardControl::is_key_down(0x2B) != 0) {
-                temp_r3_3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_3))->m68();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m68();
             }
             if (TKeyBoardControl::is_key_down(0x2C) != 0) {
-                temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3_2))->m69();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m69();
             }
             if (TKeyBoardControl::is_key_down(0x2D) != 0) {
-                temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-                return ((VObj_8_1cc697 *)(temp_r3))->m70();
+                return ((VObj_8_1cc697 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m70();
             }
             goto block_109;
         }
@@ -2169,13 +2069,11 @@ block_109:
 void handle_6xB1(void) {  }
 
 void TObjPlayer::update_dispatch_v76() {
-    void *temp_r3;
 
     ((s32 (*)(void))TObjPlayer__sub_8001053C)();
     ((s32 (*)(void *))TObjPlayer__sub_801D0D8C)(this);
     ((s32 (*)(void *))TObjPlayer__sub_801D0E84)(this);
-    temp_r3 = *(void **)((s8 *)this + 0x380);
-    set_field_dc(((VObj_801C841C *)temp_r3)->v76());
+    set_field_dc(((VObj_801C841C *)(*(void **)((s8 *)this + 0x380)))->v76());
 }
 
 void TObjPlayer__sub_801C8478(void) {  }
@@ -2328,7 +2226,6 @@ void draw_and_send_field1c__10TObjPlayerFi(s32 arg0) {
 #pragma opt_dead_assignments off
 void TObjPlayer__update_off_floor_state(u8 *arg0) {
   f32 var_f31;
-  s16 temp_r0;
   s16 *new_var;
   if (is_on_current_floor__10TObjPlayerFi() != 0)
   {
@@ -2338,8 +2235,7 @@ void TObjPlayer__update_off_floor_state(u8 *arg0) {
     ((TObjPlayer *)(arg0 + 0x634))->enter_battle_state();
     return;
   }
-  temp_r0 = *((s16 *) (((s8 *) arg0) + 0x328));
-  switch (temp_r0)
+  switch (*((s16 *) (((s8 *) arg0) + 0x328)))
   {
     case 0:
       var_f31 = *((f32 *) (((s8 *) arg0) + 0x624));
@@ -2368,7 +2264,6 @@ void TObjPlayer__sub_801C8998(u8 *arg0) {
   f32 var_f0;
   f32 var_f1;
   f32 var_f2;
-  s16 temp_r0;
   s32 var_r4;
   u8 *var_r31;
   u8 *var_r3;
@@ -2380,8 +2275,7 @@ void TObjPlayer__sub_801C8998(u8 *arg0) {
     ((s32 (*)(int, int))TObjPlayer__sub_8011E204)((int) var_r3, 4);
     return;
   }
-  temp_r0 = *((s16 *) (((s8 *) var_r31) + 0x328));
-  switch (temp_r0)
+  switch (*((s16 *) (((s8 *) var_r31) + 0x328)))
   {
     case 0:
       var_f2 = *((f32 *) (((s8 *) var_r31) + 0x624));
@@ -3065,10 +2959,8 @@ void TObjPlayer::send_6x4F_revived() {
 void update_timer_state__10TObjPlayerFPv(void *arg0) {
     f32 temp_f1;
     f32 temp_f1_2;
-    s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x328);
-    switch (temp_r0) {
+    switch (*(s16 *)((s8 *)arg0 + 0x328)) {
     case 0:
         temp_f1 = *(f32 *)((s8 *)arg0 + 0x2B4) - TObjPlayer__data_805DC360;
         *(f32 *)((s8 *)arg0 + 0x2B4) = temp_f1;
@@ -3094,10 +2986,8 @@ void TObjPlayer::update_timer_action() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     f32 temp_f1_2;
-    s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x328);
-    switch (temp_r0) {
+    switch (*(s16 *)((s8 *)arg0 + 0x328)) {
     case 0:
         temp_f1 = *(f32 *)((s8 *)arg0 + 0x2B4) - TObjPlayer__data_805DC360;
         *(f32 *)((s8 *)arg0 + 0x2B4) = temp_f1;
@@ -3489,9 +3379,7 @@ int TObjPlayer::exit_fall_reaction(void* p) { return ((int (*)(void*))TObjPlayer
 
 void TObjPlayer::update_fall_reaction() {
     f32 temp_f1;
-    s16 temp_r0;
-    temp_r0 = *(s16 *)((s8 *)this + 0x328);
-    switch (temp_r0) {
+    switch (*(s16 *)((s8 *)this + 0x328)) {
     case 0:
         if (((s32 (*)(f32))objInBand__FP7GameObjf)(lbl_805DC370) != 0) {
             if (classify_action_state__10TObjPlayerFv(this) == 2) {
@@ -3595,9 +3483,7 @@ void TObjPlayer__sub_801CAEAC(void) {  }
 
 void TObjPlayer::complete_fall_reaction() {
     u8 *arg0 = (u8 *)this;
-    s16 temp_r0;
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x328);
-    switch (temp_r0) {
+    switch (*(s16 *)((s8 *)arg0 + 0x328)) {
     case 1:
         if (((s16) *(s16 *)((s8 *)arg0 + 0xB8) == ((s16 (*)(void))get_action_animation__10TObjPlayerFv)()) && (*(s32 *)((s8 *)arg0 + 0xB0) & 0x10) && (((s32 (*)(void *, int))obj_testFlags30)((void *) (arg0), 0x800) != 0)) {
             ((s32 (*)(void *, int))set_flags__10TObjPlayerFUl)((void *) (arg0 + 0x858), 1);
@@ -4239,10 +4125,8 @@ void TObjPlayer::exit_photon_blast_action() {
 
 void TObjPlayer::update_photon_blast_action() {
     u8 *arg0 = (u8 *)this;
-  s16 temp_r0;
   *((s32 *) (((s8 *) arg0) + 0x60)) = ((s32 (*)(int, int))lerp_angle_half__10TObjPlayerFUsUs)((int) (*((s32 *) (((s8 *) arg0) + 0x60))), (int) (*((s32 *) (((s8 *) arg0) + 0x3F0))));
-  temp_r0 = *((s16 *) (((s8 *) arg0) + 0x328));
-  switch (temp_r0)
+  switch (*((s16 *) (((s8 *) arg0) + 0x328)))
   {
     case 2:
     case 4:
@@ -4898,7 +4782,6 @@ void TObjPlayer::send_attack_stage3_request() {
     u8 *arg0 = (u8 *)this;
     s16 sp8[4];
     s16 temp_r31;
-    u8 *temp_r5;
     void *position;
     s32 var_r4;
     u8 *temp_r3;
@@ -4908,8 +4791,7 @@ void TObjPlayer::send_attack_stage3_request() {
         temp_r3 = (u8 *)(resolve_hittable_target(*(u16 *)((s8 *)temp_r4 + 0x508), *(s16 *)((s8 *)temp_r4 + 0x50A)));
         if (temp_r3 != NULL) {
             position = ((TObjPlayer *)arg0)->get_position_ptr();
-            temp_r5 = *(u8 **)((s8 *)temp_r3 + 0xA4);
-            var_r4 = ((TObjPlayer *)position)->calc_angle_to(&((Rec_801CDBA0 *)temp_r5)[*(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x424)) + 0x50A)].pos);
+            var_r4 = ((TObjPlayer *)position)->calc_angle_to(&((Rec_801CDBA0 *)(*(u8 **)((s8 *)temp_r3 + 0xA4)))[*(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x424)) + 0x50A)].pos);
         } else {
             var_r4 = *(s32 *)((s8 *)arg0 + 0x60);
         }
@@ -5023,7 +4905,6 @@ void TObjPlayer::send_attack_stage2_request() {
     u8 *arg0 = (u8 *)this;
     s16 sp8[4];
     s16 temp_r31;
-    u8 *temp_r5;
     void *position;
     s32 var_r4;
     u8 *temp_r3;
@@ -5033,8 +4914,7 @@ void TObjPlayer::send_attack_stage2_request() {
         temp_r3 = (u8 *)(resolve_hittable_target(*(u16 *)((s8 *)temp_r4 + 0x508), *(s16 *)((s8 *)temp_r4 + 0x50A)));
         if (temp_r3 != NULL) {
             position = ((TObjPlayer *)arg0)->get_position_ptr();
-            temp_r5 = *(u8 **)((s8 *)temp_r3 + 0xA4);
-            var_r4 = ((TObjPlayer *)position)->calc_angle_to(&((Rec_801CDF9C *)temp_r5)[*(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x424)) + 0x50A)].pos);
+            var_r4 = ((TObjPlayer *)position)->calc_angle_to(&((Rec_801CDF9C *)(*(u8 **)((s8 *)temp_r3 + 0xA4)))[*(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x424)) + 0x50A)].pos);
         } else {
             var_r4 = *(s32 *)((s8 *)arg0 + 0x60);
         }
@@ -5249,10 +5129,8 @@ s32 TObjPlayer::can_perform_physical_action() {
 
 void TObjPlayer::update_by_state() {
     u8 *arg0 = (u8 *)this;
-    s16 temp_r3;
 
-    temp_r3 = get_handle_value__10TObjPlayerFv();
-    switch (temp_r3) {
+    switch (get_handle_value__10TObjPlayerFv()) {
     case 0:
         if (*(s32 *)((s8 *)arg0 + 0xB0) & 0x10) {
             ((TObjPlayer *)(arg0 + 0x7CC))->set_flag_1_at_c();
@@ -5315,12 +5193,10 @@ void TObjPlayer::update_anim_action() {
 }
 
 void update_action_state__10TObjPlayerFPv(u8 *arg0) {
-    s16 temp_r0;
     s32 temp_r31;
 
     *(s32 *)((s8 *)arg0 + 0x60) = lerp_angle_half__10TObjPlayerFUsUs(*(s32 *)((s8 *)arg0 + 0x60), *(s32 *)((s8 *)arg0 + 0x3F0));
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x328);
-    switch (temp_r0) {
+    switch (*(s16 *)((s8 *)arg0 + 0x328)) {
     case 0:
         ((TObjPlayer *)arg0)->start_attack_preparation();
     case 1:
@@ -5954,14 +5830,10 @@ void run_walk_state_phase__10TObjPlayerFis(s32 arg0, s16 arg1) {
 }
 
 s32 get_idle_animation__10TObjPlayerFPv(u8 *arg0) {
-    u8 *temp_r3;
-    u8 *temp_r3_2;
     if (*(s32 *)((s8 *)arg0 + 0x30) & 0x100000) {
-        temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-        return ((VObj_8_e57d67 *)(temp_r3_2))->m18();
+        return ((VObj_8_e57d67 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m18();
     }
-    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x380));
-    return ((VObj_8_e57d67 *)(temp_r3))->m21();
+    return ((VObj_8_e57d67 *)((u8 *)(*(u8 **)((s8 *)arg0 + 0x380))))->m21();
 }
 
 void TObjPlayer::cleanup_idle_entry() { obj_clearFlags30((u32)((void*)3840)); TObjPlayer__sub_8011E204(this, (void*)128); ((int (*)(void*, void*))set_ring_action__10TObjPlayerFPvi)((char*)this + 0x5e0, (void*)0); ((int (*)(void*))clear_status_bit6__10TObjPlayerFPv)(this); ((int (*)(void*))TObjPlayer__sub_8001053C)(this); ((int (*)(void*))zero_vec3)((char*)this + 0x5fc); }

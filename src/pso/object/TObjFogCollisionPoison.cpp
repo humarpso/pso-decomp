@@ -81,11 +81,9 @@ u8 *TObjFogCollisionPoison::init_base(u8 *arg1, s16 arg2) {
 }
 
 void TObjFogCollision_Manager::run_task() {
-    s32 temp_r0;
     s32 var_r4;
     if (TObjPlayer::is_any_teammate_in_state() == 0) {
-        temp_r0 = *(s32 *)&this->unk_2C;
-        switch (temp_r0) {
+        switch (*(s32 *)&this->unk_2C) {
         case 0:
             if ((s32) *(s32 *)&this->unk_1C > 0) {
                 var_r4 = this->m_20;

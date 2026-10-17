@@ -4,10 +4,8 @@
 extern "C" {
 
 s32 TWindowSubCustomEquip::is_type_valid() {
-    u8 temp_r0;
 
-    temp_r0 = this->m_62;
-    switch ((s8) temp_r0) {
+    switch ((s8) this->m_62) {
     case 0:
         return 0;
     default:

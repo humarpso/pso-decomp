@@ -60,12 +60,10 @@ s32 TAdMultiSaveGC__sub_802FF314(void) {
 void run_task__14TAdMultiSaveGCFv(u8 *arg0) {
     s32 selected_menu_value;
     s32 var_r30;
-    u32 temp_r0;
     if (((TAdPlayerLoadGC *)0)->probe_card_slot() == 0) {
         ((TAdMultiSaveGC *)arg0)->m_1c = 0U;
     }
-    temp_r0 = ((TAdMultiSaveGC *)arg0)->m_1c;
-    switch (temp_r0) {
+    switch (((TAdMultiSaveGC *)arg0)->m_1c) {
     case 0:
         if ((u32) ((TAdMultiSaveGC *)arg0)->m_24 != 0U) {
             TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x24)));

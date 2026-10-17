@@ -55,7 +55,6 @@ void TODragonflyMachine01::update_timer() {
 }
 
 void TODragonflyMachine01::run_task() {
-    s32 temp_r0;
 
     *(s32 *)&this->m_fc = (s32) (*(s32 *)&this->m_fc + *(s32 *)&this->m_f8);
     *(f32 *)((s8 *)this + 0xF0) = (f32) (this->m_ec * sin_table_lookup(*(s32 *)&this->m_fc));
@@ -64,8 +63,7 @@ void TODragonflyMachine01::run_task() {
         return;
     }
     update_anim_phase();
-    temp_r0 = *(s32 *)&this->m_ac;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_ac) {
     case 0:
         TODragonflyMachine01__sub_80164F50(this);
         update_idle();
@@ -158,12 +156,10 @@ u8 *TODragonflyMachine01__ct(u8 *arg0, int arg1) {
 #pragma pop
 
 void TODummyKeyCave01Sound::play_cave01_key_sound() {
-    s32 temp_r0;
     s32 global_state;
     s32 temp_r3_2;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x1C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)this + 0x1C)) {
     case 1:
         play_sound_effect(0x4005281F, 0, 0, 0);
         return;

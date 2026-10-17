@@ -51,13 +51,11 @@ extern const f32 lbl_805DF0FC;
 
 void TBoss7Crawfish::run_task() {
     u8 *arg0 = (u8 *)this;
-    s16 temp_r0;
 
     if (((s16) this->mode != 5) && (obj_testFlags30(arg0, 0x800) != 0)) {
         ((TBoss7Crawfish *)arg0)->change_state(4);
     }
-    temp_r0 = this->mode;
-    switch (temp_r0) {
+    switch (this->mode) {
     case 0:
         ((TBoss7Crawfish *)arg0)->update_attack_state();
         break;

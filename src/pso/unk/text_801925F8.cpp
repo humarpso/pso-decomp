@@ -53,11 +53,9 @@ extern const f32 lbl_805DBE5C;
 extern const f32 lbl_805DBE60;
 
 void render__19TObjLazerFenceExtraFv(void *arg0) {
-    s32 temp_r0;
 
     if ((((LazerFenceExtraVObj_801925F8*)arg0)->m8(lbl_805DBE5C, lbl_805DBE60) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0xD8) != 0)) {
-        temp_r0 = ((TObjLazerFenceExtra *)arg0)->m_b4;
-        switch (temp_r0) {
+        switch (((TObjLazerFenceExtra *)arg0)->m_b4) {
         case 0:
             ((TObjLazerFenceExtra *)arg0)->draw_lazer_fence_extra_model();
             return;
@@ -123,10 +121,8 @@ s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
 void run_task__19TObjLazerFenceExtraFv(void *arg0) {
-    s32 temp_r0;
 
-    temp_r0 = ((TObjLazerFenceExtra *)arg0)->m_b4;
-    switch (temp_r0) {
+    switch (((TObjLazerFenceExtra *)arg0)->m_b4) {
     case 0:
         ((s32 (*)())update_wait_switch__19TObjLazerFenceExtraFv)();
         return;
@@ -281,11 +277,9 @@ void TObjLazerFenceNorm::draw_model() {
 }
 
 void TObjLazerFenceNorm::render() {
-    s32 temp_r0;
 
     if (((LazerFenceNormVObj_80192C00*)this)->m8(lbl_805DBE5C, lbl_805DBE60) != 0) {
-        temp_r0 = *(s32 *)&this->m_b4;
-        switch (temp_r0) {
+        switch (*(s32 *)&this->m_b4) {
         case 0:
             draw_animated_beam();
             return;

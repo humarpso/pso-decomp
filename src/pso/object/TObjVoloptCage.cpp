@@ -71,10 +71,8 @@ s32 obj_setFlags30(void *, s32);
 s32 update_capture__14TObjVoloptCageFv();
 
 void TObjVoloptCage::update_state() {
-    s16 temp_r0;
 
-    temp_r0 = this->mode;
-    switch (temp_r0) {
+    switch (this->mode) {
     case 7:
         sub_80049000__14TObjVoloptCageFv();
         return;

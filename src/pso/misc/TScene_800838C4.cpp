@@ -90,11 +90,9 @@ f32 calc_camera_fov_degrees(void) {
     f32 temp_f31;
     f32 var_f1;
     s32 temp_r31;
-    s32 temp_r4;
     var_f1 = lbl_805D9428;
     if ((void *) camera_ctrl_instance != NULL) {
-        temp_r4 = *(s32 *)((s8 *)camera_ctrl_instance + 0x19C);
-        temp_f2 = (f32) temp_r4;
+        temp_f2 = (f32) (*(s32 *)((s8 *)camera_ctrl_instance + 0x19C));
         temp_f2 *= lbl_805D942C;
         temp_r31 = (s32) (temp_f2 * lbl_805D93DC);
         temp_f31 = cos_table_lookup(temp_r31);

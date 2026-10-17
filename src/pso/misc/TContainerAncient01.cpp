@@ -662,10 +662,8 @@ void TObjContainerJungEnemy::debug_print_item_box_info() {
 }
 
 void TObjContainerJungEnemy::vfunc_81() {
-    s16 temp_r0;
 
-    temp_r0 = this->mode;
-    switch (temp_r0) {
+    switch (this->mode) {
     case 0:
         TObjFish::set_global_param(this->texture_id);
         push_matrix();

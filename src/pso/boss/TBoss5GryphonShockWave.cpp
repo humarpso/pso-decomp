@@ -36,7 +36,6 @@ extern s32 __vt__22TBoss5GryphonShockWave[];
 
 void TBoss5GryphonShockWave::run_task() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
     s32 temp_r30;
     s32 temp_r3;
     s32 particle_effect_with_flags;
@@ -44,8 +43,7 @@ void TBoss5GryphonShockWave::run_task() {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    temp_r0 = *(s32 *)&this->m_1c;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_1c) {
     case 0:
         *(s32 *)&this->m_1c = 1;
     case 1:

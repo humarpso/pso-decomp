@@ -36,7 +36,6 @@ void TUnk_804B0BB8::update_door_switch_state() {
 }
 void TUnk_804B0BB8::run_task() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
     if (TObjPlayer::check_demo_mode() == 1) {
         this->vfunc_20();
         return;
@@ -48,8 +47,7 @@ void TUnk_804B0BB8::run_task() {
     } else {
         this->update_door_switch_state();
     }
-    temp_r0 = *(s32 *)&this->m_ac;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_ac) {
     case 0:
         this->play_proximity_sound();
         break;

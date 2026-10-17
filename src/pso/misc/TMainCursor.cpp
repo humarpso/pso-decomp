@@ -54,7 +54,6 @@ void TMainCursor::update_position() {
 
 typedef char RecoveredGlobal_8013BC2C_lbl_804A7164_size[sizeof(RecoveredGlobal_8013BC2C_lbl_804A7164) == 0x60 ? 1 : -1];
 void TMainCursor::refresh_target_marker() {
-    u8 temp_r31;
     s32 temp_r3;
     s32 temp_r3_2;
     temp_r3 = check_field_24__11TMainCursorFv();
@@ -62,8 +61,7 @@ void TMainCursor::refresh_target_marker() {
         queue_destruction__7TObjectFv((((u8 *)this)));
         return;
     }
-    temp_r31 = (u8) ((TMainCursor *)((u8 *)this))->forward_13E338_at_60();
-    temp_r3_2 = check_visible__11TMainCursorFv((void *)(temp_r3 + 0x500), temp_r3, (void *) (update_sub_60__11TMainCursorFv((void *) (((u8 *)this)))), temp_r31);
+    temp_r3_2 = check_visible__11TMainCursorFv((void *)(temp_r3 + 0x500), temp_r3, (void *) (update_sub_60__11TMainCursorFv((void *) (((u8 *)this)))), (u8) ((TMainCursor *)((u8 *)this))->forward_13E338_at_60());
     if (temp_r3_2 == -1) {
         queue_destruction__7TObjectFv((((u8 *)this)));
         return;

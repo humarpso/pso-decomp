@@ -257,13 +257,11 @@ void TOAttackableCol::check_door_trigger() {
 
 void TOAttackableCol::run_task() {
     u8 *arg0 = (u8 *)this;
-    s16 temp_r0;
     if (TObjPlayer::check_demo_mode() == 1) {
         TOAttackableCol__sub_80157310((arg0));
         return;
     }
-    temp_r0 = this->mode;
-    switch (temp_r0) {
+    switch (this->mode) {
     default:
         this->mode = 0;
     case 0:

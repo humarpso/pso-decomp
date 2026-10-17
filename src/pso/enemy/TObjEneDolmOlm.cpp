@@ -1513,10 +1513,8 @@ s32 TObjEneDolmOlm__sub_8030177C(void *arg0_) {
 #undef arg0
 #pragma pop
 void TObjEneDolmOlm::vfunc_58() {
-    s16 temp_r0;
 
-    temp_r0 = this->mode;
-    switch (temp_r0) {
+    switch (this->mode) {
     case 1:
         if ((s32) this->m_390 != 0) {
             this->mode = 0;
@@ -1549,12 +1547,10 @@ void TObjEneDolmOlm::vfunc_58() {
 }
 void TObjEneDolmOlm::vfunc_59() {
     u8 *arg0 = (u8 *)this;
-    s16 temp_r0;
     if (obj_testFlags30(arg0, 0x1000U) != 0) {
         this->mode = 4;
     }
-    temp_r0 = this->mode;
-    switch (temp_r0) {
+    switch (this->mode) {
     case 1:
         this->phase = 0;
         if ((u32) *(u32 *)&this->children == 0U) {

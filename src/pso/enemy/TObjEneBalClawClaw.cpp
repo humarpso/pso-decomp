@@ -170,9 +170,7 @@ void update_chase_state__18TObjEneBalClawClawFPv(u8 *arg0) {
 }
 
 void run_active_state__18TObjEneBalClawClawFPv(u8 *arg0) {
-    s32 temp_r0;
-    temp_r0 = ((RecoveredFields_8009060C_arg0 *)arg0)->field_37C;
-    switch (temp_r0) {
+    switch (((RecoveredFields_8009060C_arg0 *)arg0)->field_37C) {
     case 0:
         ((VObj_14_0d3ae4 *)(arg0 + (912)))->m3();
         ((RecoveredFields_8009060C_arg0 *)arg0)->field_388 = (s32) (((RecoveredFields_8009060C_arg0 *)arg0)->field_388 | 5);
@@ -487,10 +485,8 @@ void render__18TObjEneBalClawClawFPv(u8 *arg0) {
 void sub_80090D3C__18TObjEneBalClawClawFv(void *arg0);
 
 void TObjEneBalClawClaw::sub_80090D3C() {
-    s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x37C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)this + 0x37C)) {
     case 0:
         *(s32 *)((s8 *)this + 0x30) = (s32) (*(s32 *)((s8 *)this + 0x30) | 0x40000);
         *(s16 *)((s8 *)this + 0xB8) = 0;
@@ -654,13 +650,11 @@ s32 play_area_se_with_particle__12TBoss3VoloptFv(void *, s32);
 s32 TObjPlayer__sub_800A0554(void *);
 
 void action__18TObjEneBalClawClawFPv(u8 *arg0) {
-    s32 temp_r0;
     s32 temp_r4;
     s32 temp_r4_2;
     s32 temp_r5;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 4);
         temp_r4 = *(s32 *)((s8 *)arg0 + 0x30) | 0x04000000;
@@ -1219,7 +1213,6 @@ void *__vt__18TObjEneBalClawClaw[83] = {
 
 void TObjEneBalClawClaw::update_attack_distance_state() {
     f32 temp_f1;
-    s16 temp_r0;
     s32 temp_r0_2;
     s32 temp_r31;
     u32 temp_r3;
@@ -1227,8 +1220,7 @@ void TObjEneBalClawClaw::update_attack_distance_state() {
     if (((TObjEneBalClawClaw *)((u8 *)this))->is_actor_cadence_frame(0x1E) != 0) {
         find_target_in_range((f32) ((2.5e+02f)));
     }
-    temp_r0 = *(s16 *)((s8 *)((u8 *)this) + 0x326);
-    switch (temp_r0) {
+    switch (*(s16 *)((s8 *)((u8 *)this) + 0x326)) {
     case 8:
     case 0:
         if (((TObjEneBalClawClaw *)((u8 *)this))->is_actor_cadence_frame(0x1E) != 0) {
@@ -1590,15 +1582,13 @@ void TObjEneBeast::vfunc_93() {
 void TObjEneBeast::select_subtype() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;
-    s32 temp_r0_2;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x334);
     if (temp_r0 < 0) {
         *(s32 *)((s8 *)arg0 + 0x334) = 0;
     } else if (temp_r0 > 2) {
         *(s32 *)((s8 *)arg0 + 0x334) = 2;
     }
-    temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x334);
-    switch (temp_r0_2) {
+    switch (*(s32 *)((s8 *)arg0 + 0x334)) {
     case 2:
         *(s32 *)((s8 *)arg0 + 0x368) = 1;
         ((TObjEneLappy *)arg0)->set_param(0xB);
@@ -1615,9 +1605,7 @@ void TObjEneBeast::select_subtype() {
 }
 void TObjEneBeast::vfunc_83() {
     u8 *arg0 = (u8 *)this;
-    s16 temp_r0;
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x328);
-    switch (temp_r0) {
+    switch (*(s16 *)((s8 *)arg0 + 0x328)) {
     case 0:
     default:
         if ((s32) *(s32 *)((s8 *)arg0 + 0x390) != 1) {

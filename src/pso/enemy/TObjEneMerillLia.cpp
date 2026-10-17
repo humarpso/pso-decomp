@@ -1042,11 +1042,9 @@ void TObjEneMerillLia::search_target(void *ov) {
 
 #define arg0 ((u8 *)ov)
 s32 TObjEneMerillLia::update_emerge_state(void *ov) {
-    s16 temp_r0;
 
     advance_animation_playback(arg0);
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x328);
-    switch (temp_r0) {
+    switch (*(s16 *)((s8 *)arg0 + 0x328)) {
     case 0:
     default:
         if ((s32) *(s32 *)((s8 *)arg0 + 0x390) == 1) {
@@ -1084,10 +1082,8 @@ struct RecoveredGlobal_800D5060_lbl_8058D490;
 #define arg0 ((u8 *)p)
 s32 TObjEneMerillLia::update_kafun_attack(void *p) {
     Vec_800D57C8 sp14;
-    s16 temp_r0;
     advance_animation_playback(arg0);
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0x328);
-    switch (temp_r0) {
+    switch (*(s16 *)((s8 *)arg0 + 0x328)) {
     default:
     case 0:
         *(s16 *)((s8 *)arg0 + 0x328) = 1;

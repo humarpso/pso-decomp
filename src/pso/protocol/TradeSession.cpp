@@ -476,10 +476,8 @@ void update_status_message__6TLobbyFPv(O_802D368C *self);
 void handle_state_init__6TLobbyFPv(O_802D377C *self);
 
 void handle_trade_final_confirmation(void *arg0) {
-    u8 temp_r0;
 
-    temp_r0 = *(u8 *)((s8 *)arg0 + 5);
-    switch ((s32) temp_r0) {
+    switch ((s32) (*(u8 *)((s8 *)arg0 + 5))) {
     case 0:
         trade_protocol_flags |= 0x200;
         if (TLobby__trade_main_window != 0U) {
@@ -496,10 +494,8 @@ void handle_trade_final_confirmation(void *arg0) {
 }
 
 void handle_trade_offer_confirmation(void *arg0) {
-    u8 temp_r0;
 
-    temp_r0 = *(u8 *)((s8 *)arg0 + 5);
-    switch ((s32) temp_r0) {
+    switch ((s32) (*(u8 *)((s8 *)arg0 + 5))) {
     case 0:
         trade_protocol_flags |= 0x40;
         if (TLobby__trade_main_window != 0U) {
@@ -589,9 +585,7 @@ void update_status_message__6TLobbyFPv(O_802D368C *self) {
 }
 
 void handle_trade_request_reply(void *arg0) {
-    u8 temp_r0;
-    temp_r0 = *(u8 *)((s8 *)arg0 + 5);
-    switch ((s32) temp_r0) {
+    switch ((s32) (*(u8 *)((s8 *)arg0 + 5))) {
     case 2:
         TLobby__data_805D688C = *(s32 *)((s8 *)arg0 + 0xC);
         TLobby__sub_8024AAA0(local_client_id, 0x1D);

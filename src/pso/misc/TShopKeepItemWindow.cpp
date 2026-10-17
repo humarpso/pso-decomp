@@ -294,9 +294,7 @@ s32 TShopKeepItemWindow::rebuild_item_list() {
 
 void TShopKeepItemWindow::vfunc_11() {
     u8 *arg0 = (u8 *)this;
-    u32 temp_r0;
-    temp_r0 = this->m_20;
-    switch (temp_r0) {
+    switch (this->m_20) {
     case 0:
         ((TShopKeepItemWindow *)arg0)->rebuild_item_list();
         return;

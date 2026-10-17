@@ -69,9 +69,7 @@ void TObjGrassWeb::apply_to_player() {
 
 void TObjGrassWeb::run_task() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
-    temp_r0 = *(s32 *)&this->m_90;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_90) {
     case 0:
         apply_to_player();
         return;

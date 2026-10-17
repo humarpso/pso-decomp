@@ -43,10 +43,8 @@ s32 TObjPlayer::check_camera_distance() {
 extern const f32 lbl_805DB150;
 
 void TObjPlayer::calc_direction_vector(s32 arg0, void *arg1, f32 farg0) {
-    f32 temp_f1;
 
-    temp_f1 = farg0 * sin_table_lookup(arg0);
-    *(f32 *)((s8 *)arg1 + 0) = temp_f1;
+    *(f32 *)((s8 *)arg1 + 0) = (farg0 * sin_table_lookup(arg0));
     *(f32 *)((s8 *)arg1 + 4) = (f32) lbl_805DB150;
     *(f32 *)((s8 *)arg1 + 8) = (f32) (farg0 * cos_table_lookup(arg0));
 }
@@ -61,10 +59,8 @@ void TObjPlayer::calc_circle_offset_pos(s32 arg0, void *arg1, void *arg2, f32 fa
 #pragma pop
 
 s32 TObjPlayer::calc_angle_to(void *arg1) {
-    f32 temp_f3;
 
-    temp_f3 = *(f32 *)((s8 *)arg1 + 0);
-    return (s32) (RAD_TO_ANGLE * atan2_float(temp_f3 - *(f32 *)((s8 *)this + 0), *(f32 *)((s8 *)arg1 + 8) - *(f32 *)((s8 *)this + 8)));
+    return (s32) (RAD_TO_ANGLE * atan2_float((*(f32 *)((s8 *)arg1 + 0)) - *(f32 *)((s8 *)this + 0), *(f32 *)((s8 *)arg1 + 8) - *(f32 *)((s8 *)this + 8)));
 }
 
 s32 TAdSinglePlyChrSelectGC__sub_80141E8C(f32 v) {

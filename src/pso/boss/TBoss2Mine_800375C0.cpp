@@ -281,7 +281,6 @@ void*TUnk_80482D04::create(int a1, int a2, int a3) { TBoss2Mine__ct(this, a1, a2
 #pragma push
 #pragma fp_contract on
 void TUnk_80482EC0::vfunc_106(s32 arg1) {
-    s32 temp_r0;
     s32 temp_r4;
     s32 temp_r5;
     s32 temp_r7;
@@ -312,8 +311,7 @@ void TUnk_80482EC0::vfunc_106(s32 arg1) {
     case 5:
         break;
     case 0:
-        temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x3C8);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)((u8 *)this) + 0x3C8)) {
         case 0:
             *(s32 *)((s8 *)((u8 *)this) + 0x3A8) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3A8) + 0x280);
             if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x3A8) >= 0x38E3) {
@@ -727,7 +725,6 @@ void TBoss2Mine::vfunc_107(s32 arg1) {
   {
     u8 bytes[0x14];
   };
-  u8 *temp_r4;
   CopyStack_800384C8 copy_storage_800384C8;
   switch (arg1)
   {
@@ -751,8 +748,7 @@ void TBoss2Mine::vfunc_107(s32 arg1) {
       *((s32 *) (((s8 *) arg0) + 0x3C8)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x3C8))) + 1);
       if (((s32) (*((s32 *) (((s8 *) arg0) + 0x3C8)))) > 0x1E)
     {
-      temp_r4 = ((u8 *)&boss2_mine_collision_desc.value) - 4;
-      *((ByteBlock_14 *) (((s32)(copy_storage_800384C8.bytes - 0x4)) + 4)) = *((const ByteBlock_14 *) (((s32) temp_r4) + 4));
+      *((ByteBlock_14 *) (((s32)(copy_storage_800384C8.bytes - 0x4)) + 4)) = *((const ByteBlock_14 *) (((s32) (((u8 *)&boss2_mine_collision_desc.value) - 4)) + 4));
       *((f32 *)(copy_storage_800384C8.bytes + 0x4)) = TBoss2DeRolLe__sub_80034CEC();
       TObjEneDD__sub_800BA5A4(arg0, copy_storage_800384C8.bytes);
       spawn_particle_effect_with_flags((void *)((*((s32 *) (((s8 *) arg0) + 0xA4))) + 0x1C), 0x16B, 0x40);

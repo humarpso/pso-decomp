@@ -12,7 +12,6 @@ extern void *TObjWarpLobby__instance;
 extern const f32 lbl_805DC06C;
 
 void *TObjWarpLobby__ct(void *arg0) {
-    s32 temp_r0;
 
     TObjAreaWarp__ct();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjWarpLobby;
@@ -30,8 +29,7 @@ void *TObjWarpLobby__ct(void *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x88) > 1) {
         *(s32 *)((s8 *)arg0 + 0x88) = 1;
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x88);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x88)) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0xCC) = 1;
         break;

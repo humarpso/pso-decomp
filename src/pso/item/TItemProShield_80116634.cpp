@@ -163,7 +163,6 @@ u8 *TItemProShield::create() {
 void TUnk_8049F8E0::vfunc_44() {
     s32 temp_r3;
     u32 temp_r424;
-    int temp_r31;
     if (sub_801A1DDC__10TObjPlayerFv(*(void * *)&this->m_f0) != 0) {
         temp_r424 = (u32) *(u32 *)((s8 *)(*(void * *)&this->m_f0) + 0x424);
         if (temp_r424 != 0U) {
@@ -172,8 +171,7 @@ void TUnk_8049F8E0::vfunc_44() {
                 TObjPlayer__sub_80116620(temp_r3 + 0x9C, 0);
                 if ((u16) get_type_id__10TObjPlayerFv() != 0xffffU) {
                     TObjPlayer__sub_80116620(temp_r3 + 0x9C, 0);
-                    temp_r31 = get_type_id__10TObjPlayerFv();
-                    send_6x33_revive_player(obj_getField1c(*(void * *)&this->m_f0), temp_r31);
+                    send_6x33_revive_player(obj_getField1c(*(void * *)&this->m_f0), get_type_id__10TObjPlayerFv());
                 }
             }
         }
@@ -213,11 +211,9 @@ u8 *create_moon_atomizer_item(u8 *arg0) {
 }
 
 void TUnk_8049F998::vfunc_44() {
-    u8 temp_r3;
     struct VObj_80116A5C_80116634 *obj;
 
-    temp_r3 = ((u8 (*)())get_slot_count__14TItemProShieldFv)();
-    switch ((s32) temp_r3) {
+    switch ((s32) (((u8 (*)())get_slot_count__14TItemProShieldFv)())) {
     case 0:
         obj = *(struct VObj_80116A5C_80116634 * *)&this->m_f0;
         obj->m51();

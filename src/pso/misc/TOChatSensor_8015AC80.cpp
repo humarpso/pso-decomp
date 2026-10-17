@@ -152,10 +152,8 @@ void TOChatSensor::render() {
 }
 
 void TOChatSensor::run_task() {
-    s32 temp_r0;
     if ((u32) this->m_90 == 0U) {
-        temp_r0 = *(s32 *)&this->m_c8;
-        switch (temp_r0) {
+        switch (*(s32 *)&this->m_c8) {
         case 0:
             check_player_proximity();
             return;

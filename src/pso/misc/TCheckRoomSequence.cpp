@@ -541,12 +541,10 @@ int set_quest_list_mode_19__18TCheckRoomSequenceFPv(void* p) { return set_field_
 #pragma optimization_level 1
 void handle_withdraw_choice__18TCheckRoomSequenceFv(u8 *arg0) {
     s32 selected_menu_value;
-    u16 temp_r30;
     switch (*(s32 *)((s8 *)arg0 + 0x2C)) {
     case 0:
         if ((u32) *(u32 *)((s8 *)arg0 + 0x3C) == 0U) {
-            temp_r30 = obj_getField1c((int) (*(s32 *)((s8 *)arg0 + 0x24)));
-            *(u32 *)((s8 *)arg0 + 0x3C) = create_window_menu(((s32)get_window_layout_position(0x2B)), 2, temp_r30);
+            *(u32 *)((s8 *)arg0 + 0x3C) = create_window_menu(((s32)get_window_layout_position(0x2B)), 2, obj_getField1c((int) (*(s32 *)((s8 *)arg0 + 0x24))));
             forward_trade_action_default__16TObjCityMainWarpFPviii((int) (*(u32 *)((s8 *)arg0 + 0x3C)), (int) (get_shop_text(2)), 6, 0);
             forward_trade_action_default__16TObjCityMainWarpFPviii((int) (*(u32 *)((s8 *)arg0 + 0x3C)), (int) (get_shop_text(3)), 6, 1);
             ((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x3C)))->calc_window_size();
@@ -588,12 +586,10 @@ void handle_withdraw_choice__18TCheckRoomSequenceFv(u8 *arg0) {
 #pragma optimization_level 1
 void handle_deposit_choice__18TCheckRoomSequenceFv(u8 *arg0) {
     s32 selected_menu_value;
-    u16 temp_r30;
     switch (*(s32 *)((s8 *)arg0 + 0x2C)) {
     case 0:
         if ((u32) *(u32 *)((s8 *)arg0 + 0x3C) == 0U) {
-            temp_r30 = obj_getField1c((int) (*(s32 *)((s8 *)arg0 + 0x24)));
-            *(u32 *)((s8 *)arg0 + 0x3C) = create_window_menu(((s32)get_window_layout_position(0x2B)), 2, temp_r30);
+            *(u32 *)((s8 *)arg0 + 0x3C) = create_window_menu(((s32)get_window_layout_position(0x2B)), 2, obj_getField1c((int) (*(s32 *)((s8 *)arg0 + 0x24))));
             forward_trade_action_default__16TObjCityMainWarpFPviii((int) (*(u32 *)((s8 *)arg0 + 0x3C)), (int) (get_shop_text(2)), 6, 0);
             forward_trade_action_default__16TObjCityMainWarpFPviii((int) (*(u32 *)((s8 *)arg0 + 0x3C)), (int) (get_shop_text(3)), 6, 1);
             ((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x3C)))->calc_window_size();
@@ -636,19 +632,13 @@ void handle_deposit_choice__18TCheckRoomSequenceFv(u8 *arg0) {
 void handle_root_choice__18TCheckRoomSequenceFv(u8 *arg0) {
     f32 temp_f31;
     f32 temp_f31_2;
-    s32 temp_r0;
-    s32 temp_r0_2;
     s32 selected_menu_value;
     s32 temp_r3_2;
-    u16 temp_r30;
-    u16 temp_r30_2;
     if (check_room_ready__18TCheckRoomSequenceFv() != 0) {
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x2C);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x2C)) {
         case 0:
             if ((u32) *(u32 *)((s8 *)arg0 + 0x3C) == 0U) {
-                temp_r30 = obj_getField1c((int) (*(s32 *)((s8 *)arg0 + 0x24)));
-                *(u32 *)((s8 *)arg0 + 0x3C) = create_window_menu(((s32)get_window_layout_position(0x2B)), 2, temp_r30);
+                *(u32 *)((s8 *)arg0 + 0x3C) = create_window_menu(((s32)get_window_layout_position(0x2B)), 2, obj_getField1c((int) (*(s32 *)((s8 *)arg0 + 0x24))));
                 forward_trade_action_default__16TObjCityMainWarpFPviii((int) (*(u32 *)((s8 *)arg0 + 0x3C)), (int) (get_shop_text(8)), 6, 0);
                 forward_trade_action_default__16TObjCityMainWarpFPviii((int) (*(u32 *)((s8 *)arg0 + 0x3C)), (int) (get_shop_text(9)), 6, 1);
                 ((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x3C)))->calc_window_size();
@@ -684,12 +674,10 @@ void handle_root_choice__18TCheckRoomSequenceFv(u8 *arg0) {
             break;
         }
     } else {
-        temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x2C);
-        switch (temp_r0_2) {
+        switch (*(s32 *)((s8 *)arg0 + 0x2C)) {
         case 0:
             if ((u32) *(u32 *)((s8 *)arg0 + 0x3C) == 0U) {
-                temp_r30_2 = obj_getField1c((int) (*(s32 *)((s8 *)arg0 + 0x24)));
-                *(u32 *)((s8 *)arg0 + 0x3C) = create_window_menu(((s32)get_window_layout_position(0x2B)), 2, temp_r30_2);
+                *(u32 *)((s8 *)arg0 + 0x3C) = create_window_menu(((s32)get_window_layout_position(0x2B)), 2, obj_getField1c((int) (*(s32 *)((s8 *)arg0 + 0x24))));
                 forward_trade_action_default__16TObjCityMainWarpFPviii((int) (*(u32 *)((s8 *)arg0 + 0x3C)), (int) (get_shop_text(0xA)), 6, 1);
                 ((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x3C)))->calc_window_size();
                 align_menu_entry_positions((int) (*(u32 *)((s8 *)arg0 + 0x3C)));

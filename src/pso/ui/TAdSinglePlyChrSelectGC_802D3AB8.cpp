@@ -99,7 +99,6 @@ s32 TAdSinglePlyChrSelectGC::create_chr_warp(s32 arg0, s32 arg1) {
 }
 
 void finish_character_selection_transition(void *arg0) {
-    s32 temp_r0;
     s32 temp_r4;
     if ((u32) *(u32 *)((s8 *)arg0 + 0x38) != 0U) {
         TWindow__close(*(void **)((s8 *)arg0 + 0x38));
@@ -120,8 +119,7 @@ void finish_character_selection_transition(void *arg0) {
     temp_r4 = *(s32 *)((s8 *)arg0 + 0x1C) + 1;
     *(s32 *)((s8 *)arg0 + 0x1C) = temp_r4;
     if ((f32) temp_r4 > lbl_805DE780) {
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x5C);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x5C)) {
         case 0:
             if (((s32)TAdSinglePlyChrSelectGC::get_data()) == 0) {
                 TAdMultiChgGameModeGC::request_transition();
@@ -143,7 +141,6 @@ void finish_character_selection_transition(void *arg0) {
 }
 
 void TAdSinglePlyChrSelectGC::close_and_change_scene() {
-    s32 temp_r3_3;
     s32 temp_r4;
     u8 *temp_r3;
     u8 *temp_r3_2;
@@ -160,8 +157,7 @@ void TAdSinglePlyChrSelectGC::close_and_change_scene() {
     temp_r4 = *(s32 *)&this->m_1c + 1;
     *(s32 *)&this->m_1c = temp_r4;
     if ((f32) temp_r4 > lbl_805DE780) {
-        temp_r3_3 = TAdSinglePlyChrSelectGC::get_data();
-        switch (temp_r3_3) {
+        switch (TAdSinglePlyChrSelectGC::get_data()) {
         case 0:
             TAdMultiChgGameModeGC::request_scene_change();
             return;
@@ -173,15 +169,13 @@ void TAdSinglePlyChrSelectGC::close_and_change_scene() {
 }
 
 void TAdSinglePlyChrSelectGC::handle_card_select() {
-    s32 temp_r3;
 
     if (((TAdMultiPlyChrSelectGC *)(*(s32 *)&this->m_28))->get_player_index() == 1) {
         *(s32 *)&this->m_20 = 0;
         return;
     }
     if (((TWindowMessageYesNo *)(*(s32 *)&this->unk_50))->is_child_visible() != 0) {
-        temp_r3 = ((TWindowSubComCard *)(*(s32 *)&this->unk_50))->get_slot_or_neg1();
-        switch (temp_r3) {
+        switch (((TWindowSubComCard *)(*(s32 *)&this->unk_50))->get_slot_or_neg1()) {
         case 0:
             this->m_5c = 3;
             *(s32 *)&this->m_20 = 0xC;
@@ -200,15 +194,13 @@ void TAdSinglePlyChrSelectGC::handle_card_select() {
 }
 
 void TAdSinglePlyChrSelectGC::handle_card_select2() {
-    s32 temp_r3;
 
     if (((TAdMultiPlyChrSelectGC *)(*(s32 *)&this->m_28))->get_player_index() == 1) {
         *(s32 *)&this->m_20 = 0;
         return;
     }
     if (((TWindowMessageYesNo *)(this->m_4c))->is_child_visible() != 0) {
-        temp_r3 = ((TWindowSubComCard *)(this->m_4c))->get_slot_or_neg1();
-        switch (temp_r3) {
+        switch (((TWindowSubComCard *)(this->m_4c))->get_slot_or_neg1()) {
         case 0:
             this->m_5c = 1;
             *(s32 *)&this->m_20 = 0xC;
@@ -227,15 +219,13 @@ void TAdSinglePlyChrSelectGC::handle_card_select2() {
 }
 
 void TAdSinglePlyChrSelectGC::update_card_input() {
-    s32 temp_r3;
 
     if (((TAdMultiPlyChrSelectGC *)(*(s32 *)&this->m_28))->get_player_index() == 1) {
         *(s32 *)&this->m_20 = 0;
         return;
     }
     if (((TWindowMessageYesNo *)(this->m_44))->is_child_visible() != 0) {
-        temp_r3 = ((TWindowSubComCard *)(this->m_44))->get_slot_or_neg1();
-        switch (temp_r3) {
+        switch (((TWindowSubComCard *)(this->m_44))->get_slot_or_neg1()) {
         case 0:
             this->m_5c = 3;
             *(s32 *)&this->m_20 = 0xC;
@@ -252,15 +242,13 @@ void TAdSinglePlyChrSelectGC::update_card_input() {
 }
 
 void TAdSinglePlyChrSelectGC::update() {
-    s32 temp_r3;
 
     if (((TAdMultiPlyChrSelectGC *)(*(s32 *)&this->m_28))->get_player_index() == 1) {
         *(s32 *)&this->m_20 = 0;
         return;
     }
     if (((TWindowMessageYesNo *)(*(s32 *)&this->unk_48))->is_child_visible() != 0) {
-        temp_r3 = ((TWindowSubComCard *)(*(s32 *)&this->unk_48))->get_slot_or_neg1();
-        switch (temp_r3) {
+        switch (((TWindowSubComCard *)(*(s32 *)&this->unk_48))->get_slot_or_neg1()) {
         case 0:
             TAdSinglePlyChrSelectGC__sub_801334DC(*(s32 *)&this->m_2c);
             clear_entry__23TAdSinglePlyChrSelectGCFi();
@@ -284,15 +272,13 @@ typedef char RecoveredGlobal_802D4570_lbl_80472510_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_802D4570_lbl_8050E208_size[sizeof(RecoveredGlobal_802D4570_lbl_8050E208) == 0x1B0 ? 1 : -1];
 
 void TAdSinglePlyChrSelectGC::handle_menu_selection() {
-    s32 temp_r0;
     if (((TAdMultiPlyChrSelectGC *)(*(s32 *)&this->m_28))->get_player_index() == 1) {
         *(s32 *)&this->m_20 = 0;
         return;
     }
     if (((TWindowMenu *)(*(s32 *)&this->unk_38))->is_visible() != 0) {
         this->m_5c = get_selected_menu_value((int) (*(s32 *)&this->unk_38));
-        temp_r0 = this->m_5c;
-        switch (temp_r0) {
+        switch (this->m_5c) {
         case 0:
             *(s32 *)&this->m_20 = 0xC;
             return;

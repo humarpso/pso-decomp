@@ -44,10 +44,8 @@ s32 enemy_turn_toward_dest(void *, s32);
 
 void TObjEnemyCustom::update_state_machine() {
     s16 temp_r4;
-    s32 temp_r0;
 
-    temp_r0 = *(s32 *)&this->state;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->state) {
     case 0:
         this->m_b8 = 0;
         *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFF9FFFFF);
@@ -80,13 +78,8 @@ extern const f32 lbl_805DA074;
 extern const f32 lbl_805DA090;
 
 void TObjEnemyCustom::update() {
-    s32 temp_r0;
-    Obj2A8_800c7ae4 *temp_r3;
-    Obj2A8_800c7ae4 *temp_r3_2;
-    Obj2A8_800c7ae4 *temp_r3_3;
 
-    temp_r0 = *(s32 *)&this->state;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->state) {
     case 0:
         this->m_b8 = 2;
         *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x200000);
@@ -95,12 +88,9 @@ void TObjEnemyCustom::update() {
         enemy_turn_toward_dest(this, *(s32 *)((s8 *)(*(void * *)&this->movementParameters) + 8));
         advance_animation_playback(this);
         if (objInBand((GameObj *)this, (f32)lbl_805DA068) != 0) {
-            temp_r3 = *(Obj2A8_800c7ae4 * *)&this->target;
-            if (temp_r3->v18(this, lbl_805DA074) != 0) {
-                temp_r3_2 = *(Obj2A8_800c7ae4 * *)&this->target;
-                temp_r3_2->v20(this, lbl_805DA074);
-                temp_r3_3 = *(Obj2A8_800c7ae4 * *)&this->target;
-                temp_r3_3->v23(this, lbl_805DA090);
+            if ((*(Obj2A8_800c7ae4 * *)&this->target)->v18(this, lbl_805DA074) != 0) {
+                (*(Obj2A8_800c7ae4 * *)&this->target)->v20(this, lbl_805DA074);
+                (*(Obj2A8_800c7ae4 * *)&this->target)->v23(this, lbl_805DA090);
             }
         }
         update_collisions__10TObjPlayerFv(this);
@@ -119,12 +109,10 @@ void TObjEnemyCustom::vfunc_60() { update_if_active__15TObjEneMe1GiGueFl(this, 2
 void TObjEnemyCustom::update_wander_state() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
-    s32 temp_r0;
     u8 *temp_r3;
     u8 *temp_r6;
     u8 *temp_r7;
-    temp_r0 = *(s32 *)&this->state;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->state) {
     case -1:
         break;
     case 0:

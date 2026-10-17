@@ -761,7 +761,6 @@ void TObjEneEpsilonGuard__sub_8035E578(u8 *arg0, s32 arg1) {
 #pragma pop
 
 void TObjEneEpsilonGuard::state_orbit(s32 arg1) {
-    s32 temp_r0;
     u32 temp_r3;
 
     switch (arg1) {
@@ -783,8 +782,7 @@ void TObjEneEpsilonGuard::state_orbit(s32 arg1) {
         return;
     case 0:
         advance_animation_playback(this);
-        temp_r0 = *(s32 *)((s8 *)this + 0x430);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)this + 0x430)) {
         case 0:
             if (*(s32 *)((s8 *)this + 0x46C) & 0x100) {
                 *(s32 *)((s8 *)this + 0x43C) = (s32) ((lbl_805E01E8 * *(f32 *)((s8 *)TObjEneEpsilonGuard__movement_params + 8)) / (lbl_805E01EC * *(f32 *)((s8 *)TObjEneEpsilonGuard__movement_params + 0)));

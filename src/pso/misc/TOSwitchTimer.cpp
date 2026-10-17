@@ -48,12 +48,10 @@ void TOSwitchTimer::render() {
 }
 
 void TOSwitchTimer::run_task() {
-    s32 temp_r0;
     s32 temp_r3_2;
     u32 temp_r3;
 
-    temp_r0 = *(s32 *)&this->m_90;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_90) {
     case 0:
         temp_r3 = is_current_floor_switch_set(this->m_a8);
         if ((s32) this->m_b0 != (s32) temp_r3) {

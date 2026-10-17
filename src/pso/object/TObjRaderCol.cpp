@@ -80,10 +80,8 @@ void TObjRaderCol::check_local_player_in_range(void *arg0_) {
 #undef arg0
 
 void TObjRaderCol::run_task() {
-    s32 temp_r0;
 
-    temp_r0 = *(s32 *)&this->m_98;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_98) {
     case 0:
         TRaderMapCore::block_region_by_id((s16) *(s32 *)&this->m_94);
         *(s32 *)&this->m_98 = 1;

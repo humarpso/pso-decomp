@@ -154,10 +154,8 @@ void TAdTrialAgreementGC::render_screen() {
 }
 
 void TAdTrialAgreementGC::run_state() {
-    s32 temp_r0;
 
-    temp_r0 = *(s32 *)&this->m_24;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->m_24) {
     case 0:
         update_title_prompt();
         break;

@@ -542,9 +542,7 @@ void TShopArmorListWindow::refresh_item_list(void *p) {
 void TShopArmorListWindow::vfunc_11() {
     u8 *arg0 = (u8 *)this;
     s32 (*temp_r12)(s32);
-    u32 temp_r0;
-    temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
-    switch (temp_r0) {
+    switch (*(u32 *)((s8 *)arg0 + 0x20)) {
     case 0:
         TShopArmorListWindow::refresh_item_list(arg0);
         set_field_20__15TShopWindowBaseFl(arg0, 1);

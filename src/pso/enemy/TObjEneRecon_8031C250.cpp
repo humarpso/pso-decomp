@@ -1026,16 +1026,13 @@ void TObjEneRecon::sub_8031D4B0(s32 arg1) {
     f32 temp_f2_4;
     f32 temp_f2_5;
     f32 temp_f31;
-    s32 temp_r0;
-    s32 temp_r3;
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 1;
         this->vfunc_95();
         *(s32 *)((s8 *)arg0 + 0x444) = (s32) (*(s32 *)((s8 *)arg0 + 0x444) & 0xFFFFFFFE);
         *(s32 *)((s8 *)arg0 + 0x444) = (s32) (*(s32 *)((s8 *)arg0 + 0x444) | 2);
-        temp_r3 = *(s32 *)((s8 *)arg0 + 0x30) | 0x01000000;
-        *(s32 *)((s8 *)arg0 + 0x30) = temp_r3;
+        *(s32 *)((s8 *)arg0 + 0x30) = (*(s32 *)((s8 *)arg0 + 0x30) | 0x01000000);
         *(s32 *)((s8 *)arg0 + 0x3C0) = 0;
         *(s32 *)((s8 *)arg0 + 0x60) = (s32) (TObjEneRecon__data_80476110 * atan2_float((f32) (*(f32 *)((s8 *)arg0 + 0x428)), (f32) (*(f32 *)((s8 *)arg0 + 0x430))));
         enemy_clear_target__12TObjEneDD_STFUs(arg0);
@@ -1053,8 +1050,7 @@ void TObjEneRecon::sub_8031D4B0(s32 arg1) {
         temp_f2 = *(f32 *)((s8 *)arg0 + 0x430);
         temp_f31 = (temp_f1 * temp_f1) + (temp_f2 * temp_f2);
         ((TObjEneDD *)arg0)->move_with_wall_slide_on_ground(temp_f1, temp_f2, temp_f31);
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x3C0);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x3C0)) {
         case 0:
             *(f32 *)((s8 *)arg0 + 0x448) = (f32) (*(f32 *)((s8 *)arg0 + 0x448) + *(f32 *)((s8 *)arg0 + 0x42C));
             if (*(f32 *)((s8 *)arg0 + 0x448) == *(f32 *)((s8 *)arg0 + 0x460)) {

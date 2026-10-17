@@ -543,7 +543,6 @@ s32 TLobby__sub_802923C4(s32 idx, s32 value, s32 arg) {
 
 s32 TLobby__sub_802924B4(s32 arg0, u16 arg1) {
   s32 new_var2;
-  s32 *temp_r3_2;
   s32 character_save_record;
   u8 *temp_r30;
   int new_var;
@@ -561,8 +560,7 @@ s32 TLobby__sub_802924B4(s32 arg0, u16 arg1) {
   {
     temp_r30 = (((u8 *) (&(*(RecoveredGlobal_802924B4_lbl_804DB1F0 *)&lbl_804DB1F0).value)) + ((*((s32 *) (((s8 *) (&(*(RecoveredGlobal_802924B4_lbl_804DB1F0 *)&lbl_804DB1F0).value)) + 0x14))) * 0x1C)) + 0x21C;
     new_var2 = TWindowSubStatusDisp::resolve_player_slot(-1);
-    temp_r3_2 = (s32 *) TWindowSubStatusDisp__sub_8006F134(character_save_record + 0x21C4, new_var2);
-    *temp_r3_2 |= *((s32 *) (((s8 *) temp_r30) + 4));
+    *((s32 *) TWindowSubStatusDisp__sub_8006F134(character_save_record + 0x21C4, new_var2)) |= *((s32 *) (((s8 *) temp_r30) + 4));
     return 1;
   }
   return 0;

@@ -49,13 +49,11 @@ void TAdRayGC::draw_ray_quads(s32 arg0, u8 *arg1, void *arg2, s32 arg3) {
 }
 
 void TAdRayGC::render() {
-    s32 temp_r0;
 
     if (TMainTask::get_state_flag() != 1) {
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 0xA);
-        temp_r0 = *(s32 *)((s8 *)this + 0x1C);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)this + 0x1C)) {
         case 0:
             TAdRayGC::draw_ray_quads((s32)this, (u8 *)(*(s32 *)((s8 *)this + 0x20)), (void *)(-1), 0);
             break;
@@ -73,11 +71,9 @@ void TAdRayGC::render() {
 }
 
 void TAdRayGC::run_task() {
-    s32 temp_r0;
 
     *(s32 *)((s8 *)this + 0x20) = (s32) (*(s32 *)((s8 *)this + 0x20) + 1);
-    temp_r0 = *(s32 *)((s8 *)this + 0x1C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)this + 0x1C)) {
     case 0:
         if ((s32) *(s32 *)((s8 *)this + 0x20) > 0xC) {
             *(s32 *)((s8 *)this + 0x1C) = 1;

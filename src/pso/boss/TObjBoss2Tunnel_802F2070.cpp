@@ -290,9 +290,7 @@ void TObjBoss2Tunnel__sub_802F273C(void) {  }
 void TUnk_804E4B3C::update_phase_motion() {
     u8 *arg0 = (u8 *)this;
     f32 sp8;
-    s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x4C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x4C)) {
     case 0:
         if (TObjBoss2Tunnel::check_both((s32)arg0) != 0) {
             if (TObjBoss2Tunnel::is_phase_active((s32)arg0) != 0) {

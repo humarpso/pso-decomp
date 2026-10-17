@@ -102,8 +102,6 @@ void TWindowDD::reset_cursor() { *(s32*)((char*)this + 0x64) = 0; }
 #pragma fp_contract on
 void TWindowDD::handle_scroll_input() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r3;
-    s32 temp_r3_2;
     s32 temp_r3_3;
     s32 temp_r3_4;
     s32 temp_r4;
@@ -116,8 +114,7 @@ void TWindowDD::handle_scroll_input() {
         if (apply_both_choices__9TWindowDDFll(arg0 + 0x60, 0x20) != 0) {
             temp_r4 = *(s32 *)((s8 *)arg0 + 0x68);
             if (temp_r4 < (s32) (*(s32 *)((s8 *)arg0 + 0x74) - 1)) {
-                temp_r3 = can_scroll__9TWindowDDFPvi(arg0, 1);
-                switch (temp_r3) {
+                switch (can_scroll__9TWindowDDFPvi(arg0, 1)) {
                 case 0:
                     *(s32 *)((s8 *)arg0 + 0x6C) = (s32) (*(s32 *)((s8 *)arg0 + 0x6C) + 1);
                     break;
@@ -133,8 +130,7 @@ void TWindowDD::handle_scroll_input() {
             }
         } else if (apply_both_choices__9TWindowDDFll(arg0 + 0x60, 0x10) != 0) {
             if ((s32) *(s32 *)((s8 *)arg0 + 0x68) > 0) {
-                temp_r3_2 = can_scroll__9TWindowDDFPvi(arg0, -1);
-                switch (temp_r3_2) {
+                switch (can_scroll__9TWindowDDFPvi(arg0, -1)) {
                 case 0:
                     *(s32 *)((s8 *)arg0 + 0x6C) = (s32) (*(s32 *)((s8 *)arg0 + 0x6C) - 1);
                     break;

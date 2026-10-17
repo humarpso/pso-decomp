@@ -108,13 +108,9 @@ void TEndingC::run_task() {
     s32 temp_r3_3;
     s32 temp_r3_4;
     s32 temp_r3_5;
-    u32 temp_r0;
-    u32 temp_r30;
-    temp_r0 = phase;
-    switch (temp_r0) {
+    switch (phase) {
     case 0:
-        temp_r30 = timing_rate * TEndingC__sub_8008C6F4();
-        if (((u32 (*)())TEnding__sub_8008D5B8)() > temp_r30) {
+        if (((u32 (*)())TEnding__sub_8008D5B8)() > (timing_rate * TEndingC__sub_8008C6F4())) {
             phase = 1U;
             break;
         }
@@ -232,7 +228,6 @@ TEndingC::~TEndingC() {}
 
 extern "C" {
 u8 *__ct__8TEndingCFv(u8 *arg0, u8 *arg1) {
-    s32 temp_r3;
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__8TEndingC;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2960;
@@ -265,8 +260,7 @@ u8 *__ct__8TEndingCFv(u8 *arg0, u8 *arg1) {
     *(f32 *)((s8 *)arg0 + 0x84) = (f32) lbl_805D95D4;
     *(f32 *)((s8 *)arg0 + 0x88) = (f32) lbl_805D95CC;
     *(f32 *)((s8 *)arg0 + 0x8C) = (f32) lbl_805D95CC;
-    temp_r3 = TKeyBoardControl__sub_8000F828();
-    switch (temp_r3) {
+    switch (TKeyBoardControl__sub_8000F828()) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0x90) = 0x1E;
         break;

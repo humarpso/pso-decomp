@@ -1626,7 +1626,6 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
     struct CopyStack_802E8FCC { u8 bytes[0x14]; };
     CopyStack_802E8FCC copy_storage_802E8FCC;
     struct { f32 v[3]; } sp8;
-    s32 temp_r0;
     s32 temp_r4_2;
     u32 var_r0;
     u32 var_r0_2;
@@ -1634,7 +1633,6 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
     u8 *temp_r30;
     u8 *src;
     u8 *temp_r3;
-    u8 *temp_r4;
     temp_r30 = (u8 *)((void *)((u8 *)arg0 + 0x76C));
     switch (arg1) {
     case 4:
@@ -1673,8 +1671,7 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
     case 0:
         ((s32)advance_animation_playback(arg0));
         *(s32 *)((s8 *)arg0 + 0x7A0) = 6;
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x728);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x728)) {
         case 0:
             *(s32 *)((s8 *)arg0 + 0x72C) = (s32) (*(s32 *)((s8 *)arg0 + 0x72C) + 1);
             if ((s32) *(s32 *)((s8 *)arg0 + 0x72C) >= 0x14) {
@@ -1751,8 +1748,7 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
                     push_ring_point__15TBoss7LaserPtclFPvPv(*(void **)((s8 *)arg0 + 0x720), src);
                 }
             }
-            temp_r4 = (u8 *)((void *)((u8 *)boss7_laser_particle_params + -4));
-            *(ByteBlock_14 *)(copy_storage_802E8FCC.bytes) = *(const ByteBlock_14 *)((s32) temp_r4 + 4);
+            *(ByteBlock_14 *)(copy_storage_802E8FCC.bytes) = *(const ByteBlock_14 *)((s32) ((u8 *)((void *)((u8 *)boss7_laser_particle_params + -4))) + 4);
             (*(f32 *)(copy_storage_802E8FCC.bytes + 0x4)) = *(f32 *)((s8 *)(*(f32 **)((s8 *)arg0 + 0x620)) + 0);
             TObjEneDD::setup_instance((s32)((void *)arg0), (s32)((int)src), (u8 *)copy_storage_802E8FCC.bytes, (s32)((int) (*(s32 *)((s8 *)arg0 + 0x718))));
             if ((u32) *(u32 *)((s8 *)arg0 + 0x7A8) != 0U) {
@@ -1850,7 +1846,6 @@ void TObjFish__sub_802E9458(u8 *arg0, u32 arg1) {
 #pragma pop
 
 void TObjFish__sub_802E95F8(u8 *arg0, u32 arg1, s32 arg2) {
-    s32 temp_r0;
     s32 temp_r4;
     switch (arg1) {
     case 4:
@@ -1883,8 +1878,7 @@ void TObjFish__sub_802E95F8(u8 *arg0, u32 arg1, s32 arg2) {
         break;
     case 0:
         advance_animation_playback(arg0);
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x72C);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x72C)) {
         case 0:
             if (!(*(s32 *)((s8 *)arg0 + 0xB0) & 4)) {
                 TObjFish__sub_802ECE90(arg0, (int) (*(s32 *)((s8 *)arg0 + 0x728)), (int) (*(s32 *)((s8 *)arg0 + 0x704)));
@@ -3460,14 +3454,12 @@ s32 TBoss7Joint_get_shell_max_hp(void);
 #pragma opt_common_subs off
 u8 TObjFish::update_phase_rising() {
     f32 var_f2;
-    s32 temp_r0;
     s32 var_r3;
     advance_scalar_motion_profile(((u8 *)this) + 0x630);
     if (advance_scalar_motion_profile(((u8 *)this) + 0x650) == 3) {
         *(s32 *)((s8 *)((u8 *)this) + 0x6CC) = 1;
     }
-    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x6D0);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)((u8 *)this) + 0x6D0)) {
     case 2:
         break;
     case 1:
@@ -3502,14 +3494,12 @@ u8 TObjFish::update_phase_rising() {
 #pragma push
 #pragma fp_contract on
 u8 TObjFish::update_tail_anim_state() {
-    s32 temp_r0;
     s32 var_r3;
     advance_scalar_motion_profile(((u8 *)this) + 0x670);
     if (((s32)advance_scalar_motion_profile(((u8 *)this) + 0x650)) == 3) {
         *(s32 *)((s8 *)((u8 *)this) + 0x6CC) = 1;
     }
-    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x6C8);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)((u8 *)this) + 0x6C8)) {
     case 0:
         *(f32 *)((s8 *)((u8 *)this) + 0xC8) = (f32) lbl_805DEB68;
         if (*(f32 *)((s8 *)((u8 *)this) + 0x688) > lbl_805DEA94) {
@@ -3537,14 +3527,12 @@ u8 TObjFish::update_tail_anim_state() {
 #pragma opt_common_subs off
 #pragma opt_propagation off
 u32 TObjFish::update_phase_settling() {
-    s32 temp_r0;
     u8 var_r3;
     advance_scalar_motion_profile((void *) (((u8 *)this) + 0x630));
     if (((s32)advance_scalar_motion_profile((void *) (((u8 *)this) + 0x650))) == 3) {
         *(s32 *)((s8 *)((u8 *)this) + 0x6CC) = 1;
     }
-    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x6D0);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)((u8 *)this) + 0x6D0)) {
     case 0:
         if (*(f32 *)((s8 *)((u8 *)this) + 0x648) > lbl_805DEB8C) {
             *(s32 *)((s8 *)((u8 *)this) + 0x6D0) = 2;
@@ -3577,14 +3565,12 @@ u32 TObjFish::update_phase_settling() {
 #pragma push
 #pragma opt_common_subs off
 u32 TObjFish::update_anim_state() {
-    s32 temp_r0;
     u8 var_r3;
     advance_scalar_motion_profile((void *) (((u8 *)this) + 0x670));
     if (((s32)advance_scalar_motion_profile((void *) (((u8 *)this) + 0x650))) == 3) {
         *(s32 *)((s8 *)((u8 *)this) + 0x6CC) = 1;
     }
-    temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x6C8);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)((u8 *)this) + 0x6C8)) {
     case 0:
         if (*(f32 *)((s8 *)((u8 *)this) + 0x688) > lbl_805DEB94) {
             *(s32 *)((s8 *)((u8 *)this) + 0x6C8) = 1;

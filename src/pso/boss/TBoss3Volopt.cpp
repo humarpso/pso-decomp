@@ -629,9 +629,7 @@ void TBoss3Volopt::sub_8003D340() {
 #pragma pop
 
 void TCameraCtrl::update_volopt_seq() {
-    s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)this + 0x37C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)this + 0x37C)) {
     case 0:
         *(s32 *)((s8 *)this + 0x37C) = 1;
     case 1:
@@ -668,11 +666,9 @@ void TCameraCtrl::run_intro_camera_sequence() {
     typedef char spC_offset[(offsetof(Stack_8003D648, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8003D648, sp10) == 0x8) ? 1 : -1];
     Stack_8003D648 stack;
-    s32 temp_r0;
     s32 temp_r0_2;
     u8 *temp_r3;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case 0:
         ((TBoss3Volopt *)arg0)->start_phase2();
         activate_camera_mode(9);

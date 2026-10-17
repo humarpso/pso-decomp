@@ -271,13 +271,11 @@ s32 TKeyBoardControl::get_input_mode() {
 }
 
 s32 TWindowKeyBoardHard::poll_input() {
-    u8 temp_r3;
 
     if (*(s32 *)((s8 *)this + 0x60) & 0x40) {
         return 3;
     }
-    temp_r3 = get_key_state__16TKeyBoardControlFPv(TKeyBoardControl__global_key_state);
-    switch ((s32) temp_r3) {
+    switch ((s32) get_key_state__16TKeyBoardControlFPv(TKeyBoardControl__global_key_state)) {
     case 4:
         return 1;
     case 2:

@@ -190,9 +190,7 @@ void TItemData::add_s16(s16 *arg0, s32 arg1) {
 }
 
 void TItemData::set_present_color(s32 arg1) {
-    u8 temp_r0;
-    temp_r0 = *(u8 *)((s8 *)((u8 *)this) + 0);
-    switch ((s32) temp_r0) {
+    switch ((s32) (*(u8 *)((s8 *)((u8 *)this) + 0))) {
     case 0:
         *(u8 *)((s8 *)((u8 *)this) + 5) = (u8) (*(u8 *)((s8 *)((u8 *)this) + 5) | (arg1 & 0xF));
         return;
@@ -208,9 +206,7 @@ void TItemData::set_present_color(s32 arg1) {
 }
 
 s32 TItemData::get_type_nibble() {
-    u8 temp_r0;
-    temp_r0 = *(u8 *)((s8 *)((u8 *)this) + 0);
-    switch ((s32) temp_r0) {
+    switch ((s32) (*(u8 *)((s8 *)((u8 *)this) + 0))) {
     case 0:
         return *(u8 *)((s8 *)((u8 *)this) + 5) & 0xF;
     case 1:
@@ -570,7 +566,6 @@ void TItemData__sub_8010C740(void) {  }
 void TItemData::unpack_from_item(void *arg1) {
     s32 sp8;
     u8 temp_r0;
-    u8 temp_r0_2;
 
     if (arg1 != NULL) {
         init__9TItemDataFv();
@@ -581,8 +576,7 @@ void TItemData::unpack_from_item(void *arg1) {
             *(u8 *)((s8 *)this + 1) = (u8) (*(u8 *)((s8 *)this + 1) + 1);
         }
         *(u8 *)((s8 *)this + 2) = (u8) ((u32) *(u32 *)((s8 *)arg1 + 0x30) >> 8U);
-        temp_r0_2 = *(u8 *)((s8 *)this + 0);
-        switch ((s32) temp_r0_2) {
+        switch ((s32) (*(u8 *)((s8 *)this + 0))) {
         case 0:
             *(u8 *)((s8 *)this + 6) = (u8) ((u32) *(u32 *)((s8 *)arg1 + 0x34) >> 8U);
             *(s8 *)((s8 *)this + 7) = (s8) *(u32 *)((s8 *)arg1 + 0x34);
@@ -1460,20 +1454,16 @@ f32 get_set_bonus_multiplier__9TItemDataFPvi(void *self, s32 player) {
 }
 
 void TItemData::apply_equip_effects(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
-    u8 temp_r0;
-    u8 temp_r0_2;
 
     if ((arg1 != 0) || (arg1 = get_player_by_client_id(local_client_id), ((arg1 == 0) == 0))) {
         get_set_bonus_multiplier__9TItemDataFPvi(this, arg1);
         calc_clock_bonus__9TItemDataFPv(this, arg1);
-        temp_r0 = *(u8 *)((s8 *)this + 0);
-        switch ((s32) temp_r0) {
+        switch ((s32) (*(u8 *)((s8 *)this + 0))) {
         case 0:
             add_weapon_stat_bonuses((s32)arg1, (s16 *)arg2, (s32)arg3, (s16 *)arg4, (s32)arg5);
             break;
         case 1:
-            temp_r0_2 = *(u8 *)((s8 *)this + 1);
-            switch ((s32) temp_r0_2) {
+            switch ((s32) (*(u8 *)((s8 *)this + 1))) {
             case 1:
                 add_armor_stat_contribution__9TItemDataFPviiPv(this, arg1, arg2, arg3, arg4, arg5);
                 break;

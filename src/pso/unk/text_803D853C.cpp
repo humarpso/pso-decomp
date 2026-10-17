@@ -36,13 +36,11 @@ void debug_printf_at(s32 arg0, const char *fmt, ...) {
 #pragma scheduling off
 void matrix_mult_vec(u32 arg0) {
     u32 var_r3;
-    u32 var_r3_2;
     u32 phi_r3;
     var_r3 = arg0;
     phi_r3 = var_r3;
     if (var_r3 == 0U) {
-        var_r3_2 = (*(u32 *)&current_matrix);
-        phi_r3 = var_r3_2;
+        phi_r3 = ((*(u32 *)&current_matrix));
     }
     PSMTXMultVec(phi_r3);
 }

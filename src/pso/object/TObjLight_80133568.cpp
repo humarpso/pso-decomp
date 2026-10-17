@@ -454,15 +454,13 @@ typedef char RecoveredGlobal_80133D78_lbl_804A6F34_size[sizeof(RecoveredGlobal_8
 void init_area_lights(void) {
     struct CopyStack_80133D78 { u8 bytes[0x44]; };
     CopyStack_80133D78 copy_storage_80133D78;
-    s32 temp_r4;
     s32 global_state;
     if ((u32) TObjLight__light_entry_data != 0U) {
         global_state = TOKeyMachine01::get_global_state();
         if (TLobby::is_online_ready() != 0) {
             global_state = (s32) ((f32) global_state + lbl_805DB0A4);
         }
-        temp_r4 = (TObjLight__light_entry_data + (global_state * 0x44)) - 4;
-        *(ByteBlock_44 *)(copy_storage_80133D78.bytes) = *(const ByteBlock_44 *)(temp_r4 + 4);
+        *(ByteBlock_44 *)(copy_storage_80133D78.bytes) = *(const ByteBlock_44 *)(((TObjLight__light_entry_data + (global_state * 0x44)) - 4) + 4);
         ((TObjLight *)(copy_storage_80133D78.bytes))->bswap_data();
         init_map_lights((u8 *)((void *) ((copy_storage_80133D78.bytes))));
         return;

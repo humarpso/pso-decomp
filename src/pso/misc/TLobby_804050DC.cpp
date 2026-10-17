@@ -3077,21 +3077,16 @@ void TLobby::dispatch_request_callback(s16 arg1) {
 s32 TLobby__sub_8040C9E0(u8 *arg0, u8 *arg1) {
     struct Fields_arg0 { u8 pad_0[4]; s32 field_4; u8 pad_8[16]; u16 field_18; };
     struct Fields_arg1 { u8 pad_0[4]; u32 field_4; u8 pad_8[16]; u16 field_18; };
-    s32 temp_r0_2;
-    s32 temp_r0_3;
     s32 var_r5;
-    u16 temp_r0;
     u8 *var_r3;
     u8 *var_r4;
-    temp_r0 = ((Fields_arg0*)arg0)->field_18;
-    switch ((s32) temp_r0) {
+    switch ((s32) (((Fields_arg0*)arg0)->field_18)) {
     case 1:
         if ((u16) ((Fields_arg1*)arg1)->field_18 != 1) {
             var_r3 = (u8 *)((void *)-1);
             return -1;
         }
-        temp_r0_2 = ((Fields_arg0*)arg0)->field_4;
-        switch (temp_r0_2) {
+        switch (((Fields_arg0*)arg0)->field_4) {
         case 4:
             if ((u32) ((Fields_arg1*)arg1)->field_4 != 4U) {
                 var_r3 = (u8 *)((void *)-1);
@@ -3121,8 +3116,7 @@ s32 TLobby__sub_8040C9E0(u8 *arg0, u8 *arg1) {
             var_r3 = (u8 *)((void *)-1);
             return -1;
         }
-        temp_r0_3 = ((Fields_arg0*)arg0)->field_4;
-        switch (temp_r0_3) {
+        switch (((Fields_arg0*)arg0)->field_4) {
         case 4:
             if ((u32) ((Fields_arg1*)arg1)->field_4 != 4U) {
                 var_r3 = (u8 *)((void *)-1);
@@ -3171,9 +3165,7 @@ s32 TLobby::dispatch_by_addr_family(s32 arg0, u8 *arg1, u8 *arg2, u8 *arg3, void
 u16 TLobby__sub_8040D8F0(u8 *arg0, u8 *arg1, s8 arg2, u8 *pkt, s16 flag) {
     struct Fields_arg0 { s32 field_0; s32 field_4; };
     struct Fields_arg1 { u8 pad_0[4]; s32 field_4; };
-    s32 temp_r0;
-    temp_r0 = ((Fields_arg0*)arg0)->field_0;
-    switch (temp_r0) {
+    switch (((Fields_arg0*)arg0)->field_0) {
     case 4:
         return TLobby::calc_pseudo_header_checksum(((Fields_arg0*)arg0)->field_4, ((Fields_arg1*)arg1)->field_4, arg2, pkt, flag);
     case 6:
@@ -3228,11 +3220,9 @@ s32 select_source_address__6TLobbyFPvPv(Out_8040D95C *arg0, In_8040D95C *arg1) {
 s32 TLobby__sub_8040DA54(u8 *arg0, u8 *arg1) {
     struct Fields_arg0 { s32 field_0; u8 * field_4; };
     struct Fields_arg1 { u8 pad_0[4]; s32 field_4; };
-    s32 temp_r0;
     s32 var_r4;
     u8 *var_r3;
-    temp_r0 = ((Fields_arg0*)arg0)->field_0;
-    switch (temp_r0) {
+    switch (((Fields_arg0*)arg0)->field_0) {
     case 4:
         var_r3 = (u8 *)(((Fields_arg0*)arg0)->field_4);
         var_r4 = ((Fields_arg1*)arg1)->field_4;
@@ -3249,10 +3239,8 @@ s32 TLobby__sub_8040DA54(u8 *arg0, u8 *arg1) {
 }
 
 s16 TLobby__sub_8040DABC(u8 *arg0) {
-    s32 temp_r0;
     u32 ip;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0)) {
     case 0:
         return 0;
     case 4:
@@ -3271,9 +3259,7 @@ s16 TLobby__sub_8040DABC(u8 *arg0) {
 s32 TLobby::is_multicast_address(s16 arg1) {
     u8 *arg0 = (u8 *)this;
     struct Fields_arg0 { s32 field_0; u32 field_4; };
-    s32 temp_r0;
-    temp_r0 = ((Fields_arg0*)arg0)->field_0;
-    switch (temp_r0) {
+    switch (((Fields_arg0*)arg0)->field_0) {
     case 4:
         return TLobby__sub_8040FDA0(((Fields_arg0*)arg0)->field_4, arg1);
     case 6:
@@ -3286,9 +3272,7 @@ s32 TLobby::is_multicast_address(s16 arg1) {
 
 s32 is_addr_unspecified__6TLobbyFPv(u8 *arg0) {
     struct Fields_arg0 { s32 field_0; u32 field_4; };
-    s32 temp_r0;
-    temp_r0 = ((Fields_arg0*)arg0)->field_0;
-    switch (temp_r0) {
+    switch (((Fields_arg0*)arg0)->field_0) {
     case 0:
         return 1;
     case 4:
@@ -3304,11 +3288,9 @@ s32 TLobby::compare_sockaddr(u8 *arg1) {
     u8 *arg0 = (u8 *)this;
     struct Fields_arg0 { s32 field_0; u8 * field_4; };
     struct Fields_arg1 { u32 field_0; u8 * field_4; };
-    s32 temp_r0;
     u8 *var_r3;
     u8 *var_r4;
-    temp_r0 = ((Fields_arg0*)arg0)->field_0;
-    switch (temp_r0) {
+    switch (((Fields_arg0*)arg0)->field_0) {
     case 4:
         if ((u32) ((Fields_arg1*)arg1)->field_0 != 4U) {
             var_r3 = (u8 *)((void *)-1);
@@ -3909,7 +3891,6 @@ s32 NetIPv6GetAddressScopeClass(u8 *arg0) {
     s16 var_r0_2;
     s16 var_r0_3;
     s16 var_r0_4;
-    s32 temp_r0;
     s32 var_r3;
     u8 var_r4;
     u8 var_r5;
@@ -3958,8 +3939,7 @@ s32 NetIPv6GetAddressScopeClass(u8 *arg0) {
         var_r0_4 = 0;
     }
     if (var_r0_4 != 0) {
-        temp_r0 = ((RecoveredFields_804143BC_arg0 *)arg0)->field_1 & 0xF;
-        switch (temp_r0) {
+        switch (((RecoveredFields_804143BC_arg0 *)arg0)->field_1 & 0xF) {
         case 1:
             var_r3 = 1;
             return 1;

@@ -151,11 +151,9 @@ void TUnk_804CCB28::spawn_rafoie_explosion_bursts() {
 
 void TTecRaFoie::vfunc_9() {
     u8 *arg0 = (u8 *)this;
-    s16 temp_r0;
     s32 handle;
 
-    temp_r0 = *(s16 *)&this->unk_7A;
-    switch (temp_r0) {
+    switch (*(s16 *)&this->unk_7A) {
     case 0:
         handle = play_sound_effect(0x4002A602, (int)(arg0 + 0x7C), 0, 0);
         if (handle >= 0) {

@@ -618,7 +618,6 @@ void TObjEneRe4Bit__sub_800ECE04(u8 *arg0, s32 arg1) {
 #pragma opt_common_subs off
 #pragma opt_propagation off
 void TObjEneRe4Bit__sub_800ECED0(void *arg0, s32 arg1) {
-    s32 temp_r0;
     s32 temp_r4;
     switch (arg1) {
     case 4:
@@ -636,8 +635,7 @@ void TObjEneRe4Bit__sub_800ECED0(void *arg0, s32 arg1) {
         }
         return;
     case 0:
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x408);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x408)) {
         case 1:
             break;
         case 0:

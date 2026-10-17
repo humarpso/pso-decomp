@@ -188,7 +188,6 @@ void TEndingPic::run_task() { advance_animation_state(); }
 
 TEndingPic::~TEndingPic() {}
 u8 *__ct__10TEndingPicFv(u8 *arg0, u8 *arg1) {
-    s32 temp_r3;
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__10TEndingPic.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4378;
@@ -199,8 +198,7 @@ u8 *__ct__10TEndingPicFv(u8 *arg0, u8 *arg1) {
     *(s32 *)((s8 *)arg0 + 0x24) = 0;
     ending_pic_wall_texture_list = ((s32)get_ending_ab_wall_texture_list());
     ((TEndingPic *)arg0)->init_positions();
-    temp_r3 = TKeyBoardControl__sub_8000F828();
-    switch (temp_r3) {
+    switch (TKeyBoardControl__sub_8000F828()) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0xEC) = 0x1E;
         break;

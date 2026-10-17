@@ -104,10 +104,8 @@ u8 TItemObject::get_tool_pmt_amount_byte() {
 }
 
 void TItemObject::vfunc_14() {
-    s32 temp_r31;
 
-    temp_r31 = ((s32 (*)())copy_and_register_item_data__11TItemObjectFv)();
-    if (this->vfunc_36() > temp_r31) {
+    if (this->vfunc_36() > (((s32 (*)())copy_and_register_item_data__11TItemObjectFv)())) {
         ((TItem *)this)->refresh_if_current_player();
     }
 }

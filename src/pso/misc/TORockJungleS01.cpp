@@ -154,7 +154,6 @@ u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1) {
     struct CopyStack_8029C9C8 { u8 bytes[0x3C]; };
     CopyStack_8029C9C8 copy_storage_8029C9C8;
     s32 temp_r0;
-    s32 temp_r4;
     TORockCaveBrakable__ct((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8029C9C8___vt__15TORockJungleS01 *)&__vt__15TORockJungleS01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TORockJungleS01__name;
@@ -170,8 +169,7 @@ u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1) {
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
         *(s32 *)&((TORockJungleS01 *)arg0)->m_b8 = -1;
     }
-    temp_r4 = arg1 - 4;
-    *(ByteBlock_3C *)(copy_storage_8029C9C8.bytes) = *(const ByteBlock_3C *)(temp_r4 + 4);
+    *(ByteBlock_3C *)(copy_storage_8029C9C8.bytes) = *(const ByteBlock_3C *)((arg1 - 4) + 4);
     VecCopy((Vec *)((copy_storage_8029C9C8.bytes + 0x24)), (const Vec *)(&rock_jungle_vec3_table.value));
     *(s32 *)&((TORockJungleS01 *)arg0)->m_bc = TObjMapCsn::create((s32)((void *) ((copy_storage_8029C9C8.bytes))));
     return arg0;

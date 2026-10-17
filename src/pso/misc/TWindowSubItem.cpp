@@ -203,12 +203,10 @@ s32 has_armor_with_unit_slot(void *arg0, int arg1) {
 #pragma push
 #pragma scheduling off
 void TWindowSubItem::use_selected_item() {
-    s32 temp_r31;
     s32 player;
     player = get_player_by_client_id(this->m_24);
     if (player != 0) {
-        temp_r31 = ((TWindowSubItem *)(*(s32 *)&this->m_30))->get_selected_entry();
-        TObjPlayer__sub_801B7B58(player, (int) (select_cursor_entry__22TWindowSubShortCutListFv((int) (*(s32 *)&this->m_30))), temp_r31);
+        TObjPlayer__sub_801B7B58(player, (int) (select_cursor_entry__22TWindowSubShortCutListFv((int) (*(s32 *)&this->m_30))), ((TWindowSubItem *)(*(s32 *)&this->m_30))->get_selected_entry());
     }
 }
 #pragma pop

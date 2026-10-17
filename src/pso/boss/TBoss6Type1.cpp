@@ -740,7 +740,6 @@ void clamp_to_arena_radius__11TBoss6Type1FPvPvf(Boss_802B54F0 *o, Vec_802B54F0 *
 #pragma push
 #pragma fp_contract on
 void TBoss6Type1__sub_802B5598(void *arg0, void *arg1) {
-    f32 temp_f1;
     f32 var_f31;
     s32 temp_r31;
     s32 var_r4;
@@ -761,8 +760,7 @@ void TBoss6Type1__sub_802B5598(void *arg0, void *arg1) {
     if ((s32) var_r5 != 0) {
         var_f31 = lbl_805DE31C;
     }
-    temp_f1 = var_f31 * sin_table_lookup(temp_r31);
-    *(f32 *)((s8 *)arg1 + 0) = temp_f1;
+    *(f32 *)((s8 *)arg1 + 0) = (var_f31 * sin_table_lookup(temp_r31));
     *(f32 *)((s8 *)arg1 + 4) = (f32) TBoss6Type1__data_805DE318;
     *(f32 *)((s8 *)arg1 + 8) = (f32) (var_f31 * cos_table_lookup(temp_r31));
 }
@@ -911,9 +909,7 @@ void fire_at_all_players__11TBoss6Type1FPvf(Boss_802B5AD4 *self, f32 dy) {
 #pragma pop
 
 void TBoss6Type1::sub_802B5CB4() {
-    u32 temp_r0;
-    temp_r0 = this->m_374;
-    switch (temp_r0) {
+    switch (this->m_374) {
     case 1:
     case 2:
     case 4:

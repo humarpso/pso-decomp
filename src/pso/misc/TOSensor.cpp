@@ -240,10 +240,8 @@ void TOSensorAncient01::update_pulse_value() {
 #pragma pop
 
 void TOSensorAncient01::vfunc_17() {
-    s32 temp_r4;
 
-    temp_r4 = *(s32 *)((s8 *)this + 0xEC);
-    *(s32 *)((s8 *)this + 0xEC) = (temp_r4 + 0x28F);
+    *(s32 *)((s8 *)this + 0xEC) = ((*(s32 *)((s8 *)this + 0xEC)) + 0x28F);
     update_pulse_value();
 }
 void TOSensorAncient01::vfunc_16() {

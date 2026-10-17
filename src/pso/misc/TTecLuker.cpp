@@ -741,7 +741,6 @@ struct Vec_8023402C;
 struct Pipe_802347B4;
 void run_task__9TTecLukerFv(u8 *arg0) {
     struct { f32 x, y, z; } sp8;
-    s32 temp_r0;
     s32 temp_r30;
     u16 temp_r3;
     u16 temp_r5;
@@ -757,8 +756,7 @@ void run_task__9TTecLukerFv(u8 *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    temp_r0 = *(s32 *)&((TTecLuker *)arg0)->m_108;
-    switch (temp_r0) {
+    switch (*(s32 *)&((TTecLuker *)arg0)->m_108) {
     case 0:
         temp_r3 = obj_getField1c(owner);
         if (temp_r3 != 0xFFFFU) {

@@ -1400,7 +1400,6 @@ void TObjEneDellBiter::step_demo_script() {
 }
 
 void state_death__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
-    s32 temp_r0;
     switch (arg1) {
     case 4:
         ((RecoveredFields_8030390C_arg0 *)arg0)->field_B8 = 9;
@@ -1423,8 +1422,7 @@ void state_death__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
         return;
     case 0:
         advance_animation_playback(arg0);
-        temp_r0 = ((RecoveredFields_8030390C_arg0 *)arg0)->field_4CC;
-        switch (temp_r0) {
+        switch (((RecoveredFields_8030390C_arg0 *)arg0)->field_4CC) {
         case 0:
             if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
                 ((TObjPlayer *)(arg0 + 0x2FC))->request_two_effects();
@@ -1485,7 +1483,6 @@ void TObjEneDellBiter__sub_80303AA0(u8 *arg0, s32 arg1) {
 struct Obj_80098FF4;
 void TObjEneDellBiter__sub_80303BC0(u8 *arg0, s32 arg1) {
     f32 var_f31;
-    s32 temp_r0;
     s32 temp_r5;
     void *p;
     switch (arg1) {
@@ -1506,8 +1503,7 @@ void TObjEneDellBiter__sub_80303BC0(u8 *arg0, s32 arg1) {
         return;
     case 0:
         advance_animation_playback(arg0);
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x4CC);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x4CC)) {
         case 0:
             if (TObjEneDellBiter__sub_80305788((Obj_80098FF4 *)arg0) != 0) {
                 ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
@@ -1677,7 +1673,6 @@ void TObjEneDellBiter__sub_803040D0(u8 *arg0, s32 arg1) {
 }
 
 void handle_attack_event__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
-    s32 temp_r0;
     s32 temp_r3;
 
     switch (arg1) {
@@ -1708,8 +1703,7 @@ void handle_attack_event__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
         advance_animation_playback(arg0);
         temp_r3 = *(s32 *)((s8 *)arg0 + 0x60);
         *(s32 *)((s8 *)arg0 + 0x484) = turn_toward_angle_limited__15TObjBoss2TunnelFlllll(temp_r3, (int) (*(s32 *)((s8 *)arg0 + 0x484)), temp_r3, 0x200, 0x2000);
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x4D0);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x4D0)) {
         case 0:
             if (objInBand((GameObj *)(arg0), TObjEneDellBiter__data_805DEFE4) != 0) {
                 ((TObjEneDellBiter *)arg0)->spawn_front_particle();
@@ -1858,9 +1852,7 @@ void TObjEneDellBiter__sub_803044AC(u8 *arg0, s32 arg1) {
 #pragma pop
 
 void TObjEneDellBiter__sub_8030492C(u8 *arg0, s32 arg1) {
-    f32 temp_f31;
     f32 temp_f31_2;
-    f32 temp_f31_3;
     s32 temp_r30;
     u8 *temp_r30_2;
     switch (arg1) {
@@ -1892,14 +1884,12 @@ void TObjEneDellBiter__sub_8030492C(u8 *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x484) = turn_toward_angle_limited__15TObjBoss2TunnelFlllll((int) (*(s32 *)((s8 *)arg0 + 0x60)), (int) (*(s32 *)((s8 *)arg0 + 0x484)), temp_r30, 0x200, 0x2000);
         temp_r30_2 = TObjEneDellBiter__movement_params;
         if (*(f32 *)((s8 *)arg0 + 0x3AC) <= (f32) *(s32 *)((s8 *)temp_r30_2 + 0x28)) {
-            temp_f31 = *(f32 *)((s8 *)arg0 + 0x3A8) * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)));
-            temp_f31_2 = (*(f32 *)((s8 *)arg0 + 0x3A0) * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)))) + temp_f31;
+            temp_f31_2 = (*(f32 *)((s8 *)arg0 + 0x3A0) * sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)))) + (*(f32 *)((s8 *)arg0 + 0x3A8) * cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60))));
             if (temp_f31_2 >= cos_table_lookup(0x1800)) {
                 *(s32 *)((s8 *)arg0 + 0x4CC) = 1;
             }
         } else {
-            temp_f31_3 = cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)));
-            ((TObjEneDD *)arg0)->move_clamped_on_ground(sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60))), temp_f31_3, *(f32 *)((s8 *)temp_r30_2 + 4));
+            ((TObjEneDD *)arg0)->move_clamped_on_ground(sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60))), cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60))), *(f32 *)((s8 *)temp_r30_2 + 4));
         }
         ((TObjEneDD *)(arg0))->vfunc_89();
         ((s32 (*)(void *))noop__16TObjEneDellBiterFv)(arg0);
@@ -2036,7 +2026,6 @@ void TObjEneDellBiter__sub_80304D10(u8 *arg0, s32 arg1) {
 #pragma pop
 
 void run_task__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
-    s32 temp_r0;
 
     switch (arg1) {
     case 4:
@@ -2064,8 +2053,7 @@ void run_task__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
         ((s32 (*)(void))advance_animation_playback)();
         ((s32 (*)(void *, f32))update_linked_position__12TObjEneDD_STFf)(arg0, TObjEneDellBiter__data_805DF00C);
         *(s32 *)((s8 *)arg0 + 0x4CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x4CC) + 1);
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x4D0);
-        switch (temp_r0) {
+        switch (*(s32 *)((s8 *)arg0 + 0x4D0)) {
         case 0:
             if ((s32) *(s32 *)((s8 *)arg0 + 0x4CC) > 0x14) {
                 *(s32 *)((s8 *)arg0 + 0x4D0) = 1;

@@ -198,10 +198,8 @@ void TObjPlayer__sub_8008F1DC(void *arg0);
 s32 TObjPlayer__sub_800A0554(void *);
 void TObjPlayer__sub_8008EC3C(u8 *arg0);
 void TObjEneBalClawBody::update_dragon_boss_state() {
-    s32 temp_r0;
 
-    temp_r0 = *(s32 *)&this->state;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->state) {
     case 0:
         *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x40000);
         this->m_b8 = (s16) ((((u32) this->m_388 >> 0x18U) & 1) ? 0 : 5);
@@ -217,15 +215,11 @@ void TObjEneBalClawBody::update_dragon_boss_state() {
 }
 
 void TObjPlayer__sub_8008EC3C(u8 *arg0) {
-    s32 temp_r0;
-    s32 temp_r4;
     s32 temp_r4_2;
     s32 temp_r5;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case 0:
-        temp_r4 = *(s32 *)((s8 *)arg0 + 0x388) | 4;
-        *(s32 *)((s8 *)arg0 + 0x388) = temp_r4;
+        *(s32 *)((s8 *)arg0 + 0x388) = (*(s32 *)((s8 *)arg0 + 0x388) | 4);
         *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x04000000);
         *(s16 *)((s8 *)arg0 + 0xB8) = (*(s32 *)((s8 *)arg0 + 0x388) & 0x01000000) ? 0 : 5;
         ((TBoss3Volopt *)(arg0 + 0x38))->play_area_se_with_particle();

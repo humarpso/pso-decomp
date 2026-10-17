@@ -138,10 +138,8 @@ s32 TAdMultiSelGameModeGC::build_mode_menu(s32 arg1) {
 
 void TAdMultiSelGameModeGC::exit_keyboard_mode() { TObjEneDolmOlm::reset_count(); TKeyBoardControl__sub_8000F9CC(14); }
 void TAdMultiSelGameModeGC::update_transition_state() {
-    s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)this + 0x20);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)this + 0x20)) {
     case 0:
         TAdMultiChgGameModeGC::begin_transition();
         return;

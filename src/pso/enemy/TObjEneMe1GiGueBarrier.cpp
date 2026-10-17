@@ -92,7 +92,6 @@ block_6:
 
 void TObjEneMe1GiGueBarrier::run_task() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0_2;
     u32 temp_r0;
     temp_r0 = this->m_fc;
     if (temp_r0 == 0U) {
@@ -103,8 +102,7 @@ void TObjEneMe1GiGueBarrier::run_task() {
     this->rotation_y = ((TObjEneMe1GiGueBarrier *)(this->m_fc))->get_timer();
     advance_animation_playback(arg0);
     *(s32 *)&this->m_108 = (s32) (*(s32 *)&this->m_108 - 1);
-    temp_r0_2 = *(s32 *)&this->m_104;
-    switch (temp_r0_2) {
+    switch (*(s32 *)&this->m_104) {
     case 0:
         if (*(s32 *)&this->animationFlags & 0x10) {
             *(s32 *)&this->m_104 = 1;

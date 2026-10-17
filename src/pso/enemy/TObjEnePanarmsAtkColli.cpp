@@ -491,7 +491,6 @@ void *__nw__7TObjectFUl(int);
 
 void TObjEnePanarmsAtkColli::run_task() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0_2;
     if (--*(s32 *)&this->m_380 < 0) {
         queue_destruction__7TObjectFv((arg0));
         return;
@@ -499,8 +498,7 @@ void TObjEnePanarmsAtkColli::run_task() {
     VecCopy((Vec *)&this->m_44, (const Vec *)&this->position);
     vec3_add_to((u8 *)&this->position, (u8 *)&this->unk_308);
     *(f32 *)&this->unk_378 = (f32) (*(f32 *)&this->unk_378 + this->m_37c);
-    temp_r0_2 = *(s32 *)&this->m_374;
-    switch (temp_r0_2) {
+    switch (*(s32 *)&this->m_374) {
     case 0:
         ((void (*)(void *))fn_800E35C8)(arg0);
         return;

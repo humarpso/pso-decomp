@@ -19,10 +19,8 @@ s32 get_window_layout_position(s32);
 extern s32 local_client_id;
 
 void update_challenge_warp_window(void *arg0) {
-    s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0xE0);
-    switch (temp_r0) {
+    switch (*(s16 *)((s8 *)arg0 + 0xE0)) {
     case 0:
         *(s16 *)((s8 *)arg0 + 0xE0) = 1;
         *(s32 *)((s8 *)arg0 + 0xD0) = 0;

@@ -752,9 +752,7 @@ void create_cane_effect_from_state__10TObjPlayerFPv(void *item) {
 
 void fire_spread_shot__10TObjPlayerFPv(u8 *arg0) {
     s32 sp8;
-    u8 *temp_r3;
-    temp_r3 = *(u8 * *)&((TUnk_804E23F0 *)arg0)->player;
-    ((VObj_18 *)(temp_r3))->m63(0x30, &sp8);
+    ((VObj_18 *)(*(u8 * *)&((TUnk_804E23F0 *)arg0)->player))->m63(0x30, &sp8);
     if (get_validated_attack_stage((*(u8 * *)&((TUnk_804E23F0 *)arg0)->player+ 0x7CC)) == 2) {
         fire_shot_at_target__11TItemWeaponFv(arg0, &sp8, (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0);
         fire_shot_at_target__11TItemWeaponFv(arg0, &sp8, (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0x1555);

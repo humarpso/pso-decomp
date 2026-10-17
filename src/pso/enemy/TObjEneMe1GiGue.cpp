@@ -797,12 +797,10 @@ struct VObj410 : Base410 {
 extern "C" {
 
 void init__15TObjEneMe1GiGueFPv(u8 *arg0) {
-    s32 temp_r0;
     s32 temp_r4;
     s32 temp_r5;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 4);
         temp_r4 = *(s32 *)((s8 *)arg0 + 0x30) | 0x04000000;
@@ -829,12 +827,10 @@ void init__15TObjEneMe1GiGueFPv(u8 *arg0) {
 }
 void TObjEneMe1GiGue__sub_802CB378(u8 *arg0) {
     f32 temp_f3;
-    s32 temp_r0;
     s32 temp_r0_2;
     s32 temp_r6;
     u8 *temp_r3;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case 0:
         VecCopy((Vec *)(arg0 + 0x390), (const Vec *)(arg0 + 0x50));
         ((void (*)(void *, Vec_802CB378, Vec_802CB378, f32))calc_velocity_toward_destination)(arg0, *(Vec_802CB378 *)((s8 *)arg0 + 0x38), *(Vec_802CB378 *)((s8 *)arg0 + 0x390), *(f32 *)((s8 *)arg0 + 0x3E4));
@@ -1062,11 +1058,9 @@ void update_hit_reaction__15TObjEneMe1GiGueFPv(u8 *arg0) {
     f32 temp_r5;
     s16 temp_r4;
     s16 var_r3;
-    s32 temp_r0;
     s32 temp_r3;
     s32 var_r30;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case 0:
         var_r3 = 4;
         *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFDFFFFF);
@@ -1334,10 +1328,8 @@ void update_rush_attack__15TObjEneMe1GiGueFPv(Obj_802CBCC0 *o) {
 #define TObjEneMe1GiGue__sub_802CB10C ((s32 (*)(void *))TObjEneMe1GiGue__sub_802CB10C)
 #define subtract_vector ((void (*)(void *, void *))subtract_vector)
 void action__15TObjEneMe1GiGueFPv(void *arg0) {
-    s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case 0:
         sub_8004292C__15TObjEnemyCustomFv();
         *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & 0xFFFBFFFF);

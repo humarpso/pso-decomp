@@ -177,11 +177,8 @@ extern const f32 lbl_805DF440;
 extern const f32 lbl_805DF444;
 void TObjEneRecobox::draw_with_debug_info() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
-    s32 temp_r0_2;
     if (get_target_info__9TObjEneDDFv() != 0) {
-        temp_r0 = *(s32 *)&this->m_3f8;
-        switch (temp_r0) {
+        switch (*(s32 *)&this->m_3f8) {
         case 0:
             debug_printf_at(pack_debug_text_position(0, 9), lbl_804763D4);
             break;
@@ -202,8 +199,7 @@ void TObjEneRecobox::draw_with_debug_info() {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, this->rotation_y);
-        temp_r0_2 = *(s32 *)&this->m_3f8;
-        switch (temp_r0_2) {
+        switch (*(s32 *)&this->m_3f8) {
         case 1:
             rotate_matrix_x(0, 0x8000);
             break;
@@ -224,7 +220,6 @@ void TObjEneRecobox::draw_with_debug_info() {
     pop_matrix();
 }
 void render__12TObjEneReconFPv(u8 *arg0) {
-    s32 temp_r0;
     s32 temp_r30;
     Fade_8031EA70 *temp_r29;
     s32 var_r29;
@@ -289,8 +284,7 @@ block_23:
                 push_matrix();
                 post_translate_matrix(arg0 + 0x38);
                 rotate_matrix_y(0, (int) (((TObjEneRecobox *)arg0)->rotation_y));
-                temp_r0 = *(s32 *)&((TObjEneRecobox *)arg0)->m_3f8;
-                switch (temp_r0) {
+                switch (*(s32 *)&((TObjEneRecobox *)arg0)->m_3f8) {
                 case 1:
                     rotate_matrix_x(0, 0x8000);
                     break;

@@ -240,9 +240,7 @@ void TChallenge4PResult::update_wait_input() {
 
 void TChallenge4PResult::handle_result_code() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r3;
-    temp_r3 = TLobby__sub_80292270((this->result_code), (this->slot_index));
-    switch (temp_r3) {
+    switch (TLobby__sub_80292270((this->result_code), (this->slot_index))) {
     case 2:
         ((TChallenge4PResult *)arg0)->handle_third_reward();
         return;
@@ -300,10 +298,8 @@ void TChallenge4PResult::update_input() {
 }
 
 void TChallenge4PResult::run_task() {
-    s32 temp_r0;
     if ((TOKeyMachine01::get_global_state() != 0xE) || (is_active__11TBoss4Type2Fv() != 1)) {
-        temp_r0 = state_1c;
-        switch (temp_r0) {
+        switch (state_1c) {
         case 0:
             update_input();
             return;

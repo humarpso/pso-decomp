@@ -1010,13 +1010,11 @@ void TBoss3VoloptP01__sub_800430D0(void *arg0_) {
 #pragma fp_contract on
 void TBoss3VoloptP01::run_state_machine() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
     u8 *temp_r3;
     u8 *temp_r3_2;
     u8 *temp_r3_3;
     ((TObjEnemyCustom *)arg0)->sub_8004292C();
-    temp_r0 = *(s32 *)&this->state;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->state) {
     case 0:
         this->m_b8 = 0;
         advance_animation_playback((void *) (arg0));
@@ -1172,12 +1170,10 @@ void TBoss3VoloptP01::update_breakup() {
 
 void TBoss3VoloptP01::update_state() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
     s32 temp_r3;
     s32 temp_r3_2;
 
-    temp_r0 = *(s32 *)&this->state;
-    switch (temp_r0) {
+    switch (*(s32 *)&this->state) {
     case 0:
         *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFDFFDFF);
         this->referenceHp = (s16) this->hp;

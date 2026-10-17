@@ -116,7 +116,6 @@ void TEffClitical::run_task() {
     typedef char sp28_offset[(offsetof(Stack_800823E0, sp28) == 0x20) ? 1 : -1];
     typedef char sp2C_offset[(offsetof(Stack_800823E0, sp2C) == 0x24) ? 1 : -1];
     Stack_800823E0 stack;
-    s32 temp_r0;
     s32 var_r30;
     stack.sp20 = *(s32 *)((s8 *)&clitical_vec_a.value + 0);
     stack.sp24 = *(s32 *)((s8 *)&clitical_vec_a.value + 4);
@@ -125,8 +124,7 @@ void TEffClitical::run_task() {
     stack.sp14 = *(s32 *)((s8 *)&clitical_vec_b.value + 0);
     stack.sp18 = *(s32 *)((s8 *)&clitical_vec_b.value + 4);
     stack.sp1C = *(s32 *)((s8 *)&clitical_vec_b.value + 8);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x74);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x74)) {
     case 1:
         break;
     case 0:

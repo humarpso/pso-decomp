@@ -183,7 +183,6 @@ u8 *TORockJungleM01__ct(u8 *arg0, s32 arg1) {
     struct CopyStack_8029C588 { u8 bytes[0x3C]; };
     CopyStack_8029C588 copy_storage_8029C588;
     s32 temp_r0;
-    s32 temp_r4;
     TORockCaveBrakable__ct((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8029C588___vt__15TORockJungleM01 *)&__vt__15TORockJungleM01).value;
     ((TObjPlayer *)(arg0 + 0xBC))->init_and_activate();
@@ -200,8 +199,7 @@ u8 *TORockJungleM01__ct(u8 *arg0, s32 arg1) {
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
         *(s32 *)&((TORockJungleM01 *)arg0)->m_b8 = -1;
     }
-    temp_r4 = arg1 - 4;
-    *(ByteBlock_3C *)(copy_storage_8029C588.bytes) = *(const ByteBlock_3C *)(temp_r4 + 4);
+    *(ByteBlock_3C *)(copy_storage_8029C588.bytes) = *(const ByteBlock_3C *)((arg1 - 4) + 4);
     VecCopy((Vec *)((copy_storage_8029C588.bytes + 0x24)), (const Vec *)(&rock_jungle_vec3_table.value));
     *(s32 *)&((TORockJungleM01 *)arg0)->m_dc = TObjMapCsn::create((s32)((void *) ((copy_storage_8029C588.bytes))));
     ((TObjPlayer *)(arg0 + 0xBC))->activate_and_dispatch();

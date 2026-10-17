@@ -238,7 +238,6 @@ extern "C" {
 
 void **TObjPlayer__sub_80083F04(void) {
     void **var_r3;
-    void **var_r3_2;
     u8 *var_r4;
     void **phi_r3;
     var_r3 = (void **)(&lbl_8048E5C8);
@@ -246,8 +245,7 @@ void **TObjPlayer__sub_80083F04(void) {
     var_r3 = (void **)(&lbl_8048E5C8);
     phi_r3 = (void **)(&lbl_8048E5C8);
     if ((u32) *(u32 *)((s8 *)var_r4 + 8) != 0U) {
-        var_r3_2 = (void **)(TLobby__sub_803DA16C());
-        phi_r3 = (void **)(var_r3_2);
+        phi_r3 = (void **)((void **)(TLobby__sub_803DA16C()));
     }
     return phi_r3;
 }

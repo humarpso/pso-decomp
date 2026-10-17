@@ -321,15 +321,13 @@ typedef struct Appearance Appearance;
 typedef struct ClassAppearance ClassAppearance;
 typedef struct TextureList TextureList;
 void TCharaMaking__bind_appearance_texture_lists(s32 *output, s32 *arg1, s32 *arg2, struct Appearance *appearance) {
-  s32 temp_r4;
   struct ClassAppearance *definition;
   struct TextureList **temp_r3;
   struct TextureList **temp_r3_2;
   struct TextureList *temp_r6;
   ClassAppearance *new_var;
   struct TextureList *temp_r6_2;
-  temp_r4 = ((TCharaMaking *)appearance)->get_display_index() * 0x2C;
-  new_var = (ClassAppearance *) (((u8 *) class_appearance_table) + temp_r4);
+  new_var = (ClassAppearance *) (((u8 *) class_appearance_table) + (((TCharaMaking *)appearance)->get_display_index() * 0x2C));
   *output = 0;
   definition = new_var;
   temp_r3 = definition->hairTextures;

@@ -57,12 +57,10 @@ s32 check_height_ready__13TObjTombstoneFv();
 
 void TObjTombstone::render() {
     s32 arg0 = (s32)this;
-    s32 temp_r3;
 
     if (check_height_ready__13TObjTombstoneFv() != 0) {
         ((TObjTombstone *)arg0)->update_render_flags();
-        temp_r3 = TWindowSubStatusDisp::resolve_player_slot(-1);
-        switch (temp_r3) {
+        switch (TWindowSubStatusDisp::resolve_player_slot(-1)) {
         case 2:
         case 3:
             ((TObjTombstone *)arg0)->update_fade_by_distance();

@@ -357,7 +357,6 @@ block_17:
     return 1;
 }
 s32 TAdPlayerLoadGC::check_memcard_status(s32 arg0) {
-    s32 temp_r3;
     if (arg0 >= 2) {
         TAdPlayerLoadGC__card_result_code = -0xFF;
         return -0xFF;
@@ -370,8 +369,7 @@ s32 TAdPlayerLoadGC::check_memcard_status(s32 arg0) {
         TAdPlayerLoadGC__card_result_code = -0xFF;
         return -0xFF;
     }
-    temp_r3 = CARDCheck(arg0);
-    switch (temp_r3) {
+    switch (CARDCheck(arg0)) {
     case -6:
     case -13:
         TAdPlayerLoadGC__card_result_code = -0xFD;
@@ -515,7 +513,6 @@ check:
 s32 TAdPlayerLoadGC::query_memcard_capacity(s32 arg0) {
     s32 spC;
     s32 sp8;
-    s32 temp_r3;
     if (arg0 >= 2) {
         return -0xFF;
     }
@@ -523,8 +520,7 @@ s32 TAdPlayerLoadGC::query_memcard_capacity(s32 arg0) {
         TAdPlayerLoadGC__card_result_code = -0xFD;
         return -0xFD;
     }
-    temp_r3 = CARDFreeBlocks(arg0, &spC, &sp8);
-    switch (temp_r3) {
+    switch (CARDFreeBlocks(arg0, &spC, &sp8)) {
     case -3:
         TAdPlayerLoadGC__card_result_code = -0xFF;
         return -0xFF;
@@ -544,13 +540,11 @@ s32 TAdPlayerLoadGC::query_memcard_capacity(s32 arg0) {
     }
 }
 s32 TAdPlayerLoadGC::poll_load_status(s32 arg0) {
-    s32 temp_r3;
     if (arg0 >= 2) {
         TAdPlayerLoadGC__card_result_code = -1;
         return -1;
     }
-    temp_r3 = CARDDelete();
-    switch (temp_r3) {
+    switch (CARDDelete()) {
     case -1:
         TAdPlayerLoadGC__card_result_code = -1;
         return -1;

@@ -38,12 +38,10 @@ void run_task__13TObjCMHexTileFv(u8 *arg0) {
     f32 temp_f1_2;
     f32 temp_f1_3;
     f32 temp_f2;
-    s32 temp_r0;
     s32 temp_r5;
     s32 temp_r5_2;
     s32 temp_r6;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x1C)) {
     case 0:
         temp_f1 = (f32) *(s32 *)((s8 *)arg0 + 0x50) / (f32) *(s32 *)((s8 *)arg0 + 0x20);
         *(f32 *)((s8 *)arg0 + 0x4C) = temp_f1;

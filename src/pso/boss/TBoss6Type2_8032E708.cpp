@@ -764,9 +764,7 @@ void TBoss6Mag::spawn_falling_rocks() {
 #pragma pop
 
 void TBoss6Type2__sub_8032F5C4(void *arg0) {
-    s32 temp_r4;
-    temp_r4 = *(s32 *)((s8 *)arg0 + 0x30);
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (temp_r4 & ~0xA00);
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) ((*(s32 *)((s8 *)arg0 + 0x30)) & ~0xA00);
     *(s16 *)((s8 *)arg0 + 0x32C) = (s16) *(s32 *)((s8 *)arg0 + 0x38C);
     ((TBoss6Mag *)arg0)->sync_hp();
 }
@@ -931,15 +929,13 @@ s32 TBoss6Type2__sub_8032FB84(O_8032FB84 *arg0) {
 
 void TBoss6Type2::update_segment_angles() {
     s16 temp_r0;
-    s32 temp_r0_2;
     temp_r0 = *(s16 *)((s8 *)this + 0x3B4);
     *(s16 *)((s8 *)this + 0x39E) = temp_r0;
     *(s16 *)((s8 *)this + 0x39C) = temp_r0;
     *(s16 *)((s8 *)this + 0x39A) = temp_r0;
     *(s16 *)((s8 *)this + 0x398) = temp_r0;
     *(s16 *)((s8 *)this + 0x396) = temp_r0;
-    temp_r0_2 = *(s32 *)((s8 *)this + 0x390);
-    switch (temp_r0_2) {
+    switch (*(s32 *)((s8 *)this + 0x390)) {
     case 1:
         *(s16 *)((s8 *)this + 0x396) = (s16) *(s16 *)((s8 *)this + 0x3B6);
         break;

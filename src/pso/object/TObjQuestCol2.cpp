@@ -17,7 +17,6 @@ extern s32 quest_mission_manager;
 extern s32 quest_area_manager;
 
 void *TObjQuestCol2__ct(void *arg0) {
-    s32 temp_r0;
 
     TObjQuestColBase__ct();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjQuestCol2;
@@ -29,8 +28,7 @@ void *TObjQuestCol2__ct(void *arg0) {
     if ((s32) ((TObjQuestCol2 *)arg0)->m_c0> 1) {
         ((TObjQuestCol2 *)arg0)->m_c0 = 1;
     }
-    temp_r0 = ((TObjQuestCol2 *)arg0)->m_c0;
-    switch (temp_r0) {
+    switch (((TObjQuestCol2 *)arg0)->m_c0) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0xBC) = (s32) quest_mission_manager;
         break;

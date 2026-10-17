@@ -48,10 +48,8 @@ s32 update_challenge_warp_window();
 s32 update_state__16TObjCityMainWarpFv();
 
 void TObjCityMainWarpChallenge::update_state() {
-    s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)this + 0xDE);
-    switch (temp_r0) {
+    switch (*(s16 *)((s8 *)this + 0xDE)) {
     case 0:
         update_challenge_state__25TObjCityMainWarpChallengeFv();
         return;

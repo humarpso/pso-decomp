@@ -102,7 +102,6 @@ void *__vt__5TLogo[6] = {
 };
 }
 void run_task__5TLogoFv(u8 *arg0) {
-    u32 temp_r0;
     u32 var_r0;
     u32 var_r0_2;
     u32 var_r0_3;
@@ -111,8 +110,7 @@ void run_task__5TLogoFv(u8 *arg0) {
     u32 var_r0_6;
     u32 var_r0_7;
     u32 var_r0_8;
-    temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
-    switch (temp_r0) {
+    switch (*(u32 *)((s8 *)arg0 + 0x20)) {
     case 0:
         if (check_progressive_ready__5TLogoFv() != 0) {
             if (((s32)TLogo__sub_8013F808()) != 0) {

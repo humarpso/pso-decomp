@@ -21,7 +21,6 @@ s32 TWindowSubSymbolChat::select_symbol_chat_record(s8 *arg1, s32 *arg2) {
     Data_80285E10 *temp_r28;
     s32 var_r31;
     s16 temp_r0;
-    s32 *temp_r3;
     s32 temp_r3_2;
     s32 var_r29;
     u16 *temp_r28_2;
@@ -32,8 +31,7 @@ s32 TWindowSubSymbolChat::select_symbol_chat_record(s8 *arg1, s32 *arg2) {
     u8 *temp_r29;
     s32 instance;
     *(s32 **)((s8 *)((u8 *)this) + 0x84) = arg2;
-    temp_r3 = *(s32 **)((s8 *)((u8 *)this) + 0x84);
-    *temp_r3 = 0;
+    *(*(s32 **)((s8 *)((u8 *)this) + 0x84)) = 0;
     instance = TWindowSubSymbolChat::get_instance();
     temp_r28 = (Data_80285E10 *)get_data_ptr__20TWindowSubSymbolChatFv();
     temp_r3_2 = TWindowSubSymbolChat::calc_remaining_slots();

@@ -167,12 +167,8 @@ void TWindowSubSymbolChat::run_task() {
     u32 var_r0_3;
     u32 var_r0_4;
     u32 var_r30;
-    u8 temp_r0;
-    u8 *temp_r3;
-    u8 *temp_r4;
     u8 *temp_r5;
-    temp_r0 = this->m_1c;
-    switch (temp_r0) {
+    switch (this->m_1c) {
     case 0:
     case 1:
         if ((u32) this->m_28 != 0U) {
@@ -196,8 +192,7 @@ void TWindowSubSymbolChat::run_task() {
     case 2:
         ((TWindowSubSymbolChat *)(*(u8 * *)&this->m_30))->set_from_key((int) (get_selected_menu_value(this->m_38)));
         if (((TWindowSubComCard *)(this->m_38))->get_status_flag() != 0) {
-            temp_r3 = (u8 *)(*(u8 * *)&this->m_2c);
-            ((VObj_18_204a81 *)(temp_r3))->m7();
+            ((VObj_18_204a81 *)((u8 *)(*(u8 * *)&this->m_2c)))->m7();
             this->m_1c = 0x2AU;
             return;
         }
@@ -583,8 +578,7 @@ void TWindowSubSymbolChat::run_task() {
         if ((void *) *(u8 * *)&this->m_34 == NULL) {
             *(u8 * *)&this->m_34 = ((u8 *)TWindowSubSymbolChat::create_chat_symbol_window((s32)arg0, 1));
         }
-        temp_r4 = (u8 *)(*(u8 * *)&this->m_34);
-        *(s32 *)((s8 *)temp_r4 + 0x64) = 1;
+        *(s32 *)((s8 *)((u8 *)(*(u8 * *)&this->m_34)) + 0x64) = 1;
         this->m_38 = ((u32)create_symbol_list_card());
         apply_symbol();
         this->m_1c = 0x1FU;

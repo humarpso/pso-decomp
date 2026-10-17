@@ -48,11 +48,9 @@ void TObjEnvSound::render() {  }
 void TObjEnvSound::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f0;
-    s32 temp_r0;
     temp_f0 = *(f32 *)&this->unk_90;
     if ((fn_801908F8((f32) (temp_f0 * temp_f0)) != 0) && (TObjEnvSound::is_sound_enabled(arg0, (int) (*(s32 *)&this->m_98)) != 0)) {
-        temp_r0 = *(s32 *)&this->m_9c;
-        switch (temp_r0) {
+        switch (*(s32 *)&this->m_9c) {
         case 0:
             break;
         case 1:

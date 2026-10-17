@@ -838,12 +838,10 @@ void TObjPlayer::update_move_to_destination() {
 s32 TObjPlayer::update_hide_sequence() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r3;
-    s32 temp_r0;
     s32 temp_r4;
     s32 temp_r5;
 
-    temp_r0 = this->m_37c;
-    switch (temp_r0) {
+    switch (this->m_37c) {
     case 0:
         ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x240300);
         *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x800000);
@@ -939,9 +937,7 @@ void TObjPlayer__sub_800A159C(Obj_800A159C *o) {
 
 void TObjPlayer__sub_800A16C4(u8 *arg0) {
     s16 temp_r4;
-    s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 1);
         ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x100);
@@ -1021,10 +1017,7 @@ void TObjPlayer__sub_800A1974(void) {  }
 void TObjPlayer__sub_800A1D70(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f31;
-    s32 temp_r0;
-    s32 temp_r4;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFDFFFFF);
         if (*(s32 *)((s8 *)arg0 + 0x388) & 0x800000) {
@@ -1062,8 +1055,7 @@ void TObjPlayer__sub_800A1D70(u8 *arg0) {
         ((TObjPlayer *)arg0)->update_collisions();
         if ((u32) *(u32 *)((s8 *)arg0 + 0xB4) != 8U) {
             ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x40300);
-            temp_r4 = *(s32 *)((s8 *)arg0 + 0x388);
-            *(s32 *)((s8 *)arg0 + 0x388) = (s32) (temp_r4 & 0xFF7FFFFE);
+            *(s32 *)((s8 *)arg0 + 0x388) = (s32) ((*(s32 *)((s8 *)arg0 + 0x388)) & 0xFF7FFFFE);
             *(s16 *)((s8 *)arg0 + 0x33E) = (s16) *(s16 *)((s8 *)arg0 + 0x32C);
             ((TObjPlayer *)arg0)->set_hidden_flag();
         }

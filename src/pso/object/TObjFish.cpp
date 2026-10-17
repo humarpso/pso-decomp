@@ -293,10 +293,8 @@ u8 *TOKeyJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
 }
 
 u8 TObjFish::update_state() {
-    s16 temp_r0;
     if ((s32) TObjFish__area_event_stage == 0) {
-        temp_r0 = *(s16 *)((s8 *)this + 0x90);
-        switch (temp_r0) {
+        switch (*(s16 *)((s8 *)this + 0x90)) {
         case 0:
             if (is_lobby_event_active() == 0) {
                 *(s16 *)((s8 *)this + 0x90) = 2;

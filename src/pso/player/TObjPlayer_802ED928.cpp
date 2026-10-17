@@ -154,7 +154,6 @@ void TBoss7DeRolLeC::update_or_dispatch() {
 void TObjPlayer__sub_802ED984(void) {  }
 void TObjPlayer__sub_802ED988(u8 *arg0) {
     s32 temp_r0_2;
-    s32 temp_r0;
     s32 temp_r0_3;
     s32 temp_r30;
     s32 temp_r3;
@@ -183,8 +182,7 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
         }
     }
     if (((s32) *(s32 *)&((TBoss7DeRolLeC *)arg0)->m_6c8 != 0) && (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x624)) + 8) & 0x10000)) {
-        temp_r0 = *(s32 *)&((TBoss7DeRolLeC *)arg0)->m_6d4;
-        switch (temp_r0) {
+        switch (*(s32 *)&((TBoss7DeRolLeC *)arg0)->m_6d4) {
         case 1:
             *(s32 *)&((TBoss7DeRolLeC *)arg0)->m_6d4 = 0;
             ((TBoss7DeRolLeC *)arg0)->advance_action_sequence();

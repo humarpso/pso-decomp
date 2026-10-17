@@ -126,7 +126,6 @@ extern const f32 lbl_805DBE00;
 extern const f32 lbl_805DBE04;
 
 void TObjDoorKey::render() {
-    s32 temp_r0;
 
     if (((TObjDoorKeyVObj_8018FAEC*)this)->m8(lbl_805DBE00, lbl_805DBE04) == 0) {
         if ((u32) this->m_f8 != 0U) {
@@ -136,8 +135,7 @@ void TObjDoorKey::render() {
         if ((u32) this->m_f8 != 0U) {
             ((TParticleCtrl *)(*(void * *)&this->m_f8))->clear_active_flag();
         }
-        temp_r0 = *(s32 *)&this->m_d4;
-        switch (temp_r0) {
+        switch (*(s32 *)&this->m_d4) {
         case 0:
             draw_inactive_badge();
             return;

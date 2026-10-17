@@ -208,7 +208,6 @@ typedef struct VObj_18_94668e VObj_18_94668e;
 void TItem::refresh_owner_stats() {
   s16 temp_r31;
   u8 *temp_r3;
-  u8 *temp_r3_2;
   temp_r3 = (u8 *) (*((u8 **) (((s8 *) ((u8 *)this)) + 0xF0)));
   if (temp_r3 != 0)
   {
@@ -217,8 +216,7 @@ void TItem::refresh_owner_stats() {
     temp_r30 = obj_getS16_32E(*((u8 **) (((s8 *) ((u8 *)this)) + 0xF0)));
     (this->vfunc_23(0));
     (this->vfunc_22(0));
-    temp_r3_2 = (u8 *) (*((u8 **) (((s8 *) ((u8 *)this)) + 0xF0)));
-    (((VObj_18_94668e *)(temp_r3_2))->m71());
+    (((VObj_18_94668e *)((u8 *) (*((u8 **) (((s8 *) ((u8 *)this)) + 0xF0)))))->m71());
     ((TObjPlayer *)(*((u8 **) (((s8 *) ((u8 *)this)) + 0xF0))))->set_hp_clamped(temp_r31);
     ((TObjPlayer *)(*((u8 **) (((s8 *) ((u8 *)this)) + 0xF0))))->set_facing(temp_r30);
     ((TUnk_804806E8 *)(*((u8 **) (((s8 *) ((u8 *)this)) + 0xF0))))->clamp_value();
@@ -286,8 +284,6 @@ typedef struct TItemData TItemData;
 void replace_item_with_new_code(void *arg0, u32 arg1) {
   struct TItemData sp8;
   s32 temp_r31;
-  u8 temp_r3;
-  u8 temp_r3_2;
   u8 tmp0;
   u8 tmp1;
   u8 tmp2;
@@ -301,15 +297,13 @@ void replace_item_with_new_code(void *arg0, u32 arg1) {
   sp8.sub2 = tmp2;
   if (arg1 != 0U)
   {
-    temp_r3 = ((TItem *)arg1)->get_field_ec();
-    switch ((s32) temp_r3)
+    switch ((s32) (((TItem *)arg1)->get_field_ec()))
     {
       case 0:
         ((TObjPlayer *)(&sp8))->copy_field6_from((void*)arg1);
         break;
       case 1:
-        temp_r3_2 = ((TItem *)arg1)->get_field_ed();
-        switch ((s32) temp_r3_2)
+        switch ((s32) (((TItem *)arg1)->get_field_ed()))
       {
         case 1:
           TItemProArmor__sub_801178A8((&sp8), (void *)arg1);

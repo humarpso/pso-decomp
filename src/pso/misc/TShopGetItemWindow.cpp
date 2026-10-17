@@ -189,17 +189,13 @@ void TShopGetItemWindow::handle_withdraw_confirm() {
 }
 
 void TShopGetItemWindow::update_input_number() {
-    f32 temp_f31;
-    u32 temp_r31;
     u32 w;
     w = *(u32 *)((s8 *)this + 0x30);
     if ((w != 0U) && (((TWindowInputNumber *)w)->is_confirmed() != 0)) {
         if ((u32) *(u32 *)((s8 *)this + 0x2C) == 0U) {
-            temp_r31 = (u16) obj_getField1c(*(s32 *)((s8 *)this + 0x24));
-            *(u32 *)((s8 *)this + 0x2C) = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
+            *(u32 *)((s8 *)this + 0x2C) = create_yes_no_window(get_window_layout_position(0x2B), (u16) obj_getField1c(*(s32 *)((s8 *)this + 0x24)), 0, 0);
             ((TCheckRoomSequence *)(*(u32 *)((s8 *)this + 0x2C)))->set_ready_flag();
-            temp_f31 = get_scale__15TShopWindowBaseFv(this);
-            ((TUnk_804CDFE8 *)(*(u32 *)((s8 *)this + 0x2C)))->set_position_xy(get_scale__15TShopWindowBaseFv(this), temp_f31);
+            ((TUnk_804CDFE8 *)(*(u32 *)((s8 *)this + 0x2C)))->set_position_xy(get_scale__15TShopWindowBaseFv(this), get_scale__15TShopWindowBaseFv(this));
         }
         *(s32 *)((s8 *)this + 0x54) = ((TShopEquipmentSellWindow *)(*(u32 *)((s8 *)this + 0x30)))->get_result();
         TWindow__close((void *)(*(u32 *)((s8 *)this + 0x30)));
@@ -341,9 +337,7 @@ void TShopGetItemWindow::vfunc_11() {
     u8 *arg0 = (u8 *)this;
     s32 (*temp_r12)(s32);
     s32 (*temp_r12_2)(s32);
-    u32 temp_r0;
-    temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
-    switch (temp_r0) {
+    switch (*(u32 *)((s8 *)arg0 + 0x20)) {
     case 0:
         ((TShopGetItemWindow *)arg0)->rebuild_item_list();
         return;

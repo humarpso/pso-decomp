@@ -597,11 +597,9 @@ extern const f32 lbl_805D9C4C;
 }
 
 void TObjEneMoja::vfunc_62() {
-    s16 temp_r0;
     MojaCollisionState *temp_r5;
 
-    temp_r0 = mode;
-    switch (temp_r0) {
+    switch (mode) {
     case 4:
         (*(s32 *)&this->actorFlags) = (s32) ((*(s32 *)&this->actorFlags) & 0xF9FFF9FF);
         temp_r5 = (*(MojaCollisionState * *)&this->m_a4);
@@ -625,7 +623,6 @@ extern const s32 lbl_805D9BFC;
 
 void TObjPlayer::update_invincibility() {
     s16 temp_r4;
-    void *temp_r4_2;
 
     ((s32 (*)())advance_animation_playback)();
     if (!(*(s32 *)&this->actorFlags & 0x800000)) {
@@ -636,8 +633,7 @@ void TObjPlayer::update_invincibility() {
     *(s16 *)&this->unk_33C = (temp_r4 - 1);
     if (temp_r4 < 0) {
         *(s32 *)&this->actorFlags &= 0xFFFFFEFF;
-        temp_r4_2 = *(void * *)&this->m_a4;
-        *(s32 *)((s8 *)temp_r4_2 + 0x18) |= lbl_805D9BFC;
+        *(s32 *)((s8 *)(*(void * *)&this->m_a4) + 0x18) |= lbl_805D9BFC;
         *(s16 *)&this->unk_33C = (s16) *(s16 *)((s8 *)this + 0x33A);
         this->m_33e = (s16) this->hp;
     }
@@ -646,16 +642,12 @@ void TObjPlayer::update_invincibility() {
 }
 
 void TObjEneMoja::vfunc_61() {
-    s16 temp_r0;
     s32 gbits;
-    MojaCollisionState *temp_r6;
 
-    temp_r0 = mode;
-    switch (temp_r0) {
+    switch (mode) {
     case 4:
         (*(s32 *)&this->actorFlags) &= 0xFFFFFEFF;
-        temp_r6 = (*(MojaCollisionState * *)&this->m_a4);
-        temp_r6->flags |= lbl_805D9BFC;
+        ((*(MojaCollisionState * *)&this->m_a4))->flags |= lbl_805D9BFC;
         referenceHp = (s16) hp;
         roar = 0;
         break;
@@ -1390,7 +1382,6 @@ void TObjEneMoja::update_idle_state() {
 
 void TObjEneMoja::vfunc_58() {
     s32 temp_r0;
-    s32 temp_r0_2;
 
     temp_r0 = mode;
     if ((temp_r0 >= 3) || (temp_r0 < 0)) {
@@ -1398,8 +1389,7 @@ void TObjEneMoja::vfunc_58() {
         roar = 1;
         (*(s32 *)&this->actorFlags) = (s32) ((*(s32 *)&this->actorFlags) | 0x40000);
     }
-    temp_r0_2 = appearance;
-    switch (temp_r0_2) {
+    switch (appearance) {
     case 0:
         mode = 0;
         m_b8 = 2;

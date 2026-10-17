@@ -90,8 +90,6 @@ void render__25TBoss6Demo10_TYPE1_APPEARFv(void* p) { ((TBoss6Demo10_TYPE1_APPEA
 #pragma opt_common_subs off
 void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
     f32 temp_f1;
-    s32 temp_r0;
-    s32 temp_r0_2;
     s32 temp_r0_3;
     u8 *temp_r30;
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x34) + lbl_805DFA48;
@@ -103,8 +101,7 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
     if ((s32) ((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38 == 0x78) {
         play_sound_effect(0x4003A105, 0, 0, 0);
     }
-    temp_r0 = ((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38;
-    switch (temp_r0) {
+    switch (((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38) {
     case 0x1B8:
     case 0xFA:
         play_sound_effect(0x4003A811, 0, 0, 0);
@@ -113,8 +110,7 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
         play_sound_effect(0x40031222, 0, 0, 0);
         break;
     }
-    temp_r0_2 = ((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38;
-    switch (temp_r0_2) {
+    switch (((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38) {
     case 0x14:
     case 0xC6:
     case 0xFA:

@@ -469,12 +469,10 @@ extern "C" {
 
 void TObjPlayer::set_flag_8_if_check_passes() {
     u8 *var_r31;
-    u8 *var_r3;
     if (((u8 *)this) != NULL) {
         var_r31 = (u8 *)(((u8 *)this));
         if (TObjPlayer__sub_80102C30(((u8 *)this)) != 0) {
-            var_r3 = var_r31;
-            ((TObjPlayer *)var_r3)->set_flag_8();
+            ((TObjPlayer *)var_r31)->set_flag_8();
         }
     }
 }
@@ -502,13 +500,11 @@ void TObjPlayer::call_callback_1ec(s32 arg1, s32 arg2) {
 void TItemWeapon::apply_model_params() {
     s16 spA;
     s16 sp8;
-    void *temp_r3;
 
     get_weapon_special_type_amount((this->special_selector) & 0x3F, &spA, &sp8);
     ((TObjPlayer *)(*(void * *)&this->player))->set_model_id(spA);
     ((TObjPlayer *)(*(void * *)&this->player))->set_model_param(sp8);
-    temp_r3 = *(void * *)&this->player;
-    ((VObj_8011E77C *)temp_r3)->m71();
+    ((VObj_8011E77C *)(*(void * *)&this->player))->m71();
 }
 
 void TItemWeapon::copy_item_to_data(s32 arg0) {
@@ -739,7 +735,6 @@ s32 TItemWeapon::launch_shot(u8 *arg1, s32 i, s32 arg3, s32 arg4) {
     s32 temp_r6;
     u8 *temp_r22_2;
     u8 *temp_r3_3;
-    u8 *temp_r7;
     u8 *var_r29;
     var_r31 = 0;
     if (is_active_in_game__11TItemWeaponFv((void *)(((u8 *)this))) != 0) {
@@ -775,8 +770,7 @@ s32 TItemWeapon::launch_shot(u8 *arg1, s32 i, s32 arg3, s32 arg4) {
                 pop_matrix();
                 vec3_add_to(&endpoint.x, arg1);
             }
-            temp_r7 = (u8 *)(*(u8 * *)&this->player);
-            ShotVector rayOrigin = *(ShotVector *)(temp_r7 + 0x2FC);
+            ShotVector rayOrigin = *(ShotVector *)(((u8 *)(*(u8 * *)&this->player)) + 0x2FC);
             rayOrigin.y = *(f32 *)((s8 *)arg1 + 4);
             temp_r3_3 = (u8 *)(csnVector(&rayOrigin.x, &endpoint.x, 0x8100));
             if (temp_r3_3 == NULL) {

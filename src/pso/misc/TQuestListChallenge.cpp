@@ -230,12 +230,10 @@ void handle_confirm_select__19TQuestListChallengeFv(void *arg0) {
     s32 temp_r0;
     s32 selected_menu_value;
     Entry_80288C78_80288B5C *identity;
-    VObj_80288C78_80288B5C *temp_r3;
     VObj_80288C78_80288B5C *temp_r3_3;
     VObj_80288C78_80288B5C *temp_r3_4;
 
-    temp_r3 = *(VObj_80288C78_80288B5C **)((s8 *)arg0 + 0x30);
-    if (temp_r3->m8() != 0) {
+    if ((*(VObj_80288C78_80288B5C **)((s8 *)arg0 + 0x30))->m8() != 0) {
         if ((*(void **)((s8 *)arg0 + 0x34) != NULL) && (((TWindowMenu *)(*(void **)((s8 *)arg0 + 0x34)))->is_visible() == 1)) {
             selected_menu_value = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0x34));
             if (selected_menu_value == 0) {

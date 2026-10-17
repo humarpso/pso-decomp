@@ -69,13 +69,11 @@ void *__vt__15TAdPlayerLoadGC[6] = {
 extern void *lbl_805D3F48;
 
 void run_task__15TAdPlayerLoadGCFv(u8 *arg0) {
-    u32 temp_r0;
     set_character_select_b_slot_state((int) (*(u32 *)((s8 *)arg0 + 0x1C)));
     if (probe_card_slot__15TAdPlayerLoadGCFv(0) == 0) {
         *(u32 *)((s8 *)arg0 + 0x1C) = 0U;
     }
-    temp_r0 = *(u32 *)((s8 *)arg0 + 0x1C);
-    switch (temp_r0) {
+    switch (*(u32 *)((s8 *)arg0 + 0x1C)) {
     case 0:
         if ((s32) *(s32 *)((s8 *)arg0 + 0x20) == 2) {
             if ((TAdPlayerLoadGC__sub_801E1B50(1) == 0) && (probe_card_slot__15TAdPlayerLoadGCFv(0) != 0)) {

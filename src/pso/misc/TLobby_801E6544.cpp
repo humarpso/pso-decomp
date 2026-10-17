@@ -2599,9 +2599,7 @@ void TLobby__sub_801E72B4(u8 i) {
 }
 
 void TLobby::dispatch_story_select_by_op(s32 arg0) {
-    s32 temp_r0;
-    temp_r0 = *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC));
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))) {
     case 0:
         request_story_select_state(0);
         return;
@@ -4711,12 +4709,10 @@ void TLobby__sub_801EABEC(s32 arg0) {
 void TLobby__sub_801EAC48(int _w0) {
     struct CopyStack_801EAC48 { u8 bytes[0x24]; };
     CopyStack_801EAC48 copy_storage_801EAC48;
-    s32 temp_r4;
     u32 temp_r3;
     temp_r3 = ((u32)((int (*)(int))get_indexed_offset__6TLobbyFi)(_w0));
     if (temp_r3 != 0U) {
-        temp_r4 = temp_r3 - 4;
-        *(ByteBlock_24 *)(copy_storage_801EAC48.bytes) = *(const ByteBlock_24 *)(temp_r4 + 4);
+        *(ByteBlock_24 *)(copy_storage_801EAC48.bytes) = *(const ByteBlock_24 *)((temp_r3 - 4) + 4);
         bswap__12player_statsFv(((copy_storage_801EAC48.bytes)));
         TLobby::copy_data((void *) ((copy_storage_801EAC48.bytes)));
     }
@@ -8865,9 +8861,7 @@ void TLobby::op_mod_reg(s32 arg0, s32 arg1) {
 void qst_op_jmp(int a0) { TLobby__quest_script_pc = TLobby__data_805D5E74[(unsigned short)(a0)]; }
 
 void qst_op_xori(s32 arg0, s32 arg1) {
-    s32 temp_r3;
-    temp_r3 = (arg0 * 4) & 0x3FC;
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r3) ^= arg1;
+    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) ^= arg1;
 }
 
 void qst_op_xor(s32 arg0, s32 arg1) {
@@ -8877,10 +8871,8 @@ void qst_op_xor(s32 arg0, s32 arg1) {
 }
 
 void qst_op_ori(s32 arg0, s32 arg1) {
-  s32 temp_r3;
   s32 *new_var;
-  temp_r3 = (arg0 * 4) & 0x3FC;
-  new_var = (s32 *) (((s8 *) (*(s32 *)&TLobby__script_reg_array)) + temp_r3);
+  new_var = (s32 *) (((s8 *) (*(s32 *)&TLobby__script_reg_array)) + ((arg0 * 4) & 0x3FC));
   *new_var = (*new_var) | arg1;
 }
 
@@ -8891,9 +8883,7 @@ void qst_op_or(s32 arg0, s32 arg1) {
 }
 
 void qst_op_andi(s32 arg0, s32 arg1) {
-    s32 temp_r3;
-    temp_r3 = (arg0 * 4) & 0x3FC;
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r3) &= arg1;
+    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) &= arg1;
 }
 
 void qst_op_and(s32 arg0, s32 arg1) {
@@ -8915,9 +8905,7 @@ void qst_op_div(s32 arg0, s32 arg1) {
 }
 
 void qst_op_muli(s32 arg0, s32 arg1) {
-    s32 temp_r3;
-    temp_r3 = (arg0 * 4) & 0x3FC;
-    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r3) *= arg1;
+    *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) *= arg1;
 }
 
 void qst_op_mul(s32 arg0, s32 arg1) {

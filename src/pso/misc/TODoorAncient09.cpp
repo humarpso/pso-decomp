@@ -240,11 +240,9 @@ void TODoorAncient09::draw_model() {
 
 void TODoorAncient09::render() {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r0;
 
     if ((VCALL_m8(arg0) != 0) && (((TUnk_804AFBF8 *)arg0)->is_in_view_depth(lbl_805DB480) != 0)) {
-        temp_r0 = *(s32 *)&this->m_ac;
-        switch (temp_r0) {
+        switch (*(s32 *)&this->m_ac) {
         case 1:
         case 3:
             push_matrix();

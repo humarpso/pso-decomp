@@ -457,11 +457,9 @@ u8 *TObjPlayer::create_vtable_1f8_state() {
 void config_dark_flow_attack_collider(int a0, void* a1) { *(float*)((char*)a1 + 0x3c) = lbl_805DF690; *(int*)((char*)a1 + 0x78) = 474; }
 
 void TUnk_804ED488::emit_marker_effects() {
-    s32 temp_r31;
 
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
-        temp_r31 = (s16) ((TItemProShield *)(*(s32 *)&this->player))->get_field_2b8();
-        if ((s32) ((s16) obj_getS16_32C((u8 *)(*(s32 *)&this->player)) * 8) < temp_r31) {
+        if ((s32) ((s16) obj_getS16_32C((u8 *)(*(s32 *)&this->player)) * 8) < ((s16) ((TItemProShield *)(*(s32 *)&this->player))->get_field_2b8())) {
             fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)&this->player + 0x38, 0, -0x238E);
             fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)&this->player + 0x38, 0, -0x11C7);
             fire_shot_at_target__11TItemWeaponFv(this, *(s32 *)&this->player + 0x38, 0, 0);

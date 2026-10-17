@@ -31,7 +31,6 @@ extern const f32 lbl_805DACB0;
 u8 *TItemWeapon__ct(u8 *arg0, void *parent, u8 *item) {
     s32 temp_r3;
     u8 temp_r0;
-    u8 *temp_r4;
     u8 *temp_r6;
     u8 *temp_r6_2;
     TItemEquipBase__ct(arg0, parent, item);
@@ -39,8 +38,7 @@ u8 *TItemWeapon__ct(u8 *arg0, void *parent, u8 *item) {
     ((V_80120D50 *)arg0)->v17(6);
     *(void * *)&((TItemWeapon *)arg0)->parameters = lookup_item_pmt_record(item);
     *(s32 *)((s8 *)arg0 + 0x1E0) = TObjPlayer::get_shield_pmt_entry(*(u8 *)((s8 *)(*(void * *)&((TItemWeapon *)arg0)->parameters) + 0x26));
-    temp_r4 = (unsigned char *) (*(void * *)&((TItemWeapon *)arg0)->parameters);
-    *(s16 *)((s8 *)arg0 + 0x1E8) = (s16) (s8) *(u8 *)((s8 *)temp_r4 + 0x17);
+    *(s16 *)((s8 *)arg0 + 0x1E8) = (s16) (s8) *(u8 *)((s8 *)((unsigned char *) (*(void * *)&((TItemWeapon *)arg0)->parameters)) + 0x17);
     *(u8 *)((s8 *)arg0 + 0x1D1) = (u8) *(u8 *)((s8 *)item + 3);
     temp_r3 = ((TItemData *)item)->check_item_flags();
     temp_r0 = *(u8 *)((s8 *)(*(void * *)&((TItemWeapon *)arg0)->parameters) + 0x18);

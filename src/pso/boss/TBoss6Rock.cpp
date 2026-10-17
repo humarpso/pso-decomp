@@ -301,12 +301,10 @@ s32 TBoss6Rock::push_out_of_rocks(f32 r) {
 }
 
 s32 TBoss6Rock::get_point(s32 arg0, s32 arg1, f32 *arg2) {
-    s32 temp_r5;
     if (TBoss6Rock::is_rock_valid(arg0) == 0) {
         return 0;
     }
-    temp_r5 = arg0 * 0xC;
-    VecCopy((Vec *)(arg1), (const Vec *)((const void *)((void *) ((u8 *)&TBoss6Rock__rock_point_table + temp_r5))));
+    VecCopy((Vec *)(arg1), (const Vec *)((const void *)((void *) ((u8 *)&TBoss6Rock__rock_point_table + (arg0 * 0xC)))));
     *(f32 *)((s8 *)arg2 + 0) = *(f32 *)((s8 *)(TBoss6Rock::get_rock_entry(arg0)) + 4);
     return 1;
 }

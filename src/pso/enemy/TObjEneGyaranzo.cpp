@@ -329,12 +329,10 @@ void TObjEneGyaranzo::init_params_from_table() {
 }
 
 void update__19TObjGyaranzoMissileFPv(u8 *arg0) {
-    s32 temp_r0;
     s32 temp_r4;
     s32 temp_r5;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
-    switch (temp_r0) {
+    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 4);
         temp_r4 = *(s32 *)((s8 *)arg0 + 0x30) | 0x04000000;
@@ -1116,13 +1114,11 @@ void *gyaranzo_actor_vtable_ops[83] = {
 #pragma fp_contract on
 void TObjEneGyaranzo::spawn_missile() {
     Vec launch_position;
-    f32 temp_f1;
     s32 temp_r31;
     u8 *temp_r3;
     render_anim_model_at_pos__15TObjEneGyaranzoFv(this);
     ((VObj_18_f1aa6a *)(this))->m63(0x18, &launch_position);
-    temp_f1 = (lbl_805DA26C * calc_boss4_scale__10TObjPlayerFi((s32) this)) - lbl_805DA270;
-    temp_r31 = (s32) (lbl_805DA268 * temp_f1);
+    temp_r31 = (s32) (lbl_805DA268 * ((lbl_805DA26C * calc_boss4_scale__10TObjPlayerFi((s32) this)) - lbl_805DA270));
     temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0xF0)));
     if (temp_r3 != NULL) {
         TObjGyaranzoMissile__sub_800D4668(temp_r3, this, &launch_position, rotation_y, temp_r31);
@@ -1175,15 +1171,13 @@ void TObjEneGyaranzo::sub_800D2900() {
 }
 
 void TObjPlayer::update_aim_and_fire() {
-    s32 temp_r0;
     s32 temp_r3;
     s32 temp_r4;
     s32 temp_r5;
     s32 var_r30;
     u8 *temp_r6;
     void *uninit;
-    temp_r0 = this->m_37c;
-    switch (temp_r0) {
+    switch (this->m_37c) {
     case 0:
         *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x40000);
         *(s16 *)&this->m_b8 = 0;

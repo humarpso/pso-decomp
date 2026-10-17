@@ -1732,7 +1732,6 @@ void TObjPlayer__sub_800EA364(u8 *arg0) {
 #pragma fp_contract on
 #pragma fp_contract on
 void TObjPlayer__sub_800EA56C(u8 *actor) {
-    f32 temp_f1;
     s32 temp_r31;
     *(f32 *)((s8 *)actor + 0x3B4) = (f32) (*(const f32 *)&lbl_805DA6B4);
     if (find_nearest_visible_player(actor, actor + 0x3B8, lbl_805DA6DC) == 0xFFFF) {
@@ -1747,8 +1746,7 @@ void TObjPlayer__sub_800EA56C(u8 *actor) {
         return;
     }
     ((s32 (*)(void *))normalize_vector)(actor + 0x3B8);
-    temp_f1 = (lbl_805DA6E4 * calc_boss4_scale__10TObjPlayerFi(actor)) + lbl_805DA720;
-    *(f32 *)((s8 *)actor + 0x398) = temp_f1;
+    *(f32 *)((s8 *)actor + 0x398) = ((lbl_805DA6E4 * calc_boss4_scale__10TObjPlayerFi(actor)) + lbl_805DA720);
     *(f32 *)((s8 *)actor + 0x3A0) = (f32) (*(const f32 *)&lbl_805DA67C);
     ((TObjEneSlimeOne *)((void *) *(s32 *)((s8 *)actor + 0x388)))->set_motion_state((s32)((void *) 8));
     ((int (*)(void*, int))set_display_mode__15TObjEneSlimeOneFPvi)(actor, 1);
