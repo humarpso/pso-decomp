@@ -485,7 +485,7 @@ void TWindowSubComCard::calc_layout_height(f32 farg0) {
         }
     }
     h -= lbl_805DD16C;
-    if (this->m_2c& 0x40) {
+    if (this->m_2c & 0x40) {
         h += lbl_805DD158;
     }
     this->m_38 = farg0;
@@ -757,7 +757,7 @@ void render__11TWindowMenuFv(u8 *arg0) {
     temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
-    if (!(((TWindowMenu *)arg0)->m_70& 0x80)) {
+    if (!(((TWindowMenu *)arg0)->m_70 & 0x80)) {
         ((TWindowMenu *)arg0)->render_selected_entry(temp_r3);
         ((TWindowMenu *)arg0)->draw_selected_bar((u8 *)temp_r3);
     }

@@ -82,17 +82,17 @@ void run_task__16TKeyBoardControlFv(u8 *arg0) {
     s32 temp_r3;
     s32 temp_r5;
     temp_r3 = is_player_input_active((((TKeyBoardControl *)arg0)->m_1e));
-    if (((TKeyBoardControl *)arg0)->m_1c& 1) {
+    if (((TKeyBoardControl *)arg0)->m_1c & 1) {
         temp_r5 = temp_r3 * 0x50;
         if (TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), 0x200, temp_r5) != 0) {
-            ((TKeyBoardControl *)arg0)->m_1c = (u16) (((TKeyBoardControl *)arg0)->m_1c& 0xFFFE);
+            ((TKeyBoardControl *)arg0)->m_1c = (u16) (((TKeyBoardControl *)arg0)->m_1c & 0xFFFE);
             TKeyBoardControl__sub_8025EC04((u8 *)(((TKeyBoardControl *)arg0)->m_24));
             if ((u32) ((TKeyBoardControl *)arg0)->m_28 != 0U) {
                 window_request_show(*(void **)((s8 *)arg0 + 0x28));
             }
         }
     } else if (((s32)((TKeyBoardControl *)(((TKeyBoardControl *)arg0)->m_24))->is_key_held()) == 0) {
-        ((TKeyBoardControl *)arg0)->m_1c = (u16) (((TKeyBoardControl *)arg0)->m_1c| 1);
+        ((TKeyBoardControl *)arg0)->m_1c = (u16) (((TKeyBoardControl *)arg0)->m_1c | 1);
         if ((u32) ((TKeyBoardControl *)arg0)->m_28 != 0U) {
             ((TWindowLockOn *)(*(void **)((s8 *)arg0 + 0x28)))->request_close();
         }

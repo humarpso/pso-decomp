@@ -200,9 +200,9 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
     ((TBoss7DeRolLeC *)(arg0))->vfunc_42();
     if (temp_r30 == 0) {
         if ((((TBoss7DeRolLeC *)arg0)->mode == 0x1C) || (((TBoss7DeRolLeC *)arg0)->mode == 0x1D) || (((TBoss7DeRolLeC *)arg0)->mode == 0x1B)) {
-            ((TBoss7DeRolLeC *)arg0)->actorFlags = (s32) (((TBoss7DeRolLeC *)arg0)->actorFlags| 0x800);
+            ((TBoss7DeRolLeC *)arg0)->actorFlags = (s32) (((TBoss7DeRolLeC *)arg0)->actorFlags | 0x800);
         } else {
-            ((TBoss7DeRolLeC *)arg0)->actorFlags = (s32) (((TBoss7DeRolLeC *)arg0)->actorFlags& 0xFFFFF7FF);
+            ((TBoss7DeRolLeC *)arg0)->actorFlags = (s32) (((TBoss7DeRolLeC *)arg0)->actorFlags & 0xFFFFF7FF);
         }
         temp_r0_3 = ((TBoss7DeRolLeC *)arg0)->m_6d4;
         if (temp_r0_3 != 1) {

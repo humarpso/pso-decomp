@@ -4883,14 +4883,14 @@ void backup_pos__13TBoss2DeRolLeFi(s32 arg0) {
 void TBoss2DeRolLe::vfunc_61() {  }
 void apply_damage_taken__13TBoss2DeRolLeFPv(u8 *arg0) {
     s32 temp_r4;
-    temp_r4 = ((TBoss2DeRolLe *)arg0)->hpmax- ((TBoss2DeRolLe *)arg0)->hp;
+    temp_r4 = ((TBoss2DeRolLe *)arg0)->hpmax - ((TBoss2DeRolLe *)arg0)->hp;
     if (*(s32 *)((s8 *)arg0 + 0x3C0) & 8) {
-        ((TBoss2DeRolLe *)arg0)->m_6c8 = (s32) (((TBoss2DeRolLe *)arg0)->m_6c8- temp_r4);
+        ((TBoss2DeRolLe *)arg0)->m_6c8 = (s32) (((TBoss2DeRolLe *)arg0)->m_6c8 - temp_r4);
         spawn_offset_particle__13TBoss2DeRolLeFiff(*(s32 *)((s8 *)arg0 + 0xA4) + 0x1C, TBoss2DeRolLe__data_805D82A0, lbl_805D8448);
         play_sound((void *)0x4003A80F, (s32)(arg0 + 0x518));
     } else {
-        ((TBoss2DeRolLe *)arg0)->m_6cc = (s32) (((TBoss2DeRolLe *)arg0)->m_6cc- temp_r4);
-        if ((s32) ((TBoss2DeRolLe *)arg0)->m_6cc< 0) {
+        ((TBoss2DeRolLe *)arg0)->m_6cc = (s32) (((TBoss2DeRolLe *)arg0)->m_6cc - temp_r4);
+        if ((s32) ((TBoss2DeRolLe *)arg0)->m_6cc < 0) {
             ((TBoss2DeRolLe *)arg0)->m_6cc = 0;
             set_flags_play_sound__13TBoss2DeRolLeFPv(arg0);
         }

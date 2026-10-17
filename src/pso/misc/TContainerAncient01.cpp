@@ -110,7 +110,7 @@ u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TContainerAncient01 *)arg0)->m_b8 = 0;
     set_animation__10TObjPlayerFPvs((arg0), (((TContainerAncient01 *)arg0)->m_b8));
     ((TObjMotion *)arg0)->set_field_b8((int) (((TContainerAncient01 *)arg0)->m_b8));
-    ((TContainerAncient01 *)arg0)->actorFlags = (s32) (((TContainerAncient01 *)arg0)->actorFlags| 0x60000000);
+    ((TContainerAncient01 *)arg0)->actorFlags = (s32) (((TContainerAncient01 *)arg0)->actorFlags | 0x60000000);
     init_collision_body_parts(arg0, (void *)&TContainerAncient01__collision_body_parts.value, 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38));
@@ -517,14 +517,14 @@ u8 *TObjContainerIdo__ct(u8 *arg0, s32 arg1, s32 arg2) {
     VecCopy((Vec *)(arg0 + 0xB4), (const Vec *)(arg0 + 0x38));
     *(f32 *)&((TObjContainerIdo *)arg0)->m_b0 = lbl_805DBD7C;
     *(s32 *)&((TObjContainerIdo *)arg0)->m_dc = *(s32 *)((s8 *)arg0 + 0x88);
-    if (*(s32 *)&((TObjContainerIdo *)arg0)->m_dc< 1) {
+    if (*(s32 *)&((TObjContainerIdo *)arg0)->m_dc < 1) {
         *(s32 *)&((TObjContainerIdo *)arg0)->m_dc = 1;
     }
-    if (*(s32 *)&((TObjContainerIdo *)arg0)->m_dc> 4) {
+    if (*(s32 *)&((TObjContainerIdo *)arg0)->m_dc > 4) {
         *(s32 *)&((TObjContainerIdo *)arg0)->m_dc = 4;
     }
     for (i = 0; i < *(s32 *)&((TObjContainerIdo *)arg0)->m_dc; i++) {
-        ((Ido_8018C7BC *)arg0)->ids[i] = ((TObjContainerIdo *)arg0)->m_84+ i;
+        ((Ido_8018C7BC *)arg0)->ids[i] = ((TObjContainerIdo *)arg0)->m_84 + i;
     }
     ((TObjContainerIdo *)arg0)->m_e0 = 0;
     if (*(s32 *)&((TObjContainerIdo *)arg0)->m_8c != 0) {
@@ -533,7 +533,7 @@ u8 *TObjContainerIdo__ct(u8 *arg0, s32 arg1, s32 arg2) {
         ((TObjContainerIdo *)arg0)->m_e0 &= ~0x08000000;
     }
     *(f32 *)((s8 *)arg0 + 0xE4) = TObjContainerIdo__data_805DBD64;
-    ((TObjContainerIdo *)arg0)->m_e8 = ((TObjContainerIdo *)arg0)->scale/ *(s32 *)&((TObjContainerIdo *)arg0)->m_dc;
+    ((TObjContainerIdo *)arg0)->m_e8 = ((TObjContainerIdo *)arg0)->scale / *(s32 *)&((TObjContainerIdo *)arg0)->m_dc;
     *(f32 *)((s8 *)arg0 + 0xEC) = ((TObjContainerIdo *)arg0)->target_scale;
     ((TObjPlayer *)(arg0 + 0xF0))->activate_and_dispatch();
     init_collision_body_parts(arg0, container_ido_collision_parts, 1);

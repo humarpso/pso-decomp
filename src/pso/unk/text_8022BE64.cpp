@@ -179,7 +179,7 @@ TUnk_804CC148::TUnk_804CC148(s32 arg1, s32 arg2, s32 arg4) : TEffect() {
     *(f32 *)((s8 *)this + 0xCC) = lbl_805DC7B8;
     this->m_d0 = 0;
     if (obj_getField1c(this->source) < 4U) {
-        if (get_type__10TObjPlayerFPv((void *)(this->source+ 0x828)) != 0) {
+        if (get_type__10TObjPlayerFPv((void *)(this->source + 0x828)) != 0) {
             *(s32 *)((s8 *)this + 0xD4) = 0x40007;
         } else {
             *(s32 *)((s8 *)this + 0xD4) = 0x40107;
@@ -232,7 +232,7 @@ u8 *construct_area_technique_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 ar
     *(f32 *)((s8 *)arg0 + 0xCC) = lbl_805DC7B8;
     ((TUnk_804CC148 *)arg0)->m_d0 = 0;
     if (obj_getField1c(((TUnk_804CC148 *)arg0)->source) < 4U) {
-        if (get_type__10TObjPlayerFPv((void *)(((TUnk_804CC148 *)arg0)->source+ 0x828)) != 0) {
+        if (get_type__10TObjPlayerFPv((void *)(((TUnk_804CC148 *)arg0)->source + 0x828)) != 0) {
             *(s32 *)((s8 *)arg0 + 0xD4) = 0x40007;
         } else {
             *(s32 *)((s8 *)arg0 + 0xD4) = 0x40107;

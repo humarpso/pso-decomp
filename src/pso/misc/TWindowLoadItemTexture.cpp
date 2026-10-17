@@ -53,7 +53,7 @@ void render__22TWindowLoadItemTextureFv(u8 *arg0) {
         }
     }
     temp_r31 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)(arg0 + 0x64));
-    if (((TWindowLoadItemTexture *)arg0)->m_61& 1) {
+    if (((TWindowLoadItemTexture *)arg0)->m_61 & 1) {
         draw_window_frame(arg0, temp_r31);
     }
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r31);

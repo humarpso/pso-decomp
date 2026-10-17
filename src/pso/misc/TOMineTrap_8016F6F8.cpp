@@ -569,7 +569,7 @@ void TOMine::detonate() {
     s32 i;
     u8 *obj;
     set_indexed_flags(((u8 *)this), 0, 2);
-    *(f32 *)(*(u8 * *)&this->m_a4+ 0xC) = this->m_350;
+    *(f32 *)(*(u8 * *)&this->m_a4 + 0xC) = this->m_350;
     TObjPlayer::init_all_slots();
     ((TObjPlayer *)((u8 *)this))->check_object_collisions();
     check_enemy_body_collisions(((u8 *)this));
@@ -578,7 +578,7 @@ void TOMine::detonate() {
         if (TObjPlayer::is_valid_and_active((u32)obj) != 0) {
             Pair_80170DD8 pair = *(Pair_80170DD8 *)(((u8 *)this) + 0x354);
             f32 r = ((VObj_18_1da615 *)obj)->m21(((u8 *)this), &pair, 0, -1, -1);
-            if (*(s32 *)&this->m_354< 5) {
+            if (*(s32 *)&this->m_354 < 5) {
                 ((VObj_18_1da615 *)obj)->m23(((u8 *)this), lbl_805DB874 * r);
             }
         }

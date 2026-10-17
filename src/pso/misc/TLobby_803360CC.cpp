@@ -179,7 +179,7 @@ void update_title_idle_transition(Obj_80336340 *arg0_) {
         ((TObject *)(*(void **)((s8 *)arg0_ + 0x24)))->set_flag_4();
         TWindowOptionCtrl__sub_802273B4(0x1E);
     }
-    if (((s32) ((TUnk_804EEF64 *)arg0_)->m_38< (s32) *(s32 *)((s8 *)arg0_ + 0x34)) && (((TAdSinglePlyChrSelectGC *)arg0_)->start_offline_seq() != 0)) {
+    if (((s32) ((TUnk_804EEF64 *)arg0_)->m_38 < (s32) *(s32 *)((s8 *)arg0_ + 0x34)) && (((TAdSinglePlyChrSelectGC *)arg0_)->start_offline_seq() != 0)) {
         TKeyBoardControl__sub_8000F90C(2);
         set_opening_movie_purpose(0);
         TKeyBoardControl__sub_8000F9CC(3);

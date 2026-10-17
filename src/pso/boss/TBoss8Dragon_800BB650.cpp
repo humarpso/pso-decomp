@@ -50,7 +50,7 @@ s32 enemy_nearest_visible_player_sq(u8 *arg0, f32 farg0) {
 
 void TBoss8Dragon::refresh_and_send_entity_flags() { refresh_lobby_state__10TObjPlayerFv(this); send_entity_set_flags__9TObjEnemyFv(this); }
 
-int TObjEneBm3Fly::was_hit_by_ranged() { return (this->m_2dc>> 1) & 0x1; }
+int TObjEneBm3Fly::was_hit_by_ranged() { return (this->m_2dc >> 1) & 0x1; }
 
 void TObjEneDD::clear_attack_receipts() {
     s32 i;

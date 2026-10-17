@@ -189,7 +189,7 @@ u8 *TWindowTimer__sub_80198CF8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4,
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80198CF8_lbl_804B8DE8 *)&lbl_804B8DE8).value;
     VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)arg1);
     VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(arg0 + 0x1C));
-    ((TUnk_804B8DE8 *)arg0)->m_20 = (f32) (((TUnk_804B8DE8 *)arg0)->m_20- (16.0f));
+    ((TUnk_804B8DE8 *)arg0)->m_20 = (f32) (((TUnk_804B8DE8 *)arg0)->m_20 - (16.0f));
     ((TUnk_804B8DE8 *)arg0)->m_3c = 0;
     ((TUnk_804B8DE8 *)arg0)->m_34 = 0;
     *(s32 *)((s8 *)arg0 + 0x38) = 0;

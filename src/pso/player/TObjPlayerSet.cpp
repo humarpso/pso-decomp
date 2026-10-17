@@ -60,10 +60,10 @@ u8 *TObjPlayerSet__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80195720___vt__13TObjPlayerSet *)&__vt__13TObjPlayerSet).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjPlayer__player_set_class_name;
     ((TObjPlayerSet *)(arg0))->apply_object_set_data((void *)arg2);
-    if (((TObjPlayerSet *)arg0)->scale< lbl_805DBEF0) {
+    if (((TObjPlayerSet *)arg0)->scale < lbl_805DBEF0) {
         ((TObjPlayerSet *)arg0)->scale = (f32) lbl_805DBEF0;
     }
-    if ((s32) ((TObjPlayerSet *)arg0)->m_84< 0) {
+    if ((s32) ((TObjPlayerSet *)arg0)->m_84 < 0) {
         ((TObjPlayerSet *)arg0)->m_84 = 0;
     }
     disallow_rendering__7TObjectFv(arg0);

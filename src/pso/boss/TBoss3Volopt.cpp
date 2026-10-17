@@ -1418,7 +1418,7 @@ u8 *TBoss3Volopt__ct(u8 *arg0, s32 arg1) {
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
     TBoss3Volopt__sub_8003EA2C((void*)(0));
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(&(*(RecoveredGlobal_8003EFF0_lbl_804FEE68 *)&boss3_volopt_spawn_pos).value))));
-    ((TBoss3Volopt *)arg0)->actorFlags = (s32) (((TBoss3Volopt *)arg0)->actorFlags| 0x06040000);
+    ((TBoss3Volopt *)arg0)->actorFlags = (s32) (((TBoss3Volopt *)arg0)->actorFlags | 0x06040000);
     TBoss3Volopt__cage_entity_id = get_param_offset__12TBoss3VoloptFl(arg0, 0x20);
     lbl_805D2714 = get_adjusted_angle__12TBoss3VoloptFl(arg0, 0x20);
     ((TBoss3Volopt *)arg0)->next_action = 0;

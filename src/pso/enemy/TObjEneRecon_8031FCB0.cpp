@@ -433,7 +433,7 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     } else if (*(s32 *)&((TObjEneRecobox *)arg0)->m_410 >= n) {
         *(s32 *)&((TObjEneRecobox *)arg0)->m_410 = n - 1;
     }
-    if (*(s32 *)&((TObjEneRecobox *)arg0)->m_414> *(s32 *)&((TObjEneRecobox *)arg0)->m_410) {
+    if (*(s32 *)&((TObjEneRecobox *)arg0)->m_414 > *(s32 *)&((TObjEneRecobox *)arg0)->m_410) {
         *(s32 *)&((TObjEneRecobox *)arg0)->m_414 = *(s32 *)&((TObjEneRecobox *)arg0)->m_410;
     }
     for (i = 0; i < 4; i++) {

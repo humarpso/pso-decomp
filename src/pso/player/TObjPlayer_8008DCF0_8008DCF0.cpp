@@ -508,7 +508,7 @@ void draw_main__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_r3;
     s32 var_r29;
 
-    if (!(((TObjEneBalClawBody *)arg0)->actorFlags& 0x02000000)) {
+    if (!(((TObjEneBalClawBody *)arg0)->actorFlags & 0x02000000)) {
         lbl_805D5660 = model_render_flags;
         temp_r3 = ((VObj18_8008e74c_8008DCF0*)arg0)->m9(lbl_805D963C, lbl_805D9640, lbl_805D9628);
         if (temp_r3 != 0) {
@@ -526,11 +526,11 @@ void draw_main__10TObjPlayerFPv(u8 *arg0) {
                 draw_chunk_object((void *)(*(s32 *)((s8 *)arg0 + 0x34)));
             } else {
                 TObjPlayer::set_visibility_flags_by_count(arg0, ((TObjEneBalClawBody *)arg0)->m_3d8);
-                translate_matrix(0, lbl_805D9620, ((TObjEneBalClawBody *)arg0)->m_3b4+ *(f32 *)((s8 *)arg0 + 0x3BC), lbl_805D9620);
+                translate_matrix(0, lbl_805D9620, ((TObjEneBalClawBody *)arg0)->m_3b4 + *(f32 *)((s8 *)arg0 + 0x3BC), lbl_805D9620);
                 post_translate_matrix(arg0 + 0x38);
                 rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
                 rotate_matrix_y(0, ((TObjEneBalClawBody *)arg0)->rotation_y);
-                if (((TObjEneBalClawBody *)arg0)->m_388& 4) {
+                if (((TObjEneBalClawBody *)arg0)->m_388 & 4) {
                     if (((VObj390V_8008e74c_8008DCF0*)(arg0 + 0x390))->m8() != 0) {
                         ((VObj390V_8008e74c_8008DCF0*)(arg0 + 0x390))->m6();
                         var_r29 = 1;

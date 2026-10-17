@@ -2319,7 +2319,7 @@ void draw_model__14TObjEneGibblesFPv(u8 *arg0) {
         TObjEneRe7Berura::set_global_state((s32)NULL);
         pop_matrix();
         restore_scene_lighting();
-        if (!(((TObjEneGibbles *)arg0)->m_374& 1)) {
+        if (!(((TObjEneGibbles *)arg0)->m_374 & 1)) {
             ((TObjEnemy *)arg0)->render_with_position_override(0, 0);
         }
     } else {
@@ -2377,15 +2377,15 @@ void run_task__14TObjEneGibblesFPv(u8 *arg0) {
     temp_r4 = (u8 *)(((TObjEneGibbles *)arg0)->target);
     if ((temp_r4 != NULL) && (*(s32 *)((s8 *)temp_r4 + 0x30) & 0x02000800)) {
         *(s16 *)((s8 *)arg0 + 0x37E) = 0;
-        ((TObjEneGibbles *)arg0)->actorFlags = (s32) (((TObjEneGibbles *)arg0)->actorFlags& 0xFFDFFFFF);
-        ((TObjEneGibbles *)arg0)->m_374 = (s32) (((TObjEneGibbles *)arg0)->m_374& 0xFFFF0000);
+        ((TObjEneGibbles *)arg0)->actorFlags = (s32) (((TObjEneGibbles *)arg0)->actorFlags & 0xFFDFFFFF);
+        ((TObjEneGibbles *)arg0)->m_374 = (s32) (((TObjEneGibbles *)arg0)->m_374 & 0xFFFF0000);
         ((TObjEneGibbles *)arg0)->target = NULL;
     }
     ((TObjEneGibbles *)arg0)->update_position();
     ((TObjEneGibbles *)arg0)->update_shadow_height();
     copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
     ((TObjEneGibbles *)arg0)->sync_state();
-    ((TObjEneGibbles *)arg0)->m_2b4 = (f32) (((TObjEneGibbles *)arg0)->m_2b4+ TObjEneGibbles__data_805DE7EC);
+    ((TObjEneGibbles *)arg0)->m_2b4 = (f32) (((TObjEneGibbles *)arg0)->m_2b4 + TObjEneGibbles__data_805DE7EC);
 }
 
 void TObjEneGibbles::init_params() {

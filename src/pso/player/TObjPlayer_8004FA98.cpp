@@ -108,7 +108,7 @@ void darkfalz_death_update(u8 *arg0) {
     if (temp_f1 > 149.0f) {
         *(f32 *)((s8 *)arg0 + 0xE8) = (f32) 149.0f;
     }
-    temp_r0 = ((TObjDFDemo5 *)arg0)->m_e4+ 1;
+    temp_r0 = ((TObjDFDemo5 *)arg0)->m_e4 + 1;
     ((TObjDFDemo5 *)arg0)->m_e4 = temp_r0;
     if (temp_r0 >= 0x12C) {
         queue_destruction__7TObjectFv(arg0);

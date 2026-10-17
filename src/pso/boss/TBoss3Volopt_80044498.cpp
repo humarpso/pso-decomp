@@ -1684,7 +1684,7 @@ void TBoss3Volopt::set_action(s16 arg1) {
     }
 }
 void render__12TBoss3VoloptFPv(u8 *arg0) {
-    if (!(((TUnk_80484610 *)arg0)->actorFlags& 0x02000000) && (((VObjA_80044498 *)arg0)->m8(lbl_805D881C, lbl_805D8820) != 0)) {
+    if (!(((TUnk_80484610 *)arg0)->actorFlags & 0x02000000) && (((VObjA_80044498 *)arg0)->m8(lbl_805D881C, lbl_805D8820) != 0)) {
         if (((RenderFadeState*)(arg0 + 0x490))->updateFromCamera((const f32*)(arg0 + 0x2FC)) != 0) {
             ((VObjB_80044498 *)(arg0 + 0x490))->n6();
         }

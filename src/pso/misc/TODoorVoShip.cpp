@@ -206,13 +206,13 @@ u8 *TODoorVoShip__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xE0) = (f32) lbl_805DB534;
     *(f32 *)((s8 *)arg0 + 0xDC) = (f32) lbl_805DB534;
     if (get_story_flag(0x2C) != 0) {
-        ((TODoorVoShip *)arg0)->m_cc = (s32) (((TODoorVoShip *)arg0)->m_cc& 0xFFFFFFFD);
+        ((TODoorVoShip *)arg0)->m_cc = (s32) (((TODoorVoShip *)arg0)->m_cc & 0xFFFFFFFD);
     }
     if (get_story_flag(0x2D) != 0) {
-        ((TODoorVoShip *)arg0)->m_cc = (s32) (((TODoorVoShip *)arg0)->m_cc& 0xFFFFFFFB);
+        ((TODoorVoShip *)arg0)->m_cc = (s32) (((TODoorVoShip *)arg0)->m_cc & 0xFFFFFFFB);
     }
     if (get_story_flag(0x2E) != 0) {
-        ((TODoorVoShip *)arg0)->m_cc = (s32) (((TODoorVoShip *)arg0)->m_cc& 0xFFFFFFF7);
+        ((TODoorVoShip *)arg0)->m_cc = (s32) (((TODoorVoShip *)arg0)->m_cc & 0xFFFFFFF7);
     }
     if (get_story_flag(0x2F) == 0) {
         if (get_main_phase() == 0xF) {
@@ -220,7 +220,7 @@ u8 *TODoorVoShip__ct(u8 *arg0, s32 arg1, s32 arg2) {
         }
     } else {
 block_8:
-        ((TODoorVoShip *)arg0)->m_cc = (s32) (((TODoorVoShip *)arg0)->m_cc& 0xFFFFFFF1);
+        ((TODoorVoShip *)arg0)->m_cc = (s32) (((TODoorVoShip *)arg0)->m_cc & 0xFFFFFFF1);
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
     }
     return arg0;

@@ -140,7 +140,7 @@ u8 *__dt__12TAdMcCheckGCFv(u8 *arg0, s16 arg1) {
     s32 temp_r4;
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8033F1C4___vt__12TAdMcCheckGC *)&__vt__12TAdMcCheckGC).value;
-        temp_r4 = ((TAdMcCheckGC *)arg0)->m_28* 4;
+        temp_r4 = ((TAdMcCheckGC *)arg0)->m_28 * 4;
         if ((u32) *(u32 *)((s8 *)((u8 *)memcard_cursor_instance_table + temp_r4) + 0) != 0U) {
             *(s32 *)((s8 *)((u8 *)memcard_cursor_instance_table + temp_r4) + 0) = 0;
         }

@@ -7389,7 +7389,7 @@ void TObjPlayer::draw_head_attachments() {
         ((TObjMotion *)((u8 *)this))->get_item_ptr(0x3A);
         ((s32 (*)(void))push_matrix_from)();
         TObjFish::set_global_param((s32)((void *) (((u8 *)this) + 0xB88)));
-        if (this->m_flags& 0x400) {
+        if (this->m_flags & 0x400) {
             set_shadow_material_state();
         }
         TObjPlayer::play_phase_transition_sound(this->m_8b4);
@@ -7400,7 +7400,7 @@ void TObjPlayer::draw_head_attachments() {
         ((TObjMotion *)((u8 *)this))->get_item_ptr(0x3B);
         ((s32 (*)(void))push_matrix_from)();
         TObjFish::set_global_param((s32)((void *) (((u8 *)this) + 0xA1C)));
-        if (this->m_flags& 0x400) {
+        if (this->m_flags & 0x400) {
             set_shadow_material_state();
         }
         TCharaMaking::enable_making();
@@ -7414,7 +7414,7 @@ void TObjPlayer::draw_head_attachments() {
         ((s32 (*)(void))push_matrix_from)();
         TObjFish::set_global_param((s32)((void *) (((u8 *)this) + 0xA1C)));
         var_r31 = 0;
-        if (this->m_flags& 0x400) {
+        if (this->m_flags & 0x400) {
             var_r31 = 1;
         }
         TCharaMaking::enable_making();
@@ -7444,7 +7444,7 @@ void draw_body__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     save_render_material_state((arg0 + 0x608));
     set_some_id__FUl(8);
     ((TObjPlayer *)arg0)->apply_material_color_override();
-    if (((TObjPlayer *)arg0)->m_flags& 0x400) {
+    if (((TObjPlayer *)arg0)->m_flags & 0x400) {
         model_render_flags |= 0x810;
         set_chunk_material_override_pair(-1, 0x800);
         set_shadow_material_state();
@@ -7452,10 +7452,10 @@ void draw_body__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     TObjFish::set_global_param((s32)(arg0 + 0xCF4));
     TObjPlayer::set_global_flag();
     if (arg1 == 2) {
-        ((TObjPlayer *)arg0)->animationFlags = (s32) (((TObjPlayer *)arg0)->animationFlags| 0x400);
+        ((TObjPlayer *)arg0)->animationFlags = (s32) (((TObjPlayer *)arg0)->animationFlags | 0x400);
         draw_motion_model_saving_joints((arg0));
     } else {
-        ((TObjPlayer *)arg0)->animationFlags = (s32) (((TObjPlayer *)arg0)->animationFlags& 0xFFFFFBFF);
+        ((TObjPlayer *)arg0)->animationFlags = (s32) (((TObjPlayer *)arg0)->animationFlags & 0xFFFFFBFF);
         ((TObjPlayer *)arg0)->draw_model_with_callback();
     }
     TObjPlayer::clear_global_state();
@@ -7493,7 +7493,7 @@ void render__10TObjPlayerFv(u8 *arg0) {
                 if ((((s32 (*)(void *))check_flag_800000__10TObjPlayerFPv)(arg0) != 0) && (((s32 (*)(void *))obj_isState2_324__13TUnk_804806E8Fv)(arg0) != 0)) {
                     ((TUnk_804806E8 *)arg0)->get_speed();
                     ((s32 (*)(void *))draw__10TObjPlayerFPvf)(arg0);
-                } else if (!(((TObjPlayer *)arg0)->m_flags& 0x400)) {
+                } else if (!(((TObjPlayer *)arg0)->m_flags & 0x400)) {
                     model_render_flags |= 1;
                     ((s32 (*)(void *, s32))draw_body__10TObjPlayerFPvi)(arg0, (s32) temp_f31);
                     model_render_flags &= 0xFFFFFFFE;

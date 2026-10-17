@@ -80,7 +80,7 @@ void render__12TODoorCave01Fv(u8 *arg0) {
             var_r29 = 0;
             var_r30 = (unsigned char *) (*(void **)((s8 *)(((TODoorCave01 *)arg0)->model) + 0x2C));
             do {
-                TODoorCave01::draw_door_model((void *)arg0, (int)var_r30, (int)(((TODoorCave01 *)arg0)->m_d0& (1 << (var_r29 + 0x10)) ? 1 : 0));
+                TODoorCave01::draw_door_model((void *)arg0, (int)var_r30, (int)(((TODoorCave01 *)arg0)->m_d0 & (1 << (var_r29 + 0x10)) ? 1 : 0));
                 var_r29 += 1;
                 var_r30 = (unsigned char *) (*(void **)((s8 *)var_r30 + 0x30));
             } while (var_r29 < 4);

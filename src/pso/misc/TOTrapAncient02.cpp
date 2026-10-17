@@ -849,10 +849,10 @@ void *TOTrapAncient02R__ct(void *arg0, void *arg1, void *arg2) {
     ((TOTrapAncient02R *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&TOTrapAncient02__shared_resource) + 0x42C)) + 0xC);
     ((TOTrapAncient02R *)arg0)->mode = 0;
     ((TOTrapAncient02R *)arg0)->phase = 0;
-    ((TOTrapAncient02R *)arg0)->range = lbl_805DBAA0 * ((TOTrapAncient02R *)arg0)->scale+ lbl_805DBA9C;
+    ((TOTrapAncient02R *)arg0)->range = lbl_805DBAA0 * ((TOTrapAncient02R *)arg0)->scale + lbl_805DBA9C;
     ((TOTrapAncient02R *)arg0)->dist = ((TOTrapAncient02R *)arg0)->range;
     ((TOTrapAncient02R *)arg0)->reset = (s32) (lbl_805DBA9C + (f32) ((TOTrapAncient02R *)arg0)->m_84);
-    if (((TOTrapAncient02R *)arg0)->reset< 0) {
+    if (((TOTrapAncient02R *)arg0)->reset < 0) {
         ((TOTrapAncient02R *)arg0)->reset = 0;
     }
     ((TOTrapAncient02R *)arg0)->timer = ((TOTrapAncient02R *)arg0)->reset;
@@ -865,7 +865,7 @@ void *TOTrapAncient02R__ct(void *arg0, void *arg1, void *arg2) {
     ((TOTrapAncient02R *)arg0)->h348 = lbl_805DBA80;
     ((TOTrapAncient02R *)arg0)->h344 = lbl_805DBA80;
     *(s32 *)&((TOTrapAncient02R *)arg0)->m_34c = 0;
-    if (((TOTrapAncient02R *)arg0)->rotation_z> 0) {
+    if (((TOTrapAncient02R *)arg0)->rotation_z > 0) {
         *(s32 *)&((TOTrapAncient02R *)arg0)->m_358 = 1;
     } else {
         *(s32 *)&((TOTrapAncient02R *)arg0)->m_358 = 0;

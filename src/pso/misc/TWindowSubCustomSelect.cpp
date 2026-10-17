@@ -315,7 +315,7 @@ u8 *TWindowSubCustomSelect__ct(u8 *arg0, s32 arg1) {
     }
     *(void **)((s8 *)arg0 + 0x7C) = o;
     pos.x = lbl_805DD5E8;
-    pos.y = TWindowSubCustomSelect__data_805DD5B0 * (f32)(s8)((TWindowSubCustomSelect *)arg0)->m_72+ lbl_805DD5EC;
+    pos.y = TWindowSubCustomSelect__data_805DD5B0 * (f32)(s8)((TWindowSubCustomSelect *)arg0)->m_72 + lbl_805DD5EC;
     o = alloc__23TAdSinglePlyChrSelectGCFv(0xC);
     if (o != NULL) {
         o = reset_selection__20TWindowSubStatusDispFv(o, &pos);

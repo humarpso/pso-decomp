@@ -98,7 +98,7 @@ u8 *TObjQuestColALock__ct(u8 *arg0, s32 arg1) {
     temp_r4 = (u8 *)(((TObjQuestColALock *)arg0)->m_a4);
     *(f32 *)((s8 *)temp_r4 + 4) = (f32) (*(f32 *)((s8 *)temp_r4 + 4) + ((TObjQuestColALock *)arg0)->target_scale);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    ((TObjQuestColALock *)arg0)->actorFlags = (s32) (((TObjQuestColALock *)arg0)->actorFlags| 0x40000000);
+    ((TObjQuestColALock *)arg0)->actorFlags = (s32) (((TObjQuestColALock *)arg0)->actorFlags | 0x40000000);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
 }

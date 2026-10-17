@@ -288,7 +288,7 @@ u8 *TBoss6Kakusan__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4, f32 farg
         ((TBoss6Kakusan *)arg0)->m_1c = 0x14;
     }
     ((TBoss6Kakusan *)arg0)->m_28 = (f32) *(f32 *)((s8 *)(TLobby::dispatch_shared_handler_a(0x2F)) + 0x10);
-    if (((TBoss6Kakusan *)arg0)->m_28< TBoss6Kakusan__data_805DF518) {
+    if (((TBoss6Kakusan *)arg0)->m_28 < TBoss6Kakusan__data_805DF518) {
         ((TBoss6Kakusan *)arg0)->m_28 = (f32) TBoss6Kakusan__data_805DF518;
     }
     ((TBoss6Kakusan *)arg0)->m_54 = (u32)create_particle_emitter((arg0 + 0x30), 0x214);

@@ -281,10 +281,10 @@ u8 *TOKeyJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOKeyJungleMain *)arg0)->m_d0 = 0;
     ((TOKeyJungleMain *)arg0)->m_e4 = (s32) ((TOKeyJungleMain *)arg0)->m_84;
-    if ((s32) ((TOKeyJungleMain *)arg0)->m_e4< 0) {
+    if ((s32) ((TOKeyJungleMain *)arg0)->m_e4 < 0) {
         ((TOKeyJungleMain *)arg0)->m_e4 = 0;
     }
-    if ((s32) ((TOKeyJungleMain *)arg0)->m_e4> 2) {
+    if ((s32) ((TOKeyJungleMain *)arg0)->m_e4 > 2) {
         ((TOKeyJungleMain *)arg0)->m_e4 = 2;
     }
     ((TOKeyJungleMain *)arg0)->m_e8 = (f32) lbl_805DDD3C;
@@ -640,7 +640,7 @@ u8 *TObjFish__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(f32 *)((s8 *)arg0 + 0x9C) = var_f1;
     ((TObjFish *)arg0)->m_94 = *(s32 *)((s8 *)arg2 + 0x30) + *(s32 *)((s8 *)arg2 + 0x34) + *(s32 *)((s8 *)arg2 + 0x38);
     ((TObjFish *)arg0)->m_98 = 0;
-    if ((s32) ((TObjFish *)arg0)->m_94< 1) {
+    if ((s32) ((TObjFish *)arg0)->m_94 < 1) {
         ((TObjFish *)arg0)->m_94 = 1;
     }
     if (init_fish_school__8TObjFishFPvll(arg0, arg0 + 0x68, (int) (*(s32 *)((s8 *)arg2 + 0x30)), (int) (*(s32 *)((s8 *)arg2 + 0x34))) == 0) {

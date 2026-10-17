@@ -142,11 +142,11 @@ u8 *TObjEneBalClaw__ct(u8 *arg0) {
     ((TUnk_80490470 *)(arg0 + 0x390))->init_vtable_and_field18();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2968;
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(8);
-    ((TObjEneBalClaw *)arg0)->actorFlags = (s32) (((TObjEneBalClaw *)arg0)->actorFlags| 0x40000);
+    ((TObjEneBalClaw *)arg0)->actorFlags = (s32) (((TObjEneBalClaw *)arg0)->actorFlags | 0x40000);
     ((TObjEneBalClaw *)arg0)->m_3b8 = 0;
     *(f32 *)((s8 *)arg0 + 0x3BC) = (f32) lbl_805D960C;
     ((TObjEneBalClaw *)arg0)->clear_attack_flag();
-    ((TObjEneBalClaw *)arg0)->m_388 = (s32) (((TObjEneBalClaw *)arg0)->m_388| 0x20000);
+    ((TObjEneBalClaw *)arg0)->m_388 = (s32) (((TObjEneBalClaw *)arg0)->m_388 | 0x20000);
     return arg0;
 }
 

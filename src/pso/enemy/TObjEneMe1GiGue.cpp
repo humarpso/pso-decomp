@@ -2067,9 +2067,9 @@ void update_movement__15TObjEneMe1GiGueFPv(u8 *arg0) {
         ((TObjEneMe1GiGue *)arg0)->state = 0;
     }
     VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
-    ((TObjEneMe1GiGue *)arg0)->m_300 = (f32) (((TObjEneMe1GiGue *)arg0)->m_300+ (15.0f + ((TObjEneMe1GiGue *)arg0)->m_3ec));
+    ((TObjEneMe1GiGue *)arg0)->m_300 = (f32) (((TObjEneMe1GiGue *)arg0)->m_300 + (15.0f + ((TObjEneMe1GiGue *)arg0)->m_3ec));
     *(f32 *)((s8 *)(((TObjEneMe1GiGue *)arg0)->m_a4) + 4) = (f32) (25.0f + ((TObjEneMe1GiGue *)arg0)->m_3ec);
-    if (!(((TObjEneMe1GiGue *)arg0)->m_388& 0x40000)) {
+    if (!(((TObjEneMe1GiGue *)arg0)->m_388 & 0x40000)) {
         submit_cursor_candidate(arg0, -1);
         minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
     }
@@ -2079,7 +2079,7 @@ void update_movement__15TObjEneMe1GiGueFPv(u8 *arg0) {
     }
     temp_r3_2 = (unsigned char *) (((TObjEneMe1GiGue *)arg0)->m_a4);
     *(s32 *)((s8 *)temp_r3_2 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3_2 + 0x18) & 0xFFFFFFF9);
-    if (((TObjEneMe1GiGue *)arg0)->m_3ec> 5.0f) {
+    if (((TObjEneMe1GiGue *)arg0)->m_3ec > 5.0f) {
         temp_r3_3 = (unsigned char *) (((TObjEneMe1GiGue *)arg0)->m_a4);
         *(s32 *)((s8 *)temp_r3_3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3_3 + 0x18) | 4);
     } else {
@@ -2248,7 +2248,7 @@ u8 *TObjEneMe1GiGue__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(f32 *)((s8 *)arg0 + 0x440) = 0.5f + *(f32 *)((s8 *)arg0 + 0x360);
     ((TObjEneMe1GiGue *)arg0)->m_444 = 0.5f + *(f32 *)((s8 *)arg0 + 0x364);
     ((TObjEneMe1GiGue *)arg0)->m_43c = 150.0f + *(f32 *)((s8 *)arg0 + 0x35C);
-    if (((TObjEneMe1GiGue *)arg0)->m_43c< 0.0f) {
+    if (((TObjEneMe1GiGue *)arg0)->m_43c < 0.0f) {
         ((TObjEneMe1GiGue *)arg0)->m_43c = 0.0f;
     }
     if ((s32) *(f32 *)((s8 *)arg0 + 0x354) >= 1) {
@@ -2263,7 +2263,7 @@ u8 *TObjEneMe1GiGue__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TObjEneLappy *)arg0)->set_param(0x37);
     *(f32 *)((s8 *)arg0 + 0x3E8) = 0.0f;
     ((TObjEneMe1GiGue *)arg0)->m_448 = 0;
-    if (((TObjEneMe1GiGue *)arg0)->m_388& 0x40000) {
+    if (((TObjEneMe1GiGue *)arg0)->m_388 & 0x40000) {
         ((TObjEneMe1GiGue *)arg0)->init_move();
     } else {
         ((TObjEnemyCustom *)arg0)->sub_800C7860();

@@ -99,7 +99,7 @@ void run_task__19TBoss1DragonEffTailFv(u8 *arg0) {
     rotate_matrix_y(0, -((TBoss1DragonEffTail *)arg0)->rotation_y);
     translate_matrix(0, -*(f32 *)((s8 *)arg0 + 0x38), -*(f32 *)((s8 *)arg0 + 0x3C), -*(f32 *)((s8 *)arg0 + 0x40));
     for (i = 0; i < 0x11; i++) {
-        p = *(u8 * *)&((TBoss1DragonEffTail *)arg0)->m_a4+ i * 0x2C;
+        p = *(u8 * *)&((TBoss1DragonEffTail *)arg0)->m_a4 + i * 0x2C;
         VecCopy((Vec *)(p + 0x1C), (const Vec *)src);
         matrix_mult_vec(0, src++, p);
         update_collider_contact_by_height(p, lbl_805D814C);

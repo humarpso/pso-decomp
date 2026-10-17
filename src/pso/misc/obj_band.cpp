@@ -459,14 +459,14 @@ void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     conv = (f32) *(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF8)) + 4);
     *(f32 *)((s8 *)arg0 + 0xC4) = conv;
     ((TObjMotion *)arg0)->m_c0 = (f32) lbl_805DB168;
-    ((TObjMotion *)arg0)->animationFlags = (s32) (((TObjMotion *)arg0)->animationFlags& 0xFFFFFFFB);
+    ((TObjMotion *)arg0)->animationFlags = (s32) (((TObjMotion *)arg0)->animationFlags & 0xFFFFFFFB);
     ((TObjMotion *)arg0)->m_b4 = (s32) *(s32 *)((s8 *)temp_r3 + 0xC);
     *(void **)((s8 *)arg0 + 0xE4) = (void *) *(void **)((s8 *)arg0 + 0xF8);
     *(f32 *)((s8 *)arg0 + 0xEC) = (f32) lbl_805DB168;
     *(void **)((s8 *)arg0 + 0xE8) = (void *) *(void **)((s8 *)arg0 + 0xF8);
     *(f32 *)((s8 *)arg0 + 0xF0) = (f32) lbl_805DB168;
     *(s16 *)((s8 *)arg0 + 0xBC) = (s16) ((TObjMotion *)arg0)->m_b8;
-    if (((TObjMotion *)arg0)->m_b4& 0x20000000) {
+    if (((TObjMotion *)arg0)->m_b4 & 0x20000000) {
         ((TObjMotion *)arg0)->set_motion_interpolation_flag();
     }
 }

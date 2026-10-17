@@ -345,7 +345,7 @@ u8 *TOMekaFish00__ct(u8 *arg0, s32 arg1) {
     ((TOMekaFish00 *)arg0)->m_f8 = (s32) (lbl_805DE078 * (lbl_805DE07C / (lbl_805DE080 / ((TOMekaFish00 *)arg0)->m_f4)));
     ((TOMekaFish00 *)arg0)->m_fc = (s32) (lbl_805DE078 * (lbl_805DE07C * (lbl_805DE084 * (f32) rand())));
     ((TOMekaFish00 *)arg0)->m_ec = (f32) ((lbl_805DE074 * (f32) *(s32 *)((s8 *)arg0 + 0x88)) + lbl_805DE068);
-    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (((TOMekaFish00 *)arg0)->m_ec* sin_table_lookup(((TOMekaFish00 *)arg0)->m_fc));
+    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (((TOMekaFish00 *)arg0)->m_ec * sin_table_lookup(((TOMekaFish00 *)arg0)->m_fc));
     return arg0;
 }
 #pragma pop

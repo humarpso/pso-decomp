@@ -106,10 +106,10 @@ void render__18TObjCityAirCar_CarFPv(u8 *arg0) {
             rotate_matrix_z(0, (int) (((TObjCityAirCar_Car *)arg0)->rotation_z));
         }
         TObjFish::set_global_param((int)city_common_texture_list);
-        get_city_common_model((*(s32 *)((s8 *)((u8 *)city_aircar_model_indices + (((TObjCityAirCar_Car *)arg0)->m_9c* 4)) + 0)));
+        get_city_common_model((*(s32 *)((s8 *)((u8 *)city_aircar_model_indices + (((TObjCityAirCar_Car *)arg0)->m_9c * 4)) + 0)));
         ((void (*)()) draw_chunk_object)();
         TParticleCtrl::begin_effect_render();
-        get_city_common_model((*(s32 *)((s8 *)((u8 *)city_air_car_model_index_table + (((TObjCityAirCar_Car *)arg0)->m_9c* 4)) + 0)));
+        get_city_common_model((*(s32 *)((s8 *)((u8 *)city_air_car_model_index_table + (((TObjCityAirCar_Car *)arg0)->m_9c * 4)) + 0)));
         draw_ginja_object();
         if ((void *) city_air_car_model_resource != NULL) {
             temp_r3 = (u8 *)(*(u8 **)((s8 *)city_air_car_model_handle + 0));

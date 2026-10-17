@@ -390,10 +390,10 @@ void set_cursor_index__17TAdMultiConfirmGCFPvi(void *arg0, s32 arg1) {
     if ((temp_r4 < 0) || (temp_r4 > 8)) {
         ((TUnk_804E3008 *)arg0)->m_b8 = 0;
     }
-    if (((TUnk_804E3008 *)arg0)->m_154& 2) {
-        ((TUnk_804E3008 *)arg0)->m_b8 = (s16) (((TUnk_804E3008 *)arg0)->m_b8+ 1);
+    if (((TUnk_804E3008 *)arg0)->m_154 & 2) {
+        ((TUnk_804E3008 *)arg0)->m_b8 = (s16) (((TUnk_804E3008 *)arg0)->m_b8 + 1);
         if ((s32) ((TUnk_804E3008 *)arg0)->m_151 == 6) {
-            ((TUnk_804E3008 *)arg0)->m_b8 = (s16) (((TUnk_804E3008 *)arg0)->m_b8+ 1);
+            ((TUnk_804E3008 *)arg0)->m_b8 = (s16) (((TUnk_804E3008 *)arg0)->m_b8 + 1);
         }
     }
 }

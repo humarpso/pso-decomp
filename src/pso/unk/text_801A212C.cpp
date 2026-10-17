@@ -37,7 +37,7 @@ typedef char RecoveredGlobal_801A2340_lbl_804FF610_size[sizeof(RecoveredGlobal_8
 s16 TUnk_804B9870::classify_actor_view_detail(f32 farg0, f32 farg1, f32 farg2) {
     Stack_801A2340 stack;
     f32 z;
-    if (this->m_flags& 0x400) {
+    if (this->m_flags & 0x400) {
         if (is_in_shadow_range(farg2, (void *) (((u8 *)this) + 0x38)) != 0) {
             this->m_1e = 1;
             return 1;

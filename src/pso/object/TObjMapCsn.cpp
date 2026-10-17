@@ -175,7 +175,7 @@ u8 *TObjMapCsn__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801949FC___vt__10TObjMapCsn *)&__vt__10TObjMapCsn).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjMapCsn__class_name;
     ((TObjMapCsn *)(arg0))->apply_object_set_data((void *)arg2);
-    ((TObjMapCsn *)arg0)->actorFlags = (s32) (((TObjMapCsn *)arg0)->actorFlags| 0x40000000);
+    ((TObjMapCsn *)arg0)->actorFlags = (s32) (((TObjMapCsn *)arg0)->actorFlags | 0x40000000);
     ((TObjMapCsn *)arg0)->update_state();
     ((TObjMapCsn *)arg0)->build_box_triangles();
     ((TObjMapCsn *)arg0)->m_c4 = 8;

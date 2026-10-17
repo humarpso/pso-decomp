@@ -170,13 +170,13 @@ u8 *TObjQuestColALock2__ct(u8 *arg0, s32 arg1, s32 _w2) {
     temp_r4 = (u8 *)(((TObjQuestColALock2 *)arg0)->m_a4);
     *(f32 *)((s8 *)temp_r4 + 4) = (f32) (*(f32 *)((s8 *)temp_r4 + 4) + ((TObjQuestColALock2 *)arg0)->target_scale);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    ((TObjQuestColALock2 *)arg0)->actorFlags = (s32) (((TObjQuestColALock2 *)arg0)->actorFlags| 0x40000000);
+    ((TObjQuestColALock2 *)arg0)->actorFlags = (s32) (((TObjQuestColALock2 *)arg0)->actorFlags | 0x40000000);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TObjQuestColALock2 *)arg0)->m_c0 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
-    if ((s32) ((TObjQuestColALock2 *)arg0)->m_c0< 0) {
+    if ((s32) ((TObjQuestColALock2 *)arg0)->m_c0 < 0) {
         ((TObjQuestColALock2 *)arg0)->m_c0 = 0;
     }
-    if ((s32) ((TObjQuestColALock2 *)arg0)->m_c0> 1) {
+    if ((s32) ((TObjQuestColALock2 *)arg0)->m_c0 > 1) {
         ((TObjQuestColALock2 *)arg0)->m_c0 = 1;
     }
     switch (((TObjQuestColALock2 *)arg0)->m_c0) {

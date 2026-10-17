@@ -421,8 +421,8 @@ void update_bringer_rush_effect(u8 *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x308) = (f32) (((TObjEneDf2Bringer_Eff_Rush *)arg0)->m_20* temp_f1);
-    *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x310) = (f32) (((TObjEneDf2Bringer_Eff_Rush *)arg0)->m_28* *(f32 *)((s8 *)arg0 + 0x2C));
+    *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x308) = (f32) (((TObjEneDf2Bringer_Eff_Rush *)arg0)->m_20 * temp_f1);
+    *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x310) = (f32) (((TObjEneDf2Bringer_Eff_Rush *)arg0)->m_28 * *(f32 *)((s8 *)arg0 + 0x2C));
     *(f32 *)((s8 *)arg0 + 0x2C) *= 0.8f;
 }
 

@@ -222,7 +222,7 @@ u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8015BD68___vt__23TOContainerAncientEnemy *)&__vt__23TOContainerAncientEnemy).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2F08;
     ((TOContainerAncientEnemy *)arg0)->mode = 0;
-    ((TOContainerAncientEnemy *)arg0)->actorFlags = (s32) (((TOContainerAncientEnemy *)arg0)->actorFlags| 0x60000000);
+    ((TOContainerAncientEnemy *)arg0)->actorFlags = (s32) (((TOContainerAncientEnemy *)arg0)->actorFlags | 0x60000000);
     init_collision_body_parts(arg0, (void *)&TOContainerAncientEnemy__collision_body_params.value, 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38));

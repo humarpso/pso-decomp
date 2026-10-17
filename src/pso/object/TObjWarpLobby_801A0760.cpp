@@ -90,7 +90,7 @@ extern s32 __vt__13TObjWarpLobby[];
 
 void run_task__13TObjWarpLobbyFv(VO_801A0894 *arg0) {
     s32 selected_menu_value;
-    ((TObjWarpLobby *)arg0)->m_c8 = (f32) (((TObjWarpLobby *)arg0)->m_c8+ lbl_805DC068);
+    ((TObjWarpLobby *)arg0)->m_c8 = (f32) (((TObjWarpLobby *)arg0)->m_c8 + lbl_805DC068);
     if ((f32) (*(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xD8)) + 4) - 1) < ((TObjWarpLobby *)arg0)->m_c8) {
         ((TObjWarpLobby *)arg0)->m_c8 = (f32) lbl_805DC06C;
     }

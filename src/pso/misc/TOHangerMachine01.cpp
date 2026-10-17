@@ -169,7 +169,7 @@ u8 *TOHangerMachine01__ct(u8 *arg0, s32 arg1) {
     ((TOHangerMachine01 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOHangerMachine01__bml_resource) + 0x42C)) + 0xC);
     ((TOHangerMachine01 *)arg0)->m_c0 = (f32) lbl_805DB6AC;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB6B0;
-    ((TOHangerMachine01 *)arg0)->actorFlags = (s32) (((TOHangerMachine01 *)arg0)->actorFlags| 0x40000000);
+    ((TOHangerMachine01 *)arg0)->actorFlags = (s32) (((TOHangerMachine01 *)arg0)->actorFlags | 0x40000000);
     init_collision_body_parts(arg0, &hanger_machine01_collision_body_parts.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();

@@ -1233,7 +1233,7 @@ void TBoss3VoloptP01::update_state() {
 void render__15TBoss3VoloptP01Fv(u8 *arg0) {
     s32 temp_r3;
 
-    if (!(((TBoss3VoloptP01 *)arg0)->actorFlags& 0x02000000) && (((TBoss3VoloptP01_800430AC*)arg0)->m8((4e+02f), (4e+01f)) != 0)) {
+    if (!(((TBoss3VoloptP01 *)arg0)->actorFlags & 0x02000000) && (((TBoss3VoloptP01_800430AC*)arg0)->m8((4e+02f), (4e+01f)) != 0)) {
         TObjFish::set_global_param(((TBoss3VoloptP01 *)arg0)->texture_id);
         select_actor_lighting((s32)arg0);
         TObjPlayer::toggle_particle_effect();
@@ -1291,7 +1291,7 @@ void run_task__15TBoss3VoloptP01Fv(u8 *arg0) {
     }
     if (((TBoss3VoloptP01 *)(arg0))->has_flag_0x800() != 0) {
         ((TBoss3VoloptP01 *)(arg0))->vfunc_63();
-    } else if ((((TBoss3VoloptP01 *)(arg0))->test_flag30_512() != 0) && !(((TBoss3VoloptP01 *)arg0)->actorFlags& 0x04000000)) {
+    } else if ((((TBoss3VoloptP01 *)(arg0))->test_flag30_512() != 0) && !(((TBoss3VoloptP01 *)arg0)->actorFlags & 0x04000000)) {
         ((TBoss3VoloptP01 *)(arg0))->vfunc_62();
     }
     if (obj_testFlags30((void *) (arg0), 0x4000) != 0) {

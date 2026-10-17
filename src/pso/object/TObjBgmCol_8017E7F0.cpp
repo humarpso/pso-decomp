@@ -30,8 +30,8 @@ void *TObjBgmCol__ct(void *arg0, s32 arg1, s32 arg2) {
     ((TObjBgmCol *)arg0)->apply_object_set_data((void *)arg2);
     ((TObjBgmCol *)arg0)->m_90 = 1;
     ((TObjBgmCol *)arg0)->m_98 = (f32) ((TObjBgmCol *)arg0)->scale;
-    ((TObjBgmCol *)arg0)->m_9c = (s32) (((TObjBgmCol *)arg0)->m_84% 6);
-    if ((s32) ((TObjBgmCol *)arg0)->m_9c< 0) {
+    ((TObjBgmCol *)arg0)->m_9c = (s32) (((TObjBgmCol *)arg0)->m_84 % 6);
+    if ((s32) ((TObjBgmCol *)arg0)->m_9c < 0) {
         ((TObjBgmCol *)arg0)->m_9c = 0;
     }
     return arg0;

@@ -270,11 +270,11 @@ void render__17TWindowChatSymbolFv(u8 *arg0) {
 
     c_arg = draw_default_entry__9TWindowDDFl();
     if ((s32) *(s32 *)((s8 *)c_arg + 0x30) < 0) {
-        *(f32 *)((s8 *)c_arg + 0x28) = (f32) ((f32) *(s32 *)&((TWindowChatSymbol *)arg0)->m_5c/ lbl_805DCB9C);
+        *(f32 *)((s8 *)c_arg + 0x28) = (f32) ((f32) *(s32 *)&((TWindowChatSymbol *)arg0)->m_5c / lbl_805DCB9C);
         *(f32 *)((s8 *)c_arg + 0x2C) = (f32) *(f32 *)((s8 *)c_arg + 0x28);
     }
     ((TUnk_804CE018 *)arg0)->draw_quest_message_frame(c_arg);
-    *(f32 *)((s8 *)c_arg + 0x10) = (f32) ((lbl_805DCB7C * (((TWindowChatSymbol *)arg0)->m_48- lbl_805DCB94)) + *(f32 *)((s8 *)c_arg + 0x10));
+    *(f32 *)((s8 *)c_arg + 0x10) = (f32) ((lbl_805DCB7C * (((TWindowChatSymbol *)arg0)->m_48 - lbl_805DCB94)) + *(f32 *)((s8 *)c_arg + 0x10));
     temp_f2 = *(f32 *)((s8 *)arg0 + 0x4C);
     temp_f1 = temp_f2 - lbl_805DCB98;
     *(f32 *)((s8 *)c_arg + 0x14) = (f32) ((lbl_805DCB7C * temp_f1) + *(f32 *)((s8 *)c_arg + 0x14));

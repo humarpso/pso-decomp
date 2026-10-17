@@ -247,22 +247,22 @@ void *lbl_80483E84[12] = {
 void render__19TBoss3VoloptMonitorFv(void *arg0) {
     s32 v;
     s32 hit;
-    if (!(((TBoss3VoloptMonitor *)arg0)->actorFlags& 0x02000000) && ((VObj_80041F6C *)arg0)->m8(lbl_805D8738, lbl_805D873C) != 0) {
-        if (((TBoss3VoloptMonitor *)arg0)->actorFlags& 0x800) {
+    if (!(((TBoss3VoloptMonitor *)arg0)->actorFlags & 0x02000000) && ((VObj_80041F6C *)arg0)->m8(lbl_805D8738, lbl_805D873C) != 0) {
+        if (((TBoss3VoloptMonitor *)arg0)->actorFlags & 0x800) {
             ((TBoss3VoloptMonitor *)arg0)->sub_80042944((&volopt_monitor_model_indices[((TBoss3VoloptMonitor *)arg0)->variant])[8]);
             v = 0x18;
         } else {
             hit = 0;
-            if (vol_opt_active_hit_zone >= 0 && vol_opt_active_hit_zone / 4 == ((TBoss3VoloptMonitor *)arg0)->m_38c/ 4) {
+            if (vol_opt_active_hit_zone >= 0 && vol_opt_active_hit_zone / 4 == ((TBoss3VoloptMonitor *)arg0)->m_38c / 4) {
                 hit = 1;
             }
             if (hit != 0) {
                 ((TBoss3VoloptMonitor *)arg0)->sub_80042944((&volopt_monitor_model_indices[((TBoss3VoloptMonitor *)arg0)->variant])[4]);
-                v = ((TBoss3VoloptMonitor *)arg0)->m_38e+ 0x10;
+                v = ((TBoss3VoloptMonitor *)arg0)->m_38e + 0x10;
             } else {
                 ((TBoss3VoloptMonitor *)arg0)->sub_80042944(((s32 (*)[4])volopt_monitor_model_indices)[0][((TBoss3VoloptMonitor *)arg0)->variant]);
                 v = ((TBoss3VoloptMonitor *)arg0)->m_38e;
-                if (((TBoss3VoloptMonitor *)arg0)->m_388& 0x10000) {
+                if (((TBoss3VoloptMonitor *)arg0)->m_388 & 0x10000) {
                     v += 8;
                 }
             }
@@ -331,7 +331,7 @@ void run_task__19TBoss3VoloptMonitorFv(u8 *arg0) {
         submit_cursor_candidate(arg0, -1);
         minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
     }
-    if (!(((TBoss3VoloptMonitor *)arg0)->actorFlags& 0x800)) {
+    if (!(((TBoss3VoloptMonitor *)arg0)->actorFlags & 0x800)) {
         if ((((TBoss3VoloptMonitor *)arg0)->m_390 -= 1) <= 0) {
             ((TBoss3VoloptMonitor *)arg0)->m_390 = 3;
             if ((((TBoss3VoloptMonitor *)arg0)->m_38e += 1) >= 8) {
@@ -340,7 +340,7 @@ void run_task__19TBoss3VoloptMonitorFv(u8 *arg0) {
                 if (temp_r3_3 & 0x10000) {
                     ((TBoss3VoloptMonitor *)arg0)->m_388 = (s32) (temp_r3_3 & 0xFFFEFFFF);
                 } else if ((lbl_805D8740 * (f32) rand()) <= lbl_805D8744) {
-                    ((TBoss3VoloptMonitor *)arg0)->m_388 = (s32) (((TBoss3VoloptMonitor *)arg0)->m_388| 0x10000);
+                    ((TBoss3VoloptMonitor *)arg0)->m_388 = (s32) (((TBoss3VoloptMonitor *)arg0)->m_388 | 0x10000);
                 }
             }
         }
@@ -505,7 +505,7 @@ u8 *init_with_slot__19TBoss3VoloptMonitorFPvPviiii(u8 *arg0, u8 *arg1, s32 arg2,
     push_matrix();
     set_matrix_identity(0);
     rotate_matrix_y(0, ((TBoss3VoloptMonitor *)arg0)->rotation_y);
-    matrix_mult_vec(0, (u8 *)lbl_80483E84 + ((TBoss3VoloptMonitor *)arg0)->variant* 0xC, arg0 + 0x38);
+    matrix_mult_vec(0, (u8 *)lbl_80483E84 + ((TBoss3VoloptMonitor *)arg0)->variant * 0xC, arg0 + 0x38);
     pop_matrix();
     VecCopy((Vec *)&volopt_slot_positions[((TBoss3VoloptMonitor *)arg0)->m_38c], (const Vec *)(arg0 + 0x38));
     {

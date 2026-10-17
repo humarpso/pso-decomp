@@ -705,7 +705,7 @@ void update_item_list_window(u8 *arg0) {
     u8 *temp_r29_3;
     temp_r31 = is_player_input_active(((s32) ((TUnk_804D0618 *)arg0)->m_20));
     if ((((TUnk_804D0618 *)arg0)->get_flag() == 0) && (get_status_flag__13TUnk_804D0618Fv(arg0) == 0) && (((TUnk_804CE018 *)arg0)->sub_80244994() != 0)) {
-        if (((TUnk_804D0618 *)arg0)->m_70& 0x10) {
+        if (((TUnk_804D0618 *)arg0)->m_70 & 0x10) {
             input = (u8 *)&controller_input_state.value + (temp_r31 * 0x50) + 0x20;
             if ((TWindowChoiceSetting::apply_choice((s32)input, 0x10, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), 0x10, 6, 1) != 0)) {
                 ((TUnk_804D0618 *)arg0)->move_cursor();

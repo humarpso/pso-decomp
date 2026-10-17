@@ -168,7 +168,7 @@ u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjGoalWarpAncient *)arg0)->m_e8 = TObjGoalWarpAncient__sub_8017D2D4(1);
     *(s32 *)((s8 *)arg0 + 0xD0) = TObjGoalWarpAncient__sub_8017D2D4(3);
     *(s32 *)((s8 *)arg0 + 0xD4) = TObjGoalWarpAncient__sub_8017D2D4(5);
-    if ((s32) ((TObjGoalWarpAncient *)arg0)->m_8c< 0) {
+    if ((s32) ((TObjGoalWarpAncient *)arg0)->m_8c < 0) {
         *(s32 *)((s8 *)arg0 + 0xD8) = TObjGoalWarpAncient::get_instance();
     } else {
         *(s32 *)((s8 *)arg0 + 0xD8) = register_warp_object__19TObjGoalWarpAncientFPv(1);

@@ -14,7 +14,7 @@ int TObjPlayer__sub_801BED80(void*);
 int TObjPlayer__sub_801BED88(void*);
 int TObjPlayer__sub_801BED90(void*);
 
-int TObjPlayer::is_action_active() { return (this->m_334>> 1) & 0x1; }
+int TObjPlayer::is_action_active() { return (this->m_334 >> 1) & 0x1; }
 void TObjPlayer__sub_801BE784(void* p, u8 v) { *(u8*)((char*)p + 0x2e7) = v; }
 u8 TObjPlayer::get_battle_mode() { return *(u8*)((char*)this + 0x33a); }
 void TObjPlayer__sub_801BE794(void* p, u8 v) { *(u8*)((char*)p + 0x2cb) = v; }
@@ -113,8 +113,8 @@ void set_flag_400000__10TObjPlayerFi(s32 arg0) {
     ((TObjPlayer *)arg0)->set_state_flags(0x400000);
 }
 int TObjPlayer::check_flag_48() { return check_flag__10TObjPlayerFl(this, 48); }
-int TObjPlayer::is_status_locked() { return this->actorFlags& 0x10000; }
-int TObjPlayer::is_status_flag_200() { return this->actorFlags& 0x200; }
+int TObjPlayer::is_status_locked() { return this->actorFlags & 0x10000; }
+int TObjPlayer::is_status_flag_200() { return this->actorFlags & 0x200; }
 int TObjPlayer__sub_801BEABC(void* p) { return ((TObjPlayer *)p)->end_camera_pan(); }
 int TObjPlayer::start_freeze_self() { return start_freeze(); }
 void TObjPlayer::set_floor(s32 v) { this->m_3e4 = v; }

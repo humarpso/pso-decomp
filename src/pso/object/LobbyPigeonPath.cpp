@@ -865,7 +865,7 @@ void *TObjPlayer__sub_802C19E8(void *arg0) {
     temp_r3 = ((TUnk_804E08D4 *)arg0)->m_84;
     var_r0 = (temp_r3 < 0) ? 0 : (temp_r3 > 2) ? 2 : temp_r3;
     ((TUnk_804E08D4 *)arg0)->m_c8 = var_r0;
-    *(s32 *)((s8 *)arg0 + 0xA0) = ((s32 (*)(s32, s32))get_bml_motion)((*(s32 *)&lobby_kamome_model_resource), *(s32 *)((s8 *)((s32 *)&jungle_seagull_path_profiles) + (((TUnk_804E08D4 *)arg0)->m_c8* 0x14)));
+    *(s32 *)((s8 *)arg0 + 0xA0) = ((s32 (*)(s32, s32))get_bml_motion)((*(s32 *)&lobby_kamome_model_resource), *(s32 *)((s8 *)((s32 *)&jungle_seagull_path_profiles) + (((TUnk_804E08D4 *)arg0)->m_c8 * 0x14)));
     ((TUnk_804E08D4 *)arg0)->m_a4 = (f32) (0.0f);
     ((TUnk_804E08D4 *)arg0)->m_a8 = (f32) (0.0f);
     ((s32 (*)(void *))TObjPlayer__sub_802C1660)(arg0);

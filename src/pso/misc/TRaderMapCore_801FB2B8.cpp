@@ -111,7 +111,7 @@ void run_task__13TRaderMapCoreFv(u8 *arg0) {
                 var_r31 += 1;
             } while (var_r31 < 4);
         } else {
-            update_radar_auto_discovery(arg0, 0, (void *) (arg0 + ((TRaderMapCore *)arg0)->m_134* 0x28 + 0x94));
+            update_radar_auto_discovery(arg0, 0, (void *) (arg0 + ((TRaderMapCore *)arg0)->m_134 * 0x28 + 0x94));
         }
         ((TRaderMapCore *)arg0)->advance_scroll();
     }

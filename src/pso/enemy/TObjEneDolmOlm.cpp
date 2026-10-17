@@ -954,10 +954,10 @@ u8 *TObjEneDolmOlm__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjEneDolmOlm *)arg0)->m_b8 = 0;
     set_animation__10TObjPlayerFPvs(arg0, ((TObjEneDolmOlm *)arg0)->m_b8);
     ((TObjMotion *)arg0)->set_field_b8(((TObjEneDolmOlm *)arg0)->m_b8);
-    init_collision_body_parts(arg0, (u8 *) lbl_804E68D0 + *(s32 *)&((TObjEneDolmOlm *)arg0)->variant* 0x2C, 1);
+    init_collision_body_parts(arg0, (u8 *) lbl_804E68D0 + *(s32 *)&((TObjEneDolmOlm *)arg0)->variant * 0x2C, 1);
     bind_enemy_combat_stats(arg0, ((s32 *) dolm_olm_combat_stat_id_pair)[*(s32 *)&((TObjEneDolmOlm *)arg0)->variant],
         ((s32 *) TObjEneDolmOlm__shared_handler_ids)[*(s32 *)&((TObjEneDolmOlm *)arg0)->variant], ((s32 *) TObjEneDolmOlm__registered_object_ids)[*(s32 *)&((TObjEneDolmOlm *)arg0)->variant]);
-    *(u8 * *)&((TObjEneDolmOlm *)arg0)->movementParameters = (u8 *) lbl_804E6898 + *(s32 *)&((TObjEneDolmOlm *)arg0)->variant* 0x1C;
+    *(u8 * *)&((TObjEneDolmOlm *)arg0)->movementParameters = (u8 *) lbl_804E6898 + *(s32 *)&((TObjEneDolmOlm *)arg0)->variant * 0x1C;
     ((TObjEneDolmOlm *)arg0)->referenceHp = ((TObjEneDolmOlm *)arg0)->hp;
     ((TObjEneDolmOlm *)arg0)->advance_position();
     copy_position__20TBoss3VoloptHiraisinFi(arg0);

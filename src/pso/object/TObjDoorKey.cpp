@@ -277,10 +277,10 @@ void *TObjDoorKey__ct(void *arg0, void *arg1, void *arg2) {
     *(s32 *)((s8 *)arg0 + 0xF4) = 0;
     *(s32 *)&((TObjDoorKey *)arg0)->m_f8 = 0;
     ((TObjDoorKey *)arg0)->m_id = (*(u16 *)&door_key_id_counter)++;
-    if (*(s32 *)&((TObjDoorKey *)arg0)->m_8c< 0) {
+    if (*(s32 *)&((TObjDoorKey *)arg0)->m_8c < 0) {
         *(s32 *)&((TObjDoorKey *)arg0)->m_8c = 0;
     }
-    if (*(s32 *)&((TObjDoorKey *)arg0)->m_8c> 9) {
+    if (*(s32 *)&((TObjDoorKey *)arg0)->m_8c > 9) {
         *(s32 *)&((TObjDoorKey *)arg0)->m_8c = 9;
     }
     init_collision_body_parts(arg0, TObjDoorKey__collision_body_parts, 1);

@@ -22,10 +22,10 @@ void *TObjQuestCol2__ct(void *arg0) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjQuestCol2;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D340C;
     ((TObjQuestCol2 *)arg0)->m_c0 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
-    if ((s32) ((TObjQuestCol2 *)arg0)->m_c0< 0) {
+    if ((s32) ((TObjQuestCol2 *)arg0)->m_c0 < 0) {
         ((TObjQuestCol2 *)arg0)->m_c0 = 0;
     }
-    if ((s32) ((TObjQuestCol2 *)arg0)->m_c0> 1) {
+    if ((s32) ((TObjQuestCol2 *)arg0)->m_c0 > 1) {
         ((TObjQuestCol2 *)arg0)->m_c0 = 1;
     }
     switch (((TObjQuestCol2 *)arg0)->m_c0) {

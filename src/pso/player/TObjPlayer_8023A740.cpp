@@ -94,14 +94,14 @@ TUnk_804CCC68::TUnk_804CCC68(s32 arg1, u8 *arg2, u8 *arg3, s32 arg4) : TEffect()
     *(f32 *)((s8 *)this + 0xFC) = lbl_805DC92C;
     *(f32 *)((s8 *)this + 0x100) = lbl_805DC92C;
     *(f32 *)((s8 *)this + 0x104) = lbl_805DC92C;
-    if (obj_getField1c(this->source) < 4U && get_type__10TObjPlayerFPv((void *)(this->source+ 0x828)) != 0) {
+    if (obj_getField1c(this->source) < 4U && get_type__10TObjPlayerFPv((void *)(this->source + 0x828)) != 0) {
         *(f32 *)((s8 *)this + 0x104) = lbl_805DC938;
     }
     *(f32 *)((s8 *)this + 0x108) = lbl_805DC91C;
     *(f32 *)((s8 *)this + 0x10C) = lbl_805DC928;
     *(s32 *)((s8 *)this + 0x110) = 1;
     if (obj_getField1c(this->source) < 4U) {
-        if (get_type__10TObjPlayerFPv((void *)(this->source+ 0x828)) != 0) {
+        if (get_type__10TObjPlayerFPv((void *)(this->source + 0x828)) != 0) {
             *(s32 *)((s8 *)this + 0x114) = 0x40007;
         } else {
             *(s32 *)((s8 *)this + 0x114) = 0x40107;
@@ -162,14 +162,14 @@ u8 *construct_facing_technique__10TObjPlayerFPviPvii(u8 *arg0, s32 arg1, u8 *arg
     *(f32 *)((s8 *)arg0 + 0xFC) = lbl_805DC92C;
     *(f32 *)((s8 *)arg0 + 0x100) = lbl_805DC92C;
     *(f32 *)((s8 *)arg0 + 0x104) = lbl_805DC92C;
-    if (obj_getField1c(((TUnk_804CCC68 *)arg0)->source) < 4U && get_type__10TObjPlayerFPv((void *)(((TUnk_804CCC68 *)arg0)->source+ 0x828)) != 0) {
+    if (obj_getField1c(((TUnk_804CCC68 *)arg0)->source) < 4U && get_type__10TObjPlayerFPv((void *)(((TUnk_804CCC68 *)arg0)->source + 0x828)) != 0) {
         *(f32 *)((s8 *)arg0 + 0x104) = lbl_805DC938;
     }
     *(f32 *)((s8 *)arg0 + 0x108) = lbl_805DC91C;
     *(f32 *)((s8 *)arg0 + 0x10C) = lbl_805DC928;
     *(s32 *)((s8 *)arg0 + 0x110) = 1;
     if (obj_getField1c(((TUnk_804CCC68 *)arg0)->source) < 4U) {
-        if (get_type__10TObjPlayerFPv((void *)(((TUnk_804CCC68 *)arg0)->source+ 0x828)) != 0) {
+        if (get_type__10TObjPlayerFPv((void *)(((TUnk_804CCC68 *)arg0)->source + 0x828)) != 0) {
             *(s32 *)((s8 *)arg0 + 0x114) = 0x40007;
         } else {
             *(s32 *)((s8 *)arg0 + 0x114) = 0x40107;

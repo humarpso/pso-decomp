@@ -73,10 +73,10 @@ u8 *TOGrassJungle__ct(u8 *arg0, s32 parent, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) grass_jungle_class_name;
     ((TOGrassJungle *)(arg0))->apply_object_set_data((void *)arg2);
     ((TOGrassJungle *)arg0)->m_90 = (s32) ((TOGrassJungle *)arg0)->m_84;
-    if ((s32) ((TOGrassJungle *)arg0)->m_90< 0) {
+    if ((s32) ((TOGrassJungle *)arg0)->m_90 < 0) {
         ((TOGrassJungle *)arg0)->m_90 = 0;
     }
-    if ((s32) ((TOGrassJungle *)arg0)->m_90> 1) {
+    if ((s32) ((TOGrassJungle *)arg0)->m_90 > 1) {
         ((TOGrassJungle *)arg0)->m_90 = 1;
     }
     return arg0;

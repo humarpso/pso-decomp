@@ -2169,7 +2169,7 @@ void update_monest_carrier(u8 *self) {
         break;
     case 1:
         ((TObjEneBm3FlyNest_CarryFly *)self)->m_20 += lbl_805D9D18;
-        if (((TObjEneBm3FlyNest_CarryFly *)self)->m_20> 0.0f) {
+        if (((TObjEneBm3FlyNest_CarryFly *)self)->m_20 > 0.0f) {
             *(s32 *)((s8 *)self + 0x2C) = 2;
             *(f32 *)((s8 *)self + 0x54) = lbl_805D9D64 * *(f32 *)((s8 *)self + 0x5C);
         }
@@ -2187,11 +2187,11 @@ void update_monest_carrier(u8 *self) {
             ((s32 (*)(void *))queue_destruction__7TObjectFv)(self);
             break;
         }
-        ((TObjEneBm3FlyNest_CarryFly *)self)->m_20 = ((TObjEneBm3FlyNest_CarryFly *)self)->m_60* (v * v) + *(f32 *)((s8 *)self + 0x64);
+        ((TObjEneBm3FlyNest_CarryFly *)self)->m_20 = ((TObjEneBm3FlyNest_CarryFly *)self)->m_60 * (v * v) + *(f32 *)((s8 *)self + 0x64);
         *(f32 *)((s8 *)self + 0x54) = v;
         v = lbl_805D9D64 * *(f32 *)((s8 *)self + 0x5C) + v;
-        *(f32 *)((s8 *)self + 0x1C) = ((TObjEneBm3FlyNest_CarryFly *)self)->m_50* v;
-        *(f32 *)((s8 *)self + 0x24) = ((TObjEneBm3FlyNest_CarryFly *)self)->m_58* v;
+        *(f32 *)((s8 *)self + 0x1C) = ((TObjEneBm3FlyNest_CarryFly *)self)->m_50 * v;
+        *(f32 *)((s8 *)self + 0x24) = ((TObjEneBm3FlyNest_CarryFly *)self)->m_58 * v;
         play_persistent_sound((s32)(((s32 (*)(s32, s32))copy_target_state__17TObjEneBm3FlyNestFPv)(*(s32 *)((s8 *)self + 0x10), 0x4003A828)), (s32)self, (u32)(*(s32 *)((s8 *)self + 0x34)), 0, 0);
         TObjPlayer::play_effect_if_v2(-0x400);
         break;
@@ -2227,7 +2227,7 @@ u8 *TObjEneBm3FlyNest_CarryFly__ct(u8 *self, void *parent, s32 a, s32 b, s32 unu
     ((TObjEneBm3FlyNest_CarryFly *)self)->m_20 = lbl_805D9D6C;
     *(f32 *)((s8 *)self + 0x24) = lbl_805D9D6C * v.z;
     *(s32 *)((s8 *)self + 0x48) = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&lbl_805D5108) + 0x430)) + 0x54);
-    *(f32 *)((s8 *)self + 0x4C) = (f32) (((TObjEneBm3FlyNest_CarryFly *)self)->m_28* 2);
+    *(f32 *)((s8 *)self + 0x4C) = (f32) (((TObjEneBm3FlyNest_CarryFly *)self)->m_28 * 2);
     *(f32 *)((s8 *)self + 0x3C) = lbl_805D9D18;
     *(s32 *)((s8 *)self + 0x44) = 0;
     ((TObjEneBm3FlyNest_CarryFly *)self)->m_50 = 0.0f;

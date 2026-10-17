@@ -51,7 +51,7 @@ u8 *__dt__10TBoss6RockFv(u8 *arg0, s16 arg1) {
             ((TBoss6Rock *)(arg0 + 0xD4))->spawn_crush_rocks(((TBoss6Rock *)arg0)->m_b4);
         }
         ((TBoss6Rock *)arg0)->release_object();
-        *(s32 *)((s8 *)&TBoss6Rock__instance_table.value + (((TBoss6Rock *)arg0)->m_ac* 4)) = 0;
+        *(s32 *)((s8 *)&TBoss6Rock__instance_table.value + (((TBoss6Rock *)arg0)->m_ac * 4)) = 0;
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);
@@ -65,7 +65,7 @@ u8 *TBoss6Rock__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__10TBoss6Rock.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D438C;
     ((TBoss6Rock *)arg0)->m_ac = arg2;
-    VecCopy((Vec *)(arg0 + 0xD4), (const Vec *)((u8 *)&TBoss6Rock__rock_point_table.value + (((TBoss6Rock *)arg0)->m_ac* 0xC)));
+    VecCopy((Vec *)(arg0 + 0xD4), (const Vec *)((u8 *)&TBoss6Rock__rock_point_table.value + (((TBoss6Rock *)arg0)->m_ac * 0xC)));
     ((TBoss6Rock *)arg0)->m_b8 = 0;
     ((TBoss6Rock *)arg0)->m_b4 = 0;
     ((TBoss6Rock *)arg0)->m_c0 = 0;

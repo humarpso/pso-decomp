@@ -952,8 +952,8 @@ void TObjEneDubchik::sub_800AA10C() {
             }
         } else if (temp_r0_2 != 0U) {
             if (xz_distance_squared((void *) (((u8 *)this) + 0x38), (void *) (*(u32 *)((s8 *)((u8 *)this) + 0x2A8) + 0x38)) < (((TObjPlayer *)(this->m_318))->get_pos_x() * ((TObjPlayer *)(this->m_318))->get_pos_x())) {
-                this->m_390 = (this->m_390+ 1);
-                if ((s16) this->m_390> 3) {
+                this->m_390 = (this->m_390 + 1);
+                if ((s16) this->m_390 > 3) {
                     this->m_390 = 0;
                     ((TObjPlayer *)((u8 *)this))->target_nearest_player(lbl_805D9B20);
                 }
@@ -975,7 +975,7 @@ void TObjPlayer__sub_800AA334(u8 *arg0) {
     s32 temp_r3;
     s32 var_r30;
     s32 var_r29;
-    if (!(((TObjEneDubchik *)arg0)->actorFlags& 0x02000000)) {
+    if (!(((TObjEneDubchik *)arg0)->actorFlags & 0x02000000)) {
         temp_r3 = ((VObj_18_ca64a0 *)(arg0))->m9(lbl_805D9B24, lbl_805D9B28, lbl_805D9B2C);
         if (temp_r3 != 0) {
             select_actor_lighting((s32)arg0);
@@ -995,7 +995,7 @@ void TObjPlayer__sub_800AA334(u8 *arg0) {
             model_render_flags &= 0xFFFFFBFF;
             if (TObjPlayer::check_demo_mode() == 1) {
                 draw_chunk_object((void *)(*(s32 *)((s8 *)arg0 + 0x34)));
-            } else if (((TObjEneDubchik *)arg0)->m_388& 4) {
+            } else if (((TObjEneDubchik *)arg0)->m_388 & 4) {
                 if (((Self_800AA334 *)arg0)->sub.m8() != 0) {
                     ((Self_800AA334 *)arg0)->sub.m6();
                     var_r29 = 1;
@@ -1022,7 +1022,7 @@ void TObjPlayer__sub_800AA334(u8 *arg0) {
             pop_matrix();
             restore_scene_lighting();
             TParticleCtrl::end_effect_render();
-            if (!(((TObjEneDubchik *)arg0)->actorFlags& 0x800) && (var_r30 != 0)) {
+            if (!(((TObjEneDubchik *)arg0)->actorFlags & 0x800) && (var_r30 != 0)) {
                 Vec_800AA334 v = *(Vec_800AA334 *)lbl_8043AC78;
                 ((TObjEnemy *)arg0)->render_with_position_override((u8 *)&v, 0);
             }

@@ -269,7 +269,7 @@ void render__28TWindowSubSymbolChatPartsSetFv(u8 *arg0) {
     ((TWindowSubSymbolChatPartsSet *)(&sp10))->copy_vec2(c_arg + 0x10);
     ((TWindowSubSymbolChatPartsSet *)(&sp8))->copy_vec2(c_arg + 0x28);
     if ((s32) *(s32 *)((s8 *)c_arg + 0x30) < 0) {
-        *(f32 *)((s8 *)c_arg + 0x28) = (f32) ((f32) *(s32 *)&((TWindowSubSymbolChatPartsSet *)arg0)->m_5c/ lbl_805DD820);
+        *(f32 *)((s8 *)c_arg + 0x28) = (f32) ((f32) *(s32 *)&((TWindowSubSymbolChatPartsSet *)arg0)->m_5c / lbl_805DD820);
         *(f32 *)((s8 *)c_arg + 0x2C) = (f32) *(f32 *)((s8 *)c_arg + 0x28);
     }
     ((TUnk_804CE018 *)arg0)->draw_quest_message_frame((void *)c_arg);

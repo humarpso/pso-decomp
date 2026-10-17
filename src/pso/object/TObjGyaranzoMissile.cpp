@@ -183,7 +183,7 @@ u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s3
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800D4668_lbl_8049442C *)&lbl_8049442C).value;
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2));
     VecCopy((Vec *)(arg0 + 0xE0), (const Vec *)(arg0 + 0x38));
-    ((TUnk_8049442C *)arg0)->m_e4 = (f32) (((TUnk_8049442C *)arg0)->m_e4+ lbl_805DA2A8);
+    ((TUnk_8049442C *)arg0)->m_e4 = (f32) (((TUnk_8049442C *)arg0)->m_e4 + lbl_805DA2A8);
     ((TUnk_8049442C *)arg0)->m_dc = arg4;
     ((TUnk_8049442C *)arg0)->m_c4 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&gyaranzo_bml_resource) + 0x42C)) + 0x58);
     *(s32 *)((s8 *)arg0 + 0xC8) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&gyaranzo_bml_resource) + 0x42C)) + 0x5C);

@@ -126,7 +126,7 @@ u8 *TOLightMachine01__ct(u8 *arg0, s32 arg1) {
     ((TOLightMachine01 *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *)((int) ((*(s32 *)&TOLightMachine01__shared_bml_archive))), 1);
     *(f32 *)((s8 *)arg0 + 0x90) = (f32) lbl_805DB82C;
     ((TOLightMachine01 *)arg0)->m_94 = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(((TOLightMachine01 *)arg0)->model) + 4)) + 0x14);
-    ((TOLightMachine01 *)arg0)->actorFlags = (s32) (((TOLightMachine01 *)arg0)->actorFlags| 0x40000000);
+    ((TOLightMachine01 *)arg0)->actorFlags = (s32) (((TOLightMachine01 *)arg0)->actorFlags | 0x40000000);
     *(f32 *)((s8 *)arg0 + 0xA0) = (f32) ((lbl_805DB834 * (f32) ((TOLightMachine01 *)arg0)->m_84) + lbl_805DB830);
     ((TOLightMachine01 *)arg0)->m_a4 = (s32) (lbl_805DB838 * (lbl_805DB83C / (lbl_805DB840 / *(f32 *)((s8 *)arg0 + 0xA0))));
     ((TOLightMachine01 *)arg0)->m_a8 = (s32) (lbl_805DB838 * (lbl_805DB83C * (lbl_805DB844 * (f32) rand())));

@@ -127,8 +127,8 @@ void run_task__10TTecGrantsFv(u8 *arg0) {
             __ct__13TUnk_804CC888FPUclP7TObject(temp_r3_2, (s32) entity, (s32) ((TTecGrants *)arg0)->m_78, tl_07);
         }
     }
-    ((TTecGrants *)arg0)->m_148 = (s32) (((TTecGrants *)arg0)->m_148+ 1);
-    if ((s32) ((TTecGrants *)arg0)->m_148> 0x1E) {
+    ((TTecGrants *)arg0)->m_148 = (s32) (((TTecGrants *)arg0)->m_148 + 1);
+    if ((s32) ((TTecGrants *)arg0)->m_148 > 0x1E) {
         if ((entity != 0) && (TTecLuker::is_parents_unqueued(entity) != 0) && (TObjPlayer::is_valid_and_active(entity) != 0)) {
             ((TTecGrants *)(arg0))->vfunc_6((void *)entity);
         }

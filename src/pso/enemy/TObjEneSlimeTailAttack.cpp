@@ -1038,7 +1038,7 @@ void TObjPlayer__sub_800E87FC(u8 *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x378) != 0) {
         TObjPlayer__sub_800E85BC();
         advance_animation_playback(arg0);
-        if (((TObjEneSlimeTailAttack *)arg0)->animationFlags& 0x10) {
+        if (((TObjEneSlimeTailAttack *)arg0)->animationFlags & 0x10) {
             queue_destruction__7TObjectFv(arg0);
             return;
         }
@@ -1248,7 +1248,7 @@ void *TObjEneSlimeWaterBomb__ct(void *arg0, void *arg1, void *arg2) {
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D2AE0;
     *(void **)((s8 *)arg0 + 0x38C) = arg2;
     ((TObjEneSlimeWaterBomb *)arg0)->rotation_y = *(s32 *)((s8 *)(*(u8 * *)&((TObjEneSlimeWaterBomb *)arg0)->m_up) + 0x60);
-    VecCopy((Vec *)((u8 *) arg0 + 0x38), (const Vec *)(*(u8 * *)&((TObjEneSlimeWaterBomb *)arg0)->m_up+ 0x38));
+    VecCopy((Vec *)((u8 *) arg0 + 0x38), (const Vec *)(*(u8 * *)&((TObjEneSlimeWaterBomb *)arg0)->m_up + 0x38));
     s = sin_table_lookup(((TObjEneSlimeWaterBomb *)arg0)->rotation_y);
     c = cos_table_lookup(((TObjEneSlimeWaterBomb *)arg0)->rotation_y);
     *(f32 *)((s8 *)arg0 + 0x38) += lbl_805DA6E0 * s;
@@ -1947,7 +1947,7 @@ void render__15TObjEneSlimeOneFv(u8 *arg0) {
     s32 temp_r31;
     if ((TObjPlayer::check_demo_mode() == 0) && !(((TObjEneSlimeOne *)arg0)->m_3a0 <= lbl_805DA6B4) && (((VObj_18_26a62c *)(arg0))->m8(lbl_805DA728, lbl_805DA6E4) != 0)) {
         temp_r31 = toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0);
-        if (((TObjEneSlimeOne *)arg0)->m_3a0< lbl_805DA67C) {
+        if (((TObjEneSlimeOne *)arg0)->m_3a0 < lbl_805DA67C) {
             TObjPlayer__sub_800EBE48(((TObjEneSlimeOne *)arg0)->m_3a0);
         }
         TObjPlayer::toggle_particle_effect();
@@ -1962,7 +1962,7 @@ void render__15TObjEneSlimeOneFv(u8 *arg0) {
         ((TObjEneSlimeOne *)(((TObjEneSlimeOne *)arg0)->m_388))->draw_part(temp_r31);
         pop_matrix();
         TParticleCtrl::end_effect_render();
-        if (((TObjEneSlimeOne *)arg0)->m_3a0< lbl_805DA67C) {
+        if (((TObjEneSlimeOne *)arg0)->m_3a0 < lbl_805DA67C) {
             TObjPlayer::init_render_globals();
         }
         ((TObjEneSlimeOne *)arg0)->sub_800E9090();

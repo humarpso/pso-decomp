@@ -1312,8 +1312,8 @@ void TObjEneSaver::update_move_toward_target() {
 
 void TObjPlayer__sub_800A5FA8(u8 *arg0) {
     u8 *temp_r4;
-    ((TObjEneSaver *)arg0)->actorFlags = (s32) (((TObjEneSaver *)arg0)->actorFlags& 0xFFDFFFFF);
-    ((TObjEneSaver *)arg0)->actorFlags = (s32) (((TObjEneSaver *)arg0)->actorFlags| 0x06040000);
+    ((TObjEneSaver *)arg0)->actorFlags = (s32) (((TObjEneSaver *)arg0)->actorFlags & 0xFFDFFFFF);
+    ((TObjEneSaver *)arg0)->actorFlags = (s32) (((TObjEneSaver *)arg0)->actorFlags | 0x06040000);
     temp_r4 = (unsigned char *) (((TObjEneSaver *)arg0)->m_a4);
     *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) & 0xFFFFFFFE);
     advance_animation_playback((void *)arg0, (int)temp_r4);
@@ -1988,7 +1988,7 @@ void TObjPlayer__sub_800A6EC0(u8 *arg0) {
     temp_r4 = (u8 *)(((TObjEneSaver *)arg0)->target);
     if ((temp_r4 != NULL) && (*(s32 *)((s8 *)temp_r4 + 0x30) & 0x02000800)) {
         *(s16 *)((s8 *)arg0 + 0x37E) = 0;
-        ((TObjEneSaver *)arg0)->actorFlags = (s32) (((TObjEneSaver *)arg0)->actorFlags& 0xFFDFFFFF);
+        ((TObjEneSaver *)arg0)->actorFlags = (s32) (((TObjEneSaver *)arg0)->actorFlags & 0xFFDFFFFF);
         *(s32 *)((s8 *)arg0 + 0x374) = (s32) (*(s32 *)((s8 *)arg0 + 0x374) & 0xFFFF0000);
         *(s32 *)((s8 *)arg0 + 0x374) = (s32) (*(s32 *)((s8 *)arg0 + 0x374) | 0x40);
         ((TObjEneSaver *)arg0)->target = NULL;
@@ -1996,7 +1996,7 @@ void TObjPlayer__sub_800A6EC0(u8 *arg0) {
     ((TObjEnemy *)arg0)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
     sub_800A435C__12TObjEneSaverFv(arg0);
-    ((TObjEneSaver *)arg0)->m_2b4 = (f32) (((TObjEneSaver *)arg0)->m_2b4+ lbl_805D9A40);
+    ((TObjEneSaver *)arg0)->m_2b4 = (f32) (((TObjEneSaver *)arg0)->m_2b4 + lbl_805D9A40);
 }
 
 void * create_ene_saver(void *arg0) {

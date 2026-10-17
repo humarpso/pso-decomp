@@ -1471,7 +1471,7 @@ void acquire_target__11TObjEneMojaFPv(u8 *arg0) {
                     break;
                 }
                 id = obj_getField1c(p);
-                if ((u16)id < 0x4000 && (u16)id != ((TObjEneMoja *)arg0)->m_1c&& !(*(s32 *)((s8 *)p + 0x30) & 0x02000800)) {
+                if ((u16)id < 0x4000 && (u16)id != ((TObjEneMoja *)arg0)->m_1c && !(*(s32 *)((s8 *)p + 0x30) & 0x02000800)) {
                     f32 xx;
                     f32 zz;
                     VecCopy((Vec *)&v, (const Vec *)(p + 0x2FC));

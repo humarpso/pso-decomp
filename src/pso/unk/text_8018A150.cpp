@@ -26,7 +26,7 @@ u8 *init_container_base(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0x334) = (f32) lbl_805DBD00;
     ((TUnk_804B6C24 *)arg0)->m_338 = (f32) lbl_805DBD04;
     *(f32 *)((s8 *)arg0 + 0x33C) = (f32) lbl_805DBD00;
-    if (((TUnk_804B6C24 *)arg0)->scale> lbl_805DBCF4) {
+    if (((TUnk_804B6C24 *)arg0)->scale > lbl_805DBCF4) {
         ((TUnk_804B6C24 *)arg0)->m_360 = 1;
     } else {
         ((TUnk_804B6C24 *)arg0)->m_360 = 0;

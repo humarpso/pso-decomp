@@ -1420,7 +1420,7 @@ void TObjPlayer__sub_800D35D8(u8 *arg0) {
     s32 temp_r3;
     s32 var_r30;
     s32 var_r29;
-    if (!(((TObjEneGyaranzo *)arg0)->actorFlags& 0x02000000)) {
+    if (!(((TObjEneGyaranzo *)arg0)->actorFlags & 0x02000000)) {
         var_r30 = 0;
         if (is_split_screen() != 0) {
             var_r30 = get_camera_mode__11TCameraCtrlFv();
@@ -1447,7 +1447,7 @@ void TObjPlayer__sub_800D35D8(u8 *arg0) {
             rotate_matrix_y(0, (int) (((TObjEneGyaranzo *)arg0)->rotation_y));
             if (TObjPlayer::check_demo_mode() == 1) {
                 draw_chunk_object((int) (*(s32 *)((s8 *)arg0 + 0x34)));
-            } else if (((TObjEneGyaranzo *)arg0)->m_388& 4) {
+            } else if (((TObjEneGyaranzo *)arg0)->m_388 & 4) {
                 if (((Obj_800D35D8 *)arg0)->light.m8() != 0) {
                     ((Obj_800D35D8 *)arg0)->light.m6();
                     if (temp_r3 == 1) {
@@ -1467,7 +1467,7 @@ void TObjPlayer__sub_800D35D8(u8 *arg0) {
             pop_matrix();
             restore_scene_lighting();
             TParticleCtrl::end_effect_render();
-            if (!(((TObjEneGyaranzo *)arg0)->actorFlags& 0x800) && (var_r29 != 0)) {
+            if (!(((TObjEneGyaranzo *)arg0)->actorFlags & 0x800) && (var_r29 != 0)) {
                 Vec_800D35D8 sp8 = lbl_8043C26C;
                 ((TObjEnemy *)arg0)->render_with_position_override((u8 *)&sp8, 0);
             }
@@ -1721,7 +1721,7 @@ u8 *TObjEneGyaranzo__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(4);
     ((TObjEnemy *)arg0)->update_prev_position();
     initialize_enemy_photon_effect(arg0);
-    ((TObjEneGyaranzo *)arg0)->actorFlags = (s32) (((TObjEneGyaranzo *)arg0)->actorFlags| 0x40000);
+    ((TObjEneGyaranzo *)arg0)->actorFlags = (s32) (((TObjEneGyaranzo *)arg0)->actorFlags | 0x40000);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&gyaranzo_bml_resource) + 0x42C)) + 0x38);
     ((TObjEneGyaranzo *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&gyaranzo_bml_resource) + 0x42C)) + 0x3C);
     if (*(s16 *)((s8 *)arg2 + 0xA) != 0) {

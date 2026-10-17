@@ -436,7 +436,7 @@ u8 *TObjEneMe3ShinowaMirage__ct(u8 *arg0, void *arg1, u8 *arg2, void *a3, void *
     *(f32 *)((s8 *)arg0 + 0x48) = (f32) lbl_805DA5C0;
     temp_r5 = (unsigned char *) (((TObjEneMe3ShinowaMirage *)arg0)->m_a4);
     *(f32 *)((s8 *)temp_r5 + 0x20) = (f32) lbl_805DA5C0;
-    ((TObjEneMe3ShinowaMirage *)arg0)->actorFlags = (s32) (((TObjEneMe3ShinowaMirage *)arg0)->actorFlags| 0x800);
+    ((TObjEneMe3ShinowaMirage *)arg0)->actorFlags = (s32) (((TObjEneMe3ShinowaMirage *)arg0)->actorFlags | 0x800);
     *(f32 *)((s8 *)arg0 + 0x430) = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;
     ((TObjEneMe3ShinowaMirage *)arg0)->m_434 = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;
     *(f32 *)((s8 *)arg0 + 0x438) = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;

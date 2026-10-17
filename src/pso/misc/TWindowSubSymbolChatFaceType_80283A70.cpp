@@ -109,7 +109,7 @@ void render__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0) {
 typedef char RecoveredGlobal_80284074_lbl_8050E208_size[sizeof(RecoveredGlobal_80284074_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void run_task__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0) {
     u8 *temp_r31;
-    if (!(*(s32 *)&((TWindowSubSymbolChatFaceType *)arg0)->m_2c& 2)) {
+    if (!(*(s32 *)&((TWindowSubSymbolChatFaceType *)arg0)->m_2c & 2)) {
         *(s32 *)&((TWindowSubSymbolChatFaceType *)arg0)->m_5c = 0x01000000;
     }
     if (((TWindowSubSymbolChatFaceType *)arg0)->is_open() == 0) {

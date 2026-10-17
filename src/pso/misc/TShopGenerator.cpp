@@ -134,7 +134,7 @@ void run_task__14TShopGeneratorFv(u8 *self) {
     s32 p;
     s32 (*fn)(u16);
     e = (Ent_8021DDB8 *)&TShopGenerator__service_dispatch_table.e[((TShopGenerator *)self)->m_84];
-    if (*(s32 *)&((TShopGenerator *)self)->m_94> 0) {
+    if (*(s32 *)&((TShopGenerator *)self)->m_94 > 0) {
         (*(s32 *)&((TShopGenerator *)self)->m_94)--;
         return;
     }

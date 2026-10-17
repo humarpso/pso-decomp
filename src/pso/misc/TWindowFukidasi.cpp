@@ -409,7 +409,7 @@ s32 TWindowFukidasi::approach(f32 farg0) {
 }
 
 void TWindowFukidasi__sub_802504A8(void *arg0) {
-    if (!(((TUnk_804CF0B8 *)arg0)->m_71& 0x10)) {
+    if (!(((TUnk_804CF0B8 *)arg0)->m_71 & 0x10)) {
         ((TUnk_804CF0B8 *)arg0)->m_70 = 7;
     }
 }
@@ -847,7 +847,7 @@ s32 clamp_position__15TWindowFukidasiFPvPvf(void *arg0, void *arg1, f32 farg0) {
         *(f32 *)((s8 *)arg1 + 0) = temp_f1;
         var_r31 = 1;
     }
-    temp_f1_2 = (((TWindowCtrlMain *)(*(s16 *)&((TUnk_804CF0B8 *)arg0)->m_20))->get_ctrl_field14() - TWindowFukidasi__data_805DCCFC) - (((TUnk_804CF0B8 *)arg0)->m_48* farg0);
+    temp_f1_2 = (((TWindowCtrlMain *)(*(s16 *)&((TUnk_804CF0B8 *)arg0)->m_20))->get_ctrl_field14() - TWindowFukidasi__data_805DCCFC) - (((TUnk_804CF0B8 *)arg0)->m_48 * farg0);
     if (*(f32 *)((s8 *)arg1 + 0) > temp_f1_2) {
         *(f32 *)((s8 *)arg1 + 0) = temp_f1_2;
         var_r31 = 1;

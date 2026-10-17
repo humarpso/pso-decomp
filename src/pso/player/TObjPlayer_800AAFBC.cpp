@@ -431,7 +431,7 @@ void TObjPlayer__sub_800AB4F4(u8 *arg0) {
             ((TUnk_80491478 *)arg0)->m_f0 = *(f32 *)((s8 *)arg0 + 0xB0) * t + ((TUnk_80491478 *)arg0)->m_f0;
             ((TUnk_80491478 *)arg0)->m_f8 = *(f32 *)((s8 *)arg0 + 0xB8) * t + ((TUnk_80491478 *)arg0)->m_f8;
         } else if (fabs_float(((TUnk_80491478 *)arg0)->m_b4) > 5.0f) {
-            if (((TUnk_80491478 *)arg0)->m_b4> 0.0f) {
+            if (((TUnk_80491478 *)arg0)->m_b4 > 0.0f) {
                 var_f1 = 0.8f;
             } else {
                 var_f1 = -0.8f;

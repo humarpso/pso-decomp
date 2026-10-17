@@ -51,7 +51,7 @@ u8 *TObjEneSlime__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     } else if (temp_r0 > 4) {
         ((TObjEneSlime *)arg0)->m_3b4 = 4;
     }
-    ((TObjEneSlime *)arg0)->actorFlags = (s32) (((TObjEneSlime *)arg0)->actorFlags| 0x02000000);
+    ((TObjEneSlime *)arg0)->actorFlags = (s32) (((TObjEneSlime *)arg0)->actorFlags | 0x02000000);
     ((TObjEneSlime *)arg0)->init_slots();
     return arg0;
 }

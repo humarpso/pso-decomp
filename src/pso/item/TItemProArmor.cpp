@@ -434,7 +434,7 @@ u8 *TItemProArmor__ct(u8 *arg0, s32 arg1, u8 *item) {
     ((TItemProArmor *)arg0)->m_18c = (s32)lookup_item_pmt_record(item);
     ((TItemProArmor *)arg0)->m_195 = (u8) *(u8 *)((s8 *)(((TItemProArmor *)arg0)->m_18c) + 0x16);
     ((TItemProArmor *)arg0)->m_196 = (u8) *(u8 *)((s8 *)(((TItemProArmor *)arg0)->m_18c) + 0x17);
-    if ((u8) ((TItemProArmor *)arg0)->m_192> 4U) {
+    if ((u8) ((TItemProArmor *)arg0)->m_192 > 4U) {
         ((TItemProArmor *)arg0)->m_192 = 4U;
     }
     ((TItemProArmor *)arg0)->init_effect_flags();

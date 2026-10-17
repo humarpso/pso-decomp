@@ -183,11 +183,11 @@ u8 *TODragonflyCave01__ct(u8 *arg0, void *arg1) {
     ((TODragonflyCave01 *)arg0)->m_c0 = lbl_805DB568;
     *(f32 *)((s8 *)arg0 + 0xC4) = *(f32 *)((s8 *)(*(u8 **)((s8 *)(((TODragonflyCave01 *)arg0)->model) + 4)) + 0x14);
     ((TODragonflyCave01 *)arg0)->m_ac = 0;
-    ((TODragonflyCave01 *)arg0)->m_f4 = lbl_805DB56C * (f32)((TODragonflyCave01 *)arg0)->m_84+ lbl_805DB560;
+    ((TODragonflyCave01 *)arg0)->m_f4 = lbl_805DB56C * (f32)((TODragonflyCave01 *)arg0)->m_84 + lbl_805DB560;
     ((TODragonflyCave01 *)arg0)->m_f8 = (s32)(lbl_805DB570 * (lbl_805DB574 / (lbl_805DB578 / ((TODragonflyCave01 *)arg0)->m_f4)));
     ((TODragonflyCave01 *)arg0)->m_fc = (s32)(lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32)rand())));
     ((TODragonflyCave01 *)arg0)->m_ec = lbl_805DB56C * (f32)*(s32 *)((s8 *)arg0 + 0x88) + lbl_805DB560;
-    *(f32 *)((s8 *)arg0 + 0xF0) = ((TODragonflyCave01 *)arg0)->m_ec* sin_table_lookup(((TODragonflyCave01 *)arg0)->m_fc);
+    *(f32 *)((s8 *)arg0 + 0xF0) = ((TODragonflyCave01 *)arg0)->m_ec * sin_table_lookup(((TODragonflyCave01 *)arg0)->m_fc);
     return arg0;
 }
 #pragma pop
@@ -358,7 +358,7 @@ u8 *TODragonfly__ct(u8 *arg0) {
     ((TODragonfly *)arg0)->m_f8 = (s32) (lbl_805DB570 * (lbl_805DB574 / (lbl_805DB578 / ((TODragonfly *)arg0)->m_f4)));
     ((TODragonfly *)arg0)->m_fc = (s32) (lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32) rand())));
     ((TODragonfly *)arg0)->m_ec = (f32) ((lbl_805DB56C * (f32) *(s32 *)((s8 *)arg0 + 0x88)) + lbl_805DB560);
-    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (((TODragonfly *)arg0)->m_ec* sin_table_lookup((s32)((int) (((TODragonfly *)arg0)->m_fc))));
+    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (((TODragonfly *)arg0)->m_ec * sin_table_lookup((s32)((int) (((TODragonfly *)arg0)->m_fc))));
     return arg0;
 }
 #pragma pop

@@ -807,8 +807,8 @@ void run_task__9TTecLukerFv(u8 *arg0) {
         }
         break;
     case 2:
-        ((TTecLuker *)arg0)->m_10c = (s32) (((TTecLuker *)arg0)->m_10c+ 1);
-        if ((s32) ((TTecLuker *)arg0)->m_10c> 0xA) {
+        ((TTecLuker *)arg0)->m_10c = (s32) (((TTecLuker *)arg0)->m_10c + 1);
+        if ((s32) ((TTecLuker *)arg0)->m_10c > 0xA) {
             ((TTecLuker *)arg0)->m_108 = 3;
             return;
         }

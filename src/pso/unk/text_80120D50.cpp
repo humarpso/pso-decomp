@@ -48,7 +48,7 @@ u8 *TItemWeapon__ct(u8 *arg0, void *parent, u8 *item) {
         ((TItemWeapon *)arg0)->special_selector = temp_r0;
     }
     if (temp_r3 == 0) {
-        ((TItemWeapon *)arg0)->special_selector = (u8) (((TItemWeapon *)arg0)->special_selector| lbl_805DACA4);
+        ((TItemWeapon *)arg0)->special_selector = (u8) (((TItemWeapon *)arg0)->special_selector | lbl_805DACA4);
     }
     memcpy(arg0 + 0x1A4, item + 6, 6);
     *(s32 *)((s8 *)arg0 + 0x1EC) = 0;

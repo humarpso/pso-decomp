@@ -64,7 +64,7 @@ void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source) {
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOKeyGenericSw *)arg0)->m_c0 = lbl_805DB770;
     *(f32 *)((s8 *)arg0 + 0xC4) = lbl_805DB774;
-    if ((*(s32 *)&((TOKeyGenericSw *)arg0)->m_d0 != 2) && (((TOKeyGenericSw *)arg0)->scale< lbl_805DB778)) {
+    if ((*(s32 *)&((TOKeyGenericSw *)arg0)->m_d0 != 2) && (((TOKeyGenericSw *)arg0)->scale < lbl_805DB778)) {
         *(s32 *)&((TOKeyGenericSw *)arg0)->m_d0 = 1;
     } else {
         *(s32 *)&((TOKeyGenericSw *)arg0)->m_d0 = 0;

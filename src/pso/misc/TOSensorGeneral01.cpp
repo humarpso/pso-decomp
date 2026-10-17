@@ -71,8 +71,8 @@ void *__nw__7TObjectFUl(int);
 void mem_free(void *p);
 
 void TOSensorGeneral01::vfunc_17() {
-    this->rotation_y = (this->rotation_y+ 0x147);
-    this->m_e8 = (this->m_e8+ 0x28F);
+    this->rotation_y = (this->rotation_y + 0x147);
+    this->m_e8 = (this->m_e8 + 0x28F);
 }
 
 extern const f32 lbl_805DB9B0;
@@ -83,29 +83,29 @@ extern const f32 lbl_805DB9BC;
 void TOSensorGeneral01::vfunc_16() {
     s32 temp_r0;
 
-    this->m_e8 = (this->m_e8+ 0x28F);
-    this->m_f0 = (this->m_f0- 1);
+    this->m_e8 = (this->m_e8 + 0x28F);
+    this->m_f0 = (this->m_f0 - 1);
     temp_r0 = this->m_f0;
     if (temp_r0 < 0) {
         this->m_f0 = 0;
         *(s32 *)((s8 *)this + 0xEC) = 0;
-        this->rotation_y = (this->rotation_y+ 0xCCC);
+        this->rotation_y = (this->rotation_y + 0xCCC);
         *(f32 *)((s8 *)this + 0x3C) = (f32) (*(f32 *)((s8 *)this + 0x3C) + lbl_805DB9B0);
         return;
     }
     if ((f32) temp_r0 < lbl_805DB9B4) {
         *(s32 *)((s8 *)this + 0xEC) = 1;
-        this->rotation_y = (this->rotation_y+ 0x147);
+        this->rotation_y = (this->rotation_y + 0x147);
         return;
     }
     if ((f32) temp_r0 < lbl_805DB9B8) {
         *(s32 *)((s8 *)this + 0xEC) = 2;
-        this->rotation_y = (this->rotation_y+ 0x147);
+        this->rotation_y = (this->rotation_y + 0x147);
         return;
     }
     if ((f32) temp_r0 < lbl_805DB9BC) {
         *(s32 *)((s8 *)this + 0xEC) = 3;
-        this->rotation_y = (this->rotation_y+ 0x147);
+        this->rotation_y = (this->rotation_y + 0x147);
     }
 }
 

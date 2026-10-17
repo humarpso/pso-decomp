@@ -99,7 +99,7 @@ void render__15TWindowSnapShotFv(u8 *arg0) {
     temp_r3 = draw_default_entry__9TWindowDDFl();
     draw_window_frame(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
-    if (!(((TWindowSnapShot *)arg0)->m_60& 2)) {
+    if (!(((TWindowSnapShot *)arg0)->m_60 & 2)) {
         if ((s32) *(s32 *)((s8 *)temp_r3 + 0x30) > 0) {
             stack.sp8 = lbl_805DE018 + *(f32 *)((s8 *)temp_r3 + 0x10);
             stack.spC = *(f32 *)((s8 *)temp_r3 + 0x14);
@@ -143,7 +143,7 @@ u8 *TWindowSnapShot__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSnapShot__name;
     ((TWindowSnapShot *)arg0)->m_60 = 0U;
     if (verify_snapshot_checksum__15TObjBoss2TunnelFv() == 0) {
-        ((TWindowSnapShot *)arg0)->m_60 = (u8) (((TWindowSnapShot *)arg0)->m_60| 2);
+        ((TWindowSnapShot *)arg0)->m_60 = (u8) (((TWindowSnapShot *)arg0)->m_60 | 2);
     }
     temp_r31 = ((TUnk_804CE018 *)arg0)->get_array_entry(1);
     TWindowDuelResult::set_default_status((void *) temp_r31, get_localized_text_entry(0xF, 0x13));

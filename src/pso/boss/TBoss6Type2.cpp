@@ -2447,7 +2447,7 @@ f32 TBoss6Type2__vt20(void *arg0, u32 att, f32 scale) {
             }
             var_r29 += 1;
         } while (var_r29 < 3);
-        if (!(((TBoss6Type2 *)arg0)->m_2e4& var_r30)) {
+        if (!(((TBoss6Type2 *)arg0)->m_2e4 & var_r30)) {
             var_r31 = 0;
         }
     }
@@ -2478,10 +2478,10 @@ void TBoss6Type2__vt61(void* p) { if (*(int *)&((TBoss6Type2 *)p)->m_374 != 35) 
 #pragma auto_inline off
 #pragma dont_inline off
 void TBoss6Type2__vt60(u8 *arg0) {
-    ((TBoss6Type2 *)arg0)->m_30 = (s32) (((TBoss6Type2 *)arg0)->m_30& 0xFFFFFDFF);
+    ((TBoss6Type2 *)arg0)->m_30 = (s32) (((TBoss6Type2 *)arg0)->m_30 & 0xFFFFFDFF);
     *(f32 *)((s8 *)arg0 + 0x4FC) = (f32) TBoss6Type2__data_805DE40C;
     {
-        int diff = ((TBoss6Type2 *)arg0)->m_4f8- ((TBoss6Type2 *)arg0)->m_32c;
+        int diff = ((TBoss6Type2 *)arg0)->m_4f8 - ((TBoss6Type2 *)arg0)->m_32c;
         if (diff > 0) {
             ((TBoss6Type2 *)arg0)->add_damage(diff);
         }

@@ -32,8 +32,8 @@ void fn_80302DC0(u8 *arg0) {
         *(f32 *)((s8 *)arg0 + 0xC0) += lbl_805DEFA0;
         while (*(f32 *)((s8 *)arg0 + 0xC0) > ((TObjEneDellBiter_Eff_TpAbsorb1 *)arg0)->m_c4) {
             VecCopy((Vec *)&b, (const Vec *)(arg0 + 0x38));
-            b.x += ((TObjEneDellBiter_Eff_TpAbsorb1 *)arg0)->m_c4* *(f32 *)((s8 *)arg0 + 0xB0);
-            b.z += ((TObjEneDellBiter_Eff_TpAbsorb1 *)arg0)->m_c4* *(f32 *)((s8 *)arg0 + 0xB8);
+            b.x += ((TObjEneDellBiter_Eff_TpAbsorb1 *)arg0)->m_c4 * *(f32 *)((s8 *)arg0 + 0xB0);
+            b.z += ((TObjEneDellBiter_Eff_TpAbsorb1 *)arg0)->m_c4 * *(f32 *)((s8 *)arg0 + 0xB8);
             if (((TObjEneDellBiter_Eff_TpAbsorb1 *)arg0)->m_cc != NULL) {
                 ((TNowLoading *)(((TObjEneDellBiter_Eff_TpAbsorb1 *)arg0)->m_cc))->copy_pos(&b);
             }

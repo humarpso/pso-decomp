@@ -136,9 +136,9 @@ u8 *TOBind__ct(u8 *arg0, s32 arg1) {
     init_collision_body_parts(arg0, &lbl_804AFC54.value, 2);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    ((TOBind *)arg0)->actorFlags = (s32) (((TOBind *)arg0)->actorFlags| 0x40000000);
+    ((TOBind *)arg0)->actorFlags = (s32) (((TOBind *)arg0)->actorFlags | 0x40000000);
     ((TOBind *)arg0)->m_b4 = (s32) ((TOBind *)arg0)->m_84;
-    if ((s32) ((TOBind *)arg0)->m_b4< 0) {
+    if ((s32) ((TOBind *)arg0)->m_b4 < 0) {
         ((TOBind *)arg0)->m_b4 = 0;
     }
     *(f32 *)((s8 *)arg0 + 0xD0) = (f32) lbl_805DB308;

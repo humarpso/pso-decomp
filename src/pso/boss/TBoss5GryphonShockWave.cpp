@@ -110,7 +110,7 @@ TBoss5GryphonShockWave::TBoss5GryphonShockWave(TObject *arg1_parent, s32 arg2, u
     VecCopy((Vec *)sp8, (const Vec *)(((u8 *)this) + 0x2C));
     subtract_vector(sp8, arg4);
     this->m_24 = (s32) (lbl_805D8EF0 * ((TObjBoss2Tunnel *)sp8)->update_scale());
-    if ((s32) this->m_24< 0x1E) {
+    if ((s32) this->m_24 < 0x1E) {
         this->m_24 = 0x1E;
     }
     this->m_20 = 0;

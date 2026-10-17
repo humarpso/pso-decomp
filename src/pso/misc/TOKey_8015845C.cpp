@@ -74,7 +74,7 @@ void *TUnk_804AFBF8::destroy_key_base(s16 arg1) {
     }
     return this;
 }
-void* init_map_object_base(void* a0) { construct_collider_proxy__13TUnk_804AF8A0Fv(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_804AFBF8); ((TUnk_804AFBF8 *)a0)->m_ac = 0; ((TUnk_804AFBF8 *)a0)->m_b0 = lbl_805DB2F0; *(float*)((char*)a0 + 0xb4) = lbl_805DB2F0; ((TUnk_804AFBF8 *)a0)->m_b8 = lbl_805DB2F4; ((TUnk_804AFBF8 *)a0)->m_bc = 0; ((TUnk_804AFBF8 *)a0)->actorFlags = (((TUnk_804AFBF8 *)a0)->actorFlags| 0x40000000); ((TUnk_804AFBF8 *)a0)->m_c0 = lbl_805DB2F8; *(float*)((char*)a0 + 0xc4) = (*(const float *)&lbl_805DB2EC); return a0; }
+void* init_map_object_base(void* a0) { construct_collider_proxy__13TUnk_804AF8A0Fv(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_804AFBF8); ((TUnk_804AFBF8 *)a0)->m_ac = 0; ((TUnk_804AFBF8 *)a0)->m_b0 = lbl_805DB2F0; *(float*)((char*)a0 + 0xb4) = lbl_805DB2F0; ((TUnk_804AFBF8 *)a0)->m_b8 = lbl_805DB2F4; ((TUnk_804AFBF8 *)a0)->m_bc = 0; ((TUnk_804AFBF8 *)a0)->actorFlags = (((TUnk_804AFBF8 *)a0)->actorFlags | 0x40000000); ((TUnk_804AFBF8 *)a0)->m_c0 = lbl_805DB2F8; *(float*)((char*)a0 + 0xc4) = (*(const float *)&lbl_805DB2EC); return a0; }
 void TORainbowCave01__sub_80158604(void) {  }
 
 }

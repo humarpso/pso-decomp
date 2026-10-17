@@ -57,7 +57,7 @@ TBoss1DragonEffBreath::TBoss1DragonEffBreath(TObject *arg1, void *arg2, void *ar
     VecCopy((Vec *)(((u8 *)this) + 0x28), (const Vec *)arg3);
     *(f32 *)((s8 *)this + 0x28) = (f32) (*(f32 *)((s8 *)this + 0x28) * lbl_805D8138);
     *(f32 *)((s8 *)this + 0x2C) = (f32) (*(f32 *)((s8 *)this + 0x2C) * lbl_805D8138);
-    this->m_30 = (f32) (this->m_30* lbl_805D8138);
+    this->m_30 = (f32) (this->m_30 * lbl_805D8138);
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
     if (p != NULL) {
         p = TBoss8Dragon__sub_800BC5EC((u8 *)p, 4);

@@ -67,10 +67,10 @@ u8 *TObjLazerFenceNorm__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjLazerFenceNorm *)arg0)->m_b4 = 0;
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DBE58;
     ((TObjLazerFenceNorm *)arg0)->m_ac = (s32) ((TObjLazerFenceNorm *)arg0)->scale;
-    if ((s32) ((TObjLazerFenceNorm *)arg0)->m_ac< 0) {
+    if ((s32) ((TObjLazerFenceNorm *)arg0)->m_ac < 0) {
         ((TObjLazerFenceNorm *)arg0)->m_ac = 0;
     }
-    if ((s32) ((TObjLazerFenceNorm *)arg0)->m_ac> 3) {
+    if ((s32) ((TObjLazerFenceNorm *)arg0)->m_ac > 3) {
         ((TObjLazerFenceNorm *)arg0)->m_ac = 3;
     }
     ((TObjLazerFenceNorm *)arg0)->m_b0 = (s16) ((TObjLazerFenceNorm *)arg0)->m_84;
@@ -78,7 +78,7 @@ u8 *TObjLazerFenceNorm__ct(u8 *arg0, s32 arg1, s32 arg2) {
     temp_r4 = ((TObjLazerFenceNorm *)arg0)->m_8c;
     temp_r6 = temp_r4 >> 0x1FU;
     init_collision_body_parts(arg0, (void *) ((u8 *)&laser_fence_collision_body_parts.value + ((((temp_r4 & 1) ^ temp_r6) - temp_r6) * 0x84)), 3);
-    ((TObjLazerFenceNorm *)arg0)->actorFlags = (s32) (((TObjLazerFenceNorm *)arg0)->actorFlags| 0x40000000);
+    ((TObjLazerFenceNorm *)arg0)->actorFlags = (s32) (((TObjLazerFenceNorm *)arg0)->actorFlags | 0x40000000);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     return arg0;
