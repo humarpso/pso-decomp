@@ -112,12 +112,6 @@ void TTecZonde__vt6(Obj_8023C6B4 *arg0, VObj_18_0c879f *arg1) {
 #include "pso/misc/TTecLuker.h"
 
 struct Seg_8023C79C { f32 a[3]; f32 b[3]; f32 len; };
-struct VBase_8023C79C { char pad[0x18]; };
-struct VObj_8023C79C : VBase_8023C79C {
-    virtual void m0(); virtual void m1(); virtual void m2();
-    virtual void m3(); virtual void m4(); virtual void m5();
-    virtual void m6(void *);
-};
 struct Tgt_8023C79C { u8 pad[0x38]; f32 x, y, z; };
 struct Zonde_8023C79C {
     u8 pad0[0x18];
@@ -315,7 +309,7 @@ void TTecZonde::run_task() {
         }
     }
     if (t != NULL && TTecLuker::is_parents_unqueued((u32)t) != 0 && TObjPlayer::is_valid_and_active((u32)t) != 0) {
-        ((VObj_8023C79C *)self)->m6(t);
+        this->vfunc_8(t);
     }
     queue_destruction__7TObjectFv(self);
 }

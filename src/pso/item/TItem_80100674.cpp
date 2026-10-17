@@ -205,9 +205,6 @@ void TItem::vfunc_24(s32, s32, s16 *) {  }
 
 typedef struct VBase_18_94668e VBase_18_94668e;
 typedef struct VObj_18_94668e VObj_18_94668e;
-#define PSO_VCALL_VObj_18_94668e_m21(_self, _arg0) (((VObj_18_94668e *)(_self))->m21((_arg0)))
-#define PSO_VCALL_VObj_18_94668e_m20(_self, _arg0) (((VObj_18_94668e *)(_self))->m20((_arg0)))
-#define PSO_VCALL_VObj_18_94668e_m71(_self) (((VObj_18_94668e *)(_self))->m71())
 void TItem::refresh_owner_stats() {
   s16 temp_r31;
   u8 *temp_r3;
@@ -218,10 +215,10 @@ void TItem::refresh_owner_stats() {
     s16 temp_r30;
     temp_r31 = obj_getS16_32C(temp_r3);
     temp_r30 = obj_getS16_32E(*((u8 **) (((s8 *) ((u8 *)this)) + 0xF0)));
-    PSO_VCALL_VObj_18_94668e_m21(((u8 *)this), 0);
-    PSO_VCALL_VObj_18_94668e_m20(((u8 *)this), 0);
+    (this->vfunc_23((0)));
+    (this->vfunc_22((0)));
     temp_r3_2 = (u8 *) (*((u8 **) (((s8 *) ((u8 *)this)) + 0xF0)));
-    PSO_VCALL_VObj_18_94668e_m71(temp_r3_2);
+    (((VObj_18_94668e *)(temp_r3_2))->m71());
     ((TObjPlayer *)(*((u8 **) (((s8 *) ((u8 *)this)) + 0xF0))))->set_hp_clamped(temp_r31);
     ((TObjPlayer *)(*((u8 **) (((s8 *) ((u8 *)this)) + 0xF0))))->set_facing(temp_r30);
     ((TUnk_804806E8 *)(*((u8 **) (((s8 *) ((u8 *)this)) + 0xF0))))->clamp_value();
@@ -256,7 +253,6 @@ void give_item_to_client(s32 arg0, s32 arg1) {
 
 typedef struct VBase_18_8a175d VBase_18_8a175d;
 typedef struct VObj_18_8a175d VObj_18_8a175d;
-#define PSO_VCALL_VObj_18_8a175d_m34(_self) (((VObj_18_8a175d *)(_self))->m34())
 s32 consume_item_by_id(s32 arg0) {
   s32 temp_r30;
   s32 temp_r31;
@@ -272,7 +268,7 @@ s32 consume_item_by_id(s32 arg0) {
   {
     return 0;
   }
-  temp_r31 = PSO_VCALL_VObj_18_8a175d_m34(item);
+  temp_r31 = (((VObj_18_8a175d *)(item))->m34());
   temp_r30 = ((TItem *)item)->get_field_d8();
   ((TObjPlayer *)temp_r3_2)->dispatch_action(arg0, 1);
   if (is_locally_controlled__10TObjPlayerFPv((void *) temp_r3_2) != 0)

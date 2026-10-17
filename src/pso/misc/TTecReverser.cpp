@@ -48,14 +48,6 @@ struct Rev_8023A364 {
     s16 fe0;
 };
 
-struct VBase_8023A148 { char pad[0x18]; };
-
-struct VObj_8023A148 : VBase_8023A148 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(void *); };
-
-struct VBase_8023A244 { char pad[0x18]; };
-
-struct VObj_8023A244 : VBase_8023A244 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(void *); };
-
 struct List_8023A244 { u32 objs[16]; s32 vals[16]; s32 count; };
 
 extern "C" {
@@ -212,7 +204,7 @@ void TUnk_804CCC68::dispatch_technique_contact() {
         void *p = *(void **)((s8 *)var_r31 + 0);
         if (p != NULL) {
             *(s32 *)((s8 *)((u8 *)this) + 0xF8) = (s32) *(s32 *)((s8 *)var_r31 + 0x40);
-            ((VObj_8023A148*)((u8 *)this))->m6(p);
+            this->vfunc_8(p);
         }
     }
 }
@@ -243,7 +235,7 @@ void TUnk_804CCC68::dispatch_all_technique_contacts() {
             void *p = (void *) list->objs[i];
             if (p != NULL) {
                 *(s32 *)((s8 *)((u8 *)this) + 0xF8) = list->vals[i];
-                ((VObj_8023A244 *) ((u8 *)this))->m6(p);
+                this->vfunc_8(p);
             }
         }
     }

@@ -9,29 +9,6 @@
 #include "pso/item/TItemProShield.h"
 #include "pso/player/TObjPlayer.h"
 
-struct VBase_18_1a8f71 { char pad[0x18]; };
-
-struct VObj_18_1a8f71 : VBase_18_1a8f71 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual s32 m17(s32);
-};
-
 struct RecoveredGlobal_80117B98___vt__13TItemProArmor {
     s32 value;
     u8 remaining[0xC8];
@@ -449,7 +426,7 @@ u8 *TItemProArmor__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     TItemEquipBase__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80117B98___vt__13TItemProArmor *)&__vt__13TItemProArmor).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C30;
-    ((VObj_18_1a8f71 *)(arg0))->m17(2);
+    ((TItemProArmor *)(arg0))->vfunc_19(2);
     *(s16 *)((s8 *)arg0 + 0x190) = 0;
     *(u8 *)((s8 *)arg0 + 0x192) = (u8) *(u8 *)((s8 *)arg2 + 5);
     *(s8 *)((s8 *)arg0 + 0x193) = getS16_06__9TItemDataFPv(arg2);

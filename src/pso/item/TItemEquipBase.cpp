@@ -10,110 +10,11 @@
 struct Row_8010A89C { s8 id; u8 level; f32 amount; };
 struct Slot_8010A89C { s16 id; s16 level; f32 amount; };
 
-struct VBase_18_546d8d { char pad[0x18]; };
-
-struct VObj_18_546d8d : VBase_18_546d8d {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual s32 m21(s32);
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual s32 m43();
-};
-
 #include <stddef.h>
 struct Stack_8010A710 {
     s32 sp8;
     f32 spC;
     u8 trailing_storage[0x4];
-};
-
-struct VBase_18_df954d { char pad[0x18]; };
-
-struct VObj_18_df954d : VBase_18_df954d {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual s32 m20(s32);
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual s32 m42();
-    virtual void m43();
-    virtual s32 m44();
 };
 
 #include "pso/TAdRicoRing.h"
@@ -688,7 +589,7 @@ void TItemEquipBase::unequip() {
     if ((u32) this->m_f0 != 0U) {
         ((TItem *)arg0)->set_mode((int) (1));
         ((TObjPlayer *)arg0)->clear_item_flags((int) (0x28));
-        ((VObj_18_546d8d *)(arg0))->m21(1);
+        this->vfunc_23(1);
         remove_equip_effects();
         this->vfunc_45();
         if ((u32) this->m_174 != 0U) {
@@ -746,7 +647,7 @@ void TItemEquipBase::equip() {
         ((TItem *)arg0)->update_owner_visibility();
         ((TItem *)arg0)->set_mode((int) (2));
         ((TObjPlayer *)arg0)->add_item_flags((int) (8));
-        ((VObj_18_df954d *)(arg0))->m20(1);
+        this->vfunc_22(1);
         if ((TOKeyMachine01::get_global_state() != 0xF) && (test_flags_any((void *)((void *) (arg0 + 0x178)), (void *)((int) (1))) == 0)) {
             ((TObjPlayer *)(arg0 + 0x178))->set_flags((u32)((void *)((int) (1))));
             this->vfunc_46();

@@ -74,28 +74,6 @@ void set_technique_level_entry(void *, s16, u8);
 void vfunc_48__12TItemProUnitFv(Unit_80118AD4 *self);
 s32 memset(void *, s32, s32);
 void vfunc_49__12TItemProUnitFv(u8 *arg0);
-struct VItemProUnit_8011892C {
-    char pad[0x18];
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17(s8);
-};
-
 u8 *TItemProUnit__ct(u8 *arg0, s32 arg1, u8 *arg2);
 void vfunc_45__12TItemProUnitFv(void *arg0);
 void TItem__sub_8011892C(void);
@@ -372,7 +350,7 @@ u8 *TItemProUnit__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     TItemEquipBase__ct();
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__12TItemProUnit;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C40;
-    ((VItemProUnit_8011892C *)arg0)->m17((s8) (*(u8 *)((s8 *)arg2 + 4) + 9));
+    ((TItemProUnit *)arg0)->vfunc_19((s8) (*(u8 *)((s8 *)arg2 + 4) + 9));
     *(s16 *)((s8 *)arg0 + 0x190) = 0;
     *(f32 *)((s8 *)arg0 + 0x1B8) = (f32) TItemProUnit__data_805DABF8;
     item_pmt_record = lookup_item_pmt_record(arg2);

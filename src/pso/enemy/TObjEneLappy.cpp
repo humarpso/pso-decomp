@@ -691,7 +691,7 @@ void TObjEneLappy::update_attacking() {
         if (this->m_b4 != 4U) {
             *(f32 *)((s8 *)arg0 + 0x308) = *(f32 *)((s8 *)arg0 + 0x30C) = *(f32 *)((s8 *)arg0 + 0x310) = lbl_805D9F4C;
             *(s32 *)&this->actorFlags &= 0xFFDFFFFF;
-            ((VObj_18_800C0588 *) arg0)->m57();
+            this->vfunc_59();
             *(s16 *)&this->timer = 0;
         }
         break;
@@ -1189,91 +1189,6 @@ void *TObjEneLappy::create(void *arg0) {
 #include "pso/enemy/TObjEneRe2Flower.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
-
-struct VBase_18_fe72f9 { char pad[0x18]; };
-struct VObj_18_fe72f9 : VBase_18_fe72f9 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual s32 m79(void *);
-    virtual s32 m80();
-};
 
 struct Set_800C1C4C {
     u8 pad0[0xA];
@@ -1967,7 +1882,7 @@ u8 *TObjEneLappy__ct(u8 *self, s32 arg1, Set_800C1C4C *set) {
     initialize__9TObjEnemyFPv(self, arg1, set);
     *(void **)(self + 0x18) = (u8 *)lbl_80492F28;
     *(s32 *)(self + 0) = lbl_805D2A40;
-    ((VObj_18_fe72f9 *)self)->m79(set);
+    ((TObjEneLappy *)self)->apply_set_data(set);
     *(s32 *)(self + 0xDC) = *(s32 *)((u8 *)rappy_bml_resource + 0x430);
     VecCopy((Vec *)(self + 0x38), (const Vec *)set->pos);
     ((TObjPlayer *)(self + 0x5C))->copy_xyz(set->rot);
@@ -2044,7 +1959,7 @@ u8 *TObjEneLappy__ct(u8 *self, s32 arg1, Set_800C1C4C *set) {
     if (TObjEneDD::check_v2_mode() != 0 && calc_boss4_scale__10TObjPlayerFi(self) < lbl_805D9F98) {
         *(s16 *)(self + 0x374) |= 0x400;
     }
-    ((VObj_18_fe72f9 *)self)->m80();
+    ((TObjEneLappy *)self)->clear_lobby_object_state();
     return self;
 }
 

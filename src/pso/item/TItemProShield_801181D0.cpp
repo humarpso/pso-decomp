@@ -7,29 +7,6 @@
 #include "pso/item/TItemEquipBase.h"
 #include "pso/player/TObjPlayer.h"
 
-struct VBase_18_1a8f71 { char pad[0x18]; };
-
-struct VObj_18_1a8f71 : VBase_18_1a8f71 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual s32 m17(s32);
-};
-
 struct RecoveredGlobal_801186EC___vt__14TItemProShield { s32 value; u8 remaining[0xCC]; };
 
 struct Status_80118558 { s8 a; u8 b; u8 pad[2]; u32 c; s32 d; s32 e; s32 f; };
@@ -203,7 +180,7 @@ u8 *TItemProShield__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     TItemEquipBase__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801186EC___vt__14TItemProShield *)&__vt__14TItemProShield).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C38;
-    ((VObj_18_1a8f71 *)(arg0))->m17(3);
+    ((TItemProShield *)(arg0))->vfunc_19(3);
     *(s32 *)((s8 *)arg0 + 0x18C) = lookup_item_pmt_record(arg2);
     *(s32 *)((s8 *)arg0 + 0x190) = (s32) ((*(s32 *)&TItemProShield__shield_table) + ((s8) *(u8 *)((s8 *)(*(s32 *)((s8 *)arg0 + 0x18C)) + 0xD) * 0x2C));
     *(s32 *)((s8 *)arg0 + 0x194) = TObjPlayer::get_shield_pmt_entry(*(u8 *)((s8 *)(*(s32 *)((s8 *)arg0 + 0x18C)) + 0x19));
