@@ -1694,7 +1694,7 @@ void TUnk_80484610::render() {
         TObjPlayer::toggle_particle_effect();
         push_matrix();
         model_render_flags &= 0xFFFFFBFF;
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, ((TUnk_80484610 *)arg0)->rotation_y);
         if (TObjPlayer::check_demo_mode() == 1) {
             draw_chunk_object((void *)(*(s32 *)((s8 *)arg0 + 0x34)));

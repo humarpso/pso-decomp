@@ -6430,7 +6430,7 @@ void TBoss1Dragon::run_task() {
     ((TBoss1Dragon *)(arg0))->vfunc_88();
     ((TBoss1Dragon *)arg0)->update_position_history();
     ((TBoss8Dragon *)arg0)->set_player_state_default();
-    add_radar_scaled_marker(arg0 + 0x38, -0x5DB4, 1, 1, (f32) ((*(f32 *)&TBoss1Dragon__data_805D7F24)));
+    add_radar_scaled_marker((u8 *)&this->position, -0x5DB4, 1, 1, (f32) ((*(f32 *)&TBoss1Dragon__data_805D7F24)));
     VecCopy__FP3VecPC3Vec((s32)(arg0 + 0x648), (s32)(arg0 + 0x2FC));
     if (temp_r30_2 == 0) {
         ((TObject *)(arg0 + 0x3C4))->run_tasks();

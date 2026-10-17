@@ -1865,7 +1865,7 @@ void TObjEneSaver::render() {
         select_actor_lighting((s32)arg0);
         TObjFish::set_global_param(((TObjEneSaver *)arg0)->texture_id);
         push_matrix_from(NULL);
-        translate_matrix_vec3(0, arg0 + 0x38);
+        translate_matrix_vec3(0, (u8 *)&this->position);
         rotate_matrix_y(0, ((TObjEneSaver *)arg0)->rotation_y);
         lbl_805D505C = 0;
         lbl_805D5060 = *(s32 *)((s8 *)arg0 + 0x39C);
@@ -1874,7 +1874,7 @@ void TObjEneSaver::render() {
         switch (((TObjEneSaver *)arg0)->mode) {
         case 11:
             if (((TObjEneSaver *)arg0)->phase == 1) {
-                scale_matrix_vec3(0, arg0 + 0x68);
+                scale_matrix_vec3(0, (u8 *)&this->scale);
             }
         case 1:
         case 2:
@@ -1918,7 +1918,7 @@ void TObjEneSaver::render() {
         }
     } else {
         push_matrix_from(identity_matrix);
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, ((TObjEneSaver *)arg0)->rotation_y);
         TObjPlayer::set_global_flag();
         ((TObjEnemy *)arg0)->render_anim_model(((TObjEneSaver *)arg0)->m_c0);

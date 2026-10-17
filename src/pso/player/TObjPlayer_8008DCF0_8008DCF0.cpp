@@ -521,14 +521,14 @@ void TObjEneBalClawBody::render() {
             model_render_flags &= 0xFFFFFBFF;
             if (TObjPlayer::check_demo_mode() == 1) {
                 TObjPlayer::set_visibility_flags_by_count(arg0, 4);
-                post_translate_matrix(arg0 + 0x38);
+                post_translate_matrix((u8 *)&this->position);
                 rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
                 rotate_matrix_y(0, ((TObjEneBalClawBody *)arg0)->rotation_y);
                 draw_chunk_object((void *)(*(s32 *)((s8 *)arg0 + 0x34)));
             } else {
                 TObjPlayer::set_visibility_flags_by_count(arg0, ((TObjEneBalClawBody *)arg0)->m_3d8);
                 translate_matrix(0, lbl_805D9620, ((TObjEneBalClawBody *)arg0)->m_3b4 + *(f32 *)((s8 *)arg0 + 0x3BC), lbl_805D9620);
-                post_translate_matrix(arg0 + 0x38);
+                post_translate_matrix((u8 *)&this->position);
                 rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
                 rotate_matrix_y(0, ((TObjEneBalClawBody *)arg0)->rotation_y);
                 if (((TObjEneBalClawBody *)arg0)->m_388 & 4) {

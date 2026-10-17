@@ -283,7 +283,7 @@ block_23:
                 ((TObjEneDD *)arg0)->update_secondary_light();
                 TObjFish::set_global_param((int) (((TObjEneRecobox *)arg0)->texture_id));
                 push_matrix();
-                post_translate_matrix(arg0 + 0x38);
+                post_translate_matrix((u8 *)&this->position);
                 rotate_matrix_y(0, (int) (((TObjEneRecobox *)arg0)->rotation_y));
                 switch (((TObjEneRecobox *)arg0)->m_3f8) {
                 case 1:

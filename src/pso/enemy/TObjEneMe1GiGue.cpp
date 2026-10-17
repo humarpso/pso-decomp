@@ -2071,7 +2071,7 @@ void TObjEneMe1GiGue::run_task() {
     *(f32 *)((s8 *)(((TObjEneMe1GiGue *)arg0)->m_a4) + 4) = (f32) (25.0f + ((TObjEneMe1GiGue *)arg0)->m_3ec);
     if (!(((TObjEneMe1GiGue *)arg0)->m_388 & 0x40000)) {
         submit_cursor_candidate(arg0, -1);
-        minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
+        minimap_render_dot((u8 *)&this->position, -0x5DB4, 1, 0);
     }
     temp_r3 = ((TObjEneMe1GiGue *)arg0)->m_3f4;
     if (temp_r3 > 0) {
@@ -2086,8 +2086,8 @@ void TObjEneMe1GiGue::run_task() {
         temp_r3_4 = (unsigned char *) (((TObjEneMe1GiGue *)arg0)->m_a4);
         *(s32 *)((s8 *)temp_r3_4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3_4 + 0x18) | 2);
     }
-    update_obstruction_fade(arg0 + 0x418);
-    if (xz_distance_squared(arg0 + 0x38, arg0 + 0x44) > 2500.0f) {
+    update_obstruction_fade((u8 *)&this->m_418);
+    if (xz_distance_squared((u8 *)&this->position, (u8 *)&this->m_44) > 2500.0f) {
         VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x44));
     }
     VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));

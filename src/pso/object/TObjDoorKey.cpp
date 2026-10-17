@@ -230,7 +230,7 @@ void TObjDoorKey::trigger_activate_sound() {
         play_sound_effect(0x4C60A, ((u8 *)this) + 0x38, 0, 0);
         break;
     }
-    *(s32 *)(((u8 *)this) + 0xE8) = 1;
+    this->m_e8 = 1;
 }
 
 void TObjDoorKey::vfunc_16() {

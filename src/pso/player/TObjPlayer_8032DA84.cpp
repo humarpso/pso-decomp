@@ -328,7 +328,7 @@ void TUnk_804EDD44::run_task() {
     anchor_card_effect(arg0);
     for (i = 0; i != 3; i++) {
         if (((O_8032DFF8 *)arg0)->o[i] != NULL) {
-            ((TNowLoading *)(((O_8032DFF8 *)arg0)->o[i]))->copy_pos(arg0 + 0x64);
+            ((TNowLoading *)(((O_8032DFF8 *)arg0)->o[i]))->copy_pos((u8 *)&this->unk_64);
         }
     }
     if (*(s32 *)((s8 *)arg0 + 0x30) == 0) {

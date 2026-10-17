@@ -1701,7 +1701,7 @@ void TObjEneNanoDrago::run_task() {
     *(f32 *)((s8 *)(((TObjEneNanoDrago *)arg0)->m_a4) + 4) = (f32) (15.0f + ((TObjEneNanoDrago *)arg0)->m_404);
     if (!(((TObjEneNanoDrago *)arg0)->m_388 & 0x40000)) {
         submit_cursor_candidate(arg0, -1);
-        minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
+        minimap_render_dot((u8 *)&this->position, -0x5DB4, 1, 0);
     }
     temp_r3 = ((TObjEneNanoDrago *)arg0)->m_3dc;
     if (temp_r3 > 0) {
@@ -1716,7 +1716,7 @@ void TObjEneNanoDrago::run_task() {
         temp_r3_4 = (unsigned char *) (((TObjEneNanoDrago *)arg0)->m_a4);
         *(s32 *)((s8 *)temp_r3_4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3_4 + 0x18) | 2);
     }
-    if (xz_distance_squared(arg0 + 0x38, arg0 + 0x44) > 2500.0f) {
+    if (xz_distance_squared((u8 *)&this->position, (u8 *)&this->m_44) > 2500.0f) {
         VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg0 + 0x44));
     }
     VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));

@@ -294,23 +294,23 @@ void TUnk_80491460::run_task() {
   u8 *temp_r3;
   s32 new_var;
     u8 *arg0 = (u8 *)this;
-  vec3_add_to(arg0 + 0x1C, arg0 + 0x34);
+  vec3_add_to((u8 *)&this->unk_1C, arg0 + 0x34);
   ((TUnk_80491460 *)arg0)->m_60 = (s32) ((((TUnk_80491460 *)arg0)->m_60) + 1);
   if (!((((TUnk_80491460 *)arg0)->m_60) & 3))
   {
-    if (csnVector(arg0 + 0x28, arg0 + 0x1C, -1) != 0U)
+    if (csnVector(arg0 + 0x28, (u8 *)&this->unk_1C, -1) != 0U)
     {
       queue_destruction__7TObjectFv(arg0);
       return;
     }
-    VecCopy__FP3VecPC3Vec(arg0 + 0x28, arg0 + 0x1C);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x28, (u8 *)&this->unk_1C);
     goto block_4;
   }
   block_4:
   temp_r3 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0x5C)));
   if (temp_r3 != 0)
   {
-    ((TNowLoading *)temp_r3)->copy_pos(arg0 + 0x1C);
+    ((TNowLoading *)temp_r3)->copy_pos((u8 *)&this->unk_1C);
   }
   ((TUnk_80491460 *)arg0)->m_58 = (f32) ((((TUnk_80491460 *)arg0)->m_58) + lbl_805D9B5C);
   if ((((TUnk_80491460 *)arg0)->m_58) >= lbl_805D9B60)
@@ -413,7 +413,7 @@ void TUnk_80491478::run_task() {
                 ((TUnk_80491478 *)arg0)->m_e8 = v.y;
             }
         }
-        if (xz_distance_squared(arg0 + 0xF0, arg0 + 0xDC) >= *(f32 *)((s8 *)arg0 + 0xEC) * *(f32 *)((s8 *)arg0 + 0xEC)) {
+        if (xz_distance_squared((u8 *)&this->m_f0, (u8 *)&this->unk_DC) >= *(f32 *)((s8 *)arg0 + 0xEC) * *(f32 *)((s8 *)arg0 + 0xEC)) {
             ((TUnk_80491478 *)arg0)->m_ae = 1;
         }
     }
@@ -426,8 +426,8 @@ void TUnk_80491478::run_task() {
         }
         break;
     case 2:
-        VecCopy__FP3VecPC3Vec(arg0 + 0xB0, *(void **)((s8 *)arg0 + 0xCC));
-        subtract_vector(arg0 + 0xB0, arg0 + 0xF0);
+        VecCopy__FP3VecPC3Vec((u8 *)&this->unk_B0, *(void **)((s8 *)arg0 + 0xCC));
+        subtract_vector((u8 *)&this->unk_B0, (u8 *)&this->m_f0);
         if (*(f32 *)((s8 *)arg0 + 0xB0) * *(f32 *)((s8 *)arg0 + 0xB0) + *(f32 *)((s8 *)arg0 + 0xB8) * *(f32 *)((s8 *)arg0 + 0xB8) > 25.0f) {
             t = 0.8f / newton_sqrtf();
             ((TUnk_80491478 *)arg0)->m_f0 = *(f32 *)((s8 *)arg0 + 0xB0) * t + ((TUnk_80491478 *)arg0)->m_f0;
@@ -444,7 +444,7 @@ void TUnk_80491478::run_task() {
         }
         break;
     case 3:
-        VecCopy__FP3VecPC3Vec(arg0 + 0xF0, *(void **)((s8 *)arg0 + 0xCC));
+        VecCopy__FP3VecPC3Vec((u8 *)&this->m_f0, *(void **)((s8 *)arg0 + 0xCC));
         break;
     }
 }

@@ -6051,23 +6051,23 @@ u8 *TObjPlayer::vfunc_18(u8 *arg1) {
     temp_f1 = *(f32 *)((s8 *)arg1 + 4);
     stack.spC = temp_f1 + *(f32 *)((s8 *)temp_r6 + 0x10);
     stack.sp10 = *(f32 *)((s8 *)arg1 + 8);
-    temp_r3 = (u8 *)(((u8 * (*)(f32 *, void *, s32, void *, f32))csnVectorUnder)(&stack.sp8, arg0 + 0x120, 0x5F, temp_r6, temp_f1));
+    temp_r3 = (u8 *)(((u8 * (*)(f32 *, void *, s32, void *, f32))csnVectorUnder)(&stack.sp8, (u8 *)&this->m_120, 0x5F, temp_r6, temp_f1));
     if (temp_r3 == NULL) {
         return NULL;
     }
-    TObjPlayer__sub_801BF8AC((arg0 + 0x360));
+    TObjPlayer__sub_801BF8AC(((u8 *)&this->m_360));
     temp_r31 = *(s32 *)((s8 *)temp_r3 + 0);
     if (temp_r31 & 0x10) {
         ((TObjPlayer *)(arg0 + 0x360))->check_flag_2();
-        copy_vec_at_18__10TObjPlayerFv(arg0 + 0x384, (void *) (*(u8 **)((s8 *)temp_r3 + 4) + 0x1C));
+        copy_vec_at_18__10TObjPlayerFv((u8 *)&this->m_384, (void *) (*(u8 **)((s8 *)temp_r3 + 4) + 0x1C));
     }
     if ((temp_r31 & 4) && (player_auxiliary_surfaces_enabled() != 0)) {
         ((TObjPlayer *)(arg0 + 0x360))->set_flag_4();
-        TObjPlayer__sub_801BF3A0(arg0 + 0x384, (void *) (*(u8 **)((s8 *)temp_r3 + 4) + 0x38));
+        TObjPlayer__sub_801BF3A0((u8 *)&this->m_384, (void *) (*(u8 **)((s8 *)temp_r3 + 4) + 0x38));
     }
     if ((temp_r31 & 2) && (player_auxiliary_surfaces_enabled() != 0)) {
-        TObjPlayer__sub_801BF840((arg0 + 0x360));
-        TObjPlayer__sub_801BF3A0(arg0 + 0x384, (void *) (*(u8 **)((s8 *)temp_r3 + 4) + 0x54));
+        TObjPlayer__sub_801BF840(((u8 *)&this->m_360));
+        TObjPlayer__sub_801BF3A0((u8 *)&this->m_384, (void *) (*(u8 **)((s8 *)temp_r3 + 4) + 0x54));
     }
     if (temp_r31 & 8) {
         ((TObjPlayer *)(arg0 + 0x360))->test_flag_16();
