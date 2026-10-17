@@ -1387,7 +1387,7 @@ void TObjMapWarp::process_player_warps() {
                         }
                     }
                 } else {
-                    ((VObj_8019D250 *)this)->m18(i);
+                    this->closePlayerWindow(i);
                 }
             }
         }
@@ -1416,7 +1416,7 @@ void TObjMapWarp::process_player_warps() {
                 }
             }
         } else {
-            ((VObj_8019D250 *)this)->m12();
+            this->vfunc_14();
         }
     }
 }

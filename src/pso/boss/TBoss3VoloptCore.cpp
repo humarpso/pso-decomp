@@ -1399,7 +1399,7 @@ void TUnk_80483A10::sub_80040894() {
     ((TUnk_80483A10 *)((VObj_80040894 *)this))->m_388 |= 0x10000;
     ((TUnk_80483A10 *)((VObj_80040894 *)this))->m_390 = 0;
     *(s32 *)((s8 *)(((TUnk_80483A10 *)((VObj_80040894 *)this))->m_a4) + 0x18) |= 0xC00;
-    ((VObj_80040894 *)this)->m56();
+    this->vfunc_58();
     ((TUnk_804806E8 *)((VObj_80040894 *)this))->add_flags_2e4(4);
     ((TUnk_80483A10 *)((VObj_80040894 *)this))->m_3c8 = 0;
     obj_setFlags30(((VObj_80040894 *)this), 0x8000);
@@ -1408,7 +1408,7 @@ void TUnk_80483A10::sub_80040894() {
     } else {
         boss3_volopt_turn_angle_limit = 0x200;
     }
-    ((VObj_80040894 *)this)->m80();
+    this->clear_lobby_object_state();
 }
 
 void *create_TBoss3VoloptCore(void *arg0, void *arg1, s16 arg2, s16 arg3) {
