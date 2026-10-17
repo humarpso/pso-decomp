@@ -43,8 +43,7 @@ struct Me_800DC9EC {
     u16 attacker;
 };
 
-extern "C" { u8 *find_entity_by_id(s16); }
-extern "C" {
+extern "C" { u8 *find_entity_by_id(s16);
 Obj_800DC4B4 *find_active_entity_by_id(u16);
 void queue_destruction__7TObjectFv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, int);
@@ -154,7 +153,6 @@ f32 atan2_float(f32, f32);
 s32 spawn_particle_effect_with_rotation(Vec_800DCD04 *, s32 *, s32, s32);
 f32 horizontal_distance__10TObjPlayerFPUc(Vec_800DCD04 *, Vec_800DCD04 *);
 f32 xz_distance_squared(Vec_800DCD04 *, Vec_800DCD04 *);
-u8 *find_entity_by_id(s16);
 void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 void matrix_mult_vec(s32, Vec_800DCD04 *, Vec_800DCD04 *);
 void rotate_matrix_y(s32, s32);
@@ -163,21 +161,13 @@ void push_matrix_from(void *);
 void pop_matrix(void);
 extern s32 lbl_80494E48[];
 extern u8 identity_matrix[];
-extern const f32 lbl_805D5260;
 extern f32 lbl_805D5264;
 extern void *tl_04;
 extern const f32 lbl_805DA480;
 extern const f32 lbl_805DA484;
 extern const f32 lbl_805DA488;
 Obj_800DCD04 *TObjPlayer__sub_800DCD04(Obj_800DCD04 *self, Vec_800DCD04 *pos, s16 id, s32 *rot, s32 arg4, s16 arg5);
-}
-
-extern "C" {
-
 void __dl__7TObjectFPv(void *);
-void queue_destruction__7TObjectFv(void *);
-
-extern s32 lbl_80494E48[];
 
 void *TUnk_80494E48::destroy_particle_obj(s16 arg1) {
     if (this != NULL) {

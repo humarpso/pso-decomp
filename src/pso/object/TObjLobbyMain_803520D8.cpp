@@ -57,21 +57,11 @@ void update_emitter_positions__13TObjLobbyMainFv(u8 *arg0);
 s32 get_bml_motion(void *, s32);
 s32 get_bml_model(void *, s32);
 s32 scale_matrix(int, f32, f32, f32);
-void rotate_matrix_y(int, s32);
-void push_matrix();
-void pop_matrix();
-void post_translate_matrix(void *);
 s32 draw_ginja_object();
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern void *TObjLobbyMain__bml_resource;
 extern void *lobby_main_lobby_type;
-s32 get_bml_motion(void *, s32);
-extern void *TObjLobbyMain__bml_resource;
 void advance_motion_frame__13TObjLobbyMainFv(Obj_8035255C *o);
-}
-
-extern "C" {
-
 void TObjLobbyMain__sub_803520D8(void);
 void reset_state__13TObjLobbyMainFPv(void *arg0);
 void update_computer_machines__13TObjLobbyMainFv(void);
@@ -79,7 +69,6 @@ void update_particles__13TObjLobbyMainFv(void *arg0);
 s32 PPCSync();
 s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
 s32 enable__13TParticleCtrlFv(void *);
-s32 get_theme_lobby_type();
 
 void TObjLobbyMain__sub_803520D8(void) {  }
 
@@ -341,22 +330,14 @@ struct RecoveredGlobal_80352940___vt__13TObjLobbyMain {
 };
 
 extern "C" {
-s32 get_bml_model(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_803527F0_lbl_804F0F24 bm_obj_lobby_main_resource_descriptor;
-extern s32 lobby_main_computer_ginja_model;
-extern s32 lobby_main_computer_ginja_model_b;
-extern s32 lobby_computer_last_frame_tick;
 u32 create_particle_emitter(void *, int);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_map_object_base(void *);
 extern RecoveredGlobal_80352940_lbl_804F0F34 lbl_804F0F34;
 extern s32 __vt__13TObjLobbyMain[];
 u8 *TObjLobbyMain__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt__13TObjLobbyMainFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void free_collision_body_parts(void *);
@@ -404,8 +385,6 @@ void TObjLobbyMain::release_static_instance() {
         TObjLobbyMain__bml_resource = 0U;
     }
 }
-
-extern s32 __vt__13TObjLobbyMain[];
 
 void TObjLobbyMain::load_resources() {
     s32 temp_r3;

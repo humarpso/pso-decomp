@@ -24,10 +24,6 @@ extern const f32 lbl_805DAE50;
 extern const f32 lbl_805DAE54;
 extern const f32 lbl_805DAE58;
 void s_rank_bazooka_recoil(Self_80129BB0 *self);
-}
-
-extern "C" {
-
 void s_rank_bazooka_recoil(Self_80129BB0 *self) {
     s32 ang;
     Vec_80129BB0 v;

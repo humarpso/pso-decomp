@@ -6,10 +6,6 @@ s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
 extern s32 TObjDoorKey__class_name;
 extern Obj_8018FA6C *tl_05;
 Obj_8018FA6C *fn_8018FA6C(u16 id);
-}
-
-extern "C" {
-
 Obj_8018FA6C *fn_8018FA6C(u16 id) {
     Obj_8018FA6C *next = tl_05->children;
     Obj_8018FA6C *cur;

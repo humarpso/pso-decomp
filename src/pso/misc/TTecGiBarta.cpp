@@ -152,25 +152,15 @@ void mem_free(void **);
 void __dl__7TObjectFPv(void *);
 extern void *__vt__11TTecGiBarta[];
 TTecGiBarta_80230B48 *__dt__11TTecGiBartaFv(TTecGiBarta_80230B48 *self, s16 deleting);
-u16 obj_getField1c(void *);
 void construct_aimed_technique_projectile();
-extern void *__vt__11TTecGiBarta[];
 extern s32 tec_gibarta_class_name_ptr;
 extern const f32 lbl_805DC80C;
 TTecGiBarta_80230C58 *TTecGiBarta__ct(TTecGiBarta_80230C58 *self, void * _w1, void * _w2, void * _w3, void * _w4);
-u16 obj_getField1c(void *);
 void construct_facing_technique__10TObjPlayerFPviPvii();
-extern void *__vt__11TTecGiBarta[];
-extern s32 tec_gibarta_class_name_ptr;
-}
-
-extern "C" {
-
 s32 play_sound_effect(s32, s32, s32, s32);
 u32 find_entity_by_id(u16);
 void *__nw__7TObjectFUl(int);
 s32 move_technique_projectile(void *);
-s32 queue_destruction__7TObjectFv(void *);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 
 void TTecGiBarta::update_technique_by_phase() {

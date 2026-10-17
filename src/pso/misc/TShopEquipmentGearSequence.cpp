@@ -60,9 +60,6 @@ void TShopEquipmentGearSequence::enter_quest_list() {
     }
 }
 
-extern s32 lbl_805D6218;
-extern s32 lbl_805D621C;
-
 void TShopEquipmentGearSequence::handle_confirm() {
     if ((this->vfunc_10() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
         ((VObj_8021B338*)this)->m4(lbl_805D6218, 1);

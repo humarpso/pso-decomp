@@ -5,10 +5,6 @@ s32 sndStreamMixParameter(u32, u8, u8, u8, u8);
 s32 TLobby__sub_803C9CB0(s32);
 s32 TLobby__sub_803CBE64(s32, s32);
 void fn_8023F660(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
-}
-
-extern "C" {
-
 void fn_8023F660(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     if (arg4 < 0) {
         arg4 = 0;

@@ -11,10 +11,6 @@ extern const f32 lbl_805DAEB0;
 extern const f32 lbl_805DAEB4;
 extern const f32 lbl_805DAEB8;
 extern const f32 lbl_805DAEBC;
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 void TUnk_804A4E68::update_attack() {

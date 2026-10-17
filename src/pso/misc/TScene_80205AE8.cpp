@@ -19,29 +19,15 @@ u8 *__nw__7TObjectFUl(s32);
 extern void **TScene__texture_wave_resource;
 extern void* TScene__texture_animation_buffer;
 s32 load_texture_sequence_frame(void *task, Cyc_80205D24 *c);
-extern void* TScene__texture_animation_buffer;
 s32 find_uv_animation__6TSceneFPvPv(void *task, Uv_80205DE4 *uv);
-extern SceneMaterialRoot* TScene__data_805D5FCC;
-extern void* TScene__texture_animation_buffer;
-s32 load_texture_sequence_frame(void *task, Cyc_80205D24 *c);
-s32 find_uv_animation__6TSceneFPvPv(void *task, Uv_80205DE4 *uv);
-u8 *__nw__7TObjectFUl(s32);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 Info_80205AEC *find_material_entry_by_id__6TSceneFPvUs(void *, u16);
 void *fn_802A8210(void *, u8, void *);
 extern u32 lbl_8044A800[];
 extern u8 lbl_8044A80C[];
-extern SceneMaterialRoot* TScene__data_805D5FCC;
-extern void* TScene__texture_animation_buffer;
-s32 load_texture_sequence_frame(void *task, Cyc_80205D24 *c);
-s32 find_uv_animation__6TSceneFPvPv(void *task, Uv_80205DE4 *uv);
 SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
 SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 void* alloc__23TAdSinglePlyChrSelectGCFv(u32);
-}
-
-extern "C" {
-
 void TScene__sub_80205AE8(void);
 void TScene__sub_80205FD0(void);
 
@@ -188,17 +174,6 @@ s32 find_uv_animation__6TSceneFPvPv(void *task, Uv_80205DE4 *uv) {
 void TScene::copy_header_and_vec(void* q) { *(u16 *)&this->m_name = *(u16*)((char*)q + 0x0); *(u16*)((char*)this + 0x2) = *(u16*)((char*)q + 0x2); *(f32 *)&this->m_flags = *(f32*)((char*)q + 0x4); *(f32 *)&this->m_prev = *(f32*)((char*)q + 0x8); *(f32 *)&this->m_next = *(f32*)((char*)q + 0xc); *(f32 *)&this->m_up = *(f32*)((char*)q + 0x10); }
 
 void TScene__sub_80205FD0(void) {  }
-
-}
-
-#include "pso/misc/TSceneMaterial.h"
-extern "C" {
-extern SceneMaterialRoot* TScene__data_805D5FCC;
-extern void* TScene__texture_animation_buffer;
-SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
-SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
-
-void* alloc__23TAdSinglePlyChrSelectGCFv(u32);
 
 }
 

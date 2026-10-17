@@ -10,10 +10,6 @@ extern "C" {
 void TLockOnCursor__sub_8013EC1C(Obj_8013EC1C *self);
 extern const f32 TMainCursor__data_805DB0C0;
 void init__6gc_tagFv(void *p);
-}
-
-extern "C" {
-
 void TLockOnCursor__sub_8013EB80(void* p);
 void TLockOnCursor__sub_8013EB8C(void* p);
 s32 TLockOnCursor__sub_8013EBBC(void* p);

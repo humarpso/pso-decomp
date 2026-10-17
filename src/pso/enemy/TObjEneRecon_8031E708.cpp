@@ -56,10 +56,6 @@ extern s32 boss3_volopt_instance;
 extern s32 recon_intro_stage;
 extern s32 recon_model_matrix_ptr;
 extern const f32 TObjEneRecon__data_805DF3C0;
-}
-
-extern "C" {
-
 typedef struct RecoveredFields_8031E708_TObjEneRecon__data_805D6B00 RecoveredFields_8031E708_TObjEneRecon__data_805D6B00;
 typedef struct RecoveredFields_8031E708_temp_r5 RecoveredFields_8031E708_temp_r5;
 typedef struct RecoveredGlobal_8031E708_lbl_804760EC RecoveredGlobal_8031E708_lbl_804760EC;

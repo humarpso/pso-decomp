@@ -27,19 +27,12 @@ extern const f32 lbl_805D8AC8;
 extern const f32 lbl_805D8ACC;
 extern const f32 lbl_805D8AD0;
 extern const f32 lbl_805D8AD4;
-}
-
-extern "C" {
-
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(s32);
 s32 TObjPlayer__sub_80052390();
 s32 push_matrix();
 s32 pop_matrix();
 s32 set_color_blend_mode(s32, s32, s32, s32);
-
-extern const f32 lbl_805D8A30;
-extern const f32 lbl_805D8A34;
 
 void TObjDFUsoTower::render() {
     u8 *arg0 = (u8 *)this;

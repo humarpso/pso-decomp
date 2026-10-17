@@ -59,14 +59,9 @@ extern RecoveredGlobal_8015A4D0_lbl_804AFE88 lbl_804AFE88;
 extern s32 __vt__18TOCapsuleAncient01[];
 extern s32 enable_v2_features;
 extern s32 lbl_805D2ECC;
-extern u32 TOCapsuleAncient01__static_model_resource;
 extern const f32 lbl_805DB378;
 extern const f32 lbl_805DB37C;
 u8 *TOCapsuleAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt__18TOCapsuleAncient01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
@@ -117,16 +112,12 @@ void *TOCapsuleAncient01::create(void *arg0) {
     return o;
 }
 
-extern u32 TOCapsuleAncient01__static_model_resource;
-
 void TOCapsuleAncient01::destroy_static_instance() {
     if ((u32) TOCapsuleAncient01__static_model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TOCapsuleAncient01__static_model_resource, 1);
         TOCapsuleAncient01__static_model_resource = 0U;
     }
 }
-
-extern s32 __vt__18TOCapsuleAncient01[];
 
 void TOCapsuleAncient01::load_resource_instance() {
     s32 temp_r3;

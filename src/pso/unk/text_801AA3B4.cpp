@@ -2,7 +2,6 @@
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
 extern char lbl_80446A78[];
 extern char lbl_80446A88[];
 extern char lbl_80446A98[];
@@ -34,7 +33,6 @@ extern char lbl_80446CAC[];
 extern const char *pm_mdl_model_names[13];
 extern const char *pm_mdl_motion_names[16];
 extern BmlResourceDescriptor photon_blast_resource_descriptor;
-}
 
 struct PhotonBlastChain_801AA424 {
     s32 kinds[4];
@@ -53,14 +51,7 @@ extern struct PhotonBlastChain_801AA424 photon_blast_sequence_table[];
 u8 *load_resource_from_descriptor(u8 *, int, void *, int, int, int);
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 run_load_callback_table(void *, int);
-extern u8 photon_blast_load_callback_table[];
-extern u32 photon_blast_donation_flags[];
-extern u32 photon_blast_shared_resource;
 void load_photon_blast_resources(void);
-}
-
-extern "C" {
-
 void TObjPlayer__sub_801AA3B4(void) {
     s32 i;
     call_funcs_reverse__6TLobbyFPvUi(photon_blast_load_callback_table, 0x50);
@@ -99,9 +90,6 @@ void load_photon_blast_resources(void) {
     TObjPlayer::clear_photon_blast_slots();
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *pm_mdl_model_names[13] = { lbl_80446A78, lbl_80446A88, lbl_80446A98, lbl_80446AAC, lbl_80446ABC, lbl_80446ACC, lbl_80446AE0, lbl_80446AF4, lbl_80446B08, lbl_80446B1C, lbl_80446B30, lbl_80446B44, NULL };
 __declspec(section ".data") const char *pm_mdl_motion_names[16] = { lbl_80446B58, lbl_80446B68, lbl_80446B78, lbl_80446B8C, lbl_80446BA4, lbl_80446BBC, lbl_80446BD4, lbl_80446BE8, lbl_80446C00, lbl_80446C18, lbl_80446C30, lbl_80446C44, lbl_80446C58, lbl_80446C74, lbl_80446C90, NULL };
 BmlResourceDescriptor photon_blast_resource_descriptor = { lbl_80446CAC, pm_mdl_model_names, pm_mdl_motion_names, 12, 15 };

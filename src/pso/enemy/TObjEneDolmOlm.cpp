@@ -31,18 +31,15 @@ struct VObj_80301690_80300CE4 : Base_80301690_80300CE4 {
 };
 
 #include <stddef.h>
-#include "pso/enemy/TObjEneDolmOlm.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEneBeast.h"
 #include "pso/enemy/TObjEneLappy.h"
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
-#include "pso/enemy/TObjEneRecon.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
 struct Stack_80300FC0 {
     f32 sp8;
     f32 spC;
@@ -463,14 +460,8 @@ extern s32 TObjEneDolmOlm__effect_render_state;
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 play_sound_effect(void *, void *, int, int);
 void vfunc_98__14TObjEneDolmOlmFv(s32 arg0);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 play_sound_effect(void *, void *, int, int);
 void vfunc_97__14TObjEneDolmOlmFv(s32 arg0);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 play_sound_effect(void *, void *, int, int);
 void vfunc_96__14TObjEneDolmOlmFv(s32 arg0);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 play_sound_effect(void *, void *, int, int);
 void vfunc_95__14TObjEneDolmOlmFv(s32 arg0);
 s32 TObjPlayer__sub_800D92BC(void *, int);
 f32 vec3_add_to(void *, void *);
@@ -484,13 +475,7 @@ extern const f32 lbl_805DEF58;
 extern const f32 TObjEneDolmOlm__data_805DEF5C;
 void vfunc_94__14TObjEneDolmOlmFv(u8 *arg0);
 s32 check_path_obstructed(void *, void *);
-f32 vec3_add_to(void *, void *);
-s32 rotate_vector_by_matrix(int, void *, void *);
-s32 rotate_matrix_y(int, int);
-s32 push_matrix_from(void *);
 s32 pop_matrices(int);
-extern RecoveredGlobal_80300FC0_lbl_8058D490 identity_matrix;
-extern const f32 TObjEneDolmOlm__data_805DEF54;
 extern const f32 TObjEneDolmOlm__data_805DEF68;
 void check_path_ahead__14TObjEneDolmOlmFlf(u8 *arg0, s32 arg1, f32 farg0);
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
@@ -510,9 +495,7 @@ void __dl__7TObjectFPv(void *);
 Ene_80302A34 *TObjEneDolmOlm__sub_80302A34(Ene_80302A34 *self, s16 flag);
 s32 mult_vec_array__10TObjPlayerFUll(int, int, void *, int);
 s32 set_matrix_identity(int);
-s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
 extern u32 TObjEneDolmOlm__data_805D6A14;
 extern u32 TObjEneDolmOlm__data_805D6A18;
@@ -525,18 +508,13 @@ s32 spawn_particle_effect(void *, int);
 void fn_800D88E4(void *);
 extern s32 actor_frame_tick;
 extern const f32 lbl_805DEF4C;
-extern const f32 TObjEneDolmOlm__data_805DEF50;
 void spawn_ground_effects__14TObjEneDolmOlmFPvPv(u8 *arg0, Vec_80300D00 *arg1);
 s32 draw_trail_with_colors(u32, s32, s32, int, int);
-extern u32 TObjEneDolmOlm__resource_bundle;
-extern u32 TObjEneDolmOlm__data_805D6A14;
-extern u32 TObjEneDolmOlm__data_805D6A18;
 extern const f32 lbl_805DEF64;
 s32 obj_testFlags30(void *, u32);
 void obj_clearFlags30(void *, u32);
 void vfunc_59__14TObjEneDolmOlmFv(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi();
-void obj_clearFlags30(void *, u32);
 s32 obj_setFlags30(void *, s32);
 s32 get_current_floor();
 f32 fabs_float(f32);
@@ -544,46 +522,25 @@ u8 *get_enemy_entity(u32);
 f32 horizontal_distance_squared(void *, void *);
 u8 *get_player_by_client_id(u32);
 extern u32 TObjEneDolmOlm__behavior_params_by_variant;
-extern const f32 TObjEneDolmOlm__data_805DEF5C;
 extern const f32 TObjEneDolmOlm__data_805DEF6C;
 void vfunc_60__14TObjEneDolmOlmFv(u8 *arg0);
 s32 is_split_screen();
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
-s32 rotate_matrix_y(int, int);
 s32 translate_matrix(int, f32, f32, f32);
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
 s32 draw_chunk_object(void *);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 TObjEneDolmOlm__effect_render_state;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-extern const f32 TObjEneDolmOlm__data_805DEF50;
-extern const f32 TObjEneDolmOlm__data_805DEF54;
-extern const f32 TObjEneDolmOlm__data_805DEF68;
 extern const f32 lbl_805DEF70;
 extern const f32 lbl_805DEF84;
 extern const f32 lbl_805DEF88;
 extern const f32 lbl_805DEF8C;
 void render_body__14TObjEneDolmOlmFPv(Ene_803021AC *arg0);
-f32 calc_boss4_scale__10TObjPlayerFi();
-f32 fabs_float(f32);
-f32 horizontal_distance_squared(void *, void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 get_current_floor();
-s32 obj_testFlags30(void *, u32);
-s32 play_sound_effect(void *, void *, int, int);
-s32 spawn_particle_effect(void *, int);
-u8 *get_player_by_client_id(u32);
-void advance_animation_playback(void);
-void obj_clearFlags30(void *, u32);
 s32 apply_actor_gravity(void *, int, f32);
 s32 update_angle__10TObjPlayerFlPv(void *, s32, void *);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
@@ -594,12 +551,6 @@ s32 objInBand__FP7GameObjf(void *, f32);
 s32 minimap_render_dot(void *, int, int, int);
 void subtract_vector(void *, void *);
 extern const f64 lbl_804750C8[];
-extern u32 TObjEneDolmOlm__behavior_params_by_variant;
-extern const f32 TObjEneDolmOlm__data_805DEF50;
-extern const f32 TObjEneDolmOlm__data_805DEF54;
-extern const f32 TObjEneDolmOlm__data_805DEF5C;
-extern const f32 TObjEneDolmOlm__data_805DEF6C;
-extern const f32 lbl_805DEF70;
 s32 TObjEneDolmOlm__sub_8030177C(void *arg0_);
 struct Vec_80301C3C { f32 x, y, z; };
 struct Elem_80301C3C { u8 pad[0xC]; f32 r; u8 pad2[0x1C]; };
@@ -616,59 +567,38 @@ extern const f32 lbl_805DEF74;
 extern const f32 lbl_805DEF78;
 extern const f32 lbl_805DEF7C;
 extern const f32 lbl_805DEF80;
-s32 is_split_screen();
 s32 dispatch_shared_handler_a__6TLobbyFl(int);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
 u8 *load_resource_from_descriptor(void *, int, void *, int, int, int);
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-s32 draw_trail_with_colors(u32, s32, s32, int, int);
 u8 *init_trail_buffer__11TBoss4Type3FPvifff(void *, int, f32, f32, f32);
 u8 *mem_alloc(s32);
 s32 spawn_npc_enemy__6TLobbyFslllff(s16, s32, s32, void *, f32, f32);
 extern u32 dolm_olm_combat_stat_id_pair;
 extern u32 TObjEneDolmOlm__shared_handler_ids;
 extern u32 TObjEneDolmOlm__registered_object_ids;
-extern u32 TObjEneDolmOlm__behavior_params_by_variant;
-extern u32 TObjEneDolmOlm__resource_bundle;
-extern u32 TObjEneDolmOlm__data_805D6A14;
-extern u32 TObjEneDolmOlm__data_805D6A18;
-extern s32 TObjEneDolmOlm__effect_render_state;
-extern const f32 TObjEneDolmOlm__data_805DEF54;
-extern const f32 TObjEneDolmOlm__data_805DEF6C;
 extern const f32 lbl_805DEF90;
 extern void *lbl_804E67B8[4];
 extern void *lbl_804E6774[4];
 extern s32 TObjEneDolmOlm__param_table[52];
 extern s32 lbl_804E68D0[22];
-}
-
-extern "C" {
-
 void * TObjEneDolmOlm__create(void *arg0);
 void vfunc_101__14TObjEneDolmOlmFv(void);
 void request_stand_action__14TObjEneDolmOlmFv(void* p);
 void vfunc_100__14TObjEneDolmOlmFv(void *arg0);
 void vfunc_58__14TObjEneDolmOlmFv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-s32 post_translate_matrix(void *);
 void *TObjControl__ct(void *, void *);
 u8 *TObjEneDolmOlm__ct(u8 *, s32, s32);
-s32 rotate_matrix_y(int, int);
-s32 push_matrix();
-s32 pop_matrix();
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __dt__11TBoss4Type3FPvs(void*, int);
 void *__nw__7TObjectFUl(int);
-f32 calc_boss4_scale__10TObjPlayerFi();
 void mem_free(void*);
 s32 get_mode__11TCameraCtrlFPv(void *);
-s32 obj_setFlags30(void *, s32);
 s32 restore_render_scissor(int);
 s32 set_indexed_flags(void *, s32, s32);
 
-f32 calc_boss4_scale__10TObjPlayerFi();
 s32 init_enemy_base__13TUnk_80493450Fv(void *, s32);
 s32 create__12TObjEneSaverFPvPv(u32, u32);
 s32 initialize_enemy_photon_effect(void *);
@@ -1045,47 +975,13 @@ void *lbl_804E6928[103] = {
 
     extern int lbl_805D69E8;
 
-extern const f32 TObjEneDolmOlm__data_805DEF6C;
-
 extern void *tl_04;
 
 typedef struct RecoveredFields_8030247C_arg0 RecoveredFields_8030247C_arg0;
 typedef struct VBase_18_477421 VBase_18_477421;
 typedef struct VObj_18_477421 VObj_18_477421;
 
-extern u32 dolm_olm_combat_stat_id_pair;
-extern u32 TObjEneDolmOlm__shared_handler_ids;
-extern u32 TObjEneDolmOlm__registered_object_ids;
-extern u32 TObjEneDolmOlm__behavior_params_by_variant;
-extern u32 TObjEneDolmOlm__resource_bundle;
-extern u32 TObjEneDolmOlm__data_805D6A14;
-extern u32 TObjEneDolmOlm__data_805D6A18;
-
-}
-
-extern "C" {
-s32 TObjEneDolmOlm__sub_80300CF0(void);
-void vfunc_101__14TObjEneDolmOlmFv(void);
-void spawn_ground_effects__14TObjEneDolmOlmFPvPv(u8 *arg0, Vec_80300D00 *arg1);
-void vfunc_98__14TObjEneDolmOlmFv(s32 arg0);
-void vfunc_97__14TObjEneDolmOlmFv(s32 arg0);
-void vfunc_96__14TObjEneDolmOlmFv(s32 arg0);
-void vfunc_95__14TObjEneDolmOlmFv(s32 arg0);
-void vfunc_94__14TObjEneDolmOlmFv(u8 *arg0);
-void vfunc_93__14TObjEneDolmOlmFv(Obj_800A7A14 *o);
-void check_path_ahead__14TObjEneDolmOlmFlf(u8 *arg0, s32 arg1, f32 farg0);
-void request_stand_action__14TObjEneDolmOlmFv(void* p);
-void vfunc_60__14TObjEneDolmOlmFv(u8 *arg0);
-void vfunc_59__14TObjEneDolmOlmFv(u8 *arg0);
-void vfunc_58__14TObjEneDolmOlmFv(void *arg0);
-s32 TObjEneDolmOlm__sub_8030177C(void *arg0_);
 s32 TObjEneDolmOlm__sub_80301C3C(void *arg0_);
-void vfunc_100__14TObjEneDolmOlmFv(void *arg0);
-void vfunc_83__14TObjEneDolmOlmFv(Ene_80302004 *self);
-void render_body__14TObjEneDolmOlmFPv(Ene_803021AC *arg0);
-void run_task__14TObjEneDolmOlmFPv(u8 *arg0);
-void * TObjEneDolmOlm__create(void *arg0);
-Ene_80302A34 *TObjEneDolmOlm__sub_80302A34(Ene_80302A34 *self, s16 flag);
 u8 *TObjEneDolmOlm__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 extern const u8 lbl_80474F08[0x14];

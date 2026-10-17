@@ -4,10 +4,6 @@
 #include "types.h"
 extern "C" {
 void* TObjPlayer__vt10(void* p);
-}
-
-extern "C" {
-
 void TWindowSubShortMail__sub_8007B824(void);
 s32 TWindowSubShortMail__sub_8007B834(void* p);
 void* fn_8007B83C(void* p);

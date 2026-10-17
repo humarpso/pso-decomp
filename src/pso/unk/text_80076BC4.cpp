@@ -16,10 +16,6 @@ void send_chat__9TProtocolFR16TPlyGuildCardTagPc(void *, TPlyGuildCardTag *, u8 
 extern s32 local_client_id;
 extern void *TLobby__protocol_instance;
 void submit_chat_text(u8 *arg0);
-}
-
-extern "C" {
-
 void fn_80076BC4(void);
 
 void fn_80076BC4(void) {  }
@@ -37,17 +33,10 @@ void submit_chat_text(u8 *arg0) {
     }
 }
 
-}
-
-extern "C" {
 void chat_dispatch_accepted_result(s32 *arg0);
 s32 is_submit_cooldown_clear__11TWindowCtrlFv();
 s32 chat_accept_submission(s32 arg0);
 int get_chat_shortcut(s32 arg0);
-}
-
-extern "C" {
-
 void send_chat_shortcut(void);
 void TAdSinglePlyChrSelectGC__sub_80076DF4(void* p, void* q);
 
@@ -77,13 +66,6 @@ s32 chat_accept_submission(s32 arg0) {
     return 1;
 }
 
-}
-
-extern "C" {
-
-void send_chat_shortcut(void);
-void TAdSinglePlyChrSelectGC__sub_80076DF4(void* p, void* q);
-
 void send_chat_shortcut(void) { ((int (*)()) get_chat_shortcut)(); ((int (*)()) chat_accept_submission)(); }
 
 }
@@ -95,19 +77,11 @@ struct ByteBlock_50 { u8 bytes[0x50]; };
 #pragma dont_inline off
 
 extern "C" {
-void TAdSinglePlyChrSelectGC__sub_80076DF4(void* p, void* q);
-s32 TAdSinglePlyChrSelectGC__sub_80076D9C(s32 arg0, s32 arg1);
 s32 TAdSinglePlyChrSelectGC__sub_80076D9C(s32 arg0, s32 arg1);
 s32 store_chat_shortcut(s32 arg0, s32 arg1);
 bool is_chat_shortcut_set(s32 arg0);
 void clear_chat_shortcut(s32 i);
 s32 get_character_save_record(u32);
-int get_chat_shortcut(s32 arg0);
-}
-
-extern "C" {
-
-void send_chat_shortcut(void);
 
 void clear_chat_shortcut(s32 i) {
     void **p = ((void **)get_chat_shortcut((s32)(i)));

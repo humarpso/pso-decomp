@@ -70,42 +70,26 @@ extern const f32 lbl_805E0014;
 void clear_bit__15TBoss6SwordWaveFPvUc(W_80356D10 *arg0, u8 arg1);
 void *spawn_particle_effect_with_flags(void *, int, int);
 void spawn_particle_effect(void *, int);
-u8 test_rock_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1);
 u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 f32 xyz_distance(void *, void *);
 extern u8 lbl_80479388[];
-extern const f32 lbl_805DFFF0;
 extern const f32 lbl_805DFFF8;
 extern const f32 lbl_805DFFFC;
 extern const f32 lbl_805E0000;
 extern const f32 lbl_805E0004;
 extern const f32 lbl_805E0008;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f64 atan2_float(f32, f32);
 s32 get_point__10TBoss6RockFllPf(s32, void *, void *);
-u8 test_rock_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1);
-u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
-void clear_bit__15TBoss6SwordWaveFPvUc(W_80356D10 *arg0, u8 arg1);
 s32 vec3_add_to(void *, void *);
 f32 vector_length(void *);
 s32 subtract_vector(void *, void *);
 s32 normalize_vector(void *);
 extern const f64 lbl_804793B0;
-extern const f32 lbl_805DFFE8;
-extern const f32 lbl_805E0004;
 extern s32 lbl_805E000C;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 VObj_8035663C *get_player_data__10TObjPlayerFi(s32);
-f64 atan2_float(f32, f32);
 s32 is_active__14TBoss6PlotFalzFv();
-u8 test_rock_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1);
-u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
-f32 vector_length(void *);
-s32 subtract_vector(void *, void *);
-extern const f64 lbl_804793B0;
-extern const f32 lbl_805DFFE8;
 extern const f32 lbl_805DFFEC;
 }
 struct Pair_803561C4 { s32 a; f32 b; };
@@ -137,9 +121,6 @@ struct VObj_18_ec708a : VBase_18_ec708a {
 
 extern "C" {
 
-extern const f32 lbl_805DFFE8;
-extern const f32 lbl_805DFFEC;
-
 struct Vec_803561C4 { f32 x, y, z; };
 
 void damage_players_in_radius(u8 *arg0) {
@@ -166,19 +147,6 @@ void damage_players_in_radius(u8 *arg0) {
     }
 }
 
-}
-
-#include "pso/TBoss6SwordShot.h"
-
-extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
-s32 query_teammate_state__9TObjEneDDFv();
-s32 queue_destruction__7TObjectFv(void *);
-s32 query_teammate_state__9TObjEneDDFv();
-}
-
-extern "C" {
-
 void run_task__15TBoss6SwordShotFv(u8 *arg0) {
     if (query_teammate_state__9TObjEneDDFv() == 0) {
         damage_players_in_radius((u8 *) (arg0));
@@ -201,8 +169,6 @@ void *__dt__15TBoss6SwordShotFv(void *arg0, s16 arg1) {
 
 }
 
-#include "types.h"
-
 struct Shot_80356374 {
     s32 f0;
     u8 pad4[0x14];
@@ -216,15 +182,9 @@ struct Shot_80356374 {
 
 extern "C" {
 u8 *fn_8035648C(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
-f32 *dispatch_shared_handler_a__6TLobbyFl(s32);
 extern s32 lbl_805D43AC;
-extern const f32 lbl_805DFFE8;
-extern const f32 lbl_805DFFF0;
 extern const f32 lbl_805DFFF4;
 u8 *TBoss6SwordShot__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
-}
-
-extern "C" {
 
 #pragma push
 #pragma opt_common_subs off
@@ -283,8 +243,6 @@ u8 *fn_8035648C(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
 #include "pso/boss/TBoss6Type2.h"
 
 extern "C" {
-
-u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
 
 #pragma push
 #pragma fp_contract on

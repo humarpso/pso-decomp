@@ -5,7 +5,6 @@
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjEneRe2Flower_Bomb.h"
 #include "pso/player/TUnk_804928CC.h"
-#include "pso/enemy/TObjEneRe2Flower_EffCurse3.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -87,90 +86,30 @@ s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback();
 extern const f32 lbl_805DA034;
 extern const f32 lbl_805DA03C;
-s32 obj_testFlags30(void *, int);
 void TObjPlayer__sub_800C4E08(u8 *arg0);
 s32 obj_clearFlags30(void * a0 = 0, s32 a1 = 0);
 s32 obj_clearFlags30(void * a0, s32 a1);
 s32 obj_setFlags30(void *, s32);
 void __dl__7TObjectFPv(void *);
 extern s32 lbl_80493450[];
-extern s32 lbl_80493450[];
-extern const f32 lbl_805DA034;
-s32 obj_clearFlags30(void * a0, s32 a1);
 extern const f32 lbl_805DA048;
-s32 obj_clearFlags30(void * a0, s32 a1);
 extern void *player_render_texture_buffer;
 void TLobby__sub_803DA16C(void *);
 void mem_free(void *);
 void TObjPlayer__sub_800C4D44(void);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 int queue_destruction__7TObjectFv(void*);
 s32 is_alive__9TObjEneDDFv(s32);
-s32 subtract_vector(void *, void *);
 extern u8 *camera_ctrl_instance;
-s32 obj_clearFlags30(void * a0, s32 a1);
-s32 obj_setFlags30(void *, s32);
-extern const f32 lbl_805DA03C;
-s32 apply_actor_gravity(void *, int, f32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 obj_clearFlags30(void * a0, s32 a1);
-void TObjPlayer__sub_800C4E08(u8 *arg0);
-f32 horizontal_distance_squared(void *, void *);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback();
-s32 minimap_render_dot(void *, int, int, int);
-extern const f32 lbl_805DA034;
-s32 obj_testFlags30(void *, int);
-u16 obj_getField1c(void *);
-s32 obj_clearFlags30(void * a0, s32 a1);
-s32 obj_setFlags30(void *, s32);
-f32 horizontal_distance_squared(void *, void *);
 extern const f32 lbl_805DA030;
-s32 apply_actor_gravity(void *, int, f32);
-s32 obj_clearFlags30(void * a0, s32 a1);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback();
-s32 minimap_render_dot(void *, int, int, int);
-extern const f32 lbl_805DA034;
-extern const f32 lbl_805DA048;
-s32 obj_clearFlags30(void * a0, s32 a1);
-s32 advance_animation_playback();
-s32 minimap_render_dot(void *, int, int, int);
-s32 obj_testFlags30(void *, int);
-s32 obj_clearFlags30(void * a0, s32 a1);
-s32 apply_actor_gravity(void *, int, f32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f64 atan2_float(f32, f32);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback();
-s32 minimap_render_dot(void *, int, int, int);
-s32 subtract_vector(void *, void *);
-extern const f64 lbl_8043BC88;
-extern const f32 lbl_805DA030;
-extern const f32 lbl_805DA034;
-}
-
-extern "C" {
-
 void *__dt__26TObjEneRe2Flower_EffCurse3Fv(void *arg0, s16 arg1);
 s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
 s32 __ct__7TObjectFP7TObject();
-void __dl__7TObjectFPv(void *);
-s32 is_alive__9TObjEneDDFv(s32);
-int queue_destruction__7TObjectFv(void*);
 
-}
-extern "C" {
-void *__dt__26TObjEneRe2Flower_EffCurse3Fv(void *arg0, s16 arg1);
 extern const char lbl_8043BC48[0x1C] = "TObjEneRe2Flower_EffCurse3";
 s32 lbl_805D2A58 = (s32)lbl_8043BC48;
 extern void *__vt__26TObjEneRe2Flower_EffCurse3[];
-}
 #define __vt__26TObjEneRe2Flower_EffCurse3 ((s32 *)__vt__26TObjEneRe2Flower_EffCurse3)
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 void TObjEneRe2Flower_EffCurse3::run_task() {

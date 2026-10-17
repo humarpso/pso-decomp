@@ -64,11 +64,6 @@ void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
 void draw_model_motion(int, int, f32);
-void clear_render_callback__8TObjFishFv(int);
-void push_matrix();
-void pop_matrix();
-void post_translate_matrix(void *);
-void draw_model_motion(int, int, f32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_bml_motion(void *, int);
 s32 TObjFish__sub_8001EDB0(void *, int);
@@ -83,13 +78,8 @@ void vec3_add_to(void *, void *);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
 void normalize_vector(void *);
-extern void *__vt__23TBoss6Demo21_TYPE2_DEAD[];
 #define __vt__23TBoss6Demo21_TYPE2_DEAD ((u8 *)__vt__23TBoss6Demo21_TYPE2_DEAD)
 void *TBoss6Demo21_TYPE2_DEAD__ct(void *arg0p, void *arg1, void *arg2);
-void VecCopy__FP3VecPC3Vec(void *, void *);
-void vec3_add_to(void *, void *);
-f32 vector_length(void *);
-void subtract_vector(void *, void *);
 s32 play_sound_effect(int, void *, int, int);
 s32 play_persistent_sound(int, void *, void *, int, int);
 s32 spawn_particle_effect_with_flags(void *, int, int);
@@ -99,15 +89,6 @@ s32 is_locally_controlled__10TObjPlayerFPv(void *);
 s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
 void queue_destruction__7TObjectFv(void *);
 void run_task__23TBoss6Demo21_TYPE2_DEADFv(Fish_8033E0F0 *arg0);
-void clear_render_callback__8TObjFishFv(int);
-void push_matrix();
-void pop_matrix();
-void post_translate_matrix(void *);
-void draw_model_motion(int, int, f32);
-}
-
-extern "C" {
-
 void render__23TBoss6Demo21_TYPE2_DEADFv(void* p);
 
 }

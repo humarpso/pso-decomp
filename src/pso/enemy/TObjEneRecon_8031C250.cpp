@@ -51,7 +51,6 @@ extern u8 *TObjEneRecon__data_805D6AFC;
 f32 TObjEneRecon__sub_8031C2BC(void);
 f32 TObjEneRecon__sub_8031C2C8(void);
 f32 TObjEneRecon__sub_8031C2D4(void);
-extern u8 *TObjEneRecon__data_805D6AFC;
 extern const f32 lbl_805DF3C8;
 u8 TObjEneRecon__sub_8031C250(T_8031C250 *self);
 s16 get_attack_params_atp_min(s32);
@@ -75,9 +74,6 @@ extern const f32 lbl_805DF404;
 extern const f32 lbl_805DF408;
 extern const f32 lbl_805DF40C;
 void TObjEneRecon__sub_8031CF30(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
 
 u8 TObjEneRecon__sub_8031C250(T_8031C250 *self) {
     return self->state == 8 || self->state == 7;
@@ -97,20 +93,10 @@ f32 TObjEneRecon__sub_8031C2D4(void) {
     return *(f32 *)((s8 *)TObjEneRecon__data_805D6AFC + 4);
 }
 
-}
-
-extern "C" {
 s32 find_entity_by_id(int);
 s32 queue_destruction__7TObjectFv(void *);
 void transition_enemy_state(void *, s32);
-void advance_animation_playback(void *);
 void select_next_target__12TObjEneReconFv(void *, s32);
-}
-
-#include "types.h"
-
-extern "C" {
-
 void TObjEneRecon::handle_message(s32 arg1) {
     u32 temp;
     switch (arg1) {
@@ -131,8 +117,6 @@ void TObjEneRecon::handle_message(s32 arg1) {
 }
 
 }
-
-#include "types.h"
 
 struct VBase_18_414afc { char pad[0x18]; };
 
@@ -249,25 +233,14 @@ extern "C" {
 f32 clamp_velocity__15TObjBoss2TunnelFv(void *, s32);
 void clear_attack_receipts__9TObjEneDDFv(void);
 void noop__12TBoss8DragonFv(void *);
-void transition_enemy_state(void *, s32);
-void advance_animation_playback(void *);
-void play_sound_effect(s32, void *, s32, s32);
-void select_next_target__12TObjEneReconFv(void *, s32);
 void set_flag2__12TObjEneReconFv(void *, f32, f32, f32);
 extern const f32 TObjEneRecon__data_805DF3E0;
 extern const f32 TObjEneRecon__data_805DF3E4;
 void TObjEneRecon__sub_8031C624(u8 *arg0, s32 arg1);
-f32 clamp_velocity__15TObjBoss2TunnelFv(void *, s32);
 void spawn_particle_effect_with_flags(void *, int, int);
 void TBoss8Dragon__sub_800BB7D8(void *, int, f32);
 void TBoss8Dragon__sub_800BB7DC(void *);
-void transition_enemy_state(void *, s32);
-void advance_animation_playback(void *);
 s32 project_actor_to_ground(void *, void *, void *);
-void play_sound_effect(s32, void *, s32, s32);
-void set_flag2__12TObjEneReconFv(void *, f32, f32, f32);
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
 extern u8 recon_breakup_params[];
 extern s32 boss3_volopt_instance;
 extern const f32 TObjEneRecon__data_805DF3C4;
@@ -276,11 +249,7 @@ extern const f32 TObjEneRecon__data_805DF3D0;
 extern const f32 TObjEneRecon__data_805DF3D4;
 extern const f32 lbl_805DF3D8;
 extern const f32 lbl_805DF3DC;
-extern const f32 TObjEneRecon__data_805DF3E0;
 void TObjEneRecon__sub_8031C364(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
 
 void TObjEneRecon__sub_8031C364(u8 *arg0, s32 arg1) {
     switch (arg1) {
@@ -403,8 +372,6 @@ void TObjEneRecon__sub_8031C624(u8 *arg0, s32 arg1) {
 
 }
 
-#include "types.h"
-
 struct VBase_8031c7bc { char pad[0x18]; };
 struct VObj_8031c7bc : VBase_8031c7bc {
 #define VM(i) virtual s32 m##i();
@@ -429,9 +396,7 @@ extern "C" {
 void run_task__12TObjEneReconFPvi(u8 *arg0, s32 arg1);
 s32 create_timed_particle_emitter(void *, int, int, int);
 s32 remove_tracked_target__12TObjEneReconFPvPv(int, void *);
-s32 find_entity_by_id(int);
 s32 is_anim_6__12TObjEneReconFv();
-s32 queue_destruction__7TObjectFv(void *);
 
 void run_task__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r3;
@@ -476,11 +441,8 @@ void run_task__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
 
 }
 
-#include "types.h"
-#include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneEpsilon.h"
 #include "pso/enemy/TObjEneMe3ShinowaReal.h"
-#include "pso/enemy/TObjEneRecon.h"
 
 struct VBase_18_83f71d
 {
@@ -732,50 +694,23 @@ struct Obj_8031C920 { u8 pad[0x38]; f32 x, y, z; };
 struct Prm_8031C920 { f32 f0; f32 f4; };
 
 extern "C" {
-void advance_animation_playback(void *);
-extern const f32 TObjEneRecon__data_805DF3E4;
 void TObjEneRecon__sub_8031D380(u8 *arg0, s32 arg1);
 f64 atan2_float(f32, f32);
-void enemy_clear_target__12TObjEneDD_STFUs(void *);
-void advance_animation_playback(void *);
 extern const f64 TObjEneRecon__data_80476110;
-extern const f32 TObjEneRecon__data_805DF3D0;
-extern const f32 lbl_805DF3DC;
 extern const f32 lbl_805DF410;
 extern const f32 lbl_805DF414;
 extern const f32 lbl_805DF418;
 extern const f32 lbl_805DF41C;
-f64 atan2_float(f32, f32);
-void enemy_clear_target__12TObjEneDD_STFUs(void *);
 s32 approach_angle_limited(s32, s32, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
-void advance_animation_playback(void *);
-void play_sound_effect(s32, void *, s32, s32);
-extern const f64 TObjEneRecon__data_80476110;
 extern const f32 lbl_805DF3F8;
-extern const f32 lbl_805DF3FC;
 void TObjEneRecon__sub_8031CCFC(u8 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-f64 atan2_float(f32, f32);
-void advance_animation_playback(void *);
-f32 approach_value__12TObjEneReconFff(void *, f32, f32);
-void set_flag2__12TObjEneReconFv(void *, f32, f32, f32);
-f32 sin_table_lookup(s32);
-extern const f64 TObjEneRecon__data_80476110;
-extern const f32 TObjEneRecon__data_805DF3C4;
-extern const f32 TObjEneRecon__data_805DF3E0;
-extern const f32 TObjEneRecon__data_805DF3E4;
 extern const f32 lbl_805DF3E8;
 extern const f32 lbl_805DF3EC;
 extern const f32 lbl_805DF3F0;
 extern const f32 lbl_805DF3F4;
-extern const f32 lbl_805DF3F8;
 void TObjEneRecon__sub_8031C920(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 typedef struct VBase_18_83f71d VBase_18_83f71d;
 typedef struct VObj_18_83f71d VObj_18_83f71d;
 

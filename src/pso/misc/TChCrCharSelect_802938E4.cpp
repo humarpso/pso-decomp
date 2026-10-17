@@ -35,7 +35,6 @@ void TChCrCharSelect::handle_menu_input() {
 }
 
 extern s32 TChCrCharSelect__selected_char_index;
-extern s32 TChCrCharSelect__input_mode;
 
 void handle_cursor_input__15TChCrCharSelectFv(s32 arg0) {
     s32 temp_r0;

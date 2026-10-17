@@ -7,10 +7,6 @@ extern const f32 lbl_805DAFD0;
 extern const f32 lbl_805DAFD4;
 extern const f32 lbl_805DAFD8;
 void madam_umbrella_close(u8 *arg0);
-}
-
-extern "C" {
-
 void madam_umbrella_close(u8 *arg0) {
     f32 temp_f2;
     s32 var_r31;

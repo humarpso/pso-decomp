@@ -12,15 +12,7 @@ void set_material_alpha_compare_reference(s32);
 extern RecoveredGlobal_80141944_lbl_8050C000 depth_buffer_settings;
 void set_depth_buffer_settings_1__Fv(void);
 void GXSetAlphaCompare(s32, s32, s32, s32, s32);
-void GXSetZMode(u8, s32, s32);
-void GXSetZCompLoc(s32);
-void set_material_alpha_compare_reference(s32);
-extern RecoveredGlobal_80141944_lbl_8050C000 depth_buffer_settings;
 void set_depth_buffer_settings_3__Fv(void);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_80141944_lbl_8050C000_size[sizeof(RecoveredGlobal_80141944_lbl_8050C000) == 0x28 ? 1 : -1];
 void set_depth_buffer_settings_1__Fv(void) {
     *(s8 *)((s8 *)(&depth_buffer_settings.value) + 4) = 0;

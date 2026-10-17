@@ -109,36 +109,23 @@ void *__nw__7TObjectFUl(u32);
 void *TWindowDuelResult__ct(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 get_map_id__13TRaderMapCoreFv();
-void *get_player_by_client_id(s32);
-void TWindow__close(void *);
 extern MapEnt_8031012C controller_input_state[];
-void *get_player_by_client_id(s32);
 u8 TLobby__sub_801D7100(void *);
 extern u8 lobby_rule_settings[];
-void *get_player_by_client_id(s32);
 int sprintf(char *, const char *, ...);
 extern char lbl_80475B90[];
 extern char lbl_80475B98[];
 extern char lbl_80475BA0[];
 extern char *TPlayerBattleCtrl4P_player_name_formats[];
-extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 split_screen_battle_rankings;
 void request_split_screen_battle_event(void* p);
 extern s16 battle_event_second_table[];
 extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
-void *get_player_by_client_id(s32);
 s32 TLobby__sub_801C19D0(void *);
-u8 TLobby__sub_801D7100(void *);
 extern P_803109D4 lbl_80475B80[];
-extern u8 lobby_rule_settings[];
-void *get_player_by_client_id(s32);
-extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 split_screen_battle_rankings;
 s32 are_split_screen_battle_players_tied(void);
-void *get_player_by_client_id(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FCE6C();
 void *get_character_save_record(u16);
-s32 are_split_screen_battle_players_tied(void);
-extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 split_screen_battle_rankings;
 void record_split_screen_battle_results(void);
 
 int obj_getPtr2B0_20(void *);
@@ -154,10 +141,8 @@ extern s32 lbl_805D2A98;
 void destroy_matching_children__19TPlayerBattleCtrl4PFPvPv(void *self, Par_80311304 *p);
 void reset_cameras_to_actor(void *, int);
 void TObjPlayer__send_selected_spawn_position(void *, int);
-void destroy_matching_children__19TPlayerBattleCtrl4PFPvPv(void *self, Par_80311304 *p);
 extern s32 tl_05;
 s32 obj_set_flag_20000();
-s32 get_split_screen_battle_timer_limit(u8 *arg0);
 u64 OSGetTime();
 s32 obj_clear_flag30_20000(u32);
 s32 init_with_name__6TLobbyFPvPvPvPv(void *, void *, void *, int);
@@ -166,14 +151,11 @@ s32 TObjEneRe4Sorcerer__sub_801E3F18();
 void send_code_45_to_window__19TPlayerBattleCtrl4PFPvii(void *arg0, s32 arg1, s32 arg2);
 extern char lbl_80475BAC[];
 extern char lbl_80475BB8[];
-extern s16 battle_event_second_table[];
 extern s32 TLobby__battle_ctrl_default_value;
-void set_split_screen_battle_phase__19TPlayerBattleCtrl4PFl(u8 *arg0, s32 arg1);
 s32 rand();
 extern const f32 lbl_805DF240;
 extern const f32 lbl_805DF244;
 
-void *get_player_by_client_id(s32);
 s32 fn_801C19D8(void *, int);
 s32 fn_801D6D8C(void *, u8, int);
 s32 fn_801D726C(void *, void *);
@@ -193,7 +175,6 @@ s32 set_field_3__6TLobbyFPvUc(void *, void *);
 s32 set_field_2__6TLobbyFPvUc(void *, void *);
 s32 set_validated_field_0x1__6TLobbyFPvUc(void *, void *);
 s32 set_section_id__6TLobbyFPvUc(void *, int);
-extern u8 lobby_rule_settings[];
 extern const f32 lbl_805D3538;
 extern const f32 lbl_805D353C;
 extern const f32 lbl_805D3540;
@@ -203,28 +184,17 @@ extern const f32 lbl_805D354C;
 extern const f32 lbl_805D3550;
 extern const f32 lbl_805D5DC4;
 extern const f32 lbl_805D5DC8;
-void *get_player_by_client_id(s32);
 u16 obj_getField1c(void *);
-s32 TLobby__sub_801C19D0(void *);
 void TLobby__sub_801C36E4(void *arg0, void *arg1);
 s32 TLobby__sub_801C4FC4(void *p);
 extern Team_801C343C lbl_80475B78[];
-extern u8 lobby_rule_settings[];
-extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 split_screen_battle_rankings;
 s32 calculate_split_screen_battle_rankings(void *);
-}
-
-extern "C" {
-
 void refresh_split_screen_battle_alive_flags(void* p);
-void request_split_screen_battle_event(void* p);
 s32 TLobby__sub_801B09A4();
 int play_cue_stream_file(void*);
-void *get_player_by_client_id(s32);
 int show_duel_result_window(void*, void*);
 s32 advance_item_system_generation();
 
-void send_code_45_to_window__19TPlayerBattleCtrl4PFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_8020BB18();
 s32 TLobby__sub_8020BCE4();
 s32 end_player_keyboard_hold(u16);
@@ -232,7 +202,6 @@ s32 clear_trap_counts(s32);
 s32 destroy_children_with_tag(s32);
 
 s32 begin_player_keyboard_hold(u32);
-s32 obj_set_flag_20000();
 s32 obj_testFlags30(u32, s32);
 s32 play_effect_default__10TObjPlayerFii(u32, s32);
 s32 release_attached_resource__10TObjPlayerFv();
@@ -356,8 +325,6 @@ void TPlayerBattleCtrl4P::update_player_alive_flags() {
 }
 
 void refresh_split_screen_battle_alive_flags(void* p) { ((TPlayerBattleCtrl4P *)p)->update_player_alive_flags(); }
-
-extern void *TPlayerBattleCtrl4P__instance;
 
 void TPlayerBattleCtrl4P::reset_ctrl_to_default() {
     void *temp_r3;

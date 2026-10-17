@@ -32,9 +32,3 @@ void TSetManager::run_task() {
 TSetManager::~TSetManager() {}
 
 #include "types.h"
-
-extern "C" {
-
-void TSetManager__sub_8020D7D4(void);
-
-}

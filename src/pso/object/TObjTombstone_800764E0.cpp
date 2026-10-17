@@ -3,13 +3,11 @@
 #include "pso/object/TObjTombstone.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern char lbl_80438748[];
 extern char lbl_8043875C[];
 extern const char *re_b_mark_base_model_names[2];
 extern BmlResourceDescriptor tombstone_resource_descriptor;
 extern const char *re_b_mark_base_motion_names[1];
-}
 
 struct RecoveredGlobal_800765B4_lbl_8048D240 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_800765B4_lbl_8048D240_size[sizeof(RecoveredGlobal_800765B4_lbl_8048D240) == 0x10 ? 1 : -1];
@@ -17,16 +15,11 @@ typedef char RecoveredGlobal_800765B4_lbl_8048D240_size[sizeof(RecoveredGlobal_8
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u32 TObjTombstone__shared_resource_object;
-}
-
-extern "C" {
-
 void TLobby__sub_8001FE7C(void*, int);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv();
 
 extern s32 __vt__13TObjTombstone[];
 extern const char* TObjTombstone__class_name;
-extern u32 TObjTombstone__shared_resource_object;
 extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
 
@@ -45,8 +38,6 @@ void *TObjTombstone::init(s32 arg1, s32 arg2, s32 arg3) {
     }
     return this;
 }
-
-extern u32 TObjTombstone__shared_resource_object;
 
 void TObjTombstone::destroy() {
     if ((u32) TObjTombstone__shared_resource_object != 0U) {
@@ -69,15 +60,9 @@ void TObjTombstone::load_resources() {
     }
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *re_b_mark_base_model_names[2] = { lbl_80438748, NULL };
 BmlResourceDescriptor tombstone_resource_descriptor = { lbl_8043875C, re_b_mark_base_model_names, re_b_mark_base_motion_names, 1, 0 };
 __declspec(section ".sdata") const char *re_b_mark_base_motion_names[1] = { NULL };
-}
-
-extern "C" {
 extern const char TObjTombstone__class_name_string[];
 const char* TObjTombstone__class_name = TObjTombstone__class_name_string;
 }

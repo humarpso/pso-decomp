@@ -61,9 +61,6 @@ s32 is_mode_two_and_ready__10TObjPlayerFv();
 u8 * init_vtable_804A08B8__13TUnk_804A08B8Fv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-}
-
-extern "C" {
 
 u8 *TObjPlayer::create_vtable_804A08B8(u8 *arg0) {
     u8 *temp_r3;

@@ -5,7 +5,6 @@ TWindowEffectLight::~TWindowEffectLight() {}
 
 #include "types.h"
 #include "pso/TParticleCtrl.h"
-#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
@@ -22,9 +21,7 @@ extern const f32 lbl_805DE0E0;
 extern const f32 lbl_805DE0E8;
 extern const f32 lbl_805DE0EC;
 extern const f32 lbl_805DE0F0;
-extern const f32 lbl_805DE0E0;
 extern const f32 TWindowEffectLight__data_805DE0E4;
-extern const f32 lbl_805DE0E8;
 s32 is_split_screen(void);
 void TCameraCtrl__sub_80068EF0(void);
 s32 is_window_display_enabled(void);
@@ -42,7 +39,6 @@ extern s32 lbl_805D3E60;
 extern s32 tl_window;
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(int, int);
-extern const f32 TWindowEffectLight__data_805DE0E4;
 extern const f32 lbl_805DE10C;
 extern const f32 lbl_805DE110;
 extern const f32 lbl_805DE114;
@@ -50,9 +46,6 @@ extern const f32 lbl_805DE118;
 extern const f32 lbl_805DE11C;
 extern const f32 lbl_805DE120;
 extern const f32 lbl_805DE124;
-}
-
-extern "C" {
 
 void TWindowEffectLight::draw_outline_quad(s32 color) {
     Quad_802AD1CC q;

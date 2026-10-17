@@ -6,14 +6,6 @@ s32 read_be16_field2__10TObjPlayerFv();
 s32 bswap_32__FPUl(s32);
 s32 TLobby__send_and_handle_60(s32);
 void TLobby__sub_80156BA8(void* p);
-}
-
-extern "C" {
-
-s32 TLobby__send_and_handle_60(s32);
-s32 bswap_32__FPUl(s32);
-s32 read_be16_field2__10TObjPlayerFv();
-
 void TLobby::bswap_60_header(void* p) { ((TLobby *)p)->bswap_header(); }
 void TLobby::bswap_header() {
     s32 arg0 = (s32)this;

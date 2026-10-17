@@ -31,12 +31,8 @@ extern const f32 lbl_805DB78C;
 s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_8016D1A8_lbl_80441D84 key_machine01_state_table;
 extern s32 enable_v2_features;
-s32 play_sound_effect(s32, u32, s16, s32);
-extern RecoveredGlobal_8016D1A8_lbl_80441D84 key_machine01_state_table;
-extern s32 enable_v2_features;
 void TOKeyMachine01__vt16(s32 arg0);
 extern const f32 lbl_805DB790;
-extern const f32 lbl_805DB78C;
 s32 get_current_floor();
 extern s32 local_client_id;
 s32 init_collision_body_parts(void *, void *, s32);
@@ -52,10 +48,6 @@ extern const f32 lbl_805DB770;
 extern const f32 lbl_805DB774;
 extern const f32 lbl_805DB778;
 void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source);
-}
-
-extern "C" {
-
 void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source) {
     TOKey__ct(arg0, parent);
     *(void **)((s8 *)arg0 + 0x18) = __vt__14TOKeyGenericSw;

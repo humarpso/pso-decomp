@@ -41,9 +41,7 @@ int TOVS2Wall01__vt19(void);
 int TOVS2Wall01__vt20(void* p);
 int take_hit__11TOVS2Wall01FPvUi(void*);
 int TOVS2Wall01__vt21(void* p);
-int take_hit__11TOVS2Wall01FPvUi(void*);
 int TOVS2Wall01__vt22(void* p);
-int take_hit__11TOVS2Wall01FPvUi(void*);
 s32 TObjFish__sub_8001EDB0(int, void *);
 u8 *get_bml_model(s32, s32);
 s32 init_collision_body_parts(void *, void *, int);
@@ -54,17 +52,10 @@ extern s32 lbl_805D31C4;
 extern u32 TOVS2Wall01__bml_resource;
 extern void *tl_05;
 extern const f32 lbl_805DBAB0;
-s32 TObjFish__sub_8001EDB0(int, void *);
-u8 *get_bml_model(s32, s32);
 s32 load_resource_from_descriptor(int, int, void *, int, int, int);
 extern RecoveredGlobal_8017C7DC_lbl_804B4EBC bm_o_vs2_resource_descriptor;
-extern u32 TOVS2Wall01__bml_resource;
 extern const f32 lbl_805DBAA8;
 extern const f32 lbl_805DBAB4;
-}
-
-extern "C" {
-
 void TOVS2Wall01__sub_8017CA48(void* p, s32 v);
 s32 TOVS2Wall01__sub_8017CA50(void* p);
 void TOVS2Wall01__vt23(void);
@@ -81,16 +72,12 @@ void destroy_key_base__13TUnk_804AFBF8Fs(void *, int);
 int init__17TOBarrierEnergy01Fv(void*);
 void queue_destruction__7TObjectFv(void *);
 
-extern u32 TOVS2Wall01__bml_resource;
-
 void TOVS2Wall01::release_model() {
     if ((u32) TOVS2Wall01__bml_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TOVS2Wall01__bml_resource, 1);
         TOVS2Wall01__bml_resource = 0U;
     }
 }
-
-extern s32 lbl_804B528C[];
 
 typedef struct RecoveredGlobal_8017C7DC_lbl_804B4EBC RecoveredGlobal_8017C7DC_lbl_804B4EBC;
 void TOVS2Wall01::load_resources() {
@@ -160,8 +147,6 @@ s32 TOVS2Wall01__sub_8017CA50(void* p) { return *(s32*)((char*)p + 0x33c); }
 void TOVS2Wall01::byteswap_hit_packet() { bswap_header__6TLobbyFv(this); bswap_16__FPUs((char*)this + 0xc); bswap_16__FPUs((char*)this + 0xe); }
 void TOVS2Wall01::update_and_send() { byteswap_hit_packet(); TLobby__send_and_handle_60(this); }
 void*TOVS2Wall01::init() { init__17TOBarrierEnergy01Fv(this); *(short *)&this->m_next = 0; *(short*)((char*)this + 0xe) = 0; *(unsigned char*)(this) = 134; *(unsigned char*)((char*)this + 0x1) = 4; return this; }
-
-extern void *tl_05;
 
 void *TObjGoalWarpAncient__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xEC);

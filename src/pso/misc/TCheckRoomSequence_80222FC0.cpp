@@ -7,10 +7,6 @@ typedef struct Item_80222FF0 { u8 d[0x14]; } Item_80222FF0;
 extern "C" {
 s32 TLobby__sub_8022318C(Item_80222FF0 *, Item_80222FF0 *);
 void sort_shop_items(Item_80222FF0 *items, s32 n, s32 mode);
-}
-
-extern "C" {
-
 s32 lookup_item_def__9TItemDataFPv();
 
 s32 TCheckRoomSequence::get_item_def(u32 arg0) {

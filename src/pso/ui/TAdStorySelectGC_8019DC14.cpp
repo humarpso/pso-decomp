@@ -17,7 +17,6 @@ int TAdStorySelectGC::get_story_select() {  return forest_warp_texture_list; }
     extern int forest_warp_bml_resource;
 void TAdStorySelectGC::register_area_warp_object(void* a0) { get_bml_motion((void*)(forest_warp_bml_resource), a0); }
 
-    extern int forest_warp_bml_resource;
 void TObjMapForceWarp::register_warp(void* a0) { get_bml_model((void*)(forest_warp_bml_resource), a0); }
 
 void TObjMapForceWarp::slot3C() {  }

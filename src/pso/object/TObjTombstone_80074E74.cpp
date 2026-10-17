@@ -68,14 +68,11 @@ extern const f32 lbl_805D9180;
 extern f32 TObjTombstone__data_805D9184;
 extern RecoveredGlobal_80074FAC_lbl_8043878C tombstone_reset_matrix_template;
 extern RecoveredGlobal_80074FAC_TObjTombstone__data_8048D250 TObjTombstone__base_matrix;
-u32 get_player_by_client_id(int);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
 extern V_80075070 tombstone_position_table[];
 extern s32 local_client_id;
 extern const f32 lbl_805D9170;
-extern const f32 TObjTombstone__data_805D9174;
-extern f32 TObjTombstone__data_805D917C;
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen();
 s32 get_screen_width__11TCameraCtrlFv();
@@ -85,7 +82,6 @@ void project_world_to_screen(s32, void *, void *);
 void rotate_vector_by_matrix(s32, void *, void *);
 void rotate_matrix_y(s32, s32);
 void rotate_matrix_z(s32, s32);
-void subtract_vector(void *, void *);
 void rotate_matrix_x(s32, s32);
 void push_matrix_from(void *);
 void push_matrix();
@@ -93,23 +89,15 @@ void pop_matrix();
 extern V_800751BC lbl_80438780;
 extern u8 identity_matrix[];
 extern View_800751BC *camera_ctrl_instance;
-extern const f32 TObjTombstone__data_805D9174;
-void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 calc_text_width(const char *);
 void draw_menu_font_string(const char *, u32, s32, f32, f32, f32);
 f32 sin_table_lookup(s32);
 u32 strlen(const char *);
 extern Off_800753DC tombstone_name_label_offset_table[];
-extern const f32 TObjTombstone__data_805D9174;
-extern const f32 lbl_805D9180;
 extern const f32 lbl_805D9188;
 extern const f32 lbl_805D918C;
 extern const f32 lbl_805D9190;
 extern const f32 lbl_805D91A0;
-}
-
-extern "C" {
-
 void handle_6x96(void);
 s32 is_challenge_mode_active();
 s32 get_current_floor();

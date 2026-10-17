@@ -9,12 +9,7 @@ void free_object_table(void);
 void *load_resource_from_descriptor(void *, s32, s32, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 extern Ent_803653A4 lbl_804F2C08[];
-extern u32 labo_design_object_table[];
 void fn_803653A4(void);
-}
-
-extern "C" {
-
 void free_object_table(void) {
     s32 i;
     for (i = 5; i >= 0; i--) {

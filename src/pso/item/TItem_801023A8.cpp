@@ -14,11 +14,6 @@ void TLobby__sub_801030EC(void *);
 s32 sub_8010319C__13TUnk_804AF8A0Fv(s32);
 s32 can_pickup_item_by_id__10TObjPlayerFii(s32, void *);
 s32 get_player_by_client_id(u16);
-}
-
-extern "C" {
-
-s32 sub_8010319C__13TUnk_804AF8A0Fv(s32);
 s32 submit_cursor_candidate(void *, s32);
 
 void TItem::try_pick_up_item(s32 id) {
@@ -37,13 +32,6 @@ void TItem::try_pick_up_item(s32 id) {
         vfunc_13__13TUnk_804AF8A0Fl(((Player_801022FC *)this), 0xFFFF);
     }
 }
-
-}
-
-extern "C" {
-
-s32 sub_8010319C__13TUnk_804AF8A0Fv(s32);
-s32 submit_cursor_candidate(void *, s32);
 
 void TItem::update_timer() {
     s16 temp_r3;

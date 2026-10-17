@@ -12,10 +12,6 @@ s32 get_flag_bit1__13TUnk_804CF0B8Fv();
 extern Ctrl_8024B1A0 *TWindowCtrl__active_window;
 extern const f32 lbl_805DCBE0;
 extern const f32 lbl_805DCBE4;
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 s8 TUnk_804CF0B8::alloc_nearest_free_slot() {
@@ -66,11 +62,6 @@ s8 TUnk_804CF0B8::alloc_nearest_free_slot() {
 }
 #pragma pop
 
-}
-
-#include "types.h"
-
-extern "C" {
 void TWindowCtrl::set_field28(s16 arg0) {
     if ((void *) (*(void * *)&TWindowCtrl__active_window) != NULL) {
         *(s16 *)((s8 *)(*(void * *)&TWindowCtrl__active_window) + 0x28) = arg0;
@@ -85,8 +76,6 @@ u16 TWindowCtrl::get_window_id() {
 
 }
 
-#include "types.h"
-#include "pso/misc/TWindowCtrl.h"
 #include "pso/TObject.h"
 
 struct Ctrl_8024B328 { u8 pad[0x84]; void *win[4]; };
@@ -103,9 +92,6 @@ void complete_speech_balloon(void *);
 void complete_actor_speech_balloons(u16 arg0);
 s32 is_speech_balloon_ready(void *);
 s32 is_actor_speech_balloon_done(u16 arg0);
-}
-
-extern "C" {
 
 void TWindowCtrl::close_windows_by_flags(u16 arg0) {
     u32 i;

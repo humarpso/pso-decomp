@@ -33,25 +33,14 @@ void TMainCursor::reset_target() {
 
 }
 
-#include "types.h"
-
 struct Obj_8013E800 { u16 a; };
 
 extern "C" {
 void TMainCursor__sub_8013E800(Obj_8013E800 *self);
-}
-
-extern "C" {
 
 void TMainCursor__sub_8013E800(Obj_8013E800 *self) {
     self->a = 0xffff;
 }
-
-}
-
-#include "types.h"
-
-extern "C" {
 
 s32 TMainCursor::get_body_exclude_mask() { return *(s32 *)&this->m_next; }
 s32 TMainCursor::get_body_include_mask() { return *(s32 *)&this->m_prev; }
@@ -60,8 +49,6 @@ s32 TMainCursor::get_actor_include_mask() { return *(s32 *)&this->m_up; }
 void TMainCursor::store_sorted_record(void* p, void* a1, void* a2) { ((int (*)(void *))copy_target_record__11TMainCursorFPvPv)(a2); }
 
 }
-
-#include "types.h"
 
 struct Rec_8013E870 { u8 pad[0x124]; };
 
@@ -80,8 +67,6 @@ void TMainCursor::init_slot(s32 i) {
 
 }
 
-#include "types.h"
-#include "pso/misc/TMainCursor.h"
 #include "pso/TAdRicoRing.h"
 #include "pso/misc/TLockOnCursor.h"
 #include "pso/player/TObjPlayer.h"

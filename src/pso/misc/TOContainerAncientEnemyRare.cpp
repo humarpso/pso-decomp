@@ -18,17 +18,11 @@ extern s32 __vt__27TOContainerAncientEnemyRare[];
 extern s32 lbl_805D2F10;
 extern s32 *ancient_container_fragment_texture_lists;
 u8 *TOContainerAncientEnemyRare__ct(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 void *__dt__27TOContainerAncientEnemyRareFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__23TOContainerAncientEnemyFv(void *, int);
 
 void TUnk_804B27D8::vfunc_15() {  }
-
-extern s32 __vt__27TOContainerAncientEnemyRare[];
 
 void *__dt__27TOContainerAncientEnemyRareFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

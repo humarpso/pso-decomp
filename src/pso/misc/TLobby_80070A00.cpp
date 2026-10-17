@@ -19,11 +19,9 @@ struct RecoveredGlobal_80070A78_lbl_8048C9D8 {
     u8 remaining[0x744];
 };
 
-extern "C" {
 extern RecoveredGlobal_80070A78_lbl_8048C348 challenge_settings_defaults;
 extern s32 challenge_mode_state[];
 #define challenge_mode_state (*(RecoveredGlobal_80070A78_lbl_8048C9D8 *)challenge_mode_state)
-}
 
 extern "C" {
 
@@ -63,8 +61,6 @@ __declspec(section ".ctors") static void *const __sinit_TLobby_80070A00_80070A00
 
 #undef challenge_mode_state
 
-#include "types.h"
-
 struct RecoveredGlobal_80070ACC_lbl_8048D208 {
     s32 value;
     u8 remaining[0x14];
@@ -97,10 +93,6 @@ u8 is_flag_set__6TLobbyFv(void);
 s32 mix_seed_checked__6TLobbyFi(s32);
 void TLobby__sub_80070B34(s32 v);
 void set_split_screen_flag__6TLobbyFv(void);
-}
-
-extern "C" {
-
 #define challenge_task (*(s32 *)&challenge_task)
 
 u8 is_flag_set__6TLobbyFv(void) {
@@ -142,8 +134,6 @@ typedef char RecoveredGlobal_80399928_lbl_804F5900_size[sizeof(RecoveredGlobal_8
 #undef challenge_mode_state
 #undef challenge_task
 
-#include "types.h"
-
 struct RecoveredGlobal_80070BE8_lbl_8048C9D8 {
     s32 value;
     u8 remaining[0x744];
@@ -155,18 +145,10 @@ struct H_80070C50 { u8 pad[0x20]; s32 f20; s32 f24; s32 f28; };
 
 extern "C" {
 
-extern s32 challenge_mode_state[];
 void TLobby__sub_80070BE8(s32 arg0);
 void TLobby__sub_8026A328(void *);
-extern s32 challenge_mode_state[];
 #define challenge_task (*(H_80070C50 **)&challenge_task)
 void TLobby__sub_80070C50(void);
-}
-
-extern "C" {
-
-extern s32 challenge_mode_state[];
-
 s32 TLobby::get_state() {
     if (((s32 (*)(void))is_flag_set__6TLobbyFv)() == 0) {
         return 0;
@@ -214,8 +196,6 @@ void TLobby__sub_80070C50(void) {
 }
 
 #undef challenge_task
-
-#include "types.h"
 
 struct RecoveredGlobal_80070F4C_lbl_8048C9D8 {
     s32 value;
@@ -272,53 +252,30 @@ struct Tbl_80070DCC { u8 pad[0x680]; s32 f680[4]; };
 
 extern "C" {
 s32 get_player_by_client_id(u32);
-extern s32 challenge_mode_state[];
-extern u32 challenge_task;
 s32 TLobby__sub_80070F4C(void);
-s32 get_player_by_client_id(u32);
-extern s32 challenge_mode_state[];
-extern u32 challenge_task;
 s32 TLobby__sub_80070FD8(void);
 s32 get_character_save_record(u32);
 s32 decode_obfuscated_string__6TLobbyFPvi(void *, void *, int, int);
 extern RecoveredGlobal_800713C8_lbl_804FF82C lbl_804FF82C;
 s32 *TLobby__sub_800713C8(void);
-extern s32 challenge_mode_state[];
 s32 TLobby__sub_80070DA8(void);
 f32 fabs_float(f32);
 
 s32 set_challenge_time_window_timer(void *);
-extern s32 challenge_mode_state[];
 void TLobby__sub_80071064(s32 arg0);
-f32 fabs_float(f32);
-extern s32 challenge_mode_state[];
 void TLobby__sub_80070EE4(s32 arg0);
-f32 fabs_float(f32);
 s32 TLobby__sub_8006F6B0(int);
 
-s32 get_character_save_record(u32);
-extern s32 challenge_mode_state[];
 s32 TLobby__sub_8007119C(s32 arg0);
 s32 **TWindowSubStatusDisp__sub_8006F134(s32, s32);
 s32 forward_to_global_instance__23TAdSinglePlyChrSelectGCFi(int);
-s32 get_character_save_record(u32);
-extern s32 challenge_mode_state[];
 s32 TLobby__sub_800710D8(s32 arg0);
 s32 calc_layout_hash__20TWindowSubStatusDispFv(int);
 s32 calc_entry_offset__20TWindowSubStatusDispFv(int);
-extern s32 challenge_mode_state[];
 s32 TLobby__sub_800712D8(s32 idx, s32 value, s32 arg);
-s32 get_player_by_client_id(u32);
-extern s32 challenge_mode_state[];
 extern s32 challenge_time_limit_sentinel;
 extern s8 challenge_time_limit_initialized;
-}
-
-extern "C" {
-
 s32 fn_800733C4(void*);
-
-extern u32 challenge_task;
 
 void TLobby::update_dead_list_win() {
     if ((((s32 (*)(void))is_flag_set__6TLobbyFv)() != 0) && (TLobby::is_ready_to_draw() != 0) && ((u32) challenge_task != 0U)) {
@@ -326,15 +283,11 @@ void TLobby::update_dead_list_win() {
     }
 }
 
-extern u32 challenge_task;
-
 void TLobby::draw_if_ready() {
     if ((((s32 (*)(void))is_flag_set__6TLobbyFv)() != 0) && (TLobby::is_ready_to_draw() != 0) && ((u32) challenge_task != 0U)) {
         fn_800733C4((void*)challenge_task);
     }
 }
-
-extern s32 challenge_mode_state[];
 
 s32 TLobby::check_ready_state() {
     s32 var_r3;
@@ -566,8 +519,6 @@ s32 *TLobby__sub_800713C8(void) {
 
 }
 
-#include "types.h"
-
 struct RecoveredGlobal_80292574_lbl_804DB1F0 {
     s32 value;
     u8 remaining[0x6AC];
@@ -595,10 +546,6 @@ struct RecoveredGlobal_80292604_lbl_804DB1F0 {
 
 extern "C" {
 #define challenge_mode_state (*(s8 (*)[1])challenge_mode_state)
-}
-
-extern "C" {
-
 s32 add_entry__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 
 s32 add_entry__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
@@ -624,18 +571,9 @@ void TLobby::set_player_name_and_color(s32 arg1) {
 typedef char RecoveredGlobal_802925C4_lbl_80540968_size[sizeof(RecoveredGlobal_802925C4_lbl_80540968) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_80292604_lbl_804DB1F0_size[sizeof(RecoveredGlobal_80292604_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
 
-}
-
 #undef challenge_mode_state
-
-#include "types.h"
-
-extern "C" {
-
 u8 *get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
 s32 get_layout_id__20TWindowSubStatusDispFv(s32);
-
-extern s32 challenge_mode_state[];
 
 void TLobby::set_selected_layout(s32 arg0) {
     s32 temp_r3;
@@ -661,9 +599,6 @@ s32 TLobby::calc_remaining_char_slots() {
 
 }
 
-#include "types.h"
-#include "pso/misc/TLobby.h"
-
 struct E_80071698 { s32 f0; u8 pad[0x100]; };
 
 struct G_80071698 { u8 pad[0x270]; E_80071698 e[4]; };
@@ -673,14 +608,8 @@ u32 TLobby__sub_80071640(u32 c);
 
 s32 TLobby__sub_80071B30(s32, s32);
 
-extern s32 challenge_mode_state[];
-}
-
-extern "C" {
-
 s32 TLobby__sub_80071654(s32 arg0);
 
-extern s32 challenge_mode_state[];
 extern f32 lbl_805D9108;
 extern f32 lbl_805D910C;
 

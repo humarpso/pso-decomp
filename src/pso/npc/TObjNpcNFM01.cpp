@@ -110,10 +110,6 @@ extern u32 TObjNpcNFW00__named_object_resource;
 extern u32 TObjNpcNFW00__texture_gvm_handle;
 extern char lbl_8043FD90[];
 extern char lbl_8043FDA4[];
-}
-
-extern "C" {
-
 void * TObjNpcNFW00__create(void *arg0);
 void *__dt__12TObjNpcNFM01Fv(void *arg0, s16 arg1);
 void TLobby__sub_803DA16C(void*);
@@ -121,8 +117,6 @@ void *TObjControl__ct(void *, void *);
 void *TObjNpcNFW00__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-
-extern s32 __vt__12TObjNpcNFM01[];
 
 void *__dt__12TObjNpcNFM01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -163,9 +157,6 @@ void * TObjNpcNFW00__create(void *arg0) {
     }
     return o2;
 }
-
-extern u32 TObjNpcNFW00__named_object_resource;
-extern u32 TObjNpcNFW00__texture_gvm_handle;
 
 void TObjNpcNFW00::free_resources() {
     if ((u32) TObjNpcNFW00__texture_gvm_handle != 0U) {

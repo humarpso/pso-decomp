@@ -1,7 +1,5 @@
 #include "types.h"
 #include "pso/misc/TWindowMessageYesNo.h"
-#include "pso/misc/TWindowMessageYesNo.h"
-#include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubShortMail.h"
@@ -11,10 +9,6 @@
 
 extern "C" {
 void *__ct__19TWindowMessageYesNoFP7TObjectPvPvPv(void *, void *, void *, void *, void *);
-}
-
-extern "C" {
-
 void *__ct__19TWindowMessageYesNoFP7TObjectPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void *__dt__19TWindowMessageYesNoFv(void *arg0, s16 arg1);
 void TWindow__close(void *);
@@ -46,7 +40,6 @@ void *__dt__19TWindowMessageYesNoFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__19TWindowMessageYesNo[];
 extern void *TWindowMessageYesNo__name;
 
 }

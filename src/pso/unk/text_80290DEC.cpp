@@ -3,10 +3,6 @@
 
 extern "C" {
 s32 TCharaMaking__resolve_creation_sprite_table(void *, void *);
-}
-
-extern "C" {
-
 s16 TObjCMMainMenu::get_creation_sprite_id(s32 arg0) {
     s32 spC;
     s32 sp8;

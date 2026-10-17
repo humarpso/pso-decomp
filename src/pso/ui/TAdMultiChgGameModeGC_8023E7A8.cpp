@@ -9,33 +9,11 @@ extern s32 lbl_805D63C8;
 s32 get_current_slot_entry__6TLobbyFv();
 s32 strcmp(s32, s32);
 s32 play_area_music(s32);
-extern s32 multi_chg_game_mode_state;
-extern s32 lbl_805D63C8;
-extern s32 multi_chg_game_mode_state;
-extern s32 lbl_805D63C8;
-extern s32 multi_chg_game_mode_state;
-extern s32 lbl_805D63C8;
-extern s32 multi_chg_game_mode_state;
-extern s32 lbl_805D63C8;
-extern s32 multi_chg_game_mode_state;
-extern s32 lbl_805D63C8;
-extern s32 multi_chg_game_mode_state;
-extern s32 lbl_805D63C8;
-extern s32 multi_chg_game_mode_state;
-extern s32 lbl_805D63C8;
 u32 get_main_phase();
-extern s32 multi_chg_game_mode_state;
 s32 set_active_camera_pose(void *, void *);
 s32 activate_camera_mode(int);
 extern V3_8023E834 lbl_8044DD00;
 extern V3_8023E834 lbl_8044DD0C;
-}
-
-extern "C" {
-
-extern s32 multi_chg_game_mode_state;
-extern s32 lbl_805D63C8;
-
 s32 TAdMultiChgGameModeGC::is_input_phase_active() {
     s32 r = 0;
     switch (get_main_phase()) {

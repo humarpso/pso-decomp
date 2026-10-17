@@ -5,10 +5,6 @@ u8 * TWindowSubEquipKind__ct(void *, s32, s16);
 u8 *__nw__7TObjectFUl(s32);
 s32 TShopJudgmentItemWindow__sub_80267F9C(void *, int);
 u8 *create_equip_kind_window(s32 arg0, s32 arg1, s16 arg2);
-}
-
-extern "C" {
-
 u8 *create_equip_kind_window(s32 arg0, s32 arg1, s16 arg2) {
     u8 *temp_r3;
     u8 *var_r0;

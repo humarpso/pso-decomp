@@ -16,10 +16,6 @@ s32 create_conversation_camera(int);
 extern RecoveredGlobal_8022350C_lbl_8044C350 service_counter_camera_table;
 extern RecoveredGlobal_8022350C_lbl_8044C36C service_counter_camera_alt_table;
 void set_service_counter_camera(s32 arg0, s32 arg1);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8022350C_lbl_8044C350_size[sizeof(RecoveredGlobal_8022350C_lbl_8044C350) == 0x1C ? 1 : -1];
 typedef char RecoveredGlobal_8022350C_lbl_8044C36C_size[sizeof(RecoveredGlobal_8022350C_lbl_8044C36C) == 0x1C ? 1 : -1];
 void set_service_counter_camera(s32 arg0, s32 arg1) {

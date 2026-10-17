@@ -147,19 +147,9 @@ s32 play_sound_effect(int, void *, int, int);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 obj_getField1c(void *);
 Zarua_8023C420 *init_instance__9TTecZaruaFPviiii(Zarua_8023C420 *self, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
-void VecCopy__FP3VecPC3Vec(Vec_8023C420 *, Vec_8023C420 *);
-s32 obj_getField1c(void *);
-s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
-s32 play_sound_effect(int, void *, int, int);
 void copy_technique_target_list(void *, void *);
 void init_technique_effect_base(void *, void *, void *, void *);
-extern s32 __vt__9TTecZarua[];
-extern s32 lbl_805D3830;
 Zarua_8023C2D0 *TTecZarua__ct(Zarua_8023C2D0 *self, void *_w1, void *_w2, void *_w3, void *_w4);
-}
-
-extern "C" {
-
 void *__dt__9TTecZaruaFv(void *arg0, s16 arg1);
 s32 calc_technique_parameters(s32, s16, s32);
 void __dl__7TObjectFPv(void *);
@@ -200,8 +190,6 @@ void TTecZarua::create_instance(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
 }
 void TTecZarua::render() {  }
-
-extern s32 __vt__9TTecZarua[];
 
 void run_task__9TTecZaruaFv(struct Self_8023C1B8 *self) {
     s32 i;

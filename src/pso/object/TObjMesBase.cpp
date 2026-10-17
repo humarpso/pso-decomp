@@ -13,7 +13,6 @@ struct TObjMesBase80194_80194C98 : TObjBase80194_80194C98 {
     virtual void ct(s32);
 };
 
-#include "pso/object/TObjMesBase.h"
 #include "pso/TObject.h"
 #include "pso/npc/TObjNpcEnemy.h"
 #include "pso/player/TObjPlayer.h"
@@ -34,14 +33,9 @@ f32 fabs_float(f32);
 void debug_printf_at(int, void *, ...);
 extern s32 lbl_80445DF4[];
 extern u8 lbl_80445E08[];
-void debug_printf_at(int, void *, ...);
 extern Pair_80194AEC lbl_80445D94[];
 extern u8 lbl_80445D9C[];
 extern u8 lbl_80445DAC[];
-}
-
-extern "C" {
-
 s32 TMotorcycle__vt8(s32 arg0, f32 farg0, f32 farg1);
 void *TObjMesBase__ct(void *arg0, s32 arg1, s32 arg2);
 void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1);
@@ -49,10 +43,6 @@ s32 construct_collider_proxy__13TUnk_804AF8A0Fv();
 void __dl__7TObjectFPv(void *);
 f32 xz_distance_squared(s32, s32);
 s32 update_object_view_visibility__13TUnk_804B9870Fff(s32, f32, f32);
-
-}
-
-extern "C" {
 
 void TObjMesBase::debug_draw_label() {
     Mes_80194AEC *arg0 = (Mes_80194AEC *)this;
@@ -129,7 +119,6 @@ void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__11TObjMesBase[];
 extern s32 TObjMesBase__class_name;
 
 void *TObjMesBase__ct(void *arg0, s32 arg1, s32 arg2) {

@@ -14,10 +14,6 @@ s32 reload_stats_keep_hp_tp__9TObjEneDDFv(void *, int, int, int);
 s32 play_sound_effect(int, void *, int, int);
 u32 __nw__7TObjectFUl(int);
 s32 TObjPlayer__sub_802E72DC(void *, void *, void *, int);
-}
-
-extern "C" {
-
 void TBoss7Joint__sub_802EE7B8(void* p);
 void TBoss7Joint__sub_802EE800(void* p);
 int TLobby__send_and_handle_60(void*);

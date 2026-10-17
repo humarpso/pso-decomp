@@ -12,9 +12,6 @@ void create_lavis_shot(void);
 extern void *lbl_804A3168[];
 extern const f32 lbl_805DADC8;
 u8 *TObjPlayer__sub_801272B4(void *self_, s32 a, void *b);
-}
-
-extern "C" {
 
 u8 *TObjPlayer__sub_801272B4(void *self_, s32 a, void *b) {
     Self_801272B4 *self = (Self_801272B4 *)self_;

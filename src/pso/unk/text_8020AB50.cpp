@@ -22,10 +22,6 @@ extern E1_8020AB50 *TLobby__data_805D6068;
 extern u8 *TLobby__map_set_file_buffer;
 extern s32 TLobby__map_set_file_buffer_size;
 s32 load_area_enemy_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-}
-
-extern "C" {
-
 s32 load_area_enemy_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     char buf[0x28];
     s32 name;

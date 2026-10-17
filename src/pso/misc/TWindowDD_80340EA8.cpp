@@ -22,9 +22,6 @@ struct W_80340F00 { s32 f0; u8 pad4[0x14]; void *p18; u8 pad1c[0x5C - 0x1C]; s32
 extern s32 lbl_805D42D0;
 extern const f32 lbl_805DFC50;
 extern const f32 lbl_805DFC70;
-extern "C" void TWindowDD__sub_80340A78();
-extern "C" void init__9TWindowDDFv();
-extern "C" void render_shadows__7TObjectFv();
 __declspec(section ".data") void *lbl_804EFBC8[2] = {
     (void *)0x0, (void *)0x0,
 };

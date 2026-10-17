@@ -13,10 +13,6 @@ s32 pop_matrix();
 s32 draw_chunk_object(s32);
 extern u32 TObjEneRecon__recobox_static_instance;
 extern const f32 lbl_805DF3B8;
-}
-
-extern "C" {
-
 void TObjEneRecon::render_shadows() {
   s32 bml_model;
   if (((u32) TObjEneRecon__recobox_static_instance) != 0U)

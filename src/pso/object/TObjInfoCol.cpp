@@ -36,12 +36,7 @@ s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern s32 __vt__11TObjInfoCol[];
 extern s32 TObjInfoCol__class_name;
 u8 *TObjInfoCol__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt__11TObjInfoColFv(void *arg0, s16 arg1);
-u32 get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
@@ -49,8 +44,6 @@ f32 xyz_distance_squared(const Vec *, const Vec *);
 int read_be16_field2__10TObjPlayerFv(void*);
 
 void TObjInfoCol::bswap_6x78() { read_be16_field2__10TObjPlayerFv(this); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); bswap_32__FPUl((char*)this + 0x8); }
-
-extern s32 local_client_id;
 
 }
 
@@ -64,8 +57,6 @@ s32 TObjInfoCol::is_target_in_range(f32 radius_squared) {
 }
 
 extern "C" {
-
-extern s32 __vt__11TObjInfoCol[];
 
 typedef char RecoveredGlobal_80191E28_lbl_8050E208_size[sizeof(RecoveredGlobal_80191E28_lbl_8050E208) == 0x1B0 ? 1 : -1];
 }

@@ -35,34 +35,24 @@ s32 TScene__sub_80206410(void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__6TScene[];
 extern s32 lbl_805D3618;
-extern void *TScene__data_805D5FCC;
 extern u32 TScene__texture_wave_resource;
 u8 *TScene__ct(u8 *arg0, s32 arg1);
 s32 replace_file_extension__6TLobbyFPvPvPv(s32 *, s32, s32 *);
 s32 *load_relocatable_file(s32 *, u32);
-s32 strncmp(s32, s32, s32);
 extern u8 lbl_8044A948[];
 extern Ent_802066BC scene_format_dispatch_tables[];
-extern void *TScene__data_805D5FCC;
 extern s32 TScene__data_805D5FE8;
-extern u32 TScene__map_rel_load_buffer;
 extern s32 TScene__map_rel_load_size_limit;
 void load_scene_map_file(s32 arg0);
-s32 copy_name(s32 *);
-s32 replace_file_extension__6TLobbyFPvPvPv(s32 *, s32, s32 *);
 void TScene__sub_802065E8(void);
 void TScene__sub_802065EC(void);
-void load_scene_map_file(s32 arg0);
 s32 get_floor_map_selection(s32, void *);
 Ent_802066BC *get_floor_scene_table(s32);
 void bind_gvm_texture_list(s32 *, u32);
-s32 TLobby__sub_803DA16C(u32);
 extern s32 lbl_8044A97C[];
 extern s32 lbl_8044A984[];
-extern s32 TScene__current_floor_name;
 extern s32 current_floor_index;
 extern s32 scene_resource_index;
-extern void *TScene__data_805D5FCC;
 extern s8 TScene__floor_scene_ready_flag;
 extern s32 TScene__data_805D5FE0;
 extern f32 TScene__visibility_radius_margin;
@@ -70,111 +60,36 @@ extern s32 TScene__map_section_render_callback;
 extern s32 TScene__active_scene_callback;
 extern s32 TScene__render_callback;
 extern const f32 TScene__data_805DC5D8;
-extern s32 lbl_805DC604;
 void load_floor_scene(void);
-s32 copy_name(s32 *);
-s32 replace_file_extension__6TLobbyFPvPvPv(s32 *, s32, s32 *);
-s32 get_floor_map_selection(s32, void *);
-Ent_802066BC *get_floor_scene_table(s32);
-void bind_gvm_texture_list(s32 *, u32);
-extern s32 lbl_8044A97C[];
-extern s32 lbl_8044A984[];
-extern s32 TScene__current_floor_name;
-extern s32 current_floor_index;
-extern s32 scene_resource_index;
-extern void *TScene__data_805D5FCC;
-extern s8 TScene__floor_scene_ready_flag;
-extern s32 TScene__data_805D5FE0;
-extern f32 TScene__visibility_radius_margin;
-extern s32 TScene__map_section_render_callback;
-extern s32 TScene__active_scene_callback;
-extern s32 TScene__render_callback;
-extern s32 TScene__data_805D5FE8;
 extern s32 lbl_805D5FF8;
-extern u32 TScene__map_rel_load_buffer;
-extern u32 TScene__collision_file_buffer;
-extern u32 TScene__texture_animation_buffer;
-extern u32 TScene__supplementary_rel_buffer;
 extern s32 lbl_805D600C;
-extern s32 TScene__map_rel_load_size_limit;
 extern s32 lbl_805D6014;
 extern s32 lbl_805D6018;
 extern s32 TScene__loaded_floor_rel_file_index;
-extern u32 TScene__data_805D6020;
 extern s32 floor_bin_file_size;
-extern u32 TScene__material_info_buffer;
 extern s32 scene_file_buffer_size;
-extern const f32 TScene__data_805DC5D8;
-s32 *load_relocatable_file(s32 *, u32);
-s32 replace_file_extension__6TLobbyFPvPvPv(s32 *, s32, s32 *);
 s32 debug_print__6TLobbyFle(s32 *, ...);
 s32 collect_collision_groups(u32, s32);
 extern s32 lbl_8044A950[];
 extern s32 lbl_8044A958[];
-extern s32 *scene_collision_data;
-extern u32 TScene__collision_file_buffer;
-extern s32 lbl_805D6014;
 void load_scene_collision_file(s32 arg0);
-s32 *load_relocatable_file(s32 *, u32);
-s32 replace_file_extension__6TLobbyFPvPvPv(s32 *, s32, s32 *);
 extern u8 lbl_8044A938[];
-extern u32 TScene__texture_wave_resource;
-extern u32 TScene__supplementary_rel_buffer;
-extern s32 TScene__loaded_floor_rel_file_index;
-s32 *load_relocatable_file(s32 *, u32);
-s32 replace_file_extension__6TLobbyFPvPvPv(s32 *, s32, s32 *);
-extern u8 lbl_8044A938[];
-extern u32 TScene__texture_wave_resource;
-extern u32 TScene__supplementary_rel_buffer;
-extern s32 TScene__loaded_floor_rel_file_index;
 s32 read_disc_file(char *, u32);
-s32 replace_file_extension__6TLobbyFPvPvPv(s32 *, s32, s32 *);
 extern const char lbl_8044A940[];
-extern u32 TScene__texture_animation_buffer;
-extern s32 lbl_805D6018;
-s32 read_disc_file(char *, u32);
-s32 replace_file_extension__6TLobbyFPvPvPv(s32 *, s32, s32 *);
 extern u8 lbl_8044A994[];
 extern u8 lbl_8044A99C[];
-extern u32 TScene__data_805D6020;
-extern s32 floor_bin_file_size;
-s32 *load_relocatable_file(s32 *, u32);
-s32 replace_file_extension__6TLobbyFPvPvPv(s32 *, s32, s32 *);
-s32 strncmp(s32, s32, s32);
-extern u8 lbl_8044A948[];
 extern u8 lbl_8044A9AC[];
-extern Ent_802066BC scene_format_dispatch_tables[];
-extern void *TScene__data_805D5FCC;
-extern s32 TScene__data_805D5FE8;
-extern u32 TScene__map_rel_load_buffer;
-extern s32 TScene__map_rel_load_size_limit;
-}
-
-extern "C" {
-
 struct Sp8Buf20_80206494 {
     s32 f0; s32 f4; s32 f8; s32 fc;
     s32 f10; s32 f14; s32 f18; s32 f1c;
 };
 
-void TScene__sub_802065E8(void);
-void TScene__sub_802065EC(void);
 void *__dt__6TSceneFv(void *arg0, s16 arg1);
-s32 *load_relocatable_file(s32 *, u32);
-s32 read_disc_file(char *, u32);
-s32 replace_file_extension__6TLobbyFPvPvPv(s32 *, s32, s32 *);
 s32 TScene__sub_80205AE8(s32 *);
 s32 TScene__sub_80205FD4(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 void *__nw__7TObjectFUl(int);
-s32 debug_print__6TLobbyFle(s32 *, ...);
-s32 collect_collision_groups(u32, s32);
-
-extern s32 __vt__6TScene[];
-extern s32 TScene__map_section_render_callback;
-extern s32 TScene__active_scene_callback;
-extern s32 TScene__render_callback;
 
 void *__dt__6TSceneFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -223,8 +138,6 @@ void TScene__sub_802065E8(void) {  }
 void TScene__sub_802065EC(void) {  }
 
 extern s32 lbl_8044A98C[];
-extern u32 TScene__material_info_buffer;
-extern s32 scene_file_buffer_size;
 
 void TScene::load_floor_rel_file(s32 arg0) {
     u8 id[0x20];
@@ -408,10 +321,7 @@ void TScene::load_file_to_buffer(s32 arg0) {
     }
 }
 
-extern const char lbl_8044A940[];
 extern const char lbl_8044A9A4[];
-extern u32 TScene__texture_animation_buffer;
-extern s32 lbl_805D6018;
 
 void TScene::load_floor_bin_file(s32 arg0) {
     u8 sp8[0x20];
@@ -478,12 +388,6 @@ void TScene::load_map_texture_archive(s32 arg0) {
         }
     }
 }
-
-extern s32 lbl_8044A950[];
-extern s32 lbl_8044A958[];
-extern s32 *scene_collision_data;
-extern u32 TScene__collision_file_buffer;
-extern s32 lbl_805D6014;
 
 void TScene::load_supplementary_t_rel(s32 arg0) {
     u8 id[0x20];

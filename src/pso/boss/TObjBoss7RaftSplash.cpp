@@ -14,20 +14,14 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 TCameraCtrl__sub_8006A5DC();
 extern const f32 lbl_805DEC68;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 rand_signed_unit(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
 extern RecoveredGlobal_802F16CC___vt__19TObjBoss7RaftSplash __vt__19TObjBoss7RaftSplash;
 extern s32 lbl_805D3FE8;
-extern const f32 lbl_805DEC68;
 extern const f32 lbl_805DEC88;
 extern const f32 lbl_805DEC8C;
 u8 *TObjBoss7RaftSplash__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4);
-}
-
-extern "C" {
-
 s32 spawn_particle__8TObjFishFllf(f32);
 
 extern const f32 lbl_805DEC90;

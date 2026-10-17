@@ -96,18 +96,10 @@ extern A12_8011E3E8 lbl_8043E838[];
 extern A16_8011E3E8 lbl_8043E844[];
 extern s32 tl_07;
 extern const f32 lbl_805DAC88;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_locally_controlled__10TObjPlayerFPv(s32);
-void remap_extra_attack_type(u8 *arg0);
-s32 is_active_in_game__11TItemWeaponFv(void *);
 void create__10TItemEffPGFPvPvPv(s32, Params_8011EAB8 *, s32);
 void create__10TItemEffPGFPvPv(s32, Params_8011EAB8 *);
-extern s32 tl_05;
 void spawn_pg_effect__10TObjPlayerFPvPvif(u8 *arg0, Vec_8011EAB8 *arg1, s32 arg2, f32 farg0);
-}
-
-extern "C" {
-
 struct VBase_8011E2AC { char pad[0x18]; };
 
 struct VObj_8011E2AC : VBase_8011E2AC {
@@ -356,7 +348,6 @@ struct Self_8011EDFC {
 
 int memcpy(void*, void*, void*);
 s32 TObjectV8047c128_subtract_hp(u32, s32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_testFlags30(void *, s32);
 s16 obj_getField1c(void *);
 s32 get_mode__11TCameraCtrlFPv(void *);
@@ -370,9 +361,6 @@ s32 spawn_item_attacker(int, void *, int, void *);
 s32 spawn_land_hit_effect(int, void *, void *, void *, int);
 s32 init__9TItemDataFv(s32 *);
 s32 get_weapon_special_type_amount(s32, s16 *, s16 *);
-f32 * get_weapon_range_record(void *, s16);
-void remap_extra_attack_type(u8 *arg0);
-void TObjPlayer__sub_8011E56C(u8 *arg0, u8 *arg1);
 void TItemWeapon__sub_8011E5C0(void);
 void TItemWeapon__sub_8011E5C4(void);
 void TItemWeapon__sub_8011E5C8(void);
@@ -380,18 +368,12 @@ void TItemWeapon__sub_8011E5CC(void);
 void TItemWeapon__sub_8011E5D8(void);
 void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot);
 u32 pack_weapon_trail_color(void *arg0);
-s32 is_active_in_game__11TItemWeaponFv(void *);
 V4_8011EA10 get_weapon_color__11TItemWeaponFPv(void *);
 void set_status_flags__10TObjPlayerFUl(void *, u32);
-s16 is_status_subsystem_ready__10TObjPlayerFv(s32);
 void query_extended_state__10TObjPlayerFv(void *);
 s32 set_action_type__10TObjPlayerFs(int, int);
 f32 get_attack_accuracy_scale(s32);
 s32 TObjPlayer__sub_80121228(void *, s32);
-s16 get_captured_target_collider_index(void *);
-u16 get_uid__10TObjPlayerFv(void *);
-void * get_captured_target_entry(void *, s32);
-s32 get_captured_target_count(void *);
 f32 horizontal_distance_squared(void *, void *);
 Obj_8011F474 * resolve_hittable_target(s32, s32);
 s16 TObjPlayer__sub_801D2F4C(int);
@@ -401,19 +383,12 @@ void * __nw__15TItemHeapObjectFUl(s32);
 u32 __cvt_fp2unsigned(f32);
 s32 rand(void);
 s32 vec3_add_to(void *, void *);
-s32 rotate_matrix_y(int, void *);
-s32 subtract_vector(void *, void *);
 f32 normalize_vector(void *);
-s32 push_matrix_from(void *);
-s32 transform_point_by_current_matrix(void *, void *);
-s32 pop_matrix();
 f32 xyz_distance(void *, void *);
 
-extern s32 identity_matrix[];
 extern const f32 lbl_805DAC8C;
 extern const f32 lbl_805DAC90;
 extern const f32 lbl_805DAC98;
-extern s32 tl_05;
 
 void TItemWeapon::set_weapon_category_flags() {
     s32 r = ((VObj_8011E2AC *)((u8 *)this))->m30();

@@ -44,10 +44,6 @@ extern RecoveredGlobal_802FEF98_lbl_804E6580 TOJungleDesign__collision_desc_tabl
 extern s32 __vt__14TOJungleDesign[];
 extern s32 TOJungleDesign__name;
 u8 *TOJungleDesign__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt__14TOJungleDesignFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(int);
@@ -71,8 +67,6 @@ void TOJungleDesign::render() {
         pop_matrix();
     }
 }
-
-extern s32 __vt__14TOJungleDesign[];
 
 void *__dt__14TOJungleDesignFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

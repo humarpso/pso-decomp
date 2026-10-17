@@ -6,9 +6,7 @@ struct G_800A884C { u8 pad[0x42c]; E_800A884C *tbl; };
 
 struct O_800A884C { u8 pad[0x24]; s32 x24; u8 pad2[0xc]; s32 x34; };
 
-extern "C" {
 extern G_800A884C *dimedian_resource_ptr;
-}
 
 extern "C" {
 

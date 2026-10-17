@@ -15,27 +15,17 @@ extern "C" {
 u8 *get_creation_pad();
 extern RecoveredGlobal_8029914C_lbl_805409C8 creation_input_state;
 u8 TObjCMProportion__sub_8029914C(s32 arg0);
-extern RecoveredGlobal_8029914C_lbl_805409C8 creation_input_state;
 u8 TObjCMProportion__sub_8029916C(s32 arg0);
 s32 is_flag_set__11TLoadingCurFv(void *, s32);
-u8 *get_creation_pad();
 extern s32 lbl_804DBDC0[];
 extern u8 controller_input_state[];
-extern RecoveredGlobal_8029914C_lbl_805409C8 creation_input_state;
 f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
-u8 *get_creation_pad();
 extern const f64 lbl_80465170;
 extern const f32 lbl_805DDC28;
 extern const f32 lbl_805DDC2C;
 extern const f32 lbl_805DDC30;
 void get_creation_pad_stick(s32 *arg0, f32 *arg1);
-}
-
-extern "C" {
-
-u8 *get_creation_pad();
-
 extern const f32 lbl_805DDC20;
 
 f32 TObjCMProportion::get_ratio() {

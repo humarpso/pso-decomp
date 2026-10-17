@@ -12,10 +12,6 @@ extern "C" {
 s32 TWindowCtrlMain__sub_8024CDB0(s32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804CE018[];
-}
-
-extern "C" {
-
 int TWindowSubComCard__sub_8024634C(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -26,8 +22,6 @@ int TWindowDD::update_com_card() { return TWindowSubComCard__sub_8024634C(this);
 int TWindowDD::initialize_subwindow() { return update_open_close__17TWindowSubComCardFv(this); }
 void TUnk_804CE018::render() {  }
 void TUnk_804CE018::run_task() {  }
-
-extern s32 lbl_804CE018[];
 
 void *TWindowDD::destroy_window_base(s16 arg1) {
     if (this != NULL) {

@@ -29,9 +29,6 @@ extern s32 local_client_id;
 struct TMedicalCenterMesInput { u8 pad[0x20]; u8 buttons[0x30]; };
 extern "C" TMedicalCenterMesInput controller_input_state[];
 
-#include "types.h"
-#include "pso/misc/TMedicalCenterSequence.h"
-#include "pso/TShopWindowBase.h"
 #include "pso/misc/TShopGenerator.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -133,10 +130,8 @@ struct VObj_8021658C : Base_8021658C {
 extern "C" {
 s32 create_meseta_window(unsigned short);
 s32 set_service_counter_camera(void *, int);
-s32 get_window_layout_position(int, f32);
 extern const f32 lbl_805DC688;
 extern const f32 lbl_805DC68C;
-s32 queue_destruction__7TObjectFv(void *);
 s32 __dt__13TShopSequenceFv(void *, int);
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 __dl__7TObjectFPv(void *);
@@ -145,30 +140,17 @@ extern RecoveredGlobal_802169A8___vt__22TMedicalCenterSequence __vt__22TMedicalC
 extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCenterSequence__data_80513E90;
 u8 *__dt__22TMedicalCenterSequenceFv(u8 *arg0, s16 arg1);
 s32 TShopSequence__ct(void *);
-s32 sub_8022397C__15TShopWindowBaseFv(void *);
-extern RecoveredGlobal_802169A8___vt__22TMedicalCenterSequence __vt__22TMedicalCenterSequence;
-extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCenterSequence__data_80513E90;
 extern s32 TMedicalCenterSequence__class_name;
 u8 *TMedicalCenterSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
-extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCenterSequence__data_80513E90;
-extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCenterSequence__data_80513E90;
-s32 obj_getField1c(s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
 s32 create_yes_no_window(s32, u16, s32, s32);
-s32 get_window_layout_position(int, f32);
-}
-
-extern "C" {
-
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 try_spend_actor_meseta(s32, s32);
 int sub_802239EC__13TShopSequenceFv(void *);
 int sub_80223A48__15TShopWindowBaseFv(void *);
 s32 get_selected_menu_value(u32);
-s32 TWindow__close(u32);
 s32 close_window__13TShopSequenceFv(void *);
 s32 obj_getPtr2B0_20(s32);
-s32 queue_destruction__7TObjectFv(void *);
 int restore_player_state__13TShopSequenceFv(void*);
 s32 send_code50_packet__10TObjPlayerFi(s32);
 s32 send_code_49_1__10TObjPlayerFi(s32);

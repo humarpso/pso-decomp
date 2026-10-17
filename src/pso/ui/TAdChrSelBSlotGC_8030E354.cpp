@@ -32,40 +32,21 @@ extern "C" {
 s32 TWindow__close(void *);
 u32 TAdChrSelASlotGC__sub_8030CB08(void *, int, int);
 void TAdChrSelBSlotGC__sub_8030E768(u8 *arg0);
-s32 TWindow__close(void *);
-u32 TAdChrSelASlotGC__sub_8030CB08(void *, int, int);
 void TAdChrSelBSlotGC__sub_8030E824(u8 *arg0);
-s32 TWindow__close(void *);
-u32 TAdChrSelASlotGC__sub_8030CB08(void *, int, int);
 void TAdChrSelBSlotGC__sub_8030E8E0(u8 *arg0);
-s32 TWindow__close(void *);
-u32 TAdChrSelASlotGC__sub_8030CB08(void *, int, int);
 void TAdChrSelBSlotGC__sub_8030E99C(u8 *arg0);
-s32 TWindow__close(void *);
-u32 TAdChrSelASlotGC__sub_8030CB08(void *, int, int);
 void TAdChrSelBSlotGC__sub_8030EA58(u8 *arg0);
-s32 TWindow__close(void *);
-u32 TAdChrSelASlotGC__sub_8030CB08(void *, int, int);
 void TAdChrSelBSlotGC__sub_8030EB14(u8 *arg0);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 TWindow__close(void *);
 extern RecoveredGlobal_8030EBD0_lbl_8050E3B8 controller_physical_port_bank;
 void TAdChrSelBSlotGC__sub_8030EBD0(u8 *arg0);
-s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 TWindow__close(void *);
-extern RecoveredGlobal_8030EBD0_lbl_8050E3B8 controller_physical_port_bank;
 s32 push_plate_position__19TAdPlyChrSelPlateGCFv(int, void *);
 s32 get_global_state__16TAdChrSelBSlotGCFv(void *);
 extern RecoveredGlobal_8030E6E0_lbl_804758E8 lbl_804758E8;
 u8 * TAdSinglePlyChrSelectGC__sub_801FE3E4(u32);
 s32 get_localized_text_entry(int, int);
-u8 * TAdSinglePlyChrSelectGC__sub_801FE3E4(u32);
 extern G_8030E3BC lbl_80542E78;
 G_8030E3BC *TAdChrSelBSlotGC__sub_8030E3BC(s32 arg0, s32 arg1, s32 arg2, void *arg3);
-}
-
-extern "C" {
-
 void TAdChrSelBSlotGC__sub_8030E458(void);
 void TAdChrSelBSlotGC__sub_8030E550(void);
 void TAdChrSelBSlotGC__sub_8030E620(void);

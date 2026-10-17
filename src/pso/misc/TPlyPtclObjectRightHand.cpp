@@ -21,7 +21,6 @@ void *__dt__23TPlyPtclObjectRightHandFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__23TPlyPtclObjectRightHand[];
 extern void *TPlyPtclObjectRightHand__class_name;
 
 void *TPlyPtclObjectRightHand__ct(void *arg0) {

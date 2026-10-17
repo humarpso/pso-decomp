@@ -105,12 +105,7 @@ extern RecoveredGlobal_8014D41C_lbl_804AB658 bm_n_nurse_i_body_resource_descript
 extern u32 TObjNpcNurseBase__shared_model_resource;
 extern s32 __vt__16TObjNpcNurseBase[];
 extern s32 TObjNpcNurseBase__name;
-extern u32 TObjNpcNurseBase__shared_model_resource;
 u8 *TObjNpcNurseBase__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void * TObjNpcSecretaryBase__create(void *arg0);
 void *__dt__16TObjNpcNurseBaseFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -119,16 +114,12 @@ void *TObjNpcSecretaryBase__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
-extern u32 TObjNpcNurseBase__shared_model_resource;
-
 void TObjNpcNurseBase::free_shared_data() {
     if ((u32) TObjNpcNurseBase__shared_model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TObjNpcNurseBase__shared_model_resource, 1);
         TObjNpcNurseBase__shared_model_resource = 0U;
     }
 }
-
-extern s32 __vt__16TObjNpcNurseBase[];
 
 void TObjNpcNurseBase::load_shared_data() {
     s32 temp_r3;

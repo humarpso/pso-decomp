@@ -26,10 +26,6 @@ extern RecoveredGlobal_8019F9E4_lbl_804A7438 lbl_804A7438;
 extern const f32 lbl_805DC030;
 extern const f32 lbl_805DC034;
 extern const f32 lbl_805DC038;
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8019F9E4_lbl_804A7438_size[sizeof(RecoveredGlobal_8019F9E4_lbl_804A7438) == 0x10 ? 1 : -1];
 void TObjWarpBoss03::sub_8019F9E4() {
     u8 *arg0 = (u8 *)this;

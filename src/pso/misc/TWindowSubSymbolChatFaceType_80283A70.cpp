@@ -42,12 +42,8 @@ s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_80283A70_lbl_8050E208 controller_input_state;
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
-extern RecoveredGlobal_80283A70_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DD784;
 void run_task__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0);
-}
-
-extern "C" {
 
 typedef struct Stack_80283F38 Stack_80283F38;
 

@@ -11,10 +11,6 @@ extern RecoveredGlobal_8015C048___vt__26TOContainerAncientItemRare __vt__26TOCon
 extern s32 lbl_805D2F00;
 extern s32 *ancient_container_fragment_texture_lists;
 u8 *TOContainerAncientItemRare__ct(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8015C048___vt__26TOContainerAncientItemRare_size[sizeof(RecoveredGlobal_8015C048___vt__26TOContainerAncientItemRare) == 0x14C ? 1 : -1];
 u8 *TOContainerAncientItemRare__ct(u8 *arg0, s32 arg1) {
     init_ancient_container(arg0, arg1);

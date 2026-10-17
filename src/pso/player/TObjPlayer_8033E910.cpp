@@ -53,25 +53,13 @@ s32 set_depth_buffer_settings_1__Fv();
 s32 play_indirect_effect_recipe(int, int, int);
 void init_particle_effect__10TObjPlayerFv(void);
 void reset_effects__10TObjPlayerFv(void);
-void setup_projection_tex_matrix__10TObjPlayerFv(void);
 s32 rotate_matrix_by_node_angles(void *, int);
-s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
 int set_global_param__8TObjFishFl(void);
 s32 draw_ginja_object(int);
 s32 set_material_alpha_compare_reference(int);
-}
-
-extern "C" {
-
-void init_particle_effect__10TObjPlayerFv(void);
-void reset_effects__10TObjPlayerFv(void);
 int get_shared_capture_texture_list(void);
-int set_ginja_post_texgen_count(void*);
-int set_ginja_post_tev_stage_count(void*);
 int load_list_texture(int, int, int, int);
-int set_global_param__8TObjFishFl(void);
 
 void init_particle_effect__10TObjPlayerFv(void) { get_shared_capture_texture_list(); set_global_param__8TObjFishFl(); load_list_texture(0, 0, 0, 2); }
 

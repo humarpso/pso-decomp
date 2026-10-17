@@ -109,27 +109,18 @@ s32 *TAdSinglePlyChrSelectGC__sub_80202B38(Obj_80202B38 *self, s32 i);
 Ent_80202B1C *TAdSinglePlyChrSelectGC__sub_80202B1C(Obj_80202B1C *self, s32 i);
 void __construct_array(void *, void *, void *, int, int);
 void* TAdSinglePlyChrSelectGC__sub_80203158(void* p);
-void __construct_array(void *, void *, void *, int, int);
 void TAdSinglePlyChrSelectGC__sub_802115C0();
 u8 *TAdSinglePlyChrSelectGC__sub_80203190(u8 *arg0);
 Save_80202C68 *copy_save_data__23TAdSinglePlyChrSelectGCFPvPv(Save_80202C68 *arg0, Save_80202C68 *arg1);
 void TAdSinglePlyChrSelectGC__sub_80076D9C(void *, void *);
 void copy_player_data__9TProtocolFPvPv();
 void *TAdSinglePlyChrSelectGC__sub_80202D7C(void *a0, void *a1);
-}
-
-extern "C" {
-
 u8 TAdSinglePlyChrSelectGC__sub_80202B30(void* p);
-void* TAdSinglePlyChrSelectGC__sub_80203158(void* p);
 void TAdSinglePlyChrSelectGC__sub_80203210(void* p);
 int __ct__12TPlyCharDataFv(void*);
-s32 __dl__FPv(s32);
 s32 __dt__12TPlyCharDataFv(s32, s32);
 int copy_item_data__6TLobbyFPv(void*);
 int init_guild_card_tag__17TWindowSubComCardFi(void*);
-
-extern s32 selected_character_data;
 
 s32 TAdSinglePlyChrSelectGC__sub_80202A68(u8 *arg0) {
     return *(s32 *)((s8 *)arg0 + 0x194AC);
@@ -165,8 +156,6 @@ s32 *TAdSinglePlyChrSelectGC__sub_80202B38(Obj_80202B38 *self, s32 i) {
     return self->e[i].c;
 }
 
-    extern int TAdSinglePlyChrSelectGC__selection_index;
-
 void TAdSinglePlyChrSelectGC::clear_inventory_slot_by_index(s32 i) {
     Obj_80202B4C *self = (Obj_80202B4C *)this;
     ((TAdSinglePlyChrSelectGC *)(&self->e[i]))->clear_inventory_slot();
@@ -174,15 +163,12 @@ void TAdSinglePlyChrSelectGC::clear_inventory_slot_by_index(s32 i) {
 
 int TAdSinglePlyChrSelectGC::get_selection() {  return TAdSinglePlyChrSelectGC__selection_index; }
 
-extern s32 *active_character_save_record;
-
 void TAdSinglePlyChrSelectGC::set_global_flags(s32 arg0) {
     if ((s32 *) active_character_save_record != NULL) {
         *active_character_save_record |= arg0;
     }
 }
 
-    extern int card_character_save_buffer;
 int TAdSinglePlyChrSelectGC::get_instance() {  return card_character_save_buffer; }
 
     extern int card_load_sequence_state;
@@ -191,15 +177,11 @@ void TAdSinglePlyChrSelectGC::set_player_index(int a0) { card_load_sequence_stat
     extern int lbl_805D5FAC;
 void TAdSinglePlyChrSelectGC::set_save_slot(int a0) { lbl_805D5FAC = a0; }
 
-extern s32 *active_character_save_record;
-
 void TAdSinglePlyChrSelectGC::clear_flags(s32 arg0) {
     if ((s32 *) active_character_save_record != NULL) {
         *active_character_save_record &= ~arg0;
     }
 }
-
-extern s32 *active_character_save_record;
 
 u8 TAdSinglePlyChrSelectGC::check_flag(s32 arg0) {
     if ((s32 *) active_character_save_record != NULL) {

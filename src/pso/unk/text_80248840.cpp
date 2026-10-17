@@ -20,10 +20,6 @@ extern s32 lbl_804CE7D0[];
 extern const f32 lbl_805DCBA0;
 extern const f32 lbl_805DCBA4;
 u8 *construct_symbol_chat_selection(u8 *arg0);
-}
-
-extern "C" {
-
 u8 *construct_symbol_chat_selection(u8 *arg0) {
     s32 i;
     u8 *temp_r30;

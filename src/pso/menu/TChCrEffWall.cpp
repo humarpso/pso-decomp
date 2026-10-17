@@ -21,10 +21,6 @@ extern Ent_8029ACF8 creation_effwall_sprite_position_table[6];
 extern Ent_8029ACF8 creation_effwall_sprite_size_table[2];
 extern const f32 lbl_805DDCB0;
 extern const f32 lbl_805DDCB4;
-}
-
-extern "C" {
-
 extern void *TChCrEffWall__name;
 
 void *lbl_804DBF58[4] = {

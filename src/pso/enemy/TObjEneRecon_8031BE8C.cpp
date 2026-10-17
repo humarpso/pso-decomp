@@ -157,10 +157,6 @@ extern const f32 lbl_805DF3BC;
 extern const f32 TObjEneRecon__data_805DF3C0;
 extern const f32 TObjEneRecon__data_805DF3C4;
 void render__12TObjEneReconFv(u8 *arg0);
-}
-
-extern "C" {
-
 #pragma push
 #pragma opt_common_subs off
 void render__12TObjEneReconFv(u8 *arg0) {

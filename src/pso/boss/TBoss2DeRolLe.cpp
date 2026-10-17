@@ -279,7 +279,6 @@ void *__vt__13TBoss2DeRolLe[107] = {
 }
 #pragma pop
 
-#include "types.h"
 #include <stddef.h>
 #pragma push
 namespace body_animation_view {
@@ -418,10 +417,6 @@ extern s32 model_render_flags;
 extern const f32 lbl_805D8278;
 extern const f32 TBoss2DeRolLe__data_805D827C;
 void render_body__13TBoss2DeRolLeFPv(u8 *arg0);
-}
-
-extern "C" {
-
 struct VObj8002EB88_8002eb88_8002E784 {
     char pad[0xC];
     virtual void m0(int);
@@ -820,10 +815,6 @@ extern u8 *lbl_805D4BB8;
 extern s32 lbl_805D4BBC;
 extern s32 lbl_805D4BC0;
 void fn_8002F5AC(u8 *arg0);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8002F5AC_lbl_804FE30C_size[sizeof(RecoveredGlobal_8002F5AC_lbl_804FE30C) == 0x10 ? 1 : -1];
 void fn_8002F5AC(u8 *arg0) {
     TBoss2DeRolLe__current_attack_id = 0;
@@ -878,10 +869,6 @@ extern s32 lbl_805D4BB8;
 extern s32 lbl_805D4BBC;
 extern s32 lbl_805D4BC0;
 void TObjPlayer__sub_8002F61C(void);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8002F61C_lbl_80435628_size[sizeof(RecoveredGlobal_8002F61C_lbl_80435628) == 0x54 ? 1 : -1];
 typedef char RecoveredGlobal_8002F61C_lbl_804820D8_size[sizeof(RecoveredGlobal_8002F61C_lbl_804820D8) == 0x30 ? 1 : -1];
 typedef char RecoveredGlobal_8002F61C_lbl_804FE31C_size[sizeof(RecoveredGlobal_8002F61C_lbl_804FE31C) == 0xC ? 1 : -1];
@@ -1330,7 +1317,6 @@ extern const f32 TBoss2DeRolLe__data_805D8328;
 extern const f32 TBoss2DeRolLe__data_805D8334;
 extern const f32 lbl_805D842C;
 void update_pulsing_colors__13TBoss2DeRolLeFPv(u8 *arg0);
-}
 #define TBoss2DeRolLe__sub_80034574 ((s32 (*)(void *))TBoss2DeRolLe__sub_80034574)
 #define init_wave_params__13TBoss2DeRolLeFPv ((s32 (*)(void *))init_wave_params__13TBoss2DeRolLeFPv)
 #define update_state__13TBoss2DeRolLeFPv ((s32 (*)(void *))update_state__13TBoss2DeRolLeFPv)
@@ -1339,8 +1325,6 @@ void update_pulsing_colors__13TBoss2DeRolLeFPv(u8 *arg0);
 #define init_movement__13TBoss2DeRolLeFPv ((s32 (*)(void *))init_movement__13TBoss2DeRolLeFPv)
 #define update_phase_is_done__13TBoss2DeRolLeFPv ((s32 (*)(void *))update_phase_is_done__13TBoss2DeRolLeFPv)
 #define TBoss2DeRolLe__sub_800344A4 ((s32 (*)(void *, int, int))TBoss2DeRolLe__sub_800344A4)
-
-extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 VecCopy__FP3VecPC3Vec(int, void *);
 void pick_random_target__13TBoss2DeRolLeFi(s32 arg0);
@@ -1481,10 +1465,6 @@ extern const f32 lbl_805D83F0;
 extern const f32 lbl_805D83F4;
 extern const f32 lbl_805D83F8;
 void TBoss2DeRolLe__sub_800320B4(void *arg0, void *arg1, int arg2, int arg3);
-}
-
-extern "C" {
-
 struct Stack_800339BC {
     f32 sp8;
     f32 spC;
@@ -4280,8 +4260,6 @@ void pick_random_target__13TBoss2DeRolLeFi(s32 actor) {
     }
 }
 
-}
-
 #undef TBoss2DeRolLe__sub_80034574
 #undef init_wave_params__13TBoss2DeRolLeFPv
 #undef update_state__13TBoss2DeRolLeFPv
@@ -4293,8 +4271,6 @@ void pick_random_target__13TBoss2DeRolLeFi(s32 actor) {
 
 #define VecCopy__FP3VecPC3Vec ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)
 #define play_sound_effect ((void (*)(s32, Vec_800344A4 *, s32, s32))play_sound_effect)
-
-extern "C" {
 s32 advance_scalar_motion_profile(void *);
 extern const f32 TBoss2DeRolLe__data_805D8280;
 extern const f32 TBoss2DeRolLe__data_805D8328;
@@ -4318,10 +4294,6 @@ extern const f32 TBoss2DeRolLe__data_805D832C;
 void TBoss2DeRolLe__sub_800344A4(DeRolLe_800344A4 *self, s32 idx, s32 arg2);
 s32 advance_scalar_motion_profile(void *);
 u8 TBoss2DeRolLe__sub_80034574(u8 *arg0);
-}
-
-extern "C" {
-
 void activate_laser_light__13TBoss2DeRolLeFPv(void *arg0);
 void init_move_params__13TBoss2DeRolLeFPv(u8 *arg0);
 void init_movement__13TBoss2DeRolLeFPv(u8 *arg0);
@@ -4741,10 +4713,6 @@ s32 TBoss2DeRolLe__sub_80036358(void *);
 s32 update_and_send__13TBoss2DeRolLeFPv(void *);
 s32 TBoss2DeRolLe__sub_800363A0(void *);
 void set_state_and_send__13TBoss2DeRolLeFPvi(Obj_80034E90 *self, s32 kind);
-}
-
-extern "C" {
-
 void vfunc_61__13TBoss2DeRolLeFv(void);
 s32 TBoss2Joint_get_shell_max_hp(void);
 void backup_pos__13TBoss2DeRolLeFi(s32 arg0);
@@ -5340,10 +5308,6 @@ extern s32 lbl_805D4BCC;
 extern const f32 TBoss2DeRolLe__data_805D827C;
 void load_resources__13TBoss2DeRolLeFv(void);
 s32 advance_scalar_motion_profile(void *arg0);
-}
-
-extern "C" {
-
 void vfunc_63__13TBoss2DeRolLeFv(void);
 void vfunc_28__13TBoss2DeRolLeFv(void);
 void TBoss2DeRolLe__sub_8003508C(void *arg0);
@@ -5590,10 +5554,6 @@ u8 *__dt__13TBoss2DeRolLeFv(u8 *arg0, s16 arg1) {
 }
 #pragma push
 namespace constructor_view {
-
-#include "types.h"
-#include "pso/boss/TBoss2Fin.h"
-#include "pso/player/TObjPlayer.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off

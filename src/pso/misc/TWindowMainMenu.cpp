@@ -74,19 +74,10 @@ u8 *__dt__15TWindowMainMenuFv(u8 *arg0, s16 arg1);
 void sub_80263D7C__15TWindowMainMenuFv(void *, int);
 void update_keyboard_card_state__15TWindowMainMenuFv(void *, int);
 s16 TWindowMainMenu__sub_802ADB00(u32);
-s32 get_window_layout_position(int);
-s32 TWindowMainMenu__sub_802ADADC(int, int);
-s32 append_child_rows__15TWindowMainMenuFPvi(int, void *);
-u32 create_menu__15TWindowMainMenuFPvPv(void *, int);
 void populate_menu__15TWindowMainMenuFPvPv(u8 *arg0, Ent_802646E4 *arg1);
 void *__ct__7TObjectFP7TObject(void *);
-extern RecoveredGlobal_8026492C___vt__15TWindowMainMenu __vt__15TWindowMainMenu;
 extern s32 lbl_805D3950;
 Win_802649C0 *TWindowMainMenu__ct(Win_802649C0 *arg0, void *arg1, s32 arg2);
-}
-
-extern "C" {
-
 int test_keyboard_card_flag4(void* p);
 int park_selection__15TWindowMainMenuFPv(void*);
 int TWindow__close(void*);

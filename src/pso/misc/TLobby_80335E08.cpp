@@ -64,7 +64,6 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 extern s32 lbl_804EE470[];
 int __ct__7TObjectFP7TObject(void *);
-extern s32 lbl_804EE470[];
 void TLobby__sub_80335FE0(void);
 void TLobby__sub_80335FE4(void);
     extern unsigned char lobby_record_table[];
@@ -84,12 +83,7 @@ extern const f32 lbl_805DF8E0;
 extern const f32 lbl_805DF8E4;
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 title_texture_list;
 void bind_title_texture_list(void);
-extern RecoveredGlobal_8000F7FC_lbl_80515F48 title_texture_list;
 void *get_title_texture_list(void);
-}
-
-extern "C" {
-
 void TLobby__sub_80335E74(void);
 void TLobby__sub_80335E78(void);
 

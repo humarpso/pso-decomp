@@ -63,15 +63,10 @@ extern const f32 lbl_805D93F8;
 extern const f32 lbl_805D93FC;
 extern const f32 lbl_805D9400;
 void calc_projection_screen_offset(f32 *arg0, f32 *arg1);
-}
-
-extern "C" {
-
 s32 load_list_texture(s32, s32, s32, s32);
 void VecCopy__FP3VecPC3Vec(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-s32 is_split_screen();
 
 void calc_projection_screen_offset(f32 *arg0, f32 *arg1) {
     f32 dx = TCameraCtrl__data_804FF634.f8;
@@ -87,8 +82,6 @@ void TCameraCtrl::copy_position_vectors(void *arg1, void *arg2) {
     VecCopy__FP3VecPC3Vec((void *)((char *)this + 32));
     ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *)((char *)this + 44), arg2);
 }
-
-extern u32 camera_render_target_singleton;
 
 void TCameraCtrl::update_single_screen() {
     if ((is_split_screen() == 0) && ((u32) camera_render_target_singleton != 0U)) {

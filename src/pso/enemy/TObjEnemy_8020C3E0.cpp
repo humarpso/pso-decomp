@@ -15,14 +15,11 @@ struct Sub_8020C500 { u8 p0[2]; s16 flags; u8 p1[4]; };
 
 struct Grp_8020C500 { s32 count; u8 pad[0xC]; Sub_8020C500 *recs; u8 pad2[4]; };
 
-extern "C" {
 extern Grp_8020C458 TLobby__floor_enemy_group_table[];
 extern Rec_8020C458 *TLobby__data_805D6114;
 extern s32 TLobby__current_floor_enemy_set_count;
-extern Grp_8020C458 TLobby__floor_enemy_group_table[];
 extern Rec_8020C500 *TLobby__data_805D610C;
 extern s32 TLobby__current_floor_object_set_count;
-}
 
 extern "C" {
 

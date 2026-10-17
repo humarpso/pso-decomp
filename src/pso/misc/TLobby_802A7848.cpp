@@ -51,13 +51,11 @@ s32 mem_alloc(s32);
 s32 mem_free(s32);
 int TLobby__sub_802A7B8C(void);
 void TLobby__sub_802A7BC8(void* p);
-s32 mem_free(s32);
 extern u32 snapshot_image_buffer;
 void TLobby__sub_802A7BD8(void);
 s32 fn_802A5C3C(s32);
 s32 memcpy(s32, s32, s32);
 extern s32 shared_snapshot_capture;
-extern u32 snapshot_image_buffer;
 extern s32 snapshot_buffer_size;
 s32 copy_if_space(void);
 s32 fn_802A5B2C(s32);
@@ -65,24 +63,13 @@ s32 fn_802A5B50(s32, s32);
 s32 rlc_get_directory_offset(s32);
 s32 fn_802A6070(s32, s32);
 s32 fn_802A6078(s32, s32);
-extern u32 snapshot_image_buffer;
 extern s32 lbl_805D669C;
 void set_slot_position__6TLobbyFii(s32 arg0, s32 arg1);
 s32 aram_dma_blocking__6TLobbyFllll(s32, s32, s32, s32, s32);
-s32 mem_alloc(s32);
-extern u32 snapshot_image_buffer;
-extern s32 snapshot_buffer_size;
 s32 free__10TObjPlayerFPv(void *);
-extern RecoveredGlobal_802A7AF8_lbl_804DDD28 lbl_804DDD28;
 extern RecoveredGlobal_802A7AF8_lbl_804DDD28 lbl_804DDD28;
 u8 *TLobby__sub_802A7B50(u8 *arg0);
 s32 *TItemDrop__sub_800F9448(s32, s32);
-void TLobby__sub_802A7BC8(void* p);
-void set_slot_position__6TLobbyFii(s32 arg0, s32 arg1);
-}
-
-extern "C" {
-
 void TLobby__sub_802A7848(void* p, s32 _w1);
 int TLobby__sub_802A7868(void* p);
 int match_coordinate_pair(void*);

@@ -44,16 +44,10 @@ extern const f32 lbl_805DF1D8;
 extern const f32 lbl_805DF1DC;
 extern const f32 lbl_805DF1E0;
 Cam_8030BED4 *TObjLiveCameraCtrl__ct(Cam_8030BED4 *arg0, void *parent);
-}
-
-extern "C" {
-
 s32 TObjLiveMonitor__sub_8030C050(void* p);
 void fn_8030C058(void);
 void reset_globals_805D6A84(void);
 s32 memset(s32 *, s32, s32);
-
-extern s32 TObjLiveCameraCtrl__instances;
 
 }
 
@@ -82,10 +76,6 @@ TObjLiveCameraCtrl *__dt__18TObjLiveCameraCtrlFv(TObjLiveCameraCtrl *self, s16 f
     }
     return self;
 }
-}
-
-extern "C" {
-
 Cam_8030BED4 *TObjLiveCameraCtrl__ct(Cam_8030BED4 *arg0, void *parent) {
     void *p;
     s32 n;
@@ -141,9 +131,6 @@ s32 TObjLiveCameraCtrl::get_table_entry(s32 arg0) {
 
 s32 TObjLiveMonitor__sub_8030C050(void* p) { return *(s32*)((char*)p + 0x20); }
 void fn_8030C058(void) {  }
-
-extern s32 live_camera_controller_next_slot;
-extern s32 TObjLiveCameraCtrl__instances;
 
 void reset_globals_805D6A84(void) {
     live_camera_controller_next_slot = 0;

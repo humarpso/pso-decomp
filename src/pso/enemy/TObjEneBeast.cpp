@@ -42,10 +42,6 @@ s32 spawn_npc_enemy__6TLobbyFslllff(int, s32, s32, Quad_8009241C *, f32, f32);
 extern Ids_8009241C lbl_80439D68[];
 extern Quad_8009241C lbl_80439D70[];
 extern s32 lbl_80439D80[];
-}
-
-extern "C" {
-
 void free_boss4_rock_pool(void);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
@@ -428,7 +424,6 @@ struct Rec1C_800927DC { u8 b[0x1C]; };
 struct Elem_800927DC { u8 b[0x1C]; };
 struct Obj_800927DC { u8 pad[0x3B0]; Elem_800927DC arr[4]; };
 extern s32 lbl_805D2980;
-extern const f32 lbl_805D96D8;
 extern const f32 lbl_805D970C;
 extern const f32 lbl_805D9710;
 

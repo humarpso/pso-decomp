@@ -35,7 +35,6 @@ u8 *__ct__26TBoss5GryphonLightningHornFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3)
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *csnVecterUnder(s32 *, s32);
 s32 __nw__7TObjectFUl(int);
-u8 *__ct__26TBoss5GryphonLightningHornFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 extern const f32 lbl_805D8D48;
 extern const f32 lbl_805DF654;
 void init_slicer_launch_state(SlicerLaunchData_8012D9C8 *);
@@ -46,14 +45,9 @@ f32 query_extended_state__10TObjPlayerFv(void *);
 void get_weapon_color__11TItemWeaponFPv(f32 *, void *);
 void copy_vec4__13TRaderMapCoreFPvPv(f32 *, f32 *);
 void launch_slicer__10TObjPlayerFPv(u8 *weapon);
-}
-
-extern "C" {
-
 void *__dt__13TUnk_804ECDC0Fv(void *arg0, s16 arg1);
 int fn_80325F7C(void*);
 void __dt__11TItemWeaponFv(void *, int);
-void *__dt__13TUnk_804ECDC0Fv(void *arg0, s16 arg1);
 
 void TBoss5GryphonLightningHorn::render() {  }
 void TBoss5GryphonLightningHorn::run_task() { rebuild_lightning_segments(); fn_80325F7C(this); spawn_gryphon_lightning(); }

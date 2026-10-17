@@ -76,32 +76,22 @@ s32 vec3_add_to(void *, void *);
 extern s32 actor_frame_tick;
 extern const f32 lbl_805D9E60;
 extern const f32 TObjCGrass__data_805D9E64;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u8 *csnVectorUnder(void *, void *, int);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
 s32 TObjMotion__ct(void *, s32);
 s32 mem_alloc(int);
 s32 rand(void);
 s32 rotate_vector_by_matrix(int, void *, void *);
-s32 rotate_matrix_y(int, int);
-s32 push_matrix_from(int);
-s32 pop_matrices(int);
 extern s32 cgrass_action_desc[];
 extern s32 __vt__10TObjCGrass[];
 extern u8 identity_matrix[];
 extern s32 lbl_805D2A28;
 extern u32 TObjCGrass_bml_resource;
 extern s32 tl_06;
-extern const f32 TObjCGrass__data_805D9E64;
 extern const f32 lbl_805D9E6C;
 extern const f32 lbl_805D9E70;
 extern const f32 lbl_805D9E74;
 extern const f32 lbl_805D9E78;
 u8 *TObjCGrass__ct(Grass_800B8EFC *self, u8 *arg1, s32 arg2, s32 arg3);
-}
-
-extern "C" {
-
 void *__dt__10TObjCGrassFv(void *arg0, s16 arg1);
 void* fn_800B8B00(void* p);
 void TLobby__sub_8001FE7C(void*, int);
@@ -135,12 +125,9 @@ struct RecoveredGlobal_800B8DC4_lbl_80492500 {
 };
 typedef char RecoveredGlobal_800B8DC4_lbl_80492500_size[sizeof(RecoveredGlobal_800B8DC4_lbl_80492500) == 0x10 ? 1 : -1];
 extern RecoveredGlobal_800B8DC4_lbl_80492500 bm_ene_cgrass_resource_descriptor;
-extern const f32 TObjCGrass__data_805D9E64;
 extern const f32 lbl_805D9E68;
 
 void* fn_800B8B00(void* p) { return (char*)p + 0x3e8; }
-
-extern u32 TObjCGrass_bml_resource;
 
 void TObjCGrass::render() {
     Obj_800B8B08 *arg0 = (Obj_800B8B08 *)this;
@@ -235,8 +222,6 @@ void TObjCGrass::load_resources() {
     temp_r5 = (u8 *)(*(u8 **)((s8 *)TObjCGrass_bml_resource + 0x42C));
     TLobby::spawn_npc_enemy((s16)((int) (0x36)), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 8))), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0xC))), (s32)((void *) (&stack.sp8)), (f32)((f32) (lbl_805D9E68)), (f32)((f32) (TObjCGrass__data_805D9E64)));
 }
-
-extern s32 __vt__10TObjCGrass[];
 
 void *__dt__10TObjCGrassFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

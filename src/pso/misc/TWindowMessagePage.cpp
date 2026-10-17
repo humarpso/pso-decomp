@@ -24,10 +24,6 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
 s32 is_player_input_active(int);
 s32 draw__14TWindowMessageFv();
 extern RecoveredGlobal_8026AF24_lbl_8050E208 controller_input_state;
-}
-
-extern "C" {
-
 void *__dt__18TWindowMessagePageFv(void *arg0, s16 arg1);
 s32 get_shared_text_buffer();
 u32 copy_message_page_text__20TWindowSubStatusDispFv(u32);
@@ -81,8 +77,6 @@ void TWindowMessagePage::set_text(s32 a, s32 b, s32 c) {
 }
 
 void TWindowMessagePage::render() { { (void)(render__14TWindowMessageFv(this)); return; } }
-
-extern s32 __vt__18TWindowMessagePage[];
 
 typedef char RecoveredGlobal_8026AF24_lbl_8050E208_size[sizeof(RecoveredGlobal_8026AF24_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void TWindowMessagePage::run_task() {

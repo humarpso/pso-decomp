@@ -594,26 +594,16 @@ void TUnk_804B2578::sub_80168488() {
 }
 #pragma pop
 
-}
-
-extern "C" {
 s32 TOHangceilingCave01__create(u8 *arg0);
 bool TOHangceilingCave01__sub_801688C0(u8 *arg0);
 s32 push_matrix(void);
 s32 pop_matrix(void);
 f32 post_translate_matrix(void *);
-u8 is_current_floor_switch_set(int);
 s32 rotate_matrix_y(int, int);
 s32 draw_ginja_object(void *);
 s32 draw_ginja_model(void *);
 s32 draw_ginja_model_with_motion(void *, void *, f32);
 extern u8 *TOHangceilingCave01__model_root;
-extern const f32 lbl_805DB674;
-extern const f32 lbl_805DB67C;
-}
-
-extern "C" {
-
 struct VBase_80168588 { char pad[0x18]; };
 struct VObj_80168588 : VBase_80168588 {
     virtual void v0(); virtual void v1(); virtual void v2(); virtual void v3();
@@ -644,21 +634,16 @@ struct VObj_18_26a62c : VBase_18_26a62c {
     virtual s32 m8(f32, f32);
 };
 
-void TLobby__sub_8001FE7C(void*, int);
 bool TOHangceilingCave01__sub_801688C0(u8 *);
 s32 spawn_particle_effect(void *, s32);
 f32 xz_distance_squared(void *, void *);
 s32 transform_point_by_current_matrix(void *, void *);
 extern s32 camera_ctrl_instance;
-extern const f32 lbl_805DB664;
 extern const f32 lbl_805DB698;
 extern const f32 lbl_805DB69C;
 extern const f32 lbl_805DB6A0;
-s32 mem_free(void*);
 s32 objInBand__FP7GameObjf(void *, f32);
 
-extern const f32 lbl_805DB654;
-extern const f32 lbl_805DB688;
 extern const f32 lbl_805DB690;
 
 void TUnk_804B2578::init_geometry() {
@@ -834,9 +819,6 @@ void TOHangceilingCave01::destroy_instance() {
     }
 }
 
-}
-
-extern "C" {
 struct Buf_80168AA8 { s32 a; s32 b; s32 c; };
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);

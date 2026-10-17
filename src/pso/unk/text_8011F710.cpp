@@ -95,11 +95,9 @@ struct Stack_8011F7CC {
 
 struct Item_8011F760 { u8 pad[0x10]; s32 count; };
 
-#include "pso/items/TItemWeapon.h"
 #include "pso/boss/TBoss4Type3.h"
 #include "pso/item/TItemMag.h"
 #include "pso/item/TItemProShield.h"
-#include "pso/player/TObjPlayer.h"
 
 struct Stats_8011F710 { u8 pad[0x16]; u8 max; };
 
@@ -120,13 +118,9 @@ s32 is_active_in_game__11TItemWeaponFv(void*);
 s32 reset_key_machine_state__10TObjPlayerFv();
 void play_weapon_owner_sounds(void*);
 u32 test_flags_1b8__11TItemWeaponFUl(void*,u32);
-s32 obj_getField1c(void *);
 void fire_shot_at_target__11TItemWeaponFv(void*,WeaponVector*,s32,s32);
 
 s32 add_weapon_grind(Obj_8011F710 *arg0, s32 arg1);
-}
-
-extern "C" {
 
 s32 add_weapon_grind(Obj_8011F710 *arg0, s32 arg1) {
     if ((s32)(arg0->stats->max - (u8)arg1) < arg0->cur) {

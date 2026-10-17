@@ -14,7 +14,6 @@ TQuadSpriteSclColRot::~TQuadSpriteSclColRot() {
 }
 extern "C" {
 
-extern s32 __vt__20TQuadSpriteSclColRot[];
 extern void *TQuadSpriteSclColRot__class_name;
 
 void *TQuadSpriteSclColRot__ct(void *arg0) {

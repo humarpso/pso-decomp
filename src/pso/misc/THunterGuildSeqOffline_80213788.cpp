@@ -158,10 +158,6 @@ s32 sub_80223A48__15TShopWindowBaseFv(void *);
 extern s32 THunterGuildSeqOffline__quest_result_callbacks[];
 extern s32 quest_mission_manager;
 void THunterGuildSeqOffline__sub_80213980(Obj_80213980 *self);
-}
-
-extern "C" {
-
 void handle_close__22THunterGuildSeqOfflineFPv(void *arg0);
 void reset_random_enemies_mode(void);
 void restore_and_init_quest_list__22THunterGuildSeqOfflineFPv(void *arg0);
@@ -402,10 +398,6 @@ struct VObj_18 : VBase_18 {
 extern "C" {
 s32 TQuestVmDownLoadServer__sub_8006EF6C(int);
 void reset_quest_list_vm__22THunterGuildSeqOfflineFv(void);
-}
-
-extern "C" {
-
 void THunterGuildSeqOffline__sub_80213EBC(void);
 
 struct Base_80213EBC { char pad[0x18]; };
@@ -536,10 +528,6 @@ void reset_quest_list_vm__22THunterGuildSeqOfflineFv(void);
 void THunterGuildSeqOffline__sub_80213F78(void);
 extern s32 tl_05;
 void fn_80214058(Seq_80214058 *arg0);
-}
-
-extern "C" {
-
 void fn_80214058(Seq_80214058 *arg0) {
     List_80214058 *l;
     void *e;
@@ -591,10 +579,6 @@ void set_random_enemies_mode(void);
 extern s32 TLobby__protocol_instance;
 extern s32 tl_00;
 void handle_random_enemies_choice__6TLobbyFPv(Seq_80214104 *self);
-}
-
-extern "C" {
-
 void handle_random_enemies_choice__6TLobbyFPv(Seq_80214104 *self) {
     void *mem;
     if (self->child != NULL) {
@@ -658,10 +642,6 @@ void TWindow__close(void *);
 s32 get_selected_menu_value(void *);
 extern RecoveredGlobal_80214254_THunterGuildSeqOffline__data_80513DC8 THunterGuildSeqOffline__quest_result_callbacks;
 void fn_80214254(u8 *arg0);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_80214254_THunterGuildSeqOffline__data_80513DC8_size[sizeof(RecoveredGlobal_80214254_THunterGuildSeqOffline__data_80513DC8) == 0x10 ? 1 : -1];
 void fn_80214254(u8 *arg0) {
     s32 selected_menu_value;
@@ -786,10 +766,6 @@ s32 sub_80223A48__15TShopWindowBaseFv(void *);
 extern s32 THunterGuildSeqOffline__quest_result_callbacks[];
 extern s32 quest_mission_manager;
 void THunterGuildSeqOffline__sub_802145F8(u8 *arg0);
-}
-
-extern "C" {
-
 void create_judgment_item_window__15TShopWindowBaseFPv(void *arg0);
 void restore_shop_and_init_quest_state(void *arg0);
 void update__15TShopWindowBaseFPv(void *arg0);
@@ -1019,9 +995,6 @@ void update_confirm_input__15TShopWindowBaseFPv(void *);
 void THunterGuildSeqOffline__sub_802145F8(void *);
 void init_window__22THunterGuildSeqOfflineFPv(void *);
 void dispatch_state__22THunterGuildSeqOfflineFPv(Seq_80214978 *arg0);
-}
-
-extern "C" {
 
 void dispatch_state__22THunterGuildSeqOfflineFPv(Seq_80214978 *arg0) {
     switch (arg0->state) {

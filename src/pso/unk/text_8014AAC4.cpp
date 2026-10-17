@@ -18,10 +18,6 @@ extern RecoveredGlobal_8014AAC4_lbl_8043F9C8 town_npc_animation_init_data;
 extern RecoveredGlobal_8014AAC4_lbl_804A92A8 npc_female_tall_dispatch_table;
 extern s32 *npc_town_motion_data;
 u8 *fn_8014AAC4(u8 *arg0);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8014AAC4_lbl_8043F9C8_size[sizeof(RecoveredGlobal_8014AAC4_lbl_8043F9C8) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_8014AAC4_lbl_804A92A8_size[sizeof(RecoveredGlobal_8014AAC4_lbl_804A92A8) == 0x178 ? 1 : -1];
 u8 *fn_8014AAC4(u8 *arg0) {

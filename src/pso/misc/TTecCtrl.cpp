@@ -20,21 +20,14 @@ extern u8 *technique_effect_bml;
 extern void **lbl_805D63B0;
 void TLobby__sub_8022F068(void);
 s32 clamp_nonnegative_int(s32 x);
-extern u8 *technique_effect_bml;
-extern void **lbl_805D63B0;
 extern u8 technique_resource_descriptor[];
 extern u8 lbl_8044D088[];
 extern u8 lbl_8044D094[];
-extern RecoveredGlobal_8022F068_lbl_804CC934 technique_ringwave_texture_list;
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 u8 *load_resource_from_descriptor(u8 *, s32, void *, s32, s32, s32);
 void **load_gvm_texture_file(void *);
 void bind_gvm_texture_list(void *, void *);
 void load_technique_resources(void);
-}
-
-extern "C" {
-
 void* get_technique_base_params(int a0);
 void *__ct__8TTecCtrlFv(void *arg0);
 s32 reset_telepipe_visit_counts();

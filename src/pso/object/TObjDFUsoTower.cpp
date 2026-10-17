@@ -26,15 +26,9 @@ extern const f32 lbl_805D8A30;
 u8 *TObjDFUsoTower__ct(u8 *arg0, s32 _w1);
 s32 rand();
 extern const f32 lbl_805D8AD8;
-}
-
-extern "C" {
-
 void *__dt__14TObjDFUsoTowerFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-
-extern s32 __vt__14TObjDFUsoTower[];
 
 void *__dt__14TObjDFUsoTowerFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -11,10 +11,6 @@ struct W_8035B00C
 extern "C" {
 s16 ret_801D26AC();
 void fn_8035B00C(W_8035B00C *arg0);
-}
-
-extern "C" {
-
 typedef struct W_8035B00C W_8035B00C;
 void fn_8035B00C(W_8035B00C *arg0) {
   int new_var;

@@ -5,7 +5,6 @@ struct Base_8033C4E0_8033C420 { char pad[0x18]; };
 struct VObj_8033C4E0_8033C420 : Base_8033C4E0_8033C420 { virtual void m0(int); };
 
 #include <stddef.h>
-#include "pso/misc/TCheckMemoryCard.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -22,9 +21,7 @@ struct RecoveredGlobal_8033C424_lbl_804EF940 {
     u8 remaining[0x5C];
 };
 
-extern "C" {
 extern RecoveredGlobal_8033C424_lbl_804EF940 lbl_804EF940;
-}
 
 extern "C" {
 
@@ -91,7 +88,6 @@ void *__dt__16TCheckMemoryCardFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__16TCheckMemoryCard[];
 extern void *TCheckMemoryCard__name;
 
 }

@@ -63,7 +63,6 @@ extern s32 __vt__11TPhotonLine[];
 extern s32 lbl_805D3500;
 Line_801ACD14 *TPhotonLine__ct(Line_801ACD14 *self, Params_801ACD14 *p, void *parent, u16 arg3);
 s32 check_path_obstructed(void *, Vec_801ACD14 *);
-Vec_801ACD14 *VecCopy__FP3VecPC3Vec(Vec_801ACD14 *, const Vec_801ACD14 *);
 u16 obj_getField1c(void *);
 void queue_destruction__7TObjectFv(void *);
 u8 *get_battle_param__10TObjPlayerFi(s32);
@@ -72,17 +71,11 @@ void queue_photon_blast_hit(s32, s32, s32, f32);
 void vec3_add_to(Vec_801ACD14 *, Vec_801ACD14 *);
 extern const f32 lbl_805DC1D8;
 void run_task__11TPhotonLineFv(Line_801ACB14 *self);
-}
-
-extern "C" {
-
 void *__dt__11TPhotonLineFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 
 void TPhotonLine::render() { TParticleCtrl::begin_effect_render(); TParticleCtrl::end_effect_render(); }
-
-extern s32 __vt__11TPhotonLine[];
 
 void run_task__11TPhotonLineFv(Line_801ACB14 *self) {
     Vec_801ACD14 v = self->pos;

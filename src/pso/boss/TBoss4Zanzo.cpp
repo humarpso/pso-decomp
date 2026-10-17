@@ -74,27 +74,18 @@ extern const f32 lbl_805D8C68;
 extern const f32 lbl_805D8C70;
 extern const f32 lbl_805D8C74;
 void update_radar_markers__11TBoss4Type3FPv(u8 *arg0);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 spawn_particle_effect(void *, int);
 u32 create_particle_emitter(void *, int);
 s32 play_sound_effect(int, void *, int, int);
-extern const f32 TBoss4Type3__data_805D8C40;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f64 atan2_float(f32, f32);
 u8 * dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 TBoss4Type2__sub_80057048(void *, int);
 s32 TBoss4Type2__sub_80057128(void *);
-u32 spawn_particle_effect(void *, int);
-u32 create_particle_emitter(void *, int);
 s32 angle_diff_s16(int, int);
-s32 add_radar_scaled_marker(void *, u32, int, int, f32);
 s32 play_persistent_sound(int, void *, void *, int, int);
-s32 play_sound_effect(int, void *, int, int);
 s32 create__11TTecRaBartaFPvPvPvPv(void *, void *, void *, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-f32 vector_length(void *);
-s32 normalize_vector(void *);
 extern const f64 TBoss4Type2__data_80437750;
 extern s32 boss4_type2_attack_pattern_table[];
 extern s32 game_difficulty_selection;
@@ -111,19 +102,10 @@ extern const f32 TBoss4Type2__data_805D8BD8;
 void TBoss4Type2__vt15(u8 *arg0);
 s32 TBoss4Type2__sub_80054DA8();
 s32 create_all_tenchu_furu__11TBoss4Type2Fi();
-s32 TBoss4Type2__sub_80057048(void *, int);
-u32 create_particle_emitter(void *, int);
-s32 play_persistent_sound(int, void *, void *, int, int);
-s32 play_sound_effect(int, void *, int, int);
 extern const f32 lbl_805D8BA4;
 extern const f32 lbl_805D8BA8;
-extern const f32 lbl_805D8BB4;
 extern const f32 lbl_805D8BB8;
 void TBoss4Type2__vt21(Obj_80055BC0 *o);
-}
-
-extern "C" {
-
 struct ByteBlock_C { u8 bytes[0xc]; };
 
 struct Stack_80055918
@@ -468,13 +450,10 @@ struct Vec_80059C20 { f32 x, y, z; };
 struct Dmg_8005B218 { s32 type; f32 val; };
 
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void * get_player_data__10TObjPlayerFi(s32 i);
 u16 obj_getField1c(void *);
 s32 is_split_screen();
-f64 atan2_float(f32, f32);
 void queue_destruction__7TObjectFv(void *);
-u8 * dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
@@ -523,8 +502,6 @@ void find_target_pos__11TBoss4Type2FPvPv(O_80056C30 *self, Vec_80056C30 *out);
 f32 compute_wave_offset__11TBoss4Type2Ff(f32 farg0);
 void TBoss4Type2__sub_80056F90(Obj_80056F90 *self, s32 arg1, s32 arg2);
 void TBoss4Type2__sub_80056FEC(Obj_80056FEC *self, s32 arg1);
-s32 TBoss4Type2__sub_80057048(void *, int);
-s32 TBoss4Type2__sub_80057128(void *);
 s32 TBoss4Type2__sub_80057224(Obj_80057224 *self);
 void TBoss4Type2__sub_80057578(void* p);
 S_800578E8 * __dt__13TUnk_80486924Fv(S_800578E8 *o, s16 flag);
@@ -549,34 +526,23 @@ void * __ct__13TObjBs4CutAtkFv(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void * create__13TObjBs4CutAtkFPvPvPv(void *arg0, void *arg1, void *arg2);
 s32 create__11TBoss4BishiFi(void *);
 s32 request_follow_camera_offsets(void *, void *, int);
-u32 spawn_particle_effect(void *, int);
-u32 create_particle_emitter(void *, int);
 int toggle_particle_effect__10TObjPlayerFv(void*);
 void __dt__11TBoss4Type3FPvs(void *, s16);
 s32 clear_render_callback__8TObjFishFv(s32);
 s32 TObjControl__ct(s32, s32);
 void __dt__9TObjEnemyFv(void *, s32);
-s32 angle_diff_s16(int, int);
 s32 approach_angle_limited(s32, s32, s32);
 void free_collision_body_parts(void *);
 Ply_80059ABC * get_player_by_client_id(u16);
 s32 TObjEneRe4Sorcerer__sub_801E3F1C(f32, f32);
-s32 play_persistent_sound(int, void *, void *, int, int);
-s32 play_sound_effect(int, void *, int, int);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 void __ct__7TObjectFP7TObject(void *);
 s32 TBoss6PlotFalz__sub_802AC008(f32, f32);
 s32 rand();
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
-s32 vec3_add_to(void *, void *);
 s32 matrix_mult_vec(int, void *, void *);
-f32 vector_length(void *);
 s32 set_matrix_identity(int);
 s32 rotate_matrix_y(int, int);
-s32 subtract_vector(void *, void *);
-s32 normalize_vector(void *);
 s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
@@ -584,12 +550,8 @@ f32 xyz_distance(Vec_80056C30 *, Vec_80056C30 *);
 s32 draw_model_motion(int, int, f32);
 
 extern u8 TBoss4DarkFalz__data_804FF1E8[];
-extern const f64 TBoss4Type2__data_80437750;
-extern const f32 TBoss4Type2__data_805D8BAC;
-extern const f32 TBoss4Type2__data_805D8BD8;
 extern RecoveredGlobal_8005A678_TBoss4Type3__data_80486FC8 TBoss4Type3__anim_state_table;
 extern const f32 TBoss4Type3__data_805D8C34;
-extern const f32 TBoss4Type3__data_805D8C40;
 extern s32 __vt__11TBoss4Zanzo[];
 extern void* __vt__13TObjBs4CutAtk[];
 extern s32 boss4_type3_effect_ids[];
@@ -611,12 +573,7 @@ extern s32 TObjBs4CutAtk_name;
 extern s32 lbl_805D4D80;
 extern u8 lbl_805D4D84;
 extern s32 local_client_id;
-extern s32 game_difficulty_selection;
 extern s32 lbl_805D586C;
-extern "C" {
-}
-extern "C" {
-}
 struct Def_804867C8 { s32 value; s32 remaining[39]; };
 void TBoss4Type2__vt9(u8 *arg0);
 
@@ -773,10 +730,7 @@ void *lbl_804868A8[17] = {
 };
 
 extern const f32 lbl_805D8BA0;
-extern const f32 lbl_805D8BA4;
-extern const f32 lbl_805D8BA8;
 extern f32 lbl_805D8BB0;
-extern const f32 lbl_805D8BD0;
 extern const f32 lbl_805D8BDC;
 extern const f32 lbl_805D8BE0;
 extern const f32 lbl_805D8BE4;
@@ -801,7 +755,6 @@ extern const f32 lbl_805D8C58;
 extern const f32 lbl_805D8C5C;
 extern f32 lbl_805D8C60;
 extern const f32 lbl_805D8C64;
-extern const f32 lbl_805D8C68;
 extern const f32 lbl_805D8C6C;
 extern const f32 lbl_805D8C7C;
 extern f32 lbl_805D8C80;
@@ -822,16 +775,6 @@ TBoss4Zanzo::~TBoss4Zanzo() {}
 extern "C" {
 #pragma push
 #pragma fp_contract on
-extern "C" {
-Ply_80059ABC * get_player_by_client_id(u16);
-}
-
-extern "C" {
-Ply_80059ABC * get_player_by_client_id(u16);
-}
-
-extern "C" {
-}
 
 void render__11TBoss4ZanzoFv(u8 *arg0) {
     f32 temp_f31;
@@ -1716,7 +1659,6 @@ union MemberAction_80057598 { s32 words[3]; void (TBoss4Type2_80057598::*action)
 void submit_cursor_candidate(void *, int);
 extern Vec_80057598 lbl_80437720[];
 extern Vec_80057598 lbl_8043772C[];
-extern const f32 lbl_805D8BD4;
 extern const f32 lbl_805D8C08;
 extern const f32 lbl_805D8C1C;
 void TBoss4Type2::update_main() {

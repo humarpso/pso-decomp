@@ -25,10 +25,6 @@ extern void *__vt__17TObjEneHoldEffect[];
 extern s32 lbl_805D44E8;
 extern s32 tl_07;
 Hold_8036D0C0 *TObjEneHoldEffect__ct(Hold_8036D0C0 *o, u8 *parent, s32 type, s32 arg3);
-}
-
-extern "C" {
-
 Hold_8036D0C0 *TObjEneHoldEffect__ct(Hold_8036D0C0 *o, u8 *parent, s32 type, s32 arg3) {
     construct_world_actor_base(o, tl_07);
     o->vt = __vt__17TObjEneHoldEffect;

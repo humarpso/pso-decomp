@@ -93,10 +93,6 @@ s32 add_stat_and_item__10TObjPlayerFiUc(void *, int);
 s32 set_speed_scaled_by_camera__10TObjPlayerFiUc(void *, int);
 s32 apply_speed_with_camera_scale__10TObjPlayerFiUc(void *, int);
 void vfunc_44__13TUnk_8049FBC0Fv(u8 *arg0);
-}
-
-extern "C" {
-
 void __dt__11TItemObjectFv(void *, int);
 void *__dt__13TUnk_8049FBC0Fv(void *arg0, s16 arg1);
 void run_task__5TItemFv();

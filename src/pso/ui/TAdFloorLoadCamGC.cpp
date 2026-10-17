@@ -1,6 +1,5 @@
 #include "types.h"
 #include "pso/ui/TAdFloorLoadCamGC.h"
-#include "pso/ui/TAdFloorLoadCamGC.h"
 #include "pso/misc/TCameraCtrl.h"
 
 struct Vec_8034BE5C { f32 x, y, z; };
@@ -30,10 +29,6 @@ f32 vec_squared_length(void *);
 void normalize_vector(void *);
 extern Pad_8034BE5C controller_physical_port_bank;
 extern const f32 lbl_805DFDB8;
-}
-
-extern "C" {
-
 void *__dt__17TAdFloorLoadCamGCFv(void *arg0, s16 arg1);
 u16 fn_8034BE30(void* p);
 void fn_8034BE38(void* p);
@@ -46,8 +41,6 @@ u16 fn_8034BE30(void* p) { return *(u16*)((char*)p + 0x24); }
 void fn_8034BE38(void* p) { *(u32*)((char*)p + 0x334) &= 0xbfffffff; }
 void fn_8034BE48(void* p) { *(u32*)((char*)p + 0x334) |= 0x40000000; }
 void TAdFloorLoadCamGC::render() {  }
-
-extern s32 __vt__17TAdFloorLoadCamGC[];
 
 extern "C" {
 extern const f32 lbl_805DFDA8 = 182.04445f;

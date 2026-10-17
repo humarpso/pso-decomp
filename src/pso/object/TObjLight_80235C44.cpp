@@ -45,16 +45,9 @@ s32 obj_getField1c(int);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804CCAA8[];
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 obj_getField1c(int);
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 __ct__7TObjectFP7TObject(void *, void *);
-extern s32 lbl_804CCAA8[];
 extern const f32 lbl_805DC888;
 u8 *construct_actor_light_task(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u8 *arg4, u8 *arg5, f32 farg0);
-s32 obj_getField1c(int);
 s32 queue_destruction__7TObjectFv(void *);
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 TObjLight__sub_800827E0(void *, void *, f32);
 s32 publish_actor_light_scalars(int, f32, f32);
 s32 publish_light_direction_color(int, void *, void *);
@@ -63,15 +56,9 @@ u32 get_player_by_client_id(int);
 extern Base_80235C44 TObjLight__scene_light_state;
 extern const f32 lbl_805DC890;
 extern const f32 lbl_805DC894;
-}
-
-extern "C" {
-
 void *__dt__13TUnk_804CCAA8Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-
-extern s32 lbl_804CCAA8[];
 
 #pragma push
 #pragma fp_contract on

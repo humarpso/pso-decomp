@@ -30,9 +30,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void play_sound_effect(s32, s32, s32, s32);
 extern u8 controller_input_state[];
 extern s32 lbl_805D67C0;
-void queue_destruction__7TObjectFv(void *);
 void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
-s32 get_localized_text_entry(s32, s32);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 TAdMultiPlyChrSelectGC__sub_80299454(void);
@@ -50,13 +48,8 @@ extern A_802C3400 lbl_804719FC[];
 extern B_802C3400 story_select_rect_table;
 extern void *__vt__16TAdStorySelectGC[];
 extern s32 lbl_805D3EC8;
-extern s32 lbl_805D67C0;
 extern const f32 lbl_805DE528;
 Self_802C3400 *__ct__16TAdStorySelectGCFv(Self_802C3400 *self, void *parent);
-}
-
-extern "C" {
-
 void TAdStorySelectGC::render() {  }
 void TAdStorySelectGC::run_task() {
     Obj_802C3288 *self = (Obj_802C3288 *)this;

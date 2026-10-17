@@ -60,16 +60,11 @@ u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8016B5A4_lbl_80441A74 lbl_80441A74;
 extern RecoveredGlobal_8016B5A4_lbl_804B2A7C bm_fs_obj_o_doorswitch01_resource_descriptor;
 extern u32 TOKeyAncient02__model_archive;
-extern s32 TOKeyAncient02__model_root;
-extern void *TOKeyAncient02__texture_lists;
-s32 TObjFish__sub_8001EDB0(void *, s32);
-s32 get_bml_model(void *, s32);
 s32 init_collision_body_parts(void *, void *, int);
 s32 TOKey__ct(void *);
 extern RecoveredGlobal_8016B6A4_lbl_804B2A8C lbl_804B2A8C;
 extern s32 __vt__14TOKeyAncient02[];
 extern s32 TOKeyAncient02__class_name;
-extern u32 TOKeyAncient02__model_archive;
 extern const f32 TOKeyAncient02__data_805DB70C;
 extern const f32 lbl_805DB710;
 extern const f32 lbl_805DB714;
@@ -79,15 +74,6 @@ extern s32 local_client_id;
 extern const f32 lbl_805DB700;
 extern const f32 lbl_805DB704;
 extern const f32 lbl_805DB708;
-extern const f32 TOKeyAncient02__data_805DB70C;
-extern const f32 lbl_805DB700;
-extern const f32 lbl_805DB704;
-extern const f32 lbl_805DB708;
-extern const f32 TOKeyAncient02__data_805DB70C;
-}
-
-extern "C" {
-
 void *__dt__14TOKeyAncient02Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void free_collision_body_parts(void *);
@@ -198,10 +184,6 @@ void *TOKeyAncient02::create(void *arg0) {
     return o;
 }
 
-extern u32 TOKeyAncient02__model_archive;
-extern s32 TOKeyAncient02__model_root;
-extern void *TOKeyAncient02__texture_lists;
-
 void TOKeyAncient02::free_static() {
     if ((void *) TOKeyAncient02__texture_lists != NULL) {
         TObjPlayer::free_if_valid(*(s32 *)((s8 *)TOKeyAncient02__texture_lists + 4));
@@ -216,8 +198,6 @@ void TOKeyAncient02::free_static() {
     }
     TOKeyAncient02__model_root = 0;
 }
-
-extern s32 __vt__14TOKeyAncient02[];
 
 typedef char RecoveredGlobal_8016B5A4_lbl_80441A74_size[sizeof(RecoveredGlobal_8016B5A4_lbl_80441A74) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_8016B5A4_lbl_804B2A7C_size[sizeof(RecoveredGlobal_8016B5A4_lbl_804B2A7C) == 0x10 ? 1 : -1];

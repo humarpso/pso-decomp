@@ -252,9 +252,6 @@ s32 copy_position_if_valid__10TObjPlayerFii(void *, Vec_800F1098 *);
 s32 update_angle__10TObjPlayerFlPv(void *, s32, void *);
 s32 enemy_turn_toward_dest(void *, s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 transition_enemy_state(void *, int);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback(void *);
 s32 matrix_mult_vec(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 void subtract_vector(void *, void *);
@@ -272,18 +269,11 @@ void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 receive_direct_attack__10TObjPlayerFv(void *, void *, void *, void *, s32, s32);
 u16 obj_getField1c(void *);
-s32 transition_enemy_state(void *, int);
 void handle_direct_attack__16TObjEneMe3StelthFPvPviPv(Obj_800F0EC4 *arg0, void *arg1, Pair_800F0EC4 arg2, void *arg3);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u16 obj_getField1c(void *);
 s32 fn_8002B630(void *, void *);
 u32 get_valid_target_player__10TNpcPlayerFv(int);
 extern u8 TObjEneMe3Stelth__collision_body_template[];
 s32 TObjEneMe3Stelth__sub_800F0F84(u8 *arg0, Vec_800F0F84 *arg1);
-}
-
-extern "C" {
-
 #define F(T, o) (*(T *)(arg0 + (o)))
 #define VO ((VObj_18 *)(arg0))
 

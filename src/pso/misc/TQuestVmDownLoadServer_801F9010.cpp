@@ -4,10 +4,6 @@
 
 extern "C" {
 void fn_801F9030(void);
-}
-
-extern "C" {
-
 void TQuestVmDownLoadServer::reset_download() {
     fn_801F9030();
 }

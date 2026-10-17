@@ -1,7 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowSubQuestBoard.h"
 #include "pso/misc/TWindowSubQuestBoardSelect.h"
-#include "pso/misc/TWindowSubQuestBoard.h"
 
 extern "C" {
 

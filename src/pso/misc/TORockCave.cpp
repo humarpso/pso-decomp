@@ -25,7 +25,6 @@ typedef char BmlResourceBlock_804B3B50_descriptor_offset[(offsetof(BmlResourceBl
 struct BmlResourceBlock_804B3B7C { const char *model_filenames[7]; BmlResourceDescriptor descriptor; };
 typedef char BmlResourceBlock_804B3B7C_size[(sizeof(BmlResourceBlock_804B3B7C) == 0x2c) ? 1 : -1];
 typedef char BmlResourceBlock_804B3B7C_descriptor_offset[(offsetof(BmlResourceBlock_804B3B7C, descriptor) == 0x1c) ? 1 : -1];
-extern "C" {
 extern char lbl_804424A0[];
 extern char lbl_804424B4[];
 extern char lbl_804424C8[];
@@ -74,7 +73,6 @@ extern const char *bm_o_rock_cave03_motion_names[1];
 extern const char *bm_fe_obj_rb_liwa_motion_names[1];
 extern const char *bm_fe_obj_rb2_liwa_motion_names[1];
 extern const char *bm_fe_obj_rb3_liwa_motion_names[1];
-}
 
 struct VBase_18 { char pad[0x18]; };
 
@@ -105,18 +103,11 @@ u32 load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 extern u32 cave_rock_resource_bundle;
 extern u32 rock_cave_model_resource;
-}
-
-extern "C" {
-
 void *TORockCave__ct(void *arg0);
 void *__dt__10TORockCaveFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 void __dl__7TObjectFPv(void *);
-
-extern u32 cave_rock_resource_bundle;
-extern u32 rock_cave_model_resource;
 
 void TORockCave::draw_model() {
     u8 *arg0 = (u8 *)this;
@@ -189,7 +180,6 @@ void *__dt__10TORockCaveFv(void *arg0, s16 arg1) {
 
 extern void *tl_05;
 extern const f32 lbl_805DB974;
-extern s32 __vt__10TORockCave[];
 extern const f32 lbl_805DB978;
 extern void *TORockCave__class_name;
 
@@ -205,9 +195,6 @@ void *TORockCave__ct(void *arg0) {
 void TORockCave::vfunc_14() {  }
 void TORockCave::vfunc_15() {  }
 
-}
-
-extern "C" {
 __declspec(section ".data") BmlResourceBlock_804B3AB8 rock_cave_resource_table = { { lbl_804424A0, lbl_804424B4, lbl_804424C8, NULL }, { lbl_804424DC, rock_cave_resource_table.model_filenames, bm_o_rock_cave01_motion_names, 3, 0 } };
 __declspec(section ".data") BmlResourceBlock_804B3AD8 bm_o_rock_cave02_resource_bundle = { { lbl_804424F4, lbl_80442508, lbl_8044251C, lbl_80442530, lbl_80442544, lbl_80442558, NULL }, { lbl_8044256C, bm_o_rock_cave02_resource_bundle.model_filenames, bm_o_rock_cave02_motion_names, 6, 0 } };
 __declspec(section ".data") BmlResourceBlock_804B3B04 bm_o_rock_cave03_resource_bundle = { { lbl_80442584, lbl_80442598, lbl_804425AC, NULL }, { lbl_804425C0, bm_o_rock_cave03_resource_bundle.model_filenames, bm_o_rock_cave03_motion_names, 3, 0 } };

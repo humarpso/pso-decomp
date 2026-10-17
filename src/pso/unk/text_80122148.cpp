@@ -73,10 +73,6 @@ extern s32 tl_05;
 void spawn_weapon_impact_effect();
 void create_shoot_model_rot_z();
 void create_gun_shot();
-}
-
-extern "C" {
-
 u8 *TObjPlayer::create_state_vector_state(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
@@ -105,9 +101,5 @@ void TUnk_804A0EA8::emit_marker_effects() {
         self->m49(self->a204, 0, 0, 1);
     }
 }
-
-#include "types.h"
-
-#include "types.h"
 
 }

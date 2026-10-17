@@ -19,10 +19,6 @@ struct Ctx_80290B3C {
 
 extern "C" {
 u32 relocate_data_block_pointers(u32 arg0, u32 arg1);
-}
-
-extern "C" {
-
 u32 relocate_data_block_pointers(u32 arg0, u32 arg1) {
     Ctx_80290B3C c;
     u16 *idx;

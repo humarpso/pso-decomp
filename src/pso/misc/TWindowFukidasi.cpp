@@ -52,26 +52,7 @@ extern const f32 lbl_805DCD24;
 extern const f32 TWindowFukidasi__data_805DCD28;
 extern const f32 lbl_805DCD2C;
 s32 rest_balloon__15TWindowFukidasiFv(Fuki_80250A24 *b, f32 *rect, f32 *arg2);
-f32 atan2_float(f32, f32);
-s32 clamp_position__15TWindowFukidasiFPvPvf(void *arg0, void *arg1, f32 farg0);
-int rand(void);
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
-f32 xyz_distance(void *, void *);
-extern const f64 TWindowFukidasi__data_8044ED70;
-extern const f32 TWindowFukidasi__data_805DCCE8;
-extern const f32 TWindowFukidasi__data_805DCD08;
-extern const f32 TWindowFukidasi__data_805DCD0C;
-extern const f32 TWindowFukidasi__data_805DCD14;
-extern const f32 TWindowFukidasi__data_805DCD18;
-extern const f32 TWindowFukidasi__data_805DCD1C;
-extern const f32 lbl_805DCD20;
-extern const f32 lbl_805DCD24;
 s32 try_place_bubble__15TWindowFukidasiFPvPvPv(Fuki_802506E8 *b, f32 *rect, f32 *o);
-}
-
-extern "C" {
-
 struct Entry_80250380 { u8 pad[0x10]; f32 w; f32 h; };
 
 struct Fuki_80250380 { u8 pad[0x24]; u8 entries[0x4C]; u8 phase; u8 options; u8 kind; };
@@ -218,8 +199,6 @@ struct Ctx_802523CC { u8 pad0[0x20]; f32 pivot; u8 pad24[4]; f32 scale; };
 
 s32 obj_isState3_324();
 s32 is_split_screen();
-f32 fabs_float(f32);
-f32 atan2_float(f32, f32);
 void queue_destruction__7TObjectFv(void *);
 s32 get_screen_width__11TCameraCtrlFv();
 s32 get_screen_height__11TCameraCtrlFv();
@@ -248,7 +227,6 @@ s32 shift_rect_with_head__15TWindowFukidasiFPvPvPv(Fuki_80250F70 *b, f32 *rect, 
 void refresh_rect_placement__15TWindowFukidasiFPv(Fuki_80251028 *b);
 void TWindowFukidasi__sub_80251790(void *);
 void set_color__15TWindowFukidasiFPvUs(void *arg0, u16 arg1);
-s32 clamp_position__15TWindowFukidasiFPvPvf(void *arg0, void *arg1, f32 farg0);
 void open__15TWindowFukidasiFPvPvi(u8 *arg0, u32 *arg1, s32 arg2);
 void set_text__15TWindowFukidasiFPvii(u8 *arg0, s32 arg1, s32 arg2);
 void init_flags__15TWindowFukidasiFPvi(void *arg0, s32 arg1);
@@ -267,8 +245,6 @@ s32 measure_message_text_width(int, f32);
 s32 set_text_entry_string(int, void *, int);
 s32 strcmp(s32, s32);
 s32 strncpy(s32, s32, s32);
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
 f32 vec3_dot(void *, void *);
 void project_world_to_screen(s32, f32 *, f32 *);
 void rotate_vector_by_matrix(s32, void *, void *);
@@ -281,18 +257,10 @@ void pop_matrix();
 void begin_screen_draw(int);
 void DVDConvertEntrynumToPath(void *);
 void set_draw_texture_and_color(int, u32);
-f32 xyz_distance(void *, void *);
 
 extern Cam_802511E4 TCameraCtrl__data_804FF634;
-extern const f64 TWindowFukidasi__data_8044ED70;
-extern const f32 TWindowFukidasi__data_805DCCE8;
 extern const f32 TWindowFukidasi__data_805DCCF4;
 extern const f32 TWindowFukidasi__data_805DCCFC;
-extern const f32 TWindowFukidasi__data_805DCD08;
-extern const f32 TWindowFukidasi__data_805DCD0C;
-extern const f32 TWindowFukidasi__data_805DCD18;
-extern const f32 TWindowFukidasi__data_805DCD1C;
-extern const f32 TWindowFukidasi__data_805DCD28;
 extern const f32 TWindowFukidasi__data_805DCD30;
 extern const f32 TWindowFukidasi__data_805DCD4C;
 extern s32 TWindowFukidasi__balloon_color_table[];
@@ -326,16 +294,6 @@ extern const f32 lbl_805DCDB4;
 extern const f32 lbl_805DCDB8;
 extern const f32 lbl_805DCDBC;
 extern const f32 lbl_805DCDC0;
-
-extern "C" {
-s32 draw_resolved_window__15TWindowFukidasiFllll(Fuki_80250F70 *, f32 *, f32 *, s32);
-extern Cam_80251380 *camera_ctrl_instance;
-}
-
-extern "C" {
-s32 draw_resolved_window__15TWindowFukidasiFllll(Fuki_80250F70 *, f32 *, f32 *, s32);
-extern Cam_80251380 *camera_ctrl_instance;
-}
 
 void complete_speech_balloon(u8 *arg0) {
     s32 t;

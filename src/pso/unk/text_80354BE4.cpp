@@ -48,35 +48,23 @@ s32 finish_quest_thread__10TObjPlayerFv(void *, int);
 extern RecoveredGlobal_80354BE4_lbl_80543984 lbl_80543984;
 void TObjPlayer__sub_80354BE4(s32 arg0);
 s32 set_player_index__10TObjPlayerFl(void *, void *, int);
-extern RecoveredGlobal_80354BE4_lbl_80543984 lbl_80543984;
 void TObjPlayer__sub_80354C2C(s32 arg0, s32 arg1);
 s32 TObjPlayer__sub_80354F8C(void *, int);
-extern RecoveredGlobal_80354BE4_lbl_80543984 lbl_80543984;
 s32 TObjPlayer__sub_80354C7C(s32 arg0);
 s32 TObjPlayer__sub_80354FB0(void *, int);
-extern RecoveredGlobal_80354BE4_lbl_80543984 lbl_80543984;
 void TObjPlayer__sub_80354CCC(s32 arg0);
 s32 set_flag0_bits01__10TObjPlayerFv(void *, int);
-extern RecoveredGlobal_80354BE4_lbl_80543984 lbl_80543984;
 void TObjPlayer__sub_80354D14(s32 arg0);
 s32 clear_lock_flag__10TObjPlayerFv(void *, int);
-extern RecoveredGlobal_80354BE4_lbl_80543984 lbl_80543984;
 s32 TObjPlayer__sub_80354D5C(s32 arg0);
 s32 TObjPlayer__sub_8035501C(void *, int);
-extern RecoveredGlobal_80354BE4_lbl_80543984 lbl_80543984;
 void TObjPlayer__sub_80354DAC(s32 arg0);
 s32 set_flag1__10TObjPlayerFv(void *, int);
-extern RecoveredGlobal_80354BE4_lbl_80543984 lbl_80543984;
 void TObjPlayer__sub_80354DF4(s32 arg0);
 s32 is_locally_controlled__10TObjPlayerFPv();
 u32 get_player_by_client_id(u16);
 s32 TObjPlayer__sub_80354E3C(s32 arg0);
-extern RecoveredGlobal_80354BE4_lbl_80543984 lbl_80543984;
 void TObjPlayer__sub_80354E7C(void);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_80354BE4_lbl_80543984_size[sizeof(RecoveredGlobal_80354BE4_lbl_80543984) == 0x24 ? 1 : -1];
 void TObjPlayer__sub_80354BE4(s32 arg0) {
     s32 temp_r4;

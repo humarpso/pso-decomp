@@ -79,10 +79,7 @@ extern s32 TLobby__data_805D6114;
 extern s32 TLobby__data_805D611C;
 extern s32 TLobby__data_805D6120;
 void *find_scene_room_by_id(s32 room);
-void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2);
 void apply_room_transform_to_enemy_rows(SpawnRecord_8020D36C *rows, s32 count);
-void *find_scene_room_by_id(s32 room);
-void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2);
 void apply_room_transform_to_object_rows(Rec_8020D3F0 *arr, s32 n);
 s32 find_set_factory_index(void *, void *);
 s32 resolve_set_row_factory_indices(void *arg0, int arg1, int arg2);
@@ -92,14 +89,7 @@ s32 is_within_camera_distance(void *arg0, void *arg1, f32 farg0);
 s32 is_quest_active();
 s32 TLobby__sub_801C2614();
 u8 *call_area_set_factory(void *, void *);
-s32 is_within_camera_distance(void *arg0, void *arg1, f32 farg0);
-extern s32 TLobby__data_805D611C;
-extern s32 TLobby__data_805D6120;
 void spawn_decorations_in_range(void *arg0);
-}
-
-extern "C" {
-
 void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2) {
     push_matrix_from((u32) &identity_matrix.value);
     translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg2 + 4)), (f32) (*(f32 *)((s8 *)arg2 + 8)), (f32) (*(f32 *)((s8 *)arg2 + 0xC)));

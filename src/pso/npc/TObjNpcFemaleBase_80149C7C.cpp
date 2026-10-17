@@ -19,10 +19,6 @@ u8 * TObjNpcBase__ct(void *);
 extern RecoveredGlobal_80149CE0_lbl_8043F810 npc_female_base_action_table;
 extern s32 lbl_804A8640[];
 extern s32 *npc_town_motion_data;
-}
-
-extern "C" {
-
 void TObjNpcFemaleBase__sub_80149C7C(void);
 void __dl__7TObjectFPv(void *);
 void __dt__11TObjNpcBaseFv(void *, int);
@@ -30,8 +26,6 @@ void __dt__11TObjNpcBaseFv(void *, int);
     extern int lbl_805D5758;
     extern int lbl_805D5D78;
 void TObjNpcFemaleBase__sub_80149C7C(void) { lbl_805D5758 = lbl_805D5D78; }
-
-extern s32 lbl_804A8640[];
 
 void *TUnk_804A8640::destroy_npc_female_base(s16 arg1) {
     if (this != NULL) {

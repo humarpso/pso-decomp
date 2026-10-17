@@ -11,10 +11,6 @@ extern "C" {
 f32 horizontal_distance_squared(void *, void *);
 Pl_80117F14 *get_player_by_client_id(s32);
 extern const f64 lbl_8043E650[];
-}
-
-extern "C" {
-
 void TItemTimerEvent__ct(void *);
 
 extern s32 lbl_804A0628[];

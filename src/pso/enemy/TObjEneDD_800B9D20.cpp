@@ -28,15 +28,10 @@ s32 post_translate_matrix(void *);
 extern const f32 TObjEneDD__data_805D9E8C;
 extern const f32 lbl_805D9E90;
 int bind_enemy_combat_stats(void*);
-}
-
-extern "C" {
-
 int transform_to_view__11TCameraCtrlFii(void*);
 int apply_split_screen_view_matrix__11TCameraCtrlFv(void*);
 int restore_scene_lighting(void*);
 int select_actor_lighting(void*);
-int bind_enemy_combat_stats(void*);
 int render_with_position_override__9TObjEnemyFPUcl(void*);
 int set_param__12TObjEneLappyFl(void*);
 

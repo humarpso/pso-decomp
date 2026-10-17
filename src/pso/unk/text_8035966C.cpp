@@ -6,10 +6,6 @@ s32 __nw__7TObjectFUl(int);
 s32 __ct__10TBoss4FadeFv(int, int);
 extern s32 tl_clipout;
 s32 create_boss4_fade(void);
-}
-
-extern "C" {
-
 s32 create_boss4_fade(void) {
     s32 temp_r3;
     s32 var_r0;

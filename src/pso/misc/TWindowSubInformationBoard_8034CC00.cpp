@@ -10,9 +10,7 @@ struct RecoveredGlobal_8034CC68_lbl_80478C3C {
     u8 remaining[0x8];
 };
 
-extern "C" {
 extern const RecoveredGlobal_8034CC68_lbl_80478C3C lbl_80478C3C;
-}
 
 extern "C" {
 

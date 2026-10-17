@@ -12,10 +12,6 @@ void set_global_draw_flag_bits(s32, s32);
 void set_chunk_material_override_pair(s32, s32);
 s32 set_chunk_material_color(void *);
 void fn_801424DC(s32 arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3);
-}
-
-extern "C" {
-
 void fn_801424DC(s32 arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
     Stack_801424DC stack;
     stack.sp8 = farg0;

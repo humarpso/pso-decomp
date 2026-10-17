@@ -33,10 +33,8 @@ u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void run_load_callback_table(void *, int);
 u8 *collect_and_count__12TBoss3VoloptFUll(s32, s32);
-extern RecoveredGlobal_802EE4E0_lbl_804E3C5C lbl_804E3C5C;
 extern s32 lbl_804E3D1C[];
 extern Light_802EE574 boss7_derolle_light_pool[];
-extern u8 *lbl_805D6918;
 extern s32 boss7_derolle_c_motion_id;
 extern s32 lbl_805D6920;
 extern s32 lbl_805D6924;
@@ -49,10 +47,6 @@ extern u8 *lbl_805D693C;
 extern s32 lbl_805D6940;
 extern const f32 lbl_805DEA10;
 void TObjPlayer__sub_802EE574(void);
-}
-
-extern "C" {
-
 void *TBoss7DeRolLeC__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 

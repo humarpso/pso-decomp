@@ -7,13 +7,7 @@ extern "C" {
 extern u8 *photon_blast_shared_resource;
 extern u32 pilla_photon_buffer_pair;
 void create_pilla_photon_blast_model(void);
-}
-
-extern "C" {
-
 s32 destroy_buffer_pair(void*, s32);
-
-extern u32 pilla_photon_buffer_pair;
 
 void TObjPlayer::free_buffer_pair() {
     if ((u32) pilla_photon_buffer_pair != 0U) {

@@ -204,12 +204,8 @@ s32 advance_animation_playback();
 u32 find_entity_by_id(u16);
 s32 play_sound_effect(s32, void *, s32, s32);
 void state_death_fall__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1);
-}
 #define clamp_flight_height__13TObjEneBm3FlyFv (*(s32 (*)(void *))&clamp_flight_height__13TObjEneBm3FlyFv)
 #define update_dd_flag__13TObjEneBm3FlyFPv (*(s32 (*)(void *, f32, f32, f32))&update_dd_flag__13TObjEneBm3FlyFPv)
-
-extern "C" {
-
 void TObjEneBm3Fly__vt103(void);
 void TObjEneBm3Fly__vt104(u8 *arg0);
 void action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1);
@@ -406,8 +402,6 @@ void action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
 
 #undef clamp_flight_height__13TObjEneBm3FlyFv
 #undef update_dd_flag__13TObjEneBm3FlyFPv
-
-#include "types.h"
 
 struct VBaseB0_800b07d0 { char pad[0x18]; };
 struct VObjB0_800b07d0 : VBaseB0_800b07d0 {
@@ -1100,15 +1094,10 @@ extern const f32 lbl_805D9E80;
 void TObjEneBm3Fly__sub_800B1214(u8 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void circle_destination__13TObjEneBm3FlyFPvi(void *arg0, s32 arg1);
-extern const f64 TObjEneBm3Fly__data_8043B118[];
 void state_circle_target__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1);
 s32 is_vec_xz_cross_negative(void *, void *);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 void TObjEneBm3Fly__sub_800B0F70(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 struct Base_800B150C_800B07D0 { char pad[0x18]; };
 struct VObj_800B150C_800B07D0 : Base_800B150C_800B07D0 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -1764,8 +1753,6 @@ void TObjEneBm3Fly::play_pitched_cue() {
 #define find_entity_by_id (*(void * (*)(u16))&find_entity_by_id)
 #define clamp_flight_height__13TObjEneBm3FlyFv (*(int (*)(void*))&clamp_flight_height__13TObjEneBm3FlyFv)
 
-#include "types.h"
-
 struct VBase_18_67c185 { char pad[0x18]; };
 
 struct VObj_18_67c185 : VBase_18_67c185 {
@@ -1891,10 +1878,6 @@ s32 get_random_scaled__9TObjEneDDFv(void *);
 s32 has_free_attack_slot__17TObjEneBm3FlyNestFUs(void *, u16);
 s32 enemy_set_target_id(void *, u16);
 s32 collect_enemy_target_candidates(void *, Cand_800B1684 *, f32);
-}
-
-extern "C" {
-
 void TObjEneBm3Fly__vt87(void* p);
 u16 get_active_id__13TObjEneBm3FlyFPv(void *arg0);
 int vfunc_89__9TObjEneDDFv(void*);
@@ -1998,24 +1981,16 @@ void TObjEneBm3Fly__vt87(void* p) { vfunc_89__9TObjEneDDFv(p); clamp_flight_heig
 #define VBase_18 VBase_18__p3
 #define VObj_18 VObj_18__p3
 
-#include "types.h"
-#include "pso/enemy/TObjEneBm3Fly.h"
 #include <stddef.h>
 #include "pso/TObject.h"
 #include "pso/boss/TBoss8Dragon.h"
-#include "pso/enemy/TObjEneBm3FlyNest.h"
-#include "pso/enemy/TObjEneDD.h"
-#include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/misc/RenderFadeState.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
-#include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern const f32 lbl_805D9CF8;
 extern const f32 lbl_805D9D6C;
-}
 
 extern "C" {
 
@@ -2433,7 +2408,6 @@ void update_flag30_timer__10TObjPlayerFPv();
 void update_movement_status__10TObjPlayerFv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
 void update_poison_status__10TObjPlayerFv();
-extern s32 TObjEneBm3Fly__attack_params;
 extern RecoveredGlobal_800B22C8_lbl_8043B0FC bm3_fly_resource_binding_desc;
 typedef struct Ctl_800B47C4 {
     f32 *pv;
@@ -2446,10 +2420,6 @@ extern s32 TObjEneBm3Fly__name;
 extern s32 bm3_fly_boss_stat_handle;
 extern s32 lbl_805D50E8;
 extern u8 *bm3_fly_nest_resources;
-extern const f32 lbl_805D9CF8;
-extern const f32 lbl_805D9D6C;
-extern const f32 lbl_805D9E84;
-extern const f32 lbl_805D9E88;
 extern void *tl_04;
 
 extern "C" void vfunc_83__12TObjEneDD_STFv();
@@ -2785,11 +2755,6 @@ void init_model__9TObjEneDDFv(void *, void *, s32);
 void set_active__12TObjEneDD_STFv(void *);
 void init_position_vectors__9TObjEneDDFv(void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
-
-extern s32 bm3_fly_boss_stat_handle;
-extern s32 TObjEneBm3Fly__attack_params;
-extern s32 lbl_805D50E8;
-extern u8 *bm3_fly_nest_resources;
 
 s32 TObjEneBm3Fly::init_child_params() {
     init_position_vectors__9TObjEneDDFv(this);

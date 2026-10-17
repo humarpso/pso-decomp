@@ -74,10 +74,6 @@ extern Spawn_8015B94C ancient_enemy_break_debris_desc;
 extern Spawn_8015B94C ancient_enemy_break_debris_desc_b;
 extern s32 lbl_805D2F10;
 extern Ref_8015B94C *ancient_container_fragment_texture_lists;
-}
-
-extern "C" {
-
 void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
@@ -93,8 +89,6 @@ void TOContainerAncientEnemy::vfunc_6(s16 *arg1, s32 arg2) {
         queue_destruction__7TObjectFv(this);
     }
 }
-
-extern s32 __vt__23TOContainerAncientEnemy[];
 
 void TOContainerAncientEnemy::vfunc_79() {
     Obj_8015B94C *self = (Obj_8015B94C *)this;

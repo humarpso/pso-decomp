@@ -6,10 +6,6 @@
 extern "C" {
 void draw_selection_bar(void *, void *, s32);
 extern s32 actor_frame_tick;
-}
-
-extern "C" {
-
 void TWindowSubItemList::sub_8027ACF8(u8 *arg1) {
     u8 *arg0 = (u8 *)this;
     s16 temp_r5;

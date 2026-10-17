@@ -4,11 +4,7 @@
 extern "C" {
 s32 TWindowDD__sub_80341AC0(u8 *arg0);
 s32 can_scroll__9TWindowDDFPvi(void *arg0, s32 arg1);
-}
-
 #define TWindowDD__sub_80341AC0 ((s32 (*)(void))TWindowDD__sub_80341AC0)
-
-extern "C" {
 
 s32 can_scroll__9TWindowDDFPvi(void *arg0, s32 arg1) {
     s32 temp_r0;
@@ -35,18 +31,10 @@ s32 can_scroll__9TWindowDDFPvi(void *arg0, s32 arg1) {
     return ((u32) (*(s32 *)((s8 *)arg0 + 0x68) - (temp_r3 + 1)) >> 0x1FU) ^ 1;
 }
 
-}
-
 #undef TWindowDD__sub_80341AC0
 
-#include "types.h"
-
-extern "C" {
 void TWindowDD__sub_80341AE0(u8 *arg0);
 void TWindowDD__sub_80341AF8(u8 *arg0);
-}
-
-extern "C" {
 
 s32 TWindowDD__sub_80341AC0(u8 *arg0) {
     return *(s32 *)((s8 *)arg0 + 0x74) > *(s32 *)((s8 *)arg0 + 0x78);
@@ -64,7 +52,6 @@ void TWindowDD__sub_80341AF8(u8 *arg0) {
 
 }
 
-#include "types.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -106,17 +93,12 @@ extern const float TWindowDD__data_805DFCA8;
 int TWindowDD__sub_80342158(u8 *arg0);
 s32 init_window_layout_entries(void *, void *, int);
 extern RecoveredGlobal_80341F9C_TWindowDD__data_804EFC50 TWindowDD__data_804EFC50;
-extern const f32 TWindowDD__data_805DFB20;
 s16 *mem_alloc(int);
 s32 get_array_entry__13TUnk_804CE018Fi(void * a0, s32 a1);
 int refresh_status_display__9TWindowDDFv(void *);
 int set_text_entry_string(void *, s32, int);
 Elem_80341FFC *get_element_ptr__9TWindowDDFl(s32);
 s32 TWindowDD__sub_80348B70(s32);
-}
-
-extern "C" {
-
 void mem_free(void *);
 s32 get_array_entry__13TUnk_804CE018Fi(void * a0 = 0, s32 a1 = 0);
 s32 get_field_20__17TWindowSubComCardFv(void);
@@ -234,8 +216,6 @@ void TWindowDD::free_child() {
 }
 
 void TWindowDD::init_child(void* a1) { free_child(); *(void**)((char*)this + 0x70) = a1; init_layout_entries(); load_element_list(); reset_fields(); *(int*)((char*)this + 0x8c) = 1; }
-
-    extern const float TWindowDD__data_805DFCA8;
 
 typedef char RecoveredGlobal_80341F9C_TWindowDD__data_804EFC50_size[sizeof(RecoveredGlobal_80341F9C_TWindowDD__data_804EFC50) == 0x40 ? 1 : -1];
 void TWindowDD::init_layout_entries() {

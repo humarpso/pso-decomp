@@ -34,11 +34,9 @@ void TObjBoss2Tunnel__sub_803E2D10(s32);
 void draw_projected_textured_strip(void *, s32);
 void TLobby__sub_803E2EE4(s32);
 extern s32 lbl_805D63F0;
-extern s32 lobby_request_flags;
 extern int info_icon_texture;
 void TLobby__sub_80338534(void);
 f32 cos_table_lookup(s32);
-extern s32 lobby_request_flags;
 extern s32 lobby_pulse_color_phase;
 extern const f32 lbl_805DF9A0;
 extern const f32 lbl_805DF9A4;
@@ -54,10 +52,6 @@ extern const f32 lbl_805DF9B0;
 extern "C" u8 lbl_80477B90[];
 extern "C" u8 lbl_80477BA0[];
 extern "C" u8 lbl_80477BB4[];
-}
-
-extern "C" {
-
 void TWindowSubStatusDisp__sub_803386F0(void);
 void load_info_icon(void);
 int load_gvm_texture_file(void*);
@@ -166,16 +160,12 @@ void TLobby__sub_803382E4(void) {
 }
 #pragma pop
 
-extern s32 lobby_request_flags;
-
 void TLobby::handle_flag2_request() {
     if (lobby_request_flags & 2) {
         TLobby__sub_803DA16C(lbl_804EF1DC);
         lobby_request_flags &= 0xFFFFFFFD;
     }
 }
-
-    extern int info_icon_texture;
 
 void TLobby::load_now_loading_texture() {
     s32 temp_r31;
@@ -283,7 +273,6 @@ void TLobby::update_pulse_colors(s32 arg0) {
 void TWindowSubStatusDisp__sub_803386F0(void) { free_if_valid__10TObjPlayerFl((void*)(info_icon_texture)); }
 
     extern unsigned char lbl_80477BD4[];
-    extern int info_icon_texture;
 void load_info_icon(void) { info_icon_texture = load_gvm_texture_file(lbl_80477BD4); }
 
 }

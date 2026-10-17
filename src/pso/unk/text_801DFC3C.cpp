@@ -9,10 +9,6 @@ void bswap_choice_search_config(void *);
 void bswap__12TPlyCharDataFv(void *);
 void bswap_32__FPUl(void *);
 void bswap_player_record_upload(u8 *arg0);
-}
-
-extern "C" {
-
 void bswap_player_record_upload(u8 *arg0) {
     s32 i;
     bswap__13packet_headerFv();

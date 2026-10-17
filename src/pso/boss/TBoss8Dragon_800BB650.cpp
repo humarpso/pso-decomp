@@ -16,11 +16,6 @@ s32 obj_getField1c(void *);
 u32 csnLookAt(void *, void *);
 s32 is_alive__9TObjEneDDFv(void *);
 f32 horizontal_distance_squared(void *, void *);
-void enemy_find_nearest_player_in_range(f32 farg0);
-}
-
-extern "C" {
-
 void TBoss8Dragon__sub_800BB650(void* p, void* q);
 void TBoss8Dragon__sub_800BB7D4(void);
 void TBoss8Dragon__sub_800BB7D8(void);

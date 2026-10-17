@@ -19,10 +19,6 @@ struct TItemReverseTechBG_80119658 {
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-}
-
-extern "C" {
-
 void *__ct__18TItemReverseTechBGFv(void *arg0, void *arg1, void *arg3);
 void draw_textured_quad_at_depth(void *, f32);
 void begin_screen_draw(int);

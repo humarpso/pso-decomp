@@ -13,12 +13,7 @@ struct Win_802693B4 { u8 pad[0x6c]; f32 f6c; u8 pad2[0x84 - 0x70]; f32 f84; u8 p
 extern "C" {
 Entry_80269454 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void *get_field_20__17TWindowSubComCardFv(void *);
-Entry_80269454 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
-void *get_field_20__17TWindowSubComCardFv(void *);
 s32 is_window_reveal_complete__13TUnk_804CE018Fv();
-}
-
-extern "C" {
 
 s32 TWindowMessagePage::is_message_window_ready() {
     Entry_80269454 *e;

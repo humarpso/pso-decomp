@@ -132,15 +132,9 @@ extern const f32 lbl_805E00B4;
 void TBoss8Dragon__sub_80359A7C(u8 *arg0);
 u8 * TBoss8Dragon__ct(void *, s32, s32);
 extern s32 boss8_dragon_attack_object_vtable[];
-}
-
-extern "C" {
-
 void *__dt__13TUnk_804F1A78Fv(void *arg0, s16 arg1);
 void __dt__12TBoss8DragonFv(void *, int);
 void __dl__7TObjectFPv(void *);
-
-extern s32 boss8_dragon_attack_object_vtable[];
 
 void TBoss8Dragon__sub_80359A7C(u8 *arg0) {
     s16 temp_r0;

@@ -23,17 +23,7 @@ f32 transform_point_by_current_matrix(void *, void *);
 extern RecoveredGlobal_801A2340_lbl_804FF610 lbl_804FF610;
 extern const f32 lbl_805DC098;
 extern const f32 lbl_805DC09C;
-s32 is_in_shadow_range(f32, void *);
-s32 project_world_to_screen(int, void *, void *);
-f32 transform_point_by_current_matrix(void *, void *);
-extern RecoveredGlobal_801A2340_lbl_804FF610 lbl_804FF610;
-extern const f32 lbl_805DC098;
-extern const f32 lbl_805DC09C;
 s16 classify_actor_view_detail(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
-}
-
-extern "C" {
-
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off

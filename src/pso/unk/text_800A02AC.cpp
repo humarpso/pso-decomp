@@ -11,10 +11,6 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_800A02AC_lbl_80490458 lbl_80490458;
 extern s32 TObjEneMe1Canadin_EffLineFade__class_name;
 u8 *fn_800A02AC(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_800A02AC_lbl_80490458_size[sizeof(RecoveredGlobal_800A02AC_lbl_80490458) == 0x18 ? 1 : -1];
 u8 *fn_800A02AC(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
     __ct__7TObjectFP7TObject(arg0, arg1);

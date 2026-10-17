@@ -7,7 +7,6 @@
 #include "pso/object/TObjFish.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern char lbl_8046FCB8[];
 extern char lbl_8046FCC8[];
 extern char lbl_8046FCDC[];
@@ -20,7 +19,6 @@ extern BmlResourceDescriptor TOMekaFish00__resource_descriptor;
 extern const char *bm_obj_meka_fish_1_model_names[2];
 extern const char *bm_obj_meka_fish_1_motion_names[2];
 extern BmlResourceDescriptor TOMekaFish01__shared_resource_descriptor;
-}
 
 struct RecoveredGlobal_802AA354_lbl_804DE000 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_802AA354_lbl_804DE000_size[sizeof(RecoveredGlobal_802AA354_lbl_804DE000) == 0x10 ? 1 : -1];
@@ -29,10 +27,6 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_802AA354_lbl_804DE000 biwamushi_resource_desc;
 extern u32 TOBiwaMushi__shared_model_resource;
-}
-
-extern "C" {
-
 void *TOBiwaMushi__create(void *arg0);
 void *__dt__11TOBiwaMushiFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -48,8 +42,6 @@ void *TOBiwaMushi__create(void *arg0) {
     }
     return o;
 }
-
-extern u32 TOBiwaMushi__shared_model_resource;
 
 void TOBiwaMushi::free_shared_data() {
     if ((u32) TOBiwaMushi__shared_model_resource != 0U) {
@@ -82,9 +74,6 @@ void *__dt__11TOBiwaMushiFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-
-extern "C" {
 #pragma push
 struct VBase_802AA3FC { u8 pad[0x18]; };
 struct Obj_802AA3FC : VBase_802AA3FC {
@@ -127,9 +116,7 @@ ModelRef_802AA3FC *get_bml_model(u32, s32);
 void TODragonfly__ct(void *, void *);
 s32 rand();
 f32 sin_table_lookup(s32);
-extern s32 __vt__11TOBiwaMushi[];
 extern s32 lbl_805D3E48;
-extern u32 TOBiwaMushi__shared_model_resource;
 extern const f32 lbl_805DE068;
 extern const f32 lbl_805DE06C;
 extern const f32 lbl_805DE070;
@@ -169,19 +156,10 @@ struct RecoveredGlobal_802AA644_lbl_804DDFE0 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_802AA644_lbl_804DDFE0_size[sizeof(RecoveredGlobal_802AA644_lbl_804DDFE0) == 0x10 ? 1 : -1];
 
 extern "C" {
-u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u32 TOMekaFish01__shared_model_resource;
-}
-
-extern "C" {
-
 void *TOMekaFish01__create(void *arg0);
 void *__dt__12TOMekaFish01Fv(void *arg0, s16 arg1);
-void TLobby__sub_8001FE7C(void*, int);
 void *TOMekaFish01__ct(void *, void *);
-void __dl__7TObjectFPv(void *);
-void __dt__11TODragonflyFv(void *, int);
-void *__nw__7TObjectFUl(int);
 
 void *TOMekaFish01__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x100);
@@ -190,8 +168,6 @@ void *TOMekaFish01__create(void *arg0) {
     }
     return o;
 }
-
-extern u32 TOMekaFish01__shared_model_resource;
 
 void TOMekaFish01::free_static_data() {
     if ((u32) TOMekaFish01__shared_model_resource != 0U) {
@@ -224,9 +200,6 @@ void *__dt__12TOMekaFish01Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-
-extern "C" {
 #pragma push
 struct VBase_802AA6EC { u8 pad[0x18]; };
 struct Obj_802AA6EC : VBase_802AA6EC {
@@ -264,22 +237,8 @@ struct Self_802AA6EC : Obj_802AA6EC {
 };
 
 #define get_bml_motion ((Anim_802AA6EC * (*)(u32, s32))get_bml_motion)
-s32 TObjFish__sub_8001EDB0(u32, s32);
 #define get_bml_model ((ModelRef_802AA6EC * (*)(u32, s32))get_bml_model)
-void TODragonfly__ct(void *, void *);
-s32 rand();
-f32 sin_table_lookup(s32);
-extern s32 __vt__12TOMekaFish01[];
 extern s32 TOMekaFish01__name;
-extern u32 TOMekaFish01__shared_model_resource;
-extern const f32 lbl_805DE068;
-extern const f32 lbl_805DE06C;
-extern const f32 lbl_805DE070;
-extern const f32 lbl_805DE074;
-extern const f32 lbl_805DE078;
-extern const f32 lbl_805DE07C;
-extern const f32 lbl_805DE080;
-extern const f32 lbl_805DE084;
 
 #pragma fp_contract on
 #define self ((Self_802AA6EC *)arg0)
@@ -305,16 +264,11 @@ void *TOMekaFish01__ct(void *arg0, void *arg1) {
 }
 #undef self
 #pragma pop
-}
 #undef get_bml_motion
 #undef get_bml_model
-
-extern "C" {
-
 void *TOMekaFish00__create(void *arg0);
 u8 *TOMekaFish00__ct(u8 *arg0, s32 arg1);
 #define TOMekaFish00__ct ((void * (*)(void *, void *))TOMekaFish00__ct)
-void *__nw__7TObjectFUl(int);
 
 void *TOMekaFish00__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x100);
@@ -345,36 +299,15 @@ struct VObj_18_1a504b : VBase_18_1a504b {
 struct RecoveredGlobal_802AA9DC___vt__12TOMekaFish00 { s32 value; u8 remaining[0x3C]; };
 
 extern "C" {
-u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u32 TOMekaFish00__model_resource;
 #define get_bml_motion ((s32 (*)(void *, s32))get_bml_motion)
 #define TObjFish__sub_8001EDB0 ((s32 (*)(void *, s32))TObjFish__sub_8001EDB0)
 #define get_bml_model ((s32 (*)(void *, s32))get_bml_model)
 #define TODragonfly__ct ((u8 * (*)(void *))TODragonfly__ct)
 s32 rand(void);
-f32 sin_table_lookup(s32);
 extern s32 __vt__12TOMekaFish00[];
 extern s32 TOMekaFish00__name;
-extern u32 TOMekaFish00__model_resource;
-extern const f32 lbl_805DE068;
-extern const f32 lbl_805DE06C;
-extern const f32 lbl_805DE070;
-extern const f32 lbl_805DE074;
-extern const f32 lbl_805DE078;
-extern const f32 lbl_805DE07C;
-extern const f32 lbl_805DE080;
-extern const f32 lbl_805DE084;
-u8 *TOMekaFish00__ct(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 void *__dt__12TOMekaFish00Fv(void *arg0, s16 arg1);
-void TLobby__sub_8001FE7C(void*, int);
-void __dl__7TObjectFPv(void *);
-void __dt__11TODragonflyFv(void *, int);
-
-extern u32 TOMekaFish00__model_resource;
 
 void TOMekaFish00::release_static_instance() {
     if ((u32) TOMekaFish00__model_resource != 0U) {
@@ -382,8 +315,6 @@ void TOMekaFish00::release_static_instance() {
         TOMekaFish00__model_resource = 0U;
     }
 }
-
-extern s32 __vt__12TOMekaFish00[];
 
 void TOMekaFish00::load_shared_resource() {
     s32 temp_r3;
@@ -441,20 +372,14 @@ s32 TBoss6PlotFalz::is_phase_reached() {
     return ((TObjFish *)TBoss6PlotFalz__instance)->get_phase() >= 7 ? 1 : 0;
 }
 
-}
-
 #undef get_bml_motion
 #undef TObjFish__sub_8001EDB0
 #undef get_bml_model
 #undef TODragonfly__ct
-extern "C" {
 extern char lbl_8046FD7C[];
 extern char lbl_8046FD8C[];
 s32 TOMekaFish00__name = (s32)lbl_8046FD7C;
 s32 TOMekaFish01__name = (s32)lbl_8046FD8C;
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_obj_meka_fish_0_model_names[2] = { lbl_8046FCB8, NULL };
 __declspec(section ".data") const char *bm_obj_meka_fish_0_motion_names[2] = { lbl_8046FCC8, NULL };
 BmlResourceDescriptor TOMekaFish00__resource_descriptor = { lbl_8046FCDC, bm_obj_meka_fish_0_model_names, bm_obj_meka_fish_0_motion_names, 1, 1 };

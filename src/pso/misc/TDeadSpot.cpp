@@ -12,8 +12,6 @@ public:
 };
 #endif
 
-#include "types.h"
-
 struct Stack_800D7E94
 {
   f32 sp8;
@@ -84,10 +82,6 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804949F4[];
 u8 *construct_fire_base__9TDeadSpotFPvPvPvif(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 farg0);
-f32 sin_table_lookup(int);
-f32 cos_table_lookup(int);
-f32 vec3_add_to(void *, void *);
-extern const f32 lbl_805DA380;
 u32 __cvt_fp2unsigned(f32);
 extern const f32 TDeadSpot__data_805DA388;
 extern const f32 TDeadSpot__data_805DA38C;
@@ -96,13 +90,8 @@ extern const f32 lbl_805DA394;
 extern const f32 lbl_805DA398;
 void update_fade_in_alpha__9TDeadSpotFPv(Obj_800D7FD4 *arg0);
 extern s32 lbl_80494A10[];
-extern const f32 TDeadSpot__data_805DA38C;
 Obj_800D80E4 *init_corner_vertices__9TDeadSpotFPv(Obj_800D80E4 *arg0, void * _w1, Vec_800D8314 * _w2, void * _w3, s32 _w4, s32 _w5, f32 _w6);
-extern const f32 TDeadSpot__data_805DA388;
-extern const f32 TDeadSpot__data_805DA38C;
 void run_task__9TDeadSpotFv(Obj_800D8228 *arg0);
-void VecCopy__FP3VecPC3Vec(void *, void *);
-void __ct__7TObjectFP7TObject(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 f32 lerp__9TDeadSpotFff(f32, f32);
 Ground_800D8314 *csnVecterUnder(void *, s32);
@@ -117,9 +106,6 @@ s32 push_matrix();
 s32 pop_matrix();
 extern void *__vt__9TDeadSpot[];
 extern s32 lbl_805D2A98;
-extern const f32 TDeadSpot__data_805DA388;
-extern const f32 TDeadSpot__data_805DA38C;
-extern const f32 lbl_805DA390;
 extern const f32 lbl_805DA3A0;
 extern const f32 lbl_805DA3A4;
 extern const f32 lbl_805DA3A8;
@@ -128,10 +114,6 @@ extern const f32 lbl_805DA3B0;
 extern const f32 lbl_805DA3B4;
 extern const f32 lbl_805DA3B8;
 Mark_800D8314 *__ct__9TDeadSpotFv(Mark_800D8314 *self, void *parent, Vec_800D8314 *point, void *texture, s32 selector, s32 delay, f32 maxScale);
-}
-
-extern "C" {
-
 void *__dt__13TUnk_804949D8Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804949F4Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_80494A10Fv(void *arg0, s16 arg1);
@@ -146,7 +128,6 @@ void __dt__9TDeadSpotFv(void *, int);
 s32 setup_alpha_test_render_state(s32);
 s32 restore_saved_depth_alpha_state();
 s32 draw_particle_strip(void *, s32, s32);
-s32 queue_destruction__7TObjectFv(void *);
 
 extern s32 lbl_804949D8[];
 
@@ -182,8 +163,6 @@ void *__dt__13TUnk_804949D8Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 lbl_804949D8[];
-
 void *init__9TDeadSpotFPv(void *arg0, u8 * _w1, u8 * _w2, s32 _w3, f32 _w4) {
     construct_fire_base__9TDeadSpotFPvPvPvif((u8 *)(arg0), (u8 *)(_w1), (u8 *)(_w2), (s32)(_w3), _w4);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804949D8;
@@ -203,8 +182,6 @@ void update_lifetime__9TDeadSpotFPv(void *arg0) {
         ((TUnk_804949F4 *)arg0)->vfunc_6();
     }
 }
-
-extern s32 lbl_804949F4[];
 
 typedef struct Stack_800D7E94 Stack_800D7E94;
 void TUnk_804949F4::vfunc_6() {
@@ -231,8 +208,6 @@ void *__dt__13TUnk_804949F4Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern s32 lbl_80494A10[];
 
 #pragma push
 #pragma fp_contract on
@@ -287,7 +262,6 @@ void *__dt__13TUnk_80494A10Fv(void *arg0, s16 arg1) {
 extern s32 camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-extern const f32 TDeadSpot__data_805DA38C;
 extern const f32 lbl_805DA39C;
 
 #pragma push

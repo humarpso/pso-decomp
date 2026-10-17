@@ -11,13 +11,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_802FF0D8_lbl_804E6570 TAdMultiSaveGC__shared_resource_desc;
 extern u32 admultisave_shared_model_resource;
-}
-
-extern "C" {
-
 void TLobby__sub_8001FE7C(void*, int);
-
-extern u32 admultisave_shared_model_resource;
 
 void TAdMultiSaveGC::free_window() {
     if ((u32) admultisave_shared_model_resource != 0U) {

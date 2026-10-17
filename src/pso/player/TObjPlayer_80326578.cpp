@@ -24,16 +24,8 @@ extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_803265C0(u8 *arg0);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-extern s32 tl_05;
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-extern s32 tl_05;
 u8 *dark_bridge_create(u8 *arg0);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-extern s32 tl_05;
 void * morning_glory_ct(void *, s32, void *);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-extern s32 tl_05;
 u8 *create_morning_glory(u8 *arg0);
 void TItemWeapon__ct(void *, void *);
 extern s32 lbl_804ECFB0[];
@@ -45,10 +37,6 @@ void translate_matrix(s32, f32, f32, f32);
 extern Rec_80326D54 lbl_80476760;
 extern const f32 lbl_805DF660;
 void TObjPlayer__sub_80326D54(Obj_80326D54 *arg0);
-}
-
-extern "C" {
-
 void *__dt__13TUnk_804ECEB8Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804ECFB0Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804ED0A8Fv(void *arg0, s16 arg1);
@@ -67,10 +55,6 @@ s32 TObjectV8047c128_subtract_hp(s32, s16);
 s32 __nw__15TItemHeapObjectFUl(s32);
 s32 get_id__13TItemProArmorFv(void *);
 void __dt__11TItemWeaponFv(void *, int);
-void *__dt__13TUnk_804ECEB8Fv(void *arg0, s16 arg1);
-void *__dt__13TUnk_804ECFB0Fv(void *arg0, s16 arg1);
-void *__dt__13TUnk_804ED0A8Fv(void *arg0, s16 arg1);
-void *__dt__13TUnk_804ED1A0Fv(void *arg0, s16 arg1);
 s16 obj_getS16_32E(s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
 void set_status_flags__10TObjPlayerFUl(void *, int);
@@ -86,7 +70,6 @@ void *TUnk_804ECDC0::set_vtable_mode2_alt(s32 _w1, void *_w2) {
 
 extern s32 lbl_804ECEB8[];
 
-extern s32 lbl_804ECEB8[];
 extern s32 create__13TItemShootGunFlllf[];
 
 u8 *TObjPlayer__sub_803265C0(u8 *arg0) {
@@ -180,8 +163,6 @@ void dark_bridge_start_timers(void *arg0) {
     }
 }
 
-extern s32 lbl_804ECFB0[];
-
 void *__dt__13TUnk_804ECFB0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804ECFB0;
@@ -266,8 +247,6 @@ void *__dt__13TUnk_804ED0A8Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 lbl_804ED0A8[];
-
 void *TUnk_804ED0A8::init_state_1536(s32 _w1, void *_w2) {
     TItemWeapon__ct((void *)(this), (void *)(_w1));
     *(s32 **)((s8 *)this + 0x18) = lbl_804ED0A8;
@@ -317,8 +296,6 @@ u8 *create_morning_glory(u8 *arg0) {
     return NULL;
 }
 
-extern s32 lbl_804ED1A0[];
-
 void *__dt__13TUnk_804ED1A0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804ED1A0;
@@ -346,14 +323,6 @@ void TObjPlayer__sub_80326D54(Obj_80326D54 *arg0) {
     }
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
-void *__dt__13TUnk_804ED298Fv(void *arg0, s16 arg1);
-void __dt__11TItemWeaponFv(void *, int);
 void *__dt__13TUnk_804ED298Fv(void *arg0, s16 arg1);
 
 extern const f32 lbl_805DF664;
@@ -367,8 +336,6 @@ void TObjPlayer::update_orga_flow_params() {
     TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1FC), (f32)((f32) (lbl_805DF66C)), (f32)((f32) (lbl_805DF670)));
 }
 
-extern const f32 lbl_805DF660;
-extern const f32 lbl_805DF670;
 extern const f32 lbl_805DF674;
 
 void TUnk_804ED298::update_attack() {
@@ -392,23 +359,12 @@ void *__dt__13TUnk_804ED298Fv(void *arg0, s16 arg1) {
 
 }
 
-#include "types.h"
-
 struct O_80326F9C { u8 pad[0x1F8]; f32 f; };
 
 extern "C" {
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-extern s32 tl_05;
 void scale_matrix(int, f32, f32, f32);
 extern const f32 lbl_805DF680;
 void TObjPlayer__sub_80326F9C(O_80326F9C *arg0);
-}
-
-extern "C" {
-
-void *__dt__13TUnk_804ED390Fv(void *arg0, s16 arg1);
-
-void __dt__11TItemWeaponFv(void *, int);
 void *__dt__13TUnk_804ED390Fv(void *arg0, s16 arg1);
 
 #define lbl_804ED298 ((unsigned char *)lbl_804ED298)
@@ -451,7 +407,6 @@ void TObjPlayer::approach_orgaflow_shot() {
     TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1F8), (f32)lbl_805DF684, (f32)lbl_805DF688);
 }
 
-extern const f32 lbl_805DF680;
 extern const f32 lbl_805DF68C;
 
 void TUnk_804ED390::update_attack() {
@@ -472,20 +427,8 @@ void *__dt__13TUnk_804ED390Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-
 #undef lbl_805DF660
 #undef lbl_804ED298
-
-#include "types.h"
-
-extern "C" {
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-extern s32 tl_05;
-}
-
-extern "C" {
-
 void config_dark_flow_attack_collider(int a0, void* a1);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 fire_shot_at_target__11TItemWeaponFv(void *, s32, s32, s32);
@@ -536,22 +479,11 @@ void TUnk_804ED488::emit_marker_effects() {
     update_active_game_effect__10TObjPlayerFv(this);
 }
 
-}
-
 #undef lbl_805DF680
 #undef lbl_804ED390
-
-#include "types.h"
-#include "pso/player/TObjPlayer.h"
-
-extern "C" {
-
 void *__dt__13TUnk_804ED488Fv(void *arg0, s16 arg1);
 void *construct_dark_flow(void *arg0);
 
-void __dt__11TItemWeaponFv(void *, int);
-void *__dt__13TUnk_804ED488Fv(void *arg0, s16 arg1);
-void set_status_flags__10TObjPlayerFUl(void *, int);
 s32 submit_computer_command__10TObjPlayerFv(s32, s32, s32, s32);
 
 void TObjPlayer::scroll_dark_flow_texture() {
@@ -575,8 +507,6 @@ void *__dt__13TUnk_804ED488Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern s32 lbl_804ED488[];
 
 void *construct_dark_flow(void *arg0) {
     ((void (*)(void *))TItemWeapon__ct)(arg0);

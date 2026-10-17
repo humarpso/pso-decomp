@@ -18,12 +18,7 @@ extern s32 tl_05;
 s32 __dt__7TObjectFv(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 extern void *__vt__14TObjBgmColCtrl[];
-extern u32 TObjBgmColCtrl__instance;
 void *__dt__14TObjBgmColCtrlFv(void *arg0, s16 arg1);
-}
-
-extern "C" {
-
 s32 is_active__14TObjBgmColCtrlFv();
 u32 get_player_by_client_id(s32);
 s32 get_quest_bgm_issued_flag();
@@ -31,7 +26,6 @@ s32 get_quest_bgm_issued_flag();
 extern s32 local_client_id;
 extern s32 TLobby__event_theme_id;
 extern s32 lbl_805D5B04;
-extern u32 TObjBgmColCtrl__instance;
 extern s32 TObjBgmColCtrl__current_theme_id;
 
 void TObjBgmColCtrl::run_task() {

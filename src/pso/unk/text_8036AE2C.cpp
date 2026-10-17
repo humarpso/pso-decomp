@@ -23,12 +23,7 @@ s32 memset(void *, int, int);
 extern RecoveredGlobal_8036AE2C_lbl_804F3628 lbl_804F3628;
 u8 *__dt__15PSOV3EncryptionFv(u8 *arg0, s16 arg1);
 s32 TBoss8Dragon__sub_8036AF40(void *);
-extern RecoveredGlobal_8036AE2C_lbl_804F3628 lbl_804F3628;
 s32 **__ct__15PSOV3EncryptionFv(s32 **arg0);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8036AE2C_lbl_804F3628_size[sizeof(RecoveredGlobal_8036AE2C_lbl_804F3628) == 0x18 ? 1 : -1];
 u8 *__dt__15PSOV3EncryptionFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {

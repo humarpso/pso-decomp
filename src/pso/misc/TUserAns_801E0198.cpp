@@ -24,10 +24,6 @@ extern "C" {
 int __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
 void *fn_801DF61C(void *, void *);
 TUserAns_801E0198 *__ct__8TUserAnsFRC8TUserAns(TUserAns_801E0198 *dst, TUserAns_801E0198 *src);
-}
-
-extern "C" {
-
 TUserAns_801E0198 *__ct__8TUserAnsFRC8TUserAns(TUserAns_801E0198 *dst, TUserAns_801E0198 *src) {
     dst->a = src->a;
     __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(&dst->tag, &src->tag);

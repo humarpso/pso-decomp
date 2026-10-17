@@ -13,9 +13,6 @@ extern s32 current_floor_area_type;
 void set_current_floor_area(s32 arg0);
 extern s32 boss_area_id_table[];
 s32 is_boss_area(void);
-}
-
-extern "C" {
 
 s32 is_boss_area(void) {
     s32 state = TOKeyMachine01::get_global_state();

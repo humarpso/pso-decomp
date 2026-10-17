@@ -45,16 +45,12 @@ s32 get_story_flag(s32);
 extern RecoveredGlobal_80163C44_lbl_804B1770 lbl_804B1770;
 extern s32 __vt__12TODoorVoShip[];
 extern s32 TODoorVoShip__class_name;
-extern u32 TODoorVoShip__shared_bml_archive;
 extern const f32 lbl_805DB534;
 extern const f32 lbl_805DB53C;
 extern const f32 lbl_805DB540;
 extern const f32 lbl_805DB544;
 u8 *TODoorVoShip__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 get_main_phase(void);
-s32 get_story_flag(s32);
 extern const f32 lbl_805DB530;
-extern const f32 lbl_805DB534;
 extern const f32 lbl_805DB538;
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
@@ -66,10 +62,6 @@ s32 TObjEneSlimeOne__sub_803E4B54(int, int, int, f32);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-}
-
-extern "C" {
-
 void *__dt__12TODoorVoShipFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
@@ -173,16 +165,12 @@ void *TODoorVoShip::create(void *arg0) {
     return o;
 }
 
-extern u32 TODoorVoShip__shared_bml_archive;
-
 void TODoorVoShip::free_static_data() {
     if ((u32) TODoorVoShip__shared_bml_archive != 0U) {
         TLobby__sub_8001FE7C((void*)TODoorVoShip__shared_bml_archive, 1);
         TODoorVoShip__shared_bml_archive = 0U;
     }
 }
-
-extern s32 __vt__12TODoorVoShip[];
 
 void TODoorVoShip::load_shared_resource() {
     s32 temp_r3;

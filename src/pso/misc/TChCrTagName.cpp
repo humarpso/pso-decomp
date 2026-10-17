@@ -86,23 +86,16 @@ f32 cos_table_lookup(s32);
 void update_slide_in__12TChCrTagNameFPv(u8 *arg0);
 s32 TChCrTagName__vt4(u8 *arg0);
 f32 calc_highlight_scale__12TChCrTagNameFPv(Tag_802A265C *arg0);
-f32 calc_highlight_scale__12TChCrTagNameFPv(Tag_802A265C *arg0);
 extern vec2f lbl_80466408[];
 void draw_tag_sprite__12TChCrTagNameFPv(TChCrTagName_802A2500 *self);
-f32 calc_highlight_scale__12TChCrTagNameFPv(Tag_802A265C *arg0);
 extern vec2f lbl_80466410[];
 extern vec2f lbl_80466418[];
 extern vec2f lbl_80466420[];
 extern vec2f lbl_80466428[];
 int TChCrTagName__sub_802A226C(TChCrTagName_802A226C *self);
-f32 calc_highlight_scale__12TChCrTagNameFPv(Tag_802A265C *arg0);
 f32 sin_table_lookup(s32);
 extern vec2f lbl_80466430[];
 int draw_tag_sprites__12TChCrTagNameFPv(void *p);
-}
-
-extern "C" {
-
 void *create__12TChCrTagNameFPv(void *arg0);
 void create_all__12TChCrTagNameFv(void);
 void render__12TChCrTagNameFv(void* p);
@@ -118,13 +111,9 @@ void draw_ui_sprite_shaded(s32 sprite_id, const vec2f *position, const vec2f *sc
 
 #pragma push
 #pragma fp_contract on
-void draw_ui_sprite_shaded(s32 sprite_id, const vec2f *position, const vec2f *scale,
-                           f32 depth, f32 alpha, f32 brightness);
 
 #pragma push
 #pragma fp_contract on
-void draw_ui_sprite_shaded(s32 sprite_id, const vec2f *position, const vec2f *scale,
-                           f32 depth, f32 alpha, f32 brightness);
 int draw_tag_sprites__12TChCrTagNameFPv(void *p) {
     s32 id;
     TChCrTagName_802A208C *self = (TChCrTagName_802A208C *)p;
@@ -355,9 +344,6 @@ void *create__12TChCrTagNameFPv(void *arg0) {
 
 void create_all__12TChCrTagNameFv(void) { { int i; for (i = 0; i < 12; i++) { create__12TChCrTagNameFPv((void *)((void*)i)); } } }
 
-}
-
-extern "C" {
 void __dt__12TChCrTagNameFv();
 void render_shadows__7TObjectFv();
 void *__vt__12TChCrTagName[] = {

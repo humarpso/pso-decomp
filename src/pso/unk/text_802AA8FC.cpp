@@ -23,16 +23,6 @@ s32 TBoss6PlotFalz::get_next_point(s16 *arg1, s16 *arg2) {
     return 1;
 }
 
-}
-
-#include "types.h"
-#include "pso/boss/TBoss6PlotFalz.h"
-
-extern "C" {
-
-s32 get_main_phase();
-s32 is_split_screen();
-
 s32 TBoss6PlotFalz__sub_802AAC74(u8 *arg0) {
     s32 temp_r0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x3C8);

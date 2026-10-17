@@ -14,10 +14,6 @@ extern const f32 lbl_805D92C0;
 extern const f32 lbl_805D92C4;
 extern const f32 lbl_805D92C8;
 extern const f32 lbl_805D92B8;
-}
-
-extern "C" {
-
 #pragma fp_contract on
 
 void TDLGraph::init_dl_graph_entries() {

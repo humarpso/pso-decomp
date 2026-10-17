@@ -106,14 +106,8 @@ extern u32 TObjNpcARM00__texture_list;
 u8 *TObjNpcARM00__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *create_named_object(const char *name);
 void *load_gvm_texture_file(const char *name);
-extern u32 TObjNpcARM00__model_resource;
-extern u32 TObjNpcARM00__texture_list;
 extern char lbl_8043F470[];
 extern char lbl_8043F484[];
-}
-
-extern "C" {
-
 void * TObjNpcARW00__create(void *arg0);
 void *__dt__12TObjNpcARM00Fv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -122,9 +116,6 @@ void *TObjControl__ct(void *, void *);
 void *TObjNpcARW00__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-
-extern u32 TObjNpcARM00__model_resource;
-extern u32 TObjNpcARM00__texture_list;
 
 void TObjNpcARM00::free_resources() {
     if ((u32) TObjNpcARM00__texture_list != 0U) {
@@ -137,8 +128,6 @@ void TObjNpcARM00::free_resources() {
         TObjNpcARM00__model_resource = 0U;
     }
 }
-
-extern s32 __vt__12TObjNpcARM00[];
 
 void TObjNpcARM00::load_resources() {
     TObjNpcARM00__model_resource = (u32)create_named_object(lbl_8043F470);

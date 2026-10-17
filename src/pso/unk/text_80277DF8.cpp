@@ -4,10 +4,6 @@
 
 extern "C" {
 s32 select_cursor_entry__22TWindowSubShortCutListFv(int);
-}
-
-extern "C" {
-
 void TWindowSubEquip::apply_slot_selection() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r31;

@@ -116,10 +116,6 @@ s32 submit_cursor_candidate(void *, int);
 extern u8 *quest_mission_manager;
 extern u8 *quest_area_manager;
 void run_task__11TObjNpcBaseFPv(u8 *arg0);
-}
-
-extern "C" {
-
 s32 draw_chunk_object(s32);
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);

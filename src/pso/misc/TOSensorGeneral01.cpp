@@ -7,13 +7,11 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern char lbl_80442A38[];
 extern char lbl_80442A4C[];
 extern const char *bm_fs_obj_sensor_model_names[2];
 extern BmlResourceDescriptor TOSensorGeneral01__resource_descriptor;
 extern const char *bm_fs_obj_sensor_motion_names[1];
-}
 
 struct RecoveredGlobal_80176308_lbl_80442A80 {
     s32 value;
@@ -61,17 +59,10 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model(int);
-extern s32 *TOSensorGeneral01__texture_lists;
 s32 TOSensor__ct(void *, void *);
 extern s32 __vt__17TOSensorGeneral01[];
 extern s32 lbl_805D3154;
-extern u32 sensor_general_shared_bml_archive;
-extern s32 *TOSensorGeneral01__texture_lists;
 void *TOSensorGeneral01__ct(void *arg0, void *arg1, void *arg2);
-}
-
-extern "C" {
-
 void *__dt__17TOSensorGeneral01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
@@ -164,9 +155,6 @@ void *TOSensorGeneral01::create() {
     return o;
 }
 
-extern u32 sensor_general_shared_bml_archive;
-extern s32 *TOSensorGeneral01__texture_lists;
-
 void TOSensorGeneral01::free_rocks() {
     if ((s32 *) TOSensorGeneral01__texture_lists != NULL) {
         TObjPlayer::free_if_valid(*TOSensorGeneral01__texture_lists);
@@ -180,8 +168,6 @@ void TOSensorGeneral01::free_rocks() {
         sensor_general_shared_bml_archive = 0U;
     }
 }
-
-extern s32 __vt__17TOSensorGeneral01[];
 
 typedef char RecoveredGlobal_80176308_lbl_80442A80_size[sizeof(RecoveredGlobal_80176308_lbl_80442A80) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80176308_lbl_804B4278_size[sizeof(RecoveredGlobal_80176308_lbl_804B4278) == 0x10 ? 1 : -1];
@@ -236,9 +222,6 @@ void *TOSensorGeneral01__ct(void *arg0, void *arg1, void *arg2) {
     return arg0;
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_fs_obj_sensor_model_names[2] = { lbl_80442A38, NULL };
 BmlResourceDescriptor TOSensorGeneral01__resource_descriptor = { lbl_80442A4C, bm_fs_obj_sensor_model_names, bm_fs_obj_sensor_motion_names, 1, 0 };
 __declspec(section ".sdata") const char *bm_fs_obj_sensor_motion_names[1] = { NULL };

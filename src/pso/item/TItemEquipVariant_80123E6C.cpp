@@ -22,12 +22,6 @@ void TUnk_804A1E28::update_attack() {
     }
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void *__dt__13TUnk_804A1E28Fv(void *arg0, s16 arg1);
 void __dt__11TItemWeaponFv(void *, int);
 

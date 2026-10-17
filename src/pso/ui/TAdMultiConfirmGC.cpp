@@ -50,18 +50,12 @@ extern s32 __vt__17TAdMultiConfirmGC[];
 extern s32 TAdMultiConfirmGC__name;
 extern u8 lbl_805DEF30;
 TAdMultiConfirmGC_802FFA3C *TAdMultiConfirmGC__ct(TAdMultiConfirmGC_802FFA3C *self, void *parent);
-}
-
-extern "C" {
-
 void *__dt__17TAdMultiConfirmGCFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void fn_802FF760(void *);
 
 void TAdMultiConfirmGC::render() {  }
-
-extern s32 __vt__17TAdMultiConfirmGC[];
 
 void TAdMultiConfirmGC::run_task() {
     Obj_802FF87C *arg0 = (Obj_802FF87C *)this;

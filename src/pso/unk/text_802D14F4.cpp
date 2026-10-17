@@ -42,10 +42,6 @@ extern const f32 lbl_805DE75C;
 extern const f32 lbl_805DE760;
 extern const f32 lbl_805DE764;
 extern const f32 lbl_805DE768;
-}
-
-extern "C" {
-
 #pragma push
 #pragma opt_common_subs off
 void TObjEneBm9Mericarol_Bomb::run_task() {

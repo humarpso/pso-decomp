@@ -37,10 +37,6 @@ extern const f32 lbl_805DBF2C;
 extern const f32 lbl_805DBF30;
 extern const f32 lbl_805DBF34;
 extern const f32 lbl_805DBF38;
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 void TObjRain::init_drops() {

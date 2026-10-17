@@ -49,22 +49,12 @@ void TObjPlayer__sub_801D4730(void* p);
 u8 *TObjPlayer__sub_801D46D4(u8 *arg0, s32 arg1);
 void fn_801C1BA8(void *, void *);
 s32 fn_801D40D4(s32 arg0, Rec_801D40D4 *arg1, u8 *arg2);
-u8 *get_ptr_4__10TObjPlayerFv();
 int reset(void* p);
 s32 is_both_confirmed__23TAdSinglePlyChrSelectGCFv(void *);
-s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
 void memcpy(void *, void *, s32);
 void remove_list_entry_by_id(s32 arg0);
-void TObjPlayer__sub_801D4730(void* p);
-void TObjPlayer__sub_801D47D8(void* p, void* q);
-}
-
-extern "C" {
-
-void TObjPlayer__sub_801D4730(void* p);
 void TObjPlayer__sub_801D47D8(void* p, void* q);
 s32 check_player_action_allowed(void);
-int reset(void* p);
 s32 is_quest_active();
 s32 get_game_play_mode();
 s32 get_main_phase();

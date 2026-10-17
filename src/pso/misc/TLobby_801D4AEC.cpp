@@ -96,8 +96,6 @@ s32 TLobby::use_item(s32 arg1, s32 arg2, s32 arg3) {
     extern unsigned char reduce_owner_match_id;
 void TLobby__sub_801D4C28(void* a0, int a1, int a2, int a3) { item_reduce_target_player = a1; item_reduce_owner_match_field_ec = a2; reduce_owner_match_id = a3; ((TLobby *)(*(int*)((char*)a0 + 0x1c4)))->reduce_owner_matched_items(); }
 
-    extern int item_reduce_target_player;
-    extern unsigned char item_reduce_owner_match_field_ec;
 void TLobby::set_globals_and_update(int a1, int a2) { item_reduce_target_player = a1; item_reduce_owner_match_field_ec = a2; ((TLobby *)(*(int*)((char*)this + 0x1c4)))->reduce_child_item_amounts(); }
 
     extern int player_item_collect_cursor;

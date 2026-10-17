@@ -72,13 +72,11 @@ extern const f32 lbl_805DA2A0;
 extern const f32 lbl_805DA2A4;
 extern s32 gyaranzo_missile_param_table;
 f32 get_gyaranzo_missile_float_parameter(s32 arg0);
-extern s32 gyaranzo_missile_param_table;
 s32 get_gyaranzo_missile_int_parameter(s32 i);
 s32 obj_is_hit_receivable();
 s32 queue_destruction__7TObjectFv(void *);
 u8 *get_battle_param__10TObjPlayerFi(s32);
 s32 spawn_particle_effect(void *, int);
-s32 get_gyaranzo_missile_int_parameter(s32 i);
 s32 remap_area_sound_id(int, int);
 u8 *find_entity_by_id(u16);
 s32 check_enemy_body_collisions(void *);
@@ -86,29 +84,18 @@ s32 play_sound_effect(void *, void *, int, int);
 extern Hit_800D4200 lbl_8043C440[];
 extern const f32 lbl_805DA2A8;
 void TObjGyaranzoMissile__sub_800D4200(u8 *arg0);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-void TObjGyaranzoMissile__sub_800D4200(u8 *arg0);
-s32 spawn_particle_effect(void *, int);
 s32 rotate_matrix_y(s32, s32);
 s32 pop_matrix();
 void push_matrix_from(void *);
 void rotate_vector_by_matrix(int, void *, void *);
 u32 csnVector(void *, void *, int);
 extern u8 identity_matrix[];
-extern const f32 lbl_805DA2A4;
-extern const f32 lbl_805DA2A8;
 extern const f32 lbl_805DA2AC;
 extern const f32 lbl_805DA2B0;
-}
-
-extern "C" {
-
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_x(s32, s32);
 s32 draw_chunk_object(s32);
-s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 
 void TObjEneGyaranzo::vfunc_61() {  }
 void TObjEneGyaranzo::vfunc_59() {  }

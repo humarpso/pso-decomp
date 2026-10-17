@@ -15,14 +15,9 @@ s32 TAdPlayerLoadGC__sub_801E1B50(int);
 s32 TAdPlayerLoadGC__sub_801E24F8(int, int, int, int, int);
 s32 play_sound_effect(int, int, int, int);
 extern s32 controller_input_state[];
-}
-
-extern "C" {
-
 int TLobby__sub_8034C384(void* p);
 int TLobby__sub_8034C3A4(void* p);
 void TWindowOptionCtrl__sub_8034C4C4(void* p);
-s32 get_localized_text_entry(s32);
 int TLobby__sub_80338534(void);
 u32 create__19TWindowMessageYesNoFPvPvPvPv(s32, s32, s32, s32);
 void __ct__7TObjectFP7TObject(void *);
@@ -293,8 +288,6 @@ void *TUnk_804F01A8::destroy(s16 arg1) {
     }
     return this;
 }
-
-extern s32 lbl_804F01A8[];
 
 void *TUnk_804F01A8::ct() {
     __ct__7TObjectFP7TObject(this);

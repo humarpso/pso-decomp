@@ -33,16 +33,11 @@ u8 get_cast_technique_level(void *, s32);
 s32 is_invalid_slot__10TObjPlayerFUc(u8);
 s32 reset_key_machine_state__10TObjPlayerFv(void);
 u8 *calc_technique_parameters(s32, s32, s32);
-}
-
-extern "C" {
-
 s32 check_can_pickup__11TMainCursorFi(s32 arg0);
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 TMainCursor__sub_8013F180(void *);
 s32 find_entity_by_id();
 s32 can_pickup_item_by_id__10TObjPlayerFii(u32, s32);
-s32 obj_testFlags30(s32, s32);
 s32 queue_destruction__7TObjectFv(void *);
 
 extern "C" void __dt__14TLOC_ListClearFv();

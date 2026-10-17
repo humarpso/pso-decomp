@@ -13,13 +13,9 @@ s32 OSLink(void *, void *);
 u8 *xmalloc__FUl(u32);
 u8 *load_rel_module(u8 *arg0, s32 arg1);
 void __dl__FPv(void *);
-u8 *fn_803204B0(void *);
 void OSUnlink(void *);
 void xfree__FPv(void *);
 S_80320358 *fn_80320358(S_80320358 *arg0, s16 arg1);
-}
-
-extern "C" {
 
 S_80320358 *fn_80320358(S_80320358 *arg0, s16 arg1) {
     u8 *t;

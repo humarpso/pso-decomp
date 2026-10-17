@@ -13,10 +13,6 @@ struct RecoveredGlobal_8022C680_lbl_80515FBC {
 extern "C" {
 extern RecoveredGlobal_8022C680_lbl_80515FBC lbl_80515FBC;
 void TItemEquipBase__sub_8022C680(s32 arg0, u16 arg1, s32 arg2);
-}
-
-extern "C" {
-
 f32 calc_technique_boost(s32, u16);
 f32 get_battle_value__10TObjPlayerFlil(void *, s32, s16);
 void *get_player_by_client_id(u16);

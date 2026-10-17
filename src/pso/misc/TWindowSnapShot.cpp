@@ -49,21 +49,14 @@ s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 extern RecoveredGlobal_802A7FB0_lbl_8050E208 controller_input_state;
 s32 verify_snapshot_checksum__15TObjBoss2TunnelFv(void);
-s32 get_localized_text_entry(s32, s32);
 extern RecoveredGlobal_802A80A0_lbl_804DDEB4 window_snapshot_layout;
 extern s32 __vt__15TWindowSnapShot[];
 extern s32 TWindowSnapShot__name;
 u8 *TWindowSnapShot__ct(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 int TWindowSnapShot__sub_802A7EAC(void);
 void *__dt__15TWindowSnapShotFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void __dl__7TObjectFPv(void *);
-
-extern void *shared_snapshot_capture;
 
 void TWindowSnapShot::free_shared_instance() {
     struct VObj_802A7DDC *o;
@@ -98,15 +91,12 @@ s32 TWindowSnapShot::get_size() { return *(s32 *)&this->m_name; }
 s32 TWindowSnapShot::get_field_8() { return *(s32 *)&this->m_prev; }
 int TWindowSnapShot::get_height() { return 600; }
 
-    extern int player_motion_data_filename_ptr;
 int TWindowSnapShot__sub_802A7EAC(void) {  return player_motion_data_filename_ptr; }
 
 void TWindowSnapShot::play_open_sound() {
     play_sound_effect(0x52F16, 0, 0, 0);
     this->m_60 = (u8) (this->m_60 | 1);
 }
-
-extern s32 __vt__15TWindowSnapShot[];
 
 void render__15TWindowSnapShotFv(u8 *arg0) {
     Stack_802A7F00 stack;

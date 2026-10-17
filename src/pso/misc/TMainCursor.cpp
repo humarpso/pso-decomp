@@ -33,10 +33,6 @@ extern const f32 TMainCursor__data_805DB0CC;
 extern const f32 lbl_805DB0D4;
 extern const f32 lbl_805DB0D8;
 extern const f32 lbl_805DB0DC;
-}
-
-extern "C" {
-
 void *__dt__11TMainCursorFv(void *arg0, s16 arg1);
 void *find_entity_by_id();
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
@@ -55,8 +51,6 @@ void TMainCursor::update_position() {
         VecCopy__FP3VecPC3Vec(arg0 + 0x40, base + 0x1C);
     }
 }
-
-extern s32 __vt__11TMainCursor[];
 
 typedef char RecoveredGlobal_8013BC2C_lbl_804A7164_size[sizeof(RecoveredGlobal_8013BC2C_lbl_804A7164) == 0x60 ? 1 : -1];
 void TMainCursor::refresh_target_marker() {

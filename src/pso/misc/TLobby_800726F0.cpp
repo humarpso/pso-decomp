@@ -31,66 +31,40 @@ void TLobby__sub_80072880(u8 *arg0);
 void TLobby__send_and_handle_60(void *);
 void TLobby__sub_800728FC(u8 *arg0);
 s32 bswap_16__FPUs(s32);
-void TLobby__send_and_handle_60(void *);
-s32 bswap_16__FPUs(s32);
 void TLobby__sub_80072AB8(void *arg0);
 void bswap_32__FPUl(void *);
 s32 TLobby__sub_8006FBE4();
 int TWindow__close(void*);
-int TWindow__close(void*);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 get_window_layout_position(s32);
-int TWindow__close(void*);
 u32 check_room_seq_4__16TAdChrSelASlotGCFl(s32, s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, s32, s32);
 s32 TLobby__sub_8024AC20(s32);
 s32 get_player_by_client_id(s32);
 s32 check_player_flag1__6TLobbyFv();
 extern s32 local_client_id;
-extern s32 local_client_id;
 int TObjPlayer__sub_8024ABDC(void*);
-extern s32 local_client_id;
-s32 get_player_by_client_id(s32);
-s32 check_player_flag1__6TLobbyFv();
 s32 play_effect_default__10TObjPlayerFii(s32, s32);
-extern s32 local_client_id;
-extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
 u8 is_challenge_lobby__6TLobbyFv(void);
-s32 queue_destruction__7TObjectFv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 TLobby__sub_80070DA8();
 void play_player_default_effect__6TLobbyFv(s32 _w0);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 play_cue_stream_file(s32 *);
 extern s32 lbl_804385D4[];
-void play_player_default_effect__6TLobbyFv(s32 _w0);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 get_selected_menu_value(u32);
 s32 challenge_retry_cmd_table[3] = { 1, 0, 0 };
 extern s8 controller_input_state[];
-s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 check_flag_100__10TObjPlayerFPv();
-s32 get_player_by_client_id(s32);
-extern s8 controller_input_state[];
-extern s32 local_client_id;
-s32 bswap_16__FPUs(s32);
-void TLobby__sub_80072AB8(void *arg0);
-s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
-int TWindow__close(void*);
 u32 set_window_mode_4__6TLobbyFPvll(s32, void *, s32);
-s32 get_window_layout_position(s32);
 __declspec(section ".data") f32 challenge_retry_window_pos[2] = { 360.0f, 125.0f };
 extern const f32 lbl_805D9110;
-}
-
-extern "C" {
-
 void TLobby__sub_80072724(void *arg0);
 void TLobby__sub_80072758(u8 *arg0);
 void TLobby__sub_800727A0(void *arg0);
 void TLobby__sub_800727EC(u8 *arg0);
-void TLobby__send_and_handle_60(void *);
 
 void TLobby::bswap_challenge_dead_flag() {
     ((TObjPlayer *)this)->read_be16_field2();
@@ -353,18 +327,9 @@ void TObjChallengeRetry::handle_challenge_retry_confirm() {
     }
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
 s32 obj_testFlags30(void *, s32);
 
 s32 TWindowCtrlMain__sub_8024CE58(void);
-
-}
-
-extern "C" {
 
 void TObjChallengeRetry::sub_8007313C() {
   s32 global_state;
@@ -425,26 +390,12 @@ void TObjChallengeRetry::sub_8007313C() {
   }
 }
 
-}
-
-#include "pso/TObjChallengeRetry.h"
-
-#include "types.h"
-
-extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
-
 void *fn_800733C4(void *arg0);
 void *__ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__18TObjChallengeRetry[];
 extern s32 TObjChallengeRetry__class_name;
 void *TObjChallengeRetry__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
-void *fn_800733C4(void *arg0);
-}
-
-extern "C" {
-
 void TObjChallengeRetry::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;

@@ -59,15 +59,10 @@ s32 init_map_object_base(void *, int);
 extern RecoveredGlobal_8016904C_lbl_804B26D8 hanger_machine01_collision_body_parts;
 extern s32 __vt__17TOHangerMachine01[];
 extern s32 TOHangerMachine01__class_name;
-extern u32 TOHangerMachine01__bml_resource;
 extern s32 tl_05;
 extern const f32 lbl_805DB6AC;
 extern const f32 lbl_805DB6B0;
 u8 *TOHangerMachine01__ct(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 void TOHangerMachine01__sub_80169168(void);
 void *__dt__17TOHangerMachine01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -145,16 +140,12 @@ void *TOHangerMachine01::create(void *arg0) {
     return o;
 }
 
-extern u32 TOHangerMachine01__bml_resource;
-
 void TOHangerMachine01::free_static_model() {
     if ((u32) TOHangerMachine01__bml_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TOHangerMachine01__bml_resource, 1);
         TOHangerMachine01__bml_resource = 0U;
     }
 }
-
-extern s32 __vt__17TOHangerMachine01[];
 
 void TOHangerMachine01::load_shared_resource() {
     s32 temp_r3;

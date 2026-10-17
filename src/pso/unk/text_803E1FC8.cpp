@@ -8,9 +8,6 @@ extern f32 scene_fog_start_distance;
 void set_scene_fog_distances(f32 farg0, f32 farg1);
 extern Rgb_803E1FC8 scene_fog_color;
 void fn_803E1FC8(u32 c);
-}
-
-extern "C" {
 
 #pragma push
 #pragma scheduling off

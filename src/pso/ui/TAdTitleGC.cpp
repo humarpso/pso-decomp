@@ -52,10 +52,6 @@ extern u8 __vt__10TAdTitleGC[];
 extern s32 ad_title_gc_class_name;
 TAdTitleGC_802A0E08 *__ct__10TAdTitleGCFv(TAdTitleGC_802A0E08 *self, void *parent, s32 idx);
 extern f32 title_rect_scale_table[];
-}
-
-extern "C" {
-
 void run_task__10TAdTitleGCFv(u8 *arg0);
 s32 get_localized_text_entry(s32, s32);
 s32 set_cached_blend_factor(s32, s32);

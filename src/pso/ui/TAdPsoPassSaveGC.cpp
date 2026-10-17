@@ -61,8 +61,6 @@ void TAdPsoPassSaveGC__vt5(void) {
     TKeyBoardControl__sub_8000F9CC(0xF);
 }
 
-extern s32 TAdPsoPassSaveGC__data_805D6E80;
-
 void TAdPsoPassSaveGC__vt4(void) {
     TAdPsoPassSaveGC__data_805D6E80 = 1;
     TKeyBoardControl__sub_8000F9CC(0xF);
@@ -86,7 +84,6 @@ void *__dt__16TAdPsoPassSaveGCFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__16TAdPsoPassSaveGC[];
 extern void *lbl_805D4310;
 
 void *TAdPsoPassSaveGC__ct(void *parent) {

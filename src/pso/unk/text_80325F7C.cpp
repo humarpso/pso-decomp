@@ -36,8 +36,6 @@ extern const f32 lbl_805DF638;
 void fn_80325F7C(void *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 Hit_80326074 *csnVecterUnder(void *, s32);
-void get_wing_position__26TBoss5GryphonLightningWingFl(void *, void *);
-void copy_position__12TBoss8DragonFl(void *, void *);
 s32 rand(void);
 void vec3_add_to(void *, void *);
 void subtract_vector(void *, void *);
@@ -47,10 +45,6 @@ extern const f32 lbl_805DF640;
 extern const f32 lbl_805DF644;
 extern const f32 lbl_805DF648;
 extern const f32 lbl_805DF64C;
-}
-
-extern "C" {
-
 void fn_80325F7C(void *arg0) {
     Ray_80325F7C ray;
     Vec_80325F7C pos;

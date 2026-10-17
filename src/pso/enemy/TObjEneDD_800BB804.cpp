@@ -350,10 +350,6 @@ s32 load_enemy_bml_resource(u8 *arg0);
 void transition_enemy_state(V_800BBA18 *self, s16 state);
 s32 TObjEneDD__vt82(V_800BBB18 *self);
 extern const f32 TObjEneDD__data_805D9E8C;
-}
-
-extern "C" {
-
 s32 pack_debug_text_position(s32 arg0, s32 arg1);
 s32 subtractive_rng_seed(void *, int);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -447,8 +443,6 @@ u8 TObjEneDD::vfunc_86() {
     return (u8) (*(s32 *)((s8 *)this + 0x374) != this->mode);
 }
 
-extern const f32 TObjEneDD__data_805D9E8C;
-
 void TObjEneDD::vfunc_85() {
     if (((VObj_18 *)(this))->m84() == 0) {
         ((VObj_18 *)(this))->m85(this->mode, 3);
@@ -500,12 +494,6 @@ void TObjEneDD::init_position_vectors() {
     this->clear_lobby_object_state();
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void *TObjEneDD__ct(void *arg0);
 void *__dt__9TObjEneDDFv(void *arg0, s16 arg1);
 void initialize__9TObjEnemyFPv(void *);
@@ -525,7 +513,6 @@ void *__dt__9TObjEneDDFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__9TObjEneDD[];
 extern const f32 lbl_805D9EA8;
 extern void *lbl_805D2A30;
 
@@ -541,12 +528,6 @@ void *TObjEneDD__ct(void *arg0) {
     *(u32 *)((s8 *)arg0 + 0x388) = 0;
     return arg0;
 }
-
-}
-
-#include "types.h"
-
-extern "C" {
 
 struct Base_800BBDD4 { char pad[0x18]; };
 struct VObj_800BBDD4 : Base_800BBDD4 {
@@ -564,17 +545,7 @@ void TObjEneDD::release_resource() {
     }
 }
 
-}
-
-#include "types.h"
-#include "pso/enemy/TObjEneDD.h"
-
-extern "C" {
 s32 tick_period_counter(s32 arg0, s32 *arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__nw__7TObjectFUl(int);
 void *construct_collision_body(void *, int, int);
 

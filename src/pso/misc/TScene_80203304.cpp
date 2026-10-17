@@ -9,10 +9,6 @@ extern "C" {
 s32 *resolve_indirect_object_record(s32 arg0, u8 *arg1);
 s32 *resolve_indirect_node_record(s32 arg0, u8 *arg1);
 extern struct Tbl_8020335C group_selection_area_id_table;
-}
-
-extern "C" {
-
     extern int TScene__render_callback;
 
 s32 *resolve_indirect_object_record(s32 arg0, u8 *arg1) {

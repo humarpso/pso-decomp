@@ -7,13 +7,11 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern char lbl_80474C80[];
 extern char lbl_80474C90[];
 extern const char *bm_npc_kenkyu2_model_names[2];
 extern BmlResourceDescriptor TObjNpcKenkyu2__resource_descriptor;
 extern const char *bm_npc_kenkyu2_motion_names[1];
-}
 
 struct RecoveredGlobal_802FEAD8_lbl_804E6248 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_802FEAD8_lbl_804E6248_size[sizeof(RecoveredGlobal_802FEAD8_lbl_804E6248) == 0x10 ? 1 : -1];
@@ -116,12 +114,7 @@ s32 get_bml_model(int, int);
 s32 construct_male_npc_base(void *);
 extern s32 __vt__14TObjNpcKenkyu2[];
 extern s32 TObjNpcKenkyu2__name;
-extern u32 TObjNpcKenkyu2__shared_model_resource;
 u8 *TObjNpcKenkyu2__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void * TObjNpcHosa2__create(void *arg0);
 void *__dt__14TObjNpcKenkyu2Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -130,16 +123,12 @@ void *TObjNpcHosa2__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
-extern u32 TObjNpcKenkyu2__shared_model_resource;
-
 void TObjNpcKenkyu2::free_static_model() {
     if ((u32) TObjNpcKenkyu2__shared_model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TObjNpcKenkyu2__shared_model_resource, 1);
         TObjNpcKenkyu2__shared_model_resource = 0U;
     }
 }
-
-extern s32 __vt__14TObjNpcKenkyu2[];
 
 void TObjNpcKenkyu2::load_shared_resource() {
     s32 temp_r3;
@@ -192,9 +181,6 @@ void * TObjNpcHosa2__create(void *arg0) {
     return o2;
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_npc_kenkyu2_model_names[2] = { lbl_80474C80, NULL };
 BmlResourceDescriptor TObjNpcKenkyu2__resource_descriptor = { lbl_80474C90, bm_npc_kenkyu2_model_names, bm_npc_kenkyu2_motion_names, 1, 0 };
 __declspec(section ".sdata") const char *bm_npc_kenkyu2_motion_names[1] = { NULL };

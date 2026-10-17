@@ -18,12 +18,6 @@ void spawn_particle_effect(void *, int);
 void TObjEneGibbles__sub_800D8988(void *);
 extern const f32 TObjEneMe3SinowZoa__data_805DF2F0;
 extern const f32 TObjEneMe3SinowZoa__data_805DF2F4;
-}
-
-extern "C" {
-
-void spawn_particle_effect(void *, int);
-
 struct VOff_803167FC_arg0 { char pad_0[0x38]; char f_38[1]; };
 
 #define DELL ((void *(*)(void *, int))spawn_particle_effect)

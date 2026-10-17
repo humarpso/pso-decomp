@@ -3,10 +3,6 @@
 extern "C" {
 u32 subtractive_rng_next(void *self);
 u16 TAdSinglePlyChrSelectGC__sub_8007C584(void *self, u16 x);
-}
-
-extern "C" {
-
 s32 __ct__14SubtractiveRngFv(void* arg0);
 s32 subtractive_rng_seed(void*, int);
 

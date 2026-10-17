@@ -106,17 +106,10 @@ extern u32 TObjNpcSoldierMacho__shared_model_resource;
 s32 construct_male_npc_base(void *);
 extern s32 __vt__19TObjNpcSoldierMacho[];
 extern s32 TObjNpcSoldierMacho__name;
-extern u32 TObjNpcSoldierMacho__shared_model_resource;
 u8 *TObjNpcSoldierMacho__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt__19TObjNpcSoldierMachoFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
-
-extern u32 TObjNpcSoldierMacho__shared_model_resource;
 
 void TObjNpcSoldierMacho::unload_static_data() {
     if ((u32) TObjNpcSoldierMacho__shared_model_resource != 0U) {
@@ -124,8 +117,6 @@ void TObjNpcSoldierMacho::unload_static_data() {
         TObjNpcSoldierMacho__shared_model_resource = 0U;
     }
 }
-
-extern s32 __vt__19TObjNpcSoldierMacho[];
 
 void TObjNpcSoldierMacho::load_shared_resource() {
     s32 temp_r3;

@@ -5,7 +5,6 @@
 #include "pso/misc/TODragonflyCave01.h"
 #include "pso/system/BmlResourceDescriptor.h"
 
-extern "C" {
 extern char lbl_80441100[];
 extern char lbl_80441110[];
 extern char lbl_80441124[];
@@ -18,7 +17,6 @@ extern BmlResourceDescriptor dragonfly_cave01_resource_descriptor;
 extern const char *fs_obj_ex_entombo_model_names[2];
 extern const char *fs_obj_ex_entombo_motion_names[2];
 extern BmlResourceDescriptor TODragonflyCave01__resource_descriptor;
-}
 
 extern "C" {
 u8 *TODragonfly__ct(u8 *arg0);
@@ -36,15 +34,6 @@ extern const f32 lbl_805DB574;
 extern const f32 lbl_805DB578;
 extern const f32 lbl_805DB57C;
 u8 *TODragonflyCave01__ct(u8 *arg0, void *arg1);
-}
-
-extern "C" {
-u8 *TODragonfly__ct(u8 *arg0);
-s32 rand(void);
-}
-
-extern "C" {
-
 void *TODragonflyCave01__create(void *arg0);
 void *__dt__17TODragonflyCave01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -59,8 +48,6 @@ void *TODragonflyCave01__create(void *arg0) {
     }
     return o;
 }
-
-extern u32 TODragonflyCave01__static_model_resource;
 
 void TODragonflyCave01::release_static_instance() {
     if ((u32) TODragonflyCave01__static_model_resource != 0U) {
@@ -95,8 +82,6 @@ void TODragonflyCave01::load_resources() {
     }
 }
 
-extern s32 __vt__17TODragonflyCave01[];
-
 void *__dt__17TODragonflyCave01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TODragonflyCave01;
@@ -110,24 +95,11 @@ void *__dt__17TODragonflyCave01Fv(void *arg0, s16 arg1) {
 
 #pragma push
 #pragma fp_contract on
-f32 sin_table_lookup(s32);
-extern s32 __vt__17TODragonflyCave01[];
-extern s32 TODragonflyCave01__class_name;
-extern const f32 lbl_805DB560;
-extern const f32 lbl_805DB564;
-extern const f32 lbl_805DB568;
-extern const f32 lbl_805DB56C;
-extern const f32 lbl_805DB570;
-extern const f32 lbl_805DB574;
-extern const f32 lbl_805DB578;
-extern const f32 lbl_805DB57C;
 
 #pragma pop
 
 }
 
-#include "types.h"
-#include "pso/misc/TODragonfly.h"
 #include "pso/misc/TOKey.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
@@ -155,22 +127,11 @@ struct O_80164A90 { u8 pad[0x38]; u8 pos[0x34]; f32 f6c; f32 f70; u8 pad74[0xAC 
 
 extern "C" {
 s32 is_any_player_within_radius_xz(s32, f32);
-s32 rand(void);
-extern const f32 lbl_805DB560;
-extern const f32 lbl_805DB578;
-extern const f32 lbl_805DB57C;
 extern const f32 lbl_805DB588;
-extern const f32 lbl_805DB58C;
-s32 is_any_player_within_radius_xz(s32, f32);
-s32 rand(void);
-extern const f32 lbl_805DB560;
-extern const f32 lbl_805DB578;
-extern const f32 lbl_805DB57C;
 extern const f32 lbl_805DB58C;
 extern const f32 lbl_805DB590;
 f32 atan2_float(f64, f64);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 rand(void);
 f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(s32, s32);
@@ -181,39 +142,14 @@ extern const f64 lbl_804411B0;
 extern RecoveredGlobal_80164764_lbl_8050BEE0 lbl_8050BEE0;
 extern RecoveredGlobal_80164764_lbl_8050BFA0 lbl_8050BFA0;
 extern RecoveredGlobal_80164764_lbl_8058D490 identity_matrix;
-extern const f32 lbl_805DB570;
-extern const f32 lbl_805DB574;
-extern const f32 lbl_805DB57C;
 extern const f32 lbl_805DB580;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 init_map_object_base(void *, int);
-s32 rand(void);
-f32 sin_table_lookup(s32);
 extern s32 __vt__11TODragonfly[];
 extern s32 TODragonfly__class_name;
 extern s32 tl_05;
-extern const f32 lbl_805DB560;
-extern const f32 lbl_805DB56C;
-extern const f32 lbl_805DB570;
-extern const f32 lbl_805DB574;
-extern const f32 lbl_805DB578;
-extern const f32 lbl_805DB57C;
-extern const f32 lbl_805DB580;
 extern const f32 lbl_805DB594;
-u8 *TODragonfly__ct(u8 *arg0);
 f32 horizontal_distance_squared(void *, void *);
-f32 vec3_add_to(void *, void *);
 extern const f32 lbl_805DB584;
-f32 horizontal_distance_squared(void *, void *);
-s32 is_any_player_within_radius_xz(s32, f32);
-f32 vec3_add_to(void *, void *);
-extern const f32 lbl_805DB578;
-extern const f32 lbl_805DB584;
-extern const f32 lbl_805DB590;
-}
-
-extern "C" {
-
 struct Base_80164c34_80164760 { char pad[0x18]; };
 struct VObj_80164c34_80164760 : Base_80164c34_80164760 {
     virtual void m0();
@@ -227,15 +163,10 @@ struct VObj_80164c34_80164760 : Base_80164c34_80164760 {
     virtual s32 m8(f32, f32);
 };
 
-void *__dt__11TODragonflyFv(void *arg0, s16 arg1);
-f32 sin_table_lookup(s32);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
-s32 rotate_matrix_y(s32, s32);
 s32 translate_matrix(s32, f32, f32, f32);
 s32 push_matrix();
-s32 pop_matrix();
-void __dl__7TObjectFPv(void *);
 
 #pragma push
 #pragma fp_contract on
@@ -262,8 +193,6 @@ u8 *TODragonflyCave01__ct(u8 *arg0, void *arg1) {
 #pragma pop
 
 void TODragonfly::vfunc_14() {  }
-
-extern const f32 lbl_805DB580;
 
 typedef char RecoveredGlobal_80164764_lbl_8050BEE0_size[sizeof(RecoveredGlobal_80164764_lbl_8050BEE0) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_80164764_lbl_8050BFA0_size[sizeof(RecoveredGlobal_80164764_lbl_8050BFA0) == 0x40 ? 1 : -1];
@@ -405,8 +334,6 @@ void TODragonfly::run_task() {
     }
 }
 
-extern s32 __vt__11TODragonfly[];
-
 void *__dt__11TODragonflyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TODragonfly;
@@ -438,9 +365,6 @@ u8 *TODragonfly__ct(u8 *arg0) {
 }
 #pragma pop
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_fs_obj_tombo_model_names[2] = { lbl_80441100, NULL };
 __declspec(section ".data") const char *bm_fs_obj_tombo_motion_names[2] = { lbl_80441110, NULL };
 BmlResourceDescriptor dragonfly_cave01_resource_descriptor = { lbl_80441124, bm_fs_obj_tombo_model_names, bm_fs_obj_tombo_motion_names, 1, 1 };

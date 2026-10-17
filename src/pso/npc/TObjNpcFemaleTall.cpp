@@ -99,15 +99,9 @@ extern s32 __vt__17TObjNpcFemaleTall[];
 extern s32 TObjNpcFemaleTall__name;
 extern u8 *TObjNpcFemaleTall__instance;
 u8 *TObjNpcFemaleTall__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void TObjNpcFemaleTall__sub_8014AA28(void *arg0, s32 arg1);
 void *__dt__17TObjNpcFemaleTallFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-
-extern s32 __vt__17TObjNpcFemaleTall[];
 
 void *__dt__17TObjNpcFemaleTallFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

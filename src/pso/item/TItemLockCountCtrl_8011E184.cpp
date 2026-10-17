@@ -6,10 +6,6 @@
 extern "C" {
 void fn_8011E1D4(u8 *arg0);
 void TObjPlayer__sub_8011E204(void *arg0, s32 arg1);
-}
-
-extern "C" {
-
 void *TItemLockCountCtrl__ct(void *, int, int, void *, void *);
 void *__nw__7TObjectFUl(int);
 

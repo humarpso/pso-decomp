@@ -7,10 +7,6 @@
 
 extern "C" {
 void fn_80269078(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 int TWindowSubComCard__sub_8026906C(void* p);
 
 s32 TWindowSubComCard::get_entry_id() { return *(s32*)((char*)this + 0x18); }

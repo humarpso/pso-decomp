@@ -24,7 +24,6 @@ extern "C" {
 s32 get_attach_joint__11TItemWeaponFv(void *);
 void draw_weapon_at_joint(s32 arg0, s8 arg1);
 s32 TObjPlayer__sub_80101088();
-s32 get_attach_joint__11TItemWeaponFv(void *);
 s32 reset_model_node_counter();
 s32 set_shadow_material_state();
 s32 set_model_fade_alpha__10TObjPlayerFf();
@@ -44,9 +43,6 @@ extern s32 model_render_flags;
 extern const f32 lbl_805DACA8;
 extern const f32 lbl_805DACAC;
 s32 draw_weapon_model(void *arg0);
-}
-
-extern "C" {
 
 s32 draw_weapon_model(void *arg0) {
     s32 var_r30;

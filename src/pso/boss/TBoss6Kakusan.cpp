@@ -73,12 +73,9 @@ extern const f32 TBoss6Kakusan__data_805DF518;
 extern const f32 TBoss6Kakusan__data_805DF51C;
 extern const f32 lbl_805DF53C;
 u8 *TBoss6Kakusan__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4, f32 farg0);
-f32 vector_length(void *);
-extern const f32 TBoss6Kakusan__data_805DF518;
 extern const f32 lbl_805DF52C;
 extern const f32 lbl_805DF530;
 extern const f32 lbl_805DF534;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 s32 query_teammate_state__9TObjEneDDFv();
 void direction_to_rotation_xz(void *, void *, void *);
@@ -86,30 +83,17 @@ u32 get_player_by_client_id(s32);
 s32 is_active__14TBoss6PlotFalzFv();
 int TBoss6Kakusan__sub_8032263C(void);
 void vec3_add_to(void *, void *);
-f32 vector_length(void *);
 void subtract_vector(void *, void *);
 f32 normalize_vector(void *);
 extern s32 TBoss6Kakusan__homing_start_frame;
 extern u8 boss6_kakusan_homing_start_initialized;
 extern s32 boss6_kakusan_homing_end_frame;
 extern u8 TBoss6Kakusan__homing_end_frame_initialized;
-extern const f32 TBoss6Kakusan__data_805DF51C;
 extern const f32 lbl_805DF538;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
-void vec3_add_to(void *, void *);
-f32 vector_length(void *);
-void subtract_vector(void *, void *);
-extern const f32 TBoss6Kakusan__data_805DF518;
-extern const f32 TBoss6Kakusan__data_805DF51C;
 extern const f32 lbl_805DF520;
 extern const f32 lbl_805DF524;
 extern const f32 lbl_805DF528;
-}
-
-extern "C" {
-
-int TBoss6Kakusan__sub_8032263C(void);
 void *__dt__13TBoss6KakusanFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -203,8 +187,6 @@ s32 TBoss6Kakusan::is_out_of_range() {
 }
 
 void TBoss6Kakusan::render() {  }
-
-extern s32 __vt__13TBoss6Kakusan[];
 
 void TBoss6Kakusan::run_task() {
     u8 *arg0 = (u8 *)this;

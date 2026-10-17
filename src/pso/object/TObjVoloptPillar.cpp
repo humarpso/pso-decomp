@@ -115,7 +115,6 @@ extern const f32 lbl_805D88B8;
 extern const f32 lbl_805D88BC;
 extern const f32 lbl_805D88C0;
 extern const f32 lbl_805D88C4;
-extern const f32 TObjVoloptPillar__data_805D88C8;
 extern const f32 lbl_805D88CC;
 s32 obj_is_hit_receivable(void *);
 f32 atan2_float(f32, f32);
@@ -129,36 +128,23 @@ void init_all_slots__10TObjPlayerFv(void *);
 void play_sound_effect(s32, void *, s32, s32);
 void *__nw__7TObjectFUl(u32);
 void matrix_mult_vec(s32, void *, void *);
-void rotate_matrix_y(s32, s32);
 void subtract_vector(void *, void *);
 void push_matrix_from(void *);
-void pop_matrix();
 extern Pair_8004A1CC lbl_80436734[];
 extern Vec_8004A1CC lbl_8043673C[];
 extern const f64 lbl_80436798[];
-extern u8 boss3_volopt_spawn_pos[];
 extern u8 identity_matrix[];
-extern const f32 lbl_805D88BC;
-extern const f32 TObjVoloptPillar__data_805D88C8;
 extern const f32 lbl_805D88D0;
 extern const f32 lbl_805D88D4;
 extern const f32 lbl_805D88D8;
 extern const f32 lbl_805D88DC;
 extern const f32 lbl_805D88E0;
 void run_task__16TObjVoloptPillarFv(Self_8004A1CC *self);
-}
-
-extern "C" {
-
 void *__dt__16TObjVoloptPillarFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 
 extern u8 *boss3_volopt_resources;
-extern s32 volopt_pillar_chunk_model_handle;
-extern s32 volopt_pillar_secondary_chunk_model;
-extern s32 volopt_pillar_texture_param_a;
-extern s32 volopt_pillar_texture_param_b;
 
 #pragma fp_contract on
 void TObjVoloptPillar::render() {
@@ -280,8 +266,6 @@ void TObjVoloptPillar::cache_target_values() {
     volopt_pillar_secondary_chunk_model = *(s32 *)((s8 *)(*(void **)((s8 *)boss3_volopt_resources + 0x42C)) + 0x158);
     volopt_pillar_texture_param_b = *(s32 *)((s8 *)(*(void **)((s8 *)boss3_volopt_resources + 0x42C)) + 0x15C);
 }
-
-extern s32 __vt__16TObjVoloptPillar[];
 
 void *__dt__16TObjVoloptPillarFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -8,13 +8,11 @@
 #include "pso/object/TObjFish.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern char lbl_80442AE0[];
 extern char lbl_80442AF8[];
 extern const char *bm_fs_obj_dokanban02_model_names[2];
 extern BmlResourceDescriptor TOSignCave02__resource_descriptor;
 extern const char *bm_fs_obj_dokanban02_motion_names[1];
-}
 
 struct VBase_18_26a62c { char pad[0x18]; };
 
@@ -61,14 +59,9 @@ extern u32 TOSignCave02__shared_resource;
 s32 init_map_object_base(void *, void *);
 extern s32 __vt__12TOSignCave02[];
 extern s32 lbl_805D3164;
-extern u32 TOSignCave02__shared_resource;
 extern const f32 lbl_805DB9D8;
 extern const f32 lbl_805DB9DC;
 u8 *TOSignCave02__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt__12TOSignCave02Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
@@ -156,16 +149,12 @@ void *TOSignCave02::create(void *arg0) {
     return o;
 }
 
-extern u32 TOSignCave02__shared_resource;
-
 void TOSignCave02::free_static_model() {
     if ((u32) TOSignCave02__shared_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TOSignCave02__shared_resource, 1);
         TOSignCave02__shared_resource = 0U;
     }
 }
-
-extern s32 __vt__12TOSignCave02[];
 
 void TOSignCave02::load_shared_resource() {
     s32 temp_r3;
@@ -201,9 +190,6 @@ u8 *TOSignCave02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_fs_obj_dokanban02_model_names[2] = { lbl_80442AE0, NULL };
 BmlResourceDescriptor TOSignCave02__resource_descriptor = { lbl_80442AF8, bm_fs_obj_dokanban02_model_names, bm_fs_obj_dokanban02_motion_names, 1, 0 };
 __declspec(section ".sdata") const char *bm_fs_obj_dokanban02_motion_names[1] = { NULL };

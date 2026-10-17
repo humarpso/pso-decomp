@@ -75,14 +75,12 @@ void TItemReverseTechPart1::run_task() {
 
 TItemReverseTechPart1::~TItemReverseTechPart1() {}
 
-#include "types.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 
 void *TItemReverseTechPart1__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
-void *__nw__7TObjectFUl(int);
 
 extern s32 __vt__21TItemReverseTechPart1[];
 extern void *lbl_805D2C4C;

@@ -8,7 +8,6 @@ struct Stack_800724F0 {
 };
 
 #include "pso/protocol/subcmd_6x.h"
-#include "pso/misc/TLobby.h"
 
 struct Stack_80072448 {
     s32 sp8;
@@ -51,45 +50,20 @@ s32 get_character_save_record(int);
 extern s32 local_client_id;
 s32 mix_seed_checked__6TLobbyFi(void *);
 s32 TLobby__sub_80072880(void *);
-extern s32 local_client_id;
 s32 is_flag_set__6TLobbyFv();
 s32 TLobby__sub_800727EC(void *);
-extern s32 local_client_id;
-s32 is_flag_set__6TLobbyFv();
 extern void *challenge_task;
 void handle_6x8A_show_challenge_time_records_window(Pkt_80072494 *pkt);
-s32 is_flag_set__6TLobbyFv();
 s32 TLobby__sub_80072758(void *);
 s32 TLobby__sub_80072724(void *);
 void TLobby__sub_800722AC(s32 arg0);
-s32 TLobby__sub_800703D0(void *, void *);
-s32 is_flag_set__6TLobbyFv();
-s32 get_character_save_record(int);
 extern s32 challenge_mode_state[];
-extern void *challenge_task;
-extern s32 local_client_id;
 void TLobby__sub_80072618(void);
-s32 TLobby__sub_800703D0(void *, void *);
-s32 is_flag_set__6TLobbyFv();
-extern s32 challenge_mode_state[];
-extern void *challenge_task;
-extern s32 local_client_id;
 void handle_6x7C_set_challenge_records(Pkt7C_80072230 *pkt);
-s32 is_flag_set__6TLobbyFv();
 void *get_player_by_client_id(s32);
-extern s32 challenge_mode_state[];
 void handle_6x9D_set_challenge_dead_flag(Pkt_80072230 *pkt);
-s32 mix_seed_checked__6TLobbyFi(void *);
-s32 is_flag_set__6TLobbyFv();
-extern s32 challenge_mode_state[];
 void handle_6x95_set_challenge_time(Pkt_80072230 *pkt);
-}
-
-extern "C" {
-
-s32 is_flag_set__6TLobbyFv();
 s32 TLobby__sub_800727A0(void *);
-extern s32 challenge_mode_state[];
 
 void handle_6x9D_set_challenge_dead_flag(Pkt_80072230 *pkt) {
     s32 idx;

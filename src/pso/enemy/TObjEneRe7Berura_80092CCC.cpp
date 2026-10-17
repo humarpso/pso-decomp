@@ -357,10 +357,6 @@ void TObjEneRe7Berura__sub_80093470(Berura_80093470 *obj, s32 mode);
 void queue_destruction__7TObjectFv(void *);
 void TObjEneRe7BeruraPunch__sub_800962F4(s32);
 void TObjPlayer__sub_800A04F0(void *);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 play_sound_effect(s32, void *, s32, s32);
-s32 advance_animation_playback(void *);
-void VecCopy__FP3VecPC3Vec(void *, const void *);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 fn_80095DD0(void *);
@@ -395,15 +391,7 @@ extern const f32 lbl_805D9734;
 extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
 void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o);
-}
-
-extern "C" {
-
 s32 get_camera_ctrl__9TObjEneDDFv(s32, s32);
-
-extern s32 re7_berura_demo_state;
-extern s32 lbl_805D4F6C;
-extern s32 model_render_flags;
 
 void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
     s32 fade;
@@ -552,14 +540,6 @@ void TObjEneRe7Berura::advance_state() {
     }
     re7_berura_demo_state += 1;
 }
-
-extern s32 re7_berura_demo_state;
-extern s32 lbl_805D4F6C;
-extern s32 re7_berura_demo_camera_ptr;
-extern s32 berura_demo_flag;
-extern s32 re7_berura_demo_flag;
-extern void *TObjEneRe7Berura__demo_target;
-extern s32 model_render_flags;
 
 void TObjEneRe7Berura::demo_frame_callback() {
     switch ((s32) re7_berura_demo_state) {

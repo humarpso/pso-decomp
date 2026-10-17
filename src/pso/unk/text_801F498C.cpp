@@ -9,10 +9,6 @@ extern "C" {
 s32 memset(void *, int, int);
 extern RecoveredGlobal_801F498C_lbl_805127F8 quest_story_flags_by_difficulty;
 void clear_all_story_flags(void);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_801F498C_lbl_805127F8_size[sizeof(RecoveredGlobal_801F498C_lbl_805127F8) == 0x200 ? 1 : -1];
 void clear_all_story_flags(void) {
     memset((void *) (&quest_story_flags_by_difficulty.value), (int) (0), (int) (0x200));

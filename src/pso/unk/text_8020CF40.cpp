@@ -23,10 +23,6 @@ typedef ObjectFactoryEntry SpawnFactory_8020CC48;
 extern "C" {
 void TLobby__sub_8020CFC8(SpawnFactory_8020CC48 *out, SpawnFactory_8020CC48 *entry);
 s32 find_set_factory_index(SpawnRecord_8020CC48 *row, SpawnFactory_8020CC48 *out);
-}
-
-extern "C" {
-
 s32 find_set_factory_index(SpawnRecord_8020CC48 *row, SpawnFactory_8020CC48 *out) {
     s32 index = 0;
     SpawnFactory_8020CC48 *table = floor_object_factory_tables[TOKeyMachine01::get_global_state()];

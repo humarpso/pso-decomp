@@ -113,11 +113,6 @@ s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
 void *create_message_window__6TLobbyFllUls(s32, Pair_80288DA4 *, s32, u16);
 s32 get_window_layout_position(s32);
 void update_selection__19TQuestListChallengeFv(QLC_80288DA4 *self);
-}
-
-extern "C" {
-s32 get_quest_list_text(int, int, int);
-s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
 s32 lbl_805D64A8;
 s32 lbl_805D64AC;
 s32 TQuestListChallenge__active_instance;
@@ -141,15 +136,10 @@ struct QLC_80288FDC {
     Entry_80288FDC *entries;
 };
 
-s32 obj_getField1c(s32);
 s32 get_guild_text(s32);
 void calc_list_content_extent(u32);
 s32 create_item_list_window(s32, s32, s32);
 void create_quest_list_window__19TQuestListChallengeFv(QLC_80288FDC *arg0);
-}
-
-extern "C" {
-
 void * TObjNpcKenkyu__create(void *arg0);
 void sub_80288BE4__19TQuestListChallengeFv(void);
 void *__dt__19TQuestListChallengeFv(void *arg0, s16 arg1);
@@ -163,12 +153,10 @@ s32 prepare_offline_quest_filenames(s32, s32);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcKenkyu__ct(void *, void *, void *);
 s32 get_selected_menu_value(u32);
-s32 TWindow__close(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__15TShopWindowBaseFv(void *, s32);
 void *__nw__7TObjectFUl(int);
 s32 queue_destruction__7TObjectFv(void *);
-s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
 
 extern "C" {
 struct QLCStage_80289200 { s32 a; s32 b; s32 c; const char *name; };
@@ -280,9 +268,6 @@ block_9:
         }
     }
 }
-
-extern void *__vt__19TQuestListChallenge[];
-extern s32 TQuestListChallenge__active_instance;
 
 #define SUB_80222C28(a, b) ((s32 (*)(s32, s32))get_quest_list_text)(a, b)
 void update_selection__19TQuestListChallengeFv(QLC_80288DA4 *self) {
@@ -396,7 +381,6 @@ void *__dt__19TQuestListChallengeFv(void *arg0, s16 arg1) {
 
 extern s32 lbl_805D64A8;
 extern s32 lbl_805D64AC;
-extern s32 TQuestListChallenge__active_instance;
 
 typedef char RecoveredGlobal_80289200___vt__19TQuestListChallenge_size[sizeof(RecoveredGlobal_80289200___vt__19TQuestListChallenge) == 0x30 ? 1 : -1];
 typedef char RecoveredGlobal_80289200_lbl_8045080C_size[sizeof(RecoveredGlobal_80289200_lbl_8045080C) == 0x50 ? 1 : -1];
@@ -456,10 +440,6 @@ void reset_globals__19TQuestListChallengeFv(void) {
     lbl_805D64AC = 0;
     TQuestListChallenge__active_instance = 0;
 }
-
-extern s32 lbl_805D64A8;
-extern s32 lbl_805D64AC;
-extern s32 TQuestListChallenge__active_instance;
 
 void reset_globals2__19TQuestListChallengeFv(void) {
     lbl_805D64A8 = 0;

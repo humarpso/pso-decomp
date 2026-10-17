@@ -43,9 +43,6 @@ extern s32 lbl_805D4000;
 extern const f32 lbl_805DED20;
 extern const f32 lbl_805DED38;
 s32 init_collision_segments__17TBoss8DragonColliFiPviPvf(int arg0, void *arg1, int arg2, void *arg3, f32 scale);
-}
-
-extern "C" {
 void queue_destruction__7TObjectFv(void *);
 }
 
@@ -57,8 +54,6 @@ TBoss8DragonColli::~TBoss8DragonColli() {
         }
     }
 }
-
-#include "types.h"
 
 #include <stddef.h>
 #include "pso/misc/TLobby.h"
@@ -77,17 +72,12 @@ s32 __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern void *__vt__17TBoss8DragonColli[];
 extern s32 lbl_805D4004;
-extern const f32 lbl_805DED20;
 extern const f32 lbl_805DED24;
 extern const f32 lbl_805DED28;
 extern const f32 lbl_805DED2C;
 extern const f32 lbl_805DED30;
 extern const f32 lbl_805DED34;
 u8 *TBoss8DragonColli__ct(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 void render__19TBoss8DragonColli_CFv(void);
 void TBoss8DragonColli__sub_802F3074(void* p);
 void *destroy__17TBoss8DragonColliFPvs(void *arg0, s16 arg1);
@@ -148,8 +138,6 @@ u8 *TBoss8DragonColli__ct(u8 *arg0, s32 arg1) {
 void TBoss8DragonColli_C::render() {  }
 void TBoss8DragonColli__sub_802F3074(void* p) { ((TBoss8DragonColli_C *)p)->clear_segment_flags(); }
 void init__17TBoss8DragonColliFPvPvPv(void* p, void* a1, void* a2) { push_matrix(p); set_matrix_identity((void*)0); post_translate_matrix(a1); rotate_matrix_y((void*)0, a2); matrix_mult_vec((void*)0, (char*)p + 0xac, (char*)p + 0x38); pop_matrix(); *(void**)((char*)p + 0x60) = a2; ((TUnk_804AF8A0 *)p)->refresh_collision_body_centers(); set_all_flags__17TBoss8DragonColliFPv((O_802F3144 *)((void*)(p))); }
-
-extern s32 lbl_804E4BB4[];
 
 void TBoss8DragonColli_C::clear_segment_flags() {
     O_802F310C *self = (O_802F310C *)this;

@@ -6,10 +6,6 @@
 extern "C" {
 s32 is_flag_set__6TLobbyFv(void);
 extern s32 challenge_mode_state[];
-}
-
-extern "C" {
-
 int TLobby__sub_8006EF90(void);
 
 int TLobby__sub_8006EF90(void) { return 1; }

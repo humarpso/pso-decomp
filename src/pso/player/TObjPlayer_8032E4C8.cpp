@@ -19,8 +19,6 @@ void start_guardianna_wall_card(s32 arg0, s32 arg1, s32 arg2) {
     }
 }
 
-extern s32 tl_05;
-
 void TObjPlayer::start_guardianna_hit_card(s32 arg0, u32 *arg1, s32 arg2) {
     void *obj;
 
@@ -32,16 +30,12 @@ void TObjPlayer::start_guardianna_hit_card(s32 arg0, u32 *arg1, s32 arg2) {
     }
 }
 
-extern s32 tl_05;
-
 void TItemWpnCardEffect__sub_8032E588(s32 arg0, s32 arg1, s32 arg2) {
     void* obj = __nw__7TObjectFUl((s32)(0x70));
     if (obj != 0) {
         construct_card_effect_at_point(obj, tl_05, arg1, arg2, 0xFFFF0000, arg0);
     }
 }
-
-extern s32 tl_05;
 
 void TObjPlayer::create_aux_object(s32 arg0, u32 *arg1, s32 arg2) {
     void *obj;
@@ -54,16 +48,12 @@ void TObjPlayer::create_aux_object(s32 arg0, u32 *arg1, s32 arg2) {
     }
 }
 
-extern s32 tl_05;
-
 void TObjPlayer__sub_8032E648(s32 arg0, s32 arg1, s32 arg2) {
     void* obj = __nw__7TObjectFUl((s32)(0x70));
     if (obj != 0) {
         construct_card_effect_at_point(obj, tl_05, arg1, arg2, 0, arg0);
     }
 }
-
-extern s32 tl_05;
 
 void TObjPlayer::create_network_object(s32 arg0, u32 *arg1, s32 arg2) {
     void *obj;

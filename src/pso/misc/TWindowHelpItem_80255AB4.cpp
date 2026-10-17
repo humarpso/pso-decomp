@@ -24,10 +24,6 @@ void *alloc__23TAdSinglePlyChrSelectGCFv(u32 size);
 void *init__21TWindowSubComCardListFiii(void *p, s32 a, s32 b, s32 c);
 void call_if_split_screen(void *self, s32 idx);
 
-}
-
-extern "C" {
-
 void TWindowHelpItem__sub_80255B20(u8 *arg0);
 s32 TWindowHelpItem__sub_80255DDC(void* p);
 s32 handle_list_page_flip_input(s32);
@@ -92,8 +88,6 @@ void TWindowHelpItem::update_display() {
         toggle_help_window_on_button(arg0, this->m_20);
     }
 }
-
-extern s32 TWindowHelpItem__object_vtable[];
 
 void *TWindowHelpItem::dt(s16 arg1) {
     if (this != NULL) {

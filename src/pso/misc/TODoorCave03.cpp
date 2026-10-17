@@ -90,13 +90,9 @@ extern const f32 lbl_805DB4D8;
 s32 play_persistent_sound(s32, s32, u32, s16, s32);
 extern const f32 lbl_805DB4D0;
 extern const f32 TODoorCave03__data_805DB4D4;
-s32 play_persistent_sound(s32, s32, u32, s16, s32);
-extern const f32 TODoorCave03__data_805DB4D4;
 extern const f32 lbl_805DB4DC;
 s32 set_indexed_flags(void *, int, int);
 s32 is_any_player_within_radius_xz(void *, f32);
-extern const f32 lbl_805DB4D0;
-extern const f32 TODoorCave03__data_805DB4D4;
 extern const f32 lbl_805DB4E0;
 extern const f32 lbl_805DB4E4;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
@@ -108,8 +104,6 @@ s32 init_door_base(void *);
 extern RecoveredGlobal_80162848_lbl_804B1548 lbl_804B1548;
 extern s32 __vt__12TODoorCave03[];
 extern s32 TODoorCave03__class_name;
-extern u32 TODoorCave03__model_resource;
-extern const f32 TODoorCave03__data_805DB4D4;
 u8 *TODoorCave03__ct(u8 *arg0, s32 arg1, s32 arg2);
 void rotate_matrix_y(s32, s32);
 void push_matrix(void);
@@ -122,10 +116,6 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 lbl_805DB4E8;
 void render__12TODoorCave03Fv(u8 *arg0);
-}
-
-extern "C" {
-
 void *__dt__12TODoorCave03Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
@@ -244,16 +234,12 @@ void *TODoorCave03::create(void *arg0) {
     return o;
 }
 
-extern u32 TODoorCave03__model_resource;
-
 void TODoorCave03::free_shared_data() {
     if ((u32) TODoorCave03__model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TODoorCave03__model_resource, 1);
         TODoorCave03__model_resource = 0U;
     }
 }
-
-extern s32 __vt__12TODoorCave03[];
 
 void TODoorCave03::load_resources() {
     s32 temp_r3;

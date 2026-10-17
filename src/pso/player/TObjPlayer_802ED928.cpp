@@ -144,13 +144,6 @@ s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 extern s32 lbl_804E3BF0[];
 void TObjPlayer__sub_802ED988(u8 *arg0);
-}
-
-extern "C" {
-
-void TObjPlayer__sub_802ED984(void);
-s32 sub_802ECB10__14TBoss7DeRolLeCFv();
-
 void TBoss7DeRolLeC::update_or_dispatch() {
     if (sub_802ECB10__14TBoss7DeRolLeCFv() != 0) {
         sub_802ECAA4();

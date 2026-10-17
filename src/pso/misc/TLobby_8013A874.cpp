@@ -10,10 +10,6 @@ extern "C" {
 s32 fn_8013AAD4(void *, void *);
 s32 __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
 u8 *TLobby__sub_8013AA64(u8 *arg0, u8 *arg1);
-}
-
-extern "C" {
-
 void bswap_telepipe_record(void* p);
 void TLobby__sub_8013A9C0(void* p);
 void bswap_object_source_record(void* p);

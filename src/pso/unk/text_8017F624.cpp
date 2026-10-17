@@ -19,10 +19,6 @@ void project_world_to_screen(s32, Vec_8017F6C0 *, Out_8017F6C0 *);
 extern Vec_8017F6C0 lbl_804FF610;
 extern const f32 TObjCamera__data_805DBB58;
 extern const f32 lbl_805DBB5C;
-}
-
-extern "C" {
-
 void TObjCamera::update_camera_slots() {
     s32 i;
     for (i = 0; i < 8; i++) {

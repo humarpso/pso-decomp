@@ -41,12 +41,7 @@ extern RecoveredGlobal_8032DC94_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_8032DC94_lbl_8058D4C0 model_material_color;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-extern const f32 lbl_805DF7D8;
 void TObjPlayer__sub_8032DC94(u8 *arg0);
-}
-
-extern "C" {
-
 void *__dt__13TUnk_804EDC28Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804EDD20Fv(void *arg0, s16 arg1);
 s32 fire_shot_at_target__11TItemWeaponFv(void *, s32 *, s32, s32);
@@ -55,10 +50,7 @@ void TItemWeapon__ct(void *);
 s16 get_validated_attack_stage(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__11TItemWeaponFv(void *, int);
-void *__dt__13TUnk_804EDC28Fv(void *arg0, s16 arg1);
 void set_status_flags__10TObjPlayerFUl(void *, int);
-
-extern s32 tl_05;
 
 void TObjPlayer::launch_guardianna_colliders() {
     s32 sp8;
@@ -84,8 +76,6 @@ void *TUnk_804EDC28::construct_guardianna(s32 _w1, void *_w2) {
     set_status_flags__10TObjPlayerFUl(this, 2);
     return this;
 }
-
-extern s32 lbl_804EDC28[];
 
 extern s32 lbl_804EDD20[];
 
@@ -209,25 +199,15 @@ void TUnk_804EDD20::start_card_effect_trail() {
 
 void TUnk_804EDD20::start_card_effect_flash() { *(u32*)((char*)this + 0x70) |= 0x1; }
 
-}
-
-extern "C" {
-
     extern const float lbl_805DF7D8;
     extern const float lbl_805DF7E0;
     extern const float lbl_805DF7E4;
 void TObjPlayer::init_offset_vectors() { this->m_70 = 0; *(float *)&this->unk_74 = lbl_805DF7E4; this->m_78 = lbl_805DF7E4; *(float *)&this->unk_7C = lbl_805DF7E4; this->m_80 = lbl_805DF7D8; *(float *)&this->unk_84 = lbl_805DF7E0; this->m_88 = lbl_805DF7E0; *(float*)((char*)this + 0x8c) = lbl_805DF7E0; }
 
-}
-
-extern "C" {
-
 void *init_offsets_object__13TUnk_804EDD20Fv(void *arg0);
 void *init_effect_object__13TUnk_804EDD20Fv(void *arg0);
 void construct_card_effect_at_point(void *);
 void construct_card_effect_on_target(void *);
-
-extern s32 lbl_804EDD20[];
 
 void *TUnk_804EDD20::init_offsets_object() {
     construct_card_effect_at_point(this);
@@ -236,8 +216,6 @@ void *TUnk_804EDD20::init_offsets_object() {
     return this;
 }
 
-extern s32 lbl_804EDD20[];
-
 void *TUnk_804EDD20::init_effect_object() {
     construct_card_effect_on_target(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804EDD20;
@@ -245,13 +223,7 @@ void *TUnk_804EDD20::init_effect_object() {
     return this;
 }
 
-}
-
-extern "C" {
-
 void *__nw__7TObjectFUl(s32);
-
-extern s32 tl_05;
 
 void TObjPlayer::alloc_and_init(s32 arg0, s32 arg1, s32 arg2) {
     void* obj = __nw__7TObjectFUl((s32)(0x90));
@@ -259,8 +231,6 @@ void TObjPlayer::alloc_and_init(s32 arg0, s32 arg1, s32 arg2) {
         ((s32 (*)(void *, s32, s32, s32, s32, s32))init_offsets_object__13TUnk_804EDD20Fv)(obj, tl_05, arg1, arg2, 0, arg0);
     }
 }
-
-extern s32 tl_05;
 
 void TObjPlayer::create_and_init_effect(s32 arg0, u32 *arg1, s32 arg2) {
     void *obj;
@@ -285,14 +255,9 @@ extern const f32 lbl_805DF7E8;
 u8 *find_entity_by_id(u16);
 void anchor_card_effect(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
-void queue_destruction__7TObjectFv(void *);
 u32 find_item_by_id(s32);
 s8 TObjPlayer__sub_80102C30();
-void anchor_card_effect(u8 *arg0);
 void run_card_effect(u8 *arg0);
-}
-
-extern "C" {
 
 void anchor_card_effect(u8 *arg0) {
   u16 temp_r3;

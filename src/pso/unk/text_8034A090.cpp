@@ -42,13 +42,8 @@ extern const f32 lbl_805DFD24;
 s32 __dt__7TObjectFv(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
 s32 __dl__7TObjectFPv(void *);
-extern RecoveredGlobal_8034A5D0_lbl_804EFF80 quest_load_prt_txt_by_slot;
 extern s32 __vt__20TAdLoadQuestPrtTxtGC[];
 T_8034A198 *__dt__20TAdLoadQuestPrtTxtGCFv(T_8034A198 *arg0, s16 arg1);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8034A5D0_lbl_804EFF80_size[sizeof(RecoveredGlobal_8034A5D0_lbl_804EFF80) == 0xC ? 1 : -1];
 
 void TAdLoadQuestPrtTxtGC::run_task() {

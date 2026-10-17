@@ -7,12 +7,6 @@ u32 get_char_index__23TAdSinglePlyChrSelectGCFUi(void *);
 s32 strncpy(void *, int, int);
 extern s32 current_language;
 extern u8 *TLobby__protocol_instance;
-}
-
-extern "C" {
-
-void __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *arg0, void *arg1);
-
 void __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *arg0, void *arg1) {
     *(u8 *)((s8 *)arg0 + 0) = (u8) *(u8 *)((s8 *)arg1 + 0);
     *(u8 *)((s8 *)arg0 + 1) = (u8) *(u8 *)((s8 *)arg1 + 1);

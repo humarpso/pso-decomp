@@ -13,13 +13,8 @@ extern const f32 lbl_805D7E78;
 extern int TAdSoniclogo__state;
 extern void *tl_00;
 void *__nw__7TObjectFUl(u32 size);
-}
-
-extern "C" {
-
 int queue_destruction__7TObjectFv(void);
 
-    extern int TAdSoniclogo__state;
 void TAdSoniclogo::request_destroy() { queue_destruction__7TObjectFv(); TAdSoniclogo__state = 1; }
 
 }

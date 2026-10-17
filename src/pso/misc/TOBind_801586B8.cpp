@@ -42,17 +42,12 @@ s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
 extern RecoveredGlobal_80158890_lbl_804AFC54 lbl_804AFC54;
 extern s32 __vt__6TOBind[];
 extern s32 lbl_805D2EA8;
-extern u32 TOBind__static_model_resource;
 extern s32 tl_05;
 extern const f32 lbl_805DB300;
 extern const f32 lbl_805DB304;
 extern const f32 lbl_805DB308;
 extern const f32 lbl_805DB30C;
 u8 *TOBind__ct(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 struct BindBase_801586B8 { char pad[0x18]; };
 struct BindObj_801586B8 : BindBase_801586B8 {
     virtual void m0();
@@ -104,16 +99,12 @@ void *TOBind::create(void *arg0) {
     return o;
 }
 
-extern u32 TOBind__static_model_resource;
-
 void TOBind::free_static_model() {
     if ((u32) TOBind__static_model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TOBind__static_model_resource, 1);
         TOBind__static_model_resource = 0U;
     }
 }
-
-extern s32 __vt__6TOBind[];
 
 void TOBind::load_static_resource() {
     s32 temp_r3;

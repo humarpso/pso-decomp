@@ -46,10 +46,6 @@ void TLobby__sub_803D3130(void *, s32, void *, void *);
 void *memcpy(void *, const void *, u32);
 void *memset(void *, int, u32);
 extern S_803D4714 gcrna_stream_pool[];
-}
-
-extern "C" {
-
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)

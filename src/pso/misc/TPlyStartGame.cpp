@@ -11,12 +11,7 @@ void bswap__13packet_headerFv(void *);
 void bswap__21TPlyMeetUserExtensionFv(void *);
 void bswap__13TPlyStartGameFPv(void* p);
 void bswap__13TPlyStartGameFv(TPlyStartGame_801E0580 *self);
-}
-
-extern "C" {
-
 u8 *__ct__13TPlyStartGameFRC13TPlyStartGame(u8 *arg0, u8 *arg1);
-void bswap__13TPlyStartGameFPv(void* p);
 int bswap_game_list_entry(void* p);
 void copy_game_list_entry(void *, const void *);
 int bswap_32__FPUl(void*);

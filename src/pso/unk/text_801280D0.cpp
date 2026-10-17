@@ -9,10 +9,6 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 extern const f32 lbl_805DADE0;
 extern const f32 lbl_805DADE4;
-}
-
-extern "C" {
-
 u8 *TObjPlayer::create_state_variant(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;

@@ -22,10 +22,6 @@
 extern "C" {
 extern const f32 lbl_805DD160;
 s32 get_selected_entry__17TWindowSubComCardFPv(u8 *arg0);
-}
-
-extern "C" {
-
 struct Stack_80265500 {
     f32 sp8;
     f32 spC;
@@ -126,7 +122,6 @@ void update_chat_window(void* p);
 void TWindowSubComCard__sub_80265500(u8 *arg0);
 s32 TWindowSubComCard__sub_80265660(Obj_80265660 *o, s16 i);
 void TWindowSubComCard__sub_80265680(u8 *arg0, s16 arg1);
-s32 get_selected_entry__17TWindowSubComCardFPv(u8 *arg0);
 u32 get_selected_menu_value(Obj_80265BF8 *o);
 void align_menu_entry_positions(Win_80265C30 *self);
 void layout_entries__11TWindowMenuFv(u8 *arg0);
@@ -158,7 +153,6 @@ extern const f32 lbl_805DD14C;
 extern const f32 lbl_805DD154;
 extern const f32 lbl_805DD158;
 extern const f32 lbl_805DD15C;
-extern const f32 lbl_805DD160;
 extern const f32 lbl_805DD164;
 extern const f32 lbl_805DD168;
 extern const f32 lbl_805DD16C;

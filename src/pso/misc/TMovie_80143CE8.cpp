@@ -14,10 +14,6 @@ void TMovie::calc_frame_buffer_size(s32 arg0, s32 arg1) {
     lbl_805D5694 = ((*(u16 *)((s8 *)TMovie__framebuffer_video_mode + 4) + 0xF) & 0xFFF0) * *(u16 *)((s8 *)TMovie__framebuffer_video_mode + 8) * 2;
 }
 
-}
-
-extern "C" {
-
 s32 DCFlushRangeNoSync(s32, s32);
 s32 TObjPlayer__sub_800845F8();
 s32 GXGetTexBufferSize(s32, s32, s32, s32, s32);

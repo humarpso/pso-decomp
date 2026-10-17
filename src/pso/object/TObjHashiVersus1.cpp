@@ -29,12 +29,7 @@ u8 is_current_floor_switch_set(int);
 extern RecoveredGlobal_801915F4_lbl_804B7CCC versus_bridge_collision_bodies;
 extern s32 __vt__16TObjHashiVersus1[];
 extern s32 lbl_805D337C;
-extern u32 TObjHashiVersus1__resource_bundle;
 u8 *TObjHashiVersus1__ct(u8 *arg0, s32 arg1, s32 _w2);
-}
-
-extern "C" {
-
 void *TObjHashiVersus1__create(void *arg0);
 void *__dt__16TObjHashiVersus1Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -53,16 +48,12 @@ void *TObjHashiVersus1__create(void *arg0) {
     return o;
 }
 
-extern u32 TObjHashiVersus1__resource_bundle;
-
 void TObjHashiVersus1::release_static_instance() {
     if ((u32) TObjHashiVersus1__resource_bundle != 0U) {
         TLobby__sub_8001FE7C((void*)TObjHashiVersus1__resource_bundle, 1);
         TObjHashiVersus1__resource_bundle = 0U;
     }
 }
-
-extern s32 __vt__16TObjHashiVersus1[];
 
 void TObjHashiVersus1::load_shared_resource() {
     s32 temp_r3;

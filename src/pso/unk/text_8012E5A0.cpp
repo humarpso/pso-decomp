@@ -24,10 +24,6 @@ extern const f32 lbl_805DAF84;
 extern const f32 lbl_805DAF88;
 extern const f32 lbl_805DAF8C;
 void update_casing_eject__10TObjPlayerFPv(Self_8012E5A0 *self);
-}
-
-extern "C" {
-
 void update_casing_eject__10TObjPlayerFPv(Self_8012E5A0 *self) {
     s32 ang;
     Vec_8012E5A0 v;

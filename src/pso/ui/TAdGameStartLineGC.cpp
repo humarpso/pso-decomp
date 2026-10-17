@@ -45,16 +45,8 @@ extern const f32 lbl_805DF4CC;
 extern const f32 lbl_805DF4D0;
 extern const f32 lbl_805DF4D4;
 TAdGameStartLineGC_80320EF0 *__ct__18TAdGameStartLineGCFv(TAdGameStartLineGC_80320EF0 *self, void *parent);
-extern const f32 lbl_805DF4A0;
 extern const f32 lbl_805DF4A4;
 extern const f32 lbl_805DF4A8;
-extern const f32 lbl_805DF4AC;
-extern const f32 lbl_805DF4B0;
-extern const f32 lbl_805DF4B4;
-}
-
-extern "C" {
-
 int fn_80320DE8(void*);
 int get_state_flag__9TMainTaskFv(void*);
 

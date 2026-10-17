@@ -29,10 +29,6 @@ extern "C" {
 f32 sample_acceleration_curve(Curve_8007E16C *c, f32 t);
 f32 newton_sqrtf(f32);
 void init_acceleration_curve(Curve_8007E210 *c, f32 a, f32 d, f32 length, f32 speed);
-}
-
-extern "C" {
-
 extern const f32 TObjBoss2Tunnel__data_805D9234;
 extern const f32 TObjBoss2Tunnel__data_805D926C;
 extern const f32 lbl_805D9288;

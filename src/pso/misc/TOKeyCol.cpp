@@ -72,7 +72,6 @@ void *__dt__8TOKeyColFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__8TOKeyCol[];
 extern s32 TOKeyCol__name;
 extern const f32 lbl_805DB758;
 extern const f32 lbl_805DB75C;

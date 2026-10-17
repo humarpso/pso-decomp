@@ -11,10 +11,6 @@ extern void *tl_00;
 extern void *tl_04;
 extern s32 ending_movie_active_flag;
 u8 *init_ending_movie(u8 *arg0);
-}
-
-extern "C" {
-
 u8 *init_ending_movie(u8 *arg0) {
     void *p;
     __ct__7TObjectFP7TObject(arg0, tl_04);

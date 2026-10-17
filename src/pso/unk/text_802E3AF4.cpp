@@ -18,10 +18,6 @@ s32 TObjPlayer__sub_8015431C(void *);
 s32 reset_global_table();
 s32 try_add_hit_target__14TItemAttackColFPvPv(void *, int);
 s32 get_attack_entry__16TObjOnlineEndingFi(int);
-}
-
-extern "C" {
-
 void TItemAttackCol::check_object_hits() {
     s32 i;
     s32 e;

@@ -67,12 +67,10 @@ extern s32 lbl_80490A18[];
 extern s32 lbl_805D29E0;
 u8 *TObjPlayer__sub_800A4204(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-void __ct__7TObjectFP7TObject(void *, void *);
 s32 set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-void build_beam_points__12TTecZondeEffFPv(struct Obj_800A39A8 *);
 f32 sin_table_lookup(s32);
 extern Entry_800A4064 *player_effect_task_list[];
 extern s32 TObjPlayer__effect_count;
@@ -81,19 +79,10 @@ extern const f32 lbl_805D9A04;
 extern const f32 lbl_805D9A08;
 f32 newton_sqrtf(f32);
 s32 matrix_mult_vec(int, void *, void *);
-s32 set_chunk_material_color(void *);
-extern u8 chunk_material_color_half_alpha_f32[];
 extern Cam_800A3D1C lbl_8058D4F8;
-extern s32 TObjPlayer__effect_count;
-extern s32 lbl_805D5660;
-extern s32 model_render_flags;
 extern const f32 lbl_805D99F0;
 extern const f32 lbl_805D99FC;
 extern const f32 lbl_805D9A00;
-}
-
-extern "C" {
-
 void *__dt__21TeneFakeTecThunderEffFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);

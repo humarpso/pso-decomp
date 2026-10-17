@@ -10,10 +10,6 @@ extern s8 lbl_8043F330[];
 s32 get_opening_movie_selector();
 s8 get_opening_movie_purpose();
 u8 *initialize_movie_with_soundtrack(u8 *arg0, s8 *arg1, s32 arg2, s32 arg3, s32 arg4);
-}
-
-extern "C" {
-
 u8 *initialize_movie_with_soundtrack(u8 *arg0, s8 *arg1, s32 arg2, s32 arg3, s32 arg4) {
     *(s32 *)((s8 *)arg0 + 0xCC) = arg2;
     *(s32 *)((s8 *)arg0 + 0) = 0;

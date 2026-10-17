@@ -35,9 +35,6 @@ extern const f32 lbl_805D8A4C;
 extern const f32 lbl_805D8A50;
 extern const f32 lbl_805D8A54;
 void steer_homing_direction(Obj_8005063C *arg0);
-}
-
-extern "C" {
 
 #pragma fp_contract on
 void steer_homing_direction(Obj_8005063C *arg0) {

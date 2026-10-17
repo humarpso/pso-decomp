@@ -110,10 +110,6 @@ extern RecoveredGlobal_800F7A6C_lbl_804DB1F0 lbl_804DB1F0;
 f32 TLobby__sub_800F7A6C(void);
 extern RecoveredGlobal_800F7A7C_lbl_8048C9D8 challenge_mode_state;
 f32 TLobby__sub_800F7A7C(void);
-}
-
-extern "C" {
-
 void send_6x0A_enemy_state_packet(void* p);
 void init_6x0A_enemy_state_packet(void* p);
 int get_attack_credit_slot_count(void);
@@ -188,9 +184,6 @@ s32 load_current_floor_resources(void) {
     return load_floor_resources(TOKeyMachine01::get_global_state());
 }
 
-}
-
-extern "C" {
 void load_resources__12TBoss1DragonFv();
 void TBoss1DragonDemo__sub_8002B68C();
 void TBoss1DragonDemo__sub_8002B690();

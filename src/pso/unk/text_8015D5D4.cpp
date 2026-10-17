@@ -4,10 +4,6 @@
 
 extern "C" {
 s32 play_sound_effect(s32, void *, s32, s32);
-}
-
-extern "C" {
-
 extern "C" void vfunc_17__13TUnk_804B0BB8Fv();
 extern "C" void TBoss3Volopt__sub_8015D8E0();
 extern "C" void TLobby__sub_801A1FD8();

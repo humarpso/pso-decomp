@@ -107,10 +107,6 @@ extern s32 __vt__16TObjNpcFemaleFat[];
 extern s32 TObjNpcFemaleFat__name;
 extern u8 *TObjNpcFemaleFat__static_model;
 u8 *TObjNpcFemaleFat__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void * TObjNpcFemaleMacho__create(void *arg0);
 void *__dt__16TObjNpcFemaleFatFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -118,8 +114,6 @@ void *TObjControl__ct(void *, void *);
 void *TObjNpcFemaleMacho__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-
-extern s32 __vt__16TObjNpcFemaleFat[];
 
 void *__dt__16TObjNpcFemaleFatFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -160,8 +154,6 @@ void * TObjNpcFemaleMacho__create(void *arg0) {
     }
     return o2;
 }
-
-extern u32 TObjNpcFemaleMacho__lobby_resource;
 
 void TObjNpcFemaleMacho::close_dialog_window() {
     if ((u32) TObjNpcFemaleMacho__lobby_resource != 0U) {

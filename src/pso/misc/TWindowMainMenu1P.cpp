@@ -13,7 +13,6 @@ void __dl__7TObjectFPv(s32);
 u8 * __dt__15TWindowMainMenuFv(void *, s16);
 extern s32 __vt__17TWindowMainMenu1P[];
 u8 *__dt__17TWindowMainMenu1PFv(u8 *arg0, s16 arg1);
-void TCameraCtrl__sub_800694A8(void);
 extern const f32 lbl_805DD8A0;
 extern const f32 lbl_805DD8A4;
 extern const f32 lbl_805DD8A8;
@@ -25,10 +24,6 @@ extern const f32 lbl_805DD8BC;
 extern const f32 lbl_805DD8C0;
 extern const f32 lbl_805DD8C4;
 extern const f32 lbl_805DD8C8;
-}
-
-extern "C" {
-
 void *TWindowMainMenu1P__ct(void *arg0);
 void TWindowMainMenu__ct(void *);
 
@@ -109,17 +104,11 @@ void TWindowMainMenu1P::update_backdrop_transition() {
 void TWindowMainMenu1P::render() {  }
 void TWindowMainMenu1P::run_task() { handle_menu_selection(); sub_80263FE0(); update_backdrop_transition(); }
 
-extern s32 __vt__17TWindowMainMenu1P[];
-extern const f32 lbl_805DD8A8;
-extern const f32 lbl_805DD8B0;
 extern void *TWindowMainMenu1P__name;
-extern const f32 lbl_805DD8C4;
-extern const f32 lbl_805DD8BC;
 extern const f32 lbl_805DD8CC;
 extern const f32 lbl_805DD8D0;
 extern const f32 lbl_805DD8D4;
 extern const f32 lbl_805DD8D8;
-extern const f32 lbl_805DD8C8;
 
 u8 *__dt__17TWindowMainMenu1PFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {

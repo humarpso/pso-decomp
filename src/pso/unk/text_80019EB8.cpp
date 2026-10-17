@@ -7,10 +7,6 @@ extern "C" {
 extern const f32 lbl_805D7DDC;
 extern const f32 lbl_805D7DE0;
 void fn_80019EB8(O_80019EB8 *self, f32 f);
-}
-
-extern "C" {
-
 void fn_80019EB8(O_80019EB8 *self, f32 f) {
     s32 i;
     f32 s;

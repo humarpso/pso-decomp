@@ -42,12 +42,7 @@ extern char *status_text_label_table[];
 extern Ent_800FC968 lobby_player_status_records[];
 extern char lbl_805DA9F4[4];
 extern char lbl_805DA9F8[4];
-}
-
-extern "C" {
-
 s32 fn_800FCCC8(s32, s32);
-s32 get_card_status_bits__20TWindowShortListCtrlFv();
 
 void *__dt__13TUnk_8049CA54Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);

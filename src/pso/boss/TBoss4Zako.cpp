@@ -123,14 +123,8 @@ void vt6__9TBoss4UroFv(u8 *arg0);
 s32 queue_destruction__7TObjectFv(void *);
 s32 spawn_particle_effect(void *, int);
 extern const f32 lbl_805D8CB8;
-extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CC0;
 void vt2__11TBoss4BishiFv(u8 *arg0);
-s32 queue_destruction__7TObjectFv(void *);
-s32 spawn_particle_effect(void *, int);
-extern const f32 lbl_805D8CB8;
-extern const f32 lbl_805D8CBC;
-extern const f32 lbl_805D8CC0;
 void vt5__9TBoss4UroFv(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 
@@ -138,29 +132,22 @@ s32 get_instance__14TBoss4DarkFalzFv();
 s32 get_position_ptr__10TObjPlayerFv(s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CF4;
 extern const f32 lbl_805D8CF8;
 extern const f32 lbl_805D8CFC;
 void update_target_position__10TBoss4ZakoFPv(u8 *arg0);
 
 void enter_state_3__11TBoss4BishiFPv(void* p);
-void vec3_add_to(void *, void *);
 f32 vector_length(void *);
-extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CC4;
 void vt1__11TBoss4BishiFv(Obj_8005BB5C *self);
 
 s32 TBoss4Zako__ct(s32, s32, s32);
 
-f32 vector_length(void *);
-
 void normalize_vector(void *);
 extern V2_8005BF68 TBoss4Bishi_spawn_offsets[];
 extern s32 __vt__11TBoss4Bishi[];
 extern s32 lbl_805D27F0;
-extern const f32 lbl_805D8CBC;
-extern const f32 lbl_805D8CC0;
 extern const f32 lbl_805D8CDC;
 extern const f32 lbl_805D8CE0;
 s32 TBoss4Bishi__ct(s32 arg0, s32 arg1, s32 arg2);
@@ -168,11 +155,6 @@ s32 TBoss4Bishi__ct(s32 arg0, s32 arg1, s32 arg2);
 struct Obj_8005C6E4;
 void clamp_min_player_distance__9TBoss4UroFPv(Obj_8005C6E4 *arg0);
 
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
-f32 vector_length(void *);
-void normalize_vector(void *);
-extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CE8;
 extern const f32 lbl_805D8CEC;
 extern const f32 lbl_805D8CF0;
@@ -195,25 +177,18 @@ void vt0__11TBoss4BishiFv(u8 *arg0);
 void vt4__9TBoss4UroFv(void *arg0);
 void *__dt_deleting__11TBoss4BishiFPvs(void *arg0, s16 arg1);
 s32 create__11TBoss4BishiFi(s32 arg0);
-void enter_state_3__11TBoss4BishiFPv(void* p);
 void try_enter_state_3__11TBoss4BishiFPv(void* p);
 
-void vec3_add_to(void *, void *);
 s32 TObjControl__ct(s32, s32);
 
 s32 __nw__7TObjectFUl(s32);
 
-extern const f32 lbl_805D8CC8;
 extern const f32 lbl_805D8CCC;
 u32 TBoss4Zako_collision_body_parts[11] = {
  0, 0x40f00000, 0, 0x40a00000, 0, 0, 0x807a, 0, 0, 0, 0,
 };
 
-extern s32 __vt__11TBoss4Bishi[];
-
 extern s32 tl_04;
-
-#include "types.h"
 
 struct Vec_8005C6E4 { f32 x, y, z; };
 
@@ -250,29 +225,15 @@ struct Obj_8005C858 {
     f32 f3cc;
 };
 
-f32 vector_length(void *);
-extern const f32 lbl_805D8CBC;
-extern const f32 lbl_805D8CDC;
-extern const f32 lbl_805D8CE0;
 extern const f32 lbl_805D8D00;
-f32 calc_boss4_scale__10TObjPlayerFi(void *);
-s32 TBoss4Zako__ct(s32, s32, s32);
-f32 vector_length(void *);
 extern s32 __vt__9TBoss4Uro[];
 extern s32 lbl_805D27EC;
-extern const f32 lbl_805D8CBC;
-extern const f32 lbl_805D8CE0;
-extern const f32 lbl_805D8D00;
 extern const f32 lbl_805D8D04;
 extern const f32 lbl_805D8D08;
 s32 TBoss4Uro__ct(s32 a0, s32 a1, s32 a2);
 void TBoss4Uro__vt61(void* p);
 void *__dt__9TBoss4UroFv(void *arg0, s16 arg1);
 s32 create__9TBoss4UroFi(s32 arg0);
-
-s32 TObjControl__ct(s32, s32);
-
-s32 __nw__7TObjectFUl(s32);
 
 struct Vec_8005C49C { f32 x, y, z; };
 
@@ -299,87 +260,27 @@ struct TBoss4Uro {
 
 typedef void (TBoss4Uro::*Act_8005C49C)();
 
-s32 get_phase__9TBoss4UroFv(void *);
-
-void submit_cursor_candidate(void *, s32);
-void minimap_render_dot(void *, s32, s32, s32);
-f32 sin_table_lookup(s32);
-extern const f32 lbl_805D8CD0;
-extern const f32 TBoss4Zako__data_805D8CD4;
-extern const f32 lbl_805D8CD8;
-
-extern s32 __vt__9TBoss4Uro[];
-
-extern s32 tl_04;
-s32 create__9TBoss4UroFi(s32 arg0);
-s32 TBoss4Uro__ct(s32 a0, s32 a1, s32 a2);
-void *__dt__9TBoss4UroFv(void *arg0, s16 arg1);
-void TBoss4Uro__vt61(void* p);
-void clamp_min_player_distance__9TBoss4UroFPv(Obj_8005C6E4 *arg0);
 void run_task__9TBoss4UroFv(TBoss4Uro *self);
-void vt4__9TBoss4UroFv(void *arg0);
-void update_target_position__10TBoss4ZakoFPv(u8 *arg0);
-void vt5__9TBoss4UroFv(u8 *arg0);
-void vt6__9TBoss4UroFv(u8 *arg0);
-s32 create__11TBoss4BishiFi(s32 arg0);
-s32 TBoss4Bishi__ct(s32 arg0, s32 arg1, s32 arg2);
-void *__dt_deleting__11TBoss4BishiFPvs(void *arg0, s16 arg1);
-void try_enter_state_3__11TBoss4BishiFPv(void* p);
-void enter_state_3__11TBoss4BishiFPv(void* p);
 void TBoss4Zako__sub_8005BC4C(TBoss4Bishi *self);
-void vt0__11TBoss4BishiFv(u8 *arg0);
-void vt1__11TBoss4BishiFv(Obj_8005BB5C *self);
-void vt2__11TBoss4BishiFv(u8 *arg0);
-void TBoss4Bishi__sub_8005BAD4(void);
-void TBoss4Bishi__sub_8005BAD0(void);
-void TBoss4Bishi__sub_8005BACC(void);
-void TBoss4Bishi__sub_8005BAC8(void);
-void TBoss4Bishi__sub_8005BAC4(void);
-void TBoss4Bishi__sub_8005BAC0(void);
-void TBoss4Bishi__sub_8005BABC(void);
-
-#include "types.h"
 
 struct V_8005CBA4 { f32 x, y, z; };
 
 struct Pl_8005CBA4 { u8 pad0[0x38]; V_8005CBA4 pos; };
 
-s32 queue_destruction__7TObjectFv(void *);
-s32 spawn_particle_effect(void *, int);
-extern const f32 lbl_805D8CB8;
-extern const f32 lbl_805D8CBC;
-extern const f32 lbl_805D8CC0;
-
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
-void vec3_add_to(void *, void *);
-f32 vector_length(void *);
-void normalize_vector(void *);
 extern const f32 lbl_805D8D0C;
 extern const f32 lbl_805D8D14;
 
-void vec3_add_to(void *, void *);
-f32 vector_length(void *);
-
-void normalize_vector(void *);
-extern const f32 lbl_805D8CBC;
-extern const f32 lbl_805D8CE0;
 extern const f32 lbl_805D8D18;
 extern const f32 lbl_805D8D1C;
 extern const f32 TBoss4Zako_movement_speed_step;
 
-extern const f32 lbl_805D8CC8;
 extern const f32 TBoss4Zako_one_third;
-#include "types.h"
-void render__9TBoss4UroFv(void);
 void render__9TBoss4UroFv(void);
 
-#include "types.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/enemy/TObjEneLappy.h"
-#include "pso/enemy/TObjEnemy.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -471,8 +372,6 @@ struct VObj_18_fe72f9 : VBase_18_fe72f9 {
     virtual s32 m80();
 };
 
-f32 calc_boss4_scale__10TObjPlayerFi(void *);
-
 f32 *dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
@@ -485,10 +384,6 @@ s32 init_collision_body_parts(void *, void *, int);
 extern u32 TBoss4Zako_collision_body_parts[];
 extern s32 __vt__10TBoss4Zako[];
 extern s32 lbl_805D27E8;
-extern const f32 lbl_805D8CBC;
-extern const f32 TBoss4Zako__data_805D8CD4;
-extern const f32 lbl_805D8CF8;
-extern const f32 TBoss4Zako_one_third;
 extern const f32 lbl_805D8D30;
 extern const f32 lbl_805D8D34;
 extern const f32 lbl_805D8D38;
@@ -498,18 +393,11 @@ extern const f32 lbl_805D8D44;
 s32 TBoss4Zako__ct(s32 arg0, s32 arg1, s32 arg2);
 
 void update_state3__10TBoss4ZakoFPv(void* p);
-s32 TObjControl__ct(s32, s32);
 s32 free_collision_body_parts(void *);
 
 s32 __dt__9TObjEnemyFv(void *, s32);
-s32 __nw__7TObjectFUl(s32);
-void update_state3__10TBoss4ZakoFPv(void* p);
 
-extern s32 __vt__10TBoss4Zako[];
-
-extern s32 tl_04;
 #define THIS self
-s32 TBoss4Zako__ct(s32 arg0, s32 arg1, s32 arg2);
 
 void add_radar_scaled_marker(void *, s32, s32, s32, f32);
 extern const f32 lbl_805D8CD0, lbl_805D8CD8, lbl_805D8CE0, lbl_805D8D28, lbl_805D8D2C;
@@ -524,42 +412,27 @@ void *__dt__10TBoss4ZakoFv(void *, s16);
 void subtract_vector(void *, void *);
 u16 find_nearest_visible_player(void *, s32, f32);
 void __dl__7TObjectFPv(void *);
-}
-
-extern "C" {
 #pragma push
 void fn_8005D6E4(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) + 1);
 }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 void TBoss4Uro__sub_8005D6D4(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0x38C) = (s32) (*(s32 *)((s8 *)arg0 + 0x38C) + 1);
 }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 s32 TBoss4Zako__sub_8005D6B0(void *p) {
     O_8005D6B0 *self = (O_8005D6B0 *)p;
     return self->f374 == 1 || self->f374 == 2;
 }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 s32 TBoss4Uro__sub_8005D698(void *arg0) {
     return (u8) (*(s32 *)((s8 *)arg0 + 0x374) != 3);
 }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 s32 TBoss4Zako::create(s32 arg0) {
     s32 var_r31;
@@ -576,9 +449,6 @@ s32 TBoss4Zako::create(s32 arg0) {
     return var_r31;
 }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 #pragma fp_contract on
 s32 TBoss4Zako__ct(s32 arg0, s32 parent, s32 arg2) {
@@ -635,9 +505,6 @@ s32 TBoss4Zako__ct(s32 arg0, s32 parent, s32 arg2) {
     return arg0;
 }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 void *__dt__10TBoss4ZakoFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -656,9 +523,6 @@ void *__dt__10TBoss4ZakoFv(void *arg0, s16 arg1) {
     return arg0;
 }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 void update_state3__10TBoss4ZakoFPv(void* p) { if (*(int*)((char*)p + 0x374) != 3) { ((TBoss4Zako *)p)->set_state3(); } }
 #pragma pop
@@ -926,9 +790,6 @@ s32 create__9TBoss4UroFi(s32 arg0) {
     return var_r31;
 }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 #pragma fp_contract on
 s32 TBoss4Uro__ct(s32 a0, s32 a1, s32 a2) {
@@ -956,9 +817,6 @@ s32 TBoss4Uro__ct(s32 a0, s32 a1, s32 a2) {
     return a0;
 }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 void *__dt__9TBoss4UroFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -971,15 +829,9 @@ void *__dt__9TBoss4UroFv(void *arg0, s16 arg1) {
     return arg0;
 }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 void TBoss4Uro__vt61(void* p) { if (*(int*)((char*)p + 0x374) != 3) { ((TObjEnemy *)p)->distribute_experience(); TBoss4Uro__sub_8005D6D4(*(void**)((char*)p + 0x378)); *(int*)((char*)p + 0x374) = 3; } }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 #pragma fp_contract on
 void clamp_min_player_distance__9TBoss4UroFPv(Obj_8005C6E4 *arg0) {
@@ -1010,9 +862,6 @@ void clamp_min_player_distance__9TBoss4UroFPv(Obj_8005C6E4 *arg0) {
     arg0->pos.z = lbl_805D8CDC * d.z + target.z;
 }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 #pragma fp_contract on
 void run_task__9TBoss4UroFv(TBoss4Uro *self) {
@@ -1053,15 +902,9 @@ void run_task__9TBoss4UroFv(TBoss4Uro *self) {
     }
 }
 #pragma pop
-}
-
-extern "C" {
 V2_8005BF68 TBoss4Bishi_spawn_offsets[4] = {
     { -4.0f, -4.0f }, { 4.0f, -4.0f }, { -4.0f, 4.0f }, { 4.0f, 4.0f },
 };
-}
-
-extern "C" {
 #pragma push
 void vt4__9TBoss4UroFv(void *arg0) {
     struct VOff_8005C450_arg0_8005BABC *self = (struct VOff_8005C450_arg0_8005BABC *)arg0;
@@ -1071,9 +914,6 @@ void vt4__9TBoss4UroFv(void *arg0) {
     vec3_add_to(self->f_38, (void *)((char *)arg0 + 908));
 }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 #pragma fp_contract on
 void update_target_position__10TBoss4ZakoFPv(u8 *actor) {
@@ -1098,9 +938,6 @@ void update_target_position__10TBoss4ZakoFPv(u8 *actor) {
     }
 }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 #pragma fp_contract on
 #pragma opt_common_subs off
@@ -1141,9 +978,6 @@ void TBoss4Zako::update_orbit_velocity() {
 #undef o
 }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 void vt5__9TBoss4UroFv(u8 *arg0) {
     f32 temp_f1;
@@ -1158,9 +992,6 @@ void vt5__9TBoss4UroFv(u8 *arg0) {
     }
 }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 void vt6__9TBoss4UroFv(u8 *arg0) {
     f32 temp_f1;
@@ -1175,9 +1006,6 @@ void vt6__9TBoss4UroFv(u8 *arg0) {
     }
 }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 s32 create__11TBoss4BishiFi(s32 arg0) {
     s32 var_r31;
@@ -1194,9 +1022,6 @@ s32 create__11TBoss4BishiFi(s32 arg0) {
     return var_r31;
 }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 #pragma opt_common_subs off
 s32 TBoss4Bishi__ct(s32 arg0, s32 arg1, s32 arg2) {
@@ -1234,9 +1059,6 @@ s32 TBoss4Bishi__ct(s32 arg0, s32 arg1, s32 arg2) {
 #undef o
 }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 void *__dt_deleting__11TBoss4BishiFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -1249,21 +1071,12 @@ void *__dt_deleting__11TBoss4BishiFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 void try_enter_state_3__11TBoss4BishiFPv(void* p) { if (*(int*)((char*)p + 0x374) != 3) { ((TObjEnemy *)p)->distribute_experience(); enter_state_3__11TBoss4BishiFPv((void*)(p)); } }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 void enter_state_3__11TBoss4BishiFPv(void* p) { if (*(int*)((char*)p + 0x374) != 3) { TBoss4Uro__sub_8005D6D4(*(void**)((char*)p + 0x378)); *(int*)((char*)p + 0x374) = 3; } }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 #pragma fp_contract on
 void TBoss4Zako__sub_8005BC4C(TBoss4Bishi *self) {
@@ -1303,9 +1116,6 @@ void TBoss4Zako__sub_8005BC4C(TBoss4Bishi *self) {
     }
 }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 void vt0__11TBoss4BishiFv(u8 *arg0) {
     f32 temp_f0;
@@ -1323,9 +1133,6 @@ void vt0__11TBoss4BishiFv(u8 *arg0) {
     }
 }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 void vt1__11TBoss4BishiFv(Obj_8005BB5C *self) {
     VecCopy__FP3VecPC3Vec(&self->prev, &self->pos);
@@ -1337,9 +1144,6 @@ void vt1__11TBoss4BishiFv(Obj_8005BB5C *self) {
     }
 }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 void vt2__11TBoss4BishiFv(u8 *arg0) {
     f32 temp_f1;
@@ -1354,45 +1158,24 @@ void vt2__11TBoss4BishiFv(u8 *arg0) {
     }
 }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 void TBoss4Bishi__sub_8005BAD4(void) {  }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 void TBoss4Bishi__sub_8005BAD0(void) {  }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 void TBoss4Bishi__sub_8005BACC(void) {  }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 void TBoss4Bishi__sub_8005BAC8(void) {  }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 void TBoss4Bishi__sub_8005BAC4(void) {  }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 void TBoss4Bishi__sub_8005BAC0(void) {  }
 #pragma pop
-}
-
-extern "C" {
 #pragma push
 void TBoss4Bishi__sub_8005BABC(void) {  }
 #pragma pop

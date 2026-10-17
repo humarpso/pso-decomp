@@ -24,15 +24,8 @@ extern char lbl_8044FCD8[];
 extern const f32 lbl_805DD878;
 extern const f32 lbl_805DD87C;
 void init_timer_window_layout_alt(TWindowTimer_80287B60 *self);
-u32 calc_text_width(char *);
-TimerChild_80287B60 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 extern u8 lbl_8044FCC8[];
-extern const f32 lbl_805DD878;
-extern const f32 lbl_805DD87C;
 void init_timer_window_layout(Wn_80287AD8 *arg0);
-}
-
-extern "C" {
 
 #pragma push
 #pragma fp_contract on

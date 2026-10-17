@@ -8,10 +8,6 @@ extern "C" {
 s32 queue_destruction__7TObjectFv();
 s32 update_model_load__6TLobbyFv();
 s32 start_character_load_task__23TAdSinglePlyChrSelectGCFv();
-}
-
-extern "C" {
-
 struct VOff_8028C7BC_arg0_8028C6EC { char pad_0[0x30]; char f_30[1]; };
 
 void *TChCrLoadGmNjReq__ct(void *arg0, void *arg1, void *arg2);

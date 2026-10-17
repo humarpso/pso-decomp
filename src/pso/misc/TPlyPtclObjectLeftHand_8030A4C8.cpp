@@ -24,10 +24,6 @@ extern s32 __vt__22TPlyFollowParticleCtrl[];
 extern s32 TPlyFollowParticleCtrl__class_name;
 extern s32 tl_06;
 Ctrl_8030A5B8 *TPlyFollowParticleCtrl__ct(Ctrl_8030A5B8 *self, u8 *arg1);
-}
-
-extern "C" {
-
 void *TPlyPtclObjectLeftHand__ct(void *arg0, u8 * _w1);
 void *__dt__22TPlyFollowParticleCtrlFv(void *arg0, s16 arg1);
 u32 get_player_by_client_id(u16);
@@ -50,8 +46,6 @@ void TPlyFollowParticleCtrl::destroy_if_inactive(s32 arg0) {
         queue_destruction__7TObjectFv(arg0);
     }
 }
-
-extern s32 __vt__22TPlyFollowParticleCtrl[];
 
 void *__dt__22TPlyFollowParticleCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

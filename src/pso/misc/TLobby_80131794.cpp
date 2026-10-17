@@ -9,14 +9,8 @@ char *strcat(char *, const char *);
 char *strncpy(char *, const char *, u32);
 void *memset(void *, int, u32);
 s32 replace_file_extension__6TLobbyFPvPvPv(char *arg0, char *arg1, char *arg2);
-char *strcat(char *, const char *);
-char *strncpy(char *, const char *, u32);
 extern char lbl_805DB070;
 s32 change_file_extension__6TLobbyFPvPvPv(char *arg0, char *arg1, char *arg2);
-}
-
-extern "C" {
-
 void TLobby::debug_print(s32 arg0, ...) {}
 
 s32 replace_file_extension__6TLobbyFPvPvPv(char *arg0, char *arg1, char *arg2) {

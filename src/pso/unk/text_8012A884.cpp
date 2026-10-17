@@ -12,9 +12,6 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 void TItemWeapon__ct(void *);
 u8 *construct_srank_weapon(void *arg0, s32 arg1, void *arg2);
-}
-
-extern "C" {
 
 struct Inc_8012A884;
 extern "C" void TItemEquipBase__sub_8010A77C();

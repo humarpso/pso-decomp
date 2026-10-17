@@ -136,7 +136,6 @@ extern RecoveredGlobal_80237194_lbl_8044D8EC lbl_8044D8EC;
 u16 obj_getField1c(void *);
 void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-u16 obj_getField1c(void *);
 void __ct__7TEffectFv(void *);
 void init_collision_body_parts(void *, f32 *, s32);
 void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
@@ -144,11 +143,6 @@ void *__nw__7TObjectFUl(u32);
 extern s32 __vt__19TTecPlayerInfluence[];
 extern s32 lbl_805D37F0;
 Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner, void *pos, s32 level);
-void VecCopy__FP3VecPC3Vec(void *, void *);
-}
-
-extern "C" {
-
 void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
@@ -177,8 +171,6 @@ void TTecPlayerInfluence::tick_lifetime() {
 }
 
 void TTecPlayerInfluence::sub_80237258() { this->m_bc = *(f32*)((char*)this + 0x3c); }
-
-extern s32 __vt__19TTecPlayerInfluence[];
 
 void TTecPlayerInfluence::run_task() {
     sub_80237258();
@@ -262,7 +254,5 @@ typedef struct Emitter_80237494 Emitter_80237494;
 typedef struct Profile_80237494 Profile_80237494;
 typedef struct Rabarta_80237494 Rabarta_80237494;
 typedef struct Vec_80237494 Vec_80237494;
-
-void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target);
 
 }

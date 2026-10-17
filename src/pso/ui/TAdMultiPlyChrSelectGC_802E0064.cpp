@@ -5,10 +5,6 @@ struct O_802E00CC { u8 pad[0x1c]; s32 v; };
 
 extern "C" {
 void TAdMultiPlyChrSelectGC__sub_802E006C(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8();
 
 void TAdMultiPlyChrSelectGC::set_field_4ec(s32 v) { *(s32*)((char*)this + 0x4ec) = v; }

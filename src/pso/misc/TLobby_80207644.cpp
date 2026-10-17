@@ -45,22 +45,17 @@ typedef struct FloorEntry_80207770 { s32 a; s32 b; s32 c; } FloorEntry_80207770;
 extern "C" {
 extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
 s32 set_floor_map_selection(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
 s32 get_floor_map_selection(s32 arg0, u8 *arg1);
 s32 get_main_phase(void);
 s32 rand(void);
 extern RecoveredGlobal_802078A4_lbl_8044B658 adventure_map_variation_count_table;
 extern RecoveredGlobal_802078A4_lbl_8044B778 online_floor_map_variation_dimension_table;
-extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
 extern int selected_episode;
 extern const f32 lbl_805DC610;
 void randomize_adventure_maps(void);
 s32 memset(void *, int, int);
 extern struct Ids_80207C60 floor_map_registry_id_table;
-extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
 void init_floor_map_registry(void);
-extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
-s32 memset(void *, int, int);
 extern struct Ids_80207C60 boss_warp_area_id_table;
 void TLobby__sub_80207BB0(void);
 s32 get_current_floor();
@@ -68,22 +63,12 @@ s32 get_game_play_mode();
 extern Tbl_8020765C boss_warp_destination_table;
 extern Tbl_8020765C boss_warp_destination_table_b;
 s32 get_boss_warp_destination(void);
-extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
-extern int selected_episode;
-extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
 s32 get_floor_map_terrain(s32 arg0);
-}
-
-extern "C" {
-
 struct Buf12_80207718_80207644 { s32 a, b, c; };
 
     extern int story_select_current;
-    extern int selected_episode;
 void TLobby::backup_story_select() { selected_episode = story_select_current; }
 
-    extern int story_select_current;
-    extern int selected_episode;
 void TLobby::sync_story_select() { story_select_current = selected_episode; }
 
 s32 get_boss_warp_destination(void) {

@@ -24,21 +24,9 @@ s32 memset(void *, int, int);
 extern RecoveredGlobal_803C5850_lbl_80572020 adx_error_message_buffer;
 extern s32 lobby_error_callback;
 extern s32 tlobby_error_callback_arg;
-s32 memset(void *, int, int);
-extern RecoveredGlobal_803C5850_lbl_80572020 adx_error_message_buffer;
-extern s32 lobby_error_callback;
-extern s32 tlobby_error_callback_arg;
-extern RecoveredGlobal_803C5850_lbl_80572020 adx_error_message_buffer;
-extern s32 lobby_error_callback;
-extern s32 tlobby_error_callback_arg;
 char *strncpy(char *dst, const char *src, u32 n);
 void strncat(char *buf, s32 arg, s32 n);
 void TLobby__sub_803D38B4(const char *fmt, ...);
-char *strncpy(char *dst, const char *src, u32 n);
-void TLobby__sub_803D38B4(const char *fmt, ...);
-extern RecoveredGlobal_803C5850_lbl_80572020 adx_error_message_buffer;
-extern s32 lobby_error_callback;
-extern s32 tlobby_error_callback_arg;
 s32 ARStartDMA(u8 *arg0, s32 arg1, s16 *arg2, u8 *arg3, s8 *arg4, s8 *arg5, u8 *arg6, s32 *arg7, s32 *arg8, s32 *arg9);
 void TLobby__sub_803C4698(void);
 void flush_update__6TLobbyFv(void *, int);
@@ -46,7 +34,6 @@ void TLobby__sub_803CC114(void);
 void sj_memory_buffer_init(void);
 void sj_ring_buffer_init(void);
 void TLobby__sub_803D2ED4(void);
-s32 memset(void *, int, int);
 extern u8 adx_stream_player_pool[];
 extern s32 lbl_805D4658;
 extern s32 TLobby_init_ref_count;
@@ -54,17 +41,11 @@ extern s32 TLobby__svm_cb_svr_handle;
 extern s32 lbl_805D7540;
 extern const s32 lbl_805E0D30;
 s32 __DVDPrepareResetAsync(u8 *hdr, s32 size, s32 *o1, s16 *o2, s16 *o3, s32 *o4, s32 *o5, s32 *o6, s32 *o7);
-void strncat(char *buf, s32 arg, s32 n);
 s32 strlen(const char *);
 extern char number_format_digit_buffer[];
 extern const char lbl_805E0D28[2];
 s32 TLobby__sub_803C48C8(u8 *arg0, s32 arg1, u16 *arg2);
-}
-
-extern "C" {
-
 void ARAlloc(void);
-void TLobby__sub_803C4698(void);
 s32 decode_adx_stereo_downmix();
 s32 decode_adx_stereo();
 s32 update_active_stream_reads();
@@ -240,8 +221,6 @@ void TLobby::set_global_805D7520(s32 arg0) {
     lbl_805D7520 = arg0;
 }
 
-extern s32 lbl_805D7520;
-
 void TLobby::dispatch_receive_update() {
     if ((s32) lbl_805D7520 == 0) {
         decode_adx_stereo();
@@ -249,9 +228,6 @@ void TLobby::dispatch_receive_update() {
     }
     decode_adx_stereo_downmix();
 }
-
-extern s32 lobby_error_callback;
-extern s32 tlobby_error_callback_arg;
 
 typedef void (*Callback_803C5744)(s32 ctx, char *msg);
 
@@ -340,9 +316,6 @@ void ARAlloc(void) {
         TLobby::release_ref();
     }
 }
-
-extern s32 TLobby_init_ref_count;
-extern s32 TLobby__svm_cb_svr_handle;
 
 void TLobby::dec_ref_and_shutdown() {
     s32 temp_r0;

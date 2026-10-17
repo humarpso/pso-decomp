@@ -6,10 +6,6 @@ struct Vec_8031DBD8 { f32 x, y, z; };
 extern "C" {
 s32 project_actor_to_ground(void *, void *, int);
 extern const f32 lbl_805DF3C8;
-}
-
-extern "C" {
-
 void TObjEneRecon::vfunc_88() {
     u8 *arg0 = (u8 *)this;
     f32 d;

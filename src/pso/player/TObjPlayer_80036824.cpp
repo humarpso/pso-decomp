@@ -113,10 +113,6 @@ struct V_80036850 : B_80036850 {
 
 extern "C" {
 void TBoss2Joint__vt85(V_80036850 *self, s32 x, s32 y);
-}
-
-extern "C" {
-
 f64 acos();
 
 f32 TObjPlayer::get_scale_factor() {

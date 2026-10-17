@@ -73,34 +73,10 @@ void split_capped_value__10TObjPlayerFUcPUcPSc(s32, u8 *, E_802C4698 *);
 u8 *TObjPlayer__sub_802C4688(O_802C4688 *self, s32 i);
 E_802C4698 *TObjPlayer__sub_802C4698(O_802C4698 *self, s32 i);
 void export_character_data__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
-s16 obj_getS16_32E(void *);
-s16 obj_getS16_32C(void *);
-void copy_player_visual_record(void *, void *);
-Eq_802C3D38 *get_equip_field_d04__10TObjPlayerFv(void *, s32);
-void TObjPlayer__sub_8013A748(void *, void *);
-void clamp_stats__10TObjPlayerFiPv(void *, void *, s32);
-s8 TObjPlayer__sub_801AFD8C(void *);
-s8 query_state_if_present__10TObjPlayerFPv(void *, s32);
-u8 TObjPlayer__sub_801BE7BC(void *);
-u8 get_equip_flags__10TObjPlayerFv(void *);
-u8 get_inventory_state__10TObjPlayerFv(void *);
-u8 get_field_374_state__10TObjPlayerFv(void *);
-u8 get_field_374__10TObjPlayerFv(void *);
-s32 TObjPlayer__sub_801C0124(void *, s16);
-s32 get_ptr_4__10TObjPlayerFv(s8 *);
 s32 reset(s32);
 s32 export_inventory_entry__10TObjPlayerFiPv(Item_802C3F74 *, s32);
-s32 get_class_stat_entry__10TObjPlayerFPUc(void *);
-void split_capped_value__10TObjPlayerFUcPUcPSc(s32, u8 *, E_802C4698 *);
 s32 TObjPlayer__sub_802A1018();
-u8 *TObjPlayer__sub_802C4688(O_802C4688 *self, s32 i);
-E_802C4698 *TObjPlayer__sub_802C4698(O_802C4698 *self, s32 i);
 void export_state_to_record__10TObjPlayerFPvPv(u8 *arg0, s8 *arg1);
-}
-
-extern "C" {
-
-s32 get_ptr_4__10TObjPlayerFv(s8 *);
 int init_character_stats_for_level(s32, s8 *, s32);
 int copy_item_entry_array(s8, s32, s32);
 

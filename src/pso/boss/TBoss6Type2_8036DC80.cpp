@@ -10,15 +10,7 @@ extern s8 boss6_type2_player_snapshot_table[];
 void TLobby__sub_8036DDE8(void);
 u8 *get_player_by_client_id(s32);
 s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
-extern s8 boss6_type2_player_snapshot_table[];
-}
-
-extern "C" {
-
-s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
 u16 obj_getField1c();
-
-extern s8 boss6_type2_player_snapshot_table[];
 
 void TBoss6Type2::apply_pending_effect() {
     u16 temp_r3;

@@ -12,18 +12,11 @@ u8 * fn_80228E98(s32, void *);
 extern u8 *text_builder_write_cursor;
 void TWindowSubStatusDisp__sub_80228F5C(s32 arg0);
 void strncpy(s32, s32, s32);
-extern u8 *text_builder_write_cursor;
 void text_builder_append(u8 *arg0);
 extern RecoveredGlobal_802290E0_lbl_80515BC8 text_builder_buffer;
-extern u8 *text_builder_write_cursor;
 void text_builder_reset(void);
 s8 *parse_text_control_codes(s8 *, s32 *, s32);
 extern s32 current_language;
-extern u8 *text_builder_write_cursor;
-}
-
-extern "C" {
-
 void TWindowSubStatusDisp__sub_80228F5C(s32 arg0) {
     text_builder_write_cursor = fn_80228E98(arg0, text_builder_write_cursor);
 }

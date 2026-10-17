@@ -12,10 +12,6 @@ void fn_8013ACE4(int a0);
 void set_area_random_seed(int a0);
 extern u8 *TQuestListOnline__instance;
 void TQuestListOnline__sub_8013ACF4(s32 arg0);
-}
-
-extern "C" {
-
 void *TPlyGuildCardTag::copy_full(void *arg1) {
     copy((void*)(arg1));
     ((TPlyGuildCardTag *)((char *)this + 36))->copy((void *)((char *)arg1 + 36));

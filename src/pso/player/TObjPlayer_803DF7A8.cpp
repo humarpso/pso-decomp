@@ -6,10 +6,6 @@
 #include "pso/player/TObjPlayer.h"
 
 
-
-
-
-
 struct RecoveredGlobal_803E1D1C_lbl_804FC780 {
     s32 value;
     u8 remaining[0x24];
@@ -17,9 +13,6 @@ struct RecoveredGlobal_803E1D1C_lbl_804FC780 {
 
 
 struct Vec_803E1A58 { f32 x, y, z; };
-
-
-
 
 
 struct Vec_803E1B1C { f32 x, y, z; };
@@ -63,7 +56,6 @@ void load_current_pos_matrix(s32 arg0);
 extern const f32 lbl_805E1038;
 extern const f32 lbl_805E103C;
 f32 xyz_distance(Vec_803E1A58 *a, Vec_803E1A58 *b);
-extern s32 current_matrix;
 extern s32 tex_matrix_id_table[];
 void GXLoadTexMtxImm(void *mtx, u32 id, s32 type);
 void load_current_tex_matrix(s32 i);
@@ -85,18 +77,10 @@ extern const f32 lbl_805E1024;
 extern const f64 lbl_805E1028;
 extern const f64 lbl_805E1030;
 f32 project_point_onto_line(V_803E18C0 *p, Line_803E18C0 *l, V_803E18C0 *out);
-void calc_bounds_min_max__10TObjPlayerFPvPvPv(struct Vec_803E1B1C *pts, struct Vec_803E1B1C *mn, struct Vec_803E1B1C *mx);
 s32 TObjPlayer__sub_803DFB1C(Vec_803E1B1C *a, Vec_803E1B1C *b);
 s32 __SITransfer(Vec_803E1B1C *a, Vec_803E1B1C *b);
 extern const Faces_803E0ED4 box_face_corner_index_table;
 s32 test_box_overlap__10TObjPlayerFPvPv(Vec_803E1B1C *boxA, Vec_803E1B1C *boxB);
-}
-
-extern "C" {
-
-
-
-
 s32 TObjPlayer::test_aabb_overlap(u8 *arg1, u8 *arg2, u8 *arg3) {
     u8 *arg0 = (u8 *)this;
     if (*(f32 *)((s8 *)arg1 + 0) < *(f32 *)((s8 *)arg2 + 0)) {
@@ -116,9 +100,6 @@ s32 TObjPlayer::test_aabb_overlap(u8 *arg1, u8 *arg2, u8 *arg3) {
     }
     return (u32) __cntlzw(*(f32 *)((s8 *)arg0 + 8) > *(f32 *)((s8 *)arg3 + 8)) >> 5;
 }
-
-
-
 
 
 #pragma push
@@ -354,9 +335,6 @@ void TObjPlayer::calc_bounds(u8 *arg1, u8 *arg2) {
 }
 
 
-
-
-
 extern s8 scene_fog_enable_flag;
 
 
@@ -414,10 +392,6 @@ void TObjPlayer::set_effect_active() {
     scene_fog_enable_flag = 1;
 }
 
-
-
-
-extern s8 scene_fog_enable_flag;
 
 void TObjPlayer::reset_particle_counter() {
     scene_fog_enable_flag = 0;

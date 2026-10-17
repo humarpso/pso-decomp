@@ -13,22 +13,13 @@ struct Obj_80264B24 { u8 pad[0x28]; void *f28; };
 extern "C" {
 extern void *lbl_805D395C;
 void *TWindowMakeTeam__sub_80264B38(Obj_80264B38 *o);
-extern void *lbl_805D395C;
 void *TWindowMakeTeam__sub_80264B24(Obj_80264B24 *o);
 void align_menu_entry_positions(s32);
 void forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(void *, s32);
 extern u8 lbl_8044F300[];
 void init_status_disp__15TWindowMakeTeamFc(s8 arg0);
-void align_menu_entry_positions(s32);
-void forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
-s32 check_room_seq_4__16TAdChrSelASlotGCFl(void *, s32);
 extern u8 lbl_8044F308[];
-}
-
-extern "C" {
-
-void init_status_disp__15TWindowMakeTeamFc(s8 arg0);
 s8 get_mode__6TLobbyFv();
 
 void init_status_disp__15TWindowMakeTeamFc(s8 arg0) {

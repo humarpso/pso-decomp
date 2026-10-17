@@ -19,10 +19,6 @@ extern f32 lbl_805D4B40;
 s32 TBoss1Dragon__sub_8002B108(O_8002B108 *self, s32 i);
 void TBoss1DragonColli__sub_8002B35C(void *c);
 void disable_dragon_blocking_bodies(Obj_8002B118 *self);
-}
-
-extern "C" {
-
 void TBoss1Dragon::init_gravity_globals() {
     lbl_805D4AF0 = TBoss1Dragon__data_805D7F9C * lbl_805D9E80;
     TBoss1Dragon__gravity_accel = TBoss1Dragon__data_805D7F24 * lbl_805D9E80;

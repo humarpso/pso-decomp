@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/boss/TObjBoss1MokoHill_Solo.h"
 #include "pso/boss/TObjBoss1MokoHill_SoloM.h"
-#include "pso/boss/TObjBoss1MokoHill_SoloM.h"
-#include "pso/boss/TObjBoss1MokoHill_Solo.h"
 #include <stddef.h>
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/boss/TObjBoss1Rock.h"
@@ -138,11 +136,6 @@ extern const f32 lbl_805D818C;
 extern const f32 lbl_805D8190;
 extern const f32 lbl_805D8194;
 void *TObjBoss1MokoHill_Solo__ct(void *arg0_, void *arg1, int arg2);
-}
-
-extern "C" {
-
-extern s32 __vt__22TObjBoss1MokoHill_Solo[];
 extern s32 __vt__23TObjBoss1MokoHill_SoloM[];
 extern s32 TObjBoss1MokoHill_SoloM__name;
 extern u8 *lbl_805D4B50;
@@ -164,9 +157,6 @@ extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 extern const f32 lbl_805D8178;
 extern const f32 lbl_805D817C;
-extern const f32 lbl_805D8180;
-extern const f32 lbl_805D8184;
-extern const f32 lbl_805D818C;
 extern const f32 lbl_805D8198;
 extern const f32 lbl_805D81A0;
 extern const f32 lbl_805D81AC;
@@ -181,8 +171,6 @@ extern const f32 lbl_805D81F4;
 extern const f32 lbl_805D81F8;
 extern const f32 lbl_805D8200;
 
-void VecCopy__FP3VecPC3Vec(void *, void *);
-void __ct__7TObjectFP7TObject(void *, void *);
 void translate_matrix(s32, f32, f32, f32);
 void push_matrix(void);
 void pop_matrix(void);
@@ -197,7 +185,6 @@ void *mem_alloc(u32);
 f32 newton_sqrtf(f32);
 f32 calc_nearest_crater_distance(void *);
 f32 horizontal_distance_squared(void *, void *);
-s32 rand(void);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32, f32);
 s32 update_scale__15TObjBoss2TunnelFv(void *, f32);
@@ -205,7 +192,6 @@ void rotate_matrix_y(int, int);
 void rotate_matrix_x(int, int);
 void set_chunk_material_color(void *);
 
-s32 get_state__12TBoss8DragonFv(void);
 s32 is_dragon_trail_damaging(u8 *arg0);
 u8 *TObjBoss1MokoHill_SoloM__ct(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3);
 void update_dragon_trail_uvs(Obj_8002D4C0 *self);
@@ -213,7 +199,6 @@ s32 TBoss8Dragon__sub_8002DAEC(void *arg0);
 s32 TBoss8Dragon__sub_8002DB04(void *arg0);
 void *destroy__12TBoss8DragonFPvs(void *arg0, s16 arg1);
 Grid_8002DB7C *init_grid_mesh__12TBoss8DragonFPviiiPv(Grid_8002DB7C *g, s32 width, s32 strips, s32 materialWords, s16 *material);
-f32 lerp__9TDeadSpotFff(f32 farg0, f32 farg1);
 f32 rand_signed_unit(void);
 
 void TObjBoss1MokoHill_Solo::run_task() {

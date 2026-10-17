@@ -3,7 +3,6 @@
 #include "pso/misc/TNpcPlayer.h"
 #include "pso/object/TObjMotion.h"
 extern "C" void render__10TNpcPlayerFv();
-#include "pso/misc/TNpcPlayer.h"
 #include "pso/object/TObjFogCollisionPoison.h"
 #include "pso/TObject.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -13,7 +12,6 @@ extern "C" void render__10TNpcPlayerFv();
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/object/TObjFogCollision.h"
-#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, int);
@@ -26,10 +24,6 @@ extern u8 identity_matrix[];
 extern const f32 TNpcPlayer__data_805DB1F0;
 extern const f32 lbl_805DB1FC;
 extern const f32 TNpcPlayer__data_805DB204;
-}
-
-extern "C" {
-
 struct Stack_8014F728 {
     s32 sp8;
     f32 spC;
@@ -395,7 +389,6 @@ struct N_80152C8C { u8 pad0[7]; s8 count; u32 pos[1]; };
 
 struct Line_8014E488 { Vec_8014E3B0 p; Vec_8014E3B0 d; };
 
-s32 VecCopy__FP3VecPC3Vec(void *, int);
 s16 obj_getS16_32E(void *);
 s16 obj_getS16_2BA(void *);
 s16 obj_getS16_32C(void *);
@@ -405,7 +398,6 @@ int read_be16_field2__10TObjPlayerFv(void*);
 f32 fabs_float(f32);
 f64 atan2_float(int, f32, f32, f32);
 s32 queue_destruction__7TObjectFv(void *);
-s32 fn_8002B630(void *, void *);
 void __dt__12TPlyCharDataFv(void *self, s32 flag);
 void * __ct__12TPlyCharDataFv(void *self);
 u8 * csnVector(s32, s32, s32);
@@ -417,7 +409,6 @@ f32 horizontal_distance_squared(void *, void *);
 u32 mem_alloc(s32);
 void TNpcPlayer__sub_8014DC3C(void *, s32);
 void deliver_partner_chatter(Npc_8014E250 *self);
-s32 partner_clip_path_point(void *self, f32 *from, f32 *to, f32 *out);
 void partner_compute_stalled_detour(u8 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out);
 s32 partner_route_around_wall(Self_8014EE98 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out, Vec_8014E3B0 *out2);
 s32 partner_find_wall_segment(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
@@ -502,16 +493,11 @@ s32 rand(void);
 void matrix_mult_vec(s32, Vec_8014E3B0 *, Vec_8014E3B0 *);
 f32 vec3_dot(Vec_8014E3B0 *, Vec_8014E3B0 *);
 f32 vector_length(Vec_8014E3B0 *);
-void rotate_matrix_y(s32, s32);
 void normalize_vector(Vec_8014E3B0 *);
-void push_matrix_from(void *);
-void pop_matrices(s32);
 void project_point_onto_line(void *, Line_8014EE98 *, Vec_8014E3B0 *);
 f32 xyz_distance(Vec_8014E3B0 *, Vec_8014E3B0 *);
 
-extern const f32 TNpcPlayer__data_805DB1F0;
 extern const f32 TNpcPlayer__data_805DB1F4;
-extern const f32 TNpcPlayer__data_805DB204;
 extern const f32 TNpcPlayer__data_805DB20C;
 extern f32 TNpcPlayer__data_805DB218;
 extern const f32 TNpcPlayer__data_805DB22C;
@@ -520,11 +506,9 @@ extern int registered_entity_count;
 extern V3_80150050 lbl_8043FFAC;
 extern const f64 lbl_8043FFD8;
 extern Text_8014E250 npc_partner_dialogue_state[];
-extern u8 identity_matrix[];
 extern s32 lbl_805D2E74;
 extern u32 lbl_805D5860;
 extern const f32 lbl_805DB1F8;
-extern const f32 lbl_805DB1FC;
 extern const f32 lbl_805DB208;
 extern const f32 lbl_805DB210;
 extern const f32 lbl_805DB214;
@@ -1686,10 +1670,6 @@ struct Self_8014E7A0 {
 
 extern "C" {
 void calc_box_escape_axis__10TNpcPlayerFv(void *, Vec_8014E3B0 *, Vec_8014E3B0 *, Vec_8014E3B0 *, Vec_8014E3B0 *, Vec_8014E3B0 *, Vec_8014E3B0 *, f32 *);
-void matrix_mult_vec(s32, Vec_8014E3B0 *, Vec_8014E3B0 *);
-f32 vec3_dot(Vec_8014E3B0 *, Vec_8014E3B0 *);
-f32 vector_length(Vec_8014E3B0 *);
-void normalize_vector(Vec_8014E3B0 *);
 extern Vec_8014E3B0 lbl_8043FFB8;
 extern Vec_8014E3B0 lbl_8043FFC4;
 s32 route_around_object__10TNpcPlayerFv(Self_8014E7A0 *self, Vec_8014E3B0 *out);

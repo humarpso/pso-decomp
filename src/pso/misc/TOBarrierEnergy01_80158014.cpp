@@ -58,31 +58,21 @@ extern u32 barrier_energy_shared_bml_archive;
 extern s32 *TOBarrierEnergy01__texture_lists;
 extern s32 barrier_energy_model;
 u8 *get_bml_motion(s32, s32);
-s32 get_bml_model(void *, s32);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
 extern RecoveredGlobal_80158188_lbl_804AFB34 lbl_804AFB34;
 extern s32 __vt__17TOBarrierEnergy01[];
 extern s32 lbl_805D2EA0;
-extern u32 barrier_energy_shared_bml_archive;
-extern s32 *TOBarrierEnergy01__texture_lists;
 extern const f32 lbl_805DB2D8;
 extern const f32 lbl_805DB2DC;
 extern const f32 lbl_805DB2E0;
 extern const f32 lbl_805DB2E4;
 u8 *TOBarrierEnergy01__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt__17TOBarrierEnergy01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 mem_free(void*);
-
-extern u32 barrier_energy_shared_bml_archive;
-extern s32 *TOBarrierEnergy01__texture_lists;
 
 void TOBarrierEnergy01::free_resources() {
     if ((s32 *) TOBarrierEnergy01__texture_lists != NULL) {
@@ -97,8 +87,6 @@ void TOBarrierEnergy01::free_resources() {
         barrier_energy_shared_bml_archive = 0U;
     }
 }
-
-extern s32 __vt__17TOBarrierEnergy01[];
 
 void TOBarrierEnergy01::load_resources() {
     s32 temp_r3;

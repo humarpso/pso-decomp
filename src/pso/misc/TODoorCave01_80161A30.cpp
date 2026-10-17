@@ -71,20 +71,12 @@ extern u8 lbl_80440D7C[];
 extern u8 lbl_80440D94[];
 
 extern s32 enable_v2_features;
-extern u32 door_cave_shared_bml_archive;
 extern s32 *TODoorCave01__texture_lists;
-}
-
-extern "C" {
-
 void *__dt__12TODoorCave01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 mem_free(void*);
-
-extern u32 door_cave_shared_bml_archive;
-extern s32 *TODoorCave01__texture_lists;
 
 void TODoorCave01::free_resources() {
     if ((s32 *) TODoorCave01__texture_lists != NULL) {
@@ -99,8 +91,6 @@ void TODoorCave01::free_resources() {
         door_cave_shared_bml_archive = 0U;
     }
 }
-
-extern s32 __vt__12TODoorCave01[];
 
 void TODoorCave01::load_resources() {
     void *o;

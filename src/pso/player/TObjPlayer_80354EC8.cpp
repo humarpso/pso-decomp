@@ -9,12 +9,7 @@ void __register_global_object(void *, void *, void *);
 void __construct_array(void *, void *, void *, u32, u32);
 void* init_and_reset_forward__10TObjPlayerFPv(void* p);
 extern u8 lbl_80543978[];
-extern u8 lbl_80543984[];
 void TObjPlayer__sub_80354EEC(void);
-}
-
-extern "C" {
-
 int create_quest_thread(void);
 s32 get_quest_thread_id__10TObjPlayerFPv(void* p);
 
@@ -33,8 +28,6 @@ void TObjPlayer::destroy_static_array() {
 
 __declspec(section ".ctors") static void *const __sinit_TObjPlayer_80354EC8_80354EC8_cpp_ref = (void *)TObjPlayer__sub_80354EEC;
 
-#include "types.h"
-#include "pso/player/TObjPlayer.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 #include "pso/ui/TAdPlyPltAnimCtrlGC.h"
 

@@ -35,10 +35,6 @@ extern const f32 lbl_805DD91C;
 u8 *TObjBoss5Pillar__ct(u8 *arg0, u8 *arg1, u8 *arg2);
 void queue_destruction__7TObjectFv(void *);
 void fn_8028AE1C(void *);
-}
-
-extern "C" {
-
 void *__dt__15TObjBoss5PillarFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
 s32 TObjBoss5PillarDemo__sub_8028ADB0(int);
@@ -48,7 +44,6 @@ s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 fn_8028ADDC(int);
-void queue_destruction__7TObjectFv(void *);
 
 extern s32 boss5_common_texture_list;
 
@@ -67,8 +62,6 @@ void TObjBoss5Pillar::render() {
         pop_matrix();
     }
 }
-
-extern s32 __vt__15TObjBoss5Pillar[];
 
 void TObjBoss5Pillar::run_task() {
     Pillar_8028B488 *arg0 = (Pillar_8028B488 *)this;

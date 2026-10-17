@@ -54,12 +54,7 @@ extern RecoveredGlobal_80349DC8_lbl_8047896C quest_line_color_entry_table;
 void init_quest_line_draw_colors(s32 arg0);
 extern const f32 lbl_805DFD18;
 void draw_filled_rects_2d(void *arg0, void *arg1, int arg2);
-extern const f32 lbl_805DFD18;
 s32 draw_color_quad_2d(void *arg0, void *arg1p, int arg2);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_80349E5C_lbl_8047890C_size[sizeof(RecoveredGlobal_80349E5C_lbl_8047890C) == 0x60 ? 1 : -1];
 
 typedef char RecoveredGlobal_80349DC8_lbl_804788B8_size[sizeof(RecoveredGlobal_80349DC8_lbl_804788B8) == 0x20 ? 1 : -1];

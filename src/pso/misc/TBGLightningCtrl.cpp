@@ -334,9 +334,6 @@ u8 *__ct__12TBGLightningFv(u8 *arg0, void *arg1, s32 arg2, f32 farg0) {
     return arg0;
 }
 
-}
-
-extern "C" {
 void __dt__12TBGLightningFv();
 void render_shadows__7TObjectFv();
 void TLobby__sub_801A1FD8();

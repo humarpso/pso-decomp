@@ -56,25 +56,16 @@ s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 align_menu_entry_positions(s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 s32 draw_card_icon__17TWindowSubComCardFll(s32, s32, s32);
-s32 get_window_layout_position(s32);
 extern const f32 lbl_805DD748;
 extern const f32 lbl_805DD74C;
-s32 queue_destruction__7TObjectFv(int);
 s32 refresh_parts__20TWindowSubSymbolChatFv();
 s32 play_symbol_sound__20TWindowSubSymbolChatFl();
-s32 get_symbol_chat_preset(s32);
-s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 mem_free(int);
-s32 __nw__7TObjectFUl(int);
-s32 TWindow__close(int);
-s32 update_selected_item__17TWindowOptionCtrlFv(int);
 s32 get_selected_menu_value(int);
-s32 get_window_layout_position(s32);
 u32 create_menu__20TWindowSubSymbolChatFv(void *);
 u32 create_menu__20TWindowSubSymbolChatFPv(void *);
 u32 create_parts__20TWindowSubSymbolChatFv(void *);
 u32 TWindowSubSymbolChat__sub_8028233C(void *);
-s32 *TWindowSubSymbolChat__sub_8028379C(void);
 s32 TWindowSubSymbolChat__sub_80283900(int);
 s32 TWindowSubSymbolChat__sub_80283944(int);
 s32 TWindowSubSymbolChat__sub_80283980(int);
@@ -87,19 +78,10 @@ extern s8 TWindowSubSymbolChat__data_805D6494;
 extern s32 TWindowSubSymbolChat__data_805D6498;
 extern s32 TWindowSubSymbolChat__data_805D649C;
 extern s32 TWindowSubSymbolChat__help_window;
-}
-
-extern "C" {
-
 void *TWindowSubSymbolChat__ct(void *arg0, s32 arg1, s32 arg2);
 s32 TWindowSubComCard__sub_80265680(s32, s16);
-s32 align_menu_entry_positions(s32);
-s32 get_window_layout_position(s32);
 s32 __ct__7TObjectFP7TObject();
-s32 draw_card_icon__17TWindowSubComCardFll(s32, s32, s32);
-s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 s8 get_global_4e54__20TWindowSubSymbolChatFv();
-s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 update_display__20TWindowSubSymbolChatFl(s32 *);
 
 extern const f32 lbl_805DD73C;
@@ -125,8 +107,6 @@ s32 TWindowSubSymbolChat::open_edit_menu() {
     align_menu_entry_positions(temp_r31);
     return temp_r31;
 }
-
-extern const f32 lbl_805DD73C;
 
 s32 TWindowSubSymbolChat::open_main_menu(void * _w0) {
     s32 temp_r31;
@@ -183,12 +163,7 @@ s32 TWindowSubSymbolChat::create_chat_symbol_window(s32 arg0, s32 arg1) {
 void TWindowSubSymbolChat::render() {  }
 
 extern s32 close_child__20TWindowSubSymbolChatFv[];
-extern s32 __vt__20TWindowSubSymbolChat[];
 extern s32 TWindowSubSymbolChat__class_name;
-extern void *TWindowSubSymbolChat__instance;
-extern s8 TWindowSubSymbolChat__data_805D6494;
-extern s32 TWindowSubSymbolChat__data_805D6498;
-extern s32 TWindowSubSymbolChat__data_805D649C;
 
 void TWindowSubSymbolChat::run_task() {
     u8 *arg0 = (u8 *)this;

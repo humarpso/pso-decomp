@@ -5,10 +5,6 @@ extern "C" {
 void GCRNA_SetPlaySw(void *, s32);
 void GCRNA_SetTransSw(void *, s32);
 void gcrna_destroy_stream(void *);
-}
-
-extern "C" {
-
 void TLobby::unregister_si_polling() {
     u8 *arg0 = (u8 *)this;
     GCRNA_SetPlaySw(arg0, 0);

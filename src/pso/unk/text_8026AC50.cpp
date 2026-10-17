@@ -6,10 +6,6 @@ extern u32 chat_log_lines[];
 extern void *TAdScrollWinGC__chat_log_heap;
 extern u32 chat_last_line_buffer;
 void fn_8026AC50(void);
-}
-
-extern "C" {
-
 void fn_8026AC50(void) {
     s32 i;
     u32 v;

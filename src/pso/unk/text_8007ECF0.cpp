@@ -8,10 +8,6 @@ struct O_8007F3F8 { u8 pad[0x40]; s32 count; E_8007F3F8 e[4]; };
 
 extern "C" {
 s32 fn_8007F3F8(O_8007F3F8 *arg0, f32 farg0);
-}
-
-extern "C" {
-
 struct Obj_8007F0E4 {
     u8 pad0[0x1C];
     f32 f1C;

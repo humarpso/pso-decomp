@@ -40,42 +40,27 @@ s32 TAdMultiPlyChrSelectGC__sub_802E0024(s32, s32);
 s32 create_effects__14TAdGameStartGCFPv(s32);
 s32 get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(void *, s32);
 s32 clear_entries__18TAdChrMoveEffectGCFv();
-s32 queue_destruction__7TObjectFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32, s32);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
 extern RecoveredGlobal_802DDD08_TAdMultiPlyChrSelectGC__data_804727B0 TAdMultiPlyChrSelectGC__character_slot_positions;
 extern s32 controller_physical_port_bank[];
 void TAdMultiPlyChrSelectGC__sub_802DDD08(u8 *arg0);
-s32 queue_destruction__7TObjectFv(void *);
-s32 TWindowShortListCtrl__check_controller_button(void *, s32, s32);
-s32 play_sound_effect(s32, s32, s32, s32);
 s32 TAdMultiPlyChrSelectGC__sub_802C5A44(int, void *, int);
-s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
 extern RecoveredGlobal_802DDBA8_lbl_804727E8 multi_chr_select_item_rect_table;
-extern s32 controller_physical_port_bank[];
 void TAdMultiPlyChrSelectGC__sub_802DDBA8(u8 *arg0);
-}
-
-extern "C" {
-
 s32 is_slot_state_one__16TAdChrSelBSlotGCFlUl(s32, s32);
 s32 create_confirm_window__22TAdMultiPlyChrSelectGCFv(void *, s32);
 s32 TAdMultiPlyChrSelectGC__sub_802DC294(void *, s32);
-s32 TWindowShortListCtrl__check_controller_button(void *, s32, s32);
 u32 __ct__9TAdFadeGCFP7TObjectPv(u32, s32, s32);
 u32 __nw__7TObjectFUl(s32);
 u32 TAdSinglePlyChrSelectGC__sub_801FE3E4(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FE800(s32);
-s32 play_sound_effect(s32, s32, s32, s32);
-s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(s32);
 u32 check_slot_flags__23TAdSinglePlyChrSelectGCFlUl(s32, s32);
-s32 queue_destruction__7TObjectFv(void *);
 
 s32 load_tables(s32);
 extern s32 lbl_80472860[];
-extern s32 controller_physical_port_bank[];
 extern s32 tl_fade;
 
 void TAdMultiPlyChrSelectGC::update_select() {

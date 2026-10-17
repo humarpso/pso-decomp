@@ -9,10 +9,6 @@ void set_text_entry_string(void *, u32, s32);
 extern const f32 TWindowDD__data_805DFB58;
 extern const f32 lbl_805DFC98;
 void TWindowDD__sub_803412A0(u8 *arg0);
-}
-
-extern "C" {
-
 void TWindowDD::init_and_set_field50(void *arg1) {
     ((TWindowSubSymbolChatPartsSet *)((char *)this + 48))->copy_vec2((void *)((void *)((char *)this + 100)));
     *(void **)((s8 *)this + 0x50) = arg1;

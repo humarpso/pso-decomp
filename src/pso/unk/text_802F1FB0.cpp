@@ -20,10 +20,6 @@ s32 copy_position__16TBoss8DragonDemoFv(int, void *);
 extern RecoveredGlobal_802F1FB0_lbl_804E4978 boss2_tunnel_effect_name_table;
 extern RecoveredGlobal_802F1FB0_lbl_804E4B24 lbl_804E4B24;
 u8 *fn_802F1FB0(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, f32 farg0);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_802F1FB0_lbl_804E4978_size[sizeof(RecoveredGlobal_802F1FB0_lbl_804E4978) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_802F1FB0_lbl_804E4B24_size[sizeof(RecoveredGlobal_802F1FB0_lbl_804E4B24) == 0x18 ? 1 : -1];
 u8 *fn_802F1FB0(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, f32 farg0) {

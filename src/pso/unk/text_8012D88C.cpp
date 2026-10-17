@@ -5,10 +5,6 @@ extern "C" {
 u8 * init_variant_2_5a28__13TUnk_804A5A28Fv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-}
-
-extern "C" {
-
 u8 *TObjPlayer::create_variant_2_5a28(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;

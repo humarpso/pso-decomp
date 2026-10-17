@@ -48,27 +48,18 @@ O_80165434 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 O_80165434 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 extern s32 dragonfly_machine_attack_effect_params[];
 extern char TODragonflyMachine01__attack_effect_descriptor[];
-extern u32 TODragonflyMachine01__model_resource;
 extern s32 lbl_805D599C;
 extern s32 lbl_805D59A0;
 extern const f32 lbl_805DB5B0;
 extern const f32 lbl_805DB5B4;
-}
-
-extern "C" {
-
 void *__dt__20TODragonflyMachine01Fv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
-f32 sin_table_lookup(s32);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TODragonflyMachine01__sub_80164F50(void *);
 s32 rotate_matrix_y(s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__11TODragonflyFv(void *, int);
 void *__nw__7TObjectFUl(int);
-
-extern s32 lbl_805D599C;
-extern s32 lbl_805D59A0;
 
 void TODragonflyMachine01::update_timer() {
     if ((s32) lbl_805D599C == 6) {
@@ -114,16 +105,12 @@ void *TODragonflyMachine01::create(void *arg0) {
     return o;
 }
 
-extern u32 TODragonflyMachine01__model_resource;
-
 void TODragonflyMachine01::unload_static_data() {
     if ((u32) TODragonflyMachine01__model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TODragonflyMachine01__model_resource, 1);
         TODragonflyMachine01__model_resource = 0U;
     }
 }
-
-extern s32 __vt__20TODragonflyMachine01[];
 
 void TODragonflyMachine01::create_attack_effect() {
     T4_80165434 sp8;

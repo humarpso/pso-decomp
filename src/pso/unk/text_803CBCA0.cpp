@@ -8,10 +8,6 @@ void OSSetThreadPriority(s32, s32);
 extern s32 lbl_805D7594;
 extern s32 lbl_805D75AC;
 void fn_803CBCA0(void);
-}
-
-extern "C" {
-
 void fn_803CBCA0(void) {
     s32 t;
     if (--lbl_805D7594 == 0) {

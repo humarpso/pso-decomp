@@ -9,10 +9,6 @@ struct ByteBlock_3C { u8 bytes[0x3C]; };
 
 extern "C" {
 s32 __copy(void *, void *, int);
-}
-
-extern "C" {
-
 s32 refresh_parts__20TWindowSubSymbolChatFv();
 s32 update_layout__20TWindowSubSymbolChatFv(void);
 

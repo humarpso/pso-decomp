@@ -15,7 +15,6 @@
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
 extern char lbl_80445C00[];
 extern char lbl_80445C18[];
 extern char lbl_80445C34[];
@@ -25,7 +24,6 @@ extern char lbl_80445C88[];
 extern const char *fe_obj_switch_laz_model_names[4];
 extern const char *fe_obj_switch_laz_motion_names[3];
 extern BmlResourceDescriptor laser_fence_switch_resource_descriptor;
-}
 
 struct RecoveredGlobal_80193A84_lbl_8050DCF0 {
     s32 value;
@@ -128,15 +126,12 @@ s32 init_collision_body_parts(void *, void *, int);
 s32 init_key__5TOKeyFv(void *, void *);
 u8 *TOKey__ct(void *);
 s32 TLazerFenceSw__sub_8018A554(void *, f32);
-extern u16 lbl_80445CB8[];
 extern u8 lbl_804B8370[];
 extern s32 __vt__13TLazerFenceSw[];
 extern s32 lbl_805D33B0;
-extern const f32 TLazerFenceSw__data_805DBE84;
 extern const f32 lbl_805DBE8C;
 extern const f32 lbl_805DBE90;
 void *TLazerFenceSw__ct(void *arg0, void *arg1, void *arg2);
-s32 init_collision_body_parts(void *, void *, int);
 void construct_collider_proxy__13TUnk_804AF8A0Fv(void *);
 extern u16 lbl_80445BE0[];
 extern u8 laser_fence4_collision_body_sets[];
@@ -158,10 +153,6 @@ extern u8 fe_obj_switch_laz_j_resource_descriptor[];
 extern u8 lbl_80445CF0[];
 extern u8 lbl_80445D08[];
 extern u8 lbl_80445D20[];
-}
-
-extern "C" {
-
 void TLazerFenceSw__sub_80193C5C(void);
 void TLazerFenceSw__vt16(void *arg0);
 void TLazerFenceSw__vt17(void *arg0);
@@ -188,8 +179,6 @@ void *TObjLazerFence4::create() {
     return o;
 }
 
-extern s32 __vt__15TObjLazerFence4[];
-
 void *__dt__15TObjLazerFence4Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjLazerFence4;
@@ -202,8 +191,6 @@ void *__dt__15TObjLazerFence4Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern const f32 TLazerFenceSw__data_805DBE84;
 
 #define self ((Fence_801935D8 *)arg0)
 void *TObjLazerFence4__ct(void *arg0, void *arg1, void *arg2) {
@@ -258,11 +245,9 @@ s32 rotate_matrix_y(int, int);
 s32 draw_ginja_object(s32);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 void pop_matrix(void);
-extern u8 *lazer_fence_switch_scroll_node;
 extern u32 actor_frame_tick;
 extern s32 model_render_flags;
 extern const f32 lbl_805DBE78;
-extern s32 TLazerFenceSw__texture_list;
 void TLazerFenceSw::draw_laser_beam() {
     Sw_801936E0 *self = (Sw_801936E0 *)this;
     s32 i;
@@ -344,8 +329,6 @@ void TLazerFenceSw__vt16(void *arg0) {
     *(f32 *)((s8 *)arg0 + 0xEC) = TLazerFenceSw__data_805DBE84;
 }
 
-extern const f32 TLazerFenceSw__data_805DBE84;
-
 void TLazerFenceSw__vt17(void *arg0) {
     ((TBoss3Volopt *)arg0)->call_vt21();
     *(f32 *)((s8 *)arg0 + 0xB0) = TLazerFenceSw__data_805DBE84;
@@ -386,8 +369,6 @@ void TLazerFenceSw::run_task() {
     *(f32 *)((s8 *)arg0 + 0x110) = (f32) (*(f32 *)((s8 *)arg0 + 0x110) + lbl_805DBE88);
 }
 
-extern void *tl_05;
-
 void *TLazerFenceSw::create() {
     void *o = __nw__7TObjectFUl(0x118);
     if (o != NULL) {
@@ -395,9 +376,6 @@ void *TLazerFenceSw::create() {
     }
     return o;
 }
-
-extern void *lazer_fence_switch_bml_resource;
-extern s32 TLazerFenceSw__texture_list;
 
 void TLazerFenceSw__sub_80193C5C(void) {
     if (lazer_fence_switch_bml_resource != 0) {
@@ -407,8 +385,6 @@ void TLazerFenceSw__sub_80193C5C(void) {
     TObjPlayer::free_if_valid(TLazerFenceSw__texture_list);
     TLazerFenceSw__texture_list = 0;
 }
-
-extern s32 __vt__13TLazerFenceSw[];
 
 #pragma push
 #pragma opt_propagation off
@@ -500,9 +476,6 @@ void *TLazerFenceSw__ct(void *arg0, void *arg1, void *arg2) {
 }
 #pragma pop
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *fe_obj_switch_laz_model_names[4] = { lbl_80445C00, lbl_80445C18, lbl_80445C34, NULL };
 __declspec(section ".data") const char *fe_obj_switch_laz_motion_names[3] = { lbl_80445C54, lbl_80445C6C, NULL };
 BmlResourceDescriptor laser_fence_switch_resource_descriptor = { lbl_80445C88, fe_obj_switch_laz_model_names, fe_obj_switch_laz_motion_names, 3, 2 };

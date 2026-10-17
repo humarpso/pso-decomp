@@ -8,17 +8,10 @@ extern "C" {
 void apply_fade_alpha__14TBoss6PlotFalzFlf(void *, f32, s32);
 int end_cutscene_camera__14TBoss6PlotFalzFPv(void*);
 int refresh_players_equipment__14TBoss6PlotFalzFPv(void);
-void apply_fade_alpha__14TBoss6PlotFalzFlf(void *, f32, s32);
 void TBoss6PlotFalz__sub_802B06D0(void *arg0);
-}
-
-extern "C" {
-
 void TBoss6PlotFalz__sub_802B03F4(void);
 void TBoss6PlotFalz__sub_802B0448(void* p);
 void stop_adx_audio(void *arg0);
-int refresh_players_equipment__14TBoss6PlotFalzFPv(void);
-int end_cutscene_camera__14TBoss6PlotFalzFPv(void*);
 s32 play_area_music(s32 *);
 s32 create_boss6_type2_appearance(void *);
 int is_ready__14TBoss6PlotFalzFv(void*);
@@ -72,8 +65,6 @@ void TBoss6PlotFalz::update_cutscene_fade() {
 
 }
 
-#include "types.h"
-#include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/boss/TBoss6EmptyWarp.h"
 #include "pso/player/TObjPlayer.h"
 

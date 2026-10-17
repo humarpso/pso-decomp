@@ -78,10 +78,6 @@ struct VObj_8016AA20 : VBase_8016AA20 {
 extern "C" {
 void debug_printf_at(s32, const char *, ...);
 extern char lbl_80441958[];
-}
-
-extern "C" {
-
 struct Base0_8016ab58_8016A8D0 { char pad[0x18]; };
 struct VObj0_8016ab58_8016A8D0 : Base0_8016ab58_8016A8D0 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); };
 
@@ -194,7 +190,6 @@ void *__dt__5TOKeyFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__5TOKey[];
 extern const f32 lbl_805DB6E0;
 extern void *TOKey__class_name;
 

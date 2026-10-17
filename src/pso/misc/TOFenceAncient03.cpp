@@ -6,14 +6,12 @@
 #include "pso/misc/TOFenceAncient01.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
 extern char lbl_80441598[];
 extern char lbl_804415B0[];
 extern char lbl_804415C8[];
 extern const char *bm_fd_obj_n_saku_4x4_model_names[2];
 extern const char *bm_fd_obj_n_saku_4x4_motion_names[2];
 extern BmlResourceDescriptor TOFenceAncient03_resource_descriptor;
-}
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -52,8 +50,6 @@ s32 init_fields__13TUnk_804B1B80Fv();
 extern RecoveredGlobal_801674E0_lbl_804B1DB8 TOFenceAncient03_collision_body_parts;
 extern s32 __vt__16TOFenceAncient03[];
 extern s32 TOFenceAncient03__class_name;
-extern u8 *TOFenceAncient03__shared_resource_object;
-extern u32 TOFenceAncient03__texture_lists;
 extern const f32 lbl_805DB630;
 extern const f32 lbl_805DB634;
 extern const f32 lbl_805DB638;
@@ -65,12 +61,6 @@ s32 load_gvm_texture_file(void *);
 extern char lbl_804415F8[];
 extern char lbl_80441610[];
 extern char lbl_80441628[];
-extern u8 *TOFenceAncient03__shared_resource_object;
-extern u32 TOFenceAncient03__texture_lists;
-}
-
-extern "C" {
-
 void *__dt__16TOFenceAncient03Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
@@ -90,8 +80,6 @@ void *TOFenceAncient03::create(void *arg0) {
     }
     return o;
 }
-
-extern s32 __vt__16TOFenceAncient03[];
 
 void TOFenceAncient03::free_shared_resources() {
   s32 var_r31;
@@ -174,9 +162,6 @@ u8 *TOFenceAncient03__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_fd_obj_n_saku_4x4_model_names[2] = { lbl_80441598, NULL };
 __declspec(section ".data") const char *bm_fd_obj_n_saku_4x4_motion_names[2] = { lbl_804415B0, NULL };
 BmlResourceDescriptor TOFenceAncient03_resource_descriptor = { lbl_804415C8, bm_fd_obj_n_saku_4x4_model_names, bm_fd_obj_n_saku_4x4_motion_names, 1, 1 };

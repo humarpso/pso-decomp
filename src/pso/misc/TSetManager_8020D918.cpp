@@ -35,7 +35,6 @@ extern Area_8020DEE4 TLobby__floor_enemy_group_table[];
 extern SrcA_8020DEE4 *TLobby__data_805D610C;
 extern SrcB_8020DEE4 *TLobby__data_805D6114;
 void depart_floor_population(int unused);
-s32 get_current_floor(void);
 s32 lookup_scene_object__6TLobbyFPv(s32, void *);
 void arrive_floor_population(void);
 extern s32 lbl_805D60F8;
@@ -44,7 +43,6 @@ extern u32 TLobby__data_805D611C;
 extern s32 TLobby__data_805D6120;
 extern u32 TLobby__data_805D6124;
 extern s32 TLobby__data_805D6128;
-extern s16 TLobby__data_805D6134;
 void *memset(void *, int, unsigned long);
 extern A_8020DBCC *TLobby__data_805D6140;
 extern B_8020DBCC *TLobby__data_805D6144;
@@ -55,14 +53,7 @@ void swap_object_row_endian(void *);
 extern char lbl_8044BC24[];
 extern char lbl_8044BC2C[];
 extern Map_8020D9A0 *TLobby__data_805D6068;
-extern u32 TLobby__data_805D611C;
-extern s32 TLobby__data_805D6120;
 s32 load_map_decoration_rows(s32 map, s32 grp, s32 room);
-}
-
-extern "C" {
-
-void TLobby__sub_8020D94C(void);
 void* TSetManager__ct(void*, s32);
 void* __nw__7TObjectFUl(u32);
 void mem_free(void*);
@@ -75,11 +66,6 @@ void TSetManager::create() {
         TSetManager__ct(obj, tl_02);
     }
 }
-
-extern u32 TLobby__data_805D611C;
-extern s32 TLobby__data_805D6120;
-extern u32 TLobby__data_805D6124;
-extern s32 TLobby__data_805D6128;
 
 void TLobby__sub_8020D94C(void) {
     if ((u32) TLobby__data_805D611C != 0U) {

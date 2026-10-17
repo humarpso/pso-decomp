@@ -73,13 +73,8 @@ extern s32 TObjTuitate__collision_parts[];
 extern s32 __vt__11TObjTuitate[];
 extern s32 TObjTuitate__class_name;
 extern const f32 lbl_805DBFB4;
-extern const f32 lbl_805DBFAC;
 extern const f32 lbl_805DBFBC;
 void *TObjTuitate__ct(void *arg0, void *arg1, void *arg2);
-}
-
-extern "C" {
-
 void *TObjTuitate__create(void *arg0);
 void *__dt__11TObjTuitateFv(void *arg0, s16 arg1);
 void fn_8019B09C(void);
@@ -130,8 +125,6 @@ void TObjTuitate::render() {
 
 void TObjTuitate::run_task() { { (void)(update_obstruction_fade((char*)this + 0xac)); return; } }
 
-extern s32 __vt__11TObjTuitate[];
-
 void *__dt__11TObjTuitateFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjTuitate;
@@ -181,8 +174,6 @@ void *TObjTuitate__create(void *arg0) {
     }
     return o;
 }
-
-extern u32 TObjTuitate__bml_resource;
 
 void fn_8019B09C(void) {
     if ((u32) TObjTuitate__bml_resource != 0U) {

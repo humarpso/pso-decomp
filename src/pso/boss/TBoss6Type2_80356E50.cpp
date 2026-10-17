@@ -5,10 +5,6 @@ extern "C" {
 s32 world_to_grid_pos__11TBoss6Type2FPvPvPv(s32, u8 *, u8 *);
 void send_6xAD_olga_flow_subordinate_boss_actions(void *);
 void TBoss6Type2__sub_803570C8(void *);
-}
-
-extern "C" {
-
 void TBoss6Type2__sub_80356E50(s32 arg0, s32 arg1, s32 arg2);
 
 void TBoss6Type2__sub_80356E50(s32 arg0, s32 arg1, s32 arg2) {
@@ -17,8 +13,6 @@ void TBoss6Type2__sub_80356E50(s32 arg0, s32 arg1, s32 arg2) {
 
 struct Pkt_80356F28 { u8 b[0x40]; };
 
-void send_6xAD_olga_flow_subordinate_boss_actions(void *);
-void TBoss6Type2__sub_803570C8(void *);
 s32 rand(void);
 extern const u8 lbl_805E0018;
 extern const u8 lbl_805E0019;

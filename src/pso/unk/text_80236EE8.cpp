@@ -50,9 +50,6 @@ u32 classify_distance_band__8TTecCtrlFlll(s16, s16, u16);
 extern s32 support_tec_range_effect_id_table[];
 extern Arr_80236EE8 lbl_8044D908;
 void spawn_support_tec_range_effect(Tec_80236EE8 *self);
-}
-
-extern "C" {
 
 void spawn_support_tec_range_effect(Tec_80236EE8 *self) {
     s32 kind;

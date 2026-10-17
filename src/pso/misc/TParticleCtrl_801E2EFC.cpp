@@ -7,10 +7,6 @@ typedef struct Color_801E2F44 { u8 r, g, b, a; } Color_801E2F44;
 extern "C" {
 void GXSetCopyClear(Color_801E2F44 clear_clr, u32 clear_z);
 void set_copy_clear_color_argb(u32 argb);
-}
-
-extern "C" {
-
 int apply_scene_fog(void);
 
 void TParticleCtrl::begin_effect_render() { TObjPlayer::reset_particle_counter(); apply_scene_fog(); }

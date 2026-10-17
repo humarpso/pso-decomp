@@ -45,7 +45,6 @@ s32 render_screen_overlay__9TMainTaskFv(void *);
 s32 some_empty_func__9TMainTaskFv(void *);
 s32 render__9TMainTaskFv(void *);
 s32 run_task__9TMainTaskFv(void *);
-s32 render_tick__Fv();
 s32 delete_all_task_children__9TMainTaskFv(void *);
 extern RecoveredGlobal_8011A3D8_lbl_804A03A8 TItemReverseTech__cleanup_callback_table;
 Hdr_8011A270 *alloc__23TAdSinglePlyChrSelectGCFv(u32);
@@ -67,20 +66,14 @@ void clear_resource_load_tasks();
 void init_map_lights(void *);
 void reset_controller_input_state();
 void set_copy_clear_color_argb(s32, s32, s32);
-s32 render_tick__Fv();
 void * __nw__7TObjectFUl(s32);
 void set_screen_size(f32, f32);
 extern const Vec_8011A43C lbl_8043E68C[];
 extern const Vec_8011A43C lbl_8043E698[];
-extern RecoveredGlobal_8011A3D8_lbl_804A03A8 TItemReverseTech__cleanup_callback_table;
 extern u8 default_scene_light_config[];
 extern s32 tl_camera;
 extern const float lbl_805DAC4C;
 extern const f32 lbl_805DAC50;
-}
-
-extern "C" {
-
 void TItemReverseTech__sub_8011A54C(void* a0);
 int TItemReverseTech__sub_8011A55C(void);
 int TItemReverseTech__sub_8011A580(void);
@@ -88,8 +81,6 @@ void TItemReverseTech__sub_8011A5A4(void);
 void free__16TItemReverseTechFv(void);
 s32 TItemReverseTech__ct(void *, s32);
 int __dl__FPv(void*);
-void * __nw__7TObjectFUl(s32);
-int mem_free(void*);
 int free_texture_if_valid(void*);
 int set_global_flags__6TLobbyFl(void*);
 
@@ -102,12 +93,7 @@ void TItemReverseTech::create() {
     }
 }
 
-    extern int TItemReverseTech__texture_archive;
-    extern int TItemReverseTech__entry_table;
-    extern int TItemReverseTech__name_buffer;
 void free__16TItemReverseTechFv(void) { free_texture_if_valid((void*)(TItemReverseTech__texture_archive)); mem_free((void*)(TItemReverseTech__name_buffer)); TItemReverseTech__name_buffer = 0; mem_free((void*)(TItemReverseTech__entry_table)); TItemReverseTech__entry_table = 0; __dl__FPv((void*)(TItemReverseTech__texture_archive)); TItemReverseTech__texture_archive = 0; }
-
-    extern const float lbl_805DAC4C;
 
 typedef char RecoveredGlobal_8011A350_main_task_size[sizeof(RecoveredGlobal_8011A350_main_task) == 0x34 ? 1 : -1];
 

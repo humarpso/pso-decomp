@@ -11,10 +11,6 @@ void clear_lappy_flag_set_param(void *);
 void fn_800A0FDC(void *);
 void *get_enemy_entity(int);
 s32 fn_800A0884(Obj_800A0884 *o);
-}
-
-extern "C" {
-
 s32 fn_800A0884(Obj_800A0884 *o) {
     void *ents[16];
     s32 n;

@@ -24,7 +24,6 @@ struct VObj_800BA138 : Base_800BA138 {
 };
 
 #include <stddef.h>
-#include "pso/enemy/TObjEneDD.h"
 struct VBase_18_0c879f { char pad[0x18]; };
 
 struct VObj_18_0c879f : VBase_18_0c879f {
@@ -85,10 +84,6 @@ void TObjEneDD__sub_800BA378(s32 arg0, u8 *arg1);
 extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B67C;
 extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B674;
 void TObjEneDD__sub_800BA438(s32 arg0, u8 *arg1);
-}
-
-extern "C" {
-
 struct EneDDBase2_800BA138 { char pad[0x18]; };
 struct EneDDObj2_800BA138 : EneDDBase2_800BA138 {
     virtual void m0();
@@ -240,9 +235,6 @@ void TObjEneDD::emit_enemy_effect(s32 arg0, s32 arg1, u8 *arg2, s32 arg3) {
 void TObjEneDD__sub_800BA5A4(void* p, void* a1) { TObjEneDD::setup_instance((s32)(p), (s32)((char*)p + 0x38), (u8 *)(a1), (s32)((void*)0)); }
 
 void TObjEneDD::setup(void* p, int a1, int a2) { TObjEneDD::setup_instance((s32)(p), (s32)(a1), (u8 *)(a2), (s32)(0)); }
-
-extern u8 *obj_ene_dd_instance;
-extern const f32 lbl_805D9EA0;
 
 void TObjEneDD::setup_instance(s32 arg0, s32 arg1, u8 *arg2, s32 arg3) {
     ((TUnk_804928CC *)obj_ene_dd_instance)->sub_800BC3E8((u8 *)arg0);

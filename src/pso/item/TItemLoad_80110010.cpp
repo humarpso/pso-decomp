@@ -27,9 +27,7 @@ struct Load_8011006C { void *buf; s32 f4; s32 f8; s32 fC; s32 f10; void *f14; };
 extern "C" {
 s32 TItemLoad__sub_801107E4(void *p);
 extern u32 TItemLoad__completed_model_load_task_root;
-s32 TItemLoad__sub_801107E4(void *p);
 void *TItemLoad__sub_801107EC(void *p);
-extern u32 TItemLoad__completed_model_load_task_root;
 Parm_8011029C *lookup_item_pmt_record(void *);
 void *__nw__7TObjectFUl(u32);
 extern s16 lbl_8043E4C0[];
@@ -37,26 +35,16 @@ extern s16 lbl_8043E4C8[];
 extern void *TItemLoad__model_load_task_root;
 extern s32 *TItemLoad__model_slot_in_use;
 s32 request_item_model_load(u8 *item);
-s32 TItemLoad__sub_801107E4(void *p);
-extern u32 TItemLoad__completed_model_load_task_root;
-extern void *TItemLoad__model_load_task_root;
-extern s32 *TItemLoad__model_slot_in_use;
 void *mem_alloc(u32);
 void TLobby__sub_801E3E9C(s32, s32, void *, s32);
 extern s32 lbl_8049F43C[];
 Load_8011006C *init_buffer__9TItemLoadFPviii(Load_8011006C *self, s32 arg1, s32 arg2, s32 count);
-}
-
-extern "C" {
-
 s32 TItemLoad__sub_801107F4(void *);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 __dl__FPv(void *);
 s32 mem_free(s32);
-
-extern s32 lbl_8049F43C[];
 
 void *TUnk_8049F42C::sub_80110010(s16 arg1) {
     if (this != NULL) {
@@ -102,15 +90,11 @@ void TItemLoad::get_data_entry(s32 arg0, s32 *arg1) {
     }
 }
 
-extern s32 TItemLoad__bml_resource;
-
 void TItemLoad::lookup_item_data(s32 arg0, s32 *bml_model) {
     if (bml_model != NULL) {
         *bml_model = get_bml_model((s32)(TItemLoad__bml_resource), (s32)(arg0));
     }
 }
-
-extern s32 TItemLoad__bml_resource;
 
 void TItemLoad::get_item_params(s32 *bml_model, s32 *arg1, s32 *bml_motion) {
     if ((bml_model != NULL) && (arg1 != NULL) && (bml_motion != NULL)) {
@@ -120,17 +104,12 @@ void TItemLoad::get_item_params(s32 *bml_model, s32 *arg1, s32 *bml_motion) {
     }
 }
 
-extern s32 TItemLoad__bml_resource;
-
 void TItemLoad::get_model_ids(u8 arg0, s32 *bml_model, s32 *arg2) {
     if ((bml_model != NULL) && (arg2 != NULL)) {
         *bml_model = get_bml_model((s32)(TItemLoad__bml_resource), (s32)(arg0 + 2));
         *arg2 = TObjFish__sub_8001EDB0(TItemLoad__bml_resource, 0);
     }
 }
-
-extern void *TItemLoad__model_load_task_root;
-extern u32 TItemLoad__completed_model_load_task_root;
 
 s32 request_item_model_load(u8 *item) {
     Parm_8011029C *parm;

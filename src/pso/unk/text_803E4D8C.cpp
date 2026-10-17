@@ -70,29 +70,20 @@ extern "C" {
 extern u8 *lbl_805D7818;
 void TObjPlayer__sub_803E53F8(u8 *arg0, f32 farg0);
 extern RecoveredGlobal_803E5458_lbl_8058DC00 lbl_8058DC00;
-extern u8 *lbl_805D7818;
 void TObjPlayer__sub_803E5458(s32 arg0);
-extern u8 *lbl_805D7818;
-extern u8 *lbl_805D7818;
 void TObjPlayer__sub_803E5378(s32 n);
 void bind_motion_context(s32);
 void draw_motion_node_tree_with_context(s32);
-void TObjPlayer__sub_803E53F8(u8 *arg0, f32 farg0);
-void TObjPlayer__sub_803E5458(s32 arg0);
 extern u8 *model_draw_context;
 void draw_motion_bound__10TObjPlayerFiiPvfi(s32 arg0, s32 arg1, u8 *arg2, f32 farg0, s32 arg3);
 void compose_motion_node_matrix(Node_803E4E20 *);
 void push_matrix(void);
 void pop_matrix(void);
 void update_render_state__10TObjPlayerFv(s32 *, s32 *);
-extern u8 *model_draw_context;
 void find_motion_key_interval(void *, s32, s32 count, f32 t, void *, void *, void *);
 extern u32 *lbl_805D7778;
 extern const f32 lbl_805E10B8;
 void TObjPlayer__sub_803E500C(void *motA, s32 keyA, void *motB, s32 keyB, f32 t, u32 *src, u32 **out);
-}
-
-extern "C" {
 
 #pragma push
 #pragma scheduling off

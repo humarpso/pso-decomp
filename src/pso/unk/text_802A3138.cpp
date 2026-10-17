@@ -24,10 +24,6 @@ extern "C" {
 s32 draw_ui_sprite_shaded(f32, f32, f32, void *, void *, void *);
 extern const f32 lbl_805DDF18;
 extern const f32 lbl_805DDF1C;
-}
-
-extern "C" {
-
 #pragma push
 #pragma opt_common_subs off
 #pragma fp_contract on

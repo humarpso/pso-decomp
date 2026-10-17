@@ -12,20 +12,13 @@ void queue_destruction__7TObjectFv(void *);
 extern u8 lbl_80438D48[];
 extern u8 lbl_80438D50[];
 void update_duel_end_effect(Obj_8007FA94 *self);
-void *__nw__7TObjectFUl(int);
-void *__ct__17TDuelEffectStringFP7TObjectPvPv(void *p, s32 v, void *s, s32 n);
 void *__ct__17TDuelEffectNumberFP7TObjectPvPv(void *p, s32 v, void *s, s32 n);
-void queue_destruction__7TObjectFv(void *);
 s32 spawn_particle_effect_with_flags(void *, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 play_cue_stream_file(void *);
 extern u8 lbl_80438D40[];
 extern u8 lbl_80438D58[];
 f32 duel_start_countdown_effect_pos[3] = { 320.0f, 221.0f, 0.5f };
-}
-
-extern "C" {
-
 void update_duel_end_effect(Obj_8007FA94 *self) {
     switch (self->state) {
     case 0: {
@@ -97,12 +90,8 @@ void TDuelEffectCtrl::update_duel_start_countdown() {
 
 }
 
-#include "pso/misc/TDuelEffectCtrl.h"
-
-extern "C" {
 extern TObject* tl_clipout;
 extern const char* TDuelEffectCtrl__class_name;
-}
 
 void TDuelEffectCtrl::render() {}
 

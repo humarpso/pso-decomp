@@ -11,9 +11,7 @@ struct Mine_80368C14 { u8 pad[0x38]; Vec_80368C14 pos; };
 #include <stddef.h>
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
-#include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/enemy/TObjEneLappy.h"
-#include "pso/enemy/TObjEnemy.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjFish.h"
@@ -203,34 +201,20 @@ s32 register_boss__6TLobbyFl(int);
 u32 create_particle_emitter(void *, int);
 void bind_enemy_combat_stats(void *, s32, s32, s32);
 s32 init_collision_body_parts(void *, void *, int);
-f32 vector_length(Vec_80368C14 *);
-void subtract_vector(Vec_80368C14 *, void *);
 s32 normalize_vector(void *);
 extern s32 lbl_804F322C[];
 extern s32 lbl_805D44B0;
 s32 TBoss6MagMine__ct(s32 arg0, s32 arg1, s32 arg2);
-s32 VecCopy__FP3VecPC3Vec(s32, s32);
-void *get_player_data__10TObjPlayerFi(int);
-f32 vector_length(Vec_80368C14 *);
-void subtract_vector(Vec_80368C14 *, void *);
 s32 is_player_in_range__13TBoss6MagMineFPv(void *arg0_);
-s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void TBoss4DarkFalz__sub_8004B4F0(void *, s32);
 s32 get_phase__8TObjFishFv();
 s32 get_mag_mine_ptr__11TBoss6Type1Fv(u32);
 s32 create__13TBoss6MagMineFi(s32 arg0);
 void spawn_mag_mine_at__13TBoss6MagMineFPvPv(void *arg0, void *arg1);
-}
-
-extern "C" {
-
 void vt3__13TBoss6MagMineFv(s32 arg0);
 void vt4__13TBoss6MagMineFv(void* p);
-int TBoss6PlotFalz__sub_8036964C(void);
 void *__dt__13TUnk_804F322CFv(void *arg0, s16 arg1);
 void copy_pos__13TBoss6MagMineFi(s32 arg0);
-s32 create__13TBoss6MagMineFi(s32 arg0);
-s32 get_field_0x42c__13TBoss6MagMineFPv(void* p);
 s32 TBoss6PlotFalz__sub_802AC008(f32, f32);
 int post_translate_matrix(void*);
 int spawn_particle_effect_with_flags(void*, void*, void*);
@@ -243,7 +227,6 @@ s32 get_bml_model(s32, s32);
 int rotate_matrix_y(void*, void*);
 int push_matrix(void*);
 int pop_matrix(void);
-s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
 s32 __nw__7TObjectFUl(s32);
@@ -374,8 +357,6 @@ void vt3__13TBoss6MagMineFv(s32 arg0) {
     TBoss6PlotFalz::apply_radial_effect_to_players((void *)(arg0 + 0x38), (s16)0xC0, (s16)0xF, (f32)100.0f);
     queue_destruction__7TObjectFv((void*)(arg0));
 }
-
-extern s32 lbl_804F322C[];
 
 #pragma push
 #pragma opt_common_subs off

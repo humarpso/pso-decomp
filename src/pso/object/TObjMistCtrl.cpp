@@ -42,22 +42,15 @@ extern s32 __vt__12TObjMistCtrl[];
 extern s32 lbl_805D3E80;
 u8 *TObjMistCtrl__ct(u8 *arg0, s32 arg1, u32 arg2);
 void queue_destruction__7TObjectFv(void *);
-}
-
-extern "C" {
-
 void *__dt__12TObjMistCtrlFv(void *arg0, s16 arg1);
 f32 horizontal_distance_squared(void *, void *);
 s32 set_texture_num(int);
 void __dl__7TObjectFPv(void *);
 s32 restore_saved_depth_alpha_state();
 s32 draw_particle_strip(void *, int, int);
-void queue_destruction__7TObjectFv(void *);
 s32 set_depth_buffer_settings_1__Fv();
 
 void TObjMistCtrl::run_task() { { (void)(sub_802AF64C()); return; } }
-
-extern s32 __vt__12TObjMistCtrl[];
 
 void *__dt__12TObjMistCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

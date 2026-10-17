@@ -35,14 +35,11 @@ extern RecoveredGlobal_8016EB3C_lbl_804B2EC4 light_machine01_resource_desc;
 extern u32 TOLightMachine01__shared_bml_archive;
 extern s32 light_machine_ginja_model_handle;
 extern s32 light_machine_ginja_param;
-s32 TObjFish__sub_8001EDB0(void *, s32);
-s32 get_bml_model(void *, s32);
 s32 construct_world_actor_base(void *, int);
 s32 rand();
 f32 sin_table_lookup(s32);
 extern s32 __vt__16TOLightMachine01[];
 extern s32 TOLightMachine01__name;
-extern u32 TOLightMachine01__shared_bml_archive;
 extern s32 tl_05;
 extern const f32 lbl_805DB82C;
 extern const f32 lbl_805DB830;
@@ -53,12 +50,7 @@ extern const f32 lbl_805DB840;
 extern const f32 lbl_805DB844;
 extern const f32 lbl_805DB848;
 u8 *TOLightMachine01__ct(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 void *__dt__16TOLightMachine01Fv(void *arg0, s16 arg1);
-f32 sin_table_lookup(s32);
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model(s32);
@@ -76,8 +68,6 @@ void TOLightMachine01::run_task() {
     *(s32 *)&this->m_ac = (s32) (*(s32 *)&this->m_ac + *(s32 *)&this->m_8c);
 }
 
-extern s32 light_machine_ginja_model_handle;
-extern s32 light_machine_ginja_param;
 extern const f32 lbl_805DB828;
 
 void TOLightMachine01::render() {
@@ -109,16 +99,12 @@ void *TOLightMachine01::create(void *arg0) {
     return o;
 }
 
-extern u32 TOLightMachine01__shared_bml_archive;
-
 void TOLightMachine01::destroy_instance() {
     if ((u32) TOLightMachine01__shared_bml_archive != 0U) {
         TLobby__sub_8001FE7C((void*)TOLightMachine01__shared_bml_archive, 1);
         TOLightMachine01__shared_bml_archive = 0U;
     }
 }
-
-extern s32 __vt__16TOLightMachine01[];
 
 void TOLightMachine01::load_assets() {
     s32 temp_r3;

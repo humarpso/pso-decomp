@@ -15,12 +15,7 @@ void call_funcs_reverse__6TLobbyFPvUi(s32, u32);
 extern RecoveredGlobal_8023F160_lbl_804CCE60 lobby_scene_release_callback_table;
 void fn_8023F160(void);
 s32 run_load_callback_table(void *, int);
-extern RecoveredGlobal_8023F160_lbl_804CCE60 lobby_scene_release_callback_table;
 void fn_8023F18C(void);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8023F160_lbl_804CCE60_size[sizeof(RecoveredGlobal_8023F160_lbl_804CCE60) == 0x38 ? 1 : -1];
 void fn_8023F160(void) {
     call_funcs_reverse__6TLobbyFPvUi((s32) &lobby_scene_release_callback_table.value, 0x38U);

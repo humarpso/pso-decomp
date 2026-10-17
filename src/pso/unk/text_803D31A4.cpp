@@ -28,40 +28,17 @@ extern s32 lobby_callback_tables_refcount;
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
 extern s32 lbl_805D765C;
-extern P_803D33D4 lbl_805D7664;
-extern P_803D33E4 lbl_805D766C;
 void TLobby__sub_803D33D4(s32 arg0, s32 arg1);
 void TLobby__sub_803D33E4(s32 arg0, s32 arg1);
 void TLobby__sub_803D346C(s32 arg0);
 char *strncpy(char *, const char *, unsigned long);
-extern s32 lbl_805D765C;
-extern P_803D33D4 lbl_805D7664;
-extern P_803D33E4 lbl_805D766C;
 void TLobby__sub_803D34B0(s32 arg0, void (*arg1)(s32), s32 arg2);
-char *strncpy(char *, const char *, unsigned long);
 extern char lbl_8047DF3C[];
-extern P_803D33D4 lbl_805D7664;
-extern P_803D33E4 lbl_805D766C;
-extern s32 lbl_805D765C;
-s32 memset(void *, int, int);
 int vsprintf(char *s, const char *fmt, va_list ap);
-extern s32 lbl_805D765C;
 void TLobby__sub_803D38B4(const char *fmt, ...);
-char *strncpy(char *, const char *, unsigned long);
 extern char svm_invalid_callback_server_id_error[];
 extern char lbl_8047DF14[];
-extern P_803D33D4 lbl_805D7664;
-extern P_803D33E4 lbl_805D766C;
-extern s32 lbl_805D765C;
-char *strncpy(char *, const char *, unsigned long);
 extern char lbl_8047DF5C[];
-extern P_803D33D4 lbl_805D7664;
-extern P_803D33E4 lbl_805D766C;
-extern s32 lbl_805D765C;
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_803D31A4_lbl_8058B6B8_size[sizeof(RecoveredGlobal_803D31A4_lbl_8058B6B8) == 0x1C ? 1 : -1];
 typedef char RecoveredGlobal_803D31A4_lbl_8058B6D4_size[sizeof(RecoveredGlobal_803D31A4_lbl_8058B6D4) == 0x1C ? 1 : -1];
 u32 worker_callback_slots[8];

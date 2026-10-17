@@ -1,6 +1,5 @@
 #include "types.h"
 #include "pso/ui/TAdChrSelASlotGC.h"
-#include "pso/ui/TAdChrSelASlotGC.h"
 #include "pso/TAdChrSelMovePlateGC.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/TAdPlyChrSelPlateGC.h"
@@ -49,17 +48,12 @@ s32 forward_slot_selection__16TAdChrSelASlotGCFPvPv(s32, s32, s32, f32);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(s32, s32, s32, s32);
 extern const f32 lbl_805DF214;
 s32 TAdChrSelASlotGC__sub_8030CA84(s32 arg0, s32 arg1);
-s32 get_localized_text_entry(s32, s32);
-s32 free_member__17TWindowSubComCardFv(s32, s32);
-s32 forward_slot_selection__16TAdChrSelASlotGCFPvPv(s32, s32, s32, f32);
-s32 create__19TWindowMessageYesNoFPvPvPvPv(s32, s32, s32, s32);
 extern const f32 lbl_805DF20C;
 s32 TAdChrSelASlotGC__sub_8030C978(void *arg0, s32 arg1, s32 arg2);
 void *__ct__16TAdChrSelASlotGCFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 u8 *__nw__7TObjectFUl(s32);
 extern u32 TAdChrSel__global_slot_data;
 u8 *get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1);
-u8 *__nw__7TObjectFUl(s32);
 s32 __ct__19TAdPlyChrSelPlateGCFv(int, void *, void *);
 s32 __ct__15TAdChrSelSlotGCFv(int, void *);
 s32 __ct__15TAdPlayerLoadGCFv(int, void *, int);
@@ -77,55 +71,26 @@ void TAdChrSelASlotGC__sub_8030CEEC(u8 *arg0);
 u8 * TAdSinglePlyChrSelectGC__sub_801FE4BC(u32);
 bool TAdChrSelASlotGC__sub_8030C3C0(s32 arg0, u32 arg1);
 s32 is_slot_value_ready__19TAdPlyChrSelPlateGCFl(void *, int);
-s32 get_localized_text_entry(s32, s32);
-u8 * TAdSinglePlyChrSelectGC__sub_801FE4BC(u32);
 extern G_8030C45C lbl_80542E60;
 G_8030C45C *TAdChrSelASlotGC__sub_8030C45C(s32 arg0, s32 arg1, s32 arg2, void *arg3);
-s32 get_localized_text_entry(s32, s32);
-s32 free_member__17TWindowSubComCardFv(s32, s32);
-s32 forward_slot_selection__16TAdChrSelASlotGCFPvPv(s32, s32, s32, f32);
-s32 create__19TWindowMessageYesNoFPvPvPvPv(s32, s32, s32, s32);
 int sprintf(char *, const char *, ...);
 void *memset(void *, int, unsigned long);
 extern char lbl_80542D60[];
-extern const f32 lbl_805DF20C;
-s32 get_localized_text_entry(s32, s32);
-s32 free_member__17TWindowSubComCardFv(s32, s32);
-s32 forward_slot_selection__16TAdChrSelASlotGCFPvPv(s32, s32, s32, f32);
-s32 create__19TWindowMessageYesNoFPvPvPvPv(s32, s32, s32, s32);
 extern u8 TAdChrSelASlotGC__data_804758A8[];
 extern u8 TAdChrSelASlotGC__data_804758B0[];
 extern u8 TAdChrSelASlotGC__data_804758B8[];
 extern const f32 TAdChrSelASlotGC__data_805DF208;
-s32 get_localized_text_entry(s32, s32);
-s32 free_member__17TWindowSubComCardFv(s32, s32);
-s32 forward_slot_selection__16TAdChrSelASlotGCFPvPv(s32, s32, s32, f32);
-s32 create__19TWindowMessageYesNoFPvPvPvPv(s32, s32, s32, s32);
-extern u8 TAdChrSelASlotGC__data_804758A8[];
-extern u8 TAdChrSelASlotGC__data_804758B0[];
-extern u8 TAdChrSelASlotGC__data_804758B8[];
-extern const f32 TAdChrSelASlotGC__data_805DF208;
-}
-
-extern "C" {
-
-void *__ct__16TAdChrSelASlotGCFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 void TAdChrSelASlotGC__sub_8030CBD0(void);
 void TAdChrSelASlotGC__sub_8030CBD4(void);
 void TAdChrSelASlotGC__sub_8030CCE0(void);
 void TAdChrSelASlotGC__sub_8030D5DC(void *arg0);
 u32 TAdChrSelASlotGC__sub_8030CB08(void *, s32, s32);
 s32 TAdChrSelSlotGC__sub_802C7498(s32, s32);
-u32 create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
-s32 get_localized_text_entry(s32, s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FDAAC();
 s32 write_encrypted_save__23TAdSinglePlyChrSelectGCFv();
 s32 TAdSubPlyItemGC__sub_802D6D88(s32);
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 create__19TWindowMessageYesNoFPvPvPvPv(s32, s32, s32, s32);
 s32 TWindow__close(void *);
-s32 forward_slot_selection__16TAdChrSelASlotGCFPvPv(s32, s32, s32, f32);
-s32 free_member__17TWindowSubComCardFv(s32, s32);
 s32 queue_destruction__7TObjectFv(void *);
 
 extern f32 lbl_805DF210;
@@ -533,7 +498,6 @@ void TAdChrSelASlotGC__sub_8030D5DC(void *arg0) {
 
 extern s32 lbl_80475840[];
 extern s32 lbl_804758A0[];
-extern const f32 lbl_805DF218;
 
 void TAdChrSelASlotGC::close_windows() {
     s32 temp_r0;
@@ -786,7 +750,6 @@ void TAdChrSelASlotGC::init(s32 arg1) {
 }
 
 extern s32 __vt__16TAdChrSelASlotGC[];
-extern u32 TAdChrSel__global_slot_data;
 
 }
 TAdChrSelASlotGC::~TAdChrSelASlotGC() {
@@ -838,12 +801,7 @@ TAdChrSelASlotGC::~TAdChrSelASlotGC() {
         TAdChrSel__global_slot_data = 0U;
     }
 }
-extern "C" {
-
-extern s32 __vt__16TAdChrSelASlotGC[];
 extern void *TAdChrSelASlotGC__name;
-
-}
 TAdChrSelASlotGC::TAdChrSelASlotGC(TObject *arg1, void *arg2) : TObject(arg1) {
     *(void **)((s8 *)this + 0x0) = TAdChrSelASlotGC__name;
     this->init((s32)(arg2));

@@ -19,10 +19,6 @@ void __dl__7TObjectFPv(void *);
 void __dt__14TObjEneEpsilonFv(void *, s16);
 extern void *lbl_804F22DC[];
 Eps_803622B0 *__dt__18TObjEneEpsilonBodyFv(Eps_803622B0 *o, s16 arg1);
-}
-
-extern "C" {
-
 Eps_803622B0 *__dt__18TObjEneEpsilonBodyFv(Eps_803622B0 *o, s16 arg1) {
     s32 i;
     if (o != NULL) {

@@ -110,17 +110,8 @@ s32 is_item_valid__9TItemListFl(void *);
 extern u8 *item_reduce_target_player;
 extern u8 item_reduce_owner_match_field_ec;
 extern u8 reduce_owner_match_id;
-void *get_owner_if_alive__10TObjPlayerFv(void *);
-s32 is_item_valid__9TItemListFl(void *);
-extern u8 *item_reduce_target_player;
-extern u8 item_reduce_owner_match_field_ec;
-void *get_owner_if_alive__10TObjPlayerFv(void *);
-s32 is_item_valid__9TItemListFl(void *);
 extern s32 *TObjPlayer__owner_field_write_cursor;
 extern s32 inventory_walk_visit_count;
-}
-
-extern "C" {
 void TItemList__sub_801D5B10(void*, int);
 }
 
@@ -128,7 +119,6 @@ TPlyItem::~TPlyItem() {
     TItemList__sub_801D5B10((char*)this + 0x20, -1);
 }
 
-#include "types.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TItemList.h"

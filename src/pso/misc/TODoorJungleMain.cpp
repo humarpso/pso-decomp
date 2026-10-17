@@ -42,17 +42,10 @@ void TODoorJungleMain::vfunc_6(s16 *arg1, s32 arg2) {
     }
 }
 
-}
-
-extern "C" {
 s32 get_current_floor(void);
 u8 *get_player_by_client_id(s32);
 extern const f32 lbl_805DDCD0;
 s32 is_any_player_near(s32 arg0);
-}
-
-extern "C" {
-
 s32 is_any_player_near(s32 arg0) {
   f32 temp_f31;
   s32 temp_r31;
@@ -80,15 +73,8 @@ s32 is_any_player_near(s32 arg0) {
   goto loop_1;
 }
 
-}
-
-extern "C" {
 void clear_story_flag_in_bank(int, int);
 extern s32 TOKeyJungleMain__data_804653C8[];
-}
-
-extern "C" {
-
 void TLobby__sub_8029B2A4(void* p);
 void *TODoorJungleMain__create(void *arg0);
 void *__nw__7TObjectFUl(int);
@@ -209,7 +195,6 @@ u8 * init_door_base(void *);
 extern RecoveredGlobal_8029B924_lbl_804DC014 TODoorJungleMain_collision_body_parts;
 extern s32 __vt__16TODoorJungleMain[];
 extern s32 TODoorJungleMain__name;
-extern u32 TODoorJungleMain__bml_resource;
 extern const f32 lbl_805DDCD8;
 extern const f32 lbl_805DDCDC;
 extern const f32 lbl_805DDCE0;
@@ -227,12 +212,6 @@ void *set_global_param__8TObjFishFl(void *);
 int draw_ginja_object(void *);
 s32 draw_ginja_model_with_motion(void *, int, f32);
 extern Ids_8029B428 door_jungle_main_ids;
-extern u32 TODoorJungleMain__bml_resource;
-extern u32 door_jungle_main_gvm_texture;
-}
-
-extern "C" {
-
 }
 struct Door_8029B524 {
     u8 pad0[0x38];
@@ -270,9 +249,6 @@ s32 TLobby__sub_803DA16C(void*);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 
-extern u32 TODoorJungleMain__bml_resource;
-extern u32 door_jungle_main_gvm_texture;
-
 void TODoorJungleMain::free_static_resources() {
     if ((u32) door_jungle_main_gvm_texture != 0U) {
         TLobby__sub_803DA16C((void*)door_jungle_main_gvm_texture);
@@ -284,8 +260,6 @@ void TODoorJungleMain::free_static_resources() {
         TODoorJungleMain__bml_resource = 0U;
     }
 }
-
-extern s32 __vt__16TODoorJungleMain[];
 
 typedef char RecoveredGlobal_8019A880_lbl_804B8F70_size[sizeof(RecoveredGlobal_8019A880_lbl_804B8F70) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8019A880___vt__8TObjTank_size[sizeof(RecoveredGlobal_8019A880___vt__8TObjTank) == 0x3C ? 1 : -1];

@@ -26,11 +26,7 @@ extern Rec_8001A4CC lbl_80434358[];
 extern Rec_8001A4CC lbl_804343E8[];
 extern s32 lbl_805D49E0;
 void TObjPlayer__sub_8001A4CC(s32 arg0, s8 arg1);
-}
-
 #define P1_805D49E0 (*(Plr_8001A4CC **)&lbl_805D49E0)
-extern "C" {
-
 s32 TItemMag::get_type() { return *(s32 *)&this->m_4; }
 void copy_draw_line_record(Rec_8001A470 *d, Rec_8001A470 *s) {
     d->f0 = s->f0;
@@ -67,7 +63,6 @@ void TObjPlayer__sub_8001A4CC(s32 arg0, s8 arg1) {
 #pragma pop
 
 #include <stddef.h>
-#include "pso/player/TObjPlayer.h"
 struct Stack_8001A8F0 {
     s32 sp8;
     s32 spC;
@@ -103,7 +98,6 @@ s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8001A8F0_lbl_8043455C lbl_8043455C;
 extern s32 lbl_80480938[];
-extern s32 lbl_805D49E0;
 extern s8 player_light_index;
 u8 *TObjPlayer__sub_8001A8F0(u8 *arg0, s32 arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -115,11 +109,6 @@ int TObjPlayer__sub_8001A77C(void *p);
 s32 publish_light_direction_color(int, void *, void *);
 extern Color_8001A6A8 player_light_color_rgba_table[];
 extern Light_8001A6A8 player_light_direction_color_table[];
-extern s8 player_light_index;
-}
-
-extern "C" {
-
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 get_ending_scene_active();
@@ -142,8 +131,6 @@ s32 TObjPlayer::get_flag890_state() {
     return var_r3;
 }
 
-extern s32 lbl_805D49E0;
-extern s8 player_light_index;
 extern s32 lbl_805D49E8;
 extern s32 game_difficulty_selection;
 
@@ -179,8 +166,6 @@ void TObjPlayer::update_flag890_state(s32 arg0) {
 
 void TUnk_80480938::render() {  }
 void TUnk_80480938::run_task() { TObjPlayer__sub_8001A77C((void *)(this)); TObjPlayer::publish_light_color((void *)(this)); }
-
-extern s32 lbl_80480938[];
 
 void *TUnk_80480938::destroy_base(s16 arg1) {
     if (this != NULL) {

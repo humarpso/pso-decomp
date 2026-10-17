@@ -1,7 +1,6 @@
 #include "types.h"
 #include "pso/TBoss7Tentacle.h"
 #include "pso/boss/TBoss7PhotonBullet.h"
-#include "pso/TBoss7Tentacle.h"
 #include "pso/boss/TBoss7TentacleNeedle.h"
 #include "pso/boss/TBoss7Joint.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -33,10 +32,6 @@ extern const f32 lbl_805DEC3C;
 extern const f32 lbl_805DEC40;
 extern const f32 lbl_805DEC44;
 void run_task__14TBoss7TentacleFv(u8 *arg0);
-}
-
-extern "C" {
-
 struct RecoveredGlobal_802EFB1C_lbl_80541918 {
     s32 value;
     u8 remaining[0xC];
@@ -117,7 +112,6 @@ struct Ten_802F0A5C;
 
 typedef struct Anim_802F0BE8 { u8 pad0[4]; u32 n; } Anim_802F0BE8;
 
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_testFlags30(void *, s32);
 int queue_destruction__7TObjectFv(void*);
 int disallow_rendering__7TObjectFv(void*);
@@ -125,7 +119,6 @@ s32 attach_particle_model(int, int, int, int, int, f32);
 s32 spawn_particle_effect(void *, int);
 f32 horizontal_distance_squared(void *, void *);
 u8 * get_player_by_client_id(u16);
-s32 play_sound_effect(int, void *, int, int);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 notify_fish_obj__10TObjPlayerFPv(int);
@@ -145,10 +138,7 @@ void TBoss7Tentacle__sub_802F0918(void* p);
 void TBoss7Tentacle__sub_802F09B4(void* p);
 void TBoss7Tentacle__sub_802F09C8(void* a0);
 void TBoss7Tentacle__sub_802F09EC(void* p);
-void TBoss7Tentacle__sub_802F09FC(u8 *arg0);
 void TBoss7Tentacle__sub_802F0A14(u8 *arg0);
-void TBoss7Tentacle__sub_802F0A2C(u8 *arg0);
-void TBoss7Tentacle__sub_802F0A44(u8 *arg0);
 void TBoss7Tentacle__sub_802F0AD0(void* a0);
 void TBoss7Tentacle__sub_802F0AF0(u8 *arg0);
 void TBoss7Tentacle__sub_802F0B58(u8 *arg0);
@@ -159,17 +149,12 @@ s32 rand(void);
 s32 rotate_matrix_zyx(int, int, int, int);
 s32 rotate_matrix_y(int, int);
 void rotate_matrix_by_node_angles(void *, int);
-void push_matrix(void);
-void pop_matrix(void);
 s32 scale_current_matrix(void *);
 void post_translate_matrix(void *);
 s32 draw_chunk_object(void *);
 void draw_model_motion(void *, void *, f32);
 
-extern int TBoss7Tentacle__target_angle_table[];
 extern V_802F0A5C TBoss7Tentacle__segment_offsets[];
-extern const f32 TBoss7Tentacle__data_805DEC00;
-extern const f32 TBoss7Tentacle__data_805DEC04;
 extern s32 __vt__20TBoss7TentacleNeedle[];
 extern s32 lbl_80474070[];
 extern Node_802EFF24 lbl_80541528[];
@@ -184,17 +169,12 @@ extern const f32 lbl_805DEC14;
 extern const f32 lbl_805DEC18;
 extern const f32 lbl_805DEC1C;
 extern const f32 lbl_805DEC28;
-extern const f32 lbl_805DEC34;
 extern const f32 lbl_805DEC38;
 extern const float lbl_805DEC48;
 extern const float lbl_805DEC5C;
 extern const f32 lbl_805DEC60;
 
 struct Ten_802F01D0 { u8 pad0[0x50]; V_802F0A5C v[14]; };
-
-extern "C" {
-extern V_802F0A5C TBoss7Tentacle__segment_offsets[];
-}
 
 void TBoss7Tentacle::restart_particle_effect() {
     u8 *arg0 = (u8 *)this;

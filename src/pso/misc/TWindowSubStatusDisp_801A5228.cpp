@@ -6,9 +6,7 @@ struct RecoveredGlobal_801A5228_lbl_80446970 {
     u8 remaining[0xC];
 };
 
-extern "C" {
 extern RecoveredGlobal_801A5228_lbl_80446970 card_window_scale_table;
-}
 
 extern "C" {
 

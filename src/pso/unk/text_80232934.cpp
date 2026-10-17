@@ -44,10 +44,6 @@ extern s32 model_render_flags;
 extern const f32 lbl_805DC840;
 extern const f32 lbl_805DC844;
 extern const f32 lbl_805DC848;
-}
-
-extern "C" {
-
 void TUnk_804CC870::render() {
     Obj_80232934 *arg0 = (Obj_80232934 *)this;
     Ctx_80232934 ctx;

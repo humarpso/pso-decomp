@@ -113,9 +113,6 @@ struct AudioStreamInputState {
 
 extern "C" {
 extern s8 lbl_805D74B8;
-extern s8 lbl_805D74B8;
-extern s32 lbl_805D748C;
-extern s32 lbl_805D748C;
 extern s32 lbl_805D748C;
 void TLobby__sub_803BFE58(u8 *arg0);
 void TLobby__sub_803BFEE8(u8 *arg0);
@@ -131,34 +128,23 @@ s32 TLobby__sub_803C39CC(int);
 void TLobby__sub_803C0758(u8 *arg0);
 s32 TLobby__sub_803C1A00(int);
 s32 memset(void *, int, int);
-s32 memset(void *, int, int);
-s32 memset(void *, int, int);
 extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80570AC0;
-s32 memset(void *, int, int);
 void TLobby__sub_803C406C(void);
-extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80570AC0;
 s32 TLobby__sub_803C133C(void *);
 void TLobby__sub_803C0B3C(u8 *arg0);
 s32 TLobby__sub_803C07E8(Obj_803C07E8 *self);
 s32 memcmp(void *, void *, int);
 extern s32 lbl_805E0CB0;
 extern s32 lbl_805E0CB8;
-s32 TLobby__sub_803C3B38(int);
 
 void TLobby__sub_803C0628(void *arg0_, s32 *arg1, s32 *arg2, s32 *arg3);
 void EXIGetID(Snd_803C0BE8 *arg0);
-extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80570AC0;
 void GXFlush(void);
 s32 TLobby__sub_803C0238();
-s32 get_field_a8__6TLobbyFv(int);
 s32 TLobby__sub_803C3B68(s32, void *, s32);
 s32 TLobby__sub_803D3130(AudioStreamChunk *, s32, AudioStreamChunk *, AudioStreamChunk *);
 void *memcpy(void *, const void *, u32);
 void process_audio_stream_input(AudioStreamInputState *arg0);
-}
-
-extern "C" {
-
 s32 TLobby::get_offset_58() {
     s32 arg0 = (s32)this;
     return arg0 + 0x58;

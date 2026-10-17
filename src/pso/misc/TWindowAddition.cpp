@@ -12,10 +12,6 @@ s32 text_builder_append(void *);
 s32 text_builder_reset();
 extern s32 TWindowSubStatusDisp__count_ratio_value;
 extern s32 lbl_805DCAB8;
-}
-
-extern "C" {
-
 void sub_802443B4__13TUnk_804CDFE8Fv(void *, void *);
 void construct_base__9TWindowDDFPUcsPUc(void *);
 void __dl__7TObjectFPv(void *);
@@ -33,8 +29,6 @@ void *TUnk_804CDFE8::destroy_window(s16 arg1) {
     }
     return this;
 }
-
-extern s32 lbl_804CDFE8[];
 
 void *TUnk_804CDFE8::construct_with_parent(void *arg1) {
     construct_base__9TWindowDDFPUcsPUc(this);

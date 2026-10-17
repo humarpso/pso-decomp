@@ -11,19 +11,9 @@ u8 *find_item_by_id(int);
 u8 *get_player_by_client_id(s16);
 void calc_list_content_extent(void *);
 void populate_judgment_item_list(Wn_80278DA4 *arg0);
-u8 *find_item_by_id(int);
 u8 get_field_ec__5TItemFv();
-u8 *get_player_by_client_id(s16);
-void calc_list_content_extent(void *);
 void build_mag_item_candidates(void *arg0, u16 arg1);
-u8 *find_item_by_id(int);
-u8 get_field_ec__5TItemFv();
-u8 *get_player_by_client_id(s16);
-void calc_list_content_extent(void *);
 void add_armor_equip_candidates(u8 *arg0, u16 kind, u16 sub);
-}
-
-extern "C" {
 
 void add_armor_equip_candidates(u8 *arg0, u16 kind, u16 sub) {
     s32 ids[30];

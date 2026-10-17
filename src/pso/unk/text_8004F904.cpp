@@ -9,10 +9,6 @@ struct O_8004F904 { u8 pad[0xF0]; V_8004F904 arr[2]; };
 
 extern "C" {
 u32 create_particle_emitter(void *, int);
-}
-
-extern "C" {
-
 void TObjDFDemo5::update_particle_emitters() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;

@@ -98,23 +98,16 @@ void fn_800E32C0(Obj_800E32C0 *arg0, V_800E32C0 *arg1);
 extern Pair_800E3374 lbl_8043CDF0[];
 void fn_800E3374(Obj_800E3374 *arg0, V_800E3374 *arg1);
 Player_800E35C8 *get_player_data__10TObjPlayerFi(s32);
-void fn_800E3374(Obj_800E3374 *arg0, V_800E3374 *arg1);
 f32 horizontal_distance_squared(void *, void *);
 extern s32 lbl_805D586C;
 void fn_800E35C8(Obj_800E35C8 *arg0);
 u16 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, s32, f32);
-void VecCopy__FP3VecPC3Vec(void *, void *);
-void fn_800E32C0(Obj_800E32C0 *arg0, V_800E32C0 *arg1);
 u32 get_enemy_entity(u16);
 void fn_800E322C(void *p, void *t);
 void vec3_add_to(void *, void *);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
 void normalize_vector(void *);
-}
-
-extern "C" {
-
 Obj_800E31C4 *fn_800E31C4(Obj_800E31C4 *self, Entry_800E31C4 *list, Vec_800E31C4 *vecs) {
     Entry_800E31C4 *p;
     Vec_800E31C4 *q;
@@ -486,16 +479,11 @@ extern const f32 lbl_805DA5BC;
 extern const f32 lbl_805DA5C0;
 extern f32 TObjEneMe3ShinowaMirage__data_805DA5C4;
 void TObjEneMe3ShinowaMirage__vt113(u8 *arg0, s32 arg1);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 int play_sound_effect(void *, void *, void *, void *);
 extern s32 TObjEnePanarmsAtkColli__type_index_table[];
 extern s32 __vt__22TObjEnePanarmsAtkColli[];
 extern s32 lbl_805D2AC0;
 void *TObjEnePanarmsAtkColli__ct(Obj_800E37E4 *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
-}
-
-extern "C" {
-
 void *__dt__22TObjEnePanarmsAtkColliFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
@@ -531,8 +519,6 @@ void *TObjEnePanarmsAtkColli::create(void *arg1, void *arg2, void *arg3) {
     }
     return o;
 }
-
-extern s32 __vt__22TObjEnePanarmsAtkColli[];
 
 void *__dt__22TObjEnePanarmsAtkColliFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

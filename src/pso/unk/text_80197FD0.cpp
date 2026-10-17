@@ -7,10 +7,6 @@ void fn_8023E734(void *);
 void set_texture_name(void *, void *, int, int);
 extern u32 TObjSinBoard__texture_buffer;
 void fn_80197FD0(void *arg0, void *arg1);
-}
-
-extern "C" {
-
 u8 TObjSinBoard__texture_name[0xC];
 __declspec(section ".data") void *signboard_texture_list[2];
 u8 TObjSinBoard__texture_surface[0x24];

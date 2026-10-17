@@ -10,10 +10,6 @@ extern const f32 lbl_805D820C;
 extern const f32 lbl_805D8210;
 extern const f32 lbl_805D8214;
 extern const f32 lbl_805D8218;
-}
-
-extern "C" {
-
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off

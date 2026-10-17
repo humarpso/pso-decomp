@@ -10,8 +10,6 @@ void TItemWeapon::release() { memset((char*)this + 0x18c, (void*)0, (void*)16); 
 
 }
 
-#include "types.h"
-#include "pso/items/TItemWeapon.h"
 struct PlB_80120C5C { char pad[0x18]; };
 
 struct Pl_80120C5C : PlB_80120C5C {
@@ -65,10 +63,6 @@ extern "C" {
 u8 get_field_ed__5TItemFv();
 void request_model_load__14TItemEquipBaseFl(void *, u8);
 extern T_80120C5C lbl_8043E828[];
-}
-
-extern "C" {
-
 void TItemWeapon::vfunc_46() {
     Pl_80120C5C *arg0 = (Pl_80120C5C *)this;
     u8 v = get_field_ed__5TItemFv();

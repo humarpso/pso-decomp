@@ -72,15 +72,10 @@ s32 obj_clearFlags30(void *, s32);
 s32 TODummyKeyCave01Sound__ct(void *, void *, s32, s32);
 u8 is_current_floor_switch_set(u16);
 void *__nw__7TObjectFUl(int);
-}
-
-extern "C" {
-
 void TODummyKeyCave01__sub_80165E88(void);
 void TODummyKeyCave01__sub_80165E8C(void);
 void *__dt__16TODummyKeyCave01Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
@@ -198,8 +193,6 @@ void *TODummyKeyCave01::create(void *arg0) {
 
 void TODummyKeyCave01__sub_80165E88(void) {  }
 void TODummyKeyCave01__sub_80165E8C(void) {  }
-
-extern s32 __vt__16TODummyKeyCave01[];
 
 void *__dt__16TODummyKeyCave01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

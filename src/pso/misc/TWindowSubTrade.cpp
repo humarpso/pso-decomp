@@ -3,7 +3,6 @@
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowMessageYesNo.h"
-#include "pso/misc/TWindowSubTrade.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 
@@ -32,21 +31,15 @@ u8 *__dt__15TWindowSubTradeFv(u8 *arg0, s16 arg1);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
 s32 play_sound_effect(int, int, int, int);
-void TWindow__close(void *);
 s32 is_player_input_active(int);
 s32 get_selected_menu_value(int);
 u32 TWindowSubComCard__sub_802B1C1C(void *);
 s32 send_modify_trade_proposal__6TLobbyFi(int);
 extern s32 controller_input_state[];
-}
-
-extern "C" {
-
 void TLobby__sub_802D2A50(void *);
 
 void TWindowSubTrade::render() {  }
 
-extern s32 __vt__15TWindowSubTrade[];
 extern void *lbl_805D3EA8;
 
 void TWindowSubTrade::run_task() {

@@ -12,9 +12,6 @@ extern u8 lbl_804A5C18[];
 extern const f32 lbl_805DAF58;
 extern const f32 lbl_805DAF68;
 void *construct_shot_weapon(void *arg0, s32 parent, void *arg2);
-}
-
-extern "C" {
 
 void *construct_shot_weapon(void *arg0, s32 parent, void *arg2) {
     u8 temp_r0;

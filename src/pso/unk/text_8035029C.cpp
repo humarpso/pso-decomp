@@ -21,8 +21,6 @@ void *__dt__13TUnk_804F0C48Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 lbl_804F0C48[];
-
 void *create_item_object_lbl_804F0C48(void *arg0) {
     TItemObject__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F0C48;

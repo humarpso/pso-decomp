@@ -21,7 +21,6 @@ struct RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 {
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TMedicalCenterMes.h"
-#include "pso/misc/TRaderMapCore.h"
 struct Stack_8021DC30 {
     s32 sp8;
     s32 spC;
@@ -68,15 +67,7 @@ extern RecoveredGlobal_8021DC30_lbl_8044C140 shop_service_facing_vec;
 extern RecoveredGlobal_8021DC30_lbl_8058D490 identity_matrix;
 extern const f32 lbl_805DC6E8;
 bool is_player_in_service_range__14TShopGeneratorFPUcf(u8 *arg0, u8 *arg1, f32 farg0);
-s32 TShopGenerator__sub_80222DAC(s32);
-extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__slot_active_table;
-s32 TShopGenerator__sub_80222DAC(s32);
-extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__slot_active_table;
 void THunterGuildSeqOffline__sub_8021E180(s32 arg0);
-extern Tbl_8021E1FC TShopGenerator__service_dispatch_table;
-extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__slot_active_table;
-s32 obj_getField1c(s32);
-s32 TShopGenerator__sub_80222DAC(s32);
 extern Tbl_8021E1FC TShopGenerator__service_dispatch_table;
 s32 obj_getField1c(s32);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv(void);
@@ -85,22 +76,12 @@ s32 is_flag_400_set__10TObjPlayerFPv(s32);
 s32 check_flag_100__10TObjPlayerFPv(s32);
 s32 get_player_by_client_id(s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-bool is_player_in_service_range__14TShopGeneratorFPUcf(u8 *arg0, u8 *arg1, f32 farg0);
-u8 is_slot_active__14TShopGeneratorFi(s32 arg0);
-s32 TShopGenerator__sub_80222DAC(s32);
-extern Tbl_8021E1FC TShopGenerator__service_dispatch_table;
 extern u8 controller_input_state[];
 extern s32 local_client_id;
 extern s32 lbl_805D55C0;
 extern const f32 lbl_805DC6EC;
 void run_task__14TShopGeneratorFv(u8 *self);
 void TMedicalCenterMes__sub_80216260(void);
-extern Tbl_8021E1FC TShopGenerator__service_dispatch_table;
-extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__slot_active_table;
-}
-
-extern "C" {
-
 void *TShopGenerator__create(void *arg0);
 void *TShopGenerator__ct(void *arg0, s32 arg1);
 void *__dt__14TShopGeneratorFv(void *arg0, s16 arg1);
@@ -218,7 +199,6 @@ void *__dt__14TShopGeneratorFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__14TShopGenerator[];
 extern s32 TShopGenerator__class_name;
 extern s32 tl_05;
 

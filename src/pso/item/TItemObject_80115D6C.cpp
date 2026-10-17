@@ -44,12 +44,9 @@ s32 TItemObject__sub_80115DE8(void *item);
 s32 set_hp_clamped__10TObjPlayerFs(void *, s32);
 s32 get_field_2b8__14TItemProShieldFv(void *);
 s32 spawn_particle_effect(void *, s32);
-Obj_80116004 *get_player_by_client_id(s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
 void handle_6x66_use_star_atomizer(u8 *arg0);
-s16 obj_getField1c(Obj_80116004 *);
 void *TObjPlayer__sub_80116620(void *, s32);
-s32 sub_801A1DDC__10TObjPlayerFv(void *);
 void send_star_atomizer_targets(void *arg0);
 }
 
@@ -288,24 +285,13 @@ struct VObj_18 : VBase_18 {
 
 extern "C" {
 s32 set_stack_count__24TShopEquipmentListWindowFSc(void *, void *);
-void TItemObject__vt16(u8 *arg0, u8 *arg1);
 void *TItemObject__ct(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-}
-
-extern "C" {
-
-void *TItemObject__ct(void *arg0, void *arg1, void *arg2);
-void vfunc_31__11TItemObjectFv(void *arg0);
-s32 TItemObject__vt35(void *arg0, s32 arg1);
-s32 TItemObject__vt36(void *arg0, s32 arg1);
-void vfunc_44__11TItemObjectFv(void *arg0);
 void *lookup_item_pmt_record(void *);
 s32 TItem__ct();
 s32 consume_item_by_id();
 s32 check_flag_400__20TWindowSubStatusDispFv();
-s32 copy_and_register_item_data__11TItemObjectFv(void *);
 s32 get_item_type_or_default__9TItemListFv(void *);
 s32 update_pickup_flag__5TItemFl();
 
@@ -400,11 +386,6 @@ u8 *TItemObject::create() {
     return NULL;
 }
 
-}
-
-extern "C" {
-
-void *__dt__11TItemObjectFv(void *arg0, s16 arg1);
 void __dt__5TItemFv(void *, int);
 
 s32 (*TLobby__sub_8010440C())(s32);

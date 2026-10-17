@@ -28,10 +28,6 @@ void draw_model_motion(s32, s32, f32);
 extern const f32 lbl_805DFA58;
 extern const f32 lbl_805DFA5C;
 extern const f32 lbl_805DFA60;
-}
-
-extern "C" {
-
 void restore_player_cameras();
 void *TObjFish__sub_8033D1AC(void *, void *, void *);
 void __dl__7TObjectFPv(void *);

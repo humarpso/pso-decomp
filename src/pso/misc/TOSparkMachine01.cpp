@@ -76,26 +76,19 @@ extern u32 TOSparkMachine01__static_resource;
 void construct_world_actor_base(void *, s32);
 extern s32 __vt__16TOSparkMachine01[];
 extern s32 lbl_805D3174;
-extern u32 TOSparkMachine01__static_resource;
 extern s32 tl_05;
-extern const f32 TOSparkMachine01__data_805DB9EC;
 extern const f32 lbl_805DB9F0;
 extern const f32 lbl_805DB9F4;
 extern const f32 lbl_805DB9F8;
 void *TOSparkMachine01__ct(void *arg0, void *arg1);
 s32 rand(void);
 extern const f32 lbl_805DB9E8;
-extern const f32 TOSparkMachine01__data_805DB9EC;
 void begin_effect_render__13TParticleCtrlFv(void *);
 void rotate_matrix_y(int, int);
 void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
 void draw_ginja_model(int);
-}
-
-extern "C" {
-
 void *__dt__16TOSparkMachine01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
@@ -175,16 +168,12 @@ void *TOSparkMachine01::create() {
     return o;
 }
 
-extern u32 TOSparkMachine01__static_resource;
-
 void TOSparkMachine01::destroy_static_instance() {
     if ((u32) TOSparkMachine01__static_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TOSparkMachine01__static_resource, 1);
         TOSparkMachine01__static_resource = 0U;
     }
 }
-
-extern s32 __vt__16TOSparkMachine01[];
 
 void TOSparkMachine01::load_static_resource() {
     s32 temp_r3;

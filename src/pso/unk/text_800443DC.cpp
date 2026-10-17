@@ -12,10 +12,6 @@ extern "C" {
 extern G_800443DC *volopt_p01_shared_handler_handle;
 s32 fn_800443DC(void *self, s32 i);
 extern G_800443F0 *TBoss3VoloptP01__resource_bundle;
-}
-
-extern "C" {
-
 s32 fn_800443DC(void *self, s32 i) {
     return volopt_p01_shared_handler_handle->arr[i];
 }

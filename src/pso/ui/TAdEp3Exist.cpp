@@ -62,9 +62,7 @@ extern const f32 lbl_805E0440;
 extern const f32 lbl_805E0444;
 extern const f32 lbl_805E0448;
 s32 get_state_flag__9TMainTaskFv();
-u8 TAdEp3Exist__sub_8036F590(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
-s32 get_localized_text_entry(int, int);
 s32 load_and_verify_character_save__23TAdSinglePlyChrSelectGCFPc(void *, void *);
 u8 *get_instance__23TAdSinglePlyChrSelectGCFv(void);
 void *__nw__7TObjectFUl(u32);
@@ -89,27 +87,18 @@ int TAdEp3Exist__sub_8036F0AC(void* p);
 extern u8 controller_input_state[];
 extern u8 controller_physical_port_bank[];
 extern const f32 lbl_805E044C;
-u8 TAdEp3Exist__sub_8036F590(u8 *arg0);
 int prs_read_control_bit(Obj_8036F4DC *arg0);
 void TAdEp3Exist__sub_8036F5A4(void* p);
 u8 prs_read_byte_at(void *, s32);
 u8 *prs_next_output_byte(void *);
 void *memmove(void *, const void *, u32);
 s32 prs_decompress(Prs_8036F5B0 *c, u8 *src, s32 arg2, s32 arg3);
-}
-
-extern "C" {
-
-int TAdEp3Exist__sub_8036F0AC(void* p);
-void TAdEp3Exist__sub_8036F5A4(void* p);
 void *__dt__11TAdEp3ExistFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 int __dl__FPv();
 void __dt__7TObjectFv(void *, int);
-void queue_destruction__7TObjectFv(void *);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 int request_transition__21TAdMultiChgGameModeGCFv(void*);
-int reset_and_set_mode__21TAdMultiChgGameModeGCFv(void*);
 
 void TAdEp3Exist::draw_message_window(s32 arg1) {
     s32 arg0 = (s32)this;
@@ -129,8 +118,6 @@ int TAdEp3Exist::request_game_mode_transition() { return request_transition__21T
 int TAdEp3Exist::request_scene_change() { return request_scene_change__21TAdMultiChgGameModeGCFv(this); }
 int TAdEp3Exist__sub_8036F0AC(void* p) { return reset_and_set_mode__21TAdMultiChgGameModeGCFv(p); }
 void TAdEp3Exist::close_window() { if (*(unsigned int *)&this->m_1c != 0) { ((TAdScrollWinGC *)(*(void* *)&this->m_1c))->close_window(); *(int *)&this->m_1c = 0; } }
-
-extern s32 __vt__11TAdEp3Exist[];
 
 void TAdEp3Exist::run_task() {
     Ep3_8036F10C *o = (Ep3_8036F10C *)this;

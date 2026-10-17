@@ -241,16 +241,10 @@ struct Ene_800BB000 {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, int);
-s32 VecCopy__FP3VecPC3Vec(void *, int);
-s32 VecCopy__FP3VecPC3Vec(void *, int);
 f32 newton_sqrtf(f32);
 void calc_wall_clamped_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist);
-s32 VecCopy__FP3VecPC3Vec(void *, int);
 extern const f32 TObjEneDD__data_805D9E8C;
 void calc_wall_slide_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist);
-}
-
-extern "C" {
 
 int TObjEneDD::has_move_failures(s32 arg1) {
     u8 *arg0 = (u8 *)this;

@@ -72,15 +72,8 @@ u8 get_technique_learn_limit(u8, u8);
 u8 get_cast_technique_level(void *, s16);
 void set_technique_level_entry(void *, s16, u8);
 void vfunc_48__12TItemProUnitFv(Unit_80118AD4 *self);
-u8 get_cast_technique_level(void *, s16);
-void set_technique_level_entry(void *, s16, u8);
 s32 memset(void *, s32, s32);
-extern const f32 TItemProUnit__data_805DABF8;
 void vfunc_49__12TItemProUnitFv(u8 *arg0);
-}
-
-extern "C" {
-
 struct VItemProUnit_8011892C {
     char pad[0x18];
     virtual void m0();
@@ -109,7 +102,6 @@ void TItem__sub_8011892C(void);
 u8 *lookup_item_pmt_record(void *);
 s32 TItemEquipBase__ct();
 s16 get_field6_bswap__9TItemDataFPv(void *);
-s32 memset(void *, s32, s32);
 
 void TItem__sub_8011892C(void) {  }
 
@@ -150,7 +142,6 @@ void TItemProUnit::vfunc_45() {
 
 extern void *__vt__12TItemProUnit[];
 extern s32 lbl_805D2C40;
-extern const f32 TItemProUnit__data_805DABF8;
 
 void TItemProUnit::vfunc_16() {
     Self_80118A78 *self = (Self_80118A78 *)this;

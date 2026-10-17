@@ -77,14 +77,7 @@ void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8033FB8C___vt__14TAdPlyStatusGC __vt__14TAdPlyStatusGC;
 extern u32 ply_status_gc_instance;
 u8 *__dt__14TAdPlyStatusGCFv(u8 *arg0, s16 arg1);
-s32 allow_rendering__7TObjectFv();
-s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
-u32 get_player_index__14TAdPlyStatusGCFv();
-extern RecoveredGlobal_8033F93C_lbl_8050E3B8 controller_physical_port_bank;
-extern s32 TAdPlyStatusGC__window_offset_index;
-extern s32 TAdPlyStatusGC__is_shown;
 void update_shown__14TAdPlyStatusGCFv(struct RecoveredFields_8033F9DC_arg0 *arg0);
-extern s32 TAdPlyStatusGC__is_shown;
 void set_load_state__14TAdPlyStatusGCFPvi(u8 *arg0, s32 arg1);
 void set_field_1c__6TLobbyFf(f32);
 s32 create_callback__22TAdEnterSerialAccessGCFPvPvPv(void *, void *, void *);
@@ -96,18 +89,13 @@ s32 disallow_rendering__7TObjectFv();
 s32 get_localized_text_entry(int, int);
 void __ct__7TObjectFP7TObject(void *, void *);
 void create_guide_button(void *, void *);
-u32 get_player_index__14TAdPlyStatusGCFv();
 void *__construct_array(void *, void *, void *, u32, u32);
 void *init_guide_button_params(void *);
-extern RecoveredGlobal_8033FB8C___vt__14TAdPlyStatusGC __vt__14TAdPlyStatusGC;
 extern s32 lbl_805D42C0;
 extern s32 ply_status_chcr_load_afs;
-extern s32 TAdPlyStatusGC__window_offset_index;
-extern s32 TAdPlyStatusGC__is_shown;
 extern const f32 lbl_805DFAF0;
 extern const f32 lbl_805DFAF4;
 TAdPlyStatusGC_8033FC14 *TAdPlyStatusGC__ct(TAdPlyStatusGC_8033FC14 *self, void *parent, s32 arg2);
-s32 get_localized_text_entry(int, int);
 Save_8033F6A8 *TAdSinglePlyChrSelectGC__sub_801FE3E4(u32);
 u8 *get_entry__23TAdSinglePlyChrSelectGCFi(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FE800(s32);
@@ -118,27 +106,17 @@ s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(s32);
 int sprintf(char *, const char *, ...);
 void *memset(void *, int, u32);
 extern char lbl_80478408[];
-extern s32 TAdPlyStatusGC__window_offset_index;
 extern u32 ply_status_index;
 extern char lbl_805DFAE8[4];
 void format_status_strings__14TAdPlyStatusGCFPv(char *buf);
-}
-extern "C" {
 u32 ply_status_gc_instance;
 s32 ply_status_chcr_load_afs;
 s32 TAdPlyStatusGC__window_offset_index;
 u32 ply_status_index;
 s32 TAdPlyStatusGC__is_shown;
-}
-
-extern "C" {
-
 void close_window__14TAdPlyStatusGCFv(void *arg0);
 void render__14TAdPlyStatusGCFv(void* p);
-s32 TWindow__close(void *);
 int set_cached_blend_factor(void*, void*);
-s32 disallow_rendering__7TObjectFv();
-u32 get_player_index__14TAdPlyStatusGCFv();
 int get_state_flag__9TMainTaskFv(void*);
 
 void *TAdPlyStatusGC__status_window_box[8] = {

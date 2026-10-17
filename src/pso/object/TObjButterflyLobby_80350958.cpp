@@ -45,21 +45,14 @@ s32 rotate_matrix_y(int, int);
 void push_matrix_from(void *);
 void pop_matrices(int);
 extern u8 identity_matrix[];
-}
-
-extern "C" {
-
 void render__18TObjButterflyLobbyFPv(u8 *arg0);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_x(int, int);
 s32 draw_ginja_model_with_motion(int, void *, f32);
 s32 get_bml_motion(void *, int);
-s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 rand();
 
 extern s32 lobby_butterfly_bml_resource;
 
@@ -288,9 +281,6 @@ void TObjButterflyLobby::run_task() {
 }
 #pragma pop
 
-}
-
-extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
 s32 construct_world_actor_base();
@@ -298,17 +288,11 @@ s32 is_lobby_event_active();
 extern s32 __vt__18TObjButterflyLobby[];
 extern s32 lbl_805D4360;
 u8 *TObjButterflyLobby__ct(u8 *arg0, int arg1, u8 *arg2);
-}
-
-extern "C" {
-
 void *TObjButterflyLobby__create(void *arg0);
 void *__dt__18TObjButterflyLobbyFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-
-extern s32 __vt__18TObjButterflyLobby[];
 
 void *__dt__18TObjButterflyLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

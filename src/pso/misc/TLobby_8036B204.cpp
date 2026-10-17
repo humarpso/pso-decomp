@@ -23,25 +23,14 @@ s32 mem_free(s32);
 extern s32 lbl_804F3640[];
 extern u32 slot_entity_dispatcher_instance;
 void *__nw__7TObjectFUl(int);
-extern u32 slot_entity_dispatcher_instance;
 void create_singleton__6TLobbyFPv(void *arg0);
 void TLobby__sub_8036B50C(void);
 void TLobby__sub_8036B510(void);
 void queue_destruction__7TObjectFv(void *);
 void *mem_alloc(s32);
 void __ct__7TObjectFP7TObject(void *);
-s32 TLobby__sub_8036B1AC(s32);
-extern s32 lbl_804F3640[];
-extern u32 slot_entity_dispatcher_instance;
 Mgr_8036B424 *TLobby__sub_8036B424(Mgr_8036B424 *arg0, void * _w1);
-}
-
-extern "C" {
-
 void dispatch_by_index__6TLobbyFUsi(u16 arg0, s32 arg1);
-s32 TLobby__sub_8036B1AC(s32);
-
-extern u32 slot_entity_dispatcher_instance;
 
 void TLobby::send_slot_entity_or_local(u16 arg0, s32 arg1) {
     if (((u32) slot_entity_dispatcher_instance != 0U) && (arg0 < 4U)) {
@@ -50,8 +39,6 @@ void TLobby::send_slot_entity_or_local(u16 arg0, s32 arg1) {
     }
     TLobby__sub_8036B1AC(arg1);
 }
-
-extern u32 slot_entity_dispatcher_instance;
 
 void dispatch_by_index__6TLobbyFUsi(u16 arg0, s32 arg1) {
     if (((u32) slot_entity_dispatcher_instance != 0U) && (arg0 < 4U)) {

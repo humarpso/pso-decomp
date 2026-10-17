@@ -55,18 +55,11 @@ extern const f32 lbl_805DFFAC;
 extern const f32 lbl_805DFFB0;
 extern const f32 lbl_805DFFB4;
 extern const f32 lbl_805DFFB8;
-}
-
-extern "C" {
-
 void *__dt__20TBoss5GryphonTornadoFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void queue_destruction__7TObjectFv(void *);
 
 void TBoss5GryphonTornado::render() {  }
-
-extern s32 __vt__20TBoss5GryphonTornado[];
 
 #pragma push
 #pragma fp_contract on

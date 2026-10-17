@@ -15,11 +15,8 @@ struct RecoveredGlobal_8033A184_lbl_804EF658 {
     u8 remaining[0x74];
 };
 
-extern "C" {
 extern TSaveChCrStateActions lbl_804EF658[];
-}
 
-#include "types.h"
 #include "pso/TChCrCharSelect.h"
 
 struct RecoveredGlobal_8033A34C___vt__9TSaveChCr {
@@ -35,14 +32,9 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8033A34C___vt__9TSaveChCr __vt__9TSaveChCr;
 extern s32 TSaveChCr__name;
 u8 *TSaveChCr__ct(u8 *arg0, u8 *arg1, s32 arg2);
-}
-
-extern "C" {
-
 int TSaveChCr__sub_8033A138(void);
 int load_character_from_card__23TAdSinglePlyChrSelectGCFi(void*);
 s32 TWindow__close(void *);
-void *__nw__7TObjectFUl(int);
 int begin_action_from_char_select__10TObjPlayerFv(void*);
 
 void TSaveChCr::close_window() {

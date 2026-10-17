@@ -29,10 +29,6 @@ void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
 void draw_ginja_object(s32);
-}
-
-extern "C" {
-
 s32 TObjChip__vt6();
 int TObjChip__vt8(void*, void*);
 

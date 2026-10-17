@@ -39,7 +39,6 @@ u8 *vfunc_9__13TUnk_8049F038Fv(u8 *arg0);
 s32 set_item_count__13TUnk_804B9870Fs(void *, s32);
 s32 TLobby__sub_80103B04();
 u8 *get_player_by_client_id(u16);
-s32 __dl__7TObjectFPv(void *);
 s32 obj_getField1c(void *);
 struct Obj_80108C90 {
     u8 pad0[0x18];
@@ -56,7 +55,6 @@ s32 pop_free_id__6TLobbyFv();
 void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern u8 lbl_8043E1A0[];
 
-#include "types.h"
 #include "pso/TItemEffFlame.h"
 #include "pso/TItemAttacker.h"
 #include "pso/TObject.h"
@@ -307,9 +305,6 @@ void TItemEffFlame::play_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     play_sound_effect(0x4001C112, 0, 0, 0);
 }
 
-}
-
-extern "C" {
 void render__7TObjectFv(void);
 void render_shadows__7TObjectFv(void);
 void TLobby__sub_801A1FD8(void);

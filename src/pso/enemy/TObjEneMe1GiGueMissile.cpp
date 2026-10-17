@@ -30,22 +30,15 @@ extern s32 __vt__22TObjEneMe1GiGueMissile[];
 extern s32 lbl_805D3F20;
 extern const f32 lbl_805DE6DC;
 u8 *TObjEneMe1GiGueMissile__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0, f32 farg1);
-int queue_destruction__7TObjectFv(void*);
 u32 find_entity_by_id(int);
 s32 TObjPlayer__sub_802A445C(void *, int);
-extern const f32 lbl_805DE6DC;
 extern const f32 lbl_805DE6E0;
-}
-
-extern "C" {
-
 void TObjEneMe1GiGue__sub_802CE4E8(void);
 void TObjEneMe1GiGue__sub_802CE4EC(void);
 void *__dt__22TObjEneMe1GiGueMissileFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__12TNeedleShootFv(void *, int);
 u32 __nw__7TObjectFUl(s32);
-int queue_destruction__7TObjectFv(void*);
 
 struct Hit_802CE088 { s32 kind; f32 power; };
 struct VBase_802CE088 { u8 pad[0x18]; };
@@ -110,8 +103,6 @@ void TObjEneMe1GiGueMissile::create(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32
         TObjEneMe1GiGueMissile__ct((u8 *)(temp_r3), (s32)(arg0), (u8 *)(arg1), (u8 *)(arg2), farg0, farg1);
     }
 }
-
-extern s32 __vt__22TObjEneMe1GiGueMissile[];
 
 void *__dt__22TObjEneMe1GiGueMissileFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -193,7 +184,6 @@ u8 *TObjEneMe1GiGueMissile__ct(u8 *arg0, s32 arg1, u8 *from, u8 *to, f32 farg0, 
 
 void TObjEneMe1GiGue__sub_802CE4E8(void) {  }
 
-    extern int TObjEneMe1GiGue_barrier_count;
 void TObjEneMe1GiGue__sub_802CE4EC(void) { TObjEneMe1GiGue_barrier_count = TObjEneMe1GiGue::get_barrier_count(); }
 
 }

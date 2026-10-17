@@ -8,9 +8,6 @@ char *strcat(char *, const char *);
 char *strcpy(char *, const char *);
 void convert_string_chars_via_table(char *);
 u32 strlen(const char *);
-}
-
-extern "C" {
 
 void TAdSinglePlyChrSelectGC::append_extension_if_missing(char *name, char *ext) {
     char buf[8];

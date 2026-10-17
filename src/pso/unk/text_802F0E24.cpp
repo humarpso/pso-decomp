@@ -15,13 +15,7 @@ void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 extern u8 lbl_80474344[];
 extern u8 boss7_common_resource_descriptor[];
-extern void *lbl_805D6950;
-extern void *lbl_805D6954;
 void load_boss7_common_resources(void);
-}
-
-extern "C" {
-
 void fn_802F0E24(void) {
     s32 i;
     TParticleCtrl::free_heap();

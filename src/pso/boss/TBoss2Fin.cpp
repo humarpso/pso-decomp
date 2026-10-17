@@ -124,8 +124,6 @@ void TBoss2Fin::init_link_points() {
 
 TBoss2Fin::~TBoss2Fin() {}
 
-#include "types.h"
-
 struct E_800367C4 { s8 type; f32 a; f32 b; f32 c; s32 d; s32 e; };
 
 struct In_800367C4 { u8 pad[0x8]; s32 f8; u8 pad2[0xC]; s32 f18; };
@@ -147,21 +145,12 @@ struct Obj_80036718 {
 
 extern "C" {
 extern E_800367C4 lbl_804FE590[];
-extern G_800367C4 *lbl_805D4BA4;
-extern const f32 TBoss2Fin__data_805D8450;
 extern const f32 lbl_805D8460;
 void *TObjEZRopeBase__ct(void *);
 extern u8 __vt__9TBoss2Fin[];
-extern E_800367C4 lbl_804FE590[];
 extern s32 TBoss2Fin__name;
-extern const f32 TBoss2Fin__data_805D8450;
-extern const f32 lbl_805D8454;
 extern const f32 lbl_805D845C;
 Obj_80036718 *__ct__9TBoss2FinFv(Obj_80036718 *self, s32 arg1, s32 arg2, s32 arg3);
-}
-
-extern "C" {
-
 void TBoss2Fin__sub_800367C0(void);
 
 Obj_80036718 *__ct__9TBoss2FinFv(Obj_80036718 *self, s32 arg1, s32 arg2, s32 arg3) {

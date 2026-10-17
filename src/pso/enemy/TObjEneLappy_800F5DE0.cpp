@@ -12,10 +12,6 @@ void set_shadow_material_state(void);
 void set_chunk_material_override_pair(s32, s32);
 extern s32 model_render_flags;
 void render_actor_shadows_default(u8 *arg0);
-}
-
-extern "C" {
-
 int initialize_enemy_photon_effect(void* p);
 
 void TObjEneLappy::set_param(s32 v) { *(s32 *)&this->_pad370 = v; }

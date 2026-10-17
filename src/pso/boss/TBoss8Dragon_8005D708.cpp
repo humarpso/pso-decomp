@@ -51,10 +51,6 @@ extern const f32 lbl_805D8D50;
 extern const f32 lbl_805D8D54;
 extern const f32 lbl_805D8D58;
 extern const f32 lbl_805D8D5C;
-}
-
-extern "C" {
-
 int TBoss5Gryphon::vfunc_105() {
 #define o ((Obj_8005D708 *)this)
     Cnt_8005D708 *c;

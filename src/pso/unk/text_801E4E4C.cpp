@@ -8,10 +8,6 @@ struct RecoveredGlobal_801E4E4C_lbl_804C57E0 {
 extern "C" {
 extern RecoveredGlobal_801E4E4C_lbl_804C57E0 lbl_804C57E0;
 void construct_texture_wave(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_801E4E4C_lbl_804C57E0_size[sizeof(RecoveredGlobal_801E4E4C_lbl_804C57E0) == 0x10 ? 1 : -1];
 void construct_texture_wave(u8 *arg0, s32 arg1) {
     *(s32 **)((s8 *)arg0 + 0x50) = &lbl_804C57E0.value;

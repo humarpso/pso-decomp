@@ -67,7 +67,6 @@ extern s32 __vt__9TObjLight[];
 extern RecoveredGlobal_80194528_TObjLight__data_80506320 TObjLight__scene_light_state;
 extern s32 lbl_805D33B8;
 u8 *TObjLight__ct(u8 *arg0, s32 arg1, u8 *arg2);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 Actor_80193FE8 *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
 void queue_destruction__7TObjectFv(void *);
@@ -84,19 +83,12 @@ void normalize_vector(void *);
 void push_matrix_from(void *);
 void pop_matrices(s32);
 extern const Vec_80193FE8 lbl_80445D44;
-extern RecoveredGlobal_80194528_TObjLight__data_80506320 TObjLight__scene_light_state;
 extern u8 identity_matrix[];
 extern u8 *camera_ctrl_instance;
-}
-
-extern "C" {
-
 void *__dt__9TObjLightFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 void TObjLight::render() {  }
-
-extern s32 __vt__9TObjLight[];
 
 #pragma push
 #pragma fp_contract on

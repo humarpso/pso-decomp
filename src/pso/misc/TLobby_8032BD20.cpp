@@ -16,21 +16,13 @@ extern RecoveredGlobal_8032BD64_lbl_804EDAC0 lbl_804EDAC0;
 extern int lbl_805D6CB8;
 u8 *__dt__13TUnk_804EDAC0Fv(u8 *arg0, s16 arg1);
 void __ct__7TObjectFP7TObject(void *);
-extern RecoveredGlobal_8032BD64_lbl_804EDAC0 lbl_804EDAC0;
-extern int lbl_805D6CB8;
 O_8032BDC4 *TLobby__sub_8032BDC4(O_8032BDC4 *arg0);
-}
-
-extern "C" {
-
 void TLobby__sub_8032BE30(void);
 void TLobby__sub_8032BE3C(void);
 int clear_password__18TAdEnterPasswordGCFPv(void*);
 int update_children__18TAdEnterPasswordGCFPv(void*);
 
 void TUnk_804EDAC0::render() { *(int*)((char*)this + 0x1c) = 1; update_children__18TAdEnterPasswordGCFPv(this); *(int*)((char*)this + 0x1c) = 0; clear_password__18TAdEnterPasswordGCFPv(this); }
-
-    extern int lbl_805D6CB8;
 
 typedef char RecoveredGlobal_8032BD64_lbl_804EDAC0_size[sizeof(RecoveredGlobal_8032BD64_lbl_804EDAC0) == 0x18 ? 1 : -1];
 u8 *__dt__13TUnk_804EDAC0Fv(u8 *arg0, s16 arg1) {
@@ -60,7 +52,6 @@ O_8032BDC4 *TLobby__sub_8032BDC4(O_8032BDC4 *arg0) {
 
 void TLobby__sub_8032BE30(void) { lbl_805D6CB8 = 0; }
 
-    extern int lbl_805D6CB8;
 void TLobby__sub_8032BE3C(void) { lbl_805D6CB8 = 0; }
 
 }

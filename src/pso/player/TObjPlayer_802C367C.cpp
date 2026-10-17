@@ -30,10 +30,6 @@ void *get_class_base_stats(void *);
 extern const f32 lbl_805DE530;
 void init_character_stats_for_level(void *cls, Char_802C38B4 *c, s32 level);
 void init_technique_levels(s32 flags, s8 *counts);
-}
-
-extern "C" {
-
 int init_new_character_data(void* p);
 void init_new_character_stats(void *arg0);
 int init_class_starting_inventory(void*);

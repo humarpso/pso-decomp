@@ -94,10 +94,8 @@ extern const f32 TBoss6Rock__data_805DFF4C;
 extern const f32 lbl_805DFF98;
 extern const f32 lbl_805DFFA4;
 extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__instance_table;
-extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__instance_table;
 u8 is_rock_state_2__10TBoss6RockFi(s32 arg0);
 s32 rand();
-extern const f32 TBoss6Rock__data_805DFF4C;
 extern const f32 lbl_805DFF68;
 extern const f32 lbl_805DFF6C;
 extern const f32 lbl_805DFF70;
@@ -105,45 +103,22 @@ extern const f32 lbl_805DFF74;
 extern const f32 lbl_805DFF78;
 s32 spawn_particle_effect(void *, int);
 s32 play_sound_effect(s32, u32, int, s32);
-void TBoss6Rock__sub_803542E8(void *, s32);
 extern const f32 TBoss6Rock__data_805DFF50;
 extern const f32 lbl_805DFF54;
 extern const f32 lbl_805DFF94;
-extern const f32 lbl_805DFF98;
 extern const f32 lbl_805DFF9C;
 extern const f32 lbl_805DFFA0;
 extern RecoveredGlobal_80354148_TBoss6Rock__data_80479258 TBoss6Rock__data_80479258;
-extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__instance_table;
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 extern u8 TBoss6Rock__rock_point_table[];
-extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__instance_table;
-extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__instance_table;
-extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__instance_table;
-u8 is_rock_state_2__10TBoss6RockFi(s32 arg0);
-void VecCopy__FP3VecPC3Vec(void *, const void *);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
-extern u8 TBoss6Rock__rock_point_table[];
-extern const f32 TBoss6Rock__data_805DFF50;
-void VecCopy__FP3VecPC3Vec(void *, const void *);
 void vec3_add_to(void *, void *);
-f32 vector_length(void *);
-void subtract_vector(void *, void *);
 void normalize_vector(void *);
-extern u8 TBoss6Rock__rock_point_table[];
-extern const f32 TBoss6Rock__data_805DFF50;
 extern const f32 TBoss6Rock__data_805DFF5C;
 extern const f32 lbl_805DFF60;
 extern const f32 lbl_805DFF64;
-void VecCopy__FP3VecPC3Vec(void *, const void *);
-void vec3_add_to(void *, void *);
-f32 vector_length(void *);
-void subtract_vector(void *, void *);
-void normalize_vector(void *);
-extern u8 TBoss6Rock__rock_point_table[];
 extern u8 *TBoss6Rock__data_805D6EF8;
-extern const f32 TBoss6Rock__data_805DFF50;
-extern const f32 lbl_805DFF54;
 extern const f32 lbl_805DFF58;
 s32 TBoss6Rock__sub_80353A14(s32 arg0, Vec_80353A14 *out, f32 *outR);
 s32 get_bml_model(int, int);
@@ -155,28 +130,12 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(int);
-extern RecoveredGlobal_80354148_TBoss6Rock__data_80479258 TBoss6Rock__data_80479258;
 extern int TBoss6Rock__data_805D6EF0;
 extern int TBoss6Rock__data_805D6EF4;
-extern const f32 TBoss6Rock__data_805DFF48;
-void VecCopy__FP3VecPC3Vec(void *, const void *);
 u32 create__10TObjMapCsnFl(void *, void *, f32);
-extern RecoveredGlobal_80354148_TBoss6Rock__data_80479258 TBoss6Rock__data_80479258;
 extern u8 lbl_80479280[];
-}
-
-extern "C" {
-
 int TBoss6Rock__sub_80353A04(void);
 int TBoss6Rock__sub_80353A0C(void);
-s32 TBoss6PlotFalz__sub_802AB6CC(void *, f32);
-s32 post_translate_matrix(void *);
-s32 rotate_matrix_z(int, int);
-s32 draw_ginja_object(int);
-s32 rotate_matrix_x(int, int);
-s32 rotate_matrix_y(int, int);
-s32 push_matrix();
-s32 pop_matrix();
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -195,9 +154,6 @@ void TBoss6Rock::set_target(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f3
         *(s32 *)((s8 *)arg0 + 0x40) = arg5;
     }
 }
-
-extern const f32 TBoss6Rock__data_805DFF48;
-extern const f32 TBoss6Rock__data_805DFF4C;
 
 void TUnk_804F1280::render() {
     u8 *arg0 = (u8 *)this;
@@ -230,8 +186,6 @@ void *TUnk_804F1280::destroy(s16 arg1) {
     return this;
 }
 
-extern s32 lbl_804F1280[];
-
 void *TUnk_804F1280::init_object(void *) {
     __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804F1280;
@@ -249,13 +203,9 @@ void *TBoss6Rock::create() {
     return o;
 }
 
-    extern int TBoss6Rock__data_805D6EF4;
 int TBoss6Rock__sub_80353A04(void) {  return TBoss6Rock__data_805D6EF4; }
 
-    extern int TBoss6Rock__data_805D6EF0;
 int TBoss6Rock__sub_80353A0C(void) {  return TBoss6Rock__data_805D6EF0; }
-
-extern u8 TBoss6Rock__rock_point_table[];
 
 typedef char RecoveredGlobal_80353E10_TBoss6Rock__data_80543778_size[sizeof(RecoveredGlobal_80353E10_TBoss6Rock__data_80543778) == 0x80 ? 1 : -1];
 

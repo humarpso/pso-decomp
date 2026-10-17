@@ -49,10 +49,6 @@ extern s32 __vt__12TObjParticle[];
 extern s32 obj_particle_class_name;
 extern const f32 lbl_805DBEEC;
 Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, s32 arg1, Src_80195400 *arg2);
-}
-
-extern "C" {
-
 void *__dt__12TObjParticleFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 f32 xyz_distance_squared(void *, s32);
@@ -93,8 +89,6 @@ void TObjParticle::run_task() {
         ((TBoss4Type2 *)(this->m_90))->copy_vec3(arg0 + 0x5C);
     }
 }
-
-extern s32 __vt__12TObjParticle[];
 
 void *__dt__12TObjParticleFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

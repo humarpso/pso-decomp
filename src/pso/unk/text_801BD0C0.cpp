@@ -138,11 +138,7 @@ extern s32 TObjPlayer__shared_model_buffer;
 s32 get_handle_value__10TObjPlayerFv(void *);
 s32 get_idle_animation__10TObjPlayerFPv();
 Anim_801BD0C0 *get_anim_entry__10TObjMotionFi(void *, s32);
-s32 get_handle_value__10TObjPlayerFv(void *);
 extern const f32 TObjPlayer__data_805DC278;
-}
-
-extern "C" {
 
 void TObjPlayer::apply_motion_entry() {
     Player_801BD0C0 *self = (Player_801BD0C0 *)this;

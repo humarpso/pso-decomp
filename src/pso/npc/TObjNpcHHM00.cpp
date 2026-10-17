@@ -106,14 +106,8 @@ extern u32 TObjNpcHHM00__body_texture_gvm_handle;
 u8 *TObjNpcHHM00__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *create_named_object(const char *name);
 void *load_gvm_texture_file(const char *name);
-extern u32 TObjNpcHHM00__model_object;
-extern u32 TObjNpcHHM00__body_texture_gvm_handle;
 extern char TObjNpcHHM00__data_rel_filename[];
 extern char TObjNpcHHM00__body_texture_filename[];
-}
-
-extern "C" {
-
 void * TObjNpcHRM00__create(void *arg0);
 void *__dt__12TObjNpcHHM00Fv(void *arg0, s16 arg1);
 void TLobby__sub_803DA16C(void*);
@@ -121,9 +115,6 @@ void *TObjControl__ct(void *, void *);
 void *TObjNpcHRM00__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-
-extern u32 TObjNpcHHM00__model_object;
-extern u32 TObjNpcHHM00__body_texture_gvm_handle;
 
 void TObjNpcHHM00::free_resources() {
     if ((u32) TObjNpcHHM00__body_texture_gvm_handle != 0U) {
@@ -136,8 +127,6 @@ void TObjNpcHHM00::free_resources() {
         TObjNpcHHM00__model_object = 0U;
     }
 }
-
-extern s32 __vt__12TObjNpcHHM00[];
 
 void TObjNpcHHM00::load_resources() {
     TObjNpcHHM00__model_object = (u32)create_named_object(TObjNpcHHM00__data_rel_filename);

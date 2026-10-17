@@ -20,10 +20,6 @@ extern RecoveredGlobal_8029AA74_lbl_804652A4 lbl_804652A4;
 extern s32 TChCrEffTag__selected_heading;
 extern const f32 lbl_805DDC90;
 extern const f32 lbl_805DDC94;
-}
-
-extern "C" {
-
 int restore_saved_depth_alpha_state(void);
 int draw_chcr_tag_heading_frame(void*);
 int set_depth_buffer_settings_1__Fv(void*);
@@ -51,9 +47,6 @@ void TChCrEffTag::refresh_label() {
     }
 }
 
-}
-
-extern "C" {
 s32 get_creation_sprite_id__14TObjCMMainMenuFl(int);
 extern const f32 lbl_805DDC98,lbl_805DDC9C,lbl_805DDCA0,lbl_805DDCA4,lbl_805DDCA8;
 }

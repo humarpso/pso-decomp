@@ -19,12 +19,8 @@ void spawn_particle_effect_with_flags(void *, s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 __vt__18TBoss5GryphonSnarl[];
 extern s32 lbl_805D2820;
-extern void *TBoss5GryphonSnarl__effect_table;
 extern const f32 lbl_805D8F0C;
 Obj_80066DC8 *TBoss5GryphonSnarl__ct(Obj_80066DC8 *self, void *parent, void *arg2);
-}
-
-extern "C" {
 void queue_destruction__7TObjectFv(void *);
 
 void TBoss5GryphonSnarl__sub_80066E84(void);

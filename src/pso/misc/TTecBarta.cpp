@@ -118,19 +118,12 @@ void __dl__7TObjectFPv(TTecBarta*);
 TTecBarta* __dt__9TTecBartaFv(TTecBarta* self,s16 deleting);
 u16 obj_getField1c(void *);
 void TTecBarta__vt6(Obj_8022B8F4 *self, VObj_8022B8F4 *target);
-u16 obj_getField1c(void *);
 void construct_aimed_technique_projectile();
-extern TechniqueContactVtable __vt__9TTecBarta;
 extern s32 tec_barta_class_name_ptr;
 TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _w2, void * _w3, void * _w4);
-u16 obj_getField1c(void *);
 void construct_facing_technique__10TObjPlayerFPviPvii();
-extern TechniqueContactVtable __vt__9TTecBarta;
-extern s32 tec_barta_class_name_ptr;
 extern const f32 lbl_805DC7A8;
 u8 *construct_tec_barta_facing(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4);
-void queue_destruction__7TObjectFv(TechniqueParticleEmitter*);
-extern TechniqueEmitterSourceTable TTecBarta__emitter_bands[];
 s32 get_bml_model(s32, s32);
 void attach_particle_model(TechniqueParticleEmitter *, s32, s32, s32, s32, f32);
 TechniqueParticleEmitter *create_timed_particle_emitter(f32 *, s32, s32, s32);
@@ -141,24 +134,12 @@ extern s32 lbl_805D63B0;
 extern const f32 lbl_805DC7A0;
 extern const f32 lbl_805DC7A4;
 s32 get_bml_motion(s32, s32);
-s32 get_bml_model(s32, s32);
-void attach_particle_model(TechniqueParticleEmitter *, s32, s32, s32, s32, f32);
 TechniqueParticleEmitter *spawn_continuous_particle_with_direction(f32 *, s32 *, u32);
 TechniqueParticleEmitter *create_particle_emitter(f32 *, u32);
 TechniqueParticleEmitter **mem_alloc(u32);
-extern TechniqueEmitterSourceTable TTecBarta__emitter_bands[];
-extern s32 technique_effect_bml;
-extern s32 lbl_805D63B0;
-extern const f32 lbl_805DC7A0;
-void queue_destruction__7TObjectFv(TechniqueParticleEmitter*);
-u16 obj_getField1c(void *);
 s32 get_type__10TObjPlayerFPv(void *);
 List_8022BD74 *find_area_contact__13TUnk_804CC148Fl(Tec_8022BD74 *, void *);
 List_8022BD74 *collect_body_contacts_for_target__10TObjPlayerFl(Tec_8022BD74 *, void *);
-}
-
-extern "C" {
-
 s32 play_sound_effect(s32, s32, s32, s32);
 void *__nw__7TObjectFUl(int);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);

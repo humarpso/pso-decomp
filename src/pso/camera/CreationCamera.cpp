@@ -3,8 +3,6 @@
 struct CreationCameraVTable { void* reserved[2]; void (*methods[10])(); };
 #include "pso/misc/CharacterAppearance.h"
 
-#include "types.h"
-
 struct CreationHeightBounds { f32 minimum, maximum; };
 
 #include "pso/camera/CreationCamera.h"
@@ -23,17 +21,13 @@ extern const f32 lbl_805DD994;
 f32 calc_character_height(void *);
 extern CreationHeightBounds creation_camera_height_bounds_table[12];
 extern CharacterAppearanceFields *creation_player_character;
-extern int creation_camera_mode;
 extern const f32 lbl_805DD978;
 extern const f32 lbl_805DD99C;
 extern const f32 lbl_805DD9A0;
 f32 cos_table_lookup(s32);
-extern int creation_camera_mode;
 extern const f32 lbl_805DD96C,lbl_805DD978,lbl_805DD998;
-f32 calc_character_height(void *);
 void approach_creation_camera_target(void *, int, int, f32, f32);
 u32 get_character_creation_selected_entry_id();
-extern CharacterAppearanceFields *creation_player_character;
 extern const f32 lbl_805DD96C;
 extern const f32 lbl_805DD998;
 extern const f32 lbl_805DD9A4;
@@ -41,24 +35,11 @@ extern const f32 lbl_805DD9A8;
 extern const f32 lbl_805DD9AC;
 extern const f32 lbl_805DD9B0;
 void update_creation_camera_auto(Cam_80291784 *arg0);
-}
-
-#include "types.h"
-
-#include "pso/camera/CreationCamera.h"
-
-extern "C" {
 f32 TObjCMProportion::get_ratio(void),TObjCMProportion::get_right_trigger_ratio(void);
 void get_creation_pad_stick(void*,void*);
 s32 TObjCMProportion__sub_8029914C(s32);
 f32 sin_table_lookup(s32),cos_table_lookup(s32);
-extern CharacterAppearanceFields *creation_player_character;
-extern int creation_camera_mode;
 extern const f32 lbl_805DD974,lbl_805DD978,lbl_805DD9B4,lbl_805DD9B8,lbl_805DD9BC,lbl_805DD9C0;
-}
-
-extern "C" {
-
 void *TCameraCtrl__vt8(void);
 void *construct_creation_camera(void *);
 void *__nw__7TObjectFUl(int);
@@ -66,8 +47,6 @@ void update_creation_camera_auto(Cam_80291784*);
 
 }
 
-#include "types.h"
-#include "pso/camera/CreationCamera.h"
 #include "pso/misc/TCameraCtrl.h"
 
 struct RecoveredGlobal_80291D4C_lbl_80540958 {
@@ -78,7 +57,6 @@ struct RecoveredGlobal_80291D4C_lbl_80540958 {
 extern "C" {
 int __ct__13TUnk_80488A28Fv(void);
 extern CreationCameraVTable lbl_804DAB08;
-    extern int creation_camera_mode;
     extern const float lbl_805DD974;
     extern const float lbl_805DD9C4;
     extern const float lbl_805DD9C8;
@@ -89,51 +67,23 @@ s32 get_character_save_record(u32);
 s32 decode_obfuscated_string__6TLobbyFPvi(void *, void *, int, int);
 extern RecoveredGlobal_80291D4C_lbl_80540958 lbl_80540958;
 s32 *TLobby__sub_80291D4C(void);
-}
-
-extern "C" {
 void calc_spherical_camera_position__13TUnk_804DAB08Fv(CreationCamera*);
 int creation_camera_mode;
-}
-
-extern "C" {
-
 void *TCameraCtrl__sub_80291C64(void *arg0, s16 arg1);
 void __dt__13TUnk_80488A28Fv(void *, int);
 void __dl__7TObjectFPv(void *);
 
-extern CreationCameraVTable lbl_804DAB08;
-
 typedef char RecoveredGlobal_80291D4C_lbl_80540958_size[sizeof(RecoveredGlobal_80291D4C_lbl_80540958) == 0x10 ? 1 : -1];
 
-}
-extern "C" {
-void update_creation_camera_auto(Cam_80291784 *arg0);
-void *TCameraCtrl__vt8(void);
-void *TCameraCtrl__sub_80291C64(void *arg0, s16 arg1);
-void* construct_creation_camera(void* a0);
-u32 get_character_creation_selected_entry_id(void);
-s32 *TLobby__sub_80291D4C(void);
-}
 #pragma defer_codegen on
-extern "C" {
 s32 *TLobby__sub_80291D4C(void) {
     s32 character_save_record;
     character_save_record = get_character_save_record(0xFFFFU);
     decode_obfuscated_string__6TLobbyFPvi((void *) (&lbl_80540958.value), (void *) (character_save_record + 0x229C), (int) (0xC), (int) (character_save_record));
     return &lbl_80540958.value;
 }
-}
-
-extern "C" {
 u32 get_character_creation_selected_entry_id(void) {  return TObjCMMainMenu__selected_entry_id; }
-}
-
-extern "C" {
 void* construct_creation_camera(void* a0) { __ct__13TUnk_80488A28Fv(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_804DAB08); *(int*)((char*)a0 + 0x38) = 0; *(float*)((char*)a0 + 0x48) = lbl_805DD974; *(float*)((char*)a0 + 0x4c) = lbl_805DD9C4; *(float*)((char*)a0 + 0x50) = lbl_805DD974; *(float*)((char*)a0 + 0x6c) = lbl_805DD9C8; *(int*)((char*)a0 + 0x74) = 0; *(int*)((char*)a0 + 0x70) = 0; *(int*)((char*)a0 + 0x78) = 2; *(int*)((char*)a0 + 0x7c) = 0; *(float*)((char*)a0 + 0x88) = lbl_805DD974; *(float*)((char*)a0 + 0x8c) = lbl_805DD974; creation_camera_mode = 0; *(int*)((char*)a0 + 0x54) = 17294; return a0; }
-}
-
-extern "C" {
 void *TCameraCtrl__sub_80291C64(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)&lbl_804DAB08;
@@ -188,8 +138,6 @@ CreationCameraVTable lbl_804DAB08 = {{0,0}, {
     TCameraCtrl__sub_80067660, TCameraCtrl__sub_8006765C,
     TCameraCtrl__sub_80067664, TCameraCtrl::post_update_view,
 }};
-}
-extern "C" {
 void *TCameraCtrl__vt8(void) {
     void *o = __nw__7TObjectFUl(0x90);
     if (o != NULL) {

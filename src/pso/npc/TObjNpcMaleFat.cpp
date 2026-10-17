@@ -100,18 +100,12 @@ extern s32 __vt__14TObjNpcMaleFat[];
 extern s32 TObjNpcMaleFat__name;
 extern u8 *TObjNpcMaleFat__static_model_resource;
 u8 *TObjNpcMaleFat__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void * TObjNpcMaleMacho__create(void *arg0);
 void *__dt__14TObjNpcMaleFatFv(void *arg0, s16 arg1);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcMaleMacho__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-
-extern s32 __vt__14TObjNpcMaleFat[];
 
 void *__dt__14TObjNpcMaleFatFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

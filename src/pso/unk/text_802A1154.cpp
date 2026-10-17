@@ -10,10 +10,6 @@ extern "C" {
 s32 render_tick__Fv();
 s32 delete_all_task_children__9TMainTaskFv(void *);
 void fn_802A1154(void);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_802A1154_main_task_size[sizeof(RecoveredGlobal_802A1154_main_task) == 0x34 ? 1 : -1];
 void fn_802A1154(void) {
     delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_802A1154_main_task *)&main_task).value));

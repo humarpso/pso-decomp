@@ -17,9 +17,6 @@ s32 chat_log_add_line();
 extern s32 local_client_id;
 extern s32 lbl_805DD250;
 void post_chat_log_message(u16 arg0, s32 *arg1);
-}
-
-extern "C" {
 
 void post_chat_log_message(u16 arg0, s32 *shared_text_buffer) {
     s32 temp_r30;

@@ -2,14 +2,9 @@
 #include "pso/TChCrCharSelect.h"
 struct Range_802937E8 { s32 min; s32 max; };
 
-extern "C" {
 extern Range_802937E8 char_select_class_group_range_table[];
 extern s32 TChCrCharSelect__selected_char_index;
 extern s32 TChCrCharSelect__selected_slot_index;
-extern Range_802937E8 char_select_class_group_range_table[];
-extern s32 TChCrCharSelect__selected_char_index;
-extern s32 TChCrCharSelect__selected_slot_index;
-}
 
 extern "C" {
 

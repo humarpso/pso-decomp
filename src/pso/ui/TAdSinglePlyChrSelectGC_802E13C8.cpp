@@ -71,18 +71,12 @@ struct Self_802E1A8C {
 extern "C" {
 void TAdSinglePlyChrSelectGC__sub_802E1A04(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32);
-s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32);
-s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32);
-s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 extern RecoveredGlobal_802E1868_lbl_8050E208 controller_input_state;
 extern RecoveredGlobal_802E1868_lbl_8050E3B8 controller_physical_port_bank;
-s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32);
 extern RecoveredGlobal_802E14B8_lbl_804C89BC pso_system_card_filename;
 s32 TAdSinglePlyChrSelectGC__sub_802E1528(void);
-s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32);
-extern RecoveredGlobal_802E14B8_lbl_804C89BC pso_system_card_filename;
 s32 TAdSinglePlyChrSelectGC__sub_802E15C8(void);
 int align_menu_entry_positions(void *);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, void *a1, int a2, int a3);
@@ -93,10 +87,6 @@ extern u8 lbl_80472930[];
 extern u8 lbl_804E3040[];
 extern u8 lbl_804E3048[];
 extern const f32 lbl_805D68E0;
-}
-
-extern "C" {
-
 void *__dt__18T_ATS_DrawCalendarFv(void *arg0, s16 arg1);
 void * create__23TAdSinglePlyChrSelectGCFv(void);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
@@ -134,7 +124,6 @@ void *__dt__18T_ATS_DrawCalendarFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 lbl_804E34FC[];
 extern s32 lbl_804E3050[];
 extern void *lbl_805D3F84;
 
@@ -406,12 +395,6 @@ void create_backgrounds__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     }
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 s32 TAdPlayerLoadGC__sub_801E0FA4(s32);
 s32 query_memcard_capacity__15TAdPlayerLoadGCFl(s32, s32);
 s32 count_flags__23TAdSinglePlyChrSelectGCFPv(void *arg0);
@@ -434,9 +417,6 @@ s32 check_capacity__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
 
 }
 
-#include "types.h"
-
-#include "pso/ui/TAdSinglePlyChrSelectGC.h"
 union MemberActionStorage_802E1DF8 { s32 words[3]; void (TAdSinglePlyChrSelectGC::*action)(); };
 
 struct RecoveredGlobal_802E1DF8_lbl_804E32A4 {
@@ -444,13 +424,10 @@ struct RecoveredGlobal_802E1DF8_lbl_804E32A4 {
     u8 remaining[0x254];
 };
 
-extern "C" {
 extern RecoveredGlobal_802E1DF8_lbl_804E32A4 lbl_804E32A4;
-}
 
 extern "C" {
 
-s32 count_flags__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 s32 TAdSinglePlyChrSelectGC__sub_8001C5F0();
 
 s32 TAdSinglePlyChrSelectGC::count_selected_flags() {
@@ -504,12 +481,6 @@ void TAdTimeSetGC::change_state(s32 arg1) {
     }
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 int TAdSinglePlyChrSelectGC__sub_802E1F8C(void* p);
 
 void init__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
@@ -532,13 +503,9 @@ void init__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     ((s32 (*)(void *, s32))change_state__12TAdTimeSetGCFl)(arg0, 0);
 }
 
-}
-
 #undef sub_802E1F14__12TAdTimeSetGCFv
 #undef lbl_804C88C0
 #undef lbl_804C89BC
-
-#include "types.h"
 
 #define TAdSinglePlyChrSelectGC__sub_802E18C8 ((s32 (*)(void))TAdSinglePlyChrSelectGC__sub_802E18C8)
 #define apply_settings__23TAdSinglePlyChrSelectGCFi ((s32 (*)(void))apply_settings__23TAdSinglePlyChrSelectGCFi)
@@ -547,11 +514,6 @@ void init__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
 #define close_windows__23TAdSinglePlyChrSelectGCFPv ((int (*)(void*))close_windows__23TAdSinglePlyChrSelectGCFPv)
 #define create_backgrounds__23TAdSinglePlyChrSelectGCFPv ((s32 (*)(void *))create_backgrounds__23TAdSinglePlyChrSelectGCFPv)
 #define get_localized_text_entry ((s32 (*)(int, int))get_localized_text_entry)
-
-extern "C" {
-int TAdSinglePlyChrSelectGC__sub_802E1F8C(void* p);
-int TAdSinglePlyChrSelectGC__sub_802E1F8C(void* p);
-void update_state__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void update_state__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 
 s32 get_selected_menu_value(int);
@@ -561,18 +523,7 @@ void TAdSinglePlyChrSelectGC__sub_802E1FAC(u8 *arg0);
 s32 sprintf(void *, const void *, ...);
 extern s32 lbl_80472988[];
 void show_confirm_dialog__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
-}
 
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
 void TAdTimeSetGC::sub_802E1F14() {
     u8 *arg0 = (u8 *)this;
     this->m_24 = -1;
@@ -642,8 +593,6 @@ void show_confirm_dialog__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(arg0, arg0 + 0x68, 1, get_localized_text_entry(0x1C, 0x15), get_localized_text_entry(0x1C, 0x16));
 }
 
-}
-
 #undef TAdSinglePlyChrSelectGC__sub_802E18C8
 #undef apply_settings__23TAdSinglePlyChrSelectGCFi
 #undef change_state__12TAdTimeSetGCFl
@@ -651,8 +600,6 @@ void show_confirm_dialog__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
 #undef close_windows__23TAdSinglePlyChrSelectGCFPv
 #undef create_backgrounds__23TAdSinglePlyChrSelectGCFPv
 #undef get_localized_text_entry
-
-#include "types.h"
 
 #define TAdSinglePlyChrSelectGC__sub_802E1868 ((s32 (*)(void *))TAdSinglePlyChrSelectGC__sub_802E1868)
 #define sub_802E1F14__12TAdTimeSetGCFv ((s32 (*)(void *))sub_802E1F14__12TAdTimeSetGCFv)
@@ -666,9 +613,6 @@ void show_confirm_dialog__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
 #define is_visible__11TWindowMenuFv ((s32 (*)(u32))is_visible__11TWindowMenuFv)
 #define lbl_804C88C0 (*(RecoveredGlobal_802E2BD4_lbl_804C88C0 *)&lbl_804C88C0)
 #define lbl_804C89BC (*(RecoveredGlobal_802E2A88_lbl_804C89BC *)&lbl_804C89BC)
-
-extern "C" {
-
 void TAdSinglePlyChrSelectGC__sub_802E2158(void);
 
 void TAdSinglePlyChrSelectGC__sub_802E2158(void) {  }
@@ -677,19 +621,9 @@ void TAdSinglePlyChrSelectGC::create_result_bg(s32 arg0) {
     close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(arg0, get_localized_text_entry(0x1C, 0x1C), -1, 0, 0);
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_801FBB1C();
 s32 TAdSinglePlyChrSelectGC__sub_801FBB7C();
-s32 get_selected_menu_value(int);
 void TAdSinglePlyChrSelectGC__sub_802E22A4(u8 *arg0);
-}
-
-extern "C" {
-
 s32 strcat(void *, void *);
 
 extern s32 lbl_805DE8F8;
@@ -743,15 +677,7 @@ void TAdSinglePlyChrSelectGC__sub_802E22A4(u8 *arg0) {
         }
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 s32 strcpy(s32, s32);
-
-extern s32 lbl_805DE8F8;
 
 void TAdSinglePlyChrSelectGC::init_menu_window() {
     s32 arg0 = (s32)this;
@@ -762,8 +688,6 @@ void TAdSinglePlyChrSelectGC::init_menu_window() {
 }
 
 }
-
-#include "types.h"
 
 struct RecoveredGlobal_802E2A88_lbl_804C89BC {
     s32 value;
@@ -791,15 +715,10 @@ void advance_when_load_done__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 void TAdSinglePlyChrSelectGC__sub_802E24B8(S_802E24B8 *arg0);
 
 void TAdSinglePlyChrSelectGC__sub_802E2588(S_802E2588 *arg0);
-}
-
-extern "C" {
-
 void TAdSinglePlyChrSelectGC__sub_802E2848(void* p);
 void TAdSinglePlyChrSelectGC__sub_802E289C(void *arg0);
 void TAdSinglePlyChrSelectGC__sub_802E2A7C(void* p);
 void update_state__23TAdSinglePlyChrSelectGCFi(s32 arg0);
-s32 TAdPlyStatusGC__sub_802E11C8(void *);
 s32 TAdSinglePlyChrSelectGC__sub_801FD990(s32);
 s32 reset_save_header__23TAdSinglePlyChrSelectGCFv();
 
@@ -962,21 +881,14 @@ void advance_when_load_done__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
 
 }
 
-#include "types.h"
-
 struct RecoveredGlobal_802E2BD4_lbl_804C88C0 {
     s32 value;
     u8 remaining[0x50];
 };
 
 extern "C" {
-s32 poll_load_status__15TAdPlayerLoadGCFl(int, void *);
 
 void TAdSinglePlyChrSelectGC__sub_802E2BD4(s32 arg0);
-
-}
-
-extern "C" {
 
 void TAdSinglePlyChrSelectGC__sub_802E2BC8(void* p);
 void TAdSinglePlyChrSelectGC__sub_802E2D3C(void* p);
@@ -1047,7 +959,6 @@ void TAdSinglePlyChrSelectGC::update_load_countdown() {
 }
 void TAdSinglePlyChrSelectGC__sub_802E2D3C(void* p) { *(s32*)((char*)p + 0x64) = 30; }
 
-#include "types.h"
 extern "C" {
 
 void TAdSinglePlyChrSelectGC::update_load_state() {

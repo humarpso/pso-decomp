@@ -31,18 +31,11 @@ extern const f32 lbl_805D8F54;
 extern const f32 lbl_805D8F58;
 extern const f32 lbl_805D8F5C;
 u8 *TCameraCtrl__sub_8003CFF4();
-f32 vector_length(void *);
 void normalize_vector(void *);
-extern const f32 lbl_805D8F38;
 extern const f32 lbl_805D8F3C;
 extern const f32 lbl_805D8F40;
 extern const f32 lbl_805D8F44;
 extern const f32 lbl_805D8F48;
-extern const f32 lbl_805D8F4C;
-}
-
-extern "C" {
-
 void *TCameraCtrl__vt12(void);
 void *__dt__13TUnk_804887F8Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);

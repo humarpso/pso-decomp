@@ -58,29 +58,18 @@ void set_text_entry_string(void *, void *, int);
 void set_default_status__17TWindowDuelResultFPvi(void *, int);
 void sub_8024EF40__17TWindowDuelResultFv(Win_8024EF40 *arg0);
 s32 get_shared_text_buffer(s32);
-s32 get_localized_text_entry(int, int);
-u8 *get_player_by_client_id(int);
 Entry_8024F094 *TWindowDuelResult__sub_801C257C(void);
-u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 s32 text_builder_append(s32);
 void text_builder_reset(void);
 void refresh_status_display__9TWindowDDFv(void *);
-void init_window_layout_entries(void *, void *, int);
-void set_text_entry_string(void *, void *, int);
-void set_default_status__17TWindowDuelResultFPvi(void *, int);
 extern u8 lobby_rule_settings[];
 void sub_8024F094__17TWindowDuelResultFv(Win_8024F094 *self);
-}
-
-extern "C" {
-
 void sub_8024F090__17TWindowDuelResultFv(void);
 void sub_8024EF3C__17TWindowDuelResultFv(void);
 void *destroy__17TWindowDuelResultFPvs(void *arg0, s16 arg1);
 void update__17TWindowDuelResultFPv(u8 *arg0);
 s32 TWindowDuelResult__sub_8024F330(void *);
-s32 TWindowDuelResult__sub_8024F3CC(void *);
 s32 handle_list_page_flip_input(s32);
 void __dl__7TObjectFPv(void *);
 void delete_if_allocated(void *, int);

@@ -10,18 +10,10 @@ void *xmalloc__FUl(u32);
 void *memset(void *, s32, u32);
 extern void *lbl_805D3E24;
 extern u32 indirect_recipe_buffer;
-extern u32 indirect_effect_tile_buffer;
 void load_indirect_info(void);
-}
-
-extern "C" {
-
 void TEffIndirectCtrl__sub_802A9548(void* p);
 u8 TEffIndirectCtrl__sub_802A9554(void* p);
 void xfree__FPv(void*);
-
-extern u32 indirect_recipe_buffer;
-extern u32 indirect_effect_tile_buffer;
 
 void TEffIndirectCtrl::free_buffers() {
     if ((u32) indirect_recipe_buffer != 0U) {

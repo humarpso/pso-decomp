@@ -107,14 +107,8 @@ extern u32 TObjNpcAHM01__texture_handle;
 u8 *TObjNpcAHM01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *create_named_object(const char *name);
 void *load_gvm_texture_file(const char *name);
-extern u32 TObjNpcAHM01__shared_object;
-extern u32 TObjNpcAHM01__texture_handle;
 extern char lbl_8043F438[];
 extern char lbl_8043F44C[];
-}
-
-extern "C" {
-
 void * TObjNpcARM00__create(void *arg0);
 void *__dt__12TObjNpcAHM01Fv(void *arg0, s16 arg1);
 void TLobby__sub_803DA16C(void*);
@@ -122,9 +116,6 @@ void *TObjControl__ct(void *, void *);
 void *TObjNpcARM00__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-
-extern u32 TObjNpcAHM01__shared_object;
-extern u32 TObjNpcAHM01__texture_handle;
 
 void TObjNpcAHM01::free_resources() {
     if ((u32) TObjNpcAHM01__texture_handle != 0U) {
@@ -137,8 +128,6 @@ void TObjNpcAHM01::free_resources() {
         TObjNpcAHM01__shared_object = 0U;
     }
 }
-
-extern s32 __vt__12TObjNpcAHM01[];
 
 void TObjNpcAHM01::load_resources() {
     TObjNpcAHM01__shared_object = (u32)create_named_object(lbl_8043F438);

@@ -16,14 +16,8 @@ s32 TItem__sub_80101CEC(void *);
 u8 *__nw__7TObjectFUl(s32);
 extern s32 tl_03;
 u8 *create_player_object(s16 arg0, s32 arg1, u8 *arg2);
-u8 * construct_player_instance__10TObjPlayerFlslPUc(void *, s32, s16, s32, void *);
 s32 get_char_data__10TObjPlayerFv(void *);
 s32 TObjPlayer__sub_801C22B4(void *);
-u8 *__nw__7TObjectFUl(s32);
-extern s32 tl_03;
-}
-
-extern "C" {
 
 u8 *TObjPlayer::create_player_instance(s32 arg0, s32 arg1) {
     u8 *p;

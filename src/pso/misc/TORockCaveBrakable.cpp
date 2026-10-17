@@ -28,10 +28,6 @@ extern Init_80174CFC rock_cave_debris_init_params;
 extern u8 identity_matrix[];
 extern void *rock_cave_model_resource;
 extern s32 tl_05;
-}
-
-extern "C" {
-
 void *TORockCaveBrakable__ct(void *arg0);
 void *__dt__18TORockCaveBrakableFv(void *arg0, s16 arg1);
 int play_sound_effect(void*, void*, void*, void*);
@@ -122,7 +118,6 @@ void *__dt__18TORockCaveBrakableFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__18TORockCaveBrakable[];
 extern void *lbl_805D3100;
 
 void *TORockCaveBrakable__ct(void *arg0) {

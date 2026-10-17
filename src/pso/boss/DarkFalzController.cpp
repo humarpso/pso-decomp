@@ -126,9 +126,6 @@ u8 * __dt__9TObjEnemyFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 s32 restore_player_cameras();
 extern s32 __vt__14TBoss4DarkFalz[];
-extern void *TBoss4DarkFalz__type1_instance;
-extern void *TBoss4DarkFalz__type2_instance;
-extern void *TBoss4DarkFalz__type3_instance;
 extern s32 dark_falz_controller_instance;
 u8 *__dt__14TBoss4DarkFalzFv(u8 *arg0, s16 arg1);
 u8 *VecCopy__FP3VecPC3Vec(void *, void *);
@@ -142,23 +139,14 @@ s32 register_entity_by_id(void *);
 s32 init_music_sequencer(int);
 s32 fn_8030A83C(void *);
 s32 create_boss4_fade();
-extern s32 __vt__14TBoss4DarkFalz[];
 extern Desc_8004BD58 TBoss4DarkFalz__data_804FF1E8;
 extern s32 TBoss4DarkFalz__name;
-extern void *TBoss4DarkFalz__type1_instance;
-extern void *TBoss4DarkFalz__type2_instance;
-extern void *TBoss4DarkFalz__type3_instance;
 extern s32 dark_falz_form_index;
 extern s32 lbl_805D4D6C;
 extern s32 lbl_805D4D70;
-extern s32 dark_falz_controller_instance;
 extern s32 game_difficulty_selection;
 extern const f32 lbl_805D8908;
 s32 TBoss4DarkFalz__ct(s32 a0, s32 arg1, s32 a2);
-}
-
-extern "C" {
-
 int TBoss4DarkFalz__sub_8030AD38(void);
 int TLobby__sub_8001FE7C(void*, void*);
 s32 TObjControl__ct(s32, s32);
@@ -182,8 +170,6 @@ void TBoss4DarkFalz::run_task() {
 }
 
 void TBoss4DarkFalz::vfunc_63() {  }
-
-    extern int darkfalz_dat_resource;
 
 u8 *__dt__14TBoss4DarkFalzFv(u8 *arg0, s16 arg1) {
     s32 temp_r0;

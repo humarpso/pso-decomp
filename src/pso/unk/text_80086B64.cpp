@@ -8,10 +8,6 @@ extern s32 particle_pool_limit;
 extern Ent_800868C4 *particle_global_entry_table;
 extern Ent_800868C4 *particle_area_entry_table;
 void *fn_80086B64(void *pos, void *dir, s32 id, s32 a, s32 b);
-}
-
-extern "C" {
-
 #pragma push
 #pragma opt_propagation off
 void *fn_80086B64(void *pos, void *dir, s32 id, s32 a, s32 b) {

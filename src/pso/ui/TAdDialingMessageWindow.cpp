@@ -13,10 +13,6 @@ extern s32 lbl_8047A400[];
 extern s32 lbl_8047A408[];
 extern const f32 lbl_805E0364;
 extern const f32 lbl_805E0368;
-}
-
-extern "C" {
-
 void *TAdDialingMessageWindow__ct(void *arg0, void *arg1, void *arg2);
 void *__dt__23TAdDialingMessageWindowFv(void *arg0, s16 arg1);
 int create_draw_line_ctrl__13TAdMcSelectGCFiif(void*, int, float);
@@ -66,7 +62,6 @@ void *__dt__23TAdDialingMessageWindowFv(void *arg0, s16 arg1) {
 }
 
 extern void *tl_fadeafter;
-extern s32 __vt__23TAdDialingMessageWindow[];
 extern void *lbl_805D44C8;
 extern void *tl_camera;
 

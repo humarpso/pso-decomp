@@ -3,10 +3,6 @@ extern "C" {
 extern u8 quest_story_flags_by_difficulty[4][128];
 extern s32 game_difficulty_selection;
 void clear_story_flag(s32 flag);
-}
-
-extern "C" {
-
 void clear_story_flag(s32 flag) {
     s32 v;
     s32 bit;

@@ -4,10 +4,6 @@
 extern "C" {
 s32 TLobby__sub_803DA16C(void *, s32);
 extern int TAdMcSelectCursorGC__texture_entry;
-}
-
-extern "C" {
-
 s32 TAdMcSelectCursorGC__sub_8032A6D8(void* p);
 u32 TAdMcSelectCursorGC__ct(u32, s32);
 int TLobby__sub_8023E4B4(void*, void*);
@@ -30,7 +26,6 @@ u32 TAdMcSelectCursorGC::get_instance(s32 arg0) {
 
     extern unsigned char lbl_80477118[];
     extern unsigned char lbl_804ED99C[];
-    extern int TAdMcSelectCursorGC__texture_entry;
 
 void TAdMcSelectCursorGC::release_cursor_entry() {
     u8 *temp_r4;

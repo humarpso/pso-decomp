@@ -11,13 +11,7 @@ u8 *get_player_by_client_id(s16);
 u16 *get_array_entry__13TUnk_804CE018Fi(void *, s16);
 s32 is_flag_4_set__20TWindowSubStatusDispFv();
 void mark_unequippable_items(Wn_80278460 *arg0);
-u16 *get_array_entry__13TUnk_804CE018Fi(void *, s16);
-s32 is_flag_4_set__20TWindowSubStatusDispFv();
 void fn_80278518(void *arg0, s32 arg1);
-}
-
-extern "C" {
-
 void mark_unequippable_items(Wn_80278460 *arg0) {
     u8 sp8[8];
     s32 i;

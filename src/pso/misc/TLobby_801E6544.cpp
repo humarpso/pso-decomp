@@ -32,7 +32,6 @@
 #include "pso/boss/TBoss1Dragon.h"
 
 #pragma push
-#include "types.h"
 
 struct RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 {
     s32 value;
@@ -115,17 +114,9 @@ extern char lbl_80449C64[];
 extern s32 TLobby__data_805DC4A0;
 namespace pf2_p0 { extern "C" { char *TLobby__sub_80070ACC(); } }
 #define TLobby__sub_80070ACC pf2_p0::TLobby__sub_80070ACC
-extern char lbl_80449C64[];
-extern s32 TLobby__data_805DC4A0;
 void TLobby__sub_801E677C(void);
 int sscanf(s32, s32 *, ...);
 extern s32 lbl_80449C7C[];
-}
-
-extern "C" {
-
-s32 parse_f_index(s32 a0);
-int sscanf(s32, s32 *, ...);
 s32 dispatch_chat_message_to_children__12TOChatSensorFl();
 namespace pf2_p0 { extern "C" { u32 get_character_save_record(int); } }
 #define get_character_save_record pf2_p0::get_character_save_record
@@ -289,7 +280,6 @@ s32 parse_f_index(s32 a0) {
 #pragma pop
 
 #pragma push
-#include "types.h"
 
 struct Ctrl_801E6B20 { u8 pad[0x890]; s32 type; };
 
@@ -310,22 +300,15 @@ struct VObj_18_f23ffb : VBase_18_f23ffb {
 };
 
 extern "C" {
-int sprintf(char *, const char *, ...);
 void append_string(s32 arg0);
 namespace pf2_p1 { extern "C" { extern s32 *TLobby__script_reg_array; } }
 #define TLobby__script_reg_array pf2_p1::TLobby__script_reg_array
 extern char lbl_805DC4B4[4];
 void append_int_param__6TLobbyFi(s32 arg0);
-int sprintf(char *, const char *, ...);
-void append_string(s32 arg0);
 extern char lbl_80449C90[];
 void TLobby__sub_801E6AE0(void);
-int sprintf(char *, const char *, ...);
-void append_string(s32 arg0);
 extern char lbl_805DC4B0[4];
 void append_float_value__6TLobbyFi(s32 arg0);
-int sprintf(char *, const char *, ...);
-void append_string(s32 arg0);
 s32 TObjItemOKWindow__sub_801F3268();
 s32 fn_801F4C98();
 extern char lbl_80449C88[];
@@ -333,28 +316,16 @@ void TLobby__sub_801E6A04(void);
 namespace pf2_p1 { extern "C" { s32 select_download_type__6TLobbyFl(s32); } }
 #define select_download_type__6TLobbyFl pf2_p1::select_download_type__6TLobbyFl
 u32 get_player_by_client_id(s32);
-void append_string(s32 arg0);
 extern char lbl_80449C9C[];
-extern s32 local_client_id;
 void append_hero_class_name(void);
-u32 get_player_by_client_id(s32);
-void append_string(s32 arg0);
 extern char lbl_80449CA8[];
-extern s32 local_client_id;
 void append_hero_name(void);
 s32 is_split_screen();
 char *TLobby__sub_800713C8();
-void append_string(s32 arg0);
 char *TLobby__sub_80291D4C();
-int sprintf(char *, const char *, ...);
 extern char lbl_805DC4AC[3];
 void TLobby__sub_801E6998(void);
-}
-
-extern "C" {
-
 u8 TLobby__sub_801E6BB8(void);
-void append_string(s32 arg0);
 s32 parse_r_index(s32 arg0);
 u8 read_byte_advance__6TLobbyFv(void);
 namespace pf2_p1 { extern "C" { s32 sscanf(s32, s32 *, s32 *, ...); } }
@@ -437,8 +408,6 @@ u8 TLobby__sub_801E6BB8(void) {
     return (u8) ((s8) *TLobby__quest_script_read_ptr == 0);
 }
 
-extern u8 *TLobby__quest_script_read_ptr;
-
 u8 read_byte_advance__6TLobbyFv(void) {
     u8 *temp_r3;
 
@@ -457,18 +426,12 @@ void append_string(s32 arg0) {
     quest_string_append_cursor += temp_r31;
 }
 
-}
-
 #undef select_download_type__6TLobbyFl
 #undef sscanf
 #undef TLobby__script_reg_array
 #pragma pop
 
 #pragma push
-#include "types.h"
-
-extern "C" {
-
 void TLobby__sub_801E6C2C(s8 arg0);
 
 namespace pf2_p2 { extern "C" { extern s8 *quest_string_append_cursor; } }
@@ -488,7 +451,6 @@ void TLobby__sub_801E6C2C(s8 arg0) {
 #pragma pop
 
 #pragma push
-#include "types.h"
 
 struct RecoveredGlobal_801E6D18_TLobby__data_80512220 {
     s32 value;
@@ -523,10 +485,6 @@ extern u8 lbl_80515BA0[];
 void TLobby__sub_801E6CA4(void);
 void *memcpy(void *, const void *, u32);
 void quest_check_chat_keyword(void);
-}
-
-extern "C" {
-
 void TLobby__sub_801E6C40(int a0, int a1);
 int create_singleton__6TLobbyFPv(void*);
 
@@ -612,7 +570,6 @@ void quest_check_chat_keyword(void) {
 #pragma pop
 
 #pragma push
-#include "types.h"
 
 struct RecoveredGlobal_801E6F1C_TLobby__data_80512220 {
     s32 value;
@@ -639,9 +596,6 @@ extern s16 TLobby__data_805D5ECC;
 void TLobby__sub_801E6F1C(void);
 s32 fn_801D9FA0(int, int, int, int, void *);
 extern s32 TLobby__protocol_instance;
-extern s16 TLobby__quest_state_word_170;
-extern s16 TLobby__quest_state_word_172;
-extern s16 TLobby__data_805D5ECC;
 namespace pf2_p4 { extern "C" { void push_op_arg__6TLobbyFi(s32); } }
 #define push_op_arg__6TLobbyFi pf2_p4::push_op_arg__6TLobbyFi
 namespace pf2_p4 { extern "C" { extern s32 TLobby__data_805D5E74; } }
@@ -651,23 +605,11 @@ namespace pf2_p4 { extern "C" { extern u8 *TLobby__script_reg_array; } }
 namespace pf2_p4 { extern "C" { extern s32 TLobby__quest_script_pc; } }
 #define TLobby__quest_script_pc pf2_p4::TLobby__quest_script_pc
 extern int TLobby__quest_arg_stack_count;
-extern int TLobby__quest_arg_stack_count;
 void quest_vm_push_u16_argument(u16 a0);
-extern int TLobby__quest_arg_stack_count;
 void quest_vm_push_u8_argument(u8 a0);
-extern int TLobby__quest_arg_stack_count;
-extern int TLobby__quest_arg_stack_count;
-extern int TLobby__quest_arg_stack_count;
-}
-
-extern "C" {
-
 void qst_op_arg_pushs(int a0);
 
-    extern int tl_01;
 void TLobby::create_chat_sensor_capture() { TOChatSensorCapture::create_instance((void*)(tl_01)); }
-
-    extern int TLobby__quest_arg_stack_count;
 
 typedef char RecoveredGlobal_801E6F1C_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801E6F1C_TLobby__data_80512220) == 0x20 ? 1 : -1];
 void TLobby__sub_801E6F1C(void) {
@@ -734,8 +676,6 @@ void TLobby::load_op_arg_window(s32 arg0) {
   TLobby__quest_script_pc = *((s32 *) (((s8 *) (TLobby__data_805D5E74 + (new_var & 0x3FFFC))) + 0));
 }
 
-extern int TLobby__quest_arg_stack_count;
-
 }
 
 #undef push_op_arg__6TLobbyFi
@@ -746,7 +686,6 @@ extern int TLobby__quest_arg_stack_count;
 #pragma pop
 
 #pragma push
-#include "types.h"
 
 struct Glob_801E8614
 {
@@ -756,7 +695,6 @@ struct Glob_801E8614
 };
 
 extern "C" {
-u32 get_player_by_client_id(s32);
 s16 obj_getS16_32C(u8 *);
 extern int* TLobby__script_reg_array;
 extern const f32 lbl_805DC4C4;
@@ -764,11 +702,6 @@ extern const f32 lbl_805DC4D0;
 void qst_op_p_hpstat(void);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
-extern int* TLobby__script_reg_array;
-}
-
-extern "C" {
-
 struct Glob_801E75F0 { s32 f0; s32 f4; s32 f8; s32 fC; s32 f10; u8 rest[0xC]; };
 
 struct ItemData_801E72B4 {
@@ -2006,11 +1939,9 @@ int obj_isState2_324(TObjPlayer*);
 s16 obj_getS16_32E(u8 *);
 s32 obj_getPtr2B0_20();
 s16 obj_getS16_2BA(u8 *);
-s16 obj_getS16_32C(u8 *);
 s32 obj_isState3_324(int);
 void * get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
-s32 is_split_screen();
 s32 get_current_floor();
 f64 atan2_float(void *, f32, f32);
 void TLobby__sub_8001DE30(void *);
@@ -2074,7 +2005,6 @@ s32 advance_item_id_counter(u16);
 f32 xz_distance_squared(Vec3_801E79BC *, Vec3_801E79BC *);
 f32 xyz_distance_squared(void *, void *);
 s32 select_download_type__6TLobbyFl(int);
-void TLobby__sub_80141038(u8 *arg0, s32 arg1, s32 arg2);
 int TLobby__sub_80142944(void *);
 int TNpcPlayer__sub_8014DC30(void*);
 void init_6x40_walk_packet(WalkCmd_801F09EC *);
@@ -2124,7 +2054,6 @@ s32 send_code50_packet__10TObjPlayerFi(int);
 s32 send_code_49_1__10TObjPlayerFi();
 void get_item_record__23TShopJudgmentItemWindowFPv(void *, s32, s32);
 s32 send_6x29_delete_item__10TObjPlayerFPvii(u32, s32, s32);
-u32 get_player_by_client_id(s32);
 void send_6x21_inter_level_warp(int, void *);
 u32 TObjPlayer__sub_801BFFA0(void *);
 s32 TFontSmallLobby__sub_801C013C(void *);
@@ -2538,25 +2467,20 @@ s32 rand(void);
 s32 strncmp(void *, void *, int);
 s32 strcmp(void *, void *);
 s32 strncpy(void *, int, int);
-f32 sin_table_lookup(int);
-f32 cos_table_lookup(int);
 int TLobby__sub_803DF1CC(void);
 
 extern E_801EB484 TLobby__duel_result_table[];
 extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__quest_argument_stack;
 extern RecoveredGlobal_801EDA70_TLobby__data_80512360 TLobby__data_80512360;
 extern s32 TLobby__designated_client_id;
-extern s32 TLobby__protocol_instance;
 extern int TLobby__battle_ctrl_default_value;
 extern int* TLobby__data_805D5E74;
-extern int* TLobby__script_reg_array;
 extern u8 *TLobby__quest_message_window;
 extern u32 TLobby__quest_secondary_window;
 extern s32 TLobby__quest_choice_window;
 extern unsigned char TLobby__active_window_index;
 extern int TLobby__quest_script_pc;
 extern int TLobby__quest_window_state;
-extern int TLobby__quest_arg_stack_count;
 extern int TLobby__data_805D5EB0;
 extern int TLobby__quest_window_object;
 extern int TLobby__menu_state_object;
@@ -2565,7 +2489,6 @@ extern u32 TLobby__quest_state_object_16c;
 extern u32 TLobby__data_805D5EC4;
 extern s32 gba_download_data_buffer;
 extern s32 gba_download_data_size;
-extern s32 TLobby__data_805DC4A0;
 extern int evt2_random_enemies_mode;
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 fn_801F3480;
 extern RecoveredGlobal_801F196C_lbl_804499A8 quest_sound_effect_ids;
@@ -2595,7 +2518,6 @@ extern s16 battle_event_second_table[];
 extern RecoveredGlobal_801EB73C_lbl_80512340 quest_player_name_buffer;
 extern RecoveredGlobal_801EB6B8_lbl_80512350 quest_player_class_name_buffer;
 extern RecoveredGlobal_801EE5A4_lbl_805129F8 quest_board_handlers;
-extern u8 lbl_80515BA0[];
 extern f32 lbl_805D3538;
 extern f32 lbl_805D353C;
 extern f32 lbl_805D3540;
@@ -2603,7 +2525,6 @@ extern f32 lbl_805D3544;
 extern f32 lbl_805D3548;
 extern s32 resource_decompress_buffer;
 extern s32 volopt_death_active;
-extern s32 local_client_id;
 extern s32 current_language;
 extern s32 game_difficulty_selection;
 extern f32 lbl_805D5DC4;
@@ -2612,24 +2533,14 @@ extern u32 quest_mission_manager;
 extern const f32 lbl_805DC4B8;
 extern const f32 lbl_805DC4BC;
 extern const f32 lbl_805DC4C0;
-extern const f32 lbl_805DC4C4;
 extern const f32 lbl_805DC4C8;
 extern const f32 lbl_805DC4CC;
 extern const f32 lbl_805DC4D4;
 extern const f32 lbl_805DC4D8;
 extern s32 tl_00;
-extern int tl_01;
 extern void *tl_03;
 extern void *tl_04;
 extern s32 tl_05;
-
-extern "C" {
-extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__quest_argument_stack;
-}
-
-extern "C" {
-extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__quest_argument_stack;
-}
 
 void TLobby::request_1c38_1_7() {
     TLobby::pop_stack_into_slots(1, 7);
@@ -5991,7 +5902,6 @@ void TLobby::write_mag_stats(s32 i) {
 }
 #pragma pop
 
-void TItemData__sub_8010CA08(Item_801EBF30 *, s32, s32);
 void TLobby::give_pending_item_to_local_player() {
     Item_801EBF30 item;
     u8 r = ((s32 *)&TLobby__quest_argument_stack)[1];
@@ -9062,7 +8972,6 @@ void qst_op_glet(u16 flag, s32 arg1) {
 #pragma pop
 
 #pragma push
-#include "types.h"
 
 struct Ent_A { s32 a; s32 (*fn)(s32, s32); };
 
@@ -9073,23 +8982,18 @@ struct Ent_A; namespace pf2_p6 { extern "C" { s32 read_be_u16(struct Ent_A *); }
 namespace pf2_p6 { extern "C" { s32 read_packet_byte__6TLobbyFv(); } }
 #define read_packet_byte__6TLobbyFv pf2_p6::read_packet_byte__6TLobbyFv
 extern struct Ent_A qst_opcode_table[];
-void qst_getargs_801F26A8(s32 arg0);
 void qst_op_gclear(u16 arg0);
 namespace pf2_p6 { extern "C" { s32 clear_story_flag(s32); } }
 #define clear_story_flag pf2_p6::clear_story_flag
 namespace pf2_p6 { extern "C" { extern int local_client_id; } }
 #define local_client_id pf2_p6::local_client_id
-void qst_op_gclear(u16 arg0);
 void qst_op_gset(u16 arg0);
 namespace pf2_p6 { extern "C" { s32 dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32); } }
 #define dispatch_by_main_phase__14TBoss4DarkFalzFUs pf2_p6::dispatch_by_main_phase__14TBoss4DarkFalzFUs
-void qst_op_gset(u16 arg0);
 void qst_op_thread_stg(u16 arg0);
 int create__12TQuestThreadFi(void*);
-void qst_op_thread_stg(u16 arg0);
 void qst_op_thread(u16 arg0);
 int create_quest_thread(void*);
-void qst_op_thread(u16 arg0);
 void qst_op_rev(s32 arg0);
 void qst_op_clear(s32 arg0);
 void qst_op_set(s32 arg0);
@@ -9098,10 +9002,6 @@ namespace pf2_p6 { extern "C" { extern s32 TLobby__data_805D5E74; } }
 void TLobby__sub_801F2570(s32 arg0, s32 arg1);
 void quest_vm_get_register_address(s32 arg0, s32 arg1);
 void qst_op_let(s32 arg0, s32 arg1);
-}
-
-extern "C" {
-
 void quest_vm_assign_u16_immediate(int a0, int a1);
 void qst_op_exit(void);
 void qst_op_grev(s32 arg0);
@@ -9123,15 +9023,9 @@ void qst_op_grev(s32 arg0) {
     dispatch_by_main_phase__14TBoss4DarkFalzFUs(v);
 }
 
-    extern int* TLobby__script_reg_array;
-
-#include "types.h"
-
 void qst_op_gclear(u16 flag) {
     clear_story_flag((s32)((void *) (flag)));
 }
-
-#include "types.h"
 
 void qst_op_gset(u16 arg0) {
     dispatch_by_main_phase__14TBoss4DarkFalzFUs((s32)((void *) (arg0)));
@@ -9161,16 +9055,12 @@ void quest_vm_get_register_address(s32 arg0, s32 arg1) {
 
 void quest_vm_assign_u16_immediate(int a0, int a1) { TLobby__script_reg_array[(unsigned char)(a0)] = (a1 & 0xffff); }
 
-    extern int* TLobby__script_reg_array;
 void qst_op_leta_letb(int a0, int a1) { TLobby__script_reg_array[(unsigned char)(a0)] = (a1 & 0xff); }
 
-    extern int* TLobby__script_reg_array;
 void qst_op_leti(int a0, int a1) { TLobby__script_reg_array[(unsigned char)(a0)] = a1; }
 
 namespace pf2_p6 { extern "C" { extern s32 TLobby__quest_window_state; } }
 #define TLobby__quest_window_state pf2_p6::TLobby__quest_window_state
-
-#include "types.h"
 
 void qst_op_let(s32 arg0, s32 arg1) {
     *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC));
@@ -9179,8 +9069,6 @@ void qst_op_let(s32 arg0, s32 arg1) {
 void qst_op_thread_stg(u16 arg0) {
     create__12TQuestThreadFi((void *) (arg0));
 }
-
-#include "types.h"
 
 void qst_op_thread(u16 arg0) {
     create_quest_thread((void *) (arg0));
@@ -9232,7 +9120,6 @@ void qst_getargs_801F26A8(s32 arg0) {
 #pragma pop
 
 #pragma push
-#include "types.h"
 
 struct Entry804C69D8_801F2748 {
     u32 field0;
@@ -9264,10 +9151,6 @@ void qst_getargs_801F27A0(s32 op);
 void qst_getargs_801F2828(s32 op);
 s32 stream_read_be32();
 void qst_getargs_801F28AC(s32 arg0);
-}
-
-extern "C" {
-
 struct Entry804C69D8 {
     u32 field0;
     s32 (*handler)(s32);
@@ -9337,8 +9220,6 @@ void qst_getargs_801F2910(s32 arg0) {
     fn(a, b, ((s32)read_be_u16((void *)((void*)b))));
 }
 
-}
-
 #undef append_string_to_buffer
 #undef read_be_u16
 #undef read_packet_byte__6TLobbyFv
@@ -9346,15 +9227,10 @@ void qst_getargs_801F2910(s32 arg0) {
 #pragma pop
 
 #pragma push
-#include "types.h"
-
-extern "C" {
-
 s32 read_packet_byte__6TLobbyFv(struct Ent_A *);
 
 namespace pf2_p8 { extern "C" { s32 read_be_u16(); } }
 #define read_be_u16 pf2_p8::read_be_u16
-extern struct Ent_A qst_opcode_table[];
 
 void TLobby::dispatch_command(s32 arg0) {
     s32 (*temp_r31)(s32, s32);
@@ -9368,16 +9244,10 @@ void TLobby::dispatch_command(s32 arg0) {
     temp_r31(temp_r30, read_be_u16());
 }
 
-}
-
 #undef read_be_u16
 #pragma pop
 
 #pragma push
-#include "types.h"
-
-extern "C" {
-
 namespace pf2_p9 { extern "C" { s32 read_be_u16(void *); } }
 #define read_be_u16 pf2_p9::read_be_u16
 
@@ -9401,7 +9271,6 @@ void qst_getargs_801F29CC(s32 arg0) {
 #pragma pop
 
 #pragma push
-#include "types.h"
 
 typedef struct {
     s32 x0;
@@ -9413,17 +9282,12 @@ typedef struct Ent_801F2AB4 {
     void (*fn)(s32, s32);
 } Ent_801F2AB4;
 extern "C" {
-s32 read_packet_byte__6TLobbyFv(struct Ent_A *);
 namespace pf2_p10 { extern "C" { s32 stream_read_be32(void); } }
 #define stream_read_be32 pf2_p10::stream_read_be32
 namespace pf2_p10 { extern "C" { extern Ent_801F2A14 qst_opcode_table[]; } }
 #define qst_opcode_table pf2_p10::qst_opcode_table
 void qst_getargs_801F2A5C(s32 arg0);
 void qst_getargs_801F2AB4(s32 arg0);
-}
-
-extern "C" {
-
 void qst_getargs_801F2A14(s32 arg0) {
     Ent_801F2A14 *temp_r3;
     s32 (*temp_r31)(s32);
@@ -9433,13 +9297,6 @@ void qst_getargs_801F2A14(s32 arg0) {
     temp_r31 = temp_r3->fn;
     temp_r31(stream_read_be32());
 }
-#include "types.h"
-
-#include "types.h"
-
-#include "types.h"
-
-#include "types.h"
 
 void qst_getargs_801F2A5C(s32 arg0) {
     s32 (*temp_r31)(s32, s32);
@@ -9468,7 +9325,6 @@ void qst_getargs_801F2AB4(s32 arg0) {
 #pragma pop
 
 #pragma push
-#include "types.h"
 
 struct RecoveredGlobal_801F2BCC_TLobby__data_80512240 {
     s32 value;
@@ -9480,10 +9336,6 @@ extern int TLobby__script_value_stack[];
 namespace pf2_p11 { extern "C" { extern int TLobby__script_stack_depth; } }
 #define TLobby__script_stack_depth pf2_p11::TLobby__script_stack_depth
 s32 pop_stack_value__6TLobbyFv(void);
-}
-
-extern "C" {
-
 typedef struct {
     s32 x0;
     s32 (*fn)(s32);
@@ -9522,9 +9374,6 @@ void qst_getargs_801F2B94(s32 arg0) {
     ((void (*)(void))qst_opcode_table[arg0].fn)();
 }
 
-extern int TLobby__script_value_stack[];
-
-    extern int* TLobby__data_805D5E74;
 namespace pf2_p11 { extern "C" { extern int TLobby__quest_data_base; } }
 #define TLobby__quest_data_base pf2_p11::TLobby__quest_data_base
 
@@ -9548,8 +9397,6 @@ void push_op_arg__6TLobbyFi(int a0)
 }
 int get_indexed_offset__6TLobbyFi(int a0) {  return (TLobby__quest_data_base + TLobby__data_805D5E74[(unsigned short)(a0)]); }
 
-}
-
 #undef read_packet_byte__6TLobbyFv
 #undef TLobby__script_stack_depth
 #undef TLobby__quest_arg_stack_count
@@ -9558,10 +9405,6 @@ int get_indexed_offset__6TLobbyFi(int a0) {  return (TLobby__quest_data_base + T
 #pragma pop
 
 #pragma push
-#include "types.h"
-
-extern "C" {
-
 void append_string_to_buffer(s32 arg0);
 s32 stream_read_be32(void);
 namespace pf2_p12 { extern "C" { s32 expand_message_substitutions(s32, s32, s32); } }
@@ -9584,8 +9427,6 @@ void append_string_to_buffer(s32 arg0) {
     TLobby__quest_script_pc += temp_r31 + 1;
 }
 
-extern s32 TLobby__quest_data_base;
-
 s32 stream_read_be32(void) {
     s32 sp8;
     s32 temp_r4;
@@ -9597,8 +9438,6 @@ s32 stream_read_be32(void) {
     return sp8;
 }
 
-}
-
 #undef expand_message_substitutions
 #undef memcpy
 #undef strlen
@@ -9606,14 +9445,9 @@ s32 stream_read_be32(void) {
 #pragma pop
 
 #pragma push
-#include "types.h"
-
-extern "C" {
-
 s32 bswap_16__FPUs(u16 *, s32);
 namespace pf2_p13 { extern "C" { s32 memcpy(u16 *, s32, s32); } }
 #define memcpy pf2_p13::memcpy
-extern s32 TLobby__quest_data_base;
 namespace pf2_p13 { extern "C" { extern s32 TLobby__quest_script_pc; } }
 #define TLobby__quest_script_pc pf2_p13::TLobby__quest_script_pc
 

@@ -21,10 +21,6 @@ extern "C" {
 s32 publish_target_list__11TMainCursorFPvi(Cur_8013AF50 *, s32);
 State_8013AF50 *get_state__11TMainCursorFv(s32);
 s32 TObjPlayer__sub_801C6DAC(s32);
-}
-
-extern "C" {
-
 int init__13TUnk_804A7260FPvPv(void);
 
     extern unsigned char lbl_804A71C4[];

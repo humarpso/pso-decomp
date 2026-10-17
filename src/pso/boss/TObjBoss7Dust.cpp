@@ -15,10 +15,6 @@ s32 TObjBoss7DustCtrl__sub_802F125C();
 extern RecoveredGlobal_802F119C___vt__13TObjBoss7Dust __vt__13TObjBoss7Dust;
 extern s32 lbl_805D3FE4;
 u8 *__ct__13TObjBoss7DustFv(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void fn_802F105C(void);
 void fn_802F1084(void);
 void init_scene_boss2_tunnel(void);

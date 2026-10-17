@@ -3,7 +3,6 @@
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804B6C24.h"
 extern "C" void roll_physical_accuracy__13TUnk_804B6C24FPvlf();
-#include "pso/item/TObjContainerItem.h"
 #include "pso/item/TObjContainerBase.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/player/TObjPlayer.h"
@@ -29,9 +28,6 @@ extern s32 TObjContainerItem__name;
 u8 *TObjContainerItem__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 play_sound_effect(int, void *, int, int);
 void play_container_break_sound(s32 arg0);
-}
-
-extern "C" {
 void __dt__21TObjContainerAbeEnemyFv();
 void run_task__13TUnk_804B6C24Fv();
 void render__13TUnk_804B6C24Fv();
@@ -192,10 +188,6 @@ void *__vt__21TObjContainerAbeEnemy[83] = {
     (void *)vfunc_81__21TObjContainerAbeEnemyFv,
     (void *)debug_print_item_box_info__21TObjContainerAbeEnemyFv,
 };
-}
-
-extern "C" {
-
 void *__dt__17TObjContainerItemFv(void *arg0, s16 arg1);
 s32 request_box_item_drop__13TUnk_804806E8FPvs(s32, void *, s32, void *);
 s32 free_collision_body_parts(void *);
@@ -226,8 +218,6 @@ void *TObjContainerItem::create(void *arg0) {
     }
     return o;
 }
-
-extern s32 __vt__17TObjContainerItem[];
 
 void *__dt__17TObjContainerItemFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

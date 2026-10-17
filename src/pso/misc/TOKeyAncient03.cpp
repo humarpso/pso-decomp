@@ -75,9 +75,6 @@ extern const f32 lbl_805DB744;
 s32 play_sound_effect(s32, s32, s32, s32);
 extern RecoveredGlobal_8016BF68_lbl_80441B4C lbl_80441B4C;
 extern s32 enable_v2_features;
-s32 play_sound_effect(s32, s32, s32, s32);
-extern RecoveredGlobal_8016BF68_lbl_80441B4C lbl_80441B4C;
-extern s32 enable_v2_features;
 void TOKeyCave01__vt16(s32 arg0);
 u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
 s32 *mem_alloc(s32);
@@ -87,19 +84,13 @@ extern RecoveredGlobal_8016BC84_lbl_804B2B30 bm_fs_obj_o_doorpanel_resource_desc
 extern u32 TOKeyAncient03__model_archive;
 extern void *TOKeyAncient03__texture_variants;
 s32 get_main_phase(void);
-s32 is_split_screen();
 u8 * TOKey__ct(void *);
 extern s32 __vt__14TOKeyAncient03[];
 extern s32 TOKeyAncient03__class_name;
-extern u32 TOKeyAncient03__model_archive;
-extern void *TOKeyAncient03__texture_variants;
-extern const f32 lbl_805DB71C;
-extern const f32 lbl_805DB720;
 extern const f32 lbl_805DB72C;
 extern const f32 lbl_805DB730;
 u8 *TOKeyAncient03__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern const f32 lbl_805DB728;
-extern const f32 lbl_805DB724;
 s32 get_current_floor();
 extern s32 local_client_id;
 s32 rotate_matrix_y(int, int);
@@ -110,15 +101,9 @@ s32 draw_ginja_model(int);
 s32 set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
-extern void *TOKeyAncient03__texture_variants;
 extern s32 model_render_flags;
-}
-
-extern "C" {
-
 void TOKeyAncient03__vt16(s32 arg0);
 void *__dt__14TOKeyAncient03Fv(void *arg0, s16 arg1);
-s32 play_sound_effect(s32, s32, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
@@ -232,9 +217,6 @@ void *TOKeyAncient03::create(void *arg0) {
     return o;
 }
 
-extern u32 TOKeyAncient03__model_archive;
-extern void *TOKeyAncient03__texture_variants;
-
 void TOKeyAncient03::cleanup_refs() {
     if ((void *) TOKeyAncient03__texture_variants != NULL) {
         TObjPlayer::free_if_valid(*(s32 *)((s8 *)TOKeyAncient03__texture_variants + 4));
@@ -248,8 +230,6 @@ void TOKeyAncient03::cleanup_refs() {
         TOKeyAncient03__model_archive = 0U;
     }
 }
-
-extern s32 __vt__14TOKeyAncient03[];
 
 typedef char RecoveredGlobal_8016BC84_lbl_80441ACC_size[sizeof(RecoveredGlobal_8016BC84_lbl_80441ACC) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8016BC84_lbl_804B2B30_size[sizeof(RecoveredGlobal_8016BC84_lbl_804B2B30) == 0x10 ? 1 : -1];

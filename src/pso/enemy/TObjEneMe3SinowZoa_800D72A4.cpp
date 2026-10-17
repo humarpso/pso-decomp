@@ -8,19 +8,10 @@ struct O_800D72A4 { u8 pad[0x18]; f32 f18; };
 extern "C" {
 extern const float lbl_805DA348;
 extern const f32 lbl_805DA34C;
-extern const float lbl_805DA348;
-extern const float lbl_805DA348;
-extern const f32 lbl_805DA34C;
 extern const float lbl_805DA350;
 extern const f32 lbl_805DA354;
 extern const f32 lbl_805DA358;
-extern const float lbl_805DA348;
-extern const f32 lbl_805DA34C;
 s32 TObjEneMe3SinowZoa__sub_800D72A4(O_800D72A4 *self);
-}
-
-extern "C" {
-
 int set_chunk_blend(int);
 
 s32 TObjEneMe3SinowZoa__sub_800D72A4(O_800D72A4 *self) {
@@ -78,25 +69,14 @@ void TUnk_80494938::sub_800D741C() {
 
 void TObjEneMe3SinowZoa::copy_position_vector(void* q) { *(f32*)((char*)this + 0x18) = *(f32*)((char*)q + 0x0); *(f32 *)&this->m_name = *(f32*)((char*)q + 0x0); *(f32 *)&this->m_flags = *(f32*)((char*)q + 0x4); *(f32 *)&this->m_prev = *(f32*)((char*)q + 0x8); *(f32 *)&this->m_next = *(f32*)((char*)q + 0xc); }
 
-    extern const float lbl_805DA348;
-    extern const float lbl_805DA350;
 void TUnk_80494938::reset_obstruction_fade() { *(float *)&this->unk_18 = lbl_805DA348; *(float *)&this->unk_0 = lbl_805DA350; this->m_4 = lbl_805DA348; *(float *)&this->unk_8 = lbl_805DA348; this->m_c = lbl_805DA348; }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
-    extern const float lbl_805DA348;
     extern const float lbl_805DA34C;
 void TUnk_80494938::vfunc_4() { *(float *)&this->unk_18 = lbl_805DA34C; *(float *)&this->unk_0 = lbl_805DA348; this->m_4 = lbl_805DA348; *(float *)&this->unk_8 = lbl_805DA348; this->m_c = lbl_805DA348; }
 
 void TObjEneMe3SinowZoa::set_field_10(f32 v) { *(f32 *)&this->m_up = v; }
 
 }
-
-#include "types.h"
 
 struct B_800D758C { f32 f0; f32 f4; f32 f8; f32 fc; f32 f10; };
 
@@ -120,15 +100,6 @@ extern const f32 lbl_805DA350;
 extern const f32 lbl_805DA348;
 void TObjEneMe3SinowZoa__sub_800D758C(V_800D758C *self);
 extern const f32 lbl_805DA35C;
-extern const f32 lbl_805DA34C;
-extern const f32 lbl_805DA354;
-extern const f32 lbl_805DA348;
-}
-
-extern "C" {
-
-extern const f32 lbl_805DA34C;
-
 void TUnk_80494938::set_rate_from_divisor(s32 arg1) {
     *(f32 *)&this->unk_10 = (f32) (lbl_805DA34C / (f32) arg1);
 }
@@ -154,12 +125,6 @@ void TObjEneMe3SinowZoa__sub_800D758C(V_800D758C *self) {
     self->fc = lbl_805DA348;
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
 s32 __dt__13TUnk_80494AE0Fv(void *, s16);
 s32 __dl__FPv(void *);
@@ -177,16 +142,8 @@ void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-
-#include "types.h"
-#include "pso/enemy/TObjEneMe3SinowZoa.h"
-
-extern "C" {
-
 int TObjPlayer__sub_800D9718(void);
 
-    extern const float lbl_805DA348;
 void*TUnk_80494938::init_common() { TObjPlayer__sub_800D9718(); *(int*)((char*)this + 0x14) = (int)lbl_80494938; *(float *)&this->unk_18 = lbl_805DA348; return this; }
 
 }

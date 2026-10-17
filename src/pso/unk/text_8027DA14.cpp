@@ -30,10 +30,6 @@ extern s32 TWindowSubQuestBoardSelect__class_name;
 extern const f32 lbl_805DD6B8;
 extern const f32 lbl_805DD6BC;
 u8 *TWindowSubQuestBoardSelect__ct(u8 *arg0);
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 typedef char RecoveredGlobal_8027DA14_lbl_804D19A8_size[sizeof(RecoveredGlobal_8027DA14_lbl_804D19A8) == 0x14 ? 1 : -1];

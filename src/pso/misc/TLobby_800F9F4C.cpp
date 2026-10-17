@@ -10,7 +10,6 @@ int process_async_file_reads();
     extern int game_heap;
 void TLobby::free_static_buffer(void* a0) { ((THeap *)game_heap)->heap_free(a0); }
 
-    extern int game_heap;
 void TLobby::alloc_from_heap(void* a0) { ((THeap *)game_heap)->heap_alloc((size_t)a0); }
 
 void TLobby::pump_frames() {

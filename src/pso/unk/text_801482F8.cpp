@@ -323,7 +323,6 @@ u32 create_conversation_camera(int);
 s32 end_conversation_camera(void);
 s32 begin_conversation_camera(void);
 s32 angle_difference_abs(s32, s32);
-s32 approach_angle_limited(s32, s32, s32);
 u32 get_player_by_client_id();
 void *__ct__12TQuestThreadFv(void *, u32, s32);
 void *__nw__7TObjectFUl(u32);
@@ -336,17 +335,9 @@ extern const f32 lbl_805DB1B8;
 extern const f32 lbl_805DB1BC;
 extern const f32 lbl_805DB1C0;
 s32 sub_8010319C__13TUnk_804AF8A0Fv();
-u32 get_player_by_client_id();
 s32 debug_printf_at(s32, const char *, ...);
 extern char lbl_8043F544[];
-}
-
-extern "C" {
-
-u32 get_player_by_client_id();
 s32 play_effect_default__10TObjPlayerFii(u32, s32);
-
-extern s32 local_client_id;
 
 void TObjNpcFemaleBase::handle_message_event(u16 arg1) {
     u32 temp_r3;

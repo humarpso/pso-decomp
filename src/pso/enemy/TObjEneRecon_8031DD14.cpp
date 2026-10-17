@@ -1,8 +1,6 @@
 #include "types.h"
 #include "pso/enemy/TObjEneRecon.h"
-extern "C" {
 extern f32 TObjEneRecon__data_805DF3D4;
-}
 
 extern "C" {
 

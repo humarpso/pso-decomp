@@ -5,10 +5,6 @@ struct O_8032745C { u8 pad[0x44]; s32 mode; };
 
 extern "C" {
 s32 TLobby__sub_80145DB4(int);
-}
-
-extern "C" {
-
 int set_cached_blend_factor(void*, void*);
 int get_state_flag__9TMainTaskFv(void*);
 

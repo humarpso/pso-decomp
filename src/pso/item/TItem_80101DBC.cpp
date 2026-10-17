@@ -12,10 +12,6 @@ extern "C" {
 void *csnVecterUnder(f32 *, s32, f32);
 extern const f32 lbl_805DAA94;
 extern const f32 lbl_805DAA98;
-}
-
-extern "C" {
-
 void TItem::snap_to_ground() {
     Stack_80101DBC stack;
     void *temp_r3;
@@ -27,9 +23,6 @@ void TItem::snap_to_ground() {
         *(f32 *)((s8 *)this + 0x3C) = (f32) (lbl_805DAA98 + *(f32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 4)) + 4));
     }
 }
-
-}
-extern "C" {
 
 s32 is_not_matching_lobby_id__10TObjPlayerFv(void *);
 void TItemData__sub_8010CCB0(void *);
@@ -55,10 +48,6 @@ struct Pkt_80101E7C { u8 subcommand; u8 size; u16 client_id; Item_80101E7C item;
 extern "C" {
 void init_6x5E_buy_item_header(void *p);
 void normalize__9TItemDataFv(void *p);
-}
-
-extern "C" {
-
 void TItem::send_owner_item_packet(void *item, u16 client_id) {
     Pkt_80101E7C pkt;
     init_6x5E_buy_item_header(&pkt);

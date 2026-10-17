@@ -18,10 +18,6 @@ extern s32 __vt__17TOSwitchAttackSub[];
 extern s32 lbl_805D317C;
 extern const f32 lbl_805DBA04;
 u8 *TOSwitchAttackSub__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, u32 arg4, f32 farg0);
-}
-
-extern "C" {
-
 u8 *TOSwitchAttackSub__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, u32 arg4, f32 farg0) {
     Parm_80177608 p;
     Tbl_80177608 a;

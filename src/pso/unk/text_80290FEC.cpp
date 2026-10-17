@@ -1,8 +1,6 @@
 #include "pso/ui/UISprite.h"
-extern "C" {
 extern const f32 lbl_805DD960;
 extern const f32 lbl_805DD964;
-}
 
 void draw_ui_sprite_shaded(s32 sprite_id, const vec2f* position, const vec2f* scale,
                           f32 depth, f32 alpha, f32 brightness) {

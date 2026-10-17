@@ -9,11 +9,7 @@ extern "C" {
 u8 * TLobby__sub_802D2334(void *, u32);
 s32 get_trade_obj_ptr__6TLobbyFv(s32);
 u8 *find_free_trade_slot__6TLobbyFPv(void *);
-u8 * TLobby__sub_802D2334(void *, u32);
 s32 check_trade_offer_inventory(S_802D1D48 *arg0, s32 *arg1);
-}
-
-extern "C" {
 
 s32 check_trade_offer_inventory(S_802D1D48 *arg0, s32 *arg1) {
     E_802D1D48 *p;

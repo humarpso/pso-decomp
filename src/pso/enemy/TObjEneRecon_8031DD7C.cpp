@@ -53,18 +53,9 @@ void TObjEneRecon::update_flag_0x444() {
     *(s32 *)((s8 *)this + 0x444) = (s32) (*(s32 *)((s8 *)this + 0x444) & 0xFFFFFFFD);
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
 void enemy_copy_target_destination__12TObjEneDD_STFv(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-}
-
-extern "C" {
-
 int transition_enemy_state(void*, void*);
 
 #pragma push
@@ -77,14 +68,6 @@ void TObjEneRecon::set_orbit_destination(s32 arg1) {
 }
 #pragma pop
 
-}
-
-#include "types.h"
-
-extern "C" {
-
-int transition_enemy_state(void*, void*);
-
 void TObjEneRecon::advance_field398() {
     ((s32 (*)())enemy_copy_target_destination__12TObjEneDD_STFv)();
     *(f32 *)((s8 *)this + 0x398) = (f32) (*(f32 *)((s8 *)this + 0x398) + *(f32 *)((s8 *)this + 0x464));
@@ -96,18 +79,6 @@ void TObjEneRecon::sync_height() {
 void TObjEneRecon::vfunc_61() {  }
 void TObjEneRecon::vfunc_62() { if (*(short*)((char*)this + 0x326) != 6) { transition_enemy_state(this, (void*)6); } }
 
-}
-
-#include "types.h"
-
-extern "C" {
-int transition_enemy_state(void*, void*);
-}
-
-extern "C" {
-
-int transition_enemy_state(void*, void*);
-
 void TObjEneRecon::vfunc_63() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
@@ -116,14 +87,6 @@ void TObjEneRecon::vfunc_63() {
         transition_enemy_state((void*)((void *)(arg0)), (void*)((int) (7)));
     }
 }
-
-}
-
-#include "types.h"
-
-extern "C" {
-
-int transition_enemy_state(void*, void*);
 
 void TObjEneRecon::vfunc_28() {  }
 

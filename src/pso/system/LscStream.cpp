@@ -10,47 +10,19 @@ struct SJ_803D1A98 { SJIf_803D1A98 *vt; };
 
 extern "C" {
 extern char lbl_8047DCF0[];
-extern char lbl_8047DCF0[];
-extern char lbl_8047DCF0[];
 extern char lbl_8047DD14[];
-extern char lbl_8047DCF0[];
-extern char lbl_8047DCF0[];
 extern char lbl_8047DD58[];
 void *memset(void *dst, int val, unsigned long n);
 extern LscStream lsc_slot_table[];
 extern s32 lobby_slot_refcount;
-extern char lbl_8047DCF0[];
-extern char lbl_8047DD34[];
-extern char lbl_8047DCF0[];
-extern char lbl_8047DD34[];
-extern char lbl_8047DCF0[];
 extern char lbl_8047DD34[];
 void TLobby__sub_803C89C4(void *);
 void TLobby__sub_803C8B38(void *);
-extern char lbl_8047DCF0[];
-extern LscStream lsc_slot_table[];
 extern char lbl_8047DDB8[];
 extern char lbl_8047DDE4[];
-void *memset(void *dst, int val, unsigned long n);
-extern LscStream lsc_slot_table[];
-extern s32 lobby_slot_refcount;
 extern const char *volatile lbl_805E0DB0;
-extern LscStream lsc_slot_table[];
-void TLobby__sub_803C89C4(void *);
-void TLobby__sub_803C8B38(void *);
 void notify_dvd_read__6TLobbyFv(void *);
 void enter_lock__6TLobbyFv(void *);
-extern char lbl_8047DCF0[];
-void TLobby__sub_803C89C4(void *);
-void TLobby__sub_803C8B38(void *);
-void notify_dvd_read__6TLobbyFv(void *);
-void enter_lock__6TLobbyFv(void *);
-void *memset(void *dst, int val, unsigned long n);
-extern char lbl_8047DCF0[];
-}
-
-extern "C" {
-
 s32 lsc_get_min_buffer_bytes(LscStream *p) {
     if (p == 0) {
         TLobby::log_printf(lbl_8047DCF0);
@@ -344,6 +316,4 @@ void lsc_init(void) {
     ((void (*)(void *))notify_dvd_read__6TLobbyFv)(sp8);
 }
 
-}
-
-extern "C" { LscStream lsc_slot_table[16]; }
+ LscStream lsc_slot_table[16]; }

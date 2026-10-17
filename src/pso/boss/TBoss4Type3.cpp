@@ -24,9 +24,6 @@ extern const char boss4_type3_state_name_capture[] = "CAPTURE";
 extern const char boss4_type3_state_name_bura[] = "BURA";
 extern const char boss4_type3_state_name_libera[] = "LIBERA";
 extern const char boss4_type3_state_name_cut[] = "CUT";
-}
-
-extern "C" {
 extern const s32 boss4_type3_model_node_specs[2][3] = {{12,74,1},{14,74,1}};
 extern const s32 boss4_type3_effect_ids[8] = {326,326,326,326,328,327,327,323};
 const char *TObjBs4CutAtk_name = TObjBs4CutAtk_type_name;
@@ -47,7 +44,6 @@ struct Type3MotionView { s32 kind, flags, motions[3]; };
 #include "pso/boss/TObjDFRecover.h"
 #include "pso/enemy/TObjEneLappy.h"
 #include "pso/enemy/TObjEneMe3ShinowaReal.h"
-#include "pso/enemy/TObjEnemy.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TTecGrants.h"
@@ -188,51 +184,29 @@ extern const f32 lbl_805D8C68;
 extern const f32 lbl_805D8C70;
 extern const f32 lbl_805D8C74;
 void update_radar_markers__11TBoss4Type3FPv(u8 *arg0);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 spawn_particle_effect(void *, int);
 u32 create_particle_emitter(void *, int);
-void copy_pos__11TNowLoadingFPv(void *, void *);
 s32 play_sound_effect(int, void *, int, int);
-extern const f32 TBoss4Type3__data_805D8C40;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f64 atan2_float(f32, f32);
 u8 * dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 TBoss4Type2__sub_80057048(void *, int);
 s32 TBoss4Type2__sub_80057128(void *);
-u32 spawn_particle_effect(void *, int);
-u32 create_particle_emitter(void *, int);
 s32 angle_diff_s16(int, int);
-s32 add_radar_scaled_marker(void *, u32, int, int, f32);
 s32 play_persistent_sound(int, void *, void *, int, int);
-s32 play_sound_effect(int, void *, int, int);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-f32 vector_length(void *);
-s32 normalize_vector(void *);
 extern const f64 TBoss4Type2__data_80437750;
 extern s32 game_difficulty_selection;
 extern const f32 TBoss4Type2__data_805D8BAC;
 extern const f32 lbl_805D8BB4;
 extern const f32 lbl_805D8BD0;
 extern const f32 TBoss4Type2__data_805D8BD8;
-void copy_pos__11TNowLoadingFPv(void *, void *);
-s32 TBoss4Type2__sub_80057048(void *, int);
-u32 create_particle_emitter(void *, int);
-s32 play_persistent_sound(int, void *, void *, int, int);
-s32 play_sound_effect(int, void *, int, int);
 extern const f32 lbl_805D8BA4;
 extern const f32 lbl_805D8BA8;
-extern const f32 lbl_805D8BB4;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f64 atan2_float(f32, f32);
 s32 pick_random_target_player__11TBoss4Type3Fv(void);
 s32 TBoss4Type3__sub_8005254C(u16);
 extern const f64 lbl_80437890[];
 extern const f32 lbl_805D8C7C;
-}
-
-extern "C" {
-
 struct Stack_80055918
 {
   s32 sp8;
@@ -491,25 +465,19 @@ struct VObj_8005B218 : VBase_8005B218 {
 };
 
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void * get_player_data__10TObjPlayerFi(s32 i);
 u16 obj_getField1c(void *);
 s32 is_split_screen();
-f64 atan2_float(f32, f32);
 void queue_destruction__7TObjectFv(void *);
-u8 * dispatch_shared_handler_a__6TLobbyFl(s32);
 s16 * register_boss__6TLobbyFl(s32);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 fn_80044330(void *);
 void fn_8004AA04(void *);
-s32 pick_random_target_player__11TBoss4Type3Fv(void);
 s32 TObjPlayer__sub_80052390(f32);
 s32 drain_player_hp(u16, s32);
 f32 TBoss4Type3__sub_800524E8(f32);
-s32 TBoss4Type2__sub_80057048(void *, int);
-s32 TBoss4Type2__sub_80057128(void *);
 void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0);
 void update_target_effect_timer__11TBoss4Type3FPv(void *arg0);
 void handle_damage_taken__11TBoss4Type3FPv(O_80059618 *o);
@@ -529,9 +497,6 @@ S_8005AD50 * __dt__11TBoss4Type3Fv(S_8005AD50 *o, s16 flag);
 void * __ct__13TObjBs4CutAtkFv(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void * create__13TObjBs4CutAtkFPvPvPv(void *arg0, void *arg1, void *arg2);
 s32 request_follow_camera_offsets(void *, void *, int);
-u32 spawn_particle_effect(void *, int);
-u32 create_particle_emitter(void *, int);
-void copy_pos__11TNowLoadingFPv(void *, void *);
 s32 query_teammate_state__9TObjEneDDFv(void *);
 int toggle_particle_effect__10TObjPlayerFv(void*);
 u8 * lookup_entry_by_value__10TObjPlayerFPvf(s32);
@@ -539,27 +504,18 @@ void __dt__11TBoss4Type3FPvs(void *, s16);
 s32 clear_render_callback__8TObjFishFv(s32);
 s32 TObjControl__ct(s32, s32);
 void __dt__9TObjEnemyFv(void *, s32);
-s32 angle_diff_s16(int, int);
 s32 approach_angle_limited(s32, s32, s32);
 void free_collision_body_parts(void *);
 s32 TObjEneRe4Sorcerer__sub_801E3F1C(f32, f32);
-s32 play_persistent_sound(int, void *, void *, int, int);
-s32 play_sound_effect(int, void *, int, int);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 void __ct__7TObjectFP7TObject(void *);
 s32 create__9TTecMegidFllll(void *, Vec_80058848 *, u8 *, s32);
 s32 TBoss6PlotFalz__sub_802AC008(f32, f32);
 s32 rand();
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
-s32 vec3_add_to(void *, void *);
 s32 matrix_mult_vec(int, void *, void *);
-f32 vector_length(void *);
 s32 set_matrix_identity(int);
 s32 rotate_matrix_y(int, int);
-s32 subtract_vector(void *, void *);
-s32 normalize_vector(void *);
 s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
@@ -568,23 +524,17 @@ s32 draw_model_motion(int, int, f32);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
 
-extern const f64 TBoss4Type2__data_80437750;
-extern const f32 TBoss4Type2__data_805D8BAC;
-extern const f32 TBoss4Type2__data_805D8BD8;
 extern const f32 TBoss4Type3__data_805D8C34;
-extern const f32 TBoss4Type3__data_805D8C40;
 extern void* __vt__13TObjBs4CutAtk[];
 
 extern RecoveredGlobal_80059450_lbl_80437854 lbl_80437854;
 extern RecoveredGlobal_80059450_lbl_80437860 lbl_80437860;
 extern RecoveredGlobal_80059450_lbl_8043786C lbl_8043786C;
 extern RecoveredGlobal_80059450_lbl_80437878 boss4_type3_follow_camera_offsets;
-extern const f64 lbl_80437890[];
 
 extern s32 lbl_805D4D80;
 extern u8 lbl_805D4D84;
 extern s32 local_client_id;
-extern s32 game_difficulty_selection;
 
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
@@ -592,9 +542,6 @@ void init_model_node_tables(void *, void *, int);
 s32 TObjFish__sub_800E3124(void *, void *, f32);
 void bind_enemy_combat_stats(void *, int, int, int);
 s32 init_collision_body_parts(void *, void *, int);
-extern const f32 lbl_805D8BA4;
-extern const f32 lbl_805D8BA8;
-extern const f32 lbl_805D8BD0;
 extern const f32 lbl_805D8C38;
 extern const f32 lbl_805D8C3C;
 extern const f32 lbl_805D8C44;
@@ -606,9 +553,7 @@ extern const f32 lbl_805D8C58;
 extern const f32 lbl_805D8C5C;
 extern const f32 lbl_805D8C60;
 extern const f32 lbl_805D8C64;
-extern const f32 lbl_805D8C68;
 extern const f32 lbl_805D8C6C;
-extern const f32 lbl_805D8C7C;
 extern const f32 lbl_805D8C80;
 extern const f32 lbl_805D8C84;
 extern const f32 lbl_805D8C88;
@@ -621,9 +566,6 @@ extern const f32 lbl_805D8CA0;
 extern s32 model_render_flags;
 extern s32 tl_04;
 
-}
-
-extern "C" {
 extern "C" {
 void TBoss4Bishi__sub_8005BABC();
 }
@@ -1708,10 +1650,6 @@ void update_radar_markers__11TBoss4Type3FPv(u8 *arg0) {
     (*(s32 *)((s8 *)arg0 + 0x3C0))++;
 }
 
-}
-
-extern "C" {
-
 void TBoss4Type3::calc_grid_index() {
     *(s32 *)&this->m_3ac = (s32) (((u32) -(this->m_60 + 0x800) >> 0xCU) & 0xF);
     *(s32 *)&this->m_3a8 = (s32) (((u32) -(this->m_60 + 0x800) >> 0xCU) & 0xF);
@@ -1790,10 +1728,6 @@ void TBoss4Type3::interp_position_between_nodes() {
     vec3_add_to(arg0 + 0x38, &pts[0]);
 }
 #pragma pop
-
-}
-
-extern "C" {
 
 void TBoss4Type3::spawn_random_effect() {
     s32 arg0 = (s32)this;
@@ -1888,10 +1822,6 @@ void update_scale_sound__11TBoss4Type3FPv(u8 *arg0) {
     }
 }
 #pragma pop
-
-}
-
-extern "C" {
 
 void copy_positions_to_parts__11TBoss4Type3FPv(Obj_8005A1AC *arg0) {
     Vec_8005A1AC *pos[8] = {
@@ -2092,7 +2022,7 @@ void TBoss4Type3__sub_8005A86C(void* p) { ((TBoss4Type3 *)p)->draw(); }
 }
 #undef TBoss4Type3__anim_state_table
 
-extern "C" { extern const f32 lbl_805D8CAC; }
+ extern const f32 lbl_805D8CAC;
 namespace Type3Tick {
 extern "C" {
 s32 TBoss4Type3__sub_8005254C(u16);
@@ -2286,8 +2216,6 @@ void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
 void draw_trail_with_colors(s32, s32, s32, s32, s32);
 s32 init_trail_buffer__11TBoss4Type3FPvifff(void *, s32, f32, f32, f32);
-
-extern const f32 lbl_805D8CAC;
 
 Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 parent, s32 *arg2) {
     s32 i;

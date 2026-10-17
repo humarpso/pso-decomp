@@ -33,29 +33,18 @@ struct Pair_802A4AEC { s32 a; f32 b; };
 
 extern "C" {
 int queue_destruction__7TObjectFv(void*);
-}
-
-extern "C" {
-
 void *__dt__20TObjEneMe1Gee_NEEDLEFv(void *arg0, s16 arg1);
 s32 play_sound_effect(int, void *, int, int);
 void __dl__7TObjectFPv(void *);
 void __dt__12TNeedleShootFv(void *, int);
-int queue_destruction__7TObjectFv(void*);
 
 void*TNeedleShoot::get_shoot_data() { return (char*)this + 0x28; }
 
-#include "types.h"
 extern "C" {
 
 }
 
-#include "types.h"
-#include "pso/misc/TNeedleShoot.h"
 #include "pso/misc/TOKeyMachine01.h"
-extern "C" {
-int queue_destruction__7TObjectFv(void*);
-}
 
 extern "C" {
 

@@ -50,26 +50,17 @@ extern Spawn_8018CFD4 container_jung_ex_spawn_params_a;
 extern Spawn_8018CFD4 container_jung_ex_spawn_params_b;
 extern void *tl_05;
 void TObjContainerJungEx__vt77(const Obj_8018CFD4 *self);
-}
-
-extern "C" {
-
 void *__dt__19TObjContainerJungExFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(s32, f32, f32, f32);
 s32 draw_ginja_object();
-s32 TObjContainerJungEx__sub_8018D900(s32);
-s32 get_model__19TObjContainerJungExFl(s32);
 s32 free_collision_body_parts(void *);
 s32 submit_cursor_candidate(void *, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 __dl__7TObjectFPv(void *);
-void *__nw__7TObjectFUl(int);
 s32 set_global_param__8TObjFishFl();
-
-extern void *tl_05;
 
 void *TObjContainerJungEx::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x368);
@@ -179,8 +170,6 @@ void TObjContainerJungEx::vfunc_80() {
         return;
     }
 }
-
-extern s32 __vt__19TObjContainerJungEx[];
 
 void *__dt__19TObjContainerJungExFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

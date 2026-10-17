@@ -28,29 +28,18 @@ extern u8 chr_select_rng_state[];
 extern s32 chr_select_serial_seeds[];
 void TAdSinglePlyChrSelectGC__sub_801FBC3C(void *arg0);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, char *);
-void TAdSinglePlyChrSelectGC__sub_801FBC3C(void *arg0);
 s32 load_system_file__23TAdSinglePlyChrSelectGCFiPv(s32, s32 *);
 s32 TAdSinglePlyChrSelectGC__sub_80201204(void *, s32);
 char *strncpy(char *, const char *, u32);
 void *memcpy(void *, const void *, u32);
 extern char lbl_804C8954[];
-extern s32 chr_select_serial_seeds[];
 extern s32 lbl_805D49B4;
-s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, char *);
 void poll_load_status__15TAdPlayerLoadGCFl(s32, void *);
 extern char lbl_804C88C0[];
 void TAdSinglePlyChrSelectGC__sub_801FBB1C(void);
-s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, char *);
-void poll_load_status__15TAdPlayerLoadGCFl(s32, void *);
 extern char lbl_804C89BC[];
 void TAdSinglePlyChrSelectGC__sub_801FBB7C(void);
-s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, char *);
-void poll_load_status__15TAdPlayerLoadGCFl(s32, void *);
 extern char pso_system_card_filename[];
-}
-
-extern "C" {
-
 int TWindowKeyBoardHard::is_card_flag_set() { return TWindowKeyBoardHard::test_card_flag((s32)this, (s32)1); }
 void draw_ginja_box_tree(u8 *arg0) {
     s32 temp_r31;

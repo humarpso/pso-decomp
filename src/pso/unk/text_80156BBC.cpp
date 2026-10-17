@@ -13,14 +13,10 @@ struct Laser_80156CA0 {
 extern "C" {
 s32 fn_80156C88(f32 *arg0);
 f32 xz_distance_squared(void *, void *);
-s32 fn_80156C88(f32 *arg0);
 extern u8 *camera_ctrl_instance;
 s32 fn_80156BBC(O_80156BBC *arg0, void *arg1);
 s32 fn_80156C38(f32 *arg0);
 void step_laser_fence_fade(struct Laser_80156CA0 *p);
-}
-
-extern "C" {
 
 s32 fn_80156BBC(O_80156BBC *arg0, void *pos) {
     if (TRaderMapCore::is_not_split_screen() == 1) {

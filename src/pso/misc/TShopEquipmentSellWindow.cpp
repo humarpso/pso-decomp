@@ -161,47 +161,22 @@ void *create_cost_window(u16);
 void get_item_count__24TShopEquipmentSellWindowFv(void *, s32);
 extern const f32 lbl_805DC6D8;
 s32 get_item_type_or_default__9TItemListFv(void *);
-u32 set_mode_and_refresh_object__10TObjPlayerFPvi(void *, void *);
-void *get_owner_if_alive__10TObjPlayerFv(u32);
-s32 get_shop_text(s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
 int sub_802239EC__13TShopSequenceFv(void *);
 int sub_80223A48__15TShopWindowBaseFv(void *);
 s32 play_sound_effect(s32, s32, s32, s32);
-void *__nw__7TObjectFUl(u32);
-void TWindowHelpItem__set_displayed_item_by_id(void *arg0, s32 arg1);
 void *__ct__18TWindowInputNumberFPvllls(void *, s32, s32, s32, s32, s16);
 s32 align_menu_entry_positions(u32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, s32, s32);
 u32 create_window_menu(s32, s32, u16);
-s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
-s32 get_window_layout_position(s32);
-void get_item_count__24TShopEquipmentSellWindowFv(void *, s32);
-s32 obj_getField1c(s32);
-extern const f32 lbl_805DC6D8;
 void TWindow__close(void *);
 s32 get_selected_menu_value(void *);
-s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
-}
-
-extern "C" {
-
 void *TShopEquipmentSellWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void *__dt__24TShopEquipmentSellWindowFv(void *arg0, s16 arg1);
-u32 create_window_menu(s32, s32, u16);
-s32 get_shop_text(s32);
-int sub_802239EC__13TShopSequenceFv(void *);
-int sub_80223A48__15TShopWindowBaseFv(void *);
-s32 align_menu_entry_positions(u32);
-s32 get_window_layout_position(s32);
-void TWindow__close(void *);
 void __ct__15TShopWindowBaseFv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__15TShopWindowBaseFv(void *, int);
-s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, s32, s32);
-f32 get_scale__15TShopWindowBaseFv(void *);
 void memset(void *, int, int);
-s32 obj_getField1c(s32);
 
 void TShopEquipmentSellWindow::vfunc_7() {
     struct VObj_8021C870 *o = (struct VObj_8021C870 *)*(void **)((s8 *)this + 0x388);
@@ -504,7 +479,6 @@ void *__dt__24TShopEquipmentSellWindowFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__24TShopEquipmentSellWindow[];
 extern void *TShopEquipmentSellWindow__class_name;
 
 void *TShopEquipmentSellWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {

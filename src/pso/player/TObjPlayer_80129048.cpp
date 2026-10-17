@@ -34,8 +34,6 @@ void TObjPlayer::clear_rico_ring_flag() {
     }
 }
 
-#include "types.h"
-
 extern "C" {
 
 s32 TObjPlayer__sub_801290D0(u8 *arg0) {
@@ -46,9 +44,6 @@ s32 TObjPlayer__sub_801290D0(u8 *arg0) {
 }
 
 }
-
-#include "types.h"
-#include "pso/player/TObjPlayer.h"
 
 void TItemShootModel::sub_80129118(s32 arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;

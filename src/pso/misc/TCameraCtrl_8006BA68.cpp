@@ -38,10 +38,6 @@ E_8006BAB4 *TCameraCtrl__sub_8006BAB4(O_8006BAB4 *self, s32 i);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern Pad_8006BB1C controller_input_state;
-}
-
-extern "C" {
-
 void* TCameraCtrl__sub_8006BA68(void* a0);
 unsigned char TCameraCtrl__sub_8006BADC(void);
 void *TCameraCtrl__vt4(void);
@@ -121,10 +117,8 @@ void *__dt__13TUnk_80488B38Fv(void *arg0, s16 arg1) {
 
 #include "pso/misc/CameraHelpers.h"
 #include <stddef.h>
-#include "types.h"
 
 #include <stddef.h>
-#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TOKeyMachine01.h"
 struct Stack_8006C03C {
     s32 sp8;
@@ -192,9 +186,6 @@ extern void *camera_ctrl_instance;
 extern void* camera_controller_registry[];
 extern RecoveredGlobal_8006C140_lbl_80488C50 camera_path_bank_table;
 extern RecoveredGlobal_8006C140_TCameraCtrl__data_804FF7C0 TCameraCtrl__camera_banks;
-}
-
-extern "C" {
 void* camera_controller_registry[];
 }
 
@@ -222,27 +213,16 @@ extern const f32 lbl_805D9020;
 
 void VecCopy__FP3VecPC3Vec(Vec*, const Vec*);
 u16 TCameraCtrl__sub_8006A5DC();
-}
-
-extern "C" {
 f32 fabs_float(f32);
 extern const f32 lbl_805D901C;
-f32 fabs_float(f32);
 extern const f32 lbl_805D9018;
 s32 approach_camera_scalar(f32 *arg0, f32 *arg1, f32 farg0);
 f32 atan2_float(f64, f64);
 f32 newton_sqrtf(f32);
 extern const f64 lbl_804383D0;
-void direction_to_pitch_yaw(u8 *arg0, s32 *arg1, s32 *arg2);
-}
-
-extern "C" {
-
 void *TCameraCtrl__vt5(void);
-int __ct__13TUnk_80488A28Fv(void);
 s32 angle_difference_abs(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
-void *__nw__7TObjectFUl(int);
 
 void*TUnk_80488B38::init_defaults() { __ct__13TUnk_80488A28Fv(); *(int*)((char*)this + 0x18) = (int)lbl_80488B38; *(float *)&this->unk_6C = 10.0f; *(int *)&this->m_38 = 0; return this; }
 
@@ -324,7 +304,6 @@ void set_scripted_camera_pose(const Vec* position, const Vec* target, const Came
     }
 }
 
-extern void *camera_ctrl_instance;
 extern s32 TCameraCtrl__saved_projection_angle;
 extern s32 scripted_camera_projection_angle;
 

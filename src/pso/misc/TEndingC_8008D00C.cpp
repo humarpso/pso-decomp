@@ -30,8 +30,6 @@ typedef char TEndingC_render_geometry_offset[offsetof(TEndingC, render_geometry)
 typedef char TEndingC_timing_rate_offset[offsetof(TEndingC, timing_rate) == 0x90 ? 1 : -1];
 typedef char TEndingC_fade_in_ticks_offset[offsetof(TEndingC, fade_in_ticks) == 0x94 ? 1 : -1];
 typedef char TEndingC_fade_out_ticks_offset[offsetof(TEndingC, fade_out_ticks) == 0x98 ? 1 : -1];
-#include "types.h"
-#include "pso/enemy/TObjEneBalClaw.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
@@ -57,13 +55,7 @@ s32 TEndingC__sub_8008C6F4();
 void TEndingAB__sub_8008D5A0(void);
 void TEndingPic__sub_8008D5AC(void);
 int TEnding__sub_8008D5B8(void);
-extern const f32 lbl_805D95CC;
 extern const f32 lbl_805D95D0;
-extern const f32 lbl_805D95D4;
-}
-
-extern "C" {
-
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 begin_screen_draw(s32);
 s32 set_draw_texture_and_color(s32, s32, f32);
@@ -287,10 +279,6 @@ u8 *__ct__8TEndingCFv(u8 *arg0, u8 *arg1) {
     return arg0;
 }
 
-}
-
-extern "C" {
-
 void release_lobby__8TEndingCFv(void);
 void TLobby__sub_803DA16C(void*);
 
@@ -303,21 +291,14 @@ void release_lobby__8TEndingCFv(void) {
     }
 }
 
-}
-
-extern "C" {
     int bind_gvm_texture_list(void*, void*);
     extern unsigned char lbl_804398EC[];
 void register_texture_ed_512kabe_c(void) { TEndingC__wall_texture_list = (int)TEndingC__wall_texture_list_entry; bind_gvm_texture_list(lbl_804398EC, TEndingC__wall_texture_list_entry); }
-}
 
 #define CAT2(a, b) a##b
 #define CAT(a, b) CAT2(a, b)
 #define PADV virtual void CAT(pv, __LINE__)();
 #define PADV4 virtual void CAT(pa, __LINE__)(); virtual void CAT(pb, __LINE__)(); virtual void CAT(pc, __LINE__)(); virtual void CAT(pd, __LINE__)();
-
-extern "C" {
-
 s32 update_movement_status__10TObjPlayerFv();
 s32 update_action_hold_status__10TObjPlayerFv();
 

@@ -12,10 +12,6 @@ s32 GXSetCopyClear(GXColor_8029F5F8, s32);
 s32 GXCopyTex(s32, s32);
 s32 GXSetZMode(s32, s32, s32);
 extern GXColor_8029F5F8 lbl_805E1220;
-}
-
-extern "C" {
-
 void TScene__sub_8029F5D8(void);
 void TScene__sub_8029F5EC(void);
 void fn_8029F5B0(s32 a0, s32 a1, s32 a2, s32 a3);
@@ -27,8 +23,6 @@ void fn_8029F5B0(s32 a0, s32 a1, s32 a2, s32 a3) {
 
     extern int TScene__data_805D5FE0;
 void TScene__sub_8029F5D8(void) { TScene__data_805D5FE0 = 0; }
-
-    extern int TScene__data_805D5FE0;
 
 void TScene__sub_8029F5E4(f32 farg0) {
     TScene__visibility_radius_margin = farg0;

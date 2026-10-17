@@ -100,20 +100,11 @@ s32 memset(void *, int, int);
 extern RecoveredGlobal_8022559C_lbl_80513F50 shop_weapon_stock_generated_flags;
 void clear_shop_weapon_flags(void);
 int is_flag_set__6TLobbyFPv(void* p);
-extern unsigned char lbl_80513F70[];
-int is_flag_set__6TLobbyFPv(void* p);
 void TLobby__sub_80225C8C(void* p);
-extern unsigned char lbl_80513F70[];
 extern G_80225550 shop_weapon_stock_buffers;
 void get_shop_weapon_stock_item(C14_80225550 *dst, s32 idx, s32 tbl);
-extern G_80225550 shop_weapon_stock_buffers;
 int get_short_mail_ctrl__6TLobbyFv(void);
-void *TLobby__sub_8022598C(int a0);
 s32 get_lobby_id__6TLobbyFPv(void* p);
-extern unsigned char lbl_80513F70[];
-extern int lobby_short_mail_entry_count;
-extern unsigned char lbl_80513F70[];
-extern s32 lbl_805D6270;
 extern int lobby_short_mail_entry_count;
 void clear_lobby_flag__6TLobbyFv(void);
 s32 is_split_screen(void);
@@ -121,85 +112,38 @@ s32 create_named_object(void *);
 s32 mem_alloc(s32);
 extern u32 lobby_tool_random_rel;
 s32 mem_free(u32);
-extern G_80225550 shop_weapon_stock_buffers;
 extern u32 lobby_weapon_random_tables_ptr;
 void* get_com_card_list__6TLobbyFPv(void* p);
-s32 strncpy(void *, void *, int);
 s32 memcmp(const void *, const void *, u32);
 extern Cnt_80224B7C shop_weapon_stock_counts[];
-extern G_80225550 shop_weapon_stock_buffers;
 s32 is_duplicate_shop_weapon(C14_80224B7C *item, s32 tbl);
 s8 roll_weapon_special_channel15(s32);
 void shuffle_shop_pool_n_times(void *, s32);
 void push_shop_pool_entry(void *, u8);
 s32 TLobby__sub_80224840(s32 arg0);
-extern u32 lobby_weapon_random_tables_ptr;
 extern int shop_weapon_stock_level;
 void roll_shop_weapon_special(Obj_80224F7C *obj);
-s32 is_split_screen(void);
-s32 create_named_object(void *);
-s32 mem_alloc(s32);
 extern char lbl_8044C7C0[];
 extern char lbl_8044C7D8[];
 extern char lbl_8044C7F0[];
 extern char lbl_8044C80C[];
-extern G_80225550 shop_weapon_stock_buffers;
 extern s32 shop_difficulty_tier;
-extern u32 lobby_weapon_random_tables_ptr;
-extern int shop_weapon_stock_level;
 void load_weapon_random_tables(void);
 u8 get_entry_field16__9TItemDataFv(void *);
 s32 rand();
 extern s32 section_id_favored_grind_table[];
 extern s32 lbl_805D6238;
-extern u32 lobby_weapon_random_tables_ptr;
-extern int shop_weapon_stock_level;
 void roll_shop_weapon_grind(Item_80225064 *it);
-void shuffle_shop_pool_n_times(void *, s32);
-void push_shop_pool_entry(void *, u8);
-s32 rand();
-extern u32 lobby_weapon_random_tables_ptr;
-extern int shop_weapon_stock_level;
 extern s32 shop_weapon_bonus_table[];
 void roll_shop_weapon_second_bonus(Obj_80224C68 *obj);
-void shuffle_shop_pool_n_times(void *, s32);
-void push_shop_pool_entry(void *, u8);
-s32 rand();
-extern u32 lobby_weapon_random_tables_ptr;
-extern int shop_weapon_stock_level;
-extern s32 shop_weapon_bonus_table[];
 void roll_shop_weapon_first_bonus(Obj_80224DF0 *obj);
 void sort_shop_items(s32, s32, s32);
-extern u32 lobby_tool_random_rel;
 void init__9TItemDataFv(void *);
-void shuffle_shop_pool_n_times(void *, s32);
-void push_shop_pool_entry(void *, u8);
-void sort_shop_items(s32, s32, s32);
-s32 is_duplicate_shop_weapon(C14_80224B7C *item, s32 tbl);
-void roll_shop_weapon_second_bonus(Obj_80224C68 *obj);
-void roll_shop_weapon_first_bonus(Obj_80224DF0 *obj);
-void roll_shop_weapon_special(Obj_80224F7C *obj);
-void roll_shop_weapon_grind(Item_80225064 *it);
 extern Pair_8022525C shop_weapon_group_subtype_table[];
 extern Pair_8022525C shop_section_id_weapon_table_a[];
 extern Pair_8022525C shop_section_id_weapon_table_b[];
-extern s32 lbl_805D6238;
-extern u32 lobby_weapon_random_tables_ptr;
-extern int shop_weapon_stock_level;
 void generate_shop_weapon_stock(s32 tbl);
-}
-
-extern "C" {
-
-s32 TLobby__sub_80224840(s32 arg0);
 void TLobby__sub_80225238(int a0, int a1);
-void TLobby__sub_80225C8C(void* p);
-void clear_lobby_flag__6TLobbyFv(void);
-void* get_com_card_list__6TLobbyFPv(void* p);
-s32 get_lobby_id__6TLobbyFPv(void* p);
-int get_short_mail_ctrl__6TLobbyFv(void);
-int is_flag_set__6TLobbyFPv(void* p);
-s32 mem_free(u32);
 
 u32 lobby_weapon_random_tables_ptr;
 int shop_weapon_stock_level;
@@ -328,8 +272,6 @@ s32 TLobby::classify_level_bracket_narrow(s32 arg0) {
     return -1;
 }
 
-extern s32 shop_difficulty_tier;
-
 s32 TLobby::get_level_tier(s32 arg0) {
     if ((s32) shop_difficulty_tier != 3) {
         if ((arg0 >= 1) && (arg0 <= 0xA)) {
@@ -394,8 +336,6 @@ s32 TLobby::level_to_reward(s32 arg0) {
     }
     return 0;
 }
-
-    extern int shop_weapon_stock_level;
 
 #pragma push
 #pragma optimization_level 1

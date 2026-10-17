@@ -14,9 +14,6 @@ extern RecoveredGlobal_8012B524_lbl_804A4D70 partisan_weapon_vtable;
 extern const f32 lbl_805DAE88;
 extern const f32 lbl_805DAEA4;
 u8 *TItemWeaponPartisan__ct(u8 *arg0, u8 *arg1, s32 _w2);
-}
-
-extern "C" {
 
 u8 *TItemWeaponPartisan__ct(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);

@@ -27,9 +27,6 @@ typedef void (TBoss6GravBall::*Act0_80323BBC)();
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv(void *);
 s32 query_teammate_state__9TObjEneDDFv(void);
-}
-
-extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 create_emitter__14TBoss6GravBallFl(void *, int);
 void TBoss6GravBall__sub_80323320(void *);
@@ -45,30 +42,19 @@ s32 get_state__14TBoss6GravBallFv(int);
 s32 fn_80323134(void *);
 s32 destroy_part__14TBoss6GravBallFl(void *, int);
 s32 TBoss6GravBall__sub_80323214(void *, int);
-s32 create_emitter__14TBoss6GravBallFl(void *, int);
 s32 TBoss6GravBall__sub_80323544(void *);
 s32 TBoss6GravBall__sub_803236F8(void *);
 s32 clamp_to_ground__14TBoss6GravBallFv();
 extern const f32 lbl_805DF568;
 extern const f32 lbl_805DF578;
 void update_state__14TBoss6GravBallFPv(u8 *arg0);
-}
-
-extern "C" {
-
 void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1);
 void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0);
-s32 play_sound_effect(int, void *, int, int);
-s32 destroy_part__14TBoss6GravBallFl(void *, int);
-s32 create_emitter__14TBoss6GravBallFl(void *, int);
 void clear_player_grav_flags__14TBoss6GravBallFv(void *);
 s32 TBoss6GravBall__sub_803233AC();
-s32 play_persistent_sound(int, void *, void *, int, int);
 s32 spawn_particle_effect(void *, int);
 void __dl__7TObjectFPv(void *);
-s32 get_state__14TBoss6GravBallFv(int);
 void init_parts__14TBoss6GravBallFv(void *);
-s32 queue_destruction__7TObjectFv(void *);
 
 void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0) {
     s32 temp_r0;
@@ -134,8 +120,6 @@ void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0) {
         return;
     }
 }
-
-extern s32 __vt__14TBoss6GravBall[];
 
 void update_state__14TBoss6GravBallFPv(u8 *arg0) {
     f32 temp_f2;

@@ -34,15 +34,10 @@ s32 alloc__23TAdSinglePlyChrSelectGCFv(int, f32, f32);
 s32 TWindowMessage__ct(void *, void *, int, void *);
 s32 TWindowCtrl__sub_8026AD78(void *);
 s32 reset_selection__20TWindowSubStatusDispFv(int, void *);
-extern RecoveredGlobal_8026AB3C___vt__17TWindowMessageLog __vt__17TWindowMessageLog;
 extern s32 lbl_805D3990;
 extern const f32 lbl_805DD240;
 extern const f32 lbl_805DD258;
 u8 *TWindowMessageLog__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void TWindowMessageLog::render() {
     s32 temp_r3;
     temp_r3 = get_draw_context__11TWindowBaseFPv();

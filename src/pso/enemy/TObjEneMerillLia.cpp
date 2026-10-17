@@ -11,7 +11,6 @@ struct Obj_800D5614 { u8 pad0[0x38]; u8 pos[0xC]; u8 pad44[0x2A8 - 0x44]; void *
 struct Pl_800D5614 { u8 pad0[0x38]; u8 pos[0xC]; };
 
 #include <stddef.h>
-#include "pso/enemy/TObjEneMerillLia.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEneBeast.h"
@@ -19,7 +18,6 @@ struct Pl_800D5614 { u8 pad0[0x38]; u8 pos[0xC]; };
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
-#include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 struct Stack_800D5060 {
@@ -442,20 +440,10 @@ f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 play_sound_effect(void *, void *, int, int);
 void TObjEneMerillLia__sub_800D4EC8(s32 arg0);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 play_sound_effect(void *, void *, int, int);
 void vfunc_99__16TObjEneMerillLiaFv(s32 arg0);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 play_sound_effect(void *, void *, int, int);
 void vfunc_98__16TObjEneMerillLiaFv(s32 arg0);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 play_sound_effect(void *, void *, int, int);
 void vfunc_97__16TObjEneMerillLiaFv(s32 arg0);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 play_sound_effect(void *, void *, int, int);
 void vfunc_96__16TObjEneMerillLiaFv(s32 arg0);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 play_sound_effect(void *, void *, int, int);
 void TObjEneMerillLia__sub_800D501C(s32 arg0);
 s32 TObjPlayer__sub_800D92BC(void *, int);
 f32 vec3_add_to(void *, void *);
@@ -469,7 +457,6 @@ extern const f32 lbl_805DA304;
 extern const f32 TObjEneMerillLia__data_805DA308;
 void vfunc_94__16TObjEneMerillLiaFv(u8 *arg0);
 extern const f32 lbl_805DA2EC;
-extern const f32 TObjEneMerillLia__data_805DA300;
 extern const f32 lbl_805DA334;
 extern const f32 lbl_805DA338;
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
@@ -482,16 +469,12 @@ void run_state_dispatch__16TObjEneMerillLiaFPv(u8 *arg0);
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
-s32 rotate_matrix_y(int, int);
 s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
-s32 pop_matrix();
 f32 post_translate_matrix(void *);
 s32 draw_chunk_object(int);
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-extern const f32 TObjEneMerillLia__data_805DA2F4;
-extern const f32 TObjEneMerillLia__data_805DA300;
 extern const f32 lbl_805DA314;
 extern const f32 lbl_805DA324;
 extern const f32 lbl_805DA328;
@@ -504,41 +487,17 @@ s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 advance_animation_playback(void *);
 s32 obj_testFlags30(void *, int);
 s32 obj_clearFlags30(void *, s32);
-s32 clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
 void vfunc_59__16TObjEneMerillLiaFv(Ene_800D51C8 *arg0);
 s16 find_nearest_visible_player(void *, s32, f32);
-s32 obj_clearFlags30(void *, s32);
 s32 obj_setFlags30(void *, s32);
-void TObjEneMerillLia__sub_800D501C(s32 arg0);
 s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback(void *);
-s32 clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
 s32 set_indexed_flags(void *, s32, s32);
-extern const f32 lbl_805DA304;
 void vfunc_83__16TObjEneMerillLiaFv(Ene_800D64F0 *arg0);
-f32 calc_boss4_scale__10TObjPlayerFi(void *);
-s32 obj_clearFlags30(void *, s32);
-s32 obj_setFlags30(void *, s32);
-s32 clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
-extern const f32 TObjEneMerillLia__data_805DA308;
 void vfunc_60__16TObjEneMerillLiaFv(Ene_800D52DC *arg0);
-f32 calc_boss4_scale__10TObjPlayerFi(void *);
-s32 obj_clearFlags30(void *, s32);
-s32 obj_setFlags30(void *, s32);
-void TObjEneMerillLia__sub_800D4EC8(s32 arg0);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback(void *);
-s32 clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
-s32 set_indexed_flags(void *, s32, s32);
 s32 minimap_render_dot(void *, int, int, int);
 s32 create__9TTecKafunFlllllff(void *, void *, int, int, int, f32, f32);
 s32 matrix_mult_vec(int, void *, void *);
-s32 rotate_matrix_y(int, int);
-s32 push_matrix_from(void *);
-s32 pop_matrix();
-f32 post_translate_matrix(void *);
 extern Vec_800D57C8 lbl_8043C6D0;
-extern RecoveredGlobal_800D5060_lbl_8058D490 identity_matrix;
 extern u32 TObjEneMerillLia__rock_param_table;
 extern s32 anim_model_matrix_array;
 extern const f32 lbl_805DA30C;
@@ -546,79 +505,40 @@ extern const f32 lbl_805DA310;
 s32 apply_actor_gravity(void *, int, f32);
 s32 enemy_move_toward(void *, s32, void *, int, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 obj_clearFlags30(void *, s32);
 s32 TObjPlayer__sub_800C4E08(void *);
 s32 update_target_near_flag(void *);
 f32 horizontal_distance_squared(void *, void *);
-s32 advance_animation_playback(void *);
 s32 test_elt_flag__13TUnk_80493450Fll(void *, int, int);
-s32 minimap_render_dot(void *, int, int, int);
-extern const f32 TObjEneMerillLia__data_805DA300;
 extern const f32 lbl_805DA31C;
 extern const f32 lbl_805DA320;
 void beast_update_approach__16TObjEneMerillLiaFv(u8 *arg0);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void attach_particle_model(void *, s32, s32, s32, s32, f32);
 u8 * csnVectorUnder(s32, void *, s32);
 s32 spawn_particle_effect(s32, s32);
 void fn_800D88E4(s32);
-s32 objInBand__FP7GameObjf(void *, f32);
 s32 rand(void);
 extern s32 actor_frame_tick;
-extern const f32 lbl_805DA2EC;
 extern const f32 lbl_805DA2F0;
-extern const f32 TObjEneMerillLia__data_805DA2F4;
 extern const f32 lbl_805DA2F8;
 extern const f32 lbl_805DA2FC;
 void spawn_ground_effect__16TObjEneMerillLiaFPv(u8 *arg0);
-s16 find_nearest_visible_player(void *, s32, f32);
 f32 enemy_backstep_from_point(void *, void *, f32);
-s32 obj_clearFlags30(void *, s32);
-s32 get_current_floor();
 u32 csnVector(void *, void *, s32);
-void spawn_ground_effect__16TObjEneMerillLiaFPv(u8 *arg0);
-f32 xz_distance_squared(void *, void *);
-s32 advance_animation_playback(void *);
-s32 clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
-Pl_800D5614 *get_player_by_client_id(s32);
-s32 minimap_render_dot(void *, int, int, int);
 f32 normalize_vector(void *);
-extern const f32 TObjEneMerillLia__data_805DA300;
-extern const f32 lbl_805DA314;
 extern const f32 lbl_805DA318;
 void beast_update_group_chase__16TObjEneMerillLiaFv(Obj_800D6110 *arg0);
-s32 apply_actor_gravity(void *, int, f32);
 void enemy_wander_home(void *, s32, f32, f32, f32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 obj_testFlags30(void *, int);
-s32 obj_clearFlags30(void *, s32);
 f32 fabs_float(f32);
 f64 atan2_float(f32, f32);
-s32 TObjPlayer__sub_800C4E08(void *);
-s32 update_target_near_flag(void *);
 void link_chain_nodes__10TObjPlayerFPvPvPv(void *, void *, void *);
-f32 horizontal_distance_squared(void *, void *);
 s32 approach_angle_limited(s32, s32, s32);
-s32 advance_animation_playback(void *);
-s32 clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
 s32 project_actor_to_ground(void *, void *, s32);
-s32 minimap_render_dot(void *, int, int, int);
-f32 vec3_add_to(void *, void *);
-s32 rotate_vector_by_matrix(int, void *, void *);
-s32 rotate_matrix_y(int, int);
 s32 subtract_vector(void *, void *);
-s32 push_matrix_from(void *);
 s32 pop_matrices(int);
 extern const f64 lbl_8043C6E8[];
 extern Vec_800D5BCC lbl_8050BEE0;
 extern Vec_800D5BCC lbl_8050BF00;
-extern RecoveredGlobal_800D5060_lbl_8058D490 identity_matrix;
-extern const f32 TObjEneMerillLia__data_805DA300;
 void TObjEneMerillLia__sub_800D5BCC(u8 *arg0);
-}
-
-extern "C" {
-
 void * TObjEneMerillLia__create(void *arg0);
 void vfunc_101__16TObjEneMerillLiaFv(void);
 void vfunc_93__16TObjEneMerillLiaFv(void);
@@ -632,11 +552,7 @@ void __dt__13TUnk_80493450Fv(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__13TUnk_80494938Fv(void *, int);
 void *__nw__7TObjectFUl(int);
-s32 clear_player_status_flag__10TObjPlayerFlUl(void *, s32, s32);
 void mem_free(void*);
-s32 obj_clearFlags30(void *, s32);
-s32 obj_setFlags30(void *, s32);
-s32 set_indexed_flags(void *, s32, s32);
 
 extern "C" void TLobby__sub_801A1FD8();
 extern "C" void TObjEneMerillLia__sub_800D59E4();
@@ -1707,8 +1623,6 @@ void * TObjEneMerillLia__create(void *arg0) {
 extern u32 TObjEneMerillLia__rock_stats_table;
 extern u32 merill_lia_rock_buffer;
 extern u32 merill_lia_rock_aux_buffer;
-extern u32 TObjEneMerillLia__rock_param_table;
-extern u32 TObjEneMerillLia__entry_params_resource;
 
 void TObjEneMerillLia::destroy_rocks() {
     if ((u32) TObjEneMerillLia__rock_stats_table != 0U) {
@@ -1748,21 +1662,11 @@ void *__dt__16TObjEneMerillLiaFPvs(void *arg0, s16 arg1) {
 }
 struct O_800D7274;
 struct Obj_800D5150;
-f32 calc_boss4_scale__10TObjPlayerFi(void *);
-s32 obj_setFlags30(void *, s32);
-s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 init_enemy_base__13TUnk_80493450Fv(void *, s32);
 s32 bind_enemy_combat_stats(void *, int, int, int);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
 s32 init_collision_body_parts(void *, void *, int);
 extern s32 lbl_805D2A88;
-extern u32 TObjEneMerillLia__rock_stats_table;
-extern u32 merill_lia_rock_buffer;
-extern u32 merill_lia_rock_aux_buffer;
-extern u32 TObjEneMerillLia__rock_param_table;
-extern u32 TObjEneMerillLia__entry_params_resource;
-extern const f32 TObjEneMerillLia__data_805DA300;
-extern const f32 lbl_805DA338;
 extern const f32 lbl_805DA340;
 extern const f32 lbl_805DA344;
 #define arg0 ((u8 *)arg0v)

@@ -41,7 +41,6 @@ s32 TObjFish__sub_8001EDB0(s32, int);
 s32 draw_model_motion(int, int, f32);
 s32 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, void *, f32);
 s32 get_bml_model(s32, s32);
-s32 TObjFish__sub_8001EDB0(s32, int);
 u8 *get_bml_motion(s32, s32);
 extern E8_80316488 lbl_804E8760[];
 extern E14_80316488 lbl_804E8780[];
@@ -49,10 +48,6 @@ extern const f32 lbl_805DF2EC;
 void advance_animation_playback(void *);
 extern f32 TObjEneDelDepth__animation_end_frame;
 extern u8 TObjEneDelDepth__animation_end_frame_initialized;
-}
-
-extern "C" {
-
 void fn_80316680(void *arg0, s32 arg1);
 s32 __dl__FPv();
 

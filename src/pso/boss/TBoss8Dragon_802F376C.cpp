@@ -28,19 +28,7 @@ u16 obj_getField1c(void *);
 Ent_802F376C *get_enemy_entity(u16);
 extern u32 boss8_dragon_leader_part;
 extern const f32 lbl_805DED48;
-u16 obj_getField1c(void *);
-Ent_802F376C *get_enemy_entity(u16);
-extern u32 boss8_dragon_leader_part;
-extern const f32 lbl_805DED48;
 extern const f32 lbl_805DED4C;
-u16 obj_getField1c(void *);
-Ent_802F376C *get_enemy_entity(u16);
-extern u32 boss8_dragon_leader_part;
-extern const f32 lbl_805DED48;
-extern const f32 lbl_805DED4C;
-}
-
-extern "C" {
 
 s32 TBoss8Dragon::is_closest_part() {
     Vec_802F376C v;

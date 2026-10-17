@@ -19,9 +19,6 @@ void TLobby::append_swapped_u32(s32 *arg0) {
     }
 }
 
-extern u32 lbl_805D60C4;
-extern s32 lbl_805D60C8;
-
 void TLobby::append_entity_entry() {
     s32 arg0 = (s32)this;
     if ((u32) lbl_805D60C4 != 0U) {

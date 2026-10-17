@@ -4,10 +4,6 @@
 
 extern "C" {
 f32 TWindowSubEquip__sub_80263AF8(u8 *arg0, u32 arg1);
-}
-
-extern "C" {
-
 void TWindowSubEquip__sub_80263AF4(void);
 void call_if_split_screen(u32 arg0);
 s32 create_submenu__15TWindowMainMenuFUl(s32, s16);

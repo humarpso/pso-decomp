@@ -343,13 +343,6 @@ struct List_801DC34C { u8 command; u8 flags; u16 size; u32 entries[30]; };
 struct Text_801DC34C { u8 command; u8 flags; u16 size; char text[0x200]; };
 struct Proto_801DC34C { u8 pad[0x1910]; s32 connected; u8 pad1914[0x74]; u8 char_data[0x41C]; };
 
-void TItem__sub_80101CF8(void *);
-void copy_player_data__9TProtocolFPvPv(void *, void *);
-void TProtocol__sub_801DF774(void *, void *);
-void bswap_player_record_upload(void *);
-void destroy__9TProtocolFis(void *, int);
-void validate_player_visual_record(void *);
-
 void send_player_data_61__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC34C *self, u8 *char_data, void *challenge, void *choice_search_config,
                                List_801DC34C *blocked_senders, Text_801DC34C *auto_reply, char *info_board) {
     if (self->connected) {
@@ -1338,8 +1331,6 @@ extern "C" void bswap_cmd_AB__9TProtocolFPv(void *p) {
 	((packet_header *)p)->bswap();
 	bswap_16((u16 *)((char *)p + 4));
 }
-
-#include "types.h"
 
 extern "C" {
 

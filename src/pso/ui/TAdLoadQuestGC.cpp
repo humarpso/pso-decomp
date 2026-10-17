@@ -24,9 +24,6 @@ s32 create_cost_window(s32 arg0) {
     return var_r30;
 }
 
-}
-
-extern "C" {
 void queue_destruction__7TObjectFv(void *);
 TObject *TAdLoadQuestGC__sub_80309854(s32);
 TObject *TAdLoadQuestGC__sub_80309868(s32);

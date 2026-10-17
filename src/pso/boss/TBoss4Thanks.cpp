@@ -50,7 +50,6 @@ extern const f32 lbl_805E0188;
 u8 *TBoss4Thanks__ct(u8 *arg0, u8 *arg1);
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
-extern RecoveredGlobal_8035C83C___vt__12TBoss4Thanks __vt__12TBoss4Thanks;
 u8 *__dt__12TBoss4ThanksFv(u8 *arg0, s16 arg1);
 void TBoss4Thanks__sub_8035C480(s32 arg0);
 void *create_particle_emitter(void *, int);
@@ -60,7 +59,6 @@ void *get_player_data__10TObjPlayerFi(s32);
 s32 obj_getField1c(void *);
 s32 TBoss4Type3__sub_8005254C(s32);
 f32 xyz_distance(void *, void *);
-extern u8 TBoss4Thanks__data_80479B40[];
 extern const f32 lbl_805E0180;
 extern const f32 lbl_805E018C;
 extern const f32 lbl_805E0194;
@@ -69,12 +67,6 @@ void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
 void draw_model_motion(s32, s32, f32);
-extern u8 TBoss4Thanks__data_80479B40[];
-extern const f32 lbl_805E0184;
-}
-
-extern "C" {
-
 u8 fn_8035C2B4(void);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 get_story_flag(s32);
@@ -90,8 +82,6 @@ u8 TBoss4Thanks::is_door_0x97_open() {
 int TBoss4Thanks::dispatch_main_phase_153() { return dispatch_by_main_phase__14TBoss4DarkFalzFUs((void*)(153)); }
 int TBoss4Thanks::dispatch_main_phase() { return dispatch_by_main_phase__14TBoss4DarkFalzFUs((void*)(151)); }
 
-extern const f32 lbl_805E0188;
-extern const f32 lbl_805E018C;
 extern const f32 lbl_805E0190;
 
 void TBoss4Thanks::update_particle_emitters() {

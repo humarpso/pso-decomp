@@ -27,18 +27,12 @@ extern const f32 lbl_805DF098;
 extern const f32 lbl_805DF09C;
 extern const f32 lbl_805DF0A0;
 u8 *__ct__18TAdGameStartBackGCFv(u8 *arg0, u8 *arg1);
-extern const f32 lbl_805DF07C;
 extern const f32 lbl_805DF080;
-}
-
-extern "C" {
-
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 begin_screen_draw(int);
 s32 set_draw_texture_and_color(int, int);
 int get_state_flag__9TMainTaskFv(void*);
 
-extern s32 game_start_background_texture_list;
 extern const f32 lbl_805DF078;
 
 void TAdGameStartBackGC::render_background_status() {

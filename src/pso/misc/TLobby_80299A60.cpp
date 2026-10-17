@@ -24,17 +24,10 @@ s32 load_floor_sound_bank();
 extern s32 lbl_804651C0[];
 extern void *tl_05;
 s32 TLobby__sub_80299C7C(void);
-}
-
-extern "C" {
-
 s32 init_scene_delo2(void);
 s32 load_dragon2_scene(void);
 s32 TLobby__sub_801403B4(s32);
 int stop_cue_stream(void);
-s32 load_floor_sound_bank();
-s32 play_area_music(s32 *);
-s32 init_area_lights();
 u32 __nw__7TObjectFUl(s32);
 s32 create_boss8_demo_objects();
 s32 create_instance__10TSceneSoraFPv(void*, s32);
@@ -43,7 +36,6 @@ s32 fn_802F1084();
 int fn_802FE9E0(void);
 s32 fn_802FEA0C();
 s32 init_scene_boss2_tunnel();
-s32 is_split_screen();
 
 void TLobby::refresh_lobby_state() { TLobby::refresh_render_state(); TLobby::stop_audio_streams(); stop_cue_stream(); unload_current_floor_resources(); TLobby::update_current_floor(); TLobby::clear_session_buffers(); }
 
@@ -86,7 +78,6 @@ s32 load_dragon2_scene(void) {
 void TLobby::update_subsystems() { TLobby::refresh_render_state(); TLobby::stop_audio_streams(); stop_cue_stream(); fn_802F105C(); unload_current_floor_resources(); TLobby::update_current_floor(); TLobby::clear_session_buffers(); }
 
 extern s32 lbl_804651B0[];
-extern s32 tl_particlemodel;
 
 s32 init_scene_delo2(void) {
     void *obj;
@@ -137,24 +128,8 @@ s32 TLobby__sub_80299C7C(void) {
 
 void TLobby::update_scene_alt() { TLobby::refresh_render_state(); TLobby::stop_audio_streams(); unload_current_floor_resources(); TLobby::update_current_floor(); TLobby::clear_session_buffers(); }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
-s32 get_main_phase();
-s32 is_split_screen();
-s32 is_quest_active();
-s32 init_area_lights();
-s32 TLobby__sub_801403B4(s32);
-
-s32 play_area_music(s32 *);
-s32 load_floor_sound_bank();
-u32 __nw__7TObjectFUl(s32);
 #define CIS ((s32 (*)(s32, s32))create_instance__10TSceneSoraFPv)
 extern s32 lbl_804651C8[];
-extern s32 tl_particlemodel;
 
 s32 initialize_boss_scene(void) {
     s32 global_state;
@@ -192,12 +167,6 @@ s32 initialize_boss_scene(void) {
     }
     return 1;
 }
-
-}
-
-#include "types.h"
-
-extern "C" {
 
 void close_window__6TLobbyFPv(void* p);
 void send_giveup_to_all_players__6TLobbyFv(void);
@@ -279,7 +248,6 @@ void send_giveup_to_all_players__6TLobbyFv(void) {
     extern int local_client_id;
 void close_giveup_window__6TLobbyFPv(void* a0) { ((TWindowCtrl *)local_client_id)->suppress_slot(); play_effect_all_players__6TLobbyFPv((void*)(a0)); }
 
-    extern int local_client_id;
 void play_all_players_effect__6TLobbyFPv(void* a0) { TObjPlayer__sub_8024ABDC((void*)(local_client_id)); play_effect_all_players__6TLobbyFPv((void*)(a0)); }
 
 void play_effect_all_players__6TLobbyFPv(void*) {
@@ -298,12 +266,6 @@ void play_effect_all_players__6TLobbyFPv(void*) {
     } while (var_r31 < 4);
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 u8 TLobby__sub_8029A16C(void);
 
 extern s32 TLobby__designated_client_id;
@@ -311,12 +273,6 @@ extern s32 TLobby__designated_client_id;
 u8 TLobby__sub_8029A16C(void) {
     return (u8) (local_client_id == TLobby__designated_client_id);
 }
-
-}
-
-#include "types.h"
-
-extern "C" {
 
 s32 queue_destruction__7TObjectFv(void *);
 
@@ -335,15 +291,7 @@ void TLobby::countdown_and_destroy() {
     }
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 s32 TKeyBoardControl__sub_8000F950();
-s32 queue_destruction__7TObjectFv(void *);
-s32 is_quest_active();
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 play_cue_stream_file(s32 *);
 s32 TLobby__sub_80291F9C();
@@ -390,12 +338,6 @@ void giveup_window_handle_select(void *arg0) {
     }
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 s32 get_selected_menu_value(u32);
 
 extern s32 lbl_804DBE90[];
@@ -419,18 +361,9 @@ void TLobby::handle_retry_menu_select() {
     }
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
 s32 obj_testFlags30(s32, s32);
 
 s32 TWindowCtrlMain__sub_8024CE58();
-
-}
-
-extern "C" {
 
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 check_flag_100__10TObjPlayerFPv();
@@ -480,19 +413,6 @@ void TLobby::update_giveup() {
         }
     }
 }
-
-}
-
-#include "pso/TObjChallenge4PRetry.h"
-
-#include "types.h"
-
-extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
-
-}
-
-extern "C" {
 
 extern s32 TObjChallenge4PRetry__class_name;
 void *__ct__20TObjChallenge4PRetryFP7TObject(void *, void *);

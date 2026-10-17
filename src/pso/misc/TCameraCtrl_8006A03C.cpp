@@ -23,15 +23,8 @@ u32 get_player_by_client_id(s32);
 extern Sel_8006A13C TCameraCtrl__view_state;
 extern Big_8006A13C controller_input_state;
 extern s32 local_client_id;
-}
-
-extern "C" {
-
-s32 queue_event_1D__12TBoss3VoloptFss(s32, s32, void *);
-
 void*TCameraCtrl::get_params() { return (char*)this + 0x20; }
 
-extern void *camera_ctrl_instance;
 extern const f32 lbl_805D8FE8;
 extern const f32 lbl_805D8FEC;
 extern const f32 lbl_805D8FF0;

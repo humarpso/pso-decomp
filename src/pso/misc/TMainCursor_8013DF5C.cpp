@@ -10,10 +10,6 @@ extern "C" {
 void TMainCursor__sub_8013DFC4(u8 *arg0);
 int matches_type_and_enabled__11TMainCursorFiUcUc(s32 arg0, u8 arg1, u8 arg2);
 void fn_8013E020(Obj_8013E020 *self);
-}
-
-extern "C" {
-
 u16 TMainCursor__sub_8013E03C(void* p);
 void TLockOnCursor__sub_8013E0D0(void* p, s32 v);
 void __dl__7TObjectFPv(void *);

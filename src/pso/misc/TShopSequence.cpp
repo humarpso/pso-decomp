@@ -26,10 +26,6 @@ extern s32 TShopSequence__class_name;
 u8 *TShopSequence__ct(u8 *arg0);
 s32 __dt__15TShopWindowBaseFv(void *, s32);
 s32 __dl__7TObjectFPv(void *);
-}
-
-extern "C" {
-
 s32 load_character_from_card__23TAdSinglePlyChrSelectGCFi(s32);
 s32 activate_body_collision__10TObjPlayerFv();
 s32 deactivate_body_collision__10TObjPlayerFv();
@@ -39,7 +35,6 @@ s32 unsuppress_slot__11TWindowCtrlFv(u16);
 int display_message__24TMessageWindowControllerFPCcl(void*);
 int format_guild_message__24TMessageWindowControllerFll(void*);
 s32 is_split_screen();
-s32 obj_getField1c(u32);
 int send_message__24TMessageWindowControllerFll(void*);
 int format_shop_message__24TMessageWindowControllerFll(void*);
 

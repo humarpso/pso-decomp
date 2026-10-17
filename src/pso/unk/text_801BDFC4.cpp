@@ -8,10 +8,6 @@ s32 fn_801C2360(s32);
 extern u32 TObjPlayer__shared_photon_blast_state;
 extern u32 TObjPlayer__shared_model_buffer;
 extern u32 player_shared_buffer_base;
-}
-
-extern "C" {
-
 void TObjPlayer::alloc_shared_buffers() {
     s32 temp_r3;
     s32 var_r0;

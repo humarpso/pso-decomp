@@ -13,15 +13,9 @@ extern s32 TObjBoss1Crater__instance_count;
 extern s32 TObjBoss1Crater__instance_list[];
 void TObjBoss1Crater__sub_8002C7B8(void);
 f32 newton_sqrtf(f32);
-extern s32 TObjBoss1Crater__instance_list[];
-extern s32 TObjBoss1Crater__instance_count;
 extern const f32 lbl_805D8168;
 extern const f32 lbl_805D816C;
 f32 calc_nearest_crater_distance(Obj_8002C730 *self);
-}
-
-extern "C" {
-
 void TObjBoss1Crater__sub_8002C7B4(void);
 s32 TObjBoss1Crater__sub_8002C7E4(void* p);
 void *TObjBoss1Crater__ct(void *, void *, void *, void *);

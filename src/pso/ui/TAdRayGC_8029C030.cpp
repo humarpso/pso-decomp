@@ -43,10 +43,6 @@ extern "C" {
 s32 isFading__15RenderFadeStateCFv(void *);
 void matrix_mult_vec(s32, void *, void *);
 extern const f32 lbl_805DDD18;
-}
-
-extern "C" {
-
 int update_obstruction_fade(void*);
 
 void TORockJungleL01::run_task() { update_obstruction_fade((char*)this + 0xb4); }

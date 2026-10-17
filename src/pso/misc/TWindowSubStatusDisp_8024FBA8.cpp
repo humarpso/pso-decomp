@@ -35,10 +35,6 @@ s32 clip_textured_quad__19TWindowKeyBoardSoftFPvPv(s32, void *);
 void begin_screen_draw(s32);
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(s32, u32);
-extern s32 text_draw_clip_context;
-extern f32 text_draw_depth;
-extern s32 text_clip_enabled_flag;
-extern s32 lbl_805D6440;
 extern const f32 lbl_805DCCD8;
 extern const f32 lbl_805DCCDC;
 s32 draw_small_font_string_clipped(f32 *pos, const char *s, u32 color, f32 width);
@@ -48,23 +44,10 @@ s32 get_font_char_advance(s32);
 s32 map_char_to_font_code(s32);
 void calc_gauge_scale__20TWindowSubStatusDispFPvPvi(s32, void *, s32);
 void end_render_forward__20TWindowSubStatusDispFPv();
-void apply_context_transform_to_rect(s32, void *);
-s32 clip_textured_quad__19TWindowKeyBoardSoftFPvPv(s32, void *);
-void draw_textured_quad_at_depth(void *, f32);
 extern s32 current_language;
-extern s32 text_draw_clip_context;
-extern f32 text_draw_depth;
-extern f32 text_draw_right_limit_x;
-extern s32 text_clip_enabled_flag;
-extern s32 lbl_805D6440;
-extern const f32 lbl_805DCCDC;
 extern const f32 lbl_805DCCE0;
 extern const f32 lbl_805DCCE4;
 s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width);
-}
-
-extern "C" {
-
 void TWindowSubStatusDisp::set_input_mode(u8 v) { *(u8*)((char*)this + 0x64) = v; }
 
 s32 draw_small_font_string_clipped(f32 *pos, const char *s, u32 color, f32 width) {

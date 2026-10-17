@@ -3,9 +3,7 @@
 extern "C" {
 s32 poll_load_status__12TAdTimeSetGCFv();
 }
-extern "C" {
 extern void *lbl_804E32A4[];
-}
 
 extern "C" {
 void TWindow__close(void *);

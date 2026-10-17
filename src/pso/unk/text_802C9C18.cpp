@@ -14,9 +14,6 @@ s32 get_player_by_client_id(void *);
 extern s32 local_client_id;
 s32 play_sound_effect(s32, void *, s32, s32);
 extern Sounds_802C9C18 lbl_804720B8;
-}
-
-extern "C" {
 
 void TOTrapSeabed01::sub_802C9C18(s32 arg1) {
     u8 *arg0 = (u8 *)this;

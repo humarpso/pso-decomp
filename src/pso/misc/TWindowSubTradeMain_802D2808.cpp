@@ -17,17 +17,11 @@ extern s32 TLobby__data_805D688C;
 void TWindowSubTradeMain__sub_802D2870(void);
 extern u16 trade_protocol_flags;
 s32 are_both_trade_offers_confirmed(void);
-}
-
-extern "C" {
-
 void clear_local_trade_final_confirmation(void);
 void set_local_trade_final_confirmation(void);
 s32 is_local_trade_offer_confirmation_requested(void);
 void clear_local_trade_offer_confirmation(void);
 void set_local_trade_offer_confirmation(void);
-
-extern u16 trade_protocol_flags;
 
 s32 are_both_trade_offers_confirmed(void) {
     u16 v = trade_protocol_flags;
@@ -41,31 +35,22 @@ void clear_local_trade_final_confirmation(void) {
     trade_protocol_flags &= 0xFFFFFF7F;
 }
 
-extern u16 trade_protocol_flags;
-
 void set_local_trade_final_confirmation(void) {
     trade_protocol_flags |= 0x80;
 }
-
-extern u16 trade_protocol_flags;
 
 s32 is_local_trade_offer_confirmation_requested(void) {
     return ((u16) trade_protocol_flags >> 4U) & 1;
 }
 
-extern u16 trade_protocol_flags;
-
 void clear_local_trade_offer_confirmation(void) {
     trade_protocol_flags &= 0xFFFFFFEF;
 }
-
-extern u16 trade_protocol_flags;
 
 void set_local_trade_offer_confirmation(void) {
     trade_protocol_flags |= 0x10;
 }
 
-extern s32 TLobby__trade_window_state[];
 extern void *TLobby__trade_main_window;
 
 typedef struct RecoveredGlobal_802D2870_TLobby__data_80540BD0 RecoveredGlobal_802D2870_TLobby__data_80540BD0;
@@ -85,9 +70,6 @@ void TWindowSubTradeMain::draw_offer(void *arg0, void *arg1) {
         ((TWindowSubTradeMain *)TLobby__trade_main_window)->draw_item_slot();
     }
 }
-
-extern s32 TLobby__trade_window_state[];
-extern void *TLobby__trade_main_window;
 
 void TWindowSubTradeMain::draw_request(void *arg0, void *arg1) {
     TLobby::send_modify_trade_proposal((s8)1, (s32)arg0, (s32)arg1);

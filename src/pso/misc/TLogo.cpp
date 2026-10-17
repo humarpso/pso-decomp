@@ -11,11 +11,8 @@ public:
 
 #include "pso/TMainTask.h"
 
-#include "pso/TObject.h"
 #include "pso/TParticleCtrl.h"
-#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TKeyBoardControl.h"
-#include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
 #include "pso/misc/TWindowCtrlMain.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -35,9 +32,6 @@ s32 TWindowCtrlMain__ct(u32);
 extern V3_8013F6C4 lbl_8043F138;
 extern V3_8013F6C4 lbl_8043F144;
 extern u8 default_scene_light_config[];
-}
-
-extern "C" {
 s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
 s32 render_tick__Fv();
 s32 delete_all_task_children__9TMainTaskFv(void *);
@@ -59,24 +53,16 @@ s32 check_progressive_ready__5TLogoFv();
 u32 TAdTrialModemChkGC__ct(void *, void *);
 void run_task__5TLogoFv(u8 *arg0);
 s32 TKeyBoardControl__sub_8000F92C();
-s32 TKeyBoardControl__sub_8000F9CC(int);
 s32 set_active_camera_pose(void *, void *);
 s32 activate_camera_mode(int);
 s32 process_async_file_reads();
 s8 func_801A5E54__Fv();
 s32 controller_stuff__Fv();
-s32 render_tick__Fv();
 s32 update_sound_request_slots();
 s32 func_803DCDFC__Fv();
 extern V3_8013F5E8 lbl_8043F150;
 extern V3_8013F5E8 lbl_8043F15C;
 void run_frame__5TLogoFv(void);
-}
-
-extern "C" {
-
-s32 TLogo__sub_8013F800(void* p);
-int TLogo__sub_8013F808(void);
 void *__ct__5TLogoFv(void *arg0);
 s32 fn_8013F264(void* p);
 s32 fn_8013F288(void* p);

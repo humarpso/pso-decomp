@@ -118,27 +118,18 @@ void *get_window_layout_position(s32);
 extern Pos_80216CF8 lbl_8044BEA4[];
 extern const f32 lbl_805DC694;
 extern const f32 lbl_805DC698;
-u16 obj_getField1c(void *);
 s32 get_story_flag(s16);
 s32 are_all_story_quests_complete();
 s32 refresh_story_quest_availability(void *);
-s32 get_quest_list_text(s32, s32);
 void *get_guild_text(s32);
 s32 calc_list_content_extent(void *);
 void *set_window_mode_4__6TLobbyFPvll(void *, void *, s32);
-void *get_window_layout_position(s32);
 void *create_item_list_window(void *, s32, s32);
 extern Pos_80216F50 lbl_8044BE9C[];
 extern void *story_quest_list_resource;
-}
-
-extern "C" {
-
 void handle_confirm_dialog(void *arg0);
 s32 prepare_offline_quest_filenames(s32);
 s32 get_selected_menu_value(u32);
-s32 TWindow__close(void *);
-s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
 
 void TWindow::close_sub_windows() {
     if ((u32) *(u32 *)((s8 *)this + 0x38) != 0U) {

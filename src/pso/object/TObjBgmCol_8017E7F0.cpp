@@ -31,7 +31,6 @@ void *__dt__10TObjBgmColFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__10TObjBgmCol[];
 extern s32 TObjBgmCol__name;
 
 void *TObjBgmCol__ct(void *arg0, s32 arg1, s32 arg2) {
@@ -48,9 +47,6 @@ void *TObjBgmCol__ct(void *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-}
-
-extern "C" {
 extern char lbl_80443870[];
 s32 TObjBgmCol__name = (s32)lbl_80443870;
 }

@@ -16,16 +16,11 @@ s32 construct_world_actor_base(void *);
 extern s32 __vt__15TObjIllGillKage[];
 extern s32 lbl_805D44AC;
 u8 *TObjIllGillKage__ct(u8 *arg0, s32 arg1, u32 arg2);
-}
-
-extern "C" {
-
 void *__dt__15TObjIllGillKageFv(void *arg0, s16 arg1);
 s32 is_locally_controlled__10TObjPlayerFPv();
 s32 get_player_by_client_id(u16);
 void __dl__7TObjectFPv(void *);
 s32 obj_testFlags30(s32, s32);
-int queue_destruction__7TObjectFv(void*);
 
 int TObjIllGillKage::queue_destruction() { return queue_destruction__7TObjectFv(this); }
 
@@ -66,8 +61,6 @@ void TObjIllGillKage::run_task() {
 }
 
 void TObjIllGillKage::render() {  }
-
-extern s32 __vt__15TObjIllGillKage[];
 
 void *__dt__15TObjIllGillKageFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

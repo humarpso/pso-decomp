@@ -14,15 +14,9 @@ s32 __dl__FPv(void *);
 extern RecoveredGlobal_8010FCB4_lbl_8049F42C lbl_8049F42C;
 extern s32 item_load_work_buffer_busy;
 u8 *__dt__13TUnk_8049F42CFv(u8 *arg0, s16 arg1);
-}
-
-extern "C" {
-
 s32 TItemLoad__sub_801107DC(void *);
-s32 test_flags_any(void *, int);
 
 extern s32 item_load_compressed_work_buffer;
-extern s32 item_load_work_buffer_busy;
 
 void TItemLoad::advance_load_state() {
     u8 *arg0 = (u8 *)this;

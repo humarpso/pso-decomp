@@ -5,12 +5,6 @@ struct O_801AA64C { u16 a; u16 b; };
 extern "C" {
 int __dl__FPv(void* a0);
 s32 TObjPlayer__sub_801AA584(s32 arg0, s16 arg1);
-}
-
-extern "C" {
-
-#include "types.h"
-
 extern "C" {
 s32 __construct_array(void *, void *, void *, int, int);
 void TObjPlayer__sub_801AA64C(O_801AA64C *p);
@@ -25,14 +19,6 @@ s32 TObjPlayer__sub_801AA584(s32 arg0, s16 arg1) {
     return arg0;
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
-#include "types.h"
-
 extern "C" {
 
 s32 TObjPlayer::init_arrays() {
@@ -45,20 +31,7 @@ s32 TObjPlayer::init_arrays() {
 
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void* TObjPlayer__sub_801AA61C(void* p) { TObjPlayer__sub_801AA64C((O_801AA64C *)p); return p; }
-
-}
-
-#include "types.h"
-#include "pso/player/TObjPlayer.h"
-
-extern "C" {
 
 void TObjPlayer__sub_801AA64C(O_801AA64C *p) {
     p->a = 0xFFFF;

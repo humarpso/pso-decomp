@@ -4,9 +4,6 @@ extern "C" {
 s32 memmove(s32, s32, s32);
 s32 prs_next_output_byte(void *arg0);
 u8 prs_read_byte_at(u8 *arg0, u32 arg1);
-}
-
-extern "C" {
 
 u8 prs_read_byte_at(u8 *arg0, u32 arg1) {
     u32 temp_r4;

@@ -9,10 +9,6 @@ typedef struct Ctrl_8024B8A0 {
 
 extern "C" {
 f32 cos_table_lookup(s32);
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 void TWindowCtrl::update_pulse_color() {

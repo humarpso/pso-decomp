@@ -16,10 +16,6 @@ s32 set_draw_texture_and_color(void *, void *);
 extern T_8029BCB4 TAdRayGC_ray_quad_table[];
 extern s32 TAdRayGC__ray_texture_list;
 extern const f32 lbl_805DDD10;
-}
-
-extern "C" {
-
 void *__ct__8TAdRayGCFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 s32 set_cached_blend_factor(s32, s32);

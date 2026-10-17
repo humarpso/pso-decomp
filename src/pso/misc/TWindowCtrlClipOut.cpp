@@ -15,10 +15,6 @@ void __dl__7TObjectFPv(s32);
 extern s32 __vt__18TWindowCtrlClipOut[];
 extern s32 window_clip_out_instance;
 u8 *__dt__18TWindowCtrlClipOutFv(u8 *arg0, s16 arg1);
-}
-
-extern "C" {
-
 void *TWindowCtrlClipOut__ct(void *arg0);
 int TCameraCtrl__sub_80068EF0(void);
 int TWindowCtrlMain__sub_8024CE34(void);
@@ -28,7 +24,6 @@ int render_nodes__7TObjectFv(void);
 
 void TWindowCtrlClipOut::render() { if (is_window_display_enabled(this) != 0) { TObjPlayer::reset_transform_state(); TParticleCtrl::begin_effect_render(); TCameraCtrl::restore_full_screen_view(); TWindowCtrlMain__sub_8024CE34(); render_nodes__7TObjectFv(); TCameraCtrl__sub_80068EF0(); TParticleCtrl::end_effect_render(); } }
 
-extern s32 __vt__18TWindowCtrlClipOut[];
 extern void *TWindowCtrlClipOut__name;
 
 typedef char RecoveredGlobal_8024C8E8___vt__18TWindowCtrlClipOut_size[sizeof(RecoveredGlobal_8024C8E8___vt__18TWindowCtrlClipOut) == 0x18 ? 1 : -1];

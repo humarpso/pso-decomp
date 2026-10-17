@@ -30,10 +30,6 @@ s32 TLobby__sub_8001EEF4();
 void *TLobby__sub_801E38A0(s32, u32 *, s32 *, s32, s32 *);
 extern u8 lbl_80506208[];
 extern s32 item_load_tmp_buffer;
-}
-
-extern "C" {
-
 struct Base_8010F52C { char pad[0x14]; };
 struct VObj_8010F52C : Base_8010F52C {
     virtual void m0(int);
@@ -41,16 +37,9 @@ struct VObj_8010F52C : Base_8010F52C {
 
 void *__dt__13TUnk_8049F41CFv(void *arg0, s16 arg1);
 s32 __dt__13TUnk_8049F42CFv(void *, s32);
-s32 decompress_buffer__9TItemLoadFUl();
-s32 TLobby__sub_8001EEF4();
 s32 load_gvm_texture_archive(s32, s32);
 s32 __dl__FPv(void *);
 s32 mem_free(s32);
-void init__13TUnk_8049F42CFv(void *, void *, int, int);
-
-extern void *item_texture_archive_loader;
-extern void *item_model_chunk_loader;
-extern s32 item_load_model_buffer;
 
 void TItemLoad::free_all_models() {
     mem_free(item_load_model_buffer);
@@ -64,8 +53,6 @@ void TItemLoad::free_all_models() {
     item_model_chunk_loader = NULL;
     item_load_model_buffer = 0;
 }
-
-extern s32 lbl_8049F40C[];
 
 void TItemLoad__sub_8010F5A0(void) {
     s32 temp_r3;
@@ -177,8 +164,6 @@ void TItemLoad::begin_load_if_pending(s32 arg1, s32 arg2) {
     }
 }
 
-extern s32 item_load_tmp_buffer;
-
 void TItemLoad::reload_item() {
     s32 temp_r31;
 
@@ -204,8 +189,6 @@ void *__dt__13TUnk_8049F41CFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern s32 lbl_8049F41C[];
 
 void *TUnk_8049F41C::construct(void *_w1, int _w2, int _w3) {
     init__13TUnk_8049F42CFv(this, _w1, _w2, _w3);

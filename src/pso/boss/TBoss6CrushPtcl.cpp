@@ -11,9 +11,6 @@ void *__ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__15TBoss6CrushPtcl[];
 extern s32 TBoss6CrushPtcl__name;
 u8 *TBoss6CrushPtcl__ct(u8 *arg0, void *arg1, Vec_80359EF0 *arg2);
-}
-
-extern "C" {
 void queue_destruction__7TObjectFv(void*);
 }
 
@@ -33,8 +30,6 @@ void TBoss6CrushPtcl::run_task() {
 }
 
 TBoss6CrushPtcl::~TBoss6CrushPtcl() {}
-
-#include "types.h"
 
 extern "C" {
 

@@ -40,10 +40,6 @@ extern const f32 lbl_805DA574;
 extern const f32 lbl_805DA578;
 extern const f32 lbl_805DA57C;
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-}
-
-extern "C" {
-
 struct Stack_800DFC18
 {
   s32 sp8;
@@ -274,19 +270,15 @@ struct O_800E2FB4 { u8 pad[0x378]; s32 state; };
 
 struct Vec_800E06DC { f32 x, y, z; };
 
-f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, void *, f32);
 u16 find_nearest_visible_player(void *, Vec_800E0A44 *, f32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen();
 f64 atan2_float(f32, f32, f32);
 u8 * dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 get_camera_mode__11TCameraCtrlFv();
-int set_field_b8__10TObjMotionFs(void*, int);
 u32 csnLookAt(void *, void *);
 s32 spawn_particle_effect(void *, int, f32);
 s32 update_obstruction_fade(int, int);
-s32 TObjEnePanarms__sub_800DFB44(s32);
 void TObjEnePanarms__sub_800DFE08(u8 *arg0);
 void TObjEnePanarms__sub_800E0048(u8 *arg0);
 void TObjEnePanarms__sub_800E0344(u8 *arg0);
@@ -299,14 +291,12 @@ s32 try_move_with_detour__14TObjEnePanarmsFPvPv(u8 *arg0, Vec_800E18B0 *arg1);
 void calc_default_part_position__14TObjEnePanarmsFPv(u8 *arg0);
 void calc_part_position__14TObjEnePanBARAFPUcPl(u8 *arg0, u8 *arg1, s32 *arg2);
 void TObjEnePanarms__sub_800E1C8C(void *arg0, s32 arg1, s32 arg2);
-s32 TObjEnePanarms__sub_800E1C98(void *, s32);
 void TObjEnePanarms__sub_800E1D38(void *arg0);
 int TObjEnePanarms__sub_800E1D94(void* p);
 void TObjEnePanarms__sub_800E1E14(u8 *arg0);
 Obj_800E24A4 * fn_800E24A4(Obj_800E24A4 *arg0, s16 arg1);
 s32 TObjEnePanBARA__ct(s32, s32, s32, s32);
 u8 is_phase_12__14TObjEnePanarmsFPv(void *arg0);
-u8 check_can_attack__14TObjEnePanarmsFPv(void *arg0);
 u8 TObjEnePanarms__sub_800E2E54(void *arg0);
 u8 TObjEnePanarms__sub_800E2E68(void *arg0);
 u8 is_below_half_hp__14TObjEnePanarmsFPv(void *arg0);
@@ -319,7 +309,6 @@ void refresh_lobby_state__10TObjPlayerFv();
 void __dt__9TObjEnemyFv(void *, s32);
 f32 horizontal_distance_squared(void *, void *);
 s32 angle_difference_abs(s32, s32);
-s32 angle_diff_s16(s32, s32);
 s32 direction_to_rotation_xz(void *, void *, void *);
 s32 approach_angle_limited(s32, s32, s32);
 int draw__16TObjEneRe7BeruraFv(void*);
@@ -337,12 +326,10 @@ s32 __nw__7TObjectFUl(s32);
 void __destroy_arr(void *, void *, s32, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-s32 vec3_add_to(void *, void *);
 s32 scale_matrix(int, f32, f32, f32);
 f32 vector_length(void *);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_z(int, int);
-s32 subtract_vector(void *, void *);
 s32 rotate_matrix_x(int, void *);
 s32 normalize_vector(void *);
 s32 push_matrix();
@@ -354,7 +341,6 @@ extern const f64 TObjEnePanarms__data_8043CDD0;
 extern u8 *TObjEnePanarms__entry_params_resource;
 extern const f32 TObjEnePanarms__data_805DA524;
 extern const f32 TObjEnePanarms__data_805DA52C;
-extern const f32 TObjEnePanarms__data_805DA530;
 extern const f32 TObjEnePanarms__data_805DA544;
 extern const f32 TObjEnePanarms__data_805DA550;
 extern const f32 TObjEnePanarms__data_805DA560;

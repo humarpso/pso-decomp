@@ -66,9 +66,6 @@ s32 TItemWeapon__ct(void *, s32, void *);
 void spawn_weapon_impact_effect();
 extern s32 lbl_804A3260[];
 void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *arg2);
-}
-
-extern "C" {
 void advance_angle_wrap(void*,int);
 }
 void TItemWeaponMechgun::prepareMarker() {

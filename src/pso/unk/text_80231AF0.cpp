@@ -29,10 +29,6 @@ s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 extern RecoveredGlobal_8023C558_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_8023C558_lbl_804CC55C lbl_804CC55C;
-}
-
-extern "C" {
-
 typedef struct RecoveredFields_8023C558_arg0 RecoveredFields_8023C558_arg0;
 typedef struct RecoveredGlobal_8023C558_lbl_804CC510 RecoveredGlobal_8023C558_lbl_804CC510;
 typedef struct RecoveredGlobal_8023C558_lbl_804CC55C RecoveredGlobal_8023C558_lbl_804CC55C;

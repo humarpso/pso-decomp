@@ -16,7 +16,6 @@ void __dl__7TObjectFPv(void *);
 void *__dt__13TObjSuisoChipFv(void *self, s16 arg1);
 extern void *__vt__13TObjSuisoChip[];
 
-extern void *__vt__13TObjSuisoChip[];
 extern s32 suiso_chip_class_name_ptr;
 extern s32 tl_05;
 extern const f32 lbl_805DDFF8;
@@ -50,11 +49,6 @@ u8 *__ct__13TObjSuisoChipFv(u8 *arg0, u8 *arg1) {
     return arg0;
 }
 
-extern void *__vt__13TObjSuisoChip[];
-extern s32 suiso_chip_class_name_ptr;
-extern s32 tl_05;
-extern const f32 lbl_805DDFF8;
-
 u8 *init__13TObjSuisoChipFPvPv(u8 *arg0, u8 *arg1) {
     construct_debris__8TObjChipFPvPvPv((void *) (arg0), (void *) (tl_05));
     *(void ***)((s8 *)arg0 + 0x18) = __vt__13TObjSuisoChip;
@@ -75,8 +69,6 @@ u8 *init__13TObjSuisoChipFPvPv(u8 *arg0, u8 *arg1) {
 
 }
 
-#include "types.h"
-#include "pso/object/TObjSeabedSuisoBrakable.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TOBarrierEnergy01.h"
 #include "pso/misc/TOKey.h"
@@ -168,9 +160,6 @@ extern void *__vt__23TObjSeabedSuisoBrakable[];
 extern s32 TObjSeabedSuisoBrakable__name;
 u8 *TObjSeabedSuisoBrakable__ct(u8 *arg0, s32 arg1);
 
-void *__nw__7TObjectFUl(int);
-
-extern RecoveredGlobal_802A6438_lbl_804DD388 TObjSeabedSuisoBrakable__chip_record_set_table;
 extern const f32 lbl_805DE000;
 extern const f32 lbl_805DE004;
 extern const f32 lbl_805DE008;
@@ -178,10 +167,6 @@ extern const f32 lbl_805DE00C;
 extern const f32 lbl_805DE010;
 extern const f32 lbl_805DE014;
 void TObjSeabedSuisoBrakable__vt14(Obj_802A6490 *self);
-}
-
-extern "C" {
-
 void TObjSeabedSuisoBrakable__vt12(void *arg0);
 void spawn_break_effect__23TObjSeabedSuisoBrakableFv(void);
 void *__dt__23TObjSeabedSuisoBrakableFv(void *arg0, s16 arg1);
@@ -192,9 +177,7 @@ s32 scroll_ginja_mesh_uvs(s32, s32, s32, u16, s32);
 u8 is_current_floor_switch_set(u16);
 void free_collision_body_parts(void *);
 struct Obj_802A6DA8; Obj_802A6DA8 *TObjSeabedSuiso_CH__ct(Obj_802A6DA8 *, s32, s32);
-void __dl__7TObjectFPv(void *);
 void __dt__18TORockCaveBrakableFv(void *, int);
-void *__nw__7TObjectFUl(int);
 void *count_linked_switches__23TObjSeabedSuisoBrakableFl(s32, s32);
 s32 *get_table1_entry__23TObjSeabedSuisoBrakableFi(s32);
 
@@ -295,8 +278,6 @@ void TObjSeabedSuisoBrakable__vt14(Obj_802A6490 *self) {
 
 void TObjSeabedSuisoBrakable::spawn_break_effect() {  }
 
-extern void *__vt__23TObjSeabedSuisoBrakable[];
-
 void *TObjSeabedSuisoBrakable::create_instance(void *arg0) {
     void *o;
     o = __nw__7TObjectFUl(0xC0);
@@ -362,7 +343,6 @@ void *TObjSeabedSuisoBrakable::create(void *arg0) {
 
 void update_anim_if_active__23TObjSeabedSuisoBrakableFPv(void* p) { if (*(unsigned int*)((char*)p + 0xbc) != 0) { ((TUnk_804AFBF8 *)p)->update_anim_phase(); } }
 
-extern s32 actor_frame_tick;
 extern s32 suiso_brakable_last_frame_tick;
 
 void update_switch_lock__23TObjSeabedSuisoBrakableFPv(void *arg0) {
@@ -421,16 +401,8 @@ void update_switch_lock__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     }
 }
 
-}
-
-extern "C" {
-
 void notify_break__23TObjSeabedSuisoBrakableFPv(void *arg0);
-void *count_linked_switches__23TObjSeabedSuisoBrakableFl(s32, s32);
 s32 set_model_node_callback(s32 *);
-
-extern s32 actor_frame_tick;
-extern s32 suiso_brakable_last_frame_tick;
 
 void notify_break__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     s32 break_data;
@@ -464,9 +436,6 @@ s32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFl();
 s32 draw_ginja_model_with_motion(s32, void *, f32);
 void draw_model__23TObjSeabedSuisoBrakableFPv(u8 *arg0);
-}
-
-extern "C" {
 
 void TObjSeabedSuiso_CH::update_state() {
     s32 temp_r0;
@@ -503,22 +472,11 @@ void draw_model__23TObjSeabedSuisoBrakableFPv(u8 *arg0) {
     }
 }
 
-}
-
-extern "C" {
 u8 * get_bml_motion(void *, int);
 extern u8 *TObjSeabedSuisoBrakable__resource_bundle;
 u8 * get_bml_model(void *, int);
-extern u8 *TObjSeabedSuisoBrakable__resource_bundle;
 u8 *get_model__23TObjSeabedSuisoBrakableFi(s32 arg0);
-}
-
-extern "C" {
-
 void *__dt__18TObjSeabedSuiso_CHFv(void *arg0, s16 arg1);
-int get_instance__23TObjSeabedSuisoBrakableFv(void);
-void free_collision_body_parts(void *);
-void __dl__7TObjectFPv(void *);
 void queue_destruction__7TObjectFv(void *);
 
 extern void *__vt__18TObjSeabedSuiso_CH[];
@@ -593,7 +551,6 @@ void init_map_object_base(void *, s32, s32);
 extern Ent18_802A6BD0 TObjSeabedSuiso__kind_param_table[];
 extern Ent2C_802A6DA8 lbl_804DD2D8[];
 extern s32 TObjSeabedSuiso_CH__name;
-extern const f32 lbl_805DDFF8;
 #pragma push
 #pragma opt_propagation off
 void TObjSeabedSuiso_CH::init_kind_params() {
@@ -670,9 +627,6 @@ u8 *get_model__23TObjSeabedSuisoBrakableFi(s32 arg0) {
     return NULL;
 }
 
-}
-
-extern "C" {
 void update__8TObjChipFPv();
 void dispatch_vt9__8TObjChipFPv();
 void render_shadows__7TObjectFv();

@@ -45,11 +45,7 @@ extern const f32 lbl_805DFD00;
 void draw_quest_load_letterbox_bars(void);
 extern const Vec2_8034960C lbl_80478738[2];
 extern const Vec2_8034960C quest_load_panel_overlay_offsets[2];
-extern const f32 lbl_805DFD00;
 void draw_quest_load_panel_overlays(void);
-}
-
-extern "C" {
 
 void draw_quest_load_panel_overlays(void) {
     f32 pos[8];

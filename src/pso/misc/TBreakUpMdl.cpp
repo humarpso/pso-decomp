@@ -104,37 +104,19 @@ s32 compose_motion_node_matrix(int);
 s32 matrix_mult_vec(int, int, int);
 s32 push_matrix();
 s32 pop_matrix();
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 matrix_mult_vec(int, int, int);
 s32 rotate_matrix_by_node_angles(void *, int);
-s32 push_matrix();
-s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 void bind_motion_context(s32, f32);
 s32 push_matrix_from(u32);
-s32 pop_matrix();
-extern s32 TBreakUpMdl__vtable[];
-extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
-void bind_motion_context(s32, f32);
-s32 push_matrix_from(u32);
-s32 pop_matrix();
 extern s32 TBreakUpMdl__vtable[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
 u8 *init__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
-s32 push_matrix_from(u32);
-s32 pop_matrix();
-extern s32 TBreakUpMdl__vtable[];
-extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
 extern const f32 lbl_805D97C8;
 s32 count_active_segments__15TObjBoss2TunnelFPv(void *);
 void *mem_alloc(int);
 extern const f32 lbl_805D97CC;
 void alloc_breakup_piece_records(Brk_80096EBC *arg0, void *arg1);
-s32 rotate_matrix_by_node_angles(void *, int);
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
 void draw_ginja_model(s32);
 void set_chunk_material_override_pair(u32, u32);
 void set_chunk_material_color(Color_8009680C *);
@@ -142,42 +124,24 @@ void draw_chunk_model(s32);
 extern Color_8009680C breakup_default_color;
 extern u32 lbl_805D5660;
 extern u32 model_render_flags;
-extern const f32 lbl_805D97C8;
 void queue_destruction__7TObjectFv(void *);
-extern const f32 lbl_805D97CC;
 f32 rand_signed_unit(void);
-void *mem_alloc(int);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
-s32 matrix_mult_vec(int, int, int);
 void rotate_vector_by_matrix(s32, void *, void *);
 void rotate_matrix_y(s32, s32);
-s32 push_matrix_from(u32);
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
 extern u8 breakup_default_param_row[];
 extern s32 __vt__11TBreakUpMdl[];
-extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
 extern s32 TBreakUpMdl__class_name;
 extern const f32 lbl_805D97D0;
 extern const f32 lbl_805D97D4;
 u8 *TBreakUpMdl__ct(u8 *arg0, void *arg1, Model_80096AD8 *arg2, void *arg3, s32 arg4, void *arg5, s32 arg6);
-void rotate_matrix_y(s32, s32);
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
-}
-
-extern "C" {
-
 void *__dt__11TBreakUpMdlFv(void *arg0, s16 arg1);
 void *__dt_deleting__11TBreakUpMdlFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 s32 __dl__FPv(void *);
 void __dt__7TObjectFv(void *, int);
 void mem_free(void *);
-
-extern s32 __vt__11TBreakUpMdl[];
 
 void TBreakUpMdl::render() {
     BreakUp_8009680C *self = (BreakUp_8009680C *)this;
@@ -255,8 +219,6 @@ void *__dt__11TBreakUpMdlFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern s32 TBreakUpMdl__vtable[];
 
 #pragma push
 #pragma fp_contract on

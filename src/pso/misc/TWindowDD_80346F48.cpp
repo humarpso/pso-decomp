@@ -20,10 +20,6 @@ char *strncpy(char *, const char *, u32);
 extern s32 local_client_id;
 extern char **TWindowDD__player_name_buffers;
 extern DD_80346FE4 *TWindowDD__word_select_lists;
-}
-
-extern "C" {
-
 int build_item_list__9TWindowDDFPv(void);
 
     extern short lbl_805D6E24;

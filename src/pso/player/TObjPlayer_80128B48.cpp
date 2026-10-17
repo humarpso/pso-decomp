@@ -11,7 +11,6 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 is_owner_alive__15TItemShootModelFv();
 
-#include "types.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {

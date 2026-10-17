@@ -8,12 +8,6 @@ s32 __nw__7TObjectFUl(int);
 void *__ct__18TAdLoadQuestCellGCFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 __declspec(section ".data") TAdLoadQuestCellGC *ad_load_quest_cell_table[3] = { 0, 0, 0 };
 s32 get_or_create_cell__14TAdLoadQuestGCFii(s32 arg0, s32 arg1);
-}
-
-extern "C" {
-
-void *__ct__18TAdLoadQuestCellGCFP7TObjectPv(void *arg0, void *arg1, void *arg2);
-
 s32 draw_quest_load_panel_overlays();
 s32 draw_quest_load_letterbox_bars();
 s32 fn_80349844();
@@ -54,11 +48,7 @@ TAdLoadQuestCellGC::~TAdLoadQuestCellGC() {
     }
 }
 
-extern "C" {
-
 extern void *lbl_805D42F8;
-
-}
 TAdLoadQuestCellGC::TAdLoadQuestCellGC(TObject *arg1, void *arg2) : TObject(arg1) {
     *(void **)((s8 *)this + 0x0) = lbl_805D42F8;
     *(void **)((s8 *)this + 0x1C) = arg2;

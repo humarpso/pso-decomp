@@ -36,44 +36,19 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 project_actor_to_ground(void *, void *, int);
 extern const f32 TBoss6GravBall__data_805DF558;
 extern const f32 lbl_805DF574;
-P_80323348 *get_player_data__10TObjPlayerFi(s32);
-void VecCopy__FP3VecPC3Vec(void *, void *);
-f32 vector_length(void *);
-void subtract_vector(void *, void *);
-void normalize_vector(void *);
-s32 project_actor_to_ground(void *, void *, int);
 u16 obj_getField1c(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void vec3_add_to(void *, void *);
 void TBoss6PlotFalz__sub_802AC724(void *, void *);
-extern const f32 TBoss6GravBall__data_805DF550;
 extern const f32 lbl_805DF554;
-extern const f32 TBoss6GravBall__data_805DF558;
 extern const f32 lbl_805DF55C;
 extern const f32 lbl_805DF560;
 void TBoss6GravBall__sub_803233AC(u8 *self);
-P_80323348 *get_player_data__10TObjPlayerFi(s32);
-void VecCopy__FP3VecPC3Vec(void *, void *);
-f32 vector_length(void *);
-void subtract_vector(void *, void *);
-void normalize_vector(void *);
-s32 project_actor_to_ground(void *, void *, int);
-u16 obj_getField1c(void *);
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
-void vec3_add_to(void *, void *);
-void TBoss6PlotFalz__sub_802AC724(void *, void *);
-extern const f32 TBoss6GravBall__data_805DF550;
-extern const f32 TBoss6GravBall__data_805DF558;
-extern const f32 lbl_805DF55C;
 extern const f32 lbl_805DF564;
 extern const f32 lbl_805DF568;
 extern const f32 lbl_805DF56C;
 void TBoss6GravBall__sub_80323544(u8 *self);
-}
-
-extern "C" {
 
 void TBoss6GravBall::clear_player_grav_flags() {
     s32 n = TLobby::get_game_mode();

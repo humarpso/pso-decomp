@@ -15,17 +15,11 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 void TObjPlayer__sub_802D5B78(void *a, void *b);
 void do_action_447_from_packet__10TObjPlayerFPvPv(void *self, void *arg);
-}
-
-extern "C" {
-
 void *__dt__13TUnk_804E1BB0Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804E1CA8Fv(void *arg0, s16 arg1);
 int spawn_particle_effect(void*, int);
 void TItemWeapon__ct(void *);
 void __dt__11TItemWeaponFv(void *, int);
-void *__dt__13TUnk_804E1BB0Fv(void *arg0, s16 arg1);
-void *__dt__13TUnk_804E1CA8Fv(void *arg0, s16 arg1);
 void __dt__13TUnk_804E23F0Fv(void *, int);
 void set_status_flags__10TObjPlayerFUl(void *, int);
 
@@ -37,8 +31,6 @@ void *TUnk_804E1BB0::init_state_513(s32 _w1, void *_w2) {
     set_status_flags__10TObjPlayerFUl(this, 513);
     return this;
 }
-
-extern s32 lbl_804E1BB0[];
 
 u8 *TObjPlayer::create_state_513() {
     u8 *temp_r3;
@@ -137,10 +129,6 @@ void set_position_xy__10TObjPlayerFff(f32, f32);
 void create_timed_particle_emitter(s32, s32, s32, s32);
 u32 create_timed_particle_emitter_with_angles(s32, void *, s32, s32, s32, s32);
 void spawn_hit_particles__10TObjPlayerFiPv(s32 arg0, const P_802D5478 *arg1);
-}
-
-extern "C" {
-
 void* init_needle_effect__10TObjPlayerFPv(void* a0);
 void set_radar_marker_flag__10TObjPlayerFPvPv(void *arg0, void *arg1);
 int init_state_445__10TObjPlayerFPv(void);
@@ -291,15 +279,8 @@ f32 cos_table_lookup(int);
 s32 rotate_matrix_about_axis(int, void *, int);
 s32 set_matrix_identity(int);
 s32 transform_point_by_current_matrix(void *, void *);
-void push_matrix(void);
-void pop_matrix(void);
-void post_translate_matrix(void *);
 extern V_802D577C lbl_8047259C;
 extern V_802D577C player_pb_zero_vec_block;
-}
-
-extern "C" {
-
 int set_radar_marker_params__10TObjPlayerFPvPv(void);
 void init_state_445__10TObjPlayerFPv(void *);
 
@@ -454,10 +435,6 @@ void init_state_445__10TObjPlayerFPv(void *);
 void alloc_and_init__10TObjPlayerFlll(s32, s32, s32);
 void create_and_init_effect__10TObjPlayerFlPUll(s32, void *, s32);
 S_802D595C *init_mag_effect_state__10TObjPlayerFPv(S_802D595C *arg0);
-}
-
-extern "C" {
-
 void reset_animation_state__10TObjPlayerFPv(void *arg0);
 f32 TObjPlayer__sub_8017A1A4(s32, s32);
 
@@ -499,8 +476,6 @@ void spawn_item_thunk__10TObjPlayerFii(s32 arg0, s32 arg1) {
 }
 
 extern "C" {
-
-void init_state_445__10TObjPlayerFPv(void *);
 
 extern s32 lbl_804E22F4[];
 extern s32 alloc_and_init__10TObjPlayerFlll[];
@@ -729,10 +704,6 @@ s32 pop_matrix();
 f32 post_translate_matrix(void *);
 extern RecoveredGlobal_80362FB4_lbl_80479FC8 lbl_80472590;
 void TObjPlayer__sub_802D5DE0(u8 *arg0);
-}
-
-extern "C" {
-
 void create_cane_effect_from_state__10TObjPlayerFPv(void *arg0);
 void* init_state_445__10TObjPlayerFPv(void* a0);
 void set_radar_marker_params__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);

@@ -17,10 +17,6 @@ Vec_801A1F48 *VecCopy__FP3VecPC3Vec(Vec_801A1F48 *, const Vec_801A1F48 *);
 void apply_object_set_data(Dst_801A1F48 *self, Src_801A1F48 *src);
 extern u16 lbl_805D5CD4;
 extern u16 lbl_805D5CD6;
-}
-
-extern "C" {
-
 void TLobby__sub_801A1FD8(void);
 u16 TLobby__sub_801A20C8(s32);
 u16 fn_801A210C(s32);

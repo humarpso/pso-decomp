@@ -19,17 +19,10 @@ extern s32 TAdScrollWinGC__chat_log_heap;
 extern u8 *chat_last_line_buffer;
 void cache_last_chat_line(u32 arg0);
 extern RecoveredGlobal_8026A6DC_lbl_805187D8 chat_log_lines;
-extern s32 TAdScrollWinGC__chat_log_heap;
-void chat_log_remove_line(s32 arg0);
-extern RecoveredGlobal_8026A6DC_lbl_805187D8 chat_log_lines;
 void chat_log_remove_line(s32 arg0);
 s32 strlen();
 void chat_log_add_line(s32 arg0);
 s32 chat_text_lacks_language_tag(const char *text);
-}
-
-extern "C" {
-
 void TAdScrollWinGC__sub_8026A5F8(void* a0);
 void fn_8026A61C(void* p, f32 v);
 

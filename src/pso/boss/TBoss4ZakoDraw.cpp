@@ -10,10 +10,6 @@ extern u8 boss4_zako_draw_buffers[];
 extern u32 dark_falz_controller_instance;
 extern s32 TBoss4ZakoDraw__draw_buffer_index;
 extern s32 TBoss4ZakoDraw__rotation_phase;
-}
-
-extern "C" {
-
 int TCameraCtrl__sub_8030ABF4(void);
 
 void TBoss4ZakoDraw::render() { TObjPlayer::toggle_particle_effect(); TCameraCtrl__sub_8030ABF4(); TParticleCtrl::end_effect_render(); }

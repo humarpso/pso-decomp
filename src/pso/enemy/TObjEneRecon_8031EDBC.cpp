@@ -24,9 +24,6 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * csnVectorUnder(s32, void *, s32);
 extern s32 actor_frame_tick;
 extern const f32 lbl_805DF448;
-}
-
-extern "C" {
 
 void TObjEneRecon::remove_tracked_id(s32 id) {
     T_8031EDBC *self = (T_8031EDBC *)this;

@@ -16,9 +16,6 @@ s32 rand(void);
 void TBoss6Tube__sub_802B129C(u8 *arg0);
 extern s32 TBoss6Tube__previous_scroll_phase;
 extern f32 TBoss6Tube__scroll_delta;
-s32 rand(void);
-extern s32 TBoss6Tube__previous_scroll_phase;
-extern f32 TBoss6Tube__scroll_delta;
 void get_bml_model(s32, s32);
 s32 query_teammate_state__9TObjEneDDFv(void);
 void func_80141618__Fv(void);
@@ -30,10 +27,6 @@ void draw_ginja_object(void);
 extern s32 lbl_80470A54[];
 extern s32 boss6_tube_bml_resource;
 extern s32 boss6_tube_texture_list;
-}
-
-extern "C" {
-
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 play_persistent_sound(s32, s32, s32, s32, s32);
 
@@ -98,9 +91,6 @@ void TBoss6Tube::render() {
 f32 TBoss6Tube::scale_by_const(f32 farg0) {
     return (8e+02f) * farg0;
 }
-
-extern s32 TBoss6Tube__previous_scroll_phase;
-extern f32 TBoss6Tube__scroll_delta;
 
 f32 TBoss6Tube::calc_tube_progress(s32 arg0) {
     return (1.0f) - ((f32) (arg0 & 0x7FFFF) / (524288.0f));

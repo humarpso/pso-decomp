@@ -17,9 +17,6 @@ void TLobby::free_data_60F0() {
     }
 }
 
-extern u32 TLobby__map_set_file_buffer;
-extern s32 TLobby__map_set_file_buffer_size;
-
 s32 TLobby::init_handle(s32 arg0) {
     u32 temp_r3;
 
@@ -33,12 +30,6 @@ s32 TLobby::init_handle(s32 arg0) {
     return 0;
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 s32 get_player_name_copy_buffer();
 s32 copy_name(s32 *);
 s32 strncmp(s32, s32 *, s32);
@@ -46,7 +37,6 @@ extern s32 map_set_object_id_counter;
 extern s32 TLobby__next_enemy_set_actor_id;
 extern s32 map_object_id_counter;
 extern s32 map_set_enemy_id_counter;
-extern s32 TLobby__map_set_file_buffer_size;
 extern s32 lbl_805DC620;
 extern s32 lbl_805DC624;
 
@@ -63,9 +53,6 @@ void clear_map_set_data(void) {
 }
 
 }
-
-#include "types.h"
-#include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_8020B118_lbl_8044BBF0 { char value[0x13]; };
 typedef char RecoveredGlobal_8020B118_lbl_8044BBF0_size[sizeof(RecoveredGlobal_8020B118_lbl_8044BBF0) == 0x13 ? 1 : -1];
@@ -88,21 +75,11 @@ extern RecoveredGlobal_8020B118_lbl_8044BBF0 lbl_8044BBF0;
 extern RecoveredGlobal_8020B118_lbl_8044BC04 lbl_8044BC04;
 extern s32 map_set_data_handle_a;
 extern s32 map_set_data_handle_b;
-extern s32 map_set_object_id_counter;
-extern s32 TLobby__next_enemy_set_actor_id;
-extern s32 map_object_id_counter;
-extern s32 map_set_enemy_id_counter;
-extern s32 TLobby__map_set_file_buffer_size;
 extern s16 TLobby__data_805D6134;
 extern s32 TLobby__data_80513CC8[];
 extern s32 TLobby__data_80513C80[];
 s32 TLobby__sub_8020B308(void);
 extern struct Floor_8020B260 TLobby__floor_enemy_group_table[];
-extern struct Floor_8020B260 TLobby__floor_enemy_group_table[];
-}
-
-extern "C" {
-
 void TLobby::load_set_gsl_files() {
     map_set_data_handle_a = 0;
     map_set_data_handle_b = 0;

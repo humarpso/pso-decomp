@@ -27,7 +27,6 @@ struct S24_802C4944 { T12_802C4944 t[2]; };
 extern "C" {
 int enable_camera__19TAdSelectGameModeGCFv(void);
 s32 get_main_phase();
-int enable_camera__19TAdSelectGameModeGCFv(void);
 s32 free_sub_ctrls__19TAdSelectGameModeGCFv();
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
 void TAdSelectGameModeGC__sub_802C478C(void);
@@ -41,7 +40,6 @@ extern RecoveredGlobal_802C47E8_lbl_8050E3B8 controller_physical_port_bank;
 extern s32 TAdSelectGameModeGC__cached_mode_value;
 void run_task__19TAdSelectGameModeGCFv(u8 *arg0);
 void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
-s32 get_localized_text_entry(int, int);
 void *__nw__7TObjectFUl(int);
 void __ct__7TObjectFP7TObject(void *, void *);
 void *__ct__9TAdBackGCFv(void *, void *);
@@ -57,18 +55,9 @@ extern S8_802C4944 lbl_80471A44[];
 extern S16_802C4944 select_game_mode_button_rect;
 extern s32 __vt__19TAdSelectGameModeGC[];
 extern void *TAdSelectGameModeGC__name;
-extern s32 TAdSelectGameModeGC__cached_mode_value;
 extern const f32 lbl_805DE538;
 u8 *__ct__19TAdSelectGameModeGCFv(u8 *arg0, void *parent);
-}
-
-extern "C" {
-
 int fn_802C4748(void* p);
-s32 TAdMultiPlyChrSelectGC__sub_802C6558();
-s32 free_sub_ctrls__19TAdSelectGameModeGCFv();
-int enable_camera__19TAdSelectGameModeGCFv(void);
-s32 get_main_phase();
 int sync_char_select_state__10TObjPlayerFv(void*);
 
 int fn_802C4748(void* p) { return sync_char_select_state__10TObjPlayerFv(p); }

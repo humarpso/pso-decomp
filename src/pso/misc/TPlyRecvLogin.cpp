@@ -9,10 +9,6 @@ struct ByteBlock_20 { u8 bytes[0x20]; };
 extern "C" {
 s32 * copy_with_guild_card_tag__13TPlyRecvLoginFPvPv(s32 *arg0, s32 *arg1);
 s32 __ct__13TPlyRecvLoginFRC13TPlyRecvLogin(s32 arg0, s32 arg1);
-}
-
-extern "C" {
-
 void bswap__13TPlyRecvLoginFv(s32 arg0);
 s32 __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
 s32 bswap__13packet_headerFv();

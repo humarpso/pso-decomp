@@ -16,10 +16,6 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 extern RecoveredGlobal_800D98D8_lbl_80500F8C TObjEneMe3ShinowaMirage_motion_trail_points;
 extern RecoveredGlobal_800D98D8_lbl_80500FA4 lbl_80500FA4;
 void TObjEneMe3ShinowaMirage__sub_800D98D8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, u8 *arg4, u8 *arg5);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_800D98D8_lbl_80500F8C_size[sizeof(RecoveredGlobal_800D98D8_lbl_80500F8C) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_800D98D8_lbl_80500FA4_size[sizeof(RecoveredGlobal_800D98D8_lbl_80500FA4) == 0xC ? 1 : -1];
 void TObjEneMe3ShinowaMirage__sub_800D98D8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, u8 *arg4, u8 *arg5) {

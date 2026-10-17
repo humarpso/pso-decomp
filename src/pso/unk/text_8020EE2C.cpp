@@ -8,10 +8,6 @@ extern s32 lbl_80513D78[];
 extern s32 lbl_805D6158;
 extern s32 lbl_805D615C;
 void load_armor_random_table(void);
-}
-
-extern "C" {
-
 void load_armor_random_table(void) {
     s32 i;
     lbl_805D6158 = create_named_object(lbl_8044BC40);

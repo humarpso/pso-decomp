@@ -157,87 +157,46 @@ extern const f32 lbl_805D966C;
 void TObjPlayer__sub_8008F910(u8 *arg0);
 s32 queue_destruction__7TObjectFv(void *);
 s32 TObjPlayer__sub_800A04F0(void *);
-s32 advance_animation_playback(void *);
 u8 *find_entity_by_id(u16);
 s32 play_sound_effect(int, void *, int, int);
 extern const f32 lbl_805D964C;
 extern const f32 lbl_805D9664;
 extern const f32 lbl_805D9668;
-s32 apply_actor_gravity(void *, s32, f32);
 s32 update_enemy_wander_move(void *, Vec_8008FAD0 *, int, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 reset_enemy_state__10TObjPlayerFv();
-s32 advance_animation_playback(void *);
 s32 play_persistent_sound(int, void *, void *, int, int);
-extern const f32 lbl_805D9620;
 void TObjPlayer__sub_8008FAD0(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-s32 apply_actor_gravity(void *, s32, f32);
-s32 move_with_wall_slide(void *);
 void calc_velocity_toward_destination(void *, Vec_8008F910, Vec_8008F910, f32);
 s32 select_enemy_destination(void *, Vec_8008F910, s32);
-s32 check_path_obstructed(void *, Vec_8008F910 *);
 void copy_position_if_valid__10TObjPlayerFii(void *, Vec_8008F910);
-s32 reset_enemy_state__10TObjPlayerFv();
 f32 xz_distance_squared(void *, void *);
 s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback(void *);
-s32 play_sound_effect(int, void *, int, int);
 extern Pair_8008EDE8 lbl_80439B54[];
-extern const f32 lbl_805D9620;
 extern const f32 lbl_805D9644;
 extern const f32 lbl_805D9648;
-extern const f32 lbl_805D964C;
 extern const f32 lbl_805D9650;
 extern const f32 lbl_805D9654;
 extern const f32 lbl_805D9658;
 void TObjPlayer__sub_8008EDE8(P_8008EDE8 *arg0);
-s32 apply_actor_gravity(void *, s32, f32);
-s32 move_with_wall_slide(void *);
-void calc_velocity_toward_destination(void *, Vec_8008F910, Vec_8008F910, f32);
-s32 check_path_obstructed(void *, Vec_8008F910 *);
 s16 obj_getS16_32C();
 s32 obj_setFlags30(void *, int);
-s32 queue_destruction__7TObjectFv(void *);
 u32 spawn_particle_effect_with_rotation(void *, void *, int, int);
-s32 reset_enemy_state__10TObjPlayerFv();
 T_8008F1DC *find_active_entity_by_id(u16);
-f32 xz_distance_squared(void *, void *);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback(void *);
 s32 check_enemy_body_collisions(void *);
 void send_6x2F_change_player_hp(u16, u16, int);
-s32 play_sound_effect(int, void *, int, int);
 s32 rotate_matrix_y(int, int);
 void push_matrix_from(void *);
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 extern u8 identity_matrix[];
-extern const f32 lbl_805D9620;
 extern const f32 lbl_805D9638;
-extern const f32 lbl_805D9644;
-extern const f32 lbl_805D9648;
-extern const f32 lbl_805D964C;
-extern const f32 lbl_805D9650;
-extern const f32 lbl_805D9658;
 extern const f32 lbl_805D965C;
 extern const f32 lbl_805D9660;
 void TObjPlayer__sub_8008F1DC(void *arg0);
-s32 reset_enemy_state__10TObjPlayerFv();
-s32 apply_actor_gravity(void *, s32, f32);
 s32 TObjPlayer__sub_800A0554(void *);
-s32 advance_animation_playback(void *);
-extern const f32 lbl_805D9620;
 void TObjPlayer__sub_8008EC3C(u8 *arg0);
-}
-
-extern "C" {
-
-s32 advance_animation_playback(void *);
-s32 apply_actor_gravity(void *, s32, f32);
-
-extern const f32 lbl_805D9620;
-
 void TObjEneBalClawBody::update_dragon_boss_state() {
     s32 temp_r0;
 

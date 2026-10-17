@@ -37,10 +37,6 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void debug_printf_at(s32, const char *, ...);
 extern Ctl_8006C964 controller_input_state;
-}
-
-extern "C" {
-
 void TCameraCtrl__sub_8006C928(void);
 void *__dt__13TUnk_80488DA0Fv(void *arg0, s16 arg1);
 void __dt__13TUnk_80488A28Fv(void *, int);

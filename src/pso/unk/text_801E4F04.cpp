@@ -28,8 +28,6 @@ void *__dt__13TUnk_804C57F0Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 lbl_804C57F0[];
-
 void *quad_sprite_base_ct(void *arg0, void *arg_r4, void *arg2) {
     s32 temp_r31;
 

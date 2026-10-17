@@ -112,41 +112,25 @@ void TLobby__sub_8041FDA0(O_8041FDA0 *o, s16 idx, s32 a, s32 b);
 s32 NetMemcpy(void *, void *, int);
 s32 TLobby__sub_80420BD0(void *arg0, S_80420BD0 *s, s32 arg2);
 void TLobby__sub_80422E30(s16, s32, s32, s16);
-extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
 s32 TLobby__sub_80420D38(u16 arg0, u8 arg1);
 s16 dispatch_by_addr_family__6TLobbyFlPUcPUcPUcPvPv(void *, void *, void *, s32, s32, int);
 s16 TLobby__sub_8040D8F0(void *, void *, int, void *, int);
 s16 select_source_address__6TLobbyFPvPv(void *, void *);
 s16 TLobby__sub_8040DA54(void *, void *);
 s16 is_addr_unspecified__6TLobbyFPv(void *);
-void TLobby__sub_80422E30(s16, s32, s32, s16);
-extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
 s16 udp_sendto__6TLobbyFsPvPvPvUsi(s16 id, Pkt_80420FC8 *pkt, Addr_80420FC8 *src, Addr_80420FC8 *dst, u16 port, s32 arg5);
 void TLobby__sub_8041F66C(O_8041F66C *o);
-s32 NetMemcpy(void *, void *, int);
-void TLobby__sub_80422E30(s16, s32, s32, s16);
 void set_slot_state_and_resume__6TLobbyFv(s16, s32, s16);
 void TLobby__sub_80406EB8(void *, u32);
 void TLobby__sub_80406FD8(void *, void *, u32);
 void TLobby__sub_8041A9AC(Obj_8041ED8C *);
 extern G_8041ED8C tcp_protocol_state;
 s32 TLobby__sub_8041ED8C(Obj_8041ED8C *self, void *data, u32 len, s32 arg3);
-void TLobby__sub_80422E30(s16, s32, s32, s16);
-void set_slot_state_and_resume__6TLobbyFv(s16, s32, s16);
-extern G_8041ED8C tcp_protocol_state;
 s32 TLobby__sub_8041F11C(Obj_8041F11C *self);
-extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
-s16 TLobby__sub_8040D8F0(void *, void *, int, void *, int);
-s16 is_addr_unspecified__6TLobbyFPv(void *);
 s16 compare_sockaddr__6TLobbyFPUc(void *, void *);
 s16 is_multicast_address__6TLobbyFs(void *, s32);
 s16 TLobby__sub_80421F10(void *, void *, void *, u16, s32, s16);
-void TLobby__sub_80406EB8(void *, u32);
-void TLobby__sub_80406FD8(void *, void *, u32);
 s32 udp_input__6TLobbyFPvPvPvi(O_80420DE4 *arg0, Addr_80420DE4 *src, Addr_80420DE4 *dst, s32 arg3);
-}
-
-extern "C" {
 RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
 
 typedef char RecoveredGlobal_80420C5C_lbl_805C1DF0_size[sizeof(RecoveredGlobal_80420C5C_lbl_805C1DF0) == 0x10 ? 1 : -1];

@@ -11,10 +11,6 @@ s32 draw_card_icon__17TWindowSubComCardFll(int, int, int);
 s32 get_window_layout_position(int);
 extern const f32 lbl_805DFDE0;
 s32 create_info_board_menu(void);
-}
-
-extern "C" {
-
 s32 create_info_board_menu(void) {
   s32 temp_r31;
   s32 temp_r31_2;

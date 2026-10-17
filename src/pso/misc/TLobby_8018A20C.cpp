@@ -10,11 +10,6 @@ int get_bml_model(void*, void*);
     extern u32 container_breakup_model_archive;
 void TLobby::dispatch_fish_event(void* a0) { get_bml_model((void*)(container_breakup_model_archive), a0); }
 
-}
-
-#include "types.h"
-
-extern "C" {
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 u32 load_gvm_texture_file(void *);
@@ -22,17 +17,9 @@ extern u8 seabed_rare_console_texture_filename[];
 extern u8 lbl_80444F48[];
 extern u8 fe_obj_con_hahen1_resource_descriptor[];
 extern u8 bm_obj_seabed_con_rare_resource_descriptor[];
-extern u32 container_breakup_model_archive;
 extern u32 lbl_805D5B8C;
-}
-
-extern "C" {
-
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
-
-extern u32 container_breakup_model_archive;
-extern u32 lbl_805D5B8C;
 
 void TLobby::free_chr_select_slot() {
     if ((u32) lbl_805D5B8C != 0U) {
@@ -71,23 +58,9 @@ void TLobby::load_console_resources() {
     }
 }
 
-}
-
-extern "C" {
-    int get_bml_model(void*, void*);
     extern u32 lbl_805D5B78;
 void get_container_param(void* a0) { get_bml_model((void*)(lbl_805D5B78), a0); }
-}
 
-#include "types.h"
-#include "pso/misc/TLobby.h"
-
-extern "C" {
-
-void TLobby__sub_8001FE7C(void*, int);
-s32 TLobby__sub_803DA16C(void*);
-
-extern u32 lbl_805D5B78;
 extern u32 lbl_805D5B7C;
 
 void TLobby::free_char_select_resources() {

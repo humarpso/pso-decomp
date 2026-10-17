@@ -12,10 +12,6 @@ u32 *fn_800779FC(u32 *dst, u32 *src);
 void *__construct_array(void *, void *, void *, u32, u32);
 void fn_80077A70(void);
 Obj_80077A28 *construct_entry_array(Obj_80077A28 *self);
-}
-
-extern "C" {
-
 void fn_800779A0(u8 *src) {
     s32 temp_r3;
     s32 var_r0;

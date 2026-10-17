@@ -134,22 +134,13 @@ Hit_800D9C7C *csnVector(void *, void *, s32);
 f32 horizontal_distance__10TObjPlayerFPUc(void *, s32);
 void vec3_add_to(void *, void *);
 s32 matrix_mult_vec(int, Vec_800D9C7C *, void *);
-s32 rotate_matrix_y(int, int);
-s32 pop_matrix(void);
 extern Vec_800D9C7C lbl_8043C8E4;
 extern Vec_800D9C7C find_open_direction_zero_vec;
 extern const f64 lbl_8043C900[];
-extern RecoveredGlobal_800D9E8C_lbl_8058D490 identity_matrix;
 void find_open_direction__10TObjPlayerFPvPv(u8 *arg0, f32 *arg1);
 s16 obj_getField1c(void *);
-f32 atan2_float(f32, f32);
 s32 angle_difference_abs(s32, s32);
 void subtract_vector(void *, void *);
-extern const f64 lbl_8043C900[];
-}
-
-extern "C" {
-
 s32 TObjPlayer__sub_800D9C34(s32 arg0);
 s32 update_action_hold_status__10TObjPlayerFv();
 
@@ -267,7 +258,6 @@ void TObjPlayer::add_target_in_front_arc(void *p) {
 }
 
 }
-#include "pso/enemy/TObjEneNanoDrago.h"
 #include <stddef.h>
 typedef char NanoGrow_scale[offsetof(TObjEneNanoDrago, scale) == 0x68 ? 1 : -1];
 typedef char NanoGrow_target_scale[offsetof(TObjEneNanoDrago, target_scale) == 0x6c ? 1 : -1];
@@ -294,8 +284,6 @@ typedef char NanoDrago_accum_offset[offsetof(TObjEneNanoDrago, accum) == 0x3d0 ?
 typedef char NanoDrago_t_offset[offsetof(TObjEneNanoDrago, t) == 0x3d4 ? 1 : -1];
 typedef char NanoDrago_speed_offset[offsetof(TObjEneNanoDrago, speed) == 0x3d8 ? 1 : -1];
 typedef char NanoDrago_toggle_offset[offsetof(TObjEneNanoDrago, toggle) == 0x3e0 ? 1 : -1];
-
-#include "types.h"
 
 #define CAT2(a, b) a##b
 #define CAT(a, b) CAT2(a, b)
@@ -341,23 +329,13 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 atan2_float(f32 y, f32 x);
 s32 update_if_active__15TObjEneMe1GiGueFl(void *, s32, s32);
 s32 sub_8004292C__15TObjEnemyCustomFv();
-s32 select_nearest_target__10TObjPlayerFPvf(void *, f32);
-s32 angle_difference_abs(s32, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
 s32 check_enemy_body_collisions(void *);
 void check_object_collisions__10TObjPlayerFv(void *);
 s32 play_sound_effect(int, void *, int, int);
-void subtract_vector(void *, void *);
-extern const f64 lbl_8043C900[];
-}
-
-extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
-void vec3_add_to(void *, void *);
 void rotate_vector_by_matrix(int, void *, void *);
 
-s32 advance_animation_playback(void *);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 u32 get_player_by_client_id(s32);
 s32 play_area_sound_effect__12TBoss3VoloptFv(void *, s32);
@@ -446,8 +424,6 @@ void TObjEneNanoDrago::sub_800DA2A0() {
 
 }
 
-#include "types.h"
-
 struct Rec_800DA4B4 { s32 a; s32 b; s32 c; };
 
 struct Obj_800DA4B4 { u8 pad[0x60]; s32 f60; u8 pad2[0x39c - 0x64]; Rec_800DA4B4 recs[1]; };
@@ -523,67 +499,27 @@ u32 find_entity_by_id(int);
 u32 __nw__7TObjectFUl(u32);
 void TObjPlayer__sub_800DA414(Obj_800DA414 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-void move_with_wall_slide(void *);
-void enemy_set_heading_velocity(void *, f32, s32);
 void enemy_turn_toward_dest(void *, s32);
 f32 xz_distance_squared(void *, void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void update_circle_move__10TObjPlayerFPvPvf(Ene_800DA508 *arg0, Vec_800DA508 *center, f32 radius);
-s32 apply_actor_gravity(void *, int, f32);
 s32 enemy_turn_half_toward_dest(void *);
-s32 sub_8004292C__15TObjEnemyCustomFv();
 s32 spawn_particle_effect(void *, int);
 s32 construct_beam_effect__10TObjPlayerFPvPvPviPv(u32, void *, void *, u8, void *);
-s32 advance_animation_playback(void *);
 s32 play_persistent_sound(int, void *, void *, int, int);
-s32 play_sound_effect(int, void *, int, int);
-u32 __nw__7TObjectFUl(u32);
 void TObjPlayer__sub_800DB390(u8 *arg0);
-s32 apply_actor_gravity(void *, int, f32);
-void move_with_wall_slide(void *);
 s32 check_path_obstructed(void *, Vec_800DA7E4 *);
-s32 spawn_particle_effect(void *, int);
-f32 xz_distance_squared(void *, void *);
-s32 advance_animation_playback(void *);
-u32 find_entity_by_id(int);
-s32 play_sound_effect(int, void *, int, int);
 void TObjPlayer__sub_800DA7E4(u8 *arg0);
-s32 apply_actor_gravity(void *, int, f32);
-s32 enemy_wander_home(void *, int, f32, f32, f32);
-s32 sub_8004292C__15TObjEnemyCustomFv();
-s32 spawn_particle_effect(void *, int);
-void TObjPlayer__sub_800DA414(Obj_800DA414 *arg0, s32 arg1);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback(void *);
-s32 play_persistent_sound(int, void *, void *, int, int);
-s32 play_sound_effect(int, void *, int, int);
 void TObjPlayer__sub_800DB0F8(Obj_800DB0F8 *o);
-s32 apply_actor_gravity(void *, int, f32);
 void calc_velocity_toward_destination(void *, Vec_800DAB98, Vec_800DAB98, f32);
-s32 sub_8004292C__15TObjEnemyCustomFv();
-s32 spawn_particle_effect(void *, int);
 s32 TObjPlayer__sub_800DC478(void *, s32, f32);
-f32 xz_distance_squared(void *, void *);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback(void *);
-void check_object_collisions__10TObjPlayerFv(void *);
 void project_actor_to_ground(void *, void *, s32);
-s32 play_sound_effect(int, void *, int, int);
-void vec3_add_to(void *, void *);
-void subtract_vector(void *, void *);
 void TObjPlayer__sub_800DAB98(u8 *arg0);
-s32 apply_actor_gravity(void *, int, f32);
 s32 queue_destruction__7TObjectFv();
-s32 spawn_particle_effect(void *, int);
 s32 TObjPlayer__sub_800D92BC(void *, int);
 s32 refresh_lobby_state__10TObjPlayerFv();
-s32 advance_animation_playback(void *);
-s32 play_sound_effect(int, void *, int, int);
 void update_death_sequence__10TObjPlayerFPv(u8 *arg0);
-}
-
-extern "C" {
 
 void TObjPlayer::set_flag_20000() {
     if (!(*(s32 *)&this->unk_388 & 0x20000)) {
@@ -1180,20 +1116,7 @@ void enter_state_5__10TObjPlayerFPv(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 1);
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-s32 apply_actor_gravity(void *, int, f32);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback(void *);
-s32 play_sound_effect(int, void *, int, int);
 void sub_800DB970__16TObjEneNanoDragoFv(u8 *arg0);
-}
-
-extern "C" {
-
 void begin_action4__10TObjPlayerFPv(void *arg0);
 
 void begin_action4__10TObjPlayerFPv(void *arg0) {
@@ -1241,18 +1164,14 @@ void TObjEneNanoDrago::sub_800DB970() {
 }
 
 }
-#include "pso/enemy/TObjEneNanoDrago.h"
 
-#include "types.h"
 #include "pso/misc/TLobby.h"
-#include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3VoloptMonitor.h"
 #include "pso/enemy/TObjEneLappy.h"
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
-#include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/misc/RenderFadeState.h"
 #include "pso/object/TObjFish.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -1299,19 +1218,12 @@ s32 update_obstruction_fade(int);
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
-s32 scale_matrix(int, f32, f32, f32);
-s32 rotate_matrix_y(int, int);
-s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 draw_chunk_object(int);
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 void render_enemy_with_fade__10TObjPlayerFPv(u8 *arg0);
-}
-
-extern "C" {
-
 struct Stack_800DC028 {
     s32 sp8;
     s32 spC;
@@ -1448,7 +1360,6 @@ void TObjPlayer__sub_800DC444(void);
 void initialize_enemy_photon_effect(void *);
 void * TObjControl__ct(void *, void *);
 void bind_enemy_combat_stats(void *, s32, s32, s32);
-f32 xz_distance_squared(void *, void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 s32 free_collision_body_parts(void *);
 void init_collision_body_parts(void *, void *, s32);
@@ -2084,10 +1995,6 @@ u8 *TObjEneNanoDrago__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((VObj_18_fe72f9 *)arg0)->m80();
     return arg0;
 }
-
-}
-
-extern "C" {
 
 void TObjEneNanoDrago__sub_800DC410(void);
 void TObjEneNanoDrago__sub_800DC414(void);

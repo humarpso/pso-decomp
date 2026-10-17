@@ -15,10 +15,6 @@ s32 spawn_continuous_particle_effect_with_flags(void *, void *, s32);
 extern s32 __vt__18TWindowEffectParty[];
 extern s32 TWindowEffectParty__name;
 u8 *TWindowEffectParty__ct(u8 *arg0, void *arg1, s8 arg2, s8 arg3, void *arg4);
-}
-
-extern "C" {
-
 void *__dt__18TWindowEffectPartyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -67,8 +63,6 @@ void TWindowEffectParty::run_task() {
         ((TNowLoading *)(this->m_30))->copy_pos(&sp8);
     }
 }
-
-extern s32 __vt__18TWindowEffectParty[];
 
 void *__dt__18TWindowEffectPartyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

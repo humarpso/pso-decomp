@@ -11,10 +11,6 @@ extern s32 __vt__21TBoss1DragonEffBreath[];
 extern s32 TBoss1DragonEffBreath__name;
 extern const f32 lbl_805D8138;
 u8 *TBoss1DragonEffBreath__ct(u8 *arg0, void *arg1, void *arg2, void *arg3);
-}
-
-extern "C" {
-
 void *__dt__21TBoss1DragonEffBreathFv(void *arg0, s16 arg1);
 s32 vec3_add_to(void *, void *);
 void delete_buffer__12TBoss8DragonFis(void *, int);
@@ -41,8 +37,6 @@ void TBoss1DragonEffBreath::run_task() {
         ((TBoss1Dragon *)((int) TBoss1Dragon::get_instance()))->deliver_breath_attack((s32)((void *) (arg0 + 0x1C)), (s32)((int) (*(s32 *)&this->m_34)));
     }
 }
-
-extern s32 __vt__21TBoss1DragonEffBreath[];
 
 void *__dt__21TBoss1DragonEffBreathFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

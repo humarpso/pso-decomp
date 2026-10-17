@@ -22,17 +22,10 @@ void update_hunter_guild_phase(void) {
     }
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 s32 THunterGuildSeqOffline__sub_8021339C();
 s32 THunterGuildWarning__sub_8021170C();
 s32 THunterGuildSeqOffline__sub_80213CA4();
 s32 zero_four_slots__22THunterGuildSeqOfflineFv();
-s32 get_main_phase();
 
 void TLobby::update_guild_or_quest_phase() {
     if (get_main_phase() == 0xE) {
@@ -46,12 +39,6 @@ void TLobby::update_guild_or_quest_phase() {
     }
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void *__nw__7TObjectFUl(int);
 void *THunterGuildSeqOnline_Client__ct(void *, void *, void *);
 extern void *tl_05;
@@ -64,17 +51,7 @@ void *create_lobby_object_05(void *arg0) {
     return o;
 }
 
-}
-
-#include "types.h"
-#include "pso/misc/TLobby.h"
-
-extern "C" {
-
-void *__nw__7TObjectFUl(int);
 void *THunterGuildSeqOffline__sub_80214B3C(void *, void *, void *);
-
-extern void *tl_05;
 
 void *TLobby::create_tl05_object(void *arg0) {
     void *o = __nw__7TObjectFUl(0x44);

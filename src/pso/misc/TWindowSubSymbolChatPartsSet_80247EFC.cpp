@@ -57,19 +57,11 @@ extern const f32 lbl_805DCB8C;
 extern const f32 lbl_805DCB90;
 void setup_part_sprites__28TWindowSubSymbolChatPartsSetFPvPvPvUsiiii(Part_802480EC *arg0, Part_802480EC *arg1, Part_802480EC *arg2, u16 arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7);
 void apply_part_to_window__28TWindowSubSymbolChatPartsSetFPvPvi(Obj_80248088 *arg0, Part_80248088 *arg1, s32 arg2);
-void swap_sprite_v_edges(void *);
-void swap_sprite_u_edges(void *);
-void set_sprite_uv_from_pixels(void *, f32, f32);
 extern const Vec2_80247F68 symbol_chat_part_uv_table[];
 extern const Vec2_80247F68 symbol_chat_part_size_table[];
 extern const f32 lbl_805DCB7C;
-void set_sprite_uv_from_pixels(void *, f32, f32);
 extern const V2_80248374 symbol_chat_face_uv_table[];
 int set_symbol_chat_face_sprite(void *arg0, u8 b);
-}
-
-extern "C" {
-
 struct Ctl_80248324 { u8 pad[4]; s32 *tbl; };
 
 struct RecoveredGlobal_80248494_lbl_804CE2E8 {
@@ -96,8 +88,6 @@ s32 init_window_layout_entries(void *, void *, void *);
 
 extern int symbol_chat_parts_color_table[];
 extern RecoveredGlobal_80248494_lbl_804CE2E8 lbl_804CE2E8;
-extern const f32 lbl_805DCB78;
-extern const f32 lbl_805DCB7C;
 extern const float lbl_805DCB94;
 extern const float lbl_805DCB98;
 extern const f32 lbl_805DCB9C;

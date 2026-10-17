@@ -45,22 +45,9 @@ void *__nw__7TObjectFUl(u32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 TAdLoadNetworkGC__ct(void *, void *, void *);
 extern s32 __vt__11TNowLoading[];
-extern RecoveredGlobal_8001D19C_lbl_804FF5E8 lbl_804FF5E8;
 extern s32 TNowLoading__class_name;
-extern const f32 lbl_805D7EC0;
 TNowLoading_8001D3A8 *TNowLoading__ct(TNowLoading_8001D3A8 *arg0, void *arg1, Vec_8001D3A8 *arg2);
-void DCInvalidateRange(void *, u32);
-void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void *);
-void TLobby__sub_8001D9DC(void);
-extern s32 aram_dma_pending;
 void DCFlushRange(void *, u32);
-void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void *);
-void TLobby__sub_8001D9DC(void);
-extern s32 aram_dma_pending;
-}
-
-extern "C" {
-
 void TNowLoading__sub_8001D4D0(void);
 void TNowLoading__sub_8001D4D4(void);
 void *__dt__11TNowLoadingFv(void *arg0, s16 arg1);
@@ -69,8 +56,6 @@ void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
 void TNowLoading::render() {  }
-
-extern s32 __vt__11TNowLoading[];
 
 #pragma push
 #pragma fp_contract on

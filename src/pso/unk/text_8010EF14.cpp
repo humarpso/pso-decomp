@@ -16,13 +16,9 @@ struct O_8010EF14 { s32 count; s32 f4; u8 *buf; };
 extern "C" {
 void fn_8010EFE8(O_8010EFE8 *self);
 s32 test_flags_any(void *, s32);
-void fn_8010EFE8(O_8010EFE8 *self);
 s32 rand();
 extern const f32 lbl_805DAB90;
 void fn_8010EF14(O_8010EF14 *self);
-}
-
-extern "C" {
 
 void fn_8010EF14(O_8010EF14 *self) {
     s32 i;

@@ -2,7 +2,6 @@
 #include "pso/ui/TAdRicoRingCtrl.h"
 
 #include <stddef.h>
-#include "pso/ui/TAdRicoRingCtrl.h"
 #include "pso/TAdRicoRing.h"
 #include "pso/player/TObjPlayer.h"
 struct Stack_8001B8AC {
@@ -38,23 +37,11 @@ extern s32 tl_04;
 extern const f32 lbl_805D7E4C;
 extern const f32 TAdRicoRingCtrl__data_805D7E50;
 u8 *TAdRicoRingCtrl__ct(u8 *arg0, s32 arg1);
-extern const f32 lbl_805D7E4C;
-extern const f32 TAdRicoRingCtrl__data_805D7E50;
 extern const f32 lbl_805D7E48;
-extern const f32 lbl_805D7E4C;
-extern const f32 TAdRicoRingCtrl__data_805D7E50;
 void TAdRicoRingCtrl__sub_8001B4A0(Obj_8001B4A0 *self, f32 x);
 void queue_destruction__7TObjectFv(void *);
-extern RecoveredGlobal_8001B8AC___vt__15TAdRicoRingCtrl __vt__15TAdRicoRingCtrl;
-extern const f32 lbl_805D7E4C;
 extern const f32 lbl_805D7E54;
-}
-
-extern "C" {
-
 s32 test_flags_any(void *, int);
-
-extern const f32 lbl_805D7E4C;
 
 typedef char RecoveredGlobal_8001B8AC_lbl_8043481C_size[sizeof(RecoveredGlobal_8001B8AC_lbl_8043481C) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8001B8AC___vt__15TAdRicoRingCtrl_size[sizeof(RecoveredGlobal_8001B8AC___vt__15TAdRicoRingCtrl) == 0x18 ? 1 : -1];
@@ -161,9 +148,6 @@ void TAdRicoRingCtrl::start_fade(f32 farg0) {
         *(f32 *)((s8 *)arg0 + 0x44) = temp_f0;
     }
 }
-
-extern const f32 lbl_805D7E4C;
-extern const f32 lbl_805D7E54;
 
 void TAdRicoRingCtrl::start_anim(f32 farg0) {
     u8 *arg0 = (u8 *)this;

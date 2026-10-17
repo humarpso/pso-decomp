@@ -23,7 +23,6 @@ void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 lbl_80492558[];
 extern void *lbl_805D2A34;
 
 void *TObjEneDD_ST::init_object() {

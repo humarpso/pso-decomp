@@ -67,11 +67,8 @@ void TScene__sub_8029F5EC();
 f32 vec_squared_length(Vec_8029EFFC *);
 void reflect_matrix_in_plane(s32, Cam_8029EFFC *);
 void normalize_vector(Vec_8029EFFC *);
-s32 push_matrix();
-s32 pop_matrix();
 extern Vec_8029EFFC sora_reflection_up_vec;
 extern s32 TSceneSora__sky_active_flag;
-extern u32 camera_ctrl_instance;
 extern s32 local_client_id;
 extern u32 TSceneSora__instance;
 extern s16 scene_sora_reflect_active;
@@ -80,13 +77,6 @@ extern const f32 lbl_805DDD8C;
 extern const f32 lbl_805DDD90;
 extern const f32 lbl_805DDDAC;
 extern const f32 lbl_805DDDB0;
-}
-
-extern "C" {
-
-s32 set_ginja_post_texgen_count(s32);
-s32 set_ginja_post_tev_stage_count(s32);
-
 extern s32 model_render_flags;
 
 void TObjPlayer::clear_state_if_flag80(s32 arg0) {

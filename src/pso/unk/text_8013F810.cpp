@@ -42,19 +42,11 @@ u8 lzss_read_byte(u8 *arg0);
 u8 lzss_input_exhausted(u8 *arg0);
 void lzss_remove_ring_node(Lz_8013FCB0 *t, s32 p);
 void debug_print__FPCc(const char *);
-void lzss_remove_ring_node(Lz_8013FCB0 *t, s32 p);
-void lzss_insert_ring_node(Lz_8013FDC4 *lz, s32 r);
-void TLobby__sub_8013FF64(u8 *arg0, s8 arg1);
-u8 lzss_input_exhausted(u8 *arg0);
-u8 lzss_read_byte(u8 *arg0);
 void bswap_32__FPUl(u32 *);
 int sprintf(char *, const char *, ...);
 s32 TLobby__sub_803DF1CC(void);
 s32 fn_803DF204(s32);
 extern char lbl_8043F168[];
-}
-
-extern "C" {
 
 #pragma push
 #pragma opt_propagation off

@@ -83,10 +83,6 @@ f32 vec3_dot(Vec_801A1A60 *, Vec_801A1A60 *);
 extern Vec_801A1A60 lbl_8044688C[];
 extern u8 identity_matrix[];
 extern const f32 lbl_805DC090;
-}
-
-extern "C" {
-
 void set_player_room_control_flag(void *arg0);
 void *__dt__10TObjRoomIdFv(void *arg0, s16 arg1);
 void *create__10TObjRoomIdFPv(void *arg0);
@@ -94,8 +90,6 @@ void set__10TObjRoomIdFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 is_split_screen();
-
-extern s32 __vt__10TObjRoomId[];
 
 s32 is_player_in_range__10TObjRoomIdFPvUsf(Obj_801A1888 *self, u16 id, f32 range) {
     Obj_801A1888 *p = get_player_by_client_id(id);

@@ -38,49 +38,24 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 obj_setArrS16_FC(void *, s32, u16);
 extern s32 lbl_80485454[];
 extern int TBoss4DarkFalz__type3_instance;
-extern int TBoss4DarkFalz__type3_instance;
     extern int dark_falz_form_index;
 void TBoss4DarkFalz__sub_8004C540(void);
 s32 TBoss4DarkFalz__sub_8004B07C(s32);
-extern int TBoss4DarkFalz__type3_instance;
-extern int dark_falz_form_index;
-extern int TBoss4DarkFalz__type3_instance;
-extern int dark_falz_form_index;
 int TBoss4DarkFalz__sub_8004B7DC(void);
-extern int TBoss4DarkFalz__type3_instance;
-extern int dark_falz_form_index;
-int freeze_all_players__14TBoss4DarkFalzFPv(void*);
 void play_area_music(void *);
 extern s32 lbl_80437298[];
 extern s32 game_difficulty_selection;
-extern s32 lbl_80437298[];
-extern s32 game_difficulty_selection;
 void TBoss4DarkFalz__sub_8004C8A8(void);
-int freeze_all_players__14TBoss4DarkFalzFPv(void*);
-extern s32 lbl_80437298[];
-extern s32 game_difficulty_selection;
-extern s32 lbl_80437298[];
-extern s32 game_difficulty_selection;
 s32 TBoss4DarkFalz__sub_8004B730(void *, f32, int);
 extern const f32 TBoss4DarkFalz__data_805D893C;
 extern const f32 lbl_805D8944;
 s32 TBoss4DarkFalz__sub_8004B4F0(void *, void *);
-s32 TBoss4DarkFalz__sub_8004B730(void *, f32, int);
 extern RecoveredGlobal_8004C5E8_TBoss4DarkFalz__data_804FF1E8 TBoss4DarkFalz__data_804FF1E8;
-extern int TBoss4DarkFalz__type3_instance;
 extern const f32 lbl_805D8940;
 void TBoss4DarkFalz__sub_8004C5E8(u8 *arg0);
-s32 TBoss4DarkFalz__sub_8004B730(void *, f32, int);
 void TBoss4DarkFalz__sub_8004C2D8(void *arg0);
 s32 is_ending_or_split_screen__14TBoss4DarkFalzFv();
-s32 TBoss4DarkFalz__sub_8004B730(void *, f32, int);
-s32 is_ending_or_split_screen__14TBoss4DarkFalzFv();
-s32 TBoss4DarkFalz__sub_8004B730(void *, f32, int);
 void TBoss4DarkFalz__sub_8004C7E8(void *arg0);
-}
-
-extern "C" {
-
 int TBoss4DarkFalz__sub_8004C1AC(void);
 s32 TBoss4DarkFalz__sub_8004C1B4(void);
 int TLobby__send_and_handle_60(void*);
@@ -88,7 +63,6 @@ int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int read_be16_field2__10TObjPlayerFv(void*);
 
-    extern int TBoss4DarkFalz__type3_instance;
 int TBoss4DarkFalz__sub_8004C1AC(void) {  return TBoss4DarkFalz__type3_instance; }
 
 extern s32 TBoss4DarkFalz__type2_instance;
@@ -334,21 +308,15 @@ extern "C" {
 extern RecoveredGlobal_8004CBC0_lbl_80485448 lbl_80485448;
 void *create__11TBoss4Type2Fl(void *);
 void normalize_vector(Vec_8004C940 *);
-extern s32 game_difficulty_selection;
 extern const f32 lbl_805D8948;
 extern const f32 lbl_805D894C;
 void enter_demo2_phase__14TBoss4DarkFalzFPv(Obj_8004C940 *arg0);
-}
-
-extern "C" {
-
 void TBoss4DarkFalz__sub_8004C93C(void);
 void TBoss4DarkFalz__sub_8004CA80(void);
 void TBoss4DarkFalz__sub_8004CBBC(void);
 void TBoss4DarkFalz__sub_8004CE90(void);
 void update_parts__14TBoss4DarkFalzFi(s32 arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 TBoss4DarkFalz__sub_8004B07C(s32);
 s32 play_persistent_sound(s32, s32, s32, s32, s32);
 s32 is_timer_expired__14TBoss4DarkFalzFv();
 
@@ -544,9 +512,6 @@ struct Obj_8004D92C { u8 pad[0x2D4]; u16 f2d4; u16 f2d6; };
 struct V_8004D1E4 { f32 x, y, z; };
 
 extern "C" {
-s32 TBoss4DarkFalz__sub_8004D990(u8 *arg0);
-u16 obj_getArrU16_FC(void *obj, s32 i);
-void get_defeat_params__14TBoss4DarkFalzFPvPvPvPv(Obj_8004D8C8 *self, u16 *a, u16 *b, u16 *out);
 u16 obj_getArrU16_FC(void *obj, s32 i);
 void *get_player_data__10TObjPlayerFi(s32);
 f32 horizontal_distance_squared(void *, void *);
@@ -554,23 +519,15 @@ extern s32 lbl_805D586C;
 extern const f32 lbl_805D895C;
 extern const f32 lbl_805D8960;
 extern const f32 lbl_805D8964;
-}
-
-extern "C" {
-
 void TBoss4DarkFalz__sub_8004D29C(void* p);
-void TBoss4DarkFalz__sub_8004D9A0(void* p, s32 v);
 int TBoss4DarkFalz__sub_8004B8F8(void*);
-int freeze_all_players__14TBoss4DarkFalzFPv(void*);
 int set_dark_falz_music_request(void*);
 int check_demo_mode__10TObjPlayerFv(void*);
 int create__14TObjDFUsoTowerFPv(void);
 int fn_8036A514(void*);
 
-    extern int dark_falz_form_index;
 void TBoss4DarkFalz::init_timer() { *(int*)((char*)this + 0x380) = 30; dark_falz_form_index = 1; *(int *)&this->m_394 = create__14TObjDFUsoTowerFPv(); TBoss4DarkFalz::refresh_player_equipment(this); }
 
-extern const f32 lbl_805D8954;
 extern const f32 lbl_805D8958;
 void TBoss4DarkFalz__sub_8004D098(u8 *arg0) {
     f32 t;

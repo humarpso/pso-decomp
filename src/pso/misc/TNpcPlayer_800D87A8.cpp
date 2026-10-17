@@ -5,13 +5,7 @@ extern "C" {
 void *find_active_entity_by_id(void);
 void *find_entity_by_id();
 s32 is_valid_and_active__10TObjPlayerFUl();
-void *find_active_entity_by_id(void);
-}
-
-extern "C" {
-
 void *get_battle_param__10TObjPlayerFi();
-s32 is_valid_and_active__10TObjPlayerFUl();
 
 void *TNpcPlayer::get_valid_target_player() {
     void *temp_r31;

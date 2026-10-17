@@ -41,10 +41,6 @@ extern "C" void run_task__13TPhotonFarllaFv();
 extern "C" void update_if_active__13TUnk_804C3248Fv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 u8 *TPhotonFarlla__ct(u8 *arg0, u8 *arg1);
-}
-
-extern "C" {
-
 #pragma push
 #pragma opt_propagation off
 void *lbl_804C3518[8] = {

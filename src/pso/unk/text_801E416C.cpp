@@ -21,10 +21,6 @@ extern char pso_data_receive_log_format[];
 extern u8 subcommand_area_masks[];
 extern Handler_801E416C pso_command_dispatch_table[];
 void dispatch_pso_data_commands(Buf_801E416C *b);
-}
-
-extern "C" {
-
 void dispatch_pso_data_commands(Buf_801E416C *b) {
     char msg[0x80];
     u8 *pkt;

@@ -25,10 +25,6 @@ s32 bswap_packet_header__9TProtocolFv(void *);
 s32 __as__16TPlyClientConfigFRC16TPlyClientConfig(void *, void *);
 s32 memset(void *, int, int);
 void handle_cmd_9F__9TProtocolFR6packet(u8 *arg0);
-}
-
-extern "C" {
-
 int handle_cmd_D7__9TProtocolFR6packet(void* p);
 int fn_801E08F4(void*);
 

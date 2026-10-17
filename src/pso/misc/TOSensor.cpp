@@ -7,14 +7,12 @@
 #include "pso/misc/TOSensor.h"
 #include "pso/system/BmlResourceDescriptor.h"
 
-extern "C" {
 extern char lbl_80442980[];
 extern char lbl_80442998[];
 extern char lbl_804429B0[];
 extern const char *bm_fs_obj_o_sensor01_model_names[2];
 extern const char *bm_fs_obj_o_sensor01_motion_names[2];
 extern BmlResourceDescriptor TOSensorAncient01__resource_descriptor;
-}
 
 struct VBase_801755BC { u8 pad[0x18]; };
 
@@ -56,22 +54,14 @@ struct Player_801756C4 { u8 pad[0x38]; f32 pos[3]; };
 extern "C" {
 void play_persistent_sound(int, void *, void *, int, int);
 void TOSensor__sub_8017546C(u8 *arg0);
-void play_persistent_sound(int, void *, void *, int, int);
 void TOSensor__sub_80175514(u8 *arg0);
 s32 get_current_floor();
 void queue_destruction__7TObjectFv(void *);
-void TOSensor__sub_8017546C(u8 *arg0);
-void TOSensor__sub_80175514(u8 *arg0);
 extern s32 local_client_id;
 extern const f32 lbl_805DB980;
 s32 obj_testFlags30(void *, s32);
 f32 horizontal_distance_squared(void *, void *);
 Player_801756C4 *get_player_by_client_id(s32);
-extern s32 local_client_id;
-}
-
-extern "C" {
-
 void *TOSensor__ct(void *arg0);
 void *__dt__8TOSensorFv(void *arg0, s16 arg1);
 void render__8TOSensorFv(void);
@@ -214,7 +204,6 @@ void *__dt__8TOSensorFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__8TOSensor[];
 extern void *lbl_805D3140;
 
 void *TOSensor__ct(void *arg0) {
@@ -273,8 +262,6 @@ void TOSensorAncient01::vfunc_16() {
 
 }
 
-#include "types.h"
-#include "pso/misc/TOSensorAncient01.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TOKey.h"
 #include "pso/object/TObjFish.h"
@@ -321,19 +308,13 @@ void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void *mem_alloc(s32);
 s32 load_gvm_texture_file(const void *);
-extern u32 sensor_ancient01_model_resource;
 extern void *ancient_sensor_resource_pair_table;
 extern s32 lbl_805D5A90;
 extern s32 lbl_805D5A94;
 extern s32 lbl_805D5A98;
 extern s32 sensor_texture_table_index;
-}
-
-extern "C" {
-
 void *__dt__17TOSensorAncient01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
-void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 mem_free(void*);
 
@@ -436,9 +417,6 @@ void *TOSensorAncient01::create(void *arg0) {
     return o;
 }
 
-extern u32 sensor_ancient01_model_resource;
-extern void *ancient_sensor_resource_pair_table;
-
 void TOSensorAncient01::destroy() {
     if ((void *) ancient_sensor_resource_pair_table != NULL) {
         TObjPlayer::free_if_valid(*(s32 *)((s8 *)ancient_sensor_resource_pair_table + 0));
@@ -454,8 +432,6 @@ void TOSensorAncient01::destroy() {
         sensor_ancient01_model_resource = 0U;
     }
 }
-
-extern s32 __vt__17TOSensorAncient01[];
 
 extern "C" {
 extern const char lbl_804429E8[];
@@ -535,9 +511,6 @@ u8 *TOSensorAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
 }
 #pragma pop
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_fs_obj_o_sensor01_model_names[2] = { lbl_80442980, NULL };
 __declspec(section ".data") const char *bm_fs_obj_o_sensor01_motion_names[2] = { lbl_80442998, NULL };
 BmlResourceDescriptor TOSensorAncient01__resource_descriptor = { lbl_804429B0, bm_fs_obj_o_sensor01_model_names, bm_fs_obj_o_sensor01_motion_names, 1, 1 };

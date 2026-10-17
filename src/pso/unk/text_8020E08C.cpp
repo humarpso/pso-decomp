@@ -38,10 +38,6 @@ extern EneRow_8020E08C *TLobby__data_805D6114;
 extern s32 TLobby__current_floor_object_set_count;
 extern s32 TLobby__current_floor_enemy_set_count;
 void arrive_floor_population(void);
-}
-
-extern "C" {
-
 void arrive_floor_population(void) {
     s32 index;
     Floor_8020E08C *floor;

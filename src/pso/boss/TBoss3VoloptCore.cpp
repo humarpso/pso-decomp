@@ -124,7 +124,6 @@ extern const f32 lbl_805D86C8;
 extern const f32 lbl_805D86CC;
 extern const f32 lbl_805D86D0;
 void TObjPlayer__sub_8003FCD0(u8 *arg0);
-void TObjPlayer__sub_8003FCD0(u8 *arg0);
 s32 TObjPlayer__sub_80040AE4(s32 i);
 void update_if_active__15TObjEneMe1GiGueFl(void*, s32);
 s32 advance_animation_playback(void *);
@@ -134,22 +133,15 @@ extern s32 vol_opt_active_hit_zone;
 void TObjPlayer__sub_8003F9D4(void *arg0_);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TBoss3Volopt__sub_8004885C(void *, void *, int, int, void *, f32, f32);
-s32 advance_animation_playback(void *);
 u32 get_player_by_client_id(int);
-s32 minimap_render_dot(void *, s32, s32, s32);
 void * __nw__7TObjectFUl(int);
 s32 vec3_add_to(void *, void *);
 s32 subtract_vector(void *, void *);
 extern s32 volopt_slot_positions[];
-extern const f32 lbl_805D86D0;
 extern const f32 lbl_805D86DC;
 extern const f32 lbl_805D86E0;
 extern const f32 lbl_805D86E4;
 void TObjPlayer__sub_800401CC(u8 *arg0);
-}
-
-extern "C" {
-
 struct Base_8003f510_8003F4C0 { u8 pad[0x18]; };
 
 struct VObj_8003f510_8003F4C0 : Base_8003f510_8003F4C0 {
@@ -550,7 +542,6 @@ struct VObj_80040894 : VBase_80040894 {
     virtual void m80();
 };
 
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 reset_status_effect_row(void *);
 s32 obj_testFlags30(void *, s32);
 s32 obj_clearFlags30(void *, s32);
@@ -575,8 +566,6 @@ void TBoss3VoloptCore__ct(VObj_80040894 *arg0);
 void * create_TBoss3VoloptCore(void *arg0, void *arg1, s16 arg2, s16 arg3);
 void * TBoss3VoloptCore__sub_80040A7C(void *arg0, void *arg1, void *arg2);
 int is_target_in_attack_range__13TUnk_80483A10Fv(void);
-s32 TObjPlayer__sub_80040AE4(s32 i);
-void update_if_active__15TObjEneMe1GiGueFl(void*, s32);
 s32 TCameraCtrl__sub_8006A044(s32, f32);
 u32 create_particle_emitter(void *, int);
 s32 __dt__15TObjEnemyCustomFv(void *, s32);
@@ -584,20 +573,13 @@ s32 TObjEnemyCustom__ct();
 s32 angle_difference_abs(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
 s32 set_animation__10TObjPlayerFPvs(void *, s16);
-s32 advance_animation_playback(void *);
 void * find_entity_by_id(u16);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, s32);
-s32 minimap_render_dot(void *, s32, s32, s32);
-s32 play_persistent_sound(s32, void *, void *, s32, s32);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 __dl__7TObjectFPv(void *);
-void * __nw__7TObjectFUl(int);
 s32 scale_matrix(s32, f32, f32, f32);
-s32 rotate_matrix_y(s32, s32);
 s32 rotate_matrix_x(s32, s32);
-s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_chunk_object(s32);
 
@@ -605,7 +587,6 @@ extern Slot_8003F730 volopt_target_slot_used[];
 extern u16 lbl_805D271C;
 extern s32 lbl_805D2728;
 extern int boss3_volopt_resources;
-extern s32 vol_opt_active_hit_zone;
 extern u16 boss3_volopt_monitor_base_actor_id;
 extern int lbl_805D4C50;
 extern int lbl_805D4C54;
@@ -615,7 +596,6 @@ extern int volopt_resource_table_ptr;
 extern s32 boss3_volopt_core_active_flag;
 extern s32 boss3_volopt_turn_angle_limit;
 extern s32 local_client_id;
-extern const f32 lbl_805D86B0;
 extern const f32 lbl_805D86B4;
 extern const f32 lbl_805D86B8;
 extern const f32 lbl_805D86BC;
@@ -883,10 +863,6 @@ void *TBoss3VoloptCore__vtable[83] = {
     (void *)&apply_hit_message_flags__9TObjEnemyFPv, (void *)&apply_set_data__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv,
 };
 #define TBoss3VoloptCore__vtable ((s32 *)TBoss3VoloptCore__vtable)
-
-extern "C" {
-s32 alloc_boss_target_slot__10TObjPlayerFPvi(Obj_8003F730 *self, s32 _w1);
-}
 
 void TObjPlayer::set_grabbed_state(s32 arg0) {
     void *entity;

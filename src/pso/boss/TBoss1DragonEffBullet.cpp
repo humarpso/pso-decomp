@@ -51,21 +51,12 @@ u8 *TBoss1DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void queue_destruction__7TObjectFv(void *);
 s32 spawn_particle_effect_with_flags(void *, int, int);
 u8 * spawn_continuous_particle_effect_with_flags(void *, s32, s32);
-s32 play_sound_effect(int, void *, int, int);
-extern s32 *dragon_fireball_particle_ids;
 extern const f32 lbl_805D8140;
-}
-
-extern "C" {
-
 void *__dt__21TBoss1DragonEffBulletFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void queue_destruction__7TObjectFv(void *);
 
 void TBoss1DragonEffBullet::render() {  }
-
-extern s32 __vt__21TBoss1DragonEffBullet[];
 
 #pragma push
 #pragma fp_contract on

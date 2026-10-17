@@ -23,35 +23,12 @@ extern const f32 lbl_805DC930;
 extern const f32 lbl_805DC934;
 extern const f32 lbl_805DC938;
 u8 *construct_aimed_technique_projectile(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s32 arg4);
-u16 obj_getField1c(s32);
-s32 get_type__10TObjPlayerFPv(s32);
-void *__ct__7TEffectFv(void *);
-s32 direction_to_rotation_xz(void *, void *, void *);
-s32 init_collision_body_parts(u32, void *, int);
-u32 construct_collider_proxy__13TUnk_804AF8A0Fv(u32, void *);
-u32 __nw__7TObjectFUl(int);
-f32 vector_length(void *);
-s32 normalize_vector(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-extern s32 lbl_804CCC68[];
-extern const f32 lbl_805DC91C;
-extern const f32 lbl_805DC924;
-extern const f32 lbl_805DC928;
-extern const f32 lbl_805DC92C;
-extern const f32 lbl_805DC930;
-extern const f32 lbl_805DC934;
-extern const f32 lbl_805DC938;
 u8 *construct_facing_technique__10TObjPlayerFPviPvii(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4);
-}
-
-extern "C" {
-
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TEffectFv(void *, int);
-
-extern s32 lbl_804CCC68[];
 
 void *TObjPlayer::destroy_technique_effect_resources(s16 arg1) {
     if (this != NULL) {

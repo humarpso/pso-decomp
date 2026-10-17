@@ -66,10 +66,6 @@ void run_task__15TEffStarLight2DFv(Star_800851B0 *self);
 O_80085388 *__ct__15TEffStarLight2DFv(O_80085388 *arg0, void *arg1, void *arg2, void *arg3);
 void run_task__18TEffStarLightChildFv(Star_80085424 *self);
 Star_800855F8 *__ct__18TEffStarLightChildFv(Star_800855F8 *self, Pt_800855F8 *a, Pt_800855F8 *b, void *parent, f32 w, f32 speed);
-}
-
-extern "C" {
-
 void run_task__15TEffStarLight2DFv(Star_800851B0 *self) {
     P2_800851B0 scr;
     Vec_800851B0 view;

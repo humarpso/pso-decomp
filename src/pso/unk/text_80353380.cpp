@@ -21,8 +21,6 @@ void *__dt__13TUnk_804F112CFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 lbl_804F112C[];
-
 void *fn_803533D8(void *arg0) {
     TItemObject__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F112C;

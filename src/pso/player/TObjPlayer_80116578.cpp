@@ -8,10 +8,6 @@ struct Obj_80116620 { u8 pad[0x4]; Rec_80116620 recs[1]; };
 
 extern "C" {
 Rec_80116620 *TObjPlayer__sub_80116620(Obj_80116620 *self, s32 i);
-}
-
-extern "C" {
-
 int TLobby__send_and_handle_60(void*);
 int bswap_16__FPUs(void* a0 = 0);
 

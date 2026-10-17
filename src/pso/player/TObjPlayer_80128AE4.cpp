@@ -10,11 +10,6 @@ extern "C" {
 s32 spawn_particle_effect(u32, s32);
 Obj_80128A74 *find_entity_by_id(s32);
 void TObjPlayer__sub_80128A74(s32 a, u32 b, s32 c, s32 d);
-}
-
-extern "C" {
-
-s32 spawn_particle_effect(u32, s32);
 s32 play_sound_effect(s32, s32, s32, s32);
 void TObjPlayer__sub_80128A70(void);
 
@@ -26,17 +21,6 @@ void TObjPlayer__sub_80128A74(s32 a, u32 b, s32 c, s32 d) {
         spawn_particle_effect((u32)o->elems[d].f1c, 0x45);
     }
 }
-
-}
-
-#include "types.h"
-#include "pso/player/TObjPlayer.h"
-
-extern "C" {
-
-s32 spawn_particle_effect(u32, s32);
-s32 play_sound_effect(s32, s32, s32, s32);
-void TObjPlayer__sub_80128A70(void);
 
 void TObjPlayer::notify_hit_target(u32 arg0, u32 arg1, u32 arg2, u32 arg3) {
     if ((arg1 != 0U) && (arg3 != 0U)) {

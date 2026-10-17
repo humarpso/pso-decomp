@@ -6,10 +6,6 @@
 extern "C" {
 s32 prs_decompress_buffer(s32, s32);
 extern int item_load_compressed_work_buffer;
-}
-
-extern "C" {
-
 struct VOff_8010FD2C_arg0_8010fd2c { char pad_0[0x1C]; char f_1C[1]; };
 
 void init_buffer__9TItemLoadFPviii(void *);
@@ -26,8 +22,6 @@ void *TUnk_8049F42C::init() {
     ((TObjPlayer *)(self->f_1C))->clear_id();
     return this;
 }
-
-    extern int item_load_compressed_work_buffer;
 
 s32 TItemLoad::decompress_buffer(u32 arg0) {
     if (((u32) (*(u32 *)&item_load_compressed_work_buffer) != 0U) && (arg0 != 0U)) {

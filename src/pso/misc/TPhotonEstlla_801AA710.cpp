@@ -64,9 +64,7 @@ extern const f32 lbl_805DC144;
 extern const f32 lbl_805DC148;
 extern const f32 lbl_805DC14C;
 extern const f32 lbl_805DC150;
-u8 *find_entity_by_id(u16);
 s32 TPhotonLine__ct(void *, void *, void *, u16);
-u32 __nw__7TObjectFUl(int);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
@@ -78,7 +76,6 @@ extern const f32 lbl_805DC13C;
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 scroll_strip_uvs(void *, s16, int);
 s32 clear_render_context__10TObjPlayerFv(void *);
-s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 translate_matrix(int, f32, f32, f32);
@@ -93,9 +90,6 @@ extern void *estlla_photon_blast_model;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-}
-
-extern "C" {
 
 void TPhotonEstlla::spawn_line() {
     Self_801AA710 *self = (Self_801AA710 *)this;

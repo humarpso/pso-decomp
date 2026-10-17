@@ -61,25 +61,14 @@ extern u32 door_ancient09_bml_resource;
 extern void *TODoorAncient09__texture_lists;
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 is_any_player_within_radius_xz(void *, f32);
-s32 play_sound_effect(s32, void *, s32, s32);
-extern void *TODoorAncient09__texture_lists;
 extern const f32 lbl_805DB488;
 s32 set_indexed_flags(void *, s32, s32);
-s32 is_any_player_within_radius_xz(void *, f32);
-s32 play_sound_effect(s32, void *, s32, s32);
-extern void *TODoorAncient09__texture_lists;
 extern const f32 lbl_805DB48C;
-u8 is_current_floor_switch_set(int);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 int draw_ginja_model(void *);
-extern void *TODoorAncient09__texture_lists;
-}
-
-extern "C" {
-
 struct TODoor9Base_801608B4 { char pad[0x14]; void **vtbl; };
 struct TODoor9VObj_801608B4 : TODoor9Base_801608B4 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -90,12 +79,8 @@ struct TODoor9VObj_801608B4 : TODoor9Base_801608B4 {
 void *__dt__15TODoorAncient09Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void *TODoorAncient09__ct(void *, void *, void *);
-s32 post_translate_matrix(void *);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 free_collision_body_parts(void *);
-s32 rotate_matrix_y(s32, s32);
-s32 push_matrix();
-s32 pop_matrix();
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 mem_free(void*);
@@ -361,9 +346,6 @@ void *TODoorAncient09::create(void *arg0) {
     }
     return o;
 }
-
-extern u32 door_ancient09_bml_resource;
-extern void *TODoorAncient09__texture_lists;
 
 void TODoorAncient09::free_rocks() {
     if ((void *) TODoorAncient09__texture_lists != NULL) {

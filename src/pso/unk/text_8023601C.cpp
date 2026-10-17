@@ -12,10 +12,6 @@ s32 normalize_vector(void *);
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DC88C;
 void offset_point_toward_camera(u8 *arg0, u8 *arg1, f32 farg0);
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 void offset_point_toward_camera(u8 *arg0, u8 *arg1, f32 farg0) {

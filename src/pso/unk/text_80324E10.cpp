@@ -6,10 +6,6 @@ u8 *__ct__25TBoss5GryphonLightningEffFv(void *, s32, s32, s32, f32, f32, f32);
 u8 *__nw__7TObjectFUl(s32);
 s32 TBoss5GryphonLightningEff__sub_80325064(int);
 extern s32 tl_07;
-}
-
-extern "C" {
-
 #pragma fp_contract on
 void TBoss5GryphonLightning::spawn_gryphon_lightning() {
     u8 *arg0 = (u8 *)this;

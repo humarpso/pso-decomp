@@ -8,11 +8,6 @@ extern "C" {
 void *fn_8030A83C(void *arg0);
 void *__ct__14TBoss4ZakoDrawFv(void *, void *);
 void *__nw__7TObjectFUl(int);
-void *fn_8030A83C(void *arg0);
-}
-
-extern "C" {
-
     extern int lobby_online_ready_flag;
 int TLobby::get_online_ready_flag() {  return lobby_online_ready_flag; }
 

@@ -38,35 +38,12 @@ extern void *window_clip_out_instance;
 Obj_8024D520 *TWindowCtrlMain__ct(Obj_8024D520 *arg0);
 s32 __dt__7TObjectFv(void *, s32);
 s32 __dl__7TObjectFPv(void *);
-extern u8 __vt__15TWindowCtrlMain[];
-extern Ent_8024D520 TWindowCtrlMain__viewport_states[6];
-extern void *TWindowCtrlMain__instance;
-extern void *TWindowCtrlMain__window_task_root;
-extern void *TWindowCtrlMain__screen_controller;
-extern void *TWindowCtrlMain__sub_controller;
-extern void *window_clip_out_instance;
 void *__dt__15TWindowCtrlMainFv(void *arg0, s16 arg1);
-extern Ent_8024D520 TWindowCtrlMain__viewport_states[6];
-extern void *TWindowCtrlMain__instance;
-extern void *TWindowCtrlMain__window_task_root;
-extern void *TWindowCtrlMain__screen_controller;
-extern void *TWindowCtrlMain__sub_controller;
-extern void *window_clip_out_instance;
 s32 load_hud_palette_textures();
 s32 TWindowCtrlMain__sub_8024EF30();
-extern Ent_8024D520 TWindowCtrlMain__viewport_states[6];
 extern void *TWindowCtrlMain__display_flags;
-extern void *TWindowCtrlMain__instance;
-extern void *TWindowCtrlMain__window_task_root;
-extern void *TWindowCtrlMain__screen_controller;
-extern void *TWindowCtrlMain__sub_controller;
-extern void *window_clip_out_instance;
 extern f32 window_depth_order_cursor;
 extern const f32 lbl_805DCC58;
-}
-
-extern "C" {
-
 void TWindowCtrlMain__sub_8024D838(void);
 void TWindowCtrlMain__sub_8024D85C(void* p);
 int TCameraCtrl__sub_80068EF0(void);

@@ -10,17 +10,11 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_80159D24_lbl_804AFD0C bm_o_boss4_resource_descriptor;
 extern u32 lbl_805D58A8;
-}
-
-extern "C" {
-
 void *TOBoss4__ct(void *arg0);
 void *__dt__7TOBoss4Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void construct_world_actor_base(void *, void *);
 void __dl__7TObjectFPv(void *);
-
-extern u32 lbl_805D58A8;
 
 void TOBoss4::free_instance() {
     if ((u32) lbl_805D58A8 != 0U) {
@@ -55,7 +49,6 @@ void *__dt__7TOBoss4Fv(void *arg0, s16 arg1) {
 
 extern void *tl_05;
 extern const f32 lbl_805DB310;
-extern s32 __vt__7TOBoss4[];
 extern const f32 lbl_805DB31C;
 extern void *lbl_805D2EB0;
 

@@ -17,28 +17,20 @@ u32 get_item_system_generation();
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 item_follow_effect_vtable[];
 u8 *construct_item_follow_effect(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-u8 *construct_item_follow_effect(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
 void spawn_item_follow_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
 s32 roll_technique__11TItemWeaponFv(void *);
 void TObjPlayer__sub_80125C70(void* p);
 s32 get_id__13TItemProArmorFv(void *);
-s32 roll_technique__11TItemWeaponFv(void *);
 s32 __nw__15TItemHeapObjectFUl(s32);
 s32 ct__13TUnk_804A0688Fv(s32, u32, s32, s32);
-void spawn_item_follow_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
 s32 item_model_is_shown(void *);
 s32 is_item_area_enabled(s32);
 extern s32 tl_05;
-}
-
-extern "C" {
-
 void run_task__13TUnk_804A2660Fv(void *arg0);
 void *destroy_item_follow_effect(void *arg0, s16 arg1);
 s32 find_item_by_id(s32);
-u32 get_item_system_generation();
 s8 TObjPlayer__sub_80102C30();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -78,8 +70,6 @@ void TUnk_804A2660::run_task() {
         queue_destruction__7TObjectFv((void *)(this));
     }
 }
-
-extern s32 item_follow_effect_vtable[];
 
 void *destroy_item_follow_effect(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

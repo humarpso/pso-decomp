@@ -10,10 +10,6 @@ extern s32 particle_pool_limit;
 extern Ent_800868C4 *particle_global_entry_table;
 extern Ent_800868C4 *particle_area_entry_table;
 void *create_oneshot_particle_emitter(void *pos, void *dir, s32 id, s32 flags);
-}
-
-extern "C" {
-
 int queue_destruction__7TObjectFv();
 
 void TBoss4Type2::request_destroy(u32 arg0) {

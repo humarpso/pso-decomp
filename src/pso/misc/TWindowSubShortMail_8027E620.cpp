@@ -7,7 +7,6 @@
 #include "pso/misc/TWindowSubShortCutList.h"
 #include "pso/misc/TUnk_804D0618.h"
 #include "pso/misc/TUnk_804D1AD0.h"
-#include "pso/misc/TWindowSubShortMail.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TShopArmorListWindow.h"
 #include "pso/misc/TWindowMakeTeam.h"
@@ -44,9 +43,6 @@ s32 mem_free(s32);
 s32 get_card_window_area__6TLobbyFv();
 void * get_mail_ptr__19TWindowSubShortMailFPv(void *);
 s32 realloc_buffer__17TWindowSubComCardFv(s32);
-}
-
-extern "C" {
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(s32, s32);
 s32 get_main_phase();
 s32 draw_card_icon__17TWindowSubComCardFll(s32, s32, s32);
@@ -63,28 +59,15 @@ s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, s32, s32);
 s32 free_member__17TWindowSubComCardFv(s32, s32);
 s32 open_yes_no_prompt(s32, s32, s32, s32, f32);
 extern const f32 lbl_805DD6D0;
-}
-
-extern "C" {
-
 void TWindowSubShortMail__sub_8027E620(void* p);
 s32 TKeyBoardControl__ct(s32, s32, s32, s32, s32, s32);
 s32 get_shared_text_buffer();
 s32 send_simple_mail__6TLobbyFiPv(s32, s32);
-s32 TLobby__sub_8022598C(s32);
 int send_find_user_self_tag__6TLobbyFi(void*);
-s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, s32, s32);
 s32 TWindowSubComCard__sub_80225E80(s32, s32);
-s32 open_yes_no_prompt(s32, s32, s32, s32, f32);
 s32 __nw__7TObjectFUl(s32);
-s32 check_room_seq_4__16TAdChrSelASlotGCFl(s32, s32);
-s32 draw_card_icon__17TWindowSubComCardFll(s32, s32, s32);
 s32 fn_80267F38(s32, s32 *, s32, s16);
-s32 free_member__17TWindowSubComCardFv(s32, s32);
 s32 get_flag_bit0__6TLobbyFv();
-u32 get_lobby_id__6TLobbyFPv();
-s32 get_main_phase();
-s32 get_short_mail_ctrl__6TLobbyFv();
 s32 set_status_flag_80__12TQuestThreadFPv(s32);
 s32 update_chat_window(s32);
 
@@ -124,8 +107,6 @@ void TWindowSubShortMail::update_mail_count() {
     }
 }
 
-extern const f32 TWindowSubShortMail__data_805DD6C8;
-
 s32 TWindowSubShortMail::open_delete_confirm_dialog() {
     s32 temp_r29;
 
@@ -136,8 +117,6 @@ s32 TWindowSubShortMail::open_delete_confirm_dialog() {
     return temp_r29;
 }
 
-extern const f32 TWindowSubShortMail__data_805DD6C8;
-
 s32 TWindowSubShortMail::open_confirm_dialog() {
     s32 temp_r29;
 
@@ -147,8 +126,6 @@ s32 TWindowSubShortMail::open_confirm_dialog() {
     ((TWindowSubShortMail *)temp_r29)->notify_warp_flag70();
     return temp_r29;
 }
-
-extern const f32 TWindowSubShortMail__data_805DD6C8;
 
 s32 open_menu__19TWindowSubShortMailFv(void) {
     s32 window_layout_position;
@@ -166,7 +143,6 @@ s32 open_menu__19TWindowSubShortMailFv(void) {
     return temp_r31;
 }
 
-extern const f32 TWindowSubShortMail__data_805DD6C8;
 extern const f32 lbl_805DD6CC;
 
 s32 create_window__19TWindowSubShortMailFv(void) {
@@ -372,10 +348,6 @@ void TWindowSubShortMail__sub_80131998(void *);
 void TWindowSubShortMail__sub_8027E620(void *p);
 void remove_short_mail_by_id(s32);
 void get_keyboard_field_6c__15TWindowMakeTeamFv(void *, void *);
-}
-
-extern "C" {
-
 struct VObj_8027FBF0_Base_8027fbf0_8027E620 { char pad[0x18]; };
 struct VObj_8027FBF0_8027E620 : VObj_8027FBF0_Base_8027fbf0_8027E620 {
     virtual void m0();
@@ -392,12 +364,10 @@ struct VObj_8027FBF0_8027E620 : VObj_8027FBF0_Base_8027fbf0_8027E620 {
 
 void *__dt__19TWindowSubShortMailFv(void *arg0, s16 arg1);
 s32 TLobby__sub_802258C8();
-s32 get_selected_menu_value(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 fn_8027FD94(s32, s16);
 s32 is_player_input_active(s32);
-s32 queue_destruction__7TObjectFv(void *);
 
 void TWindowSubShortMail::render() {  }
 
@@ -703,7 +673,6 @@ void *__dt__19TWindowSubShortMailFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__19TWindowSubShortMail[];
 extern void *TWindowSubShortMail__class_name;
 
 }

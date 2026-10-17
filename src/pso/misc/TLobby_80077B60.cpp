@@ -5,14 +5,7 @@ extern "C" {
 extern u32 lbl_805D4E58;
 extern u32 lbl_805D4E5C;
 void TLobby__sub_80077BAC(void);
-}
-
-extern "C" {
-
 void __dl__FPv(void*);
-
-extern u32 lbl_805D4E58;
-extern u32 lbl_805D4E5C;
 
 void TLobby::free_static_windows() {
     if ((u32) lbl_805D4E5C != 0U) {

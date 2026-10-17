@@ -20,10 +20,6 @@ extern RecoveredGlobal_8013ADB0_TAdEnterSerialAccessGC__data_804EC9B8 TAdEnterSe
 s32 *get_raw_serial_input_buffer(void);
 extern RecoveredGlobal_8013AD80_TAdEnterSerialAccessGC__data_804EC9C4 TAdEnterSerialAccessGC__access_key_input_buffer;
 s32 *get_access_key_input_buffer(void);
-}
-
-extern "C" {
-
 int TLobby__sub_8013AD50(void* p);
 s32 TLobby__sub_8013AD5C(void* p);
 u8 TLobby__sub_8013AD6C(void* p);

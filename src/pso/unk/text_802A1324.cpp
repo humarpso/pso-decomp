@@ -21,10 +21,6 @@ extern u8 *tl_00;
 extern u8 *tl_01;
 extern u8 opening_movie_purpose;
 u8 *create_opening_movie_sequence(u8 *arg0);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_802A1324_lbl_804DCB64_size[sizeof(RecoveredGlobal_802A1324_lbl_804DCB64) == 0x1C ? 1 : -1];
 u8 *create_opening_movie_sequence(u8 *arg0) {
     u8 *temp_r3;

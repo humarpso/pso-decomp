@@ -2,10 +2,6 @@
 
 extern "C" {
 s32 is_single_purchase_shop_item(u8 *p);
-}
-
-extern "C" {
-
 s32 is_single_purchase_shop_item(u8 *p) {
     if (p[0] == 3) {
         switch (p[1]) {

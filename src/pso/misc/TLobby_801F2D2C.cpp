@@ -88,50 +88,15 @@ extern u32 TLobby__quest_state_object_168;
 extern u32 TLobby__quest_state_object_16c;
 extern u16 TLobby__quest_state_word_170;
 extern u16 TLobby__quest_state_word_172;
-s32 memcpy(void *, void *, int);
-extern RecoveredGlobal_801F301C_TLobby__data_80512220 TLobby__quest_argument_stack;
-extern RecoveredGlobal_801F301C_TLobby__data_80512240 TLobby__script_value_stack;
-extern unsigned char* TLobby__quest_data_base;
-extern s32 TLobby__data_805D5E74;
-extern s32 TLobby__script_reg_array;
-extern u32 TLobby__quest_message_window;
-extern u32 TLobby__quest_choice_window;
-extern u8 TLobby__active_window_index;
-extern s32 TLobby__script_stack_depth;
-extern int TLobby__quest_script_pc;
-extern s32 lbl_805D5E94;
-extern s32 lbl_805D5E9C;
-extern s32 quest_message_speaker_id;
-extern s32 TLobby__quest_arg_stack_count;
-extern u8 TLobby__data_805D5EA8;
-extern u8 TLobby__data_805D5EA9;
-extern u16 TLobby__data_805D5EAA;
-extern u16 TLobby__data_805D5EAC;
-extern u32 TLobby__data_805D5EB0;
-extern u32 TLobby__quest_window_object;
-extern u32 TLobby__menu_state_object;
-extern u32 TLobby__quest_state_object_168;
-extern u32 TLobby__quest_state_object_16c;
-extern u16 TLobby__quest_state_word_170;
-extern u16 TLobby__quest_state_word_172;
 extern RecoveredGlobal_801F3268_lbl_80512B18 lbl_80512B18;
 s32 *TObjItemOKWindow__sub_801F3268(void);
 extern struct Op_801F2E64 qst_opcode_table[];
 extern s32 TLobby__quest_window_state;
 s32 dispatch_quest_opcode(void);
 int bswap_16__FPUs(void*);
-int bswap_32__FPUl(void*);
 void *memset(void *, int, u32);
-extern u8 TLobby__data_805D5EA8;
-extern u8 TLobby__data_805D5EA9;
-extern u16 TLobby__data_805D5EAA;
-extern u16 TLobby__data_805D5EAC;
 extern s16 TLobby__data_805D5ECC;
 void init_quest_script_context(Hdr_801F3124 *h, Ctx_801F3124 *c);
-}
-
-extern "C" {
-
 void TLobby__sub_801F3314(s32 arg0);
 int TLobby__sub_801F3384(void* p);
 int TLobby__sub_801F33A8(void* p);
@@ -163,13 +128,9 @@ int TLobby__send_and_handle_60(void*);
 int test_action_mask__10TObjPlayerFl(void*, int);
 s32 TWindow__close(s32);
 int VecCopy__FP3VecPC3Vec(void*);
-int bswap_16__FPUs(void*);
-int bswap_32__FPUl(void*);
 s32 queue_destruction__7TObjectFv(s32);
 int set_flags__10TObjPlayerFUl(void*, int);
 
-    extern unsigned char* TLobby__quest_data_base;
-    extern int TLobby__quest_script_pc;
 unsigned char TLobby::read_packet_byte() { return TLobby__quest_data_base[TLobby__quest_script_pc++]; }
 
 s32 TLobby::dispatch_quest() {
@@ -182,14 +143,7 @@ s32 TLobby::dispatch_quest() {
     return temp_r31;
 }
 
-extern u32 TLobby__quest_message_window;
 extern u32 TLobby__quest_secondary_window;
-extern u32 TLobby__quest_choice_window;
-extern u32 TLobby__data_805D5EB0;
-extern u32 TLobby__quest_window_object;
-extern u32 TLobby__menu_state_object;
-extern u32 TLobby__quest_state_object_168;
-extern u32 TLobby__quest_state_object_16c;
 
 void TLobby::close_windows() {
     if ((u32) TLobby__quest_message_window != 0U) {
@@ -362,8 +316,6 @@ void TLobby::clear_quest_vm_flag() {
     }
 }
 
-extern u32 quest_mission_manager;
-
 void TLobby::free_luker_object() {
     if ((u32) quest_mission_manager != 0U) {
         ((TObject *)quest_mission_manager)->set_flag_4();
@@ -428,7 +380,6 @@ int TLobby::get_field_6CE8() {  return warning_aram_load_done_flag; }
     extern int lobby_count_value;
 int TLobby::get_lobby_count() {  return lobby_count_value; }
 
-    extern int lobby_count_value;
 void TLobby__sub_801F3614(void) { lobby_count_value = 0; }
 
 int TLobby::copy_position() { return VecCopy__FP3VecPC3Vec(this); }

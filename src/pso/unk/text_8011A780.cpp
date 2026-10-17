@@ -60,42 +60,27 @@ s32 bswap_6xa2_fields__6TLobbyFv();
 s32 handle_box_drop_directive(void *);
 void handle_6xA2_specializable_item_drop_request(void *arg0);
 void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1);
-extern s32 item_sync_counter_table;
 void set_boss_buf_entry__6TLobbyFii(s32 v, u16 idx);
 void bswap_pick_up_item_request__6TLobbyFi(Msg_8011A9D8 *msg);
 void *find_item_condition_entry__6TLobbyFii(s16 a, u32 b);
 void handle_6x5A_pick_up_item_request(Msg_8011A9D8 *msg);
-extern s32 item_sync_counter_table;
-extern s32 item_id_counter_table;
 s32 get_main_phase();
 s32 is_quest_active();
 extern s32 build_item_id_mode;
 u32 build_item_id(u16 arg0);
-u32 build_item_id(u16 arg0);
 void init__9TItemDataFv(void *);
 void normalize__9TItemDataFv(void *p);
 extern Source_8011AA68 *TLobby__data_805D6140;
-u32 build_item_id(u16 arg0);
 void apply_by_index__9TObjEnemyFs(s16, void *);
-void init__9TItemDataFv(void *);
 void drop_item_from_slot__10TObjPlayerFlll(s8 arg0, s32 arg1, s32 arg2);
-void normalize__9TItemDataFv(void *p);
 extern Source_8011AB64 *TLobby__data_805D6144;
 void process_enemy_drop_request(s8 area, s16 source, int client, s16 room, int slot, f32 x, f32 z);
 s32 TItemData__sub_8010C740(void *, int);
 s32 TItemData__sub_8010CCB0(void *);
-void apply_by_index__9TObjEnemyFs(s16, void *);
 s32 spawn_dropped_item_from_msg(void *, int);
-extern Source_8011AB64 *TLobby__data_805D6144;
-extern Source_8011AA68 *TLobby__data_805D6140;
 void handle_6x5F_drop_item(Pkt_8011ADF4 *pkt);
 void bswap_6x60_drop_request_fields(void *);
-void process_enemy_drop_request(s8 area, s16 source, int client, s16 room, int slot, f32 x, f32 z);
 void handle_6x60_standard_drop_item_request(void *arg0);
-}
-
-extern "C" {
-
 void handle_6x5C_destroy_floor_item(void *arg0);
 void handle_6x62(void);
 s32 bswap_packet__6TLobbyFv();

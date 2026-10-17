@@ -29,8 +29,6 @@ void TWindowCtrl__sub_8024B9C0(void *arg0) {
     }
 }
 
-extern s32 local_client_id;
-
 void TWindowCtrl::update_trade_window() {
     if ((u32) *(u32 *)((s8 *)this + 0x34) != 0U) {
         if ((is_slot_visible__11TWindowCtrlFv(local_client_id) != 0) || (TWindowCtrl__sub_8024B000((void *)(this), (s32)(local_client_id)) != 0) || ((is_split_screen() != 0) && (TRaderMapCore::is_active() == 0))) {
@@ -42,7 +40,6 @@ void TWindowCtrl::update_trade_window() {
 }
 
 extern u8 controller_input_state[];
-extern s32 local_client_id;
 
 void TWindowCtrl::handle_controller() {
     s32 arg0 = (s32)this;

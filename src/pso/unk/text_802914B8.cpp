@@ -4,10 +4,6 @@
 extern "C" {
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 void TUnk_804DAB08::calc_spherical_camera_position() {

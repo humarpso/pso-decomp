@@ -8,13 +8,11 @@
 #include "pso/object/TObjFish.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern char lbl_80479170[];
 extern char lbl_80479184[];
 extern const char *bm_obj_lobby_kabocha_model_names[2];
 extern BmlResourceDescriptor lobby_pumpkin_resource_descriptor;
 extern const char *bm_obj_lobby_kabocha_motion_names[1];
-}
 
 struct VBase18_8035346c { char pad[0x18]; };
 struct VObj18_8035346c : VBase18_8035346c {
@@ -173,9 +171,6 @@ void *TObjKabochaLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_obj_lobby_kabocha_model_names[2] = { lbl_80479170, NULL };
 BmlResourceDescriptor lobby_pumpkin_resource_descriptor = { lbl_80479184, bm_obj_lobby_kabocha_model_names, bm_obj_lobby_kabocha_motion_names, 1, 0 };
 }

@@ -46,9 +46,6 @@ extern "C" {
 s32 GXClearVtxDesc();
 s32 Dolphin_GXSetVtxDesc(int, int);
 s32 GXSetVtxAttrFmt(int, int, int, int, int);
-s32 GXClearVtxDesc();
-s32 Dolphin_GXSetVtxDesc(int, int);
-s32 GXSetVtxAttrFmt(int, int, int, int, int);
 s32 GXSetTevOp(int, int);
 s32 GXSetTevColorIn(int, int, int, int, int);
 s32 GXSetTevColorOp(int, int, int, int, int, int);
@@ -57,13 +54,8 @@ s32 GXSetNumTevStages(void *);
 void set_tev_stage_mode(s32 arg0);
 s32 apply_cached_blend_mode(s32 arg0);
 s32 TObjPlayer__sub_803E24E0(void);
-s32 apply_cached_blend_mode(s32 arg0);
-s32 GXSetNumTexGens(s32 arg0);
 s32 GXSetNumTexGens(s32 arg0);
 s32 GXSetTexCoordGen2(int, int, int, int, int, int);
-s32 GXSetTevOp(int, int);
-s32 GXSetTevOrder(int, int, int, int);
-s32 GXSetNumTevStages(void *);
 void Dolphin_GXInitTexObj(TexObj_803E224C *, void *, u16, u16, s32, s32, s32, u8);
 void GXInitTexObjCI(TexObj_803E224C *, void *, u16, u16, s32, s32, s32, u8, u32);
 void GXLoadTexObj(TexObj_803E224C *, s32);
@@ -78,21 +70,9 @@ extern const f32 lbl_805E1070;
 void draw_projected_line_strip__10TObjPlayerFPvii(Vtx_803E26A4 *v, s32 n, s32 mode);
 void GXSetNumChans(u8);
 void GXSetChanCtrl(int, int, int, int, int, int, int);
-void GXBegin(int, int, u16);
 void setup_blended_textured_draw(void);
-void TObjPlayer__sub_803E2248(void);
-void load_context_texture_obj(void);
 extern const f32 lbl_805E1078;
 void draw_textured_vertices__10TObjPlayerFPvii(Vtx_803E2810 *v, s32 n, s32 mode);
-}
-
-extern "C" {
-
-void setup_opaque_color_draw(void);
-void TObjPlayer__sub_803E21DC(void);
-void setup_blended_textured_draw(void);
-void TObjPlayer__sub_803E2248(void);
-
 void setup_opaque_color_draw(void) {
     TObjPlayer__sub_803E24E0();
     TObjPlayer::setup_vertex_format();

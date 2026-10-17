@@ -18,12 +18,6 @@ s32 get_window_layout_position(s32);
 extern const f32 lbl_805DFDD8;
 extern const f32 lbl_805DFDDC;
 void *TWindowSubComCard__sub_8034CDE0(void);
-}
-
-extern "C" {
-
-s32 get_window_layout_position(s32);
-
 extern s32 lbl_80478C2C[];
 
 void TWindowSubInformationBoard::open_card_info_window() {

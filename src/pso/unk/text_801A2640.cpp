@@ -33,10 +33,6 @@ extern u8 lbl_804B9870[];
 extern const f32 lbl_805DC098;
 extern const f32 lbl_805DC0A0;
 Obj_801A2640 *construct_world_actor_base(Obj_801A2640 *self, void *parent);
-}
-
-extern "C" {
-
 void *TODoorFourLightRuins__create(void *arg0);
 void *TODoorFourLightSeabedU__create(void *arg0);
 void *TODoorFourLightSeabed__create(void *arg0);
@@ -105,8 +101,6 @@ void *TODoorFourLightSeabed__create(void *arg0) {
     return o;
 }
 
-extern void *tl_05;
-
 void *TODoorFourLightSeabedU__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xFC);
     if (o != NULL) {
@@ -114,8 +108,6 @@ void *TODoorFourLightSeabedU__create(void *arg0) {
     }
     return o;
 }
-
-extern void *tl_05;
 
 void *TODoorLabo__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xFC);
@@ -125,8 +117,6 @@ void *TODoorLabo__create(void *arg0) {
     return o;
 }
 
-extern void *tl_05;
-
 void *TODoorLaboNormal__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xFC);
     if (o != NULL) {
@@ -134,8 +124,6 @@ void *TODoorLaboNormal__create(void *arg0) {
     }
     return o;
 }
-
-extern void *tl_05;
 
 void *TODoorFourLightRuins__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF8);
@@ -145,8 +133,6 @@ void *TODoorFourLightRuins__create(void *arg0) {
     return o;
 }
 
-extern void *tl_05;
-
 void *TODoorFourLightSpace__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF8);
     if (o != NULL) {
@@ -154,8 +140,6 @@ void *TODoorFourLightSpace__create(void *arg0) {
     }
     return o;
 }
-
-extern void *tl_05;
 
 void *TObjInfoCol__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xB0);
@@ -165,8 +149,6 @@ void *TObjInfoCol__create(void *arg0) {
     return o;
 }
 
-extern void *tl_05;
-
 void *TObjWarpLobby__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE0);
     if (o != NULL) {
@@ -174,8 +156,6 @@ void *TObjWarpLobby__create(void *arg0) {
     }
     return o;
 }
-
-extern void *tl_05;
 
 void *TObjAreaWarpEnding__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xDC);
@@ -185,8 +165,6 @@ void *TObjAreaWarpEnding__create(void *arg0) {
     return o;
 }
 
-extern void *tl_05;
-
 void *TObjAreaWarpQuest__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE0);
     if (o != NULL) {
@@ -194,8 +172,6 @@ void *TObjAreaWarpQuest__create(void *arg0) {
     }
     return o;
 }
-
-extern void *tl_05;
 
 void *TObjAreaWarpForest__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xDC);
@@ -205,8 +181,6 @@ void *TObjAreaWarpForest__create(void *arg0) {
     return o;
 }
 
-extern void *tl_05;
-
 void *TObjMapWarpForest__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x110);
     if (o != NULL) {
@@ -214,8 +188,6 @@ void *TObjMapWarpForest__create(void *arg0) {
     }
     return o;
 }
-
-extern void *tl_05;
 
 void *TObjMapForceWarp__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x100);

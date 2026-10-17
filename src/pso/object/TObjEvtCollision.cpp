@@ -32,10 +32,6 @@ u8 *TObjEvtCollision__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_current_floor();
 s32 queue_destruction__7TObjectFv(void *);
 extern s32 local_client_id;
-}
-
-extern "C" {
-
 void *TObjEvtCollision__create(void *arg0);
 void *__dt__16TObjEvtCollisionFv(void *arg0, s16 arg1);
 u32 get_player_by_client_id(s32);
@@ -43,8 +39,6 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 f32 xyz_distance_squared(s32, s32);
 s32 is_split_screen();
-
-extern s32 local_client_id;
 
 s32 TObjEvtCollision::is_any_player_in_range(f32 farg0) {
     s32 arg0 = (s32)this;
@@ -80,8 +74,6 @@ void *TObjEvtCollision__create(void *arg0) {
 }
 
 void TObjEvtCollision::render() {  }
-
-extern s32 __vt__16TObjEvtCollision[];
 
 void TObjEvtCollision::run_task() {
     Obj_80190CFC *arg0 = (Obj_80190CFC *)this;

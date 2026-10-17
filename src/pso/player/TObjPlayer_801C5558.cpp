@@ -3,10 +3,6 @@
 
 extern "C" {
 void TObjPlayer__sub_801C5780(s32 arg0, s8 arg1, s32 arg2);
-}
-
-extern "C" {
-
 s32 clear_trap_counts();
 
 s8 TObjPlayer::calc_class_stat_boost_index(s8 arg1, s32 arg2) {

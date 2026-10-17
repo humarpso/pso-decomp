@@ -17,10 +17,6 @@ extern const f32 lbl_805DD0D8;
 extern const f32 lbl_805DD0F0;
 extern const f32 lbl_805DD0FC;
 void *TWindowLoadItemTexture__ct(void *arg0, void *arg1, void *arg2, void *arg3);
-}
-
-extern "C" {
-
 void *__dt__22TWindowLoadItemTextureFv(void *arg0, s16 arg1);
 void fn_80262C2C(void* p);
 void render__22TWindowLoadItemTextureFv(u8 *arg0);
@@ -31,7 +27,6 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void set_sprite_uv_bounds(f32, f32, f32, f32);
 s32 fn_8026287C(void *);
-void get_array_entry__13TUnk_804CE018Fi(void *, int);
 int initialize_subwindow__9TWindowDDFv(void*);
 void queue_destruction__7TObjectFv(void *);
 
@@ -69,8 +64,6 @@ void render__22TWindowLoadItemTextureFv(u8 *arg0) {
 }
 
 void TWindowLoadItemTexture::run_task() { initialize_subwindow__9TWindowDDFv(this); update_fade(); update_window_entry_list((char*)this + 0x24); }
-
-extern s32 __vt__22TWindowLoadItemTexture[];
 
 void *__dt__22TWindowLoadItemTextureFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

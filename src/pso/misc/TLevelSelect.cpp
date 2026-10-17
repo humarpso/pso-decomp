@@ -40,9 +40,6 @@ extern u8 controller_physical_port_bank[];
 extern s32 game_difficulty_selection;
 void __ct__7TObjectFP7TObject(void *, void *);
 void TKeyBoardControl__sub_8000F90C(s32);
-void TKeyBoardControl__sub_8000F9CC(s32);
-void queue_destruction__7TObjectFv(void *);
-int count_unlocked_difficulties__12TLevelSelectFv(void);
 void *__nw__7TObjectFUl(u32);
 void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);
@@ -52,21 +49,15 @@ void __ct__13TAdTitleTexGCFv(void *, void *);
 void __ct__14TAdSelectTxtGCFP7TObjectPvPv(void *, void *, void *, int);
 void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
-s32 get_localized_text_entry(s32, s32);
 void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 extern Ents_8013319C level_select_entry_table;
 extern Pos_8013319C lbl_8043ED58[];
 extern Poss_8013319C level_select_position_table;
 extern u8 __vt__12TLevelSelect[];
 extern s32 level_select_class_name;
-extern s32 game_difficulty_selection;
 extern void *tl_01;
 extern const f32 lbl_805DB080;
 Self_8013319C *__ct__12TLevelSelectFv(Self_8013319C *self);
-}
-
-extern "C" {
-
 void TLevelSelect::render() {  }
 int count_unlocked_difficulties__12TLevelSelectFv(void) {
     u8 f;

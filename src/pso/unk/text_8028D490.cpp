@@ -18,10 +18,6 @@ extern u8 lbl_805D6504;
 extern u32 lbl_805D6508;
 extern u8 lbl_805D650C;
 s32 is_node_tree_valid(struct RecoveredFields_8028D490_arg0 *arg0);
-}
-
-extern "C" {
-
 s32 is_node_tree_valid(struct RecoveredFields_8028D490_arg0 *arg0) {
     u32 temp_r3;
     u32 temp_r3_2;

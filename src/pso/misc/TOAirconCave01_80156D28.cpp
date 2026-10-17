@@ -24,23 +24,10 @@ extern int lbl_805D5668;
 extern int chunk_polygon_flags_or_mask;
 extern int chunk_polygon_flags_and_mask;
 extern int model_render_flags;
-}
-
-extern "C" {
-
 s32 __dt__13TUnk_80494AE0Fv(s32, s32 *);
 void TObjPlayer__sub_800D9718(void *);
 s32 __dl__FPv(void *);
-int copy_vec4__13TRaderMapCoreFPvPv(void*, void*);
 
-    extern unsigned char saved_model_draw_color[];
-    extern unsigned char model_material_color[];
-    extern int lbl_805D5660;
-    extern int lbl_805D5664;
-    extern int lbl_805D5668;
-    extern int chunk_polygon_flags_or_mask;
-    extern int chunk_polygon_flags_and_mask;
-    extern int model_render_flags;
 void TUnk_804AF8D8::clear_flag_and_notify() { copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color); chunk_polygon_flags_and_mask = lbl_805D5664; chunk_polygon_flags_or_mask = lbl_805D5668; model_render_flags = lbl_805D5660; }
 
 extern s32 lbl_804AF8D8[];
@@ -68,8 +55,6 @@ void *TUnk_804AF8D8::destroy(s16 arg1) {
     }
     return this;
 }
-
-extern s32 lbl_804AF8D8[];
 
 void *TUnk_804AF8D8::init_vtable_804AF8D8() {
     TObjPlayer__sub_800D9718(this);

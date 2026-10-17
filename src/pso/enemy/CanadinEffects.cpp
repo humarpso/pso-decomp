@@ -11,8 +11,6 @@ __declspec(section ".rodata") const char TObjEneMe1Canadin_EffDischarge__class_n
 __declspec(section ".rodata") const char TObjEneMe1Canadin_EffLight__class_name[] ATTRIBUTE_ALIGN(4) = "TObjEneMe1Canadin_EffLight";
 }
 
-#include "types.h"
-
 struct Vec_8009F7AC { f32 x, y, z; };
 
 struct Pt_8009F7AC { f32 w; u32 color; Vec_8009F7AC pos; };
@@ -35,10 +33,6 @@ void VecCopy__FP3VecPC3Vec(void *, const void *);
 extern Vec_8009F7AC camera_pitch_rotated_up_vector;
 extern const f32 canadin_effect_negative_one;
 void render__26TObjEneMe1Canadin_EffLightFv(Trail_8009F7AC *o);
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 void render__26TObjEneMe1Canadin_EffLightFv(Trail_8009F7AC *o) {
@@ -115,8 +109,6 @@ void render__26TObjEneMe1Canadin_EffLightFv(Trail_8009F7AC *o) {
 
 }
 
-#include "types.h"
-
 struct Vec_8009FADC { f32 x, y, z; };
 
 struct Entry_8009FADC { f32 f; s32 val; Vec_8009FADC pos; };
@@ -145,7 +137,6 @@ struct Rec_8009FA24 { u8 pad[0x14]; };
 struct Obj_8009FA24 { u8 pad0[0x1C]; s32 n1c; s32 n20; s32 sel; u8 pad28[4]; Rec_8009FA24 *recs; s32 a30; f32 f34; };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, const void *);
 void push_history_entry__17TObjEneMe1CanadinFPvfPvi(Obj_8009FADC *self, f32 f, const Vec_8009FADC *pos, s32 val);
 extern const f32 canadin_effect_zero;
 extern const f32 canadin_light_width_cutoff;
@@ -154,21 +145,13 @@ void *mem_alloc(s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__26TObjEneMe1Canadin_EffLight[];
 extern s32 TObjEneMe1Canadin_EffLight__name;
-extern const f32 canadin_effect_zero;
 extern const f32 canadin_light_width_decay;
 Obj_8009FC44 *TObjEneMe1Canadin_EffLight__ct(Obj_8009FC44 *self, void *parent, s32 count);
-s32 fade_alpha_step__17TObjEneMe1CanadinFPvif(Obj_8009FB54 *self, s32 dec, f32 scale);
 void run_task__26TObjEneMe1Canadin_EffLightFv(Obj_8009FA24 *arg0);
-}
-
-extern "C" {
-
 void *__dt__26TObjEneMe1Canadin_EffLightFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void mem_free(void *);
-
-extern s32 __vt__26TObjEneMe1Canadin_EffLight[];
 
 struct Obj_8009FB54;
 typedef s32 (*Fn_8009FA24)(Rec_8009FA24 *, f32, s32);
@@ -253,23 +236,11 @@ Obj_8009FC44 *TObjEneMe1Canadin_EffLight__ct(Obj_8009FC44 *self, void *parent, s
     return self;
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void render__30TObjEneMe1Canadin_EffDischargeFv(void);
 
 void render__30TObjEneMe1Canadin_EffDischargeFv(void) {  }
 
-}
-
-#include "types.h"
-
 #pragma fp_contract on
-extern "C" {
-
 #define VC_B ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)
 s32 queue_destruction__7TObjectFv(void *);
 s32 fn_8009E1D4(s32, void *);
@@ -319,8 +290,6 @@ void run_task__30TObjEneMe1Canadin_EffDischargeFv(u8 *arg0) {
 
 }
 
-#include "types.h"
-
 struct Stack_8009FFD8 {
     s32 sp8;
     s32 spC;
@@ -351,22 +320,10 @@ extern "C" {
 s32 draw_line_list(void *, int, int);
 void render__25TObjEneMe1Canadin_EffLineFv(s32 arg0);
 #define VC_C ((void (*)(void *, const void *))VecCopy__FP3VecPC3Vec)
-void __ct__7TObjectFP7TObject(void *, void *);
-void subtract_vector(void *, void *);
 extern s32 __vt__30TObjEneMe1Canadin_EffDischarge[];
 extern s32 TObjEneMe1Canadin_EffDischarge__name;
-extern const f32 canadin_effect_zero;
-extern const f32 canadin_discharge_motion_scale;
 Obj_8009FEB8 *TObjEneMe1Canadin_EffDischarge__ct(Obj_8009FEB8 *self, void *parent, Vec_8009FEB8 *from, Vec_8009FEB8 *to);
-}
-
-extern "C" {
-
 void *__dt__30TObjEneMe1Canadin_EffDischargeFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
-
-extern s32 __vt__30TObjEneMe1Canadin_EffDischarge[];
 
 void *__dt__30TObjEneMe1Canadin_EffDischargeFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -416,18 +373,9 @@ void render__25TObjEneMe1Canadin_EffLineFv(s32 arg0) {
     draw_line_list((void *) (&stack.sp8), (int) (1), (int) (5));
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void run_task__25TObjEneMe1Canadin_EffLineFv(u8 *arg0);
 void *__dt__25TObjEneMe1Canadin_EffLineFv(void *arg0, s16 arg1);
 #define VC_D ((s32 (*)(void *, s32))VecCopy__FP3VecPC3Vec)
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
-u32 __nw__7TObjectFUl(s32);
 s32 fn_800A02AC(void *, s32, void *, void *);
 
 void run_task__25TObjEneMe1Canadin_EffLineFv(u8 *arg0) {
@@ -456,16 +404,9 @@ void *__dt__25TObjEneMe1Canadin_EffLineFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 u8 *TObjEneMe1Canadin_EffLine__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 rand(s32);
 
-extern s32 __vt__25TObjEneMe1Canadin_EffLine[];
 extern s32 TObjEneMe1Canadin_EffLine__name;
 extern const f32 canadin_line_initial_phase_range;
 struct CanadinRandomScale { f32 value; u32 padding; };
@@ -489,9 +430,6 @@ u8 *TObjEneMe1Canadin_EffLine__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     return arg0;
 }
 
-}
-
-extern "C" {
 void render_shadows__7TObjectFv();
 s32 __vt__26TObjEneMe1Canadin_EffLight[] = {
     0, 0, (s32)__dt__26TObjEneMe1Canadin_EffLightFv,

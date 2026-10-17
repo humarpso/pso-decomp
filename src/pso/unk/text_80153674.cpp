@@ -32,23 +32,15 @@ extern char lbl_80440090[];
 extern char lbl_804400A4[];
 extern char lbl_804400B8[];
 s32 record_fog_collision_hit(s32, s32, u8);
-s32 TObjFogCollision__sub_80153F68(void *self);
-s32 TObjFogCollision__sub_80153F70(void *self);
 u8 is_current_floor_switch_set(u16);
 void run_task__22TObjFogCollisionSwitchFv(void *arg0);
-}
-
-extern "C" {
-
 void *__dt__22TObjFogCollisionPoisonFv(void *arg0, s16 arg1);
 void *create__22TObjFogCollisionPoisonFPv(void *arg0);
 void __dl__7TObjectFPv(void *);
 void __dt__22TObjFogCollisionSwitchFv(void *, int);
-void *__nw__7TObjectFUl(int);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 
 extern s32 game_difficulty_selection;
-extern const f32 lbl_805DB250;
 extern const f32 lbl_805DB254;
 extern const f32 lbl_805DB258;
 extern const f32 lbl_805DB25C;
@@ -83,8 +75,6 @@ void TObjFogCollisionPoison::vfunc_13(s32) {
     }
     *(s32 *)&this->m_98 = (s32) ((f32) *(s32 *)&this->m_98 * var_f2);
 }
-
-extern s32 __vt__22TObjFogCollisionPoison[];
 
 void *__dt__22TObjFogCollisionPoisonFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

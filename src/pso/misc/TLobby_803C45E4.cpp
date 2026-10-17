@@ -33,8 +33,6 @@ void TLobby::release_ref() {
     }
 }
 
-extern s32 TLobby__init_ref_count;
-
 void TLobby::init_once() {
     if ((s32) TLobby__init_ref_count == 0) {
         TLobby__sub_803D39C0();

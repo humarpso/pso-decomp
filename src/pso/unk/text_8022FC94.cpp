@@ -97,7 +97,6 @@ extern RecoveredGlobal_8022FE84_lbl_804CC55C lbl_804CC55C;
 s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
 void queue_destruction__7TObjectFv(void *self);
 void TTecFoie__vt6(Tec_80230004 *self, Target_80230004 *target);
-void queue_destruction__7TObjectFv(void *self);
 void mem_free(void **);
 void __dl__7TObjectFPv(void *);
 extern TTecFoieData_80230144 TTecFoie__emitter_profile_table[];
@@ -108,13 +107,8 @@ void *spawn_directional_particle(void *pos, void *dir, s32 id);
 void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, u16 e);
 void *spawn_continuous_particle_effect_with_flags(void *, s32, u16);
 s32 mem_alloc(s32);
-extern TTecFoieData_80230144 TTecFoie__emitter_profile_table[];
 extern s32 lbl_805D63B0;
 extern const f32 lbl_805DC7F8;
-}
-
-extern "C" {
-
 s32 spawn_particle_effect(s32, s32);
 void *TTecFoie__ct(void *, void *, void *, void *, void *);
 void *construct_aimed__8TTecFoieFlPUcPUcs(void *, void *, void *, void *, void *);

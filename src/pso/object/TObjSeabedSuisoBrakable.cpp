@@ -9,10 +9,6 @@ extern "C" {
 u8 is_valid_player_motion_variant(u32 arg0);
 u8 TLobby__sub_802A7278(u32 arg0);
 int match_coordinate_pair(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 

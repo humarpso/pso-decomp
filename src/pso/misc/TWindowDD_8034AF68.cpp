@@ -32,10 +32,6 @@ extern s32 lbl_805DFD84;
 extern s32 lbl_805DFD88;
 extern s32 lbl_805DFD8C;
 extern s32 lbl_805DFD90;
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8034B008_lbl_80478B78_size[sizeof(RecoveredGlobal_8034B008_lbl_80478B78) == 0x30 ? 1 : -1];
 
 void TWindowDD::init_ws_data_tables() {

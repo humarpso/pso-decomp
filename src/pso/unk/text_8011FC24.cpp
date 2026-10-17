@@ -20,18 +20,10 @@ void TItemEffectWeapon__sub_80363410(void*);
 extern const f32 lbl_805DAC9C;
 
 u32 test_flags_1b8__11TItemWeaponFUl(void *, u32);
-u32 test_flags_1b8__11TItemWeaponFUl(void *, u32);
 s32 update_trail_slot__11TItemWeaponFPvi(void *, int);
 s32 draw_weapon_model(void *);
 s32 draw_weapon_at_joint(void *, int);
-u32 test_flags_1b8__11TItemWeaponFUl(void *, u32);
-s32 draw_weapon_model(void *);
-s32 draw_weapon_at_joint(void *, int);
 s32 get_field_d8__10TObjPlayerFv(void *);
-u32 test_flags_1b8__11TItemWeaponFUl(void *, u32);
-}
-
-extern "C" {
 
 void TItemWeapon::update_trails() {
     u8 *arg0 = (u8 *)this;
@@ -135,8 +127,6 @@ void TItemWeapon::vfunc_16() {
     }
 }
 
-#include "types.h"
-
 struct Pair_801200C0 { u8 a; u8 b; };
 
 struct Data_801200C0 { u8 pad[0x16]; u8 max; u8 pad17[0x27 - 0x17]; u8 flags; };
@@ -165,12 +155,6 @@ void TItemWeapon::vfunc_14() {
         }
     }
 }
-
-}
-
-#include "types.h"
-
-extern "C" {
 
 void TItemWeapon::vfunc_50() { ((int (*)(void *, int))set_status_flags__10TObjPlayerFUl)(this, 4); }
 

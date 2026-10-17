@@ -89,75 +89,22 @@ s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback();
 extern const f32 lbl_805DA034;
 extern const f32 lbl_805DA03C;
-s32 obj_testFlags30(void *, int);
 void TObjPlayer__sub_800C4E08(u8 *arg0);
 s32 obj_clearFlags30(void * a0 = 0, s32 a1 = 0);
 s32 obj_clearFlags30(void * a0, s32 a1);
 s32 obj_setFlags30(void *, s32);
 void __dl__7TObjectFPv(void *);
 extern s32 lbl_80493450[];
-extern s32 lbl_80493450[];
-extern const f32 lbl_805DA034;
-s32 obj_clearFlags30(void * a0, s32 a1);
 extern const f32 lbl_805DA048;
-s32 obj_clearFlags30(void * a0, s32 a1);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 u8 *construct_collision_body(u8 *arg0, s32 arg1, u32 arg2);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 Obj_800C4A5C *TObjPlayer__sub_800C4A5C(Obj_800C4A5C *o, void *owner, Vec_800C4A5C *start, s32 angle);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 int queue_destruction__7TObjectFv(void*);
-s32 subtract_vector(void *, void *);
-s32 obj_clearFlags30(void * a0, s32 a1);
-s32 obj_setFlags30(void *, s32);
-extern const f32 lbl_805DA03C;
-s32 apply_actor_gravity(void *, int, f32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 obj_clearFlags30(void * a0, s32 a1);
-void TObjPlayer__sub_800C4E08(u8 *arg0);
-f32 horizontal_distance_squared(void *, void *);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback();
-s32 minimap_render_dot(void *, int, int, int);
-extern const f32 lbl_805DA034;
-s32 obj_testFlags30(void *, int);
-u16 obj_getField1c(void *);
-s32 obj_clearFlags30(void * a0, s32 a1);
-s32 obj_setFlags30(void *, s32);
-f32 horizontal_distance_squared(void *, void *);
 extern const f32 lbl_805DA030;
-s32 apply_actor_gravity(void *, int, f32);
-s32 obj_clearFlags30(void * a0, s32 a1);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback();
-s32 minimap_render_dot(void *, int, int, int);
-extern const f32 lbl_805DA034;
-extern const f32 lbl_805DA048;
-s32 obj_clearFlags30(void * a0, s32 a1);
-s32 advance_animation_playback();
-s32 minimap_render_dot(void *, int, int, int);
-s32 obj_testFlags30(void *, int);
-s32 obj_clearFlags30(void * a0, s32 a1);
-s32 apply_actor_gravity(void *, int, f32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f64 atan2_float(f32, f32);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback();
-s32 minimap_render_dot(void *, int, int, int);
-s32 subtract_vector(void *, void *);
-extern const f64 lbl_8043BC88;
-extern const f32 lbl_805DA030;
-extern const f32 lbl_805DA034;
-}
-
-extern "C" {
-
 void *destroy_and_free__21TObjEneRe2Flower_BombFs(void *arg0, s16 arg1);
 void render__21TObjEneRe2Flower_BombFv(u8 *arg0);
-void __dl__7TObjectFPv(void *);
-int queue_destruction__7TObjectFv(void*);
 
 }
 
@@ -221,17 +168,13 @@ struct Obj_800C4754 : VBase_800C4754 {
 
 extern "C" {
 
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 int queue_destruction__7TObjectFv(void *);
 Hit_800C4754 *csnVecterUnder(void *, int);
 u32 csnVector(void *, void *, int);
 void *spawn_particle_effect_with_rotation(void *, void *, int, int);
 s32 TObjEneDD__sub_800C2618(void *);
 void *find_entity_by_id(int);
-s32 vec3_add_to(void *, void *);
 
-}
-extern "C" {
 void TLobby__sub_801A1FD8();
 void vfunc_13__13TUnk_804AF8A0Fl();
 void call_vt16_with_default__13TUnk_804928CCFv();
@@ -250,8 +193,6 @@ void hit_area_targets__10TObjPlayerFPUclUlf();
 void release_member_90__10TObjPlayerFv();
 void render_shadows__7TObjectFv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
-void *destroy_and_free__21TObjEneRe2Flower_BombFs(void *arg0, s16 arg1);
-void render__21TObjEneRe2Flower_BombFv(u8 *arg0);
 void run_task__21TObjEneRe2Flower_BombFv(Obj_800C4754 *o);
 extern const u32 lbl_8043BC10[5] = { 0xF, 0x40000000, 0x40000000, 0x0, 0x1 };
 extern const char lbl_8043BC24[] = "TObjEneRe2Flower_Bomb";
@@ -264,19 +205,14 @@ void *lbl_804933D8[24] = {
     (void *)&vfunc_16__13TUnk_804928CCFPvPv, (void *)&call_vt16_with_default__13TUnk_804928CCFv, (void *)&area_attack_deliver_physical, (void *)&vfunc_19__13TUnk_804928CCFPv,
     (void *)&area_attack_apply_recoil__13TUnk_804928CCFPvf, (void *)&area_attack_receive_direct, (void *)&apply_hit_if_active__13TUnk_804928CCFPvPf, (void *)0x0,
 };
-}
 #define lbl_8043BC10 ((const Vec_800C4A5C *)lbl_8043BC10)
 #define lbl_804933D8 ((s32 *)lbl_804933D8)
-extern "C" {
-
 void TObjEneRe2Flower_Bomb::render() {
     u8 *arg0 = (u8 *)this;
     if ((s32) this->m_100 != 0) {
         ((TObjEneDD *)(arg0 + 0x38))->draw_oriented_shadow((s32)(arg0 + 0xD8), (s32)0, (u32)0);
     }
 }
-}
-extern "C" {
 void TObjEneRe2Flower_Bomb::run_task() {
     Obj_800C4754 *o = (Obj_800C4754 *)this;
     Vec_800C4754 tmp;
@@ -346,9 +282,6 @@ void TObjEneRe2Flower_Bomb::run_task() {
         ((TNowLoading *)((int)o->fFC))->copy_pos(&o->start);
     }
 }
-
-}
-extern "C" {
 
 void *TObjEneRe2Flower_Bomb::destroy_and_free(s16 arg1) {
     if (this != NULL) {

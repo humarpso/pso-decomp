@@ -164,7 +164,6 @@ s32 get_selected_menu_value(int);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(int);
 extern s32 lbl_8044C1D4[];
 void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0);
-void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0);
 u16 obj_getField1c(s32);
 s32 fn_80221838(void *, void *, s32);
 s32 get_appraisal_text(int);
@@ -172,14 +171,10 @@ s32 calc_list_content_extent(void *);
 void *create_item_list_window(int, int, u16);
 void *memset(void *, int, unsigned long);
 s32 try_spend_actor_meseta(int, int);
-u16 obj_getField1c(s32);
 s32 check_equip_requirements(int, void *, int);
 s32 get_item_record__23TShopJudgmentItemWindowFPv(int, int, int);
 s32 set_judgment_target_flag(void *, void *);
 f32 get_scale__15TShopWindowBaseFv(void *);
-s32 play_cue_stream_file(void *);
-void TWindow__close(void *);
-s32 get_selected_menu_value(int);
 s32 create_yes_no_window(s32, u16, s32, s32);
 s32 get_window_layout_position(s32);
 extern u8 lbl_8044C1B0[];
@@ -188,37 +183,24 @@ VObj_802209D8 *find_item_by_id(s32);
 u32 get_equip_field_d04__10TObjPlayerFv(int, s32);
 s32 send_6x26_unequip_item__10TObjPlayerFPvPv(int, int);
 s32 send_6x25_equip_item(int, int, int);
-u16 obj_getField1c(s32);
 s32 TItemData__clear_unidentified_flag(void *);
 s32 advance_item_id_counter(void *);
 u32 __nw__7TObjectFUl(int);
 u32 __ct__15TWindowHelpItemFPvUs(int, int, u16);
 u32 create__22TWindowLoadItemTextureFPv(int, u16);
-s32 calc_list_content_extent(void *);
-s32 get_window_layout_position(s32);
-void *create_item_list_window(int, int, u16);
 extern u8 lbl_8044C1C0[];
 extern u8 lbl_8044C1CC[];
 extern s32 local_client_id;
 extern s32 current_language;
 extern const f32 lbl_805DC708;
-}
-
-extern "C" {
-
 void *TShopJudgmentItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
 void *__dt__23TShopJudgmentItemWindowFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 create_yes_no_window(s32, u16, s32, s32);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
-s32 get_window_layout_position(s32);
-void TWindow__close(void *);
 void __ct__15TShopWindowBaseFv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__15TShopWindowBaseFv(void *, int);
-f32 get_scale__15TShopWindowBaseFv(void *);
-u16 obj_getField1c(s32);
 int queue_destruction__7TObjectFv(void*);
 
 void TShopJudgmentItemWindow::vfunc_7() {
@@ -717,7 +699,6 @@ void *__dt__23TShopJudgmentItemWindowFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__23TShopJudgmentItemWindow[];
 extern void *TShopJudgmentItemWindow__class_name;
 
 void *TShopJudgmentItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3) {

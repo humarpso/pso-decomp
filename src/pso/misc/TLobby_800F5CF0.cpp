@@ -14,10 +14,6 @@ struct Stack_800F5D80 {
 
 extern "C" {
 s32 exchange_object_state__9TObjEnemyFls(void *, void *, int);
-}
-
-extern "C" {
-
 s32 mem_alloc(s32);
 s32 collect_model_strips_by_texture(void *, s32, s32, s32);
 s32 count_model_strips_by_texture();

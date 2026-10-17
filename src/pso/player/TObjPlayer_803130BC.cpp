@@ -8,10 +8,6 @@ struct Ids_80313138 { u16 a; s16 b; };
 extern "C" {
 s16 TObjPlayer__sub_80313114(u8 *arg0);
 s32 *TObjPlayer__sub_803131B4(T_803131B4 *self, s32 i);
-}
-
-extern "C" {
-
 int TObjPlayer__sub_803131AC(void);
 int TObjPlayer__sub_80313218(void* p);
 void TObjPlayer__sub_80313250(void *arg0, s32 arg1);

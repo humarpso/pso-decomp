@@ -49,10 +49,6 @@ extern Tbl_802A194C select_gamen_resource_name_table_b;
 extern const s32 current_language;
 extern u32 ad_select_text_texture_handle;
 void TLobby__sub_802A194C(void);
-}
-
-extern "C" {
-
 void TAdSelectTxtGC__sub_802A16A8(void* p);
 s32 TAdSelectTxtGC__sub_802A16C0(void* p);
 void TLobby__sub_802A1918(void);
@@ -115,8 +111,6 @@ TAdSelectTxtGC::TAdSelectTxtGC(TObject *arg1, void *arg1_arg, void *arg3) : TObj
     this->init_slot_entries((Src_802A1838 *)(arg1_arg), (void *)(arg3));
 }
 extern "C" {
-
-extern u32 ad_select_text_texture_handle;
 
 void TLobby__sub_802A1918(void) {
     if ((u32) ad_select_text_texture_handle != 0U) {

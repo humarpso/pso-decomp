@@ -71,10 +71,6 @@ void belra_cannon_create_extra_shot();
 void belra_cannon_create_shot();
 void belra_cannon_return_timer();
 extern const f32 lbl_805DACD0;
-}
-
-extern "C" {
-
 void TUnk_804A0CB8::emit_marker_effects() {
     Self_80121CB8 *self = (Self_80121CB8 *)this;
     Vec_80121CB8 v;

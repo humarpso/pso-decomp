@@ -48,7 +48,6 @@ extern u32 TSceneSora__sky_bml_resource;
 void TSceneSora__sub_80207430(void);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_802072E0___vt__10TSceneSora __vt__10TSceneSora;
-extern s32 TSceneSora__instance;
 u8 *__dt__10TSceneSoraFv(u8 *arg0, s16 arg1);
 void TLobby__sub_80141038(void *, s32, s32);
 s32 get_floor_map_terrain(s32);
@@ -60,23 +59,17 @@ s32 get_bml_motion(int, int);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
 s32 construct_world_actor_base(void *);
-extern RecoveredGlobal_802072E0___vt__10TSceneSora __vt__10TSceneSora;
 extern s32 lbl_805D3624;
-extern u32 TSceneSora__sky_bml_resource;
 extern s32 TSceneSora__has_sky_motion;
 extern const f32 lbl_805DC608;
 extern const f32 lbl_805DC60C;
 u8 *TSceneSora__ct(u8 *arg0, s32 _w1);
 s32 draw_ginja_object(int);
 s32 draw_ginja_model_with_motion(int, int, f32);
-s32 TObjFish__sub_8001EDB0(int, int);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 set_global_param__8TObjFishFl();
-extern s32 TSceneSora__sky_active_flag;
-extern u32 TSceneSora__sky_bml_resource;
-extern const f32 lbl_805DC608;
 void *get_current_floor();
 u32 TLobby__sub_8002058C(void *, int, Res_80207478 *, Res_80207478 *, int, int, int);
 s32 replace_file_extension__6TLobbyFPvPvPv(char *, char *, char *);
@@ -86,19 +79,9 @@ void *adxf_open__6TLobbyFUii(char *, int);
 extern char lbl_8044A9D0[];
 extern char lbl_8044A9D8[];
 extern char lbl_8044A9E0[];
-extern s32 TSceneSora__sky_active_flag;
-extern s32 TSceneSora__instance;
-extern u32 TSceneSora__sky_bml_resource;
-extern s32 TSceneSora__has_sky_motion;
-}
-
-extern "C" {
-
 void TLobby__sub_802075F4(void);
 s32 __nw__7TObjectFUl(s32);
 
-extern s32 TSceneSora__instance;
-extern u32 TSceneSora__sky_bml_resource;
 extern s32 tl_05;
 
 typedef char RecoveredGlobal_802072E0___vt__10TSceneSora_size[sizeof(RecoveredGlobal_802072E0___vt__10TSceneSora) == 0x38 ? 1 : -1];

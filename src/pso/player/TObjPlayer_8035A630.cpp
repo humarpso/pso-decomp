@@ -23,8 +23,6 @@ void TObjPlayer::process_callback_list(s32 arg0) {
     player_node_matrix_cursor += 1;
 }
 
-extern s32 node_matrix_array_base;
-
 void TObjPlayer::draw_node_tree(void *arg1) {
     s32 (*temp_r12)(void *);
     s32 temp_r31;

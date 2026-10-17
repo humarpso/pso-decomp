@@ -58,10 +58,6 @@ extern s32 __vt__6TOMine[];
 extern s32 TOMine__name;
 extern const f32 lbl_805DB85C;
 Obj_80171278 *TOMine__ct(Obj_80171278 *arg0);
-}
-
-extern "C" {
-
 void *__dt__6TOMineFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TOMineTrap__sub_80170CD4(void *);
@@ -137,8 +133,6 @@ void TOMine::free_sub_objects() { TObjFish::set_global_param((s32)(*(void**)((ch
 
 void TOMine::free_parts() { TObjFish::set_global_param((s32)(*(void* *)&this->texture_id)); draw_ginja_object(this->model); }
 
-extern u32 lbl_805D5A50;
-
 void TOMine::render() {
     VObj_801710E4 *arg0 = (VObj_801710E4 *)this;
     s32 t;
@@ -166,8 +160,6 @@ void TOMine::free_instance() {
         lbl_805D5A50 = 0U;
     }
 }
-
-extern s32 __vt__6TOMine[];
 
 void TOMine::load_static_resource() {
     s32 temp_r3;

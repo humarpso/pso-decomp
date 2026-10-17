@@ -158,20 +158,11 @@ extern const f32 lbl_805D9FD8;
 extern const f32 lbl_805D9FDC;
 void fn_800C32DC(u8 *arg0, s32 arg1);
 s32 enemy_validate_retained_target(void *);
-s32 transition_enemy_state(void *, int);
-s32 noop__9TObjEneDDFv(void *);
-s32 fn_800C3A60(void *, int);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback(void *);
-s32 play_sound_effect(void *, void *, int, int);
 extern const f32 lbl_805D9FAC;
 extern const f32 lbl_805D9FC0;
 extern const f32 lbl_805D9FC4;
 extern const f32 lbl_805D9FD4;
 void fn_800C3088(u8 *arg0, int arg1);
-}
-
-extern "C" {
 
 typedef struct RecoveredFields_800C3088_arg0 RecoveredFields_800C3088_arg0;
 typedef struct VBase_18_880cfd VBase_18_880cfd;
@@ -319,11 +310,7 @@ void fn_800C32DC(u8 *owner, s32 arg1) {
 
 }
 
-#include "types.h"
-#include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneEpsilon.h"
-#include "pso/enemy/TObjEneRe2Flower.h"
-#include "pso/player/TObjPlayer.h"
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -439,9 +426,7 @@ f64 atan2_float(f32, f32);
 s32 enemy_set_target_id(void *, u16);
 u16 set_squared_value__9TObjEneDDFf(void *, f32);
 u16 enemy_find_nearest_player_in_range(void *, f32);
-s32 transition_enemy_state(void *, int);
 s32 tick_period_counter(void *, void *, int);
-s32 noop__9TObjEneDDFv(void *);
 s32 angle_difference_abs(int, int);
 s32 approach_angle_limited(int, int, void *);
 extern const f64 lbl_8043BBD8;

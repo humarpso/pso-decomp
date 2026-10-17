@@ -80,26 +80,14 @@ extern const f32 lbl_805DC940;
 u8 *TTecSifta__sub_8023B17C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
-s32 obj_getField1c(int);
 s32 is_split_screen();
 s32 is_script_controlled__10TObjPlayerFv(void *);
 s32 queue_destruction__7TObjectFv();
 u32 find_entity_by_id(int);
 void deliver_technique_to_party_targets(void *);
 void run_task__9TTecSiftaFv(Sifta_8023AF94 *self);
-s32 obj_getField1c(int);
-s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
-int TTecSifta__sub_8023AC88(void* p);
 void copy_technique_target_list(void *, void *);
-extern s32 __vt__9TTecSifta[];
-extern s32 lbl_805D3820;
-extern const f32 lbl_805DC940;
 void *TTecSifta__ct(void *arg0_, void *arg1, void *arg2, void *arg3, void *arg4);
-}
-
-extern "C" {
-
-int TTecSifta__sub_8023AC88(void* p);
 void *__dt__9TTecSiftaFv(void *arg0, s16 arg1);
 s32 calc_technique_parameters(s32, s16, s32);
 void __dl__7TObjectFPv(void *);
@@ -157,8 +145,6 @@ void TTecSifta::create(void *arg0, void *arg1, void *arg2) {
         TTecSifta__sub_8023B17C((u8 *)(o), (s32)(arg0), (s32)(arg1), (s32)(arg2));
     }
 }
-
-extern s32 __vt__9TTecSifta[];
 
 void TTecSifta::vfunc_7(void *arg1_arg) {
     Obj_8023AE8C *arg0 = (Obj_8023AE8C *)this;

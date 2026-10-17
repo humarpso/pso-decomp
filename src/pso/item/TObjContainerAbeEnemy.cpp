@@ -52,24 +52,17 @@ extern s32 lbl_805D5B8C;
 s32 spawn_particle_effect_with_flags(void *, int, int);
 s32 construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
 s32 play_container_break_sound(void *);
-void dispatch_fish_event__6TLobbyFPv(void *a0);
-extern s32 lbl_805D5B8C;
 void *__nw__7TObjectFUl(int);
 extern Spawn_80188B3C container_break_particle_parameters;
 extern Spawn_80188B3C container_break_small_debris_parameters;
 extern void *tl_05;
 void TObjContainerBase__vt77(const Obj_80188B3C *self);
-}
-
-extern "C" {
-
 void *TObjContainerBase__create(void *arg0);
 void *__dt__21TObjContainerAbeEnemyFv(void *arg0, s16 arg1);
 void *TObjContainerBase__ct(void *, void *, void *);
 s32 free_collision_body_parts(void *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
-void *__nw__7TObjectFUl(int);
 
 void TObjContainerAbeEnemy::vfunc_80() {
     s16 temp_r0;
@@ -85,8 +78,6 @@ void TObjContainerAbeEnemy::vfunc_80() {
     }
 }
 
-extern s32 __vt__21TObjContainerAbeEnemy[];
-
 void *__dt__21TObjContainerAbeEnemyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TObjContainerAbeEnemy;
@@ -99,8 +90,6 @@ void *__dt__21TObjContainerAbeEnemyFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern void *tl_05;
 
 typedef char RecoveredGlobal_801889B8_lbl_804B63BC_size[sizeof(RecoveredGlobal_801889B8_lbl_804B63BC) == 0x15C ? 1 : -1];
 typedef char RecoveredGlobal_801889B8___vt__21TObjContainerAbeEnemy_size[sizeof(RecoveredGlobal_801889B8___vt__21TObjContainerAbeEnemy) == 0x14C ? 1 : -1];

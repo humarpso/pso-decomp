@@ -28,11 +28,8 @@ struct Sp_802430F4 { u32 a; u32 b; };
 extern "C" {
 extern RecoveredGlobal_802430E8_lbl_80518580 pad_rumble_effect_slots;
 s32 *get_pad_rumble_effect_slots(void);
-extern RecoveredGlobal_802430E8_lbl_80518580 pad_rumble_effect_slots;
 s32 *find_active_pad_rumble_effect_by_id(u32 arg0);
-extern RecoveredGlobal_802430E8_lbl_80518580 pad_rumble_effect_slots;
 s32 *find_free_pad_rumble_effect_slot(void);
-extern RecoveredGlobal_802430E8_lbl_80518580 pad_rumble_effect_slots;
 extern Pt_80243070 pad_rumble_channel_states[];
 extern const f32 lbl_805DCA04;
 void reset_pad_rumble_effects_and_channels(s16 arg0);
@@ -41,13 +38,7 @@ void TAdSinglePlyChrSelectGC__sub_80242B24(Sp_802430F4 *);
 void fn_80242C54(Ent_802430F4 *);
 s32 fn_80242F0C(s32);
 void PADControlMotor(s32, u32);
-extern RecoveredGlobal_802430E8_lbl_80518580 pad_rumble_effect_slots;
-extern Pt_80243070 pad_rumble_channel_states[];
 void update_pad_rumble(void);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_802430E8_lbl_80518580_size[sizeof(RecoveredGlobal_802430E8_lbl_80518580) == 0x180 ? 1 : -1];
 
 typedef char RecoveredGlobal_80242F94_lbl_80518580_size[sizeof(RecoveredGlobal_80242F94_lbl_80518580) == 0x180 ? 1 : -1];

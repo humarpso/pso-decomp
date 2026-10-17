@@ -6,14 +6,12 @@
 #include "pso/misc/TOFenceAncient01.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
 extern char lbl_80441438[];
 extern char lbl_80441450[];
 extern char lbl_80441468[];
 extern const char *bm_fd_obj_n_saku_4x2_model_names[2];
 extern const char *bm_fd_obj_n_saku_4x2_motion_names[2];
 extern BmlResourceDescriptor ofence_ancient01_resource_descriptor;
-}
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -52,8 +50,6 @@ s32 init_fields__13TUnk_804B1B80Fv();
 extern RecoveredGlobal_80166D5C_lbl_804B1BE8 fence_ancient01_collision_parts;
 extern s32 __vt__16TOFenceAncient01[];
 extern s32 TOFenceAncient01__class_name;
-extern u8 *TOFenceAncient01__model_resource;
-extern u32 TOFenceAncient01__resource_pointer_array;
 extern const f32 lbl_805DB610;
 extern const f32 lbl_805DB614;
 extern const f32 lbl_805DB618;
@@ -65,12 +61,6 @@ s32 load_gvm_texture_file(void *);
 extern char lbl_80441498[];
 extern char lbl_804414B0[];
 extern char lbl_804414C8[];
-extern u8 *TOFenceAncient01__model_resource;
-extern u32 TOFenceAncient01__resource_pointer_array;
-}
-
-extern "C" {
-
 void *__dt__16TOFenceAncient01Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
@@ -86,8 +76,6 @@ void *TOFenceAncient01::create(void *arg0) {
     }
     return o;
 }
-
-extern s32 __vt__16TOFenceAncient01[];
 
 void TOFenceAncient01::free_resources() {
   s32 var_r31;
@@ -203,9 +191,6 @@ void TOFenceAncient02::vfunc_16() {  }
 void TOFenceAncient02::vfunc_15() { *(int *)&this->m_ac = 0; *(int *)&this->unk_D0 = 0; ((TObjPlayer *)this)->clear_player_status_flag((s32)((void*)0), (u32)((void*)8)); }
 void TOFenceAncient02::vfunc_14() { *(int *)&this->m_ac = 1; *(int *)&this->unk_D0 = 1; set_indexed_flags(this, (void*)0, (void*)8); }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_fd_obj_n_saku_4x2_model_names[2] = { lbl_80441438, NULL };
 __declspec(section ".data") const char *bm_fd_obj_n_saku_4x2_motion_names[2] = { lbl_80441450, NULL };
 BmlResourceDescriptor ofence_ancient01_resource_descriptor = { lbl_80441468, bm_fd_obj_n_saku_4x2_model_names, bm_fd_obj_n_saku_4x2_motion_names, 1, 1 };

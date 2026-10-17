@@ -36,10 +36,6 @@ f32 xyz_distance(void *, void *);
 extern u8 identity_matrix[];
 extern s32 tl_05;
 void TObjPlayer__sub_80124C90(u8 *arg0);
-}
-
-extern "C" {
-
 void TObjPlayer__sub_80124C90(u8 *owner) {
     Me_80124C90 *me = (Me_80124C90 *)owner;
     void *ext;

@@ -19,10 +19,6 @@ s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 extern RecoveredGlobal_800A887C_lbl_80491260 lbl_80491260;
 extern s32 breakup_model_ptr;
 void TObjPlayer__sub_800A887C(u8 *arg0);
-}
-
-extern "C" {
-
 typedef struct RecoveredGlobal_800A887C_lbl_80491260 RecoveredGlobal_800A887C_lbl_80491260;
 void TObjPlayer__sub_800A887C(u8 *arg0) {
   s16 temp_r3;

@@ -6,16 +6,11 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_handgun_weapon(u8 *arg0);
 u8 * init_with_update_handler__13TUnk_804A2D88Fv(void *, s32, void *);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-extern s32 tl_05;
 u8 *create_suppressed_gun_weapon(u8 *arg0);
 s32 TItemWeapon__ct(void*,s32,void*);
 void spawn_weapon_impact_effect();
 extern s32 lbl_804A2C90[];
 u8 *construct_handgun_weapon(u8 *arg0, s32 arg1, u8 *arg2);
-}
-
-extern "C" {
 
 u8 *create_suppressed_gun_weapon(u8 *arg0) {
     u8 *temp_r3;

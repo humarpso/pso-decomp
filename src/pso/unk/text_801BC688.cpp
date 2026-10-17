@@ -13,10 +13,6 @@ s32 set_flag_400000__10TObjPlayerFi(void *);
 s32 fn_801C19F4(void *);
 u8 *heap_alloc__10TObjPlayerFPv(s32);
 extern const f32 TObjPlayer__data_805DC278;
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 void TObjPlayer::release_child_object() {

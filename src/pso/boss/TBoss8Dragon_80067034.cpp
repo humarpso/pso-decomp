@@ -6,12 +6,7 @@ void TBoss8Dragon__sub_8028B0DC(void *, s32, s32);
 extern u8 *boss5_ctrl_instance;
 void TBoss8Dragon__sub_800670E0(s32 arg0, s32 arg1);
 s32 TBoss8Dragon__sub_8028A900(int, void *, void *);
-extern u8 *boss5_ctrl_instance;
 void TBoss8Dragon__sub_80067074(s32 arg0, s32 arg1);
-}
-
-extern "C" {
-
 #pragma fp_contract on
 s32 TBoss8Dragon::is_within_xz_distance(u8 *arg1, f32 farg0) {
     u8 *arg0 = (u8 *)this;

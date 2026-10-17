@@ -16,16 +16,6 @@ extern const f32 lbl_805D8ADC;
 extern s32 lbl_805D8AE8;
 extern const f32 lbl_805D8AEC;
 void TObjPlayer__sub_80052390(f32 x);
-}
-
-extern "C" {
-
-    extern int lbl_805D5660;
-    extern int lbl_805D5664;
-    extern int lbl_805D5668;
-    extern int chunk_polygon_flags_or_mask;
-    extern int chunk_polygon_flags_and_mask;
-    extern int model_render_flags;
 void TObjPlayer::sync_player_globals() { chunk_polygon_flags_and_mask = lbl_805D5664; chunk_polygon_flags_or_mask = lbl_805D5668; model_render_flags = lbl_805D5660; }
 void TObjPlayer__sub_80052390(f32 x) {
     C_80052390 c;

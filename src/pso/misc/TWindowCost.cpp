@@ -22,7 +22,6 @@ void *__dt__11TWindowCostFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__11TWindowCost[];
 extern void *TWindowCost__class_name;
 
 void *TWindowCost__ct(void *arg0) {

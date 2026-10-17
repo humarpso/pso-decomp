@@ -25,17 +25,12 @@ void add_actor_hp(s32, s16);
 s32 get_slot_count__14TItemProShieldFv(void *);
 extern s32 game_difficulty_selection;
 void vfunc_44__13TUnk_8049F770Fv(Obj_80116634 *arg0);
-}
-
-extern "C" {
-
 void *__dt__13TUnk_8049F770Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_8049F828Fv(void *arg0, s16 arg1);
 void vfunc_44__13TUnk_8049F828Fv(void *arg0);
 s32 apply_transform_action__8TItemMagFUc(s32, s32);
 void TItemObject__ct(void *);
 void __dt__11TItemObjectFv(void *, int);
-s32 get_slot_count__14TItemProShieldFv(void *);
 
 extern void *item_hp_recovery_vtable[];
 
@@ -69,8 +64,6 @@ void *__dt__13TUnk_8049F770Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern void *item_hp_recovery_vtable[];
 
 void *TItemProShield__sub_80116708(void *arg0, void * _w1, void * _w2) {
     TItemObject__ct(arg0);
@@ -114,24 +107,13 @@ void *__dt__13TUnk_8049F828Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-
-extern "C" {
 s32 obj_getField1c(void *);
 int get_type_id__10TObjPlayerFv();
 s32 TObjPlayer__sub_80116620(s32, s32);
 s32 sub_801A1DDC__10TObjPlayerFv(void *);
 s32 send_6x33_revive_player(s32, s32);
 void vfunc_44__13TUnk_8049F8E0Fv(void *arg0);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-extern s32 tl_05;
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-extern s32 tl_05;
 u8 *create_moon_atomizer_item(u8 *arg0);
-}
-
-extern "C" {
-
 struct Base_80116A5C_80116634 { char pad[0x18]; };
 struct VObj_80116A5C_80116634 : Base_80116A5C_80116634 {
     virtual void m0();
@@ -152,10 +134,6 @@ struct VObj_80116A5C_80116634 : Base_80116A5C_80116634 {
 
 void *__dt__13TUnk_8049F8E0Fv(void *arg0, s16 arg1);
 void vfunc_44__13TUnk_8049F998Fv(void *arg0);
-void TItemObject__ct(void *);
-void __dt__11TItemObjectFv(void *, int);
-
-extern void *item_mag_transform_vtable[];
 
 void *TUnk_8049F828::init(void *_w1, void *_w2) {
     TItemObject__ct(this);
@@ -213,8 +191,6 @@ void *__dt__13TUnk_8049F8E0Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern void *item_moon_atomizer_vtable[];
 
 void *TUnk_8049F8E0::init_item_object(void *_w1, void *_w2) {
     TItemObject__ct(this);
@@ -310,26 +286,16 @@ struct VObj_80116BBC_80116634 : Base_80116BBC_80116634 {
 
 extern "C" {
 void * TItemProShield__sub_80116B28(void *arg0, void *arg1, void *arg2);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-extern s32 tl_05;
 u8 *create_status_cure_item(u8 *arg0);
 void * TItemProShield__sub_80116C44(void *arg0, void *arg1, void *arg2);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-extern s32 tl_05;
 u8 *create_sol_atomizer_item(u8 *arg0);
-}
-
-extern "C" {
-
 void *__dt__13TUnk_8049FA50Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_8049FB08Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_8049F998Fv(void *arg0, s16 arg1);
 void vfunc_44__13TUnk_8049FA50Fv(void *arg0);
 int vfunc_44__13TUnk_8049FB08Fv(void* p);
 void *TItemProShield__sub_80116D54(void *arg0);
-void TItemObject__ct(void *);
 int send_star_atomizer_targets(void*);
-void __dt__11TItemObjectFv(void *, int);
 
 extern void *item_status_cure_vtable[];
 
@@ -343,8 +309,6 @@ void *__dt__13TUnk_8049F998Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern void *item_status_cure_vtable[];
 
 void *TItemProShield__sub_80116B28(void *arg0, void * _w1, void * _w2) {
     TItemObject__ct(arg0);
@@ -384,8 +348,6 @@ void *__dt__13TUnk_8049FA50Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern void *item_sol_atomizer_vtable[];
-
 void *TItemProShield__sub_80116C44(void *arg0, void * _w1, void * _w2) {
     TItemObject__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)item_sol_atomizer_vtable;
@@ -421,17 +383,12 @@ void *__dt__13TUnk_8049FB08Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern void *item_star_atomizer_vtable[];
-
 void *TItemProShield__sub_80116D54(void *arg0) {
     TItemObject__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)item_star_atomizer_vtable;
     return arg0;
 }
 
-}
-
-extern "C" {
 void vfunc_14__11TItemObjectFv();
 void TItemObject__vt16();
 void vfunc_31__11TItemObjectFv();

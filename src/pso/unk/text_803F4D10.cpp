@@ -3,12 +3,7 @@
 extern "C" {
 extern u32 lbl_804FCF34[];
 u32 fn_803F4D10(u32 crc, u8 *buf, s32 len);
-u32 fn_803F4D10(u32 crc, u8 *buf, s32 len);
 u32 calc_crc32(s32 arg0, s32 arg1);
-}
-
-extern "C" {
-
 #pragma push
 #pragma scheduling off
 #pragma peephole off

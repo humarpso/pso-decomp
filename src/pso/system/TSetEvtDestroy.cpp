@@ -92,14 +92,8 @@ void init_event_shuffle_table(EventShuffleTable *arg0, s32 arg1);
 s32 get_current_floor();
 void queue_destruction__7TObjectFv(void *);
 
-s32 get_area_event_data(s32 arg0);
-
 s32 item_drop_rng_below(s32, u32);
 void shuffle_event_entries(void *arg0);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_802093EC_lbl_805139F8_size[sizeof(RecoveredGlobal_802093EC_lbl_805139F8) == 0x48 ? 1 : -1];
 
 }

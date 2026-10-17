@@ -14,10 +14,6 @@ void set_draw_texture_and_color(s32, s32);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805D932C;
 void render__17TDuelEffectStringFv(u8 *arg0);
-}
-
-extern "C" {
-
 extern const f32 lbl_805D9310;
 extern const f32 lbl_805D9314;
 extern const f32 lbl_805D9318;
@@ -45,10 +41,6 @@ void TDuelEffectNumber::calc_digit_transform(s32 arg0, f32 *arg1, f32 *arg2, s32
 
 #pragma push
 
-#include "pso/TDuelEffectString.h"
-
-#include "types.h"
-#include "pso/TDuelEffectNumber.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"

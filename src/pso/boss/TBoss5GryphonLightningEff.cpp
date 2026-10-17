@@ -52,10 +52,6 @@ extern s32 __vt__25TBoss5GryphonLightningEff[];
 extern s32 lbl_805D4188;
 Self_8032537C *__ct__25TBoss5GryphonLightningEffFv(Self_8032537C *self, void *parent, void *a, void *b, f32 x0, f32 x1, f32 scale);
 extern L1_80325070 **inazuma_texture_list;
-}
-
-extern "C" {
-
 void TBoss5GryphonLightningEff__sub_80325064(void* p);
 s32 set_chunk_material_color(void *);
 s32 project_lightning_points(void *, void *, void *, void *);

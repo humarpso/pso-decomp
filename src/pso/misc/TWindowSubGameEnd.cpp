@@ -38,10 +38,6 @@ extern s32 TWindowSubGameEnd__class_name;
 extern const f32 lbl_805DD628;
 extern const f32 lbl_805DD62C;
 void *TWindowSubGameEnd__ct(void *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void TLobby__sub_802796FC(void);
 void TLobby__sub_80279708(void);
 void *__dt__17TWindowSubGameEndFv(void *arg0, s16 arg1);
@@ -51,7 +47,6 @@ s32 TKeyBoardControl__sub_8000F9CC(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 init__23TAdSinglePlyChrSelectGCFv();
-s32 is_split_screen();
 
 void TKeyBoardControl::init_char_select() {
     if (is_split_screen() != 0) {
@@ -64,8 +59,6 @@ void TKeyBoardControl::init_char_select() {
     TKeyBoardControl__sub_8000F9CC(0x12);
 }
 void TWindowSubGameEnd::render() {  }
-
-extern s32 __vt__17TWindowSubGameEnd[];
 
 void TWindowSubGameEnd::run_task() {
     u8 *arg0 = (u8 *)this;
@@ -114,8 +107,6 @@ void *__dt__17TWindowSubGameEndFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-    extern int window_sub_game_end_active_flag;
-
 void *TWindowSubGameEnd__ct(void *arg0, s32 arg1, s32 arg2) {
     f32 var_f31;
     s32 var_r31;
@@ -144,7 +135,6 @@ void *TWindowSubGameEnd__ct(void *arg0, s32 arg1, s32 arg2) {
 
 void TLobby__sub_802796FC(void) { window_sub_game_end_active_flag = 0; }
 
-    extern int window_sub_game_end_active_flag;
 void TLobby__sub_80279708(void) { window_sub_game_end_active_flag = 0; }
 
 }

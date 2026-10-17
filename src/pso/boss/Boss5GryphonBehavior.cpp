@@ -591,17 +591,12 @@ s32 fill_value_array(int);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
 s32 emit_enemy_effect__9TObjEneDDFllPUcl(void *, int, void *, int);
 void TBoss8Dragon__sub_8006426C(Obj_8006426C *arg0);
-int VecCopy__FP3VecPC3Vec(void*, void*);
 s32 TBoss1Dragon__sub_80027A80(void *, void *);
-s32 fill_value_array(int);
 s32 TBoss8Dragon__sub_800670E0(int, void *);
-s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
-s32 emit_enemy_effect__9TObjEneDDFllPUcl(void *, int, void *, int);
 extern f32 gryphon_effect_scale_table[];
 extern u8 gryphon_effect_param_block[];
 extern const f32 lbl_805D8D74;
 void TBoss8Dragon__sub_8006442C(Dragon_8006442C *arg0);
-void queue_destruction__7TObjectFv(void *);
 s32 TBoss8Dragon__sub_8005FAE0(u8 *arg0);
 void set_flag_4e4__12TBoss8DragonFPv(void* p);
 s32 spawn_particle_effect_with_flags(void *, s32, s32);
@@ -615,40 +610,27 @@ u8 *TBoss5GryphonShockWave__ct(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8
 extern s32 lbl_80437938[];
 extern const f32 lbl_805D8D50;
 extern const f32 lbl_805D8D54;
-extern const f32 lbl_805D8D74;
 extern const f32 lbl_805D8D80;
 extern const f32 lbl_805D8E5C;
 extern const f32 lbl_805D8E9C;
 extern const f32 lbl_805D8EA0;
 void TBoss8Dragon__sub_80063088(Obj_80063088 *self, u32 arg1);
-int VecCopy__FP3VecPC3Vec(void*, void*);
 u8 * csnVecterUnder(s32 *, s32);
-void * spawn_continuous_particle_effect_with_flags(void *, s32, s32);
-extern const f32 lbl_805D8D58;
 extern const f32 lbl_805D8D70;
-extern const f32 lbl_805D8D74;
 extern const f32 lbl_805D8D90;
 extern const f32 lbl_805D8D94;
-int VecCopy__FP3VecPC3Vec(void*, void*);
 f64 atan2_float(f32, f32);
 s32 TBoss8Dragon__sub_8005D700();
-void set_flag_4e4__12TBoss8DragonFPv(void* p);
 Vec_80062BA0 *TBoss8Dragon__sub_80065F08(void);
 void restore_player_cameras();
 void activate_camera_mode(int);
 void set_scripted_camera_pose(void *, void *, void *);
-s32 spawn_particle_effect_with_flags(void *, s32, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
-void advance_animation_playback(void *);
 s32 play_sound_effect(int, void *, int, int);
 s32 play_cue_stream_file(void *);
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
 extern Vec_80062BA0 lbl_80437DB8[];
 extern const f64 lbl_80437EB0;
 extern u8 lbl_80437EC0[];
 extern const f32 lbl_805D8D5C;
-extern const f32 lbl_805D8D74;
 extern const f32 lbl_805D8DD4;
 extern const f32 lbl_805D8E80;
 extern const f32 lbl_805D8E84;
@@ -658,38 +640,24 @@ s32 set_collider_contact_low(void *);
 s32 set_collider_contact_high(void *);
 s32 update_local_colliders_from_world(void *, void *);
 extern const f32 lbl_805D8E10;
-extern const f32 lbl_805D8E84;
 extern const f32 lbl_805D8EAC;
 void vfunc_88__13TBoss5GryphonFv(Obj_80064F50 *arg0);
 f32 calc_random_ratio__10TObjPlayerFv(void *);
-f64 atan2_float(f32, f32);
 void move_along_angle__13TBoss5GryphonFPvif(void *arg0, s32 arg1, f32 farg0);
 void TBoss8Dragon__sub_800646F0(s32 arg0);
 s32 fn_800660B8(void *);
-u8 * csnVecterUnder(s32 *, s32);
 s32 subtractive_rng_seed(void *, s32);
-s32 spawn_particle_effect_with_flags(void *, s32, s32);
 s32 is_alive__9TObjEneDDFv(void *);
-s32 objInBand__FP7GameObjf(void *, f32);
-void advance_animation_playback(void *);
 u32 get_player_by_client_id(s32);
 s32 fn_80351DA8(void *, void *, void *, int, int);
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
-extern const f64 lbl_80437EB0;
-extern const f32 lbl_805D8D5C;
-extern const f32 lbl_805D8D70;
-extern const f32 lbl_805D8D74;
 extern const f32 lbl_805D8D7C;
 extern const f32 lbl_805D8D88;
-extern const f32 lbl_805D8D90;
 extern const f32 lbl_805D8DBC;
 extern const f32 lbl_805D8DC0;
 extern const f32 lbl_805D8DC4;
 extern const f32 lbl_805D8DC8;
 extern const f32 lbl_805D8DCC;
 extern const f32 lbl_805D8DD0;
-extern const f32 lbl_805D8DD4;
 extern const f32 lbl_805D8DD8;
 extern const f32 lbl_805D8DDC;
 extern const f32 lbl_805D8DE0;
@@ -702,7 +670,6 @@ extern const f32 lbl_805D8D98;
 extern const f32 lbl_805D8DA0;
 extern const f32 lbl_805D8DA4;
 extern const f32 lbl_805D8DA8;
-extern const f32 lbl_805D8DAC;
 extern const f32 lbl_805D8DB0;
 extern const f32 lbl_805D8DB4;
 void choose_next_action__13TBoss5GryphonFPvPv(u8 *arg0, u32 *arg1);
@@ -712,10 +679,6 @@ extern GA_80063FB8 lbl_80437DA4;
 void TBoss8Dragon__sub_80063FB8(s32 arg0, s32 arg1, f32 farg0);
 extern GA_800640A4 lbl_80437D7C;
 void TBoss8Dragon__sub_800640A4(s32 arg0, s32 arg1);
-}
-
-extern "C" {
-
 struct V_8005DC0C { f32 x, y, z; };
 
 struct Obj_8005DC0C {
@@ -1377,16 +1340,8 @@ struct Ent_8005E868 { s32 a; s32 b; s32 f8[]; };
 
 struct Seg_80063CDC { f32 x, y, z, w; };
 
-int VecCopy__FP3VecPC3Vec(void*, void*);
-f32 calc_random_ratio__10TObjPlayerFv(void *);
-f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
-void queue_destruction__7TObjectFv(void *);
 s32 get_bml_model(s32, s32);
-s32 TBoss1Dragon__sub_80027A80(void *, void *);
-s32 fill_value_array(int);
-s32 get_flag_bit6__12TBoss8DragonFv();
-s32 TBoss8Dragon__sub_8005D700();
 s32 get_player_pos_in_arc__13TBoss5GryphonFPviiPvPv(Obj_8005D880 *arg0, s32 arg1, s32 arg2, Vec_8005D880 *org, Vec_8005D880 *out);
 s32 TBoss8Dragon__sub_8005DC0C(Obj_8005DC0C *arg0);
 void render_shadows__13TBoss5GryphonFv(void* p);
@@ -1398,7 +1353,6 @@ s32 get_random_sign__12TBoss8DragonFiPvi(s32 arg0, Ent_8005E868 *arg1, s32 arg2)
 s32 calc_product__12TBoss8DragonFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 rand_scaled_offset__12TBoss8DragonFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 TBoss8Dragon__sub_8005E9D8(void *self, O_8005E9D8 *o, s32 i);
-f32 random_in_range__12TBoss8DragonFff(f32 farg0, f32 farg1);
 f32 TBoss8Dragon__sub_8005EAD0(void *arg0, void *arg1, int arg2);
 void calc_attack_params__12TBoss8DragonFiPvi(s32 arg0, u8 *arg1, s32 arg2);
 void TBoss8Dragon__sub_8005EBDC(u8 *arg0, u8 *arg1, u8 *arg2);
@@ -1407,9 +1361,6 @@ void set_animation_by_state__12TBoss8DragonFPv(void *arg0);
 s32 TBoss8Dragon__sub_8005F684(void *, void *);
 void trigger_effect__12TBoss8DragonFPvi(void *arg0, s32 arg1);
 void turn_toward_angle_limited__13TBoss5GryphonFPvii(void *selfv, s32 arg1, s32 arg2);
-void move_along_angle__13TBoss5GryphonFPvif(void *arg0, s32 arg1, f32 farg0);
-s32 TBoss8Dragon__sub_8005FAE0(u8 *arg0);
-void TBoss8Dragon__sub_8005FB90(u8 *arg0);
 void handle_message__13TBoss5GryphonFPvi(O_8005FCE4 *self, s32 msg);
 void state_move__13TBoss5GryphonFPvi(Obj_80060F4C *arg0, s32 arg1);
 void TBoss8Dragon__sub_80062550(Obj_80062550 *arg0, s32 arg1);
@@ -1424,7 +1375,6 @@ void TBoss8Dragon__sub_80063EF4(s32 arg0);
 void TBoss8Dragon__sub_80064114(s32 arg0, s32 arg1);
 void TBoss8Dragon__sub_800641A8(u8 *arg0);
 void TBoss8Dragon__sub_8006435C(u8 *arg0);
-void TBoss8Dragon__sub_800646F0(s32 arg0);
 void TBoss8Dragon__sub_80064828(u8 *arg0);
 void TBoss8Dragon__sub_800648C8(u8 *arg0);
 int emit_part_attack_effect__13TBoss5GryphonFPvi(void *arg0, int arg1);
@@ -1432,7 +1382,6 @@ void TBoss8Dragon__sub_80064AB0(O_80064AB0 *self);
 void apply_remote_action__13TBoss5GryphonFPvPv(u8 *arg0, u8 *arg1);
 void handle_6xA0_gal_gryphon_boss_actions(void *arg0);
 void handle_6x9F_gal_gryphon_boss_actions(void *arg0);
-void set_flag_4e4__12TBoss8DragonFPv(void* p);
 void TBoss8Dragon__sub_80064DB8(u8 *arg0);
 void TBoss8Dragon__sub_80064E3C(u8 *arg0);
 void spawn_ancient_trap__12TBoss8DragonFii(s32 arg0, s32 arg1);
@@ -1446,12 +1395,7 @@ s32 attach_particle_model(s32, s32, s32, s32, s32, f32);
 s32 __ct__17TBoss5GryphonDemoFv(void *, s32, void *, f32);
 s32 fn_800666C4(s32);
 s32 TBoss8Dragon__sub_80067074(void *, void *);
-s32 TBoss8Dragon__sub_800670E0(int, void *);
 s32 TCameraCtrl__sub_8006A044(s32, f32);
-u8 * csnVecterUnder(s32 *, s32);
-int check_demo_mode__10TObjPlayerFv(void*);
-s32 spawn_particle_effect_with_flags(void *, s32, s32);
-void * spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 void TObjEneEpsilon__sub_800B9384(u8 *arg0, s32 arg1, f32 farg0);
 s32 enemy_validate_retained_target(void *);
 s32 copy_position__14TObjEneEpsilonFPv(void *, s32 *);
@@ -1461,9 +1405,7 @@ s32 enemy_set_target_id(void *, u16);
 s32 update_velocity__9TObjEneDDFv();
 void __dt__12TObjEneDD_STFv(void *, int);
 s32 reload_stats_keep_hp_tp__9TObjEneDDFv(void *, int, int, int);
-s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
 void get_camera_ctrl__9TObjEneDDFv(s32, s32);
-s32 emit_enemy_effect__9TObjEneDDFllPUcl(void *, int, void *, int);
 s32 transition_enemy_state(void *, s16);
 void delete_buffer__12TBoss8DragonFis(u32, int);
 s32 isFading__15RenderFadeStateCFv(int);
@@ -1471,25 +1413,17 @@ void __dt__13TUnk_804949A8Fv(void);
 void * get_enemy_entity(int);
 s32 TObjLight__sub_801337F8(void *);
 s32 angle_diff_s16(s32, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
 s32 draw__16TObjEneRe7BeruraFv(void *);
-void advance_animation_playback(void *);
 u8 * find_entity_by_id();
 void free_collision_body_parts(void *);
-u32 get_player_by_client_id(s32);
 s32 play_persistent_sound(s32, s32, s32, s32, s32);
-s32 play_sound_effect(int, void *, int, int);
 void __dl__7TObjectFPv(void *);
-void * __nw__7TObjectFUl(u32);
 s32 render_nodes__7TObjectFv(s32, s32);
 void __dt__7TObjectFv(void *, int);
 s32 TBoss5GryphonLightningEff__sub_80325064(void *);
 void * __ct__25TBoss5GryphonLightningEffFv(void *, void *, void *, s32, f32, f32, f32);
 s32 spawn_lightning_wing__12TBoss8DragonFiiiiii(void *, void *, void *, void *, s32, s32);
 void __destroy_arr(void *, void *, int, int);
-s32 rand();
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
 f32 vec3_dot(void *, void *);
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
@@ -1502,7 +1436,6 @@ s32 post_translate_matrix(void *);
 s32 set_material_alpha_compare_reference(int);
 s32 set_chunk_material_override_pair(int, int);
 
-extern s32 lbl_80437938[];
 extern RecoveredGlobal_800646F0_lbl_80437944 boss5_gryphon_params_b;
 extern RecoveredGlobal_8005E17C_lbl_8043797C boss5_gryphon_bone_capture_node_indices;
 extern s32 gryphon_part_attack_index_table[];
@@ -1519,7 +1452,6 @@ extern f32 boss5_gryphon_scale_y_table[];
 extern f32 gryphon_velocity_scale_z_table[];
 extern s32 gryphon_bone_copy_index_table[];
 extern s32 boss5_gryphon_point_index_table[];
-extern const f64 lbl_80437EB0;
 extern RecoveredGlobal_8006435C_lbl_804FF5A0 boss5_gryphon_attack_params;
 extern RecoveredGlobal_800646F0_lbl_804FF5B4 boss5_gryphon_behavior_params;
 extern RecoveredGlobal_8005E17C_lbl_804FF5C0 boss5_gryphon_bone_capture_origin;
@@ -1539,29 +1471,14 @@ extern f32 lbl_805D4DC0;
 extern u8 *camera_ctrl_instance;
 extern s32 current_scene_light;
 extern s32 lbl_805D5660;
-extern const f32 lbl_805D8D50;
-extern const f32 lbl_805D8D54;
-extern const f32 lbl_805D8D58;
-extern const f32 lbl_805D8D5C;
 extern const f32 lbl_805D8D60;
 extern const f32 lbl_805D8D64;
 extern const f32 lbl_805D8D68;
 extern const f32 lbl_805D8D6C;
-extern const f32 lbl_805D8D70;
-extern const f32 lbl_805D8D74;
 extern const f32 lbl_805D8D78;
-extern const f32 lbl_805D8D7C;
-extern const f32 lbl_805D8D80;
 extern const float lbl_805D8D84;
-extern const f32 lbl_805D8D88;
 extern const f32 lbl_805D8D8C;
-extern const f32 lbl_805D8D98;
 extern const f32 lbl_805D8D9C;
-extern const f32 lbl_805D8DA0;
-extern const f32 lbl_805D8DA4;
-extern const f32 lbl_805D8DCC;
-extern const f32 lbl_805D8DD0;
-extern const f32 lbl_805D8DE4;
 extern const float lbl_805D8DEC;
 extern const f32 lbl_805D8DF4;
 extern const f32 lbl_805D8DF8;
@@ -1569,11 +1486,9 @@ extern const f32 lbl_805D8E00;
 extern const f32 lbl_805D8E04;
 extern const f32 lbl_805D8E08;
 extern const f32 lbl_805D8E0C;
-extern const f32 lbl_805D8E10;
 extern const f32 lbl_805D8E14;
 extern const float lbl_805D8E20;
 extern const f32 lbl_805D8E34;
-extern const f32 lbl_805D8E5C;
 extern const f32 lbl_805D8E60;
 extern const f32 lbl_805D8E64;
 extern const f32 lbl_805D8E68;
@@ -1588,7 +1503,6 @@ extern const f32 lbl_805D8E94;
 extern const f32 lbl_805D8E98;
 extern const f32 lbl_805D8EA4;
 extern const f32 lbl_805D8EA8;
-extern const f32 lbl_805D8EAC;
 extern const f32 lbl_805D8EB0;
 extern const f32 lbl_805D8EB4;
 extern const f32 lbl_805D8EB8;
@@ -1603,20 +1517,6 @@ extern s32 tl_01;
 #pragma fp_contract on
 extern "C" {
 extern ByteBlock_14 lbl_80437D40;
-extern RecoveredGlobal_8006435C_lbl_804FF5A0 boss5_gryphon_attack_params;
-}
-
-extern "C" {
-extern RecoveredGlobal_8006435C_lbl_804FF5A0 boss5_gryphon_attack_params;
-}
-
-extern "C" {
-extern RecoveredGlobal_800646F0_lbl_804FF5B4 boss5_gryphon_behavior_params;
-}
-
-extern "C" {
-s32 TBoss8Dragon__sub_8005E9D8(void *self, O_8005E9D8 *o, s32 i);
-extern RecoveredGlobal_800646F0_lbl_804FF5B4 boss5_gryphon_behavior_params;
 }
 
 extern "C" {
@@ -2314,14 +2214,6 @@ void *__vt__13TBoss5Gryphon[107] = {
 #define gryphon_particle_enable_pos ((u8 *)gryphon_particle_enable_pos)
 #define gryphon_particle_position_vec ((s32 *)gryphon_particle_position_vec)
 #define __vt__13TBoss5Gryphon ((u8 *)__vt__13TBoss5Gryphon)
-
-extern "C" {
-extern RecoveredGlobal_800646F0_lbl_804FF5B4 boss5_gryphon_behavior_params;
-}
-
-extern "C" {
-extern RecoveredGlobal_800646F0_lbl_804FF5B4 boss5_gryphon_behavior_params;
-}
 
 s32 get_player_pos_in_arc__13TBoss5GryphonFPviiPvPv(Obj_8005D880 *arg0, s32 arg1, s32 arg2, Vec_8005D880 *org, Vec_8005D880 *out) {
     Obj_8005D880 *p;
@@ -3406,9 +3298,6 @@ extern const f32 lbl_805D8E2C;
 extern const f32 lbl_805D8E4C;
 extern const f32 lbl_805D8E48;
 extern const f32 lbl_805D8E50;
-extern const f32 lbl_805D8E34;
-extern const f32 lbl_805D8E10;
-extern const f32 lbl_805D8DE4;
 #pragma push
 #pragma fp_contract on
 void update_dive_motion__12TBoss8DragonFPvi(u8 *arg0, s32 arg1) {
@@ -5478,64 +5367,35 @@ Obj_80065658 *__dt__13TBoss5GryphonFv(Obj_80065658 *o, s16 flag) {
 }
 #pragma pop
 
-}
-
-extern "C" {
-extern const f32 lbl_805D8D78;
 __declspec(section ".sdata2") const f32 lbl_805D8D78 = 250.0f;
-extern const f32 lbl_805D8D7C;
 __declspec(section ".sdata2") const f32 lbl_805D8D7C = 65536.0f;
-extern const f32 lbl_805D8D80;
 __declspec(section ".sdata2") const f32 lbl_805D8D80 = 12.0f;
 extern const f32 lbl_805D8D84;
 __declspec(section ".sdata2") const f32 lbl_805D8D84 = 65.0f;
-extern const f32 lbl_805D8D88;
 __declspec(section ".sdata2") const f32 lbl_805D8D88 = 1.0f;
-extern const f32 lbl_805D8D8C;
 __declspec(section ".sdata2") const f32 lbl_805D8D8C = 40.0f;
-extern const f32 lbl_805D8D90;
 __declspec(section ".sdata2") const f32 lbl_805D8D90 = 3.0f;
-extern const f32 lbl_805D8D94;
 __declspec(section ".sdata2") const f32 lbl_805D8D94 = -1000.0f;
-extern const f32 lbl_805D8D98;
 __declspec(section ".sdata2") const f32 lbl_805D8D98 = 3.05175781e-05f;
-extern const f32 lbl_805D8D9C;
 __declspec(section ".sdata2") const f32 lbl_805D8D9C = 4294967300.0f;
-extern const f32 lbl_805D8DA0;
 __declspec(section ".sdata2") const f32 lbl_805D8DA0 = 0.600000024f;
-extern const f32 lbl_805D8DA4;
 __declspec(section ".sdata2") const f32 lbl_805D8DA4 = 0.899999976f;
-extern const f32 lbl_805D8DA8;
 __declspec(section ".sdata2") const f32 lbl_805D8DA8 = 0.300000012f;
-extern const f32 lbl_805D8DAC;
 __declspec(section ".sdata2") const f32 lbl_805D8DAC = 0.400000006f;
-extern const f32 lbl_805D8DB0;
 __declspec(section ".sdata2") const f32 lbl_805D8DB0 = 0.800000012f;
-extern const f32 lbl_805D8DB4;
 __declspec(section ".sdata2") const f32 lbl_805D8DB4 = 0.200000003f;
 extern const f32 lbl_805D8DB8;
 __declspec(section ".sdata2") const f32 lbl_805D8DB8 = 22.0f;
-extern const f32 lbl_805D8DBC;
 __declspec(section ".sdata2") const f32 lbl_805D8DBC = 75.0f;
-extern const f32 lbl_805D8DC0;
 __declspec(section ".sdata2") const f32 lbl_805D8DC0 = 32.5f;
-extern const f32 lbl_805D8DC4;
 __declspec(section ".sdata2") const f32 lbl_805D8DC4 = 7935.0f;
-extern const f32 lbl_805D8DC8;
 __declspec(section ".sdata2") const f32 lbl_805D8DC8 = 102400.0f;
-extern const f32 lbl_805D8DCC;
 __declspec(section ".sdata2") const f32 lbl_805D8DCC = 4.0f;
-extern const f32 lbl_805D8DD0;
 __declspec(section ".sdata2") const f32 lbl_805D8DD0 = 50.0f;
-extern const f32 lbl_805D8DD4;
 __declspec(section ".sdata2") const f32 lbl_805D8DD4 = 360.0f;
-extern const f32 lbl_805D8DD8;
 __declspec(section ".sdata2") const f32 lbl_805D8DD8 = 49152.0f;
-extern const f32 lbl_805D8DDC;
 __declspec(section ".sdata2") const f32 lbl_805D8DDC = 7.0f;
-extern const f32 lbl_805D8DE0;
 __declspec(section ".sdata2") const f32 lbl_805D8DE0 = 933.785706f;
-extern const f32 lbl_805D8DE4;
 __declspec(section ".sdata2") const f32 lbl_805D8DE4 = 17.0f;
 extern const f32 lbl_805D8DE8;
 __declspec(section ".sdata2") const f32 lbl_805D8DE8 = 0.280000001f;
@@ -5543,27 +5403,17 @@ extern const f32 lbl_805D8DEC;
 __declspec(section ".sdata2") const f32 lbl_805D8DEC = 180.0f;
 extern const f32 lbl_805D8DF0;
 __declspec(section ".sdata2") const f32 lbl_805D8DF0 = 60.0f;
-extern const f32 lbl_805D8DF4;
 __declspec(section ".sdata2") const f32 lbl_805D8DF4 = 25.0f;
-extern const f32 lbl_805D8DF8;
 __declspec(section ".sdata2") const f32 lbl_805D8DF8 = 5.0f;
 extern const f32 lbl_805D8DFC;
 __declspec(section ".sdata2") const f32 lbl_805D8DFC = 19.0f;
-extern const f32 lbl_805D8E00;
 __declspec(section ".sdata2") const f32 lbl_805D8E00 = 15.0f;
-extern const f32 lbl_805D8E04;
 __declspec(section ".sdata2") const f32 lbl_805D8E04 = 0.75f;
-extern const f32 lbl_805D8E08;
 __declspec(section ".sdata2") const f32 lbl_805D8E08 = 0.860000014f;
-extern const f32 lbl_805D8E0C;
 __declspec(section ".sdata2") const f32 lbl_805D8E0C = 11.0f;
-extern const f32 lbl_805D8E10;
 __declspec(section ".sdata2") const f32 lbl_805D8E10 = 10.0f;
-extern const f32 lbl_805D8E14;
 __declspec(section ".sdata2") const f32 lbl_805D8E14 = 9.0f;
-extern const f32 lbl_805D8E18;
 __declspec(section ".sdata2") const f32 lbl_805D8E18 = 2.29999995f;
-extern const f32 lbl_805D8E1C;
 __declspec(section ".sdata2") const f32 lbl_805D8E1C = 19.5f;
 extern const f32 lbl_805D8E20;
 __declspec(section ".sdata2") const f32 lbl_805D8E20 = 67.0f;

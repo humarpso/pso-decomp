@@ -9,21 +9,14 @@ extern "C" {
 s32 get_enemy_entity();
 extern u8 *boss8_dragon_leader_part;
 s32 TBoss8Dragon__sub_802F3348(s32 arg0);
-extern u8 *boss8_dragon_leader_part;
 f32 calc_random_ratio__10TObjPlayerFv(void *);
 void subtractive_rng_seed(void *, s32);
 void __ct__14SubtractiveRngFv(void *);
-s32 get_enemy_entity();
 void spawn_attack_object__12TBoss8DragonFllll(void *, Vec_802F33C8 *, u16, s32, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-extern u8 *boss8_dragon_leader_part;
 extern const f32 lbl_805DED40;
 extern const f32 lbl_805DED44;
-}
-
-extern "C" {
-
 s32 TBoss8Dragon__sub_802F3348(s32 arg0) {
     if ((void *) boss8_dragon_leader_part == NULL) {
         return 0;

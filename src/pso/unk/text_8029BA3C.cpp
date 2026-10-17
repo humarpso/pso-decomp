@@ -12,10 +12,6 @@ extern const f32 lbl_805DDCF8;
 extern const f32 lbl_805DDCFC;
 extern const f32 lbl_805DDD00;
 extern const f32 lbl_805DDD04;
-}
-
-extern "C" {
-
 void TAdBackTxtGC::draw_character_background_frame(s32 arg1, s32 arg2) {
     u8 *arg0 = (u8 *)this;
   f32 buffer_8[8];

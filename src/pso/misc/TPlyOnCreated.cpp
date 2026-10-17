@@ -12,10 +12,6 @@ extern RecoveredGlobal_801C6178___vt__13TPlyOnCreated __vt__13TPlyOnCreated;
 extern s32 TPlyOnCreated__name;
 extern u8 *tl_06;
 u8 *__ct__13TPlyOnCreatedFv(u8 *arg0, s16 arg1, s32 arg2);
-}
-
-extern "C" {
-
 u32 get_player_by_client_id(u16);
 s32 queue_destruction__7TObjectFv(void *);
 
@@ -40,9 +36,6 @@ u8 *__ct__13TPlyOnCreatedFv(u8 *arg0, s16 arg1, s32 arg2) {
     return arg0;
 }
 
-}
-
-extern "C" {
 extern char lbl_804470F0[];
 s32 TPlyOnCreated__name = (s32)lbl_804470F0;
 }

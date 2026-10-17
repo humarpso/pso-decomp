@@ -36,10 +36,8 @@ extern RecoveredGlobal_800F08AC_lbl_80501080 lbl_80501080;
 extern RecoveredGlobal_800F08AC_lbl_805010D0 lbl_805010D0;
 s32 *TObjPlayer__sub_800F08AC(s32 arg0, s32 arg1);
 void TObjPlayer__sub_800F083C(void);
-s32 *TObjPlayer__sub_800F08AC(s32 arg0, s32 arg1);
 s32 draw__16TObjEneRe7BeruraFv(void *);
 s32 is_split_screen();
-s32 is_split_screen__10TObjPlayerFv(void);
 s32 is_split_screen__10TObjPlayerFv(void);
 s32 set_depth_buffer_settings_1__Fv();
 s32 restore_saved_depth_alpha_state();
@@ -50,21 +48,13 @@ extern const f32 lbl_805DA7F8;
 extern const f32 lbl_805DA7FC;
 extern const f32 lbl_805DA800;
 void draw_blob_shadow(s32 arg0);
-}
-
-extern "C" {
-
-void TObjPlayer__sub_800F083C(void);
 int init_directional_light__9TObjLightFv(void*);
 int TObjLight__sub_801337F8(void*);
-s32 set_chunk_material_override_pair(s32, s32);
 
     extern int current_scene_light;
 void TObjPlayer::update_lights() { init_directional_light__9TObjLightFv((void*)(current_scene_light)); TObjLight__sub_801337F8((void*)(current_scene_light)); }
 
 void TObjPlayer__sub_800F083C(void) {  }
-
-extern s32 model_render_flags;
 
 void TObjPlayer::clear_alt_model_flag() {
     model_render_flags &= 0xFFFFF7FF;

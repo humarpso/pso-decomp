@@ -81,19 +81,14 @@ s32 get_jungle_rock_texture_resource(s32 a);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 load_gvm_texture_file(void *);
-s32 get_jungle_rock_texture_resource(s32 a);
 extern u8 lbl_804658EC[];
 extern u8 lbl_80465904[];
 extern u8 lbl_8046591C[];
 extern u8 TORockJungleS01_resource_descriptor[];
-extern u32 TORockJungleS01__bml_resource;
-extern u32 TORockJungleS01__texture_resource;
 extern const f32 lbl_805DDD20;
 extern const f32 lbl_805DDD24;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 construct_debris__8TObjChipFPvPvPv(void *, s32, void *);
 void *__nw__7TObjectFUl(int);
-s32 get_jungle_rock_texture_resource(s32 a);
 s32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
@@ -103,10 +98,6 @@ extern Offs_8029C7DC lbl_8046581C;
 extern Spawn_8029C7DC lbl_80465828;
 extern u8 identity_matrix[];
 extern s32 tl_05;
-}
-
-extern "C" {
-
 void *__dt__15TORockJungleS01Fv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
@@ -114,7 +105,6 @@ s32 TLobby__sub_803DA16C(void*);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__18TORockCaveBrakableFv(void *, int);
-void *__nw__7TObjectFUl(int);
 void queue_destruction__7TObjectFv(void *);
 
 void TORockJungleS01::vfunc_18() {
@@ -158,8 +148,6 @@ void *TORockJungleS01::create(void *arg0) {
     return o;
 }
 
-extern s32 __vt__15TORockJungleS01[];
-
 void *__dt__15TORockJungleS01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TORockJungleS01;
@@ -173,9 +161,6 @@ void *__dt__15TORockJungleS01Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern u32 TORockJungleS01__bml_resource;
-extern u32 TORockJungleS01__texture_resource;
 
 typedef char RecoveredGlobal_8029C9C8_lbl_804DC3A0_size[sizeof(RecoveredGlobal_8029C9C8_lbl_804DC3A0) == 0x84 ? 1 : -1];
 typedef char RecoveredGlobal_8029C9C8_lbl_804DC424_size[sizeof(RecoveredGlobal_8029C9C8_lbl_804DC424) == 0x24 ? 1 : -1];

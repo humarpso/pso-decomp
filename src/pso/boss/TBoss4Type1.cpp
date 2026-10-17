@@ -38,10 +38,6 @@ extern const f32 lbl_805D8B34;
 extern const f32 lbl_805D8B38;
 extern const f32 lbl_805D8B3C;
 extern const f32 lbl_805D8B40;
-}
-
-extern "C" {
-
 struct RecoveredGlobal_80052C58_lbl_80486218 {
     s32 value;
     u8 remaining[0x8];
@@ -344,15 +340,8 @@ s32 TBoss6PlotFalz__sub_802AC008(f32, f32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void vec3_add_to(Vec_80053440 *, Vec_80053440 *);
-void matrix_mult_vec(int, void *, void *);
-f32 vector_length(void *);
-void translate_matrix_vec3(int, void *);
-void set_matrix_identity(int);
-int rotate_matrix_y(void *, void *);
 void subtract_vector(Vec_80053D4C *, Vec_80053D4C *);
 void normalize_vector(void *);
-int push_matrix(void);
-int pop_matrix(void);
 int post_translate_matrix(void*);
 s32 set_global_param__8TObjFishFl();
 f32 xyz_distance(Vec_80053914 *, Vec_80053914 *);
@@ -375,8 +364,6 @@ extern const f32 lbl_805D8B10;
 extern const f32 lbl_805D8B14;
 extern const f32 lbl_805D8B18;
 extern const f32 lbl_805D8B1C;
-extern const f32 lbl_805D8B20;
-extern const f32 lbl_805D8B24;
 extern const f32 lbl_805D8B44;
 extern const f32 lbl_805D8B48;
 extern const f32 lbl_805D8B4C;

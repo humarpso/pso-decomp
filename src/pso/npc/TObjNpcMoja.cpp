@@ -104,10 +104,6 @@ extern u32 TObjNpcNFM00__shared_named_model_object;
 extern u32 TObjNpcNFM00__texture_gvm_handle;
 extern char lbl_8043FD20[];
 extern char lbl_8043FD34[];
-}
-
-extern "C" {
-
 void * TObjNpcNFM00__create(void *arg0);
 void *dt__11TObjNpcMojaFPvs(void *arg0, s16 arg1);
 void TLobby__sub_803DA16C(void*);
@@ -300,8 +296,6 @@ void *TObjNpcMoja__ct(void *selfv, void *parent, void *arg2v) {
 #undef self
 #undef arg2
 
-extern void *tl_04;
-
 void * TObjNpcNFM00__create(void *arg0) {
     void *o;
     void *o2;
@@ -315,9 +309,6 @@ void * TObjNpcNFM00__create(void *arg0) {
     }
     return o2;
 }
-
-extern u32 TObjNpcNFM00__shared_named_model_object;
-extern u32 TObjNpcNFM00__texture_gvm_handle;
 
 void TObjNpcNFM00::free_resources() {
     if ((u32) TObjNpcNFM00__texture_gvm_handle != 0U) {

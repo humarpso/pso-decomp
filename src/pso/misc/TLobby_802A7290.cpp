@@ -77,8 +77,6 @@ int is_valid_player_motion_variant(void* a0);
 int TLobby__sub_802A7278(void* a0);
 extern RecoveredGlobal_802A7444_lbl_804DDBD8 player_motion_clip_roots_b;
 s32 player_motion_provider1_get_clip_indices(s32 arg0, s32 arg1, s32 arg2);
-int is_valid_player_motion_variant(void* a0);
-int TLobby__sub_802A7278(void* a0);
 extern RecoveredGlobal_802A74B8_lbl_804DD9F8 player_motion_category_table;
 s32 player_motion_provider1_get_actions(s32 arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_802A7848(void *, s32);
@@ -89,26 +87,16 @@ void mem_free(void*);
 extern s32 player_action_motion_buffer;
 void TLobby__sub_802A7640(void);
 s32 mem_alloc(s32);
-extern s32 player_action_motion_buffer;
-void TLobby__sub_802A7640(void);
 void TLobby__sub_802A769C(void);
 s32 vfunc_3__13TUnk_804DDD28Fs(s32, s32 *);
 s32 free__10TObjPlayerFPv(void *);
 extern s32 lbl_804DDBF0[];
 void *__dt__6TLobbyFPvs(void *arg0, s16 arg1);
 void TLobby__sub_802A7B50(void *);
-extern s32 lbl_804DDBF0[];
 void* TLobby__sub_802A7780(void* p);
 void* TLobby__sub_802A7788(void* p);
-extern s32 player_action_motion_buffer;
-extern RecoveredGlobal_802A7444_lbl_804DDBD8 player_motion_clip_roots_b;
 s32 TLobby__sub_802A7420(void *self, s32 a, s32 b, s32 c);
-s32 load_action_motion_pairs__13TUnk_804DDD28Flll(void *, s32, s32, s32);
 s32 TLobby__sub_802A75C8(void *arg0, s32 arg1);
-}
-
-extern "C" {
-
 int is_valid_player_motion_variant(void* a0 = 0);
 int TLobby__sub_802A7278(void* a0 = 0);
 
@@ -125,8 +113,6 @@ s32 TLobby::validate_handle(s32 *arg0) {
     return 0;
 }
 void TUnk_804DDD28::sub_802A7318() { *(s32*)((char*)this + 0x0) = 0; *(s32 *)&this->m_4 = 0; }
-
-extern s32 player_action_motion_buffer;
 
 s32 TLobby::calc_cell_offset(s32 arg1, s32 arg2) {
     struct VObj_802A7328_802A7290 *o = (struct VObj_802A7328_802A7290 *)this;

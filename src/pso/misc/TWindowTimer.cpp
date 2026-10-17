@@ -37,17 +37,8 @@ s32 set_text_entry_string(s32, s32, s32);
 extern s32 lbl_8044FCE8[];
 extern s32 lbl_805DD888;
 extern s32 lbl_805DD88C;
-}
-
-extern "C" {
-
 void *__dt__12TWindowTimerFv(void *arg0, s16 arg1);
-s32 get_shared_text_buffer();
-s32 append_padded_number(s32, s32);
 s32 get_window_layout_position(s32);
-s32 text_builder_append(s32 *);
-s32 text_builder_reset();
-s32 set_text_entry_string(s32, s32, s32);
 void __dl__7TObjectFPv(void *);
 s32 __nw__7TObjectFUl(s32);
 s32 is_com_card_active();
@@ -134,10 +125,6 @@ s32 TWindowTimer::create_alt() {
     return var_r31;
 }
 
-extern s32 __vt__12TWindowTimer[];
-
-}
-extern "C" {
 void render__12TWindowTimerFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFl();

@@ -5,10 +5,6 @@ struct Set_8023DCB8 { Rec_8023DCB8 *recs; u32 count; };
 
 extern "C" {
 void set_material_texture_slot(Set_8023DCB8 *set, s32 arg1);
-}
-
-extern "C" {
-
 void set_material_texture_slot(Set_8023DCB8 *set, s32 arg1) {
     Rec_8023DCB8 *p;
     u32 i;

@@ -36,14 +36,8 @@ extern RecoveredGlobal_800818D8_lbl_8048E040 lens_flare_reflected_element_descri
 extern s32 lbl_8048E130[];
 extern s32 TEF_LensFlare__class_name;
 u8 *TEF_LensFlare__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt_deleting__13TEF_LensFlareFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-
-extern s32 lbl_8048E130[];
 
 void *__dt_deleting__13TEF_LensFlareFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -33,10 +33,6 @@ extern RecoveredGlobal_80196574_lbl_804A7438 lbl_804A7438;
 extern const f32 lbl_805DBEF8;
 extern const f32 lbl_805DBEFC;
 extern const f32 lbl_805DBF00;
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_80196574_lbl_804A7428_size[sizeof(RecoveredGlobal_80196574_lbl_804A7428) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_80196574_lbl_804A7438_size[sizeof(RecoveredGlobal_80196574_lbl_804A7438) == 0x10 ? 1 : -1];
 void TObjQuestColALock::update_room_id_check() {

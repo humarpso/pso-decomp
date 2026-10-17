@@ -54,14 +54,10 @@ s32 get_network_config_mode(void);
 s32 get_or_set_network_config_backup_mode(s32 arg0);
 s32 get_network_config_backup_mode(void);
 s32 get_network_config_buffer_size(s32 mode);
-s32 get_network_config_mode(void);
 extern NetworkInfoLoadState network_info_load_state;
 s32 request_network_info_exists(s32 arg0);
-s32 get_network_config_mode(void);
-extern NetworkInfoLoadState network_info_load_state;
 s32 take_network_info_exists_result(s32 *arg0, s32 *arg1);
 
-extern NetworkInfoLoadState network_info_load_state;
 void update_network_info_exists(void);
 s32 CARDGetSerialNo(s32 chan, u64 *serialNo);
 s32 CARDGetUniqueCode(s32 chan, u64 *code);
@@ -69,7 +65,6 @@ s32 get_network_info_card_key(int chan, u8 *out);
 void *memset(void *, int, u32);
 void *memcpy(void *, const void *, u32);
 char *strcpy(char *dest, const char *src);
-s32 get_network_config_backup_mode(void);
 extern char lbl_804FCEA4[];
 extern char lbl_804FCEB4[];
 extern char lbl_804FCEC4[];
@@ -85,34 +80,16 @@ void init_network_config_defaults(void);
 void *OSAllocFromHeap(s32 heap, u32 size);
 void OSFreeToHeap(s32 heap, void *p);
 extern s32 __OSCurrHeap;
-void *memset(void *, int, u32);
-void *memcpy(void *, const void *, u32);
 s32 TAdPlayerLoadGC__sub_803F3998(s32 arg0);
-void init_network_config_defaults(void);
-s32 get_network_config_backup_mode(void);
 s32 get_network_config_card_channel(void);
 s32 get_network_info_file_size(void);
-s32 get_network_info_card_key(int chan, u8 *out);
 u32 calc_crc32(Save_803F3F64 *arg0, s32 arg1);
 
 extern u8 TAdPlayerLoadGC__network_info_payload_buffer[];
-extern NetworkInfoLoadState network_info_load_state;
 extern u8 network_info_trailer_buffer[];
 extern u8 network_info_trailer_backup[];
-extern u32 lbl_805D7980;
 extern Save_803F3F64 *TAdPlayerLoadGC__network_config_buffer;
-extern Big_803F47BC *lobby_net_config_buffer;
-extern void *lbl_805D79E0;
 void update_network_info_load(void);
-}
-
-extern "C" {
-
-s32 get_network_config_card_channel(void);
-s32 get_network_info_file_size(void);
-s32 get_or_set_network_config_mode(s32 arg0);
-s32 get_or_set_network_config_backup_mode(s32 arg0);
-
 extern s32 lbl_805D79A4;
 
 #pragma scheduling off
@@ -521,9 +498,6 @@ s32 get_network_info_card_key(int chan, u8 *out) {
 }
 #pragma pop
 
-}
-
-extern "C" {
 u8 TAdPlayerLoadGC__network_info_payload_buffer[0x23C0];
 NetworkInfoLoadState network_info_load_state;
 u8 network_info_trailer_buffer[0x400];

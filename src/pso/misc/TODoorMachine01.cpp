@@ -10,14 +10,12 @@
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
 extern char lbl_80440ED0[];
 extern char lbl_80440EE4[];
 extern char lbl_80440F10[];
 extern const char *bm_fs_obj_ki_doa_a_model_names[2];
 extern const char *bm_fs_obj_ki_doa_a_motion_names[2];
 extern BmlResourceDescriptor todoormachine01_resource_descriptor;
-}
 
 struct VBase_18_4a4f5b { char pad[0x18]; };
 
@@ -118,7 +116,6 @@ extern RecoveredGlobal_80163158_lbl_804B1608 TODoorMachine01__collision_body_par
 extern s32 __vt__15TODoorMachine01[];
 extern s32 TODoorMachine01__class_name;
 extern u32 TODoorMachine01__model_resource;
-extern const f32 lbl_805DB4FC;
 extern const f32 lbl_805DB508;
 u8 *TODoorMachine01__ct(u8 *arg0, s32 arg1, s32 arg2);
 u8 is_current_floor_switch_set(u16);
@@ -131,10 +128,6 @@ int draw_ginja_model_with_motion(void *, int, f32);
 void translate_matrix(s32, f32, f32, f32);
 extern s32 *TODoorMachine01__global_param_id_array;
 extern const f32 lbl_805DB504;
-void translate_matrix(s32, f32, f32, f32);
-int push_matrix();
-int pop_matrix();
-int draw_ginja_model(int);
 s32 set_chunk_material_color(void *, int);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
@@ -147,16 +140,8 @@ extern u8 lbl_80440F38[];
 extern u8 lbl_80440F50[];
 extern u8 bm_fs_obj_ki_doa_resource_descriptor[];
 extern s32 enable_v2_features;
-extern u32 TODoorMachine01__model_resource;
-extern s32 *TODoorMachine01__global_param_id_array;
-}
-
-extern "C" {
-
 void *__dt__15TODoorMachine01Fv(void *arg0, s16 arg1);
-s32 play_sound_effect(s32, void *, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
-s32 is_any_player_within_radius_xz(f32);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -346,9 +331,6 @@ void *TODoorMachine01::create(void *arg0) {
     return o;
 }
 
-extern u32 TODoorMachine01__model_resource;
-extern s32 *TODoorMachine01__global_param_id_array;
-
 void TODoorMachine01::free_resources() {
     if ((s32 *) TODoorMachine01__global_param_id_array != NULL) {
         TObjPlayer::free_if_valid(*TODoorMachine01__global_param_id_array);
@@ -362,8 +344,6 @@ void TODoorMachine01::free_resources() {
         TODoorMachine01__model_resource = 0U;
     }
 }
-
-extern s32 __vt__15TODoorMachine01[];
 
 void TODoorMachine01::load_resources() {
     void *p;
@@ -430,9 +410,6 @@ u8 *TODoorMachine01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_fs_obj_ki_doa_a_model_names[2] = { lbl_80440ED0, NULL };
 __declspec(section ".data") const char *bm_fs_obj_ki_doa_a_motion_names[2] = { lbl_80440EE4, NULL };
 BmlResourceDescriptor todoormachine01_resource_descriptor = { lbl_80440F10, bm_fs_obj_ki_doa_a_model_names, bm_fs_obj_ki_doa_a_motion_names, 1, 1 };

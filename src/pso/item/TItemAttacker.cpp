@@ -22,10 +22,6 @@ s32 __ct__7TObjectFP7TObject(void*,s32);
 extern s32 __vt__13TItemAttacker[];
 extern s32 TItemAttacker__name;
 u8 *__ct__13TItemAttackerFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-}
-
-extern "C" {
-
 void TItemAttacker__sub_8010349C(u32 arg0);
 int get_item_chunk_buffer(int a0);
 s32 create_item_buff(s32 arg0);
@@ -85,10 +81,6 @@ void TItemAttacker::run_task() { if (*(int*)((char*)this + 0x34) != 0) { queue_d
 
     extern int item_nj_chunk_buffer_table[];
 int get_item_chunk_buffer(int a0) {  return item_nj_chunk_buffer_table[a0]; }
-
-extern s32 lbl_8043E038[];
-extern s32 item_buffer_temp_mode;
-extern s32 item_buff_buffer;
 
 void TItemBuff__ct(void) {
     if ((u32) (*(u32 *)&item_buff_buffer) != 0) {

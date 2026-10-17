@@ -462,11 +462,7 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     return arg0;
 }
 
-}
-
 #define TObjEneRecobox__static_instance (*(int *)&TObjEneRecobox__static_instance)
-
-extern "C" {
 
 int TObjEneRecobox__sub_803201D0(void);
 
@@ -492,15 +488,10 @@ u32 TObjEneRecobox::remap_area_sound_id(u32 arg0) {
 
 int TObjEneRecobox__sub_803201D0(void) {  return TObjEneRecobox__static_instance; }
 
-}
-
 #undef TObjEneRecobox__static_instance
 
 #define TObjEneRecobox__static_instance (*(u32 *)&TObjEneRecobox__static_instance)
 #define TObjEneRecobox__ct ((void *(*)(void *, void *, void *))TObjEneRecobox__ct)
-
-extern "C" {
-
 void *TObjEneRecobox__create(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 void *__nw__7TObjectFUl(int);
@@ -560,11 +551,7 @@ extern "C" u8 lbl_804762AC[];
 #undef lbl_804EC684
 #define lbl_804EC684 (*(Sub_80320260 *)lbl_804EC684)
 extern V3_80320260 lbl_80543000;
-extern s32 recobox_boss_register_id;
-extern s32 lbl_805D6B14;
-extern s32 TObjEneRecobox__shared_object_handle;
 extern s32 lbl_805D6B1C;
-extern const f32 lbl_805DF46C;
 
 #pragma dont_inline off
 #pragma inline_depth(4)

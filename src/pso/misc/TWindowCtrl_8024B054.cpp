@@ -19,10 +19,6 @@ typedef s32 (Win_8024B098::*Pmf_8024B098)();
 s32 TWindowCtrl__sub_8024B098(void *, Pmf_8024B098);
 Win_8024B098 *get_window__11TWindowCtrlFl(void *self);
 extern RecoveredGlobal_8024B054_lbl_804CE9C8 window_ctrl_is_visible_callback_entry;
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8024B054_lbl_804CE9C8_size[sizeof(RecoveredGlobal_8024B054_lbl_804CE9C8) == 0xC ? 1 : -1];
 void TWindowCtrl::is_slot_visible() {
     s32 arg0 = (s32)this;

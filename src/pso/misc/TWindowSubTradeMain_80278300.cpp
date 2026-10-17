@@ -37,10 +37,6 @@ extern const f32 lbl_805DD60C;
 extern const f32 lbl_805DD610;
 extern const f32 lbl_805DD614;
 extern const f32 lbl_805DD618;
-}
-
-extern "C" {
-
 void TWindowSubTradeMain::set_trade_state(s16 arg1) {
     this->m_88 = arg1;
     if ((s16) this->m_88 == 3) {

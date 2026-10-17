@@ -4,17 +4,11 @@
 extern "C" {
 s32 fn_8035C2B4();
 int is_door_0x97_open__12TBoss4ThanksFv(void*);
-}
-
-extern "C" {
-
 int TBoss4Thanks__sub_8035C96C(void* p);
 void *TBoss4Thanks__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
-s32 fn_8035C2B4();
 s32 any_player_has_listed_item();
 s32 get_main_phase();
-int is_door_0x97_open__12TBoss4ThanksFv(void*);
 s32 is_split_screen();
 
 extern void *tl_02;

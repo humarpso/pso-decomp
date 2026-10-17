@@ -29,10 +29,6 @@ void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80444B48[];
 extern u32 TObjComputer__model_archive;
 extern s16 TObjComputer__data_805DBCD8[2];
-}
-
-extern "C" {
-
 void *__dt__13TObjGbAdvanceFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 vfunc_14__11TObjMesBaseFv();
@@ -46,8 +42,6 @@ void TObjGbAdvance::vfunc_14() {
         submit_cursor_candidate(this, -1);
     }
 }
-
-extern s32 __vt__13TObjGbAdvance[];
 
 void *__dt__13TObjGbAdvanceFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

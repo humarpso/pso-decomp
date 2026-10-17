@@ -27,20 +27,13 @@ extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern u8 *TODoorCave01__texture_lists;
 extern s32 model_render_flags;
-}
-
-extern "C" {
-
 void render__12TODoorCave01Fv(u8 *arg0);
 void *TODoorCave01__ct(void *, void *, void *);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model_with_motion(void *, int, f32);
 s32 rotate_matrix_y(int, int);
-s32 push_matrix();
-s32 pop_matrix();
 void *__nw__7TObjectFUl(int);
 
-extern u8 *TODoorCave01__texture_lists;
 extern const f32 lbl_805DB4A4;
 
 s32 TODoorCave01::draw_door_model(void *p0, int p1, int arg2) {

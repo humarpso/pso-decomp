@@ -19,7 +19,6 @@ struct Quad_80262038 {
 
 #include <stddef.h>
 #include "pso/misc/TKeyBoardControl.h"
-#include "pso/misc/TWindowKeyBoardSoft.h"
 #include "pso/TWindowEffectLight.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubMag.h"
@@ -37,10 +36,6 @@ struct RecoveredFields_8026088C_arg0 {
 
 extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
-}
-
-extern "C" {
-
 struct RecoveredGlobal_80260808_lbl_8050E208 {
     s32 value;
     u8 remaining[0x1AC];
@@ -116,10 +111,6 @@ void set_constant_material_color(u32);
 extern UV_80262038 keyboard_key_frame_uv_table[];
 extern const f32 TWindowKeyBoardSoft__data_805DD090;
 extern const f32 lbl_805DD0C8;
-
-extern "C" {
-extern RecoveredGlobal_80260808_lbl_8050E208 controller_input_state;
-}
 
 void calc_cursor_step__19TWindowKeyBoardSoftFiPvPv(s32 arg0, s32 *arg1, s32 *arg2) {
     switch ((s32) current_language) {

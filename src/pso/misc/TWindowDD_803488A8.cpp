@@ -26,14 +26,8 @@ s32 TWindowDD__sub_80348B70(s16 arg0);
 extern const f32 TWindowDD__data_805DFB58;
 extern const f32 lbl_805DFB5C;
 extern const f32 lbl_805DFCD4;
-extern const f32 TWindowDD__data_805DFCD8;
 extern const f32 TWindowDD__data_805DFB20;
-extern const f32 TWindowDD__data_805DFCD8;
 void TWindowDD__sub_803489B8(A_803489B8 *arg0, B_803489B8 *arg1, s32 arg2);
-}
-
-extern "C" {
-
 typedef struct { char pad[0xBC]; } Buf;
 
 s32 reset_entries__9TWindowDDFf(Buf *, s32);

@@ -28,9 +28,6 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern void *__vt__13TItemEffFlame[];
 extern s32 TItemEffFlame__class_name;
 void *TItemEffFlame__ct(void *arg0, void *parent, void *target);
-}
-
-extern "C" {
 
 #define self ((Flame_80108F04 *)arg0)
 #define arg2 ((Arg_80108F04 *)target)

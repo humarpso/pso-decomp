@@ -50,10 +50,6 @@ extern const f32 lbl_805D97B0;
 extern const f32 lbl_805D97BC;
 extern const f32 lbl_805D97C0;
 extern const f32 lbl_805D97C4;
-}
-
-extern "C" {
-
 struct BeruraBase_800962F4 { char pad[0x14]; };
 struct BeruraObj_800962F4 : BeruraBase_800962F4 {
     virtual void m0();
@@ -73,7 +69,6 @@ s32 TBoss8Dragon__sub_800BC5EC(s32, s32);
 void __dt__13TUnk_80490470Fv(void *, int);
 void __dl__7TObjectFPv(void *);
 s32 fill_value_array(s32);
-void queue_destruction__7TObjectFv(void *);
 
 void TObjEneRe7BeruraPunch__sub_800962F4(void* p) { *(s32*)((char*)p + 0xb4) = 0; }
 
@@ -119,8 +114,6 @@ void TObjEneRe7BeruraPunch::reset() {
     *(s32 *)&this->unk_118 = 0;
     this->m_114 = (f32) lbl_805D9794;
 }
-
-extern s32 __vt__21TObjEneRe7BeruraPunch[];
 
 void TObjEneRe7BeruraPunch::run_task() {
     u8 *arg0 = (u8 *)this;
@@ -200,8 +193,6 @@ void *__dt__21TObjEneRe7BeruraPunchFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern const f32 lbl_805D9794;
 
 void TObjEneRe7BeruraPunch::init() {
     u8 *arg0 = (u8 *)this;

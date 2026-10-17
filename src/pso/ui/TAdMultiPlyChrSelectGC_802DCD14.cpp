@@ -18,16 +18,7 @@ s32 play_sound_effect(s32, s32, s32, s32);
 s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
 extern s8 controller_physical_port_bank[];
 void TAdMultiPlyChrSelectGC__sub_802DD400(u8 *arg0);
-s32 queue_destruction__7TObjectFv(void *);
-s32 TWindowShortListCtrl__check_controller_button(void *, s32, s32);
-s32 play_sound_effect(s32, s32, s32, s32);
-s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
-extern s8 controller_physical_port_bank[];
 void TAdMultiPlyChrSelectGC__sub_802DCF68(void *arg0);
-}
-
-extern "C" {
-
 void TAdMultiPlyChrSelectGC__sub_802DCD14(void *arg0);
 void TAdMultiPlyChrSelectGC__sub_802DD010(void *arg0);
 void TAdMultiPlyChrSelectGC__sub_802DD2B0(void *arg0);
@@ -39,13 +30,9 @@ u32 TAdMultiPlyChrSelectGC__sub_802DBE4C(void *, s32 *);
 s32 TAdMultiPlyChrSelectGC__sub_802DBEC4(void *, s32 *);
 s32 TAdMultiPlyChrSelectGC__sub_802DC294(void *, s32);
 s32 TAdMultiPlyChrSelectGC__sub_802E0024(s32, u32);
-s32 play_sound_effect(s32, s32, s32, s32);
-s32 TWindowShortListCtrl__check_controller_button(void *, s32, s32);
 s32 TWindow__close(void *);
 s32 get_card_index__22TAdMultiPlyChrSelectGCFv(s32, s32);
-s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
 s32 load_tables();
-s32 queue_destruction__7TObjectFv(void *);
 s32 swap_characters__23TAdSinglePlyChrSelectGCFii(u32, s32);
 
 void TAdMultiPlyChrSelectGC__sub_802DCD14(void *arg0) {
@@ -172,7 +159,6 @@ void TAdMultiPlyChrSelectGC__sub_802DD010(void *arg0) {
 
 extern s32 lbl_80472870[];
 extern s32 lbl_80472878[];
-extern s8 controller_physical_port_bank[];
 
 void TAdMultiPlyChrSelectGC::update_state_move() {
     s32 iter;

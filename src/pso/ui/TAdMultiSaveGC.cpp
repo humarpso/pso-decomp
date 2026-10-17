@@ -31,7 +31,6 @@ void *__dt__14TAdMultiSaveGCFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__14TAdMultiSaveGC[];
 extern void *TAdMultiSaveGC__name;
 
 void *TAdMultiSaveGC__ct(void *arg0) {

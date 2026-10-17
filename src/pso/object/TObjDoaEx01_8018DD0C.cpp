@@ -44,29 +44,12 @@ s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 rotate_matrix_y(s32, s32);
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFl();
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern s32 TObjDoaEx01__resource_bundle;
-extern u8 *TObjDoaEx01__alpha_model_node;
-extern u8 *TObjDoaEx01__alpha_model_sibling;
 extern const f32 TObjDoaEx01__data_805DBDA0;
 extern const f32 lbl_805DBDB4;
 extern const f32 lbl_805DBDB8;
-}
-
-extern "C" {
-
-s32 post_translate_matrix(void *);
-s32 TObjFish__sub_8001EDB0(s32, s32);
-s32 get_bml_model(s32, s32);
-s32 rotate_matrix_y(s32, s32);
-s32 push_matrix();
-s32 pop_matrix();
-s32 set_global_param__8TObjFishFl();
-
 struct TObjDoaEx01_base { char pad[0x18]; };
 struct TObjDoaEx01_VObj : TObjDoaEx01_base {
     virtual void m0();
@@ -79,11 +62,6 @@ struct TObjDoaEx01_VObj : TObjDoaEx01_base {
     virtual void m7();
     virtual s32 m8(f32, f32);
 };
-extern s32 TObjDoaEx01__resource_bundle;
-extern u8 *TObjDoaEx01__alpha_model_node;
-extern u8 *TObjDoaEx01__alpha_model_sibling;
-extern const f32 lbl_805DBDB4;
-extern const f32 lbl_805DBDB8;
 
 s32 TObjDoaEx01::draw_object_tree(s32 arg1) {
     NjObj_8018DD0C *obj = (NjObj_8018DD0C *)arg1;

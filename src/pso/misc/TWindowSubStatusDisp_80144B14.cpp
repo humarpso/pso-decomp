@@ -78,26 +78,15 @@ u32 get_font_char_advance(u16 arg0);
 u16 map_char_to_font_code(u16 c);
 extern s32 text_control_color_palette[];
 char *parse_text_control_codes(char *p, s32 *a, s32 *b);
-u32 get_font_char_advance(u16 arg0);
 void DCStoreRange(void *, u32);
 extern u8 *menu_font_glyph_pixel_buffers[];
 extern u8 *menu_font_glyph_data;
 extern u32 menu_font_upload_flags;
 void upload_font_glyph(u16 c, void *arg1);
 s32 calc_ci4_tile_offset(u32 arg0, u32 arg1);
-u32 get_font_char_advance(u16 arg0);
-u16 map_char_to_font_code(u16 c);
 extern const f32 lbl_805DB19C;
 u32 calc_text_width(char *s);
-u32 get_font_char_advance(u16 arg0);
-u16 map_char_to_font_code(u16 c);
-extern const f32 lbl_805DB19C;
-u32 get_font_char_advance(u16 arg0);
-extern const f32 lbl_805DB19C;
 u32 TWindowSubStatusDisp__sub_80144E9C(char *s);
-char *parse_text_control_codes(char *p, s32 *a, s32 *b);
-void set_glyph_quad_extents(u8 arg0, u8 *arg1);
-u16 map_char_to_font_code(u16 c);
 u8 calc_gauge_scale__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 arg2);
 int end_render_forward__20TWindowSubStatusDispFPv(void* p);
 void draw_textured_quad_at_depth(void *, f32);
@@ -105,12 +94,6 @@ extern s32 current_language;
 extern const f32 lbl_805DB1A0;
 extern const f32 lbl_805DB1A4;
 void draw_menu_font_string(const char *s, s32 arg1, u32 flags, f32 x, f32 y, f32 scale);
-}
-
-extern "C" {
-
-u8 calc_gauge_scale__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 arg2);
-int end_render_forward__20TWindowSubStatusDispFPv(void* p);
 void *find_cached_glyph__20TWindowSubStatusDispFUs(u16 code);
 int begin_screen_draw(void*);
 int set_draw_texture_and_color(void*, void*);
@@ -347,9 +330,6 @@ void TWindowSubStatusDisp::pack_status_flags(u32 arg1) {
     *(u8 *)((s8 *)this + 1) = (u8) (arg1 & 3);
     *(u8 *)((s8 *)this + 1) = (u8) (*(u8 *)((s8 *)this + 1) | ((arg1 * 4) & 0x30));
 }
-
-extern u8 lbl_805D56C0;
-extern const f32 lbl_805DB194;
 
 #define g ((Glyph_80145190 *)arg1)
 

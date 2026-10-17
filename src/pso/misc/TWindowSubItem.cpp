@@ -112,20 +112,11 @@ s32 align_menu_entry_positions(int);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 s32 create_titled_window_menu(int, int, int, int);
 s32 get_window_layout_position(s32);
-s32 get_message_10__20TWindowSubStatusDispFl(s32);
-s32 set_field_1c__6TLobbyFf(s32);
-s32 TWindowSubEquip__sub_80263AF8(s32, s32);
-s32 align_menu_entry_positions(int);
-s32 create_titled_window_menu(int, int, int, int);
-s32 get_window_layout_position(s32);
 s32 get_player_by_client_id(s32);
 s32 TObjPlayer__sub_801B7B58(int, int, int);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(int);
-s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 get_item_info__10TObjPlayerFllPs(int, int, void *);
 void *find_item_by_id(s32);
-s32 get_player_by_client_id(s32);
-s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 void add_item_purpose_actions(u8 *arg0, s32 arg1, s32 arg2);
 struct En_8027AA80 { u16 flags; u8 pad2[0x2A]; u32 c2c; u32 c30; u32 c34; };
 s32 is_flag_4_set__20TWindowSubStatusDispFv();
@@ -144,69 +135,42 @@ void push_status_disp_entry(void *, s32, s32);
 void add_battle_stat_entry(void *, s32, s32, s32);
 void TWindowSubItem__sub_8027AB10(Wn_8027AB10 *arg0);
 void populate_sub_item_list(Win_8027ABFC *arg0);
-s32 get_player_by_client_id(s32);
 u32 get_slot_value__10TObjPlayerFPvi(s32, s8);
 s32 has_armor_with_unit_slot(void *arg0, int arg1);
-void *find_item_by_id(s32);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
-s32 get_player_by_client_id(s32);
 u32 is_action_active__10TObjPlayerFv(s32);
 void decrement_clamped(void *, s32);
 void play_sound_effect(s32, s32, s32, s32);
 s32 __nw__7TObjectFUl(s32);
 void TWindow__close(void *);
-s32 set_field_1c__6TLobbyFf(s32);
 s32 is_player_input_active(s32);
 s32 TWindowCtrl__sub_8024A228(s32);
 u32 __ct__15TWindowHelpItemFPvUs(s32, s32, s32);
-s32 TWindowSubEquip__sub_80263AF8(s32, s32);
 s32 get_selected_menu_value(u32);
-s32 select_cursor_entry__22TWindowSubShortCutListFv(int);
-s32 get_window_layout_position(s32);
-void TWindowSubItem__sub_8027AA30(u8 *arg0);
 extern Pad_80279FFC controller_input_state[];
-}
-
-extern "C" {
-
 void *TWindowSubItem__ct(void *arg0, s32 arg1, s32 arg2);
 void *__dt__14TWindowSubItemFv(void *arg0, s16 arg1);
 s32 get_localized_text_entry(s32, s32);
-void *find_item_by_id(s32);
 s32 send_6x26_unequip_item__10TObjPlayerFPvPv(s32, s32);
 s32 send_6x25_equip_item(s32, s32, s32);
 s32 is_boss_area();
-s32 get_player_by_client_id(s32);
 int clamp_selection_to_valid_entry__20TShopArmorListWindowFv(void*);
 int reset_list__20TShopArmorListWindowFv(void*);
 s32 TWindowHelpItem__set_displayed_item_by_id(u32);
 s32 __ct__18TWindowInputNumberFPvllls(s32, s32, s32, s32, s32, s16);
-s32 get_window_layout_position(s32);
-s32 TWindowSubEquip__sub_80263AF8(s32, s32);
 int clamp_scroll_offset__20TWindowSubStatusDispFv(void*);
-void TWindow__close(void *);
 s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-s32 __nw__7TObjectFUl(s32);
 s32 close_sub_window__10TObjPlayerFv();
 s32 try_send_6x27_use_item(s32, s32);
 s32 create_sub_item_list_window(s32, s32 *, s32);
-s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 s32 get_array_entry__13TUnk_804CE018Fi(void *, s16);
 s32 get_cursor_pos__14TWindowSubItemFv();
 s32 get_field_d8__10TObjPlayerFv();
-s32 get_message_10__20TWindowSubStatusDispFl(s32);
-u32 get_slot_value__10TObjPlayerFPvi(s32, s8);
 s32 reset_key_machine_state__10TObjPlayerFv(s32);
 int save_cursor_selection__20TShopArmorListWindowFv(void*);
-s32 set_field_1c__6TLobbyFf(s32);
-
-extern "C" {
-Quest_8027ABFC *get_quest_id__12TQuestListVMFv(void *);
-void TWindowSubItem__sub_8027AB10(Wn_8027AB10 *arg0);
-}
 
 void TWindowSubItem::set_displayed_item(s32 arg1) {
     if (((u32) this->m_40 != 0U) && (arg1 != (s32) *(s32 *)&this->m_20)) {
@@ -748,7 +712,6 @@ void *__dt__14TWindowSubItemFv(void *arg0, s16 arg1) {
 }
 
 extern s32 lbl_8044F998[];
-extern s32 __vt__14TWindowSubItem[];
 extern s32 TWindowSubItem__class_name;
 
 void *TWindowSubItem__ct(void *arg0, s32 arg1, s32 arg2) {

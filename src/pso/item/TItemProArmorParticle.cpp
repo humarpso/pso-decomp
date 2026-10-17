@@ -21,10 +21,6 @@ extern RecoveredGlobal_803646F0_lbl_8047A020 TItemProArmorParticle__particle_id_
 extern s32 __vt__21TItemProArmorParticle[];
 extern s32 TItemProArmorParticle__class_name;
 u8 *TItemProArmorParticle__ct(u8 *arg0, u8 *arg1);
-}
-
-extern "C" {
-
 void *__dt__21TItemProArmorParticleFv(void *arg0, s16 arg1);
 s32 __ct__21TItemEffArmorParticleFP7TObjectlll(u32, s32, s32, s32, s32);
 s32 vfunc_45__14TItemEquipBaseFv();
@@ -110,8 +106,6 @@ void *TUnk_804A05C8::initialize(void *arg1, void *arg2, void *arg3, void *arg4) 
     (*(void * *)&this->unk_2C) = arg4;
     return this;
 }
-
-extern s32 __vt__21TItemProArmorParticle[];
 
 void *__dt__21TItemProArmorParticleFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

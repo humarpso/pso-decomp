@@ -7,9 +7,7 @@
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/misc/TWindowKeyBoardHard.h"
 
-extern "C" {
 extern s32 TLobby__data_805D6144;
-}
 
 extern "C" {
 

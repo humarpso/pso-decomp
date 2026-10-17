@@ -8,10 +8,6 @@ s32 TWindowMessageQuest__ct(int, void *);
 s32 create_quest_message_window_at(s32 arg0, s32 arg1);
 int append_message_window_line(void *w, int text, int flags, int color);
 int dispatch_message_window_text(void *w, int text, int flags);
-}
-
-extern "C" {
-
 void TLobby::set_field_90(s32 v) { *(s32*)((char*)this + 0x90) = v; }
 
 int dispatch_message_window_text(void *w, int text, int flags) {

@@ -23,13 +23,9 @@ extern "C" {
 void init__9TItemDataFv(void *);
 s32 get_selected_menu_value(void *);
 extern RecoveredGlobal_8034B158_lbl_804F00C8 TChallenge4PItemSelect__item_table;
-}
-
-extern "C" {
 void TWindow__close(void*);
 }
 
-#include "types.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/ui/TChallenge4PResult.h"
@@ -112,11 +108,8 @@ void TChallenge4PItemSelect::open_menu() {
         }
     }
 }
-extern "C" {
-
 extern void *lbl_805D433C;
 
-}
 void TChallenge4PItemSelect::run_task() {
     s32 temp_r0;
     temp_r0 = state;

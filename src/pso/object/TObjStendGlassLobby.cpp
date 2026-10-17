@@ -9,13 +9,11 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern char lbl_80479658[];
 extern char lbl_80479670[];
 extern const char *bm_obj_lobby_stendglass_motion_names[];
 extern const char *bm_obj_lobby_stendglass_model_names[2];
 extern BmlResourceDescriptor TObjStendGlassLobby__resource_descriptor;
-}
 
 struct RecoveredGlobal_80359944_lbl_804F1A30 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80359944_lbl_804F1A30_size[sizeof(RecoveredGlobal_80359944_lbl_804F1A30) == 0x10 ? 1 : -1];
@@ -45,14 +43,7 @@ extern s32 stend_glass_lobby_type;
 s32 init_map_object_base(void *);
 extern s32 __vt__19TObjStendGlassLobby[];
 extern s32 TObjStendGlassLobby__name;
-extern u32 TObjStendGlassLobby__static_model_resource;
-extern s32 stend_glass_lobby_type;
 u8 *TObjStendGlassLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
-void TObjStendGlassLobby__sub_803596C0(void);
-}
-
-extern "C" {
-
 void TObjStendGlassLobby__sub_803596C0(void);
 void *__dt__19TObjStendGlassLobbyFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -150,16 +141,12 @@ void *TObjStendGlassLobby::create(void *arg0) {
     return o;
 }
 
-extern u32 TObjStendGlassLobby__static_model_resource;
-
 void TObjStendGlassLobby::free_static_model() {
     if ((u32) TObjStendGlassLobby__static_model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TObjStendGlassLobby__static_model_resource, 1);
         TObjStendGlassLobby__static_model_resource = 0U;
     }
 }
-
-extern s32 __vt__19TObjStendGlassLobby[];
 
 void TObjStendGlassLobby::load_resources() {
     s32 temp_r3;
@@ -196,9 +183,6 @@ u8 *TObjStendGlassLobby__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_obj_lobby_stendglass_model_names[2] = { lbl_80479658, NULL };
 BmlResourceDescriptor TObjStendGlassLobby__resource_descriptor = { lbl_80479670, bm_obj_lobby_stendglass_model_names, bm_obj_lobby_stendglass_motion_names, 1, 0 };
 }

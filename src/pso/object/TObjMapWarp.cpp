@@ -61,8 +61,6 @@ extern "C" {
 u8 TWindowShortListCtrl__check_controller_button(void *, int);
 extern RecoveredGlobal_8019D850_lbl_8050E208 controller_input_state;
 void TObjWarpBase__vt14(void);
-u8 TWindowShortListCtrl__check_controller_button(void *, int);
-extern RecoveredGlobal_8019D850_lbl_8050E208 controller_input_state;
 void TObjWarpBase__vt15(s32 arg0, s32 arg1);
 s32 fn_8019DD24(void *, int);
 void *get_player_by_client_id(u32);
@@ -82,10 +80,6 @@ extern u8 identity_matrix[];
 extern V3_8019D764 map_warp_destination_offsets[];
 extern s32 TObjMapWarp__name;
 void *TObjMapWarp__ct(W_8019D764 *self, void *parent, void *set);
-}
-
-extern "C" {
-
 struct Base_8019D6F8_8019D4E4 { char pad[0x18]; };
 struct VObj_8019D6F8_8019D4E4 : Base_8019D6F8_8019D4E4 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -97,7 +91,6 @@ struct VObj_8019D6F8_8019D4E4 : Base_8019D6F8_8019D4E4 {
 u8 TObjWarpBase__vt13(void *arg0);
 void *__dt__11TObjMapWarpFv(void *arg0, s16 arg1);
 s32 __dt__12TObjWarpBaseFv(void *, s32);
-void *get_player_by_client_id(u32);
 s32 __dl__7TObjectFPv(void *);
 s32 check_flag_100__10TObjPlayerFPv();
 s32 is_flag_400_set__10TObjPlayerFPv(void *);
@@ -129,8 +122,6 @@ u8 TObjMapWarp::can_warp(s32 arg0, u16 arg1) {
     }
     return 1U;
 }
-
-extern s32 __vt__11TObjMapWarp[];
 
 #pragma push
 #pragma opt_common_subs off
@@ -186,9 +177,6 @@ void *__dt__11TObjMapWarpFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 quest_warp_enabled;
-extern s32 lbl_805D55C0;
-
 typedef char RecoveredGlobal_8019D850_lbl_8050E208_size[sizeof(RecoveredGlobal_8019D850_lbl_8050E208) == 0x1B0 ? 1 : -1];
 
 typedef char RecoveredGlobal_8019D818_lbl_8050E208_size[sizeof(RecoveredGlobal_8019D818_lbl_8050E208) == 0x1B0 ? 1 : -1];
@@ -243,9 +231,6 @@ u8 TObjWarpBase__vt13(void *arg0) {
     return 1U;
 }
 
-}
-
-extern "C" {
 extern char lbl_804462F0[];
 s32 TObjMapWarp__name = (s32)lbl_804462F0;
 }

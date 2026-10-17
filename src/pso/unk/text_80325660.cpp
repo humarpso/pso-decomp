@@ -12,10 +12,6 @@ void set_draw_texture_and_color(int, u32);
 extern s32 chr_sel_move_plate_texture;
 extern const f32 lbl_805DF600;
 void draw_move_plate_quads(Obj_80325660 *arg0);
-}
-
-extern "C" {
-
 void draw_move_plate_quads(Obj_80325660 *arg0) {
     u32 i;
     for (i = 0; i < arg0->count; i++) {

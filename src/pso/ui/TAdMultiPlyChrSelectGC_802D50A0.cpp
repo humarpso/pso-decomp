@@ -8,10 +8,6 @@ void fn_802D50B8(void *arg0, void *arg1, void *arg2, void *arg3);
 void update_trail_slot__11TItemWeaponFPvi(void *, s32);
 void draw_weapon_at_joint(s32, s8);
 void draw_twin_weapon_trails(s32 arg0);
-}
-
-extern "C" {
-
 s32 TAdMultiPlyChrSelectGC::get_player_index() { return *(s32 *)&this->m_24; }
 void TAdMultiPlyChrSelectGC::set_cursor_index(s32 v) { *(s32 *)&this->m_24 = v; }
 void TAdMultiPlyChrSelectGC::set_field_100(s32 v) { *(s32*)((char*)this + 0x100) = v; }

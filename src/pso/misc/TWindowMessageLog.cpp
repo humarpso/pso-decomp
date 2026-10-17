@@ -20,10 +20,6 @@ extern const f32 lbl_805DD240;
 extern const f32 lbl_805DD244;
 extern const f32 lbl_805DD248;
 extern const f32 lbl_805DD24C;
-}
-
-extern "C" {
-
 s32 is_locally_controlled__10TObjPlayerFPv(s32);
 s32 find_entity_by_id();
 s32 obj_isState2_324();

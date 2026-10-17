@@ -10,10 +10,6 @@ s32 init_music_sequencer(int);
 s32 play_area_music(void *);
 s32 is_door_open_and_ready__12TBoss4ThanksFv();
 extern s32 lbl_804789DC[];
-}
-
-extern "C" {
-
 void TBoss4CheckEmpty::render() {  }
 void TBoss4CheckEmpty::run_task() {
     u8 *arg0 = (u8 *)this;

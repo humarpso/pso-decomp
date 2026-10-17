@@ -9,13 +9,11 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern char lbl_804798F0[];
 extern char lbl_8047990C[];
 extern const char *bm_obj_lobby_curtain_model_names[2];
 extern BmlResourceDescriptor lobby_curtain_resource_descriptor;
 extern const char *bm_obj_lobby_curtain_motion_names[1];
-}
 
 struct TObjBase8035BB_8035BB24 { char pad[0x18]; };
 struct TObjCurtainLobby8035BB_8035BB24 : TObjBase8035BB_8035BB24 {
@@ -34,12 +32,6 @@ struct Curtain_8035B94C {
 
 extern "C" {
 s32 get_lobby_theme_clamped__16TObjCurtainLobbyFv(void);
-s32 get_lobby_theme_clamped__16TObjCurtainLobbyFv(void);
-void TObjCurtainLobby__sub_8035B8B4(void);
-}
-
-extern "C" {
-
 void TObjCurtainLobby__sub_8035B8B4(void);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
@@ -181,9 +173,6 @@ void *TObjCurtainLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_obj_lobby_curtain_model_names[2] = { lbl_804798F0, NULL };
 BmlResourceDescriptor lobby_curtain_resource_descriptor = { lbl_8047990C, bm_obj_lobby_curtain_model_names, bm_obj_lobby_curtain_motion_names, 1, 0 };
 __declspec(section ".sdata") const char *bm_obj_lobby_curtain_motion_names[1] = { NULL };

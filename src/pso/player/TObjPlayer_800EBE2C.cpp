@@ -23,16 +23,6 @@ extern int chunk_polygon_flags_and_mask;
 extern int model_render_flags;
 extern const f32 lbl_805DA6F8;
 s32 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, int, f32);
-}
-
-extern "C" {
-
-    extern int lbl_805D5660;
-    extern int lbl_805D5664;
-    extern int lbl_805D5668;
-    extern int chunk_polygon_flags_or_mask;
-    extern int chunk_polygon_flags_and_mask;
-    extern int model_render_flags;
 void TObjPlayer::init_render_globals() { chunk_polygon_flags_and_mask = lbl_805D5664; chunk_polygon_flags_or_mask = lbl_805D5668; model_render_flags = lbl_805D5660; }
 
 void TObjPlayer__sub_800EBE48(f32 farg0) {

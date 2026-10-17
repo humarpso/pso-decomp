@@ -24,14 +24,9 @@ struct Stack_8034B720 {
     s32 spC;
 };
 
-#include "pso/player/TObjPlayer.h"
-#include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TWindowCtrl.h"
-#include "pso/misc/TWindowMessagePage.h"
 extern "C" {
-s32 get_localized_text_entry(s32, s32);
-s32 TLobby__sub_802924B4(void *, int);
 s32 get_localized_text_entry(s32, s32);
 s32 TLobby__sub_802924B4(void *, int);
 s32 is_active__11TBoss4Type2Fv();
@@ -46,8 +41,6 @@ s32 TLobby__sub_80292270(int, int);
 s32 get_window_layout_position(int, int, void *);
 extern s32 lbl_80478BCC[];
 extern const f32 lbl_805DFDA4;
-extern s32 TChallenge4PResult__slot_entries[];
-u32 get_player_by_client_id(int);
 void play_effect_default__10TObjPlayerFii(TObjPlayer *, s32);
 void obj_set_flag_20000(TObjPlayer *);
 void get_player_result__18TChallenge4PResultFPv(TObjPlayer *, s32);
@@ -59,19 +52,12 @@ void obj_clear_flag30_20000(TObjPlayer *);
 void fn_8034BE38(TObjPlayer *);
 void TLobby__sub_8024AC20(u16);
 s32 update_challenge_result_player_locks();
-}
-
-extern "C" {
-
 void resume_challenge_result_processing(void *arg0);
 
 void update_entries__18TChallenge4PResultFii(s32 arg0, s32 arg1);
-s32 get_localized_text_entry(s32, s32);
 s32 __ct__18TChallenge4PResultFP7TObjectUsl(void *, s32, int, s32);
-s32 TWindowShortListCtrl__check_controller_button(void *, s32, s32);
 int TWindow__close(void*);
 u32 __nw__7TObjectFUl(s32);
-s32 get_map_id__13TRaderMapCoreFv();
 int queue_destruction__7TObjectFv(void*);
 
 void resume_challenge_result_processing(void *arg0) {
@@ -79,8 +65,6 @@ void resume_challenge_result_processing(void *arg0) {
         *(s32 *)((s8 *)arg0 + 0x1C) = 1;
     }
 }
-
-extern s32 TChallenge4PResult__slot_entries[];
 
 void update_entries__18TChallenge4PResultFii(s32 arg0, s32 arg1) {
     s32 var_r29 = 0;
@@ -241,8 +225,6 @@ void TChallenge4PResult::sub_8034BA2C() {
 }
 
 int TChallenge4PResult::queue_destruction() { return queue_destruction__7TObjectFv(this); }
-
-extern u8 controller_input_state[];
 
 typedef char RecoveredGlobal_8034BA68_lbl_8050E208_size[sizeof(RecoveredGlobal_8034BA68_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void TChallenge4PResult::update_wait_input() {

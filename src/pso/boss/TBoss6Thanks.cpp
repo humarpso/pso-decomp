@@ -59,27 +59,18 @@ s32 get_bml_model(void *, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8035D10C___vt__12TBoss6Thanks __vt__12TBoss6Thanks;
 extern s32 TBoss6Thanks__class_name;
-extern const f32 lbl_805E019C;
 extern const f32 lbl_805E01A4;
 u8 *TBoss6Thanks__ct(u8 *arg0, u8 *arg1);
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 int TBoss6Thanks__sub_8035CB40(void);
-extern RecoveredGlobal_8035D10C___vt__12TBoss6Thanks __vt__12TBoss6Thanks;
 u8 *__dt__12TBoss6ThanksFv(u8 *arg0, s16 arg1);
 void TBoss6Thanks__sub_8035CCAC(s32 arg0);
 void *create_particle_emitter(void *, int);
-extern u8 TBoss6Thanks__data_80479BA8[];
 extern Ent_8035CB88 boss6_thanks_particle_emitter_table[];
 u8 *get_player_data__10TObjPlayerFi(s32);
 f32 xyz_distance(void *, void *);
-extern u8 TBoss6Thanks__data_80479BA8[];
 extern const f32 lbl_805E0198;
-}
-
-extern "C" {
-
-int TBoss6Thanks__sub_8035CB40(void);
 u8 fn_8035CAE0(void);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 get_story_flag(s32);
@@ -95,7 +86,6 @@ u8 TBoss6Thanks::check_ship_door() {
 int TBoss6Thanks__sub_8035CB40(void) { return dispatch_by_main_phase__14TBoss4DarkFalzFUs((void*)(154)); }
 int TBoss6Thanks::dispatch_darkfalz_phase() { return dispatch_by_main_phase__14TBoss4DarkFalzFUs((void*)(152)); }
 
-extern const f32 lbl_805E01A4;
 extern const f32 lbl_805E01A8;
 extern const f32 lbl_805E01AC;
 
@@ -285,9 +275,6 @@ u8 *TBoss6Thanks__ct(u8 *arg0, u8 *arg1) {
     return arg0;
 }
 
-}
-
-extern "C" {
 __declspec(section ".sdata2") const f32 lbl_805E0198 = 30.0f;
 __declspec(section ".sdata2") const f32 lbl_805E019C = 0.0f;
 __declspec(section ".sdata2") const f32 lbl_805E01A0 = 1.2f;

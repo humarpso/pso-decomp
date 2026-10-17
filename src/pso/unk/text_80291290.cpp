@@ -19,9 +19,6 @@ s32 set_creation_projection_center(f32);
 extern RecoveredGlobal_80291290_lbl_804DAA78 creation_view_parameters;
 extern const f32 lbl_805DD978;
 void fn_80291290(void);
-}
-
-extern "C" {
 
 typedef char RecoveredGlobal_80291290_lbl_804DAA78_size[sizeof(RecoveredGlobal_80291290_lbl_804DAA78) == 0x90 ? 1 : -1];
 void fn_80291290(void) {

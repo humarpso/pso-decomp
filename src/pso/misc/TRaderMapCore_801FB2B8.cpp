@@ -52,14 +52,10 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 construct_world_actor_base(void *, void *);
 s32 init_map_ptr__13TRaderMapCoreFv(void *, int);
 s32 fn_803D64F8(void *);
-extern RecoveredGlobal_801FB430___vt__13TRaderMapCore __vt__13TRaderMapCore;
 extern GRec_801FB490 TRaderMapCore__map_view_state[];
 extern f32 lbl_805D35F0;
 extern f32 lbl_805D35FC;
 extern s32 rader_map_core_name_ptr;
-extern u32 TRaderMapCore__floor_map_resource;
-extern s32 TRaderMapCore__view_mode;
-extern s32 TRaderMapCore__instance;
 extern const f32 TRaderMapCore__data_805DC528;
 extern const f32 radar_screen_width_f32;
 extern const f32 radar_screen_height_f32;
@@ -70,10 +66,6 @@ extern const f32 lbl_805DC594;
 extern const f32 lbl_805DC5A4;
 extern const f32 lbl_805DC5A8;
 Core_801FB490 *TRaderMapCore__ct(Core_801FB490 *arg0, void *parent);
-}
-
-extern "C" {
-
 f32 sin_table_lookup(s32);
 
 extern const f32 TRaderMapCore__data_805DC534;

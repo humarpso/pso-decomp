@@ -76,7 +76,6 @@ void *__dt__18TAdTrialModemChkGCFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__18TAdTrialModemChkGC[];
 extern void *TAdTrialModemChkGC__name;
 
 void *TAdTrialModemChkGC__ct(void *arg0) {

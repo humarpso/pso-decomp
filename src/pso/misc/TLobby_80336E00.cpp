@@ -5,13 +5,8 @@
 extern "C" {
     extern int lobby_global_flags;
 void clear_lobby_global_flags(void);
-extern int lobby_global_flags;
 void TLobby__sub_80336E64(void);
 void TLobby__sub_80336E68(void);
-}
-
-extern "C" {
-
 void TLobby__sub_80336E44(void);
 void __ct__7TObjectFP7TObject(void *);
 

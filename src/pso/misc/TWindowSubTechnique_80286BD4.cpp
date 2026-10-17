@@ -21,14 +21,8 @@ void draw_technique_row__19TWindowSubTechniqueFiii(s32 arg0, s32 arg1, s32 arg2)
 void align_menu_entry_positions(s32);
 void set_selected_index__21TWindowSubComCardListFs(s32, s32);
 
-}
-
-extern "C" {
-
-void draw_technique_row__19TWindowSubTechniqueFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 get_technique_name(s16);
 s32 can_use_palette_action__10TObjPlayerFPvUcUc(u32, s32, u8);
-u32 get_player_by_client_id(s32);
 s32 add_text_entry__19TWindowSubTradeMainFllll(s32, s32, s32, s16, s32);
 s32 draw_text_gray__17TWindowSubComCardFllll(s32, s32, s32, s16);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s16);

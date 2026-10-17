@@ -69,20 +69,13 @@ s32 TMainCursor__sub_8013DFC4(int);
 extern s32 lbl_805DD380;
 s32 fn_8002AE08(int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-s32 get_player_by_client_id(s32);
 s32 is_player_input_active(int);
 extern RecoveredGlobal_8026EA60_lbl_8050E208 controller_input_state;
-s32 get_character_save_record(int);
 s32 get_character_save_record(int);
 void align_menu_entry_positions(void *);
 void draw_technique_row__19TWindowSubTechniqueFiii(int, int, void *);
-s32 get_player_by_client_id(s32);
-s32 is_player_input_active(int);
-s32 TWindowShortListCtrl__check_controller_button(void *, int);
-u8 * find_item_by_id(s32);
 s32 TWindow__close(void *);
 s32 queue_destruction__7TObjectFv(void *);
-extern RecoveredGlobal_8026EA60_lbl_8050E208 controller_input_state;
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 void try_send_6x27_use_item(u8 *, s32);
 void decrement_clamped(void *, int);
@@ -101,22 +94,15 @@ extern u8 lbl_8044F5A0[];
 void run_task__20TWindowShortListCtrlFv(u8 *arg0);
 extern const Buf_8026E884 lbl_8044F5A8;
 void TWindowShortListCtrl__sub_8026E884(s16 *dst);
-}
-
-extern "C" {
-
 void *__dt__20TWindowShortListCtrlFv(void *arg0, s16 arg1);
 void *create_window_menu(s32, s32, s32);
-s32 get_player_by_client_id(s32);
 s32 end_player_keyboard_hold(s32);
 s32 TWindowCtrl__sub_8024A1A8();
 s32 has_player_active_menu__11TWindowCtrlFv(s32);
 s32 TWindowHelpItem__set_displayed_item_by_id(u32);
-s32 TWindow__close(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 s32 is_technique_ready__8TTecCtrlFv();
-s32 queue_destruction__7TObjectFv(void *);
 s32 set_flag70_bit10__21TWindowSubComCardListFv();
 
 void TWindowShortListCtrl::set_displayed_item(s32 arg1) {

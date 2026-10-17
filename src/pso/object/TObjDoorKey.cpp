@@ -11,7 +11,6 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern char lbl_80445650[];
 extern char lbl_8044566C[];
 extern char lbl_80445684[];
@@ -19,7 +18,6 @@ extern char lbl_804456A0[];
 extern const char *abeno_fs_obj001_fosuno_model_names[4];
 extern BmlResourceDescriptor TObjDoorKey__resource_descriptor;
 extern const char *abeno_fs_obj001_fosuno_motion_names[1];
-}
 
 struct TObjDoorKeyBase_8018FAEC { char pad[0x18]; };
 struct TObjDoorKeyVObj_8018FAEC : TObjDoorKeyBase_8018FAEC {
@@ -91,23 +89,8 @@ void draw_ginja_object(void *);
 void set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern u8 door_key_beam_color_table[][0x10];
-extern s32 TObjDoorKey__ginja_model_table[];
 extern s32 actor_frame_tick;
 extern s32 lbl_805D5660;
-extern s32 TObjDoorKey__texture_handle;
-extern s32 TObjDoorKey__data_805D5C04;
-extern s32 model_render_flags;
-void rotate_matrix_y(int, int);
-void push_matrix();
-void pop_matrix();
-void post_translate_matrix(void *);
-void draw_ginja_object(void *);
-void set_chunk_material_color(void *);
-extern u8 chunk_material_color_half_alpha_f32[];
-extern u8 door_key_beam_color_table[][0x10];
-extern s32 TObjDoorKey__ginja_model_table[];
-extern s32 lbl_805D5660;
-extern s32 TObjDoorKey__texture_handle;
 extern s32 model_render_flags;
 void play_sound_effect(int, void *, int, int);
 void TObjDoorKey__vt16(u8 *arg0);
@@ -118,13 +101,8 @@ u8 *TOKey__ct(void *);
 extern u8 TObjDoorKey__collision_body_parts[];
 extern s32 __vt__11TObjDoorKey[];
 extern s32 TObjDoorKey__class_name;
-extern s16 door_key_id_counter;
 extern const f32 lbl_805DBE0C;
 void *TObjDoorKey__ct(void *arg0, void *arg1, void *arg2);
-}
-
-extern "C" {
-
 void *TObjDoorKey__create(void *arg0);
 void TObjDoorKey__sub_8018FAEC(void);
 void * TObjEnvSoundGlobal__create(void *arg0);
@@ -277,8 +255,6 @@ void TObjDoorKey::run_task() {
     o->m22();
 }
 
-extern s32 __vt__11TObjDoorKey[];
-
 void *__dt__11TObjDoorKeyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjDoorKey;
@@ -333,10 +309,6 @@ void *TObjDoorKey__create(void *arg0) {
     return o;
 }
 
-extern u32 door_key_resource_handle;
-extern s32 TObjDoorKey__texture_handle;
-extern s32 TObjDoorKey__data_805D5C04;
-
 void TObjDoorKey::free_key() {
     if ((u32) door_key_resource_handle != 0U) {
         TLobby__sub_8001FE7C((void*)door_key_resource_handle, 1);
@@ -346,8 +318,6 @@ void TObjDoorKey::free_key() {
     TObjDoorKey__texture_handle = 0;
     TObjDoorKey__data_805D5C04 = 0;
 }
-
-extern void *tl_05;
 
 void TObjDoorKey::load_resources() {
     s32 r = ((TAdSinglePlyChrSelectGC *)0x440)->alloc();
@@ -376,9 +346,6 @@ void * TObjEnvSoundGlobal__create(void *arg0) {
     return o;
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *abeno_fs_obj001_fosuno_model_names[4] = { lbl_80445650, lbl_8044566C, lbl_80445684, NULL };
 BmlResourceDescriptor TObjDoorKey__resource_descriptor = { lbl_804456A0, abeno_fs_obj001_fosuno_model_names, abeno_fs_obj001_fosuno_motion_names, 3, 0 };
 __declspec(section ".sdata") const char *abeno_fs_obj001_fosuno_motion_names[1] = { NULL };

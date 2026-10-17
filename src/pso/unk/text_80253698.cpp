@@ -4,10 +4,6 @@
 
 extern "C" {
 s32 are_status_entries_ready__13TWindowSubMagFi(s32 arg0);
-}
-
-extern "C" {
-
 #pragma push
 #pragma opt_propagation off
 s32 are_status_entries_ready__13TWindowSubMagFi(s32 arg0) {

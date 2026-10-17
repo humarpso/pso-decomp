@@ -137,10 +137,6 @@ extern void *golla_photon_blast_buffer_pair;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 find_entity_by_id(int);
-u32 __nw__7TObjectFUl(int);
-s32 rotate_matrix_y(int, int);
 void TPhotonConcentrate__ct(void *, void *, void *, int);
 u32 __cvt_fp2unsigned(f32);
 int rand(void);
@@ -158,30 +154,14 @@ extern const f32 lbl_805DC190;
 extern const f32 lbl_805DC194;
 extern const f32 lbl_805DC198;
 s32 spawn_concentrate__12TPhotonGollaFPv(void *arg0);
-s32 find_entity_by_id(int);
-s32 rotate_matrix_y(int, int);
 Target_801AB868 *get_battle_param__10TObjPlayerFi(s32);
-void subtract_vector(void *, void *);
 f32 vec_squared_length(void *);
-void normalize_vector(void *);
-void push_matrix_from(void *);
-void rotate_vector_by_matrix(int, void *, void *);
-void pop_matrices(int);
 f32 vec3_dot(void *, void *);
 u16 obj_getField1c(void *);
 void queue_photon_blast_hit(u32, int, int, f32);
-extern u8 identity_matrix[];
-extern const float lbl_805DC188;
-extern const f32 lbl_805DC190;
 extern const f32 lbl_805DC19C;
 void collect_hit_targets__12TPhotonGollaFPv(void *arg0);
-}
-
-extern "C" {
-
 s32 destroy_buffer_pair(void*, s32);
-
-extern u32 farlla_photon_blast_model_buffers;
 
 void TObjPlayer::destroy_buffers() {
     if ((u32) farlla_photon_blast_model_buffers != 0U) {
@@ -189,8 +169,6 @@ void TObjPlayer::destroy_buffers() {
     }
     farlla_photon_blast_model_buffers = 0U;
 }
-
-    extern const float lbl_805DC188;
 
 void create_farlla_photon_blast_model(void) {
     s32 temp_r3;

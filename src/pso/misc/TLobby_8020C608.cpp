@@ -27,7 +27,6 @@ s32 TUnk_804AF8A0::set_flag8() {
 
 }
 
-#include "types.h"
 #include "pso/misc/TLobby.h"
 
 struct VBase { char pad[0x18]; };

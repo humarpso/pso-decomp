@@ -57,22 +57,12 @@ s32 load_gvm_texture_file(void *);
 extern u8 lbl_80440BDC[];
 extern u8 lbl_80440BF8[];
 extern u8 door_ancient_567_resource_descriptor[];
-extern void *TODoorAncient07__bml_resource;
-extern void *TODoorAncient07__texture_lists;
 extern void *TODoorAncient07__render_nodes;
-}
-
-extern "C" {
-
 void *__dt__15TODoorAncient07Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 mem_free(void*);
-
-extern void *TODoorAncient07__bml_resource;
-extern void *TODoorAncient07__texture_lists;
-extern void *TODoorAncient07__render_nodes;
 
 void TODoorAncient07::cleanup() {
     if (TODoorAncient07__render_nodes != NULL) {
@@ -92,8 +82,6 @@ void TODoorAncient07::cleanup() {
         TODoorAncient07__bml_resource = NULL;
     }
 }
-
-extern s32 __vt__15TODoorAncient07[];
 
 #define G5918 (*(u8 **)&TODoorAncient07__bml_resource)
 #define G591C (*(s32 **)&TODoorAncient07__texture_lists)

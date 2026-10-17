@@ -13,10 +13,6 @@ extern const f32 lbl_805DF124;
 extern const f32 lbl_805DF128;
 extern const f32 lbl_805DF12C;
 void run_task__22TChCrTagInformationStrFv(u8 *arg0);
-}
-
-extern "C" {
-
 void *__ct__22TChCrTagInformationStrFv(void *arg0, s32 arg1, s32 arg2);
 s32 __ct__7TObjectFP7TObject();
 void *__nw__7TObjectFUl(int);
@@ -32,7 +28,6 @@ void *TChCrTagInformationStr::create(void *arg0, void *arg1) {
 
 extern s32 __vt__22TChCrTagInformationStr[];
 extern s32 TChCrTagInformationStr__class_name;
-extern const f32 TChCrTagInformationStr__data_805DF108;
 
 #pragma push
 #pragma opt_common_subs off

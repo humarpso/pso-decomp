@@ -7,7 +7,6 @@ struct Obj_80185160 { u8 pad[0x8C]; s32 dest; };
 
 extern "C" {
 extern int lbl_8050DC20[];
-extern int lbl_8050DC20[];
 extern s32 lobby_event_theme_id_table[];
 extern s32 TLobby__event_theme_id;
 void TLobby__sub_80184C80(void *p);
@@ -29,20 +28,14 @@ extern s32 lbl_805D5B3C;
 extern s32 lbl_805D5B40;
 extern s32 lbl_805D5B44;
 extern void *lbl_805D5B48;
-}
-
-extern "C" {
-
 int TLobby__sub_80184C2C(int a0);
 int get_season_model_resource(int a0);
 u8 TLobby__sub_80184C54(void);
 int TLobby__sub_80184C6C(int a0);
 void TLobby__sub_80184CE0(void* p);
 
-    extern int city_season_xmas_model_table[];
 int TLobby__sub_80184C2C(int a0) {  return city_season_xmas_model_table[a0]; }
 
-    extern int city_season_easter_egg_model_table[];
 int get_season_model_resource(int a0) {  return city_season_easter_egg_model_table[a0]; }
 
 extern s32 lbl_805D5B30;
@@ -51,7 +44,6 @@ u8 TLobby__sub_80184C54(void) {
     return (u8) (lbl_805D5B30 != -1);
 }
 
-    extern int lbl_8050DC20[];
 int TLobby__sub_80184C6C(int a0) {  return lbl_8050DC20[a0]; }
 
 void TLobby__sub_80184C80(void *p) {

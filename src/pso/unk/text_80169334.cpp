@@ -82,10 +82,6 @@ s32 play_sound_effect(s32, void *, s32, s32);
 extern s32 lbl_805D586C;
 extern const f32 lbl_805DB6C8;
 void find_heal_target__13TOHealGeneralFPv(Ring_80169334 *self);
-}
-
-extern "C" {
-
 #pragma push
 #pragma opt_common_subs off
 void find_heal_target__13TOHealGeneralFPv(Ring_80169334 *self) {

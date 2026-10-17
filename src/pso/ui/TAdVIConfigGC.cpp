@@ -44,7 +44,6 @@ struct Cfg_80307D00 {
 
 extern "C" {
 void TAdVIConfigGC__vt5(void* p);
-void TAdVIConfigGC__vt5(void* p);
 void *VIGetDTVStatus(void *);
 void TAdVIConfigGC__vt4(void *arg0);
 s32 allow_rendering__7TObjectFv(u32);
@@ -56,10 +55,6 @@ s32 get_window_layout_position(s32);
 char *strncpy(char *, const char *, u32);
 extern u8 player_names_window_pos[];
 extern s32 local_client_id;
-}
-
-extern "C" {
-
 void *TAdVIConfigGC__ct(void *arg0);
 void TAdVIConfigGC__vt8(void);
 void *__dt__13TAdVIConfigGCFv(void *arg0, s16 arg1);
@@ -68,11 +63,9 @@ int OSSetProgressiveMode(void*);
 int get_localized_text_entry(void*, void*);
 void TAdYesNoBaseGC__ct(void *);
 void __dt__14TAdYesNoBaseGCFv(void *, int);
-s32 TWindow__close(u32);
 s32 VecCopy__FP3VecPC3Vec(void *);
 void __dl__7TObjectFPv(void *);
 s32 __dl__FPv(void *);
-s32 allow_rendering__7TObjectFv(u32);
 int VIWaitForRetrace(void);
 int VIConfigure(void*);
 int VIFlush(void);
@@ -141,8 +134,6 @@ void *destroy__13TAdVIConfigGCFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-#include "types.h"
-#include "pso/ui/TAdVIConfigGC.h"
 extern "C" {
 
 u8 *TAdVIConfigGC::init(f32 farg0) {
@@ -209,7 +200,6 @@ void *__dt__13TAdVIConfigGCFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__13TAdVIConfigGC[];
 extern void *TAdVIConfigGC__class_name;
 
 void *TAdVIConfigGC__ct(void *arg0) {

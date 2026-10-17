@@ -92,11 +92,8 @@ struct Self_8001B190
 extern "C" {
 extern RecoveredGlobal_8001B3BC_lbl_804F5800 lbl_804F5800;
 s32 TAdEndText__sub_8001B3BC(u8 arg0);
-extern RecoveredGlobal_8001B3BC_lbl_804F5800 lbl_804F5800;
 s32 TAdEndText__sub_8001B3EC(u8 arg0);
-extern RecoveredGlobal_8001B3BC_lbl_804F5800 lbl_804F5800;
 s32 TAdEndText__sub_8001B3D4(u8 arg0);
-extern RecoveredGlobal_8001B3BC_lbl_804F5800 lbl_804F5800;
 s32 TAdEndText__sub_8001B404(u8 arg0);
 extern char TAdEndText__ending_font_texture_list[];
 extern char lbl_804347B0[];
@@ -112,8 +109,6 @@ u32 __cvt_fp2unsigned(f32);
 s32 begin_screen_draw(int);
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(int, int);
-extern u32 TAdEndText__loaded_font_texture_list;
-extern u32 TAdEndText__credit_script_lines;
 extern const f32 lbl_805D7E04;
 extern const f32 lbl_805D7E08;
 extern const f32 lbl_805D7E0C;
@@ -122,8 +117,6 @@ extern const f32 lbl_805D7E14;
 extern const f32 lbl_805D7E18;
 void render__10TAdEndTextFv(u8 *arg0);
 extern const f32 lbl_804345D8[];
-extern s32 TAdEndText__font_loaded_flag;
-extern u32 TAdEndText__credit_script_lines;
 extern const f32 TAdEndText__data_805D7DF8;
 extern const f32 lbl_805D7E1C;
 extern const f32 lbl_805D7E20;
@@ -140,22 +133,11 @@ s32 TAdEndText__sub_8001B41C(void);
 s32 __ct__7TObjectFP7TObject(void *);
 extern u8 __vt__10TAdEndText[];
 extern s32 TAdEndText__class_name;
-extern s32 TAdEndText__font_loaded_flag;
-extern u32 TAdEndText__credit_script_lines;
 extern const f32 lbl_805D7DF0;
-extern const f32 TAdEndText__data_805D7DF8;
 extern const f32 lbl_805D7DFC;
-extern const f32 lbl_805D7E20;
-extern const f32 lbl_805D7E34;
-extern const f32 lbl_805D7E38;
 extern const f32 lbl_805D7E40;
 u8 *__ct__10TAdEndTextFv(u8 *arg0);
-}
-
-extern "C" {
-
 s32 get_end_text_font_loaded_flag(void);
-s32 TAdEndText__sub_8001B41C(void);
 s32 get_ending_scene_active(void);
 void TLobby__sub_803DA16C(void*);
 
@@ -165,14 +147,9 @@ s32 get_ending_scene_active(void) {
     return ending_scene_active;
 }
 
-extern s32 TAdEndText__font_loaded_flag;
-
 s32 get_end_text_font_loaded_flag(void) {
     return TAdEndText__font_loaded_flag;
 }
-
-extern u32 TAdEndText__loaded_font_texture_list;
-extern u32 TAdEndText__credit_script_lines;
 
 void render__10TAdEndTextFv(u8 *arg0) {
     Self_8001AD8C *self = (Self_8001AD8C *)arg0;

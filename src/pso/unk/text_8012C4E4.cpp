@@ -7,10 +7,6 @@ extern "C" {
 void __ct__15TItemShootModelFPvPC3VecPC3Vecf(void *self, void *owner, const void *a, const void *b, f32 f);
 extern char lbl_804A5340[];
 Obj_8012C4E4 *TObjPlayer__sub_8012C4E4(Obj_8012C4E4 *self, void *owner, const void *a, const void *b, f32 f);
-}
-
-extern "C" {
-
 Obj_8012C4E4 *TObjPlayer__sub_8012C4E4(Obj_8012C4E4 *self, void *owner, const void *a, const void *b, f32 f) {
     __ct__15TItemShootModelFPvPC3VecPC3Vecf(self, owner, a, b, f);
     self->vt = lbl_804A5340;

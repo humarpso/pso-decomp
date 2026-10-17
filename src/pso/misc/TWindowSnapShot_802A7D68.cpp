@@ -16,8 +16,6 @@ void TWindowSnapShot::init_default() { TLobby::aram_transfer_sync((s32)((void*)1
 
 void TWindowSnapShot__sub_802A7DA0(void) {  }
 
-    extern int lbl_805D669C;
-    extern int snapshot_aligned_buffer_size;
 void TWindowSnapShot::alloc_buffer() { TWindowSnapShot__sub_802A7EAC(); snapshot_aligned_buffer_size = ((get_resource_file_size__6TLobbyFv() + 0x1f) & 0xffffffe0); lbl_805D669C = Dolphin_ARAlloc(); }
 
 }

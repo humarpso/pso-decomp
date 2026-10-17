@@ -9,10 +9,6 @@ s32 __destroy_arr(void *, void *, int, int);
 extern s32 __dt__13TUnk_804949A8Fv[];
 extern s32 __vt__11TObjEneMoja[];
 u8 *__dt__11TObjEneMojaFv(u8 *arg0, s16 arg1);
-}
-
-extern "C" {
-
 u8 *__dt__11TObjEneMojaFv(u8 *arg0, s16 arg1) {
     u8 *temp_r3;
     if (arg0 != NULL) {

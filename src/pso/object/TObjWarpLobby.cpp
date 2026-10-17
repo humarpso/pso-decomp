@@ -12,13 +12,7 @@ extern u8 warp_lobby_resource_descriptor[];
 extern s32 TObjWarpLobby__instance;
 extern s32 lbl_805D5CCC;
 void TObjWarpLobby__sub_801A0B38(void);
-}
-
-extern "C" {
-
 s32 TLobby__sub_8001FE7C(s32, s32);
-
-extern s32 TObjWarpLobby__instance;
 
 void TObjWarpLobby::release_static() {
     TLobby__sub_8001FE7C(TObjWarpLobby__instance, 1);

@@ -16,16 +16,8 @@ extern u32 door_labo_bml_resource;
 extern u32 lbl_805D6604;
 extern u32 lbl_805D6608;
 void TLanguage__sub_802A0204(void);
-}
-
-extern "C" {
-
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 TLobby__sub_803DA16C(void*);
-
-extern u32 door_labo_bml_resource;
-extern u32 lbl_805D6604;
-extern u32 lbl_805D6608;
 
 void TLobby::free_chr_select_slots() {
     if ((u32) lbl_805D6608 != 0U) {

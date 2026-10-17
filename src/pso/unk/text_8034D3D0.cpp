@@ -11,10 +11,6 @@ extern "C" {
 f32 TBoss8Dragon__sub_8008072C(f32, f32);
 s32 calc_binomial_coefficient__12TBoss8DragonFll(int, int);
 s32 eval_bezier_curve__12TBoss8DragonFPviiPvf(Vec4_8034D500 *pts, s32 count, s32 closed, Vec3_8034D500 *out, f32 t);
-}
-
-extern "C" {
-
 struct Entry_8034D3D0 {
     u8 pad0[0xC];
     f32 weight;
@@ -47,10 +43,6 @@ s32 fn_8034D3D0(Entry_8034D3D0 *e, s32 n, s32 arg2, s32 closed, s32 arg4, f32 sc
     }
     return eval_bezier_curve__12TBoss8DragonFPviiPvf((Vec4_8034D500 *)e, n, closed, (Vec3_8034D500 *)arg4, ratio);
 }
-
-}
-
-extern "C" {
 
 #pragma push
 #pragma fp_contract on
@@ -106,7 +98,6 @@ s32 eval_bezier_curve__12TBoss8DragonFPviiPvf(Vec4_8034D500 *pts, s32 count, s32
 
 }
 
-#include "types.h"
 struct PartnerText_8034D9E0 {
     const char *text[6];
     s32 kind[6];
@@ -121,11 +112,7 @@ struct PartnerText_8034DA38
 extern "C" {
 extern struct PartnerText_8034D9E0 partner_dialogue_table[];
 const char *get_partner_custom_text(s32 kind, u16 player);
-extern struct PartnerText_8034D9E0 partner_dialogue_table[];
 void set_partner_dialogue_override(const char *text, s32 kind, u16 player);
-}
-
-extern "C" {
 struct V3_8034D790 { f32 x, y, z; };
 struct Ent_8034D790 { V3_8034D790 p; f32 weight; };
 void VecCopy__FP3VecPC3Vec(void *, const void *);
@@ -196,9 +183,6 @@ s32 fn_8034D790(Ent_8034D790 *e, s32 n, s32 arg2, s32 closed, V3_8034D790 *out, 
     return 0;
 }
 #pragma pop
-}
-extern "C" {
-
 const char *get_partner_custom_text(s32 kind, u16 player) {
     s32 i;
     if (player >= 4) {

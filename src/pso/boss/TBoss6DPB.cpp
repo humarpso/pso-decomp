@@ -69,7 +69,6 @@ extern s32 tl_02;
 extern const f32 lbl_805E01C8;
 u8 *__nw__7TObjectFUl(s32);
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
-extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 play_sound_effect(s32, u32, int, s32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -79,20 +78,11 @@ extern const f32 lbl_805E01CC;
 extern const f32 lbl_805E01D4;
 u8 *__ct__9TBoss6DPBFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 f32 receive_direct_attack__10TObjPlayerFv(void *, s32, Msg_8035DD18, void *, s32, s32);
-extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 f32 TObjEneEpsilonGuard__vt21(s32 arg0, s32 arg1, Msg_8035DD18 *msg, void *arg3, s32 arg4, s32 arg5);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 Pl_8035D924 *get_player_data__10TObjPlayerFi(s32);
-void create_TDPBShower(int, void *);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
-extern s32 tl_02;
-extern const f32 lbl_805E01CC;
 extern const f32 lbl_805E01D0;
-}
-
-extern "C" {
-
 void TBoss6DPB::sub_8035D8B0() {
     W_8035D8B0 *arg0 = (W_8035D8B0 *)this;
     V_8035D8B0 v = arg0->v;

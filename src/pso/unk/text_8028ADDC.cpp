@@ -11,10 +11,6 @@ void set_model_node_callback(void *fn);
 void fn_8028ADDC(void *p);
 extern u8 lbl_80450CD0[];
 void fn_8028AE1C(O_8028AE1C *arg0);
-}
-
-extern "C" {
-
 void fn_8028ADDC(void *p) {
     if (p) {
         boss5_pillar_demo_index = 0;

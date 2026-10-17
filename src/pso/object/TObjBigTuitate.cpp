@@ -76,10 +76,6 @@ extern const f32 lbl_805DBFB4;
 extern const f32 lbl_805DBFB8;
 extern const f32 lbl_805DBFBC;
 void *TObjBigTuitate__ct(void *arg0, void *arg1, void *arg2);
-}
-
-extern "C" {
-
 void *TObjBigTuitate__create(void *arg0);
 void *__dt__14TObjBigTuitateFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -128,8 +124,6 @@ void TObjBigTuitate::render() {
 }
 
 void TObjBigTuitate::run_task() { { (void)(update_obstruction_fade((char*)this + 0xac)); return; } }
-
-extern s32 __vt__14TObjBigTuitate[];
 
 void *__dt__14TObjBigTuitateFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -180,8 +174,6 @@ void *TObjBigTuitate__create(void *arg0) {
     }
     return o;
 }
-
-extern u32 TObjBigTuitate__bml_resource;
 
 void TObjBigTuitate::free_instance() {
     if ((u32) TObjBigTuitate__bml_resource != 0U) {

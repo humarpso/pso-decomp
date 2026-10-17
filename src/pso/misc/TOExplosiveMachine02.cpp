@@ -39,7 +39,6 @@ void *__dt__20TOExplosiveMachine02Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__20TOExplosiveMachine02[];
 extern s32 TOExplosiveMachine02__class_name;
 extern s32 explosive_machine_model_archive;
 

@@ -44,13 +44,7 @@ extern s32 lbl_8043ECA4[];
 extern s32 lbl_8043ECC0[];
 extern struct Outer_80132A5C *localized_alphabet_list;
 void TLanguage__ct(s32 arg0);
-}
-
-extern "C" {
-
 s32 TLobby__sub_803DA16C(void *);
-
-extern struct Outer_80132A5C *localized_alphabet_list;
 
 void TWindowKeyBoardSoft::free_instance() {
     if (localized_alphabet_list != NULL) {
@@ -63,9 +57,6 @@ void TWindowKeyBoardSoft::free_instance() {
     }
 }
 
-    extern int TWindowKeyBoardSoft__text_resource;
-    extern int text_language_group_table;
-    extern int TWindowKeyBoardSoft__language_text_resources;
 void TWindowKeyBoardSoft::free_resources() { TLobby::free_nodes_with_id((u32)((void*)(TWindowKeyBoardSoft__text_resource))); TWindowKeyBoardSoft__language_text_resources = 0; text_language_group_table = 0; TWindowKeyBoardSoft__text_resource = 0; }
 
 void TLanguage__ct(s32 arg0) {
@@ -139,13 +130,6 @@ void select_language_text_resources(s32 arg0) {
     (*(s32 *)&TWindowKeyBoardSoft__language_text_resources) = *(s32 *)((s8 *)(*(u8 * *)&TWindowKeyBoardSoft__text_resource) + 0);
     (*(s32 *)&text_language_group_table) = *(s32 *)((s8 *)(*(u8 * *)&TWindowKeyBoardSoft__text_resource) + 4);
 }
-
-}
-
-#include "types.h"
-#include "pso/misc/TWindowKeyBoardSoft.h"
-
-extern "C" {
 
 int TLobby__sub_80132EC8(void);
 void *get_global_state__23TAdSinglePlyChrSelectGCFv();

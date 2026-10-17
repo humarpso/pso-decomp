@@ -44,19 +44,15 @@ struct Cell_802A8FD8
 extern "C" {
 extern RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0 TEffIndirectCtrl__source_buffers;
 s32 get_indirect_source_pixels(u8 arg0);
-extern RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0 TEffIndirectCtrl__source_buffers;
 s32 get_indirect_source_id(u8 arg0);
 u32 calc_i8_tiled_texel_offset(u32 x, u32 y, u32 w);
 f32 sin_table_lookup(s32);
 u16 get_indirect_tile_coord(u8 arg0, s32 arg1);
 s32 update_indirect_texture_wave(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, u8 arg5);
-f32 sin_table_lookup(s32);
 void deform_indirect_texture_wave(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, u8 arg5);
 void queue_destruction__7TObjectFv(void *);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void __ct__7TObjectFP7TObject(void *, void *);
-s32 get_indirect_source_pixels(u8 arg0);
-s32 get_indirect_source_id(u8 arg0);
 u8 *get_indirect_recipe(u8);
 void set_texture_name(void *, void *, void *, s32);
 void load_texture_list(void *);
@@ -64,14 +60,8 @@ extern s32 __vt__16TEffIndirectCtrl[];
 extern s32 TEffIndirectCtrl__name;
 extern const f32 lbl_805DE024;
 Ctrl_802A8B58 *TEffIndirectCtrl__ct(Ctrl_802A8B58 *self, s32 kind, void *parent);
-f32 sin_table_lookup(s32);
-u16 get_indirect_tile_coord(u8 arg0, s32 arg1);
 extern const f32 TEffIndirectCtrl__data_805DE02C;
 void deform_indirect_texture_scroll(u8 *p, u32 px, u32 py, u8 amp, u32 phase);
-}
-
-extern "C" {
-
 void *__dt__16TEffIndirectCtrlFv(void *arg0, s16 arg1);
 s32 DCFlushRange(s32, s32);
 void TLobby__sub_803DA16C(void *);
@@ -86,8 +76,6 @@ void TEffIndirectCtrl::copy_and_flush_texture(s32 arg1) {
     memcpy(*(s32 *)&this->m_1c, arg1, 0x1000);
     DCFlushRange((s32)(*(s32 *)&this->m_1c), (s32)(0x1000));
 }
-
-extern s32 __vt__16TEffIndirectCtrl[];
 
 void *__dt__16TEffIndirectCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

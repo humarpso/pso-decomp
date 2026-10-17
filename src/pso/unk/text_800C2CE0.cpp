@@ -128,10 +128,6 @@ s32 fn_800C3A60(void *, s32);
 s32 advance_animation_playback();
 s32 play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805D9FD0;
-}
-
-extern "C" {
-
 #define F(T, o) (*(T *)((s8 *)(arg0) + (o)))
 void TObjEneDD::state_damaged(s32 arg1) {
     u8 *arg0 = (u8 *)this;

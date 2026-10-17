@@ -29,10 +29,6 @@ u32 strlen(const char *);
 extern u8 lbl_80438D20[];
 extern s32 resource_decompress_buffer;
 s32 launch_switcher_dol(const char *arg0);
-}
-
-extern "C" {
-
 #pragma push
 #pragma optimization_level 1
 #pragma dont_inline on

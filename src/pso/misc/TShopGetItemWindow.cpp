@@ -93,44 +93,24 @@ s32 remove_bank_item_amount__18TCheckRoomSequenceFiii(int, int, int);
 s32 copy_item_record__18TCheckRoomSequenceFiPvi(int, void *, int);
 s32 copy_bank_to_card_window(int);
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
-void TWindow__close(void *);
 s32 get_selected_menu_value(int);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(int);
 s32 queue_destruction__7TObjectFv(void *);
-s32 obj_getField1c(s32);
 s32 copy_bank_item_with_stack_limit(s32, u8 *, s32 *, s32);
-s32 copy_item_record__18TCheckRoomSequenceFiPvi(int, void *, int);
-f32 get_scale__15TShopWindowBaseFv(void *);
-s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 void *__nw__7TObjectFUl(u32);
 u32 __ct__18TWindowInputNumberFPvllls(void *, s32, s32, s32, s32, s16);
-u32 create_yes_no_window(s32, u16, s32, s32);
-s32 select_cursor_entry__22TWindowSubShortCutListFv(int);
-s32 get_window_layout_position(s32);
 extern const f32 lbl_805DC6F0;
-s32 obj_getField1c(s32);
-s32 copy_bank_item_with_stack_limit(s32, u8 *, s32 *, s32);
-s32 copy_item_record__18TCheckRoomSequenceFiPvi(int, void *, int);
 s32 get_room_table_entry__18TCheckRoomSequenceFi(void);
-s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 get_shop_text(s32);
-void *__nw__7TObjectFUl(u32);
 u32 __ct__15TWindowHelpItemFPvUs(void *, s32, u16);
 void calc_list_content_extent(u32);
 void add_item_info_entry__20TWindowSubStatusDispFlll(u32, void *, s32, s32);
-s32 get_window_layout_position(s32);
 void TWindowSetLevelUp__sub_8026DE28(u32, s32);
 u32 create_item_list_window(s32, s32, u16);
-extern const f32 lbl_805DC6F0;
-}
-
-extern "C" {
-
 void *TShopGetItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
 void *__dt__18TShopGetItemWindowFv(void *arg0, s16 arg1);
-void TWindow__close(void *);
 void __ct__15TShopWindowBaseFv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__15TShopWindowBaseFv(void *, int);
@@ -413,7 +393,6 @@ void *__dt__18TShopGetItemWindowFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__18TShopGetItemWindow[];
 extern void *TShopGetItemWindow__class_name;
 
 void *TShopGetItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3) {

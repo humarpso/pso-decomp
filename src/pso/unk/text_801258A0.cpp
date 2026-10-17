@@ -17,9 +17,6 @@ extern const f32 lbl_805DAD50;
 extern const f32 lbl_805DAD58;
 extern const f32 lbl_805DAD60;
 u8 *construct_panzer_faust(u8 *arg0, u8 *arg1, s32 _w2);
-}
-
-extern "C" {
 
 typedef char RecoveredGlobal_801258A0_lbl_804A2564_size[sizeof(RecoveredGlobal_801258A0_lbl_804A2564) == 0xFC ? 1 : -1];
 u8 *construct_panzer_faust(u8 *arg0, u8 *arg1, s32 _w2) {
@@ -54,8 +51,5 @@ u8 *create_panzer_faust(s32 arg0) {
     }
     return NULL;
 }
-#include "types.h"
-
-#include "types.h"
 
 }

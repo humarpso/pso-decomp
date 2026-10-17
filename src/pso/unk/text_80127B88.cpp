@@ -17,10 +17,6 @@ s16 is_status_subsystem_ready__10TObjPlayerFv(s32);
 s32 get_extended_state__10TObjPlayerFv(s32);
 Item_80127BE0 *get_captured_target_entry(s32, s32);
 s32 get_captured_target_count(s32);
-}
-
-extern "C" {
-
 u8 *TObjPlayer::create_vtable_804A3548(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;

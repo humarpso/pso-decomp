@@ -24,10 +24,6 @@ void get_weapon_color__11TItemWeaponFPv(void *, void *);
 extern u8 forward_item_effect_callback__10TObjPlayerFll[];
 extern const f32 lbl_805DE7AC;
 void TAdPlayerLoadGC__sub_802D6390(A_802D6390 *arg0, B_802D6390 *arg1);
-}
-
-extern "C" {
-
 s32 spawn_particle_effect(s32 *, s32);
 s32 fire_shot_at_target__11TItemWeaponFv(s32, s32 *, s32, s32);
 s32 translate_matrix(s32, f32, f32, f32);

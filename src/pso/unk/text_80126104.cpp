@@ -150,10 +150,6 @@ void frozen_shooter_freeze_hit(int arg0, u8 *arg1);
 extern const f32 lbl_805DAD70;
 void frozen_shooter_collider_block(Obj_80126180 *self, Out_80126180 *o);
 void fire_shot_at_target__11TItemWeaponFv(void *, void *, s32, s32);
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 void frozen_shooter_freeze_hit(int arg0, u8 *arg1) {

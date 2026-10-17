@@ -47,7 +47,6 @@ s32 set_target_pos__13TUnk_80488DA0FPv(void *, void *, f32);
 u8 *get_player_by_client_id(s32);
 extern const f32 lbl_805D8F78;
 void target_player0__11TCameraCtrlFi(s32 arg0);
-u8 *get_player_by_client_id(s32);
 s32 matrix_mult_vec(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
@@ -56,10 +55,6 @@ extern RecoveredGlobal_80067E30_lbl_8058D490 identity_matrix;
 extern const f32 lbl_805D8F74;
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-}
-
-extern "C" {
-
 void * TCameraCtrl__vt7(void) {
     void *o;
     o = __nw__7TObjectFUl(0x74);

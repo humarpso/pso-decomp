@@ -82,13 +82,7 @@ extern u32 symbolchat_colli_param_table[];
 extern s32 lbl_805D3190;
 extern int symbol_chat_colli_entries;
 void *memset(void *, int, u32);
-extern u32 symbolchat_colli_param_table[];
-extern int symbol_chat_colli_entries;
 extern const f32 lbl_805DBA28;
-}
-
-extern "C" {
-
 void *__dt__17TOSymbolchatColliFv(void *arg0, s16 arg1);
 u8 is_current_floor_switch_set(u16);
 s32 free_collision_body_parts(void *);
@@ -198,10 +192,7 @@ void *TOSymbolchatColli::create(void *arg0) {
     return o;
 }
 
-    extern int symbol_chat_colli_entries;
 void TOSymbolchatColli::free_rock() { mem_free((void*)(symbol_chat_colli_entries)); symbol_chat_colli_entries = 0; }
-
-extern s32 __vt__17TOSymbolchatColli[];
 
 void TOSymbolchatColli::load_symbol_chat_data() {
     s32 h;

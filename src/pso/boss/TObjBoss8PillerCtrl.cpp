@@ -33,7 +33,6 @@ extern s32 __vt__19TObjBoss8PillerCtrl[];
 extern s32 TObjBoss8PillerCtrl__class_name;
 extern const f32 lbl_805E017C;
 u8 *TObjBoss8PillerCtrl__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 void *__nw__7TObjectFUl(u32);
 void __ct__15TObjBoss8PillerFv(void *, s32, Vec_8035C03C *, f32, u16);
@@ -44,10 +43,6 @@ extern const f32 lbl_805E0170;
 extern const f32 lbl_805E0174;
 extern const f32 lbl_805E0178;
 void run_task__19TObjBoss8PillerCtrlFv(Self_8035C03C *self);
-}
-
-extern "C" {
-
 void *__dt__19TObjBoss8PillerCtrlFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dl__FPv(void *);
@@ -55,8 +50,6 @@ void __dt__7TObjectFv(void *, int);
 
 void TObjBoss8PillerCtrl__sub_8035C034(void * _w0, void * _w1) {  }
 void TObjBoss8PillerCtrl::render() {  }
-
-extern s32 __vt__19TObjBoss8PillerCtrl[];
 
 #pragma fp_contract on
 void run_task__19TObjBoss8PillerCtrlFv(Self_8035C03C *self) {

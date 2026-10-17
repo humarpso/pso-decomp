@@ -60,9 +60,7 @@ extern struct ClassAppearance class_appearance_table[19];
 void build_appearance_texture_names__12TCharaMakingFv(void *, struct Appearance *, struct ClassAppearance *, struct TextureList *);
 void TCharaMaking__bind_appearance_texture_lists(s32 *arg0, s32 *arg1, s32 *arg2, struct Appearance *arg3);
 s32 TCharaMaking__sub_8028E3A0(f32 *arg0);
-s32 TCharaMaking__sub_8028E3A0(f32 *arg0);
 extern s32 player_class_trait_table[];
-extern struct ClassAppearance class_appearance_table[19];
 s32 validate_player_visual_record(void *arg0);
 }
 
@@ -91,10 +89,6 @@ extern const f32 lbl_805DD934;
 s32 calc_section_id_from_name(s8 *arg0);
 extern P_8028DCCC character_proportion_height_table[];
 f32 calc_character_height(void *p);
-}
-
-extern "C" {
-
 s32 TLobby__sub_803DA16C(void *);
 s32 TObjCMMainMenu__sub_8028EBCC(void*);
 
@@ -217,10 +211,6 @@ void TCharaMaking::update_body_parts() {
     ((s32 (*)(void *, void *, void *, void *))TCharaMaking__bind_appearance_texture_lists)(arg0 + 0x8B8, arg0 + 0xA24, arg0 + 0xB90, arg0 + 0x85C);
     TChCrLoadReq::create(arg0);
 }
-
-}
-
-extern "C" {
 
 int restore_default_scene(void);
 int set_scene_override(void*);

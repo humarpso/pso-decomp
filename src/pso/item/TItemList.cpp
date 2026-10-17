@@ -18,18 +18,11 @@ void __construct_array(void *, void *, int, int, int);
 int TObjPlayer__sub_801C2098(void);
 extern s32 lbl_804C4444[];
 u8 *TItemList__sub_801D5CF8(u8 *arg0);
-}
-
-extern "C" {
-
 void TItemList__sub_801D59DC(void* p);
 void decrement_placement_search_pending(void* p, void* a1);
-void TItemList__sub_801D5A64(void* p);
 void *TItemList__sub_801D5B10(void *arg0, s16 arg1);
 void *__dt__9TItemListFPvs(void *arg0, s16 arg1);
 void* reset_position__9TItemListFPv(void* a0);
-int TObjPlayer__sub_801C2098(void);
-void __construct_array(void *, void *, int, int, int);
 s32 __dl__FPv(void *);
 s32 check_value_equals__13TQuestColCtrlFPll(s32, s32);
 
@@ -94,8 +87,6 @@ void *__dt__9TItemListFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 lbl_804C4444[];
-
 void *TItemList::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x24) = lbl_804C4444;
@@ -106,7 +97,6 @@ void *TItemList::dt(s16 arg1) {
     return this;
 }
 
-extern s32 lbl_804C445C[];
 extern s32 init_c2098_return_self__10TObjPlayerFv[];
 
 void *TItemList::init_items() {
@@ -115,8 +105,6 @@ void *TItemList::init_items() {
     __construct_array((void *)((char *)this + 168), init_c2098_return_self__10TObjPlayerFv, 0, 28, 9);
     return this;
 }
-
-extern s32 lbl_804C4450[];
 
 void *TItemList::init_array() {
     TItemList__sub_801D5CF8((u8 *)(this));

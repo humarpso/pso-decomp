@@ -6,7 +6,6 @@
 #include "pso/player/TUnk_80490470.h"
 #include "pso/object/TObjMotion.h"
 extern "C" void test_flag_256__13TUnk_80493450Fv();
-#include "pso/enemy/TObjEneDimedian.h"
 #include "pso/misc/TLobby.h"
 #include "pso/enemy/TObjEneBeast.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -102,9 +101,6 @@ extern s32 lbl_805D29F0;
 extern const f32 lbl_805D9AC8;
 extern const f32 lbl_805D9ACC;
 extern const f32 lbl_805D9AD0;
-}
-
-extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void __dt__13TUnk_80493450Fv(void *, int);
 void free_collision_body_parts(void *);
@@ -113,10 +109,6 @@ void __destroy_arr(void *, void *, int, int);
 void __dt__13TUnk_80490470Fv(void *, int);
 extern u8 __dt__13TUnk_804949A8Fv[];
 O_800A846C *TObjPlayer__sub_800A846C(O_800A846C *arg0, s16 arg1);
-}
-
-extern "C" {
-
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
 void *TObjEneDimedian__ct(void *, void *, void *);

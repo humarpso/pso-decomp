@@ -26,10 +26,6 @@ extern const f32 lbl_805DDF2C;
 extern const f32 lbl_805DDF30;
 u8 *__ct__17TChCrTagPlGraphicFv(u8 *arg0, s32 arg1, s32 _w2);
 s32 TChCrTagPlGraphic__vt4(u8 *arg0);
-}
-
-extern "C" {
-
 void render__17TChCrTagPlGraphicFv(void* p);
 void run_task__17TChCrTagPlGraphicFv(void* p);
 int TChCrTagPlGraphic__sub_802A3230(void*);

@@ -23,10 +23,6 @@ extern VO_800E7A98 *TObjEneMe3ShinowaMirage__data_805D52A0;
 extern void *TObjEneMe3ShinowaMirage__data_805D52A4;
 extern void *TObjEneMe3ShinowaMirage__data_805D52A8;
 extern void *TObjEneMe3ShinowaMirage__data_805D52AC;
-}
-
-extern "C" {
-
 int TObjEneMe3ShinowaMirage__sub_800E7B74(void* p);
 int create__21TObjEneMe3ShinowaRealFv(void*);
 

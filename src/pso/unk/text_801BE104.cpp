@@ -7,13 +7,9 @@ void destroy_char_data__10TObjPlayerFis(void *p, s32 d);
 void __destroy_arr(void *arr, void *dtor, u32 size, u32 n);
 void __register_global_object(void *obj, void *dtor, void *chain);
 void *__construct_array(void *, void *, void *, u32, u32);
-void destroy_char_data__10TObjPlayerFis(void *p, s32 d);
 void TObjPlayer__sub_801BFF80(void);
 void init_char_data__10TObjPlayerFv(void *);
 void TObjPlayer__sub_801BE104(void);
-}
-
-extern "C" {
 
 u8 TObjPlayer__arrival_override_table[0xF0];
 u8 player_slot_table[0x30];

@@ -17,10 +17,6 @@ struct V_802A5628 { f32 x, y; };
 extern "C" {
 void TWindowSubTradeMain__sub_802448E4(void *, void *);
 void update_label_positions__17TWindowSubComCardFPvPv(O_802A5628 *arg0, V_802A5628 *arg1);
-}
-
-extern "C" {
-
 void TWindowSubComCard::free_windows() {
     if ((u32) this->m_28 != 0U) {
         ((TWindowSubComCard *)(*(void * *)&this->m_28))->reparent_to_main_ctrl();

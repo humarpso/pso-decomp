@@ -56,14 +56,8 @@ s32 strncpy(void *, s32, s32);
 s32 memset(void *, s32, s32);
 extern char *port_map_copyright;
 void handle_cmd_9B__9TProtocolFR6packet(u8 *arg0, Regist_801DAD38 *arg1);
-}
-
-extern "C" {
-
 s32 set_port__7TSocketFUl(void *, s16);
 s32 resolve_domain__7TSocketFPc(void *, s32);
-s32 strncpy(void *, s32, s32);
-s32 memset(void *, s32, s32);
 
 struct BaseDA { char pad[0x18]; };
 struct VObjDA : BaseDA {

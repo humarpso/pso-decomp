@@ -91,14 +91,8 @@ extern "C" {
 extern f32 viewport_scissor_origin_x;
 extern f32 camera_viewport_center_y;
 void TCameraCtrl__sub_801E32D8(f32 farg0, f32 farg1);
-extern f32 viewport_scissor_origin_x;
-extern f32 camera_viewport_center_y;
 void GXSetScissor(u32, u32, u32, u32);
 void set_viewport_scissor__11TCameraCtrlFiPv(s32 mode, Rect_801E317C *r);
-}
-
-extern "C" {
-
 void camera_renderer_setup_nop(void);
 int TObjPlayer__sub_803DAD28(void*);
 int draw_textured_vertices__10TObjPlayerFPvii(void*, void*, void*);
@@ -140,14 +134,6 @@ void TCameraCtrl__sub_801E32D8(f32 farg0, f32 farg1) {
 }
 
 void camera_renderer_setup_nop(void) {  }
-
-}
-
-extern "C" {
-
-int TObjPlayer__sub_803DAD28(void*);
-int draw_textured_vertices__10TObjPlayerFPvii(void*, void*, void*);
-void camera_renderer_setup_nop(void);
 
 void TWindowDD::draw_transformed_primitive(void* a1, void* a2, void* a3) { TObjPlayer__sub_803DAD28(a2); draw_textured_vertices__10TObjPlayerFPvii(this, a1, a3); }
 
@@ -199,48 +185,15 @@ void setup_opaque_color_draw(void);
 void TObjPlayer__sub_803E21DC(void);
 void draw_color_lines(Lines_801E3330 *l, s32 n, s32 flags, f32 scale);
 void reset_line_width(void);
-void TObjEneRe4Sorcerer__sub_801E3F20(void);
-void TObjPlayer__sub_801E3F24(u32);
-void TObjPlayer__sub_801E3F30(f32, f32, f32);
-void GXBegin(s32, s32, u16);
-void GXSetLineWidth(s32, s32);
 void load_camera_view_matrix(void);
-void setup_opaque_color_draw(void);
-void TObjPlayer__sub_803E21DC(void);
 extern int current_line_width;
 void draw_line_list(Lines_801E341C *l, s32 n, u32 flags);
-void TObjEneRe4Sorcerer__sub_801E3F20(void);
-void TObjPlayer__sub_801E3F24(u32);
-void TObjPlayer__sub_801E3F30(f32, f32, f32);
-void GXBegin(s32, s32, u16);
-void setup_opaque_color_draw(void);
-void TObjPlayer__sub_803E21DC(void);
 void setup_blended_textured_draw(void);
-void draw_color_lines(Lines_801E3330 *l, s32 n, s32 flags, f32 scale);
 void TObjCMHairMenu__sub_801E3F54(void *, void *);
 void fn_801E3F44(f32, f32);
-void TObjEneRe4Sorcerer__sub_801E3F20(void);
-void TObjPlayer__sub_801E3F24(u32);
-void TObjPlayer__sub_801E3F30(f32, f32, f32);
-void fn_801E3F44(f32, f32);
-void GXBegin(s32, s32, u16);
-void load_camera_view_matrix(void);
-void setup_opaque_color_draw(void);
-void TObjPlayer__sub_803E21DC(void);
-void setup_blended_textured_draw(void);
 void TObjPlayer__sub_803E2248(void);
 void load_context_texture_obj(void);
-}
-
-extern "C" {
-
-void reset_line_width(void);
 void set_line_width(int a0);
-void camera_renderer_setup_nop(void);
-int TObjPlayer__sub_803DAD28(void*);
-int draw_textured_vertices__10TObjPlayerFPvii(void*, void*, void*);
-
-    extern int current_line_width;
 
 void draw_color_lines(Lines_801E3330 *l, s32 n, s32 flags, f32 scale) {
     u32 c;
@@ -301,7 +254,6 @@ void draw_line_list(Lines_801E341C *l, s32 n, u32 flags) {
 
 void reset_line_width(void) { current_line_width = 12; }
 
-    extern int current_line_width;
 void set_line_width(int a0) { current_line_width = a0; }
 void TWindowCtrlMain::draw_strip_swap_color(s32 n, s32 flags, f32 scale) {
     s32 i;
@@ -543,9 +495,6 @@ void TLobby__sub_801E3CF0(u32 *p) {
     u32 v = *p;
     *p = (v >> 24) | ((v >> 8) & 0xFF00) | ((v << 8) & 0xFF0000) | (v << 24);
 }
-}
-
-extern "C" {
 
 int bind_motion_context(void*);
 
@@ -563,16 +512,10 @@ s32 adxf_open_file__6TLobbyFiPviPv(void *, void *, int, void *);
 s32 TLobby__sub_801E3E9C(s32 arg0, s32 arg1, s32 arg2);
 s32 disable_disconnected_ports__16TKeyBoardControlFv(void *);
 s32 update_global_sound_frame();
-s32 read_afs_toc__6TLobbyFl(void *);
-s32 adxf_open_file__6TLobbyFiPviPv(void *, void *, int, void *);
 extern RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 s32 TKeyBoardControl__sub_801E3E24(s32 arg0, s32 arg1, s32 arg2);
 void bswap_16__FPUs(u16 *p);
 void bswap_32__FPUl(u32 *p);
-}
-
-extern "C" {
-
 void render_tick__Fv(void);
 s32 GXSetViewport(f32, f32, f32, f32, f32, f32);
 s32 GXSetZMode(s32, s32, s32);

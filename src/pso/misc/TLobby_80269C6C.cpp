@@ -27,14 +27,8 @@ u8 * TWindowMessage__ct(void *, s32, u32, s16);
 u8 *__nw__7TObjectFUl(s32);
 extern RecoveredGlobal_80269CA4_lbl_804D071C message_window_settings;
 void TLobby__sub_80269CA4(s32 arg0);
-extern RecoveredGlobal_80269CA4_lbl_804D071C message_window_settings;
 s32 *TLobby__sub_80269CB4(void);
-extern RecoveredGlobal_80269CA4_lbl_804D071C message_window_settings;
 void TLobby__sub_80269C90(void);
-}
-
-extern "C" {
-
 int append_message_window_line(void*, int, int, int);
 
 int TLobby::send_and_handle(int a1, int a2) { return append_message_window_line(this, a1, a2, -1); }

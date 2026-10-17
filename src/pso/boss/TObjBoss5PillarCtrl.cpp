@@ -28,17 +28,11 @@ void mem_free(void *);
 void __dl__7TObjectFPv(void *);
 extern u8 __vt__19TObjBoss5PillarCtrl[];
 Pc_8028B198 *__dt__19TObjBoss5PillarCtrlFv(Pc_8028B198 *arg0, s16 arg1);
-void queue_destruction__7TObjectFv(void *);
 void **mem_alloc(s32);
 void __ct__7TObjectFP7TObject(void *, void *);
-extern u8 __vt__19TObjBoss5PillarCtrl[];
 extern s32 lbl_805D3B38;
 extern Game_8028B23C *lbl_805D4DD8;
 Ctrl_8028B23C *TObjBoss5PillarCtrl__ct(Ctrl_8028B23C *arg0, void *arg1);
-}
-
-extern "C" {
-
 s32 play_sound_effect(s32, s32, s32, s32);
 int TObjBoss5Pillar__sub_8028B70C(void*);
 int TObjBoss5Pillar__sub_8028B710(void*);

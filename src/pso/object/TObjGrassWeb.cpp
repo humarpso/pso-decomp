@@ -24,16 +24,11 @@ u8 *TObjGrassWeb__ct(u8 *arg0, s32 arg1, u32 arg2);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
 extern s32 enable_v2_features;
 void TObjGrassWeb__sub_800BC798(Web_800BC798 *o);
-}
-
-extern "C" {
-
 void *__dt__12TObjGrassWebFv(void *arg0, s16 arg1);
 s32 is_locally_controlled__10TObjPlayerFPv();
 s32 get_player_by_client_id(u16);
 void __dl__7TObjectFPv(void *);
 s32 obj_testFlags30(s32, s32);
-int queue_destruction__7TObjectFv(void*);
 
 int TObjGrassWeb::queue_destruction() { return queue_destruction__7TObjectFv(this); }
 
@@ -90,8 +85,6 @@ void TObjGrassWeb::run_task() {
 }
 
 void TObjGrassWeb::render() {  }
-
-extern s32 __vt__12TObjGrassWeb[];
 
 void *__dt__12TObjGrassWebFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

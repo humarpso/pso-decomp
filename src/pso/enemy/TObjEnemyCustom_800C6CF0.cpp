@@ -57,26 +57,14 @@ extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(void *, void *, Vec_800C6EF8 *);
 void VecCopy__FP3VecPC3Vec(Vec_800C6EF8 *, Vec_800C6EF8 *);
-u8 *get_player_data__10TObjPlayerFi(int);
 u16 obj_getField1c(void *);
-extern s32 lbl_805D586C;
-extern s32 lbl_805D5870;
 u16 find_nearest_enemy__10TObjPlayerFPvPvf(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out, f32 radius);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-u8 *get_player_data__10TObjPlayerFi(int);
-s32 obj_testFlags30(void *, int);
-f32 xz_distance_squared(void *, void *);
-extern s32 lbl_805D586C;
-extern s32 lbl_805D5870;
 u16 pick_random_nearby_player__10TObjPlayerFPvf(u8 *arg0, f32 radius);
 s32 find_nearest_visible_player(void *, void *, f32);
-u16 find_nearest_enemy__10TObjPlayerFPvPvf(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out, f32 radius);
-u8 *find_active_entity_by_id(int);
-f32 xz_distance_squared(void *, void *);
 Obj_800C6FFC *find_entity_by_id(int);
 BOOL select_nearest_target__10TObjPlayerFPvf(Obj_800C6FFC *arg0, f32 radius);
 void calc_velocity_toward_destination(void *, Vec_800C7168, Vec_800C7168);
-void VecCopy__FP3VecPC3Vec(Vec_800C6EF8 *, Vec_800C6EF8 *);
 Hit_800C7168 *csnVector(void *, void *, s32);
 s32 project_actor_to_ground(void *, void *, int);
 s32 rand(void);
@@ -95,10 +83,6 @@ extern const f32 lbl_805DA074;
 extern const f32 lbl_805DA078;
 extern const f32 lbl_805DA07C;
 void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec_800C7168 arg1, f32 farg0, f32 farg1);
-}
-
-extern "C" {
-
 s32 vfunc_79__9TObjEnemyFv();
 
 void TObjEnemyCustom::vfunc_79() {
@@ -233,18 +217,11 @@ BOOL select_nearest_target__10TObjPlayerFPvf(Obj_800C6FFC *arg0, f32 radius) {
 
 }
 
-#include "types.h"
-#include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
 #include "pso/object/TObjGyaranzoMissile.h"
 
 extern "C" {
-f32 xz_distance_squared(void *, void *);
 extern const f32 lbl_805DA080;
-}
-
-extern "C" {
-
 s32 get_player_by_client_id(u16);
 
 u8 TObjEnemyCustom::find_target_in_range(f32 farg0) {

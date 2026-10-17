@@ -26,10 +26,6 @@ extern s32 TItemEffNeedlePos__class_name;
 extern const f32 lbl_805DAB48;
 extern const f32 lbl_805DAB4C;
 TItemEffNeedlePos_801097F0 *__ct__17TItemEffNeedlePosFv(TItemEffNeedlePos_801097F0 *self, void *a1, void *a2, Vec_801097F0 *pos, Vec_801097F0 *dir);
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 TItemEffNeedlePos_801097F0 *__ct__17TItemEffNeedlePosFv(TItemEffNeedlePos_801097F0 *self, void *a1, void *a2, Vec_801097F0 *pos, Vec_801097F0 *dir) {

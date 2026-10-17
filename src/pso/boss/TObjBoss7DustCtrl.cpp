@@ -44,14 +44,8 @@ typedef struct Out_802F1454 { f32 x, y, z; u32 c; } Out_802F1454;
 extern const f32 lbl_805DEC78;
 extern const f32 lbl_805DEC7C;
 extern const f32 lbl_805DEC80;
-}
-
-extern "C" {
 s32 post_translate_matrix(int);
 void boss7_dust_draw_at(s32 *arg0, s32 arg1);
-}
-
-extern "C" {
 
 void boss7_dust_draw_at(s32 *arg0, s32 arg1) {
     s32 *var_r30;
@@ -74,8 +68,6 @@ void boss7_dust_draw_at(s32 *arg0, s32 arg1) {
     pop_matrix();
 }
 
-}
-extern "C" {
 extern s32 lbl_805D6958;
 void TObjBoss7DustCtrl__sub_802F125C(void) {
     s32 temp_r0;
@@ -86,10 +78,6 @@ void TObjBoss7DustCtrl__sub_802F125C(void) {
         lbl_805D6958 = 0;
     }
 }
-}
-
-extern "C" {
-
 #pragma push
 #pragma opt_propagation off
 void TObjBoss7DustCtrl::run_task() {
@@ -130,19 +118,9 @@ void TObjBoss7DustCtrl::run_task() {
 
 TObjBoss7DustCtrl::~TObjBoss7DustCtrl() {}
 
-#include "types.h"
-
 extern "C" {
 
 void TObjBoss7DustCtrl__sub_802F125C(void);
-
-extern s32 lbl_805D6958;
-
-}
-#include "types.h"
-#include "pso/player/TObjPlayer.h"
-
-extern "C" {
 
 void __ct__7TObjectFP7TObject(void *);
 extern s32 __vt__17TObjBoss7DustCtrl[];
@@ -154,10 +132,6 @@ void *TObjBoss7DustCtrl__ct(void *arg0) {
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D3FE0;
     return arg0;
 }
-
-}
-
-extern "C" {
 
 void TObjBoss7DustCtrl__sub_802F1450(void);
 void* __nw__7TObjectFUl(u32);
@@ -172,9 +146,6 @@ void TObjBoss7DustCtrl::create() {
 }
 
 void TObjBoss7DustCtrl__sub_802F1450(void) {  }
-
-}
-extern "C" {
 
 void fn_802F1454(void) {
     s32 i;

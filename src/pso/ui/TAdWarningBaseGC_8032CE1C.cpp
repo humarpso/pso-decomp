@@ -26,18 +26,8 @@ extern int TAdWarningBaseGC__aram_alloc_size;
 extern s32 aram_request_busy_flag;
 s32 load_from_aram_sync__16TAdWarningBaseGCFi(s32 arg0);
 void DCFlushRange(void *, u32);
-void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void (*)(u32));
-void clear_aram_request_busy(u32);
-extern u8 ad_warning_arq_request[];
-extern u32 ad_warning_aram_base;
 extern u32 TAdWarningBaseGC__aram_capacity;
-extern int TAdWarningBaseGC__aram_alloc_size;
-extern s32 aram_request_busy_flag;
 s32 post_aram_request__16TAdWarningBaseGCFii(s32 arg0, s32 arg1);
-}
-
-extern "C" {
-
 void wait_aram_request__16TAdWarningBaseGCFv(void *arg0);
 void enter_request_state__16TAdWarningBaseGCFv(void* p);
 int TAdWarningBaseGC__sub_8032D020(void);
@@ -46,9 +36,6 @@ int get_alloc_size__16TAdWarningBaseGCFv(void);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-
-extern s32 warning_aram_load_done_flag;
-extern s32 aram_request_busy_flag;
 
 void wait_aram_request__16TAdWarningBaseGCFv(void *arg0) {
     if ((s32) aram_request_busy_flag == 0) {
@@ -76,8 +63,6 @@ void request_aram_load_state__16TAdWarningBaseGCFPv(u8 *arg0) {
 }
 
 void enter_request_state__16TAdWarningBaseGCFv(void* p) { *(s32*)((char*)p + 0x1c) = 1; }
-
-    extern int TAdWarningBaseGC__aram_alloc_size;
 
 void TUnk_804EDBD0::run_task() {
     TAdWarningBaseGC_8032CEB4 *self = (TAdWarningBaseGC_8032CEB4 *)this;
@@ -110,7 +95,6 @@ loop:
 
 int get_alloc_size__16TAdWarningBaseGCFv(void) {  return TAdWarningBaseGC__aram_alloc_size; }
 
-    extern int TAdWarningBaseGC__aram_alloc_size;
 int TAdWarningBaseGC__sub_8032D020(void) {  return ((TAdWarningBaseGC__aram_alloc_size + 0x1f) & 0xffffffe0); }
 
 extern s32 lbl_804EDBD0[];
@@ -138,8 +122,6 @@ void *__dt__13TUnk_804EDBD0Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern s32 lbl_804EDBD0[];
 
 void *TUnk_804EDBD0::init_vtable() {
     __ct__7TObjectFP7TObject(this);

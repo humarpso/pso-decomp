@@ -38,18 +38,9 @@ f32 update_enemy_wander_move(void *, void *, int, int, f32);
 s32 advance_animation_playback(void *);
 s32 update_collisions__10TObjPlayerFv(void *);
 extern const f32 lbl_805DA070;
-}
-
-extern "C" {
-
-s32 advance_animation_playback(void *);
 int update_if_active__15TObjEneMe1GiGueFl(void*, int);
-s32 apply_actor_gravity(void *, s32, f32);
 s32 enemy_turn_toward_dest(void *, s32);
-s32 update_collisions__10TObjPlayerFv(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
-
-extern const f32 lbl_805DA070;
 
 void TObjEnemyCustom::update_state_machine() {
     s16 temp_r4;

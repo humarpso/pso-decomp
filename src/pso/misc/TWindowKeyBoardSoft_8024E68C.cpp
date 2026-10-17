@@ -41,7 +41,6 @@ extern const float lbl_805DCC78;
 extern const f32 lbl_805DCC7C;
 extern const f32 lbl_805DCC80;
 void apply_window_closing_stretch(u8 *arg0, int arg1);
-extern const float lbl_805DCC78;
 void apply_context_transform_to_rect(Ctx_8024E6D8 *c, f32 *q);
 s32 is_split_screen();
 f32 TCameraCtrl__sub_80068A04(s32);
@@ -50,21 +49,13 @@ Vec2_8024EC34 *get_zero_vec2();
 extern Vec2_8024EC34 keyboard_soft_viewport_offset_table[];
 extern Vec2_8024EC34 lbl_8044EC80[];
 extern Vec2_8024EC34 lbl_8044EC98[];
-extern const float lbl_805DCC78;
 extern const float lbl_805DCC94;
 s32 clip_textured_quad__19TWindowKeyBoardSoftFPvPv(Win_8024E8E8 *w, Box_8024E8E8 *b);
-s32 is_split_screen();
-extern u32 soft_keyboard_instance;
-extern const float lbl_805DCC94;
 extern const f32 lbl_805DCC98;
 extern const f32 lbl_805DCC9C;
 extern const f32 lbl_805DCCA0;
 extern const f32 lbl_805DCCA4;
 u32 init_text_window_layout(Win_8024EA50 *win, f32 *pos, f32 *size, f32 *scale, u32 flags, f32 depth);
-}
-
-extern "C" {
-
 u32 open_singleton__19TWindowKeyBoardSoftFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, u32 _w4, f32 _w5);
 s32 try_open__19TWindowKeyBoardSoftFii(s32 arg0, s32 arg1);
 s32 __dl__FPv(u32);
@@ -192,8 +183,6 @@ s32 try_open__19TWindowKeyBoardSoftFii(s32 arg0, s32 arg1) {
     return 1;
 }
 
-extern u32 soft_keyboard_instance;
-
 #pragma push
 #pragma fp_contract on
 u32 init_text_window_layout(Win_8024EA50 *win, f32 *pos, f32 *size, f32 *scale, u32 flags, f32 depth) {
@@ -290,8 +279,6 @@ u32 open_singleton__19TWindowKeyBoardSoftFiiii(s32 pos, s32 size, s32 scale, s32
     return soft_keyboard_instance;
 }
 
-extern u32 soft_keyboard_instance;
-
 u32 TWindowKeyBoardSoft::get_or_create_instance() {
     u32 temp_r3;
     u32 var_r0;
@@ -319,8 +306,6 @@ u32 TWindowKeyBoardSoft::free_singleton(u32 arg0, s16 arg1) {
     return arg0;
 }
 
-    extern const float lbl_805DCC78;
-    extern const float lbl_805DCC94;
 u32 TWindowKeyBoardSoft::init_layout() { *(float*)((char*)this + 0x0) = lbl_805DCC94; *(float*)((char*)this + 0x4) = lbl_805DCC94; *(float*)((char*)this + 0x8) = lbl_805DCC94; *(float*)((char*)this + 0xc) = lbl_805DCC94; *(float*)((char*)this + 0x10) = lbl_805DCC94; *(float*)((char*)this + 0x14) = lbl_805DCC94; *(float*)((char*)this + 0x18) = lbl_805DCC94; *(float*)((char*)this + 0x1c) = lbl_805DCC94; *(float*)((char*)this + 0x3c) = lbl_805DCC94; *(float*)((char*)this + 0x40) = lbl_805DCC94; *(float*)((char*)this + 0x44) = lbl_805DCC94; *(float*)((char*)this + 0x48) = lbl_805DCC94; *(float*)((char*)this + 0x20) = lbl_805DCC94; *(float*)((char*)this + 0x24) = lbl_805DCC94; *(float*)((char*)this + 0x28) = lbl_805DCC78; *(float*)((char*)this + 0x2c) = lbl_805DCC78; *(int*)((char*)this + 0x30) = 0; *(int*)((char*)this + 0x34) = -1; *(float*)((char*)this + 0x38) = lbl_805DCC94; }
 
 }

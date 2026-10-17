@@ -21,7 +21,6 @@ typedef char BmlResourceBlock_804B3978_descriptor_offset[(offsetof(BmlResourceBl
 struct BmlResourceBlock_804B3990 { const char *model_filenames[2]; BmlResourceDescriptor descriptor; };
 typedef char BmlResourceBlock_804B3990_size[(sizeof(BmlResourceBlock_804B3990) == 0x18) ? 1 : -1];
 typedef char BmlResourceBlock_804B3990_descriptor_offset[(offsetof(BmlResourceBlock_804B3990, descriptor) == 0x8) ? 1 : -1];
-extern "C" {
 extern char lbl_80442330[];
 extern char lbl_80442348[];
 extern char lbl_80442364[];
@@ -34,7 +33,6 @@ extern BmlResourceBlock_804B3990 bm_fs_obj_o_monument03_resource_bundle;
 extern const char *bm_fs_obj_o_monument01_motion_names[1];
 extern const char *bm_fs_obj_o_monument02_motion_names[1];
 extern const char *bm_fs_obj_o_monument03_motion_names[1];
-}
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -114,7 +112,6 @@ extern const f32 lbl_805DB938;
 u8 *TOMonumentAncient02__ct(u8 *arg0, s32 arg1, s32 arg2);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-extern u32 TOMonumentAncient02__model_resource;
 s32 rand(void);
 int rotate_matrix_y(int, int);
 int push_matrix();
@@ -129,12 +126,7 @@ extern u8 chunk_material_color_half_alpha_f32[];
 extern const f32 lbl_805DB920;
 extern const f32 lbl_805DB924;
 extern const f32 lbl_805DB928;
-extern const f32 lbl_805DB92C;
 extern const f32 lbl_805DB930;
-}
-
-extern "C" {
-
 void *__dt__19TOMonumentAncient02Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
@@ -233,16 +225,12 @@ void *TOMonumentAncient02::create(void *arg0) {
     return o;
 }
 
-extern u32 TOMonumentAncient02__model_resource;
-
 void TOMonumentAncient02::free_shared_data() {
     if ((u32) TOMonumentAncient02__model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TOMonumentAncient02__model_resource, 1);
         TOMonumentAncient02__model_resource = 0U;
     }
 }
-
-extern s32 __vt__19TOMonumentAncient02[];
 
 void TOMonumentAncient02::load_resources() {
     u8 *tbl = (u8 *)&monument_ancient02_resource_table;
@@ -333,9 +321,6 @@ u8 *TOMonumentAncient02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") BmlResourceBlock_804B3960 monument_ancient02_resource_table = { { lbl_80442330, NULL }, { lbl_80442348, monument_ancient02_resource_table.model_filenames, bm_fs_obj_o_monument01_motion_names, 1, 0 } };
 __declspec(section ".data") BmlResourceBlock_804B3978 bm_fs_obj_o_monument02_resource_bundle = { { lbl_80442364, NULL }, { lbl_8044237C, bm_fs_obj_o_monument02_resource_bundle.model_filenames, bm_fs_obj_o_monument02_motion_names, 1, 0 } };
 __declspec(section ".data") BmlResourceBlock_804B3990 bm_fs_obj_o_monument03_resource_bundle = { { lbl_80442398, NULL }, { lbl_804423B0, bm_fs_obj_o_monument03_resource_bundle.model_filenames, bm_fs_obj_o_monument03_motion_names, 1, 0 } };

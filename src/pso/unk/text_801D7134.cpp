@@ -20,9 +20,6 @@ u8 ret_801D7954(Obj_801D71D0 *p);
 u8 fn_801D71D0(Obj_801D71D0 *p);
 u8 ret_801D793C(Obj_801D7134 *p);
 u8 fn_801D7134(Obj_801D7134 *p);
-}
-
-extern "C" {
 
 u8 fn_801D7134(Obj_801D7134 *p) {
     if (p->v >= 2) {

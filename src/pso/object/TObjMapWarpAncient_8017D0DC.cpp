@@ -27,7 +27,6 @@ void *__dt__18TObjMapWarpAncientFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__18TObjMapWarpAncient[];
 extern s32 TObjMapWarpAncient__class_name;
 extern const f32 lbl_805DBAC4;
 

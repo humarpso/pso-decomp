@@ -207,10 +207,6 @@ void set_section_id__6TLobbyFPvUc(u8 *arg0, u8 arg1) {
     *arg0 = var_r4;
 }
 
-}
-
-extern "C" {
-
 void TLobby::reset_settings_to_default() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;

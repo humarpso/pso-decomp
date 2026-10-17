@@ -50,18 +50,12 @@ void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0);
 extern const f32 lbl_805DFED4;
 void run_task__26TBoss5GryphonLightningWingFv(u8 *arg0);
 extern s32 TLobby__event_theme_id;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TBoss5GryphonLightning__ct(f32);
 extern u8 __vt__26TBoss5GryphonLightningWing[];
 extern s32 lbl_805D4368;
 extern const f32 lbl_805DFED8;
 s32 __ct__26TBoss5GryphonLightningWingFv(int arg0, void *arg1, void *a, void *mid, void *b, void *arg5, void *arg6);
-}
-
-extern "C" {
-
 void TLobby__sub_80351DF8(void);
-void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0);
 u8 is_lobby_event_active(void);
 s32 TBoss8Dragon__sub_80063FB8(s32, s32 *, f32);
 

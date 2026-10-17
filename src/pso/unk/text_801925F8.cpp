@@ -92,8 +92,6 @@ void reset_by_door__19TObjLazerFenceExtraFPv(void *arg0) {
 
 }
 
-#include "types.h"
-
 struct Node_80192A3C { u32 flags; void *model; u8 pad8[0x24]; Node_80192A3C *child; Node_80192A3C *sibling; };
 
 struct Fish_80192A3C { u8 pad0[0x8C]; s32 f8C; u8 pad90[0x2C]; Node_80192A3C *fBC; Node_80192A3C *fC0; s32 fC4; void *fC8[4]; };
@@ -111,18 +109,12 @@ extern "C" {
 s32 get_bml_motion(s32, s32);
 Node_80192A3C *get_bml_model(s32, s32);
 extern s32 lazer_fence_norm_bml_resource;
-void clear_player_status_flag__10TObjPlayerFlUl(void *, s32, u32);
 void init_collision_body_parts(void *, void *, s32);
 void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern Ent_80192874 laser_fence_collision_body_parts[];
 extern s32 __vt__19TObjLazerFenceExtra[];
 extern s32 lazer_fence_extra_class_name;
-extern const f32 lbl_805DBE58;
 void *TObjLazerFenceExtra__ct(void *arg0, void *arg1, void *arg2);
-}
-
-extern "C" {
-
 void *TObjLazerFenceExtra__create(void *arg0);
 void *__dt__19TObjLazerFenceExtraFv(void *arg0, s16 arg1);
 void run_task__19TObjLazerFenceExtraFv(void *arg0);
@@ -143,8 +135,6 @@ void run_task__19TObjLazerFenceExtraFv(void *arg0) {
         return;
     }
 }
-
-extern s32 __vt__19TObjLazerFenceExtra[];
 
 void *__dt__19TObjLazerFenceExtraFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -238,17 +228,11 @@ void TObjLazerFenceNorm::select_models() {
 
 }
 
-#include "types.h"
 struct Obj_80192B5C { u8 pad0[0x38]; u8 f38[0x24]; s32 f5C; s32 f60; u8 pad64[0x48]; s32 fAC; u8 padB0[8]; f32 fB8; s32 fBC; s32 fC0; s32 fC4; s32 fC8[4]; };
 
 extern "C" {
-void post_translate_matrix(void *);
 void draw_ginja_model_with_motion(s32, s32, f32);
 extern u16 lbl_80445B7C[];
-}
-
-extern "C" {
-
 void TObjLazerFenceNorm::draw_animated_beam() {
     s32 i;
     for (i = 0; i < 4; i++) {
@@ -266,9 +250,6 @@ void TObjLazerFenceNorm::draw_animated_beam() {
 }
 
 }
-
-#include "types.h"
-#include "pso/object/TObjLazerFenceNorm.h"
 
 struct LazerFenceNormBase_80192C00 { char pad[0x18]; };
 struct LazerFenceNormVObj_80192C00 : LazerFenceNormBase_80192C00 {
@@ -290,24 +271,6 @@ struct TObjLazerFenceNorm_80192CCC {
 };
 
 extern "C" {
-void clear_player_status_flag__10TObjPlayerFlUl(void *, s32, u32);
-u8 is_current_floor_switch_set(u16);
-extern const f32 lbl_805DBE58;
-extern const f32 lbl_805DBE64;
-}
-
-extern "C" {
-
-u8 is_current_floor_switch_set(u16);
-void post_translate_matrix(void *);
-void draw_ginja_object(void *);
-void rotate_matrix_y(int, void *);
-void push_matrix(void);
-void pop_matrix(void);
-s32 set_indexed_flags(void *, s32, s32);
-
-extern void *lazer_fence_norm_texture_list;
-
 void TObjLazerFenceNorm::draw_model() {
     TObjFish::set_global_param((s32)lazer_fence_norm_texture_list);
     push_matrix();
@@ -316,9 +279,6 @@ void TObjLazerFenceNorm::draw_model() {
     draw_ginja_object(this->m_bc);
     pop_matrix();
 }
-
-extern const f32 lbl_805DBE5C;
-extern const f32 lbl_805DBE60;
 
 void TObjLazerFenceNorm::render() {
     s32 temp_r0;

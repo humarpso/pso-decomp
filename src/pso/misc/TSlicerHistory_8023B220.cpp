@@ -24,10 +24,6 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 lbl_805DC948;
 
-}
-
-extern "C" {
-
 void TSlicerHistory::render() {
     u8 *arg0 = (u8 *)this;
     if (all_parents_unqueued_for_destruction__7TObjectFv() == 0 || query_game_join_id__10TObjPlayerFv((int) (*(s32 *)((s8 *)arg0 + 0x58))) == 0U) {

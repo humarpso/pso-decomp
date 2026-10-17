@@ -12,9 +12,6 @@ void TLobby__sub_803D3130(s32 arg0, s32 arg1, u8 *arg2, u8 *arg3);
 int strncmp(const char *, const char *, u32);
 extern u32 lbl_804F9E60[];
 u8 *find_archive_entry__6TLobbyFPvPvPvPv(Buf_803D2F1C *arc, const char *name, const char *stop, Buf_803D2F1C *out);
-}
-
-extern "C" {
 
 #define HEX_803D2F1C(p, i) lbl_804F9E60[(s8)(p)[i]]
 #define SIZE_803D2F1C(p) ((((((((((((HEX_803D2F1C(p, 8) << 4) + HEX_803D2F1C(p, 9)) << 4) + HEX_803D2F1C(p, 10)) << 4) + HEX_803D2F1C(p, 11)) << 4) + HEX_803D2F1C(p, 12)) << 4) + HEX_803D2F1C(p, 13)) << 4) + HEX_803D2F1C(p, 14))

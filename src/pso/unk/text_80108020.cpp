@@ -109,7 +109,6 @@ extern const f32 lbl_805DAB04;
 extern const f32 lbl_805DAB08;
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 create_particle_emitter(void *, s32);
-void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, s32);
 void construct_actor_light_task(void *, void *, void *, s32, u8 *, f32, s32);
 extern u8 lbl_8043E140[];
@@ -123,9 +122,6 @@ extern const f32 lbl_805DAAF8;
 extern const f32 lbl_805DAAFC;
 extern const f32 lbl_805DAB00;
 Self_80108020 *TItemEffArmor__ct(Self_80108020 *self, u8 *obj, f32 a, f32 b);
-}
-
-extern "C" {
 
 Self_80108020 *TItemEffArmor__ct(Self_80108020 *self, u8 *obj, f32 a, f32 b) {
     void *p;

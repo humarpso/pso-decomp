@@ -70,8 +70,6 @@ s32 get_main_phase(void);
 u8 * TOKey__ct(void *);
 extern s32 __vt__11TOKeyCave01[];
 extern s32 TOKeyCave01__class_name;
-extern u32 TOKeyCave01__resource_bundle;
-extern s32 *TOKeyCave01__texture_lists;
 extern const f32 lbl_805DB73C;
 extern const f32 lbl_805DB740;
 extern const f32 lbl_805DB74C;
@@ -88,13 +86,7 @@ s32 draw_ginja_model(int);
 int set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
-extern s32 *TOKeyCave01__texture_lists;
-extern s32 key_cave_render_state;
 extern s32 model_render_flags;
-}
-
-extern "C" {
-
 void *__dt__11TOKeyCave01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
@@ -195,9 +187,6 @@ void *TOKeyCave01::create(void *arg0) {
     return o;
 }
 
-extern u32 TOKeyCave01__resource_bundle;
-extern s32 *TOKeyCave01__texture_lists;
-
 void TOKeyCave01::free_objects() {
     if ((s32 *) TOKeyCave01__texture_lists != NULL) {
         TObjPlayer::free_if_valid(*TOKeyCave01__texture_lists);
@@ -211,8 +200,6 @@ void TOKeyCave01::free_objects() {
         TOKeyCave01__resource_bundle = 0U;
     }
 }
-
-extern s32 __vt__11TOKeyCave01[];
 
 void TOKeyCave01::load_resources() {
     s32 global_state;

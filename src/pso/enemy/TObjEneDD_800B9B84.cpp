@@ -8,10 +8,6 @@ s32 vec3_add_to(void *, void *, f32);
 s32 subtract_vector(void *, void *);
 extern s32 camera_ctrl_instance;
 void project_sound_origin_from_camera(s32 arg0, u8 *arg1, f32 farg0);
-}
-
-extern "C" {
-
 int is_local_client_floor_leader(void*);
 int TObjPlayer__sub_801BA42C(void*);
 int freeze_all_players__10TObjPlayerFv(void*);

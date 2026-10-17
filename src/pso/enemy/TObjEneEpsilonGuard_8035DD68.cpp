@@ -404,7 +404,6 @@ void render__19TObjEneEpsilonGuardFv(u8 *);
 s32 transition_enemy_state(void *, s32);
 s32 advance_animation_playback(void *);
 void TObjEneEpsilonGuard__sub_8035E578(u8 *, s32);
-s32 advance_animation_playback(void *);
 void play_sound_effect(int, void *, int, int);
 extern u8 epsilon_guard_breakup_params[];
 extern s32 lbl_805D6FA8;
@@ -421,16 +420,12 @@ s32 post_translate_matrix(void *);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 epsilon_guard_camera_step;
-extern s32 epsilon_guard_camera_ctrl_ptr;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 extern const f32 TObjEneEpsilonGuard__data_805E01DC;
 void render_with_fade__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1);
 s32 move_with_wall_slide_commit__9TObjEneDDFfff(void *, void *, f32, f32, f32);
-s32 advance_animation_playback(void *);
 extern void *TObjEneEpsilonGuard__movement_params;
 void TObjEneEpsilonGuard__sub_8035E8C0(void *, s32);
 s32 VecCopy__FP3VecPC3Vec(void *);
@@ -440,16 +435,10 @@ VObj_8035EA90 *get_battle_param__10TObjPlayerFi(s32);
 void *create_particle_emitter(void *, int, int);
 u32 find_entity_by_id(u16);
 extern void *TObjEneEpsilonGuard__model_desc[];
-extern void *TObjEneEpsilonGuard__movement_params;
-extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 extern const f32 lbl_805E01F4;
 extern const f32 lbl_805E01F8;
 extern const f32 lbl_805E01FC;
 extern const f32 lbl_805E0200;
-}
-
-extern "C" {
-
 struct Base_8035E3B8_8035DD68 { char pad[0x18]; };
 struct VObj_8035E3B8_8035DD68 : Base_8035E3B8_8035DD68 {
     virtual void m0();
@@ -480,17 +469,10 @@ struct VObj_8035E3B8_8035DD68 : Base_8035E3B8_8035DD68 {
 };
 
 int TObjEneEpsilonGuard__sub_8035DD68(void* p);
-s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
-s32 move_with_wall_slide_commit__9TObjEneDDFfff(void *, void *, f32, f32, f32);
 s32 TObjEneEpsilonGuard__sub_8035F95C(u32);
 s32 TObjEneEpsilonGuard__sub_8035F968();
 s32 draw_model_motion(int, int, f32);
-s32 translate_matrix(int, f32, f32, f32);
-s32 push_matrix();
-s32 pop_matrix();
-s32 get_mode__11TCameraCtrlFPv(void *);
-s32 queue_destruction__7TObjectFv(void *);
 
 int TObjEneEpsilonGuard__sub_8035DD68(void* p) { return (*(u32*)((char*)p + 0x46c) >> 7) & 0x1; }
 
@@ -565,9 +547,6 @@ void TObjEneEpsilonGuard::set_target(s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)((s8 *)((u8 *)this) + 0x46C) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x46C) | 1);
     this->clear_all_status_effects();
 }
-
-extern const f32 TObjEneEpsilonGuard__data_805E01D8;
-extern const f32 TObjEneEpsilonGuard__data_805E01DC;
 
 void TObjEneEpsilonGuard::render_guard_effect() {
     f32 temp_f1;
@@ -705,7 +684,6 @@ void TObjEneEpsilonGuard::handle_message(s32 arg1) {
     }
 }
 
-extern void *TObjEneEpsilonGuard__movement_params;
 extern const f32 lbl_805E01E8;
 extern const f32 lbl_805E01EC;
 extern const f32 lbl_805E01F0;
@@ -987,19 +965,9 @@ void TObjEneEpsilonGuard::sub_8035EA90() {
 }
 #pragma pop
 
-}
-
-#include "types.h"
-
-extern "C" {
 s32 TObjEneBm3FlyNest__sub_800B3AC8(u8 *arg0);
 void vfunc_88__19TObjEneEpsilonGuardFv(void *);
 int set_part_local_pos__9TObjEneDDFPvPvi(void*, void*, void*);
-s32 TObjEneBm3FlyNest__sub_800B3AC8(u8 *arg0);
-}
-
-extern "C" {
-
 void vfunc_89__19TObjEneEpsilonGuardFv(void *);
 s32 play_persistent_sound(int, void *, void *, int, int);
 s32 vfunc_89__9TObjEneDDFv();
@@ -1045,8 +1013,6 @@ void TObjEneEpsilonGuard::vfunc_89() {
     update_center_position();
 }
 
-extern const f32 TObjEneEpsilonGuard__data_805E01DC;
-
 void TObjEneEpsilonGuard::update_center_position() {
     u8 *arg0 = (u8 *)this;
     *(f32 *)((s8 *)arg0 + 0x2FC) = (f32) *(f32 *)((s8 *)arg0 + 0x38);
@@ -1058,13 +1024,9 @@ void TObjEneEpsilonGuard::vfunc_88() { set_part_local_pos__9TObjEneDDFPvPvi(this
 
 }
 
-#include "types.h"
-#include "pso/enemy/TObjEneEpsilonGuard.h"
 #include "pso/boss/TBoss8Dragon.h"
-#include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 #include "pso/enemy/TObjEnePanarms.h"
-#include "pso/player/TObjPlayer.h"
 
 struct Rec_8035F4B4 { u8 b[0x1C]; };
 
@@ -1120,20 +1082,14 @@ extern s32 epsilon_guard_boss_stat_handle;
 extern s32 epsilon_guard_shared_handler_b;
 extern s32 epsilon_guard_registered_object_handle;
 extern u8 *lbl_805D6FA0;
-extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 s32 TObjEneEpsilon__ct();
 extern s32 TObjEneEpsilonGuard__class_name;
 void *TObjEneEpsilonGuard__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5, void *arg6);
-s32 queue_destruction__7TObjectFv(void *);
 s32 __dt__13TUnk_80494938Fv(void *, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__14TObjEneEpsilonFv(void *, int);
 u8 *__dt__19TObjEneEpsilonGuardFv(u8 *arg0, s16 arg1);
-}
-
-extern "C" {
-
 void vfunc_28__19TObjEneEpsilonGuardFv(void);
 void vfunc_61__19TObjEneEpsilonGuardFv(void);
 void vfunc_62__19TObjEneEpsilonGuardFv(void);

@@ -10,10 +10,6 @@ struct Stack_8003AED4 {
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D85B0;
-}
-
-extern "C" {
-
 void TObjBoss2RaftSplash::run_task() {
     u8 *arg0 = (u8 *)this;
     Stack_8003AED4 stack;

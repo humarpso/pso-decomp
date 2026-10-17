@@ -12,15 +12,12 @@ struct RecoveredGlobal_80258100_lbl_804CF998 {
     u8 remaining[0x14];
 };
 
-extern "C" {
 extern unsigned char lbl_804CF998[];
-}
 
 extern "C" {
 
 void* reset_entry__20TWindowSubStatusDispFPv(void* a0, s16 _w1);
 
-    extern unsigned char lbl_804CF998[];
     extern const float lbl_805DCEF8;
 void* reset_entry__20TWindowSubStatusDispFPv(void* a0, s16 _w1) { ((TUnk_804CF930 *)a0)->sub_80256BDC(_w1); *(int*)((char*)a0 + 0x4) = (int)lbl_804CF998; *(float*)((char*)a0 + 0x8) = lbl_805DCEF8; *(float*)((char*)a0 + 0xc) = lbl_805DCEF8; *(float*)((char*)a0 + 0x10) = lbl_805DCEF8; *(float*)((char*)a0 + 0x14) = lbl_805DCEF8; return a0; }
 
@@ -47,12 +44,6 @@ void TWindowSubStatusDisp::finalize_state() {
     }
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void reset__20TWindowSubStatusDispFPv(void *arg0);
 s32 mem_free(u32);
 
@@ -75,12 +66,6 @@ void reset__20TWindowSubStatusDispFPv(void *arg0) {
     *(u16 *)((s8 *)arg0 + 0) = (u16) (*(u16 *)((s8 *)arg0 + 0) & ~0x1BFD);
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void update_stat_line__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1);
 s32 get_shared_text_buffer();
 s32 TWindowSubStatusDisp__sub_80228F5C(s32);
@@ -97,12 +82,6 @@ void update_stat_line__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0x24) = replace_owned_string__20TWindowSubStatusDispFPviiii(arg0, get_shared_text_buffer(), *(s32 *)((s8 *)arg0 + 0x24), 0x10, 1);
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void update_stat_line_if_positive__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1);
 
 void update_stat_line_if_positive__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
@@ -112,8 +91,6 @@ void update_stat_line_if_positive__20TWindowSubStatusDispFPvi(void *arg0, s32 ar
 }
 
 }
-
-#include "types.h"
 
 struct VBase18B_802582c4_80257784 { char pad[0x18]; };
 struct VObj18B_802582c4_80257784 : VBase18B_802582c4_80257784 {
@@ -132,26 +109,11 @@ struct VObj18B_802582c4_80257784 : VBase18B_802582c4_80257784 {
 struct Obj_80258BB8 { u8 pad[8]; f32 f8; };
 
 extern "C" {
-s32 replace_owned_string__20TWindowSubStatusDispFPviiii(void *, s32, s32, s32, s32);
 extern const f32 lbl_805DCF04;
-s32 replace_owned_string__20TWindowSubStatusDispFPviiii(void *, s32, s32, s32, s32);
-extern const f32 lbl_805DCF08;
-s32 replace_owned_string__20TWindowSubStatusDispFPviiii(void *, s32, s32, s32, s32);
-extern const f32 lbl_805DCF08;
-s32 replace_owned_string__20TWindowSubStatusDispFPviiii(void *, s32, s32, s32, s32);
-extern const f32 lbl_805DCF08;
-s32 get_shared_text_buffer();
-s32 text_builder_reset();
-s32 replace_owned_string__20TWindowSubStatusDispFPviiii(void *, s32, s32, s32, s32);
 extern const f32 lbl_805DCF08;
 void TWindowSubStatusDisp__sub_80258A28(u8 *arg0, s32 arg1, s32 arg2);
 void init_status_entry__20TWindowSubStatusDispFPvcUii(u8 *arg0, s8 arg1, u32 arg2, s32 arg3);
-extern const f32 lbl_805DCF04;
 void select_item_icon__20TWindowSubStatusDispFPviUcUci(void *arg0, s32 arg1, u8 arg2, u8 arg3, s32 arg4);
-}
-
-extern "C" {
-
 void update_item_colors__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1);
 void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *arg1);
 s32 is_wrapped__9TItemDataFPv(s32);
@@ -163,7 +125,6 @@ s32 get_usable_action_flags__5TItemFUlUl(void *, s32, s32);
 s32 is_boss_area();
 s32 get_player_by_client_id(s16);
 s32 check_equip_requirements(s32, s32, s32 *);
-s32 replace_owned_string__20TWindowSubStatusDispFPviiii(void *, s32, s32, s32, s32);
 u8 calc_display_grade__5TItemFv(void *);
 u8 calc_display_grade__9TItemDataFv(s32);
 s32 check_flag_400__20TWindowSubStatusDispFv(void *);
@@ -311,8 +272,6 @@ void update_item_colors__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
     }
 }
 
-extern const f32 lbl_805DCF08;
-
 void select_item_icon__20TWindowSubStatusDispFPviUcUci(void *arg0, s32 arg1, u8 arg2, u8 arg3, s32 arg4) {
     if (arg4 != 0) {
         *(s8 *)((s8 *)arg0 + 0x1D) = 8;
@@ -453,22 +412,6 @@ void TWindowSubStatusDisp::init_status_entry_by_flag(s32 x) {
     ((Obj_80258BB8 *)this)->f8 = lbl_805DCF04;
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-s32 replace_owned_string__20TWindowSubStatusDispFPviiii(void *, s32, s32, s32, s32);
-extern const f32 lbl_805DCF04;
-void init_status_entry__20TWindowSubStatusDispFPvcUii(u8 *arg0, s8 arg1, u32 arg2, s32 arg3);
-}
-
-extern "C" {
-
-s32 replace_owned_string__20TWindowSubStatusDispFPviiii(void *, s32, s32, s32, s32);
-
-extern const f32 lbl_805DCF04;
-
 void TWindowSubStatusDisp::init_list_entry(u8 arg1, s32 src, s32 arg3) {
     u8 var_r0;
 
@@ -505,8 +448,6 @@ void init_status_entry__20TWindowSubStatusDispFPvcUii(u8 *arg0, s8 arg1, u32 src
 }
 
 }
-
-#include "types.h"
 
 #define CAT2(a,b) a##b
 #define CAT(a,b) CAT2(a,b)
@@ -553,31 +494,12 @@ struct V_80258F34 : Base_80258F34 {
 
 extern "C" {
 s32 get_field_ed__5TItemFv(void *);
-s32 check_flag_400__20TWindowSubStatusDispFv(void *);
 s32 lookup_item_data__20TWindowSubStatusDispFv(void *);
 s32 get_field_ec__5TItemFv(void *);
 s32 TObjPlayer__sub_801C1AC8(void *);
 #define update_stat_line_if_positive__20TWindowSubStatusDispFPvi ((s32 (*)(void *, s32))update_stat_line_if_positive__20TWindowSubStatusDispFPvi)
 #define update_item_icon_colors__20TWindowSubStatusDispFPvPv ((s32 (*)(void *, void *))update_item_icon_colors__20TWindowSubStatusDispFPvPv)
 #define select_item_icon__20TWindowSubStatusDispFPviUcUci ((s32 (*)(void *, s32, s32, s32, s32))select_item_icon__20TWindowSubStatusDispFPviUcUci)
-s32 replace_owned_string__20TWindowSubStatusDispFPviiii(void *, s32, s32, s32, s32);
-extern const f32 lbl_805DCF08;
-}
-
-extern "C" {
-
-s32 get_shared_text_buffer();
-s32 get_field_ec__5TItemFv(void *);
-s32 get_field_ed__5TItemFv(void *);
-s32 TObjPlayer__sub_801C1AC8(void *);
-s32 check_flag_400__20TWindowSubStatusDispFv(void *);
-s32 lookup_item_data__20TWindowSubStatusDispFv(void *);
-s32 TWindowSubStatusDisp__sub_80228F5C(s32);
-s32 text_builder_reset();
-s32 replace_owned_string__20TWindowSubStatusDispFPviiii(void *, s32, s32, s32, s32);
-
-extern const f32 lbl_805DCF08;
-
 void TWindowSubStatusDisp::set_inventory_item(void *arg1, s32 arg2, s32 arg3) {
     s32 temp_r29;
 
@@ -594,7 +516,6 @@ void TWindowSubStatusDisp::set_inventory_item(void *arg1, s32 arg2, s32 arg3) {
     *(u16 *)((s8 *)this + 0) = (u16) (*(u16 *)((s8 *)this + 0) | 0x45);
 }
 
-extern const f32 lbl_805DCF08;
 void TWindowSubStatusDisp::update_from_player(void *arg1, s32 arg2, s32 arg3) {
     s32 temp_r31;
     s32 temp_r30;
@@ -629,15 +550,9 @@ void TWindowSubStatusDisp::init_item_row(void *arg1, s32 arg2) {
     *(u16 *)((s8 *)this + 0) = (u16) (*(u16 *)((s8 *)this + 0) | 0x45);
 }
 
-}
-
 #undef update_stat_line_if_positive__20TWindowSubStatusDispFPvi
 #undef update_item_icon_colors__20TWindowSubStatusDispFPvPv
 #undef select_item_icon__20TWindowSubStatusDispFPviUcUci
-
-#include "types.h"
-
-extern "C" {
 
 #define is_wrapped__9TItemDataFPv ((int (*)(void*))is_wrapped__9TItemDataFPv)
 #define get_shared_text_buffer ((int (*)(void))get_shared_text_buffer)
@@ -677,7 +592,6 @@ void TWindowSubStatusDisp::set_item_info(void* a1, int a2, void* a3) {
 #undef select_item_icon__20TWindowSubStatusDispFPviUcUci
 #undef replace_owned_string__20TWindowSubStatusDispFPviiii
 
-#include "types.h"
 #include "pso/ui/ItemListRow.h"
 
 typedef struct Row_8025930C {
@@ -702,10 +616,7 @@ extern const f32 lbl_805DCF24;
 extern const f32 lbl_805DCF28;
 extern const f32 lbl_805DCF2C;
 void draw_item_list_row(ItemListRow *row, ItemListWindowView *win);
-u32 calc_text_width(s32);
-extern const f32 lbl_805DCF08;
 extern const f32 lbl_805DCF10;
-extern const f32 lbl_805DCF14;
 extern const f32 lbl_805DCF18;
 void calc_row_width__20TWindowSubStatusDispFv(Row_8025930C *arg0);
 #define mem_free ((void (*)(s32))mem_free)
@@ -713,20 +624,11 @@ s32 mem_alloc(s32);
 s32 measure_string_len__20TWindowSubStatusDispFv(s32);
 char *strncpy(char *, const char *, unsigned long);
 s32 replace_owned_string__20TWindowSubStatusDispFPviiii(void *arg0, s32 src, s32 buf, s32 mask, s32 copy);
-}
-
-extern "C" {
-
 #define is_wrapped__9TItemDataFPv ((s32 (*)(void *))is_wrapped__9TItemDataFPv)
-s32 get_shared_text_buffer();
-s32 TWindowSubStatusDisp__sub_80228F5C(s32);
-s32 text_builder_reset();
 #define select_item_icon__20TWindowSubStatusDispFPviUcUci ((s32 (*)(void *, s32, u8, u8, s32))select_item_icon__20TWindowSubStatusDispFPviUcUci)
 #define forward_message__6TLobbyFlUl ((s32 (*)(s32, void *))forward_message__6TLobbyFlUl)
 #define get_item_data__6TLobbyFUl ((s32 (*)(void *))get_item_data__6TLobbyFUl)
 #define update_item_colors__20TWindowSubStatusDispFPvi ((s32 (*)(void *, void *))update_item_colors__20TWindowSubStatusDispFPvi)
-
-extern const f32 lbl_805DCF08;
 
 void TWindowSubStatusDisp::set_ground_item(void *it, s32 arg2) {
     s32 temp_r31;
@@ -884,8 +786,6 @@ void TWindowSubStatusDisp::check_flag_4_noop() {
     if (((TWindowSubStatusDisp *)this)->is_flag_4_set()) return;
 }
 
-}
-
 #undef mem_free
 #undef is_wrapped__9TItemDataFPv
 #undef select_item_icon__20TWindowSubStatusDispFPviUcUci
@@ -893,14 +793,8 @@ void TWindowSubStatusDisp::check_flag_4_noop() {
 #undef get_item_data__6TLobbyFUl
 #undef update_item_colors__20TWindowSubStatusDispFPvi
 
-#include "types.h"
-#include "pso/misc/TWindowSubStatusDisp.h"
-
-extern "C" {
-
 s32 deleting_destructor__20TWindowSubStatusDispFs(void *, s32);
 s32 __dl__FPv(void *);
-s32 mem_free(u32);
 
 extern s32 lbl_804CF9B0[];
 

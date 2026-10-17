@@ -35,13 +35,7 @@ void *TObjTagChallenge__ct(void *arg0) {
     return arg0;
 }
 
-}
-
 #define TObjTagChallenge__ct (*(void * (*)(void *, void *))&TObjTagChallenge__ct)
-
-#include "types.h"
-
-extern "C" {
 
 void *__nw__7TObjectFUl(int);
 

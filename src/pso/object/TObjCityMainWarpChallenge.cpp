@@ -28,16 +28,11 @@ extern s32 __vt__25TObjCityMainWarpChallenge[];
 extern s32 lbl_805D32B8;
 extern u8 *city_common_model_archive;
 extern s32 city_main_warp_destination_id;
-extern const f32 lbl_805DBCCC;
 extern const f32 lbl_805DBCD0;
 u8 *TObjCityMainWarpChallenge__ct(u8 *arg0);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80444A44[];
 extern char lbl_80444A58[];
-}
-
-extern "C" {
-
 void *__dt__25TObjCityMainWarpChallengeFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(s32);
@@ -78,7 +73,6 @@ void TObjCityMainWarpChallenge::update_state() {
 }
 
 extern s32 camera_ctrl_instance;
-extern u8 *city_common_model_archive;
 extern s32 city_common_texture_list;
 extern const f32 lbl_805DBCB8;
 extern const f32 lbl_805DBCBC;
@@ -119,8 +113,6 @@ block_4:
         pop_matrix();
     }
 }
-
-extern s32 __vt__25TObjCityMainWarpChallenge[];
 
 void TObjCityMainWarpChallenge::run_task() {
     u8 *arg0 = (u8 *)this;

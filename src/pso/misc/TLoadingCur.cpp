@@ -59,7 +59,6 @@ extern s32 __vt__11TLoadingCur[];
 extern RecoveredGlobal_8001D0A0_lbl_804FF5E8 lbl_804FF5E8;
 extern s32 TLoadingCur__class_name;
 extern const f32 lbl_805D7E90;
-extern const f32 TLoadingCur__data_805D7E9C;
 u8 *TLoadingCur__ct(u8 *arg0, s32 arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen(void);
@@ -67,7 +66,6 @@ void calc_loading_cursor_pos(void *, void *);
 s32 is_flag_set__11TLoadingCurFv(void *, s32);
 s32 play_persistent_sound(int, void *, void *, int, int);
 extern Pad_8001CD90 controller_input_state;
-extern const f32 TLoadingCur__data_805D7E9C;
 extern const f32 lbl_805D7EB0;
 extern const f32 lbl_805D7EB4;
 extern const f32 lbl_805D7EB8;
@@ -75,13 +73,8 @@ extern const f32 lbl_805D7EBC;
 s32 project_world_to_screen(int, void *, void *);
 void push_matrix(void);
 void pop_matrix(void);
-extern const f32 TLoadingCur__data_805D7E9C;
 extern const f32 lbl_805D7EA8;
 extern const f32 lbl_805D7EAC;
-}
-
-extern "C" {
-
 void *__dt__11TLoadingCurFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -135,8 +128,6 @@ int TLoadingCur::sub_8001CCD4() {
 }
 
 void TLoadingCur::render() { { (void)(sub_8001CCD4()); return; } }
-
-extern s32 __vt__11TLoadingCur[];
 
 #pragma push
 #pragma fp_contract on

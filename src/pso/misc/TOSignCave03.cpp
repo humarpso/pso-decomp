@@ -53,14 +53,9 @@ extern u32 TOSignCave03__shared_resource;
 s32 init_map_object_base(void *, void *);
 extern s32 __vt__12TOSignCave03[];
 extern s32 lbl_805D316C;
-extern u32 TOSignCave03__shared_resource;
 extern const f32 lbl_805DB9E0;
 extern const f32 lbl_805DB9E4;
 u8 *TOSignCave03__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt__12TOSignCave03Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
@@ -168,16 +163,12 @@ void *TOSignCave03::create(void *arg0) {
     return o;
 }
 
-extern u32 TOSignCave03__shared_resource;
-
 void TOSignCave03::close_dialog_window() {
     if ((u32) TOSignCave03__shared_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TOSignCave03__shared_resource, 1);
         TOSignCave03__shared_resource = 0U;
     }
 }
-
-extern s32 __vt__12TOSignCave03[];
 
 void TOSignCave03::load_shared_resource() {
     s32 temp_r3;

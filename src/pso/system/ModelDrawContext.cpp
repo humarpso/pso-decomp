@@ -55,43 +55,26 @@ void bind_motion_context(void *);
 void init_model_draw_queue(void *);
 void flush_model_draw_queue(void);
 void prepare_ginja_model(void *);
-void draw_ginja_motion_node_tree(u8 *arg0);
 void draw_ginja_model_lists(void);
 extern struct MotionCtx_803DC894 * const model_draw_context;
 extern RecoveredCallback_2be3cacebb2e ginja_draw_end_callback;
 void draw_ginja_model_with_motion(void *arg0, void *arg1);
-extern s32 current_matrix;
 void copy_rotation_to_current_matrix(struct Mtx_803DC994 *src);
 void GXSetBlendMode(int, int, int, int);
 __declspec(section ".rodata") extern const u32 cached_blend_factor_table[];
-extern u8 *current_render_context;
 void apply_cached_blend_mode(s32 arg0);
 void init_render_context(C_803DCBF0 *arg0);
-s32 compose_motion_node_matrix(int);
-s32 push_matrix();
-s32 pop_matrix();
-extern struct MotionCtx_803DC894 * const model_draw_context;
 extern RecoveredCallback_1268626c296b motion_node_draw_callback;
 void draw_motion_node_tree_with_context(struct Node_803DCB40 *arg0);
 __declspec(section ".rodata") extern const Tbl_803DCC34 gx_blend_mode_table;
-extern u8 *current_render_context;
 void set_cached_blend_factor(s32 arg0, s32 arg1);
 s32 get_current_matrix(void *);
 s32 apply_quat_rotation__10TObjPlayerFf(void *, f32);
 s32 rotate_matrix_by_node_angles(void *, void *);
-s32 push_matrix();
-s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-void copy_rotation_to_current_matrix(struct Mtx_803DC994 *src);
 extern s32 node_saved_matrix[];
 void traverse_model_node_tree(struct N_803DC9E4 *p, s32 (*cb)(s32));
-}
-
-extern "C" {
-
-extern s32 model_node_callback;
-
 void set_model_node_callback(s32 arg0) {
     model_node_callback = arg0;
 }
@@ -253,9 +236,6 @@ void apply_cached_blend_mode(s32 arg0) {
     }
 }
 
-}
-
-extern "C" {
 __declspec(section ".rodata") extern const Tbl_803DCC34 gx_blend_mode_table = {{255, 255, 6, 2, 7, 3, 5, 3, 4, 2, 1, 0}};
 __declspec(section ".rodata") extern const u32 cached_blend_factor_table[8] = {0, 1, 2, 3, 4, 5, 6, 7};
 }

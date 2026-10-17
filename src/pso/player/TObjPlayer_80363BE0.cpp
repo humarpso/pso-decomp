@@ -16,19 +16,12 @@ extern int player_item_id_list;
 void push_to_list__10TObjPlayerFPvi(u8 *, s32);
 void reset_id_array__10TObjPlayerFPv(void *);
 s32 run_and_return_arg__10TObjPlayerFi(s32);
-}
 #define reset_id_array__10TObjPlayerFPv ((int (*)(void*))reset_id_array__10TObjPlayerFPv)
-
-extern "C" {
-
 void *__dt__13TUnk_804F29F8Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
-    extern int player_item_id_list;
 void TUnk_804F29F8::run_task() { reset_id_array__10TObjPlayerFPv((void*)(player_item_id_list)); }
-
-extern s32 lbl_804F29F8[];
 
 void *__dt__13TUnk_804F29F8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -41,28 +34,19 @@ void *__dt__13TUnk_804F29F8Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
 #undef reset_id_array__10TObjPlayerFPv
 
 #define lbl_804F29F8 ((unsigned char *)lbl_804F29F8)
 #define reset_id_array__10TObjPlayerFPv ((int (*)(void*))reset_id_array__10TObjPlayerFPv)
-
-extern "C" {
-
 void* TObjPlayer__sub_80363C5C(void* a0);
 int __ct__7TObjectFP7TObject(void);
 
-    extern int player_item_id_list;
 void* TObjPlayer__sub_80363C5C(void* a0) { __ct__7TObjectFP7TObject(); *(int*)((char*)a0 + 0x18) = (int)lbl_804F29F8; reset_id_array__10TObjPlayerFPv((void*)(player_item_id_list)); return a0; }
 
-}
 #undef lbl_804F29F8
 #undef reset_id_array__10TObjPlayerFPv
 
 #define TObjPlayer__sub_80363C5C ((void * (*)(void *, void *))TObjPlayer__sub_80363C5C)
-
-extern "C" {
-
 void *__nw__7TObjectFUl(int);
 
 void TObjPlayer::create_cleanup_object(void *arg0) {
@@ -73,13 +57,9 @@ void TObjPlayer::create_cleanup_object(void *arg0) {
     }
 }
 
-}
 #undef TObjPlayer__sub_80363C5C
 
 #define player_item_id_list (*(u32 *)&player_item_id_list)
-
-extern "C" {
-
 void __dl__FPv(void*);
 
 void TObjPlayer::free_static_buffer() {
@@ -128,12 +108,10 @@ struct VObj_18_1419ea : VBase_18_1419ea {
 };
 
 extern "C" {
-void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 VObj_18_1419ea *query_game_join_id__10TObjPlayerFv(s32);
 void func_80141618__Fv(void);
 void set_depth_buffer_settings_id__FUl(u32);
 extern u8 saved_model_draw_color[];
-extern u8 model_material_color[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -141,10 +119,6 @@ extern u8 *lbl_805D6FB8;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-}
-
-extern "C" {
-
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 
 void TObjPlayer::alloc_and_run_object() {
@@ -191,15 +165,10 @@ void TUnk_804F2A10::render() {
     *(s32 *)(lbl_805D6FB8 + 0xB0) = 0;
 }
 
-}
 #undef player_item_id_list
 #undef run_and_return_arg__10TObjPlayerFi
 
-extern "C" {
-
 void *__dt__13TUnk_804F2A10Fv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 s32 submit_computer_command__10TObjPlayerFv(s32, s32, s32, s32);
 
 void TUnk_804F2A10::run_task() {
@@ -212,8 +181,6 @@ void TUnk_804F2A10::run_task() {
     }
 }
 
-extern s32 lbl_804F2A10[];
-
 void *__dt__13TUnk_804F2A10Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F2A10;
@@ -225,20 +192,13 @@ void *__dt__13TUnk_804F2A10Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-
 #define lbl_804F2A10 ((unsigned char *)lbl_804F2A10)
 #define lbl_805D6FB8 (*(int *)&lbl_805D6FB8)
 #define reset_id_array__10TObjPlayerFPv ((int (*)(void*))reset_id_array__10TObjPlayerFPv)
-
-extern "C" {
-
 void* init_vtable_804F2A10__13TUnk_804F2A10Fv(void* a0);
-int __ct__7TObjectFP7TObject(void);
 
 void*TUnk_804F2A10::init_vtable_804F2A10() { __ct__7TObjectFP7TObject(); *(int*)((char*)this + 0x18) = (int)lbl_804F2A10; reset_id_array__10TObjPlayerFPv((void*)(lbl_805D6FB8)); return this; }
 
-}
 #undef lbl_804F2A10
 #undef lbl_805D6FB8
 #undef reset_id_array__10TObjPlayerFPv
@@ -246,9 +206,6 @@ void*TUnk_804F2A10::init_vtable_804F2A10() { __ct__7TObjectFP7TObject(); *(int*)
 #define lbl_805D6FB8 (*(void * *)&lbl_805D6FB8)
 #define push_to_list__10TObjPlayerFPvi ((s32 (*)(void *, s32))push_to_list__10TObjPlayerFPvi)
 #define reset_id_array__10TObjPlayerFPv ((s32 (*)(void *))reset_id_array__10TObjPlayerFPv)
-
-extern "C" {
-
 void TObjPlayer::push_id_to_list(s32 arg0) {
     if ((s32) *(s32 *)((s8 *)lbl_805D6FB8 + 0xB0) == 0) {
         reset_id_array__10TObjPlayerFPv(lbl_805D6FB8);
@@ -289,26 +246,12 @@ struct RecoveredGlobal_803640F8_lbl_8058D4C0 {
 struct Rec_80364028 { f32 a; s32 b; s32 c; s32 d; };
 
 extern "C" {
-extern s32 chunk_polygon_flags_or_mask;
-extern s32 chunk_polygon_flags_and_mask;
-extern s32 model_render_flags;
 void TObjPlayer__sub_8036414C(void);
-extern s32 chunk_polygon_flags_or_mask;
-extern s32 chunk_polygon_flags_and_mask;
-extern s32 model_render_flags;
 void TObjPlayer__sub_80364198(void);
 void set_chunk_material_override_pair(s32, s32);
 s32 set_chunk_blend(s32);
 extern Rec_80364028 lbl_80479FF8;
-extern s32 model_render_flags;
 extern const f32 lbl_805E0288;
-}
-
-extern "C" {
-
-s32 set_chunk_blend(s32);
-void *__nw__7TObjectFUl(int);
-
 void TObjPlayer::spawn_cleanup_helper(void *arg0) {
     void *o;
     o = __nw__7TObjectFUl(0x1C);
@@ -316,8 +259,6 @@ void TObjPlayer::spawn_cleanup_helper(void *arg0) {
         init_vtable_804F2A10__13TUnk_804F2A10Fv(o, arg0);
     }
 }
-
-extern const f32 lbl_805E0288;
 
 void TObjPlayer::warn_if_gauge_low() {
     if (*(f32 *)((s8 *)lbl_805D6FB8 + 0x2C) < lbl_805E0288) {
@@ -366,18 +307,12 @@ void TObjPlayer__sub_80364198(void) {
     *(s32 *)((s8 *)(*(u8 * *)&lbl_805D6FB8) + 8) = (s32) chunk_polygon_flags_or_mask;
 }
 
-}
 #undef copy_vec4__13TRaderMapCoreFPvPv
 #undef init_vtable_804F2A10__13TUnk_804F2A10Fv
 #undef model_material_color
 #undef lbl_805D6FB8
 
 #define lbl_805D6FB8 (*(u32 *)&lbl_805D6FB8)
-
-extern "C" {
-
-void __dl__FPv(void*);
-
 void TObjPlayer::free_global_805D6FB8() {
     if ((u32) lbl_805D6FB8 != 0U) {
         __dl__FPv((void*)lbl_805D6FB8);
@@ -385,16 +320,10 @@ void TObjPlayer::free_global_805D6FB8() {
     }
 }
 
-}
 #undef lbl_805D6FB8
 
 #define lbl_805D6FB8 (*(void * *)&lbl_805D6FB8)
 #define run_and_return_arg__10TObjPlayerFi ((void * (*)(void *))run_and_return_arg__10TObjPlayerFi)
-
-extern "C" {
-
-void *alloc__23TAdSinglePlyChrSelectGCFv(int);
-
 void TObjPlayer::alloc_and_init_object_b4() {
     void *o;
 
@@ -425,10 +354,6 @@ void push_to_list__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     }
 }
 
-}
-
-extern "C" {
-
 void reset_id_array__10TObjPlayerFPv(void *arg0);
 
 void reset_id_array__10TObjPlayerFPv(void *arg0) {
@@ -440,12 +365,7 @@ void reset_id_array__10TObjPlayerFPv(void *arg0) {
     *(s32 *)((u8 *)arg0 + 0xB0) = 0;
 }
 
-}
-
 #define reset_id_array__10TObjPlayerFPv ((s32 (*)(void))reset_id_array__10TObjPlayerFPv)
-
-extern "C" {
-
 s32 run_and_return_arg__10TObjPlayerFi(s32 arg0);
 
 s32 run_and_return_arg__10TObjPlayerFi(s32 arg0) {

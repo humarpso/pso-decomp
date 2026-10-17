@@ -21,19 +21,10 @@ extern "C" {
 extern const f32 lbl_805DCA04;
 extern const f32 lbl_805DCA08;
 extern f32 lbl_805DCA0C;
-extern const f32 lbl_805DCA04;
-extern const f32 lbl_805DCA08;
-extern f32 lbl_805DCA0C;
-extern const f32 lbl_805DCA04;
-extern const f32 lbl_805DCA08;
 f32 update_scale__15TObjBoss2TunnelFv(void *, f32);
 u8 *get_player_by_client_id(s32);
 u8 *get_pad_rumble_effect_slots();
 extern const f32 lbl_805DCA00;
-}
-
-extern "C" {
-
 void TAdSinglePlyChrSelectGC__sub_80242B24(void* p);
 void TLobby__sub_80242918(void);
 
@@ -44,8 +35,6 @@ extern u16 lbl_805D63FC;
 void TLobby__sub_80242918(void) {
     lbl_805D63FC |= 4;
 }
-
-extern u16 lbl_805D63FC;
 
 void TLobby::clear_flag_bit2() {
     lbl_805D63FC &= 0xFFFFFFFB;

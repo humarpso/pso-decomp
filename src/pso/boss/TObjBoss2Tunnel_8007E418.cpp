@@ -10,21 +10,14 @@ s32 get_view_matrix__11TCameraCtrlFv();
 s32 matrix_mult_vec(s32, s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
 void rotate_xz_pair_by_angle(f32 *arg0, f32 *arg1, s32 arg2);
 extern const f32 TObjBoss2Tunnel__data_805D9234;
 bool is_vec_xz_cross_negative(u8 *arg0, u8 *arg1);
 s32 angle_diff_s16(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
-}
-
-extern "C" {
-
 s32 count_active_segments__15TObjBoss2TunnelFPv(void *arg0);
 int vec3_add_to(void*, void*);
 void *csnVecterUnder(void *, s32, f32);
-f32 sin_table_lookup(s32);
 s32 VecCopy__FP3VecPC3Vec(void *, s32);
 
 s32 TObjBoss2Tunnel::decrement_packed_timer(u32 *arg0, s32 arg1) {
@@ -57,8 +50,6 @@ s32 TObjBoss2Tunnel::spawn_effect(s32 arg0, void *arg1, void *arg2) {
     VecCopy__FP3VecPC3Vec(arg1, arg0);
     return 0;
 }
-
-extern f32 TObjBoss2Tunnel__data_805D9210;
 
 s32 TObjBoss2Tunnel::adjust_to_ground(s32 arg0, void *arg1) {
     f32 temp_f1;

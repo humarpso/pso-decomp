@@ -59,8 +59,6 @@ extern "C" {
 extern s32 floor_item_counts_by_floor;
 extern s32 floor_item_free_id_stack;
 extern s32 floor_item_free_id_count;
-extern s32 floor_item_free_id_stack;
-extern s32 floor_item_free_id_count;
 s32 TLobby__sub_80103B04(u16 arg0);
 Player_801036CC *get_player_data__10TObjPlayerFi(s32 i);
 s32 test_elt_flag__13TUnk_80493450Fll(void *p, s32 a, s32 mask);
@@ -71,7 +69,6 @@ void TLobby__sub_801041BC(void *, void *);
 extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
 extern Ent_801037A0 **floor_item_row_table;
-extern s32 floor_item_counts_by_floor;
 void evict_lowest_key_floor_item(s32 n);
 void bswap_sync_item_state_header(void *);
 void set_boss_buf_entry__6TLobbyFii(s32, u16);
@@ -80,41 +77,15 @@ void TItemData__sub_8010CCB0(void *);
 s32 test_flags_any(void *, s32);
 void TLobby__sub_801041D8(void);
 extern u16 *floor_item_next_sort_keys;
-extern Ent_801037A0 **floor_item_row_table;
-extern s32 floor_item_counts_by_floor;
 extern s32 lbl_805D5440;
 void debug_print__6TLobbyFle(const char *, ...);
 void *memcpy(void *, const void *, u32);
 extern char lbl_8043E048[];
-extern Ent_801037A0 **floor_item_row_table;
-extern s32 floor_item_counts_by_floor;
-void debug_print__6TLobbyFle(const char *, ...);
-extern char lbl_8043E048[];
-extern Ent_801037A0 **floor_item_row_table;
-extern s32 floor_item_counts_by_floor;
 Ent_801037A0 *find_item_condition_entry__6TLobbyFii(s32 n, s32 val);
-void evict_lowest_key_floor_item(s32 n);
-void TLobby__sub_80104258(void *, void *);
-void *memcpy(void *, const void *, u32);
-extern Ent_801037A0 **floor_item_row_table;
-extern s32 floor_item_counts_by_floor;
-extern u16 *floor_item_next_sort_keys;
 void *find_item_by_id(s32);
 void spawn_dropped_item_from_msg(void *, s32);
-extern Ent_801037A0 **floor_item_row_table;
-extern s32 floor_item_counts_by_floor;
-void bswap_sync_item_state_header(void *);
 s32 get_sync_counter__6TLobbyFi(u16);
-void TLobby__sub_80104258(void *, void *);
 void normalize__9TItemDataFv(void *);
-extern u16 *floor_item_next_sort_keys;
-extern Ent_801037A0 **floor_item_row_table;
-extern s32 floor_item_counts_by_floor;
-}
-
-extern "C" {
-
-void *find_item_by_id(s32);
 s32 bswap_player_packet__6TLobbyFv();
 
 void TLobby__sub_801036CC(void) {

@@ -28,7 +28,6 @@ extern s32 lbl_80484888[];
 extern u8 *tl_07;
 extern const f32 lbl_805D8848;
 u8 *TBoss3Volopt__sub_8004885C(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4, f32 farg0, f32 farg1);
-void queue_destruction__7TObjectFv(void *);
 void spawn_directional_particle(void *, void *, s32);
 s32 rand();
 f32 sin_table_lookup(s32);
@@ -38,13 +37,8 @@ extern const f32 lbl_805D883C;
 extern const f32 lbl_805D8840;
 extern const f32 lbl_805D8844;
 void update_particle_emitter__12TBoss3VoloptFPv(u8 *arg0);
-}
-
-extern "C" {
-
 void TBoss3Volopt__sub_800485C8(void);
 void *__dt__13TUnk_80484888Fv(void *arg0, s16 arg1);
-void __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -64,7 +58,6 @@ void *TUnk_80484870::dt(s16 arg1) {
 }
 
 extern void *tl_05;
-extern s32 lbl_80484870[];
 
 void *TUnk_80484870::ct(void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(this, tl_05);
@@ -73,8 +66,6 @@ void *TUnk_80484870::ct(void *arg1, void *arg2) {
     *(void * *)&(*(u8 *)((u8 *)this + 0x20)) = arg2;
     return this;
 }
-
-extern s32 lbl_80484888[];
 
 #pragma push
 #pragma fp_contract on
@@ -157,18 +148,13 @@ void TBoss3Volopt::fade_out_and_finish() {
 
 #pragma pop
 
-extern "C" {
 extern u32 TBoss3Volopt__fade_active_flag;
-extern const f32 lbl_805D8850;
 extern const f32 lbl_805D8858;
-}
 
 extern "C" {
 
 void *__dt__13TUnk_804848A0Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804848B8Fv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 
 extern s32 lbl_804848A0[];
 
@@ -197,8 +183,6 @@ void *TUnk_804999E8::destroy_task_object(s16 arg1) {
 }
 
 extern void *tl_fade;
-extern const f32 lbl_805D8858;
-extern s32 lbl_804848A0[];
 
 void *TUnk_804848A0::init_fade_color(void *arg1, void *arg2) {
     init_object((void *)(tl_fade));
@@ -244,11 +228,6 @@ void *__dt__13TUnk_804848B8Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern void *tl_fade;
-extern const f32 lbl_805D8854;
-extern s32 lbl_804848B8[];
-extern u32 TBoss3Volopt__fade_active_flag;
-
 void *TUnk_804848B8::init_fade(void *arg1, void *arg2) {
     init_object((void *)((void *)(tl_fade)));
     *(s32 **)((s8 *)this + 0x18) = lbl_804848B8;
@@ -260,8 +239,6 @@ void *TUnk_804848B8::init_fade(void *arg1, void *arg2) {
     TBoss3Volopt__fade_active_flag = 0;
     return this;
 }
-
-extern s32 lbl_804999E8[];
 
 void *TUnk_804999E8::init_object(void *) {
     ((void (*)(void *))__ct__7TObjectFP7TObject)(this);

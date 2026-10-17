@@ -20,14 +20,6 @@ s32 is_split_screen();
 int is_main_phase_15__9TObjEneDDFv(void*);
 s32 get_story_flag(s32);
 extern s32 TObjCityMainWarp__visible_destination_mask;
-s32 is_split_screen();
-int is_main_phase_15__9TObjEneDDFv(void*);
-s32 get_story_flag(s32);
-extern s32 TObjCityMainWarp__visible_destination_mask;
-}
-
-extern "C" {
-
 struct RecoveredGlobal_80185428_lbl_80444878 {
     s32 value;
     u8 remaining[0x8];
@@ -149,7 +141,6 @@ struct Root_80185BE8 { u8 pad[0x430]; Anim_80185BE8 *anim; };
 
 struct Obj_80185BE8 { u8 pad[0xC4]; f32 t; };
 
-s32 is_split_screen();
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
@@ -157,7 +148,6 @@ void TLobby__sub_8001FE7C(void*, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 s32 is_quest_active();
 int alloc__23TAdSinglePlyChrSelectGCFv(void *);
-int is_main_phase_15__9TObjEneDDFv(void*);
 s32 get_localized_text_entry(s32, s32);
 void run_task__15TObjLaboMapWarpFv(u8 *arg0);
 void TObjLaboMapWarp__vt13(u8 *arg0, s32 arg1);

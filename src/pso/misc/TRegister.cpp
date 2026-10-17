@@ -11,10 +11,6 @@ struct ByteBlock_70 { u8 bytes[0x70]; };
 extern "C" {
 s32 __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
 s32 __ct__14QuestListEntryFRC14QuestListEntry(s32 arg0, s32 arg1);
-}
-
-extern "C" {
-
 s32 __ct__9TRegisterFv(s32 arg0);
 void bswap__9TRegisterFv(s32 arg0);
 int fn_801E0018(void* p);

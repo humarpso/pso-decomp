@@ -30,12 +30,7 @@ extern s32 lbl_805D56C8;
 extern u16 lbl_805D56CC;
 extern u16 lbl_805D56CE;
 s32 TLobby__sub_80145A94(void);
-s32 TLobby__sub_8042EE4C(u32 *);
 s32 TLobby__sub_80145DB4(s32 arg0);
-}
-
-extern "C" {
-
 s32 TLobby__sub_80145A94(void) {
     Buf_80145A94 buf;
     Ids_80145A94 ids;

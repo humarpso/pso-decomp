@@ -69,7 +69,6 @@ void get_action_palette__11TMainCursorFv(void *, u8);
 void update_action_palette__11TMainCursorFv(void *, u8);
 u8 get_active__11TMainCursorFv(void *);
 u8 TMainCursor__sub_8013E900(void *);
-u16 get_target_id__11TMainCursorFv(void *);
 void TMainCursor__sub_8013E9C0(void *, s32);
 void TMainCursor__sub_8013EA00(void *, s32);
 s32 update_cursor_pos__13TLockOnCursorFv(void *);
@@ -92,7 +91,6 @@ s32 fn_80044330(void *);
 Weapon_8013CDE4 *get_weapon_range_record(void *, s32);
 s32 check_type_and_enabled__11TMainCursorFPvPv(Cursor_8013CDE4 *, u8, u8);
 s32 TMainCursor__sub_8013E9A0(Cursor_8013CDE4 *);
-void TMainCursor__sub_8013E9C0(void *, s32);
 s32 TMainCursor__sub_8013E9E0(Cursor_8013CDE4 *, u8);
 Tech_8013CDE4 *get_photon_blast_entry__10TObjPlayerFi(s16);
 s32 get_cast_technique_level(void *, s32);
@@ -100,20 +98,12 @@ Tech_8013CDE4 *calc_technique_parameters(s16, u8, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern f32 lbl_8050BF60[3];
-extern const f32 TMainCursor__data_805DB0C0;
 extern const f32 interaction_cursor_radius;
 extern const f32 ryuker_cursor_forward_offset;
 void setup_action_channel__11TMainCursorFiPviii(s32 self, u8 *player, s32 slot, s32 kind, s32 id);
-}
-
-extern "C" {
-
 s32 TMainCursor__sub_8013E970(s32, u16, s32, s32);
-s32 get_record_at__11TMainCursorFPvi(s32, s32);
-s32 TMainCursor__sub_8013F168(s32);
 s32 TObjPlayer__sub_801B066C(s32);
 s32 get_selected_entry__11TMainCursorFv(s32, s32);
-s32 get_type__10TObjPlayerFPv(s32);
 s32 is_technique_ready__8TTecCtrlFv();
 
 void TMainCursor::set_cursor_pos(u16 arg1, s32 arg2) {

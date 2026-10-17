@@ -35,15 +35,10 @@ void rotate_matrix_y(void *, s32);
 s32 push_matrix_from(void *);
 s32 pop_matrices(s32);
 extern u8 identity_matrix[];
-}
-
-extern "C" {
-
 void *__dt__10TButterflyFv(void *arg0, s16 arg1);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
-s32 rand();
 s32 set_global_param__8TObjFishFl();
 
 void TButterfly::init_motion() {

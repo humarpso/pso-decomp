@@ -27,14 +27,9 @@ s32 TWindowSubComCard__sub_8007B070(s32);
 void *__nw__7TObjectFUl(int);
 extern s32 local_client_id;
 s32 create_com_card_window__17TWindowSubComCardFi(s32 arg0);
-void *__nw__7TObjectFUl(int);
 s32 update_com_card_display(s32, s32);
 extern s32 lbl_805D38C0;
 u8 *TWindowComCard__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void TWindowComCard__sub_80249920(s32 arg0, s32 arg1, s32 arg2);
 u8 TWindowComCard__sub_80249C18(void* p);
 u8 TWindowComCard__sub_80249C20(void* p);
@@ -42,8 +37,6 @@ void *__dt__14TWindowComCardFv(void *arg0, s16 arg1);
 void run_task__14TWindowComCardFv(void* p);
 void *get_card_entry__17TWindowSubComCardFi(void *);
 void __dl__7TObjectFPv(void *);
-void *__nw__7TObjectFUl(int);
-s32 update_com_card_display(s32, s32);
 int initialize_subwindow__9TWindowDDFv(void*);
 
 extern "C" u8 lbl_8044EB28[];
@@ -158,9 +151,6 @@ void *TWindowComCard::create(void *arg0, void *arg1) {
     return o;
 }
 
-}
-extern "C" {
-
 s32 create_com_card_window__17TWindowSubComCardFi(s32 arg0) {
     s32 keyboard_mode;
     s32 temp_r3_2;
@@ -217,16 +207,7 @@ s32 get_class_name_text(s32 arg0) {
     return *(s32 *)((s8 *)(*(s32 *)((s8 *)text_language_group_table + 0x1C)) + (arg0 * 4));
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
 s32 get_status_effect_icon_index(u32 arg0);
-}
-
-extern "C" {
-
 s32 set_sprite_uv_from_pixels(void *, f32, f32);
 
 extern u8 com_card_help_panel_rect_table[];
@@ -276,12 +257,6 @@ s32 get_status_effect_icon_index(u32 arg0) {
     }
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void TWindowComCard::set_selected_index(s32 arg1) {
     s32 temp;
     if ((s32) *(s32 *)((s8 *)this + 0x70) != arg1) {
@@ -290,12 +265,6 @@ void TWindowComCard::set_selected_index(s32 arg1) {
         ((TWindowComCard *)temp)->set_help_mode(*(s32 *)((s8 *)this + 0x70));
     }
 }
-
-}
-
-#include "types.h"
-
-extern "C" {
 
 void TWindowComCard__sub_80249D7C(u8 *arg0, s32 arg1);
 
@@ -314,7 +283,6 @@ void TWindowComCard__sub_80249D7C(u8 *arg0, s32 arg1) {
 
 }
 
-#include "types.h"
 #include "pso/misc/TWindowTradeRequest.h"
 
 extern "C" {
@@ -343,22 +311,12 @@ typedef struct Win_80249ED8 {
 } Win_80249ED8;
 
 s32 get_zero_vec2();
-extern const f32 lbl_805DCBD0;
-void run_task__13TUnk_804CE964Fv(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 extern struct Obj054_80249DE4 *TWindowCtrl__active_window;
 extern u16 lbl_805D63FC;
-}
-
-extern "C" {
-
 struct Obj054_80249DE4 { char pad[0x38]; u32 field38; };
 
-void *TWindowComCard__sub_80249E80(void *arg0, s16 arg1);
 void request_active_window_close(void);
-void render__13TUnk_804CE964Fv(s32 arg0);
-void __dl__7TObjectFPv(void *);
-s32 draw_default_entry__9TWindowDDFl();
 
 void TUnk_804CE964::render() {
     s32 arg0 = (s32)this;
@@ -407,8 +365,6 @@ Win_80249ED8 *TWindowComCard__sub_80249ED8(Win_80249ED8 *o, Parent_80249ED8 *par
     return o;
 }
 #pragma pop
-
-extern struct Obj054_80249DE4 *TWindowCtrl__active_window;
 
 void TWindowTradeRequest::close_request_window() {
     u8 *temp_r3;

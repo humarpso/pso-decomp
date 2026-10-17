@@ -96,10 +96,6 @@ s32 TBoss3VoloptP02__ct(void *);
 s32 TObjEnemyCustom__ct(void *);
 extern RecoveredGlobal_800480B0_lbl_80484610 volopt_boss_dispatch_table;
 u8 *fn_800480B0(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_800480B0_lbl_80484610_size[sizeof(RecoveredGlobal_800480B0_lbl_80484610) == 0x14C ? 1 : -1];
 u8 *fn_800480B0(u8 *arg0, s32 arg1, s32 arg2) {
     TObjEnemyCustom__ct((void *) (arg0));

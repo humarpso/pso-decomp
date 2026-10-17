@@ -9,14 +9,12 @@
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
 extern char lbl_80440F70[];
 extern char lbl_80440F84[];
 extern char lbl_80440F98[];
 extern const char *bm_fs_obj_ki_doa2_model_names[2];
 extern const char *bm_fs_obj_ki_doa2_motion_names[2];
 extern BmlResourceDescriptor TODoorMachine02_resource_descriptor;
-}
 
 struct VBase_18_4a4f5b { char pad[0x18]; };
 
@@ -109,7 +107,6 @@ extern RecoveredGlobal_80163760_lbl_804B16C8 lbl_804B16C8;
 extern s32 __vt__15TODoorMachine02[];
 extern s32 TODoorMachine02__class_name;
 extern u32 door_machine02_model_resource;
-extern const f32 lbl_805DB51C;
 extern const f32 lbl_805DB528;
 u8 *TODoorMachine02__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 rotate_matrix_y(int, int);
@@ -132,16 +129,8 @@ extern u8 lbl_80440FD8[];
 extern u8 lbl_80440FF0[];
 extern u8 bm_fs_obj_ki_doa2_a_resource_descriptor[];
 extern s32 enable_v2_features;
-extern u32 door_machine02_model_resource;
-extern s32 *door_machine02_texture_param_table;
-}
-
-extern "C" {
-
 void *__dt__15TODoorMachine02Fv(void *arg0, s16 arg1);
-s32 play_sound_effect(s32, void *, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
-s32 is_any_player_within_radius_xz(f32);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -234,9 +223,6 @@ void *TODoorMachine02::create(void *arg0) {
     return o;
 }
 
-extern u32 door_machine02_model_resource;
-extern s32 *door_machine02_texture_param_table;
-
 void TODoorMachine02::free_statics() {
     if ((s32 *) door_machine02_texture_param_table != NULL) {
         TObjPlayer::free_if_valid(*door_machine02_texture_param_table);
@@ -250,8 +236,6 @@ void TODoorMachine02::free_statics() {
         door_machine02_model_resource = 0U;
     }
 }
-
-extern s32 __vt__15TODoorMachine02[];
 
 void TODoorMachine02::load_resources() {
     void *o;
@@ -309,9 +293,6 @@ u8 *TODoorMachine02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_fs_obj_ki_doa2_model_names[2] = { lbl_80440F70, NULL };
 __declspec(section ".data") const char *bm_fs_obj_ki_doa2_motion_names[2] = { lbl_80440F84, NULL };
 BmlResourceDescriptor TODoorMachine02_resource_descriptor = { lbl_80440F98, bm_fs_obj_ki_doa2_model_names, bm_fs_obj_ki_doa2_motion_names, 1, 1 };

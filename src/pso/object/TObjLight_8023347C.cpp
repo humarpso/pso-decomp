@@ -25,8 +25,6 @@ void *__dt__13TUnk_804CC948Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 ice_technique_charge_vtable[];
-
 u8 *init__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject(arg0, (void *) (arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = ice_technique_charge_vtable;

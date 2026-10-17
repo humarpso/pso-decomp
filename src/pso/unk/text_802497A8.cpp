@@ -24,10 +24,6 @@ void set_text_entry_string(void *, void *, int);
 extern s32 com_card_status_text_table[];
 extern const f32 lbl_805DCBCC;
 void update_com_card_display(Win_802497A8 *arg0, void *arg1);
-}
-
-extern "C" {
-
 void update_com_card_display(Win_802497A8 *arg0, void *arg1) {
     Txt_802497A8 *t4;
     void *t14;

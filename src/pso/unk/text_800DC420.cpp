@@ -63,7 +63,6 @@ s32 VecCopy__FP3VecPC3Vec(void *, int);
 u8 *csnVecterUnder(s32, s32);
 extern s32 lbl_805D5254;
 f32 TObjPlayer__sub_800DC434(s32 arg0, s32 arg1);
-extern s32 lbl_805D5254;
 s32 TObjPlayer__sub_800DC420(void *self, s32 i);
 extern D_800DC448 *nano_drago_entry_params_resource;
 u16 obj_getField1c(void *);
@@ -74,20 +73,15 @@ extern const f32 lbl_805D525C;
 extern s32 lbl_805D526C;
 extern s32 local_client_id;
 void hit_object_in_radius__10TObjPlayerFPvPvPv(Src_800DC4B4 *arg0, Obj_800DC4B4 *obj, void *attacker);
-s32 VecCopy__FP3VecPC3Vec(void *, int);
 void *get_player_data__10TObjPlayerFi(s32);
 void queue_destruction__7TObjectFv(void *);
 u32 csnVector(void *, void *, int);
-void hit_object_in_radius__10TObjPlayerFPvPvPv(Src_800DC4B4 *arg0, Obj_800DC4B4 *obj, void *attacker);
 void *find_entity_by_id(u16);
 s32 is_valid_and_active__10TObjPlayerFUl();
 s32 vec3_add_to(void *, void *);
-extern const f32 lbl_805D525C;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 extern const f32 lbl_805DA478;
-s32 VecCopy__FP3VecPC3Vec(void *, int);
-u16 obj_getField1c(void *);
 f32 atan2_float(f32, f32);
 s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
@@ -96,28 +90,12 @@ s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
 f32 vector_length(void *);
 s32 subtract_vector(void *, void *);
 extern s32 lbl_80494E10[];
-extern const f32 lbl_805D525C;
 extern s32 tl_06;
 extern const f32 lbl_805DA47C;
 u8 *construct_beam_effect__10TObjPlayerFPvPvPviPv(u8 *arg0, Vec_800DC83C *arg1, Vec_800DC83C *arg2, s32 arg3, void *arg4);
-s32 VecCopy__FP3VecPC3Vec(void *, int);
-s32 is_split_screen();
-void queue_destruction__7TObjectFv(void *);
-u32 csnVector(void *, void *, int);
-s32 spawn_particle_effect(void *, int);
-f32 xyz_distance_squared(void *, void *);
-void *find_entity_by_id(u16);
-s32 vec3_add_to(void *, void *);
-s32 subtract_vector(void *, void *);
-extern s32 local_client_id;
-}
-
-extern "C" {
-
 void TObjPlayer__sub_800DC444(void);
 void *__dt__13TUnk_80494E10Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void queue_destruction__7TObjectFv(void *);
 
 s32 TObjPlayer__sub_800DC420(void *self, s32 i) {
     return (*(D_800DC420 * *)&lbl_805D5254)->arr[i];
@@ -128,8 +106,6 @@ f32 TObjPlayer__sub_800DC434(s32 arg0, s32 arg1) {
 }
 
 void TObjPlayer__sub_800DC444(void) {  }
-
-extern s32 lbl_80494E10[];
 
 void TObjEneNanoDrago::load_entry_params_nanodrago(s32 i) {
     O_800DC448 *self = (O_800DC448 *)this;

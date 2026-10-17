@@ -2,7 +2,6 @@
 #include "pso/enemy/TObjEneDarkGunCenter.h"
 #include "pso/enemy/TObjEnemy.h"
 extern "C" void render__20TObjEneDarkGunCenterFv();
-#include "pso/enemy/TObjEneDarkGunCenter.h"
 #include "pso/player/TObjPlayer.h"
 
 struct VBase_800A0B20 { u8 pad[0x18]; };
@@ -56,11 +55,6 @@ extern const f64 lbl_8043A488[];
 extern const f32 lbl_805D9970;
 extern const f32 lbl_805D9974;
 void run_task__20TObjEneDarkGunCenterFv(Gun_800A0B20 *self);
-}
-
-extern "C" {
-
-void TObjEneDarkGunCenter__sub_800A0B18(void);
 void TObjEneDarkGunCenter__sub_800A0E7C(void);
 void TObjEneDarkGunCenter__sub_800A0E80(void);
 void *__dt__20TObjEneDarkGunCenterFv(void *arg0, s16 arg1);

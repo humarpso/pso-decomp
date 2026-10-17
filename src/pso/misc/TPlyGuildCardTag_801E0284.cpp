@@ -16,7 +16,6 @@ public:
 
 extern "C" {
 
-void *TPlyGuildCardTag__sub_801E0314(void *arg0, void *arg1);
 s32 __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
 int bswap_32__FPUl(void*);
 

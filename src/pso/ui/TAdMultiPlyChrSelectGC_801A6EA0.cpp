@@ -5,10 +5,6 @@
 extern "C" {
 s32 pack_flags__13TRaderMapCoreFii();
 s32 check_packed_flag_match(s32, s32, s32, s32);
-}
-
-extern "C" {
-
 s32 input_press_or_repeat(s32, s32, s32, s32);
 
 s32 TAdMultiPlyChrSelectGC::dispatch_draw_command(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {

@@ -46,22 +46,15 @@ extern s32 bringer_projectile_actor_ops_table[];
 void *__dt__13TUnk_8048FE64Fv(void *arg0, s16 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, const void *);
 void queue_destruction__7TObjectFv(void *);
-s32 VecCopy__FP3VecPC3Vec(void *, const void *);
 void *csnVector(void *, void *, s32);
 void create_timed_particle_emitter(void *, s32, s32, s32);
 void subtract_vector(void *, void *);
 extern u8 lbl_8043A164[];
 extern s32 lbl_8043A16C[];
 void update_shot__17TObjEneDf2BringerFPv(Bringer_80099F0C *self);
-}
-
-extern "C" {
-
 void *__dt__13TUnk_8048FE08Fv(void *arg0, s16 arg1);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
-s32 VecCopy__FP3VecPC3Vec(void *, const void *);
-void __dl__7TObjectFPv(void *);
 s32 fill_value_array(int);
 
 #pragma push
@@ -133,8 +126,6 @@ void TObjEneDf2Bringer::setup_dir_shot(const void *arg1, s32 arg2, f32 farg0) {
     *(s32 *)&this->m_b4 = 0x19;
 }
 
-extern s32 lbl_8048FE08[];
-
 void *__dt__13TUnk_8048FE08Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048FE08;
@@ -178,8 +169,6 @@ void *__dt__13TUnk_8048FE64Fv(void *arg0, s16 arg1) {
 
 }
 
-#include "types.h"
-
 struct RecoveredGlobal_8009A398_lbl_8048FE64 {
     s32 value;
     u8 remaining[0x14];
@@ -187,12 +176,7 @@ struct RecoveredGlobal_8009A398_lbl_8048FE64 {
 
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
-extern s32 bringer_tp_absorb_effect_name;
 u8 *fn_8009A398(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8009A398_lbl_8048FE64_size[sizeof(RecoveredGlobal_8009A398_lbl_8048FE64) == 0x18 ? 1 : -1];
 u8 *fn_8009A398(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3) {
     ((s32 (*)())__ct__7TObjectFP7TObject)();
@@ -208,19 +192,10 @@ u8 *fn_8009A398(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3) {
     return arg0;
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
 void rotate_matrix_y(u32, s32);
 s32 push_matrix(void);
 s32 pop_matrix(void);
 f32 post_translate_matrix(void);
-}
-
-extern "C" {
-
 void TObjPlayer::draw_trail_pair() {
     push_matrix();
     ((f32 (*)(void *))post_translate_matrix)(((u8 *)this) + 0x20);
@@ -232,7 +207,6 @@ void TObjPlayer::draw_trail_pair() {
 
 }
 
-#include "types.h"
 struct Vec_8009A640 { f32 x, y, z; };
 
 struct Pair_8009A640 { f32 ax, ay, az, aw; f32 bx, by, bz, bw; };
@@ -260,9 +234,6 @@ f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 u32 __cvt_fp2unsigned();
 extern u32 bringer_effect_color_table[];
 void update_expanding_fade_effect(Obj_8009A4B8 *self);
-}
-
-extern "C" {
 
 void update_expanding_fade_effect(Obj_8009A4B8 *self) {
     switch (self->state) {
@@ -333,12 +304,6 @@ void TUnk_8048FE7C::sub_8009A640() {
     }
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 extern s32 bringer_tp_absorb_ring_vtable[];
 
 void *__dt__13TUnk_8048FE7CFv(void *arg0, s16 arg1) {
@@ -354,20 +319,13 @@ void *__dt__13TUnk_8048FE7CFv(void *arg0, s16 arg1) {
 
 }
 
-#include "types.h"
-
 struct RecoveredGlobal_8009A704_lbl_8048FE7C {
     s32 value;
     u8 remaining[0x14];
 };
 
 extern "C" {
-extern s32 bringer_tp_absorb_effect_name;
 u8 *construct_bringer_tp_absorb_ring(u8 *arg0, u8 *arg1, u8 *arg2, f32 farg0);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8009A704_lbl_8048FE7C_size[sizeof(RecoveredGlobal_8009A704_lbl_8048FE7C) == 0x18 ? 1 : -1];
 u8 *construct_bringer_tp_absorb_ring(u8 *arg0, u8 *arg1, u8 *arg2, f32 farg0) {
     __ct__7TObjectFP7TObject(arg0, arg1);
@@ -403,18 +361,8 @@ s32 is_vec_xz_cross_negative(void *, void *);
 s32 rotate_xz_pair_by_angle(void *, void *, int);
 extern s32 bringer_rush_effect_vtable[];
 extern s32 bringer_rush_effect_name;
-}
-
-#include "types.h"
-
-extern "C" {
-
 typedef Vec_8009A640 Vec_8009A7A4;
 s32 rand();
-}
-
-extern "C" {
-
 void bringer_effect_cleanup_noop(void) {  }
 
 void init_bringer_effect_tables(void) {

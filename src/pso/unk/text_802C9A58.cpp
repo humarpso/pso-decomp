@@ -12,10 +12,6 @@ extern u8 bm_obj_jungle_nokogiri_resource_descriptor[];
 extern s32 seabed_suiso_linked_switch_counts[5];
 extern s32 seabed_suiso_switch_counts[5];
 extern void *lbl_805D6808;
-}
-
-extern "C" {
-
 void TObjSeabedSuisoBrakable::load_shared_models() {
     void *p;
     s32 i;

@@ -45,18 +45,11 @@ extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 void TObjPlayer__sub_802E0468(long long arg1, u8 *arg2, f32 farg0);
 bool fn_802E0454(u8 *arg0);
-}
-
-extern "C" {
-
 void TAdMultiConfirmGC__sub_802E03D0(void* p);
 void TAdMultiConfirmGC__sub_802E0448(void* p);
 
 typedef struct Stack_802E0468 Stack_802E0468;
 
-}
-
-extern "C" {
 s32 post_translate_matrix(void *);
 void TObjPlayer__sub_802E0580(void *, int, void *);
 s32 rotate_matrix_y(int, int);
@@ -64,17 +57,7 @@ s32 push_matrix_from();
 s32 push_matrix();
 s32 pop_matrix();
 s32 set_global_param__8TObjFishFl();
-}
-
-extern "C" {
-
 int set_motion_interpolation_flag__10TObjMotionFv(void*);
-
-}
-
-extern "C" {
-
-void set_cursor_index__17TAdMultiConfirmGCFPvi(void *arg0, s32 arg1);
 
 }
 
@@ -87,15 +70,8 @@ extern "C" {
 s32 set_animation__10TObjPlayerFPvs(void *, int);
 extern RecoveredGlobal_802E0784_lbl_804E2F78 lbl_804E2F78;
 extern u8 *TAdMultiPlyChrSelectGC__resource_bundle;
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_802E0784_lbl_804E2F78_size[sizeof(RecoveredGlobal_802E0784_lbl_804E2F78) == 0x90 ? 1 : -1];
 
-}
-
-extern "C" {
 s32 copy_player_visual_record(void *, void *);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 advance_animation_playback(void *);
@@ -104,10 +80,6 @@ u8 *get_char_table_entry__23TAdSinglePlyChrSelectGCFi(int);
 u8 *get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
 void *init_appearance_load_request__10TNpcPlayerFPvPvii(void *, void *, void *, int);
 void set_load_state__14TAdPlyStatusGCFPvi(void *, int);
-}
-
-extern "C" {
-
 #define F(o, t) (*(t *)((s8 *)(arg0) + (o)))
 
 }
@@ -129,20 +101,8 @@ s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_802E0B60_lbl_804E2F68 multi_chr_select_player_slot_table;
 extern RecoveredGlobal_802E0B60_lbl_804E3008 multi_chr_select_player_actor_ops;
 u8 *__dt__13TUnk_804E3008Fv(u8 *arg0, s16 arg1);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_802E0B60_lbl_804E2F68_size[sizeof(RecoveredGlobal_802E0B60_lbl_804E2F68) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_802E0B60_lbl_804E3008_size[sizeof(RecoveredGlobal_802E0B60_lbl_804E3008) == 0x38 ? 1 : -1];
-
-}
-
-extern "C" {
-
-}
-
-extern "C" {
 
 __declspec(section ".sdata2") void *const lbl_805DE8A8[1] = {
     (void *)0x3f800000,
@@ -196,10 +156,6 @@ __declspec(section ".sdata2") void *const lbl_805DE8D8[1] = {
 #define lbl_805DE8D0 (*(const f32 *)lbl_805DE8D0)
 #define lbl_805DE8D4 (*(const f32 *)lbl_805DE8D4)
 #define lbl_805DE8D8 (*(const f32 *)lbl_805DE8D8)
-
-}
-
-extern "C" {
 
 #pragma push
 #pragma fp_contract on

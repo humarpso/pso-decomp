@@ -1,7 +1,6 @@
 #include "types.h"
 #include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TWindowLockOn.h"
-#include "pso/misc/TKeyBoardControl.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
 #include "pso/misc/TWindowMakeTeam.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -63,7 +62,6 @@ struct Kb_80132650 {
 struct K_8013276C;
 extern "C" {
 void render__16TKeyBoardControlFv(void);
-void render__16TKeyBoardControlFv(void);
 s32 TKeyBoardControl__sub_803F0E90(s32, s32);
 s32 poll_keyboard_port(s32, s32 *);
 bool TKeyBoardControl__sub_801321B4(s32);
@@ -72,8 +70,6 @@ s32 TKeyBoardControl__sub_80132310(s32 arg0);
 u8 get_key_state__16TKeyBoardControlFPv(void* p);
 void reset_inactive_keys__16TKeyBoardControlFi(s32 arg0);
 s32 fn_803F1864(s32 *);
-s32 TKeyBoardControl__sub_803F0E90(s32, s32);
-s32 poll_keyboard_port(s32, s32 *);
 void TKeyBoardControl__sub_801327DC(s32 arg0, u8 arg1);
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
 s32 window_request_show(void *);
@@ -82,26 +78,13 @@ s32 TKeyBoardControl__sub_8025EC04(int);
 extern RecoveredGlobal_80131C5C_lbl_8050E208 controller_input_state;
 void run_task__16TKeyBoardControlFv(u8 *arg0);
 extern RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
-extern RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
-extern RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
-u8 get_key_state__16TKeyBoardControlFPv(void* p);
-extern RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 bool TKeyBoardControl__sub_80132274(s32 arg0);
 u8 TKeyBoardControl__sub_8013239C(K_8013239C *arg0, u8 arg1);
 s32 TKeyBoardControl__sub_801323C8(K_801323C8 *arg0, u8 arg1);
 s8 TKeyBoardControl__sub_803F1548(s32);
-s32 poll_keyboard_port(s32, s32 *);
-void reset_inactive_keys__16TKeyBoardControlFi(s32 arg0);
 void TKeyBoardControl__sub_80132598(Kb_80132650 *, u8, u32 *);
 void TKeyBoardControl__sub_80132650(Kb_80132650 *kb);
-u8 get_key_state__16TKeyBoardControlFPv(void* p);
-extern RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
-void TKeyBoardControl__sub_801327DC(s32 arg0, u8 arg1);
 void reset_state__16TKeyBoardControlFi(s32 arg0);
-}
-
-extern "C" {
-
 void TKeyBoardControl__sub_80131F5C(void);
 void TKeyBoardControl__sub_80131F60(void);
 void TWindow__close(void *);

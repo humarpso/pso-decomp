@@ -23,22 +23,13 @@ extern "C" {
 void TWindowCtrl__sub_8024A08C(void);
 extern RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158 TWindowGetComCard__received_guild_card_tags;
 void TWindowGetComCard__sub_8007B54C(void);
-extern RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158 TWindowGetComCard__received_guild_card_tags;
 s32 *TWindowGetComCard__sub_8007B594(void);
 s32 TWindowSubComCard__sub_8007B26C(s32);
-void TWindowCtrl__sub_8024A08C(void);
-extern RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158 TWindowGetComCard__received_guild_card_tags;
 void TWindowGetComCard__sub_8007B60C(s32 _w0);
-extern RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158 TWindowGetComCard__received_guild_card_tags;
 void init_guild_card_tag__17TWindowSubComCardFi(void *);
 void __construct_array(void *ptr, void *ctor, void *dtor, u32 size, u32 n);
-}
-
-extern "C" {
-
 void TWindowGetComCard__sub_8007B65C(void* p);
 void TWindowGetComCard__sub_8007B67C(void* p);
-s32 TWindowSubComCard__sub_8007B26C(s32);
 
 typedef char RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158_size[sizeof(RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158) == 0x240 ? 1 : -1];
 void TWindowGetComCard__sub_8007B54C(void) {

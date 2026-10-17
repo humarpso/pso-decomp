@@ -305,51 +305,22 @@ struct Vec3_80093888 { f32 x, y, z; };
 struct Timers_80093888 { u8 pad[0x440]; s32 t[2]; };
 
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
-s32 check_death_trigger__16TObjEneRe7BeruraFv();
-s32 transition_enemy_state(void *, s32);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
-extern const f32 TObjEneRe7Berura__data_805D9724;
-extern const f32 TObjEneRe7Berura__data_805D972C;
 extern const f32 lbl_805D976C;
 void TObjEneRe7Berura__sub_8009472C(u8 *arg0, s32 arg1);
-s32 check_death_trigger__16TObjEneRe7BeruraFv();
-s32 transition_enemy_state(void *, s32);
-s32 advance_animation_playback();
-extern const f32 TObjEneRe7Berura__data_805D9724;
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 rotate_xz_pair_by_angle(void *, void *, s32);
 void *create_particle_emitter(void *, s32);
-s32 check_death_trigger__16TObjEneRe7BeruraFv();
 s32 launch__21TObjEneRe7BeruraPunchFll(s32, s32, void *, void *);
-s32 transition_enemy_state(void *, s32);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback();
-s32 play_sound_effect(s32, u32, s16, s32);
 s32 vec3_add_to(void *, void *);
 extern f32 TObjEneRe7Berura__animation_definitions[];
 extern Tbl_80093C80 TObjEneRe7Berura__detached_part_states[];
 extern const f32 TObjEneRe7Berura__data_805D9738;
 extern const f32 lbl_805D975C;
 void TObjEneRe7Berura__sub_80093C80(u8 *arg0, s32 arg1);
-void VecCopy__FP3VecPC3Vec(void *, void *);
-s32 transition_enemy_state(void *, s32);
-extern const f32 TObjEneRe7Berura__data_805D9724;
 void TObjEneRe7Berura__sub_80094624(u8 *arg0, s32 arg1);
 s32 TObjEneRe7Berura__sub_80094DB4(void *);
-s32 transition_enemy_state(void *, s32);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 advance_animation_playback();
 void update_technique_slot__10TTecRaFoieFl(s32);
-s32 play_persistent_sound(s32, void *, void *, s32, s32);
-}
-
-extern "C" {
-
-s32 transition_enemy_state(void *, s32);
-s32 advance_animation_playback();
-
 extern const f32 lbl_805D973C;
 }
 

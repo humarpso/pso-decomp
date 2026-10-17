@@ -32,12 +32,6 @@ struct VObj_8016A604 : Base_8016A604 {
 extern "C" {
 s32 play_sound_effect(int, void *, int, int);
 extern s32 enable_v2_features;
-s32 play_sound_effect(int, void *, int, int);
-extern s32 enable_v2_features;
-}
-
-extern "C" {
-
 void TOKey::vfunc_23() {
     s32 arg0 = (s32)this;
     u32 temp_r3;

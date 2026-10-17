@@ -39,9 +39,6 @@ s32 strncpy(void *, s32, s32);
 extern u8 TObjBagWarnWin__message_window_size[];
 extern const f32 lbl_805D90C8;
 extern const f32 lbl_805D90CC;
-}
-
-extern "C" {
 
 s32 TObjBagWarnWin::should_show_warning(void *arg0) {
     Ctrl_8006EC20 *ctrl;

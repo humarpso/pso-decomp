@@ -152,15 +152,9 @@ void interpolate_motion_quaternion_keys(u32 keys, u32 count, s32 output,
                                         f32 frame);
 u32 find_motion_key_partition_u32(u8 *base, u32 stride, u32 hi, u32 key);
 void interpolate_spline_cyclic_cubic(struct SplineKey_803D7288 *keys, u32 count, f32 frame, f32 *output);
-extern RecoveredGlobal_803D662C_lbl_8058D4D0 camera_clip_parameters;
-extern G_803D6688 lbl_8058D4F8;
 extern const f32 lbl_805E0E10;
-}
-
-extern "C" {
 void find_motion_key_interval(void *, s32, s32 count, f32 t, void *, void *, void *);
 void interpolate_motion_vector_keys(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
-void find_motion_key_interval(void *, s32, s32 count, f32 t, void *, void *, void *);
 extern const f32 lbl_805E0E50;
 void interpolate_motion_vector_keys_xy(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
 void C_MTXLookAt(void *, void *, void *, void *);
@@ -168,70 +162,38 @@ extern u8 *current_matrix;
 void set_camera_look_at(u8 *arg0, u8 *arg1, u8 *arg2);
 extern f32 motion_blend_factor;
 void bind_motion_blend_channels(u8 *arg0, f32 farg0);
-extern RecoveredGlobal_803D662C_lbl_8058D4D0 camera_clip_parameters;
 extern const f32 lbl_805E0E00;
 extern const f32 lbl_805E0E04;
 extern RecoveredGlobal_803D77C0_lbl_8047E3C8 lbl_8047E3C8;
 extern RecoveredGlobal_803D77C0_lbl_804FA500 lbl_804FA500;
 extern RecoveredGlobal_803D77C0_lbl_804FA50C motion_angle_sampler_table;
 extern RecoveredGlobal_803D77C0_lbl_804FA51C lbl_804FA51C;
-extern u8 *current_motion_context;
 extern s32 motion_packed_rotation_mode;
-void select_motion_sampler(s32 *arg0, f32 farg0);
 void bind_motion_context(s32 arg0, f32 farg0);
 extern RecoveredGlobal_803D78A8_lbl_8058CAB8 lbl_8058CAB8;
-extern u8 *current_motion_context;
-void select_motion_context(s32 arg0);
 s32 translate_matrix(s32, f32, f32, f32);
-extern u8 *current_motion_context;
 void advance_motion_row(void);
-u32 find_motion_key_partition_u32(u8 *base, u32 stride, u32 hi, u32 key);
 u32 find_motion_key_partition_u16(u8 *base, u32 stride, u32 hi, u32 key);
-extern u8 *current_motion_context;
 void set_motion_row_stride(s32 n);
 void rotate_matrix_by_node_angles(void *, int);
 void scale_current_matrix(void *);
 void post_translate_matrix(void *);
 void compose_motion_node_matrix(void *arg0);
 s32 blend_motion_poses(void *, void *, void *, void *, void *);
-void rotate_matrix_by_node_angles(void *, int);
-void scale_current_matrix(void *);
-void post_translate_matrix(void *);
 void TCameraCtrl__sub_803D65F8(u8 *);
 void set_camera_look_at(u8* eye, u8* target, u8* up);
 void set_matrix_identity(s32);
 extern u8 lbl_804FA4F0[];
-extern G_803D6688 lbl_8058D4F8;
 extern const f32 lbl_805E0E08;
 void set_screen_size(f32 farg0, f32 farg1);
-extern u8 *current_motion_context;
-s32 sample_motion_vector_channel(s32 arg0);
-extern u8 *current_motion_context;
-s32 TObjPlayer__sub_803D6C1C(s32 arg0);
-extern u8 *current_motion_context;
-extern u8 *current_motion_context;
-u32 find_motion_key_partition_u16(u8 *base, u32 stride, u32 hi, u32 key);
 void find_motion_key_interval_u16(u8 *keys, u32 stride, u32 count, f32 t, u16 **k0, u16 **k1, f32 *frac);
-void select_motion_sampler(s32 *arg0, f32 farg0);
-s32 sample_motion_vector_channel(s32 arg0);
 s32 TObjPlayer__sub_803D7FD0(void);
 s32 TObjPlayer__sub_803D7FD8(void);
-extern u8 *current_motion_context;
 void bind_motion_channel_samplers(int arg0, f32 farg0);
-void advance_motion_row(void);
-extern u8 *current_motion_context;
 s32 sample_motion_node_transform(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
-void blend_quaternions_nlerp(void *a, void *b, void *out, f32 t);
 void euler_zyx_to_quaternion(u8 *arg0, u8 *arg1);
 void euler_yxz_to_quaternion(u8 *arg0, u8 *arg1);
 extern const f32 lbl_805E0E88;
-}
-
-extern "C" {
-
-s32 TObjPlayer__sub_803D7FD0(void);
-s32 TObjPlayer__sub_803D7FD8(void);
-
 void TCameraCtrl::update_camera_state(f32 _w0, f32 _w1, f32 _w2) {
     TCameraCtrl::translate_view_negated(_w0, _w1, _w2);
 }

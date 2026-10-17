@@ -24,10 +24,6 @@ s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 is_player_input_active(int);
 extern RecoveredGlobal_80248CF4_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DCBA8;
-}
-
-extern "C" {
-
 void *__dt__13TUnk_804CE7E8Fv(void *arg0, s16 arg1);
 s32 draw_window_frame(void *, s32);
 s32 get_draw_context__11TWindowBaseFPv();

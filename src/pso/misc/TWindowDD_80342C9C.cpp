@@ -13,16 +13,6 @@ s32 TWindowDD__sub_80347C50();
 s32 TWindowDD__sub_803482B0(void *);
 extern s32 TWindowDD__window_mode;
 void TWindowDD__sub_80342D14(u8 *arg0);
-}
-
-extern "C" {
-
-s32 apply_entry_layout__9TWindowDDFPv(void *);
-s32 TWindowDD__sub_803435A0(void *);
-s32 update_selection_state__9TWindowDDFPv(void *);
-s32 TWindowDD__sub_80347C50();
-s32 TWindowDD__sub_803482B0(void *);
-
 void TWindowDD::update_transition() {
     TWindowDD__sub_80347C50();
     update_selection_state__9TWindowDDFPv(this);

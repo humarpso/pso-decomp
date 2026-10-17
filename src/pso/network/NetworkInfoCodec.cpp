@@ -62,21 +62,10 @@ extern char network_info_config_key_url[4];
 extern s32 network_info_config_field_handled;
 extern u32 network_info_unparsed_config_length;
 s32 parse_network_info_config_line(char *s, u32 n, NetworkInfoConfig *q);
-char *strncpy(char *, const char *, unsigned long);
-int atoi(const char *);
-extern s32 network_info_config_field_handled;
 s32 parse_network_info_config_decimal(char *s, u32 n);
-char *strncpy(char *, const char *, unsigned long);
 s32 parse_hex_string(char *);
-extern s32 network_info_config_field_handled;
 s32 parse_network_info_config_hex(char *s, u32 n);
-char *strncpy(char *, const char *, unsigned long);
-extern s32 network_info_config_field_handled;
 s32 copy_network_info_config_string(char *arg0, char *arg1, u32 arg2, u32 arg3);
-}
-
-extern "C" {
-
 #pragma push
 #pragma use_lmw_stmw off
 #pragma optimization_level 2
@@ -316,28 +305,15 @@ extern "C" {
 extern NetworkInfoCipherPoolBinding network_info_cipher_pool_binding;
 void release_network_info_cipher_key(u32 *mask);
 void copy_network_info_cipher_block(u32 *dst, u32 *src);
-extern NetworkInfoCipherPoolBinding network_info_cipher_pool_binding;
 void clear_network_info_cipher_pool(void);
-extern NetworkInfoCipherPoolBinding network_info_cipher_pool_binding;
 void bind_network_info_cipher_pool(u32 *p, s32 n);
 s32 parse_hex_string(char *s);
-s32 parse_netinfo(char *, u32, NetworkInfoConfig *);
-void bind_network_info_cipher_pool(u32 *p, s32 n);
-void clear_network_info_cipher_pool(void);
-void release_network_info_cipher_key(u32 *mask);
 extern NetworkInfoCipherWorkspace network_info_cipher_workspace;
 s32 decode_network_info_payload(u8 *arg0, u8 *arg1, u32 arg2, NetworkInfoConfig *arg3);
 s32 decrypt_network_info_cipher_blocks(u32 *key, u8 *src, s32 len, u8 *dst);
 void decrypt_network_info_cipher_round(u32 *arg0, u32 *arg1);
-void copy_network_info_cipher_block(u32 *dst, u32 *src);
-void decrypt_network_info_cipher_round(u32 *arg0, u32 *arg1);
 void decrypt_network_info_cipher_block(u32 *arg0, NetworkInfoCipherBlock *arg1, NetworkInfoCipherBlock *arg2);
-void copy_network_info_cipher_block(u32 *dst, u32 *src);
-extern NetworkInfoCipherPoolBinding network_info_cipher_pool_binding;
 u32 *allocate_network_info_cipher_key(s32 arg0);
-}
-
-extern "C" {
 
 #pragma push
 #pragma scheduling off
@@ -519,9 +495,6 @@ void release_network_info_cipher_key(u32 *mask) {
 }
 #pragma pop
 
-}
-
-extern "C" {
 NetworkInfoCipherWorkspace network_info_cipher_workspace;
 char network_info_unparsed_config_lines[0x400];
 s32 network_info_config_field_handled;

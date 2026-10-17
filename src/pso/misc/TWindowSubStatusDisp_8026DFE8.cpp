@@ -26,12 +26,6 @@ extern s32 item_list_window_vtable[];
 extern s32 local_client_id;
 u8 * get_window_layout_position(s32);
 s32 fn_802683F4(void *, int, void *, void *);
-s32 sub_8026DE94__13TUnk_804D0948Fv(void *, void *);
-extern s32 item_list_window_vtable[];
-}
-
-extern "C" {
-
 int update_item_list_window(void*);
 void __dl__7TObjectFPv(void *);
 
@@ -64,8 +58,6 @@ void TUnk_804D0948::render() {
 #pragma pop
 
 void TUnk_804D0948::run_task() { update_item_list_window(this); }
-
-extern s32 item_list_window_vtable[];
 
 void *TWindowSubStatusDisp::deleting_dtor(s16 arg1) {
     if (this != NULL) {

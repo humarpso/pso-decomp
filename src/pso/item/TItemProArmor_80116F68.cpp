@@ -10,19 +10,11 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_material_item(u8 *arg0);
 void * construct_technique_disk_item(void *arg0, void *arg1, void *arg2);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-extern s32 tl_05;
 u8 *create_technique_disk_item(u8 *arg0);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-extern s32 tl_05;
 u8 *create_telepipe_item(u8 *arg0);
 s32 set_item_owner_technique_level(void *, void *, int);
 s32 get_slot_count__14TItemProShieldFv(void *);
 void technique_disk_apply_use(s32 arg0);
-}
-
-extern "C" {
-
 void *__dt__13TUnk_8049FC90Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_8049FD48Fv(void *arg0, s16 arg1);
 void TItemObject__ct(void *);
@@ -38,8 +30,6 @@ void *TUnk_8049FBC0::construct_material(void *_w1, void *_w2) {
     *(s32 **)((s8 *)this + 0x18) = lbl_8049FBC0;
     return this;
 }
-
-extern s32 lbl_8049FC90[];
 
 extern s32 lbl_8049FC90[];
 
@@ -109,8 +99,6 @@ void *__dt__13TUnk_8049FD48Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern s32 lbl_8049FD48[];
 
 void *TUnk_8049FD48::init(void *_w1, void *_w2) {
     TItemObject__ct(this);

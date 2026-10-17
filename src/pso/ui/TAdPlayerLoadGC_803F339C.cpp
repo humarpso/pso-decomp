@@ -24,24 +24,10 @@ s32 CARDUnmount(s32 chan);
 s32 memset(void *, int, int);
 extern Slot_803F3478 TAdPlayerLoadGC__load_request_slots[];
 extern S_803F3328 lbl_805A29B0[];
-s32 memset(void *, int, int);
 s32 CARDProbe(s32 chan);
 char *strcpy(char *, const char *);
 u32 strlen(const char *);
-s32 memset(void *, int, int);
-extern Slot_803F3478 TAdPlayerLoadGC__load_request_slots[];
-extern Slot_803F3478 TAdPlayerLoadGC__load_request_slots[];
 s32 TAdPlayerLoadGC__sub_803F3998(s32 chan);
-char *strcpy(char *, const char *);
-u32 strlen(const char *);
-s32 memset(void *, int, int);
-extern Slot_803F3478 TAdPlayerLoadGC__load_request_slots[];
-extern S_803F3328 lbl_805A29B0[];
-}
-
-extern "C" {
-
-extern s32 lbl_805D7940;
 
 s32 TAdPlayerLoadGC::finish_load_slot_state4(s32 arg0, s32 *arg1) {
     s32 r;

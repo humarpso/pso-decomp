@@ -30,10 +30,6 @@ extern const f32 lbl_805DD6B4;
 void play_sound_effect(s32, s32, s32, s32);
 s32 get_slot_flag__26TWindowSubQuestBoardSelectFic(void *, u8);
 s32 is_shortcut_active__26TWindowSubQuestBoardSelectFv();
-extern RecoveredGlobal_8027D888_lbl_8050E208 controller_input_state;
-}
-
-extern "C" {
 
 #define TBL_8027D6A0 ((Ent_8027D6A0 *)&controller_input_state)
 s32 TWindowSubQuestBoardSelect::handle_page_input() {

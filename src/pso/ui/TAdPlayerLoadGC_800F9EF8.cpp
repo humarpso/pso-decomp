@@ -11,10 +11,6 @@ extern u8 resource_load_task_root_dtor_registration[];
 extern s32 lbl_805D2B10;
 extern s32 disc_read_filename;
 void TLobby__sub_800F9F08(void);
-}
-
-extern "C" {
-
 s32 TLoadCtrl__sub_800F9F00(void);
 
     extern int TAdPlayerLoadGC__load_state;

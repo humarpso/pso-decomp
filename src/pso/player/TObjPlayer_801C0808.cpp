@@ -32,10 +32,6 @@ extern "C" {
 s32 TFontSmallLobby__sub_801C0228(void *, void *);
 #define TFontSmallLobby__sub_801C0228 ((int (*)(void*))TFontSmallLobby__sub_801C0228)
 void *TObjPlayer__sub_801C092C(void *arg0, void *arg1);
-}
-
-extern "C" {
-
 void apply_status_effect__10TObjPlayerFPv(void* p);
 int TFontSmallLobby__sub_801C01BC(void*);
 int TLobby__send_and_handle_60(void*);
@@ -74,21 +70,6 @@ void *TObjPlayer__sub_801C092C(void *arg0, void *arg1) {
 typedef char RecoveredGlobal_801D2CF4_lbl_804C43CC_size[sizeof(RecoveredGlobal_801D2CF4_lbl_804C43CC) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_801D2CF4_lbl_804C43D8_size[sizeof(RecoveredGlobal_801D2CF4_lbl_804C43D8) == 0x10 ? 1 : -1];
 
-}
-
-extern "C" {
-extern const f32 TObjPlayer__data_805DC278;
-}
-
-extern "C" {
-void apply_status_effect__10TObjPlayerFPv(void* p);
-
-int bswap_16__FPUs(void*);
-int bswap_32__FPUl(void*);
-int read_be16_field2__10TObjPlayerFv(void*);
-int TFontSmallLobby__sub_801C01BC(void*);
-int TLobby__send_and_handle_60(void*);
-
 void TObjPlayer::set_code_12_3() { *(u8*)((char*)this + 0x0) = 12; *(u8*)((char*)this + 0x1) = 3; }
 void TObjPlayer::reinit_update_sub4_and_send() { apply_status_effect__10TObjPlayerFPv(this); TLobby__send_and_handle_60(this); }
 void TObjPlayer::set_code_161_1() { *(u8*)((char*)this + 0x0) = 161; *(u8*)((char*)this + 0x1) = 1; }
@@ -109,8 +90,6 @@ void TObjPlayer::build_6x2C_impose_hold_packet() {
     *(s8 *)((s8 *)((u8 *)this) + 1) = 5;
 }
 
-}
-
 #undef TFontSmallLobby__sub_801C0228
 
 #define TFontSmallLobby__sub_801C0228 ((s32 (*)())TFontSmallLobby__sub_801C0228)
@@ -118,9 +97,6 @@ void TObjPlayer::build_6x2C_impose_hold_packet() {
 #define bswap_32__FPUl ((s32 (*)(s32))bswap_32__FPUl)
 #define bswap_pkt_u16x2_u32__10TObjPlayerFPv ((s32 (*)())bswap_pkt_u16x2_u32__10TObjPlayerFPv)
 #define read_be16_field2__10TObjPlayerFv ((s32 (*)())read_be16_field2__10TObjPlayerFv)
-
-extern "C" {
-
 void TObjPlayer__sub_801C0C04(u8 *arg0);
 void TObjPlayer__sub_801C0D7C(u8 *arg0);
 void init_6x27_use_item_cmd(u8 *arg0);
@@ -221,18 +197,12 @@ void init_6x27_use_item_cmd(u8 *arg0) {
 
 void TObjPlayer::send_use_item_cmd() { bswap_cmd_u32(); TLobby__send_and_handle_60((void*)((void*)(this))); }
 
-}
 #undef TFontSmallLobby__sub_801C0228
 #undef bswap_16__FPUs
 #undef bswap_32__FPUl
 #undef bswap_pkt_u16x2_u32__10TObjPlayerFPv
 #undef read_be16_field2__10TObjPlayerFv
 
-extern "C" {
-s32 TFontSmallLobby__sub_801C0228(void *, void *);
-int TLobby__send_and_handle_60(void*);
-int bswap_16__FPUs(void*);
-int bswap_32__FPUl(void*);
 void bswap_pkt_u16x2_u32x2__10TObjPlayerFPv(void*);
 }
 
@@ -308,27 +278,11 @@ struct O_801C12C8 { u8 a; u8 b; u8 pad[2]; s32 c; s32 arr[30]; };
 
 extern "C" {
 u8 *TObjPlayer__sub_801C1268(u8 *arg0, u8 *arg1);
-extern const f32 TObjPlayer__data_805DC278;
 u8 *TObjPlayer__sub_801C1664(u8 *arg0, u8 *arg1);
-s32 bswap__9TItemDataFv(s32);
-s32 TFontSmallLobby__sub_801C0228(void *, void *);
 u8 *TObjPlayer__sub_801C0F10(u8 *arg0, u8 *arg1);
-int TLobby__send_and_handle_60(void*);
-int bswap_16__FPUs(void*);
-int bswap_32__FPUl(void*);
-int read_be16_field2__10TObjPlayerFv(void*);
 void bswap_fields__10TObjPlayerFi(s32 arg0);
-s32 TFontSmallLobby__sub_801C0228(void *, void *);
 u8 *TObjPlayer__sub_801C106C(u8 *arg0, u8 *arg1);
-extern const f32 TObjPlayer__data_805DC278;
-}
-
-extern "C" {
-
 void bswap_pkt_u16x2_u32x2__10TObjPlayerFPv(void* p);
-int TLobby__send_and_handle_60(void*);
-int bswap_16__FPUs(void*);
-int bswap_32__FPUl(void*);
 
 void TObjPlayer::bswap_cmd_item_data() {
     s32 arg0 = (s32)this;
@@ -488,8 +442,6 @@ void TObjPlayer::build_6xAE_set_animation_state_packet() {
 
 void TObjPlayer::bswap_pkt_u32x5() { read_be16_field2__10TObjPlayerFv(this); bswap_32__FPUl((char*)this + 0x4); bswap_32__FPUl((char*)this + 0x8); bswap_32__FPUl((char*)this + 0xc); bswap_32__FPUl((char*)this + 0x10); bswap_32__FPUl((char*)this + 0x14); }
 
-extern const f32 TObjPlayer__data_805DC278;
-
 u8 *TObjPlayer__sub_801C1664(u8 *arg0, u8 *arg1) {
     TFontSmallLobby__sub_801C0228((void *)((void *)(arg0)), (void *)(arg1));
     *(s32 *)((s8 *)arg0 + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
@@ -508,29 +460,15 @@ void TObjPlayer::init_cmd_6x20() {
     *(s8 *)((s8 *)this + 1) = 6;
 }
 
-}
-
 #define TFontSmallLobby__sub_801C0228 ((int (*)(void*))TFontSmallLobby__sub_801C0228)
 #define TLobby__send_and_handle_60 ((s32 (*)(s32))TLobby__send_and_handle_60)
 #define bswap_16__FPUs ((s32 (*)(s32))bswap_16__FPUs)
 #define bswap_32__FPUl ((s32 (*)(s32))bswap_32__FPUl)
 #define bswap_pkt_u16x2_u32x2__10TObjPlayerFPv ((int (*)(void*))bswap_pkt_u16x2_u32x2__10TObjPlayerFPv)
-
-extern "C" {
 s32 send_subcommand_to_client__6TLobbyFUl(s32, s32);
 s32 send_60_sized__6TLobbyFv(s32);
-int read_be16_field2__10TObjPlayerFv(void* p);
 int read_be16_field2__10TObjPlayerFv(void* p);
 void init_6x1F_floor_packet(u8 *arg0);
-s32 send_60_sized__6TLobbyFv(s32);
-int read_be16_field2__10TObjPlayerFv(void* p);
-int read_be16_field2__10TObjPlayerFv(void* p);
-}
-
-extern "C" {
-
-s32 send_subcommand_to_client__6TLobbyFUl(s32, s32);
-s32 send_60_sized__6TLobbyFv(s32);
 
 void TObjPlayer::send_player_floor_packet(void* a1) { bswap_pkt_u16x2_u32x2__10TObjPlayerFPv(this); send_subcommand_to_client__6TLobbyFUl((s32)(this), (s32)(a1)); }
 

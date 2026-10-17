@@ -1,9 +1,7 @@
 #include "pso/item/TItemEffLavis.h"
 
-extern "C" {
 extern const char* TItemEffLavis__class_name;
 extern const f32 lbl_805DAB40;
-}
 
 void TItemEffLavis::hook() {}
 TItemEffLavis::~TItemEffLavis() {}

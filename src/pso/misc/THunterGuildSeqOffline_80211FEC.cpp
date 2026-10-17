@@ -18,27 +18,14 @@ f32 xz_distance_squared(void *, void *);
 s32 get_player_by_client_id(int);
 extern s32 TLobby__designated_client_id;
 extern f32 THunterGuildSeqOffline__data_805DC648;
-f32 xz_distance_squared(void *, void *);
-s32 get_player_by_client_id(int);
 extern s32 local_client_id;
-extern s32 TLobby__designated_client_id;
-extern f32 THunterGuildSeqOffline__data_805DC648;
 s32 THunterGuildSeqOffline__sub_80212074(void);
 s32 is_flag_set__6TLobbyFv();
-f32 xz_distance_squared(void *, void *);
-s32 get_player_by_client_id(int);
-extern s32 TLobby__designated_client_id;
-extern f32 THunterGuildSeqOffline__data_805DC648;
-s32 get_player_by_client_id(int);
 void TWindow__close(void *);
 void *refresh_with_default_list__20TWindowSubStatusDispFll(void *, void *);
 void *get_window_layout_position(s32);
 char *strcpy(char *, const char *);
 extern u8 member_name_window_pos[];
-}
-
-extern "C" {
-
 int THunterGuildSeqOffline__sub_80211FEC(int a0);
 int THunterGuildSeqOffline__sub_80212000(int a0);
 int THunterGuildSeqOffline__sub_80212060(int a0);

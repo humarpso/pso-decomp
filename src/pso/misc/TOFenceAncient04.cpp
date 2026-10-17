@@ -13,14 +13,12 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern const char lbl_80441648[];
 extern const char lbl_80441660[];
 extern const char lbl_80441678[];
 extern const char *bm_fd_obj_n_saku_6x4_model_names[2];
 extern const char *bm_fd_obj_n_saku_6x4_motion_names[2];
 extern BmlResourceDescriptor TOFenceAncient04_resource_descriptor;
-}
 
 extern "C" {
 
@@ -178,9 +176,6 @@ u8 *TOFenceAncient04__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_fd_obj_n_saku_6x4_model_names[2] = { (const char *)lbl_80441648, NULL };
 __declspec(section ".data") const char *bm_fd_obj_n_saku_6x4_motion_names[2] = { (const char *)lbl_80441660, NULL };
 BmlResourceDescriptor TOFenceAncient04_resource_descriptor = { (const char *)lbl_80441678, bm_fd_obj_n_saku_6x4_model_names, bm_fd_obj_n_saku_6x4_motion_names, 1, 1 };

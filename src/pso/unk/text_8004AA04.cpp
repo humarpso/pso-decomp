@@ -26,10 +26,6 @@ s32 get_bml_model(s32, s32);
 s32 alloc_tables__6TLobbyFll(s32, s32, s32);
 s32 *mem_alloc(s32);
 void init_model_node_tables(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 arg2);
-}
-
-extern "C" {
-
 void fn_8004AA04(Obj_8004AA04 *self) {
     s32 i;
     for (i = 0; i < self->count; i++) {

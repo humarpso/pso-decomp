@@ -56,26 +56,10 @@ u8 *TWindowReturnCity__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 queue_destruction__7TObjectFv(void *);
 u32 __nw__7TObjectFUl(s32);
 s32 TWindowReturnCity__sub_8024ACA8(s32);
-void return_to_city_after_defeat(void);
-extern s32 lbl_805D55C0;
 extern s32 tl_00;
-extern int TWindowReturnCity__client_scan_index;
-s32 queue_destruction__7TObjectFv(void *);
-u32 __nw__7TObjectFUl(s32);
-s32 TWindowReturnCity__sub_8024ACA8(s32);
-void return_to_city_after_defeat(void);
-extern s32 lbl_805D55C0;
-extern s32 tl_00;
-extern int TWindowReturnCity__client_scan_index;
-}
-
-extern "C" {
-
-void TWindowCtrl__sub_8026D4E8(void);
 void TWindowReturnCity__sub_8026D4BC(void);
 void TWindowReturnCity__sub_8026D4C0(void);
 void *__dt__17TWindowReturnCityFv(void *arg0, s16 arg1);
-void *get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -102,8 +86,6 @@ s32 TWindowReturnCity::query_battle_state() {
 }
 
 void TWindowReturnCity::render() {  }
-
-extern s32 __vt__17TWindowReturnCity[];
 
 void TWindowReturnCity::run_task() {
     s32 temp_r0;
@@ -192,7 +174,6 @@ u8 *TWindowReturnCity__ct(u8 *arg0, s32 arg1, s32 arg2) {
 
 void TWindowReturnCity__sub_8026D4BC(void) {  }
 
-    extern int TWindowReturnCity__client_scan_index;
 void TWindowReturnCity__sub_8026D4C0(void) { TWindowReturnCity__client_scan_index = 4; }
 
 extern void *TWindowCtrl__active_window;
@@ -202,8 +183,6 @@ void TWindowReturnCity::clear_flag_bit5() {
         *(u16 *)((s8 *)TWindowCtrl__active_window + 0x1C) = (u16) (*(u16 *)((s8 *)TWindowCtrl__active_window + 0x1C) & 0xFFFFFFDF);
     }
 }
-
-extern void *TWindowCtrl__active_window;
 
 void TWindowCtrl__sub_8026D4E8(void) {
     if ((void *) TWindowCtrl__active_window != NULL) {

@@ -26,7 +26,6 @@ void TObjPlayer::approach_shield_effect() {
     }
 }
 
-extern f32 lbl_805DAEE0;
 extern f32 lbl_805DAEEC;
 
 void TUnk_804A5248::update_attack() {

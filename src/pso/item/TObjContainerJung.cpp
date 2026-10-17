@@ -48,7 +48,6 @@ extern s32 TObjContainerJung__bml_model_resource;
 s32 TObjFish__sub_8001EDB0(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8018D47C_lbl_804B7134 TObjContainerJung__resource_descriptor;
-extern s32 TObjContainerJung__bml_model_resource;
 extern s32 TObjContainerJung__bml_aux_handle;
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 init_collision_body_parts(void *, s32, s32);
@@ -57,46 +56,31 @@ extern RecoveredGlobal_8018D85C_lbl_804B7168 container_jung_collision_desc;
 extern s32 __vt__17TObjContainerJung[];
 extern s32 TObjContainerJung__name;
 u8 *TObjContainerJung__ct(u8 *arg0, s32 arg1, s32 _w2);
-u8 * get_bml_model(void *, int);
 s32 scale_matrix(s32, f32, f32, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object();
-extern s32 TObjContainerJung__bml_model_resource;
-extern s32 TObjContainerJung__bml_aux_handle;
 extern const f32 lbl_805DBD9C;
-u8 * get_bml_model(void *, int);
 void spawn_particle_effect_with_flags(void *, int, int);
 void construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
 void play_container_break_sound(void *);
 void *__nw__7TObjectFUl(int);
 extern Spawn_8018D4DC container_jung_debris_desc;
 extern Spawn_8018D4DC container_jung_spawn_params;
-extern s32 TObjContainerJung__bml_model_resource;
-extern s32 TObjContainerJung__bml_aux_handle;
 extern void *tl_05;
 void TObjContainerJung__vt77(const Obj_8018D4DC *self);
-}
-
-extern "C" {
-
 s32 TObjContainerJung__sub_8018D3B8(void);
 void *__dt__17TObjContainerJungFv(void *arg0, s16 arg1);
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 free_collision_body_parts(void *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
-void *__nw__7TObjectFUl(int);
-
-extern s32 TObjContainerJung__bml_aux_handle;
 
 s32 TObjContainerJung__sub_8018D3B8(void) {
     return TObjContainerJung__bml_aux_handle;
 }
-
-extern void *tl_05;
 
 u8 *TObjContainerJung::get_model_by_index(s32 arg0) {
     if ((void *) (*(u8 * *)&TObjContainerJung__bml_model_resource) != NULL) {
@@ -112,9 +96,6 @@ void *TObjContainerJung::create(void *arg0) {
     }
     return o;
 }
-
-extern s32 TObjContainerJung__bml_model_resource;
-extern s32 TObjContainerJung__bml_aux_handle;
 
 void TObjContainerJung::release() {
     TLobby__sub_8001FE7C(TObjContainerJung__bml_model_resource, 1);
@@ -236,8 +217,6 @@ void TObjContainerJung::vfunc_80() {
         return;
     }
 }
-
-extern s32 __vt__17TObjContainerJung[];
 
 void *__dt__17TObjContainerJungFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

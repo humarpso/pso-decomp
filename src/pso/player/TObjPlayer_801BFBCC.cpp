@@ -13,10 +13,6 @@ extern RecoveredGlobal_801BFBEC_lbl_804C3E38 lbl_804C3E38;
 void TObjPlayer__sub_801BFC90(O_801BFC90 *p);
 extern const f32 lbl_805DC2DC;
 int init_player_scale_state(void *arg0);
-}
-
-extern "C" {
-
 void TObjPlayer__sub_801BFD3C(void* p);
 int zero_vec3(void*);
 int reset_stat_scale_and_ring__10TObjPlayerFi(void*);

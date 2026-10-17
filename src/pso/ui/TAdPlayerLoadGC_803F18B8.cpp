@@ -24,12 +24,6 @@ extern s32 lbl_805D7940;
 s32 TAdPlayerLoadGC__sub_803F31BC(void);
 s32 memset(void *, int, int);
 s32 CARDClose(void *);
-s32 memset(void *, int, int);
-s32 memset(void *, int, int);
-}
-
-extern "C" {
-
 void *CARDGetDiskID(s32);
 s32 CARDSetDiskID(s32, void *);
 s32 CARDGetResultCode(s32);
@@ -56,8 +50,6 @@ s32 TAdPlayerLoadGC::get_or_set_channel_flag(s32 arg0, s32 arg1) {
     }
     return (&lbl_805D4700)[arg0];
 }
-
-extern s32 lbl_805D7940;
 
 s32 TAdPlayerLoadGC::get_load_state() {
     return lbl_805D7940;

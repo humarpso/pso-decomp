@@ -20,14 +20,9 @@ void *__dt__22TObjFogCollisionSwitchFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-
-extern "C" {
-
 void *TObjFogCollisionSwitch__ct(void *arg0);
 void TObjFogCollision__ct(void *);
 
-extern s32 __vt__22TObjFogCollisionSwitch[];
 extern void *lbl_805D2E7C;
 
 void *TObjFogCollisionSwitch__ct(void *arg0) {
@@ -90,13 +85,7 @@ extern char lbl_804400E0[];
 extern char lbl_805DB268;
 s32 record_fog_collision_hit(s32, s32, u8);
 int TObjFogCollision__sub_80153F68(void * _w0);
-int TObjFogCollision__sub_80153F70(void);
-}
-
-extern "C" {
-
 void *TObjFogCollisionSwitch__create(void *arg0);
-int TObjFogCollision__sub_80153F70(void);
 f32 horizontal_distance_squared(void *, s32);
 s32 get_player_by_client_id(u16);
 void *__nw__7TObjectFUl(int);

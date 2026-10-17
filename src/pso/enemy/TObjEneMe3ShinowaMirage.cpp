@@ -136,7 +136,6 @@ struct Self_800E3DFC : VB18_800E3DFC {
 };
 
 #include <stddef.h>
-#include "pso/enemy/TObjEneMe3ShinowaMirage.h"
 #include "pso/enemy/TObjEneMe3ShinowaReal.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer.h"
@@ -272,11 +271,8 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 TObjEneMe3Shinowa__sub_800E7724(void *);
 s32 find_entity_by_id(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-int transition_enemy_state(void*, int);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 queue_destruction__7TObjectFv(void *);
 s32 create_particle_emitter(s32, s32);
-int transition_enemy_state(void*, int);
 s32 advance_animation_playback(void *, int);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -285,30 +281,15 @@ extern const f32 TObjEneMe3ShinowaReal__data_805DA5CC;
 extern const f32 lbl_805DA5D0;
 void TObjEneMe3ShinowaReal__vt114(u8 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 queue_destruction__7TObjectFv(void *);
-s32 create_particle_emitter(s32, s32);
 s32 enemy_clear_target__12TObjEneDD_STFUs(void *);
 s32 transform_relative_position__9TObjEneDDFPv(void *, void *);
 s32 is_player_entity_id(u16);
-int transition_enemy_state(void*, int);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
-s32 advance_animation_playback(void *, int);
 s32 play_sound_effect(s32, void *, int, int);
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
-extern const f32 lbl_805DA5C8;
-extern const f32 TObjEneMe3ShinowaReal__data_805DA5CC;
-extern const f32 lbl_805DA5D0;
 extern const f32 lbl_805DA5D4;
 void TObjEneMe3ShinowaReal__vt112(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 void *__dt__23TObjEneMe3ShinowaMirageFv(void *arg0, s16 arg1);
 s32 enemy_set_target_id(void *, int);
-int transition_enemy_state(void*, int);
 u8 *TObjEneMe3ShinowaMirage__ct(u8 *, void *, u8 *, void *, void *);
 s16 obj_getField1c(void *);
 s32 fn_800E762C(void *);
@@ -317,8 +298,6 @@ extern s32 lbl_805D2AD0;
 extern const f32 lbl_805DA5C0;
 s32 TObjEneMe3ShinowaReal__sub_800E45CC(int, int);
 s32 set_chunk_material_color(s32);
-s32 find_entity_by_id(int);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__17TObjEneMe3ShinowaFv(void *, int);
 void *__nw__7TObjectFUl(int);

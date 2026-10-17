@@ -136,10 +136,6 @@ s32 play_sound_effect(s32, u32, s16, s32);
 extern const f32 lbl_805D8874;
 extern const f32 lbl_805D8878;
 s32 check_object_collisions__10TObjPlayerFv(void *, int);
-}
-
-extern "C" {
-
 s32 TLobby__sub_80049568();
 s32 is_locally_controlled__10TObjPlayerFPv();
 s32 send_6x2C_impose_hold(s32, void *, s32, s32, f32);
@@ -257,8 +253,6 @@ void TObjVoloptCage::update_capture() {
         break;
     }
 }
-
-extern struct VObj_800490E8_80048F40 *volopt_cage_breakup_model;
 
 #pragma push
 #pragma opt_common_subs off

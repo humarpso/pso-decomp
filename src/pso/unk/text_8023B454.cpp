@@ -18,10 +18,6 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(Vec_8023B454 *, const Vec_8023B454 *);
 TObjPlayer_8023B454 *resolve_hittable_target(int, int);
 s32 get_next_captured_target(TTecSlicerTargets_8023B454 *self, Vec_8023B454 *out_pos, u16 *out_id, s8 *out_part, f32 *out_f);
-}
-
-extern "C" {
-
 s32 get_next_captured_target(TTecSlicerTargets_8023B454 *self, Vec_8023B454 *out_pos, u16 *out_id, s8 *out_part, f32 *out_f) {
     TObjPlayer_8023B454 *hit;
     s32 found;

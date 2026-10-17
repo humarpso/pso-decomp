@@ -12,17 +12,12 @@ struct Stack_800BB218
 };
 
 #include <stddef.h>
-#include "pso/enemy/TObjEneDD.h"
 
 extern "C" {
 f32 fabs_float(f32);
 s32 csnVector(void *, void *, int);
 extern const f32 lbl_805D9EA4;
 u8 *csnVectorUnder(f32 *, void *, s32);
-}
-
-extern "C" {
-
 s32 VecCopy__FP3VecPC3Vec(void *, void *, s32);
 
 void TBoss5Gryphon::calc_shot_position(u8 *arg1, f32 farg0, f32 farg1, f32 farg2) {

@@ -11,10 +11,6 @@ s8 TObjPlayer__sub_801AFDBC();
 extern RecoveredGlobal_801D9514_lbl_804C49F0 lbl_804C49F0;
 u8 TObjPlayer__sub_801D9514(s32 arg0, s16 arg1);
 s32 TObjPlayer__sub_801D9E08();
-}
-
-extern "C" {
-
 typedef struct RecoveredGlobal_801D9514_lbl_804C49F0 RecoveredGlobal_801D9514_lbl_804C49F0;
 typedef char RecoveredGlobal_801D9514_lbl_804C49F0_size[((sizeof(RecoveredGlobal_801D9514_lbl_804C49F0)) == 0x30) ? (1) : (-1)];
 u8 TObjPlayer__sub_801D9514(s32 arg0, s16 arg1) {

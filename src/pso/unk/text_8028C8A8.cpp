@@ -2,9 +2,7 @@
 #include "pso/TChCrLoadGmNjReq.h"
 struct Obj_8028C8A8 { u8 pad[0x6c]; s32 f6c; };
 
-extern "C" {
 extern s32 chr_select_slot_state;
-}
 
 extern "C" {
 

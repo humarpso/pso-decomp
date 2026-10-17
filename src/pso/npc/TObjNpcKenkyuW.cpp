@@ -97,7 +97,6 @@ struct RecoveredGlobal_802A3CD8___vt__14TObjNpcKenkyuW {
 
 #include "pso/technique/TechniqueContact.h"
 #include "pso/npc/TObjNpcKenkyuW.h"
-#include "pso/player/TObjPlayer.h"
 #include "pso/misc/TLobby.h"
 #include "pso/npc/TObjNpcBase.h"
 #include "pso/npc/TObjNpcLappy.h"
@@ -163,11 +162,8 @@ s32 get_bml_model(int, int);
 s32 construct_male_npc_base(void *);
 extern s32 __vt__14TObjNpcKenkyuW[];
 extern s32 TObjNpcKenkyuW__name;
-extern u32 TObjNpcKenkyuW__model_resource;
 u8 *TObjNpcKenkyuW__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 obj_is_hit_receivable(void *);
-extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_list;
-void clear_technique_contacts__10TObjPlayerFv();
 extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_list;
 void clear_technique_contacts__10TObjPlayerFv();
 void VecCopy__FP3VecPC3Vec(void *, const void *);
@@ -179,37 +175,11 @@ TechniqueContactBody *find_actor_body_contact(void *, void *, f32);
 extern const f32 lbl_805DDF60;
 extern const f32 lbl_805DDF64;
 TechniqueContactList *TObjPlayer__sub_802A3DE8(Obj_802A3DE8 *self, void *src);
-extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_list;
-void clear_technique_contacts__10TObjPlayerFv();
-void VecCopy__FP3VecPC3Vec(void *, const void *);
-Vec_802A3DE8 *get_shoot_data__12TNeedleShootFv(void *);
-void vector_length(void *);
-Pl_802A3DE8 *get_player_data__10TObjPlayerFi(s32);
-s32 obj_getField1c(void *);
-TechniqueContactBody *find_actor_body_contact(void *, void *, f32);
 Pl_802A41CC *find_entity_by_id(u16);
-extern const f32 lbl_805DDF60;
-extern const f32 lbl_805DDF64;
-extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_list;
-void clear_technique_contacts__10TObjPlayerFv();
-void VecCopy__FP3VecPC3Vec(void *, const void *);
-Vec_802A3DE8 *get_shoot_data__12TNeedleShootFv(void *);
-void vector_length(void *);
-Pl_802A3DE8 *get_player_data__10TObjPlayerFi(s32);
-s32 obj_getField1c(void *);
-TechniqueContactBody *find_actor_body_contact(void *, void *, f32);
-extern const f32 lbl_805DDF60;
-extern const f32 lbl_805DDF64;
 TechniqueContactList *TObjPlayer__sub_802A3FDC(Obj_802A3FDC *self, void *src);
-}
-
-extern "C" {
-
 void *__dt__14TObjNpcKenkyuWFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
-
-extern u32 TObjNpcKenkyuW__model_resource;
 
 void TObjNpcKenkyuW::destroy_instance() {
     if ((u32) TObjNpcKenkyuW__model_resource != 0U) {
@@ -217,8 +187,6 @@ void TObjNpcKenkyuW::destroy_instance() {
         TObjNpcKenkyuW__model_resource = 0U;
     }
 }
-
-extern s32 __vt__14TObjNpcKenkyuW[];
 
 void TObjNpcKenkyuW::load_resource_instance() {
     s32 temp_r3;

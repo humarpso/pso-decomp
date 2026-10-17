@@ -90,8 +90,6 @@ extern s32 TOMonitorMachine01__scroll_mesh_ptrs[];
 extern s32 TOMonitorMachine01__last_update_tick;
 extern void *TOMonitorMachine01__shared_bml_archive;
 void scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
-extern s32 TOMonitorMachine01__scroll_mesh_ptrs[];
-extern s32 TOMonitorMachine01__last_update_tick;
 extern s32 actor_frame_tick;
 extern const f32 lbl_805DB8F0;
 extern const f32 lbl_805DB8F4;
@@ -106,27 +104,18 @@ int post_translate_matrix(void *);
 int draw_ginja_model(int);
 void translate_matrix(s32, f32, f32, f32);
 void scale_matrix(s32, f32, f32, f32);
-extern const f32 lbl_805DB8F0;
 u32 load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 extern u8 monitor_machine01_resource_desc[];
-extern s32 TOMonitorMachine01__scroll_mesh_ptrs[];
-extern void *TOMonitorMachine01__shared_bml_archive;
-extern s32 TOMonitorMachine01__last_update_tick;
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 s32 init_map_object_base(void *, s32);
 extern s32 __vt__18TOMonitorMachine01[];
 extern s32 TOMonitorMachine01__name;
-extern void *TOMonitorMachine01__shared_bml_archive;
 extern s32 tl_05;
 extern const f32 lbl_805DB90C;
 extern const f32 lbl_805DB910;
 void *TOMonitorMachine01__ct(void *arg0_, void *arg1);
-}
-
-extern "C" {
-
 void *__dt__18TOMonitorMachine01Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -239,8 +228,6 @@ void *TOMonitorMachine01::create() {
     }
     return o;
 }
-
-extern s32 __vt__18TOMonitorMachine01[];
 
 void TOMonitorMachine01::reset_static_state() {
     s32 i;

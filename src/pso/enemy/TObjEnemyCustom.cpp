@@ -11,16 +11,10 @@ u8 * initialize__9TObjEnemyFPv(void *);
 extern s32 __vt__15TObjEnemyCustom[];
 extern s32 lbl_805D2A60;
 u8 *TObjEnemyCustom__ct(u8 *arg0);
-}
-
-extern "C" {
-
 void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
 s32 restore_player_cameras();
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
-
-extern s32 __vt__15TObjEnemyCustom[];
 
 void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

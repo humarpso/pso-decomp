@@ -19,10 +19,6 @@ extern "C" {
 s32 is_split_screen();
 extern s16 lbl_8044EBD4[];
 extern s16 lbl_8044EBE0[];
-}
-
-extern "C" {
-
 void TWindowCtrl::update_open_sequence() {
     Ctrl_8024C024 *o = (Ctrl_8024C024 *)this;
     if (is_split_screen() != 0) {

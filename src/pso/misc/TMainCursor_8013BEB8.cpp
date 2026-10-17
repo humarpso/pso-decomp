@@ -25,19 +25,10 @@ extern const f32 TMainCursor__data_805DB0C0;
 extern const f32 TMainCursor__data_805DB0CC;
 extern const f32 lbl_805DB0E0;
 s32 target_in_vertical_cone(Vec_8013BF0C *p, Vec_8013BF0C *q, s32 yaw, f32 range, f32 dist);
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
-f32 vec3_dot(void *, void *);
-extern const f32 TMainCursor__data_805DB0C0;
-extern const f32 TMainCursor__data_805DB0CC;
-extern const f32 lbl_805DB0E0;
 extern Vec_8013C0A0 lbl_8050BEE0;
 s32 target_in_xz_cone(Vec_8013C0A0 *p, Vec_8013C0A0 *q, Vec_8013C0A0 *r, s32 yaw, f32 range, f32 dist);
 s32 obj_testFlags30(void *, s32);
 s32 obj_getField1c(void *);
-s32 target_in_vertical_cone(Vec_8013BF0C *p, Vec_8013BF0C *q, s32 yaw, f32 range, f32 dist);
-s32 target_in_xz_cone(Vec_8013C0A0 *p, Vec_8013C0A0 *q, Vec_8013C0A0 *r, s32 yaw, f32 range, f32 dist);
-void init_target_vector__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 set_cursor_id__11TMainCursorFs(s32, int);
 s32 set_size__11TMainCursorFf(f32);
 s32 TMainCursor__sub_8013F13C(void *);
@@ -48,10 +39,6 @@ f32 horizontal_distance_squared(void *, void *);
 s32 set_flag_bit__11TMainCursorFlUs(void *, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 try_add_target_candidate__11TMainCursorFPvPvPvPv(u8 *cursor, u8 *player, u8 *target, Best_8013C288 *best);
-}
-
-extern "C" {
-
 s32 try_move__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
 struct Ent_8013C678 { u32 id; f32 key; };
 s32 fn_8004438C(void *);
@@ -59,12 +46,9 @@ s32 quick_sort_partition__11TMainCursorFiPvii(s32 self, Ent_8013C678 *a, s32 lo,
 s32 is_channel_active__11TMainCursorFv();
 int matches_type_and_enabled__11TMainCursorFiUcUc(void*, void* a1 = 0, void* a2 = 0);
 u8 TMainCursor__sub_8013E900(s32);
-s32 get_record_at__11TMainCursorFPvi(void *, int);
 s32 TMainCursor__sub_8013F170(void *, int);
 s32 fn_80044330(s32);
 u8 get_active__11TMainCursorFv(s32);
-s32 set_cursor_id__11TMainCursorFs(s32, int);
-s32 set_size__11TMainCursorFf(f32);
 
 s32 try_move__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {
     if (is_channel_active__11TMainCursorFv() != 0) {
@@ -72,8 +56,6 @@ s32 try_move__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {
     }
     return 0;
 }
-
-extern const f32 TMainCursor__data_805DB0C0;
 
 #pragma push
 #pragma fp_contract on

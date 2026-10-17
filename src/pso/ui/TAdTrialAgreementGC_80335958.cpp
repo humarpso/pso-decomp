@@ -56,20 +56,9 @@ extern RecoveredGlobal_80335A58_lbl_8050E208 controller_input_state;
 extern RecoveredGlobal_80335A58_lbl_8050E3B8 controller_physical_port_bank;
 extern const f32 lbl_805DF8B4;
 f32 sin_table_lookup(s32);
-s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
-s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 play_sound_effect(int, int, int, int);
-extern RecoveredGlobal_80335A58_lbl_8050E208 controller_input_state;
-extern RecoveredGlobal_80335A58_lbl_8050E3B8 controller_physical_port_bank;
-extern const f32 lbl_805DF8B4;
 extern const f32 lbl_805DF8B8;
 extern const f32 lbl_805DF8BC;
-}
-
-extern "C" {
-
 void *__dt__13TUnk_804EE458Fv(void *arg0, s16 arg1);
-s32 TAdTrialAgreementGC__sub_8033596C(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 

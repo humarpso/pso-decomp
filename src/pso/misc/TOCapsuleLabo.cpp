@@ -11,13 +11,11 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern char lbl_80470790[];
 extern char lbl_804707AC[];
 extern const char *bm_obj_labo_infocapsule_model_names[2];
 extern BmlResourceDescriptor TOCapsuleLabo__resource_descriptor;
 extern const char *bm_obj_labo_infocapsule_motion_names[1];
-}
 
 struct VBase802AF370_802af370_802AF2C8 { char pad[0x18]; };
 struct VObj802AF370_802af370_802AF2C8 : VBase802AF370_802af370_802AF2C8 {
@@ -64,7 +62,6 @@ extern s32 *capsule_labo_switch_flags_ptr;
 s32 is_split_screen();
 s32 queue_destruction__7TObjectFv(void *);
 s32 TObjFish__sub_8001EDB0(int, int);
-s32 get_bml_model(void *, s32);
 s32 set_indexed_flags(void *, int, int);
 s32 init_collision_body_parts(void *, void *, int);
 s32 get_game_play_mode();
@@ -72,14 +69,9 @@ extern RecoveredGlobal_802AF4F4_lbl_804DE450 TOCapsuleLabo__collision_parts;
 extern s32 __vt__13TOCapsuleLabo[];
 extern s32 enable_v2_features;
 extern s32 lbl_805D3E7C;
-extern u32 TOCapsuleLabo__model_resource;
 extern const f32 lbl_805DE1E8;
 extern const f32 lbl_805DE1EC;
 u8 *TOCapsuleLabo__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt__13TOCapsuleLaboFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
@@ -91,16 +83,12 @@ s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 
-extern u32 TOCapsuleLabo__model_resource;
-
 void TOCapsuleLabo::unload_static_data() {
     if ((u32) TOCapsuleLabo__model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TOCapsuleLabo__model_resource, 1);
         TOCapsuleLabo__model_resource = 0U;
     }
 }
-
-extern s32 *capsule_labo_switch_flags_ptr;
 
 void TOCapsuleLabo::load_resources() {
     s32 temp_r3;
@@ -159,8 +147,6 @@ void TOCapsuleLabo::vfunc_15() {
     *(s32 *)&this->m_e4 = (s32) (*(s32 *)&this->m_e4 + 0x222);
 }
 
-extern s32 __vt__13TOCapsuleLabo[];
-
 void *__dt__13TOCapsuleLaboFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TOCapsuleLabo;
@@ -199,9 +185,6 @@ u8 *TOCapsuleLabo__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_obj_labo_infocapsule_model_names[2] = { lbl_80470790, NULL };
 BmlResourceDescriptor TOCapsuleLabo__resource_descriptor = { lbl_804707AC, bm_obj_labo_infocapsule_model_names, bm_obj_labo_infocapsule_motion_names, 1, 0 };
 __declspec(section ".sdata") const char *bm_obj_labo_infocapsule_motion_names[1] = { NULL };

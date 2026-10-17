@@ -108,20 +108,14 @@ struct Info_8034F4FC {
 extern "C" {
 int spawn_nug2000_hit_explosion(void);
 u32 find_item_by_id(void);
-int spawn_nug2000_hit_explosion(void);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_8034F1AC(u8 *arg0);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-extern s32 tl_05;
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-extern s32 tl_05;
 void TItemWeapon__ct(void *, void *);
 void set_status_flags__10TObjPlayerFUl(void *, int);
 extern s32 lbl_804F0A00[];
 u8 *construct_gi_gue_bazooka(u8 *arg0, u8 *arg1, s32 _w2);
 void init_fire_explosion_config__10TObjPlayerFPvPv(void *a, O_8034F590 *o);
-u32 find_item_by_id(void);
 s32 rotate_matrix_z(s32, s32);
 void init_slicer_launch_state(SlicerLaunchData_8012D9C8 *);
 u16 obj_getField1c(void *);
@@ -140,29 +134,18 @@ s32 construct_explosion_collider__13TUnk_804A2548Fv(void *, s32, void *);
 void *__nw__7TObjectFUl(u32);
 s32 create_fire_explosion_effect(void *, void *, s32, s32, f32);
 s32 TObjPlayer__sub_802E449C(void *);
-extern s32 tl_05;
 extern s32 tl_particle;
 extern const f32 lbl_805DFE00;
-}
-
-extern "C" {
-
 void *__dt__13TUnk_804F0810Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804F0908Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804F0A00Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804F0AF8Fv(void *arg0, s16 arg1);
 void TObjPlayer__sub_8034F8B8(void* p);
-s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
-s32 spawn_particle_effect(void *, s32);
 int add_angle_clamped__10TObjPlayerFPlll(void*, void*, void*);
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);
 int draw_weapon_at_joint(void*, void*);
 void __dt__11TItemWeaponFv(void *, int);
-void *__dt__13TUnk_804F0810Fv(void *arg0, s16 arg1);
-void *__dt__13TUnk_804F0908Fv(void *arg0, s16 arg1);
-void *__dt__13TUnk_804F0A00Fv(void *arg0, s16 arg1);
-void set_status_flags__10TObjPlayerFUl(void *, int);
 
 void TUnk_804F0810::emit_marker_effects() {
     u8 sp8[0x18];
@@ -195,8 +178,6 @@ void *__dt__13TUnk_804F0810Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern s32 lbl_804F0810[];
 
 void *TUnk_804F0810::enter_timed_state(s32 _w1, void *_w2) {
     TItemWeapon__ct((void *)(this), (void *)(_w1));
@@ -271,8 +252,6 @@ void *__dt__13TUnk_804F0908Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern s32 lbl_804F0908[];
 
 void *TUnk_804F0908::construct_rappys_fan(s32 _w1, void *_w2) {
     TItemWeapon__ct((void *)(this), (void *)(_w1));
@@ -358,8 +337,6 @@ void TObjPlayer::return_gi_gue_bazooka_angles() { add_angle_clamped__10TObjPlaye
 
 void TUnk_804F0A00::update_attack() { add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1f8), (void*)((void*)-3640), (void*)((void*)0)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x1fc), (void*)((void*)2730), (void*)((void*)0)); add_angle_clamped__10TObjPlayerFPlll((void*)((char*)this + 0x200), (void*)((void*)-1820), (void*)((void*)0)); }
 
-extern s32 lbl_804F0A00[];
-
 void *__dt__13TUnk_804F0A00Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F0A00;
@@ -395,10 +372,6 @@ u8 *TObjPlayer::create_gi_gue_bazooka(s32 arg0) {
     }
     return NULL;
 }
-#include "types.h"
-
-#include "types.h"
-#include "pso/player/TObjPlayer.h"
 
 void TObjPlayer::dispatch_by_state() {
     s32 player_list;

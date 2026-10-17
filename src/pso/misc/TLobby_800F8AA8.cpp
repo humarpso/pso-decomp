@@ -9,10 +9,6 @@ s32 *lobby_checked_read_ptr_table[4] = { 0, 0, 0, 0 };
 s32 lbl_80499A10[4] = { 0, 0, 0, 0 };
 u32 lbl_80499A20[4] = { 0, 0, 0, 0 };
 u32 lbl_80499A30[4] = { 0, 0, 0, 0 };
-}
-
-extern "C" {
-
     extern unsigned char area_transfer_pending_flag;
 extern "C" u8 lbl_8043D7A8[];
 extern "C" u8 lbl_8043D820[];
@@ -746,14 +742,7 @@ __declspec(section ".data") void *lbl_8049C61C[2] = {
 
 void TLobby::reset_keyboard_state() { area_transfer_pending_flag = 0; TKeyBoardControl::reset(); }
 
-}
-
-extern "C" {
 bool is_area_transfer_pending(void);
-}
-
-extern "C" {
-
 void TLobby__sub_800F8AD0(void);
 int TKeyBoardControl__sub_8000F92C(void);
 void TLobby__sub_800F8BD8(void);
@@ -773,22 +762,11 @@ bool is_area_transfer_pending(void) {
 
 void TLobby::clear_callback_and_reset_keyboard() { TLobby::set_keyboard_mode(0); TKeyBoardControl::reset(); }
 
-}
-
 #undef area_transfer_pending_flag
-
-extern "C" {
 s32 get_main_phase();
 s32 is_quest_active();
-void TLobby__sub_800F8BD8(void);
 void apply_phase_keyboard_mode(void);
-}
-
-extern "C" {
-
-void TLobby__sub_800F8BD8(void);
 #define main_phase_deferred_callback (*(s32 (**)())&main_phase_deferred_callback)
-int TKeyBoardControl__sub_8000F92C(void);
 
 void apply_phase_keyboard_mode(void) {
     switch (get_main_phase()) {
@@ -824,19 +802,11 @@ void TLobby::invoke_callback() {
     }
 }
 
-}
-
 #undef main_phase_deferred_callback
 
-extern "C" {
 #define main_phase_deferred_callback (*(int *)&main_phase_deferred_callback)
 void TLobby::set_keyboard_mode(int a0) { main_phase_deferred_callback = a0; }
-}
-
 #undef main_phase_deferred_callback
-
-extern "C" {
-
 extern s32 *pending_file_read_handle_ref;
 extern s32 pending_file_read_sector_count;
 extern u32 pending_file_read_destination;
@@ -867,10 +837,6 @@ void TLobby::flush_checked_reads() {
         }
     }
 }
-
-}
-
-extern "C" {
 
 #define pending_file_read_handle_ref (*(int *)&pending_file_read_handle_ref)
 #define pending_file_read_sector_count (*(int *)&pending_file_read_sector_count)
@@ -903,14 +869,9 @@ void TLobby::set_entry_params(s32 arg1, s32 arg2, s32 arg3) {
     lbl_80499A20[arg1] = arg3;
 }
 
-}
-
 #pragma push
-
-extern "C" {
 extern u8 lobby_font_texture_loaded;
 void TLobby__sub_803DA16C(void *p);
-extern u8 lobby_font_texture_loaded;
 extern const char lbl_8043D9F4[];
 void *tmp_buf_use_req__6TLobbyFPCc(const char *);
 s32 prs_decompress_buffer(void *, void *);
@@ -918,10 +879,6 @@ s32 load_gvm_texture_archive(void *, void *);
 void begin_screen_draw(int);
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(void *, int);
-}
-
-extern "C" {
-
 void TLobby__sub_800F8DD8(void);
 void TLobby__sub_800F8F34(void);
 
@@ -976,15 +933,9 @@ void TLobby::load_font_texture() {
 
 void TLobby__sub_800F8F34(void) { lobby_state_byte_flag = 1; }
 
-}
-
 #pragma pop
 
 #pragma push
-
-#include "types.h"
-
-extern "C" {
 
 #define lobby_state_byte_flag (*(s8 *)&lobby_state_byte_flag)
 extern u8 lobby_wait_ready_flag;
@@ -1002,17 +953,13 @@ void TLobby::reset_state_byte() {
 #undef lobby_state_byte_flag
 #pragma push
 
-#include "types.h"
-#include "pso/misc/TLobby.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/TObjCMHairMenu.h"
 #include "pso/misc/TCameraCtrl.h"
-#include "pso/misc/TKeyBoardControl.h"
 
 extern "C" {
 
 s32 TLobby__sub_801384E4();
-s32 get_main_phase();
 s32 render_tick__Fv();
 
 #define lobby_wait_ready_flag (*(s8 *)&lobby_wait_ready_flag)
@@ -1046,7 +993,6 @@ typedef struct {
 
 s32 DVDGetDriveStatus(void);
 void TCameraCtrl__sub_80068EF0(void);
-void TLobby__sub_800F8DD8(void);
 
 void set_depth_buffer_settings_1__Fv(void);
 void restore_saved_depth_alpha_state(void);
@@ -1059,7 +1005,6 @@ s32 DVDCheckDisk(void);
 void set_perspective_projection_from_fov(s32, f32, f32, f32);
 void set_cached_blend_factor(s32, s32);
 void func_803DCDFC__Fv(void);
-extern u8 lobby_font_texture_loaded;
 
 #define show_msg_800F8FB8(arr, i) ((void (*)(f32, f32, u8 *, s32))draw_string__14TObjWarpStringFlff)(arr[i].x, arr[i].y, arr[i].str, 0x8FFFFFFF)
 

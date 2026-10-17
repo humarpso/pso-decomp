@@ -9,14 +9,7 @@ int dispatch_packet__6TLobbyFPv(void*);
 void bswap_6x60_drop_request_fields(void* p);
 int bswap_32__FPUl(void*);
 void * build_6x06_send_guild_card(void *arg0);
-}
-
-extern "C" {
-
-void bswap_6x60_drop_request_fields(void* p);
 int bswap_16__FPUs(void*);
-int bswap_32__FPUl(void*);
-int dispatch_packet__6TLobbyFPv(void*);
 
 void TLobby::dispatch_packet_wrapper() { bswap_6x60_drop_request_fields((void*)(this)); dispatch_packet__6TLobbyFPv(this); }
 

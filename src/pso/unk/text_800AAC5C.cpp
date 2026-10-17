@@ -23,10 +23,6 @@ void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 extern u8 lbl_804912C8[];
 O_800AAC5C *fn_800AAC5C(O_800AAC5C *arg0, s16 arg1);
-}
-
-extern "C" {
-
 O_800AAC5C *fn_800AAC5C(O_800AAC5C *arg0, s16 arg1) {
     s32 i;
     if (arg0 != NULL) {

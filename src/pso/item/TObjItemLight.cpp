@@ -17,10 +17,6 @@ s32 is_item_light_interaction_blocked();
 f32 xz_distance_squared(void *, void *);
 Ply_80191F90 *get_player_by_client_id(s32);
 void run_task__13TObjItemLightFv(Light_80191F90 *arg0);
-}
-
-extern "C" {
-
 struct VObjItemLight_80192060 {
     char pad[0x18];
     virtual void m0();
@@ -73,7 +69,6 @@ void *__dt__13TObjItemLightFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__13TObjItemLight[];
 extern s32 TObjItemLight__class_name;
 extern const f32 lbl_805DBE40;
 extern const f32 lbl_805DBE44;

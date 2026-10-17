@@ -31,10 +31,6 @@ s32 TBoss7Joint_get_shell_max_hp();
 extern s32 lbl_80473FB8[];
 extern s32 lbl_804E45C8[];
 extern const f32 lbl_805DEBBC;
-}
-
-extern "C" {
-
 struct VOff_802EE9A4_arg0_802EE9A4 { char pad_0[0x2FC]; char f_2FC[1]; };
 
 void TBoss7Joint__vt85(void);
@@ -42,7 +38,6 @@ void *__dt__11TBoss7JointFv(void *arg0, s16 arg1);
 void __dt__9TObjEneDDFv(void *, int);
 s32 TObjFish__sub_802EC468(void *, f32, f32);
 s32 apply_damage_and_set_effect__8TObjFishFl(int, int, int);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 u32 is_part_active__11TBoss7JointFv(void *, int);
 
@@ -75,8 +70,6 @@ void TBoss7Joint::vfunc_62() {
     ((TBoss7DeRolLeC *)(*(s32 *)((s8 *)((u8 *)this) + 0x10)))->set_flag_800();
     clear_attack_receipts();
 }
-
-extern s32 __vt__11TBoss7Joint[];
 
 void TBoss7Joint::run_task() {
     u8 *arg0 = (u8 *)this;

@@ -24,16 +24,7 @@ extern Prm_800C2628 lbl_8043BBA0;
 extern f32 *const lbl_805D5170;
 extern const f32 lbl_805D9FBC;
 void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 void TObjEneDD__sub_800C2618(void* p);
-s32 advance_animation_playback();
-s32 play_sound_effect(s32, void *, s32, s32);
-s32 transition_enemy_state(void *, s32);
-s32 fn_800C3A60(void *, s32);
-s32 noop__9TObjEneDDFv(void *, s32);
 s32 objInBand__FP7GameObjf(f32);
 
 void TObjEneRe2Flower::vfunc_105() {  }

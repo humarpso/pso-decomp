@@ -29,10 +29,6 @@ extern RecoveredGlobal_80302FD8_lbl_804E6AF8 lbl_804E6AF8;
 extern s32 TObjEneDellBiter_Eff_TpAbsorb1__class_name;
 extern const f32 lbl_805DEFAC;
 u8 *fn_80302FD8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_80302FD8_lbl_8047512C_size[sizeof(RecoveredGlobal_80302FD8_lbl_8047512C) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_80302FD8_lbl_804E6AF8_size[sizeof(RecoveredGlobal_80302FD8_lbl_804E6AF8) == 0x5C ? 1 : -1];
 u8 *fn_80302FD8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0) {

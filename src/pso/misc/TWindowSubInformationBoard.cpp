@@ -1,7 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowSubInformationBoard.h"
 #include "pso/misc/TWindowMenu.h"
-#include "pso/misc/TWindowSubInformationBoard.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubComCard.h"
 
@@ -34,15 +33,9 @@ u32 open_card_info_window__26TWindowSubInformationBoardFv(void *);
 u32 TWindowSubComCard__sub_8034CDE0(void *);
 u32 create_info_board_menu(void *);
 extern s32 controller_input_state[];
-}
-
-extern "C" {
-
 void *__dt__26TWindowSubInformationBoardFv(void *arg0, s16 arg1);
-void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void queue_destruction__7TObjectFv(void *);
 
 void TWindowSubInformationBoard::render() {  }
 
@@ -169,7 +162,6 @@ void *__dt__26TWindowSubInformationBoardFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__26TWindowSubInformationBoard[];
 extern void *lbl_805D4348;
 
 }

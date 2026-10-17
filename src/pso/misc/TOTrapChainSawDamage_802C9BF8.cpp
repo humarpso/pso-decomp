@@ -5,10 +5,6 @@
 
 extern "C" {
 void TOTrapChainSawDamage__sub_802C9C00(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 void TOTrapChainSawDamage::set_damage(s32 v) { *(s32 *)&this->m_f8 = v; }
 
 void TOTrapChainSawDamage__sub_802C9C00(u8 *arg0, s32 arg1) {

@@ -21,8 +21,6 @@ __declspec(section ".data") f32 cm_icon_screen_position[2] = { 604.0f, 443.0f };
 
 TObjCMIcon::~TObjCMIcon() {}
 
-#include "types.h"
-
 extern "C" {
 
 void *__ct__10TObjCMIconFv(void *arg0);

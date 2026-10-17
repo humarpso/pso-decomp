@@ -41,26 +41,16 @@ void *__dt__20TWindowSubQuestBoardFv(void *arg0, s16 arg1);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__19TWindowSubQuestBoard[];
 u8 *TWindowSubQuestBoard__sub_8027CE74(u8 *arg0, u8 *arg1, s32 arg2);
-void TWindow__close(void *);
 s32 get_selected_menu_value(s32);
 s32 create_instance__17TQuestThreadBoardFi(s32);
 s8 get_page_index__20TWindowSubQuestBoardFv(s32);
 s32 TWindowSubQuestBoard__sub_8027D1DC(s32);
 s32 fn_8027D1E8(s32);
 extern Ent_8027CFC8 quest_board_handlers[];
-}
-
-extern "C" {
-
 void TWindowSubQuestBoard__sub_8027CF50(s32 arg0, s32 arg1);
-void TWindow__close(void *);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 int set_card_window_flags__19TWindowKeyBoardHardFPvll(void*, int, int);
 
 void TUnk_804D1818::render() {  }
-
-extern s32 __vt__19TWindowSubQuestBoard[];
 
 void TUnk_804D1818::run_task() {
     s32 t;

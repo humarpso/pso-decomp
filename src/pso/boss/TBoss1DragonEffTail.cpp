@@ -99,15 +99,9 @@ extern u8 lbl_80435454[];
 extern const f32 lbl_805D8148;
 extern const f32 lbl_805D814C;
 extern const f32 lbl_805D8150;
-extern const f32 lbl_805D8154;
 void run_task__19TBoss1DragonEffTailFv(u8 *arg0);
-}
-
-extern "C" {
-
 void TBoss1DragonEffTail__vt18(s32 arg0, s32 arg1);
 void *__dt__19TBoss1DragonEffTailFv(void *arg0, s16 arg1);
-s32 vec3_add_to(s32, s32, s32);
 void delete_buffer__12TBoss8DragonFis(void *, int);
 void __dl__7TObjectFPv(void *);
 int fill_value_array(void*);
@@ -168,8 +162,6 @@ void TBoss1DragonEffTail__vt20(u8 *arg0, u8 *arg1) {
 void TBoss1DragonEffTail::enable() { *(int *)&this->m_bc = 1; is_visible(); }
 void TBoss1DragonEffTail::disable() { *(int *)&this->m_bc = 0; is_visible(); }
 int TBoss1DragonEffTail::is_visible() { return fill_value_array(*(void* *)&this->m_b8); }
-
-extern s32 __vt__19TBoss1DragonEffTail[];
 
 void *__dt__19TBoss1DragonEffTailFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

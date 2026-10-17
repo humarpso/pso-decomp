@@ -3,10 +3,6 @@
 extern "C" {
 s32 DateToSeconds__FP9DateStampPi(s32 *, u32 *);
 u8 calc_day_in_cycle(s32 *date);
-}
-
-extern "C" {
-
 u8 calc_day_in_cycle(s32 *date) {
     u32 sp8;
     u32 var_r4;

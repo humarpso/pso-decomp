@@ -34,10 +34,6 @@ extern const f32 lbl_805DF718;
 extern const f32 lbl_805DF71C;
 extern const f32 lbl_805DF720;
 Self_80329EC8 *TAdMcSelectGC__ct(Self_80329EC8 *self, void *parent);
-}
-
-extern "C" {
-
 void *__dt__13TAdMcSelectGCFv(void *arg0, s16 arg1);
 int TAdMcSelectGC__sub_8032A140();
 int TAdMcSelectGC__sub_8032A15C();
@@ -85,7 +81,6 @@ void TAdMcSelectGC::run_task() {
     }
 }
 
-extern s32 __vt__13TAdMcSelectGC[];
 extern u32 TAdMcSelectGC__instance;
 
 void *__dt__13TAdMcSelectGCFv(void *arg0, s16 arg1) {

@@ -20,10 +20,6 @@ s32 is_split_screen();
 s32 sub_80244994__13TUnk_804CE018Fv();
 extern const f32 lbl_805DCA2C;
 void spawn_action_palette_slot_light(Win_802437C4 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 void spawn_action_palette_slot_light(Win_802437C4 *arg0, s32 arg1) {

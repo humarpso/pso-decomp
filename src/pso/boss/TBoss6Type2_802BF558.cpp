@@ -15,28 +15,20 @@ extern "C" {
 s32 spawn_particle_effect_with_flags(void *, int, int);
 s32 play_sound_effect(int, void *, int, int);
 void TBoss6Type2__sub_802BF834(u8 *arg0);
-s32 play_sound_effect(int, void *, int, int);
 extern s32 lbl_805D6750;
 extern u8 lbl_805D6754;
 extern const f32 lbl_805DE3F4;
 extern const f32 lbl_805DE4DC;
 s32 TBoss6Type2__sub_802BB7C0(void *);
-}
-
-extern "C" {
-
 void TBoss6Type2__sub_802BF904(void* p);
 void TBoss6Type2__sub_802BFA1C(u8 *arg0);
 void TBoss6Type2__sub_802BFBE4(void* p);
-s32 play_sound_effect(int, void *, int, int);
 s32 TBoss6Type2__sub_802BA944(void *);
 s32 TBoss6Type2__sub_802BA9E4();
 u16 TBoss6Type2__sub_802BB694();
 s32 TBoss6Type2__sub_802BB768();
-s32 TBoss6Type2__sub_802BB7C0(void *);
 s32 play_persistent_sound(int, void *, void *, int, int);
 
-#include "types.h"
 extern "C" {
 
 void TBoss6Type2::start_death_sequence(u8 *arg0) {
@@ -192,7 +184,6 @@ void TBoss6Type2::pick_next_zako() {
     }
 }
 
-#include "types.h"
 extern "C" {
 
 void TBoss6Type2::init_timer_and_play_sound() {

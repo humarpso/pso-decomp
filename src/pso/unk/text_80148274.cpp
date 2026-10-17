@@ -9,10 +9,6 @@ struct Obj_80148274 { u8 pad0[0x350]; void *anim; };
 extern "C" {
 void copy_position__20TBoss3VoloptHiraisinFi(void *);
 u32 init_collision_body_parts(void *, void *, s32);
-}
-
-extern "C" {
-
 void *npc_default_battle_stats[9] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x41a00000, (void *)0x0, (void *)0x0, (void *)0x0,

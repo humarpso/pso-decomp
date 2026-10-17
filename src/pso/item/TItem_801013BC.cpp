@@ -23,10 +23,6 @@ s32 set_item_count__13TUnk_804B9870Fs(s32, s32);
 s32 TLobby__sub_80103B04();
 s32 set_indexed_flags(void *, int, int);
 u32 test_item_flags__10TObjPlayerFUl(void *, int);
-}
-
-extern "C" {
-
 void TItem__sub_801013E8(void *arg0);
 void claim_ownership__5TItemFii(s32 arg0, s32 arg1);
 s32 get_item_chunk_buffer(s32);
@@ -35,7 +31,6 @@ void is_rare_item__9TItemDataFPv(void *);
 s32 pop_free_id__6TLobbyFv();
 int disallow_rendering__7TObjectFv(void*);
 int queue_destruction__7TObjectFv(void*);
-s32 set_item_count__13TUnk_804B9870Fs(s32, s32);
 
 void TItem::update_item_data() {
     s32 sp8[4];

@@ -6,10 +6,6 @@ struct M_8028A9CC { u32 flags; u8 pad4[0x28]; u32 f2c; M_8028A9CC *next; };
 extern "C" {
 void clear_child_target_refs(Obj_8028A998 *o, Obj_8028A998 *x);
 void clear_chain_flags(M_8028A9CC *arg0, u32 arg1);
-}
-
-extern "C" {
-
 void clear_child_target_refs(Obj_8028A998 *o, Obj_8028A998 *x) {
     Obj_8028A998 *p;
     if (o == 0) return;

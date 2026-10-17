@@ -14,10 +14,6 @@ void draw_ginja_object(s32);
 void draw_ginja_model_with_motion(s32, s32, f32);
 extern u16 lbl_80445B7C[];
 extern s32 lazer_fence_norm_texture_list;
-}
-
-extern "C" {
-
 void TObjLazerFenceExtra::draw_lazer_fence_extra_model() {
     Obj_80192554 *arg0 = (Obj_80192554 *)this;
     s32 i;

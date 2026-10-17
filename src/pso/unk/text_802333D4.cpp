@@ -5,10 +5,6 @@ extern u32 ice_technique_charge_particle_ids[];
 void* spawn_particle_effect(float*,u32);
 void queue_destruction__7TObjectFv(void*);
 void updateIceTechniqueCharge(TechniqueChargeEmitter* state);
-}
-
-extern "C" {
-
 void updateIceTechniqueCharge(TechniqueChargeEmitter* state) {
     ++state->age;
     if(state->age%10==0) {

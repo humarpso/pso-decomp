@@ -27,10 +27,6 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern void *__vt__18TAdMultiPlayerNoGC[];
 extern s32 TAdMultiPlayerNoGC__name;
 Self_8033A668 *__ct__18TAdMultiPlayerNoGCFv(Self_8033A668 *self, void *parent, s32 n, u32 idx, u32 arg);
-}
-
-extern "C" {
-
 s32 draw_textured_quad_at_depth(s32, f32);
 s32 begin_screen_draw(s32);
 s32 set_draw_texture_and_color(s32, s32);

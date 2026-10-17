@@ -71,16 +71,6 @@ extern const f32 lbl_805DD544;
 extern const f32 lbl_805DD548;
 u8 *TWindowSubComCardList__ct(u8 *arg0, void *arg1);
 s32 count_leading_active__17TWindowSubComCardFPvi(s32, s32);
-void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
-void TWindowMenu__ct(void *, s32, s32, void *);
-void *init__21TWindowSubComCardListFiii(void *, s32, s8, s32);
-s32 TWindowSubComCardList__sub_80275360(void *);
-extern s32 __vt__21TWindowSubComCardList[];
-extern s32 TWindowSubComCardList__class_name;
-extern s32 local_client_id;
-extern const f32 lbl_805DD540;
-extern const f32 lbl_805DD544;
-extern const f32 lbl_805DD548;
 u8 *TWindowSubComCardList__sub_802757AC(u8 *arg0, void *arg1, s32 arg2, s32 arg3, s8 arg4);
 void *__nw__7TObjectFUl(u32);
 s32 TWindow__close(void *);
@@ -90,14 +80,9 @@ s32 fn_80275D90(void *);
 s32 TWindowSubCustomEquip__sub_80275DA8(s32);
 Ev_802758C8 *calc_equip_index__21TWindowSubCustomEquipFv(void *);
 void *TWindowSubCustomSelect__ct(void *, s32);
-}
-
-extern "C" {
-
 void *__dt__21TWindowSubComCardListFv(void *arg0, s16 arg1);
 void render__21TWindowSubComCardListFv(u8 *arg0);
 s32 handle_list_page_flip_input(s32);
-s32 TWindowSubComCardList__sub_80275360(void *);
 s32 draw_window_frame(void *, s32);
 s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_visible_window_entries(void *, void *, s32);
@@ -131,8 +116,6 @@ void TWindowSubComCardList::run_task() {
         TWindowSubComCardList__sub_80275360(this);
     }
 }
-
-extern s32 __vt__21TWindowSubComCardList[];
 
 void *__dt__21TWindowSubComCardListFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

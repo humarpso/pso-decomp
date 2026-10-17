@@ -42,31 +42,17 @@ extern const f32 TObjTombstone__data_805D9174;
 s32 submit_card_password__17TWindowSubComCardFl(char *);
 int sprintf(char *, const char *, ...);
 extern char lbl_804387F8[];
-s32 submit_card_password__17TWindowSubComCardFl(char *);
 const char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
-int sprintf(char *, const char *, ...);
 extern char lbl_80438800[];
-const char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
-int sprintf(char *, const char *, ...);
 extern char lbl_80438808[];
 Ply_8007598C * get_player_by_client_id(s32, void *);
-int sprintf(char *, const char *, ...);
 char *strncpy(char *, const char *, unsigned long);
 unsigned long strlen(const char *);
 extern char lbl_80438810[];
-int sprintf(char *, const char *, ...);
 extern char lbl_804387C8[];
 extern char lbl_804387E0[];
-extern s32 local_client_id;
 extern s32 current_language;
-const char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 enemy_name_for_rt_index(s32);
-int sprintf(char *, const char *, ...);
-char *strncpy(char *, const char *, unsigned long);
-}
-
-extern "C" {
-
 s32 check_height_ready__13TObjTombstoneFv();
 
 void TObjTombstone::render() {

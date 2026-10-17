@@ -17,7 +17,6 @@ public:
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
-#include "pso/ui/TAdMultiPlyChrSelectGC.h"
 
 struct Ent_802E6750 { s32 idx; f32 x; f32 y; s32 c; };
 
@@ -54,18 +53,11 @@ s32 __ct__7TObjectFP7TObject(void *);
 extern s32 __vt__14TAdGameStartGC[];
 extern void *ad_game_start_name_ptr[2];
 Obj_802E6750 *__ct__14TAdGameStartGCFv(Obj_802E6750 *arg0);
-s32 queue_destruction__7TObjectFv(int);
 void destroy_windows__14TAdGameStartGCFPv(Obj_802E6380 *o);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-u32 __nw__7TObjectFUl(int);
-void destroy_windows__14TAdGameStartGCFPv(Obj_802E6380 *o);
 u8 *__ct__17TAdGameStartSubGCFv(u8 *arg0, void *arg1, u8 *arg2);
 extern u8 controller_physical_port_bank[];
 void run_task__14TAdGameStartGCFv(u8 *arg0);
-}
-
-extern "C" {
-
 void TAdGameStartGC__sub_802E6368(void* p);
 void bswap_6x92__14TAdGameStartGCFPv(void* p);
 void render__14TAdGameStartGCFv(void);
@@ -232,10 +224,6 @@ Obj_802E6750 *__ct__14TAdGameStartGCFv(Obj_802E6750 *arg0) {
     return arg0;
 }
 
-}
-
-extern "C" {
-
 void destroy_instance__17TAdGameStartSubGCFv(void);
 void TLobby__sub_803DA16C(void*);
 
@@ -248,21 +236,14 @@ void destroy_instance__17TAdGameStartSubGCFv(void) {
     }
 }
 
-}
-
-extern "C" {
     int TLobby__sub_8023E4B4(void*, void*);
     extern const unsigned char lbl_80472C28[];
     extern void *texture_f512_multiplay_descriptor[];
-    extern int multiplay_texture_f512_handle;
 void register_texture_f512_multiplay(void) { multiplay_texture_f512_handle = (int)texture_f512_multiplay_descriptor; TLobby__sub_8023E4B4((void *)lbl_80472C28, texture_f512_multiplay_descriptor); }
 __declspec(section ".rodata") extern const unsigned char lbl_80472C28[] = "f512_multiplay";
 __declspec(section ".rodata") extern const char lbl_80472C38[] = "TAdGameStartGC";
 __declspec(section ".rodata") extern const char lbl_80472C48[] = "TAdGameStartSubGC";
 
-}
-
-extern "C" {
 #pragma push
 #pragma fp_contract on
 
@@ -282,18 +263,10 @@ void draw_background__17TAdGameStartSubGCFPv(u8 *arg0) {
     TWindowSubStatusDisp::get_player();
 }
 #pragma pop
-}
 
-extern "C" {
 void run_task__17TAdGameStartSubGCFv(u8 *arg0);
 extern s32 __vt__17TAdGameStartSubGC[];
 extern void *lbl_805D3FB0[2];
-extern s32 game_start_player_instance;
-u8 *__ct__17TAdGameStartSubGCFv(u8 *arg0, void *arg1, u8 *arg2);
-}
-
-extern "C" {
-
 void render__17TAdGameStartSubGCFv(void* p);
 #define draw_background__17TAdGameStartSubGCFPv ((int (*)(void*))draw_background__17TAdGameStartSubGCFPv)
 int set_cached_blend_factor(void*, void*);
@@ -372,10 +345,7 @@ u8 *__ct__17TAdGameStartSubGCFv(u8 *arg0, void *arg1, u8 *arg2) {
 #undef I
 #pragma pop
 
-}
-
 #undef draw_background__17TAdGameStartSubGCFPv
-extern "C" {
 void __dt__14TAdGameStartGCFv();
 void __dt__17TAdGameStartSubGCFv();
 void render_shadows__7TObjectFv();

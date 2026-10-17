@@ -9,10 +9,6 @@ extern f32 lbl_805D307C;
 void TOMineTrap__sub_80171368(f32 farg0);
 bool TOMineTrap__vt18(u8 *arg0, s32 arg1);
 bool TOMineTrap__vt19(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 s16 TOMineTrap__sub_80171340(void* p);
 int TOMineTrap__sub_80171350(void);
 u16 TOMineTrap__sub_80171358(void* p);
@@ -35,15 +31,12 @@ u16 TOMineTrap__sub_80171358(void* p) { return *(u16*)((char*)p + 0x37e); }
     extern int mine_trap_count;
 int TOMineTrap::get_trap_count() {  return mine_trap_count; }
 
-    extern int mine_trap_instance_id;
-
 void TOMineTrap__sub_80171368(f32 farg0) {
     lbl_805D307C = farg0;
 }
 
 void TOMineTrap::set_instance(int a0) { mine_trap_instance_id = a0; }
 
-    extern int mine_trap_count;
 void TOMineTrap::set_trap_count(int a0) { mine_trap_count = a0; }
 
 void TOMine::vfunc_84() {  }

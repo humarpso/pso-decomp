@@ -52,41 +52,24 @@ s32 test_flag_2000000__10TObjPlayerFPv(int);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 test_flags_any(s32 *, s32);
 extern s32 lbl_805D53EC;
-s32 test_flags_any(s32 *, s32);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern RecoveredGlobal_80101088_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_80101088_lbl_8058D4C0 model_material_color;
-extern s32 lbl_805D53EC;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 void TObjPlayer__sub_80101088(void);
-s32 test_flags_any(s32 *, s32);
 s32 set_chunk_material_color(s32);
-extern s32 lbl_805D53EC;
-extern s32 model_render_flags;
-s32 test_flags_any(s32 *, s32);
-s32 set_chunk_material_color(s32);
-extern s32 lbl_805D53EC;
-extern s32 model_render_flags;
 void copy_to_item_data__5TItemFPv(void *, void *);
 s32 get_player_by_client_id(u16);
 s16 *get_stat_bonus_ptr__14TItemEquipBaseFv();
 u32 get_equip_field_d04__10TObjPlayerFv(s32, s32);
 s32 get_stat_bonus__10TObjPlayerFv(s32);
-s32 get_player_by_client_id(u16);
-s16 *get_stat_bonus_ptr__14TItemEquipBaseFv();
-u32 get_equip_field_d04__10TObjPlayerFv(s32, s32);
 s32 get_stat__10TObjPlayerFv(s32);
 s32 obj_isState2_324(int);
 s32 TObjPlayer__sub_80102D84(void *);
 struct VObj_80101350_80100E00 *find_item_by_id(s32);
 void handle_6x61_activate_mag_effect(void *arg0);
-}
-
-extern "C" {
-
 int TObjPlayer__sub_80100F34(void);
-s32 test_flags_any(s32 *, s32);
 s32 setup_particle_tev(s32);
 
 extern f32 lbl_805DAA90;
@@ -100,8 +83,6 @@ f32 TObjPlayer::get_mag_scale() {
     }
     return lbl_805DAA90;
 }
-
-extern s32 lbl_805D53EC;
 
 void TItem::update_owner_visibility() {
     u8 *arg0 = (u8 *)this;
@@ -133,8 +114,6 @@ void TItemWeapon::update_screen_particle_effect() {
 
 int TObjPlayer__sub_80100F34(void) { return ((TParticleCtrl *)31)->get_object(); }
 
-extern s32 lbl_805D53EC;
-
 void TItemWeapon::draw_shield_particle() {
     if (test_flags_any(&lbl_805D53EC, 8) != 0) {
         TParticleCtrl::disable_if_single_screen();
@@ -142,8 +121,6 @@ void TItemWeapon::draw_shield_particle() {
         ((TAdRicoRing *)(&lbl_805D53EC))->clear_flags(8);
     }
 }
-
-extern s32 lbl_805D53EC;
 
 void TObjPlayer::setup_particle_once() {
     TObjPlayer::play_particle_effect_once();
@@ -153,8 +130,6 @@ void TObjPlayer::setup_particle_once() {
         ((TObjPlayer *)(&lbl_805D53EC))->set_flags(8);
     }
 }
-
-extern s32 lbl_805D53EC;
 
 void TObjPlayer::end_particle_effect() {
     if (test_flags_any(&lbl_805D53EC, 2) != 0) {

@@ -5,8 +5,6 @@
 #include "pso/object/TObjGrass.h"
 #include "pso/enemy/TUnk_80494938.h"
 extern "C" void render__12TObjGrassWebFv();
-#include "pso/object/TObjMotion.h"
-#include "pso/object/TObjGrass.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -370,13 +368,8 @@ s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 extern u8 __vt__9TObjGrass[];
 Obj_800BF880 *__dt__9TObjGrassFv(Obj_800BF880 *arg0, s16 arg1);
-s32 apply_actor_gravity(void *, s32, f32);
 f32 step_toward_destination__10TObjPlayerFPvPvf(void *, Vec_800BE75C, f32);
 s32 obj_setFlags30(void *, u32);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
-s32 advance_animation_playback(void *);
-s32 minimap_render_dot(void *, s32, s32, s32);
-s32 play_persistent_sound(s32, void *, void *, s32, s32);
 f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, s32);
@@ -385,11 +378,9 @@ s32 pop_matrices(int);
 extern u8 identity_matrix[];
 u16 find_nearest_visible_player(void *, int, f32);
 s32 check_path_obstructed(void *, void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 obj_testFlags30(void *, int);
 s32 obj_getField1c(void *);
-void obj_clearFlags30(void *, u32);
 s32 get_current_floor();
 u8 *get_enemy_entity(u16);
 u8 *get_player_by_client_id(u16);
@@ -414,143 +405,43 @@ extern u32 TObjGrass__bml_resource;
 extern s32 grass_combat_stats_handle;
 extern s32 lbl_805D514C;
 extern s32 TObjGrass__render_node_index;
-extern u32 TObjGrass__resource_bundle;
 extern u32 lbl_805D5158;
 extern u32 lbl_805D515C;
-s32 get_current_floor();
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
 void TObjGrass__sub_800BCA2C(void *);
-u8 *get_enemy_entity(u16);
 s32 submit_cursor_candidate(void *, int);
-u8 *get_player_by_client_id(u16);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-s32 apply_actor_gravity(void *, s32, f32);
 s32 update_angle__10TObjPlayerFlPv(void *, void *, void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-void obj_clearFlags30(void *, u32);
 u32 lookup_entry_by_value__10TObjPlayerFPvf(void *);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback(void *);
-s32 minimap_render_dot(void *, s32, s32, s32);
-s32 play_persistent_sound(s32, void *, void *, s32, s32);
-s32 play_sound_effect(void *, void *, int, int);
 s32 mult_vec_array__10TObjPlayerFUll(int, int, void *, int);
 s32 scale_matrix(int, f32, f32, f32);
 s32 set_matrix_identity(int);
-s32 rotate_matrix_y(int, s32);
-s32 subtract_vector(void *, void *);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 extern s32 enable_v2_features;
-extern u32 lbl_805D5158;
-extern u32 lbl_805D515C;
 f32 enemy_move_toward(void *, s32, void *, s32, f32);
 void enemy_pursue_point(void *, s32, void *, f32, f32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-void obj_clearFlags30(void *, u32);
 f64 atan2_float(f32, f32);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 f32 horizontal_distance_squared(void *, void *);
 s32 angle_difference_abs(s32, s32);
-s32 advance_animation_playback(void *);
-s32 minimap_render_dot(void *, s32, s32, s32);
-s32 play_persistent_sound(s32, void *, void *, s32, s32);
-s32 subtract_vector(void *, void *);
-s32 apply_actor_gravity(void *, s32, f32);
 s32 move_with_wall_slide(void *);
-s32 obj_setFlags30(void *, u32);
-s32 queue_destruction__7TObjectFv(void *);
-s32 spawn_particle_effect(s32, s32);
 void TObjCGrass__ct(void *, void *, s32, s32);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback(void *);
-s32 play_sound_effect(void *, void *, int, int);
 void *__nw__7TObjectFUl(int);
-f32 vec3_add_to(void *, void *);
-s32 rotate_vector_by_matrix(int, void *, void *);
-s32 rotate_matrix_y(int, s32);
-s32 push_matrix_from(void *);
-s32 pop_matrices(int);
-extern u8 identity_matrix[];
-s32 apply_actor_gravity(void *, s32, f32);
-s32 update_angle__10TObjPlayerFlPv(void *, void *, void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 obj_testFlags30(void *, int);
-void obj_clearFlags30(void *, u32);
-s32 get_current_floor();
-f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 s32 spawn_directional_particle(void *, void *, s32);
 s32 TObjGrassWeb__ct(void *, s32, void *);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
-s32 angle_difference_abs(s32, s32);
-s32 advance_animation_playback(void *);
-u8 *get_player_by_client_id(u16);
-s32 minimap_render_dot(void *, s32, s32, s32);
-s32 play_persistent_sound(s32, void *, void *, s32, s32);
-void *__nw__7TObjectFUl(int);
-s32 subtract_vector(void *, void *);
-extern s32 enable_v2_features;
-extern u32 TObjGrass__bml_resource;
 extern s32 game_difficulty_selection;
 extern s32 tl_05;
-s32 apply_actor_gravity(void *, s32, f32);
 void enemy_wander_home(void *, s32, f32, f32, f32);
-s32 move_with_wall_slide(void *);
 void enemy_set_heading_velocity(void *, s32, f32);
 void enemy_turn_toward_dest(void *, s32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-void obj_clearFlags30(void *, u32);
-s32 obj_setFlags30(void *, u32);
 f32 fabs_float(f32);
-f64 atan2_float(f32, f32);
 void TObjEneMe3SinowZoa__sub_800D758C(void *);
-f32 horizontal_distance_squared(void *, void *);
 s32 approach_angle_limited(s32, s32, s32);
-s32 advance_animation_playback(void *);
 s32 project_actor_to_ground(void *, void *, s32);
-s32 minimap_render_dot(void *, s32, s32, s32);
-f32 vec3_add_to(void *, void *);
-s32 rotate_vector_by_matrix(int, void *, void *);
-s32 rotate_matrix_y(int, s32);
-s32 subtract_vector(void *, void *);
-s32 push_matrix_from(void *);
-s32 pop_matrices(int);
 extern Vec_800BE8FC lbl_8050BEE0;
 extern Vec_800BE8FC lbl_8050BF00;
-extern u8 identity_matrix[];
-s32 apply_actor_gravity(void *, s32, f32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-void obj_clearFlags30(void *, u32);
-s32 obj_setFlags30(void *, u32);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
-s32 advance_animation_playback(void *);
-s32 play_persistent_sound(s32, void *, void *, s32, s32);
-s32 play_sound_effect(void *, void *, int, int);
-f32 vec3_add_to(void *, void *);
-s32 rotate_vector_by_matrix(int, void *, void *);
-s32 rotate_matrix_y(int, s32);
-s32 push_matrix_from(void *);
-s32 pop_matrices(int);
-s32 pop_matrix();
-u8 *get_player_data__10TObjPlayerFi(s32);
-s32 obj_getField1c(void *);
-s32 get_current_floor();
-u8 *get_player_by_client_id(u16);
-s32 subtract_vector(void *, void *);
-s32 update_angle__10TObjPlayerFlPv(void *, void *, void *);
-f64 atan2_float(f32, f32);
-f32 newton_sqrtf(f32);
-s32 spawn_directional_particle(void *, void *, s32);
-void enemy_set_heading_velocity(void *, s32, f32);
-void enemy_turn_toward_dest(void *, s32);
-s32 move_with_wall_slide(void *);
-f32 horizontal_distance_squared(void *, void *);
-s32 minimap_render_dot(void *, s32, s32, s32);
-void TObjGrass__sub_800BFB68(O_800BFB68 *self);
 s32 set_indexed_flags(void *, int, int);
 f32 get_collision_body_radius(void *, int);
 s32 select_enemy_destination(void *, Vec_800BD4D8, int);
@@ -558,14 +449,7 @@ s32 copy_position_if_valid__10TObjPlayerFii(void *, Vec_800BD4D8);
 s32 obj_is_hit_receivable(void *);
 u32 find_actor_body_contact(void *, void *, f32);
 s32 is_split_screen();
-extern u8 identity_matrix[];
-extern s32 enable_v2_features;
-extern s32 game_difficulty_selection;
 extern s32 local_client_id;
-s32 apply_actor_gravity(void *, s32, f32);
-s32 obj_setFlags30(void *, u32);
-s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
-void TObjGrass__sub_800BFB68(O_800BFB68 *self);
 s32 create__12TObjEneSaverFPvPv(int, int);
 s32 set_param__12TObjEneLappyFl(void *, int, int);
 s32 bind_enemy_combat_stats(void *, int, int, int);
@@ -582,30 +466,14 @@ extern "C" u8 lbl_8043B724[];
 extern "C" u8 lbl_8043B738[];
 extern "C" u8 lbl_8043B74C[];
 extern "C" u8 lbl_8043B760[];
-extern u8 __vt__9TObjGrass[];
 extern s32 lbl_805D2A38;
-extern s32 lbl_805D5140;
-extern u32 TObjGrass__bml_resource;
-extern s32 grass_combat_stats_handle;
-extern u32 TObjGrass__resource_bundle;
 u8 *TObjGrass__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
-s32 advance_animation_playback(void *);
 void TLobby__sub_8001FE7C(void*, int);
-s32 play_persistent_sound(s32, void *, void *, s32, s32);
 void *TObjControl__ct(void *, void *);
-s32 apply_actor_gravity(void *, s32, f32);
 s32 update_movement_status__10TObjPlayerFv();
 s32 update_action_hold_status__10TObjPlayerFv();
 void __dt__11TBoss4Type3FPvs(void*, int);
-void *__nw__7TObjectFUl(int);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 void mem_free(void*);
-s32 minimap_render_dot(void *, s32, s32, s32);
-void obj_clearFlags30(void *, u32);
 
 extern "C" {
 void TLobby__sub_801A1FD8();
@@ -670,23 +538,20 @@ void update_object_view_visibility__13TUnk_804B9870Fff();
 extern void *bm_ene_grass_model_names[2];
 extern void *bm_ene_grass_motion_names[9];
 extern "C" {
-extern u8 lbl_8043B6A0[]; extern "C" u8 lbl_8043B6B4[]; extern "C" u8 lbl_8043B6CC[]; extern "C" u8 lbl_8043B6E0[];
+ extern "C" u8 lbl_8043B6B4[]; extern "C" u8 lbl_8043B6CC[]; extern "C" u8 lbl_8043B6E0[];
 }
 extern "C" {
-extern u8 lbl_8043B6F8[]; extern "C" u8 lbl_8043B70C[]; extern "C" u8 lbl_8043B724[]; extern "C" u8 lbl_8043B738[];
+ extern "C" u8 lbl_8043B70C[]; extern "C" u8 lbl_8043B724[]; extern "C" u8 lbl_8043B738[];
 }
 extern "C" {
-extern u8 lbl_8043B74C[]; extern "C" u8 lbl_8043B760[];
+ extern "C" u8 lbl_8043B760[];
 }
 extern "C" {
-extern void TLobby__sub_801A1FD8(); extern "C" void vfunc_12__13TUnk_804B9870Fv(); extern "C" void vfunc_9__13TUnk_804B9870Fv();
-}
+extern void TLobby__sub_801A1FD8();  }
 extern "C" {
-extern void __dt__12TObjGrassWebFv(); extern "C" void apply_object_set_data(); extern "C" void classify_actor_view_detail();
-}
+extern void __dt__12TObjGrassWebFv();  }
 extern "C" {
-extern void run_task__12TObjGrassWebFv(); extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
-}
+extern void run_task__12TObjGrassWebFv(); }
 __declspec(section ".data") void *bm_ene_grass_model_names[2] = {
     (void *)&lbl_8043B6A0, (void *)0x0,
 };
@@ -1339,7 +1204,6 @@ void TObjGrass::vfunc_60() {
 
 struct Vec_800BE1CC { f32 x, y, z; };
 f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(void *, void *, Vec_800BE1CC *);
-s32 bind_enemy_combat_stats(void *, int, int, int);
 #define TBL ((u32 *)TObjGrass__bml_resource)
 #define T318 (*(u32 *)((s8 *)(arg0) + 0x318))
 #define IN_RANGE() (dist <= (r + ((TObjPlayer *)T318)->get_pos_x()) * (r + ((TObjPlayer *)T318)->get_pos_x()) && ang <= ((TObjPlayer *)T318)->get_field_0c())
@@ -1947,11 +1811,6 @@ void *TObjGrass::create(void *arg0) {
     }
     return o2;
 }
-
-extern u32 TObjGrass__bml_resource;
-extern u32 TObjGrass__resource_bundle;
-extern u32 lbl_805D5158;
-extern u32 lbl_805D515C;
 
 void TObjGrass::destroy_all() {
     if ((u32) TObjGrass__bml_resource != 0U) {

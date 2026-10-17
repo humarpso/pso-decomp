@@ -16,10 +16,6 @@ void *get_window_layout_position(s32);
 void *set_window_mode_4__6TLobbyFPvll(void *, void *, s32);
 extern const BattleIntroWindowSize lbl_80475B60;
 s32 lbl_805D6AB0;
-}
-
-extern "C" {
-
 void send_and_handle__6TLobbyFii(void *, void *, int);
 void *destroy__19TPlayerBattleCtrl4PFs(void *arg0, s16 arg1);
 s32 TWindow__close(void *);

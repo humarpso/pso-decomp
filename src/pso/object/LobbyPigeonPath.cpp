@@ -53,19 +53,10 @@ f32 subtract_vector(Vec_802C0CAC *, Vec_802C0CAC *);
 extern Entry_802C0CAC lobby_pigeon_path_profiles[];
 extern const f64 lbl_80471960[];
 s32 initialize_lobby_pigeon_path(Obj_802C0CAC *self);
-void VecCopy__FP3VecPC3Vec(Vec_802C0CAC *, Vec_802C0CAC *);
-f64 atan2_float(f32, f32);
-void direction_to_rotation_xz(Vec_802C0CAC *, s32 *, s32 *);
 
-f32 subtract_vector(Vec_802C0CAC *, Vec_802C0CAC *);
 s32 approach_angle_limited(s32, s32, s32);
 s32 angle_diff_s16(s32, s32);
-extern Entry_802C0CAC lobby_pigeon_path_profiles[];
-extern const f64 lbl_80471960[];
 s32 advance_lobby_pigeon_path(Obj_802C0A74 *self);
-}
-
-extern "C" {
 
 s32 advance_lobby_pigeon_path(Obj_802C0A74 *self) {
     Vec_802C0CAC a;
@@ -144,15 +135,9 @@ s32 initialize_lobby_pigeon_path(Obj_802C0CAC *self) {
     return r;
 }
 
-}
-
 #pragma pop
 
 #pragma push
-#include "types.h"
-
-extern "C" {
-
 s32 filter_lobby_pigeon_theme(void *);
 
 void TUnk_804E0898::select_lobby_pigeon_model() {
@@ -189,7 +174,6 @@ void TUnk_804E0898::select_lobby_pigeon_model() {
 #pragma push
 
 #include "pso/object/LobbyPigeon.h"
-#include "types.h"
 
 struct Vec_802C22A4 { f32 x, y, z; };
 
@@ -205,13 +189,8 @@ struct Obj_802C22A4 {
 struct PigeonMovement { s32 motion; f32 pathSpeed, animationSpeed, lookAhead; s32 turnStep; };
 
 extern "C" {
-f64 atan2_float(f32, f32);
-s32 angle_diff_s16(s32, s32);
-s32 approach_angle_limited(s32, s32, s32);
-s32 sample_clamped_path_position(void *arg0, s32 arg1, void *arg2, s32 arg3, f32 farg0);
 Hit_802C22A4 *csnVecterUnder(Vec_802C22A4 *, s32);
 void vec3_add_to(void *, void *);
-extern const f64 lbl_80471960[];
 u8 *TObjPathObj__ct(u8 *arg0, s32 arg1, s32 arg2);
 
 s32 get_bml_model(void *, s32);
@@ -232,10 +211,6 @@ s32 rotate_matrix_z(s32, s32);
 void scale_matrix(void *, f32, f32, f32);
 s32 draw_model_motion(s32, s32, f32);
 extern void *lobby_pigeon_lobby_type;
-}
-
-extern "C" {
-
 struct RecoveredGlobal_8019A9B8_lbl_80446184 {
     s32 value;
     u8 remaining[0xC];
@@ -514,17 +489,11 @@ typedef struct { f32 f0, f4, f8, fC; s32 f10; } Ent_802C17FC;
 
 typedef struct { u8 pad[4]; u32 n; } Anim_802C17FC;
 
-f64 atan2_float(f32, f32);
-s32 get_state_flag__9TMainTaskFv();
-s32 get_bml_motion(void *, s32);
-s32 get_bml_model(void *, s32);
 void TLobby__sub_8001FE7C(void*, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 s32 TObjMapWarp__sub_80141CB0(s32 *, s32 *, s32, s32);
-s32 angle_diff_s16(s32, s32);
 
-s32 approach_angle_limited(s32, s32, s32);
 u8 * load_gvm_texture_file(s32);
 s32 play_sound_effect(int, void *, int, int);
 void __dl__7TObjectFPv(void *);
@@ -546,23 +515,14 @@ s32 TObjPlayer__sub_802C2A10(Obj_802C2A10 *self);
 s32 TObjPlayer__sub_802C2C48(Obj_802C2C48 *self);
 void * __dt__13TUnk_804E0988Fv(void *arg0, s16 arg1);
 u8 *TObjPlayer__sub_802C2F04(u8 *arg0, s32 arg1, const void* _w2);
-void draw_line_strip__10TObjPlayerFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
-s32 sample_clamped_path_position(void *arg0, s32 arg1, void *arg2, s32 arg3, f32 farg0);
 void *__dt__11TObjPathObjFv(void *arg0, s16 arg1);
-s32 rand();
 f32 bind_motion_context(void *, f32);
 s32 sample_motion_node_transform(s32, s32, s32 *, s32 *, s32 *);
 void matrix_mult_vec(void *, void *, void *);
 void translate_matrix_vec3(void *, void *);
 void set_matrix_identity(void *);
-s32 rotate_matrix_y(s32, s32);
-s32 rotate_matrix_z(s32, s32);
 
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
 s32 TLobby__sub_803DA16C(void*);
-s32 draw_model_motion(s32, s32, f32);
 
 extern Entry_802C2C48 seabed_dolphin_path_profiles[];
 extern u8 seabed_dolphin_anim_binding[];
@@ -572,7 +532,6 @@ extern Entry_802C1660 jungle_seagull_path_profiles[];
 extern Vec_802C17FC lbl_80471908;
 extern Ent_802C0F3C lobby_pigeon_path_profiles[];
 extern Vec_802C0F3C lobby_pigeon_zero_vec;
-extern const f64 lbl_80471960[];
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80471978;
 extern RecoveredGlobal_802C1B9C_lbl_80471990 lbl_80471990;
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_804719A4;
@@ -581,7 +540,6 @@ extern u8 bm_obj_seabed_dolphin_resource_descriptor[];
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 bm_obj_jungle_ebi_resource_descriptor;
 extern RecoveredGlobal_802C1B9C_lbl_804E081C bm_obj_jungle_bird_resource_descriptor;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 bm_obj_jungle_kamome_resource_descriptor;
-extern s32 lobby_pigeon_vtable[];
 extern s32 jungle_seagull_vtable[];
 extern s32 lbl_804E0910[];
 extern s32 lbl_804E094C[];
@@ -600,11 +558,6 @@ extern void *tl_05;
 #pragma fp_contract on
 extern "C" {
 
-extern Entry_802C2548 jungle_ebi_path_profiles[];
-}
-
-extern "C" {
-extern Ent_802C0F3C lobby_pigeon_path_profiles[];
 }
 
 void TUnk_804E0898::vfunc_14() {
@@ -1560,8 +1513,6 @@ s32 sample_clamped_path_position(void *arg0, s32 arg1, void *arg2, s32 arg3, f32
 
 #pragma push
 
-#include "types.h"
-#include "pso/object/TObjPathObj.h"
 #include "pso/TAdStorySelectGC.h"
 #include "pso/TParticleCtrl.h"
 
@@ -1615,18 +1566,9 @@ struct RecoveredGlobal_802C320C___vt__11TObjPathObj {
 };
 
 extern "C" {
-s32 get_state_flag__9TMainTaskFv();
 s32 construct_world_actor_base(void *, void *);
 extern s32 __vt__11TObjPathObj[];
 extern s32 lbl_805D3EC0;
-u8 *TObjPathObj__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
-void *__dt__11TObjPathObjFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-
 void TObjPathObj::render() {
     u8 *arg0 = (u8 *)this;
     if ((get_state_flag__9TMainTaskFv() != 1) && (((VObj_18 *)(arg0))->m8(*(f32 *)&this->unk_90, this->m_94) != 0)) {
@@ -1638,8 +1580,6 @@ void TObjPathObj::run_task() {
     struct VObj_802C3188 *o = (struct VObj_802C3188 *)this;
     o->m11();
 }
-
-extern s32 __vt__11TObjPathObj[];
 
 void *__dt__11TObjPathObjFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

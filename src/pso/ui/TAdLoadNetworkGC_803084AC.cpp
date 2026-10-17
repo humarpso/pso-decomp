@@ -21,16 +21,10 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void *fn_80086FE0(void *, void *, s32, s32);
 void *__ct__7TObjectFP7TObject(void *, void *);
 extern const s32 load_network_object_id_table[];
-extern V_803084AC TAdLoadNetworkGC__object_offset_table[];
-extern u8 __vt__16TAdLoadNetworkGC[];
 extern Ray_803085A0 lbl_804FF5E8;
 extern s32 TAdLoadNetworkGC__class_name;
 extern const f32 lbl_805DF0C0;
 Net_803084AC *TAdLoadNetworkGC__ct(Net_803084AC *self, void *parent, V_803084AC *pos);
-}
-
-extern "C" {
-
 void TAdLoadNetworkGC::run_task() {
     Net_803084AC *o = (Net_803084AC *)this;
     u32 i;

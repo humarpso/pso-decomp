@@ -176,19 +176,14 @@ extern s32 TQuestListVM__decrypted_quest_buffer;
 extern s32 TQuestListVM__decompression_capacity;
 extern RecoveredGlobal_8033B9C4_lbl_80513910 download_rng_seed_pair;
 void seed_download_rng(s32 arg0);
-s32 TLobby__sub_8001EEF4();
-extern s32 TQuestListVM__data_8044BF20[];
 extern int evt2_random_enemies_mode;
 u8 * __ct__15TShopWindowBaseFv(void *);
 extern s32 __vt__12TQuestListVM[];
 extern s32 TQuestListVM__class_name;
-extern s32 TQuestListVM__decrypted_quest_buffer;
-extern s32 TQuestListVM__decompression_capacity;
 extern s32 TQuestListVM__quest_data_output_cursor;
 extern s32 TQuestListVM__quest_decrypt_result_size;
 extern s32 quest_list_vm_instance;
 u8 *TQuestListVM__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 TQuestListVM__sub_8021884C(void *);
 int memset(void*, void*, void*);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
@@ -206,54 +201,21 @@ void send_and_handle__6TLobbyFii(u32, void *, int);
 u32 create_message_window__6TLobbyFllUls(int, Pair_80218D40 *, int, u16);
 int get_window_layout_position(int);
 extern Pair_80218D40 lbl_8044BF48[];
-extern s32 TQuestListVM__decrypted_quest_buffer;
 extern const f32 lbl_805DC6B8;
 extern const f32 lbl_805DC6BC;
-s32 select_cursor_entry__22TWindowSubShortCutListFv(u32);
-s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E1538(Dl_80218E94 *, s32);
 s32 poll_download__12TQuestListVMFv(void *);
-void seed_download_rng(s32 arg0);
-extern s32 TQuestListVM__decrypted_quest_buffer;
-extern s32 TQuestListVM__decompression_capacity;
-extern s32 TQuestListVM__quest_data_output_cursor;
-extern s32 TQuestListVM__quest_decrypt_result_size;
-s32 select_cursor_entry__22TWindowSubShortCutListFv(u32);
-s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-s32 TAdPlayerLoadGC__sub_801E1538(Dl_80218E94 *, s32);
-s32 poll_download__12TQuestListVMFv(void *);
-void seed_download_rng(s32 arg0);
-extern s32 TQuestListVM__quest_data_output_cursor;
-extern s32 TQuestListVM__quest_decrypt_result_size;
 s32 TWindow__close(void *);
 s32 get_selected_menu_value(void *);
-extern s32 TQuestListVM__decrypted_quest_buffer;
-extern s32 TQuestListVM__decompression_capacity;
-int obj_getField1c(int);
 s32 calc_list_content_extent(void *);
-void send_and_handle__6TLobbyFii(u32, void *, int);
 u32 set_window_mode_4__6TLobbyFPvll(int, void *, int);
-int get_window_layout_position(int);
 u32 create_item_list_window(void *, int, u16);
 extern char lbl_8044BF04[];
 extern char lbl_8044BF14[];
 extern Pair_80218D40 lbl_8044BF40[];
-extern s32 current_language;
-s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-s32 select_cursor_entry__22TWindowSubShortCutListFv(u32);
-s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32 chan, const char *name);
-int sprintf(char *, const char *, ...);
 char *strcpy(char *, const char *);
-int memset(void*, void*, void*);
-extern char lbl_8044BEE8[];
-extern char lbl_8044BF50[];
-s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 void *memcpy(void *, const void *, unsigned long);
-}
-
-extern "C" {
-
 struct Base_802186E4_80218570 { char pad[0x18]; };
 struct VObj_802186E4_80218570 : Base_802186E4_80218570 {
     virtual void m0();virtual void m1();virtual void m2();virtual void m3();
@@ -266,11 +228,8 @@ void TQuestVmDownLoadServer__sub_80219EC4(void* p);
 void *__dt__12TQuestListVMFv(void *arg0, s16 arg1);
 int TKeyBoardControl__sub_8000F950(void);
 s32 TLobby__sub_8001EDF4(s32 *);
-s32 TLobby__sub_8001EEF4();
-s32 TWindow__close(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__15TShopWindowBaseFv(void *, s32);
-int memset(void*, void*, void*);
 s32 queue_destruction__7TObjectFv(void *);
 
 s32 TQuestListVM::update_load_status() {
@@ -312,7 +271,6 @@ void TQuestListVM::close_windows() {
     }
 }
 
-    extern int evt2_random_enemies_mode;
 void TQuestListVM::set_enemy_mode_3() { TLobby::set_enemy_mode_flag(); evt2_random_enemies_mode = 3; TKeyBoardControl__sub_8000F950(); }
 
 void TQuestListVM::load_vm() {
@@ -340,8 +298,6 @@ s32 TQuestListVM::invoke_callback_and_queue_destruction() {
     queue_destruction__7TObjectFv(this);
 }
 
-extern s32 TQuestListVM__data_8044BF20[];
-
 s32 TQuestListVM::close_and_destroy() {
     s32 (*temp_r12)();
 
@@ -354,8 +310,6 @@ s32 TQuestListVM::close_and_destroy() {
     }
     queue_destruction__7TObjectFv(this);
 }
-
-extern s32 TQuestListVM__data_8044BF20[];
 
 s32 TQuestListVM::close() {
     s32 (*temp_r12)();
@@ -396,8 +350,6 @@ void TQuestListVM::update_close() {
         set_field_20((s32)((void*)(0x11)));
     }
 }
-
-extern s32 TQuestListVM__data_8044BF20[];
 
 void TQuestListVM::load_downloaded_quest() {
     u8 *arg0 = (u8 *)this;
@@ -870,10 +822,6 @@ s32 TQuestListVM::load_quest_vm() {
 }
 
 s32 TQuestListVM::init() { memset((char*)this + 0x28, (void*)0, (void*)9024); *(int *)&this->m_2398 = 4; *(int *)&this->m_2368 = 0; *(int *)&this->m_239c = 0; *(int *)&this->_pad236C = 0; *(int *)&this->m_23ac = 0; *(int *)&this->m_23b0 = 0; set_field_20((s32)((void*)((void*)1))); }
-
-extern s32 TQuestListVM__data_8044BF20[];
-extern s32 __vt__12TQuestListVM[];
-extern s32 quest_list_vm_instance;
 
 void TQuestListVM::vfunc_11() {
     u8 *arg0 = (u8 *)this;

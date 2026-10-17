@@ -8,10 +8,6 @@ void *__ct__17TItemEffNeedlePosFv(void *, s32, void *, Vec_80109A30 *, Vec_80109
 void *__nw__7TObjectFUl(u32);
 void subtract_vector(Vec_80109A30 *, Vec_80109A30 *);
 void spawn_needle_wall_impact(s32 arg0, void *arg1, Vec_80109A30 *arg2, Vec_80109A30 *arg3);
-}
-
-extern "C" {
-
 void spawn_needle_wall_impact(s32 arg0, void *arg1, Vec_80109A30 *arg2, Vec_80109A30 *pos) {
     void *var_r31;
     if ((arg0 != 0) && (arg2 != NULL) && (arg1 != NULL) && (pos != NULL)) {

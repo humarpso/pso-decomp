@@ -169,18 +169,11 @@ void *lbl_804DB888[6] = {
     (void *)0x0, (void *)0x0, (void *)&TLobby__sub_802936AC, (void *)&update_destruction_countdown__6TLobbyFPv,
     (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv,
 };
-}
-
-extern "C" {
 #define lbl_804DB1F0 (*(RecoveredGlobal_80291DC0_lbl_804DB1F0 *)&lbl_804DB1F0)
 s32 is_challenge_mode_active(void);
 #define is_challenge_mode_active ((int (*)(void*))is_challenge_mode_active)
 s32 mix_seed_checked__6TLobbyFi(s32);
 void TLobby__sub_80291DF8(s32 v);
-}
-
-extern "C" {
-
 int is_multi_ready__6TLobbyFv(void);
 
 void TLobby::update_screen() { if (is_challenge_mode_active((void*)(this)) != 0) { is_multi_ready__6TLobbyFv(); } }
@@ -215,10 +208,6 @@ extern "C" {
 #undef lbl_804DB1F0
 #define lbl_804DB1F0 (*(s32 (*)[1])&lbl_804DB1F0)
 void TLobby__sub_80291EAC(s32 arg0);
-}
-
-extern "C" {
-
 s32 TLobby::get_normalized_mode() {
     if (((s32 (*)())is_challenge_mode_active)() == 0) {
         return 0;
@@ -344,32 +333,23 @@ extern RecoveredGlobal_802925C4_lbl_80540968 split_screen_player_name;
 void set_split_screen_name__6TLobbyFi(s32 arg0);
 f32 fabs_float(f32);
 void TLobby__sub_80292200(s32 arg0);
-f32 fabs_float(f32);
 void set_challenge_time_window_timer(int);
 #define is_challenge_mode_active ((s32 (*)())is_challenge_mode_active)
 s32 TWindowSubStatusDisp__sub_8006F134(s32, s32);
 s32 get_character_save_record(s32);
 s32 TLobby__sub_802924B4(s32 arg0, u16 arg1);
-s32 mix_seed_checked__6TLobbyFi(s32);
 u32 get_player_by_client_id(s32);
 s32 calc_layout_hash__20TWindowSubStatusDispFv(int);
 s32 calc_entry_offset__20TWindowSubStatusDispFv(int);
 s32 TLobby__sub_802923C4(s32 idx, s32 value, s32 arg);
-f32 fabs_float(f32);
 s32 is_level_capped__23TAdSinglePlyChrSelectGCFv();
-s32 get_character_save_record(s32);
 s32 TLobby__sub_80292DA0(s32 seed, u16 card);
 #define TLobby__sub_80292DA0 ((s32 (*)(s32, s32))TLobby__sub_80292DA0)
 s32 TLobby__sub_80292270(s32 arg0, s32 arg1);
-u32 get_player_by_client_id(s32);
 extern s32 lbl_805D6578;
 extern s8 lbl_805D657C;
 s32 TLobby__sub_8029204C(void);
 void TLobby__sub_8026A328(void *);
-}
-
-extern "C" {
-
 int TLobby__sub_80292268(void);
 #define is_multi_ready__6TLobbyFv ((s32 (*)())is_multi_ready__6TLobbyFv)
 
@@ -650,10 +630,6 @@ Pl_80292730 *create_player_object(s32, s32, void *);
 void clamp_and_set_unit_value__10TObjPlayerFiUci(void *, u8, s16);
 void begin_action_state__10TObjPlayerFPv(void *);
 void send_command__10TNpcPlayerFlScllPSc(u8, s32, s32, s32, void *);
-}
-
-extern "C" {
-
 #define is_challenge_mode_active ((s32 (*)())is_challenge_mode_active)
 
 #define lbl_804DB1F0 (*(s32 (*)[1])&lbl_804DB1F0)
@@ -766,28 +742,18 @@ extern "C" {
 #define lbl_804DB1F0 (*(s32 (*)[1])&lbl_804DB1F0)
 extern u32 challenge_retry_object;
 void TLobby__sub_80293218(s32);
-extern u32 challenge_retry_object;
 s32 TLobby__sub_8029299C(void);
-extern u32 challenge_retry_object;
 s32 TLobby__sub_80292A34(void);
 s32 get_layout_id__20TWindowSubStatusDispFv(s32);
 s32 *TWindowSubStatusDisp__sub_8006F0D8(void *, s32);
 #define get_character_save_record ((u8 * (*)())get_character_save_record)
 s32 count_card_layout_entries__6TLobbyFv(void);
-s32 get_layout_id__20TWindowSubStatusDispFv(s32);
-s32 *TWindowSubStatusDisp__sub_8006F0D8(void *, s32);
-s32 mix_seed_checked__6TLobbyFi(s32);
 s32 TLobby__sub_80292F34(s32 arg0);
 s32 TLobby__sub_80292BB8(s32 seed, u16 card, s32 id);
 #define calc_layout_hash__20TWindowSubStatusDispFv ((s32 (*)(s32))calc_layout_hash__20TWindowSubStatusDispFv)
 #define calc_entry_offset__20TWindowSubStatusDispFv ((s32 (*)(s32))calc_entry_offset__20TWindowSubStatusDispFv)
 #define TWindowSubStatusDisp__sub_8006F134 ((s32 * (*)(u8 *, s32))TWindowSubStatusDisp__sub_8006F134)
 s32 TLobby__sub_80292AB4(s32 arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
-s32 get_layout_id__20TWindowSubStatusDispFv(s32);
 
 void TLobby::clamp_and_store_layout_index(s32 arg0) {
     s32 temp_r3;
@@ -951,7 +917,6 @@ struct E_80292DA0 {
 };
 
 extern "C" {
-s32 *TWindowSubStatusDisp__sub_8006F0D8(void *, s32);
 #define TWindowSubStatusDisp__sub_8006F134 ((E_80292DA0 * (*)(void *, s32))TWindowSubStatusDisp__sub_8006F134)
 s32 get_slot_clamped__6TLobbyFv(s32);
 s32 mix_seed__6TLobbyFUs(s32);
@@ -960,13 +925,7 @@ s32 TWindowSubStatusDisp__sub_80071988(u16, s32);
 #define TLobby__sub_80292AB4 ((s32 (*)(s32, u16, s32))TLobby__sub_80292AB4)
 s32 TLobby__sub_80292BB8(s32, u16, s32);
 #define lbl_804DB1F0 (*(s32 (*)[1])&lbl_804DB1F0)
-s32 TLobby__sub_80292DA0(s32 seed, u16 card);
-}
-
-extern "C" {
-
 #define count_card_layout_entries__6TLobbyFv ((s32 (*)(s32))count_card_layout_entries__6TLobbyFv)
-u32 get_player_by_client_id(s32);
 #define get_layout_id__20TWindowSubStatusDispFv ((s32 (*)())get_layout_id__20TWindowSubStatusDispFv)
 
 s32 TLobby::calc_min_challenge_progress() {
@@ -1019,17 +978,12 @@ s32 TLobby__sub_80292DA0(s32 seed, u16 card) {
     }
 }
 
-}
-
 #undef TWindowSubStatusDisp__sub_8006F134
 #undef get_character_save_record
 #undef TLobby__sub_80292AB4
 #undef lbl_804DB1F0
 #undef count_card_layout_entries__6TLobbyFv
 #undef get_layout_id__20TWindowSubStatusDispFv
-
-extern "C" {
-
 #define is_challenge_mode_active ((s32 (*)())is_challenge_mode_active)
 
 #define lbl_804DB1F0 (*(s32 (*)[1])&lbl_804DB1F0)
@@ -1062,11 +1016,6 @@ struct G_8006F2CC { u8 pad[0x28]; s32 x28; };
 extern "C" {
 #define is_challenge_mode_active ((s32 (*)())is_challenge_mode_active)
 #define lbl_804DB1F0 (*(RecoveredGlobal_8006F23C_lbl_8048C9D8 *)&lbl_804DB1F0)
-}
-
-extern "C" {
-
-s32 TLobby__sub_80292F34(s32 arg0);
 int TLobby__sub_80292F5C(void* p);
 int get_instance__11TCameraCtrlFv(void*);
 
@@ -1104,13 +1053,8 @@ void TLobby::start_challenge_countdown() {
     }
 }
 
-}
-
 #undef is_challenge_mode_active
 #undef lbl_804DB1F0
-
-extern "C" {
-
 #define is_challenge_mode_active ((s32 (*)())is_challenge_mode_active)
 s32 queue_destruction__7TObjectFv(void*);
 
@@ -1128,24 +1072,14 @@ void TLobby::set_retry_selection(s32 arg0) {
     }
 }
 
-extern u32 challenge_retry_object;
-
 void TLobby::destroy_global() {
     if ((u32) challenge_retry_object != 0U) {
         queue_destruction__7TObjectFv((void*)challenge_retry_object);
     }
 }
 
-}
-
 #undef is_challenge_mode_active
 #undef lbl_804DB1F0
-
-extern "C" {
-
-s32 is_challenge_mode_active(void);
-
-extern u32 challenge_retry_object;
 extern s32 challenge_mode_active_flag;
 
 s32 is_challenge_mode_active(void) {
@@ -1155,10 +1089,6 @@ s32 is_challenge_mode_active(void) {
     return 0;
 }
 
-}
-
-extern "C" {
-
 void TLobby__sub_802930A8(void);
 void enable_split_screen_challenge_mode(void);
 
@@ -1166,15 +1096,9 @@ void enable_split_screen_challenge_mode(void);
 #define challenge_mode_active_flag (*(int *)&challenge_mode_active_flag)
 void TLobby__sub_802930A8(void) { challenge_mode_active_flag = 0; split_screen_flag = 0; }
 
-    extern int split_screen_flag;
 void enable_split_screen_challenge_mode(void) { challenge_mode_active_flag = 1; split_screen_flag = 1; }
 
-}
-
 #undef challenge_mode_active_flag
-
-extern "C" {
-
 int TLobby__sub_80293124(void* p);
 void *create_challenge4p__6TLobbyFv(void);
 struct C_80293720;
@@ -1282,7 +1206,6 @@ extern "C" {
 s32 get_main_phase();
 s32 is_split_screen();
 s32 queue_destruction__7TObjectFv(void *);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 #define get_player_by_client_id ((u32 (*)(u32))get_player_by_client_id)
 #define get_character_save_record ((u8 * (*)(s32))get_character_save_record)
 void TLobby__sub_80293218(s32 arg0);
@@ -1293,32 +1216,19 @@ extern s32 tl_07;
 s32 get_current_floor(void);
 s32 create_ch_time_win(s32);
 void TLobby__sub_802933FC(void *arg0);
-extern s32 tl_07;
-}
-
-extern "C" {
-
 void setup_split_screen(void);
-void update_destruction_countdown__6TLobbyFPv(void *arg0);
 s32 TAdPlayerLoadGC__sub_801E1510();
 s32 create_new_floor_windows__6TLobbyFi(s32);
 #define set_split_screen_name__6TLobbyFi ((s32 (*)(void *))set_split_screen_name__6TLobbyFi)
 s32 export_character_data__10TObjPlayerFPvPv(u32, u32);
-s32 create_ch_time_win(s32);
 #define create_challenge4p__6TLobbyFv ((u32 (*)())create_challenge4p__6TLobbyFv)
 
 u32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
-s32 is_split_screen();
-s32 queue_destruction__7TObjectFv(void *);
 
 extern s32 lbl_80464E58[];
-extern u32 challenge_retry_object;
 extern s32 lbl_805D6584;
 #define split_screen_flag (*(s32 *)&split_screen_flag)
 
-extern "C" void *TLobby__sub_802936AC(void *arg0, s16 arg1);
-extern "C" void render__7TObjectFv();
-extern "C" void render_shadows__7TObjectFv();
 #define challenge_default_settings (*(RecoveredGlobal_8029379C_lbl_804DAB60 *)challenge_default_settings)
 #define lbl_804DB1F0 (*(s32 (*)[422])lbl_804DB1F0)
 
@@ -1353,8 +1263,6 @@ void setup_split_screen(void) {
         } while (var_r31 != 4U);
     }
 }
-
-extern s32 tl_07;
 
 void TLobby__sub_80293218(s32 arg0) {
     u8 *p = (u8 *)get_player_by_client_id(arg0);

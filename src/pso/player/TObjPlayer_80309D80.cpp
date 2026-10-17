@@ -40,7 +40,6 @@ extern "C" {
 int spawn_particle_effect(void*, void*);
 void *__nw__7TObjectFUl(int);
 void *TPlyPtclObjectRightHand__ct(void *, void *);
-void *__nw__7TObjectFUl(int);
 void *TPlyPtclObjectLeftHand__ct(void *, void *);
 void *get_player_by_client_id(u16);
 u16 get_lifetime__22TPlyFollowParticleCtrlFv();
@@ -54,7 +53,6 @@ s32 spawn_particle_effect_with_flags(s32, s32, s32);
 void emit_player_sprite_particle(s32 arg0, s32 arg1, s32 arg2);
 void emit_sand_step_particles(s32 arg0, s32 arg1);
 void emit_water_step_particles(s32 arg0, s32 arg1);
-void emit_player_sprite_particle(s32 arg0, s32 arg1, s32 arg2);
 void emit_idle_water_splash(s32 arg0, s32 arg1);
 s32 emit_player_particle(void* p, void* a1, void* a2);
 void attach_particle_model(s32, s32, s32, s32, s32, f32);
@@ -62,16 +60,9 @@ extern f32 lbl_805DF134;
 s32 emit_player_model_particle(s32 owner, s32 position, s32 entry, s32 model);
 extern const f32 lbl_805DF130;
 Fol_80309E9C *TObjPlayer__sub_80309E9C(Fol_80309E9C *o);
-}
-
-extern "C" {
-
 struct VOff_80309DD0_arg0_80309dd0_80309D80 { char pad_0[0x4]; char f_4[1]; };
 
 s32 TObjPlayer__sub_80309E4C(s32 arg0, s16 arg1);
-s32 spawn_particle_effect_with_flags(s32, s32, s32);
-s32 set_owner_id__13TParticleCtrlFUs(s32, s32);
-u32 find_entity_by_id(s32);
 int TPlyFollowParticleCtrl__sub_8030A694(void*);
 s32 __dl__FPv(s32 a0 = 0);
 s32 __dt__22TPlyFollowParticleCtrlFis(s32 a0 = 0, s32 a1 = 0);

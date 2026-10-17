@@ -8,10 +8,6 @@ s32 get_current_floor();
 f32 horizontal_distance_squared(void *, void *);
 extern s32 lbl_805D586C;
 s32 is_any_player_within_radius_xz(u8 *self, f32 radius);
-}
-
-extern "C" {
-
 s32 is_any_player_within_radius_xz(u8 *self, f32 radius) {
     u16 slot;
     u8 *player;

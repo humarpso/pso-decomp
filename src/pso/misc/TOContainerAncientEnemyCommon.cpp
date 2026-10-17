@@ -21,7 +21,6 @@ void *__dt__29TOContainerAncientEnemyCommonFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__29TOContainerAncientEnemyCommon[];
 extern void *lbl_805D2F0C;
 
 void *TOContainerAncientEnemyCommon__ct(void *arg0) {

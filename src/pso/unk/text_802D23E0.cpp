@@ -33,26 +33,15 @@ void TLobby__sub_802D268C(void);
 s32 get_player_by_client_id(u32);
 void build_6xA6_modify_trade_proposal(void *);
 extern u32 local_client_id;
-extern s8 TLobby__trade_partner_client_id;
 extern u8 TLobby__trade_proposal_state;
 s32 send_trade_list__6TLobbyFPvPv(s32, s32 *);
 s32 TWindowSubTradeMain__sub_80330A84();
 extern s32 TLobby__protocol_instance;
 extern u16 trade_protocol_flags;
-extern u8 TLobby__trade_proposal_state;
 extern u32 TLobby__trade_main_window;
-extern u16 trade_protocol_flags;
-extern u8 TLobby__trade_proposal_state;
 extern s32 trade_proposal_delay;
-extern u32 TLobby__trade_main_window;
 s32 check_trade_offer_inventory(void *, void *);
-u8 * copy_struct_f8__6TLobbyFii(s32 arg0, s32 arg1);
 extern Half_802D26C8 TLobby__trade_window_state[4];
-extern u32 local_client_id;
-extern s8 TLobby__trade_partner_client_id;
-}
-
-extern "C" {
 
 typedef struct Stack_802D23E0 Stack_802D23E0;
 void TLobby::send_trade_proposal_modify() {

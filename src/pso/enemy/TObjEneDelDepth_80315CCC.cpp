@@ -20,20 +20,6 @@ extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 extern const f32 lbl_805DF2E0;
-}
-
-extern "C" {
-
-s32 set_chunk_blend(s32);
-s32 set_chunk_material_override_pair(s32, s32);
-
-extern s32 lbl_805D5660;
-extern s32 lbl_805D5664;
-extern s32 lbl_805D5668;
-extern s32 chunk_polygon_flags_or_mask;
-extern s32 chunk_polygon_flags_and_mask;
-extern s32 model_render_flags;
-
 void TObjEneDelDepth::reset_globals() {
     model_render_flags &= 0xFFFF77DF;
     set_chunk_material_override_pair(0xFF00, 0);

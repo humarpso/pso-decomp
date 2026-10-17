@@ -13,13 +13,7 @@ s32 get_player_by_client_id(u32);
 extern const f32 lbl_805DB6C4;
 s16 obj_getS16_32C(void *);
 void send_6x2F_change_player_hp(u16, u16, s16);
-s32 get_player_by_client_id(u32);
-extern const f32 lbl_805DB6B8;
-extern const f32 lbl_805DB6BC;
 extern const f32 lbl_805DB6C0;
-}
-
-extern "C" {
 
 #pragma push
 #pragma opt_common_subs off

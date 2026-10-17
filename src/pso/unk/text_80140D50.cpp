@@ -12,13 +12,7 @@ struct Obj_80140F18 { u8 pad[0x1c]; Ent_80140F18 *slots[1]; };
 
 extern "C" {
 void emit_player_particle(void* p, void* a1, void* a2);
-void emit_player_particle(void* p, void* a1, void* a2);
 void fn_80140DFC(s32 arg0, s32 arg1);
-s32 TLobby__sub_80141030(void *);
-void emit_player_particle(void* p, void* a1, void* a2);
-void fn_80140DFC(s32 arg0, s32 arg1);
-void emit_player_particle(void* p, void* a1, void* a2);
-void fn_80140EA8(s32 arg0, s32 arg1);
 s32 TLobby__sub_80141030(void *);
 void fn_80140EA8(s32 arg0, s32 arg1);
 void register_slot(Obj_80140EE4 *self, void *p);
@@ -34,9 +28,6 @@ void play_area_music(void *);
 void load_floor_sound_bank();
 extern char lbl_8043F260[];
 s32 fn_80140D50(void);
-}
-
-extern "C" {
 
 s32 fn_80140D50(void) {
     TOKeyMachine01::get_global_state();

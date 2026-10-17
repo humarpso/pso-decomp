@@ -12,13 +12,7 @@ int pop_matrix(void);
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model(int);
-}
-
-extern "C" {
-
 int draw_if_all_ready__10TObjPlayerFv(void*);
-int push_matrix(void);
-int pop_matrix(void);
 
 void TObjPlayer::draw_shadowed_node_tree() {
     u8 *arg0 = (u8 *)this;

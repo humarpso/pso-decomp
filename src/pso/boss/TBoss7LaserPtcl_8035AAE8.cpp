@@ -47,17 +47,14 @@ struct Ptcl_8035AD68 {
 };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__15TBoss7LaserPtcl[];
 extern s32 TBoss7LaserPtcl__class_name;
 extern const f32 lbl_805E010C;
 u8 *TBoss7LaserPtcl__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 create_timed_particle_emitter(void *, int, int, int);
 s32 spawn_particle_effect(void *, int);
-void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804F1C88[];
 extern const f32 lbl_805E0118;
 u8 *TBoss7LaserPtcl__sub_8035AE54(u8 *arg0, s32 arg1, s32 arg2);
@@ -65,10 +62,6 @@ void queue_destruction__7TObjectFv(void *);
 void reset_global_table(void);
 extern const f32 lbl_805E0110;
 extern const f32 lbl_805E0114;
-}
-
-extern "C" {
-
 void *__dt__13TUnk_804F1C88Fv(void *arg0, s16 arg1);
 void TBoss7LaserPtcl__sub_8035AF0C(void);
 void TBoss7LaserPtcl__sub_8035AF10(void);
@@ -125,8 +118,6 @@ void TBoss7LaserPtcl::run_task() {
 
 extern "C" {
 
-extern s32 __vt__15TBoss7LaserPtcl[];
-
 void *__dt__15TBoss7LaserPtclFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TBoss7LaserPtcl;
@@ -155,8 +146,6 @@ u8 *TBoss7LaserPtcl__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
 }
 
 void TUnk_804F1C88::render() {  }
-
-extern s32 lbl_804F1C88[];
 
 void TUnk_804F1C88::run_task() {
     u8 *arg0 = (u8 *)this;

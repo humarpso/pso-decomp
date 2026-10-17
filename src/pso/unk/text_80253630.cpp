@@ -4,10 +4,6 @@
 
 extern "C" {
 u8 * find_item_by_id(s32);
-}
-
-extern "C" {
-
 void TWindowHelpItem::refresh_copied_items() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r3;

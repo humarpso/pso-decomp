@@ -14,10 +14,6 @@ extern u32 lbl_805D56A0;
 extern s32 lbl_805D56A4;
 extern s32 lbl_805D56A8;
 extern RecoveredCallback_6d14191ba232 lbl_805D6BF4;
-}
-
-extern "C" {
-
 void TMovie::flip_frame_buffer() {
     u32 sp8[4];
     if (lbl_805D56A0 != 0U) {

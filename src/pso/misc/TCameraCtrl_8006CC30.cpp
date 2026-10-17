@@ -236,10 +236,8 @@ struct Cam_8006D9F0 : CamBase_8006D9F0 {
 };
 
 #include <stddef.h>
-#include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TWindowCtrl.h"
-#include "pso/player/TObjPlayer.h"
 struct VBase_18_f70dca { char pad[0x18]; };
 
 struct VObj_18_f70dca : VBase_18_f70dca {
@@ -281,36 +279,18 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 extern RecoveredGlobal_8006CD78_TCameraCtrl__data_80488DE8 TCameraCtrl__override_position;
 extern RecoveredGlobal_8006CD78_lbl_80488DF4 camera_fixed_target_position;
 extern u8 TCameraCtrl__override_flags;
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_player_by_client_id(u32);
-extern RecoveredGlobal_8006CD78_TCameraCtrl__data_80488DE8 TCameraCtrl__override_position;
-extern RecoveredGlobal_8006CD78_lbl_80488DF4 camera_fixed_target_position;
 extern u16 TCameraCtrl__camera_override_client_id;
-extern u8 TCameraCtrl__override_flags;
 s32 TCameraCtrl__sub_8006CDD0(u8 *arg0);
-void VecCopy__FP3VecPC3Vec(void *, void *);
-extern RecoveredGlobal_8006CD78_TCameraCtrl__data_80488DE8 TCameraCtrl__override_position;
-extern u16 TCameraCtrl__camera_override_client_id;
-extern u8 TCameraCtrl__override_flags;
 extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
 extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__view_state;
 void end_conversation_camera(void);
-extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
-extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__view_state;
-void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * csnVector(void *, void *, u32);
 s32 angle_difference_abs(int, void *);
-extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
-extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__view_state;
 void begin_conversation_camera(void);
-extern u8 TCameraCtrl__override_flags;
-extern u16 TCameraCtrl__camera_override_client_id;
 extern void *local_client_id;
-s32 get_player_by_client_id(u32);
 void reset_cameras_to_actor(void *p, s32 x);
 s32 is_split_screen();
-s32 get_player_by_client_id(u32);
-extern void *local_client_id;
 void request_follow_camera_offsets(void *arg0, void *arg1, u16 arg2);
 void push_matrix_from(void *);
 void rotate_matrix_y(s32, s32);
@@ -321,95 +301,39 @@ int get_camera_mode__11TCameraCtrlFv();
 extern FollowView *camera_ctrl_instance;
 
 s32 conversation_camera_obstructed(FollowController *self,s32 heading);
-s32 is_split_screen();
-s32 get_player_by_client_id(u32);
-extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
-extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__view_state;
 void apply_follow_camera_offsets(void *arg0, void *arg1, s32 arg2, u16 arg3);
 int __ct__13TUnk_80488A28Fv(void);
 void TCameraCtrl__sub_8006E804(void* a0);
-s32 get_player_by_client_id(u32);
 extern s32 follow_camera_vtable[];
-extern u16 TCameraCtrl__camera_override_client_id;
-extern u8 TCameraCtrl__override_flags;
-extern void *local_client_id;
-s32 is_split_screen();
 extern Pads_8006D1A4 controller_input_state;
-s32 is_split_screen();
-int get_camera_mode__11TCameraCtrlFv();
 f32 horizontal_distance_squared(void *, void *);
-extern FollowView *camera_ctrl_instance;
-u8 * csnVector(void *, void *, u32);
-void matrix_mult_vec(s32, void *, void *);
 f32 vec_squared_length(FollowVector *);
-void rotate_matrix_y(s32, s32);
 void normalize_vector(FollowVector *);
-void push_matrix_from(void *);
-void pop_matrices(s32);
 extern FollowVector lbl_80438534;
-extern u8 identity_matrix[];
-void matrix_mult_vec(s32, void *, void *);
-void rotate_matrix_y(s32, s32);
-void push_matrix_from(void *);
-void pop_matrices(s32);
-s32 get_player_by_client_id(u32);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void camera_renderer_setup_nop(void *, s32);
-extern u8 identity_matrix[];
-extern void *local_client_id;
 extern FollowVector lbl_80438528;
 extern Preset_8006DEF8 *follow_camera_init_pose_table[];
 extern u8 lbl_804FF5E8[];
-s32 is_split_screen();
-int get_camera_mode__11TCameraCtrlFv();
 FollowVector *get_position_ptr__10TObjPlayerFv(void *);
 FollowVector *get_target_ptr__11TCameraCtrlFv(void *);
 void approach_camera_scalar(void *, f32 *, f32);
-void matrix_mult_vec(s32, void *, void *);
-f32 vec_squared_length(FollowVector *);
-void rotate_matrix_y(s32, s32);
-void push_matrix_from(void *);
-void pop_matrices(s32);
-extern u8 identity_matrix[];
-s32 is_split_screen();
 void get_dragon_follow_camera_offsets(Vec_8006D9F0 *, Vec_8006D9F0 *);
-void request_follow_camera_offsets(void *arg0, void *arg1, u16 arg2);
 void get_camera_offsets__12TBoss8DragonFPvPv(Vec_8006D9F0 *, Vec_8006D9F0 *);
 extern Vec_8006D9F0 follow_camera_offset_default;
-FollowVector *get_position_ptr__10TObjPlayerFv(void *);
-FollowVector *get_target_ptr__11TCameraCtrlFv(void *);
 s32 TCameraCtrl__sub_8006E7FC(void* p);
-f32 vec_squared_length(FollowVector *);
-s32 is_split_screen();
-void reset_cameras_to_actor(void *p, s32 x);
-s32 TCameraCtrl__sub_8006CDD0(u8 *arg0);
 s32 is_flag_set__11TCameraCtrlFv(void);
 void TCameraCtrl__sub_8006CF38(void *);
-void end_conversation_camera(void);
 void TCameraCtrl__sub_8006DCC8(void* p);
 s32 fn_8006E82C(s32);
 s32 approach_angle_limited(s32, s32, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
 s32 check_flag_100__10TObjPlayerFPv(void *);
-s32 get_player_by_client_id(u32);
-extern Pads_8006D1A4 controller_input_state;
-extern void *local_client_id;
-}
-
-extern "C" {
-
-void TCameraCtrl__sub_8006DCC8(void* p);
-s32 TCameraCtrl__sub_8006E7FC(void* p);
-void TCameraCtrl__sub_8006E804(void* a0);
 void *TCameraCtrl__vt0(void);
-s32 is_flag_set__11TCameraCtrlFv(void);
 void __dt__13TUnk_80488A28Fv(void *, int);
-int __ct__13TUnk_80488A28Fv(void);
 void *TKeyBoardControl__sub_803DEB74(s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 is_split_screen();
 
 typedef char RecoveredGlobal_8006CD78_TCameraCtrl__data_80488DE8_size[sizeof(RecoveredGlobal_8006CD78_TCameraCtrl__data_80488DE8) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8006CD78_lbl_80488DF4_size[sizeof(RecoveredGlobal_8006CD78_lbl_80488DF4) == 0xC ? 1 : -1];
@@ -992,8 +916,6 @@ void *TCameraCtrl__vt0(void) {
     }
     return o;
 }
-
-extern s32 follow_camera_vtable[];
 
 #pragma push
 #pragma fp_contract on

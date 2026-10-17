@@ -37,10 +37,6 @@ void init__9TItemDataFv(void *);
 s16 get_mag_total_level(void *);
 Rec_80104DAC *find_item_combination_recipe(u8 *, void *);
 s32 find_eligible_combination_recipe(s32 arg0, u8 *arg1);
-}
-
-extern "C" {
-
 s32 is_wrapped__9TItemDataFPv(u8 *);
 void *lookup_item_pmt_record(u8 *);
 

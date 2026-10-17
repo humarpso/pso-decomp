@@ -30,10 +30,6 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern const f64 lbl_804773A8[];
 extern void *lbl_804EDD44[];
 Eff_8032E34C *construct_card_effect_at_point(Eff_8032E34C *self, void *parent, f32 *arg2, f32 *arg3, s32 arg4, s32 arg5);
-}
-
-extern "C" {
-
 #pragma fp_contract on
 void TUnk_804EDD44::sub_8032E294() {
   f32 var_f0;

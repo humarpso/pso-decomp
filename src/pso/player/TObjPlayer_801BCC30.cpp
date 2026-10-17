@@ -14,10 +14,6 @@ s32 get_quest_status__10TObjPlayerFv(void *, void *);
 s32 TObjPlayer__sub_801BEC10(void *);
 s32 get_field_0x374__10TObjPlayerFv(void *, void *);
 s32 TObjPlayer__sub_801BEC3C(void *);
-}
-
-extern "C" {
-
 void TObjPlayer__sub_801BCC50(void);
 
 void TObjPlayer::load_char_data(u8 *arg1) {
@@ -32,13 +28,6 @@ void TObjPlayer::load_char_data(u8 *arg1) {
     this->m_32c = (s16) *(s16 *)((s8 *)arg1 + 0x22);
     TObjPlayer__sub_801B2014((void *) (((u8 *)this)));
 }
-
-}
-
-#include "types.h"
-#include "pso/player/TObjPlayer.h"
-
-extern "C" {
 
 int TObjPlayer::can_cast_technique() { return TObjPlayer::check_technique_castable((s32)this); }
 void TObjPlayer__sub_801BCC50(void) {  }

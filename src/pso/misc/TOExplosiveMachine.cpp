@@ -65,7 +65,6 @@ void __dl__7TObjectFPv(void *);
 extern char __vt__18TOExplosiveMachine[];
 O_80166664 *__dt__18TOExplosiveMachineFv(O_80166664 *arg0, s16 arg1);
 void construct_world_actor_base(void *, s32);
-extern char __vt__18TOExplosiveMachine[];
 extern s32 TOExplosiveMachine__class_name;
 extern s32 tl_05;
 extern const f32 lbl_805DB5F0;
@@ -75,14 +74,8 @@ O_801666E8 *TOExplosiveMachine__ct(O_801666E8 *arg0);
 s32 is_any_player_within_radius_xz(f32);
 u8 is_current_floor_switch_set(u16);
 extern const f32 lbl_805DB600;
-s32 is_any_player_within_radius_xz(f32);
 s32 play_persistent_sound(int, void *, void *, int, int);
-u8 is_current_floor_switch_set(u16);
 extern const f32 lbl_805DB604;
-}
-
-extern "C" {
-
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(s32);
@@ -102,8 +95,6 @@ void TOExplosiveMachine::explode() {
         pop_matrix();
     }
 }
-
-extern u32 explosive_machine_model_archive;
 
 void TOExplosiveMachine::destroy_static_lobby() {
     if ((u32) explosive_machine_model_archive != 0U) {

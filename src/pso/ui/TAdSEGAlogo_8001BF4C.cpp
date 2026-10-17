@@ -13,16 +13,11 @@ extern int TAdSEGAlogo__state;
 extern void *tl_00;
 extern const f32 lbl_805D7E74;
 void *__nw__7TObjectFUl(u32 size);
-}
-
-extern "C" {
-
 int queue_destruction__7TObjectFv(void);
 
     extern int sega_logo_done_flag;
 void TAdSEGAlogo::destroy_and_mark_done() { queue_destruction__7TObjectFv(); sega_logo_done_flag = 1; }
 
-    extern int TAdSEGAlogo__state;
 void TAdSEGAlogo::request_destroy() { queue_destruction__7TObjectFv(); TAdSEGAlogo__state = 1; }
 
 }

@@ -20,17 +20,10 @@ s32 obj_getField1c(void *);
 s32 TShopGenerator__sub_80222DAC(int);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 extern RecoveredGlobal_802239EC_lbl_8050E208 controller_input_state;
-s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
-extern RecoveredGlobal_802239EC_lbl_8050E208 controller_input_state;
-}
-
-extern "C" {
-
 void vfunc_11__15TShopWindowBaseFv(void);
 void *__ct__15TShopWindowBaseFv(void *arg0);
 void run_task__15TShopWindowBaseFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
-s32 obj_getField1c(void *);
 
 void TShopWindowBase::vfunc_11() {  }
 

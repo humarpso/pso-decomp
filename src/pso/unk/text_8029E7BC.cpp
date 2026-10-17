@@ -13,10 +13,6 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *csnVecterUnder(s32 *, s32);
 extern const f32 lbl_805DDD88;
 s32 fn_8029E7BC(s32 arg0, u8 *arg1);
-}
-
-extern "C" {
-
 typedef struct Stack_8029E7BC Stack_8029E7BC;
 s32 fn_8029E7BC(s32 arg0, u8 *arg1) {
   Stack_8029E7BC stack;

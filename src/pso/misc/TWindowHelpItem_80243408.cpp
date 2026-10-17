@@ -43,11 +43,6 @@ extern const f32 lbl_805DCA3C;
 extern const f32 lbl_805DCA40;
 extern const f32 lbl_805DCA44;
 void draw_action_palette_icon(Icon_80243630 *icon, u16 group, u16 index);
-}
-
-extern "C" {
-
-s32 get_help_value__15TWindowHelpItemFv(void);
 void *find_item_by_id();
 s32 get_palette_consumable_count();
 s32 set_sprite_uv_from_pixels(s32, f32, f32);

@@ -29,10 +29,6 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern Profile_80232EC0 grants_effect_emitter_table[];
 extern void *lbl_804CC888[];
 Task_80232EC0 *construct_grants_effect__12TBoss3VoloptFPvPviPv(Task_80232EC0 *self, u8 *src, s32 level, void *parent);
-}
-
-extern "C" {
-
 Task_80232EC0 *construct_grants_effect__12TBoss3VoloptFPvPviPv(Task_80232EC0 *self, u8 *src, s32 level, void *parent) {
     u32 i;
     __ct__7TObjectFP7TObject(self, parent);

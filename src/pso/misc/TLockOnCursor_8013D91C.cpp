@@ -34,9 +34,6 @@ extern s32 TLockOnCursor__target_cursor_model;
 s32 get_bml_model(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8013DC38_lbl_804A7140 target_cursor_resource_descriptor;
-extern u8 *lock_on_cursor_bml_resource;
-extern s32 lock_on_cursor_model;
-extern s32 TLockOnCursor__target_cursor_model;
 extern s32 main_cursor_model;
 void load_target_cursor_models(void);
 s32 __dt__7TObjectFv(void *, int);
@@ -55,9 +52,6 @@ s32 init_vtable__8TLOC_EndFv(s32, s32, s32);
 s32 init__10TLOC_StartFv(s32, s32, s32);
 s32 reset_nearest_target_record(s32);
 s32 get_target_id__11TMainCursorFv(s32);
-Obj_8013DCCC *release_target__13TLockOnCursorFv(void *);
-Obj_8013DCCC *cleanup_field__13TLockOnCursorFv(void *);
-Obj_8013DCCC *cleanup_field_3c__13TLockOnCursorFv(void *);
 s32 TLockOnCursor__sub_8013EC1C(s32);
 s32 __nw__7TObjectFUl(s32);
 extern s32 tl_loc_start;
@@ -70,14 +64,9 @@ s32 get_mode__11TCameraCtrlFPv(void *);
 Ent_8013D91C *TObjPlayer__sub_80116620(s32, s32);
 u8 get_active__11TMainCursorFv(int);
 u8 TMainCursor__sub_8013E900(int);
-s32 get_target_id__11TMainCursorFv(s32);
 s32 TLockOnCursor__sub_8013EB6C(void *, int);
 u8 *find_entity_by_id(u16);
 void render__13TLockOnCursorFv(s32 arg0);
-}
-
-extern "C" {
-
 struct VOff_8013DE3C_arg0_8013D91C { char pad_0[0x1C]; char f_1C[1]; };
 
 void *TLockOnCursor__ct(void *arg0, void *arg1, void *arg2);
@@ -242,9 +231,7 @@ s32 TLockOnCursor::dt(s32 arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__13TLockOnCursor[];
 extern s32 TLockOnCursor__sub_8013EFB8[];
-extern s32 __dt_deleting__13TLockOnCursorFis[];
 extern void *lock_on_cursor_class_name;
 
 void *TLockOnCursor__ct(void *arg0, void *arg1, void *arg2) {

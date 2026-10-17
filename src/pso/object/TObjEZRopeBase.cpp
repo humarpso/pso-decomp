@@ -43,9 +43,6 @@ void *TObjEZRopeBase__ct(void *arg0) {
     return arg0;
 }
 
-}
-
-extern "C" {
 extern char lbl_8043DF18[];
 void *TObjEZRopeBase__name = lbl_8043DF18;
 }

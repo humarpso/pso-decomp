@@ -28,10 +28,6 @@ extern s32 lbl_805D34D8;
 extern u8 *photon_blast_shared_resource;
 extern const f32 lbl_805DC140;
 u8 *TPhotonEstlla__ct(u8 *arg0, u8 *arg1);
-}
-
-extern "C" {
-
 u8 *TPhotonEstlla__ct(u8 *arg0, u8 *arg1) {
     Stack_801AAB74 pos;
     u8 *e;

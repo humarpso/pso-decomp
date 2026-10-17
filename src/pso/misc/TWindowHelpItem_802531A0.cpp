@@ -39,7 +39,6 @@ s32 get_player_by_client_id(int);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void TWindowHelpItem__sub_80253268(u8 *arg0);
 void deserialize_mag__9TItemDataFPvPv(void *, MagData_80253564 *);
-u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void draw_action_palette_icon(void *, int, u16);
 void init_window_layout_entries(void *, const void *, s16);
 extern u8 lbl_804CF4E4[];
@@ -47,26 +46,16 @@ extern Callback_80253564 TWindowHelpItem__photon_blast_update_callback;
 void TWindowHelpItem__vt11(u8 *window);
 extern u8 TWindowHelpItem__description_text_layout[];
 extern V3_802531A4 TWindowHelpItem__description_update_callback;
-u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
-void init_window_layout_entries(void *, const void *, s16);
 s32 set_text_entry_string(void *, void *, s32);
 extern u8 window_help_item_layout_entries[];
 extern V3_802534B0 item_help_description_idle_callback;
 s32 get_shared_text_buffer();
 u8 calc_display_grade__9TItemDataFv(void *);
-u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
-void init_window_layout_entries(void *, const void *, s16);
-s32 set_text_entry_string(void *, void *, s32);
-s32 get_shared_text_buffer();
 void check_equip_requirements(int, void *, void *);
 void format_item_description(void *);
-s32 get_player_by_client_id(int);
-u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void text_builder_append();
 void text_builder_reset();
 void get_help_text_string(u8);
-void init_window_layout_entries(void *, const void *, s16);
-s32 set_text_entry_string(void *, void *, s32);
 void set_sprite_uv_from_pixels(void *, f32, f32);
 extern u8 help_item_tech_disk_window_layout_table[];
 extern V3_802532E8 item_help_tech_disk_stats_callback;
@@ -74,12 +63,7 @@ extern s32 current_language;
 extern const f32 TWindowHelpItem__data_805DCDE4;
 extern const f32 lbl_805DCDE8;
 extern const f32 lbl_805DCDEC;
-}
-
-extern "C" {
-
 void TWindowHelpItem__sub_802531A0(void);
-s32 get_shared_text_buffer();
 
 void TWindowHelpItem__sub_802531A0(void) {  }
 

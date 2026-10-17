@@ -203,46 +203,25 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 xz_distance_squared(void *, void *);
 s32 advance_animation_playback(void *);
 extern const f32 lbl_805D961C;
-extern const f32 lbl_805D9620;
 void TObjPlayer__sub_8008DD14(Obj_8008DD14 *self);
-s32 apply_actor_gravity(void *, s32, f32);
-s32 move_with_wall_slide(void *);
-s32 calc_velocity_toward_destination(void *, Vec_8008DD14, Vec_8008DD14, Info_8008DD14 *, f32);
-s32 check_path_obstructed(void *, void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 advance_animation_playback(void *);
 s32 subtract_vector(void *, void *);
-extern const f32 lbl_805D9620;
 extern const f32 lbl_805D9624;
 extern const f32 lbl_805D9628;
-s32 apply_actor_gravity(void *, s32, f32);
 s16 obj_getS16_32C(void *);
 void queue_destruction__7TObjectFv(u32);
 void spawn_particle_effect(void *, s32);
 u32 create_particle_emitter(void *, s32);
-s32 TObjPlayer__sub_8008E098(Obj_8008E098 *self);
-s32 advance_animation_playback(void *);
-u32 find_entity_by_id(u16);
 s32 play_sound_effect(int, void *, int, int);
-extern const f32 lbl_805D9620;
 extern const f32 lbl_805D9634;
 extern const f32 lbl_805D9638;
 void TObjPlayer__sub_8008E310(P_8008E310 *arg0);
-s32 apply_actor_gravity(void *, s32, f32);
-s32 advance_animation_playback(void *);
-extern const f32 lbl_805D9620;
 void TObjPlayer__sub_8008E254(void *arg0);
 s32 TObjEneBalClawClaw__sub_8008DC90(void *);
-void calc_slot_offset_position__10TObjPlayerFPviPvPv(Obj_8008E18C *self, s32 slot, Vec_8008E18C *out, s32 *angle_out);
 void TObjEneBalClawClaw__sub_80090A10(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3);
 void *create__18TObjEneBalClawClawFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5);
 u8 *get_enemy_entity(u16);
 extern u8 player_attack_param_table[];
 void TObjPlayer__sub_8008E934(void *arg0_, s32 arg1);
-}
-
-extern "C" {
-
 struct VBase18_8008e74c_8008DCF0 { char pad[0x18]; };
 struct VObj18_8008e74c_8008DCF0 : VBase18_8008e74c_8008DCF0 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -262,19 +241,13 @@ s32 rotate_matrix_x(s32, s32);
 s32 draw_chunk_object(s32);
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
-s32 rotate_matrix_y(s32, s32);
 s32 translate_matrix(s32, f32, f32, f32);
-s32 push_matrix();
-s32 pop_matrix();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
-int update_if_active__15TObjEneMe1GiGueFl(void*, int);
 
 int TObjPlayer::reset_enemy_state() { return update_if_active__15TObjEneMe1GiGueFl(this, 0); }
 
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-extern const f32 lbl_805D9620;
-extern const f32 lbl_805D9628;
 extern const f32 lbl_805D963C;
 extern const f32 lbl_805D9640;
 

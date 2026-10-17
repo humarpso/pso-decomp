@@ -31,8 +31,6 @@ extern "C" {
 u32 get_player_by_client_id(int);
 s32 window_request_show(u32);
 s32 is_split_screen();
-u32 get_player_by_client_id(int);
-s32 window_request_show(u32);
 s32 TWindowCtrl__sub_8024C7F8(void *);
 s32 TWindow__close(void *);
 s32 TWindowCtrl__sub_8024A314();
@@ -41,7 +39,6 @@ s32 TWindowCtrl__sub_8024C7E0(void *);
 s32 bind_target__13TWindowLockOnFv(void *, s32);
 u32 create_for_target__13TWindowLockOnFlUs(int, s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
-s32 is_split_screen();
 s32 TKeyBoardControl__sub_801A58B0();
 s32 TKeyBoardControl__sub_801A58D8();
 s32 get_function_key_menu__16TKeyBoardControlFPv(void *arg0);
@@ -49,30 +46,17 @@ void queue_destruction__7TObjectFv(void *);
 s32 fn_8002AE08(int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, int);
-u32 get_player_by_client_id(int);
 u16 get_current_target_id__10TObjPlayerFv();
 void *__nw__7TObjectFUl(int);
 s32 is_player_input_active(s32);
 s32 TWindowCtrl__sub_8024C7D4(void *);
 void *TWindowShortListCtrl__ct(void *, void *, int);
 extern Pad_8024DCE8 controller_input_state[];
-void queue_destruction__7TObjectFv(void *);
-s32 TWindowShortListCtrl__check_controller_button(void *, int);
-u32 get_player_by_client_id(int);
 u32 is_action_active__10TObjPlayerFv(void *);
-s32 is_player_input_active(s32);
-s32 TWindowCtrl__sub_8024C7D4(void *);
-s32 get_function_key_menu__16TKeyBoardControlFPv(void *arg0);
 s32 TWindowMainMenu__sub_8024E3F4(void *);
-extern Pad_8024DCE8 controller_input_state[];
-}
-
-extern "C" {
-
 void TWindowCtrl__sub_8024DAAC(void *arg0);
 s32 TWindowMainMenu__sub_8024E3E0(void *);
 s32 get_window_layout_position(s32);
-s32 window_request_show(u32);
 
 s32 TWindowCtrl::get_active_menu() {
     void *p = *(void **)((s8 *)this + 0x28);

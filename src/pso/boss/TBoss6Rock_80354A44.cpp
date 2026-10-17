@@ -4,7 +4,6 @@
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern char lbl_804791B8[];
 extern char lbl_804791C8[];
 extern char lbl_804791D8[];
@@ -16,7 +15,6 @@ extern char lbl_80479238[];
 extern const char *boss06_rock_dat_model_names[8];
 extern BmlResourceDescriptor boss6_rock_resource_descriptor;
 extern const char *boss06_rock_dat_motion_names[1];
-}
 
 extern "C" {
 s32 create__10TBoss6RockFPv(s32);
@@ -28,23 +26,12 @@ u32 load_resource_from_descriptor(u32, s32, void *, s32, s32, s32);
 u32 load_gvm_texture_file(void *);
 void TBoss6Rock__sub_80354188(void);
 extern u8 lbl_80479298[];
-extern s32 TBoss6Rock__instance_table[];
-extern u32 TBoss6Rock__data_805D6EF0;
-extern u32 TBoss6Rock__data_805D6EF4;
 extern s32 lbl_805D6EFC;
-}
-
-extern "C" {
-
 void TBoss6Rock__sub_80354A44(void);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 
-    extern int TBoss6Rock__data_805D6EF8;
 void TBoss6Rock__sub_80354A44(void) { TBoss6Rock__data_805D6EF8 = 0; }
-
-extern u32 TBoss6Rock__data_805D6EF0;
-extern u32 TBoss6Rock__data_805D6EF4;
 
 void TBoss6Rock::create_rock_pool(s32 arg0) {
     s32 i;
@@ -90,9 +77,6 @@ void TBoss6Rock::load_resources() {
     }
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *boss06_rock_dat_model_names[8] = { lbl_804791B8, lbl_804791C8, lbl_804791D8, lbl_804791E8, lbl_804791F8, lbl_8047920C, lbl_80479220, NULL };
 BmlResourceDescriptor boss6_rock_resource_descriptor = { lbl_80479238, boss06_rock_dat_model_names, boss06_rock_dat_motion_names, 7, 0 };
 __declspec(section ".sdata") const char *boss06_rock_dat_motion_names[1] = { NULL };

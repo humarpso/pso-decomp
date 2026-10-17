@@ -32,10 +32,6 @@ extern u8 __vt__20TAdChrSelMovePlateGC[];
 extern s32 lbl_805D4190;
 extern s32 chr_sel_move_plate_texture;
 Obj_803258C4 *__ct__20TAdChrSelMovePlateGCFv(Obj_803258C4 *arg0);
-}
-
-extern "C" {
-
 int draw_move_plate_quads(void*);
 int get_state_flag__9TMainTaskFv(void*);
 

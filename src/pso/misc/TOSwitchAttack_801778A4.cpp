@@ -75,7 +75,6 @@ extern s32 lbl_805D3178;
 u8 *TOSwitchAttack__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_current_floor();
 u16 obj_getField1c(void *);
-s32 get_current_floor();
 void spawn_particle_effect_with_flags(void *, s32, s32);
 f32 horizontal_distance_squared(void *, void *);
 VObj_801778A8 *resolve_hittable_target(u16, s16);
@@ -83,10 +82,6 @@ Mylla_801778A8 *find_entity_by_id(u16);
 void play_sound_effect(s32, void *, s32, s32);
 u8 is_current_floor_switch_set(u16);
 extern const f32 lbl_805DBA08;
-}
-
-extern "C" {
-
 void TOSwitchAttack__sub_80177C20(void);
 void TOSwitchAttack__sub_80177C24(void);
 void *__dt__14TOSwitchAttackFv(void *arg0, s16 arg1);
@@ -208,8 +203,6 @@ void *TOSwitchAttack::create(void *arg0) {
 
 void TOSwitchAttack__sub_80177C20(void) {  }
 void TOSwitchAttack__sub_80177C24(void) {  }
-
-extern s32 __vt__14TOSwitchAttack[];
 
 void *__dt__14TOSwitchAttackFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

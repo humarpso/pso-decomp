@@ -22,10 +22,6 @@ extern RecoveredGlobal_80399904_lbl_804F5A00 lbl_804F5A00;
 u32 TAdEndText__sub_80399904(s32 arg0);
 extern RecoveredGlobal_80399928_lbl_804F5900 lbl_804F5900;
 u32 TAdEndText__sub_80399928(s32 arg0);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8039994C_lbl_804F5800_size[sizeof(RecoveredGlobal_8039994C_lbl_804F5800) == 0x100 ? 1 : -1];
 
 typedef char RecoveredGlobal_80399904_lbl_804F5A00_size[sizeof(RecoveredGlobal_80399904_lbl_804F5A00) == 0x100 ? 1 : -1];

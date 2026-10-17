@@ -23,18 +23,11 @@ u8 *TAdMultiPlyChrSelectGC__ct(u8 *arg0, u8 *arg1, s32 arg2);
 void queue_destruction__7TObjectFv(void *);
 void __dl__7TObjectFPv(s32);
 s32 __dt__7TObjectFv(void *, int);
-extern RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC __vt__22TAdMultiPlyChrSelectGC;
-extern u8 *TAdMultiPlyChrSelectGC__instance;
 u8 *__dt__22TAdMultiPlyChrSelectGCFv(u8 *arg0, s16 arg1);
 extern s32 TAdMultiPlyChrSelectGC__data_805D67D8;
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(O_802DFFE8 *self);
-extern s32 TAdMultiPlyChrSelectGC__data_805D67D8;
 void TAdMultiPlyChrSelectGC__sub_802E0024(O_802E0024 *self, s32 v);
 extern s32 lbl_805D68C8;
-}
-
-extern "C" {
-
 s32 TAdMultiPlyChrSelectGC__sub_802C658C();
 void * TAdMultiPlyChrSelectGC__sub_802C6920();
 s32 is_slot_active__23TAdSinglePlyChrSelectGCFUi();

@@ -55,10 +55,6 @@ void clamp_and_set_unit_value__10TObjPlayerFiUci(Plr_80071BC0 *, u8, s16);
 void begin_action_state__10TObjPlayerFPv(TPlyCharData *);
 void send_command__10TNpcPlayerFlScllPSc(u8, s32, s32, s32, TPlyCharData *);
 extern s32 local_client_id;
-}
-
-extern "C" {
-
 s32 TLobby__sub_80071B30(s32 arg0, s32 arg1) {
     s32 *list;
     s32 n;

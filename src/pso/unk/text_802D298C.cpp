@@ -22,9 +22,7 @@ struct E_802D2A70 { u32 id; s32 count; };
 extern "C" {
 extern RecoveredGlobal_802D298C_TLobby__data_80540BD0 TLobby__trade_window_state;
 u8 *TLobby__sub_802D298C(void);
-extern RecoveredGlobal_802D298C_TLobby__data_80540BD0 TLobby__trade_window_state;
 u8 *TLobby__sub_802D299C(void);
-extern RecoveredGlobal_802D298C_TLobby__data_80540BD0 TLobby__trade_window_state;
 s32 *get_trade_window_state(void);
 s32 try_spend_actor_meseta(s32, s32);
 s32 send_6x29_delete_item__10TObjPlayerFPvii(s32, s32, s32);
@@ -33,14 +31,9 @@ s32 check_player_action_allowed();
 s32 remove_list_entry_by_id(s32);
 s32 fn_801D4270(s32);
 s32 load_character_from_card__23TAdSinglePlyChrSelectGCFv();
-s32 *get_trade_window_state(void);
 extern s32 local_client_id;
 extern s32 TLobby__protocol_instance;
 extern u8 TLobby__trade_proposal_state;
-}
-
-extern "C" {
-
 extern u32 trade_message_controller;
 
 typedef char RecoveredGlobal_802D298C_TLobby__data_80540BD0_size[sizeof(RecoveredGlobal_802D298C_TLobby__data_80540BD0) == 0x3E0 ? 1 : -1];
@@ -78,8 +71,6 @@ s32 TLobby__sub_802D29E8(u32 arg0) {
     return 1;
 }
 
-extern u32 TLobby__trade_main_window;
-
 s32 TLobby__sub_802D2A0C(u32 arg0) {
     if ((u32) TLobby__trade_main_window != 0U) {
         return 0;
@@ -97,8 +88,6 @@ s32 TLobby__sub_802D2A2C(u32 arg0) {
     TLobby__data_805D6894 = 0U;
     return 1;
 }
-
-extern u32 TLobby__data_805D6894;
 
 s32 TLobby__sub_802D2A50(u32 arg0) {
     if ((u32) TLobby__data_805D6894 != 0U) {

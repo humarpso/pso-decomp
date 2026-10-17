@@ -33,15 +33,8 @@ extern s32 __vt__17TObjParticleLobby[];
 extern s32 lbl_805D44B8;
 u8 *TObjParticleLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_event_theme_index__17TObjParticleLobbyFv(void);
-s32 get_event_theme_index__17TObjParticleLobbyFv(void);
 void TObjParticleLobby__sub_80369698(void);
 void set_flags__11TBoss4Type2FUl(void *, u16);
-s32 get_event_theme_index__17TObjParticleLobbyFv(void);
-}
-
-extern "C" {
-
-void TObjParticleLobby__sub_80369698(void);
 void TObjParticleLobby__sub_80369A60(void);
 void TObjParticleLobby__sub_80369A64(void);
 void *__dt__17TObjParticleLobbyFv(void *arg0, s16 arg1);
@@ -217,8 +210,6 @@ void *TObjParticleLobby::create(void *arg0) {
 
 void TObjParticleLobby__sub_80369A60(void) {  }
 void TObjParticleLobby__sub_80369A64(void) {  }
-
-extern s32 __vt__17TObjParticleLobby[];
 
 void *__dt__17TObjParticleLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

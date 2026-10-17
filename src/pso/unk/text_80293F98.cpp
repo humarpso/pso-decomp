@@ -24,10 +24,6 @@ s32 __cvt_fp2unsigned(f32);
 extern RecoveredGlobal_80293F98_lbl_804DB900 lbl_804DB900;
 extern const f32 lbl_805DD9E0;
 extern const f32 lbl_805DD9E4;
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_80293F98_lbl_804DB900_size[sizeof(RecoveredGlobal_80293F98_lbl_804DB900) == 0x20 ? 1 : -1];
 void TChCrEffFade::draw_fade_strip(f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_80293F98, sp8) == 0x0) ? 1 : -1];

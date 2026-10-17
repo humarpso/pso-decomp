@@ -31,10 +31,6 @@ u8 *TEneParticleCtrl__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *get_array_entry__13TUnk_804CE018Fi(void *, s16);
 s32 TWindowSubStatusDisp__sub_80338740(void *, void *, void *, void *, void *, void *, void *, void *, void *);
 void fn_80338D58(O_80338D58 *arg0, void *a1, void *a2, void *a3, void *a4, void *a5, void *a6, void *a7, void *a8);
-}
-
-extern "C" {
-
 void *__dt__16TEneParticleCtrlFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
@@ -42,8 +38,6 @@ int set_param_ptr__11TBoss4Type2Fl(void*);
 
 void TEneParticleCtrl::set_param() { void* m = *(void* *)&this->m_c0; if (m) set_param_ptr__11TBoss4Type2Fl(m); }
 void TEneParticleCtrl::free_particle_ctrl() { void* m = *(void* *)&this->m_c0; if (m) ((TParticleCtrl *)m)->enable(); }
-
-extern s32 __vt__16TEneParticleCtrl[];
 
 void *__dt__16TEneParticleCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

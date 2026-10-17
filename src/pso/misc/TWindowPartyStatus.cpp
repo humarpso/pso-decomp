@@ -50,12 +50,7 @@ extern s32 __vt__18TWindowPartyStatus[];
 extern s32 TWindowPartyStatus__name;
 extern s32 local_client_id;
 u8 *TWindowPartyStatus__ct(u8 *arg0, s16 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt__18TWindowPartyStatusFv(void *arg0, s16 arg1);
-s32 get_window_layout_position(int);
 void __dl__7TObjectFPv(void *);
 void __dt__19TWindowSimpleStatusFv(void *, int);
 int update_hp_entry__20TWindowSubStatusDispFv(void*);
@@ -64,9 +59,6 @@ int update_status_entry__20TWindowSubStatusDispFv(void*);
 s32 update_status_help_item(void *);
 
 void TWindowPartyStatus::draw() { update_hp_entry__20TWindowSubStatusDispFv(this); update_status_entry__20TWindowSubStatusDispFv(this); }
-
-}
-extern "C" {
 
 void TWindowPartyStatus::draw_background(u8 *arg1) {
     u8 *arg0 = (u8 *)this;
@@ -124,8 +116,6 @@ void TWindowPartyStatus::run_task() {
     ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24));
     ((TWindowSimpleStatus *)arg0)->apply_random_shake();
 }
-
-extern s32 __vt__18TWindowPartyStatus[];
 
 void *__dt__18TWindowPartyStatusFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

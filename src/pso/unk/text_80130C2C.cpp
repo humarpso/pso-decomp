@@ -25,9 +25,6 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern s32 tl_05;
 extern const f32 lbl_805DB020;
-}
-
-extern "C" {
 
 void TUnk_804A6BD0::emit_marker_effects() {
     struct Vec_80130C2C pos;

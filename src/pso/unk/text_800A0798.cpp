@@ -21,10 +21,6 @@ struct Ent_800A0798 : EBase_800A0798 {
 extern "C" {
 void *get_enemy_entity(int);
 void fn_800A0798(Obj_800A0798 *self);
-}
-
-extern "C" {
-
 void fn_800A0798(Obj_800A0798 *self) {
     s32 i;
     self->timer = 0x1a4;

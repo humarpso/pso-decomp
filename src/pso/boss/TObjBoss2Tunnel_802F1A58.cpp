@@ -11,18 +11,11 @@ s32 get_bml_model(void *, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804E4AD4[];
 extern u8 *lbl_805D6950;
-extern const f32 lbl_805DEC98;
 extern const f32 lbl_805DEC9C;
 u8 *TObjBoss2Tunnel__sub_802F1AE0(u8 *arg0, u8 *arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt__13TUnk_804E4AD4Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-
-extern s32 lbl_804E4AD4[];
 
 void TUnk_804E4AD4::run_task() {
     u8 *arg0 = (u8 *)this;

@@ -28,10 +28,6 @@ s32 get_width__19TWindowSimpleStatusFv(void *);
 f32 get_target_distance__13TWindowLockOnFv(s32);
 extern s32 local_client_id;
 extern const f32 lbl_805DCC14;
-}
-
-extern "C" {
-
 void TWindowCtrl::update_party_status_rows() {
     f32 y;
     u32 i;

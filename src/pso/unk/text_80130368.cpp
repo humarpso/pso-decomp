@@ -74,10 +74,6 @@ s32 create_shoot_model__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg
 s32 is_mode_two_and_ready__10TObjPlayerFv();
 void TObjPlayer__sub_801307D0(void);
 extern const f32 lbl_805DB000;
-}
-
-extern "C" {
-
 typedef struct VBase_18_382324 VBase_18_382324;
 typedef struct VObj_18_382324 VObj_18_382324;
 #define PSO_VCALL_VObj_18_382324_m49(_self, _arg0, _arg1, _arg2, _arg3) (((VObj_18_382324 *)(_self))->m49((_arg0), (_arg1), (_arg2), (_arg3)))

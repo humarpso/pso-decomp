@@ -37,10 +37,6 @@ extern const f32 lbl_805DD3D0;
 extern const f32 lbl_805DD3D4;
 extern const f32 lbl_805DD3D8;
 void draw_photon_blast_gauge_ring(s32 arg0, Params_80270244 *arg1, const Vec2_80270244 *arg2, f32 farg0, f32 farg1);
-}
-
-extern "C" {
-
 struct VtBase4_8026f71c_more_8026f8cc_0 { void *vtable; };
 
 struct VObj3_8026f71c_more_8026f8cc_0 : VtBase4_8026f71c_more_8026f8cc_0 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); };
@@ -102,7 +98,6 @@ struct Rect_80270394 { f32 x0; f32 y0; f32 x1; f32 y1; f32 u0; f32 v0; f32 u1; f
 s16 obj_getS16_2BA(void *);
 s32 get_sub_value__8TItemMagFv();
 s32 get_photon_blast_chain(Slots_80270060 *);
-void * get_player_by_client_id();
 s32 TLobby__sub_801C19D0(void *);
 void * get_array_entry__13TUnk_804CE018Fi(void *, s32);
 s32 TWindowSubComCard__sub_802452DC(s32);
@@ -128,11 +123,8 @@ s32 set_draw_texture_and_color(s32, s32);
 extern s32 lbl_8044F5E4[];
 extern s32 lobby_rule_settings[];
 extern s32 lbl_805D63F0;
-extern const f32 lbl_805DD388;
-extern const f32 lbl_805DD38C;
 extern const f32 lbl_805DD390;
 extern const f32 lbl_805DD394;
-extern const f32 lbl_805DD398;
 extern const f32 lbl_805DD3A0;
 extern const f32 lbl_805DD3A4;
 extern const f32 lbl_805DD3A8;
@@ -152,10 +144,6 @@ extern const f32 lbl_805DD3F0;
 extern const f32 lbl_805DD3F4;
 extern const f32 lbl_805DD3F8;
 extern const f32 lbl_805DD3FC;
-
-extern "C" {
-s32 get_photon_blast_chain(Slots_80270060 *);
-}
 
 void TWindowSubStatusDisp::start_hp_text_color_transition() {
     u8 *arg0 = (u8 *)this;

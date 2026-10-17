@@ -32,10 +32,6 @@ extern const f32 lbl_805DAC40;
 extern const f32 lbl_805DAC44;
 extern const f32 lbl_805DAC48;
 u8 *__ct__21TItemReverseTechPart2Fv(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 s32 queue_destruction__7TObjectFv();
 
 extern void *TItemReverseTechPart1__instance;

@@ -18,9 +18,6 @@ s32 DVDGetTransferredSize(void *);
 s32 DVDGetCommandBlockStatus(void *);
 extern GcciStatus dvd_active_request;
 extern GcciRequest dvd_request_table[40];
-}
-
-extern "C" {
 
 void TLobby::poll_dvd_requests() {
     GcciRequest *r;
@@ -73,9 +70,6 @@ void TLobby::log_printf(const char *fmt, ...) {
     }
 }
 
-}
-
-extern "C" {
 GcciStatus dvd_active_request;
 GcciRequest dvd_request_table[40];
 char dvd_default_path_buffer[0x100] ATTRIBUTE_ALIGN(8);

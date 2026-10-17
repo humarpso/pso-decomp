@@ -61,7 +61,6 @@ struct Slime_800EC7F4
 
 extern "C" {
 s32 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, void *, f32);
-s32 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, void *, f32);
 void advance_animation_playback(s32);
 extern s8 slime_one_animation_end_initialized;
 extern f32 slime_one_animation_end_frame;
@@ -74,16 +73,11 @@ s32 TObjEneSlimeOne__sub_803E4B54(s32, s32, s32, f32);
 extern s32 slime_one_part_texture_index_table[];
 extern s32 model_render_flags;
 s32 get_bml_motion(s32, s32);
-s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 init__14TObjEnePanarmsFPv(void *, int);
 extern const f32 lbl_805DA764;
 extern void *lbl_80496C68[10];
 extern void *lbl_80496C90[10];
-}
-
-extern "C" {
-
 void TObjEneSlimeOne__sub_800EC470(void* p);
 s32 __dt__15TObjEneSlimeOneFis(s32 arg0, s16 arg1);
 void fn_800ECA28(void *arg0, s32 arg1);
@@ -127,7 +121,6 @@ int TObjEneSlimeOne::check_player_field_7cc() { return get_validated_attack_stag
 
 extern f32 TObjEneSlimeOne__target_depth;
 extern u8 TObjEneSlimeOne__target_depth_initialized;
-extern f32 lbl_805DA760;
 
 void TObjEneSlimeOne::draw_part(s32 arg1) {
     u8 *arg0 = (u8 *)this;

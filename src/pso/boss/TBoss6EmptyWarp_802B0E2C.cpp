@@ -10,10 +10,6 @@ s32 is_flag_set__14TBoss6PlotFalzFv();
 s32 is_ship_door_ready__12TBoss6ThanksFv();
 extern s32 lbl_804709E0[];
 extern s32 lbl_804709E8[];
-}
-
-extern "C" {
-
 void *__dt__15TBoss6EmptyWarpFv(void *arg0, s16 arg1);
 void end_cutscene_camera__14TBoss6PlotFalzFPv(void);
 void __dl__7TObjectFPv(void *);
@@ -55,14 +51,9 @@ void *__dt__15TBoss6EmptyWarpFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-
-extern "C" {
-
 void *TBoss6EmptyWarp__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
-extern s32 __vt__15TBoss6EmptyWarp[];
 extern void *lbl_805D3E90;
 
 void *TBoss6EmptyWarp__ct(void *arg0) {
@@ -73,10 +64,6 @@ void *TBoss6EmptyWarp__ct(void *arg0) {
     *(u32 *)((s8 *)arg0 + 0x1C) = 0;
     return arg0;
 }
-
-}
-
-extern "C" {
 
 void TBoss6EmptyWarp__sub_802B1004(void* p);
 int TBoss6EmptyWarp__sub_802B1018(void);

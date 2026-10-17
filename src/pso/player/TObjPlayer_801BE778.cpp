@@ -59,8 +59,6 @@ int TObjPlayer::get_field_374() { return TObjPlayer__sub_801BED90((char*)this + 
 
 }
 
-#include "types.h"
-
 struct Item_801BE890 { u8 b[0x1C]; };
 
 struct Inv_801BE890 { s32 f0; Item_801BE890 items[0x1E]; };
@@ -68,44 +66,6 @@ struct Inv_801BE890 { s32 f0; Item_801BE890 items[0x1E]; };
 extern "C" {
 void init__17TPlyInventoryItemFv(void *);
 Inv_801BE890 *init_inventory_list__10TObjPlayerFPv(Inv_801BE890 *arg0);
-}
-
-extern "C" {
-
-int TFontSmallLobby__sub_801C0228(void*);
-void TObjPlayer__sub_801BE784(void* p, u8 v);
-void TObjPlayer__sub_801BE794(void* p, u8 v);
-void TObjPlayer__sub_801BE7A4(void* p, u8 v);
-u8 get_mag_level__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801BE7B4(void* p, u8 v);
-int TObjPlayer__sub_801BE7BC(void* p);
-void TObjPlayer__sub_801BE7E0(void* p, u8 v);
-void TObjPlayer__sub_801BE80C(void* p, u8 v);
-void TObjPlayer__sub_801BE838(void* p, u8 v);
-void TObjPlayer__sub_801BE864(void* p, u8 v);
-int TObjPlayer__sub_801BEABC(void* p);
-s32 TObjPlayer__sub_801BEB0C(void* p);
-u8 TObjPlayer__sub_801BEB3C(void* p);
-u8 TObjPlayer__sub_801BEB44(void* p);
-u8 TObjPlayer__sub_801BEB4C(void* p);
-int TObjPlayer__sub_801BEB68(void* p);
-u8 TObjPlayer__sub_801BEB8C(void* p);
-u8 TObjPlayer__sub_801BEBB8(void* p);
-u8 TObjPlayer__sub_801BEBE4(void* p);
-u8 TObjPlayer__sub_801BEC10(void* p);
-u8 TObjPlayer__sub_801BEC3C(void* p);
-int check_flag__10TObjPlayerFl(void*, int);
-int TObjPlayer__sub_8011E204(void*, int);
-int TObjPlayer__sub_801BED70(void*);
-int TObjPlayer__sub_801BED78(void*);
-int TObjPlayer__sub_801BED80(void*);
-int TObjPlayer__sub_801BED88(void*);
-int TObjPlayer__sub_801BED90(void*);
-int TObjPlayer__sub_801BED98(void*);
-int TObjPlayer__sub_801BEDA0(void*);
-int TObjPlayer__sub_801BEDA8(void*);
-int TObjPlayer__sub_801BEDB0(void*);
-int TObjPlayer__sub_801BEDB8(void*);
 
 Inv_801BE890 *init_inventory_list__10TObjPlayerFPv(Inv_801BE890 *arg0) {
     s32 i;
@@ -116,53 +76,10 @@ Inv_801BE890 *init_inventory_list__10TObjPlayerFPv(Inv_801BE890 *arg0) {
     return arg0;
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
-int TFontSmallLobby__sub_801C0228(void*);
-void TObjPlayer__sub_801BE784(void* p, u8 v);
-void TObjPlayer__sub_801BE794(void* p, u8 v);
-void TObjPlayer__sub_801BE7A4(void* p, u8 v);
-u8 get_mag_level__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801BE7B4(void* p, u8 v);
-int TObjPlayer__sub_801BE7BC(void* p);
-void TObjPlayer__sub_801BE7E0(void* p, u8 v);
-void TObjPlayer__sub_801BE80C(void* p, u8 v);
-void TObjPlayer__sub_801BE838(void* p, u8 v);
-void TObjPlayer__sub_801BE864(void* p, u8 v);
-int TObjPlayer__sub_801BEABC(void* p);
-s32 TObjPlayer__sub_801BEB0C(void* p);
-u8 TObjPlayer__sub_801BEB3C(void* p);
-u8 TObjPlayer__sub_801BEB44(void* p);
-u8 TObjPlayer__sub_801BEB4C(void* p);
-int TObjPlayer__sub_801BEB68(void* p);
-u8 TObjPlayer__sub_801BEB8C(void* p);
-u8 TObjPlayer__sub_801BEBB8(void* p);
-u8 TObjPlayer__sub_801BEBE4(void* p);
-u8 TObjPlayer__sub_801BEC10(void* p);
-u8 TObjPlayer__sub_801BEC3C(void* p);
-int check_flag__10TObjPlayerFl(void*, int);
-int TObjPlayer__sub_8011E204(void*, int);
-int TObjPlayer__sub_801BED70(void*);
-int TObjPlayer__sub_801BED78(void*);
-int TObjPlayer__sub_801BED80(void*);
-int TObjPlayer__sub_801BED88(void*);
-int TObjPlayer__sub_801BED90(void*);
-int TObjPlayer__sub_801BED98(void*);
-int TObjPlayer__sub_801BEDA0(void*);
-int TObjPlayer__sub_801BEDA8(void*);
-int TObjPlayer__sub_801BEDB0(void*);
-int TObjPlayer__sub_801BEDB8(void*);
-
 void TObjPlayer::set_move_mode(s32 v) { *(s32*)((char*)this + 0x3dc) = v; }
 void TObjPlayer::set_input_mode(s32 v) { *(s32*)((char*)this + 0x3d8) = v; }
 
 }
-
-#include "types.h"
 
 struct E_801BE8F4 { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
 
@@ -170,89 +87,10 @@ struct O_801BE8F4 { u8 pad[0xa4]; E_801BE8F4 *entries; };
 
 extern "C" {
 u8 TObjPlayer__sub_801BE8F4(O_801BE8F4 *self, s32 i, u32 mask);
-}
-
-extern "C" {
-
-int TFontSmallLobby__sub_801C0228(void*);
-void TObjPlayer__sub_801BE784(void* p, u8 v);
-void TObjPlayer__sub_801BE794(void* p, u8 v);
-void TObjPlayer__sub_801BE7A4(void* p, u8 v);
-u8 get_mag_level__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801BE7B4(void* p, u8 v);
-int TObjPlayer__sub_801BE7BC(void* p);
-void TObjPlayer__sub_801BE7E0(void* p, u8 v);
-void TObjPlayer__sub_801BE80C(void* p, u8 v);
-void TObjPlayer__sub_801BE838(void* p, u8 v);
-void TObjPlayer__sub_801BE864(void* p, u8 v);
-int TObjPlayer__sub_801BEABC(void* p);
-s32 TObjPlayer__sub_801BEB0C(void* p);
-u8 TObjPlayer__sub_801BEB3C(void* p);
-u8 TObjPlayer__sub_801BEB44(void* p);
-u8 TObjPlayer__sub_801BEB4C(void* p);
-int TObjPlayer__sub_801BEB68(void* p);
-u8 TObjPlayer__sub_801BEB8C(void* p);
-u8 TObjPlayer__sub_801BEBB8(void* p);
-u8 TObjPlayer__sub_801BEBE4(void* p);
-u8 TObjPlayer__sub_801BEC10(void* p);
-u8 TObjPlayer__sub_801BEC3C(void* p);
-int check_flag__10TObjPlayerFl(void*, int);
-int TObjPlayer__sub_8011E204(void*, int);
-int TObjPlayer__sub_801BED70(void*);
-int TObjPlayer__sub_801BED78(void*);
-int TObjPlayer__sub_801BED80(void*);
-int TObjPlayer__sub_801BED88(void*);
-int TObjPlayer__sub_801BED90(void*);
-int TObjPlayer__sub_801BED98(void*);
-int TObjPlayer__sub_801BEDA0(void*);
-int TObjPlayer__sub_801BEDA8(void*);
-int TObjPlayer__sub_801BEDB0(void*);
-int TObjPlayer__sub_801BEDB8(void*);
 
 u8 TObjPlayer__sub_801BE8F4(O_801BE8F4 *self, s32 i, u32 mask) {
     return (self->entries[i].flags & mask) != 0;
 }
-
-}
-
-#include "types.h"
-
-extern "C" {
-
-int TFontSmallLobby__sub_801C0228(void*);
-void TObjPlayer__sub_801BE784(void* p, u8 v);
-void TObjPlayer__sub_801BE794(void* p, u8 v);
-void TObjPlayer__sub_801BE7A4(void* p, u8 v);
-u8 get_mag_level__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801BE7B4(void* p, u8 v);
-int TObjPlayer__sub_801BE7BC(void* p);
-void TObjPlayer__sub_801BE7E0(void* p, u8 v);
-void TObjPlayer__sub_801BE80C(void* p, u8 v);
-void TObjPlayer__sub_801BE838(void* p, u8 v);
-void TObjPlayer__sub_801BE864(void* p, u8 v);
-int TObjPlayer__sub_801BEABC(void* p);
-s32 TObjPlayer__sub_801BEB0C(void* p);
-u8 TObjPlayer__sub_801BEB3C(void* p);
-u8 TObjPlayer__sub_801BEB44(void* p);
-u8 TObjPlayer__sub_801BEB4C(void* p);
-int TObjPlayer__sub_801BEB68(void* p);
-u8 TObjPlayer__sub_801BEB8C(void* p);
-u8 TObjPlayer__sub_801BEBB8(void* p);
-u8 TObjPlayer__sub_801BEBE4(void* p);
-u8 TObjPlayer__sub_801BEC10(void* p);
-u8 TObjPlayer__sub_801BEC3C(void* p);
-int check_flag__10TObjPlayerFl(void*, int);
-int TObjPlayer__sub_8011E204(void*, int);
-int TObjPlayer__sub_801BED70(void*);
-int TObjPlayer__sub_801BED78(void*);
-int TObjPlayer__sub_801BED80(void*);
-int TObjPlayer__sub_801BED88(void*);
-int TObjPlayer__sub_801BED90(void*);
-int TObjPlayer__sub_801BED98(void*);
-int TObjPlayer__sub_801BEDA0(void*);
-int TObjPlayer__sub_801BEDA8(void*);
-int TObjPlayer__sub_801BEDB0(void*);
-int TObjPlayer__sub_801BEDB8(void*);
 
 void* TObjPlayer__sub_801BE918(void* a0, int a1, void* a2, void* a3) { *(float*)((char*)a2 + 0x0) = *(float*)((char*)a0 + a1 * 8 + 0x6b0); *(float*)((char*)a3 + 0x0) = *(float*)((char*)a0 + a1 * 8 + 0x6b4); return (char*)a0 + a1 * 8; }
 s32 TObjPlayer::clamp_index_to_max(s32 arg0) {
@@ -282,47 +120,6 @@ void TObjPlayer::set_flag_02000000() {
     check_flag__10TObjPlayerFl(this, 0x02000000);
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
-int TFontSmallLobby__sub_801C0228(void*);
-void TObjPlayer__sub_801BE784(void* p, u8 v);
-void TObjPlayer__sub_801BE794(void* p, u8 v);
-void TObjPlayer__sub_801BE7A4(void* p, u8 v);
-u8 get_mag_level__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801BE7B4(void* p, u8 v);
-int TObjPlayer__sub_801BE7BC(void* p);
-void TObjPlayer__sub_801BE7E0(void* p, u8 v);
-void TObjPlayer__sub_801BE80C(void* p, u8 v);
-void TObjPlayer__sub_801BE838(void* p, u8 v);
-void TObjPlayer__sub_801BE864(void* p, u8 v);
-int TObjPlayer__sub_801BEABC(void* p);
-s32 TObjPlayer__sub_801BEB0C(void* p);
-u8 TObjPlayer__sub_801BEB3C(void* p);
-u8 TObjPlayer__sub_801BEB44(void* p);
-u8 TObjPlayer__sub_801BEB4C(void* p);
-int TObjPlayer__sub_801BEB68(void* p);
-u8 TObjPlayer__sub_801BEB8C(void* p);
-u8 TObjPlayer__sub_801BEBB8(void* p);
-u8 TObjPlayer__sub_801BEBE4(void* p);
-u8 TObjPlayer__sub_801BEC10(void* p);
-u8 TObjPlayer__sub_801BEC3C(void* p);
-int check_flag__10TObjPlayerFl(void*, int);
-int TObjPlayer__sub_8011E204(void*, int);
-int TObjPlayer__sub_801BED70(void*);
-int TObjPlayer__sub_801BED78(void*);
-int TObjPlayer__sub_801BED80(void*);
-int TObjPlayer__sub_801BED88(void*);
-int TObjPlayer__sub_801BED90(void*);
-int TObjPlayer__sub_801BED98(void*);
-int TObjPlayer__sub_801BEDA0(void*);
-int TObjPlayer__sub_801BEDA8(void*);
-int TObjPlayer__sub_801BEDB0(void*);
-int TObjPlayer__sub_801BEDB8(void*);
-
 void TObjPlayer::set_position_history_entry(s32 arg1, f32 farg0, f32 farg1) {
     s32 arg0 = (s32)this;
     u8 *temp_r3;
@@ -333,46 +130,9 @@ void TObjPlayer::set_position_history_entry(s32 arg1, f32 farg0, f32 farg1) {
 
 }
 
-#include "types.h"
 #include "pso/misc/TPlyPhotonChair.h"
-#include "pso/player/TObjPlayer.h"
 
 extern "C" {
-
-int TFontSmallLobby__sub_801C0228(void*);
-void TObjPlayer__sub_801BE784(void* p, u8 v);
-void TObjPlayer__sub_801BE794(void* p, u8 v);
-void TObjPlayer__sub_801BE7A4(void* p, u8 v);
-u8 get_mag_level__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801BE7B4(void* p, u8 v);
-int TObjPlayer__sub_801BE7BC(void* p);
-void TObjPlayer__sub_801BE7E0(void* p, u8 v);
-void TObjPlayer__sub_801BE80C(void* p, u8 v);
-void TObjPlayer__sub_801BE838(void* p, u8 v);
-void TObjPlayer__sub_801BE864(void* p, u8 v);
-int TObjPlayer__sub_801BEABC(void* p);
-s32 TObjPlayer__sub_801BEB0C(void* p);
-u8 TObjPlayer__sub_801BEB3C(void* p);
-u8 TObjPlayer__sub_801BEB44(void* p);
-u8 TObjPlayer__sub_801BEB4C(void* p);
-int TObjPlayer__sub_801BEB68(void* p);
-u8 TObjPlayer__sub_801BEB8C(void* p);
-u8 TObjPlayer__sub_801BEBB8(void* p);
-u8 TObjPlayer__sub_801BEBE4(void* p);
-u8 TObjPlayer__sub_801BEC10(void* p);
-u8 TObjPlayer__sub_801BEC3C(void* p);
-int check_flag__10TObjPlayerFl(void*, int);
-int TObjPlayer__sub_8011E204(void*, int);
-int TObjPlayer__sub_801BED70(void*);
-int TObjPlayer__sub_801BED78(void*);
-int TObjPlayer__sub_801BED80(void*);
-int TObjPlayer__sub_801BED88(void*);
-int TObjPlayer__sub_801BED90(void*);
-int TObjPlayer__sub_801BED98(void*);
-int TObjPlayer__sub_801BEDA0(void*);
-int TObjPlayer__sub_801BEDA8(void*);
-int TObjPlayer__sub_801BEDB0(void*);
-int TObjPlayer__sub_801BEDB8(void*);
 
 void TObjPlayer::set_action_flag_2() { *(u32*)((char*)this + 0x334) |= 0x2; }
 void set_flag_400000__10TObjPlayerFi(s32 arg0) {

@@ -25,15 +25,12 @@ extern const f32 lbl_805DAF54;
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_slicer_weapon(u8 *arg0);
-u8 get_slot_count__14TItemProShieldFv();
 extern const f32 lbl_805DAF40;
 extern const f32 lbl_805DAF44;
 extern const f32 lbl_805DAF48;
 extern const f32 lbl_805DAF4C;
 u8 * TItemWeapon__ct(void *, void *);
 extern RecoveredGlobal_8012DBF4_lbl_804A5B20 lbl_804A5B20;
-extern const f32 lbl_805DAF38;
-extern const f32 lbl_805DAF3C;
 u8 *construct_slicer_weapon(u8 *arg0, u8 *arg1, u8 *arg2);
 void init_slicer_launch_state(SlicerLaunchData_8012D9C8 *);
 u16 obj_getField1c(void *);
@@ -43,9 +40,6 @@ f32 query_extended_state__10TObjPlayerFv(void *);
 void get_weapon_color__11TItemWeaponFPv(f32 *, void *);
 void copy_vec4__13TRaderMapCoreFPvPv(f32 *, f32 *);
 void launch_slicer_shot(u8 *weapon);
-}
-
-extern "C" {
 
 void launch_slicer_shot(u8 *weapon) {
     f32 tmp[4];

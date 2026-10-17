@@ -1,10 +1,8 @@
 #include "types.h"
 #include "pso/player/TObjPlayer.h"
 
-extern "C" {
 extern const f32 lbl_805DACD8;
 extern const f32 lbl_805DACDC;
-}
 
 extern "C" {
 

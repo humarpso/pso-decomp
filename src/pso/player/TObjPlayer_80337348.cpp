@@ -13,12 +13,6 @@ s32 TObjPlayer__sub_801BED88(s32);
 s32 TObjPlayer__sub_801BED90();
 s32 get_total_materials_used(s32 arg0);
 u8 get_material_limit_for_class(s32 arg0);
-s32 get_total_materials_used(s32 arg0);
-u8 get_material_limit_for_class(s32 arg0);
-}
-
-extern "C" {
-
 int fn_803374F0(s32, s32, u8);
 s32 fn_803374F8(s32, s32);
 

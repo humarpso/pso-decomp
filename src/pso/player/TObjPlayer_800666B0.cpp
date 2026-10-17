@@ -5,10 +5,6 @@ struct O_800666C4 { s16 a; s16 b; s32 arr[4]; };
 
 extern "C" {
 void fn_800666C4(O_800666C4 *self);
-}
-
-extern "C" {
-
 void set_camera_capture_overlay_alpha(int a0);
 
     extern unsigned char camera_capture_overlay_alpha;

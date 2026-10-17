@@ -22,10 +22,6 @@ int TWindowDD__sub_8034B008(s32, s32);
 void TWindowDD__sub_80348448(s32 arg0, s16 arg1);
 s32 TWindow__close(void *);
 s32 is_flag_set__6TLobbyFv();
-}
-
-extern "C" {
-
 int TWindowDD__sub_80348424(s32 _w0, s32 _w1);
 s32 TWindowDD__sub_8034435C();
 s32 TWindowDD__sub_80344568();
@@ -136,8 +132,6 @@ void TWindowDD::close_all_windows() {
         }
     }
 }
-
-extern s32 TWindowDD__window_mode;
 
 s32 TWindowDD::can_append_chars(s32 arg0, s32 *arg1) {
     s32 t = *arg1;

@@ -5,10 +5,6 @@ s32 spawn_particle_effect(void *, int);
 s32 __ct__13TItemShootGunFPvPC3VecPC3Vecf(int, void *, void *, void *, f32);
 s32 __nw__7TObjectFUl(int);
 s32 create_gun_shot(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
-}
-
-extern "C" {
-
 s32 create_gun_shot(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
     s32 temp_r3;
     s32 var_r0;

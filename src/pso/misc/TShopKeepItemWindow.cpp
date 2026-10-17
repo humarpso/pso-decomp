@@ -53,18 +53,15 @@ struct Self_802219A0 {
 };
 
 #include "pso/misc/TWindowHelpItem.h"
-#include "pso/misc/TShopKeepItemWindow.h"
 #include "pso/item/TItem.h"
 #include "pso/misc/TCheckRoomSequence.h"
 #include "pso/misc/TLobby.h"
-#include "pso/misc/TShopArmorListWindow.h"
 #include "pso/misc/TShopEquipmentSellWindow.h"
 #include "pso/misc/TShopGetItemWindow.h"
 #include "pso/misc/TShopJudgmentItemWindow.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubItem.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
-#include "pso/player/TObjPlayer.h"
 #include "pso/ui/TMessageWindowController.h"
 #include "pso/ui/TWindowInputNumber.h"
 struct VBase_80221F08 { char pad[0x18]; };
@@ -111,29 +108,19 @@ s32 store_item_in_bank(void *, s32, s32);
 s32 copy_bank_to_card_window(s32);
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 play_sound_effect(s32, s32, s32, s32);
-void TWindow__close(void *);
 s32 get_selected_menu_value(void *);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
-u32 obj_getField1c(s32);
 s32 get_shop_text(s32);
 void TWindowHelpItem__set_displayed_item_by_id(u32, s32);
 void calc_list_content_extent(u32);
-s32 get_window_layout_position(s32);
 u32 create_item_list_window(s32, s32, u16);
 extern f32 lbl_805DC710;
-}
-
-extern "C" {
-
 void *TShopKeepItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
 void *__dt__19TShopKeepItemWindowFv(void *arg0, s16 arg1);
 void sort_bank_items(s32 slot);
-s32 sub_8022397C__15TShopWindowBaseFv(void *);
-void TWindow__close(void *);
 void __ct__15TShopWindowBaseFv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__15TShopWindowBaseFv(void *, int);
-void memset(void *, int, int);
 s32 queue_destruction__7TObjectFv(void *);
 
 void TShopKeepItemWindow::vfunc_7() {
@@ -352,7 +339,6 @@ void *__dt__19TShopKeepItemWindowFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__19TShopKeepItemWindow[];
 extern void *TShopKeepItemWindow__class_name;
 
 void *TShopKeepItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3) {

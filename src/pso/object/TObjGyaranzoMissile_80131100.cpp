@@ -18,13 +18,9 @@ extern s32 lbl_804A6DC0[];
 void *__dt__13TUnk_804A6DC0Fv(void *arg0, s16 arg1);
 int TItemWeapon__ct(void);
 extern unsigned char spawn_weapon_impact_effect[];
-extern s32 lbl_804A6DC0[];
     extern const float lbl_805DB054;
     extern const float lbl_805DB060;
 void* yasminkov_7000v_ct(void* a0, s32 _w1, void * _w2);
-void* yasminkov_7000v_ct(void* a0, s32 _w1, void * _w2);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-extern s32 tl_05;
 u8 *create_yasminkov_7000v(u8 *arg0);
 f32 vec_squared_length();
 f32 newton_sqrtf();
@@ -32,24 +28,16 @@ extern f32 lbl_805DB068;
 extern f32 lbl_805DB06C;
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-extern s32 tl_05;
 extern const f32 lbl_805DB050;
-extern const float lbl_805DB054;
 extern const f32 lbl_805DB058;
 extern const f32 lbl_805DB05C;
 void spawn_particle_effect(void *buf, s32 n);
 extern u8 lbl_80506250[];
 void TObjGyaranzoMissile__sub_80131488(Obj_80131488 *self);
-}
-
-extern "C" {
-
 void yasminkov_7000v_node_callback(void* p);
 int post_translate_matrix(void*);
-int TItemWeapon__ct(void);
 int get_player_list__10TObjPlayerFv(void*);
 
-    extern unsigned char spawn_weapon_impact_effect[];
     extern unsigned char lbl_804A6CC8[];
     extern const float lbl_805DB038;
     extern const float lbl_805DB044;
@@ -69,11 +57,8 @@ u8 *create_yasminkov_2000h(s32 arg0) {
     }
     return NULL;
 }
-#include "types.h"
 
-#include "types.h"
 #include "pso/object/TObjGyaranzoMissile.h"
-#include "pso/player/TObjPlayer.h"
 
 void yasminkov_7000v_node_callback(void* p) { if (get_player_list__10TObjPlayerFv(p) == 1) { post_translate_matrix((char*)p + 0x1fc); } }
 

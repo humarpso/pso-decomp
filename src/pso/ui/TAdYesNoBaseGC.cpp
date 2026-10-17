@@ -29,10 +29,6 @@ void update_layout_height__21TWindowSubComCardListFf(f32);
 s32 init_shop_judgment_window(void *);
 extern T_8032C118 lbl_804772E8[];
 extern const f32 lbl_805DF788;
-}
-
-extern "C" {
-
 struct VtBase8032C1C8_8032C188 { char pad[0x18]; };
 struct VtObj8032C1C8_8032C188 : VtBase8032C1C8_8032C188 {
     virtual void m0();
@@ -162,7 +158,6 @@ void *__dt__14TAdYesNoBaseGCFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__14TAdYesNoBaseGC[];
 extern const f32 lbl_805DF790;
 extern const f32 lbl_805DF794;
 extern void *lbl_805D41F8;

@@ -16,11 +16,6 @@ extern "C" {
 s32 fn_8011085C(int, void *);
 extern RecoveredGlobal_80119060_lbl_80506228 item_effect_object_table;
 s32 fn_801108C8(int, void *);
-extern RecoveredGlobal_80119060_lbl_80506228 item_effect_object_table;
-}
-
-extern "C" {
-
 void TItemEquipBase__sub_80119100(int arg0);
 void TItemEquipBase__sub_80119168(int arg0);
 void TItemEquipBase__sub_8011919C(int arg0);

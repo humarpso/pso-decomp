@@ -27,10 +27,6 @@ s32 advance_item_id_counter(u16);
 extern s32 local_client_id;
 extern s32 lbl_805D5450;
 extern s32 *TLobby__data_805D6140;
-}
-
-extern "C" {
-
 int clear_item_flags__10TObjPlayerFUl(void*, int);
 
 int TItemObject::set_flag_1024() { return clear_item_flags__10TObjPlayerFUl(this, 1024); }

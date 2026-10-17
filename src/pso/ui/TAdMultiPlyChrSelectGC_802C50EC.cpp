@@ -126,13 +126,10 @@ extern "C" {
 void TAdMultiPlyChrSelectGC__sub_802C65C0(s32 arg0);
 int TAdMultiPlyChrSelectGC__sub_802C6920(void);
     extern int TAdMultiPlyChrSelectGC__data_805D67D8;
-extern int TAdMultiPlyChrSelectGC__data_805D67D8;
 extern s32 TAdMultiPlyChrSelectGC__select_mode;
 extern s32 TAdMultiPlyChrSelectGC__selected_slot;
 s32 TAdMultiPlyChrSelectGC__sub_80299454();
-int TAdMultiPlyChrSelectGC__sub_802C6920(void);
 s32 TAdMultiPlyChrSelectGC__sub_802C658C(s32 arg0);
-extern int TAdMultiPlyChrSelectGC__data_805D67D8;
 s32 find_active_slot__22TAdMultiPlyChrSelectGCFv(void);
 u8 * TKeyBoardControl__sub_803DEB74(u32);
 extern RecoveredGlobal_802C6848_lbl_804E0B00 multiplayer_controller_device_codes;
@@ -141,56 +138,25 @@ s32 TAdMultiPlyChrSelectGC__sub_802C6558(void);
 extern const f32 TAdMultiPlyChrSelectGC__data_805DE56C;
 extern s32 multi_ply_chr_select_default_slot_table[][5];
 extern s32 TAdMultiPlyChrSelectGC__data_804E0A68[][5];
-extern s32 TAdMultiPlyChrSelectGC__data_804E0A68[][5];
-extern int TAdMultiPlyChrSelectGC__data_805D67D8;
-extern int TAdMultiPlyChrSelectGC__data_805D67D8;
-extern int TAdMultiPlyChrSelectGC__data_805D67D8;
-extern const f32 TAdMultiPlyChrSelectGC__data_805DE56C;
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *);
-s32 TAdMultiPlyChrSelectGC__sub_802C6558(void);
 s32 get_field_20__22TAdMultiPlyChrSelectGCFv();
 s32 set_cached_blend_factor(int, int);
 s32 begin_screen_draw(int);
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(int, int);
 extern s32 lbl_805D67D4;
-extern s32 TAdMultiPlyChrSelectGC__select_mode;
 extern const f32 lbl_805DE57C;
 extern const f32 lbl_805DE580;
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 play_sound_effect(int, void *, int, int);
 s32 TAdMultiPlyChrSelectGC__sub_802C5F1C(void *, int);
 extern u8 controller_physical_port_bank[];
-extern int TAdMultiPlyChrSelectGC__data_805D67D8;
-extern s32 TAdMultiPlyChrSelectGC__selected_slot;
-s32 TWindowShortListCtrl__check_controller_button(void *, int);
-s32 TAdMultiPlyChrSelectGC__sub_802C5F1C(void *, int);
-s32 TAdMultiPlyChrSelectGC__sub_802C6558(void);
-extern u8 controller_physical_port_bank[];
-extern int TAdMultiPlyChrSelectGC__data_805D67D8;
-s32 play_sound_effect(int, void *, int, int);
-extern s32 TAdMultiPlyChrSelectGC__data_804E0A68[][5];
 extern Jump_802C5C84 multi_chr_select_cursor_jump_table[][5];
-extern int TAdMultiPlyChrSelectGC__data_805D67D8;
-s32 TWindowShortListCtrl__check_controller_button(void *, int);
-s32 TAdMultiPlyChrSelectGC__sub_802C6558(void);
-s32 TAdMultiPlyChrSelectGC__sub_802C6848(s32 arg0);
-s32 find_active_slot__22TAdMultiPlyChrSelectGCFv(void);
-extern u8 controller_physical_port_bank[];
-extern int TAdMultiPlyChrSelectGC__data_805D67D8;
-extern s32 TAdMultiPlyChrSelectGC__select_mode;
 extern void *TAdMultiPlyChrSelectGC__data_804E0A48[4];
 bool is_multiplayer_character_slot_selected(s32 arg0);
-s32 TAdMultiPlyChrSelectGC__sub_802C6848(s32 arg0);
 u32 get_multiplayer_controller_active_index(int param_1);
-}
-
-extern "C" {
-
 s32 TAdMultiPlyChrSelectGC__sub_802C50EC(s32);
 s32 TAdMultiPlyChrSelectGC__sub_802C522C(s32);
-
-extern s32 TAdMultiPlyChrSelectGC__select_mode;
 
 void *TAdMultiPlyChrSelectGC__data_804E0A48[4] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,

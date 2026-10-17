@@ -107,9 +107,7 @@ struct VObj_800B3EB8 : VBase_800B3EB8 {
     virtual void m86();
 };
 
-extern "C" {
 extern const f32 lbl_805D9D6C;
-}
 
 extern "C" {
 
@@ -1128,7 +1126,6 @@ extern const f32 lbl_805D9D5C;
 extern const f32 lbl_805D9D60;
 extern const f32 lbl_805D9D64;
 extern const f32 lbl_805D9D68;
-extern const f32 lbl_805D9D6C;
 extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
 extern s32 model_render_flags;

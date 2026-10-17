@@ -13,7 +13,6 @@ struct Stack_8012685C {
 #include "pso/items/TItemWeaponFist.h"
 #include "pso/item/TItemProShield.h"
 #include "pso/items/TItemWeapon.h"
-#include "pso/player/TObjPlayer.h"
 struct WeaponPlayerObjectPrefix
 {
   char pad[0x18];
@@ -95,10 +94,6 @@ void spawn_particle_effect(void *, s32);
 s16 get_validated_attack_stage(void *);
 extern s32 knuckle_marker_joint_table[];
 extern s32 tl_05;
-}
-
-extern "C" {
-
 void reflect_knuckle_second_hand(s32 arg0) {
     Stack_8012685C stack;
     if ((TObjPlayer::get_player_list() == 0) && (((TItemProShield *)arg0)->get_slot_count() == 3) && ((s32) knuckle_second_hand_pass != 0)) {

@@ -28,10 +28,6 @@ extern s32 lbl_805D3418;
 u8 *TObjRaderIcon__ct(u8 *arg0, s32 arg1, s32 arg2);
 void add_radar_scaled_gate(void *, u32, u16, s32, s32, f32);
 u8 is_current_floor_switch_set(u16);
-}
-
-extern "C" {
-
 void *TObjRaderIcon__create(void *arg0);
 void *__dt__13TObjRaderIconFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
@@ -48,8 +44,6 @@ void *TObjRaderIcon__create(void *arg0) {
 }
 
 void TObjRaderIcon::render() {  }
-
-extern s32 __vt__13TObjRaderIcon[];
 
 void TObjRaderIcon::run_task() {
     Icon_80197110 *arg0 = (Icon_80197110 *)this;

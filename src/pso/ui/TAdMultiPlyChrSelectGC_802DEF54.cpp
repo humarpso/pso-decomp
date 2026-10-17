@@ -34,10 +34,6 @@ extern V2_802DF9B4 lbl_80472848[];
 extern s32 tl_02;
 extern s32 tl_clipout;
 extern s32 TAdMultiPlyChrSelectGC__data_805DE898;
-}
-
-extern "C" {
-
 void update_state_serial__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 u32 get_field_118__22TAdEnterSerialAccessGCFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, s32, s32);

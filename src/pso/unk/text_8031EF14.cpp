@@ -11,16 +11,9 @@ struct Obj_8031F070 { u8 pad[0x410]; s32 count; u8 pad2[4]; u16 ids[6]; };
 
 extern "C" {
 u8 *find_entity_by_id(u16);
-u8 *find_entity_by_id(u16);
 u16 TObjEneRecon__sub_8031D878();
-u8 *find_entity_by_id(u16);
 void remove_tracked_target__12TObjEneReconFPvPv(Obj_8031EFAC *o, u8 *target);
-u8 *find_entity_by_id(u16);
 s32 is_anim_5__12TObjEneReconFv();
-}
-
-extern "C" {
-
 void TObjEneRecon::remove_child_entity(u8 *arg1) {
     Obj_8031EF14 *arg0 = (Obj_8031EF14 *)this;
     s32 i;

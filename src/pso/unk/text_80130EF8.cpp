@@ -11,15 +11,10 @@ extern const f32 lbl_805DB03C;
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern s32 tl_05;
-extern const f32 lbl_805DB03C;
 extern const f32 lbl_805DB040;
 extern const f32 lbl_805DB044;
 extern const f32 lbl_805DB048;
 void spawn_particle_effect(void *buf, s32 n);
-}
-
-extern "C" {
-
 void yasminkov_2000h_idle(u8 *arg0) {
     s32 temp_r0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x1F8);

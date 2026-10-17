@@ -18,18 +18,11 @@ void *__nw__7TObjectFUl(int);
 extern u32 fog_ctrl_instance;
 s32 request_fog__8TFogCtrlFPvii(u32, s32, s32);
 extern s32 TFogCtrl__fog_instance_table[];
-extern s32 TFogCtrl__fog_instance_table[];
-extern s32 TFogCtrl__fog_instance_table[];
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_8049C700[];
 extern RecoveredGlobal_800FA95C_lbl_80515F48 lbl_80515F48;
 extern s32 lbl_805D2B1C;
 s32 TFogCtrl__sub_800FAC84(void *p);
-extern s32 TFogCtrl__fog_instance_table[];
-}
-
-extern "C" {
-
 void *__dt__12TFogCtrl_EORFv(void *arg0, s16 arg1);
 int parse_serial_value__22TAdEnterSerialAccessGCFv(void*);
 void __dl__7TObjectFPv(void *);
@@ -41,8 +34,6 @@ int TQuestVmDownLoadServer::get_serial_access() { return parse_serial_value__22T
 int TQuestVmDownLoadServer::poll_serial_access() { return parse_serial_value__22TAdEnterSerialAccessGCFv(this); }
 void TFogCtrl_EOR::run_task() { update_all__8TFogCtrlFv(this); }
 
-extern s32 lbl_8049C700[];
-
 void *__dt__12TFogCtrl_EORFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049C700;
@@ -53,8 +44,6 @@ void *__dt__12TFogCtrl_EORFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern u32 fog_ctrl_instance;
 
 typedef char RecoveredGlobal_800FA95C_lbl_8049C700_size[sizeof(RecoveredGlobal_800FA95C_lbl_8049C700) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_800FA95C_lbl_80515F48_size[sizeof(RecoveredGlobal_800FA95C_lbl_80515F48) == 0x28 ? 1 : -1];

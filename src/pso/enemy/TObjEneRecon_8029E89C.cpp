@@ -23,26 +23,13 @@ extern u16 scene_sora_reflect_active;
 extern const f32 lbl_805DDD8C;
 extern const f32 lbl_805DDD94;
 s32 TObjEneRecon__sub_8029EA4C(void *arg0, s32 _w1);
-s32 TObjEneRecon__sub_8029EA4C(void *arg0, s32 _w1);
 s32 reflect_matrix_in_plane(s32, s32 *);
 s32 push_matrix();
-extern u16 scene_sora_reflect_active;
-extern const f32 lbl_805DDD8C;
 extern const f32 lbl_805DDD90;
-}
-
-extern "C" {
-
-void restore_render_scissor(s32 arg0);
-s32 GXSetScissor(s32, s32, s32, s32);
-s32 reflect_matrix_in_plane(s32, s32 *);
-s32 push_matrix();
 s32 pop_matrix();
 u32 get_player_by_client_id(u32);
 s32 fn_8029E7BC(s32, s32 *);
 s32 reset_ind_tev_stages__13TParticleCtrlFPv();
-
-extern u16 scene_sora_reflect_active;
 
 s32 TObjEneRecon::render_player_marker(u16 arg0, s32 arg1) {
     s32 sp8[8];
@@ -73,8 +60,6 @@ s32 TObjEneRecon::render_player_marker(u16 arg0, s32 arg1) {
     }
     return var_r3;
 }
-
-extern u16 scene_sora_reflect_active;
 
 s32 TObjEneRecon::push_reflect_matrix() {
     typedef char sp8_offset[(offsetof(Stack_8029E960, sp8) == 0x0) ? 1 : -1];
@@ -136,15 +121,7 @@ void TObjEneRecon::update_particle_if_active() {
     }
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 s32 play_particle__13TParticleCtrlFls(u32, s32, s32);
-
-extern u32 scene_sora_instance;
 
 void TObjEneRecon::notify_scene(s32 arg0) {
     u32 temp_r31;
@@ -158,8 +135,6 @@ void TObjEneRecon::notify_scene(s32 arg0) {
 
 }
 
-#include "types.h"
-#include "pso/enemy/TObjEneRecon.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -168,7 +143,6 @@ extern "C" {
 void __dl__FPv(void*);
 s32 init_render_target__10TObjPlayerFv();
 
-extern u32 scene_sora_instance;
 extern u32 scene_sora_recon_object;
 
 void TObjEneRecon::destroy_instance() {
@@ -185,8 +159,6 @@ void TObjEneRecon::destroy_instance() {
 }
 
 extern s32 lbl_805D65F0;
-extern u32 scene_sora_instance;
-extern u32 scene_sora_recon_object;
 
 void TObjEneRecon::alloc_if_valid_state() {
     u32 temp_r3;

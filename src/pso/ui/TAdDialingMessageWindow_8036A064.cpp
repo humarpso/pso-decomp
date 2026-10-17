@@ -41,8 +41,6 @@ void *__dt__13TUnk_804F3428Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 lbl_804F3428[];
-
 void *TUnk_804F3428::init(void *arg1, void *arg2, void *arg3) {
     __ct__7TObjectFP7TObject(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804F3428;

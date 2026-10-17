@@ -3,11 +3,6 @@
 
 extern "C" {
 int set_target_index__11TMainCursorFs(void*, void* a1);
-}
-
-extern "C" {
-
-#include "types.h"
 
 extern "C" {
 s32 init_gc_tag();
@@ -16,14 +11,6 @@ s32 init_gc_tag();
 
 int TMainCursor::set_target_index_at_60(void* _w1) { return set_target_index__11TMainCursorFs((void*)((char*)this + 0x60), (void*)(_w1)); }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
-#include "types.h"
-#include "pso/misc/TMainCursor.h"
 #include "pso/TAdRicoRing.h"
 #include "pso/misc/TLockOnCursor.h"
 #include "pso/misc/TWindowActionPalette.h"

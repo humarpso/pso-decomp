@@ -5,10 +5,6 @@
 extern "C" {
 s32 are_split_screen_battle_players_tied(void *);
 extern s32 TLobby__battle_ctrl_default_value;
-}
-
-extern "C" {
-
 void *TAdChrSelBSlotGC__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 

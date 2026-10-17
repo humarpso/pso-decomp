@@ -22,24 +22,13 @@ void *__dt__13TUnk_804ED598Fv(void *arg0, s16 arg1);
 int GXSetNumIndStages(int);
 int GXSetTevDirect(int);
 int set_ginja_post_texgen_count(int);
-extern s32 lbl_804ED598[];
 extern s32 lbl_804ED5B0[];
 int register_indirect_effect_ctrl(void*);
-extern s32 lbl_804ED5B0[];
-int GXSetNumIndStages(int);
-int GXSetTevDirect(int);
-int set_ginja_post_texgen_count(int);
-extern s32 lbl_804ED5B0[];
-extern s32 lbl_804ED5B0[];
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
-extern s32 lbl_804ED5B0[];
 void *__dt__13TUnk_804ED5B0Fv(void *arg0, s16 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 construct_indirect_effect_task(int, int, int, int);
-extern s32 lbl_804ED598[];
 extern s32 tl_05;
 u8 *create_telepipe_marker(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 arg5, s32 arg6, f32 farg0, f32 farg1);
 void play_indirect_effect_recipe(u8 arg0, u16 arg1, s32 arg2);
@@ -58,10 +47,6 @@ s32 set_texture_num(int);
 s32 TParticleCtrl__sub_803E2A1C(void *, int);
 extern u8 lbl_804C5820[];
 extern u8 *camera_ctrl_instance;
-}
-
-extern "C" {
-
 void TUnk_804ED598::render() {
     Obj_80327D30 *o = (Obj_80327D30 *)this;
     Vtx_80327D30 v[4];

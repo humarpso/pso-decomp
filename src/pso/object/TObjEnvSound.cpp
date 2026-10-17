@@ -40,16 +40,10 @@ extern s32 TObjEnvSound__class_name;
 extern const f32 lbl_805DBE18;
 extern const f32 lbl_805DBE1C;
 void *TObjEnvSound__ct(Obj_80190AA0 *self, void *parent, void *arg2);
-}
-
-extern "C" {
-
 void *__dt__12TObjEnvSoundFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 void TObjEnvSound::render() {  }
-
-extern s32 __vt__12TObjEnvSound[];
 
 void TObjEnvSound::run_task() {
     u8 *arg0 = (u8 *)this;

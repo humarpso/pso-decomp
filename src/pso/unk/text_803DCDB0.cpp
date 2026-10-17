@@ -8,10 +8,6 @@ void VIConfigure(void *);
 void init_gx_display(void);
 void fn_803DD294(void);
 void init_video_and_gx(void *arg0);
-}
-
-extern "C" {
-
 void init_video_and_gx(void *arg0) {
     set_present_interval(*(void **)((s8 *)arg0 + 0x0), *(void **)((s8 *)arg0 + 0x4));
     init_locked_cache_heap(arg0);

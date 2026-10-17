@@ -54,10 +54,6 @@ extern "C" {
 u8 TOTrap__sub_801792CC(u8 *arg0, s32 arg1);
 u8 TOTrap__sub_801792E4(u8 *arg0, s32 arg1);
 u8 TOTrap__sub_801792FC(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 void TOTrap::vfunc_86() {  }
 void TOTrap::vfunc_88() {  }
 
@@ -88,9 +84,6 @@ f32 TOTrap::check_trigger_range(u32 arg1) {
     }
     return TOTrap__data_805DBA3C;
 }
-
-extern f32 TOTrap__data_805DBA38;
-extern f32 TOTrap__data_805DBA3C;
 
 f32 TOTrap::get_scale(u32 arg1) {
     struct VObj_80179358_801792AC *arg0 = (struct VObj_80179358_801792AC *)this;

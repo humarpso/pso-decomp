@@ -2,10 +2,6 @@
 extern "C" {
 extern u32 ginja_blend_override;
 void set_color_blend_mode(s32 a, s32 b, s32 c, s32 d);
-}
-
-extern "C" {
-
 #pragma push
 #pragma scheduling off
 #pragma peephole off

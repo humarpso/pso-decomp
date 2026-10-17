@@ -172,27 +172,19 @@ s32 queue_destruction__7TObjectFv(s32);
 void run_task__10TTecSlicerFv(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 void dt__10TTecSlicerFls(void *, int);
-s32 queue_destruction__7TObjectFv(s32);
 extern s32 __vt__10TTecSlicer[];
 void *__dt__10TTecSlicerFv(void *arg0, s16 arg1);
-s32 VecCopy__FP3VecPC3Vec(s32, s32);
 s32 push_matrix(void);
 s32 pop_matrix(void);
 extern RecoveredGlobal_8023B770_lbl_8044DC20 TTecSlicer__launch_angle_table;
-u32 get_player_by_client_id(u16);
-u32 __nw__7TObjectFUl(s32);
 void destroy_if_set__10TTecSlicerFv(u32);
 
 extern const f32 lbl_805DC954;
-f32 horizontal_distance_squared(s32, s32);
 s32 resolve_hittable_target(int, int);
-u32 query_game_join_id__10TObjPlayerFv(s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 rotate_matrix_y(s32, s32);
 s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
-s32 push_matrix(void);
-s32 pop_matrix(void);
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(u32);
@@ -202,7 +194,6 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 lbl_805DC95C;
 extern const f32 lbl_805DC960;
-s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void disallow_rendering__7TObjectFv(void *);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 find_item_by_id(s32);
@@ -219,19 +210,12 @@ void fn_8023B590(void *, s32, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 f32 vector_length(void *);
-s32 normalize_vector(s32);
-extern s32 __vt__10TTecSlicer[];
 extern s32 lbl_805D3828;
 extern s32 tl_05;
 extern const f32 lbl_805DC950;
 extern const f32 lbl_805DC964;
 s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4);
-}
-
-extern "C" {
-
 u32 csnVector(s32, s32, s32);
-s32 queue_destruction__7TObjectFv(s32);
 
 void TTecSlicer::reset_fields_1e() { *(u8*)((char*)this + 0x1e) = 0; *(u8*)((char*)this + 0x1f) = 0; }
 

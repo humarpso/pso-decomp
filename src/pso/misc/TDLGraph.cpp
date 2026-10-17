@@ -25,11 +25,6 @@ extern const f32 lbl_805D92D0;
 extern const f32 lbl_805D92D4;
 void queue_destruction__7TObjectFv(s32);
 void fn_8007ECF0(s32, s32, s32);
-extern s32 TDLGraph__graph_object;
-}
-
-extern "C" {
-
 void TDLGraph::sub_8007F644() {
     this->m_3c = 0;
     sub_8007F5A4();

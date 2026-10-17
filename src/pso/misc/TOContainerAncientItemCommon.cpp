@@ -55,10 +55,6 @@ extern Desc_8015C234 lbl_8044074C;
 extern s32 lbl_805D2F00;
 extern Ids_8015C234 *ancient_container_fragment_texture_lists;
 extern u8 *tl_05;
-}
-
-extern "C" {
-
 struct Base_8015C098 { char pad[0x18]; };
 struct VObj_8015C098 : Base_8015C098 {
     virtual void m0();
@@ -136,7 +132,6 @@ void *__dt__28TOContainerAncientItemCommonFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__28TOContainerAncientItemCommon[];
 extern void *lbl_805D2EFC;
 
 void *TOContainerAncientItemCommon__ct(void *arg0, void * _w1) {

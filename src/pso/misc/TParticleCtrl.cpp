@@ -161,16 +161,12 @@ extern "C" {
 s32 is_split_screen(void);
 u8 *__nw__7TObjectFUl(s32);
 extern s32 tl_particle;
-s32 is_split_screen(void);
-u8 *__nw__7TObjectFUl(s32);
-extern s32 tl_particle;
 extern RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 u8 * __dt__7TObjectFv(void *, s16);
 extern RecoveredGlobal_8008655C_lbl_8048E728 lbl_8048E728;
 u8 *__dt__13TUnk_8048E728Fv(u8 *arg0, s16 arg1);
 s32 construct_world_actor_base(void *, void *);
 extern s32 lbl_8048E6A8[];
-s32 construct_world_actor_base(void *, void *);
 extern s32 lbl_8048E6DC[];
 extern s32 lbl_805D2930;
 extern const f32 lbl_805D9484;
@@ -181,11 +177,9 @@ s32 set_color_blend_mode(int, int, int, int);
 s32 set_chunk_material_color(void *);
 s32 find_particle_texture_index(s32 id);
 void __ct__7TObjectFP7TObject(void *, void *);
-extern RecoveredGlobal_8008655C_lbl_8048E728 lbl_8048E728;
 extern const f32 TParticleCtrl__data_805D94C4;
 extern const f32 TParticleCtrl__data_805D94CC;
 void *init_particle_base(void *arg0, void *arg1, s32 arg2);
-s32 is_split_screen(void);
 s32 load_projected_texture_matrix(f32);
 s32 play_indirect_effect_recipe(int, int, int);
 s32 GXSetNumTexGens(int);
@@ -219,32 +213,23 @@ u32 csnVector(void *, void *, int);
 f32 vec3_dot(void *, void *);
 f32 vec_squared_length(void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
-s32 rotate_matrix_y(int, s32);
 s32 normalize_vector(void *);
 s32 push_matrix_from(void *);
-s32 pop_matrix();
 extern Vec_80085CB0 lbl_804393D0;
 extern s32 identity_matrix[];
-extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805D9480;
 extern const f32 lbl_805D9488;
 extern const f32 lbl_805D94AC;
 extern const f32 lbl_805D94B4;
 extern const f32 lbl_805D94B8;
-}
-
-extern "C" {
-
 void *TParticleCtrl__sub_80085878(void *arg0, s16 arg1);
 void *TParticleCtrl__sub_80085E20(void *arg0, s16 arg1);
 f32 horizontal_distance_squared(void *, void *);
 u32 get_player_by_client_id(void *);
 void __dl__7TObjectFPv(void *);
 
-extern s32 lbl_805D2930;
 extern s32 local_client_id;
 extern const f32 lbl_805D947C;
-extern const f32 lbl_805D9480;
 
 void TUnk_8048E6A8::render() {
     Obj_80085798 *self = (Obj_80085798 *)this;
@@ -268,8 +253,6 @@ void TUnk_8048E6A8::run_task() {
     }
 }
 
-extern s32 lbl_8048E6A8[];
-
 void *TParticleCtrl__sub_80085878(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048E6A8;
@@ -280,8 +263,6 @@ void *TParticleCtrl__sub_80085878(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern s32 lbl_8048E6DC[];
 
 typedef char RecoveredGlobal_800858D0_lbl_8048E6A8_size[sizeof(RecoveredGlobal_800858D0_lbl_8048E6A8) == 0x34 ? 1 : -1];
 u8 *TParticleCtrl::construct_particle_obj(s32 arg1, s32 arg2) {

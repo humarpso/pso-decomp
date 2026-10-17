@@ -28,10 +28,6 @@ extern RecoveredGlobal_8009048C_lbl_80439B8C lbl_80439B8C;
 extern void *TObjEneBalClawClaw__collision_body_template[11];
 extern u8 *lbl_805D4F20;
 void spawn_lobby_npc_enemy(void);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8009048C_lbl_80439B8C_size[sizeof(RecoveredGlobal_8009048C_lbl_80439B8C) == 0x14 ? 1 : -1];
 
 void spawn_lobby_npc_enemy(void) {
@@ -51,8 +47,6 @@ void spawn_lobby_npc_enemy(void) {
 }
 
 }
-
-#include "types.h"
 
 #include <stddef.h>
 struct VBase_14_0d3ae4 { char pad[0x14]; };
@@ -138,10 +132,6 @@ int update_if_active__15TObjEneMe1GiGueFl(void*, int);
 void move_along_ground_avoiding_walls__10TObjPlayerFPviff(void *, Vec_80090504, void *, f32, f32);
 s32 update_collisions__10TObjPlayerFv(void *);
 void update_chase_state__18TObjEneBalClawClawFPv(u8 *arg0);
-}
-
-extern "C" {
-
 void TObjEneBalClawClaw__sub_80090824(void);
 void vfunc_58__18TObjEneBalClawClawFv(void);
 
@@ -262,8 +252,6 @@ void update_move_to_target__18TObjEneBalClawClawFPv(Claw_80090850 *self) {
 #define apply_actor_gravity (*(void (*)(void *, s32, f32))&apply_actor_gravity)
 #define reset_active_state__18TObjEneBalClawClawFPv (*(s32 (*)())&reset_active_state__18TObjEneBalClawClawFPv)
 
-#include "types.h"
-
 struct VBaseA_80090950 { char pad[0x18]; };
 struct VA_80090950 : VBaseA_80090950 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -358,10 +346,6 @@ void enemy_turn_half_toward_dest(void *);
 void clear_attack_flag__14TObjEneBalClawFv(void *);
 Ent_80090A70 *get_enemy_entity(u16);
 void update_follow_parent__18TObjEneBalClawClawFPv(Obj_80090A70 *arg0);
-}
-
-extern "C" {
-
 void render__18TObjEneBalClawClawFPv(u8 *arg0);
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_x(s32, s32);
@@ -491,8 +475,6 @@ void render__18TObjEneBalClawClawFPv(u8 *arg0) {
     }
 }
 
-}
-
 #undef VecCopy__FP3VecPC3Vec
 #undef sub_80090798__18TObjEneBalClawClawFv
 #undef update_if_active__15TObjEneMe1GiGueFl
@@ -501,10 +483,6 @@ void render__18TObjEneBalClawClawFPv(u8 *arg0) {
 
 #define apply_actor_gravity (*(s32 (*)(void *, s32, f32))&apply_actor_gravity)
 #define advance_animation_playback (*(s32 (*)(void *))&advance_animation_playback)
-
-#include "types.h"
-
-extern "C" {
 
 void sub_80090D3C__18TObjEneBalClawClawFv(void *arg0);
 
@@ -542,8 +520,6 @@ void TObjEneBalClawClaw::sub_80090D3C() {
 #define VecCopy__FP3VecPC3Vec (*(s32 (*)(void *, void *))&VecCopy__FP3VecPC3Vec)
 #define update_if_active__15TObjEneMe1GiGueFl (*(s32 (*)(void *, int))&update_if_active__15TObjEneMe1GiGueFl)
 #define clear_attack_flag__14TObjEneBalClawFv (*(s32 (*)(void *))&clear_attack_flag__14TObjEneBalClawFv)
-
-#include "types.h"
 
 struct VBase_80091134 { char pad[0x14]; };
 
@@ -667,10 +643,6 @@ Claw_80091354 *find_active_entity_by_id(u16);
 void update_chase__18TObjEneBalClawClawFPv(Claw_80091354 *self);
 s32 objInBand__FP7GameObjf(void *, f32);
 void TObjEneBalClawClaw__sub_80090ECC(Claw_80090ECC *self);
-}
-
-extern "C" {
-
 struct En0Base_80090DD0 { char pad[0x14]; };
 struct En0VObj_80090DD0 : En0Base_80090DD0 {
     virtual void m0();
@@ -889,18 +861,12 @@ void TObjEneBalClawClaw__sub_800914A4(void) {  }
 #undef update_if_active__15TObjEneMe1GiGueFl
 #undef clear_attack_flag__14TObjEneBalClawFv
 
-#include "types.h"
-
 #include <stddef.h>
-#include "pso/enemy/TObjEneBalClawClaw.h"
-#include "pso/enemy/TObjEneBeast.h"
 #include "pso/boss/TBoss3Volopt.h"
-#include "pso/enemy/TObjEneBalClaw.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneLappy.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/misc/RenderFadeState.h"
-#include "pso/player/TObjPlayer.h"
 struct Stack_80091E08 {
     f32 sp8;
     f32 spC;
@@ -1074,7 +1040,6 @@ s32 bind_enemy_combat_stats(void *, s32, s32, s32);
 s32 set_animation__10TObjPlayerFPvs(void *, s16);
 s32 init_collision_body_parts(void *, void *, int);
 extern s32 lbl_805D2978;
-extern u8 *lbl_805D4F20;
 extern s32 lbl_805D4F28;
 extern s32 lbl_805D4F2C;
 extern s32 lbl_805D4F30;
@@ -1099,7 +1064,6 @@ s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 update_obstruction_fade(void *);
 extern s32 lbl_805D5660;
-extern s32 model_render_flags;
 extern const f32 lbl_805D96E8;
 extern const f32 lbl_805D96EC;
 extern const f32 lbl_805D96F0;
@@ -1112,7 +1076,6 @@ s32 find_entity_by_id(int);
 s32 submit_cursor_candidate(void *, int, int, f32, f32);
 s32 minimap_render_dot(void *, int, int, int);
 void TObjEneBalClawClaw__sub_8009173C(u8 *arg0);
-}
 #define clear_attack_flag__14TObjEneBalClawFv (*(s32 (*)(void *))&clear_attack_flag__14TObjEneBalClawFv)
 #define TObjEneBalClawClaw__sub_80090824 (*(s32 (*)(void *))&TObjEneBalClawClaw__sub_80090824)
 #define rotate_matrix_y (*(s32 (*)(int, int))&rotate_matrix_y)
@@ -1144,9 +1107,6 @@ void TObjEneBalClawClaw__sub_8009173C(u8 *arg0);
 #define find_active_entity_by_id (*(s32 (*)(int))&find_active_entity_by_id)
 #define reset_active_state__18TObjEneBalClawClawFPv (*(s32 (*)(void *))&reset_active_state__18TObjEneBalClawClawFPv)
 #define render__18TObjEneBalClawClawFPv (*(void (*)())&render__18TObjEneBalClawClawFPv)
-
-extern "C" {
-
 void *deleting_dtor__18TObjEneBalClawClawFPvs(void *arg0, s16 arg1);
 void *TObjControl__ct(void *, void *);
 void free_collision_body_parts(void *);
@@ -1465,8 +1425,6 @@ void *TObjEneBalClawClaw::create(void *arg1, void *arg2, void *arg3, void *arg4,
     }
     return o2;
 }
-
-extern void *tl_04;
 
 void *TObjEneBalClawClaw::create() {
     void *o;

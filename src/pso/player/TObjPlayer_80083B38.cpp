@@ -55,20 +55,12 @@ s32 get_main_phase();
 s32 is_inactive__10TObjPlayerFv();
     extern unsigned char camera_capture_flags;
 void TObjPlayer__sub_80084614(void);
-extern unsigned char camera_capture_flags;
 void TObjPlayer__sub_8008463C(void);
-extern unsigned char camera_capture_flags;
-extern unsigned char camera_capture_flags;
 void TObjPlayer__sub_80084744(void);
-extern unsigned char camera_capture_flags;
 void TObjPlayer__sub_80084754(void);
-extern unsigned char camera_capture_flags;
 void TObjPlayer__sub_80084764(void);
-extern unsigned char camera_capture_flags;
-extern unsigned char camera_capture_flags;
 void TObjPlayer__sub_80084780(void);
 extern u8 camera_capture_overlay_alpha;
-extern unsigned char camera_capture_flags;
 void disable_camera_capture_overlay(void);
 void **TLobby__sub_803DA16C();
 extern s32 lbl_8048E5C8[];
@@ -80,20 +72,12 @@ extern const f32 lbl_805D9434;
 s32 is_in_shadow_range(u8 *arg0, f32 farg0);
 extern G_800845F8 shared_capture_texture_list;
 s32 TObjPlayer__sub_800845F8(void);
-extern G_800845F8 shared_capture_texture_list;
 s32 load_list_texture(s32, s32, s32, s32);
 void TObjPlayer__sub_80084500(void);
-extern s32 lbl_8048E5C8[];
-extern int lbl_805D4EE0;
 void set_texture_name(void *, void *, int, int);
 s32 load_texture_list(void *);
 void TObjPlayer__sub_80083F38(void);
-extern G_800845F8 shared_capture_texture_list;
-void set_texture_name(void *, void *, int, int);
-s32 load_texture_list(void *);
 void init_capture_texture(s32 wide);
-void **TLobby__sub_803DA16C();
-extern G_800845F8 shared_capture_texture_list;
 void **TObjPlayer__sub_80084694(void);
 s32 is_split_screen();
 s32 TCameraCtrl__sub_80068EF0();
@@ -112,9 +96,7 @@ s32 set_ginja_draw_flags(int);
 s32 set_light_ambient_color(f32, f32, f32);
 s32 submit_light0(int, int);
 s32 load_gx_light_slot(int);
-extern s32 lbl_8048E5C8[];
 extern s32 scene_projection_state[];
-extern u32 camera_ctrl_instance;
 extern u8 *active_gx_render_mode;
 extern const f32 lbl_805D93D0;
 extern const f32 lbl_805D93D8;
@@ -123,27 +105,15 @@ extern const f32 lbl_805D9408;
 extern const f32 lbl_805D9430;
 extern GXColor_80083B8C lbl_805E120C;
 void func_80083a00__Fv(void);
-s32 is_split_screen();
 void TObjPlayer__sub_80083FA4(void);
 void C_MTXFrustum(void *, f32, f32, f32, f32, f32, f32);
-s32 GXSetProjection(void *, int);
-s32 GXSetViewport(f32, f32, f32, f32, f32, f32);
-s32 GXSetScissor(int, int, int, int);
 f32 vec_squared_length(void *);
 void normalize_vector(void *);
 s32 push_matrix();
-s32 set_ginja_draw_flags(int);
-s32 set_light_ambient_color(f32, f32, f32);
-s32 submit_light0(int, int);
-s32 load_gx_light_slot(int);
 void translate_current_matrix_ps(f32, f32, f32);
 void rotate_current_matrix_x_ps(s32);
 void push_identity_matrix_ps();
-extern RecoveredGlobal_80083CEC_lbl_8048E5D0 shadow_light_position;
-extern u32 camera_ctrl_instance;
 extern const f32 lbl_805D93C8;
-extern const f32 lbl_805D93D0;
-extern const f32 lbl_805D93D8;
 extern const f32 lbl_805D9418;
 extern const f32 lbl_805D941C;
 extern const f32 lbl_805D9420;
@@ -151,13 +121,6 @@ extern const f32 lbl_805D9424;
 extern const f32 lbl_805D9438;
 extern const f32 lbl_805D943C;
 void camera_stuff__Fv(void);
-s32 GXPixModeSync();
-s32 GXSetTexCopySrc(int, int, int, int);
-s32 GXSetTexCopyDst(int, int, int, int);
-void GXSetCopyClear(GXColor_80083B8C, u32);
-s32 GXCopyTex(void *, int);
-extern G_800845F8 shared_capture_texture_list;
-extern unsigned char camera_capture_flags;
 extern GXColor_80083B8C lbl_805E1208;
 void capture_viewport_texture(void);
 s32 TObjPlayer__sub_800847FC();
@@ -172,51 +135,15 @@ s32 GXBegin(s32, s32, s32);
 s32 GXSetNumChans(s32);
 s32 GXSetTevOp(s32, s32);
 s32 GXSetTevOrder(s32, s32, s32, s32);
-s32 load_list_texture(s32, s32, s32, s32);
 s32 setup_blended_textured_draw();
-extern G_800845F8 shared_capture_texture_list;
-extern const f32 lbl_805D93D0;
-extern const f32 lbl_805D93D8;
-extern const f32 lbl_805D9404;
-extern const f32 lbl_805D9408;
 extern const f32 lbl_805D9440;
-s32 TObjPlayer__sub_800847FC();
-s32 TObjPlayer__sub_80084824(f32, f32);
-s32 TObjPlayer__sub_80084834(s32);
-s32 TObjPlayer__sub_80084840(f32, f32, f32);
-s32 Dolphin_GXSetVtxDesc(s32, s32);
-s32 GXClearVtxDesc();
-s32 GXSetVtxAttrFmt(s32, s32, s32, s32, s32);
-s32 GXSetNumTexGens(s32);
-s32 GXBegin(s32, s32, s32);
-s32 GXSetNumChans(s32);
-s32 GXSetTevOp(s32, s32);
-s32 GXSetTevOrder(s32, s32, s32, s32);
-s32 load_list_texture(s32, s32, s32, s32);
-s32 setup_blended_textured_draw();
-extern G_800845F8 shared_capture_texture_list;
-extern const f32 lbl_805D93D0;
-extern const f32 lbl_805D93D8;
 extern const f32 lbl_805D9444;
-}
-
-extern "C" {
-
-int TObjPlayer__sub_80083F9C(void);
-void TObjPlayer__sub_80083FA4(void);
-s32 load_list_texture(s32, s32, s32, s32);
-s32 is_split_screen();
-
-extern s32 lbl_8048E5C8[];
-
 void TObjPlayer::draw_if_all_ready() {
     if ((is_split_screen() == 0) && (TObjPlayer::check_all_players_ready() != 0)) {
         TObjFish::set_global_param((s32)lbl_8048E5C8);
         load_list_texture(0, 0, 0, 1);
     }
 }
-
-    extern int lbl_805D4EE0;
 
 #pragma push
 #pragma fp_contract on
@@ -333,7 +260,6 @@ void TObjPlayer__sub_80083F38(void) {
 
 int TObjPlayer__sub_80083F9C(void) {  return lbl_805D4EE0; }
 
-    extern int lbl_805D4EE0;
 void TObjPlayer__sub_80083FA4(void) { lbl_805D4EE0 = 1; }
 void TObjPlayer__sub_80083FB0(void) { lbl_805D4EE0 = 0; }
 s32 TObjPlayer::check_all_players_ready() {

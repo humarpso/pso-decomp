@@ -11,37 +11,14 @@ s32 play_sound__9TWindowDDFv();
 s32 TWindowDD__sub_803482B0(void *);
 s32 test_input_flag_4__9TWindowDDFv(void *);
 void TWindowDD__sub_80342800(u8 *arg0);
-s16 TWindowDD__sub_80342158(int);
 void TWindowDD__sub_803428C4(u8 *arg0);
-s16 TWindowDD__sub_80342158(int);
 s32 update_numeric_parameter_input__9TWindowDDFPv();
 s32 update_close_flag__9TWindowDDFPv(void *);
-s32 apply_entry_layout__9TWindowDDFPv(void *);
-s32 TWindowDD__sub_803435A0(void *);
 s32 TWindowDD_is_id_in_range_5AC_5F9();
-s32 update_selection_state__9TWindowDDFPv(void *);
-s32 play_se__9TWindowDDFv();
-s32 play_sound__9TWindowDDFv();
-s32 TWindowDD__sub_803482B0(void *);
-s32 test_input_flag_4__9TWindowDDFv(void *);
 void TWindowDD__sub_803429B0(u8 *arg0);
-}
-
-extern "C" {
-
 void enter_state_16__9TWindowDDFPv(void *arg0);
 void update__9TWindowDDFi(s32 arg0);
 void update_state__9TWindowDDFPv(void *arg0);
-s32 update_numeric_parameter_input__9TWindowDDFPv();
-s32 apply_entry_layout__9TWindowDDFPv(void *);
-s32 TWindowDD__sub_803435A0(void *);
-s32 update_selection_state__9TWindowDDFPv(void *);
-s32 TWindowDD__sub_80347C50();
-s32 TWindowDD__sub_803482B0(void *);
-s32 play_se__9TWindowDDFv();
-s32 play_sound__9TWindowDDFv();
-s32 test_input_flag_4__9TWindowDDFv(void *);
-s32 update_close_flag__9TWindowDDFPv(void *);
 
 void enter_state_16__9TWindowDDFPv(void *arg0) {
     s32 temp_r0;

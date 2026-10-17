@@ -39,15 +39,10 @@ extern const f32 lbl_804789F0[];
 extern s32 __vt__19TAdGameStartShineGC[];
 extern s32 lbl_805D4320;
 extern s32 lbl_805D6E88;
-extern const f32 lbl_805DFD64;
 extern const f32 lbl_805DFD6C;
 extern const f32 lbl_805DFD70;
 extern const f32 lbl_805DFD74;
 Shine_8034AB4C *__ct__19TAdGameStartShineGCFv(Shine_8034AB4C *self);
-}
-
-extern "C" {
-
 s32 set_cached_blend_factor(s32, s32);
 
 void TAdGameStartShineGC::render() {

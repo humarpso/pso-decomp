@@ -63,10 +63,6 @@ extern void *tl_05;
 extern const f32 lbl_805DBAAC;
 extern const f32 lbl_805DBAB0;
 void *TOVS2Wall01__ct(void *arg0, void *arg1);
-}
-
-extern "C" {
-
 void *__dt__11TOVS2Wall01Fv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dt__13TUnk_804949A8Fv(void *, int);
@@ -137,8 +133,6 @@ void *TOVS2Wall01::create() {
     }
     return o;
 }
-
-extern s32 __vt__11TOVS2Wall01[];
 
 void *__dt__11TOVS2Wall01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

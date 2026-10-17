@@ -16,16 +16,11 @@ extern s32 lbl_804F1320[];
 extern const f32 lbl_805DFFC0;
 extern const f32 lbl_805DFFC4;
 u8 *photon_field_weapon_ct(u8 *arg0, u8 *arg1);
-}
-
-extern "C" {
-
 void *__dt__13TUnk_804F1320Fv(void *arg0, s16 arg1);
 s32 get_current_floor();
 s8 TObjPlayer__sub_80102C30(void *);
 s32 spawn_pg_effect__10TObjPlayerFPvPvif(void *, s32, s32, f32);
 void __dt__11TItemWeaponFv(void *, int);
-void *__dt__13TUnk_804F1320Fv(void *arg0, s16 arg1);
 s32 reset_key_machine_state__10TObjPlayerFv();
 
 void TUnk_804F1320::set_technique_roll(s32 arg1) {
@@ -56,8 +51,6 @@ void TUnk_804F1320::emit_marker_effects() {
     ((TObjPlayer *)arg0)->update_active_game_effect();
 }
 typedef char RecoveredGlobal_80355BA0_lbl_804F1320_size[sizeof(RecoveredGlobal_80355BA0_lbl_804F1320) == 0xF8 ? 1 : -1];
-
-extern s32 lbl_804F1320[];
 
 void *__dt__13TUnk_804F1320Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

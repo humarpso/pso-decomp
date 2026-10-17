@@ -16,10 +16,6 @@ extern "C" {
 s32 call_window_method__11TWindowCtrlFPvi(void *, void *);
 extern RecoveredGlobal_8024AC64_lbl_804CEA4C lbl_804CEA4C;
 void fn_8024AC64(s32 arg0);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8024AC64_lbl_804CEA4C_size[sizeof(RecoveredGlobal_8024AC64_lbl_804CEA4C) == 0xC ? 1 : -1];
 void fn_8024AC64(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_8024AC64, sp8) == 0x0) ? 1 : -1];

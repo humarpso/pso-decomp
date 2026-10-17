@@ -8,10 +8,6 @@ s32 align_menu_entry_positions(int);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(void *, int);
 extern const f32 lbl_805DD268;
-}
-
-extern "C" {
-
 s32 TWindowOptionCtrl::create_sub_menu_window() {
     s32 temp_r31;
     temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFl((void *)(TWindowOptionCtrl::get_option_entry((int) (0xCF))), (int) (3));

@@ -6,10 +6,6 @@
 extern "C" {
 s32 is_valid_drop_floor(s32 arg0);
 s32 TObjPlayer__sub_80104840(s32 arg0);
-}
-
-extern "C" {
-
 s32 TShopEquipmentSellWindow::get_item_data_value(u32 arg0) {
     s32 sp8[4];
 

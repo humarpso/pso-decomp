@@ -35,22 +35,12 @@ void fn_8030B370(O_8030B370 *o) {
 
 #pragma pop
 
-}
-
-#include "types.h"
-
-extern "C" {
-s32 is_split_screen();
 s32 TObjPlayer__sub_80084500();
 s32 TObjLiveMonitor__sub_8030C050();
 s32 push_matrix();
 s32 pop_matrix();
 s32 draw_ginja_object(int);
 void render__15TObjLiveMonitorFv(u8 *arg0);
-}
-
-extern "C" {
-
 int run_task__15TObjLiveMonitorFv(void* p);
 
 void render__15TObjLiveMonitorFv(u8 *arg0) {
@@ -68,23 +58,11 @@ void render__15TObjLiveMonitorFv(u8 *arg0) {
     pop_matrix();
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
-int run_task__15TObjLiveMonitorFv(void* p);
-
 int run_task__15TObjLiveMonitorFv(void* p) { return ((int (*)(void *))fn_8030B370)(p); }
 
 }
 
-#include "pso/TObjLiveMonitor.h"
-
 TObjLiveMonitor::~TObjLiveMonitor() {}
-
-#include "types.h"
 
 extern "C" {
 
@@ -108,12 +86,6 @@ void *__ct__15TObjLiveMonitorFv(void *arg0) {
     return arg0;
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void *__nw__7TObjectFUl(int);
 
 void *TObjLiveMonitor::create(void *arg0) {
@@ -125,8 +97,6 @@ void *TObjLiveMonitor::create(void *arg0) {
 }
 
 }
-
-#include "types.h"
 
 struct RecoveredGlobal_8030B658_lbl_804E76C0 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8030B658_lbl_804E76C0_size[sizeof(RecoveredGlobal_8030B658_lbl_804E76C0) == 0x10 ? 1 : -1];
@@ -150,15 +120,10 @@ struct RecoveredGlobal_8030B708___vt__14TObjLiveCamera {
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8030B658_lbl_804E76C0 bm_obj_boss8_monitor_resource_descriptor;
-extern int live_monitor_shared_resource;
 s32 construct_world_actor_base(void *, void *);
 extern s32 __vt__14TObjLiveCamera[];
 extern s32 TObjLiveCamera__class_name;
 u8 *TObjLiveCamera__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *TObjLiveCamera__create(void *arg0);
 void TObjLiveCamera__sub_8030B630(void);
 void *__dt__14TObjLiveCameraFv(void *arg0, s16 arg1);
@@ -166,9 +131,7 @@ void render__14TObjLiveCameraFv(void);
 void run_task__14TObjLiveCameraFv(void);
 int TLobby__sub_8001FE7C(void*, void*);
 void __dl__7TObjectFPv(void *);
-void *__nw__7TObjectFUl(int);
 
-    extern int live_monitor_shared_resource;
 void TObjLiveCamera__sub_8030B630(void) { TLobby__sub_8001FE7C((void*)(live_monitor_shared_resource), (void*)1); }
 
 void TObjLiveCamera::load_static_resource() {
@@ -184,8 +147,6 @@ void TObjLiveCamera::load_static_resource() {
 
 void render__14TObjLiveCameraFv(void) {  }
 void run_task__14TObjLiveCameraFv(void) {  }
-
-extern s32 __vt__14TObjLiveCamera[];
 
 void *__dt__14TObjLiveCameraFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -217,12 +178,6 @@ void *TObjLiveCamera__create(void *arg0) {
     return o;
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void fn_8030B7B4(void);
 void fn_8030B7B8(void);
 int call_null__12TBoss8DragonFv(void);
@@ -236,7 +191,6 @@ int call_null__12TBoss8DragonFv(void) { return get_global_part_count__12TBoss8Dr
 
 }
 
-#include "types.h"
 #include "pso/boss/TBoss8Dragon.h"
 
 extern "C" {
@@ -259,11 +213,7 @@ extern const f32 lbl_805DF1CC;
 extern const f32 lbl_805DF1D0;
 extern const f32 lbl_805DF1D4;
 f32 calc_random_ratio__10TObjPlayerFv(void *);
-u8 *get_enemy_entity(u16);
-u8 *get_player_by_client_id(s32);
 int TBoss8Dragon__sub_8030B80C(void);
-f32 sin_table_lookup(int);
-f32 cos_table_lookup(int);
 extern const f32 lbl_805DF180;
 extern const f32 lbl_805DF184;
 extern const f32 lbl_805DF188;
@@ -274,15 +224,8 @@ extern const f32 lbl_805DF198;
 extern const f32 lbl_805DF19C;
 extern const f32 lbl_805DF1A0;
 extern const f32 lbl_805DF1A4;
-extern const f32 lbl_805DF1A8;
 extern const f32 lbl_805DF1AC;
 extern const f32 lbl_805DF1B0;
-extern const f32 lbl_805DF1B4;
-}
-
-extern "C" {
-
-int TBoss8Dragon__sub_8030B80C(void);
 s32 TBoss8Dragon__sub_802F3638();
 s32 TObjPlayer__sub_80082CBC(void *);
 s32 TObjPlayer__sub_80082CCC(void *);

@@ -23,10 +23,6 @@ extern const f32 lbl_805DBBD4;
 extern const f32 lbl_805DBBD8;
 extern const f32 lbl_805DBBDC;
 void run_task__19TObjCityAirCar_CtrlFv(Ctrl_80181310 *self);
-}
-
-extern "C" {
-
 void run_task__19TObjCityAirCar_CtrlFv(Ctrl_80181310 *self) {
     s32 i;
     Rec_80181310 *r;

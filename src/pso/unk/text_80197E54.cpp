@@ -11,7 +11,6 @@ extern "C" {
 extern s32 TObjSinBoard__texture_buffer;
 bool is_signboard_texture_buffer_missing(void);
 void *alloc__22TQuestVmDownLoadServerFv(s32);
-bool is_signboard_texture_buffer_missing(void);
 void fn_80197FD0(s32, s32);
 s32 TAdPlayerLoadGC__sub_801E1538(Hdr_80197E64 *, void *);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
@@ -20,10 +19,6 @@ s32 fn_802432F0(s32);
 void memset(void *, int, int);
 extern s32 memcard_file_099_name;
 void load_memcard_file(void);
-}
-
-extern "C" {
-
 bool is_signboard_texture_buffer_missing(void) {
     return TObjSinBoard__texture_buffer == 0;
 }

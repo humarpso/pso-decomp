@@ -15,10 +15,6 @@ struct Wave_801E4BCC {
 extern "C" {
 s32 calc_gx_tile_index(s32 x, s32 y, s16 w);
 void distort_texture_wave_image(Wave_801E4BCC *wave);
-}
-
-extern "C" {
-
 void distort_texture_wave_image(Wave_801E4BCC *wave) {
     s32 y;
     u8 *dx;

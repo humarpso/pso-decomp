@@ -119,11 +119,6 @@ extern s32 slime_debug_label_table[];
 extern s32 lbl_80496368[];
 extern s32 slime_bml_resource;
 extern u32 model_render_flags;
-}
-
-extern "C" {
-
-void TObjEneSlime__sub_800EB9F0(void* p, void* q);
 s32 send_6x0A_enemy_state(void *, s32 *);
 s32 has_no_active_slot(void *);
 s32 queue_destruction__7TObjectFv(void *);

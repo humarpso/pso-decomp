@@ -21,10 +21,6 @@ s32 clamp_list_scroll_offset(int, void *, void *);
 extern const f32 lbl_805DD1D8;
 extern const f32 lbl_805DD1DC;
 extern const f32 lbl_805DD1E0;
-}
-
-extern "C" {
-
 u32 construct_type1_heading__20TWindowSubStatusDispFll(u32, s32, s16);
 s32 TWindowSubComCard__sub_8026906C(void);
 s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
@@ -140,10 +136,6 @@ void TUnk_804D0658::clamp_scroll() {
     }
 }
 
-}
-
-extern "C" {
-
 s32 draw_selection_bar(s32, u16 *, s32);
 
 void TUnk_804D0658::draw_setting(s32 arg1) {
@@ -191,10 +183,6 @@ s32 fn_80269004(s32, s32, s32);
 s32 get_window_layout_position(s32);
 extern s32 lbl_8044F3A0[];
 extern s32 lbl_8044F3B8[];
-}
-
-extern "C" {
-
 s32 create_information_counter_window(s32 arg0) {
     s32 var_r31;
 
@@ -224,10 +212,6 @@ s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 extern RecoveredGlobal_80268D08_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DD1F8;
-}
-
-extern "C" {
-
 void TWindowSubStatusDisp__sub_80268C80(u8 *arg0);
 s32 draw_window_frame(void *, s32);
 s32 get_draw_context__11TWindowBaseFPv();

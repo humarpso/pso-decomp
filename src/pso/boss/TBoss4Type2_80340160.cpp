@@ -9,10 +9,6 @@ extern "C" {
 void queue_destruction__7TObjectFv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 play_persistent_sound(int, void *, void *, int, int);
-}
-
-extern "C" {
-
 void *TObjFish__sub_8034029C(void *, void *);
 int TObjPlayer__sub_8033FDB0(void*);
 void __dl__7TObjectFPv(void *);

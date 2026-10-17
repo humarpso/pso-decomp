@@ -7,10 +7,6 @@ f64 floor(f64);
 extern const f32 lbl_805E0DE0;
 f64 ceil(f64);
 extern const f32 lbl_805E0DE8;
-}
-
-extern "C" {
-
 #pragma push
 #pragma scheduling off
 f32 TWindowSubComCard::trunc_float(f32 farg0) {

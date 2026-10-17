@@ -137,13 +137,9 @@ extern s32 lbl_805D5668;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
-u8 * find_entity_by_id(u16);
 void spawn_photon_blast_opening_effects(s32, u16);
-s32 spawn_photon_blast_attachment_effects(void *, int);
 void photon_base_ct(void *);
-u8 * TPhotonMagicSquare__ct(void *, s32, s32, s32, s32, f32);
 void sub_801AD4A8__12TPhotonMyllaFv(void* a0);
 void TPhotonRainbow__ct(void *, void *, void *, s32);
 void TPhotonYoulla__ct(void *, void *);
@@ -155,13 +151,7 @@ extern u8 lbl_804C39D8[];
 extern s32 __vt__12TPhotonMylla[];
 extern s32 lbl_805D3510;
 extern Game_801AD970 *photon_blast_shared_resource;
-extern const f32 lbl_805DC1FC;
-extern const f32 lbl_805DC200;
 void *TPhotonMylla__ct(Mylla_801AD970 *self, Pkt_801AD970 *pkt);
-}
-
-extern "C" {
-
 struct Base_801AD8FC_801AD4A8 { char pad[0x18]; };
 struct VObj_801AD8FC_801AD4A8 : Base_801AD8FC_801AD4A8 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -170,15 +160,12 @@ struct VObj_801AD8FC_801AD4A8 : Base_801AD8FC_801AD4A8 {
     virtual void m12(); virtual void m13();
 };
 
-void sub_801AD4A8__12TPhotonMyllaFv(void* a0);
 void *__dt__12TPhotonMyllaFv(void *arg0, s16 arg1);
 s32 __dl__7TObjectFPv(void *);
 s32 destroy_photon_motion_object(void *, s32);
 
     extern const float lbl_805DC1F8;
 void TPhotonMylla::sub_801AD4A8() { *(float *)&this->m_184 = lbl_805DC1F8; *(float*)((char*)this + 0x188) = lbl_805DC1F8; this->m_18c = lbl_805DC1F8; *(float *)&this->unk_190 = lbl_805DC1F8; }
-
-extern s32 __vt__12TPhotonMylla[];
 
 #pragma push
 #pragma opt_common_subs off

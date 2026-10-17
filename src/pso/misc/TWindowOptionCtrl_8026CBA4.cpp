@@ -34,11 +34,6 @@ V2_8026CBB8 *get_window_layout_position(s32 idx);
 s32 TWindowCtrlMain__sub_8024CE58(void);
 extern f32 window_depth_order_cursor;
 extern const f32 lbl_805DD2C8;
-}
-
-extern "C" {
-
-    extern unsigned char window_layout_rect_table[];
 void*TWindowOptionCtrl::get_option_entry(int a0) {  return (char*)window_layout_rect_table + a0 * 8; }
 V2_8026CBB8 *get_window_layout_position(s32 idx) {
     if (is_split_screen() != 0) {

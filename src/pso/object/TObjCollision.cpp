@@ -15,10 +15,6 @@ extern s32 lbl_805D2830;
 extern const f32 lbl_805D8F20;
 extern const f32 lbl_805D8F24;
 u8 *TObjCollision__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt__13TObjCollisionFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
@@ -36,8 +32,6 @@ void *TObjCollision::create(void *arg0) {
     }
     return o;
 }
-
-extern s32 __vt__13TObjCollision[];
 
 void *__dt__13TObjCollisionFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

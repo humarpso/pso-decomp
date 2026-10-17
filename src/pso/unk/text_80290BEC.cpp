@@ -23,7 +23,6 @@ s32 TKeyBoardControl__sub_8000F9CC(int);
 s32 process_async_file_reads();
 s8 func_801A5E54__Fv();
 s32 controller_stuff__Fv();
-s32 render_tick__Fv();
 s32 run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
 s32 update_sound_request_slots();
 s32 render_screen_overlay__9TMainTaskFv(void *);
@@ -32,10 +31,6 @@ s32 render__9TMainTaskFv(void *);
 s32 run_task__9TMainTaskFv(void *);
 s32 func_803DCDFC__Fv();
 void run_main_frame(void);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_80290BEC_main_task_size[sizeof(RecoveredGlobal_80290BEC_main_task) == 0x34 ? 1 : -1];
 void fn_80290BEC(void) {
     s32 *var_r3;

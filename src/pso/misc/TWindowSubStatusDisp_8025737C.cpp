@@ -35,8 +35,6 @@ void calc_bar_width__20TWindowSubStatusDispFPv(struct Bar_80256C00 *bar);
 extern const f32 lbl_805DCE58;
 void step_gauge_bar_width(Gauge_802571B4 *g);
 void draw_status_gauge_bar__13TUnk_804CF930FPvPvff(Gauge_80256E0C *self, void *ctx, Pos_80256E0C *pos, f32 depth, f32 len);
-}
-extern "C" {
 void *destroy__13TUnk_804CF930Fs(void *arg0, s16 arg1);
 void *TWindowSubStatusDisp__sub_80257298(void *arg0, s16 arg1);
 s32 __dl__FPv(void *);
@@ -85,10 +83,6 @@ extern const f32 lbl_805DCEE4;
 extern const f32 lbl_805DCEE8;
 extern const f32 lbl_805DCEEC;
 void draw_gauge__20TWindowSubStatusDispFPvPv(Gauge_80257784 *self, Parent_80257784 *parent);
-}
-
-extern "C" {
-
 struct Col_802575C0 { u8 r, g, b, a; };
 
 struct Fade_802575C0 {
@@ -126,7 +120,6 @@ struct Bar_8025799C {
     s16 timer;
 };
 
-s32 __dl__FPv(void *);
 void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(u32, s32, s32, s32);
 #define destroy__13TUnk_804CF930Fs ((s32 (*)(s32, s32 *))destroy__13TUnk_804CF930Fs)
@@ -142,7 +135,6 @@ void * TWindowSubStatusDisp__sub_80257AF4(void *arg0, s16 arg1);
 #define lbl_804CF930 (*(unsigned char (*)[1])&lbl_804CF930)
 extern s32 lbl_804CF948[];
 extern const float lbl_805DCE58;
-extern const f32 lbl_805DCED8;
 
 void start_text_color_transition(Fade_802575C0 *arg0, u32 rgb, f32 time) {
     Col_802575C0 c;

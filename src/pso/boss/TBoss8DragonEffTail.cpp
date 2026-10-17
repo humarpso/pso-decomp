@@ -113,16 +113,10 @@ extern P8_802FE494 lbl_80474BBC[];
 extern const f32 lbl_805DEF08;
 extern const f32 lbl_805DEF0C;
 extern const f32 lbl_805DEF10;
-extern const f32 lbl_805DEF14;
 void run_task__19TBoss8DragonEffTailFv(u8 *arg0p);
-}
-
-extern "C" {
-
 void TBoss8DragonEffTail__vt18(s32 arg0, s32 arg1);
 void *__dt__19TBoss8DragonEffTailFv(void *arg0, s16 arg1);
 void fn_802FE48C(void);
-s32 vec3_add_to(s32, s32, s32);
 void delete_buffer__12TBoss8DragonFis(void *, int);
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 TLobby__sub_803DA16C(void*);
@@ -185,8 +179,6 @@ void TBoss8DragonEffTail::apply_hit_if_active(void *arg1_arg, f32 *) {
 void TBoss8DragonEffTail::enable() { *(int *)&this->m_bc = 1; get_state(); }
 void TBoss8DragonEffTail::disable() { *(int *)&this->m_bc = 0; get_state(); }
 int TBoss8DragonEffTail::get_state() { return fill_value_array(*(void* *)&this->m_b8); }
-
-extern s32 __vt__19TBoss8DragonEffTail[];
 
 void *__dt__19TBoss8DragonEffTailFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

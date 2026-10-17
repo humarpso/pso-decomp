@@ -235,8 +235,6 @@ void advance_animation_playback(void *);
 void set_indexed_flags(void *, s32, s32);
 s32 play_sound_effect(s32, u32, s16, s32);
 void TObjEneMe3SinowZoa__sub_80317254(u8 *arg0, s32 arg1);
-void transition_enemy_state(void *, s16);
-void advance_animation_playback(void *);
 void TObjEneMe3SinowZoa__sub_803170F0(u8 *arg0, s32 arg1);
 s32 pack_debug_text_position(s32, s32);
 s32 sub_8031A454__18TObjEneMe3SinowZoaFv(void *);
@@ -265,9 +263,6 @@ extern const f32 TObjEneMe3SinowZoa__data_805DF2F0;
 extern const f32 TObjEneMe3SinowZoa__data_805DF2F4;
 extern const f32 lbl_805DF318;
 extern const f32 TObjEneMe3SinowZoa__data_805DF31C;
-void transition_enemy_state(void *, s16);
-void advance_animation_playback(void *);
-void set_indexed_flags(void *, s32, s32);
 s32 select_enemy_destination(void *, Vec_80316C3C, int);
 s32 copy_position_if_valid__10TObjPlayerFii(void *, Vec_80316C3C);
 s32 enemy_turn_toward_dest(void *, s32);
@@ -278,9 +273,6 @@ void subtract_vector(void *, void *);
 s32 update_angle__10TObjPlayerFlPv(void *, s32, void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 push_matrix_from(void *);
-s32 post_translate_matrix(void *);
-s32 rotate_matrix_y(int, int);
-s32 pop_matrix();
 s32 matrix_mult_vec(int, Vec_80316C3C, void *);
 void create__11TTecRaBartaFPvPvPvPv(void *, void *, void *, s32);
 extern Vec_80316C3C lbl_80475FC8[];
@@ -295,17 +287,12 @@ extern const f32 TObjEneMe3SinowZoa__data_805DF314;
 void TObjEneMe3SinowZoa__sub_80316C3C(Obj_80316C3C *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 f32 receive_direct_attack__10TObjPlayerFv(void *, int, int);
-void transition_enemy_state(void *, s16);
 f32 receive_damage_and_transition__18TObjEneMe3SinowZoaFPviii(u8 *arg0, s32 arg1, Pair_80316A74 arg2, s32 arg3);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(int);
 s32 fn_8002B630(int, void *);
 u32 get_valid_target_player__10TNpcPlayerFv(int);
 extern u8 sinow_zoa_collision_parts[];
 u32 check_move_collision__18TObjEneMe3SinowZoaFPvPv(u8 *arg0, void *arg1);
-}
-
-extern "C" {
 
 #pragma push
 #pragma dont_inline off

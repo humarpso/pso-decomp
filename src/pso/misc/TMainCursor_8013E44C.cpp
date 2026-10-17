@@ -3,10 +3,6 @@
 
 extern "C" {
 int TMainCursor__sub_8013E40C(u8 *arg0, u16 arg1);
-}
-
-extern "C" {
-
 int set_flags__10TObjPlayerFUl(void*, int);
 
 int TMainCursor::is_same_target(void *b) {
@@ -27,8 +23,6 @@ int TMainCursor__sub_8013E40C(u8 *arg0, u16 arg1) {
 
 }
 
-#include "types.h"
-#include "pso/misc/TMainCursor.h"
 #include "pso/TAdRicoRing.h"
 #include "pso/misc/TLockOnCursor.h"
 #include "pso/misc/TWindowActionPalette.h"

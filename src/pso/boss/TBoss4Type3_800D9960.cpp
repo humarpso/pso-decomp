@@ -44,11 +44,6 @@ extern s32 lbl_805D5234;
 extern s32 motion_trail_node_index;
 extern s32 lbl_805D523C;
 extern s32 TBoss4Type3__motion_trail_points;
-extern const f32 lbl_805DA3EC;
-}
-
-extern "C" {
-
 s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1);
 int mem_free(s32);
 int __dl__FPv(s32 *);

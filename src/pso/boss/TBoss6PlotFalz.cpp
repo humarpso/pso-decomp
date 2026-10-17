@@ -5,7 +5,6 @@
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/system/BmlResourceDescriptor.h"
 
-extern "C" {
 extern char lbl_8046FDB8[];
 extern char lbl_8046FDC8[];
 extern char lbl_8046FDDC[];
@@ -86,9 +85,7 @@ extern char lbl_80470574[];
 extern const char *boss06_plotfalz_dat_model_names[15];
 extern const char *boss06_plotfalz_dat_motion_names[63];
 extern BmlResourceDescriptor boss6_plot_falz_resource_descriptor;
-}
 #include <stddef.h>
-#include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/boss/TBoss4DarkFalz.h"
 #include "pso/boss/TBoss6EmptyWarp.h"
 #include "pso/boss/TBoss6Mine.h"
@@ -102,7 +99,6 @@ extern BmlResourceDescriptor boss6_plot_falz_resource_descriptor;
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowCtrl.h"
-#include "pso/player/TObjPlayer.h"
 
 struct Color_802ABF44 { f32 a, b, c, d; };
 
@@ -223,10 +219,6 @@ s16 obj_getS16_32C(void *);
 s32 send_6x2F_change_player_hp(int, s32, s16);
 
 struct TBoss6PlotFalz_802AACF4 { u8 pad[0x3D0]; s32 f3D0; s32 f3D4; s32 f3D8; };
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 #pragma opt_common_subs off
@@ -375,10 +367,6 @@ extern "C" {
 extern RecoveredGlobal_802AB1C8_TBoss6PlotFalz__data_804DE66C TBoss6PlotFalz__data_804DE66C;
 void call_state_action__14TBoss6PlotFalzFPv(u8 *arg0);
 void run_phase_action__14TBoss6PlotFalzFPv(u8 *arg0);
-}
-
-extern "C" {
-
 int TBoss6EmptyWarp__sub_802B1004(void*);
 
 s32 is_state_1f__14TBoss6PlotFalzFUi(u32 arg0) {
@@ -503,10 +491,6 @@ s32 normalize_vector(void *);
 extern const f64 lbl_804705E0[];
 extern u8 *camera_ctrl_instance;
 s32 TBoss6PlotFalz__sub_802AB6CC(void *arg0, f32 r);
-}
-
-extern "C" {
-
 void set_visible_flag__14TBoss6PlotFalzFPv(void *arg0);
 
 s32 is_local_client_floor_leader();
@@ -767,14 +751,11 @@ s32 TBoss6PlotFalz__sub_802AB6CC(void *arg0, f32 r) {
     return 0;
 }
 
-}
 #undef VLEN
 #undef get_player_data__10TObjPlayerFi
 #undef is_state_1f__14TBoss6PlotFalzFUi
 #undef get_player_by_client_id
 #undef lbl_8047059C
-
-extern "C" {
 f32 cos_table_lookup(s32);
 
 f32 TBoss6PlotFalz::cosine_ease(f32 t) {
@@ -786,17 +767,9 @@ f32 TBoss6PlotFalz::cosine_ease(f32 t) {
     }
     return 0.5f * (1.0f - cos_table_lookup((s32)(32768.0f * t)));
 }
-}
-
 #define TBoss6PlotFalz__type1_instance (*(void **)&TBoss6PlotFalz__type1_instance)
 #define TBoss6PlotFalz__type2_instance (*(u8 **)&TBoss6PlotFalz__type2_instance)
-
-extern "C" {
 s32 TBoss6PlotFalz__sub_802ABADC(void);
-}
-
-extern "C" {
-
 f32 TBoss6PlotFalz::get_value() {
     if ((TBoss6PlotFalz__sub_802ABADC() == 0) || ((void *) TBoss6PlotFalz__type1_instance == NULL)) {
         return 0.0f;
@@ -816,11 +789,8 @@ s32 TBoss6PlotFalz__sub_802ABADC(void) {
     return 1;
 }
 
-}
 #undef TBoss6PlotFalz__type1_instance
 #undef TBoss6PlotFalz__type2_instance
-
-extern "C" {
 
 void destroy_static_instance__14TBoss6PlotFalzFv(void);
 void queue_instance_destruction__14TBoss6PlotFalzFv(void);
@@ -876,10 +846,6 @@ extern RecoveredGlobal_802ABC14_lbl_804705C0 lbl_804705C0;
 s32 TBoss6Type1__sub_802ABDEC(s32 seed);
 s32 is_locally_controlled__10TObjPlayerFPv(s32);
 f32 xyz_distance(void *, void *);
-}
-
-extern "C" {
-
 void ensure_field384__14TBoss6PlotFalzFPv(void *arg0);
 u32 create__10TBoss6TubeFPv();
 
@@ -1009,10 +975,6 @@ s32 set_chunk_blend(int);
 extern f32 TBoss6PlotFalz__fade_amount;
 extern s32 game_difficulty_selection;
 bool is_normal_difficulty(void);
-}
-
-extern "C" {
-
 void TBoss6PlotFalz::update_camera_target() {
     if (TBoss6PlotFalz__fade_amount > 0.0f) {
         chunk_polygon_flags_and_mask = lbl_805D5664;
@@ -1079,11 +1041,8 @@ bool is_normal_difficulty(void) {
     return game_difficulty_selection == 0;
 }
 
-}
 #undef set_chunk_material_override_pair
 #undef set_chunk_material_color
-
-extern "C" {
 
 int TBoss6PlotFalz::get_phase() {  return plot_falz_phase; }
 
@@ -1140,13 +1099,8 @@ extern u8 lbl_804705B4[];
 extern s32 lbl_805D5868;
 extern s32 lbl_805D5870;
 void warp_nearby_players__14TBoss6PlotFalzFv(void);
-}
-
-extern "C" {
-
 void update_active_flag__14TBoss6PlotFalzFv(void);
 s32 get_main_phase();
-s32 is_split_screen();
 
 void update_active_flag__14TBoss6PlotFalzFv(void) {
     plot_falz_phase = 0;
@@ -1288,30 +1242,18 @@ void place_players_in_warp_circle(void) {
     }
 }
 #pragma pop
-}
-
 #define warp_nearby_players__14TBoss6PlotFalzFv ((int (*)(void))warp_nearby_players__14TBoss6PlotFalzFv)
-
-extern "C" {
-
 void place_players_in_warp_circle(void);
 
 void TBoss6EmptyWarp::init_warp() { place_players_in_warp_circle(); warp_nearby_players__14TBoss6PlotFalzFv(); }
 
-}
 #undef warp_nearby_players__14TBoss6PlotFalzFv
 
-extern "C" {
 s32 release_all_players_control_lock();
 void end_cutscene_camera__14TBoss6PlotFalzFPv(void *self);
 void start_freeze__10TObjPlayerFv();
-void set_position_from__14TBoss4DarkFalzFPv();
 void set_indexed_flags(void *, int, int);
 void TBoss6PlotFalz__sub_802AC724(u8 *arg0, u32 arg1);
-}
-
-extern "C" {
-
 void end_cutscene_camera__14TBoss6PlotFalzFPv(void *self) {
     s32 i;
     void *p;
@@ -1508,10 +1450,6 @@ s32 initialize__9TObjEnemyFPv();
 s32 register_entity_by_id(void *);
 s32 create_boss4_fade();
 extern s32 lbl_805D3E50;
-}
-
-extern "C" {
-
 s32 TBoss6PlotFalz__ct(s32, s32, s32);
 int TItemEffOrgaFlowShot__sub_80357204(void);
 int TLobby__sub_8001FE7C(void*, void*);
@@ -1723,9 +1661,6 @@ s32 TObjFish::get_phase() { return *(s32*)((char*)this + 0x378); }
 
 int TObjFish::get_fish_count() {  return obj_fish_count; }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *boss06_plotfalz_dat_model_names[15] = { lbl_8046FDB8, lbl_8046FDC8, lbl_8046FDDC, lbl_8046FDF4, lbl_8046FE08, lbl_8046FE1C, lbl_8046FE34, lbl_8046FE48, lbl_8046FE58, lbl_8046FE6C, lbl_8046FE7C, lbl_8046FE94, lbl_8046FEA8, lbl_8046FEB8, NULL };
 __declspec(section ".data") const char *boss06_plotfalz_dat_motion_names[63] = { lbl_8046FED0, lbl_8046FEF0, lbl_8046FF0C, lbl_8046FF28, lbl_8046FF40, lbl_8046FF5C, lbl_8046FF78, lbl_8046FF94, lbl_8046FFB0, lbl_8046FFC4, lbl_8046FFDC, lbl_8046FFF4, lbl_8047000C, lbl_80470028, lbl_80470044, lbl_80470060, lbl_80470078, lbl_80470094, lbl_804700B0, lbl_804700CC, lbl_804700E8, lbl_80470104, lbl_80470120, lbl_8047013C, lbl_8047015C, lbl_80470178, lbl_80470194, lbl_804701B0, lbl_804701CC, lbl_804701E8, lbl_80470204, lbl_80470220, lbl_80470238, lbl_80470250, lbl_80470268, lbl_8047027C, lbl_80470294, lbl_804702AC, lbl_804702C8, lbl_804702E4, lbl_80470300, lbl_80470320, lbl_80470340, lbl_8047035C, lbl_80470378, lbl_80470394, lbl_804703B0, lbl_804703CC, lbl_804703E8, lbl_80470404, lbl_8047041C, lbl_80470438, lbl_80470454, lbl_80470470, lbl_80470490, lbl_804704A8, lbl_804704C4, lbl_804704E4, lbl_80470504, lbl_80470520, lbl_8047053C, lbl_8047055C, NULL };
 BmlResourceDescriptor boss6_plot_falz_resource_descriptor = { lbl_80470574, boss06_plotfalz_dat_model_names, boss06_plotfalz_dat_motion_names, 14, 62 };

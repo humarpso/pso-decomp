@@ -14,13 +14,8 @@ extern void *__vt__18TItemShootParticle[];
 TItemShootParticle_8011B77C *__dt__18TItemShootParticleFv(TItemShootParticle_8011B77C *self, s16 flag);
 void __ct__10TItemShootFPvPC3VecPC3Vecf(void *self, void *a, void *b, void *c, f32 f);
 void disallow_rendering__7TObjectFv(void *self);
-extern void *__vt__18TItemShootParticle[];
 extern u32 item_shoot_particle_class_name;
 TItemShootParticle_8011B7FC *TItemShootParticle__ct(TItemShootParticle_8011B7FC *self, void *a, void *b, void *c, f32 f);
-}
-
-extern "C" {
-
 #pragma push
 #pragma opt_propagation off
 s32 TItemShootParticle::spawn_slot_emitter(s32 arg1, s32 arg2) {

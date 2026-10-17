@@ -11,10 +11,6 @@ extern "C" {
 E_802D2334 *TLobby__sub_802D2334(E_802D2334 *p, u32 key);
 E_802D230C *find_free_trade_slot__6TLobbyFPv(E_802D230C *p);
 void TLobby__sub_802D2358(E_802D2358 *p);
-}
-
-extern "C" {
-
 void TLobby__sub_802D22F0(void* p, void* q);
 int byteswap_trade_packet__6TLobbyFv(void);
 

@@ -79,19 +79,14 @@ extern u32 TQuestListOnline__selected_quest_info;
 extern const f32 lbl_805DC6A4;
 extern const f32 lbl_805DC6A8;
 
-s32 obj_getField1c(int);
-int set_field_20__15TShopWindowBaseFl(void*, int);
 s32 get_guild_text(int);
 s32 calc_list_content_extent(u32);
-s32 send_and_handle__6TLobbyFii(int, void *, int);
 u32 set_window_mode_4__6TLobbyFPvll(s32, void *, int);
-s32 get_window_layout_position(int);
 u32 create_item_list_window(s32, int, u16);
 extern Stack_80217EC4 lbl_8044BED4[];
 extern u8 *TQuestListOnline__quest_list_buffer;
 
 s32 queue_destruction__7TObjectFv(void *);
-int set_field_20__15TShopWindowBaseFl(void*, int);
 s32 send_action__9TProtocolFR13GameListEntryUcPcPc(void *, void *, int, void *, void *);
 
 s32 TWindow__close(void *);
@@ -99,21 +94,12 @@ s32 get_selected_menu_value(void *);
 extern void *TLobby__protocol_instance;
 extern u8 lbl_805DC6A0;
 
-s32 obj_getField1c(int);
-int set_field_20__15TShopWindowBaseFl(void*, int);
-s32 send_and_handle__6TLobbyFii(int, void *, int);
-s32 get_window_layout_position(int);
 s32 __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
-s32 send_action__9TProtocolFR13GameListEntryUcPcPc(void *, void *, int, void *, void *);
 s32 get_unlocked_tier__16TQuestListOnlineFv(void *);
 f32 get_scale__15TShopWindowBaseFv(void *);
-s32 TWindow__close(void *);
 u32 create_yes_no_window(int, int, int, int);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(u32);
-extern void *TLobby__protocol_instance;
-extern u8 *TQuestListOnline__quest_list_buffer;
 extern s32 online_quest_list_state;
-extern u8 lbl_805DC6A0;
 
 extern T_80217B30 TQuestListOnline__bin_download_state;
 extern T_80217B30 TQuestListOnline__dat_download_state;
@@ -123,15 +109,8 @@ extern s32 online_quest_dat_buffer;
 extern s32 quest_bin_decompressed_size;
 extern s32 online_quest_list_decompressed_size;
 s32 prs_decompress_buffer(s32, s32);
-int set_field_20__15TShopWindowBaseFl(void*, int);
-
-}
-
-extern "C" {
 
 s32 TLobby__sub_8001EEF4();
-s32 queue_destruction__7TObjectFv(void *);
-int set_field_20__15TShopWindowBaseFl(void*, int);
 
 }
 void TQuestListOnline::invoke_callback_30_and_queue_destruction() {
@@ -143,12 +122,8 @@ void TQuestListOnline::invoke_callback_30_and_queue_destruction() {
     }
     queue_destruction__7TObjectFv(this);
 }
-extern "C" {
-
 extern s32 lbl_8044BEB0[];
-extern s32 TQuestListOnline__decompression_cursor;
 
-}
 void TQuestListOnline::handle_quest_confirm() {
     s32 v;
     s32 n;

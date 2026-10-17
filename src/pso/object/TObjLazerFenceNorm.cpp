@@ -32,10 +32,6 @@ extern s32 __vt__18TObjLazerFenceNorm[];
 extern s32 obj_lazer_fence_norm_class_name;
 extern const f32 lbl_805DBE58;
 u8 *TObjLazerFenceNorm__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *TObjLazerFenceNorm__create(void *arg0);
 void *__dt__18TObjLazerFenceNormFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -59,8 +55,6 @@ void TObjLazerFenceNorm::run_task() {
         return;
     }
 }
-
-extern s32 __vt__18TObjLazerFenceNorm[];
 
 void *__dt__18TObjLazerFenceNormFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

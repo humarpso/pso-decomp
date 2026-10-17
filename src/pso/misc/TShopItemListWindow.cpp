@@ -125,27 +125,18 @@ s32 play_sound_effect(int, int, int, int);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
 s32 get_item_count__24TShopEquipmentSellWindowFv(void *a, s32 b);
 s32 obj_getPtr2B0_20(s32);
-s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
 s32 obj_getField1c(void *);
 s32 TShopItemTecSequence__sub_8021FE6C();
 s32 get_shop_text(int);
-s32 sub_8022397C__15TShopWindowBaseFv(void *);
 void *__nw__7TObjectFUl(u32);
 void *__ct__15TWindowHelpItemFPvUs(void *, s32, u16);
 s32 calc_list_content_extent(void *);
 s32 get_window_layout_position(int);
 void *create_window_quantity(u16);
 void *create_item_list_window(s32, s32, u16);
-s32 get_item_count__24TShopEquipmentSellWindowFv(void *a, s32 b);
 void *create_cost_window(u16);
 extern const f32 lbl_805DC6F8;
-}
-
-extern "C" {
-
 void *__dt__19TShopItemListWindowFv(void *arg0, s16 arg1);
-s32 sub_802239EC__13TShopSequenceFv(void *);
-s32 sub_80223A48__15TShopWindowBaseFv(void *);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__15TShopWindowBaseFv(void *, int);
@@ -185,8 +176,6 @@ s32 TShopItemListWindow::update() {
         set_field_20(1);
     }
 }
-
-extern s32 __vt__19TShopItemListWindow[];
 
 #define W ((Win_8021F798 *)p)
 s32 TShopItemListWindow::handle_tool_list_select(void *p) {

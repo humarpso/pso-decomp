@@ -23,27 +23,8 @@ s32 pop_matrix();
 extern u8 *lbl_805D6950;
 extern u8 *lbl_805D6954;
 void draw_tunnel_segment(u8 *arg0);
-s32 func_80141618__Fv();
-s32 set_depth_buffer_settings_id__FUl(int);
-s32 is_in_camera_range__18TObjBoss7TunnelColFv(void *);
-s32 push_matrix();
-s32 pop_matrix();
-s32 draw_ginja_object(int);
-extern u8 *lbl_805D6950;
-extern u8 *lbl_805D6954;
 void fn_802F1DAC(u8 *arg0);
-s32 func_80141618__Fv();
-s32 set_depth_buffer_settings_id__FUl(int);
-s32 is_in_camera_range__18TObjBoss7TunnelColFv(void *);
-s32 push_matrix();
-s32 pop_matrix();
-s32 draw_ginja_object(int);
-extern u8 *lbl_805D6950;
-extern u8 *lbl_805D6954;
 void fn_802F1E54(u8 *arg0);
-}
-
-extern "C" {
 
 void draw_tunnel_segment(u8 *arg0) {
     s32 var_r31;

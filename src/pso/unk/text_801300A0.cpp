@@ -5,11 +5,9 @@
 #include "pso/item/TItemProShield.h"
 #include "pso/items/TItemWeapon.h"
 
-extern "C" {
 extern s32 tl_05;
 extern const f32 lbl_805DAFF8;
 extern const f32 lbl_805DAFFC;
-}
 
 extern "C" {
 

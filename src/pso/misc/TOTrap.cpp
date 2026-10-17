@@ -40,22 +40,11 @@ s32 submit_cursor_candidate(void *, s32);
 extern u32 trap_scale_factor_table[];
 extern s32 game_difficulty_selection;
 s32 fn_80171314(void *);
-s32 get_player_by_client_id(u32);
 u16 find_nearest_visible_player(void *, int, f32);
 s32 calc_attach_pos__10TObjPlayerFv();
-s32 is_locally_controlled__10TObjPlayerFPv(int);
 f32 horizontal_distance_squared(void *, void *);
 void send_6x2C_impose_hold(void *, void *, s32, int, f32);
-s32 get_player_by_client_id(u32);
 void TOTrap__vt79(Obj_80178CF8 *self);
-s32 calc_attach_pos__10TObjPlayerFv();
-u16 find_nearest_visible_player(void *, int, f32);
-f32 horizontal_distance_squared(void *, void *);
-s32 get_player_by_client_id(u32);
-}
-
-extern "C" {
-
 struct Base_80178EF8_80178BC0 { char pad[0x18]; };
 struct VObj_80178EF8_80178BC0 : Base_80178EF8_80178BC0 {
 #define VM(n) virtual void m##n();
@@ -73,10 +62,6 @@ struct VObj_80178EF8_80178BC0 : Base_80178EF8_80178BC0 {
 };
 
 s32 spawn_particle_effect(s32, s32);
-s32 submit_cursor_candidate(void *, s32);
-s32 get_player_by_client_id(u32);
-s32 calc_attach_pos__10TObjPlayerFv();
-s32 obj_getField1c(u32);
 s32 queue_destruction__7TObjectFv(void *);
 
 f32 TOTrap::scale_by_table_value(f32 farg0) {

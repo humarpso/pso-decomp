@@ -93,8 +93,6 @@ void set_global_param__8TObjFishFl();
 void set_model_node_callback(void *);
 void draw_ginja_model_with_motion(s32, s32, f32);
 extern Vec_8017F80C camera_slot_positions[];
-extern u32 TObjCamera__bml_resource;
-extern s32 TObjCamera__camera_slot_scan_index;
 extern const f32 lbl_805DBB60;
 extern const f32 lbl_805DBB64;
 void allow_rendering__7TObjectFv(void *);
@@ -110,9 +108,6 @@ extern const f32 lbl_805DBB6C;
 void run_task__10TObjCameraFv(Obj_8017F910 *self);
 void rotate_matrix_yxz(int, int, int, int);
 void scale_matrix(int, f32, f32, f32);
-void push_matrix();
-void pop_matrix();
-void post_translate_matrix(void *);
 void draw_ginja_object(int);
 void set_color_blend_mode(int, int, int, int, s32, s32);
 void set_chunk_material_color(void *);
@@ -126,7 +121,6 @@ extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 void TObjChip__vt10(u8 *arg0);
 s32 is_split_screen(void);
-s32 get_bml_motion(u32, int);
 void *__ct__15TEffStarLight2DFv(void *, void *, void *, void *);
 void init_map_object_base(void *);
 void fn_8017F550(void *);
@@ -134,20 +128,11 @@ void *__nw__7TObjectFUl(int);
 extern Copy_8017FA9C camera_object_init_params;
 extern s32 __vt__10TObjCamera[];
 extern s32 TObjCamera__name;
-extern u32 TObjCamera__bml_resource;
-extern const f32 TObjCamera__data_805DBB58;
 extern const f32 lbl_805DBB70;
 u8 *TObjCamera__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt__10TObjCameraFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
-void *__nw__7TObjectFUl(int);
-
-extern s32 __vt__10TObjCamera[];
 
 void TObjCamera::render() {
     Obj_8017F80C *self = (Obj_8017F80C *)this;
@@ -260,8 +245,6 @@ void *TObjCamera::create(void *arg0) {
     }
     return o;
 }
-
-extern u32 TObjCamera__bml_resource;
 
 void TObjCamera::release_static_resource() {
     if ((u32) TObjCamera__bml_resource != 0U) {

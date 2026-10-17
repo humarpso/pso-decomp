@@ -8,10 +8,6 @@ u8 *get_player_data__10TObjPlayerFi(int);
 s32 is_valid_target__9TObjEneDDFv(void *);
 f32 horizontal_distance_squared(void *, void *);
 extern const f32 lbl_805D9FF4;
-}
-
-extern "C" {
-
 void TObjEneRe2Flower__sub_800C3BA8(void);
 
 void TObjEneRe2Flower__sub_800C3BA8(void) {  }

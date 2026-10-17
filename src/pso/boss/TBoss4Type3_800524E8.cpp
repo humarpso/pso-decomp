@@ -9,13 +9,8 @@ extern const f32 lbl_805D8AE0;
 f32 TBoss4Type3__sub_800524E8(f32 farg0);
 Player_8005254C *get_player_by_client_id(s32 id);
 s32 TBoss4Type3__sub_8005254C(u16 id);
-}
-
-extern "C" {
-
 f32 cos_table_lookup(s32);
 
-extern const f32 lbl_805D8AE0;
 extern const f32 lbl_805D8AE4;
 extern const f32 lbl_805D8AF0;
 

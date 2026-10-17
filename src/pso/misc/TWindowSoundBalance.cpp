@@ -29,7 +29,6 @@ s32 is_active__19TWindowSoundBalanceFv();
 s32 TWindowSoundBalance__sub_8027095C(void *);
 extern RecoveredGlobal_80270C98_lbl_8050E208 controller_input_state;
 s32 play_sound_effect(s32, s32, s32, s32);
-extern RecoveredGlobal_80270C98_lbl_8050E208 controller_input_state;
 State_80270DCC *get_global_state__23TAdSinglePlyChrSelectGCFv();
 u32 calc_text_width();
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
@@ -43,14 +42,8 @@ extern s32 TWindowSoundBalance__name;
 extern const f32 lbl_805DD414;
 extern const f32 lbl_805DD418;
 u8 *TWindowSoundBalance__ct(u8 *arg0, s32 arg1);
-u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
-}
-
-extern "C" {
-
 void *__dt__19TWindowSoundBalanceFv(void *arg0, s16 arg1);
 void render__19TWindowSoundBalanceFv(s32 arg0);
-s32 play_sound_effect(s32, s32, s32, s32);
 s32 draw_window_frame(s32, void *);
 s32 draw_visible_window_entries(s32, s32, void *);
 void __dl__7TObjectFPv(void *);
@@ -101,8 +94,6 @@ void render__19TWindowSoundBalanceFv(s32 arg0) {
     *(f32 *)((s8 *)temp_r3 + 0x18) = (f32) (temp_f1 - lbl_805DD410);
     apply_balance__19TWindowSoundBalanceFPv(arg0, temp_r3, temp_f1, temp_f2);
 }
-
-extern s32 __vt__19TWindowSoundBalance[];
 
 typedef char RecoveredGlobal_80270C98_lbl_8050E208_size[sizeof(RecoveredGlobal_80270C98_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void TWindowSoundBalance::run_task() {

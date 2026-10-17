@@ -7,10 +7,6 @@
 extern "C" {
 u16 TObjPlayer__sub_80100474(void *);
 s32 replace_item_with_new_code(void *, void *);
-}
-
-extern "C" {
-
 void TUnk_804A5930::reserved_29() {
     s32 arg0 = (s32)this;
     TItemData item_data;

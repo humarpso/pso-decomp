@@ -20,10 +20,6 @@ extern RecoveredGlobal_80339F98_lbl_80477CBC TSaveChCr__message_text_ids;
 u32 update_window_mode_from_progress__6TLobbyFPv(s32 *, s32 *);
 extern s32 lbl_80477CAC[];
 extern s32 lbl_80477CB4[];
-}
-
-extern "C" {
-
 s32 TSaveChCr__sub_80339F30(void);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdSinglePlyChrSelectGC__sub_80339DBC(void *);

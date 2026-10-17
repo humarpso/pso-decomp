@@ -4,10 +4,6 @@ typedef struct V4_802E62A4 { s32 a, b, c, d; } V4_802E62A4;
 extern "C" {
 extern V4_802E62A4 lbl_804E3A98[];
 void fn_802E62A4(void);
-}
-
-extern "C" {
-
 void fn_802E62A4(void) {
     V4_802E62A4 t = lbl_804E3A98[0];
     lbl_804E3A98[1].a = t.a;

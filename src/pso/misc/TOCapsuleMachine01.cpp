@@ -50,20 +50,13 @@ s32 init_map_object_base(void *, int);
 extern RecoveredGlobal_8015A814_lbl_804AFF10 lbl_804AFF10;
 extern s32 __vt__18TOCapsuleMachine01[];
 extern s32 lbl_805D2ED4;
-extern u8 *TOCapsuleMachine01__model_resource;
 extern s32 tl_05;
 extern const f32 lbl_805DB380;
 extern const f32 lbl_805DB384;
 u8 *TOCapsuleMachine01__ct(u8 *arg0, s32 arg1);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8015A734_lbl_804AFF00 bm_fs_obj_cap_moto_resource_descriptor;
-extern u8 *TOCapsuleMachine01__model_resource;
-extern s32 TOCapsuleMachine01__last_update_frame_tick;
 extern s32 capsule_machine_ginja_mesh_handle;
-}
-
-extern "C" {
-
 struct Base_8015A5E8 { char pad[0x18]; };
 struct VObj_8015A5E8 : Base_8015A5E8 {
     virtual void m0();
@@ -90,8 +83,6 @@ s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
 extern s32 actor_frame_tick;
-extern s32 TOCapsuleMachine01__last_update_frame_tick;
-extern s32 capsule_machine_ginja_mesh_handle;
 
 void TOCapsuleMachine01::run_task() {
     if ((s32) TOCapsuleMachine01__last_update_frame_tick != (s32) actor_frame_tick) {
@@ -120,8 +111,6 @@ void *TOCapsuleMachine01::create(void *arg0) {
     }
     return o;
 }
-
-extern s32 __vt__18TOCapsuleMachine01[];
 
 void TOCapsuleMachine01::reset_static_state() {
     TOCapsuleMachine01__last_update_frame_tick = 0;

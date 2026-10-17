@@ -42,10 +42,6 @@ void *create_status_menu_window__15TWindowMakeTeamFv(void *);
 u8 get_selected_menu_value(void *);
 char *draw_entry_0x110__15TWindowMakeTeamFSc(u8);
 char *init_status_disp__15TWindowMakeTeamFc(u8);
-}
-
-extern "C" {
-
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 create_information_counter_window(s32);
 

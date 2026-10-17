@@ -26,10 +26,6 @@ extern const f32 lbl_805DE8E8;
 extern const f32 lbl_805DE8EC;
 extern const f32 lbl_805DE8F0;
 extern const f32 lbl_805DE8F4;
-}
-
-extern "C" {
-
 void TAdPlyStatusGC__sub_802E11BC(void* p);
 void TAdPlyStatusGC__sub_802E11C8(void* p);
 s32 TWindow__close(void *);

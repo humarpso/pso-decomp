@@ -21,10 +21,6 @@ extern s32 lbl_804E70A8[];
 u8 *TObjPlayer__sub_80307784(u8 *arg0, u8 *arg1, s32 _w2);
 extern char shared_capture_texture_list[];
 char *get_shared_capture_texture_list(void);
-}
-
-extern "C" {
-
 void *__dt__13TUnk_804E70A8Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804E71A0Fv(void *arg0, s16 arg1);
 f32 sin_table_lookup(s32);
@@ -35,9 +31,7 @@ s32 draw_weapon_at_joint(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void __dt__11TItemWeaponFv(void *, int);
-void *__dt__13TUnk_804E70A8Fv(void *arg0, s16 arg1);
 s32 queue_destruction__7TObjectFv();
-s32 set_status_flags__10TObjPlayerFUl(void *, s32);
 
 void TUnk_804E70A8::reserved_53() {
     s32 temp_r31;
@@ -64,8 +58,6 @@ void TUnk_804E70A8::update_weapon() {
         this->m_1fc = (s32) (lbl_805DF0A8 * sin_table_lookup(*(s32 *)&this->unk_200));
     }
 }
-
-extern s32 lbl_804E70A8[];
 
 void TObjPlayer__sub_803076F8(u8 *arg0) {
     s32 player_list;
@@ -103,10 +95,6 @@ u8 *TObjPlayer__sub_80307800(s32 arg0) {
     }
     return NULL;
 }
-#include "types.h"
-
-#include "types.h"
-#include "pso/player/TObjPlayer.h"
 
 void *__dt__13TUnk_804E70A8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

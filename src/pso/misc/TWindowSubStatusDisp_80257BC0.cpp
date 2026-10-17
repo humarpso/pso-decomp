@@ -35,17 +35,13 @@ void calc_bar_width__20TWindowSubStatusDispFPv(struct Bar_80256C00 *bar);
 extern const f32 lbl_805DCE58;
 void step_gauge_bar_width(Gauge_802571B4 *g);
 void draw_status_gauge_bar__13TUnk_804CF930FPvPvff(Gauge_80256E0C *self, void *ctx, Pos_80256E0C *pos, f32 depth, f32 len);
-}
-extern "C" {
 void *destroy__13TUnk_804CF930Fs(void *arg0, s16 arg1);
 void *TWindowSubStatusDisp__sub_80257298(void *arg0, s16 arg1);
 s32 __dl__FPv(void *);
 }
 
-extern "C" {
 #define draw_status_gauge_bar__13TUnk_804CF930FPvPvff ((s32 (*)(void *, void *, void *, f32, f32))draw_status_gauge_bar__13TUnk_804CF930FPvPvff)
 extern const f32 lbl_805DCED8;
-}
 
 extern "C" {
 
@@ -98,7 +94,6 @@ typedef char RecoveredGlobal_80257B4C_lbl_804CF948_size[sizeof(RecoveredGlobal_8
 
 typedef void *(*Ctor_80257D44)(void *, void *, s32);
 
-s32 __dl__FPv(void *);
 void * alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void mem_free(void *);
 void ** mem_alloc(u32);
@@ -125,7 +120,6 @@ void * init_part_scaled__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
 #define lbl_804CF930 (*(unsigned char (*)[1])&lbl_804CF930)
 extern s32 lbl_804CF998[];
 extern const float lbl_805DCE58;
-extern const f32 lbl_805DCED8;
 __declspec(section ".sdata2") f32 lbl_805DCEF0 = 7.5f;
 
 void draw_visible_window_entries(void *self, List_80257BC0 *list, void *ctx) {

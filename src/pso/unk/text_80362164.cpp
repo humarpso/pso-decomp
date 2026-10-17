@@ -8,10 +8,6 @@ extern "C" {
 s32 transition_enemy_state(void *, int);
 s32 play_persistent_sound(int, void *, void *, int, int);
 void fn_80362164(u8 *arg0);
-}
-
-extern "C" {
-
 void fn_80362164(u8 *arg0) {
     if (TObjPlayer::check_demo_mode() != 0) {
         ((TObjEneEpsilonBody *)(arg0))->vfunc_105();

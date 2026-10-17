@@ -25,16 +25,11 @@ s32 render__9TMainTaskFv(void *);
 s32 run_task__9TMainTaskFv(void *);
 extern s8 movie_finished_flag;
 void update_movie_phase(void);
-extern s8 movie_finished_flag;
 void set_movie_finished_flag(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 extern s32 lbl_804DCB64[];
 void *__dt__13TUnk_804DCB64Fv(void *arg0, s16 arg1);
-}
-
-extern "C" {
-
 s32 init_fresh_character_card();
 s32 TKeyBoardControl__sub_8000F90C(s32);
 s32 TKeyBoardControl__sub_8000F91C(s32);
@@ -42,9 +37,7 @@ s32 reset_controller_input_state();
 s32 set_copy_clear_color_argb(s32, s32, s32);
 u32 __nw__7TObjectFUl(s32);
 s32 create_opening_movie_sequence();
-s32 render_tick__Fv();
 
-extern s8 movie_finished_flag;
 extern u8 opening_movie_purpose;
 
 typedef char RecoveredGlobal_802A1180_main_task_size[sizeof(RecoveredGlobal_802A1180_main_task) == 0x34 ? 1 : -1];

@@ -4,10 +4,6 @@
 
 extern "C" {
 void TAdMcSelectGC__sub_8032A180(void* p, s32 v);
-}
-
-extern "C" {
-
 void TAdMcSelectGC__sub_8032A140(void* p);
 void TAdMcSelectGC__sub_8032A15C(void* p);
 void *TAdMcSelectGC__ct(void *, void *);

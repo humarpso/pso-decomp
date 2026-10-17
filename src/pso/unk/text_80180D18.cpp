@@ -88,7 +88,6 @@ extern const f32 lbl_805DBBB4;
 extern const f32 lbl_805DBBB8;
 extern const f32 lbl_805DBBBC;
 void run_task__18TObjCityAirCar_CarFv(Car_80180E70 *self);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f64 atan2_float(f32, f32);
 s32 angle_diff_s16(s32, s32);
 s32 sample_aircar_path_position(s32, void *, f32);
@@ -96,10 +95,6 @@ s32 vec3_add_to(void *, void *);
 extern const f64 lbl_80443B90;
 extern const f32 lbl_805DBBC0;
 extern const f32 lbl_805DBBC4;
-}
-
-extern "C" {
-
 void render__18TObjCityAirCar_CarFPv(u8 *arg0) {
     s32 temp_r31;
     u8 *temp_r3;

@@ -18,13 +18,8 @@ extern "C" {
 int get_symbol_chat_preset(s32);
 s32 set_stream_and_load_file__6TLobbyFi(char *);
 extern char symbol_chat_default_data_filename[];
-}
-
-extern "C" {
-
 void TLobby__sub_80077608(void);
 void clear_received_symbol_chat(void);
-int get_symbol_chat_preset(s32);
 
 void TWindowChat::open_symbol_chat(s32 *arg0) {
     get_symbol_chat_preset(*arg0);

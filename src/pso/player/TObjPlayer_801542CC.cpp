@@ -145,25 +145,12 @@ s32 rotate_vector_by_current_matrix(void *, void *);
 s32 pop_matrix();
 extern f32 identity_matrix[12];
 void refresh_collision_body_centers__13TUnk_804AF8A0Fv(Obj_80154E3C *arg0);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * TObjPlayer__sub_80155028(s32 arg0, s32 arg1);
-s32 vec3_add_to(void *, void *);
-s32 rotate_matrix_y(int, int);
-s32 push_matrix_from(void *);
-s32 rotate_vector_by_current_matrix(void *, void *);
-s32 pop_matrix();
-extern f32 identity_matrix[12];
 s32 build_collision_box_corners(s32 arg0, s32 arg1, Box_80154EF8 *box, u32 out);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 subtract_vector(void *, void *);
 extern s32 enable_v2_features;
 f32 get_collision_body_radius(Obj_801547E0 *self, s32 i);
 extern Vec_80155294 lbl_8050BEE0;
-extern f32 identity_matrix[12];
-s32 push_matrix_from(void *);
-s32 rotate_matrix_y(int, int);
-s32 rotate_vector_by_current_matrix(void *, void *);
-s32 pop_matrix();
 f64 atan2_float(f32, f32);
 extern const f64 lbl_804400F0;
 s32 angle_difference_abs(s32, s32);
@@ -183,102 +170,48 @@ struct Obj_80156844 { u8 pad[0x1C]; u16 room; u8 pad2[0x90 - 0x1E]; void *f90; }
 
 extern "C" {
 void TObjPlayer__sub_801550B8(u8 *arg0, u8 *arg1);
-u8 * TObjPlayer__sub_80155028(s32 arg0, s32 arg1);
 s32 TObjPlayer__sub_8015434C(s32, s32, s32);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 extern s32 registered_entity_count;
 void TObjPlayer__sub_8015431C(u8 *arg0);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-void TObjPlayer__sub_801550B8(u8 *arg0, u8 *arg1);
-extern const f32 TObjPlayer__data_805DB270;
 s32 test_collider_sphere_overlap_xz(s32 arg0, u8 *arg1, u32 arg2);
 extern int player_battle_param_table[];
 int TObjPlayer__sub_80154E28(int a0, int a1);
 s32 get_player_data__10TObjPlayerFi(s32);
 extern s32 lbl_805D5868;
-extern s32 lbl_805D586C;
-extern s32 lbl_805D5870;
-extern const f32 TObjPlayer__data_805DB298;
-s32 get_player_data__10TObjPlayerFi(s32);
-extern s32 lbl_805D586C;
 extern const f32 TObjPlayer__data_805DB298;
 void TObjPlayer__sub_80156934(void);
-extern s32 lbl_805D5868;
-extern s32 lbl_805D586C;
-extern s32 lbl_805D5870;
-extern s32 registered_entity_count;
 void __dl__7TObjectFPv(void *);
 extern s32 lbl_804AF8A0[];
 void TObjPlayer__sub_80156A74(void* p);
-extern s32 TLobby__data_805D6140;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f64 atan2_float(f32, f32);
 f32 horizontal_distance_squared(void *, void *);
 s32 angle_diff_s16(s32, s32);
-s32 vec3_add_to(void *, void *);
-s32 rotate_matrix_y(int, int);
-s32 subtract_vector(void *, void *);
 s32 normalize_vector(void *);
-s32 push_matrix_from(void *);
-s32 rotate_vector_by_current_matrix(void *, void *);
-s32 pop_matrix();
-extern const f64 lbl_804400F0;
-extern f32 identity_matrix[12];
-extern const f32 TObjPlayer__data_805DB270;
 extern const f32 lbl_805DB27C;
 extern const f32 lbl_805DB280;
-extern const f32 lbl_805DB284;
 s32 resolve_actor_sphere_contact(u8 *arg0, s32 arg1, s32 arg2);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f32 horizontal_distance_squared(void *, void *);
 s32 find_or_alloc_slot__10TObjPlayerFUi(u32 arg0);
 void* refresh_actor_body_spheres(CollisionBody_80155FBC, CollisionBody_80155FBC);
 void* find_actor_body_contact(u8* arg0, u8* arg1, f32 limit);
-extern const f32 TObjPlayer__data_805DB270;
-f32 get_collision_body_radius(Obj_801547E0 *self, s32 i);
 extern s32 TObjPlayer__data_8050D460[];
-extern s32 lbl_805D5868;
 void *mem_alloc(s32);
 void fn_8002B630(Part_80156780 *, Part_80156780 *);
 void init_forward__10TObjPlayerFv(void *);
 void *__construct_new_array(void *, void (*)(void *), void *, s32, s32);
 Part_80156780 *init_collision_body_parts(Obj_80156780 *self, Part_80156780 *src, s32 count);
 void *get_player_by_client_id(u32 id);
-extern s32 TObjPlayer__data_8050D460[];
-extern s32 lbl_805D5868;
-void *find_entity_by_id(u16 id);
 void TLobby__sub_80156BA8(Pkt_80154954 *pkt);
-extern s32 lbl_805D586C;
-extern s32 lbl_805D5870;
-extern const f32 TObjPlayer__data_805DB298;
-s32 get_player_data__10TObjPlayerFi(s32);
-void* find_actor_body_contact(u8* arg0, u8* arg1, f32 limit);
 void check_enemy_body_collisions(void *arg0);
-s32 resolve_actor_sphere_contact(u8 *arg0, s32 arg1, s32 arg2);
 s32 respond_to_body_contact(u8 *arg0, u32 arg1, u8 *arg2);
-extern s32 TObjPlayer__data_8050D460[];
-extern s32 lbl_805D586C;
-void init_forward__10TObjPlayerFv(void *);
-void TObjPlayer__sub_80156A74(void* p);
 void construct_world_actor_base(void);
-extern s32 lbl_804AF8A0[];
 extern unsigned char lbl_8050DAD0[];
 extern int player_unique_pair_entry_count;
 void mem_free(s32);
 void free_collision_body_parts(G_80156720 *arg0);
 u16 obj_getField1c(int);
-extern s32 TObjPlayer__data_8050D460[];
-extern s32 lbl_805D5868;
 extern const f32 lbl_805DB29C;
-u16 obj_getField1c(int);
 void *memcpy(void *, const void *, u32);
-extern s32 TObjPlayer__data_8050D460[];
-extern s32 lbl_805D5868;
-extern s32 lbl_805D586C;
-extern s32 lbl_805D5870;
-extern s32 registered_entity_count;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 Hit_80156844 *csnVectorUnder(Vec_80156844 *, void *, s32);
 Hit_80156844 *csnVecterUnder(Vec_80156844 *, s32);
 u16 TObjRoomId__sub_801A1DB8(u16);
@@ -287,13 +220,8 @@ s32 project_actor_to_ground(Obj_80156844 *self, Vec_80156844 *pos, Vec_80156844 
 s32 test_box_overlap__10TObjPlayerFPvPv(CollisionBox_80155C54*,CollisionBox_80155C54*);
 s32 test_box_sphere_contact(CollisionBox_80155C54*,CollisionSphere_80155C54*);
 s32 spheres_overlap(CollisionSphere_80155C54*,CollisionSphere_80155C54*);
-}
-
-extern "C" {
-
 void TOTrapAncient02R__sub_80154D78(void);
 void TObjPlayer__sub_801542F4(s32 a);
-s32 find_or_alloc_slot__10TObjPlayerFUi(u32 arg0);
 void reset_global_table(void);
 void set_indexed_flags(void *arg0, s32 index, s32 flags);
 u8 test_elt_flag__13TUnk_80493450Fll(void *arg0, s32 arg1, s32 arg2);
@@ -301,29 +229,16 @@ s32 obj_is_hit_receivable(void *);
 s32 obj_testFlags30(void *, u32);
 void *resolve_hittable_target(u16 actorId, s16 collider);
 int get_or_assign_actor_id__13TUnk_804806E8Fl(void*, void*);
-s32 TObjPlayer__sub_8015434C(s32, s32, s32);
 u16 register_entity_by_id(void*);
 int memset(void*, void*, void*);
-
-extern s32 lbl_805D586C;
-
-extern "C" {
-s32 project_actor_to_ground(Obj_80156844 *self, Vec_80156844 *pos, Vec_80156844 *normal);
-}
 
 void TObjPlayer::apply_status_effect(s32 a) {
     TObjPlayer__sub_8015434C(a, 0, lbl_805D586C);
 }
 
-extern s32 lbl_805D586C;
-extern s32 lbl_805D5870;
-
 void TObjPlayer__sub_801542F4(s32 a) {
     TObjPlayer__sub_8015434C(a, lbl_805D586C, lbl_805D5870);
 }
-
-    extern unsigned char lbl_8050DAD0[];
-    extern int player_unique_pair_entry_count;
 
 void TObjPlayer__sub_8015431C(u8 *arg0) {
     TObjPlayer__sub_8015434C((s32)(arg0), (s32)(lbl_805D586C + lbl_805D5870), (s32)(registered_entity_count));

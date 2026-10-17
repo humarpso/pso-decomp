@@ -128,7 +128,6 @@ extern Holder_8003A1B4 *boss2_tunnel_instance;
 extern s32 lbl_805D4BEC;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 queue_destruction__7TObjectFv(void *);
 s32 forward_switch_phase_stats__13TBoss2DeRolLeFi(void *);
@@ -139,18 +138,10 @@ f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 s32 vec3_add_to(void *, void *);
 s32 subtract_vector(void *, void *);
-extern RecoveredGlobal_8003A6F4_lbl_80435BD8 TObjBoss2CeilJunk__height_offset_table;
-extern f32 TObjBoss2CeilJunk__radius_table[];
 extern const f32 lbl_805D4BE0;
 void run_task__17TObjBoss2CeilJunkFv(Junk_8003A314 *o);
-}
-
-extern "C" {
-
 void *__dt__17TObjBoss2CeilJunkFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-
-extern s32 __vt__17TObjBoss2CeilJunk[];
 
 typedef struct Color_8003A1B4 Color_8003A1B4;
 typedef struct Holder_8003A1B4 Holder_8003A1B4;

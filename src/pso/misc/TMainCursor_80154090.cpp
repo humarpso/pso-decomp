@@ -14,10 +14,6 @@ void TMainCursor__sub_80154098(void *self, E_80154098 *arr, s32 i);
 void TMainCursor__sub_801540D8(E_801540D8 *arr, s32 n);
 void TMainCursor__sub_801540B8(void *self, E_801540B8 *arr, s32 i);
 void TMainCursor__sub_801540FC(E_801540FC *arr, s32 n);
-}
-
-extern "C" {
-
 void TMainCursor__sub_80154090(void);
 void TMainCursor__sub_80154094(void);
 s32 TMainCursor__sub_80154288(u8 *arg0, s32 arg1, u16 arg2);
@@ -55,26 +51,8 @@ void TMainCursor__sub_801540FC(E_801540FC *arr, s32 n) {
     }
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
-void TMainCursor__sub_80154090(void);
-void TMainCursor__sub_80154094(void);
-
 void TMainCursor::update_pair() { TMainCursor__sub_801540D8((E_801540D8 *)*(void**)((char*)this + 0xa4), (s32)*(void**)((char*)this + 0xa8)); }
 void TMainCursor::update_cursor_pair() { TMainCursor__sub_801540FC((E_801540FC *)*(void**)((char*)this + 0xa4), (s32)*(void**)((char*)this + 0xa8)); }
-
-}
-
-#include "types.h"
-
-extern "C" {
-
-void TMainCursor__sub_80154090(void);
-void TMainCursor__sub_80154094(void);
 
 s32 TMainCursor::test_button(s32 arg1, u16 arg2) {
     s32 temp_r5;
@@ -101,15 +79,6 @@ void TMainCursor__sub_80154230(void *arg0, s32 arg1, u16 arg2) {
         set_flags__10TObjPlayerFUl(temp_r5 + (arg1 * 4), 1 << arg2, temp_r5);
     }
 }
-
-}
-
-#include "types.h"
-
-extern "C" {
-
-void TMainCursor__sub_80154090(void);
-void TMainCursor__sub_80154094(void);
 
 s32 TMainCursor__sub_80154288(u8 *arg0, s32 arg1, u16 arg2) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0x9C) == 0U) {

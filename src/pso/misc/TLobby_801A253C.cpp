@@ -17,8 +17,6 @@ void TLobby::init_limits() {
 void TLobby__sub_801A2550(void) {  }
 
 extern s16 lbl_805D5CD0;
-extern s16 lbl_805D5CD2;
-extern s16 lbl_805D5CD4;
 
 void TLobby__sub_801A2554(void) {
     lbl_805D5CD0 = 0;

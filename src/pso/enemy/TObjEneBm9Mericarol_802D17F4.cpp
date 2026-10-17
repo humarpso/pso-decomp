@@ -182,14 +182,11 @@ struct Vec_802D1880 { f32 x, y, z; };
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 subtract_vector(void *, void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 s32 is_alive__9TObjEneDDFv(s32);
-s32 subtract_vector(void *, void *);
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DE778;
 extern const f32 lbl_805DE77C;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
 s32 construct_collision_body(void *, void *, void *);
 f32 vector_length(Vec_802D1880 *);
@@ -201,18 +198,10 @@ extern const f32 lbl_805DE76C;
 extern const f32 lbl_805DE770;
 extern const f32 lbl_805DE774;
 u8 *TObjEneBm9Mericarol__sub_802D1880(u8 *arg0, u8 *arg1, Vec_802D1880 *arg2, Vec_802D1880 *arg3, s32 arg4, f32 farg0, f32 farg1);
-}
-
-extern "C" {
-
 s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
 s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-s32 is_alive__9TObjEneDDFv(s32);
-void queue_destruction__7TObjectFv(void *);
-
-extern s32 lbl_804E18A8[];
 
 void *TObjEneBm9Mericarol_Bomb::dt(s16 arg1) {
     if (this != NULL) {
@@ -358,7 +347,6 @@ void *TObjEneBm9Mericarol_EffCurse3::destroy(s16 arg1) {
     return this;
 }
 
-extern s32 lbl_804E1908[];
 extern s32 lbl_805D3F38;
 
 void *TObjEneBm9Mericarol_EffCurse3::construct(s32 arg1, s32 arg2) {

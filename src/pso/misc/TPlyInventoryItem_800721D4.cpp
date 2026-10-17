@@ -3,10 +3,6 @@
 extern "C" {
 void init__9TItemDataFv(void *);
 void init__17TPlyInventoryItemFv(u8 *arg0);
-}
-
-extern "C" {
-
 void init__17TPlyInventoryItemFv(u8 *arg0) {
     *(s8 *)((s8 *)arg0 + 0) = 0;
     *(s8 *)((s8 *)arg0 + 1) = -1;

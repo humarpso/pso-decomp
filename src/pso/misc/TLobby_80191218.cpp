@@ -25,7 +25,6 @@ void *TLobby::create_npc(void *arg0) {
     extern int npc_proximity_target_id;
 void TLobby__sub_80191264(void) { npc_proximity_target_id = -1; }
 
-    extern int npc_proximity_target_id;
 void TLobby__sub_80191270(void) { npc_proximity_target_id = -1; }
 
 void set_player_quest_control_flag(register s32 r3) {
@@ -35,7 +34,6 @@ void set_player_quest_control_flag(register s32 r3) {
     extern int hashi_versus2_flag;
 void TObjHashiVersus2__sub_801912A4(void) { hashi_versus2_flag = 1; }
 
-    extern int hashi_versus2_flag;
 void TObjHashiVersus2__sub_801912B0(void) { hashi_versus2_flag = 0; }
 
 }

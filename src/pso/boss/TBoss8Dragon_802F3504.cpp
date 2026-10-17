@@ -27,8 +27,6 @@ loop_3:
     goto loop_3;
 }
 
-extern u32 boss8_dragon_leader_part;
-
 s32 TBoss8Dragon::is_any_part_alive() {
     s32 var_r31;
 
@@ -47,8 +45,6 @@ loop_3:
     }
     goto loop_3;
 }
-
-extern u32 boss8_dragon_leader_part;
 
 void TBoss8Dragon::update_all_parts() {
     s32 var_r31;

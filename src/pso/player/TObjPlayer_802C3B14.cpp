@@ -31,14 +31,7 @@ s32 begin_action_state__10TObjPlayerFPv(u8 *arg0) {
     return 1;
 }
 
-}
-
-extern "C" {
 u8 get_mag_level__10TObjPlayerFPv(void *);
-}
-
-extern "C" {
-
 s32 TObjPlayer__sub_801BFFA0(s32);
 s32 TObjPlayer__sub_802C4668(s32, s32);
 int get_char_index__23TAdSinglePlyChrSelectGCFUi(void*);

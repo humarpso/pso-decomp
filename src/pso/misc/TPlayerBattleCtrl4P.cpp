@@ -49,18 +49,10 @@ extern char lbl_80542EB0[];
 void update__19TPlayerBattleCtrl4PFv(void *);
 s32 __ct__15TDuelEffectCtrlFP7TObjectUc(void *, void *, s32);
 void *__nw__7TObjectFUl(s32);
-VObj_18_26c590 *get_player_by_client_id(s32);
 void set_type__10TObjPlayerFl(void *, s32);
 s32 update_all_players__19TPlayerBattleCtrl4PFv();
-}
-
-extern "C" {
-
-s32 __ct__15TDuelEffectCtrlFP7TObjectUc(void *, void *, s32);
 s32 TWindow__close(void *);
-void *__nw__7TObjectFUl(s32);
 s32 check_all_players_flag__19TPlayerBattleCtrl4PFv(void *);
-s32 update_all_players__19TPlayerBattleCtrl4PFv();
 
 }
 void TPlayerBattleCtrl4P::wait_before_recording_results() {
@@ -188,11 +180,8 @@ void TPlayerBattleCtrl4P::wait_for_team_matchup() {
         set_score((s32)((void*)(5)));
     }
 }
-extern "C" {
-
 extern s32 lobby_rule_settings[];
 
-}
 void TPlayerBattleCtrl4P::show_team_matchup() {
     Cnt_8031224C cnt = lbl_80475B68[0];
     char names[4][16];

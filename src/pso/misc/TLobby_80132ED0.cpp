@@ -8,14 +8,8 @@ s32 get_localized_text_entry(s32 arg0, s32 arg1);
 int TLanguage__ct(void*);
 int select_language_text_resources(void*);
 extern s32 current_language;
-}
-
-extern "C" {
-
 void *get_global_state__23TAdSinglePlyChrSelectGCFv();
 s8 TLobby__sub_80132EC8();
-
-extern s32 current_language;
 
 void TLobby::update_menu_cursor() {
     void *temp_r3;

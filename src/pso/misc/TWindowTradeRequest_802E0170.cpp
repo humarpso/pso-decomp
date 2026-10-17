@@ -50,7 +50,6 @@ extern RecoveredGlobal_802E0224___vt__19TWindowTradeRequest __vt__19TWindowTrade
 extern s32 local_client_id;
 u8 *__dt__19TWindowTradeRequestFv(u8 *arg0, s16 arg1);
 u8 *get_shared_text_buffer(void);
-u32 get_player_by_client_id(void *);
 u8 *get_window_layout_position(s32);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(s32, s32, s32, s32);
 char get_trade_mode__6TLobbyFv(void);
@@ -61,15 +60,9 @@ s32 __ct__7TObjectFP7TObject();
 s32 TObjPlayer__sub_8024ABDC(void *);
 s32 fn_8024AC64(void *);
 s32 forward_slot_selection__16TAdChrSelASlotGCFPvPv(int, int, int, f32);
-extern RecoveredGlobal_802E0224___vt__19TWindowTradeRequest __vt__19TWindowTradeRequest;
 extern s32 lbl_805D3F70;
-extern s32 local_client_id;
 extern const f32 lbl_805DE8A0;
 u8 *TWindowTradeRequest__ct(u8 *arg0);
-}
-
-extern "C" {
-
 void TWindowTradeRequest::render() {  }
 
 typedef char RecoveredGlobal_802E0224___vt__19TWindowTradeRequest_size[sizeof(RecoveredGlobal_802E0224___vt__19TWindowTradeRequest) == 0x18 ? 1 : -1];

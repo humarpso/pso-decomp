@@ -33,14 +33,8 @@ extern s32 lbl_804D2F3C[];
 extern u32 lbl_805D63F0;
 extern s16 window_ui_theme_index;
 void load_hud_palette_textures(void);
-}
-
-extern "C" {
-
 int TWindowFukidasi__sub_8024695C(void* p);
 void TLobby__sub_803DA16C(void*);
-
-extern u32 lbl_805D63F0;
 
 void TWindowCtrlMain::free_window() {
     if ((u32) lbl_805D63F0 != 0U) {

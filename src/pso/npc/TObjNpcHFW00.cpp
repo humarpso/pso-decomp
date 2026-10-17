@@ -110,10 +110,6 @@ extern u32 TObjNpcHFW01__resource_node;
 extern u32 TObjNpcHFW01__texture_handle;
 extern char lbl_8043FA70[];
 extern char TObjNpcHFW01__texture_filename[];
-}
-
-extern "C" {
-
 void * TObjNpcHFW01__create(void *arg0);
 void *__dt__12TObjNpcHFW00Fv(void *arg0, s16 arg1);
 void TLobby__sub_803DA16C(void*);
@@ -121,8 +117,6 @@ void *TObjControl__ct(void *, void *);
 void *TObjNpcHFW01__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-
-extern s32 __vt__12TObjNpcHFW00[];
 
 void *__dt__12TObjNpcHFW00Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -163,9 +157,6 @@ void * TObjNpcHFW01__create(void *arg0) {
     }
     return o2;
 }
-
-extern u32 TObjNpcHFW01__resource_node;
-extern u32 TObjNpcHFW01__texture_handle;
 
 void TObjNpcHFW01::free_static_resources() {
     if ((u32) TObjNpcHFW01__texture_handle != 0U) {

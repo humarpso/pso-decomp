@@ -180,13 +180,9 @@ struct Obj_8017FE58 {
 extern "C" {
 void render__8TObjChipFPv(u8 *arg0);
 void copy_debris_params__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
-void copy_debris_params__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern void *__vt__8TObjChip[];
 u8 *__ct__8TObjChipFv(u8 *arg0, u8 *arg1, u8 *arg2);
-void copy_debris_params__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
-void __ct__7TObjectFP7TObject(void *, void *);
-extern void *__vt__8TObjChip[];
 u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
 s32 push_matrix();
 s32 pop_matrix();
@@ -199,18 +195,12 @@ s32 TObjChip__vt8(s32 arg0, Vec_8018085C *arg1, f32 farg0, f32 farg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 int rand(void);
 s32 spawn_chips__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-int rand(void);
 s32 init_chips__8TObjChipFPv(u8 *arg0);
 void tick_chips__8TObjChipFPv(u8 *arg0);
 s32 rotate_matrix_yxz(int, int, int, int);
 s32 scale_matrix(int, f32, f32, f32);
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
 s32 set_chunk_material_override_pair(int, int);
 s32 set_chunk_material_color(void *);
-s32 draw_chunk_object(int, void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -219,10 +209,6 @@ extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 void draw_chips__8TObjChipFPv(Obj_8017FE58 *o);
-}
-
-extern "C" {
-
 struct Base_801809F0_801809B4 { char pad[0x18]; };
 struct VObj_801809F0_801809B4 : Base_801809F0_801809B4 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -233,7 +219,6 @@ int TObjChip__vt6(void* p);
 u8 *copy_transform__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
 void dispatch_vt9__8TObjChipFPv(void *arg0);
 void update__8TObjChipFPv(void *arg0);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 
 #pragma readonly_strings on
@@ -546,9 +531,6 @@ u8 *copy_transform__8TObjChipFPvPv(u8 *arg0, u8 *arg1) {
     return arg0;
 }
 
-}
-
-extern "C" {
 void __dt__8TObjChipFv();
 void render_shadows__7TObjectFv();
 void TObjChip__vt10(u8 *arg0);

@@ -141,58 +141,34 @@ extern u32 bml_load_buffer;
 void increment_ref_and_set_flag__6TLobbyFPv(void *arg0);
 s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 debug_print__6TLobbyFle(s32 *, ...);
-extern s32 lobby_download_buffer;
 extern s32 lbl_80434C48[];
 void load_bin_motion_callback(void *arg0);
 extern s32 lbl_805D4AD0;
 extern char lbl_80434C38[];
 void check_bin_model_loaded__6TLobbyFPvPv(Obj_8001F8D8 *self, void * _w1);
-s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 debug_print__6TLobbyFle(s32 *, ...);
 extern s32 lbl_80434CC4[];
 s32 bind_bml_motion(struct Lobby_8001FB6C *self, s32 idx, void *bytes);
-s32 debug_print__6TLobbyFle(s32 *, ...);
 s32 change_file_extension__6TLobbyFPvPvPv(void *, void *, void *);
 s32 load_gvm_texture_archive(s32, s32);
 extern s32 lbl_80434B04[];
 extern s32 lbl_80434B24[];
-extern s32 lobby_download_buffer;
 extern s32 lbl_805D7F10;
-s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 set_stream_state__6TLobbyFi(s32, s32);
-s32 debug_print__6TLobbyFle(s32 *, ...);
 extern s32 lbl_80434D10[];
 extern s32 lbl_80434D30[];
 extern s32 lbl_80434D54[];
-extern s32 lobby_download_buffer;
-s32 set_stream_state__6TLobbyFi(s32, s32);
-s32 debug_print__6TLobbyFle(s32 *, ...);
 extern s32 lbl_80434D74[];
 extern s32 lbl_80434D94[];
-extern s32 lobby_download_buffer;
 s32 TLobby__sub_8001EDD8(void *, s32);
-s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void check_bin_model_loaded__6TLobbyFPvPv(Obj_8001F8D8 *self, void * _w1);
 s32 create_file_load_entry__6TLobbyFllUllPPv(void *, s32, void *, void *, void *);
-s32 debug_print__6TLobbyFle(s32 *, ...);
-s32 change_file_extension__6TLobbyFPvPvPv(void *, void *, void *);
-void increment_ref_and_set_flag__6TLobbyFPv(void *arg0);
 extern s32 lbl_80434C70[];
 extern s32 lbl_80434C98[];
-extern s32 lobby_download_buffer;
-extern s32 lbl_805D7F10;
 s32 TLobby__sub_8001EDF4(void *);
 void __dl__FPv(void *);
 s32 TLobby__sub_800F9FF4(s32);
 s32 mem_free(void *);
 s32 TLobby__sub_803DA16C(void *);
-extern char lbl_80434C38[];
 Lobby_8001FE7C *TLobby__sub_8001FE7C(Lobby_8001FE7C *self, s16 del);
-s32 debug_print__6TLobbyFle(s32 *, ...);
-s32 bind_bml_motion(struct Lobby_8001FB6C *self, s32 idx, void *bytes);
-s32 load_gvm_texture_archive(s32, s32);
-extern s32 lbl_805D4AD0;
-extern u32 bml_load_buffer;
 void open__8TGStreamFPvPvi(void *, s32, s32);
 s32 get_gstream_file_size(void *);
 void destroy_gstream(void *, s32);
@@ -212,42 +188,24 @@ extern s32 lbl_80434DF4[];
 extern s32 lbl_80434E10[];
 extern s32 lbl_80434E2C[];
 Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, Desc_80020004 *desc, s32 arg3, s32 arg4, s32 arg5);
-s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 debug_print__6TLobbyFle(s32 *, ...);
 extern s32 lbl_80434CE8[];
 s32 bind_bml_model(Lobby_8001FBEC *arg0, u32 arg1, s32 arg2, s32 arg3);
 u8 *tmp_buf_use_req__6TLobbyFPCc(const char *);
-s32 bind_bml_motion(struct Lobby_8001FB6C *self, s32 idx, void *bytes);
-s32 bind_bml_model(Lobby_8001FBEC *arg0, u32 arg1, s32 arg2, s32 arg3);
-void prs_decompress_buffer(s32, void *);
-void debug_printf_nop(void *, ...);
-s32 debug_print__6TLobbyFle(s32 *, ...);
-s32 change_file_extension__6TLobbyFPvPvPv(void *, void *, void *);
 s32 TLobby__sub_803CC4C0(u32);
 s32 TLobby__sub_803CC53C(void);
 u32 adxf_open__6TLobbyFUii(void *, s32);
-s32 load_gvm_texture_archive(s32, s32);
 extern char lbl_80434B44[];
 extern s32 lbl_80434B50[];
-extern s32 lbl_80434B70[];
 extern s32 lbl_80434B90[];
 extern s32 lbl_80434BB0[];
 extern s32 lbl_80434BD4[];
 extern s32 lbl_80434BF8[];
 extern s32 lbl_80434C18[];
-extern u8 bml_load_state;
-extern u32 bml_load_buffer;
 extern u32 lobby_bml_file_handle;
 extern u8 *lbl_805D4AE0;
 extern Rec_8001F128 *bml_header_record_ptr;
 extern s32 bml_load_entry_index;
 extern u8 *lobby_bml_read_buffer;
-extern s32 lbl_805D7F10;
-}
-
-extern "C" {
-
-s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TItemDrop__sub_800FE2D8();
 s32 TLobby__sub_801E38A0(s32, s32, s32, s32, u32 *);
 s32 load_nj_chunk_model_resource(s32, s32, s32);
@@ -301,9 +259,6 @@ void TLobby::set_flag_and_notify() {
         temp_r12(*(s32 *)((s8 *)this + 0x420));
     }
 }
-
-extern s32 lobby_download_buffer;
-extern u32 bml_load_buffer;
 
 #define self ((Ctx_8001F128 *) arg0)
 s32 TLobby::load_bml_exec(u8 *arg0, u8 *arg1) {

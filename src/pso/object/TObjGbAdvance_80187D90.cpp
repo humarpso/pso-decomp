@@ -9,13 +9,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_80187DC8_lbl_804B6228 bm_obj_gba_resource_descriptor;
 extern u32 TObjGbAdvance__data_805D5B74;
-}
-
-extern "C" {
-
 void TLobby__sub_8001FE7C(void*, int);
-
-extern u32 TObjGbAdvance__data_805D5B74;
 
 void TObjGbAdvance::free_shared_data() {
     if ((u32) TObjGbAdvance__data_805D5B74 != 0U) {

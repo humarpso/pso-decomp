@@ -14,36 +14,11 @@ struct Out_8012573C { u8 pad[0x40]; u32 f40; u8 pad44[0x50 - 0x44]; s32 f50; u8 
 extern "C" {
 s32 TWindowCtrl__sub_8024A314(void);
 extern void *TWindowCtrl__active_window;
-extern void *TWindowCtrl__active_window;
-extern void *TWindowCtrl__active_window;
-extern void *TWindowCtrl__active_window;
-extern void *TWindowCtrl__active_window;
-extern void *TWindowCtrl__active_window;
-extern void *TWindowCtrl__active_window;
-extern void *TWindowCtrl__active_window;
-extern void *TWindowCtrl__active_window;
-s32 TWindowCtrl__sub_8024A314(void);
 u32 find_item_by_id(void);
 s32 spawn_faust_explosion(u32 a0 = 0, s32 a1 = 0);
-extern void *TWindowCtrl__active_window;
-extern void *TWindowCtrl__active_window;
-extern void *TWindowCtrl__active_window;
-extern void *TWindowCtrl__active_window;
-s32 TWindowCtrl__sub_8024A314(void);
-extern void *TWindowCtrl__active_window;
-extern void *TWindowCtrl__active_window;
-extern void *TWindowCtrl__active_window;
-extern void *TWindowCtrl__active_window;
-extern void *TWindowCtrl__active_window;
-u32 find_item_by_id(void);
 s32 spawn_faust_explosion(u32 a0, s32 a1);
 void spawn_faust_hit_explosion(s32 arg0, s32 arg1);
-void spawn_faust_hit_explosion(s32 arg0, s32 arg1);
 void config_faust_attack_collider__10TObjPlayerFPvPv(Self_8012573C *self, Out_8012573C *out);
-}
-
-extern "C" {
-
 void TObjPlayer::spawn_faust_wall_explosion(s32 arg0, s32 arg1) {
     u32 temp_r3 = find_item_by_id();
     if (temp_r3 != 0U) {

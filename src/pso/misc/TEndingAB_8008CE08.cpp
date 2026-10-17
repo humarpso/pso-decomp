@@ -169,15 +169,9 @@ void bind_gvm_texture_list(const char *, void *);
 
 extern u32 ending_ab_wall_texture_list;
 extern s32 game_difficulty_selection;
-}
-
-extern "C" {
-
 void TLobby__sub_803DA16C(void*);
 
 void TEndingAB::run_task() { advance_fade_sequence(); }
-
-extern u32 ending_ab_wall_texture_list;
 
 TEndingAB::~TEndingAB() {}
 u8 *__ct__9TEndingABFv(u8 *arg0, u8 *arg1) {

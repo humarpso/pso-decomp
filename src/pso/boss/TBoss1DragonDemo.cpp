@@ -28,10 +28,6 @@ extern RecoveredGlobal_8002B744___vt__16TBoss1DragonDemo __vt__16TBoss1DragonDem
 extern s32 TBoss1DragonDemo__name;
 extern const f32 lbl_805D8128;
 u8 *__ct__16TBoss1DragonDemoFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
-}
-
-extern "C" {
-
 void TBoss1DragonDemo__sub_8002B68C(void);
 void TBoss1DragonDemo__sub_8002B690(void);
 

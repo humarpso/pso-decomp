@@ -34,18 +34,10 @@ extern void *password_entry_keyboard_control;
 extern Word_8032AACC lbl_805DF76C;
 extern char lbl_805DF774[4];
 void draw_masked_password_field(s32 arg0);
-void *__ct__19TAdPlyChrSelPlateGCFv(void *, s32, void *);
-void __dt__19TAdPlyChrSelPlateGCFv(void *, int);
-void TAdEnterSerialAccessGC__sub_802C4B64(void *, void *, void *, int);
 extern u8 lbl_80477200[];
 extern const f32 lbl_80477208[];
-extern s32 tl_clipout;
 extern Word_8032AC24 lbl_805DF768;
 void fn_8032AC24(void);
-}
-
-extern "C" {
-
 void draw_masked_password_field(s32 arg0) {
     char buf[0x80];
     Plate_8032AACC plate;

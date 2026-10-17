@@ -123,28 +123,11 @@ void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2);
 extern const f32 lbl_805DCB48;
 extern const f32 lbl_805DCB28;
 extern const f32 lbl_805DCB2C;
-s32 draw_textured_quad_at_depth(void *, f32);
-extern const f32 lbl_805DCB48;
 void draw_window_frame_strips(u8 *a, Quad_80245D64 *q, Rect_80245D64 *r);
-void draw_window_scanlines(u8 *arg0, u8 *arg1);
-void draw_window_frame_strips(u8 *a, Quad_80245D64 *q, Rect_80245D64 *r);
-void begin_screen_draw(s32);
-void set_draw_texture_and_color(s32, s32);
-extern s32 lbl_805D63F0;
 extern const f32 lbl_805DCB10;
 void draw_window_frame(Card_80245F98 *a, Rect_80245F98 *r);
-void begin_screen_draw(s32);
-void set_draw_texture_and_color(s32, s32);
-extern s32 lbl_805D63F0;
 extern const f32 lbl_805DCAD4;
 extern const f32 lbl_805DCAFC;
-extern const f32 lbl_805DCB10;
-extern const f32 lbl_805DCB28;
-extern const f32 lbl_805DCB2C;
-}
-
-extern "C" {
-
 struct VOff_8024491C_arg0_card_1 { char pad_0[0x38]; char f_38[1]; };
 
 struct VOff_80244958_arg0_card_1 { char pad_0[0x30]; char f_30[1]; };
@@ -183,25 +166,19 @@ s32 init_window_layout_entries(void *, int, int);
 s32 fn_8026CB68();
 s32 sub_8026CC28__13TUnk_804CE018Fv();
 s32 resort_window_order__15TWindowCtrlMainFv(void *);
-s32 draw_textured_quad_at_depth(void *, f32);
 
 extern int lbl_805D3614;
 extern s32 lbl_805D3888;
-extern s16 lbl_805D63F6;
 extern f32 lbl_805DCAC8;
 extern const f32 lbl_805DCACC;
 extern const f32 lbl_805DCAD0;
-extern const f32 lbl_805DCAD4;
 extern const f32 lbl_805DCAD8;
 extern const f32 lbl_805DCADC;
 extern const f32 lbl_805DCAE0;
-extern const f32 lbl_805DCAE4;
 extern const f32 lbl_805DCAF4;
-extern const f32 lbl_805DCAFC;
 extern const f32 lbl_805DCB00;
 extern const f32 lbl_805DCB04;
 extern const f32 lbl_805DCB0C;
-extern const f32 lbl_805DCB10;
 extern const f32 lbl_805DCB14;
 extern const f32 lbl_805DCB18;
 extern const f32 lbl_805DCB1C;
@@ -210,10 +187,6 @@ extern const f32 lbl_805DCB24;
 
 extern "C" {
 s32 try_open__19TWindowKeyBoardSoftFii(void *, Quad_802455CC *);
-}
-
-extern "C" {
-void draw_message_frame_row(u8 *a, Quad_802455CC *q, Rect_802455CC *r);
 }
 
 int TWindowSubComCard__sub_80244774(void) {  return lbl_805D3614; }

@@ -35,14 +35,6 @@ void*TLobby::init_fields() { init_default_fields(); *(unsigned char*)((char*)thi
     extern const float lbl_805DAA88;
 void TLobby::init_default_fields() { *(short *)&this->m_flags = 0; *(short *)&this->m_id = 0; *(float *)&this->m_next = lbl_805DAA88; *(float *)&this->m_prev = lbl_805DAA88; *(unsigned char *)&this->m_name = 93; *(unsigned char*)((char*)this + 0x1) = 9; }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
-s32 read_be16_field2__10TObjPlayerFv();
-s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
 
 void bswap_pick_up_item_packet__6TLobbyFi(s32 arg0) {
@@ -54,23 +46,15 @@ void bswap_pick_up_item_packet__6TLobbyFi(s32 arg0) {
 
 }
 
-#include "types.h"
-
 struct O_80103044 { u8 f0; u8 f1; u8 pad[2]; u16 f4; u16 f6; s32 f8; };
 
 extern "C" {
 
-s32 TLobby__send_and_handle_60(void *);
-s32 bswap_16__FPUs(s32);
-s32 bswap_32__FPUl(s32);
 void bswap_pick_up_item_packet__6TLobbyFi(s32 arg0);
 void bswap_pick_up_item_request__6TLobbyFi(s32 arg0);
 s32 dispatch_packet__6TLobbyFPv(void *);
-s32 read_be16_field2__10TObjPlayerFv();
 
-#include "types.h"
 extern "C" {
-#include "types.h"
 
 extern "C" {
 
@@ -91,32 +75,11 @@ void TLobby::init_6x59_packet() {
 
 }
 
-#include "types.h"
 extern "C" {
-#include "types.h"
 
 }
 
-}
-
-#include "types.h"
-
 extern "C" {
-
-#include "types.h"
-extern "C" {
-void bswap_pick_up_item_request__6TLobbyFi(s32 arg0);
-s32 dispatch_packet__6TLobbyFPv(void *);
-#include "types.h"
-
-extern "C" {
-void bswap_pick_up_item_packet__6TLobbyFi(s32 arg0);
-s32 TLobby__send_and_handle_60(void *);
-s32 read_be16_field2__10TObjPlayerFv();
-s32 bswap_16__FPUs(s32);
-s32 bswap_32__FPUl(s32);
-
-}
 
 void TLobby::send_pick_up_item_request() {
     s32 arg0 = (s32)this;
@@ -128,10 +91,7 @@ void TLobby::send_pick_up_item_request() {
 
 }
 
-#include "types.h"
-#include "pso/misc/TLobby.h"
 #include "pso/TItemAttacker.h"
-#include "pso/player/TObjPlayer.h"
 
 struct AttackWeaponBase { char pad[0x18]; };
 
@@ -215,16 +175,8 @@ u8 *resolve_hittable_target(u16, s16);
 u32 get_player_by_client_id(int);
 extern const f32 lbl_805DAAA8;
 void deliver_delayed_weapon_hit(u8 *arg0);
-}
-
-extern "C" {
-
 void TItem__sub_801031C0(void* p);
 void TLobby__sub_801030EC(u8 *arg0);
-void bswap_pick_up_item_request__6TLobbyFi(s32 arg0);
-s32 bswap_16__FPUs(s32);
-s32 bswap_32__FPUl(s32);
-s32 read_be16_field2__10TObjPlayerFv();
 
 void bswap_pick_up_item_request__6TLobbyFi(s32 arg0) {
     read_be16_field2__10TObjPlayerFv();

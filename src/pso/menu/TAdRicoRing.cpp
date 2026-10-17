@@ -20,12 +20,7 @@ s32 __ct__7TObjectFP7TObject();
 extern RecoveredGlobal_8001BD0C___vt__11TAdRicoRing __vt__11TAdRicoRing;
 extern s32 TAdRicoRing__class_name;
 extern s32 TAdRicoRing__resource_bundle;
-extern const f32 lbl_805D7E4C;
 u8 *__ct__11TAdRicoRingFv(u8 *arg0);
-}
-
-extern "C" {
-
 int rotate_matrix_zyx(void*, void*, void*, void*);
 int post_translate_matrix(void*);
 int draw_chunk_object(void*);

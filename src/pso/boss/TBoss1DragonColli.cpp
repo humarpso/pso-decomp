@@ -64,12 +64,8 @@ s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern u8 TBoss1DragonColli_sphere_chain_desc[];
 extern s32 __vt__19TBoss1DragonColli_C[];
 extern s32 TBoss1DragonColli_C__name;
-extern const f32 lbl_805D8108;
 extern const f32 lbl_805D8120;
 s32 TBoss1DragonColli_C__ct(int arg0, void *arg1, int arg2, void *arg3, f32 scale);
-}
-
-extern "C" {
 void queue_destruction__7TObjectFv(void*);
 }
 
@@ -82,9 +78,6 @@ TBoss1DragonColli::~TBoss1DragonColli() {
     }
 }
 
-#include "types.h"
-
-#include "types.h"
 #include "pso/TBoss1DragonDemo.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
@@ -94,11 +87,6 @@ TBoss1DragonColli::~TBoss1DragonColli() {
 struct ByteBlock_C { u8 bytes[0xc]; };
 
 extern "C" {
-void fn_8002B630(u8 *arg0, u8 *arg1);
-}
-
-extern "C" {
-
 void render__19TBoss1DragonColli_CFv(void);
 void TBoss1DragonColli__sub_8002B35C(void* p);
 void *__dt__19TBoss1DragonColli_CFv(void *arg0, s16 arg1);
@@ -169,8 +157,6 @@ void TBoss1DragonColli_C::clear_segment_flags() {
         self->elems[i].flags &= ~1;
     }
 }
-
-extern s32 __vt__19TBoss1DragonColli_C[];
 
 void set_elem_flags__17TBoss1DragonColliFPv(O_8002B42C *self) {
     s32 i;

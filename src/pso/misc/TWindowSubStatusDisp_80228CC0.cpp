@@ -4,19 +4,12 @@
 extern "C" {
 extern char *text_builder_write_cursor;
 extern char text_builder_buffer[];
-extern char *text_builder_write_cursor;
-extern char text_builder_buffer[];
 void append_text_space(void);
-extern char *text_builder_write_cursor;
-void append_padded_number(s32 v, u8 n);
 void append_padded_number(s32 v, u8 n);
 s32 text_builder_append(void *);
 extern s32 lbl_8044CB60[];
 extern s32 lbl_805DC790;
 extern s32 lbl_805DC794;
-}
-
-extern "C" {
 
 void TWindowSubStatusDisp::append_play_time(u32 arg0) {
     u32 h = arg0 / 3600U;

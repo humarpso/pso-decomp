@@ -87,9 +87,6 @@ void *get_parts_entry__28TWindowSubSymbolChatPartsSetFii(void *, s32);
 s32 is_flag_set__11TLoadingCurFv(void *, s32);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
 s32 update_visibility__28TWindowSubSymbolChatPartsSetFv(void *, s16);
-extern RecoveredGlobal_80286824_lbl_8050E208 controller_input_state;
-s32 TWindowShortListCtrl__check_controller_button(int, int);
-extern RecoveredGlobal_80286824_lbl_8050E208 controller_input_state;
 void TWindowChatSymbol__ct(void *, void *, void *);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
@@ -101,15 +98,10 @@ extern const f32 lbl_805DD828;
 extern const f32 lbl_805DD82C;
 extern const f32 lbl_805DD830;
 T_802869BC *TWindowSubSymbolChatPartsSet__ct(T_802869BC *self, void *parent, s16 arg2, s32 arg3, s32 arg4);
-void *get_parts_entry__28TWindowSubSymbolChatPartsSetFii(void *, s32);
 void TWindowSubSymbolChatFaceType__sub_80283C84(void *, void *, f32, f32);
 extern const f32 lbl_805DD814;
 extern const f32 lbl_805DD818;
 extern const f32 lbl_805DD81C;
-}
-
-extern "C" {
-
 struct Vec2_80286708_802861AC { f32 x; f32 y; };
 
 void *__dt__28TWindowSubSymbolChatPartsSetFv(void *arg0, s16 arg1);
@@ -152,8 +144,6 @@ void TWindowSubSymbolChatPartsSet::handle_decide() {
     this->m_68 = (u8) (this->m_68 | 1);
     ((TWindowSubStatusDisp *)(*(s32 *)&this->m_88))->set_entry_state(2);
 }
-
-extern const f32 lbl_805DD820;
 
 void TWindowSubSymbolChatPartsSet::sub_8028625C() {
     Set_8028625C *arg0 = (Set_8028625C *)this;
@@ -295,8 +285,6 @@ void render__28TWindowSubSymbolChatPartsSetFv(u8 *arg0) {
     ((TWindowSubSymbolChatPartsSet *)(c_arg + 0x28))->copy_vec2((void *) (&sp8));
     forward_render__20TWindowSubStatusDispFv((int) (*(s32 *)((s8 *)arg0 + 0x88)), (int) (c_arg));
 }
-
-extern s32 __vt__28TWindowSubSymbolChatPartsSet[];
 
 typedef char RecoveredGlobal_80286824_lbl_8050E208_size[sizeof(RecoveredGlobal_80286824_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void TWindowSubSymbolChatPartsSet::run_task() {

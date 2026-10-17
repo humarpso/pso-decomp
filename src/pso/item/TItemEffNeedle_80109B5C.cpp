@@ -10,10 +10,6 @@ u8 *find_entity_by_id(u16);
 extern s32 __vt__14TItemEffNeedle[];
 extern s32 TItemEffNeedle__class_name;
 void *__ct__14TItemEffNeedleFv(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-}
-
-extern "C" {
-
 s32 obj_getField1c(void *);
 s32 create_timed_particle_emitter(void *, s32, s32, s32, void *);
 s32 find_item_by_id();

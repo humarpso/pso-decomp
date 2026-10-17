@@ -29,9 +29,7 @@ s32 load_area_enemy_set(int, int, int, int);
 extern s32 TLobby__next_enemy_set_actor_id;
 extern s32 map_set_enemy_id_counter;
 extern s32 TLobby__data_805D614C;
-s32 is_area_transfer_pending();
 s32 advance_object_id_counter(int);
-s32 get_floor_map_selection(int, void *);
 s32 TLobby__sub_8020B308();
 extern s32 map_set_object_id_counter;
 extern s32 map_object_id_counter;
@@ -50,9 +48,6 @@ extern Grp_8020AD40 *TLobby__data_805D6068;
 extern Rec_8020AD40 *TLobby__map_set_file_buffer;
 extern s32 TLobby__map_set_file_buffer_size;
 s32 load_area_object_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-}
-
-extern "C" {
 
 s32 load_area_object_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     char name[0x20];

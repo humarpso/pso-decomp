@@ -20,10 +20,6 @@ u32 __nw__7TObjectFUl(int);
 extern s32 TOVS2Wall01__bml_resource;
 extern RecoveredGlobal_8017BC10_lbl_8044311C vs2_wall_debris_desc;
 extern s32 tl_05;
-}
-
-extern "C" {
-
 s32 init__11TOVS2Wall01Fi();
 
 void TOVS2Wall01::vfunc_6(s16 *arg1, s32 arg2) {

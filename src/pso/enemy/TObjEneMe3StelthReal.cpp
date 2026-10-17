@@ -104,10 +104,6 @@ s32 TObjEneMe3Stelth__ct();
 extern s32 __vt__20TObjEneMe3StelthReal[];
 extern s32 lbl_805D2AFC;
 u8 *TObjEneMe3StelthReal__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 typedef struct EneStelth_800F0CE8 EneStelth_800F0CE8;
 
 void *__dt__20TObjEneMe3StelthRealFv(void *arg0, s16 arg1);
@@ -135,8 +131,6 @@ void TObjEneMe3StelthReal::vfunc_107() {
 
 void TObjEneMe3StelthReal::vfunc_62() { vfunc_62__16TObjEneMe3StelthFv(this); }
 void TObjEneMe3StelthReal::vfunc_63() { vfunc_63__16TObjEneMe3StelthFv(this); }
-
-extern s32 __vt__20TObjEneMe3StelthReal[];
 
 void *__dt__20TObjEneMe3StelthRealFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

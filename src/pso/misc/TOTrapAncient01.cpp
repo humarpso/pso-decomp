@@ -232,17 +232,12 @@ void __dl__7TObjectFPv(void *);
 extern s32 __vt__15TOTrapAncient01[];
 Self_80179EC0 *__dt__15TOTrapAncient01Fv(Self_80179EC0 *self, s16 flag);
 s32 get_main_phase();
-s32 TObjFish__sub_8001EDB0(void *, s32);
-s32 get_bml_model(void *, s32);
 s32 init_collision_body_parts(void *, void *, int);
 void TOTrap__ct(void *, void *, void *);
 void __construct_array(void *, void *, void *, int, int);
-void __dt__13TUnk_804949A8Fv(void);
 void init_and_activate__10TObjPlayerFv(void *);
 extern s32 lbl_804B4844[];
-extern s32 __vt__15TOTrapAncient01[];
 extern s32 TOTrapAncient01__class_name;
-extern u32 TOTrapAncient01__bml_resource;
 extern const f32 lbl_805DBA54;
 extern const f32 lbl_805DBA6C;
 extern const f32 lbl_805DBA74;
@@ -255,8 +250,6 @@ void submit_cursor_candidate(void *, s32);
 void play_persistent_sound(s32, void *, void *, s32, s32);
 extern s32 lbl_805D3530;
 extern const f32 lbl_805DBA48;
-extern const f32 TOTrapAncient01__data_805DBA4C;
-extern const f32 lbl_805DBA54;
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 void update_obstruction_fade(void *);
@@ -273,17 +266,11 @@ extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
-extern const f32 TOTrapAncient01__data_805DBA4C;
 extern const f32 lbl_805DBA58;
-extern const f32 lbl_805DBA5C;
 extern const f32 lbl_805DBA60;
 extern const f32 lbl_805DBA64;
 extern const f32 lbl_805DBA68;
 void render__15TOTrapAncient01Fv(Trap_80179B8C *self);
-}
-
-extern "C" {
-
 void TLobby__sub_8001FE7C(void*, int);
 void TOTrapAncient02R__sub_80141CF0(void *, void *, void *);
 void TOTrapAncient02R__sub_80154D78(void *);
@@ -484,8 +471,6 @@ void *TOTrapAncient01::create() {
     }
     return o;
 }
-
-extern u32 TOTrapAncient01__bml_resource;
 
 void TOTrapAncient01::release_static_resource() {
     if ((u32) TOTrapAncient01__bml_resource != 0U) {

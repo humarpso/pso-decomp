@@ -4,9 +4,6 @@
 
 extern "C" {
 f32 sin_table_lookup(s32);
-}
-
-extern "C" {
 
 void TObjEZBoneRotPlayer::calc_bone_offsets_recursive(void *arg1, s32 arg2, s32 arg3) {
     s32 k;

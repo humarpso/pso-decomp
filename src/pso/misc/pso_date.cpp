@@ -36,9 +36,6 @@ extern const Tbl_801E2B24 date_month_start_days[] = {
     {{0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334}}
 };
 void DateToSeconds__FP9DateStampPi(DateStamp_801E2B24 *ds, s32 *out);
-}
-
-extern "C" {
 #pragma push
 #pragma opt_propagation off
 void DateToSeconds__FP9DateStampPi(DateStamp_801E2B24 *ds, s32 *out) {
@@ -71,7 +68,6 @@ int getDateStamp(DateStamp* out) {
     return 1;
 }
 
-#include "types.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {

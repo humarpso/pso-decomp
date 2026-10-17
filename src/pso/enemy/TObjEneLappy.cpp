@@ -145,8 +145,6 @@ struct G_800BFCD4 { u8 pad[0x68]; f32 f68; u8 pad2[0x1c]; f32 f88; };
 
 struct Vec_800C1224 { f32 x, y, z; };
 
-#include "pso/enemy/TObjEneLappy.h"
-
 struct VBase_18_800C0588 { char pad[0x18]; };
 
 struct VObj_18_800C0588 : VBase_18_800C0588 {
@@ -244,7 +242,6 @@ struct Vec_800C0318 { f32 x, y, z; };
 
 struct Lappy_800C0318 { u8 pad0[0x2FC]; Vec_800C0318 pos; f32 vx; f32 vy; f32 vz; };
 
-extern "C" {
 extern const f32 lbl_805D9F24;
 extern const f32 lbl_805D9F28;
 extern const f32 lbl_805D9F2C;
@@ -276,35 +273,22 @@ extern const f32 lbl_805D9F90;
 extern const f32 lbl_805D9F94;
 extern const f32 lbl_805D9F98;
 extern const f32 lbl_805D9F9C;
-}
 
 extern "C" {
-extern const f32 lbl_805D9F80;
-extern const f32 lbl_805D9F84;
-extern const f32 lbl_805D9F68;
 s32 remap_area_sound_id(s32, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
-extern const f32 lbl_805D9F28;
-extern const f32 lbl_805D9F2C;
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-extern const f32 lbl_805D9F44;
-extern const f32 lbl_805D9F48;
 s32 apply_actor_gravity(void *, s32, f32);
 s32 move_with_wall_slide(void *);
 s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *);
 void sub_800C20B0__12TObjEneLappyFv(void *arg0);
 #define sub_800C20B0__12TObjEneLappyFv (*(s32 (*)())&sub_800C20B0__12TObjEneLappyFv)
-extern const f32 lbl_805D9F24;
-extern const f32 lbl_805D9F2C;
-extern const f32 lbl_805D9F4C;
 s32 play_sound_effect(s32, u32, s32, s32);
 void handle_death__10TObjPlayerFPv(u8 *arg0);
 s32 get_player_by_client_id(u16);
 f32 xyz_distance_squared(void *, s32);
 s32 obj_clearFlags30(void *, s32);
-extern const f32 lbl_805D9F50;
 void enter_state_4__10TObjPlayerFPv(u8 *arg0);
-extern const f32 lbl_805D9F4C;
 void set_action_state_3__10TObjPlayerFPv(void *arg0);
 s32 obj_testFlags30(void *, s32);
 void enter_down_state__10TObjPlayerFPv(void *arg0);
@@ -327,12 +311,6 @@ s32 set_global_param__8TObjFishFl(int);
 s32 draw_chunk_object(int);
 extern s32 *rappy_visibility_node;
 extern s32 model_render_flags;
-extern const f32 lbl_805D9F28;
-extern const f32 lbl_805D9F30;
-extern const f32 lbl_805D9F34;
-extern const f32 lbl_805D9F38;
-extern const f32 lbl_805D9F3C;
-extern const f32 lbl_805D9F40;
 void render__12TObjEneLappyFPv(u8 *arg0);
 u16 find_nearest_visible_player(void *, int, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -342,11 +320,8 @@ void sub_800C20C0__12TObjEneLappyFv(void *arg0);
 u8 *find_active_entity_by_id(u16);
 s32 submit_cursor_candidate(void *, int);
 s32 minimap_render_dot(void *, int, int, int);
-extern const f32 lbl_805D9F8C;
-extern const f32 lbl_805D9F90;
 void run_task__12TObjEneLappyFPv(u8 *arg0);
 s32 advance_animation_playback(void *);
-extern const f32 lbl_805D9F4C;
 void apply_variant_speeds__12TObjEneLappyFv(Obj_800BFCD4 *self);
 s32 check_path_obstructed(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
@@ -356,9 +331,6 @@ s32 subtract_vector(void *, void *);
 extern s32 lappy_target_zero_vec[];
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
-extern const f32 lbl_805D9F4C;
-extern const f32 lbl_805D9F60;
-extern const f32 lbl_805D9F88;
 void select_target__12TObjEneLappyFPv(u8 *arg0);
 u32 csnVector(void *, void *, s32);
 s32 project_actor_to_ground(void *, void *, s32);
@@ -367,18 +339,10 @@ s32 rotate_vector_by_matrix(s32, void *, void *);
 s32 push_matrix_from(void *);
 s32 pop_matrices(s32);
 extern f32 identity_matrix[3][4];
-extern const f32 lbl_805D9F24;
 s32 enemy_set_heading_velocity(void *, int, f32);
 s32 enemy_turn_toward_dest(void *, void *);
-extern const f32 lbl_805D9F4C;
-extern const f32 lbl_805D9F54;
-extern const f32 lbl_805D9F58;
-extern const f32 lbl_805D9F5C;
-extern const f32 lbl_805D9F60;
-extern const f32 lbl_805D9F64;
 s32 select_enemy_destination(void *, struct Sp800C0D3C *, s32);
 void enter_moving_state__12TObjEneLappyFPv(void *arg0);
-extern const f32 lbl_805D9F7C;
 void enter_idle_state__12TObjEneLappyFPv(void *arg0);
 s32 enemy_backstep_from_point(void *, void *, f32);
 s32 enemy_wander_home(void *, int, f32, f32, f32);
@@ -391,20 +355,6 @@ s32 angle_difference_abs(int, int);
 s32 lerp_angle_half__10TObjPlayerFUsUs(int, int);
 s32 play_persistent_sound(s32, void *, void *, int, int);
 extern const f64 lbl_8043BA18;
-extern const f32 lbl_805D9F24;
-extern const f32 lbl_805D9F2C;
-extern const f32 lbl_805D9F4C;
-extern const f32 lbl_805D9F50;
-extern const f32 lbl_805D9F68;
-extern const f32 lbl_805D9F6C;
-extern const f32 lbl_805D9F70;
-extern const f32 lbl_805D9F74;
-extern const f32 lbl_805D9F78;
-extern const f32 lbl_805D9F7C;
-}
-
-extern "C" {
-
 s32 update_action_hold__12TObjEneLappyFi(s32 arg0);
 s32 try_clear_flags_60__10TObjPlayerFi(s32 arg0);
 s32 update_movement_status__10TObjPlayerFv();
@@ -1177,18 +1127,12 @@ void run_task__12TObjEneLappyFPv(u8 *arg0) {
 }
 #pragma pop
 
-}
-
 #undef sub_800C20B0__12TObjEneLappyFv
 #undef set_speed_params__12TObjEneLappyFl
 #undef sub_800C20C0__12TObjEneLappyFv
 
 #undef rappy_variant_speed_table
 #undef lappy_variant_speed_ptr_table
-
-#include "types.h"
-
-extern "C" {
 
 void *TObjControl__ct(void *, void *);
 struct Set_800C1C4C;
@@ -1241,14 +1185,10 @@ void *TObjEneLappy::create(void *arg0) {
 #define end_effect_render__13TParticleCtrlFv (*(s32 (*)())&end_effect_render__13TParticleCtrlFv)
 #define toggle_particle_effect__10TObjPlayerFv (*(s32 (*)())&toggle_particle_effect__10TObjPlayerFv)
 
-#include "types.h"
-#include "pso/misc/TLobby.h"
 #include "pso/boss/TBoss3Volopt.h"
-#include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/enemy/TObjEneRe2Flower.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
-#include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct VBase_18_fe72f9 { char pad[0x18]; };
@@ -1561,7 +1501,6 @@ s32 is_main_phase_15__9TObjEneDDFv(void);
 void translate_matrix(int, f32, f32, f32);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 extern Vec_800C220C lbl_8043BBB4[];
-extern s32 model_render_flags;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5178;
 extern s32 lbl_805D517C;
@@ -1573,10 +1512,6 @@ extern const f32 lbl_805D9FB0;
 extern const f32 lbl_805D9FB4;
 extern const f32 lbl_805D9FB8;
 void TObjPlayer__sub_800C220C(Obj_800C220C *o);
-}
-
-extern "C" {
-
 void *__dt__12TObjEneLappyFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
@@ -1592,11 +1527,6 @@ s32 init_collision_body_parts(void *, void *, int);
 extern s32 lbl_805D2A40;
 extern s32 lappy_variant_id;
 extern void *rappy_bml_resource;
-extern const f32 lbl_805D9F2C;
-extern const f32 lbl_805D9F60;
-extern const f32 lbl_805D9F84;
-extern const f32 lbl_805D9F94;
-extern const f32 lbl_805D9F98;
 
 extern "C" void TLobby__sub_801A1FD8();
 extern "C" void vfunc_29__13TUnk_804806E8Fv();
@@ -1868,8 +1798,6 @@ void spawn_npc_enemy__6TLobbyFslllff(int, int, int, void *, f32, f32);
 extern u8 lbl_8043BA28[];
 extern u8 lbl_8043BA44[];
 extern const Desc_800C17B8 lappy_resource_binding_desc;
-extern const f32 lbl_805D9F28;
-extern const f32 lbl_805D9F4C;
 extern s32 game_difficulty_selection;
 extern s32 TLobby__event_theme_id;
 extern s32 rappy_alternate_texture_list;
@@ -2122,9 +2050,6 @@ u8 *TObjEneLappy__ct(u8 *self, s32 arg1, Set_800C1C4C *set) {
 }
 
 int TObjEneLappy::is_lying_down() { return 0; }
-
-extern void *rappy_bml_resource;
-extern s32 rappy_alternate_texture_list;
 
 void TObjEneLappy::set_speed_params(s32 arg1) {
     s32 var_r0;

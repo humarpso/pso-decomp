@@ -32,14 +32,7 @@ void sndStreamMixParameterEx(s32 h, u8 a, u8 b, u8 c, u8 d, u8 e);
 extern u8 gcrna_volume_table[];
 extern s32 gcrna_pan_table[];
 void set_sound_stream_volume(Obj_803D4540 *o, s32 vol);
-void sndStreamMixParameterEx(s32 h, u8 a, u8 b, u8 c, u8 d, u8 e);
-extern u8 gcrna_volume_table[];
-extern s32 gcrna_pan_table[];
 void sndStreamFrq(s32, s32);
-}
-
-extern "C" {
-
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)

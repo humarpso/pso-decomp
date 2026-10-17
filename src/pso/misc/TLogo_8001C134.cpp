@@ -9,13 +9,7 @@ extern u32 logo_texture_e_handle;
 void register_texture_logo_e(void);
 int queue_destruction__7TObjectFv(void);
     extern int TLogo__exit_requested_flag;
-}
-
-extern "C" {
-
 void TLobby__sub_803DA16C(void*);
-
-extern u32 logo_texture_e_handle;
 
 void TLogo::free_held_object() {
     if ((u32) logo_texture_e_handle != 0U) {

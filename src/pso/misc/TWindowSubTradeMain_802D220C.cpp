@@ -8,11 +8,6 @@ struct T_802D2240 { s32 a; s32 b; };
 
 extern "C" {
 void TLobby__sub_802D22F0(void* p, void* q);
-}
-
-extern "C" {
-
-void TLobby__sub_802D22F0(void* p, void* q);
 void * TLobby__sub_802D2334(void);
 
 s32 TWindowSubTradeMain::get_state() {

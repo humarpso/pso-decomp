@@ -55,7 +55,6 @@ struct PktHdr_801DA4A0 {
 };
 
 #include <string.h>
-#include "pso/misc/TLobby.h"
 struct VBase_18_801DA548 { char pad[0x18]; };
 
 struct VObj_18_801DA548 : VBase_18_801DA548 {
@@ -103,15 +102,10 @@ void bswap_cmd_D3_item_bank(void *);
 int sprintf(char *, const char *, ...);
 extern char TProtocol__recv_trade_list_log_format[];
 void handle_cmd_D3__9TProtocolFR6packet(u8 *arg0, Pkt_801DA35C *src);
-void bswap_cmd_D3_item_bank(void *);
-int sprintf(char *, const char *, ...);
 extern char TProtocol__send_trade_list_log_format[];
 void send_trade_list__6TLobbyFPvPv(VObj_18_801DA4A0 *obj, Pkt_801DA4A0 *src);
 int TLobby__sub_801DF024(void *);
 int TLobby__sub_801DF064(void *);
-}
-
-extern "C" {
 typedef void (*Fn_801DA240)(char *);
 typedef void (*Fn_801DA5E4)(void *);
 

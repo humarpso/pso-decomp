@@ -30,17 +30,9 @@ extern RecoveredGlobal_802DEDA8_TAdMultiPlyChrSelectGC__data_804727B0 TAdMultiPl
 extern RecoveredGlobal_802DEDA8_lbl_804727D0 multi_play_chr_select_slot_positions;
 extern s8 controller_physical_port_bank[];
 void TAdMultiPlyChrSelectGC__sub_802DEDA8(u8 *arg0);
-}
-
-extern "C" {
-
 s32 TAdMultiPlyChrSelectGC__sub_802C6848(s32);
-s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 *get_localized_text_entry(s32, s32);
-s32 play_sound_effect(s32, s32, s32, s32);
-s32 TAdMultiPlyChrSelectGC__sub_802C6558();
 
-extern s8 controller_physical_port_bank[];
 extern s32 TAdMultiPlyChrSelectGC__data_805DE898;
 
 void TAdMultiPlyChrSelectGC::update_button_input() {

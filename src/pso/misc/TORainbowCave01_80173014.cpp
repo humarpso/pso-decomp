@@ -56,7 +56,6 @@ extern u32 TORainbowCave01__static_model_resource;
 u8 * init_map_object_base(void *);
 extern s32 __vt__15TORainbowCave01[];
 extern s32 TORainbowCave01__name;
-extern u32 TORainbowCave01__static_model_resource;
 u8 *TORainbowCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void rotate_matrix_y(s32, s32);
 void push_matrix(void);
@@ -68,10 +67,6 @@ void set_chunk_material_color(void *);
 extern Color_8017310C chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-}
-
-extern "C" {
-
 void *__dt__15TORainbowCave01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 f32 horizontal_distance_squared(s32, s32);
@@ -162,16 +157,12 @@ void *TORainbowCave01::create(void *arg0) {
     return o;
 }
 
-extern u32 TORainbowCave01__static_model_resource;
-
 void TORainbowCave01::free_static_data() {
     if ((u32) TORainbowCave01__static_model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TORainbowCave01__static_model_resource, 1);
         TORainbowCave01__static_model_resource = 0U;
     }
 }
-
-extern s32 __vt__15TORainbowCave01[];
 
 void TORainbowCave01::load_resource_instance() {
     s32 temp_r3;

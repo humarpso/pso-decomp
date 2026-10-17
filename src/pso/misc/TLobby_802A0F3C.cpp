@@ -13,14 +13,8 @@ extern const s32 lbl_804661F8[];
 extern const s32 current_language;
 extern u32 lbl_805D6630;
 void TLobby__sub_802A0F70(void);
-}
-
-extern "C" {
-
 int TObjPlayer__sub_802A1018(void);
 void TLobby__sub_803DA16C(void*);
-
-extern u32 lbl_805D6630;
 
 void TLobby::free_dialog_global() {
     if ((u32) lbl_805D6630 != 0U) {

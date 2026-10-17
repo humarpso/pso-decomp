@@ -1080,8 +1080,6 @@ struct VObj_8_684c72 : VBase_8_684c72 {
 #pragma dont_inline off
 struct ByteBlock_C { u8 bytes[0xc]; };
 #pragma pop
-extern "C" {
-
 struct Base_801D0F0C { char pad[0x8]; };
 
 struct VObj_801D0F0C : Base_801D0F0C {
@@ -1114,8 +1112,6 @@ struct VObj_801D0F0C : Base_801D0F0C {
 struct Pkt_801D1888 { u8 cmd; u8 size; u8 pad[2]; u16 a; u16 b; };
 
 struct VOff_801D192C_arg0_801D18B0 { char pad_0[0x4]; char f_4[1]; };
-
-}
 #pragma push
 #pragma inline_depth(1)
 #pragma auto_inline off

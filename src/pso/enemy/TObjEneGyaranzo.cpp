@@ -151,16 +151,11 @@ extern const f32 lbl_805DA268;
 extern const f32 lbl_805DA26C;
 extern const f32 lbl_805DA270;
 
-s32 render_anim_model_at_pos__15TObjEneGyaranzoFv(void *);
 u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
-void * __nw__7TObjectFUl(int);
 extern Params_800D2900 lbl_8043C35C;
 extern u8 *gyaranzo_resource_ptrs[];
 extern u32 gyaranzo_bml_resource;
 extern u8 *tl_05;
-}
-
-extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 update_angle__10TObjPlayerFlPv(void *, void *, void *);
 void update_collisions__10TObjPlayerFv(void *);
@@ -204,8 +199,6 @@ void update_walk_to_target__10TObjPlayerFPv(Ene_800D1E4C *arg0) {
 #undef update_angle__10TObjPlayerFlPv
 #undef update_collisions__10TObjPlayerFv
 #pragma push
-
-#include "types.h"
 
 #define CAT2(a, b) a##b
 #define CAT(a, b) CAT2(a, b)
@@ -305,7 +298,6 @@ extern f32 TObjGyaranzoMissile__speed_scale;
 extern f32 TObjGyaranzoMissile__max_range;
 void init_params_from_table__15TObjEneGyaranzoFv(u8 *arg0);
 s32 check_path_obstructed(void *, void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 obj_testFlags30(void *, int);
 u16 obj_getField1c(void *);
@@ -313,23 +305,14 @@ s32 subtract_vector(void *, void *);
 extern Entry_800D20BC TObjGyaranzoMissile_target_slots[];
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
-extern const f32 lbl_805DA258;
 extern const f32 lbl_805DA260;
 void select_targets__19TObjGyaranzoMissileFPv(u8 *arg0);
-s32 spawn_particle_effect(void *, int);
 s32 get_gyaranzo_missile_int_parameter(int);
 s32 TObjGyaranzoMissile__ct(void *, void *, void *, u16);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
-s32 play_sound_effect(int, void *, int, int);
 void *__nw__7TObjectFUl(int);
 extern s32 gyaranzo_missile_volley_end_time;
 void spawn_missile_volley__19TObjGyaranzoMissileFPv(u8 *arg0);
-}
-
-extern "C" {
-
 void update__19TObjGyaranzoMissileFPv(u8 *arg0);
-s32 advance_animation_playback(void *);
 s32 TBoss3Volopt__sub_800D8D88(void *, s32);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 
@@ -508,8 +491,6 @@ void spawn_missile_volley__19TObjGyaranzoMissileFPv(u8 *arg0) {
 #undef V
 #undef NEW
 
-#include "types.h"
-
 struct Vec_800D3314 { f32 x, y, z; };
 
 struct VBase_800D3314 { char pad[0x18]; };
@@ -583,7 +564,6 @@ struct VObj_800D3314 : VBase_800D3314 {
 
 #include <stddef.h>
 #include "pso/misc/TLobby.h"
-#include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -591,7 +571,6 @@ struct VObj_800D3314 : VBase_800D3314 {
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
-#include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/misc/RenderFadeState.h"
 #include "pso/object/TObjFish.h"
 
@@ -618,43 +597,25 @@ struct Obj_800D30A8 {
 
 extern "C" {
 u16 find_nearest_visible_player(void *, int, int, f32);
-s32 update_if_active__15TObjEneMe1GiGueFl(void *, int);
 #define select_targets__19TObjGyaranzoMissileFPv ((s32 (*)(void *))select_targets__19TObjGyaranzoMissileFPv)
-f32 xz_distance_squared(void *, void *);
-extern const f32 lbl_805DA25C;
 extern const f32 lbl_805DA290;
-void apply_actor_gravity(void *, int, f32);
 void enemy_turn_toward_dest(void *, s32);
 #define VecCopy__FP3VecPC3Vec ((u8 * (*)(void *, void *))VecCopy__FP3VecPC3Vec)
-s32 spawn_particle_effect(void *, int);
 void move_along_ground_avoiding_walls__10TObjPlayerFPviff(void *, Vec_800D3314, void *, f32, f32);
 #define render_anim_model_at_pos__15TObjEneGyaranzoFv ((void (*)(void *))render_anim_model_at_pos__15TObjEneGyaranzoFv)
 #define get_gyaranzo_missile_float_parameter ((f32 (*)(int))get_gyaranzo_missile_float_parameter)
 u8 *find_active_entity_by_id(u16);
 #define copy_target_state__14TObjEnePanarmsFPv ((s32 (*)(void *, int))copy_target_state__14TObjEnePanarmsFPv)
-s32 advance_animation_playback(void *);
-void update_collisions__10TObjPlayerFv(void *);
 #define play_sound_effect ((s32 (*)(void *, void *, int, int))play_sound_effect)
 extern s32 actor_frame_tick;
-extern const f32 lbl_805DA258;
-extern const f32 lbl_805DA270;
 void TObjPlayer__sub_800D3314(u8 *arg0);
-s32 update_angle__10TObjPlayerFlPv(void *, void *, void *);
 #define spawn_missile_volley__19TObjGyaranzoMissileFPv ((s32 (*)())spawn_missile_volley__19TObjGyaranzoMissileFPv)
 #define get_gyaranzo_missile_int_parameter ((s16 (*)(int))get_gyaranzo_missile_int_parameter)
-s32 subtract_vector(void *, void *);
-extern const f32 lbl_805DA258;
 extern const f32 lbl_805DA274;
 extern const f32 lbl_805DA278;
-s32 move_with_wall_slide(void *);
 #define check_path_obstructed ((s32 (*)(void *, Vec_800D30A8 *))check_path_obstructed)
-extern const f32 lbl_805DA258;
 extern const f32 lbl_805DA280;
 void TObjPlayer__sub_800D30A8(Obj_800D30A8 *arg0);
-}
-
-extern "C" {
-
 typedef struct Ene_800D2E8C {
     u8 pad0[0x38C];
     s32 count;
@@ -781,7 +742,6 @@ s32 submit_cursor_candidate(void *, s32);
 s32 minimap_render_dot(void *, s32, s32, s32);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 __dl__7TObjectFPv(void *);
-void * __nw__7TObjectFUl(int);
 s32 spawn_npc_enemy__6TLobbyFslllff(int, int, int, void *, f32, f32);
 void __destroy_arr(void *, void *, int, int);
 s32 __construct_array(void *, void *, void *, int, int);
@@ -795,18 +755,15 @@ extern Pos_800D3C04 lbl_8043C25C;
 extern Vec_800D35D8 lbl_8043C26C;
 extern s32 lbl_8043C428[];
 extern u32 *gyaranzo_model_resources[];
-extern u8 *gyaranzo_resource_ptrs[];
 extern s32 lbl_805D2A78;
 extern s32 gyaranzo_boss_stats_handle;
 extern s32 gyaranzo_boss_stats_ptr_b;
 extern s32 gyaranzo_object_handle;
 extern s32 gyaranzo_missile_param_table;
-extern u32 gyaranzo_bml_resource;
 extern u32 *lbl_805D5200;
 extern u32 *lbl_805D5204;
 extern s32 gyaranzo_breakup_model_obj;
 extern s32 lbl_805D5660;
-extern const f32 lbl_805DA258;
 extern const f32 lbl_805DA27C;
 extern const f32 lbl_805DA284;
 extern const f32 lbl_805DA288;

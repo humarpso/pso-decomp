@@ -40,10 +40,6 @@ extern Vec_801A4D30 lbl_8044694C;
 extern Pair_801A4D30 lbl_80446958[];
 extern Pair_801A4D30 lbl_80446960[];
 extern const f32 lbl_805DC0A8;
-}
-
-extern "C" {
-
 void TUnk_804C2298::run_task() {
     Obj_801A4D30 *self = (Obj_801A4D30 *)this;
     Vec_801A4D30 pos = lbl_80446940;

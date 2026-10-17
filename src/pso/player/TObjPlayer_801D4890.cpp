@@ -48,14 +48,9 @@ extern "C" {
 void remove_equipped_item__10TObjPlayerFPvii(void *, s32, s32);
 s32 start_inventory_update__10TObjPlayerFi(void *, s32);
 s32 TObjPlayer__sub_801D49F4(void *arg0, void *arg1, s32 *arg2, s32 arg3);
-}
-
-extern "C" {
-
 s32 place_on_ground__5TItemFPvsPvi(void *, s16, s32, s32);
 s32 unequip_item__10TObjPlayerFiPv(s32, void *);
 s32 is_item_equipped(void *);
-s32 start_inventory_update__10TObjPlayerFi(void *, s32);
 void *get_owner_if_alive__10TObjPlayerFv();
 s32 queue_destruction__7TObjectFv(s32, s16);
 
@@ -63,7 +58,6 @@ s32 queue_destruction__7TObjectFv(s32, s16);
     extern int inventory_walk_visit_count;
 int TObjPlayer::run_and_get_result(int a1) { TObjPlayer__owner_field_write_cursor = a1; inventory_walk_visit_count = 0; ((TObjPlayer *)(*(int *)&this->unk_1C4))->collect_owner_fields_recursive(); return inventory_walk_visit_count; }
 
-    extern int inventory_walk_visit_count;
     extern int owned_item_export_cursor;
 int TObjPlayer::run_state_query(int a1) { owned_item_export_cursor = a1; inventory_walk_visit_count = 0; ((TObjPlayer *)(*(int *)&this->unk_1C4))->count_owned_items(); return inventory_walk_visit_count; }
 

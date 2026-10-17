@@ -7,10 +7,6 @@ u32 format_item_description(void *);
 void text_builder_append(s32);
 void text_builder_reset(void);
 extern s32 lbl_805DCDE0;
-}
-
-extern "C" {
-
 void TWindowHelpItem::format_description_with_price() {
     u8 *arg0 = (u8 *)this;
     text_builder_reset();

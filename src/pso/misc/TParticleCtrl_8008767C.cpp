@@ -118,57 +118,28 @@ s32 read_disc_file(s32, s32);
 s32 mem_alloc(s32);
 extern u32 particle_pool_limit;
 extern int particle_global_entry_table;
-extern s32 particle_area_entry_table;
-extern int particle_global_entry_table;
 void *alloc_particle_memory(int);
 u8 *create_ballistic_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
-void *alloc_particle_memory(int);
 int queue_destruction__7TObjectFv(void *);
 f32 vec_squared_length(void *);
 void __dt__13TUnk_8048E728Fv(void *, int);
-void *alloc_particle_memory(int);
 u8 *create_orbit_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
-void *alloc_particle_memory(int);
 extern const f32 TParticleCtrl__data_805D9528;
-int queue_destruction__7TObjectFv(void *);
-void __dt__13TUnk_8048E728Fv(void *, int);
-void *alloc_particle_memory(int);
 u8 *create_radial_particle(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4);
-void *alloc_particle_memory(int);
-int queue_destruction__7TObjectFv(void *);
 extern const f32 TParticleCtrl__data_805D9558;
 extern const f32 TParticleCtrl__data_805D955C;
-f32 vec_squared_length(void *);
-void __dt__13TUnk_8048E728Fv(void *, int);
 extern s32 TParticleCtrl__data_8048E7A8[];
-int queue_destruction__7TObjectFv(void *);
 u8 * init_particle_base(void *, void *, s32);
 s32 rand(void);
-extern s32 TParticleCtrl__data_8048E7A8[];
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
-extern const f32 TParticleCtrl__data_805D9558;
-extern const f32 TParticleCtrl__data_805D955C;
-extern const f32 lbl_805D9568;
-extern const f32 lbl_805D956C;
-u8 * init_particle_base(void *, void *, s32);
-s32 rand(void);
-extern s32 TParticleCtrl__data_8048E7A8[];
-extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
-extern const f32 TParticleCtrl__data_805D9558;
-extern const f32 TParticleCtrl__data_805D955C;
 extern const f32 lbl_805D9568;
 extern const f32 lbl_805D956C;
 void *load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
-s32 read_disc_file(s32, s32);
-s32 mem_alloc(s32);
 u32 load_gvm_texture_file(void *);
 int sprintf(char *, const char *, ...);
 char *strcpy(char *, const char *);
 void *memset(void *, int, u32);
-extern s32 particle_area_entry_table;
-extern u32 TParticleCtrl__regular_bml_resource;
-extern u32 TParticleCtrl__texture_list;
 void load_particle_entry_resources(void);
 extern char lbl_80439494[];
 extern char lbl_804394A4[];
@@ -189,54 +160,23 @@ s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(u32);
 s32 draw_ginja_model_with_motion(u32, u32, f32);
-extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-extern const f32 TParticleCtrl__data_805D9528;
 void VecCopy__FP3VecPC3Vec(void *, const void *);
-s32 is_split_screen();
-s32 setup_particle_tev(s32);
-s32 load_projected_texture_matrix(f32);
-s32 set_depth_buffer_settings_id__FUl(s32);
-s32 append_node_to_tail__13TParticleCtrlFPvPv(s32, void *);
-s32 all_parents_unqueued_for_destruction__7TObjectFv();
-s32 scale_matrix(s32, f32, f32, f32);
-s32 rotate_matrix_y(s32, s32);
-s32 rotate_matrix_z(s32, s32);
-s32 rotate_matrix_x(s32, s32);
-s32 push_matrix(f32);
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
-s32 draw_ginja_object(u32);
-s32 draw_ginja_model_with_motion(u32, u32, f32);
-extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
-extern u8 *camera_ctrl_instance;
-extern s32 lbl_805D5660;
-extern s32 model_render_flags;
-extern const f32 TParticleCtrl__data_805D955C;
-void set_particle_tint_color(u8 *arg0, void *arg1);
-u8 *create_ballistic_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
-u8 *create_orbit_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
-u8 *create_radial_particle(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4);
-int queue_destruction__7TObjectFv(void *);
 int TParticleCtrl__sub_800884F0(void* p);
 void set_particle_draw_scale(void* p, f32 a, f32 b);
-s32 is_split_screen();
-s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 TLoadCtrl__sub_8001C60C();
 f32 horizontal_distance_squared(void *, void *);
 u8 *get_player_by_client_id(s32);
 f32 sin_table_lookup(s32);
 f32 fabs_float(f32);
 extern GenEntry_8008767C particle_ctrl_generator_table[];
-extern u8 *camera_ctrl_instance;
 extern void *tl_07;
 extern void *tl_particlemodel;
 void run_task__13TParticleCtrlFv(Ctrl_8008767C *self);
 }
 
-#include "types.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/object/TObjFish.h"
@@ -244,11 +184,8 @@ void run_task__13TParticleCtrlFv(Ctrl_8008767C *self);
 
 extern "C" {
 
-int TParticleCtrl__sub_800884F0(void* p);
-void set_particle_draw_scale(void* p, f32 a, f32 b);
 void clear_active_flag__13TParticleCtrlFv(void* p);
 int copy_xyz__10TObjPlayerFPv(void*);
-int mem_free(void*);
 
 #pragma push
 #pragma fp_contract on
@@ -468,10 +405,8 @@ struct ParticleCtrlData {
 };
 
 void __ct__7TObjectFP7TObject(void *, void *);
-void VecCopy__FP3VecPC3Vec(void *, const void *);
 
 extern void *__vt__13TParticleCtrl[];
-extern void *tl_07;
 extern void *tl_clipout;
 
 #define COPY_PARTICLE_DIRECTION(particle, direction) do {                      \
@@ -669,7 +604,6 @@ void set_particle_tint_color(u8 *arg0, void *arg1) {
 
 void set_particle_draw_scale(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0xa4) = a; *(f32*)((char*)p + 0xa8) = b; }
 
-    extern int particle_global_entry_table;
 void TParticleCtrl::free_system() { mem_free((void*)(particle_global_entry_table)); particle_global_entry_table = 0; }
 void TParticleCtrl::free_all() {
     mem_free((void*)(particle_area_entry_table));
@@ -723,8 +657,6 @@ void load_particle_entry_resources(void) {
     TParticleCtrl__texture_list = load_gvm_texture_file(lbl_804394D4);
 }
 
-}
-extern "C" {
 __declspec(section ".rodata") extern char lbl_80439494[] = "particleentrya";
 __declspec(section ".rodata") extern char lbl_804394A4[] = "particleentrya0%d.dat";
 __declspec(section ".rodata") extern char lbl_804394BC[] = "particleentrya%d.dat";

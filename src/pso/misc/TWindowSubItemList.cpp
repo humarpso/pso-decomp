@@ -21,10 +21,6 @@ s32 fn_802683F4(void *, void *, int, void *);
 extern s32 __vt__18TWindowSubItemList[];
 extern s32 TWindowSubItemList__class_name;
 u8 *TWindowSubItemList__ct(u8 *arg0, s32 arg1, s16 arg2);
-}
-
-extern "C" {
-
 void *__dt__18TWindowSubItemListFv(void *arg0, s16 arg1);
 int update_item_list_window(void*);
 void __dl__7TObjectFPv(void *);
@@ -62,8 +58,6 @@ void TWindowSubItemList::render() {
 #pragma pop
 
 void TWindowSubItemList::run_task() { { (void)(update_item_list_window(this)); return; } }
-
-extern s32 __vt__18TWindowSubItemList[];
 
 void *__dt__18TWindowSubItemListFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

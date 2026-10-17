@@ -54,9 +54,7 @@ extern s32 __vt__19TWindowSubMagPhoton[];
 extern s32 TWindowSubMagPhoton__class_name;
 u8 *TWindowSubMagPhoton__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3);
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 is_player_input_active(int);
 s32 apply_choice__20TWindowChoiceSettingFllll(void *, int, int, int);
-extern RecoveredGlobal_8027C56C_lbl_8050E208 controller_input_state;
 void draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(void *, void *, int, f32);
 extern const f32 lbl_805DD680;
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
@@ -67,23 +65,14 @@ s32 TWindowSubEquip__sub_80263AF8(s32, s32);
 s32 test_keyboard_card_flag4(int);
 s32 get_window_layout_position(s32);
 extern u8 lbl_8044FA28[];
-}
-
-extern "C" {
-
 void *__dt__19TWindowSubMagPhotonFv(void *arg0, s16 arg1);
-s32 play_sound_effect(s32, s32, s32, s32);
 s32 get_selected_menu_value(s32);
 s32 align_menu_entry_positions(s32);
-s32 get_window_layout_position(s32);
-s32 TWindowSubEquip__sub_80263AF8(s32, s32);
 s32 TWindowSubQuestBoard__sub_8027CF50(s32, s32);
 void __dl__7TObjectFPv(void *);
 s32 create_titled_window_menu(s32, s32, s32, s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
-s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 is_split_screen();
-s32 set_field_1c__6TLobbyFf(s32);
 s32 update_selected_item__17TWindowOptionCtrlFv(s32);
 
 void TWindowSubMagPhoton::handle_cancel() {
@@ -97,8 +86,6 @@ void TWindowSubMagPhoton::play_open_sound() {
     play_sound_effect(0x52D01, 0, 0, 0);
     this->m_60 = (u8) (this->m_60 | 1);
 }
-
-extern s32 __vt__19TWindowSubMagPhoton[];
 
 typedef char RecoveredGlobal_8027C2D0_lbl_8050E208_size[sizeof(RecoveredGlobal_8027C2D0_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void TWindowSubMagPhoton::update_selection_input() {

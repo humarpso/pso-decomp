@@ -60,8 +60,6 @@ void vfunc_14__13TItemProArmorFv(u8 *arg0);
 void * TItemProArmor__sub_80117650(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-extern s32 tl_05;
 u8 *create_item_grinder(u8 *arg0);
 u8 * TItemEquipBase__ct(void *);
 s16 get_bswap16_field8__9TItemDataFPv(void *);
@@ -70,11 +68,7 @@ s32 lookup_item_pmt_record(void *);
 extern void *__vt__13TItemProArmor[];
 extern s32 lbl_805D2C30;
 u8 *TItemProArmor__ct(u8 *arg0, s32 arg1, u8 *arg2);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-s32 lookup_item_pmt_record(void *);
-u8 *TItemProArmor__ct(u8 *arg0, s32 arg1, u8 *arg2);
 s32 TItemProArmorParticle__ct(int, int, void *);
-extern s32 tl_05;
 s32 get_id__13TItemProArmorFv(void *);
 void *fn_80107DA4(void *, void *, s32);
 void *init_vtable__13TUnk_804A0668Fv(void *arg0);
@@ -84,10 +78,6 @@ void *init_item_timer_event__13TUnk_804A0648Fv(void *, void *, s32, s32);
 void *__nw__7TObjectFUl(int);
 void *__nw__15TItemHeapObjectFUl(int);
 void vfunc_44__13TItemProArmorFv(Armor_80117954 *self);
-}
-
-extern "C" {
-
 void *__dt__13TUnk_8049FF88Fv(void *arg0, s16 arg1);
 void TItemProArmor__sub_801178A8(void* p, void* q);
 u8 vfunc_39__13TItemProArmorFv(void* p);
@@ -96,8 +86,6 @@ void TItemProArmor__sub_80117D04(void);
 void vfunc_16__13TItemProArmorFv(void *arg0);
 void *__dt__13TItemProArmorFv(void *arg0, s16 arg1);
 void vfunc_44__13TUnk_8049FF88Fv(void *arg0);
-void *ct__13TUnk_804A0688Fv(void *arg0);
-void *init_vtable__13TUnk_804A0668Fv(void *arg0);
 void vfunc_46__13TItemProArmorFv(void* p);
 void write_item_data__13TItemProArmorFPvPv(void *arg0, void *arg1);
 void TItemObject__ct(void *);
@@ -155,8 +143,6 @@ void *__dt__13TUnk_8049FF88Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern void *lbl_8049FF88[];
 
 void *TUnk_8049FF88::init_item_object(void *_w1, void *_w2) {
     TItemObject__ct(this);
@@ -531,8 +517,6 @@ s32 TItemProArmor::create_armor_object() {
 
 void TItemProArmor__sub_80117D00(void) {  }
 void TItemProArmor__sub_80117D04(void) {  }
-
-extern void *__vt__13TItemProArmor[];
 
 void *__dt__13TItemProArmorFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

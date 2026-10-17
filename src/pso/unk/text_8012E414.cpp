@@ -13,10 +13,6 @@ s32 rand(void);
 extern RecoveredGlobal_8012E414_lbl_804A5D10 lbl_804A5D10;
 extern const f32 lbl_805DAF74;
 extern const f32 lbl_805DAF78;
-}
-
-extern "C" {
-
 #pragma push
 #pragma opt_common_subs off
 #pragma fp_contract on

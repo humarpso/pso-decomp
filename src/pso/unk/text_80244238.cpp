@@ -29,9 +29,6 @@ extern const f32 lbl_805DCAB0;
 Ctx_80244364 *setup_window_draw_context__13TUnk_804CE018Fl(Obj_80244364 *self, f32 *p);
 Ctx_80244364 *get_draw_context__11TWindowBaseFPv(Obj_80244364 *self);
 extern const f32 lbl_805DCAA8;
-}
-
-extern "C" {
 
 #pragma push
 #pragma fp_contract on

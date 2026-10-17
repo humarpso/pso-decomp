@@ -5,10 +5,6 @@
 extern "C" {
 extern void *lbl_8048DF94[];
 void launch_switcher_dol(void *p);
-}
-
-extern "C" {
-
 void *TDLGraph__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 

@@ -6,10 +6,6 @@ s32 __nw__7TObjectFUl(int);
 s32 TWindowMeseta__ct(int, int, void *, int);
 s32 get_window_layout_position(int);
 s32 create_meseta_window(s32 arg0);
-}
-
-extern "C" {
-
 #pragma push
 #pragma scheduling off
 s32 create_meseta_window(s32 arg0) {

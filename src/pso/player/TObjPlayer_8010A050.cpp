@@ -92,16 +92,11 @@ extern const s32 lbl_8043E280[];
 extern const s32 lbl_8043E2A0[];
 extern s32 lbl_8049F130[];
 Obj_8010A1D0 *TObjPlayer__sub_8010A1D0(Obj_8010A1D0 *self, void *parent, s16 a, u8 b);
-}
-
-extern "C" {
-
 s32 TObjPlayer__sub_8010A058(void* p);
 void *__dt__13TUnk_8049F130Fv(void *arg0, s16 arg1);
 s32 get_field_3e0__12TBoss3VoloptFv();
 s32 create_timed_particle_emitter(s32, s32, s32, s32);
 s32 spawn_particle_effect(s32, s32);
-u32 get_item_system_generation();
 s32 is_item_area_enabled();
 VObj_8010A26C *get_player_by_client_id(u16);
 void __dl__7TObjectFPv(void *);
@@ -153,8 +148,6 @@ void TUnk_8049F130::run_task() {
     }
     *(s32 *)&this->unk_1C = (s32) (*(s32 *)&this->unk_1C + 1);
 }
-
-extern s32 lbl_8049F130[];
 
 void *__dt__13TUnk_8049F130Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -17,23 +17,10 @@ extern s32 lbl_805D3400;
 extern u32 quest_collision_task_root;
 Obj_80195CF0 *find_by_id__13TQuestColCtrlFUs(u16 arg0);
 void queue_destruction__7TObjectFv(void *);
-s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
-extern s32 TObjQuestCol__class_name;
-extern s32 TObjQuestColA__class_name;
-extern s32 obj_quest_col_alock_class_name;
-extern s32 obj_quest_col_apc_class_name;
-extern s32 lbl_805D33FC;
-extern s32 lbl_805D3400;
-extern u32 quest_collision_task_root;
-}
-
-extern "C" {
-
 s32 TQuestColCtrl__ct(s32, s32);
 u32 __ct__7TObjectFP7TObject(s32, s32);
 u32 __nw__7TObjectFUl(s32);
 
-extern u32 quest_collision_task_root;
 extern s32 tl_05;
 
 Obj_80195CF0 *find_by_id__13TQuestColCtrlFUs(u16 arg0) {

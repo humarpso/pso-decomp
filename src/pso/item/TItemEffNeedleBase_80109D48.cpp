@@ -22,7 +22,6 @@ u32 query_game_join_id__10TObjPlayerFv(int);
 extern const f32 lbl_805DAB50;
 extern const f32 lbl_805DAB54;
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-u32 query_game_join_id__10TObjPlayerFv(int);
 void rotate_matrix_by_node_angles(void *, s32);
 void push_matrix();
 void pop_matrix();
@@ -33,10 +32,6 @@ extern u8 saved_model_draw_color[];
 extern u8 model_material_color[];
 extern u32 lbl_805D5660;
 extern u32 model_render_flags;
-}
-
-extern "C" {
-
 u8 *__ct__18TItemEffNeedleBaseFv(u8 *arg0, void *arg1, u8 *arg2);
 s32 __ct__7TObjectFP7TObject();
 

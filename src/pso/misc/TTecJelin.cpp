@@ -147,19 +147,9 @@ s32 play_sound_effect(int, void *, int, int);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 obj_getField1c(void *);
 Jelin_80233958 *construct__9TTecJelinFPviiii(Jelin_80233958 *self, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
-void VecCopy__FP3VecPC3Vec(Vec_80233958 *, Vec_80233958 *);
-s32 obj_getField1c(void *);
-s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
-s32 play_sound_effect(int, void *, int, int);
 void copy_technique_target_list(void *, void *);
 void init_technique_effect_base(void *, void *, void *, void *);
-extern s32 __vt__9TTecJelin[];
-extern s32 tec_jelin_class_name_ptr;
 Jelin_80233808 *TTecJelin__ct(Jelin_80233808 *self, void *_w1, void *_w2, void *_w3, void *_w4);
-}
-
-extern "C" {
-
 void *__dt__9TTecJelinFv(void *arg0, s16 arg1);
 s32 calc_technique_parameters(s32, s16, s32);
 void __dl__7TObjectFPv(void *);
@@ -197,8 +187,6 @@ void TTecJelin::create(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
 }
 void TTecJelin::render() {  }
-
-extern s32 __vt__9TTecJelin[];
 
 void run_task__9TTecJelinFv(struct Self_802336F0 *self) {
     s32 i;

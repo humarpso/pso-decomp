@@ -25,10 +25,6 @@ struct O_80065FD4 { u16 a; u16 b; u32 c[4]; };
 extern "C" {
 void bswap_16__FPUs(u16 *);
 s32 bswap_32__FPUl(s32);
-}
-
-extern "C" {
-
 s32 *TBoss8Dragon__sub_80065F08(void);
 void TBoss8Dragon__sub_800660A4(void* p);
 void TBoss8Dragon__sub_80066108(void);
@@ -36,7 +32,6 @@ void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32
 void fn_800660B8(u8 *arg0);
 int TLobby__send_and_handle_60(void*);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-s32 bswap_32__FPUl(s32);
 s32 read_be16_field2__10TObjPlayerFv(void *);
 
 extern RecoveredGlobal_80065EA0_lbl_80487CCC_80065C90 boss8_dragon_follow_camera_offsets;
@@ -45,8 +40,6 @@ extern int boss5_gryphon_instance;
 extern RecoveredGlobal_80065DB4_lbl_804FF5B4_80065C90 boss5_gryphon_behavior_params;
 extern const f32 lbl_805D8D5C;
 extern RecoveredGlobal_80065F08_lbl_80437938_80065C90 lbl_80437938;
-
-    extern int boss5_gryphon_instance;
 
 typedef char RecoveredGlobal_80065EA0_lbl_80487CCC_size[sizeof(RecoveredGlobal_80065EA0_lbl_80487CCC_80065C90) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_80065EA0_lbl_80487CD8_size[sizeof(RecoveredGlobal_80065EA0_lbl_80487CD8_80065C90) == 0x354 ? 1 : -1];

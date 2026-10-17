@@ -2,9 +2,7 @@
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern u32 secondary_card_character_save_buffer;
-}
 
 extern "C" {
 

@@ -78,18 +78,8 @@ extern const f32 lbl_805DB390;
 extern const f32 lbl_805DB394;
 u8 *TOComputerMachine01__ct(u8 *arg0, s32 arg1);
 void TLobby__sub_8001FE7C(void *, s32);
-extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMachine01__scroll_mesh_ptrs;
-extern s32 TOComputerMachine01__last_render_frame_tick;
-extern u8 *TOComputerMachine01__model_resource;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern s32 bm_fs_obj_kenkyu_com_resource_descriptor[];
-extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMachine01__scroll_mesh_ptrs;
-extern s32 TOComputerMachine01__last_render_frame_tick;
-extern u8 *TOComputerMachine01__model_resource;
-}
-
-extern "C" {
-
 void *__dt__19TOComputerMachine01Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
@@ -137,8 +127,6 @@ void *TOComputerMachine01::create(void *arg0) {
     }
     return o;
 }
-
-extern s32 __vt__19TOComputerMachine01[];
 
 void TOComputerMachine01::reset_state() {
     s32 i;

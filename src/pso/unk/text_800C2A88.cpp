@@ -168,10 +168,6 @@ extern const f32 lbl_805D9FCC;
 void fn_800C2AC4(u8 *arg0, int arg1);
 void queue_destruction__7TObjectFv(void *self);
 void fn_800C2A88(void *self, s32 msg);
-}
-
-extern "C" {
-
 typedef struct RecoveredFields_800C2AC4_arg0 RecoveredFields_800C2AC4_arg0;
 typedef struct Stack_800C2AC4 Stack_800C2AC4;
 typedef struct VBase_14_00f1d1 VBase_14_00f1d1;

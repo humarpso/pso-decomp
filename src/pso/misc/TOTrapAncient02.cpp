@@ -110,26 +110,10 @@ extern const f32 lbl_805DBA90;
 extern const f32 lbl_805DBA94;
 extern const f32 lbl_805DBA98;
 void TOTrapAncient02R__vt79(Obj_8017A3C0 *o);
-void set_indexed_flags(void *, s32, s32);
-void submit_cursor_candidate(void *, s32);
-extern const f32 lbl_805DBA78;
-extern const f32 lbl_805DBA80;
 void vfunc_82__16TOTrapAncient02RFv(void *arg0);
-u16 find_nearest_visible_player(void *, int, f32);
-f32 horizontal_distance_squared(void *, void *);
 f32 TObjPlayer__sub_8017A1A4(void *, s32);
-void submit_cursor_candidate(void *, s32);
 void send_6x2C_impose_hold(void *, void *, s32, s32, f32);
-s32 get_player_by_client_id(u32);
 extern s32 local_client_id;
-extern const f32 lbl_805DBA78;
-extern const f32 lbl_805DBA80;
-extern const f32 lbl_805DBA84;
-extern const f32 lbl_805DBA88;
-}
-
-extern "C" {
-
 struct Obj_8017A8B0 {
     u8 pad[0x38];
     f32 pos[3];
@@ -330,7 +314,6 @@ struct Trap_8017B6D8 {
     s32 f358;
 };
 
-u16 find_nearest_visible_player(void *, int, f32);
 u16 obj_getField1c(void *);
 void obj_setFlags30(void *, u32);
 s32 is_split_screen();
@@ -341,10 +324,8 @@ void * load_resource_from_descriptor(void *, int, char *, int, int, int);
 s32 check_player_flag1__6TLobbyFv();
 void * alloc__23TAdSinglePlyChrSelectGCFv(u32);
 s32 setup_particle_tev(int);
-s32 spawn_particle_effect(void *, int);
 s32 func_80141618__Fv();
 s32 set_depth_buffer_settings_id__FUl(s32);
-f32 horizontal_distance_squared(void *, void *);
 s32 free_collision_body_parts(void *);
 void init_collision_body_parts(void *, void *, s32);
 s32 __dt__6TOTrapFv(void *, s32);
@@ -358,18 +339,13 @@ void render__15TOTrapAncient02Fv(void *arg0);
 void * __dt__15TOTrapAncient02Fv(void *arg0, s16 arg1);
 void * TOTrapAncient02__ct(void *arg0, void *arg1, void *arg2);
 void submit_cursor_and_notify__16TOTrapAncient02RFv(void *arg0);
-void submit_cursor_candidate(void *, s32);
-s32 get_player_by_client_id(u32);
 void play_persistent_sound(int, void *, void *, int, int);
 u8 is_current_floor_switch_set(u16);
 void __dl__7TObjectFPv(void *);
-void * __nw__7TObjectFUl(int);
 void scroll_ginja_mesh_uvs(u32, s32, s32, u16, s32);
 s32 dispatch_input_to_instance__18TAdEnterPasswordGCFi(void *);
-s32 rotate_matrix_y(int, int);
 s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model(int);
 
@@ -377,16 +353,12 @@ extern u32 TOTrapAncient02__shared_resource;
 extern s32 __vt__15TOTrapAncient02[];
 extern u32 lbl_805D31B4;
 extern s32 lbl_805D31B8;
-extern s32 local_client_id;
 extern s32 actor_frame_tick;
 extern s32 game_difficulty_selection;
 extern s32 lbl_805D5ADC;
 extern u32 lbl_805D5AE0;
 extern s32 lbl_805D5AE4;
-extern const f32 lbl_805DBA78;
 extern const f32 lbl_805DBA7C;
-extern const f32 lbl_805DBA80;
-extern const f32 lbl_805DBA94;
 extern const f32 lbl_805DBA9C;
 extern const f32 lbl_805DBAA0;
 extern const f32 lbl_805DBAA4;

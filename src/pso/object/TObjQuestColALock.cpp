@@ -23,10 +23,6 @@ extern RecoveredGlobal_8019677C_lbl_80445E84 TObjQuestColALock__collision_desc;
 extern s32 __vt__17TObjQuestColALock[];
 extern s32 obj_quest_col_alock_class_name;
 u8 *TObjQuestColALock__ct(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 void *__dt__17TObjQuestColALockFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 enable_action_input__10TObjPlayerFPv(s32);
@@ -77,8 +73,6 @@ int TObjQuestColALock::vfunc_15() {
 block_12:
     return 0;
 }
-
-extern s32 __vt__17TObjQuestColALock[];
 
 void *__dt__17TObjQuestColALockFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -69,15 +69,9 @@ void TJudgmentSequence__sub_80215BCC(void *arg0);
 void TJudgmentSequence__sub_80215BA0(void *arg0);
 void TJudgmentSequence__sub_80215BF8(void *arg0);
 extern void *tl_05;
-}
-
-extern "C" {
-
-void TJudgmentSequence__sub_80215BCC(void *arg0);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 s32 close_window__13TShopSequenceFv(void *);
-s32 queue_destruction__7TObjectFv(void *);
 int restore_player_state__13TShopSequenceFv(void*);
 
 void TJudgmentSequence__sub_80215BA0(void *arg0) {
@@ -190,9 +184,6 @@ u8 *__dt__17TJudgmentSequenceFv(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-
-extern "C" {
 s32 TShopSequence__ct(void *);
 extern s32 TJudgmentSequence__class_name;
 u8 *TJudgmentSequence__ct(u8 *arg0, s32 arg1, s32 arg2);

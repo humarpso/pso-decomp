@@ -11,10 +11,6 @@ char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
 extern s32 current_language;
 void fn_8026A1C4(char *dst, char *src, s32 size);
-}
-
-extern "C" {
-
 void fn_8026A14C(void) {
     s32 i;
     for (i = 0x1D; i >= 0; i--) {

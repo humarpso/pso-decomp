@@ -129,12 +129,9 @@ TItemEffHeaven::~TItemEffHeaven() {
     }
 }
 
-#include "types.h"
-
 extern "C" {
 
 int destroy__14TItemEffHeavenFPv(void* p);
-int queue_destruction__7TObjectFv(void*);
 
 Obj_801092A8 *TItemEffHeaven__ct(Obj_801092A8 *self, void *parent, s32 a, s16 b, s32 c) {
     s32 i;

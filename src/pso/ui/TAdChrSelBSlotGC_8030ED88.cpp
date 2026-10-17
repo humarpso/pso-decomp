@@ -15,22 +15,10 @@ s32 TWindow__close(void *);
 s32 get_state_result__22TAdMultiPlyChrSelectGCFv();
 s32 get_global_state__16TAdChrSelBSlotGCFv(void *);
 void TAdChrSelBSlotGC__sub_8030F13C(u8 *arg0);
-s32 TWindow__close(void *);
 u32 TAdChrSelASlotGC__sub_8030CB08(s32, s32, s32);
-s32 get_global_state__16TAdChrSelBSlotGCFv(void *);
 void TAdChrSelBSlotGC__sub_8030F228(u8 *arg0);
-s32 TWindow__close(void *);
-u32 TAdChrSelASlotGC__sub_8030CB08(s32, s32, s32);
-s32 get_global_state__16TAdChrSelBSlotGCFv(void *);
 void TAdChrSelBSlotGC__sub_8030F2E4(u8 *arg0);
-s32 TWindow__close(void *);
-u32 TAdChrSelASlotGC__sub_8030CB08(s32, s32, s32);
-s32 get_global_state__16TAdChrSelBSlotGCFv(void *);
 void TAdChrSelBSlotGC__sub_8030F3A0(u8 *arg0);
-}
-
-extern "C" {
-
 void TAdChrSelBSlotGC__sub_8030EF74(void *arg0);
 void close_windows__16TAdChrSelBSlotGCFPv(void *arg0);
 void reset_windows__16TAdChrSelBSlotGCFPv(void *arg0);
@@ -40,15 +28,11 @@ void update_slot_state__16TAdChrSelBSlotGCFPv(void *arg0);
 s32 TAdChrSelASlotGC__sub_8030C4F8(s32, s32);
 u32 TAdChrSelASlotGC__sub_8030C5C0(s32, s32);
 s32 TAdChrSelASlotGC__sub_8030C688(s32, s32);
-u32 TAdChrSelASlotGC__sub_8030CB08(s32, s32, s32);
 s32 TAdChrSelSlotGC__sub_802C7498(s32, s32);
 u32 create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E24F8(s32, s32, s32, s32, s32);
 s32 TAdSubPlyItemGC__sub_802D6D88(s32);
-s32 TWindow__close(void *);
-s32 get_global_state__16TAdChrSelBSlotGCFv(void *);
-s32 get_state_result__22TAdMultiPlyChrSelectGCFv();
 s32 queue_destruction__7TObjectFv(void *);
 
 void update_slot_state__16TAdChrSelBSlotGCFPv(void *arg0) {

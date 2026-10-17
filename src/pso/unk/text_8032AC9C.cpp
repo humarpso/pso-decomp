@@ -12,10 +12,6 @@ extern P2_8032AC9C password_screen_status_line_position[];
 extern s32 TAdEnterBaseGC__entry_mode;
 extern const f32 lbl_805DF778;
 void fn_8032AC9C(void *arg0, void *arg1);
-}
-
-extern "C" {
-
 void fn_8032AC9C(void *arg0, void *arg1) {
     draw_window_frame();
     render_status_line__15TAdSubPlyItemGCFi(get_localized_text_entry(0x17, 4), -1, password_screen_status_line_position[0].x, password_screen_status_line_position[0].y, lbl_805DF778);

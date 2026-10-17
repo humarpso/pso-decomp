@@ -123,7 +123,6 @@ struct RecoveredGlobal_80360638_lbl_805439FC {
 };
 
 #include <stddef.h>
-#include "pso/enemy/TObjEneEpsilonGuard.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -133,7 +132,6 @@ struct RecoveredGlobal_80360638_lbl_805439FC {
 #include "pso/misc/RenderFadeState.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
 struct Stack_8035F8F0 {
     s32 sp8;
     s32 spC;
@@ -524,15 +522,12 @@ s32 set_indexed_flags(void *, s32, s32);
 extern s32 lbl_805D6FA0;
 s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
-s32 get_bml_model(s32, s32);
 s32 draw_chunk_object();
 s32 rotate_matrix_y(int, int);
 s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 get_mode__11TCameraCtrlFPv(void *);
-extern s32 lbl_805D6FA0;
-extern const f32 lbl_805E0208;
 extern const f32 lbl_805E0214;
 extern const f32 lbl_805E0218;
 s32 set_field_378__9TObjEneDDFl(void *, s32);
@@ -541,26 +536,16 @@ void set_guard_state__19TObjEneEpsilonGuardFPv(void *, s32);
 s32 clear_attack_receipts__9TObjEneDDFv();
 void update_fade__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
-s32 transition_enemy_state(void *, s32);
 void set_guard_state__19TObjEneEpsilonGuardFPv(void *arg0, s32 _w1);
 void TObjEneEpsilonGuard__sub_80360BF8(u8 *arg0, s32 arg1);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
-s32 transition_enemy_state(void *, s32);
-void set_guard_state__19TObjEneEpsilonGuardFPv(void *arg0, s32 _w1);
 s32 advance_animation_playback(void *);
 extern void *lbl_805D6F8C;
 void action__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 draw_line_list(void *, int, int);
 extern RecoveredGlobal_80360638_lbl_804F22CC TObjEneEpsilonGuard__debug_line_list;
 extern RecoveredGlobal_80360638_lbl_805439FC lbl_805439FC;
 extern RecoveredGlobal_8035F8F0_lbl_80479E6C epsilon_guard_table_value_set;
-s32 set_field_378__9TObjEneDDFl(void *, s32);
-s32 transition_enemy_state(void *, s32);
 void TObjEneMe3SinowZoa__sub_800D758C(void *);
-s32 advance_animation_playback(void *);
-void set_guard_state__19TObjEneEpsilonGuardFPv(void *arg0, s32 _w1);
 void TObjEneEpsilonGuard__sub_80361C70(u8 *arg0, s32 arg1);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
@@ -576,73 +561,35 @@ s32 is_state_flag_set__19TObjEneEpsilonGuardFv();
 void TObjEneEpsilonGuard__sub_8035F844(W_8035F844 *arg0, s32 arg1);
 extern T_8035F8A8 lbl_80479E7C[];
 s16 TObjEneEpsilonGuard__sub_8035F8A8(W_8035F8A8 *arg0);
-u32 find_entity_by_id(s32);
 void TObjEneEpsilonGuard__sub_8035DEC0();
 void TObjEneEpsilonGuard__sub_8035FA50(W_8035FA50 *arg0);
-u32 find_entity_by_id(s32);
 s32 is_guard_active__19TObjEneEpsilonGuardFv();
 s32 TObjEneEpsilonGuard__sub_8035FBBC(W_8035FBBC *arg0);
-u32 find_entity_by_id(s32);
-s32 is_state_flag_set__19TObjEneEpsilonGuardFv();
 s32 TObjEneEpsilonGuard__sub_8035FC20(W_8035FC20 *arg0);
-u32 find_entity_by_id(s32);
-u32 find_entity_by_id(s32);
 s32 is_guard_ready__19TObjEneEpsilonGuardFv();
 s32 TObjEneEpsilonGuard__sub_8035FCEC(W_8035FCEC *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-u32 find_entity_by_id(s32);
 s32 TObjEneEpsilonGuard__sub_8035DD74(u32);
 void set_target__19TObjEneEpsilonGuardFlll(u32, V3_8035F970 *, s32, s32);
 extern const f64 lbl_80479E88;
-f32 calc_boss4_scale__10TObjPlayerFi(void *);
-void TObjEneEpsilonGuard__sub_8035F844(W_8035F844 *arg0, s32 arg1);
-s32 TObjEneEpsilonGuard__sub_8035FC20(W_8035FC20 *arg0);
 extern Tbl_8035FFA8 epsilon_guard_attack_pattern_table[];
-extern void *lbl_805D6F8C;
 extern const f32 lbl_805E0210;
 f32 receive_weapon_special_attack__10TObjPlayerFv(void *, void *, void *);
 s16 obj_getS16_118(void *);
 s32 obj_testFlags30(void *, int);
 u16 obj_getField1c(void *);
-s16 TObjEneEpsilonGuard__sub_8035F8A8(W_8035F8A8 *arg0);
-extern const f32 lbl_805E0208;
 f32 receive_weapon_special_attack__19TObjEneEpsilonGuardFPvPvPv(Self_8035F5C8 *o, void *src, Hit_8035F5C8 *hit);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
-s32 transition_enemy_state(void *, s32);
-s32 advance_animation_playback(void *);
 void play_sound_effect(s32, void *, s32, s32);
-void TObjEneEpsilonGuard__sub_8035FA50(W_8035FA50 *arg0);
-s32 TObjEneEpsilonGuard__sub_8035FBBC(W_8035FBBC *arg0);
-void set_guard_state__19TObjEneEpsilonGuardFPv(void *arg0, s32 _w1);
 void handle_guard_action_state__19TObjEneEpsilonGuardFPvi(W_80361508 *self, s32 arg1);
 void queue_destruction__7TObjectFv(void *);
 u32 create_particle_emitter(void *, int);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
-s32 transition_enemy_state(void *, s32);
-s32 advance_animation_playback(void *);
-void play_sound_effect(s32, void *, s32, s32);
-s32 TObjEneEpsilonGuard__sub_8035FCEC(W_8035FCEC *arg0);
-void set_guard_state__19TObjEneEpsilonGuardFPv(void *arg0, s32 _w1);
 void TObjEneEpsilonGuard__sub_803610D0(u8 *arg0, s32 arg1);
-void queue_destruction__7TObjectFv(void *);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
-s32 advance_animation_playback(void *);
-void play_sound_effect(s32, void *, s32, s32);
-void set_guard_state__19TObjEneEpsilonGuardFPv(void *arg0, s32 _w1);
 extern u8 epsilon_guard_destroy_breakup_params[];
 extern s32 lbl_805D6FA4;
 void action_destroy__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1);
-s32 is_split_screen();
-s32 get_camera_mode__11TCameraCtrlFv();
-s32 get_mode__11TCameraCtrlFPv(void *);
 s32 TObjEneMe3SinowZoa__sub_800D72A4(void *);
 s32 update_obstruction_fade(void *);
 s32 set_guard_part_colors(void *, void *, void *, int);
-s32 rotate_matrix_y(int, int);
-s32 translate_matrix(int, f32, f32, f32);
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -653,67 +600,36 @@ extern u8 *epsilon_guard_camera_sample_end_ptr;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-extern const f32 lbl_805E0208;
-extern const f32 lbl_805E0214;
 void draw_with_fade__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1);
-void queue_destruction__7TObjectFv(void *);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-u32 create_particle_emitter(void *, int);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
-s32 transition_enemy_state(void *, s32);
-s32 advance_animation_playback(void *);
 s32 play_persistent_sound(int, void *, void *, int, int);
-void play_sound_effect(s32, void *, s32, s32);
-void set_guard_state__19TObjEneEpsilonGuardFPv(void *arg0, s32 _w1);
 extern Vec4_80360D9C lbl_80479CAC[];
 void handle_warp_state__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1);
 s32 check_path_obstructed(void *, void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
 void obj_setFlags30(void *, s32);
 u32 csnVector(void *, void *, s32);
 void enemy_turn_and_move_on_ground(void *, s32, f32);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
-s32 transition_enemy_state(void *, s32);
 f32 horizontal_distance_squared(void *, void *);
-s32 advance_animation_playback(void *);
 s32 project_actor_to_ground(void *, void *, s32);
 u8 *get_player_by_client_id(s32);
-s32 play_persistent_sound(int, void *, void *, int, int);
-void play_sound_effect(s32, void *, s32, s32);
 void *__nw__7TObjectFUl(u32);
 void create_fire_explosion_effect(void *, void *, s32, s32, f32);
 u32 TObjEneEpsilonGuard__sub_8035FD50(void *, s32);
-void set_guard_state__19TObjEneEpsilonGuardFPv(void *arg0, s32 _w1);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void subtract_vector(void *, void *);
 extern s32 tl_07;
-extern void *lbl_805D6F8C;
-extern const f32 lbl_805E0208;
 extern const f32 lbl_805E022C;
 extern const f32 lbl_805E0230;
 extern const f32 lbl_805E0234;
 void TObjEneEpsilonGuard__sub_803616E4(void *arg0_, s32 arg1);
-f64 atan2_float(f32, f32);
 void get_camera_ctrl__9TObjEneDDFv(void *, void *);
-extern const f64 lbl_80479E90[];
 extern u8 lbl_805439F0[];
-extern s32 epsilon_guard_camera_sample_phase;
-extern u8 *epsilon_guard_angle_sample_write_ptr;
-extern u8 *epsilon_guard_camera_sample_read_ptr;
-extern u8 *epsilon_guard_camera_sample_end_ptr;
-u32 find_entity_by_id(s32);
 s32 TObjEneEpsilonGuard__sub_8035DD68();
 void TObjEneEpsilonGuard__sub_8035FB44(u8 *arg0);
-u32 find_entity_by_id(s32);
-s32 is_guard_ready__19TObjEneEpsilonGuardFv();
 s32 set_flag_8_and_notify__19TObjEneEpsilonGuardFv();
 s32 TObjEneEpsilonGuard__sub_8035FAA8(s32 arg0);
-}
-
-extern "C" {
-
 int TObjEneEpsilonGuard__sub_8035F950(void* p);
 int TObjEneEpsilonGuard__sub_8035F95C(void* p);
 int TObjEneEpsilonGuard__sub_8035F968(void);
@@ -1793,19 +1709,13 @@ void TObjEneEpsilonGuard__sub_80361C70(u8 *arg0, s32 arg1) {
 
 }
 
-extern "C" {
-extern const f32 lbl_805E0208;
-extern const f32 lbl_805E0210;
-extern const f32 lbl_805E0220;
 extern const f32 lbl_805E023C;
 extern const f32 lbl_805E0240;
-}
 
 extern "C" {
 
 void TObjEneEpsilonGuard__sub_80361D4C(u8 *arg0, s32 arg1);
 #define transition_enemy_state ((s32 (*)(void *, int))transition_enemy_state)
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 #define set_field_378__9TObjEneDDFl ((s32 (*)(void *, int))set_field_378__9TObjEneDDFl)
 #define set_guard_state__19TObjEneEpsilonGuardFPv ((s32 (*)(void *))set_guard_state__19TObjEneEpsilonGuardFPv)
 s32 update_linked_position__12TObjEneDD_STFf(f32);
@@ -1871,13 +1781,9 @@ void TObjEneEpsilonGuard::init_params() {
 }
 #pragma pop
 
-}
-
 #undef transition_enemy_state
 #undef set_field_378__9TObjEneDDFl
 #undef set_guard_state__19TObjEneEpsilonGuardFPv
-
-extern "C" {
 #define action_destroy__19TObjEneEpsilonGuardFPvi ((s32 (*)(void *, void *))action_destroy__19TObjEneEpsilonGuardFPvi)
 #define update_fade__19TObjEneEpsilonGuardFPvi ((s32 (*)(void *, void *))update_fade__19TObjEneEpsilonGuardFPvi)
 #define TObjEneEpsilonGuard__sub_80360BF8 ((s32 (*)(void *, void *))TObjEneEpsilonGuard__sub_80360BF8)
@@ -1888,18 +1794,12 @@ extern "C" {
 #define TObjEneEpsilonGuard__sub_803616E4 ((s32 (*)(void *, void *))TObjEneEpsilonGuard__sub_803616E4)
 #define TObjEneEpsilonGuard__sub_80361C70 ((s32 (*)(void *, void *))TObjEneEpsilonGuard__sub_80361C70)
 #define TObjEneEpsilonGuard__sub_80361D4C ((s32 (*)(void *, void *))TObjEneEpsilonGuard__sub_80361D4C)
-}
-
-extern "C" {
-
 #define transition_enemy_state ((int (*)(void*, void*))transition_enemy_state)
 int vfunc_89__9TObjEneDDFv(void*);
 #define VecCopy__FP3VecPC3Vec ((s32 (*)(void *, void *, void *, f32))VecCopy__FP3VecPC3Vec)
 
 void TObjEneEpsilonGuard::update_step() { vfunc_89__9TObjEneDDFv(this); update_position(); }
 void TObjEneEpsilonBody::vfunc_88() {  }
-
-extern const f32 lbl_805E0214;
 
 void TObjEneEpsilonGuard::update_position() {
     u8 *arg0 = (u8 *)this;

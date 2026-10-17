@@ -2,13 +2,8 @@
 
 extern "C" {
 s32 TWindowDD__sub_80346F30(u8 *arg0);
-s32 TWindowDD__sub_80346F30(u8 *arg0);
 s32 get_word_select_context__9TWindowDDFv();
 s32 TWindowDD__sub_80346DB8(s32 arg0);
-}
-
-extern "C" {
-
 void ws_data_load(void);
 void *load_encrypted_archive_data(s32 *);
 
@@ -62,12 +57,9 @@ extern s32 lbl_80478660[];
 extern s32 lbl_80478670[];
 extern s32 lbl_80478680[];
 extern s32 lbl_80478690[];
-extern s32 TWindowDD__window_mode;
 extern s32 TWindowDD__data_805D6E28;
-extern s32 TWindowDD__ws_data_base;
 extern s32 TWindowDD__ws_data_table;
 extern s32 lbl_805D6E34;
-extern s32 window_dd_element_count;
 extern s32 twindowdd_entry_count;
 extern s32 TWindowDD__data_805D6E40;
 extern s32 TWindowDD__data_805D6E44;

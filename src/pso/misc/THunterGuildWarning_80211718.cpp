@@ -7,9 +7,6 @@ struct S_80211718 { u8 pad[0x24]; u32 w[4]; };
 extern "C" {
 void THunterGuildWarning__sub_802119CC(Obj_802119CC *self);
 void TWindow__close(u32);
-}
-
-extern "C" {
 
 void THunterGuildWarning::close_windows() {
     S_80211718 *self = (S_80211718 *)this;

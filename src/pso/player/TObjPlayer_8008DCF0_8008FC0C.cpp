@@ -47,10 +47,6 @@ extern const f32 lbl_805D9674;
 extern const f32 lbl_805D9678;
 extern const f32 lbl_805D967C;
 void TObjEneMe1GiGue__sub_8008FC10(u8 *arg0);
-}
-
-extern "C" {
-
 void TObjEneMe1GiGue__sub_8008FC0C(void);
 
 void TObjEneMe1GiGue__sub_8008FC0C(void) {  }

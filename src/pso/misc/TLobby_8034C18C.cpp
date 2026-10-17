@@ -12,13 +12,6 @@ extern "C" {
 extern s32 info_board_state_flags;
 extern u32 information_board_response_buffer;
 s32 TLobby__sub_8034C1D0(u32 dst, s32 src);
-}
-
-extern "C" {
-
-extern s32 info_board_state_flags;
-extern u32 information_board_response_buffer;
-
 void TLobby::init_once(s32 arg0) {
     if (!(info_board_state_flags & 2) && (information_board_response_buffer != 0U)) {
         info_board_state_flags |= 2;

@@ -24,7 +24,6 @@ void TBoss6Type2__sub_802BE648(u8 *arg0);
 s32 TBoss6Type2__sub_802BB768(void *);
 void TBoss6Type2__sub_802BE6A0(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TBoss6Type2__sub_802BB768(void *);
 extern s32 lbl_805D6758;
 extern u8 lbl_805D675C;
 extern const f32 lbl_805DE3F8;
@@ -35,54 +34,27 @@ extern const f32 lbl_805DE4E0;
 extern const f32 lbl_805DE4E4;
 s32 spawn_particle_effect(void *, int);
 u32 get_player_by_client_id(int);
-s32 play_persistent_sound(int, void *, void *, int, int);
 s32 play_sound_effect(int, void *, int, int);
-extern const f32 lbl_805DE4E0;
-extern const f32 lbl_805DE4E4;
 void TBoss6Type2__sub_802BEC28(u8 *arg0);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 spawn_particle_effect(void *, int);
-u32 get_player_by_client_id(int);
-s32 play_sound_effect(int, void *, int, int);
-s32 TBoss6Type2__sub_802BB768(void *);
 s32 spawn_flow_soul__11TBoss6Type2Fiii(void *, void *, int, f32);
 extern const f32 lbl_805DE404;
 extern const f32 lbl_805DE4E8;
 extern const f32 lbl_805DE4EC;
-s32 play_sound_effect(int, void *, int, int);
-s32 TBoss6Type2__sub_802BB768(void *);
 extern s32 lbl_805D6780;
 extern u8 lbl_805D6784;
 extern const f32 lbl_805DE400;
-extern const f32 lbl_805DE4E8;
 void TBoss6Type2__sub_802BEB78(u8 *arg0);
-s32 play_sound_effect(int, void *, int, int);
-s32 TBoss6Type2__sub_802BB768(void *);
 extern s32 lbl_805D6778;
 extern u8 lbl_805D677C;
-extern const f32 lbl_805DE400;
-extern const f32 lbl_805DE4E8;
 s32 spawn_particle_effect_with_flags(void *, int, int);
-s32 play_sound_effect(int, void *, int, int);
 s32 TBoss6Type2__sub_802BA598(void *, s32, s32);
 void update_death_sequence__11TBoss6Type2FPv(u8 *arg0);
-}
-
-extern "C" {
-
 void TBoss6Type2__sub_802BF3F4(void* p);
 void update_attack_timer__11TBoss6Type2FPv(u8 *arg0);
-s32 play_sound_effect(int, void *, int, int);
 s32 TBoss6Type2__sub_802BA944(void *);
 s32 TBoss6Type2__sub_802BA9E4(void *);
 s32 TBoss6Type2__sub_802BAD04(void *);
-s32 TBoss6Type2__sub_802BB768(void *);
 s32 TBoss6Type2__sub_802BB7C0(void *);
-s32 choose_random_motion__11TBoss6Type2Fv();
-int send_action_packet__11TBoss6Type2FSc(void*, void*);
-s32 play_persistent_sound(int, void *, void *, int, int);
-s32 spawn_particle_effect(void *, int);
-u32 get_player_by_client_id(int);
 s32 get_phase__11TBoss6Type2Fv();
 u16 is_falz_ready__11TBoss6Type2Fv(void *);
 
@@ -182,7 +154,6 @@ block_7:
 extern s32 lbl_805D6790;
 extern u8 lbl_805D6794;
 extern f32 lbl_805DE408;
-extern f32 lbl_805DE4DC;
 
 void TBoss6Type2::init_speed_from_ratio() {
     s32 temp_r0;
@@ -346,7 +317,6 @@ void TBoss6Type2::check_state_0x460_eq4() { if (*(int*)((char*)this + 0x460) == 
 extern s32 lbl_805D6760;
 extern u8 lbl_805D6764;
 extern f32 lbl_805DE3FC;
-extern f32 lbl_805DE4DC;
 
 void TBoss6Type2::init_timer() {
     s32 temp_r0;
@@ -457,7 +427,6 @@ void update_death_sequence__11TBoss6Type2FPv(u8 *arg0) {
 
 void TBoss6Type2__sub_802BF3F4(void* p) { if (*(int*)((char*)p + 0x460) == 45) { TBoss6Type2::drop_random_rocks((s32)p, (s32)((void*)0)); } }
 
-#include "types.h"
 extern "C" {
 void TBoss6Type2__sub_802BE738(u8 *arg0);
 }

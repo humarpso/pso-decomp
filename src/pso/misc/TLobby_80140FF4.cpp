@@ -3,10 +3,6 @@
 
 extern "C" {
 void TLobby__sub_80141038(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void* TLobby__sub_80141030(void* p);
 void *TMapCsnCtrl__ct(void *, void *);
 void *__nw__7TObjectFUl(int);

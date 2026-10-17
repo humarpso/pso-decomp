@@ -9,9 +9,6 @@ extern "C" {
 s32 fire_shot_at_target__11TItemWeaponFv(void *, void *, int, int);
 void spawn_nug2000_hit_explosion();
 void config_nug2000_attack_collider__10TObjPlayerFPvPv(void *self, T_80308328 *p);
-}
-
-extern "C" {
 
 void config_nug2000_attack_collider__10TObjPlayerFPvPv(void *self, T_80308328 *p) {
     p->f74 = (void *)spawn_nug2000_hit_explosion;

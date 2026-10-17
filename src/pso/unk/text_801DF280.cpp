@@ -69,46 +69,24 @@ s32 fn_801E0900(s32);
 int bswap_32__FPUl(void* a0);
 void fn_801DF280(void *arg0);
 void bswap_cmd_88_marker_record(void* p);
-int bswap_32__FPUl(void* a0);
-void bswap_cmd_88_marker_record(void* p);
-int bswap_32__FPUl(void* a0);
 void bswap__21TPlyMeetUserExtensionFv(void *);
 void fn_801DF47C(void *arg0);
 extern s32 lbl_805D49C0;
 void TKeyBoardControl__sub_8000F950(void);
-extern s32 lbl_805D49C0;
 void TKeyBoardControl__sub_8000F95C(void);
 extern s32 keyboard_active_flag;
 void activate_keyboard(void);
-extern s32 keyboard_active_flag;
 void deactivate_keyboard(void);
 extern s32 keyboard_key_state;
-void mark_area_change_pending(void);
-extern s32 keyboard_key_state;
-void clear_keyboard_key_state(void);
-void fn_801DF7F8(void* p);
-extern s32 lbl_805D49C0;
-extern s32 keyboard_key_state;
-void TKeyBoardControl__sub_8000F950(void);
-void TKeyBoardControl__sub_8000F95C(void);
-void activate_keyboard(void);
-void deactivate_keyboard(void);
 void mark_area_change_pending(void);
 void clear_keyboard_key_state(void);
 void fn_801DF7F8(void* p);
 void fn_801DF874(void* p);
-void fn_801DF874(void* p);
 void fn_801DF740(void* p);
 s32 bswap_16__FPUs(s32);
-void fn_801DF740(void* p);
-void fn_801DF4B8(s32 arg0);
-s32 bswap_16__FPUs(s32);
-int bswap_32__FPUl(void* a0);
 void fn_801DF4B8(s32 arg0);
 void bswap_save_packet(s32 arg0);
-int bswap_32__FPUl(void* a0);
 int bswap__13packet_headerFv(void* a0);
-void bswap_save_packet(s32 arg0);
 void* fn_801DF3F0(void* p, void* a1);
 s32 *copy_entry_table(s32 *arg0, s32 *arg1);
 s32 *fn_801DF4FC(s32 *arg0, s32 *arg1);
@@ -116,12 +94,6 @@ Blk_801DF774 *TProtocol__sub_801DF774(Blk_801DF774 *d, const Blk_801DF774 *s);
 int fn_801DF558(int arg0, int arg1);
 int __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void*);
 Obj_801DF61C *fn_801DF61C(Obj_801DF61C *dst, Obj_801DF61C *src);
-}
-
-extern "C" {
-
-s32 fn_801E0900(s32);
-s32 bswap_16__FPUs(s32);
 s32 __ct__8TPlySmthFv(s32);
 s32 __ct__16TPlyGuildCardTagFv(s32);
 int bswap_32__FPUl(void* a0 = 0);
@@ -129,8 +101,6 @@ void bswap_cmd_88_body(void* p);
 void fn_801DF42C(void* p);
 void bswap_choice_search_config(void* p);
 void bswap_c0_lobby_entries(void* p);
-int __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void*);
-void* fn_801DF3F0(void* p, void* a1);
 void fn_801DF6BC(void* p);
 int bswap_cmd_8a_header(void* p);
 int bswap_packet_header_cmd_b1(void* p);
@@ -242,8 +212,6 @@ Blk_801DF774 *TProtocol__sub_801DF774(Blk_801DF774 *d, const Blk_801DF774 *s) {
 
 void bswap_c0_lobby_entries(void* p) { bswap__13packet_headerFv(p); { int i; for (i = 0; i < 56; i++) { fn_801DF7F8((void*)((char*)p + 0x4 + i * 32)); } } }
 
-}
-extern "C" {
 void fn_801DF7F8(void* p) { fn_801DF740((void*)(p)); }
 
 int bswap_packet_header_cmd_b1(void* p) { return bswap__13packet_headerFv(p); }

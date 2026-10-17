@@ -10,14 +10,6 @@ struct G_8006F2CC { u8 pad[0x28]; s32 x28; };
 extern "C" {
 extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 challenge_mode_state;
 s32 is_flag_set__6TLobbyFv();
-}
-
-extern "C" {
-
-s32 is_flag_set__6TLobbyFv();
-
-extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 challenge_mode_state;
-
 s32 TLobby::calc_challenge_time_limit() {
     s32 valid_slot;
 
@@ -87,30 +79,17 @@ s32 TWindowSubStatusDisp__sub_8006F0D8(void *, int);
 s32 is_id_out_of_range__6TLobbyFi(s32 arg0);
 s32 mix_seed_checked__6TLobbyFi(s32);
 u32 get_character_save_record(int);
-extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 challenge_mode_state;
 s32 TLobby__sub_8006F5B0(s32 arg0);
 s32 strncpy(void *, void *, int);
 extern RecoveredGlobal_8006F848_lbl_804FF800 lobby_name_string_buffer;
 s32 decode_slot__6TLobbyFUi(u32 id);
-s32 is_id_out_of_range__6TLobbyFi(s32 arg0);
 s16 TLobby__sub_80071640(int);
-u32 get_character_save_record(int);
 s32 strncmp(void *, void *, int);
-s32 strncpy(void *, void *, int);
-extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 challenge_mode_state;
 void TLobby__sub_8006F48C(void);
 s32 calc_layout_hash__20TWindowSubStatusDispFv(int);
 s32 calc_entry_offset__20TWindowSubStatusDispFv(int);
 u32 *TWindowSubStatusDisp__sub_8006F134(void *, s32);
-u32 get_character_save_record(int);
-extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 challenge_mode_state;
 s32 TLobby__sub_8006F38C(s32 arg0);
-}
-
-extern "C" {
-
-s32 is_id_out_of_range__6TLobbyFi(s32 arg0);
-
 s32 TLobby::check_challenge_time_range(s32 arg0) {
     if ((arg0 < TLobby::calc_challenge_time_limit()) || (arg0 > 0x8C9F)) {
         return 1;
@@ -296,10 +275,6 @@ s32 TLobby::get_valid_slot(int id) {
     return is_id_out_of_range__6TLobbyFi(slot) ? 0 : slot;
 }
 
-}
-
-extern "C" {
-
 s32 mix_seed_checked__6TLobbyFi(s32 arg0);
 s32 mix_seed__6TLobbyFUs(u16);
 
@@ -310,10 +285,6 @@ s32 mix_seed_checked__6TLobbyFi(s32 arg0) {
     return ((s32 (*)(s32))mix_seed__6TLobbyFUs)(arg0);
 }
 
-}
-
-extern "C" {
-
 s32 TLobby::get_slot_clamped() {
     s32 var_r3;
 
@@ -323,10 +294,6 @@ s32 TLobby::get_slot_clamped() {
     }
     return var_r3;
 }
-
-}
-
-extern "C" {
 
 s32 decode_slot__6TLobbyFUi(u32 arg0);
 
@@ -341,15 +308,6 @@ s32 decode_slot__6TLobbyFUi(u32 arg0) {
     }
     return (u16) (temp_r31 ^ arg0);
 }
-
-}
-
-extern "C" {
-s32 is_flag_set__6TLobbyFv();
-extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 challenge_mode_state;
-}
-
-extern "C" {
 
 s32 TLobby__sub_8006FBE4(void);
 s32 mix_seed__6TLobbyFUs(u16 arg0);

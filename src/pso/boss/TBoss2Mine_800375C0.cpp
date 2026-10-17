@@ -37,10 +37,6 @@ f32 cos_table_lookup(s32);
 void init_launch__10TBoss2MineFPvPvii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 s32 subtract_vector(void *, void *);
 void TBoss2Mine__sub_800375C0(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 s32 vec3_add_to(void *, void *);
 s32 is_alive__9TObjEneDDFv(s32);
 
@@ -231,12 +227,8 @@ void TUnk_80482D04::vfunc_88() {
     *(f32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 4) = (f32) ((1.0f) + (*(f32 *)((s8 *)this + 0x300) - *(f32 *)((s8 *)this + 0x3C)));
 }
 
-}
-
 #undef VecCopy__FP3VecPC3Vec
 #undef update_pulse_state__10TBoss2MineFv
-
-extern "C" {
 
 void *__dt__13TUnk_80482D04Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
@@ -287,12 +279,7 @@ extern "C" {
 void TBoss2Mine__sub_80037D4C(u8 *arg0, s32 arg1);
 f64 atan2_float(f32, f32);
 f32 newton_sqrtf(s32, f32, f32, f32);
-s32 subtract_vector(void *, void *);
 void TBoss2Mine__sub_80037EE0(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 void*TUnk_80482D04::create(int a1, int a2, int a3) { TBoss2Mine__ct(this, a1, a2, a3, 1); *(int*)((char*)this + 0x18) = (int)lbl_80482D04; *(int*)((char*)this + 0x3f0) = 0; *(int*)((char*)this + 0x3f4) = 0; *(float*)((char*)this + 0x3f8) = (0.0f); *(float*)((char*)this + 0x3fc) = (0.0f); *(float*)((char*)this + 0x400) = (0.0f); *(float*)((char*)this + 0x404) = (0.0f); *(float*)((char*)this + 0x408) = (0.0f); *(float*)((char*)this + 0x40c) = (0.0f); return this; }
 #pragma push
 #pragma fp_contract on
@@ -628,12 +615,7 @@ extern Col_80038200 boss2_mine_render_color;
 extern void *lbl_805D28BC;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-}
-
-extern "C" {
-
 void *TBoss2Mine__sub_800381B8(void *arg0, s32 arg1, s16 arg2, s16 arg3);
-void __dl__7TObjectFPv(void *);
 
 void TUnk_80482EC0::vfunc_88() {
     *(f32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 4) = (f32) ((5.0f) + (*(f32 *)((s8 *)this + 0x300) - *(f32 *)((s8 *)this + 0x3C)));
@@ -651,8 +633,6 @@ void *TBoss2Mine::deleting_dtor(s16 arg1) {
     }
     return this;
 }
-
-extern s32 lbl_80482EC0[];
 
 void *TBoss2Mine__sub_800381B8(void *arg0, s32 arg1, s16 arg2, s16 arg3) {
     TBoss2Mine__ct(arg0, arg1, arg2, arg3, 0);
@@ -1345,12 +1325,7 @@ s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
 s32 init_model__9TObjEneDDFv(void *, void *, int, int);
 extern u8 *lbl_805D4BA4;
 void init__10TBoss2MineFPvi(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 void __dt__9TObjEneDDFv(void *, int);
-void __dl__7TObjectFPv(void *);
 void free_collision_body_parts(void *);
 
 extern s32 __vt__10TBoss2Mine[];

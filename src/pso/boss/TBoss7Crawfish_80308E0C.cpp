@@ -19,10 +19,6 @@ struct Craw_80308F8C {
 
 extern "C" {
 s32 create_particle_emitter(void *, s32);
-}
-
-extern "C" {
-
 s32 objInBand__FP7GameObjf(void *, f32);
 
 extern const f32 lbl_805DF0F8;

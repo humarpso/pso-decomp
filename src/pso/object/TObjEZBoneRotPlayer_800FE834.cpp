@@ -13,14 +13,9 @@ extern s32 TObjEZBoneRotPlayer__name;
 u8 * __ct__19TObjEZBoneRotPlayerFv(u8 *arg0, s32 arg1, u8 *arg2, void *);
 void *__nw__7TObjectFUl(int);
 extern const f32 lbl_805DAA4C;
-}
-
-extern "C" {
-
 extern const f32 lbl_805DAA40;
 extern const f32 lbl_805DAA44;
 extern const f32 lbl_805DAA48;
-extern const f32 lbl_805DAA4C;
 extern const f32 lbl_805DAA50;
 
 void TObjEZBoneRotPlayer::run_task() {

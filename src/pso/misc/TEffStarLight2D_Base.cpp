@@ -75,16 +75,10 @@ extern s32 lbl_8048E640[];
 extern void *tl_particle;
 u8 *TEffStarLight2D_Base__ct(u8 *arg0, s32 arg1, s32 arg2);
 int copy_position__15TEffStarLight2DFPv(void* p);
-}
-
-extern "C" {
-
 void *TEffStarLight2D_Base__create(void *arg0, s32 _w1);
 void *__dt__20TEffStarLight2D_BaseFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void queue_destruction__7TObjectFv(void *);
-
-extern void *tl_particle;
 
 void *TEffStarLight2D_Base__create(void *arg0, s32 _w1) {
     void *o = __nw__7TObjectFUl((s32)(0x94), (s32)(_w1));
@@ -93,8 +87,6 @@ void *TEffStarLight2D_Base__create(void *arg0, s32 _w1) {
     }
     return o;
 }
-
-extern s32 lbl_8048E640[];
 
 typedef char RecoveredGlobal_80084C10_lbl_804393AC_size[sizeof(RecoveredGlobal_80084C10_lbl_804393AC) == 0x14 ? 1 : -1];
 void TUnk_8048E640::render() {
@@ -173,13 +165,11 @@ u8 *TEffStarLight2D_Base__ct(u8 *arg0, s32 arg1, s32 arg2) {
 
 }
 
-#include "types.h"
 #include "pso/TObject.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-int copy_position__15TEffStarLight2DFPv(void* p);
 int VecCopy__FP3VecPC3Vec(void*);
 
 int copy_position__15TEffStarLight2DFPv(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x2c); }

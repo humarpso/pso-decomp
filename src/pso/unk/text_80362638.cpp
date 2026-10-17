@@ -6,10 +6,6 @@ struct A_80362638 { u8 pad0[4]; f32 f4; f32 f8; f32 fC; };
 extern "C" {
 extern O_80362638 *epsilon_guard_part_color_table[];
 void set_guard_part_colors(void *arg0, A_80362638 *arg1);
-}
-
-extern "C" {
-
 void set_guard_part_colors(void *arg0, A_80362638 *arg1) {
     s32 i;
     for (i = 0; i < 9; i++) {

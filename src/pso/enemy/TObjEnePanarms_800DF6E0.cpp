@@ -6,10 +6,6 @@ struct O_800DFB44 { u8 pad[0x378]; s32 state; };
 
 extern "C" {
 s32 TObjEnePanarms__sub_800DFB44(O_800DFB44 *self);
-}
-
-extern "C" {
-
 s32 TObjControl__ct(s32, s32);
 s32 TObjEnePanarms__ct(s32, s32, s32);
 int apply_animation_transition(void*, void*);

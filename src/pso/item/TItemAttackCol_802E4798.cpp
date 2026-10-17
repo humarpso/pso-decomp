@@ -29,13 +29,8 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 TObjPlayer__sub_801542F4(void *);
 s32 TObjPlayer__sub_8015431C(void *);
 s32 reset_global_table();
-s32 try_add_hit_target__14TItemAttackColFPvPv(u8 *arg0, Hit_802E4798 *arg1);
 Hit_802E4798 *get_attack_entry__16TObjOnlineEndingFi(int);
 void check_hits__14TItemAttackColFPv(u8 *arg0);
-}
-
-extern "C" {
-
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 

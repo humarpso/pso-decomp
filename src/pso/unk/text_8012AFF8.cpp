@@ -14,10 +14,6 @@ void draw_weapon_model(void *);
 void draw_weapon_at_joint(void *, s32);
 s32 is_rand_below_threshold__10TObjPlayerFv(void *);
 extern u8 lbl_805D53EC;
-}
-
-extern "C" {
-
 void TUnk_804A4C78::reserved_53() {
     s32 saved;
     s32 savedF4;

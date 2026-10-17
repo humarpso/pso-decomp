@@ -16,12 +16,7 @@ s16 TMainCursor__sub_8013E298(Ent_8013B2C8 *);
 s32 TMainCursor__sub_8013E2A0(void *);
 Ent_8013B2C8 *get_index__11TMainCursorFv(void *);
 void TMainCursor__sub_8013E2B0(void *);
-}
-
-extern "C" {
-
 void TMainCursor__sub_8013B2A4(u16 *arg0);
-void TMainCursor__sub_8013B398(void *arg0, void *arg1);
 s32 get_player_by_client_id(u16);
 int init__13TUnk_804A7260FPvPv(void);
 

@@ -24,12 +24,8 @@ s32 init_collision_body_parts(void *, void *, int);
 s32 init_container_base(void *, int, void *);
 extern RecoveredGlobal_8015C534_lbl_804B00C8 TOContainerAncientEnemy__collision_body_params;
 extern RecoveredGlobal_8015C534_lbl_804B08BC lbl_804B08BC;
-extern u32 ancient_container_resource_bundle;
 extern s32 tl_05;
 u8 *init_ancient_container(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
 
 typedef char RecoveredGlobal_8015C534_lbl_804B00C8_size[sizeof(RecoveredGlobal_8015C534_lbl_804B00C8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8015C534_lbl_804B08BC_size[sizeof(RecoveredGlobal_8015C534_lbl_804B08BC) == 0x14C ? 1 : -1];

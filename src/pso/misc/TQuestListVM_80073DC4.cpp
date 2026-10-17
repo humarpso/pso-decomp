@@ -21,10 +21,6 @@ extern char lbl_80438660[];
 void queue_destruction__7TObjectFv(void *);
 void TWindow__close(void *);
 s32 TWindowCtrlMain__sub_8024CE58();
-}
-
-extern "C" {
-
 void TShopWindowBase::set_field_20(s32 v) { *(s32 *)&(*(u32 *)((u8 *)this + 0x20)) = v; }
 
 void TObjNewFloorWin::run_task() {

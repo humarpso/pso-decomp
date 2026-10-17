@@ -9,10 +9,6 @@ struct Obj_8013EB6C { u8 pad[0x5c]; Rec_8013EB6C recs[1]; };
 
 extern "C" {
 Rec_8013EB6C *TLockOnCursor__sub_8013EB6C(Obj_8013EB6C *self, s32 i);
-}
-
-extern "C" {
-
 s32 TLockOnCursor__sub_8013EB2C(void* p);
 int TLockOnCursor__sub_8013EB34(void);
 int test_flags_any(void*, int);

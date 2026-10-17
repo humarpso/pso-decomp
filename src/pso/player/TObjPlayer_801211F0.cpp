@@ -13,12 +13,10 @@ void increment_model_node_counter(void) {
     model_node_counter = temp_r3 + 1;
 }
 
-    extern int model_node_counter;
 int TObjPlayer::get_player_list() {  return model_node_counter; }
 
 void TItemWeapon::sub_80121208(s32 v) { *(s32*)((char*)this + 0xe0) = v; }
 
-    extern int model_node_counter;
 void reset_model_node_counter(void) { model_node_counter = 0; }
 
 }

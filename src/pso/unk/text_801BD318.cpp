@@ -6,10 +6,6 @@ u16 obj_getField1c(void *);
 s32 sub_801AF454__10TObjPlayerFl(void *, u16);
 s32 select_class_action_provider__10TObjPlayerFv(void *, int);
 extern s32 TObjPlayer__shared_model_buffer;
-}
-
-extern "C" {
-
 void TObjPlayer::sub_801BD318() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r4;

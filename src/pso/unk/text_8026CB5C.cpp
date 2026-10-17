@@ -7,9 +7,6 @@ extern char lbl_8044F4C8[];
 char *get_zero_vec2(void);
 extern char lbl_8044F4D8[];
 char *fn_8026CB5C(void);
-}
-
-extern "C" {
 
 char *fn_8026CB5C(void) {
     return lbl_8044F4D8;

@@ -127,7 +127,6 @@ void *__dt__17TItemEffectWeaponFv(void *self, s32 flag) {
     return self;
 }
 
-extern void *__vt__17TItemEffectWeapon[];
 extern s32 TItemEffectWeapon__class_name;
 
 void *__ct__17TItemEffectWeaponFv(void *self, s32 arg1, s32 param) {

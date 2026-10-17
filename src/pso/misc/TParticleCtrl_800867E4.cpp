@@ -25,21 +25,9 @@ extern Ent_800868C4 *particle_area_entry_table;
 void *__nw__7TObjectFUl(int);
 void *initialize_with_flags__13TParticleCtrlFPCvlllllUs(void *, void *, void *, s32, s32, s32, s32, s32);
 void *create_timed_particle_emitter_with_flags(void *pos, s32 id, s32 a, s32 b, s32 c);
-void *__nw__7TObjectFUl(int);
-extern s32 particle_pool_limit;
-extern Ent_800868C4 *particle_global_entry_table;
-extern Ent_800868C4 *particle_area_entry_table;
 void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
 void *__ct__13TParticleCtrlFv(void *self, void *pos, void *dir, void *ent, int a, int b, int c, int d, int e);
-void *__nw__7TObjectFUl(int);
-extern s32 particle_pool_limit;
-extern Ent_800868C4 *particle_global_entry_table;
-extern Ent_800868C4 *particle_area_entry_table;
 void *create_timed_particle_emitter_with_angles(void *pos, void *dir, s32 id, s32 a, s32 b, s32 flags);
-}
-
-extern "C" {
-
 void *__ct__5THeapFUli(void *, void *, int);
 void *__nw__5THeapFUl(int);
 

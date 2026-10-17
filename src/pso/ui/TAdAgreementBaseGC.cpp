@@ -64,12 +64,7 @@ extern const f32 lbl_805DF700;
 extern const f32 lbl_805DF704;
 extern const f32 lbl_805DF708;
 extern const f32 lbl_805DF70C;
-}
-
-extern "C" {
-
 void *__dt__18TAdAgreementBaseGCFv(void *arg0, s16 arg1);
-void fn_80329BAC(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
@@ -94,8 +89,6 @@ void TAdAgreementBaseGC::draw_agreement_text() {
 #pragma pop
 
 void TAdAgreementBaseGC::vfunc_9() { *(s32 *)&this->m_1c = 4; }
-
-extern s32 __vt__18TAdAgreementBaseGC[];
 
 typedef char RecoveredGlobal_80329830_lbl_8050E208_size[sizeof(RecoveredGlobal_80329830_lbl_8050E208) == 0x1B0 ? 1 : -1];
 typedef char RecoveredGlobal_80329830_lbl_8050E3B8_size[sizeof(RecoveredGlobal_80329830_lbl_8050E3B8) == 0x1B0 ? 1 : -1];

@@ -19,17 +19,8 @@ extern RecoveredGlobal_8028D738_lbl_80518860 chr_select_load_buffer_table;
 extern u32 chr_select_load_buffer_base;
 extern u32 chr_select_load_buffer;
 s32 TLobby__sub_8028D738(s32 arg0);
-extern u32 chr_select_load_buffer_base;
-extern u32 chr_select_load_buffer;
 void TLobby__sub_8028D7D0(s32 i);
-}
-
-extern "C" {
-
 int TLobby::start_load_default() { return alloc_load_buffer(0); }
-
-extern u32 chr_select_load_buffer_base;
-extern u32 chr_select_load_buffer;
 
 typedef char RecoveredGlobal_8028D738_lbl_80518850_size[sizeof(RecoveredGlobal_8028D738_lbl_80518850) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_8028D738_lbl_80518860_size[sizeof(RecoveredGlobal_8028D738_lbl_80518860) == 0x20 ? 1 : -1];
@@ -67,9 +58,6 @@ void TLobby::free_single_player_chr_select() {
     }
 }
 
-extern u32 chr_select_load_buffer_base;
-extern u32 chr_select_load_buffer;
-
 void TLobby::alloc_download_server() {
     if (((u32) chr_select_load_buffer_base != 0U) && ((u32) chr_select_load_buffer == 0U)) {
         chr_select_load_buffer = ((TQuestVmDownLoadServer *)0x50000)->alloc();
@@ -78,8 +66,6 @@ void TLobby::alloc_download_server() {
         }
     }
 }
-
-extern u32 chr_select_load_buffer_base;
 
 void TLobby::free_chr_select_singleton() {
     if ((u32) chr_select_load_buffer_base != 0U) {

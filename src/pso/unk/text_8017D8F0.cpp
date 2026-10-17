@@ -29,10 +29,6 @@ extern RecoveredGlobal_8017D8F0_lbl_804B5418 TOWreckAncient__collision_body_temp
 extern RecoveredGlobal_8017D8F0___vt__16TOWreckAncient06 __vt__16TOWreckAncient06;
 extern s32 TOWreckAncient06__name;
 u8 *TOWreckAncient06__ct(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8017D8F0_lbl_804B5418_size[sizeof(RecoveredGlobal_8017D8F0_lbl_804B5418) == 0x134 ? 1 : -1];
 typedef char RecoveredGlobal_8017D8F0___vt__16TOWreckAncient06_size[sizeof(RecoveredGlobal_8017D8F0___vt__16TOWreckAncient06) == 0x38 ? 1 : -1];
 u8 *TOWreckAncient06__ct(u8 *arg0, s32 arg1) {

@@ -16,10 +16,6 @@ extern RecoveredGlobal_80144AC8___vt__19TNECFontEORFunction __vt__19TNECFontEORF
 extern RecoveredGlobal_80144AC8_lbl_80515F48 lbl_80515F48;
 extern s32 TNECFontEORFunction__name;
 u8 *TNECFontEORFunction__ct(u8 *arg0);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_80144AC8___vt__19TNECFontEORFunction_size[sizeof(RecoveredGlobal_80144AC8___vt__19TNECFontEORFunction) == 0x1C ? 1 : -1];
 typedef char RecoveredGlobal_80144AC8_lbl_80515F48_size[sizeof(RecoveredGlobal_80144AC8_lbl_80515F48) == 0x28 ? 1 : -1];
 u8 *TNECFontEORFunction__ct(u8 *arg0) {

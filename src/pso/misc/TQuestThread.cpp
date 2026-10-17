@@ -399,8 +399,6 @@ s32 create_instance__17TQuestThreadBoardFi(s32 arg0) {
     return 0;
 }
 
-}
-extern "C" {
 void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
     void *thread = o->thread;
 
@@ -622,9 +620,6 @@ void destroy_children_with_tag(Node_801F57B4* arg0) {
 }
 #pragma pop
 
-}
-
-extern "C" {
 void run_task__12TQuestThreadFv(TQuestThread_801F5828 *t) {
     void *p = t->m10;
     switch (t->state) {

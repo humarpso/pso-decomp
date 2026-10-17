@@ -34,15 +34,8 @@ void TLobby__sub_8020A568(void *p);
 extern u8 *TLobby__item_data_table_buffer;
 void TLobby__sub_802099FC(Out_802099FC *arg0, s32 arg1);
 u32 item_drop_rng_below(s32, u32);
-void TLobby__sub_8020A568(void *p);
 extern s32 item_drop_rng;
-extern u8 *TLobby__item_data_table_buffer;
-void TLobby__sub_8020A48C(void *p);
 Rec_802099FC *bsearch_record__6TLobbyFPvii(void *arg0, s32 n, s32 key);
-}
-
-extern "C" {
-
 void TLobby::pick_random_entry() {
     Out_802098AC *out = (Out_802098AC *)this;
     s32 i = next_event_shuffle_entry(lbl_805D60A4);

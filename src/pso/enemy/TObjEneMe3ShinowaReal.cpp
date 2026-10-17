@@ -116,10 +116,6 @@ void fn_800E762C(void *);
 extern s32 TObjEneMe3ShinowaReal_class_name;
 extern s32 __vt__21TObjEneMe3ShinowaReal[];
 Obj_800E46D4 *TObjEneMe3ShinowaReal__ct(Obj_800E46D4 *arg0, void *arg1, void *arg2);
-}
-
-extern "C" {
-
 u16 TObjEneMe3ShinowaReal__sub_800E45CC(void* p);
 void *__dt__21TObjEneMe3ShinowaRealFv(void *arg0, s16 arg1);
 int vfunc_62__17TObjEneMe3ShinowaFv(void*);
@@ -171,8 +167,6 @@ void TObjEneMe3ShinowaReal::try_spawn_mirages() {
 
 void TObjEneMe3ShinowaReal::vfunc_62() { ((TObjEneMe3ShinowaReal *)this)->try_spawn_mirages(); vfunc_62__17TObjEneMe3ShinowaFv(this); }
 void TObjEneMe3ShinowaReal::vfunc_63() { ((TObjEneMe3ShinowaReal *)this)->try_spawn_mirages(); vfunc_63__17TObjEneMe3ShinowaFv(this); }
-
-extern s32 __vt__21TObjEneMe3ShinowaReal[];
 
 void *__dt__21TObjEneMe3ShinowaRealFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

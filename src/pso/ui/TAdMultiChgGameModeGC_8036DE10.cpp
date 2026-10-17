@@ -3,7 +3,6 @@
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/misc/TWindowSubComCardList.h"
 #include "pso/misc/TWindowMenu.h"
-#include "pso/ui/TUnk_804F3A20.h"
 
 struct RecoveredGlobal_8036E8DC_lbl_804C88C0 { s32 value; u8 remaining[0x50]; };
 typedef char RecoveredGlobal_8036E8DC_lbl_804C88C0_size[sizeof(RecoveredGlobal_8036E8DC_lbl_804C88C0) == 0x54 ? 1 : -1];
@@ -25,7 +24,6 @@ struct RecoveredGlobal_8036DE10_lbl_804F37D4 {
 };
 
 #include <stddef.h>
-#include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -64,14 +62,11 @@ struct Self_8036E2AC {
 
 extern "C" {
 s32 TWindow__close(void *);
-s32 TWindow__close(void *);
-void close_window__21TAdMultiChgGameModeGCFPv(void* p);
 void close_window__21TAdMultiChgGameModeGCFPv(void* p);
 s32 get_selected_menu_value(void *);
 void *__nw__7TObjectFUl(int);
 void *__ct__9TAdBackGCFv(void *, void *);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
-s32 TWindow__close(void *);
 void TAdMultiChgGameModeGC__sub_8036E51C(u8 *arg0);
 int load_system_file(void* a0 = 0);
 void TAdMultiChgGameModeGC__sub_8036E6A0(s32 arg0);
@@ -100,20 +95,15 @@ s32 TQuestVmDownLoadServer__sub_8006EF6C(void *);
 extern RecoveredGlobal_8036DE10_lbl_804F37A8 multi_chg_game_mode_text_table_a;
 extern RecoveredGlobal_8036DE10_lbl_804F37D4 multi_chg_game_mode_text_table_b;
 s32 TAdMultiChgGameModeGC__sub_8036DE10(s32 arg0, s32 arg1, s32 arg2);
-s32 check_system_file_status__23TAdSinglePlyChrSelectGCFv(void);
-extern RecoveredGlobal_8036EA24_lbl_804F3908 multi_chg_game_mode_entry_table;
 extern RecoveredGlobal_8036EA24_lbl_804F3908 multi_chg_game_mode_entry_table;
 u32 load_system_file_flag__23TAdSinglePlyChrSelectGCFv(void);
 void update_mode_selection__21TAdMultiChgGameModeGCFPv(void *self);
 void TAdMultiChgGameModeGC__sub_8036DEDC(void *self);
-s32 TWindow__close(void *);
 u32 update_window_mode_from_progress__6TLobbyFPv(void *, void *);
-s32 TAdMultiChgGameModeGC__sub_8036DE10(s32 arg0, s32 arg1, s32 arg2);
 extern s32 lbl_8047B8A0[];
 extern s32 multi_chg_game_mode_window_extent[];
 void TAdMultiChgGameModeGC__sub_8036E19C(u8 *arg0, s32 arg1);
 void *check_room_seq_4__16TAdChrSelASlotGCFl(void *, s32);
-s32 TAdMultiChgGameModeGC__sub_8036DE10(s32 arg0, s32 arg1, s32 arg2);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
 s32 align_menu_entry_positions(void *);
 extern u8 lbl_804F3A18[];
@@ -121,17 +111,8 @@ extern const f32 lbl_805D7020;
 s32 all_players_loaded__23TAdSinglePlyChrSelectGCFv();
 s32 TAdPlayerLoadGC__sub_801FD770();
 s32 TKeyBoardControl__sub_8000F90C(s32);
-s32 check_system_file_status__23TAdSinglePlyChrSelectGCFv(void);
-extern s32 __vt__13TUnk_804F3A20[];
 extern s32 current_language;
-}
-
-extern "C" {
-
 void close_windows_and_cleanup(void *arg0);
-s32 get_selected_menu_value(void *);
-s32 TWindow__close(void *);
-s32 queue_destruction__7TObjectFv(void *);
 
 typedef char RecoveredGlobal_8036DE10_lbl_804F37A8_size[sizeof(RecoveredGlobal_8036DE10_lbl_804F37A8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8036DE10_lbl_804F37D4_size[sizeof(RecoveredGlobal_8036DE10_lbl_804F37D4) == 0x134 ? 1 : -1];

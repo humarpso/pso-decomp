@@ -22,19 +22,12 @@ s32 spawn_particle_effect(s32, s32);
 s32 TObjEneGibbles__sub_800D8988(void *);
 extern const f32 TObjEneMe3Stelth__data_805DA808;
 extern const f32 TObjEneMe3Stelth__data_805DA80C;
-s32 spawn_particle_effect(s32, s32);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
 extern const f32 lbl_805DA814;
 extern const f32 lbl_805DA818;
 void TObjEneMe3Stelth__sub_800F0C90(u8 *arg0);
-}
-
-extern "C" {
-
 s32 TLobby__sub_803DA16C(void*);
-
-extern u32 blob_shadow_texture_list;
 
 void TObjEneMe3Stelth::destroy_resources() {
     if ((u32) blob_shadow_texture_list != 0U) {

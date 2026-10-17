@@ -157,34 +157,22 @@ u32 find_entity_by_id(int);
 s32 is_parents_unqueued__9TTecLukerFUl();
 void deliver_technique_to_party_targets(void *);
 void run_task__8TTecAntiFv(Anti_8022B150 *self);
-s32 obj_getField1c(int);
 s32 is_split_screen();
 void *spawn_particle_effect_with_flags(void *, int, int);
-void set_owner_id__13TParticleCtrlFUs(void *, s32);
 s32 is_script_controlled__10TObjPlayerFv(void *);
 void *__nw__7TObjectFUl(int);
-Obj_8022AE10 *construct_self_effect__8TTecAntiFPvPvPviPv(Obj_8022AE10 *self, const Vec_8022AE10 *body, const Vec_8022AE10 *ground, s32 actor, void *parent);
 int construct_delayed_point_sound(void *, void *, int, int, void *);
 extern void *tl_07;
-}
-
-extern "C" {
-
-int TTecAnti__sub_8022AD74(void* p);
 void *__dt__13TUnk_804CC0E8Fv(void *arg0, s16 arg1);
 void *__dt__8TTecAntiFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__19TTecPlayerInfluenceFv(void *, int);
 void __dt__7TObjectFv(void *, int);
-void *__nw__7TObjectFUl(int);
 int spawn_support_tec_range_effect(void*);
-int queue_destruction__7TObjectFv(void*);
 
 int TTecAnti__sub_8022AD74(void* p) { return spawn_support_tec_range_effect(p); }
 void TTecAnti__sub_8022AD94(void * _w0) {  }
 void TUnk_804CC0E8::run_task() { queue_destruction__7TObjectFv(this); }
-
-extern s32 lbl_804CC0E8[];
 
 void *__dt__13TUnk_804CC0E8Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -267,8 +255,6 @@ void TTecAnti::create(void *arg0, void *arg1, void *arg2, void *arg3) {
         TTecAnti__ct((u8 *)(o), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3));
     }
 }
-
-extern s32 __vt__8TTecAnti[];
 
 void *__dt__8TTecAntiFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

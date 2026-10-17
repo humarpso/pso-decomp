@@ -13,10 +13,6 @@ extern "C" {
 s32 approach_angle_limited(int, int, int);
 extern const f32 lbl_805DB7A0;
 extern const f32 lbl_805DB7A4;
-}
-
-extern "C" {
-
 void TOKurage::sub_8016D8F8() {
     u8 *arg0 = (u8 *)this;
     typedef char sp8_offset[(offsetof(Stack_8016D8F8, sp8) == 0x0) ? 1 : -1];

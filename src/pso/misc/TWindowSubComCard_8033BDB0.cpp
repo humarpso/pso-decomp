@@ -44,10 +44,6 @@ extern s32 lbl_80477DBC[];
 extern s32 lbl_804EF8D8[];
 extern const f32 lbl_805D6D98;
 s32 get_selected_menu_value(void *);
-}
-
-extern "C" {
-
 void TWindowSubComCard__sub_8033C178(void* p);
 void TWindowSubComCard__sub_8033C198(void);
 int TWindowSubComCard__sub_8033C19C(void* p);

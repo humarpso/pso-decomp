@@ -19,10 +19,6 @@ extern u8 *indirect_effect_ctrl_table[];
 extern s32 tl_01;
 extern u8 indirect_effect_ctrl_count;
 void register_indirect_effect_ctrl(s32 arg0);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_802A8210_lbl_804DDF04_size[sizeof(RecoveredGlobal_802A8210_lbl_804DDF04) == 0x18 ? 1 : -1];
 u8 *fn_802A8210(u8 *arg0, s32 arg1, u8 *arg2) {
     __ct__7TObjectFP7TObject(arg0, arg2);

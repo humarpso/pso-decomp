@@ -7,10 +7,6 @@ extern u32 fire_technique_charge_effect_ids[];
 void* spawn_particle_effect(float*,u32);
 void queue_destruction__7TObjectFv(void*);
 void TObjLight__updateFireTechniqueCharge(TechniqueChargeEmitter* state);
-}
-
-extern "C" {
-
 void *__dt__13TUnk_804CC794Fv(void *arg0, s16 arg1);
 u8 *initialize__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 play_sound_effect(int, void *, int, int);
@@ -42,8 +38,6 @@ void *__dt__13TUnk_804CC794Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern s32 lbl_804CC794[];
 
 u8 *initialize__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject(arg0, (void *) (arg2));

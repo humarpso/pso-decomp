@@ -173,15 +173,11 @@ void set_action_provider_variant__10TObjPlayerFPvs(void *, s32);
 s32 obj_getField1c(s32);
 s32 test_flags_any(void *, s32);
 s32 obj_isState7_324(s32);
-void set_action_provider_variant__10TObjPlayerFPvs(void *, s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, s32, s32, s32);
 void set_flag_8_if_check_passes__10TObjPlayerFv();
 extern void *tl_05;
-}
-
-extern "C" {
 
 void TItemWeapon::vfunc_45() {
     Pl_80120568 *arg0 = (Pl_80120568 *)this;

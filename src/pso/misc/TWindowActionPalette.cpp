@@ -14,12 +14,10 @@ typedef char palette_size[sizeof(TWindowActionPalette) == 0x78 ? 1 : -1];
 #include "types.h"
 #include "pso/item/TItemMag.h"
 #include "pso/misc/TMainCursor.h"
-#include "pso/misc/TWindowDD.h"
 #include "pso/misc/TWindowHelpItem.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
-#include "pso/player/TObjPlayer.h"
 
 struct TWindowActionPalette;
 
@@ -58,7 +56,6 @@ u16 select_action_palette_and_apply__10TObjPlayerFlll(int, int, int, int);
 s32 get_player_by_client_id(int);
 u16 get_entry_by_index__20TWindowActionPaletteFPll(int, int);
 s32 get_slot_type_for_index__20TWindowActionPaletteFPll(int, int);
-void* get_array_entry__13TUnk_804CE018Fi(TWindowActionPalette*,int);
 s32 set_help_text__15TWindowHelpItemFll(void *, int);
 s32 is_action_channel_available__10TObjPlayerFii(s32, s32);
 void update_palette_item_count_label(void *, void *, int, u16, s32);
@@ -82,7 +79,6 @@ extern const f32 lbl_805DCA48;
 extern const f32 lbl_805DCAA0;
 extern const f32 lbl_805DCAA4;
 Pal_80244108 *TWindowActionPalette__ct(Pal_80244108 *self, s16 slot);
-s32 is_split_screen();
 f32 TWindowSubComCard__sub_80244784(void *);
 s32 TWindowSubComCard__sub_802452DC(int);
 s32 TWindowSubComCard__sub_80245320(void *, void *);
@@ -95,7 +91,6 @@ s32 set_draw_texture_and_color(int, int);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DCA24;
 extern const f32 lbl_805DCA34;
-extern const f32 lbl_805DCA48;
 extern const f32 lbl_805DCA4C;
 extern const f32 lbl_805DCA50;
 extern const f32 lbl_805DCA54;
@@ -117,19 +112,11 @@ extern const f32 lbl_805DCA90;
 extern const f32 lbl_805DCA94;
 extern const f32 lbl_805DCA98;
 extern const f32 lbl_805DCA9C;
-s32 get_player_by_client_id(int);
-void* get_array_entry__13TUnk_804CE018Fi(TWindowActionPalette*,int);
 s32 TObjPlayer__sub_80354C7C(s32);
-void draw_action_palette_icon(void *, int, u16);
-}
-
-extern "C" {
 s32 setup_window_draw_context__13TUnk_804CE018Fl(void *, void *);
 void draw_visible_window_entries(void *, void *, int);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
-void free_if_valid__14TPlyDispConfigFis(void *, s16);
-extern u32 __vt__20TWindowActionPalette[6];
 }
 
 void TWindowActionPalette::set_bank_panel_art(unsigned short state) {

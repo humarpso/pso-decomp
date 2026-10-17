@@ -41,10 +41,6 @@ extern const f32 lbl_805DAA30;
 extern const f32 lbl_805DAA00;
 extern const f32 lbl_805DAA04;
 f32 calc_small_font_scale(void);
-}
-
-extern "C" {
-
 void TBoss3Volopt__sub_800FD344(s32 arg0, s32 arg1, s32 arg2, void *arg3, void *arg4);
 s32 create_font_small_task(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 *arg4, s32 arg5, s32 arg6);
 s32 create_font_small_task_default_color(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 *arg4, s32 arg5);
@@ -72,10 +68,6 @@ f32 calc_small_font_scale(void) {
     return lbl_805DAA04 / view_scale;
 }
 
-}
-
-extern "C" {
-
 struct Quad_800FCD40 { f32 x, y, right, bottom, u, v, u2, v2; };
 
 void push_matrix_from(void *);
@@ -100,7 +92,6 @@ void draw_textured_quad_at_depth(Quad_800FCD40 *, f32);
 u8 get_small_font_glyph_width(u8);
 extern u8 identity_matrix[];
 extern u8 *camera_ctrl_instance;
-extern const f32 lbl_805DAA04;
 extern const f32 lbl_805DAA08;
 extern const f32 lbl_805DAA0C;
 extern const f32 lbl_805DAA10;
@@ -247,8 +238,6 @@ s32 create_font_small_task(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 *arg4, s3
     return var_r31;
 }
 
-extern s32 lbl_805DAA34;
-
 s32 create_font_small_task_default_color(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 *arg4, s32 arg5) {
     s32 var_r31;
 
@@ -269,15 +258,6 @@ void TBoss3Volopt__sub_800FD344(s32 arg0, s32 arg1, s32 arg2, void *arg3, void *
     create_font_small_task((s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(0), (s32 *)(arg3), (s32)(arg4), (s32)(0xFFFF));
 }
 
-}
-
-extern "C" {
-
-s32 get_shared_text_buffer();
-s32 TWindowSubStatusDisp__sub_80228F5C(s32);
-s32 text_builder_reset();
-s32 __nw__7TObjectFUl(s32);
-
 s32 TObjEneEpsilonGuard::create_damage_font(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 var_r31;
 
@@ -289,14 +269,6 @@ s32 TObjEneEpsilonGuard::create_damage_font(s32 arg0, s32 arg1, s32 arg2, s32 ar
     }
     return var_r31;
 }
-
-}
-
-extern "C" {
-
-s32 get_shared_text_buffer();
-s32 text_builder_reset();
-s32 __nw__7TObjectFUl(s32);
 
 s32 TOCtrlDubchik::create_font(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 var_r31;
@@ -386,14 +358,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 char *strncpy(char *, const char *, u32);
 extern u8 __vt__14TFontSmallTask[];
 extern s32 TFontSmallTask__name;
-extern const f32 lbl_805DAA0C;
-extern const f32 lbl_805DAA20;
-}
-
-extern "C" {
-
 void set_world_section_id(void* p, s32 v);
-void reset_leader_selection(void* p);
 
 #pragma push
 #pragma fp_contract on

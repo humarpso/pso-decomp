@@ -16,10 +16,6 @@ struct Obj_80019AB0 { u8 pad[0x20]; Sub_80019AB0 *sub; f32 f24; };
 extern "C" {
 void fn_80019B08(Obj_80019B08 *self, s32 key);
 void fn_80019EB8(Node_80019AB0 *n, f32 v);
-}
-
-extern "C" {
-
 void TAdDrawLineTask__sub_80019A8C(void* p, void* q);
 s32 get_logo_texture_e_handle(void);
 void func_80019A68__Fv(void);

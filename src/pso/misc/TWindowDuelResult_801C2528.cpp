@@ -12,10 +12,6 @@ extern "C" {
 u8 * get_split_screen_battle_rankings(void);
 extern RecoveredGlobal_801C257C_TLobby__data_80511C80 TLobby__duel_result_table;
 s32 *TWindowDuelResult__sub_801C257C(void);
-}
-
-extern "C" {
-
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 duel_result_window_dispatch_table[];

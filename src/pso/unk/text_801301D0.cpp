@@ -14,9 +14,6 @@ u8 * TItemWeapon__ct(void *, void *);
 extern RecoveredGlobal_801301D0_lbl_804A68C8 lbl_804A68C8;
 extern const f32 lbl_805DAFFC;
 u8 *construct_cane_weapon(u8 *arg0, u8 *arg1, u8 *arg2);
-}
-
-extern "C" {
 
 typedef char RecoveredGlobal_801301D0_lbl_804A68C8_size[sizeof(RecoveredGlobal_801301D0_lbl_804A68C8) == 0xF8 ? 1 : -1];
 u8 *construct_cane_weapon(u8 *arg0, u8 *arg1, u8 *arg2) {

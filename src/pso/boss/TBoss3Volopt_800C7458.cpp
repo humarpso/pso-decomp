@@ -15,10 +15,6 @@ s32 approach_angle_limited(s32, s32, void *);
 void subtract_vector(void *, void *);
 extern const f64 lbl_8043BCC8[];
 void turn_toward_point__12TBoss3VoloptFPvPvPvi(Obj_800C7458 *arg0, V3_800C7458 *arg1, void *arg2, s32 arg3);
-}
-
-extern "C" {
-
 void turn_toward_point__12TBoss3VoloptFPvPvPvi(Obj_800C7458 *arg0, V3_800C7458 *arg1, void *arg2, s32 arg3) {
     V3_800C7458 v = *arg1;
     subtract_vector(&v, arg0->pos);
@@ -40,10 +36,6 @@ void TBoss3Volopt::set_flag8_list(u32 **arg0) {
         *p |= 8;
     }
 }
-
-}
-
-extern "C" {
 
 void collect_active_nodes__12TBoss3VoloptFPv(void *arg0);
 
@@ -77,7 +69,6 @@ struct RecoveredGlobal_800C7698_lbl_8058D490 {
 };
 
 #include <stddef.h>
-#include "pso/boss/TBoss3Volopt.h"
 #include "pso/player/TObjPlayer.h"
 struct Stack_800C762C {
     s32 sp8;
@@ -97,14 +88,8 @@ s32 pop_matrix();
 f32 post_translate_matrix(void *);
 extern RecoveredGlobal_800C7698_lbl_8058D490 identity_matrix;
 s32 matrix_mult_vec(int, void *, void *);
-s32 push_matrix_from(void *);
-s32 pop_matrix();
 extern RecoveredGlobal_800C762C_lbl_8043BCA0 lbl_8043BCA0;
 extern s32 anim_model_matrix_array;
-}
-
-extern "C" {
-
 void TObjVoloptCage__sub_800C76F0(void);
 
 s32 TBoss3Volopt::query_field_30(s32 *arg1) {

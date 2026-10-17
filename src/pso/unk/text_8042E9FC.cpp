@@ -17,10 +17,6 @@ extern char lbl_80480270[];
 extern s32 lbl_805D7CA8;
 extern u8 *lbl_805D7CC0;
 extern s32 lbl_805D7CC4;
-}
-
-extern "C" {
-
 s32 TAdTrialModemChkGC::init_modem_check_params() {
     if ((s32) lbl_805D7CA8 == 0) {
         return -1;

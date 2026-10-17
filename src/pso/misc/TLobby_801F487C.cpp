@@ -5,13 +5,6 @@
 extern "C" {
 s32 clear_story_flag(s32);
 extern s32 lobby_story_flag_clear_list[];
-s32 clear_story_flag(s32);
-void reset_camera_if_fullscreen__6TLobbyFPv(void* p);
-extern s32 lobby_story_flag_clear_list[];
-}
-
-extern "C" {
-
 void reset_camera_if_fullscreen__6TLobbyFPv(void* p);
 void TLobby__sub_801F494C(u16 arg0);
 u32 get_character_save_record(u32);

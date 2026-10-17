@@ -68,9 +68,6 @@ extern void *leilla_photon_buffer_pair;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-}
-
-extern "C" {
 
 void TPhotonLeilla::render() {
     Self_801AC45C *self = (Self_801AC45C *)this;

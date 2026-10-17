@@ -31,10 +31,6 @@ extern const f32 lbl_805DE6F4;
 extern const f32 lbl_805DE6F8;
 extern const f32 lbl_805DE6FC;
 void fn_802CE510(int arg0);
-}
-
-extern "C" {
-
 typedef struct RecoveredFields_802CE510_temp_r3 RecoveredFields_802CE510_temp_r3;
 typedef struct Stack_802CE510 Stack_802CE510;
 void fn_802CE510(int arg0) {

@@ -9,15 +9,9 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__10TBoss6Tube[];
 extern s32 lbl_805D3E9C;
 u8 *TBoss6Tube__ct(u8 *arg0, u8 *arg1);
-}
-
-extern "C" {
-
 void *__dt__10TBoss6TubeFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-
-extern s32 __vt__10TBoss6Tube[];
 
 void *__dt__10TBoss6TubeFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

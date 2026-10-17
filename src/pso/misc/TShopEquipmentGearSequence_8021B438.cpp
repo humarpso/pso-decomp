@@ -84,41 +84,25 @@ extern RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0 TShopE
 extern s32 lbl_805D6220;
 u8 *__dt__26TShopEquipmentGearSequenceFv(u8 *arg0, s16 arg1);
 s32 TShopSequence__ct(void *);
-s32 sub_8022397C__15TShopWindowBaseFv(void *);
-extern RecoveredGlobal_8021B7D0___vt__26TShopEquipmentGearSequence __vt__26TShopEquipmentGearSequence;
-extern RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0 TShopEquipmentGearSequence__window_slot_table;
 extern s32 TShopEquipmentGearSequence__class_name;
 extern s32 lbl_805D6218;
 extern s32 lbl_805D621C;
-extern s32 lbl_805D6220;
 u8 *TShopEquipmentGearSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 restore_player_state__13TShopSequenceFv(void *);
-extern RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0 TShopEquipmentGearSequence__window_slot_table;
-extern RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0 TShopEquipmentGearSequence__window_slot_table;
 s32 reset_controller_input_state(void);
 void *__nw__7TObjectFUl(u32);
 void *TShopEquipmentSellWindow__ct(void *, s32, void *, s32, s32);
 void enter_quest_list__26TShopEquipmentGearSequenceFv(void *);
 void open_gear_shop__26TShopEquipmentGearSequenceFv(void *);
 extern void *tl_05;
-s32 reset_controller_input_state(void);
-void *__nw__7TObjectFUl(u32);
 void *TShopArmorListWindow__ct(void *, s32, void *, s32);
-void enter_quest_list__26TShopEquipmentGearSequenceFv(void *);
-extern void *tl_05;
 s32 obj_getField1c(s32);
 s32 get_shop_text(s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
-s32 TWindow__close(void *);
 s32 get_selected_menu_value(void *);
 s32 align_menu_entry_positions(void *);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, s32, s32);
 void *create_window_menu(s32, s32, u16);
-s32 get_window_layout_position(int, f32);
-}
-
-extern "C" {
-
 typedef struct Stack_8021D948 Stack_8021D948;
 typedef struct VBase_18_a93f07 VBase_18_a93f07;
 typedef struct VObj_18_a93f07 VObj_18_a93f07;

@@ -14,9 +14,6 @@ u8 * TItemWeapon__ct(void *, void *);
 extern RecoveredGlobal_801224D4_lbl_804A0FA0 lbl_804A0FA0;
 extern const f32 lbl_805DACE0;
 u8 *construct_dagger_weapon(u8 *arg0, u8 *arg1, u8 *arg2);
-}
-
-extern "C" {
 
 typedef char RecoveredGlobal_801224D4_lbl_804A0FA0_size[sizeof(RecoveredGlobal_801224D4_lbl_804A0FA0) == 0xF8 ? 1 : -1];
 u8 *construct_dagger_weapon(u8 *arg0, u8 *arg1, u8 *arg2) {

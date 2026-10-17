@@ -35,10 +35,6 @@ int test_flag_2000000__10TObjPlayerFPv(void *);
 Ply_8019750C *get_player_by_client_id(s32);
 void check_any_player_in_range__12TObjRaderColFPv(Col_8019750C *arg0);
 extern s32 local_client_id;
-}
-
-extern "C" {
-
 void *__dt__12TObjRaderColFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
@@ -114,8 +110,6 @@ void TObjRaderCol::run_task() {
         return;
     }
 }
-
-extern s32 __vt__12TObjRaderCol[];
 
 typedef char RecoveredGlobal_801976F4___vt__12TObjRaderCol_size[sizeof(RecoveredGlobal_801976F4___vt__12TObjRaderCol) == 0x38 ? 1 : -1];
 u8 *TObjRaderCol__ct(u8 *arg0, s32 arg1, s32 arg2) {

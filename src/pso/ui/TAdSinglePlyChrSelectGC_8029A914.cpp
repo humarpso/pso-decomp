@@ -7,13 +7,7 @@ extern "C" {
     extern unsigned char chr_select_ad_pic_2_texture_descriptor[];
 extern u32 chr_select_ad_pic_texture;
 void register_texture_f256_ad_pic_2(void);
-}
-
-extern "C" {
-
 void TLobby__sub_803DA16C(void*);
-
-extern u32 chr_select_ad_pic_texture;
 
 void TAdSinglePlyChrSelectGC::free_global() {
     if ((u32) chr_select_ad_pic_texture != 0U) {

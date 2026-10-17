@@ -17,8 +17,6 @@ s32 obj_isState2_324();
 int queue_destruction__7TObjectFv(void*);
 s32 set_flag_400000__10TObjPlayerFi(void *);
 
-#include "types.h"
-
 extern "C" {
 
 void TObjPlayer::init_battle() {
@@ -29,8 +27,6 @@ void TObjPlayer::init_battle() {
 }
 
 }
-
-#include "types.h"
 
 extern "C" {
 extern s32 update_photon_chair__10TObjPlayerFv[];
@@ -49,8 +45,6 @@ void TObjPlayer::reset_area_entry_state() {
 void TObjPlayer::destroy_owned_object() { if (*(unsigned int *)&this->unk_548 != 0) { queue_destruction__7TObjectFv(*(void* *)&this->unk_548); *(int *)&this->unk_548 = 0; } }
 
 }
-
-#include "types.h"
 
 typedef struct E12_801BC948 { u8 b[12]; } E12_801BC948;
 
@@ -83,9 +77,6 @@ void TObjPlayer__sub_801C1F78(void *, s32);
 void clamp_and_set_unit_value__10TObjPlayerFiUci(void *, u8, s16);
 void TObjPlayer__sub_801D955C(void *, s32);
 void init_session_technique_caps__10TObjPlayerFPvPv(Player_801BC948 *self, Src_801BC948 *src);
-}
-
-extern "C" {
 
 void TObjPlayer__sub_801BC8F0(s32 arg0) {
     TObjPlayer__sub_801BF9E0((void *) (arg0 + 0x634), (int) (obj_getField1c((void *) (arg0))));
@@ -105,26 +96,12 @@ void init_session_technique_caps__10TObjPlayerFPvPv(Player_801BC948 *self, Src_8
     }
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void TObjPlayer__sub_801BCA0C(void) {  }
 void TObjPlayer__sub_801BCA10(void) {  }
 
-}
-
-#include "types.h"
-
-extern "C" {
 s32 TObjPlayer__sub_801C21C4(void *, s32);
 s32 get_slot_value_checked__10TObjPlayerFl(void *, s32);
 void TObjPlayer__sub_801BCA14(u8 *arg0, void *arg1);
-}
-
-extern "C" {
 
 void TObjPlayer__sub_801BCA14(u8 *arg0, void *arg1) {
     s32 i;
@@ -137,13 +114,6 @@ void TObjPlayer__sub_801BCA14(u8 *arg0, void *arg1) {
         i += 1;
     } while (i < 0x13);
 }
-
-}
-
-#include "types.h"
-#include "pso/player/TObjPlayer.h"
-
-extern "C" {
 
 void TObjPlayer__sub_801BCAB0(void) {  }
 void TObjPlayer::update_state() {

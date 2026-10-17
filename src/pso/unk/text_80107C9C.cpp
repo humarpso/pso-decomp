@@ -9,10 +9,6 @@ s32 TObjPlayer__sub_80117E50();
 s32 get_player_by_client_id(int);
 s32 is_item_area_enabled();
 extern const f32 lbl_805DAAE8;
-}
-
-extern "C" {
-
 void TUnk_8049EFB8::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 player;

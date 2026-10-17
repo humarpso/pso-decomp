@@ -3,10 +3,6 @@
 
 extern "C" {
 s32 __dl__FPv(void* a0);
-}
-
-extern "C" {
-
 s32 free_if_valid__14TPlyDispConfigFis(s32, s32);
 void TMainCursor__sub_8013E694(void* p, s16 v);
 int TMainCursor__sub_8013E6E0(void* p);
@@ -23,8 +19,6 @@ s32 TMainCursor::delete_this(s16 arg1) {
 
 }
 
-#include "types.h"
-#include "pso/misc/TMainCursor.h"
 #include "pso/TAdRicoRing.h"
 #include "pso/misc/TLockOnCursor.h"
 #include "pso/player/TObjPlayer.h"

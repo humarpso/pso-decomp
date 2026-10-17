@@ -18,10 +18,6 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 extern const f32 lbl_805DEBC0;
 void push_ring_point__15TBoss7LaserPtclFPvPv(Obj_80037178 *self, V3_80037178 *src);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_80036A90_lbl_80435A68_size[sizeof(RecoveredGlobal_80036A90_lbl_80435A68) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_80036FC8___vt__11TBoss2Joint_size[sizeof(RecoveredGlobal_80036FC8___vt__11TBoss2Joint) == 0x1A8 ? 1 : -1];
 void push_ring_point__15TBoss7LaserPtclFPvPv(Obj_80037178 *self, V3_80037178 *src) {

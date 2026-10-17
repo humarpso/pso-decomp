@@ -10,12 +10,6 @@ s32 spawn_particle_effect(u32, s32);
 s32 rocket_punch_return_timer(u32);
 Mylla_8012C384 *find_entity_by_id(u32);
 void rocket_punch_target_impact(void *self, u32 a, u32 b, s32 idx);
-}
-
-extern "C" {
-
-s32 spawn_particle_effect(u32, s32);
-s32 rocket_punch_return_timer(u32);
 s32 play_sound_effect(s32, s32, s32, s32);
 
 void rocket_punch_target_impact(void *self, u32 a, u32 b, s32 idx) {
@@ -26,16 +20,6 @@ void rocket_punch_target_impact(void *self, u32 a, u32 b, s32 idx) {
         spawn_particle_effect((u32)m->ents[idx].f1c, 0x45);
     }
 }
-
-}
-
-#include "types.h"
-
-extern "C" {
-
-s32 spawn_particle_effect(u32, s32);
-s32 rocket_punch_return_timer(u32);
-s32 play_sound_effect(s32, s32, s32, s32);
 
 void rocket_punch_wall_impact(u32 arg0, u32 arg1, u32 arg2, u32 arg3) {
     if ((arg1 != 0U) && (arg3 != 0U)) {

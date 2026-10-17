@@ -58,10 +58,6 @@ struct VObj_18 : VBase_18 {
 
 extern "C" {
 s32 TObjPlayer__sub_80128A70();
-}
-
-extern "C" {
-
 void TUnk_804A4748::emit_marker_effects() {
     u8 *arg0 = (u8 *)this;
     TObjPlayer__sub_80128A70();

@@ -106,12 +106,7 @@ extern u32 TObjNpcMaleMacho__static_model_resource;
 s32 construct_male_npc_base(void *);
 extern s32 __vt__16TObjNpcMaleMacho[];
 extern s32 TObjNpcMaleMacho__name;
-extern u32 TObjNpcMaleMacho__static_model_resource;
 u8 *TObjNpcMaleMacho__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void * TObjNpcMaleOld__create(void *arg0);
 void *__dt__16TObjNpcMaleMachoFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -120,16 +115,12 @@ void *TObjNpcMaleOld__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
-extern u32 TObjNpcMaleMacho__static_model_resource;
-
 void TObjNpcMaleMacho::close_dialog_window() {
     if ((u32) TObjNpcMaleMacho__static_model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TObjNpcMaleMacho__static_model_resource, 1);
         TObjNpcMaleMacho__static_model_resource = 0U;
     }
 }
-
-extern s32 __vt__16TObjNpcMaleMacho[];
 
 void TObjNpcMaleMacho::load_static_resource() {
     s32 temp_r3;

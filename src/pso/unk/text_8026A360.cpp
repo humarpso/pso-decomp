@@ -1,9 +1,7 @@
 #include "types.h"
 #include "pso/misc/TWindowMessage.h"
 #include "pso/misc/TWindowMessageLog.h"
-extern "C" {
 extern char *chat_log_lines[];
-}
 
 extern "C" {
 

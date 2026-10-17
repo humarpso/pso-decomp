@@ -16,17 +16,12 @@ extern s32 tl_02;
 s32 TObjBoss5Pillar__ct(void *, void *, void *);
 extern s32 __vt__19TObjBoss5PillarDemo[];
 extern s32 lbl_805D3B28;
-extern void *lbl_805D4DD8;
 extern const f32 lbl_805DD908;
 u8 *TObjBoss5PillarDemo__ct(u8 *arg0, s32 arg1, s32 arg2);
 void transform_to_view__11TCameraCtrlFii(void *, void *);
 extern u8 lbl_80450CDC[];
 extern s32 boss5_pillar_demo_index;
 void TObjBoss5PillarDemo__sub_8028ACE8(Pd_8028ACE8 *arg0, void* _w1);
-}
-
-extern "C" {
-
 void TObjBoss5PillarDemo__sub_8028AB38(void);
 void TObjBoss5PillarDemo__sub_8028ACE0(void);
 void TObjBoss5PillarDemo__sub_8028ACE4(void);
@@ -39,8 +34,6 @@ s32 clear_child_target_refs(s32, s32);
 s32 clear_chain_flags(s32, s32);
 s32 set_model_node_callback(s32);
 
-extern void *lbl_805D4DD8;
-
 void TObjBoss5PillarDemo__sub_8028AB38(void) {
     void *temp_r4;
 
@@ -50,8 +43,6 @@ void TObjBoss5PillarDemo__sub_8028AB38(void) {
     }
 }
 
-extern void *lbl_805D4DD8;
-
 void TObjBoss5PillarDemo::update_active_pillar() {
     void *temp_r4;
 
@@ -60,8 +51,6 @@ void TObjBoss5PillarDemo::update_active_pillar() {
         clear_chain_flags(*(s32 *)((s8 *)temp_r4 + 0x78), *(s32 *)((s8 *)temp_r4 + 0x68));
     }
 }
-
-extern s32 __vt__19TObjBoss5PillarDemo[];
 
 void *__dt__19TObjBoss5PillarDemoFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -20,10 +20,6 @@ extern Vec_802AF64C lbl_804707E8;
 extern u8 identity_matrix[];
 extern Cam_802AF64C *camera_ctrl_instance;
 extern const f32 lbl_805DE1F0;
-}
-
-extern "C" {
-
 void TObjMistCtrl::sub_802AF64C() {
     Obj_802AF64C *arg0 = (Obj_802AF64C *)this;
     Vec_802AF64C v = lbl_804707E8;

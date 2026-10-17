@@ -11,12 +11,6 @@ extern s32 lbl_805D6238;
 extern u32 lbl_805D6258;
 s32 is_split_screen();
 s32 TShopGenerator__sub_80222DAC(s32 arg0);
-}
-
-extern "C" {
-
-extern u32 lbl_805D6258;
-
 void TLobby::free_singleton() {
     if ((u32) lbl_805D6258 != 0U) {
         TLobby::free_nodes_with_id((u32)((void*)lbl_805D6258));

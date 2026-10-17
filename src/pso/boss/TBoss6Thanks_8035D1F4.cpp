@@ -4,15 +4,9 @@
 extern "C" {
 s32 fn_8035CAE0();
 int check_ship_door__12TBoss6ThanksFv(void*);
-}
-
-extern "C" {
-
 int TBoss6Thanks__sub_8035D270(void* p);
 void *TBoss6Thanks__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
-int check_ship_door__12TBoss6ThanksFv(void*);
-s32 fn_8035CAE0();
 s32 any_player_has_listed_equipment();
 s32 get_main_phase();
 s32 is_split_screen();

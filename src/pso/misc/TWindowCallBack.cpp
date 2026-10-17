@@ -22,16 +22,11 @@ extern RecoveredGlobal_802ACE84_lbl_804DE360 window_callback_base_params;
 extern s32 __vt__15TWindowCallBack[];
 extern s32 lbl_805D3E58;
 u8 *TWindowCallBack__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3);
-}
-
-extern "C" {
-
 void *__dt__15TWindowCallBackFv(void *arg0, s16 arg1);
 void build_6xA3_olga_flow_boss_actions(void* p);
 int fn_802ACD40(void* p);
 void fn_802ACD60(void* p);
 void run_task__15TWindowCallBackFv(void* p);
-void set_field_60__15TWindowCallBackFPvi(void* p, s32 v);
 int TLobby__send_and_handle_60(void*);
 void __dl__7TObjectFPv(void *);
 int read_be16_field2__10TObjPlayerFv(void*);
@@ -65,8 +60,6 @@ void TWindowCallBack::render() {
 extern "C" {
 
 void run_task__15TWindowCallBackFv(void* p) { ((TWindowDD *)p)->initialize_subwindow(); ((TUnk_804CE018 *)p)->update_fade(); }
-
-extern s32 __vt__15TWindowCallBack[];
 
 void *__dt__15TWindowCallBackFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

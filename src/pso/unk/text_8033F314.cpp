@@ -10,10 +10,6 @@ s32 __nw__7TObjectFUl(int);
 s32 __ct__12TAdMcCheckGCFP7TObjectPv(int, void *, void *);
 extern RecoveredGlobal_8034A5D0_lbl_804EFF80 memcard_cursor_instance_table;
 s32 fn_8033F314(s32 arg0, s32 arg1);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8034A5D0_lbl_804EFF80_size[sizeof(RecoveredGlobal_8034A5D0_lbl_804EFF80) == 0xC ? 1 : -1];
 s32 fn_8033F314(s32 arg0, s32 arg1) {
     s32 temp_r30;

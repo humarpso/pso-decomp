@@ -20,10 +20,6 @@ extern RecoveredGlobal_80260304_lbl_804CFAD0 lbl_804CFAD0;
 extern s32 __vt__19TWindowKeyBoardHard[];
 extern s32 TWindowKeyBoardHard__name;
 u8 *TWindowKeyBoardHard__ct(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 void *__dt__19TWindowKeyBoardHardFv(void *arg0, s16 arg1);
 s32 is_key_active__19TWindowKeyBoardHardFv();
 void __dl__7TObjectFPv(void *);
@@ -62,8 +58,6 @@ void TWindowKeyBoardHard::run_task() {
     }
 }
 
-extern s32 __vt__19TWindowKeyBoardHard[];
-
 void *__dt__19TWindowKeyBoardHardFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowKeyBoardHard;
@@ -89,9 +83,6 @@ u8 *TWindowKeyBoardHard__ct(u8 *arg0, s32 arg1) {
     return arg0;
 }
 
-}
-
-extern "C" {
 extern char lbl_8044F0A8[];
 s32 TWindowKeyBoardHard__name = (s32)lbl_8044F0A8;
 }

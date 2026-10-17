@@ -13,10 +13,6 @@ void *init_type_447__13TUnk_804E22F4Fv(void *, s32, void *);
 void *init_vtable_and_handlers_341__13TUnk_804E1F04Fv(void *, s32, void *);
 void *init_vtable_and_field200__10TObjPlayerFPv(void *, s32, void *);
 extern s32 tl_05;
-}
-
-extern "C" {
-
 void *__dt__13TUnk_804E1E08Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804E1F04Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804E2000Fv(void *arg0, s16 arg1);

@@ -1,9 +1,7 @@
 #include "pso/audio/GcrnaStream.h"
 #include "pso/audio/GcrnaError.h"
 
-extern "C" {
 extern const char lbl_8047E2E8[];
-}
 
 #pragma push
 #pragma dont_inline off
@@ -40,9 +38,6 @@ extern "C" void GCRNA_SetTransSw(GcrnaStream* stream, s32 enabled) {
 extern "C" {
 u8* gcrna_audio_buffers[32];
 GcrnaStream gcrna_stream_pool[16];
-}
-
-extern "C" {
 u8 gcrna_volume_table[1000] = {
     127, 126, 126, 125, 125, 124, 123, 123, 122, 122, 121, 120, 120, 119, 119, 118, 117, 117, 116, 116,
     115, 115, 114, 113, 113, 112, 112, 111, 111, 110, 110, 109, 108, 108, 107, 107, 106, 106, 105, 105,

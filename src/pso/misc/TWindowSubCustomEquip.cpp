@@ -51,9 +51,6 @@ s32 play_sound_effect(s32, s32, s32, s32);
 s32 is_player_input_active(int);
 extern RecoveredGlobal_80276D14_lbl_8050E208 controller_input_state;
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
-s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 is_player_input_active(int);
-extern RecoveredGlobal_80276D14_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DD5A4;
 s32 set_help_text__15TWindowHelpItemFll(u8 *, s32);
 extern const f32 lbl_805DD570;
@@ -63,15 +60,9 @@ u8 *get_player_by_client_id(s32);
 s32 TWindowActionPalette__sub_801C1D7C(s32, s32, s32);
 s32 get_slot_type__20TWindowActionPaletteFlll(s32, s32, s32);
 extern const Vec2_802766C8 custom_equip_entry_offset_table[];
-extern const f32 lbl_805DD578;
 extern const f32 lbl_805DD57C;
 extern const f32 lbl_805DD580;
-}
-
-extern "C" {
-
 void *__dt__21TWindowSubCustomEquipFv(void *arg0, s16 arg1);
-s32 play_sound_effect(s32, s32, s32, s32);
 void __dl__7TObjectFPv(void *);
 
 extern const f32 lbl_805DD568;

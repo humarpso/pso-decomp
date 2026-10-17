@@ -9,10 +9,6 @@ void prepare_ginja_model(G_801E2DE4 *);
 void end_ginja_model_draw();
 void draw_ginja_model_lists();
 extern void *model_draw_context;
-}
-
-extern "C" {
-
 s32 GXLoadNrmMtxImm(s32 *, s32);
 s32 GXLoadPosMtxImm(s32, s32);
 extern s32 (*model_node_callback)(void *);
@@ -22,7 +18,6 @@ s32 compose_motion_node_matrix(void *);
 s32 push_matrix();
 s32 pop_matrix();
 
-extern void *model_draw_context;
 extern s32 current_matrix;
 
 void TObjPlayer::render_model_tree(void *arg0) {
@@ -51,9 +46,6 @@ void TObjPlayer::render_model_tree(void *arg0) {
         var_r31 = *(void **)((s8 *)var_r31 + 0x30);
     } while (var_r31 != NULL);
 }
-
-extern void *model_draw_context;
-extern s32 current_matrix;
 
 void TObjPlayer::draw_ginja_model(s32 arg1) {
     G_801E2DE4 *g;

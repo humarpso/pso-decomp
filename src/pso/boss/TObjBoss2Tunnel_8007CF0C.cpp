@@ -29,13 +29,8 @@ s32 draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(s32, s32);
 void draw_projected_quads__15TObjBoss2TunnelFPvi(Vtx_8007D828 *, s32);
 void TObjBoss2Tunnel__sub_803E2D10(s32);
-extern Vec2_8007DD28 TObjBoss2Tunnel__data_8048DF2C;
 extern s32 lbl_805D63F0;
 void draw_snapshot_capture_overlay(void);
-}
-
-extern "C" {
-
 void TObjBoss2Tunnel__sub_8007DD24(void);
 void load_data_buffers(void);
 s32 memcard_check_snapshot(s32 arg0, s32 *arg1);
@@ -50,10 +45,7 @@ s32 set_stream_and_load_file__6TLobbyFi(s32);
 u32 xmalloc__FUl(s32);
 
 extern s32 screen_binary_filename;
-extern s16 TObjBoss2Tunnel__snapshot_state;
 extern u32 boss2_tunnel_snapshot_buffer;
-extern u32 TObjBoss2Tunnel__snapshot_buffer;
-extern s32 TObjBoss2Tunnel__snapshot_saved_flag;
 
 void load_data_buffers(void) {
     s32 temp_r31;

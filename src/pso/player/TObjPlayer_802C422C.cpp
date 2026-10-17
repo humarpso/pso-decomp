@@ -24,17 +24,9 @@ s32 sync_state__10TObjPlayerFi(s32 arg0) {
     return 1;
 }
 
-}
-
-extern "C" {
-
 int get_char_index__23TAdSinglePlyChrSelectGCFUi(void*);
 
 void TObjPlayer::sync_char_select_state() { get_char_index__23TAdSinglePlyChrSelectGCFUi((void*)65535); ((int (*)(void))sync_state__10TObjPlayerFi)(); }
-
-}
-
-extern "C" {
 
 s32 try_assign_battle_ctrl__10TObjPlayerFiUs(s32 arg0, u16 arg1);
 s32 update_battle__10TObjPlayerFi(s32 arg0);
@@ -98,24 +90,15 @@ u8 get_field_374__10TObjPlayerFv(void *);
 s32 TObjPlayer__sub_801C0124(void *, s16);
 void split_capped_value__10TObjPlayerFUcPUcPSc(s32, u8 *, E_802C4698 *);
 s32 TObjPlayer__sub_802A1018();
-u8 *TObjPlayer__sub_802C4688(O_802C4688 *self, s32 i);
-E_802C4698 *TObjPlayer__sub_802C4698(O_802C4698 *self, s32 i);
 extern s32 current_language;
-void export_player_record__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 void is_slot_within_limit__10TObjPlayerFllUc(u8 id, s16 i, u8 v);
-}
-
-extern "C" {
-
 int init_character_action_config(void* p);
 int TObjPlayer__sub_802C46E0(void* p);
 s32 DateToSeconds__FP9DateStampPi(s32 *, s32 *);
 int TObjPlayer__sub_8011E204(void*, void*);
 int init_action_config__10TObjPlayerFv(void*);
 int set_palette_entry__20TWindowActionPaletteFlllll(void*);
-int fn_802C4748(void* p);
 s32 getDateStamp__FP9DateStamp(s32 *);
-int get_char_index__23TAdSinglePlyChrSelectGCFUi(void*);
 
 void TObjPlayer::init_battle_selection() { get_char_index__23TAdSinglePlyChrSelectGCFUi((void*)65535); ((int (*)(void))update_battle__10TObjPlayerFi)(); }
 

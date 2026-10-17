@@ -17,15 +17,9 @@ extern s32 __vt__20TWindowMessageScroll[];
 extern s32 TWindowMessageScroll__class_name;
 extern const f32 lbl_805E01B8;
 u8 *TWindowMessageScroll__ct(u8 *arg0, s32 arg1, s32 *arg2);
-}
-
-extern "C" {
-
 void *__dt__20TWindowMessageScrollFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__19TWindowMessageQuestFv(void *, int);
-
-extern s32 __vt__20TWindowMessageScroll[];
 
 void TWindowMessageScroll::run_task() {
     u8 *arg0 = (u8 *)this;

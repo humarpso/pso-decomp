@@ -82,7 +82,6 @@ void reserved_53__13TUnk_804A204CFv(void *arg0);
 void TObjPlayer__sub_8012443C(MegidWeaponRenderView *arg0);
 s32 get_current_floor();
 s32 is_item_area_enabled();
-extern s32 tl_05;
 void update_weapon__13TUnk_804A204CFv(void *arg0);
 s32 create_ex__9TTecMegidFllll(void *, s32 *, s32, s32);
 void emit_marker_effects__13TUnk_804A204CFv(void *arg0);
@@ -102,13 +101,8 @@ s8 TObjPlayer__sub_80102C30();
 s32 copy_position__15TEffStarLight2DFPv(u32, s32 *);
 s32 queue_destruction__7TObjectFv(void *);
 void run_task__13TUnk_804A2018Fv(void *arg0);
-}
-
-extern "C" {
-
 void *__dt__13TUnk_804A204CFv(void *arg0, s16 arg1);
 void *TObjPlayer__sub_80124694(void *arg0);
-extern s32 tl_05;
 u8 *TObjPlayer__sub_80124708(u8 *arg0);
 s32 is_owner_alive__15TItemShootModelFv();
 s32 rotate_matrix_x(int, int);

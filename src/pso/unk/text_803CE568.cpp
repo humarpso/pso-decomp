@@ -27,24 +27,14 @@ extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
 extern s32 lbl_805D75FC;
 extern s32 lbl_8047D7E4[];
 extern s32 lbl_8047D800[];
-extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
-extern s32 lbl_805D75FC;
 extern s32 lbl_8047D8B8[];
 extern s32 lbl_8047D8D4[];
-extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
-extern s32 lbl_805D75FC;
 extern s32 lbl_8047D8EC[];
 extern s32 lbl_8047D908[];
-extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
-extern s32 lbl_805D75FC;
 extern s32 lbl_8047D850[];
 extern s32 lbl_8047D86C[];
-extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
-extern s32 lbl_805D75FC;
 extern s32 lbl_8047D884[];
 extern s32 lbl_8047D8A0[];
-extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
-extern s32 lbl_805D75FC;
 s32 strncmp(void *, void *, int);
 void *memcpy(void *, void *, u32);
 u32 strlen(void *);
@@ -52,17 +42,10 @@ extern s32 lbl_8047D9D4[];
 extern s32 lbl_8047D9FC[];
 extern s8 fs_default_device_name[];
 extern Ent_803CF958 cvfs_entry_table[];
-extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
-extern s32 lbl_805D75FC;
 void *memset(void *, s32, u32);
 extern s32 lbl_805D7600;
 void SIGetTypeAsync(void);
-extern Ent_803CF958 cvfs_entry_table[];
 void TLobby__sub_803CEF60(void);
-}
-
-extern "C" {
-
 s32 TLobby::cv_fs_get_stat() {
     u8 *arg0 = (u8 *)this;
     s32 (*temp_r12)(s32);

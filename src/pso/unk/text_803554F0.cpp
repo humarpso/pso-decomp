@@ -4,10 +4,6 @@
 extern "C" {
 s32 get_player_by_client_id(u32);
 extern const f32 lbl_805DFFA8;
-}
-
-extern "C" {
-
 void TBoss5GryphonTornado::sub_803554F0(u8 *arg1) {
     u8 *arg0 = (u8 *)this;
   unsigned short new_var;

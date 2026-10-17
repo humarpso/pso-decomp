@@ -43,7 +43,6 @@ s32 get_mode__11TCameraCtrlFPv(void *);
 s32 TBoss8Dragon__sub_802FCCBC(void *);
 extern const f32 lbl_805DED68;
 extern const f32 lbl_805DED6C;
-void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *find_entity_by_id(void);
 s32 TBoss8Dragon__sub_802F4760(void *, void *, f32);
 void subtract_vector(void *, void *);
@@ -59,7 +58,6 @@ s32 isFading__15RenderFadeStateCFv(int);
 s32 TObjLight__sub_801337F8(void *);
 s32 fn_801414B0(int, int, int, int);
 s32 has_enough_enemies__12TBoss8DragonFv();
-s32 TBoss8Dragon__sub_802F3F20(u8 *arg0);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_z(int, int);
 s32 rotate_matrix_x(int, int);
@@ -74,9 +72,6 @@ extern s32 lbl_805D5660;
 extern u8 *TBoss8Dragon__data_805D6988;
 extern s32 model_render_flags;
 extern const f32 lbl_805DED70;
-}
-
-extern "C" {
 
 s32 TBoss8Dragon__sub_802F3F20(u8 *arg0) {
     Vec_802F3F20 sp14;

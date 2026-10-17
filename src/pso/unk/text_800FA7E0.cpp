@@ -1,11 +1,9 @@
 #include "types.h"
 #include "pso/misc/TLobby.h"
 
-extern "C" {
 extern s32 async_file_read_current_request;
 extern u32 lobby_stack_entry_list_tail;
 extern s32 lobby_list_entry_count;
-}
 
 extern "C" {
 

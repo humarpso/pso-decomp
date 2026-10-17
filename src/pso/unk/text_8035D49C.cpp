@@ -13,9 +13,6 @@ u8 *alloc_and_init_obj_effect(u8 *arg0);
 u8 * TItemWeapon__ct(void *, void *);
 extern RecoveredGlobal_8035D49C_lbl_804F1EC8 ruby_bullet_weapon_vtable;
 u8 *fn_8035D49C(u8 *arg0, u8 *arg1, s32 _w2);
-}
-
-extern "C" {
 
 typedef char RecoveredGlobal_8035D49C_lbl_804F1EC8_size[sizeof(RecoveredGlobal_8035D49C_lbl_804F1EC8) == 0xF8 ? 1 : -1];
 u8 *fn_8035D49C(u8 *arg0, u8 *arg1, s32 _w2) {

@@ -35,15 +35,6 @@ extern const f32 lbl_805DBE6C;
 s32 get_bml_motion(s32, s32);
 Node_80193188 *get_bml_model(s32, s32);
 extern s32 lazer_fence_norm_bml_resource;
-}
-
-extern "C" {
-
-void post_translate_matrix(void *);
-void draw_ginja_object(void *);
-void rotate_matrix_y(int, void *);
-void push_matrix(void);
-void pop_matrix(void);
 f32 xz_distance_squared(void *, s32);
 s16 update_object_view_visibility__13TUnk_804B9870Fff(void *, f32, f32);
 s32 set_indexed_flags(void *, s32, s32);
@@ -61,8 +52,6 @@ s16 TObjLazerFence4::update_object_view_visibility(f32 farg0, f32 farg1) {
     }
     return update_object_view_visibility__13TUnk_804B9870Fff(arg0, farg0, farg1);
 }
-
-extern void *lazer_fence_norm_texture_list;
 
 void TObjLazerFence4::init_models() {
     Fence_80193188 *arg0 = (Fence_80193188 *)this;

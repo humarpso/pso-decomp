@@ -6,10 +6,6 @@ extern "C" {
 u8 is_current_floor_switch_set(int);
 s32 minimap_render_gate(void *, u32, u16, s32, s32);
 extern s32 switch_doors_force_closed;
-}
-
-extern "C" {
-
 void TUnk_804B0BB8::update_door_switch_state() {
     u8 *arg0 = (u8 *)this;
     s32 cc;

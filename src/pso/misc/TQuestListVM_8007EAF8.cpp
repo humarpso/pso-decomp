@@ -18,7 +18,6 @@ s32 TQuestListVM::get_quest_id() {
     extern int TQuestListVM__decrypted_quest_buffer;
 int TQuestListVM::get_instance() {  return TQuestListVM__decrypted_quest_buffer; }
 
-    extern int TQuestListVM__decrypted_quest_buffer;
 void TQuestListVM::reset() { TQuestListVM__decrypted_quest_buffer = 0; }
 
 extern s32 TQuestVmDownLoadServer__instance;

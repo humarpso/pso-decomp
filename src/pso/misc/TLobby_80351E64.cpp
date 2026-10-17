@@ -19,22 +19,14 @@ extern int lobby_main_texture_gvm;
 void TLobby__sub_8035202C(void);
 int load_gvm_texture_file(void*);
     extern unsigned char lbl_80478E20[];
-extern int lobby_main_texture_gvm;
 void load_obj_lobby_main(void);
 void __ct__7TObjectFP7TObject(void *, void *);
-extern const s32 lbl_804F0EA8[];
 extern u8 *tl_00;
 u8 *TLobby__sub_80351FDC(u8 *arg0);
 s32 get_theme_lobby_type(void);
 void TLobby__sub_80351DF8(void *, s32);
-}
-
-extern "C" {
-
 void TLobby__sub_80351F3C(void);
 void *__nw__7TObjectFUl(int);
-
-extern void *lobby_event_theme_controller;
 
 s32 TLobby::is_connected() {
     if ((void *) lobby_event_theme_controller != NULL) {
@@ -43,8 +35,6 @@ s32 TLobby::is_connected() {
     return 0;
 }
 
-extern void *lobby_event_theme_controller;
-
 s32 TLobby::is_lobby_obj_active() {
     if ((void *) lobby_event_theme_controller != NULL) {
         return ((u32) *(u32 *)((s8 *)lobby_event_theme_controller + 0x1C) >> 1U) & 1;
@@ -52,10 +42,7 @@ s32 TLobby::is_lobby_obj_active() {
     return 0;
 }
 
-    extern int lobby_main_texture_gvm;
 int TLobby::get_lobby_type() {  return lobby_main_texture_gvm; }
-
-extern void *lobby_event_theme_controller;
 
 void TUnk_804F0EA8::run_task() {
     L_80351EAC *arg0 = (L_80351EAC *)this;

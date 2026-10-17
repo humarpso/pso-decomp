@@ -56,14 +56,8 @@ extern s32 __vt__19TWindowKeyBoardSoft[];
 extern s32 keyboard_soft_type_name_pointer;
 extern const f32 TWindowKeyBoardSoft__data_805DD090;
 u8 *TWindowKeyBoardSoft__ct(u8 *arg0, s32 arg1, s16 arg2);
-}
-
-extern "C" {
-
 void *__dt__19TWindowKeyBoardSoftFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-
-extern s32 __vt__19TWindowKeyBoardSoft[];
 
 void *__dt__19TWindowKeyBoardSoftFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -188,9 +188,6 @@ void set_animation__10TObjPlayerFPvs(void *, s16);
 void init_collision_body_parts(void *, void *, int);
 extern s32 TContainerAncient01R__name;
 extern const f32 lbl_805DBD5C;
-}
-
-extern "C" {
 void queue_destruction__7TObjectFv(void *);
 u32 get_bml_motion(int, int);
 s32 get_bml_model(int, int);
@@ -208,15 +205,12 @@ extern const f32 TContainerAncient01__data_805DBD44;
 s32 is_within_range__19TContainerAncient01Fii(s32 arg0, s32 arg1);
 void advance_animation_playback(void *);
 unsigned int __cvt_fp2unsigned(f32);
-extern const float TContainerAncient01__data_805DBD1C;
 extern const f32 TContainerAncient01__data_805DBD34;
 extern f32 TContainerAncient01__data_805DBD14;
 f32 receive_physical_attack__20TContainerAncient01RFPvf(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-extern const f32 TContainerAncient01__data_805DBD10;
 extern const f32 TContainerAncient01__data_805DBD3C;
 extern const f32 lbl_805DBD40;
-extern const f32 TContainerAncient01__data_805DBD44;
 extern const f32 lbl_805DBD48;
 extern s32 TContainerAncient01__open_effect_table[];
 s32 obj_testFlags30(void *, s32);
@@ -238,40 +232,8 @@ extern const f32 lbl_805DBD38;
 s32 TContainerAncient01__sub_8018BE90(void);
 
 int spawn_particle_effect(void*, void*);
-void advance_animation_playback(void *);
-extern const float TContainerAncient01__data_805DBD1C;
-extern const f32 TContainerAncient01__data_805DBD34;
-void VecCopy__FP3VecPC3Vec(void *, void *);
-extern const f32 TContainerAncient01__data_805DBD10;
-extern const f32 TContainerAncient01__data_805DBD3C;
-extern const f32 lbl_805DBD40;
-extern const f32 TContainerAncient01__data_805DBD44;
-extern const f32 lbl_805DBD48;
-f32 horizontal_distance_squared(void *, void *);
-void advance_animation_playback(void *);
-u8 *get_player_by_client_id(int);
-extern const float TContainerAncient01__data_805DBD1C;
-extern const f32 lbl_805DBD38;
 extern s32 TContainerAncient01__effect_id_table[];
-s32 obj_testFlags30(void *, s32);
-s32 get_current_floor();
-f32 horizontal_distance_squared(void *, void *);
-u8 *get_player_by_client_id(int);
-extern const f32 lbl_805DBD18;
 void TContainerAncient01__sub_8018B180(Obj_8018B180 *self, f32 range);
-void advance_animation_playback(void *);
-void TContainerAncient01__sub_8018B180(Obj_8018B180 *self, f32 range);
-s32 play_sound_effect(int, void *, int, int);
-extern const f32 TContainerAncient01__data_805DBD20;
-extern const f32 lbl_805DBD24;
-extern const f32 lbl_805DBD28;
-extern const f32 lbl_805DBD2C;
-extern const f32 lbl_805DBD30;
-extern const f32 TContainerAncient01__data_805DBD34;
-
-}
-
-extern "C" {
 
 int calc_distance_accuracy_penalty__20TContainerAncient01RFPvPvPvf(void);
 f32 receive_direct_attack__20TContainerAncient01RFPvPvPvll(void *arg0, s32 arg1, s32 *arg2);
@@ -292,8 +254,6 @@ void *TContainerAncient01R__ct(Obj_8018B030 *, void *, void *);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-
-    extern const float TContainerAncient01__data_805DBD1C;
 
 extern "C" void receive_weapon_special_attack__20TContainerAncient01RFPvPv();
 extern "C" void apply_knockback_from_attacker__20TContainerAncient01RFPUc();
@@ -576,9 +536,6 @@ void TContainerAncient01R::vfunc_6(s16 *arg1, s32 arg2) {
     }
 }
 
-extern const f32 TContainerAncient01__data_805DBD10;
-extern f32 TContainerAncient01__data_805DBD14;
-
 void TContainerAncient01R::open_container() {
     Obj_8018AB44 *arg0 = (Obj_8018AB44 *)this;
     if (arg0->f360 == 0) {
@@ -621,7 +578,6 @@ f32 TContainerAncient01R::receive_direct_attack(void *arg1, void *arg2_arg, void
 
 int TContainerAncient01R::calc_distance_accuracy_penalty(void *, void *, void *, float) { return 1; }
 
-extern const f32 TContainerAncient01__data_805DBD3C;
 extern const f32 lbl_805DBD4C;
 
 s32 is_within_range__19TContainerAncient01Fii(s32 arg0, s32 arg1) {
@@ -755,8 +711,6 @@ void *TContainerAncient01R__ct(Obj_8018B030 *self, void *arg1, void *parent) {
     return self;
 }
 #pragma pop
-
-    extern const float TContainerAncient01__data_805DBD1C;
 
 void TContainerAncient01::spawn_effect(void* p, void* a1, void* a2) { spawn_particle_effect(a1, a2); }
 

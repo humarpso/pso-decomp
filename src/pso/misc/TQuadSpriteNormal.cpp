@@ -57,10 +57,6 @@ extern const f32 lbl_805DC460;
 extern const f32 lbl_805DC464;
 extern const f32 lbl_805DC468;
 void render__17TQuadSpriteNormalFv(Self_801E5598 *self);
-}
-
-extern "C" {
-
 void *TQuadSpriteNormal__ct(void *arg0);
 void *__dt__17TQuadSpriteNormalFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
@@ -171,7 +167,6 @@ void *__dt__17TQuadSpriteNormalFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__17TQuadSpriteNormal[];
 extern void *TQuadSpriteNormal__class_name;
 
 void *TQuadSpriteNormal__ct(void *arg0) {

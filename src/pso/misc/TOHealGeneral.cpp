@@ -92,9 +92,7 @@ u32 create_particle_emitter(void *, s32);
 void init_collision_body_parts(void *, void *, s32, void *);
 void init_map_object_base(void *, s32);
 extern u8 lbl_804B2770[];
-extern void *__vt__13TOHealGeneral[];
 extern s32 TOHealGeneral__class_name;
-extern u32 TOHealGeneral__model_archive;
 extern s32 tl_05;
 extern const f32 lbl_805DB6BC;
 extern const f32 lbl_805DB6C0;
@@ -104,10 +102,6 @@ void *TOHealGeneral__ct(void *arg0, void *arg1);
 void play_effect_default__10TObjPlayerFii(void *, s32);
 void *get_player_by_client_id(s32);
 extern s32 local_client_id;
-}
-
-extern "C" {
-
 void TLobby__sub_8001FE7C(void*, int);
 u8 is_current_floor_switch_set(u16);
 s32 is_any_player_within_radius_xz(f32);
@@ -179,8 +173,6 @@ void *TOHealGeneral::create() {
     }
     return o;
 }
-
-extern u32 TOHealGeneral__model_archive;
 
 void TOHealGeneral::close_dialog_window() {
     if ((u32) TOHealGeneral__model_archive != 0U) {

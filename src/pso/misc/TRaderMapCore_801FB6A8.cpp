@@ -14,7 +14,6 @@ s32 save_floor_discovery__13TRaderMapCoreFiPv(int, int);
 s32 TLobby__sub_803DA16C(int);
 extern u8 *TRaderMapCore__floor_map_resource;
 extern s32 TRaderMapCore__render_mode;
-s32 get_current_floor();
 void copy_name(const char *);
 u8 *create_named_object(char *);
 void replace_file_extension__6TLobbyFPvPvPv(char *, char *, const char *);
@@ -23,17 +22,11 @@ Ent_801FB798 *get_floor_scene_table(s32);
 void bind_gvm_texture_list(char *, u8 *);
 extern const char lbl_8044A7B0[];
 extern s32 lbl_805D49B4;
-extern u8 *TRaderMapCore__floor_map_resource;
 extern s32 TRaderMapCore__data_805D5F30;
 extern s8 lbl_805D5F34;
 extern s32 lbl_805D5F38;
-extern s32 TRaderMapCore__render_mode;
 extern const char lbl_805DC5AC[2];
 extern const char lbl_805DC5B0[3];
-}
-
-extern "C" {
-
 s32 TRaderMapCore__ct(void *, s32);
 u32 __nw__7TObjectFUl(s32);
 

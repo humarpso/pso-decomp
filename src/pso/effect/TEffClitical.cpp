@@ -66,11 +66,6 @@ extern u8 *camera_ctrl_instance;
 extern s32 *lbl_805D4ED8;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-}
-
-extern "C" {
-
-void init_texture_copy_rect(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void *__ct__12TEffCliticalFPv(void *arg0, void *arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);

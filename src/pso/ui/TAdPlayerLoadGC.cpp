@@ -45,18 +45,10 @@ void *memset(void *, int, u32);
 extern void *__vt__15TAdSubPlyItemGC[6];
 extern s32 TAdSubPlyItemGC__name;
 Item_802D6FD4 *__ct__15TAdSubPlyItemGCFv(Item_802D6FD4 *self);
-}
-
-extern "C" {
-
 void *__dt__13TUnk_804E24F0Fv(void *arg0, s16 arg1);
 void *__ct__15TAdPlayerLoadGCFv(void *arg0, void *arg1, void *arg2);
-int get_player_load_state(void);
-void set_character_select_b_slot_state(int a0);
 void render__15TAdPlayerLoadGCFv(void);
-void __ct__7TObjectFP7TObject(void *);
 void __dt__11TItemWeaponFv(void *, int);
-void set_state__15TAdPlayerLoadGCFi(int);
 
 extern s32 lbl_804E24F0[];
 
@@ -273,14 +265,12 @@ void set_character_select_b_slot_state(int a0) { TAdChrSelBSlotGC__global_state 
 
 }
 
-#include "pso/TObject.h"
 class TAdSubPlyItemGC : public TObject {
 public:
     virtual void vtable_key_TAdSubPlyItemGC();
     virtual ~TAdSubPlyItemGC();
 };
 
-#include "types.h"
 #include "pso/TMainTask.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 
@@ -311,19 +301,13 @@ extern const f32 lbl_805DE7C0;
 extern const f32 lbl_805DE7C4;
 extern const f32 lbl_805DE7C8;
 char *strncpy(char *, const char *, u32);
-void __ct__7TObjectFP7TObject(void *);
-extern s32 TAdSubPlyItemGC__name;
 u32 calc_text_width(const char *);
 u8 *format_level_text__15TAdSubPlyItemGCFii(s32 arg0, s32 arg1);
 extern const f32 lbl_805DE7CC;
 extern const f32 lbl_805DE7D0;
 void run_task__15TAdSubPlyItemGCFv(Self_802D6E7C *self);
-}
-
-extern "C" {
 extern u8 level_text_buffer[];
 extern u8 lbl_804725E0[];
-void *memset(void *, int, u32);
 s32 sprintf(void *, const void *, ...);
 typedef struct S_802D6D88 { u8 pad0[0x43C]; s32 f[4]; } S_802D6D88;
 

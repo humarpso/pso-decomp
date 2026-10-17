@@ -7,12 +7,7 @@ void __destroy_arr(void *, void *, u32, u32);
 void free_if_valid__14TPlyDispConfigFis(void *, s16);
 s32 __dl__FPv(s32);
 s32 destroy_arrays__14TPlyDispConfigFii(s32 self, s32 del);
-}
-
-extern "C" {
-
 s32 __dt__14TPlyDispConfigFv(s32 arg0, s16 arg1);
-s32 __dl__FPv(s32);
 
 s32 __dt__14TPlyDispConfigFv(s32 arg0, s16 arg1) {
     if (arg0 != 0) {

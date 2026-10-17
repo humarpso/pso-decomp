@@ -40,10 +40,6 @@ s32 draw_model_motion(int, int, f32);
 extern Color_801ACE1C chunk_material_color_half_alpha_f32;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-}
-
-extern "C" {
-
 void TPhotonMagicSquare::render() {
     Self_801ACE1C *self = (Self_801ACE1C *)this;
     TParticleCtrl::begin_effect_render();
@@ -150,34 +146,15 @@ struct RecoveredGlobal_801AD330___vt__18TPhotonMagicSquare { s32 value; u8 remai
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 construct_world_actor_base(void *);
 extern RecoveredGlobal_801AD0F0_TPhotonMagicSquare__data_804C3940 TPhotonMagicSquare__color_palette;
 extern RecoveredGlobal_801AD0F0___vt__18TPhotonMagicSquare __vt__18TPhotonMagicSquare;
 extern s32 TPhotonMagicSquare__data_805D3508;
 extern u8 *photon_blast_shared_resource;
 u8 *TPhotonMagicSquare__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 construct_world_actor_base(void *);
-extern RecoveredGlobal_801AD0F0_TPhotonMagicSquare__data_804C3940 TPhotonMagicSquare__color_palette;
-extern RecoveredGlobal_801AD0F0___vt__18TPhotonMagicSquare __vt__18TPhotonMagicSquare;
-extern s32 TPhotonMagicSquare__data_805D3508;
-extern u8 *photon_blast_shared_resource;
 u8 *construct_photon_magic_square_normal(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 find_entity_by_id(void *);
-s32 construct_world_actor_base(void *);
 s32 play_sound_effect(int, int, int, int);
-extern RecoveredGlobal_801AD0F0_TPhotonMagicSquare__data_804C3940 TPhotonMagicSquare__color_palette;
-extern RecoveredGlobal_801AD0F0___vt__18TPhotonMagicSquare __vt__18TPhotonMagicSquare;
-extern s32 TPhotonMagicSquare__data_805D3508;
-extern u8 *photon_blast_shared_resource;
-}
-
-extern "C" {
-
 void *__dt__18TPhotonMagicSquareFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
@@ -191,10 +168,6 @@ void *__dt__18TPhotonMagicSquareFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-}
-
-extern "C" {
 
 u8 *TPhotonMagicSquare__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0) {
     construct_world_actor_base((void *) (arg0));

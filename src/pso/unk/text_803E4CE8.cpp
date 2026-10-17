@@ -14,10 +14,6 @@ void matrix_mult_vec(s32, Src_803E4CE8 *, Dst_803E4CE8 *);
 extern const f32 lbl_805E10B0;
 extern const f32 lbl_805E10B4;
 void cache_chunk_vertex_colors(Arg_803E4CE8 *arg0);
-}
-
-extern "C" {
-
 void cache_chunk_vertex_colors(Arg_803E4CE8 *arg0) {
     s32 n = arg0->count;
     Src_803E4CE8 *src = arg0->src;

@@ -34,10 +34,6 @@ extern const f32 lbl_805DEFA0;
 extern const f32 lbl_805DEFA4;
 extern const f32 lbl_805DEFA8;
 void fn_80302DC0(u8 *arg0);
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 void fn_80302DC0(u8 *arg0) {

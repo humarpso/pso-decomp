@@ -52,23 +52,16 @@ extern u8 __vt__11TWindowCtrl[];
 extern void *TWindowCtrl__active_window;
 TWindowCtrl_8024C160 *__dt__11TWindowCtrlFv(TWindowCtrl_8024C160 *self, s16 flag);
 s32 is_split_screen();
-void queue_destruction__7TObjectFv(void *);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *);
 void *TWindowBreakIn__ct(void *);
 void *__ct__11TWindowChatFP7TObjectPv(void *, s32, void *);
 void *TWindowCtrlPlayer__ct(void *, void *, s32);
 void *create_party_status_window(s32);
-extern u8 __vt__11TWindowCtrl[];
 extern s32 lbl_805D38C8;
 extern s32 local_client_id;
 extern s32 tl_00;
-extern void *TWindowCtrl__active_window;
 TWindowCtrl_8024C308 *TWindowCtrl__ct(TWindowCtrl_8024C308 *self);
-}
-
-extern "C" {
-
 TWindowCtrl_8024C160 *__dt__11TWindowCtrlFv(TWindowCtrl_8024C160 *self, s16 flag) {
     s32 i;
     if (self != NULL) {

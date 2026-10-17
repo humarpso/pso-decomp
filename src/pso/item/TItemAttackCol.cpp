@@ -159,7 +159,6 @@ s32 apply_camera_shake__10TObjPlayerFiii(int, int, int);
 u8 *get_player_by_client_id(s32);
 extern const f32 lbl_805DE914;
 extern const f32 lbl_805DE928;
-extern const f32 lbl_805DE914;
 extern const float lbl_805DE918;
 extern const f32 lbl_805DE924;
 void TObjPlayer__sub_802E451C(S_802E451C *arg0);
@@ -176,23 +175,15 @@ s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 extern int attack_collider_render_owner;
 extern int attack_collider_active_count;
-}
-
-extern "C" {
-
 void TItemAttackCol__vt5(s32 arg0);
 void* TObjPlayer__sub_802E449C(void* a0);
 void *__dt__14TItemAttackColFv(void *arg0, s16 arg1);
 s32 vec3_add_to(s32 *, s32);
 void *TItemAttackCol__ct(void *, void *, void *);
-s32 VecCopy__FP3VecPC3Vec(s32 *, s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 int fn_802E3BA8(void*, void*);
-void queue_destruction__7TObjectFv(void *);
 
-    extern int attack_collider_render_owner;
-    extern int attack_collider_active_count;
 void TItemAttackCol::add_to_active_list(void* a0) { fn_802E3BA8((void*)(attack_collider_render_owner), a0); attack_collider_active_count = (attack_collider_active_count + 0x1); }
 
 void TItemAttackCol::shift_collision_bounds() {
@@ -342,7 +333,6 @@ void TItemAttackCol::create(void *arg0, void *arg1) {
     }
 }
 
-    extern const float lbl_805DE918;
     extern const float lbl_805DE920;
 void* TObjPlayer__sub_802E449C(void* a0) { TObjPlayer__sub_802E451C((S_802E451C *)(a0)); *(int*)((char*)a0 + 0x40) = 0; *(int*)((char*)a0 + 0x44) = 0; *(int*)((char*)a0 + 0x48) = 0; *(float*)((char*)a0 + 0x4c) = lbl_805DE918; *(int*)((char*)a0 + 0x50) = 0; *(int*)((char*)a0 + 0x54) = 0; *(int*)((char*)a0 + 0x58) = 0; *(float*)((char*)a0 + 0x5c) = lbl_805DE920; *(float*)((char*)a0 + 0x60) = lbl_805DE918; *(float*)((char*)a0 + 0x64) = lbl_805DE918; *(float*)((char*)a0 + 0x68) = lbl_805DE918; *(float*)((char*)a0 + 0x6c) = lbl_805DE918; *(int*)((char*)a0 + 0x70) = 0; *(int*)((char*)a0 + 0x74) = 0; *(int*)((char*)a0 + 0x78) = -1; *(int*)((char*)a0 + 0x7c) = -1; return a0; }
 

@@ -84,17 +84,11 @@ extern const f32 lbl_805DD1BC;
 extern char lbl_805DD1C0[2];
 void draw_item_list_capacity(void *arg0, Win_80267714 *arg1, s32 arg2, s32 arg3);
 s32 get_array_entry__13TUnk_804CE018Fi(void *, s16);
-}
-
-extern "C" {
-
-extern const f32 lbl_805DD180;
 extern const f32 lbl_805DD184;
 extern const f32 lbl_805DD188;
 extern const f32 lbl_805DD18C;
 extern const f32 lbl_805DD190;
 extern const f32 lbl_805DD194;
-extern const f32 lbl_805DD1BC;
 extern const f32 lbl_805DD1C4;
 extern const f32 lbl_805DD1C8;
 extern const f32 lbl_805DD1CC;
@@ -105,7 +99,6 @@ extern s32 lbl_804D05F8[];
 extern RecoveredGlobal_80268048_lbl_8050E208 controller_input_state;
 extern s32 lbl_804D0618[];
 
-s32 get_array_entry__13TUnk_804CE018Fi(void *, s16);
 s32 clamp_list_scroll_offset(int, void *, void *);
 s32 get_cursor_pos__14TWindowSubItemFv();
 s32 init_entry__20TWindowSubStatusDispFScScUcUll(s32, u8, u8, int, s32, s32);

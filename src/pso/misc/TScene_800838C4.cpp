@@ -45,21 +45,10 @@ f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 extern const f64 lbl_80439360;
 extern u8 *camera_ctrl_instance;
-extern const f32 lbl_805D93DC;
 extern const f32 lbl_805D940C;
 extern const f32 lbl_805D9428;
 extern const f32 lbl_805D942C;
 f32 calc_camera_fov_degrees(void);
-}
-
-extern "C" {
-
-s32 set_ginja_post_texgen_count(s32);
-s32 set_ginja_post_tev_stage_count(s32);
-s32 is_split_screen();
-
-extern s32 model_render_flags;
-
 void TScene::apply_single_screen_state() {
     if ((is_split_screen() == 0) && (TObjPlayer::check_all_players_ready() != 0)) {
         model_render_flags &= 0xFFF7FFFF;

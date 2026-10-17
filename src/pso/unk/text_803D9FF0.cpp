@@ -2,10 +2,6 @@
 extern "C" {
 extern u8 lbl_804F5A00[];
 void convert_string_chars_via_table(u8 *arg0);
-}
-
-extern "C" {
-
 void convert_string_chars_via_table(u8 *arg0) {
     u8 *p = arg0;
     u8 t;

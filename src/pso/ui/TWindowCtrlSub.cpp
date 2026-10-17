@@ -9,10 +9,6 @@ extern s32 TWindowCtrlMain__sub_controller;
 extern "C" {
 s32 resolve_chat_balloon_overlaps();
 extern s32 TWindowCtrlMain__window_task_root;
-}
-
-extern "C" {
-
 void *TWindowCtrlSub__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
@@ -35,9 +31,6 @@ void *TWindowCtrlSub__ct(void *arg0) {
     return arg0;
 }
 
-}
-
-extern "C" {
 extern char lbl_8044EC14[];
 void *TWindowCtrlSub__name = lbl_8044EC14;
 }

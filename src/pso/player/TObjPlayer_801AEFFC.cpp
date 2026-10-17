@@ -6,10 +6,6 @@ int is_locally_controlled__10TObjPlayerFPv(void*);
 s32 obj_getField1c(void *);
 s32 init_pad_binding(void *, void *, int);
 s32 get_character_save_record(u32);
-}
-
-extern "C" {
-
 s32 test_action_mask__10TObjPlayerFl(s32, s32);
 s32 update_movement_by_screen__10TObjPlayerFv(s32);
 s32 TObjPlayer__sub_801AF868(s32);
@@ -30,27 +26,13 @@ void TObjPlayer::init_local_pad_binding() {
     }
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void TObjPlayer::stop_force_if_alive() { if (is_locally_controlled__10TObjPlayerFPv(this) != 0) { TObjPlayer__sub_801BEF60((char*)this + 0x550, (void*)0); } }
 void TObjPlayer::update_battle_control_if_unlocked() { if (test_flag_2000000__10TObjPlayerFPv(this) == 0) { ((TObjPlayer *)((char*)this + 0x384))->prepare_heavy_attack_particles_default(); } }
 
-}
-
-#include "types.h"
-
-extern "C" {
 void TObjPlayer__vt70(u8 *arg0);
 void TObjPlayer__vt69(u8 *arg0);
 void TObjPlayer__vt68(u8 *arg0);
 void TObjPlayer__vt67(u8 *arg0);
-}
-
-extern "C" {
 
 void TObjPlayer__vt70(u8 *arg0) {
     if (test_flag_2000000__10TObjPlayerFPv((void*)(arg0)) != 0 || check_flag_800000__10TObjPlayerFPv((s32)arg0) != 0) {
@@ -81,8 +63,6 @@ void TObjPlayer__vt67(u8 *arg0) {
 
 }
 
-#include "types.h"
-#include "pso/player/TObjPlayer.h"
 #include "pso/misc/TRaderMapCore.h"
 
 extern "C" {

@@ -7,9 +7,7 @@ struct RecoveredGlobal_801BE388_lbl_8050EA40 {
     u8 remaining[0x2C];
 };
 
-extern "C" {
 extern RecoveredGlobal_801BE388_lbl_8050EA40 lobby_rule_settings;
-}
 
 extern "C" {
 

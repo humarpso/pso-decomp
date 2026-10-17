@@ -30,19 +30,12 @@ extern const f32 lbl_805DB2E8;
 extern const f32 lbl_805DB2EC;
 int construct_collider_proxy__13TUnk_804AF8A0Fv(void);
 extern s32 lbl_804AFBF8[];
-extern const f32 lbl_805DB2EC;
     extern const float lbl_805DB2F0;
     extern const float lbl_805DB2F4;
     extern const float lbl_805DB2F8;
 void* init_map_object_base(void* a0);
 void TORainbowCave01__sub_80158604(void);
-}
-
-extern "C" {
-
 void __dl__7TObjectFPv(void *);
-
-extern s32 lbl_804AFBF8[];
 
 void TUnk_804AFBF8::render() {
     u8 *arg0 = (u8 *)this;

@@ -12,10 +12,6 @@ extern s32 lbl_804DA98C[];
 extern const f32 lbl_805DD958;
 extern const f32 lbl_805DD95C;
 void draw_creation_ruler_lines(f32 farg0);
-}
-
-extern "C" {
-
 void draw_creation_ruler_lines(f32 farg0) {
     Desc_80290D1C d;
     u32 colors[32];

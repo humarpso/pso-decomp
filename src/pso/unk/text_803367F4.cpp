@@ -21,10 +21,6 @@ extern const f32 lbl_805DF938;
 extern const f32 lbl_805DF93C;
 extern const f32 lbl_805DF940;
 void draw_title_background_pulse(s32 arg0, s32 arg1, f32 farg0);
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 void draw_title_background_pulse(s32 arg0, s32 arg1, f32 farg0) {

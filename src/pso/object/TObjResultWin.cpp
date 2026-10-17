@@ -179,9 +179,6 @@ TObjResultWin* TObjResultWin::create(const ChallengeResultRecord* result) {
 extern "C" {
 __declspec(section ".sdata2") extern const f32 challenge_result_split_screen_position = 0.75f;
 __declspec(section ".sdata2") extern const f32 challenge_result_window_depth = 36999.0f;
-}
-
-extern "C" {
 __declspec(section ".rodata") extern const char TObjResultWin_class_name[] = "TObjResultWin";
 __declspec(section ".rodata") extern const char challenge_result_time_format[] = "%s < %s%c >\n   %1d'%02d\"%02d\n";
 __declspec(section ".rodata") extern const char challenge_result_total_time_format[] = "%s\n  %02d'%02d\"%02d\n";

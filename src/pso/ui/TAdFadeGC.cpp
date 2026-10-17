@@ -18,10 +18,6 @@ s32 draw_tri_fan_2d__14TObjCMHairMenuFllf(void *, int, int, f32, f32, f32);
 s32 set_cached_blend_factor(s32, s32);
 f32 lbl_805D6800;
 s8 lbl_805D6804;
-}
-
-extern "C" {
-
 extern const char lbl_80471D70[] = "TAdFadeGC";
 const char *TAdFadeGC__name = lbl_80471D70;
 #define TAdFadeGC__name (*(void **)&TAdFadeGC__name)

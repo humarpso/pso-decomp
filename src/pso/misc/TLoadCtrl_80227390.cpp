@@ -57,50 +57,25 @@ s32 get_music_base_gain(void);
 void TLobby__sub_80227AA8(s32);
 void set_field_40_and_notify__6TLobbyFs(s32, s32);
 s32 TLobby__sub_803C9CB0(s32);
-s32 stop_audio_stream(int);
-extern s32 lbl_804CB850[];
-extern f32 music_fade_volumes[];
 extern s32 lbl_805D62B8;
-extern s32 lbl_805D62E4;
 extern s32 music_fade_slot_index;
 extern f32 music_fade_step;
-extern s32 music_fade_frames_remaining;
 extern s32 lbl_805D6330;
 void update_music_fade(void);
 void update_all_zones__14TObjBgmColCtrlFl(void);
 void strncpy(void *, void *, s32);
 void TLobby__sub_803C94DC(s32, s32);
 void start_audio_stream_file(s32, char *);
-extern s32 lbl_804CB850[];
-extern f32 music_fade_volumes[];
 extern char lbl_80514D00[][0x20];
 extern s32 lbl_805D3714;
 extern f32 music_fade_full_scale;
 extern s16 lbl_805D371C;
-extern s32 lbl_805D62E0;
-extern s32 lbl_805D62E4;
-extern s32 music_fade_slot_index;
-extern f32 music_fade_step;
-extern s32 music_fade_frames_remaining;
-extern const f32 lbl_805DC764;
 void play_area_music(char *name);
-extern f32 music_fade_volumes[];
-extern f32 music_fade_full_scale;
-extern s32 lbl_805D62E0;
-extern s32 music_fade_slot_index;
-extern f32 music_fade_step;
-extern s32 music_fade_frames_remaining;
-extern const f32 lbl_805DC764;
 void TWindowOptionCtrl__sub_802273B4(s32 arg0);
 void TLobby__sub_803CA194(s32);
 void xfree__FPv(u32);
-extern s32 lbl_804CB850[];
 extern u32 lbl_805D62DC;
 extern u32 lbl_805D62EC;
-}
-
-extern "C" {
-
 int stop_cue_stream(void);
 
 void TLoadCtrl::step() { TLobby::stop_audio_streams(); stop_cue_stream(); }

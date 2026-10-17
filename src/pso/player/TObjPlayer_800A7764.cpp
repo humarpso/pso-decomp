@@ -97,14 +97,6 @@ struct Player_800A7CA4 : VBase18_800A7CA4 {
 extern "C" {
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 copy_target_state__14TObjEnePanarmsFPv(s32, s32);
-s32 copy_target_state__14TObjEnePanarmsFPv(s32, s32);
-s32 play_sound_effect(s32, s32, s32, s32);
-s32 copy_target_state__14TObjEnePanarmsFPv(s32, s32);
-s32 play_sound_effect(s32, s32, s32, s32);
-s32 copy_target_state__14TObjEnePanarmsFPv(s32, s32);
-s32 play_sound_effect(s32, s32, s32, s32);
-s32 copy_target_state__14TObjEnePanarmsFPv(s32, s32);
-s32 play_sound_effect(s32, s32, s32, s32);
 s32 TObjPlayer__sub_800A0554(void *);
 s32 advance_animation_playback();
 s32 mult_vec_array__10TObjPlayerFUll(int, int, void *, int);
@@ -123,10 +115,6 @@ s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 TObjPlayer__sub_8023DEE0(int, int, int, int);
-s32 rotate_matrix_y(int, int);
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
 s32 draw_chunk_object(void *);
 extern s32 dimedian_resource_handles[];
 extern s32 dimedian_last_draw_tick[];
@@ -144,10 +132,6 @@ extern const f32 lbl_805D9AB4;
 extern const f32 lbl_805D9AB8;
 extern const f32 lbl_805D9ABC;
 void draw_actor_model__10TObjPlayerFPv(Player_800A7CA4 *self);
-}
-
-extern "C" {
-
 struct A7B00Base_800a7b00_800A7764 { char pad[0x14]; };
 struct A7B00Obj_800a7b00_800A7764 : A7B00Base_800a7b00_800A7764 {
     virtual void m0();
@@ -159,10 +143,8 @@ struct A7B00Obj_800a7b00_800A7764 : A7B00Base_800a7b00_800A7764 {
 
 s16 TObjPlayer__sub_800A776C(void* p);
 int TObjPlayer__sub_800A7774(void* p);
-s32 play_sound_effect(s32, s32, s32, s32);
 int VecCopy__FP3VecPC3Vec(void*);
 f32 calc_boss4_scale__10TObjPlayerFi();
-s32 copy_target_state__14TObjEnePanarmsFPv(s32, s32);
 s32 queue_destruction__7TObjectFv(void *);
 
 s16 TObjPlayer::get_field_2c8() { return *(s16 *)&this->m_2c8; }

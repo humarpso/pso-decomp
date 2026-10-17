@@ -58,7 +58,6 @@ void *__nw__7TObjectFUl(int);
 void *fn_80157CA8(void *arg0);
 void TOAttackableCol__sub_80157310(void * = 0);
 u8 is_current_floor_switch_set(int);
-void *__nw__7TObjectFUl(int);
 volatile int is_locally_controlled__10TObjPlayerFPv(void *);
 u16 obj_getField1c(void *);
 s32 spawn_particle_effect(void *, int);
@@ -79,11 +78,6 @@ extern const f32 lbl_805DB2CC;
 extern const f32 lbl_805DB2D0;
 u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1);
 s8 get_current_floor();
-void *fn_80157CA8(void *arg0);
-}
-
-extern "C" {
-
 void TOAttackableCol__sub_80157C20(void* p, s32 v);
 s32 TOAttackableCol__sub_80157C28(void* p);
 void *__dt__15TOAttackableColFv(void *arg0, s16 arg1);
@@ -95,11 +89,8 @@ int bswap_16__FPUs(void*);
 int bswap_header__6TLobbyFv(void*);
 int clear_player_status_flag__10TObjPlayerFlUl(void*, int, int);
 int queue_destruction__7TObjectFv(void*);
-s32 set_indexed_flags(void *, s32, s32);
 
 void TOAttackableCol__sub_80157310(void * _w0) {  }
-
-extern const f32 lbl_805DB2C8;
 
 void TOAttackableCol::init_params() {
     s32 temp_r0;
@@ -296,8 +287,6 @@ void TOAttackableCol::run_task() {
 }
 
 void TOAttackableCol::render() {  }
-
-extern s32 __vt__15TOAttackableCol[];
 
 void *TOAttackableCol::create(void *arg0) {
     void *o;

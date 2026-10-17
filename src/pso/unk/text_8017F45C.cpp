@@ -30,7 +30,6 @@ void fn_8017F45C(void);
 void fn_8017F52C(O_8017F52C *self);
 s32 play_sound_effect(s32, void *, s32, s32);
 void fn_8017F4AC(Self_8017F4AC *self);
-void fn_8017F5F0(u8 *arg0, u8 *arg1);
 void vec3_add_to(void *, void *);
 void matrix_mult_vec(int, void *, void *);
 void rotate_matrix_y(int, s32);
@@ -39,9 +38,6 @@ void pop_matrix();
 extern Rec_8017F550 lbl_804439D8[];
 extern u8 identity_matrix[];
 void fn_8017F550(Obj_8017F550 *arg0);
-}
-
-extern "C" {
 
 void fn_8017F45C(void) {
     s32 temp_r3;

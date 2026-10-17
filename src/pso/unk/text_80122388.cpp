@@ -12,10 +12,6 @@ u8 *create_guld_milla(s32 arg0);
 void scale_matrix(s32, f32, f32, f32);
 extern const f32 lbl_805DACE0;
 void apply_blade_dance_model_scale(Self_801223E0 *self);
-}
-
-extern "C" {
-
 u8 *create_guld_milla(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
@@ -40,9 +36,5 @@ void apply_blade_dance_model_scale(Self_801223E0 *self) {
         }
     }
 }
-
-#include "types.h"
-
-#include "types.h"
 
 }

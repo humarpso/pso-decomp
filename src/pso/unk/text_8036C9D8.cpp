@@ -10,10 +10,6 @@ s32 get_player_by_client_id(u16);
 s32 is_action_id_none(s16);
 extern f32 lbl_805E03A8;
 s32 validate_6xAE_set_animation_state(LobbyAnimationState *arg0);
-}
-
-extern "C" {
-
 s32 validate_6xAE_set_animation_state(LobbyAnimationState *arg0) {
     s32 player;
     player = get_player_by_client_id(arg0->header.client_id);

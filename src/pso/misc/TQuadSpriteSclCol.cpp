@@ -59,10 +59,6 @@ extern const f32 lbl_805DC480;
 extern const f32 lbl_805DC484;
 extern const f32 lbl_805DC488;
 void render__17TQuadSpriteSclColFv(Self_801E5C24 *self);
-}
-
-extern "C" {
-
 void *TQuadSpriteSclCol__ct(void *arg0);
 void *__dt__17TQuadSpriteSclColFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
@@ -176,7 +172,6 @@ void *__dt__17TQuadSpriteSclColFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__17TQuadSpriteSclCol[];
 extern void *TQuadSpriteSclCol__class_name;
 
 void *TQuadSpriteSclCol__ct(void *arg0) {

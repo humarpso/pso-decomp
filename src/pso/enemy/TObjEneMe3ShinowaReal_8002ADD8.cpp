@@ -8,10 +8,6 @@
 
 extern "C" {
 s32 fn_8002AE08(void *p);
-}
-
-extern "C" {
-
 f64 floor();
 
 int TObjEneDD::get_flag_b4() { return (this->animationFlags >> 4) & 0x1; }

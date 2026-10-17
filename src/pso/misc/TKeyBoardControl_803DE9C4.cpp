@@ -50,7 +50,6 @@ extern RecoveredGlobal_803DEB74_lbl_8058D8E0 keyboard_control_pad_slots;
 u8 *TKeyBoardControl__sub_803DEB74(u32 arg0);
 s32 Dolphin_PADRead(void *, void *);
 extern s32 keyboard_pad_status_buffer[];
-extern RecoveredGlobal_803DEB74_lbl_8058D8E0 keyboard_control_pad_slots;
 extern s32 TKeyBoardControl__pad_status_buffer[];
 extern Ent_803DEBC8 pad_button_map_table[];
 extern u32 lbl_805D46E0;
@@ -73,16 +72,9 @@ extern u32 matrix_stack_limit;
 extern u32 matrix_stack_base;
 extern u32 current_matrix;
 void PSMTXIdentity(void *);
-extern RecoveredGlobal_803DEB74_lbl_8058D8E0 keyboard_control_pad_slots;
-s32 Dolphin_PADRead(void *, void *);
-extern s32 keyboard_pad_status_buffer[];
 extern Pad_803DEA18 TKeyBoardControl_prev_pad_state[4];
 void *memmove(void *, const void *, u32);
 s32 PADReset(u32);
-}
-
-extern "C" {
-
 void set_some_id__FUl(s32 arg0);
 
 #pragma push
@@ -220,8 +212,6 @@ void TKeyBoardControl::clamp_axes() {
         *(s8 *)((s8 *)arg0 + 3) = -0x59;
     }
 }
-
-extern s32 model_render_flags;
 
 void TObjPlayer::init_matrix_stack(s32 arg0, s32 arg1) {
     matrix_stack_base = 0xE0000000;

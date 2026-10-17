@@ -3,7 +3,6 @@
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/TItemLoad.h"
 
-extern "C" {
 extern char lbl_8043E3A8[];
 extern char lbl_8043E3B8[];
 extern char lbl_8043E3C8[];
@@ -23,7 +22,6 @@ extern char lbl_8043E4B4[];
 extern const char *item_model_names[15];
 extern const char *item_motion_names[2];
 extern BmlResourceDescriptor item_bml_resource_descriptor;
-}
 
 struct Base_801105AC { char pad[0x18]; };
 struct VObj_801105AC : Base_801105AC {
@@ -42,22 +40,11 @@ extern void *TItemLoad__model_load_task_root;
 extern void *TItemLoad__completed_model_load_task_root;
 extern s32 TItemLoad__model_slot_in_use;
 extern s32 item_load_resource_handle;
-}
-
-extern "C" {
-
 s32 TItemLoad__sub_80110740(void* p);
 s32 TItemLoad__sub_80110748(void* p);
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 __ct__9TItemLoadFv(void *, s32);
-void * __nw__7TObjectFUl(s32);
 s32 mem_free(s32);
-
-extern s32 TItemLoad__bml_resource;
-extern void *TItemLoad__model_load_task_root;
-extern void *TItemLoad__completed_model_load_task_root;
-extern s32 TItemLoad__model_slot_in_use;
-extern s32 item_load_resource_handle;
 
 void TItemLoad::free_all() {
     mem_free(TItemLoad__model_slot_in_use);
@@ -120,9 +107,6 @@ void TItemLoad::create() {
 s32 TItemLoad__sub_80110740(void* p) { return *(s32*)((char*)p + 0x3c); }
 s32 TItemLoad__sub_80110748(void* p) { return *(s32*)((char*)p + 0x28); }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *item_model_names[15] = { lbl_8043E3A8, lbl_8043E3B8, lbl_8043E3C8, lbl_8043E3D8, lbl_8043E3E8, lbl_8043E3F8, lbl_8043E408, lbl_8043E418, lbl_8043E428, lbl_8043E43C, lbl_8043E450, lbl_8043E464, lbl_8043E47C, lbl_8043E490, NULL };
 __declspec(section ".data") const char *item_motion_names[2] = { lbl_8043E4A4, NULL };
 BmlResourceDescriptor item_bml_resource_descriptor = { lbl_8043E4B4, item_model_names, item_motion_names, 14, 1 };

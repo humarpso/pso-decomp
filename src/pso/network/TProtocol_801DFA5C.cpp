@@ -9,10 +9,6 @@ typedef char GameExitClientOffset[(offsetof(TRecvExit<false>, client_id) == 4) ?
 typedef char GameExitLeaderOffset[(offsetof(TRecvExit<false>, leader_id) == 5) ? 1 : -1];
 typedef char GameExitUdpOffset[(offsetof(TRecvExit<false>, disable_udp) == 6) ? 1 : -1];
 
-extern "C" {
-
-}
-
 template<> void TRecvExit<false>::bswap() {
     header.bswap();
 }

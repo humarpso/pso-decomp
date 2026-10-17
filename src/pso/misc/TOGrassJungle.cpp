@@ -4,14 +4,12 @@
 #include "pso/misc/TMotorcycle.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern char lbl_80465938[];
 extern char lbl_80465950[];
 extern char lbl_80465964[];
 extern const char *bm_o_grass_jungle_model_names[3];
 extern BmlResourceDescriptor ograss_jungle_resource_descriptor;
 extern const char *bm_o_grass_jungle_motion_names[1];
-}
 
 struct RecoveredGlobal_8029CD0C_lbl_8046598C { char value[0x13]; };
 typedef char RecoveredGlobal_8029CD0C_lbl_8046598C_size[sizeof(RecoveredGlobal_8029CD0C_lbl_8046598C) == 0x13 ? 1 : -1];
@@ -28,10 +26,6 @@ extern u32 TOGrassJungle__bml_resource;
 extern u32 TOGrassJungle__grass_gvm_texture;
 extern const f32 lbl_805DDD28;
 extern const f32 lbl_805DDD2C;
-}
-
-extern "C" {
-
 void *TOGrassJungle__create(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
@@ -47,9 +41,6 @@ void *TOGrassJungle__create(void *arg0) {
     }
     return o;
 }
-
-extern u32 TOGrassJungle__bml_resource;
-extern u32 TOGrassJungle__grass_gvm_texture;
 
 void TOGrassJungle::release_static_instance() {
     if ((u32) TOGrassJungle__grass_gvm_texture != 0U) {
@@ -75,9 +66,6 @@ void TOGrassJungle::load_resources() {
     TMotorcycle::add_entry((int) (0x3F), (int) (get_bml_model((*(u8 * *)&TOGrassJungle__bml_resource), 0)), (int) ((*(u8 * *)&TOGrassJungle__grass_gvm_texture)), (f32) (lbl_805DDD28), (f32) (lbl_805DDD2C));
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_o_grass_jungle_model_names[3] = { lbl_80465938, lbl_80465950, NULL };
 BmlResourceDescriptor ograss_jungle_resource_descriptor = { lbl_80465964, bm_o_grass_jungle_model_names, bm_o_grass_jungle_motion_names, 2, 0 };
 __declspec(section ".sdata") const char *bm_o_grass_jungle_motion_names[1] = { NULL };

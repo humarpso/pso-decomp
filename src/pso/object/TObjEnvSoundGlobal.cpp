@@ -47,16 +47,10 @@ extern const f32 lbl_805DBE18;
 extern const f32 lbl_805DBE1C;
 void play_persistent_sound(s32, void *, f32 *, s32, s32);
 f32 xz_distance_squared(void *, void *);
-void play_persistent_sound(s32, void *, f32 *, s32, s32);
 extern u8 *camera_ctrl_instance;
 void run_task__14TObjEnvSoundExFv(Env_80190624 *o);
-}
-
-extern "C" {
-
 void * TObjEnvSoundEx__create(void *arg0);
 void *__dt__18TObjEnvSoundGlobalFv(void *arg0, s16 arg1);
-void copy_pair__18TObjEnvSoundGlobalFPvPv(void* p, void* q);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 int is_not_split_screen__13TRaderMapCoreFv(void *);
@@ -89,8 +83,6 @@ s32 TObjEnvSoundGlobal::setup_sound() {
 
 void copy_pair__18TObjEnvSoundGlobalFPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
 void TObjEnvSoundGlobal::render() {  }
-
-extern s32 __vt__18TObjEnvSoundGlobal[];
 
 void TObjEnvSoundGlobal::run_task() {
     Obj_801903B4 *self = (Obj_801903B4 *)this;
@@ -146,8 +138,6 @@ s32 disallow_rendering__7TObjectFv(void *);
 extern s32 __vt__14TObjEnvSoundEx[];
 extern s32 TObjEnvSoundEx__class_name;
 void *__dt__14TObjEnvSoundExFv(void *arg0, s16 arg1);
-f32 xz_distance_squared(void *, void *);
-extern u8 *camera_ctrl_instance;
 struct RecoveredGlobal_8019080C___vt__14TObjEnvSoundEx {
     s32 value;
     u8 remaining[0x30];
@@ -188,8 +178,6 @@ void TObjEnvSoundEx::render() {  }
 
 #undef F
 #undef S
-
-extern s32 __vt__14TObjEnvSoundEx[];
 
 void run_task__14TObjEnvSoundExFv(Env_80190624 *o) {
     if (xz_distance_squared(camera_ctrl_instance + 0x178, o->pos) < o->range * o->range) {

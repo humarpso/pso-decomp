@@ -14,13 +14,6 @@ void TMainCursor::publish_nearest_target() {
     TMainCursor__sub_8013E17C(this, TMainCursor__sub_8013E184(this));
 }
 
-}
-
-#include "types.h"
-#include "pso/misc/TMainCursor.h"
-
-extern "C" {
-
 void TMainCursor__sub_8013E17C(void* p, f32 v) { *(f32*)((char*)p + 0x8) = v; }
 f32 TMainCursor__sub_8013E184(void* p) { return *(f32*)((char*)p + 0xc); }
 void TMainCursor__sub_8013E18C(void* p, s16 v) { *(s16*)((char*)p + 0x4) = v; }

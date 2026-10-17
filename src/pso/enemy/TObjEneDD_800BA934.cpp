@@ -36,22 +36,10 @@ void VecCopy__FP3VecPC3Vec(Vec_800BAAE4 *dst, const Vec_800BAAE4 *src);
 void rotate_xz_pair_by_angle(f32 *x, f32 *z, s32 angle);
 void subtract_vector(Vec_800BAAE4 *a, Vec_800BAAE4 *b);
 void set_part_local_pos__9TObjEneDDFPvPvi(Obj_800BAAE4 *self, Vec_800BAAE4 *v, s32 i);
-void VecCopy__FP3VecPC3Vec(Vec_800BAAE4 *dst, const Vec_800BAAE4 *src);
-void rotate_xz_pair_by_angle(f32 *x, f32 *z, s32 angle);
 void vec3_add_to(Vec_800BA9BC *a, Vec_800BA9BC *b);
 void set_part_position__9TObjEneDDFPvPvi(Obj_800BA9BC *self, Vec_800BA9BC *v, s32 i);
-void VecCopy__FP3VecPC3Vec(Vec_800BAAE4 *dst, const Vec_800BAAE4 *src);
-int matrix_mult_vec(void *, void *, void *);
-int set_matrix_identity(void *);
-int rotate_matrix_y(void *, void *);
 void translate_matrix(int, f32, f32, f32);
-int push_matrix(void);
-int pop_matrix(void);
 void update_local_colliders_from_world(Obj_800BAA2C *arg0, V3_800BAA2C *arg1);
-}
-
-extern "C" {
-
 int init_collision_body_parts(void*);
 
 void TObjEneDD::transform_part_positions() {

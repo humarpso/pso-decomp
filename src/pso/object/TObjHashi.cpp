@@ -28,12 +28,7 @@ u8 * TObjHashiBase__ct(void *, s32);
 extern RecoveredGlobal_801917E8_lbl_804B7CA0 bridge_collision_body;
 extern s32 __vt__9TObjHashi[];
 extern s32 lbl_805D3378;
-extern u32 TObjHashi__bml_resource;
 u8 *TObjHashi__ct(u8 *arg0, s32 arg1, s32 _w2);
-}
-
-extern "C" {
-
 void *TObjHashi__create(void *arg0);
 void *__dt__9TObjHashiFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -52,16 +47,12 @@ void *TObjHashi__create(void *arg0) {
     return o;
 }
 
-extern u32 TObjHashi__bml_resource;
-
 void TObjHashi::unload_static_data() {
     if ((u32) TObjHashi__bml_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TObjHashi__bml_resource, 1);
         TObjHashi__bml_resource = 0U;
     }
 }
-
-extern s32 __vt__9TObjHashi[];
 
 void TObjHashi::load_shared_resource() {
     s32 temp_r3;

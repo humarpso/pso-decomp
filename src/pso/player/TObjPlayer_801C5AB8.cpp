@@ -14,12 +14,7 @@ s32 TObjPlayer::decrement_clamp(s32 *arg0, s32 arg1) {
     return 1;
 }
 
-}
-
 #pragma fp_contract on
-
-extern "C" {
-
 extern const f32 lbl_805DC334;
 
 void TObjPlayer::copy_offset_position(void *arg1) {
@@ -31,10 +26,6 @@ void TObjPlayer::copy_offset_position(void *arg1) {
     *(f32 *)((s8 *)this + 8) = (f32) *(f32 *)((s8 *)arg1 + 0x40);
 }
 
-}
-
-extern "C" {
-
 void TObjPlayer::calc_pos_delta(void *arg1, void *arg2) {
     *(s16 *)((s8 *)arg2 + 0) = (s16) (*(s16 *)((s8 *)arg1 + 0) - *(s16 *)((s8 *)this + 0));
     *(s16 *)((s8 *)arg2 + 2) = (s16) (*(s16 *)((s8 *)arg1 + 2) - *(s16 *)((s8 *)this + 2));
@@ -45,10 +36,6 @@ void TObjPlayer::calc_pos_delta(void *arg1, void *arg2) {
     *(s16 *)((s8 *)arg2 + 0x16) = (s16) (*(s16 *)((s8 *)arg1 + 0x16) - *(s16 *)((s8 *)this + 0x16));
     *(s16 *)((s8 *)arg2 + 0x18) = (s16) (*(s16 *)((s8 *)arg1 + 0x18) - *(s16 *)((s8 *)this + 0x18));
 }
-
-}
-
-extern "C" {
 
 void set_params__10TObjPlayerFPvPvPviPv(void *arg0, void *arg1, void *arg2, s32 arg3, void *arg4);
 
@@ -85,10 +72,6 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void set_arrival_override_pos(u16 idx, s32 yaw, void *pos);
 extern const f32 lbl_805DC32C;
 void clear_movement_history(Obj_801C5FCC *p);
-}
-
-extern "C" {
-
 s16 TObjPlayer__sub_800194E8(s32, s16);
 s32 get_attack_params_atp_max(s32);
 

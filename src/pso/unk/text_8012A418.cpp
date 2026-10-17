@@ -124,9 +124,6 @@ s32 get_captured_target_collider_index(s32);
 s32 get_captured_target_entry(s32, s32);
 s32 get_captured_target_count(s32);
 s32 resolve_hittable_target(s32, s32);
-}
-
-extern "C" {
 
 u8 *TObjPlayer::create_state_8012a418(s32 arg0) {
     u8 *temp_r3;
@@ -141,10 +138,6 @@ u8 *TObjPlayer::create_state_8012a418(s32 arg0) {
     }
     return NULL;
 }
-#include "types.h"
-
-#include "types.h"
-#include "pso/player/TObjPlayer.h"
 
 typedef struct Pl_8012A470 Pl_8012A470;
 void TUnk_804A4948::send_srank_stat_extra_to_locks() {

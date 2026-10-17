@@ -25,10 +25,6 @@ extern const f32 lbl_805DF74C;
 extern const f32 lbl_805DF750;
 extern const f32 lbl_805DF754;
 extern const f32 lbl_805DF758;
-}
-
-extern "C" {
-
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 begin_screen_draw(int);
 s32 set_draw_texture_and_color(int, int);

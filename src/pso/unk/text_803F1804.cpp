@@ -7,11 +7,7 @@ extern u32 si_polling_callback;
 u32 fn_803F1864(u32 arg0);
 void OSClearContext(void *);
 void OSSetCurrentContext(void *);
-extern u32 si_polling_callback;
 void fn_803F1804(s32 arg0, void *arg1);
-}
-
-extern "C" {
 
 void fn_803F1804(s32 arg0, void *arg1) {
     u8 ctx[0x2C8];

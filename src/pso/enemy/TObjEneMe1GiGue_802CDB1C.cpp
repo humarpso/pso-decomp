@@ -48,7 +48,6 @@ struct Shot_802CDB1C {
 
 extern "C" {
 extern s32 TObjEneMe1GiGue__param_table;
-extern s32 TObjEneMe1GiGue__param_table;
 f64 atan2_float(f32, f32);
 s32 spawn_particle_effect_with_rotation(Vec_802CDEB4 *, Ang_802CDEB4 *, int, int);
 f32 horizontal_distance__10TObjPlayerFPUc(Vec_802CDEB4 *, Vec_802CDEB4 *);
@@ -77,23 +76,16 @@ u32 csnVector(void *, void *, s32);
 s32 spawn_particle_effect(void *, s32);
 VEnt_802CDB1C *find_active_entity_by_id(u16);
 f32 xyz_distance_squared(void *, void *);
-u8 *find_entity_by_id(s16);
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 vec3_add_to(void *, void *);
 s32 subtract_vector(void *, void *);
 extern Hit_802CDB1C lbl_804722B4[];
 extern s32 local_client_id;
-extern f32 lbl_805D6844;
 extern const f32 lbl_805D684C;
 extern s32 lbl_805D6854;
 void TObjPlayer__sub_802CDB1C(u8 *arg0);
-}
-
-extern "C" {
-
 void *__dt__13TUnk_804E14E8Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void queue_destruction__7TObjectFv(void *);
 
 #pragma push
 #pragma opt_common_subs off

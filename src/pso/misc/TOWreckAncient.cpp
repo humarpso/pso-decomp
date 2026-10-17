@@ -6,7 +6,6 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern char lbl_804433E8[];
 extern char lbl_804433FC[];
 extern char lbl_80443410[];
@@ -20,7 +19,6 @@ extern char lbl_8044349C[];
 extern const char *bm_fe_obj_o_hahen_motion_names[];
 extern const char *bm_fe_obj_o_hahen_model_names[10];
 extern BmlResourceDescriptor TOWreckAncient__resource_descriptor;
-}
 
 struct Base1_8017dce0 { char pad[0x18]; };
 struct VObj1_8017dce0 : Base1_8017dce0 {
@@ -50,15 +48,10 @@ s32 TObjFish__sub_8001EDB0(void *, void *);
 s32 get_bml_model(void *, void *);
 extern s32 __vt__14TOWreckAncient[];
 extern s32 TOWreckAncient__name;
-extern u32 wreck_ancient_bml_resource;
 extern s32 tl_05;
 extern const f32 lbl_805DBAD0;
 extern const f32 lbl_805DBAD4;
 u8 *TOWreckAncient__ct(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 void *__dt__14TOWreckAncientFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
@@ -82,9 +75,6 @@ void TOWreckAncient::render() {
     }
 }
 
-extern u32 wreck_ancient_bml_resource;
-extern u32 wreck_ancient_brakable_bml_resource;
-
 void TOWreckAncient::free_statics() {
     if ((u32) wreck_ancient_bml_resource != 0U) {
         TLobby__sub_8001FE7C((void*)wreck_ancient_bml_resource, 1);
@@ -95,8 +85,6 @@ void TOWreckAncient::free_statics() {
         wreck_ancient_brakable_bml_resource = 0U;
     }
 }
-
-extern s32 __vt__14TOWreckAncient[];
 
 void TOWreckAncient::load_resources() {
     s32 temp_r3;
@@ -141,9 +129,6 @@ u8 *TOWreckAncient__ct(u8 *arg0, s32 arg1) {
     return arg0;
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_fe_obj_o_hahen_model_names[10] = { lbl_804433E8, lbl_804433FC, lbl_80443410, lbl_80443424, lbl_80443438, lbl_8044344C, lbl_80443460, lbl_80443474, lbl_80443488, NULL };
 BmlResourceDescriptor TOWreckAncient__resource_descriptor = { lbl_8044349C, bm_fe_obj_o_hahen_model_names, bm_fe_obj_o_hahen_motion_names, 9, 0 };
 }

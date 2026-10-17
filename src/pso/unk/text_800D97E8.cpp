@@ -22,10 +22,6 @@ extern s32 motion_trail_node_index;
 extern s32 *lbl_805D523C;
 extern Vec_800D97E8 *TBoss4Type3__motion_trail_points;
 s32 transform_motion_node_points(s32 arg0, Node_800D97E8 *node, s32 idx);
-}
-
-extern "C" {
-
 s32 transform_motion_node_points(s32 arg0, Node_800D97E8 *node, s32 idx) {
     u32 flags;
     do {

@@ -16,16 +16,9 @@ extern s8 lbl_80472880[];
 extern s8 lbl_80472888[];
 extern s8 controller_physical_port_bank[];
 void TAdMultiPlyChrSelectGC__sub_802DC5CC(void *arg0);
-}
-
-extern "C" {
-
 void TAdMultiPlyChrSelectGC__sub_802DC440(void *arg0);
 s32 clear_entries__18TAdChrMoveEffectGCFv();
-s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 queue_destruction__7TObjectFv(void *);
-
-extern s8 controller_physical_port_bank[];
 
 void TAdMultiPlyChrSelectGC::check_cancel_input() {
     if ((((TAdMultiPlyChrSelectGC *)(this->m_6c))->get_mode() < 0x14) || (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0)) {
@@ -63,8 +56,6 @@ void TAdMultiPlyChrSelectGC__sub_802DC440(void *arg0) {
         *(s32 *)((s8 *)arg0 + 0x20) = 0x24;
     }
 }
-
-extern s8 controller_physical_port_bank[];
 
 void TAdMultiPlyChrSelectGC::handle_input() {
     void *temp_r31;

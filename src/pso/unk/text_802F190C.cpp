@@ -11,12 +11,7 @@ extern "C" {
 s32 vec3_add_to(void *, void *);
 extern void *lbl_805D6960;
 void fn_802F190C(Obj_8003B1FC *self, void *arg);
-extern void *lbl_805D6960;
 void fn_802F1960(Obj_802F1960 *o, f32 d);
-}
-
-extern "C" {
-
 void fn_802F190C(Obj_8003B1FC *self, void *arg) {
     Obj_8003B1FC *c;
     while ((c = self->child) != 0) {

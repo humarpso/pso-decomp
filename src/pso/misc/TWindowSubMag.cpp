@@ -89,15 +89,11 @@ s32 TWindowSubEquip__sub_80263AF8(s32, s32);
 s32 send_and_handle__6TLobbyFii(s32, s32 *, s32);
 void *create_message_window__6TLobbyFllUls(s32, s32 *, s32, s32);
 s32 get_window_layout_position(s32);
-s32 TWindowSubMag__sub_8027C0B0(s32 arg0);
 void *get_player_by_client_id(s32);
 s32 is_player_input_active(s32);
 s32 TWindow__close(void *);
 void *__nw__7TObjectFUl(u32);
-s32 get_window_layout_position(s32);
 void *__ct__15TWindowHelpItemFPvUs(void *, s32, s32);
-s32 TWindowSubEquip__sub_80263AF8(s32, s32);
-s32 set_field_1c__6TLobbyFf(void *);
 void *fn_802628C0(s32, void *, s32);
 s32 queue_destruction__7TObjectFv(void *);
 s32 window_request_show(void *);
@@ -116,31 +112,15 @@ int TWindowSubMag__sub_8027C0E8(void* p);
 u32 is_action_active__10TObjPlayerFv(void *);
 extern u8 lbl_8044F9E8[];
 extern Pad_8027B888 controller_input_state[];
-}
-
-extern "C" {
-
 void *TWindowSubMag__ct(void *arg0, s32 arg1, s32 arg2);
-int TWindowSubMag__sub_8027C0E8(void* p);
 void *__dt__13TWindowSubMagFv(void *arg0, s16 arg1);
-s32 deserialize_mag__9TItemDataFPvPv(s32, s32 *);
-void *create_message_window__6TLobbyFllUls(s32, s32 *, s32, s32);
 s32 TWindowHelpItem__set_displayed_item_by_id(s32, s32);
 s32 *get_help_text_string(s32);
 s32 create_equip_kind_window(s32, s32 *, s32);
-s32 get_window_layout_position(s32);
-s32 TWindowSubEquip__sub_80263AF8(s32, s32);
-s32 TWindow__close(void *);
 s32 __ct__7TObjectFP7TObject();
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
-s32 call_if_split_screen(void *, s32);
 s32 toggle_help_window_on_button(s32, s32);
-s32 get_message_10__20TWindowSubStatusDispFl(s32);
-s32 queue_destruction__7TObjectFv(void *);
-s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
-s32 send_and_handle__6TLobbyFii(s32, s32 *, s32);
-s32 set_field_1c__6TLobbyFf(void *);
 
 extern "C" const char lbl_805DD648[] = "";
 
@@ -556,7 +536,6 @@ void *__dt__13TWindowSubMagFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__13TWindowSubMag[];
 extern s32 TWindowSubMag__class_name;
 
 void *TWindowSubMag__ct(void *arg0, s32 arg1, s32 arg2) {

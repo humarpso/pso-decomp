@@ -5,10 +5,6 @@ struct Obj_8004A98C { s32 count; u8 pad[4]; s32 x; s32 y; void **items; };
 
 extern "C" {
 void scroll_strip_uvs(void *, s16, s16);
-}
-
-extern "C" {
-
 extern s32 dark_falz_controller_instance;
 
 u8 TBoss4Type2::is_active() {

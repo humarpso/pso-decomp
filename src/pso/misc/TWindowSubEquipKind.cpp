@@ -13,10 +13,6 @@ s32 fn_802683F4(void *, void *, int, void *);
 extern s32 __vt__19TWindowSubEquipKind[];
 extern s32 TWindowSubEquipKind__class_name;
 u8 *TWindowSubEquipKind__ct(u8 *arg0, s32 arg1, s16 arg2);
-}
-
-extern "C" {
-
 void *__dt__19TWindowSubEquipKindFv(void *arg0, s16 arg1);
 void render__19TWindowSubEquipKindFv(u8 *arg0);
 s32 draw_window_frame(void *, s32);
@@ -55,8 +51,6 @@ void TWindowSubEquipKind::run_task() {
         this->m_8a = (s16) (temp_r3 - 1);
     }
 }
-
-extern s32 __vt__19TWindowSubEquipKind[];
 
 void *__dt__19TWindowSubEquipKindFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

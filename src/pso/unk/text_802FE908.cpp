@@ -11,13 +11,7 @@ s32 TObjLiveCameraCtrl__ct(void *, s32);
 s32 __ct__17TObjBoss8DemoRoomFv(void *, s32);
 extern void *tl_05;
 void create_boss8_demo_objects(void);
-}
-
-extern "C" {
-
-void *__nw__7TObjectFUl(s32);
 s32 TObjBoss8PillerCtrl__ct(void *, f32, void *, s32, s32);
-extern void *tl_05;
 
 void create_boss8_piller_ctrl(s32 arg0, s32 arg1, f32 farg0) {
     void *obj = __nw__7TObjectFUl(0x38);

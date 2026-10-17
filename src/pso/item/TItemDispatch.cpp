@@ -87,7 +87,6 @@ extern s32 lbl_805D5668;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_current_floor(void);
 void spawn_particle_effect(void *, s32);
 void snap_to_ground__5TItemFv(void *, f32);
@@ -98,10 +97,6 @@ extern s32 item_ground_placement_enabled;
 extern const f32 lbl_805DAA9C;
 extern const f32 lbl_805DAAA0;
 void place_on_ground__5TItemFPvsPvi(TItem_80102424 *self, s16 client, f32 *pos, s32 quiet);
-s8 TObjPlayer__sub_80102C30(u8 *);
-}
-
-extern "C" {
 
 typedef char RecoveredGlobal_8010255C_lbl_8050BEC0_size[sizeof(RecoveredGlobal_8010255C_lbl_8050BEC0) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_8010255C_lbl_8058D4C0_size[sizeof(RecoveredGlobal_8010255C_lbl_8058D4C0) == 0x10 ? 1 : -1];
@@ -223,12 +218,6 @@ void TItem::run_task() {
 }
 #pragma pop
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void *__dt__5TItemFv(void *arg0, s16 arg1);
 
 extern void *__vt__5TItem[];
@@ -248,8 +237,6 @@ void *__dt__5TItemFv(void *arg0, s16 arg1) {
 }
 
 }
-
-#include "types.h"
 
 struct VBase_18_801028D8 { char pad[0x18]; };
 
@@ -273,14 +260,9 @@ s32 is_rare_item__9TItemDataFPv(void *);
 void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern u8 item_collider_body[];
 extern u8 lbl_8043DF94[];
-extern void *__vt__5TItem[];
 extern s32 TItem__name;
 extern u32 lbl_805D5438;
 u8 *TItem__ct(u8 *self, void *parent, u8 *item);
-}
-
-extern "C" {
-
 u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
     construct_collider_proxy__13TUnk_804AF8A0Fv(self, parent);
     *(void **)((s8 *)self + 0x18) = __vt__5TItem;
@@ -321,10 +303,7 @@ u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
 
 }
 
-#include "types.h"
-#include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemMag.h"
-#include "pso/misc/TLobby.h"
 
 extern "C" {
 u32 mem_alloc(s32 size);
@@ -334,13 +313,8 @@ void advance_item_system_generation(void);
 extern s32 item_registry_count;
 extern u32 item_registry_sorted_entries;
 extern u32 player_rock_objects_handle;
-}
-
-extern "C" {
-
 s8 TObjPlayer__sub_80102C30(u8 *arg0);
 int get_item_system_generation(void);
-void advance_item_system_generation(void);
 int dispatch_item_by_type__6TLobbyFv(void*);
 void mem_free(void*);
 int heap_alloc__5THeapFUl(void*, void*);
@@ -349,23 +323,17 @@ int heap_free__5THeapFPv(void*, void*);
     extern int obj_heap;
 void TObjPlayer::free_obj_heap(void* a0) { heap_free__5THeapFPv((void*)(obj_heap), a0); }
 
-    extern int obj_heap;
 void TObjPlayer::alloc_from_obj_heap(void* a0) { heap_alloc__5THeapFUl((void*)(obj_heap), a0); }
 
     extern int item_system_generation;
 int get_item_system_generation(void) {  return item_system_generation; }
 
-    extern int item_system_generation;
 void advance_item_system_generation(void) {
     int temp_r3 = item_system_generation;
     item_system_generation = temp_r3 + 1;
 }
 
 int TObjPlayer::lookup_inventory_item() { return dispatch_item_by_type__6TLobbyFv(this); }
-
-extern s32 item_registry_count;
-extern u32 item_registry_sorted_entries;
-extern u32 player_rock_objects_handle;
 
 void TObjPlayer::free_globals() {
     TObjPlayer::free_item_globals();

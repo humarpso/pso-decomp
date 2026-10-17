@@ -6,10 +6,6 @@ struct Obj_80283944 { u8 pad[0x60]; s8 f60; };
 
 extern "C" {
 void TWindowSubSymbolChat__sub_80283944(Obj_80283944 *o);
-}
-
-extern "C" {
-
 void TWindowSubSymbolChat::set_flag_bit2(s32 *arg0) {
     *arg0 |= 2;
 }

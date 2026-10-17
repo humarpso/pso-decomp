@@ -60,7 +60,6 @@ extern s32 lobby_dns_server_addr;
 extern s32 lbl_805D56E0;
 extern s32 lobby_connect_battle_flag;
 s32 TLobby__sub_80146588(s32 *arg0);
-s32 TLobby__sub_8014618C(void);
 u8 *TLobby__sub_80146D14(void);
 u8 *TLobby__sub_80146CA0(s32 arg0);
 s32 *TLobby__sub_80146D44(void);
@@ -68,7 +67,6 @@ u8 *TLobby__sub_80146D50(s32 arg0);
 s32 TLobby__sub_801466F4(u32 arg0);
 s32 TLobby__sub_80145EE4(void);
 s32 TLobby__sub_80146314(s32 *);
-s32 TLobby__sub_80146588(s32 *arg0);
 s32 TLobby__sub_801465C0(s32 *);
 void fn_80147A68(void);
 void TLobby__sub_804073B8(void);
@@ -76,8 +74,6 @@ s16 run_connect_step__6TLobbyFv(void);
 s16 TLobby__sub_804150EC(void);
 s16 TLobby__sub_8042315C(s16, void *);
 extern s32 lbl_805D2D00;
-extern s32 lbl_805D56D8;
-extern s32 lobby_connect_battle_flag;
 extern s32 TLobby__connect_pending_flags;
 extern s32 lobby_connect_active_flag;
 }
@@ -152,10 +148,6 @@ extern s32 lbl_805D56F4;
 s32 TLobby__sub_80145E40(void);
 s32 init_struct(void *);
 s32 init_work(int, void *);
-}
-
-extern "C" {
-
 int TLobby__sub_80146724(void);
 int TLobby__sub_80146740(void);
 int TLobby__sub_8014677C(void);
@@ -209,7 +201,6 @@ loop_1:
     goto loop_1;
 }
 
-extern s32 TLobby__connect_pending_flags;
 extern s32 TLobby__battle_flag;
 
 void TLobby::flush_pending_flag2() {
@@ -218,9 +209,6 @@ void TLobby::flush_pending_flag2() {
         TLobby__connect_pending_flags &= 0xFFFFFFFD;
     }
 }
-
-extern s32 TLobby__connect_pending_flags;
-extern s32 TLobby__battle_flag;
 
 void TLobby::set_battle_flag(s32 arg0) {
     TLobby__battle_flag = arg0;
@@ -292,8 +280,6 @@ void TLobby__sub_8014672C(s32 *arg0) {
 
 int TLobby__sub_80146740(void) { return 0; }
 
-extern s32 lobby_connect_active_flag;
-
 s32 TLobby::query_task_active() {
     if ((s32) lobby_connect_active_flag != 0) {
         return TLobby::get_task_count();
@@ -304,7 +290,6 @@ s32 TLobby::query_task_active() {
 int TLobby__sub_8014677C(void) { return TLobby__sub_80145DB4((void*)(1)); }
 int TLobby::get_link_status_value() { return TLobby__sub_80145DB4((void*)(4)); }
 
-extern s32 TLobby__connect_pending_flags;
 extern u32 lbl_805D5700;
 extern s32 TLobby__net_session_mode;
 
@@ -548,9 +533,6 @@ void TLobby::teardown_boss2() {
 #undef lbl_8050CCE8
 #undef lbl_8050CE14
 
-#include "types.h"
-#include "pso/misc/TLobby.h"
-
 struct RecoveredGlobal_80147A74_lbl_804EF500 {
     s32 value;
     u8 remaining[0x94];
@@ -571,22 +553,12 @@ s16 init_net_tables__6TLobbyFv();
 s16 TLobby__sub_8040ADE8(Req_801471A0 *);
 extern char lbl_8043F3F0[];
 extern char lbl_8043F404[];
-extern s32 lbl_805D570C;
-}
-
-extern "C" {
-
 s32 TLobby__sub_80147284(void);
 void TLobby__sub_80147978(void);
-void fn_80147A60(int a0);
-void fn_80147A68(void);
-s32 TLobby__sub_803FAFDC();
 
 #define lbl_8050C784 (*(Cfg_801471A0 *)lbl_8050C784)
 #define TLobby__sub_803FB184 ((s16 (*)(void *))TLobby__sub_803FB184)
 #define TLobby__sub_80423064 ((s32 (*)(s16, s32))TLobby__sub_80423064)
-extern s32 lbl_805D2D00;
-extern s32 TLobby__connect_pending_flags;
 
 s32 TLobby::set_dns_servers() {
     Req_801471A0 req;
@@ -683,10 +655,8 @@ void TLobby::init_account_entries() {
 #undef memset
 #undef strncpy
 
-    extern int keyboard_buffer_cursor;
 void fn_80147A60(int a0) { keyboard_buffer_cursor = a0; }
 
-    extern int keyboard_buffer_cursor;
 void fn_80147A68(void) { keyboard_buffer_cursor = 0; }
 typedef char RecoveredGlobal_80147A74_lbl_804EF500_size[sizeof(RecoveredGlobal_80147A74_lbl_804EF500) == 0x98 ? 1 : -1];
 s32 *get_ppp_password_buffer(void) {

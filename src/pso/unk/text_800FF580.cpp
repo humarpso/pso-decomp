@@ -44,17 +44,12 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(Vec_800FF8CC *, const Vec_800FF8CC *);
 Vec_800FF8CC *alloc__22TQuestVmDownLoadServerFv(s32);
 void vec3_add_to(Vec_800FF8CC *, Vec_800FF8CC *);
-void VecCopy__FP3VecPC3Vec(Vec_800FF8CC *, const Vec_800FF8CC *);
 void fn_800FF580(void *, void *, f32);
-void vec3_add_to(Vec_800FF8CC *, Vec_800FF8CC *);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
 void normalize_vector(void *);
 extern const f32 lbl_805DAA58;
 extern const f32 lbl_805DAA5C;
-}
-
-extern "C" {
 
 void TObjEZRopeBase::sub_800FF788(void *mtx) {
     Seg_800FF788 *seg;

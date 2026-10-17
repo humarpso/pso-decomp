@@ -147,7 +147,6 @@ u16 obj_getField1c(void *);
 void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 
-u16 obj_getField1c(void *);
 void *__nw__7TObjectFUl(u32);
 extern s32 __vt__19TTecPlayerInfluence[];
 Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner, void *pos, s32 level);
@@ -167,10 +166,6 @@ extern Params_802377FC tech_high_level_linear_power_table;
 extern Scale_802377FC lbl_804CC55C;
 void calc_parameters__11TTecRaBartaFv(RaBarta_802377FC *self);
 
-}
-
-extern "C" {
-
 void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void __dl__7TObjectFPv(void *);
@@ -178,13 +173,8 @@ s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 
 typedef char RecoveredGlobal_80237194_lbl_8044D8EC_size[sizeof(RecoveredGlobal_80237194_lbl_8044D8EC) == 0xC ? 1 : -1];
 
-extern s32 __vt__19TTecPlayerInfluence[];
-
-void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);
-
 typedef struct Obj_80237310 Obj_80237310;
 typedef struct Owner_80237310 Owner_80237310;
-Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner, void *pos, s32 level);
 
 extern "C" {
 extern const Emitter_80237494 lbl_8044D920[3] = {{473, 0, 0.0f}, {475, 0, 0.0f}, {479, 0x20060, 1.0f}};
@@ -411,19 +401,12 @@ struct Self_80237BD8 {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
 u32 find_entity_by_id(int);
 s32 apply_technique_to_area_targets__13TUnk_804CC148Fv(void *, int);
 
-u16 obj_getField1c(void *);
 void construct_area_technique_base(void *, void *, void *, void *, void *);
 
 extern s32 __vt__11TTecRaBarta[];
-void *get_bml_model(void *, int);
-void attach_particle_model(void *, void *, void *, int, int, f32);
-u32 find_entity_by_id(int);
-extern void *technique_effect_bml;
-extern void *lbl_805D63B0;
 struct Profile_80237A94 { void *entries; u32 count; };
 struct Self_80237A94 {
     u8 pad0[0x18];
@@ -439,18 +422,8 @@ struct Self_80237A94 {
 s32 mem_free(void *);
 s32 stop_sound_request(void *);
 
-u16 obj_getField1c(void *);
-void construct_area_technique_base(void *, void *, void *, void *, void *);
-
-extern s32 __vt__11TTecRaBarta[];
 void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *level);
-}
-
-extern "C" {
-
 void create__11TTecRaBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
-s32 play_sound_effect(s32, s32, s32, s32);
-s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 
 void create__11TTecRaBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;

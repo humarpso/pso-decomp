@@ -32,10 +32,6 @@ extern const f32 lbl_805D9BEC;
 extern const f32 lbl_805D9BF0;
 extern const f32 lbl_805D9BF4;
 extern const f32 lbl_805D9BF8;
-}
-
-extern "C" {
-
 void TObjPlayer::clamp_stat_354() {
     extern f32 lbl_805D9BD8;
     extern f32 lbl_805D9BDC;
@@ -121,16 +117,6 @@ void TObjEneMoja::handle_death() {
     }
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
-s32 apply_actor_gravity(void *, int, f32);
-
-s32 objInBand__FP7GameObjf(void *, f32);
-
 extern const f32 lbl_805D9BD8;
 
 void TObjPlayer::update_ground_effect() {
@@ -156,8 +142,6 @@ void TObjPlayer::update_ground_effect() {
 
 }
 
-#include "types.h"
-#include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
@@ -520,18 +504,14 @@ extern "C" {
 s32 update_movement_status__10TObjPlayerFv();
 s32 obj_clearFlags30(void *, s32);
 s32 update_action_hold_status__10TObjPlayerFv();
-s32 obj_clearFlags30(void *, s32);
 
 f32 enemy_pursue_point(void *, s32, Vec_800AE18C *, void *, f32, f32);
 s32 select_enemy_destination(void *, Vec_800AE18C *, int);
 s32 copy_position_if_valid__10TObjPlayerFii(void *, Vec_800AE18C *);
 
 f32 horizontal_distance_squared(int, void *);
-s32 objInBand__FP7GameObjf(void *, f32);
 
 extern u8 **lbl_805D50D4;
-extern const f32 lbl_805D9BD8;
-extern const f32 lbl_805D9BF0;
 extern const f32 lbl_805D9C34;
 extern const f32 lbl_805D9C38;
 u16 find_nearest_visible_player(void *, int, f32);
@@ -549,53 +529,35 @@ extern s32 lbl_8043B0B4[];
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 void acquire_target__11TObjEneMojaFPv(u8 *arg0);
-s32 get_current_floor();
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 TObjPlayer__sub_800ACA0C(void *);
 
 void update_attack_jump__11TObjEneMojaFv(Obj_800ACFE8 *);
 struct Moja_800AE450;
-u8 *get_enemy_entity(u16);
 s32 submit_cursor_candidate(void *, int);
-u8 *get_player_by_client_id(u16);
 s32 minimap_render_dot(void *, int, int, int, f32);
 extern const f32 lbl_805D9BDC;
 
-s32 select_enemy_destination(void *, Vec_800AE18C *, int);
-s32 copy_position_if_valid__10TObjPlayerFii(void *, Vec_800AE18C *);
 f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(void *, void *, Vec_800AE18C *);
 f32 atan2_float(f32, f32);
 s32 angle_difference_abs(s32, s32);
 extern const f64 lbl_8043B0C8[];
 extern u32 *lbl_805D50CC;
-extern const f32 lbl_805D9BE8;
 extern const f32 lbl_805D9C1C;
 extern const f32 lbl_805D9C30;
 
 s32 obj_is_hit_receivable();
-u8 *get_player_data__10TObjPlayerFi(s32);
-s32 obj_testFlags30(void *, int);
 s32 lookup_entry_by_value__10TObjPlayerFPvf(void *);
-
-s32 objInBand__FP7GameObjf(void *, f32);
 
 s32 mult_vec_array__10TObjPlayerFUll(int, int, void *, int);
 s32 set_matrix_identity(int);
-s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 
 s32 post_translate_matrix(void *);
-extern u8 **lbl_805D50D4;
 extern void *lbl_805D50DC;
-extern s32 lbl_805D586C;
-extern s32 lbl_805D5870;
-extern const f32 lbl_805D9BD8;
-extern const f32 lbl_805D9BDC;
-extern const f32 lbl_805D9BEC;
 extern const f32 lbl_805D9C04;
 extern const f32 lbl_805D9C28;
 extern const f32 lbl_805D9C2C;
-s32 move_with_wall_slide(void *);
 s32 calc_velocity_toward_destination(void *, Vec_800ACFE8, Vec_800ACFE8, f32);
 s16 get_attack_params_atp_min(s32);
 s32 is_split_screen();
@@ -603,54 +565,25 @@ f32 newton_sqrtf(f32);
 
 extern s32 local_client_id;
 extern s32 lbl_805D5868;
-extern const f32 lbl_805D9BF8;
 extern const f32 lbl_805D9C00;
 extern const f32 lbl_805D9C08;
 extern const f32 lbl_805D9C0C;
-
-f32 horizontal_distance_squared(int, void *);
-s32 objInBand__FP7GameObjf(void *, f32);
-
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u8 *get_player_data__10TObjPlayerFi(s32);
-s32 obj_getField1c(void *);
-s32 subtract_vector(void *, void *);
-f32 atan2_float(f32, f32);
-extern const f64 lbl_8043B0C8[];
-
-s32 rotate_matrix_y(int, int);
 
 void pop_matrices(s32);
-f32 newton_sqrtf(f32);
-s32 calc_velocity_toward_destination(void *, Vec_800ACFE8, Vec_800ACFE8, f32);
-s32 obj_is_hit_receivable();
-s32 is_split_screen();
 
-extern u8 identity_matrix[];
-extern s32 lbl_805D5868;
-extern s32 local_client_id;
-extern const f32 lbl_805D9BD8;
-extern const f32 lbl_805D9C00;
-extern const f32 lbl_805D9C04;
-extern const f32 lbl_805D9C08;
-extern const f32 lbl_805D9C0C;
 extern const f32 lbl_805D9C3C;
 extern const f32 lbl_805D9C40;
 extern const f32 lbl_805D9C44;
 extern const f32 lbl_805D9C48;
 void update_appearance_jump__11TObjEneMojaFv(Moja_800AE7F4 *self);
 s32 render_with_position_override__9TObjEnemyFPUcl(void *, f32 *, s32, f32);
-s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 update_obstruction_fade(void *, s32, s32, s32);
 s32 restore_scene_lighting(s32, s32);
 s32 select_actor_lighting(void *);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
-s32 rotate_matrix_y(int, int);
 s32 translate_matrix(s32, f32, f32, f32);
-s32 push_matrix();
 
-s32 post_translate_matrix(void *);
 s32 draw_chunk_object(s32);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -658,86 +591,33 @@ extern s32 lbl_805D5668;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-extern const f32 lbl_805D9BD8;
-extern const f32 lbl_805D9BDC;
-extern const f32 lbl_805D9BF0;
 extern const f32 lbl_805D9C50;
 extern const f32 lbl_805D9C54;
 extern const f32 lbl_805D9C58;
 void render__11TObjEneMojaFv(u8 *arg0);
 
-s32 calc_velocity_toward_destination(void *, Vec_800ACFE8, Vec_800ACFE8, f32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 obj_is_hit_receivable();
-u8 *get_player_data__10TObjPlayerFi(s32);
-s32 obj_getField1c(void *);
-s32 is_split_screen();
-f32 atan2_float(f32, f32);
-f32 newton_sqrtf(f32);
-
-f32 horizontal_distance_squared(int, void *);
 s32 approach_angle_limited(s32, s32, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
 
-s32 subtract_vector(void *, void *);
-extern const f64 lbl_8043B0C8[];
 extern Vec_800AE450 lbl_8050BEE0;
-extern s32 local_client_id;
-extern s32 lbl_805D5868;
-extern const f32 lbl_805D9BD8;
-extern const f32 lbl_805D9C00;
-extern const f32 lbl_805D9C04;
-extern const f32 lbl_805D9C08;
-extern const f32 lbl_805D9C0C;
-extern const f32 lbl_805D9C3C;
-extern const f32 lbl_805D9C40;
 void update_appearance_drop__11TObjEneMojaFv(Moja_800AE450 *self);
-u8 *get_player_by_client_id(u16);
-s32 get_current_floor();
-u8 *get_enemy_entity(u16);
 
-s32 select_enemy_destination(void *, Vec_800AE18C *, int);
-s32 copy_position_if_valid__10TObjPlayerFii(void *, Vec_800AE18C *);
 s32 enemy_turn_toward_dest(void *, s32);
 void enemy_set_heading_velocity(void *, s32, f32);
-s32 move_with_wall_slide(void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 subtract_vector(void *, void *);
 s32 update_angle__10TObjPlayerFlPv(void *, s32, void *);
-s32 objInBand__FP7GameObjf(void *, f32);
-
-s32 rotate_matrix_y(int, int);
-
-void pop_matrices(s32);
 
 void *__nw__7TObjectFUl(u32);
-f32 newton_sqrtf(f32);
-f32 atan2_float(f32, f32);
 void spawn_directional_particle(void *, void *, s32);
 
-extern const f64 lbl_8043B0C8[];
-extern u8 identity_matrix[];
 extern s32 game_difficulty_selection;
 extern s32 tl_07;
-extern const f32 lbl_805D9BD8;
-extern const f32 lbl_805D9BDC;
-extern const f32 lbl_805D9C08;
 extern const f32 lbl_805D9C10;
 extern const f32 lbl_805D9C14;
 extern const f32 lbl_805D9C18;
-extern const f32 lbl_805D9C1C;
 extern const f32 lbl_805D9C20;
 extern const f32 lbl_805D9C24;
 void enemy_wander_home(void *, s32, f32, f32, f32);
-s32 select_enemy_destination(void *, Vec_800AE18C *, int);
-s32 copy_position_if_valid__10TObjPlayerFii(void *, Vec_800AE18C *);
-s32 obj_clearFlags30(void *, s32);
 
 extern const f32 lbl_805D9C4C;
-}
-
-extern "C" {
-
 }
 
 void TObjEneMoja::enter_hurt_state() {
@@ -765,7 +645,6 @@ void TObjEneMoja::enter_hurt_state() {
 
 extern "C" {
 
-extern const f32 lbl_805D9BD8;
 extern const s32 lbl_805D9BFC;
 
 void TObjPlayer::update_invincibility() {
@@ -787,8 +666,6 @@ void TObjPlayer::update_invincibility() {
         this->m_33e = (s16) this->m_32c;
     }
 }
-
-extern const s32 lbl_805D9BFC;
 
 }
 

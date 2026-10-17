@@ -107,10 +107,6 @@ extern s32 __vt__18TObjNpcFemaleDwarf[];
 extern s32 TObjNpcFemaleDwarf__name;
 extern u8 *TObjNpcFemaleDwarf__static_data;
 u8 *TObjNpcFemaleDwarf__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void * TObjNpcFemaleFat__create(void *arg0);
 void *__dt__18TObjNpcFemaleDwarfFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -118,8 +114,6 @@ void *TObjControl__ct(void *, void *);
 void *TObjNpcFemaleFat__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-
-extern s32 __vt__18TObjNpcFemaleDwarf[];
 
 void *__dt__18TObjNpcFemaleDwarfFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -160,8 +154,6 @@ void * TObjNpcFemaleFat__create(void *arg0) {
     }
     return o2;
 }
-
-extern u32 TObjNpcFemaleFat__static_model;
 
 void TObjNpcFemaleFat::free_static_model() {
     if ((u32) TObjNpcFemaleFat__static_model != 0U) {

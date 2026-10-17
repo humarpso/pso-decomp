@@ -12,7 +12,6 @@ public:
 };
 #endif
 
-#include "types.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 
@@ -67,18 +66,11 @@ extern void *__vt__14TAdSelectCurGC[];
 extern s32 lbl_805D3E70;
 extern const f32 lbl_805DE1E0;
 TAdSelectCurGC_802AF0E0 *__ct__14TAdSelectCurGCFv(TAdSelectCurGC_802AF0E0 *o, void *unused, void *a, void *b);
-}
-
-extern "C" {
-
-void TAdSelectCurGC__sub_802AF274(void* p, f32 v);
 void TLobby__sub_802AF198(void);
 void *TOCapsuleLabo__create(void *arg0);
 void TLobby__sub_803DA16C(void*);
 void *TOCapsuleLabo__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
-
-extern u32 menu_selection_cursor_texture_list;
 
 void run_task__14TAdSelectCurGCFv(TAdSelectCurGC_802AED98 *o) {
     s32 ok;

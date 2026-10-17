@@ -2,10 +2,8 @@
 #include "pso/player/TObjPlayer.h"
 struct Obj_80122E60 { u8 pad[0x1f8]; f32 a; f32 b; f32 c; };
 
-extern "C" {
 extern const f32 lbl_805DACF8;
 extern const f32 lbl_805DACFC;
-}
 
 extern "C" {
 

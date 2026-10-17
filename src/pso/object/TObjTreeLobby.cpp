@@ -9,13 +9,11 @@
 #include "pso/object/TObjFish.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern char lbl_8047A068[];
 extern char lbl_8047A080[];
 extern const char *bm_obj_lobby_tree_model_names[2];
 extern BmlResourceDescriptor TObjTreeLobby_resource_descriptor;
 extern const char *bm_obj_lobby_tree_motion_names[1];
-}
 
 struct RecoveredGlobal_80364A1C_lbl_804F2B18 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80364A1C_lbl_804F2B18_size[sizeof(RecoveredGlobal_80364A1C_lbl_804F2B18) == 0x10 ? 1 : -1];
@@ -71,10 +69,6 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u32 TObjTreeLobby__instance;
 extern s32 tree_lobby_type;
-}
-
-extern "C" {
-
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
@@ -157,8 +151,6 @@ void *TObjTreeLobby::create(void *arg0) {
     return o;
 }
 
-extern u32 TObjTreeLobby__instance;
-
 void TObjTreeLobby::destroy_static_instance() {
     if ((u32) TObjTreeLobby__instance != 0U) {
         TLobby__sub_8001FE7C((void*)TObjTreeLobby__instance, 1);
@@ -226,9 +218,6 @@ void *__dt__13TUnk_804F2B60Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_obj_lobby_tree_model_names[2] = { lbl_8047A068, NULL };
 BmlResourceDescriptor TObjTreeLobby_resource_descriptor = { lbl_8047A080, bm_obj_lobby_tree_model_names, bm_obj_lobby_tree_motion_names, 1, 0 };
 __declspec(section ".sdata") const char *bm_obj_lobby_tree_motion_names[1] = { NULL };

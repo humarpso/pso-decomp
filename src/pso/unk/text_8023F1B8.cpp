@@ -34,7 +34,6 @@ void set_active_camera_pose(Vec_8023F22C *, Vec_8023F22C *);
 void TCameraCtrl__ct(void *, void *);
 s32 is_area_transfer_pending(void);
 void apply_phase_keyboard_mode(void);
-s32 clear_resource_load_tasks();
 void run_load_callback_table(void *, s32);
 void init_menu_scene_lights(void *, s32);
 void reset_controller_input_state(void);
@@ -47,19 +46,12 @@ f32 cos_table_lookup(s32);
 void set_screen_size(f32, f32);
 extern Vec_8023F22C lbl_8044DCE8;
 extern Vec_8023F22C lbl_8044DCF4;
-extern RecoveredGlobal_8023F1B8_lbl_804CCDA8 lbl_804CCDA8;
-extern RecoveredGlobal_8023F1B8_lbl_804CCE60 lobby_scene_release_callback_table;
 extern u8 default_scene_light_config[];
 extern Vec_8023F22C TObjLight__scene_light_state;
 extern void *tl_camera;
-extern u32 game_mode_scene_instance;
 extern const f32 lbl_805DC9B8;
 extern const f32 lbl_805DC9BC;
 void init_game_mode_select_scene(void);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8023F1B8_lbl_804CCDA8_size[sizeof(RecoveredGlobal_8023F1B8_lbl_804CCDA8) == 0xB8 ? 1 : -1];
 typedef char RecoveredGlobal_8023F1B8_lbl_804CCE60_size[sizeof(RecoveredGlobal_8023F1B8_lbl_804CCE60) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_8023F1B8_main_task_size[sizeof(RecoveredGlobal_8023F1B8_main_task) == 0x34 ? 1 : -1];

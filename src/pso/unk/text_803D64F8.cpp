@@ -11,10 +11,6 @@ extern const f32 lbl_805E0DF0;
 extern const f32 lbl_805E0DF4;
 extern const f32 lbl_805E0DF8;
 void fn_803D64F8(Obj_803D64F8 *p);
-}
-
-extern "C" {
-
 #pragma push
 #pragma scheduling off
 void fn_803D64F8(Obj_803D64F8 *p) {

@@ -44,7 +44,6 @@ f32 xz_distance_squared(void *, s32);
 s16 update_object_view_visibility__13TUnk_804B9870Fff(void *, f32, f32);
 s32 get_state_flag__9TMainTaskFv();
 extern s32 camera_ctrl_instance;
-s16 TObjLaboDesignBase__vt8(u8 *arg0, f32 farg0, f32 farg1);
 f32 rotate_matrix_by_node_angles(void *, void *);
 s32 push_matrix();
 s32 pop_matrix();
@@ -65,10 +64,6 @@ extern const f32 lbl_805E02A8;
 extern const f32 lbl_805E02AC;
 extern const f32 lbl_805E02B0;
 u8 *TObjLaboDesignBase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-}
-
-extern "C" {
-
 void *create_labo_design_base(void *arg0);
 void *create_obj_labo_design_base(void *arg0);
 void *TObjLaboDesignBase__create(void *arg0);
@@ -76,17 +71,12 @@ void *TObjLaboDesignBase__sub_80364D38(void *arg0);
 void *__dt__18TObjLaboDesignBaseFv(void *arg0, s16 arg1);
 void *alloc_and_construct__18TObjLaboDesignBaseFPv(void *arg0);
 void *create_instance__18TObjLaboDesignBaseFPv(void *arg0);
-void* get_labo_design_entry(int a0);
-int get_labo_design_object(int a0);
 void render__18TObjLaboDesignBaseFPv(u8 *arg0);
 void run_task__18TObjLaboDesignBaseFv(void);
-s32 post_translate_matrix(void *);
 void free_collision_body_parts(void *);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
 s32 rotate_matrix_y(int, int);
-s32 push_matrix();
-s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void queue_destruction__7TObjectFv(void *);
@@ -195,8 +185,6 @@ void *create_instance__18TObjLaboDesignBaseFPv(void *arg0) {
     return o;
 }
 
-extern void *tl_05;
-
 void *create_obj_labo_design_base(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC0);
     if (o != NULL) {
@@ -204,8 +192,6 @@ void *create_obj_labo_design_base(void *arg0) {
     }
     return o;
 }
-
-extern void *tl_05;
 
 void *TObjLaboDesignBase__sub_80364D38(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC0);
@@ -215,8 +201,6 @@ void *TObjLaboDesignBase__sub_80364D38(void *arg0) {
     return o;
 }
 
-extern void *tl_05;
-
 void *create_labo_design_base(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC0);
     if (o != NULL) {
@@ -225,8 +209,6 @@ void *create_labo_design_base(void *arg0) {
     return o;
 }
 
-extern void *tl_05;
-
 void *alloc_and_construct__18TObjLaboDesignBaseFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC0);
     if (o != NULL) {
@@ -234,8 +216,6 @@ void *alloc_and_construct__18TObjLaboDesignBaseFPv(void *arg0) {
     }
     return o;
 }
-
-extern void *tl_05;
 
 void *TObjLaboDesignBase__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC0);
@@ -323,8 +303,6 @@ void TObjLaboDesignBase::render() {
 }
 
 void run_task__18TObjLaboDesignBaseFv(void) {  }
-
-extern s32 __vt__18TObjLaboDesignBase[];
 
 void *__dt__18TObjLaboDesignBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

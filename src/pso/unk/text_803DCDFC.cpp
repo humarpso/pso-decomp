@@ -19,9 +19,6 @@ extern "C" void get_render_mode_for_tv_format(GXRenderModeObj_803DD430 *rmode, G
 #include "pso/misc/TMovie.h"
 
 
-
-
-
 struct RMode_803DCDFC {
     u32 viTVmode;
     u16 fbWidth;
@@ -104,10 +101,6 @@ void init_locked_cache_heap(u8 *arg0);
 void set_present_interval(s32 *arg0, s32 arg1);
 void init_gx_display(void);
 void fn_803DD294(void);
-}
-
-extern "C" {
-
 
 #define active_gx_render_mode ((RMode_803DCDFC *)active_gx_render_mode)
 
@@ -254,7 +247,6 @@ void fn_803DD294(void) {
 #undef video_initial_draw_framebuffer
 #undef video_initial_display_framebuffer
 
-}
 
 
 
@@ -266,16 +258,6 @@ void fn_803DD294(void) {
 
 
 
-
-
-
-#include "types.h"
-
-
-
-
-
-extern "C" {
 
 
 typedef struct { u8 pad[0x28]; } Elem_803DD300;
@@ -306,7 +288,6 @@ extern Cam_803DD300 lbl_8058D4F8;
 extern s32 motion_node_draw_callback;
 extern f32 lbl_805D777C;
 extern s32 model_render_flags;
-
 
 
 void TKeyBoardControl::update_camera() {
@@ -346,8 +327,6 @@ s32 TCameraCtrl::init_projection_state() {
 
 
 
-
-#include "types.h"
 typedef Tlut_803DD0D8 E_803DD3C8;
 
 
@@ -356,11 +335,6 @@ struct Fmt_803DD3DC { u8 pad0[4]; u16 w; u16 pad6; u16 h; u8 rest[0x3A]; };
 extern "C" {
 E_803DD3C8 *fn_803DD3C8(s32 i);
 s32 fn_803DD3DC(Fmt_803DD3DC *arg0);
-}
-
-extern "C" {
-
-
 
 #pragma push
 #pragma scheduling off
@@ -381,7 +355,6 @@ s32 fn_803DD3DC(Fmt_803DD3DC *rmode) {
 }
 
 
-}
 
 
 
@@ -390,19 +363,6 @@ s32 fn_803DD3DC(Fmt_803DD3DC *rmode) {
 
 
 
-
-
-
-
-
-
-#include "types.h"
-
-
-
-
-
-extern "C" {
 
 
 
@@ -420,9 +380,6 @@ void TKeyBoardControl::set_key_state(s32 arg0) {
 
 
 
-#include "types.h"
-
-
 struct SinCos_803DD4EC { f32 c; f32 s; };
 
 extern "C" {
@@ -434,18 +391,11 @@ extern GXRenderModeObj_803DD430 GXMpal480IntDf;
 extern GXRenderModeObj_803DD430 GXPal528IntDf;
 extern char lbl_804FC668[];
 extern char lbl_804FC674[];
-void get_render_mode_for_tv_format(GXRenderModeObj_803DD430 *rmode, GXRenderModeObj_803DD430 *out);
 void *OSGetArenaLo(void);
 void OSSetArenaLo(void *);
 f64 cos(f64);
 f64 sin(f64);
 extern SinCos_803DD4EC *sin_cos_table;
-void init_sin_cos_table(void);
-}
-
-extern "C" {
-
-
 
 void get_render_mode_for_tv_format(GXRenderModeObj_803DD430 *rmode, GXRenderModeObj_803DD430 *out) {
     switch (VIGetTvFormat()) {
@@ -486,7 +436,6 @@ void init_sin_cos_table(void) {
     }
 }
 #pragma pop
-
 
 
 }

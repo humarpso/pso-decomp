@@ -13,7 +13,6 @@ void __dl__7TObjectFPv(s32);
 void fn_8026A14C(void);
 extern RecoveredGlobal_80327698___vt__14TAdScrollWinGC __vt__14TAdScrollWinGC;
 u8 *__dt__14TAdScrollWinGCFv(u8 *arg0, s16 arg1);
-void queue_destruction__7TObjectFv(void *);
 void fn_8026A61C(void *, f32);
 extern u8 controller_physical_port_bank[];
 extern const f32 lbl_805DF69C;
@@ -29,7 +28,6 @@ s32 create_message_log_window(void *, void *, s32);
 s32 TAdMultiPlyChrSelectGC__sub_802C6FA8(void);
 extern u8 lbl_80476770[];
 extern u8 lbl_80476778[];
-extern RecoveredGlobal_80327698___vt__14TAdScrollWinGC __vt__14TAdScrollWinGC;
 extern s32 TAdScrollWinGC__class_name;
 extern s32 scroll_win_texture_handle;
 extern const f32 lbl_805DF6B4;
@@ -37,10 +35,6 @@ extern const f32 lbl_805DF6B8;
 extern const f32 lbl_805DF6BC;
 extern const f32 lbl_805DF6C0;
 void *TAdScrollWinGC__ct(void *arg0, void *arg1, s32 arg2, s32 arg3);
-}
-
-extern "C" {
-
 int TWindow__close(void*);
 
 void TAdScrollWinGC::close_window() { if (*(unsigned int *)&this->m_40 != 0) { TWindow__close(*(void* *)&this->m_40); *(int *)&this->m_40 = 0; } }

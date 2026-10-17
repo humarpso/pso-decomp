@@ -256,7 +256,6 @@ void *TWindowSubStatusDisp__window_layout[5] = {
 }
 
 #include "types.h"
-#include "pso/misc/TWindowDD.h"
 
 struct SD_80281760 { s32 f0; u8 pad4[0x14]; void *vt; u8 pad1c[4]; s16 f20; u8 pad22[0x3E]; s16 f60; s16 f62; u8 pad64[4]; void *f68; f32 f6c; f32 f70; };
 
@@ -273,10 +272,6 @@ extern s32 __vt__20TWindowSubStatusDisp[];
 extern s32 TWindowSubStatusDisp__class_name;
 extern const f32 lbl_805DD70C;
 SD_80281760 *TWindowSubStatusDisp__ct(SD_80281760 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 u32 get_player_by_client_id(s16);
 s32 draw_window_frame(void *, s32);
 s32 draw_visible_window_entries(void *, void *, s32);
@@ -352,8 +347,6 @@ void TWindowSubStatusDisp::update_status() {
         draw_list_page_indicator(*(s32 *)&this->m_68, temp_r3);
     }
 }
-
-extern s32 __vt__20TWindowSubStatusDisp[];
 
 void TWindowSubStatusDisp__sub_80281644(u8 *arg0) {
   s16 temp_r3;

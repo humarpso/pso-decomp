@@ -32,24 +32,11 @@ extern u32 TQuestListOnline__download_window;
 extern u32 TQuestListOnline__quest_info_window;
 extern void *TQuestListOnline__download_barrier_window;
 void TKeyBoardControl__sub_8000F950();
-void TKeyBoardControl__sub_8000F95C();
 s32 is_flag_set__6TLobbyFv();
-void TQuestListOnline__sub_8013ACF4(s32);
-void mem_free(void *);
 void *get_player_by_client_id(s32);
 void TQuestListOnline__sub_802176DC(void *, s32);
 void decompress_quest_buffer__16TQuestListOnlineFl(void *, s32);
-void clear_flag3_all_tasks__9TMainTaskFv(TMainTask *);
-s32 TWindow__close(int);
-extern unsigned char TQuestListOnline__dat_download_state[];
-extern unsigned char TQuestListOnline__bin_download_state[];
 extern s32 local_client_id;
-extern s32 evt2_random_enemies_mode;
-extern int TQuestListOnline__bin_download_complete;
-extern int TQuestListOnline__dat_download_complete;
-extern u32 TQuestListOnline__download_window;
-extern u32 TQuestListOnline__quest_info_window;
-extern void *TQuestListOnline__download_barrier_window;
 extern s32 quest_download_active;
 void *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 void send_quest_barrier__9TProtocolFv(s32);
@@ -59,23 +46,12 @@ void *get_window_layout_position(s32);
 int strncmp(const char *, const char *, u32);
 void *memcpy(void *, const void *, u32);
 extern Pos_80214F80 lbl_8044BCC8[];
-extern unsigned char TQuestListOnline__dat_download_state[];
-extern unsigned char TQuestListOnline__bin_download_state[];
 extern s32 TLobby__protocol_instance;
-extern int TQuestListOnline__bin_download_complete;
-extern int TQuestListOnline__dat_download_complete;
-extern void *TQuestListOnline__download_barrier_window;
 extern s32 quest_download_received_bytes;
 extern s32 quest_download_graph_current_bytes;
 extern const f32 lbl_805DC660;
-}
-
-extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 TWindow__close(int);
 extern s32 controller_input_state[];
-extern s32 local_client_id;
-extern u32 TQuestListOnline__quest_info_window;
 }
 
 void THunterGuildSeqOnlineTask::run_task() {
@@ -93,7 +69,6 @@ void THunterGuildSeqOnlineTask::run_task() {
 
 THunterGuildSeqOnlineTask::~THunterGuildSeqOnlineTask() {}
 
-#include "types.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestListOnline.h"
 #include "pso/misc/TDLGraph.h"

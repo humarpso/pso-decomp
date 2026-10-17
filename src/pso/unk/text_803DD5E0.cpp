@@ -53,7 +53,6 @@ extern s32 lbl_805D77A0;
 s32 TLobby__sub_803DDD2C(s32 arg0);
 void TLobby__sub_803DDD78(S_803DDD78 *d, S_803DDD78 *s);
 void copy_4word_struct__6TLobbyFPvPv(S_803DDD94 *d, S_803DDD94 *s);
-s32 TLobby__sub_803DDD2C(s32 arg0);
 void TLobby__sub_803DDD40(s32 arg0, s32 arg1);
 s32 calc_gvm_entry_stride(u16 arg0);
 void TObjPlayer__sub_803DD6DC(struct Obj_803DD6DC *arg0, s32 arg1);
@@ -68,33 +67,15 @@ u32 find_gvrt_texture_chunk(Desc_803DDA68 *, s32 *, u32);
 s32 TObjPlayer__sub_803DAB9C(s32, u32);
 s32 TObjPlayer__sub_803DAC1C(s32);
 s32 TObjPlayer__sub_803DD91C(Obj_803DDA68 *obj, s32 idx);
-s32 TObjPlayer__sub_803D9E38(Obj_803DDA68 *, s32, s32 *, s32 *);
-s32 TObjPlayer__sub_803DA7E0();
-s32 TObjPlayer__sub_803DAC48(Obj_803DDA68 *, s32, s32, s32, Desc_803DDA68 *, s32 *);
 s32 TObjPlayer__sub_803DDA68(Obj_803DDA68 *obj, s32 idx);
-s32 TObjPlayer__sub_803D9E38(Obj_803DDA68 *, s32, s32 *, s32 *);
-s32 TObjPlayer__sub_803DA7E0();
 s32 find_free_slot__10TObjPlayerFPvPv(Slot_803DDB34 **, Rec_803DDB34 **);
 s32 TObjPlayer__sub_803DA8E4(s32, s32, s32, s32 *);
 s32 TObjPlayer__sub_803DAB7C(Obj_803DDA68 *, s32, s32);
 extern s32 player_ref_entry_active_count;
 s32 TObjPlayer__sub_803DDB34(Obj_803DDA68 *obj, s32 idx);
-s32 TLobby__sub_803DDD2C(s32 arg0);
-void TLobby__sub_803DDD78(S_803DDD78 *d, S_803DDD78 *s);
-void copy_4word_struct__6TLobbyFPvPv(S_803DDD94 *d, S_803DDD94 *s);
 s32 strlen(const char*);
 void replace_gvm_texture_directory(GvmTextureList_803DDDC8* list, s32 stride, const GvmTextureHeader_803DDDC8* header);
-s32 TLobby__sub_803DDD2C(s32 arg0);
 void TLobby__sub_803DDD20(s32 arg0);
-void TLobby__sub_803DDD40(s32 arg0, s32 arg1);
-s32 calc_gvm_entry_stride(u16 arg0);
-void replace_gvm_texture_directory(GvmTextureList_803DDDC8* list, s32 stride, const GvmTextureHeader_803DDDC8* header);
-extern S_803DA7E0 lbl_8058D470;
-s32 TObjPlayer__sub_803D9E38(Obj_803DDA68 *, s32, s32 *, s32 *);
-s32 TObjPlayer__sub_803DA7E0();
-s32 TObjPlayer__sub_803DAC48(Obj_803DDA68 *, s32, s32, s32, Desc_803DDA68 *, s32 *);
-s32 TObjPlayer__sub_803DAB9C(s32, u32);
-s32 TObjPlayer__sub_803DAC1C(s32);
 s32 load_gvm_texture_archive(u32 *arg0, GvmTextureList_803DDDC8 *list);
 void DCFlushRange(void *, u32);
 void *xmalloc__FUl(u32 bytes);
@@ -102,21 +83,10 @@ void *load_nj_chunk_model_resource(u8 *base, u32 *off, u32 *out);
 s32 DVDOpen(const char *, FileInfo_803DD784 *);
 s32 DVDClose(FileInfo_803DD784 *);
 s32 Dolphin_DVDReadPrio(FileInfo_803DD784 *, void *, s32, s32, s32);
-u32 find_gvrt_texture_chunk(Desc_803DDA68 *, s32 *, u32);
-s32 TObjPlayer__sub_803D9E38(Obj_803DDA68 *, s32, s32 *, s32 *);
-s32 TObjPlayer__sub_803DA7E0();
-s32 TObjPlayer__sub_803DAC48(Obj_803DDA68 *, s32, s32, s32, Desc_803DDA68 *, s32 *);
-extern S_803DA7E0 lbl_8058D470;
 extern u8 gvrt_header_read_buffer[];
 extern char lbl_805D46D8[4];
 extern Slot_803DD784 *record_array_ptr;
 s32 TObjPlayer__sub_803DD784(Obj_803DDA68 *obj, s32 idx);
-}
-
-extern "C" {
-
-void TLobby__sub_803DDD20(s32 arg0);
-void TLobby__sub_803DDD40(s32 arg0, s32 arg1);
 void set_ginja_draw_flags(s32 arg0);
 
 extern s32 ginja_draw_flags;
@@ -148,7 +118,6 @@ void TObjPlayer__sub_803DD6DC(struct Obj_803DD6DC *arg0, s32 arg1) {
     lbl_804FC688[idx](arg0, arg1);
 }
 
-extern s32 lbl_805D77A0;
 extern s32 lbl_805D77A4;
 
 #pragma push
@@ -335,9 +304,6 @@ void TLobby__sub_803DDD20(s32 arg0) {
     lbl_805D77A4 = arg0;
     lbl_805D77A0 = arg0;
 }
-
-extern s32 lbl_805D77A0;
-extern s32 lbl_805D77A4;
 
 s32 TLobby__sub_803DDD2C(s32 arg0) {
     s32 temp_r4;

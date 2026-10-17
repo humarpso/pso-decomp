@@ -71,7 +71,6 @@ void *__dt__17TAdLicAgreementGCFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__17TAdLicAgreementGC[];
 extern void *lbl_805D41C0;
 
 void *TAdLicAgreementGC__ct(void *arg0) {

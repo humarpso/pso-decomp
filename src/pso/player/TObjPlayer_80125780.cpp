@@ -8,7 +8,6 @@ void *__dt__13TUnk_804A2564Fv(void *arg0, s16 arg1);
 void clear_faust_reload_timer(void* p);
 s32 draw_ginja_object(void *);
 void __dt__11TItemWeaponFv(void *, int);
-void *__dt__13TUnk_804A2564Fv(void *arg0, s16 arg1);
 
 extern const f32 lbl_805DAD58;
 extern const f32 lbl_805DAD5C;

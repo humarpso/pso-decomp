@@ -12,8 +12,6 @@ void TChCrTagOccHeader::render() { fn_802A2A00(this); }
 
 }
 
-#include "types.h"
-
 struct Hdr_802A2C30 {
     u8 pad[0x20];
     s32 f20;
@@ -22,10 +20,6 @@ struct Hdr_802A2C30 {
 extern "C" {
 s32 get_selected_char__15TChCrCharSelectFv();
 s32 TChCrTagOccHeader__vt4(Hdr_802A2C30 *arg0);
-}
-
-extern "C" {
-
 void run_task__17TChCrTagOccHeaderFv(u8 *arg0);
 s32 update_fade__8TChCrTagFPv();
 
@@ -64,7 +58,6 @@ void *__dt__17TChCrTagOccHeaderFv(void *self, s16 m) {
     return self;
 }
 
-int render__17TChCrTagOccHeaderFv(void* p);
 void render_shadows__7TObjectFv();
 void *__vt__17TChCrTagOccHeader[] = {
     0, 0,
@@ -76,14 +69,8 @@ void *__vt__17TChCrTagOccHeader[] = {
     0,
 };
 
-}
-
 #define update_fade__8TChCrTagFPv (*(void (*)())&update_fade__8TChCrTagFPv)
 #define get_selected_char__15TChCrCharSelectFv (*(s32 (*)(void *))&get_selected_char__15TChCrCharSelectFv)
-
-#include "types.h"
-
-extern "C" {
 
 u8 * __ct__8TChCrTagFv(void *, s32);
 void *__ct__17TChCrTagOccHeaderFv(void *arg0);
@@ -103,12 +90,6 @@ void *__ct__17TChCrTagOccHeaderFv(void *arg0) {
     return arg0;
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void *__nw__7TObjectFUl(int);
 extern void *tl_03;
 
@@ -120,21 +101,13 @@ void *create_ch_cr_tag_occ_header(void *arg0) {
     return o;
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void create_all_ch_cr_tag_headers(void);
 
 void create_all_ch_cr_tag_headers(void) { { int i; for (i = 0; i < 15; i++) { ((int (*)(void *))create_ch_cr_tag_occ_header)((void*)i); } } }
 
 }
 
-#include "pso/TChCrTagOccupation.h"
 #include "pso/TMath.h"
-#include "types.h"
 
 struct RecoveredGlobal_802A300C___vt__18TChCrTagOccupation {
     s32 value;
@@ -177,8 +150,6 @@ extern const f32 lbl_805DDEF8;
 extern const f32 lbl_805DDEFC;
 void sub_802A2DF4__18TChCrTagOccupationFv(Tag_802A2DF4 *self);
 extern void *__vt__18TChCrTagOccupation[];
-void *__dt__8TChCrTagFv(void *, s16);
-void __dl__7TObjectFPv(void *);
 void *__dt__18TChCrTagOccupationFv(void *self, s16 m);
 extern s32 chcr_tag_occupation_class_name;
 extern const f32 lbl_805DDF00;
@@ -189,10 +160,6 @@ extern const f32 lbl_805DDF10;
 extern const f32 lbl_805DDF14;
 u8 *__ct__18TChCrTagOccupationFv(u8 *arg0, s32 arg1, s32 _w2);
 int TChCrTagOccupation__vt4(Obj_802A2F78 *self);
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 void TChCrTagOccupation::sub_802A2DF4() {
@@ -233,9 +200,6 @@ int TChCrTagOccupation__vt4(Obj_802A2F78 *self) {
     return 0;
 }
 
-}
-
-extern "C" {
 void *__dt__18TChCrTagOccupationFv(void *self, s16 m) {
     if (self != NULL) {
         *(void ***)((s8 *)self + 0x18) = __vt__18TChCrTagOccupation;
@@ -246,12 +210,6 @@ void *__dt__18TChCrTagOccupationFv(void *self, s16 m) {
     }
     return self;
 }
-}
-
-extern "C" {
-
-extern void *tl_03;
-
 #pragma push
 #pragma fp_contract on
 typedef char RecoveredGlobal_802A300C___vt__18TChCrTagOccupation_size[sizeof(RecoveredGlobal_802A300C___vt__18TChCrTagOccupation) == 0x20 ? 1 : -1];
@@ -280,10 +238,6 @@ void *TChCrTagOccupation::create(void *arg0) {
 
 void TChCrTagOccupation::create_all() { { int i; for (i = 0; i < 3; i++) { TChCrTagOccupation::create((void *)((void*)i)); } } }
 
-}
-
-extern "C" {
-void render_shadows__7TObjectFv();
 void *__vt__18TChCrTagOccupation[8] = {
     0,
     0,

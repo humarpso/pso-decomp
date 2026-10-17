@@ -12,10 +12,6 @@ void set_opening_movie_purpose(s32);
 void collect_player_slots__22TAdMultiPlyChrSelectGCFv(void *);
 extern s32 multi_chr_select_serial_access_state;
 void TAdMultiPlyChrSelectGC__sub_802DCCA4(Obj_802DCCA4 *arg0);
-}
-
-extern "C" {
-
 s32 set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s32, s32, s32 *);
 s32 TWindowShortListCtrl__check_controller_button(char *, s32);
 s32 TWindow__close(void *);

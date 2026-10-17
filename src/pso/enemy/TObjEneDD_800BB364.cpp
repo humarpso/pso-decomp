@@ -26,19 +26,9 @@ s32 is_alive__9TObjEneDDFv(void *);
 f32 horizontal_distance_squared(void *, void *);
 
 u16 enemy_nearest_visible_enemy_sq(Ent_800BB388 *self, f32 range);
-u16 obj_getField1c(void *);
-s32 is_alive__9TObjEneDDFv(void *);
 s32 TBoss8Dragon__sub_800BB650(void *, void *);
-f32 horizontal_distance_squared(void *, void *);
 extern const f32 TObjEneDD__data_805D9E8C;
 s32 collect_enemy_target_candidates(s32 arg0, Ent_800BB484 *out, f32 farg0);
-}
-
-extern "C" {
-
-extern "C" {
-Ent_800BB388 *get_player_data__10TObjPlayerFi(s32);
-}
 
 void TObjEneDD::set_squared_value(f32 farg0) {
     ((s32 (*)(f32))enemy_nearest_visible_enemy_sq)(farg0 * farg0);

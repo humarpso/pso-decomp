@@ -7,10 +7,6 @@ void TWindowMenuInfomation__ct(void *, void *);
 extern u8 choice_setting_popup_window_descriptor[];
 extern u8 choice_setting_popup_vtable[];
 Obj_80269004 *fn_80269004(Obj_80269004 *self, void *parent, void *arg2);
-}
-
-extern "C" {
-
 Obj_80269004 *fn_80269004(Obj_80269004 *self, void *parent, void *arg2) {
     construct_with_parent__13TUnk_804CDFE8FPv(self, choice_setting_popup_window_descriptor, 4, parent);
     self->f18 = choice_setting_popup_vtable;

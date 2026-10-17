@@ -20,12 +20,7 @@ s32 eval_bezier_curve__12TBoss8DragonFPviiPvf(void *, s32, s32, void *, f32);
 s32 spawn_gryphon_tornado(s32, s32, void *, u16);
 extern s32 boss5_gryphon_bml_resource;
 extern s32 boss5_gryphon_texture_list;
-extern void *gryphon_shockwave_particle_ids_ptr;
 extern const f32 lbl_805D8EE8;
-}
-
-extern "C" {
-
 u8 *TBoss5GryphonShockWave__ct(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8 *arg4, s32 arg5, s16 arg6);
 void TBoss8Dragon__sub_80066A4C(void);
 void *__dt__22TBoss5GryphonShockWaveFv(void *arg0, s16 arg1);
@@ -35,7 +30,6 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void queue_destruction__7TObjectFv(void *);
 
 void TBoss5GryphonShockWave::render() {  }
 
@@ -99,7 +93,6 @@ void *__dt__22TBoss5GryphonShockWaveFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__22TBoss5GryphonShockWave[];
 extern s32 lbl_805D2818;
 extern const f32 lbl_805D8EEC;
 extern const f32 lbl_805D8EF0;

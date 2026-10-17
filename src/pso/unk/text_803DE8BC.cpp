@@ -4,21 +4,12 @@ extern "C" {
 extern void *sys_heap_handle;
 void OSFreeToHeap(void *heap, void *ptr);
 void free_to_sys_heap(void *ptr);
-extern void *sys_heap_handle;
 void *OSAllocFromHeap(void *heap, u32 size);
 void *sys_alloc(u32 size);
-extern void *sys_heap_handle;
-void *OSAllocFromHeap(void *heap, u32 size);
 void fill_memory(void *, s32, s32);
 void *sys_calloc(s32 arg0, s32 arg1);
-extern void *sys_heap_handle;
-void *OSAllocFromHeap(void *heap, u32 size);
-void OSFreeToHeap(void *heap, void *ptr);
 void move_data__6TLobbyFPCvUl(void *, void *, void *);
 void *fn_803DE960(void *arg0, void *arg1);
-}
-
-extern "C" {
 
 #pragma push
 #pragma scheduling off

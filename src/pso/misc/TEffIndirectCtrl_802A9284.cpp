@@ -11,14 +11,7 @@ void *memcpy(void *, const void *, u32);
 extern s32 TEffIndirectCtrl__source_buffers[];
 extern s32 lbl_805D3E20;
 void load_indirect_dat(void);
-}
-
-extern "C" {
-
 s32 TObjPlayer__sub_802A83F4();
-s32 xfree__FPv(s32);
-
-extern s32 TEffIndirectCtrl__source_buffers[];
 
 void TEffIndirectCtrl::free_all() {
     s32 var_r28;

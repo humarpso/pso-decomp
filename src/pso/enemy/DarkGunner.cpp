@@ -102,43 +102,28 @@ s32 advance_animation_playback(void *);
 s32 minimap_render_dot(void *, s32, s32, s32);
 extern const f32 lbl_805D9984;
 void TObjPlayer__sub_800A16C4(u8 *arg0);
-s32 apply_actor_gravity(void *, s32, f32);
-s32 obj_clearFlags30(void *, s32);
 s32 queue_destruction__7TObjectFv(void *);
 s32 update_if_active__15TObjEneMe1GiGueFl(void *, s32);
 s32 spawn_particle_effect(void *, int);
 s32 TObjPlayer__sub_800A3210(s32 i, s32 _w1, s32 _w2);
 u8 *TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 void *TObjPlayer__sub_800A4204(void *, void *, void *, void *, s32);
-s32 advance_animation_playback(void *);
 s32 submit_cursor_candidate(void *, s32);
-s32 minimap_render_dot(void *, s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
 void * __nw__7TObjectFUl(int);
-extern const f32 lbl_805D9984;
 extern const f32 lbl_805D9994;
 extern const f32 lbl_805D99AC;
 extern const f32 lbl_805D99B0;
 s32 TObjPlayer__sub_800A1FEC(void *arg0);
-s32 apply_actor_gravity(void *, s32, f32);
-s32 obj_clearFlags30(void *, s32);
 void enemy_set_heading_velocity(void *, f32, s32);
 f32 TObjPlayer__sub_800A3200(s32 arg0);
-s32 advance_animation_playback(void *);
-s32 submit_cursor_candidate(void *, s32);
-s32 minimap_render_dot(void *, s32, s32, s32);
 s32 play_persistent_sound(int, void *, void *, int, int);
 extern s32 actor_frame_tick;
-extern const f32 lbl_805D9984;
 extern const f32 lbl_805D99B4;
 extern const f32 lbl_805D99B8;
 extern const f32 lbl_805D99BC;
 extern const f32 lbl_805D99C4;
 s32 TObjPlayer__sub_800A2390(void *arg0_);
-}
-
-extern "C" {
-
 struct VBase_18_aa4667 { char pad[0x18]; };
 
 struct VObj_18_aa4667 : VBase_18_aa4667 {
@@ -347,7 +332,6 @@ struct Vec_800A34E8 { f32 x, y, z; };
 
 struct Raw_800A10A0 { u8 b[12]; };
 
-s32 apply_actor_gravity(void *, s32, f32);
 s32 update_movement_status__10TObjPlayerFv();
 s32 update_action_hold_status__10TObjPlayerFv();
 s32 move_with_wall_slide(void *);
@@ -357,17 +341,13 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_is_hit_receivable();
 s32 obj_testFlags30(s32, s32);
 s16 obj_getField1c(void *, f32);
-s32 obj_clearFlags30(void *, s32);
 f32 atan2_float(f32, f32);
-s32 queue_destruction__7TObjectFv(void *);
 int TObjFish__sub_8001EDB0(void*, void*);
 int get_bml_model(void*);
 void TLobby__sub_8001FE7C(void*, int);
 VObj_18_4a35f9 * get_battle_param__10TObjPlayerFi(s32);
-s32 update_if_active__15TObjEneMe1GiGueFl(void *, s32);
 u8 * csnVector(void *, Vec_800A34E8 *, s32);
 s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
-s32 spawn_particle_effect(void *, int);
 void * __dt__13TUnk_80490470Fv(void *, s16);
 s32 trigger_targets_action__10TObjPlayerFv();
 u8 * TObjEneDarkGunCenter__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -390,8 +370,6 @@ u8 *TObjPlayer__sub_800A2F94(u8 *, s32, u8 *);
 void vfunc_28__17TObjEneDarkGunnerFv(void);
 void vfunc_58__17TObjEneDarkGunnerFv(void);
 void vfunc_59__17TObjEneDarkGunnerFv(void);
-f32 TObjPlayer__sub_800A3200(s32 arg0);
-s32 TObjPlayer__sub_800A3210(s32 i, s32 _w1, s32 _w2);
 s32 TObjPlayer__sub_800A3290(Obj_800A3290 *self, s32 id);
 void * __dt__13TUnk_804909C4Fv(void *arg0, s16 arg1);
 u8 * TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
@@ -403,19 +381,14 @@ s32 initialize__9TObjEnemyFPv(void *);
 f32 horizontal_distance__10TObjPlayerFPUc(void *, int);
 f32 xz_distance_squared(void *, void *);
 s32 angle_diff_s16(s32, s32);
-s32 advance_animation_playback(void *);
 Obj_800A3290 * find_entity_by_id(s32);
 s32 check_enemy_body_collisions(void *);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 project_actor_to_ground(void *, void *, int);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
-s32 submit_cursor_candidate(void *, s32);
 void free_if_valid__10TObjPlayerFl(void*);
-s32 minimap_render_dot(void *, s32, s32, s32);
-s32 play_sound_effect(int, void *, int, int);
 s32 __dl__7TObjectFPv(void *);
-void * __nw__7TObjectFUl(int);
 s32 rand();
 s32 vec3_add_to(void *, void *);
 s32 matrix_mult_vec(int, void *, void *);
@@ -517,8 +490,6 @@ extern "C" {
 void apply_confusion_status__13TUnk_804806E8Fv();
 }
 extern "C" {
-}
-extern "C" {
 void apply_knockback_from_attacker();
 }
 extern "C" {
@@ -595,8 +566,6 @@ void vfunc_12__9TObjEnemyFv();
 }
 extern "C" {
 void get_pos__13TUnk_804806E8Fl();
-}
-extern "C" {
 }
 extern "C" {
 void is_actor_cadence_frame();
@@ -684,12 +653,6 @@ void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 }
 extern "C" {
 void select_melee_contact_body__10TObjPlayerFv();
-}
-extern "C" {
-}
-extern "C" {
-}
-extern "C" {
 }
 extern "C" {
 void trigger_switch_attack__10TObjPlayerFi();
@@ -804,20 +767,15 @@ extern s32 TObjPlayer__shadow_chunk_object;
 extern const f32 lbl_805D9978;
 extern const f32 lbl_805D997C;
 extern const f32 lbl_805D9980;
-extern const f32 lbl_805D9984;
 extern const f32 lbl_805D9988;
 extern const f32 lbl_805D998C;
 extern const f32 lbl_805D9990;
-extern const f32 lbl_805D9994;
 extern const f32 lbl_805D9998;
 extern const f32 lbl_805D99D0;
 extern const f32 lbl_805D99D4;
 extern const f32 lbl_805D99D8;
 extern const f32 lbl_805D99DC;
 extern void *tl_04;
-
-extern "C" {
-}
 
 u8 *TObjEneDarkGunCenter__ct(u8 *arg0, s32 arg1, s32 arg2) {
     Obj_800A0EDC *o;

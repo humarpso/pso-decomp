@@ -10,10 +10,6 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8036B6D0_lbl_804F3660 TObjBoss8DemoRoom__resource_desc;
 extern u32 TObjBoss8DemoRoom__shared_resource_object;
-}
-
-extern "C" {
-
 void *__ct__17TObjBoss8DemoRoomFv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 void __ct__7TObjectFP7TObject(void *);
@@ -27,8 +23,6 @@ void *__ct__17TObjBoss8DemoRoomFv(void *arg0) {
     *(void **)((s8 *)arg0 + 0x0) = lbl_805D44E4;
     return arg0;
 }
-
-extern u32 TObjBoss8DemoRoom__shared_resource_object;
 
 void TObjBoss8DemoRoom::free_static_instance() {
     if ((u32) TObjBoss8DemoRoom__shared_resource_object != 0U) {

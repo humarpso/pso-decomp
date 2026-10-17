@@ -12,9 +12,6 @@ extern RecoveredGlobal_8036A450_lbl_8047AC1C music_sequencer_flag_ids;
 void fn_8036A450(s32 arg0);
 Inst_8036A3CC *get_instance__23TAdSinglePlyChrSelectGCFv(void);
 u32 *fn_8036A3CC(s32 arg0, u32 *mask);
-}
-
-extern "C" {
 
 u32 *fn_8036A3CC(s32 arg0, u32 *mask) {
     s32 word;

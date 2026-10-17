@@ -6,12 +6,7 @@
 extern "C" {
 void zero_vec3(void* a0);
     extern const float TObjPlayer__data_805DC278;
-void zero_vec3(void* a0);
 u8 TObjPlayer__sub_801BF918(u8 *arg0);
-}
-
-extern "C" {
-
 void* TObjPlayer__sub_801BF934(void* p);
 void TObjPlayer__sub_801BF93C(void* p, s16 v);
 void TObjPlayer__sub_801BF954(void* p, s32 v);

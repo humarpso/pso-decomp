@@ -43,13 +43,8 @@ extern RecoveredGlobal_8001CAD4_lbl_804349FC lbl_804349FC;
 extern RecoveredGlobal_8001CAD4_lbl_804FF5E8 lbl_804FF5E8;
 extern RecoveredGlobal_8001CAD4_lbl_8058D490 identity_matrix;
 extern u32 camera_ctrl_instance;
-extern RecoveredGlobal_8001CAD4_lbl_804FF5E8 lbl_804FF5E8;
 extern const f32 lbl_805D7E90;
 Vec_8001CBC4 calc_loading_cursor_pos(Obj_8001CBC4 *o);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8001CAD4_lbl_804349FC_size[sizeof(RecoveredGlobal_8001CAD4_lbl_804349FC) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8001CAD4_lbl_804FF5E8_size[sizeof(RecoveredGlobal_8001CAD4_lbl_804FF5E8) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_8001CAD4_lbl_8058D490_size[sizeof(RecoveredGlobal_8001CAD4_lbl_8058D490) == 0x30 ? 1 : -1];

@@ -20,16 +20,11 @@ u32 get_player_by_client_id(u16);
 void fn_8011085C(void *, s32);
 extern struct VObj_8011E140_8011DA9C *item_timer_event_instance;
 void fn_801108C8(void *, s32);
-extern struct VObj_8011E140_8011DA9C *item_timer_event_instance;
 s32 disallow_rendering__7TObjectFv(void *);
 s32 __ct__15TItemHeapObjectFP7TObject(void *);
 extern s32 __vt__15TItemTimerEvent[];
 extern s32 TItemTimerEvent__class_name;
 u8 *TItemTimerEvent__ct(u8 *arg0, s32 arg1, s16 arg2, s32 arg3);
-}
-
-extern "C" {
-
 void *__dt__13TUnk_804A0568Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804A0588Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804A05A8Fv(void *arg0, s16 arg1);
@@ -44,7 +39,6 @@ void *__dt__15TItemTimerEventFv(void *arg0, s16 arg1);
 s32 test_action_mask__10TObjPlayerFl(s32, s32);
 s32 is_item_area_enabled();
 s32 TObjectV8047c128_subtract_hp(s32, s32);
-u32 get_player_by_client_id(u16);
 void __dt__15TItemHeapObjectFv(void *, int);
 s32 fn_8011E1D4();
 void __dl__15TItemHeapObjectFPv(void *);
@@ -74,8 +68,6 @@ void TUnk_804A0688::vfunc_7() {
 void TItemTimerEvent::vfunc_7() {
     *(s32 *)&this->m_24 = (s32) (*(s32 *)&this->m_24 + 1);
 }
-
-extern s32 __vt__15TItemTimerEvent[];
 
 void TItemTimerEvent::run_task() {
     this->m_28 = get_player_by_client_id(this->m_1c);
@@ -268,8 +260,6 @@ void TItemTimerEvent::notify_if_active(int arg0) {
         set_flag_10000__10TObjPlayerFv();
     }
 }
-
-extern struct VObj_8011E140_8011DA9C *item_timer_event_instance;
 
 void TItemTimerEvent::clear_active() {
     if (item_timer_event_instance != NULL) {

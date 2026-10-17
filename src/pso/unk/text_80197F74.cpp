@@ -11,16 +11,10 @@ s32 safe_free__23TAdSinglePlyChrSelectGCFUl();
 void **TLobby__sub_803DA16C();
 extern RecoveredGlobal_80197F78_lbl_8050DD24 signboard_texture_list;
 extern int TObjSinBoard__texture_buffer;
-}
-
-extern "C" {
-
 void TLobby__sub_80197F74(void);
 void clear_signboard_texture_buffer_pointer(void);
 
 void TLobby__sub_80197F74(void) {  }
-
-    extern int TObjSinBoard__texture_buffer;
 
 typedef char RecoveredGlobal_80197F78_lbl_8050DD24_size[sizeof(RecoveredGlobal_80197F78_lbl_8050DD24) == 0x2C ? 1 : -1];
 void **TLobby::free_global_buffer() {

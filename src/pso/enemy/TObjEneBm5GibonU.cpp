@@ -224,16 +224,11 @@ extern const s32 lbl_8043BF38[];
 extern const s32 lbl_8043BF40[];
 extern const s32 lbl_8043BF48[];
 extern const Spawn_800D1990 TObjEneBm5GibonU__spawn_params;
-}
-
-extern "C" {
 Ene_800D17E8 * find_enemy_by_id__16TObjEneBm5GibonUFi(s32 id);
 Gibon_800D13B8 * TObjEneBm5GibonU__sub_800D13B8(Gibon_800D13B8 *arg0, s16 arg1);
 s32 rotate_xz_pair_by_angle(f32 *, f32 *, s32);
-s32 transition_enemy_state(void *, s32);
 s32 update_collisions__10TObjPlayerFv(void *);
 f32 calc_anim_speed__16TObjEneBm5GibonUFPvf(Obj_800D0A94 *arg0, f32 farg0);
-f32 calc_boss4_scale__10TObjPlayerFi(s32);
 f32 clamp_velocity__15TObjBoss2TunnelFv(void *);
 f32 cos_table_lookup(int);
 f32 atan2_float(f64, f64);
@@ -241,7 +236,6 @@ f32 sin_table_lookup(int);
 int spawn_landing_effect__16TObjEneBm5GibonUFPvPv(Ene_800CCC6C *arg0, void *arg1);
 int is_active__16TObjEneBm5GibonUFPv(void* p);
 s32 TObjEneBm5GibonU__sub_800D1D70(void* p);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_getField1c(int);
 s32 update_angle__10TObjPlayerFlPv(void *, s32, void *);
 u8 * find_entity_by_id(u16);
@@ -249,7 +243,6 @@ void * __nw__7TObjectFUl(u32);
 void TObjEneBm5GibonU__sub_800CD204(u8 *arg0);
 void TObjEneBm5GibonU__sub_800D0738(u8 *arg0, u32 arg1, s32 arg2);
 void TObjEneBm5GibonU__sub_800D0AE8(Obj_800D0AE8 *self, Vec_800D0AE8 *dir);
-void turn_toward_angle__16TObjEneBm5GibonUFPvi(Ene_800D0FDC *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800D10A0(u8 *arg0);
 void vfunc_88__16TObjEneBm5GibonUFv(u8 *arg0);
 void TObjEneBm5GibonU__sub_800D1268(u8 *arg0);
@@ -267,7 +260,6 @@ void update_target__16TObjEneBm5GibonUFPv(void *arg0);
 void* TObjEneBm5GibonU__sub_800D1D78(void* p);
 extern u8 * TObjEneBm5GibonU__model_archive;
 }
-extern "C" {
 extern const f32 TObjEneBm5GibonU__data_805DA158[1];
 extern const f32 TObjEneBm5GibonU__data_805DA160[1];
 extern const f32 TObjEneBm5GibonU__data_805DA164[1];
@@ -329,7 +321,6 @@ extern const f32 lbl_805DA248[1];
 extern const f32 lbl_805DA24C[1];
 extern const f32 lbl_805DA250[1];
 extern const f32 lbl_805DA254[1];
-}
 #define TObjEneBm5GibonU__data_805DA158 (TObjEneBm5GibonU__data_805DA158[0])
 #define TObjEneBm5GibonU__data_805DA160 (TObjEneBm5GibonU__data_805DA160[0])
 #define TObjEneBm5GibonU__data_805DA164 (TObjEneBm5GibonU__data_805DA164[0])
@@ -394,7 +385,6 @@ extern const f32 lbl_805DA254[1];
 extern "C" {
 #undef TObjEneBm5GibonU__data_805DA158
 __declspec(section ".sdata2") const f32 TObjEneBm5GibonU__data_805DA158[1] = { 0.5f };
-}
 #define TObjEneBm5GibonU__data_805DA158 (TObjEneBm5GibonU__data_805DA158[0])
 #pragma push
 #define TObjEneBm5GibonU__sub_800CD204 ((void (*)())TObjEneBm5GibonU__sub_800CD204)
@@ -405,7 +395,6 @@ __declspec(section ".sdata2") const f32 TObjEneBm5GibonU__data_805DA158[1] = { 0
 #define vfunc_63__16TObjEneBm5GibonUFv ((void (*)())vfunc_63__16TObjEneBm5GibonUFv)
 #define vfunc_62__16TObjEneBm5GibonUFv ((void (*)())vfunc_62__16TObjEneBm5GibonUFv)
 #define vfunc_83__16TObjEneBm5GibonUFv ((void (*)())vfunc_83__16TObjEneBm5GibonUFv)
-extern "C" {
 extern "C" {
 void TLobby__sub_801A1FD8();
 }
@@ -842,8 +831,6 @@ __declspec(section ".data") u32 TObjEneBm5GibonU__enemy_list[3];
 #define forward_hit_to_enemy_list__16TObjEneBm5GibonUFi ((s32 (*)(void *))forward_hit_to_enemy_list__16TObjEneBm5GibonUFi)
 #define init_child_from_list__16TObjEneBm5GibonUFi ((s32 (*)(void *))init_child_from_list__16TObjEneBm5GibonUFi)
 #define update_center_position__16TObjEneBm5GibonUFv ((s32 (*)(void *))update_center_position__16TObjEneBm5GibonUFv)
-
-#include "types.h"
 
 #define CAT2(a, b) a##b
 #define CAT(a, b) CAT2(a, b)
@@ -2040,24 +2027,12 @@ struct Vec_800CD5F4 { f32 x, y, z; };
 
 extern "C" {
 void enemy_clear_target__12TObjEneDD_STFUs(void *);
-s32 advance_animation_playback(void *);
 void TObjEneBm5GibonU__sub_800D01DC(u8 *arg0, s32 arg1);
-s32 advance_animation_playback(void *);
 void TObjEneBm5GibonU__sub_800D00F0(u8 *arg0, s32 arg1);
-s32 objInBand__FP7GameObjf(void *, f32);
-void TObjEneBm5GibonU__sub_800CCD8C(u8 *arg0);
-s32 objInBand__FP7GameObjf(void *, f32);
 void TObjEneBm5GibonU__sub_800CCDE4(u8 *arg0);
-s32 objInBand__FP7GameObjf(void *, f32);
 void TObjEneBm5GibonU__sub_800CCE28(u8 *arg0);
-s32 enemy_validate_retained_target(void *);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback(void *);
-s32 play_sound_effect(void *, void *, s32, s32);
 void TObjEneBm5GibonU__sub_800CFFBC(u8 *arg0, s32 arg1);
 s32 transform_relative_position__9TObjEneDDFPv(void *, int);
-extern const f64 TObjEneBm5GibonU__data_8043C0F8;
 void queue_destruction__7TObjectFv(void *self);
 extern s32 game_difficulty_selection;
 s32 fn_8002B630(Col_800CCB74 *, void *);
@@ -2066,38 +2041,14 @@ s32 attach_particle_model(void *, s32, s32, s32, s32, f32);
 Hit_800CCC6C *csnVectorUnder(Vec_800CCC6C *, void *, s32);
 void *spawn_particle_effect(void *, s32);
 s32 fn_800D88E4(void *);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
-s32 play_sound_effect(void *, void *, s32, s32);
-void enemy_clear_target__12TObjEneDD_STFUs(void *);
 void TObjEneMe3SinowZoa__sub_800D758C(void *);
-s32 advance_animation_playback(void *);
 void TObjEneBm5GibonU__sub_800D02F8(Gibon_800D02F8 *g, s32 arg1);
-void TObjEneBm5GibonU__sub_800D02F8(Gibon_800D02F8 *g, s32 arg1);
-void TObjEneBm5GibonU__sub_800D01DC(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800CFE30(u8 *arg0, s32 arg1);
-void TObjEneBm5GibonU__sub_800D00F0(u8 *arg0, s32 arg1);
-void TObjEneBm5GibonU__sub_800CFFBC(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800CFA48(u8 *arg0, s32 arg1);
 void action__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1);
-s32 enemy_validate_retained_target(void *);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback(void *);
-s32 play_sound_effect(void *, void *, s32, s32);
 void TObjEneBm5GibonU__sub_800CFE34(u8 *arg0, s32 arg1);
 s32 TBoss8Dragon__sub_800BB7D4(void *, int);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
-s32 approach_angle_limited(s32, s32, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback(void *);
-s32 play_sound_effect(void *, void *, s32, s32);
 void TObjEneBm5GibonU__sub_800CE370(u8 *arg0, s32 arg1);
-void enemy_clear_target__12TObjEneDD_STFUs(void *);
-void TObjEneBm5GibonU__sub_800CCD8C(u8 *arg0);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback(void *);
-s32 play_sound_effect(void *, void *, s32, s32);
 void TObjEneBm5GibonU__sub_800D0420(u8 *arg0, s32 arg1);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
@@ -2106,57 +2057,24 @@ s32 update_obstruction_fade(void *);
 s32 draw_blob_shadow(s32);
 s32 direction_to_rotation_xz(void *, s32 *, s32 *);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
-s32 scale_matrix(s32, f32, f32, f32);
-s32 rotate_matrix_y(s32, s32);
 s32 rotate_matrix_z(s32, s32);
-s32 translate_matrix(s32, f32, f32, f32);
 s32 rotate_matrix_x(s32, s32);
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
 extern s32 TObjEneBm5GibonU__render_node_index;
 extern s32 TObjEneBm5GibonU__render_joint_y_rotation;
 extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
-Hit_800CCC6C *csnVectorUnder(Vec_800CCC6C *, void *, s32);
 u32 enemy_probe_wall_ahead__13TBoss5GryphonFfff(void *, f32, f32, f32);
-void TObjEneBm5GibonU__sub_800CCDE4(u8 *arg0);
-s32 approach_angle_limited(s32, s32, s32);
-s32 advance_animation_playback(void *);
 void TObjEneBm5GibonU__sub_800CE694(u8 *arg0, s32 arg1);
 s32 is_vec_xz_cross_negative(void *, void *);
 void enemy_turn_and_move_on_ground(void *, s32, f32);
-void TObjEneBm5GibonU__sub_800CCE28(u8 *arg0);
-s32 approach_angle_limited(s32, s32, s32);
-s32 advance_animation_playback(void *);
 void TObjEneBm5GibonU__sub_800CE978(u8 *arg0, s32 arg1);
-s32 TBoss8Dragon__sub_800BB7D4(void *, int);
 void TObjEneBm5GibonU__sub_800D095C(void *arg0, s32 arg1, s16 arg2);
 s32 spawn_dead_spot_scale15(void *, s32);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
-s32 approach_angle_limited(s32, s32, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback(void *);
-s32 play_sound_effect(void *, void *, s32, s32);
 s32 vec3_add_to(void *, void *);
 void TObjEneBm5GibonU__sub_800CE060(u8 *arg0, s32 arg1);
-void TObjEneBm5GibonU__sub_800CCDE4(u8 *arg0);
-s32 approach_angle_limited(s32, s32, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback(void *);
 void TObjEneBm5GibonU__sub_800CF4BC(u8 *arg0, s32 arg1);
-Hit_800CCC6C *csnVectorUnder(Vec_800CCC6C *, void *, s32);
-s32 advance_animation_playback(void *);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
-s32 play_sound_effect(void *, void *, s32, s32);
-s32 approach_angle_limited(s32, s32, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
-u32 enemy_probe_wall_ahead__13TBoss5GryphonFfff(void *, f32, f32, f32);
-u8 check_hit_sphere__16TObjEneBm5GibonUFPvif(Ene_800CCB74 *arg0, s32 arg1, f32 scale);
-void TObjEneBm5GibonU__sub_800CCD8C(u8 *arg0);
 Pl_800CDB98 *get_battle_param__10TObjPlayerFi(s32);
 s32 obj_is_hit_receivable(void *);
-extern const f64 TObjEneBm5GibonU__data_8043C0F8;
 void TObjEneBm5GibonU__sub_800CDB98(Obj_800CDB98 *arg0, s32 arg1);
 void move_with_wall_slide(void *);
 void enemy_set_heading_velocity(void *, s32, f32);
@@ -2166,38 +2084,13 @@ s32 enemy_turn_toward_dest(void *, s32);
 f32 newton_sqrtf(f32);
 void fn_80044330(void *);
 void spawn_directional_particle(void *, void *, s32);
-void *spawn_particle_effect(void *, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback(void *);
-s32 play_sound_effect(void *, void *, s32, s32);
-s32 vec3_add_to(void *, void *);
 void rotate_vector_by_matrix(s32, void *, void *);
-s32 rotate_matrix_y(s32, s32);
 void subtract_vector(void *, void *);
 void push_matrix_from(void *);
 void pop_matrices(s32);
-s32 pop_matrix();
-extern const f64 TObjEneBm5GibonU__data_8043C0F8;
 extern u8 identity_matrix[];
-extern s32 game_difficulty_selection;
 extern s32 tl_07;
-void enemy_turn_and_move_on_ground(void *, s32, f32);
-void TObjEneBm5GibonU__sub_800CCDE4(u8 *arg0);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback(void *);
 void TObjEneBm5GibonU__sub_800CF7CC(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
-void TObjEneBm5GibonU__sub_800D095C(void *arg0, s32 arg1, s16 arg2);
-void action__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1);
-s32 advance_animation_playback(void *);
-s32 play_sound_effect(void *, void *, s32, s32);
-s32 rotate_matrix_y(s32, s32);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
-s32 get_target_info__9TObjEneDDFv();
-s32 objInBand__FP7GameObjf(void *, f32);
 
 s32 TObjEneBm5GibonU::get_clamped_level() {
     Sub_800CCB24 *p = ((Obj_800CCB24 *)this)->f2b0;
@@ -2414,9 +2307,6 @@ s32 TObjEneBm5GibonU::vfunc_83() {
         update_center_position__16TObjEneBm5GibonUFv(this);
     }
 }
-
-extern s32 TObjEneBm5GibonU__render_node_index;
-extern s32 TObjEneBm5GibonU__render_joint_y_rotation;
 
 void TObjEneBm5GibonU__sub_800CD204(u8 *arg0) {
     Ang_800CD204 rot;
@@ -4346,8 +4236,6 @@ s32 TObjEneBm5GibonU__sub_800D0968(u8 *arg0, int _w1) {
 #define VecCopy__FP3VecPC3Vec ((void (*)(Vec_800D0AE8 *dst, const Vec_800D0AE8 *src))VecCopy__FP3VecPC3Vec)
 #define spawn_landing_effect__16TObjEneBm5GibonUFPvPv ((int (*)(void *, void *))spawn_landing_effect__16TObjEneBm5GibonUFPvPv)
 
-#include "types.h"
-
 struct Vec_800D0AE8 { f32 x, y, z; };
 
 struct Obj_800D0AE8 { u8 pad[0x38]; Vec_800D0AE8 pos; };
@@ -4365,12 +4253,6 @@ struct Vec_800D0BD8 { f32 x, y, z; };
 struct Obj_800D0BD8 { u8 pad[0x38]; Vec_800D0BD8 pos; };
 
 extern "C" {
-f32 newton_sqrtf(f32);
-f32 calc_xz_direction_to__16TObjEneBm5GibonUFPvPvPv(Obj_800D0BD8 *arg0, Vec_800D0BD8 *arg1, Vec_800D0BD8 *arg2);
-}
-
-extern "C" {
-
 s32 select_and_apply_target__12TObjEneDD_STFf(f32);
 
 int is_active__16TObjEneBm5GibonUFPv(void* p) { return *(u16*)((char*)p + 0x1c) & 0x1; }
@@ -4431,17 +4313,11 @@ void TObjEneBm5GibonU::set_anim_by_state() {
     transition_enemy_state(this, 6);
 }
 
-}
-
 #undef VecCopy__FP3VecPC3Vec
 #undef spawn_landing_effect__16TObjEneBm5GibonUFPvPv
 #pragma pop
 #pragma push
 #define calc_boss4_scale__10TObjPlayerFi ((f32 (*)())calc_boss4_scale__10TObjPlayerFi)
-
-#include "types.h"
-
-extern "C" {
 
 void TObjEneBm5GibonU::select_attack_by_range() {
     *(f32 *)((s8 *)this + 0x49C) = 0.0f;
@@ -4452,8 +4328,6 @@ void TObjEneBm5GibonU::select_attack_by_range() {
     transition_enemy_state(this, 0xA);
 }
 
-}
-
 #undef calc_boss4_scale__10TObjPlayerFi
 #pragma pop
 #pragma push
@@ -4461,12 +4335,7 @@ void TObjEneBm5GibonU::select_attack_by_range() {
 #define sin_table_lookup ((f32 (*)(s32))sin_table_lookup)
 #define cos_table_lookup ((f32 (*)(s32))cos_table_lookup)
 
-#include "types.h"
 #pragma fp_contract on
-
-extern "C" {
-
-extern const f64 TObjEneBm5GibonU__data_8043C0F8;
 
 void calc_rotated_vector__16TObjEneBm5GibonUFPviPvPv(void *arg0, s32 arg1, void *arg2, s32 *arg3) {
     f32 temp_f1;
@@ -4489,8 +4358,6 @@ void calc_rotated_vector__16TObjEneBm5GibonUFPviPvPv(void *arg0, s32 arg1, void 
 #define calc_boss4_scale__10TObjPlayerFi ((f32 (*)(void *))calc_boss4_scale__10TObjPlayerFi)
 #define rotate_xz_pair_by_angle ((void (*)(f32 *, f32 *, s32))rotate_xz_pair_by_angle)
 #define clamp_velocity__15TObjBoss2TunnelFv ((f32 (*)(Vec_800D0E14 *))clamp_velocity__15TObjBoss2TunnelFv)
-
-#include "types.h"
 
 typedef struct Vec_800D0E14 {
     f32 x, y, z;
@@ -4521,14 +4388,8 @@ typedef struct Ene_800D0FDC {
 extern "C" {
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 Hit_800D0E14 *csnVector(void *, void *, s32);
-f32 rand_range__9TObjEneDDFff(void *, f32, f32);
 void pick_wander_destination__16TObjEneBm5GibonUFPv(Ene_800D0E14 *arg0);
 s32 angle_diff_s16(s32, s32);
-s32 approach_angle_limited(s32, s32, s32);
-}
-
-extern "C" {
-
 void TObjEneBm5GibonU::approach_target(f32 farg0) {
     f32 temp_f0;
     f32 temp_f1;
@@ -4657,14 +4518,9 @@ void TObjEneBm5GibonU__sub_800D10A0(u8 *arg0) {
 #define update_movement_status__10TObjPlayerFv ((s32 (*)())update_movement_status__10TObjPlayerFv)
 #define obj_getField1c ((s16 (*)(s32))obj_getField1c)
 
-#include "types.h"
-#include "pso/enemy/TObjEneBm5GibonU.h"
-#include "pso/boss/TBoss8Dragon.h"
-#include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 #include "pso/enemy/TObjEnePanarms.h"
-#include "pso/player/TObjPlayer.h"
 
 struct VBase_18 { char pad[0x18]; };
 
@@ -4982,29 +4838,20 @@ void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, u32, u32);
 void __dt__13TUnk_804949A8Fv(void);
-void move_with_wall_slide(void *);
-s32 advance_animation_playback(void *);
 void init_object__12TObjEneDD_STFv(void *, s32, s32);
 void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
 void init_model__9TObjEneDDFv(void *, void *, s32);
 void invoke_initialization_hook__9TObjEneDDFv(void *, s32);
-void TObjEneBm5GibonU__sub_800D1CF8(O_800D1CF8 *self);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 void init_collision_body_parts(void *, void *, s32);
 void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, s32);
 void __construct_array(void *, void *, void *, int, int);
-void __dt__13TUnk_804949A8Fv(void);
 void init_and_activate__10TObjPlayerFv();
 extern s32 lbl_805D2A70;
 u8 *TObjEneBm5GibonU__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void vfunc_61__16TObjEneBm5GibonUFv(void);
 void vfunc_28__16TObjEneBm5GibonUFv(void);
-s32 __dt__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 int __dl__FPv();
 

@@ -83,26 +83,17 @@ u8 get_key_state__16TKeyBoardControlFPv(s32 *);
 extern s32 TKeyBoardControl__global_key_state[];
 extern s32 current_language;
 u8 TKeyBoardControl__sub_8013239C(void *, u8);
-s32 TKeyBoardControl__sub_801323C8(void *, int);
 s32 TKeyBoardControl__sub_801A58B0(void);
-extern s32 TKeyBoardControl__global_key_state[];
-}
-
-extern "C" {
-
 s32 TKeyBoardControl__sub_8025CBC0(u32);
 s32 TKeyBoardControl__sub_8025CBCC(u32);
 s32 TKeyBoardControl__sub_8025CC04(u32);
 s32 fn_8025FF8C(void *);
-u8 get_key_state__16TKeyBoardControlFPv(s32 *);
 s32 set_input_mode__20TWindowSubStatusDispFUc(s32, s32);
 
 void TKeyBoardControl__sub_8025EC04(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x68) = 0;
     *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0x60) | 0x100);
 }
-
-extern s32 TKeyBoardControl__global_key_state[];
 
 s32 TKeyBoardControl::is_printable_key(void *arg0, u8 arg1) {
     if (arg1 == 0x52) {
@@ -384,8 +375,6 @@ extern u8 keyboard_us_unshifted_map[];
 extern u8 keyboard_fr_unshifted_map[];
 extern u8 keyboard_de_unshifted_map[];
 extern u8 keyboard_es_unshifted_map[];
-extern s32 TKeyBoardControl__global_key_state[];
-extern s32 current_language;
 
 s32 TWindowKeyBoardHard::sub_8025F4A0(u8 arg1) {
     static KeyFn_8025F4A0 tbl[26] = { &TWindowKeyBoardSoft_8025F4A0::vt0, &TWindowKeyBoardSoft_8025F4A0::vt21, &TWindowKeyBoardSoft_8025F4A0::vt3, &TWindowKeyBoardSoft_8025F4A0::vt4, &TWindowKeyBoardSoft_8025F4A0::vt5, &TWindowKeyBoardSoft_8025F4A0::vt6, &TWindowKeyBoardSoft_8025F4A0::vt7, &TWindowKeyBoardSoft_8025F4A0::vt8, &TWindowKeyBoardSoft_8025F4A0::vt9, &TWindowKeyBoardSoft_8025F4A0::vt10, &TWindowKeyBoardSoft_8025F4A0::vt11, &TWindowKeyBoardSoft_8025F4A0::vt12, &TWindowKeyBoardSoft_8025F4A0::vt13, &TWindowKeyBoardSoft_8025F4A0::vt14, &TWindowKeyBoardSoft_8025F4A0::sub_8025B928, &TWindowKeyBoardSoft_8025F4A0::sub_8025BA44, &TWindowKeyBoardSoft_8025F4A0::sub_8025BA28, &TWindowKeyBoardSoft_8025F4A0::sub_8025B92C, &TWindowKeyBoardSoft_8025F4A0::update_input_state, &TWindowKeyBoardSoft_8025F4A0::vt1, &TWindowKeyBoardSoft_8025F4A0::vt20, &TWindowKeyBoardSoft_8025F4A0::vt15, &TWindowKeyBoardSoft_8025F4A0::vt16, &TWindowKeyBoardSoft_8025F4A0::vt17, &TWindowKeyBoardSoft_8025F4A0::vt18, &TWindowKeyBoardSoft_8025F4A0::vt19 };

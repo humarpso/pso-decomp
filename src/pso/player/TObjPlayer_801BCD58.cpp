@@ -8,9 +8,6 @@ int TObjPlayer__sub_801BEF60(void*, int);
 s32 init_pad_binding(void *, void *, int);
 s32 obj_getField1c(void *);
 
-#include "types.h"
-#include "pso/player/TObjPlayer.h"
-
 extern "C" {
 
 void TObjPlayer::init_control_mode(s32 arg1) {

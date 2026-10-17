@@ -41,13 +41,8 @@ extern RecoveredGlobal_8017858C___vt__13TOSwitchTimer __vt__13TOSwitchTimer;
 u8 *__dt__13TOSwitchTimerFv(u8 *arg0, s16 arg1);
 s32 fn_801782A0(void *);
 s32 construct_world_actor_base(void *);
-extern RecoveredGlobal_8017858C___vt__13TOSwitchTimer __vt__13TOSwitchTimer;
 extern s32 lbl_805D3188;
 u8 *TOSwitchTimer__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void TOSwitchTimer__sub_80178584(void);
 void TOSwitchTimer__sub_80178588(void);
 s32 play_sound_effect(s32, s32, s32, s32);

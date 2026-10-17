@@ -49,7 +49,6 @@ u8 *TWindowGetComCard__ct(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 void start_player_data_load__17TWindowSubComCardFl(void);
 void TWindowGetComCard__sub_8007B54C(void);
-s32 TWindowGetComCard__sub_8007B594();
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void play_sound_effect(s32, s32, s32, s32);
@@ -58,17 +57,11 @@ s32 get_selected_menu_value(void *);
 void *init_shop_judgment_window(void *);
 extern u8 TWindowGetComCard__window_rect[];
 extern Pad_80252CCC controller_input_state[];
-extern s32 local_client_id;
 void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self);
-}
-
-extern "C" {
-
 void TWindowFukidasi__sub_80252C38(void* p);
 void *__dt__17TWindowGetComCardFv(void *arg0, s16 arg1);
 int fn_80252CBC(void* p);
 s32 TLobby__sub_8024AC20(s32);
-u32 get_player_by_client_id(s32);
 s32 TWindowCtrl__sub_8024A314();
 s32 TWindowReturnCity__sub_8024ACA8(s32);
 s32 TWindow__close(void *);
@@ -87,9 +80,6 @@ void TUnk_804CF0B8::clear_flag() { this->m_71 &= 0xfffffffb; }
 int TUnk_804CF0B8::is_balloon_visible() { return (this->m_71 >> 5) & 0x1; }
 int fn_80252CBC(void* p) { return *(u16*)((char*)p + 0x0) & 0x10; }
 void TWindowGetComCard::render() {  }
-
-extern void *__vt__17TWindowGetComCard[];
-extern s32 local_client_id;
 
 void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self) {
     s32 port = is_player_input_active(local_client_id);

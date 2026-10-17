@@ -14,18 +14,6 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 clear_render_callback__8TObjFishFv(s32);
-}
-
-extern "C" {
-
-s32 post_translate_matrix(void *);
-s32 draw_model_motion(s32, s32, f32);
-s32 TObjPlayer__sub_80052390(f32);
-s32 rotate_matrix_y(s32, s32);
-s32 push_matrix();
-s32 pop_matrix();
-s32 clear_render_callback__8TObjFishFv(s32);
-
 void TObjPlayer::release_subobjects() {
     u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)((s8 *)arg0 + 0xE4) >= 0xB4) {
@@ -104,10 +92,6 @@ void restore_player_cameras();
 void __dl__7TObjectFPv(void *);
 extern u8 lbl_804857F4[];
 Obj_8004FD50 *__dt__11TObjDFDemo5Fv(Obj_8004FD50 *arg0, s16 arg1);
-}
-
-extern "C" {
-
 #pragma push
 #pragma opt_common_subs off
 #pragma readonly_strings on
@@ -161,6 +145,4 @@ Obj_8004FD50 *__dt__11TObjDFDemo5Fv(Obj_8004FD50 *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-
-extern "C" { extern const f32 lbl_805D8A1C = -0.5f; }
+ extern const f32 lbl_805D8A1C = -0.5f; }

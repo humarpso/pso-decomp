@@ -72,20 +72,13 @@ extern const f32 lbl_805DC1B4;
 extern const f32 lbl_805DC1B8;
 extern const f32 lbl_805DC1BC;
 void run_task__12TPhotonLaserFv(Laser_801AC17C *o);
-}
-
-extern "C" {
-
 void TObjPlayer__sub_801AC43C(void);
 void TObjPlayer__sub_801AC440(void);
 void *__dt__12TPhotonLaserFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
-s32 queue_destruction__7TObjectFv(void *);
 
 void TPhotonLaser::render() { TParticleCtrl::begin_effect_render(); TParticleCtrl::end_effect_render(); }
-
-extern s32 __vt__12TPhotonLaser[];
 
 void run_task__12TPhotonLaserFv(Laser_801AC17C *o) {
     Vec_801AC36C in;

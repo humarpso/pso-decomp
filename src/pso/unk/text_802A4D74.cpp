@@ -2,10 +2,8 @@
 #include "pso/TAdTitleTexGC.h"
 #include "pso/TObjWarpString.h"
 
-extern "C" {
 extern const f32 lbl_805DDF80;
 extern const f32 lbl_805DDF84;
-}
 
 extern "C" {
 

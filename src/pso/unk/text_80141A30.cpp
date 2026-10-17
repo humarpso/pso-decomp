@@ -20,10 +20,6 @@ extern RecoveredGlobal_80141A30_lbl_8050C000 depth_buffer_settings;
 extern RecoveredGlobal_80141A30_lbl_8050C028 saved_depth_alpha_scene_state;
 void restore_saved_depth_alpha_state(void);
 u32 calc_pulse_flash_color(u8 r, u8 g, u8 b, s32 frame, s32 period, s32 start, s32 peak, s32 end);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_80141A30_lbl_8050C000_size[sizeof(RecoveredGlobal_80141A30_lbl_8050C000) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_80141A30_lbl_8050C028_size[sizeof(RecoveredGlobal_80141A30_lbl_8050C028) == 0x18 ? 1 : -1];
 void restore_saved_depth_alpha_state(void) {

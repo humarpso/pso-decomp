@@ -71,8 +71,6 @@ void *TUnk_804B1B80::destroy(s16 arg1) {
     return this;
 }
 
-extern s32 lbl_804B1B80[];
-
 void *TUnk_804B1B80::init_fields() {
     init_map_object_base(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804B1B80;

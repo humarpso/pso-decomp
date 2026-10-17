@@ -2,7 +2,6 @@
 #include "pso/TChCrLoadAfs.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
-#include "pso/TChCrLoadAfs.h"
 
 extern "C" {
 
@@ -24,8 +23,6 @@ void TChCrLoadAfs::release_load_slot() {
     }
 }
 
-extern s32 chcr_load_afs_busy_flag;
-
 s32 try_begin_load__12TChCrLoadAfsFPv(void *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x30) != 0) {
         *(s32 *)((s8 *)arg0 + 0x2C) = 3;
@@ -44,18 +41,12 @@ s32 try_begin_load__12TChCrLoadAfsFPv(void *arg0) {
 #define try_begin_load__12TChCrLoadAfsFPv (*(s32 (*)())&try_begin_load__12TChCrLoadAfsFPv)
 #define release_load_slot__12TChCrLoadAfsFv (*(void (*)(void *))&release_load_slot__12TChCrLoadAfsFv)
 
-#include "types.h"
-
 struct L_8028B948 { u8 pad[0x1c]; s32 f1c; u8 pad2[0xc]; s32 f2c; };
 
 extern "C" {
 s32 TLobby__sub_803CC4C0(int);
 void close_adxf_handle__6TLobbyFv(int);
 void poll_load__12TChCrLoadAfsFv(L_8028B948 *arg0);
-}
-
-extern "C" {
-
 void sub_8028B940__12TChCrLoadAfsFv(void);
 void sub_8028B944__12TChCrLoadAfsFv(void);
 s32 TLobby__sub_803CC53C(u32);
@@ -90,9 +81,6 @@ void poll_load__12TChCrLoadAfsFv(L_8028B948 *arg0) {
 #define close_adxf_handle__6TLobbyFv (*(int (*)(int))&close_adxf_handle__6TLobbyFv)
 #define TLobby__sub_803CC4C0 (*(int (*)(int))&TLobby__sub_803CC4C0)
 
-#include "pso/TChCrLoadAfs.h"
-#include "types.h"
-
 struct Te_8028BFA4 { s32 id; u8 pad[0xC]; };
 
 struct Cl_8028BFA4 { u8 pad0[0x20]; s32 f20; s32 f24; u8 pad28[4]; s32 f2c; u8 pad30[8]; void *bufs[8]; s32 f58; s32 f5c; s32 f60; u8 pad64[8]; s32 f6c; s32 f70; };
@@ -126,17 +114,10 @@ s32 queue_destruction__7TObjectFv(void *);
 f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
 f32 TLobby__sub_8028C50C(f32);
 s32 strcmp(const char *, const char *);
-extern Te_8028BFA4 player_class_texture_archive_table[];
 extern const f32 lbl_805DD920;
 s32 find_player_texture_name_ordinal(u8 *arg0);
 void set_texture_name(void *, void *, s32, s32);
 s32 load_texture_list(void *);
-}
-
-#include "types.h"
-
-extern "C" {
-
 void *__ct__12TChCrLoadAfsFP7TObjectPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void *__nw__7TObjectFUl(int);
 
@@ -165,9 +146,7 @@ void TChCrLoadAfs::start_download() {
 }
 }
 
-#include "types.h"
 #include "pso/misc/TChCrLoadAfsTextureReq.h"
-#include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -217,11 +196,7 @@ TChCrLoadAfs::~TChCrLoadAfs() {
     release_load_slot__12TChCrLoadAfsFv(this);
 }
 
-extern "C" {
-
 extern void *lbl_805D3B48;
-
-}
 TChCrLoadAfs::TChCrLoadAfs(TObject *arg1, void *arg2, void *arg3) : TObject(arg1) {
     *(void **)((s8 *)this + 0x0) = lbl_805D3B48;
     *(u32 *)((s8 *)this + 0x1C) = 0;

@@ -14,7 +14,6 @@
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TUnk_80493450.h"
 extern "C" void test_flag_256__13TUnk_80493450Fv();
-#include "pso/enemy/TObjEneShark.h"
 
 #include <stddef.h>
 struct Stack_800ABA9C {
@@ -168,31 +167,20 @@ void queue_destruction__7TObjectFv(void *);
 extern s32 lbl_80491478[];
 void vfunc_101__12TObjEneSharkFv(void);
 extern s32 shark_render_node_index;
-void queue_destruction__7TObjectFv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 vec3_add_to(void *, void *);
 void TObjPlayer__sub_800AB1C8(u8 *arg0);
 f32 fabs_float(f32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 sub_800AB068__14TObjEneDubchikFv(u8 *arg0);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
 s32 play_sound_effect(void *, void *, int, int);
 void vfunc_96__12TObjEneSharkFv(s32 arg0);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 play_sound_effect(void *, void *, int, int);
 void vfunc_98__12TObjEneSharkFv(s32 arg0);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 play_sound_effect(void *, void *, int, int);
 void vfunc_97__12TObjEneSharkFv(s32 arg0);
-s32 copy_target_state__14TObjEnePanarmsFPv(void *, int);
-s32 play_sound_effect(void *, void *, int, int);
 void vfunc_95__12TObjEneSharkFv(s32 arg0);
 s32 TObjPlayer__sub_800D92BC(void *, int);
-s32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
-s32 rotate_matrix_y(s32, s32);
 s32 push_matrix_from(void *);
-s32 pop_matrix();
 extern RecoveredGlobal_800ABA9C_lbl_8058D490 identity_matrix;
 extern const f32 lbl_805D9BA0;
 extern const f32 lbl_805D9BA4;
@@ -201,44 +189,20 @@ void vfunc_94__12TObjEneSharkFv(u8 *arg0);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 advance_animation_playback();
 void vfunc_83__12TObjEneSharkFv(Obj_800ABCBC *arg0);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 rotate_vector_by_matrix(int, void *, void *);
-s32 rotate_matrix_y(s32, s32);
-s32 push_matrix_from(void *);
-s32 pop_matrix();
 extern s32 lbl_80491460[];
-extern RecoveredGlobal_800ABA9C_lbl_8058D490 identity_matrix;
 extern void *tl_06;
 Obj_800AB31C *TObjPlayer__sub_800AB31C(Obj_800AB31C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 mult_vec_array__10TObjPlayerFUll(int, int, void *, int);
 s32 set_matrix_identity(int);
-s32 rotate_matrix_y(s32, s32);
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
 extern u32 TObjEneShark__attack_motion_3_trail;
 extern u32 shark_attack4_trail_buffer;
 extern const f32 lbl_805D9BAC;
 void vfunc_93__12TObjEneSharkFv(Obj_800ABB38 *o);
-void queue_destruction__7TObjectFv(void *);
-f32 xz_distance_squared(void *, void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f32 fabs_float(f32);
 f32 xz_distance_squared(void *, void *);
 extern const f32 lbl_805D9B7C;
 void TObjPlayer__sub_800AB4F4(u8 *arg0);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
-s32 vec3_add_to(void *, void *);
-s32 rotate_vector_by_matrix(int, void *, void *);
-s32 rotate_matrix_y(s32, s32);
-s32 push_matrix_from(void *);
-s32 pop_matrix();
-extern s32 lbl_80491478[];
-extern RecoveredGlobal_800ABA9C_lbl_8058D490 identity_matrix;
 extern void *lbl_805D5090;
-extern void *tl_06;
-extern const f32 lbl_805D9B7C;
 u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
@@ -246,52 +210,23 @@ s32 update_obstruction_fade(void *);
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
-s32 rotate_matrix_y(s32, s32);
 s32 translate_matrix(s32, f32, f32, f32);
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
-s32 draw_chunk_object(s32);
-extern s32 shark_render_node_index;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
-extern s32 model_render_flags;
-extern const f32 lbl_805D9BA0;
 extern const f32 lbl_805D9BB0;
 extern const f32 lbl_805D9BB4;
 extern const f32 lbl_805D9BB8;
 extern const f32 lbl_805D9BBC;
 extern const f32 lbl_805D9BC0;
 extern const f32 lbl_805D9BC4;
-}
-
-extern "C" {
-
 void TObjPlayer__sub_800AAFF0(void* p, f32 v);
-void __dl__7TObjectFPv(void *);
-void queue_destruction__7TObjectFv(void *);
-
-extern void *lbl_805D5090;
-
-void TObjPlayer__sub_800AAFF0(void* p, f32 v);
-
-extern s32 lbl_80491460[];
-
-s32 sub_800AB068__14TObjEneDubchikFv(u8 *arg0);
-
-void TObjPlayer__sub_800AB1C8(u8 *arg0);
-
-Obj_800AB31C *TObjPlayer__sub_800AB31C(Obj_800AB31C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4);
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_800AB4F4(u8 *arg0);
 #pragma pop
-
-u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4);
 
 void TObjEneShark::vfunc_101() {  }
 
@@ -618,16 +553,13 @@ extern "C" {
 
 }
 
-#include "types.h"
 #include "pso/enemy/TObjEneMoja.h"
 #include "pso/misc/TLobby.h"
-#include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEneBeast.h"
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/misc/RenderFadeState.h"
 #include "pso/misc/TNowLoading.h"
-#include "pso/player/TObjPlayer.h"
 
 struct E_800AC9DC { u8 pad[8]; s32 x8; s32 xc; };
 
@@ -659,10 +591,8 @@ struct Act_800AC318 { s32 a; s32 idx; f32 c; s32 d; };
 extern "C" {
 extern u32 shark_bml_resource;
 extern s32 game_difficulty_selection;
-void queue_destruction__7TObjectFv(void *);
 void __dt__13TUnk_80493450Fv(void *, int);
 void free_collision_body_parts(void *);
-void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
 void __dt__13TUnk_80494938Fv(void *, int);
 extern u8 __dt__13TUnk_804949A8Fv[];
@@ -683,26 +613,14 @@ extern u32 TObjEneShark__resource_node;
 extern u32 TObjEneShark__resource_buf;
 extern u32 shark_resource_data;
 extern u32 shark_resource_buffer;
-extern u32 shark_bml_resource;
-extern u32 TObjEneShark__attack_motion_3_trail;
-extern u32 shark_attack4_trail_buffer;
-extern s32 shark_render_node_index;
-extern const f32 lbl_805D9BA0;
-extern const f32 lbl_805D9BAC;
-extern const f32 lbl_805D9BC0;
 extern const f32 lbl_805D9BC8;
 extern const f32 lbl_805D9BCC;
-}
-
-extern "C" {
-
 void vfunc_99__13TUnk_80493450Fv(void);
 void TObjPlayer__sub_800ACA0C(void);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
 void *TObjEneShark__ct(void *, void *, void *);
 void __dt__11TBoss4Type3FPvs(void*, int);
-void *__nw__7TObjectFUl(int);
 void mem_free(void*);
 
 extern void *tl_04;
@@ -901,14 +819,6 @@ void *TObjEneShark::create(void *arg0) {
     }
     return o2;
 }
-
-extern u32 TObjEneShark__resource_node;
-extern u32 TObjEneShark__resource_buf;
-extern u32 shark_resource_data;
-extern u32 shark_resource_buffer;
-extern u32 shark_bml_resource;
-extern u32 TObjEneShark__attack_motion_3_trail;
-extern u32 shark_attack4_trail_buffer;
 
 void TObjEneShark::free_resources() {
     if ((u32) TObjEneShark__resource_node != 0U) {
@@ -1198,11 +1108,8 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
     return self;
 #undef self
 }
-}
 #undef lbl_804915B4
 #undef lbl_80491608
-
-extern "C" {
 void TUnk_80493450::vfunc_99() {  }
 
 void TObjEneShark::sub_800AC9DC(s32 i) {

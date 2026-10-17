@@ -104,22 +104,13 @@ s32 __as__8TPlySmthFRC8TPlySmth(void *, void *);
 s32 strncpy(void *, void *, int);
 s32 memset(void *, int, int);
 s32 send_login_9e_extended__6TLobbyFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
-s32 __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
 s32 reset__18PSOV3EncryptionTCPFUl(void *, u32);
 s32 __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(void *, void *);
-s32 __as__16TPlyClientConfigFRC16TPlyClientConfig(void *, void *);
 s32 bswap__21TRecvPsoRegistConnectFv(void *);
-s32 __as__8TPlySmthFRC8TPlySmth(void *, void *);
 s32 strcmp(const char *, const char *);
-s32 strncpy(void *, void *, int);
-s32 memset(void *, int, int);
 extern u8 meet_user_settings[];
 extern char *lbl_805D3570;
 void handle_cmd_02__9TProtocolFR6packet(u8 *arg0, Recv_801DAA70 *arg1);
-}
-
-extern "C" {
-
 void TLobby::send_c6_packet(void *arg1) {
     if ((s32) *(s32 *)((s8 *)this + 0x1910) != 0) {
         *(u8 *)((s8 *)arg1 + 0) = 0xC6;

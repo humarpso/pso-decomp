@@ -2,10 +2,8 @@
 #include "pso/boss/TBoss7LaserPtcl.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 
-extern "C" {
 extern const f32 lbl_805E00F8;
 extern const f32 lbl_805E00FC;
-}
 
 extern "C" {
 

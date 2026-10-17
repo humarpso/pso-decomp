@@ -61,7 +61,6 @@ TItemEffArmorParticle::~TItemEffArmorParticle() {
 }
 
 #include "types.h"
-#include "pso/TParticleCtrl.h"
 
 struct Base_A_80364364 { char pad[0x18]; };
 struct V_A_80364364 : Base_A_80364364 {
@@ -78,9 +77,7 @@ struct V_A_80364364 : Base_A_80364364 {
 extern "C" {
 
 u32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
-void *get_player_by_client_id(u16);
 s32 disallow_rendering__7TObjectFv(void *);
-s32 get_item_system_generation();
 
 extern s32 TItemEffArmorParticle__class_name;
 

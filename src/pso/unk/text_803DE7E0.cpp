@@ -8,10 +8,6 @@ extern void *sys_heap_handle;
 extern void *global_allocator;
 extern u8 sys_allocator_func_table[];
 void fn_803DE804(u8 *start, s32 size);
-}
-
-extern "C" {
-
 #pragma push
 #pragma scheduling off
 #pragma peephole off

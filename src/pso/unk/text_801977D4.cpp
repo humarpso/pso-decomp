@@ -45,9 +45,6 @@ extern u8 *TObjRain__streak_line_list[];
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DBF10;
 extern const f32 lbl_805DBF14;
-}
-
-extern "C" {
 
 void TObjRain::draw_streaks() {
     struct Rain_801977D4 *self = (struct Rain_801977D4 *)this;

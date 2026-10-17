@@ -12,11 +12,7 @@ void *get_array_entry__13TUnk_804CE018Fi(void *w, s32 i);
 void deserialize_mag__9TItemDataFPvPv(void *src, void *dst);
 void draw_action_palette_icon(void *e, s32 a, u16 b);
 extern s8 lbl_805DD678[3];
-void *get_array_entry__13TUnk_804CE018Fi(void *w, s32 i);
 extern u8 lbl_805DD67C[3];
-}
-
-extern "C" {
 
 void TWindowSubMagPhoton::get_cursor_origin(void *xy) {
     Win_8027C13C *w = (Win_8027C13C *)this;

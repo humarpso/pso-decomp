@@ -8,10 +8,6 @@ extern Ent_80086D50 *particle_area_entry_table;
 void *__nw__7TObjectFUl(int);
 void *initialize_with_direction__13TParticleCtrlFPvPvPviiiii(void *self, void *pos, void *dir, void *ent, int a, int b, int c, int d);
 void *spawn_directional_particle(void *pos, void *dir, s32 id);
-}
-
-extern "C" {
-
 #pragma push
 #pragma opt_propagation off
 void *spawn_directional_particle(void *pos, void *dir, s32 id) {

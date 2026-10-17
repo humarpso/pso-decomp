@@ -6,10 +6,6 @@
 
 extern "C" {
 void TORevlightCave01__sub_80173478(void * = 0);
-}
-
-extern "C" {
-
 struct TORevlightCave01Base_80173478 { char pad[0x18]; };
 struct TORevlightCave01_80173478 : TORevlightCave01Base_80173478 {
     virtual void m0();

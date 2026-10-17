@@ -191,7 +191,6 @@ void __dl__7TObjectFPv(void *);
 void queue_destruction__7TObjectFv(void *);
 extern s32 lbl_80491478[];
 extern s32 shark_render_node_index;
-void queue_destruction__7TObjectFv(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 csnVector(void *, void *, int);
 s32 get_player_by_client_id(int);
@@ -200,86 +199,41 @@ extern const f32 lbl_805D9B5C;
 extern const f32 lbl_805D9B60;
 void TObjPlayer__sub_800AB1C8(u8 *arg0);
 f32 fabs_float(f32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D9B10;
 s32 play_sound_effect(void *, void *, int, int);
-s32 play_sound_effect(void *, void *, int, int);
-s32 play_sound_effect(void *, void *, int, int);
-s32 play_sound_effect(void *, void *, int, int);
-s32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
-s32 rotate_matrix_y(s32, s32);
 s32 push_matrix_from(void *);
-s32 pop_matrix();
 extern RecoveredGlobal_800ABA9C_lbl_8058D490 identity_matrix;
 extern const f32 lbl_805D9BA0;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 void __ct__7TObjectFP7TObject(void *, void *);
-s32 rotate_vector_by_matrix(int, void *, void *);
-s32 rotate_matrix_y(s32, s32);
-s32 push_matrix_from(void *);
-s32 pop_matrix();
 extern Vec_800AB31C lbl_8043ACE0[];
 extern s32 lbl_80491460[];
-extern RecoveredGlobal_800ABA9C_lbl_8058D490 identity_matrix;
 extern void *tl_06;
 extern const f32 lbl_805D9B64;
 Obj_800AB31C *TObjPlayer__sub_800AB31C(Obj_800AB31C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4);
-s32 rotate_matrix_y(s32, s32);
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
-void queue_destruction__7TObjectFv(void *);
 s32 spawn_particle_effect(void *, int);
 f32 xz_distance_squared(void *, void *);
 extern Pair_800AB0EC lbl_8043ACEC[];
 extern const f32 lbl_805D9B58;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f32 fabs_float(f32);
 f32 newton_sqrtf();
-f32 xz_distance_squared(void *, void *);
 s32 project_actor_to_ground(void *, Vec_800AB4F4 *, int);
 s32 subtract_vector(void *, void *);
 
 void TObjPlayer__sub_800AB4F4(u8 *arg0);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
 u8 *csnLookAt(void *, Vec_800AB7A0 *);
 u32 TObjPlayer__sub_800A4204(void *, void *, void *, void *, int);
 f32 horizontal_distance__10TObjPlayerFPUc(void *, int);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 void *__nw__7TObjectFUl(int);
-s32 vec3_add_to(void *, void *);
-s32 rotate_vector_by_matrix(int, void *, void *);
-s32 rotate_matrix_y(s32, s32);
-s32 push_matrix_from(void *);
-s32 pop_matrix();
 extern s32 player_sub_800ab7a0_id_table[];
-extern s32 lbl_80491478[];
-extern RecoveredGlobal_800ABA9C_lbl_8058D490 identity_matrix;
 extern void *lbl_805D5090;
-extern void *tl_06;
 
 u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4);
-s32 rotate_matrix_y(s32, s32);
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
-s32 draw_chunk_object(s32);
-extern s32 shark_render_node_index;
-extern s32 model_render_flags;
-extern const f32 lbl_805D9BA0;
-}
-
-extern "C" {
-
 void TObjPlayer__sub_800AAFF0(void* p, f32 v);
-void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void queue_destruction__7TObjectFv(void *);
 
-extern void *lbl_805D5090;
 extern s32 lbl_805D5098;
 
 void TObjPlayer::init_level_stats(s32 arg1) {
@@ -295,8 +249,6 @@ void TObjPlayer::init_level_stats(s32 arg1) {
 }
 
 void TObjPlayer__sub_800AAFF0(void* p, f32 v) { *(f32*)((char*)p + 0x8) = v; }
-
-extern s32 lbl_80491460[];
 
 void TObjPlayer::clear_flag_04000000() {
     u8 *arg0 = (u8 *)this;
@@ -562,8 +514,5 @@ typedef struct VObj_14_800ABDD8 VObj_14_800ABDD8;
 typedef struct VObj_18_800ABDD8 VObj_18_800ABDD8;
 typedef struct Vec_800ABDD8 Vec_800ABDD8;
 #define PSO_VCALL_VObj_18_800ABDD8_m9(_self, _arg0, _arg1, _arg2) (((VObj_18_800ABDD8 *)(_self))->m9((_arg0), (_arg1), (_arg2)))
-}
-
-extern "C" {
 
 }

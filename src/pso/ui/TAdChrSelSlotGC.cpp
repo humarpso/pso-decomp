@@ -102,7 +102,6 @@ struct CharacterSelectTransitionState {
 extern "C" {
 void TAdChrSelSlotGC__sub_802C754C(O_802C754C *self, s32 i);
 extern const f32 lbl_805DE5CC;
-extern const f32 lbl_805DE5CC;
 extern f32 lbl_805D67F4, lbl_805D67F8;
 void TLobby__sub_8023E4B4(s32, s32);
 extern const s32 chr_sel_slot_resource_name_table[];
@@ -116,7 +115,6 @@ S_802C7758 *__ct__15TAdChrSelSlotGCFv(S_802C7758 *self, TObject* _w1);
 void begin_screen_draw(int);
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(int, int);
-extern u32 lbl_805D67F0;
 extern const f32 lbl_805DE5C8;
 s32 get_main_phase();
 extern const f32 lbl_805DE5B4, lbl_805DE5B8, lbl_805DE5BC, lbl_805DE5C0;
@@ -128,10 +126,6 @@ extern s32 lbl_804E0B28[];
 extern s32 lbl_805D67E8;
 extern const f32 lbl_805DE5B8, lbl_805DE5BC, lbl_805DE5C0;
 CharacterSelectTransitionState* construct_character_select_transition(CharacterSelectTransitionState* self, TObject* parent, s32 client);
-}
-
-extern "C" {
-
 void TAdChrSelSlotGC__sub_802C7498(struct S802C7498_802C70AC *arg0, s32 arg1);
 void TLobby__sub_802C78EC(void);
 void *__dt__13TUnk_804E0B28Fv(void *arg0, s16 arg1);
@@ -145,9 +139,6 @@ s32 set_depth_buffer_settings_2__Fv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 void TUnk_804E0B28::render() {  }
-
-extern s32 lbl_804E0B28[];
-extern s32 lbl_805D67E8;
 
 #pragma push
 #pragma opt_common_subs off
@@ -266,8 +257,6 @@ void TAdChrSelSlotGC::reset_all_slots() { TAdChrSelSlotGC__sub_802C754C((O_802C7
 void TAdChrSelSlotGC__sub_802C7498(struct S802C7498_802C70AC *arg0, s32 arg1) {
     arg0->arr[arg1] = 0;
 }
-
-extern u32 lbl_805D67F0;
 
 void TAdChrSelSlotGC::init_slot_entry(s32 arg1, void *arg2) {
     S_802C74AC *arg0 = (S_802C74AC *)this;

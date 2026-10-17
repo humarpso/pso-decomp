@@ -14,10 +14,6 @@ extern RecoveredGlobal_8033FE30_lbl_80478554 lbl_80478554;
 extern const f32 lbl_805DFAFC;
 extern const f32 lbl_805DFB00;
 extern const f32 lbl_805DFB04;
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 typedef char RecoveredGlobal_8033FE30_lbl_80478554_size[sizeof(RecoveredGlobal_8033FE30_lbl_80478554) == 0xC ? 1 : -1];

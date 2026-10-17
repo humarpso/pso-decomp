@@ -28,10 +28,6 @@ extern "C" {
 void bswap_packet__9TProtocolFv(void *);
 void *memset(void *, int, int);
 void fn_801D9FA0(VObj_18_801D9FA0 *obj, s16 a, s16 c, s16 d, u32 *src);
-}
-
-extern "C" {
-
 void fn_801D9FA0(VObj_18_801D9FA0 *obj, s16 a, s16 c, s16 d, u32 *src) {
     Pkt_801D9FA0 pkt;
     s32 i;

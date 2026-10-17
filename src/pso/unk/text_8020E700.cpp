@@ -31,8 +31,6 @@ extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
 s32 memset(void *, int, int);
 extern RecoveredGlobal_8020ECA8_lbl_80513D58 shop_armor_stock_generated_flags;
 void clear_shop_armor_flags(void);
-extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
-extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
 extern s32 lbl_80513D68[];
 extern Tbl_8020E934 **lbl_805D6158;
 extern s32 lbl_805D615C;
@@ -42,13 +40,7 @@ void shuffle_shop_pool_n_times(Ctr_8020E934 *, s32);
 void init__9TItemDataFv(Item_8020E934 *);
 s32 is_duplicate_shop_shield_or_unit(Item_8020E934 *, s32);
 void generate_shop_shield_pool(s32 arg0);
-extern s32 lbl_80513D68[];
-extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
 s32 is_duplicate_shop_armor(Rec_8020E700 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8020ECD8_lbl_80513D78_size[sizeof(RecoveredGlobal_8020ECD8_lbl_80513D78) == 0x10 ? 1 : -1];
 
 typedef char RecoveredGlobal_8020ECA8_lbl_80513D58_size[sizeof(RecoveredGlobal_8020ECA8_lbl_80513D58) == 0x10 ? 1 : -1];

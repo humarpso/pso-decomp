@@ -81,9 +81,6 @@ void TObjEneRe4Sorcerer::vfunc_106() {
     }
 }
 
-}
-
-extern "C" {
 __declspec(section ".sdata2") extern void *const lbl_805DA79C[1] = {
     (void *)0x3f4ccccd,
 };
@@ -123,7 +120,6 @@ __declspec(section ".sdata2") extern void *const lbl_805DA7C8[1] = {
 __declspec(section ".sdata2") extern void *const lbl_805DA7CC[1] = {
     (void *)0x3e4ccccd,
 };
-}
 #define lbl_805DA79C (*(const f32 *)lbl_805DA79C)
 #define lbl_805DA7A0 (*(const f32 *)lbl_805DA7A0)
 #define lbl_805DA7A4 (*(const f32 *)lbl_805DA7A4)
@@ -138,10 +134,6 @@ __declspec(section ".sdata2") extern void *const lbl_805DA7CC[1] = {
 #define lbl_805DA7C8 (*(const f32 *)lbl_805DA7C8)
 #define lbl_805DA7CC (*(const f32 *)lbl_805DA7CC)
 
-#include "types.h"
-
-extern "C" {
-
 void vfunc_83__18TObjEneRe4SorcererFv(void* p);
 
 void TObjEneRe4Sorcerer__sub_800EFE30(void);
@@ -150,13 +142,9 @@ s32 TObjEneRe4Sorcerer::vfunc_83() { if (((int (*)(void*))get_target_info__9TObj
 
 }
 
-#include "types.h"
 #include "pso/boss/TBoss3Volopt.h"
-#include "pso/enemy/TObjEneRe4Sorcerer.h"
-#include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
-#include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneMe3ShinowaReal.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
@@ -169,7 +157,6 @@ s32 TObjEneRe4Sorcerer::vfunc_83() { if (((int (*)(void*))get_target_info__9TObj
 #include "pso/misc/TTecMegid.h"
 #include "pso/misc/TTecRaFoie.h"
 #include "pso/misc/TTecResta.h"
-#include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct VBase_14 { char pad[0x14]; };
@@ -417,23 +404,13 @@ void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();
-s32 update_player_state__9TObjEneDDFv(void *, int, int);
 s32 update_obstruction_fade(int);
-s32 scroll_strip_uvs(int, int, int);
-s32 TObjEneRe4Sorcerer__sub_801E3F1C(f32, f32);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
-s32 rotate_matrix_y(int, int);
-s32 translate_matrix(int, f32, f32, f32);
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
 extern s32 TObjEneRe4Sorcerer__render_node_index;
 extern s32 TObjEneRe4Sorcerer__saved_render_flags;
 extern f32 TObjEneRe4Sorcerer__effect_render_scale;
 extern s32 re4_sorcerer_render_node_ptr;
-extern u32 TObjEneRe4Sorcerer__uv_scroll_buffer;
 extern s32 lbl_805D5660;
-extern s32 model_render_flags;
 extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
 void render__18TObjEneRe4SorcererFv(u8 *arg0);
@@ -447,17 +424,8 @@ s32 TObjEneDD__sub_800BA6C4(void *);
 s32 is_alive__9TObjEneDDFv(s32);
 s32 transform_relative_position__9TObjEneDDFPv(void *, void *);
 f32 horizontal_distance_squared(void *, void *);
-u32 find_entity_by_id(u16);
 s32 select_attack_target__18TObjEneRe4SorcererFiff(s32 arg0, f32 farg0, f32 farg1);
 void scale_matrix(s32, s32, f32, f32, f32);
-extern s32 TObjEneRe4Sorcerer__render_node_index;
-extern s32 TObjEneRe4Sorcerer__saved_render_flags;
-extern f32 TObjEneRe4Sorcerer__effect_render_scale;
-extern s32 model_render_flags;
-}
-
-extern "C" {
-
 struct VBase_18_aab587
 {
   char pad[0x18];
@@ -875,8 +843,6 @@ struct Sorc_800F0118 {
 };
 
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s16 obj_getField1c(void *);
-f64 atan2_float(f32, f32);
 s32 queue_destruction__7TObjectFv(void *);
 s32 dispatch_shared_handler_a__6TLobbyFl(int);
 s32 register_object__6TLobbyFl(int);
@@ -887,12 +853,9 @@ void fn_80044330(void *);
 u32 csnVectorUnder(void *, void *, s32);
 s32 TObjPlayer__sub_800A04F0(void *);
 s32 __dt__13TUnk_80490470Fv(void *, int);
-s32 enemy_clear_target__12TObjEneDD_STFUs(void *);
 s32 __dt__12TObjEneDD_STFv(void *, int);
 s32 reset_hp__9TObjEneDDFv(void *, void *, void *, void *);
 s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
-s32 is_alive__9TObjEneDDFv(s32);
-s32 transform_relative_position__9TObjEneDDFPv(void *, void *);
 s32 TObjEneDD__sub_800BA804(int);
 s32 init_model__9TObjEneDDFv(void *, void *, int, int);
 u32 vfunc_102__9TObjEneDDFv();
@@ -902,8 +865,6 @@ s32 clear_attack_receipts__9TObjEneDDFv(void *);
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 u32 load_enemy_bml_resource_named(void *, void *);
 u32 load_enemy_bml_resource(void *);
-s32 set_field_378__9TObjEneDDFl(void *, s32);
-s32 transition_enemy_state(void *, s32);
 s32 tick_period_counter(s32, s32, s32);
 s32 reset_transform__13TObjEneRe4BitFv();
 s32 set_flag_and_notify__18TObjEneRe4SorcererFv();
@@ -917,14 +878,12 @@ s32 TObjEneRe4Sorcerer__sub_800EEC00(void *arg0p, void *arg1p);
 s32 TObjEneRe4Sorcerer__sub_800EEDE4(void *arg0p, void *arg1p);
 void TObjEneRe4Sorcerer__sub_800EEFE4(u8 *arg0, s32 arg1);
 void TObjEneRe4Sorcerer__vt85(s32 arg0, u32 arg1, s32 arg2);
-void TObjEneRe4Sorcerer__sub_800EF214(s32 arg0);
 void TObjEneRe4Sorcerer__sub_800EF7C8(Obj_800EF7C8 *self);
 void TObjEneRe4Sorcerer__sub_800EF844(Obj_800EF844 *self);
 void set_motion_by_state__18TObjEneRe4SorcererFPv(void *arg0);
 void TObjEneRe4Sorcerer__sub_800EF95C(Obj_800EF95C *self, f32 speed);
 void vfunc_102__18TObjEneRe4SorcererFv(u8 *arg0);
 void vfunc_101__18TObjEneRe4SorcererFPUc(u8 *arg0);
-void TObjEneRe4Sorcerer__sub_800EFE30(void);
 void vfunc_88__18TObjEneRe4SorcererFv(void *arg0);
 void vfunc_61__18TObjEneRe4SorcererFv(void);
 void vfunc_62__18TObjEneRe4SorcererFv(u8 *arg0);
@@ -937,11 +896,8 @@ void TBoss3Volopt__sub_800F059C(void);
 s32 remap_area_sound_id(s32 arg0, s32 arg1);
 void destroy_buffer_pair(void*, int);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
-f32 horizontal_distance_squared(void *, void *);
 s32 approach_angle_limited(s32, s32, s32);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
-s32 advance_animation_playback(void *);
-u32 find_entity_by_id(u16);
 s32 free_collision_body_parts(void *);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
 s32 play_sound_effect(void *, void *, int, int);
@@ -955,11 +911,6 @@ f32 cos_table_lookup(s32);
 void vec3_add_to(void *, void *);
 s32 subtract_vector(void *, void *);
 
-extern const f64 TObjEneRe4Sorcerer__data_8043D408;
-extern s32 TObjEneRe4Sorcerer__render_node_index;
-extern s32 TObjEneRe4Sorcerer__saved_render_flags;
-extern f32 TObjEneRe4Sorcerer__effect_render_scale;
-extern u32 TObjEneRe4Sorcerer__uv_scroll_buffer;
 extern s32 __dt__13TUnk_804949A8Fv[];
 extern s32 init_and_activate__10TObjPlayerFv[];
 extern Params_800F0464 re4_sorcerer_spawn_descriptor;
@@ -973,7 +924,6 @@ extern s32 TObjEneRe4Sorcerer__attack_params;
 extern s32 TObjEneRe4Sorcerer__resistance_params;
 extern u8 *sorcerer_behavior_params;
 extern u32 sorcerer_bml_resource;
-extern s32 re4_sorcerer_render_node_ptr;
 extern void *tl_04;
 
 extern "C" {

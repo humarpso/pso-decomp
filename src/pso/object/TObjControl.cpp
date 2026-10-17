@@ -28,15 +28,8 @@ u8 *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
-u16 obj_getField1c(void *);
 extern u32 TObjPlayer__data_8050D460[];
-extern s32 lbl_805D586C;
-extern s32 lbl_805D5870;
 u8 *get_enemy_entity(u16 arg0);
-}
-
-extern "C" {
-
 struct EnemyControlDispatchBase { char pad[0x18]; };
 
 struct EnemyControlDispatch : EnemyControlDispatchBase {
@@ -429,7 +422,6 @@ s32 TObjPlayer__sub_8001943C(void *, int);
 s16 TObjPlayer__sub_800194E8(void *);
 s16 get_attack_params_atp_max(void *);
 s32 obj_testFlags30(void *, s32);
-u16 obj_getField1c(void *);
 void obj_setFlags30(void *, s32);
 s32 is_split_screen();
 s32 get_current_floor();
@@ -992,10 +984,6 @@ while (*(u8 **)((s8 *)var_r6_3 + 0x348) != NULL) {
     *(u8 * *)&this->next = NULL;
     *(u8 * *)&this->children = NULL;
 }
-
-}
-
-extern "C" {
 
 #define FIND_TAIL_800F7118(q) \
     if (self->next == NULL && tail == NULL) { \

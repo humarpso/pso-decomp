@@ -34,9 +34,6 @@ s32 get_captured_target_count(s32);
 s32 rand(void);
 extern const f32 lbl_805DAEC0;
 extern const f32 lbl_805DAEC4;
-}
-
-extern "C" {
 
 u8 *TObjPlayer::create_vtable_clear_field1f8(u8 *arg0) {
     u8 *temp_r3;

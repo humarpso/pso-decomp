@@ -31,17 +31,10 @@ extern RecoveredGlobal_8028E794_TObjLight__data_80506320 TObjLight__scene_light_
 extern const f32 lbl_805DD938;
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
-extern RecoveredGlobal_8028E9A4___vt__12TCharaMaking __vt__12TCharaMaking;
 extern void *creation_player_character;
-extern s32 creation_main_menu_obj;
 u8 *__dt__12TCharaMakingFv(u8 *arg0, s16 arg1);
 s32 is_active__23TAdSinglePlyChrSelectGCFv(void *self);
-}
-
-extern "C" {
-
 void TCharaMaking__sub_8028E790(void);
-void *__nw__7TObjectFUl(int);
 s32 fn_8028D8F4();
 s32 fn_80291268();
 s32 is_state_3__14TObjCMMainMenuFv(s32);
@@ -51,7 +44,6 @@ s32 queue_destruction__7TObjectFv(s32);
 void TCharaMaking__sub_8028E790(void) {  }
 
 extern s32 tl_03;
-extern s32 creation_main_menu_obj;
 extern s32 creation_dressing_room_mode_flag;
 
 typedef char RecoveredGlobal_8028E794_TObjLight__data_80506320_size[sizeof(RecoveredGlobal_8028E794_TObjLight__data_80506320) == 0x50 ? 1 : -1];
@@ -85,8 +77,6 @@ s32 TCharaMaking::update_main_menu(s32 arg0) {
     }
     return 0;
 }
-
-extern void *creation_player_character;
 
 void TCharaMaking::run_task() {
     if (!is_active__23TAdSinglePlyChrSelectGCFv(this)) return;

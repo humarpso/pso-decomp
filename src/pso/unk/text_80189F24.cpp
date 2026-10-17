@@ -142,12 +142,7 @@ f32 xyz_distance_squared(void *, void *);
 extern f32 lbl_805DBCF4;
 s32 fn_80156BBC(void *, void *);
 s32 fn_80156C38(void *);
-}
-
-extern "C" {
-
 extern f32 lbl_805DBCF0;
-extern f32 lbl_805DBCF4;
 
 void TUnk_804B6C24::render() {
     Obj_80189F24 *self = (Obj_80189F24 *)this;

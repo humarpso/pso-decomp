@@ -11,10 +11,6 @@ int sprintf(char *, const char *, ...);
 extern char lbl_8043D9FC[];
 extern char lbl_8043DA04[];
 s32 load_text_resource_pair(s32 arg0);
-}
-
-extern "C" {
-
 s32 subtractive_rng_xor_buffer(s32 *, void *, s32);
 s32 subtractive_rng_seed(s32 *, s32);
 s32 __ct__14SubtractiveRngFv(s32 *);

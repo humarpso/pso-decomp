@@ -82,11 +82,9 @@ extern const f32 lbl_805E03D0;
 extern const f32 lbl_805E03D8;
 extern const f32 lbl_805E03E4;
 s32 spawn__15TBoss6RockChaseFii(s32 arg0, s32 arg1);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_bml_model(int, int);
 s32 TBoss6Rock__sub_80353A04();
 s32 TBoss6Rock__sub_80353A0C();
-s32 rand();
 __declspec(section ".rodata") char lbl_8047ACD8[] = "TBoss6RockChase";
 __declspec(section ".rodata") RecoveredGlobal_8036D4E0_lbl_8047ACE8 boss6_rock_chase_model_radius_table = {
     4, { 0x41, 0xA0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x41, 0xF0, 0x00, 0x00 }
@@ -95,9 +93,7 @@ extern s32 __vt__15TBoss6RockChase[];
 extern s32 lbl_805D44F0;
 extern const f32 TBoss6RockChase__data_805E03B8;
 extern const f32 lbl_805E03CC;
-extern const f32 lbl_805E03D0;
 extern const f32 lbl_805E03D4;
-extern const f32 lbl_805E03D8;
 extern const f32 lbl_805E03DC;
 extern const f32 lbl_805E03E0;
 u8 *TBoss6RockChase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -105,22 +101,15 @@ void queue_destruction__7TObjectFv(void *);
 s32 query_teammate_state__9TObjEneDDFv(void);
 s32 spawn_particle_effect(void *, int);
 s32 play_sound_effect(int, void *, int, int);
-extern const f32 TBoss6RockChase__data_805E03B8;
 extern const f32 lbl_805E03C0;
 extern const f32 lbl_805E03C4;
 extern const f32 lbl_805E03C8;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 Player_8036D1B4 *get_player_data__10TObjPlayerFi(s32);
 Param_8036D1B4 *dispatch_shared_handler_a__6TLobbyFl(s32);
 f32 vector_length(void *);
 int subtract_vector(void *, void *);
 extern RecoveredGlobal_8036D4E0_lbl_8047ACE8 boss6_rock_chase_model_radius_table;
-extern const f32 TBoss6RockChase__data_805E03B8;
 extern const f32 lbl_805E03BC;
-}
-
-extern "C" {
-
 void *__dt__15TBoss6RockChaseFv(void *arg0, s16 arg1);
 int post_translate_matrix(void*);
 int rotate_matrix_z(void*, void*);
@@ -171,8 +160,6 @@ s32 TBoss6RockChase::damage_players_in_range() {
 #pragma pop
 
 void TBoss6RockChase::render() { push_matrix(this); post_translate_matrix((char*)this + 0x38); rotate_matrix_y((void*)0, *(void* *)&this->rotation_y); rotate_matrix_x((void*)0, this->m_5c); rotate_matrix_z((void*)0, *(void* *)&this->rotation_z); TObjFish::set_global_param((s32)(*(void* *)&this->m_c4)); draw_ginja_object(*(void* *)&this->m_c0); pop_matrix(); }
-
-extern s32 __vt__15TBoss6RockChase[];
 
 #pragma push
 #pragma opt_common_subs off

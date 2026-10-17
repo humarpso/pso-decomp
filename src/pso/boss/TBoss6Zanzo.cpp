@@ -32,7 +32,6 @@ struct Obj_803209F0 { s32 f0; u8 pad[0x14]; void *vt; Src_803209F0 *arr; Src_803
 
 extern "C" {
 void TBoss6Zanzo__sub_803205A0(s32 *arg0, s32 *arg1);
-void TBoss6Zanzo__sub_803205A0(s32 *arg0, s32 *arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __dt__7TObjectFv(void *, int);
 void __dl__FPv(void *);
@@ -43,13 +42,8 @@ Obj_80320950 *__dt__11TBoss6ZanzoFv(Obj_80320950 *arg0, s16 arg1);
 void run_task__11TBoss6ZanzoFv(Obj_803208CC *arg0);
 u8 *mem_alloc(s32);
 void __ct__7TObjectFP7TObject(void *, void *);
-extern u8 __vt__11TBoss6Zanzo[];
 extern s32 TBoss6Zanzo__name;
 Obj_803209F0 *TBoss6Zanzo__ct(Obj_803209F0 *arg0, void *arg1, s32 arg2, s32 arg3);
-}
-
-extern "C" {
-
 s32 fn_803204B0(void* p);
 int TBoss6Zanzo__sub_803205C4(void*);
 int restore_saved_depth_alpha_state(void);

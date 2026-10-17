@@ -5,10 +5,6 @@
 
 extern "C" {
 s32 find_item_by_id(s32);
-}
-
-extern "C" {
-
 s32 TWindowHelpItem::is_item_already_equipped() {
     s32 item;
     s32 field;

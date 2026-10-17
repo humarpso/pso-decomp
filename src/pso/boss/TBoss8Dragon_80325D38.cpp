@@ -11,10 +11,6 @@ void normalize_vector(void *);
 extern const f32 lbl_805DF630;
 extern const f32 lbl_805DF634;
 s32 TObjPlayer__sub_80325D58(void *arg0, Vec_80325D58 *from, Vec_80325D58 *dir, Vec_80325D58 *to, f32 dist);
-}
-
-extern "C" {
-
 int queue_destruction__7TObjectFv(void*);
 
 int TBoss8Dragon::queue_destruction() { return queue_destruction__7TObjectFv(this); }

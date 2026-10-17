@@ -43,12 +43,7 @@ extern s32 current_language;
 extern u16 keyboard_soft_small_kana_sjis[];
 extern u16 TWindowKeyBoardSoft__hiragana_sjis_table[];
 s32 TWindowKeyBoardSoft__sub_80080B34(F_80080B34 *arg0);
-}
-
-extern "C" {
-
 void append_text__19TWindowKeyBoardSoftFPvPv(F_80080798 *arg0, u8 *arg1);
-s32 TWindowKeyBoardSoft__sub_80080F68(F_80080F68 *arg0, u16 arg1);
 
 void append_text__19TWindowKeyBoardSoftFPvPv(F_80080798 *arg0, u8 *arg1) {
     u8 c;

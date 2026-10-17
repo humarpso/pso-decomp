@@ -11,10 +11,6 @@ s32 has_player_active_menu__11TWindowCtrlFv(void *);
 s32 is_slot_visible__11TWindowCtrlFv(void *);
 u32 TWindowGetComCard__ct(int, void *);
 extern s32 local_client_id;
-}
-
-extern "C" {
-
 void TWindowCtrl::update_com_card_window() {
     u8 *arg0 = (u8 *)this;
     u32 temp_r3;

@@ -56,10 +56,6 @@ s32 set_constant_material_color(int);
 extern Cam_801E4FF0 lbl_8058D4F8;
 extern const f32 lbl_805DC450;
 extern const f32 lbl_805DC454;
-}
-
-extern "C" {
-
 void *TQuadSpriteCol__ct(void *arg0);
 void *__dt__14TQuadSpriteColFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
@@ -171,7 +167,6 @@ void *__dt__14TQuadSpriteColFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__14TQuadSpriteCol[];
 extern void *TQuadSpriteCol__class_name;
 
 void *TQuadSpriteCol__ct(void *arg0) {

@@ -34,10 +34,6 @@ extern RecoveredGlobal_80288380_lbl_804D304C lbl_804D304C;
 extern s32 __vt__15TWindowUserSort[];
 extern s32 TWindowUserSort__name;
 u8 *TWindowUserSort__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt__15TWindowUserSortFv(void *arg0, s16 arg1);
 s32 TCameraCtrl__sub_800695A0(void *);
 void __dl__7TObjectFPv(void *);
@@ -52,8 +48,6 @@ void render__15TWindowUserSortFv(s32 arg0) {
 }
 
 void TWindowUserSort::run_task() { initialize_subwindow__9TWindowDDFv(this); update_fade(); update_window_entry_list((char*)this + 0x24); }
-
-extern s32 __vt__15TWindowUserSort[];
 
 void *__dt__15TWindowUserSortFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

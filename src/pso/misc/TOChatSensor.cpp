@@ -14,15 +14,8 @@ extern s32 __vt__12TOChatSensor[];
 extern s32 lbl_805D2ED8;
 extern u32 chat_sensor_table;
 u32 TOChatSensor__ct(int arg0, void *arg1, void *arg2);
-extern u32 TOChatSensorFolder__instance;
-}
-
-extern "C" {
-
 void *__dt__12TOChatSensorFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-
-extern s32 __vt__12TOChatSensor[];
 
 void *__dt__12TOChatSensorFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -34,8 +27,6 @@ void *__dt__12TOChatSensorFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern u32 chat_sensor_table;
 
 u32 TOChatSensor__ct(int arg0, void *parent, void *arg2) {
     s32 n;

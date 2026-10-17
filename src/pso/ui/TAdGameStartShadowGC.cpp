@@ -26,10 +26,6 @@ extern const f32 lbl_805DF48C;
 extern const f32 lbl_805DF490;
 extern const f32 lbl_805DF494;
 Shadow_80320CB8 *__ct__20TAdGameStartShadowGCFv(Shadow_80320CB8 *arg0, void *parent);
-}
-
-extern "C" {
-
 int get_state_flag__9TMainTaskFv(void*);
 
 void TAdGameStartShadowGC::render() { if (get_state_flag__9TMainTaskFv(this) != 1) { sub_80320B38(); } }

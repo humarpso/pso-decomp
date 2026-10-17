@@ -3,10 +3,6 @@ extern "C" {
 void create__22TChCrTagInformationStrFPvPv(void);
 extern s32 char_creation_tag_info_selected_index;
 void fn_80309890(void *o, s32 v);
-}
-
-extern "C" {
-
 void fn_80309890(void *o, s32 v) {
     if (v == char_creation_tag_info_selected_index || v < -1 || v >= 0xF) {
         return;

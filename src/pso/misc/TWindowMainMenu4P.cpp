@@ -13,10 +13,6 @@ extern "C" {
 s32 get_player_by_client_id(u32);
 extern RecoveredGlobal_802889A8_lbl_804D04F8 lbl_804D04F8;
 extern RecoveredGlobal_802889A8_lbl_804D0530 lbl_804D0530;
-}
-
-extern "C" {
-
 void *TWindowMainMenu4P__ct(void *arg0);
 void *__dt__17TWindowMainMenu4PFv(void *arg0, s16 arg1);
 void TWindowMainMenu__ct(void *);
@@ -64,7 +60,6 @@ void *__dt__17TWindowMainMenu4PFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__17TWindowMainMenu4P[];
 extern void *TWindowMainMenu4P__name;
 
 void *TWindowMainMenu4P__ct(void *arg0) {

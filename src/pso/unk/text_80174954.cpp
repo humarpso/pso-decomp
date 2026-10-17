@@ -34,10 +34,6 @@ extern s32 TORockCaveL01_class_name;
 extern u8 *cave_rock_resource_bundle;
 extern const f32 lbl_805DB970;
 u8 *TORockCaveL01__ct(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_80174954_lbl_804B3BA8_size[sizeof(RecoveredGlobal_80174954_lbl_804B3BA8) == 0x84 ? 1 : -1];
 typedef char RecoveredGlobal_80174954___vt__13TORockCaveL01_size[sizeof(RecoveredGlobal_80174954___vt__13TORockCaveL01) == 0x40 ? 1 : -1];
 u8 *TORockCaveL01__ct(u8 *arg0, s32 arg1) {

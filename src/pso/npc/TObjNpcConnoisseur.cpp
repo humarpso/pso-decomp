@@ -107,11 +107,6 @@ void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 extern s32 tekker_descriptor_selector_table[];
 extern u8 TLobby__data_805011D8[];
 extern s32 lbl_805D5748;
-extern u32 TObjNpcConnoisseur__instance;
-}
-
-extern "C" {
-
 void * TObjNpcExpertBase__create(void *arg0);
 void *__dt__18TObjNpcConnoisseurFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -120,16 +115,12 @@ void *TObjNpcExpertBase__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
-extern u32 TObjNpcConnoisseur__instance;
-
 void TObjNpcConnoisseur::destroy_instance() {
     if ((u32) TObjNpcConnoisseur__instance != 0U) {
         TLobby__sub_8001FE7C((void*)TObjNpcConnoisseur__instance, 1);
         TObjNpcConnoisseur__instance = 0U;
     }
 }
-
-extern s32 __vt__18TObjNpcConnoisseur[];
 
 void TObjNpcConnoisseur::load_section_motion() {
     void *o;

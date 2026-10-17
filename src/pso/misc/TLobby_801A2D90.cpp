@@ -25,10 +25,6 @@ extern u32 quest_mission_manager;
 Ctrl_801A2E00 *get_player_by_client_id(s32);
 s32 get_game_play_mode();
 void TLobby__sub_801A2E00(void);
-}
-
-extern "C" {
-
 void TLobby__sub_801A2DF4(void);
 void TLobby__sub_801A2DF8(void);
 void TLobby__sub_801A2DFC(void);

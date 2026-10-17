@@ -9,10 +9,6 @@ extern "C" {
 s32 fn_80077AA4(s32);
 extern RecoveredGlobal_801E0C08_meet_user_settings meet_user_settings;
 void fn_801E0C08(void);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_801E0C08_meet_user_settings_size[sizeof(RecoveredGlobal_801E0C08_meet_user_settings) == 0x64 ? 1 : -1];
 void fn_801E0C08(void) {
     fn_80077AA4((s32) &meet_user_settings.value);

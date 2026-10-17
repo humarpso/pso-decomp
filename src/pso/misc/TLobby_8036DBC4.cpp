@@ -13,13 +13,7 @@ extern u8 lbl_8047AD20[];
 extern u32 TBGMulti__textures;
 extern s32 split_screen_hud_animation_frame;
 void TBGMulti__ct(void);
-}
-
-extern "C" {
-
 s32 TLobby__sub_803DA16C(void*);
-
-extern u32 TBGMulti__textures;
 
 void TLobby::free_singleton_805D7018() {
     if ((u32) TBGMulti__textures != 0U) {

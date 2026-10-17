@@ -7,23 +7,8 @@ s32 select_action_palette__10TObjPlayerFi(s32, s32);
 u32 get_player_by_client_id(s16);
 s16 TWindowActionPalette__sub_801C1D7C(s32, s32, s32);
 s16 get_slot_type__20TWindowActionPaletteFlll(s32, s32, s32);
-s32 select_action_palette__10TObjPlayerFi(s32, s32);
-u32 get_player_by_client_id(s16);
-s16 TWindowActionPalette__sub_801C1D7C(s32, s32, s32);
-s16 get_slot_type__20TWindowActionPaletteFlll(s32, s32, s32);
 s32 is_type_valid__21TWindowSubCustomEquipFv(void *, u8);
 s32 get_saved_slot_for_index__21TWindowSubCustomEquipFlSc(void *, u8);
-}
-
-extern "C" {
-
-s32 select_action_palette__10TObjPlayerFi(s32, s32);
-u32 get_player_by_client_id(s16);
-s16 TWindowActionPalette__sub_801C1D7C(s32, s32, s32);
-s16 get_slot_type__20TWindowActionPaletteFlll(s32, s32, s32);
-s32 is_type_valid__21TWindowSubCustomEquipFv(void *, u8);
-s32 get_saved_slot_for_index__21TWindowSubCustomEquipFlSc(void *, u8);
-
 void TWindowSubCustomEquip::get_cursor_pos(void *arg1) {
     s32 temp_r31;
     s32 temp_r3;

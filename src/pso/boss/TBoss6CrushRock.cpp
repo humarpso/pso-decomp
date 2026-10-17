@@ -35,10 +35,6 @@ extern s32 tl_02;
 extern const f32 lbl_805E00D8;
 extern const f32 lbl_805E00DC;
 extern const f32 lbl_805E00E0;
-}
-
-extern "C" {
-
 extern s32 TBoss6PlotFalz__instance;
 
 #pragma push
@@ -113,9 +109,6 @@ s32 TBoss6PlotFalz::get_hp() {
     return TBoss6PlotFalz__instance;
 }
 
-}
-
-extern "C" {
 extern char lbl_804796A0[];
 s32 TBoss6CrushRock__name = (s32)lbl_804796A0;
 }

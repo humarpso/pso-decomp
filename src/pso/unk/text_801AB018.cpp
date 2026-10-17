@@ -37,10 +37,6 @@ extern const f32 lbl_805DC174;
 extern const f32 lbl_805DC178;
 extern const f32 lbl_805DC17C;
 extern const f32 lbl_805DC180;
-}
-
-extern "C" {
-
 #pragma push
 #pragma opt_common_subs off
 void TPhotonFarlla::run_task() {

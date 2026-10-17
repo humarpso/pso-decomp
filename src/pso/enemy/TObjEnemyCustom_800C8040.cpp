@@ -5,10 +5,6 @@
 extern "C" {
 u32 get_enemy_entity(u16);
 void handle_6x09_legacy_kill_enemy(s32 arg0);
-}
-
-extern "C" {
-
 void TLobby__sub_800C80D0(void);
 
     extern int enemy_custom_camera_active_flag;

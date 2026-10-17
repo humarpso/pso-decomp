@@ -19,10 +19,6 @@ extern const char lbl_80444F00[];
 extern const char lbl_80444F10[];
 extern const char lbl_80444F20[];
 extern const f32 lbl_805DBCF4;
-}
-
-extern "C" {
-
 void TUnk_804B6C24::debug_print_item_box_info() {
     Obj_80189E3C *self = (Obj_80189E3C *)this;
     Item_80189E3C item;

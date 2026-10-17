@@ -43,10 +43,6 @@ extern const f32 lbl_805DD7DC;
 extern const f32 lbl_805DD7E8;
 extern const f32 lbl_805DD7F8;
 void fn_802857C4(Win_802857C4 *arg0, Rect_802857C4 *arg1);
-}
-
-extern "C" {
-
 struct Stack_80284C04 {
     f32 sp8;
     f32 spC;
@@ -146,12 +142,8 @@ extern s32 TWindowSubSymbolChatParts__name;
 extern const f32 lbl_805DD7C8;
 extern const f32 lbl_805DD7CC;
 extern const f32 lbl_805DD7D0;
-extern const f32 lbl_805DD7D4;
-extern const f32 lbl_805DD7D8;
-extern const f32 lbl_805DD7DC;
 extern const f32 lbl_805DD7E0;
 extern const f32 lbl_805DD7E4;
-extern const f32 lbl_805DD7E8;
 extern const f32 lbl_805DD80C;
 
 #pragma push

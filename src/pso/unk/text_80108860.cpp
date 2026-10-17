@@ -18,10 +18,6 @@ struct VObj_18_7128e8 : VBase_18_7128e8 {
 extern "C" {
 u16 obj_getField1c(void *);
 s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
-}
-
-extern "C" {
-
 void TItemEffEquip::spawn_equip_particle_effect(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;

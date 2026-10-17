@@ -7,12 +7,8 @@ struct R_8007C48C { s32 f0; s32 tbl[55]; s32 fe0; s32 fe4; };
 
 extern "C" {
 s32 subtractive_rng_next(s32 *arg0);
-s32 subtractive_rng_next(s32 *arg0);
-s32 subtractive_rng_next(s32 *arg0);
 int bswap_32__FPUl(void *);
-s32 subtractive_rng_next(s32 *arg0);
 void subtractive_rng_xor_buffer(s32 *self, u32 *data, s32 len);
-void subtractive_rng_refill(Crypt_8007C438 *c);
 void subtractive_rng_refill(Crypt_8007C438 *c);
 void subtractive_rng_seed(R_8007C48C *arg0, s32 arg1);
 extern void* memcpy(void*,const void*,u32);
@@ -20,11 +16,7 @@ void subtractive_rng_unshuffle(void* stream,const u8* source,u8* destination,u32
 extern u8 save_block_shuffle_permutation[256], save_block_unshuffle_permutation[256];
 extern u16 TAdSinglePlyChrSelectGC__sub_8007C584(s32*,u16);
 void subtractive_rng_make_shuffle(s32* stream);
-extern void* memcpy(void*,const void*,u32);
 extern u8 save_block_shuffle_permutation[256], save_block_shuffle_permutation[256];
-}
-
-extern "C" {
 
 void TAdSinglePlyChrSelectGC::apply_rng_cipher(u32 *data, s32 len) {
     s32 i;

@@ -21,10 +21,6 @@ extern Pad_8026C9DC controller_input_state[];
 extern const f32 lbl_805DD294;
 extern const f32 lbl_805DD298;
 s32 handle_list_page_flip_input(Ctl_8026C9DC *arg0);
-}
-
-extern "C" {
-
 s32 handle_list_page_flip_input(Ctl_8026C9DC *arg0) {
     void *pad;
     s8 cur;

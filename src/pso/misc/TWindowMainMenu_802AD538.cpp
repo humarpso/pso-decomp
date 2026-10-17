@@ -17,10 +17,6 @@ struct Menu_802AE4DC {
 extern "C" {
 s32 play_sound_effect(s32, s32, s32, s32);
 void play_cursor_sound__15TWindowMainMenuFv(Menu_802AE4DC *m, int d);
-}
-
-extern "C" {
-
 struct Item_802ADADC { u8 pad[0x12]; u8 f12; };
 
 struct Obj_802ADADC { u8 pad[0x61]; s8 idx; u8 pad2[0x124 - 0x62]; Item_802ADADC *items[8]; };
@@ -115,7 +111,6 @@ void begin_render__20TWindowSubStatusDispFl(void);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 apply_choice__20TWindowChoiceSettingFllll(void *, int, int, int);
-s32 play_sound_effect(s32, s32, s32, s32);
 f32 TWindowSubComCard__sub_80244784(void *);
 s32 is_window_reveal_complete__13TUnk_804CE018Fv();
 s32 sub_80246948__13TUnk_804CE018Fv();
@@ -155,10 +150,6 @@ extern f32 lbl_805DE160;
 extern f32 lbl_805DE164;
 extern const f32 lbl_805DE1A4;
 extern f32 lbl_805DE1A8;
-
-extern "C" {
-int find_free_item_slot__15TWindowMainMenuFPv(Obj_802ADC04 *self);
-}
 
 void draw_item_labels__15TWindowMainMenuFv(Item_802AD538 *p, Win_802AD538 *w) {
     Rect_802AD538 r;

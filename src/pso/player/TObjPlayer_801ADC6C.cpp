@@ -59,10 +59,6 @@ extern Packet_801ADD10 photon_pilla_laser_packet;
 extern Vec_801ADD10 lbl_804C3A84[];
 extern const f32 lbl_805DC22C;
 void spawn_laser__12TPhotonPillaFPv(u8 *self);
-}
-
-extern "C" {
-
 void TObjPlayer__sub_801ADC6C(void);
 void TObjPlayer__sub_801ADC78(void);
 void TObjPlayer__sub_801ADC7C(void* a0);
@@ -74,7 +70,6 @@ s32 spawn_photon_blast_attachment_effects(void *, s32);
 s32 TPhotonMagicSquare__ct(s32, void *, s32, Vec3 *, s32, f32);
 s32 find_entity_by_id(u16);
 s32 VecCopy__FP3VecPC3Vec(Vec3 *, s32);
-s32 __nw__7TObjectFUl(s32);
 u32 obj_getField1c();
 
     extern int lbl_805D5D50;

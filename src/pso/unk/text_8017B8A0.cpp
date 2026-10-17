@@ -49,7 +49,6 @@ struct VObj_8017B9B0 : VBase_8017B9B0 {
 
 extern "C" {
 extern const f32 lbl_805DBA78;
-extern const f32 lbl_805DBA78;
 s32 check_value_equals__13TQuestColCtrlFPll(void *, int);
 VObj_8017B9B0 *find_entity_by_id();
 void init__11TOVS2Wall01Fi(void *);
@@ -58,10 +57,6 @@ s32 TOVS2Wall01__sub_8017CA50(void *);
 extern s32 TOVS2Wall01__class_name;
 extern Ent_8017B9B0 *TLobby__data_805D6140;
 void handle_6x86_hit_destructible_object(Pkt_8017B9B0 *arg0);
-}
-
-extern "C" {
-
 void TOVS2Wall01__sub_8017B9AC(void);
 
 f32 TOTrapAncient02R::receive_direct_attack(void *, void *, void *, s32, s32) {

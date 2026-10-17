@@ -38,10 +38,6 @@ u8 * TAdWarningBaseGC__ct(void *);
 extern s32 __vt__17TAdExNetConfirmGC[];
 extern s32 lbl_805D4200;
 u8 *TAdExNetConfirmGC__ct(u8 *arg0);
-}
-
-extern "C" {
-
 void *__dt__17TAdExNetConfirmGCFv(void *arg0, s16 arg1);
 void __dt__16TAdWarningBaseGCFv(void *, int);
 void __dl__7TObjectFPv(void *);
@@ -66,8 +62,6 @@ void TAdExNetConfirmGC::run_task() {
     struct VObj_8032C594_8032C504 *o = (struct VObj_8032C594_8032C504 *)this;
     o->m6();
 }
-
-extern s32 __vt__17TAdExNetConfirmGC[];
 
 void *__dt__17TAdExNetConfirmGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -163,11 +163,6 @@ s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 update_obstruction_fade(int);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
-s32 rotate_matrix_y(int, int);
-s32 rotate_matrix_x(int, int);
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -176,15 +171,9 @@ extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
-extern const f32 TObjEneRecon__data_805DF438;
-extern const f32 lbl_805DF43C;
 extern const f32 lbl_805DF440;
 extern const f32 lbl_805DF444;
 void render__12TObjEneReconFPv(u8 *arg0);
-}
-
-extern "C" {
-
 void TObjEneRecobox::draw_with_debug_info() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r0;

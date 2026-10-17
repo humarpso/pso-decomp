@@ -78,8 +78,6 @@ extern const f32 lbl_805DBD5C;
 u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern const f32 TContainerAncient01__data_805DBD10;
 extern const f32 TContainerAncient01__data_805DBD14;
-extern const f32 TContainerAncient01__data_805DBD10;
-extern const f32 TContainerAncient01__data_805DBD14;
 f32 xyz_distance_squared(void *, void *);
 void matrix_mult_vec(int, void *, void *);
 void project_world_to_screen(int, void *, void *, void *);
@@ -87,16 +85,10 @@ extern Vec_8018BEE4 lbl_804FF610;
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DBD60;
 extern const f32 lbl_805DBD68;
-}
-
-extern "C" {
-
 s32 TContainerAncient01__sub_8018BE90(void);
 void *__dt__19TContainerAncient01Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
-
-extern s32 __vt__19TContainerAncient01[];
 
 void *__dt__19TContainerAncient01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -154,8 +146,6 @@ s32 TContainerAncient01R::roll_physical_accuracy(void *, s32, f32) { return 1; }
     extern int TContainerAncient01__effect_id_table[];
 int TContainerAncient01::get_table_entry(int a0) {  return TContainerAncient01__effect_id_table[a0]; }
 
-extern s32 TContainerAncient01__bml_resource;
-
 s32 TContainerAncient01__sub_8018BE90(void) {
     return TContainerAncient01__bml_resource;
 }
@@ -205,12 +195,6 @@ s16 TObjContainerIdo::update_object_view_visibility(f32 farg0, f32 farg1) {
     return 1;
 }
 #pragma pop
-
-}
-
-#include "types.h"
-
-extern "C" {
 
 struct VOuter_8018C06C {
     char pad[0x18];
@@ -322,7 +306,6 @@ extern const Vec3_8018C18C lbl_80445110;
 extern const Vec3_8018C18C lbl_8044511C;
 extern u8 identity_matrix[];
 extern const f32 TObjContainerIdo__data_805DBD64;
-extern const f32 lbl_805DBD6C;
 extern const f32 lbl_805DBD74;
 extern const f32 lbl_805DBD78;
 extern const f32 lbl_805DBD7C;
@@ -435,13 +418,9 @@ void *TObjContainerIdo::create(void *arg0) {
 
 }
 
-#include "types.h"
-#include "pso/item/TObjContainerIdo.h"
 #include "pso/TParticleCtrl.h"
-#include "pso/item/TObjContainerJungEnemy.h"
 #include "pso/misc/TLobby.h"
 #include "pso/npc/TObjNpcEnemy.h"
-#include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct RecoveredGlobal_8019A9B8_lbl_80446184 {
@@ -485,7 +464,6 @@ struct Ido_8018C7BC { u8 pad[0xCC]; s32 ids[4]; };
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-extern u32 TObjContainerIdo__model_resource;
 extern u32 container_ido_texture_gvm_handle;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 * load_gvm_texture_file(s32);
@@ -500,21 +478,11 @@ extern const f32 lbl_805DBD98;
 extern u8 container_ido_collision_parts[];
 extern s32 __vt__16TObjContainerIdo[];
 extern s32 lbl_805D330C;
-extern const f32 TObjContainerIdo__data_805DBD64;
-extern const f32 lbl_805DBD7C;
-u8 *TObjContainerIdo__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt__16TObjContainerIdoFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
 s32 scale_matrix(s32, f32, f32, f32);
 void __dt__13TUnk_804949A8Fv(void *, int);
-
-extern u32 TObjContainerIdo__model_resource;
-extern u32 container_ido_texture_gvm_handle;
 
 void TObjContainerIdo::free_resources() {
     if ((u32) container_ido_texture_gvm_handle != 0U) {
@@ -527,8 +495,6 @@ void TObjContainerIdo::free_resources() {
         TObjContainerIdo__model_resource = 0U;
     }
 }
-
-extern s32 __vt__16TObjContainerIdo[];
 
 typedef char RecoveredGlobal_8019A880_lbl_804B8F70_size[sizeof(RecoveredGlobal_8019A880_lbl_804B8F70) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8019A880___vt__8TObjTank_size[sizeof(RecoveredGlobal_8019A880___vt__8TObjTank) == 0x3C ? 1 : -1];
@@ -642,10 +608,8 @@ struct Obj_8018C9F0 {
 void spawn_particle_effect_with_flags(void *, int, int);
 void construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
 void play_container_break_sound(void *);
-void *__nw__7TObjectFUl(int);
 extern Spawn_8018C9F0 lbl_80445398;
 extern Spawn_8018C9F0 lbl_804453E4;
-extern void *tl_05;
 
 #pragma push
 #pragma opt_propagation off

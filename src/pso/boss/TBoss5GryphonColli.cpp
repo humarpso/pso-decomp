@@ -3,24 +3,15 @@
 #include "pso/TBoss5GryphonColli.h"
 extern "C" {
 s32 gryphon_demo_collision_body_desc[11] = { 0, 0, 0, 0x3F800000, 0, 0, 0x8003, 0, 0, 0, 0 };
-}
-
-#include "types.h"
-
-extern "C" {
 
 void TBoss5GryphonDemo__sub_8006626C(void* p);
 
 int TBoss5GryphonDemo::get_state() { return ((int (*)(void*))TBoss5GryphonDemo__sub_8006626C)(*(void**)((char*)this + 0x1c)); }
 void TBoss5GryphonDemo::draw_linked_model(void* position, s32 yaw) { ((TBoss5GryphonDemo *)(((TBoss5GryphonColli*)this)->objects[0]))->draw_model(position, yaw); }
 
-}
-
-extern "C" {
 s32 TBoss5GryphonDemo__sub_800663DC(int, void *, int, void *, f32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 }
-#include "pso/TBoss5GryphonColli.h"
 
 extern "C" void queue_destruction__7TObjectFv(void*);
 
@@ -32,8 +23,6 @@ TBoss5GryphonColli::~TBoss5GryphonColli() {
         }
     }
 }
-
-#include "types.h"
 
 #include <stddef.h>
 struct Stack_800661E4 {
@@ -55,10 +44,6 @@ extern const f32 lbl_805D8ED0;
 extern const f32 lbl_805D8ED4;
 extern const f32 lbl_805D8ED8;
 u8 *TBoss5GryphonColli__ct(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_800661E4___vt__18TBoss5GryphonColli_size[sizeof(RecoveredGlobal_800661E4___vt__18TBoss5GryphonColli) == 0x18 ? 1 : -1];
 u8 *TBoss5GryphonColli__ct(u8 *arg0, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_800661E4, sp8) == 0x0) ? 1 : -1];

@@ -29,20 +29,11 @@ struct S_803D3A4C {
     s32 stride;
 };
 
-extern "C" {
 extern RecoveredGlobal_803D39F8_lbl_8047E0C8 lbl_8047E0C8;
 extern RecoveredCallback_4873a87e26d6 mfci_error_callback;
 extern s32 mfci_error_callback_context;
 extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047E0F8;
-extern s32 mfci_error_callback_context;
-extern RecoveredCallback_4873a87e26d6 mfci_error_callback;
-extern RecoveredGlobal_803D39F8_lbl_8047E0C8 lbl_8047E0C8;
-extern RecoveredCallback_4873a87e26d6 mfci_error_callback;
-extern s32 mfci_error_callback_context;
 extern G_803D3A4C lbl_8047E0E0;
-extern RecoveredCallback_4873a87e26d6 mfci_error_callback;
-extern s32 mfci_error_callback_context;
-}
 
 extern "C" {
 

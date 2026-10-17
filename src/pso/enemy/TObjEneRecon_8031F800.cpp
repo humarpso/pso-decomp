@@ -40,10 +40,6 @@ extern Vec_8031F8C4 lbl_804762E4;
 extern const f32 lbl_805DF450;
 extern const f32 lbl_805DF454;
 extern const f32 lbl_805DF458;
-}
-
-extern "C" {
-
 #pragma push
 #pragma opt_common_subs off
 void TObjEneRecobox::sub_8031F800() {

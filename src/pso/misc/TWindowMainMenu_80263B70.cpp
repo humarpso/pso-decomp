@@ -43,8 +43,6 @@ s32 TWindowMainMenu::close_active_submenu() {
 
 }
 
-#include "types.h"
-
 struct Elt80263D94_80263d94_80263B70 { s16 f0; s16 f2; s32 f4; };
 
 struct Obj_80263D7C { u8 pad[0x50]; s16 f50; u8 pad3[0x5c - 0x52]; s32 f5c; };
@@ -55,7 +53,6 @@ struct Obj_80263DBC { u8 pad[0x28]; E_80263DBC arr[4]; u8 pad2[0x50 - 0x48]; s16
 
 extern "C" {
 
-s32 get_player_by_client_id(s32);
 s32 populate_menu__15TWindowMainMenuFPvPv(void *, s32);
 void close_child_window__15TWindowMainMenuFv(void* p);
 
@@ -112,24 +109,12 @@ void TWindowMainMenu::update_selection_value() {
     }
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
 s32 get_main_phase();
 s32 is_quest_active();
 
 s32 get_short_mail_ctrl__6TLobbyFv();
 s32 is_trade_range_bit_set(s32);
 extern s32 local_client_id;
-}
-
-extern "C" {
-
-void close_child_window__15TWindowMainMenuFv(void* p);
-void destroy_submenu__15TWindowMainMenuFv(void* p);
-void update_keyboard_card_state__15TWindowMainMenuFv(void *arg0);
 u32 create_message_window__6TLobbyFllUls(u32, s32 *, s32, s32);
 
 u32 get_window_layout_position(s32);
@@ -239,7 +224,6 @@ void TWindowMainMenu::destroy_submenu() { if (*(unsigned int *)&this->m_20 != 0)
 
 }
 
-#include "types.h"
 #include "pso/misc/TWindowMainMenu1P.h"
 
 extern "C" {
@@ -264,12 +248,6 @@ s32 __ct__15TWindowSubTradeFP7TObjectPv(int, void *, int);
 s32 __ct__19TWindowSubTradeMainFP7TObjectPv(int, void *, int);
 s32 __ct__22TWindowSubTradeMessageFP7TObjectl(int, void *, int);
 s32 __ct__26TWindowSubInformationBoardFP7TObjectPv(int, void *, int);
-}
-
-extern "C" {
-
-void *__nw__7TObjectFUl(int);
-void destroy_submenu__15TWindowMainMenuFv(void *);
 void *construct_character_select_transition(void *, void *, void *);
 
 void TWindowMainMenu1P::create_char_select_slot() {

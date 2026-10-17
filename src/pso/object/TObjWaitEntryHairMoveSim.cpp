@@ -24,10 +24,6 @@ s32 queue_destruction__7TObjectFv(void *);
 void TObjWaitEntryHairMoveSim__sub_800FE3BC(int);
 extern void *hair_bone_rotation_descriptor[];
 #define hair_bone_rotation_descriptor (*(RecoveredGlobal_800FE364_lbl_8049DC78 *)&hair_bone_rotation_descriptor)
-}
-
-extern "C" {
-
 int is_move_done__24TObjWaitEntryHairMoveSimFv(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -80,8 +76,6 @@ T_OWEHMS_Exp* T_OWEHMS_Exp::destroy(s16 should_free) {
 #undef hair_bone_rotation_descriptor
 #pragma push
 
-#include "types.h"
-
 extern "C" {
 
 int __ct__7TObjectFP7TObject(void);
@@ -118,7 +112,6 @@ public:
     virtual void run_task();
 };
 
-#include "types.h"
 #include "pso/TObjTailsTailsMove.h"
 #include "pso/misc/TCharaMaking.h"
 
@@ -161,13 +154,6 @@ s32 TObjWaitEntryHairMoveSim__sub_800FE73C(s32 arg0);
 s32 is_level_in_table__24TObjWaitEntryHairMoveSimFPv(Obj_800FE698 *o);
 
 void create_hair_effects__24TObjWaitEntryHairMoveSimFPv(void *arg0);
-}
-
-extern "C" {
-
-void *__ct__24TObjWaitEntryHairMoveSimFv(void *arg0, void *arg1);
-
-s32 queue_destruction__7TObjectFv(void *);
 
 extern "C" void render__7TObjectFv();
 extern "C" void render_shadows__7TObjectFv();

@@ -10,11 +10,7 @@ extern "C" {
 f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 void direction_to_rotation_yx(u8 *arg0, s32 *arg1, s32 *arg2);
-f64 atan2_float(f32, f32);
-f32 newton_sqrtf(f32);
 void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
-f64 atan2_float(f32, f32);
-f32 newton_sqrtf(f32);
 void direction_to_rotation_xy(u8 *arg0, s32 *arg1, s32 *arg2);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -26,18 +22,12 @@ u16 angle_difference_abs(s32 a, s32 b);
 s16 angle_diff_s16(s32 a, s32 b);
 void getDateStamp__FP9DateStamp(DS_80142108 *);
 u16 approach_angle_limited(s32 arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void fn_80141EB4(void);
 void setSpriteInverseColorBlend(void);
 void vsub(void *arg0, void *arg1, void *arg2);
-f32 sin_table_lookup(s32);
 f32 vec_squared_length(void *);
 void normalize_vector(void *);
 int set_cached_blend_factor(int, int);
-f64 atan2_float(f32, f32);
 
 extern f32 lbl_805DB158;
 

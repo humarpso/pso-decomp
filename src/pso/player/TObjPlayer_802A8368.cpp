@@ -40,7 +40,6 @@ extern "C" {
 extern s32 indirect_effect_ctrl_table[];
 extern u8 indirect_effect_ctrl_count;
 void TObjPlayer__sub_802A841C(void);
-extern s32 indirect_effect_ctrl_table[];
 void TObjPlayer__sub_802A83F4(void);
 s32 DCFlushRange(s32, s32);
 void deform_indirect_texture_scroll(s32, s32, s32, s32, s32);
@@ -56,29 +55,13 @@ extern Tbl5_802A85F0 indirect_tev_scale_table;
 extern const f32 lbl_805DE020;
 extern const f32 lbl_805DE024;
 s32 setup_indirect_tev_alternate(s32 arg0, s32 unused, s32 sampler, s32 arg3);
-void GXSetIndTexMtx(s32, f32 (*)[3], s32);
-void Dolphin_GXSetIndTexCoordScale(s32, s32, s32);
-void Dolphin_GXSetIndTexOrder(s32, s32, s32);
-void GXSetNumIndStages(s32);
-void GXSetTevIndWarp(s32, s32, s32, s32, s32);
-void load_list_texture(s32, s32, s32, s32);
 extern Tbl5_802A8448 indirect_tev_ordinary_scale_table;
-extern const f32 lbl_805DE020;
-extern const f32 lbl_805DE024;
 s32 setup_indirect_tev_ordinary(s32 arg0, s32 sampler, s32 scale, s32 second);
-}
-
-extern "C" {
-
 void eff_indirect_update_and_flush(void *arg0);
 void update_eff_indirect(void *arg0);
-s32 DCFlushRange(s32, s32);
 s32 deform_indirect_texture_wave(s32, s32, s32, s32, s32, u8);
 s32 update_indirect_texture_wave(s32, s32, s32, s32, s32, u8);
-s32 get_indirect_source_pixels(u8);
 s8 find_indirect_effect_ctrl();
-
-extern s32 indirect_effect_ctrl_table[];
 
 void TObjPlayer::play_particle_at_active_slot(s32 arg0, s32 sampler, s32 arg2, s32 arg3, s32 unused, s32 second) {
     s32 indirect_effect_ctrl;

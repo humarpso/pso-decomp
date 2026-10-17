@@ -165,7 +165,6 @@ s32 TObjPlayer__sub_801BE2D0(void *);
 extern const f64 lbl_80446F38;
 extern const f64 lbl_80446F40;
 s32 calc_stat_threshold__10TObjPlayerFPv(void *arg0);
-f32 TObjPlayer__sub_800192C4(void *, int);
 void copy_data__6TLobbyFPvPv(void *, s32);
 u8 get_field_ec__5TItemFv(void *);
 u8 * activate_d04_slot__10TObjPlayerFv(void *);
@@ -181,21 +180,12 @@ s32 obj_isState2_324();
 s32 obj_getField1c(void * a0);
 void normalize__9TItemDataFv(TItemData*);
 extern u32 local_client_id;
-f32 TObjPlayer__sub_800192C4(void *, int);
 s16 get_attack_params_atp_min(void *);
 s16 get_attack_params_atp_max(void *);
-void copy_data__6TLobbyFPvPv(void *, s32);
-u8 get_field_ec__5TItemFv(void *);
 s32 is_item_equipped(int);
-s32 set_params__10TObjPlayerFPvPvPviPv(void *, void *, void *, int, int);
-u8 * get_slot_value__10TObjPlayerFPvi(void *, s32);
 u32 start_inventory_update__10TObjPlayerFi(s32, s32);
 u32 get_owner_if_alive__10TObjPlayerFv();
 s32 preview_unequip_stats__10TObjPlayerFv(Self_801B96BC *self, Out_801B96BC *out, s32 arg2);
-}
-
-extern "C" {
-
 struct Base_801AF3C4 { char pad[0x8]; };
 
 struct VObj_801AF3C4 : Base_801AF3C4 {
@@ -2080,14 +2070,12 @@ s32 reset_motion_fields__13TUnk_804806E8Fv(void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_locally_controlled__10TObjPlayerFPv(void * a0);
 s32 obj_getArrWord_254(void *, s32);
-s32 obj_isState2_324();
 s32 obj_getS16_32E(void *);
 s32 obj_getPtr2B0_20(void *);
 s32 obj_getS16_32C(void *);
 s32 obj_isState3_324(void *);
 s32 obj_copyVec2_0(s32 *, s32);
 s32 obj_testFlags30(s32, s32);
-s32 obj_getField1c(void * a0);
 void obj_clearFlags30(void *, u32);
 s32 obj_setFlags30(void *, s32);
 s32 get_current_floor();
@@ -2098,7 +2086,6 @@ s32 queue_destruction__7TObjectFv(u32);
 int test_flags_any(void*, int);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
 s32 get_shared_text_buffer();
-void copy_data__6TLobbyFPvPv(void *, s32);
 s32 fn_8002AE08(u16);
 s32 get_field_3e0__12TBoss3VoloptFv();
 s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
@@ -2126,7 +2113,6 @@ s32 copy_and_register_item_data__11TItemObjectFv();
 void TItem__sub_80101CF4(void *);
 s32 init_owner__5TItemFUs(void *, s32);
 int lookup_inventory_item__10TObjPlayerFv(void *);
-u8 get_field_ec__5TItemFv(void *);
 s32 set_facing__10TObjPlayerFs(void * a0 = 0, s16 a1 = 0);
 Equip_801B4CE4 * get_equip_field_d04__10TObjPlayerFv(void *, s32);
 s32 is_script_controlled__10TObjPlayerFv(TObjPlayer*);
@@ -2138,7 +2124,6 @@ s32 get_item_type_or_default__9TItemListFv(void *);
 void set_stack_count__24TShopEquipmentListWindowFSc(Item_801B8AF8 *, u8);
 u16 get_type_id__10TObjPlayerFv();
 s32 TObjPlayer__sub_80116620(void *, int);
-s32 advance_item_id_counter(int);
 s32 TObjPlayer__sub_8011E204(void *, s32);
 void set_state_flags__10TObjPlayerFUl(void *, u32);
 s32 is_flag_b0_4__10TObjPlayerFv();
@@ -2191,7 +2176,6 @@ s32 TObjPlayer__sub_801AFD8C(u8 *arg0);
 s8 get_class_index__10TObjPlayerFPv(u8 *arg0);
 s8 TObjPlayer__sub_801AFDBC(s8 arg0);
 u8 is_key_machine_ready__10TObjPlayerFv(void);
-u8 is_volopt_phase_final__10TObjPlayerFv(void);
 u8 is_lobby_floor_15__15TFontSmallLobbyFv(void);
 u8 is_on_current_floor__10TObjPlayerFi(s32 arg0);
 s32 TObjPlayer__sub_801AFFD0(u8 *arg0);
@@ -2537,10 +2521,8 @@ int reset_ring__10TObjPlayerFv(void*);
 int clear_target_lock__10TObjPlayerFv(void*);
 s32 update_target_lock__10TObjPlayerFii(s32, s32);
 s32 init_shield_params__10TObjPlayerFl(void *, void *, void *, int, int);
-s32 set_params__10TObjPlayerFPvPvPviPv(void *, void *, void *, int, int);
 s32 set_arrival_override_pos(u16, int, int);
 void create__15TPlyOnCountOverFPvPvPv(s16, s32, void (*)(void));
-u8 * get_slot_value__10TObjPlayerFPvi(void *, s32);
 s32 update_player_scale_camera(s32);
 s32 request_player_size_restore(void *);
 u32 create_lobby_marker__10TObjPlayerFsc(s32 a0 = 0, s32 a1 = 0);
@@ -2563,9 +2545,7 @@ s32 use_item__6TLobbyFlll(s32, void *, s32, s32, void *);
 void TLobby__sub_801D4C28(s32, Pl_801B0B88 *, s32, s32);
 u32 find_first_inventory_entry__10TObjPlayerFi(int, void *);
 u32 set_mode_and_refresh_object__10TObjPlayerFPvi(s32, s8 *);
-u32 start_inventory_update__10TObjPlayerFi(s32, s32);
 u8 * TPlyItem__ct(void *, void *);
-u32 get_owner_if_alive__10TObjPlayerFv();
 s32 set_field_1c__10TObjPlayerFl(void *, void *);
 u8 * __ct__9TItemListFv(void *, void *);
 s32 reinit_photon_blast_gauge(void *);
@@ -2594,7 +2574,6 @@ s32 get_ply_level_table_row(s32, s32);
 s32 get_class_attack_template(void *);
 s32 get_class_defense_template();
 void * get_class_stat_caps();
-s32 get_class_stat_entry__10TObjPlayerFPUc(void *);
 f32 get_tp_class_factor__10TObjPlayerFv();
 f32 get_class_technique_boost(s32, s32);
 void split_capped_value__10TObjPlayerFUcPUcPSc(u8, void *, void *);
@@ -2728,13 +2707,6 @@ extern s32 tl_07;
 extern "C" {
 s32 TObjPlayer__sub_801BE2C8(void *);
 void TObjPlayer__sub_801BE2C0(void *, s32);
-extern "C" {
-s32 get_item_field_6__10TObjPlayerFPv(Pl_801B0B88 *);
-}
-
-extern "C" {
-Equip_801B4CE4 * get_equip_field_d04__10TObjPlayerFv(void *, s32);
-}
 
 s32 TObjPlayer__sub_801AF290(void *p) {
     s32 v;
@@ -4245,9 +4217,6 @@ s32 is_flag30_8_set__10TObjPlayerFi(s32 arg0) {
     }
     return 0;
 }
-
-f32 TObjPlayer__sub_800192C4(void *, int);
-void reset_status_effect_row(void *);
 
 struct Pl_801B0B88;
 void TObjPlayer::cancel_status_effects() {

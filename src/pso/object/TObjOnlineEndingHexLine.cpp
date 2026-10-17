@@ -40,10 +40,6 @@ extern void *__vt__23TObjOnlineEndingHexLine[];
 extern s32 lbl_805D3FA4;
 extern const f32 lbl_805DE968;
 Hex_802E57E0 *__ct__23TObjOnlineEndingHexLineFv(Hex_802E57E0 *arg0, s32 arg1, Pos_802E57E0 *arg2);
-}
-
-extern "C" {
-
 V4_802E62A4 lbl_804E3A98[1] = {
     { 0x3E800000, 0x3F800000, 0x00000000, 0x41200000 },
 };
@@ -76,7 +72,6 @@ extern const f32 lbl_805DE958;
 extern const f32 lbl_805DE95C;
 extern const f32 lbl_805DE960;
 extern const f32 lbl_805DE964;
-extern const f32 lbl_805DE968;
 extern const f32 lbl_805DE96C;
 extern const f32 lbl_805DE970;
 extern const f32 lbl_805DE974;
@@ -105,11 +100,7 @@ s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
 void send_6x92__14TAdGameStartGCFPv(Pkt_802E5EFC *);
 void TAdGameStartGC__sub_802E6368(Pkt_802E5EFC *);
 void *__nw__7TObjectFUl(int);
-s32 __ct__7TObjectFP7TObject(void *, void *);
 
-void TObjOnlineEndingHexLine__sub_802E55A4(void *arg0, void *arg1);
-void render__23TObjOnlineEndingHexLineFv(u8 *arg0);
-void run_task__23TObjOnlineEndingHexLineFv(u8 *arg0);
 s32 calc_rotated_hex_point__23TObjOnlineEndingHexLineFPvPv(V2_802E55B8 *, P2_802E55B8 *);
 void update_line_params__23TObjOnlineEndingHexLineFv(void);
 u8 *TObjOnlineEndingHexMove__ct(u8 *arg0, void *arg1);

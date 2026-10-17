@@ -44,8 +44,6 @@ void TWindowInputNumber::update() {
     align_digits();
 }
 
-extern s32 number_input_decimal_place_values[];
-
 void TWindowInputNumber::update_value() {
     play_sound_effect((s32)(0x54100), (s32)(0), (s32)(0), (s32)(0));
     this->value = (s32) (this->value + number_input_decimal_place_values[(s8) *(u8 *)&this->selectedDigit]);

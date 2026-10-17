@@ -15,10 +15,6 @@ struct ByteBlock_348 { u8 bytes[0x348]; };
 
 extern "C" {
 u8 *fn_8013AAD4(u8 *arg0, u8 *arg1);
-}
-
-extern "C" {
-
 u8 *fn_8013AAD4(u8 *arg0, u8 *arg1) {
     u8 *temp_r4;
     u8 *temp_r4_2;

@@ -34,14 +34,9 @@ s32 run_task__9TMainTaskFv(void *);
 s32 func_803DCDFC__Fv();
 void run_game_frame(void);
 s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
-s32 render_tick__Fv();
 s32 delete_all_task_children__9TMainTaskFv(void *);
 extern RecoveredGlobal_8008C4F4_lbl_8048E7C0 ending_scene_callbacks;
 void fn_8008C4F4(void);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8008C534_main_task_size[sizeof(RecoveredGlobal_8008C534_main_task) == 0x34 ? 1 : -1];
 
 typedef char RecoveredGlobal_8008C4F4_lbl_8048E7C0_size[sizeof(RecoveredGlobal_8008C4F4_lbl_8048E7C0) == 0x68 ? 1 : -1];

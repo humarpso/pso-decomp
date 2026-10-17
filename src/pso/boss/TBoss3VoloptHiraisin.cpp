@@ -101,10 +101,6 @@ extern "C" {
 s32 advance_animation_playback(int);
 s32 play_sound_effect(int, void *, int, int, int);
 void fn_80040FDC(u8 *arg0);
-}
-
-extern "C" {
-
 void fn_80040FDC(u8 *arg0) {
     u8 *p;
     switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
@@ -221,12 +217,7 @@ void sub_8004118C__20TBoss3VoloptHiraisinFv(Obj_8004118C *self);
 #define advance_animation_playback ((void (*)(void *))advance_animation_playback)
 void TBoss3VoloptHiraisin__sub_80041314(void *arg0);
 void update_drop__20TBoss3VoloptHiraisinFPv(Hira_800411F0 *self);
-}
-
-extern "C" {
-
 void start_attack__20TBoss3VoloptHiraisinFPv(u8 *arg0);
-s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 sub_800C7860__15TObjEnemyCustomFv(void *, s32);
 
 void start_attack__20TBoss3VoloptHiraisinFPv(u8 *arg0) {
@@ -457,10 +448,6 @@ s32 submit_cursor_candidate(void *, int);
 s32 minimap_render_dot(void *, int, int, int);
 extern u8 *volopt_hiraisin_model_data;
 void run_task__20TBoss3VoloptHiraisinFv(u8 *arg0);
-}
-
-extern "C" {
-
 void destroy__20TBoss3VoloptHiraisinFv(void);
 
 void TBoss3VoloptHiraisin::dispatch_state() {
@@ -552,11 +539,8 @@ void destroy__20TBoss3VoloptHiraisinFv(void) {
 #define volopt_hiraisin_model_data (*(s32 **)&volopt_hiraisin_model_data)
 
 #include <stddef.h>
-#include "pso/boss/TBoss3VoloptHiraisin.h"
-#include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEneLappy.h"
 #include "pso/enemy/TObjEnePanarms.h"
-#include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 struct Stack_80041BB4 {
     s32 sp8;
@@ -742,8 +726,6 @@ s32 TObjEnemyCustom__ct(void *);
 extern s32 lbl_805D2738;
 u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, s32 arg1, s32 arg2);
 void TBoss3VoloptHiraisin__sub_80041D0C(O_80041D0C *self);
-void obj_setFlags30(void *, u32);
-void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 void init_collision_body_parts(void *, void *, s32);
 void init_params__20TBoss3VoloptHiraisinFv(Hira_800418C8 *self);
@@ -751,12 +733,7 @@ u8 *find_entity_by_id(u16);
 extern s8 volopt_target_slot_used[];
 extern u16 boss3_volopt_monitor_base_actor_id;
 void TBoss3VoloptHiraisin__sub_80041D3C(Hira_80041D3C *self);
-}
-
-extern "C" {
-
 void *__dt__20TBoss3VoloptHiraisinFv(void *arg0, s16 arg1);
-void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0);
 s32 init_from_model__11TBreakUpMdlFl(s32, s32);
 void free_collision_body_parts(void *);
 #define get_bml_model ((s32 (*)(s32, s32))get_bml_model)

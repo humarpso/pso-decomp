@@ -54,10 +54,6 @@ extern const f32 lbl_805DCE1C;
 extern const f32 lbl_805DCE20;
 extern const f32 lbl_805DCE24;
 extern const s32 number_input_decimal_place_values[];
-}
-
-extern "C" {
-
 void *__dt__18TWindowInputNumberFv(void *arg0, s16 arg1);
 void render__18TWindowInputNumberFv(u8 *arg0);
 s32 draw_arrows__18TWindowInputNumberFv(void *, int, int, int);
@@ -69,8 +65,6 @@ s32 forward_render__20TWindowSubStatusDispFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 is_player_input_active(int);
 extern const f32 lbl_805DCE54;
-
-extern const f32 lbl_805DCE18;
 
 void TWindowInputNumber::create(s32 arg1) {
     u32 var_r0;
@@ -218,8 +212,6 @@ void TWindowInputNumber::run_task() {
     ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24));
 }
 
-extern s32 __vt__18TWindowInputNumber[];
-
 void *__dt__18TWindowInputNumberFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TWindowInputNumber;
@@ -231,8 +223,6 @@ void *__dt__18TWindowInputNumberFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern s8 controller_input_state[];
 
 typedef char RecoveredGlobal_80256A60_lbl_804CF8EC_size[sizeof(RecoveredGlobal_80256A60_lbl_804CF8EC) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80256A60___vt__18TWindowInputNumber_size[sizeof(RecoveredGlobal_80256A60___vt__18TWindowInputNumber) == 0x18 ? 1 : -1];

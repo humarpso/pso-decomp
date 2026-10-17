@@ -1,6 +1,5 @@
 #include "types.h"
 #include "pso/TDuelEffectNumber.h"
-#include "pso/TDuelEffectNumber.h"
 
 struct RecoveredGlobal_80080438_lbl_80438DD4 {
     s32 value;
@@ -13,14 +12,9 @@ extern "C" {
 void TDuelEffectNumber__sub_800802F8(void *, void *, f32);
 extern RecoveredGlobal_80080438_lbl_80438DD4 duel_number_default_layout;
 extern Entry_800803D4 duel_number_pair_layout[];
-void TDuelEffectNumber__sub_800802F8(void *, void *, f32);
 }
-
-extern "C" {
 
 extern void *TDuelEffectNumber__class_name;
-
-}
 TDuelEffectNumber::TDuelEffectNumber(TObject *arg1, void *arg2, void *arg3) : TObject(arg1) {
     *(void **)((s8 *)this + 0x0) = TDuelEffectNumber__class_name;
     *(f32 *)((s8 *)this + 0x1C) = *(f32 *)((s8 *)arg2 + 0x0);

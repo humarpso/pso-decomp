@@ -27,11 +27,6 @@ s32 clamp_selection_to_valid_entry__20TShopArmorListWindowFv(void *);
 s32 save_cursor_selection__20TShopArmorListWindowFv();
 s32 reset_list__20TShopArmorListWindowFv(void *);
 s32 update_state__9TWindowDDFv(s32 *, s32, u16);
-extern s32 local_client_id;
-}
-
-extern "C" {
-
 void *__dt__22TWindowSubShortCutListFv(void *arg0, s16 arg1);
 void render__22TWindowSubShortCutListFv(u8 *arg0);
 s32 handle_list_page_flip_input(s32);
@@ -113,8 +108,6 @@ void TWindowSubShortCutList::run_task() {
         refresh_entries();
     }
 }
-
-extern s32 __vt__22TWindowSubShortCutList[];
 
 void *__dt__22TWindowSubShortCutListFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

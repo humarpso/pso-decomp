@@ -5,10 +5,6 @@ u8 * TWindowSubComCardList__ct(void *, s32);
 u8 *__nw__7TObjectFUl(s32);
 s32 fn_80266378(int);
 u8 *fn_802754EC(s32 arg0);
-}
-
-extern "C" {
-
 u8 *fn_802754EC(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;

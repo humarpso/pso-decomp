@@ -6,10 +6,6 @@ extern "C" {
 extern u8 *text_language_group_table;
 s32 get_item_description_text(s32 arg0);
 s32 get_text_collection(s32 arg0);
-}
-
-extern "C" {
-
 void TItemData__sub_8010EDA8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDC8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDD8(void *arg0, s32 arg1);

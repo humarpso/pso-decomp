@@ -72,8 +72,6 @@ s32 construct_facing_technique__10TObjPlayerFPviPvii(void *, void *, void *, s32
 extern s32 __vt__11TTecGiZonde[];
 extern s32 lbl_805D37C8;
 u8 *TTecGiZonde__ct(u8 *arg0, void *arg1, void *arg2, void *arg3, void * _w4);
-u32 find_entity_by_id(u16);
-s32 is_parents_unqueued__9TTecLukerFUl();
 f32 vector_length(Vec_80231C58 *);
 void normalize_vector(Vec_80231C58 *);
 void *__nw__7TObjectFUl(int);
@@ -84,14 +82,8 @@ extern const f32 lbl_805DC82C;
 extern const f32 lbl_805DC830;
 extern const f32 lbl_805DC834;
 extern const f32 lbl_805DC838;
-}
-
-extern "C" {
-
 void *__dt__11TTecGiZondeFv(void *arg0, s16 arg1);
-u32 find_entity_by_id(u16);
 void __dl__7TObjectFPv(void *);
-void *__nw__7TObjectFUl(int);
 s32 queue_destruction__7TObjectFv(void *);
 
 #define UNQ(e) ((s32 (*)(u32)) is_parents_unqueued__9TTecLukerFUl)(e)
@@ -288,8 +280,6 @@ void TTecGiZonde::create(void *arg1, void *arg2, void *arg3) {
         TTecGiZonde__ct((u8 *)(o), (void *)(this), (void *)(arg1), (void *)(arg2), (void *)(arg3));
     }
 }
-
-extern s32 __vt__11TTecGiZonde[];
 
 void *__dt__11TTecGiZondeFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

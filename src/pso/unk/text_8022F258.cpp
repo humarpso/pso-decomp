@@ -10,9 +10,6 @@ void updateDarkTechniqueCharge(TechniqueChargeEmitter* state);
 s32 __construct_array(void *, void *, int, int, int);
 extern s32 TItemEquipBase__sub_8010B73C[];
 void *fn_8022F258(void *self);
-}
-
-extern "C" {
 
 void *fn_8022F258(void *self) {
     __construct_array(self, (void *)TItemEquipBase__sub_8010B73C, 0, 8, 6);

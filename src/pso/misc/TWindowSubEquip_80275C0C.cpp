@@ -28,15 +28,9 @@ void *TWindowSubCustomEquip__ct(void *, s32);
 extern u8 lbl_8044F718[];
 extern s32 lbl_804D1160[];
 void *TWindowSubEquip__sub_80275CB0(void *arg0, void *arg1, s32 arg2);
-}
-
-extern "C" {
-
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-
-extern s32 lbl_804D1160[];
 
 void *TUnk_804D1160::destroy(s16 arg1) {
     if (this != NULL) {

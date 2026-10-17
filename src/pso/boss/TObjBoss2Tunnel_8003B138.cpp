@@ -37,8 +37,6 @@ void TObjBoss2Tunnel::create_particle_effect(s32 arg0, s32 arg1, f32 farg0) {
 
 #undef release_children__15TObjBoss2TunnelFPvf
 
-#include "types.h"
-
 struct Child_8003B250 { u8 pad0[0x44]; f32 f44; };
 struct Obj_8003B250 { u8 pad0[0x14]; Child_8003B250 *child; };
 struct Obj_8003B1FC { u8 pad[0x14]; Obj_8003B1FC *child; u8 pad2[0x3c - 0x18]; u8 xf[0xC]; };
@@ -46,10 +44,6 @@ struct Obj_8003B1FC { u8 pad[0x14]; Obj_8003B1FC *child; u8 pad2[0x3c - 0x18]; u
 extern "C" {
 s32 vec3_add_to(void *, void *);
 extern void *TObjBoss2Tunnel_parent_object;
-}
-
-extern "C" {
-
 void TObjBoss2Tunnel__sub_8003B1D8(void);
 
 extern const f32 lbl_805D85D8;
@@ -73,8 +67,6 @@ void release_children__15TObjBoss2TunnelFPvf(Obj_8003B250 *arg0, f32 farg0) {
 }
 
 }
-
-#include "types.h"
 
 struct S_8003C108 {
     u8 pad0[0x20];
@@ -200,9 +192,7 @@ void enable_fog__15TObjBoss2TunnelFPv(void *arg0);
 void TObjBoss2Tunnel__sub_801339EC(f32, f32, f32);
 extern u32 TObjBoss2Tunnel__global_flags;
 extern void *tl_05;
-extern const f32 lbl_805D85B0;
 void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o);
-}
 #define release_children__15TObjBoss2TunnelFPvf ((void (*)(u32, f32))release_children__15TObjBoss2TunnelFPvf)
 #define sub_8003C21C__15TObjBoss2TunnelFv ((s32 (*)(void *, void *))sub_8003C21C__15TObjBoss2TunnelFv)
 #define check_flag_or_state__15TObjBoss2TunnelFi ((s32 (*)(void *))check_flag_or_state__15TObjBoss2TunnelFi)
@@ -214,14 +204,10 @@ void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o);
 #define init__13TUnk_804835D8Fv ((void (*)(void *, void *))init__13TUnk_804835D8Fv)
 #define enable_fog__15TObjBoss2TunnelFv ((void (*)(void *))enable_fog__15TObjBoss2TunnelFv)
 #define enable_fog__15TObjBoss2TunnelFPv ((void (*)(void *))enable_fog__15TObjBoss2TunnelFPv)
-
-extern "C" {
-
 void TObjBoss2Tunnel__sub_8003B2B0(void);
 void *__ct__7TObjectFP7TObject(void *, void *);
 
 extern void *tl_07;
-extern void *TObjBoss2Tunnel_parent_object;
 
 void TObjBoss2Tunnel__sub_8003B2B0(void) {
     void *o;
@@ -650,17 +636,12 @@ void TObjBoss2Tunnel::update_particles() {
 #undef enable_fog__15TObjBoss2TunnelFv
 #undef enable_fog__15TObjBoss2TunnelFPv
 
-#include "types.h"
-
 struct S_8003C21C { u8 pad[0x1f]; u8 x; };
 
 struct O_8003C21C { u8 pad[0x5c]; s32 p; };
 
 extern "C" {
 s32 TObjBoss2Tunnel__sub_8003C1C8(void);
-}
-
-extern "C" {
 
 s32 TObjBoss2Tunnel__sub_8003C1C8(void) {
     return ((u32) TObjBoss2Tunnel__global_flags >> 0xDU) & 1;
@@ -687,8 +668,6 @@ u8 *TObjBoss2Tunnel::sub_8003C21C() {
 
 #define TObjBoss2Tunnel__global_flags (*(s32 *)&TObjBoss2Tunnel__global_flags)
 
-#include "types.h"
-
 struct Obj_8003C374 { u8 pad[0x28]; s32 start; s32 q[6]; };
 
 struct Obj_8003C2A0 { u8 pad[0x2c]; s32 q[6]; s32 idx; };
@@ -699,12 +678,9 @@ struct S_8003C2E4 {
     s32 t[6];
 };
 
-extern "C" {
 extern s32 boss2_tunnel_queue_table[];
 extern s32 lbl_804834D4[];
 extern s32 boss2_tunnel_shift_queue_table[];
-extern s32 lbl_804834D4[];
-}
 
 extern "C" {
 
@@ -765,9 +741,6 @@ void TObjBoss2Tunnel::init_queue_from_start() {
 #define __nw__7TObjectFUl ((void * (*)(int))__nw__7TObjectFUl)
 #define __ct__7TObjectFP7TObject ((void (*)(void *))__ct__7TObjectFP7TObject)
 
-#include "types.h"
-#include "pso/boss/TObjBoss2Tunnel.h"
-
 struct Tunnel_8003C45C {
     s32 name;
     u8 pad4[0x18 - 4];
@@ -816,17 +789,11 @@ extern u8 lbl_80483578[];
 extern s32 __vt__15TObjBoss2Tunnel[];
 extern s32 lbl_805D2708;
 void *TObjBoss2Tunnel__ct(void *arg0, void *arg1);
-}
-
-extern "C" {
-
 void TObjBoss2Tunnel__sub_8003C648(void);
 void *__dt__15TObjBoss2TunnelFv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804835D8Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-
-extern s32 __vt__15TObjBoss2Tunnel[];
 
 void *__dt__15TObjBoss2TunnelFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -934,9 +901,6 @@ void *TObjBoss2Tunnel::create() {
     return o;
 }
 
-extern s32 *lbl_805D4C04;
-extern s32 *lbl_805D4C08;
-
 void TObjBoss2Tunnel::clear_target_flags() {
     s32 *temp_r3;
     s32 *temp_r3_2;
@@ -982,8 +946,6 @@ void *__dt__13TUnk_804835D8Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern s32 lbl_804835D8[];
 
 void *TUnk_804835D8::init() {
     __ct__7TObjectFP7TObject(this);

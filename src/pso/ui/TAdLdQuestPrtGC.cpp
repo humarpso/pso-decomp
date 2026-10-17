@@ -50,10 +50,6 @@ void queue_destruction__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
 extern u8 __vt__15TAdLdQuestPrtGC[];
 Obj_80322E90 *__dt__15TAdLdQuestPrtGCFv(Obj_80322E90 *arg0, s16 arg1);
-}
-
-extern "C" {
-
 void TAdLdQuestPrtGC::render() {  }
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 

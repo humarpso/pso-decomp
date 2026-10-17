@@ -15,21 +15,15 @@ s32 TItemList__sub_801D5868(Arr_801D5868 *, s32);
 void TItemList__sub_801D59DC(void* p);
 void TItemList__sub_801D59A0(u8 *arg0, s32 arg1);
 Ent_801D5854 *TItemList__sub_801D5854(Obj_801D5854 *p, s32 i);
-}
-
-extern "C" {
-
 void TItemList__sub_801D5838(void* p);
 int TItemList__sub_801D5844(void* p);
 void TItemList__sub_801D5884(void* p, u8 v);
-void TItemList__sub_801D58C8(void* p);
 u16 TItemList__sub_801D58DC(void* p);
 void TItemList__sub_801D591C(u8 *arg0);
 s32 TItemList__sub_801D598C(Obj_801D598C *arg0, s32 arg1);
 void *__ct__9TItemListFv(void *arg0);
 int copy_position__9TItemListFPv(void* p);
 void* get_ptr_0x44__9TItemListFPv(void* p);
-void TItemList__sub_801D59DC(void* p);
 int VecCopy__FP3VecPC3Vec(void*);
 void __ct__7TObjectFP7TObject(void *);
 int copy_item_data__6TLobbyFPv(void*);

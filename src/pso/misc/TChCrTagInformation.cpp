@@ -11,10 +11,6 @@ extern "C" {
 s32 get_char_select_class_id();
 void fn_80309890(void *, s32);
 extern const f32 lbl_805DDE1C;
-}
-
-extern "C" {
-
 int TChCrTagInformation__vt4(void);
 void *__dt__19TChCrTagInformationFv(void *arg0, s16 arg1);
 int update_fade__8TChCrTagFPv(void*);

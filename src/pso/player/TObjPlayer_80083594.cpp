@@ -28,32 +28,13 @@ extern s32 current_matrix;
 extern const f32 lbl_805D93DC;
 extern const f32 lbl_805D940C;
 extern const f32 lbl_805D9414;
-f64 calc_camera_fov_degrees();
-s32 is_split_screen();
-s32 TCameraCtrl__sub_800689F4();
-s32 calc_projection_screen_offset(void *, void *);
-s32 PSMTXConcat(void *, void *, void *);
-s32 C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
-s32 push_matrix();
-s32 pop_matrix();
-s32 load_current_pos_matrix(int);
-s32 load_current_tex_matrix(int);
-extern const f64 lbl_80439358;
-extern s32 current_matrix;
-extern const f32 lbl_805D93DC;
-extern const f32 lbl_805D9414;
 void load_projected_texture_matrix(f32 farg0);
-}
-
-extern "C" {
-
 void setup_particle_tev(s32 arg0);
 s32 GXSetTevOp(s32, s32);
 s32 GXSetTevOrder(s32, s32, s32, s32);
 s32 set_ginja_post_texgen_count(s32);
 s32 set_ginja_post_tev_stage_count(s32);
 s32 load_list_texture(s32, s32, s32, s32);
-s32 is_split_screen();
 
 extern s32 shared_capture_texture_list[];
 extern s32 model_render_flags;
@@ -70,9 +51,6 @@ void TObjPlayer::setup_tev_stage() {
         set_ginja_post_texgen_count(1);
     }
 }
-
-extern s32 shared_capture_texture_list[];
-extern s32 model_render_flags;
 
 void setup_particle_tev(s32 arg0) {
     if (is_split_screen() == 0) {

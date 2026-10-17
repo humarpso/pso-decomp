@@ -3,10 +3,6 @@
 extern "C" {
 void fn_8011085C(u8 *arg0, s32 arg1);
 void fn_801108C8(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 void fn_8011085C(u8 *arg0, s32 arg1) {
     s32 (*temp_r12)(s32);
     s32 temp_r5;

@@ -23,10 +23,6 @@ extern "C" {
 extern RecoveredGlobal_80207E88_lbl_804C8FC0 lbl_804C8FC0;
 extern RecoveredGlobal_80207E88_lbl_804C9270 floor_scene_table;
 s32 get_floor_scene_table(s32 arg0);
-}
-
-extern "C" {
-
 void reset_story_select__6TLobbyFv(void);
 int TLobby__sub_80207E24(void* p);
 void TLobby__sub_80207E44(void);
@@ -66,10 +62,6 @@ s32 get_floor_scene_table(s32 arg0) {
     return *(s32 *)((s8 *)((u8 *)(&lbl_804C8FC0.value) + (arg0 * 8)) + 0);
 }
 
-}
-
-extern "C" {
-
 int TLobby__sub_80207F10(void* p);
 
 int TLobby::reset_story_select(void* p) { return ((int (*)(void*))reset_story_select__6TLobbyFv)(p); }
@@ -83,15 +75,10 @@ extern "C" {
 s32 get_current_floor();
 void *memset(void *, int, unsigned long);
 int TLobby__sub_80207F30(R_80207F30 *arg0);
-}
-
-extern "C" {
-
 void bswap_enemy_set_row(void *arg0);
 void bswap_enemy_set_row_fields(void *arg0);
 void swap_object_row_endian(void *arg0);
 void bswap_object_row_fields(void *arg0);
-int TLobby__sub_80207F10(void* p);
 typedef FloorLifecycleEntry E_80207F80;
 typedef FloorLifecycleCallback Fn_80208020;
 typedef FloorLifecycleEntry E_80208020;
@@ -194,10 +181,6 @@ void bswap_object_row_fields(void *arg0) {
     ((s32 (*)(s32))bswap_32__FPUl)((s32)((void *)((char *)arg0 + 56)));
 }
 
-}
-
-extern "C" {
-
 s32 get_main_phase();
 s32 is_split_screen();
 
@@ -229,12 +212,6 @@ s32 TLobby::get_drop_item_mode() {
     }
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 s32 *load_relocatable_file(s32, u32);
 
 extern s32 forest_rel_filename_table[];
@@ -264,18 +241,9 @@ void TLobby::update_drop_item() {
     }
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void TLobby__sub_802083C0(void);
 
-extern s32 TLobby__data_805D6068;
-extern s32 lbl_805D606C;
 #define lbl_805D6070 (*(s32 *)&lbl_805D6070)
-extern u32 forest_rel_work_buffer;
 
 void TLobby__sub_802083C0(void) {
     if ((u32) forest_rel_work_buffer != 0U) {
@@ -290,8 +258,6 @@ void TLobby__sub_802083C0(void) {
 }
 
 #undef lbl_805D6070
-
-#include "types.h"
 
 struct Pkt_802084B0 { u8 hdr[2]; u16 a; s32 b; s32 c; s32 d; };
 
@@ -309,28 +275,14 @@ struct Pkt_8020851C {
 };
 
 extern "C" {
-s32 get_current_floor();
 void set_destroy_event__6TLobbyFi(int a0);
 extern s32 local_client_id;
 extern s32 wave_event_trigger_count;
 void send_6x67_wave_trigger_event(s32 arg0);
-s32 get_current_floor();
 extern s32 wave_event_first_switch_set;
 void send_6x05_wave_set_switch(s16 arg0);
-s32 get_current_floor();
 void send_6x05_wave_clear_switch(s32 arg0);
-}
-
-extern "C" {
-
-s32 *load_relocatable_file(s32, u32);
 int link_matching_objects__6TLobbyFss(void);
-
-extern s32 forest_rel_filename_table[];
-extern s32 TLobby__data_805D6068;
-extern s32 lbl_805D606C;
-extern s32 *lbl_805D6070;
-extern u32 forest_rel_work_buffer;
 
 void TLobby::load_item_data() {
     s32 *temp_r3_2;
@@ -398,12 +350,6 @@ void send_6x05_wave_set_switch(s16 arg0) {
     ((TLobby *)(&pkt))->finalize_and_send_60();
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 int link_matching_objects__6TLobbyFPv(void* p);
 int spawn_objects_at_pos__6TLobbyFPv(void* p);
 void request_wave_event_stop(void);
@@ -414,7 +360,6 @@ int spawn_objects_at_pos__6TLobbyFss(void*);
 int link_matching_objects__6TLobbyFPv(void* p) { return ((int (*)(void *))link_matching_objects__6TLobbyFss)(p); }
 int spawn_objects_at_pos__6TLobbyFPv(void* p) { return spawn_objects_at_pos__6TLobbyFss(p); }
 
-    extern int wave_event_stop_requested;
 void request_wave_event_stop(void) { wave_event_stop_requested = 1; }
 
 void TLobby__sub_80208648(void) {  }
@@ -444,12 +389,6 @@ void TLobby::dispatch_opcode_two_u16(u8 arg0) {
     f(a, ((s32 (*)(void))read_stream_u16)());
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 typedef struct Ent_ {
     s32 a;
     s32 (*fn)(s32);
@@ -464,13 +403,7 @@ void TLobby::dispatch_stream_command(u8 arg0) {
     temp_r31(((s32 (*)(void *))read_stream_u16)(temp_r3));
 }
 
-}
-
 #undef wave_event_action_table
-
-#include "types.h"
-
-extern "C" {
 
 #define wave_event_action_table (*(u8 (*)[1])&wave_event_action_table)
 
@@ -481,15 +414,8 @@ void TLobby::invoke_command(s32 arg0) {
     (*(s32 (**)(void *))((s8 *)temp_r3 + 4))(temp_r3);
 }
 
-}
-
 #undef wave_event_action_table
 
-#include "types.h"
-
-extern "C" {
-
-s32 bswap_32__FPUl(s32 *, s32);
 s32 memcpy(s32 *, s32, s32);
 extern s32 wave_event_stream_base;
 extern s32 wave_event_stream_cursor;
@@ -505,17 +431,6 @@ s32 read_be_u32(void) {
     return sp8;
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
-s32 bswap_16__FPUs(u16 *, s32);
-
-extern s32 wave_event_stream_base;
-extern s32 wave_event_stream_cursor;
-
 u16 read_stream_u16(void) {
     u16 sp8;
     s32 temp_r4;
@@ -527,19 +442,11 @@ u16 read_stream_u16(void) {
     return sp8;
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 unsigned char read_stream_u8(void);
 typedef void (*Fn_8020881C)();
 struct H_8020881C { Fn_8020881C fn; u32 b; };
 #define wave_event_action_table (*(H_8020881C (*)[1])&wave_event_action_table)
 #define wave_event_stop_requested (*(s32 *)&wave_event_stop_requested)
-extern s32 wave_event_trigger_count;
-extern s32 wave_event_first_switch_set;
 s32 run_wave_event_actions(void);
 
 #define wave_event_stream_base (*(unsigned char * *)&wave_event_stream_base)
@@ -562,8 +469,6 @@ s32 run_wave_event_actions(void) {
 #undef wave_event_stream_base
 #undef wave_event_stream_cursor
 #undef wave_event_stop_requested
-
-#include "types.h"
 
 struct RecoveredGlobal_80208D28_lbl_805139F8 {
     s32 value;
@@ -597,30 +502,19 @@ struct Rec_802089B0 { u8 pad[4]; s16 f4; u8 pad2[0xE]; };
 struct Grp_802089B0 { u8 pad[8]; s32 count; s32 pad3; Rec_802089B0 recs[1]; };
 
 extern "C" {
-s32 get_current_floor();
 extern Fn_80208BD8 floor_event_create_table[];
 void activate_triggered_floor_events(void);
 s32 activate_first_floor_event(s32 idx, s32 id);
 u8 * heap_alloc__5THeapFUl(void *, s32);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lobby_slot_ptr_table;
 extern u8 *area_event_set_heap;
-extern RecoveredGlobal_80208D28_lbl_805139F8 lobby_slot_ptr_table;
-extern RecoveredGlobal_80208D28_lbl_805139F8 lobby_slot_ptr_table;
 s32 set_floor_event_flags(s32 arg0, s32 arg1, s32 arg2);
 #define BS16 ((void (*)(void *))bswap_16__FPUs)
 #define BS32 ((void (*)(void *))bswap_32__FPUl)
-extern RecoveredGlobal_80208D28_lbl_805139F8 lobby_slot_ptr_table;
 void bswap_floor_event_set(s32 idx);
 #define BS16 ((void (*)(void *))bswap_16__FPUs)
-extern RecoveredGlobal_80208D28_lbl_805139F8 lobby_slot_ptr_table;
 #define BS16 ((void (*)(void *))bswap_16__FPUs)
-extern RecoveredGlobal_80208D28_lbl_805139F8 lobby_slot_ptr_table;
-extern RecoveredGlobal_80208D28_lbl_805139F8 lobby_slot_ptr_table;
 void clear_floor_event_flags(void);
-}
-
-extern "C" {
-
 void TLobby__sub_80208884(void* a0);
 void create_empty_floor_event(void);
 s32 show_partner_chatter_for_key(s16);
@@ -842,7 +736,6 @@ u8 *TLobby::alloc_heap_slot(s32 arg0, s32 arg1) {
 #undef wave_event_stream_base
 #undef wave_event_stream_cursor
 
-#include "types.h"
 #pragma fp_contract on
 
 struct Ent_80208E8C { u8 pad[4]; void *data; u8 pad2[4]; };
@@ -867,10 +760,6 @@ s32 load_area_event_set(s32 floor, s32 area, s32 terrain, s32 entities);
 #define lobby_slot_ptr_table (*(s32 (*)[1])&lobby_slot_ptr_table)
 #define area_event_set_heap (*(s32 *)&area_event_set_heap)
 void free_team_buffers__6TLobbyFv(void);
-}
-
-extern "C" {
-
 #define lobby_slot_ptr_table (*(s32 (*)[1])&lobby_slot_ptr_table)
 #define area_event_set_heap (*(s32 *)&area_event_set_heap)
 
@@ -935,19 +824,11 @@ s32 load_area_event_set(s32 floor, s32 area, s32 terrain, s32 entities) {
 #undef area_event_set_heap
 #undef lobby_slot_ptr_table
 
-#include "types.h"
-
 struct Stack_80208F7C {
     s32 sp8;
     s32 spC;
     s32 sp10;
 };
-
-extern "C" {
-s32 is_area_transfer_pending();
-s32 get_floor_map_selection(int, void *);
-
-}
 
 extern "C" {
 
@@ -971,12 +852,6 @@ block_6:
     goto loop_1;
 }
 
-}
-
-#include "types.h"
-#include "pso/misc/TLobby.h"
-
-extern "C" {
 u8 * __ct__5THeapFUli(void *, s32, s32);
 u8 *__nw__5THeapFUl(s32);
 #define area_event_set_heap (*(int *)&area_event_set_heap)
@@ -984,12 +859,7 @@ void close_gsl_archive();
 void open_gsl_archive(void *);
 extern u8 lbl_8044BAD0[];
 #define lobby_slot_ptr_table (*(s32 (*)[1])&lobby_slot_ptr_table)
-extern int set_event_destroy_id;
 extern s32 lbl_805D6098;
-}
-
-extern "C" {
-
 int __dt__5THeapFv(void*, void*);
 
 int TLobby::get_team_state(void* p) { return ((int (*)(void *))free_team_buffers__6TLobbyFv)(p); }
@@ -1012,8 +882,6 @@ void TLobby::load_set_event_gsl() {
 }
 
 void TLobby::free_heap() { __dt__5THeapFv((void*)(area_event_set_heap), (void*)1); area_event_set_heap = 0; }
-
-    extern int set_event_destroy_id;
 
 void TLobby::create_heap_8000() {
     u8 *temp_r3;

@@ -57,23 +57,17 @@ extern const f32 lbl_805DC84C;
 extern const f32 lbl_805DC850;
 extern const f32 lbl_805DC854;
 Obj_80232B7C *construct_grants_flash(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C *pos, f32 scale);
-void queue_destruction__7TObjectFv(void *);
 s32 get_bml_model(s32, u32);
 s32 attach_particle_model(s32, s32, s32, int, int, f32);
 s32 spawn_particle_effect(void *, s32);
 u8 *find_entity_by_id(u16);
 void *__nw__7TObjectFUl(u32);
-Obj_80232B7C *construct_grants_flash(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C *pos, f32 scale);
 s32 construct_timed_sound_voice(void *, void *, int, int, int, void *);
 extern SGrp_80232C50 technique_effect_entry_table[];
 extern void *tl_07;
 extern s32 technique_effect_bml;
 extern s32 lbl_805D63B0;
-extern const f32 lbl_805DC854;
 void grants_presentation_update(Ctl_80232C50 *arg0);
-}
-
-extern "C" {
 
 Obj_80232B7C *construct_grants_flash(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C *pos, f32 scale) {
     __ct__7TObjectFP7TObject(self, parent);

@@ -6,12 +6,6 @@ extern "C" {
 extern const f32 lbl_805D9958;
 s32 calc_recoil_offsets__13TUnk_80490470Fv(f32);
 extern const f32 lbl_805D995C;
-s32 calc_recoil_offsets__13TUnk_80490470Fv(f32);
-extern const f32 lbl_805D9958;
-}
-
-extern "C" {
-
 void TObjPlayer__sub_800A0338(void);
 int set_chunk_blend(int);
 

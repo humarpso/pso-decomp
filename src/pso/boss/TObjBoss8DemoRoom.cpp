@@ -25,8 +25,6 @@ void TObjBoss8DemoRoom::render() {
     pop_matrix();
 }
 
-extern void *TObjBoss8DemoRoom__shared_resource_object;
-
 void run_task__17TObjBoss8DemoRoomFv(s32 arg0) {
     TObjPlayer__sub_8023DEE0(*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)TObjBoss8DemoRoom__shared_resource_object + 0x42C)) + 8)) + 0x2C)) + 4)) + 4), 0, 1, 3);
     TObjPlayer__sub_8023DEE0(*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)TObjBoss8DemoRoom__shared_resource_object + 0x42C)) + 8)) + 0x2C)) + 0x30)) + 4)) + 4), 0, 0x14, 1);

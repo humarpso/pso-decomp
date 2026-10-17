@@ -70,26 +70,18 @@ extern const f32 lbl_805D9230;
 void TObjBoss2Tunnel__sub_8007CAE8(u32 arg0);
 extern s32 TObjBoss2Tunnel__data_80438A08[];
 void poll_load_status__15TAdPlayerLoadGCFl(s32 a, void *b);
-s32 TAdPlayerLoadGC__sub_801E1538(void *, int);
 s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, s32);
-extern s32 TObjBoss2Tunnel__snapshot_buffer;
 s32 memcard_check_snapshot(s32, s32);
 void TAdPlayerLoadGC__sub_801E14E4(void *);
 void TAdPlayerLoadGC__sub_801E14E8(void *, s32);
 void build_save_file_image__15TAdPlayerLoadGCFPvPv(s32, void *, void *);
-s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, s32);
 s32 load_player__23TAdSinglePlyChrSelectGCFllll(s32, void *, s32, s32);
 char *strcpy(char *, const char *);
-s32 memcpy(int, void *, int);
 void *memset(void *, int, u32);
-extern s32 TObjBoss2Tunnel__data_80438A08[];
 extern char lbl_80438A28[];
 extern u8 lbl_80438A4C[];
 extern char lbl_804C8974[];
-extern s32 lbl_805D49B4;
-extern s16 TObjBoss2Tunnel__snapshot_state;
 extern s32 *boss2_tunnel_snapshot_buffer;
-extern s32 TObjBoss2Tunnel__snapshot_buffer;
 s32 get_main_phase(void);
 void draw_snapshot_capture_overlay(void);
 VObj_8007C5C0 *create__8TDLGraphFv(void);
@@ -114,35 +106,13 @@ extern const f32 TObjBoss2Tunnel__data_805D9210;
 extern const f32 lbl_805D9214;
 extern const f32 lbl_805D9218;
 extern const f32 lbl_805D921C;
-s32 get_main_phase(void);
-s32 get_localized_text_entry(s32, s32);
-void process_deferred_player_setup__6TLobbyFv(void);
-void reset_state_flags__6TLobbyFv(void);
-s8 func_801A5E54__Fv(void);
-void controller_stuff__Fv(void);
-void render_tick__Fv(void);
-void render__9TMainTaskFv(void *);
-void func_803DCDFC__Fv(void);
 extern f32 lbl_80438A68[];
 extern f32 lbl_80438A70[];
 extern f32 lbl_8048DF44[];
-extern u32 camera_ctrl_instance;
 extern s8 lbl_805D4E98;
 extern f32 lbl_805D4E9C;
 extern s8 boss2_tunnel_message_shown_flag;
-extern const f32 TObjBoss2Tunnel__data_805D9210;
-extern const f32 lbl_805D9214;
-extern const f32 lbl_805D9218;
-extern const f32 lbl_805D921C;
 extern const f32 lbl_805D9220;
-}
-
-extern "C" {
-
-s32 memcard_check_snapshot(s32, s32);
-extern s32 TObjBoss2Tunnel__data_80438A08[];
-extern s16 TObjBoss2Tunnel__snapshot_state;
-extern s32 TObjBoss2Tunnel__snapshot_buffer;
 
 s32 TObjBoss2Tunnel::run_confirm_message_loop() {
     s32 result;

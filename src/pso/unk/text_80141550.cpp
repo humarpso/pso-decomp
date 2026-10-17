@@ -17,10 +17,6 @@ extern s32 model_render_flags;
 extern const f32 lbl_805DB150;
 extern const f32 lbl_805DB154;
 void set_shadow_material_state(void);
-}
-
-extern "C" {
-
 int GXSetCullMode(void*);
 
 int TObjFish::set_cull_none() { return GXSetCullMode((void*)(0)); }
@@ -60,9 +56,6 @@ void TObjPlayer::init_default_config() {
 }
 
 }
-
-#include "types.h"
-#include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_80141860_lbl_8050C000 {
     s32 value;
@@ -115,18 +108,9 @@ s32 set_ginja_draw_list_mask(int);
 void func_80141618__Fv(void);
 void restore_depth_buffer_settings__Fv(void);
 void save_depth_buffer_settings__Fv(void);
-void set_material_alpha_compare_reference(s32);
-extern s32 model_render_flags;
 void restore_default_scene(void);
-s32 set_ginja_draw_list_mask(int);
 void set_depth_buffer_settings_id__FUl(s32 arg0);
-extern s32 model_render_flags;
-void set_material_alpha_compare_reference(s32);
 void set_scene_override(u8 scene);
-}
-
-extern "C" {
-
 void set_ginja_draw_end_callback(void *);
 void restore_saved_depth_alpha_state();
 void TObjPlayer__sub_801416AC(void);

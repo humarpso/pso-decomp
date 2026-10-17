@@ -112,10 +112,6 @@ extern u8 *lbl_805D4FE0;
 extern u8 *lbl_805D4FDC;
 void TLobby__sub_8001FE7C(void *, int);
 void fn_8009F410(void);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_803626A8_lbl_80479FBC_size[sizeof(RecoveredGlobal_803626A8_lbl_80479FBC) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_803626A8_lbl_8058D490_size[sizeof(RecoveredGlobal_803626A8_lbl_8058D490) == 0x30 ? 1 : -1];
 typedef char RecoveredGlobal_80362B48___vt__14TObjEneEpsilon_size[sizeof(RecoveredGlobal_80362B48___vt__14TObjEneEpsilon) == 0x1A4 ? 1 : -1];

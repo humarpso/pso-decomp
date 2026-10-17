@@ -6,10 +6,6 @@ void GXSetTevSwapMode(int, int, int);
 void GXSetTevSwapModeTable(int, int, int, int, int);
 extern Tbl_801414B0 lbl_8043F278;
 void fn_801414B0(u8 arg0, u8 arg1, u8 arg2, u8 arg3);
-}
-
-extern "C" {
-
 void fn_801414B0(u8 arg0, u8 arg1, u8 arg2, u8 arg3) {
     if (arg0 >= 4) {
         return;

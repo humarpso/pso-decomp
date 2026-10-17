@@ -5,10 +5,6 @@
 
 extern "C" {
 u8 get_slot_count__14TItemProShieldFv();
-}
-
-extern "C" {
-
 void TItemProShield::sub_80117FEC() {
     u8 *arg0 = (u8 *)this;
     u8 temp_r0;

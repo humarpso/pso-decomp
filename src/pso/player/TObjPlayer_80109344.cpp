@@ -9,10 +9,6 @@ extern "C" {
 void spawn_weapon_impact_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 extern const f32 lbl_805DAB38;
 void spawn_particle_effect(void *, int);
-}
-
-extern "C" {
-
 s32 TItemEffHeaven__ct(u32, s32, u32, u16, s32);
 u32 __nw__7TObjectFUl(s32);
 
@@ -51,10 +47,6 @@ void spawn_weapon_impact_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     ((TObjPlayer *)arg3)->spawn_hit_particle_trio();
 }
 
-}
-
-extern "C" {
-
 void invoke_menu_callback__10TObjPlayerFPv(void *arg0);
 void *find_item_by_id(void *);
 
@@ -66,10 +58,6 @@ void invoke_menu_callback__10TObjPlayerFPv(void *arg0) {
     }
     *(u32 *)((s8 *)arg0 + 0x38) = 1;
 }
-
-}
-
-extern "C" {
 
 void TObjPlayer::invoke_menu_callback_if_set(u32 arg0) {
     if (arg0 != 0U) {

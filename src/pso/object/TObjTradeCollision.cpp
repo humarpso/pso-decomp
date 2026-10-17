@@ -27,18 +27,12 @@ s32 disallow_rendering__7TObjectFv(void *);
 extern s32 __vt__18TObjTradeCollision[];
 extern s32 TObjTradeCollision__name;
 u8 *TObjTradeCollision__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *TObjTradeCollision__create(void *arg0);
 void *__dt__18TObjTradeCollisionFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
 void TObjTradeCollision::render() {  }
-
-extern s32 __vt__18TObjTradeCollision[];
 
 void run_task__18TObjTradeCollisionFv(s32 arg0) {
     s32 var_r31;

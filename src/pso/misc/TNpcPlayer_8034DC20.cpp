@@ -56,17 +56,10 @@ u8 *get_player_by_client_id(s32);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8034DC24_lbl_804F07C8 lbl_804F07C8;
 u8 *__dt__13TUnk_804F07C8Fv(u8 *arg0, s16 arg1);
-s32 obj_isState3_324(int);
 void construct_partner__10TNpcPlayerFPviisPv(void *, u16, u16, s32, void *);
-u8 *get_player_by_client_id(s32);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
-extern RecoveredGlobal_8034DC24_lbl_804F07C8 lbl_804F07C8;
 extern void *tl_00;
-}
-
-extern "C" {
-
 void TUnk_804F07C8::run_task() {  }
 typedef char RecoveredGlobal_8034DE10_lbl_80478C70_size[sizeof(RecoveredGlobal_8034DE10_lbl_80478C70) == 0x18 ? 1 : -1];
 

@@ -16,10 +16,6 @@ T_803501BC *get_item_pmt_entry__10TObjPlayerFUc(u8);
 s32 rand(void);
 extern const f32 lbl_805DFE28;
 extern const f32 lbl_805DFE2C;
-}
-
-extern "C" {
-
 void TUnk_804F0C48::vfunc_44() {
     T_803501BC *t;
     t = get_item_pmt_entry__10TObjPlayerFUc(((TItemProShield *)this)->get_slot_count());

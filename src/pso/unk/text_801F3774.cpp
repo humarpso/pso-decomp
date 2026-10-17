@@ -27,7 +27,6 @@ s32 TLobby__send_and_handle_60(s32);
 void build_6x75_update_quest_flag_dc(void* p);
 extern s32 game_difficulty_selection;
 void send_and_handle_6x75(void *arg0);
-void build_6x75_update_quest_flag_dc(void* p);
 s32 clear_story_flag_in_bank(int, int);
 s32 set_story_flag_in_bank(int, int);
 void handle_6x75_update_quest_flag_dc(u8 *arg0);
@@ -36,14 +35,7 @@ extern char offline_quest_filename_buffer_a[],offline_quest_filename_buffer_b[];
 extern char lbl_80449CD8[],lbl_80449CE0[],lbl_80449CE8[],lbl_80449CF0[],lbl_80449CF8[],lbl_80449D00[];
 void replace_file_extension__6TLobbyFPvPvPv(char*,const char*,const char*);
 void prepare_offline_quest_filenames(const char* identity);
-}
-
-extern "C" {
-
 void TLobby__sub_801F3774(void);
-void build_6x75_update_quest_flag_dc(void* p);
-s32 TLobby__send_and_handle_60(s32);
-s32 bswap_16__FPUs(s32);
 
 void TLobby__sub_801F3774(void) {  }
 

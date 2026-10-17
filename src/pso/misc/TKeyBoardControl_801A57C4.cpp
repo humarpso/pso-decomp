@@ -18,15 +18,9 @@ s32 TKeyBoardControl__sub_801321B4(s32);
 extern s32 TKeyBoardControl__global_key_state[];
 void TKeyBoardControl__sub_801A58B0(void);
 s32 TKeyBoardControl__sub_80132310(s32);
-extern s32 TKeyBoardControl__global_key_state[];
 void TKeyBoardControl__sub_801A58D8(void);
 extern Pad_801A57D0 *controller_input_state[];
 u8 TKeyBoardControl__sub_8013239C(void *, u8);
-extern s32 TKeyBoardControl__global_key_state[];
-}
-
-extern "C" {
-
 void init_stick_escape_detector(void *arg0, void *arg1);
 s32 OSGetResetButtonState();
 void update_state_from_input__16TKeyBoardControlFPv(void *arg0);
@@ -62,8 +56,6 @@ s32 TKeyBoardControl::check_reset_button() {
     return 0;
 }
 
-extern s32 TKeyBoardControl__global_key_state[];
-
 typedef char RecoveredGlobal_801A58B0_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801A58B0_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 void TKeyBoardControl__sub_801A58B0(void) {
     TKeyBoardControl__sub_801321B4((s32) &(*(RecoveredGlobal_801A58B0_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value);
@@ -80,8 +72,6 @@ s32 TKeyBoardControl::check_and_read(s32 arg0) {
     }
     return 0;
 }
-
-extern s32 TKeyBoardControl__global_key_state[];
 
 s32 TKeyBoardControl::read_input(s32 arg0) {
     if (TKeyBoardControl::check_input_ready((s32)TKeyBoardControl__global_key_state) != 0) {
@@ -134,8 +124,6 @@ s32 TKeyBoardControl::check_input_angle() {
     }
     return 0;
 }
-
-extern s32 actor_frame_tick;
 
 void init_stick_escape_detector(void *arg0, void *arg1) {
     if (arg1 != NULL) {

@@ -59,9 +59,6 @@ extern "C" {
 void TObjPlayer__sub_800FF220(s32 *arg0, s32 *arg1);
 void TObjPlayer__sub_800FF1FC(f32 *arg0, f32 *arg1);
 void TObjPlayer__sub_800FF244(u8 *arg0, u8 *arg1);
-void TObjPlayer__sub_800FF220(s32 *arg0, s32 *arg1);
-void TObjPlayer__sub_800FF1FC(f32 *arg0, f32 *arg1);
-void TObjPlayer__sub_800FF244(u8 *arg0, u8 *arg1);
 void *TObjEZRopeBase__ct(void *);
 extern u8 ezrope_chunk_material_color_table[];
 extern s32 TObjHMS_EZRope_Player__name;
@@ -84,7 +81,6 @@ s32 set_chunk_material_color(void *);
 s32 draw_chunk_object(void *);
 extern const f64 lbl_8043DF40;
 extern u8 lbl_8048DEF4[];
-extern u8 ezrope_chunk_material_color_table[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -94,10 +90,6 @@ extern s32 model_render_flags;
 extern const f32 lbl_805DAA58;
 extern const f32 lbl_805DAA5C;
 extern const f32 lbl_805DAA60;
-}
-
-extern "C" {
-
 void *__dt__21TObjHMS_EZRope_PlayerFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__14TObjEZRopeBaseFv(void *, int);

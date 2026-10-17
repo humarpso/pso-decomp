@@ -93,10 +93,6 @@ void GXSetNumTexGens(u8);
 s32 GXSetTevOp(int, int);
 s32 GXSetTevOrder(int, int, int, int);
 s32 GXSetNumTevStages(int);
-void GXSetNumTexGens(u8);
-s32 GXSetTevOp(int, int);
-s32 GXSetTevOrder(int, int, int, int);
-s32 GXSetNumTevStages(int);
 extern s32 model_render_flags;
 extern u8 lbl_805D77D8;
 extern u8 lbl_805D77D9;
@@ -125,7 +121,6 @@ extern s32 chunk_vertex_cache_buffer;
 extern s32 lbl_805D77FC;
 extern s32 chunk_render_flags;
 void TObjPlayer__sub_803E492C(s32 a, s32 b);
-s32 draw_chunk_vertices_cached__10TObjPlayerFPv(void *);
 void transform_chunk_object_tree(void *, void (*)(void *));
 void draw_chunk_object(void *arg0);
 extern s32 current_matrix;
@@ -144,43 +139,22 @@ extern const f32 lbl_805E1088;
 void draw_projected_textured_strip(Vtx_803E2D70 *v, s32 n);
 void Dolphin_GXSetVtxDesc(int, int);
 void GXClearVtxDesc(void);
-void GXBegin(int, int, u16);
 void draw_strip_list_pos_nrm__10TObjPlayerFPvPvUi(s16 *list, Vtx_803E36C4 *verts, u32 info);
 void GXSetChanCtrl(s32 chan, u8 enable, s32 ambSrc, s32 matSrc, u32 lightMask, s32 diffFn, s32 attnFn);
 extern u32 gx_chan_ctrl_light_mask;
 extern u32 chunk_has_vertex_colors;
 void set_strip_lighting_chan_ctrl(u32 flags);
-void Dolphin_GXSetVtxDesc(int, int);
-void GXClearVtxDesc(void);
-void GXBegin(int, int, u16);
 void draw_strip_pos_normal__10TObjPlayerFPvPvUi(s16 *list, Vtx_803E46FC *verts, u32 info);
-void Dolphin_GXSetVtxDesc(int, int);
-void GXClearVtxDesc(void);
-void GXBegin(int, int, u16);
-extern s32 chunk_render_flags;
 void draw_triangle_strips__10TObjPlayerFPvPvUi(s16 *list, Vtx_803E47E0 *verts, u32 info);
 s32 GXSetBlendMode(int, int, int, int);
-s32 GXSetZMode(int, int, int);
-s32 GXSetZCompLoc(int);
-s32 set_chunk_alpha_compare_ref(int ref);
-extern FloatColor model_material_color;
 extern s32 material_alpha_compare_reference;
 extern u8 *current_render_context;
-extern s32 ginja_draw_flags;
-extern s32 model_render_flags;
-extern s32 chunk_texture_record_index;
-extern u32 chunk_blend_header_bits;
-extern s32 chunk_render_flags;
 extern u32 lbl_805E1094;
 extern const u32 lbl_805E1098;
 extern const f32 lbl_805E109C;
 extern const f32 lbl_805E10A0;
 void set_chunk_blend_depth_mode(s32 arg0, s32 arg1);
-void Dolphin_GXSetVtxDesc(int, int);
-void GXClearVtxDesc(void);
 void GXSetVtxAttrFmt(int, int, int, int, u8);
-void GXBegin(int, int, u16);
-extern s32 chunk_render_flags;
 void draw_chunk_textured_strips(s16 *list, Vtx_803E352C *verts, u32 info, s32 large);
 struct ChunkModel_803E44D4 { u32 *vertices; u16 *polygons; };
 struct ChunkBuffer_803E44D4 { void *vertices; s32 bytes; };
@@ -196,27 +170,14 @@ extern ChunkRecording_803E44D4* lbl_805D77E8;
 void PSMTXConcat(const Mtx_803E4354, const Mtx_803E4354, Mtx_803E4354);
 void PSMTXTrans(Mtx_803E4354, f32, f32, f32);
 void PSMTXScale(Mtx_803E4354, f32, f32, f32);
-void GXSetVtxAttrFmt(int, int, int, int, u8);
 s32 GXSetNumChans(int);
-s32 GXSetZCompLoc(int);
 s32 GXLoadPosMtxImm(void *, int);
 s32 GXLoadNrmMtxImm(void *, int);
 s32 GXLoadTexMtxImm(void *, int, int);
-void push_matrix(void);
-s32 apply_scene_fog();
 extern Mtx_803E4354 identity_matrix;
-extern s32 ginja_draw_flags;
-extern s32 model_render_flags;
 extern s32 chunk_previous_strip_flags;
-extern u32 chunk_strip_dirty_flags;
-}
-
-extern "C" {
-
 void func_803e11e8__FUl(s32 arg0);
 void func_803e11f0__Fv(void);
-
-extern s32 chunk_render_flags;
 
 #pragma push
 #pragma dont_inline off
@@ -880,8 +841,6 @@ void TObjPlayer__sub_803E492C(s32 a, s32 b) {
 void func_803e11e8__FUl(s32 arg0) {
     chunk_render_flags = arg0;
 }
-
-extern s32 chunk_render_flags;
 
 void func_803e11f0__Fv(void) {
     chunk_render_flags = 0;

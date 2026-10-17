@@ -28,10 +28,6 @@ s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 is_message_window_ready__18TWindowMessagePageFv();
 extern s8 controller_input_state[];
 void wait_confirm_and_finish__17TMCFormatSequenceFPv(void *arg0);
-s32 queue_destruction__7TObjectFv(void *);
-s32 TWindowShortListCtrl__check_controller_button(void *, s32);
-s32 is_message_window_ready__18TWindowMessagePageFv();
-extern s8 controller_input_state[];
 void update_wait_confirm__17TMCFormatSequenceFPv(void *arg0);
 extern RecoveredGlobal_801F6548_lbl_80512790 offline_quest_filename_buffer_a;
 s32 *TQuestThread__sub_801F6548(void);
@@ -40,13 +36,8 @@ s32 init_shop_judgment_window();
 s32 set_text__18TWindowMessagePageFlll(s32, void *, s32);
 s32 get_window_layout_position(s32);
 extern Pair_801F68FC lbl_8044A684[];
-}
-
-extern "C" {
-
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E24F8(s32, s32, s32, s32, s32);
-s32 get_localized_text_entry(s32, s32);
 s32 get_selected_menu_value(u32);
 int TWindow__close(void*);
 

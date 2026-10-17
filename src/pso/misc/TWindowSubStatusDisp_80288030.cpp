@@ -14,10 +14,6 @@ s32 strcmp(void *, int);
 extern u8 lbl_805DD898;
 u8 *init_heading_entry__20TWindowSubStatusDispFPvPvici(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s32 arg4);
 extern u8 lbl_8044FCF0[];
-}
-
-extern "C" {
-
 s32 __dl__FPv(s32 a0 = 0);
 int update__20TWindowSubStatusDispFPv(void*);
 int TWindowSubStatusDisp__sub_802879B0(void*);

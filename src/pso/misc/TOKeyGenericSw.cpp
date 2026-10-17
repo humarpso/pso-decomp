@@ -20,7 +20,6 @@ typedef char BmlResourceBlock_804B2CF8_descriptor_offset[(offsetof(BmlResourceBl
 struct BmlResourceBlock_804B2D18 { const char *motion_filenames[2]; BmlResourceDescriptor descriptor; };
 typedef char BmlResourceBlock_804B2D18_size[(sizeof(BmlResourceBlock_804B2D18) == 0x18) ? 1 : -1];
 typedef char BmlResourceBlock_804B2D18_descriptor_offset[(offsetof(BmlResourceBlock_804B2D18, descriptor) == 0x8) ? 1 : -1];
-extern "C" {
 extern char lbl_80441C30[];
 extern char lbl_80441C4C[];
 extern char lbl_80441C68[];
@@ -36,7 +35,6 @@ extern const char *fs_obj_hanyousu_light_j_model_names[2];
 extern BmlResourceBlock_804B2D18 fs_obj_hanyousu_light_j_resource_bundle;
 extern const char *fs_obj_hanyousu_body1_motion_names[1];
 extern const char *fs_obj_hanyousu_body1_j_motion_names[1];
-}
 
 struct Base_8016CA64 { char pad[0x18]; };
 
@@ -75,20 +73,12 @@ extern s32 *TOKeyGenericSw__texture_lists;
 extern Map_8016CA64 *TOKeyGenericSw__shared_resource_ptrs[];
 void TLobby__sub_8001FE7C(void *, s32);
 void mem_free(void *);
-extern s32 *TOKeyGenericSw__texture_lists;
-extern Map_8016CA64 *TOKeyGenericSw__shared_resource_ptrs[];
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 void *mem_alloc(u32);
 s32 load_gvm_texture_file(void *);
 extern char lbl_80441D04[];
 extern char lbl_80441D24[];
-extern Map_8016CA64 *TOKeyGenericSw__shared_resource_ptrs[];
-extern s32 *TOKeyGenericSw__texture_lists;
-}
-
-extern "C" {
-
 void *__dt__14TOKeyGenericSwFv(void *arg0, s16 arg1);
 void *TOKeyGenericSw__ct(void *, void *, void *);
 void free_collision_body_parts(void *);
@@ -227,9 +217,6 @@ void *__dt__14TOKeyGenericSwFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") BmlResourceBlock_804B2CC0 fs_obj_hanyousu_body1_resource_bundle = { { lbl_80441C30, NULL }, { lbl_80441C4C, fs_obj_hanyousu_body1_resource_bundle.model_filenames, fs_obj_hanyousu_body1_motion_names, 1, 0 } };
 __declspec(section ".data") const char *fs_obj_hanyousu_light_model_names[2] = { lbl_80441C68, NULL };
 __declspec(section ".data") BmlResourceBlock_804B2CE0 fs_obj_hanyousu_light_resource_bundle = { { lbl_80441C84, NULL }, { lbl_80441CA0, fs_obj_hanyousu_light_model_names, fs_obj_hanyousu_light_resource_bundle.motion_filenames, 1, 1 } };

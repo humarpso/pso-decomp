@@ -8,10 +8,6 @@ extern void *boss2_tunnel_instance;
 void TLobby__sub_803DA16C(void *);
 void TLobby__sub_8001FE7C(void *, int);
 void TLobby__sub_8003A874(void);
-}
-
-extern "C" {
-
 void TObjBoss2CeilJunk__sub_8003A868(void);
 void *TObjBoss2CeilJunk__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);

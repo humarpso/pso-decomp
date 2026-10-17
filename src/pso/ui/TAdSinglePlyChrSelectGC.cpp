@@ -32,9 +32,6 @@ typedef void (Self_802D4B6C::*Act_802D4B6C)();
 
 extern "C" {
 s32 set_default_camera__21TAdMultiChgGameModeGCFv(void *);
-}
-
-extern "C" {
 void *__nw__7TObjectFUl(u32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 __ct__9TAdBackGCFv(void *, void *);
@@ -52,10 +49,6 @@ extern T_802D4F2C single_chr_select_position_table;
 extern s32 __vt__23TAdSinglePlyChrSelectGC[];
 extern s32 lbl_805D3F40;
 u8 *TAdSinglePlyChrSelectGC__ct(u8 *arg0, void *parent);
-}
-
-extern "C" {
-
 void *__dt__23TAdSinglePlyChrSelectGCFv(void *arg0, s16 arg1);
 s32 *get_localized_text_entry(s32, s32);
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -154,8 +147,6 @@ void TAdSinglePlyChrSelectGC::sub_802D4E08() {
     *(s32 *)((s8 *)this + 0x58) = -1;
     *(s32 *)((s8 *)this + 0x5C) = -1;
 }
-
-extern s32 __vt__23TAdSinglePlyChrSelectGC[];
 
 void *__dt__23TAdSinglePlyChrSelectGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

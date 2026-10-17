@@ -346,10 +346,6 @@ extern u8 boss6_type1_random_action_table[];
 extern const f32 TBoss6Type1__data_805DE304;
 extern const f32 lbl_805DE3D8;
 void TBoss6Type1__sub_802B8BB4(u8 *arg0);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f32 vector_length(void *, f32);
-f32 subtract_vector(void *, void *);
-Player_802B6B34 *get_player_data__10TObjPlayerFi(s32);
 s32 project_actor_to_ground(void *, void *, s32);
 s32 is_active__14TBoss6PlotFalzFv();
 void TBoss6PlotFalz__sub_802AC724(void *, void *);
@@ -361,8 +357,6 @@ void normalize_vector(void *);
 f32 project_point_onto_line(void *, void *, void *);
 f32 xyz_distance(void *, void *);
 extern const f32 TBoss6Type1__data_805DE2E0;
-extern const f32 TBoss6Type1__data_805DE310;
-extern const float TBoss6Type1__data_805DE344;
 extern const f32 lbl_805DE378;
 extern const f32 lbl_805DE388;
 extern const f32 lbl_805DE38C;
@@ -373,34 +367,19 @@ void clear_render_callback__8TObjFishFv(u32);
 void draw_model_blend_motion(s32, Blend_802B81A4 *, f32);
 void draw_model_motion(s32, s32, f32);
 extern s32 lbl_804DF614[];
-extern const f32 TBoss6Type1__data_805DE2D0;
 extern const s32 lbl_805DE3C8;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 extern s32 lbl_80470FAC[];
 
-}
-
-extern "C" {
 void TBoss6Type1__sub_802B4B04(u8 *arg0);
-f32 sin_table_lookup(s32);
 extern const f32 lbl_805DE314;
 extern const f32 TBoss6Type1__data_805DE318;
 extern const f32 lbl_805DE31C;
 void TBoss6Type1__sub_802B5598(void *arg0, void *arg1);
 extern const f32 lbl_805DE354;
-s32 TBoss6Type1__sub_802B5FDC(u8 *arg0);
 extern const f32 lbl_805DE358;
-s32 TBoss6Type1__sub_802B5FF4(u8 *arg0);
-extern const f32 TBoss6Type1__data_805DE318;
 s32 TBoss6Type1__sub_802B6060(u8 *arg0);
-s32 rand();
 extern const f32 lbl_805DE300;
-extern const f32 TBoss6Type1__data_805DE304;
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
 extern const f32 lbl_805DE34C;
-s32 rand();
-extern const f32 TBoss6Type1__data_805DE304;
 extern const f32 lbl_805DE308;
 extern RecoveredGlobal_802B5938_lbl_80470FFC lbl_80470FFC;
 extern RecoveredGlobal_802B5938_lbl_80471008 lbl_80471008;
@@ -408,29 +387,18 @@ extern RecoveredGlobal_802B5970_lbl_80470FE4 lbl_80470FE4;
 extern RecoveredGlobal_802B5970_lbl_80470FF0 lbl_80470FF0;
 void TBoss6Type1__sub_802B5970(s32 arg0);
 extern RecoveredGlobal_802B7E88_lbl_80470CEC TBoss6Type1__param_table;
-extern const f32 TBoss6Type1__data_805DE2D0;
-extern const f32 TBoss6Type1__data_805DE2D0;
 extern const s32 lbl_805DE3A8;
 extern const s32 lbl_805DE3B0;
 void TBoss6Type1__sub_802B7D50(u8 *arg0);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f32 sin_table_lookup(s32);
-f32 vec3_add_to(void *, void *);
-f32 subtract_vector(void *, void *);
 extern RecoveredGlobal_802B5140_lbl_80470CD4 lbl_80470CD4;
 extern RecoveredGlobal_802B5140_lbl_80470CE0 lbl_80470CE0;
-extern const f32 TBoss6Type1__data_805DE2D0;
-extern const f32 TBoss6Type1__data_805DE2E4;
 extern const f32 lbl_805DE2F4;
 extern const f32 lbl_805DE2F8;
 extern const f32 lbl_805DE2FC;
 void TBoss6Type1__sub_802B5140(s32 arg0, s32 arg1, s32 arg2);
-extern const f32 TBoss6Type1__data_805DE2D0;
 extern const f32 lbl_805DE370;
-extern const f32 TBoss6Type1__data_805DE2E4;
 extern const f32 lbl_805DE374;
 void TBoss6Type1__sub_802B4CF4(s32 arg0);
-void TBoss6Type1__sub_802B5970(s32 arg0);
 void TBoss6Type1__sub_802B59A8(void);
 void TBoss6Type1__sub_802B59CC(void *);
 void TBoss6Type1__sub_802B5AB0(void);
@@ -447,36 +415,18 @@ extern u8 lbl_80471014[];
 s32 get_bml_motion(s32, s32);
 extern Tbl_802B82B8 TBoss6Type1__motion_set_table[];
 extern const s32 TBoss6Type1__data_805DE3C4;
-extern const f32 TBoss6Type1__data_805DE2D0;
 extern const f32 lbl_805DE35C;
-s32 TBoss6Type1__sub_802B600C(T1_802B600C *arg0, f32 _w1);
 s32 TBoss6Type1__sub_802B909C(void *, s32 *);
 extern const f32 lbl_805DE3DC;
 void TBoss6Type1__sub_802B8E1C(T1_802B8E1C *arg0);
-s32 rand();
-extern const f32 TBoss6Type1__data_805DE304;
 extern const f32 TBoss6Type1__data_805DE30C;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f32 vector_length(void *, f32);
-extern const f32 TBoss6Type1__data_805DE2D0;
-extern const f32 TBoss6Type1__data_805DE310;
-extern const f32 lbl_805DE314;
-extern const f32 TBoss6Type1__data_805DE318;
 void clamp_to_arena_radius__11TBoss6Type1FPvPvf(Boss_802B54F0 *o, Vec_802B54F0 *out, f32 _w2);
 extern const f32 lbl_805DE320;
 extern const f32 lbl_805DE324;
 void calc_grid_cell_position__11TBoss6Type1FPvPv(Boss_802B5648 *o, Vec_802B5648 *out);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *get_player_by_client_id(s32);
-s32 is_active__14TBoss6PlotFalzFv();
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
 extern const f32 TBoss6Type1__data_805DE32C;
-extern const float TBoss6Type1__data_805DE344;
 extern const f32 TBoss6Type1__data_805DE360;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f32 vec3_add_to(void *, void *);
-f32 subtract_vector(void *, void *);
 s32 matrix_mult_vec(int, void *, void *);
 s32 set_matrix_identity(int);
 s32 rotate_matrix_y(int, int);
@@ -484,88 +434,30 @@ s32 push_matrix();
 s32 pop_matrix();
 extern Tbl_802B79DC TBoss6Type1__part_position_sources[];
 extern Entry_802B865C lbl_804DED14[];
-Player_802B6B34 *get_player_data__10TObjPlayerFi(s32);
-s32 is_active__14TBoss6PlotFalzFv();
-f32 vector_length(void *, f32);
-extern const f32 TBoss6Type1__data_805DE2D0;
-extern const f32 TBoss6Type1__data_805DE2E0;
-extern const float TBoss6Type1__data_805DE344;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f32 fabs_float(f32);
 s32 play_sound_effect(int, void *, int, int, void *);
 
 void fn_8035648C(void *, void *, int, f32);
-f32 subtract_vector(void *, void *);
 extern f32 TBoss6Type1__sword_shot_hit_radii[];
 extern s32 game_difficulty_selection;
-extern const f32 TBoss6Type1__data_805DE2D0;
-extern const f32 TBoss6Type1__data_805DE2E4;
-extern const f32 TBoss6Type1__data_805DE310;
-extern const f32 TBoss6Type1__data_805DE318;
 extern const f32 lbl_805DE394;
 void TBoss6Type1__sub_802B73AC(Boss_802B73AC *self);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 atan2_float(f64, f64);
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
-f32 vector_length(void *, f32);
 extern const f64 TBoss6Type1__data_80471038;
-extern const f32 TBoss6Type1__data_805DE2D0;
-s32 rand();
-f32 xyz_distance(void *, void *);
-f32 vec3_add_to(void *, void *);
 void request_follow_camera_offsets(void *, void *, int);
-extern Vec_802B57D4 TBoss6Type1__data_80470FB4;
 extern Vec_802B57D4 lbl_80470FC0;
-extern const f32 TBoss6Type1__data_805DE2E0;
-extern const f32 TBoss6Type1__data_805DE304;
-extern const f32 TBoss6Type1__data_805DE30C;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f32 vector_length(void *, f32);
-f32 atan2_float(f64, f64);
 s32 angle_diff_s16(s32, s32);
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
-extern const f64 TBoss6Type1__data_80471038;
-extern const f32 TBoss6Type1__data_805DE2D0;
-extern const f32 TBoss6Type1__data_805DE2E0;
-extern const f32 TBoss6Type1__data_805DE2E4;
 extern const f32 lbl_805DE2DC;
 extern const f32 lbl_805DE2E8;
-s32 TBoss6Type1__sub_802B909C(void *, s32 *);
-s32 rand();
-s32 TBoss6Type1__sub_802B600C(T1_802B600C *arg0, f32 _w1);
-s32 TBoss6Type1__sub_802B5FF4(u8 *arg0);
-s32 TBoss6Type1__sub_802B5FDC(u8 *arg0);
 extern const s8 lbl_805DE2C8[2];
 extern const s8 lbl_805DE2CC[2];
-extern const f32 TBoss6Type1__data_805DE2E0;
-extern const f32 TBoss6Type1__data_805DE304;
-extern const f32 TBoss6Type1__data_805DE30C;
-extern const f32 TBoss6Type1__data_805DE32C;
 extern const f32 lbl_805DE3E0;
 extern const f32 lbl_805DE3E4;
-void randomize_attack__11TBoss6Type1FPvPv(Boss_802B8EE0 *self, Atk_802B8EE0 *atk);
-s32 rand();
-f32 sin_table_lookup(s32);
-f32 fabs_float(f32);
-extern const f32 TBoss6Type1__data_805DE304;
-extern const f32 TBoss6Type1__data_805DE338;
-extern const f32 TBoss6Type1__data_805DE360;
-extern const s32 lbl_805DE3A8;
 extern const s32 lbl_805DE3AC;
-extern const s32 lbl_805DE3B0;
 extern const s32 lbl_805DE3B4;
 extern const f32 lbl_805DE3B8;
-}
-
-extern "C" {
-
 int TBoss6Type1__sub_802B4A70(void* p);
 void TBoss6Type1__sub_802B4A90(void* p);
 int TBoss6Type1__sub_802B4B14(void* p);
-void TBoss6Type1__sub_802B59A8(void);
-void TBoss6Type1__sub_802B5AB0(void);
 s32 TBoss6PlotFalz__sub_802AAC74(s32);
 int TBoss6Type1__sub_802B4A9C(void*);
 struct Boss_802B5AD4;
@@ -896,8 +788,6 @@ void calc_grid_cell_position__11TBoss6Type1FPvPv(Boss_802B5648 *o, Vec_802B5648 
 
 void TBoss6Type1::handle_6xa4_action(u8 * _w1) { ((TBoss6Type1 *)((char*)this + 0x1))->decode_polar_position((u8 *)(_w1)); }
 
-extern const f32 TBoss6Type1__data_805DE2D0;
-
 void TBoss6Type1::decode_polar_position(u8 *arg1) {
     u8 *arg0 = (u8 *)this;
   f32 temp_f31;
@@ -954,8 +844,6 @@ void TBoss6Type1__sub_802B5970(s32 arg0) {
 void TBoss6Type1__sub_802B59A8(void) {
     ((s32 (*)(f32))fire_at_all_players__11TBoss6Type1FPvf)(TBoss6Type1__data_805DE2D0);
 }
-
-extern const f32 TBoss6Type1__data_805DE32C;
 
 void TBoss6Type1__sub_802B5AB0(void) {
     ((s32 (*)(f32))fire_at_all_players__11TBoss6Type1FPvf)(TBoss6Type1__data_805DE32C);
@@ -1140,8 +1028,6 @@ void TBoss6Type1::set_flag_on_threshold() {
     }
 }
 
-    extern const float TBoss6Type1__data_805DE344;
-
 s32 TBoss6Type1__sub_802B5FDC(u8 *arg0) {
     return *(f32 *)((s8 *)arg0 + 0x3C) < lbl_805DE354;
 }
@@ -1172,7 +1058,7 @@ void TBoss6Type1::update_effect_points() {
     ((TBoss6Type1 *)effect_point_receiver)->set_effect_points((f32 *)points, (u32 *)lbl_80470FAC);
 }
 
-extern "C" { extern u32 boss6_type1_trail_point_offsets[]; }
+ extern u32 boss6_type1_trail_point_offsets[];
 
 void TBoss6Type1::update_trail_points() {
     Boss6EffectPoint points[7];
@@ -1203,8 +1089,6 @@ void TBoss6Type1::init_parts() { TBoss6Type1::set_part_default_value((int)(this)
 
 }
 
-#include "types.h"
-
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -1219,10 +1103,7 @@ struct Stack_802B7D74_boss6_1
 
 #include <stddef.h>
 #include "pso/boss/TBoss3Volopt.h"
-#include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/enemy/TObjEneLappy.h"
-#include "pso/enemy/TObjEnemy.h"
-#include "pso/misc/TLobby.h"
 #include "pso/object/TObjFish.h"
 #include "pso/player/TObjPlayer.h"
 struct Stack_802B9204_boss6_1 {
@@ -1235,30 +1116,14 @@ extern "C" {
 u8 * TBoss6Type1__sub_802B96C0(s32 arg0, s32 arg1);
 s32 render_actor_shadows_default();
 extern const f32 lbl_805DE3D0;
-f32 atan2_float(f64, f64);
 s32 angle_difference_abs(int, int);
 s32 approach_angle_limited(int, int, int);
-extern const f64 TBoss6Type1__data_80471038;
-extern const f32 TBoss6Type1__data_805DE2D0;
-extern const f32 TBoss6Type1__data_805DE310;
 void build_6xA4_olga_flow_boss_actions(void* p);
-void send_flow_action_if_idle__11TBoss6Type1FPvc(u8 *arg0, s8 arg1);
-}
-
-extern "C" {
-
-void build_6xA4_olga_flow_boss_actions(void* p);
-s32 play_sound_effect(int, void *, int, int, void *);
 s32 TBoss6Type1__ct(s32, s32, s32);
-s32 TBoss6Type1__sub_802B909C(void *, s32 *);
 int TLobby__send_and_handle_60(void*);
 s32 TObjControl__ct(s32, s32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 __nw__7TObjectFUl(s32);
-s32 rand();
 int read_be16_field2__10TObjPlayerFv(void*);
-
-extern const f32 TBoss6Type1__data_805DE2D0;
 
 void TBoss6Type1::reset_param() {
     *(f32 *)&this->unk_4DC = (f32) TBoss6Type1__data_805DE2D0;
@@ -1567,11 +1432,8 @@ struct Boss_802B7530 {
     Vec_802B7530 b;
 };
 
-f32 project_point_onto_line(void *, void *, void *);
 f32 vec3_dot(void *, void *);
 s32 spawn_particle_effect_with_flags(void *, int, int);
-extern const f32 TBoss6Type1__data_805DE2E0;
-extern const f32 TBoss6Type1__data_805DE360;
 extern const f32 lbl_805DE398;
 extern const f32 lbl_805DE39C;
 extern const f32 lbl_805DE3A0;
@@ -1723,7 +1585,6 @@ void TBoss6Type1::update_parts_flags() {
     }
 }
 
-extern const f32 lbl_805DE3A0;
 extern const f32 lbl_805DE3A4;
 
 void TBoss6Type1::update_part_positions() {
@@ -2084,8 +1945,6 @@ void TBoss6Type1::render_shadows() {
 
 void TBoss6Type1::vfunc_63() { if (*(int *)&this->m_374 != 40) { set_action_state((s32)((void*)40)); } }
 
-extern const f32 TBoss6Type1__data_805DE2E4;
-
 void TBoss6Type1::vfunc_62() {
     *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFFFDFF);
     this->m_4d4 = (f32) TBoss6Type1__data_805DE2E4;
@@ -2257,7 +2116,6 @@ void TBoss6Type1::load_params(void *arg1) {
     this->m_41c = (u8) *(u8 *)((s8 *)arg1 + 0xA);
 }
 
-extern const f32 TBoss6Type1__data_805DE304;
 extern f32 lbl_805DE3EC;
 
 void TBoss6Type1::set_sync_data(void *arg1) {

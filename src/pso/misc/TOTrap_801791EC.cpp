@@ -10,14 +10,8 @@ extern s32 __vt__6TOTrap[];
 extern s32 lbl_805D3198;
 extern const f32 TOTrap__data_805DBA3C;
 Self_80179244 *TOTrap__ct(Self_80179244 *self, void *a, void *b);
-}
-
-extern "C" {
-
 void *__dt__6TOTrapFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-
-extern s32 __vt__6TOTrap[];
 
 void *__dt__6TOTrapFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

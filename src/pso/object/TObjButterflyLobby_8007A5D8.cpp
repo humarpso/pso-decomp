@@ -14,13 +14,7 @@ extern char lbl_804389FC[];
 extern u8 lbl_804FFD40[];
 extern Hit_8007A5D8 lbl_80500140;
 Hit_8007A5D8 *csnVector(void *from, void *to, u32 mask);
-}
-
-extern "C" {
-
 void mem_free(void*);
-
-extern u32 wall_query_scene_buffer;
 
 Hit_8007A5D8 *csnVector(void *from, void *to, u32 mask) {
     Hit_8007A5D8 *hit;

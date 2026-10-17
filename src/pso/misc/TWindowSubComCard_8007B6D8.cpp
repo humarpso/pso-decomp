@@ -5,10 +5,6 @@ struct O_8007B6F4 { u8 pad[0x8c]; u8 flags; };
 
 extern "C" {
 s32 TWindowSubComCard__sub_8007B6F4(O_8007B6F4 *self);
-}
-
-extern "C" {
-
 u8 TWindowSubComCard__sub_8007B6EC(void* p);
 int send_subcommand_to_client__6TLobbyFUl(void*, void*);
 int bswap__16TPlyGuildCardTagFv(void*);

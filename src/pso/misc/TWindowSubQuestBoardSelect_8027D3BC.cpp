@@ -16,12 +16,6 @@ s32 get_slot_flag__26TWindowSubQuestBoardSelectFic(s32 arg0, s8 arg1) {
     return get_register__12TQuestThreadFPvi(quest_mission_manager, arg1 + 0x4A);
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 u16 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 
 void TWindowSubQuestBoardSelect::update_slot_display_flags() {
@@ -52,13 +46,6 @@ void TWindowSubQuestBoardSelect::update_slot_display_flags() {
     *temp_r3 &= 0xFFFFFFFD;
     this->m_60 = (u8) (this->m_60 & 0xFFFFFFFB);
 }
-
-}
-
-#include "types.h"
-#include "pso/misc/TWindowSubQuestBoardSelect.h"
-
-extern "C" {
 
 s32 is_shortcut_active__26TWindowSubQuestBoardSelectFv();
 

@@ -48,11 +48,6 @@ u32 calc_text_width(void *);
 void text_builder_reset();
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append(void *);
-}
-
-extern "C" {
-
-int TWindowHelpItem__sub_8025A600(void* p);
 void *destroy__15TWindowHelpItemFPvs(void *arg0, s16 arg1);
 void tick_display_timer__15TWindowHelpItemFPv(void *arg0);
 s32 __dl__FPv(void *);

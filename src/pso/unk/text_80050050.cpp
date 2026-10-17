@@ -19,9 +19,6 @@ f32 post_translate_matrix(void *);
 s32 draw_chunk_object(int);
 s32 draw_model_motion(int, int, f32);
 extern RecoveredGlobal_80050050_lbl_80485864 three_part_model_translate_offset;
-}
-
-extern "C" {
 
 typedef struct RecoveredGlobal_80050050_lbl_80485864 RecoveredGlobal_80050050_lbl_80485864;
 typedef char RecoveredGlobal_80050050_lbl_80485864_size[((sizeof(RecoveredGlobal_80050050_lbl_80485864)) == 0xC) ? (1) : (-1)];

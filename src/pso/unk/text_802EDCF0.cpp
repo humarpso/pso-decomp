@@ -29,10 +29,6 @@ s32 __dl__7TObjectFPv(void *);
 extern s32 TBoss7DeRolLeC__vtable[];
 extern u32 boss7_joint_state;
 u8 *__dt__14TBoss7DeRolLeCFv(u8 *arg0, s16 arg1);
-}
-
-extern "C" {
-
 u8 *__dt__14TBoss7DeRolLeCFv(u8 *arg0, s16 arg1) {
     Obj_802EDCF0 *o = (Obj_802EDCF0 *) arg0;
     s32 i;

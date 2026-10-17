@@ -29,10 +29,6 @@ extern "C" {
 extern const f32 lbl_805DFCE8;
 extern const f32 lbl_805DFCEC;
 void copy_effect_data__18TAdChrMoveEffectGCFPvPv(S_803491F8 *arg0, S_803491F8 *arg1);
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 typedef struct {
@@ -85,9 +81,6 @@ void TAdChrMoveEffectGC::sub_80348E34() {
 
 #pragma push
 
-#include "types.h"
-#include "pso/ui/TAdChrMoveEffectGC.h"
-
 struct E_803490AC { u32 flags; u8 pad[0x34]; };
 
 struct O_803490AC { u8 pad[0x20]; s32 n; u8 pad2[0x30]; E_803490AC e[16]; };
@@ -106,14 +99,9 @@ struct P_803490D8 { V2_803490D8 a; V2_803490D8 b; C4_803490D8 c; C4_803490D8 d; 
 
 extern "C" {
 void TAdChrMoveEffectGC__sub_80349194(W_80349194 *arg0, void *arg1);
-void TAdChrMoveEffectGC__sub_80349194(W_80349194 *arg0, void *arg1);
 extern V2_803490D8 chr_move_effect_pos_table[];
 extern C4_803490D8 lbl_804786E8[];
 extern u8 lbl_804786F0[];
-}
-
-extern "C" {
-
 void *TAdChrMoveEffectGC__ct(void *arg0);
 void *__dt__18TAdChrMoveEffectGCFv(void *arg0, s16 arg1);
 void __ct__7TObjectFP7TObject(void *);
@@ -254,7 +242,6 @@ void *__dt__18TAdChrMoveEffectGCFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__18TAdChrMoveEffectGC[];
 extern void *lbl_805D42F0;
 
 void *TAdChrMoveEffectGC__ct(void *arg0) {

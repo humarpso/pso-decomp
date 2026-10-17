@@ -10,7 +10,6 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern char lbl_804796E0[];
 extern char lbl_804796F4[];
 extern char lbl_80479708[];
@@ -19,7 +18,6 @@ extern char lbl_80479734[];
 extern const char *bm_ply_photon_chair_model_names[3];
 extern const char *bm_ply_photon_chair_motion_names[3];
 extern BmlResourceDescriptor photon_chair_resource_descriptor;
-}
 
 struct RecoveredGlobal_8035B2DC_lbl_804F1CB8 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8035B2DC_lbl_804F1CB8_size[sizeof(RecoveredGlobal_8035B2DC_lbl_804F1CB8) == 0x10 ? 1 : -1];
@@ -140,7 +138,6 @@ extern const float lbl_805E012C;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u32 TPlyPhotonChair__shared_model_resource;
 extern RecoveredGlobal_8035B630_lbl_804A7488 lbl_804A7488;
-s32 queue_destruction__7TObjectFv(void *);
 s32 get_bml_motion(int, int);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
@@ -148,33 +145,22 @@ s32 get_actor_section_id__15TPlyPhotonChairFv(int);
 s32 get_rader_map__11TMainCursorFv(void *, void *);
 s32 TMainCursor__sub_8013F1F0(void *);
 s32 construct_world_actor_base(void *, void *);
-u32 get_player_by_client_id(int);
-void TPlyPhotonChair__sub_8035B56C(void* p, f32 v);
 extern RecoveredGlobal_8035B3C0_lbl_8047975C TPlyPhotonChair__section_id_color_table;
 extern s32 __vt__15TPlyPhotonChair[];
 extern s32 lbl_805D4418;
-extern u32 TPlyPhotonChair__shared_model_resource;
 extern const f32 lbl_805E0130;
 u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 arg2);
-u32 get_player_by_client_id(int);
 int rotate_matrix_y(int, int);
 int push_matrix();
 int pop_matrix();
 int scale_current_matrix(void *);
 int post_translate_matrix(void *);
 extern const f32 lbl_805E0124;
-}
-
-extern "C" {
-
 int TPlyPhotonChair__sub_8035B520(void* p);
-void TPlyPhotonChair__sub_8035B56C(void* p, f32 v);
 void *__dt__15TPlyPhotonChairFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 int copy_vec4__13TRaderMapCoreFPvPv(void*, void*);
-
-extern u32 TPlyPhotonChair__shared_model_resource;
 
 void TPlyPhotonChair::render() {
     Chair_8035B058 *self = (Chair_8035B058 *)this;
@@ -252,8 +238,6 @@ void TPlyPhotonChair::free_static_model() {
         TPlyPhotonChair__shared_model_resource = 0U;
     }
 }
-
-extern s32 __vt__15TPlyPhotonChair[];
 
 s32 TPlyPhotonChair::load_resources() {
     s32 temp_r3;
@@ -343,7 +327,6 @@ void *TUnk_804A7478::init() {
     return this;
 }
 
-    extern const float lbl_805E012C;
 void TUnk_804A7478::sub_8035B610() { *(int*)((char*)this + 0x8) = 0; *(float*)((char*)this + 0xc) = lbl_805E012C; *(float*)((char*)this + 0x10) = lbl_805E012C; *(float*)((char*)this + 0x14) = lbl_805E012C; *(int*)((char*)this + 0x18) = 0; }
 
 typedef char RecoveredGlobal_8035B630_lbl_804A7488_size[sizeof(RecoveredGlobal_8035B630_lbl_804A7488) == 0x10 ? 1 : -1];
@@ -365,9 +348,6 @@ void TPlyPhotonChair::free_instance() {
     }
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_ply_photon_chair_model_names[3] = { lbl_804796E0, lbl_804796F4, NULL };
 __declspec(section ".data") const char *bm_ply_photon_chair_motion_names[3] = { lbl_80479708, lbl_8047971C, NULL };
 BmlResourceDescriptor photon_chair_resource_descriptor = { lbl_80479734, bm_ply_photon_chair_model_names, bm_ply_photon_chair_motion_names, 2, 2 };

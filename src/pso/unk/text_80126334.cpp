@@ -22,9 +22,6 @@ u8 *frozen_shooter_ct(u8 *arg0, u8 *arg1, s32 _w2);
 u8 * TItemTimerEvent__ct(void *, s16, s32);
 extern RecoveredGlobal_80126414_lbl_804A05E8 lbl_804A05E8;
 u8 *freeze_curse_timer_ct(u8 *arg0, s16 arg1, s32 arg2, f32 farg0);
-}
-
-extern "C" {
 
 typedef char RecoveredGlobal_80126334_lbl_804A2960_size[sizeof(RecoveredGlobal_80126334_lbl_804A2960) == 0xF8 ? 1 : -1];
 u8 *frozen_shooter_ct(u8 *arg0, u8 *arg1, s32 _w2) {
@@ -62,9 +59,5 @@ u8 *freeze_curse_timer_ct(u8 *arg0, s16 arg1, s32 arg2, f32 farg0) {
     *(f32 *)((s8 *)arg0 + 0x2C) = farg0;
     return arg0;
 }
-
-#include "types.h"
-
-#include "types.h"
 
 }

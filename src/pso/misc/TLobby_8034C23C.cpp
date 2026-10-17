@@ -7,18 +7,10 @@ s32 get_shared_text_buffer();
 s32 TWindowSubComCard__sub_80225E80(void *, int);
 s32 strncpy(int, int, int);
 extern s32 info_board_state_flags;
-extern s32 info_board_state_flags;
 extern u32 information_board_response_buffer;
-}
-
-extern "C" {
-
 s32 send_info_board_request__9TProtocolFv(u32);
-s32 get_character_save_record(s32);
 
 extern u32 TLobby__protocol_instance;
-extern s32 info_board_state_flags;
-extern u32 information_board_response_buffer;
 
 void TLobby::init_once_data(u32 arg0) {
     if ((u32) information_board_response_buffer == 0U) {
@@ -29,9 +21,6 @@ void TLobby::init_once_data(u32 arg0) {
         }
     }
 }
-
-extern u32 TLobby__protocol_instance;
-extern s32 info_board_state_flags;
 
 void TLobby::flush_pending_send() {
     if (info_board_state_flags & 1) {

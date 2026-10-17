@@ -8,12 +8,9 @@
 #include "pso/boss/TBoss6Demo20_TYPE2_APPEAR.h"
 struct RecoveredGlobal_8033DCA8_lbl_80477F2C { s32 value; u8 remaining[8]; };
 struct RecoveredGlobal_8033DCA8_lbl_804EFA08 { s32 value; u8 remaining[8]; };
-extern "C" {
 extern const RecoveredGlobal_8033DCA8_lbl_80477F2C boss6_type2_appear_origin;
 extern RecoveredGlobal_8033DCA8_lbl_804EFA08 boss6_type2_appear_offset_particle_origin;
-}
 
-#include "types.h"
 typedef struct Ent_8033D6DC { s32 start; s32 end; s32 id; s32 src; } Ent_8033D6DC;
 
 extern "C" {
@@ -34,9 +31,6 @@ const Ent_8033D6DC boss6_type2_appear_particle_schedule[9] = {
 const u8 lbl_80478058[12] = {0xC6, 0x1C, 0x40, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 const u8 lbl_80478064[12] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 const u8 boss6_type2_appear_camera_script[12] = {0x01, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x3F, 0x33, 0x33, 0x33};
-}
-
-extern "C" {
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
@@ -44,23 +38,9 @@ s32 draw_model_motion(s32, s32, f32);
 extern const f32 lbl_805DFA70;
 extern const f32 lbl_805DFA74;
 extern const f32 lbl_805DFA78;
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
-s32 draw_model_motion(s32, s32, f32);
 
-extern const f32 lbl_805DFA70;
-extern const f32 lbl_805DFA74;
 extern const f32 lbl_805DFA7C;
-}
-
-extern "C" {
-
 void render__25TBoss6Demo20_TYPE2_APPEARFv(void* p);
-s32 post_translate_matrix(void *);
-s32 draw_model_motion(s32, s32, f32);
-s32 push_matrix();
-s32 pop_matrix();
 s32 clear_render_callback__8TObjFishFv(s32);
 
 void TBoss6Demo20_TYPE2_APPEAR::draw_model_12() {
@@ -72,10 +52,6 @@ void TBoss6Demo20_TYPE2_APPEAR::draw_model_12() {
     TObjPlayer::clear_global_state();
     pop_matrix();
 }
-
-extern const f32 lbl_805DFA70;
-extern const f32 lbl_805DFA74;
-extern const f32 lbl_805DFA7C;
 
 void TBoss6Demo20_TYPE2_APPEAR::draw_fading_model_1_pair() {
     f32 var_f31;
@@ -184,7 +160,6 @@ void render__25TBoss6Demo20_TYPE2_APPEARFv(void* p) { ((TBoss6Demo20_TYPE2_APPEA
 
 }
 
-#include "types.h"
 struct O_8033D9E4 { u8 pad[0x18]; void *f18; u8 pad2[0x7C - 0x1C]; void *f7c; void *h[9]; };
 
 typedef struct Vec_8033D6DC { f32 x, y, z; } Vec_8033D6DC;
@@ -218,9 +193,6 @@ void play_sound_effect(int, void *, int, int);
 extern const Ent_8033D6DC boss6_type2_appear_particle_schedule[];
 
 void run_task__25TBoss6Demo20_TYPE2_APPEARFv(O_8033D6DC *self);
-}
-
-extern "C" {
 
 void run_task__25TBoss6Demo20_TYPE2_APPEARFv(O_8033D6DC *self) {
     s32 i;
@@ -321,9 +293,7 @@ O_8033D9E4 *__dt__25TBoss6Demo20_TYPE2_APPEARFv(O_8033D9E4 *arg0, s16 arg1) {
 
 }
 
-#include "types.h"
 #include "pso/misc/TCameraCtrl.h"
-#include "pso/object/TObjFish.h"
 
 extern "C" {
 
@@ -342,15 +312,9 @@ extern const u8 lbl_80478064[];
 extern const u8 boss6_type2_appear_camera_script[];
 extern s32 lbl_804DF614[];
 __declspec(section ".data") extern s32 boss6_type2_appear_motion_indices[];
-extern s32 __vt__25TBoss6Demo20_TYPE2_APPEAR[];
 struct AppearanceClassTag { const char *value; u32 padding; };
 __declspec(section ".sdata") extern AppearanceClassTag TBoss6Demo20_TYPE2_APPEAR__name;
-extern const f32 lbl_805DFA70;
 u8 *TBoss6Demo20_TYPE2_APPEAR__ct(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 void *__nw__7TObjectFUl(int);
 
 #pragma push
@@ -424,8 +388,6 @@ void initialize_boss6_type2_appear_particle_origin(void) {
 }
 __declspec(section ".ctors") static void *const __sinit_text_8033DA94_cpp_ref = (void *)initialize_boss6_type2_appear_particle_origin;
 
-}
-extern "C" {
 __declspec(section ".data") RecoveredGlobal_8033DCA8_lbl_804EFA08 boss6_type2_appear_offset_particle_origin = {0, {0}};
 __declspec(section ".data") s32 boss6_type2_appear_motion_indices[2] = {31, 33};
 void render_shadows__7TObjectFv(void *);

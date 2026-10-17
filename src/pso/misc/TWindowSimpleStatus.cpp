@@ -16,22 +16,15 @@ void __dl__7TObjectFPv(void *);
 void TWindow__close(void *);
 extern u8 __vt__19TWindowSimpleStatus[];
 u8 *__dt__19TWindowSimpleStatusFv(SS_802705D8 *arg0, s16 arg1);
-extern u8 __vt__19TWindowSimpleStatus[];
 extern s32 TWindowSimpleStatus__name;
 extern const f32 lbl_805DD3EC;
 SS_80270668 *TWindowSimpleStatus__ct(SS_80270668 *arg0, void *arg1, s32 arg2, void *arg3);
-}
-
-extern "C" {
-
 s32 get_window_layout_position(s32);
 void *__nw__7TObjectFUl(int);
 s32 update_hp_tp_level__20TWindowSubStatusDispFv();
 s32 update_lockon_window(s32);
 s32 update_status_help_item(s32);
 
-}
-extern "C" {
 void render__19TWindowSimpleStatusFv(s32 arg0) {
     s32 ctx;
     ctx = draw_default_entry__9TWindowDDFl();

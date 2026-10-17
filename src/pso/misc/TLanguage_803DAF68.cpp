@@ -7,9 +7,7 @@ struct Tbl_803DAF70 { Ent_803DAF70 *arr; };
 
 struct G_803DAF70 { u8 pad[0x20]; Tbl_803DAF70 *f20; };
 
-extern "C" {
 extern u8 *current_render_context;
-}
 
 extern "C" {
 

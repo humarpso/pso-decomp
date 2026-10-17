@@ -13,15 +13,10 @@ void approach_vector_in_place(void *, void *, f32);
 void TObjRoomId__sub_80141CF4(void *, void *, f32);
 extern V3_8022BEAC TTecLuker__render_scale_vec;
 extern const f32 lbl_805DC7B0;
-}
-
 #pragma pop
 
 #pragma push
 
-#include "types.h"
-
-extern "C" {
 void sub_8022C008__13TUnk_804CC148Fv(u8 *arg0);
 void count_if_within_range__13TUnk_804CC148Fv(u8 *arg0);
 extern u8 lbl_804CC148[];
@@ -35,10 +30,6 @@ struct Stack_8022BF8C_more_8022be64_1 {
 
 extern "C" {
 f32 vector_length(void *, f32);
-}
-
-extern "C" {
-
 s32 approach_vector_fixed_distance(int, void *, int, f32);
 s32 queue_destruction__7TObjectFv(void *);
 
@@ -91,18 +82,11 @@ void TUnk_804CC148::sub_8022C008() {
     approach_vector_fixed_distance((int) (temp_r3), (void *) (arg0 + 0x7C), (int) (temp_r3), (f32) (*(f32 *)((s8 *)arg0 + 0x64)));
 }
 
-}
-
 #pragma pop
-
-#include "types.h"
 
 #define sub_8022C008__13TUnk_804CC148Fv ((s32 (*)())sub_8022C008__13TUnk_804CC148Fv)
 #define count_if_within_range__13TUnk_804CC148Fv ((s32 (*)(void *))count_if_within_range__13TUnk_804CC148Fv)
 #define lbl_804CC148 ((s32 *)lbl_804CC148)
-
-extern "C" {
-
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TEffectFv(void *, int);
@@ -140,7 +124,6 @@ void *TUnk_804CC148::destroy_technique_base(s16 arg1) {
 #undef count_if_within_range__13TUnk_804CC148Fv
 #undef lbl_804CC148
 
-#include "types.h"
 #include "pso/player/TObjPlayer.h"
 
 #define lbl_804CC148 ((void * *)lbl_804CC148)
@@ -160,23 +143,7 @@ extern const f32 lbl_805DC7C0;
 extern const f32 lbl_805DC7C4;
 extern const f32 lbl_805DC7C8;
 u8 *construct_area_technique_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-s32 VecCopy__FP3VecPC3Vec(void *, s32);
-u16 obj_getField1c(s32);
-s32 get_type__10TObjPlayerFPv(s32);
-void *__ct__7TEffectFv(void *);
-s32 init_collision_body_parts(u32, void *, s32);
-u32 construct_collider_proxy__13TUnk_804AF8A0Fv(u32, void *);
-u32 __nw__7TObjectFUl(s32);
-extern const f32 lbl_805DC7B4;
-extern const f32 lbl_805DC7B8;
-extern const f32 lbl_805DC7BC;
-extern const f32 lbl_805DC7C0;
-extern const f32 lbl_805DC7C4;
-extern const f32 lbl_805DC7C8;
 u8 *init_technique_effect_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg4);
-}
-
-extern "C" {
 
 u8 *init_technique_effect_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg4) {
     u32 var_r0;

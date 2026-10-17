@@ -145,14 +145,7 @@ extern RecoveredGlobal_8023D988___vt__12TTecZondeEff __vt__12TTecZondeEff;
 extern s32 TTecZondeEff_class_name;
 u8 *__ct__12TTecZondeEffFv(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, f32 farg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void __ct__7TObjectFP7TObject(void *, void *);
-extern RecoveredGlobal_8023D988___vt__12TTecZondeEff __vt__12TTecZondeEff;
-extern s32 TTecZondeEff_class_name;
 extern const f32 TTecZondeEff__data_805DC994;
-void VecCopy__FP3VecPC3Vec(void *, void *);
-void __ct__7TObjectFP7TObject(void *, void *);
-extern RecoveredGlobal_8023D988___vt__12TTecZondeEff __vt__12TTecZondeEff;
-extern s32 TTecZondeEff_class_name;
 extern P_8023DBB4 tec_zonde_effect_task_list;
 extern char lbl_804CC8C8[];
 extern A_8023DBB4 *shared_effect_texture_list[];
@@ -165,28 +158,18 @@ void randomize_bolt_jitter__12TTecZondeEffFPv(Obj_8023D4A8 *arg0);
 s32 is_split_screen(void);
 void spawn_particle_effect(Rec_8023D568 *, s32);
 void queue_destruction__7TObjectFv(void *);
-extern P_8023DBB4 tec_zonde_effect_task_list;
-extern s32 TTecZondeEff__beam_vertex_data;
-extern const f32 TTecZondeEff__data_805DC990;
 void set_depth_buffer_settings_1__Fv();
 void restore_saved_depth_alpha_state();
 void set_chunk_material_color(f32 *argb);
 extern f32 chunk_material_color_half_alpha_f32[];
 extern u32 lbl_805D5660;
-extern s32 TTecZondeEff__beam_vertex_data;
 extern u32 model_render_flags;
 void matrix_mult_vec(s32, Vec_8023D128 *, Vec_8023D128 *);
 extern Cam_8023D128 lbl_8058D4F8;
-extern const f32 TTecZondeEff__data_805DC994;
 extern const f32 lbl_805DC998;
 extern const f32 lbl_805DC99C;
 s32 project_lightning_points(Obj_8023D128 *self, Vec_8023D128 *out, f32 *a, f32 *b);
 f32 newton_sqrtf(f32);
-extern const f32 TTecZondeEff__data_805DC994;
-}
-
-extern "C" {
-
 void clear_zonde_beam_vertex_pointer(void);
 f32 fabs_float(f32);
 
@@ -195,8 +178,6 @@ struct Obj_8023D294 { u8 pad[0x28]; Vec_8023D294 d; };
 
 extern "C" {
 
-f32 rand_signed_unit();
-extern const f32 TTecZondeEff__data_805DC994;
 extern const f32 lbl_805DC9A0;
 
 #pragma push
@@ -393,8 +374,6 @@ s32 TTecZondeEff::calc_dominant_axis() {
     }
     return 2;
 }
-
-extern s32 TTecZondeEff__beam_vertex_data;
 
 typedef char RecoveredGlobal_8023D988___vt__12TTecZondeEff_size[sizeof(RecoveredGlobal_8023D988___vt__12TTecZondeEff) == 0x18 ? 1 : -1];
 

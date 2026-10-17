@@ -3,9 +3,6 @@
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-}
-
-extern "C" {
 
 void TBoss7LaserPtcl::destroy_particles() {
     s32 arg0 = (s32)this;

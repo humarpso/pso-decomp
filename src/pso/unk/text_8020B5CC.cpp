@@ -31,9 +31,6 @@ extern Tbl_8020B970 TLobby__floor_enemy_group_table[];
 extern u32 TLobby__data_805D6104;
 extern u32 TLobby__data_805D6108;
 s32 load_floor_enemy_group_entries__6TLobbyFiPvUi(s32 idx, Src_8020B970 *src, u32 size);
-}
-
-extern "C" {
 
 #pragma push
 #pragma opt_propagation off

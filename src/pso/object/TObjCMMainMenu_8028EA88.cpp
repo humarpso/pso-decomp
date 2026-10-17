@@ -33,7 +33,6 @@ s32 TWindowCtrlMain__ct(void *);
 s32 fn_8028D940();
 s32 TObjCMMainMenu__sub_8028D9F8();
 void TObjCMMainMenu__sub_8028EC18(void);
-void TObjCMMainMenu__sub_8028EC24(void);
 void TObjCMMainMenu__sub_8028EC34(void);
 s32 fn_80291178();
 s32 fn_80291290();
@@ -47,13 +46,6 @@ extern s32 tl_camera;
 extern s32 tl_03;
 extern void *creation_menu_main_obj;
 void init_creation_menu_scene(void);
-}
-
-extern "C" {
-
-void TObjCMMainMenu__sub_8028EC18(void);
-void TObjCMMainMenu__sub_8028EC34(void);
-
 extern s32 TObjCMMainMenu__data_805D659C;
 
 typedef char RecoveredGlobal_8028EBCC_TObjCMMainMenu__data_804DB9C8_size[sizeof(RecoveredGlobal_8028EBCC_TObjCMMainMenu__data_804DB9C8) == 0xA0 ? 1 : -1];
@@ -113,16 +105,12 @@ u8 TObjCMMainMenu::is_state_4() {
     return (u8) (TObjCMMainMenu__data_805D659C == 4);
 }
 
-extern s32 TObjCMMainMenu__data_805D659C;
-
 u8 TObjCMMainMenu::is_state_3() {
     return (u8) (TObjCMMainMenu__data_805D659C == 3);
 }
 
     extern int creation_dressing_room_mode_flag;
 void TObjCMMainMenu__sub_8028EC18(void) { creation_dressing_room_mode_flag = 1; }
-
-    extern int creation_dressing_room_mode_flag;
 
 typedef char RecoveredGlobal_8028EC24_lbl_8051C07C_size[sizeof(RecoveredGlobal_8028EC24_lbl_8051C07C) == 0x18 ? 1 : -1];
 void TObjCMMainMenu__sub_8028EC24(void) {

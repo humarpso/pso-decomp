@@ -35,13 +35,8 @@ extern const f32 lbl_805DD208;
 extern const f32 lbl_805DD20C;
 extern const f32 lbl_805DD210;
 void *TWindowMeseta__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-}
-
-extern "C" {
-
 void *__dt__13TWindowMesetaFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-s32 get_meseta_value__13TWindowMesetaFv();
 
 extern const f32 lbl_805DD200;
 
@@ -57,8 +52,6 @@ void TWindowMeseta::run_task() {
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24);
 }
-
-extern s32 __vt__13TWindowMeseta[];
 
 void *__dt__13TWindowMesetaFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

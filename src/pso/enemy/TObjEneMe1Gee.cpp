@@ -71,7 +71,6 @@ extern D_800CC950 * TObjEneMe1Gee__resource_bundle;
 extern const Data_800C82A4 TObjEneMe1Gee__data_8043BDB0;
 extern s32 lbl_805D2A68;
 extern s32 gee_resource_bundle_ptr;
-}
 #pragma push
 #define TObjEneMe1Gee__sub_800C8788 ((void (*)())TObjEneMe1Gee__sub_800C8788)
 #define vfunc_108__13TUnk_8049387CFv ((void (*)())vfunc_108__13TUnk_8049387CFv)
@@ -94,7 +93,6 @@ extern s32 gee_resource_bundle_ptr;
 #define vfunc_109__13TUnk_8049387CFv ((void (*)())vfunc_109__13TUnk_8049387CFv)
 #define vfunc_116__13TUnk_8049387CFv ((void (*)())vfunc_116__13TUnk_8049387CFv)
 #define vfunc_112__13TUnk_8049387CFl ((void (*)())vfunc_112__13TUnk_8049387CFl)
-extern "C" {
 extern "C" void vfunc_28__13TObjEneMe1GeeFv();
 extern "C" void vfunc_61__13TObjEneMe1GeeFv();
 
@@ -280,8 +278,6 @@ s32 lbl_80500E44[3];
 s32 lbl_80500E50[3];
 s32 lbl_80500E5C[3];
 f32 gee_camera_ctrl_vec[4];
-}
-
 #undef TObjEneMe1Gee__sub_800C8788
 #undef vfunc_108__13TUnk_8049387CFv
 #undef TObjEneMe1Gee__sub_800C8950
@@ -305,9 +301,6 @@ f32 gee_camera_ctrl_vec[4];
 #undef vfunc_112__13TUnk_8049387CFl
 #pragma pop
 #pragma push
-#include "types.h"
-
-extern "C" {
 
 extern s32 TObjEneMe1Gee__data_805D51C0;
 
@@ -346,8 +339,6 @@ void TUnk_8049387C::vfunc_112(s32 arg1) {
 #define set_flag3c8_bit4__13TObjEneMe1GeeFPv ((s32 (*)(void *))set_flag3c8_bit4__13TObjEneMe1GeeFPv)
 #define TObjEneMe1Gee__sub_800CB5A0 ((s32 (*)(void *, s32))TObjEneMe1Gee__sub_800CB5A0)
 #define sub_800CB764__13TUnk_8049387CFl ((s32 (*)(void *, s32))sub_800CB764__13TUnk_8049387CFl)
-
-#include "types.h"
 
 struct VBase_18_0b84db { char pad[0x18]; };
 struct VObj_18_0b84db : VBase_18_0b84db {
@@ -458,8 +449,6 @@ extern const f32 TObjEneMe1Gee__data_805DA0A8;
 extern const f32 lbl_805DA0AC;
 struct Gee_800C84C8 { u8 pad[0x494]; s32 count; void *arr[8]; };
 
-}
-extern "C" {
 void TUnk_8049387C::vfunc_111(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     switch (arg1) {
@@ -617,8 +606,6 @@ void TUnk_8049387C::sub_800C84C8() {
     }
 }
 
-}
-
 #undef set_flag3c8_bit2__13TObjEneMe1GeeFv
 #undef set_state_flag__13TObjEneMe1GeeFPvii
 #undef TObjEneMe1Gee__sub_800CB628
@@ -630,10 +617,6 @@ void TUnk_8049387C::sub_800C84C8() {
 #undef sub_800CB764__13TUnk_8049387CFl
 #pragma pop
 #pragma push
-#include "types.h"
-
-extern "C" {
-
 void vfunc_113__13TUnk_8049387CFv(void);
 
 int TUnk_8049387C::vfunc_109() {
@@ -647,17 +630,11 @@ void TUnk_8049387C::vfunc_113() {  }
 
 #pragma pop
 #pragma push
-#include "types.h"
 
 struct Obj_800C86E0 { u8 pad0[0x390]; void *key; u8 pad1[0x100]; s32 count; u8 *items[8]; };
 
 extern "C" {
 s32 TObjEneMe1Gee__sub_800CB584(u8 *);
-}
-
-extern "C" {
-
-void vfunc_113__13TUnk_8049387CFv(void);
 
 int TUnk_8049387C::vfunc_116() {
     Obj_800C86E0 *arg0 = (Obj_800C86E0 *)this;
@@ -690,7 +667,6 @@ int TUnk_8049387C::vfunc_116() {
 #define gee_camera_ctrl_vec (*(RecoveredGlobal_800C913C_lbl_80500E68 *)&gee_camera_ctrl_vec)
 #define gee_resource_bundle_ptr (*(s32 * *)&gee_resource_bundle_ptr)
 
-#include "types.h"
 #include <stddef.h>
 
 struct Vec_800C96B4 { f32 x, y, z; };
@@ -1022,7 +998,6 @@ struct Gee_800CC430 { u8 pad0[0x38]; Vec_800CC430 pos; u8 pad44[0x414 - 0x44]; V
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 transition_enemy_state(void *, s32);
 extern const f32 TObjEneMe1Gee__data_805DA0B4;
 extern const f32 TObjEneMe1Gee__data_805DA0C8;
 extern const f32 TObjEneMe1Gee__data_805DA0D4;
@@ -1035,7 +1010,6 @@ f32 sin_table_lookup(s32, f32);
 f32 cos_table_lookup(s32);
 s32 vec3_add_to(void *, s32);
 extern const f32 lbl_805DA0B0;
-extern const f32 TObjEneMe1Gee__data_805DA0B4;
 f64 atan2_float(f32, f32);
 s32 rotate_xz_pair_by_angle(void *, void *, int);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
@@ -1044,23 +1018,17 @@ void TObjEneMe1Gee__sub_800CBC1C(u8 *arg0);
 s32 play_sound_effect(s32, u32, s16, s32);
 f32 subtract_vector(void *, void *);
 extern const f64 lbl_8043BF28;
-extern const f32 TObjEneMe1Gee__data_805DA0A8;
-extern const f32 TObjEneMe1Gee__data_805DA0B4;
 extern const f32 lbl_805DA0F0;
 extern const f32 lbl_805DA0F4;
 extern const f32 lbl_805DA0F8;
 extern const f32 lbl_805DA0FC;
 void TObjEneMe1Gee__sub_800C9A94(void *arg0, s32 arg1);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void TObjEneEpsilon__sub_800B92F8(void *, s32, f32);
-s32 transition_enemy_state(void *, s32);
 void destroy_subobj__13TObjEneMe1GeeFPv(void* p, void * _w1);
 s32 play_persistent_sound(s32, s32, u32, s16, s32);
-s32 play_sound_effect(s32, u32, s16, s32);
 void TObjEneMe1Gee_NEEDLE__ct(void *, void *, Vec_800CA454 *, Vec_800CA454 *, f32, f32);
 void matrix_mult_vec(void *, Vec_800CA454 *, Vec_800CA454 *);
 s32 rotate_matrix_y(int, int);
-f32 subtract_vector(void *, void *);
 void push_matrix_from(void *);
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
@@ -1068,11 +1036,8 @@ extern const u8 TObjEneMe1Gee__data_8043BDC0[];
 extern Vec_800CA454 lbl_8043BE7C[];
 extern u8 identity_matrix[];
 extern u8 *anim_model_matrix_array;
-extern const f32 TObjEneMe1Gee__data_805DA0A8;
-extern const f32 TObjEneMe1Gee__data_805DA0D4;
 extern const f32 lbl_805DA124;
 void TObjEneMe1Gee__sub_800CA454(void *arg0, s32 arg1);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
 s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
@@ -1080,11 +1045,8 @@ s32 set_part_position__9TObjEneDDFPvPvi(void *, int, int);
 s32 init_model__9TObjEneDDFv(void *, void *, int);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
 s32 rand(f32);
-extern const u8 TObjEneMe1Gee__data_8043BDC0[];
-extern const f32 TObjEneMe1Gee__data_805DA0B4;
 extern const f32 lbl_805DA0B8;
 extern const f32 TObjEneMe1Gee__data_805DA0C0;
-extern const f32 TObjEneMe1Gee__data_805DA0C8;
 extern const f32 lbl_805DA148;
 extern const f32 lbl_805DA14C;
 extern "C" u8 lbl_8043BD08[];
@@ -2358,11 +2320,8 @@ struct Gee_800C8788 {
 };
 
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
-f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
 s32 copy_position__14TObjEneEpsilonFPv(void *, void *);
 int select_and_apply_target__12TObjEneDD_STFf(void*);
 s32 set_target_player__12TObjEneDD_STFPv();
@@ -2382,19 +2341,15 @@ u32 vfunc_101__9TObjEneDDFPUc();
 s32 collect_enemy_target_candidates(void *, Rec_800CBB34 *);
 s32 get_target_info__9TObjEneDDFv();
 s32 pack_debug_text_position(s32, s32);
-s32 transition_enemy_state(void *, s32);
 void TObjEneMe1Gee__sub_800C9580(u8 *arg0, s32 arg1);
 void run_task__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1);
 void TObjEneMe1Gee__sub_800C9DF8(void *, s32);
 void TObjEneMe1Gee__sub_800CAFD8(u8 *arg0, s32 arg1);
 void TObjEneMe1Gee__sub_800CB560(u8 *arg0);
 s32 TObjEneMe1Gee__sub_800CB584(u8 *arg0);
-void destroy_subobj__13TObjEneMe1GeeFPv(void* p, void * _w1);
 void TObjEneMe1Gee__sub_800CB968(s32 arg0);
 s32 TObjEneMe1Gee__sub_800CBA80(u8 *arg0);
 s32 find_attack_target__13TObjEneMe1GeeFPvPv(Gee_800CBB34 *arg0, f32 *out);
-void TObjEneMe1Gee__sub_800CBC04(u8 *arg0);
-void TObjEneMe1Gee__sub_800CBC1C(u8 *arg0);
 void TObjEneMe1Gee__sub_800CBDBC(u8 *arg0);
 void approach_target_value__13TObjEneMe1GeeFPvf(Obj_800CBEF0 *self, f32 target);
 void sub_800CBF58__13TObjEneMe1GeeFf(u8 *arg0, f32 farg0);
@@ -2412,26 +2367,12 @@ s32 approach_angle_limited(s32, s32, s32);
 u8 * find_entity_by_id(u16);
 void free_collision_body_parts(void *);
 void * get_player_by_client_id(u16);
-s32 play_persistent_sound(s32, s32, u32, s16, s32);
-s32 play_sound_effect(s32, u32, s16, s32);
 void __dl__7TObjectFPv(void *);
-f32 sin_table_lookup(s32, f32);
-f32 cos_table_lookup(s32);
-s32 vec3_add_to(void *, s32);
-s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
 s32 draw_chunk_object(int);
 
 extern s32 TObjEneMe1Gee__render_node_index;
 extern s32 TObjEneMe1Gee__data_805D51C4;
-extern const f32 TObjEneMe1Gee__data_805DA0A8;
-extern const f32 TObjEneMe1Gee__data_805DA0B4;
-extern const f32 TObjEneMe1Gee__data_805DA0C0;
-extern const f32 TObjEneMe1Gee__data_805DA0C8;
-extern const f32 TObjEneMe1Gee__data_805DA0D4;
-extern const f32 TObjEneMe1Gee__data_805DA0E8;
 extern const f32 TObjEneMe1Gee__data_805DA0EC;
 extern s32 __vt__13TObjEneMe1Gee[];
 extern RecoveredGlobal_800CB764_lbl_8043BDD0 lbl_8043BDD0;
@@ -2442,15 +2383,11 @@ extern s32 lbl_8043BEC8[];
 extern s32 lbl_8043BED8[];
 extern s32 lbl_8043BEEC[];
 extern s32 lbl_8043BF0C[];
-extern const f64 lbl_8043BF28;
 extern s32 gee_camera_ctrl_step_ptr;
-extern const f32 lbl_805DA0AC;
-extern const f32 lbl_805DA0B8;
 extern const f32 lbl_805DA0BC;
 extern const f32 lbl_805DA0C4;
 extern const f32 lbl_805DA0CC;
 extern const f32 lbl_805DA0D0;
-extern const f32 lbl_805DA0FC;
 extern const f32 lbl_805DA110;
 extern const f32 lbl_805DA128;
 extern const f32 lbl_805DA130;
@@ -4434,8 +4371,6 @@ u8 *TObjEneMe1Gee__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4, s16 arg5
     return arg0;
 }
 
-}
-
 #undef advance_animation_playback
 #undef queue_destruction__7TObjectFv
 #undef TObjEneMe1Gee__data_8043BDB0
@@ -4454,13 +4389,7 @@ u8 *TObjEneMe1Gee__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4, s16 arg5
 #define init_object__12TObjEneDD_STFv ((void (*)(void *))init_object__12TObjEneDD_STFv)
 #define init_common__13TUnk_80494938Fv ((void (*)(void *))init_common__13TUnk_80494938Fv)
 #define lbl_805D2A68 (*(void * *)&lbl_805D2A68)
-#include "types.h"
-
-extern "C" {
-
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
-
-extern s32 __vt__13TObjEneMe1Gee[];
 
 void *init__13TObjEneMe1GeeFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     init_object__12TObjEneDD_STFv(arg0);
@@ -4515,16 +4444,10 @@ void TObjEneMe1Gee::free_globals() {
 #undef g51C0
 #undef g51B0
 
-}
-
 #pragma pop
 #pragma push
 #define TObjEneMe1Gee__ct ((void * (*)(void *, void *, void *, void *, void *, void *))TObjEneMe1Gee__ct)
 #define __nw__7TObjectFUl ((void * (*)(int))__nw__7TObjectFUl)
-#include "types.h"
-
-extern "C" {
-
 void * create__13TObjEneMe1GeeFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 
 extern void *tl_04;
@@ -4538,19 +4461,12 @@ void * create__13TObjEneMe1GeeFPvPvPvPv(void *arg0, void *arg1, void *arg2, void
     return o;
 }
 
-}
-
 #undef TObjEneMe1Gee__ct
 #undef __nw__7TObjectFUl
 #pragma pop
 #pragma push
 #define __nw__7TObjectFUl ((void * (*)(int))__nw__7TObjectFUl)
 #define init__13TObjEneMe1GeeFPvPvPvPv ((void * (*)(void *, void *, void *, int))init__13TObjEneMe1GeeFPvPvPvPv)
-#include "types.h"
-
-extern "C" {
-
-extern void *tl_04;
 
 void *TObjEneMe1Gee::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x490);
@@ -4569,8 +4485,6 @@ void *TObjEneMe1Gee::create(void *arg0) {
 #define bm_ene_me1_gee_resource_descriptor ((u8 *)&bm_ene_me1_gee_resource_descriptor)
 #define bm_ene_me1_gee_low_resource_descriptor ((u8 *)&bm_ene_me1_gee_low_resource_descriptor)
 
-#include "types.h"
-#include "pso/enemy/TObjEneMe1Gee.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -4598,16 +4512,7 @@ extern s32 lbl_8043BCF0[];
 extern s32 lbl_8043BCFC[];
 extern Q_800CC950 lbl_8043BE6C;
 extern u8 *lbl_805D51B4;
-extern s32 TObjEneMe1Gee__render_node_index;
-extern s32 TObjEneMe1Gee__data_805D51C0;
-extern s32 TObjEneMe1Gee__data_805D51C4;
-extern const f32 TObjEneMe1Gee__data_805DA0B4;
-extern const f32 TObjEneMe1Gee__data_805DA0C0;
 extern const f32 lbl_805DA150;
-}
-
-extern "C" {
-
 void TObjEneMe1Gee::load_resources() {
     s32 i;
     s32 p;

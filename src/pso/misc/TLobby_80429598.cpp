@@ -101,7 +101,6 @@ u8 exi_dma_write_buffer[0xC00];
 void TLobby__sub_803F95E4(u32);
 extern s16 network_link_status_cache;
 s32 NetMemcpy(void *, void *, int);
-void TLobby__sub_803F95E4(u32);
 extern u32 lobby_buffer_pool_alarm_handle;
 s32 OSWakeupThread(void *);
 extern s32 network_thread_queue;
@@ -125,22 +124,13 @@ void TLobby__sub_8042B58C(u32 arg0, s32 arg1);
 extern s32 lbl_805D7C44;
 extern s32 lbl_805D7C48;
 void TLobby__sub_8042BA48(s32 arg0, s32 arg1);
-s32 OSWakeupThread(void *);
 s32 EXILock(s32, u32, u32);
 extern RecoveredGlobal_8042E768_lbl_805D1D20 modem_connection_info;
 extern s32 lbl_805D7C98;
-s32 EXILock(s32, u32, u32);
 s32 EXIUnlock(s32);
-extern s32 lbl_805D7C98;
-extern s16 network_link_status_cache;
 s32 TLobby__sub_80428360(void);
-extern u32 lobby_buffer_pool_alarm_handle;
 void TAdSinglePlyChrSelectGC__sub_8042DDE4(int, int);
-extern RecoveredGlobal_8042E768_lbl_805D1D20 modem_connection_info;
-extern s32 lbl_805D7C98;
 s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32 arg0, s32 arg1, s32 arg2);
-s32 memcpy(void *, void *, int);
-extern s32 exi_mac_address;
 s32 OSSendMessage(void *mq, void *msg, s32 flags);
 extern u8 lbl_805CF380[];
 extern s32 network_message_pending_count;
@@ -148,7 +138,6 @@ void TLobby__sub_80425D88(u8 v);
 s16 TLobby__sub_80426110(Obj_80426110 *o, u16 arg1, u16 arg2);
 s32 OSReceiveMessage(void *, void *, int);
 extern u8 TLobby__pppoe_message_queue[];
-s32 NetMemcpy(void *, void *, int);
 typedef struct Ent_804267F0 {
     s16 count;
     u8 id[6];
@@ -162,166 +151,59 @@ typedef struct Tbl_804267F0 {
 s32 NetMemcmp(void *, void *, int);
 s16 TLobby__sub_804262CC(void *);
 s32 TLobby__sub_80426B88(s16 arg0);
-s32 NetMemcpy(void *, void *, int);
 s32 TLobby__sub_80427240(u8 **arg0);
-s32 NetMemcpy(void *, void *, int);
 u8 find_dhcp_option__6TLobbyFPvUcPv(u8 *p, u8 tag, u8 **out);
 void TLobby__sub_80424CA8(void);
-s32 OSSendMessage(void *mq, void *msg, s32 flags);
-u8 *TLobby__sub_804256B8(s32);
-s32 OSReceiveMessage(void *, void *, int);
-void TLobby__sub_80425D88(u8 v);
-extern u8 lbl_805CF240[];
-extern u8 lbl_805CF380[];
-extern s32 network_message_pending_count;
-s32 OSSendMessage(void *mq, void *msg, s32 flags);
-s32 NetMemcpy(void *, void *, int);
 u8 *TLobby__sub_804256B8(s32);
 extern u8 lbl_805CF240[];
 s32 post_send_message__6TLobbyFiUs(s32 arg0, u16 arg1);
-s32 NetMemcpy(void *, void *, int);
-s16 TLobby__sub_80426110(Obj_80426110 *o, u16 arg1, u16 arg2);
-s16 TLobby__sub_804262CC(void *);
 s32 TLobby__sub_80426660(u8 *arg0);
-s32 OSSendMessage(void *mq, void *msg, s32 flags);
-u8 *TLobby__sub_804256B8(s32);
-extern u8 lbl_805CF240[];
-s32 EXIImm(s32, void *, s32, u32, u32);
-s32 EXISelect(s32, u32, s32);
-s32 EXISync(s32);
 s32 EXIDma(s32, void *, s32, u32, void *);
 extern s32 exi_dma_read_length;
 extern u32 exi_dma_write_length;
-s32 EXIDeselect(s32);
-s32 EXIImm(s32, void *, s32, u32, u32);
-s32 EXISelect(s32, u32, s32);
-s32 EXISync(s32);
-s32 EXIDma(s32, void *, s32, u32, void *);
-extern u32 exi_dma_write_length;
-s32 EXILock(s32, u32, u32);
-s32 EXIUnlock(s32);
-char *strcat(char *, const char *);
-char *strcpy(char *, const char *);
-void TAdSinglePlyChrSelectGC__sub_8042D49C(char *);
-extern char lbl_805D48AC[2];
-char *strcat(char *, const char *);
-char *strcpy(char *, const char *);
-void TAdSinglePlyChrSelectGC__sub_8042D49C(char *);
-extern char lbl_805D48AC[2];
-char *strcat(char *, const char *);
-char *strcpy(char *, const char *);
-void TAdSinglePlyChrSelectGC__sub_8042D49C(char *);
-extern char lbl_805D48AC[2];
 char *strcat(char *, const char *);
 char *strcpy(char *, const char *);
 void TAdSinglePlyChrSelectGC__sub_8042D49C(char *);
 extern char lbl_805D48AC[2];
 extern s32 lbl_805D4820;
-s32 NetMemcmp(void *, void *, int);
-s32 NetMemcpy(void *, void *, int);
-s32 EXILock(s32, u32, u32);
-s32 EXIImm(s32, void *, s32, u32, u32);
-s32 EXISelect(s32, u32, s32);
-s32 EXISync(s32);
-s32 EXIDma(s32, void *, s32, u32, void *);
 void DCStoreRange(void *, u32);
 void TLobby__sub_8042B434(s32, void *);
-extern s32 lbl_805D7C7C;
-extern s32 exi_send_size;
 extern s32 lbl_805D7C84;
 extern s32 lbl_805D7C88;
 
-s32 NetMemcpy(void *, void *, int);
-Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1);
-s32 EXIDeselect(s32);
-s32 EXIImm(s32, void *, s32, u32, u32);
-s32 EXISelect(s32, u32, s32);
-s32 EXISync(s32);
-s32 EXILock(s32, u32, u32);
-s32 EXIUnlock(s32);
-s32 OSDisableInterrupts();
-s32 OSRestoreInterrupts(s32);
-s32 OSSleepThread(void *);
-extern s32 network_thread_queue;
-s32 NetMemcmp(void *, void *, int);
-s32 NetMemcpy(void *, void *, int);
 Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1);
 void DCInvalidateRange(void *, u32);
-s32 EXIDeselect(s32);
 void TLobby__sub_80429648(void);
-s32 memcpy(void *, void *, int);
-extern s32 exi_receive_callback;
-extern s32 exi_dma_read_length;
-extern u32 exi_dma_write_length;
 extern u16 lbl_805D7C6C[2];
 extern u8 *lbl_805D7C74;
 extern u16 lbl_805D7C7A;
 void TLobby__sub_80429AC8(void);
-s32 EXIDeselect(s32);
-s32 EXIImm(s32, void *, s32, u32, u32);
-s32 EXISelect(s32, u32, s32);
-s32 EXISync(s32);
-s32 EXIImmEx(s32, s32, s32, s32);
-s32 EXILock(s32, u32, u32);
-s32 EXIUnlock(s32);
-s32 OSDisableInterrupts();
-s32 OSRestoreInterrupts(s32);
-s32 OSSleepThread(void *);
 int memcmp(const void *, const void *, unsigned long);
 u16 TLobby__sub_8042BA8C(void *);
 extern s32 lbl_805D4830;
-extern s32 network_thread_queue;
 void enable_network_multicast_address(void *arg0);
-}
-
-extern "C" {
-
 s32 TLobby__sub_80426440(void);
 s32 TLobby__sub_80428358(void);
 s32 fn_8042E8B8(void);
 
-extern s32 lbl_805D4820;
-
-s32 NetMemcpy(void *, void *, int);
-
-u8 find_dhcp_option__6TLobbyFPvUcPv(u8 *p, u8 tag, u8 **out);
-
 #pragma push
 #pragma opt_propagation off
 #pragma pop
-
-void TLobby__sub_80424CA8(void);
 
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)
 #pragma pop
 
-void TLobby__sub_80425D88(u8 v);
-
-s16 TLobby__sub_80426110(Obj_80426110 *o, u16 arg1, u16 arg2);
-
 #define arg0 ((s32)argp)
 s16 TLobby__sub_804262CC(void *argp);
 #undef arg0
-
-s32 TLobby__sub_80426440(void);
-
-s32 post_send_message__6TLobbyFiUs(s32 arg0, u16 arg1);
-
-s32 TLobby__sub_80426660(u8 *arg0);
 
 #pragma push
 #pragma dont_inline on
 #pragma pop
 
-s32 TLobby__sub_80426B88(s16 arg0);
-
-s32 TLobby__sub_80427240(u8 **arg0);
-
 typedef char RecoveredGlobal_80427D0C_lbl_805CFC20_size[sizeof(RecoveredGlobal_80427D0C_lbl_805CFC20) == 0xE20 ? 1 : -1];
-
-Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1);
 
 #define TBL_80427D40 ((Ent_80427D40 *)&lobby_pppoe_slot_table)
 #pragma push
@@ -329,12 +211,9 @@ Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1);
 #pragma inline_depth(4)
 #pragma pop
 
-s32 TLobby__sub_80428358(void);
-
 typedef char RecoveredGlobal_80428374_lbl_805D0A40_size[sizeof(RecoveredGlobal_80428374_lbl_805D0A40) == 0x60 ? 1 : -1];
 
 typedef char RecoveredGlobal_80428360_lbl_805CFC20_size[sizeof(RecoveredGlobal_80428360_lbl_805CFC20) == 0xE20 ? 1 : -1];
-s32 TLobby__sub_80428360(void);
 
 typedef char RecoveredGlobal_8042839C_lbl_805D0A40_size[sizeof(RecoveredGlobal_8042839C_lbl_805D0A40) == 0x60 ? 1 : -1];
 
@@ -666,13 +545,10 @@ u8 TLobby::exi_read_status_byte() {
 #pragma push
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_8042DD70_lbl_805D1D20_size[sizeof(RecoveredGlobal_8042DD70_lbl_805D1D20) == 0x1C ? 1 : -1];
-s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32 arg0, s32 arg1, s32 arg2);
 #pragma pop
 
 void TAdSinglePlyChrSelectGC__sub_8042DDE4(int _w0, int _w1);
 
 typedef char RecoveredGlobal_8042E768_lbl_805D1D20_size[sizeof(RecoveredGlobal_8042E768_lbl_805D1D20) == 0x1C ? 1 : -1];
-
-s32 fn_8042E8B8(void);
 
 }

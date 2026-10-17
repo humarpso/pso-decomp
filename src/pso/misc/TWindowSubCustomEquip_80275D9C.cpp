@@ -21,8 +21,6 @@ void update_palette_item_count_label(u8 *, u8 *, s32, s32, s32);
 void draw_action_palette_icon(u8 *, s32, s32);
 extern u8 lbl_8044F738[];
 extern u8 lbl_8044F740[];
-u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
-extern u8 lbl_8044F738[];
 extern const f32 lbl_805DD564;
 s32 try_open__19TWindowKeyBoardSoftFii(void *, void *);
 void begin_screen_draw(int);
@@ -34,10 +32,6 @@ extern const f32 lbl_805DD550;
 extern const f32 lbl_805DD554;
 extern const f32 lbl_805DD560;
 void draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(u8 *arg0, Vec2_80275DE8 *arg1, s32 arg2, f32 farg0);
-}
-
-extern "C" {
-
 int TWindowSubCustomEquip__sub_80275DA8(void* p);
 
 int TWindowSubCustomEquip::is_selected() { return this->m_60 & 0x1; }

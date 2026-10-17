@@ -13,10 +13,6 @@ s32 TObjLiveMonitor__sub_8030C050(s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 draw_ginja_model(void *);
-}
-
-extern "C" {
-
 void *__ct__20TObjLiveMonitorSmallFv(void *arg0, void *arg1, void *arg2);
 s32 spawn_for_each_fish__20TObjLiveMonitorSmallFi(s32 arg0);
 void *get_bml_model(s32, s32);

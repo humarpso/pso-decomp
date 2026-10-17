@@ -16,10 +16,6 @@ u8 TBoss3Volopt__sub_8003F408(O_8003F408 *self);
 u8 TBoss3Volopt__sub_8003F430(O_8003F430 *self);
 u8 TBoss3Volopt__sub_8003F41C(O_8003F41C *self);
 u8 TBoss3Volopt__sub_8003F444(O_8003F444 *self);
-}
-
-extern "C" {
-
 u8 TBoss3Volopt__sub_8003F458(void *arg0);
 u8 fn_8003F3F8(void *arg0);
 

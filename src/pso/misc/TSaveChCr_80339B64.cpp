@@ -10,17 +10,12 @@ extern s32 lbl_804C88C0[];
 extern s32 pso_system_card_filename[];
 extern s32 lbl_804C89BC[];
 s32 TAdSinglePlyChrSelectGC__sub_80339DBC(void);
-}
-
-extern "C" {
-
 int TSaveChCr__sub_80339B94(void* p);
 void TSaveChCr__sub_80339CE4(void);
 int request_queued_main_phase(void);
 s32 TKeyBoardControl__sub_8000F9CC(s32);
 int TSaveChCr__sub_80339F30(void*);
 s32 TSaveChCr__sub_8033A138(void *);
-int close_and_advance__9TSaveChCrFPv(void*, int);
 s32 poll_memcard_status__9TSaveChCrFv();
 int queue_destruction__7TObjectFv(void*);
 s32 save_character__9TSaveChCrFv(void *);

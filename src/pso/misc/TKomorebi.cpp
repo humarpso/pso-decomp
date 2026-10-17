@@ -7,13 +7,11 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern char lbl_80445A00[];
 extern char lbl_80445A10[];
 extern const char *bm_fe_obj_komo_model_names[2];
 extern BmlResourceDescriptor TKomorebi__resource_descriptor;
 extern const char *bm_fe_obj_komo_motion_names[1];
-}
 
 struct VObjBase_80192174 { char pad[0x18]; };
 struct VObj_80192174 : VObjBase_80192174 {
@@ -47,15 +45,9 @@ extern s32 komorebi_class_name;
 extern u32 TKomorebi__resource_bundle;
 u8 *TKomorebi__ct(u8 *arg0, s32 arg1, s32 arg2);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-extern u32 TKomorebi__resource_bundle;
 extern s32 komorebi_last_uv_update_frame;
 s32 get_bml_motion(s32, s32);
-s32 get_bml_model(void *, int);
 extern s32 lazer_fence_norm_bml_resource;
-}
-
-extern "C" {
-
 void *TKomorebi__create(void *arg0);
 void *__dt__9TKomorebiFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -72,7 +64,6 @@ f32 xz_distance_squared(void *, s32);
 
 extern s32 camera_ctrl_instance;
 extern s32 actor_frame_tick;
-extern s32 komorebi_last_uv_update_frame;
 extern const f32 lbl_805DBE48;
 extern const f32 lbl_805DBE4C;
 extern const f32 lbl_805DBE50;
@@ -100,8 +91,6 @@ void TKomorebi::render() {
 }
 
 void TKomorebi::run_task() {  }
-
-extern s32 __vt__9TKomorebi[];
 
 void *__dt__9TKomorebiFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -136,9 +125,6 @@ void *TKomorebi__create(void *arg0) {
     }
     return o;
 }
-
-extern u32 TKomorebi__resource_bundle;
-extern s32 komorebi_last_uv_update_frame;
 
 void TKomorebi::free_static() {
     if ((u32) TKomorebi__resource_bundle != 0U) {
@@ -184,9 +170,6 @@ void TObjLazerFenceExtra::init_models() {
     }
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_fe_obj_komo_model_names[2] = { lbl_80445A00, NULL };
 BmlResourceDescriptor TKomorebi__resource_descriptor = { lbl_80445A10, bm_fe_obj_komo_model_names, bm_fe_obj_komo_motion_names, 1, 0 };
 __declspec(section ".sdata") const char *bm_fe_obj_komo_motion_names[1] = { NULL };

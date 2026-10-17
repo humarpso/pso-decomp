@@ -12,9 +12,6 @@ u8 * TItemWeapon__ct(void *, void *);
 extern RecoveredGlobal_8012BCD4_lbl_804A4F60 psycho_wand_weapon_vtable;
 extern const f32 lbl_805DAEC8;
 u8 *psycho_wand_ct(u8 *arg0, u8 *arg1, s32 _w2);
-}
-
-extern "C" {
 
 u8 *psycho_wand_ct(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);
@@ -45,8 +42,5 @@ u8 *create_psycho_wand(s32 arg0) {
     }
     return NULL;
 }
-#include "types.h"
-
-#include "types.h"
 
 }

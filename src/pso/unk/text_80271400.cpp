@@ -11,10 +11,6 @@ s32 create__19TWindowSimpleStatusFPv(int, void *);
 s32 TWindowStatus__ct(int, int, void *, void *);
 extern RecoveredGlobal_80271400_lbl_804D0F78 lbl_804D0F78;
 s32 create_status_window(s32 arg0);
-}
-
-extern "C" {
-
 s32 create_status_window(s32 arg0) {
     s32 window_layout_position;
     s32 temp_r3;

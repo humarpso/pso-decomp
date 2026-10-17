@@ -17,9 +17,7 @@ extern "C" {
 u16 obj_getField1c(void *);
 u8 * construct_aimed_technique_projectile(void *, s32, void *, void *, s16);
 extern RecoveredGlobal_802302A0___vt__8TTecFoie __vt__8TTecFoie;
-u16 obj_getField1c(void *);
 u8 * construct_facing_technique__10TObjPlayerFPviPvii(void *, s32, void *, s32, s16);
-extern RecoveredGlobal_802302A0___vt__8TTecFoie __vt__8TTecFoie;
 extern s32 TTecFoie__name;
 u8 *TTecFoie__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4);
 extern Band_802301EC TTecFoie__emitter_profile_table[];
@@ -28,9 +26,6 @@ void queue_destruction__7TObjectFv(void *);
 void move_technique_projectile(u8 *arg0);
 void dispatch_technique_contact__13TUnk_804CCC68Fv(void *, s32);
 void run_task__8TTecFoieFv(Foie_802301EC *self);
-}
-
-extern "C" {
 
 void run_task__8TTecFoieFv(Foie_802301EC *self) {
     u32 i;

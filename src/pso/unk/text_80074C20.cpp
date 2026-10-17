@@ -7,10 +7,6 @@ extern "C" {
 void fn_80074C70(void);
 void fn_80074BD0(void);
 extern Lobby_80074C20 *TLobby__protocol_instance;
-}
-
-extern "C" {
-
 s32 TLobby::start_lobby_name_request() {
     fn_80074C70();
     if (TLobby__protocol_instance == 0) {

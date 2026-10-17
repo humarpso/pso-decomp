@@ -7,10 +7,6 @@ struct RecoveredFields_803CE1D8_arg0
 
 extern "C" {
 s8 TLobby__sub_803CE1D8(u8 *arg0);
-}
-
-extern "C" {
-
 typedef struct RecoveredFields_803CE1D8_arg0 RecoveredFields_803CE1D8_arg0;
 s8 TLobby__sub_803CE1D8(u8 *arg0) {
   s8 new_var;

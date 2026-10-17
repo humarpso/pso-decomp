@@ -27,15 +27,10 @@ void __destroy_arr(void *, void *, int, int);
 void TObjPlayer__sub_801AA528(void);
 void *fn_801C2308(void *arg0, s16 arg1);
 void __construct_array(void *, void *, void *, int, int);
-void TObjPlayer__sub_801AA528(void);
 void init_arrays__10TObjPlayerFv(void);
 void *fn_801C2360(void *arg0);
 extern const f32 TObjPlayer__data_805DC278;
 S_801C20A4 *init_player_telepipe_record(S_801C20A4 *arg0);
-}
-
-extern "C" {
-
 void* TObjPlayer__sub_801C2058(void* p);
 void TObjPlayer__sub_801C2098(void* p);
 void TObjPlayer__sub_801C210C(void* p, s32 v);

@@ -53,9 +53,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 void TObjEnemyCustom__ct();
 void init_collision_body_parts(void *, void *, int);
-s32 get_player_by_client_id(int);
 extern u8 volopt_cage_collision_body_desc[];
-extern RecoveredGlobal_8004938C___vt__14TObjVoloptCage __vt__14TObjVoloptCage;
 extern s32 lbl_805D2758;
 extern u8 *lbl_805D4CE4;
 extern s32 lbl_805D4D18;
@@ -63,12 +61,7 @@ extern s32 TObjVoloptCage__texture_list;
 extern const f32 lbl_805D8884;
 extern const f32 lbl_805D8888;
 Obj_80049430 *TObjVoloptCage__ct(Obj_80049430 *arg0, Obj_80049430 *arg1, u16 arg2, s16 arg3, s16 arg4);
-}
-
-extern "C" {
-
 void TLobby__sub_80049568(void);
-void obj_clear_flag30_20000(void *arg0);
 void obj_set_flag_20000(void *arg0);
 s32 update_breakup__14TObjVoloptCageFv();
 s32 update_collision_state__14TObjVoloptCageFv();

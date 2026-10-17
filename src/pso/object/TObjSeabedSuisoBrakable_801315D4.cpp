@@ -1,20 +1,14 @@
 #include "types.h"
 #include "pso/object/TObjSeabedSuisoBrakable.h"
 
-extern "C" {
 extern s32 linked_switch_walk_index;
 extern s32 linked_switch_count;
 extern void *TObjSeabedSuisoBrakable__linked_switch_count;
 extern s32 model_node_search_walk_index;
 extern s32 model_node_search_target_index;
 extern void *model_node_search_result;
-}
 
 extern "C" {
-
-extern s32 linked_switch_walk_index;
-extern s32 linked_switch_count;
-extern void *TObjSeabedSuisoBrakable__linked_switch_count;
 
 void TObjSeabedSuisoBrakable::walk_linked_switches() {
     if ((s32) linked_switch_walk_index == (s32) linked_switch_count) {

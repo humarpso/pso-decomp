@@ -40,10 +40,6 @@ s32 TMainCursor__sub_8013F244(void *);
 s32 fn_8013F24C(void *, s32);
 s32 is_palette_entry_displayable__10TObjPlayerFv(u8 *, u8, u8);
 bool can_use_palette_action__10TObjPlayerFPvUcUc(TObjPlayer_801D8044 *self, u8 kind, u8 arg);
-}
-
-extern "C" {
-
 void TObjPlayer::init_action_config() {
     s32 i;
     i = 0;
@@ -292,8 +288,6 @@ bool can_use_palette_action__10TObjPlayerFPvUcUc(TObjPlayer_801D8044 *self, u8 k
 
 }
 
-#include "types.h"
-
 struct Obj_801D8474 { s8 a; u8 b; };
 
 extern "C" {
@@ -309,37 +303,9 @@ s32 TObjPlayer::can_use_palette_action_for_entry(u32 obj) {
     return ((s32 (*)(u32, u8, u8))can_use_palette_action__10TObjPlayerFPvUcUc)(obj, ((Obj_801D8474 *)this)->a, ((Obj_801D8474 *)this)->b);
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
-s32 TObjPlayer__sub_801D8664(s32, s16, s16);
-s32 set_animation_default__10TObjPlayerFv(s32, s16);
-void *get_anim_table_entry__10TObjPlayerFl();
-s32 TObjPlayer__sub_801D84A8(void* p);
-s32 TObjPlayer__sub_801D84F0(void* p);
-int bswap_16__FPUs(void*);
-
 s32 TObjPlayer__sub_801D84A8(void* p) { return *(s32*)((char*)p + 0x0); }
 
-}
-
-#include "types.h"
-
-extern "C" {
 u8 *TObjPlayer__sub_801D84B0(s32 *arg0);
-}
-
-extern "C" {
-
-s32 TObjPlayer__sub_801D8664(s32, s16, s16);
-s32 set_animation_default__10TObjPlayerFv(s32, s16);
-void *get_anim_table_entry__10TObjPlayerFl();
-s32 TObjPlayer__sub_801D84A8(void* p);
-s32 TObjPlayer__sub_801D84F0(void* p);
-int bswap_16__FPUs(void*);
 
 u8 *TObjPlayer__sub_801D84B0(s32 *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0) == 0) {
@@ -348,21 +314,8 @@ u8 *TObjPlayer__sub_801D84B0(s32 *arg0) {
     return (u8 *)(arg0) + 0x14;
 }
 
-}
-
-#include "types.h"
-#include "pso/player/TObjPlayer.h"
-
-extern "C" {
-
-s32 TObjPlayer__sub_801D84F0(void* p);
 s32 advance_item_id_counter(u16);
 s32 equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(s32, void *);
-s32 TObjPlayer__sub_801D84A8(void* p);
-s32 TObjPlayer__sub_801D8664(s32, s16, s16);
-void *get_anim_table_entry__10TObjPlayerFl();
-int bswap_16__FPUs(void*);
-s32 set_animation_default__10TObjPlayerFv(s32, s16);
 
 int TObjPlayer::bswap_disp_config_field() { return bswap_16__FPUs((char*)this + 0x2); }
 s32 TObjPlayer__sub_801D84F0(void* p) { return *(s32*)((char*)p + 0x4); }

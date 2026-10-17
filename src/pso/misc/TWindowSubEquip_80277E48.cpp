@@ -36,9 +36,6 @@ s32 TWindowSubEquip__sub_80263AF4(void *, s32);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(u32);
 extern u8 controller_input_state[];
 extern const f32 lbl_805DD5F0;
-s32 set_field_1c__6TLobbyFf(int);
-s32 TWindowSubEquip__sub_80263AF8(int, int);
-void *get_window_layout_position(int);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 __ct__15TWindowHelpItemFPvUs(void *, void *, s32);
@@ -47,12 +44,7 @@ extern s32 lbl_8044F918[];
 extern s32 __vt__15TWindowSubEquip[];
 extern s32 TWindowSubEquip__class_name;
 u8 *TWindowSubEquip__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt__15TWindowSubEquipFv(void *arg0, s16 arg1);
-void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -89,8 +81,6 @@ s32 TWindowSubEquip::open_equip_kind_list(u32 arg1) {
 }
 
 void TWindowSubEquip::render() {  }
-
-extern s32 __vt__15TWindowSubEquip[];
 
 void TWindowSubEquip::run_task() {
     s32 temp_r3;

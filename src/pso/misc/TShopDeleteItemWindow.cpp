@@ -73,31 +73,18 @@ s32 get_selected_menu_value(int);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(int);
 void handle_confirm_dialog__21TShopDeleteItemWindowFPv(u8 *arg0);
 s32 queue_destruction__7TObjectFv(void *);
-void handle_confirm_dialog__21TShopDeleteItemWindowFPv(u8 *arg0);
 s32 TShopDeleteItemWindow__sub_80337E2C(void *);
 u16 obj_getField1c(void *);
 f32 get_scale__15TShopWindowBaseFv(void *);
-void TWindow__close(void *);
 void *create_yes_no_window(void *, int, int, int);
 void *get_window_layout_position(int);
-s32 copy_item_record__18TCheckRoomSequenceFiPvi(int, void *, int);
 s32 copy_bank_item_with_stack_limit(int, void *, void *, int);
-s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 s16 get_child_field1c__13TShopSequenceFv(void *);
-s32 select_cursor_entry__22TWindowSubShortCutListFv(int);
-u16 obj_getField1c(void *);
-f32 get_scale__15TShopWindowBaseFv(void *);
-void *create_yes_no_window(void *, int, int, int);
-void *get_window_layout_position(int);
 void *__nw__7TObjectFUl(u32);
 void *__ct__18TWindowInputNumberFPvllls(void *, void *, int, s32, int, int);
 extern const f32 lbl_805DF998;
-}
-
-extern "C" {
-
 struct Base_80337980_80337910 { char pad[0x18]; };
 struct VObj_80337980_80337910 : Base_80337980_80337910 {
     virtual void m0();virtual void m1();virtual void m2();virtual void m3();
@@ -106,7 +93,6 @@ struct VObj_80337980_80337910 : Base_80337980_80337910 {
 
 void *TShopDeleteItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
 void *__dt__21TShopDeleteItemWindowFv(void *arg0, s16 arg1);
-void TWindow__close(void *);
 void __ct__15TShopWindowBaseFv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__15TShopWindowBaseFv(void *, int);
@@ -304,7 +290,6 @@ void *__dt__21TShopDeleteItemWindowFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__21TShopDeleteItemWindow[];
 extern void *TShopDeleteItemWindow__name;
 
 void *TShopDeleteItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3) {

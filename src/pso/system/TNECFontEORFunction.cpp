@@ -8,15 +8,6 @@ s32 init_and_load_tlut(int, int, int, void *);
 extern s32 lbl_805D56B4;
 extern s32 menu_font_upload_flags;
 extern u8 lbl_805D56C0;
-s32 DCFlushRange(void *, int);
-s32 init_and_load_tlut(int, int, int, void *);
-extern s32 lbl_805D56B4;
-extern s32 menu_font_upload_flags;
-extern u8 lbl_805D56C0;
-}
-
-extern "C" {
-
 extern "C" u8 lbl_8050C090[];
 __declspec(section ".data") void *menu_font_texture_list[2] = {
     (void *)&lbl_8050C090, (void *)0x2,

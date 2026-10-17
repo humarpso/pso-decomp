@@ -5,36 +5,19 @@
 extern "C" {
 void clear_current_floor_switch(s32 arg0);
 s16 get_current_floor();
-void clear_current_floor_switch(s32 arg0);
-void set_current_floor_switch(s32 arg0);
-s16 get_current_floor();
 void set_current_floor_switch(s32 arg0);
 void is_current_floor_switch_set(s32 arg0);
 u8 is_floor_switch_set(u32 id, s16 floor);
-s16 get_current_floor();
-void is_current_floor_switch_set(s32 arg0);
 s32 memcpy(void *, void *, void *);
 extern u8 TSwitch__floor_switch_table[18][32];
 void restore_switch_table(s32 arg0, s32 arg1);
 s32 memset(void *, int, int);
-extern u8 TSwitch__floor_switch_table[18][32];
 void clear_switch_table(void);
-s32 memset(void *, int, int);
-extern u8 TSwitch__floor_switch_table[18][32];
 void init_switch_table(void);
-extern u8 TSwitch__floor_switch_table[18][32];
-s32 memcpy(void *, void *, void *);
 u32 copy_switch_table(void* destination);
-extern u8 TSwitch__floor_switch_table[18][32];
 s32 get_floor_switch_flag(u32 id, s16 floor);
-extern u8 TSwitch__floor_switch_table[18][32];
 void clear_floor_switch_flag(u32 id, s16 floor);
-extern u8 TSwitch__floor_switch_table[18][32];
 void set_floor_switch_flag(u32 id, s16 floor);
-}
-
-extern "C" {
-
 void *__ct__7TSwitchFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
@@ -78,8 +61,6 @@ extern s32 __vt__7TSwitch[];
 extern void *TSwitch__name;
 
 extern "C" {
-
-#include "types.h"
 
 void is_current_floor_switch_set(s32 id) {
     is_floor_switch_set((u32)id, (s16)((s16)((int) (get_current_floor()))));

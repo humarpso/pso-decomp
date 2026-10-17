@@ -9,18 +9,10 @@ extern s32 item_sync_counter_table;
 extern s32 item_id_counter_table;
 int TLobby__send_and_handle_60(void*);
 int read_be16_field2__10TObjPlayerFv(void*);
-int read_be16_field2__10TObjPlayerFv(void*);
 int bswap_32__FPUl(void*);
 extern s32 TLobby__data_805D6140;
-}
-
-extern "C" {
-
 s32 __dl__FPv(s32);
 s32 mem_free(s32);
-
-extern s32 item_sync_counter_table;
-extern s32 item_id_counter_table;
 
 s32 TLobby::free_rock_objects(s32 arg0, s16 arg1) {
     if (arg0 != 0) {

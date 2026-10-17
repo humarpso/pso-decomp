@@ -28,24 +28,15 @@ extern const f32 lbl_805D91E4;
 extern const f32 lbl_805D91E8;
 extern const f32 lbl_805D91EC;
 extern const f32 TCineCtrl__data_805D91D0;
-extern const f32 lbl_805D91E0;
-extern const f32 lbl_805D91E4;
 void TCameraCtrl__sub_80068EF0(void);
 void set_cached_blend_factor(s32, s32);
-extern const f32 TCineCtrl__data_805D91D0;
 extern const f32 lbl_805D91D4;
 extern const f32 lbl_805D91D8;
 extern const f32 lbl_805D91DC;
-}
-
-extern "C" {
-
 void *TCineCtrl__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 
 extern void *TCineCtrl__instance;
-extern const f32 lbl_805D91E8;
-extern const f32 lbl_805D91EC;
 
 void TCineCtrl::render() {
     u8 *arg0 = (u8 *)this;
@@ -123,9 +114,6 @@ void TCineCtrl::reset_state(s32 arg0) {
     }
 }
 
-extern void *TCineCtrl__instance;
-extern const f32 TCineCtrl__data_805D91D0;
-
 #pragma push
 #pragma opt_common_subs off
 void TCineCtrl::update_letterbox_show() {
@@ -159,10 +147,7 @@ void TCineCtrl::reset(s32 arg0) {
 }
 
 extern void *tl_fade;
-extern const f32 TCineCtrl__data_805D91D0;
-extern s32 __vt__9TCineCtrl[];
 extern void *TCineCtrl__class_name;
-extern void * TCineCtrl__instance;
 
 typedef char RecoveredGlobal_80077FA0___vt__9TCineCtrl_size[sizeof(RecoveredGlobal_80077FA0___vt__9TCineCtrl) == 0x18 ? 1 : -1];
 

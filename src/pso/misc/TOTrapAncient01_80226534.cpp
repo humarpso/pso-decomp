@@ -25,10 +25,6 @@ extern s32 last_sound_effect_slot;
 extern s32 lbl_805D62B0;
 extern s32 lbl_805DC748;
 s32 play_sound_effect(s32 id, Vec_8022675C *src, s32 a2, s32 flags);
-}
-
-extern "C" {
-
 s32 check_sound_admission_range();
 
 s32 TOTrapAncient01::check_trigger_flag(s32 arg0, s32 arg1) {

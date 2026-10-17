@@ -7,18 +7,13 @@
 struct RecoveredGlobal_80019E60_lbl_804340D8 { char value[0x13]; };
 typedef char RecoveredGlobal_80019E60_lbl_804340D8_size[sizeof(RecoveredGlobal_80019E60_lbl_804340D8) == 0x13 ? 1 : -1];
 
-extern "C" {
 extern RecoveredGlobal_80019E60_lbl_804340D8 lbl_804340D8;
 extern s32 lbl_805D49D8;
 extern u32 item_loader_instance;
-}
 
 extern "C" {
 
 void __dt__9TItemLoadFPvs(void*, int);
-
-extern s32 lbl_805D49D8;
-extern u32 item_loader_instance;
 
 void TLobby::free_item_loader() {
     if ((u32) item_loader_instance != 0U) {

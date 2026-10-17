@@ -5,10 +5,6 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D9FF8;
 s32 set_part_local_pos__9TObjEneDDFPvPvi(void *, void *, int);
-}
-
-extern "C" {
-
 s32 transition_enemy_state(void *, s32);
 s32 get_flag_11__16TObjEneRe2FlowerFv();
 int TBoss8Dragon__sub_800BB7D4(void*, void*);

@@ -23,8 +23,6 @@ __declspec(section ".sdata2") extern const f32 lbl_805DE658[2] = { 30.0f, 0.0f }
 #define lbl_805DE64C (lbl_805DE64C[0])
 #pragma push
 
-#include "types.h"
-
 struct VBase_18_f37bb9 { char pad[0x18]; };
 
 struct VObj_18_f37bb9 : VBase_18_f37bb9 {
@@ -172,8 +170,6 @@ u32 get_player_by_client_id(u32);
 extern s32 local_client_id;
 void check_hold_player__14TOTrapSeabed01FPv(u8 *arg0);
 void obj_clearFlags30(void *, u32);
-void set_indexed_flags(void *, s32, s32);
-void check_hold_player__14TOTrapSeabed01FPv(u8 *arg0);
 void vfunc_81__14TOTrapSeabed01Fv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_bml_model(int, int);
@@ -195,10 +191,6 @@ s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
 s32 is_valid_and_active__10TObjPlayerFUl();
 extern s32 lbl_805D3530;
 s32 vfunc_67__14TOTrapSeabed01Fv(Trap_802C9F70 *self);
-}
-
-extern "C" {
-
 void TOTrapSeabed01__vt20(s32 arg0, s32 arg1, f32 farg0);
 void trigger_by_id__14TOTrapSeabed01FUi(u32 arg0);
 s32 receive_physical_attack__6TOTrapFPvf(s32, s32, f32);
@@ -339,8 +331,6 @@ void trigger_by_id__14TOTrapSeabed01FUi(u32 arg0) {
 #undef lbl_805DE64C
 #pragma push
 
-#include "types.h"
-
 struct S_802CA550 {
     u8 pad0[0x326];
     s16 f326;
@@ -358,23 +348,15 @@ s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model(int);
-extern s32 TOTrapSeabed01__texture_file;
 s32 is_split_screen();
 s32 get_state_flag__9TMainTaskFv();
 s32 dispatch_input_to_instance__18TAdEnterPasswordGCFi(void *);
 void render__14TOTrapSeabed01Fv(S_802CA550 *arg0);
-}
-
-extern "C" {
-
 s32 PPCSync();
 s32 scroll_ginja_mesh_uvs(int, int, int, void *, int);
-s32 post_translate_matrix(void *);
 void vfunc_84__14TOTrapSeabed01Fv(void);
 s32 draw_ginja_model_with_motion(int, int, f32);
 
-s32 push_matrix();
-s32 pop_matrix();
 s32 restore_saved_depth_alpha_state();
 s32 func_80141618__Fv();
 s32 set_depth_buffer_settings_1__Fv();
@@ -384,7 +366,6 @@ s32 set_model_node_callback(void *);
 
 #define trigger_by_id__14TOTrapSeabed01FUi (*(s32 (*)[1])&trigger_by_id__14TOTrapSeabed01FUi)
 extern s32 actor_frame_tick;
-extern s32 TOTrapSeabed01__texture_file;
 #define TOTrapSeabed01__ginja_model (*(u8 * *)&TOTrapSeabed01__ginja_model)
 extern s32 lbl_805D681C;
 extern s32 seabed01_ginja_mesh_index;
@@ -417,8 +398,6 @@ void TOTrapSeabed01::render_effect_layers() {
     pop_matrix();
     set_model_node_callback((void *) (NULL));
 }
-
-extern s32 TOTrapSeabed01__texture_file;
 
 void TOTrapSeabed01::draw_object_tree(u8 *arg1) {
     s32 temp_r31;
@@ -500,11 +479,8 @@ void render__14TOTrapSeabed01Fv(S_802CA550 *arg0) {
 #define lbl_805DE658 (lbl_805DE658[0])
 #pragma push
 
-#include "types.h"
-#include "pso/misc/TOTrapSeabed01.h"
 #include "pso/misc/TOTrap.h"
 #include "pso/object/TObjSeabedSuisoBrakable.h"
-#include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct Base_802CA8C8_eabed01 { char pad[0x18]; };
@@ -650,7 +626,6 @@ struct VObj_802CA5F4 : VBase_802CA5F4 {
 
 extern "C" {
 s32 get_bml_motion(int, int);
-s32 get_bml_model(int, int);
 s32 init_collision_body_parts(void *, void *, int);
 s32 TOTrap__ct(void *);
 extern SeabedTrapCollisionBody seabed_trap_collision_body;
@@ -658,7 +633,6 @@ extern void *__vt__14TOTrapSeabed01[];
 extern s32 TOTrapSeabed01_class_name;
 #define TOTrapSeabed01__bml_resource (*(u32 *)&TOTrapSeabed01__bml_resource)
 u8 *TOTrapSeabed01__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 get_bml_model(int, int);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 u32 load_gvm_texture_file(void *);
@@ -668,15 +642,8 @@ extern SeabedTrapResourceDescriptor seabed_trap_resource_descriptor;
 
 #define TOTrapSeabed01__texture_file (*(u32 *)&TOTrapSeabed01__texture_file)
 #define TOTrapSeabed01__ginja_model (*(s32 *)&TOTrapSeabed01__ginja_model)
-extern s32 lbl_805D681C;
-extern s32 seabed01_ginja_mesh_index;
 extern s32 trap_seabed01_param_index_table[];
-}
-
-extern "C" {
-
 void vfunc_6__14TOTrapSeabed01FPsl(void *arg0, s16 *arg1, s32 arg2);
-void vfunc_84__14TOTrapSeabed01Fv(void);
 void *__dt__14TOTrapSeabed01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 stop_sound_request(s32);
@@ -684,7 +651,6 @@ s32 TLobby__sub_803DA16C(void*);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__6TOTrapFv(void *, int);
-void *__nw__7TObjectFUl(int);
 
 s32 queue_destruction__7TObjectFv(void *);
 
@@ -803,8 +769,6 @@ void TOTrapSeabed01::vfunc_6(s16 *arg1, s32 arg2) {
     }
 }
 
-extern void *__vt__14TOTrapSeabed01[];
-
 void *__dt__14TOTrapSeabed01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__14TOTrapSeabed01;
@@ -836,8 +800,6 @@ u8 *TOTrapSeabed01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-}
-
 #pragma pop
 
 #undef lbl_805DE640
@@ -846,7 +808,6 @@ u8 *TOTrapSeabed01__ct(u8 *arg0, s32 arg1, s32 arg2) {
 #undef TOTrapSeabed01__texture_file
 #undef TOTrapSeabed01__ginja_model
 
-extern "C" {
 void vfunc_89__6TOTrapFv();
 void vfunc_86__6TOTrapFv();
 void vfunc_88__6TOTrapFv();

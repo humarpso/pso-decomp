@@ -22,10 +22,6 @@ extern RecoveredGlobal_8018CEDC_lbl_804B7168 container_jung_collision_desc;
 extern s32 __vt__22TObjContainerJungEnemy[];
 extern s32 TObjContainerJungEnemy__name;
 u8 *TObjContainerJungEnemy__ct(u8 *arg0, s32 arg1, s32 _w2);
-}
-
-extern "C" {
-
 void *__dt__22TObjContainerJungEnemyFv(void *arg0, s16 arg1);
 s32 TObjContainerJungEx__sub_8018D900(s32);
 s32 get_model__19TObjContainerJungExFl(s32);
@@ -89,8 +85,6 @@ void *TObjContainerJungEnemy::create(void *arg0) {
     }
     return o;
 }
-
-extern s32 __vt__22TObjContainerJungEnemy[];
 
 void *__dt__22TObjContainerJungEnemyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

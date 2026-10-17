@@ -50,15 +50,9 @@ extern void *farlla_photon_blast_model_buffers;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-}
-
-extern "C" {
-
 s32 queue_photon_blast_hit(u16, s32, s32, f32);
 s32 destroy_buffer_pair(void*, s32);
 u32 obj_getField1c();
-
-extern u32 estlla_photon_blast_model;
 
 void TObjPlayer::destroy_global_buffer() {
     if ((u32) estlla_photon_blast_model != 0U) {

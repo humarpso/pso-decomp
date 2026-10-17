@@ -27,15 +27,10 @@ extern Row_8017E550 lbl_80443780[];
 extern s32 bgm_zone_category;
 extern s32 TObjBgmColCtrl__instance;
 void create_bgm_col_zones(void);
-}
-
-extern "C" {
-
 s32 get_quest_bgm_issued_flag();
 s32 play_area_music(s32);
 
 extern s32 area_music_filename_table[];
-extern s32 bgm_zone_category;
 
 void TObjPlayer::set_camera_mode(s32 arg0) {
     if ((get_quest_bgm_issued_flag() == 0) && (TRaderMapCore::is_not_split_screen() != 1) && (arg0 != (s32) bgm_zone_category)) {

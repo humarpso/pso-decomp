@@ -28,10 +28,6 @@ extern const f32 lbl_805DDD8C;
 extern const f32 lbl_805DDD98;
 extern const f32 lbl_805DDD9C;
 s32 fn_8029EC3C(Vec_8029EC3C *pos, s32 arg1);
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 s32 fn_8029EC3C(Vec_8029EC3C *pos, s32 arg1) {

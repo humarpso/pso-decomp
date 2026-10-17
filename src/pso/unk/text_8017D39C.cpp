@@ -29,10 +29,6 @@ extern RecoveredGlobal_8017D39C_lbl_804B5418 TOWreckAncient__collision_body_temp
 extern RecoveredGlobal_8017D39C___vt__24TOWreckAncientBrakable05 __vt__24TOWreckAncientBrakable05;
 extern s32 TOWreckAncientBrakable05__name;
 u8 *TOWreckAncientBrakable05__ct(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8017D39C_lbl_804B5418_size[sizeof(RecoveredGlobal_8017D39C_lbl_804B5418) == 0x134 ? 1 : -1];
 typedef char RecoveredGlobal_8017D39C___vt__24TOWreckAncientBrakable05_size[sizeof(RecoveredGlobal_8017D39C___vt__24TOWreckAncientBrakable05) == 0x38 ? 1 : -1];
 u8 *TOWreckAncientBrakable05__ct(u8 *arg0, s32 arg1) {

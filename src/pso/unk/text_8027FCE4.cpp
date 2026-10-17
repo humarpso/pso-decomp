@@ -16,10 +16,6 @@ s32 TWindowSubStatusDisp__ct(int, int);
 extern RecoveredGlobal_8027FCE4_lbl_804D1AD0 status_category_window_vtable;
 extern const f32 lbl_805DD6DC;
 u8 *construct_status_category_window(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8027FCE4_lbl_804D1AD0_size[sizeof(RecoveredGlobal_8027FCE4_lbl_804D1AD0) == 0x18 ? 1 : -1];
 u8 *construct_status_category_window(u8 *arg0, s32 arg1, s32 arg2) {
     s32 storage;

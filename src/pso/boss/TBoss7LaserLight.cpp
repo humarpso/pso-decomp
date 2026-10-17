@@ -1,6 +1,5 @@
 #include "types.h"
 #include "pso/boss/TBoss7LaserLight.h"
-#include "pso/boss/TBoss7LaserLight.h"
 #include "pso/object/TObjLight.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -25,10 +24,6 @@ extern s32 lbl_804E4788[];
 extern const f32 TBoss7LaserLight__data_805DEBC4;
 void noop_laser__23TAdSinglePlyChrSelectGCFv(s32);
 void TAdSinglePlyChrSelectGC__sub_80133508(s32);
-}
-
-extern "C" {
-
 void TBoss7LaserLight__sub_802EF120(void* p);
 void TBoss7LaserLight__sub_802EF12C(void* p);
 

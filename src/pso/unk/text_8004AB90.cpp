@@ -22,10 +22,6 @@ extern const f32 lbl_805D8908;
 extern const f32 lbl_805D890C;
 extern const f32 lbl_805D8910;
 extern const f32 lbl_805D8914;
-}
-
-extern "C" {
-
 void TBoss4DarkFalz::push_players_out_of_zone(s32 arg0, s32 arg1) {
     Vec_8004AB90 v;
     E_8004AB90 *e;

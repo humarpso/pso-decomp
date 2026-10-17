@@ -55,34 +55,23 @@ Npc_80190F3C *TNpcPlayer__sub_80190F3C(Npc_80190F3C *arg0, void *arg1, s32 arg2,
 void free_collision_body_parts(void *);
 Ctrl_801910F4 *get_player_by_client_id(u32);
 s32 __dl__7TObjectFPv(void *);
-extern RecoveredGlobal_8019118C_lbl_804B7C1C lbl_804B7C1C;
 Obj_801910F4 *__dt__13TUnk_804B7C1CFv(Obj_801910F4 *arg0, s16 arg1);
 int queue_destruction__7TObjectFv(void*);
 f32 horizontal_distance_squared(void *, void *);
 void set_indexed_flags(void *, s32, s32);
-Npc_80190F3C *TNpcPlayer__sub_80190F3C(Npc_80190F3C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, void *arg6);
-Ctrl_801910F4 *get_player_by_client_id(u32);
 void *__nw__7TObjectFUl(int);
 extern int npc_proximity_target_id;
 extern s32 local_client_id;
 extern void *tl_07;
-}
-
-extern "C" {
-
 void TLobby__sub_80190FD0(int a0);
 s32 build_npc_player_record__10TNpcPlayerFl(s32);
 s32 send_6x24_teleport_player(u16, void *, s32);
 u8 *create_player_object(u16, s32, s32);
 s32 queue_player_injured_pose();
-s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 s32 set_player_quest_control_flag(void *);
-int queue_destruction__7TObjectFv(void*);
 
 void TUnk_804B7C04::run_task() { if (this->m_2c == 1) { queue_destruction__7TObjectFv(this); } }
-
-extern s32 lbl_804B7C04[];
 
 u8 *TNpcPlayer::destroy_and_materialize_player(s16 arg1) {
     u8 *temp_r3;
@@ -105,8 +94,6 @@ u8 *TNpcPlayer::destroy_and_materialize_player(s16 arg1) {
     }
     return ((u8 *)this);
 }
-
-    extern int npc_proximity_target_id;
 
 Npc_80190F3C *TNpcPlayer__sub_80190F3C(Npc_80190F3C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, void *arg6) {
     __ct__7TObjectFP7TObject(arg0, arg6);

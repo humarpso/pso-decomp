@@ -5,10 +5,6 @@ u8 *TWindowPartyStatus__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern s32 local_client_id;
 extern u8 party_status_window_params[];
 void *create_party_status_window(s32 arg0);
-}
-
-extern "C" {
-
 #pragma push
 #pragma opt_propagation off
 void *create_party_status_window(s32 arg0) {

@@ -32,19 +32,10 @@ s32 TObjFish__sub_8001EDB0(Fish_8001EDB0 *self, s32 i);
 s32 get_bml_model(Fish_8001EDC4 *self, s32 i);
 void TLobby__sub_8001EDD8(List_8001EDD8 *self, s32 item);
 char *strncpy(char *d, const char *s, u32 n);
-extern RecoveredGlobal_8001EDF4_lbl_804FE148 TLobby__tmp_buf_name;
 extern char lbl_80434AE8[];
-extern s32 tmp_buf_in_use_flag;
 extern s32 lobby_download_buffer;
-s32 strcmp(void *, void *);
 extern char lbl_80434AA0[];
 extern char lbl_80434AC0[];
-extern RecoveredGlobal_8001EDF4_lbl_804FE148 TLobby__tmp_buf_name;
-extern s32 tmp_buf_in_use_flag;
-}
-
-extern "C" {
-
 s32 TLobby__sub_8001EEF4(void);
 int fn_8001ED90(void* p);
 
@@ -61,8 +52,6 @@ s32 TObjFish__sub_8001EDB0(Fish_8001EDB0 *self, s32 i) {
 s32 get_bml_model(Fish_8001EDC4 *self, s32 i) {
     return self->entries[i].c;
 }
-
-extern s32 tmp_buf_in_use_flag;
 
 typedef char RecoveredGlobal_8001EDF4_lbl_804FE148_size[sizeof(RecoveredGlobal_8001EDF4_lbl_804FE148) == 0x20 ? 1 : -1];
 

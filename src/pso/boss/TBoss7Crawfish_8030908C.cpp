@@ -119,15 +119,10 @@ extern s32 crawfish_collision_body_desc[];
 extern s32 lbl_804E7380[];
 extern s32 __vt__14TBoss7Crawfish[];
 extern s32 TBoss7Crawfish__class_name;
-extern u32 TBoss7Crawfish__shared_resource;
 extern const f32 TBoss7Crawfish__data_805DF0D8;
 extern const f32 TBoss7Crawfish__data_805DF0DC;
 extern const f32 lbl_805DF100;
 u8 *TBoss7Crawfish__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt__14TBoss7CrawfishFv(void *arg0, s16 arg1);
 s32 advance_animation_playback(void *);
 s32 TBoss7Crawfish__sub_80308BEC(void *);
@@ -176,8 +171,6 @@ void TBoss7Crawfish::run_task() {
     advance_animation_playback((void *) (arg0));
 }
 
-extern s32 __vt__14TBoss7Crawfish[];
-
 void *__dt__14TBoss7CrawfishFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TBoss7Crawfish;
@@ -191,8 +184,6 @@ void *__dt__14TBoss7CrawfishFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern u32 TBoss7Crawfish__shared_resource;
 
 u8 *TBoss7Crawfish__ct(u8 *arg0, s32 arg1, s32 arg2) {
     Vec_8030920C v;

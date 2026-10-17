@@ -32,10 +32,6 @@ struct Obj_80328730 { u8 pad[0x1C]; s32 state; s32 f20; u8 pad2[0x9C - 0x24]; s3
 extern Obj_80328730 *TAdDialingGC__instance;
 void init_dialog__12TAdDialingGCFv(void *);
 void draw_dialing_status__12TAdDialingGCFv(void *);
-}
-
-extern "C" {
-
 void spawn_title_screen__12TAdDialingGCFl(void *arg0, s32);
 s32 update_status_message__12TAdDialingGCFv();
 s32 create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);

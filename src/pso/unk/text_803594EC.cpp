@@ -34,9 +34,6 @@ s32 restore_saved_depth_alpha_state();
 extern u8 TBoss4Fade__fullscreen_vertices[];
 extern const f32 lbl_805E0098;
 extern const f32 lbl_805E009C;
-}
-
-extern "C" {
 
 typedef struct Ent_803594EC Ent_803594EC;
 typedef struct Fade_803594EC Fade_803594EC;

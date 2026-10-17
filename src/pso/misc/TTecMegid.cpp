@@ -198,23 +198,14 @@ extern void *__vt__9TTecMegid[];
 TTecGiBarta_80230B48 *__dt__9TTecMegidFv(TTecGiBarta_80230B48 *self, s16 deleting);
 u16 obj_getField1c(void *);
 void construct_aimed_technique_projectile();
-extern void *__vt__9TTecMegid[];
 extern s32 lbl_805D37E8;
 extern const f32 lbl_805DC884;
 u8 *TTecMegid__ct(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
-u16 obj_getField1c(void *);
 void construct_facing_technique__10TObjPlayerFPviPvii();
-extern void *__vt__9TTecMegid[];
-extern s32 lbl_805D37E8;
-extern const f32 lbl_805DC884;
-u16 obj_getField1c(void *);
 s32 obj_isState3_324(void *);
-s32 queue_destruction__7TObjectFv(void *);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 get_technique_caster_flags(s32, u16);
 void TTecMegid__vt6(Obj_80235490 *self, VObj_80235490 *target);
-s32 queue_destruction__7TObjectFv(void *);
-extern TTecGiBartaData_80230B48 TTecMegid__emitter_bands[];
 void *find_entity_by_id(u16);
 void push_matrix_from(void *);
 void rotate_matrix_y(s32, s32);
@@ -230,15 +221,9 @@ s32 attach_particle_model(void *, void *, s32, int, int, f32);
 void *spawn_particle_effect_with_rotation(void *, void *, u32, u16);
 void *spawn_continuous_particle_effect_with_flags(void *, u32, u16);
 void **mem_alloc(u32, s32);
-extern TTecGiBartaData_80230B48 TTecMegid__emitter_bands[];
 extern s32 technique_effect_bml;
 extern s32 lbl_805D63B0;
 extern const f32 lbl_805DC880;
-}
-
-extern "C" {
-
-s32 play_sound_effect(s32, s32, s32, s32);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 

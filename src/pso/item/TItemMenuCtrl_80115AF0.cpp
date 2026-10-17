@@ -11,10 +11,6 @@ s32 is_split_screen(void);
 u8 * __ct__15TEffStarLight2DFv(void *, s32, s32, s32);
 u8 *__nw__7TObjectFUl(s32);
 u8 *spawn_star_light_2d(s32 arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 int set_flags__10TObjPlayerFUl(void*);
 
 int TItemMenuCtrl::set_menu_flags() { return set_flags__10TObjPlayerFUl((char*)this + 0x1c); }

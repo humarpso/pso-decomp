@@ -13,10 +13,6 @@ s32 get_bml_model(void *, s32);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 pop_matrix();
 extern void *butterfly_bml_resource;
-}
-
-extern "C" {
-
 void TButterfly::draw_model() {
     Self_8017E900 *self = (Self_8017E900 *)this;
     push_matrix();

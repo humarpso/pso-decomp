@@ -5,13 +5,8 @@ s32 __destroy_arr(s32, s32 *, s32, s32);
 s32 __dl__FPv(s32);
 extern s32 TLockOnCursor__sub_8013EDC4[];
 s32 TLockOnCursor__sub_8013ED68(s32 arg0, s16 arg1);
-}
-
-extern "C" {
-
 s32 __dt_deleting__13TLockOnCursorFis(s32 arg0, s16 arg1);
 s32 free_if_valid__14TPlyDispConfigFis(s32, s32);
-s32 __dl__FPv(s32);
 
 s32 __dt_deleting__13TLockOnCursorFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {

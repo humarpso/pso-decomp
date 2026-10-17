@@ -4,9 +4,6 @@ struct O_80306AC8 { E_80306AC8 e[12]; u8 pad[0x97c - 12 * 0xc4]; s32 count; };
 extern "C" {
 void TLobby__sub_803DA16C(void *);
 int TLobby__sub_8023E4B4(void *, void *);
-}
-
-extern "C" {
 extern unsigned char multi_confirm_texture_archive_name[];
 void *multi_confirm_texture_entries[3] = { multi_confirm_texture_archive_name, 0, 0 };
 struct MultiConfirmTextureList { void *entries; u32 count; };
@@ -98,17 +95,10 @@ extern void *__vt__12TAdMultiOkGC[];
 extern Pos_80307034 ad_multi_ok_layout_table;
 extern Col_80307034 multi_ok_button_colors;
 extern const char *lbl_805D4080;
-extern const f32 lbl_805DF05C;
-extern const f32 lbl_805DF060;
-extern const f32 lbl_805DF064;
 extern const f32 lbl_805DF068;
 extern const f32 lbl_805DF06C;
 extern const f32 lbl_805DF070;
 Ok_80307034 *__ct__12TAdMultiOkGCFv(Ok_80307034 *self, void *parent, Cfg_80307034 *cfg);
-}
-
-extern "C" {
-
 int multi_confirm_cancel_requested(void* p) { return *(u32*)((char*)p + 0x980) & 0x1; }
 
 s32 are_all_entries_finished(O_80306AC8 *self) {
@@ -283,9 +273,6 @@ Ok_80307034 *__ct__12TAdMultiOkGCFv(Ok_80307034 *self, void *parent, Cfg_8030703
 }
 #pragma pop
 
-}
-
-extern "C" {
 void free_multi_confirm_textures(void) {
     if ((u32) multi_confirm_texture_list != 0U) {
         TLobby__sub_803DA16C((void*)multi_confirm_texture_list);

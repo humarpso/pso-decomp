@@ -15,10 +15,6 @@ u8 *fn_8035A860(u8 *arg0, s32 arg1, s32 arg2);
 extern const f32 lbl_805DE9F0;
 extern const f32 lbl_805E00F0;
 void calc_laser_ray_hit_point(u8 *arg0, u8 *arg1);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8035A860_lbl_804F1C58_size[sizeof(RecoveredGlobal_8035A860_lbl_804F1C58) == 0x18 ? 1 : -1];
 u8 *fn_8035A860(u8 *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));

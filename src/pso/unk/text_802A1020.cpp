@@ -12,10 +12,6 @@ u32 get_file_size__6TLobbyFv(s32);
 extern Entry_802A1020 file_integrity_table[];
 extern s32 lobby_cursor_active_flag;
 s32 fn_802A1020(void);
-}
-
-extern "C" {
-
 s32 fn_802A1020(void) {
     s32 i;
     u32 size;

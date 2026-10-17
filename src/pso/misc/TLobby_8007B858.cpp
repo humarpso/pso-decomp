@@ -41,12 +41,6 @@ extern RecoveredGlobal_8007BA98_lbl_8048D5A8 lbl_8048D5A8;
 void call_funcs_reverse__6TLobbyFPvUi(s32, u32);
 void fn_80198E84(void);
 void TLobby__sub_8035202C(void);
-extern RecoveredGlobal_8007BA98_lbl_8048D4C0 lbl_8048D4C0;
-extern RecoveredGlobal_8007BA98_lbl_8048D5A8 lbl_8048D5A8;
-}
-
-extern "C" {
-
 s32 TCineCtrl__ct(u32, s32);
 s32 create_area_fog_ctrl();
 s32 THunterGuildSeqOnlineTask__ct(u32, s32);
@@ -181,12 +175,6 @@ s32 TLobby::run_lobby_load_tables() {
     return 1;
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 s32 is_area_transfer_pending();
 s32 apply_phase_keyboard_mode();
 s32 load_area_gsl();
@@ -222,8 +210,6 @@ void TLobby::reset_and_invoke() { TLobby::reset_keyboard_state(); TLobby::invoke
 
 }
 
-#include "types.h"
-#include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -237,7 +223,6 @@ void TLobby__sub_8007BBF8(void);
     extern short quest_collision_next_id;
 void TLobby__sub_8007BBEC(void) { quest_collision_next_id = 0; }
 
-    extern short quest_collision_next_id;
 void TLobby__sub_8007BBF8(void) { quest_collision_next_id = 0; }
 
 extern s32 TLobby__protocol_instance;

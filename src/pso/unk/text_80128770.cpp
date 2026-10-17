@@ -1,10 +1,8 @@
 #include "types.h"
 #include "pso/item/TUnk_804A3E20.h"
 
-extern "C" {
 extern const f32 lbl_805DADF0;
 extern const f32 lbl_805DADF4;
-}
 
 extern "C" {
 

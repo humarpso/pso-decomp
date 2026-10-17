@@ -48,7 +48,6 @@ struct VObj_802136A4_80212D9C : Base_802136A4_80212D9C {
 };
 
 #include <stddef.h>
-#include "pso/misc/THunterGuildSeqOffline.h"
 #include "pso/THunterGuildWarning.h"
 #include "pso/TObject.h"
 #include "pso/misc/TWindowSubComCard.h"
@@ -163,44 +162,23 @@ s32 sub_80223A48__15TShopWindowBaseFv(void *);
 extern s32 THunterGuildSeqOffline__quest_result_callbacks[];
 extern u8 *quest_mission_manager;
 s32 TShopSequence__ct(void *);
-s32 sub_8022397C__15TShopWindowBaseFv(void *);
-extern RecoveredGlobal_80213220___vt__22THunterGuildSeqOffline __vt__22THunterGuildSeqOffline;
-extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGuildSeqOffline__instance_table;
 extern s32 lbl_805D3658;
-extern s32 THunterGuildSeqOffline__active_instance;
 u8 *THunterGuildSeqOffline__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 create_quest_thread(s32);
-s32 TWindow__close(int);
 s32 get_selected_menu_value(void *);
-extern s32 THunterGuildSeqOffline__quest_result_callbacks[];
-extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGuildSeqOffline__instance_table;
-extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGuildSeqOffline__instance_table;
 void THunterGuildSeqOffline__sub_8021339C(void);
-extern s32 THunterGuildSeqOffline__quest_result_callbacks[];
 u16 obj_getField1c(s32);
-s32 queue_destruction__7TObjectFv(int);
 void THunterGuildSeqOffline__sub_8021E180(void);
 void close_window__13TShopSequenceFv(void *);
-s32 sub_802239EC__13TShopSequenceFv(void *);
-s32 sub_80223A48__15TShopWindowBaseFv(void *);
 void *__nw__7TObjectFUl(u32);
 extern u8 reset_random_enemies_mode[];
 extern void *tl_00;
 void THunterGuildSeqOffline__sub_80213474(void *arg0);
-}
-
-extern "C" {
-
 void THunterGuildSeqOffline__sub_80213410(void* p);
 s32 THunterGuildSeqOffline__sub_80213458(void);
 s32 create_yes_no_window(s32, u16, s32, s32);
-s32 sub_802239EC__13TShopSequenceFv(void *);
-s32 sub_80223A48__15TShopWindowBaseFv(void *);
-s32 get_window_layout_position(s32);
 void *create__12TQuestThreadFi(s32);
 int fn_80223480(void*);
 f32 get_scale__15TShopWindowBaseFv(void *);
-u16 obj_getField1c(s32);
 int restore_player_state__13TShopSequenceFv(void*);
 
 void THunterGuildSeqOffline::handle_select() {
@@ -279,8 +257,6 @@ void THunterGuildSeqOffline::open_greeting() {
 }
 
 void THunterGuildSeqOffline::restore_player_state() { restore_player_state__13TShopSequenceFv(this); fn_80223480(this); THunterGuildWarning::create_instance((s32)((void*)2)); set_field_20((s32)((void*)((void*)1))); }
-
-extern s32 THunterGuildSeqOffline__quest_result_callbacks[];
 
 void THunterGuildSeqOffline::vfunc_11() {
     Guild_8021317C *self = (Guild_8021317C *)this;

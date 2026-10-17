@@ -44,10 +44,6 @@ extern u8 lbl_804772D0[];
 extern s32 __vt__20TAdSnAkPassConfirmGC[];
 extern s32 lbl_805D41F0;
 Obj_8032C004 *TAdSnAkPassConfirmGC__ct(Obj_8032C004 *arg0);
-}
-
-extern "C" {
-
 int TAdSnAkPassConfirmGC__vt4(void* p);
 int TAdSnAkPassConfirmGC__vt5(void* p);
 void TAdSnAkPassConfirmGC__vt8(void);
@@ -77,8 +73,6 @@ void TAdSnAkPassConfirmGC::run_task() {
     struct VObj_8032BF64_8032BE48 *o = (struct VObj_8032BF64_8032BE48 *)this;
     o->m9();
 }
-
-extern s32 __vt__20TAdSnAkPassConfirmGC[];
 
 void *__dt__20TAdSnAkPassConfirmGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

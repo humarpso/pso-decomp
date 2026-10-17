@@ -116,10 +116,6 @@ extern void *lbl_805D6880;
 void TLobby__sub_803DA16C(void *);
 void mem_free(void *);
 void fn_802D1C84(void);
-}
-
-extern "C" {
-
 void fn_802D1C84(void) {
     void *p = lbl_80540BC8;
     if (p != 0) {

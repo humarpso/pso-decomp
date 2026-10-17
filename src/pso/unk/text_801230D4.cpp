@@ -5,10 +5,6 @@ extern "C" {
 u8 * init_bringer_effect__13TUnk_804A1668Fv(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-}
-
-extern "C" {
-
 u8 *TObjPlayer::create_bringer_effect(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;

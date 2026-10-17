@@ -9,10 +9,6 @@ extern "C" {
 f32 xyz_distance_squared(void *, void *);
 Pl_801962B4 *get_player_by_client_id(s32);
 extern s32 local_client_id;
-}
-
-extern "C" {
-
 void *TObjQuestColApcIN__ct(void *arg0);
 void TObjQuestColBase__ct(void *);
 int create__12TQuestThreadFi(void*);

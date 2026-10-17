@@ -57,10 +57,6 @@ extern const f32 lbl_805DB8C8;
 extern const f32 lbl_805DB8CC;
 extern const f32 lbl_805DB8D0;
 void *TOMineIcon03__ct(void *arg0, void *arg1, void *arg2);
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 void *TOMineIcon03__ct(void *arg0, void *arg1, void *arg2) {

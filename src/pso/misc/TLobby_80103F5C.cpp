@@ -29,30 +29,18 @@ extern s32 lbl_805D5430;
 s32 __construct_new_array(s32, s32 *, s32, s32, s32);
 s32 mem_alloc(s32);
 extern s32 drop_stacked_item_passthrough__6TLobbyFv[];
-extern u32 TLobby__floor_item_entry_pool;
-extern s32 floor_item_row_table;
-extern s32 floor_item_counts_by_floor;
-extern s32 floor_item_free_id_stack;
-extern int floor_item_free_id_count;
-extern s32 floor_item_next_sort_keys;
-extern s32 lbl_805D5430;
     extern int lbl_805D5868;
 int bswap_32__FPUl(void*);
 int read_be16_field2__10TObjPlayerFv(void*);
 int TLobby__send_and_handle_60(void*);
 void TLobby__sub_801041BC(void *arg0);
-extern s32 lbl_805D5430;
 void TLobby__sub_801041D8(void);
 int bswap_16__FPUs(void*);
-int bswap_32__FPUl(void*);
 int bswap__9TItemDataFv(void*);
-extern s32 lbl_805D5430;
 void TLobby__sub_80104350(void);
     extern int* item_sync_counter_table;
-extern int* item_sync_counter_table;
 s32 get_item_icon_index();
     extern int lobby_drop_flag;
-extern int lobby_drop_flag;
 void TLobby__sub_80104464(void);
 s32 fn_80077788();
 s32 fn_80077790();
@@ -65,38 +53,21 @@ s32 is_script_controlled__10TObjPlayerFv(s32);
 s32 obj_isState3_324(s32);
 extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
-s32 is_locally_controlled__10TObjPlayerFPv();
 s32 send_6x26_unequip_item__10TObjPlayerFPvPv(s32, s32);
-s32 get_player_by_client_id(u16);
-s32 is_script_controlled__10TObjPlayerFv(s32);
 u32 get_equip_field_d04__10TObjPlayerFv(s32, s32);
 s32 get_field_d8__10TObjPlayerFv();
 u32 get_item_field_6__10TObjPlayerFPv(s32);
-s32 obj_isState3_324(s32);
-extern s32 local_client_id;
-extern s32 TLobby__designated_client_id;
 extern void *item_tool_factory_table[];
 void create__11TItemObjectFv();
 void *TLobby__sub_8010440C(In_8010440C *arg0);
 extern void *weapon_factory_table[];
 void create_common_weapon();
 void *get_weapon_factory_for_item(In_80104438 *arg0);
-extern u32 TLobby__floor_item_entry_pool;
-extern s32 floor_item_row_table;
-extern s32 floor_item_counts_by_floor;
-extern s32 floor_item_next_sort_keys;
 s32 is_quest_active();
 s32 TItemDropSub__sub_80107B74();
 extern Tbl_801044B8 item_drop_area_remap_table;
 void normalize_drop_area(s32 *p);
-int bswap_16__FPUs(void*);
-int bswap_32__FPUl(void*);
 void bswap_sync_item_state_header(G_SyncItemState_6x6D_Decompressed *header);
-}
-
-extern "C" {
-
-    extern int floor_item_free_id_count;
 void TLobby::clear_object_count() { floor_item_free_id_count = 0; }
 
 void TLobby::reset_floor_items() {

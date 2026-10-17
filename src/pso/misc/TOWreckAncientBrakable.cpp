@@ -21,7 +21,6 @@ void *__dt__22TOWreckAncientBrakableFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__22TOWreckAncientBrakable[];
 extern void *TOWreckAncientBrakable__name;
 
 void *TOWreckAncientBrakable__ct(void *arg0) {
@@ -33,9 +32,6 @@ void *TOWreckAncientBrakable__ct(void *arg0) {
     return arg0;
 }
 
-}
-
-extern "C" {
 extern char lbl_80443528[];
 void *TOWreckAncientBrakable__name = lbl_80443528;
 }

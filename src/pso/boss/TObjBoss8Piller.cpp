@@ -20,18 +20,11 @@ void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
 extern RecoveredGlobal_8030AF60___vt__15TObjBoss8Piller __vt__15TObjBoss8Piller;
 extern s32 TObjBoss8Piller__class_name;
-extern u32 TObjBoss8Piller__shared_resource;
 extern const f32 lbl_805DF158;
 extern const f32 lbl_805DF15C;
 extern const f32 lbl_805DF160;
 u8 *__ct__15TObjBoss8PillerFv(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3);
-}
-
-extern "C" {
-
 void TLobby__sub_8001FE7C(void*, int);
-
-extern u32 TObjBoss8Piller__shared_resource;
 
 typedef char RecoveredGlobal_8030AF60___vt__15TObjBoss8Piller_size[sizeof(RecoveredGlobal_8030AF60___vt__15TObjBoss8Piller) == 0x18 ? 1 : -1];
 u8 *__ct__15TObjBoss8PillerFv(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3) {
@@ -64,9 +57,6 @@ void TObjBoss8Piller::load_resource_descriptor() {
     (*(s32 *)&TObjBoss8Piller__shared_resource) = var_r0;
 }
 
-}
-
-extern "C" {
 extern char lbl_80475658[];
 extern char lbl_80475670[];
 extern char lbl_80475688[];

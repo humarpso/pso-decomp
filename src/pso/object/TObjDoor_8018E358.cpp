@@ -97,54 +97,18 @@ void TLobby__sub_8001FE7C(void*, int);
 extern s32 TObjDoor__resource_param;
 extern u32 door_resource_handle;
 void *TObjDoorJung__ct(void *, void *, void *);
-void *__nw__7TObjectFUl(int);
-extern void *tl_05;
 void *TObjDoorJung__create(void *arg0);
 void update_opening_glow__8TObjDoorFPv(u8 *arg0);
-void rotate_matrix_y(int, int);
-void push_matrix();
-void pop_matrix();
-void post_translate_matrix(void *);
-void draw_ginja_object(void *);
-void draw_ginja_model_with_motion(int, int, void *, f32);
 void set_chunk_material_color(Color_8018E40C *);
 extern DoorMotionHeader* TObjDoor__motion_table[];
-extern Glob_8018E358 TObjDoor__model_resource_ptrs[];
 extern s32 lbl_805D5660;
-extern s32 TObjDoor__resource_param;
 extern s32 model_render_flags;
 void render__8TObjDoorFPv(Door_8018E40C *arg0);
-void rotate_matrix_y(int, int);
-void push_matrix();
-void pop_matrix();
-void post_translate_matrix(void *);
-void draw_ginja_object(void *);
-void set_chunk_material_color(Color_8018E40C *);
-extern Glob_8018E358 TObjDoor__model_resource_ptrs[];
-extern s32 lbl_805D5660;
-extern s32 TObjDoor__resource_param;
-extern s32 model_render_flags;
 s32 draw_closed__8TObjDoorFPv(Door_8018E5F4 *arg0);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 s32 load_gvm_texture_file(void *);
 s32 get_bml_model(s32, s32);
 s32 get_bml_motion(s32, s32);
-extern u32 door_resource_handle;
-extern s32 TObjDoor__resource_param;
-extern Glob_8018E358 TObjDoor__model_resource_ptrs[];
-extern DoorMotionHeader* TObjDoor__motion_table[];
-void rotate_matrix_y(int, int);
-void push_matrix();
-void pop_matrix();
-void post_translate_matrix(void *);
-void draw_ginja_object(void *);
-void draw_ginja_model_with_motion(int, int, void *, f32);
-void set_chunk_material_color(Color_8018E40C *);
-extern Glob_8018E358 TObjDoor__model_resource_ptrs[];
-extern DoorMotionHeader* TObjDoor__motion_table[];
-extern s32 lbl_805D5660;
-extern s32 TObjDoor__resource_param;
-extern s32 model_render_flags;
 s32 draw_locked__8TObjDoorFPv(Door_8018E74C *arg0);
 void VecCopy__FP3VecPC3Vec(f32*,const f32*);
 void set_active_camera_pose(f32*,f32*);
@@ -158,38 +122,13 @@ u8 is_current_floor_switch_set(u16);
 extern s32 TObjDoor__data_805D5BC8;
 s32 init_collision_body_parts(void *, void *, s32);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
-extern s32 __vt__8TObjDoor[];
 extern s32 TObjDoor__name;
 void *TObjDoor__ct(void *arg0, void *arg1, void *arg2);
 void draw_closed_glow__8TObjDoorFPv(TObjDoor* door);
-}
-
-extern "C" {
-
 struct DoorMotionHeader { void* rows; u32 frameCount; };
-
-void VecCopy__FP3VecPC3Vec(f32*,const f32*);
-void set_active_camera_pose(f32*,f32*);
-void restore_player_cameras();
-s32 activate_camera_mode(s32);
-void clear_player_status_flag__10TObjPlayerFlUl(TObjDoor*,s32,u32);
-void set_indexed_flags(TObjDoor*,s32,u32);
-s32 check_player_door_proximity(TObjDoor*,s32,f32);
-void play_persistent_sound(s32,TObjDoor*,f32*,s32,s32);
-u8 is_current_floor_switch_set(u16);
-extern DoorMotionHeader* TObjDoor__motion_table[];
-extern s32 TObjDoor__data_805D5BC8;
 
 void TObjDoor__sub_8018E890(void);
 void update_timer__8TObjDoorFPv(void *arg0);
-
-extern "C" {
-extern DoorMotionHeader* TObjDoor__motion_table[];
-}
-
-extern "C" {
-extern DoorMotionHeader* TObjDoor__motion_table[];
-}
 
 extern "C" void update_locked_pulse__8TObjDoorFPv(TObjDoor *door);
 extern "C" void draw_closing__8TObjDoorFPv(Door_8018E358 *arg0);

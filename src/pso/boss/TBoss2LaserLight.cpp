@@ -31,10 +31,6 @@ S_80037264 *ct_init_points__16TBoss2LaserLightFPvPvii(S_80037264 *o, void *paren
 s32 noop_laser__23TAdSinglePlyChrSelectGCFv(void *);
 s32 TAdSinglePlyChrSelectGC__sub_80133508(void *);
 extern const f32 lbl_805D84A8;
-}
-
-extern "C" {
-
 void TBoss2LaserLight__sub_80037474(void* p);
 void TBoss2LaserLight__sub_80037480(void* p);
 void *__dt__16TBoss2LaserLightFPvs(void *arg0, s16 arg1);
@@ -42,8 +38,6 @@ void *__dt__16TBoss2LaserLightFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
-
-extern s32 lbl_80482C58[];
 
 void *__dt__16TBoss2LaserLightFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

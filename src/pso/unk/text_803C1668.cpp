@@ -48,10 +48,6 @@ extern "C" {
 s32 TLobby__sub_803C1780(s32, s32, s16 *, u8 *, u8 *, s8 *, s8 *, s32 *, s32 *, s32 *, u8 *);
 void *memset(void *, int, u32);
 s16 DVDReadPrio(Hdl_803C1668 *h, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 s16 DVDReadPrio(Hdl_803C1668 *h, s32 arg1, s32 arg2) {
     s16 n;
     h->f2 = 1;

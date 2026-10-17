@@ -16,10 +16,6 @@ s32 setup_blended_textured_draw();
 s32 load_context_texture_obj();
 s32 GXBegin(int, int, u16);
 void TParticleCtrl__sub_803E2A1C(Particle_803E2A1C *p, s32 n);
-}
-
-extern "C" {
-
 s32 TObjPlayer__sub_803E2248();
 
 void TParticleCtrl::reset_particles() {

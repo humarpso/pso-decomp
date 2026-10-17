@@ -29,17 +29,6 @@ extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047DAE4;
 extern s32 lbl_805D7608;
 extern RecoveredCallback_4873a87e26d6 lbl_805D760C;
 extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047DB30;
-extern s32 lbl_805D7608;
-extern RecoveredCallback_4873a87e26d6 lbl_805D760C;
-extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047DAE4;
-extern s32 lbl_805D7608;
-extern RecoveredCallback_4873a87e26d6 lbl_805D760C;
-extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047DAE4;
-extern s32 lbl_805D7608;
-extern RecoveredCallback_4873a87e26d6 lbl_805D760C;
-extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047DAE4;
-extern s32 lbl_805D7608;
-extern RecoveredCallback_4873a87e26d6 lbl_805D760C;
 s32 TLobby__sub_803D0654(struct File_803D0654 *arg0, s32 arg1, s32 arg2);
 s32 DVDOpen(const char *, DVDFileInfo_803D0AE8 *);
 s32 DVDClose(DVDFileInfo_803D0AE8 *);
@@ -48,12 +37,6 @@ char *strcpy(char *, const char *);
 u32 strlen(const char *);
 extern char lbl_8047DAB8[];
 extern char dvd_default_path_buffer[];
-extern s32 lbl_805D7608;
-extern RecoveredCallback_4873a87e26d6 lbl_805D760C;
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_803CFEA0_lbl_8047DAE4_size[sizeof(RecoveredGlobal_803CFEA0_lbl_8047DAE4) == 0x18 ? 1 : -1];
 s32 TLobby::get_handle_field_20() {
     u8 *arg0 = (u8 *)this;

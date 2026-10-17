@@ -21,12 +21,6 @@ Balloon_8024966C *find_balloon_overlap_for__15TWindowFukidasiFl(Balloon_8024966C
 void TWindowFukidasi__sub_80249788(void* p);
 void *TWindowCtrlMain__sub_8024CDD0(s32);
 void resolve_chat_balloon_overlaps(void);
-}
-
-extern "C" {
-
-void TWindowFukidasi__sub_80249788(void* p);
-void *TWindowCtrlMain__sub_8024CDD0(s32);
 s32 find_overlapping_balloon__15TWindowFukidasiFPvPvPvPv(s32, s32, s32, s32);
 
 int TUnk_804D0658::is_selected() { return (this->m_70 >> 5) & 0x1; }

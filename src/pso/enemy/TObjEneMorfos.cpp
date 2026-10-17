@@ -465,32 +465,17 @@ extern const f32 TObjEneMorfos__data_805DF874;
 extern const f32 lbl_805DF87C;
 extern const f32 lbl_805DF890;
 void TObjEneMorfos__sub_80333AD0(u8 *arg0, s32 arg1);
-f32 atan2_float(f32, f32);
 s32 get_flag_b4__9TObjEneDDFv();
 void spawn_particle_effect(void *, int);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 play_sound_effect(s32, u32, s16, s32);
 u8 * TObjEneMorfos__sub_80337824(void *, void *, s32, s32);
-s32 transition_enemy_state(void *, s32);
-s32 advance_animation_playback(void *);
 void * __nw__7TObjectFUl(int);
-extern const f64 TObjEneMorfos__data_80477610;
-extern int TObjEneMorfos__param_table;
 extern const f32 TObjEneMorfos__data_805DF884;
 extern const f32 lbl_805DF88C;
 void TObjEneMorfos__sub_80333690(u8 *arg0, s32 arg1);
-f32 atan2_float(f32, f32);
-s32 get_flag_b4__9TObjEneDDFv();
 s32 enemy_validate_retained_target(void *);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 play_sound_effect(s32, u32, s16, s32);
-s32 transition_enemy_state(void *, s32);
-s32 advance_animation_playback(void *);
-extern const f64 TObjEneMorfos__data_80477610;
-extern int TObjEneMorfos__param_table;
-extern const f32 lbl_805DF87C;
 extern const f32 lbl_805DF880;
-extern const f32 TObjEneMorfos__data_805DF884;
 extern const f32 lbl_805DF888;
 void TObjEneMorfos__sub_80332FD4(u8 *arg0, s32 arg1);
 s32 is_split_screen();
@@ -502,34 +487,16 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
-extern const f32 TObjEneMorfos__data_805DF86C;
 extern const f32 TObjEneMorfos__data_805DF870;
 void render__13TObjEneMorfosFv(u8 *arg0);
 u8 * get_player_data__10TObjPlayerFi(int);
-f32 atan2_float(f32, f32);
 s32 queue_destruction__7TObjectFv(void *);
-s32 get_flag_b4__9TObjEneDDFv();
-void spawn_particle_effect(void *, int);
 u32 create_particle_emitter(void *, int);
 s32 is_alive__9TObjEneDDFv(void *);
-s32 transition_enemy_state(void *, s32);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback(void *);
-s32 play_sound_effect(s32, u32, s16, s32);
-void * __nw__7TObjectFUl(int);
 s32 check_value_in_range__13TObjEneMorfosFPvUsUsUs(void *, int, int, int);
 s32 TObjEneMorfos__sub_803344F0(void *arg0);
-u8 * TObjEneMorfos__sub_80337824(void *, void *, s32, s32);
-extern const f64 TObjEneMorfos__data_80477610;
 extern s32 game_difficulty_selection;
-extern int TObjEneMorfos__param_table;
-extern const f32 TObjEneMorfos__data_805DF884;
-extern const f32 lbl_805DF88C;
 void state_rotating_projectile_burst__13TObjEneMorfosFPvi(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 struct Base_A_803326C4 { char pad[0x18]; };
 
 struct V_A_803326C4 : Base_A_803326C4 {
@@ -972,43 +939,30 @@ struct VObj_14_c1c33b : VBase_14_c1c33b {
     virtual s32 m4();
 };
 
-f32 calc_boss4_scale__10TObjPlayerFi(s32);
 f32 receive_physical_attack__10TObjPlayerFv(void *, void *, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u8 * get_player_data__10TObjPlayerFi(int);
 u16 obj_getField1c(void *);
-f32 atan2_float(f32, f32);
-s32 queue_destruction__7TObjectFv(void *);
 void TLobby__sub_8001FE7C(void*, int);
-s32 get_flag_b4__9TObjEneDDFv();
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 s32 get_mode__11TCameraCtrlFPv(void *);
 u32 csnLookAt(void *, void *);
-void spawn_particle_effect(void *, int);
 s32 is_patrol_active__21TObjEneRe7BeruraPunchFv(void *);
 s32 TObjPlayer__sub_800A04F0(void *);
 void TObjPlayer__sub_800A0554(void *);
 s32 __dt__13TUnk_80490470Fv(void *, int);
-s32 update_linked_position__12TObjEneDD_STFf(f32);
 void enemy_set_target_id(void *, u16);
 s32 __dt__12TObjEneDD_STFv(void *, int);
 s32 get_camera_ctrl__9TObjEneDDFv(void *, int);
-s32 is_alive__9TObjEneDDFv(void *);
 s32 clear_attack_receipts__9TObjEneDDFv();
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
-s32 transition_enemy_state(void *, s32);
 void TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 __dt__13TUnk_80494938Fv(void *, int);
 s32 update_obstruction_fade(void *);
 s32 angle_difference_abs(s32, s32);
 s32 angle_diff_s16(s32);
-s32 objInBand__FP7GameObjf(void *, f32);
-s32 advance_animation_playback(void *);
 s32 free_collision_body_parts(void *);
 Pl_8033496C * get_player_by_client_id(s32);
-s32 play_sound_effect(s32, u32, s16, s32);
 s32 __dl__7TObjectFPv(void *);
-void * __nw__7TObjectFUl(int);
 void TObjPlayer__sub_8023DEE0(void *, s16, s16, u16);
 s32 restore_render_scissor(int);
 void render_part__13TObjEneMorfosFPvii(Self_803329E4 *self, s32 idx, s32 mode);
@@ -1031,8 +985,6 @@ void * TObjEneMorfos__ct(void *arg0, void *arg1, void *arg2);
 s32 TObjEneMorfosArm__sub_8033542C();
 s32 __destroy_arr(void *, void *, int, int);
 void __construct_array(void *, void *, void *, int, int);
-f32 sin_table_lookup(int);
-f32 cos_table_lookup(int);
 s32 rotate_matrix_y(int, int);
 void subtract_vector(void *, void *);
 s32 push_matrix();
@@ -1040,13 +992,9 @@ s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_chunk_model(void *);
 
-extern const f64 TObjEneMorfos__data_80477610;
-extern int TObjEneMorfos__param_table;
 extern int TObjEneMorfos__instance;
 extern s32 TObjEneMorfos__phase;
 extern s32 TObjEneMorfos__camera_path_cursor;
-extern const f32 TObjEneMorfos__data_805DF86C;
-extern const f32 TObjEneMorfos__data_805DF874;
 extern const f32 TObjEneMorfos__data_805DF89C;
 extern s32 __dt__13TUnk_804949A8Fv[];
 extern s32 init_and_activate__10TObjPlayerFv[];
@@ -1060,20 +1008,11 @@ extern s32 lbl_805D6D2C;
 extern float morfos_projectile_speed;
 extern float morfos_param_table_speed_copy;
 extern const f32 lbl_805DF878;
-extern const f32 lbl_805DF888;
 extern const f32 lbl_805DF894;
 extern const f32 lbl_805DF898;
 extern const f32 lbl_805DF8A0;
 extern const f32 lbl_805DF8A4;
 extern void *tl_04;
-
-extern "C" {
-s32 select_target_in_view__13TObjEneMorfosFPv(O_80334588 *arg0);
-}
-
-extern "C" {
-s32 select_target_in_view__13TObjEneMorfosFPv(O_80334588 *arg0);
-}
 
 extern "C" {
 void TLobby__sub_801A1FD8();
@@ -1455,10 +1394,6 @@ void *__vt__13TObjEneMorfos[107] = {
     (void *)&TObjEneEpsilon__vt101, (void *)&vfunc_83__13TObjEneMorfosFv, (void *)&vfunc_106__13TObjEneMorfosFv,
 };
 #define __vt__13TObjEneMorfos ((s32 *)__vt__13TObjEneMorfos)
-
-extern "C" {
-void render_part__13TObjEneMorfosFPvii(Self_803329E4 *self, s32 idx, s32 mode);
-}
 
 int TObjEneMorfos::get_instance() {  return TObjEneMorfos__instance; }
 

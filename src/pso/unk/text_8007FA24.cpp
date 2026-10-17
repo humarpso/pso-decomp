@@ -12,10 +12,6 @@ s32 launch_switcher_dol(int);
 s32 TLobby__sub_8014618C();
 extern RecoveredGlobal_8007FA24_lbl_8048DF88 lbl_8048DF88;
 void TAdTrialModemChkGC__sub_8007FA24(s32 arg0);
-}
-
-extern "C" {
-
 typedef struct RecoveredGlobal_8007FA24_lbl_8048DF88 RecoveredGlobal_8007FA24_lbl_8048DF88;
 typedef char RecoveredGlobal_8007FA24_lbl_8048DF88_size[((sizeof(RecoveredGlobal_8007FA24_lbl_8048DF88)) == 0xC) ? (1) : (-1)];
 void TAdTrialModemChkGC__sub_8007FA24(s32 arg0) {

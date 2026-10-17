@@ -10,10 +10,6 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_model_motion(int, int, f32);
-}
-
-extern "C" {
-
 void TObjDFDemo4::sub_8004F1FC() {
     u8 *arg0 = (u8 *)this;
     s32 var_r31;

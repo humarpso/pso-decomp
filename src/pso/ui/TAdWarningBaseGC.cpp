@@ -25,10 +25,6 @@ void TWindow__close(void *);
 extern u8 controller_input_state[];
 extern u8 controller_physical_port_bank[];
 extern const f32 lbl_805DF7B0;
-}
-
-extern "C" {
-
 void *TAdWarningBaseGC__ct(void *arg0);
 void clear_aram_request_busy(void);
 void *__dt__16TAdWarningBaseGCFv(void *arg0, s16 arg1);
@@ -110,7 +106,6 @@ void *__dt__16TAdWarningBaseGCFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__16TAdWarningBaseGC[];
 extern void *lbl_805D4208;
 
 void *TAdWarningBaseGC__ct(void *arg0) {

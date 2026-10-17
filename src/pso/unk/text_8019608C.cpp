@@ -10,10 +10,6 @@ extern "C" {
 extern RecoveredGlobal_8019608C_lbl_8050DD08 quest_col_apc_warp_target_pos;
 extern s32 quest_collision_warp_pending;
 void fn_8019608C(void);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8019608C_lbl_8050DD08_size[sizeof(RecoveredGlobal_8019608C_lbl_8050DD08) == 0x10 ? 1 : -1];
 void fn_8019608C(void) {
     if ((s32) quest_collision_warp_pending != 0) {

@@ -26,9 +26,6 @@ void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 extern u8 lbl_8048EF0C[];
 Body_80090178 *TObjEneBalClawBody__sub_80090178(Body_80090178 *self, s16 flag);
-}
-
-extern "C" {
 
 Body_80090178 *TObjEneBalClawBody__sub_80090178(Body_80090178 *self, s16 flag) {
     s32 i;

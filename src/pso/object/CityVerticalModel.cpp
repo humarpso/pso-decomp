@@ -57,7 +57,6 @@ s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object();
 extern s32 city_common_texture_list;
-extern const f32 lbl_805DBC00;
 extern const f32 lbl_805DBC04;
 extern const f32 lbl_805DBC08;
 void render__13TUnk_804B5C08Fv(u8 *arg0);
@@ -72,13 +71,7 @@ void __dl__7TObjectFPv(void *);
 extern s32 city_vertical_model_vtable[];
 void *destroy_city_vertical_model(void *arg0, s16 arg1);
 s32 construct_world_actor_base(void *, void *);
-extern s32 city_vertical_model_vtable[];
-extern const f32 lbl_805DBC00;
 u8 *construct_city_vertical_model(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void TUnk_804B5C08::vfunc_13(s32) { this->m_9c = lbl_805DBC00; *(int*)((char*)this + 0x90) = 1; }
 typedef struct RecoveredFields_80182E90_arg0 RecoveredFields_80182E90_arg0;
 typedef struct VBase_18_26a62c VBase_18_26a62c;
@@ -181,18 +174,12 @@ u8 *construct_city_vertical_model(u8 *arg0, s32 parent, s32 arg2) {
     return arg0;
 }
 
-}
-
-extern "C" {
 __declspec(section ".sdata2") extern const f32 lbl_805DBC00 = 0.0f;
 __declspec(section ".sdata2") extern const f32 lbl_805DBC04 = 600.0f;
 __declspec(section ".sdata2") extern const f32 lbl_805DBC08 = 50.0f;
 __declspec(section ".sdata2") extern const f32 city_vertical_model_min_y_offset = -200.0f;
 __declspec(section ".sdata2") extern const f32 city_vertical_model_max_y_offset = 200.0f;
 __declspec(section ".sdata2") extern const f32 city_vertical_model_y_step = 2.0f;
-}
-
-extern "C" {
 void render_shadows__7TObjectFv();
 void TLobby__sub_801A1FD8();
 void apply_object_set_data();

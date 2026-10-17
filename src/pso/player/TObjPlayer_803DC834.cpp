@@ -8,12 +8,7 @@ struct S_803DC850 { u8 pad[0x78]; u8 f; };
 extern "C" {
 extern S_803DC83C ginja_material_cache;
 void set_ginja_post_texgen_count(s32 x);
-extern S_803DC83C ginja_material_cache;
 void set_ginja_post_tev_stage_count(s32 x);
-}
-
-extern "C" {
-
 void set_ginja_draw_end_callback(s32 arg0);
 
 extern s32 lbl_805D76E0;

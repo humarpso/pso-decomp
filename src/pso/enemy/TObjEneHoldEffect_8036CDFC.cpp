@@ -31,20 +31,10 @@ void subtract_vector(Vec_8036CF30 *, void *);
 void normalize_vector(Vec_8036CF30 *);
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805E03B0;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 obj_testFlags30(void *, int);
-void *get_player_by_client_id(int);
-void subtract_vector(Vec_8036CF30 *, void *);
-void normalize_vector(Vec_8036CF30 *);
-extern u8 *camera_ctrl_instance;
-extern const f32 lbl_805E03B0;
 s32 is_split_screen(void);
 void queue_destruction__7TObjectFv(void *);
 void run_task__17TObjEneHoldEffectFv(Hold_8036CE20 *o);
 u8 validate_attack_target_count(s32 *count);
-}
-
-extern "C" {
 
 #pragma push
 #pragma opt_common_subs off

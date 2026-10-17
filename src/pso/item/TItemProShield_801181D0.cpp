@@ -52,7 +52,6 @@ int fn_800F953C(void*);
 s32 bswap_32__FPUl(s32);
 s32 fn_800F955C(s32);
 extern s32 lbl_805D2C3C;
-extern int TItemProShield__shield_table;
 void __dt__14TItemEquipBaseFv(void *, int);
 extern s32 __vt__14TItemProShield[];
 void *__dt__14TItemProShieldFv(void *arg0, s16 arg1);
@@ -62,24 +61,14 @@ u8 * TItemEquipBase__ct(void *);
 s16 get_bswap16_field8__9TItemDataFPv(void *);
 s16 getS16_06__9TItemDataFPv(void *);
 s32 lookup_item_pmt_record(void *);
-extern s32 __vt__14TItemProShield[];
 extern s32 lbl_805D2C38;
-extern int TItemProShield__shield_table;
 u8 *TItemProShield__ct(u8 *arg0, s32 arg1, u8 *arg2);
 s32 add_actor_tp(u32, s32);
 s32 add_actor_hp(u32, s32);
 s16 obj_getS16_2BA(u32);
-s32 get_id__13TItemProArmorFv(void *);
-s32 get_flag_40__8TItemMagFv(void *);
 s32 create_shield_effect__14TItemProShieldFlUsUl(s32, s32, s32);
 s32 play_shield_sound_cue(Status_80118558 *);
-extern s32 tl_05;
 extern const f32 lbl_805DABF0;
-}
-
-extern "C" {
-
-int TItemEquipBase__sub_8010A82C(void*);
 s32 register_technique_boosts__14TItemEquipBaseFPvPv(void *, s32);
 s32 draw_ginja_object(u32);
 s32 set_model_fade_alpha__10TObjPlayerFf();

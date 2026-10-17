@@ -34,23 +34,16 @@ u8 *TLoadCtrl__ct(u8 *arg0, s32 arg1);
 u8 * __dt__7TObjectFv(void *, s16);
 s32 queue_destruction__7TObjectFv(u32);
 void __dl__7TObjectFPv(s32);
-extern RecoveredGlobal_8001C828___vt__9TLoadCtrl __vt__9TLoadCtrl;
 extern u32 TLoadCtrl__instance;
-extern s32 TLoadCtrl__fade_task;
 u8 *__dt__9TLoadCtrlFv(u8 *arg0, s16 arg1);
-extern u32 TLoadCtrl__instance;
 bool TLoadCtrl__sub_8001C60C(void);
-u8 *TLoadCtrl__ct(u8 *arg0, s32 arg1);
 s32 TNowLoading__sub_8001D4D4();
 s32 TCameraCtrl__ct(u8 *, s32);
 s32 TLoadCtrl__sub_80226DA0(int);
 s32 select_area_entrance(void *);
-s32 __nw__7TObjectFUl(int);
 s32 TAdLoadQuestGC__sub_80309850();
 s32 fn_8034AD2C();
 extern s32 lbl_80515BA0[];
-extern u32 TLoadCtrl__instance;
-extern s32 TLoadCtrl__loading_mode;
 extern s32 tl_su;
 extern s32 tl_camera;
 s32 TNowLoading__ct(s32, void *, void *);
@@ -58,23 +51,14 @@ s32 set_active_camera_pose(void *, void *);
 s32 activate_camera_mode(int);
 s32 controller_stuff__Fv();
 s32 update_sound_request_slots();
-s32 __nw__7TObjectFUl(int);
 s32 TAdLoadQuestGC__ct(s32, void *);
 s32 __ct__14TAdFloorLoadGCFP7TObjectPv(s32, void *, int);
 extern u8 lbl_804349CC[];
 extern Vec_8001C620 lbl_804349D8;
 extern Vec_8001C620 lbl_804349E4;
-extern u32 TLoadCtrl__instance;
-extern s32 TLoadCtrl__loading_mode;
-extern s32 TLoadCtrl__fade_task;
-}
-
-extern "C" {
-
 s32 TAdLoadQuestGC__sub_8030984C();
 s32 TNowLoading__sub_8001D4D0();
 s32 fn_8034AD28();
-s32 queue_destruction__7TObjectFv(u32);
 s32 reset__11TCameraCtrlFv();
 
 bool TLoadCtrl__sub_8001C60C(void) {
@@ -83,8 +67,6 @@ bool TLoadCtrl__sub_8001C60C(void) {
 
 void TLoadCtrl::render() {  }
 
-extern u32 TLoadCtrl__instance;
-extern s32 TLoadCtrl__loading_mode;
 extern void *camera_ctrl_instance;
 
 typedef char RecoveredGlobal_8001C828___vt__9TLoadCtrl_size[sizeof(RecoveredGlobal_8001C828___vt__9TLoadCtrl) == 0x18 ? 1 : -1];

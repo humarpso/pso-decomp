@@ -63,10 +63,6 @@ extern void *__vt__21TAdMultiChgGameModeGC[];
 extern s32 TAdMultiChgGameModeGC__name;
 extern const f32 lbl_805DEF38;
 Obj_802FFE58 *__ct__21TAdMultiChgGameModeGCFv(Obj_802FFE58 *self);
-}
-
-extern "C" {
-
 void fn_802FFC78(void);
 void fn_802FFC7C(void);
 s32 is_multiplayer_character_slot_selected(u32);

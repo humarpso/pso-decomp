@@ -4,10 +4,6 @@
 
 extern "C" {
 s32 queue_instance_destruction__14TBoss6PlotFalzFv(void *);
-}
-
-extern "C" {
-
 int is_ready__14TBoss6PlotFalzFv(void*);
 
 void TBoss6PlotFalz::set_state4_if_ready() { if (is_ready__14TBoss6PlotFalzFv(this) != 0) { send_6xA3_action((s8)((void*)4)); } }

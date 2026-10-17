@@ -5,10 +5,6 @@ extern "C" {
 s32 __ct__16TObjBagWarnWin4PFv(int, void *);
 s32 __nw__7TObjectFUl(int);
 s32 fn_8006EBC4(s32 arg0);
-}
-
-extern "C" {
-
 s32 fn_8006EBC4(s32 arg0) {
     s32 temp_r3;
     s32 var_r0;

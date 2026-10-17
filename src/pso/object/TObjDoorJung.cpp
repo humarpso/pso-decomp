@@ -82,18 +82,11 @@ extern s32 lbl_805D5BF0;
 extern const f32 lbl_805DBDF8;
 extern const f32 lbl_805DBDFC;
 
-}
-
-extern "C" {
-
 void *__dt__12TObjDoorJungFv(void *arg0, s16 arg1);
 s32 TLobby__sub_8001FE7C(void *, s16);
 s32 free_collision_body_parts(void *);
 s32 minimap_render_gate(void *, s32, u16, s32, s32);
 s32 __dl__7TObjectFPv(void *);
-
-extern void *TObjDoorJung__resource_handle;
-extern void *TObjDoorJung__door_scene_buffer;
 
 void TObjDoorJung::free_buffers() {
     if (TObjDoorJung__door_scene_buffer != NULL) {
@@ -195,8 +188,6 @@ void TObjDoorJung::run_task() {
     }
     minimap_render_gate(arg0 + 0x38, 0xFFFF0000, (u16) this->rotation_y, 0, 0);
 }
-
-extern s32 __vt__12TObjDoorJung[];
 
 void *__dt__12TObjDoorJungFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

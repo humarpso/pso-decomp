@@ -16,10 +16,6 @@ s32 VecCopy__FP3VecPC3Vec(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
 u8 *csnVector(f32 *, f32 *, s32);
 void check_technique_projectile_wall_hit(u8 *arg0);
-}
-
-extern "C" {
-
 #pragma push
 #pragma opt_common_subs off
 void check_technique_projectile_wall_hit(u8 *arg0) {

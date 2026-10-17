@@ -1,6 +1,5 @@
 #include "types.h"
 #include "pso/unk/TUnk_804EEF80.h"
-#include "pso/unk/TUnk_804EEF80.h"
 #include "pso/TMainTask.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -22,10 +21,6 @@ extern const f32 lbl_805DF968;
 extern const f32 lbl_805DF96C;
 extern const f32 lbl_805DF970;
 extern const f32 lbl_805DF974;
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 void rotate_title_background_quad(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 farg0) {

@@ -10,14 +10,12 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern char lbl_80440A10[];
 extern char lbl_80440A24[];
 extern char lbl_80440A3C[];
 extern const char *bm_fe_obj_o_door03l_model_names[2];
 extern const char *bm_fe_obj_o_door03l_motion_names[2];
 extern BmlResourceDescriptor door_ancient03_resource_descriptor;
-}
 
 struct VBase { char pad[0x18]; };
 
@@ -90,21 +88,13 @@ s32 *mem_alloc(s32);
 s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_80440A64;
 extern u32 TODoorAncient03__bml_resource;
-extern void *TODoorAncient03__texture_lists;
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
 extern RecoveredGlobal_8015E634_lbl_804B0E08 door_ancient03_collision_parts;
 extern s32 __vt__15TODoorAncient03[];
 extern s32 lbl_805D2F28;
-extern u32 TODoorAncient03__bml_resource;
-extern void *TODoorAncient03__texture_lists;
-extern const f32 lbl_805DB3F8;
 extern const f32 lbl_805DB3FC;
 u8 *TODoorAncient03__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt__15TODoorAncient03Fv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, void *, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
@@ -188,9 +178,6 @@ void *TODoorAncient03::create(void *arg0) {
     return o;
 }
 
-extern u32 TODoorAncient03__bml_resource;
-extern void *TODoorAncient03__texture_lists;
-
 void TODoorAncient03::free_resources() {
     if ((void *) TODoorAncient03__texture_lists != NULL) {
         TObjPlayer::free_if_valid(*(s32 *)((s8 *)TODoorAncient03__texture_lists + 4));
@@ -204,8 +191,6 @@ void TODoorAncient03::free_resources() {
         TODoorAncient03__bml_resource = 0U;
     }
 }
-
-extern s32 __vt__15TODoorAncient03[];
 
 typedef char RecoveredGlobal_8016BC84_lbl_80441ACC_size[sizeof(RecoveredGlobal_8016BC84_lbl_80441ACC) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8016BC84_lbl_804B2B30_size[sizeof(RecoveredGlobal_8016BC84_lbl_804B2B30) == 0x10 ? 1 : -1];
@@ -258,9 +243,6 @@ u8 *TODoorAncient03__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_fe_obj_o_door03l_model_names[2] = { lbl_80440A10, NULL };
 __declspec(section ".data") const char *bm_fe_obj_o_door03l_motion_names[2] = { lbl_80440A24, NULL };
 BmlResourceDescriptor door_ancient03_resource_descriptor = { lbl_80440A3C, bm_fe_obj_o_door03l_model_names, bm_fe_obj_o_door03l_motion_names, 1, 1 };

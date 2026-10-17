@@ -69,26 +69,14 @@ void draw_model_motion(s32, s32, f32);
 extern const f32 lbl_805D8988;
 extern const f32 lbl_805D898C;
 extern const f32 lbl_805D89A0;
-void TObjPlayer__sub_80052390(f32);
 Outer_8004E068 *collect_and_count__12TBoss3VoloptFUll(s32, s32);
 void TObjEneRe4Sorcerer__sub_801E3F1C(f32, f32);
-void rotate_matrix_y(s32, s32);
-void push_matrix();
-void pop_matrix();
-void post_translate_matrix(void *);
-void draw_model_motion(s32, s32, f32);
 extern Tbl_8004E068 lbl_8048561C[];
 extern s32 model_render_flags;
-extern const f32 lbl_805D8988;
-extern const f32 lbl_805D898C;
 extern const f32 lbl_805D8990;
 extern const f32 lbl_805D8994;
 extern const f32 lbl_805D8998;
 extern const f32 lbl_805D899C;
-}
-
-extern "C" {
-
 void *TObjDFDemo0__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
@@ -234,7 +222,6 @@ void TObjDFDemo1::render() { draw_fading_model(); sub_8004E068(); }
 
 #pragma push
 
-#include "types.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss4Type2.h"
 struct S_8004E634 {
@@ -252,10 +239,6 @@ void restore_player_cameras();
 void __dl__7TObjectFPv(void *);
 extern u8 lbl_80485640[];
 S_8004E634 *fn_8004E634(S_8004E634 *o, s16 flag);
-}
-
-extern "C" {
-
 S_8004E634 *fn_8004E634(S_8004E634 *o, s16 flag) {
     s32 i;
     if (o != 0) {

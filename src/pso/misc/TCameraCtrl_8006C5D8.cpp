@@ -25,11 +25,6 @@ void xfree__FPv(void *);
 s32 load_relocatable_file(s32, void *);
 void *xmalloc__FUl(s32);
 extern Bank_8006C6CC camera_path_bank_table[];
-extern G_8006C668 TCameraCtrl__camera_banks;
-}
-
-extern "C" {
-
 void *TCameraCtrl__vt10(void);
 void *__dt__13TUnk_80488D70Fv(void *arg0, s16 arg1);
 void __dt__13TUnk_80488A28Fv(void *, int);

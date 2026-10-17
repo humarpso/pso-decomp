@@ -81,12 +81,8 @@ extern const f32 lbl_805DF0E0;
 extern const f32 lbl_805DF0E4;
 extern const f32 lbl_805DF0E8;
 
-}
-
-extern "C" {
 extern const f32 TBoss7Crawfish__data_805DF0D8;
 s32 spawn_particle_effect(void *, int);
-extern const f32 TBoss7Crawfish__data_805DF0D8;
 s32 exchange_object_state__9TObjEnemyFls(void *, void *, int);
 s32 get_mode__11TCameraCtrlFPv(void *);
 f32 horizontal_distance_squared(void *, void *);
@@ -99,10 +95,6 @@ s32 obj_is_hit_receivable(u32);
 s32 reset_global_table();
 Slot_803086A8 *get_attack_entry__16TObjOnlineEndingFi(s32);
 s32 apply_hit_to_target__14TBoss7CrawfishFPvPv(void *, void *);
-}
-
-extern "C" {
-
 void TBoss7Crawfish__sub_803087D4(s32 arg0, s32 arg1);
 int TBoss7Crawfish__sub_80308BEC(void* p);
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -230,7 +222,6 @@ s32 TBoss7Crawfish::sub_80308AA8() {
 
 void TBoss7Crawfish::render() { if (is_visible() != 0) { TObjPlayer::notify_fish_if_valid((u32)(*(void* *)&this->texture_id)); TObjPlayer::set_global_flag(); push_matrix(); post_translate_matrix((char*)this + 0x38); rotate_matrix_yxz((void*)0, this->m_5c, *(void* *)&this->rotation_y, *(void* *)&this->rotation_z); scale_current_matrix((char*)this + 0x68); draw__16TObjEneRe7BeruraFv(this); pop_matrix(); TObjPlayer::clear_global_state(); } }
 
-extern const f32 TBoss7Crawfish__data_805DF0D8;
 extern const f32 lbl_805DF0EC;
 
 void TBoss7Crawfish::clear_object_state_exchange() {

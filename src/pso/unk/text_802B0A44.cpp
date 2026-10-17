@@ -16,10 +16,6 @@ extern s32 empty_warp_overlay_zero_vec[];
 extern s32 empty_warp_overlay_vertices[];
 extern const f32 lbl_805DE228;
 void draw_empty_warp_overlay(void);
-}
-
-extern "C" {
-
 void draw_empty_warp_overlay(void) {
     typedef char sp8_offset[(offsetof(Stack_802B0DCC, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802B0DCC, spC) == 0x4) ? 1 : -1];

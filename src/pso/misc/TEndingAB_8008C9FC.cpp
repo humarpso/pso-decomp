@@ -14,12 +14,6 @@ extern s32 TEndingAB__fade_sequence_state;
 extern const f32 lbl_805D9580;
 extern s32 game_difficulty_selection;
 extern s32 ending_ab_wall_texture_list;
-}
-
-extern "C" {
-
-extern s32 TEndingAB__fade_sequence_state;
-
 void TEndingAB::advance_fade_sequence() {
     s32 temp_r0;
     s32 temp_r3;

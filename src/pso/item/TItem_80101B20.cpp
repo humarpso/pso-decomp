@@ -14,14 +14,7 @@ extern "C" {
 void *memcpy(void *, const void *, u32);
 extern s32 item_registry_count;
 extern TItem_80101B20 **item_registry_sorted_entries;
-void *memcpy(void *, const void *, u32);
-extern s32 item_registry_count;
-extern TItem_80101B20 **item_registry_sorted_entries;
 extern s32 lbl_805D5450;
-}
-
-extern "C" {
-
 s32 TItem::unregister_item() {
     TItem_80101B20 *item = (TItem_80101B20 *)this;
     s32 lo;

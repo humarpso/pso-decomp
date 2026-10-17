@@ -66,16 +66,10 @@ void __dt__7TObjectFv(void *, s32);
 void __dl__7TObjectFPv(void *);
 void finish_request__22TChCrLoadAfsTextureReqFPv(void *arg0);
 s32 TLobby__sub_803CC4C0(s32);
-extern s32 __vt__22TChCrLoadAfsTextureReq[];
 Req_8028C1F0 *__dt__22TChCrLoadAfsTextureReqFv(Req_8028C1F0 *arg0, s16 arg1);
-}
-
-extern "C" {
-
 f32 TLobby__sub_8028C50C(void);
 void * create__22TChCrLoadAfsTextureReqFPvPv(void *arg0, void *arg1);
 void * create_ch_cr_load_afs_texture_req(void *arg0, void *arg1, void *arg2, void *arg3);
-void finish_request__22TChCrLoadAfsTextureReqFPv(void *arg0);
 void *init__22TChCrLoadAfsTextureReqFPvPvPv(void *arg0, void *arg1, void *arg2);
 s32 try_acquire_load_slot__22TChCrLoadAfsTextureReqFPv(void *arg0);
 void try_begin_load__22TChCrLoadAfsTextureReqFPv(void* p);
@@ -119,8 +113,6 @@ void finish_request__22TChCrLoadAfsTextureReqFPv(void *arg0) {
     }
 }
 
-extern s32 TChCrLoadAfsTextureReq__active_load_count;
-
 s32 try_acquire_load_slot__22TChCrLoadAfsTextureReqFPv(void *arg0) {
     if (((s32) TChCrLoadAfsTextureReq__active_load_count < 0) || ((s32) TChCrLoadAfsTextureReq__active_load_count > 3)) {
         return 0;
@@ -135,9 +127,6 @@ s32 try_acquire_load_slot__22TChCrLoadAfsTextureReqFPv(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0x68) = 1;
     return 1;
 }
-
-extern s32 __vt__22TChCrLoadAfsTextureReq[];
-extern void *lbl_805D3B50;
 
 typedef char RecoveredGlobal_8028C378___vt__22TChCrLoadAfsTextureReq_size[sizeof(RecoveredGlobal_8028C378___vt__22TChCrLoadAfsTextureReq) == 0x18 ? 1 : -1];
 

@@ -38,15 +38,7 @@ s32 TWindowSubSymbolChat__sub_800771C4(Obj_800771C4 *arg0, s32 arg1);
 u8 *get_message_10__20TWindowSubStatusDispFl(s32);
     extern int selected_symbol_chat_preset;
 s32 is_initialized__20TWindowSubSymbolChatFv();
-    extern int selected_symbol_chat_preset;
-    extern int selected_symbol_chat_preset;
 int get_instance__20TWindowSubSymbolChatFv(void*);
-    extern int selected_symbol_chat_preset;
-int get_instance__20TWindowSubSymbolChatFv(void*);
-    extern int selected_symbol_chat_preset;
-    extern int selected_symbol_chat_preset;
-    extern int selected_symbol_chat_preset;
-int TWindowSubSymbolChat__sub_80076FE0(void* p);
 int TWindowSubSymbolChat__sub_80076FE0(void* p);
 s32 strncpy(void *, void *, int);
 s32 copy_symbol_chat_entry__6TLobbyFPvPv(void *, void *);
@@ -57,66 +49,6 @@ extern RecoveredGlobal_800773BC_lbl_80438830 symbol_chat_sound_ids;
 E_80077480 *get_character_save_record(u32 id);
 u8 *get_symbol_chat_preset(s32 i);
 s32 is_symbol_chat_preset_in_use(u32 *arg0);
-}
-
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
 
 void TWindowSubSymbolChat::send_selected_symbol_chat(s32 *arg0) {
     G_SymbolChat_6x07 packet;

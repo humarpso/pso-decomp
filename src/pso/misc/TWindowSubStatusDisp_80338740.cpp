@@ -4,15 +4,12 @@
 extern "C" {
 extern s32 lbl_805D49C0;
 void TKeyBoardControl__sub_8000F950(void);
-extern s32 lbl_805D49C0;
 void TKeyBoardControl__sub_8000F95C(void);
 extern s32 keyboard_active_flag;
 void activate_keyboard(void);
-extern s32 keyboard_active_flag;
 void deactivate_keyboard(void);
 extern s32 keyboard_key_state;
 void mark_area_change_pending(void);
-extern s32 keyboard_key_state;
 void clear_keyboard_key_state(void);
 int TEneParticleCtrl__vt7(void* p);
 int get_field_38_ptr__16TEneParticleCtrlFv(void*);
@@ -24,101 +21,16 @@ extern s32 lbl_805D62B0;
     extern int resource_decompress_buffer;
     extern int anim_model_matrix_array;
     extern int lbl_805D5680;
-extern s32 lbl_805D49C0;
-extern s32 keyboard_key_state;
-void TKeyBoardControl__sub_8000F950(void);
-void TKeyBoardControl__sub_8000F95C(void);
-void activate_keyboard(void);
-void deactivate_keyboard(void);
-void mark_area_change_pending(void);
-void clear_keyboard_key_state(void);
-int TEneParticleCtrl__vt7(void* p);
     extern unsigned char lbl_804EF440[];
     extern const float lbl_805DF9CC;
-int TEneParticleCtrl__vt7(void* p);
-extern s32 lbl_805D49C0;
-void TKeyBoardControl__sub_8000F950(void);
-extern s32 lbl_805D49C0;
-void TKeyBoardControl__sub_8000F95C(void);
-extern s32 keyboard_active_flag;
-void activate_keyboard(void);
-extern s32 keyboard_active_flag;
-void deactivate_keyboard(void);
-extern s32 keyboard_key_state;
-void mark_area_change_pending(void);
-extern s32 keyboard_key_state;
-void clear_keyboard_key_state(void);
-int TEneParticleCtrl__vt7(void* p);
-extern s32 keyboard_task_object[];
-extern s32 lbl_805D62B0;
-    extern int lbl_805D49A0;
-    extern int lbl_805D49A4;
-    extern int player_matrix_stack_buffer;
-    extern int resource_decompress_buffer;
-    extern int anim_model_matrix_array;
-    extern int lbl_805D5680;
-extern s32 lbl_805D49C0;
-extern s32 keyboard_key_state;
-void TKeyBoardControl__sub_8000F950(void);
-void TKeyBoardControl__sub_8000F95C(void);
-void activate_keyboard(void);
-void deactivate_keyboard(void);
-void mark_area_change_pending(void);
-void clear_keyboard_key_state(void);
-int TEneParticleCtrl__vt7(void* p);
 int TWindowSubStatusDisp__sub_80338B88(void* p);
-    extern unsigned char lbl_804EF440[];
-    extern const float lbl_805DF9CC;
-int TEneParticleCtrl__vt7(void* p);
-int TWindowSubStatusDisp__sub_80338B88(void* p);
-extern s32 lbl_805D49C0;
-void TKeyBoardControl__sub_8000F950(void);
-extern s32 lbl_805D49C0;
-void TKeyBoardControl__sub_8000F95C(void);
-extern s32 keyboard_active_flag;
-void activate_keyboard(void);
-extern s32 keyboard_active_flag;
-void deactivate_keyboard(void);
-extern s32 keyboard_key_state;
-void mark_area_change_pending(void);
-extern s32 keyboard_key_state;
-void clear_keyboard_key_state(void);
-int TEneParticleCtrl__vt7(void* p);
-extern s32 keyboard_task_object[];
-extern s32 lbl_805D62B0;
-    extern int lbl_805D49A0;
-    extern int lbl_805D49A4;
-    extern int player_matrix_stack_buffer;
-    extern int resource_decompress_buffer;
-    extern int anim_model_matrix_array;
-    extern int lbl_805D5680;
-extern s32 lbl_805D49C0;
-extern s32 keyboard_key_state;
-void TKeyBoardControl__sub_8000F950(void);
-void TKeyBoardControl__sub_8000F95C(void);
-void activate_keyboard(void);
-void deactivate_keyboard(void);
-void mark_area_change_pending(void);
-void clear_keyboard_key_state(void);
-int TEneParticleCtrl__vt7(void* p);
 int reset_entry__20TWindowSubStatusDispFPv(void*, int);
-    extern unsigned char lbl_804EF440[];
-    extern const float lbl_805DF9CC;
-int TEneParticleCtrl__vt7(void* p);
 s32 __dl__FPv(void *);
 s32 deleting_destructor__20TWindowSubStatusDispFs(void *, s32);
 s32 mem_free(void *);
 extern u8 lbl_804EF440[];
 void TWindowSubStatusDisp__sub_80338A9C(void);
-extern u8 lbl_804EF440[];
-void TWindowSubStatusDisp__sub_80338A9C(void);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
-extern u8 lbl_804EF440[];
-s32 get_message_10__20TWindowSubStatusDispFl(s32);
-extern u8 lbl_804EF440[];
-void TWindowSubStatusDisp__sub_803387F8(void *arg0, s8 arg1);
-s32 get_message_10__20TWindowSubStatusDispFl(s32);
-extern u8 lbl_804EF440[];
 void TWindowSubStatusDisp__sub_803387F8(void *arg0, s8 arg1);
 s32 mem_alloc(void *);
 s32 measure_string_len__20TWindowSubStatusDispFv(void *);
@@ -178,10 +90,6 @@ extern const f32 lbl_805DF9D8;
 extern const f32 lbl_805DF9DC;
 extern const f32 lbl_805DF9E0;
 
-}
-
-extern "C" {
-
 void TWindowSubStatusDisp__sub_80338740(u8 *arg0, s32 arg1, s32 arg2, s8 arg3, s8 arg4, s8 arg5, s8 arg6, s8 arg7, s32 arg_sp8) {
     s32 temp_r3;
     if (arg1 != 0) {
@@ -205,17 +113,12 @@ void TWindowSubStatusDisp__sub_80338740(u8 *arg0, s32 arg1, s32 arg2, s8 arg3, s
 void TWindowSubStatusDisp__sub_803387F8(void *arg0, s8 arg1) {
     get_message_10__20TWindowSubStatusDispFl((s32)(arg1 + 0x113));
 }
-}
-extern "C" {
 s32 TWindowSubStatusDisp::query_status_field(void *arg0, s8 arg1) {
     if (arg1 == 0) {
         return 0;
     }
     return get_message_10__20TWindowSubStatusDispFl((s32)(arg1 + 0x110));
 }
-}
-extern "C" {
-
 s32 TWindowSubStatusDisp::get_flag_or_zero(void *arg0, s8 arg1) {
     if (arg1 == 0) {
         return 0;

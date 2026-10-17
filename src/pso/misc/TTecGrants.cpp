@@ -18,7 +18,6 @@ struct RecoveredGlobal_80233350___vt__10TTecGrants {
 };
 
 #include <stddef.h>
-#include "pso/misc/TTecGrants.h"
 #include "pso/misc/TTecLuker.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -90,13 +89,8 @@ s32 init_technique_effect_base(void *, void *, void *, void *);
 extern s32 __vt__10TTecGrants[];
 extern s32 lbl_805D37D0;
 u8 *TTecGrants__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-}
-
-extern "C" {
-
 void *__dt__10TTecGrantsFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void *__nw__7TObjectFUl(int);
 
 void TTecGrants::render() {  }
 
@@ -123,8 +117,6 @@ void TTecGrants::create(void *arg0, void *arg1, void *arg2, void *arg3) {
         TTecGrants__ct((u8 *)(o), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3));
     }
 }
-
-extern s32 __vt__10TTecGrants[];
 
 void run_task__10TTecGrantsFv(u8 *arg0) {
     u32 temp_r3;

@@ -104,10 +104,6 @@ extern RecoveredGlobal_80359420___vt__14TObjNpcNgcBase __vt__14TObjNpcNgcBase;
 extern s32 TObjNpcNgcBase__name;
 u8 *TObjNpcNgcBase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void fn_803594B4(O_803594B4 *self, s32 v, f32 f);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_80359420___vt__14TObjNpcNgcBase_size[sizeof(RecoveredGlobal_80359420___vt__14TObjNpcNgcBase) == 0x178 ? 1 : -1];
 u8 *TObjNpcNgcBase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     construct_male_npc_base((void *) (arg0));

@@ -13,10 +13,6 @@ struct Obj_800F9C00 {
 
 extern "C" {
 u8 *apply_rel_relocations(Obj_800F9C00 *arg0);
-}
-
-extern "C" {
-
 void __ct__7TObjectFP7TObject(void *, s32);
 
 extern s32 lbl_8049C658[];

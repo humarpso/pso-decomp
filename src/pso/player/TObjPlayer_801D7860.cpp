@@ -6,10 +6,6 @@ extern "C" {
 s32 TObjPlayer__sub_801C19C8(f32);
 extern const f32 lbl_805DC3F0;
 extern const f32 lbl_805DC3F4;
-}
-
-extern "C" {
-
 s32 TObjPlayer::init_sub_object(s32 arg0) {
     TObjPlayer::init_sub_object_vectors(arg0);
     return arg0;

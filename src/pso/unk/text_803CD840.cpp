@@ -107,9 +107,6 @@ void middleware_interrupt_lock_leave(void);
 void middleware_interrupt_lock_enter(void);
 void TLobby__sub_803D3130(Chunk_803CDB0C *, s32, Chunk_803CDB0C *, Chunk_803CDB0C *);
 void *memcpy(void *, const void *, u32);
-}
-
-extern "C" {
 
 #pragma dont_inline off
 #pragma inline_depth(4)

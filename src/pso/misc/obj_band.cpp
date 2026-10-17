@@ -44,10 +44,6 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern const f32 lbl_805DB168;
 f32 sample_attack_root_motion(Actor_80142950 *a, f32 *x, f32 *z);
-}
-
-extern "C" {
-
 struct E16_80142b8c_80142B08 { u8 a[4]; s32 f4; u8 b[8]; };
 
 struct E8_80142b8c_80142B08  { u8 a[4]; s32 f4; };
@@ -122,7 +118,6 @@ extern s32 player_joint_matrix_write_ptr;
 extern u8 *lbl_805D5684;
 extern s32 model_node_callback;
 extern s32 chunk_model_node_callback;
-extern const f32 lbl_805DB168;
 extern const f32 lbl_805DB16C;
 
 typedef struct Actor_80142950 Actor_80142950;

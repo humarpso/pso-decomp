@@ -30,19 +30,12 @@ extern u32 TOAirconCave01__model_archive;
 s32 init_map_object_base(void *, void *);
 extern s32 __vt__14TOAirconCave01[];
 extern s32 lbl_805D2E8C;
-extern u32 TOAirconCave01__model_archive;
 extern const f32 lbl_805DB2B8;
 extern const f32 lbl_805DB2BC;
 u8 *TOAirconCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt__14TOAirconCave01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
-
-extern u32 TOAirconCave01__model_archive;
 
 void TOAirconCave01::release_static_resource() {
     if ((u32) TOAirconCave01__model_archive != 0U) {
@@ -50,8 +43,6 @@ void TOAirconCave01::release_static_resource() {
         TOAirconCave01__model_archive = 0U;
     }
 }
-
-extern s32 __vt__14TOAirconCave01[];
 
 void TOAirconCave01::load_shared_resource() {
     s32 temp_r3;

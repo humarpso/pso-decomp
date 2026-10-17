@@ -69,7 +69,6 @@ extern "C" {
 u8 TBoss2Tentacle__sub_80039CA0(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void TBoss2Tentacle__sub_80039DB0(void* p);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 extern V3_80039DE0 TBoss2Tentacle__segment_points[];
 extern s32 TBoss2Tentacle__segment_point_defaults[];
 extern G_80039C44 *TBoss2Tentacle__motion_data;
@@ -84,11 +83,9 @@ s32 draw_chunk_object(void *);
 s32 draw_model_motion(void *, int, f32);
 extern Node_8003933C lbl_804FE5D8[];
 extern s32 *lbl_805D4BD0;
-extern G_80039C44 *TBoss2Tentacle__motion_data;
 extern s32 lbl_805D4BD8;
 extern const f32 lbl_805D8528;
 void render__14TBoss2TentacleFv(u8 *arg0);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 f64 atan2_float(f32, f32);
 s32 emit_effect_and_step__13TBoss2DeRolLeFPvPv(void *, void *);
 void *get_instance__13TBoss2DeRolLeFv(void);
@@ -104,12 +101,9 @@ f32 sin_table_lookup(s32);
 s32 matrix_mult_vec(int, void *, void *);
 s32 set_matrix_identity(int);
 s32 subtract_vector(void *, void *);
-s32 push_matrix();
-s32 pop_matrix();
 extern int TBoss2Tentacle__rest_angles[];
 extern s32 boss2_tentacle_angle_limit_table[];
 extern const f64 lbl_80435BA8[];
-extern V3_80039DE0 TBoss2Tentacle__segment_points[];
 extern const f32 lbl_805D852C;
 extern const float TBoss2Tentacle__data_805D8530;
 extern const float TBoss2Tentacle__data_805D8534;
@@ -117,43 +111,22 @@ extern const f32 lbl_805D8538;
 extern const f32 lbl_805D853C;
 extern const f32 lbl_805D8540;
 void run_task__14TBoss2TentacleFv(u8 *arg0);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand();
 extern s32 __vt__14TBoss2Tentacle[];
-extern V3_80039DE0 TBoss2Tentacle__segment_points[];
-extern s32 TBoss2Tentacle__segment_point_defaults[];
 extern s32 TBoss2Tentacle__name;
-extern G_80039C44 *TBoss2Tentacle__motion_data;
-extern const float TBoss2Tentacle__data_805D8534;
 extern const f32 lbl_805D855C;
 extern const f32 lbl_805D8560;
 Obj_80039F50 *__ct__14TBoss2TentacleFP7TObjectii(Obj_80039F50 *self, void *parent, s32 arg2, s32 arg3);
-f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
 void TBoss2Tentacle__sub_80039990(void);
-extern V3_80039DE0 TBoss2Tentacle__segment_points[];
-extern const float TBoss2Tentacle__data_805D8530;
-extern const float TBoss2Tentacle__data_805D8534;
 extern const f32 lbl_805D8548;
 extern const f32 lbl_805D854C;
 extern const f32 lbl_805D8550;
 extern const f32 lbl_805D8554;
 void TBoss2Tentacle__sub_80039994(Obj_80039994 *o, f32 len);
-}
-
-extern "C" {
-
-void TBoss2Tentacle__sub_8003998C(void);
-void TBoss2Tentacle__sub_80039990(void);
-void TBoss2Tentacle__sub_80039CB4(void* p);
-void TBoss2Tentacle__sub_80039D50(void* p);
-void TBoss2Tentacle__sub_80039D64(void* a0);
 void TBoss2Tentacle__sub_80039D98(void* p);
-void TBoss2Tentacle__sub_80039DB0(void* p);
-void TBoss2Tentacle__sub_80039DBC(void* p);
 void TBoss2Tentacle__sub_80039DC8(void* p);
-void TBoss2Tentacle__sub_80039DD4(void* p);
 void TBoss2Tentacle__sub_80039E54(void* a0);
 void TBoss2Tentacle__sub_80039E68(void* p);
 void TBoss2Tentacle__sub_8003A0A8(void);
@@ -423,17 +396,13 @@ u8 TBoss2Tentacle__sub_80039CA0(u8 *arg0) {
 
 void TBoss2Tentacle__sub_80039CB4(void* p) { *(s32*)((char*)p + 0x11c) = 0; *(s32*)((char*)p + 0x120) = 16384; }
 
-    extern const float TBoss2Tentacle__data_805D8530;
-    extern const float TBoss2Tentacle__data_805D8534;
     extern const float lbl_805D8544;
 void TBoss2Tentacle::reset() { *(int*)((char*)this + 0x11c) = 0; *(int*)((char*)this + 0x120) = 0; *(int*)((char*)this + 0x24) = 0; reset_segment_points(); *(float*)((char*)this + 0x138) = lbl_805D8544; *(int*)((char*)this + 0x14c) = 0; *(float*)((char*)this + 0x13c) = TBoss2Tentacle__data_805D8534; *(float*)((char*)this + 0x150) = TBoss2Tentacle__data_805D8530; }
 
-    extern int TBoss2Tentacle__rest_angles[];
 void TBoss2Tentacle::init_motion_from_table() { *(int*)((char*)this + 0x11c) = TBoss2Tentacle__rest_angles[*(int*)((char*)this + 0x2c)]; *(int*)((char*)this + 0x120) = 16384; *(int*)((char*)this + 0x24) = 0; }
 
 void TBoss2Tentacle__sub_80039D50(void* p) { *(s32*)((char*)p + 0x11c) = 0; *(s32*)((char*)p + 0x120) = 16384; }
 
-    extern int TBoss2Tentacle__rest_angles[];
 void TBoss2Tentacle__sub_80039D64(void* a0) { *(int*)((char*)a0 + 0x11c) = TBoss2Tentacle__rest_angles[*(int*)((char*)a0 + 0x2c)]; *(int*)((char*)a0 + 0x120) = 0; }
 
 void TBoss2Tentacle::sub_80039D88() { *(s32*)((char*)this + 0x120) = 0; *(s32*)((char*)this + 0x11c) = 0; }

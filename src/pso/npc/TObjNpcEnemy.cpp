@@ -141,12 +141,6 @@ extern char lbl_80472600[];
 extern char lbl_80472610[];
 extern char lbl_80472620[];
 void *memmove(void *, const void *, u32);
-extern RecoveredGlobal_802D72E4_TObjNpcEnemy__data_80540FF0 TObjNpcEnemy__entry_table;
-extern RecoveredGlobal_802D72E4_TObjNpcEnemy__data_80540FF0 TObjNpcEnemy__entry_table;
-}
-
-extern "C" {
-
 struct NpcBase_802d7748_802D745C { char pad[0x18]; };
 struct NpcV_802d7748_802D745C : NpcBase_802d7748_802D745C {
     virtual s32 m0(); virtual s32 m1(); virtual s32 m2();
@@ -344,7 +338,6 @@ void TObjNpcEnemy::update_state() {
 }
 
 extern s32 model_render_flags;
-extern const f32 lbl_805DE7D8;
 
 void TObjNpcEnemy::render() {
     u8 *arg0 = (u8 *)this;
@@ -370,8 +363,6 @@ void TObjNpcEnemy::render() {
         ((TObjEnemy *)arg0)->render_with_position_override((int) (0), (int) (0));
     }
 }
-
-extern s32 __vt__12TObjNpcEnemy[];
 
 void *__dt__12TObjNpcEnemyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

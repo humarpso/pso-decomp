@@ -24,21 +24,13 @@ struct Obj_8016A280 { u8 pad[0x38]; u8 pos[0xCC - 0x38]; f32 radius; };
 extern "C" {
 s32 get_current_floor();
 s32 get_player_by_client_id(u32);
-s32 get_current_floor();
 f32 xyz_distance_squared(void *, void *);
 extern s32 local_client_id;
 s32 get_player_data__10TObjPlayerFi(int);
-s32 get_current_floor();
-f32 xyz_distance_squared(void *, void *);
 extern s32 lbl_805D586C;
-}
-
-extern "C" {
-
 void TOKey__sub_80169FB0(void* p);
 void handle_6x05_write_switch_flag(void *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 get_current_floor();
 void *find_entity_by_id(u16);
 s32 clear_floor_switch_flag(u16, s32);
 s32 clear_current_floor_switch(u16);
@@ -63,8 +55,6 @@ void *TUnk_804B27D8::destroy_key_object(s16 arg1) {
     }
     return this;
 }
-
-extern s32 lbl_804B27D8[];
 
 void *TUnk_804B27D8::init() {
     init_map_object_base(this);

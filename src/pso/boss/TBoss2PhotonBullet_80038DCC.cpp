@@ -59,10 +59,6 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 construct_collision_body(void *, void *, void *);
 extern s32 TBoss2PhotonBullet__name;
 u8 *TBoss2PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, u8 *arg4, f32 farg0);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_80038DCC_lbl_80435B6C_size[sizeof(RecoveredGlobal_80038DCC_lbl_80435B6C) == 0xC ? 1 : -1];
 void render__18TBoss2PhotonBulletFv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_80038DCC, sp8) == 0x0) ? 1 : -1];
@@ -184,15 +180,10 @@ void rotate_xz_pair_by_angle(void *, void *, s32);
 extern Rec_80039288 TBoss2PhotonPad__bullet_level_param_table[];
 extern void *__vt__15TBoss2PhotonPad[];
 extern s32 TBoss2PhotonPad__name;
-void queue_destruction__7TObjectFv(void *);
 void *get_instance__13TBoss2DeRolLeFv(void);
 void *__nw__7TObjectFUl(u32);
 void run_task__15TBoss2PhotonPadFv(Pad_80039140 *self);
 S_80039288 *__ct__15TBoss2PhotonPadFv(S_80039288 *o, void *parent, s32 arg2, void *arg3, s32 arg4);
-}
-
-extern "C" {
-
 void __dt__7TObjectFv(void *, s16);
 void render_shadows__7TObjectFv(void);
 void *__dt__15TBoss2PhotonPadFv(void *self, s16 arg1);
@@ -243,9 +234,6 @@ S_80039288 *__ct__15TBoss2PhotonPadFv(S_80039288 *o, void *parent, s32 arg2, voi
     return o;
 }
 
-}
-
-extern "C" {
 void TLobby__sub_801A1FD8(); void apply_object_set_data(); void release_member_90__10TObjPlayerFv();
 void vfunc_9__13TUnk_804B9870Fv(); void update_object_view_visibility__13TUnk_804B9870Fff(); void classify_actor_view_detail();
 void vfunc_12__13TUnk_804B9870Fv(); void vfunc_13__13TUnk_804AF8A0Fl(); void call_vt13_with_default__13TUnk_804928CCFv();
@@ -258,9 +246,6 @@ void *__vt__18TBoss2PhotonBullet[23] = {
 void *__vt__15TBoss2PhotonPad[6] = {
     0, 0, (void *)__dt__15TBoss2PhotonPadFv, (void *)run_task__15TBoss2PhotonPadFv, (void *)&render__15TBoss2PhotonPadFv, (void *)render_shadows__7TObjectFv
 };
-}
-
-extern "C" {
 extern char lbl_80435B48[];
 extern char lbl_80435B58[];
 s32 TBoss2PhotonPad__name = (s32)lbl_80435B48;

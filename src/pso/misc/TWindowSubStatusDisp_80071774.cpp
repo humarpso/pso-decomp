@@ -21,26 +21,14 @@ s32 TWindowSubStatusDisp__sub_80071A24(s32 arg0, u16 arg1, s32 arg2);
 extern RecoveredGlobal_80071820_lbl_804FF820 lbl_804FF820;
 extern s32 lbl_805D2858;
 s32 *TWindowSubStatusDisp__sub_80071820(u32 arg0);
-u32 get_character_save_record(u32);
 s32 get_slot_clamped__6TLobbyFv(s32);
 s32 TWindowSubStatusDisp__sub_80071868(u16 id, s32 slot);
-s32 get_layout_id__20TWindowSubStatusDispFv(void *);
-s32 TWindowSubStatusDisp__sub_8006F0D8(void *, void *);
-u32 get_character_save_record(u32);
 s32 TWindowSubStatusDisp__sub_80071988(s32 arg0, s32 arg1);
 s32 calc_layout_hash__20TWindowSubStatusDispFv(int);
-s32 get_layout_id__20TWindowSubStatusDispFv(void *);
 s32 is_flag_set__6TLobbyFv();
-s32 TWindowSubStatusDisp__sub_80071A24(s32 arg0, u16 arg1, s32 arg2);
-u32 get_character_save_record(u32);
 extern G_800718D0 challenge_mode_state;
 s32 TWindowSubStatusDisp__sub_800718D0(void);
-}
-
-extern "C" {
-
 s32 TLobby__sub_80071654(u16);
-u32 get_character_save_record(u32);
 
 s32 TWindowSubStatusDisp::get_status_index(int arg0) {
     u32 temp_r3;

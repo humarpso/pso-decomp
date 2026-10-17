@@ -63,60 +63,25 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 matrix_mult_vec(int, int, int);
 s32 push_matrix();
 s32 pop_matrix();
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 matrix_mult_vec(int, int, int);
 s32 rotate_matrix_by_node_angles(void *, int);
-s32 push_matrix();
-s32 pop_matrix();
 s32 post_translate_matrix(void *);
 void bind_motion_context(s32, f32);
 s32 push_matrix_from(u32);
-s32 pop_matrix();
-extern s32 TBreakUpMdl__vtable[];
-extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
-void bind_motion_context(s32, f32);
-s32 push_matrix_from(u32);
-s32 pop_matrix();
-extern s32 TBreakUpMdl__vtable[];
-extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
-s32 push_matrix_from(u32);
-s32 pop_matrix();
 extern s32 TBreakUpMdl__vtable[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
 extern const f32 lbl_805D97C8;
 void *mem_alloc(int);
 extern const f32 lbl_805D97CC;
-s32 rotate_matrix_by_node_angles(void *, int);
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
-extern const f32 lbl_805D97C8;
-extern const f32 lbl_805D97CC;
-void *mem_alloc(int);
-s32 matrix_mult_vec(int, int, int);
 void rotate_matrix_y(s32, s32);
-s32 push_matrix_from(u32);
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
 extern s32 __vt__11TBreakUpMdl[];
-extern RecoveredGlobal_80096F54_lbl_8058D490 identity_matrix;
 s32 update_player_state__9TObjEneDDFv(void *, void *, int);
-void rotate_matrix_y(s32, s32);
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
 s32 draw_model_motion(s32, void *, f32);
 extern Vec_80097100 lbl_8043A0E0;
 extern const f32 lbl_805D97D8;
 extern const f32 lbl_805D97DC;
 extern const f32 TObjEneDf2Bringer__data_805D97E0;
-}
-
-extern "C" {
-
 int TObjEneDf2Bringer__sub_800994F8(void*);
 
-extern s32 __vt__11TBreakUpMdl[];
 void TObjEneDf2Bringer::vfunc_105() {
     Bringer_80097100 *self = (Bringer_80097100 *)this;
     f32 frame;

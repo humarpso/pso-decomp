@@ -6,10 +6,6 @@
 extern "C" {
 void set_equip_slot_entry(s32 arg0, s32 arg1, s32 arg2);
 void TObjPlayer__sub_801BF8F8(s32 *p);
-}
-
-extern "C" {
-
 void TObjPlayer__sub_801BF914(void);
 
 void set_equip_slot_entry(s32 arg0, s32 arg1, s32 arg2) {

@@ -15,16 +15,11 @@ extern s32 lbl_805D4350;
 extern const float lbl_805DFE14;
 extern const f32 lbl_805DFE18;
 u8 *TItemEffPG__ct(u8 *arg0, s32 arg1, u8 *arg2);
-}
-
-extern "C" {
-
 void *__dt__10TItemEffPGFv(void *arg0, s16 arg1);
 s32 check_hits__14TItemAttackColFPv(void *);
 s32 TItemEffPG__begin_visual_fade(void *);
 int TObjPlayer__sub_802E451C(void);
 void __dl__7TObjectFPv(void *);
-void *__nw__7TObjectFUl(int);
 s32 disallow_rendering__7TObjectFv(void *);
 s32 has_game_join_id__13TUnk_804E355CFv();
 s32 queue_destruction__7TObjectFv(void *);
@@ -63,8 +58,6 @@ void TItemEffPG::run_task() {
         this->m_d0 = 0U;
     }
 }
-
-extern s32 __vt__10TItemEffPG[];
 
 void *__dt__10TItemEffPGFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -107,7 +100,6 @@ void TItemEffPG::create(void *arg0, void *arg1) {
     }
 }
 
-    extern const float lbl_805DFE14;
     extern const float lbl_805DFE1C;
     extern const float lbl_805DFE20;
 void*TItemEffPG::init_params() { TObjPlayer__sub_802E451C(); *(int *)&this->m_up = 10; this->m_28 = lbl_805DFE14; *(float *)&this->unk_2C = lbl_805DFE1C; this->m_30 = lbl_805DFE20; return this; }

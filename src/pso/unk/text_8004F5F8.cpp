@@ -18,10 +18,6 @@ void restore_player_cameras();
 void __dl__7TObjectFPv(void *);
 extern u8 lbl_80485764[];
 S_8004F5F8 *__dt__11TObjDFDemo4Fv(S_8004F5F8 *o, s16 flag);
-}
-
-extern "C" {
-
 S_8004F5F8 *__dt__11TObjDFDemo4Fv(S_8004F5F8 *o, s16 flag) {
     s32 i;
     if (o != 0) {

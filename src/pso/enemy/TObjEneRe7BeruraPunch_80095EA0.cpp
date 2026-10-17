@@ -12,7 +12,6 @@ struct VObj_14_c1c33b : VBase_14_c1c33b {
 };
 
 #include <stddef.h>
-#include "pso/enemy/TObjEneRe7BeruraPunch.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
@@ -41,19 +40,13 @@ extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
 u8 * csnVector(s32, s32, s32);
 u8 *find_entity_by_id(u16);
 s32 TObjEneRe7Berura__sub_80094D98();
-extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
 extern const f32 lbl_805D97A4;
 extern const f32 lbl_805D97A8;
 s32 TObjEneRe7Berura__sub_80094C68(u8 *);
-u8 *find_entity_by_id(u16);
 s32 refresh_collision_body_centers__13TUnk_804AF8A0Fv(void *, void *, f32, f32);
 extern Pair_80096150 lbl_80439F28[];
 extern const f32 lbl_805D97AC;
 extern const f32 lbl_805D97B0;
-}
-
-extern "C" {
-
 struct VObjHang_80095EA0 {
     char pad[0x14];
     virtual s32 m0();
@@ -74,7 +67,6 @@ s32 rotate_matrix_y(s32, s32);
 s32 translate_matrix(s32, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
-u8 *find_entity_by_id(u16);
 s32 VecCopy__FP3VecPC3Vec(void *, s32);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 
@@ -115,7 +107,6 @@ void TObjEneRe7BeruraPunch::render() {
     }
 }
 
-extern const f32 lbl_805D9794;
 extern const f32 lbl_805D97B4;
 
 #pragma push

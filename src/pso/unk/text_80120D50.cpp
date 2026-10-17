@@ -28,10 +28,6 @@ extern const f32 lbl_805DAC98;
 extern u8 lbl_805DACA4;
 extern const f32 lbl_805DACB0;
 u8 *TItemWeapon__ct(u8 *arg0, void *arg1, u8 *arg2);
-}
-
-extern "C" {
-
 u8 *TItemWeapon__ct(u8 *arg0, void *arg1, u8 *arg2) {
     s32 temp_r3;
     u8 temp_r0;

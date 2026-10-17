@@ -1,7 +1,6 @@
 #include "types.h"
 #include "pso/ui/TAdMcCheckGC.h"
 #include "pso/misc/TWindowSubComCard.h"
-#include "pso/ui/TAdMcCheckGC.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/ui/TAdChrSelASlotGC.h"
 
@@ -17,17 +16,12 @@ s32 __dl__7TObjectFPv(void *);
 extern s32 memcard_cursor_instance_table[];
 extern s32 __vt__12TAdMcCheckGC[];
 u8 *__dt__12TAdMcCheckGCFv(u8 *arg0, s16 arg1);
-}
-
-extern "C" {
-
 void TLobby__sub_8033EE38(void* p);
 void set_tex_coord_gen2(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 GXSetTexCoordGen2(s32, s32, s32, s32, s32, s32);
 s32 get_localized_text_entry(s32, s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(void *, s32, s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
-s32 queue_destruction__7TObjectFv(void *);
 s32 set_status_flag_80__12TQuestThreadFPv(s32);
 
 void set_tex_coord_gen2(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
@@ -145,7 +139,6 @@ void TAdMcCheckGC::run_task() {
     *(s32 *)&this->m_20 = (s32) *(s32 *)&this->m_1c;
 }
 
-extern s32 __vt__12TAdMcCheckGC[];
 extern void *TAdMcCheckGC__name;
 
 typedef char RecoveredGlobal_8033F1C4___vt__12TAdMcCheckGC_size[sizeof(RecoveredGlobal_8033F1C4___vt__12TAdMcCheckGC) == 0x18 ? 1 : -1];

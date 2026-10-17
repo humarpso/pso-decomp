@@ -68,28 +68,21 @@ extern RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270 TKeyBoardControl
 extern RecoveredGlobal_801A5EC4_lbl_8050E208 controller_input_state;
 s32 TKeyBoardControl__sub_80132310(s32);
 u8 TKeyBoardControl__sub_8013239C(void *, int);
-extern RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 void reset_system();
 s32 DVDCheckDisk();
 extern s32 lbl_805D49B4;
 extern u8 lbl_805D5D09;
 s32 func_801A5E54__Fv(void);
 s32 PADRecalibrate(u32);
-extern RecoveredGlobal_801A5EC4_lbl_8050E208 controller_input_state;
 extern u32 pad_recalibration_counters[];
-extern u8 lbl_805D5D09;
 extern s8 pad_recalibration_hold_frames[4];
 extern const f32 lbl_805DC0B4;
 void update_pad_recalibration(void);
-s32 is_split_screen();
 f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
-void update_pad_recalibration(void);
 void bind_controller_devices(void);
 void map_c_stick_to_buttons(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
 void map_main_stick_to_buttons(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
-s32 update_button_hold_counters(int);
-extern RecoveredGlobal_801A5EC4_lbl_8050E208 controller_input_state;
 extern u8 controller_physical_port_bank[];
 extern s32 lbl_805D34C8;
 extern u8 *camera_ctrl_instance;
@@ -116,10 +109,6 @@ Def_804C2308 controller_default_pad_state = { 0, 0, 0, 0xFFFFFFFF, 0, 0, 0, 0, 0
 u32 TKeyBoardControl_key_bit_table[6] = { 16, 32, 64, 128, 4, 2 };
 u32 keyboard_poll_key_codes[6] = { 94, 93, 92, 95, 97, 76 };
 s32 lbl_804C236C[4] = { 0, 6, 12, 18 };
-}
-
-extern "C" {
-
 void TObjPlayer::reset_fields() { *(s32*)((char*)this + 0x0) = 0; *(s32*)((char*)this + 0x4) = 0; *(s32*)((char*)this + 0x8) = 0; }
 
 typedef struct RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270 RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270;
@@ -487,19 +476,11 @@ struct Ctl_801A6510 {
 
 extern "C" {
 s32 TKeyBoardControl__sub_803DEB74(int);
-extern s32 lbl_805D34C8;
 extern s8 lbl_805D5D08;
 extern s8 keyboard_reset_button_pressed;
-extern s8 pad_recalibration_hold_frames[4];
 s32 read_input__16TKeyBoardControlFl(u8);
 void copy_state__16TKeyBoardControlFPvPv(Rec_801A67A4 *arg0, Rec_801A67A4 *arg1);
-extern const f32 lbl_805DC0C0;
 s32 is_split_screen(void);
-s32 TKeyBoardControl__sub_803DEB74(int);
-void bind_controller_devices(void);
-}
-
-extern "C" {
 
 void bind_controller_devices(void) {
     Ctl_801A6510 *p;
@@ -655,16 +636,12 @@ s32 TKeyBoardControl::poll_key_state() {
     return 0;
 }
 
-}
-
 #undef controller_input_state
 #undef controller_physical_port_bank
 #undef pad_recalibration_counters
 #undef lbl_805D5D09
 #undef TKeyBoardControl__global_key_state
 #pragma pop
-
-extern "C" {
 
 void accumulate_key_bits(s32 arg0, s32 *arg1) {
     s32 i;

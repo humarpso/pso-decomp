@@ -24,17 +24,12 @@ s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, void *);
 extern RecoveredGlobal_80340508_lbl_8050E208 controller_input_state;
 s32 apply_choice__20TWindowChoiceSettingFllll(void *, void *, int, int);
-extern RecoveredGlobal_80340508_lbl_8050E208 controller_input_state;
 extern const f32 TWindowDD__data_805DFBFC;
 extern const f32 lbl_805DFC00;
 extern const f32 lbl_805DFC04;
 extern const f32 lbl_805DFC08;
 extern const f32 lbl_805DFC2C;
 extern const f32 lbl_805DFC30;
-}
-
-extern "C" {
-
 s32 TWindowDD__sub_80340820(void* p);
 void TWindowDD__sub_80340910(void* p);
 void *__dt__13TUnk_804EFBACFv(void *arg0, s16 arg1);

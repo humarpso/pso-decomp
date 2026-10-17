@@ -14,10 +14,6 @@ struct VObj_802A4668 : Base_802A4668 {
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_wall_hit__12TNeedleShootFv(void *, f32, f32);
-}
-
-extern "C" {
-
 void TNeedleShoot__sub_802A4668(void *arg0);
 
 void TNeedleShoot__sub_802A4668(void *arg0) {

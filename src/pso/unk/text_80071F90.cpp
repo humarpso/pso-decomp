@@ -8,10 +8,6 @@ void *__construct_array(void *, void *, void *, u32, u32);
 void init_gc_tag(void);
 void free_if_valid__14TPlyDispConfigFis(void);
 Obj_80071F90 *fn_80071F90(Obj_80071F90 *self);
-}
-
-extern "C" {
-
 Obj_80071F90 *fn_80071F90(Obj_80071F90 *self) {
     __construct_array(self->a, (void *)init_gc_tag, (void *)free_if_valid__14TPlyDispConfigFis, 4, 4);
     __construct_array(self->b, (void *)init_gc_tag, (void *)free_if_valid__14TPlyDispConfigFis, 4, 4);

@@ -73,7 +73,6 @@ struct VObj_18_f1aa6a : VBase_18_f1aa6a {
 };
 
 #include <stddef.h>
-#include "pso/player/TObjPlayer.h"
 struct Stack_80362FB4 {
     s32 sp8;
     s32 spC;
@@ -98,15 +97,10 @@ s32 pop_matrix();
 f32 post_translate_matrix(void *);
 extern RecoveredGlobal_80362FB4_lbl_80479FC8 lbl_80479FC8;
 void TObjPlayer__sub_80362FB4(u8 *arg0);
-}
-
-extern "C" {
-
 void *__dt__13TUnk_804F27E0Fv(void *arg0, s16 arg1);
 s32 get_attack_stage__11TItemWeaponFv();
 void construct_srank_weapon(void *);
 void __dt__13TUnk_804A4948Fv(void *, int);
-void *__dt__13TUnk_804F27E0Fv(void *arg0, s16 arg1);
 void set_status_flags__10TObjPlayerFUl(void *, int);
 
 void TObjPlayer::set_pause_flag_from_state() {
@@ -116,8 +110,6 @@ void TObjPlayer::set_pause_flag_from_state() {
     }
     this->m_1fc = (s32) (this->m_1fc & 0xFFFFFFFE);
 }
-
-extern s32 tl_05;
 
 void TObjPlayer::create_cane_if_ready(s32 arg0, void *position) {
     if (get_attack_stage__11TItemWeaponFv() == 0) {
@@ -195,8 +187,6 @@ u8 *TObjPlayer__sub_803630F0(u8 *arg0) {
     }
     return NULL;
 }
-
-extern s32 lbl_804F27E0[];
 
 void *__dt__13TUnk_804F27E0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -37,10 +37,6 @@ extern Param_8017D448 TOWreckAncientBrakable__debris_param_table;
 extern u8 identity_matrix[];
 extern void *wreck_ancient_brakable_bml_resource;
 extern s32 tl_05;
-}
-
-extern "C" {
-
 void TOWreckAncientBrakable__sub_8017D444(void);
 
 void TOWreckAncientBrakable__sub_8017D444(void) {  }

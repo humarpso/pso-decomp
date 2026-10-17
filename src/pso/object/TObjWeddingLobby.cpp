@@ -9,7 +9,6 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern char lbl_80479940[];
 extern char lbl_8047995C[];
 extern char lbl_80479978[];
@@ -17,7 +16,6 @@ extern char lbl_80479994[];
 extern const char *bm_obj_lobby_bell_model_names[3];
 extern const char *bm_obj_lobby_bell_motion_names[2];
 extern BmlResourceDescriptor wedding_lobby_resource_descriptor;
-}
 
 struct RecoveredGlobal_8035BEB8_lbl_804F1DF4 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8035BEB8_lbl_804F1DF4_size[sizeof(RecoveredGlobal_8035BEB8_lbl_804F1DF4) == 0x10 ? 1 : -1];
@@ -61,19 +59,10 @@ s32 draw_ginja_model_with_motion(int, int, f32);
 extern u32 TObjWeddingLobby__resource_bundle;
 extern u32 wedding_lobby_type;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-extern u32 TObjWeddingLobby__resource_bundle;
-extern u32 wedding_lobby_type;
 s32 init_map_object_base(void *, void *);
 extern s32 __vt__16TObjWeddingLobby[];
 extern s32 TObjWeddingLobby__class_name;
 u8 *TObjWeddingLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 get_bml_motion(void *, int);
-void TObjWeddingLobby__sub_8035BC20(void);
-extern u32 TObjWeddingLobby__resource_bundle;
-}
-
-extern "C" {
-
 void TObjWeddingLobby__sub_8035BC20(void);
 void *__dt__16TObjWeddingLobbyFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -157,16 +146,12 @@ void *TObjWeddingLobby::create(void *arg0) {
     return o;
 }
 
-extern u32 TObjWeddingLobby__resource_bundle;
-
 void TObjWeddingLobby::release() {
     if ((u32) TObjWeddingLobby__resource_bundle != 0U) {
         TLobby__sub_8001FE7C((void*)TObjWeddingLobby__resource_bundle, 1);
         TObjWeddingLobby__resource_bundle = 0U;
     }
 }
-
-extern s32 __vt__16TObjWeddingLobby[];
 
 void TObjWeddingLobby::load_resources() {
     s32 temp_r3;
@@ -206,9 +191,6 @@ u8 *TObjWeddingLobby__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_obj_lobby_bell_model_names[3] = { lbl_80479940, lbl_8047995C, NULL };
 __declspec(section ".data") const char *bm_obj_lobby_bell_motion_names[2] = { lbl_80479978, NULL };
 BmlResourceDescriptor wedding_lobby_resource_descriptor = { lbl_80479994, bm_obj_lobby_bell_model_names, bm_obj_lobby_bell_motion_names, 2, 1 };

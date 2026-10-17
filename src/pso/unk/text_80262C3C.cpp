@@ -142,16 +142,12 @@ extern const f32 TWindowLockOn__data_805DD110;
 extern const f32 lbl_805DD124;
 extern const f32 lbl_805DD128;
 s32 TWindowLockOn__update_for_other_player(s32 a0, s32 a1);
-}
-
-extern "C" {
 extern const f32 lbl_805DD12C;
 
 extern u8 lockon_window_layout_entries[];
 extern Cb_80263370 lbl_804D0288;
 extern s32 __vt__13TWindowLockOn[];
 extern const f32 lbl_805DD100;
-extern const f32 TWindowLockOn__data_805DD110;
 extern const f32 lbl_805DD114;
 extern const f32 lbl_805DD118;
 extern const f32 lbl_805DD11C;
@@ -159,16 +155,13 @@ extern const f32 lbl_805DD120;
 
 s32 obj_testFlags30(s32, s32);
 s8 TObjPlayer__sub_80102C30(void *);
-s32 find_entity_by_id(u16);
 void update_photon_blast_player_marker(s32, u32);
 s32 obj_isState3_324(void *);
 s32 is_script_controlled__10TObjPlayerFv(void *);
 void TWindow__close(void *);
-void init_window_layout_entries(void *, void *, int);
 void calc_row_width__20TWindowSubStatusDispFv(void *);
 u8 calc_display_grade__5TItemFv(void *);
 f32 get_item_star_row_width(void *);
-f32 get_target_distance__13TWindowLockOnFv(s32);
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
 void __dl__7TObjectFPv(void *);

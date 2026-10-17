@@ -50,7 +50,6 @@ s32 TObjEneDolmOlm__sub_80300CF0(void);
 s32 is_multiplayer_character_slot_selected(u32);
 Ent_80300850 *get_char_table_entry__23TAdSinglePlyChrSelectGCFi(int);
 s32 get_max_difficulty_for_party_level(void);
-s32 get_max_difficulty_for_party_level(void);
 void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *);
@@ -68,13 +67,9 @@ extern Pos_8030095C TAdMultiSelGameModeGC__menu_position_table;
 extern void *__vt__21TAdMultiSelGameModeGC[];
 extern s32 TAdMultiSelGameModeGC__name;
 extern s32 game_difficulty_selection;
-extern s32 TAdMultiSelGameModeGC__data_805D69F0;
 extern s32 lbl_805D69F4;
 extern const f32 lbl_805DEF44;
 Obj_8030095C *__ct__21TAdMultiSelGameModeGCFv(Obj_8030095C *self, s32 parent, s32 mode);
-}
-
-extern "C" {
 s32 set_default_camera__21TAdMultiChgGameModeGCFv(void *);
 }
 
@@ -85,7 +80,6 @@ typedef struct Pos3_803001B4 { Pos_803001B4 p[3]; } Pos3_803001B4;
 typedef struct Arr3_803001B4 { s32 v[3]; } Arr3_803001B4;
 
 extern "C" {
-extern s32 TAdMultiSelGameModeGC__data_805D69F0;
 s32 get_localized_text_entry(s32, s32);
 void align_menu_entry_positions(s32);
 void forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
@@ -94,10 +88,6 @@ extern Pos3_803001B4 multi_sel_game_mode_position;
 extern Arr3_803001B4 lbl_80474EEC;
 extern Arr3_803001B4 multi_sel_game_mode_arr3;
 extern const f32 lbl_805DEF40;
-}
-
-extern "C" {
-
 void TAdMultiSelGameModeGC__sub_80300764(void* p);
 int TKeyBoardControl__sub_8000F9CC(int);
 

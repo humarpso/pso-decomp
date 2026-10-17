@@ -33,8 +33,6 @@ void *__dt__13TUnk_804E48D8Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 lbl_804E48D8[];
-
 void *TObjAreaWarpForest::init(void *, void *) {
     TObjAreaWarpForest__ct(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804E48D8;

@@ -5,10 +5,6 @@ u8 * __ct__15TAdDrawLineTaskFv(void *, s32, s32, s32);
 u8 *__nw__7TObjectFUl(s32);
 extern const f32 lbl_805D7DDC;
 u8 *fn_8001A3BC(s32 arg0, u8 *arg1, s32 arg2);
-}
-
-extern "C" {
-
 u8 *fn_8001A3BC(s32 arg0, u8 *arg1, s32 arg2) {
     u8 *temp_r3;
     u8 *var_r0;

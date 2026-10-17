@@ -31,10 +31,6 @@ void draw_window_frame(void *, void *);
 void draw_visible_window_entries(void *, void *, void *);
 extern const f32 lbl_805DD260;
 void render__19TWindowMessageQuestFPv(Win_8026B148 *w);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8026B118_lbl_8044F464_size[sizeof(RecoveredGlobal_8026B118_lbl_8044F464) == 0xC ? 1 : -1];
 void create_quest_message_window(void) {
     create_quest_message_window_at((int) (get_window_layout_position((int) (0xAD))), (void *) (&lbl_8044F464.value));

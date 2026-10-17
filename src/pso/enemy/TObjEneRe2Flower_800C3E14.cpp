@@ -93,10 +93,6 @@ f32 fabs_float(f32);
 s32 is_area_attack_target_eligible(s32, s32);
 s32 attack_target_history_add(s32, s32);
 extern const f32 lbl_805DA000;
-}
-
-extern "C" {
-
 void vfunc_61__16TObjEneRe2FlowerFv(void);
 void vfunc_28__16TObjEneRe2FlowerFv(void);
 void *destroy__16TObjEneRe2FlowerFPvs(void *arg0, s16 arg1);

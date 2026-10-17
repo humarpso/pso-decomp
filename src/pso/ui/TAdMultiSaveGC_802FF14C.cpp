@@ -21,20 +21,8 @@ s32 get_localized_text_entry(int, int);
 extern u8 TAdMultiSaveGC__data_80474D70[];
 extern u8 TAdMultiSaveGC__data_80474D78[];
 s32 TAdMultiSaveGC__sub_802FF1F4(void);
-s32 update_window_mode_from_progress__6TLobbyFPv(void *, void *);
-s32 get_localized_text_entry(int, int);
-extern u8 TAdMultiSaveGC__data_80474D70[];
-extern u8 TAdMultiSaveGC__data_80474D78[];
 s32 TAdMultiSaveGC__sub_802FF254(void);
-s32 update_window_mode_from_progress__6TLobbyFPv(void *, void *);
-s32 get_localized_text_entry(int, int);
-extern u8 TAdMultiSaveGC__data_80474D70[];
-extern u8 TAdMultiSaveGC__data_80474D78[];
 s32 TAdMultiSaveGC__sub_802FF2B4(void);
-s32 update_window_mode_from_progress__6TLobbyFPv(void *, void *);
-s32 get_localized_text_entry(int, int);
-extern u8 TAdMultiSaveGC__data_80474D70[];
-extern u8 TAdMultiSaveGC__data_80474D78[];
 s32 TAdMultiSaveGC__sub_802FF314(void);
 s32 verify_system_file__23TAdSinglePlyChrSelectGCFPv();
 s32 TAdSinglePlyChrSelectGC__sub_801FDAAC();
@@ -42,17 +30,8 @@ s32 write_encrypted_save__23TAdSinglePlyChrSelectGCFv();
 void *__nw__7TObjectFUl(u32);
 s32 TWindow__close(void *);
 s32 get_selected_menu_value(int);
-s32 TAdMultiSaveGC__sub_802FF170(void);
-s32 TAdMultiSaveGC__sub_802FF1F4(void);
-s32 TAdMultiSaveGC__sub_802FF254(void);
-s32 TAdMultiSaveGC__sub_802FF2B4(void);
-s32 TAdMultiSaveGC__sub_802FF314(void);
 extern s32 tl_fade;
 void run_task__14TAdMultiSaveGCFv(u8 *arg0);
-}
-
-extern "C" {
-
 int queue_destruction__7TObjectFv(void);
 
 void TAdMultiSaveGC::queue_destruction() { queue_destruction__7TObjectFv(); TAdMultiChgGameModeGC::begin_change_game_mode(); }

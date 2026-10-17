@@ -97,22 +97,15 @@ s32 get_bml_model(int, int);
 s32 init_map_object_base(void *);
 extern s32 __vt__8TOKurage[];
 extern s32 TOKurage__name;
-extern u32 TOKurage__static_model_resource;
 u8 *TOKurage__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 is_current_room(void *);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern const char lbl_80441EA0[];
 extern const char lbl_80441EB0[];
 extern const char lbl_80441EBC[];
-}
-
-extern "C" {
-
 void *__dt__8TOKurageFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 is_any_player_within_radius_xz(f32);
-f32 xyz_distance(void *, void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -395,16 +388,12 @@ void *TOKurage::create(void *arg0) {
     return o;
 }
 
-extern u32 TOKurage__static_model_resource;
-
 void TOKurage::destroy_static_instance() {
     if ((u32) TOKurage__static_model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TOKurage__static_model_resource, 1);
         TOKurage__static_model_resource = 0U;
     }
 }
-
-extern s32 __vt__8TOKurage[];
 
 void TOKurage::load_static_resource() {
     s32 temp_r3;

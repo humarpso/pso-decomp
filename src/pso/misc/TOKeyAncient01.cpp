@@ -74,8 +74,6 @@ u8 * TOKey__ct(void *);
 extern RecoveredGlobal_8016B0A0_lbl_804B29D0 lbl_804B29D0;
 extern s32 __vt__14TOKeyAncient01[];
 extern s32 TOKeyAncient01__class_name;
-extern u8 *TOKeyAncient01__shared_resource_object;
-extern u32 TOKeyAncient01__texture_lists;
 extern const f32 lbl_805DB6E8;
 extern const f32 lbl_805DB6EC;
 extern const f32 lbl_805DB6F0;
@@ -89,12 +87,6 @@ extern u8 lbl_804419B8[];
 extern u8 lbl_804419D0[];
 extern u8 lbl_804419E8[];
 extern u8 bm_fd_obj_n_switch_resource_descriptor[];
-extern u8 *TOKeyAncient01__shared_resource_object;
-extern u32 TOKeyAncient01__texture_lists;
-}
-
-extern "C" {
-
 void *__dt__14TOKeyAncient01Fv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
@@ -147,8 +139,6 @@ void *TOKeyAncient01::create(void *arg0) {
     }
     return o;
 }
-
-extern s32 __vt__14TOKeyAncient01[];
 
 void TOKeyAncient01::free_shared_resources() {
   s32 var_r31;

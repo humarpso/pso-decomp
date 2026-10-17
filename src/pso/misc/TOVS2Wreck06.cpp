@@ -30,7 +30,6 @@ void *__dt__12TOVS2Wreck06Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__12TOVS2Wreck06[];
 extern void *TOVS2Wreck06__class_name;
 
 void *TOVS2Wreck06__ct(void *arg0, void *arg1) {

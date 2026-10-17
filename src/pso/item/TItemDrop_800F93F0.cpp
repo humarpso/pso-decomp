@@ -17,10 +17,6 @@ struct Head_800F957C { u8 pad[0x14]; N_800F957C *first; };
 extern "C" {
 extern Head_800F957C resource_load_task_root[];
 int safe_free__23TAdSinglePlyChrSelectGCFUl(void*);
-}
-
-extern "C" {
-
 s32 apply_rel_relocations(void *);
 void *construct__13TUnk_8049C658Fv(void *);
 s32 read_disc_file(void *, void *);
@@ -28,7 +24,6 @@ int fn_800F953C(void* p);
 int fn_800F955C(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-int safe_free__23TAdSinglePlyChrSelectGCFUl(void*);
 int set_stream_and_load_file__6TLobbyFi(void*);
 
 extern s32 lbl_8049C658[];
@@ -89,10 +84,7 @@ s32 load_relocatable_file(s32 arg0, s32 arg1) {
     return finish_800F9448(&d, 0);
 }
 
-}
 #pragma pop
-
-extern "C" {
 int fn_800F953C(void* p) { return safe_free__23TAdSinglePlyChrSelectGCFUl(p); }
 int fn_800F955C(void* p) { return set_stream_and_load_file__6TLobbyFi(p); }
 void TLobby::free_nodes_with_id(u32 arg0) {

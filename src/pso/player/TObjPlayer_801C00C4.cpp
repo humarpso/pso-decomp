@@ -10,10 +10,6 @@ extern "C" {
 u8 is_action_id_none(s32 arg0);
 u8 TObjPlayer__sub_801C010C(O_801C010C *self, s16 i);
 u8 TObjPlayer__sub_801C0124(O_801C0124 *self, s16 i);
-}
-
-extern "C" {
-
 int TObjPlayer__sub_801C210C(void*);
 
 int TObjPlayer::forward_801C210C() { return TObjPlayer__sub_801C210C(this); }

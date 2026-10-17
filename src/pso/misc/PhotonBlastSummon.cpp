@@ -11,8 +11,6 @@
 extern "C" { void setup_photon_blast_camera__13TUnk_804C3248Fv(u8 *); }
 #pragma push
 
-#include "types.h"
-
 #include <stddef.h>
 struct Stack_801A7310 {
     s8 sp8;
@@ -40,10 +38,6 @@ void clear_deferred_photon_blast_hits(void);
 extern struct Ent_801A710C photon_blast_hit_queue[32];
 extern s32 photon_blast_hit_count;
 void clear_photon_blast_hits(void);
-}
-
-extern "C" {
-
 void queue_deferred_photon_blast_support(void);
 void queue_photon_blast_support(void);
 void queue_deferred_photon_blast_hit(u32 arg0, s32 arg1, s32 arg2);
@@ -155,8 +149,6 @@ void TUnk_804C3248::begin_photon_summon_camera(s8 arg1) {
 
 #pragma push
 
-#include "types.h"
-
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -227,7 +219,6 @@ extern s32 photon_blast_joint_index;
 void publish_photon_blast_joint_origins(void);
 void create_timed_particle_emitter(Vec_801A7428 *, s32, s32, s32);
 Obj_801A7428 *find_entity_by_id(u16);
-void copy_effect_params(u8 *arg0, u8 *arg1);
 void matrix_mult_vec(s32, Vec_801A7428 *, Vec_801A7428 *);
 void rotate_matrix_y(s32, s32);
 void push_matrix_from(void *);
@@ -235,10 +226,6 @@ void pop_matrices(s32);
 extern Group_801A7428 photon_blast_attachment_table[];
 extern u8 identity_matrix[];
 void spawn_photon_blast_opening_effects(s32 arg0, s32 arg1);
-}
-
-extern "C" {
-
 void update_photon_blast_camera_pose(struct PbCamera_801A73B0 *self) {
     struct PbCameraParams_801A73B0 parameters;
     approach_vector_fixed_distance(&self->position, &self->destination_position, &self->position, 0.48f);
@@ -305,8 +292,6 @@ void publish_photon_blast_joint_origins(void) {
 
 #pragma push
 
-#include "types.h"
-
 struct PhotonAttachment_801A7638;
 struct PhotonDrawOwner_801A7638 {
     u8 unknown00[0x100];
@@ -334,18 +319,12 @@ struct Self_801A7680 {
 };
 
 extern "C" {
-extern s32 photon_blast_joint_index;
 
 void publish_photon_blast_joint_origins();
 int set_global_state__16TObjEneRe7BeruraFl(void*);
-}
-
-extern "C" {
-
 void apply_all_default__8TFogCtrlFv(void);
 int update_all_default__8TFogCtrlFv(void);
 int mem_free(void*);
-int set_global_state__16TObjEneRe7BeruraFl(void*);
 int update_all__8TFogCtrlFl(void*);
 
 int TObjPlayer::clear_render_context() { return set_global_state__16TObjEneRe7BeruraFl((void*)(0)); }
@@ -382,16 +361,9 @@ void TUnk_804C3248::free_photon() { void* m = *(void* *)&this->m_148; if (m) mem
 int update_all_default__8TFogCtrlFv(void) { return update_all__8TFogCtrlFl((void*)(0)); }
 void apply_all_default__8TFogCtrlFv(void) { TFogCtrl::apply_all((s32)((void*)63), (s32)((void*)0)); }
 
-}
-
 #pragma pop
 
 #pragma push
-#include "types.h"
-
-extern "C" {
-extern s32 TSceneSora__sky_active_flag;
-extern u32 TSceneSora__instance;
 extern s32 TSceneSora__sky_active_flag;
 extern u32 TSceneSora__instance;
 void reset_state__10TSceneSoraFv(s32 _w0);
@@ -399,10 +371,6 @@ u16 TCameraCtrl__sub_8006A5DC();
 void *get_scripted_camera_playback();
 
 s32 queue_destruction__7TObjectFv(void *);
-}
-
-extern "C" {
-
 s32 TObjPlayer__sub_800D8A60();
 s32 TObjPlayer__sub_800D8A6C();
 s32 allow_rendering__7TObjectFv(void *);
@@ -422,8 +390,6 @@ void TUnk_804C3248::update_if_active() {
         allow_rendering__7TObjectFv(tl_05);
     }
 }
-
-extern void *tl_05;
 
 void TUnk_804C3248::enter_scene() {
     s32 arg0 = (s32)this;
@@ -462,18 +428,9 @@ void TUnk_804C3248::update_state() {
     }
 }
 
-}
-
 #pragma pop
 
 #pragma push
-
-#include "types.h"
-#include "pso/misc/TCameraCtrl.h"
-#include "pso/player/TObjPlayer.h"
-
-extern "C" {
-
 void *destroy_photon_motion_object(void *arg0, s16 arg1);
 void *photon_base_ct(void *arg0);
 int restore_player_cameras(void);
@@ -499,7 +456,6 @@ extern Vec_801A7B14 lbl_80446A08;
 extern Vec_801A7B14 lbl_80446A14;
 extern Vec_801A7B14 lbl_80446A20;
 extern Vec_801A7B14 lbl_80446A2C;
-extern u8 identity_matrix[];
 extern s32 local_client_id;
 void TUnk_804C3248::setup_photon_blast_camera() {
     u8 *arg0 = (u8 *)this;
@@ -560,7 +516,6 @@ void *destroy_photon_motion_object(void *arg0, s16 arg1) {
 }
 
 extern void *tl_06;
-extern s32 lbl_804C3248[];
 
 void *photon_base_ct(void *arg0) {
     TObjMotion__ct(arg0, tl_06);

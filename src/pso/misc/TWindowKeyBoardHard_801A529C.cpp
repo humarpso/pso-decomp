@@ -10,17 +10,12 @@ extern void *TLobby__protocol_instance;
 extern s32 deferred_packet_buffer;
 extern s32 deferred_packet_buffer_used;
 extern s32 lbl_805D5D04;
-}
-
-extern "C" {
-
 void buffer_reset(void);
 void copy_packet__FP6packet(void *arg0);
 void set_fresh_card_flag(void *arg0);
 void *get_character_save_record();
 s32 memcpy(s32, void *, u16);
 s32 memset(s32, s32, s32);
-u16 to_be_uint16_t__FUs(u16);
 
 s32 TWindowKeyBoardHard::test_card_flag(s32 arg1, s32 arg2) {
     void *temp_r3;
@@ -47,9 +42,6 @@ void set_fresh_card_flag(void *arg0) {
         *(s32 *)((s8 *)arg0 + 0x10) = 0x40058;
     }
 }
-
-extern s32 deferred_packet_buffer;
-extern s32 deferred_packet_buffer_used;
 
 void TLobby::drain_deferred_packets() {
     deferred_packet_buffer_used = 0;
@@ -78,10 +70,7 @@ void copy_packet__FP6packet(void *arg0) {
     }
 }
 
-extern s32 deferred_packet_buffer;
-extern s32 deferred_packet_buffer_used;
 extern s32 lbl_805D5D00;
-extern s32 lbl_805D5D04;
 
 void buffer_reset(void) {
     deferred_packet_buffer_used = 0;
@@ -90,26 +79,12 @@ void buffer_reset(void) {
     lbl_805D5D04 = 1;
 }
 
-}
-
-extern "C" {
-
 void TLobby__sub_801A5478(void);
 int mem_free(void*);
 
-    extern s32 deferred_packet_buffer;
 void TLobby__sub_801A5478(void) { mem_free((void*)(deferred_packet_buffer)); deferred_packet_buffer = 0; }
 
-}
-
-extern "C" {
-
 s32 mem_alloc(s32);
-s32 memset(s32, s32, s32);
-extern s32 deferred_packet_buffer;
-extern s32 deferred_packet_buffer_used;
-extern s32 lbl_805D5D00;
-extern s32 lbl_805D5D04;
 
 void alloc_work_buffer(void) {
     deferred_packet_buffer_used = 0;
@@ -138,10 +113,6 @@ struct S_801A5544 { u8 pad[0x8B8]; s32 cnt; u8 buf[0x5B4]; };
 
 extern "C" {
 void append_command_to_batch_buffer(S_801A5544 *arg0, u8 *arg1);
-}
-
-extern "C" {
-
 void TLobby__sub_801A54E8(u8 *arg0);
 
 void TLobby__sub_801A54E8(u8 *arg0) {

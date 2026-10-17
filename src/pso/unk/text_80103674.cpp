@@ -5,10 +5,6 @@ extern u32 item_buffer_temp_mode;
 extern u32 item_buff_buffer;
 extern u32 item_nj_chunk_buffer_table[];
 void fn_80103674(void);
-}
-
-extern "C" {
-
 void fn_80103674(void) {
     s32 i;
     item_buffer_temp_mode = 0;

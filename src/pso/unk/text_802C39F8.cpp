@@ -14,9 +14,6 @@ extern "C" {
 void copy_item_entry_array(s32 n, struct Entry_802C3A50 *src, struct Entry_802C3A50 *dst);
 s32 fn_801C1BA8(void *, void *);
 void copy_entries(s32 arg0, E_802C39F8 *arg1, E_802C39F8 *arg2);
-}
-
-extern "C" {
 
 void copy_entries(s32 arg0, E_802C39F8 *arg1, E_802C39F8 *arg2) {
     s32 i;

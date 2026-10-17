@@ -11,10 +11,6 @@ extern const f32 lbl_805E00B8;
 extern const f32 lbl_805E00BC;
 extern const f32 lbl_805E00C0;
 extern const f32 lbl_805E00C4;
-}
-
-extern "C" {
-
 int post_translate_matrix(void*);
 int rotate_matrix_z(void*, void*);
 int draw_ginja_object(void*);

@@ -47,21 +47,11 @@ void TLobby__sub_8014672C(void *);
 void bswap_16__FPUs(void *);
 void TUdpSocket__sub_80421BAC(int, void *, void *, int, void *, int, void *);
 void TUdpSocket__sub_80078110(Sock_80078110 *arg0, s32 arg1, s16 arg2);
-void TLobby__sub_8014672C(void *);
-void bswap_16__FPUs(void *);
-void TUdpSocket__sub_80421BAC(int, void *, void *, int, void *, int, void *);
 void TUdpSocket__sub_800781B8(Sock_800781B8 *arg0, s32 arg1);
-void bswap_16__FPUs(void *);
 s16 TUdpSocket__sub_80421DEC(void *, int, void *, int, int, s32 (*)(s16, u8 *));
-extern RecoveredGlobal_80078378_lbl_8048D3B8 udp_socket_slots;
 s16 open_socket__10TUdpSocketFPv(Sock_800782B8 *arg0);
 void TLobby__sub_80421B3C(s32);
-extern RecoveredGlobal_80078378_lbl_8048D3B8 udp_socket_slots;
 void free_socket_slot__10TUdpSocketFPv(Sock_80078264 *arg0);
-}
-
-extern "C" {
-
 struct Base_80078064 { char pad[0x18]; };
 struct VObj_80078064 : Base_80078064 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();

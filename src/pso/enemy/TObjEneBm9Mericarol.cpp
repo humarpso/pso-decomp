@@ -192,10 +192,6 @@ f32 fabs_float(f32);
 s32 is_area_attack_target_eligible(void *, u32);
 s32 attack_target_history_add(s32, s32);
 extern const f32 lbl_805DE758;
-}
-
-extern "C" {
-
 void TObjEneBm9Mericarol__sub_802D093C(void);
 void TObjEneBm9Mericarol__sub_802D0940(void);
 void vfunc_61__19TObjEneBm9MericarolFv(void);

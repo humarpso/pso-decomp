@@ -4,10 +4,6 @@
 
 extern "C" {
 u8 is_area_attack_target_eligible(void *arg0, u32 arg1);
-}
-
-extern "C" {
-
 int VecCopy__FP3VecPC3Vec(void*);
 
 int TBoss1Dragon::get_position() { return VecCopy__FP3VecPC3Vec((char*)this + 0x38); }

@@ -5,10 +5,6 @@ extern "C" {
 s32 check_sound_admission_range(int);
 extern struct Queued_802264B8 lbl_805145F0[];
 s32 fn_802264B8(s32 slot);
-}
-
-extern "C" {
-
 s32 fn_802264B8(s32 slot) {
     s32 r;
     if (lbl_805145F0[slot].flags & 0x2000) {

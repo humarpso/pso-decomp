@@ -36,11 +36,6 @@ extern u32 lbl_804CFA84[];
 extern const f32 lbl_805DD048;
 extern const f32 lbl_805DD058;
 s32 measure_string_len__20TWindowSubStatusDispFv(void *);
-s32 strncpy(s32 *, u8 *, s32);
-}
-
-extern "C" {
-
 struct KbSoft_8025CFA8 {
     u8 pad0[0xA8];
     s32 sel;
@@ -99,12 +94,8 @@ struct Quad_8025E350 {
 };
 
 void init_keyboard_text_buffer(void *, u32, u32);
-void set_glyph_quad_extents(u8, void *);
-s32 map_char_to_font_code(u16);
 u8 calc_gauge_scale__20TWindowSubStatusDispFPvPvi(s32, void *, s32);
 s32 end_render_forward__20TWindowSubStatusDispFPv();
-s32 strnlen__19TWindowKeyBoardSoftFPScUl(void *, u32);
-void apply_context_transform_to_rect(void *, void *);
 void init_keyboard_text_field(u8 *arg0, u32 arg1, u32 arg2);
 s32 fn_8025CE00(void *, u8 *);
 s32 TWindowKeyBoardSoft__sub_8025CF50(void *, int, int);
@@ -118,7 +109,6 @@ s32 TWindowKeyBoardSoft__sub_8025DBDC(void *, s32);
 s32 fn_8025DE10(void *, void *);
 s32 TWindowSubStatusDisp__sub_8025E148(void *, void *, void *, int, int);
 s32 TWindowSubStatusDisp__sub_8025E530(void *, void *, void *, int, int, int);
-s32 strncpy(s32 *, u8 *, s32);
 void draw_textured_quad_at_depth(void *, f32);
 s32 dispatch_request_0x27__19TWindowKeyBoardSoftFll(void *, s32 *);
 s32 dispatch_request_0x26__19TWindowKeyBoardSoftFll(void *, s32 *);
@@ -136,7 +126,6 @@ extern const f32 lbl_805DD038;
 extern const f32 lbl_805DD03C;
 extern const f32 lbl_805DD040;
 extern const f32 lbl_805DD044;
-extern const f32 lbl_805DD048;
 extern const f32 lbl_805DD05C;
 extern const f32 lbl_805DD060;
 

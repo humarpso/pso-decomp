@@ -51,9 +51,6 @@ extern const f32 lbl_805DB180;
 extern const f32 lbl_805DB184;
 extern const f32 lbl_805DB188;
 void run_task__6TMovieFv(u8 *arg0);
-}
-
-extern "C" {
 
 void run_task__6TMovieFv(u8 *arg0) {
     VObj_18_a28850 *txt;
@@ -123,12 +120,6 @@ TMovie_80144910 *TMovie__ct(TMovie_80144910 *self, void *parent, s8 *name, s32 a
     self->obj20 = p;
     return self;
 }
-
-}
-
-#include "types.h"
-
-extern "C" {
 
     extern int opening_movie_selector;
 int get_opening_movie_selector(void) {  return opening_movie_selector; }

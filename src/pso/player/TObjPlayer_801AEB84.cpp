@@ -15,21 +15,13 @@ s32 add_actor_hp_bonus(void *, int);
 s32 get_class_index__10TObjPlayerFPv(void *);
 s32 is_camera_mode_active__10TObjPlayerFv();
 
-#include "types.h"
 extern "C" {
-#include "types.h"
 extern "C" {
-#include "types.h"
 extern "C" {
-#include "types.h"
 extern "C" {
-#include "types.h"
 extern "C" {
-#include "types.h"
 extern "C" {
-#include "types.h"
 #include "pso/misc/TRaderMapCore.h"
-#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 

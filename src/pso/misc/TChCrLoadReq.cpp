@@ -1,6 +1,5 @@
 #include "types.h"
 #include "pso/misc/TChCrLoadReq.h"
-#include "pso/misc/TChCrLoadReq.h"
 #include "pso/misc/TCharaMaking.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -22,10 +21,6 @@ extern void *lbl_805D3B60;
 u8 *TChCrLoadReq__sub_8028D360(u8 *arg0, s32 arg1);
 void TLobby__sub_8028D738(s32, s32);
 extern u8 class_appearance_table[];
-}
-
-extern "C" {
-
 void *__ct__12TChCrLoadReqFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 void *__dt__12TChCrLoadReqFv(void *arg0, s16 arg1);
 void * create_ch_cr_load_req(void *arg0, void *arg1);
@@ -65,8 +60,6 @@ void TChCrLoadReq::run_task() {
 
 extern "C" {
 
-extern s32 __vt__12TChCrLoadReq[];
-
 void *__dt__12TChCrLoadReqFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TChCrLoadReq;
@@ -78,9 +71,6 @@ void *__dt__12TChCrLoadReqFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern s32 __vt__12TChCrLoadReq[];
-extern void *lbl_805D3B60;
 
 void TChCrLoadReq::reset_request() {
     Rq_8028D214 *arg0 = (Rq_8028D214 *)this;

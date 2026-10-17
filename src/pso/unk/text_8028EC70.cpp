@@ -37,9 +37,6 @@ extern Row_8028EE20 class_appearance_table[];
 s32 TAdSinglePlyChrSelectGC__sub_8028EE20(void *arg0, void *arg1_);
 s32 is_entry_equal__23TAdSinglePlyChrSelectGCFPvPv(A_8028EC70 *a, B_8028EC70 *b);
 s32 count_char_diffs__23TAdSinglePlyChrSelectGCFPvPv(A_8028ECCC *a, B_8028ECCC *b);
-}
-
-extern "C" {
 
 s32 is_entry_equal__23TAdSinglePlyChrSelectGCFPvPv(A_8028EC70 *a, B_8028EC70 *b) {
     s32 i;

@@ -8,14 +8,9 @@ void TBoss6Type2__sub_8032F5C4(void *);
 s32 set_action__9TBoss6MagFl(void * a0, s32 a1);
 extern const f32 lbl_805DF978;
 extern const f32 lbl_805DF97C;
-s32 set_action__9TBoss6MagFl(void * a0, s32 a1);
 extern const f32 lbl_805DF980;
 extern const f32 lbl_805DF984;
 void spawn_mag_mines__11TBoss6Type2Fv();
-}
-
-extern "C" {
-
 void TBoss6Type2__sub_80336F00(void* p);
 void TBoss6Type2__sub_80336FB8(void* p);
 void TBoss6Type2__sub_80337108(void);

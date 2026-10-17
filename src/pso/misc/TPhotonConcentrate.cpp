@@ -20,11 +20,9 @@ extern s32 lbl_805D34D0;
 
 void render__18TPhotonConcentrateFv(void) { TParticleCtrl::begin_effect_render(); TParticleCtrl::end_effect_render(); }
 
-#include "types.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TNowLoading.h"
-#include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
@@ -58,8 +56,6 @@ typedef struct PC_801A7E7C
   void *emitter;
   Owner_801A7E7C *owner;
 } PC_801A7E7C;
-u8 *VecCopy__FP3VecPC3Vec(void *, void *);
-void queue_destruction__7TObjectFv(void *);
 void *spawn_particle_effect(void *, s32);
 f32 sin_table_lookup(s32);
 void vec3_add_to(void *, void *);

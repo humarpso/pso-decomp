@@ -6,34 +6,17 @@ extern "C" {
 int init_game_mode_select_scene(void);
 int render_tick__Fv(void);
 void TAdMultiChgGameModeGC__sub_8023F564(void);
-int init_game_mode_select_scene(void);
-int render_tick__Fv(void);
 void TAdMultiChgGameModeGC__sub_8023F58C(void);
-int init_game_mode_select_scene(void);
-int render_tick__Fv(void);
 void TAdMultiChgGameModeGC__sub_8023F5B4(void);
-int init_game_mode_select_scene(void);
-int render_tick__Fv(void);
-int init_game_mode_select_scene(void);
-int render_tick__Fv(void);
-int init_game_mode_select_scene(void);
-int render_tick__Fv(void);
 void TAdMultiChgGameModeGC__sub_8023F62C(void);
 extern s32 multi_chg_game_mode_state;
     extern int lbl_805D384C;
-}
-
-extern "C" {
-
 void TAdMultiChgGameModeGC__sub_8023F4E4(void);
 void TAdMultiChgGameModeGC__sub_8023F50C(void);
-int init_game_mode_select_scene(void);
-int render_tick__Fv(void);
 
 void TAdMultiChgGameModeGC__sub_8023F4E4(void) { init_game_mode_select_scene(); TAdMultiChgGameModeGC::set_mode_change_state(); render_tick__Fv(); }
 void TAdMultiChgGameModeGC__sub_8023F50C(void) { init_game_mode_select_scene(); TAdMultiChgGameModeGC::set_change_mode_flags(); render_tick__Fv(); }
 
-extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 
 void TAdMultiChgGameModeGC::set_mode_1c() {

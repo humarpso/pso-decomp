@@ -29,10 +29,6 @@ extern s32 lbl_805D41D8;
 extern const f32 lbl_805DF75C;
 extern const f32 lbl_805DF760;
 Obj_8032A9BC *__ct__15TAdMcSelectMcGCFv(Obj_8032A9BC *arg0, void *arg1, s32 arg2);
-}
-
-extern "C" {
-
 s32 TAdMcSelectMcGC__sub_8032AAC4(void* p);
 void init_memorycard__15TAdMcSelectMcGCFv(void);
 int TLobby__sub_8023E4B4(void*, void*);
@@ -42,7 +38,6 @@ int TLobby__sub_8023E4B4(void*, void*);
     struct McCardRef_804ED9CC { void *card; s32 n; };
     McCardName_804ED9C0 lbl_804ED9C0 = { lbl_80477150, 0, 0 };
     __declspec(section ".data") McCardRef_804ED9CC lbl_804ED9CC = { &lbl_804ED9C0, 1 };
-    extern int TAdMcSelectMcGC__texture_list_ptr;
 
 Obj_8032A9BC *__ct__15TAdMcSelectMcGCFv(Obj_8032A9BC *arg0, void *arg1, s32 arg2) {
     s32 i;

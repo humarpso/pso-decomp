@@ -37,14 +37,8 @@ extern s32 lbl_804B2578[];
 extern s32 TOHangceilingCave01__model_archive;
 extern s32 turiten_singo_key_model_index;
 extern s32 hanging_ceiling_motion_index;
-}
-
-extern "C" {
-
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
-
-extern s32 lbl_804B2578[];
 
 void *TOHangceilingCave01KeyQuick::destroy_hanging_object(s16 arg1) {
     if (this != NULL) {

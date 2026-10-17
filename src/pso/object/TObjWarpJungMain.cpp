@@ -57,10 +57,6 @@ u32 create_window_menu(s32, s32, s16);
 s32 get_window_layout_position(s32);
 extern s32 jungle_warp_destination_text_ids[];
 void TObjWarpJungMain__vt13(void *arg0, s16 arg1);
-}
-
-extern "C" {
-
 struct RecoveredGlobal_8019FCFC_lbl_804B9658 {
     s32 value;
     u8 remaining[0x8];
@@ -112,7 +108,6 @@ struct Obj_801A0224 {
 
 f32 fabs_float(f32);
 void queue_destruction__7TObjectFv(void *);
-s32 get_bml_model(s32, s32);
 void * alloc__23TAdSinglePlyChrSelectGCFv(s32);
 int confirm_area_transfer__12TObjAreaWarpFPvi(void*);
 void __dt__12TObjAreaWarpFv(void *, int);
@@ -129,23 +124,12 @@ void * __nw__7TObjectFUl(int);
 s32 get_selected_menu_value(void *);
 void * init__13TAdVIConfigGCFf(void *, void *, f32);
 s32 get_game_play_mode(void);
-s32 PPCSync();
-s32 rotate_matrix_y(s32, s32);
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
-s32 draw_ginja_model_with_motion(s32, s32, f32);
 
 extern s32 __vt__12TObjWarpJung[];
 extern s32 __vt__16TObjWarpJungMain[];
 extern RecoveredGlobal_8019FCFC_lbl_804B9658 jungle_warp_destination_ids;
 extern s32 lbl_805D3498;
 extern s32 lbl_805D349C;
-extern s32 TObjWarpJung__beam_bml_resource;
-extern void *warp_jung_beam_motion;
-extern int warp_jung_model_handle;
-extern const f32 lbl_805DC040;
-extern const f32 lbl_805DC044;
 extern const f32 lbl_805DC048;
 extern const f32 lbl_805DC04C;
 extern const f32 lbl_805DC050;

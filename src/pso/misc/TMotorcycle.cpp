@@ -6,14 +6,12 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern char lbl_80445DB8[];
 extern char lbl_80445DC8[];
 extern char lbl_80445DE0[];
 extern const char *fe_obj_baiku_model_names[3];
 extern BmlResourceDescriptor motorcycle_resource_descriptor;
 extern const char *fe_obj_baiku_motion_names[1];
-}
 
 struct VBase_18_26a62c { char pad[0x18]; };
 
@@ -51,12 +49,9 @@ extern u32 TMotorcycle__bml_resource;
 extern u32 TMotorcycle__texture_list;
 extern const f32 lbl_805DBED0;
 extern const f32 lbl_805DBED4;
-s32 get_bml_model(void *, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_801950B8_lbl_80445E18 lbl_80445E18;
-extern u32 TMotorcycle__bml_resource;
-extern u32 TMotorcycle__texture_list;
 extern const f32 lbl_805DBED8;
 extern const f32 lbl_805DBEDC;
 f32 fabs_float(f32);
@@ -67,10 +62,6 @@ extern s32 TMotorcycle__collision_parts[];
 extern s32 __vt__11TMotorcycle[];
 extern s32 motorcycle_class_name;
 void *TMotorcycle__ct(void *arg0, void *arg1, void *arg2);
-}
-
-extern "C" {
-
 void *__dt__11TMotorcycleFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
@@ -108,9 +99,6 @@ void *TMotorcycle::create() {
     return o;
 }
 
-extern u32 TMotorcycle__bml_resource;
-extern u32 TMotorcycle__texture_list;
-
 void TMotorcycle::free_statics() {
     if ((u32) TMotorcycle__texture_list != 0U) {
         TLobby__sub_803DA16C((void*)TMotorcycle__texture_list);
@@ -122,8 +110,6 @@ void TMotorcycle::free_statics() {
         TMotorcycle__bml_resource = 0U;
     }
 }
-
-extern s32 __vt__11TMotorcycle[];
 
 void TMotorcycle::load_resources() {
     s32 temp_r3;
@@ -165,9 +151,6 @@ void *TMotorcycle__ct(void *arg0, void *arg1, void *arg2) {
     return arg0;
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *fe_obj_baiku_model_names[3] = { lbl_80445DB8, lbl_80445DC8, NULL };
 BmlResourceDescriptor motorcycle_resource_descriptor = { lbl_80445DE0, fe_obj_baiku_model_names, fe_obj_baiku_motion_names, 2, 0 };
 __declspec(section ".sdata") const char *fe_obj_baiku_motion_names[1] = { NULL };

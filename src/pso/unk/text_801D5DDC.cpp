@@ -43,24 +43,15 @@ s32 validate_6x39_set_photon_blast_ready_flag(void *);
 void handle_6x39_set_photon_blast_ready_flag(s32 arg0);
 void send_6x39_photon_blast_ready(u16 *p);
 s32 obj_isState2_324();
-s32 get_player_by_client_id(int);
 void send_6x3A_clear_photon_blast_ready_flag(u16 *arg0);
 s32 is_locally_controlled__10TObjPlayerFPv(int);
-s32 get_player_by_client_id(int);
-s32 TFontSmallLobby__sub_801C01BC(void *);
 s32 TFontSmallLobby__sub_801D6804(void *, void *);
 s32 validate_6x3B_clear_temporary_photon_blast_state_flags(void *);
 void handle_6x3B_clear_temporary_photon_blast_state_flags(s32 arg0);
 void reinit_photon_blast_gauge(u16 *arg0);
-s32 get_player_by_client_id(int);
-s32 TFontSmallLobby__sub_801C01BC(void *);
 s32 clear_photon_blast_ready_flag__15TFontSmallLobbyFv(void *, void *);
 s32 validate_6x3A_clear_photon_blast_ready_flag(void *);
 void handle_6x3A_clear_photon_blast_ready_flag(s32 arg0);
-}
-
-extern "C" {
-
 void TFontSmallLobby::set_section_index(s16 arg1) {
     s16 var_r4;
 
@@ -153,16 +144,9 @@ void send_6x39_photon_blast_ready(u16 *p) {
 struct Cmd_801D61A0 { u8 hdr[2]; u16 client; u8 body[8]; };
 
 extern "C" {
-s32 get_current_floor();
-s32 get_player_by_client_id(int);
 s32 TFontSmallLobby__sub_801D698C(void *);
-s32 reset_key_machine_state__10TObjPlayerFv();
 s32 validate_6x38_donate_to_photon_blast(void *);
 void handle_6x38_donate_to_photon_blast(s32 arg0);
-}
-
-extern "C" {
-
 extern const f32 lbl_805DC3D8;
 
 s32 TFontSmallLobby::is_ready() {
@@ -194,10 +178,6 @@ void handle_6x38_donate_to_photon_blast(s32 arg0) {
         }
     }
 }
-
-}
-
-extern "C" {
 
 void draw_party_label__15TFontSmallLobbyFiUis(s32 arg0, u32 arg1, s16 arg2);
 s32 subtract_photon_blast_charge(s32, f32);

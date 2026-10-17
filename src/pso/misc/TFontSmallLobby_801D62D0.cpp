@@ -29,26 +29,16 @@ extern "C" {
 s32 send_6x39_photon_blast_ready();
 extern const f32 lbl_805DC3DC;
 void add_photon_blast_charge(u8 *arg0, f32 farg0);
-s32 send_6x39_photon_blast_ready();
 int TFontSmallLobby__sub_801D677C(void *);
-extern const f32 lbl_805DC3DC;
 extern const f32 lbl_805DC3E4;
 void add_photon_blast_chain_charge(u8 *arg0, f32 farg0);
 s32 send_6x3A_clear_photon_blast_ready_flag();
-extern const f32 lbl_805DC3DC;
 extern const f32 lbl_805DC3E0;
-extern const f32 lbl_805DC3E4;
 s32 subtract_photon_blast_charge(u8 *arg0, f32 farg0);
 void TFontSmallLobby__sub_80152F28(void *);
 void TFontSmallLobby__sub_801D67C8(void* p);
 void reset_photon_blast_gauge(struct Lobby_801D6498 *s);
-void TFontSmallLobby__sub_80152F28(void *);
-extern const f32 lbl_805DC3E0;
 extern const f32 lbl_805DC3E8;
-}
-
-extern "C" {
-
 s32 TFontSmallLobby__sub_801D67AC(u8 *arg0);
 u32 get_player_by_client_id(int);
 u16 get_type__15TFontSmallLobbyFPv(void* p);
@@ -169,24 +159,16 @@ typedef struct Rec_801D6AB4 {
 } Rec_801D6AB4;
 
 extern "C" {
-extern const f32 lbl_805DC3DC;
 s32 obj_testFlags30(void *, s32);
-s32 TFontSmallLobby__sub_801D67AC(u8 *arg0);
 f32 fn_801D6AB4(void *, s32, s32);
 s32 accumulate_damage_stats(u8 *arg0, s32 arg1, s32 arg2);
 void TFontSmallLobby__sub_801D698C(Pkt_801D698C *p);
 void clear_player_sub_object_slots(Obj_801D6A18 *p);
 s32 __construct_array(void *, void *, int, int, int);
 extern s32 fn_80152EF8[];
-}
-
-extern "C" {
-
 void TFontSmallLobby__sub_801D671C(void* a0, int a1);
 int TFontSmallLobby__sub_801D677C(void* p);
-void TFontSmallLobby__sub_801D67C8(void* p);
 void* TFontSmallLobby__sub_801D6804(void* p);
-u16 get_type__15TFontSmallLobbyFPv(void* p);
 int TFontSmallLobby__sub_801C01BC(void*);
 int TFontSmallLobby__sub_801C0228(void*);
 int TLobby__send_and_handle_60(void*);

@@ -71,10 +71,6 @@ s32 activate_camera_mode(int);
 void set_scripted_camera_pose(void *, void *, void *);
 s32 construct_world_actor_base(void *, void *);
 extern s32 boss4_zanzo_bml_index_table[];
-}
-
-extern "C" {
-
 void *__dt__11TObjDFDemo2Fv(void *arg0, s16 arg1);
 void *TObjDFDemo2__ct(void *, void *, void *, void *, void *);
 void __dl__7TObjectFPv(void *);

@@ -6,10 +6,6 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 find_entity_by_id(int);
 extern const f32 lbl_805DC844;
-}
-
-extern "C" {
-
 void TUnk_804CC870::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 entity;

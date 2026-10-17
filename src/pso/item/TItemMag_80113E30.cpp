@@ -20,12 +20,9 @@ u8 obj_isState7_324(u8 *arg0);
 s16 get_mag_total_level(void *);
 s16 TItemData__sub_801146A4(void *);
 void mag_feed_add_mind(u8 *arg0, s16 arg1);
-s16 get_mag_total_level(void *);
 s16 TItemData__sub_801146C0(void *);
 void TItemMag__sub_80114198(u8 *arg0, s16 arg1);
-s16 get_mag_total_level(void *);
 s16 TItemData__sub_801146DC(void *);
-s16 get_mag_total_level(void *);
 s16 TItemData__sub_801146F8(void *);
 void mag_feed_add_def(u8 *arg0, s16 arg1);
 void TItemMag__sub_80113EDC(Obj_80113EDC *self, s16 i, u8 v);
@@ -33,16 +30,9 @@ extern const u8 lbl_805DABC4[3];
 extern const u8 lbl_805DABC0[2];
 s32 is_pb_registered__8TItemMagFiUc(s32 arg0, u8 arg1);
 void *memset(void *, s32, u32);
-extern const u8 lbl_805DABC4[3];
-extern const u8 lbl_805DABC0[2];
-}
-
-extern "C" {
-
 void TItemMag__sub_80113E3C(void* p);
 u8 TItemMag__sub_80113E74(void* p);
 f32 TItemMag__sub_80113EEC(void* p);
-s32 is_pb_registered__8TItemMagFiUc(s32 arg0, u8 arg1);
 int test_flags_any(void*, int);
 
 int TItemMag::get_status_flag() { return this->m_18c & 0x10; }

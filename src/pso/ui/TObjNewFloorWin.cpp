@@ -11,11 +11,6 @@ void *__ct__15TObjNewFloorWinFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 s32 get_player_by_client_id(u32);
 u8 *__nw__7TObjectFUl(s32);
 u8 *create_new_floor_windows__6TLobbyFi(s32 arg0);
-}
-
-extern "C" {
-
-void *__ct__15TObjNewFloorWinFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 int fn_800740DC(void* p);
 int close_active_window__11TWindowCtrlFv(void*);
 

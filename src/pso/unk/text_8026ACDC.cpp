@@ -6,10 +6,6 @@ extern void *chat_log_lines[];
 extern void *TAdScrollWinGC__chat_log_heap;
 extern void *chat_last_line_buffer;
 void TLobby__sub_8026ACDC(void);
-}
-
-extern "C" {
-
 void TLobby__sub_8026ACDC(void) {
     void *heap;
     s32 i;

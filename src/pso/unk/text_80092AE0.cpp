@@ -6,9 +6,7 @@ struct G_80092AE0 { u8 pad[0x42c]; E_80092AE0 *tbl; };
 
 struct O_80092AE0 { u8 pad[0x24]; s32 x24; u8 pad2[0xc]; s32 x34; };
 
-extern "C" {
 extern G_80092AE0 *ene_beast_bml_resource;
-}
 
 extern "C" {
 

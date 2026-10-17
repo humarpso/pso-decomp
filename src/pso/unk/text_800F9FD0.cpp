@@ -8,12 +8,7 @@ extern "C" {
 extern s32 async_file_read_current_request;
 extern s32 async_file_read_state;
 bool TLobby__sub_800F9FD0(void);
-extern s32 async_file_read_current_request;
 s32 TLobby__sub_800F9FF4(Key_800F9FF4 *key);
-}
-
-extern "C" {
-
 bool TLobby__sub_800F9FD0(void) {
     if ((s32) async_file_read_state != 0) {
         return 1;

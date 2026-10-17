@@ -8,10 +8,6 @@ struct Tbl_80205AA8 { s32 x; s32 count; Ent_80205AA8 e[1]; };
 extern "C" {
 extern Tbl_80205AA8 *TScene__material_info_buffer;
 Ent_80205AA8 *find_material_entry_by_id__6TSceneFPvUs(void *self, u16 id);
-}
-
-extern "C" {
-
 int advance_scene_object_animations(void*);
 int set_field4__6TSceneFv(void*);
 

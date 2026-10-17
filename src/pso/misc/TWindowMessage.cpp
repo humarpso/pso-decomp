@@ -17,10 +17,6 @@ extern s32 __vt__14TWindowMessage[];
 extern s32 lbl_805D3980;
 extern const f32 lbl_805DD21C;
 u8 *TWindowMessage__ct(u8 *arg0, s32 arg1, u32 arg2, s32 arg3);
-}
-
-extern "C" {
-
 void *__dt__14TWindowMessageFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void mem_free(void *);
@@ -45,8 +41,6 @@ void TWindowMessage::draw() {
     ((TUnk_804CE018 *)arg0)->update_fade();
     ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24);
 }
-
-extern s32 __vt__14TWindowMessage[];
 
 void *__dt__14TWindowMessageFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

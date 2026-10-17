@@ -27,10 +27,6 @@ extern RecoveredGlobal_8026E728_lbl_804D0AE0 lbl_804D0AE0;
 extern s32 __vt__15TWindowShortCut[];
 extern s32 TWindowShortCut__name;
 u8 *TWindowShortCut__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-}
-
-extern "C" {
-
 void *__dt__15TWindowShortCutFv(void *arg0, s16 arg1);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
@@ -45,8 +41,6 @@ void render__15TWindowShortCutFv(u8 *arg0) {
 }
 
 void TWindowShortCut::run_task() { ((TWindowSubStatusDisp *)(*(void* *)&this->m_60))->update_subwindow(); initialize_subwindow__9TWindowDDFv(this); update_fade(); update_window_entry_list((char*)this + 0x24); }
-
-extern s32 __vt__15TWindowShortCut[];
 
 void *__dt__15TWindowShortCutFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

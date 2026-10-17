@@ -29,13 +29,8 @@ void text_builder_append(const char *);
 void text_builder_reset(void);
 extern const char lbl_804421F0[];
 extern const char lbl_805DB860[4];
-}
-
-extern "C" {
-
 void TOMineTrap__vt81(s32 arg0);
 u32 TOMineTrapDisp__ct(u32, s32, u16, s32);
-s32 get_trap_type__10TOMineTrapFv(s32);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 u32 __nw__7TObjectFUl(s32);
 s32 is_split_screen();
@@ -105,8 +100,6 @@ s32 TOMineTrap::show_owner_message(s32 arg0, u32 arg1) {
 
 }
 
-#include "types.h"
-#include "pso/misc/TOMineTrap.h"
 #include "pso/player/TObjPlayer.h"
 
 struct Pkt_8016F558 { u8 code, words; u16 object, sub, idx; };
@@ -150,23 +143,16 @@ extern "C" {
 void TOMineTrap__sub_8017141C(void *);
 s32 check_value_equals__13TQuestColCtrlFPll(u32, int);
 extern s32 TOMineTrap__data_805D3080;
-extern const f32 lbl_805DB85C;
 f32 TOMineTrap__vt20(Obj_8016F5B4 *arg0, u32 arg1);
 u32 spawn_particle_effect(void *, int);
 extern const f32 lbl_805DB864;
 VObj_8016F418 *get_player_data__10TObjPlayerFi(s32);
-s32 check_value_equals__13TQuestColCtrlFPll(u32, int);
 s16 TOMineTrap__sub_80171340(void *);
 u16 TOMineTrap__sub_80171358(void *);
-extern s32 TOMineTrap__data_805D3080;
 extern s32 lbl_805D5868;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 void handle_6x80_trigger_trap(Pkt_8016F418 *arg0);
-}
-
-extern "C" {
-
 struct VObj8016F3C4Base { char pad[0x18]; };
 struct VObj8016F3C4 : VObj8016F3C4Base { virtual s32 m0(); virtual s32 m1(); virtual s32 m2(); virtual s32 m3(); virtual s32 m4(); virtual s32 m5(); virtual s32 m6(); virtual s32 m7(); virtual s32 m8(); virtual s32 m9(); virtual s32 m10(); virtual s32 m11(); };
 

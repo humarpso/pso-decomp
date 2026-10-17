@@ -88,10 +88,7 @@ extern const f32 lbl_805D8F94;
 extern const f32 lbl_805D8F98;
 extern const f32 lbl_805D8F9C;
 void VecCopy__FP3VecPC3Vec(void *, void *);
-extern Flags_8006835C TCameraCtrl__view_state;
-extern View_8006835C *camera_ctrl_instance;
 void apply_camera_controller_pose(Cam_80068530 *arg0);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen();
 f32 fabs_float();
 s32 get_camera_mode__11TCameraCtrlFv();
@@ -100,37 +97,24 @@ Vec_8006835C *get_target_ptr__11TCameraCtrlFv(void *);
 Hit_8006809C *csnVector(void *, void *, s32);
 s32 matrix_mult_vec(int, void *, void *);
 s32 vec3_dot(void *, void *);
-f32 vector_length(void *);
 s32 rotate_matrix_y(int, s32);
-void normalize_vector(void *);
 s32 push_matrix_from(void *);
 s32 pop_matrices(int);
 extern const Vec_8006835C lbl_80438168;
 extern const Vec_8006835C lbl_80438174;
 extern u8 identity_matrix[];
-extern View_8006835C *camera_ctrl_instance;
-extern const f32 TCameraCtrl__data_805D8F80;
-extern const f32 TCameraCtrl__data_805D8F84;
 extern const f32 lbl_805D8F88;
 extern const f32 lbl_805D8F8C;
 extern const f32 lbl_805D8F90;
 extern s32 __vt__13TUnk_80488A28[];
-extern const f32 TCameraCtrl__data_805D8F80;
-extern const f32 TCameraCtrl__data_805D8F84;
 extern const f32 lbl_805D8FA0;
 void *__ct__13TUnk_80488A28Fv(void *arg0);
-}
-
-extern "C" {
-
 void *__dt__13TUnk_80488838Fv(void *arg0, s16 arg1);
 void TCameraCtrl__sub_80068354(void);
 void TCameraCtrl__sub_80068358(void);
 void *__dt__13TUnk_80488A28Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-
-extern s32 lbl_80488838[];
 
 void *__dt__13TUnk_80488838Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -234,8 +218,6 @@ s32 TUnk_80488E00::predict_obstruction() {
 
 void TCameraCtrl__sub_80068354(void) {  }
 void TCameraCtrl__sub_80068358(void) {  }
-
-extern s32 __vt__13TUnk_80488A28[];
 
 void TCameraCtrl::post_update_view() {
     Vec_8006835C e;

@@ -11,26 +11,18 @@ struct Obj_80195F50 : Base_80195F50 { virtual ~Obj_80195F50(); };
 extern "C" {
 s32 TQuestColCtrl__sub_80196EC0();
 extern u32 quest_collision_task_root;
-extern u32 quest_collision_task_root;
 void *__nw__7TObjectFUl(int);
 void *TObjQuestColApcINW__ct(void *self, void *parent, void *arg);
-extern u32 quest_collision_task_root;
 Obj_8019601C *create_quest_col_apc_inw__6TLobbyFPvPv(void *arg, s32 *out_id);
 void __dt__7TObjectFv(void *, s32);
 void __dl__7TObjectFPv(void *);
 extern s32 __vt__13TQuestColCtrl[];
-extern u32 quest_collision_task_root;
 void *__dt__13TQuestColCtrlFv(void *arg0, s16 arg1);
-}
-
-extern "C" {
-
 void *TQuestColCtrl__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 void TQuestColCtrl::render() {  }
 
-extern s32 __vt__13TQuestColCtrl[];
 extern void *lbl_805D3404;
 
 void TQuestColCtrl::run_task() {

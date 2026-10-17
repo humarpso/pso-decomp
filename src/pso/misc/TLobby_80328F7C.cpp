@@ -137,12 +137,7 @@ extern RecoveredGlobal_802A7444_lbl_804DDBD8 town_player_motion_clip_index_table
 int is_valid_player_motion_variant(void* a0 = 0);
 int TLobby__sub_802A7278(void* a0 = 0);
 s32 player_motion_provider0_get_clip_indices(s32 arg0, s32 arg1, s32 arg2);
-extern RecoveredGlobal_802A7444_lbl_804DDBD8 town_player_motion_clip_index_tables;
 s32 TLobby__sub_803290DC(void *self, s32 a, s32 b, s32 c);
-}
-
-extern "C" {
-
 void check_valid_state__6TLobbyFi(s32 arg0);
 s32 is_handle_valid__10TObjPlayerFv();
 
@@ -222,12 +217,6 @@ int TUnk_804ED7D0::vfunc_7() {
 }
 typedef char RecoveredGlobal_802A74B8_lbl_804DD9F8_size[sizeof(RecoveredGlobal_802A74B8_lbl_804DD9F8) == 0x18 ? 1 : -1];
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 s32 apply_player_flag_2__6TLobbyFv();
 void mem_free(void*);
 s32 set_flag_1_at_6c84__6TLobbyFv();
@@ -255,27 +244,14 @@ void TLobby::free_singleton_805D6C80() {
     }
 }
 
-}
 #undef lbl_805D6C80
-
-#include "types.h"
-
-extern "C" {
 
 void alloc_work_buffer__6TLobbyFv(void);
 s32 mem_alloc(s32);
 
-extern s32 lbl_805D6C80;
-
 void alloc_work_buffer__6TLobbyFv(void) {
     lbl_805D6C80 = mem_alloc(0x1C0000);
 }
-
-}
-
-#include "types.h"
-
-extern "C" {
 
 void *TLobby__sub_80329310(void *arg0, s16 arg1);
 s32 vfunc_3__13TUnk_804DDD28Fs(void *, s32);
@@ -305,15 +281,7 @@ void *TLobby__sub_80329310(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void TLobby__sub_802A7B50(void *);
-
-extern s32 lbl_804ED7D0[];
 
 void *TUnk_804ED7D0::init_vtable8() {
     TLobby__sub_802A7B50(this);
@@ -330,9 +298,6 @@ void TLobby::init_player_forward() {
 }
 
 __declspec(section ".ctors") static void *const __sinit_TLobby_80328F7C_80329368_cpp_ref = (void *)TLobby::init_player_forward;
-
-#include "types.h"
-#include "pso/misc/TLobby.h"
 
 extern "C" {
 

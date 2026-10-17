@@ -86,10 +86,6 @@ s8 TObjPlayer__sub_80102C30(u8 *);
 f32 horizontal_distance_squared(Pos_80177E24 *, Pos_80177E24 *);
 s32 is_state_ec1_ed3__10TObjPlayerFv(int);
 void run_task__12TOSwitchItemFv(u8 *arg0);
-}
-
-extern "C" {
-
 void TOSwitchItem__sub_80178080(void);
 void TOSwitchItem__sub_80178084(void);
 void *__dt__12TOSwitchItemFv(void *arg0, s16 arg1);
@@ -207,8 +203,6 @@ void *TOSwitchItem::create(void *arg0) {
 
 void TOSwitchItem__sub_80178080(void) {  }
 void TOSwitchItem__sub_80178084(void) {  }
-
-extern s32 __vt__12TOSwitchItem[];
 
 void *__dt__12TOSwitchItemFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

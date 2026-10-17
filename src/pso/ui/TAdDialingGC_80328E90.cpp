@@ -5,12 +5,6 @@
 
 extern "C" {
 s32 is_handle_valid__10TObjPlayerFv();
-s32 is_handle_valid__10TObjPlayerFv();
-s32 is_handle_valid__10TObjPlayerFv();
-}
-
-extern "C" {
-
 s32 TLobby__sub_802A0F70();
 s32 TLobby__sub_802A5154();
 
@@ -21,8 +15,6 @@ void TAdDialingGC::close() {
     TLobby::free_dialog_global();
     TAdDialingGC__instance = 0;
 }
-
-extern s32 TAdDialingGC__instance;
 
 void TAdDialingGC::open() {
     TAdDialingGC__instance = 0;

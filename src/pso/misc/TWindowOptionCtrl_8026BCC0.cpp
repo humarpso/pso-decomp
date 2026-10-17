@@ -55,10 +55,6 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 void play_sound_effect(int, int, int, int);
 extern u8 controller_input_state[];
-}
-
-extern "C" {
-
 void TWindowOptionCtrl::run_task() {
     Opt_8026BCC0 *self = (Opt_8026BCC0 *)this;
     switch (self->state) {

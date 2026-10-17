@@ -26,10 +26,6 @@ s32 reset_fields__9TWindowDDFv(void *, void *);
 extern s32 lbl_805D42E0;
 extern const f32 TWindowDD__data_805DFCA8;
 s32 TWindowDD__sub_803422F0(int a0, void *a1, void *a2);
-}
-
-extern "C" {
-
 void *destroy__17TWindowDD_WS_WordFs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void mem_free(void *);

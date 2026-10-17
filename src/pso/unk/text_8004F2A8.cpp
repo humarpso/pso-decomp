@@ -61,10 +61,6 @@ extern Vec_8004F3D4 lbl_804373F4[];
 extern Vec_8004F3D4 boss4_type2_effect_offset_vec[];
 extern const f32 lbl_805D89FC;
 extern const f32 lbl_805D8A00;
-}
-
-extern "C" {
-
 void TObjDFDemo4::sub_8004F2A8() {
     Obj_8004F2A8 *arg0 = (Obj_8004F2A8 *)this;
     f32 alpha;

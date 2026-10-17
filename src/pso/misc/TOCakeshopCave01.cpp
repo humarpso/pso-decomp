@@ -72,9 +72,7 @@ s32 init_map_object_base(void *, s32);
 extern s32 lbl_804AFE08[];
 extern s32 __vt__16TOCakeshopCave01[];
 extern s32 lbl_805D2EC4;
-extern u32 TOCakeshopCave01__model_resource;
 extern s32 tl_05;
-extern const f32 TOCakeshopCave01__data_805DB360;
 extern const f32 lbl_805DB36C;
 extern const f32 lbl_805DB370;
 void *TOCakeshopCave01__ct(void *arg0_, void *arg1);
@@ -84,12 +82,7 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model(int);
-extern const f32 TOCakeshopCave01__data_805DB360;
 extern const f32 lbl_805DB368;
-}
-
-extern "C" {
-
 void *__dt__16TOCakeshopCave01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
@@ -162,16 +155,12 @@ void *TOCakeshopCave01::create() {
     return o;
 }
 
-extern u32 TOCakeshopCave01__model_resource;
-
 void TOCakeshopCave01::close_dialog_window() {
     if ((u32) TOCakeshopCave01__model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TOCakeshopCave01__model_resource, 1);
         TOCakeshopCave01__model_resource = 0U;
     }
 }
-
-extern s32 __vt__16TOCakeshopCave01[];
 
 void TOCakeshopCave01::load_resource_instance() {
     s32 temp_r3;

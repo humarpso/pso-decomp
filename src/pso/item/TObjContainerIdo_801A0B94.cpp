@@ -8,13 +8,7 @@ int construct_collider_proxy__13TUnk_804AF8A0Fv(void);
 extern s32 lbl_804B97C0[];
     extern const float lbl_805DC078;
     extern const float lbl_805DC07C;
-}
-
-extern "C" {
-
 void __dl__7TObjectFPv(void *);
-
-extern s32 lbl_804B97C0[];
 
 void *TUnk_804B97C0::dt(s16 arg1) {
     if (this != NULL) {

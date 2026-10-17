@@ -36,10 +36,6 @@ extern const f32 lbl_805DCC68;
 extern const f32 lbl_805DCC6C;
 extern const f32 lbl_805DCC70;
 u8 *TWindowDeposit__ct(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 void *__dt__14TWindowDepositFv(void *arg0, s16 arg1);
 s32 draw_window_tab(s32, s32, s32, f32);
 void __dl__7TObjectFPv(void *);
@@ -57,8 +53,6 @@ void render__14TWindowDepositFv(s32 arg0) {
 }
 
 void TWindowDeposit::run_task() { initialize_subwindow__9TWindowDDFv(this); update_window_entry_list((char*)this + 0x24); }
-
-extern s32 __vt__14TWindowDeposit[];
 
 void *__dt__14TWindowDepositFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -22,12 +22,7 @@ extern "C" {
 s32 is_locally_controlled__10TObjPlayerFPv();
 u8 *get_player_by_client_id(s32);
 extern RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70 TObjPlayer__char_data_array;
-extern RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70 TObjPlayer__char_data_array;
 void create__10TObjPlayerFUll(u16, void *);
-}
-
-extern "C" {
-
 typedef struct RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70 RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70;
 typedef struct VBase_18_dac7f3 VBase_18_dac7f3;
 typedef struct VObj_18_dac7f3 VObj_18_dac7f3;

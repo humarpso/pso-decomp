@@ -193,9 +193,6 @@ s32 get_captured_target_entry(void *, s32);
 s32 get_captured_target_count(void *);
 extern s32 tl_05;
 void heaven_punisher_strike_locks(Pl_8012AC68 *arg0);
-}
-
-extern "C" {
 
 typedef struct RecoveredFields_8012ABCC_arg0 RecoveredFields_8012ABCC_arg0;
 typedef struct VBase_18_382324 VBase_18_382324;

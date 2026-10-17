@@ -61,9 +61,6 @@ extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_saber_weapon(u8 *arg0);
-}
-
-extern "C" {
 
 u8 *create_saber_weapon(u8 *arg0) {
     u8 *temp_r3;

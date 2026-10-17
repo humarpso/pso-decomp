@@ -34,10 +34,6 @@ extern const f32 lbl_805DD2B8;
 extern const f32 lbl_805DD2BC;
 extern char lbl_805DD2C0[4];
 void draw_list_page_indicator(Self_8026C800 *self, Rect_8026C800 *r);
-}
-
-extern "C" {
-
 s32 fn_8026C7AC(void *arg0, s8 arg1) {
     *(s8 *)((s8 *)arg0 + 0) = 0;
     *(s8 *)((s8 *)arg0 + 1) = arg1;

@@ -7,10 +7,6 @@ s32 get_field_3e4__10TObjPlayerFv();
 f32 xz_distance_squared(void *, void *);
 s32 get_player_by_client_id(int);
 void update_players_in_range(u8 *arg0);
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 void update_players_in_range(u8 *arg0) {

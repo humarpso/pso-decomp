@@ -43,10 +43,6 @@ extern const f32 lbl_805DF730;
 extern const f32 lbl_805DF734;
 extern const f32 lbl_805DF738;
 extern const f32 lbl_805DF73C;
-}
-
-extern "C" {
-
 void *__dt__19TAdMcSelectCursorGCFv(void *arg0, s16 arg1);
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 begin_screen_draw(int);
@@ -88,7 +84,6 @@ block_5:
     }
 }
 
-extern s32 __vt__19TAdMcSelectCursorGC[];
 extern u32 TAdMcSelectCursorGC__instance;
 
 #pragma fp_contract on

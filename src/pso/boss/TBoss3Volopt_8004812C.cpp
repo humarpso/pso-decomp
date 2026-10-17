@@ -50,10 +50,6 @@ extern Vec_80048260 direction_line_zero_vec;
 extern Color_80048260 direction_line_color_pair[];
 extern u8 boss3_volopt_direction_line_desc[];
 extern Vec_80048260 boss3_volopt_direction_line_points[];
-}
-
-extern "C" {
-
 void TBoss3Volopt__sub_800481B4(void* p);
 void TBoss3Volopt__sub_8004824C(void* p);
 int TLobby__send_and_handle_60(void*);

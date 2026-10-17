@@ -4,10 +4,6 @@
 extern "C" {
 extern u8 *text_language_group_table;
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32 arg0);
-}
-
-extern "C" {
-
 void *__ct__14TObjBagWarnWinFv(void *, void *);
 void *__nw__7TObjectFUl(int);
 

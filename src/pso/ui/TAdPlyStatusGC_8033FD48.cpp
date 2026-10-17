@@ -17,10 +17,6 @@ s32 draw_model_motion(int, int, f32);
 extern RecoveredGlobal_8033FDB0_lbl_80478430 lbl_80478430;
 extern const f32 lbl_805DFAF8;
 void TObjPlayer__sub_8033FDB0(s32 arg0);
-}
-
-extern "C" {
-
 u32 TAdPlyStatusGC__ct(u32, s32, s32);
 u32 __nw__7TObjectFUl(s32);
 

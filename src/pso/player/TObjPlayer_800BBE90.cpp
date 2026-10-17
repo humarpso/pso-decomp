@@ -119,7 +119,6 @@ struct P_800BC250 : VB_800BC250 {
 
 extern "C" {
 extern const f32 lbl_805D9EB4;
-extern const f32 lbl_805D9EB4;
 void VecCopy__FP3VecPC3Vec(Vec_800BBFD0 *dst, const Vec_800BBFD0 *src);
 void subtract_vector(Vec_800BBFD0 *a, Vec_800BBFD0 *b);
 s32 obj_isState2_324(void *);
@@ -129,15 +128,7 @@ Tgt_800BC080 *get_battle_param__10TObjPlayerFi(s32);
 s32 is_area_attack_target_eligible(void *, int);
 s32 attack_target_history_add(void *, void *);
 s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg2, f32 farg0);
-s32 obj_is_hit_receivable();
-Tgt_800BC080 *get_battle_param__10TObjPlayerFi(s32);
-s32 is_area_attack_target_eligible(void *, int);
-s32 attack_target_history_add(void *, void *);
 s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, void *arg3, f32 farg0);
-}
-
-extern "C" {
-
 struct Base_800bbe90 { char pad[0x18]; };
 struct VObj_800bbe90 : Base_800bbe90 {
     virtual void m0();
@@ -162,8 +153,6 @@ struct VObj_800bbe90 : Base_800bbe90 {
     virtual void m19();
     virtual void m20(s32, f32);
 };
-
-s32 obj_isState2_324(void *);
 
 extern const f32 lbl_805D9EB0;
 

@@ -5,10 +5,6 @@ struct Obj_803D0F1C { u8 pad[3]; u8 val; };
 extern "C" {
 extern char lbl_8047DCF0[];
 void TLobby__sub_803D0F1C(Obj_803D0F1C *p, u8 v);
-}
-
-extern "C" {
-
 void TLobby__sub_803D0F1C(Obj_803D0F1C *p, u8 v) {
     if (p == 0) {
         TLobby::log_printf(lbl_8047DCF0);

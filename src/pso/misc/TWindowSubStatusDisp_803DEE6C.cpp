@@ -16,21 +16,12 @@ s32 load_list_texture(void *, int, int, int);
 extern s32 constant_material_color;
 void set_draw_texture_and_color(s32 arg0, s32 arg1);
 void GXBegin(u32, u32, u16);
-extern s32 constant_material_color;
 extern const f32 lbl_805E0FC8;
 void draw_textured_quad_at_depth(f32 *q, f32 depth);
 s64 OSGetTime(void);
 u32 TLobby__sub_803DF1CC(void);
-extern s32 constant_material_color;
 void set_constant_material_color(u32 x);
-void GXBegin(u32, u32, u16);
-extern s32 constant_material_color;
-extern const f32 lbl_805E0FC8;
 void DVDConvertEntrynumToPath(f32 *q);
-}
-
-extern "C" {
-
 s32 TObjPlayer__sub_803E2248();
 
 void begin_screen_draw(s32 arg0) {

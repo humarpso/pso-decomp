@@ -11,19 +11,11 @@ struct P_80351974 { u16 a; s16 b; s32 c; s32 d; s32 e; u8 sub[1]; };
 extern "C" {
 int __dl__FPv();
 s32 TObjPlayer__sub_803519D8(u8 *arg0, s32 arg1);
-s32 TObjPlayer__sub_803519D8(u8 *arg0, s32 arg1);
-s32 TObjPlayer__sub_803519D8(u8 *arg0, s32 arg1);
-s32 fn_803519FC(s32 *arg0, s32 arg1);
-s32 TObjPlayer__sub_803519D8(u8 *arg0, s32 arg1);
 s32 fn_803519FC(s32 *arg0, s32 arg1);
 int fn_80351A14(u8 *arg0, s32 arg1);
 extern RecoveredGlobal_803518E0_lbl_8050E208 controller_input_state;
 void init_pad_binding(u8 *arg0, s16 arg1, s16 arg2);
 P_80351974 *TObjPlayer__sub_80351974(P_80351974 *arg0);
-}
-
-extern "C" {
-
 s32 TObjPlayer::get_target_field_1c() {
     if ((void *) *(void **)((s8 *)this + 0xC) == NULL) {
         return 0;

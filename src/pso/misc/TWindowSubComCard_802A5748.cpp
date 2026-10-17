@@ -15,17 +15,10 @@ s32 create_window_menu(s32, s32, s32);
 u8 * create_titled_window_menu(s32, s32, s32, s32);
 s32 set_status_flag_80__12TQuestThreadFPv(s32);
 void open_yes_no_prompt(u8 *arg0, u32 arg1, s32 arg2, s32 arg3, f32 farg0);
-}
-
-extern "C" {
-
 void initialize_option_dialog(void *arg0, s32 arg1, s32 arg2, f32 farg0);
-s32 create_window_menu(s32, s32, s32);
 s32 get_selected_menu_value(s32);
-s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 int queue_destruction__7TObjectFv(void*);
 int set_selected_index__21TWindowSubComCardListFs(void*);
-s32 set_status_flag_80__12TQuestThreadFPv(s32);
 
 int TWindowSubComCard::close() { return queue_destruction__7TObjectFv(this); }
 void TWindowSubComCard::free_member() { void* m = *(void* *)&this->m_2c; if (m) set_selected_index__21TWindowSubComCardListFs(m); }

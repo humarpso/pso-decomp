@@ -15,16 +15,11 @@ extern const f32 lbl_805DDC74;
 extern const f32 lbl_805DDC78;
 void draw_chcr_tag_heading_frame(void);
 void fn_802910A4(int, void *, void *, f32, f32, f32);
-s32 draw_default_sprite__12TChCrEffWallFv(s32, f32 *, f32);
 extern const f32 lbl_805DDC7C;
 extern const f32 lbl_805DDC80;
 extern const f32 lbl_805DDC84;
 extern const f32 lbl_805DDC88;
 extern const f32 lbl_805DDC8C;
-}
-
-extern "C" {
-
 void draw_chcr_tag_heading_frame(void) {
     Stack_8029A97C stack;
     stack.sp8 = lbl_805DDC70;

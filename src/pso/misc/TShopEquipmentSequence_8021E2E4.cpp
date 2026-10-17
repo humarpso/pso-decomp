@@ -23,8 +23,6 @@ void *TShopEquipmentSequence::create_instance(void *arg0) {
     extern int TShopEquipmentSequence__slot_active_flags[];
 int get_equipment_shop_slot_active_flag(int a0) {  return TShopEquipmentSequence__slot_active_flags[a0]; }
 
-extern void *tl_05;
-
 void *create_medical_center_sequence(void *arg0) {
     void *o = __nw__7TObjectFUl(0x38);
     if (o != NULL) {

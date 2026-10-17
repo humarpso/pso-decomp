@@ -4,10 +4,6 @@
 extern "C" {
     extern const float lbl_805D9204;
 s32 fn_8007A7A0();
-}
-
-extern "C" {
-
 void*TObjMapCsn::get_data_ptr() { return (char*)this + 0x1c; }
 
 extern s32 map_csn_ctrl_instance;

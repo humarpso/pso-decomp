@@ -55,12 +55,7 @@ int post_translate_matrix(void *);
 s32 draw_model_motion(int, Anim_803323D8 *, f32);
 extern const V3_803323D8 lbl_804775F0;
 extern const f32 TObjEneMorfos__data_805DF86C;
-extern const f32 TObjEneMorfos__data_805DF870;
 extern const f32 TObjEneMorfos__data_805DF874;
-}
-
-extern "C" {
-
 void* TObjEneMorfosArm__sub_803326B4(void* p);
 s32 TObjEneMorfosArm__sub_803326BC(void* p);
 void TWindowSubTradeMain__sub_803323A8(void* p);

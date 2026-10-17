@@ -80,21 +80,13 @@ s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_804409EC;
 extern RecoveredGlobal_8016BC84_lbl_804B2B30 bm_fe_obj_o_door01l_resource_descriptor;
 extern u32 TODoorAncient01__shared_resource;
-extern void *TODoorAncient01__texture_lists;
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
 extern RecoveredGlobal_8015E188_lbl_804B0D68 TODoorAncient01__collision_body;
 extern s32 __vt__15TODoorAncient01[];
 extern s32 lbl_805D2F20;
-extern u32 TODoorAncient01__shared_resource;
-extern void *TODoorAncient01__texture_lists;
-extern const f32 lbl_805DB3E8;
 extern const f32 lbl_805DB3EC;
 u8 *TODoorAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt__15TODoorAncient01Fv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, void *, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
@@ -176,9 +168,6 @@ void *TODoorAncient01::create(void *arg0) {
     return o;
 }
 
-extern u32 TODoorAncient01__shared_resource;
-extern void *TODoorAncient01__texture_lists;
-
 void TODoorAncient01::free_statics() {
     if ((void *) TODoorAncient01__texture_lists != NULL) {
         TObjPlayer::free_if_valid(*(s32 *)((s8 *)TODoorAncient01__texture_lists + 4));
@@ -192,8 +181,6 @@ void TODoorAncient01::free_statics() {
         TODoorAncient01__shared_resource = 0U;
     }
 }
-
-extern s32 __vt__15TODoorAncient01[];
 
 typedef char RecoveredGlobal_8016BC84_lbl_80441ACC_size[sizeof(RecoveredGlobal_8016BC84_lbl_80441ACC) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8016BC84_lbl_804B2B30_size[sizeof(RecoveredGlobal_8016BC84_lbl_804B2B30) == 0x10 ? 1 : -1];

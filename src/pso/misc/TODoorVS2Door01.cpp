@@ -93,8 +93,6 @@ s32 init_door_base(void *);
 extern RecoveredGlobal_80164340_lbl_804B17F0 todoor_vs2_door01_collision_parts;
 extern s32 __vt__15TODoorVS2Door01[];
 extern s32 TODoorVS2Door01__class_name;
-extern u32 door_vs2_shared_bml_archive;
-extern s32 *TODoorVS2Door01__texture_lists;
 u8 *TODoorVS2Door01__ct(u8 *arg0, s32 arg1, s32 arg2);
 u8 is_open__15TODoorVS2Door01Fv(void *arg0);
 s32 rotate_matrix_y(int, int);
@@ -103,13 +101,7 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model(int);
-extern s32 *TODoorVS2Door01__texture_lists;
-}
-
-extern "C" {
-
 void *__dt__15TODoorVS2Door01Fv(void *arg0, s16 arg1);
-u8 is_open__15TODoorVS2Door01Fv(void *arg0);
 s32 play_sound_effect(s32, void *, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
 s32 is_any_player_within_radius_xz(f32);
@@ -249,9 +241,6 @@ void *TODoorVS2Door01::create(void *arg0) {
     return o;
 }
 
-extern u32 door_vs2_shared_bml_archive;
-extern s32 *TODoorVS2Door01__texture_lists;
-
 void TODoorVS2Door01::free_resources() {
     if ((s32 *) TODoorVS2Door01__texture_lists != NULL) {
         TObjPlayer::free_if_valid(*TODoorVS2Door01__texture_lists);
@@ -265,8 +254,6 @@ void TODoorVS2Door01::free_resources() {
         door_vs2_shared_bml_archive = 0U;
     }
 }
-
-extern s32 __vt__15TODoorVS2Door01[];
 
 typedef char RecoveredGlobal_80176308_lbl_80442A80_size[sizeof(RecoveredGlobal_80176308_lbl_80442A80) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80176308_lbl_804B4278_size[sizeof(RecoveredGlobal_80176308_lbl_804B4278) == 0x10 ? 1 : -1];

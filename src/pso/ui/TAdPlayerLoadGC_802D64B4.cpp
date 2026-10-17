@@ -5,10 +5,6 @@
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-}
-
-extern "C" {
-
 int TItemWeapon__ct(void);
 int set_status_flags__10TObjPlayerFUl(void*, void*);
 

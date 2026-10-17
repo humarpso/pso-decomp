@@ -67,8 +67,6 @@ extern const f32 lbl_805DBCF8;
 s32 get_current_floor();
 extern s32 local_client_id;
 extern const f32 lbl_805DBCF4;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 get_container_param(int);
 extern s32 lbl_805D5B7C;
 s32 spawn_particle_effect_with_flags(void *, int, int);
 s32 construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
@@ -84,17 +82,11 @@ void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
 extern u32 lbl_805D5B78;
-extern s32 lbl_805D5B7C;
 extern const f32 lbl_805DBCFC;
-}
-
-extern "C" {
-
 void *__dt__19TObjContainerNoItemFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
-void *__nw__7TObjectFUl(int);
 
 void TObjContainerNoItem::vfunc_80() {
     s16 temp_r0;
@@ -110,8 +102,6 @@ void TObjContainerNoItem::vfunc_80() {
     }
 }
 
-extern void *tl_05;
-
 void *TObjContainerNoItem::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x368);
     if (o != NULL) {
@@ -119,8 +109,6 @@ void *TObjContainerNoItem::create(void *arg0) {
     }
     return o;
 }
-
-extern s32 __vt__19TObjContainerNoItem[];
 
 void *__dt__19TObjContainerNoItemFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

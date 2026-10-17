@@ -67,9 +67,6 @@ s32 increment_burst_counter(int);
 s32 get_burst_counter(int);
 void rocket_punch_return_timer(u32);
 void rocket_punch_marker(u8 *arg0);
-}
-
-extern "C" {
 
 void rocket_punch_marker(u8 *arg0) {
     s32 temp_r31;

@@ -40,7 +40,6 @@ extern s32 single_ply_quest_download_server;
 extern s32 lbl_805D6D80;
 extern s32 lbl_805D6D84;
 extern s32 lbl_805D6D88;
-extern s32 single_ply_quest_download_server;
 void free_buffer__13TUnk_804EF8C0Fv(void* p);
 int memset(void*, void*, void*);
 extern s32 lbl_805D6D90;
@@ -63,42 +62,26 @@ extern void *character_select_scene_resource_callbacks[];
 #define character_select_scene_resource_callbacks (*(RecoveredGlobal_8033B264_lbl_804EF728 *)&character_select_scene_resource_callbacks)
 void TAdSinglePlyChrSelectGC__sub_8033B264(void);
 s32 TWindow__close(void *);
-s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 int check_room_seq_4__16TAdChrSelASlotGCFl(void*, void*);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void*, void*, void*, void*);
     extern unsigned char lbl_80477D58[];
     extern const float lbl_805DFA30;
-s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
-int check_room_seq_4__16TAdChrSelASlotGCFl(void*, void*);
 void close_window__23TAdSinglePlyChrSelectGCFPv(void *arg0);
-int forward_trade_action_default__16TObjCityMainWarpFPviii(void*, void*, void*, void*);
-extern unsigned char lbl_80477D58[];
-extern const float lbl_805DFA30;
 u32 __nw__7TObjectFUl(int);
 s32 get_selected_menu_value(int);
-void close_window__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 
-int TAdSinglePlyChrSelectGC__sub_8033B244(void* p);
 extern s32 tl_fade;
 void TAdSinglePlyChrSelectGC__sub_8033AA64(O_8033AA64 *arg0);
 s32 get_card_file_info__15TAdPlayerLoadGCFiPvPv(int, void *, int);
 s32 query_memcard_capacity__15TAdPlayerLoadGCFl(int, int);
 extern u8 lbl_804C89BC[];
-extern s32 lbl_805D6D90;
 void check_memcard_space__23TAdSinglePlyChrSelectGCFPv(O_8033AC44 *arg0);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-u32 __nw__7TObjectFUl(int);
-void close_window__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 
-int TAdSinglePlyChrSelectGC__sub_8033B244(void* p);
-extern s32 tl_fade;
-extern s32 lbl_805D6D90;
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv(void);
 s32 TAdSinglePlyChrSelectGC__sub_8001C5F0(void);
-s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 void check_ready__23TAdSinglePlyChrSelectGCFv(void);
 
-extern s32 lbl_805D6D90;
 void TAdSinglePlyChrSelectGC__sub_8033ACF4(O_8033ACF4 *arg0);
 s32 TKeyBoardControl__sub_8000F92C();
 s32 TKeyBoardControl__sub_8000F9CC(int);
@@ -107,7 +90,6 @@ s32 activate_camera_mode(int);
 s32 process_async_file_reads();
 s8 func_801A5E54__Fv();
 s32 controller_stuff__Fv();
-s32 render_tick__Fv();
 s32 run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
 s32 update_sound_request_slots();
 s32 render_screen_overlay__9TMainTaskFv(void *);
@@ -117,17 +99,13 @@ s32 run_task__9TMainTaskFv(void *);
 s32 func_803DCDFC__Fv();
 extern V3_8033B2AC lbl_80477D78[];
 extern V3_8033B2AC lbl_80477D84[];
-extern s32 lbl_805D6D90;
 s32 TKeyBoardControl__sub_8000F90C(int);
-s32 set_active_camera_pose(void *, void *);
 s32 TCameraCtrl__ct(u32, s32);
 s32 run_load_callback_table(void *, int);
 s32 init_menu_scene_lights(void *, int);
 s32 reset_controller_input_state();
 s32 set_copy_clear_color_argb(int, int, int);
-s32 render_tick__Fv();
 s32 play_area_music(void *);
-u32 __nw__7TObjectFUl(int);
 s32 TWindowCtrlMain__ct(u32);
 extern V3_8033B39C lbl_80477D60[];
 extern V3_8033B39C lbl_80477D6C[];
@@ -136,10 +114,7 @@ extern u8 default_scene_light_config[];
 
 extern u8 lobby_rule_settings[];
 extern s32 tl_camera;
-extern s32 lbl_805D6D90;
 void init_single_player_char_select_scene(void);
-s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
-s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 register_callback__23TAdSinglePlyChrSelectGCFis(int, int);
 u32 init_char_slots__23TAdSinglePlyChrSelectGCFi();
 int TAdSinglePlyChrSelectGC__sub_801FCD3C(void *);
@@ -152,25 +127,12 @@ s32 get_field_118__22TAdEnterSerialAccessGCFv();
 s32 get_character_save_record(int);
 void seed_character_select_serial_rng(s32);
 s32 memcpy(int, void *, int);
-extern s32 lbl_805D6D90;
-int queue_destruction__7TObjectFv(void*);
-u32 __nw__7TObjectFUl(int);
 s32 update_window_mode_from_progress__6TLobbyFPv(s32 *, s32 *);
-void close_window__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 
 struct TAdSinglePlyChrSelectGC__sub_8033B9F8; u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
-int TAdSinglePlyChrSelectGC__sub_8033B244(void* p);
 extern s32 lbl_80477D48[];
 extern s32 lbl_80477D50[];
-extern s32 tl_fade;
-extern s32 lbl_805D6D90;
 void TAdSinglePlyChrSelectGC__sub_8033B0AC(void *arg0);
-}
-
-extern "C" {
-
-extern s32 single_ply_quest_download_server;
-
 void TAdSinglePlyChrSelectGC::reset_quest_id() {
     single_ply_quest_download_server = 0xFFFF;
 }
@@ -504,10 +466,6 @@ typedef char RecoveredGlobal_8033B264_main_task_size[sizeof(RecoveredGlobal_8033
 #undef character_select_scene_resource_callbacks
 #pragma push
 
-#include "types.h"
-#include "pso/ui/TAdSinglePlyChrSelectGC.h"
-#include "pso/misc/TCameraCtrl.h"
-#include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowCtrlMain.h"
 
 class Sel_8033B640 {
@@ -527,69 +485,24 @@ struct RecoveredGlobal_8033B9C4_lbl_80513910 {
 };
 
 extern "C" {
-u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
 extern void *lbl_804EF8C0[];
 extern s32 tl_01;
-u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
-u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
 void TAdSinglePlyChrSelectGC__sub_8033B9EC(void* p);
-extern void *lbl_804EF8C0[];
-extern s32 tl_01;
-u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
-void TAdSinglePlyChrSelectGC__sub_8033B9EC(void* p);
-u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
 void TAdSinglePlyChrSelectGC__sub_8033B9E0(void* p);
-extern void *lbl_804EF8C0[];
-extern s32 tl_01;
-u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
-void TAdSinglePlyChrSelectGC__sub_8033B9E0(void* p);
-u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
-extern void *lbl_804EF8C0[];
-extern s32 tl_01;
-u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
-u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
 s32 __ct__12TAdBackTxtGCFv(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, s32);
 s32 __ct__9TAdBackGCFv(void *, void *);
 
-extern void *lbl_804EF8C0[];
-extern s32 tl_01;
-u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void free_buffer__13TUnk_804EF8C0Fv(void *);
 extern void* lbl_804EF8C0[];
-void TAdSinglePlyChrSelectGC__sub_8033B5F0(void *arg0);
-s32 TWindow__close(void *);
-extern void* lbl_804EF8C0[];
-void TAdSinglePlyChrSelectGC__sub_8033B5F0(void *arg0);
 extern RecoveredGlobal_8033B9C4_lbl_80513910 chr_select_serial_seeds;
 void seed_character_select_serial_rng(s32 arg0);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(void *, void *);
 extern char pso_system_card_filename[];
 bool TAdSinglePlyChrSelectGC__sub_8033BA84(void *self);
-s32 find_card_file__15TAdPlayerLoadGCFiPv(void *, void *);
 extern u8 lbl_804C88C0[];
-extern char pso_system_card_filename[];
-extern u8 lbl_804C89BC[];
-}
-
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
-
-}
-extern "C" {
 
 extern "C" void TWindowCtrlMain__sub_8024D838();
 extern "C" void register_texture_f256_ad_pic_2();

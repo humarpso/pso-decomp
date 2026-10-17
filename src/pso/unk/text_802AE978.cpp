@@ -19,10 +19,6 @@ void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(int, int);
 extern s32 menu_selection_cursor_texture_list;
 void draw_select_cursor_quads(Obj_802AE978 *o);
-}
-
-extern "C" {
-
 void draw_select_cursor_quads(Obj_802AE978 *o) {
     u32 i;
     for (i = 0; i < o->count; i++) {

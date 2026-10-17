@@ -1,7 +1,6 @@
 #include "types.h"
 #include "pso/TObject.h"
 #include "pso/TAdBackTxtGC.h"
-#include "pso/TAdBackTxtGC.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/TMainTask.h"
 
@@ -66,9 +65,6 @@ void *__ct__12TAdBackTxtGCFv(void *arg0) {
     return arg0;
 }
 
-}
-
-extern "C" {
     int TLobby__sub_8023E4B4(void*, void*);
     extern unsigned char lbl_80465490[];
     extern unsigned char lbl_80465430[], lbl_80465440[], lbl_80465450[], lbl_80465460[], lbl_80465470[];
@@ -81,13 +77,7 @@ extern "C" {
     __declspec(section ".data") TexList_804DC0D4 TAdBackTxtGC_backtext_tex_list = { lbl_804DC098, 5 };
 extern u32 TAdBackTxtGC__backtext_texture_list;
 void register_texture_f256_backtext(void);
-}
-
-extern "C" {
-
 void TLobby__sub_803DA16C(void*);
-
-extern u32 TAdBackTxtGC__backtext_texture_list;
 
 void TAdSinglePlyChrSelectGC::free_singleton_805D65C0() {
     if ((u32) TAdBackTxtGC__backtext_texture_list != 0U) {
@@ -97,8 +87,4 @@ void TAdSinglePlyChrSelectGC::free_singleton_805D65C0() {
 }
 void register_texture_f256_backtext(void) { (*(int *)&TAdBackTxtGC__backtext_texture_list) = (int)&TAdBackTxtGC_backtext_tex_list; TLobby__sub_8023E4B4(lbl_80465490, &TAdBackTxtGC_backtext_tex_list); }
 
-}
-
-extern "C" {
-extern void *__vt__12TAdBackTxtGC[];
 }

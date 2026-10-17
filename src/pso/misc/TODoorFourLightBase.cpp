@@ -98,21 +98,9 @@ extern s32 TODoorFourLightBase__class_name;
 Door_802A0994 *TODoorFourLightBase__ct(Door_802A0994 *arg0, void *arg1, s32 arg2);
 u8 is_current_floor_switch_set(int);
 s32 rotate_matrix_y(int, int);
-s32 push_matrix();
-s32 pop_matrix();
-f32 post_translate_matrix(void *);
-u8 is_current_floor_switch_set(int);
-s32 rotate_matrix_y(int, int);
-s32 push_matrix();
-s32 pop_matrix();
-f32 post_translate_matrix(void *);
 s32 draw_ginja_object(s32);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 void render__19TODoorFourLightBaseFv(u8 *arg0);
-}
-
-extern "C" {
-
 void *__dt__19TODoorFourLightBaseFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 s32 get_main_phase();
@@ -143,8 +131,6 @@ void TODoorFourLightBase::vfunc_6(s16 *arg1, s32) {
         this->m_d0 = (s32) (this->m_d0 | 1);
     }
 }
-
-extern s32 __vt__19TODoorFourLightBase[];
 
 void TODoorFourLightBase::update_door_switch_state() {
     u8 *arg0 = (u8 *)this;

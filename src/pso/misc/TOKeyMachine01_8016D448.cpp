@@ -42,8 +42,6 @@ s32 is_split_screen(void);
 u8 * TOKey__ct(void *);
 extern s32 __vt__14TOKeyMachine01[];
 extern s32 TOKeyMachine01__name;
-extern u32 key_machine_model_archive;
-extern s32 *TOKeyMachine01__texture_lists;
 extern const f32 lbl_805DB784;
 extern const f32 lbl_805DB788;
 extern const f32 lbl_805DB794;
@@ -57,12 +55,7 @@ s32 draw_ginja_model(int);
 s32 set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
-extern s32 *TOKeyMachine01__texture_lists;
 extern s32 model_render_flags;
-}
-
-extern "C" {
-
 void *__dt__14TOKeyMachine01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
@@ -141,9 +134,6 @@ void *TOKeyMachine01::create(void *arg0) {
     return o;
 }
 
-extern u32 key_machine_model_archive;
-extern s32 *TOKeyMachine01__texture_lists;
-
 void TOKeyMachine01::free_statics() {
     if ((s32 *) TOKeyMachine01__texture_lists != NULL) {
         TObjPlayer::free_if_valid(*TOKeyMachine01__texture_lists);
@@ -158,8 +148,6 @@ void TOKeyMachine01::free_statics() {
         key_machine_model_archive = 0U;
     }
 }
-
-extern s32 __vt__14TOKeyMachine01[];
 
 void TOKeyMachine01::load_assets() {
     s32 temp_r3;

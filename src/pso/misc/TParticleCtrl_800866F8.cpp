@@ -9,14 +9,7 @@ extern s32 TParticleCtrl__heap;
 extern s32 alt_heap;
 void *heap_alloc__5THeapFUl(void *heap, u32 size);
 Part_8008673C *alloc_particle_memory(u32 size);
-}
-
-extern "C" {
-
 int heap_free__5THeapFPv(void *, void *);
-
-extern s32 TParticleCtrl__heap;
-extern s32 alt_heap;
 
 void TUnk_8048E728::free_from_heap() {
     u8 *arg0 = (u8 *)this;

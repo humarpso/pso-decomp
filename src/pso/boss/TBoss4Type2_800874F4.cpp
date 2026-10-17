@@ -13,12 +13,6 @@ extern s32 particle_global_entry_table;
 extern s32 particle_area_entry_table;
 void *__nw__7TObjectFUl(int);
 void *create_particle_emitter(void *pos, s32 id);
-}
-
-extern "C" {
-
-extern s32 particle_global_entry_table;
-extern s32 particle_area_entry_table;
 extern const f32 TParticleCtrl__data_805D94E0;
 extern const f32 TParticleCtrl__data_805D94E4;
 

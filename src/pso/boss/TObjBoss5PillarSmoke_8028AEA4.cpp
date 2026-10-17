@@ -25,18 +25,12 @@ void mem_free(void *);
 void __dl__7TObjectFPv(void *);
 extern s32 __vt__20TObjBoss5PillarSmoke[];
 Smoke_8028AEA4 *__dt__20TObjBoss5PillarSmokeFv(Smoke_8028AEA4 *arg0, s16 arg1);
-void queue_destruction__7TObjectFv(void *);
 void *spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 void **mem_alloc(s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 lbl_80450CD0[];
-extern s32 __vt__20TObjBoss5PillarSmoke[];
 extern s32 lbl_805D3B30;
 Smoke_8028AF6C *TObjBoss5PillarSmoke__ct(Smoke_8028AF6C *arg0, void *arg1, Node_8028AF6C *arg2);
-}
-
-extern "C" {
-
 Smoke_8028AEA4 *__dt__20TObjBoss5PillarSmokeFv(Smoke_8028AEA4 *arg0, s16 arg1) {
     s32 i;
     if (arg0 != NULL) {

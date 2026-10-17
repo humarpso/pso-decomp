@@ -94,11 +94,7 @@ void minimap_render_dot(void *, s32, s32, s32);
 f32 cos_table_lookup(s32);
 f32 sin_table_lookup(s32);
 f32 fabs_float(f32);
-f32 vector_length(void *);
-f64 atan2_float(f32, f32);
-s32 normalize_vector(void *);
 s32 play_sound_effect(int, void *, int, int);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 find_nearest_visible_player(void *, int, f32);
 u8 * csnVectorUnder(s32, void *, s32);
 Pl_80314758 *get_battle_param__10TObjPlayerFi(s32);
@@ -106,7 +102,6 @@ s32 obj_is_hit_receivable(void *);
 s32 obj_getField1c(void *);
 s32 is_player_entity_id(s32);
 Hit_80314758 *csnVector(void *, void *, s32);
-extern const f64 TObjEneDelDepth__data_80475DD0;
 extern u8 *TObjEneDelDepth__tune_params;
 extern s32 TObjEneDelDepth_collision_body_parts[];
 extern s32 actor_frame_tick;
@@ -114,33 +109,17 @@ extern const float TObjEneDelDepth__data_805DF258;
 extern const f32 TObjEneDelDepth__data_805DF260;
 extern const f32 TObjEneDelDepth__data_805DF268;
 extern const f32 TObjEneDelDepth__data_805DF270;
-extern const f32 TObjEneDelDepth__data_805DF280;
 extern const f32 TObjEneDelDepth__data_805DF298;
 extern const f32 lbl_805DF2A4;
 extern const f32 lbl_805DF2A8;
 extern const f32 lbl_805DF2AC;
-u16 find_nearest_visible_player(void *, int, f32);
-f64 atan2_float(f32, f32);
 u8 *get_bml_motion(s32, s32);
-s32 angle_difference_abs(s32, s32);
-s32 approach_angle_limited(s32, s32, s32);
 int set_motion__15TObjEneDelDepthFl(void*, void*);
-f32 sin_table_lookup(s32);
-extern const f64 TObjEneDelDepth__data_80475DD0;
 extern u8 *TObjEneDelDepth__shared_resource;
-extern const float TObjEneDelDepth__data_805DF258;
-extern const f32 TObjEneDelDepth__data_805DF298;
 extern const f32 lbl_805DF29C;
 void TObjEneDelDepth__sub_803142DC(u8 *arg0);
-f64 atan2_float(f32, f32);
-s32 angle_difference_abs(s32, s32);
-extern const f64 TObjEneDelDepth__data_80475DD0;
 extern const f32 lbl_805DF294;
 void TObjEneDelDepth__sub_803141A8(Obj_800E9DC8 *arg0);
-}
-
-extern "C" {
-
 struct RecoveredGlobal_803135B4___vt__19TObjEneDelDepthBomb {
     s32 value;
     u8 remaining[0x138];
@@ -435,11 +414,7 @@ struct Dep_8031551C {
 
 typedef char RecoveredGlobal_80315A40___vt__15TObjEneDelDepth_size[sizeof(RecoveredGlobal_80315A40___vt__15TObjEneDelDepth) == 0x150 ? 1 : -1];
 
-f32 calc_boss4_scale__10TObjPlayerFi(void *);
-u16 find_nearest_visible_player(void *, int, f32);
 s32 construct_actor_base__10TObjPlayerFPvPv(void *);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f32 fabs_float(f32);
 void queue_destruction__7TObjectFv(void *);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
@@ -447,7 +422,6 @@ s32 register_boss__6TLobbyFl(int);
 s32 TObjFish__sub_8001EDB0(u8 *, int);
 s32 get_bml_model(int, int);
 s32 get_mode__11TCameraCtrlFPv(void *);
-u8 * csnVectorUnder(s32, void *, s32);
 s32 draw_blob_shadow(int);
 s32 send_6x0A_enemy_state(void *, void *);
 s32 refresh_lobby_state__10TObjPlayerFv();
@@ -458,8 +432,6 @@ s32 direction_to_rotation_xz(void *, void *, void *);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 project_actor_to_ground(void *, void *, void *);
-s32 play_sound_effect(int, void *, int, int);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 s32 create__11TTecRaBartaFPvPvPvPv(s32, void *, void *, s32);
@@ -484,20 +456,14 @@ u8 * TObjEneDelDepth__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 setup_draw_material_default__15TObjEneDelDepthFf();
 u8 * get_data__15TObjEneDelDepthFv();
 s32 get_flag_bit4__15TObjEneDelDepthFv(void *);
-int set_motion__15TObjEneDelDepthFl(void*, void*);
 s32 fn_80316680(s32, void *);
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
-f32 vec3_add_to(void *, void *);
 s32 matrix_mult_vec(int, void *, void *);
 s32 rotate_matrix_zyx(int, int, int, int);
 s32 scale_matrix_vec3(int, void *);
-f32 vector_length(void *);
 s32 rotate_matrix_y(int, s32);
 s32 rotate_matrix_z(int, int);
 s32 translate_matrix(int, f32, f32, f32);
 s32 rotate_matrix_x(int, void *);
-s32 normalize_vector(void *);
 s32 push_matrix_from(void *);
 s32 push_matrix();
 s32 pop_matrix();
@@ -505,29 +471,19 @@ s32 scale_current_matrix(void *, f32, f32, f32);
 s32 post_translate_matrix(void *);
 s32 draw_chunk_object(int);
 
-extern u8 *TObjEneDelDepth__tune_params;
-extern u8 *TObjEneDelDepth__shared_resource;
-extern const float TObjEneDelDepth__data_805DF258;
-extern const f32 TObjEneDelDepth__data_805DF260;
-extern const f32 TObjEneDelDepth__data_805DF268;
 extern const f32 TObjEneDelDepth__data_805DF26C;
-extern const f32 TObjEneDelDepth__data_805DF270;
 extern const float TObjEneDelDepth__data_805DF278;
-extern const f32 TObjEneDelDepth__data_805DF280;
-extern const f32 TObjEneDelDepth__data_805DF298;
 extern s32 __vt__15TObjEneDelDepth[];
 extern s32 __vt__19TObjEneDelDepthBomb[];
 extern const RecoveredGlobal_80314D1C_lbl_80475D6C lbl_80475D6C;
 extern const RecoveredGlobal_80314D1C_lbl_80475D78 lbl_80475D78;
 extern Vec_803155D4 lbl_80475DA4[];
 extern V3_80313E34 lbl_80475DB0;
-extern s32 TObjEneDelDepth_collision_body_parts[];
 extern s32 lbl_804E8194[];
 extern Ent_803154A8 lbl_804E836C[];
 extern s32 identity_matrix[];
 extern s32 TObjEneDelDepth__name;
 extern s32 TObjEneDelDepthBomb__name;
-extern s32 actor_frame_tick;
 extern s32 game_difficulty_selection;
 extern s32 anim_model_matrix_array;
 extern const f32 lbl_805DF250;
@@ -535,8 +491,6 @@ extern const f32 lbl_805DF264;
 extern const f32 lbl_805DF274;
 extern const f32 lbl_805DF27C;
 extern const f32 lbl_805DF284;
-extern const f32 lbl_805DF288;
-extern const f32 lbl_805DF294;
 extern const f32 lbl_805DF2A0;
 extern const f32 lbl_805DF2B0;
 extern const f32 lbl_805DF2B4;
@@ -550,14 +504,6 @@ extern const f32 lbl_805DF2D0;
 extern s32 lbl_805DF2D4;
 extern const f32 lbl_805DF2D8;
 extern const f32 lbl_805DF2DC;
-
-extern "C" {
-extern Ent_803154A8 lbl_804E836C[];
-}
-
-extern "C" {
-s32 TObjEneDelDepth__sub_80315380(Obj_80315380 *arg0);
-}
 
 int TObjEneDelDepthBomb__sub_80313268(void) { return 0; }
 

@@ -24,15 +24,11 @@ void load_gvm_texture_archive(s32, s32);
 extern char texture_prs_filename_format[];
 extern char texture_prs_stream_filename_buffer[];
 s32 TLobby__sub_8023E4B4(s32 arg0, s32 arg1);
-void prs_decompress_buffer(s32, s32);
 s32 read_disc_file(void *, s32);
-s32 sprintf(char *, const char *, ...);
 s32 TLobby__sub_803CC53C();
 s32 adxf_open__6TLobbyFUii(void *, s32);
-void load_gvm_texture_archive(s32, s32);
 s32 xmalloc__FUl(s32);
 void xfree__FPv(s32);
-extern char texture_prs_filename_format[];
 extern char texture_prs_disc_filename_buffer[];
 s32 TLobby__sub_8023E554(s32 arg0, s32 arg1);
 void TObjPlayer__sub_803DD5E8(void *, s32, s32, s32);
@@ -40,18 +36,12 @@ s32 memset(s32, s32, s32);
 extern s32 lbl_805D63C0;
 extern s32 lbl_805D63C4;
 s32 bind_gvm_texture_list(s32 arg0, List_8023E638 *arg1);
-}
-
-extern "C" {
-
 s32 fn_8023E734(u32 arg0);
 s32 free_texture_if_valid(u32 arg0);
 void init_buffers(void);
 int TLobby__sub_803DA16C();
 s32 load_texture_list();
-s32 memset(s32, s32, s32);
 int set_global_param__8TObjFishFl();
-s32 xmalloc__FUl(s32);
 
 s32 TObjPlayer::notify_fish_if_valid(u32 arg0) {
     if (arg0 == 0U) {
@@ -137,9 +127,6 @@ s32 fn_8023E734(u32 arg0) {
     load_texture_list();
     return 1;
 }
-
-extern s32 lbl_805D63C0;
-extern s32 lbl_805D63C4;
 
 void init_buffers(void) {
     s32 p = xmalloc__FUl(0x1800);

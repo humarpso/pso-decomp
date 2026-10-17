@@ -108,12 +108,7 @@ s32 get_bml_model(int, int);
 s32 construct_male_npc_base(void *);
 extern s32 __vt__13TObjNpcKenkyu[];
 extern s32 TObjNpcKenkyu__name;
-extern u32 TObjNpcKenkyu__static_model;
 u8 *TObjNpcKenkyu__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void * TObjNpcSoutokufu__create(void *arg0);
 void *__dt__13TObjNpcKenkyuFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -122,16 +117,12 @@ void *TObjNpcSoutokufu__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
-extern u32 TObjNpcKenkyu__static_model;
-
 void TObjNpcKenkyu::free_static_model() {
     if ((u32) TObjNpcKenkyu__static_model != 0U) {
         TLobby__sub_8001FE7C((void*)TObjNpcKenkyu__static_model, 1);
         TObjNpcKenkyu__static_model = 0U;
     }
 }
-
-extern s32 __vt__13TObjNpcKenkyu[];
 
 void TObjNpcKenkyu::load_shared_resource() {
     s32 temp_r3;

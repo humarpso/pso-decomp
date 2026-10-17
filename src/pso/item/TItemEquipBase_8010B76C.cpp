@@ -4,10 +4,6 @@
 extern "C" {
 void fn_8010B7D8(u8 *arg0, s32 arg1);
 void fn_8010B7E8(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 int clear_flags__11TAdRicoRingFUl(void*, int);
 int set_flags__10TObjPlayerFUl(void*, int);
 

@@ -60,48 +60,28 @@ void TWindowSubTradeMain__sub_803323B8(void *);
 Plr_803310BC *get_player_by_client_id(s32);
 s32 set_field_1c__6TLobbyFf(s32);
 s32 TWindowSubEquip__sub_80263AF8(s32, s32);
-s32 get_window_layout_position(s32);
 s32 create_equip_kind_window(s32, s32 *, s32);
 s32 get_trade_window_state();
 extern s32 lbl_8047748C[];
 s32 open_trade_equip_window__19TWindowSubTradeMainFv(Self_803310BC *arg0);
-Plr_803310BC *get_player_by_client_id(s32);
-s32 set_field_1c__6TLobbyFf(s32);
-s32 TWindowSubEquip__sub_80263AF8(s32, s32);
-s32 get_window_layout_position(s32);
-s32 create_equip_kind_window(s32, s32 *, s32);
 s32 TLobby__sub_802D299C();
 s8 get_trade_mode__6TLobbyFv();
 extern s32 lbl_80477484[];
 s32 create_trade_window__19TWindowSubTradeMainFv(Self_80331178 *arg0);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
-s32 get_window_layout_position(s32);
 s32 free_member__17TWindowSubComCardFv(u8 *, int);
 s32 open_yes_no_prompt(u8 *, int, int, int, f32);
-u8 * create__19TWindowMessageYesNoFPvPvPvPv(void *, void *, void *, void *);
-extern f32 TWindowSubTradeMain__data_805DF858;
-}
-
-extern "C" {
-
 void TWindowSubTradeMain__sub_80330A84(void* p);
 s32 create_help_item__19TWindowSubTradeMainFv(void *arg0);
 s32 create_input_number__19TWindowSubTradeMainFl(void *arg0, s32 arg1);
 s32 create_list__19TWindowSubTradeMainFv(void *arg0);
 s32 TLobby__sub_802D268C();
 s32 TLobby__sub_802D298C();
-s32 TLobby__sub_802D299C();
-s32 get_trade_window_state();
 s32 __ct__15TWindowHelpItemFPvUs(s32, s32, s32);
 s32 TWindowHelpItem__set_displayed_item_by_id(u32);
 s32 __ct__18TWindowInputNumberFPvllls(s32, s32, s32, s32, s32, s16);
-s32 create_equip_kind_window(s32, s32 *, s32);
-s32 get_window_layout_position(s32);
 s32 update_label_positions__17TWindowSubComCardFPvPv(u32, s32);
-s32 TWindowSubEquip__sub_80263AF8(s32, s32);
 s32 __nw__7TObjectFUl(s32);
-s32 get_message_10__20TWindowSubStatusDispFl(s32);
-s32 set_field_1c__6TLobbyFf(s32);
 
 void TWindowSubTradeMain__sub_80330A84(void* p) { *(u8*)((char*)p + 0x1c) = 30; }
 void TWindowSubTradeMain::forward_to_child(s32 arg1) {
@@ -280,8 +260,6 @@ s32 TWindowSubTradeMain::create_help_item() {
     return var_r31;
 }
 
-extern f32 TWindowSubTradeMain__data_805DF858;
-
 s32 TWindowSubTradeMain::create_input_number(s32 maximum) {
     s32 storage;
 
@@ -360,15 +338,10 @@ u8 * open_option_dialog_thunk__19TWindowSubTradeMainFPvPv(void* p, void* _w1) { 
 
 }
 
-#include "types.h"
-#include "pso/misc/TWindowSubTradeMain.h"
-#include "pso/misc/TLobby.h"
 #include "pso/misc/TShopEquipmentSellWindow.h"
 #include "pso/misc/TWindowChat.h"
 #include "pso/misc/TWindowOptionCtrl.h"
-#include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubItem.h"
-#include "pso/ui/TWindowInputNumber.h"
 
 struct RecoveredFields_80331434_arg0
 {
@@ -422,15 +395,9 @@ struct TWindowSubTradeMain_8033162C {
 };
 
 extern "C" {
-s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 align_menu_entry_positions(int);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 create_titled_window_menu(int, int, int, int);
-s32 get_message_10__20TWindowSubStatusDispFl(s32);
-s32 align_menu_entry_positions(int);
-s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
-s32 create_titled_window_menu(int, int, int, int);
-s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 chat_accept_submission(void *);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
@@ -456,14 +423,6 @@ void open_status_window__19TWindowSubTradeMainFi(s32 arg0);
 void update_from_lobby__19TWindowSubTradeMainFi(s32 arg0);
 void TWindowSubTradeMain__sub_803323C8(void *);
 extern Ctrl_8033162C controller_input_state[];
-}
-
-extern "C" {
-
-void open_status_window__19TWindowSubTradeMainFi(s32 arg0);
-void update_from_lobby__19TWindowSubTradeMainFi(s32 arg0);
-s32 TLobby__sub_802D268C();
-s32 get_message_10__20TWindowSubStatusDispFl(s32);
 
 void open_status_window__19TWindowSubTradeMainFi(s32 arg0) {
     ((int (*)(void*, void* a1 = 0))open_option_dialog__19TWindowSubTradeMainFPvi)((void*)(arg0), (void*)(get_message_10__20TWindowSubStatusDispFl(0xF7)));

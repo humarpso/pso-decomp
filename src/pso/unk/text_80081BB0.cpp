@@ -47,18 +47,11 @@ s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 attach_particle_model(s32, s32, s32, s32, s32, f32);
 s32 spawn_particle_effect(void *, s32);
-u32 find_active_entity_by_id(u16);
 extern s32 freeze_shell_bml_resource;
 extern s32 technique_effect_bml;
 extern s32 lbl_805D63B0;
-extern const f32 lbl_805D9378;
 extern const f32 lbl_805D9384;
-s32 TObjFish__sub_8001EDB0(s32, s32);
-u32 find_active_entity_by_id(u16);
-s32 all_parents_unqueued_for_destruction__7TObjectFv();
-s32 rotate_matrix_y(int, int);
 s32 push_matrix();
-s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFl();
@@ -66,14 +59,10 @@ s32 draw_ginja_object(int);
 s32 set_chunk_material_override_pair(int, int);
 s32 set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
-extern s32 freeze_shell_bml_resource;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 lbl_805D9390;
 extern const f32 lbl_805D9394;
-}
-
-extern "C" {
 
 s32 TUnk_8048E1A4::freeze_shell_hold() {
     s32 p;

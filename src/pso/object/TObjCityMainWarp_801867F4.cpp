@@ -32,17 +32,8 @@ s32 get_story_flag(s32);
 extern s32 TObjCityMainWarp__enabled_destinations;
 extern s32 TObjCityMainWarp__visible_destination_mask;
 void update_main_warp_visible_mask(s32 arg0);
-}
-
-extern "C" {
-
 void TObjCityMainWarp__sub_80186AB8(void);
-s32 get_story_flag(s32);
 int clear_enabled_main_warps(void);
-s32 is_main_phase_15__9TObjEneDDFv();
-s32 is_split_screen();
-
-extern s32 TObjCityMainWarp__visible_destination_mask;
 
 void TObjCityMainWarp::update_unlock_flags() {
     s32 var_r31;
@@ -69,8 +60,6 @@ void TObjCityMainWarp::update_unlock_flags() {
         TObjCityMainWarp__visible_destination_mask |= 0x200;
     }
 }
-
-extern s32 TObjCityMainWarp__enabled_destinations;
 
 void update_main_warp_visible_mask(s32 arg0) {
     s32 b;

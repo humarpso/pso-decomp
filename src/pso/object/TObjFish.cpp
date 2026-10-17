@@ -128,32 +128,20 @@ void *__dt__15TOKeyJungleMainFv(void *arg0, s16 arg1);
 s32 is_lobby_event_active();
 extern s32 TObjFish__area_event_stage;
 u8 update_state__8TObjFishFv(void *arg0);
-s32 get_bml_motion(s32, s32);
-extern u32 TOKeyJungleMain__static_model_resource;
 extern const f32 lbl_805DDD38;
 extern const f32 lbl_805DDD3C;
 extern RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8 TOKeyJungleMain__data_804653C8;
 extern s32 game_difficulty_selection;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8029CFEC_lbl_804DC590 bm_obj_jungle_mkey_resource_descriptor;
-extern u32 TOKeyJungleMain__static_model_resource;
 s32 dispatch_by_phase__15TOKeyJungleMainFlUs(void *, int);
-extern RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8 TOKeyJungleMain__data_804653C8;
-extern s32 game_difficulty_selection;
 s32 init_collision_body_parts(void *, void *, int);
 s32 TOKey__ct(void *);
 extern RecoveredGlobal_8029D438_lbl_804DC5A0 TOKeyJungleMain_collision_body_parts;
-extern s32 __vt__15TOKeyJungleMain[];
 extern s32 lbl_805D3D50;
-extern const f32 lbl_805DDD3C;
 u8 *TOKeyJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2);
 void debug_printf_at(s32, const char *, ...);
-extern RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8 TOKeyJungleMain__data_804653C8;
 extern char lbl_80465A2C[];
-}
-
-extern "C" {
-
 void TLobby__sub_8001FE7C(void*, int);
 
 void *TOKeyJungleMain::create(void *arg0) {
@@ -163,8 +151,6 @@ void *TOKeyJungleMain::create(void *arg0) {
     }
     return o;
 }
-
-extern u32 TOKeyJungleMain__static_model_resource;
 
 void TOKeyJungleMain::release_static_resource() {
     if ((u32) TOKeyJungleMain__static_model_resource != 0U) {
@@ -340,9 +326,6 @@ Lend:
     return 1U;
 }
 
-}
-
-extern "C" {
 #pragma push
 extern const char lbl_80465A48[] = "lobby_suisou_sakana01_yellow.gj";
 extern const char lbl_80465A68[] = "lobby_suisou_sakana02_red.gj";
@@ -417,20 +400,9 @@ struct Fish_8029D5C8 {
 extern "C" {
 
 s32 get_state_flag__9TMainTaskFv();
-s32 get_bml_motion(s32, s32);
-s32 TObjFish__sub_8001EDB0(s32, s32);
-s32 get_bml_model(s32, s32);
 s32 func_80141618__Fv();
 s32 set_depth_buffer_settings_id__FUl(int);
-u8 update_state__8TObjFishFv(void *arg0);
 s32 translate_matrix_vec3(int, void *);
-s32 rotate_matrix_y(s32, s32);
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl();
-s32 draw_ginja_object();
-s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DDD40;
 extern const f32 TObjFish__data_805DDD44;
@@ -570,10 +542,7 @@ struct Ent_8029E170 {
 
 extern "C" {
 
-s32 is_lobby_event_active();
 int rand(void);
-extern s32 TObjFish__area_event_stage;
-extern const f32 TObjFish__data_805DDD44;
 extern const f32 lbl_805DDD60;
 extern const f32 lbl_805DDD64;
 extern const f32 lbl_805DDD70;
@@ -632,10 +601,6 @@ s32 TObjFish::init_fish_school(void *arg1_arg, s32 arg2, s32 arg3) {
 
 }
 
-#include "types.h"
-#include "pso/object/TObjFish.h"
-#include "pso/TParticleCtrl.h"
-#include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 #define alloc__23TAdSinglePlyChrSelectGCFv ((u8 * (*)(s32))alloc__23TAdSinglePlyChrSelectGCFv)
@@ -655,14 +620,7 @@ s32 construct_world_actor_base();
 extern s32 lbl_805D3D58;
 u8 *TObjFish__ct(u8 *arg0, s32 arg1, u8 *arg2);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-extern s32 TObjFish__area_event_stage;
-}
-
-extern "C" {
-
 void *__dt__8TObjFishFv(void *arg0, s16 arg1);
-void TLobby__sub_8001FE7C(void*, int);
-void __dl__7TObjectFPv(void *);
 
 void *__dt__8TObjFishFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

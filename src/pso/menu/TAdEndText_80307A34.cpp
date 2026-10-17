@@ -25,7 +25,6 @@ s32 TKeyBoardControl__sub_8000F90C(s32);
 s32 TKeyBoardControl__sub_8000F91C(s32);
 s32 reset_controller_input_state();
 s32 set_copy_clear_color_argb(s32, s32, s32);
-int render_tick__Fv(void);
 u32 __nw__7TObjectFUl(s32);
 s32 init_ending_movie();
 s32 set_screen_size(f32, f32);
@@ -33,15 +32,9 @@ extern int ending_sequence_active;
 extern const f32 lbl_805DF0B0;
 extern const f32 lbl_805DF0B4;
 void start_ending_sequence(void);
-}
-
-extern "C" {
-
 int TLobby__sub_800FC3CC(void);
 int delete_all_task_children__9TMainTaskFv(void*);
-int render_tick__Fv(void);
 
-    extern int ending_sequence_active;
 void TAdEndText::cleanup() { ending_sequence_active = 0; delete_all_task_children__9TMainTaskFv(((unsigned char *)&main_task)); TLobby__sub_800FC3CC(); TLobby::free_keyboard_soft_resources(); TAdEndText::free_resources(); render_tick__Fv(); }
 typedef char RecoveredGlobal_80307A74_main_task_size[sizeof(RecoveredGlobal_80307A74_main_task) == 0x34 ? 1 : -1];
 void TKeyBoardControl::run_main_frame() {

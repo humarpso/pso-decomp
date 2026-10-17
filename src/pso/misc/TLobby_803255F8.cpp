@@ -7,13 +7,7 @@ extern "C" {
     extern unsigned char lbl_804766F0[];
 extern u32 inazuma_texture_list;
 void load_f512_inazuma(void);
-}
-
-extern "C" {
-
 s32 TLobby__sub_803DA16C(void*);
-
-extern u32 inazuma_texture_list;
 
 void TLobby::free_char_select_singleton() {
     if ((u32) inazuma_texture_list != 0U) {

@@ -219,7 +219,6 @@ void VecCopy__FP3VecPC3Vec(Vec_802E4E44 *, const Vec_802E4E44 *);
 s32 queue_destruction__7TObjectFv(void *);
 extern Vec_802E4E44 lbl_80472B9C;
 extern Vec_802E4E44 lbl_80472BA8;
-void run_task__16TObjOnlineEndingFv(Obj_802E4E44 *arg0);
 u32 calc_text_width(void *);
 s32 render_status_line__15TAdSubPlyItemGCFi(void *, int, f32, f32, f32);
 s32 scale_matrix(int, f32, f32, f32);
@@ -239,12 +238,6 @@ extern const f32 lbl_805DE938;
 extern const f32 lbl_805DE93C;
 extern const f32 lbl_805DE940;
 extern const f32 lbl_805DE944;
-void render__16TObjOnlineEndingFv(Obj_802E4C70 *arg0);
-}
-
-extern "C" {
-
-void *destroy__16TObjOnlineEndingFPvs(void *arg0, s16 arg1);
 s32 restore_player_cameras();
 s32 TLobby__sub_80070ACC();
 s32 TWindowChallengeResult__ct(s32, s32, s32, s32);
@@ -390,7 +383,6 @@ struct Obj_802E4FFC {
     f32 f150;
 };
 
-s32 queue_destruction__7TObjectFv(void *);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
@@ -479,10 +471,6 @@ void *TObjOnlineEnding__ct(void *arg0, void *parent) {
 #pragma pop
 #undef SELF
 
-}
-
-extern "C" {
-
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjOnlineEnding__ct(void *, void *);
 
@@ -493,8 +481,6 @@ void *TObjOnlineEnding::create(void *arg0) {
     }
     return o;
 }
-
-extern u32 lbl_805D68F4;
 
 void TBoss4DarkFalz::free_global_instance() {
     if ((u32) lbl_805D68F4 != 0U) {

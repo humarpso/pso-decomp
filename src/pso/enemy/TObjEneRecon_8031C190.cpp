@@ -11,10 +11,6 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * csnVectorUnder(s32, void *, s32);
 extern s32 actor_frame_tick;
 extern const f32 TObjEneRecon__data_805DF3C0;
-}
-
-extern "C" {
-
 void TObjEneRecon::update_ground_probe() {
     u8 *arg0 = (u8 *)this;
     Stack_8031C190 stack;

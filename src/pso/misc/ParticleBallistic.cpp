@@ -138,11 +138,8 @@ extern u32 TParticleCtrl__texture_list;
 s32 read_disc_file(s32, s32);
 s32 mem_alloc(s32);
 extern int particle_global_entry_table;
-extern s32 particle_area_entry_table;
-extern int particle_global_entry_table;
 void *alloc_particle_memory(int);
 u8 *create_ballistic_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
-void *alloc_particle_memory(int);
 int queue_destruction__7TObjectFv(void *);
 f32 vec_squared_length(void *);
 extern const f32 TParticleCtrl__data_805D94F8;
@@ -150,41 +147,15 @@ extern const f32 TParticleCtrl__data_805D94FC;
 void __dt__13TUnk_8048E728Fv(void *, int);
 extern s32 TParticleCtrl__data_8048E778[];
 void *__dt__13TUnk_8048E778Fv(void *arg0, s16 arg1);
-void *alloc_particle_memory(int);
-void *alloc_particle_memory(int);
 extern const f32 TParticleCtrl__data_805D9528;
-int queue_destruction__7TObjectFv(void *);
-void __dt__13TUnk_8048E728Fv(void *, int);
-void *alloc_particle_memory(int);
-void *alloc_particle_memory(int);
-int queue_destruction__7TObjectFv(void *);
 extern const f32 TParticleCtrl__data_805D9558;
 extern const f32 TParticleCtrl__data_805D955C;
-f32 vec_squared_length(void *);
-void __dt__13TUnk_8048E728Fv(void *, int);
 extern s32 TParticleCtrl__data_8048E7A8[];
-int queue_destruction__7TObjectFv(void *);
 u8 * init_particle_base(void *, void *, s32);
 s32 rand(void);
-extern s32 TParticleCtrl__data_8048E7A8[];
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
-extern const f32 TParticleCtrl__data_805D9558;
-extern const f32 TParticleCtrl__data_805D955C;
 extern const f32 lbl_805D9568;
 extern const f32 lbl_805D956C;
-u8 * init_particle_base(void *, void *, s32);
-s32 rand(void);
-extern s32 TParticleCtrl__data_8048E7A8[];
-extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
-extern const f32 TParticleCtrl__data_805D9558;
-extern const f32 TParticleCtrl__data_805D955C;
-extern const f32 lbl_805D9568;
-extern const f32 lbl_805D956C;
-s32 read_disc_file(s32, s32);
-s32 mem_alloc(s32);
-extern s32 particle_area_entry_table;
-extern u32 TParticleCtrl__regular_bml_resource;
-extern u32 TParticleCtrl__texture_list;
 s32 is_split_screen();
 s32 setup_particle_tev(s32);
 s32 load_projected_texture_matrix(f32);
@@ -201,91 +172,34 @@ s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(u32);
 s32 draw_ginja_model_with_motion(u32, u32, f32);
-extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-extern const f32 TParticleCtrl__data_805D9528;
 void VecCopy__FP3VecPC3Vec(void *, const void *);
-s32 is_split_screen();
 f64 atan2_float(f32, f32);
-s32 setup_particle_tev(s32);
-s32 load_projected_texture_matrix(f32);
-s32 is_particle_sprite_additive__13TUnk_8048E728Fv(void *, s32);
-s32 set_depth_buffer_settings_id__FUl(s32);
-s32 append_node_to_tail__13TParticleCtrlFPvPv(s32, void *);
-s32 all_parents_unqueued_for_destruction__7TObjectFv();
-s32 scale_matrix(s32, f32, f32, f32);
 f32 vector_length(void *);
-s32 rotate_matrix_y(s32, s32);
-s32 rotate_matrix_z(s32, s32);
-s32 rotate_matrix_x(s32, s32);
-s32 push_matrix(f32);
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
-s32 draw_ginja_object(u32);
-s32 draw_ginja_model_with_motion(u32, u32, f32);
-extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
-extern u8 *camera_ctrl_instance;
-extern s32 lbl_805D5660;
-extern s32 model_render_flags;
-extern const f32 TParticleCtrl__data_805D955C;
 void rotate_vec_xz(void *, void *, s32);
-u8 * init_particle_base(void *, void *, s32);
-s32 rand(void);
-extern s32 TParticleCtrl__data_8048E778[];
-extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
-extern const f32 TParticleCtrl__data_805D94F8;
-extern const f32 TParticleCtrl__data_805D94FC;
 extern const f32 TParticleCtrl__data_805D9500;
 extern const f32 TParticleCtrl__data_805D9504;
 extern const f32 TParticleCtrl__data_805D950C;
 extern const f32 lbl_805D9520;
 u8 *construct_ballistic_particle(void *a0, void *a1, void *a2, void *a3, s32 arg4, u16 arg5, s16 arg6);
-void VecCopy__FP3VecPC3Vec(void *, const void *);
-s32 is_split_screen();
-f64 atan2_float(f32, f32);
-s32 setup_particle_tev(s32);
-s32 load_projected_texture_matrix(f32);
-s32 is_particle_sprite_additive__13TUnk_8048E728Fv(void *, s32);
 void func_80141618__Fv();
-s32 set_depth_buffer_settings_id__FUl(s32);
 void set_depth_buffer_settings_2__Fv();
 void restore_saved_depth_alpha_state();
 void direction_to_rotation_xz(void *, void *, void *);
-s32 append_node_to_tail__13TParticleCtrlFPvPv(s32, void *);
-s32 all_parents_unqueued_for_destruction__7TObjectFv();
 f32 vec3_dot(void *, void *);
-s32 scale_matrix(s32, f32, f32, f32);
-f32 vector_length(void *);
 void project_world_to_screen(int, void *, void *);
-s32 rotate_matrix_y(s32, s32);
-s32 rotate_matrix_z(s32, s32);
-s32 rotate_matrix_x(s32, s32);
 void push_matrix_from(void *);
 void rotate_vector_by_current_matrix(void *, void *);
-s32 push_matrix(f32);
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
-s32 draw_ginja_object(u32);
-s32 draw_ginja_model_with_motion(u32, u32, f32);
 extern Vec_800890F4 lbl_804394E8;
 extern Vec_800890F4 lbl_804394F4;
 extern Vec_800890F4 lbl_80439500;
 extern Ang_800890F4 lbl_8043950C;
 extern const f64 lbl_80439528;
-extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 extern u8 identity_matrix[];
-extern u8 *camera_ctrl_instance;
-extern s32 lbl_805D5660;
-extern s32 model_render_flags;
 extern const f32 lbl_805D951C;
-}
-
-extern "C" {
-
 void __ct__7TObjectFP7TObject(void *, void *);
-void VecCopy__FP3VecPC3Vec(void *, const void *);
 
 extern void *__vt__13TParticleCtrl[];
 extern s32 TParticleCtrl__class_name_descriptor;
@@ -348,7 +262,6 @@ extern const f32 TParticleCtrl__data_805D94E4;
 
 }
 
-#include "types.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/object/TObjFish.h"
@@ -356,8 +269,6 @@ extern const f32 TParticleCtrl__data_805D94E4;
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
-
-int mem_free(void*);
 
 void TParticleCtrl::clear_active_flag() { *(u16*)((char*)this + 0x2c) &= 0xfffe; }
 
@@ -628,7 +539,6 @@ u8 *construct_ballistic_particle(void *a0, void *a1, void *a2, void *a3, s32 arg
 }
 
 struct RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70;
-extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 struct BF0_80089B50 {
     u8 pad_0[0x18]; s32 *field_18; u16 field_1C; u8 pad_1E[6]; u16 field_24; s16 field_26;
     f32 field_28; f32 field_2C; f32 field_30; f32 field_34; f32 field_38; f32 field_3C; f32 field_40; f32 field_44;
@@ -642,16 +552,6 @@ struct BF1_80089B50 {
     u8 pad_50[4]; f32 field_54; u8 pad_58[0x30]; u8 field_88;
 };
 struct BF2_80089B50 { f32 field_0; f32 field_4; f32 field_8; };
-void rotate_vec_xz(void *, void *, s32);
-u8 * init_particle_base(void *, void *, s32);
-s32 rand(void);
-extern s32 TParticleCtrl__data_8048E778[];
-extern const f32 TParticleCtrl__data_805D94F8;
-extern const f32 TParticleCtrl__data_805D94FC;
-extern const f32 TParticleCtrl__data_805D9500;
-extern const f32 TParticleCtrl__data_805D9504;
-extern const f32 TParticleCtrl__data_805D950C;
-extern const f32 lbl_805D9520;
 
 #pragma push
 #pragma fp_contract on

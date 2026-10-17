@@ -24,7 +24,6 @@ extern V2_80293D84 lbl_80464ED8[6];
 extern const f32 lbl_805DD9E0;
 extern const f32 lbl_805DD9E4;
 void fn_80293D84(void *arg0, void *arg1, u32 color, f32 scale, f32 alpha);
-void fn_80293D84(void *arg0, void *arg1, u32 color, f32 scale, f32 alpha);
 extern f32 lbl_80464F10[];
 extern f32 lbl_80464F18[];
 extern const f32 lbl_805DD9E8;
@@ -32,10 +31,6 @@ extern const f32 lbl_805DD9EC;
 extern const f32 lbl_805DD9F0;
 extern const f32 lbl_805DD9F4;
 void fn_80293E58(void *arg0, f32 scale);
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 void fn_80293D84(void *arg0, void *arg1, u32 color, f32 scale, f32 alpha) {

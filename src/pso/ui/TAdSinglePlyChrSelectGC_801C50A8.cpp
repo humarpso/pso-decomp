@@ -4,37 +4,22 @@
 
 extern "C" {
 extern int active_character_save_record;
-extern int active_character_save_record;
 void TAdSinglePlyChrSelectGC__sub_801C50C0(int a0);
-extern int active_character_save_record;
 u16 TAdSinglePlyChrSelectGC__sub_801C50CC(void);
-extern int active_character_save_record;
 void TAdSinglePlyChrSelectGC__sub_801C50D8(int a0);
-extern int active_character_save_record;
 u16 TAdSinglePlyChrSelectGC__sub_801C50E4(void);
-extern int active_character_save_record;
 void TAdSinglePlyChrSelectGC__sub_801C50F0(int a0);
-extern int active_character_save_record;
 u16 TAdSinglePlyChrSelectGC__sub_801C50FC(void);
-extern int active_character_save_record;
 void TAdSinglePlyChrSelectGC__sub_801C5108(int a0);
-extern int active_character_save_record;
 u16 TAdSinglePlyChrSelectGC__sub_801C5114(void);
     extern int duel_result_window;
 void TAdSinglePlyChrSelectGC__sub_801C5120(void);
 s32 queue_destruction__7TObjectFv(void*);
 extern u32 ad_single_ply_chr_select_instance;
-extern u32 ad_single_ply_chr_select_instance;
 void TAdSinglePlyChrSelectGC__sub_801C5158(void);
 u32 __nw__7TObjectFUl(s32);
 u32 fn_801C5380(void *, s32);
-extern u32 ad_single_ply_chr_select_instance;
 extern s32 tl_00;
-}
-
-extern "C" {
-
-    extern int active_character_save_record;
 void TAdSinglePlyChrSelectGC::set_slot(int a0) { *(short*)((char*)active_character_save_record + 0x21b0) = a0; }
 u16 TAdSinglePlyChrSelectGC::get_char_select_slot() {
     return *(u16 *)((s8 *)(*(u8 * *)&active_character_save_record) + 0x21B0);

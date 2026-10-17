@@ -49,16 +49,10 @@ void step_gauge_bar_width(Gauge_802571B4 *g);
 s32 try_open__19TWindowKeyBoardSoftFii(void *, void *);
 void draw_textured_quad_at_depth(void *, f32);
 void draw_status_gauge_bar__13TUnk_804CF930FPvPvff(Gauge_80256E0C *self, void *ctx, Pos_80256E0C *pos, f32 depth, f32 len);
-}
-
-extern "C" {
-
 void TWindowSubStatusDisp__sub_80256BF8(void);
 void TWindowSubStatusDisp__sub_80256BFC(void);
 void *destroy__13TUnk_804CF930Fs(void *arg0, s16 arg1);
 s32 __dl__FPv(void *);
-
-extern s32 lbl_804CF918[];
 
 void *TUnk_804CF930::destroy(s16 arg1) {
     if (this != NULL) {
@@ -170,12 +164,7 @@ void step_gauge_bar_width(Gauge_802571B4 *g) {
     }
 }
 
-}
-
-extern "C" {
-
 void *TWindowSubStatusDisp__sub_80257298(void *arg0, s16 arg1);
-s32 __dl__FPv(void *);
 #define destroy__13TUnk_804CF930Fs ((s32 (*)(void *, s16))destroy__13TUnk_804CF930Fs)
 
 extern s32 lbl_804CF930[];
@@ -195,10 +184,8 @@ void *TWindowSubStatusDisp__sub_80257298(void *arg0, s16 arg1) {
 
 #undef destroy__13TUnk_804CF930Fs
 
-extern "C" {
 #define draw_status_gauge_bar__13TUnk_804CF930FPvPvff ((s32 (*)(void *, void *, void *, f32, f32))draw_status_gauge_bar__13TUnk_804CF930FPvPvff)
 extern const f32 lbl_805DCED8;
-}
 
 extern "C" {
 
@@ -211,7 +198,6 @@ typedef char RecoveredGlobal_80257B4C_lbl_804CF948_size[sizeof(RecoveredGlobal_8
 
 typedef void *(*Ctor_80257D44)(void *, void *, s32);
 
-s32 __dl__FPv(void *);
 #define destroy__13TUnk_804CF930Fs ((s32 (*)(s32, s32 *))destroy__13TUnk_804CF930Fs)
 #define sub_80256BDC__13TUnk_804CF930Fs ((int (*)(void*, int))sub_80256BDC__13TUnk_804CF930Fs)
 #define calc_bar_width__20TWindowSubStatusDispFPv ((s32 (*)())calc_bar_width__20TWindowSubStatusDispFPv)
@@ -220,7 +206,6 @@ s32 __dl__FPv(void *);
 
 #define lbl_804CF930 (*(unsigned char (*)[1])&lbl_804CF930)
 extern const float lbl_805DCE58;
-extern const f32 lbl_805DCED8;
 
 void*TUnk_804CF930::init_from(void*a1, int a2) { sub_80256BDC__13TUnk_804CF930Fs(this, a2); *(int*)((char*)this + 0x4) = (int)lbl_804CF930; *(float*)((char*)this + 0x1c) = lbl_805DCE58; *(float*)((char*)this + 0xc) = *(float*)((char*)a1 + 0x4); *(float*)((char*)this + 0x10) = *(float*)((char*)a1 + 0x8); *(float*)((char*)this + 0x8) = *(float*)((char*)a1 + 0xc); *(float*)((char*)this + 0x14) = *(float*)((char*)a1 + 0x18); *(int*)((char*)this + 0x18) = *(int*)((char*)a1 + 0x10); *(short*)((char*)this + 0x0) = *(int*)((char*)a1 + 0x14); *(float*)((char*)this + 0x20) = *(float*)((char*)a1 + 0x1c); *(float*)((char*)this + 0x24) = *(float*)((char*)a1 + 0x20); return this; }
 

@@ -11,13 +11,7 @@ void *__ct__15TAdDrawLineCtrlFP7TObjectPvf(void *arg0, void *arg1, void *arg2, f
 void *__nw__7TObjectFUl(int);
 extern u32 lbl_805D49D8;
 u8 *create_draw_line_ctrl__13TAdMcSelectGCFiif(s32 arg0, s32 arg1, f32 farg0);
-}
-
-extern "C" {
-
-void *__ct__15TAdDrawLineCtrlFP7TObjectPvf(void *arg0, void *arg1, void *arg2, f32 farg0);
 void __ct__7TObjectFP7TObject(void *);
-void *__nw__7TObjectFUl(int);
 void fn_80019B08(void *, int);
 s32 restore_saved_depth_alpha_state();
 s32 get_main_phase();

@@ -7,13 +7,7 @@ u8 clamp_to_max__10TObjPlayerFlUcUc(s32 arg0, u8 arg1, u8 arg2);
 void get_effective_technique_level__10TObjPlayerFPvs(u8 *self, s16 idx);
 void set_technique_level_entry(void *, s16, void *);
 s32 TObjPlayer__sub_801D9E08();
-s32 TObjPlayer__sub_801D9E08();
-u8 TObjPlayer__sub_801C010C(void *self, s16 i);
-u8 clamp_to_max__10TObjPlayerFlUcUc(s32 arg0, u8 arg1, u8 arg2);
 void TObjPlayer__sub_801D9C34(u8 *self, s16 idx, void *arg2);
-}
-
-extern "C" {
 
 void TObjPlayer::set_all_technique_levels(void *arg1) {
     s32 i;

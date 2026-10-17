@@ -26,10 +26,6 @@ struct Npc_8007206C {
 
 extern "C" {
 Npc_8007206C *copy_player_visual_record(Npc_8007206C *dst, Npc_8007206C *src);
-}
-
-extern "C" {
-
 void TLobby::copy_header_struct(void* q) { *(u8 *)&this->m_name = *(u8*)((char*)q + 0x0); *(u8*)((char*)this + 0x1) = *(u8*)((char*)q + 0x1); *(u16*)((char*)this + 0x2) = *(u16*)((char*)q + 0x2); *(u32 *)&this->m_flags = *(u32*)((char*)q + 0x4); }
 Npc_8007206C *copy_player_visual_record(Npc_8007206C *dst, Npc_8007206C *src) {
     *dst = *src;

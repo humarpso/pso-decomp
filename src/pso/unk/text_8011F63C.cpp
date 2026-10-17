@@ -3,10 +3,6 @@
 
 extern "C" {
 s32 test_action_mask__10TObjPlayerFl(int, int);
-}
-
-extern "C" {
-
 s32 TItemWeapon::get_attack_stage() {
     u8 *arg0 = (u8 *)this;
     u32 temp_r3;

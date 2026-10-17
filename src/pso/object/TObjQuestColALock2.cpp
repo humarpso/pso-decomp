@@ -58,10 +58,6 @@ extern RecoveredGlobal_801959A0_lbl_804A7438 lbl_804A7438;
 extern const f32 lbl_805DBEF8;
 extern const f32 lbl_805DBEFC;
 extern const f32 lbl_805DBF00;
-}
-
-extern "C" {
-
 void *TObjQuestColALock2__create(void *arg0);
 void *__dt__18TObjQuestColALock2Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
@@ -71,7 +67,6 @@ s32 get_player_by_client_id(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__16TObjQuestColBaseFv(void *, s32);
-void *__nw__7TObjectFUl(int);
 s32 check_flag_100__10TObjPlayerFPv();
 
 extern void *quest_collision_task_root;
@@ -152,8 +147,6 @@ int TObjQuestColALock2::vfunc_15() {
 block_12:
     return 0;
 }
-
-extern s32 __vt__18TObjQuestColALock2[];
 
 void *__dt__18TObjQuestColALock2Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

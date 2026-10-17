@@ -37,31 +37,16 @@ extern s32 TWindowSubSymbolChat__data_805D6498;
 extern s32 TWindowSubSymbolChat__data_805D649C;
 extern s32 TWindowSubSymbolChat__help_window;
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
-s32 get_window_layout_position(s32);
 s32 open_yes_no_prompt(int, int, int, int, f32);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, s32, s32);
 extern const f32 lbl_805DD738;
-s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 draw_card_icon__17TWindowSubComCardFll(s32, s32, s32);
-s32 get_window_layout_position(s32);
 s32 TWindowSubSymbolChat__sub_8028233C(s32 arg0);
 s32 TWindowSubSymbolChat__sub_800771B0(s32, s32);
 s32 TWindowSubSymbolChat__sub_800771C4(s32, s32);
-s32 add__20TWindowSubSymbolChatFlllll(int, int, int, int, int, int);
 s32 set_entry_bits__20TWindowSubSymbolChatFUsllll(s32, s32, s32, s32, s32, s32);
 Data_80281B18 *get_data_ptr__20TWindowSubSymbolChatFv();
-s32 get_cursor_pos__20TWindowSubSymbolChatFv(int);
-s32 get_cursor_x__20TWindowSubSymbolChatFv(int);
 extern s8 TWindowSubSymbolChat__data_805D6494;
-extern s32 TWindowSubSymbolChat__data_805D6498;
-extern s32 TWindowSubSymbolChat__data_805D649C;
-extern s32 TWindowSubSymbolChat__help_window;
-s32 set_entry_bits__20TWindowSubSymbolChatFUsllll(s32, s32, s32, s32, s32, s32);
-s32 get_cursor_pos__20TWindowSubSymbolChatFv(int);
-s32 get_cursor_x__20TWindowSubSymbolChatFv(int);
-extern s8 TWindowSubSymbolChat__data_805D6494;
-extern s32 TWindowSubSymbolChat__data_805D6498;
-extern s32 TWindowSubSymbolChat__data_805D649C;
 f32 get_scale__15TWindowCtrlMainFv(s32);
 void begin_screen_draw(s32);
 void draw_textured_quad_at_depth(void *, f32);
@@ -78,27 +63,20 @@ extern const f32 lbl_805DD72C;
 extern const f32 lbl_805DD730;
 extern const f32 lbl_805DD734;
 void TWindowSubSymbolChat__sub_80281840(Win_80281840 *arg0);
-}
-
-extern "C" {
-
 s32 create_menu__20TWindowSubSymbolChatFPv(void *arg0);
 s32 TKeyBoardControl__ct(s32, void *, s32, s32, s32, s32);
 s32 TWindowSubComCard__sub_80265660(s32, s32);
 s32 get_selected_menu_value(s32);
 s32 align_menu_entry_positions(s32);
-s32 get_window_layout_position(s32);
 s32 TWindowSubSymbolChatPartsSet__ct(s32, s32, s16, s32 *, s32 *);
 s32 TWindowSubSymbolChatParts__ct(s32, s32, s32 *, s32 *);
 s32 TWindowSubSymbolChat__sub_80076FE0(s32);
 s32 __nw__7TObjectFUl(s32);
-s32 draw_card_icon__17TWindowSubComCardFll(s32, s32, s32);
 s32 select_symbol_chat_slot(s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 s32 get_cursor_pos__20TWindowShortListCtrlFv(s32);
 s32 get_keyboard_field_6c__15TWindowMakeTeamFv(s32, s32);
 s32 get_keyboard_ptr__20TWindowSubSymbolChatFv(s32);
-s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 refresh_parts__20TWindowSubSymbolChatFv();
 s32 refresh_with_default_list__20TWindowSubStatusDispFll(s32, s32 *);
 s32 update_chat_window(s32);
@@ -320,9 +298,6 @@ s32 TWindowSubSymbolChat::create_menu() {
     return temp_r31;
 }
 
-extern const f32 lbl_805DD73C;
-extern const f32 lbl_805DD740;
-
 s32 create_menu__20TWindowSubSymbolChatFPv(void *arg0) {
     s32 temp_r31;
 
@@ -345,9 +320,6 @@ s32 create_menu__20TWindowSubSymbolChatFPv(void *arg0) {
     return temp_r31;
 }
 
-extern s32 TWindowSubSymbolChat__data_805D6498;
-extern s32 TWindowSubSymbolChat__data_805D649C;
-
 s32 TWindowSubSymbolChat::create_parts_set() {
     s32 var_r31;
 
@@ -357,9 +329,6 @@ s32 TWindowSubSymbolChat::create_parts_set() {
     }
     return var_r31;
 }
-
-extern s32 TWindowSubSymbolChat__data_805D6498;
-extern s32 TWindowSubSymbolChat__data_805D649C;
 
 s32 TWindowSubSymbolChat::create_parts() {
     s32 var_r31;
@@ -371,7 +340,6 @@ s32 TWindowSubSymbolChat::create_parts() {
     return var_r31;
 }
 
-extern const f32 lbl_805DD73C;
 extern const f32 lbl_805DD744;
 
 void TWindowSubSymbolChat::open_menu(s32 arg0, s32 arg1) {

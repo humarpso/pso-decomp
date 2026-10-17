@@ -11,10 +11,6 @@ struct Scene_80327B40 { u8 pad0[4]; s32 count; Entry_80327B40 *entries; };
 
 extern "C" {
 void DCFlushRangeNoSync(void *, u32);
-}
-
-extern "C" {
-
 s32 __dl__FPv(void *);
 s32 mem_alloc(s32);
 s32 visit_matching_models(void *, s32, s32);

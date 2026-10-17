@@ -62,22 +62,15 @@ extern s32 lbl_80474040[];
 extern const f32 lbl_805DEA00;
 extern const f32 lbl_805DEA04;
 void run_task__18TBoss7PhotonBulletFv(Bullet_802EF2AC *arg0);
-}
-
-extern "C" {
-
 void *__dt__18TBoss7PhotonBulletFv(void *arg0, s16 arg1);
 void render__18TBoss7PhotonBulletFv(u8 *arg0);
 void __dl__7TObjectFPv(void *);
-void queue_destruction__7TObjectFv(void *);
 
 void render__18TBoss7PhotonBulletFv(u8 *arg0) {
     if (*(s32 *)((s8 *)arg0 + 0xE8) & 1) {
         ((TObjEneDD *)(arg0 + 0x38))->draw_oriented_shadow((s32)(arg0 + 0xCC), (s32)0, (u32)(arg0 + 0xD8));
     }
 }
-
-extern void *__vt__18TBoss7PhotonBullet[];
 
 #pragma push
 #pragma opt_loop_invariants off
@@ -176,7 +169,6 @@ typedef struct Pad_802EF604 {
 } Pad_802EF604;
 
 extern "C" {
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 rotate_xz_pair_by_angle(void *, void *, int);
 s32 __ct__7TObjectFP7TObject(void *, s32);
 extern Ent_802EF74C boss7_photon_bullet_level_table[];
@@ -187,10 +179,6 @@ u32 __nw__7TObjectFUl(int);
 
 void run_task__15TBoss7PhotonPadFv(Pad_802EF604 *self);
 u8 *__ct__15TBoss7PhotonPadFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-}
-
-extern "C" {
-
 void __dt__7TObjectFv(void *, s16);
 void render_shadows__7TObjectFv(void);
 void *__dt__15TBoss7PhotonPadFv(void *self, s16 arg1);
@@ -241,9 +229,6 @@ u8 *__ct__15TBoss7PhotonPadFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) 
     return arg0;
 }
 
-}
-
-extern "C" {
 void TLobby__sub_801A1FD8(); void apply_object_set_data(); void release_member_90__10TObjPlayerFv();
 void vfunc_9__13TUnk_804B9870Fv(); void update_object_view_visibility__13TUnk_804B9870Fff(); void classify_actor_view_detail();
 void vfunc_12__13TUnk_804B9870Fv(); void vfunc_13__13TUnk_804AF8A0Fl(); void call_vt13_with_default__13TUnk_804928CCFv();

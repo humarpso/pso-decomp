@@ -15,18 +15,10 @@ int mem_alloc(void *);
 s32 __ct__7TObjectFP7TObject();
 s32 TLobby__sub_8033EE38(int);
 extern s32 lbl_804EFA88[];
-extern s32 lbl_805D6DA0;
 u8 *TLobby__sub_8033ED24(u8 *arg0);
-}
-
-extern "C" {
-
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 s32 mem_free(void *);
-
-extern s32 lbl_804EFA88[];
-extern s32 lbl_805D6DA0;
 
 void *TUnk_804EFA88::destroy_object(s16 arg1) {
     if (this != NULL) {
@@ -75,16 +67,8 @@ void TLobby::release_indexed_entry(s32 arg0) {
     }
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
-    extern s32 lbl_805D6DA0;
 void TLobby__sub_8033EDF8(void) { lbl_805D6DA0 = 0; }
 
-    extern s32 lbl_805D6DA0;
 void TLobby__sub_8033EE04(void) { lbl_805D6DA0 = 0; }
 
 }

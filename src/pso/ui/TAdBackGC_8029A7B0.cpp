@@ -11,10 +11,6 @@ s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 s32 fn_8029A6EC(void *);
 s32 set_cached_blend_factor(int, int);
 extern s32 chr_select_ad_pic_2_texture_descriptor[];
-}
-
-extern "C" {
-
 void *__ct__9TAdBackGCFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 

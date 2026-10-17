@@ -12,10 +12,6 @@ int mem_alloc(void *);
 u8 *TLobby__sub_80209584(u8 *arg0, s32 arg1);
 Hdr_802095EC *find_type5_header__6TLobbyFPvi(Hdr_802095EC *arg, s32 id);
 Hdr_8020967C *find_chunk_by_id__6TLobbyFPvi(Hdr_8020967C *arg, s32 id);
-}
-
-extern "C" {
-
 u8 *TLobby__sub_80209584(u8 *arg0, s32 arg1) {
     s32 temp_r3;
     s32 var_r0;

@@ -40,9 +40,6 @@ extern u32 quest_area_manager;
 extern s32 tl_00;
 extern const f32 lbl_805DB6D8;
 extern const f32 lbl_805DB6DC;
-}
-
-extern "C" {
 
 void TUnk_804B27D8::run_task() {
     u8 *arg0 = (u8 *)this;

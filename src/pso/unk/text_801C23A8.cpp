@@ -18,11 +18,7 @@ void show_duel_result_window(s32 arg0, s32 arg1);
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_801C241C_lbl_804C3E60 duel_result_window_dispatch_table;
-extern u8 *duel_result_window;
 u8 *__dt__13TUnk_804C3E60Fv(u8 *arg0, s16 arg1);
-}
-
-extern "C" {
 
 void show_duel_result_window(s32 arg0, s32 arg1) {
     u8 *temp_r3;

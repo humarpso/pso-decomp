@@ -48,7 +48,6 @@ extern const f32 morfos_projectile_speed;
 extern const f32 morfos_param_table_speed_copy;
 extern const f32 lbl_805DF988;
 void hit_target_in_range__13TObjEneMorfosFPvPvPv(O_80337500 *arg0, V_80337500 *arg1, V_80337500 *arg2);
-s32 VecCopy__FP3VecPC3Vec(void *, int);
 s16 obj_getField1c(void *);
 s32 spawn_particle_effect_with_rotation(void *, void *, s32, s32);
 void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, s32);
@@ -56,31 +55,20 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern s32 lbl_804EF130[];
 extern s32 tl_06;
-extern const f32 morfos_projectile_speed;
 extern const f32 lbl_805DF994;
 O_80337824 *TObjEneMorfos__sub_80337824(O_80337824 *arg0, Vec_80337824 *arg1, s32 arg2, void *arg3);
-s32 VecCopy__FP3VecPC3Vec(void *, int);
 u8 *get_player_data__10TObjPlayerFi(s32);
 f32 fabs_float(f32);
 void queue_destruction__7TObjectFv(void *);
 u32 csnVector(void *, void *, int);
 s32 find_entity_by_id(u16);
-void hit_target_in_range__13TObjEneMorfosFPvPvPv(O_80337500 *arg0, V_80337500 *arg1, V_80337500 *arg2);
 void vec3_add_to(void *, void *);
 extern s32 lbl_805D586C;
-extern const f32 morfos_projectile_speed;
 extern const f32 lbl_805DF98C;
 extern const f32 lbl_805DF990;
 void update_projectile__13TObjEneMorfosFPv(O_80337644 *arg0);
-}
-
-extern "C" {
-
 void *__dt__13TUnk_804EF130Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void queue_destruction__7TObjectFv(void *);
-
-extern s32 lbl_804EF130[];
 
 void hit_target_in_range__13TObjEneMorfosFPvPvPv(O_80337500 *arg0, V_80337500 *arg1, V_80337500 *arg2) {
     Vec_80337500 v = arg0->pos;

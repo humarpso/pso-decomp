@@ -90,8 +90,6 @@ struct RecoveredGlobal_803589F8_lbl_804F15C8 { s32 value; u8 remaining[0xA0]; };
 typedef char RecoveredGlobal_803589F8_lbl_804F15C8_size[sizeof(RecoveredGlobal_803589F8_lbl_804F15C8) == 0xA4 ? 1 : -1];
 
 #include <stddef.h>
-#include "pso/player/TObjPlayer.h"
-#include "pso/items/TItemWeapon.h"
 #include "pso/misc/TNowLoading.h"
 struct Stack_80358048 {
     s32 sp8;
@@ -229,11 +227,8 @@ extern s32 inward_orbit_effect_vtable[];
 extern const f32 lbl_805E0068;
 extern const f32 lbl_805E0070;
 u8 *create_inward_orbit_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3);
-f32 sin_table_lookup(void *);
-f32 cos_table_lookup(void *);
 s32 rotate_matrix_z(int, int);
 void TObjPlayer__sub_80357954(u8 *arg0);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_particle_effect(s32 *, s32);
 u32 __nw__7TObjectFUl(s32);
 extern Trip_8035862C lbl_804793D8;
@@ -241,20 +236,15 @@ extern s32 tl_07;
 extern const f32 lbl_805E0048;
 extern const f32 lbl_805E0080;
 void weapon_special_lightning_bolt_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 spawn_particle_effect(s32 *, s32);
-u32 __nw__7TObjectFUl(s32);
 u32 create_fire_explosion_effect(u32, s32, s32, s32, f32);
 extern s32 tl_particle;
 extern const f32 lbl_805E0088;
 extern const f32 lbl_805E008C;
 extern const f32 lbl_805E0090;
 void weapon_fire_explosion_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-u32 __nw__7TObjectFUl(s32);
 int rand(void);
 f32 vector_length(void *);
 s32 normalize_vector(void *);
-extern s32 tl_07;
-extern const f32 lbl_805E0048;
 extern const f32 lbl_805E004C;
 extern const f32 lbl_805E0050;
 extern const f32 lbl_805E0054;
@@ -262,17 +252,11 @@ extern const f32 lbl_805E0058;
 extern const f32 lbl_805E005C;
 extern const f32 lbl_805E0060;
 extern const f32 lbl_805E0064;
-extern const f32 lbl_805E0068;
 void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
 s32 remap_extra_attack_type(void *);
 s32 draw_icon__10TObjPlayerFll(void *, int, void *);
 s32 create__20TItemEffOrgaFlowShotFPvPv(int, void *, int);
-extern s32 tl_05;
-}
-
-extern "C" {
-
 struct Base_80358984_80357734 { char pad[0x18]; };
 struct VObj_80358984_80357734 : Base_80358984_80357734 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -304,7 +288,6 @@ void weapon_hell_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void weapon_dark_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 create_timed_particle_emitter(s32, s32, s32, s32);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
-s32 spawn_particle_effect(s32 *, s32);
 s32 get_bml_motion(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 attach_particle_model(s32, s32, s32, s32, s32, f32);
@@ -314,10 +297,7 @@ void TItemWeapon__ct(void *);
 s32 TObjPlayer__sub_802E451C();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-u32 __nw__7TObjectFUl(s32);
 void __dt__11TItemWeaponFv(void *, int);
-void *__dt__13TUnk_804F14A8Fv(void *arg0, s16 arg1);
-void queue_destruction__7TObjectFv(void *);
 s32 set_position_xy__10TObjPlayerFff(f32, f32);
 void set_status_flags__10TObjPlayerFUl(void *, int);
 s32 update_battle_control_if_unlocked__10TObjPlayerFv();
@@ -401,7 +381,6 @@ void *__dt__13TUnk_804F14A8Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 item_equip_variant_vtable[];
 extern s32 spawn_shoot_particle__10TItemShootFv[];
 
 void *TUnk_804F14A8::init_state_34_alt(s32 _w1, void *_w2) {
@@ -528,8 +507,6 @@ void TUnk_804F166C::update_inward_orbit_point() {
 
 void TUnk_804F166C::render() {  }
 
-extern s32 inward_orbit_effect_vtable[];
-
 void TUnk_804F166C::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r3_2;
@@ -635,9 +612,6 @@ void weapon_fractional_hp_effect(void *arg0, void *arg1, s32 arg2, s32 arg3) {
         spawn_particle_effect((s32 *)(arg2), (s32)(0x1AC));
     }
 }
-
-extern f32 lbl_805E0074;
-extern f32 lbl_805E0078;
 
 void TObjPlayer::handle_symbol_chat_action(s32 arg1, s32 arg2, s32 arg3) {
     s32 arg0 = (s32)this;
@@ -791,10 +765,6 @@ void TObjPlayer::spawn_effect_by_type(s32 arg1, s32 arg2, s32 arg3) {
     }
 }
 
-extern s32 technique_effect_bml;
-extern s32 lbl_805D63B0;
-extern f32 lbl_805E0084;
-
 void TObjPlayer::spawn_hit_effect(s32 arg1, s32 arg2, s32 arg3) {
     s32 arg0 = (s32)this;
     s32 timed_particle_emitter;
@@ -819,8 +789,6 @@ void prepare_freeze_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
         spawn_particle_effect((s32 *)((s32 *) &sp8), (s32)(0x6A));
     }
 }
-
-extern s32 tl_05;
 
 void weapon_fire_explosion_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 obj;

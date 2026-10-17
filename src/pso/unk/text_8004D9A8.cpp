@@ -62,10 +62,6 @@ void *spawn_particle_effect(void *, int);
 s32 play_sound_effect(int, void *, int, int);
 void queue_destruction__7TObjectFv(void *);
 void TBoss3Volopt__sub_8004DA7C(u8 *self);
-}
-
-extern "C" {
-
 void *TObjDFDemo0__entry_table[30] = {
     (void *)0x14b, (void *)0x0, (void *)0x82, (void *)0x0,
     (void *)0x0, (void *)0xc2f00000, (void *)0x14c, (void *)0x50,
@@ -200,13 +196,10 @@ void TBoss3Volopt__sub_8004DA7C(u8 *self) {
     }
 }
 
-}
-
 #undef TObjDFDemo0__entry_table
 #undef lbl_804854F0
 #undef lbl_80485514
 #undef V90
-extern "C" {
 void *lbl_80485550[3] = {
     (void *)0x0, (void *)0x0, (void *)0xc2f00000,
 };
@@ -226,10 +219,6 @@ void restore_player_cameras();
 void __dl__7TObjectFPv(void *);
 extern void *__vt__11TObjDFDemo0[13];
 S_8004DE44 *__dt__11TObjDFDemo0Fv(S_8004DE44 *o, s16 flag);
-}
-
-extern "C" {
-
 S_8004DE44 *__dt__11TObjDFDemo0Fv(S_8004DE44 *o, s16 flag) {
     s32 i;
     if (o != 0) {
@@ -250,9 +239,6 @@ S_8004DE44 *__dt__11TObjDFDemo0Fv(S_8004DE44 *o, s16 flag) {
     return o;
 }
 
-}
-
-extern "C" {
 typedef struct Obj_8004DEE0 {
     s32 f0;
     u8 pad4[0x18 - 0x4];

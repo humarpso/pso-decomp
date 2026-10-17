@@ -8,10 +8,6 @@ struct RecoveredGlobal_8006EF80_lbl_8048C9D8 {
 extern "C" {
 extern RecoveredGlobal_8006EF80_lbl_8048C9D8 challenge_mode_state;
 s32 fn_8006EF80(void);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8006EF80_lbl_8048C9D8_size[sizeof(RecoveredGlobal_8006EF80_lbl_8048C9D8) == 0x748 ? 1 : -1];
 s32 fn_8006EF80(void) {
     return *(s32 *)((s8 *)(&challenge_mode_state.value) + 0x48);

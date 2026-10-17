@@ -106,17 +106,10 @@ extern u32 TObjNpcExpertBase__shared_resource;
 s32 construct_male_npc_base(void *);
 extern s32 __vt__17TObjNpcExpertBase[];
 extern s32 TObjNpcExpertBase__name;
-extern u32 TObjNpcExpertBase__shared_resource;
 u8 *TObjNpcExpertBase__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt__17TObjNpcExpertBaseFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
-
-extern u32 TObjNpcExpertBase__shared_resource;
 
 void TObjNpcExpertBase::free_shared_data() {
     if ((u32) TObjNpcExpertBase__shared_resource != 0U) {
@@ -124,8 +117,6 @@ void TObjNpcExpertBase::free_shared_data() {
         TObjNpcExpertBase__shared_resource = 0U;
     }
 }
-
-extern s32 __vt__17TObjNpcExpertBase[];
 
 void TObjNpcExpertBase::load_shared_resource() {
     s32 temp_r3;

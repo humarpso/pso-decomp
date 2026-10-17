@@ -83,7 +83,6 @@ extern "C" {
 s32 TLobby__sub_803D3130(void *, s32, Pair_803C8678 *, Pair_803C8678 *);
 extern s32 tlobby_stream_read_retry_limit;
 extern s32 lbl_805D7558;
-s32 TLobby__sub_803D3130(void *, s32, Pair_803C8678 *, Pair_803C8678 *);
 s32 memset(void *, int, int);
 s32 TLobby__sub_803C9104(Obj_803C9104 *arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_803C5ED4(int);
@@ -214,52 +213,32 @@ struct Obj_803C7748 {
 
 extern "C" {
 void TLobby__sub_803C89C4(u8 *arg0);
-s32 memset(void *, int, int);
 void TLobby__sub_803C8B38(u8 *arg0);
 short TLobby__sub_803C8B2C(u8 *arg0);
-s32 memset(void *, int, int);
 extern RecoveredGlobal_803C90B0_lbl_80575140 adx_stream_read_requests;
-s32 memset(void *, int, int);
-extern RecoveredGlobal_803C6830_lbl_80573AC0 adx_encoder_context_pool;
-s32 memset(void *, int, int);
 extern RecoveredGlobal_803C6830_lbl_80573AC0 adx_encoder_context_pool;
 void TLobby__sub_803C9DB4(u8 *arg0);
 void TLobby__sub_803C5D24(u8 *arg0);
 s32 adx_encode_available_blocks(void *);
 void adx_process_encoder_output(u8 *arg0);
 s32 TLobby__sub_803C85AC(u8 *arg0, s32 *arg1);
-s32 memset(void *, int, int);
 void TLobby__sub_803C6138(S_803C6138 *arg0);
 s32 ARStartDMA(u8 *arg0, s32 arg1, s16 *arg2, u8 *arg3, s8 *arg4, s8 *arg5, u8 *arg6, s32 *arg7, s32 *arg8, s32 *arg9);
 s32 adx_get_data_start_offset(u16 *arg0, s32 arg1, s32 *arg2);
 s32 TLobby__sub_803CEA14(void);
 u32 TLobby__sub_803CF2F4(const char *, int, int);
 extern char lbl_8047C634[];
-extern RecoveredGlobal_803C90B0_lbl_80575140 adx_stream_read_requests;
 extern s32 adx_stream_request_count_ex;
 extern s32 lbl_805D7550;
 Ent_803C8BAC *TLobby__sub_803C8BAC(const char *name, s32 arg);
-s32 TLobby__sub_803CEA14(void);
-u32 TLobby__sub_803CF2F4(const char *, int, int);
 s32 TLobby__sub_803CE568(void);
-extern char lbl_8047C634[];
-extern RecoveredGlobal_803C90B0_lbl_80575140 adx_stream_read_requests;
 extern s32 adx_stream_fname_slot_count;
 extern s32 adx_stream_request_base_index;
 Ent_803C8BAC *TLobby__sub_803C8CDC(const char *name, s32 mode, s32 arg);
-u32 TLobby__sub_803CF2F4(const char *, int, int);
 extern char lbl_8047C600[];
-extern RecoveredGlobal_803C90B0_lbl_80575140 adx_stream_read_requests;
-extern s32 adx_stream_request_count_ex;
-extern s32 lbl_805D7550;
 Ent_803C8BAC *adxstm_open_fname_range_ex_rt__6TLobbyFPviiii(const char *name, s32 mode, s32 off, s32 nsect, s32 arg);
-u32 TLobby__sub_803CF2F4(const char *, int, int);
 extern char lbl_8047C660[];
-extern RecoveredGlobal_803C90B0_lbl_80575140 adx_stream_read_requests;
-extern s32 adx_stream_fname_slot_count;
-extern s32 adx_stream_request_base_index;
 Ent_803C8BAC *adxstm_open_fname_range__6TLobbyFPviiii(const char *name, s32 mode, s32 off, s32 nsect, s32 arg);
-void TLobby__sub_803C6138(S_803C6138 *arg0);
 void TLobby__sub_803C60F0(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void TLobby__sub_803C610C(u8 *arg0);
 void TLobby__sub_803C6118(u8 *arg0);
@@ -269,21 +248,13 @@ void *memcpy(void *, const void *, u32);
 extern u8 lbl_80572BA0[];
 extern u8 lbl_80572BE0[];
 void TLobby__sub_803C5B50(Obj_803C5B50 *arg0, s32 arg1, s32 arg2, s32 arg3);
-void *memcpy(void *, const void *, u32);
 s32 adx_write_encoded_blocks(Obj_803C7C10 *arg0);
 extern char lbl_8047C5D8[];
 extern char music_stream_afs_filename_buffer[];
 void append_music_stream_segment(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void TLobby__sub_803C5D00(u8 *arg0);
 void TLobby__sub_803C5E58(void);
 void TLobby__sub_803C5E68(void);
-void TLobby__sub_803C60F0(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-void TLobby__sub_803C610C(u8 *arg0);
-void TLobby__sub_803C6118(u8 *arg0);
 void TLobby__sub_803C8514(u8 *arg0, s32 arg1);
 s32 TLobby__sub_803C8578(u8 *arg0, s32 arg1);
 s32 TLobby__sub_803C8594(u8 *arg0, s32 *arg1, s32 *arg2);
@@ -295,14 +266,6 @@ s32 TLobby__sub_803CB844();
 void TLobby__sub_803CBA38(void);
 s32 TLobby__sub_803CE240();
 s32 set_global_805D7520__6TLobbyFl();
-
-extern "C" {
-extern RecoveredGlobal_803C6830_lbl_80573AC0 adx_encoder_context_pool;
-}
-
-extern "C" {
-extern RecoveredGlobal_803C90B0_lbl_80575140 adx_stream_read_requests;
-}
 
 s32 TLobby::ar_alloc() {
     ARAlloc();
@@ -410,8 +373,6 @@ void append_music_stream_segment(u8 *arg0, s32 arg1, s32 arg2) {
 void TLobby__sub_803C5E58(void) {
     lbl_805D7548 -= 1;
 }
-
-extern s32 lbl_805D7548;
 
 void TLobby__sub_803C5E68(void) {
     lbl_805D7548 += 1;
@@ -1522,15 +1483,9 @@ extern s32 lbl_805D75B8;
 extern s32 lbl_805D75BC;
 void TLobby__sub_803CBB14(void);
 }
-extern "C" {
 extern const u32 lbl_805E0D5C[1];
-}
-extern "C" {
 extern const u32 lbl_805E0D60[1];
-}
-extern "C" {
 extern const u32 lbl_805E0D64[1];
-}
 #define lbl_805E0D58 (*(const f32 *)lbl_805E0D58)
 #define lbl_805E0D5C (*(const f32 *)lbl_805E0D5C)
 #define lbl_805E0D60 (*(const f32 *)lbl_805E0D60)
@@ -1539,26 +1494,17 @@ extern const u32 lbl_805E0D64[1];
 extern "C" {
 s32 TLobby__sub_803CC030(int, int);
 s32 dispatch_packet__6TLobbyFv(int, int);
-void TLobby__sub_803C9DB4(u8 *arg0);
-s32 TLobby__sub_803CC030(int, int);
-s32 dispatch_packet__6TLobbyFv(int, int);
 void stop_audio_stream(u8 *arg0);
 s32 calc_adx_predictor_coeffs(void *, void *, void *, void *);
 s8 TLobby__sub_803C9CB0(u8 *arg0);
 void TLobby__sub_803CB7F8(s32 arg0, s32 arg1);
-s32 memset(void *, int, int);
 extern Ch_803CB5C4 adx_decoder_channel_pool[16];
-s32 send_with_offset4_alt__6TLobbyFv(int);
-s32 set_field_3c__6TLobbyFl(int, int);
 void TLobby__sub_803CB194(u8 *arg0);
 extern s32 lbl_805D7590;
 s32 TLobby__sub_803CB844(void);
-extern s32 lbl_805D7540;
 void TLobby__sub_803C0758(void *);
 void configure_audio_stream_output(Stream_803C9FCC *self);
 extern char adxt_start_filename_open_error[];
-void stop_audio_stream(u8 *arg0);
-void configure_audio_stream_output(Stream_803C9FCC *self);
 void start_audio_stream_file(Stream_803CA824 *self, const char *name);
 s16 TLobby__sub_803C96E0(Obj_803C96E0 *self, s32 i);
 extern volatile s32 lbl_805D759C;
@@ -1572,15 +1518,12 @@ s32 GXFlush();
 s32 TLobby__sub_803CA8B4(Ent_803C9608 *);
 extern Ent_803C9608 adx_stream_player_pool[16];
 extern s32 lbl_805D7564;
-void TLobby__sub_803C9608(void);
-void stop_audio_stream(u8 *arg0);
 struct SjMemoryBuffer;
 SjMemoryBuffer* sj_memory_buffer_create(void *, int);
 extern char adxt_start_mem_idx_stream_create_error[];
 void TLobby__sub_803CE544(void *, int);
 void TLobby__sub_803CFAA8(const char *, void *, int);
 void set_dvd_synchronous_read_mode(int, int, int, int);
-void TLobby__sub_803CB7F8(s32 arg0, s32 arg1);
 void* initialize_dvd_file_driver(void);
 void TLobby__sub_803D43B8(void);
 extern const char lbl_805E0D70[4];
@@ -1589,54 +1532,23 @@ void TLobby__sub_803CB74C(s32 *arg0);
 s32 run_worker_callbacks_slot5__6TLobbyFv(int);
 extern Cfg_803CBA58 lbl_804F9D80;
 
-extern Cb_803CBA58 adx_worker_thread_pending_callback;
 extern s32 lbl_805D7598;
 extern s32 lbl_805D75A4;
-extern s32 lbl_805D75BC;
 extern s32 lobby_worker_thread_run_flag;
-extern s32 lbl_805D7540;
-void TLobby__sub_803C0758(void *);
 extern char adxm_idle_border_internal_error[];
-extern Cfg_803CBA58 lbl_804F9D80;
 
-extern s32 lbl_805D7598;
-extern s32 lbl_805D75BC;
-s32 GXFlush();
 s32 TLobby__sub_803C97F4(void *, void *, void *);
-s32 TLobby__sub_803CA8B4(Ent_803C9608 *);
 s32 TLobby__sub_803CBF10(int);
-extern Ent_803C9608 adx_stream_player_pool[16];
-extern s32 lbl_805D7540;
 extern s32 lbl_805D7560;
-extern s32 lbl_805D7564;
 extern s32 lbl_805D7570;
 s32 TLobby__sub_803C9358(u8 *arg0);
-s32 TLobby__sub_803C97F4(void *, void *, void *);
-s32 TLobby__sub_803CC030(int, int);
-extern s32 lbl_805D7540;
-extern s32 lbl_805D7560;
-extern s32 lbl_805D7570;
 void TLobby__sub_803C94DC(u8 *arg0, s32 arg1);
-s32 TLobby__sub_803CC030(int, int);
-s32 dispatch_packet__6TLobbyFv(int, int);
-extern s32 lbl_805D7540;
-void TLobby__sub_803C0758(void *);
 void TLobby__sub_803C9E38(Obj_803C9E38 *arg0, VObj_803C9E38 *arg1);
-s32 TLobby__sub_803CC030(int, int);
-s32 dispatch_packet__6TLobbyFv(int, int);
-s32 memset(void *, int, int);
 extern RecoveredCallback_2be3cacebb2e lbl_805D7574;
 void TLobby__sub_803CA194(Obj_803CA194 *arg0);
 void *TLobby__sub_803C0848(void *, s32, void *);
-void TLobby__sub_803CA194(Obj_803CA194 *arg0);
 void *run_step_5210__6TLobbyFv(void *, s32);
-s32 memset(void *, int, int);
-extern Ent_803C9608 adx_stream_player_pool[16];
 Ch_803CA3C4 *adx_create_stream_player(s32 n, s32 base, s32 size);
-}
-
-extern "C" {
-
 void TLobby__sub_803C9350(u8 *arg0, s32 arg1);
 void TLobby__sub_803C94B8(void);
 void TLobby__sub_803C94D8(void);
@@ -1647,11 +1559,9 @@ s32 TLobby__sub_803C97B8(u8 *arg0);
 void TLobby__sub_803CB4A4(u8 *arg0);
 void TLobby__sub_803CB570(u8 *arg0, u8 *arg1, s16 *arg2);
 void TLobby__sub_803CBA18(void);
-void TLobby__sub_803CBA38(void);
 u32 decode_adx_mono_blocks(int, int, int, void *, int, int);
 s32 set_callback_params__6TLobbyFll();
 u32 dispatch_receive_update__6TLobbyFv(int, int, int, void *, int, void *, int, int);
-s32 memset(void *, int, int);
 s32 notify_field_4__6TLobbyFv(int);
 s32 send_packet_by_id__6TLobbyFv(int);
 s32 send_with_offset4__6TLobbyFv(int);
@@ -1813,9 +1723,6 @@ s32 TLobby__sub_803C97B8(u8 *arg0) {
     }
     return 0;
 }
-
-extern s32 lbl_805D7560;
-extern s32 lbl_805D7570;
 
 void TLobby::set_rate_mode(s32 arg0) {
     if (arg0 == 1) {
@@ -2349,8 +2256,6 @@ void TLobby__sub_803CAB38(Strm_803CAB38 *self) {
 #pragma push
 #pragma dont_inline on
 #pragma push
-#include "types.h"
-#include "pso/misc/TLobby.h"
 
 extern "C" {
 
@@ -2388,14 +2293,8 @@ struct Conn_803CAEB4
   u8 pad99[0xA4 - 0x99];
   s32 fA4;
 };
-s32 send_packet_by_id__6TLobbyFv(int);
-s32 set_field_44__6TLobbyFl(int, int);
-s32 set_field_40__6TLobbyFl(int, int);
-s32 set_field_3c__6TLobbyFl(int, int);
 s32 TLobby__sub_803C0010(int);
 s32 process_audio_stream_input(int);
-void TLobby__sub_803C0758(void *);
-s32 TLobby__sub_803C07E8(int);
 
 void TLobby__sub_803CAEB4(Conn_803CAEB4 *o) {
   s32 lobby = o->lobby;
@@ -2744,9 +2643,6 @@ void TLobby::adxm_goto_mwidle_border() {
     OSSetThreadPriority(&adxm_worker_thread, (*(Cfg_803CBBD8 *)&lbl_804F9D80).prio);
 }
 
-}
-
-extern "C" {
 Ent_803C9608 adx_stream_player_pool[16];
 u8 lbl_80572BA0[0x40];
 u8 lbl_80572BE0[0x400];

@@ -31,15 +31,9 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void DVDConvertEntrynumToPath(f32 *q);
 void TBoss8Dragon__sub_8036AF50(f32 *o, f32 *p, s32 a, s32 b);
-}
-
-extern "C" {
-
 s32 **TBoss8Dragon__sub_8036AEF8(s32 **arg0, s16 arg1);
 void fn_8036B18C(void);
 s32 __dl__FPv(void *);
-
-extern s32 lbl_804F3610[];
 
 s32 **TBoss8Dragon__sub_8036AEF8(s32 **arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -50,8 +44,6 @@ s32 **TBoss8Dragon__sub_8036AEF8(s32 **arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern s32 lbl_805D7000;
 
 typedef char RecoveredGlobal_8036AF40_lbl_804F3610_size[sizeof(RecoveredGlobal_8036AF40_lbl_804F3610) == 0x18 ? 1 : -1];
 void TBoss8Dragon__sub_8036AF40(s32 **arg0) {

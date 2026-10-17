@@ -71,12 +71,7 @@ extern u8 lbl_80440E24[];
 extern u8 lbl_80440E3C[];
 
 extern s32 enable_v2_features;
-extern u32 cave_door02_model_resource;
 extern s32 *cave_door02_resources;
-}
-
-extern "C" {
-
 void *__dt__12TODoorCave02Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
@@ -94,9 +89,6 @@ void *TODoorCave02::create(void *arg0) {
     return o;
 }
 
-extern u32 cave_door02_model_resource;
-extern s32 *cave_door02_resources;
-
 void TODoorCave02::free_globals() {
     if ((s32 *) cave_door02_resources != NULL) {
         TObjPlayer::free_if_valid(*cave_door02_resources);
@@ -110,8 +102,6 @@ void TODoorCave02::free_globals() {
         cave_door02_model_resource = 0U;
     }
 }
-
-extern s32 __vt__12TODoorCave02[];
 
 void TODoorCave02::load_resources() {
     void *o;

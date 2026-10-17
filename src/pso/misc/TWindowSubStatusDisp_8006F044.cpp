@@ -13,7 +13,6 @@ s32 TWindowSubStatusDisp::calc_entry_offset() {
 
 }
 
-#include "types.h"
 #include "pso/misc/TLobby.h"
 #pragma fp_contract on
 
@@ -37,17 +36,11 @@ struct O_8006F134 { u8 pad[0xc0]; E_8006F134 e[4]; s32 pad2; E_8006F134 def; };
 extern "C" {
 s32 is_flag_set__6TLobbyFv();
 extern RecoveredGlobal_8006F23C_lbl_8048C9D8 challenge_mode_state;
-s32 is_flag_set__6TLobbyFv();
-extern RecoveredGlobal_8006F23C_lbl_8048C9D8 challenge_mode_state;
 s32 is_split_screen(void);
 extern s32 lbl_80438590[];
 s32 *TWindowSubStatusDisp__sub_8006F0D8(O_8006F0D8 *self, s32 slot);
 extern s32 lbl_80438584[];
 E_8006F134 *TWindowSubStatusDisp__sub_8006F134(O_8006F134 *self, s32 slot);
-}
-
-extern "C" {
-
 extern s32 lbl_8043859C[];
 
 typedef s32 (*SlotQueryNoArgs_8006F094)(void);

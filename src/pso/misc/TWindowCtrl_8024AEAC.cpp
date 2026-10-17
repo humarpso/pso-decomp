@@ -61,9 +61,7 @@ extern "C" {
 s32 TWindowCtrl__sub_8024B098(void *, void *);
 extern RecoveredGlobal_8024B000_lbl_804CE9D4 lbl_804CE9D4;
 void TWindowCtrl__sub_8024B000(s32 arg0, s32 arg1);
-s32 TWindowCtrl__sub_8024B098(void *, void *);
 extern RecoveredGlobal_8024AFB8_lbl_804CE9E0 window_ctrl_apply_default_vec_callback_entry;
-s32 TWindowCtrl__sub_8024B098(void *, void *);
 extern RecoveredGlobal_8024AF74_lbl_804CE9EC TWindowCtrl__player_menu_query_cb;
 extern RecoveredGlobal_8024AEF0_lbl_804CE9F8 TWindowCtrl__unsuppress_slot_cb;
 struct Win_8024AF34 { virtual void m0(); };
@@ -71,10 +69,6 @@ typedef void (Win_8024AF34::*Pmf_8024AF34)();
 void call_window_method__11TWindowCtrlFPvi(void *, Pmf_8024AF34);
 Win_8024AF34 *get_window__11TWindowCtrlFl(void *self);
 extern RecoveredGlobal_8024AEAC_lbl_804CEA04 TWindowCtrl__suppress_slot_cb;
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8024B000_lbl_804CE9D4_size[sizeof(RecoveredGlobal_8024B000_lbl_804CE9D4) == 0xC ? 1 : -1];
 
 typedef char RecoveredGlobal_8024AFB8_lbl_804CE9E0_size[sizeof(RecoveredGlobal_8024AFB8_lbl_804CE9E0) == 0xC ? 1 : -1];

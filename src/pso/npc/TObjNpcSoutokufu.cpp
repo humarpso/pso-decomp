@@ -118,20 +118,13 @@ s32 get_bml_model(int, int);
 s32 construct_male_npc_base(void *);
 extern s32 __vt__16TObjNpcSoutokufu[];
 extern s32 TObjNpcSoutokufu__name;
-extern u32 TObjNpcSoutokufu__shared_model_resource;
 u8 *TObjNpcSoutokufu__ct(u8 *arg0, s32 arg1, s32 arg2);
 f32 calc_sq_offset__12TBoss8DragonFf(void *, void *, f32);
 extern void *lbl_805D4DD8;
 extern const f32 lbl_805DD8E8;
-}
-
-extern "C" {
-
 void *__dt__16TObjNpcSoutokufuFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
-
-extern u32 TObjNpcSoutokufu__shared_model_resource;
 
 void TObjNpcSoutokufu::close_dialog_window() {
     if ((u32) TObjNpcSoutokufu__shared_model_resource != 0U) {
@@ -139,8 +132,6 @@ void TObjNpcSoutokufu::close_dialog_window() {
         TObjNpcSoutokufu__shared_model_resource = 0U;
     }
 }
-
-extern s32 __vt__16TObjNpcSoutokufu[];
 
 void TObjNpcSoutokufu::load_shared_resource() {
     s32 temp_r3;
@@ -164,7 +155,6 @@ void *__dt__16TObjNpcSoutokufuFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern void *lbl_805D4DD8;
 extern s32 boss5_common_texture_list;
 
 typedef char RecoveredGlobal_80289680___vt__16TObjNpcSoutokufu_size[sizeof(RecoveredGlobal_80289680___vt__16TObjNpcSoutokufu) == 0x178 ? 1 : -1];

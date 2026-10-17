@@ -91,12 +91,7 @@ void fn_802233F8(void *);
 void close_window__13TShopSequenceFv(void *);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
-void *__nw__7TObjectFUl(u32);
 extern void *tl_00;
-}
-
-extern "C" {
-
 struct Base_80212858_8021282C { char pad[0x18]; };
 struct VObj_80212858_8021282C : Base_80212858_8021282C {
     virtual void m0();
@@ -110,8 +105,6 @@ struct VObj_80212858_8021282C : Base_80212858_8021282C {
 };
 
 int TKeyBoardControl__sub_8000F950(void);
-s32 sub_802239EC__13TShopSequenceFv(void *);
-s32 sub_80223A48__15TShopWindowBaseFv(void *);
 
     extern int evt2_random_enemies_mode;
 void THunterGuildSeqOffline::set_enemy_mode_0() { TLobby::clear_counter(); evt2_random_enemies_mode = 0; TKeyBoardControl__sub_8000F950(); }

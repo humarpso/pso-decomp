@@ -38,7 +38,6 @@ s32 play_sound_effect(int, void *, int, int);
 s32 is_active_state__22TObjEneMe1GiGueBarrierFv(int);
 u16 obj_getField1c(void *);
 u8 * TObjMotion__ct(void *);
-s32 VecCopy__FP3VecPC3Vec(void *, int);
 s32 set_field_d8__10TObjPlayerFl(void *, void *, int);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
 s32 TObjEneMe1GiGueBarrier__sub_802CABF4(void *);
@@ -53,21 +52,14 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-extern s32 TObjEneMe1GiGueBarrier__barrier_resource_object;
 extern const f32 lbl_805DF620;
 extern const f32 lbl_805DF624;
 extern const f32 lbl_805DF628;
 extern const f32 lbl_805DF62C;
-}
-
-extern "C" {
-
 void TObjEneMe1GiGueBarrier__sub_80325CC0(void);
 void *__dt__22TObjEneMe1GiGueBarrierFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__10TObjMotionFv(void *, int);
-
-extern s32 __vt__22TObjEneMe1GiGueBarrier[];
 
 #pragma push
 #pragma opt_common_subs off
@@ -175,8 +167,6 @@ u8 *TObjEneMe1GiGueBarrier__ct(u8 *arg0, s32 arg1, u8 *arg2) {
 }
 
 void TObjEneMe1GiGueBarrier__sub_80325CC0(void) {  }
-
-extern s32 TObjEneMe1GiGueBarrier__barrier_resource_object;
 
 void *TObjEneMe1GiGueBarrier::create(void *arg0, void *arg1) {
     void *o;

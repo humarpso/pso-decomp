@@ -22,10 +22,6 @@ s32 TObjPlayer__sub_801D9E08(void *);
 void TObjPlayer__sub_801D9E10(void *, s32);
 extern const f32 lbl_805DC408;
 extern const f32 lbl_805DC40C;
-}
-
-extern "C" {
-
 void TObjPlayer::reset_all_tech_slots() {
     s32 i = 0;
     do {

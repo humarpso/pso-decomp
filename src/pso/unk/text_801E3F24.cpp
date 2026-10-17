@@ -22,10 +22,6 @@ extern char pso_data2_receive_log_format[];
 extern u8 subcommand_area_masks[];
 extern Ent_801E3FA4 pso_command_dispatch_table[];
 void dispatch_6x_subcommand(Msg_801E3FA4 *arg0);
-}
-
-extern "C" {
-
 void TObjCMHairMenu__sub_801E3F54(void* p, void* q);
 void handle_6x02(void);
 void handle_6x03(void);

@@ -109,11 +109,6 @@ Crater_8002C544 *TObjBoss1Crater__ct(Crater_8002C544 *self, void *arg1, void *ar
 f32 TBoss1Dragon__sub_80027634(u32);
 s32 TObjBoss1Crater__sub_8002C7E4(void *);
 void attack_target_list_remove(void *, s32);
-extern const V3_8002C544 lbl_80435560;
-}
-
-extern "C" {
-
 void *__dt__15TObjBoss1CraterFv(void *arg0, s16 arg1);
 void delete_buffer__12TBoss8DragonFis(void *, int);
 s32 post_translate_matrix(void *);
@@ -139,8 +134,6 @@ void TObjBoss1Crater::render() {
     model_render_flags &= 0xFEFFFFFF;
     pop_matrix();
 }
-
-extern s32 __vt__15TObjBoss1Crater[];
 
 void TObjBoss1Crater::run_task() {
     Crater_8002C288 *self = (Crater_8002C288 *)this;
@@ -214,8 +207,6 @@ void *__dt__15TObjBoss1CraterFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern s32 TObjBoss1Crater__instance_count;
 
 Crater_8002C544 *TObjBoss1Crater__ct(Crater_8002C544 *self, void *arg1, void *arg2, void *arg3) {
     f32 r;

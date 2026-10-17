@@ -7,14 +7,6 @@ s32 get_current_floor();
 s32 get_player_by_client_id(int);
 f32 xyz_distance(void *, void *);
 s32 check_player_door_proximity(s32 arg0, s32 arg1, f32 farg0);
-}
-
-extern "C" {
-
-s32 get_current_floor();
-s32 get_player_by_client_id(int);
-f32 xyz_distance(void *, void *);
-
 s32 check_player_door_proximity(s32 arg0, s32 arg1, f32 farg0) {
     s32 p;
     s32 i;

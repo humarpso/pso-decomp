@@ -26,10 +26,6 @@ extern const f32 lbl_805DDFD4;
 extern const f32 lbl_805DDFD8;
 extern const f32 lbl_805DDFDC;
 extern const f32 lbl_805DDFE0;
-}
-
-extern "C" {
-
 void TLobby__sub_803DA16C(void*);
 
 extern u32 lbl_805D6668;

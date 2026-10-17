@@ -34,23 +34,14 @@ void TUnk_80490470::calc_recoil_offsets() {
     *(f32 *)&this->m_c = var_f0;
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
     extern const float lbl_805D9958;
     extern const float lbl_805D9964;
 void TUnk_80490470::reset_obstruction_fade() { *(float *)&this->unk_18 = lbl_805D9958; *(float *)&this->unk_0 = lbl_805D9964; this->m_4 = lbl_805D9964; *(float *)&this->unk_8 = lbl_805D9964; this->m_c = lbl_805D9964; }
 
-    extern const float lbl_805D9958;
     extern const float lbl_805D995C;
 void TUnk_80490470::vfunc_4() { *(float *)&this->unk_18 = lbl_805D995C; *(float *)&this->unk_0 = lbl_805D9958; this->m_4 = lbl_805D9958; *(float *)&this->unk_8 = lbl_805D9958; this->m_c = lbl_805D9958; }
 
 }
-
-#include "types.h"
 
 struct Base_800A04F0 { f32 v0, v4, v8, vc; f32 rate; };
 
@@ -69,19 +60,10 @@ struct Obj_800A0554 : Base_800A0554 {
 };
 
 extern "C" {
-extern const f32 lbl_805D995C;
-extern const f32 lbl_805D9960;
 extern const f32 lbl_805D9968;
 void TObjPlayer__sub_800A04F0(Obj_800A04F0 *self);
-extern const f32 lbl_805D9958;
 extern const f32 lbl_805D996C;
 void TObjPlayer__sub_800A0554(Obj_800A0554 *self);
-}
-
-extern "C" {
-
-extern const f32 lbl_805D995C;
-
 void TUnk_80490470::set_rate_from_divisor(s32 arg1) {
     *(f32 *)&this->unk_10 = (f32) (lbl_805D995C / (f32) arg1);
 }
@@ -106,12 +88,6 @@ void TObjPlayer__sub_800A0554(Obj_800A0554 *self) {
     self->vc = lbl_805D9958;
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void *__dt__13TUnk_80490470Fv(void *arg0, s16 arg1);
 s32 __dt__13TUnk_80494AE0Fv(void *, s16);
 s32 __dl__FPv(void *);
@@ -131,7 +107,6 @@ void *__dt__13TUnk_80490470Fv(void *arg0, s16 arg1) {
 
 }
 
-#include "types.h"
 #include "pso/player/TObjPlayer.h"
 
 struct Obj_800A0654 { u8 pad[0x37c]; s32 count; u8 pad2[4]; u16 ids[1]; };
@@ -143,18 +118,10 @@ struct Obj_800A0728 { u8 pad[0x374]; s32 mode; s32 timer; s32 count; u8 pad2[4];
 extern "C" {
 void *get_enemy_entity(int);
 void TObjPlayer__sub_800A0654(Obj_800A0654 *self);
-void *get_enemy_entity(int);
 int TObjPlayer__sub_800A1808(void *p);
 s32 TObjPlayer__sub_800A06B4(Obj_800A06B4 *self);
-void *get_enemy_entity(int);
-}
-
-extern "C" {
-
 int TObjPlayer__sub_800D9718(void);
 
-    extern s32 lbl_80490470[];
-    extern const float lbl_805D9958;
 void*TUnk_80490470::init_vtable_and_field18() { TObjPlayer__sub_800D9718(); *(int*)((char*)this + 0x14) = (int)lbl_80490470; *(float *)&this->unk_18 = lbl_805D9958; return this; }
 void TObjPlayer__sub_800A0654(Obj_800A0654 *self) {
     s32 i;

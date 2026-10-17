@@ -126,8 +126,6 @@ extern u32 TObjNpcARW00__gvm_texture_handle;
 u8 *TObjNpcARW00__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *create_named_object(const char *name);
 void *load_gvm_texture_file(const char *name);
-extern u32 TObjNpcARW00__static_model;
-extern u32 TObjNpcARW00__gvm_texture_handle;
 extern char lbl_8043F4A8[];
 extern char lbl_8043F4BC[];
 void debug_printf_at(s32, const char *, ...);
@@ -136,16 +134,9 @@ extern char lbl_8043F4F8[];
 extern char lbl_8043F514[];
 extern char lbl_8043F52C[];
 extern const f32 lbl_805DB1B8;
-}
-
-extern "C" {
-
 void *__dt__12TObjNpcARW00Fv(void *arg0, s16 arg1);
 void TLobby__sub_803DA16C(void*);
 void __dl__7TObjectFPv(void *);
-
-extern u32 TObjNpcARW00__static_model;
-extern u32 TObjNpcARW00__gvm_texture_handle;
 
 void TObjNpcARW00::free_resources() {
     if ((u32) TObjNpcARW00__gvm_texture_handle != 0U) {
@@ -158,8 +149,6 @@ void TObjNpcARW00::free_resources() {
         TObjNpcARW00__static_model = 0U;
     }
 }
-
-extern s32 __vt__12TObjNpcARW00[];
 
 void TObjNpcARW00::load_resources() {
     TObjNpcARW00__static_model = (u32)create_named_object(lbl_8043F4A8);

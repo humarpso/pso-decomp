@@ -7,10 +7,6 @@ extern "C" {
 s32 __ct__8TObjRainFv(void *, void *, int);
 u32 __nw__7TObjectFUl(int);
 extern s32 tl_particle;
-}
-
-extern "C" {
-
 void *TObjRainCtrl__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 

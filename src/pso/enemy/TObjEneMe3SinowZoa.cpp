@@ -30,10 +30,6 @@ s32 transition_enemy_state(void *, int);
 void advance_animation_playback(void *);
 void play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805DF334;
-}
-
-extern "C" {
-
 struct VBase_14_948132 { char pad[0x14]; };
 
 struct VObj_14_948132 : VBase_14_948132 {
@@ -648,8 +644,6 @@ struct VObj_14_2ab9de : VBase_14_2ab9de {
 
 typedef struct Tbl_8031AF88 { u8 pad[0xC]; s32 t[3][2]; } Tbl_8031AF88;
 
-f32 calc_boss4_scale__10TObjPlayerFi(s32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 u32 get_item_field_6__10TObjPlayerFPv(void *);
 f32 fabs_float(f32);
@@ -668,7 +662,6 @@ int vfunc_96__9TObjEneDDFv(void*);
 int vfunc_95__9TObjEneDDFv(void*);
 void TObjEneDD__sub_800BA438(void *, void *);
 s32 init_model__9TObjEneDDFv(void *, void *, int, int);
-s32 transition_enemy_state(void *, int);
 s32 TObjEneMe3SinowZoa__sub_800D72A4(void *);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 void __dt__13TUnk_80494938Fv(void *, int);
@@ -676,12 +669,10 @@ s32 TBoss3Volopt__sub_800D8D88(void *, f32);
 f32 * TBoss3Volopt__sub_800F059C(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
-void advance_animation_playback(void *);
 s32 set_indexed_flags(void *, int, int);
 s32 check_enemy_body_collisions(void *);
 void free_collision_body_parts(void *);
 void send_6x26_unequip_item__10TObjPlayerFPvPv(void *, s32);
-void play_sound_effect(s32, void *, s32, s32);
 void __dl__7TObjectFPv(void *);
 void create__10TTecDebandFlll(void *, void *, int);
 void create__9TTecJelinFllll(void *, void *, void *, int);
@@ -1593,9 +1584,6 @@ struct VObj_14_803182F8 : VBase_14_803182F8 {
 
 extern "C" {
 
-s32 transition_enemy_state(void *, int);
-void advance_animation_playback(void *);
-
 void TObjEneMe3SinowZoa::state_knockback(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     Vec_803181A8 v;
@@ -1675,10 +1663,6 @@ void TObjEneMe3SinowZoa__sub_803182F8(u8 *arg0, s32 arg1) {
 }
 
 extern "C" {
-
-s32 transition_enemy_state(void *, int);
-void advance_animation_playback(void *);
-extern const f32 TObjEneMe3SinowZoa__data_805DF324;
 
 void TObjEneMe3SinowZoa::handle_state_substate(s32 arg1) {
     switch (arg1) {
@@ -1825,13 +1809,6 @@ struct VSub_80318564 : Base14_80318564 {
 
 extern "C" {
 
-s32 check_v2_mode__9TObjEneDDFv(s32, s32);
-s32 transition_enemy_state(void *, int);
-void advance_animation_playback(void *);
-s32 set_indexed_flags(void *, int, int);
-void create__10TTecDebandFlll(void *, void *, int);
-void cast_technique__18TObjEneMe3SinowZoaFPv(u8 *arg0);
-extern f32 *TObjEneMe3SinowZoa__kind_param_tbls[];
 extern const f32 TObjEneMe3SinowZoa__data_805DF30C;
 extern const f32 TObjEneMe3SinowZoa__data_805DF310;
 
@@ -2244,13 +2221,7 @@ struct VObj_18_4f5f2e : VBase_18_4f5f2e {
     virtual s32 m110();
 };
 
-f64 atan2_float(f32, f32);
 s32 move_to_shot_position__9TObjEneDDFfff(void *, f32 *, f32, f32, f32);
-s32 approach_angle_limited(int, int, int);
-extern const f64 TObjEneMe3SinowZoa__data_804760A0;
-extern const f32 TObjEneMe3SinowZoa__data_805DF308;
-extern const f32 TObjEneMe3SinowZoa__data_805DF30C;
-extern const f32 TObjEneMe3SinowZoa__data_805DF310;
 
 #pragma push
 #pragma opt_common_subs off
@@ -2447,28 +2418,9 @@ struct Ene_80318F7C : Obj_80318F7C {
 
 extern "C" {
 
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f64 atan2_float(f32, f32);
 u32 csnVecterUnder(void *, int);
-s32 transition_enemy_state(void *, int);
-s32 approach_angle_limited(int, int, int);
-s32 objInBand__FP7GameObjf(void *, f32);
-void advance_animation_playback(void *);
-s32 set_indexed_flags(void *, int, int);
-void play_sound_effect(s32, void *, s32, s32);
-extern const f64 TObjEneMe3SinowZoa__data_804760A0;
-extern const f32 TObjEneMe3SinowZoa__data_805DF2F0;
-extern const f32 TObjEneMe3SinowZoa__data_805DF2F4;
-extern const f32 lbl_805DF2F8;
-extern const f32 TObjEneMe3SinowZoa__data_805DF30C;
-extern const f32 TObjEneMe3SinowZoa__data_805DF310;
-extern const f32 TObjEneMe3SinowZoa__data_805DF314;
-extern const f32 TObjEneMe3SinowZoa__data_805DF31C;
-extern const f32 TObjEneMe3SinowZoa__data_805DF320;
-extern const f32 TObjEneMe3SinowZoa__data_805DF328;
 extern const f32 lbl_805DF348;
 extern const f32 lbl_805DF34C;
-extern const f32 lbl_805DF350;
 extern const f32 lbl_805DF354;
 
 void TObjEneMe3SinowZoa__sub_80318F7C(Ene_80318F7C *self, s32 arg1) {
@@ -2745,10 +2697,6 @@ void TObjEneMe3SinowZoa__sub_80319748(u8 *arg0, s32 arg1) {
 extern "C" {
 
 s32 enemy_validate_retained_target(void *);
-s32 transition_enemy_state(void *, int);
-void advance_animation_playback(void *);
-extern const f32 TObjEneMe3SinowZoa__data_805DF31C;
-extern const f32 TObjEneMe3SinowZoa__data_805DF324;
 extern const u32 lbl_805DF368;
 
 void TObjEneMe3SinowZoa::update_state_action(s32 arg1) {
@@ -2912,13 +2860,6 @@ struct VObj_18_bb4b7f : VBase_18_bb4b7f {
 
 extern "C" {
 
-f32 calc_boss4_scale__10TObjPlayerFi(s32);
-s32 transition_enemy_state(void *, int);
-void advance_animation_playback(void *);
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
-extern const f32 TObjEneMe3SinowZoa__data_805DF31C;
-extern const f32 TObjEneMe3SinowZoa__data_805DF324;
 extern const f32 lbl_805DF36C;
 extern const f32 lbl_805DF370;
 

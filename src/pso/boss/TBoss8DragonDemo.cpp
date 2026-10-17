@@ -39,10 +39,6 @@ extern RecoveredGlobal_802F2CC4_lbl_804E4A44 lbl_804E4A44;
 extern const f32 lbl_805DE9F4;
 void TBoss8DragonDemo__sub_802F2CC4(void);
 void TBoss8DragonColli__sub_802F3074(void *c);
-}
-
-extern "C" {
-
 f32 TBoss8DragonDemo__sub_802F2CB4(void* p);
 f32 TBoss8DragonDemo__sub_802F2CBC(void* p);
 int VecCopy__FP3VecPC3Vec(void*);

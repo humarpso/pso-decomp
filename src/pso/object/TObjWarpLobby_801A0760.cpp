@@ -43,10 +43,6 @@ extern const f32 lbl_805DC068;
 extern const f32 lbl_805DC06C;
 extern const f32 lbl_805DC070;
 void run_task__13TObjWarpLobbyFv(VO_801A0894 *arg0);
-}
-
-extern "C" {
-
 void *__dt__13TObjWarpLobbyFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model_with_motion(s32, s32, f32);

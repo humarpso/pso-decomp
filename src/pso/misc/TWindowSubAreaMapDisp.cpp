@@ -42,14 +42,9 @@ s32 construct_type1_heading__20TWindowSubStatusDispFll(int, int, int);
 s32 get_game_play_mode();
 s32 strncpy(int, int, void *);
 extern RecoveredGlobal_80271D00_lbl_804D0FC0 TWindowSubAreaMapDisp__window_parameters;
-extern RecoveredGlobal_80271C6C___vt__21TWindowSubAreaMapDisp __vt__21TWindowSubAreaMapDisp;
 extern s32 TWindowSubAreaMapDisp__name;
 extern s32 local_client_id;
 u8 *TWindowSubAreaMapDisp__ct(u8 *arg0);
-}
-
-extern "C" {
-
 void apply_context_transform_to_rect(void *, void *);
 void begin_screen_draw(s32);
 void draw_textured_quad_at_depth(void *, f32);

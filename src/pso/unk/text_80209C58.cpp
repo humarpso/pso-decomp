@@ -5,10 +5,6 @@ struct Hdr_80209C58 { s32 type; s32 size; s32 id; s32 x; };
 extern "C" {
 extern s32 lbl_805D60CC;
 Hdr_80209C58 *find_header_by_id__6TLobbyFPvi(Hdr_80209C58 *arg, s32 id);
-}
-
-extern "C" {
-
 Hdr_80209C58 *find_header_by_id__6TLobbyFPvi(Hdr_80209C58 *arg, s32 id) {
     Hdr_80209C58 *p;
     if ((p = arg) != NULL) {

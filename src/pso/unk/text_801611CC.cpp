@@ -80,12 +80,6 @@ extern const f32 lbl_805DB484;
 u8 *TODoorAncient09__ct(u8 *arg0, s32 arg1, s32 arg2);
 void update_and_send_60__6TLobbyFPv(void *);
 u8 is_current_floor_switch_set(u16);
-}
-
-extern "C" {
-
-s32 play_sound_effect(s32, void *, s32, s32);
-s32 is_any_player_within_radius_xz(f32);
 s32 get_main_phase();
 
 typedef char RecoveredGlobal_801611CC_lbl_804B1248_size[sizeof(RecoveredGlobal_801611CC_lbl_804B1248) == 0x2C ? 1 : -1];

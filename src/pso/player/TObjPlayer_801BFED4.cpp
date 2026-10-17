@@ -13,10 +13,6 @@ extern "C" {
 extern const f32 TObjPlayer__data_805DC278;
 void TObjPlayer__sub_801BFF80(u8 *arg0);
 s32 TFontSmallLobby__sub_801C0228();
-}
-
-extern "C" {
-
 void TObjPlayer__sub_801BFED4(void* p);
 s32 TObjPlayer__sub_801BFFA0(void* p);
 int clear_id__10TObjPlayerFv(void*);

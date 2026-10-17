@@ -33,14 +33,8 @@ s32 TWindowDD__sub_80348424(void *, s16);
 s16 TWindowDD__sub_80348448(void *, s32);
 s32 push_recent_id(s32);
 void handle_confirm_input__9TWindowDDFPv(W_80342ED0 *arg0);
-}
-
-extern "C" {
-
 s32 apply_entry_layout__9TWindowDDFPv(void *);
-s32 TWindowDD__sub_803435A0(void *);
 s32 update_selection_state__9TWindowDDFPv();
-s32 TWindowDD__sub_803482B0(void *);
 s32 TWindowDD__sub_803484C4(void *);
 
 void TWindowDD::update() {

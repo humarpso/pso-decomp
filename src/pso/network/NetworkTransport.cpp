@@ -130,7 +130,6 @@ extern s32 queue_thread_handle;
 extern u32 TLobby__send_ring_mutex;
 extern s16 network_pppoe_transport_enabled;
 void TLobby__sub_803F8238(void);
-void TLobby__sub_803F95E4(u32);
 extern RecoveredGlobal_803F7A30_lbl_805C18A0 lbl_805C18A0;
 extern s32 send_ring_buffer_base;
 extern s32 lobby_ring_buffer_size;
@@ -147,7 +146,6 @@ extern s32 lobby_map_state_code;
 extern E_803F7684 lbl_804FD350[];
 s32 compare_str__6TLobbyFUc(void *, u32);
 s32 TLobby__sub_803F7684(void *arg0);
-extern RecoveredGlobal_803F7A30_lbl_805C18A0 lbl_805C18A0;
 extern u8 run_net_thread_loop__6TLobbyFv[];
 s16 TLobby__sub_803F96AC(void *);
 void NetResumeThread(s32);
@@ -160,14 +158,8 @@ s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32, s32, void *);
 s32 TAdSinglePlyChrSelectGC__sub_8042E184(void);
 void subtract_network_queue_timeout(s32 arg0);
 s32 TAdSinglePlyChrSelectGC__sub_8042E320(s32, s32, void *);
-extern s32 lobby_map_state_code;
 void set_lobby_map_state_code(s32 arg0);
-extern s16 net_slot_id;
-extern s16 network_pppoe_transport_enabled;
 s32 TLobby__sub_803F8090(void);
-extern u32 TLobby__send_ring_mutex;
-extern s32 send_ring_buffer_base;
-extern s32 lobby_ring_buffer_size;
 extern s32 lobby_send_ring_read_pos;
 extern s32 lobby_send_ring_pending_bytes;
 extern Q_803F7AF4 TLobby__next_send_chunk;
@@ -176,25 +168,11 @@ Q_803F7AF4 *get_next_send_chunk__6TLobbyFv(void);
 s32 OSIsThreadSuspended(s32);
 void resume_thread__6TLobbyFv(s32);
 void NetMemcpy(void *, void *, s32);
-extern s32 queue_thread_handle;
-extern u32 TLobby__send_ring_mutex;
-extern s32 send_ring_buffer_base;
-extern s32 lobby_ring_buffer_size;
 extern s32 lobby_ring_buffer_write_pos;
-extern s32 lobby_send_ring_pending_bytes;
-s16 TLobby__sub_803F96AC(void *);
-void NetResumeThread(s32);
-s16 TLobby__sub_803F9B94(void *, void *);
 s16 TLobby__sub_804281DC(void *);
 s32 TAdSinglePlyChrSelectGC__sub_8042CEF8(char *);
 void TAdSinglePlyChrSelectGC__sub_8042E488(s32);
 extern u8 pppoe_discovery_name_storage[2][256];
-extern RecoveredGlobal_803F7A30_lbl_805C18A0 lbl_805C18A0;
-extern s16 net_slot_id;
-extern s32 queue_thread_handle;
-extern u32 TLobby__send_ring_mutex;
-extern s32 send_ring_buffer_base;
-extern s16 network_pppoe_transport_enabled;
 s32 TLobby__sub_803F8314(A_803F8314 *arg0);
 u32 layout_buffers__6TLobbyFPUcPUc(u8 *, u32, u32);
 extern u32 net_transport_buffer_ptr_a;
@@ -205,28 +183,11 @@ extern T_803F86C0 lbl_805D7A50;
 s32 TAdSinglePlyChrSelectGC__sub_8042D49C(int);
 s32 TLobby__sub_803F7E50(s32 arg0, s32 arg1, s32 arg2, s32 n, s32 p);
 s32 TAdSinglePlyChrSelectGC__sub_8042D7E0(void *);
-extern s16 net_slot_id;
-extern s16 network_pppoe_transport_enabled;
 s32 TLobby__sub_803F812C(u16 arg0, void *arg1, u16 *arg2);
 s32 TLobby__sub_803F8D24(Info_803F861C *);
-extern s16 lbl_805D47F8;
-extern u16 net_param_player_count;
-extern u16 net_param_room_count;
-extern s32 lbl_805D4800;
-extern s16 lbl_805D4804;
-extern s32 lbl_805D4808;
-extern s32 lbl_805D480C;
-extern s32 net_param_word_h;
-extern s32 net_param_word_i;
 s32 TLobby__sub_803F861C(Info_803F861C *arg0);
 s16 TLobby__sub_80427F48(s16, u8 *, u16);
-extern s16 net_slot_id;
-extern s16 network_pppoe_transport_enabled;
 s32 send_network_frame(u16 arg0, u8 *arg1);
-}
-
-extern "C" {
-
 void TLobby__sub_803F7678(void);
 s32 TLobby__sub_803F767C(void);
 void TLobby__sub_803F76F0(void);
@@ -236,8 +197,6 @@ void TLobby__sub_803F7980(void);
 void TLobby__sub_803F79AC(void);
 void TLobby__sub_803F79B0(u8 *arg0);
 void TLobby__sub_803F79BC(void);
-void set_lobby_map_state_code(s32 arg0);
-void subtract_network_queue_timeout(s32 arg0);
 void TLobby__sub_803F808C(void);
 s32 TLobby__sub_803F811C(s16 *arg0);
 void TLobby__sub_803F86BC(void);
@@ -421,8 +380,6 @@ void TLobby__sub_803F79BC(void) {
 
 }
 
-extern s32 lobby_map_state_code;
-
 typedef char RecoveredGlobal_803F79C0_lbl_805A9008_size[sizeof(RecoveredGlobal_803F79C0_lbl_805A9008) == 0x1090 ? 1 : -1];
 void TLobby::init_net_buffer_desc() {
     u8 *arg0 = (u8 *)this;
@@ -552,8 +509,6 @@ s32 TLobby::write_ring_buffer(u8 *src, s32 len) {
 void set_lobby_map_state_code(s32 arg0) {
     lobby_map_state_code = arg0;
 }
-
-extern s32 TLobby__queue_timeout_remaining;
 
 void subtract_network_queue_timeout(s32 arg0) {
     TLobby__queue_timeout_remaining -= arg0;

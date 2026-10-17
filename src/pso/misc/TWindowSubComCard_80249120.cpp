@@ -11,10 +11,6 @@ s32 get_field_74__20TWindowChoiceSettingFv(void *);
 extern const f32 lbl_805DCBB8;
 extern const f32 lbl_805DCBBC;
 void TWindowSubComCard__sub_80249144(void *arg0);
-}
-
-extern "C" {
-
 int fn_80268C5C(void*);
 
 void TWindowSubComCard::begin_scroll(f32 farg0) {

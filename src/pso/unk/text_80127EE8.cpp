@@ -16,9 +16,6 @@ u8 *yamigarasu_create(u8 *arg0);
 u8 * TItemTimerEvent__ct(void *, s16, s32);
 extern RecoveredGlobal_80127F40_lbl_804A0588 lbl_804A0588;
 u8 *confusion_curse_timer_ct(u8 *arg0, s16 arg1, s32 arg2, f32 farg0);
-}
-
-extern "C" {
 
 u8 *yamigarasu_create(u8 *arg0) {
     u8 *temp_r3;

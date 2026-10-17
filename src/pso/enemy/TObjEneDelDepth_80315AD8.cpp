@@ -16,10 +16,6 @@ extern Info_80315B10 deldepth_anim_binding;
 extern Info_80315B10 deldepth_anim_binding_b;
 extern s32 TObjEneDelDepth__tune_params;
 extern const f32 TObjEneDelDepth__data_805DF258;
-}
-
-extern "C" {
-
 s32 TObjEneDelDepth__create(s32 arg0);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TObjControl__ct(s32, s32);

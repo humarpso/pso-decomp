@@ -16,19 +16,12 @@ extern const f32 lbl_805E0380;
 void *TBoss6EffHyoui__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 }
 
-#include "types.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 get_player_by_client_id(int);
-s32 is_active__14TBoss6PlotFalzFv();
-}
-
-extern "C" {
-
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_02;

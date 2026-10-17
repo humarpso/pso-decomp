@@ -106,17 +106,11 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_80149DE0_lbl_804A87C0 bm_n_ebw_i_body_resource_descriptor;
 extern u32 TObjNpcFemaleBase__shared_resource_obj;
-u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_80149FB8_lbl_804A8950 bm_n_ecw_i_body_resource_descriptor;
 extern u32 TObjNpcFemaleChild__static_instance;
 extern s32 __vt__17TObjNpcFemaleBase[];
 extern s32 TObjNpcFemaleBase__name;
-extern u32 TObjNpcFemaleBase__shared_resource_obj;
 u8 *TObjNpcFemaleBase__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void * TObjNpcFemaleBase__create(void *arg0);
 void * TObjNpcFemaleChild__create(void *arg0);
 void *__dt__17TObjNpcFemaleBaseFv(void *arg0, s16 arg1);
@@ -142,16 +136,12 @@ void * TObjNpcFemaleBase__create(void *arg0) {
     return o2;
 }
 
-extern u32 TObjNpcFemaleBase__shared_resource_obj;
-
 void TObjNpcFemaleBase::free_static_data() {
     if ((u32) TObjNpcFemaleBase__shared_resource_obj != 0U) {
         TLobby__sub_8001FE7C((void*)TObjNpcFemaleBase__shared_resource_obj, 1);
         TObjNpcFemaleBase__shared_resource_obj = 0U;
     }
 }
-
-extern s32 __vt__17TObjNpcFemaleBase[];
 
 void TObjNpcFemaleBase::load_shared_resource() {
     s32 temp_r3;
@@ -174,8 +164,6 @@ void *__dt__17TObjNpcFemaleBaseFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern void *tl_04;
 
 typedef char RecoveredGlobal_80149E88___vt__17TObjNpcFemaleBase_size[sizeof(RecoveredGlobal_80149E88___vt__17TObjNpcFemaleBase) == 0x178 ? 1 : -1];
 u8 *TObjNpcFemaleBase__ct(u8 *arg0, s32 arg1, s32 arg2) {
@@ -203,8 +191,6 @@ void * TObjNpcFemaleChild__create(void *arg0) {
     }
     return o2;
 }
-
-extern u32 TObjNpcFemaleChild__static_instance;
 
 void TObjNpcFemaleChild::release_static_instance() {
     if ((u32) TObjNpcFemaleChild__static_instance != 0U) {

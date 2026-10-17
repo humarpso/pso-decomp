@@ -8,10 +8,6 @@ extern u32 lightning_charge_particle_ids[];
 void* spawn_particle_effect(float*,u32);
 int queue_destruction__7TObjectFv(void*);
 void TTecSlicer__updateLightningTechniqueCharge(TechniqueChargeEmitter* state);
-}
-
-extern "C" {
-
 u8 *init_from_owner__10TTecSlicerFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 play_sound_effect(int, void *, int, int);
 void stop_sound_request(void *);
@@ -58,8 +54,6 @@ void *TTecSlicer::dt(s16 arg1) {
     }
     return this;
 }
-
-extern s32 lbl_804CCD0C[];
 
 u8 *init_from_owner__10TTecSlicerFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject(arg0, (void *) (arg2));

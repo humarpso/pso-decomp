@@ -35,10 +35,6 @@ extern const f32 lbl_805DD2D8;
 extern const f32 lbl_805DD2DC;
 extern const f32 lbl_805DD2E0;
 void *TWindowQuantity__ct(void *arg0, void *arg1);
-}
-
-extern "C" {
-
 void *create_window_quantity(void *arg0);
 void *__dt__15TWindowQuantityFv(void *arg0, s16 arg1);
 s32 draw_window_tab(s32, s32, s32, f32);
@@ -58,8 +54,6 @@ void render__15TWindowQuantityFv(s32 arg0) {
 }
 
 void TWindowQuantity::run_task() { initialize_subwindow__9TWindowDDFv(this); update_window_entry_list((char*)this + 0x24); }
-
-extern s32 __vt__15TWindowQuantity[];
 
 void *__dt__15TWindowQuantityFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

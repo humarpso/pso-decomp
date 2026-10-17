@@ -56,22 +56,11 @@ void apply_context_transform_to_rect(void *, void *);
 void draw_textured_quad_at_depth(void *, f32);
 void set_constant_material_color(s32);
 void draw_color_palette__24TWindowSubSymbolChatHelpFPvPv(Self_8028429C *arg0, Win_8028429C *arg1);
-void apply_context_transform_to_rect(void *, void *);
-void draw_textured_quad_at_depth(void *, f32);
-void set_constant_material_color(s32);
 extern UV_802844C8 symbol_chat_help_entry_uv_table[];
 void draw_help_entry__24TWindowSubSymbolChatHelpFPvPvii(Self_802844C8 *arg0, Win_802844C8 *arg1, s32 arg2, s32 arg3);
-void apply_context_transform_to_rect(void *, void *);
-void draw_textured_quad_at_depth(void *, f32);
-void set_constant_material_color(s32);
 extern UV_802845EC symbol_chat_help_icon_uv_table[];
 void draw_help_icon__24TWindowSubSymbolChatHelpFiPvii(s32 arg0, Win_802845EC *arg1, s32 arg2, s32 arg3);
-}
-
-extern "C" {
-
 void *__dt__24TWindowSubSymbolChatHelpFv(void *arg0, s16 arg1);
-s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 begin_screen_draw(s32);
 s32 set_draw_texture_and_color(s32, s32);
 void __dl__7TObjectFPv(void *);
@@ -225,8 +214,6 @@ void TWindowSubSymbolChatHelp::draw_help_entries(void *arg1) {
     }
 }
 
-extern s8 controller_input_state[];
-
 void TWindowSubSymbolChatHelp::handle_toggle_input() {
     s32 *temp_r3;
     s32 *temp_r3_2;
@@ -252,9 +239,6 @@ void TWindowSubSymbolChatHelp::handle_toggle_input() {
         }
     }
 }
-
-}
-extern "C" {
 
 typedef struct RecoveredGlobal_80284A28_lbl_8050E208 RecoveredGlobal_80284A28_lbl_8050E208;
 void TWindowSubSymbolChatHelp::handle_page_input() {
@@ -286,8 +270,6 @@ void TWindowSubSymbolChatHelp::render() {
 }
 
 void TWindowSubSymbolChatHelp::run_task() { handle_page_input(); handle_toggle_input(); initialize_subwindow__9TWindowDDFv(this); }
-
-extern s32 __vt__24TWindowSubSymbolChatHelp[];
 
 void *__dt__24TWindowSubSymbolChatHelpFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -30,10 +30,6 @@ s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 extern RecoveredGlobal_8023C558_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_8023C558_lbl_804CC55C lbl_804CC55C;
-}
-
-extern "C" {
-
 typedef struct RecoveredFields_8023C558_arg0 RecoveredFields_8023C558_arg0;
 typedef struct RecoveredGlobal_8023C558_lbl_804CC510 RecoveredGlobal_8023C558_lbl_804CC510;
 typedef struct RecoveredGlobal_8023C558_lbl_804CC55C RecoveredGlobal_8023C558_lbl_804CC55C;
@@ -56,8 +52,6 @@ void TTecZonde::init_parameters() {
 }
 
 }
-
-#include "types.h"
 
 struct VBase_18_0c879f { char pad[0x18]; };
 
@@ -93,10 +87,6 @@ struct Obj_8023C6B4 { u8 pad[0x1C]; void *source; u8 pad20[0xCC - 0x20]; f32 pow
 extern "C" {
 s32 test_elt_flag__13TUnk_80493450Fll(void *, s32, s32);
 void TTecZonde__vt6(Obj_8023C6B4 *arg0, VObj_18_0c879f *arg1);
-}
-
-extern "C" {
-
 u8 *TTecZonde__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4);
 void *__nw__7TObjectFUl(int);
 
@@ -119,10 +109,7 @@ void TTecZonde__vt6(Obj_8023C6B4 *arg0, VObj_18_0c879f *arg1) {
 
 }
 
-#include "types.h"
-#include "pso/misc/TTecZonde.h"
 #include "pso/misc/TTecLuker.h"
-#include "pso/player/TObjPlayer.h"
 
 struct Seg_8023C79C { f32 a[3]; f32 b[3]; f32 len; };
 struct VBase_8023C79C { char pad[0x18]; };
@@ -153,15 +140,8 @@ void copy_technique_target_list(void *, void *);
 u8 * construct_facing_technique__10TObjPlayerFPviPvii(void *, s32, void *, s32, s16);
 extern s32 __vt__9TTecZonde[];
 extern s32 lbl_805D3838;
-u8 *TTecZonde__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4);
-}
-
-extern "C" {
-
 void *__dt__9TTecZondeFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-
-extern s32 __vt__9TTecZonde[];
 
 void *__dt__9TTecZondeFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -183,7 +163,6 @@ s32 queue_destruction__7TObjectFv(void *);
 u8 *find_entity_by_id(u16);
 void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
-void *__nw__7TObjectFUl(int);
 u8 *construct_helper_effect__11TTecGiZondeFPvPvPvPvi(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4);
 s32 rand();
 f32 vector_length(void *);

@@ -125,10 +125,6 @@ extern "C" {
 extern s32 lbl_805D65F0;
 s32 VecCopy__FP3VecPC3Vec(void *, int);
 extern RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 sora_reflection_ray_direction;
-}
-
-extern "C" {
-
 void *create_instance__10TSceneSoraFPv(void *arg0);
 s32 __ct__7TObjectFP7TObject();
 s32 __dl__7TObjectFPv(void *);
@@ -138,7 +134,6 @@ void *construct_indirect_effect_task(void *, s32, s32, s32);
 s32 queue_destruction__7TObjectFv(void *);
 
 extern s32 lbl_804DC7C4[];
-extern s32 lbl_805D65F0;
 extern s16 scene_sora_reflect_active;
 extern s8 scene_sora_recon_active_flag;
 
@@ -163,11 +158,8 @@ void *TUnk_804DC7C4::destroy(s16 arg1) {
     return this;
 }
 
-extern s32 lbl_804DC7C4[];
 extern s32 tl_05;
 extern void *scene_sora_instance;
-extern s16 scene_sora_reflect_active;
-extern s8 scene_sora_recon_active_flag;
 extern s32 scene_sora_recon_object;
 extern const f32 lbl_805DDD8C;
 extern const f32 lbl_805DDD90;

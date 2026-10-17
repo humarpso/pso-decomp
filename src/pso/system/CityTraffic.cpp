@@ -70,24 +70,14 @@ extern s32 city_aircar_model_indices[];
 s32 sample_aircar_path_position(s32 arg0, void *arg1, f32 farg0);
 void VecCopy__FP3VecPC3Vec(Vec_801817AC *, const Vec_801817AC *);
 s32 alloc_tables__6TLobbyFll(s32, s32, s32, Ent_801817AC *);
-s32 get_city_common_motion(s32 i);
-s32 get_city_common_model(s32 i);
 s32 TLobby__sub_80184C2C(int);
 Lob_801817AC *get_season_model_resource(int);
-void bind_motion_context(s32, f32);
-void sample_motion_node_transform(void *, void *, void *, void *, void *);
 void subtract_vector(Vec_801817AC *, Vec_801817AC *);
-extern s32 city_traffic_path_motion_index_table[];
-extern s32 city_aircar_model_indices[];
 extern s32 city_traffic_car_chunk_index_table[];
 extern Lob_801817AC *city_air_car_model_resource;
 extern s32 city_air_car_model_handle;
 extern const f32 lbl_805DBBC4;
-extern const f32 lbl_805DBBC8;
 void measure_traffic_path_lengths(void);
-}
-
-extern "C" {
 
 #pragma push
 #pragma opt_propagation off
@@ -151,7 +141,6 @@ void free_buffer_pair_table(void) {
 
 #pragma push
 
-#include "types.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 struct E_801819CC { s32 a; s32 b; };
@@ -164,12 +153,6 @@ struct O_801819E4 { u8 pad[0x42c]; E_801819E4 *entries; };
 
 extern "C" {
 extern O_801819CC *city_common_model_archive;
-s32 get_city_common_motion(s32 i);
-extern O_801819CC *city_common_model_archive;
-s32 get_city_common_model(s32 i);
-}
-
-extern "C" {
 
 f32 air_car_lane_spacing_table[5];
 f32 air_car_lane_speed_scale_table[5];

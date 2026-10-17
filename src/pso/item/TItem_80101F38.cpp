@@ -31,10 +31,6 @@ void normalize__9TItemDataFv(void *);
 s32 get_player_by_client_id(u16);
 extern s32 lbl_805D5450;
 void send_drop_item_6x5D__5TItemFPviPv(void *item, s32 id, Pos_80101FEC *pos);
-}
-
-extern "C" {
-
 void handle_6x5D_drop_stacked_item(u8 *arg0) {
     FloorItem drop;
     ((TLobby *)arg0)->bswap_6x5D();

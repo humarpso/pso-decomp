@@ -24,7 +24,6 @@ u8 *get_state_ptr__10TObjPlayerFv(void *);
 void reset_partner_counter(void *, s32);
 void increment_partner_counter(void *, s32);
 s16 TNpcPlayer__sub_801528DC(void *);
-u32 get_npc_state__10TNpcPlayerFv(s32);
 s16 get_npc_type__10TNpcPlayerFPv(void *);
 s16 get_partner_counter(void *, s32);
 void init_6x45_attack_packet(void *);
@@ -32,10 +31,6 @@ void init_6x44_attack_packet(void *);
 void init_6x43_attack_packet(void *);
 void set_field2__10TNpcPlayerFs(void *, s32);
 void set_field_0__10TNpcPlayerFs(void *, s32);
-}
-
-extern "C" {
-
 void TNpcPlayer__sub_8014DC30(void);
 int TNpcPlayer__sub_8014DC3C(void* p);
 int request_technique_cast__10TNpcPlayerFPvi(void*);

@@ -45,17 +45,12 @@ extern s32 lbl_805D5668;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-}
-
-extern "C" {
-
 void TItemEffPG__begin_visual_fade(void* p);
 void *__dt__13TUnk_804F0BF0Fv(void *arg0, s16 arg1);
 void TItemWeapon__ct(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__10TItemEffPGFv(void *, int);
 void __dt__7TObjectFv(void *, int);
-void queue_destruction__7TObjectFv(void *);
 void set_status_flags__10TObjPlayerFUl(void *, int);
 
 extern s32 lbl_804F0AF8[];
@@ -85,8 +80,6 @@ u8 *TItemEffPG::create() {
 }
 
 void TItemEffPG__begin_visual_fade(void* p) { *(s32*)((char*)p + 0x58) = 1; }
-
-extern s32 lbl_804F0BF0[];
 
 void TUnk_804F0BF0::render() {
     u8 *arg0 = (u8 *)this;

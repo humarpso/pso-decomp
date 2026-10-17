@@ -2,13 +2,9 @@
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TRaderMapCore.h"
 
-extern "C" {
 extern u32 story_quest_list_resource;
-}
 
 extern "C" {
-
-extern u32 story_quest_list_resource;
 
 void TLobby::free_global() {
     if ((u32) story_quest_list_resource != 0U) {

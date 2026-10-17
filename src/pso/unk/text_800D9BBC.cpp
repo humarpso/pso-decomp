@@ -5,10 +5,6 @@
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 project_actor_to_ground(void *, void *, s32);
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 void TObjEneNanoDrago::sub_800D9BBC() {

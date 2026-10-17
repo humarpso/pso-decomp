@@ -48,15 +48,11 @@ typedef void (C_803362A4::*PMF_803362A4)();
 extern "C" {
 int TKeyBoardControl__sub_8000F9CC(void*);
     extern int lobby_game_mode_state;
-extern int lobby_game_mode_state;
-extern int lobby_game_mode_state;
-extern int lobby_game_mode_state;
 void TLobby__sub_8033633C(void);
 s32 queue_destruction__7TObjectFv(void*);
 s32 TCameraCtrl__sub_800694A8();
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
-s32 queue_destruction__7TObjectFv(void*);
 extern s32 lbl_804EEF64[];
 extern u32 title_scene_instance;
     extern int lbl_805D68C8;
@@ -65,7 +61,6 @@ s32 TLobby__sub_803DA16C(void *, s32);
 u64 call_funcs_reverse__6TLobbyFPvUi(void *, int);
 extern RecoveredGlobal_8033670C_lbl_804EE58C lobby_load_callback_table;
 extern u8 *lobby_title_texture_list;
-s32 queue_destruction__7TObjectFv(void*);
 s32 disallow_rendering__7TObjectFv(void *);
 void hide_title_layers_and_release(O_8033612C *arg0);
 s32 TKeyBoardControl__sub_8000F828(void);
@@ -88,9 +83,6 @@ extern const f32 lbl_805DF900;
 extern const f32 lbl_805DF904;
 extern const f32 lbl_805DF908;
 
-void TKeyBoardControl__sub_8000F90C(int);
-int TKeyBoardControl__sub_8000F9CC(void*);
-s32 queue_destruction__7TObjectFv(void*);
 s32 TWindowOptionCtrl__sub_802273B4(int);
 s32 set_opening_movie_purpose(int);
 void TLobby__sub_803362A4(void *);
@@ -101,22 +93,13 @@ s32 set_current_floor_area(int);
 s32 TLobby__sub_8023E4B4(void *, void *);
 extern const Tbl_80336750 title_texture_filename_table;
 extern u8 title_texture_list[];
-extern RecoveredGlobal_8033670C_lbl_804EE58C lobby_load_callback_table;
 extern const s32 current_language;
-extern u32 title_scene_instance;
-extern u8 *lobby_title_texture_list;
 void initialize_lobby_title_scene(void);
 s32 TAdTrialAgreementGC__sub_80335958(int);
 s32 TLobby__sub_80336030(void *);
 extern PMF_803362A4 TLobby__state_handler_pmf_table[];
-}
-
-extern "C" {
-
 void TLobby__sub_803361FC(void);
 void destroy_download_server__6TLobbyFv(void* _w0);
-
-extern u32 title_scene_instance;
 
 void TLobby::queue_destruction_and_cleanup() {
     queue_destruction__7TObjectFv((void*)(this));
@@ -124,8 +107,6 @@ void TLobby::queue_destruction_and_cleanup() {
         hide_title_layers_and_release((O_8033612C *)((void*)((void*)title_scene_instance)));
     }
 }
-
-extern u32 title_scene_instance;
 
 void destroy_download_server__6TLobbyFv(void* _w0) {
     queue_destruction__7TObjectFv((void*)(_w0));

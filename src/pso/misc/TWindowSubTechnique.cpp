@@ -47,11 +47,9 @@ s32 text_builder_reset();
 s32 get_help_text_string(int);
 s32 toggle_help_window_on_button(int, int);
 s32 send_and_handle__6TLobbyFii(int, void *, int);
-s32 TWindowSubTechnique__sub_8028753C(s32 arg0);
 extern s32 lbl_805DD83C;
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
-s32 get_player_by_client_id(int);
 s32 try_equip_item__10TObjPlayerFii(s32, s32);
 void set_status_flag_80__12TQuestThreadFPv(void *);
 void play_sound_effect(s32, s32, s32, s32);
@@ -69,23 +67,15 @@ void rebuildTechniqueList__19TWindowSubTechniqueFll(void *, void *, s16);
 void *create_title_window__19TWindowSubTechniqueFv(void *, s16);
 extern u8 lbl_8044FC54[];
 extern Pad_802870C4 controller_input_state[];
-}
-
-extern "C" {
-
 void *TWindowSubTechnique__ct(void *arg0, s32 arg1, s32 arg2);
 void *__dt__19TWindowSubTechniqueFv(void *arg0, s16 arg1);
 s32 align_menu_entry_positions(s32);
-s32 get_window_layout_position(s32);
-s32 TWindowSubEquip__sub_80263AF8(s32, s32);
-void TWindow__close(void *);
 s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 create_titled_window_menu(s32, s32, s32, s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
-s32 set_field_1c__6TLobbyFf(s32);
 
 extern const f32 lbl_805DD838;
 
@@ -240,7 +230,6 @@ void *__dt__19TWindowSubTechniqueFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__19TWindowSubTechnique[];
 extern s32 TWindowSubTechnique__name;
 
 void *TWindowSubTechnique__ct(void *arg0, s32 arg1, s32 arg2) {

@@ -5,10 +5,6 @@ typedef struct Slot_8010F210 { u32 a; u32 b; } Slot_8010F210;
 extern "C" {
 s32 TItemDrop__sub_8010F1B8(s32, void *, int);
 s32 fn_8010F210(Slot_8010F210 *arg0);
-}
-
-extern "C" {
-
 s32 fn_8010F210(Slot_8010F210 *arg0) {
     s32 found;
     s32 i;

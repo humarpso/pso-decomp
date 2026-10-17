@@ -192,10 +192,6 @@ extern "C" void update_wandering__11TObjNpcBaseFv();
 extern s32 TObjNpcBringer__name;
 extern u8 *TObjEneDf2Bringer__resource_bundle;
 u8 *TObjNpcBringer__ct(u8 *self, void *parent, s32 arg2);
-}
-
-extern "C" {
-
 void *npc_bringer_animation_table[8] = {
     (void *)0x10000, (void *)0x9, (void *)0x3f4ccccd, (void *)0x1,
     (void *)0x10000, (void *)0xa, (void *)0x3f800000, (void *)0x1,

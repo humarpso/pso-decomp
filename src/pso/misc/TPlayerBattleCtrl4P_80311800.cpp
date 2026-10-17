@@ -25,8 +25,6 @@ u32 get_player_by_client_id(s32);
 s32 check_player_flag1__6TLobbyFv();
 s32 TWindow__close(void *);
 s32 send_code_45_to_window__19TPlayerBattleCtrl4PFPvii(void *, int, int);
-u32 get_player_by_client_id(s32);
-s32 check_player_flag1__6TLobbyFv();
 s32 record_split_screen_battle_results(void *);
 s32 set_state__19TPlayerBattleCtrl4PFv(void *, int);
 s32 calculate_split_screen_battle_rankings(void *);
@@ -42,21 +40,13 @@ void *check_room_seq_4__16TAdChrSelASlotGCFl(void *, int);
 void *set_window_mode_4__6TLobbyFPvll(void *, void *, int);
 void *get_window_layout_position(int);
 extern u8 lbl_80475B70[];
-extern s32 local_client_id;
 void TLobby__sub_801036CC();
 void clear_buffer__12TQuestThreadFPv(void *);
 void TLobby__sub_8020BC50();
 extern void *quest_mission_manager;
 extern s32 TPlayerBattleCtrl4P__init_flag;
 void obj_clear_flag30_20000(u32);
-u32 get_player_by_client_id(s32);
-s32 TWindow__close(void *);
-}
-
-extern "C" {
-
 int TKeyBoardControl__sub_8000F950(void);
-u32 get_player_by_client_id(s32);
 s32 reset_players__19TPlayerBattleCtrl4PFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void *__nw__7TObjectFUl(int);
@@ -88,12 +78,8 @@ void TPlayerBattleCtrl4P::return_to_hunters_guild() {
     queue_destruction__7TObjectFv(((void *)this));
 }
 void TPlayerBattleCtrl4P::sub_80311890() {  }
-extern "C" {
 
 extern s32 reset_ctrl_to_default__19TPlayerBattleCtrl4PFv[];
-extern s32 TPlayerBattleCtrl4P__init_flag;
-
-}
 void TPlayerBattleCtrl4P::finish_battle_reload() {
     if ((s32) TPlayerBattleCtrl4P__init_flag != 0) {
         reset_players__19TPlayerBattleCtrl4PFv();
@@ -135,7 +121,6 @@ void TPlayerBattleCtrl4P::begin_battle_reload() {
 extern "C" {
 
 extern s8 controller_input_state[];
-extern s32 local_client_id;
 
 typedef char RecoveredGlobal_80311A64_TPlayerBattleCtrl4P__data_80542E90_size[sizeof(RecoveredGlobal_80311A64_TPlayerBattleCtrl4P__data_80542E90) == 0x20 ? 1 : -1];
 

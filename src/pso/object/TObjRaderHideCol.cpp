@@ -32,16 +32,10 @@ u8 *TObjRaderHideCol__ct(u8 *arg0, s32 arg1, s32 arg2);
 f32 xyz_distance_squared(void *, void *);
 Pl_801973B0 *get_player_by_client_id(s32);
 extern s32 local_client_id;
-}
-
-extern "C" {
-
 void *__dt__16TObjRaderHideColFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
 void TObjRaderHideCol::render() {  }
-
-extern s32 __vt__16TObjRaderHideCol[];
 
 void TObjRaderHideCol::run_task() {
     Hide_801973B0 *arg0 = (Hide_801973B0 *)this;

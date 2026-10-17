@@ -8,10 +8,6 @@
 #include "pso/player/TObjPlayer.h"
 
 
-
-
-
-
 #pragma scheduling off
 
 
@@ -21,10 +17,7 @@ struct RecoveredGlobal_803DF528_TObjLight__data_8058D528 {
 };
 
 
-
-
 typedef struct GXColor_803DF268 { u8 r, g, b, a; } GXColor_803DF268;
-
 
 
 #pragma scheduling off
@@ -46,30 +39,22 @@ extern s32 light_slot_mask_table[];
 extern s32 gx_chan_ctrl_light_mask;
 void submit_light0(s32 arg0, s32 arg1);
 s32 GXLoadLightObjImm(void *, int);
-extern s32 light_slot_mask_table[];
 extern RecoveredGlobal_803DF528_TObjLight__data_8058D528 TObjLight__gx_light_objects;
 void load_gx_light_slot(s32 arg0);
 extern char lbl_804FC75C[];
 extern char lbl_804FC768[];
 void OSPanic(char *, s32, char *, ...);
 void reset_player_transform(void);
-void TObjPlayer__sub_803DF768(s32 arg0);
 void GXSetChanAmbColor(s32 chan, GXColor_803DF268 color);
 void set_light_ambient_color(f32 r, f32 g, f32 b);
 void GXInitLightColor(void *, GXColor_803DF268);
-extern RecoveredGlobal_803DF528_TObjLight__data_8058D528 TObjLight__gx_light_objects;
 void set_gx_light_color(s32 idx, f32 r, f32 g, f32 b);
 s32 GXInitLightPos(void *, f32, f32, f32);
 s32 GXInitLightDir(void *, f32, f32, f32);
-extern RecoveredGlobal_803DF528_TObjLight__data_8058D528 TObjLight__gx_light_objects;
 extern const f32 light_position_distance;
 void init_distant_light(s32 idx, f32 x, f32 y, f32 z);
 void GXBegin(int, int, u16);
 void draw_untextured_trail_strip(void *arg0, void *arg1);
-}
-
-extern "C" {
-
 s32 TObjPlayer__sub_803E2248();
 
 
@@ -199,7 +184,6 @@ void TObjPlayer__sub_803DF768(s32 arg0) {
     }
     setup_opaque_color_draw();
 }
-
 
 
 }

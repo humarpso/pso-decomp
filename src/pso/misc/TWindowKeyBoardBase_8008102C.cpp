@@ -13,15 +13,10 @@ s32 mem_free(u32);
 s16 *mem_alloc(s32);
 u32 __cvt_fp2unsigned(f32);
 void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2);
-}
-
-extern "C" {
-
 u32 *destroy__19TWindowKeyBoardBaseFPvs(u32 *arg0, s16 arg1);
 f32 horizontal_distance_squared(s32, s32);
 u32 get_player_by_client_id(s32);
 s32 __dl__FPv(u32 *);
-s32 mem_free(u32);
 
 void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2) {
     s16 *temp_r3;

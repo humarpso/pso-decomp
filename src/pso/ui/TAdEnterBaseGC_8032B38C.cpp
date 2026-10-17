@@ -20,10 +20,6 @@ extern RecoveredGlobal_8032B390_lbl_80477198 lbl_80477198;
 extern RecoveredGlobal_8032B390_lbl_804771B8 lbl_804771B8;
 extern s32 tl_clipout;
 extern int TAdEnterBaseGC__entry_mode;
-}
-
-extern "C" {
-
 void *TAdEnterBaseGC__ct(void *arg0);
 s32 TAdPsoPassSaveGC__sub_8032B584(void);
 void *__dt__14TAdEnterBaseGCFv(void *arg0, s16 arg1);
@@ -35,7 +31,6 @@ void queue_destruction__7TObjectFv(void *);
 void TAdEnterBaseGC::run_task() {  }
 
     extern int password_entry_keyboard_control;
-    extern int TAdEnterBaseGC__entry_mode;
 
 typedef char RecoveredGlobal_8032B390_lbl_80477198_size[sizeof(RecoveredGlobal_8032B390_lbl_80477198) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_8032B390_lbl_804771B8_size[sizeof(RecoveredGlobal_8032B390_lbl_804771B8) == 0x10 ? 1 : -1];
@@ -89,7 +84,6 @@ void *__dt__14TAdEnterBaseGCFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__14TAdEnterBaseGC[];
 extern void *lbl_805D41E0;
 
 void *TAdEnterBaseGC__ct(void *arg0) {

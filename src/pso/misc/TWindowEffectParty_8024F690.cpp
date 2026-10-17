@@ -12,15 +12,10 @@ extern const f32 lbl_805DCCBC;
 void *__nw__7TObjectFUl(u32);
 void *TWindowEffectParty__ct(void *, void *, u16, u16, s32);
 extern s32 local_client_id;
-}
-
-extern "C" {
-
 void *TWindowCtrl__sub_8024FB80(s8);
 s32 get_window_layout_position(s32);
 f32 get_scale__15TWindowCtrlMainFv(s32);
 
-extern s32 local_client_id;
 extern f32 lbl_805DCCC0;
 
 #pragma fp_contract on

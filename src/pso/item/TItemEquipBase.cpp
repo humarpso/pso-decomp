@@ -115,17 +115,13 @@ struct VObj_18_df954d : VBase_18_df954d {
     virtual s32 m44();
 };
 
-#include "pso/item/TItemData.h"
-#include "pso/item/TItemEquipBase.h"
 #include "pso/TAdRicoRing.h"
 #include "pso/TItemLoad.h"
 #include "pso/TObject.h"
-#include "pso/item/TItem.h"
 #include "pso/item/TItemProShield.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TOSwitchItem.h"
 #include "pso/misc/TQuestListVM.h"
-#include "pso/player/TObjPlayer.h"
 
 struct VBase_18_8e31a0
 {
@@ -351,7 +347,6 @@ s8 TItemEquipBase__sub_8010A77C(u8 *arg0);
 s32 get_id__13TItemProArmorFv(void *);
 s32 apply_equip_slot_effect__14TItemEquipBaseFUsUl(s32, int);
 s32 start_event_by_index__15TItemTimerEventFUs();
-s32 get_id__13TItemProArmorFv(void *);
 s32 TItemEquipBase__sub_8010B73C(void *);
 s32 TItemEquipBase__sub_8022C680(void *, void *, void *);
 void TItemEquipBase__sub_8010A82C(s32 arg0);
@@ -361,8 +356,6 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_particle_effect(void *, int);
 u8 *resolve_hittable_target(s32, s32);
 void play_target_impact_effect(s32 arg0, s32 arg1, s32 arg2, s16 arg3);
-s32 test_flags_any(void *, void *);
-s32 get_id__13TItemProArmorFv(void *);
 s32 apply_equip_effect_slot__14TItemEquipBaseFUsUl(void *, int);
 s32 clear_timer_slot__15TItemTimerEventFUs(void *);
 s32 init__9TItemDataFv(void *);
@@ -379,13 +372,9 @@ extern s32 item_equip_base_class_name;
 u8 *TItemEquipBase__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern RecoveredGlobal_8010AD24_lbl_804C3BA8 lbl_804C3BA8;
 int memset(void*, void*, void*);
-s32 add_actor_tp_bonus(void *, int);
-s32 add_actor_hp_bonus(void *, int);
 s32 get_attack_params_atp_min(void *);
 s32 TObjPlayer__sub_800194E8(void *);
 s32 get_attack_params_atp_max(void *);
-s32 TItemData__sub_8010B808(void *);
-s32 TItemData__sub_8010B810(int);
 s16 add_lck__10TObjPlayerFl(void *, int);
 s16 add_evp__10TObjPlayerFl(void *, int);
 s16 add_ata__10TObjPlayerFl(void *, int);
@@ -393,10 +382,6 @@ s16 add_mst__10TObjPlayerFl(void *, int);
 s16 add_hp__10TObjPlayerFl(void *, int);
 s16 add_dfp__10TObjPlayerFl(void *, int);
 s16 add_stat__10TObjPlayerFl(void *, int);
-}
-
-extern "C" {
-
 struct Base_8010B054_8010A710 { char pad[0x18]; };
 struct VObj_8010B054_8010A710 : Base_8010B054_8010A710 {
     virtual void m0();
@@ -412,16 +397,12 @@ struct VObj_8010B054_8010A710 : Base_8010B054_8010A710 {
 void register_technique_boosts__14TItemEquipBaseFPvPv(void *arg0, Row_8010A89C *row);
 void *__dt__14TItemEquipBaseFv(void *arg0, s16 arg1);
 s32 subtract_s16_stat(void *, void *);
-s32 TObjPlayer__sub_800194E8(void *);
 s8 TObjPlayer__sub_80102C30();
 void __dt__5TItemFv(void *, int);
 s32 destroy__5TItemFv(void *);
 s32 fn_8010B7D8(void *, void *);
 s32 fn_8010B7E8(void *, void *);
 s32 get_field_ed__5TItemFv(void*);
-s32 get_attack_params_atp_min(void *);
-s32 get_attack_params_atp_max(void *);
-int memset(void*, void*, void*);
 
 void play_target_impact_effect(s32 arg0, s32 arg1, s32 arg2, s16 arg3) {
     typedef char sp8_offset[(offsetof(Stack_8010A710, sp8) == 0x0) ? 1 : -1];
@@ -805,8 +786,6 @@ void TItemEquipBase::update_with_player() {
     ((TItemEquipBase *)object)->request_model_load(get_field_ed__5TItemFv((void*)object));
 }
 void TItemEquipBase::vfunc_46() {  }
-
-extern s32 __vt__14TItemEquipBase[];
 
 void *__dt__14TItemEquipBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -23,10 +23,6 @@ s32 mem_free(u32);
 extern G_8031B198 lbl_80542FDC;
 extern u32 TObjEneMe3SinowZoa__data_805D6AD8;
 extern Obj_8031B198 *TObjEneMe3SinowZoa__data_805D6AE0;
-}
-
-extern "C" {
-
 typedef struct RecoveredGlobal_8031B170_lbl_804E8880 RecoveredGlobal_8031B170_lbl_804E8880;
 typedef char RecoveredGlobal_8031B170_lbl_804E8880_size[((sizeof(RecoveredGlobal_8031B170_lbl_804E8880)) == 0xD0) ? (1) : (-1)];
 void TObjEneMe3SinowZoa::set_entry_value_clamped(s32 arg0, f32 farg0) {

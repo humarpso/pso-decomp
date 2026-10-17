@@ -4,10 +4,6 @@
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D7E48;
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 void TAdRicoRingCtrl::sub_8001B424(s32 arg1) {

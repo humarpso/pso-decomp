@@ -19,9 +19,6 @@ void TObjEneRecon__sub_8031FB6C(u8 *arg0);
 s32 has_child_in_anim_5__12TObjEneReconFv();
 extern const f32 lbl_805DF45C;
 u8 TObjEneRecon__sub_8031FACC(Obj_8031FACC *arg0);
-}
-
-extern "C" {
 
 u8 TObjEneRecon__sub_8031FACC(Obj_8031FACC *arg0) {
     s32 r;

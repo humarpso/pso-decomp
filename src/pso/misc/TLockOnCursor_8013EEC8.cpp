@@ -12,22 +12,12 @@ void TMainCursor__sub_8013F104(void* p, s32 v);
 void *fn_8013F0A0(void *arg0);
 int init_gc_tag(void*);
 void * TLockOnCursor__sub_8013EFB8(void *arg0);
-void __construct_array(void *, void *, int, int, int);
 void* init_sub__13TLockOnCursorFPv(void* p);
 void TLockOnCursor__sub_8013EDC4(void *p);
 int TLockOnCursor__sub_8013F000(void *self);
-}
-
-extern "C" {
-
-void* init_sub__13TLockOnCursorFPv(void* p);
 int TLockOnCursor__sub_8013EC1C(void*);
 int reset_nearest_target_record(void*);
-void TMainCursor__sub_8013F104(void* p, s32 v);
-void TMainCursor__sub_8013F10C(void* p, s32 v);
-void TMainCursor__sub_8013F114(void* p);
 int fn_8004438C(void*);
-int init_gc_tag(void*);
 
 extern s32 lbl_804A7248[];
 

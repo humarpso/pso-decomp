@@ -38,14 +38,8 @@ Player_8002C968 *get_player_by_client_id(s32);
 extern const f32 lbl_805D8170;
 void run_task__14TObjBoss1FloorFv(Floor_8002C968 *self);
 void *__dt__7TObjectFv(void *, int);
-void queue_destruction__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
-extern char __vt__14TObjBoss1Floor[];
 u8 *__dt__14TObjBoss1FloorFv(u8 *self, s16 flag);
-}
-
-extern "C" {
-
 void render__14TObjBoss1FloorFv(void);
 int TBoss8Dragon__sub_8002D5F8(void);
 s32 draw_ginja_model(int);

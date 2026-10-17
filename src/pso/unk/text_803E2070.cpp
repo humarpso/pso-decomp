@@ -8,10 +8,6 @@ void set_scene_fog_distances(f32 farg0, f32 farg1);
 void set_scene_fog_type(s32 x);
 void apply_scene_fog(void);
 void reset_scene_fog(void);
-}
-
-extern "C" {
-
 #pragma push
 #pragma scheduling off
 void reset_scene_fog(void) {

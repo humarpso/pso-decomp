@@ -40,30 +40,16 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-extern u32 TObjSuisouLobby__instance;
-extern s32 TObjSuisouLobby__lobby_type;
 void *TObjSuisouLobby__ct(void *arg0, void *arg1, void *arg2);
-}
-
-extern "C" {
-
-void TObjSuisouLobby__sub_80369B5C(void);
-void TObjSuisouLobby__sub_80369D68(void);
 void *__dt__15TObjSuisouLobbyFv(void *arg0, s16 arg1);
 void render__15TObjSuisouLobbyFv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-s32 post_translate_matrix(void *);
 s32 scale_matrix(int, f32, f32, f32);
 s32 draw_ginja_object(int);
-s32 rotate_matrix_y(int, int);
-s32 push_matrix();
-s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void queue_destruction__7TObjectFv(void *);
 
-void *__dt__15TObjSuisouLobbyFv(void *arg0, s16 arg1);
-void render__15TObjSuisouLobbyFv(u8 *arg0);
 void render_shadows__7TObjectFv(); void TLobby__sub_801A1FD8(); void apply_object_set_data(); void release_member_90__10TObjPlayerFv();
 void vfunc_9__13TUnk_804B9870Fv(); void update_object_view_visibility__13TUnk_804B9870Fff(); void classify_actor_view_detail();
 void vfunc_12__13TUnk_804B9870Fv(); void vfunc_13__13TUnk_804AF8A0Fl();
@@ -168,8 +154,6 @@ void *TObjSuisouLobby::create() {
     }
     return o;
 }
-
-extern u32 TObjSuisouLobby__instance;
 
 void TObjSuisouLobby::destroy_instance() {
     if ((u32) TObjSuisouLobby__instance != 0U) {

@@ -7,10 +7,6 @@ struct Obj_800C7DF8 { u8 pad0[0x326]; s16 state; };
 
 extern "C" {
 void TObjEnemyCustom__sub_800C77A4(void *);
-}
-
-extern "C" {
-
 int vfunc_58__15TObjEnemyCustomFv(void* p);
 void vfunc_28__15TObjEnemyCustomFv(void);
 void run_task__15TObjEnemyCustomFv(u8 *arg0);

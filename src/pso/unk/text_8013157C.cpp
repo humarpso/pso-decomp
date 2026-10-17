@@ -10,10 +10,6 @@ struct RecoveredFields_8013157C_arg0
 extern "C" {
 f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
 f32 xz_distance_squared(struct RecoveredFields_8013157C_arg0 *arg0, u8 *arg1);
-}
-
-extern "C" {
-
 #pragma fp_contract on
 
 typedef struct RecoveredFields_8013157C_arg0 RecoveredFields_8013157C_arg0;

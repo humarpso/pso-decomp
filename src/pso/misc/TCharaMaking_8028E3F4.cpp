@@ -23,10 +23,6 @@ extern Ent_8028E6B4 player_class_texture_archive_table[];
 extern u8 lbl_8051BC64[];
 void TCharaMaking__sub_8028E6B4(void);
 void build_appearance_texture_names__12TCharaMakingFv(TextureOutput *output, Appearance *appearance, ClassAppearance *definition, TextureList *source);
-}
-
-extern "C" {
-
 s32 is_quest_active();
 s32 get_main_phase();
 

@@ -8,12 +8,6 @@ s32 __nw__7TObjectFUl(int);
 void *__ct__18TAdLoadQuestLineGCFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 extern TAdLoadQuestLineGC *ad_load_quest_line_instances[3];
 s32 get_or_create_line__14TAdLoadQuestGCFii(s32 arg0, s32 arg1);
-}
-
-extern "C" {
-
-void *__ct__18TAdLoadQuestLineGCFP7TObjectPv(void *arg0, void *arg1, void *arg2);
-
 s32 init_quest_line_draw_colors();
 s32 fn_80349E5C();
 
@@ -50,11 +44,7 @@ TAdLoadQuestLineGC::~TAdLoadQuestLineGC() {
     }
 }
 
-extern "C" {
-
 extern void *lbl_805D4300;
-
-}
 TAdLoadQuestLineGC::TAdLoadQuestLineGC(TObject *arg1, void *arg2) : TObject(arg1) {
     *(void **)((s8 *)this + 0x0) = lbl_805D4300;
     *(void **)((s8 *)this + 0x1C) = arg2;

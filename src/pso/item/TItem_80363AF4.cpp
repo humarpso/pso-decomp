@@ -43,13 +43,8 @@ extern u32 model_render_flags, chunk_polygon_flags_and_mask, chunk_polygon_flags
 extern u32 lbl_805D5660, lbl_805D5664, lbl_805D5668;
 extern Color saved_model_draw_color, model_material_color;
 extern EquippedItemDrawQueue *player_item_id_list;
-}
-
-extern "C" {
-
 int push_to_list__10TObjPlayerFPvi(void*, void*);
 
-    extern EquippedItemDrawQueue *player_item_id_list;
 void TItem::push_to_player_list(void* a0) { push_to_list__10TObjPlayerFPvi((void*)(player_item_id_list), a0); }
 void TUnk_804F29F8::render() {
     TObjPlayer::reset_transform_state();

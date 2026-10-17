@@ -12,10 +12,6 @@ struct Obj_800BA084 { u8 pad[0xa4]; Part_800BA084 *parts; s32 count; };
 extern "C" {
 void set_collider_contact_low(Part_800BA030 *);
 void set_collider_contact_high(Part_800BA084 *);
-}
-
-extern "C" {
-
 f32 calc_boss4_scale__10TObjPlayerFi();
 
 extern f32 lbl_805D9E98;

@@ -1,7 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowChat.h"
 #include "pso/misc/TWindowSubLog.h"
-#include "pso/misc/TWindowChat.h"
 #include "pso/ui/TAdScrollWinGC.h"
 
 struct VBase_18_204a81 { char pad[0x18]; };
@@ -51,13 +50,7 @@ extern u8 lbl_8044F9D0[];
 extern s32 __vt__13TWindowSubLog[];
 extern s32 TWindowSubLog__class_name;
 Lg_8027B194 *TWindowSubLog__ct(Lg_8027B194 *arg0, void *arg1, void *arg2);
-}
-
-extern "C" {
-
 void *__dt__13TWindowSubLogFv(void *arg0, s16 arg1);
-int fn_8027B288(void* p);
-void fn_8027B2A8(void* p);
 void TWindowCtrl__sub_8024ADF0(void *);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
@@ -67,8 +60,6 @@ int show_child_window__17TWindowMainMenu4PFv(void*);
 int update_trade_submenu__15TWindowMainMenuFv(void*);
 
 void TWindowSubLog::render() {  }
-
-extern s32 __vt__13TWindowSubLog[];
 
 typedef char RecoveredGlobal_8027AF58_lbl_8050E208_size[sizeof(RecoveredGlobal_8027AF58_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void TWindowSubLog::run_task() {

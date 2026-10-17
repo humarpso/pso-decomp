@@ -26,8 +26,6 @@ void *__ct__20TItemReverseTechCtrlFv(void *arg0) {
 
 #include "pso/TItemReverseTechCtrl.h"
 
-#include "types.h"
-
 extern "C" {
 
 void *__nw__7TObjectFUl(int);

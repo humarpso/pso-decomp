@@ -68,8 +68,6 @@ extern s32 volopt_homing_projectile_expire_tick;
 extern const f32 lbl_805D88AC;
 extern const f32 lbl_805D88B0;
 u8 *TBoss3Volopt__sub_80049E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f32 TBoss3Volopt__sub_8004812C(int);
 void explode_and_destroy__12TBoss3VoloptFPv(void *);
 u32 csnVector(void *, void *, s32);
 void direction_to_rotation_yx(void *, void *, void *);
@@ -79,19 +77,12 @@ Tgt_80049C10 *get_player_by_client_id(s32);
 void play_persistent_sound(s32, void *, void *, s32, s32);
 void vec3_add_to(void *, void *);
 void subtract_vector(void *, void *);
-extern s32 volopt_homing_projectile_expire_tick;
 extern const f32 lbl_805D88A4;
 extern const f32 lbl_805D88A8;
-}
-
-extern "C" {
-
 void *__dt__13TUnk_80484AFCFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 queue_destruction__7TObjectFv(void *);
-
-extern s32 lbl_80484AFC[];
 
 void TUnk_80484AFC::run_task() {
     Self_80049C10 *self = (Self_80049C10 *)this;

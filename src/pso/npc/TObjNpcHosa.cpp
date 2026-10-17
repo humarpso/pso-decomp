@@ -117,12 +117,7 @@ s32 get_bml_model(int, int);
 s32 construct_male_npc_base(void *);
 extern s32 __vt__11TObjNpcHosa[];
 extern s32 TObjNpcHosa__name;
-extern u32 TObjNpcHosa__static_model_resource;
 u8 *TObjNpcHosa__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void * TObjNpcKenkyuW__create(void *arg0);
 void *__dt__11TObjNpcHosaFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -131,16 +126,12 @@ void *TObjNpcKenkyuW__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
-extern u32 TObjNpcHosa__static_model_resource;
-
 void TObjNpcHosa::destroy_static_instance() {
     if ((u32) TObjNpcHosa__static_model_resource != 0U) {
         TLobby__sub_8001FE7C((void*)TObjNpcHosa__static_model_resource, 1);
         TObjNpcHosa__static_model_resource = 0U;
     }
 }
-
-extern s32 __vt__11TObjNpcHosa[];
 
 void TObjNpcHosa::load_static_resource() {
     s32 temp_r3;

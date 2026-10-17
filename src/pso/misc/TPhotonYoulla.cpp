@@ -55,15 +55,10 @@ extern s32 __vt__13TPhotonYoulla[];
 extern s32 lbl_805D3528;
 extern u8 *photon_blast_shared_resource;
 u8 *TPhotonYoulla__ct(u8 *arg0, u8 *arg1);
-}
-
-extern "C" {
-
 void TObjPlayer__sub_801AEB74(void);
 void TObjPlayer__sub_801AEB80(void);
 void *__dt__13TPhotonYoullaFv(void *arg0, s16 arg1);
 s32 advance_animation_playback(void *);
-s32 spawn_photon_blast_attachment_effects(void *, s32);
 void __dl__7TObjectFPv(void *);
 void destroy_photon_motion_object(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
@@ -132,8 +127,6 @@ void TPhotonYoulla::run_task() {
         queue_destruction__7TObjectFv(this);
     }
 }
-
-extern s32 __vt__13TPhotonYoulla[];
 
 void *__dt__13TPhotonYoullaFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

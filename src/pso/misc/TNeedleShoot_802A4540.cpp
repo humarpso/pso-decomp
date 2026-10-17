@@ -29,10 +29,6 @@ extern RecoveredGlobal_802A45D4_lbl_80466678 needle_shoot_color_white;
 extern const f32 lbl_805DDF68;
 s32 VecCopy__FP3VecPC3Vec(void *, int);
 u8 *csnVector(f32 *, f32 *, s32);
-}
-
-extern "C" {
-
 void TNeedleShoot::vfunc_8() {  }
 typedef char RecoveredGlobal_802A45D4_lbl_80466678_size[sizeof(RecoveredGlobal_802A45D4_lbl_80466678) == 0x10 ? 1 : -1];
 

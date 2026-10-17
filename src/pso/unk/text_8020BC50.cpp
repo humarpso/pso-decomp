@@ -27,7 +27,6 @@ u32 find_entity_by_id(int);
 Rec_8020BCE4 *resolve_matching_object__6TLobbyFv();
 s32 get_object_type__6TLobbyFi();
 void TLobby__sub_8020BCE4(void);
-s32 get_current_floor();
 Ent_8020BC50 *get_object_count__6TLobbyFPv();
 s32 get_obj_table_entry__6TLobbyFi();
 void destroy_child_recursive__6TLobbyFPvPv(int, int);
@@ -36,16 +35,12 @@ extern s32 tl_05;
 extern s32 tl_06;
 extern s32 tl_07;
 void TLobby__sub_8020BC50(void);
-s32 get_current_floor();
 extern Area_8020BD50 TLobby__floor_enemy_group_table[];
 extern ObjB_8020BD50 *TLobby__data_805D610C;
 extern s32 TLobby__current_floor_object_set_count;
 extern ObjA_8020BD50 *TLobby__data_805D6114;
 extern s32 TLobby__current_floor_enemy_set_count;
 void handle_6x76_set_entity_set_flags(Pkt_8020BD50 *pkt);
-}
-
-extern "C" {
 
 void TLobby__sub_8020BC50(void) {
     s32 n;
@@ -135,18 +130,12 @@ void handle_6x76_set_entity_set_flags(Pkt_8020BD50 *pkt) {
 
 }
 
-#include "types.h"
-#include "pso/misc/TLobby.h"
-
 struct Pkt_8020BF14 { u8 hdr[2]; s16 a; s16 b; s16 c; };
 
 extern "C" {
 s16 obj_getField1c(void *);
 void build_6x76_set_entity_set_flags(void *);
 void send_6x76_set_entity_set_flags(void *arg0, s16 arg1);
-}
-
-extern "C" {
 
 void send_6x76_set_entity_set_flags(void *arg0, s16 arg1) {
     Pkt_8020BF14 pkt;

@@ -111,7 +111,6 @@ THeap::THeap(size_t size, int alignment) {
     }
 }
 
-#include "types.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {

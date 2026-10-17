@@ -68,9 +68,6 @@ s32 get_burst_counter(int);
 s32 TObjPlayer__sub_80128A70();
 void clear_rico_ring_flag__10TObjPlayerFv(u32);
 void srank_punch_marker(u8 *arg0);
-}
-
-extern "C" {
 
 void srank_punch_marker(u8 *arg0) {
     s32 temp_r31;

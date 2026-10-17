@@ -1,10 +1,6 @@
 #include "types.h"
 extern "C" {
 void fn_803DAF30(u32 *p);
-}
-
-extern "C" {
-
 #pragma push
 #pragma scheduling off
 #pragma peephole off

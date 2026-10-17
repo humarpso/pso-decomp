@@ -72,15 +72,12 @@ struct Cfg_8000FAE4 {
 extern "C" {
 extern s32 lbl_805D49C0;
 void TKeyBoardControl__sub_8000F950(void);
-extern s32 lbl_805D49C0;
 void TKeyBoardControl__sub_8000F95C(void);
 extern s32 keyboard_active_flag;
 void activate_keyboard(void);
-extern s32 keyboard_active_flag;
 void deactivate_keyboard(void);
 extern s32 keyboard_key_state;
 void mark_area_change_pending(void);
-extern s32 keyboard_key_state;
 void clear_keyboard_key_state(void);
 s32 disable_disconnected_ports__16TKeyBoardControlFv(void *);
 s32 update_pad_rumble();
@@ -90,21 +87,13 @@ extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_80515F48;
 void TKeyBoardControl__sub_8000F7FC(void);
 extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
 void TKeyBoardControl__sub_8000F9E4(void);
-extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
 void TKeyBoardControl__sub_8000F90C(s32 arg0);
-extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
 void TKeyBoardControl__sub_8000F9CC(s32 arg0);
-extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
 s32 get_main_phase(void);
-extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
 s32 TKeyBoardControl__sub_8000F8EC(void);
-extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
 void TKeyBoardControl__sub_8000F91C(s32 arg0);
-extern s32 keyboard_active_flag;
 bool is_keyboard_active(void);
-extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
 s32 TKeyBoardControl__sub_8000F92C(void);
-extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
 s32 request_queued_main_phase(void);
 void GXSetCopyClear(GXColor_8000FA00 clear_clr, u32 clear_z);
 void GXCopyDisp(void *dest, int clear);
@@ -128,8 +117,6 @@ u32 OSGetArenaHi();
 u32 OSGetArenaLo();
 s32 OSInit();
 s32 OSSetArenaLo(u32);
-void TKeyBoardControl__sub_8000F9E4(void);
-void init_gx_lighting_defaults(void);
 s32 TLobby__sub_8007EB70();
 s32 init_disc_error_messages();
 s32 load_critical_effect_resources();
@@ -168,9 +155,7 @@ s32 init_pad_slots_and_read__16TKeyBoardControlFv(int, int, int);
 s32 init_light_globals(int, int);
 s32 set_some_id__FUl(int);
 s32 TObjPlayer__sub_803E492C(void *, int);
-void TKeyBoardControl__sub_8000F764(void);
 extern u8 GXNtsc480IntDf[];
-extern RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 extern int lbl_805D49A0;
 extern int lbl_805D49A4;
 extern int player_matrix_stack_buffer;
@@ -179,10 +164,6 @@ extern int resource_decompress_buffer;
 extern int anim_model_matrix_array;
 extern int lbl_805D5680;
 void init_game_systems(void);
-}
-
-extern "C" {
-
 int TKeyBoardControl__sub_8000F828(void);
 void shutdown_and_reset_system(void);
 int OSResetSystem(void*, void*, void*);
@@ -239,15 +220,7 @@ void TKeyBoardControl__sub_8000F7FC(void) {
 void TKeyBoardControl::update() {  }
 int TKeyBoardControl__sub_8000F828(void) { return 0; }
 
-    extern int lbl_805D49A0;
-    extern int lbl_805D49A4;
-    extern int player_matrix_stack_buffer;
-    extern int resource_decompress_buffer;
-    extern int anim_model_matrix_array;
-    extern int lbl_805D5680;
 void shutdown_and_reset_system(void) { TLobby__sub_802433A8(); TObjTailsTailsMove__sub_800FFE0C(); TObjPlayer::init_default_config(); TObjEneMe3Stelth::destroy_resources(); TAdPlayerLoadGC__sub_801E1350(); TParticleCtrl::free_system(); TParticleCtrl::reset_emitter_table(); fn_80082A6C(); TAdSinglePlyChrSelectGC::free_resources(); TObjPlayer__sub_801D92A4(); TLobby__sub_8020E3BC(); TWindowSnapShot__sub_802A7DA0(); TAdWarningBaseGC__sub_8032D188(); TLobby::destroy_game_heap(); TLobby__sub_8022809C(); TLobby::shutdown_buffers(); release_all__23TAdSinglePlyChrSelectGCFv(); TWindowSubStatusDisp__sub_803386F0(); TObjBoss2Tunnel__sub_8036EF4C(); TLobby__sub_80147978(); xfree__FPv((void*)(lbl_805D49A0)); xfree__FPv((void*)(lbl_805D49A4)); xfree__FPv((void*)(resource_decompress_buffer)); xfree__FPv((void*)(lbl_805D5680)); xfree__FPv((void*)(anim_model_matrix_array)); xfree__FPv((void*)(player_matrix_stack_buffer)); VISetBlack((void*)1); VIFlush(); VIWaitForRetrace(); OSResetSystem((void*)1, (void*)0, (void*)1); }
-
-extern s32 lbl_805D49C0;
 
 typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];
 
@@ -279,8 +252,6 @@ s32 TKeyBoardControl__sub_8000F92C(void) {
 s32 TKeyBoardControl::get_input() {
     return lbl_805D49C0;
 }
-
-extern s32 keyboard_key_state;
 
 void TKeyBoardControl__sub_8000F950(void) {
     lbl_805D49C0 = 1;

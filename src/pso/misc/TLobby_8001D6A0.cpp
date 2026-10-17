@@ -44,25 +44,17 @@ s32 strncpy(int, int, int);
 extern s32 auto_reply_flags;
 Ent_8001D768 *find_free_pool_entry__6TLobbyFPv(Obj_8001D768 *self);
 void archive_pool_free(Pool_8001D7AC *pool, Node_8001D7AC *node);
-Ent_8001D768 *find_free_pool_entry__6TLobbyFPv(Obj_8001D768 *self);
 Node_8001D808 *archive_pool_alloc(Pool_8001D808 *pool, u32 size);
 void TLobby__sub_8001D9E8(void* p);
 
 void send_disable_auto_reply__9TProtocolFv(s32);
-extern s32 auto_reply_flags;
 extern s32 TLobby__protocol_instance;
-}
-
-extern "C" {
-
-void TLobby__sub_8001D9E8(void* p);
 u32 *free_and_delete__6TLobbyFPvs(u32 *arg0, s16 arg1);
 
 s32 aram_read_sync__6TLobbyFllll(s32, s32);
 s32 aram_transfer_sync__6TLobbyFlUlll(s32, void *, s32);
 s32 __dl__FPv(u32 *);
 u8 *fn_803DE864(s32, s32);
-s32 get_character_save_record(s32);
 s32 xfree__FPv(u32);
 
 void TLobby::send_or_handle_packet(void *arg0, void *arg1, void *arg2, void *arg3, u32 arg4) {
@@ -228,17 +220,7 @@ void TLobby::set_short_mail_text() {
     TLobby::set_flag_bit0(0);
 }
 
-}
-
-extern "C" {
-
 int get_flag_bit0__6TLobbyFv(void) {  return (auto_reply_flags & 0x1); }
-
-}
-
-extern "C" {
-
-extern s32 auto_reply_flags;
 
 s32 TLobby::set_flag_bit0(s32 arg0) {
     s32 var_r3;
@@ -264,13 +246,8 @@ struct RecoveredGlobal_8001DC24_lbl_80515BC8 {
 };
 
 extern "C" {
-extern s32 auto_reply_flags;
 void TLobby__sub_8001DBD8(s32 _w0);
 extern RecoveredGlobal_8001DC24_lbl_80515BC8 text_builder_buffer;
-
-}
-
-extern "C" {
 
 void TLobby__sub_8001DC04(void* p);
 
@@ -433,23 +410,12 @@ void load_battle_param_entry(void) {
 
 void TLobby::broadcast(void* a0) { ((int (*)(void*, void*))broadcast_to_players__6TLobbyFii)((void*)(TLobby__lobby_instance), a0); }
 
-}
-
-extern "C" {
-
 void TLobby__sub_8001DE30(void* a0);
 
-    extern int TLobby__lobby_instance;
 void TLobby__sub_8001DE30(void* a0) { ((int (*)(void*, void*))TLobby__sub_8001DF58)((void*)(TLobby__lobby_instance), a0); }
 
-    extern int TLobby__lobby_instance;
 void TLobby::copy_all_entries(void* a0) { ((int (*)(void*, void*))copy_all_entries__6TLobbyFii)((void*)(TLobby__lobby_instance), a0); }
 
-}
-
-extern "C" {
-
-    extern int TLobby__lobby_instance;
 void TLobby::copy_data(void* a0) { ((int (*)(void*, void*))copy_all_data__6TLobbyFii)((void*)(TLobby__lobby_instance), a0); }
 
 }
@@ -463,10 +429,6 @@ struct Obj_8001DF0C { Blk_8001DF0C a; Blk_8001DF0C b; };
 
 extern "C" {
 Obj_8001DF0C *copy_pair__6TLobbyFPvPv(Obj_8001DF0C *d, Obj_8001DF0C *s);
-}
-
-extern "C" {
-
 void TLobby__sub_8001DEA8(s32 arg0);
 
 void TLobby__sub_8001DEA8(s32 arg0) {
@@ -489,10 +451,6 @@ Obj_8001DF0C *copy_pair__6TLobbyFPvPv(Obj_8001DF0C *d, Obj_8001DF0C *s) {
     d->b = s->b;
     return d;
 }
-
-}
-
-extern "C" {
 
 void copy_data__6TLobbyFPvPv(void *arg0, void *arg1);
 
@@ -581,10 +539,6 @@ void copy_data__6TLobbyFPvPv(void *arg0, void *arg1) {
     *(s32 *)((s8 *)arg0 + 0x20) = (s32) *(s32 *)((s8 *)arg1 + 0x20);
 }
 
-}
-
-extern "C" {
-
 u8 is_valid_player_index__6TLobbyFi(s32 arg0) {
     s32 var_r0;
 
@@ -601,33 +555,25 @@ void*TLobby::dispatch_shared_handler_a(s32 index) { return get_player_entry__6TL
     extern int battle_param_movement;
 void* get_player_entry__6TLobbyFii(int a0, int a1) {  return (char*)(battle_param_movement) + a1 * 48; }
 
-    extern int battle_parameter_difficulty;
 void*TLobby::register_object(s32 index) { return get_entry__6TLobbyFii(battle_parameter_difficulty, index); }
 
     extern int TLobby__battle_param_resistances;
 void* get_entry__6TLobbyFii(int a0, int a1) {  return (char*)(TLobby__battle_param_resistances) + a1 * 32; }
 
-    extern int battle_parameter_difficulty;
 void*TLobby::dispatch_shared_handler_b(s32 index) { return TLobby__sub_8001E270(battle_parameter_difficulty, index); }
 
     extern int TLobby__battle_param_attacks;
 void* TLobby__sub_8001E270(int a0, int a1) {  return (char*)(TLobby__battle_param_attacks) + a1 * 48; }
 
-    extern int battle_parameter_difficulty;
 void*TLobby::register_boss(s32 index) { return TLobby__sub_8001E2A8(battle_parameter_difficulty, index); }
 
     extern int battle_param_stats;
 void* TLobby__sub_8001E2A8(int a0, int a1) {  return (char*)(battle_param_stats) + a1 * 36; }
 
-extern s32 battle_param_lab_variant;
-
 void set_difficulty__6TLobbyFi(s32 arg0) {
     battle_param_lab_variant = arg0;
 }
 
-}
-
-extern "C" {
 u8 *mem_alloc(u32 size);
 
 void load_battle_param_entry(void);
@@ -635,12 +581,7 @@ extern u32 TLobby__battle_parameter_buffer;
 
 extern s32 game_difficulty_selection;
 void alloc_battle_param_tables(void);
-}
-
-extern "C" {
-
 void bswap__12player_statsFv(void *arg0);
-void load_battle_param_entry(void);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 void mem_free(void*);
@@ -663,9 +604,6 @@ void TLobby::clamp_difficulty(s32 arg0) {
     battle_parameter_difficulty = var_r3;
 }
 
-extern s32 battle_param_lab_variant;
-extern s32 game_difficulty_selection;
-
 void TLobby::update_difficulty() {
     s32 temp_r31;
     s32 temp_r30;
@@ -679,8 +617,6 @@ void TLobby::update_difficulty() {
         load_battle_param_entry();
     }
 }
-
-extern u32 TLobby__battle_parameter_buffer;
 
 void TLobby::free_boss4_rock() {
     if ((u32) TLobby__battle_parameter_buffer != 0U) {
@@ -731,15 +667,8 @@ void bswap__12player_statsFv(void *arg0) {
     bswap_32__FPUl((void*)((void *)((char *)arg0 + 32)));
 }
 
-}
-
-extern "C" {
 extern f32 TLobby__data_805D7EC8;
 s32 TLobby__sub_8001E75C(void *arg0);
-}
-
-extern "C" {
-
 extern s32 selected_episode;
 
 s32 TLobby::get_instance() {
@@ -764,20 +693,12 @@ s32 TLobby__sub_8001E75C(void *arg0) {
     return v;
 }
 
-}
-
-extern "C" {
-
 s32 __cvt_fp2unsigned(f32);
 extern const f32 lbl_805D7ED4;
 
 s32 TLobby::calc_alpha_shifted(f32 farg0) {
     return __cvt_fp2unsigned(lbl_805D7ED4 * farg0) << 0x18;
 }
-
-}
-
-extern "C" {
 
 s32 append_padded_number(s32, s32);
 s32 text_builder_reset();
@@ -815,26 +736,17 @@ f32 TLobby::calc_result_offset() {
     return var_f31;
 }
 
-}
-
-extern "C" {
 extern f32 lbl_805D4AC0;
 
 void TLobby__sub_8001ED74(void);
-s32 get_main_phase();
 
 void draw_small_font_text(s32, void *, f32, f32, f32);
 
 extern const f32 lbl_805D7EEC;
 extern const f32 lbl_805D7EF0;
 void TLobby__sub_8001E998(f32 farg0, f32 farg1, f32 farg2, f32 farg3);
-}
-
-extern "C" {
-
 s32 default_clock_offset_frames(void);
 void TLobby__sub_8001ED70(void);
-s32 get_main_phase();
 
 extern f32 lbl_805D7EE4;
 extern f32 lbl_805D7EE8;

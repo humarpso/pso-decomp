@@ -48,10 +48,6 @@ extern RecoveredGlobal_80191874_lbl_804FF610 lbl_804FF610;
 extern s32 camera_ctrl_instance;
 extern const f32 lbl_805DBE2C;
 extern const f32 lbl_805DBE30;
-}
-
-extern "C" {
-
 void *TObjHashiBase__ct(void *arg0, s32 arg1, s32 arg2);
 void *__dt__13TObjHashiBaseFv(void *arg0, s16 arg1);
 void handle_6x78(void *arg0);
@@ -182,7 +178,6 @@ void *__dt__13TObjHashiBaseFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__13TObjHashiBase[];
 extern s32 lbl_805D3374;
 extern const f32 lbl_805DBE24;
 extern const f32 lbl_805DBE28;

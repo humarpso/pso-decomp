@@ -16,15 +16,10 @@ s32 fn_8010F210(s32);
 extern RecoveredGlobal_801058AC_lbl_8049EE60 item_class_load_unload_table;
 extern s32 lbl_805D5440;
 extern int item_class_load_handle;
-}
-
-extern "C" {
-
 void fn_801058E8(void* p);
 int TItemDrop__sub_8010F168(void*, void*);
 int get_slot_value__10TObjPlayerFPvi(void*, int);
 
-    extern int item_class_load_handle;
 void TObjPlayer::free_item_globals() { TItemDrop__sub_8010F168((void*)(item_class_load_handle), (void*)1); item_class_load_handle = 0; TItemLoad::free_all(); TItemBuff::free_all_and_init(); }
 
 typedef char RecoveredGlobal_801058AC_lbl_8049EE60_size[sizeof(RecoveredGlobal_801058AC_lbl_8049EE60) == 0x78 ? 1 : -1];

@@ -15,15 +15,11 @@ s32 TWindowCtrl::get_field44() {
     return *(s32 *)((s8 *)TWindowCtrl__active_window + 0x44);
 }
 
-extern void *TWindowCtrl__active_window;
-
 void TWindowCtrl__sub_8026AD60(void) {
     if ((void *) TWindowCtrl__active_window != NULL) {
         *(s32 *)((s8 *)TWindowCtrl__active_window + 0x44) = 0;
     }
 }
-
-extern void *TWindowCtrl__active_window;
 
 void TWindowCtrl__sub_8026AD78(s32 arg0) {
     if ((void *) TWindowCtrl__active_window != NULL) {

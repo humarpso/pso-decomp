@@ -52,21 +52,14 @@ s32 get_game_play_mode();
 extern s32 __vt__19TObjGoalWarpAncient[];
 extern s32 TObjGoalWarpAncient__class_name;
 extern const f32 lbl_805DBABC;
-extern const f32 lbl_805DBAC4;
 u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 register_warp_object__19TObjGoalWarpAncientFPv(int);
 s32 debug_print_area_num__12TObjAreaWarpFv();
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80443288[];
 extern char lbl_804432A4[];
 s32 draw_debug_destinations__11TObjMapWarpFv();
-void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_804432C8[];
 extern char lbl_804432E8[];
-}
-
-extern "C" {
-
 void *__dt__19TObjGoalWarpAncientFv(void *arg0, s16 arg1);
 void render__19TObjGoalWarpAncientFv(u8 *arg0);
 s32 post_translate_matrix(void *);
@@ -79,7 +72,6 @@ void __dl__7TObjectFPv(void *);
 void __dt__12TObjAreaWarpFv(void *, int);
 
 extern const f32 lbl_805DBAB8;
-extern const f32 lbl_805DBABC;
 
 void render__19TObjGoalWarpAncientFv(u8 *arg0) {
     if (((VObj8017CB60_8017CB60_more_8017cca4_0 *) arg0)->m8(lbl_805DBAB8, lbl_805DBABC) != 0) {
@@ -97,8 +89,6 @@ void render__19TObjGoalWarpAncientFv(u8 *arg0) {
         pop_matrix();
     }
 }
-
-extern s32 __vt__19TObjGoalWarpAncient[];
 
 typedef char RecoveredFields_8017CCA4_arg0_C4_offset[offsetof(RecoveredFields_8017CCA4_arg0, field_C4) == 0xC4 ? 1 : -1];
 typedef char RecoveredFields_8017CCA4_arg0_C8_offset[offsetof(RecoveredFields_8017CCA4_arg0, field_C8) == 0xC8 ? 1 : -1];
@@ -147,8 +137,6 @@ void *__dt__19TObjGoalWarpAncientFv(void *arg0, s16 arg1) {
 
 #pragma push
 
-#include "types.h"
-#include "pso/object/TObjMapWarpAncient.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct VObjBase_8017CED8_more_8017cca4_1 { char pad[0x18]; };
@@ -166,20 +154,8 @@ struct VObj_8017CED8_more_8017cca4_1 : VObjBase_8017CED8_more_8017cca4_1 {
 
 extern "C" {
 void process_player_warps__11TObjMapWarpFPv(void *);
-extern const f32 lbl_805DBAC0;
-extern const f32 lbl_805DBAC4;
-}
-
-extern "C" {
-
 void *TObjMapWarpAncient__create(void *arg0);
-s32 post_translate_matrix(void *);
-s32 draw_ginja_object(s32);
-s32 draw_ginja_model_with_motion(s32, s32, f32);
 void *TObjMapWarpAncient__ct(void *, void *, void *);
-s32 rotate_matrix_y(s32, s32);
-s32 push_matrix();
-s32 pop_matrix();
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
@@ -228,9 +204,6 @@ void *TObjMapWarpAncient__create(void *arg0) {
     }
     return o;
 }
-
-extern const f32 lbl_805DBAB8;
-extern const f32 lbl_805DBABC;
 
 void TObjMapWarpAncient::render() {
     u8 *arg0 = (u8 *)this;

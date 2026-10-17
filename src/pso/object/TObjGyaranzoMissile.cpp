@@ -111,22 +111,13 @@ extern const f32 lbl_805DA2A8;
 extern const f32 lbl_805DA2B4;
 extern const f32 lbl_805DA2B8;
 u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u16 obj_getField1c(void *);
-s32 init_collision_body_parts(void *, void *, int);
-s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
 s32 rand();
 s32 matrix_mult_vec(int, int, int);
-s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_x(int, int);
-s32 push_matrix_from(void *);
-s32 pop_matrix();
 extern RecoveredGlobal_800D4BD0_lbl_80494468 gyaranzo_missile_collision_body_b;
 extern s32 __vt__19TObjGyaranzoMissile[];
-extern RecoveredGlobal_800D4668_lbl_8058D490 identity_matrix;
 extern s32 lbl_805D2A80;
 extern f32 TObjGyaranzoMissile__speed_scale;
-extern s32 tl_04;
 extern const f32 lbl_805DA2C4;
 extern const f32 lbl_805DA2CC;
 extern const f32 lbl_805DA2D0;
@@ -146,39 +137,27 @@ void check_enemy_body_collisions(void *);
 s32 play_sound_effect(void *, void *, int, int);
 extern Parm_800D47B4 lbl_8043C464[];
 extern const f32 lbl_805DA2C0;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 csnVector(void *, void *, int);
 Target_800D4990 *find_active_entity_by_id(u16);
 int direction_to_rotation_xy(void *, void *, void *);
-void check_enemy_body_collisions(void *);
 s32 project_actor_to_ground(void *, void *, int);
 int vec3_add_to(void *, void *);
 f32 vector_length(void *);
 int subtract_vector(void *, void *);
-extern f32 TObjGyaranzoMissile__speed_scale;
 extern const f32 TObjGyaranzoMissile__max_range;
 extern s32 gyaranzo_missile_volley_end_time;
 extern const f32 lbl_805DA2C8;
-}
-
-extern "C" {
-
 void *__dt__19TObjGyaranzoMissileFv(void *arg0, s16 arg1);
 f32 sin_table_lookup(int);
 s32 post_translate_matrix(void *);
-s32 rotate_matrix_x(int, int);
 void free_collision_body_parts(void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
 s32 draw_chunk_object();
-s32 rotate_matrix_y(int, int);
 s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
-s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 s32 set_global_param__8TObjFishFl();
-
-extern s32 lbl_8049442C[];
 
 void *TUnk_8049442C::destroy(s16 arg1) {
     if (this != NULL) {
@@ -193,9 +172,7 @@ void *TUnk_8049442C::destroy(s16 arg1) {
     return this;
 }
 
-extern s32 gyaranzo_bml_resource;
 extern s32 model_render_flags;
-extern const f32 lbl_805DA2C4;
 
 typedef char RecoveredGlobal_800D4668_lbl_80494400_size[sizeof(RecoveredGlobal_800D4668_lbl_80494400) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_800D4668_lbl_8049442C_size[sizeof(RecoveredGlobal_800D4668_lbl_8049442C) == 0x3C ? 1 : -1];
@@ -275,8 +252,6 @@ void TObjGyaranzoMissile::render() {
     draw_chunk_object();
     pop_matrix();
 }
-
-extern s32 __vt__19TObjGyaranzoMissile[];
 
 void TObjGyaranzoMissile::run_task() {
     Gyr_800D4990 *self = (Gyr_800D4990 *)this;

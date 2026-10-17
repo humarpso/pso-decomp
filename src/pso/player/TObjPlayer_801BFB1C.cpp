@@ -4,10 +4,6 @@
 extern "C" {
 extern const f32 TObjPlayer__data_805DC278;
 void TObjPlayer__sub_801BFB4C(u8 *arg0);
-}
-
-extern "C" {
-
 s32 TObjPlayer__sub_801BF8F8();
 int clear_movement_history(void*);
 

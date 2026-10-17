@@ -5,13 +5,11 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern char lbl_80445974[];
 extern char lbl_80445988[];
 extern const char *fe_obj321_hashi_model_names[2];
 extern BmlResourceDescriptor TObjHashiVersus2__resource_descriptor;
 extern const char *fe_obj321_hashi_motion_names[1];
-}
 
 struct RecoveredGlobal_80191340_lbl_804B7C90 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80191340_lbl_804B7C90_size[sizeof(RecoveredGlobal_80191340_lbl_804B7C90) == 0x10 ? 1 : -1];
@@ -33,13 +31,8 @@ u8 is_current_floor_switch_set(int);
 extern RecoveredGlobal_801913F8_lbl_804B7D24 TObjHashiVersus2__collision_body_parts;
 extern s32 __vt__16TObjHashiVersus2[];
 extern s32 lbl_805D3380;
-extern u32 TObjHashiVersus2__resource_bundle;
 extern const f32 lbl_805DBE20;
 u8 *TObjHashiVersus2__ct(u8 *arg0, s32 arg1, s32 _w2);
-}
-
-extern "C" {
-
 void *TObjHashiVersus2__create(void *arg0);
 void *__dt__16TObjHashiVersus2Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -58,16 +51,12 @@ void *TObjHashiVersus2__create(void *arg0) {
     return o;
 }
 
-extern u32 TObjHashiVersus2__resource_bundle;
-
 void TObjHashiVersus2::free_static_data() {
     if ((u32) TObjHashiVersus2__resource_bundle != 0U) {
         TLobby__sub_8001FE7C((void*)TObjHashiVersus2__resource_bundle, 1);
         TObjHashiVersus2__resource_bundle = 0U;
     }
 }
-
-extern s32 __vt__16TObjHashiVersus2[];
 
 void TObjHashiVersus2::load_shared_resource() {
     s32 temp_r3;
@@ -109,9 +98,6 @@ u8 *TObjHashiVersus2__ct(u8 *arg0, s32 arg1, s32 _w2) {
     return arg0;
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *fe_obj321_hashi_model_names[2] = { lbl_80445974, NULL };
 BmlResourceDescriptor TObjHashiVersus2__resource_descriptor = { lbl_80445988, fe_obj321_hashi_model_names, fe_obj321_hashi_motion_names, 1, 0 };
 __declspec(section ".sdata") const char *fe_obj321_hashi_motion_names[1] = { NULL };

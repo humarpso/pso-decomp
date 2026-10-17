@@ -20,23 +20,11 @@ extern s32 player_ref_entry_active_count;
 void set_texture_name(S_803DA218 *self, s32 a, s32 b, u32 c);
 extern s32 record_array_count;
 extern Rec_803DA688 *record_array_ptr;
-extern s32 record_array_count;
-extern Rec_803DA688 *record_array_ptr;
-extern s32 record_array_count;
-extern Rec_803DA688 *record_array_ptr;
 extern Err_803DA5A8 lbl_8058D470[];
 extern s32 lbl_805D775C;
 extern Slot_803DA5A8 *lbl_805D7760;
-extern s32 record_array_count;
-extern Rec_803DA688 *record_array_ptr;
 s32 find_free_slot__10TObjPlayerFPvPv(Rec_803DA688 **arg0, Slot_803DA5A8 **arg1);
-extern s32 lbl_805D775C;
-extern Slot_803DA5A8 *lbl_805D7760;
 void TObjPlayer__sub_803DA388(Slot_803DA388 *p, s32 n);
-}
-
-extern "C" {
-
 void TObjPlayer::set_render_rect(s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0) = arg1;

@@ -15,10 +15,6 @@ extern s32 menu_font_glyph_data;
 extern s32 lbl_805D56B4;
 extern s32 menu_font_glyph_table;
 extern struct VObj_801457A4 *menu_font_object;
-}
-
-extern "C" {
-
 s32 draw_menu_font_string(void *, s32, s32, f32, f32, f32);
 
 extern const f32 lbl_805DB1A8;

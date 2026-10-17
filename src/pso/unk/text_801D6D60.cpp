@@ -3,10 +3,6 @@ struct Obj_801D6D60 { u8 pad[0x20]; s8 arr[1]; };
 
 extern "C" {
 u8 get_validated_array_value(Obj_801D6D60 *p, s32 i);
-}
-
-extern "C" {
-
 u8 get_validated_array_value(Obj_801D6D60 *p, s32 i) {
     s8 v = p->arr[i];
     if (v < 0 || v > 20) {

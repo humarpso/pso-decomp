@@ -25,10 +25,6 @@ extern const f32 lbl_805DBD00;
 extern const f32 lbl_805DBD04;
 extern const f32 lbl_805DBD08;
 u8 *init_container_base(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 u8 *init_container_base(u8 *arg0, s32 arg1, s32 arg2) {

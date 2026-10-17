@@ -6,10 +6,6 @@ struct Provider_800F5BC0 { s32 unk0; s32 count; StripRef_800F5BC0 *refs; };
 
 extern "C" {
 void scroll_strip_uvs(Provider_800F5BC0 *arg0, s16 arg1, s16 arg2);
-}
-
-extern "C" {
-
 s32 __dl__FPv(void *);
 s32 mem_free(s32);
 

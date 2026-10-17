@@ -88,7 +88,6 @@ extern void *TLobby__list_window;
 void open_information_list__6TLobbyFiPv(s32 arg0, Ent_80136FA0 *arg1);
 void __dl__FPv(void *);
 void * alloc__23TAdSinglePlyChrSelectGCFv(s32);
-void lobby_debug_printf_stub(const char *fmt, ...);
 s32 TLobby__sub_8013F810(void *, void *, s32, void *);
 void bswap_6x6E_sync_game_state__6TLobbyFPv(void *p);
 void sync_game_state__6TLobbyFv(void *, u16);
@@ -96,13 +95,8 @@ void import_sync_records__6TLobbyFPs(void *, u16);
 void activate_triggered_floor_events(void);
 void restore_switch_table(void *, u16);
 extern char lbl_8043EE90[];
-extern s32 TLobby__data_805D5594;
 extern s16 TLobby__data_805D5CE8;
 void handle_6x6E_sync_game_state(Pkt_8013566C *arg0);
-}
-
-extern "C" {
-
 struct Stack_80135458 {
     s8 sp8;
     s8 sp9;
@@ -332,33 +326,24 @@ void activate_keyboard();
 void mark_area_change_pending();
 u16 obj_getField1c(void *);
 void * get_current_floor();
-s32 queue_destruction__7TObjectFv(void *);
 char * get_card_window_area__6TLobbyFv(void);
 s32 get_flag_bit0__6TLobbyFv(void);
 void TLobby__sub_800703D0(void *, void *);
 s32 __dt__12TPlyCharDataFv(s32, s32);
 void TLobby__sub_80077798(void *, void *);
 void set_ip_address__7TSocketFUl(void*, u32);
-void __dl__FPv(void *);
-void * alloc__23TAdSinglePlyChrSelectGCFv(s32);
 int bswap_packet_header__6TLobbyFv(void *);
 void set_world_section_id(void *, s32);
 void update_idle_timeout__6TLobbyFPv(u8 *arg0);
 u8 * TLobby__sub_80135198(u8 *arg0, s32 arg1);
 void handle_6x70_sync_player_disp_and_inventory(Pkt_801354AC *arg0);
-void send_6x70_player_data__6TLobbyFi(s32 arg0);
 void handle_6x6F_set_quest_flags_v2(s32 arg0);
 void handle_6x6D_sync_game_state(Pkt_8013574C *arg0);
 void handle_6x6C_sync_game_state(Pkt_801357F8 *arg0);
 void handle_6x6B_sync_game_state(Pkt_801358B4 *arg0);
-void send_6x6F_quest_flags(s32 arg0);
-void send_6x6E_sync_game_state__6TLobbyFi(s32 arg0);
-void send_compressed_packet_6c__6TLobbyFi(s32 arg0);
-void send_cmd_6B__6TLobbyFi(s32 arg0);
 void TLobby__sub_80135FFC(void);
 void retire_lobby_player__6TLobbyFii(s32 idx, s32 v);
 void on_lobby_player_add__6TLobbyFii(s32 arg0, s32 arg1);
-s32 __dt__18TPlyJoinLobbyEntryFv(s32 arg0, s16 arg1);
 void remove_player__6TLobbyFUiii(u32 arg0, s32 arg1, s32 arg2);
 void handle_6x72_done_loading_into_game(void);
 void handle_lobby_enter__6TLobbyFPviiiiiii(Ent_801368B0 *ents, s32 n, s32 client_id, s32 leader, s32 arg4, s32 arg5, s32 arg6, s32 arg7);
@@ -367,9 +352,6 @@ void add_lobby_members__6TLobbyFPvisi(Ent_801368B0 *, s32, s32, s32);
 void destroy_all_objects__6TLobbyFv();
 void set_menu_mode_1__6TLobbyFv(void);
 void set_menu_mode_0__6TLobbyFv(void);
-char * get_seq_phase__6TLobbyFPv(int);
-void lobby_debug_printf_stub(const char *fmt, ...);
-void bswap_6x6E_sync_game_state__6TLobbyFPv(void *p);
 s32 open_hard_keyboard__6TLobbyFPv(void *);
 void bswap_player_data__6TLobbyFi(void *);
 void set_player_count__6TLobbyFi(s32);
@@ -377,10 +359,8 @@ s32 bswap_and_send_extended_subcommand(int, void *);
 s32 bswap_and_handle_packet__6TLobbyFii(void *, void *);
 s32 TLobby__sub_8013A578(void *);
 void bswap_object_source_record(void *);
-void TLobby__sub_8013AA64(void *, void *);
 void fn_8013ACE4(s32);
 void set_area_random_seed(s32);
-s32 TLobby__sub_8013F810(void *, void *, s32, void *);
 s32 mem_free(int);
 u8 * mem_alloc(s32);
 void clear_enabled_main_warps();
@@ -389,9 +369,7 @@ s32 get_table_entry_by_index__6TLobbyFv(void *);
 VObj_18_80135208 * TPacket__ct(void*, s32);
 s32 fill_player_record__10TObjPlayerFPvPv(void *, void *);
 s32 init_player_join_record(void *);
-s32 get_player_by_client_id(void *);
 Plr_801354AC * create_remote_player_object(void *);
-u8 * create_player_object(s32, s32, void *);
 void send_player_data_98__9TProtocolFPvPvPvPvPvPvPv(void *, void *, void *, void *, void *, void *, void *);
 s32 DateToSeconds__FP9DateStampPi(void *, void *);
 s32 getDateStamp__FP9DateStamp(void *);
@@ -409,37 +387,26 @@ void * __nw__7TObjectFUl(u32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 TWindow__close(int);
 s32 TWindowCtrlMain__sub_8024CE58();
-void calc_list_content_extent(void *);
 void send_and_handle__6TLobbyFii(void *, char *, int);
 void * set_window_mode_4__6TLobbyFPvll(void *, void *, int);
 void * get_window_layout_position(int);
-void * open_default__23TShopJudgmentItemWindowFl(void *);
 char * get_card_window_field__6TLobbyFv(void);
-int sprintf(char *, const char *, ...);
 int strncmp(const char *, const char *, unsigned long);
-char * strncpy(char *, const char *, u32);
 
 extern u8 TKeyBoardControl__global_key_state[];
-extern char TLobby__data_8043EF38[];
 extern u8 TLobby__data_805011D8[];
 extern s32 TLobby__data_805D4E30;
-extern s32 TLobby__designated_client_id;
 extern u8 *TLobby__protocol_instance;
 extern s32 TLobby__lobby_entered_flag;
 extern s32 TLobby__data_805D5588;
 extern s32 TLobby__deferred_player_setup_state;
-extern s32 TLobby__data_805D5594;
-extern s32 TLobby__join_state_flag;
 extern s32 TLobby__card_list_selected_index;
 extern s32 TLobby__idle_timeout_active;
 extern s32 TLobby__data_805D55AC;
 extern s32 TLobby__lobby_number;
 extern s32 TLobby__data_805D55B8;
 extern void *TLobby__download_list_window;
-extern void *TLobby__list_window;
-extern u32 TLobby__current_dialog_window;
 extern s32 TLobby__idle_timeout_object;
-extern s16 TLobby__data_805D5CE8;
 extern u32 *TLobby__data_805D6140;
 extern S12_801358B4 *TLobby__data_805D6144;
 extern u32 TLobby__data_805D6148;
@@ -450,7 +417,6 @@ extern Pair_80135E7C lbl_8043EE18[];
 extern Pair_80134F9C lbl_8043EE28[];
 extern char lbl_8043EE30[];
 extern char lbl_8043EE48[];
-extern char lbl_8043EE58[];
 extern char lbl_8043EE7C[];
 extern char lbl_8043EEA4[];
 extern char lbl_8043EEC0[];
@@ -468,7 +434,6 @@ extern RecoveredGlobal_80135198_lbl_804A7008 lbl_804A7008;
 extern char lbl_8050ADB8[];
 extern RecoveredGlobal_80135974_lbl_805127F8 quest_story_flags_by_difficulty;
 extern u8 lbl_80515BA0[];
-extern s32 local_client_id;
 extern s32 game_difficulty_selection;
 extern s32 TLobby__event_theme_id;
 extern Mgr_801361E8 *game_protocol_instance;
@@ -524,10 +489,6 @@ Row_80135208 game_join_player_records[4];
 u32 lobby_join_message_buffer[64];
 u32 lbl_8050AD38[32];
 char lbl_8050ADB8[0x100];
-
-extern "C" {
-extern Mgr_801361E8 *game_protocol_instance;
-}
 
 void TLobby::send_game_character() {
     A_80134E30 a;
@@ -1393,10 +1354,6 @@ s32 get_window_layout_position(s32);
 u32 update_window_mode_from_progress__6TLobbyFPv(s32 arg0, void *arg1);
 int send_and_handle__6TLobbyFii(u32 p, int a1, int a2);
 void TLobby__sub_80137228(s32 arg0);
-}
-
-extern "C" {
-
 void disable_window_flags__6TLobbyFPv(void* a0);
 void handle_state__6TLobbyFi(s32 arg0);
 s32 reset_character_data__23TAdSinglePlyChrSelectGCFv();
@@ -1561,10 +1518,6 @@ extern s16 TLobby__pending_member_count;
 extern s32 TLobby__deferred_player_setup_state;
 extern s32 TLobby__player_setup_pending;
 void process_deferred_player_setup__6TLobbyFv(void);
-}
-
-extern "C" {
-
 void queue_static_object_destruction__6TLobbyFv(void);
 void reset_state_flags__6TLobbyFv(void);
 s32 buffer_reset();
@@ -1861,10 +1814,6 @@ void TQuestListOnline__sub_8013ACF4(s32);
 u32 update_window_mode_from_progress__6TLobbyFPv(s32 arg0, void *arg1);
 int send_and_handle__6TLobbyFii(u32 p, int a1, int a2);
 void TLobby__sub_80137C10(s32 arg0);
-}
-
-extern "C" {
-
 void destroy_all_objects__6TLobbyFv(void);
 void init_player_window_effect__6TLobbyFv(void);
 void update_com_card_window__6TLobbyFv(void);
@@ -2021,10 +1970,6 @@ void update_com_card_window__6TLobbyFv(void) {
     }
 }
 
-}
-
-extern "C" {
-
 void open_city_warp_menu__6TLobbyFv(void);
 s32 get_seq_phase__6TLobbyFPv(s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
@@ -2049,10 +1994,6 @@ void open_city_warp_menu__6TLobbyFv(void) {
     ((TCheckRoomSequence *)(*(s32 *)&lobby_com_card_window))->set_ready_flag();
     TLobby__data_805D5594 = 0x19;
 }
-
-}
-
-extern "C" {
 
 void close_and_set_state_12__6TLobbyFv(void);
 void open_keyboard_window__6TLobbyFv(void);
@@ -2122,10 +2063,6 @@ void open_keyboard_window__6TLobbyFv(void) {
     TLobby__data_805D5594 = 9;
 }
 
-}
-
-extern "C" {
-
 void close_and_send_text_list__6TLobbyFv(void);
 void close_all_windows__6TLobbyFv(void);
 s32 send_text_list__9TProtocolFv(s32);
@@ -2135,10 +2072,6 @@ void close_and_send_text_list__6TLobbyFv(void) {
     ((s32 (*)())init_player_window_effect__6TLobbyFv)();
     send_text_list__9TProtocolFv((*(s32 *)&TLobby__protocol_instance));
 }
-
-}
-
-extern "C" {
 
 void close_menu_windows__6TLobbyFv(void);
 extern void open_ship_block_select_menu__6TLobbyFiPvPv(void);
@@ -2157,10 +2090,6 @@ void close_menu_windows__6TLobbyFv(void) {
     send_block_list_request__9TProtocolFv(TLobby__protocol_instance);
     TLobby__data_805D5594 = 8;
 }
-
-}
-
-extern "C" {
 
 void return_to_main_menu__6TLobbyFv(void);
 void open_ship_block_select_menu__6TLobbyFiPvPv();
@@ -2209,10 +2138,6 @@ void return_to_main_menu__6TLobbyFv(void) {
     TLobby__data_805D5594 = 7;
 }
 
-}
-
-extern "C" {
-
 int close_all_windows__6TLobbyFPv(void* p);
 void open_warp_menu__6TLobbyFv(void);
 s32 align_menu_entry_positions(s32);
@@ -2238,10 +2163,6 @@ void open_warp_menu__6TLobbyFv(void) {
 
 int close_all_windows__6TLobbyFPv(void* p) { return ((int (*)(void*))close_all_windows__6TLobbyFv)(p); }
 
-}
-
-extern "C" {
-
 void open_make_team_window__6TLobbyFi(s32 arg0);
 s32 TWindowMakeTeam__ct(s32, s32, s32);
 s32 __nw__7TObjectFUl(s32);
@@ -2259,10 +2180,6 @@ void open_make_team_window__6TLobbyFi(s32 arg0) {
     (*(s32 *)&lobby_make_team_window) = var_r4;
     TLobby__data_805D5594 = 0xA;
 }
-
-}
-
-extern "C" {
 
 void open_menu_window__6TLobbyFv(void);
 s32 get_seq_phase__6TLobbyFPv(s32);
@@ -2291,10 +2208,6 @@ void open_menu_window__6TLobbyFv(void) {
     TLobby__data_805D5594 = 0x18;
 }
 
-}
-
-extern "C" {
-
 void request_game_list__6TLobbyFv(void);
 s32 send_game_list__9TProtocolFv(s32);
 
@@ -2314,9 +2227,6 @@ void request_game_list__6TLobbyFv(void) {
     TLobby__data_805D5594 = 6;
 }
 
-}
-
-extern "C" {
 void TLobby__sub_80139894(s32 arg0);
 s32 get_seq_phase__6TLobbyFPv(s32);
 int sprintf(char *, const char *, ...);
@@ -2329,10 +2239,6 @@ extern s32 TLobby__join_lobby_idle_timer;
 extern s32 lbl_805D55C0;
 extern s32 TLobby__current_dialog_window;
 extern s32 TLobby__player_setup_pending;
-}
-
-extern "C" {
-
 void close_and_set_state_13__6TLobbyFv(void);
 void create_warp_menu__6TLobbyFv(void);
 void open_lobby_warp_menu__6TLobbyFv(void);
@@ -2452,10 +2358,6 @@ void open_lobby_warp_menu__6TLobbyFv(void) {
     ((s32 (*)())init_player_window_effect__6TLobbyFv)();
     TLobby__data_805D5594 = 3;
 }
-
-}
-
-extern "C" {
 
 void destroy_lobby_ui__6TLobbyFv(void);
 void set_menu_mode_0__6TLobbyFv(void);
@@ -2642,10 +2544,6 @@ extern u32 TLobby__download_list_window;
 extern u32 TLobby__list_window;
 extern char TLobby__data_805DB0B0[4];
 void update_card_list_window__6TLobbyFv(void);
-}
-
-extern "C" {
-
 void update_scroll_close__6TLobbyFv(void);
 void handle_short_list_input__6TLobbyFv(void);
 void update_short_list__6TLobbyFv(void);
@@ -2789,10 +2687,6 @@ s32 get_selected_menu_value(void *);
 extern s32 lbl_805D560C;
 extern u8 lbl_805D5610;
 void update_make_team_menu__6TLobbyFv(void);
-}
-
-extern "C" {
-
 void handle_comcard_window__6TLobbyFv(void);
 s32 __ct__16TPlyGuildCardTagFv();
 void close_all_windows__6TLobbyFv(void);
@@ -2923,10 +2817,6 @@ extern s8 controller_input_state[];
 extern u32 TLobby__list_window;
 extern s32 lobby_selected_game_list_index;
 void update_game_list_menu__6TLobbyFv(void);
-}
-
-extern "C" {
-
 void handle_com_card__6TLobbyFv(void);
 void handle_create_game_window__6TLobbyFv(void);
 void update__6TLobbyFv(void);
@@ -3173,10 +3063,6 @@ s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 void close_windows_and_reset__16TQuestListOnlineFv(void *);
 extern s32 quest_download_active;
 void run_task__6TLobbyFv(void *self);
-}
-
-extern "C" {
-
 void close_com_card_window__6TLobbyFv(void);
 void handle_game_list_select__6TLobbyFv(void);
 void handle_warp_menu_input__6TLobbyFv(void);
@@ -3757,10 +3643,6 @@ extern u8 TLobby__data_80506A6C[];
 void __dt__18TPlyJoinLobbyEntryFv(void *self, s16 flag);
 void __destroy_arr(void *arr, void *dtor, u32 size, u32 count);
 void destroy_join_entries__6TLobbyFv(void);
-}
-
-extern "C" {
-
 s32 TLobby__sub_8013A23C(s32 arg0);
 s32 __ct__16TPlyGuildCardTagFv();
 
@@ -3792,10 +3674,6 @@ void TLobby__sub_8013A9C0(void *);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 void bswap_player_data__6TLobbyFi(s32 arg0);
-}
-
-extern "C" {
-
 void TLobby__sub_8013A2DC(void);
 void bswap_6x6E_sync_game_state__6TLobbyFPv(void* p);
 void bswap_inventory__6TLobbyFPv(void* p);
@@ -3890,10 +3768,6 @@ void *TObjPlayer__sub_8013A748(void *arg0, void *arg1);
 u8 *copy_player_data__9TProtocolFPvPv(u8 *arg0, u8 *arg1);
 u8 *copy_player_data__9TProtocolFPvPv(u8 *arg0, u8 *arg1);
 Rec_8013A5D4 *copy_member_record__6TLobbyFPvPv(Rec_8013A5D4 *dst, Rec_8013A5D4 *src);
-}
-
-extern "C" {
-
 void bswap_and_send_extended_subcommand(void* p, void* a1);
 void bswap_extended_subcommand_header(void* p);
 void TLobby__sub_8013A578(void* p);

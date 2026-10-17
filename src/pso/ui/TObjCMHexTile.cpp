@@ -7,7 +7,6 @@ public:
     virtual void run_task();
     virtual void render();
 };
-#include "types.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 
 struct H_80294324 { u8 pad0[0x34]; f32 f34; f32 f38; f32 f3c; f32 f40; u8 pad44[4]; f32 f48; f32 f4c; };
@@ -22,9 +21,6 @@ extern const f32 lbl_805DDA00;
 extern const f32 lbl_805DDA04;
 extern const f32 lbl_805DDA08;
 void render__13TObjCMHexTileFv(H_80294324 *arg0);
-}
-
-extern "C" {
 
 void render__13TObjCMHexTileFv(H_80294324 *arg0) {
     f32 sp10[2];
@@ -111,8 +107,6 @@ void __ct__7TObjectFP7TObject(void *, void *);
 int rand(void);
 extern void *__vt__13TObjCMHexTile[];
 extern const char *lbl_805D3CC8;
-extern const f32 lbl_805DDA0C;
-extern const f32 lbl_805DDA10;
 extern const f32 lbl_805DDA14;
 extern const f32 lbl_805DDA18;
 extern const f32 lbl_805DDA1C;
@@ -147,10 +141,7 @@ Hex_80294578 *__ct__13TObjCMHexTileFv(Hex_80294578 *self, void *parent, void *po
 }
 #pragma pop
 
-}
 #pragma pop
-
-extern "C" {
 
 struct V2_802947A8 {
     f32 x;

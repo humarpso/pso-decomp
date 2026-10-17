@@ -48,7 +48,6 @@ void *__dt__16TORockCaveSimpleFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__16TORockCaveSimple[];
 extern void *TORockCaveSimple__class_name;
 
 void *TORockCaveSimple__ct(void *arg0) {

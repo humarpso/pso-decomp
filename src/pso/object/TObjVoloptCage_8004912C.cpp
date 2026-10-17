@@ -48,7 +48,6 @@ void TObjVoloptCage::init_break_model() {
     lbl_805D4D1C = dispatch_shared_handler_a__6TLobbyFl(0x26);
 }
 
-extern s32 volopt_cage_break_model_handle;
 extern s32 TObjVoloptCage__texture_list;
 extern s32 model_render_flags;
 extern const f32 lbl_805D887C;

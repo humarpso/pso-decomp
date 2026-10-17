@@ -26,10 +26,6 @@ Entry_8025373C *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 s32 TWindowHelpItem__sub_80255DDC(Entry_8025373C *);
 extern const f32 TWindowHelpItem__data_805DCDE4;
 s32 fn_8025373C(u8 *self);
-}
-
-extern "C" {
-
 s32 fn_8025373C(u8 *self) {
     Mag_8025373C mag;
     Entry_8025373C *help;

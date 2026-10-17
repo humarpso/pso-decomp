@@ -84,25 +84,13 @@ extern char lbl_8044DBC8[];
 extern char lbl_8044DBD4[];
 extern char lbl_8044DBE0[];
 extern char lbl_8044DBEC[];
-s32 obj_getField1c(int);
 s32 get_type__10TObjPlayerFPv(int);
-s32 queue_destruction__7TObjectFv(void *);
-s32 obj_getField1c(int);
-s32 get_type__10TObjPlayerFPv(int);
-s32 queue_destruction__7TObjectFv(void *);
-}
-
-extern "C" {
-
 void *__dt__13TUnk_804CCC28Fv(void *arg0, s16 arg1);
 void *__dt__12TTecReverserFv(void *arg0, s16 arg1);
 s32 spawn_particle_effect(void *, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
-s32 queue_destruction__7TObjectFv(void *);
-
-extern s32 lbl_804CCC28[];
 
 void *__dt__13TUnk_804CCC28Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -172,8 +160,6 @@ void TTecReverser::create(void *arg0, void *arg1, void *arg2, void *arg3) {
         TTecReverser__ct((u8 *)(o), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3));
     }
 }
-
-extern s32 __vt__12TTecReverser[];
 
 void *__dt__12TTecReverserFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

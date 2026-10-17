@@ -78,11 +78,7 @@ s32 select_enemy_drop__9TItemDropFPviiPv(u32, s32, s32, s32);
 s32 normalize_drop_area(s32 *);
 extern void *item_mgr;
 s32 select_box_item__9TItemDropFiiPv(u32, s32, s32);
-s32 normalize_drop_area(s32 *);
-extern void *item_mgr;
 s32 generate_drop_item__9TItemDropFPviPv(u32, s32, s32);
-s32 normalize_drop_area(s32 *);
-extern void *item_mgr;
 s32 get_unit_attribute_index__10TObjPlayerFUc(u8 arg0);
 extern void *item_pmt_tbl;
 s32 get_mag_feed_result(s32 arg0, s32 arg1);
@@ -90,52 +86,30 @@ s32 get_text_collection(s32);
 extern s32 lbl_805D2B10;
 s32 roll_channel_below__9TItemDropFPviUi(int, void *, void *);
 s32 __cvt_fp2unsigned(f32);
-extern void *item_mgr;
 void roll_item_channel_below(u32 arg0, s32 arg1);
-extern void *item_pmt_tbl;
 u8 get_weapon_class_motion_type(u8 arg0);
-extern void *item_pmt_tbl;
 u8 get_technique_learn_limit(s8 arg0, u8 arg1);
-extern void *item_pmt_tbl;
 s32 get_item_star_count(s32 id);
-extern void *item_pmt_tbl;
 Entry_8011CB18 *get_weapon_range_record(Item_8011CB18 *item, s16 mode);
-extern void *item_pmt_tbl;
 s32 is_unsealable_item(u8 *id);
-extern void *item_pmt_tbl;
 void get_weapon_special_type_amount(u32 x, s16 *a, s16 *b);
 void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
-extern void *item_pmt_tbl;
 void play_weapon_owner_sounds(Ctx_8011C7C8 *c);
-extern void *item_pmt_tbl;
 extern const f32 lbl_805DAC74;
 extern s32 weapon_special_roll_channel_table[];
 u8 roll_weapon_special_for_stars(u8 arg0);
 f32 get_item_price_coefficient(u8 arg0, u8 arg1);
-extern void *item_pmt_tbl;
 Rule_8011C0B8 *find_item_combination_recipe(u8 *id, void *item);
-void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
-s32 play_sound_effect(s32, void *, s32, s32);
-extern void *item_pmt_tbl;
 void play_shield_sound_cue(Obj_8011C59C *arg0);
 void *get_item_pmt_record__10TObjPlayerFii(u8, u8);
 void *get_armor_pmt_record(u8, u8);
-extern void *item_pmt_tbl;
 s32 get_item_stat_boost_record(s32 arg0, s32 arg1, s32 arg2);
-extern void *item_pmt_tbl;
 void find_tool_pmt_base_id(s32 arg0, u8 *arg1);
 void roll_table_ratio__9TItemDropFPvUi(u8 *arg0, u32 arg1);
 s32 rand();
-extern void *item_mgr;
 extern const f32 lbl_805DAC70;
-}
-
-extern "C" {
-
 typedef struct Thing__8011c1e8_8011C000 { u8 a; u8 b; } Thing;
-
-extern void *item_pmt_tbl;
 
 s32 TObjPlayer::get_item_pmt_entry(u8 arg0) {
     void *temp_r5;
@@ -146,8 +120,6 @@ s32 TObjPlayer::get_item_pmt_entry(u8 arg0) {
     }
     return 0;
 }
-
-extern void *item_pmt_tbl;
 
 s32 is_unsealable_item(u8 *id) {
     List_8011C030 *l = ((Tbl_8011C030 *)item_pmt_tbl)->list;
@@ -169,8 +141,6 @@ s32 TObjPlayer::get_shield_pmt_entry(u8 arg0) {
     }
     return *(s32 *)((s8 *)item_pmt_tbl + 0x4C) + (arg0 * 0x18);
 }
-
-extern void *item_mgr;
 
 Rule_8011C0B8 *find_item_combination_recipe(u8 *id, void *item) {
     Rule_8011C0B8 *r;

@@ -65,10 +65,6 @@ struct RecoveredGlobal_8012E83C_lbl_8043E9C0 {
 extern "C" {
 s32 draw_icon__10TObjPlayerFll(void *, int, void *);
 extern RecoveredGlobal_8012E83C_lbl_8043E9C0 five_joint_shot_angle_table;
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8012E83C_lbl_8043E9C0_size[sizeof(RecoveredGlobal_8012E83C_lbl_8043E9C0) == 0x18 ? 1 : -1];
 void TUnk_804A5E20::emit_marker_effects() {
     u8 *arg0 = (u8 *)this;

@@ -6,10 +6,6 @@ typedef char AllocatorReleaseOffset[(offsetof(AllocatorCallbacks, release) == 4)
 extern "C" {
 extern AllocatorCallbacks *global_allocator;
 void *xmalloc__FUl(u32 bytes);
-}
-
-extern "C" {
-
 #pragma push
 #pragma scheduling off
 void *xmalloc__FUl(u32 bytes) {

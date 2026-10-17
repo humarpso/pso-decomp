@@ -7,14 +7,12 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" {
 extern char lbl_80445450[];
 extern char lbl_80445464[];
 extern char lbl_80445478[];
 extern const char *fs_obj_ex_doa01_model_names[2];
 extern const char *fs_obj_ex_doa01_motion_names[2];
 extern BmlResourceDescriptor TObjDoaEx01__resource_descriptor;
-}
 
 struct RecoveredGlobal_8018E1E0_lbl_804B7588 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8018E1E0_lbl_804B7588_size[sizeof(RecoveredGlobal_8018E1E0_lbl_804B7588) == 0x10 ? 1 : -1];
@@ -64,23 +62,16 @@ s32 init_door_base(void *);
 extern RecoveredGlobal_8018E064_lbl_804B7598 TObjDoaEx01__collision_body_parts;
 extern s32 __vt__11TObjDoaEx01[];
 extern s32 TObjDoaEx01__name;
-extern u32 TObjDoaEx01__resource_bundle;
 extern const f32 TObjDoaEx01__data_805DBDA0;
 extern const f32 TObjDoaEx01__data_805DBDA8;
 extern const f32 lbl_805DBDBC;
 u8 *TObjDoaEx01__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *TObjDoaEx01__create(void *arg0);
 void *__dt__11TObjDoaEx01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-
-extern s32 __vt__11TObjDoaEx01[];
 
 void *__dt__11TObjDoaEx01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -127,8 +118,6 @@ void *TObjDoaEx01__create(void *arg0) {
     return o;
 }
 
-extern u32 TObjDoaEx01__resource_bundle;
-
 void TObjDoaEx01::free_resource() {
     if ((u32) TObjDoaEx01__resource_bundle != 0U) {
         TLobby__sub_8001FE7C((void*)TObjDoaEx01__resource_bundle, 1);
@@ -150,9 +139,6 @@ void TObjDoaEx01::load_resources() {
     TObjDoaEx01__alpha_model_sibling = *(s32 *)((s8 *)temp_r3_2 + 0x30);
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *fs_obj_ex_doa01_model_names[2] = { lbl_80445450, NULL };
 __declspec(section ".data") const char *fs_obj_ex_doa01_motion_names[2] = { lbl_80445464, NULL };
 BmlResourceDescriptor TObjDoaEx01__resource_descriptor = { lbl_80445478, fs_obj_ex_doa01_model_names, fs_obj_ex_doa01_motion_names, 1, 1 };

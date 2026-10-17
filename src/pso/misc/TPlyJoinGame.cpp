@@ -20,9 +20,6 @@ u8 *__ct__12TPlyJoinGameFRC12TPlyJoinGame(u8 *arg0, u8 *arg1);
 void bswap__13packet_headerFv();
 void bswap_32__FPUl(void *);
 void bswap__12TPlyJoinGameFv(Join_801E03B8 *self);
-}
-
-extern "C" {
 
 void bswap__12TPlyJoinGameFv(Join_801E03B8 *self) {
     int i;

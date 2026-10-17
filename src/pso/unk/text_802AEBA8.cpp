@@ -24,10 +24,6 @@ typedef struct {
 extern const f32 lbl_805DE1D8;
 extern const f32 lbl_805DE1DC;
 
-}
-
-extern "C" {
-
 void TAdEnterSerialAccessGC::reset_input_state() {
     Obj_802AEBA8 *self = (Obj_802AEBA8 *)this;
     s32 i;

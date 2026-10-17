@@ -46,8 +46,6 @@ void *TObjRaderCol__create(void *arg0) {
     return o;
 }
 
-extern void *tl_05;
-
 void *TObjRaderHideCol__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x98);
     if (o != NULL) {
@@ -55,8 +53,6 @@ void *TObjRaderHideCol__create(void *arg0) {
     }
     return o;
 }
-
-extern void *tl_05;
 
 void *TObjContainerAbeEnemy__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x368);
@@ -66,8 +62,6 @@ void *TObjContainerAbeEnemy__create(void *arg0) {
     return o;
 }
 
-extern void *tl_05;
-
 void *TObjBgmCol__create(void *set) {
     void *o = __nw__7TObjectFUl(0xA0);
     if (o != NULL) {
@@ -76,8 +70,6 @@ void *TObjBgmCol__create(void *set) {
     return o;
 }
 
-extern void *tl_05;
-
 void *TObjItemLight__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x98);
     if (o != NULL) {
@@ -85,8 +77,6 @@ void *TObjItemLight__create(void *arg0) {
     }
     return o;
 }
-
-extern void *tl_05;
 
 void *TObjCityMainWarpChallenge__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x180);

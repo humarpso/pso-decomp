@@ -78,10 +78,8 @@ extern s32 adx_afs_partition_id_range_error[];
 extern s32 afs_file_id_out_of_range_error[];
 extern Ent_803CC294 *afs_archive_toc_table[];
 s32 memcmp(void *, void *, int);
-s32 TLobby__sub_803CCB98();
 s32 TLobby__sub_803CD804();
 extern s32 lbl_8047C818[];
-extern Ent_803CC294 *afs_archive_toc_table[];
 extern s32 lobby_adxf_current_file_id;
 extern Strm_803CD5C4 *lobby_adxf_open_file_handle;
 extern s32 lobby_afs_toc_entry_index;
@@ -97,42 +95,17 @@ Slot_803CD16C *adxf_open_afs__6TLobbyFii(s32 arg0, s32 arg1);
 u32 TLobby__sub_803C8CDC(u32, s32, s32);
 extern s32 lbl_8047CBA4[];
 extern s32 lbl_8047CBD8[];
-extern LogHdr_803CD16C lbl_8057B7B0;
-extern LogEnt_803CD16C lbl_8057B7D0[];
-extern Slot_803CD16C adxf_file_handle_pool[];
-extern s32 adxf_log_write_index;
 Slot_803CD16C *adxf_open__6TLobbyFUii(u32 arg0, s32 arg1);
 s32 TLobby__sub_803C85AC(u32, s32 *);
 s32 TLobby__sub_803C89C4(u32);
 s32 invalidate_cache__6TLobbyFv(s32, s32);
 extern s32 lbl_8047C9B0[];
 extern s32 lbl_8047C9D4[];
-extern LogHdr_803CD16C lbl_8057B7B0;
-extern LogEnt_803CD16C lbl_8057B7D0[];
-extern s32 adxf_log_write_index;
 extern s32 lbl_805D75E4;
-s32 TLobby__sub_803C85AC(u32, s32 *);
 s8 TLobby__sub_803C8B2C(u32);
-s32 invalidate_cache__6TLobbyFv(s32, s32);
-extern Slot_803CD16C adxf_file_handle_pool[];
-extern s32 lbl_805D75E4;
 void TLobby__sub_803CC884(void);
-extern Slot_803CD16C adxf_file_handle_pool[];
-s32 TLobby__sub_803C85AC(u32, s32 *);
-s32 TLobby__sub_803C89C4(u32);
 s32 TLobby__sub_803C8B38(u32);
-s32 invalidate_cache__6TLobbyFv(s32, s32);
 void *memset(void *, int, unsigned long);
-extern s32 lbl_8047C9B0[];
-extern s32 lbl_8047C9D4[];
-extern LogHdr_803CD16C lbl_8057B7B0;
-extern LogEnt_803CD16C lbl_8057B7D0[];
-extern s32 adxf_log_write_index;
-extern s32 lbl_805D75E4;
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_803CC500_lbl_8047C910_size[sizeof(RecoveredGlobal_803CC500_lbl_8047C910) == 0x2C ? 1 : -1];
 
 #pragma push

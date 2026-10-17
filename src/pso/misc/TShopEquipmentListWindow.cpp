@@ -203,7 +203,6 @@ s32 obj_getField1c(s32);
 s32 get_shop_weapon_stock_item(void *, int, s32);
 int TShopEquipmentListWindow__sub_8021C85C(int a0);
 s32 get_shop_text(s32);
-s32 sub_8022397C__15TShopWindowBaseFv(void *);
 void *__nw__7TObjectFUl(u32);
 void *__ct__15TWindowHelpItemFPvUs(void *, s32, u16);
 s32 calc_list_content_extent(void *);
@@ -212,7 +211,6 @@ void *create_item_list_window(s32, s32, u16);
 s32 get_item_count__24TShopEquipmentSellWindowFv(void *a, s32 b);
 void *create_cost_window(u16);
 extern const f32 lbl_805DC6D0;
-int set_field_20__15TShopWindowBaseFl(void*, int);
 VObj_18_b34251 *find_item_by_id(s32);
 u32 get_equip_field_d04__10TObjPlayerFv(void *, s32);
 s32 advance_item_id_counter(u16);
@@ -220,49 +218,20 @@ void try_buy_item(void *, void *);
 void send_6x26_unequip_item__10TObjPlayerFPvPv(void *, s32);
 void send_6x25_equip_item(void *, s32, s32);
 s32 is_single_purchase_shop_item(void *);
-s32 sub_8022397C__15TShopWindowBaseFv(void *);
 void TWindow__close(void *);
 s32 get_selected_menu_value(void *);
-s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
 extern const s32 local_client_id;
-s32 obj_getField1c(s32);
-int set_field_20__15TShopWindowBaseFl(void*, int);
-s32 advance_item_id_counter(u16);
-void try_buy_item(void *, void *);
-s32 is_single_purchase_shop_item(void *);
 f32 get_scale__15TShopWindowBaseFv(void *);
-s32 sub_8022397C__15TShopWindowBaseFv(void *);
-void TWindow__close(void *);
-s32 get_selected_menu_value(void *);
 u32 create_yes_no_window(int, u16, int, int);
-s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
-s32 get_window_layout_position(s32);
-extern const s32 local_client_id;
-int set_field_20__15TShopWindowBaseFl(void*, int);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 void play_sound_effect(int, int, int, int);
-s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
-}
-
-extern "C" {
-
-int TShopEquipmentListWindow__sub_8021C85C(int a0);
 void *__dt__24TShopEquipmentListWindowFv(void *arg0, s16 arg1);
 u32 create_window_menu(s32, s32, u16);
-s32 get_shop_text(s32);
-s32 sub_802239EC__13TShopSequenceFv(void *);
-s32 sub_80223A48__15TShopWindowBaseFv(void *);
 s32 align_menu_entry_positions(u32);
-s32 get_window_layout_position(s32);
-void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__15TShopWindowBaseFv(void *, int);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, s32, s32);
-s32 get_item_count__24TShopEquipmentSellWindowFv(void *a, s32 b);
-f32 get_scale__15TShopWindowBaseFv(void *);
-s32 obj_getField1c(s32);
-int set_field_20__15TShopWindowBaseFl(void*, int);
 
 void TShopEquipmentListWindow::vfunc_7() {
     struct VObj_8021B974 *o = (struct VObj_8021B974 *)*(void **)((s8 *)this + 0x28);
@@ -434,8 +403,6 @@ s32 TShopEquipmentListWindow::handle_select() {
         set_field_20__15TShopWindowBaseFl((void*)(this), (int)(1));
     }
 }
-
-extern s32 __vt__24TShopEquipmentListWindow[];
 
 struct Win_8021C33C;
 void TShopEquipmentListWindow::handle_selection() {

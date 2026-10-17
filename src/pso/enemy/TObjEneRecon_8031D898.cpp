@@ -41,15 +41,6 @@ s32 collect_enemy_target_candidates(void *, void *, f32);
 void transition_enemy_state(void *, s32);
 void *find_entity_by_id(u16);
 extern const f32 lbl_805DF420;
-void queue_destruction__7TObjectFv(void *);
-void enemy_set_target_id(void *, u16);
-s32 collect_enemy_target_candidates(void *, void *, f32);
-void transition_enemy_state(void *, s32);
-void *find_entity_by_id(u16);
-extern const f32 lbl_805DF420;
-}
-
-extern "C" {
 
 void TObjEneRecon::retarget() {
     Hit_8031D898 hits[5];

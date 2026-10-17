@@ -48,10 +48,6 @@ extern const f32 lbl_805DE284;
 extern const f32 lbl_805DE288;
 extern const f32 lbl_805DE28C;
 void run_task__13TAdGuideTxtGCFv(TAdGuideTxtGC_802B1878 *o);
-}
-
-extern "C" {
-
 void reset__15TLobby_802D2F7CFPv(u8 *arg0);
 
 #pragma push

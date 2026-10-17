@@ -35,19 +35,13 @@ int TObjNpcHosa__sub_802A39B0(void);
 extern s32 __vt__17TAdSelectTxtSubGC[];
 extern s32 ad_select_txt_sub_gc_class_name;
 extern s32 status_disp_texture_handle;
-extern const f32 lbl_805DDF3C;
 extern const f32 lbl_805DDF44;
 extern const f32 lbl_805DDF48;
 extern const f32 lbl_805DDF4C;
 extern const f32 lbl_805DDF54;
 extern const f32 lbl_805DDF58;
 Txt_802A37A0 *__ct__17TAdSelectTxtSubGCFv(Txt_802A37A0 *arg0, void *parent, Src_802A37A0 *src);
-}
-
-extern "C" {
-
 void * TObjNpcHosa__create(void *arg0);
-int TObjNpcHosa__sub_802A39B0(void);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcHosa__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);

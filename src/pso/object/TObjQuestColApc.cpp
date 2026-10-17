@@ -7,10 +7,6 @@ extern "C" {
 Obj_80196448 *get_player_by_client_id(s32);
 s32 obj_isState3_324(void *);
 f32 xyz_distance_squared(f32 *a, f32 *b);
-}
-
-extern "C" {
-
 void *TObjQuestColApc__ct(void *arg0);
 void TObjQuestColBase__ct(void *);
 int create__12TQuestThreadFi(void*);

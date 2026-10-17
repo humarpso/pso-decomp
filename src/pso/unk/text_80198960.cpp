@@ -24,10 +24,6 @@ extern RecoveredGlobal_80198960_lbl_8050DD58 gogo_ball_configuration;
 extern u32 gogo_ball_bml_resource;
 extern const f32 lbl_805DBF44;
 void TWindowTimer__sub_80198960(u8 *arg0);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_80198960_lbl_804B8DAC_size[sizeof(RecoveredGlobal_80198960_lbl_804B8DAC) == 0x24 ? 1 : -1];
 typedef char RecoveredGlobal_80198960_lbl_8050DD58_size[sizeof(RecoveredGlobal_80198960_lbl_8050DD58) == 0x54 ? 1 : -1];
 void TWindowTimer__sub_80198960(u8 *arg0) {

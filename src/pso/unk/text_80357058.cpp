@@ -65,16 +65,10 @@ s32 check_hits__14TItemAttackColFPv(void *);
 extern const f32 lbl_805E0030;
 extern const f32 lbl_805E0034;
 void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0);
-}
-
-extern "C" {
-
 void TBoss6Type2__sub_803570C8(s8 *arg0);
 void TItemEffOrgaFlowShot__sub_80357204(void);
 void TItemEffOrgaFlowShot__sub_80357210(void);
 void *__dt__20TItemEffOrgaFlowShotFv(void *arg0, s16 arg1);
-void build_6xAD_olga_flow_subordinate_boss_actions(void* p);
-int read_be16_field2_forward(void* p);
 int TLobby__send_and_handle_60(void*);
 s32 draw_untextured_trail_strip(s32, s32);
 s32 TObjPlayer__sub_803DF768(s32);
@@ -104,8 +98,6 @@ void TBoss6Type2__sub_803570C8(s8 *arg0) {
         arg0 += 1;
     }
 }
-
-    extern int olga_flow_subordinate_actions_enabled;
 
 struct B_80357058;
 void handle_6xAD_olga_flow_subordinate_boss_actions(Pkt_803570E4 *pkt) {
@@ -160,7 +152,6 @@ void handle_6xAD_olga_flow_subordinate_boss_actions(Pkt_803570E4 *pkt) {
 
 void TItemEffOrgaFlowShot__sub_80357204(void) { olga_flow_subordinate_actions_enabled = 0; }
 
-    extern int olga_flow_subordinate_actions_enabled;
 void TItemEffOrgaFlowShot__sub_80357210(void) { olga_flow_subordinate_actions_enabled = 1; }
 
 void TItemEffOrgaFlowShot::bswap_6xAD_subordinate_action() { read_be16_field2_forward((void*)(this)); TLobby__send_and_handle_60(this); }
@@ -230,8 +221,6 @@ void TItemEffOrgaFlowShot::render() {
     model_render_flags = lbl_805D5660;
     TParticleCtrl::end_effect_render();
 }
-
-extern s32 __vt__20TItemEffOrgaFlowShot[];
 
 void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0) {
     s32 temp_r3;

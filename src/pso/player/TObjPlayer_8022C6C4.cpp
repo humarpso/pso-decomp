@@ -2,7 +2,6 @@
 #include "pso/player/TObjPlayer.h"
 extern "C" void render__8TTecCtrlFv();
 extern "C" void run_task__8TTecCtrlFv();
-#include "pso/player/TObjPlayer.h"
 #include "pso/TTecCtrl.h"
 #include "pso/misc/TLockOnCursor.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -118,10 +117,6 @@ extern s32 tl_07;
 extern const f32 lbl_805DC7DC;
 extern const f32 lbl_805DC7E0;
 void create_technique_charge_light(u32 kind, void *owner);
-}
-
-extern "C" {
-
 extern "C" void __dt__8TTecCtrlFv();
 extern "C" void render_shadows__7TObjectFv();
 void *tech_high_level_linear_power_table[19] = {

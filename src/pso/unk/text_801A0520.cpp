@@ -2,7 +2,6 @@
 #include "pso/object/TObjDoorJung.h"
 #include "pso/system/BmlResourceDescriptor.h"
 
-extern "C" {
 extern char lbl_80446678[];
 extern char lbl_80446690[];
 extern char lbl_804466AC[];
@@ -10,7 +9,6 @@ extern char lbl_804466C8[];
 extern const char *bm_obj_warp_jung_model_names[3];
 extern const char *bm_obj_warp_jung_motion_names[2];
 extern BmlResourceDescriptor jungle_warp_beam_resource_descriptor;
-}
 
 struct Node_801A0578 {
     u8 pad0[4];
@@ -35,20 +33,12 @@ void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 extern char lbl_80446718[];
 extern char lbl_80446728[];
 extern char lbl_80446738[];
-extern s32 warp_jung_beam_models[6];
-extern void *TObjWarpJung__beam_bml_resource;
-extern s32 warp_jung_beam_motion;
-extern s32 warp_jung_model_handle;
 extern s32 lbl_805D5CB4;
 extern s32 warp_jung_beam_mesh_node;
 extern s32 warp_jung_beam_entry_index;
 extern s32 lbl_805D5CC0;
 extern s32 lbl_805D5CC4;
 void load_warp_beam_resources(void);
-}
-
-extern "C" {
-
 void free_warp_jung_beam_resources(void) {
     s32 i;
     TLobby__sub_8001FE7C(TObjWarpJung__beam_bml_resource, 1);
@@ -83,9 +73,6 @@ void load_warp_beam_resources(void) {
     lbl_805D5CC4 = ((TObjDoorJung *)warp_jung_model_handle)->find_entry_by_name(lbl_80446738);
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_obj_warp_jung_model_names[3] = { lbl_80446678, lbl_80446690, NULL };
 __declspec(section ".data") const char *bm_obj_warp_jung_motion_names[2] = { lbl_804466AC, NULL };
 BmlResourceDescriptor jungle_warp_beam_resource_descriptor = { lbl_804466C8, bm_obj_warp_jung_model_names, bm_obj_warp_jung_motion_names, 2, 1 };

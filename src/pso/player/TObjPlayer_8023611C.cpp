@@ -102,58 +102,16 @@ u32 find_actor_body_contact(void *, int, f32);
 s32 get_player_by_client_id(int);
 extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
 extern const f32 lbl_805DC89C;
-extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
-void resetTechniqueContactQuery();
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u32 find_actor_body_contact(void *, int, f32);
-extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
 void resetTechniqueContactQuery();
 PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
 extern const f32 lbl_805DC898;
-extern const f32 lbl_805DC89C;
 s32 find_support_technique_contact(void *self, int target, void *_w2, void *_w3);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u32 find_actor_body_contact(void *, int, f32);
-extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
-void resetTechniqueContactQuery();
-PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
-extern const f32 lbl_805DC898;
 u16 obj_getField1c(void *);
 s32 find_area_technique_contact(void *self, int target, void *_w2, void *arg3);
-extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
-extern const f32 lbl_805DC89C;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u32 find_actor_body_contact(void *, int, f32);
-void resetTechniqueContactQuery();
-u16 obj_getField1c(void *);
 u8 *find_entity_by_id(u16);
-PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
-extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
 extern const f32 lbl_805DC890;
-extern const f32 lbl_805DC898;
-extern const f32 lbl_805DC89C;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u32 find_actor_body_contact(void *, int, f32);
-void resetTechniqueContactQuery();
-u16 obj_getField1c(void *);
 f32 vector_length(void *);
-PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
-extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
-extern const f32 lbl_805DC890;
 extern const f64 lbl_8044D8D0[];
-u8 *find_entity_by_id(u16);
-extern const f32 lbl_805DC898;
-extern const f32 lbl_805DC89C;
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u32 find_actor_body_contact(void *, int, f32);
-void resetTechniqueContactQuery();
-u16 obj_getField1c(void *);
-f32 vector_length(void *);
-PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
-}
-
-extern "C" {
-
 s32 obj_is_hit_receivable();
 
 s32 TObjPlayer::is_valid_and_active(u32 arg0) {

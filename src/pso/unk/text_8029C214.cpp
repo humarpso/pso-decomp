@@ -52,10 +52,6 @@ extern void *bm_o_rock_jungle_model_names[6];
 extern s32 lbl_805D3D44;
 extern const f32 lbl_805DDD1C;
 u8 *TORockJungleL01__ct(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 void *bm_o_rock_jungle_model_names[6] = {
     (void *)&lbl_80465788, (void *)&lbl_8046579C, (void *)&lbl_804657B4, (void *)&lbl_804657C8,
     (void *)&lbl_804657E0, (void *)0x0,

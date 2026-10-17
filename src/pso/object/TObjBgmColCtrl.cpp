@@ -17,10 +17,6 @@ extern char lbl_804438F8[];
 extern char lbl_80443904[];
 extern u32 TLobby__event_theme_id;
 extern u32 TObjBgmColCtrl__current_theme_id;
-}
-
-extern "C" {
-
 void TObjBgmColCtrl::play_lobby_theme_music() {
     Names_8017E1E4 names = lbl_80443898[0];
     const char *name;

@@ -90,14 +90,9 @@ void increment_model_node_counter();
 void apply_weapon_node_material();
 WeaponColorDescriptor_80120304 *get_photon_color_record(s16 color_index);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, const void *);
-extern const f32 lbl_805DAC98;
-extern const f32 lbl_805DAC9C;
 WeaponArgb get_weapon_color__11TItemWeaponFPv(void *weapon);
 extern u8 lbl_805DACA4;
 void TItemWeapon__write_item_data(Src_80120454 *arg0, Dst_80120454 *arg1);
-}
-
-extern "C" {
 
 void apply_weapon_node_material() {
     const s32 node = TObjPlayer::get_player_list();

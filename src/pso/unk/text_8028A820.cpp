@@ -11,10 +11,6 @@ extern u8 bm_obj_door_space_resource_descriptor[];
 extern void *green_door_bml_resource;
 extern void *green_door_texture_handle;
 void load_green_door_resources(void);
-}
-
-extern "C" {
-
 void load_green_door_resources(void) {
     void *p;
     green_door_bml_resource = 0;

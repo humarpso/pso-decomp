@@ -1,6 +1,5 @@
 #include "types.h"
 #include "pso/misc/TWindowSubAreaMap.h"
-#include "pso/misc/TWindowSubAreaMap.h"
 #include "pso/misc/TWindowSubAreaMapDisp.h"
 #include "pso/misc/TRaderMapCore.h"
 
@@ -34,13 +33,8 @@ s32 play_sound_effect(int, int, int, int);
 extern RecoveredGlobal_80271480_lbl_8050E208 controller_input_state;
 s32 is_flag_set__11TLoadingCurFv(void *, int);
 s32 is_on_current_screen__11TCameraCtrlFv(int, int);
-extern RecoveredGlobal_80271480_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DD478;
 extern const f32 lbl_805DD47C;
-}
-
-extern "C" {
-
 void *__dt__17TWindowSubAreaMapFv(void *arg0, s16 arg1);
 void *TWindowSubAreaMapDisp__ct(void *);
 void TWindow__close(void *);
@@ -75,7 +69,6 @@ void *__dt__17TWindowSubAreaMapFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__17TWindowSubAreaMap[];
 extern void *TWindowSubAreaMap__name;
 
 }

@@ -16,22 +16,13 @@ extern "C" {
 extern s32 quest_and_shop_error_text;
 extern s32 **lbl_805D6258;
 s32 get_shop_text(s32 arg0);
-extern s32 quest_and_shop_error_text;
-extern s32 **lbl_805D6258;
 s32 get_quest_list_text(s32 arg0, s32 arg1);
 s32 get_game_play_mode();
 extern RecoveredGlobal_80222C54_lbl_8044C330 guild_text_play_mode_table;
-extern s32 quest_and_shop_error_text;
-extern s32 **lbl_805D6258;
 s32 get_guild_text(s32 arg0);
 extern RecoveredGlobal_80222CBC_lbl_8044C308 appraisal_text_group_table;
-extern s32 quest_and_shop_error_text;
 extern s32 lbl_805D6238;
-extern s32 **lbl_805D6258;
 s32 get_appraisal_text(s32 arg0);
-}
-
-extern "C" {
 
 s32 get_quest_list_text(s32 arg0, s32 arg1) {
     if ((s32 *) (*(s32 * *)&lbl_805D6258) != NULL) {

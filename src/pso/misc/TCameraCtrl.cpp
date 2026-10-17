@@ -27,9 +27,6 @@ extern const f32 TCameraCtrl__data_805D8FA8;
 extern const f32 TCameraCtrl__data_805D8FAC;
 extern const f32 TCameraCtrl__data_805D8FDC;
 extern const f32 TCameraCtrl__data_805D8FE0;
-}
-
-extern "C" {
 struct C30_8006AD34 { u8 b[0x30]; };
 f32 lbl_804FF5E8[10];
 RecoveredGlobal_8006ABAC_lbl_804FF610 lbl_804FF610;
@@ -44,8 +41,6 @@ extern void *camera_controller_registry[13];
 extern void *lbl_80488AC0[6];
 }
 
-#include "types.h"
-
 struct A_8006A35C { s8 f0; u8 pad1; s16 f2; s32 f4; s32 f8; };
 struct B_8006A35C { u8 pad[8]; f32 f8; f32 fc; u8 pad10[8]; f32 f18; u8 pad1c[0xC]; f32 f28; f32 f2c; f32 f30; f32 f34; f32 f38; f32 f3c; f32 f40; f32 f44; };
 struct C_8006A35C { f32 f0; f32 f4; f32 f8; };
@@ -55,7 +50,6 @@ void TCameraCtrl__sub_80068358(void *, void *, f32, f32);
 extern s32 camera_view_state_flag;
 extern s8 camera_ctrl_view_state_byte;
 extern s32 TCameraCtrl__pose_snap_flags;
-extern const f32 TCameraCtrl__data_805D8FA8;
 extern const f32 TCameraCtrl__data_805D8FD8;
 }
 struct RecoveredGlobal_8006A5DC_TCameraCtrl__data_804FF628 {
@@ -176,22 +170,12 @@ s32 is_split_screen();
 s32 apply_camera_controller_pose(int);
 s32 resolve_anchor_obstruction__11TCameraCtrlFv(void *, int);
 s32 clamp_to_target_obstruction__11TCameraCtrlFv(void *, int);
-s32 set_perspective_projection_from_fov(int, f32, f32, f32);
-extern const f32 TCameraCtrl__data_805D8FAC;
-extern const f32 TCameraCtrl__data_805D8FDC;
-extern const f32 TCameraCtrl__data_805D8FE0;
 extern u8 *camera_ctrl_instance;
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_getField1c(void *);
-s32 is_split_screen();
 s32 *get_character_select_request_buffer(void);
 s32 is_boss_area(void);
-extern u8 *camera_ctrl_instance;
 void reset_cameras_to_actor(void *actor, s32 arg1);
-}
-
-extern "C" {
-
 void reset__11TCameraCtrlFv(void);
 s32 TCameraCtrl__sub_80068354();
 
@@ -509,8 +493,6 @@ void TCameraCtrl::update_active_controller() {
 #define lbl_80488AC0 ((u8 *)lbl_80488AC0)
 #define camera_ctrl_instance (*(s32 *)&camera_ctrl_instance)
 
-#include "types.h"
-
 struct Ctl_8006AA90 {
     u8 pad[0x18];
     virtual ~Ctl_8006AA90();
@@ -520,10 +502,6 @@ extern "C" {
 void __dt__7TObjectFv(void *, s32);
 void __dl__7TObjectFPv(void *);
 Ctl_8006AA90 *TCameraCtrl__sub_8006AA90(Ctl_8006AA90 *self, s16 arg1);
-}
-
-extern "C" {
-
 u32 get_player_by_client_id(s32);
 
 extern s32 local_client_id;
@@ -568,8 +546,6 @@ Ctl_8006AA90 *TCameraCtrl__sub_8006AA90(Ctl_8006AA90 *self, s16 arg1) {
 #undef camera_controller_registry
 #undef lbl_80488AC0
 #undef camera_ctrl_instance
-
-#include "types.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -705,41 +681,23 @@ extern RecoveredGlobal_8006ABAC_lbl_804381B0 lbl_804381B0;
 extern RecoveredGlobal_8006ABAC_lbl_804FF610 lbl_804FF610;
 extern RecoveredGlobal_8006ABAC_lbl_804FF61C camera_pitch_rotated_up_vector;
 extern RecoveredGlobal_8006ABAC_lbl_8058D490 identity_matrix;
-s32 rotate_matrix_y(int, void *);
-s32 rotate_matrix_x(int, void *);
-s32 push_matrix_from(void *);
-f32 rotate_vector_by_current_matrix(void *, void *);
-s32 pop_matrix();
 extern RecoveredGlobal_8006AC70_lbl_8043818C lbl_8043818C;
 extern RecoveredGlobal_8006AC70_lbl_80438198 lbl_80438198;
-extern RecoveredGlobal_8006ABAC_lbl_804FF610 lbl_804FF610;
-extern RecoveredGlobal_8006ABAC_lbl_804FF61C camera_pitch_rotated_up_vector;
-extern RecoveredGlobal_8006ABAC_lbl_8058D490 identity_matrix;
 struct V3_8006AD34 { f32 x, y, z; };
 u8 *get_target__11TCameraCtrlFv(void *);
 s32 reset_view_flags__11TCameraCtrlFv(void *);
 s32 cycle_spectate_target__11TCameraCtrlFv(void *);
 void vector_length(void *);
-f32 vec_squared_length(void *);
 void normalize_vector(void *);
-extern u8 *camera_ctrl_instance;
-extern const f32 TCameraCtrl__data_805D8FA8;
-s32 is_split_screen();
 int TCameraCtrl__sub_8006B370(f32);
-}
-
-extern "C" {
-
 u16 TCameraCtrl__sub_8006B358(void* p);
 int is_quest_active(void);
-int TCameraCtrl__sub_8006B370(f32);
 int TCameraCtrl__sub_8006B3B8(void* p);
 s32 get_mode__11TCameraCtrlFPv(void* p);
 void render__11TCameraCtrlFv(void *arg0);
 void set_target__11TCameraCtrlFii(int a0, int a1);
 int reset_to_local_player__11TCameraCtrlFv(void*);
 int set_fixed_position_and_target__11TCameraCtrlFPUcPUc(void*);
-s32 is_split_screen();
 
 extern "C" {
 void TCameraCtrl__vt0();

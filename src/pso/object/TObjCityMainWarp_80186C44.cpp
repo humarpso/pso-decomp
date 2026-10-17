@@ -22,10 +22,6 @@ struct Obj_80186DA0 {
 
 extern "C" {
 u8 is_current_floor_switch_set(int);
-}
-
-extern "C" {
-
 s32 get_player_by_client_id(s32);
 s32 end_player_keyboard_hold(s32);
 s32 TWindow__close(void *);

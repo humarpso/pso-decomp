@@ -10,10 +10,6 @@ void play_area_music(s32);
 extern s32 area_music_filename_table[];
 extern s32 bgm_zone_category;
 extern s32 lbl_805D5B04;
-}
-
-extern "C" {
-
 s32 is_within_distance__10TObjBgmColFf(f32);
 
 s32 TObjBgmCol::check() {

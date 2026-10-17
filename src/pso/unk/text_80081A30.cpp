@@ -35,12 +35,6 @@ s32 TScene__sub_80081B24(void);
 extern u8 lbl_8048E168[];
 extern void *TEF_PvrWave__class_name;
 Wave_80081A30 *construct_pvr_wave__6TSceneFPvPvPvii(Wave_80081A30 *self, void *parent, void *image, s32 size, s32 index);
-}
-
-extern "C" {
-
-s32 TScene__sub_80081B24(void);
-
 extern s32 TScene__data_805D5FCC;
 
 Wave_80081A30 *construct_pvr_wave__6TSceneFPvPvPvii(Wave_80081A30 *self, void *parent, void *image, s32 size, s32 index) {

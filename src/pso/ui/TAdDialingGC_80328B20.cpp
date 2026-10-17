@@ -7,13 +7,8 @@ extern "C" {
 void TAdDialingGC__sub_80328B24(void *, void *);
 extern char lbl_804767B8[];
 extern char lbl_804767C0[];
-void TAdDialingGC__sub_80328B24(void *, void *);
 extern s32 lbl_804767A8[];
 extern s32 lbl_804767B0[];
-}
-
-extern "C" {
-
 void TAdDialingGC__sub_80328B20(void);
 
 void TAdDialingGC__sub_80328B20(void) {  }

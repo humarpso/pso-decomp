@@ -57,15 +57,7 @@ extern "C" {
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 extern const f32 lbl_805DD218;
 extern const f32 lbl_805DD21C;
-u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 u32 get_field_20__17TWindowSubComCardFv(void *);
-u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
-u32 get_field_20__17TWindowSubComCardFv(void *);
-u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
-u32 get_field_20__17TWindowSubComCardFv(void *);
-}
-
-extern "C" {
 
 void TWindowMessage::scroll_up_line(u8 *arg1) {
     f32 d;
@@ -187,16 +179,9 @@ void TWindowMessage::update_scroll() {
 }
 #pragma pop
 
-}
-
-#include "types.h"
-
 #pragma fp_contract on
-extern "C" {
-
 s32 get_shared_text_buffer(void);
 u32 calc_text_width(const char *);
-u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void text_builder_append(const char *);
 void text_builder_reset(void);
 s32 append_message_window_line(void *, s32, u32, s32);

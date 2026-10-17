@@ -5,13 +5,6 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 void *TBoss6EffFlowSoul__ct(void *, void *, void *, void *, void *);
 s32 spawn_flow_soul__11TBoss6Type2Fiii(s32 arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
-void *TBoss6EffFlowSoul__ct(void *, void *, void *, void *, void *);
-void *__nw__7TObjectFUl(int);
-
 s32 spawn_flow_soul__11TBoss6Type2Fiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
     s32 var_r0;

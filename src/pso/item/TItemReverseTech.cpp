@@ -83,7 +83,6 @@ TItemReverseTech::~TItemReverseTech() {
     request_queued_main_phase();
 }
 
-#include "types.h"
 #include "pso/TObject.h"
 
 extern "C" {
@@ -93,11 +92,9 @@ void *TItemReverseTechPart1__ct(void *, void *, void *);
 void play_area_music(void *);
 void *__ct__10TAdEndTextFv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
-void *__nw__7TObjectFUl(int);
 
 extern s32 __vt__16TItemReverseTech[];
 extern void *lbl_805D2C48;
-extern void *TItemReverseTech__texture_archive;
 extern s32 lbl_8043E708[];
 
 void *TItemReverseTech__ct(void *arg0) {

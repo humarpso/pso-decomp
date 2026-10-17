@@ -29,7 +29,6 @@ extern const f32 lbl_805DD434;
 extern void *lbl_805D63F0;
 
 s16 obj_getS16_2BA(void *);
-u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 s32 update_hp_gauge__20TWindowSubStatusDispFi(void *);
 u8 *get_player_by_client_id();
 s32 get_width__19TWindowSimpleStatusFv();
@@ -185,7 +184,6 @@ void *__dt__13TWindowStatusFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__13TWindowStatus[];
 extern void *TWindowStatus__name;
 
 void *TWindowStatus__ct(void *arg0) {

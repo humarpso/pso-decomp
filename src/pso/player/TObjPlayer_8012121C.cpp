@@ -13,19 +13,11 @@ u16 TObjPlayer::get_uid() { return *(u16*)((char*)this + 0x0); }
 
 }
 
-#include "types.h"
-
 struct Obj_80121248 { u8 pad[0x4]; s32 arr[1]; };
 
 extern "C" {
 s32 get_captured_target_count(s32 *arg0);
 s32 *get_captured_target_entry(Obj_80121248 *self, s32 i);
-}
-
-extern "C" {
-
-void TObjPlayer__sub_80121228(void* p, u32 v);
-s16 get_captured_target_collider_index(void* p);
 
 s32 *get_captured_target_entry(Obj_80121248 *self, s32 i) {
     return &self->arr[i];

@@ -64,15 +64,10 @@ extern u8 __vt__17TBoss5GryphonDemo[];
 extern s32 lbl_805D2810;
 extern const f32 lbl_805D8EE0;
 Obj_800665FC *__ct__17TBoss5GryphonDemoFv(Obj_800665FC *self, void *parent, s32 arg2, f32 farg0);
-}
-
-extern "C" {
-
 void TBoss5GryphonDemo__sub_8006626C(void* p);
 int matrix_mult_vec(void*, void*, void*);
 int post_translate_matrix(void*);
 s32 free_collision_body_parts(void *);
-int refresh_collision_body_centers__13TUnk_804AF8A0Fv(void*);
 int set_matrix_identity(void*);
 int rotate_matrix_y(void*, s32);
 int push_matrix(void*);
@@ -90,8 +85,6 @@ void TBoss5GryphonColli_C::clear_entry_flags() {
         self->entries[i].flags &= ~1;
     }
 }
-
-extern s32 lbl_804886AC[];
 
 void TBoss5GryphonDemo::set_all_entry_flags() {
     O_8006633C *self = (O_8006633C *)this;

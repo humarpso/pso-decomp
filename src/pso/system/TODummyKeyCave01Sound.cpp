@@ -4,13 +4,8 @@
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-}
-
-extern "C" {
-
 void *TODummyKeyCave01Sound__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 __ct__7TObjectFP7TObject();
-s32 queue_destruction__7TObjectFv(void *);
 
 extern s32 __vt__21TODummyKeyCave01Sound[];
 extern s32 TODummyKeyCave01Sound__class_name;

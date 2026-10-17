@@ -8,10 +8,6 @@ struct ByteBlock_10 { u8 bytes[0x10]; };
 extern "C" {
 s32 __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
 u8 *fn_801E051C(u8 *arg0, u8 *arg1);
-}
-
-extern "C" {
-
 u8 *fn_801E051C(u8 *arg0, u8 *arg1) {
     __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
     *(s32 *)((s8 *)arg0 + 8) = (s32) *(s32 *)((s8 *)arg1 + 8);

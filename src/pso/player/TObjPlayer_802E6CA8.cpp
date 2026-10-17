@@ -1,6 +1,5 @@
 #include "types.h"
 #include "pso/player/TUnk_804E3BD8.h"
-#include "pso/player/TUnk_804E3BD8.h"
 #include "pso/player/TUnk_804E3BC0.h"
 #include "pso/player/TUnk_804E3BA8.h"
 #include "pso/object/TObjFish.h"
@@ -118,55 +117,26 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 f32 lerp__9TDeadSpotFff(f32, f32);
 f32 rand_signed_unit();
-u8 *queue_boss_effect__10TObjPlayerFPv(s32);
 s32 matrix_mult_vec(int, void *, void *);
 s32 set_matrix_identity(int);
 s32 rotate_vector_by_matrix(int, void *, void *);
-s32 push_matrix();
-s32 pop_matrix();
 extern s32 lbl_804E3BA8[];
 extern const f32 lbl_805DE9C8;
-extern const f32 lbl_805DE9CC;
 extern const f32 lbl_805DE9D4;
 extern const f32 lbl_805DE9D8;
 extern const f32 lbl_805DE9DC;
 extern const f32 lbl_805DE9E0;
-s32 TObjLight__sub_801337F8(s32);
-u8 *queue_boss_effect__10TObjPlayerFPv(s32);
 s32 rotate_matrix_by_node_angles(void *, int);
-s32 push_matrix();
-s32 pop_matrix();
 s32 scale_current_matrix(Vec_802E708C *);
-s32 post_translate_matrix(void *);
-s32 set_chunk_material_override_pair(int, int);
-s32 set_chunk_material_color(Col_802E6CB0 *);
-s32 set_chunk_blend(int);
-s32 draw_chunk_model(s32);
 extern Col_802E708C lbl_80472C80;
 extern Vec_802E708C lbl_80472C90;
-extern s32 current_scene_light;
-extern s32 lbl_805D5660;
-extern s32 model_render_flags;
 extern const f32 lbl_805DE9F8;
 void VecCopy__FP3VecPC3Vec(void *, void *);
 int queue_destruction__7TObjectFv(void*);
-f32 lerp__9TDeadSpotFff(f32, f32);
-f32 rand_signed_unit();
 void TObjPlayer__sub_802E7640(void *);
-u8 *queue_boss_effect__10TObjPlayerFPv(s32);
-f32 vec3_add_to(void *, void *);
 extern s32 lbl_80472C68[];
 extern s32 lbl_804E3BC0[];
-extern const f32 lbl_805DE9C8;
-extern const f32 lbl_805DE9D4;
-extern const f32 lbl_805DE9D8;
-extern const f32 lbl_805DE9DC;
-extern const f32 lbl_805DE9E0;
 Obj_802E72DC *TObjPlayer__sub_802E72DC(Obj_802E72DC *arg0, s32 arg1, Vec_802E72DC *arg2, s32 arg3);
-}
-
-extern "C" {
-
 void TObjFish__sub_802E787C(void);
 void *__dt__13TUnk_804E3BA8Fv(void *arg0, s16 arg1);
 void TObjPlayer__sub_802E7084(void);
@@ -177,15 +147,11 @@ void TObjPlayer__sub_802E7470(void);
 s32 *init_from_model__11TBreakUpMdlFl(s32 *, s32);
 s32 TObjPlayer__sub_802E75B8(void *, s32 *);
 void __ct__7TObjectFP7TObject(void *);
-void __dl__7TObjectFPv(void *);
 s32 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 mem_alloc(s32);
-int queue_destruction__7TObjectFv(void*);
 
     extern int multiplay_texture_f512_handle;
 int TObjPlayer::get_instance() {  return multiplay_texture_f512_handle; }
-
-extern s32 lbl_804E3BA8[];
 
 void TUnk_804E3BA8::render() {
     u8 *arg0 = (u8 *)this;
@@ -272,8 +238,6 @@ u8 *TObjPlayer::init_breakup_pieces(void *arg1, s32 arg2) {
 
 void TObjPlayer__sub_802E7084(void) {  }
 void TObjPlayer__sub_802E7088(void) {  }
-
-extern s32 lbl_804E3BC0[];
 
 void TUnk_804E3BC0::render() {
     u8 *arg0 = (u8 *)this;
@@ -377,8 +341,6 @@ void TUnk_804E3BD8::alloc_breakup_model(s32 arg1) {
     *(s32 *)&(*(u32 *)&this->unk_28) = mem_alloc(this->m_24 * 0x2C);
 }
 
-extern s32 __vt__13TUnk_804E3BD8[];
-
 }
 TUnk_804E3BD8::~TUnk_804E3BD8() {
     VObj_802E74E4 *temp_r3;
@@ -401,7 +363,6 @@ void *TObjPlayer::init_zeroed_object() {
 }
 
     extern float lbl_805D6910;
-    extern const float lbl_805DE9F0;
 
 #pragma push
 #pragma opt_common_subs off

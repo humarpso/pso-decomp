@@ -32,7 +32,6 @@ void *__dt__7TPacketFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__7TPacket[];
 extern void *lbl_805D34C0;
 
 void *TPacket__ct(void *arg0) {

@@ -42,8 +42,6 @@ s32 init_fields__13TUnk_804B1B80Fv();
 extern RecoveredGlobal_8016713C_lbl_804B1CD0 lbl_804B1CD0;
 extern s32 __vt__16TOFenceAncient02[];
 extern s32 TOFenceAncient02__class_name;
-extern u8 *TOFenceAncient02__model_resource;
-extern u32 TOFenceAncient02__texture_variants;
 extern const f32 lbl_805DB620;
 extern const f32 lbl_805DB624;
 extern const f32 lbl_805DB628;
@@ -56,12 +54,6 @@ extern char lbl_80441548[];
 extern char lbl_80441560[];
 extern char lbl_80441578[];
 extern char bm_fd_obj_n_saku_6x2_resource_descriptor[];
-extern u8 *TOFenceAncient02__model_resource;
-extern u32 TOFenceAncient02__texture_variants;
-}
-
-extern "C" {
-
 void *__dt__16TOFenceAncient02Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
@@ -76,8 +68,6 @@ void *TOFenceAncient02::create(void *arg0) {
     }
     return o;
 }
-
-extern s32 __vt__16TOFenceAncient02[];
 
 void TOFenceAncient02::free_resources() {
   s32 var_r31;

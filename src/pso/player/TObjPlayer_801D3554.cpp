@@ -19,19 +19,11 @@ int TItemList__sub_801D5838(void* a0);
 void start_placement_search(s32 arg0, s32 arg1, s32 arg2);
 void fn_801D371C(void* p, void* q);
 u8 *copy_drop_node(u8 *arg0, u8 *arg1);
-}
-
-extern "C" {
-
 void create_drop_nodes__9TItemListFPvPvPvPvi(void *arg0, void *arg1, void *arg2, Rec_801D35FC *arg3, s32 arg4);
-void fn_801D371C(void* p, void* q);
 void insert_item_node__10TObjPlayerFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-int TItemList__sub_801D3B00(void*, void*, void*, void*);
-int TItemList__sub_801D5804(void*);
 int TItemList__sub_801D5838(void* a0 = 0);
 s32 TItemList__sub_801D5844(s32);
 s32 TItemList__sub_801D5854(s32, s32);
-int TItemList__sub_801D5868(void*, void*);
 s32 copy_item_data__9TItemListFv(s32, s32);
 s32 create_node__9TItemListFPvPvPvSc(s32, s32, s32, s32);
 

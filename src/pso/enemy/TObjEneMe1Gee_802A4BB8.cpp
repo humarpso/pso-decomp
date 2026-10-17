@@ -23,10 +23,6 @@ u8 *TObjEneMe1Gee_NEEDLE__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0, 
 void TObjEneMe1Gee__sub_802A4D4C(void);
 int TObjEneMe1Gee__sub_800CC2BC(void);
 extern u32 me1gee_cached_model_handle;
-}
-
-extern "C" {
-
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object();
 s32 rotate_matrix_x(int, int);
@@ -36,8 +32,6 @@ s32 set_global_param__8TObjFishFl();
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 pop_matrix();
-
-extern u32 me1gee_cached_model_handle;
 
 void TObjEneMe1Gee_NEEDLE::render() {
     u8 *arg0 = (u8 *)this;

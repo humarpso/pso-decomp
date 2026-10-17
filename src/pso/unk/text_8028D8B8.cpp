@@ -19,15 +19,10 @@ extern RecoveredGlobal_8028D940_lbl_8051C070 lbl_8051C070;
 extern s32 tl_03;
 void fn_8028D940(void);
 s32 queue_destruction__7TObjectFv(int);
-extern RecoveredGlobal_8028D940_lbl_8051C070 lbl_8051C070;
 void fn_8028D8F4(void);
 void *alloc__22TQuestVmDownLoadServerFv(u32 size);
 extern void *chr_select_load_buffer_base;
 void alloc_quest_download_buffer(void);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8028D940_lbl_8051C070_size[sizeof(RecoveredGlobal_8028D940_lbl_8051C070) == 0xC ? 1 : -1];
 
 typedef char RecoveredGlobal_8028D8F4_lbl_8051C070_size[sizeof(RecoveredGlobal_8028D8F4_lbl_8051C070) == 0xC ? 1 : -1];

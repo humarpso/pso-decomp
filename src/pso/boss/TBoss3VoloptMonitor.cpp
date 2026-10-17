@@ -146,16 +146,12 @@ extern s32 volopt_monitor_boss_stats_ptr_a;
 extern s32 volopt_monitor_boss_stats_ptr_b;
 extern s32 volopt_monitor_object_handle;
 extern s32 volopt_monitor_node_array_handle;
-extern G_80042944 *volopt_monitor_resource_ptr;
 extern u32 volopt_monitor_texture_list;
 s32 obj_setFlags30(void *, s32);
 s16 fn_80042960(bool);
 s32 rand();
 extern u8 TBoss3VoloptMonitor__init_param_block[];
 extern s8 volopt_target_slot_used[];
-extern s32 volopt_monitor_boss_stats_ptr_a;
-extern s32 volopt_monitor_boss_stats_ptr_b;
-extern s32 volopt_monitor_object_handle;
 extern const f32 lbl_805D8740;
 extern const f32 lbl_805D8748;
 extern const f32 lbl_805D874C;
@@ -166,10 +162,8 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 draw_ginja_object(s32);
-extern s32 volopt_monitor_model_indices[];
 extern s32 volopt_monitor_texture_param[];
 extern s32 vol_opt_active_hit_zone;
-extern u32 volopt_monitor_texture_list;
 extern s32 model_render_flags;
 extern const f32 lbl_805D8738;
 extern const f32 lbl_805D873C;
@@ -181,21 +175,12 @@ s32 submit_cursor_candidate(void *, int);
 s32 minimap_render_dot(void *, int, int, int);
 s32 scroll_ginja_mesh_uvs(int, int, int, int, int);
 s32 PPCSync();
-s32 rand();
-extern s32 lbl_804FEEC0[];
-extern s32 vol_opt_active_hit_zone;
 extern s32 lbl_805D4CA8;
 extern s32 actor_frame_tick;
-extern const f32 lbl_805D8740;
 extern const f32 lbl_805D8744;
 void run_task__19TBoss3VoloptMonitorFv(u8 *arg0);
-}
-
-extern "C" {
-
 extern void *__vt__19TBoss3VoloptMonitor[];
 extern void *volopt_monitor_texture_list_desc[];
-void TBoss3VoloptMonitor__sub_800420D8(void);
 void *__dt__19TBoss3VoloptMonitorFv(void *arg0, s16 arg1);
 s32 TBoss3VoloptHiraisin__sub_80041D0C();
 s32 TBoss3VoloptHiraisin__sub_80041D3C();
@@ -394,8 +379,6 @@ void TBoss3VoloptMonitor::update_state() {
         return;
     }
 }
-
-extern u32 volopt_monitor_texture_list;
 
 void run_task__19TBoss3VoloptMonitorFv(u8 *arg0) {
     s16 temp_r3;

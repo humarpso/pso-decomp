@@ -45,14 +45,9 @@ extern "C" {
 extern const f32 lbl_805DE548;
 extern const f32 lbl_805DE54C;
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void *, void *);
-extern const f32 lbl_805DE548;
 extern const f32 lbl_805DE550;
 extern const f32 lbl_805DE554;
 extern const f32 lbl_805DE558;
-}
-
-extern "C" {
-
 bool TAdPlyChrSelPlateGC::is_slot_value_ready(s32 i) {
     O_802C4D5C *self = (O_802C4D5C *)this;
     return (self->v[i] >= lbl_805DE548) ? true : false;

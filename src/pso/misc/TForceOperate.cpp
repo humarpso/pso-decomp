@@ -115,10 +115,6 @@ u8 *get_player_by_client_id(u16);
 s32 set_flag_2000000_alt__10TObjPlayerFv();
 s32 check_flag_04000000__10TObjPlayerFv(int);
 void update_player_appear_fade(u8 *arg0);
-}
-
-extern "C" {
-
 struct VOff_801C5870_arg0_801C57D0 { char pad_0[0x1C]; char f_1C[1]; };
 
 void *TForceOperate__ct(void *arg0, void *arg1, void *arg2);
@@ -233,8 +229,6 @@ void update_player_appear_fade(u8 *arg0) {
 
 }
 
-#include "types.h"
-#include "pso/player/TObjPlayer.h"
 #include "pso/misc/TLobby.h"
 
 struct RecoveredGlobal_801C5B68_lbl_8058D4C0 {
@@ -252,10 +246,6 @@ extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 void save_render_material_state(u8 *arg0);
 s32 tick_battle_music_timer(Obj_801C5C38 *p);
-}
-
-extern "C" {
-
 void reset_player_appearance_opacity(void* a0);
 void update_target_lock__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 get_current_floor();

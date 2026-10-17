@@ -26,10 +26,6 @@ s32 Dolphin_ARAlloc(s32);
 s32 TQuestVmDownLoadServer__sub_803F09A4();
 s32 TQuestVmDownLoadServer__sub_803F0C04(s32, s32, s32, s32, s32);
 extern s32 lbl_8044F098[];
-}
-
-extern "C" {
-
 void *__dt__19TWindowKeyBoardBaseFv(void *arg0, s16 arg1);
 s32 sub_8025CB10__19TWindowKeyBoardBaseFv(void *);
 s32 sub_8025EB68__19TWindowKeyBoardBaseFv();
@@ -52,8 +48,6 @@ void TWindowKeyBoardBase::render() {
 }
 
 void TWindowKeyBoardBase::run_task() { initialize_subwindow__9TWindowDDFv(this); update_fade(); }
-
-extern s32 __vt__19TWindowKeyBoardBase[];
 
 void *__dt__19TWindowKeyBoardBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

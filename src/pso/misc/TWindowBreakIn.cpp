@@ -19,10 +19,6 @@ extern RecoveredGlobal_80246C58_lbl_804CE1B8 lbl_804CE1B8;
 extern s32 __vt__14TWindowBreakIn[];
 extern s32 lbl_805D3890;
 u8 *TWindowBreakIn__ct(u8 *arg0);
-}
-
-extern "C" {
-
 void *__dt__14TWindowBreakInFv(void *arg0, s16 arg1);
 int update_entry_visibility__20TWindowSubStatusDispFi(void*);
 s32 draw_visible_window_entries(s32, s32, s32);
@@ -37,8 +33,6 @@ void TWindowBreakIn::render() {
 }
 
 void TWindowBreakIn::run_task() { update_entry_visibility__20TWindowSubStatusDispFi(this); initialize_subwindow__9TWindowDDFv(this); update_window_entry_list((char*)this + 0x24); }
-
-extern s32 __vt__14TWindowBreakIn[];
 
 void *__dt__14TWindowBreakInFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

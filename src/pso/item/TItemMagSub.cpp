@@ -6,10 +6,6 @@
 extern "C" {
 int set_flags__11TItemMagSubFUl(void *, int);
 }
-
-extern "C" {
-
-}
 void TItemMagSub::release_model_and_destroy() {
     u8* arg0=(u8*)this;
     *(s32 *)((s8 *)arg0 + 0x24) = 0;
@@ -18,9 +14,6 @@ void TItemMagSub::release_model_and_destroy() {
     set_flags__11TItemMagSubFUl(arg0, 0x80U);
 }
 #define TOBJECT_OUT_OF_LINE_HELPERS
-#include "pso/item/TItemMagSub.h"
-
-#include "types.h"
 
 struct Base_80114950 { char pad[0x18]; };
 struct VObj_80114950 : Base_80114950 {
@@ -48,7 +41,6 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, s32);
 void reset__11TItemMagSubFv(u8*);
 void reset_oscillation__11TItemMagSubFv(u8*);
-int set_flags__11TItemMagSubFUl(void *, int);
 
 extern s32 item_mag_param_table;
 
@@ -70,11 +62,6 @@ void TItemMagSub::set_motion_type(s32 arg1) {
         ((VObj_80114950 *)temp_r5)->m63(elem, (void *)(arg0 + 0xA0));
     }
 }
-extern "C" {
-
-extern s32 item_mag_param_table;
-
-}
 void TItemMagSub::transition_motion_type(s32 type) {
     set_flags(0x18);
     ((void(*)(void*,s32,s32))reset_oscillation__11TItemMagSubFv)(this, motion_type, type);
@@ -84,9 +71,7 @@ void TItemMagSub::transition_motion_type(s32 type) {
 
 #define TOBJECT_OUT_OF_LINE_HELPERS
 
-#include "types.h"
 #include <stddef.h>
-#include "pso/item/TItemMagSub.h"
 #include "pso/TObject.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
@@ -273,7 +258,6 @@ struct Sub_80115334 {
 };
 
 s32 memset(void *, int, int);
-s32 VecCopy__FP3VecPC3Vec(void *, s32);
 void queue_destruction__7TObjectFv(void *);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 TItem__sub_80100A40(f32 *, f32, f32);
@@ -748,9 +732,6 @@ int mag_node_oscillation_node_index(void* p) { return *(u8*)((char*)p + 0x0) & 0
 
 int mag_item_tests_flag_20(void* p) { return *(u32*)((char*)p + 0x18c) & 0x20; }
 
-}
-
-extern "C" {
 __declspec(section ".sdata2") extern const f32 mag_sub_zero = 0.0f;
 __declspec(section ".sdata2") extern const f32 mag_sub_angle_units_per_degree = 182.0444488525390625f;
 __declspec(section ".sdata2") extern const f32 mag_sub_render_distance_limit = 400.0f;

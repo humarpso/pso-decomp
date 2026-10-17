@@ -31,10 +31,6 @@ s32 get_player_by_client_id(s32);
 extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
 u8 is_local_client_floor_leader(void);
-}
-
-extern "C" {
-
 u16 get_enemy_target_id(void* p);
 
 void TUnk_80493450::vfunc_83() { this->mode = 1; }

@@ -41,10 +41,6 @@ extern RecoveredGlobal_80107DF0_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_80107DF0_lbl_8058D4C0 model_material_color;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-extern const f32 TItemEffArmor__data_805DAAEC;
-}
-
-extern "C" {
 
 typedef char RecoveredGlobal_80107DA4_lbl_8049EFB8_size[sizeof(RecoveredGlobal_80107DA4_lbl_8049EFB8) == 0x18 ? 1 : -1];
 u8 *fn_80107DA4(u8 *arg0, u8 *arg1, s16 arg2) {

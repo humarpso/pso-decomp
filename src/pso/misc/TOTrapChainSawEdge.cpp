@@ -25,10 +25,6 @@ s32 fn_802C9924(s32);
 s32 get_motion__17TOTrapChainSawKeyFl(s32);
 s32 get_model__17TOTrapChainSawKeyFl(int, f32);
 void vfunc_16__17TOTrapChainSawKeyFv(u8 *arg0);
-}
-
-extern "C" {
-
 typedef struct S_802C86D4 { u8 pad0[0xE8]; s32 fE8; } S_802C86D4;
 
 typedef struct P_802C86D4 {
@@ -262,8 +258,6 @@ void run_task__14TOTrapChainSawFv(void *arg0);
 void decode_params__14TOTrapChainSawFv(void *arg0);
 void * __dt__14TOTrapChainSawFv(void *arg0, s16 arg1);
 u8 * TOTrapChainSaw__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 fn_802C9924(s32);
-s32 get_motion__17TOTrapChainSawKeyFl(s32);
 s32 TOTrapChainSawDamage__sub_802C9C00(void *, int);
 void debug_printf_at(s32, const char *, ...);
 void rotate_matrix_y(int, void *);

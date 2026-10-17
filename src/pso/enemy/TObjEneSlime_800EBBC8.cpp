@@ -14,16 +14,10 @@ s32 initialize__9TObjEnemyFPv(void *);
 extern s32 __vt__12TObjEneSlime[];
 extern s32 lbl_805D2AD8;
 u8 *TObjEneSlime__ct(u8 *arg0, s32 arg1, u8 *arg2);
-}
-
-extern "C" {
-
 void *__dt__12TObjEneSlimeFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
-
-extern s32 __vt__12TObjEneSlime[];
 
 void *__dt__12TObjEneSlimeFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

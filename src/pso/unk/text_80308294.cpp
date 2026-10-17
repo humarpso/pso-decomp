@@ -29,10 +29,6 @@ s32 TObjPlayer__sub_802E449C(void *);
 extern s32 tl_particle;
 extern const f32 lbl_805DF0B8;
 s32 spawn_fire_explosion_at(u32 a0, s32 a1);
-}
-
-extern "C" {
-
 s32 spawn_fire_explosion_at(u32 a0, s32 a1) {
     Info_8034F4FC info;
     void *o;
@@ -50,8 +46,5 @@ s32 spawn_fire_explosion_at(u32 a0, s32 a1) {
     }
 }
 typedef char RecoveredGlobal_8034F754_lbl_804F0A00_size[sizeof(RecoveredGlobal_8034F754_lbl_804F0A00) == 0xF8 ? 1 : -1];
-#include "types.h"
-
-#include "types.h"
 
 }

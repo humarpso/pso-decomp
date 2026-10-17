@@ -40,18 +40,12 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80446184;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 fs_obj_tank_resource_descriptor;
-extern u32 tank_bml_resource;
-extern u32 TObjTank__texture_list;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_8019A880_lbl_804B8F70 tobjtank_collision_body_parts;
 extern s32 __vt__8TObjTank[];
 extern s32 TObjTank__class_name;
 u8 *TObjTank__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *TObjTank__create(void *arg0);
 void *__dt__8TObjTankFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -87,8 +81,6 @@ void TObjTank::render() {
 }
 
 void TObjTank::run_task() {  }
-
-extern s32 __vt__8TObjTank[];
 
 void *__dt__8TObjTankFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -127,9 +119,6 @@ void *TObjTank__create(void *arg0) {
     }
     return o;
 }
-
-extern u32 tank_bml_resource;
-extern u32 TObjTank__texture_list;
 
 void TObjTank::free_globals() {
     if ((u32) TObjTank__texture_list != 0U) {

@@ -14,10 +14,6 @@ extern const f32 lbl_805DA070;
 extern volatile f32 lbl_805DA07C;
 extern const f32 lbl_805DA08C;
 void TObjEnemyCustom__sub_800C77A4(u8 *arg0);
-}
-
-extern "C" {
-
 struct Base_800c76f4 { char pad[0x18]; };
 struct VObj_800c76f4 : Base_800c76f4 {
     virtual void m0();
@@ -31,15 +27,11 @@ struct VObj_800c76f4 : Base_800c76f4 {
     virtual s32 m8(f32, f32);
 };
 
-s32 advance_animation_playback(void *);
 s32 post_translate_matrix(void *);
 s32 draw_chunk_object(s32);
-s32 apply_actor_gravity(void *, s32, f32, f32);
-s32 move_with_wall_slide(void *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-s32 update_collisions__10TObjPlayerFv(void *);
 
 extern s32 model_render_flags;
 extern const f32 lbl_805DA084;
@@ -64,9 +56,6 @@ void TObjEnemyCustom::render() {
         pop_matrix();
     }
 }
-
-extern const f32 lbl_805DA070;
-extern volatile f32 lbl_805DA07C;
 
 #define K_800C77A4 (*(const f32 *)&lbl_805DA07C)
 void TObjEnemyCustom__sub_800C77A4(u8 *arg0) {

@@ -182,8 +182,6 @@ s16 obj_getS16_32C(void *);
 int is_locally_controlled__10TObjPlayerFPv(void *);
 u8 *find_item_by_id(s32);
 void send_unequip_held_item__10TObjPlayerFUi(u32);
-s32 get_player_by_client_id(void *);
-void give_item_to_client(s32 arg0, s32 arg1);
 s32 consume_item_by_id(s32 arg0);
 s32 get_id__13TItemProArmorFv(void *);
 s32 init__9TItemDataFv(void *);
@@ -191,10 +189,6 @@ s32 TItem__sub_80115D68(u8 *, u32);
 s32 TItemProArmor__sub_801178A8(u8 *, u32);
 s32 TItem__sub_8011892C(u8 *, u32);
 void replace_item_with_new_code(void *arg0, u32 arg1);
-}
-
-extern "C" {
-
 int TItem__sub_80100B8C(void* p);
 int TItem__sub_80100A40(void*);
 s32 check_flag_400__20TWindowSubStatusDispFv();

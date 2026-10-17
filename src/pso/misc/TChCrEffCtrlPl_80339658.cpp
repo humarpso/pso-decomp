@@ -19,10 +19,6 @@ extern s32 TChCrEffCtrlPl__name;
 O_80339808 *__ct__14TChCrEffCtrlPlFv(O_80339808 *arg0, void * _w1);
 f32 sin_table_lookup(s32);
 extern const f32 lbl_80477C78[];
-}
-
-extern "C" {
-
 void *__nw__7TObjectFUl(int);
 
 #pragma push

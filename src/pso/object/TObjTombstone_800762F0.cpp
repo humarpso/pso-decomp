@@ -41,16 +41,10 @@ extern RecoveredGlobal_8007643C___vt__13TObjTombstone __vt__13TObjTombstone;
 extern const char* TObjTombstone__class_name;
 extern s32 TObjTombstone__shared_resource_object;
 u8 *TObjTombstone__ct(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3);
-}
-
-extern "C" {
-
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 fn_80074E04(s32, void *);
 
-extern s32 TObjTombstone__shared_resource_object;
 extern const f32 TObjTombstone__data_805D9174;
 
 void TObjTombstone::setup(s32 arg1, s32 arg2) {

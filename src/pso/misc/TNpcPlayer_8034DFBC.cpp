@@ -109,28 +109,16 @@ struct Stack_8034ED58 {
 
 extern "C" {
     extern int lbl_805D6EA0;
-extern int lbl_805D6EA0;
 s32 get_player_by_client_id(s32);
 s32 obj_isState3_324();
-s32 get_player_by_client_id(s32);
 void quest_remove_npc_player(u16 arg0);
 s32 set_arrival_override_coords(s32, s32, f32, f32, f32);
-s32 get_player_by_client_id(s32);
 s32 send_6x21_inter_level_warp(s32, s32);
 s32 obj_getField1c(s32);
-s32 obj_isState3_324();
-s32 set_arrival_override_coords(s32, s32, f32, f32, f32);
 s32 notify_field1c__10TObjPlayerFl();
-s32 get_player_by_client_id(s32);
 void send_6x24_teleport_player(u16, s32, s32);
-s32 set_arrival_override_coords(s32, s32, f32, f32, f32);
-extern int lbl_805D6EA0;
 void TNpcPlayer__sub_8034EDB8(void);
-s32 get_player_by_client_id(s32);
-s32 get_player_by_client_id(s32);
-s32 get_player_by_client_id(s32);
 s32 end_camera_pan__10TObjPlayerFv();
-s32 get_player_by_client_id(s32);
 s32 init_photon_blast__10TObjPlayerFl(u32, s16);
 void set_npc_control_flag__10TNpcPlayerFPvs(void* p, s16 v);
 int bswap_16__FPUs(void*);
@@ -139,77 +127,31 @@ int TLobby__send_and_handle_60(void*);
 void build_6x69_npc_control(void* p);
 extern E_8034E02C npc_partner_dialogue_state[];
 void clear_partner_dialogue_flags(void);
-s32 obj_isState3_324();
-s32 obj_getField1c(s32);
-s32 get_player_by_client_id(s32);
-extern E_8034E02C npc_partner_dialogue_state[];
-extern int lbl_805D6EA0;
 void show_partner_chatter_for_key(s16 key);
-void send_6x24_teleport_player(u16, s32, s32);
-s32 set_arrival_override_coords(s32, s32, f32, f32, f32);
-void build_6x69_npc_control(void* p);
-void clear_partner_dialogue_flags(void);
 extern struct Slot_8034EDC4 partner_dialogue_table[];
 extern s32 TNpcPlayer__data_805D5864;
-extern int lbl_805D6EA0;
 void init_partner_dialogue(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_testFlags30(void *, int);
-s32 get_player_by_client_id(s32);
 int sprintf(char *, const char *, ...);
 char *strcpy(char *, const char *);
 u32 strlen(const char *);
 extern const char lbl_805DFDF0[4];
 void set_partner_common_remark(s32 kind, const char *text);
-void VecCopy__FP3VecPC3Vec(void *, void *);
-s32 obj_isState3_324();
-s32 obj_testFlags30(void *, int);
 f32 atan2_float(f32, f32);
-s32 get_player_by_client_id(s32);
 extern const f64 lbl_80478CB0[];
 void quest_player_look_at_partner(u16 src);
-s32 obj_isState3_324();
-s32 obj_getField1c(s32);
-s32 get_player_by_client_id(s32);
-extern E_8034E02C npc_partner_dialogue_state[];
-extern int lbl_805D6EA0;
 void notify_partner_room_cleared(s32 arg0);
-s32 obj_isState3_324();
 void TNpcPlayer__ct(void *, u16, u16, s16, s32, s32);
 void construct_partner__10TNpcPlayerFPviisPv(void *, u16, u16, s16, s32);
 s32 load_npc_player_template(s16);
-s32 notify_field1c__10TObjPlayerFl();
-s32 get_player_by_client_id(s32);
 Obj_8034E814 *create_player_object(u16, s32, s32);
 void *__nw__7TObjectFUl(u32);
-void set_npc_control_flag__10TNpcPlayerFPvs(void* p, s16 v);
 extern s32 local_client_id;
 extern s32 tl_00;
 void handle_6x69_npc_control(Pkt_8034E814 *pkt);
-s32 get_player_by_client_id(s32);
-void VecCopy__FP3VecPC3Vec(void *, void *);
-s32 obj_testFlags30(void *, int);
-f32 atan2_float(f32, f32);
-extern const f64 lbl_80478CB0[];
 void quest_player_face_actor(u16 src, u16 dst);
-f32 atan2_float(f32, f32);
-s32 get_player_by_client_id(s32);
 void send_6x55_intra_map_warp(u16, f32 *, s32);
-extern const f64 lbl_80478CB0[];
-extern s32 local_client_id;
-void VecCopy__FP3VecPC3Vec(void *, void *);
-s32 obj_isState3_324();
-s32 obj_testFlags30(void *, int);
-s32 obj_getField1c(s32);
-s32 get_player_by_client_id(s32);
-s32 notify_field1c__10TObjPlayerFl();
-s32 get_player_by_client_id(s32);
-void build_6x69_npc_control(void* p);
-void build_6x69_npc_control(void* p);
-}
-
-extern "C" {
-
 s32 play_effect_default__10TObjPlayerFii(s32, s32);
 
 s32 obj_isState2_324();
@@ -248,8 +190,6 @@ void TNpcPlayer::send_code_45_to_player(int arg0) {
         TObjPlayer::send_code_45_1(player);
     }
 }
-
-s32 obj_isState2_324();
 
 void TNpcPlayer::play_effect(int arg0) {
     s32 player;

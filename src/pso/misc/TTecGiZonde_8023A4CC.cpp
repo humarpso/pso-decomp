@@ -60,7 +60,6 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_technique_projectile_wall_hit(void *, f32, f32);
 void move_technique_projectile(u8 *arg0);
 f32 fabs_float(f32);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 u8 *csnVecterUnder(s32 *, s32);
 u8 *csnVector(f32 *, f32 *, s32);
@@ -70,10 +69,6 @@ extern const f32 lbl_805DC918;
 extern const f32 lbl_805DC91C;
 extern const f32 lbl_805DC920;
 void step_ground_technique_projectile(RecoveredFields_8023A510_arg0 *arg0);
-}
-
-extern "C" {
-
 void TObjPlayer__sub_8023A70C(void* p);
 void move_ground_technique_projectile(void* p);
 

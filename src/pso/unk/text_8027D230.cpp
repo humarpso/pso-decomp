@@ -14,10 +14,6 @@ void set_text_entry_string(void *, u32, s32);
 extern RecoveredGlobal_8027D230_lbl_805129F8 quest_board_handlers;
 extern const f32 lbl_805DD690;
 extern const f32 lbl_805DD694;
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_8027D230_lbl_805129F8_size[sizeof(RecoveredGlobal_8027D230_lbl_805129F8) == 0xD8 ? 1 : -1];
 void TWindowSubQuestBoardSelect::sub_8027D230() {
     u8 *arg0 = (u8 *)this;

@@ -60,10 +60,6 @@ extern const f32 lbl_805DB8B0;
 extern const f32 lbl_805DB8B4;
 extern const f32 lbl_805DB8B8;
 void *TOMineIcon02__ct(void *arg0, void *arg1, void *arg2);
-}
-
-extern "C" {
-
 void *__dt__12TOMineIcon02Fv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
@@ -79,8 +75,6 @@ void *TOMineIcon02::create() {
     }
     return o;
 }
-
-extern s32 __vt__12TOMineIcon02[];
 
 void *__dt__12TOMineIcon02Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

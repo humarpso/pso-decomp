@@ -20,17 +20,11 @@ extern RecoveredGlobal_80248700_lbl_804CE7A0 lbl_804CE7A0;
 extern s32 __vt__17TWindowChatSymbol[];
 extern s32 lbl_805D38A8;
 u8 *TWindowChatSymbol__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt__17TWindowChatSymbolFv(void *arg0, s16 arg1);
 s32 get_selected_menu_value(s32);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-
-extern s32 __vt__17TWindowChatSymbol[];
 
 void *__dt__17TWindowChatSymbolFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

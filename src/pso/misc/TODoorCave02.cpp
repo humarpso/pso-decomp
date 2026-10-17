@@ -21,10 +21,6 @@ s32 set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-}
-
-extern "C" {
-
 struct Base_80161D38 { char pad[0x18]; };
 struct VObj_80161D38 : Base_80161D38 {
     virtual void m0();
@@ -38,13 +34,8 @@ struct VObj_80161D38 : Base_80161D38 {
     virtual s32 m8(f32, f32);
 };
 
-s32 play_sound_effect(s32, void *, s32, s32);
-s32 is_any_player_within_radius_xz(void *, f32);
-s32 post_translate_matrix(void *);
 s32 draw_ginja_model_with_motion(void *, s32, f32);
 s32 rotate_matrix_y(s32, s32);
-s32 push_matrix();
-s32 pop_matrix();
 
 void TODoorCave02::vfunc_20() {  }
 
@@ -68,7 +59,6 @@ void TODoorCave02::vfunc_17() {
     }
 }
 
-extern u8 *cave_door02_resources;
 extern const f32 lbl_805DB4C4;
 
 void TODoorCave02::play_proximity_sound() {

@@ -53,12 +53,8 @@ extern s32 TObjSinBoard__class_name;
 u8 *TObjSinBoard__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_state_flag__9TMainTaskFv();
 void scale_matrix(int, f32, f32, f32);
-s32 rotate_matrix_y(int, int);
-s32 rotate_matrix_z(int, int);
 void translate_matrix(int, f32, f32, f32);
 void rotate_matrix_x(int, int);
-s32 push_matrix();
-s32 pop_matrix();
 void set_texture_num(int);
 extern Pos_8019806C TObjSinBoard__quad_position_table;
 extern Uv_8019806C sin_board_uv_table;
@@ -76,14 +72,9 @@ extern u8 gogo_ball_configuration[];
 extern void *tl_05;
 extern s32 tl_06;
 extern const f32 lbl_805DBF40;
-}
-
-extern "C" {
-
 void *TObjSinBoard__create(void *arg0);
 void *__dt__12TObjSinBoardFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void *__nw__7TObjectFUl(int);
 
 void TObjSinBoard::render() {
     u8 *arg0 = (u8 *)this;
@@ -124,8 +115,6 @@ void TObjSinBoard::render() {
 
 void TObjSinBoard::run_task() {  }
 
-extern s32 __vt__12TObjSinBoard[];
-
 void *__dt__12TObjSinBoardFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjSinBoard;
@@ -136,8 +125,6 @@ void *__dt__12TObjSinBoardFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern void *tl_05;
 
 typedef char RecoveredGlobal_80198228___vt__12TObjSinBoard_size[sizeof(RecoveredGlobal_80198228___vt__12TObjSinBoard) == 0x38 ? 1 : -1];
 u8 *TObjSinBoard__ct(u8 *arg0, s32 parent, s32 arg2) {

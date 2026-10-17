@@ -6,10 +6,6 @@
 
 extern "C" {
 void play_persistent_sound(int, void *, void *, int, int);
-}
-
-extern "C" {
-
 void vfunc_20__17TOBarrierEnergy01Fv(void);
 int TLobby__sub_80156BA8(void*);
 

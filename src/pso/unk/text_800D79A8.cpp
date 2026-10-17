@@ -8,10 +8,6 @@ extern "C" {
 extern u8 lbl_80494968[];
 void *TAttackTrace__ct(void *arg0);
 Obj_800D79A8 *fn_800D79A8(Obj_800D79A8 *self, s32 x, s32 a, s32 b);
-}
-
-extern "C" {
-
 Obj_800D79A8 *fn_800D79A8(Obj_800D79A8 *self, s32 x, s32 a, s32 b) {
     s32 i;
     Ent_800D79A8 *p;

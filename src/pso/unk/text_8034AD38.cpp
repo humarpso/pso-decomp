@@ -41,15 +41,9 @@ extern Vec_8034ADE0 floor_load_particle_positions[];
 extern Ang_8034ADE0 TAdFloorLoadPrtGC__emitter_angles[];
 extern Vec_8034ADE0 lbl_80478B48[];
 extern Ang_8034ADE0 lbl_80478B54[];
-extern void *__vt__17TAdFloorLoadPrtGC[];
 extern s32 lbl_805D4330;
 Prt_8034ADE0 *TAdFloorLoadPrtGC__ct(Prt_8034ADE0 *arg0);
-extern s16 lbl_804F0070[];
 void clear_window_dd_nodes(void);
-}
-
-extern "C" {
-
 TAdFloorLoadPrtGC_8034AD38 *__dt__17TAdFloorLoadPrtGCFv(TAdFloorLoadPrtGC_8034AD38 *self, s16 deleting) {
     s32 i;
     if (self) {

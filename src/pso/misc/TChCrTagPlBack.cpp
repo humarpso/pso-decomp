@@ -30,17 +30,10 @@ void *__vt__14TChCrTagPlBack[6] = {
     (void *)render__14TChCrTagPlBackFv, (void *)render_shadows__7TObjectFv,
 };
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void *__ct__14TChCrTagPlBackFv(void *arg0);
 void __ct__8TChCrTagFv(void *);
 
 extern const f32 lbl_805DDFE4;
-extern void *__vt__14TChCrTagPlBack[6];
 extern const f32 lbl_805DDFE8;
 extern void *TChCrTagPlBack__name;
 
@@ -55,14 +48,7 @@ void *__ct__14TChCrTagPlBackFv(void *arg0) {
     return arg0;
 }
 
-}
-
 #define __ct__14TChCrTagPlBackFv (*(void * (*)(void *, void *, void *))&__ct__14TChCrTagPlBackFv)
-
-#include "types.h"
-#include "pso/TChCrTagPlBack.h"
-
-extern "C" {
 
 void *__nw__7TObjectFUl(int);
 

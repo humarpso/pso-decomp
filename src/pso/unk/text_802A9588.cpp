@@ -42,10 +42,6 @@ struct TTecKafun_802A9588 {
 
 extern "C" {
 void TTecKafun__vt4(TTecKafun_802A9588 *self, Target_802A9588 *target);
-}
-
-extern "C" {
-
 void TTecKafun__vt4(TTecKafun_802A9588 *self, Target_802A9588 *target) {
     Pair_802A9588 p;
     p.val = self->fec;

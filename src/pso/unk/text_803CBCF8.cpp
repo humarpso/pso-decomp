@@ -16,10 +16,6 @@ extern s32 lbl_805D7594;
 extern s32 lbl_805D75AC;
 extern s32 lbl_805D75B0;
 void __OSCallResetFunctions(void);
-}
-
-extern "C" {
-
 void dispatch_callback(void);
 void dispatch_lobby_callback(void);
 s32 TLobby__sub_803D3988();

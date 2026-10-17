@@ -19,20 +19,7 @@ extern const f32 lbl_805DA3C0;
 void spawn_particles_at__12TBoss3VoloptFi(s32 arg0);
 s32 remap_area_sound_id(int, int);
 s32 play_sound_effect(int, void *, int, int);
-void spawn_particles_at__12TBoss3VoloptFi(s32 arg0);
-s32 play_sound_effect(int, void *, int, int);
 void TBoss3Volopt__sub_800D8D88(s32 arg0);
-void spawn_particles_at__12TBoss3VoloptFi(s32 arg0);
-s32 play_sound_effect(int, void *, int, int);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 spawn_particle_effect(void *, int, f32);
-s32 remap_area_sound_id(int, int);
-s32 play_sound_effect(int, void *, int, int);
-extern const f32 lbl_805DA3C0;
-}
-
-extern "C" {
-
 s32 TBreakUpMdl__ct(void*, s32, s32, s32, s32, s32, s32);
 void* __nw__7TObjectFUl(s32);
 

@@ -16,10 +16,6 @@ s32 get_game_play_mode();
 extern u8 controller_input_state[][0x50];
 extern s32 lbl_805D55C0;
 s32 TLobby__sub_80211D58(s32 arg0);
-}
-
-extern "C" {
-
 s32 TLobby__sub_80211D58(s32 arg0) {
     s32 kind;
     s32 player;

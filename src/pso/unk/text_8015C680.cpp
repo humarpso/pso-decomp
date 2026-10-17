@@ -15,7 +15,6 @@ typedef char BmlResourceBlock_804B0088_descriptor_offset[(offsetof(BmlResourceBl
 struct BmlResourceBlock_804B00A8 { const char *model_filenames[4]; BmlResourceDescriptor descriptor; };
 typedef char BmlResourceBlock_804B00A8_size[(sizeof(BmlResourceBlock_804B00A8) == 0x20) ? 1 : -1];
 typedef char BmlResourceBlock_804B00A8_descriptor_offset[(offsetof(BmlResourceBlock_804B00A8, descriptor) == 0x10) ? 1 : -1];
-extern "C" {
 extern char lbl_80440508[];
 extern char lbl_80440520[];
 extern char lbl_80440540[];
@@ -34,7 +33,6 @@ extern BmlResourceBlock_804B00A8 fe_obj_ex_box1_resource_bundle;
 extern const char *bm_o_container_ancient_motion_names[1];
 extern const char *fe_obj_o_vs2container_motion_names[1];
 extern const char *fe_obj_ex_box1_motion_names[1];
-}
 
 struct Obj_8015C88C {
     u8 pad[0x18];
@@ -65,10 +63,6 @@ extern char lbl_80440920[];
 extern s32 enable_v2_features;
 extern void *ancient_container_resource_bundle;
 extern u32 *ancient_container_fragment_texture_lists;
-}
-
-extern "C" {
-
 void TLanguage::load_container_fragment_textures() {
     u8 *tbl = (u8 *)&bm_o_container_ancient_resource_bundle;
     s32 state = TOKeyMachine01::get_global_state();
@@ -120,9 +114,6 @@ void TUnk_804B6C24::apply_knockback_from_attacker(u8 *) {  }
 s32 TUnk_804B6C24::try_start_action(s32, s32) { return 1; }
 s32 TUnk_804B6C24::roll_physical_accuracy(void *, s32, f32) { return 1; }
 
-}
-
-extern "C" {
 __declspec(section ".data") BmlResourceBlock_804B0068 bm_o_container_ancient_resource_bundle = { { lbl_80440508, lbl_80440520, lbl_80440540, NULL }, { lbl_80440560, bm_o_container_ancient_resource_bundle.model_filenames, bm_o_container_ancient_motion_names, 3, 0 } };
 __declspec(section ".data") BmlResourceBlock_804B0088 fe_obj_o_vs2container_resource_bundle = { { lbl_8044057C, lbl_8044059C, lbl_804405BC, NULL }, { lbl_804405D8, fe_obj_o_vs2container_resource_bundle.model_filenames, fe_obj_o_vs2container_motion_names, 3, 0 } };
 __declspec(section ".data") BmlResourceBlock_804B00A8 fe_obj_ex_box1_resource_bundle = { { lbl_804405F4, lbl_80440608, lbl_80440624, NULL }, { lbl_80440640, fe_obj_ex_box1_resource_bundle.model_filenames, fe_obj_ex_box1_motion_names, 3, 0 } };

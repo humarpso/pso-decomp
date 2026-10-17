@@ -21,14 +21,12 @@ struct Pos_80259A84
 extern "C" {
 f32 fabs_float(f32, f32);
 s32 play_persistent_sound(int, void *, int, int, int);
-f32 fabs_float(f32, f32);
 extern const f32 lbl_805DCF58;
 extern const f32 lbl_805DCF5C;
 extern const f32 lbl_805DCF60;
 extern const f32 lbl_805DCF64;
 void set_status_entry_target(void *arg0, s32 arg1);
 extern s32 lbl_804CF9E0[];
-extern const f32 lbl_805DCF58;
 void reset_entry__20TWindowSubStatusDispFPv(void*, int);
 extern s32 lbl_804CF9C8[];
 u8 *TWindowSubStatusDisp__sub_80259D3C(u8 *arg0, u8 *arg1, s32 arg2);
@@ -44,7 +42,6 @@ s32 TWindowSubStatusDisp__sub_800FC248(s32);
 s32 build_small_font_glyph_quad(s32, Pos_80259A84 *);
 s32 render_forward__20TWindowSubStatusDispFPv();
 s32 set_glyph_quad_extents(s32, Pos_80259A84 *);
-s32 map_char_to_font_code(s32);
 s32 calc_gauge_scale__20TWindowSubStatusDispFPvPvi(s32, Pos_80259A84 *, s32);
 s32 end_render_forward__20TWindowSubStatusDispFPv();
 s32 try_open__19TWindowKeyBoardSoftFii(void *, Pos_80259A84 *);
@@ -52,17 +49,11 @@ s32 begin_screen_draw(int);
 s32 draw_textured_quad_at_depth(Pos_80259A84 *, f32);
 s32 set_draw_texture_and_color(int, int);
 void render_numeric_digit_entries(u8 *arg0, u8 *arg1);
-}
-
-extern "C" {
-
 void TWindowSubStatusDisp__sub_80259CE0(void);
 void *TWindowSubStatusDisp__sub_80259CE4(void *arg0, s16 arg1);
 void *TWindowSubStatusDisp__sub_8025A04C(void *arg0, s16 arg1);
 s32 __dl__FPv(void *);
 s32 deleting_destructor__20TWindowSubStatusDispFs(void *, s32);
-f32 fabs_float(f32, f32);
-void reset_entry__20TWindowSubStatusDispFPv(void*, int);
 
     extern unsigned char lbl_804CF9B0[];
     extern const float lbl_805DCF14;
@@ -183,9 +174,6 @@ void render_numeric_digit_entries(u8 *arg0, u8 *arg1) {
 void TWindowSubStatusDisp__sub_80259CE0(void) {  }
 
 extern s32 lbl_8044F010;
-extern const f32 lbl_805DCF58;
-
-extern s32 lbl_804CF9C8[];
 
 void *TWindowSubStatusDisp__sub_80259CE4(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -197,11 +185,6 @@ void *TWindowSubStatusDisp__sub_80259CE4(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern s32 lbl_8044F010;
-extern const f32 lbl_805DCF58;
-extern const f32 lbl_805DCF5C;
-extern const f32 lbl_805DCF60;
 
 typedef char RecoveredGlobal_80259D3C_lbl_804CF9C8_size[sizeof(RecoveredGlobal_80259D3C_lbl_804CF9C8) == 0x18 ? 1 : -1];
 u8 *TWindowSubStatusDisp__sub_80259D3C(u8 *arg0, u8 *arg1, s32 arg2) {
@@ -243,8 +226,6 @@ void TWindowSubStatusDisp::set_animated_target(s32 arg1, f32 farg0) {
         *(f32 *)((s8 *)this + 0x2C) = var_f31;
     }
 }
-
-extern s32 lbl_804CF9E0[];
 
 void set_status_entry_target(void *arg0, s32 arg1) {
   f32 temp_f2;

@@ -4,12 +4,8 @@
 extern "C" {
 s32 enemy_clear_target__12TObjEneDD_STFUs(void *);
 s32 is_valid_target__9TObjEneDDFv(s32);
-s32 enemy_clear_target__12TObjEneDD_STFUs(void *);
 s32 is_alive__9TObjEneDDFv(s32);
 u32 find_entity_by_id(u32);
-}
-
-extern "C" {
 
 #pragma push
 #pragma fp_contract on

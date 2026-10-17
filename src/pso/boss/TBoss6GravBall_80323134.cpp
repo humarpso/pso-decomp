@@ -23,15 +23,9 @@ extern "C" {
 s32 create_particle_emitter(s32, s32);
 extern RecoveredGlobal_80323214_lbl_80476658 TBoss6GravBall__emitter_id_table;
 void TBoss6GravBall__sub_80323214(s32 arg0, s32 arg1);
-s32 create_particle_emitter(s32, s32);
-extern RecoveredGlobal_80323214_lbl_80476658 TBoss6GravBall__emitter_id_table;
 void TBoss6GravBall__sub_80323320(T_80323320 *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 Ctl_80323134 *get_player_by_client_id(int);
-}
-
-extern "C" {
-
 void fn_80323134(Obj_80323134 *arg0);
 
 void fn_80323134(Obj_80323134 *arg0) {

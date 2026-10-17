@@ -26,10 +26,6 @@ s32 get_player_by_client_id(u32);
 s32 __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *);
 s32 strncpy(void *, void *, int);
 s32 fill_guild_card_from_player(u8 *arg0, u32 arg1);
-}
-
-extern "C" {
-
 typedef struct VBase_18_26c590 VBase_18_26c590;
 typedef struct VObj_18_26c590 VObj_18_26c590;
 #define PSO_VCALL_VObj_18_26c590_m10(_self) (((VObj_18_26c590 *)(_self))->m10())

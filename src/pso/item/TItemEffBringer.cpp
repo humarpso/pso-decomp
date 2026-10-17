@@ -38,13 +38,7 @@ extern const f32 lbl_805DAB14;
 extern const f32 lbl_805DAB18;
 extern const f32 lbl_805DAB1C;
 void *__ct__15TItemEffBringerFv(Bringer_8010834C *self, u32 arg1, Vec_8010834C *src, s32 arg3, f32 farg0);
-}
-
-extern "C" {
 void spawn_particle_effect(Vec*, int);
-}
-extern "C" {
-void subtract_vector(Vec*, Vec*);
 }
 void TItemEffBringer::hook() {
     Vec work = this->m_pos;
@@ -60,14 +54,11 @@ TItemEffBringer::~TItemEffBringer() {
     }
 }
 
-#include "types.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 void *__nw__7TObjectFUl(s32);
-
-extern f32 lbl_805DAB10;
 
 #pragma push
 #pragma fp_contract on

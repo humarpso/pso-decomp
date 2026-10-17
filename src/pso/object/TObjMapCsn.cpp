@@ -50,10 +50,8 @@ extern RecoveredGlobal_80194988___vt__10TObjMapCsn __vt__10TObjMapCsn;
 u8 *__dt__10TObjMapCsnFv(u8 *arg0, s16 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 fn_80140EA8(int, void *);
-extern RecoveredGlobal_80194988___vt__10TObjMapCsn __vt__10TObjMapCsn;
 extern s32 TObjMapCsn__class_name;
 u8 *TObjMapCsn__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 matrix_mult_vec(int, void *, void *);
 s32 translate_matrix_vec3(int, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
@@ -63,10 +61,6 @@ s32 pop_matrix();
 extern s8 lbl_804B8448[];
 extern Vec_801946D0 lbl_804B8460[];
 extern s32 identity_matrix[];
-}
-
-extern "C" {
-
 s32 __nw__7TObjectFUl(s32);
 
 void TObjMapCsn::render() {  }

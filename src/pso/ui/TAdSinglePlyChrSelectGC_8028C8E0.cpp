@@ -93,10 +93,6 @@ void TLobby__sub_8028D738(s32);
 extern s32 chr_select_preview_stride_table[];
 extern s32 chr_select_preview_base_offset_table[];
 
-}
-
-extern "C" {
-
 s32 TAdSinglePlyChrSelectGC__sub_8028C998(void *arg0);
 s32 TAdSinglePlyChrSelectGC__sub_8028CF6C(void);
 void close_and_destroy__12TChCrLoadReqFv(void *arg0);
@@ -290,8 +286,6 @@ void TChCrLoadReq::sub_8028CEEC(s32 *) {
     }
 }
 
-extern s32 chr_select_load_slot_count;
-
 s32 TAdSinglePlyChrSelectGC::try_claim_load_slot() {
     if (((s32) *(s32 *)((s8 *)this + 0x8C) != 0) || ((s32) chr_select_load_slot_count < 0) || ((s32) chr_select_load_slot_count > 1)) {
         return 0;
@@ -304,14 +298,9 @@ s32 TAdSinglePlyChrSelectGC::try_claim_load_slot() {
     return 1;
 }
 
-extern s32 chr_select_load_slot_count;
-
 s32 TAdSinglePlyChrSelectGC__sub_8028CF6C(void) {
     return chr_select_load_slot_count < 1;
 }
-
-extern s32 chr_select_preview_stride_table[];
-extern s32 chr_select_preview_base_offset_table[];
 
 }
 

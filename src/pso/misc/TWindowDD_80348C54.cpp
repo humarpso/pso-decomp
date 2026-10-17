@@ -6,10 +6,6 @@ struct Pkt_80348C78 { u8 hdr[2]; u16 player; u8 body[0x1c]; };
 extern "C" {
 extern s32 local_client_id;
 void copy_chat_entry__9TWindowDDFPvPv(void *, void *);
-}
-
-extern "C" {
-
 int TLobby__send_and_handle_60(void*);
 int bswap_word_select__9TWindowDDFv(void*);
 

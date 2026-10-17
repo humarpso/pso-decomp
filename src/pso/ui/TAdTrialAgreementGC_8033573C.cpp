@@ -31,10 +31,6 @@ s32 TAdAgreementBaseGC__ct(void *);
 extern s32 __vt__19TAdTrialAgreementGC[];
 extern s32 TAdTrialAgreementGC__name;
 u8 *TAdTrialAgreementGC__ct(u8 *arg0);
-}
-
-extern "C" {
-
 void *__dt__19TAdTrialAgreementGCFv(void *arg0, s16 arg1);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32 *);
 void __dl__7TObjectFPv(void *);
@@ -68,8 +64,6 @@ void TAdTrialAgreementGC::run_task() {
     struct VObj_803357EC_8033573C *o = (struct VObj_803357EC_8033573C *)this;
     o->m9();
 }
-
-extern s32 __vt__19TAdTrialAgreementGC[];
 
 void *__dt__19TAdTrialAgreementGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

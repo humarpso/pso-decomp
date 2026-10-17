@@ -25,15 +25,7 @@ s32 read_be16_field2__10TObjPlayerFv();
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
 void TObjPlayer__sub_801C19C8(void* p, f32 v);
-void TObjPlayer__sub_801C19C8(void* p, f32 v);
 s32 TLobby__sub_801C19D0(void* p);
-s32 TLobby__sub_801C19D0(void* p);
-int TObjPlayer__sub_800193FC(void);
-int TObjPlayer__sub_8001940C(void);
-int TObjPlayer__sub_8001941C(void);
-int TObjPlayer__sub_8001943C(void);
-int obj_is_hit_receivable(void);
-void* TObjPlayer__sub_801C1A00(void* p);
 int TObjPlayer__sub_800193FC(void);
 int TObjPlayer__sub_8001940C(void);
 int TObjPlayer__sub_8001941C(void);
@@ -43,11 +35,7 @@ void* TObjPlayer__sub_801C1A00(void* p);
 int TObjEneBm5Wolf__sub_800B8A24(void);
 void TObjPlayer__sub_801C1A30(void* p);
 extern void *tl_04;
-int TObjEneBm5Wolf__sub_800B8A24(void);
-void TObjPlayer__sub_801C1A30(void* p);
 void TObjPlayer__sub_801C1B0C(void);
-void TObjPlayer__sub_801C1B0C(void);
-int set_flags__10TObjPlayerFUl(void*, int);
 int set_flags__10TObjPlayerFUl(void*, int);
 int clear_flags__11TAdRicoRingFUl(void*, int);
 extern s32 keyboard_task_object[];
@@ -67,134 +55,42 @@ int TItemList__sub_801D5868(void);
 int TItemList__sub_801D591C(void);
 int TItemList__sub_801D598C(void);
 int TItemList__sub_801D59A0(void);
-int TItemList__sub_801D5804(void);
-int TItemList__sub_801D5854(void);
-int TItemList__sub_801D5868(void);
-int TItemList__sub_801D591C(void);
-int TItemList__sub_801D598C(void);
-int TItemList__sub_801D59A0(void);
-int TWindowActionPalette__sub_801C1C20(void* p);
 int TObjPlayer__sub_801C1F50(void* p);
 int test_flags_any(void*, int);
-int TObjPlayer__sub_801C1F50(void* p);
-void TObjPlayer__sub_801C1F78(void* p, s16 v);
 void TObjPlayer__sub_801C1F78(void* p, s16 v);
 int __dl__FPv();
 extern u32 lbl_805D4BA4;
-extern void *tl_04;
-extern const f32 TBoss2DeRolLe__data_805D827C;
 extern const f32 TBoss2DeRolLe__data_805D827C;
 extern s32 TBoss2DeRolLe__instance;
-int __dl__FPv();
-extern u32 lbl_805D4BA4;
-extern void *tl_04;
-extern const f32 TBoss2DeRolLe__data_805D827C;
-extern const f32 TBoss2DeRolLe__data_805D827C;
-extern s32 TBoss2DeRolLe__instance;
-void TObjPlayer__sub_801C18E0(void* p);
-s32 TLobby__send_and_handle_60(s32);
-extern s32 lbl_80434088;
-extern const f32 lbl_805D7D3C;
-extern s32 current_floor_index;
-extern s32 lobby_player_count;
 void TObjPlayer__sub_801C18E0(void* p);
 s32 TWindowDuelResult__sub_801C19AC(f32 *arg0);
 void init_6x21_inter_level_warp_packet(u8 *arg0);
 void reset_settings_to_default__6TLobbyFv(void *);
 void fn_801C19D8(void* p, s32 v);
-void fn_801C19D8(void* p, s32 v);
-void fn_801C19E0(void* p, s32 v);
 void fn_801C19E0(void* p, s32 v);
 void fn_801C19E8(void* p);
-void fn_801C19E8(void* p);
-void fn_801C19F4(void* p);
 void fn_801C19F4(void* p);
 s32 fn_801C1B88(void* p);
-s32 fn_801C1B88(void* p);
-f32 get_lock_target_distance_sq(void* p);
 f32 get_lock_target_distance_sq(void* p);
 u16 get_lock_target_id(void* p);
-u16 get_lock_target_id(void* p);
-s32 fn_801C1BA0(void* p);
 s32 fn_801C1BA0(void* p);
 void* fn_801C1E44(void* p);
-void* fn_801C1E44(void* p);
-void* fn_801C1E48(void* p);
 void* fn_801C1E48(void* p);
 int test_photon_blast_modifier(void* p);
-int TWindowActionPalette__sub_801C1C20(void* p);
-int test_photon_blast_modifier(void* p);
 void fn_801C1E74(void* p);
-void fn_801C1E74(void* p);
-extern s32 lbl_805D49C0;
-void TKeyBoardControl__sub_8000F950(void);
-extern s32 lbl_805D49C0;
-void TKeyBoardControl__sub_8000F95C(void);
-extern s32 keyboard_active_flag;
-void activate_keyboard(void);
-extern s32 keyboard_active_flag;
-void deactivate_keyboard(void);
-extern s32 keyboard_key_state;
-void mark_area_change_pending(void);
-extern s32 keyboard_key_state;
-void clear_keyboard_key_state(void);
-void fn_801C1EA4(void* p);
-extern s32 keyboard_task_object[];
-extern s32 lbl_805D62B0;
-    extern int lbl_805D49A0;
-    extern int lbl_805D49A4;
-    extern int player_matrix_stack_buffer;
-    extern int resource_decompress_buffer;
-    extern int anim_model_matrix_array;
-    extern int lbl_805D5680;
-extern s32 lbl_805D49C0;
-extern s32 keyboard_key_state;
 void TKeyBoardControl__sub_8000F950(void);
 void TKeyBoardControl__sub_8000F95C(void);
+extern s32 keyboard_active_flag;
 void activate_keyboard(void);
 void deactivate_keyboard(void);
 void mark_area_change_pending(void);
 void clear_keyboard_key_state(void);
 void fn_801C1EA4(void* p);
 void fn_801C1EC4(void* p);
-void fn_801C1EC4(void* p);
-extern s32 lbl_805D49C0;
-void TKeyBoardControl__sub_8000F950(void);
-extern s32 lbl_805D49C0;
-void TKeyBoardControl__sub_8000F95C(void);
-extern s32 keyboard_active_flag;
-void activate_keyboard(void);
-extern s32 keyboard_active_flag;
-void deactivate_keyboard(void);
-extern s32 keyboard_key_state;
-void mark_area_change_pending(void);
-extern s32 keyboard_key_state;
-void clear_keyboard_key_state(void);
-void fn_801C1EF4(void* p);
-extern s32 keyboard_task_object[];
-extern s32 lbl_805D62B0;
-    extern int lbl_805D49A0;
-    extern int lbl_805D49A4;
-    extern int player_matrix_stack_buffer;
-    extern int resource_decompress_buffer;
-    extern int anim_model_matrix_array;
-    extern int lbl_805D5680;
-extern s32 lbl_805D49C0;
-extern s32 keyboard_key_state;
-void TKeyBoardControl__sub_8000F950(void);
-void TKeyBoardControl__sub_8000F95C(void);
-void activate_keyboard(void);
-void deactivate_keyboard(void);
-void mark_area_change_pending(void);
-void clear_keyboard_key_state(void);
 void fn_801C1EF4(void* p);
 void set_photon_blast_kind(void* p, s16 v);
-void set_photon_blast_kind(void* p, s16 v);
-void fn_801C1F1C(void* p);
 void fn_801C1F1C(void* p);
 void fn_801C1E98(void* p);
-void fn_801C1E98(void* p);
-void fn_801C1EE8(void* p);
 void fn_801C1EE8(void* p);
 void fn_801C1F40(s32 *arg0);
 void is_action_channel_active(s32 *arg0, s32 arg1);
@@ -206,19 +102,7 @@ s32 get_field_ec__5TItemFv(void *p);
 s32 is_item_stackable(u8, u8);
 void TObjPlayer__sub_801C1AC8(void *self);
 S_801C1BA8 *fn_801C1BA8(S_801C1BA8 *arg0, S_801C1BA8 *arg1);
-}
-
-extern "C" {
-
 f32 fn_801C19A4(void* p);
-int clear_flags__11TAdRicoRingFUl(void*, int);
-s32 TLobby__send_and_handle_60(s32);
-int __dl__FPv();
-s32 bswap_16__FPUs(s32);
-s32 bswap_32__FPUl(s32);
-s32 read_be16_field2__10TObjPlayerFv();
-int set_flags__10TObjPlayerFUl(void*, int);
-int test_flags_any(void*, int);
 
 void init_6x21_inter_level_warp_packet(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 4) = 0;
@@ -394,17 +278,11 @@ int test_photon_blast_modifier(void* p) { return TWindowActionPalette__sub_801C1
 
 void fn_801C1E74(void* p) { fn_801C1E98((void*)((char*)p + 0x24)); }
 
-}
-extern "C" {
-
 void fn_801C1E98(void* p) { *(s32*)((char*)p + 0x0) = 0; }
 
 void fn_801C1EA4(void* p) { fn_801C1E98((void*)(p)); }
 
 void fn_801C1EC4(void* p) { fn_801C1EE8((void*)((char*)p + 0x24)); }
-
-}
-extern "C" {
 
 void fn_801C1EE8(void* p) { *(s32*)((char*)p + 0x0) = 1; }
 

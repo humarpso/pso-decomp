@@ -10,10 +10,6 @@ extern "C" {
 void visit_model_tree_recursive(s32 arg0, u8 *arg1, s32 arg2);
 s32 has_texture_scroll_entry(void *, u16);
 void fn_80327A38(Acc_80327A38 *acc, Src_80327A38 *src, s32 id);
-}
-
-extern "C" {
-
 void visit_model_tree_recursive(s32 acc, u8 *arg1, s32 arg2) {
   unsigned int new_var;
   u32 src;

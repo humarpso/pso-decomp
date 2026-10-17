@@ -21,15 +21,10 @@ extern const f64 lbl_804755B0[];
 extern const f32 lbl_805DF0D0;
 extern const f32 TBoss7Crawfish__data_805DF0D8;
 extern const f32 TBoss7Crawfish__data_805DF0DC;
-}
-
-extern "C" {
-
 s32 register_attack_hits__14TBoss7CrawfishFv(void *, void *, f32, f32);
 s32 TBoss7Crawfish__sub_803087D4(void *, int);
 s32 TBoss7Crawfish__sub_80308ED8(void *, void *);
 
-extern const f32 TBoss7Crawfish__data_805DF0DC;
 extern const f32 lbl_805DF0F4;
 
 void TBoss7Crawfish::update_motion_and_release() {

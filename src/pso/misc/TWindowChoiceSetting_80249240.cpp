@@ -20,16 +20,11 @@ s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_visible_window_entries(void *, void *, s32);
 s32 draw_window_scrollbar(s32, s32, void *);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
-void render__20TWindowChoiceSettingFv(u8 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 fn_80249078(void *);
 extern RecoveredGlobal_802492C8_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DCBC0;
-}
-
-extern "C" {
-
 void *TWindowChoiceSetting__ct(void *arg0);
 void *__dt__20TWindowChoiceSettingFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
@@ -114,7 +109,6 @@ void *__dt__20TWindowChoiceSettingFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__20TWindowChoiceSetting[];
 extern void *lbl_805D38B8;
 
 void *TWindowChoiceSetting__ct(void *arg0) {

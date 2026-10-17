@@ -47,10 +47,6 @@ extern Glyph_80145804 *menu_font_glyph_table;
 extern u8 lbl_805D56C0;
 extern void *menu_font_object;
 void load_menu_font(void);
-}
-
-extern "C" {
-
 __declspec(section ".data") u32 *menu_font_glyph_pixel_buffers[2];
 Rect_80145804 lbl_8050C048[2];
 Tex_80145804 lbl_8050C090[2];

@@ -4,10 +4,6 @@
 
 extern "C" {
 u8 TWindowDD__sub_803482B0(u8 *arg0);
-}
-
-extern "C" {
-
 int play_sound_effect(void*, void*, void*, void*);
 int refresh_sub__9TWindowDDFPvPv(void);
 int update__9TWindowDDFPvPv(void);

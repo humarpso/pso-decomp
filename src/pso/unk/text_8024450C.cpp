@@ -13,20 +13,8 @@ u8 *get_title_entry__11TWindowRoomFv(s32);
 extern const f32 lbl_805DCABC;
 extern const f32 lbl_805DCAC0;
 s32 create_area_window(s32 arg0);
-u32 calc_text_width(void *);
-s32 __nw__7TObjectFUl(int);
-void fn_8024450C(s32 arg0);
-s32 TWindowArea__ct();
 void *get_field_20__17TWindowSubComCardFv(void *);
-s32 fn_802449E0(int);
-u8 *get_title_entry__11TWindowRoomFv(s32);
-extern const f32 lbl_805DCABC;
-extern const f32 lbl_805DCAC0;
 s32 create_window_area(void);
-}
-
-extern "C" {
-
 void fn_8024450C(s32 arg0) {
     s32 var_r30;
     s32 var_r31;

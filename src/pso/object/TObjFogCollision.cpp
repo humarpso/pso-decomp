@@ -23,16 +23,10 @@ s32 construct_world_actor_base(void *);
 extern s32 __vt__16TObjFogCollision[];
 extern s32 lbl_805D2E78;
 u8 *TObjFogCollision__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *TObjFogCollision__create(void *arg0);
 void *__dt__16TObjFogCollisionFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-
-extern s32 __vt__16TObjFogCollision[];
 
 void *__dt__16TObjFogCollisionFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

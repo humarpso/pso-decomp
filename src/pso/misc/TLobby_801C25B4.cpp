@@ -37,7 +37,6 @@ u8 TLobby__sub_801D7100(void *);
 extern u8 lobby_rule_settings[];
 extern s32 TLobby__battle_team_table[];
 u8 check_battle_end__6TLobbyFv(void);
-u32 get_player_by_client_id(s32);
 extern Ent_801C26A8 TLobby__duel_result_table[];
 s32 TLobby__sub_801C26A8(void);
 s32 update_battle_controller__10TObjPlayerFv();
@@ -50,15 +49,10 @@ extern u8 lbl_804EFA6C[];
 extern s32 TPlayerBattleCtrl__name;
 extern s32 current_language;
 void *TPlayerBattleCtrl__ct(void *arg0, s32 _w1);
-}
-
-extern "C" {
-
 struct S801C295C_801C25B4 { s32 f0; s8 f4; s8 pad[0x13]; };
 
 s32 check_all_battle_flags__6TLobbyFv(void);
 void clear_counter__6TLobbyFPv(void* a0);
-u32 get_player_by_client_id(s32);
 s32 build_6x7D_set_battle_mode_data(void *);
 s32 obj_testFlags30(u32, s32);
 
@@ -270,10 +264,6 @@ extern char lbl_80446FDC[];
 extern char *lbl_804C3E78[];
 extern Entry_801C2B04 TLobby__duel_result_table[];
 void show_score_results__6TLobbyFPv(void *self);
-}
-
-extern "C" {
-
 u8 check_timeout__6TLobbyFPv(void *arg0);
 void set_flag_270__6TLobbyFPv(void *arg0);
 
@@ -416,10 +406,6 @@ s32 TAdSinglePlyChrSelectGC__sub_801FCE6C();
 extern s32 TLobby__battle_team_table[];
 extern s32 local_client_id;
 void init_battle_round__6TLobbyFPv(void *arg0);
-}
-
-extern "C" {
-
 s32 check_all_players_ready__6TLobbyFv(void);
 void init__6TLobbyFPv(void *arg0);
 s32 TLobby__sub_8020BB18();
@@ -966,10 +952,6 @@ u16 TAdSinglePlyChrSelectGC__sub_801C50FC();
 void TAdSinglePlyChrSelectGC__sub_801C5108(u16);
 u16 TAdSinglePlyChrSelectGC__sub_801C5114();
 s32 TAdSinglePlyChrSelectGC__sub_801FCE6C();
-}
-
-extern "C" {
-
 void TLobby__sub_801C36E4(void *arg0, void *arg1);
 s32 assign_player_id__6TLobbyFv(void);
 void *__dt__13TUnk_804C3E88Fv(void *arg0, s16 arg1);
@@ -1839,9 +1821,6 @@ s32 update_battle_intro__6TLobbyFPv(void *);
 void update_player_battle_ctrl_state(void *arg0);
 s32 init_battle_round__6TLobbyFPv();
 s32 fn_801C4CE0(void *arg0);
-}
-
-extern "C" {
 
 s32 fn_801C4CE0(void *arg0) {
     switch (*(s32 *)((s8 *)arg0 + 0x20)) {

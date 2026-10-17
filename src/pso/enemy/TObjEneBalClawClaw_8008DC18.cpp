@@ -22,12 +22,10 @@ struct RecoveredGlobal_8008DC18_lbl_8048EEE0 {
     u8 remaining[0x28];
 };
 
-extern "C" {
 extern RecoveredGlobal_8008DC18_lbl_80439B5C lbl_80439B5C;
 extern RecoveredGlobal_8008DC18_lbl_8048EEE0 lbl_8048EEE0;
 extern u8 *lbl_805D4F20;
 extern const f32 lbl_805D9618;
-}
 
 extern "C" {
 

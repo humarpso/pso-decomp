@@ -16,10 +16,6 @@ void TWindowDD__sub_80348D90(S_80348D90 *self, s16 v);
 void TWindowDD__sub_80348DD8(S_80348DD8 *self, s16 v);
 void bswap_16__FPUs(void *);
 void bswap_32__FPUl(void *);
-}
-
-extern "C" {
-
 s32 TWindowDD__sub_80348D88(void* p);
 
 void TWindowDD::bswap_word_select() {

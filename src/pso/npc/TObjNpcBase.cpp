@@ -41,18 +41,11 @@ extern const f32 lbl_805DB1B8;
 extern const f32 lbl_805DB1BC;
 extern const f32 lbl_805DB1E0;
 void *TObjNpcBase__ct(void *arg0, void *arg1, void *arg2);
-}
-
-extern "C" {
-
-void TObjNpcBase__sub_80149368(void* p);
 void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
-
-extern s32 __vt__11TObjNpcBase[];
 
 void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

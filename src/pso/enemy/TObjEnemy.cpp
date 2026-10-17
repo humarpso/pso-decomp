@@ -9,16 +9,10 @@ void* construct_actor_base__10TObjPlayerFPvPv(TObjEnemy*,void*);
 extern s32 __vt__9TObjEnemy[];
 extern void* TObjEnemy_class_name;
 extern const f32 lbl_805DA8E0;
-}
-
-extern "C" {
-
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 int unregister_object_by_id__13TUnk_804AF8A0Fv(void*);
 s32 __dl__7TObjectFPv(void *);
 s32 copy_header__6TLobbyFPv(s32);
-
-extern s32 __vt__9TObjEnemy[];
 
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1) {
     u16 temp_r0;

@@ -28,20 +28,14 @@ extern "C" {
 void TObjPlayer__sub_8023E034(void **arg0);
 s32 has_texture_scroll_entry(Tbl_8023DD0C *t, u16 id);
 void set_ginja_texture_wrap_repeat(Tbl_8023DD60 *t);
-s32 has_texture_scroll_entry(Tbl_8023DD0C *t, u16 id);
-void set_ginja_texture_wrap_repeat(Tbl_8023DD60 *t);
 void DCFlushRangeNoSync(void *, u32);
 void scroll_ginja_mesh_uvs(Model_8023DDC8 *self, s16 du, s16 dv, u16 cmd, s32 rewrite);
-void TObjPlayer__sub_8023E034(void **arg0);
 void TObjPlayer__sub_8023DEE0(s16 *p, s16 a, s16 b, u16 id);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void begin_screen_draw(s32);
 void DVDConvertEntrynumToPath(void *);
 void set_draw_texture_and_color(s32, s32);
-}
-
-extern "C" {
 
 s32 has_texture_scroll_entry(Tbl_8023DD0C *t, u16 id) {
     s32 found = 0;

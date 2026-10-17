@@ -41,27 +41,16 @@ extern s32 lbl_80472858[];
 extern s32 controller_physical_port_bank[];
 extern s32 tl_fade;
 void TAdMultiPlyChrSelectGC__sub_802DE7D0(void *arg0);
-}
-
-extern "C" {
-
 void update__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 s32 destroy_windows__14TAdGameStartGCFPv(s32);
 s32 set_entry_value__22TAdMultiPlyChrSelectGCFlUl(s32, s32, s32 *);
 s32 TAdMultiPlyChrSelectGC__sub_802DBCE8(void *);
 s32 get_selected_menu_value(s32);
-s32 TWindow__close(void *);
 s32 clear_entry__23TAdSinglePlyChrSelectGCFi();
 s32 clear_slot_body__23TAdSinglePlyChrSelectGCFi(s32);
-s32 play_sound_effect(s32, s32, s32, s32);
-s32 TAdMultiPlyChrSelectGC__sub_802C561C(s32);
-s32 TAdMultiPlyChrSelectGC__sub_802C5688(s32);
-s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(s32);
 int TAdMultiPlyChrSelectGC__sub_802E006C(void*, void*, void*);
-s32 restore_selection__22TAdMultiPlyChrSelectGCFv(s32);
 s32 get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(void *, s32);
 s32 create__16TAdChrSelBSlotGCFPv(void *);
-s32 queue_destruction__7TObjectFv(void *);
 
 extern s32 TAdMultiPlyChrSelectGC__data_805DE898;
 

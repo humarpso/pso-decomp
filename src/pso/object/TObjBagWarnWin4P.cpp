@@ -8,10 +8,6 @@
 extern "C" {
 s32 TWindow__close(int);
 s32 TWindowCtrlMain__sub_8024CE58();
-}
-
-extern "C" {
-
 void *__ct__16TObjBagWarnWin4PFv(void *arg0);
 u32 create_message_window__6TLobbyFllUls(s32, void *, s32, s32);
 u32 get_player_by_client_id(s32);

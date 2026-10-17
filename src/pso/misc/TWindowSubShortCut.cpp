@@ -6,9 +6,7 @@
 #include "pso/misc/TWindowMessageYesNo.h"
 #include "pso/misc/TUnk_804D0618.h"
 #include "pso/misc/TWindowSubQuestBoardSelect.h"
-#include "pso/misc/TWindowSubShortCut.h"
 #include "pso/misc/TLobby.h"
-#include "pso/misc/TWindowChat.h"
 #include "pso/misc/TWindowOptionCtrl.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubItem.h"
@@ -44,33 +42,19 @@ void *__nw__7TObjectFUl(u32);
 void TWindow__close(void *);
 u8 get_selected_menu_value(int);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
-s32 get_window_layout_position(s32 a0);
 u32 TWindowShortCut__ct(int, int, int, void *);
 void open_com_card_list__18TWindowSubShortCutFv(void *arg0);
-}
-
-extern "C" {
-
 void *__dt__18TWindowSubShortCutFv(void *arg0, s16 arg1);
-void open_com_card_list__18TWindowSubShortCutFv(void *arg0);
 u32 *get_chat_shortcut();
-s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, s32, s32);
 s32 align_menu_entry_positions(s32);
 s32 get_window_layout_position(s32 a0 = 0);
-s32 open_yes_no_prompt(s32, s32, s32, s32, f32);
-void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 draw_card_icon__17TWindowSubComCardFll(s32, s32, s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 s32 free_member__17TWindowSubComCardFv(s32, s32);
-s32 get_message_10__20TWindowSubStatusDispFl(s32);
-void queue_destruction__7TObjectFv(void *);
-s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
 
 int TWindowSubQuestBoardSelect::is_shortcut_active() { return this->m_60 & 0x4; }
-
-extern const f32 lbl_805DD6C0;
 
 s32 TWindowSubShortCut::open_confirm_message() {
     s32 temp_r29;
@@ -81,8 +65,6 @@ s32 TWindowSubShortCut::open_confirm_message() {
     ((TWindowSubShortMail *)temp_r29)->notify_warp_flag70();
     return temp_r29;
 }
-
-extern const f32 lbl_805DD6C0;
 
 s32 TWindowSubShortCut::open_confirm_prompt() {
     Win_8027DBB8 *arg0 = (Win_8027DBB8 *)this;
@@ -284,7 +266,6 @@ void *__dt__18TWindowSubShortCutFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__18TWindowSubShortCut[];
 extern void *TWindowSubShortCut__class_name;
 
 }

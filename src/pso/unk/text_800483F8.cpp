@@ -45,10 +45,6 @@ extern const f32 lbl_805D882C;
 extern const f32 lbl_805D8830;
 extern const f32 lbl_805D8834;
 Obj_800483F8 *fn_800483F8(Obj_800483F8 *self, Vec_800483F8 *from, Vec_800483F8 *to, s32 n, s32 m);
-}
-
-extern "C" {
-
 typedef char RecoveredGlobal_80048560_lbl_80484860_size[sizeof(RecoveredGlobal_80048560_lbl_80484860) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_80048560_lbl_804FF1D0_size[sizeof(RecoveredGlobal_80048560_lbl_804FF1D0) == 0x18 ? 1 : -1];
 

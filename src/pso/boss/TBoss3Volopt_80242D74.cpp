@@ -5,15 +5,7 @@
 extern "C" {
 u32 find_active_pad_rumble_effect_by_id(s32);
 void *find_free_pad_rumble_effect_slot();
-u32 find_active_pad_rumble_effect_by_id(s32);
-void *find_free_pad_rumble_effect_slot();
 s32 VecCopy__FP3VecPC3Vec(void *, u32);
-void *find_free_pad_rumble_effect_slot();
-void *find_free_pad_rumble_effect_slot();
-}
-
-extern "C" {
-
 int reset_state__23TAdSinglePlyChrSelectGCFv();
 
 void TBoss3Volopt::update_if_active(s32 _w0) {

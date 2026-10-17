@@ -30,7 +30,6 @@ void *__dt__14TObjWarpBoss03Fv(void *arg0, s16 arg1) {
 }
 
 extern const f32 lbl_805DC034;
-extern s32 __vt__14TObjWarpBoss03[];
 extern void *TObjWarpBoss03__name;
 
 void *TObjWarpBoss03__ct(void *arg0) {

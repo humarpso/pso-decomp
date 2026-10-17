@@ -21,9 +21,6 @@ s32 VecCopy__FP3VecPC3Vec(void *, int);
 s32 advance_animation_playback();
 u16 obj_getField1c(void *);
 u8 * TObjMotion__ct(void *);
-u8 * TObjEneMorfosArm__sub_803326B4(void *);
-s32 TObjEneMorfosArm__sub_803326BC(void *);
-s32 VecCopy__FP3VecPC3Vec(void *, int);
 s32 set_field_d8__10TObjPlayerFl(void *, void *, int);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
 extern RecoveredGlobal_80335354_lbl_804EE3B0 morfos_arm_motion_params;
@@ -31,10 +28,6 @@ extern s32 __vt__16TObjEneMorfosArm[];
 extern s32 TObjEneMorfosArm__name;
 extern u32 TObjEneMorfosArm__parent_morfos_instance;
 u8 *TObjEneMorfosArm__ct(u8 *arg0, s32 arg1, u8 *arg2);
-}
-
-extern "C" {
-
 void *__dt__16TObjEneMorfosArmFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_y(int, int);
@@ -42,8 +35,6 @@ s32 push_matrix();
 s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void __dt__10TObjMotionFv(void *, int);
-
-extern u32 TObjEneMorfosArm__parent_morfos_instance;
 
 void TObjEneMorfosArm::render() {
     u8 *arg0 = (u8 *)this;
@@ -60,8 +51,6 @@ void TObjEneMorfosArm::render() {
     TParticleCtrl::end_effect_render();
     pop_matrix();
 }
-
-extern s32 __vt__16TObjEneMorfosArm[];
 
 void TObjEneMorfosArm::run_task() {
     u8 *arg0 = (u8 *)this;

@@ -8,22 +8,14 @@ extern "C" {
 s32 matrix_apply_translation(int, f32, f32, f32);
 extern u32 current_matrix;
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
-extern u32 current_matrix;
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 void euler_zyx_to_quaternion(u8 *arg0, u8 *arg1);
-f32 sin_table_lookup(int);
-f32 cos_table_lookup(int);
 void euler_yxz_to_quaternion(u8 *arg0, u8 *arg1);
-extern u32 current_matrix;
 
 __declspec(section ".sdata2") extern const f64 lbl_805E0F08;
 __declspec(section ".sdata2") extern const f64 lbl_805E0F10;
 __declspec(section ".sdata2") extern const f64 lbl_805E0F18;
-
-}
-
-extern "C" {
 
 __declspec(section ".sdata2") extern const f64 lbl_805E0F38;
 void rotate_matrix_z(Matrix34* matrix, s32 angle) {

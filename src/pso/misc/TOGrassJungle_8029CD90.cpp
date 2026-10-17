@@ -26,10 +26,6 @@ s32 construct_world_actor_base(void *, void *);
 extern s32 __vt__13TOGrassJungle[];
 extern s32 grass_jungle_class_name;
 u8 *TOGrassJungle__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 struct Base_8029CD90 { char pad[0x18]; };
 struct VObj_8029CD90 : Base_8029CD90 {
     virtual void m0();
@@ -70,8 +66,6 @@ void TOGrassJungle::render() {
         pop_matrix();
     }
 }
-
-extern s32 __vt__13TOGrassJungle[];
 
 void *__dt__13TOGrassJungleFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

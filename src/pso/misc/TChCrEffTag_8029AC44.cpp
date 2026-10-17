@@ -22,9 +22,6 @@ void *__ct__11TChCrEffTagFv(void *arg0) {
     return arg0;
 }
 
-}
-
-extern "C" {
 extern char lbl_80465298[];
 void *TChCrEffTag__name = lbl_80465298;
 }

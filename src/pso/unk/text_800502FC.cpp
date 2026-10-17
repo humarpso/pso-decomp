@@ -32,16 +32,12 @@ s32 TBoss4Type3__sub_8005254C(int);
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
 void VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TBoss4Type3__sub_8005254C(int);
 u8 *get_player_by_client_id(u16);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
-}
-
-extern "C" {
 
 void *lbl_804858A8[3] = {
     (void *)0x0, (void *)0x0, (void *)0xc2a20000,

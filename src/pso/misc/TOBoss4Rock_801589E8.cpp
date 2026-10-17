@@ -13,7 +13,6 @@ void VecCopy__FP3VecPC3Vec(Vec_8015959C*,Vec_8015959C*);
 u8* TOBoss4Bird__ct(u8*,s32);
 extern s32 __vt__11TOBoss4Bird[];
 }
-#include "types.h"
 #include "pso/misc/TOBoss4Bird.h"
 #include "pso/misc/TOBoss4Rock.h"
 #include "pso/misc/TOBoss4Tower.h"
@@ -125,12 +124,6 @@ s32 rotate_matrix_x(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl(int);
-s32 draw_ginja_object(int);
-}
-
-extern "C" {
-
 void *__dt__11TOBoss4RockFv(void *arg0, s16 arg1);
 void *TOBoss4Rock__ct(void *, void *);
 void mem_free(void *);
@@ -218,10 +211,7 @@ extern "C" {
 
 void *mem_alloc(s32);
 void TOBoss4__ct(void *, void *);
-s32 rand();
-extern s32 __vt__11TOBoss4Rock[];
 extern s32 lbl_805D2EBC;
-extern s32 lbl_805D58A8;
 
 #pragma push
 #pragma dont_inline off
@@ -306,12 +296,7 @@ struct RecoveredGlobal_80159514___vt__12TOBoss4Tower {
 extern "C" {
 extern s32 __vt__12TOBoss4Tower[];
 extern s32 lbl_805D2EB8;
-extern s32 lbl_805D58A8;
 u8 *TOBoss4Tower__ct(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 struct Base_80159400 { char pad[0x18]; };
 struct VObj_80159400 : Base_80159400 {
     virtual void m0();
@@ -327,12 +312,6 @@ struct VObj_80159400 : Base_80159400 {
 
 void *TOBoss4Tower__create(void *arg0);
 void *__dt__12TOBoss4TowerFv(void *arg0, s16 arg1);
-s32 post_translate_matrix(void *);
-s32 push_matrix();
-s32 pop_matrix();
-void __dl__7TObjectFPv(void *);
-void __dt__7TOBoss4Fv(void *, int);
-void *__nw__7TObjectFUl(int);
 
 void *TOBoss4Tower__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x98);
@@ -353,8 +332,6 @@ void TOBoss4Tower::render() {
         pop_matrix();
     }
 }
-
-extern s32 __vt__12TOBoss4Tower[];
 
 void *__dt__12TOBoss4TowerFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -378,17 +355,12 @@ u8 *TOBoss4Tower__ct(u8 *arg0, s32 arg1) {
     return arg0;
 }
 
-}
-
 #undef TObjFish__sub_8001EDB0
 #undef get_bml_model
 #undef rotate_matrix_y
 #undef set_global_param__8TObjFishFl
 #undef draw_ginja_object
 #undef TOBoss4__ct
-
-extern "C" {
-
 struct Vec_8015959C { f32 x, y, z; };
 
 struct Bird_8015959C {
@@ -513,14 +485,7 @@ struct Bird_80159870 : VObj_80159870 {
 
 extern "C" {
 s32 translate_matrix(int, f32, f32, f32);
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
 s32 draw_ginja_model_with_motion(int, int, f32);
-}
-
-extern "C" {
-
 void TOBoss4Bird::render() {
     Bird_80159870 *self = (Bird_80159870 *)this;
     s32 i;
@@ -541,17 +506,8 @@ void TOBoss4Bird::render() {
     }
 }
 
-}
-
 #define TOBoss4Bird__ct ((void* (*)(void*,void*))TOBoss4Bird__ct)
-
-extern "C" {
-
 void *__dt__11TOBoss4BirdFv(void *arg0, s16 arg1);
-void mem_free(void *);
-void __dl__7TObjectFPv(void *);
-void __dt__7TOBoss4Fv(void *, int);
-void *__nw__7TObjectFUl(int);
 
 void *TOBoss4Bird::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE8);
@@ -560,8 +516,6 @@ void *TOBoss4Bird::create(void *arg0) {
     }
     return o;
 }
-
-extern s32 __vt__11TOBoss4Bird[];
 
 void *__dt__11TOBoss4BirdFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -625,16 +579,9 @@ struct Bird_80159A10 {
 
 extern "C" {
 u8 *get_bml_motion(s32, s32);
-s32 rand(void);
-f32 sin_table_lookup(s32);
 extern VecTbl_80159A10 boss4_bird_vec_table[];
 extern s32 lbl_805D2EB4;
-extern s32 lbl_805D58A8;
 u8 *TOBoss4Bird__ct(u8 *arg0, s32 arg1);
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
 u8 *TOBoss4Bird__ct(u8 *arg0, s32 arg1) {

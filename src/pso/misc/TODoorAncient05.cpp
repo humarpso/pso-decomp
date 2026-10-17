@@ -30,16 +30,9 @@ s32 is_any_player_within_radius_xz(void *, f32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern u8 *TODoorAncient05__switch_texture_lists;
 extern const f32 lbl_805DB424;
-}
-
-extern "C" {
-
-s32 play_sound_effect(s32, void *, s32, s32);
 void *TODoorAncient05__ct(void *, void *, void *);
-s32 is_any_player_within_radius_xz(void *, f32);
 void *__nw__7TObjectFUl(int);
 
-extern u8 *TODoorAncient05__switch_texture_lists;
 extern const f32 lbl_805DB420;
 
 void TODoorAncient05::render() {

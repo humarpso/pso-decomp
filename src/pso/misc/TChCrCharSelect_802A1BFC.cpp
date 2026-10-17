@@ -28,10 +28,6 @@ extern V2_802A1C04 lbl_804663EC[];
 extern const f32 lbl_805DDE10;
 extern const f32 lbl_805DDE14;
 extern const f32 lbl_805DDE18;
-}
-
-extern "C" {
-
     extern int TChCrCharSelect__input_mode;
 int TChCrCharSelect::get_selected_index() {  return TChCrCharSelect__input_mode; }
 void TChCrTagInformation::draw_char_info_sprites() {

@@ -11,7 +11,6 @@ void TUnk_804A64E8::update_attack() { *(int *)&this->m_204 = 10922; *(float*)((c
 
 }
 
-#include "types.h"
 #include "pso/misc/TTecSlicer.h"
 #include "pso/player/TObjPlayer.h"
 

@@ -12,10 +12,6 @@ void get_menu_field_280__6TLobbyFv(void);
 s32 fn_8023F660(void *, void *, void *, int, int, int);
 extern unsigned char sound_control_state[];
 void TLobby__sub_80227AA8(s32 arg0);
-}
-
-extern "C" {
-
 int free__6TLobbyFPv(void* p);
 int TLobby__sub_80227A4C(void* p);
 void TLobby__sub_80227A6C(void);
@@ -89,7 +85,6 @@ struct RecoveredGlobal_8000F91C_lbl_804FE120 {
 };
 
 #include <stddef.h>
-#include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/misc/TScene.h"
 struct RecoveredGlobal_80069094_camera_controller_registry { s32 value; u8 remaining[0x64]; };
@@ -213,27 +208,16 @@ extern "C" {
 s32 set_clamped_field27c__6TLobbyFPvf(s32 *);
 void apply_clamped_field_27c__6TLobbyFv(void);
 s32 get_field_0x280__6TLobbyFPv(s32 *);
-void get_menu_field_280__6TLobbyFv(void);
 s32 set_menu_index__6TLobbyFPvi(void *, int);
 s32 is_ready__6TLobbyFPv(s32 *);
 void is_sound_enabled(void);
 s32 is_special_sound_id(u32 x);
-s32 is_special_sound_id(u32 x);
-void is_sound_enabled(void);
 s32 set_sound_slot_special_scale(s32, f32);
 s32 alloc_looping_sound_slot(s32, s32, s32, s32, s32);
 extern const f32 lbl_805DC768;
 s32 normalize_sound_request(u32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-s32 is_special_sound_id(u32 x);
-void is_sound_enabled(void);
-s32 set_sound_slot_special_scale(s32, f32);
 s32 alloc_one_shot_sound_slot(s32, s32, s32, s32);
-extern const f32 lbl_805DC768;
 s32 play_packed_sound_once(u32 arg0, s32 arg1, s32 arg2, s32 arg3);
-}
-
-extern "C" {
-
 int TLobby__sub_80227AF8(void* p);
 int release_sound_with_fade(void* p);
 int TLobby__sub_80227D38(void);
@@ -492,58 +476,39 @@ s32 select_area_entrance(void *arg0);
 s32 lookup_scene_object__6TLobbyFPv(s32, void *);
 extern RecoveredGlobal_80228634_lbl_804CBE98 area_initializer_dispatch_table;
 void run_area_scene_cleanup(u8 *arg0);
-s32 lookup_scene_object__6TLobbyFPv(s32, void *);
-extern RecoveredGlobal_80228634_lbl_804CBE98 area_initializer_dispatch_table;
 void promote_area_floor(u8 *arg0);
-s32 lookup_scene_object__6TLobbyFPv(s32, void *);
 s32 set_current_floor_area(int);
-extern RecoveredGlobal_80228634_lbl_804CBE98 area_initializer_dispatch_table;
 void load_area_scene_and_init(u8 *arg0);
 s32 TLobby__sub_802401C8(void *);
-extern unsigned char sound_control_state[];
-void TLobby__sub_8022804C(void);
 s32 update_sound_frame(void *);
-extern unsigned char sound_control_state[];
 void update_global_sound_frame(void);
 s32 reset_sound_state__6TLobbyFPv(void *);
-extern unsigned char sound_control_state[];
 void TLobby__sub_8022809C(void);
 int render_tick__Fv(void);
 s32 init_sound_aux_effects(void *);
 s32 validate_and_set_selection__6TLobbyFPvi(void *, int);
 s32 TLobby__sub_803382E4();
 s32 TLobby__sub_803CB81C();
-extern unsigned char sound_control_state[];
 extern RecoveredGlobal_802287F0_lbl_80515BA0 lbl_80515BA0;
 void *reset_sound_owner_state(void *self);
 void TLobby__sub_80240808(void *self, s32 x);
 void *__register_global_object(void *obj, void *dtor, void *entry);
-extern unsigned char sound_control_state[];
 extern char lbl_80514F58[];
 void TLobby__sub_80228118(void);
 char *strcpy(char *dst, const char *src);
 void clear_work_buffer(u8 *arg0);
 extern char lbl_805DC788[4];
 u32 strlen(const char *s);
-char *strcpy(char *dst, const char *src);
 s32 debug_printf_at(u32, void *, ...);
 s32 TLobby__sub_80226B64(int);
 extern s32 floor_sound_bank_table[];
 extern s32 floor_sound_bank_volume_table[];
 void load_floor_sound_bank(s32 arg0);
-void clear_work_buffer(u8 *arg0);
-}
-
-extern "C" {
-
-void clear_work_buffer(u8 *arg0);
 s32 get_floor_map_terrain(s32);
 int pop_sound_groups__6TLobbyFPvi(void*, void*);
 void __ct__7TObjectFP7TObject(void *);
 void memset(void *, int, int);
-int render_tick__Fv(void);
 
-    extern unsigned char sound_control_state[];
     extern float lbl_805DC76C;
 void TLobby::refresh_render_state() { pop_sound_groups__6TLobbyFPvi(sound_control_state, (void*)0); ((int (*)(float))apply_clamped_field_27c__6TLobbyFv)(lbl_805DC76C); render_tick__Fv(); }
 

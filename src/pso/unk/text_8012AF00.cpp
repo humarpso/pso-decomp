@@ -8,10 +8,6 @@ void *__construct_array(void *, void *, void *, u32, u32);
 void TObjPlayer__sub_8012AF50(void *p);
 void clear_lockon_list__10TObjPlayerFPvPvff(void *p);
 Obj_8012AF00 *TObjPlayer__sub_8012AF00(Obj_8012AF00 *self);
-}
-
-extern "C" {
-
 Obj_8012AF00 *TObjPlayer__sub_8012AF00(Obj_8012AF00 *self) {
     __construct_array(self->arr, (void *)TObjPlayer__sub_8012AF50, 0, 4, 10);
     clear_lockon_list__10TObjPlayerFPvPvff(self);

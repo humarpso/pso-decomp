@@ -63,10 +63,8 @@ s32 subtract_vector(void *, void *, int);
 extern const f32 lbl_805D8890;
 extern s32 lbl_805D4D1C;
 f32 TObjPlayer__sub_800499FC(s32 arg0);
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
 s32 TBoss3Volopt__sub_8004816C(int);
-f32 TObjPlayer__sub_800499FC(s32 arg0);
 s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 void init_collision_body_parts(void *, void *, int);
 void construct_collider_proxy__13TUnk_804AF8A0Fv();
@@ -80,7 +78,6 @@ extern s32 lbl_80484A94[];
 extern u8 identity_matrix[];
 Obj_800498E8 *TObjPlayer__sub_800498E8(Obj_800498E8 *arg0, Obj_800498E8 *arg1, void *arg2, s32 arg3);
 s32 obj_is_hit_receivable(void *);
-void queue_destruction__7TObjectFv(void *);
 s32 TBoss3Volopt__sub_8003F398();
 VObj_80049A1C *get_battle_param__10TObjPlayerFi(s32);
 s32 TObjVoloptPillar__sub_80048118(s32);
@@ -92,24 +89,14 @@ extern const f32 lbl_805D8898;
 extern const f32 lbl_805D889C;
 extern const f32 lbl_805D88A0;
 void explode_and_destroy__12TBoss3VoloptFPv(u8 *arg0);
-s32 obj_is_hit_receivable(void *);
-s16 obj_getField1c(void *);
-VObj_80049A1C *get_battle_param__10TObjPlayerFi(s32);
 extern Dmg_80049A1C lbl_80436704[];
-}
-
-extern "C" {
-
 void TObjPlayer__sub_80049A0C(void* p);
 s32 post_translate_matrix(void *);
 s32 rotate_matrix_x(s32, s32);
 void free_collision_body_parts(void *);
 s32 draw_chunk_object(s32);
-s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
-void queue_destruction__7TObjectFv(void *);
 
 u8 TObjPlayer::check_flag(s32 arg1) {
     return (u8) ((*(s32 *)&this->m_334 & arg1) != 0);
@@ -142,8 +129,6 @@ s32 TUnk_80484A94::sub_800495F8() {
 }
 
 void TUnk_80484A94::render() {  }
-
-extern s32 lbl_80484A94[];
 
 typedef struct Stack_800496D8 Stack_800496D8;
 void TUnk_80484A94::run_task() {

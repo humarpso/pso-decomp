@@ -4,13 +4,8 @@
 extern "C" {
 s32 TLobby__sub_803F5678(void *);
 s32 TLobby__sub_80145EE4(void);
-}
-
-extern "C" {
-
 int TLobby__sub_80145E40(void);
 s32 TLobby__sub_803F517C(u8 *);
-s32 TLobby__sub_803F5678(void *);
 
     extern unsigned short lbl_805D56CC;
 int TLobby__sub_80145E40(void) {  return (lbl_805D56CC & 0x1); }
@@ -46,10 +41,6 @@ s32 TLobby__sub_80145EE4(void) {
     return (sp8 == 1) ? 0 : 0;
 }
 
-}
-
-extern "C" {
-
 s32 init_struct(u8 *arg0);
 s32 init_work(s32 arg0, u8 *arg1);
 s32 TLobby__sub_803F4EBC(void *, int);
@@ -57,7 +48,6 @@ s32 TLobby__sub_803F4FF4(void *);
 s32 TLobby__sub_803F50B8(void *);
 s32 TLobby__sub_803F524C(s32 *, s32);
 s32 TLobby__sub_803F53A0(s32, void *, s32);
-s32 TLobby__sub_803F5678(void *);
 s32 TLobby__sub_803F5748(void *);
 s32 TLobby__sub_803F5824(void *);
 s32 TLobby__sub_803F5900(void *);
@@ -101,8 +91,6 @@ s32 init_struct(u8 *arg0) {
     TLobby__sub_803F50B8(arg0 + 0xB8);
     return 0;
 }
-
-extern u16 lbl_805D56CC;
 
 s32 init_work(s32 arg0, u8 *arg1) {
     u8 sp28[0x40];

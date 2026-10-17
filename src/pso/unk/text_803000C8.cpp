@@ -5,10 +5,6 @@ void set_player_count__6TLobbyFi(int);
 void enable_split_screen_challenge_mode(void);
 extern s32 TAdMultiSelGameModeGC__data_805D69F0;
 void fn_803000C8(void);
-}
-
-extern "C" {
-
 void fn_803000C8(void) {
     if (is_split_screen() != 0) {
         switch (TAdMultiSelGameModeGC__data_805D69F0) {

@@ -49,22 +49,17 @@ extern u8 password_screen_status_line_position[];
 void set_password__17TAdEnterPPPPassGCFi(s32 arg0);
 s32 create_default_callback__22TAdEnterSerialAccessGCFv(void *);
 extern RecoveredGlobal_803392F4_lbl_80477C20 TAdEnterPPPPassGC__selection_positions;
-extern u8 *password_entry_keyboard_control;
-extern s32 password_entry_dispatch_state;
 void open_keyboard_window__17TAdEnterPPPPassGCFPv(u8 *arg0);
 void render__17TAdEnterPPPPassGCFv(void *self);
 void TKeyBoardControl__sub_8000F9CC(int);
-void queue_destruction__7TObjectFv(void *);
 s32 TLobby__sub_80145A94(void);
 s32 TLobby__sub_80145DB4(int);
-s32 TLobby__sub_8014618C(void);
 s8 *TLobby__sub_80146D14(void);
 s8 *TLobby__sub_80146D44(void);
 int reset_mode_state__21TAdMultiChgGameModeGCFv(void*);
 void TAdEnterBaseGC__ct(void *);
 extern s32 __vt__17TAdEnterPPPPassGC[];
 extern s32 TAdEnterPPPPassGC__name;
-extern s32 password_entry_dispatch_state;
 T_8033954C *TAdEnterPPPPassGC__ct(T_8033954C *arg0);
 char *realloc_buffer__17TWindowSubComCardFv(u8 *);
 void mem_free(void *);
@@ -73,26 +68,17 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int);
 void free_menu_object(void *);
 void play_sound_effect(int, int, int, int);
 s32 forward_input__22TAdEnterSerialAccessGCFPv(void *, int, char *);
-void set_password__17TAdEnterPPPPassGCFi(s32 arg0);
 s32 strlen(const char *);
-extern RecoveredGlobal_803392F4_lbl_80477C20 TAdEnterPPPPassGC__selection_positions;
 extern u8 controller_input_state[];
 extern u8 controller_physical_port_bank[];
-extern u8 *password_entry_keyboard_control;
-extern s32 password_entry_dispatch_state;
 extern s32 lbl_805DF9EC;
 void update_password_input__17TAdEnterPPPPassGCFPv(u8 *arg0);
-}
-
-extern "C" {
-
 void *__dt__17TAdEnterPPPPassGCFv(void *arg0, s16 arg1);
 int forward_chg_game_mode__17TAdEnterPPPPassGCFPv(void* p);
 int request_transition__17TAdEnterPPPPassGCFPv(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__14TAdEnterBaseGCFv(void *, int);
 int request_transition__21TAdMultiChgGameModeGCFv(void*);
-int reset_mode_state__21TAdMultiChgGameModeGCFv(void*);
 
 void render__17TAdEnterPPPPassGCFv(void *self) {
     if (TMainTask::get_state_flag() == 1) { return;
@@ -126,8 +112,6 @@ void close_windows_and_advance__17TAdEnterPPPPassGCFPv(u8 *arg0) {
 
 int forward_chg_game_mode__17TAdEnterPPPPassGCFPv(void* p) { return reset_mode_state__21TAdMultiChgGameModeGCFv(p); }
 int request_transition__17TAdEnterPPPPassGCFPv(void* p) { return request_transition__21TAdMultiChgGameModeGCFv(p); }
-
-extern s32 __vt__17TAdEnterPPPPassGC[];
 
 typedef char RecoveredGlobal_80339480_lbl_804EF500_size[sizeof(RecoveredGlobal_80339480_lbl_804EF500) == 0x98 ? 1 : -1];
 

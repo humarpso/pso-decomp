@@ -5,13 +5,7 @@ extern "C" {
 extern const s32 TWindowDD__data_805DFB50;
 extern const f32 TWindowDD__data_805DFC10;
 void TWindowDD__sub_80347F48(u8 *arg0);
-extern const s32 TWindowDD__data_805DFB50;
-extern const s32 TWindowDD__data_805DFB50;
 void TWindowDD__sub_80347FA0(s32 arg0, s32 arg1);
-}
-
-extern "C" {
-
 int TWindowDD__sub_80341AE0(void*);
 s32 TWindowDD__sub_80341AF8(s32);
 s32 TWindowDD__sub_8034217C(s32);

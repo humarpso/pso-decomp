@@ -13,10 +13,6 @@ extern "C" {
 f32 horizontal_distance_squared(struct RecoveredFields_80141CF8_arg0 *arg0, u8 *arg1);
 void TOTrapAncient02R__sub_80141CF0(void *a, Vec_80141CBC *v, void *b);
 void fn_80141CBC(void *a, void *b, f32 s);
-}
-
-extern "C" {
-
 s32 TObjMapWarp__sub_80141C68(s32 arg0, s16 arg1);
 void TObjMapWarp__sub_80141CA4(void* p);
 void TObjMapWarp__sub_80141CB0(void);

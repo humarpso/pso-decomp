@@ -17,9 +17,6 @@ extern RecoveredGlobal_8035D7D0___vt__10TDPBShower __vt__10TDPBShower;
 extern s32 TDPBShower__class_name;
 extern const f32 lbl_805E01C4;
 u8 *TDPBShower__ct(u8 *arg0, u8 *arg1, u8 *arg2);
-}
-
-extern "C" {
 void queue_destruction__7TObjectFv(void*);
 int query_teammate_state__9TObjEneDDFv(void*);
 extern const f32 lbl_805E01C0;

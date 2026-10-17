@@ -34,18 +34,12 @@ extern f32 lbl_805D9600;
 extern const f32 lbl_805D9604;
 f32 sin_table_lookup(s32);
 extern const f32 lbl_805D9608;
-}
-
-extern "C" {
-
 void TObjEneBalClawClaw__sub_8008DC14(void);
 void *__dt__14TObjEneBalClawFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dt__13TUnk_80490470Fv(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__15TObjEnemyCustomFv(void *, int);
-
-extern f32 lbl_805D9600;
 
 void TObjEneBalClaw__sub_8008D68C(void) {
     s32 i;
@@ -133,8 +127,6 @@ void TObjEneBalClaw::release_global_805D4F20() {
         lbl_805D4F20 = 0U;
     }
 }
-
-extern s32 __vt__14TObjEneBalClaw[];
 
 void *__dt__14TObjEneBalClawFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

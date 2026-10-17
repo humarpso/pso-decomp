@@ -10,10 +10,6 @@ extern s32 lbl_805D26A0;
 extern const f32 lbl_805D8200;
 extern const f32 lbl_805D821C;
 extern const f32 lbl_805D8220;
-}
-
-extern "C" {
-
 void *__dt__13TObjBoss1RockFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -50,8 +46,6 @@ void TObjBoss1Rock::sub_8002E1CC(u8 *arg1, u8 *arg2, s32 arg3) {
 
 }
 
-#include "types.h"
-#include "pso/boss/TObjBoss1Rock.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/object/TObjFish.h"
 
@@ -142,8 +136,6 @@ f32 rand_signed_unit();
 s32 matrix_mult_vec(int, void *, void *);
 s32 set_matrix_identity(int);
 s32 rotate_vector_by_matrix(int, void *, void *);
-s32 push_matrix();
-s32 pop_matrix();
 extern s32 lbl_80482090[];
 extern Model_8002E62C *lbl_805D4B8C;
 extern const f32 lbl_805D8228;
@@ -153,17 +145,10 @@ extern const f32 lbl_805D8238;
 extern const f32 lbl_805D823C;
 extern const f32 lbl_805D8240;
 Obj_8002E62C *construct_piece_controller__10TObjPlayerFPvii(Obj_8002E62C *self, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void TObjBoss1Rock__sub_8002E3CC(void);
 void TObjBoss1Rock__sub_8002E3D0(void);
 void *__dt__13TUnk_80482090Fv(void *arg0, s16 arg1);
 void __ct__7TObjectFP7TObject(void *);
-void __dl__7TObjectFPv(void *);
-
-extern s32 __vt__13TObjBoss1Rock[];
 
 void *TObjBoss1Rock::construct(void *arg1, void *arg2, void *arg3, void *arg4) {
     __ct__7TObjectFP7TObject(this);
@@ -190,8 +175,6 @@ void *TObjBoss1Rock::construct_random(void *arg1, void *arg2, void *arg3) {
 
 void TObjBoss1Rock__sub_8002E3CC(void) {  }
 void TObjBoss1Rock__sub_8002E3D0(void) {  }
-
-extern s32 lbl_80482090[];
 
 struct Ctr;
 typedef struct Ctr Ctr;

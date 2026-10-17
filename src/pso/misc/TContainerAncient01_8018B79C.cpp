@@ -50,10 +50,6 @@ extern const f32 lbl_805DBD58;
 f32 xyz_distance_squared(void *, void *, void *);
 extern const f32 TContainerAncient01__data_805DBD44;
 s32 TContainerAncient01__vt18(s32 arg0, s32 arg1);
-}
-
-extern "C" {
-
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object(s32);
@@ -78,9 +74,6 @@ f32 TContainerAncient01::receive_physical_attack(void *, f32) {
     }
     return TContainerAncient01__data_805DBD14;
 }
-
-extern f32 TContainerAncient01__data_805DBD10;
-extern f32 TContainerAncient01__data_805DBD14;
 
 f32 TContainerAncient01::receive_direct_attack(void *arg1, void *arg2_arg, void *, s32, s32) {
     s32 *arg2 = (s32 *)arg2_arg;

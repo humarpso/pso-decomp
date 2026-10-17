@@ -7,12 +7,7 @@ struct Obj_8022F42C { u8 pad[0xA6]; s16 state; };
 extern "C" {
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
-}
-
-extern "C" {
-
 u8 *init_from_source__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2);
-s32 play_sound_effect(int, void *, int, int);
 void stop_sound_request(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -32,8 +27,6 @@ void *TObjLight::destroy(s16 arg1) {
     }
     return this;
 }
-
-extern s32 lbl_804CC74C[];
 
 u8 *init_from_source__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg2));

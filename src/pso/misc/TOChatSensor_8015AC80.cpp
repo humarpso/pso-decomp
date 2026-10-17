@@ -34,10 +34,6 @@ void *__nw__7TObjectFUl(u32);
 extern void *current_language;
 extern void *quest_mission_manager;
 extern void *tl_00;
-}
-
-extern "C" {
-
 f32 horizontal_distance_squared(void *, void *);
 u32 get_player_by_client_id(void *);
 

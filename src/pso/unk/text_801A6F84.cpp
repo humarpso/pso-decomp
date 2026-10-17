@@ -6,11 +6,7 @@ struct S_801A6F84 { u8 pad[0x2C]; s16 v[14]; };
 extern "C" {
 extern u32 input_button_mask_table[14];
 s32 input_press_or_repeat(InputRepeatRecord* input,u32 mask,s32 delay,s32 period);
-extern u32 input_button_mask_table[14];
 s32 check_packed_flag_match(S_801A6F84 *arg0, u32 arg1, s32 arg2, s32 arg3);
-}
-
-extern "C" {
 
 s32 check_packed_flag_match(S_801A6F84 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     s32 r;

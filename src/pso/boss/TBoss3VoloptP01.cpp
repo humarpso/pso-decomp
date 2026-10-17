@@ -31,8 +31,6 @@ void reset_look_state__11TCameraCtrlFv(void*);
 s32 advance_animation_playback(void*);
 extern const char* TBoss3VoloptP01_class_name;
 }
-#include "types.h"
-#include "pso/boss/TBoss3VoloptP01.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss3Volopt.h"
@@ -69,10 +67,6 @@ u16 obj_getField1c(void *);
 extern s32 volopt_active_player_id;
 extern s32 lbl_805D586C;
 void cast_tech_on_players__10TObjPlayerFPv(u8 *arg0);
-}
-
-extern "C" {
-
 void cast_tech_on_players__10TObjPlayerFPv(u8 *arg0) {
     s32 sp8;
     s32 n;
@@ -165,7 +159,6 @@ s32 subtract_vector(void *, void *);
 f32 normalize_vector(void *);
 extern S_80042B34 lbl_8043663C[];
 extern u16 lbl_805D271A;
-extern s32 lbl_805D586C;
 extern s32 tl_07;
 
 s32 fire_zonde_at_players__10TObjPlayerFPv(u8 *arg0) {
@@ -275,12 +268,7 @@ extern u8 identity_matrix[];
 extern E_80042ED0 *anim_model_matrix_array;
 void TObjPlayer__sub_80042ED0(P_80042ED0 *o, s32 idx, s32 arg2);
 void vec3_add_to(Vec_80042DE8 *, Vec_80042DE8 *);
-extern s32 lbl_805D586C;
 void push_nearby_players__10TObjPlayerFPv(Obj_80042DE8 *self);
-}
-
-extern "C" {
-
 u8 TObjPlayer__sub_80042EC0(void *arg0);
 s32 obj_testFlags30(void *, s32);
 s32 update_if_active__15TObjEneMe1GiGueFl(void *, s32);
@@ -330,8 +318,6 @@ void TObjPlayer__sub_80042ED0(P_80042ED0 *o, s32 idx, s32 arg2) {
     pop_matrix();
 }
 
-}
-
 #undef get_player_data__10TObjPlayerFi
 #undef obj_getField1c
 #undef subtract_vector
@@ -351,9 +337,6 @@ void TObjPlayer__sub_80042ED0(P_80042ED0 *o, s32 idx, s32 arg2) {
 #define TBoss3VoloptP01_class_name (*(s32 *)&TBoss3VoloptP01_class_name)
 
 #define F(o,t,p) (*(t*)((u8*)(o)+(p)))
-
-extern "C" {
-
 struct VBos_800430AC { char pad[0x18]; };
 
 struct TBoss3VoloptP01_800430AC : VBos_800430AC {
@@ -688,7 +671,6 @@ struct VObj_80044038 : VBase_80044038 {
     virtual void m80();
 };
 
-s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 reset_status_effect_row(void *);
 s32 obj_clearFlags30(void *, int);
 void obj_setFlags30(void *, u32);

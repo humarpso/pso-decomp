@@ -32,10 +32,6 @@ extern s32 __vt__12TObjWarpBase[];
 extern s32 TObjWarpBase__name;
 extern const f32 lbl_805DBFEC;
 Warp_8019DAC0 *TObjWarpBase__ct(Warp_8019DAC0 *self, void *parent, void *set);
-}
-
-extern "C" {
-
 struct Base_8019DA54_8019D964 { char pad[0x18]; };
 struct VObj_8019DA54_8019D964 : Base_8019DA54_8019D964 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -47,7 +43,6 @@ struct VObj_8019DA54_8019D964 : Base_8019DA54_8019D964 {
 void *__dt__12TObjWarpBaseFv(void *arg0, s16 arg1);
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 TLobby__sub_803DA16C(void*);
-u32 get_player_by_client_id(u16);
 s32 TWindow__close(u32);
 s32 __dl__7TObjectFPv(void *);
 s32 fn_8019DD24(s32, s32);
@@ -66,8 +61,6 @@ void TObjWarpBase::vfunc_14() {
         *(u16 *)((s8 *)this + 0xB8) = 0xFFFFU;
     }
 }
-
-extern s32 __vt__12TObjWarpBase[];
 
 u8 *find_warp_player_in_range(s32 arg0, short arg1, f32 farg0) {
   u8 *temp_r3;

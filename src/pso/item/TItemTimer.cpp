@@ -144,10 +144,6 @@ struct Timer_8011D5B4 { u8 pad[0x28]; VObj_8011D5B4 *obj; f32 f2c; };
 
 extern "C" {
 void TItemTimer__sub_8011D598(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 u8 *TItemTimer__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 add_actor_hp(s32, s32);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
@@ -251,8 +247,6 @@ void TUnk_804A05C8::vfunc_6() {
         }
     }
 }
-
-extern const f32 lbl_805DAC78;
 
 void TUnk_804A05E8::vfunc_6() {
 

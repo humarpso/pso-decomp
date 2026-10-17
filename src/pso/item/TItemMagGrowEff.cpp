@@ -47,11 +47,7 @@ TItemMagGrowEff::~TItemMagGrowEff() {
     if (mag != nullptr) ((TItemMagSub *)mag)->clear_growth_flag();
 }
 
-extern "C" {
-
 extern const char *lbl_805D2C14;
-
-}
 
 TItemMagGrowEff::TItemMagGrowEff(TObject *parent, void *mag_object) : TObject(parent) {
     m_name = lbl_805D2C14;

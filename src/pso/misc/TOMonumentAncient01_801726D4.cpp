@@ -45,16 +45,11 @@ s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_80172810_lbl_804B38F0 lbl_804B38F0;
 extern s32 __vt__19TOMonumentAncient01[];
 extern s32 TOMonumentAncient01__name;
-extern u32 TOMonumentAncient01__resource_bundle;
 extern const f32 lbl_805DB918;
 extern const f32 lbl_805DB91C;
 u8 *TOMonumentAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_story_flag(s32);
 s32 dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32);
-}
-
-extern "C" {
-
 void *__dt__19TOMonumentAncient01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
@@ -71,16 +66,12 @@ void *TOMonumentAncient01::create(void *arg0) {
     return o;
 }
 
-extern u32 TOMonumentAncient01__resource_bundle;
-
 void TOMonumentAncient01::release_static_resource() {
     if ((u32) TOMonumentAncient01__resource_bundle != 0U) {
         TLobby__sub_8001FE7C((void*)TOMonumentAncient01__resource_bundle, 1);
         TOMonumentAncient01__resource_bundle = 0U;
     }
 }
-
-extern s32 __vt__19TOMonumentAncient01[];
 
 void TOMonumentAncient01::load_resource_instance() {
     s32 temp_r3;

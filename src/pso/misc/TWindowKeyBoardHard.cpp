@@ -27,10 +27,6 @@ extern const f32 lbl_805DD068;
 extern const f32 lbl_805DD06C;
 extern const f32 lbl_805DD070;
 void draw_status_text__19TWindowKeyBoardHardFPvPv(Win_80260020 *self, Ctx_80260020 *ctx);
-}
-
-extern "C" {
-
 int TWindowKeyBoardHard__sub_8025CC48(void*);
 s32 is_key_active__19TWindowKeyBoardHardFv();
 

@@ -11,10 +11,6 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_802C09E0_lbl_804E0878 bm_obj_lobby_pigeon_resource_descriptor;
 extern s32 lobby_pigeon_bml_archive;
 extern s32 lobby_pigeon_lobby_type;
-}
-
-extern "C" {
-
 void TObjPlayer::load_lobby_pigeon_resource() {
     s32 temp_r3;
     s32 var_r0;

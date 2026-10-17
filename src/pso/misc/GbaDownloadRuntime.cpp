@@ -134,8 +134,6 @@ u8 TLobby::get_selected_slot() {
 
 }
 
-#include "pso/network/GbaJoybootState.h"
-#include "pso/misc/TLobby.h"
 #include "pso/ui/TAdWarningBaseGC.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -145,7 +143,6 @@ struct Rec_8032C9A8 { u32 a; u32 b; u32 c; };
 
 extern "C" {
 s32 TLobby__sub_801F34F8(void);
-extern const f32 TLobby__data_805DF7A4;
 void DateToSeconds__FP9DateStampPi(DateStamp_8032C9A8 *, u32 *);
 void getDateStamp__FP9DateStamp(DateStamp_8032C9A8 *);
 void *memmove(void *, const void *, u32);
@@ -158,25 +155,12 @@ extern const f32 lbl_805DF7AC;
 void TLobby__sub_8032C9A8(s32 arg0, s32 arg1);
 s32 GBAJoyBootAsync(s32, s32, s32, u8 *, s32, u8 *, void (*)(s32, s32));
 void gba_joyboot_transfer_callback(s32, s32);
-extern s32 TLobby__data_805D6CCC;
 extern s32 gba_joyboot_send_buffer;
-extern u8 *TLobby__gba_joyboot_send_buffer;
 extern u8 gba_joyboot_status;
 void TLobby__sub_8032CDD0(void* p);
-extern s32 TLobby__data_805D6CCC;
-extern s32 gba_joyboot_send_buffer;
-extern u8 *TLobby__gba_joyboot_send_buffer;
-extern u8 gba_joyboot_status;
-extern u8 *TLobby__gba_joyboot_send_buffer;
 extern const u8 lbl_805DF7A0[4];
-}
-
-extern "C" {
-
 void TLobby__sub_8032CDC0(void);
-void TLobby__sub_8032CDD0(void* p);
 void TLobby__sub_8032CDEC(void);
-int queue_destruction__7TObjectFv(void*);
 
     extern unsigned char lbl_805D6CD9;
     extern short lbl_805D6CDA;

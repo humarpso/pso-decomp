@@ -49,13 +49,11 @@ extern RecoveredGlobal_80188DC0_lbl_804B63BC forest_box_collision_body_parts;
 extern s32 __vt__17TObjContainerBase[];
 extern s32 lbl_805D32E8;
 u8 *TObjContainerBase__ct(u8 *arg0, s32 arg1);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_container_param(int);
 extern s32 lbl_805D5B7C;
 s32 spawn_particle_effect_with_flags(void *, int, int);
 s32 construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
 s32 play_container_break_sound(void *);
-s32 get_container_param(int);
 void *__nw__7TObjectFUl(int);
 extern Spawn_8018990C *const lbl_805D5B80;
 extern Spawn_8018990C *const lbl_805D5B84;
@@ -67,12 +65,7 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 extern u32 lbl_805D5B78;
-extern s32 lbl_805D5B7C;
 extern const f32 lbl_805DBCFC;
-}
-
-extern "C" {
-
 void *__dt__17TObjContainerBaseFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 submit_cursor_candidate(void *, s32);
@@ -91,8 +84,6 @@ void TObjContainerBase::vfunc_80() {
         return;
     }
 }
-
-extern s32 __vt__17TObjContainerBase[];
 
 void *__dt__17TObjContainerBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

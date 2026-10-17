@@ -42,7 +42,6 @@ extern const f32 lbl_805D93D4;
 extern const f32 lbl_805D93D8;
 extern const f32 lbl_805D93DC;
 void TObjPlayer__sub_80082C30(void);
-void TObjPlayer__sub_80082C30(void);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
 void GXPixModeSync(void);
 void GXSetTexCopySrc(u16, u16, u16, u16);
@@ -51,8 +50,6 @@ void GXSetCopyClear(Color_80082CDC, u32);
 void GXCopyTex(void *, u8);
 extern A_80082CDC *shared_capture_texture_list[];
 extern u8 controller_physical_port_bank[];
-extern const f32 lbl_805D93C0;
-extern const f32 lbl_805D93C8;
 extern const f32 lbl_805D93E0;
 extern const f32 lbl_805D93E4;
 extern const f32 lbl_805D93E8;
@@ -60,12 +57,10 @@ extern Color_80082CDC lbl_805E1214;
 extern Color_80082CDC lbl_805E1218;
 }
 
-extern "C" {
 extern TObject* tl_particle;
 extern const char* TEffect__class_name;
 extern const f32 lbl_805D93B8;
 extern const f32 lbl_805D93BC;
-}
 
 TEffect::~TEffect() {
     source = 0;

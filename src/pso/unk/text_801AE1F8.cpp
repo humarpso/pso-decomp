@@ -42,10 +42,6 @@ extern "C" void update_if_active__13TUnk_804C3248Fv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 extern "C" void run_task__12TPhotonPillaFv();
 u8 *TPhotonPilla__ct(u8 *arg0, u8 *arg1);
-}
-
-extern "C" {
-
 void *lbl_804C3A38[8] = {
     (void *)0x30000, (void *)0x3, (void *)0x3f800000, (void *)0x0,
     (void *)0x10000, (void *)0xa, (void *)0x3f800000, (void *)0x0,

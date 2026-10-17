@@ -18,10 +18,6 @@ s32 queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805DDE00;
 extern const f32 lbl_805DDE04;
 void update_fade__8TChCrTagFPv(u8 *arg0);
-}
-
-extern "C" {
-
 int TChCrTag__vt4(void);
 void *__ct__8TChCrTagFv(void *arg0, void *arg1, void *arg2);
 void __ct__7TObjectFP7TObject(void *);
@@ -34,7 +30,6 @@ int TChCrTag__vt4(void) { return 0; }
 void TChCrTag::render() {  }
 
 extern void *__vt__8TChCrTag[];
-extern const f32 lbl_805DDE04;
 extern const f32 lbl_805DDE08;
 extern void *lbl_805D3D90;
 extern const f32 lbl_805DDE0C;

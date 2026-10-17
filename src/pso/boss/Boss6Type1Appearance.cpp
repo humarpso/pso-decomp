@@ -58,10 +58,6 @@ __declspec(section ".sdata") extern AppearanceClassTag TBoss6Demo10_TYPE1_APPEAR
 struct AppearanceZero { f32 value; u32 padding; };
 __declspec(section ".sdata2") extern const AppearanceZero lbl_805DFA50;
 Fish_8033CB4C *TBoss6Demo10_TYPE1_APPEAR__ct(Fish_8033CB4C *self, void *parent);
-}
-
-extern "C" {
-
 u8 *__dt__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0, s16 arg1);
 void render__25TBoss6Demo10_TYPE1_APPEARFv(void* p);
 void *TBoss6Demo10_TYPE1_APPEAR__create(void *arg0);
@@ -75,8 +71,6 @@ s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 s32 clear_render_callback__8TObjFishFv(s32);
-
-extern s32 lbl_80477DEC[];
 
 void TBoss6Demo10_TYPE1_APPEAR::sub_8033C7C8() {
     push_matrix();
@@ -93,8 +87,6 @@ void TBoss6Demo10_TYPE1_APPEAR::sub_8033C7C8() {
 }
 
 void render__25TBoss6Demo10_TYPE1_APPEARFv(void* p) { ((TBoss6Demo10_TYPE1_APPEAR *)p)->sub_8033C7C8(); }
-
-extern const s32 __vt__25TBoss6Demo10_TYPE1_APPEAR[];
 
 #pragma push
 #pragma opt_common_subs off
@@ -237,9 +229,6 @@ void *TBoss6Demo10_TYPE1_APPEAR__create(void *parent) {
     return o;
 }
 
-}
-
-extern "C" {
 extern const char TBoss6Demo10_TYPE1_APPEAR__class_name[];
 __declspec(section ".rodata") const char TBoss6Demo10_TYPE1_APPEAR__class_name[] ATTRIBUTE_ALIGN(4) = "TBoss6Demo10_TYPE1_APPEAR";
 __declspec(section ".rodata") s32 lbl_80477DEC[] = {0x00000000, 0x41C80000, 0x42960000};

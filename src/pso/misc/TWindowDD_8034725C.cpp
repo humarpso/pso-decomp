@@ -60,29 +60,19 @@ E_80347CC8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 s32 refresh_status_display__9TWindowDDFv(void *);
 extern s32 local_client_id;
 extern u32 TWindowDD__work_buffer;
-extern s32 TWindowDD__data_805DFB50;
 extern const f32 TWindowDD__data_805DFB58;
 extern const f32 lbl_805DFCD0;
 extern const f32 lbl_805DFCD4;
 void TWindowDD__sub_80347CC8(W_80347CC8 *arg0, void *arg1);
-s32 TWindowDD__sub_80342158(void *);
-void TWindowDD__sub_80347CC8(W_80347CC8 *arg0, void *arg1);
 void TWindowDD__sub_80348D90(void *, int);
-s32 TWindowDD__sub_80348DD8(void *, int);
 void update_selection_state__9TWindowDDFPv(W_80347B70 *arg0);
 extern const f32 TWindowDD__data_805DFB6C;
 extern const f32 TWindowDD__data_805DFB74;
-}
-
-extern "C" {
-
 void *get_player_by_client_id(u16);
-s32 TWindowDD__sub_803412A0(u32);
 s32 is_id_in_special_range__9TWindowDDFs(s16);
 s32 TWindowDD__sub_80347238();
 u8 TWindowDD__sub_80347858(s16 arg0);
 void queue_destruction__7TObjectFv(void *);
-s32 TWindowDD__sub_80348B70(s32);
 
 s32 TWindowDD::classify_id(s16 arg0) {
     s32 var_r3;
@@ -234,8 +224,6 @@ u8 TWindowDD__sub_80347858(s16 arg0) {
     }
     return (u8)r;
 }
-
-extern s32 TWindowDD__data_805DFB50;
 
 s32 TWindowDD_is_id_in_range_5AC_5F9(s16 arg0) {
     u8 var_r3;

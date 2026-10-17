@@ -14,10 +14,6 @@ s32 PSMTXIdentity(Mtx_803E20B0);
 s32 GXSetCurrentMtx(u32);
 extern Cam_803E20B0 scene_projection_state;
 extern Vp_803E20B0 *active_gx_render_mode;
-}
-
-extern "C" {
-
 void TObjPlayer::load_screen_space_matrix() {
     Mtx_803E20B0 m;
     f32 z;

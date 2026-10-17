@@ -117,17 +117,10 @@ s32 get_bml_model(int, int);
 s32 construct_male_npc_base(void *);
 extern s32 __vt__12TObjNpcHosa2[];
 extern s32 TObjNpcHosa2__name;
-extern u32 TObjNpcHosa2__shared_model_resource;
 u8 *TObjNpcHosa2__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-
-extern "C" {
-
 void *__dt__12TObjNpcHosa2Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
-
-extern u32 TObjNpcHosa2__shared_model_resource;
 
 void TObjNpcHosa2::close_dialog_window() {
     if ((u32) TObjNpcHosa2__shared_model_resource != 0U) {
@@ -135,8 +128,6 @@ void TObjNpcHosa2::close_dialog_window() {
         TObjNpcHosa2__shared_model_resource = 0U;
     }
 }
-
-extern s32 __vt__12TObjNpcHosa2[];
 
 void TObjNpcHosa2::load_shared_resource() {
     s32 temp_r3;

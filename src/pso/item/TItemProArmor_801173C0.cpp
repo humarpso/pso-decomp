@@ -18,10 +18,6 @@ u16 obj_getField1c(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_8049FEB8[];
 u8 *TItemProArmor__sub_8011751C(u8 *arg0, u8 *arg1, u8 *arg2);
-}
-
-extern "C" {
-
 void *__dt__13TUnk_8049FED0Fv(void *arg0, s16 arg1);
 void create__13TItemProArmorFiUi(s32 arg0, u32 arg1);
 void TItemObject__ct(void *);
@@ -70,8 +66,6 @@ void TUnk_8049FEB8::run_task() {
     this->m_1e = (s16) (temp_r3 - 1);
 }
 
-extern s32 lbl_8049FEB8[];
-
 void *TUnk_8049FEB8::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_8049FEB8;
@@ -104,7 +98,6 @@ void create__13TItemProArmorFiUi(s32 arg0, u32 arg1) {
     }
 }
 
-    extern int tl_05;
 void TUnk_8049FED0::vfunc_44() { create__13TItemProArmorFiUi((s32)((s32)((void*)(tl_05))), (u32)((u32)((void*)(*(int *)&this->m_f0)))); }
 
 extern s32 lbl_8049FED0[];

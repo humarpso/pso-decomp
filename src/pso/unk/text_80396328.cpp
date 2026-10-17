@@ -4,10 +4,6 @@ extern "C" {
 s32 GetTRKConnected();
 u8 TRKCloseFile(int, void *);
 s32 __close_console(s32 arg0);
-}
-
-extern "C" {
-
 s32 __close_console(s32 arg0) {
     u8 temp_r3;
     if (GetTRKConnected() == 0) {

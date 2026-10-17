@@ -91,10 +91,6 @@ extern s32 lbl_805D5868;
 extern const f32 lbl_805DF3AC;
 extern const f32 lbl_805DF3B0;
 extern const f32 lbl_805DF3B4;
-}
-
-extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
 s32 draw_blob_shadow(int);
@@ -108,14 +104,8 @@ s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 draw_chunk_object(int);
 s32 find_nearest_visible_player(void *, int, f32);
-f32 horizontal_distance_squared(void *, void *);
 Ctrl_8031B618 *get_player_by_client_id(s32);
-s32 fn_8031B618(Obj_8031B618 *arg0);
 extern u32 recon_bomb_bml_resource;
-}
-
-extern "C" {
-
 u8 *TObjEneReconBomb__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void *__dt__16TObjEneReconBombFv(void *arg0, s16 arg1);
 f32 sin_table_lookup(int);
@@ -125,9 +115,7 @@ f32 TObjEneRecon__sub_8031C2BC(int);
 f32 TObjEneRecon__sub_8031C2C8(int);
 f32 TObjEneRecon__sub_8031C2D4(int);
 s32 construct_actor_base__10TObjPlayerFPvPv();
-s32 VecCopy__FP3VecPC3Vec(void *, void *, int);
 void __dl__7TObjectFPv(void *);
-s16 obj_getField1c(int);
 
 extern s32 __vt__16TObjEneReconBomb[];
 
@@ -269,7 +257,6 @@ void *__dt__16TObjEneReconBombFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 __vt__16TObjEneReconBomb[];
 extern s32 TObjEneReconBomb__name;
 
 u8 *TObjEneReconBomb__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {

@@ -100,7 +100,6 @@ void TObjRoomId__sub_80141CF4(void *dst, void *src, f32 t);
 extern char lbl_80444EF4[];
 extern u8 lbl_804A7448[];
 extern const f32 lbl_805DBCF8;
-s32 queue_destruction__7TObjectFv(void *);
 s32 get_bml_model(void *, s32);
 u32 init_collision_body_parts(void *, void *, s32);
 void *TObjMesBase__ct(void *, void *, void *);
@@ -118,22 +117,14 @@ extern char lbl_80444B60[];
 extern char lbl_80444B78[];
 extern s32 fe_obj_tanmatu02_resource_descriptor[];
 extern s32 fs_obj_tanmatu02_resource_descriptor[];
-extern u32 TObjComputer__model_archive;
 extern u32 TObjComputer__texture_gvm_handle;
 extern s16 computer_uv_scroll_phase;
 void load_computer_resources(void);
 s32 scroll_ginja_mesh_uvs(void *, s32, s32, u16, s32);
 s32 PPCSync();
-s32 rotate_matrix_y(s32, s32);
 s32 rotate_matrix_by_node_angles(void *, u32);
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
 s32 draw_ginja_object(void *);
 extern u32 actor_frame_tick;
-extern u32 TObjComputer__texture_gvm_handle;
-extern s16 computer_uv_scroll_phase;
-extern s16 TObjComputer__data_805DBCD8[2];
 extern const f32 lbl_805DBCE4;
 s32 get_current_floor();
 extern s32 local_client_id;
@@ -145,13 +136,8 @@ s32 dispatch_fish_event__6TLobbyFPv(void *a0);
 void *__nw__7TObjectFUl(int);
 extern ChipParam_8018860C lbl_80444E5C;
 extern ChipParam_8018860C lbl_80444EA8;
-extern s32 lbl_805D5B8C;
 extern void *tl_05;
 void TObjContainerAbeEnemy__vt77(const Obj_8018860C *self);
-}
-
-extern "C" {
-
 void *__dt__12TObjComputerFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
@@ -160,7 +146,6 @@ s32 vfunc_14__11TObjMesBaseFv();
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__11TObjMesBaseFv(void *, s32);
-void *__nw__7TObjectFUl(int);
 s32 clear_ref_if_destroyed__11TObjMesBaseFv();
 
 extern const f32 lbl_805DBCDC;
@@ -212,8 +197,6 @@ void TObjComputer::clear_ref_if_destroyed() {
     *(f32 *)&this->_padC0 = (f32) (*(f32 *)&this->_padC0 + lbl_805DBCE8);
 }
 
-extern f32 lbl_805DBCE8;
-
 void TObjComputer::vfunc_14() {
     vfunc_14__11TObjMesBaseFv();
     if ((s32) this->messageLabel != 0) {
@@ -222,8 +205,6 @@ void TObjComputer::vfunc_14() {
     *(f32 *)&this->_padC0 = (f32) (*(f32 *)&this->_padC0 + lbl_805DBCE8);
 }
 
-extern void *tl_05;
-
 void *TObjComputer::create() {
     void *o = __nw__7TObjectFUl(0xC8);
     if (o != NULL) {
@@ -231,9 +212,6 @@ void *TObjComputer::create() {
     }
     return o;
 }
-
-extern u32 TObjComputer__model_archive;
-extern u32 TObjComputer__texture_gvm_handle;
 
 void TObjComputer::free_resources() {
     if ((u32) TObjComputer__texture_gvm_handle != 0U) {
@@ -246,8 +224,6 @@ void TObjComputer::free_resources() {
         TObjComputer__model_archive = 0U;
     }
 }
-
-extern s32 __vt__12TObjComputer[];
 
 void load_computer_resources(void) {
     void *p;

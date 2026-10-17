@@ -5,7 +5,6 @@
 #include "pso/misc/TUnk_8048E1A4.h"
 #include "pso/system/BmlResourceDescriptor.h"
 
-extern "C" {
 extern char lbl_80438E60[];
 extern char lbl_80438E74[];
 extern char lbl_80438E80[];
@@ -13,7 +12,6 @@ extern char lbl_80438E94[];
 extern const char *bm_eff_ice_model_names[3];
 extern const char *bm_eff_ice_motion_names[2];
 extern BmlResourceDescriptor enemy_freeze_ice_resource_descriptor;
-}
 
 struct RecoveredGlobal_80082080_lbl_8048E194 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80082080_lbl_8048E194_size[sizeof(RecoveredGlobal_80082080_lbl_8048E194) == 0x10 ? 1 : -1];
@@ -74,21 +72,14 @@ s32 get_bml_model(void *, int);
 u8 *get_quest_id__12TQuestListVMFv(void *);
 s32 create_particle_emitter(void *, int);
 extern s32 lbl_8048E1A4[];
-extern u32 freeze_shell_bml_resource;
 extern s32 tl_05;
 extern const f32 lbl_805D9378;
 extern const f32 lbl_805D9398;
 extern const f32 lbl_805D939C;
 extern const f32 lbl_805D93A0;
-}
-
-extern "C" {
-
 void *__dt__13TUnk_8048E1A4Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
-
-extern u32 freeze_shell_bml_resource;
 
 void TLobby::destroy_global_singleton() {
     if ((u32) freeze_shell_bml_resource != 0U) {
@@ -96,8 +87,6 @@ void TLobby::destroy_global_singleton() {
         freeze_shell_bml_resource = 0U;
     }
 }
-
-extern s32 lbl_8048E1A4[];
 
 void TLobby::load_freeze_ice_resource() {
     s32 temp_r3;
@@ -191,21 +180,14 @@ u8 *TObjPlayer::construct_freeze_shell(u8 *arg1, u8 *arg2) {
 s32 TUnk_8048E1A4::select_melee_contact_body(void *, f32) { return 1; }
 int TUnk_8048E1A4::calc_distance_accuracy_penalty(void *, void *, void *, float) { return 1; }
 
-extern const f32 lbl_805D9378;
-
 f32 TUnk_8048E1A4::receive_direct_attack(void *, void *, void *, s32, s32) {
     return lbl_805D9378;
 }
-
-extern const f32 lbl_805D9378;
 
 f32 TUnk_8048E1A4::receive_weapon_special_attack(void *, void *) {
     return lbl_805D9378;
 }
 
-}
-
-extern "C" {
 __declspec(section ".data") const char *bm_eff_ice_model_names[3] = { lbl_80438E60, lbl_80438E74, NULL };
 __declspec(section ".data") const char *bm_eff_ice_motion_names[2] = { lbl_80438E80, NULL };
 BmlResourceDescriptor enemy_freeze_ice_resource_descriptor = { lbl_80438E94, bm_eff_ice_model_names, bm_eff_ice_motion_names, 2, 1 };

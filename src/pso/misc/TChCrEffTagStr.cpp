@@ -16,20 +16,14 @@ extern const f32 lbl_805DDCB8;
 extern const f32 lbl_805DDCBC;
 extern const f32 lbl_805DDCC0;
 s32 queue_destruction__7TObjectFv();
-extern const f32 lbl_805DDCB8;
 extern const f32 lbl_805DDCC4;
 extern const f32 lbl_805DDCC8;
 extern const f32 lbl_805DDCCC;
-}
-
-extern "C" {
-
 void TChCrEffTagStr__sub_8029AED0(void* p);
 
 void TChCrEffTagStr__sub_8029AED0(void* p) { *(s32*)((char*)p + 0x1c) = 1; }
 
 extern void *TChCrEffTagStr__name;
-extern const f32 lbl_805DDCCC;
 
 #pragma push
 #pragma fp_contract on

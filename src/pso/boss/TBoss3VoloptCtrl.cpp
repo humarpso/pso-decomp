@@ -20,21 +20,14 @@ s32 restore_player_cameras(void);
 s32 activate_camera_mode(s32);
 s32 get_story_flag(s32);
 s32 unhide_room_set_objects(s32, s32, s32);
-s32 queue_destruction__7TObjectFv(void *);
 s32 TBoss3Volopt__sub_8003EA2C(int);
 s32 TObjPlayer__sub_801BA42C();
 s32 play_area_music(void *);
 u8 *__nw__7TObjectFUl(s32);
 extern RecoveredGlobal_80040D70_lbl_8043636C lbl_8043636C;
 extern s32 volopt_resources_loaded;
-}
-
-extern "C" {
-
 void *TBoss3VoloptCtrl__ct(void *arg0);
 s32 TLobby__sub_8020C07C(s32, s32, s32, s32, s32);
-s32 unhide_room_set_objects(s32, s32, s32);
-s32 get_current_floor();
 void __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -43,15 +36,10 @@ void disallow_rendering__7TObjectFv(void *);
 extern s32 lbl_80483B88[];
 
 extern void *tl_02;
-extern s32 lbl_80483B88[];
 
-extern void *tl_02;
 extern s32 __vt__16TBoss3VoloptCtrl[];
 extern void *lbl_805D2730;
 
-}
-
-extern "C" {
 void TBoss3VoloptCtrl__sub_80040B80(s32 arg0) {
     u8 *player;
     player = (u8 *)(get_player_by_client_id(local_client_id));
@@ -60,9 +48,6 @@ void TBoss3VoloptCtrl__sub_80040B80(s32 arg0) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }
-}
-
-extern "C" {
 void *TUnk_80483B88::deleting_destructor(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_80483B88;
@@ -73,18 +58,12 @@ void *TUnk_80483B88::deleting_destructor(s16 arg1) {
     }
     return this;
 }
-}
-
-extern "C" {
 void *TUnk_80483B88::init_object() {
     __ct__7TObjectFP7TObject(this, tl_02);
     *(s32 **)((s8 *)this + 0x18) = lbl_80483B88;
     disallow_rendering__7TObjectFv(this);
     return this;
 }
-}
-
-extern "C" {
 void TBoss3VoloptCtrl::dispatch_state(s32 arg0) {
     switch (arg0) {
     case 0:

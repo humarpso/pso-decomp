@@ -1400,8 +1400,6 @@ void TItemMag::apply_auto_support_techniques() {
 #pragma push
 #pragma dont_inline on
 
-#include "types.h"
-
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
     virtual void m0();
@@ -1495,7 +1493,6 @@ struct Rec_80113B6C {
 };
 
 extern "C" {
-s16 get_mag_total_level(void *);
 void TItemMag__vt12(s32 arg0);
 s16 obj_getS16_32E(void *);
 s32 test_flags_any(void *, int);
@@ -1507,28 +1504,20 @@ void TItemMag__vt43(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 extern s32 lbl_805D2C00;
-extern const f32 TItemMag__data_805DABA4;
-extern const f32 lbl_805DABB0;
 extern const f32 lbl_805DABB8;
 u8 *TItemEquipBase__ct(u8 *arg0, s32 arg1, s32 arg2);
 void deserialize_mag__9TItemDataFPvPv(void *src, void *dst);
-s16 get_mag_total_level(void *);
 u8 *TItemMag__ct(Mag_801139F4 *self, s32 a, s32 src);
 void release__14TItemEquipBaseFv(void *arg0);
 void TItemMag__vt45(TItemMag_801138F0 *self);
 s32 obj_testFlags30(void *, s32);
 s32 push_matrix();
 s32 pop_matrix();
-extern const f32 TItemMag__data_805DABA8;
 void TItemMag__vt25(Self_801134CC *self);
 s32 reset_key_machine_state__10TObjPlayerFv();
 void TItemMag__vt14(Self_80113310 *self);
-s32 obj_testFlags30(void *, s32);
-s32 push_matrix();
-s32 pop_matrix();
 void TObjPlayer__sub_80364198();
 void TObjPlayer__sub_8036414C();
-extern const f32 TItemMag__data_805DABA8;
 void TItemMag__vt24(Self_801135E0 *self);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 int fn_800F955C(void *p);
@@ -1537,12 +1526,7 @@ extern u8 lbl_8043E568[];
 extern u8 lbl_8043E57C[];
 extern int item_mag_type_id;
 extern int item_mag_param_table;
-}
-
-extern "C" {
-
 int TItemMag__vt13(void* p);
-void serialize_to_item__8TItemMagFPv(TItemMag *, void *);
 void TItemMag__vt44(s32 arg0);
 void *__dt__8TItemMagFv(void *arg0, s16 arg1);
 void serialize_mag__9TItemDataFPvPv(void *, const void *);
@@ -1551,10 +1535,6 @@ void __dt__14TItemEquipBaseFv(void *, int);
 int __dt__9TItemLoadFPvs(void*, void*);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 int fn_800F953C(void*);
-s32 obj_testFlags30(void *, s32);
-
-extern const f32 TItemMag__data_805DABA4;
-extern const f32 TItemMag__data_805DABA8;
 
 void TItemMag::update() {
     f32 temp_f1;
@@ -1770,9 +1750,6 @@ void *__dt__8TItemMagFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-    extern int item_mag_type_id;
-    extern int item_mag_param_table;
-
 #pragma push
 #pragma opt_common_subs off
 u8 *TItemMag__ct(Mag_801139F4 *self, s32 a, s32 src) {
@@ -1861,22 +1838,15 @@ void TItemMag::load_data_files() {
 void TItemMagSub::set_flags(u32 value) { flags |= value; }
 extern "C" {
 
-#include "types.h"
-
 extern "C" {
 
 }
-
-#include "types.h"
 
 extern "C" {
 
 }
 void TItemMagSub::set_node_id(s32 index, s32 id) { node_ids[index] = id; }
 void TItemMagSub::set_material_node(s32 node, void* parameters) { node_ids[0] = node; if (parameters != 0) copy_vec4__13TRaderMapCoreFPvPv(material_parameters, parameters); }
-
-extern const f32 TItemMag__data_805DABA4;
-extern const f32 TItemMag__data_805DABA8;
 
 }
 void TItemMagSub::set_model(void* model_arg, u32 textures_arg, void* animation_arg) {

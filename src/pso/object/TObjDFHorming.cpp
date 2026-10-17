@@ -15,13 +15,8 @@ extern const f32 lbl_805D890C;
 extern const f32 lbl_805D8918;
 void play_sound_effect(s32, s32, s32, s32);
 s32 rand();
-extern const f32 lbl_805D8918;
 extern const f32 lbl_805D8930;
 extern const f32 lbl_805D8934;
-}
-
-extern "C" {
-
 u32 TBoss4DarkFalz__sub_8004C1AC();
 u32 TBoss4DarkFalz__sub_8004C1B4();
 s32 get_action_state__14TBoss4DarkFalzFv();
@@ -99,7 +94,6 @@ u16 TBoss4Type3::pick_random_target_player() {
 }
 
 #include <stddef.h>
-#include "pso/boss/TBoss4DarkFalz.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowCtrl.h"
@@ -204,33 +198,18 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 send_6x0A_enemy_state(void *, void *);
 s32 get_player_by_client_id(void *);
 extern s32 local_client_id;
-s32 rand();
-extern const f32 lbl_805D8918;
-extern const f32 lbl_805D8930;
-extern const f32 lbl_805D8934;
-}
-extern "C" {
 s32 TBoss4DarkFalz__sub_8004AF5C(u8 *arg0, s16 *arg1, s16 *arg2);
 void fn_803594B4(void *, s32, f32);
 extern const f32 lbl_805D8908;
 extern const f32 lbl_805D8910;
 void TBoss4DarkFalz__sub_8004B730(u8 *arg0, s32 arg1, f32 farg0);
 extern RecoveredGlobal_8004B084_TBoss4DarkFalz__data_80485108 TBoss4DarkFalz__data_80485108;
-extern RecoveredGlobal_8004B084_TBoss4DarkFalz__data_80485108 TBoss4DarkFalz__data_80485108;
-extern s32 lbl_805D586C;
-extern s32 lbl_805D586C;
 s32 release_all_players_control_lock();
-extern s32 lbl_805D586C;
-extern s32 lbl_805D586C;
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void spawn_particle_effect(void *, s32);
-void play_sound_effect(s32, s32, s32, s32);
 s32 TBoss4Thanks__sub_8035C96C();
-extern s32 lbl_805D586C;
 extern const f32 lbl_805D8928;
 void TBoss4DarkFalz__sub_8004B5A0(void);
-void VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TBoss4DarkFalz__sub_8004AF5C(u8 *arg0, s16 *arg1, s16 *arg2);
 void TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 void create__10TBoss4ZakoFl(void *);
 f32 sin_table_lookup(s32);
@@ -244,29 +223,14 @@ extern const f32 lbl_805D8924;
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 Hit_8004B7DC *get_hit_data__14TBoss4DarkFalzFv(void *);
 void reset_cameras_to_actor(void *, s32);
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
 extern Vec_8004B7DC dark_falz_player_ring_center;
-extern s32 lbl_805D586C;
 extern const f32 lbl_805D892C;
 void TBoss4DarkFalz__sub_8004B7DC(void *arg0);
-s32 is_locally_controlled__10TObjPlayerFPv(void *);
-Hit_8004B7DC *get_hit_data__14TBoss4DarkFalzFv(void *);
-void reset_cameras_to_actor(void *, s32);
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
 extern Vec_8004B8F8 lbl_804371BC;
-extern s32 lbl_805D586C;
-extern const f32 lbl_805D8928;
 void TBoss4DarkFalz__sub_8004B8F8(void *arg0);
-}
-
-extern "C" {
-
 int TBoss4DarkFalz__sub_8004B07C(void);
 s32 is_local_client_floor_leader();
 s32 get_main_phase();
-s32 is_split_screen();
 
 s32 TBoss4DarkFalz__sub_8004AF5C(u8 *arg0, s16 *arg1, s16 *arg2) {
     s32 temp_r6;

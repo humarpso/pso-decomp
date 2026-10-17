@@ -10,10 +10,6 @@ extern "C" {
 void *fn_8001A3BC(void *a, Ent_80019B78 *e, Obj_80019B78 *self);
 void fn_80019EB8(void *n, f32 v);
 extern const f32 lbl_805D7DDC;
-}
-
-extern "C" {
-
 void TAdDrawLineCtrl::sub_80019B78(s32 idx) {
     Obj_80019B78 *self = (Obj_80019B78 *)this;
     void *r = fn_8001A3BC(self->f20, &self->tbl->ents[idx], self);

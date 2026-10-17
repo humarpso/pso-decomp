@@ -78,9 +78,6 @@ void spawn_weapon_impact_effect(void);
 void create_shoot_model_rot_z(void);
 void create_gun_shot(void);
 extern const f32 lbl_805DAFC8;
-}
-
-extern "C" {
 
 u8 *TObjPlayer::create_effect_object(s32 arg0) {
     u8 *temp_r3;
@@ -95,10 +92,6 @@ u8 *TObjPlayer::create_effect_object(s32 arg0) {
     }
     return NULL;
 }
-#include "types.h"
-
-#include "types.h"
-#include "pso/player/TObjPlayer.h"
 
 void TUnk_804A66D8::emit_marker_effects() {
     u8 *p;

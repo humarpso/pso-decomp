@@ -4,7 +4,7 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TUnk_804A4338.h"
 #include "pso/item/TUnk_804A4238.h"
-extern "C" { extern void *s_rank_j_cutter_weapon_vtable[64]; extern void *s_rank_slicer_weapon_vtable[64]; }
+ extern void *s_rank_j_cutter_weapon_vtable[64]; extern void *s_rank_slicer_weapon_vtable[64];
 struct Owner_801293FC { u8 pad[0x60]; s32 f60; };
 
 struct Self_801293FC { u8 pad0[0x24]; s32 f24; u8 pad28[0xF0 - 0x28]; Owner_801293FC *owner; u8 padF4[0x188 - 0xF4]; s32 f188; };
@@ -43,10 +43,6 @@ extern const f32 lbl_805DAE1C;
 extern const f32 lbl_805DAE20;
 extern const f32 lbl_805DAE24;
 void emit_marker_effects__13TUnk_804A4238Fv(Self_801293FC *self);
-}
-
-extern "C" {
-
 void TUnk_804A4238::emit_marker_effects() {
     Self_801293FC *self = (Self_801293FC *)this;
     Tec_801293FC tec;
@@ -69,12 +65,6 @@ void TUnk_804A4238::emit_marker_effects() {
     TItemAttacker::spawn_item_timer((s32)(TTecSlicer::create((u16*)(&tec))), (s32)enlarge_s_rank_j_cutter_blade, (s32)3);
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void *__dt__13TUnk_804A4238Fv(void *arg0, s16 arg1);
 void __dt__13TUnk_804A4948Fv(void *, int);
 
@@ -89,12 +79,6 @@ void *__dt__13TUnk_804A4238Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void *construct_s_rank_j_cutter_weapon(void *arg0, s32 task_root, void *owner);
 void construct_srank_weapon(void *);
 
@@ -105,19 +89,10 @@ void *construct_s_rank_j_cutter_weapon(void *arg0, s32 task_root, void *owner) {
     return arg0;
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
 void *construct_s_rank_j_cutter_weapon(void *, s32, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_s_rank_j_cutter_weapon(u8 *arg0);
-}
-
-extern "C" {
-
 u8 *create_s_rank_j_cutter_weapon(u8 *owner) {
     u8 *temp_r3;
     u8 *var_r0;
@@ -131,12 +106,6 @@ u8 *create_s_rank_j_cutter_weapon(u8 *owner) {
     }
     return NULL;
 }
-
-}
-
-#include "types.h"
-
-extern "C" {
 
 void enlarge_s_rank_j_cutter_blade(void *arg0);
 
@@ -152,7 +121,6 @@ void enlarge_s_rank_j_cutter_blade(void *arg0) {
 
 }
 
-#include "types.h"
 struct SlicerState_801295FC {
     u16 id;
     u8 pad0[2];
@@ -196,24 +164,12 @@ struct Tec_80129648 {
 };
 
 extern "C" {
-extern const f32 lbl_805DAE18;
 extern const f32 lbl_805DAE2C;
-void init_slicer_launch_state(void *);
-s16 obj_getField1c(void *);
-f32 query_extended_state__10TObjPlayerFv(void *);
-void TObjPlayer__sub_80128A70(void);
-void init_slicer_launch_state(void *);
-s16 get_validated_attack_stage(void *);
-s16 TObjPlayer__sub_801D2F4C(void *);
 extern const f32 lbl_805DAE30;
 extern const f32 lbl_805DAE34;
 extern const f32 lbl_805DAE38;
 extern const f32 lbl_805DAE3C;
 void emit_marker_effects__13TUnk_804A4338Fv(Self_80129648 *self);
-}
-
-extern "C" {
-
 void init_slicer_launch_state(void *arg0) {
     SlicerState_801295FC *s = (SlicerState_801295FC *)arg0;
     s->id = 0xFFFF;
@@ -251,14 +207,7 @@ void TUnk_804A4338::emit_marker_effects() {
     TTecSlicer::create((u16*)(&tec));
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
-
 void *construct_s_rank_slicer_weapon(void *arg0, s32 task_root, void *owner);
-void construct_srank_weapon(void *);
 
 void *construct_s_rank_slicer_weapon(void *arg0, s32 task_root, void *owner) {
     construct_srank_weapon(arg0);
@@ -267,19 +216,8 @@ void *construct_s_rank_slicer_weapon(void *arg0, s32 task_root, void *owner) {
     return arg0;
 }
 
-}
-
-#include "types.h"
-
-extern "C" {
 void *construct_s_rank_slicer_weapon(void *, s32, void *);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-extern s32 tl_05;
 u8 *create_s_rank_slicer_weapon(u8 *arg0);
-}
-
-extern "C" {
-
 u8 *create_s_rank_slicer_weapon(u8 *owner) {
     u8 *temp_r3;
     u8 *var_r0;
@@ -296,14 +234,12 @@ u8 *create_s_rank_slicer_weapon(u8 *owner) {
 
 }
 
-#include "types.h"
 #include "pso/item/TItem.h"
 #include "pso/items/TItemWeapon.h"
 
 extern "C" {
 
 void *__dt__13TUnk_804A4338Fv(void *arg0, s16 arg1);
-void __dt__13TUnk_804A4948Fv(void *, int);
 
 void *__dt__13TUnk_804A4338Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -414,9 +350,6 @@ void *s_rank_slicer_weapon_vtable[64] = {
 };
 #define s_rank_j_cutter_weapon_vtable ((s32 *)s_rank_j_cutter_weapon_vtable)
 #define s_rank_slicer_weapon_vtable ((s32 *)s_rank_slicer_weapon_vtable)
-}
-
-extern "C" {
 __declspec(section ".sdata2") const f32 lbl_805DAE18 = 1.0f;
 __declspec(section ".sdata2") const f32 lbl_805DAE1C = 0.6f;
 __declspec(section ".sdata2") const f32 lbl_805DAE20 = 0.5f;

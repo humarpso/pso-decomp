@@ -49,49 +49,26 @@ char *strcat(char *, const char *);
 extern char lbl_80438628[];
 extern char lbl_80438630[];
 extern char lbl_80438638[];
-extern RecoveredGlobal_800739BC_lbl_8048C9D8 challenge_mode_state;
 extern u8 challenge_window_extent[];
 extern char challenge_progress_text_buffer[];
 extern char lbl_805D912C[2];
 extern const f32 lbl_805D9134;
 extern const f32 lbl_805D9138;
-extern RecoveredGlobal_800739BC_lbl_8048C9D8 challenge_mode_state;
-char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
-s32 get_layout_id__20TWindowSubStatusDispFv(void *);
 s32 *TWindowSubStatusDisp__sub_8006F0D8(void *, s32);
 Slot_80073428 *TWindowSubStatusDisp__sub_8006F134(void *, s32);
 s32 get_slot_clamped__6TLobbyFv(s32);
-u8 *get_player_by_client_id(s32);
-int sprintf(char *, const char *, ...);
-char *strcat(char *, const char *);
 extern char lbl_804385E0[];
 extern char lbl_804385EC[];
 extern char lbl_804385F4[];
 extern char lbl_80438604[];
 extern char lbl_80438618[];
 extern s32 challenge_grade_letter_table[];
-extern char challenge_progress_text_buffer[];
 extern char lbl_805D9128[2];
-extern char lbl_805D912C[2];
 extern char lbl_805D9130[2];
-void send_and_handle__6TLobbyFii(void *, char *, s32);
-void *set_window_mode_4__6TLobbyFPvll(void *, void *, s32);
-void *get_window_layout_position(s32);
-extern RecoveredGlobal_800739BC_lbl_8048C9D8 challenge_mode_state;
-extern u8 challenge_window_extent[];
-extern char challenge_progress_text_buffer[];
-extern const f32 lbl_805D9134;
-extern const f32 lbl_805D9138;
 void queue_destruction__7TObjectFv(void *);
-void TLobby__sub_800739BC(void);
 void TWindow__close(void *);
 s32 TWindowCtrlMain__sub_8024CE58();
-extern RecoveredGlobal_800739BC_lbl_8048C9D8 challenge_mode_state;
 void TLobby__sub_800738F4(void *arg0, s32 arg1);
-}
-
-extern "C" {
-
 int TWindowMenu::is_visible() { return (this->m_70 >> 1) & 0x1; }
 typedef char RecoveredGlobal_800739BC_lbl_8048C9D8_size[sizeof(RecoveredGlobal_800739BC_lbl_8048C9D8) == 0x748 ? 1 : -1];
 

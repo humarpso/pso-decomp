@@ -13,9 +13,6 @@ void TItemWeapon__ct(void *, s32, void *);
 void create_lavis_shot(void);
 extern void *lbl_804A3070[];
 extern const f32 lbl_805DADB8;
-}
-
-extern "C" {
 
 u8 *TUnk_804A3070::construct_agito(s32 a, void *b) {
     Self_8012712C *self = (Self_8012712C *)this;

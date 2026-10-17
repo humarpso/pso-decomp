@@ -77,19 +77,7 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 set_global_param__8TObjFishFl();
-u8 is_current_floor_switch_set(u16);
 void draw_ginja_model(s32);
-u8 is_current_floor_switch_set(u16);
-s32 rotate_matrix_y(s32, s32);
-s32 push_matrix();
-s32 pop_matrix();
-s32 post_translate_matrix(void *);
-s32 set_global_param__8TObjFishFl();
-void draw_ginja_model(s32);
-}
-
-extern "C" {
-
 struct Base_802898E8 { char pad[0x18]; };
 struct VObj_802898E8 : Base_802898E8 {
     virtual void m0();
@@ -106,16 +94,11 @@ struct VObj_802898E8 : Base_802898E8 {
 void *__dt__20TODoorFourLightSpaceFv(void *arg0, s16 arg1);
 void fn_802898E8(void);
 void fn_802898EC(void);
-s32 post_translate_matrix(void *);
 s32 draw_ginja_object(s32);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 void free_collision_body_parts(void *);
-s32 rotate_matrix_y(s32, s32);
-s32 push_matrix();
-s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 s32 get_main_phase();
-s32 set_global_param__8TObjFishFl();
 
 void fn_802898E8(void) {  }
 void fn_802898EC(void) {  }
@@ -311,8 +294,6 @@ void TODoorFourLightSpace::render() {
     }
 }
 
-extern s32 __vt__20TODoorFourLightSpace[];
-
 void *__dt__20TODoorFourLightSpaceFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TODoorFourLightSpace;
@@ -349,14 +330,6 @@ u8 *TODoorFourLightSpace__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-}
-
-extern "C" {
-u8 is_current_floor_switch_set(u16);
-}
-
-extern "C" {
-
 struct Base_8028A030 { char pad[0x18]; };
 struct VObj_8028A030 : Base_8028A030 {
     virtual void m0();
@@ -371,16 +344,6 @@ struct VObj_8028A030 : Base_8028A030 {
 };
 
 void *__dt__20TODoorFourLightRuinsFv(void *arg0, s16 arg1);
-s32 post_translate_matrix(void *);
-s32 draw_ginja_object(s32);
-s32 draw_ginja_model_with_motion(s32, s32, f32);
-void free_collision_body_parts(void *);
-s32 rotate_matrix_y(s32, s32);
-s32 push_matrix();
-s32 pop_matrix();
-void __dl__7TObjectFPv(void *);
-s32 get_main_phase();
-s32 set_global_param__8TObjFishFl();
 
 s32 TODoorFourLightRuins::init_door_switch_binding() {
     s32 temp_r0;
@@ -408,8 +371,6 @@ void TODoorFourLightRuins::vfunc_6(s16 *arg1, s32) {
         this->m_d0 = (s32) (this->m_d0 | 1);
     }
 }
-
-extern const f32 lbl_805DD8F0;
 
 void TODoorFourLightRuins::update_door_switch_state() {
     u8 *arg0 = (u8 *)this;
@@ -592,17 +553,8 @@ struct Tbl_8028A5C4 { s32 v[8]; };
 struct Door_8028A5C4 { u8 pad[0xD8]; s32 sw[8]; };
 extern "C" {
 
-s32 init_collision_body_parts(void *, void *, int);
-s32 init_door_base();
-u8 *fn_8028A714(s32);
-s32 fn_8028A750(int);
-s32 fn_8028A78C(int);
 extern Tbl_8028A5C4 door_four_light_ruins_index_table;
-extern s32 TODoorFourLight__collision_body_params[];
-extern s32 __vt__20TODoorFourLightRuins[];
 extern s32 lbl_805D3B18;
-extern const f32 lbl_805DD8F4;
-extern const f32 lbl_805DD8F8;
 
 u8 *TODoorFourLightRuins__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 i;
