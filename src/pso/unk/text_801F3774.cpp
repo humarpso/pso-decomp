@@ -58,13 +58,13 @@ void TLobby::send_6x75_quest_flag_cur_difficulty(s16 arg0, s16 arg1) {
 void handle_6x75_update_quest_flag_dc(TLobby *arg0) {
     u16 temp_r0;
     arg0->byteswap_6x75_packet();
-    temp_r0 = *(u16 *)((s8 *)arg0 + 6);
+    temp_r0 = arg0->m_id;
     if (temp_r0 == 0) {
-        set_story_flag_in_bank(((s32) *(s16 *)((s8 *)arg0 + 8)), ((s32) *(u16 *)((s8 *)arg0 + 4)));
+        set_story_flag_in_bank(((s32) *(s16 *)((s8 *)arg0 + 8)), ((s32) arg0->m_flags));
         return;
     }
     if (temp_r0 == 1) {
-        clear_story_flag_in_bank(((s32) *(s16 *)((s8 *)arg0 + 8)), ((s32) *(u16 *)((s8 *)arg0 + 4)));
+        clear_story_flag_in_bank(((s32) *(s16 *)((s8 *)arg0 + 8)), ((s32) arg0->m_flags));
     }
 }
 

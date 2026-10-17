@@ -1372,7 +1372,7 @@ void fn_800E95F4(u8 *arg0) {
 }
 
 void TObjEneSlimeOne__sub_800E969C(TObjEneSlimeOne *arg0) {
-    if (*(s32 *)((s8 *)arg0 + 0xB0) & 0x10) {
+    if (*(s32 *)&arg0->animationFlags & 0x10) {
         arg0->set_state(5);
     }
 }
@@ -1395,7 +1395,7 @@ void update_tick__15TObjEneSlimeOneFPv(TObjEneSlimeOne *arg0) {
     if (!(temp_r3 & 3)) {
         spawn_particle_effect(((u8 *)arg0 + 0x2FC), 0xE0);
     }
-    if (*(s32 *)((s8 *)arg0 + 0xB0) & 0x10) {
+    if (*(s32 *)&arg0->animationFlags & 0x10) {
         if (arg0->is_timer_active() != 0) {
             arg0->set_state(7);
             return;
@@ -1409,8 +1409,8 @@ void reset_display_state__15TObjEneSlimeOneFPv(void* a0) { *(float*)((char*)a0 +
 void tick_timer__15TObjEneSlimeOneFPv(TObjEneSlimeOne *arg0) {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x390) - 1;
-    *(s32 *)((s8 *)arg0 + 0x390) = temp_r0;
+    temp_r0 = arg0->m_390 - 1;
+    arg0->m_390 = temp_r0;
     if (temp_r0 <= 0) {
         arg0->set_state(5);
     }
@@ -1833,16 +1833,16 @@ void update_wait_search__15TObjEneSlimeOneFPv(TObjEneSlimeOne *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x390) - 1;
-    *(s32 *)((s8 *)arg0 + 0x390) = temp_r0;
+    temp_r0 = arg0->m_390 - 1;
+    arg0->m_390 = temp_r0;
     if (temp_r0 <= 0) {
         if (((u16 (*)(void *, s32, f32))find_nearest_visible_player)(arg0, 0, (*(f32 *)&lbl_805DA6DC)) == 0xFFFF) {
-            temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x3C8) + 1;
-            *(s32 *)((s8 *)arg0 + 0x3C8) = temp_r0_2;
+            temp_r0_2 = arg0->m_3c8 + 1;
+            arg0->m_3c8 = temp_r0_2;
             if (temp_r0_2 >= 5) {
                 *(f32 *)((s8 *)arg0 + 0x38) = (f32) *(f32 *)((s8 *)arg0 + 0x50);
                 *(f32 *)((s8 *)arg0 + 0x40) = (f32) *(f32 *)((s8 *)arg0 + 0x58);
-                *(s32 *)((s8 *)arg0 + 0x3C8) = 5;
+                arg0->m_3c8 = 5;
             }
             arg0->set_random_timer_15();
             return;

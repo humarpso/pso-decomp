@@ -35,7 +35,9 @@ struct TObjEneLappy : public TObjEnemy {
     u16 m_380;
     u16 m_382;
     u16 m_384;
-    u8 unk_386[0xA];
+    u8 unk_386[0x2];
+    s32 m_388;
+    u8 unk_38C[0x4];
     s32 m_390;
     u8 unk_394[0x2];
     u16 m_396;

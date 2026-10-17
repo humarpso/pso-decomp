@@ -399,7 +399,7 @@ void handle_6x15_vol_opt_boss_actions(TBoss3Volopt *arg0) {
     s32 i;
 
     arg0->swap_6x15_fields();
-    switch (*(s16 *)((s8 *)arg0 + 4)) {
+    switch (*(s16 *)&arg0->m_flags) {
     case 0:
         p = ((u8 * (*)(u16))find_entity_by_id)(lbl_805D271C);
         if (p != NULL) {
@@ -424,13 +424,13 @@ void handle_6x15_vol_opt_boss_actions(TBoss3Volopt *arg0) {
     case 3:
         p = ((u8 * (*)(u16))find_entity_by_id)(lbl_805D2718);
         if (p != NULL) {
-            ((TBoss3Volopt *)p)->set_action_wait(*(u16 *)((s8 *)arg0 + 6));
+            ((TBoss3Volopt *)p)->set_action_wait(arg0->m_id);
         }
         break;
     case 4:
         p = ((u8 * (*)(u16))find_entity_by_id)(lbl_805D2718);
         if (p != NULL) {
-            set_action__12TBoss3VoloptFs(p, *(u16 *)((s8 *)arg0 + 6));
+            set_action__12TBoss3VoloptFs(p, arg0->m_id);
         }
         break;
     case 5:
@@ -442,7 +442,7 @@ void handle_6x15_vol_opt_boss_actions(TBoss3Volopt *arg0) {
     case 6:
         p = ((u8 * (*)(u16))find_entity_by_id)(lbl_805D2718);
         if (p != NULL) {
-            set_motion__12TBoss3VoloptFs(p, *(u16 *)((s8 *)arg0 + 6));
+            set_motion__12TBoss3VoloptFs(p, arg0->m_id);
         }
         break;
     case 7:

@@ -500,7 +500,7 @@ void TObjEneDD::state_chase_target(s32 arg1) {
 void handle_flower_state_change(TObjEneDD *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 1;
+        arg0->m_b8 = 1;
         arg0->vfunc_96();
         ((TObjEneRe2Flower *)arg0)->clear_child_flags();
         *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) & 0xFFFFFFF7);

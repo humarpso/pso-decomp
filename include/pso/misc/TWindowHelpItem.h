@@ -12,7 +12,9 @@ struct TWindowHelpItem
     void sub_80255E24();
     void set_flag60_bit4();
     u32 m_00;
-    u8 unk_4[0xC];
+    u8 unk_4[0x4];
+    f32 m_8;
+    u8 unk_C[0x4];
     s32 m_10;
     u8 unk_14[0x4];
     void *m_vtable18;

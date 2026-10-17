@@ -5452,12 +5452,12 @@ void TBoss8Dragon__sub_802FA16C(TBoss8Dragon *arg0, u32 arg1) {
     s32 var_r30;
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 1;
+        arg0->m_b8 = 1;
         ((VObj_18_444bc5 *)(arg0))->m94();
         arg0->reset_timer();
         arg0->set_active_flag();
-        *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) & ~0x36);
-        *(s32 *)((s8 *)arg0 + 0x84C) = 0;
+        *(s32 *)&arg0->m_3c0 = (s32) (*(s32 *)&arg0->m_3c0 & ~0x36);
+        *(s32 *)&arg0->m_84c = 0;
         temp_f1 = *(f32 *)((s8 *)TBoss8Dragon__data_80541DDC[0] + 0x10);
         *(f32 *)((s8 *)arg0 + 0x864) = (f32) (TBoss8Dragon__data_805DEDC8 + TObjBoss2Tunnel::calc_scaled_value((s32) (TBoss8Dragon__data_805DED7C * temp_f1), temp_f1));
         return;
@@ -5466,14 +5466,14 @@ void TBoss8Dragon__sub_802FA16C(TBoss8Dragon *arg0, u32 arg1) {
         ((s32 (*)(void *, int))send_action_packet__12TBoss8DragonFPvi)(arg0, 0x18);
         return;
     case 9:
-        temp_r4_2 = *(s32 *)((s8 *)arg0 + 0x84C);
+        temp_r4_2 = *(s32 *)&arg0->m_84c;
         var_r30 = 0;
-        if ((temp_r4_2 >= 0x96) && ((u32) *(u32 *)((s8 *)arg0 + 0x390) != 0U)) {
+        if ((temp_r4_2 >= 0x96) && ((u32) arg0->m_390 != 0U)) {
             if (*(f32 *)((s8 *)arg0 + 0x3AC) < *(f32 *)((s8 *)arg0 + 0x864)) {
                 var_r30 = 1;
             } else if (arg0->is_near_target() != 0) {
                 var_r30 = 1;
-            } else if ((s32) *(s32 *)((s8 *)arg0 + 0x84C) >= 0x258) {
+            } else if ((s32) *(s32 *)&arg0->m_84c >= 0x258) {
                 var_r30 = 1;
             }
         } else if (temp_r4_2 >= 0x12C) {
@@ -5487,8 +5487,8 @@ void TBoss8Dragon__sub_802FA16C(TBoss8Dragon *arg0, u32 arg1) {
     case 8:
         arg0->try_spawn_trap();
         ((s32 (*)(void *))update_linked_position__12TBoss8DragonFv)(arg0);
-        *(s32 *)((s8 *)arg0 + 0x84C) = (s32) (*(s32 *)((s8 *)arg0 + 0x84C) + 1);
-        if ((s32) (*(s32 *)((s8 *)arg0 + 0x84C) % 20) == 0x13) {
+        *(s32 *)&arg0->m_84c = (s32) (*(s32 *)&arg0->m_84c + 1);
+        if ((s32) (*(s32 *)&arg0->m_84c % 20) == 0x13) {
             if (enemy_validate_retained_target(arg0) != 0) {
                 ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
             } else {
@@ -5503,7 +5503,7 @@ void TBoss8Dragon__sub_802FA16C(TBoss8Dragon *arg0, u32 arg1) {
         ((s32 (*)(void))sync_target_pos__12TBoss8DragonFPv)();
         return;
     case 6:
-        *(s32 *)((s8 *)arg0 + 0x3B0) = (s32) *(s32 *)((s8 *)arg0 + 0x3B4);
+        arg0->m_3b0 = (s32) *(s32 *)((s8 *)arg0 + 0x3B4);
         if (((s32 (*)(void *))update_linked_position__12TBoss8DragonFv)(arg0) != 0) {
             ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
         } else {
@@ -5983,12 +5983,12 @@ s32 TBoss8Dragon::check_damage_reaction() {
 }
 
 void TBoss8Dragon__sub_802FBA1C(TBoss8Dragon *arg0) {
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x74C) != 0) {
+    if ((s32) *(s32 *)&arg0->m_74c != 0) {
         arg0->pick_next_action();
         return;
     }
     if (arg0->check_damage_reaction() == 0) {
-        *(s32 *)((s8 *)arg0 + 0x674) = (s32) *(s32 *)((s8 *)&boss8_dragon_state_transition_table.value + (*(s32 *)((s8 *)arg0 + 0x674) * 4));
+        *(s32 *)&arg0->m_674 = (s32) *(s32 *)((s8 *)&boss8_dragon_state_transition_table.value + (*(s32 *)&arg0->m_674 * 4));
         arg0->pick_next_action();
     }
 }

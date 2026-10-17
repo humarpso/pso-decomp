@@ -97,7 +97,7 @@ void update_palette_item_count_label(TWindowHelpItem *arg0, u8 *arg1, u16 arg2, 
     *(s32 *)((s8 *)arg0 + 0x1C) = *(s32 *)((s8 *)arg1 + 0x2C);
     *(s32 *)((s8 *)arg0 + 0x20) = v;
     draw_right_aligned_number(arg0);
-    *(f32 *)((s8 *)arg0 + 8) = lbl_805DCA2C * *(f32 *)((s8 *)arg0 + 0x10) + (*(f32 *)((s8 *)arg1 + 8) - lbl_805DCA28);
+    arg0->m_8 = lbl_805DCA2C * *(f32 *)((s8 *)arg0 + 0x10) + (*(f32 *)((s8 *)arg1 + 8) - lbl_805DCA28);
     *(f32 *)((s8 *)arg0 + 0xC) = *(f32 *)((s8 *)arg1 + 0xC) - lbl_805DCA30;
 }
 #pragma pop

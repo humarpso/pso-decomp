@@ -17,11 +17,14 @@ struct TObjEneSlimeOne : public TObjEnemy {
     u8 * m_380;
     u32 m_384;
     u32 m_388;
-    u8 unk_38C[0x14];
+    u8 unk_38C[0x4];
+    s32 m_390;
+    u8 unk_394[0xC];
     f32 m_3a0;
     u8 unk_3A4[0x4];
     void* m_3a8;
-    u8 unk_3AC[0x20];
+    u8 unk_3AC[0x1C];
+    s32 m_3c8;
     s32 m_3cc;
     u8 unk_3D0[0xC];
     void* m_3dc;
