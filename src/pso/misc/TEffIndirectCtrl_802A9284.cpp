@@ -9,7 +9,7 @@ u8 *xmalloc__FUl(u32);
 s32 xfree__FPv(s32);
 void *memcpy(void *, const void *, u32);
 extern s32 TEffIndirectCtrl__source_buffers[];
-extern s32 lbl_805D3E20;
+extern s32 indirect_dat_filename;
 
 void TEffIndirectCtrl::free_all() {
     s32 var_r28;
@@ -60,7 +60,7 @@ void load_indirect_dat(void) {
     p = xmalloc__FUl(0x8100);
     if (p != NULL) {
         buf = p;
-        if (read_disc_file(lbl_805D3E20, p) == 0x8100) {
+        if (read_disc_file(indirect_dat_filename, p) == 0x8100) {
             for (k = 0; k < 8; k++) {
                 memcpy((void *)TEffIndirectCtrl__source_buffers[k], p, 0x1020);
                 p += 0x1020;

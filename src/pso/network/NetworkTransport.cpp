@@ -163,7 +163,7 @@ s32 TLobby__sub_803F8090(void);
 extern s32 lobby_send_ring_read_pos;
 extern s32 lobby_send_ring_pending_bytes;
 extern Q_803F7AF4 TLobby__next_send_chunk;
-extern s32 lbl_805D7A38;
+extern s32 lobby_send_chunk_size;
 Q_803F7AF4 *get_next_send_chunk__6TLobbyFv(void);
 s32 OSIsThreadSuspended(s32);
 void resume_thread__6TLobbyFv(s32);
@@ -446,28 +446,28 @@ void TLobby::queue_thread_main() {
 Q_803F7AF4 *get_next_send_chunk__6TLobbyFv(void) {
     s32 pos;
     TLobby::lock_mutex(TLobby__send_ring_mutex);
-    lobby_send_ring_pending_bytes -= lbl_805D7A38;
+    lobby_send_ring_pending_bytes -= lobby_send_chunk_size;
     if (lobby_send_ring_pending_bytes <= 0) {
         lobby_send_ring_pending_bytes = 0;
-        lbl_805D7A38 = 0;
+        lobby_send_chunk_size = 0;
         TUdpSocket::unlock_mutex(TLobby__send_ring_mutex);
         return NULL;
     }
     pos = lobby_send_ring_read_pos;
     if (pos + lobby_send_ring_pending_bytes >= lobby_ring_buffer_size) {
-        lbl_805D7A38 = lobby_ring_buffer_size - pos;
+        lobby_send_chunk_size = lobby_ring_buffer_size - pos;
     } else {
-        lbl_805D7A38 = lobby_send_ring_pending_bytes;
+        lobby_send_chunk_size = lobby_send_ring_pending_bytes;
     }
-    if (lbl_805D7A38 > 0x200) {
-        lbl_805D7A38 = 0x200;
+    if (lobby_send_chunk_size > 0x200) {
+        lobby_send_chunk_size = 0x200;
     }
-    lobby_send_ring_read_pos += lbl_805D7A38;
+    lobby_send_ring_read_pos += lobby_send_chunk_size;
     if (lobby_send_ring_read_pos >= lobby_ring_buffer_size) {
         lobby_send_ring_read_pos = 0;
     }
     TLobby__next_send_chunk.a = send_ring_buffer_base + pos;
-    TLobby__next_send_chunk.b = lbl_805D7A38;
+    TLobby__next_send_chunk.b = lobby_send_chunk_size;
     TUdpSocket::unlock_mutex(TLobby__send_ring_mutex);
     return &TLobby__next_send_chunk;
 }

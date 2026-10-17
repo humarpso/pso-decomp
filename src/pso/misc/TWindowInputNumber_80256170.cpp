@@ -45,7 +45,7 @@ struct Win_80256354 { u8 p0[0x62]; s8 f62; u8 p63[5]; s32 f68; };
 
 extern "C" {
 void construct_base__9TWindowDDFPUcsPUc(void *, void *, s16, void *);
-extern RecoveredGlobal_80256A60_lbl_804CF8EC lbl_804CF8EC;
+extern RecoveredGlobal_80256A60_lbl_804CF8EC window_input_number_layout;
 extern s32 __vt__18TWindowInputNumber[];
 extern s32 TWindowInputNumber__name;
 extern const f32 lbl_805DCE2C;
@@ -227,7 +227,7 @@ typedef char RecoveredGlobal_80256A60___vt__18TWindowInputNumber_size[sizeof(Rec
 
 TWindowInputNumber::TWindowInputNumber(void *position, s32 low, s32 high,
                                      s32 initial, s16 client) {
-    construct_base__9TWindowDDFPUcsPUc(this, &lbl_804CF8EC.value, client, position);
+    construct_base__9TWindowDDFPUcsPUc(this, &window_input_number_layout.value, client, position);
     objectVtable = __vt__18TWindowInputNumber;
     className = TWindowInputNumber__name;
     clientIndex = client;

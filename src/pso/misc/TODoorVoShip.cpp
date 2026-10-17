@@ -34,7 +34,7 @@ s32 get_bml_motion(void *, s32);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 u32 init_collision_body_parts(void *, s32, s32);
-extern RecoveredGlobal_80163C44_lbl_804B1770 lbl_804B1770;
+extern RecoveredGlobal_80163C44_lbl_804B1770 door_vo_ship_collision_body_parts;
 extern s32 __vt__12TODoorVoShip[];
 extern s32 TODoorVoShip__class_name;
 extern const f32 lbl_805DB534;
@@ -195,7 +195,7 @@ u8 *TODoorVoShip__ct(TODoorVoShip *arg0, s32 arg1, s32 arg2) {
     arg0->m_d0 = get_bml_motion((*(u8 * *)&TODoorVoShip__shared_bml_archive), 1);
     arg0->m_d4 = get_bml_model((*(u8 * *)&TODoorVoShip__shared_bml_archive), 0);
     arg0->m_d8 = TObjFish__sub_8001EDB0((*(u8 * *)&TODoorVoShip__shared_bml_archive), 0);
-    init_collision_body_parts(arg0, (s32) &lbl_804B1770.value, 1);
+    init_collision_body_parts(arg0, (s32) &door_vo_ship_collision_body_parts.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     arg0->m_c0 = (f32) lbl_805DB540;

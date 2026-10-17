@@ -60,7 +60,7 @@ extern const f32 TOCakeshopCave01__data_805DB360;
 extern const f32 lbl_805DB364;
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_map_object_base(void *, s32);
-extern s32 lbl_804AFE08[];
+extern s32 cakeshop_cave01_collision_body_part[];
 extern s32 __vt__16TOCakeshopCave01[];
 extern s32 lbl_805D2EC4;
 extern s32 tl_05;
@@ -184,7 +184,7 @@ void *TOCakeshopCave01__ct(void *arg0_, void *arg1) {
     *(f32 *)((s8 *)arg0 + 0xC0) = lbl_805DB36C;
     *(f32 *)((s8 *)arg0 + 0xC4) = lbl_805DB370;
     *(s32 *)((s8 *)arg0 + 0x30) |= 0x40000000;
-    init_collision_body_parts(arg0, lbl_804AFE08, 1);
+    init_collision_body_parts(arg0, cakeshop_cave01_collision_body_part, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     for (i = 0; i < 8; i++) {

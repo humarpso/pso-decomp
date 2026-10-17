@@ -42,7 +42,7 @@ __declspec(section ".data") void *bm_fs_obj_lazerguard_motion_names[2] = {
 void *bm_fs_obj_lazerguard_resource_descriptor[4] = {
     (void *)&lbl_804401D0, (void *)&bm_fs_obj_lazerguard_model_names, (void *)&bm_fs_obj_lazerguard_motion_names, (void *)0x20001,
 };
-void *lbl_804AFB34[11] = {
+void *barrier_energy01_collision_body_parts[11] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x40a00000,
     (void *)0x41a00000, (void *)0x1, (void *)0x10003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,

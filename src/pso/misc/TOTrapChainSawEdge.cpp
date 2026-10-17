@@ -274,7 +274,7 @@ const s32 lbl_80471F54[2] = { 3, 4 };
 const char *TOTrapChainSawEdge_class_name = "TOTrapChainSawEdge";
 const s32 lbl_80471F70[2] = { 0, 1 };
 const s32 lbl_80471F78[2] = { 0, 1 };
-void *lbl_804E0C10[44] = {
+void *chain_saw_damage_collision_body_parts[44] = {
     (void *)0xc0a00000, (void *)0x0, (void *)0x0, (void *)0x40400000,
     (void *)0x0, (void *)0x0, (void *)0x10403, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0xc1400000,
@@ -687,7 +687,7 @@ void *TOTrapChainSawDamage__ct(void *arg0, void *arg1, void *arg2) {
     *(s32 *)(((u8 *)arg0) + 0) = (s32) TOTrapChainSawDamage_class_name;
     ((TOTrapChainSawDamage *)arg0)->decode_params();
     ((TOTrapChainSawDamage *)arg0)->vfunc_16();
-    ((s32 (*)(void *, void *, int))init_collision_body_parts)(arg0, &((Ent_802C8E24 *)lbl_804E0C10)[*(s32 *)(((u8 *)arg0) + 0xF8)], 2);
+    ((s32 (*)(void *, void *, int))init_collision_body_parts)(arg0, &((Ent_802C8E24 *)chain_saw_damage_collision_body_parts)[*(s32 *)(((u8 *)arg0) + 0xF8)], 2);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(f32 *)(((u8 *)arg0) + 0x3C) += (5.0f);

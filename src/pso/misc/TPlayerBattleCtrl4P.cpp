@@ -36,7 +36,7 @@ s32 send_and_handle__6TLobbyFii(s32, void *, int);
 int sprintf(char *, const char *, ...);
 char *strncpy(char *, const char *, u32);
 extern Cnt_8031224C lbl_80475B68[];
-extern char lbl_80542EB0[];
+extern char team_matchup_message_buffer[];
 void update__19TPlayerBattleCtrl4PFv(void *);
 s32 __ct__15TDuelEffectCtrlFP7TObjectUc(void *, void *, s32);
 void *__nw__7TObjectFUl(s32);
@@ -191,8 +191,8 @@ void TPlayerBattleCtrl4P::show_team_matchup() {
             }
         }
     }
-    sprintf(lbl_80542EB0, ((O_8031224C *)this)->strs->fmt, names[0], names[1], names[2], names[3]);
-    send_and_handle__6TLobbyFii(((O_8031224C *)this)->w0, lbl_80542EB0, 0x80);
+    sprintf(team_matchup_message_buffer, ((O_8031224C *)this)->strs->fmt, names[0], names[1], names[2], names[3]);
+    send_and_handle__6TLobbyFii(((O_8031224C *)this)->w0, team_matchup_message_buffer, 0x80);
     ((O_8031224C *)this)->timer = 0xF0;
     set_score((s32)((void *)4));
 }

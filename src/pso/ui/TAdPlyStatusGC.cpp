@@ -123,11 +123,11 @@ void *TAdPlyStatusGC__status_window_box[8] = {
     (void *)0x42a60000, (void *)0x41200000, (void *)0x42e60000, (void *)0x42280000,
     (void *)0x0, (void *)0x0, (void *)0x3f800000, (void *)0x3f800000,
 };
-void *lbl_804EFAE0[6] = {
+void *ply_status_window_points_first[6] = {
     (void *)0x40800000, (void *)0x42280000, (void *)0x40800000, (void *)0x42780000,
     (void *)0x40800000, (void *)0x42a40000,
 };
-void *lbl_804EFAF8[6] = {
+void *ply_status_window_points_second[6] = {
     (void *)0x42700000, (void *)0x42280000, (void *)0x42700000, (void *)0x42780000,
     (void *)0x42700000, (void *)0x42a40000,
 };
@@ -136,8 +136,8 @@ void render__14TAdPlyStatusGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) !
 typedef char RecoveredGlobal_8033F93C_lbl_8050E3B8_size[sizeof(RecoveredGlobal_8033F93C_lbl_8050E3B8) == 0x1B0 ? 1 : -1];
 
 #define TAdPlyStatusGC__status_window_box (*(Box_8033F3D8 *)TAdPlyStatusGC__status_window_box)
-#define lbl_804EFAE0 ((Vec2_8033F3D8 *)lbl_804EFAE0)
-#define lbl_804EFAF8 ((Vec2_8033F3D8 *)lbl_804EFAF8)
+#define ply_status_window_points_first ((Vec2_8033F3D8 *)ply_status_window_points_first)
+#define ply_status_window_points_second ((Vec2_8033F3D8 *)ply_status_window_points_second)
 #define OFF_8033F3D8 (ply_status_window_offset_table[TAdPlyStatusGC__window_offset_index])
 #pragma push
 #pragma inline_depth(1)
@@ -177,15 +177,15 @@ void draw_status_window__14TAdPlyStatusGCFPvPv(void *arg0, void *arg1) {
     format_status_strings__14TAdPlyStatusGCFPv((char *)items);
     set_text_draw_params((s32)arg1, 1, 1, (f32)lbl_805DFAE0, (f32)lbl_805DFAE4);
     for (i = 0; i < 3; i++) {
-        pts[i].x = lbl_804EFAE0[i].x + OFF_8033F3D8.x;
-        pts[i].y = lbl_804EFAE0[i].y + OFF_8033F3D8.y;
+        pts[i].x = ply_status_window_points_first[i].x + OFF_8033F3D8.x;
+        pts[i].y = ply_status_window_points_first[i].y + OFF_8033F3D8.y;
     }
     draw_window_text((f32 *)&pts[0], (const char *)((void *)get_localized_text_entry(0x26, 1)), -1, 0, (f32)lbl_805DFAE4);
     draw_window_text((f32 *)&pts[1], (const char *)((void *)get_localized_text_entry(0x26, 2)), -1, 0, (f32)lbl_805DFAE4);
     draw_window_text((f32 *)&pts[2], (const char *)((void *)get_localized_text_entry(0x26, 3)), -1, 0, (f32)lbl_805DFAE4);
     for (i = 0; i < 3; i++) {
-        pts2[i].x = lbl_804EFAF8[i].x + OFF_8033F3D8.x;
-        pts2[i].y = lbl_804EFAF8[i].y + OFF_8033F3D8.y;
+        pts2[i].x = ply_status_window_points_second[i].x + OFF_8033F3D8.x;
+        pts2[i].y = ply_status_window_points_second[i].y + OFF_8033F3D8.y;
     }
     if (items[0].valid == 0 || items[1].valid == 0 || items[2].valid == 0) {
         return;
@@ -197,8 +197,8 @@ void draw_status_window__14TAdPlyStatusGCFPvPv(void *arg0, void *arg1) {
 #undef OFF_8033F3D8
 #define ply_status_window_offset_table (*(RecoveredGlobal_8033F9DC_lbl_804783E0 *)ply_status_window_offset_table)
 #undef TAdPlyStatusGC__status_window_box
-#undef lbl_804EFAE0
-#undef lbl_804EFAF8
+#undef ply_status_window_points_first
+#undef ply_status_window_points_second
 
 void format_status_strings__14TAdPlyStatusGCFPv(char *buf) {
     u8 *c;

@@ -17,7 +17,7 @@ extern RecoveredGlobal_8029914C_lbl_805409C8 creation_input_state;
 u8 TObjCMProportion__sub_8029914C(s32 arg0);
 u8 TObjCMProportion__sub_8029916C(s32 arg0);
 s32 is_flag_set__11TLoadingCurFv(void *, s32);
-extern s32 lbl_804DBDC0[];
+extern s32 cm_proportion_pad_button_masks[];
 extern u8 controller_input_state[];
 f32 atan2_float(f32 y, f32 x);
 f32 newton_sqrtf(f32);
@@ -87,8 +87,8 @@ void TObjCMProportion::poll_pad_buttons() {
             G_80299238(0xC) |= 0x20;
         } else {
             for (i = 0; i < 4; i++) {
-                if (is_flag_set__11TLoadingCurFv(controller_input_state + 0x160, lbl_804DBDC0[i]) != 0) {
-                    G_80299238(0xC) |= lbl_804DBDC0[i];
+                if (is_flag_set__11TLoadingCurFv(controller_input_state + 0x160, cm_proportion_pad_button_masks[i]) != 0) {
+                    G_80299238(0xC) |= cm_proportion_pad_button_masks[i];
                     break;
                 }
             }

@@ -35,7 +35,7 @@ Obj_8032A9BC *__ct__15TAdMcSelectMcGCFv(Obj_8032A9BC *arg0, void *arg1, s32 arg2
     struct McCardName_804ED9C0 { void *name; s32 a; s32 b; };
     struct McCardRef_804ED9CC { void *card; s32 n; };
     McCardName_804ED9C0 lbl_804ED9C0 = { lbl_80477150, 0, 0 };
-    __declspec(section ".data") McCardRef_804ED9CC lbl_804ED9CC = { &lbl_804ED9C0, 1 };
+    __declspec(section ".data") McCardRef_804ED9CC mc_select_memorycard_texture_list = { &lbl_804ED9C0, 1 };
 
 Obj_8032A9BC *__ct__15TAdMcSelectMcGCFv(Obj_8032A9BC *arg0, void *arg1, s32 arg2) {
     s32 i;
@@ -67,7 +67,7 @@ void release_selected_entry__15TAdMcSelectMcGCFv(void) {
     }
 }
 
-void init_memorycard__15TAdMcSelectMcGCFv(void) { TAdMcSelectMcGC__texture_list_ptr = (int)&lbl_804ED9CC; TLobby__sub_8023E4B4((s32)lbl_80477150, (s32)&lbl_804ED9CC); }
+void init_memorycard__15TAdMcSelectMcGCFv(void) { TAdMcSelectMcGC__texture_list_ptr = (int)&mc_select_memorycard_texture_list; TLobby__sub_8023E4B4((s32)lbl_80477150, (s32)&mc_select_memorycard_texture_list); }
 
 s32 TAdMcSelectMcGC__sub_8032AAC4(void* p) { return *(s32*)((char*)p + 0x20); }
 

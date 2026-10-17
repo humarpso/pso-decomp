@@ -46,8 +46,8 @@ s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
 void __ct__7TObjectFP7TObject(void *);
 s32 export_character_data__10TObjPlayerFPvPv(s32, s32);
 extern u8 __vt__17TPlayerBattleCtrl[];
-extern u8 lbl_804EFA50[];
-extern u8 lbl_804EFA6C[];
+extern u8 player_battle_ctrl_text_japanese[];
+extern u8 player_battle_ctrl_text_english[];
 extern s32 TPlayerBattleCtrl__name;
 extern s32 current_language;
 void *TPlayerBattleCtrl__ct(void *arg0, s32 _w1);
@@ -263,7 +263,7 @@ int sprintf(char *, const char *, ...);
 extern char lbl_80446FCC[];
 extern char lbl_80446FD4[];
 extern char lbl_80446FDC[];
-extern char *lbl_804C3E78[];
+extern char *lobby_rank_ordinal_text_table[];
 extern Entry_801C2B04 TLobby__duel_result_table[];
 void show_score_results__6TLobbyFPv(void *self);
 u8 check_timeout__6TLobbyFPv(void *arg0);
@@ -321,7 +321,7 @@ void show_score_results__6TLobbyFPv(void *self) {
         e = &TLobby__duel_result_table[i];
         p = get_player_by_client_id(e->id);
         if (p != NULL) {
-            sprintf(buf, lbl_80446FD4, lbl_804C3E78[e->name], p->m10());
+            sprintf(buf, lbl_80446FD4, lobby_rank_ordinal_text_table[e->name], p->m10());
             ((TWindowCtrl *)buf)->init_all_default();
         }
     }
@@ -1883,7 +1883,7 @@ void *TPlayerBattleCtrl__ct(void *arg0, s32 _w1) {
     *(s32 *)((s8 *)arg0 + 0x4C) = 0;
     *(s32 *)((s8 *)arg0 + 0x50) = 0;
     *(s32 *)((s8 *)arg0 + 0x54) = 0;
-    *(u8 **)((s8 *)arg0 + 0x40) = (current_language == 0) ? lbl_804EFA50 : lbl_804EFA6C;
+    *(u8 **)((s8 *)arg0 + 0x40) = (current_language == 0) ? player_battle_ctrl_text_japanese : player_battle_ctrl_text_english;
     temp_r3 = update_battle_controller__10TObjPlayerFv();
     if (temp_r3 != 0) {
         export_character_data__10TObjPlayerFPvPv(temp_r3, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF));

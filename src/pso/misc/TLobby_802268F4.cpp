@@ -74,7 +74,7 @@ void stop_cue_stream(void);
 s32 set_field_40_and_notify__6TLobbyFs(int, int);
 void set_cue_stream_gain(s32 arg0);
 extern RecoveredGlobal_80226C3C_lbl_80514D00 lbl_80514D00;
-extern u8 *lbl_805D3720;
+extern u8 *lobby_current_slot_entry;
 void set_music_streams_volume(s32 arg0);
 void TLobby__sub_8022733C(void);
 void *get_player_by_client_id(s32 i);
@@ -168,7 +168,7 @@ u8 *TLobby::get_current_slot_entry() {
     if ((s32) lbl_805D62E4 == 1) {
         return (u8 *)&lbl_80514D00.value + (music_fade_slot_index << 5);
     }
-    return lbl_805D3720;
+    return lobby_current_slot_entry;
 }
 
 int TLobby::set_and_notify_default() { return set_and_notify__6TLobbyFi((void*)(0)); }

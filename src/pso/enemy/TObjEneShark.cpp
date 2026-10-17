@@ -1007,7 +1007,7 @@ void bind_enemy_combat_stats(void *, s32, s32, s32);
 void init_collision_body_parts(void *, void *, s32);
 void *__construct_array(void *, void *, void *, s32, s32);
 void init_and_activate__10TObjPlayerFv(void *);
-extern s32 lbl_805D2A00;
+extern s32 TObjEneShark_name_ref;
 extern const f32 lbl_805D9BD0;
 extern const f32 lbl_805D9BD4;
 #define lbl_804915B4 ((u8 *)lbl_804915B4)
@@ -1021,7 +1021,7 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
     *(void **)((u8 *)self + 0x18) = lbl_8049168C;
     ((TUnk_80494938 *)((u8 *)arg0 + 0x3A8))->init_common();
     __construct_array(self->f3CC, (void *)init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 0x1C, 4);
-    *(s32 *)self = lbl_805D2A00;
+    *(s32 *)self = TObjEneShark_name_ref;
     self->m79(arg2);
     ((TObjPlayer *)self)->init_position_vectors();
     self->f334 = self->f368;

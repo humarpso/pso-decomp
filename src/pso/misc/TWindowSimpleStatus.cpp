@@ -42,7 +42,7 @@ void TWindowSimpleStatus::run_task() {
     ((TWindowSimpleStatus *)arg0)->apply_random_shake();
 }
 
-extern unsigned char lbl_804D0CB0[];
+extern unsigned char simple_status_window_layout[];
 
 u8 *__dt__19TWindowSimpleStatusFv(SS_802705D8 *arg0, s16 arg1) {
     s32 i;
@@ -80,7 +80,7 @@ void *TWindowSimpleStatus::create(void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x78);
     if (o != NULL) {
-        o = TWindowSimpleStatus__ct((SS_80270668 *)(o), (void *)this, (s32)arg1, (void *)lbl_804D0CB0);
+        o = TWindowSimpleStatus__ct((SS_80270668 *)(o), (void *)this, (s32)arg1, (void *)simple_status_window_layout);
     }
     return o;
 }

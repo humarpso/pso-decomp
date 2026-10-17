@@ -29,10 +29,10 @@ extern f32 lbl_805D3CA0;
 extern const f32 lbl_805DD968;
 extern const f32 lbl_805DD96C;
 extern const f32 lbl_805DD970;
-extern u8 lbl_804D9578[];
+extern u8 creation_chara_sprite_entries[];
 extern s32 creation_sprite_table_index;
 s32 create__10TObjCMIconFPv(int);
-extern s32 lbl_804DA944[];
+extern s32 ccconsole_pvm_file_name_table[];
 extern f32 ui_sprite_scale;
 extern s32 current_language;
 extern s32 tl_06;
@@ -41,7 +41,7 @@ typedef char RecoveredGlobal_80291138_lbl_804D9668_size[sizeof(RecoveredGlobal_8
 
 void TCharaMaking__resolve_creation_sprite_table(u8 **table, s32 *id) {
   s32 index = *id;
-  u8 *base = lbl_804D9578;
+  u8 *base = creation_chara_sprite_entries;
   if ((*id) < 143)
   {
     *table = base + 0xf8;
@@ -75,7 +75,7 @@ void fn_80291178(void) {
     }
     TObjCMIcon::init_icon_table();
     (*(s32 *)&cmicon_instance) = create__10TObjCMIconFPv(tl_06);
-    TLobby::load_texture_pvm_file((const char *)(lbl_804DA944[creation_sprite_table_index]), (s32)(((s32 *)&creation_sprite_table)));
+    TLobby::load_texture_pvm_file((const char *)(ccconsole_pvm_file_name_table[creation_sprite_table_index]), (s32)(((s32 *)&creation_sprite_table)));
 }
 
 void set_creation_projection_center(f32 farg0) {

@@ -167,7 +167,7 @@ Rec_803C3E88 *alloc_record__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3)
 u32 GXSetCopyFilter(void *, void *, void *, void *, void *, void *, void *);
 void process_byteswapped_pcm_transfer(Snd_803C1DC4 *arg0);
 void TLobby__sub_803C2A00(Strm_803C1A8C *o);
-extern s16 lbl_804F9B80[];
+extern s16 stream_chunk_decode_table[];
 
 void TLobby::dispatch_network_state() {
     u8 *arg0 = (u8 *)this;
@@ -378,12 +378,12 @@ void TLobby::decode_stream_chunk() {
         if (o->channels == 2) {
             dst2 = o->buf + (o->rOff + o->pos);
             for (i = 0; i < n; i++) {
-                dst[i] = lbl_804F9B80[src[i * 2]];
-                dst2[i] = lbl_804F9B80[src[i * 2 + 1]];
+                dst[i] = stream_chunk_decode_table[src[i * 2]];
+                dst2[i] = stream_chunk_decode_table[src[i * 2 + 1]];
             }
         } else {
             for (i = 0; i < n; i++) {
-                dst[i] = lbl_804F9B80[src[i]];
+                dst[i] = stream_chunk_decode_table[src[i]];
             }
         }
         o->n = n;

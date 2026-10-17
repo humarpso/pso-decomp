@@ -99,7 +99,7 @@ void *TORockCaveBrakable__ct(void *arg0);
 extern RecoveredGlobal_8029C588_lbl_804DC3A0 rock_jungle_collision_body_parts;
 extern RecoveredGlobal_8029C588_lbl_804DC424 rock_jungle_vec3_table;
 extern s32 __vt__15TORockJungleM01[];
-extern s32 lbl_805D3D40;
+extern s32 TORockJungleM01_name_ref;
 extern const f32 lbl_805DDD1C;
 s32 isFading__15RenderFadeStateCFv(void *);
 void matrix_mult_vec(s32, void *, void *);
@@ -186,7 +186,7 @@ u8 *TORockJungleM01__ct(u8 *arg0, s32 arg1) {
     TORockCaveBrakable__ct((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8029C588___vt__15TORockJungleM01 *)&__vt__15TORockJungleM01).value;
     ((TObjPlayer *)(arg0 + 0xBC))->init_and_activate();
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3D40;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TORockJungleM01_name_ref;
     ((TORockJungleM01 *)(arg0))->apply_object_set_data((void *)arg1);
     ((TORockJungleM01 *)arg0)->model = TORockJungleS01::get_model(2);
     ((TORockJungleM01 *)arg0)->texture_id = get_jungle_rock_texture_resource(2);

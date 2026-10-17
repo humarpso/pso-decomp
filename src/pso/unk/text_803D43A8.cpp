@@ -3,7 +3,7 @@
 
 extern "C" {
 extern const char *const volatile lbl_805E0DC0;
-extern char lbl_804FA020[];
+extern char mfci_callback_table[];
 void TLobby__sub_803D43A8(void) {
     s32 i;
     for (i = 0; i < 0x28; i++) {
@@ -11,7 +11,7 @@ void TLobby__sub_803D43A8(void) {
 }
 char *TLobby__sub_803D43B8(void) {
     lbl_805E0DC0;
-    return lbl_804FA020;
+    return mfci_callback_table;
 }
 
 }

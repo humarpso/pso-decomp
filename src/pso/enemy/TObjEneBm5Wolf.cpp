@@ -3441,7 +3441,7 @@ void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 s32 init_collision_body_parts(void *, void *, int);
 void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
 void *__nw__7TObjectFUl(int);
-extern s32 lbl_805D2A20;
+extern s32 bm5_wolf_class_name;
 void TLobby__sub_8001FE7C(void*, int);
 
 void TObjEneBm5Wolf::update_collision_center() {
@@ -3536,7 +3536,7 @@ u8 *TObjEneBm5Wolf__ct(u8 *arg0, void *arg1, void *arg2) {
     *(u8 **)((s8 *)arg0 + 0x18) = (u8 *)lbl_804922F8;
     TObjEneBm5Wolf__sub_800B8A24(arg0 + 0x3C0);
     TObjEneBm5Wolf__sub_800B8A24(arg0 + 0x3CC);
-    *(s32 *)((s8 *)arg0 + 0) = lbl_805D2A20;
+    *(s32 *)((s8 *)arg0 + 0) = bm5_wolf_class_name;
     invoke_initialization_hook__9TObjEneDDFv(arg0, arg2);
     select_subtype__14TObjEneBm5WolfFv(arg0);
     ((TObjEneDD *)arg0)->init_position_vectors();

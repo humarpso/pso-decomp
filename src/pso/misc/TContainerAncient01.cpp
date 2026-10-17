@@ -455,7 +455,7 @@ extern s32 local_client_id;
 extern const f32 lbl_805DBD98;
 extern u8 container_ido_collision_parts[];
 extern s32 __vt__16TObjContainerIdo[];
-extern s32 lbl_805D330C;
+extern s32 obj_container_ido_class_name;
 void *__dt__16TObjContainerIdoFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TLobby__sub_803DA16C(void*);
@@ -511,7 +511,7 @@ u8 *TObjContainerIdo__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TUnk_804B97C0 *)arg0)->init_positions();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjContainerIdo;
     ((TObjPlayer *)(arg0 + 0xF0))->init_and_activate();
-    *(s32 *)((s8 *)arg0 + 0) = lbl_805D330C;
+    *(s32 *)((s8 *)arg0 + 0) = obj_container_ido_class_name;
     ((TObjContainerIdo *)(arg0))->apply_object_set_data((void *)arg2);
     VecCopy((Vec *)(arg0 + 0xC0), (const Vec *)(arg0 + 0x38));
     VecCopy((Vec *)(arg0 + 0xB4), (const Vec *)(arg0 + 0x38));

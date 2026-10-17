@@ -579,7 +579,7 @@ void TObjGrass::update_dying(void *arg0_) {
 #pragma pop
 
 Vec_800BF66C grass_camera_vec;
-Vec_800BF66C lbl_80500BC4;
+Vec_800BF66C grass_render_vec;
 Vec_800BF66C grass_origin_vec;
 
 extern u8 lbl_804FF5E8[];
@@ -599,8 +599,8 @@ void TObjGrass::update_camera_vec_by_stage() {
     case 0x34:
         break;
     case 0x35:
-        v = &lbl_80500BC4;
-        lbl_80500BC4.x = (0.0f);
+        v = &grass_render_vec;
+        grass_render_vec.x = (0.0f);
         v->y = (0.0f);
         v->z = (0.0f);
         TObjBoss2Tunnel::transform_vec_by_camera((s32)lbl_804FF5E8, (s32)v, (s32)v);
@@ -1614,7 +1614,7 @@ void TObjGrass::render() {
     pop_matrix();
     restore_scene_lighting();
     VecCopy((Vec *)(arg0 + 0x374), (const Vec *)&grass_camera_vec);
-    VecCopy((Vec *)(arg0 + 0x380), (const Vec *)&lbl_80500BC4);
+    VecCopy((Vec *)(arg0 + 0x380), (const Vec *)&grass_render_vec);
     VecCopy((Vec *)(arg0 + 0x38C), (const Vec *)&grass_origin_vec);
     switch (*(s16 *)((s8 *)arg0 + 0x326)) {
     case 0:

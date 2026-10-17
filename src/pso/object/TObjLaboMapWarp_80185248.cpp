@@ -226,7 +226,7 @@ extern const char lbl_804449F0[];
 extern const char lbl_80444A00[];
 extern const char lbl_80444A10[];
 extern RecoveredGlobal_80185514_lbl_804B600C bm_obj_warp_labo_resource_descriptor;
-extern const char *lbl_804B601C[];
+extern const char *labo_map_warp_dest_name_table_a[];
 extern s32 lbl_805D32A8;
 extern void *lbl_805D32AC;
 extern void *lbl_805D32B0;
@@ -367,7 +367,7 @@ void TObjCityMapWarp::slot4C() {
     debug_printf_at(0x13001E, lbl_804449E0);
     debug_printf_at(0x130020, lbl_804449F0);
     debug_printf_at(0x130021, lbl_80444A00);
-    debug_printf_at(0x130022, lbl_80444A10, lbl_804B601C[self->dest]);
+    debug_printf_at(0x130022, lbl_80444A10, labo_map_warp_dest_name_table_a[self->dest]);
     TObjNpcEnemy::set_global_count(0xF0F0F0FF);
 }
 

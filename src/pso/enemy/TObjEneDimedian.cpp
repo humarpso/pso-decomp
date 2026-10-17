@@ -101,7 +101,7 @@ void bind_enemy_combat_stats(void *, s32, s32, s32);
 void init_collision_body_parts(void *, void *, s32);
 void __construct_array(void *, void *, void *, int, int);
 void init_and_activate__10TObjPlayerFv();
-extern s32 lbl_805D29F0;
+extern s32 TObjEneDimedian_name_ref;
 extern const f32 lbl_805D9AC8;
 extern const f32 lbl_805D9ACC;
 extern const f32 lbl_805D9AD0;
@@ -453,7 +453,7 @@ void *TObjEneDimedian__ct(void *arg0_, void *arg1_, void *arg2_) {
     *(u8 **)((s8 *)arg0 + 0x18) = __vt__15TObjEneDimedian;
     ((TUnk_80490470 *)(arg0 + 0x3A8))->init_vtable_and_field18();
     __construct_array(arg0 + 0x3CC, (void *)&init_and_activate__10TObjPlayerFv, (void *)&__dt__13TUnk_804949A8Fv, 0x1C, 4);
-    *(s32 *)((s8 *)arg0 + 0) = lbl_805D29F0;
+    *(s32 *)((s8 *)arg0 + 0) = TObjEneDimedian_name_ref;
     ((VObj_18_c99286 *)arg0)->m79(arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();
     *(s32 *)((s8 *)arg0 + 0x334) = *(s32 *)((s8 *)arg0 + 0x368);

@@ -899,7 +899,7 @@ void spawn_particle_201__8TObjFishFii(s32 arg1, s32 arg2);
 void TObjFish__sub_802EAAC8(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 void *create_particle_controller_with_angles(void *arg0, void *arg1, s32 arg2, s32 arg3, u16 arg4);
 void fn_802EC52C(s32 arg0, s32 arg1);
-extern s32 lbl_804E3E3C[];
+extern s32 particle_pos_index_table[];
 extern f32 lbl_804E3E48[];
 void TParticleCtrl__sub_802EC550(PCtrl_802EC550 *o);
 void assign_slots_from_list(void *arg0, s32 arg1);
@@ -3171,7 +3171,7 @@ void TParticleCtrl__sub_802EC550(PCtrl_802EC550 *o) {
     if (ok != 0) {
         if (o->idx == 0) {
             for (k = 0; k < 3; k++) {
-                Vec_802EC550 *src = &o->pos[lbl_804E3E3C[k]];
+                Vec_802EC550 *src = &o->pos[particle_pos_index_table[k]];
                 r = fabs_float(src->y - lbl_805DEB84);
                 w = lbl_804E3E48[k];
                 if (r < lbl_805DEB64 * w) {

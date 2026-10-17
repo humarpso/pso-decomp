@@ -41,7 +41,7 @@ extern "C" void update_if_active__13TUnk_804C3248Fv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 #pragma push
 #pragma opt_propagation off
-void *lbl_804C3518[8] = {
+void *photon_blast_farlla_params[8] = {
     (void *)0x30000, (void *)0x0, (void *)0x3f800000, (void *)0x0,
     (void *)0x10000, (void *)0x8, (void *)0x3f800000, (void *)0x0,
 };
@@ -77,7 +77,7 @@ u8 *TPhotonFarlla__ct(u8 *arg0, u8 *arg1) {
     }
     *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x8);
     ((TPhotonFarlla *)arg0)->texture_id = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0xC);
-    ((TObjMotion *)arg0)->set_field_d8((s32) lbl_804C3518);
+    ((TObjMotion *)arg0)->set_field_d8((s32) photon_blast_farlla_params);
     ((TObjMotion *)arg0)->set_field_dc(*(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
     ((TPhotonFarlla *)arg0)->m_b8 = 1;
     set_animation__10TObjMotionFs(arg0, ((TPhotonFarlla *)arg0)->m_b8);

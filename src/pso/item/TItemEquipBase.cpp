@@ -271,7 +271,7 @@ s32 __ct__15TItemHeapObjectFP7TObject(int, void *);
 extern s32 __vt__14TItemEquipBase[];
 extern s32 item_equip_base_class_name;
 u8 *TItemEquipBase__ct(u8 *arg0, s32 arg1, s32 arg2);
-extern RecoveredGlobal_8010AD24_lbl_804C3BA8 lbl_804C3BA8;
+extern RecoveredGlobal_8010AD24_lbl_804C3BA8 item_equip_attach_equip_flag_table;
 int memset(void*, void*, void*);
 s32 get_attack_params_atp_min(void *);
 s32 TObjPlayer__sub_800194E8(void *);
@@ -489,7 +489,7 @@ typedef char RecoveredGlobal_8010AD24_lbl_804C3BA8_size[sizeof(RecoveredGlobal_8
 void TItemEquipBase::set_attach_slot(s8 arg1) {
     u8 *arg0 = (u8 *)this;
     this->m_170 = arg1;
-    set_equip_flag((s32)((int) ((s8) *(s16 *)((s8 *)((u8 *)&lbl_804C3BA8.value + (((VObj_18_b34251 *)(arg0))->m31() * 2)) + 0))));
+    set_equip_flag((s32)((int) ((s8) *(s16 *)((s8 *)((u8 *)&item_equip_attach_equip_flag_table.value + (((VObj_18_b34251 *)(arg0))->m31() * 2)) + 0))));
 }
 
 void TItemEquipBase::deduct_cap_excess(s32 unused, s16 *arg1, s16 arg2) {

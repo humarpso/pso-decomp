@@ -38,7 +38,7 @@ extern s32 lbl_805D58C4;
 extern s32 TOCapsuleMachine01__last_update_frame_tick;
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_map_object_base(void *, int);
-extern RecoveredGlobal_8015A814_lbl_804AFF10 lbl_804AFF10;
+extern RecoveredGlobal_8015A814_lbl_804AFF10 capsule_machine01_collision_body;
 extern s32 __vt__18TOCapsuleMachine01[];
 extern s32 lbl_805D2ED4;
 extern s32 tl_05;
@@ -151,7 +151,7 @@ u8 *TOCapsuleMachine01__ct(u8 *arg0, s32 arg1) {
     ((TOCapsuleMachine01 *)arg0)->m_c0 = (f32) lbl_805DB380;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB384;
     ((TOCapsuleMachine01 *)arg0)->actorFlags = (s32) (((TOCapsuleMachine01 *)arg0)->actorFlags | 0x40000000);
-    init_collision_body_parts(arg0, &lbl_804AFF10.value, 1);
+    init_collision_body_parts(arg0, &capsule_machine01_collision_body.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;

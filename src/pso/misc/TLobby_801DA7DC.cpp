@@ -108,7 +108,7 @@ s32 reset__18PSOV3EncryptionTCPFUl(void *, u32);
 s32 __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(void *, void *);
 s32 strcmp(const char *, const char *);
 extern u8 meet_user_settings[];
-extern char *lbl_805D3570;
+extern char *lobby_server_greeting_text;
 void handle_cmd_02__9TProtocolFR6packet(u8 *arg0, Recv_801DAA70 *arg1);
 void TLobby::send_c6_packet(void *arg1) {
     if ((s32) *(s32 *)((s8 *)this + 0x1910) != 0) {
@@ -171,7 +171,7 @@ void handle_cmd_02__9TProtocolFR6packet(u8 *arg0, Recv_801DAA70 *arg1) {
     Recv_801DAA70 r = *arg1;
     Pkt_801DAA70 pkt;
     bswap__21TRecvPsoRegistConnectFv((s32)&r);
-    if (strcmp(lbl_805D3570, r.name) == 0) {
+    if (strcmp(lobby_server_greeting_text, r.name) == 0) {
         reset__18PSOV3EncryptionTCPFUl(arg0 + 0x10BC, r.key1);
         reset__18PSOV3EncryptionTCPFUl(arg0 + 0x884, r.key2);
         *(s32 *)(arg0 + 0x18F4) = 1;

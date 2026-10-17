@@ -59,7 +59,7 @@ s32 play_sound_effect(s32, void *, s32, s32);
 s32 copy_technique_target_list(void *, void *);
 s32 construct_facing_technique__10TObjPlayerFPviPvii(void *, void *, void *, s32);
 extern s32 __vt__11TTecGiZonde[];
-extern s32 lbl_805D37C8;
+extern s32 TTecGiZonde_name_ref;
 u8 *TTecGiZonde__ct(u8 *arg0, void *arg1, void *arg2, void *arg3, void * _w4);
 f32 vector_length(Vec_80231C58 *);
 void normalize_vector(Vec_80231C58 *);
@@ -311,7 +311,7 @@ u8 *TTecGiZonde__ct(u8 *arg0, void *arg1, void *arg2, void *arg3, void * _w4) {
     construct_facing_technique__10TObjPlayerFPviPvii(arg0, arg1, arg2, 0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TTecGiZonde;
     ((TObjPlayer *)(arg0 + 0x130))->construct_target_cursor_records();
-    *(s32 *)((s8 *)arg0 + 0) = lbl_805D37C8;
+    *(s32 *)((s8 *)arg0 + 0) = TTecGiZonde_name_ref;
     ((TTecGiZonde *)arg0)->init_parameters();
     copy_technique_target_list(arg0 + 0x130, arg3);
     switch (((TTecGiZonde *)arg0)->band) {

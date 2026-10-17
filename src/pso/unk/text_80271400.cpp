@@ -10,7 +10,7 @@ s32 __nw__7TObjectFUl(int);
 s32 get_window_layout_position(int);
 s32 create__19TWindowSimpleStatusFPv(int, void *);
 s32 TWindowStatus__ct(int, int, void *, void *);
-extern RecoveredGlobal_80271400_lbl_804D0F78 lbl_804D0F78;
+extern RecoveredGlobal_80271400_lbl_804D0F78 status_window_settings;
 s32 create_status_window(s32 arg0) {
     s32 window_layout_position;
     s32 temp_r3;
@@ -22,7 +22,7 @@ s32 create_status_window(s32 arg0) {
     temp_r3 = __nw__7TObjectFUl(0x78);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = TWindowStatus__ct((int)temp_r3, (int)window_layout_position, (void *)arg0, &lbl_804D0F78.value);
+        var_r0 = TWindowStatus__ct((int)temp_r3, (int)window_layout_position, (void *)arg0, &status_window_settings.value);
     }
     return var_r0;
 }

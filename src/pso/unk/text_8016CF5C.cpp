@@ -37,7 +37,7 @@ extern s32 local_client_id;
 s32 init_collision_body_parts(void *, void *, s32);
 void *TOKey__ct(void *, void *);
 extern void *__vt__14TOKeyGenericSw[];
-extern s32 lbl_804B2D30[];
+extern s32 key_generic_sw_collision_body[];
 extern void *TOKeyGenericSw__shared_resource_ptrs[];
 extern s32 TOKeyGenericSw__name;
 extern u32 *TOKeyGenericSw__texture_lists;
@@ -58,7 +58,7 @@ void *TOKeyGenericSw__ct(TOKeyGenericSw *arg0, void *parent, void *source) {
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) *(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB768;
     arg0->m_b8 = lbl_805DB76C;
     *(u32 *)&arg0->texture_id = TOKeyGenericSw__texture_lists[1];
-    init_collision_body_parts(arg0, lbl_804B2D30, 1);
+    init_collision_body_parts(arg0, key_generic_sw_collision_body, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     arg0->m_c0 = lbl_805DB770;

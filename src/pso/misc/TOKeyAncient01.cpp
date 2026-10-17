@@ -60,7 +60,7 @@ extern u8 *TOKeyAncient01__shared_resource_object;
 extern u32 TOKeyAncient01__texture_lists;
 u32 init_collision_body_parts(void *, s32, s32);
 void *TOKey__ct(TOKey *arg0);
-extern RecoveredGlobal_8016B0A0_lbl_804B29D0 lbl_804B29D0;
+extern RecoveredGlobal_8016B0A0_lbl_804B29D0 key_ancient01_collision_body_part;
 extern s32 __vt__14TOKeyAncient01[];
 extern s32 TOKeyAncient01__class_name;
 extern const f32 lbl_805DB6E8;
@@ -198,7 +198,7 @@ u8 *TOKeyAncient01__ct(TOKeyAncient01 *arg0, s32 arg1, s32 arg2) {
     *(u8 **)((s8 *)arg0 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)TOKeyAncient01__shared_resource_object + 0x430)) + 4));
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB6E8);
     arg0->m_b8 = (f32) lbl_805DB6EC;
-    init_collision_body_parts(arg0, (s32) &lbl_804B29D0.value, 1);
+    init_collision_body_parts(arg0, (s32) &key_ancient01_collision_body_part.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     arg0->m_c0 = (f32) lbl_805DB6F0;

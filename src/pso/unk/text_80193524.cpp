@@ -126,7 +126,7 @@ void TLazerFenceSw__vt24(Sw_80193978 *arg0);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_key__5TOKeyFv(void *, void *);
 void *TOKey__ct(TOKey *arg0);
-extern u8 lbl_804B8370[];
+extern u8 lazer_fence_sw_collision_body_part[];
 extern s32 __vt__13TLazerFenceSw[];
 extern s32 lbl_805D33B0;
 extern const f32 lbl_805DBE8C;
@@ -456,7 +456,7 @@ void *TLazerFenceSw__ct(void *arg0, void *arg1, void *arg2) {
     *(u16 *)((s8 *)arg0 + 0xE8) = lbl_80445CB8[*(s32 *)((s8 *)arg0 + 0x8C) % 4];
     *(f32 *)((s8 *)arg0 + 0xB8) = lbl_805DBE8C;
     *(f32 *)((s8 *)arg0 + 0xEC) = TLazerFenceSw__data_805DBE84;
-    init_collision_body_parts(arg0, lbl_804B8370, 1);
+    init_collision_body_parts(arg0, lazer_fence_sw_collision_body_part, 1);
     *(s32 *)((s8 *)arg0 + 0x30) |= 0x40000000;
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TUnk_804AF8D8 *)((u8 *)arg0 + 0xF0))->sub_80156CEC();

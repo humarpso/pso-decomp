@@ -144,17 +144,17 @@ block_7:
     }
 }
 
-extern s32 lbl_805D6790;
-extern u8 lbl_805D6794;
+extern s32 boss6_type2_speed_from_ratio;
+extern u8 boss6_type2_speed_initialized;
 extern f32 lbl_805DE408;
 
 void TBoss6Type2::init_speed_from_ratio() {
     s32 temp_r0;
-    if ((s8) lbl_805D6794 == 0) {
-        lbl_805D6794 = 1;
-        lbl_805D6790 = (s32) (lbl_805DE4DC / lbl_805DE408);
+    if ((s8) boss6_type2_speed_initialized == 0) {
+        boss6_type2_speed_initialized = 1;
+        boss6_type2_speed_from_ratio = (s32) (lbl_805DE4DC / lbl_805DE408);
     }
-    temp_r0 = lbl_805D6790;
+    temp_r0 = boss6_type2_speed_from_ratio;
     *(s32 *)((s8 *)this + 0x45C) = temp_r0;
     *(s32 *)((s8 *)this + 0x460) = temp_r0;
     *(s32 *)((s8 *)this + 0x420) = (s32) (*(s32 *)((s8 *)this + 0x420) + 1);

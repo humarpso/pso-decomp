@@ -39,7 +39,7 @@ extern "C" void release_member_90__10TObjPlayerFv();
 extern "C" void render_shadows__7TObjectFv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 extern void *bm_o_rock_jungle_model_names[6];
-extern s32 lbl_805D3D44;
+extern s32 TORockJungleL01_name_ref;
 extern const f32 lbl_805DDD1C;
 void *bm_o_rock_jungle_model_names[6] = {
     (void *)&lbl_80465788, (void *)&lbl_8046579C, (void *)&lbl_804657B4, (void *)&lbl_804657C8,
@@ -75,7 +75,7 @@ u8 *TORockJungleL01__ct(u8 *arg0, s32 arg1) {
     TORockCave__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)lbl_804DC448;
     ((TObjPlayer *)(arg0 + 0xB4))->init_and_activate();
-    *(s32 *)((s8 *)arg0 + 0) = lbl_805D3D44;
+    *(s32 *)((s8 *)arg0 + 0) = TORockJungleL01_name_ref;
     ((TORockJungleL01 *)(arg0))->apply_object_set_data((void *)arg1);
     ((TORockJungleL01 *)arg0)->model = TORockJungleS01::get_model(4);
     ((TORockJungleL01 *)arg0)->texture_id = get_jungle_rock_texture_resource(4);

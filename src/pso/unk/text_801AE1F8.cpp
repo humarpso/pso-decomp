@@ -40,7 +40,7 @@ extern "C" void reset_movement__10TObjPlayerFv();
 extern "C" void update_if_active__13TUnk_804C3248Fv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 extern "C" void run_task__12TPhotonPillaFv();
-void *lbl_804C3A38[8] = {
+void *photon_pilla_action_table[8] = {
     (void *)0x30000, (void *)0x3, (void *)0x3f800000, (void *)0x0,
     (void *)0x10000, (void *)0xa, (void *)0x3f800000, (void *)0x0,
 };
@@ -49,7 +49,7 @@ void *lbl_804C3A58[11] = {
     (void *)0x41f00000, (void *)0x0, (void *)0x8007, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_804C3A84[18] = {
+void *photon_pilla_laser_offset_table[18] = {
     (void *)0x0, (void *)0x43960000, (void *)0x42480000, (void *)0x41c80000,
     (void *)0x43960000, (void *)0x41c80000, (void *)0x41c80000, (void *)0x43960000,
     (void *)0xc1c80000, (void *)0x0, (void *)0x43960000, (void *)0xc2480000,
@@ -83,7 +83,7 @@ u8 *TPhotonPilla__ct(u8 *arg0, u8 *arg1) {
     }
     *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x38);
     ((TPhotonPilla *)arg0)->texture_id = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x3C);
-    ((TObjMotion *)arg0)->set_field_d8((s32)lbl_804C3A38);
+    ((TObjMotion *)arg0)->set_field_d8((s32)photon_pilla_action_table);
     ((TObjMotion *)arg0)->set_field_dc(*(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
     ((TPhotonPilla *)arg0)->m_b8 = 1;
     set_animation__10TObjMotionFs(arg0, ((TPhotonPilla *)arg0)->m_b8);

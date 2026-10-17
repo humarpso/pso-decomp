@@ -696,7 +696,7 @@ extern const f32 TObjEneMorfos__data_805DF89C;
 extern s32 __dt__13TUnk_804949A8Fv[];
 extern s32 init_and_activate__10TObjPlayerFv[];
 extern RecoveredGlobal_80332B7C_lbl_804775D8 lbl_804775D8;
-extern void *lbl_805D4230;
+extern void *morfos_class_name;
 extern s32 actor_frame_tick;
 extern u8 *lbl_805D6D20;
 extern u8 *lbl_805D6D24;
@@ -2355,7 +2355,7 @@ void *TObjEneMorfos__ct(void *arg0, void *arg1, void *arg2) {
     ((TUnk_80490470 *)((char *)arg0 + 1004))->init_vtable_and_field18();
     ((TUnk_80494938 *)((char *)arg0 + 1032))->init_common();
     __construct_array((void *)((char *)arg0 + 1060), init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 28, 4);
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D4230;
+    *(void **)((s8 *)arg0 + 0x0) = morfos_class_name;
     invoke_initialization_hook__9TObjEneDDFv(arg0, arg2);
     ((TObjEneMorfos *)arg0)->init_target_offsets();
     ((TObjEneMorfos *)arg0)->init_instance();

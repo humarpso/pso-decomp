@@ -90,7 +90,7 @@ extern s32 gx_fifo_buffer_size;
 extern s32 gx_fifo_buffer;
 extern s32 display_heap_size;
 extern s32 locked_cache_heap_handle;
-extern s32 lbl_8058D340[];
+extern s32 tv_render_mode_obj[];
 extern Tlut_803DD0D8 gx_tlut_region_table[];
 extern void *lbl_805D771C;
 extern void *lbl_805D7720;
@@ -179,8 +179,8 @@ void set_present_interval(s32 *arg0, s32 arg1) {
     if (arg0 != NULL) {
         (*(s32 * *)&active_gx_render_mode) = arg0;
     } else {
-        get_render_mode_for_tv_format((GXRenderModeObj_803DD430 *) ((*(s32 * *)&active_gx_render_mode)), (GXRenderModeObj_803DD430 *) (lbl_8058D340));
-        (*(s32 * *)&active_gx_render_mode) = lbl_8058D340;
+        get_render_mode_for_tv_format((GXRenderModeObj_803DD430 *) ((*(s32 * *)&active_gx_render_mode)), (GXRenderModeObj_803DD430 *) (tv_render_mode_obj));
+        (*(s32 * *)&active_gx_render_mode) = tv_render_mode_obj;
         var_r4 = 1;
     }
     video_present_interval_retraces = var_r4;

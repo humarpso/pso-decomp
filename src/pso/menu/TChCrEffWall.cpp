@@ -22,7 +22,7 @@ extern const f32 lbl_805DDCB0;
 extern const f32 lbl_805DDCB4;
 extern void *TChCrEffWall__name;
 
-void *lbl_804DBF58[4] = {
+void *chcr_eff_wall_gradient_table[4] = {
     (void *)0x0, (void *)0xff181818, (void *)0xff181818, (void *)0x0,
 };
 void *lbl_804DBF68[8] = {
@@ -47,7 +47,7 @@ void TChCrEffWall::render() {
         draw_default_sprite__12TChCrEffWallFv(i + 10, &creation_effwall_sprite_size_table[i], lbl_805DDCB0);
     }
     TCameraCtrl::restore_full_screen_view();
-    args.b = lbl_804DBF58;
+    args.b = chcr_eff_wall_gradient_table;
     args.c = 0;
     args.d = 4;
     args.a = lbl_804DBF68;

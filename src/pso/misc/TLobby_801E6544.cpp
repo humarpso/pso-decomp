@@ -9126,7 +9126,7 @@ namespace pf2_p7 { extern "C" { s32 read_packet_byte__6TLobbyFv(void*); } }
 namespace pf2_p7 { extern "C" { s32 read_be_u16(void *); } }
 #define read_be_u16 pf2_p7::read_be_u16
 void qst_getargs_801F2910(s32 arg0);
-extern u8 lbl_8051238C[];
+extern u8 qst_cstring_buffer[];
 namespace pf2_p7 { extern "C" { void append_string_to_buffer(void*); } }
 #define append_string_to_buffer pf2_p7::append_string_to_buffer
 void qst_getargs_cstring(s32 arg0);
@@ -9152,8 +9152,8 @@ void qst_getargs_cstring(s32 arg0) {
     Entry804C69D8_801F2748 *e = (Entry804C69D8_801F2748 *)&qst_opcode_table;
     e += arg0;
     void (*fn)(void*) = e->handler;
-    append_string_to_buffer(lbl_8051238C);
-    fn(lbl_8051238C);
+    append_string_to_buffer(qst_cstring_buffer);
+    fn(qst_cstring_buffer);
 }
 
 typedef void (*Handler_801F27A0)(s32, u8, s16 *);

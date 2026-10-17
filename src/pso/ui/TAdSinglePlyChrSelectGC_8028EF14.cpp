@@ -1015,14 +1015,14 @@ void *lbl_804D3E7C[3] = {
 void *lbl_804D3E88[4] = {
     (void *)&lbl_80451CB4, (void *)&lbl_804D3E7C, (void *)&lbl_805D3BB8, (void *)0x20000,
 };
-void *lbl_804D3E98[19] = {
+void *character_making_resource_descriptor_table[19] = {
     (void *)&lbl_804D3A40, (void *)&lbl_804D3A84, (void *)&lbl_804D3AB0, (void *)&lbl_804D3B1C,
     (void *)&lbl_804D3B48, (void *)&lbl_804D3B74, (void *)&lbl_804D3BE0, (void *)&lbl_804D3C4C,
     (void *)&lbl_804D3CB8, (void *)&lbl_804D3CE4, (void *)&lbl_804D3D50, (void *)&lbl_804D3DBC,
     (void *)&lbl_804D3DDC, (void *)&lbl_804D3DFC, (void *)&lbl_804D3E18, (void *)&lbl_804D3E34,
     (void *)&lbl_804D3E50, (void *)&lbl_804D3E6C, (void *)&lbl_804D3E88,
 };
-void *lbl_804D3EE4[36] = {
+void *character_making_action_table[36] = {
     (void *)0x10000, (void *)0x21, (void *)0x3f800000, (void *)0x0,
     (void *)0x10000, (void *)0x1, (void *)0x3f800000, (void *)0x0,
     (void *)0x10000, (void *)0x0, (void *)0x3f800000, (void *)0x0,
@@ -1075,7 +1075,7 @@ void *TCMCharacter__ct(void *arg0, void *arg1) {
     creation_figure_object = (u32)arg0;
     res = (s32)((TAdSinglePlyChrSelectGC *)0x440)->alloc();
     if (res != 0) {
-        res = load_resource_from_descriptor(res, 6, ((s32 *)lbl_804D3E98)[((TCharaMaking *)cm)->get_display_index()], 0, 0, 0);
+        res = load_resource_from_descriptor(res, 6, ((s32 *)character_making_resource_descriptor_table)[((TCharaMaking *)cm)->get_display_index()], 0, 0, 0);
     }
     chara_select_preview_resource = res;
     for (p = ((CreationTextureCacheEntry *)creation_texture_cache); p < ((CreationTextureCacheEntry *)creation_texture_cache) + 0x80; p++) {
@@ -1090,7 +1090,7 @@ void *TCMCharacter__ct(void *arg0, void *arg1) {
     char_select_current_entry = 0;
     ((void (*)(int))TAdSinglePlyChrSelectGC__sub_8028ED54)(0);
     char_select_current_entry = 0;
-    ((TObjMotion *)arg0)->set_field_d8((s32)((void *)lbl_804D3EE4));
+    ((TObjMotion *)arg0)->set_field_d8((s32)((void *)character_making_action_table));
     ((TObjMotion *)arg0)->set_field_dc(*(s32 *)((s8 *)creation_menu_main_obj + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = creation_motion_group(creation_player_character);
     set_animation__10TObjMotionFs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));

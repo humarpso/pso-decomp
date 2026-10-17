@@ -25,7 +25,7 @@ s32 draw_visible_window_entries(void *, void *, int);
 u32 calc_text_width(void);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 s32 get_window_layout_position(s32);
-extern u8 lbl_804D0870[];
+extern u8 quantity_window_layout[];
 extern s32 __vt__15TWindowQuantity[];
 extern s32 lbl_805D39B0;
 extern const f32 lbl_805DD2D0;
@@ -68,7 +68,7 @@ void *TWindowQuantity__ct(void *arg0, void *arg1) {
     u8 *e0;
     s32 id;
     f32 n;
-    ((TWindowDD *)arg0)->construct_base((u8 *)lbl_804D0870, (s16)((s16)(s32)arg1), (u8 *)(get_window_layout_position(0x2A)));
+    ((TWindowDD *)arg0)->construct_base((u8 *)quantity_window_layout, (s16)((s16)(s32)arg1), (u8 *)(get_window_layout_position(0x2A)));
     self->vt = ((void * *)&__vt__15TWindowQuantity);
     self->f0 = lbl_805D39B0;
     id = TQuestVmDownLoadServer__sub_8006EF6C(1);

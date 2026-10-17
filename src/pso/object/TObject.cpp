@@ -17,7 +17,7 @@ struct DestructorChain {
 };
 #pragma suppress_init_code on
 #pragma no_static_dtors on
-DestructorChain lbl_80515F08;
+DestructorChain tobject_destructor_chain;
 TMainTask main_task;
 DestructorChain main_task_root1_dtor_registration;
 TObject global_obj1;
@@ -92,7 +92,7 @@ void TObject::allow_rendering_shadows() { m_flags &= ~DISALLOW_RENDER_SHADOWS; }
 
 void __sinit_TObject_cpp() {
     __register_global_object(__ct__9TMainTaskFv(&main_task),
-        (void *)__dt__9TMainTaskFv, &lbl_80515F08);
+        (void *)__dt__9TMainTaskFv, &tobject_destructor_chain);
     __register_global_object(__ct__7TObjectFP7TObject(&global_obj1, NULL),
         (void *)__dt__7TObjectFv, &main_task_root1_dtor_registration);
     __register_global_object(__ct__7TObjectFP7TObject(&global_obj2, NULL),

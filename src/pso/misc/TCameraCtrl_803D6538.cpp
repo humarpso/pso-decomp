@@ -150,17 +150,17 @@ extern f32 motion_blend_factor;
 extern const f32 lbl_805E0E00;
 extern const f32 lbl_805E0E04;
 extern RecoveredGlobal_803D77C0_lbl_8047E3C8 lbl_8047E3C8;
-extern RecoveredGlobal_803D77C0_lbl_804FA500 lbl_804FA500;
+extern RecoveredGlobal_803D77C0_lbl_804FA500 motion_sampler_function_table;
 extern RecoveredGlobal_803D77C0_lbl_804FA50C motion_angle_sampler_table;
-extern RecoveredGlobal_803D77C0_lbl_804FA51C lbl_804FA51C;
+extern RecoveredGlobal_803D77C0_lbl_804FA51C motion_key_sampler_table;
 extern s32 motion_packed_rotation_mode;
-extern RecoveredGlobal_803D78A8_lbl_8058CAB8 lbl_8058CAB8;
+extern RecoveredGlobal_803D78A8_lbl_8058CAB8 camera_motion_context_table;
 s32 translate_matrix(s32, f32, f32, f32);
 void rotate_matrix_by_node_angles(void *, int);
 void scale_current_matrix(void *);
 void post_translate_matrix(void *);
 void set_matrix_identity(u8 *arg0);
-extern u8 lbl_804FA4F0[];
+extern u8 camera_look_at_up_vector[];
 extern const f32 lbl_805E0E08;
 void euler_zyx_to_quaternion(u8 *arg0, u8 *arg1);
 void euler_yxz_to_quaternion(u8 *arg0, u8 *arg1);
@@ -177,7 +177,7 @@ void TCameraCtrl::look_at_position(f32 farg0, f32 farg1, f32 farg2) {
     v.y = farg1;
     v.z = farg2;
     set_matrix_identity(0);
-    set_camera_look_at(eye, (u8*)((u8 *)&v), lbl_804FA4F0);
+    set_camera_look_at(eye, (u8*)((u8 *)&v), camera_look_at_up_vector);
 }
 
 #pragma push
@@ -691,13 +691,13 @@ void select_motion_sampler(s32 *arg0, f32 farg0) {
     *(s32 *)((s8 *)current_motion_context + 0x1C) = 0;
     set_motion_row_stride((s32)((int) (*(u16 *)((s8 *)var_r3 + 0xA) & 0xFFFFFF3F)));
     temp_r4 = temp_r31 * 4;
-    *(s32 *)((s8 *)current_motion_context + 0x24) = (s32) *(s32 *)((s8 *)&lbl_804FA500.value + temp_r4);
+    *(s32 *)((s8 *)current_motion_context + 0x24) = (s32) *(s32 *)((s8 *)&motion_sampler_function_table.value + temp_r4);
     if ((s32) motion_packed_rotation_mode != 0) {
         *(s32 *)((s8 *)current_motion_context + 0x28) = (s32) *(s32 *)((s8 *)&motion_angle_sampler_table.value + 0xC);
     } else {
         *(s32 *)((s8 *)current_motion_context + 0x28) = (s32) *(s32 *)((s8 *)&motion_angle_sampler_table.value + temp_r4);
     }
-    *(s32 *)((s8 *)current_motion_context + 0x2C) = (s32) lbl_804FA51C.value;
+    *(s32 *)((s8 *)current_motion_context + 0x2C) = (s32) motion_key_sampler_table.value;
 }
 #pragma pop
 
@@ -705,7 +705,7 @@ void select_motion_sampler(s32 *arg0, f32 farg0) {
 #pragma scheduling off
 typedef char RecoveredGlobal_803D78A8_lbl_8058CAB8_size[sizeof(RecoveredGlobal_803D78A8_lbl_8058CAB8) == 0x80 ? 1 : -1];
 void select_motion_context(s32 arg0) {
-    current_motion_context = (u8 *)&lbl_8058CAB8.value + (arg0 << 6);
+    current_motion_context = (u8 *)&camera_motion_context_table.value + (arg0 << 6);
 }
 #pragma pop
 

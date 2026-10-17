@@ -25,7 +25,7 @@ u32 TAdMcSelectCursorGC::get_instance(s32 arg0) {
 }
 
     extern unsigned char lbl_80477118[];
-    extern unsigned char lbl_804ED99C[];
+    extern unsigned char mc_select_cursor_texture_list[];
 
 void TAdMcSelectCursorGC::release_cursor_entry() {
     u8 *temp_r4;
@@ -37,7 +37,7 @@ void TAdMcSelectCursorGC::release_cursor_entry() {
     }
 }
 
-void TAdMcSelectCursorGC::init_resource() { TAdMcSelectCursorGC__texture_entry = (int)lbl_804ED99C; TLobby__sub_8023E4B4((s32)lbl_80477118, (s32)lbl_804ED99C); }
+void TAdMcSelectCursorGC::init_resource() { TAdMcSelectCursorGC__texture_entry = (int)mc_select_cursor_texture_list; TLobby__sub_8023E4B4((s32)lbl_80477118, (s32)mc_select_cursor_texture_list); }
 
 s32 TAdMcSelectCursorGC__sub_8032A6D8(void* p) { return *(s32*)((char*)p + 0x1c); }
 

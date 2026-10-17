@@ -533,7 +533,7 @@ extern s32 game_difficulty_selection;
 extern s32 TNpcPlayer__data_805D5864;
 
 u32 lbl_8050CF68[20];
-u32 lbl_8050CFB8[3];
+u32 npc_player_ply_char_data_global[3];
 u32 lbl_8050CFC4[263];
 u32 lbl_8050D3E0[20];
 extern "C" void render_shadows__7TObjectFv();
@@ -3579,7 +3579,7 @@ void TNpcPlayer::ensure_rock_singleton() {
 }
 
 void TNpcPlayer::register_ply_char_data_global() {
-    __register_global_object(__ct__12TPlyCharDataFv(lbl_8050CFC4), (void *)__dt__12TPlyCharDataFv, lbl_8050CFB8);
+    __register_global_object(__ct__12TPlyCharDataFv(lbl_8050CFC4), (void *)__dt__12TPlyCharDataFv, npc_player_ply_char_data_global);
 }
 
 void set_technique_seed_level(Obj_801528A8 *self, s16 i, u8 v) {

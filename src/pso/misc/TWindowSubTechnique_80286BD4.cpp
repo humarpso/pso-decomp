@@ -15,7 +15,7 @@ s32 get_message_10__20TWindowSubStatusDispFl(int);
 s32 set_field_1c__6TLobbyFf(int);
 s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 get_window_layout_position(int);
-extern s16 *lbl_804D2E20[];
+extern s16 *technique_menu_category_lists[];
 extern const f32 lbl_805DD838;
 s32 get_cursor_pos__20TWindowShortListCtrlFv(s32);
 void align_menu_entry_positions(s32);
@@ -70,7 +70,7 @@ void TWindowSubTechnique::draw_technique_row(s32 id, s32 arg1, s32 arg2) {
 void TWindowSubTechnique::rebuildTechniqueList(s32 list, s32 category) {
     s32 selected;
     s16 *entry;
-    entry = lbl_804D2E20[category];
+    entry = technique_menu_category_lists[category];
     selected = get_cursor_pos__20TWindowShortListCtrlFv(list);
     ((TWindowSubComCardList *)list)->reset_entries();
     while (*entry != 19) {

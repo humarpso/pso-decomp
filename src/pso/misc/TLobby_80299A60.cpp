@@ -195,15 +195,15 @@ s32 TLobby::is_multi_ready() {
 
 void TLobby::close_window_field30() { if (*(unsigned int*)((char*)this + 0x30) != 0) { TWindow__close((u8 *)(*(void**)((char*)this + 0x30))); *(int*)((char*)this + 0x30) = 0; } }
 
-s32 lbl_804DBE90[3] = { 1, 0, 0 };
-__declspec(section ".data") s32 lbl_804DBE9C[2] = { 0x43B40000, 0x42FA0000 };
+s32 retry_selection_value_table[3] = { 1, 0, 0 };
+__declspec(section ".data") s32 message_window_position[2] = { 0x43B40000, 0x42FA0000 };
 
 void TLobby::open_message_window() {
     if ((u32) *(u32 *)((s8 *)this + 0x30) != 0U) {
         TWindow__close((u8 *)(*(void **)((s8 *)this + 0x30)));
         *(u32 *)((s8 *)this + 0x30) = 0U;
     }
-    *(u32 *)((s8 *)this + 0x30) = set_window_mode_4__6TLobbyFPvll(get_window_layout_position(0x39), lbl_804DBE9C, 1);
+    *(u32 *)((s8 *)this + 0x30) = set_window_mode_4__6TLobbyFPvll(get_window_layout_position(0x39), message_window_position, 1);
     if ((u32) *(u32 *)((s8 *)this + 0x30) != 0U) {
         ((TLobby *)(*(u32 *)((s8 *)this + 0x30)))->send_and_handle(TQuestVmDownLoadServer__sub_8006EF6C(0x5E), 1);
     }
@@ -338,7 +338,7 @@ void giveup_window_handle_select(void *arg0) {
 
 s32 get_selected_menu_value(u32);
 
-extern s32 lbl_804DBE90[];
+extern s32 retry_selection_value_table[];
 
 void TLobby::handle_retry_menu_select() {
     s32 selected_menu_value;
@@ -350,7 +350,7 @@ void TLobby::handle_retry_menu_select() {
     if (((TWindowMenu *)(*(u32 *)((s8 *)this + 0x2C)))->is_visible() != 0) {
         selected_menu_value = get_selected_menu_value(*(u32 *)((s8 *)this + 0x2C));
         if (selected_menu_value != 2) {
-            TLobby::set_retry_selection(lbl_804DBE90[selected_menu_value]);
+            TLobby::set_retry_selection(retry_selection_value_table[selected_menu_value]);
             ((s32 (*)(void *))send_giveup_to_all_players__6TLobbyFv)(this);
             play_effect_all_players__6TLobbyFPv(this);
             *(s32 *)((s8 *)this + 0x24) = 1;

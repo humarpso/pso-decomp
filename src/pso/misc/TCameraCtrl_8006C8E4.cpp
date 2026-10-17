@@ -133,12 +133,12 @@ void *__dt__13TUnk_80488DA0Fv(void *arg0, s16 arg1) {
 void* TCameraCtrl__sub_8006CC30(void* a0) { __ct__13TUnk_80488A28Fv(); *(int*)((char*)a0 + 0x18) = (int)lbl_80488DA0; *(float*)((char*)a0 + 0x6c) = (2e+01f); ((TUnk_80488DA0 *)a0)->m_38 = 0; return a0; }
 
 struct O_8006CC7C { u8 pad[0x1c]; V_8006CC7C pos; };
-extern O_8006CC7C *lbl_805005D0[];
+extern O_8006CC7C *demo_camera_controller_table[];
 extern s16 demo_camera_controller_index;
 
 V_8006CC7C get_target_position__11TCameraCtrlFv(void) {
     V_8006CC7C def = lbl_804384E8;
-    O_8006CC7C *o = lbl_805005D0[demo_camera_controller_index];
+    O_8006CC7C *o = demo_camera_controller_table[demo_camera_controller_index];
     if (o != 0) {
         return o->pos;
     }

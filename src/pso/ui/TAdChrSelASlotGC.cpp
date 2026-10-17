@@ -73,11 +73,11 @@ extern const f32 lbl_805DF218;
 void TAdChrSelASlotGC__sub_8030CEEC(u8 *arg0);
 bool TAdChrSelASlotGC__sub_8030C3C0(s32 arg0, u32 arg1);
 s32 is_slot_value_ready__19TAdPlyChrSelPlateGCFl(void *, int);
-extern G_8030C45C lbl_80542E60;
+extern G_8030C45C chr_select_a_slot_entry;
 G_8030C45C *TAdChrSelASlotGC__sub_8030C45C(s32 arg0, s32 arg1, s32 arg2, void *arg3);
 int sprintf(char *, const char *, ...);
 void *memset(void *, int, unsigned long);
-extern char lbl_80542D60[];
+extern char char_select_format_message_buffer[];
 extern u8 TAdChrSelASlotGC__data_804758A8[];
 extern u8 TAdChrSelASlotGC__data_804758B0[];
 extern u8 TAdChrSelASlotGC__data_804758B8[];
@@ -121,11 +121,11 @@ s32 TAdChrSelASlotGC::get_plate_value_for_slot(s32 k) {
 
 G_8030C45C *TAdChrSelASlotGC__sub_8030C45C(s32 arg0, s32 arg1, s32 i, void *arg3) {
     S_8030C45C *e = (S_8030C45C *)TAdSinglePlyChrSelectGC__sub_801FE4BC(i);
-    lbl_80542E60.a = arg1;
-    lbl_80542E60.b = e != NULL ? e->x : get_localized_text_entry(0x16, 0x1C);
-    lbl_80542E60.c = e != NULL ? e->y + 1 : 0;
-    ((TWindowSubSymbolChatPartsSet *)(lbl_80542E60.v))->copy_vec2(arg3);
-    return &lbl_80542E60;
+    chr_select_a_slot_entry.a = arg1;
+    chr_select_a_slot_entry.b = e != NULL ? e->x : get_localized_text_entry(0x16, 0x1C);
+    chr_select_a_slot_entry.c = e != NULL ? e->y + 1 : 0;
+    ((TWindowSubSymbolChatPartsSet *)(chr_select_a_slot_entry.v))->copy_vec2(arg3);
+    return &chr_select_a_slot_entry;
 }
 
 s32 TAdChrSelASlotGC::open_confirm_message(s32 arg1, s32 arg2) {
@@ -167,9 +167,9 @@ s32 TAdChrSelASlotGC::create_message_window(s32 arg1, s32 arg2) {
 s32 TAdChrSelASlotGC::create_format_message_window(s32 arg0, s32 arg1, s32 arg2) {
     s32 w;
     w = create__19TWindowMessageYesNoFPvPvPvPv(arg0, arg2, 0, 0);
-    memset(lbl_80542D60, 0, 0x100);
-    sprintf(lbl_80542D60, (const char *)get_localized_text_entry(0x16, 0x1E), 0x2710);
-    forward_slot_selection__16TAdChrSelASlotGCFPvPv(w, (s32)lbl_80542D60, arg1, lbl_805DF20C);
+    memset(char_select_format_message_buffer, 0, 0x100);
+    sprintf(char_select_format_message_buffer, (const char *)get_localized_text_entry(0x16, 0x1E), 0x2710);
+    forward_slot_selection__16TAdChrSelASlotGCFPvPv(w, (s32)char_select_format_message_buffer, arg1, lbl_805DF20C);
     free_member__17TWindowSubComCardFv(w, 1);
     return w;
 }

@@ -245,7 +245,7 @@ void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern u8 item_collider_body[];
 extern u8 lbl_8043DF94[];
 extern s32 TItem__name;
-extern u32 lbl_805D5438;
+extern u32 item_object_set_data;
 u8 *TItem__ct(u8 *self, void *parent, u8 *item);
 u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
     construct_collider_proxy__13TUnk_804AF8A0Fv(self, parent);
@@ -273,8 +273,8 @@ u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
     } else {
         sub_8010043C__5TItemFUc(self, lbl_8043DF94[TObjPlayer::clamp_s32(((TItem *)self)->get_field_ec(), 0, 4)]);
     }
-    if (lbl_805D5438 != 0) {
-        ((TItem *)self)->apply_object_set_data((void *)lbl_805D5438);
+    if (item_object_set_data != 0) {
+        ((TItem *)self)->apply_object_set_data((void *)item_object_set_data);
         set_item_count__13TUnk_804B9870Fs(self, 0xFFFF);
         ((TItem *)self)->set_mode(0);
     } else {

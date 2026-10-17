@@ -7,7 +7,7 @@ extern u32 indirect_effect_tile_buffer;
 void read_disc_file(void *, void *);
 s16 calc_i8_tiled_texel_offset(u8, u8, s32);
 void *memset(void *, s32, u32);
-extern void *lbl_805D3E24;
+extern void *indinfo_dat_filename;
 extern u32 indirect_recipe_buffer;
 
 void TEffIndirectCtrl::free_buffers() {
@@ -45,7 +45,7 @@ void load_indirect_info(void) {
             i++;
         } while (i < 0x40);
     }
-    read_disc_file(lbl_805D3E24, (void *)indirect_recipe_buffer);
+    read_disc_file(indinfo_dat_filename, (void *)indirect_recipe_buffer);
 }
 
 void TEffIndirectCtrl__sub_802A9548(void* p) { *(s16*)((char*)p + 0x46) = 0; }

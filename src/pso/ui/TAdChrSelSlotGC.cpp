@@ -106,7 +106,7 @@ struct CharacterSelectTransitionState {
 extern "C" {
 void TAdChrSelSlotGC__sub_802C754C(O_802C754C *self, s32 i);
 extern const f32 lbl_805DE5CC;
-extern f32 lbl_805D67F4, lbl_805D67F8;
+extern f32 char_select_slot_quad_width, char_select_slot_quad_height;
 extern const s32 chr_sel_slot_resource_name_table[];
 extern const s32 lbl_80471D50[];
 extern const s32 current_language;
@@ -280,16 +280,16 @@ void TAdChrSelSlotGC::run_task() {
     ++frame;
     for (u32 i = 0; i < 5; ++i) {
         if (i < 2) {
-            lbl_805D67F4 = lbl_805DE5CC;
-            lbl_805D67F8 = 32.0f;
+            char_select_slot_quad_width = lbl_805DE5CC;
+            char_select_slot_quad_height = 32.0f;
         } else {
-            lbl_805D67F4 = lbl_805DE5CC;
-            lbl_805D67F8 = 24.0f;
+            char_select_slot_quad_width = lbl_805DE5CC;
+            char_select_slot_quad_height = 24.0f;
         }
         quads[i].left = positions[i].x;
         quads[i].top = positions[i].y;
-        quads[i].right = positions[i].x + lbl_805D67F4;
-        quads[i].bottom = positions[i].y + lbl_805D67F8;
+        quads[i].right = positions[i].x + char_select_slot_quad_width;
+        quads[i].bottom = positions[i].y + char_select_slot_quad_height;
         if (visible[i]) {
             alpha[i] += 22;
             alpha[i] = alpha[i] > 255 ? 255 : alpha[i];

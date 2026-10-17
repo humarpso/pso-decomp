@@ -46,8 +46,8 @@ s32 translate_matrix_vec3(int, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 pop_matrix();
-extern s8 lbl_804B8448[];
-extern Vec_801946D0 lbl_804B8460[];
+extern s8 map_csn_box_triangle_indices[];
+extern Vec_801946D0 map_csn_box_face_normals[];
 extern s32 identity_matrix[];
 s32 __nw__7TObjectFUl(s32);
 
@@ -85,8 +85,8 @@ s32 TObjMapCsn::build_box_triangles() {
     Tri_801946D0 *t;
     Vec_801946D0 *nrm;
     Csn_801946D0 *arg0 = (Csn_801946D0 *) this;
-    idx = lbl_804B8448;
-    nrm = lbl_804B8460;
+    idx = map_csn_box_triangle_indices;
+    nrm = map_csn_box_face_normals;
     t = arg0->tris;
     corners[0].x = -(0.5f * arg0->f68);
     corners[0].y = 0.0f;

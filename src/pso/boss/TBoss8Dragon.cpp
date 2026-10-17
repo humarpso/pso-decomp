@@ -6781,7 +6781,7 @@ void *TBoss8Dragon__sub_802F3C24(void *arg0, void *arg1);
 void *TBoss8DragonEffTail__ct(void *, void *, void *);
 void __construct_array(void *, void *, void *, int, int);
 void init_and_activate__10TObjPlayerFv(void *);
-extern s32 lbl_805D4008;
+extern s32 boss8_dragon_class_name;
 extern const f32 TBoss8Dragon__data_805DED60;
 #define TBoss8Dragon__data_805D6988 ((u8 *)TBoss8Dragon__data_805D6988)
 #define lbl_804E4C3C ((u8 *)lbl_804E4C3C)
@@ -6803,7 +6803,7 @@ u8 *TBoss8Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
     TObjBoss2Tunnel::reset_coords_pass((s32)(arg0 + 0x610));
     __construct_array(arg0 + 0x6DC, (void *) init_and_activate__10TObjPlayerFv, (void *) __dt__13TUnk_804949A8Fv, 0x1C, 4);
     __ct__14SubtractiveRngFv(arg0 + 0x764);
-    *(s32 *)((s8 *)arg0 + 0) = lbl_805D4008;
+    *(s32 *)((s8 *)arg0 + 0) = boss8_dragon_class_name;
     if (TBoss8Dragon__data_805D69AC == NULL) {
         TBoss8Dragon__data_805D69AC = arg0;
     }

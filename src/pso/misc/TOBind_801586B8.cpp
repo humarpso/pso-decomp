@@ -31,7 +31,7 @@ s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
 s32 init_collision_body_parts(void *, void *, int);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
-extern RecoveredGlobal_80158890_lbl_804AFC54 lbl_804AFC54;
+extern RecoveredGlobal_80158890_lbl_804AFC54 bind_collision_body_parts;
 extern s32 __vt__6TOBind[];
 extern s32 lbl_805D2EA8;
 extern s32 tl_05;
@@ -133,7 +133,7 @@ u8 *TOBind__ct(TOBind *arg0, s32 arg1) {
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DB300;
     arg0->m_bc = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xCC)) + 4) - lbl_805DB304);
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB304;
-    init_collision_body_parts(arg0, &lbl_804AFC54.value, 2);
+    init_collision_body_parts(arg0, &bind_collision_body_parts.value, 2);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     arg0->actorFlags = (s32) (arg0->actorFlags | 0x40000000);

@@ -1189,7 +1189,7 @@ extern "C" s32 update_defense_stat_status(u8 *arg0);
 extern "C" void update_flag30_timer__13TUnk_804806E8Fv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 extern "C" void update_poison_status__13TUnk_804806E8Fv();
-void *lbl_804F2008[7] = {
+void *epsilon_guard_params[7] = {
     (void *)0x43160000, (void *)0x3f0e38e3, (void *)0x400, (void *)0x1e0000,
     (void *)0x0, (void *)0x1, (void *)0x0,
 };
@@ -1356,7 +1356,7 @@ void TObjEneEpsilonGuard::init_model_and_state() {
     reset_hp__9TObjEneDDFv(arg0, epsilon_guard_boss_stat_handle, epsilon_guard_shared_handler_b, epsilon_guard_registered_object_handle);
     set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 0x80020);
     ((TObjEneDD *)arg0)->check_state_flag_4();
-    *(void **)((s8 *)arg0 + 0x350) = lbl_804F2008;
+    *(void **)((s8 *)arg0 + 0x350) = epsilon_guard_params;
     initialize_enemy_state__9TObjEneDDFv(arg0, 0x57);
     ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x460, arg0 + 0x38);
     *(s32 *)((s8 *)arg0 + 0x46C) = 0;

@@ -46,8 +46,8 @@ extern "C" u8 lbl_8044E790[];
 extern "C" u8 lbl_8044E7A0[];
 extern "C" u8 lbl_8044E7B0[];
 extern "C" void render_shadows__7TObjectFv();
-extern void *lbl_804CE1E8[44];
-void *lbl_804CE1E8[44] = {
+extern void *challenge_result_window_layout[44];
+void *challenge_result_window_layout[44] = {
     (void *)0x6, (void *)0x1, (void *)0x3, (void *)0x0,
     (void *)0x0, (void *)0x3f000000, (void *)0xffffffff, (void *)0x0,
     (void *)0x0, (void *)0x3, (void *)0x43690000, (void *)0x0,
@@ -61,7 +61,7 @@ void *lbl_804CE1E8[44] = {
     (void *)0x3f000000, (void *)0xffffffff, (void *)0x0, (void *)0x0,
 };
 void *lbl_804CE298[5] = {
-    (void *)0x43e90000, (void *)0x42b00000, (void *)0x4743b400, (void *)&lbl_804CE1E8,
+    (void *)0x43e90000, (void *)0x42b00000, (void *)0x4743b400, (void *)&challenge_result_window_layout,
     (void *)0x23,
 };
 void *lbl_804CE2AC[3] = {

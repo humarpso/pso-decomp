@@ -520,7 +520,7 @@ s32 initialize_enemy_photon_effect(void *);
 s32 bind_enemy_combat_stats(void *, int, int, int);
 s32 set_animation__10TObjMotionFs(void *, int);
 s32 init_collision_body_parts(void *, void *, int);
-extern s32 lbl_805D4068;
+extern s32 obj_ene_dolm_olm_class_name;
 extern const f32 lbl_805DEF94;
 extern const f32 lbl_805DEF98;
 extern "C" {
@@ -943,7 +943,7 @@ u8 *TObjEneDolmOlm__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_enemy_base__13TUnk_80493450Fv(arg0, arg1);
     *(void **)((s8 *)arg0 + 0x18) = lbl_804E6928;
     ((TUnk_80494938 *)(arg0 + 0x3A8))->init_common();
-    *(s32 *)((s8 *)arg0 + 0) = lbl_805D4068;
+    *(s32 *)((s8 *)arg0 + 0) = obj_ene_dolm_olm_class_name;
     ((TObjEneDolmOlm *)arg0)->apply_set_data((void *)arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();
     ((TObjEneDolmOlm *)arg0)->sub_80301148();

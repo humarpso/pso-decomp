@@ -139,7 +139,7 @@ void __destroy_arr(void *, void *, int, int);
 void __construct_array(void *, void *, void *, int, int);
 
 extern u8 *TObjEneRecobox__static_instance;
-extern s32 lbl_805D4138;
+extern s32 TObjEneRecobox_name_ref;
 extern s32 recobox_boss_register_id;
 extern s32 lbl_805D6B14;
 extern s32 TObjEneRecobox__shared_object_handle;
@@ -265,7 +265,7 @@ extern "C" void update_movement_status__13TUnk_804806E8Fv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 extern "C" void update_poison_status__13TUnk_804806E8Fv();
 extern void *lbl_804EC6B0[7];
-extern void *lbl_804EC6CC[11];
+extern void *recobox_motion_name_table[11];
 extern void *lbl_804EC708[7];
 extern void *TObjEneRecobox__resource_bundle[11];
 void *TObjEneRecobox__attack_params[7] = {
@@ -281,13 +281,13 @@ void *lbl_804EC6B0[7] = {
     (void *)&lbl_80476118, (void *)&lbl_80476124, (void *)&lbl_80476134, (void *)&lbl_80476144,
     (void *)&lbl_8047615C, (void *)&lbl_80476174, (void *)0x0,
 };
-void *lbl_804EC6CC[11] = {
+void *recobox_motion_name_table[11] = {
     (void *)&lbl_8047618C, (void *)&lbl_804761A4, (void *)&lbl_804761C0, (void *)&lbl_804761D8,
     (void *)&lbl_804761F4, (void *)&lbl_80476208, (void *)&lbl_80476220, (void *)&lbl_80476234,
     (void *)&lbl_8047624C, (void *)&lbl_80476260, (void *)0x0,
 };
 void *lbl_804EC6F8[4] = {
-    (void *)&lbl_80476274, (void *)&lbl_804EC6B0, (void *)&lbl_804EC6CC, (void *)0x6000a,
+    (void *)&lbl_80476274, (void *)&lbl_804EC6B0, (void *)&recobox_motion_name_table, (void *)0x6000a,
 };
 void *lbl_804EC708[7] = {
     (void *)&lbl_80476288, (void *)&lbl_80476298, (void *)&lbl_80476134, (void *)&lbl_80476144,
@@ -407,7 +407,7 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(u8 **)((s8 *)arg0 + 0x18) = TObjEneRecobox__vtable;
     ((TUnk_80494938 *)(arg0 + 0x3C0))->init_common();
     __construct_array(arg0 + 0x460, (void *)&init_and_activate__10TObjPlayerFv, (void *)&__dt__13TUnk_804949A8Fv, 0x1C, 4);
-    *(s32 *)((s8 *)arg0 + 0) = lbl_805D4138;
+    *(s32 *)((s8 *)arg0 + 0) = TObjEneRecobox_name_ref;
     invoke_initialization_hook__9TObjEneDDFv(arg0, arg2);
     ((TObjEneDD *)arg0)->init_position_vectors();
     *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneRecobox__static_instance + 0x42C)) + 0x18);

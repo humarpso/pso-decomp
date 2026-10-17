@@ -132,7 +132,7 @@ Parts_80285D38 * TWindowSubSymbolChatParts__ct(Parts_80285D38 *arg0, void *arg1,
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
 
 extern s32 __vt__25TWindowSubSymbolChatParts[];
-extern u8 lbl_804D2DD8[];
+extern u8 symbol_chat_parts_window_layout[];
 extern RecoveredGlobal_80285054_lbl_8050E208 controller_input_state;
 extern s32 TWindowSubSymbolChatParts__name;
 extern const f32 lbl_805DD7C8;
@@ -400,7 +400,7 @@ Parts_80285D38 *TWindowSubSymbolChatParts__ct(Parts_80285D38 *arg0, void *arg1, 
     Vec2_80285D38 v;
     void *p;
     void *q;
-    construct_with_parent__13TUnk_804CDFE8FPv(arg0, lbl_804D2DD8, 4, arg1);
+    construct_with_parent__13TUnk_804CDFE8FPv(arg0, symbol_chat_parts_window_layout, 4, arg1);
     arg0->vt = __vt__25TWindowSubSymbolChatParts;
     arg0->f0 = TWindowSubSymbolChatParts__name;
     arg0->f70 = 0;

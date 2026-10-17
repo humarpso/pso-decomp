@@ -428,7 +428,7 @@ s32 __cvt_fp2unsigned(f32);
 s32 rand();
 extern s32 __vt__9TItemDrop[];
 extern RecoveredGlobal_80107840_lbl_8049EF88 lbl_8049EF88;
-extern s32 lbl_805D2B7C;
+extern s32 item_drop_class_name;
 extern s32 TItemDrop__relocatable_load_buffer;
 extern s32 TItemDrop__second_relocatable_load_buffer;
 extern s32 TItemDrop__section_id;
@@ -1107,7 +1107,7 @@ TItemDrop_80107900 *TItemDrop__ct(TItemDrop_80107900 *self, void *parent, s8 arg
     s32 obj;
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = &lbl_8049EF88.value;
-    self->name = lbl_805D2B7C;
+    self->name = item_drop_class_name;
     TItemDrop__section_id = arg2;
     self->list = (s32 *)mem_alloc(0x44);
     for (i = 0; i != 0x11; i++) {

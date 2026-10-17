@@ -23,7 +23,7 @@ struct Eff_8032E34C {
 extern "C" {
 void anchor_card_effect__13TUnk_804EDD44Fv(u8 *arg0);
 s32 normalize_vector(int, int);
-extern s32 lbl_805D4218;
+extern s32 item_wpn_card_effect_class_name;
 extern const f32 lbl_805DF7E0;
 f32 atan2_float(f32, f32);
 extern const f64 lbl_804773A8[];
@@ -37,7 +37,7 @@ void TUnk_804EDD44::sub_8032E294() {
   u8 *var_r3;
   var_r31 = (u8 *) this;
   new_var = &(*((s32 *) (((s8 *) var_r31) + 0x2C)));
-  var_r4 = lbl_805D4218;
+  var_r4 = item_wpn_card_effect_class_name;
   *((s32 *) (((s8 *) ((u8 *)this)) + 0)) = var_r4;
   var_r3 = (var_r31 + 0x38);
   *((s32 *) (((s8 *) var_r31) + 0x30)) = 0;

@@ -68,7 +68,7 @@ void strncpy(void *, void *, s32);
 void TLobby__sub_803C94DC(u8 *arg0, s32 arg1);
 void start_audio_stream_file(s32, char *);
 extern char lbl_80514D00[][0x20];
-extern s32 lbl_805D3714;
+extern s32 area_music_fade_frame_count;
 extern f32 music_fade_full_scale;
 extern s16 lbl_805D371C;
 void play_area_music(char *name);
@@ -114,9 +114,9 @@ void play_area_music(char *name) {
             music_fade_slot_index = 1 - music_fade_slot_index;
             music_fade_volumes[music_fade_slot_index] = -music_fade_full_scale;
             flag = 0;
-            music_fade_frames_remaining = lbl_805D3714;
+            music_fade_frames_remaining = area_music_fade_frame_count;
             music_fade_volumes[1 - music_fade_slot_index] = lbl_805DC764;
-            music_fade_step = music_fade_full_scale / (f32)lbl_805D3714;
+            music_fade_step = music_fade_full_scale / (f32)area_music_fade_frame_count;
         } else {
             TLobby::stop_audio_streams();
         }

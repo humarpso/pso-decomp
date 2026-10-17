@@ -166,8 +166,8 @@ int TAdSinglePlyChrSelectGC::get_instance() {  return card_character_save_buffer
     extern int card_load_sequence_state;
 void TAdSinglePlyChrSelectGC::set_player_index(int a0) { card_load_sequence_state = a0; }
 
-    extern int lbl_805D5FAC;
-void TAdSinglePlyChrSelectGC::set_save_slot(int a0) { lbl_805D5FAC = a0; }
+    extern int chr_select_save_slot;
+void TAdSinglePlyChrSelectGC::set_save_slot(int a0) { chr_select_save_slot = a0; }
 
 void TAdSinglePlyChrSelectGC::clear_flags(s32 arg0) {
     if ((s32 *) active_character_save_record != NULL) {

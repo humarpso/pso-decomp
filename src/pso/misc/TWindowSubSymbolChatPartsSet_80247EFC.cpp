@@ -78,7 +78,7 @@ s32 draw_visible_window_entries(void *, void *, void *, f32, f32, f32);
 s32 init_window_layout_entries(void *, void *, void *);
 
 extern int symbol_chat_parts_color_table[];
-extern RecoveredGlobal_80248494_lbl_804CE2E8 lbl_804CE2E8;
+extern RecoveredGlobal_80248494_lbl_804CE2E8 symbol_chat_layout_sprite_records;
 extern const float lbl_805DCB94;
 extern const float lbl_805DCB98;
 extern const f32 lbl_805DCB9C;
@@ -235,7 +235,7 @@ void set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(s32 arg0, void *arg1) {
 
 void TWindowSubSymbolChat::init_layout_entries(s32 player) {
     s32 arg0 = (s32)this;
-    init_window_layout_entries((void *)arg0, &lbl_804CE2E8.value, (void *)player);
+    init_window_layout_entries((void *)arg0, &symbol_chat_layout_sprite_records.value, (void *)player);
 }
 
 void TWindowSubSymbolChatPartsSet::update_visibility() {

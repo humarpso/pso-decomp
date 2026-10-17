@@ -57,7 +57,7 @@ void TPhotonLaser__ct(void *, void *, void *, u16);
 s32 __nw__7TObjectFUl(s32);
 void vec3_add_to(void *, void *);
 extern Packet_801ADD10 photon_pilla_laser_packet;
-extern Vec_801ADD10 lbl_804C3A84[];
+extern Vec_801ADD10 photon_pilla_laser_offset_table[];
 extern const f32 lbl_805DC22C;
 s32 advance_animation_playback(void *);
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
@@ -108,7 +108,7 @@ void TPhotonPilla::spawn_laser() {
     position.x = *(f32 *)((s8 *)((u8 *)this) + 0x38);
     position.y = lbl_805DC22C;
     position.z = *(f32 *)((s8 *)((u8 *)this) + 0x40);
-    vec3_add_to(&position, &lbl_804C3A84[*(s32 *)((s8 *)((u8 *)this) + 0x194)]);
+    vec3_add_to(&position, &photon_pilla_laser_offset_table[*(s32 *)((s8 *)((u8 *)this) + 0x194)]);
     (*(s32 *)((s8 *)((u8 *)this) + 0x194))++;
     Packet_801ADD10 packet = photon_pilla_laser_packet;
     packet.pos.x = position.x;

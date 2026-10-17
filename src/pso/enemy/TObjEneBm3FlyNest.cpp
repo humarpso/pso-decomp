@@ -981,7 +981,7 @@ typedef struct Ctl_800B47C4 {
     s32 f;
 } Ctl_800B47C4;
 f32 TObjEneBm3FlyNest__attachment_sample_origin[3];
-f32 lbl_80500B0C[6];
+f32 fly_nest_vertex_table[6];
 __declspec(section ".data") s32 lbl_80500B24[2];
 Ctl_800B47C4 lbl_80500B2C;
 #define TObjEneBm3FlyNest__attachment_sample_origin (*(RecoveredGlobal_800B2948_lbl_80500B00 *)TObjEneBm3FlyNest__attachment_sample_origin)
@@ -1840,7 +1840,7 @@ Obj_800B3E40 *TObjEneBm3FlyNest__sub_800B3E40(Obj_800B3E40 *self, s16 flag) {
     return self;
 }
 
-extern s32 lbl_805D2A18;
+extern s32 bm3_fly_nest_class_name;
 
 struct Vec_800B3EB8 { f32 x, y, z; };
 struct Sub_800B3EB8 { u8 pad[0x1c]; };
@@ -1901,7 +1901,7 @@ void *TObjEneBm3FlyNest__ct(void *arg0, void *arg1, void *arg2) {
     TObjEneDD__ct(self, arg1, arg2);
     self->vt = lbl_80491EE4;
     __construct_array(self->f440, init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 0x1C, 4);
-    self->id = lbl_805D2A18;
+    self->id = bm3_fly_nest_class_name;
     invoke_initialization_hook__9TObjEneDDFv(self, arg2);
     ((TObjEneDD *)self)->init_position_vectors();
     self->f34 = *(s32 *)(*(u8 **)((int)lbl_805D5108 + 0x42C) + 0x18);
@@ -2133,12 +2133,12 @@ u8 *TObjEneBm3FlyNest_CarryFly__ct(u8 *self, void *parent, s32 a, s32 b, s32 unu
     return self;
 }
 void TObjEneBm3FlyNest::init_vertex_table() {
-    f32 *v = lbl_80500B0C;
+    f32 *v = fly_nest_vertex_table;
     v[3] = v[2] = v[1] = v[0] = 0.0f;
     v[5] = v[4] = lbl_805D9D6C;
     lbl_80500B24[0] = -1;
     lbl_80500B24[1] = -1;
-    lbl_80500B2C.pv = lbl_80500B0C;
+    lbl_80500B2C.pv = fly_nest_vertex_table;
     lbl_80500B2C.pc = lbl_80500B24;
     lbl_80500B2C.d = 0;
     lbl_80500B2C.e = 2;

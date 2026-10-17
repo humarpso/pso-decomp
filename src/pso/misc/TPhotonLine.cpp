@@ -58,7 +58,7 @@ extern "C" {
 void construct_actor_base__10TObjPlayerFPvPv(void *, void *);
 void *find_entity_by_id(u16);
 void init_collision_body_parts(void *, void *, s32);
-extern u8 lbl_804C37D8[];
+extern u8 photon_line_collision_body_part[];
 extern s32 __vt__11TPhotonLine[];
 extern s32 lbl_805D3500;
 Line_801ACD14 *TPhotonLine__ct(Line_801ACD14 *self, Params_801ACD14 *p, void *parent, u16 arg3);
@@ -142,7 +142,7 @@ Line_801ACD14 *TPhotonLine__ct(Line_801ACD14 *self, Params_801ACD14 *p, void *pa
     self->f334.z *= p->scale;
     self->f344 = p->f1C;
     self->f350 = find_entity_by_id(arg3);
-    init_collision_body_parts(self, lbl_804C37D8, 1);
+    init_collision_body_parts(self, photon_line_collision_body_part, 1);
     ((TUnk_804AF8A0 *)self)->refresh_collision_body_centers();
     ((TObjPlayer *)self)->reset_photon_effect();
     for (i = 0; i < 10; i++) {

@@ -66,7 +66,7 @@ int shop_tool_stock_level;
 void TLobby::set_6264_and_call_2244B0(int a0, int a1) { shop_tool_stock_level = a1; TLobby::generate_shop_inventory(a0); }
 
 s32 shop_tool_stock_counts[4];
-s32 lbl_80513F00[4];
+s32 shop_tool_stock_table[4];
 s32 shop_tool_flags[4];
 s32 shop_tool_stock_buffers[4];
 void TLobby::generate_shop_inventory(s32 idx) {
@@ -74,7 +74,7 @@ void TLobby::generate_shop_inventory(s32 idx) {
         if (shop_tool_flags[idx] == 0) {
             shop_tool_flags[idx] = 1;
             shop_tool_stock_counts[idx] = 0;
-            lbl_80513F00[idx] = 0;
+            shop_tool_stock_table[idx] = 0;
             generate_shop_common_tool_pool(idx);
             generate_shop_rare_tool_pool(idx);
             generate_shop_technique_pool(idx);

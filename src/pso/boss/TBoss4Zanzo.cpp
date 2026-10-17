@@ -550,7 +550,7 @@ void bind_enemy_combat_stats(void *, int, int, int);
 s32 init_collision_body_parts(void *, void *, int);
 extern s32 lbl_804376D0[];
 extern u8 boss4_type2_model_node_table[];
-extern s32 lbl_805D27D8;
+extern s32 boss4_type2_class_name;
 extern const f32 lbl_805D8C28;
 extern "C" {
 extern u8 lbl_80437644[];
@@ -1728,7 +1728,7 @@ u8 *TBoss4Type2__ct(u8 *arg0, s32 parent, s32 *arg2) {
 
     ((TObjEnemy *)arg0)->initialize((void*)parent);
     *(u8 **)((s8 *)arg0 + 0x18) = lbl_80486924;
-    *(s32 *)((s8 *)arg0 + 0) = lbl_805D27D8;
+    *(s32 *)((s8 *)arg0 + 0) = boss4_type2_class_name;
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(8);
     *(s32 *)((s8 *)arg0 + 0x38C) = arg2[0];
     ((TUnk_80486924 *)arg0)->apply_set_data(arg2 + 1);

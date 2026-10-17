@@ -42,7 +42,7 @@ void TPhotonRainbow__ct(void *, void *, void *, s32);
 u8 *__nw__7TObjectFUl(s32, f32);
 extern u8 lbl_80446DF8[];
 extern u8 lbl_80446E04[];
-extern u8 lbl_804C3778[];
+extern u8 photon_blast_leilla_params[];
 extern s32 __vt__13TPhotonLeilla[];
 extern s32 lbl_805D34F8;
 extern Game_801AC808 *photon_blast_shared_resource;
@@ -64,7 +64,7 @@ void *TPhotonLeilla__ct(Leilla_801AC808 *self, Pkt_801AC808 *pkt) {
     }
     F_801AC808(self, s32, 0x34) = photon_blast_shared_resource->res->f18;
     F_801AC808(self, s32, 0x24) = photon_blast_shared_resource->res->f1C;
-    ((TObjMotion *)self)->set_field_d8((s32)lbl_804C3778);
+    ((TObjMotion *)self)->set_field_d8((s32)photon_blast_leilla_params);
     ((TObjMotion *)self)->set_field_dc(photon_blast_shared_resource->f430);
     F_801AC808(self, s16, 0xB8) = 1;
     set_animation__10TObjMotionFs(self, F_801AC808(self, s16, 0xB8));

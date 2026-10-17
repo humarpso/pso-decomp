@@ -5186,8 +5186,8 @@ extern u8 lbl_804356C0[];
 extern u8 lbl_80435A18[];
 extern s32 TBoss2DeRolLe__shared_handler_id_table[];
 extern u8 boss2_derolle_bml_descriptor[];
-extern s32 lbl_805D26A8[1];
-extern s32 lbl_805D26AC[1];
+extern s32 de_rol_le_base_param_ids[1];
+extern s32 de_rol_le_resistance_param_ids[1];
 extern s32 lbl_805D26B0[1];
 extern s32 TBoss2DeRolLe__base_params[1];
 extern s32 TBoss2DeRolLe__resistance_params[1];
@@ -5574,7 +5574,7 @@ s32 set_matrix_identity(void *);
 struct W3_8003563C;
 extern W3_8003563C lbl_804359C0[];
 extern u8 controller_input_state[];
-extern s32 lbl_805D26B4;
+extern s32 boss2_de_rol_le_class_name;
 extern s32 TBoss2DeRolLe__base_params;
 extern s32 TBoss2DeRolLe__resistance_params;
 extern u8 *TBoss2DeRolLe__data_805D4BA0;
@@ -5800,7 +5800,7 @@ void *TBoss2DeRolLe__ct(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(self->obj3D8, 0);
     init_resources__13TBoss2DeRolLeFi((s32)self->r664);
     init_resources__13TBoss2DeRolLeFi((s32)self->r684);
-    self->f0 = lbl_805D26B4;
+    self->f0 = boss2_de_rol_le_class_name;
     if ((u32)TBoss2DeRolLe__instance == 0) {
         TBoss2DeRolLe__instance = (s32)self;
     }
@@ -6046,13 +6046,13 @@ void load_resources__13TBoss2DeRolLeFv(void) {
     lbl_805D4BBC = 0;
     lbl_805D4BC0 = 0;
     for (i = 0; i < 1; i++) {
-        TBoss2DeRolLe__base_params[i] = register_boss__6TLobbyFl(lbl_805D26A8[i]);
+        TBoss2DeRolLe__base_params[i] = register_boss__6TLobbyFl(de_rol_le_base_param_ids[i]);
     }
     for (i = 0; i < 3; i++) {
         ((s32 *)TBoss2DeRolLe__attack_params_table)[i] = dispatch_shared_handler_b__6TLobbyFl(TBoss2DeRolLe__shared_handler_id_table[i]);
     }
     for (i = 0; i < 1; i++) {
-        TBoss2DeRolLe__resistance_params[i] = register_object__6TLobbyFl(lbl_805D26AC[i]);
+        TBoss2DeRolLe__resistance_params[i] = register_object__6TLobbyFl(de_rol_le_resistance_param_ids[i]);
     }
     for (i = 0; i < 1; i++) {
         TBoss2DeRolLe__data_805D4BA0[i] = dispatch_shared_handler_a__6TLobbyFl(lbl_805D26B0[i]);

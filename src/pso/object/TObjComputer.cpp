@@ -103,7 +103,7 @@ extern const f32 lbl_805DBCF8;
 s32 get_bml_model(void *, s32);
 u32 init_collision_body_parts(void *, void *, s32);
 void *TObjMesBase__ct(TObjMesBase *arg0, s32 arg1, s32 arg2);
-extern s32 lbl_804B6254[];
+extern s32 obj_computer_collision_body_parts[];
 extern s32 __vt__12TObjComputer[];
 extern s32 lbl_805D32CC;
 extern u32 TObjComputer__model_archive;
@@ -280,7 +280,7 @@ void *TObjComputer__ct(void *arg0, void *parent, void *row) {
         queue_destruction__7TObjectFv(self);
         return self;
     }
-    init_collision_body_parts(self, lbl_804B6254, 1);
+    init_collision_body_parts(self, obj_computer_collision_body_parts, 1);
     self->flags30 |= 0x40000000;
     ((TObjPlayer *)self)->reset_photon_effect();
     ((TOKeyAncient01 *)(self->aux98))->set_type();

@@ -39,16 +39,16 @@ Slot_803F3478 TAdPlayerLoadGC__load_request_slots[2];
 S_803F3328 lbl_805A29B0[100];
 u8 lbl_805A5ED0[0x30];
 
-extern s32 lbl_805D4700;
+extern s32 player_load_channel_flags;
 
 s32 TAdPlayerLoadGC::get_or_set_channel_flag(s32 arg0, s32 arg1) {
     if (((arg0 != 0) && (arg0 != 1)) || (arg1 < 0) || (arg1 > 2)) {
         return 0;
     }
     if (arg1 != 2) {
-        (&lbl_805D4700)[arg0] = arg1;
+        (&player_load_channel_flags)[arg0] = arg1;
     }
-    return (&lbl_805D4700)[arg0];
+    return (&player_load_channel_flags)[arg0];
 }
 
 s32 TAdPlayerLoadGC::get_load_state() {

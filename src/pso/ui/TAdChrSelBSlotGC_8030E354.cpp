@@ -39,7 +39,7 @@ extern RecoveredGlobal_8030EBD0_lbl_8050E3B8 controller_physical_port_bank;
 s32 push_plate_position__19TAdPlyChrSelPlateGCFv(int, void *);
 s32 get_global_state__16TAdChrSelBSlotGCFv(void *);
 extern RecoveredGlobal_8030E6E0_lbl_804758E8 lbl_804758E8;
-extern G_8030E3BC lbl_80542E78;
+extern G_8030E3BC chr_select_b_slot_entry;
 G_8030E3BC *TAdChrSelBSlotGC__sub_8030E3BC(s32 arg0, s32 arg1, s32 arg2, void *arg3);
 
 void TAdChrSelBSlotGC::render() {
@@ -58,11 +58,11 @@ bool TAdChrSelBSlotGC::is_slot_state_one(s32 arg0, u32 i) {
 
 G_8030E3BC *TAdChrSelBSlotGC__sub_8030E3BC(s32 arg0, s32 arg1, s32 i, void *arg3) {
     S_8030E3BC *e = (S_8030E3BC *)TAdSinglePlyChrSelectGC__sub_801FE3E4(i);
-    lbl_80542E78.a = arg1;
-    lbl_80542E78.b = e != NULL ? e->x : get_localized_text_entry(0x16, 0x1C);
-    lbl_80542E78.c = e != NULL ? e->y + 1 : 0;
-    ((TWindowSubSymbolChatPartsSet *)(lbl_80542E78.v))->copy_vec2(arg3);
-    return &lbl_80542E78;
+    chr_select_b_slot_entry.a = arg1;
+    chr_select_b_slot_entry.b = e != NULL ? e->x : get_localized_text_entry(0x16, 0x1C);
+    chr_select_b_slot_entry.c = e != NULL ? e->y + 1 : 0;
+    ((TWindowSubSymbolChatPartsSet *)(chr_select_b_slot_entry.v))->copy_vec2(arg3);
+    return &chr_select_b_slot_entry;
 }
 
 void TAdChrSelBSlotGC__sub_8030E458(void) {  }

@@ -48,7 +48,7 @@ extern Glyph_80145804 *menu_font_glyph_table;
 extern u8 lbl_805D56C0;
 extern void *menu_font_object;
 __declspec(section ".data") u32 *menu_font_glyph_pixel_buffers[2];
-Rect_80145804 lbl_8050C048[2];
+Rect_80145804 menu_font_render_rects[2];
 Tex_80145804 lbl_8050C090[2];
 #pragma push
 #pragma dont_inline off
@@ -75,8 +75,8 @@ void load_menu_font(void) {
     menu_font_glyph_data = set_stream_and_load_file__6TLobbyFi(lbl_8043F3D8);
     TLobby::release_menu_font();
     for (i = 0; i < 2; i++) {
-        ((TObjPlayer *)(lbl_8050C048 + i))->set_render_rect(0, 0x208, 0x100, 0x100);
-        set_texture_name(lbl_8050C090 + i, lbl_8050C048 + i, i + 0xDCF28, 0x08800000);
+        ((TObjPlayer *)(menu_font_render_rects + i))->set_render_rect(0, 0x208, 0x100, 0x100);
+        set_texture_name(lbl_8050C090 + i, menu_font_render_rects + i, i + 0xDCF28, 0x08800000);
     }
     load_texture_list(menu_font_texture_list);
     for (m = 0; m < 2; m++) {

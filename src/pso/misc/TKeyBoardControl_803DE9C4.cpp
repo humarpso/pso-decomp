@@ -53,7 +53,7 @@ s32 Dolphin_PADRead(void *, void *);
 extern s32 keyboard_pad_status_buffer[];
 extern s32 TKeyBoardControl__pad_status_buffer[];
 extern Ent_803DEBC8 pad_button_map_table[];
-extern u32 lbl_805D46E0;
+extern u32 keyboard_pad_button_count;
 extern V4_803DECFC model_material_color;
 extern u8 TObjLight__gx_light_objects[];
 extern s32 chunk_polygon_flags_or_mask;
@@ -176,7 +176,7 @@ u8 *TKeyBoardControl__sub_803DEB74(u32 arg0) {
 s32 TKeyBoardControl::map_pad_buttons(u16 arg0) {
     s32 r = 0;
     u32 i;
-    for (i = 0; i < lbl_805D46E0; i++) {
+    for (i = 0; i < keyboard_pad_button_count; i++) {
         if (arg0 & pad_button_map_table[i].mask) r |= pad_button_map_table[i].val;
     }
     return r;

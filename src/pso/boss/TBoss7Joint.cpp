@@ -28,7 +28,7 @@ s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
 extern s32 lbl_80473FB8[];
-extern s32 lbl_804E45C8[];
+extern s32 boss7_joint_params[];
 extern const f32 lbl_805DEBBC;
 struct VOff_802EE9A4_arg0_802EE9A4 { char pad_0[0x2FC]; char f_2FC[1]; };
 
@@ -104,7 +104,7 @@ s32 TBoss7Joint::init_params() {
     *(s16 *)((s8 *)this + 0x32C) = 0x4E20;
     *(s16 *)((s8 *)this + 0x2B8) = 0x4E20;
     check_state_flag_2();
-    *(s32 **)((s8 *)this + 0x350) = lbl_804E45C8;
+    *(s32 **)((s8 *)this + 0x350) = boss7_joint_params;
     *(s16 *)((s8 *)this + 0x33E) = *(s16 *)((s8 *)this + 0x2B8);
     *(f32 *)((s8 *)this + 0x37C) = lbl_805DEBBC;
     this->vfunc_96();

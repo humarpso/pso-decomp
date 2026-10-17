@@ -28,7 +28,7 @@ s32 draw_default_entry__9TWindowDDFl();
 s32 draw_visible_window_entries(void *, void *, int);
 s32 draw_window_tab(void *, void *, int, f32);
 extern const f32 lbl_805DD890;
-extern RecoveredGlobal_80287FBC_lbl_804D2E74 lbl_804D2E74;
+extern RecoveredGlobal_80287FBC_lbl_804D2E74 window_timer_layout;
 extern s32 __vt__12TWindowTimer[];
 extern s32 TWindowTimer__name;
 extern s32 lbl_8044FCE8[];
@@ -147,7 +147,7 @@ void *__dt__12TWindowTimerFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80287FBC_lbl_804D2E74_size[sizeof(RecoveredGlobal_80287FBC_lbl_804D2E74) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80287FBC___vt__12TWindowTimer_size[sizeof(RecoveredGlobal_80287FBC___vt__12TWindowTimer) == 0x18 ? 1 : -1];
 u8 *TWindowTimer__ct(TWindowTimer *arg0) {
-    ((TWindowDD *)arg0)->construct_base((u8 *)&lbl_804D2E74.value, (s16)4, (u8 *)(get_zero_vec2()));
+    ((TWindowDD *)arg0)->construct_base((u8 *)&window_timer_layout.value, (s16)4, (u8 *)(get_zero_vec2()));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80287FBC___vt__12TWindowTimer *)&__vt__12TWindowTimer).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowTimer__name;
     arg0->m_60 = 0;

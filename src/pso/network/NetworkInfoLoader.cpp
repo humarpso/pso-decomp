@@ -64,7 +64,7 @@ extern char lbl_804FCEB4[];
 extern char lbl_804FCEC4[];
 extern char default_player_name[];
 extern char lbl_804FCEE4[];
-extern char lbl_804FCEF4[];
+extern char default_network_entry_name[];
 extern char lbl_804FCF04[];
 extern char lbl_804FCF18[];
 extern u32 lbl_805D7980;
@@ -78,7 +78,7 @@ extern u8 TAdPlayerLoadGC__network_info_payload_buffer[];
 extern u8 network_info_trailer_buffer[];
 extern u8 network_info_trailer_backup[];
 extern Save_803F3F64 *TAdPlayerLoadGC__network_config_buffer;
-extern s32 lbl_805D79A4;
+extern s32 network_config_mode;
 
 #pragma scheduling off
 #pragma peephole off
@@ -375,8 +375,8 @@ void init_network_config_defaults(void) {
             strcpy(lobby_net_config_buffer->rec[i].name, lbl_804FCEE4);
             break;
         case 5:
-            strcpy(lobby_net_config_buffer->ent[i].name, lbl_804FCEF4);
-            strcpy(lobby_net_config_buffer->rec[i].name, lbl_804FCEF4);
+            strcpy(lobby_net_config_buffer->ent[i].name, default_network_entry_name);
+            strcpy(lobby_net_config_buffer->rec[i].name, default_network_entry_name);
             break;
         }
     }
@@ -407,9 +407,9 @@ s32 get_network_config_mode(void) { return get_or_set_network_config_mode(4); }
 
 s32 get_or_set_network_config_mode(s32 arg0) {
     if (arg0 < 4) {
-        lbl_805D79A4 = arg0;
+        network_config_mode = arg0;
     }
-    return lbl_805D79A4;
+    return network_config_mode;
 }
 
 extern s32 TAdPlayerLoadGC__player_load_value;

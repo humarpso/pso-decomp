@@ -21,7 +21,7 @@ struct RecoveredGlobal_80293F98_lbl_804DB900 {
 
 extern "C" {
 s32 __cvt_fp2unsigned(f32);
-extern RecoveredGlobal_80293F98_lbl_804DB900 lbl_804DB900;
+extern RecoveredGlobal_80293F98_lbl_804DB900 chcr_eff_fade_strip_rect;
 extern const f32 lbl_805DD9E0;
 extern const f32 lbl_805DD9E4;
 typedef char RecoveredGlobal_80293F98_lbl_804DB900_size[sizeof(RecoveredGlobal_80293F98_lbl_804DB900) == 0x20 ? 1 : -1];
@@ -44,7 +44,7 @@ void TChCrEffFade::draw_fade_strip(f32 farg0) {
     stack.spC = &stack.sp18;
     stack.sp10 = 0;
     stack.sp14 = 4;
-    stack.sp8 = &lbl_804DB900.value;
+    stack.sp8 = &chcr_eff_fade_strip_rect.value;
     ((TWindowCtrlMain *)(&stack.sp8))->draw_strip_swap_color(4, 6, lbl_805DD9E4);
 }
 

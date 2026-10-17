@@ -36,7 +36,7 @@ s32 get_field_20__17TWindowSubComCardFv();
 s32 refresh_status_display__9TWindowDDFv(u8 *);
 s32 TWindowSoundBalance__sub_80270748(void *, s32);
 s32 TWindowSoundBalance__sub_802707D4(void *, s32);
-extern s32 lbl_804D0D68[];
+extern s32 window_sound_balance_settings[];
 extern s32 __vt__19TWindowSoundBalance[];
 extern s32 TWindowSoundBalance__name;
 extern const f32 lbl_805DD414;
@@ -126,7 +126,7 @@ void *__dt__19TWindowSoundBalanceFv(void *arg0, s16 arg1) {
 u8 *TWindowSoundBalance__ct(u8 *arg0, s32 arg1) {
     u8 *e;
     State_80270DCC *st;
-    ((TWindowDD *)arg0)->construct_base((u8 *)lbl_804D0D68, (s16)4, (u8 *)arg1);
+    ((TWindowDD *)arg0)->construct_base((u8 *)window_sound_balance_settings, (s16)4, (u8 *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowSoundBalance;
     *(s32 *)((s8 *)arg0 + 0) = TWindowSoundBalance__name;
     ((TWindowSoundBalance *)arg0)->m_60 = 0;

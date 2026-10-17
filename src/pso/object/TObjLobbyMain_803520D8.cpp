@@ -313,7 +313,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_803527F0_lbl_804F0F24 bm_obj_lobby_main_resource_descriptor;
 void *create_particle_emitter(void *pos, s32 id);
 s32 init_collision_body_parts(void *, void *, int);
-extern RecoveredGlobal_80352940_lbl_804F0F34 lbl_804F0F34;
+extern RecoveredGlobal_80352940_lbl_804F0F34 lobby_main_collision_body;
 extern s32 __vt__13TObjLobbyMain[];
 void TLobby__sub_8001FE7C(void*, int);
 void free_collision_body_parts(void *);
@@ -416,7 +416,7 @@ u8 *TObjLobbyMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjLobbyMain *)arg0)->m_c8 = 2;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (1.2e+02f);
     ((TObjLobbyMain *)arg0)->m_b0 = (f32) (0.0f);
-    init_collision_body_parts(arg0, &lbl_804F0F34.value, 1);
+    init_collision_body_parts(arg0, &lobby_main_collision_body.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;

@@ -434,8 +434,8 @@ extern u8 lbl_80465058[];
 extern s32 char_creation_assign_sprite_id_table[];
 extern s32 char_creation_assign_icon_sprite_id_table[];
 extern Ent_802964B0 class_appearance_table[];
-extern Cols_80297DB8 lbl_804DBC68[2];
-extern Quad_80297DB8 lbl_804DBC88[2];
+extern Cols_80297DB8 footer_divider_colors[2];
+extern Quad_80297DB8 footer_divider_vertices[2];
 extern u8 lbl_804DBCC8[];
 extern s32 lbl_804DBDA8[];
 extern RecoveredGlobal_80298F08_lbl_8050E3B8 controller_physical_port_bank;
@@ -1700,8 +1700,8 @@ void TObjCMMainMenu::draw_footer_divider() {
     prim.start = 0;
     prim.count = 4;
     for (i = 0; i < 2; i++) {
-        q = &lbl_804DBC88[i];
-        src = &lbl_804DBC68[i];
+        q = &footer_divider_vertices[i];
+        src = &footer_divider_colors[i];
         q->p[1].y = top;
         q->p[0].y = top;
         q->p[3].y = bot;

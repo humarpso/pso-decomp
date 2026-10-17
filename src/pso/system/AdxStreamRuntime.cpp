@@ -245,8 +245,8 @@ void TLobby__sub_803C6118(u8 *arg0);
 u8 *TLobby__sub_803C61C4(s32, Strm_803C5B50 **, Strm_803C5B50 *);
 Strm_803C5B50 *sj_ring_buffer_create(void *, s32, s32);
 void *memcpy(void *, const void *, u32);
-extern u8 lbl_80572BA0[];
-extern u8 lbl_80572BE0[];
+extern u8 adx_stream_ring_buffer_storage[];
+extern u8 adx_stream_ring_buffer[];
 void TLobby__sub_803C5B50(Obj_803C5B50 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 adx_write_encoded_blocks(Obj_803C7C10 *arg0);
 extern char lbl_8047C5D8[];
@@ -301,9 +301,9 @@ void TLobby__sub_803C5B50(Obj_803C5B50 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     Strm_803C5B50 *dst;
     u8 *ctx;
     TLobby::clear_buffer_1680();
-    src = sj_ring_buffer_create(lbl_80572BE0, 0x400, 0);
-    arr[0] = sj_ring_buffer_create(lbl_80572BA0, 0x400, 0);
-    arr[1] = sj_ring_buffer_create(lbl_80572BA0 + 0x20, 0x400, 0);
+    src = sj_ring_buffer_create(adx_stream_ring_buffer, 0x400, 0);
+    arr[0] = sj_ring_buffer_create(adx_stream_ring_buffer_storage, 0x400, 0);
+    arr[1] = sj_ring_buffer_create(adx_stream_ring_buffer_storage + 0x20, 0x400, 0);
     dst = arg0->f14;
     ctx = TLobby__sub_803C61C4(2, arr, src);
     TLobby__sub_803C60F0(ctx, arg1, arg2, arg3);
@@ -2639,8 +2639,8 @@ void TLobby::adxm_goto_mwidle_border() {
 }
 
 Ent_803C9608 adx_stream_player_pool[16];
-u8 lbl_80572BA0[0x40];
-u8 lbl_80572BE0[0x400];
+u8 adx_stream_ring_buffer_storage[0x40];
+u8 adx_stream_ring_buffer[0x400];
 char music_stream_afs_filename_buffer[0x120];
 u32 adx_encoder_channel_work_pools[0x9C0 / 4];
 RecoveredGlobal_803C6830_lbl_80573AC0 adx_encoder_context_pool;

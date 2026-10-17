@@ -48,7 +48,7 @@ s32 TWindowDuelResult__sub_8024F3CC(void *);
 u8 *init__21TWindowSubComCardListFiii(void *, s32, s32, s32);
 s32 get_window_layout_position(int);
 
-extern s32 lbl_805D38F0;
+extern s32 window_duel_result_class_name;
 u8 *TWindowDuelResult__ct(u8 *arg0, s16 arg1);
 s32 get_localized_text_entry(int, int);
 void *get_player_by_client_id(s32 i);
@@ -308,7 +308,7 @@ u8 *TWindowDuelResult__ct(u8 *arg0_, s16 arg1) {
     u8 *var_r0;
     construct_base__9TWindowDDFPUcsPUc((void *)arg0_, &__vt__17TWindowDuelResult.value, (void *)arg1, (int) (get_window_layout_position(0x24)));
     *(s32 **)((s8 *)arg0_ + 0x18) = &(*(RecoveredGlobal_8024F5B0_lbl_804CF020 *)lbl_804CF020).value;
-    *(s32 *)((s8 *)arg0_ + 0) = (s32) lbl_805D38F0;
+    *(s32 *)((s8 *)arg0_ + 0) = (s32) window_duel_result_class_name;
     temp_r3 = (u8 *)(((TAdSinglePlyChrSelectGC *)((void *)0xC))->alloc());
     var_r0 = temp_r3;
     if (var_r0 != NULL) {

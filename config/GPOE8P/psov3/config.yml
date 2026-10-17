@@ -1093,6 +1093,7 @@ force_active:
   - cast_technique__18TObjEneRe4SorcererFv
   - cave_door01_resource_descriptor
   - chain_saw_collision_body_part_table
+  - chain_saw_damage_collision_body_parts
   - chainsaw_ginja_model_filenames
   - challenge_default_settings
   - challenge_force_items_stage_00
@@ -1167,6 +1168,7 @@ force_active:
   - challenge_result_value_format
   - challenge_result_window_depth
   - challenge_result_window_extent
+  - challenge_result_window_layout
   - challenge_retry_cmd_table
   - challenge_retry_window_pos
   - change_floor_reload_area
@@ -1174,6 +1176,7 @@ force_active:
   - chat_dispatch_accepted_result
   - chat_log_remove_line
   - chat_text_lacks_language_tag
+  - chcr_eff_wall_gradient_table
   - chcr_load_afs_busy_flag
   - check__10TObjBgmColFv
   - check_any_player_in_range__12TObjRaderColFPv
@@ -1341,6 +1344,7 @@ force_active:
   - construct_with_vtable__13TUnk_8049F40CFPvii
   - consume_counter__14TOTrapChainSawFPv
   - controller_default_pad_state
+  - controller_device_id_table
   - convert_serial_hex_to_decimal__22TAdEnterSerialAccessGCFi
   - copy__11TBreakUpMdlFPv
   - copy__12TChCrLoadReqFPv
@@ -1693,6 +1697,7 @@ force_active:
   - enter_timed_state__13TUnk_804F0810FlPv
   - episode1_story_quest_flag_pairs
   - episode2_story_quest_flag_pairs
+  - epsilon_guard_params
   - evict_lowest_key_floor_item
   - exec_heal__22TMedicalCenterSequenceFv
   - exec_item_command__14TWindowSubItemFll
@@ -1805,6 +1810,7 @@ force_active:
   - floor_resource_callbacks_selectors_19_20
   - floor_resource_callbacks_selectors_23_24_25_26_27
   - floor_resource_callbacks_selectors_28_29
+  - fly_nest_vertex_table
   - fn_80010F4C
   - fn_8007A6C8
   - fn_8007F560
@@ -1932,8 +1938,10 @@ force_active:
   - get_total_materials_used
   - get_vidlist
   - get_viewport_offset__19TWindowKeyBoardSoftFi
+  - gi_gue_njm_name_table
   - grass_camera_vec
   - grass_origin_vec
+  - grass_render_vec
   - gray_out_unusable_entries__14TWindowSubItemFv
   - guide_button_atlas_origins
   - guide_button_texture_handle
@@ -2413,9 +2421,7 @@ force_active:
   - lbl_804CE820
   - lbl_804CE918
   - lbl_804DC098
-  - lbl_804E11D8
   - lbl_804E1210
-  - lbl_804E1220
   - lbl_804E3B60
   - lbl_804E674C
   - lbl_804E6784
@@ -2426,12 +2432,9 @@ force_active:
   - lbl_804E8838
   - lbl_804E8840
   - lbl_804EC6B0
-  - lbl_804EC6CC
   - lbl_804EC708
   - lbl_804ED9C0
   - lbl_804EF3A4
-  - lbl_804EFAE0
-  - lbl_804EFAF8
   - lbl_804F2B80
   - lbl_804F2B90
   - lbl_804F2B98
@@ -2443,22 +2446,17 @@ force_active:
   - lbl_804F2BE0
   - lbl_804F2BF0
   - lbl_804F2BF8
-  - lbl_80500B0C
   - lbl_80500B24
   - lbl_80500B2C
   - lbl_80500B58
   - lbl_80500B60
   - lbl_80500B6C
-  - lbl_80500BC4
-  - lbl_80500C24
   - lbl_80501058
   - lbl_80501060
   - lbl_80501068
   - lbl_80501114
-  - lbl_8050C048
   - lbl_8050EA64
   - lbl_80513918
-  - lbl_80513F00
   - lbl_80540BBC
   - lbl_805A9A90
   - lbl_805A9AF0
@@ -2539,6 +2537,7 @@ force_active:
   - mark_done__12TBoss4ThanksFv
   - mark_done__12TBoss6ThanksFv
   - maybe_handle_destruction__6TLobbyFv
+  - mc_select_memorycard_texture_list
   - mcmdLoop
   - mcmdPlayMacro
   - mcmdPortamento
@@ -2551,9 +2550,12 @@ force_active:
   - mcmdVarCalculation
   - mcmdVibrato
   - mcmdWait
+  - me1_gi_gue_motion_filename_table
   - me3_stelth_bml_resource_desc
   - megid_projectile_weapon_vtable
+  - menu_font_render_rects
   - message_tag_error
+  - message_window_position
   - middleware_interrupt_lock_depth
   - middleware_saved_interrupt_state
   - model_draw_queue_models
@@ -2749,8 +2751,11 @@ force_active:
   - parse_pad_event__16TKeyBoardControlFlUl
   - parse_tag_command__24TMessageWindowControllerFv
   - particle_regular_bml_descriptor
+  - photon_blast_farlla_params
+  - photon_blast_golla_params
   - photon_blast_resource_descriptor
   - photon_chair_resource_descriptor
+  - photon_pilla_action_table
   - pick_random_destination__11TODragonflyFf
   - place_players_in_warp_circle
   - play_anti_cast_sound__8TTecAntiFv
@@ -7156,6 +7161,10 @@ force_active:
   - player_ply_head_00_textures_names
   - player_ply_head_model_names
   - player_ply_head_texture_lists
+  - player_render_target
+  - player_render_texture_name
+  - ply_status_window_points_first
+  - ply_status_window_points_second
   - pm_mdl_model_names
   - pm_mdl_motion_names
   - poll_key_state__16TKeyBoardControlFv
@@ -7227,6 +7236,7 @@ force_active:
   - receive_physical_attack__16TOTrapAncient02RFPvf
   - receive_physical_attack__20TContainerAncient01RFPvf
   - receive_weapon_special_attack__15TObjEneMe1GiGueFPvPv
+  - recobox_motion_name_table
   - recoil_weapon_shoot_model_vtable
   - recoiling_projectile_weapon_vtable
   - record_hit__22TObjFogCollisionPoisonFll
@@ -7414,6 +7424,7 @@ force_active:
   - resolve_theme_index__13TObjLobbyMainFv
   - restore_state__15TPlyPhotonChairFl
   - resume_challenge_result_processing
+  - retry_selection_value_table
   - return_to_city_after_defeat
   - returning_state__14TObjEneBm5WolfFPvi
   - roaming_state__14TObjEneBm5WolfFi
@@ -7607,6 +7618,7 @@ force_active:
   - scale_by_level__14TOTrapChainSawFf
   - scan_memcard_quest_files__12TQuestListVMFPv
   - schedule_pack_reaction__14TObjEneBm5WolfFPvis
+  - seabed_suiso_brakable_collision_bodies
   - seabed_trap_collision_body
   - seabed_trap_fragment_spawns
   - seabed_trap_model_filenames
@@ -7736,6 +7748,7 @@ force_active:
   - setup_telepipe_field__9TTecLukerFv
   - setup_tex_gen__10TObjPlayerFv
   - shift_queue_push_next__15TObjBoss2TunnelFPv
+  - shop_tool_stock_table
   - shop_weapon_stock_buffers
   - shop_weapon_stock_generated_flags
   - shop_weapon_stock_target_counts
@@ -8222,6 +8235,7 @@ force_active:
   - tick_persistent_sound__15TObjIllGillKageFv
   - title_pulse_color_table
   - to_le_uint16_t__FUs
+  - tobject_destructor_chain
   - todoormachine01_resource_descriptor
   - toggle_effect_render__14TObjEneDolmOlmFv
   - toggle_selected_part__28TWindowSubSymbolChatPartsSetFv

@@ -5,7 +5,7 @@
 extern "C" {
 
 extern s32 lbl_805D49B4;
-extern s32 lbl_805D5354;
+extern s32 quest_download_server_ready;
 extern s32 quest_download_in_progress;
 
 s32 TQuestVmDownLoadServer::is_ready() {
@@ -16,7 +16,7 @@ s32 TQuestVmDownLoadServer::is_ready() {
     if ((s32) quest_download_in_progress != 0) {
         return 0;
     }
-    return lbl_805D5354 ? 1 : 0;
+    return quest_download_server_ready ? 1 : 0;
 }
 
 }

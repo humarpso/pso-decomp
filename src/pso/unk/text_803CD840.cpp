@@ -92,7 +92,7 @@ s32 TLobby__sub_803CCB98(void *, int, int);
 void *adxf_open__6TLobbyFUii(const char *, s32);
 extern char lbl_8047C818[];
 extern Ent_803CD840 *afs_archive_toc_table[256];
-extern u8 lbl_8057DF50[];
+extern u8 adxf_open_file_buffer[];
 extern s32 lobby_adxf_current_file_id;
 extern void *lobby_adxf_open_file_handle;
 extern s32 lobby_afs_toc_entry_index;
@@ -144,7 +144,7 @@ s32 adxf_open_file__6TLobbyFiPviPv(s32 id, const char *name, s32 arg2, Ent_803CD
     strncpy(e->name, name, 0x100);
     e->f110 = arg2;
     e->fE = 0;
-    aligned = (s32)(lbl_8057DF50 + 0x20) & ~0x1F;
+    aligned = (s32)(adxf_open_file_buffer + 0x20) & ~0x1F;
     lbl_805D75F0 = aligned;
     lbl_805D75EC = aligned;
     r = TLobby__sub_803CCB98(lobby_adxf_open_file_handle, 1, aligned);

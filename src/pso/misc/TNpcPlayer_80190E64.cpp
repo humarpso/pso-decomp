@@ -33,7 +33,7 @@ struct Ply_80190FDC { u8 pad0[0x38]; f32 pos[3]; };
 
 extern "C" {
 s32 init_collision_body_parts(void *, void *, int);
-extern RecoveredGlobal_8019118C_lbl_804B7BD8 lbl_804B7BD8;
+extern RecoveredGlobal_8019118C_lbl_804B7BD8 npc_player_collision_body_part;
 extern RecoveredGlobal_8019118C_lbl_804B7C1C lbl_804B7C1C;
 u8 *TLobby__sub_8019118C(u8 *arg0, s32 arg1, s32 arg2);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -165,7 +165,7 @@ u8 *TLobby__sub_8019118C(u8 *arg0, s32 arg1, s32 arg2) {
     *(s16 *)((s8 *)arg0 + 0xAC) = 3;
     ((TUnk_804B7C1C *)arg0)->m_b0 = (s32) ((TUnk_804B7C1C *)arg0)->m_84;
     *(s32 *)((s8 *)arg0 + 0xB4) = 0;
-    init_collision_body_parts(arg0, &lbl_804B7BD8.value, 1);
+    init_collision_body_parts(arg0, &npc_player_collision_body_part.value, 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
 }

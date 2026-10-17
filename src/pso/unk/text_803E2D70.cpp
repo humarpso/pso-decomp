@@ -155,7 +155,7 @@ s32 dispatch_chunk_vertex_list(u32*, s32);
 void dispatch_chunk_polygon_list(u16*, s32);
 extern const char lbl_804FC810[];
 extern u32 lbl_805D77E4;
-extern ChunkRecording_803E44D4* lbl_805D77E8;
+extern ChunkRecording_803E44D4* chunk_vertex_cache_state;
 void PSMTXConcat(const Mtx_803E4354, const Mtx_803E4354, Mtx_803E4354);
 void PSMTXTrans(Mtx_803E4354, f32, f32, f32);
 void PSMTXScale(Mtx_803E4354, f32, f32, f32);
@@ -671,29 +671,29 @@ s32 draw_chunk_vertices_cached__10TObjPlayerFPv(void* arg) {
     chunk_has_vertex_colors = 0;
     cache = chunk_vertex_cache_buffer;
     if (lbl_805D77E4 & 4) {
-        if (lbl_805D77E8->buffers[lbl_805D77E8->index].bytes != 0) {
-            memmove((void*)chunk_vertex_cache_buffer, lbl_805D77E8->buffers[lbl_805D77E8->index].vertices, lbl_805D77E8->buffers[lbl_805D77E8->index].bytes);
+        if (chunk_vertex_cache_state->buffers[chunk_vertex_cache_state->index].bytes != 0) {
+            memmove((void*)chunk_vertex_cache_buffer, chunk_vertex_cache_state->buffers[chunk_vertex_cache_state->index].vertices, chunk_vertex_cache_state->buffers[chunk_vertex_cache_state->index].bytes);
         }
-        lbl_805D77E8->index++;
+        chunk_vertex_cache_state->index++;
     } else if (model->vertices != 0) {
         count = dispatch_chunk_vertex_list(model->vertices, chunk_vertex_cache_buffer);
     }
     if (lbl_805D77E4 & 1) {
-        if (lbl_805D77E8) {
-            if (lbl_805D77E8->buffers[lbl_805D77E8->index].vertices == 0) {
+        if (chunk_vertex_cache_state) {
+            if (chunk_vertex_cache_state->buffers[chunk_vertex_cache_state->index].vertices == 0) {
                 if (count) {
-                    lbl_805D77E8->buffers[lbl_805D77E8->index].vertices = xmalloc(count << 5);
-                    lbl_805D77E8->buffers[lbl_805D77E8->index].bytes = count << 5;
+                    chunk_vertex_cache_state->buffers[chunk_vertex_cache_state->index].vertices = xmalloc(count << 5);
+                    chunk_vertex_cache_state->buffers[chunk_vertex_cache_state->index].bytes = count << 5;
                 }
             } else {
                 OSReport(lbl_804FC810);
             }
-            lbl_805D77E8->index++;
+            chunk_vertex_cache_state->index++;
         }
     } else {
         if (lbl_805D77E4 & 2) {
-            if (count) memmove(lbl_805D77E8->buffers[lbl_805D77E8->index].vertices, (void*)chunk_vertex_cache_buffer, count << 5);
-            lbl_805D77E8->index++;
+            if (count) memmove(chunk_vertex_cache_state->buffers[chunk_vertex_cache_state->index].vertices, (void*)chunk_vertex_cache_buffer, count << 5);
+            chunk_vertex_cache_state->index++;
         }
         if (model->polygons) dispatch_chunk_polygon_list(model->polygons, cache);
         return 0;

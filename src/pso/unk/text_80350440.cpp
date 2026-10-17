@@ -15,7 +15,7 @@ struct RecoveredGlobal_80350440_lbl_804F0D1C {
 
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
-extern RecoveredGlobal_80350440_lbl_804F0D00 lbl_804F0D00;
+extern RecoveredGlobal_80350440_lbl_804F0D00 event_music_adx_table;
 extern RecoveredGlobal_80350440_lbl_804F0D1C quest_bgm_object_dispatch_table;
 extern u8 *pending_destroy_object;
 typedef char RecoveredGlobal_80350440_lbl_804F0D00_size[sizeof(RecoveredGlobal_80350440_lbl_804F0D00) == 0x1C ? 1 : -1];
@@ -27,7 +27,7 @@ u8 *fn_80350440(u8 *arg0, u8 *arg1, s32 arg2) {
         queue_destruction__7TObjectFv(pending_destroy_object);
     }
     pending_destroy_object = arg0;
-    play_area_music((char *)(*(s32 *)((s8 *)&lbl_804F0D00.value + (arg2 * 4))));
+    play_area_music((char *)(*(s32 *)((s8 *)&event_music_adx_table.value + (arg2 * 4))));
     return arg0;
 }
 

@@ -58,7 +58,7 @@ extern s32 actor_frame_tick;
 extern s32 TOComputerMachine01__last_render_frame_tick;
 s32 init_collision_body_parts(void *, void *, int);
 s32 init__13TUnk_804B27D8Fv(void *, int);
-extern RecoveredGlobal_8015B644_lbl_804AFFF8 lbl_804AFFF8;
+extern RecoveredGlobal_8015B644_lbl_804AFFF8 computer_machine01_collision_body;
 extern s32 __vt__19TOComputerMachine01[];
 extern s32 lbl_805D2EEC;
 extern u8 *TOComputerMachine01__model_resource;
@@ -167,7 +167,7 @@ u8 *TOComputerMachine01__ct(u8 *arg0, s32 arg1) {
     ((TOComputerMachine01 *)arg0)->m_c0 = (f32) lbl_805DB390;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB394;
     ((TOComputerMachine01 *)arg0)->actorFlags = (s32) (((TOComputerMachine01 *)arg0)->actorFlags | 0x40000000);
-    init_collision_body_parts(arg0, &lbl_804AFFF8.value, 1);
+    init_collision_body_parts(arg0, &computer_machine01_collision_body.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOHealGeneral *)arg0)->update_heal_gauge_state();

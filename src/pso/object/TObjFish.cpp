@@ -38,7 +38,7 @@ s32 init_fish_school__8TObjFishFPvll(u8 *arg0, Vec_8029E170 *arg1, s32 arg2, s32
 extern void* tl_05;
 extern s32 TObjFish__area_bml_resource;
 extern void* __vt__8TObjFish[];
-extern void* lbl_804DC640[];
+extern void* fish_resource_name_table[];
 }
 
 struct Base_8029D3A4_8029CF68 { char pad[0x18]; };
@@ -681,7 +681,7 @@ void update_object_view_visibility__13TUnk_804B9870Fff();
 #pragma push
 extern const f64 lbl_80465E00 = 10430.38043493439;
 #pragma pop
-void *lbl_804DC640[60] = {
+void *fish_resource_name_table[60] = {
     (void *)lbl_80465A48,
     (void *)lbl_80465A68,
     (void *)lbl_80465A88,
@@ -691,8 +691,8 @@ void *lbl_804DC640[60] = {
     (void *)lbl_80465AEC,
     0,
     (void *)lbl_80465B0C,
-    (void *)&lbl_804DC640[0],
-    (void *)&lbl_804DC640[4],
+    (void *)&fish_resource_name_table[0],
+    (void *)&fish_resource_name_table[4],
     (void *)0x30003,
     (void *)lbl_80465B24,
     (void *)lbl_80465B38,
@@ -703,8 +703,8 @@ void *lbl_804DC640[60] = {
     (void *)lbl_80465B88,
     0,
     (void *)lbl_80465B9C,
-    (void *)&lbl_804DC640[12],
-    (void *)&lbl_804DC640[16],
+    (void *)&fish_resource_name_table[12],
+    (void *)&fish_resource_name_table[16],
     (void *)0x30003,
     (void *)lbl_80465BB8,
     (void *)lbl_80465BCC,
@@ -715,8 +715,8 @@ void *lbl_804DC640[60] = {
     (void *)lbl_80465C1C,
     0,
     (void *)lbl_80465C30,
-    (void *)&lbl_804DC640[24],
-    (void *)&lbl_804DC640[28],
+    (void *)&fish_resource_name_table[24],
+    (void *)&fish_resource_name_table[28],
     (void *)0x30003,
     (void *)lbl_80465C4C,
     (void *)lbl_80465C60,
@@ -727,8 +727,8 @@ void *lbl_804DC640[60] = {
     (void *)lbl_80465CB0,
     0,
     (void *)lbl_80465CC4,
-    (void *)&lbl_804DC640[36],
-    (void *)&lbl_804DC640[40],
+    (void *)&fish_resource_name_table[36],
+    (void *)&fish_resource_name_table[40],
     (void *)0x30003,
     (void *)lbl_80465CE0,
     (void *)lbl_80465CF4,
@@ -739,8 +739,8 @@ void *lbl_804DC640[60] = {
     (void *)lbl_80465D44,
     0,
     (void *)lbl_80465D58,
-    (void *)&lbl_804DC640[48],
-    (void *)&lbl_804DC640[52],
+    (void *)&fish_resource_name_table[48],
+    (void *)&fish_resource_name_table[52],
     (void *)0x30003,
 };
 void *__vt__8TObjFish[13] = {
@@ -760,7 +760,7 @@ void *__vt__8TObjFish[13] = {
 };
 
 void TObjFish::load_area_resource() {
-    u8 *base = (u8 *)lbl_804DC640;
+    u8 *base = (u8 *)fish_resource_name_table;
     u8 *p;
     switch (get_global_state__14TOKeyMachine01Fv()) {
     case 24:

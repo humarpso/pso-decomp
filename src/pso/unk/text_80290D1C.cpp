@@ -8,7 +8,7 @@ extern "C" {
 s32 draw_line_list(void *, int, int);
 s32 __cvt_fp2unsigned(f32);
 extern s32 creation_ruler_line_vertices[];
-extern u32 lbl_804DA97C[4];
+extern u32 creation_ruler_line_colors[4];
 extern s32 lbl_804DA98C[];
 extern const f32 lbl_805DD958;
 extern const f32 lbl_805DD95C;
@@ -27,7 +27,7 @@ void draw_creation_ruler_lines(f32 farg0) {
     d.count = 32;
     draw_line_list(&d, 0x10, 5);
     c = __cvt_fp2unsigned(lbl_805DD95C * farg0) | 0x40400000 | 0x4000;
-    lbl_804DA97C[0] = lbl_804DA97C[1] = c;
+    creation_ruler_line_colors[0] = creation_ruler_line_colors[1] = c;
     ((TObjPlayer *)lbl_804DA98C)->draw_tri_fan_3d(4, 7);
 }
 

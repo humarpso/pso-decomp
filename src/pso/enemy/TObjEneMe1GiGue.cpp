@@ -337,30 +337,30 @@ extern "C" {
 void update_poison_status__13TUnk_804806E8Fv();
 }
 extern void *TObjEneMe1GiGue__model_filename_table[4];
-extern void *lbl_804E11D8[10];
+extern void *me1_gi_gue_motion_filename_table[10];
 extern void *lbl_804E1210[4];
-extern void *lbl_804E1220[10];
+extern void *gi_gue_njm_name_table[10];
 void *TObjEneMe1GiGue__model_filename_table[4] = {
     (void *)&lbl_80472118, (void *)&lbl_80472128, (void *)&lbl_8047213C, (void *)0x0,
 };
-void *lbl_804E11D8[10] = {
+void *me1_gi_gue_motion_filename_table[10] = {
     (void *)&lbl_80472150, (void *)&lbl_80472168, (void *)&lbl_8047217C, (void *)&lbl_80472194,
     (void *)&lbl_804721A8, (void *)&lbl_804721BC, (void *)&lbl_804721D4, (void *)&lbl_804721E8,
     (void *)&lbl_804721FC, (void *)0x0,
 };
 void *lbl_804E1200[4] = {
-    (void *)&lbl_80472214, (void *)&TObjEneMe1GiGue__model_filename_table, (void *)&lbl_804E11D8, (void *)0x30009,
+    (void *)&lbl_80472214, (void *)&TObjEneMe1GiGue__model_filename_table, (void *)&me1_gi_gue_motion_filename_table, (void *)0x30009,
 };
 void *lbl_804E1210[4] = {
     (void *)&lbl_80472228, (void *)&lbl_80472128, (void *)&lbl_8047213C, (void *)0x0,
 };
-void *lbl_804E1220[10] = {
+void *gi_gue_njm_name_table[10] = {
     (void *)&lbl_80472150, (void *)&lbl_80472168, (void *)&lbl_8047217C, (void *)&lbl_80472194,
     (void *)&lbl_804721A8, (void *)&lbl_804721BC, (void *)&lbl_804721D4, (void *)&lbl_804721E8,
     (void *)&lbl_804721FC, (void *)0x0,
 };
 void *lbl_804E1248[4] = {
-    (void *)&lbl_8047223C, (void *)&lbl_804E1210, (void *)&lbl_804E1220, (void *)0x30009,
+    (void *)&lbl_8047223C, (void *)&lbl_804E1210, (void *)&gi_gue_njm_name_table, (void *)0x30009,
 };
 void *gigue_enemy_param_table[36] = {
     (void *)0x20000, (void *)0x4, (void *)0x3f333333, (void *)0x0,

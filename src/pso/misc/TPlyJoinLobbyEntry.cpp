@@ -429,7 +429,7 @@ extern u8 lbl_8043F004[];
 extern u8 lbl_8043F010[];
 extern char lbl_8043F020[];
 extern RecoveredGlobal_80135198_lbl_804A7008 lbl_804A7008;
-extern char lbl_8050ADB8[];
+extern char lobby_idle_timeout_text_buffer[];
 extern RecoveredGlobal_80135974_lbl_805127F8 quest_story_flags_by_difficulty;
 extern u8 lbl_80515BA0[];
 extern s32 game_difficulty_selection;
@@ -486,7 +486,7 @@ s32 game_join_pending_clients[4];
 Row_80135208 game_join_player_records[4];
 u32 lobby_join_message_buffer[64];
 u32 lbl_8050AD38[32];
-char lbl_8050ADB8[0x100];
+char lobby_idle_timeout_text_buffer[0x100];
 
 void TLobby::send_game_character() {
     A_80134E30 a;
@@ -549,9 +549,9 @@ void update_idle_timeout__6TLobbyFPv(u8 *arg0) {
         if (t->limit != 0 && elapsed + 0x1E > t->limit) {
             t->state = 1;
             if ((*(Obj_80134F9C * *)&TLobby__idle_timeout_object) == 0 && TWindowCtrlMain__sub_8024CE58() != 0) {
-                sprintf(lbl_8050ADB8, get_seq_phase__6TLobbyFPv(0x1F), t->limit - elapsed);
+                sprintf(lobby_idle_timeout_text_buffer, get_seq_phase__6TLobbyFPv(0x1F), t->limit - elapsed);
                 (*(Obj_80134F9C * *)&TLobby__idle_timeout_object) = (Obj_80134F9C *)set_window_mode_4__6TLobbyFPvll(get_window_layout_position(0xCA), &tmp, 1);
-                send_and_handle__6TLobbyFii((void *)(*(Obj_80134F9C * *)&TLobby__idle_timeout_object), lbl_8050ADB8, 0x80);
+                send_and_handle__6TLobbyFii((void *)(*(Obj_80134F9C * *)&TLobby__idle_timeout_object), lobby_idle_timeout_text_buffer, 0x80);
                 ((TLobby *)(*(Obj_80134F9C * *)&TLobby__idle_timeout_object))->set_field_1c(lbl_805DB0A8);
                 ((TWindowMessage *)(*(Obj_80134F9C * *)&TLobby__idle_timeout_object))->complete_reveal();
             }
@@ -565,7 +565,7 @@ void update_idle_timeout__6TLobbyFPv(u8 *arg0) {
             TLobby__idle_timeout_active = 1;
             queue_destruction__7TObjectFv(arg0);
         } else {
-            sprintf(lbl_8050ADB8, get_seq_phase__6TLobbyFPv(0x1F), limit - elapsed);
+            sprintf(lobby_idle_timeout_text_buffer, get_seq_phase__6TLobbyFPv(0x1F), limit - elapsed);
         }
         break;
     }
@@ -2684,8 +2684,8 @@ void open_make_team_window__6TLobbyFi(s32);
 void close_all_windows__6TLobbyFv(void);
 void close_com_card_window__6TLobbyFv(void);
 s32 get_selected_menu_value(void *);
-extern s32 lbl_805D560C;
-extern u8 lbl_805D5610;
+extern s32 make_team_menu_last_selection;
+extern u8 make_team_menu_initialized_flag;
 void update_make_team_menu__6TLobbyFv(void);
 void handle_comcard_window__6TLobbyFv(void);
 s32 __ct__16TPlyGuildCardTagFv();
@@ -2724,14 +2724,14 @@ void handle_comcard_window__6TLobbyFv(void) {
 }
 void update_make_team_menu__6TLobbyFv(void) {
     s32 selected_menu_value;
-    if ((s8) lbl_805D5610 == 0) {
-        lbl_805D560C = 0;
-        lbl_805D5610 = 1;
+    if ((s8) make_team_menu_initialized_flag == 0) {
+        make_team_menu_last_selection = 0;
+        make_team_menu_initialized_flag = 1;
     }
     if ((void *) (*(u8 * *)&lobby_make_team_menu_window) != NULL) {
         selected_menu_value = get_selected_menu_value((*(u8 * *)&lobby_make_team_menu_window));
-        if ((s32) lbl_805D560C != selected_menu_value) {
-            lbl_805D560C = selected_menu_value;
+        if ((s32) make_team_menu_last_selection != selected_menu_value) {
+            make_team_menu_last_selection = selected_menu_value;
             switch (selected_menu_value) {
             case 0:
                 ((void (*)(s32))show_seq_phase_message__6TLobbyFi)(0x11);

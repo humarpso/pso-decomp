@@ -130,13 +130,13 @@ extern "C" {
 void __ct__7TObjectFP7TObject(void *);
 
 extern s32 __vt__8TPlyItem[];
-extern void *lbl_805D356C;
+extern void *TPlyItem_name_ref;
 
 void *TPlyItem__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TPlyItem;
     ((TItemList *)((char *)arg0 + 32))->init_items();
-    *(void * *)&((TPlyItem *)arg0)->m_name = lbl_805D356C;
+    *(void * *)&((TPlyItem *)arg0)->m_name = TPlyItem_name_ref;
     *(u16 *)((s8 *)arg0 + 0x1C) = 0;
     *(u16 *)((s8 *)arg0 + 0x1E) = 0;
     return arg0;

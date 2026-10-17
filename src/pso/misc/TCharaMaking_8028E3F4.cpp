@@ -22,7 +22,7 @@ extern s32 lbl_8045122C[];
 extern u8 lbl_80451280[];
 extern void *player_class_texture_buffer_table[];
 extern Ent_8028E6B4 player_class_texture_archive_table[];
-extern u8 lbl_8051BC64[];
+extern u8 chara_making_load_buffer[];
 void build_appearance_texture_names__12TCharaMakingFv(TextureOutput *output, Appearance *appearance, ClassAppearance *definition, TextureList *source);
 int is_quest_active(void);
 
@@ -119,7 +119,7 @@ void TCharaMaking__sub_8028E6B4(void) {
     if (TQuestVmDownLoadServer::is_ready() != 0) {
         return;
     }
-    if (TLobby__sub_801E3E9C(0xDB, lbl_80451280, lbl_8051BC64, 0x17A) != 0) {
+    if (TLobby__sub_801E3E9C(0xDB, lbl_80451280, chara_making_load_buffer, 0x17A) != 0) {
         if (TQuestVmDownLoadServer::is_ready() == 0) {
             return;
         }

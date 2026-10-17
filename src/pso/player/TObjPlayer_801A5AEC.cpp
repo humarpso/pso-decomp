@@ -108,7 +108,7 @@ void accumulate_key_bits(s32 arg0, s32 *arg1);
 Def_804C2308 controller_default_pad_state = { 0, 0, 0, 0xFFFFFFFF, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 u32 TKeyBoardControl_key_bit_table[6] = { 16, 32, 64, 128, 4, 2 };
 u32 keyboard_poll_key_codes[6] = { 94, 93, 92, 95, 97, 76 };
-s32 lbl_804C236C[4] = { 0, 6, 12, 18 };
+s32 controller_device_id_table[4] = { 0, 6, 12, 18 };
 void TObjPlayer::reset_fields() { *(s32*)((char*)this + 0x0) = 0; *(s32*)((char*)this + 0x4) = 0; *(s32*)((char*)this + 0x8) = 0; }
 
 typedef struct RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270 RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270;
@@ -495,7 +495,7 @@ void bind_controller_devices(void) {
     pb = (void **)controller_input_state;
     pa = (void **)controller_physical_port_bank;
     fb = &controller_input_state[4];
-    ids = lbl_804C236C;
+    ids = controller_device_id_table;
     fa = &controller_physical_port_bank[4];
     for (i = 0; i < 4; i++) {
         p = (Ctl_801A6510 *)TKeyBoardControl__sub_803DEB74(*ids++);
@@ -507,7 +507,7 @@ void bind_controller_devices(void) {
             *fa++ = 0;
         }
     }
-    ids = lbl_804C236C;
+    ids = controller_device_id_table;
     if (is_split_screen() != 0) {
         for (i = 0; i < 4; i++) {
             p = (Ctl_801A6510 *)TKeyBoardControl__sub_803DEB74(*ids++);

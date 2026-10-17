@@ -95,7 +95,7 @@ s32 submit_cursor_candidate(void *, int);
 s32 minimap_render_dot(void *, int, int, int);
 s32 scroll_ginja_mesh_uvs(int, int, int, int, int);
 s32 PPCSync();
-extern s32 lbl_805D4CA8;
+extern s32 boss3_volopt_monitor_last_tick;
 extern s32 actor_frame_tick;
 extern const f32 lbl_805D8744;
 void run_task__19TBoss3VoloptMonitorFv(TBoss3VoloptMonitor *arg0);
@@ -344,8 +344,8 @@ void run_task__19TBoss3VoloptMonitorFv(TBoss3VoloptMonitor *arg0) {
             }
         }
     }
-    if ((s32) lbl_805D4CA8 != (s32) actor_frame_tick) {
-        lbl_805D4CA8 = actor_frame_tick;
+    if ((s32) boss3_volopt_monitor_last_tick != (s32) actor_frame_tick) {
+        boss3_volopt_monitor_last_tick = actor_frame_tick;
         for (i = 0; i < 4; i++) {
             scroll_ginja_mesh_uvs(lbl_804FEEC0[i], 0, 0x20, 0, 1);
             PPCSync();

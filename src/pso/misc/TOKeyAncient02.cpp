@@ -51,7 +51,7 @@ extern RecoveredGlobal_8016B5A4_lbl_804B2A7C bm_fs_obj_o_doorswitch01_resource_d
 extern u32 TOKeyAncient02__model_archive;
 s32 init_collision_body_parts(void *, void *, int);
 void *TOKey__ct(TOKey *arg0);
-extern RecoveredGlobal_8016B6A4_lbl_804B2A8C lbl_804B2A8C;
+extern RecoveredGlobal_8016B6A4_lbl_804B2A8C key_ancient02_collision_body;
 extern s32 __vt__14TOKeyAncient02[];
 extern s32 TOKeyAncient02__class_name;
 extern const f32 TOKeyAncient02__data_805DB70C;
@@ -226,7 +226,7 @@ u8 *TOKeyAncient02__ct(TOKeyAncient02 *arg0, s32 arg1, s32 arg2) {
     ((TOKey *)arg0)->init_switch_id();
     arg0->model = ((u8 *)get_bml_model((void *)((*(s32 *)&TOKeyAncient02__model_archive)), 1));
     arg0->texture_id = TObjFish__sub_8001EDB0((void *)((void *) ((*(s32 *)&TOKeyAncient02__model_archive))), 1);
-    init_collision_body_parts(arg0, &lbl_804B2A8C.value, 1);
+    init_collision_body_parts(arg0, &key_ancient02_collision_body.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     arg0->m_c0 = (f32) lbl_805DB710;

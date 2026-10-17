@@ -85,7 +85,7 @@ extern s32 ginja_draw_list_state, ginja_draw_list_mask, ginja_draw_flags;
 s32 draw_ginja_model_lists(GinjaModel *model);
 void GXSetTexCoordGen2(s32 dst, u32 func, u32 src, s32 mtx, s32 normalize, s32 pt);
 extern s32 ginja_texture_matrix_ids[];
-extern s32 lbl_805D7700;
+extern s32 ginja_texcoord_gen_enabled;
 void PSMTXConcat(void *, void *, void *);
 void PSMTXTranspose(void *, void *);
 void PSMTXInverse(void *, void *);
@@ -359,7 +359,7 @@ void set_ginja_texcoord_gen(u32 arg0) {
     func = (arg0 & 0xF000) >> 12;
     src = (arg0 & 0xFF0) >> 4;
     mtx = ginja_texture_matrix_ids[arg0 & 0xF];
-    if (lbl_805D7700 != 0 && mtx == 0x3C) {
+    if (ginja_texcoord_gen_enabled != 0 && mtx == 0x3C) {
         mtx = 0x1E;
     }
     GXSetTexCoordGen2(coord, func, src, mtx, 0, 0x7D);

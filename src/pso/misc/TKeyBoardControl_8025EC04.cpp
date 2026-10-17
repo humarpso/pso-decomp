@@ -289,7 +289,7 @@ s32 TWindowKeyBoardHard::poll_input() {
 
 u32 lbl_804CFAD0[5] = { 0x0, 0x0, 0x47436E00, 0x0, 0x823 };
 __declspec(section ".data") u8 keyboard_repeat_key_codes[7] = { 0x60, 0xB4, 0x5E, 0x7E, 0xA8, 0xB0, 0xB8 };
-u8 lbl_804CFAEC[7][7] = {
+u8 keyboard_layout_mode_table[7][7] = {
     { 0x07, 0x07, 0x07, 0x07, 0x07, 0x00, 0x00 },
     { 0x07, 0x07, 0x07, 0x00, 0x07, 0x00, 0x00 },
     { 0x07, 0x07, 0x07, 0x00, 0x07, 0x00, 0x00 },
@@ -307,7 +307,7 @@ u8 lbl_804CFB20[7][7] = {
     { 0x00, 0x00, 0x00, 0xD1, 0x00, 0x00, 0x00 },
     { 0x00, 0xDD, 0x00, 0x00, 0xDF, 0x00, 0x00 },
 };
-extern u8 *lbl_805D3930;
+extern u8 *keyboard_accent_base_chars;
 
 u8 TWindowKeyBoardHard::sub_8025F2F8(u8 arg1) {
     u32 idx;
@@ -323,9 +323,9 @@ u8 TWindowKeyBoardHard::sub_8025F2F8(u8 arg1) {
     }
     *(u32 *)((u8 *)this + 0x6C) = 7;
     bit = ((TKeyBoardControl *)this)->get_input_mode();
-    for (i = 0, p = lbl_805D3930; (s32)*p != 0; i++, p++) {
+    for (i = 0, p = keyboard_accent_base_chars; (s32)*p != 0; i++, p++) {
         if (arg1 == *p) {
-            modes = lbl_804CFAEC[i >> 1][idx];
+            modes = keyboard_layout_mode_table[i >> 1][idx];
             if (!(modes & (1 << bit))) {
                 return arg1;
             }
@@ -343,7 +343,7 @@ u8 TWindowKeyBoardHard::sub_8025F2F8(u8 arg1) {
 }
 
 s32 TWindowKeyBoardHard::lookup_key_repeat_state(u8 arg1, u8 arg2) {
-    extern u8 lbl_805D392C[8];
+    extern u8 keyboard_key_repeat_mask_table[8];
     u32 st;
     u32 i;
 
@@ -353,7 +353,7 @@ s32 TWindowKeyBoardHard::lookup_key_repeat_state(u8 arg1, u8 arg2) {
     }
     for (i = 0; i < 7; i++) {
         if (arg2 == keyboard_repeat_key_codes[i]) {
-            if (!(lbl_805D392C[st] & (1 << i))) {
+            if (!(keyboard_key_repeat_mask_table[st] & (1 << i))) {
                 return 0;
             }
             if (*(u32 *)((s8 *)this + 0x6C) == i) {

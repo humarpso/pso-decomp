@@ -716,7 +716,7 @@ void update_poison_status__13TUnk_804806E8Fv();
 extern void *TObjEneGibbles__model_filenames[2];
 extern void *TObjEneGibbles__motion_names_and_resource_descriptor[11];
 extern void *lbl_804E286C[2];
-extern void *lbl_804E2874[11];
+extern void *gibbles_motion_name_table[11];
 void vfunc_59__14TObjEneGibblesFv(void *arg0);
 __declspec(section ".data") void *TObjEneGibbles__model_filenames[2] = {
     (void *)&lbl_80472628, (void *)0x0,
@@ -732,13 +732,13 @@ void *lbl_804E285C[4] = {
 __declspec(section ".data") void *lbl_804E286C[2] = {
     (void *)&lbl_80472720, (void *)0x0,
 };
-void *lbl_804E2874[11] = {
+void *gibbles_motion_name_table[11] = {
     (void *)&lbl_80472638, (void *)&lbl_80472650, (void *)&lbl_80472668, (void *)&lbl_8047267C,
     (void *)&lbl_80472690, (void *)&lbl_804726A4, (void *)&lbl_804726B8, (void *)&lbl_804726D0,
     (void *)&lbl_804726E4, (void *)&lbl_804726F8, (void *)0x0,
 };
 void *lbl_804E28A0[4] = {
-    (void *)&lbl_80472730, (void *)&lbl_804E286C, (void *)&lbl_804E2874, (void *)0x1000a,
+    (void *)&lbl_80472730, (void *)&lbl_804E286C, (void *)&gibbles_motion_name_table, (void *)0x1000a,
 };
 void *lbl_804E28B0[40] = {
     (void *)0x10000, (void *)0x8, (void *)0x3e99999a, (void *)0x1,

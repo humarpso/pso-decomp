@@ -264,7 +264,7 @@ extern s32 TWindowFukidasi__balloon_color_table[];
 extern Vec_80251380 fukidasi_forward_vec;
 extern RecoveredGlobal_80251BA0_lbl_804CF080 window_fukidasi_layout_entries;
 extern u8 identity_matrix[];
-extern s32 lbl_805D3900;
+extern s32 window_fukidasi_class_name;
 extern Cam_80251380 *camera_ctrl_instance;
 extern void *lbl_805D63F0;
 extern const f32 lbl_805DCCEC;
@@ -973,7 +973,7 @@ void init_flags__15TWindowFukidasiFPvi(void *arg0, s32 arg1) {
 void TUnk_804CF0B8::sub_80251DF0(s16 arg1, s32 str, s16 arg3, f32 farg0) {
     s32 temp_r3;
 
-    *(s32 *)((s8 *)this + 0) = (s32) lbl_805D3900;
+    *(s32 *)((s8 *)this + 0) = (s32) window_fukidasi_class_name;
     ((TUnk_804CF0B8 *)this)->m_70 = 0;
     ((TUnk_804CF0B8 *)this)->m_71 = 0;
     *(s8 *)&((TUnk_804CF0B8 *)this)->unk_72 = 2;

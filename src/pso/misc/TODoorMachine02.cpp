@@ -80,7 +80,7 @@ extern const f32 lbl_805DB51C;
 extern const f32 lbl_805DB520;
 s32 init_collision_body_parts(void *, void *, int);
 void *init_door_base(void *a0);
-extern RecoveredGlobal_80163760_lbl_804B16C8 lbl_804B16C8;
+extern RecoveredGlobal_80163760_lbl_804B16C8 door_machine02_collision_body;
 extern s32 __vt__15TODoorMachine02[];
 extern s32 TODoorMachine02__class_name;
 extern u32 door_machine02_model_resource;
@@ -259,7 +259,7 @@ u8 *TODoorMachine02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(u8 **)((s8 *)arg0 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&door_machine02_model_resource) + 0x430)) + 4));
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB51C);
     ((TODoorMachine02 *)arg0)->m_b8 = (f32) lbl_805DB528;
-    init_collision_body_parts(arg0, &lbl_804B16C8.value, 1);
+    init_collision_body_parts(arg0, &door_machine02_collision_body.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TODoorMachine02 *)(arg0))->init_door_switch_binding();

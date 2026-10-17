@@ -94,7 +94,7 @@ extern s32 lobby_buffer_pool_size;
 extern s32 lbl_805D7BEC;
 extern s32 lbl_805D7BF0;
 extern s32 lbl_805D7BF4;
-extern s32 lbl_805D7BF8;
+extern s32 lobby_buffer_pool_end;
 extern s32 lbl_805D7BFC;
 extern u8 lbl_805CF380[];
 extern u8 TLobby__pppoe_message_queue[];
@@ -195,7 +195,7 @@ s32 TLobby::init_buffer_pool() {
     lbl_805D7BEC = lobby_buffer_pool_base;
     lbl_805D7BF0 = lobby_buffer_pool_base;
     lbl_805D7BF4 = lobby_buffer_pool_base;
-    lbl_805D7BF8 = lobby_buffer_pool_base + lobby_buffer_pool_size;
+    lobby_buffer_pool_end = lobby_buffer_pool_base + lobby_buffer_pool_size;
     lbl_805D7BFC = lobby_buffer_pool_size;
     if (TLobby__sub_803F96AC(&lobby_buffer_pool_alarm_handle, (void *)lobby_buffer_pool_base, (void *)lobby_buffer_pool_size) < 0) {
         return -1;

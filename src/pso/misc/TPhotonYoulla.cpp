@@ -49,7 +49,7 @@ extern s32 model_render_flags;
 void *find_entity_by_id(u16 id);
 void sub_801AE72C__13TPhotonYoullaFv(void *, u8);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
-extern u8 lbl_804C3B48[];
+extern u8 photon_blast_youlla_params[];
 extern s32 __vt__13TPhotonYoulla[];
 extern s32 lbl_805D3528;
 extern u8 *photon_blast_shared_resource;
@@ -150,7 +150,7 @@ u8 *TPhotonYoulla__ct(TPhotonYoulla *arg0, u8 *arg1) {
     }
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0xB8);
     arg0->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0xBC);
-    ((TObjMotion *)arg0)->set_field_d8((s32) lbl_804C3B48);
+    ((TObjMotion *)arg0)->set_field_d8((s32) photon_blast_youlla_params);
     ((TObjMotion *)arg0)->set_field_dc(*(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
     arg0->m_b8 = 1;
     set_animation__10TObjMotionFs(arg0, arg0->m_b8);

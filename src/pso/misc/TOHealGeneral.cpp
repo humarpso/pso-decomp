@@ -80,7 +80,7 @@ void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 fla
 void *create_particle_emitter(void *pos, s32 id);
 void init_collision_body_parts(void *, void *, s32, void *);
 void init_map_object_base(void *, s32);
-extern u8 lbl_804B2770[];
+extern u8 heal_general_collision_body_part[];
 extern s32 TOHealGeneral__class_name;
 extern s32 tl_05;
 extern const f32 lbl_805DB6BC;
@@ -245,7 +245,7 @@ void *TOHealGeneral__ct(void *arg0, void *arg1) {
     model = *(u8 **)((s8 *)TOHealGeneral__model_archive + 0x42C);
     self->f24 = *(s32 *)((s8 *)model + 0xC);
     self->fC4 = lbl_805DB6CC;
-    init_collision_body_parts(self, lbl_804B2770, 1, model);
+    init_collision_body_parts(self, heal_general_collision_body_part, 1, model);
     ((TUnk_804AF8A0 *)self)->refresh_collision_body_centers();
     ((TObjPlayer *)self)->reset_photon_effect();
     ((TUnk_804AF8A0 *)self)->clear_player_status_flag(0, 1);
