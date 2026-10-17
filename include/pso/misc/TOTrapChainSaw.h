@@ -22,7 +22,7 @@ struct TOTrapChainSaw : public TUnk_804AFBF8 {
     virtual void vfunc_27();
     virtual void vfunc_28();
     virtual void vfunc_29();
-    virtual f32 vfunc_30();
+    virtual f32 vfunc_30(f32);
     virtual void render();
     virtual void run_task();
     u32 m_c8;

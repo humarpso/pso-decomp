@@ -244,7 +244,7 @@ s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg
 
 #pragma push
 #pragma fp_contract on
-void TUnk_804928CC::call_vt16_with_default() {
+void TUnk_804928CC::call_vt16_with_default(void *, void *) {
     u8 *arg0 = (u8 *)this;
     ((VObj *)arg0)->m16(lbl_805D9EB4);
 }
@@ -293,7 +293,7 @@ s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, v
     return hit;
 }
 
-void TUnk_804928CC::call_vt13_with_default() {
+void TUnk_804928CC::call_vt13_with_default(void*, void*, s32) {
     u8 *arg0 = (u8 *)this;
     ((VObj *)arg0)->m13(lbl_805D9EB4);
 }
