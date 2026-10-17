@@ -1316,19 +1316,19 @@ void bind_enemy_combat_stats(void *, s32, s32, s32);
 s32 TObjFish__sub_800E3124(void *, void *);
 void TBoss6Mag__sub_803309C4(void *, void *);
 
-u8 *TBoss6Mag__ct(u8 *arg0, s32 arg1, u8 *arg1_arg) {
+u8 *TBoss6Mag__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     Key_80330724 key;
     f32 *d;
     s32 prm;
-    initialize__9TObjEnemyFPv(arg0, arg1, arg1_arg);
+    initialize__9TObjEnemyFPv(arg0, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x18) = (u8 *)lbl_804EDDEC;
     *(s32 *)((s8 *)arg0 + 0) = (s32)lbl_805D4220;
-    *(s32 *)((s8 *)arg0 + 0x378) = *(s32 *)((s8 *)arg1_arg + 0x40);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg1_arg + 0x44);
-    *(s32 *)((s8 *)arg0 + 0x60) = *(s32 *)((s8 *)arg1_arg + 0x50);
-    *(s32 *)((s8 *)arg0 + 0x384) = *(s32 *)((s8 *)arg1_arg + 0x54);
+    *(s32 *)((s8 *)arg0 + 0x378) = *(s32 *)((s8 *)arg2 + 0x40);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg2 + 0x44);
+    *(s32 *)((s8 *)arg0 + 0x60) = *(s32 *)((s8 *)arg2 + 0x50);
+    *(s32 *)((s8 *)arg0 + 0x384) = *(s32 *)((s8 *)arg2 + 0x54);
     TBoss6Type2__instance_slots[*(s32 *)((s8 *)arg0 + 0x384)] = arg0;
-    ((TBoss6Mag *)arg0)->apply_set_data(arg1_arg);
+    ((TBoss6Mag *)arg0)->apply_set_data(arg2);
     if (exchange_object_state__9TObjEnemyFls(arg0, &key, 1) != 0) {
         key.a = 0;
         key.c = 0;
@@ -1351,8 +1351,8 @@ u8 *TBoss6Mag__ct(u8 *arg0, s32 arg1, u8 *arg1_arg) {
     *(s32 *)((s8 *)arg0 + 0x38C) = *(s16 *)((s8 *)arg0 + 0x32C);
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
     ((TObjEneLappy *)arg0)->set_param((*(s32 *)((s8 *)arg0 + 0x384) == 1) ? 0x56 : 0x55);
-    ((TUnk_804806E8 *)arg0)->add_flags_2e4(*(u32 *)((s8 *)arg1_arg + 0x58));
-    *(s32 *)((s8 *)arg0 + 0x390) = *(s32 *)((s8 *)arg1_arg + 0x5C);
+    ((TUnk_804806E8 *)arg0)->add_flags_2e4(*(u32 *)((s8 *)arg2 + 0x58));
+    *(s32 *)((s8 *)arg0 + 0x390) = *(s32 *)((s8 *)arg2 + 0x5C);
     ((TBoss6Type2 *)arg0)->init_segment_angle_range();
     TBoss6Type2__sub_803300C8(arg0);
     *(s32 *)((s8 *)arg0 + 0x458) = TObjFish__sub_800E3124((void *)lbl_804773DC, arg0 + 0x44C);

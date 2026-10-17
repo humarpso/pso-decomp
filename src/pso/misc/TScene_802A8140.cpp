@@ -21,8 +21,8 @@ void TScene::set_indirect_tev(s32 ignored, s32 arg1) {
     set_ginja_post_texgen_count(0);
 }
 
-void TScene::draw_field_1c(s32 sampler, s32 arg2, s32 unused) {
-    TObjPlayer::play_particle_at_active_slot(*(u8 *)((s8 *)this + 0x1C), sampler, arg2, 0, unused, 0);
+void TScene::draw_field_1c(s32 sampler, s32 arg2, s32 arg3) {
+    TObjPlayer::play_particle_at_active_slot(*(u8 *)((s8 *)this + 0x1C), sampler, arg2, 0, arg3, 0);
 }
 
 extern s32 lbl_804DDF04[];

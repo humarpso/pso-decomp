@@ -57,12 +57,12 @@ s8 TObjPlayer__sub_80102C30();
 s16 get_packed_value__9TItemDataFPv(s32);
 s32 is_usable__9TItemDataFPv(s32);
 
-void TItem::apply_item_flags(s32 it) {
-    if (is_usable__9TItemDataFPv(it) != 0) {
+void TItem::apply_item_flags(s32 arg1) {
+    if (is_usable__9TItemDataFPv(arg1) != 0) {
         *(s32 *)&this->m_dc = (s32) (*(s32 *)&this->m_dc | 0x100);
-        *(s16 *)&this->m_e8 = get_packed_value__9TItemDataFPv(it);
+        *(s16 *)&this->m_e8 = get_packed_value__9TItemDataFPv(arg1);
     }
-    if (is_wrapped__9TItemDataFPv(it) != 0) {
+    if (is_wrapped__9TItemDataFPv(arg1) != 0) {
         *(s32 *)&this->m_dc = (s32) (*(s32 *)&this->m_dc | 0x400);
     }
 }

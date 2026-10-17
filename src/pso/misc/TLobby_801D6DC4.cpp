@@ -38,13 +38,13 @@ u8 TLobby__sub_801D6DDC(void *arg0);
 u8 ret_801D78E4();
 
 void TLobby::set_volume(u8 arg1) {
-    u8 up;
+    u8 var_r4;
 
-    up = arg1;
-    if (up > 0x63U) {
-        up = 0;
+    var_r4 = arg1;
+    if (var_r4 > 0x63U) {
+        var_r4 = 0;
     }
-    *(u8 *)&this->m_up = up;
+    *(u8 *)&this->m_up = var_r4;
 }
 
 u8 TLobby__sub_801D6DDC(void *arg0) {

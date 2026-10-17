@@ -219,12 +219,12 @@ void TObjEneRe7BeruraPunch::init() {
 }
 typedef char RecoveredGlobal_80096750_lbl_8048F930_size[sizeof(RecoveredGlobal_80096750_lbl_8048F930) == 0x58 ? 1 : -1];
 typedef char RecoveredGlobal_80096750___vt__21TObjEneRe7BeruraPunch_size[sizeof(RecoveredGlobal_80096750___vt__21TObjEneRe7BeruraPunch) == 0x60 ? 1 : -1];
-u8 *TObjEneRe7BeruraPunch__ct(u8 *arg0, s32 arg1, s32 ac) {
-    ((TUnk_804928CC *)arg0)->init_instance((void *)arg1, (void *)ac, (void *)(&TObjEneRe7BeruraPunch__collision_body_templates.value), (void *)2);
+u8 *TObjEneRe7BeruraPunch__ct(u8 *arg0, s32 arg1, s32 arg2) {
+    ((TUnk_804928CC *)arg0)->init_instance((void *)arg1, (void *)arg2, (void *)(&TObjEneRe7BeruraPunch__collision_body_templates.value), (void *)2);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80096750___vt__21TObjEneRe7BeruraPunch *)&__vt__21TObjEneRe7BeruraPunch).value;
     ((TUnk_80490470 *)(arg0 + 0xF8))->init_vtable_and_field18();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2990;
-    *(u16 *)((s8 *)arg0 + 0xB0) = obj_getField1c((void *) (ac));
+    *(u16 *)((s8 *)arg0 + 0xB0) = obj_getField1c((void *) (arg2));
     ((TObjEneRe7BeruraPunch *)arg0)->init();
     return arg0;
 }

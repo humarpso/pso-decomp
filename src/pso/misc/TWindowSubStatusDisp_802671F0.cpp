@@ -400,12 +400,12 @@ void TWindowSubStatusDisp::add_item_info_entry(s32 arg1, s32 arg2, s32 arg3) {
     }
 }
 
-void TWindowSubStatusDisp::add_ground_item(s32 it, s32 arg2) {
+void TWindowSubStatusDisp::add_ground_item(s32 arg1, s32 arg2) {
     s16 temp_r4;
-    if (it != 0) {
+    if (arg1 != 0) {
         temp_r4 = (s16) *(s16 *)((s8 *)this + 0x72);
         if (temp_r4 < (s16) *(s16 *)((s8 *)this + 0x76)) {
-            ((TWindowSubStatusDisp *)(get_array_entry__13TUnk_804CE018Fi(this, temp_r4)))->set_ground_item((void *)it, (s32)arg2);
+            ((TWindowSubStatusDisp *)(get_array_entry__13TUnk_804CE018Fi(this, temp_r4)))->set_ground_item((void *)arg1, (s32)arg2);
             *(s16 *)((s8 *)this + 0x72) = (s16) (*(s16 *)((s8 *)this + 0x72) + 1);
         }
     }
