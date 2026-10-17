@@ -696,7 +696,7 @@ force_active:
   - apply_node_oscillation__11TItemMagSubFPv
   - apply_paralysis__13TObjEneRe4BitFv
   - apply_part_to_window__28TWindowSubSymbolChatPartsSetFPvPvi
-  - apply_photon_blast_effects__10TObjPlayerFv
+  - apply_photon_blast_effects__12TPhotonPillaFv
   - apply_placement_matrix__11TItemMagSubFv
   - apply_player_54a00__9TObjEnemyFv
   - apply_poison_status__13TObjEneRe4BitFv
@@ -7992,7 +7992,7 @@ force_active:
   - spawn_ground_effects__14TObjEneDolmOlmFPvPv
   - spawn_hit_particle_trio__10TObjPlayerFv
   - spawn_item_follow_effect
-  - spawn_laser__12TPhotonPillaFPv
+  - spawn_laser__12TPhotonPillaFv
   - spawn_lightning_at_angle__16TBGLightningCtrlFPvi
   - spawn_line__13TPhotonEstllaFv
   - spawn_mirages__21TObjEneMe3ShinowaRealFv

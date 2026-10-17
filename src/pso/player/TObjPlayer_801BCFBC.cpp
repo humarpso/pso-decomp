@@ -13,13 +13,13 @@ s32 restart_death_pose__10TObjPlayerFPv(void *);
 s32 update_position_from_target__10TObjPlayerFPv(void *);
 s32 run_action_state_phase__10TObjPlayerFisi(void *, s32, s32);
 
-s32 obj_isState2_324();
+s32 obj_isState2_324__13TUnk_804806E8Fv();
 s32 obj_testFlags30(void *, s32);
 extern const f32 TObjPlayer__data_805DC294;
 
 void TObjPlayer::update_action_animation() {
     u8 *arg0 = (u8 *)this;
-    if (obj_isState2_324() == 0) {
+    if (obj_isState2_324__13TUnk_804806E8Fv() == 0) {
         update_position_from_target__10TObjPlayerFPv(arg0);
         return;
     }

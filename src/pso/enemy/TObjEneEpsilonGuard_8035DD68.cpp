@@ -616,7 +616,7 @@ void render_with_fade__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1) {
     if (arg1 == 1) {
         ((TObjEneRe7Berura *)arg0)->draw();
     } else {
-        ((TObjPlayer *)arg0)->render_world_model();
+        ((TObjEnemy *)arg0)->render_world_model();
     }
     TParticleCtrl::end_effect_render();
     TObjEneRe7Berura::set_global_state((s32)NULL);

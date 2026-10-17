@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneRecon.h"
 #include "pso/TObject.h"
 #include "pso/TParticleCtrl.h"
@@ -1510,7 +1511,7 @@ void render_part__13TObjEneMorfosFPvii(Self_803329E4 *self, s32 idx, s32 mode) {
         if (mode == 1) {
             ((TObjEneRe7Berura *)self)->draw();
         } else {
-            ((TObjPlayer *)self)->render_world_model();
+            ((TObjEnemy *)self)->render_world_model();
         }
     }
     TObjEneRe7Berura::set_global_state((s32)NULL);

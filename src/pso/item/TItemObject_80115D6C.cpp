@@ -329,7 +329,7 @@ void TItemObject::vfunc_31() {
             ((TItem *)this)->notify_owner(0x5B211);
         }
         if (((TItem *)this)->get_item_flags() & 0x10) {
-            ((TObjPlayer *)this)->get_field_d8();
+            ((TItem *)this)->get_field_d8();
             consume_item_by_id();
         }
     }

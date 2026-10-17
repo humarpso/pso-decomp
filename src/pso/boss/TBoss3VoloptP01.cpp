@@ -672,7 +672,6 @@ struct VObj_80044038 : VBase_80044038 {
 };
 
 s32 reset_status_effect_row(void *);
-s32 obj_clearFlags30(void *, int);
 void obj_setFlags30(void *, u32);
 f32 fabs_float();
 void queue_destruction__7TObjectFv(void *);
@@ -1411,7 +1410,7 @@ void run_task__15TBoss3VoloptP01Fv(u8 *arg0) {
     if (obj_testFlags30((void *) (arg0), (int) (0x4000)) != 0) {
         if (((TObjPlayer *)arg0)->add_status_effect_timer((int) (4), (int) (-1)) <= 0) {
             reset_status_effect_row((void *) (arg0 + 0x284));
-            obj_clearFlags30((void *) (arg0), (int) (0x4000));
+            ((TUnk_804B9870 *)arg0)->obj_clearFlags30((int) (0x4000));
         }
     } else {
         if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != (s32) *(s32 *)((s8 *)arg0 + 0x374)) {

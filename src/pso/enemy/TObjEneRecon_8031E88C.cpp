@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneRecobox.h"
 #include "pso/enemy/TObjEneRecon.h"
 #include "pso/TParticleCtrl.h"
@@ -302,7 +303,7 @@ block_23:
                 if (var_r28 == 1) {
                     ((TObjEneRe7Berura *)arg0)->draw();
                 } else {
-                    ((TObjPlayer *)arg0)->render_world_model();
+                    ((TObjEnemy *)arg0)->render_world_model();
                 }
                 TParticleCtrl::end_effect_render();
                 pop_matrix();

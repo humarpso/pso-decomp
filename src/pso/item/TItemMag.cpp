@@ -138,7 +138,7 @@ struct VObj_80112720 : VBase_80112720 {
 
 void * memcpy(void *dst, const void *src, u32 n);
 s32 get_main_phase();
-s32 obj_isState2_324(int);
+s32 obj_isState2_324__13TUnk_804806E8Fv(int);
 s16 obj_getS16_32C(s32);
 s16 obj_getField1c(void *);
 s32 get_item_field_6__10TObjPlayerFPv(int);
@@ -148,7 +148,7 @@ s32 is_quest_active();
 s32 is_flag_set__6TLobbyFv();
 s32 test_action_mask__10TObjPlayerFl(s32, s32);
 s32 spawn_particle_effect(void *, int);
-s32 get_field_d8__10TObjPlayerFv(int);
+s32 get_field_d8__5TItemFv(int);
 s32 apply_switch_attack__5TItemFl(void *, s32);
 int fn_80100D9C(s32, s32);
 s32 send_6x61_activate_mag_effect__14TItemEquipBaseFl(void *, s32);
@@ -1249,10 +1249,10 @@ s32 TItemMag::apply_feed_stats(u8 *arg1) {
         ((TItemMag *)arg0)->set_field_EE((u8)((void *) (((u8 (*)(void *))get_mag_total_level)((void *) (arg0 + 0x198)))));
         if (TObjPlayer__sub_80102C30((void *) (arg0)) == 2) {
             ((TItem *)arg0)->refresh_owner_stats();
-            if (obj_isState2_324((int) (*(s32 *)&this->m_f0)) == 0) {
+            if (obj_isState2_324__13TUnk_804806E8Fv((int) (*(s32 *)&this->m_f0)) == 0) {
                 arg1 = (u8 *) get_item_field_6__10TObjPlayerFPv((int) (*(s32 *)&this->m_f0));
                 if ((arg1 != NULL) && (get_item_info__10TObjPlayerFllPs((int) (arg1), (int) (*(s32 *)&this->m_f0), (int) (0)) == 0)) {
-                    send_6x26_unequip_item__10TObjPlayerFPvPv((int) (*(s32 *)&this->m_f0), (int) (get_field_d8__10TObjPlayerFv((int) (arg1))));
+                    send_6x26_unequip_item__10TObjPlayerFPvPv((int) (*(s32 *)&this->m_f0), (int) (get_field_d8__5TItemFv((int) (arg1))));
                 }
             }
         }
@@ -1666,7 +1666,7 @@ void TItemMag__vt43(u8 *arg0) {
   s32 slot;
   u8 *temp_r6;
   u8 *new_var;
-  if (((volatile int)((s32 (*)(void *))obj_isState2_324)(*((u8 **) (((s8 *) arg0) + 0xF0)))) == 0)
+  if (((volatile int)((s32 (*)(void *))obj_isState2_324__13TUnk_804806E8Fv)(*((u8 **) (((s8 *) arg0) + 0xF0)))) == 0)
   {
     ((s32 (*)(void *))assign_default_photon_blast_palette_slots)((void *) ((*((u8 **) (((s8 *) arg0) + 0xF0))) + 0x500));
     slot = 0;
@@ -1694,7 +1694,7 @@ void TItemMag__vt43(u8 *arg0) {
 void TItemMag__vt42(u8 *arg0) {
     u8 *temp_r3;
     *(s32 *)((s8 *)arg0 + 0x18C) = 0;
-    if (((s32 (*)(void *))obj_isState2_324)((void *) (*(u8 **)((s8 *)arg0 + 0xF0))) == 0) {
+    if (((s32 (*)(void *))obj_isState2_324__13TUnk_804806E8Fv)((void *) (*(u8 **)((s8 *)arg0 + 0xF0))) == 0) {
         *(s32 *)((s8 *)arg0 + 0x18C) = 0x10;
         ((s32 (*)(void *))register_photon_blasts__8TItemMagFPv)((void *) (arg0));
     }

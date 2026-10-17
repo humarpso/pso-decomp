@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/unk/TUnk_804F0C48.h"
 #include "pso/item/TItemProShield.h"
 #include "pso/player/TObjPlayer.h"
@@ -36,7 +37,7 @@ void TUnk_804F0C48::vfunc_44() {
             e++;
         }
     }
-    consume_item_by_id(((TObjPlayer *)this)->get_field_d8());
+    consume_item_by_id(((TItem *)this)->get_field_d8());
 }
 
 }

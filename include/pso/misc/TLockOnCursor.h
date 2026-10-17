@@ -6,6 +6,7 @@
 
 struct TLockOnCursor : public TObject {
     virtual ~TLockOnCursor();
+    u16 get_target_id();
     void sub_8013EEC0(s16);
     virtual void render();
     void renderSecondaryCursor(u8* body, s32 type, s32 action);

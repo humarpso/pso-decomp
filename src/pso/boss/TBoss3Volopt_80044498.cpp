@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/enemy/TObjEneGyaranzo.h"
@@ -584,7 +585,6 @@ f32 fabs_float(f32);
 s32 TBoss3Volopt__sub_8003F398(void);
 s32 minimap_render_dot(void *, s32, s16, s32);
 s32 reset_status_effect_row(void *);
-s32 obj_clearFlags30(void *, int);
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 update_obstruction_fade(void *);
 s32 submit_cursor_candidate(void *, int);
@@ -1756,7 +1756,7 @@ void TUnk_80484610::run_task() {
         if (obj_testFlags30((void*)(arg0), (s32)(0x4000)) != 0) {
             if (((TObjPlayer *)arg0)->add_status_effect_timer((int) (4), (int) (-1)) <= 0) {
                 reset_status_effect_row((void *) (arg0 + 0x284));
-                obj_clearFlags30((void *) (arg0), (int) (0x4000));
+                ((TUnk_804B9870 *)arg0)->obj_clearFlags30((int) (0x4000));
             }
         } else {
             if ((s16) this->mode != (s32) *(s32 *)&this->next_action) {

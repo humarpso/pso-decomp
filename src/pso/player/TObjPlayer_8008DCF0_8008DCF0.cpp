@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneBalClawClaw.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TObjPlayer.h"
@@ -541,7 +542,7 @@ void draw_main__10TObjPlayerFPv(u8 *arg0) {
                             if (temp_r3 == 1) {
                                 ((TObjEneRe7Berura *)arg0)->draw();
                             } else {
-                                ((TObjPlayer *)arg0)->render_world_model();
+                                ((TObjEnemy *)arg0)->render_world_model();
                             }
                         }
                         ((VObj390V_8008e74c_8008DCF0*)(arg0 + 0x390))->m7();
@@ -551,7 +552,7 @@ void draw_main__10TObjPlayerFPv(u8 *arg0) {
                 } else if (temp_r3 == 1) {
                     ((TObjEneRe7Berura *)arg0)->draw();
                 } else {
-                    ((TObjPlayer *)arg0)->render_world_model();
+                    ((TObjEnemy *)arg0)->render_world_model();
                 }
             }
             pop_matrix();

@@ -2375,13 +2375,13 @@ void TObjEneBm5GibonU__sub_800CD204(u8 *arg0) {
                     if (vis == 1) {
                         ((TObjEneRe7Berura *)arg0)->draw();
                     } else {
-                        ((TObjPlayer *)arg0)->render_world_model();
+                        ((TObjEnemy *)arg0)->render_world_model();
                     }
                 }
             } else if (vis == 1) {
                 ((TObjEneRe7Berura *)arg0)->draw();
             } else {
-                ((TObjPlayer *)arg0)->render_world_model();
+                ((TObjEnemy *)arg0)->render_world_model();
             }
             TObjEneRe7Berura::set_global_state((s32)NULL);
             if (*(s16 *)((s8 *)arg0 + 0x326) == 1 || *(s16 *)((s8 *)arg0 + 0x326) == 2) {

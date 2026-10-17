@@ -78,8 +78,6 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 vec3_add_to(void *, void *);
 
-s32 obj_clearFlags30(void * a0 = 0, s32 a1 = 0);
-s32 obj_clearFlags30(void * a0, s32 a1);
 void __dl__7TObjectFPv(void *);
 u16 obj_getField1c(void *);
 u8 *construct_collision_body(u8 *arg0, s32 arg1, u32 arg2);

@@ -14,6 +14,7 @@ struct TechniqueContactList;
 
 struct TObjPlayer : public TUnk_804806E8 {
     virtual ~TObjPlayer();
+    s8 get_class_index();
     virtual void get_pos(s32);
     virtual void apply_switch_attack();
     virtual void enemy_spawn_jellen_effect();
@@ -297,7 +298,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     static void clear_next_entry(s32 arg0, u8 *arg1);
     s32 draw_model_with_callback(s32 arg1, s32 arg2, f32 farg0);
     void draw_model_with_callback();
-    void render_world_model();
     void init_npc_animation(void* a1, void* a2, void* a3);
     void draw_ginja_model_tree(void *arg1);
     static bool is_hit_receivable_target(s32 arg0, u32 arg1);
@@ -357,7 +357,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     s16 *get_attribute_entry(s32 i);
     void update_angle(s32 arg1, void *arg2);
     static f32 calc_distance_to_client(s32 arg0, u16 arg1, u32 arg2);
-    void calc_attach_pos();
     s16 get_class_id();
     s16 get_item_index();
     s32 get_field_0c();
@@ -425,7 +424,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void update_control_state();
     int get_flag_0x388_b24();
     void init_position_vectors();
-    s32 get_field_d8();
     void trigger_targets_action();
     s16 get_field_2c8();
     void set_flag_start_effect();
@@ -437,7 +435,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void update_synced_state();
     static void *create_dubchik(void *arg0);
     static void free_effect_resources();
-    void init_level_stats(s32 arg1);
     void clear_flag_04000000();
     void set_invuln_flags();
     void *dt(s16 arg1);
@@ -471,7 +468,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     static void update_lights();
     static void clear_alt_model_flag();
     static void set_alt_model_flag();
-    void draw_with_alt_model(s32 arg1);
     void *create_hairmove(void *arg1, void *arg2);
     s32 interpolate_along_curve(void *arg1);
     void draw_item_model();
@@ -667,7 +663,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     static void destroy_static_buffer_pair();
     static void destroy_buffer_pair_instance();
     int check_flag_0x80();
-    void apply_photon_blast_effects();
     static void free_buffer_pair();
     static u8 is_final_phase();
     static u8 is_camera_ready();

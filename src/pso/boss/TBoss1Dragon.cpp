@@ -6351,7 +6351,7 @@ struct VObj_18 : VBase_18_8002985C {
 #pragma auto_inline off
 #pragma dont_inline off
 extern "C" {
-s32 obj_isState2_324();
+s32 obj_isState2_324__13TUnk_804806E8Fv();
 void TBoss1Dragon__sub_8002AB6C(u8 *arg0);
 void copy_model_node(u8 *arg0, u8 *arg1);
 
@@ -6767,7 +6767,7 @@ void notify_flagged_entry__12TBoss1DragonFPvPviPv(Src_8002AACC *arg0, VObj_18_5c
 }
 
 void TBoss1Dragon__sub_8002AB6C(u8 *arg0) {
-    if (obj_isState2_324() == 0) {
+    if (obj_isState2_324__13TUnk_804806E8Fv() == 0) {
         ((VObj_18_5c4a6f *)(arg0))->m46(0);
     }
 }

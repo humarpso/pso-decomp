@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/TParticleCtrl.h"
@@ -477,7 +478,7 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
                 if (mode == 1) {
                     ((TObjEneRe7Berura *)o)->draw();
                 } else {
-                    ((TObjPlayer *)o)->render_world_model();
+                    ((TObjEnemy *)o)->render_world_model();
                 }
                 TObjEneRe7Berura::set_global_state((s32)0);
             }
@@ -507,7 +508,7 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
             } else if (mode == 1) {
                 ((TObjEneRe7Berura *)o)->draw();
             } else {
-                ((TObjPlayer *)o)->render_world_model();
+                ((TObjEnemy *)o)->render_world_model();
             }
         }
         pop_matrix();

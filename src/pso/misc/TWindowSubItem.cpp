@@ -168,7 +168,7 @@ s32 try_send_6x27_use_item(s32, s32);
 s32 create_sub_item_list_window(s32, s32 *, s32);
 s32 get_array_entry__13TUnk_804CE018Fi(void *, s16);
 s32 get_cursor_pos__14TWindowSubItemFv();
-s32 get_field_d8__10TObjPlayerFv();
+s32 get_field_d8__5TItemFv();
 s32 reset_key_machine_state__10TObjPlayerFv(s32);
 int save_cursor_selection__20TShopArmorListWindowFv(void*);
 
@@ -252,7 +252,7 @@ void TWindowSubItem::exec_item_command(s32 arg1, s32 arg2) {
             break;
         case 1:
             if (get_slot_value__10TObjPlayerFPvi(temp_r3 + 0xD04, (s8) ((V_A_80279714 *) temp_r3_2)->m31()) != 0U) {
-                t = get_field_d8__10TObjPlayerFv();
+                t = get_field_d8__5TItemFv();
                 send_6x26_unequip_item__10TObjPlayerFPvPv(temp_r3, t);
             }
             send_6x25_equip_item(temp_r3, arg1, 0);

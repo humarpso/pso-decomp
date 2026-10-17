@@ -9,7 +9,6 @@ struct TWindowChoiceSetting : public TUnk_804D0658 {
     s16 get_field_74();
     virtual void render();
     u16 m_80;
-    void draw();
     virtual void run_task();
     u8 unk_82[0x2];
     static s32 apply_choice(s32 arg0, s32 arg1, s32 arg2, s32 arg3);

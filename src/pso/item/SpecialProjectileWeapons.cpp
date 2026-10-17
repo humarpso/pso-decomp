@@ -213,7 +213,7 @@ void TUnk_804A204C::update_weapon() {
     if (((s32) this->m_204 != temp_r3) && ((u32) *(u32 *)((s8 *)this + 0xF4) != 0U)) {
         this->m_204 = temp_r3;
         if (is_item_area_enabled() != 0) {
-            create_icon__10TObjPlayerFiii((s32)((s32)(tl_05)), (s32)((s32)(((TObjPlayer *)this)->get_field_d8())), (s32)((s32)(5)));
+            create_icon__10TObjPlayerFiii((s32)((s32)(tl_05)), (s32)((s32)(((TItem *)this)->get_field_d8())), (s32)((s32)(5)));
         }
     }
 }

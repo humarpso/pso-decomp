@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLockOnCursor.h"
 #include "pso/misc/TMainCursor.h"
 
 extern "C" {
@@ -82,7 +83,7 @@ int TMainCursor__sub_8013E900(void* p) { return get_type__11TMainCursorFv(p); }
 s16 TMainCursor__sub_8013E920(void* p) { return *(s16*)((char*)p + 0x2); }
 void TMainCursor__sub_8013E928(void* p, s16 v) { *(s16*)((char*)p + 0x2) = v; }
 void TMainCursor__sub_8013E930(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
-u16 TMainCursor::get_target_id() { return *(u16 *)&this->m_20; }
+u16 TLockOnCursor::get_target_id() { return *(u16 *)&(*(void * *)((u8 *)this + 0x20)); }
 int TMainCursor::is_cursor_clear() { return (test_flags_any((char*)this + 0x1c, 1)) == 0; }
 
 void TMainCursor__sub_8013E970(u8 *arg0, s16 arg1, s16 arg2, s16 arg3) {

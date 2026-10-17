@@ -1002,13 +1002,13 @@ void draw_with_fade__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1) {
     if (*(s16 *)((s8 *)arg0 + 0x326) == 8) {
         s32 c = (*(s32 *)((s8 *)arg0 + 0x44C) & 0xFF) << 0x10;
         epsilon_guard_camera_sample_phase = -1;
-        ((TObjPlayer *)arg0)->draw_with_alt_model(c | 0xFF000000);
+        ((TObjEneDD_ST *)arg0)->draw_with_alt_model(c | 0xFF000000);
     } else {
         epsilon_guard_camera_sample_phase = 0;
         if (arg1 == 1) {
             ((TObjEneRe7Berura *)arg0)->draw();
         } else {
-            ((TObjPlayer *)arg0)->render_world_model();
+            ((TObjEnemy *)arg0)->render_world_model();
         }
     }
     TParticleCtrl::end_effect_render();

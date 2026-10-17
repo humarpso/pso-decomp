@@ -76,8 +76,6 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 subtract_vector(void *, void *);
 
-s32 obj_clearFlags30(void * a0 = 0, s32 a1 = 0);
-s32 obj_clearFlags30(void * a0, s32 a1);
 extern void *player_render_texture_buffer;
 void TLobby__sub_803DA16C(void *);
 void mem_free(void *);

@@ -50,7 +50,7 @@ s32 get_party_yaw(void);
 extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_80478C68;
 s32 TNpcPlayer__sub_8034DE40(void);
 s32 __dt__7TObjectFv(void *, int);
-s32 obj_isState3_324(int);
+s32 obj_isState3_324__13TUnk_804806E8Fv(int);
 s32 is_script_controlled__10TObjPlayerFv();
 u8 *get_player_by_client_id(s32);
 s32 __dl__7TObjectFPv(void *);
@@ -91,7 +91,7 @@ u8 *__dt__13TUnk_804F07C8Fv(u8 *arg0, s16 arg1) {
           }
         }
         else
-          if (((obj_isState3_324((int) temp_r3) != 0) && (((TNpcPlayer *)temp_r3)->get_action_flags() == ((-1U) & 0xFFFFu))) && (temp_r3 != 0))
+          if (((obj_isState3_324__13TUnk_804806E8Fv((int) temp_r3) != 0) && (((TNpcPlayer *)temp_r3)->get_action_flags() == ((-1U) & 0xFFFFu))) && (temp_r3 != 0))
         {
           PSO_VCALL_VObj_18_dac7f3_m0(temp_r3, 1);
         }
@@ -117,7 +117,7 @@ u8 *TNpcPlayer::construct_party_area(void *parent) {
     *(s32 *)&this->m_1c = 0;
     for (slot = 0; slot < 4; slot++) {
         player = get_player_by_client_id(slot);
-        if (player == NULL || ((s32 (*)(u8 *)) obj_isState3_324)(player) == 0 || ((TNpcPlayer *)player)->get_action_flags() == 0xFFFF) {
+        if (player == NULL || ((s32 (*)(u8 *)) obj_isState3_324__13TUnk_804806E8Fv)(player) == 0 || ((TNpcPlayer *)player)->get_action_flags() == 0xFFFF) {
             continue;
         }
         task = __nw__7TObjectFUl(0xE8);

@@ -292,14 +292,14 @@ void TObjPlayer__sub_802CE8CC(u8 *arg0) {
             if (mode == 1) {
                 ((TObjEneRe7Berura *)arg0)->draw();
             } else {
-                ((TObjPlayer *)arg0)->render_world_model();
+                ((TObjEnemy *)arg0)->render_world_model();
             }
         }
         fade->m7();
     } else if (mode == 1) {
         ((TObjEneRe7Berura *)arg0)->draw();
     } else {
-        ((TObjPlayer *)arg0)->render_world_model();
+        ((TObjEnemy *)arg0)->render_world_model();
     }
     if (!(self->f438 & 0x10)) {
         ((void (*)(void *))set_global_state__16TObjEneRe7BeruraFl)(NULL);

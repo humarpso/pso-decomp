@@ -6,6 +6,9 @@
 class TPhotonPilla : public TUnk_804C3248 {
 public:
     virtual ~TPhotonPilla();
+    void spawn_laser();
+    void apply_photon_blast_effects();
+    void sub_801ADC7C();
     virtual void render();
     virtual void run_task();
     u8 unk_158[0x54];

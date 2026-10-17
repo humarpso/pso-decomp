@@ -188,7 +188,7 @@ void TObjPlayer::collect_owner_fields_recursive() {
     void *owner;
     for (it = self->child; it != NULL; it = it->next) {
         if (is_item_valid__9TItemListFl(it) != 0 && (owner = get_owner_if_alive__10TObjPlayerFv(it)) != NULL) {
-            *TObjPlayer__owner_field_write_cursor++ = ((TObjPlayer *)owner)->get_field_d8();
+            *TObjPlayer__owner_field_write_cursor++ = ((TItem *)owner)->get_field_d8();
             inventory_walk_visit_count++;
         }
         ((TObjPlayer *)it)->collect_owner_fields_recursive();

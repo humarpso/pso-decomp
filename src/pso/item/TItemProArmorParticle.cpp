@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/item/TUnk_804A05C8.h"
 #include "pso/item/TItemProArmorParticle.h"
 #include "pso/item/TItemProShield.h"
@@ -50,7 +51,7 @@ void TItemProArmorParticle::vfunc_16() {
         if (temp_r3 != (s32) *(s32 *)&this->m_198) {
             *(s32 *)&this->m_198 = temp_r3;
             if (is_item_area_enabled() != 0) {
-                TItemProArmorParticle::create((s32)(tl_05), (s32)(((TObjPlayer *)this)->get_field_d8()), (s32)(get_id__13TItemProArmorFv(this)), (s32)(*(s32 *)&this->m_19c));
+                TItemProArmorParticle::create((s32)(tl_05), (s32)(((TItem *)this)->get_field_d8()), (s32)(get_id__13TItemProArmorFv(this)), (s32)(*(s32 *)&this->m_19c));
             }
         }
     }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/TItemEffNeedleBase.h"
 #include "pso/TObject.h"
 #include "pso/TParticleCtrl.h"
@@ -85,7 +86,7 @@ u8 *__ct__18TItemEffNeedleBaseFv(u8 *arg0, void *arg1, u8 *arg2) {
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TItemEffNeedleBase;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TItemEffNeedleBase__class_name;
-    *(s32 *)((s8 *)arg0 + 0x2C) = ((TObjPlayer *)arg2)->get_field_d8();
+    *(s32 *)((s8 *)arg0 + 0x2C) = ((TItem *)arg2)->get_field_d8();
     temp_r4 = *(s32 *)((s8 *)arg2 + 0x60);
     *(s32 *)((s8 *)arg0 + 0x48) = temp_r4;
     *(s32 *)((s8 *)arg0 + 0x4C) = 0;

@@ -479,7 +479,6 @@ typedef struct Moja_800AEBB8 {
 
 extern "C" {
 s32 update_movement_status__10TObjPlayerFv();
-s32 obj_clearFlags30(void *, s32);
 s32 update_action_hold_status__10TObjPlayerFv();
 
 f32 enemy_pursue_point(void *, s32, Vec_800AE18C *, void *, f32, f32);
@@ -1384,7 +1383,7 @@ void TObjEneMoja::update_idle_state() {
         break;
     }
     ((TUnk_804AF8A0 *)self)->refresh_collision_body_centers();
-    obj_clearFlags30(self, 0x200000);
+    ((TUnk_804B9870 *)self)->obj_clearFlags30(0x200000);
 }
 
 }
@@ -1430,7 +1429,7 @@ s32 TObjEneMoja::update_movement_status() {
             (*(s16 *)&this->timer) = 0;
             this->appearance = 0;
             this->m_b8 = 2;
-            obj_clearFlags30(this, 0x06040000);
+            obj_clearFlags30(0x06040000);
             temp_r3 = *(void * *)&this->m_a4;
             *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) | 1);
             break;
@@ -1452,7 +1451,7 @@ s32 TObjEneMoja::update_action_hold_status() {
             (*(s16 *)&this->timer) = 0;
             this->appearance = 0;
             this->m_b8 = 2;
-            obj_clearFlags30(this, 0x06040000);
+            obj_clearFlags30(0x06040000);
             temp_r3 = *(void * *)&this->m_a4;
             *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) | 1);
             break;
@@ -1567,7 +1566,7 @@ void render__11TObjEneMojaFv(u8 *arg0) {
             if (vis == 1) {
                 ((TObjEneRe7Berura *)arg0)->draw();
             } else {
-                ((TObjPlayer *)arg0)->render_world_model();
+                ((TObjEnemy *)arg0)->render_world_model();
             }
             TParticleCtrl::end_effect_render();
         }

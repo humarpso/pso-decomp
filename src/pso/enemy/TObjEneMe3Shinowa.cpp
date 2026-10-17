@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneSaver.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TUnk_80494938.h"
@@ -2009,7 +2010,7 @@ void TObjEneMe3ShinowaMirage::draw_model() {
             if (var_r31 == 1) {
                 ((TObjEneRe7Berura *)((u8 *)this))->draw();
             } else {
-                ((TObjPlayer *)((u8 *)this))->render_world_model();
+                ((TObjEnemy *)((u8 *)this))->render_world_model();
             }
             TObjEneRe7Berura::set_global_state((s32)((void *) (NULL)));
             pop_matrix();

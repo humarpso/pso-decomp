@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_80491478.h"
 #include "pso/player/TUnk_80491460.h"
 #include "pso/enemy/TObjEneDubchik.h"
@@ -177,7 +178,6 @@ struct Vec_800ABDD8
 
 extern "C" {
 void obj_setFlags30(void *, u32);
-void obj_clearFlags30(void *, u32);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(s32, f32, f32, f32);
 s32 draw_chunk_object(s32);
@@ -233,7 +233,7 @@ void __dt__7TObjectFv(void *, int);
 
 extern s32 lbl_805D5098;
 
-void TObjPlayer::init_level_stats(s32 arg1) {
+void TObjEneDubchik::init_level_stats(s32 arg1) {
     s32 var_r0;
 
     *(s32 *)&this->model = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)lbl_805D5090 + 0x42C)) + 8);
@@ -252,7 +252,7 @@ void TObjPlayer::clear_flag_04000000() {
     u8 *temp_r6;
     temp_r6 = (u8 *)(*(u8 * *)&this->m_a4);
     *(s32 *)((s8 *)temp_r6 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r6 + 0x18) & 0xF5FFFFFF);
-    obj_clearFlags30(arg0, 0x04000000U);
+    ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x04000000U);
 }
 
 void TObjPlayer::set_invuln_flags() {

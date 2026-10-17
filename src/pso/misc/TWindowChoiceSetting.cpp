@@ -33,7 +33,7 @@ void TUnk_804D0658::request_close() {
         this->m_70 = (u16) (this->m_70 | 4);
     }
 }
-void TWindowChoiceSetting::draw() {
+void TUnk_804D0658::draw() {
     get_array_entry__13TUnk_804CE018Fi(this, this->m_74);
     if (TWindowSubComCard__sub_8026906C() == 0) {
         play_sound_effect(0x52D01, 0, 0, 0);
@@ -265,7 +265,7 @@ void TWindowSubStatusDisp::handle_choice_input() {
         }
         temp_r30_3 = (u8 *)&controller_input_state.value + 0x20;
         if ((TWindowShortListCtrl__check_controller_button((int) (temp_r30_3), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (4)) != 0)) {
-            ((TWindowChoiceSetting *)arg0)->draw();
+            ((TUnk_804D0658 *)arg0)->draw();
         }
         if ((TWindowShortListCtrl__check_controller_button((int) (temp_r30_3), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
             ((TUnk_804D0658 *)arg0)->request_close();

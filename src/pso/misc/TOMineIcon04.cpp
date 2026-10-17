@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TOMine.h"
 extern "C" void vfunc_12__6TOMineFv();
@@ -316,7 +317,7 @@ void *TOMineIcon04__ct(void *arg0, void *arg1, void *arg2) {
     self->f0 = TOMineIcon04__name;
     ((VIcon_80171E7C *)self)->m5(arg2);
     ((TObjPlayer *)self)->init_position_vectors();
-    ((TObjPlayer *)self)->calc_attach_pos();
+    ((TUnk_804806E8 *)self)->calc_attach_pos();
     self->f34 = get_bml_model(lbl_805D5A50, 7);
     self->f24 = TObjFish__sub_8001EDB0(lbl_805D5A50, 7);
     self->f374 = get_bml_model(lbl_805D5A50, 3);

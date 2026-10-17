@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/npc/TObjNpcBase.h"
 #include "pso/player/TObjPlayer.h"
@@ -107,7 +108,6 @@ struct VObj_18_3eea3b : VBase_18_3eea3b {
 };
 
 extern "C" {
-void obj_clearFlags30(void *, u32);
 void copy_position__20TBoss3VoloptHiraisinFi(s32);
 void set_indexed_flags(void *, s32, s32);
 s32 get_register__12TQuestThreadFPvi(void *, s32);
@@ -238,7 +238,7 @@ void run_task__11TObjNpcBaseFPv(u8 *arg0) {
   {
     submit_cursor_candidate((void *) arg0, (int) (-1));
   }
-  obj_clearFlags30(arg0, 0x1B3FU);
+  ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x1B3FU);
 }
 
 }

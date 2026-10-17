@@ -13,7 +13,7 @@ extern "C" f32   vector_length(Vec*);
 extern "C" void  normalize_vector(Vec*);
 extern "C" f64   atan2_float(f32, f32);
 extern "C" void  direction_to_rotation_xz(Vec*, s32*, s32*);
-extern "C" void* get_field_d8__10TObjPlayerFv(void*);
+extern "C" void* get_field_d8__5TItemFv(void*);
 extern "C" TObject*    tl_05;
 extern "C" const char* TItemShoot__class_name;
 extern "C" const f64   lbl_8043E7A0[];
@@ -99,6 +99,6 @@ TItemShoot::TItemShoot(void* owner, const Vec* pos, const Vec* dir, f32 life)
     this->m_count = (s32)(lbl_8043E7A0[0] * atan2_float(this->m_dir.x, this->m_dir.z));
     direction_to_rotation_xz(&this->m_dir, &this->m_28, &this->m_30);
     this->m_50 = NULL;
-    this->m_54 = get_field_d8__10TObjPlayerFv(owner);
+    this->m_54 = get_field_d8__5TItemFv(owner);
     disallow_rendering__7TObjectFv(this);
 }

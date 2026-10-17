@@ -173,7 +173,7 @@ s32 handle_shot_state__19TObjEneBm9MericarolFPvi(void *, void *);
 s32 TObjEneBm9Mericarol__sub_802D01D8(void *, void *);
 s32 TObjEneBm9Mericarol__sub_802D05BC(void *, void *);
 void dispatch_state_handler__19TObjEneBm9MericarolFiUii(s32 arg0, u32 arg1, s32 arg2);
-s32 obj_isState2_324(s32);
+s32 obj_isState2_324__13TUnk_804806E8Fv(s32);
 s32 get_player_data__10TObjPlayerFi(s32);
 s32 is_valid_target__9TObjEneDDFv(s32);
 f32 horizontal_distance_squared(void *, void *);
@@ -509,7 +509,7 @@ s32 TObjEneBm9Mericarol::find_nearby_target() {
     s32 i;
     for (i = 0; i < n; i++) {
         pl = get_player_data__10TObjPlayerFi(i);
-        if (is_valid_target__9TObjEneDDFv(pl) != 0 && obj_isState2_324(pl) == 0) {
+        if (is_valid_target__9TObjEneDDFv(pl) != 0 && obj_isState2_324__13TUnk_804806E8Fv(pl) == 0) {
             best = pl;
             break;
         }

@@ -512,7 +512,6 @@ void spawn_ground_effects__14TObjEneDolmOlmFPvPv(u8 *arg0, Vec_80300D00 *arg1);
 s32 draw_trail_with_colors(u32, s32, s32, int, int);
 extern const f32 lbl_805DEF64;
 s32 obj_testFlags30(void *, u32);
-void obj_clearFlags30(void *, u32);
 void vfunc_59__14TObjEneDolmOlmFv(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi();
 s32 obj_setFlags30(void *, s32);
@@ -560,8 +559,6 @@ s32 enemy_set_heading_velocity(void *, s32, f32);
 s32 select_enemy_destination(void *, void *, int);
 s32 copy_position_if_valid__10TObjPlayerFii(void *, void *);
 s32 enemy_turn_toward_dest(void *, s32);
-s32 TObjPlayer__sub_800C4E08(void *);
-s32 update_target_near_flag(void *);
 s32 test_elt_flag__13TUnk_80493450Fll(void *, int, int);
 extern const f32 lbl_805DEF74;
 extern const f32 lbl_805DEF78;
@@ -1315,7 +1312,7 @@ void render_body__14TObjEneDolmOlmFPv(Ene_803021AC *arg0) {
         } else if (vis == 1) {
             ((TObjEneRe7Berura *)arg0)->draw();
         } else {
-            ((TObjPlayer *)arg0)->render_world_model();
+            ((TObjEnemy *)arg0)->render_world_model();
         }
         TObjEneRe7Berura::set_global_state((s32)NULL);
         TParticleCtrl::end_effect_render();
@@ -1474,15 +1471,15 @@ s32 TObjEneDolmOlm__sub_80301C3C(void *arg0_) {
     case 2:
         *(s16 *)((s8 *)arg0 + 0x326) = 3;
         *(s16 *)((s8 *)arg0 + 0xB8) = 2;
-        obj_clearFlags30(arg0, 0x04040000);
+        ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x04040000);
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 0x0A000000);
-        update_target_near_flag(arg0);
-        TObjPlayer__sub_800C4E08(arg0);
+        ((TUnk_80493450 *)arg0)->update_target_near_flag();
+        ((TUnk_80493450 *)arg0)->sub_800C4E08();
         break;
     }
     ((TObjPlayer *)arg0)->update_collisions();
     minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
-    obj_clearFlags30(arg0, 0x200000);
+    ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x200000);
 }
 #undef arg0
 #undef ADV
@@ -1504,7 +1501,7 @@ s32 TObjEneDolmOlm__sub_8030177C(void *arg0_) {
         arg0->f338 = 0xFFFF;
         arg0->target = 0;
     }
-    obj_clearFlags30(arg0, 0x4040000);
+    ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x4040000);
     ((void (*)(void *))advance_animation_playback)(arg0);
     switch (arg0->f328) {
     case 0:
@@ -1528,7 +1525,7 @@ s32 TObjEneDolmOlm__sub_8030177C(void *arg0_) {
                     arg0->f328 = 1;
                     arg0->fb8 = 2;
                     arg0->f30 &= ~0x200000;
-                    obj_clearFlags30(arg0, 0x4040000);
+                    ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x4040000);
                     ((TObjPlayer *)arg0)->clear_player_status_flag(0, 0xA000000);
                 }
             } else {
@@ -1587,7 +1584,7 @@ s32 TObjEneDolmOlm__sub_8030177C(void *arg0_) {
         arg0->f326 = 3;
         arg0->f328 = 1;
         arg0->fb8 = 2;
-        obj_clearFlags30(arg0, 0x4040000);
+        ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x4040000);
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 0xA000000);
         break;
     }
@@ -1648,7 +1645,7 @@ void TObjEneDolmOlm::vfunc_59() {
             this->mode = 2;
             this->m_b8 = 0xA;
         }
-        obj_clearFlags30(arg0, 0x04040000U);
+        ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x04040000U);
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 0x0A000000U);
         return;
     case 4:
@@ -1658,7 +1655,7 @@ void TObjEneDolmOlm::vfunc_59() {
         this->mode = 3;
         this->phase = 1;
         this->m_b8 = 2;
-        obj_clearFlags30(arg0, 0x04040000U);
+        ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x04040000U);
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 0x0A000000U);
         return;
     case 2:
@@ -1689,7 +1686,7 @@ void TObjEneDolmOlm::vfunc_60() {
             this->mode = 2;
             this->m_b8 = 0xA;
         }
-        obj_clearFlags30((void *) (((u8 *)this)), (int) (0x04040000));
+        obj_clearFlags30((int) (0x04040000));
         ((TObjPlayer *)((u8 *)this))->clear_player_status_flag((int) (0), (int) (0x0A000000));
         break;
     default:
@@ -1717,7 +1714,7 @@ void TObjEneDolmOlm::vfunc_60() {
             this->mode = 0xB;
             this->phase = 0;
             obj_setFlags30((void *) (((u8 *)this)), (int) (0x200000));
-            obj_clearFlags30((void *) (((u8 *)this)), (int) (0x04040000));
+            obj_clearFlags30((int) (0x04040000));
             ((TObjPlayer *)((u8 *)this))->clear_player_status_flag((int) (0), (int) (0x0A000000));
             return;
         }
@@ -1730,7 +1727,7 @@ void TObjEneDolmOlm::vfunc_60() {
                 this->m_b8 = 4;
             }
             obj_setFlags30((void *) (((u8 *)this)), (int) (0x200000));
-            obj_clearFlags30((void *) (((u8 *)this)), (int) (0x04040000));
+            obj_clearFlags30((int) (0x04040000));
             ((TObjPlayer *)((u8 *)this))->clear_player_status_flag((int) (0), (int) (0x0A000000));
         }
         break;

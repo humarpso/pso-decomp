@@ -128,7 +128,7 @@ void TObjPlayer__sub_801D52A8(Node_801D52A8 *arg0) {
             o = ((TObjPlayer *)n)->get_owner_if_alive();
             if ((o != 0) && (is_item_equipped() != 0) && (((TItem *)o)->get_field_ec() == 0)) {
                 ((TItem *)o)->copy_to_item_data((s32 *)(player_item_collect_cursor + 8));
-                *(s32 *)(player_item_collect_cursor + 4) = ((TObjPlayer *)o)->get_field_d8();
+                *(s32 *)(player_item_collect_cursor + 4) = ((TItem *)o)->get_field_d8();
                 player_item_collect_cursor += 0x1C;
                 inventory_walk_visit_count += 1;
             }
@@ -264,7 +264,7 @@ void *TObjPlayer::find_inventory_item_by_field_d8() {
         if (is_item_valid__9TItemListFl(node) != 0) {
             owner = ((TObjPlayer *)node)->get_owner_if_alive();
             if (owner != 0) {
-                if (inventory_update_field_d8_key == ((TObjPlayer *)owner)->get_field_d8()) {
+                if (inventory_update_field_d8_key == ((TItem *)owner)->get_field_d8()) {
                     return node;
                 }
                 inventory_walk_progress_count += 1;

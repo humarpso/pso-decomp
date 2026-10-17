@@ -2018,7 +2018,7 @@ void draw_model__15TObjEneMe1GiGueFPv(Obj_802CD058 *self) {
                 clear_global_state__10TObjPlayerFv();
             } else {
                 set_global_flag__10TObjPlayerFv();
-                ((TObjPlayer *)self)->render_world_model();
+                ((TObjEnemy *)self)->render_world_model();
                 clear_global_state__10TObjPlayerFv();
             }
             self->s3fc.m7();
@@ -2032,7 +2032,7 @@ void draw_model__15TObjEneMe1GiGueFPv(Obj_802CD058 *self) {
             clear_global_state__10TObjPlayerFv();
         } else {
             set_global_flag__10TObjPlayerFv();
-            ((TObjPlayer *)self)->render_world_model();
+            ((TObjEnemy *)self)->render_world_model();
             clear_global_state__10TObjPlayerFv();
         }
     }

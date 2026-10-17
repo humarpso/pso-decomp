@@ -2496,7 +2496,7 @@ void render__13TObjEneMe1GeeFv(u8 *arg0) {
                     TObjPlayer::clear_global_state();
                 } else {
                     TObjPlayer::set_global_flag();
-                    ((TObjPlayer *)arg0)->render_world_model();
+                    ((TObjEnemy *)arg0)->render_world_model();
                     TObjPlayer::clear_global_state();
                 }
                 TObjEneRe7Berura::set_global_state((s32)NULL);
@@ -2505,7 +2505,7 @@ void render__13TObjEneMe1GeeFv(u8 *arg0) {
                 TObjEneMe1Gee__render_node_index = -1;
                 gee_camera_ctrl_step_ptr = (s32)(arg0 + 0x414);
                 TObjEneRe7Berura::set_global_state((s32)((void *)TObjEneMe1Gee::advance_camera_ctrl_step));
-                ((TObjPlayer *)arg0)->draw_with_alt_model((int) (*(s32 *)((s8 *)arg0 + 0x410)));
+                ((TObjEneDD_ST *)arg0)->draw_with_alt_model((int) (*(s32 *)((s8 *)arg0 + 0x410)));
                 TObjEneRe7Berura::set_global_state((s32)NULL);
             }
         }

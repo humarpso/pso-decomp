@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/misc/TTecSlicer.h"
 #include "pso/TItemAttacker.h"
 #include "pso/player/TObjPlayer.h"
@@ -49,7 +50,7 @@ void TUnk_804A4238::emit_marker_effects() {
     TObjPlayer__sub_80128A70();
     init_slicer_launch_state(&tec);
     tec.id = obj_getField1c(self->owner);
-    tec.fC = ((TObjPlayer *)self)->get_field_d8();
+    tec.fC = ((TItem *)self)->get_field_d8();
     tec.f4 = self->f24;
     tec.f8 = self->f188;
     tec.f10 = TObjPlayer__sub_801D2F4C((u8 *)self->owner + 0x7CC);
@@ -191,7 +192,7 @@ void TUnk_804A4338::emit_marker_effects() {
     TObjPlayer__sub_80128A70();
     init_slicer_launch_state((struct SlicerState_801295FC *)((SlicerState_801295FC *)&tec));
     tec.id = obj_getField1c(self->owner);
-    tec.fC = ((TObjPlayer *)self)->get_field_d8();
+    tec.fC = ((TItem *)self)->get_field_d8();
     tec.f4 = self->f24;
     tec.f8 = self->f188;
     tec.f10 = TObjPlayer__sub_801D2F4C((u8 *)self->owner + 0x7CC);

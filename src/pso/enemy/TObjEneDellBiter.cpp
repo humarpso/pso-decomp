@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TUnk_804E6FA8.h"
 #include "pso/enemy/TObjEneDD_ST.h"
@@ -702,7 +703,7 @@ typedef char RecoveredGlobal_8031B170_lbl_804E8880_size[((sizeof(RecoveredGlobal
 struct Vec_80303F04 { f32 x; f32 y; f32 z; };
 
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
-s32 obj_isState2_324(void *);
+s32 obj_isState2_324__13TUnk_804806E8Fv(void *);
 s16 get_attack_params_atp_min(s32);
 s32 obj_is_hit_receivable(void);
 Obj_80098FF4 * get_player_data__10TObjPlayerFi(s32);
@@ -1163,7 +1164,7 @@ void TObjEneDellBiter_Eff_Rush::run_task() {
         queue_destruction__7TObjectFv((void *)((void *) (arg0)));
         return;
     }
-    if (obj_isState2_324((void *) (*(u8 **)((s8 *)arg0 + 0x1C))) != 0) {
+    if (obj_isState2_324__13TUnk_804806E8Fv((void *) (*(u8 **)((s8 *)arg0 + 0x1C))) != 0) {
         queue_destruction__7TObjectFv((void *)((void *) (arg0)));
         return;
     }
@@ -1333,7 +1334,7 @@ void render__16TObjEneDellBiterFv(u8 *arg0) {
             if (vis == 1) {
                 ((TObjEneRe7Berura *)arg0)->draw();
             } else {
-                ((TObjPlayer *)arg0)->render_world_model();
+                ((TObjEnemy *)arg0)->render_world_model();
             }
             TObjEneRe7Berura::set_global_state((s32)NULL);
             pop_matrix();

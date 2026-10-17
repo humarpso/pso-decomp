@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss5Gryphon.h"
 #include "pso/boss/TBoss8Dragon.h"
@@ -1305,7 +1306,7 @@ void render__14TObjEneBm5WolfFPv(u8 *arg0) {
             if (var_r31 == 1) {
                 ((TObjEneRe7Berura *)arg0)->draw();
             } else {
-                ((TObjPlayer *)arg0)->render_world_model();
+                ((TObjEnemy *)arg0)->render_world_model();
             }
             TObjEneRe7Berura::set_global_state((s32)NULL);
             pop_matrix();

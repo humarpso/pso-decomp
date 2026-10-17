@@ -6,6 +6,10 @@
 class TObjEneDubchik : public TObjEnemyCustom {
 public:
     virtual ~TObjEneDubchik();
+    void init_level_stats(s32);
+    void sub_800AA10C();
+    void sub_800A8B8C();
+    void sub_800A8A7C();
     virtual s32 update_shock_clock();
     s32 sub_800AB068();
     f32 sub_800AAF78(s32);

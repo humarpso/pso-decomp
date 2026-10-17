@@ -78,7 +78,6 @@ struct TWindowDD
     int initialize_subwindow();
     void *destroy_window_base(s16 arg1);
     static void refresh_status_display();
-    void draw_entry_if_visible(void *arg1);
     void init_window();
     void init_and_set_field50(void *arg1);
     void update_position(s32 arg1);
@@ -150,7 +149,6 @@ struct TWindowDD
     s32 count_chars_since_newline(s32 *len);
     static void append_char(s8 arg0, s32 arg1, s32 *arg2);
     static void append_string(s32 arg0, s32 arg1, s32 *arg2);
-    void draw(s32 arg1, s32 arg2, f32 farg0);
     void copy_point_table(s32 idx);
     static s32 get_draw_count(void **arg0);
     static s32 get_entry(s32 arg0);

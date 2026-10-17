@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/TItemLockCountCtrl.h"
 
@@ -25,13 +26,12 @@ void TItemLockCountCtrl__sub_8011933C(int arg0);
 void apply_battle_ctrl_effect(int arg0);
 void notify_stealth_enemies_08(int arg0);
 u32 get_player_by_client_id(u16);
-s32 obj_clearFlags30(u32, s32);
 s32 obj_setFlags30(u32, s32);
 
 void TItemLockCountCtrl__sub_80119238(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
     if (temp != 0U) {
-        obj_clearFlags30(temp, 0x40);
+        ((TUnk_804B9870 *)temp)->obj_clearFlags30(0x40);
     }
 }
 

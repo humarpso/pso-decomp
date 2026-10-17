@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TShopEquipmentListWindow.h"
@@ -317,7 +318,7 @@ void TShopEquipmentListWindow::handle_buy_confirm() {
                 try_buy_item(w->player, &it);
                 item = find_item_by_id(it.id);
                 if (item != NULL && (e = get_equip_field_d04__10TObjPlayerFv(w->player, item->m31())) != 0) {
-                    send_6x26_unequip_item__10TObjPlayerFPvPv(w->player, ((TObjPlayer *)e)->get_field_d8());
+                    send_6x26_unequip_item__10TObjPlayerFPvPv(w->player, ((TItem *)e)->get_field_d8());
                 }
                 send_6x25_equip_item(w->player, it.id, 0);
                 update_list(&w->recs[i]);

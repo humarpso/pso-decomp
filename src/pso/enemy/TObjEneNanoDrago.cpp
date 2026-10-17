@@ -1751,7 +1751,7 @@ void render_enemy_with_fade__10TObjPlayerFPv(u8 *arg0) {
                 if (temp_r3 == 1) {
                     ((TObjEneRe7Berura *)arg0)->draw();
                 } else {
-                    ((TObjPlayer *)arg0)->render_world_model();
+                    ((TObjEnemy *)arg0)->render_world_model();
                 }
                 ((VObj_14 *)(arg0 + 0x3E8))->m7();
             } else {
@@ -1760,7 +1760,7 @@ void render_enemy_with_fade__10TObjPlayerFPv(u8 *arg0) {
         } else if (temp_r3 == 1) {
             ((TObjEneRe7Berura *)arg0)->draw();
         } else {
-            ((TObjPlayer *)arg0)->render_world_model();
+            ((TObjEnemy *)arg0)->render_world_model();
         }
         pop_matrix();
         restore_scene_lighting();

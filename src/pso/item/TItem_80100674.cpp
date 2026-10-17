@@ -273,7 +273,7 @@ s32 consume_item_by_id(s32 arg0) {
     return 0;
   }
   temp_r31 = PSO_VCALL_VObj_18_8a175d_m34(item);
-  temp_r30 = ((TObjPlayer *)item)->get_field_d8();
+  temp_r30 = ((TItem *)item)->get_field_d8();
   ((TObjPlayer *)temp_r3_2)->dispatch_action(arg0, 1);
   if (is_locally_controlled__10TObjPlayerFPv((void *) temp_r3_2) != 0)
   {
@@ -334,8 +334,8 @@ void replace_item_with_new_code(void *arg0, u32 arg1) {
         break;
     }
     temp_r31 = get_id__13TItemProArmorFv((void *)(arg1));
-    sp8.value = ((TObjPlayer *)arg1)->get_field_d8();
-    if (consume_item_by_id(((TObjPlayer *)arg1)->get_field_d8()) != 0)
+    sp8.value = ((TItem *)arg1)->get_field_d8();
+    if (consume_item_by_id(((TItem *)arg1)->get_field_d8()) != 0)
     {
       give_item_to_client(temp_r31, (s32)(&sp8));
     }

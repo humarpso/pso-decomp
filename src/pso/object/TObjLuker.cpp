@@ -118,7 +118,7 @@ s32 obj_getField1c(int);
 s32 is_player_in_range__9TObjLukerFv(s32 arg0, f32 farg0);
 s32 get_main_phase();
 s32 mark_area_change_pending();
-s32 obj_isState3_324(int);
+s32 obj_isState3_324__13TUnk_804806E8Fv(int);
 s32 set__10TObjRoomIdFPvs(int, volatile short);
 s32 send_6x21_inter_level_warp(int, void *);
 s32 get_floor_map_terrain(int);
@@ -349,7 +349,7 @@ void TObjLuker::transfer_to_town() {
         flag = 1;
       }
       else
-        if (obj_isState3_324((int) p) != 0)
+        if (obj_isState3_324__13TUnk_804806E8Fv((int) p) != 0)
       {
         flag = 1;
       }

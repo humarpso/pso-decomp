@@ -276,7 +276,6 @@ s32 reset_status_effect_row(void *);
 u8 * get_player_data__10TObjPlayerFi(s32);
 s32 obj_testFlags30(void *, int);
 u16 obj_getField1c(void *);
-s32 obj_clearFlags30(void *, int);
 s32 obj_setFlags30(void *, s32);
 int read_be16_field2__10TObjPlayerFv(void* a0 = 0);
 f32 fabs_float(f32);
@@ -1255,7 +1254,7 @@ void TBoss3Volopt::run_task() {
     if (obj_testFlags30((void *) (arg0), (int) (0x4000)) != 0) {
         if (((TObjPlayer *)arg0)->add_status_effect_timer((int) (4), (int) (-1)) <= 0) {
             reset_status_effect_row((void *) (arg0 + 0x284));
-            obj_clearFlags30((void *) (arg0), (int) (0x4000));
+            ((TUnk_804B9870 *)arg0)->obj_clearFlags30((int) (0x4000));
         }
     } else {
         if ((s32) *(s32 *)&this->next_action != (s16) this->mode) {

@@ -207,7 +207,7 @@ void TShopEquipmentSellWindow::handle_sell_confirm() {
         r = get_selected_menu_value(w->card);
         if (r == 0) {
             s32 i = select_cursor_entry__22TWindowSubShortCutListFv(w->list);
-            if (((TObjPlayer *)(w->player))->try_add_sale_meseta(((TObjPlayer *)(w->recs[i].item))->get_field_d8(), w->recs[i].price * w->count, w->count) != 0) {
+            if (((TObjPlayer *)(w->player))->try_add_sale_meseta(((TItem *)(w->recs[i].item))->get_field_d8(), w->recs[i].price * w->count, w->count) != 0) {
                 TWindow__close(w->card);
                 w->card = NULL;
                 w->sel = i;

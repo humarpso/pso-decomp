@@ -486,7 +486,6 @@ extern s32 game_difficulty_selection;
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 advance_animation_playback(void *);
 s32 obj_testFlags30(void *, int);
-s32 obj_clearFlags30(void *, s32);
 void vfunc_59__16TObjEneMerillLiaFv(Ene_800D51C8 *arg0);
 s16 find_nearest_visible_player(void *, s32, f32);
 s32 obj_setFlags30(void *, s32);
@@ -505,8 +504,6 @@ extern const f32 lbl_805DA310;
 s32 apply_actor_gravity(void *, int, f32);
 s32 enemy_move_toward(void *, s32, void *, int, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TObjPlayer__sub_800C4E08(void *);
-s32 update_target_near_flag(void *);
 f32 horizontal_distance_squared(void *, void *);
 s32 test_elt_flag__13TUnk_80493450Fll(void *, int, int);
 extern const f32 lbl_805DA31C;
@@ -875,7 +872,7 @@ void TObjEneMerillLia::vfunc_59() {
             arg0->state = 2;
             arg0->fB8 = 10;
         }
-        obj_clearFlags30((void *)(arg0), (s32)(0x4040000));
+        ((TUnk_804B9870 *)arg0)->obj_clearFlags30((s32)(0x4040000));
         clear_player_status_flag__10TObjPlayerFlUl((void *)(arg0), (s32)(0), (s32)(0xA000000));
         break;
     case 4:
@@ -885,7 +882,7 @@ void TObjEneMerillLia::vfunc_59() {
         arg0->state = 3;
         arg0->f328 = 1;
         arg0->fB8 = 2;
-        obj_clearFlags30((void *)(arg0), (s32)(0x4040000));
+        ((TUnk_804B9870 *)arg0)->obj_clearFlags30((s32)(0x4040000));
         clear_player_status_flag__10TObjPlayerFlUl((void *)(arg0), (s32)(0), (s32)(0xA000000));
         break;
     }
@@ -911,7 +908,7 @@ void TObjEneMerillLia::vfunc_60() {
             arg0->state = 2;
             arg0->fB8 = 10;
         }
-        obj_clearFlags30((void *)(arg0), (s32)(0x4040000));
+        ((TUnk_804B9870 *)arg0)->obj_clearFlags30((s32)(0x4040000));
         clear_player_status_flag__10TObjPlayerFlUl((void *)(arg0), (s32)(0), (s32)(0xA000000));
         break;
     default:
@@ -923,7 +920,7 @@ void TObjEneMerillLia::vfunc_60() {
             arg0->fB8 = 4;
         }
         obj_setFlags30((void *)(arg0), (s32)(0x200000));
-        obj_clearFlags30((void *)(arg0), (s32)(0x4040000));
+        ((TUnk_804B9870 *)arg0)->obj_clearFlags30((s32)(0x4040000));
         clear_player_status_flag__10TObjPlayerFlUl((void *)(arg0), (s32)(0), (s32)(0xA000000));
         break;
     }
@@ -971,7 +968,7 @@ void TObjEneMerillLia::init_attack_state() {
     this->mode = 4;
     this->phase = 0;
     this->m_374 = (s16) this->m_3d8;
-    obj_clearFlags30(this, 0x04240000);
+    obj_clearFlags30(0x04240000);
     clear_player_status_flag__10TObjPlayerFlUl(this, 0, 0x0A000000);
 }
 
@@ -979,7 +976,7 @@ void TObjEneMerillLia::reset_action_state() {
     this->mode = 0xA;
     this->phase = 0;
     obj_setFlags30(this, 0x200000);
-    obj_clearFlags30(this, 0x04040000);
+    obj_clearFlags30(0x04040000);
     clear_player_status_flag__10TObjPlayerFlUl(this, 0, 0x0A000000);
 }
 
@@ -1064,7 +1061,7 @@ s32 TObjEneMerillLia::update_emerge_state(void *ov) {
             *(s16 *)((s8 *)arg0 + 0x328) = 2;
             *(s32 *)((s8 *)arg0 + 0x390) = 1;
             clear_player_status_flag__10TObjPlayerFlUl(arg0, 0, 0x0A000000);
-            obj_clearFlags30(arg0, 0x04040000);
+            ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x04040000);
         }
         break;
     case 2:
@@ -1092,7 +1089,7 @@ s32 TObjEneMerillLia::update_kafun_attack(void *p) {
         *(s16 *)((s8 *)arg0 + 0x328) = 1;
         *(s16 *)((s8 *)arg0 + 0xB8) = 0xC;
         obj_setFlags30((void *) (arg0), 0x200000);
-        obj_clearFlags30((void *) (arg0), 0x04040000);
+        ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x04040000);
         clear_player_status_flag__10TObjPlayerFlUl((void *) (arg0), 0, 0x0A000000);
         break;
     case 1:
@@ -1121,7 +1118,7 @@ s32 TObjEneMerillLia::update_kafun_attack(void *p) {
     case 2:
         (*(s16 *)((s8 *)arg0 + 0x33C))--;
         if (*(s16 *)((s8 *)arg0 + 0x33C) < 0) {
-            obj_clearFlags30((void *) (arg0), 0x200000);
+            ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x200000);
             *(s16 *)((s8 *)arg0 + 0x33C) = 0;
             if (calc_boss4_scale__10TObjPlayerFi((void *) (arg0)) <= *(f32 *)((s8 *)arg0 + 0x3C4)) {
                 ((TObjEneMerillLia *)arg0)->init_attack_state();
@@ -1144,8 +1141,8 @@ s32 TObjEneMerillLia::update_kafun_attack(void *p) {
 #pragma opt_common_subs off
 #define o ((Lia_800D5BCC *)arg0)
 void TObjEneMerillLia__sub_800D5BCC(u8 *arg0) {
-    update_target_near_flag(o);
-    TObjPlayer__sub_800C4E08(o);
+    ((TUnk_80493450 *)o)->update_target_near_flag();
+    ((TUnk_80493450 *)o)->sub_800C4E08();
     advance_animation_playback(o);
     if (o->state != 1) {
         o->state = 1;
@@ -1252,7 +1249,7 @@ void TObjEneMerillLia__sub_800D5BCC(u8 *arg0) {
     }
     ((TUnk_804AF8A0 *)o)->refresh_collision_body_centers();
     minimap_render_dot(&o->pos, -0x5DB4, 1, 0);
-    obj_clearFlags30(o, 0x04240000);
+    ((TUnk_804B9870 *)o)->obj_clearFlags30(0x04240000);
     clear_player_status_flag__10TObjPlayerFlUl(o, 0, 0x0A000000);
 }
 #undef o
@@ -1328,7 +1325,7 @@ void TObjEneMerillLia::beast_update_group_chase() {
         ((TObjEneMerillLia *)arg0)->reset_state_clear_status();
         break;
     case 2:
-        obj_clearFlags30(arg0, 0x1000);
+        ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x1000);
         if (arg0->m17(0x1E) != 0) {
             arg0->f338 = find_nearest_visible_player(arg0, 0, *arg0->f350);
         }
@@ -1339,7 +1336,7 @@ void TObjEneMerillLia::beast_update_group_chase() {
                 arg0->f326 = 1;
                 arg0->f328 = 0;
                 arg0->fb8 = 0xA;
-                obj_clearFlags30(arg0, 0x4040000);
+                ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x4040000);
                 clear_player_status_flag__10TObjPlayerFlUl(arg0, 0, 0xA000000);
                 break;
             }
@@ -1380,7 +1377,7 @@ void TObjEneMerillLia::vfunc_83() {
             arg0->f390 = 0;
             arg0->fB8 = 0;
             clear_player_status_flag__10TObjPlayerFlUl((void *)(arg0), (s32)(0), (s32)(0xA000000));
-            obj_clearFlags30((void *)(arg0), (s32)(0x4000000));
+            ((TUnk_804B9870 *)arg0)->obj_clearFlags30((s32)(0x4000000));
         }
         break;
     case 2:
@@ -1417,8 +1414,8 @@ void TObjEneMerillLia::beast_update_approach() {
                 this->m_38c = 0U;
                 VecCopy__FP3VecPC3Vec(&sp14, (void *) (*(u32 *)&this->target + 0x2FC));
             }
-            update_target_near_flag(arg0);
-            TObjPlayer__sub_800C4E08(arg0);
+            ((TUnk_80493450 *)arg0)->update_target_near_flag();
+            ((TUnk_80493450 *)arg0)->sub_800C4E08();
             advance_animation_playback(arg0);
             {
                 Vec_800D6618 sp8 = sp14;
@@ -1437,7 +1434,7 @@ void TObjEneMerillLia::beast_update_approach() {
     ((TObjPlayer *)arg0)->update_collisions();
     ((TObjPlayer *)arg0)->update_enemy_collision_flags();
     minimap_render_dot((u8 *)&this->position, -0x5DB4, 1, 0);
-    obj_clearFlags30(arg0, 0x200000);
+    ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x200000);
 }
 
 void render__16TObjEneMerillLiaFPv(u8 *arg0) {
@@ -1489,7 +1486,7 @@ void render__16TObjEneMerillLiaFPv(u8 *arg0) {
         else
         {
           TObjPlayer::set_global_flag();
-          ((TObjPlayer *)arg0)->render_world_model();
+          ((TObjEnemy *)arg0)->render_world_model();
           TObjPlayer::clear_global_state();
         }
       }

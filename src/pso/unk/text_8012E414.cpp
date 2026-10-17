@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8012E414_lbl_804A5D10 {
@@ -20,7 +21,7 @@ typedef char RecoveredGlobal_8012E414_lbl_804A5D10_size[sizeof(RecoveredGlobal_8
 u8 *TObjPlayer::construct_weapon_casing(u8 *arg1, u8 *arg2, u8 *arg3, u8 *arg4, u8 *arg5) {
     __ct__7TObjectFP7TObject(((u8 *)this), arg1);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &lbl_804A5D10.value;
-    *(s32 *)((s8 *)((u8 *)this) + 0x1C) = ((TObjPlayer *)arg2)->get_field_d8();
+    *(s32 *)((s8 *)((u8 *)this) + 0x1C) = ((TItem *)arg2)->get_field_d8();
     VecCopy__FP3VecPC3Vec(((u8 *)this) + 0x2C, arg3);
     ((TObjPlayer *)(((u8 *)this) + 0x38))->copy_xyz(arg5);
     VecCopy__FP3VecPC3Vec(((u8 *)this) + 0x20, arg4);

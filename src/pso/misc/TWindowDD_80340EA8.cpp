@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowDD_WS_String.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowDD_WS_ScrollBar.h"
 #include "pso/misc/TWindowDD.h"
@@ -75,7 +76,7 @@ void draw_and_scroll_entry__9TWindowDDFi(s32 arg0) {
 
     temp_r3 = draw_default_entry__9TWindowDDFl();
     ((TUnk_804CE018 *)arg0)->calc_inner_rect((u8 *)temp_r3);
-    ((TWindowDD *)arg0)->draw_entry_if_visible((void *)(temp_r3));
+    ((TWindowDD_WS_String *)arg0)->draw_entry_if_visible((void *)(temp_r3));
     ctx = *(f32 *)((s8 *)temp_r3 + 0x14);
     *(f32 *)((s8 *)temp_r3 + 0x14) = (f32) (ctx + lbl_805DFC90);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3, ctx);
@@ -83,9 +84,9 @@ void draw_and_scroll_entry__9TWindowDDFi(s32 arg0) {
 
 extern f32 lbl_805DFC94;
 
-void TWindowDD::draw_entry_if_visible(void *arg1) {
+void TWindowDD_WS_String::draw_entry_if_visible(void *arg1) {
     if ((s32) *(s32 *)((s8 *)arg1 + 0x30) >= 0) {
-        draw((s32)arg1, (s32)(*(s32 *)&this->m_7c), (f32)lbl_805DFC94);
+        draw((s32)arg1, (s32)(*(s32 *)&(*(u32 *)((u8 *)this + 0x60))), (f32)lbl_805DFC94);
     }
 }
 

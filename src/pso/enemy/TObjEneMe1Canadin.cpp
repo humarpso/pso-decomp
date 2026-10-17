@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TUnk_80494938.h"
@@ -1928,7 +1929,6 @@ struct Arr_8009F004 { s32 v[3]; };
 struct Tbl_8009F004 { Arr_8009F004 a, b, c, d; };
 
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
-s32 obj_isState2_324(void *);
 s32 obj_getField1c(void *);
 f32 newton_sqrtf(f32);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
@@ -2997,7 +2997,7 @@ void TObjEneMe1Canadin::render() {
                 if (var_r30 == 1) {
                     ((TObjEneRe7Berura *)arg0)->draw();
                 } else {
-                    ((TObjPlayer *)arg0)->render_world_model();
+                    ((TObjEnemy *)arg0)->render_world_model();
                 }
                 TObjEneRe7Berura::set_global_state((s32)((void *) (NULL)));
             } else {
@@ -3007,7 +3007,7 @@ void TObjEneMe1Canadin::render() {
                 VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x438), (void *) (lbl_8043A268));
                 VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x420), (void *) (lbl_8043A274));
                 TObjEneRe7Berura::set_global_state((s32)((void *) (&fn_8009BD00)));
-                ((TObjPlayer *)arg0)->draw_with_alt_model((int) (*(s32 *)((s8 *)arg0 + 0x410)));
+                ((TObjEneDD_ST *)arg0)->draw_with_alt_model((int) (*(s32 *)((s8 *)arg0 + 0x410)));
                 TObjEneRe7Berura::set_global_state((s32)((void *) (NULL)));
             }
         }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
 #include "pso/misc/TBreakUpMdl.h"
 #include "pso/TParticleCtrl.h"
@@ -531,7 +532,7 @@ void TObjEneMe3Stelth::render() {
                 if (mode == 1) {
                     ((TObjEneRe7Berura *)arg0)->draw();
                 } else {
-                    ((TObjPlayer *)arg0)->render_world_model();
+                    ((TObjEnemy *)arg0)->render_world_model();
                 }
                 pop_matrix();
             }
@@ -3091,7 +3092,7 @@ f32 fabs_float(f32);
 #define queue_destruction__7TObjectFv ((void (*)(void *))queue_destruction__7TObjectFv)
 void fn_8002B630(void *, void *, s32);
 void spawn_particle_effect(void *, s32);
-s32 get_field_d8__10TObjPlayerFv(void);
+s32 get_field_d8__5TItemFv(void);
 int select_and_apply_target__12TObjEneDD_STFf(void*);
 void __dt__12TObjEneDD_STFv(void *, int);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
@@ -3535,7 +3536,7 @@ void attack_and_unequip__16TObjEneMe3StelthFPv(Stelth_800F4A90 *self) {
             if (((s32 (*)(void *))sub_800F47D4__16TObjEneMe3StelthFv)(self) != 0) {
                 VObj_800F4A90 *t = self->target;
                 if (is_locally_controlled__10TObjPlayerFPv(t) != 0 && get_item_field_6__10TObjPlayerFPv(t) != 0) {
-                    send_6x26_unequip_item__10TObjPlayerFPvPv(t, get_field_d8__10TObjPlayerFv());
+                    send_6x26_unequip_item__10TObjPlayerFPvPv(t, get_field_d8__5TItemFv());
                     ((TObjPlayer *)t)->get_hand_joint_position((s32)(self->f3F8));
                     spawn_particle_effect(self->f3F8, 0x1D0);
                 }

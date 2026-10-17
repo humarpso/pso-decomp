@@ -154,8 +154,8 @@ s32 __ct__7TObjectFP7TObject();
 s32 disallow_rendering__7TObjectFv(void *);
 s32 is_flag_20000_set__10TObjPlayerFv(s32);
 s32 obj_getField1c(s32);
-s32 obj_isState2_324(void *);
-s32 obj_isState3_324(s32);
+s32 obj_isState2_324__13TUnk_804806E8Fv(void *);
+s32 obj_isState3_324__13TUnk_804806E8Fv(s32);
 s32 obj_testFlags30(void *, s32);
 s32 rand();
 s32 test_flag_2000000__10TObjPlayerFPv(s32);
@@ -250,7 +250,7 @@ void TUnk_804A05C8::vfunc_6() {
 
 void TUnk_804A05E8::vfunc_6() {
 
-    if (obj_isState2_324(*(void * *)&this->m_28) == 0) {
+    if (obj_isState2_324__13TUnk_804806E8Fv(*(void * *)&this->m_28) == 0) {
         if (((VObj18_8011d87c_8011D414 *) *(void * *)&this->m_28)->vf84() == 0) {
             ((TBoss3Volopt *)(*(void * *)&this->m_28))->get_field_3e0();
             if ((is_item_area_enabled() == 1) && ((lbl_805DAC78 * (f32) rand()) < *(f32 *)&this->unk_2C)) {
@@ -286,7 +286,7 @@ void TUnk_804A0648::vfunc_6() {
 
 void TUnk_804A0668::vfunc_6() {
     ((TBoss3Volopt *)(*(s32 *)&this->m_28))->get_field_3e0();
-    if ((is_item_area_enabled() == 1) && (obj_isState3_324(*(s32 *)&this->m_28) == 0) && (obj_testFlags30((void *)(*(s32 *)&this->m_28), (s32)(0x800)) == 0)) {
+    if ((is_item_area_enabled() == 1) && (obj_isState3_324__13TUnk_804806E8Fv(*(s32 *)&this->m_28) == 0) && (obj_testFlags30((void *)(*(s32 *)&this->m_28), (s32)(0x800)) == 0)) {
         ((TUnk_804806E8 *)(*(s32 *)&this->m_28))->subtract_actor_tp(1);
     }
 }

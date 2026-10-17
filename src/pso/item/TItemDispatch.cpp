@@ -210,7 +210,7 @@ void TItem::run_task() {
             ((TItem *)arg0)->update_owner_visibility();
             this->vfunc_14();
             this->vfunc_16();
-            ((TObjPlayer *)arg0)->get_field_d8();
+            ((TItem *)arg0)->get_field_d8();
             push_to_player_list__5TItemFPv();
         }
         break;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/item/TUnk_804A64E8.h"
 
 extern "C" {
@@ -53,7 +54,7 @@ void TUnk_804A64E8::emit_marker_effects() {
 
     init_slicer_launch_state((SlicerState_801295FC *)&tec);
     tec.id = obj_getField1c(((Self_8012F704 *)this)->owner);
-    tec.fC = ((TObjPlayer *)((Self_8012F704 *)this))->get_field_d8();
+    tec.fC = ((TItem *)((Self_8012F704 *)this))->get_field_d8();
     tec.f4 = ((Self_8012F704 *)this)->f24;
     tec.f8 = ((Self_8012F704 *)this)->f188;
     tec.f10 = TObjPlayer__sub_801D2F4C((u8 *)((Self_8012F704 *)this)->owner + 0x7CC);

@@ -439,7 +439,6 @@ struct VObj_80040894 : VBase_80040894 {
 
 s32 reset_status_effect_row(void *);
 s32 obj_testFlags30(void *, s32);
-s32 obj_clearFlags30(void *, s32);
 s32 obj_setFlags30(void *, s32);
 s32 queue_destruction__7TObjectFv(void *);
 int dispatch_shared_handler_a__6TLobbyFl(void*);
@@ -1141,7 +1140,7 @@ void TObjPlayer::update_grabbed_state() {
         if (obj_testFlags30((void *)(this), (s32)(0x02000000)) != 0) {
             *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x40000);
         }
-        obj_clearFlags30(this, 0x02200200);
+        obj_clearFlags30(0x02200200);
         this->m_33e = (s16) this->hp;
         *(s16 *)&this->m_b8 = 3;
         play_sound_effect(0x4003A81F, 0, 0, 0);
@@ -1308,7 +1307,7 @@ void TUnk_80483A10::run_task() {
   {
     if (((s32) (*((s32 *) (0x3C8 + ((s8 *) arg0))))) > 0)
     {
-      obj_clearFlags30((void *)((void *) arg0), (s32)((int) 0x200));
+      ((TUnk_804B9870 *)arg0)->obj_clearFlags30((s32)((int) 0x200));
     }
     else
     {
@@ -1320,7 +1319,7 @@ void TUnk_80483A10::run_task() {
     if (((TObjPlayer *)arg0)->add_status_effect_timer((int) 4, (int) (-1)) <= 0)
     {
       reset_status_effect_row((void *) (arg0 + 0x284));
-      obj_clearFlags30((void *)((void *) arg0), (s32)((int) 0x4000));
+      ((TUnk_804B9870 *)arg0)->obj_clearFlags30((s32)((int) 0x4000));
     }
   }
   else

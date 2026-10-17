@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/boss/TBoss3VoloptHiraisin.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
 
 extern "C" {
 
-s32 obj_clearFlags30(void *, s32);
 struct Vec_8022675C;
 s32 play_sound_effect(s32 id, Vec_8022675C *src, s32 a2, s32 flags);
 
@@ -28,7 +28,7 @@ void fn_80041E88(u8 *arg0) {
         break;
     case 1:
         if (--*(s16 *)((s8 *)arg0 + 0x33C) <= 0) {
-            obj_clearFlags30(arg0, 0x200200);
+            ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x200200);
             ((TObjEneMe1GiGue *)arg0)->update_if_active(0);
             *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & 0xFFFFFFFE);
         }

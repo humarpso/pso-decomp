@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/object/TObjDoorJung.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TOTrapAncient02.h"
@@ -169,7 +170,6 @@ s32 send_6x2C_impose_hold(int, void *, int, int, f32);
 u32 get_player_by_client_id(u32);
 extern s32 local_client_id;
 void check_hold_player__14TOTrapSeabed01FPv(u8 *arg0);
-void obj_clearFlags30(void *, u32);
 void vfunc_81__14TOTrapSeabed01Fv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_bml_model(int, int);
@@ -305,10 +305,10 @@ void TOTrapSeabed01::vfunc_81() {
     if (*(f32 *)((s8 *)arg0 + 0xC0) > (f32) temp_r0) {
         *(f32 *)((s8 *)arg0 + 0xC0) = (f32) temp_r0;
         *(s16 *)((s8 *)arg0 + 0x326) = 3;
-        ((TObjPlayer *)arg0)->calc_attach_pos();
+        ((TUnk_804806E8 *)arg0)->calc_attach_pos();
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 0x08001F04U);
         set_indexed_flags(arg0, 0, 0x8003);
-        obj_clearFlags30(arg0, 0x40000U);
+        ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x40000U);
         check_hold_player__14TOTrapSeabed01FPv((u8 *)((void *) (arg0)));
     }
 }

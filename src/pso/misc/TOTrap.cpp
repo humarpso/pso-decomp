@@ -41,7 +41,7 @@ extern u32 trap_scale_factor_table[];
 extern s32 game_difficulty_selection;
 s32 fn_80171314(void *);
 u16 find_nearest_visible_player(void *, int, f32);
-s32 calc_attach_pos__10TObjPlayerFv();
+s32 calc_attach_pos__13TUnk_804806E8Fv();
 f32 horizontal_distance_squared(void *, void *);
 void send_6x2C_impose_hold(void *, void *, s32, int, f32);
 void TOTrap__vt79(Obj_80178CF8 *self);
@@ -94,7 +94,7 @@ s32 TOTrap::is_any_player_matching_stat() {
 void TOTrap::vfunc_82() {
     s32 temp_r31;
 
-    calc_attach_pos__10TObjPlayerFv();
+    calc_attach_pos();
     refresh_collision_body_centers();
     if ((s32) this->m_84 < 0) {
         u32 p;
@@ -115,7 +115,7 @@ void TOTrap::vfunc_82() {
 
 void TOTrap__vt79(Obj_80178CF8 *self) {
     u8 *pl;
-    calc_attach_pos__10TObjPlayerFv();
+    calc_attach_pos__13TUnk_804806E8Fv();
     self->idx = find_nearest_visible_player(self, 0, self->x334);
     if (self->idx != 0xFFFF) {
         pl = (u8 *)get_player_by_client_id(self->idx);
@@ -144,7 +144,7 @@ void TOTrap::submit_cursor_and_notify() {
 
 void TOTrap::find_target_player() {
     Obj_80178E10 *arg0 = (Obj_80178E10 *)this;
-    calc_attach_pos__10TObjPlayerFv();
+    calc_attach_pos();
     arg0->idx = find_nearest_visible_player(arg0, 0, arg0->range);
     if (arg0->idx != (u16)0xFFFF) {
         arg0->target = (u8 *)get_player_by_client_id(arg0->idx);

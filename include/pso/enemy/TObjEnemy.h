@@ -4,6 +4,7 @@
 #include "pso/player/TUnk_804806E8.h"
 struct TObjEnemy : public TUnk_804806E8 {
     virtual ~TObjEnemy();
+    void render_world_model();
     s32 send_entity_set_flags();
     s32 render_anim_model(f32);
     void update_prev_position();

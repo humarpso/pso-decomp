@@ -695,7 +695,6 @@ struct E_800D3ED8 { u8 pad[0x1C]; };
 
 struct Gy_800D3ED8 { u8 pad[0x3EC]; E_800D3ED8 e3EC[4]; };
 
-s32 obj_clearFlags30(void *, int);
 s32 is_split_screen();
 void queue_destruction__7TObjectFv(void *);
 s32 dispatch_shared_handler_a__6TLobbyFl(int);
@@ -1346,7 +1345,7 @@ void TObjEneGyaranzo::vfunc_62() {
       *(s32 *)&this->m_388 = (s32) ((*(s32 *)&this->m_388) | 1);
       return;
     }
-    obj_clearFlags30((void *) arg0, (int) 0x200200);
+    ((TUnk_804B9870 *)arg0)->obj_clearFlags30((int) 0x200200);
   }
 }
 
@@ -1456,7 +1455,7 @@ void TObjPlayer__sub_800D35D8(u8 *arg0) {
                     if (temp_r3 == 1) {
                         ((TObjEneRe7Berura *)arg0)->draw();
                     } else {
-                        ((TObjPlayer *)arg0)->render_world_model();
+                        ((TObjEnemy *)arg0)->render_world_model();
                     }
                     ((Obj_800D35D8 *)arg0)->light.m7();
                 } else {
@@ -1465,7 +1464,7 @@ void TObjPlayer__sub_800D35D8(u8 *arg0) {
             } else if (temp_r3 == 1) {
                 ((TObjEneRe7Berura *)arg0)->draw();
             } else {
-                ((TObjPlayer *)arg0)->render_world_model();
+                ((TObjEnemy *)arg0)->render_world_model();
             }
             pop_matrix();
             restore_scene_lighting();

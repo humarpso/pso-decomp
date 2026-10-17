@@ -80,7 +80,7 @@ struct VObj_80052420 : VBase_80052420 {
 };
 
 extern "C" {
-s32 obj_isState2_324(VObj_80052420 *);
+s32 obj_isState2_324__13TUnk_804806E8Fv(VObj_80052420 *);
 s16 obj_getS16_32C(VObj_80052420 *);
 s32 TBoss4Type3__sub_8005254C(s32);
 void send_6x2F_change_player_hp(s32, s32, s16);
@@ -99,7 +99,7 @@ u32 drain_player_hp(s32 id, u32 arg1) {
     if (v < n) {
         n = v;
     }
-    if (obj_isState2_324(p) != 0) {
+    if (obj_isState2_324__13TUnk_804806E8Fv(p) != 0) {
         return n;
     }
     v -= n;

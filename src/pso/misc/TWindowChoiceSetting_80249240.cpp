@@ -74,7 +74,7 @@ void TWindowChoiceSetting::run_task() {
         }
         temp_r30_3 = (u8 *)&controller_input_state.value + 0x20;
         if ((TWindowShortListCtrl__check_controller_button((int) (temp_r30_3), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (4)) != 0)) {
-            ((TWindowChoiceSetting *)arg0)->draw();
+            ((TUnk_804D0658 *)arg0)->draw();
         }
         if ((TWindowShortListCtrl__check_controller_button((int) (temp_r30_3), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
             ((TUnk_804D0658 *)arg0)->request_close();

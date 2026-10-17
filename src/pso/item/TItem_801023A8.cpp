@@ -23,7 +23,7 @@ void TItem::try_pick_up_item(s32 id) {
             vfunc_13__13TUnk_804AF8A0Fl(((Player_801022FC *)this), id);
             TLobby__sub_801030EC(&m);
             m.id = id;
-            m.v = ((TObjPlayer *)((Player_801022FC *)this))->get_field_d8();
+            m.v = ((TItem *)((Player_801022FC *)this))->get_field_d8();
             m.w = get_current_floor();
             ((TLobby *)(&m))->send_pick_up_item_request();
             ((Player_801022FC *)this)->fE6 = 0;

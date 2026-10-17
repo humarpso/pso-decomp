@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/misc/TTecZonde.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
@@ -760,7 +761,7 @@ void TOTrapAncient02R__vt79(Obj_8017A3C0 *o) {
 void TOTrapAncient02R::find_target_player() {
     Obj_8017A8B0 *self = (Obj_8017A8B0 *)this;
     ((TObjPlayer *)self)->clear_player_status_flag(0, 1);
-    ((TObjPlayer *)self)->calc_attach_pos();
+    ((TUnk_804806E8 *)self)->calc_attach_pos();
     if (self->switchId == -1 || is_current_floor_switch_set(self->switchId) == 1) {
         self->idx = find_nearest_visible_player(self, 0, self->range);
         if (self->idx != 0xFFFF) {
@@ -839,7 +840,7 @@ void *TOTrapAncient02R__ct(void *arg0, void *arg1, void *arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D31B8;
     ((TOTrapAncient02R *)arg0)->vfunc_7(arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();
-    ((TObjPlayer *)arg0)->calc_attach_pos();
+    ((TUnk_804806E8 *)arg0)->calc_attach_pos();
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&TOTrapAncient02__shared_resource) + 0x42C)) + 8);
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&TOTrapAncient02__shared_resource) + 0x42C)) + 0xC);
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
@@ -1239,7 +1240,7 @@ void *TOTrapAncient02__ct(void *arg0, void *arg1, void *arg2) {
     ((Trap_8017B6D8 *)arg0)->id = lbl_805D31B4;
     ((V_8017B6D8 *)((Trap_8017B6D8 *)arg0))->init(arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();
-    ((TObjPlayer *)arg0)->calc_attach_pos();
+    ((TUnk_804806E8 *)arg0)->calc_attach_pos();
     ((Trap_8017B6D8 *)arg0)->f34 = *(void **)(*(u8 **)(TOTrapAncient02__shared_resource + 0x42C) + 8);
     ((Trap_8017B6D8 *)arg0)->f24 = *(s32 *)(*(u8 **)(TOTrapAncient02__shared_resource + 0x42C) + 0xC);
     ((Trap_8017B6D8 *)arg0)->mode = 0;

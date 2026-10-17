@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/misc/TWindowShortListCtrl.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -28,7 +29,7 @@ void TWindowShortListCtrl::assign_shortcut(s32 arg0, s32 item, s32 arg2) {
             send_6x26_unequip_item__10TObjPlayerFPvPv(temp_r3, item);
         }
         if (temp_r31 != 0U) {
-            temp_r0 = ((TObjPlayer *)temp_r31)->get_field_d8();
+            temp_r0 = ((TItem *)temp_r31)->get_field_d8();
             send_6x26_unequip_item__10TObjPlayerFPvPv(temp_r3, temp_r0);
         }
         send_6x25_equip_item(temp_r3, item, arg0);

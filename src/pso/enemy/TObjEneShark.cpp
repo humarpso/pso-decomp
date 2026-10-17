@@ -479,7 +479,7 @@ void TObjEneShark::render() {
           }
           else
           {
-            ((TObjPlayer *)arg0)->render_world_model();
+            ((TObjEnemy *)arg0)->render_world_model();
           }
         }
       }
@@ -490,7 +490,7 @@ void TObjEneShark::render() {
       }
       else
       {
-        ((TObjPlayer *)arg0)->render_world_model();
+        ((TObjEnemy *)arg0)->render_world_model();
       }
       if (fade != 0)
       {

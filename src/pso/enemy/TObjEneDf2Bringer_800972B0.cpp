@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss4Type3.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -998,7 +999,7 @@ void render__17TObjEneDf2BringerFv(u8 *arg0) {
             if (var_r31 == 1) {
                 ((TObjEneRe7Berura *)arg0)->draw();
             } else {
-                ((TObjPlayer *)arg0)->render_world_model();
+                ((TObjEnemy *)arg0)->render_world_model();
             }
             TObjPlayer::clear_global_state();
             TObjEneRe7Berura::set_global_state((s32)((void *) (NULL)));

@@ -381,7 +381,7 @@ void draw_actor_model__10TObjPlayerFPv(Player_800A7CA4 *self) {
                 if (vis == 1) {
                     ((TObjEneRe7Berura *)self)->draw();
                 } else {
-                    ((TObjPlayer *)self)->render_world_model();
+                    ((TObjEnemy *)self)->render_world_model();
                 }
             }
             if (fading != 0) {

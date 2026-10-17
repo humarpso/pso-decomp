@@ -269,7 +269,7 @@ void render__13TObjEneBm3FlyFv(VObj_800AFBF0 *o) {
         if (kind == 1) {
             ((TObjEneRe7Berura *)o)->draw();
         } else {
-            ((TObjPlayer *)o)->render_world_model();
+            ((TObjEnemy *)o)->render_world_model();
         }
         restore_default_scene();
         end_effect_render__13TParticleCtrlFv();

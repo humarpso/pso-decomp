@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TODummyKeyCave01.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
@@ -68,7 +69,6 @@ s32 set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-s32 obj_clearFlags30(void *, s32);
 s32 TODummyKeyCave01Sound__ct(void *, void *, s32, s32);
 u8 is_current_floor_switch_set(u16);
 void *__nw__7TObjectFUl(int);
@@ -126,7 +126,7 @@ void TODummyKeyCave01::run_task() {
     u8 skip;
     void *o;
     if (TObjPlayer::check_demo_mode() == 1) {
-        obj_clearFlags30(self, 0x08000000);
+        ((TUnk_804B9870 *)self)->obj_clearFlags30(0x08000000);
     }
     if (self->f98 < 0x100) {
         st = is_current_floor_switch_set(self->f98);

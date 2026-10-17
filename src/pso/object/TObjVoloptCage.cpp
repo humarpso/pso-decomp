@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjVoloptCage.h"
@@ -66,7 +67,6 @@ void obj_set_flag_20000(void *arg0);
 s32 update_breakup__14TObjVoloptCageFv();
 s32 update_collision_state__14TObjVoloptCageFv();
 s32 sub_80049000__14TObjVoloptCageFv();
-s32 obj_clearFlags30(void *, s32);
 s32 obj_setFlags30(void *, s32);
 s32 update_capture__14TObjVoloptCageFv();
 
@@ -179,7 +179,7 @@ void obj_set_flag_20000(void *arg0) {
 }
 
 void obj_clear_flag30_20000(void *arg0) {
-    obj_clearFlags30(arg0, 0x20000);
+    ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x20000);
 }
 
 }

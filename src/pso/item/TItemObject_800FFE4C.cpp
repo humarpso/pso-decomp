@@ -14,7 +14,6 @@ struct Obj_800FFF68 {
 union Pk_800FFF68 { s32 w; u16 h[2]; };
 
 extern "C" {
-s32 get_field_d8__10TObjPlayerFv(void *);
 s32 consume_item_by_id();
 s32 replace_item_with_new_code(u8 *, void *);
 u32 find_item_by_id(s32);
@@ -48,7 +47,7 @@ void TItem::use_combination_recipe() {
             sp8[1] = *(u8 *)((s8 *)eligible_combination_recipe + 7);
             sp8[2] = *(u8 *)((s8 *)eligible_combination_recipe + 8);
             temp_r31 = ((TObjPlayer *)unique_combination_target)->has_flag_128();
-            temp_r30_2 = get_field_d8__10TObjPlayerFv(unique_combination_target);
+            temp_r30_2 = ((TItem *)unique_combination_target)->get_field_d8();
             replace_item_with_new_code(sp8, unique_combination_target);
             temp_r3_2 = find_item_by_id(temp_r30_2);
             if ((temp_r31 != 0) && (temp_r3_2 != 0U)) {
@@ -57,7 +56,7 @@ void TItem::use_combination_recipe() {
         }
         apply_switch_attack(0x8D);
         notify_owner(0x40001421);
-        get_field_d8__10TObjPlayerFv(this);
+        get_field_d8();
         consume_item_by_id();
     }
 }

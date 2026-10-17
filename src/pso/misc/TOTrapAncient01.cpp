@@ -329,7 +329,7 @@ extern void *tl_05;
 void TOTrapAncient01::vfunc_82() {
     s32 i;
     VObj_801797D4 *p;
-    ((TObjPlayer *)((Trap_801797D4 *)this))->calc_attach_pos();
+    ((TUnk_804806E8 *)((Trap_801797D4 *)this))->calc_attach_pos();
     ((Trap_801797D4 *)this)->f354 -= lbl_805DBA48;
     if (((Trap_801797D4 *)this)->f354 < TOTrapAncient01__data_805DBA4C) {
         ((Trap_801797D4 *)this)->fA4->fC = lbl_805DBA54;
@@ -525,7 +525,7 @@ void *TOTrapAncient01__ct(void *arg0, void *arg1, void *arg2) {
     *(s32 *)((s8 *)self + 0) = TOTrapAncient01__class_name;
     ((VObj_18_a8c792 *)arg0)->m5((s32)arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();
-    ((TObjPlayer *)arg0)->calc_attach_pos();
+    ((TUnk_804806E8 *)arg0)->calc_attach_pos();
     *(s32 *)((s8 *)self + 0x34) = get_bml_model((void *)TOTrapAncient01__bml_resource, 3);
     *(s32 *)((s8 *)self + 0x24) = TObjFish__sub_8001EDB0((void *)TOTrapAncient01__bml_resource, 3);
     *(s16 *)((s8 *)self + 0x326) = 0;

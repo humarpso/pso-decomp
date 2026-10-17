@@ -13,7 +13,7 @@ void TObjPlayer__sub_801BCB28(void);
 int is_script_controlled__10TObjPlayerFv(void*);
 s32 sub_801A1DDC__10TObjPlayerFv(s32);
 s32 is_final_phase__10TObjPlayerFv();
-s32 obj_isState2_324();
+s32 obj_isState2_324__13TUnk_804806E8Fv();
 int queue_destruction__7TObjectFv(void*);
 s32 set_flag_400000__10TObjPlayerFi(void *);
 
@@ -71,7 +71,7 @@ extern "C" {
 s32 obj_getField1c(void *);
 s32 TObjPlayer__sub_801BF9E0(void *, int);
 s32 TObjPlayer__sub_801C2244(void *, void *);
-s32 get_class_index__10TObjPlayerFPv(void *);
+s32 get_class_index__10TObjPlayerFv(void *);
 void TObjPlayer__sub_801BEF44(void *, void *);
 void TObjPlayer__sub_801C1F78(void *, s32);
 void clamp_and_set_unit_value__10TObjPlayerFiUci(void *, u8, s16);
@@ -86,7 +86,7 @@ void TObjPlayer__sub_801BC8F0(s32 arg0) {
 void init_session_technique_caps__10TObjPlayerFPvPv(Player_801BC948 *self, Src_801BC948 *src) {
     s32 i;
     TObjPlayer__sub_801C1F78(self->f4ac, obj_getField1c(self));
-    TObjPlayer__sub_801D955C(self->techs, get_class_index__10TObjPlayerFPv(self));
+    TObjPlayer__sub_801D955C(self->techs, get_class_index__10TObjPlayerFv(self));
     ((TObjPlayer *)(self->techs))->copy_all_technique_entries((void *)0x1D);
     for (i = 0; i < 0x13; i++) {
         clamp_and_set_unit_value__10TObjPlayerFiUci(self, src->levels[i] + src->bonus[i].pad[0], i);
@@ -106,7 +106,7 @@ void TObjPlayer__sub_801BCA14(u8 *arg0, void *arg1);
 void TObjPlayer__sub_801BCA14(u8 *arg0, void *arg1) {
     s32 i;
     TObjPlayer__sub_801C1F78(arg0 + 0x4AC, ((s32 (*)())obj_getField1c)());
-    TObjPlayer__sub_801D955C(arg0 + 0x428, get_class_index__10TObjPlayerFPv(arg0));
+    TObjPlayer__sub_801D955C(arg0 + 0x428, get_class_index__10TObjPlayerFv(arg0));
     ((TObjPlayer *)(arg0 + 0x428))->copy_all_technique_entries((void *)0x1D);
     i = 0;
     do {
@@ -118,7 +118,7 @@ void TObjPlayer__sub_801BCA14(u8 *arg0, void *arg1) {
 void TObjPlayer__sub_801BCAB0(void) {  }
 void TObjPlayer::update_state() {
     s32 arg0 = (s32)this;
-    if (obj_isState2_324() != 0) {
+    if (obj_isState2_324__13TUnk_804806E8Fv() != 0) {
         ((TObjPlayer *)arg0)->set_flag_400000();
     } else {
         ((TObjPlayer *)arg0)->sync_current_area();

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnemy.h"
 
 #include <dolphin/mtx.h>
@@ -87,7 +88,6 @@ struct Obj_800DDC30 {
 };
 
 extern "C" {
-void obj_clearFlags30(void *, u32);
 s32 obj_setFlags30(void *, int);
 int TObjEnePanarms__sub_800E1D94(void *);
 s32 spawn_particle_effect(void *, int);
@@ -228,7 +228,7 @@ void TObjEnePanarms::enter_down_state() {
     u8 *temp_r5;
     temp_r5 = (u8 *)(*(u8 * *)&this->m_390);
     *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) | 1);
-    obj_clearFlags30(((u8 *)this), 0x04040000U);
+    obj_clearFlags30(0x04040000U);
     this->m_388 = 0x1E;
     *(s32 *)&this->_pad3F0 = (s32) (*(s32 *)&this->_pad3F0 + 1);
     set_field_b8__10TObjMotionFs(((u8 *)this), 0xB);
@@ -250,7 +250,7 @@ void TObjEnePanarms__sub_800DCFE0(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x3DC) = 1;
     temp_r5 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x390));
     *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) & 0xFFFFFFFE);
-    obj_clearFlags30((void *)((void *) (arg0)), (u32)((int) (0x40000)));
+    ((TUnk_804B9870 *)arg0)->obj_clearFlags30((u32)((int) (0x40000)));
     obj_setFlags30((void *) (arg0), (int) (0x04000000));
     play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) (arg0)), (s32)((int) (0x4003BC31)))))), (void *)((void *) (arg0 + 0x3AC)), (s32)((int) (0)), (s32)((int) (0)));
     play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) (arg0)), (s32)((int) (0x4003BC30)))))), (void *)((void *) (arg0 + 0x3C4)), (s32)((int) (0)), (s32)((int) (0)));
@@ -282,7 +282,7 @@ void TObjEnePanarms::merge_halves() {
     *(s32 *)&this->m_3dc = 0;
     temp_r5 = (u8 *)(*(u8 * *)&this->m_390);
     *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) & 0xFFFFFFFE);
-    obj_clearFlags30(((u8 *)this), 0x40000U);
+    obj_clearFlags30(0x40000U);
     obj_setFlags30((void *)(((u8 *)this)), (int)(0x04000000U));
     TObjEnePanarms__sub_800DE430((s32)((void *) (((u8 *)this))), (s32)((int) (0x2D)), (s32)((int) (0x25)));
     this->hp = (s16) (*(s16 *)((s8 *)(*(u8 * *)&this->m_3e4) + 0x32C) + *(s16 *)((s8 *)(*(u8 * *)&this->m_3e8) + 0x32C));
@@ -340,7 +340,7 @@ void TObjEnePanarms__sub_800DD368(u8 *arg0) {
     u8 *temp_r5;
     temp_r5 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x390));
     *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) & 0xFFFFFFFE);
-    obj_clearFlags30((void *)((void *) (arg0)), (u32)((int) (0x40000)));
+    ((TUnk_804B9870 *)arg0)->obj_clearFlags30((u32)((int) (0x40000)));
     obj_setFlags30((void *) (arg0), (int) (0x04000000));
     *(s32 *)((s8 *)arg0 + 0x3DC) = 0;
     *(s32 *)((s8 *)arg0 + 0x388) = 0x384;
@@ -369,7 +369,7 @@ void TObjEnePanarms__sub_800DD488(u8 *arg0) {
     u8 *temp_r5;
     temp_r5 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x390));
     *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) & 0xFFFFFFFE);
-    obj_clearFlags30((void *)((void *) (arg0)), (u32)((int) (0x40000)));
+    ((TUnk_804B9870 *)arg0)->obj_clearFlags30((u32)((int) (0x40000)));
     obj_setFlags30((void *) (arg0), (int) (0x04000000));
     TObjEnePanarms__sub_800DE430((s32)((void *) (arg0)), (s32)((int) (0x22)), (s32)((int) (0x3C)));
     play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) (arg0)), (s32)((int) (0x4003BC2D)))))), (void *)((void *) (arg0 + 0x3AC)), (s32)((int) (0)), (s32)((int) (0)));
@@ -405,7 +405,7 @@ void TObjEnePanarms__sub_800DD5C8(u8 *arg0) {
     u8 *temp_r5;
     temp_r5 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x390));
     *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) | 1);
-    obj_clearFlags30(arg0, 0x04040000U);
+    ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x04040000U);
     spawn_directional_particle((void *) (arg0 + 0x3D0), (void *) (arg0 + 0x5C), (int) (0x109));
     temp_r6 = *(s32 *)((s8 *)arg0 + 0x60) - 0x4000;
     buffer_14[1] = 0;
@@ -439,7 +439,7 @@ void TObjEnePanarms::set_flags_and_field_b8() {
     u8 *temp_r5;
     temp_r5 = (u8 *)(*(u8 * *)&this->m_390);
     *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) | 1);
-    obj_clearFlags30(((u8 *)this), 0x04040000U);
+    obj_clearFlags30(0x04040000U);
     set_field_b8__10TObjMotionFs(((u8 *)this), 8);
 }
 
@@ -467,7 +467,7 @@ void TObjEnePanarms__sub_800DD7F4(u8 *arg0) {
     u8 *temp_r5;
     temp_r5 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x390));
     *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) | 1);
-    obj_clearFlags30(arg0, 0x04040000U);
+    ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x04040000U);
     temp_r6 = *(s32 *)((s8 *)arg0 + 0x60) + 0x4000;
     buffer_14[1] = 0;
     buffer_14[0] = temp_r6;
@@ -500,7 +500,7 @@ void TObjEnePanarms::set_state_flags_6() {
     u8 *temp_r5;
     temp_r5 = (u8 *)(*(u8 * *)&this->m_390);
     *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) | 1);
-    obj_clearFlags30(((u8 *)this), 0x04040000U);
+    obj_clearFlags30(0x04040000U);
     set_field_b8__10TObjMotionFs(((u8 *)this), 6);
 }
 
@@ -669,7 +669,7 @@ void TObjEnePanarms__sub_800DDED8(u8 *actor) {
     *(s32 *)((s8 *)actor + 0x3FC) += 1;
     *(u32 *)((s8 *)(*(u8 **)((s8 *)actor + 0x390)) + 0x18) &= ~0x08000000;
     *(u32 *)((s8 *)(*(u8 **)((s8 *)actor + 0x390)) + 0x18) |= 1;
-    obj_clearFlags30(actor, 0x04040000);
+    ((TUnk_804B9870 *)actor)->obj_clearFlags30(0x04040000);
     *(s32 *)((s8 *)actor + 0x388) = (s32) (lbl_805DA4BC * (f32) ((s32) (lbl_805DA4D4 * calc_boss4_scale__10TObjPlayerFi(actor)) + 1));
     set_field_b8__10TObjMotionFs(actor, var_r30);
 }
@@ -709,7 +709,7 @@ void TObjEnePanarms::set_hidden_flags() {
     *(s32 *)&this->m_3dc = 1;
     temp_r5 = (u8 *)(*(u8 * *)&this->m_390);
     *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) & 0xFFFFFFFE);
-    obj_clearFlags30(((u8 *)this), 0x40000U);
+    obj_clearFlags30(0x40000U);
     obj_setFlags30((void *)(((u8 *)this)), (int)(0x04000000U));
 }
 

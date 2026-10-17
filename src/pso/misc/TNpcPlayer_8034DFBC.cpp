@@ -110,7 +110,7 @@ struct Stack_8034ED58 {
 extern "C" {
     extern int lbl_805D6EA0;
 s32 get_player_by_client_id(s32);
-s32 obj_isState3_324();
+s32 obj_isState3_324__13TUnk_804806E8Fv();
 void quest_remove_npc_player(u16 arg0);
 s32 set_arrival_override_coords(s32, s32, f32, f32, f32);
 s32 send_6x21_inter_level_warp(s32, s32);
@@ -154,7 +154,7 @@ void quest_player_face_actor(u16 src, u16 dst);
 void send_6x55_intra_map_warp(u16, f32 *, s32);
 s32 play_effect_default__10TObjPlayerFii(s32, s32);
 
-s32 obj_isState2_324();
+s32 obj_isState2_324__13TUnk_804806E8Fv();
 
 void set_partner_common_remark(s32 kind, const char *text) {
     char buf[0x40];
@@ -186,7 +186,7 @@ void TNpcPlayer::send_code_45_to_player(int arg0) {
     s32 player;
 
     player = get_player_by_client_id((u16) arg0);
-    if ((player != 0) && (obj_isState2_324() == 0)) {
+    if ((player != 0) && (obj_isState2_324__13TUnk_804806E8Fv() == 0)) {
         TObjPlayer::send_code_45_1(player);
     }
 }
@@ -195,7 +195,7 @@ void TNpcPlayer::play_effect(int arg0) {
     s32 player;
 
     player = get_player_by_client_id((u16) arg0);
-    if ((player != 0) && (obj_isState2_324() == 0)) {
+    if ((player != 0) && (obj_isState2_324__13TUnk_804806E8Fv() == 0)) {
         play_effect_default__10TObjPlayerFii(player, -1);
     }
 }
@@ -233,11 +233,11 @@ void quest_player_look_at_partner(u16 src) {
     if (a == NULL) {
         return;
     }
-    if (obj_isState3_324() != 0) {
+    if (obj_isState3_324__13TUnk_804806E8Fv() != 0) {
         for (i = 0; i < 4; i++) {
             if (i != src) {
                 c = (Player_8034E24C *) get_player_by_client_id(i);
-                if (c != NULL && obj_isState3_324() == 0) {
+                if (c != NULL && obj_isState3_324__13TUnk_804806E8Fv() == 0) {
                     break;
                 }
             }
@@ -246,7 +246,7 @@ void quest_player_look_at_partner(u16 src) {
         for (i = 0; i < 4; i++) {
             if (i != src) {
                 c = (Player_8034E24C *) get_player_by_client_id(i);
-                if (c != NULL && obj_isState3_324() != 0) {
+                if (c != NULL && obj_isState3_324__13TUnk_804806E8Fv() != 0) {
                     break;
                 }
             }
@@ -299,7 +299,7 @@ void TNpcPlayer::enable_all_battle_ctrl() {
     var_r31 = 0;
     do {
         player = ((void *)get_player_by_client_id(var_r31));
-        if ((player != NULL) && (obj_isState3_324() != 0) && (player != NULL)) {
+        if ((player != NULL) && (obj_isState3_324__13TUnk_804806E8Fv() != 0) && (player != NULL)) {
             ((VObj_8034E440*)player)->m0(1);
         }
         var_r31 += 1;
@@ -323,7 +323,7 @@ void notify_partner_room_cleared(s32 arg0) {
     i = 0;
     do {
         p = get_player_by_client_id(i);
-        if (p != 0 && obj_isState3_324() != 0 && arg0 == ((TUnk_804B9870 *)p)->get_stat_by_key_state() && !(lbl_805D6EA0 & 2) && *win != 0) {
+        if (p != 0 && obj_isState3_324__13TUnk_804806E8Fv() != 0 && arg0 == ((TUnk_804B9870 *)p)->get_stat_by_key_state() && !(lbl_805D6EA0 & 2) && *win != 0) {
             TWindowCtrl::open((s32)((s32)(obj_getField1c(p))), (s32)((void *)((s32)win)), (s32)((s32)(0x1B)));
         }
         i += 1;
@@ -335,7 +335,7 @@ void show_partner_chatter_for_key(s16 key) {
     s32 player;
     for (i = 0; i < 4; i++) {
         player = get_player_by_client_id(i);
-        if (player && obj_isState3_324() && key == ((TUnk_804B9870 *)player)->get_stat_by_key_state()
+        if (player && obj_isState3_324__13TUnk_804806E8Fv() && key == ((TUnk_804B9870 *)player)->get_stat_by_key_state()
             && !(lbl_805D6EA0 & 2) && (*(Global_8034E5A8 *)&npc_partner_dialogue_state).f46e) {
             TWindowCtrl::open((s32)(obj_getField1c(player)), (s32)(&(*(Global_8034E5A8 *)&npc_partner_dialogue_state).f46e), (s32)0x1B);
         }
@@ -349,7 +349,7 @@ void TNpcPlayer::send_6x3e_to_all_players(void *pos, s16 arg) {
     s16 flag;
     for (i = 0; i < 4; i++) {
         p = get_player_by_client_id(i);
-        if (p != 0 && obj_isState3_324() != 0 && ((TNpcPlayer *)p)->get_action_flags() != 0xFFFF) {
+        if (p != 0 && obj_isState3_324__13TUnk_804806E8Fv() != 0 && ((TNpcPlayer *)p)->get_action_flags() != 0xFFFF) {
             flag = 0;
             if (obj_testFlags30((void *)p, 0x100000) != 0) {
                 flag = 1;
@@ -370,7 +370,7 @@ void TNpcPlayer::apply_to_players(s32 arg0, void *arg1, s32 arg2) {
     var_r31 = 0;
     do {
         temp_r3 = get_player_by_client_id(var_r31);
-        if ((temp_r3 != 0) && (obj_isState3_324() != 0) && ((u16) ((TNpcPlayer *)temp_r3)->get_action_flags() != 0xFFFF)) {
+        if ((temp_r3 != 0) && (obj_isState3_324__13TUnk_804806E8Fv() != 0) && ((u16) ((TNpcPlayer *)temp_r3)->get_action_flags() != 0xFFFF)) {
             set_arrival_override_coords(obj_getField1c(temp_r3), arg2, *(f32 *)((s8 *)arg1 + 0), *(f32 *)((s8 *)arg1 + 4), *(f32 *)((s8 *)arg1 + 8));
             send_6x21_inter_level_warp(temp_r3, arg0);
         }
@@ -383,14 +383,14 @@ void TNpcPlayer::send_inter_level_warp_all(s32 arg0) {
 
     for (i = 0; i < 4; i++) {
         player = get_player_by_client_id(i);
-        if (player != 0 && obj_isState3_324() != 0 && ((TNpcPlayer *)player)->get_action_flags() != 0xFFFF) {
+        if (player != 0 && obj_isState3_324__13TUnk_804806E8Fv() != 0 && ((TNpcPlayer *)player)->get_action_flags() != 0xFFFF) {
             send_6x21_inter_level_warp(player, arg0);
         }
     }
 }
 
 #define SETFLAG_8034E814 ((void (*)(void *, u16))set_npc_control_flag__10TNpcPlayerFPvs)
-#define ISSTATE3_8034E814 ((s32 (*)(void *))obj_isState3_324)
+#define ISSTATE3_8034E814 ((s32 (*)(void *))obj_isState3_324__13TUnk_804806E8Fv)
 #define NOTIFY_8034E814 ((void (*)(void *))notify_field1c__10TObjPlayerFl)
 void handle_6x69_npc_control(Pkt_8034E814 *pkt) {
     u16 client;

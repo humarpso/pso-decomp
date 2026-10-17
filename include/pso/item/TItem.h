@@ -7,6 +7,7 @@
 
 struct TItem : public TUnk_804AF8A0 {
     virtual ~TItem();
+    s32 get_field_d8();
     u8 get_field_ed();
     virtual void vfunc_14();
     virtual void vfunc_15();

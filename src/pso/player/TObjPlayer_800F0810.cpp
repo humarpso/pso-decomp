@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDD_ST.h"
 
 struct RecoveredGlobal_800F08AC_lbl_80501080 {
     s32 value;
@@ -66,7 +67,7 @@ s32 *TObjPlayer__sub_800F08AC(s32 arg0, s32 arg1) {
     *(s32 *)((s8 *)(&lbl_80501080.value) + 0x30) = arg0;
     return &lbl_80501080.value;
 }
-void TObjPlayer::draw_with_alt_model(s32 arg1) {
+void TObjEneDD_ST::draw_with_alt_model(s32 arg1) {
     s32 temp_r31;
     temp_r31 = *(s32 *)&this->model;
     TObjPlayer::set_alt_model_flag();

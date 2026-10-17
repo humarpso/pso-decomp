@@ -1,4 +1,5 @@
 #include "pso/item/TItemEffCane.h"
+#include "pso/item/TItem.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer.h"
@@ -37,7 +38,7 @@ TItemEffCane::TItemEffCane(TObject* parent, TItem* item, s32 attachment, s32 eff
     : TObject(parent) {
     f32 position[3];
     m_name = TItemEffCane__class_name;
-    item_id = ((TObjPlayer *)item)->get_field_d8();
+    item_id = ((TItem *)item)->get_field_d8();
     attachment_index = attachment;
     ((TObjPlayer *)item)->draw_icon((s32)attachment_index, (s32)position);
     if (effect_id != -1) {

@@ -317,7 +317,7 @@ u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80157AD8___vt__15TOAttackableCol *)&__vt__15TOAttackableCol).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2E98;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    ((TObjPlayer *)arg0)->calc_attach_pos();
+    ((TUnk_804806E8 *)arg0)->calc_attach_pos();
     obj_setFlags30((void *) (arg0), (int) (0x60000000));
     init_collision_body_parts((void *) (arg0), (void *) (&TOAttackableCol__collision_parts.value), (int) (1));
     set_indexed_flags((void *)((void *) (arg0)), (s32)((int) (0)), (s32)((int) (0x718)));

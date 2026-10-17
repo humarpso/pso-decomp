@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneBm3Fly.h"
@@ -1262,7 +1263,7 @@ void render__17TObjEneBm3FlyNestFPv(u8 *arg0) {
                 if (res == 1) {
                     ((TObjEneRe7Berura *)arg0)->draw();
                 } else {
-                    ((TObjPlayer *)arg0)->render_world_model();
+                    ((TObjEnemy *)arg0)->render_world_model();
                 }
                 TParticleCtrl::end_effect_render();
                 TObjEneRe7Berura::set_global_state((s32)NULL);

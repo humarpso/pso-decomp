@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/boss/TBoss4DarkFalz.h"
 
@@ -8,7 +9,7 @@ extern "C" {
 
 s32 get_main_phase();
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
-s32 obj_isState2_324(void *);
+s32 obj_isState2_324__13TUnk_804806E8Fv(void *);
 u16 obj_getField1c(void *);
 s32 check_flag__10TObjPlayerFl(void *, int);
 s32 reset_cameras_to_actor(void *, int);
@@ -51,13 +52,13 @@ void TObjPlayer::place_on_area_entry() {
         if (obj != NULL) {
             TForceOperate__ct(obj, tl_02, obj_getField1c(arg0));
         }
-    } else if (obj_isState2_324(arg0) == 0) {
+    } else if (obj_isState2_324__13TUnk_804806E8Fv(arg0) == 0) {
         p = consume_telepipe_arrival(obj_getField1c(arg0), (u8 *)&this->rotation_y);
         if (p != NULL) {
             ((TBoss4DarkFalz *)arg0)->set_position_from(p);
         } else {
             e = &TObjPlayer__arrival_override_table[obj_getField1c(arg0)];
-            if (obj_isState2_324(arg0) == 0 && TObjPlayer__sub_801BF95C(e) == 1) {
+            if (obj_isState2_324__13TUnk_804806E8Fv(arg0) == 0 && TObjPlayer__sub_801BF95C(e) == 1) {
                 TObjPlayer__sub_801BF954(e, 0);
                 this->rotation_y = ((TObjPlayer *)e)->get_lock_timer();
                 ((TBoss4DarkFalz *)arg0)->set_position_from(((TObjPlayer *)e)->get_sub_object());
@@ -73,7 +74,7 @@ void TObjPlayer::place_on_area_entry() {
         }
     }
     ((TBoss4DarkFalz *)arg0)->save_position();
-    ((TObjPlayer *)arg0)->calc_attach_pos();
+    ((TUnk_804806E8 *)arg0)->calc_attach_pos();
     ((TObjPlayer *)(arg0 + 0x84C))->copy_offset_position(arg0);
     ((TObjPlayer *)arg0)->set_position_history_entry(0, *(f32 *)&this->position[0], this->position[2]);
     clear_movement_history((u8 *)&this->m_6ac);

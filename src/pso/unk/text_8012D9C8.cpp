@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/unk/TUnk_804A5B20.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemEffOrgaFlowShot.h"
@@ -46,7 +47,7 @@ void launch_slicer_shot(u8 *weapon) {
     SlicerLaunchData_8012D9C8 launch;
     init_slicer_launch_state(&launch);
     launch.player = obj_getField1c(*(u8 **)((s8 *)weapon + 0xF0));
-    launch.weapon = ((TObjPlayer *)weapon)->get_field_d8();
+    launch.weapon = ((TItem *)weapon)->get_field_d8();
     launch.textures = *(void **)((s8 *)weapon + 0x24);
     launch.model = *(void **)((s8 *)weapon + 0x188);
     launch.kind = TObjPlayer__sub_801D2F4C(*(u8 **)((s8 *)weapon + 0xF0) + 0x7CC);

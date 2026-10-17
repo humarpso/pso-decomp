@@ -6,6 +6,8 @@
 class TWindowDD_WS_String : public TUnk_804CE018 {
 public:
     virtual ~TWindowDD_WS_String();
+    void draw(s32, s32, f32);
+    void draw_entry_if_visible(void *);
     u8 unk_1C[0x58];
 };
 typedef char TWindowDD_WS_String_size[sizeof(TWindowDD_WS_String) == 0x74 ? 1 : -1];

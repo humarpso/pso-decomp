@@ -280,8 +280,7 @@ ChrSel_80272B60 *get_chr_select__17TWindowSubComCardFv();
 void *find_entry_value_by_id__17TWindowSubComCardFl(s32, s32);
 extern const f32 TWindowSubComCard__data_805DD514;
 extern const f32 lbl_805DD518;
-s32 create_option_list_window__17TWindowSubComCardFPvii(u8 *arg0, s32 arg1, s32 arg2);
-s32 obj_isState3_324(void *);
+s32 obj_isState3_324__13TUnk_804806E8Fv(void *);
 s32 is_script_controlled__10TObjPlayerFv(void *);
 VObj_18_80272714 *get_player_by_client_id(s32);
 extern s32 local_client_id;
@@ -377,7 +376,7 @@ s32 create_player_select_window__17TWindowSubComCardFv(void) {
     i = 0;
     do {
         if (i != local_client_id && (p = get_player_by_client_id(i)) != NULL &&
-            is_script_controlled__10TObjPlayerFv(p) == 0 && obj_isState3_324(p) == 0) {
+            is_script_controlled__10TObjPlayerFv(p) == 0 && obj_isState3_324__13TUnk_804806E8Fv(p) == 0) {
             forward_trade_action_default__16TObjCityMainWarpFPviii(w, p->m10(), 7, i);
         }
         i++;
@@ -446,7 +445,7 @@ typedef void *(*GetMsg_80272CB0)(void *, void *);
 
 #pragma push
 #pragma opt_loop_invariants off
-s32 create_option_list_window__17TWindowSubComCardFPvii(u8 *arg0, s32 arg1, s32 key) {
+s32 TWindowSubComCard::create_option_list_window(s32 arg1, s32 key) {
     s32 i;
     s32 count;
     s32 idx;
@@ -455,11 +454,11 @@ s32 create_option_list_window__17TWindowSubComCardFPvii(u8 *arg0, s32 arg1, s32 
     s32 win;
     Entry_80272B60 *e;
     ChrSel_80272B60 *cs;
-    win = draw_card_icon__17TWindowSubComCardFll(get_window_layout_position(0x8D), 0x20, find_entry_value_by_id__17TWindowSubComCardFl(*(s32 *)((s8 *)arg0 + 0x7C), key));
+    win = draw_card_icon__17TWindowSubComCardFll(get_window_layout_position(0x8D), 0x20, find_entry_value_by_id__17TWindowSubComCardFl(*(s32 *)((s8 *)((u8 *)this) + 0x7C), key));
     if (key == 0) {
-        forward_trade_action_default__16TObjCityMainWarpFPviii(win, ((u8* (*)(void*, void*))get_message_10__17TWindowSubComCardFPvPv)((void *)(arg0), (void *)(0)), 6, 0);
-        forward_trade_action_default__16TObjCityMainWarpFPviii(win, ((u8* (*)(void*, void*))get_message_10__17TWindowSubComCardFPvPv)((void *)(arg0), (void *)(1)), 6, 1);
-        ((TWindowSubComCardList *)win)->set_selected_index(open_hard_keyboard__6TLobbyFPv((void *)(*(s32 *)((s8 *)arg0 + 0x20))));
+        forward_trade_action_default__16TObjCityMainWarpFPviii(win, ((u8* (*)(void*, void*))get_message_10__17TWindowSubComCardFPvPv)((void *)(((u8 *)this)), (void *)(0)), 6, 0);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(win, ((u8* (*)(void*, void*))get_message_10__17TWindowSubComCardFPvPv)((void *)(((u8 *)this)), (void *)(1)), 6, 1);
+        ((TWindowSubComCardList *)win)->set_selected_index(open_hard_keyboard__6TLobbyFPv((void *)(*(s32 *)((s8 *)((u8 *)this) + 0x20))));
     } else {
         sel = ((TWindowSubComCard *)arg1)->find_value_by_key(key);
         cs = get_chr_select__17TWindowSubComCardFv();
@@ -635,7 +634,6 @@ s32 free_member__17TWindowSubComCardFv(s32, s32);
 s32 forward_slot_selection__16TAdChrSelASlotGCFPvPv(s32, s32, s32, f32);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, s32, s32);
 extern const f32 TWindowSubComCard__data_805DD520;
-s32 TWindowSubComCard__sub_802730E0(u8 *arg0);
 void render__17TWindowSubComCardFv(void);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 open_yes_no_prompt(s32, s32, s32, s32, f32);
@@ -653,9 +651,9 @@ s32 TWindowSubComCard::open_yesno_dialog() {
 
 extern const f32 lbl_805DD524;
 
-s32 TWindowSubComCard__sub_802730E0(u8 *arg0) {
+s32 TWindowSubComCard::sub_802730E0() {
     s32 temp_r30;
-    temp_r30 = create__19TWindowMessageYesNoFPvPvPvPv(arg0, *(s32 *)((s8 *)arg0 + 0x20), 0, 0);
+    temp_r30 = create__19TWindowMessageYesNoFPvPvPvPv(((u8 *)this), *(s32 *)((s8 *)((u8 *)this) + 0x20), 0, 0);
     forward_slot_selection__16TAdChrSelASlotGCFPvPv(temp_r30, ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)(0xFC), get_window_layout_position(0x96), (*(f32 *)&TWindowSubComCard__data_805DD520));
     free_member__17TWindowSubComCardFv(temp_r30, 1);
     ((TWindowSubShortMail *)temp_r30)->notify_warp_flag70();
@@ -1301,7 +1299,7 @@ void run_task__17TWindowSubComCardFv(u8 *arg0) {
         break;
     case 0x2B:
         TWindowSubComCard__sub_80249144((int) (*(u32 *)((s8 *)arg0 + 0x7C)));
-        *(u32 *)((s8 *)arg0 + 0x64) = ((u32 (*)(void*, void*, int))create_option_list_window__17TWindowSubComCardFPvii)((void *) (arg0), (void *) ((u8 *)(arg0) + 0x30), (int) (update_selected_entry__17TWindowSubComCardFv((int) (*(u32 *)((s8 *)arg0 + 0x7C)))));
+        *(u32 *)((s8 *)arg0 + 0x64) = ((TWindowSubComCard *)arg0)->create_option_list_window((s32)((void *) ((u8 *)(arg0) + 0x30)), (s32)((int) (update_selected_entry__17TWindowSubComCardFv((int) (*(u32 *)((s8 *)arg0 + 0x7C))))));
         *(u8 *)((s8 *)arg0 + 0x1C) = 0x2CU;
     case 0x2C:
         if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x64)))->get_status_flag() != 0) {
@@ -1403,7 +1401,7 @@ void run_task__17TWindowSubComCardFv(u8 *arg0) {
     case 0x37:
         TWindowSubComCard__sub_80249144((int) (*(u32 *)((s8 *)arg0 + 0x7C)));
         temp_r29_7 = ((s32 (*)(int))get_character_save_record)((int) (0xFFFF));
-        *(u32 *)((s8 *)arg0 + 0x64) = ((u32 (*)(void*, void*, int))create_option_list_window__17TWindowSubComCardFPvii)((void *) (arg0), (void *) (temp_r29_7 + 0x22EC), (int) (update_selected_entry__17TWindowSubComCardFv((int) (*(u32 *)((s8 *)arg0 + 0x7C)))));
+        *(u32 *)((s8 *)arg0 + 0x64) = ((TWindowSubComCard *)arg0)->create_option_list_window((s32)((void *) (temp_r29_7 + 0x22EC)), (s32)((int) (update_selected_entry__17TWindowSubComCardFv((int) (*(u32 *)((s8 *)arg0 + 0x7C))))));
         *(u8 *)((s8 *)arg0 + 0x1C) = 0x38U;
     case 0x38:
         if (((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0x64)))->get_status_flag() != 0) {
@@ -1484,7 +1482,7 @@ void run_task__17TWindowSubComCardFv(u8 *arg0) {
             *(u32 *)((s8 *)arg0 + 0x74) = 0U;
         }
         if ((u32) *(u32 *)((s8 *)arg0 + 0x70) == 0U) {
-            *(u32 *)((s8 *)arg0 + 0x70) = TWindowSubComCard__sub_802730E0((u8 *)((void *) (arg0)));
+            *(u32 *)((s8 *)arg0 + 0x70) = ((TWindowSubComCard *)arg0)->sub_802730E0();
         }
         *(u8 *)((s8 *)arg0 + 0x1C) = 0x3EU;
     case 0x3E:

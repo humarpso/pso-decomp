@@ -214,7 +214,7 @@ struct VObj_18_a328de : VBase_18_a328de {
 extern "C" {
 extern u16 boss6_plot_falz_player_order_table[];
 u16 TBoss6PlotFalz__sub_802AAE48(s32 i);
-s32 obj_isState2_324(void *);
+s32 obj_isState2_324__13TUnk_804806E8Fv(void *);
 s16 obj_getS16_32C(void *);
 s32 send_6x2F_change_player_hp(int, s32, s16);
 
@@ -248,7 +248,7 @@ s32 TBoss6PlotFalz::damage_player_hp(s32 arg0, u32 arg1) {
     if ((u32)hp < v) {
         v = hp;
     }
-    if (obj_isState2_324(p) != 0) {
+    if (obj_isState2_324__13TUnk_804806E8Fv(p) != 0) {
         return v;
     }
     hp -= v;

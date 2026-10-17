@@ -50,12 +50,12 @@ s32 is_locally_controlled__10TObjPlayerFPv();
 s32 send_6x25_equip_item(s32, s32, s32);
 s32 get_player_by_client_id(u16);
 s32 is_script_controlled__10TObjPlayerFv(s32);
-s32 obj_isState3_324(s32);
+s32 obj_isState3_324__13TUnk_804806E8Fv(s32);
 extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
 s32 send_6x26_unequip_item__10TObjPlayerFPvPv(s32, s32);
 u32 get_equip_field_d04__10TObjPlayerFv(s32, s32);
-s32 get_field_d8__10TObjPlayerFv();
+s32 get_field_d8__5TItemFv();
 u32 get_item_field_6__10TObjPlayerFPv(s32);
 extern void *item_tool_factory_table[];
 void create__11TItemObjectFv();
@@ -237,7 +237,7 @@ void TLobby::forward_to_player(int arg0, void *item) {
     s32 player;
     if (item != NULL) {
         player = get_player_by_client_id(arg0);
-        if ((player != 0) && ((is_locally_controlled__10TObjPlayerFPv() == 1) || ((obj_isState3_324(player) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)) || ((is_script_controlled__10TObjPlayerFv(player) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)))) {
+        if ((player != 0) && ((is_locally_controlled__10TObjPlayerFPv() == 1) || ((obj_isState3_324__13TUnk_804806E8Fv(player) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)) || ((is_script_controlled__10TObjPlayerFv(player) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)))) {
             ((TObjPlayer *)player)->request_inventory_item((TItemData*)item);
             send_6x25_equip_item(player, *(s32 *)((s8 *)item + 0xC), 0);
         }
@@ -247,7 +247,7 @@ void TLobby::handle_player_event(s32 arg0, s32 arg1) {
     s32 temp_r3;
     u32 var_r3;
     temp_r3 = get_player_by_client_id((u16)arg0);
-    if ((temp_r3 != 0) && ((is_locally_controlled__10TObjPlayerFPv() == 1) || ((obj_isState3_324(temp_r3) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)) || ((is_script_controlled__10TObjPlayerFv(temp_r3) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)))) {
+    if ((temp_r3 != 0) && ((is_locally_controlled__10TObjPlayerFPv() == 1) || ((obj_isState3_324__13TUnk_804806E8Fv(temp_r3) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)) || ((is_script_controlled__10TObjPlayerFv(temp_r3) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)))) {
         var_r3 = 0U;
         switch (arg1) {
         case 0:
@@ -272,7 +272,7 @@ void TLobby::handle_player_event(s32 arg0, s32 arg1) {
             break;
         }
         if (var_r3 != 0U) {
-            send_6x26_unequip_item__10TObjPlayerFPvPv(temp_r3, get_field_d8__10TObjPlayerFv());
+            send_6x26_unequip_item__10TObjPlayerFPvPv(temp_r3, get_field_d8__5TItemFv());
         }
     }
 }

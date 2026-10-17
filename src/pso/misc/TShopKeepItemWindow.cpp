@@ -3,6 +3,7 @@
 #pragma dont_inline off
 
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/misc/TShopArmorListWindow.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TShopWindowBase.h"
@@ -183,7 +184,7 @@ void TShopKeepItemWindow::handle_deposit_confirm() {
         if (r == 0) {
             i = select_cursor_entry__22TWindowSubShortCutListFv(self->f384);
             if (store_item_in_bank(&self->ents[i].f4, self->f378, base) != 0) {
-                get_item_record__23TShopJudgmentItemWindowFPv(self->f24, ((TObjPlayer *)(self->ents[i].f0))->get_field_d8(), self->f378);
+                get_item_record__23TShopJudgmentItemWindowFPv(self->f24, ((TItem *)(self->ents[i].f0))->get_field_d8(), self->f378);
                 copy_bank_to_card_window(base);
                 play_sound_effect(0x52D01, 0, 0, 0);
                 TWindow__close(self->f388);
@@ -286,10 +287,10 @@ s32 TShopKeepItemWindow::rebuild_item_list() {
         if (self->f390 != 0U && TLobby::is_camera_ctrl_active() > 2) {
             ((TLobby *)(self->f390))->set_position(lbl_805DC710, lbl_805DC710);
         }
-        TWindowHelpItem__set_displayed_item_by_id(self->f390, ((TObjPlayer *)(self->ents[cur].f0))->get_field_d8());
+        TWindowHelpItem__set_displayed_item_by_id(self->f390, ((TItem *)(self->ents[cur].f0))->get_field_d8());
         self->f37C = cur;
     } else {
-        TWindowHelpItem__set_displayed_item_by_id(self->f390, ((TObjPlayer *)(self->ents[cur].f0))->get_field_d8());
+        TWindowHelpItem__set_displayed_item_by_id(self->f390, ((TItem *)(self->ents[cur].f0))->get_field_d8());
         self->f37C = cur;
     }
 }

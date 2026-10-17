@@ -74,7 +74,6 @@ struct TMainCursor : public TObject {
     s32 reset();
     int get_selected_entry();
     int get_active();
-    u16 get_target_id();
     int is_cursor_clear();
     void set_color_mode(s32 v);
     void set_color(s32 v);

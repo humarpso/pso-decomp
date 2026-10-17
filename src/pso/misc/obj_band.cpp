@@ -338,7 +338,7 @@ void TObjPlayer::draw_model_with_callback() {
     }
 }
 
-void TObjPlayer::render_world_model() {
+void TObjEnemy::render_world_model() {
     TObjPlayer::set_global_flag();
     if (*(s32 *)&this->animationFlags & 4) {
         draw_model_blend_motion(*(s32 *)&this->model, (u8 *)&this->unk_E4, *(f32 *)&this->m_c0);

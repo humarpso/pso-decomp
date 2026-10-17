@@ -324,7 +324,7 @@ s32 get_main_phase();
 void mark_area_change_pending();
 s32 TKeyBoardControl__sub_8000F9CC(s32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 obj_isState3_324(void *);
+s32 obj_isState3_324__13TUnk_804806E8Fv(void *);
 u16 obj_getField1c(void *);
 s32 is_split_screen();
 s32 get_current_floor();
@@ -902,7 +902,7 @@ void TObjAreaWarpQuest__vt17(Warp_8019C05C *arg0, void *arg1) {
     if (arg0->fC4 > 1) {
         for (i = 0; i < 4; i++) {
             p = get_player_by_client_id(i);
-            if (p != 0 && obj_isState3_324(p) != 0 && (u16)((TNpcPlayer *)p)->get_action_flags() != 0xFFFF) {
+            if (p != 0 && obj_isState3_324__13TUnk_804806E8Fv(p) != 0 && (u16)((TNpcPlayer *)p)->get_action_flags() != 0xFFFF) {
                 TObjAreaWarpQuest__sub_8019DCD8(p, arg0->fC4);
             }
         }

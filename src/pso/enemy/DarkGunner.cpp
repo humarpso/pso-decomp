@@ -97,7 +97,6 @@ struct P_800A2390 {
 
 extern "C" {
 s32 apply_actor_gravity(void *, s32, f32);
-s32 obj_clearFlags30(void *, s32);
 s32 advance_animation_playback(void *);
 s32 minimap_render_dot(void *, s32, s32, s32);
 extern const f32 lbl_805D9984;
@@ -925,7 +924,7 @@ s32 TObjPlayer::update_hide_sequence() {
     temp_r0 = this->m_37c;
     switch (temp_r0) {
     case 0:
-        obj_clearFlags30(arg0, 0x240300);
+        ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x240300);
         *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x800000);
         temp_r5 = *(s32 *)&this->unk_388;
         temp_r4 = temp_r5 & 0xFFB7FFFF;
@@ -1024,7 +1023,7 @@ void TObjPlayer__sub_800A16C4(u8 *arg0) {
     switch (temp_r0) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 1);
-        obj_clearFlags30((void *) (arg0), (int) (0x100));
+        ((TUnk_804B9870 *)arg0)->obj_clearFlags30((int) (0x100));
         *(s16 *)((s8 *)arg0 + 0x33C) = (s16) *(s16 *)((s8 *)arg0 + 0x33A);
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
         *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFF9FFFFF);
@@ -1053,7 +1052,7 @@ void TObjPlayer__sub_800A16C4(u8 *arg0) {
 
 void TObjEneDarkGunner::vfunc_61() {
     u8 *arg0 = (u8 *)this;
-    obj_clearFlags30((void *)(arg0), (s32)(0x100U));
+    ((TUnk_804B9870 *)arg0)->obj_clearFlags30((s32)(0x100U));
     spawn_particle_effect((void *) (arg0 + 0x2FC), (int) (0xD7));
     play_sound_effect((int) (0x4003B22D), (void *) (arg0 + 0x38), (int) (0), (int) (0));
 }
@@ -1141,7 +1140,7 @@ void TObjPlayer__sub_800A1D70(u8 *arg0) {
         apply_actor_gravity((void *)((void *) (arg0)), (s32)((int) (0)), (f32) (lbl_805D9984));
         ((TObjPlayer *)arg0)->update_collisions();
         if ((u32) *(u32 *)((s8 *)arg0 + 0xB4) != 8U) {
-            obj_clearFlags30((void *) (arg0), (int) (0x40300));
+            ((TUnk_804B9870 *)arg0)->obj_clearFlags30((int) (0x40300));
             temp_r4 = *(s32 *)((s8 *)arg0 + 0x388);
             *(s32 *)((s8 *)arg0 + 0x388) = (s32) (temp_r4 & 0xFF7FFFFE);
             *(s16 *)((s8 *)arg0 + 0x33E) = (s16) *(s16 *)((s8 *)arg0 + 0x32C);
@@ -1271,7 +1270,7 @@ s32 TObjPlayer__sub_800A1FEC(void *arg0) {
         }
         break;
     }
-    obj_clearFlags30(self, 0x40000);
+    ((TUnk_804B9870 *)self)->obj_clearFlags30(0x40000);
     advance_animation_playback(self);
     apply_actor_gravity(self, 0, lbl_805D9984);
     ((TObjPlayer *)self)->update_collisions();
@@ -1292,7 +1291,7 @@ inline f32 fmax_800A2390(f32 a, f32 b) {
 }
 s32 TObjPlayer__sub_800A2390(void *arg0_) {
     P_800A2390 *arg0 = (P_800A2390 *)arg0_;
-    obj_clearFlags30(arg0, 0x40000);
+    ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x40000);
     switch (arg0->state) {
     case 0:
         arg0->f388 &= ~0x00200000;

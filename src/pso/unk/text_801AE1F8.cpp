@@ -17,7 +17,7 @@ s32 spawn_photon_blast_opening_effects(int, int);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
 u8 *photon_base_ct(void *);
 s32 TPhotonMagicSquare__ct(void *, void *, int, void *, int, f32);
-void TObjPlayer__sub_801ADC7C(void *, u8);
+void sub_801ADC7C__12TPhotonPillaFv(void *, u8);
 u8 *TPhotonRainbow__ct(void *, void *, void *, s32);
 s32 play_cue_stream_file(void *);
 void *__nw__7TObjectFUl(u32);
@@ -116,7 +116,7 @@ u8 *TPhotonPilla__ct(u8 *arg0, u8 *arg1) {
         break;
     }
     *(s32 *)((s8 *)arg0 + 0x194) = 0;
-    TObjPlayer__sub_801ADC7C(arg0, *(u8 *)((s8 *)arg1 + 0x1C));
+    sub_801ADC7C__12TPhotonPillaFv(arg0, *(u8 *)((s8 *)arg1 + 0x1C));
     if (*(s32 *)((s8 *)arg0 + 0x1A0) == 1) {
         *(s32 *)((s8 *)arg0 + 0x154) |= 1;
     }

@@ -58,13 +58,10 @@ void vec3_add_to(void *, void *);
 extern Packet_801ADD10 photon_pilla_laser_packet;
 extern Vec_801ADD10 lbl_804C3A84[];
 extern const f32 lbl_805DC22C;
-void spawn_laser__12TPhotonPillaFPv(u8 *self);
 void TObjPlayer__sub_801ADC6C(void);
 void TObjPlayer__sub_801ADC78(void);
-void TObjPlayer__sub_801ADC7C(void* a0);
 s32 advance_animation_playback(void *);
 s32 play_persistent_sound(s32, void *, s32, s32, s32);
-s32 mark_enemy_body_contacts__13TUnk_804AF8A0Fv(void *);
 s32 queue_photon_blast_hit(u16, s32, s32, f32);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
 s32 TPhotonMagicSquare__ct(s32, void *, s32, Vec3 *, s32, f32);
@@ -78,13 +75,13 @@ void TObjPlayer__sub_801ADC6C(void) { lbl_805D5D50 = 0; }
 void TObjPlayer__sub_801ADC78(void) {  }
 
     extern const float lbl_805DC228;
-void TObjPlayer__sub_801ADC7C(void* a0) { *(float*)((char*)a0 + 0x180) = lbl_805DC228; *(float*)((char*)a0 + 0x184) = lbl_805DC228; *(float*)((char*)a0 + 0x188) = lbl_805DC228; *(float*)((char*)a0 + 0x18c) = lbl_805DC228; }
+void TPhotonPilla::sub_801ADC7C() { *(float*)((char*)this + 0x180) = lbl_805DC228; *(float*)((char*)this + 0x184) = lbl_805DC228; *(float*)((char*)this + 0x188) = lbl_805DC228; *(float*)((char*)this + 0x18c) = lbl_805DC228; }
 
-void TObjPlayer::apply_photon_blast_effects() {
+void TPhotonPilla::apply_photon_blast_effects() {
     s32 var_r31;
 
     TObjPlayer::init_all_slots();
-    mark_enemy_body_contacts__13TUnk_804AF8A0Fv(this);
+    mark_enemy_body_contacts();
     if (*(s32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 0x18) & 0x100000) {
         var_r31 = 0;
         do {
@@ -107,21 +104,21 @@ extern const f32 lbl_805DC24C;
 extern const f32 lbl_805DC250;
 extern const f32 lbl_805DC254;
 
-void spawn_laser__12TPhotonPillaFPv(u8 *self) {
+void TPhotonPilla::spawn_laser() {
     Vec_801ADD10 position;
     u8 *laser;
-    position.x = *(f32 *)((s8 *)self + 0x38);
+    position.x = *(f32 *)((s8 *)((u8 *)this) + 0x38);
     position.y = lbl_805DC22C;
-    position.z = *(f32 *)((s8 *)self + 0x40);
-    vec3_add_to(&position, &lbl_804C3A84[*(s32 *)((s8 *)self + 0x194)]);
-    (*(s32 *)((s8 *)self + 0x194))++;
+    position.z = *(f32 *)((s8 *)((u8 *)this) + 0x40);
+    vec3_add_to(&position, &lbl_804C3A84[*(s32 *)((s8 *)((u8 *)this) + 0x194)]);
+    (*(s32 *)((s8 *)((u8 *)this) + 0x194))++;
     Packet_801ADD10 packet = photon_pilla_laser_packet;
     packet.pos.x = position.x;
     packet.pos.y = position.y;
     packet.pos.z = position.z;
     laser = (u8 *) __nw__7TObjectFUl(0x380);
     if (laser != NULL) {
-        TPhotonLaser__ct(laser, &packet, self, *(u16 *)((s8 *)self + 0x17C));
+        TPhotonLaser__ct(laser, &packet, ((u8 *)this), *(u16 *)((s8 *)((u8 *)this) + 0x17C));
     }
 }
 
@@ -188,10 +185,10 @@ void TPhotonPilla::run_task() {
     *(s16 *)((s8 *)this + 0x14C) = (s16) (u8) *(s16 *)((s8 *)this + 0x14C);
     temp_r3_2 = *(s32 *)((s8 *)this + 0x1A8);
     if ((lbl_805DC23C == (f32) temp_r3_2) || (lbl_805DC240 == (f32) temp_r3_2) || (lbl_805DC244 == (f32) temp_r3_2) || (lbl_805DC248 == (f32) temp_r3_2) || (lbl_805DC24C == (f32) temp_r3_2) || (lbl_805DC250 == (f32) temp_r3_2)) {
-        spawn_laser__12TPhotonPillaFPv((u8 *)(this));
+        spawn_laser();
     }
     if (lbl_805DC254 == (f32) *(s32 *)((s8 *)this + 0x1A8)) {
-        ((TObjPlayer *)this)->apply_photon_blast_effects();
+        ((TPhotonPilla *)this)->apply_photon_blast_effects();
     }
     if ((s32) *(s32 *)((s8 *)this + 0x1A4) != 0) {
         play_persistent_sound(0x4002462F, this, 0, 0, 0);

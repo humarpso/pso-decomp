@@ -6,6 +6,7 @@
 class TUnk_804D0658 : public TUnk_804CDFE8 {
 public:
     virtual ~TUnk_804D0658();
+    void draw();
     void draw_setting(s32);
     void clamp_scroll();
     void update_scroll_offset();

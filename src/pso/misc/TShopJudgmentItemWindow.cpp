@@ -361,7 +361,7 @@ void TShopJudgmentItemWindow::handle_equip_prompt() {
                 set_judgment_target_flag(arg0, (u8 *)&this->unk_28);
                 item = find_item_by_id(F(0x34, s32));
                 if (item != NULL && (eq = get_equip_field_d04__10TObjPlayerFv(F(0x24, s32), item->m31())) != 0) {
-                    send_6x26_unequip_item__10TObjPlayerFPvPv(F(0x24, s32), ((TObjPlayer *)eq)->get_field_d8());
+                    send_6x26_unequip_item__10TObjPlayerFPvPv(F(0x24, s32), ((TItem *)eq)->get_field_d8());
                 }
                 send_6x25_equip_item(F(0x24, s32), F(0x34, s32), 0);
                 ((VObj_18 *)(arg0))->m6(0xB, 1);

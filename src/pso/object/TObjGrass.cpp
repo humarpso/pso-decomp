@@ -352,7 +352,6 @@ extern "C" {
 s32 spawn_particle_effect(s32, s32);
 s32 apply_actor_gravity(void *, s32, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-void obj_clearFlags30(void *, u32);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
@@ -729,7 +728,7 @@ void TObjGrass::vfunc_63() {
 s32 TObjGrass::sub_800BCE44() {
     u8 *arg0 = (u8 *)this;
   u8 *temp_r3;
-  obj_clearFlags30((void *)((void *) arg0), (u32)((int) 0x04040000));
+  ((TUnk_804B9870 *)arg0)->obj_clearFlags30((u32)((int) 0x04040000));
   advance_animation_playback((void *) arg0);
   *((f32 *) (((s8 *) arg0) + 0x310)) = (f32) (0.0f);
   *((f32 *) (((s8 *) arg0) + 0x308)) = (f32) (0.0f);
@@ -774,7 +773,7 @@ s32 TObjGrass::update() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r4;
 
-    obj_clearFlags30((void *)(arg0), (u32)(0x04040000));
+    ((TUnk_804B9870 *)arg0)->obj_clearFlags30((u32)(0x04040000));
     advance_animation_playback(arg0);
     if (!(*(s32 *)&this->actorFlags & 0x800000)) {
         apply_actor_gravity(arg0, 0, (0.0f));
@@ -816,7 +815,7 @@ s32 TObjGrass::update_web_attack() {
         arg0->f338 = 0xFFFF;
         arg0->target = NULL;
     }
-    obj_clearFlags30(arg0, 0x4040000);
+    ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x4040000);
     advance_animation_playback(arg0);
     switch (arg0->state) {
     case 0:
@@ -903,10 +902,10 @@ void TObjGrass::sub_800BD4D8() {
         o->f338 = 0xFFFF;
         o->target = NULL;
     }
-    obj_clearFlags30(o, 0x40000);
+    ((TUnk_804B9870 *)o)->obj_clearFlags30(0x40000);
     if (o->target == NULL) {
         o->f338 = 0xFFFF;
-        obj_clearFlags30(o, 0x4202000);
+        ((TUnk_804B9870 *)o)->obj_clearFlags30(0x4202000);
         o->timer = 0;
         return;
     }
@@ -914,7 +913,7 @@ void TObjGrass::sub_800BD4D8() {
     default:
         o->state = 0;
     case 0:
-        obj_clearFlags30(o, 0x4000000);
+        ((TUnk_804B9870 *)o)->obj_clearFlags30(0x4000000);
         ((TObjPlayer *)o)->clear_player_status_flag(0, 0x80);
         play_persistent_sound(copy_target_state__14TObjEnePanarmsFPv(o, 0x4003A801), o, &o->pos, 0, 0);
         TObjPlayer::play_effect_if_v2(-0x200);
@@ -970,14 +969,14 @@ void TObjGrass::sub_800BD4D8() {
         if (o->fb4 != 0x20) {
             o->state = 1;
             o->fb8 = 1;
-            obj_clearFlags30(o, 0x4000000);
+            ((TUnk_804B9870 *)o)->obj_clearFlags30(0x4000000);
             ((TObjPlayer *)o)->clear_player_status_flag(0, 0x80);
         }
         break;
     case 1: {
         s32 k;
         s32 i;
-        obj_clearFlags30(o, 0x4000000);
+        ((TUnk_804B9870 *)o)->obj_clearFlags30(0x4000000);
         ((TObjPlayer *)o)->clear_player_status_flag(0, 0x80);
         o->fc8 = (2.0f) * o->anims[o->fb8].f8;
         advance_animation_playback(o);
@@ -1051,14 +1050,14 @@ void TObjGrass::sub_800BD4D8() {
         break;
     }
     case 2:
-        obj_clearFlags30(o, 0x4000000);
+        ((TUnk_804B9870 *)o)->obj_clearFlags30(0x4000000);
         ((TObjPlayer *)o)->clear_player_status_flag(0, 0x80);
         o->fc8 = (2.0f) * o->anims[o->fb8].f8;
         advance_animation_playback(o);
         apply_actor_gravity(o, 0, (0.0f));
         o->timer--;
         if (o->timer < 0) {
-            obj_clearFlags30(o, 0x200000);
+            ((TUnk_804B9870 *)o)->obj_clearFlags30(0x200000);
             o->timer = 0;
             o->f338 = 0xFFFF;
             o->target = NULL;
@@ -1078,7 +1077,7 @@ void TObjGrass::sub_800BDD70() {
     s32 ang;
     u32 ent;
     s32 idx;
-    obj_clearFlags30(arg0, 0x04040000);
+    ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x04040000);
     advance_animation_playback(arg0);
     switch (*(s16 *)((s8 *)arg0 + 0x328)) {
     default:
@@ -1269,7 +1268,7 @@ void TObjGrass::update_chase_target(void *arg0_) {
     f32 dist;
     s32 turn;
     Param_800BE4C0 *prm;
-    obj_clearFlags30(arg0, 0x04040000);
+    ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x04040000);
     prm = *(Param_800BE4C0 **)((s8 *)arg0 + 0x350);
     speed = prm->f4;
     turn = prm->f8;
@@ -1365,7 +1364,7 @@ void TObjGrass::vfunc_59() {
             *(s16 *)((s8 *)this + 0x326) = 2;
         }
         *(s16 *)((s8 *)this + 0x328) = 0;
-        obj_clearFlags30((void *)(this), (u32)(0x04040000));
+        obj_clearFlags30((u32)(0x04040000));
     }
 }
 
@@ -1392,7 +1391,7 @@ void TObjGrass::update_ai(void *arg0) {
     default:
         o->state = 2;
     case 2:
-        obj_clearFlags30(o, 0x04040000);
+        ((TUnk_804B9870 *)o)->obj_clearFlags30(0x04040000);
         switch (o->f39C) {
         case 1:
             o->fB8 = 1;
@@ -1481,7 +1480,7 @@ void TObjGrass::update_ai(void *arg0) {
         break;
     }
     minimap_render_dot(&o->pos, -0x5DB4, 1, 0);
-    obj_clearFlags30(o, 0x200000);
+    ((TUnk_804B9870 *)o)->obj_clearFlags30(0x200000);
 }
 #undef o
 #pragma pop
@@ -1522,7 +1521,7 @@ s32 TObjGrass::update_movement_status() {
             *(s32 *)((s8 *)this + 0x3AC) = 0;
             *(s16 *)((s8 *)this + 0x328) = 2;
             *(s16 *)((s8 *)this + 0xB8) = 1;
-            obj_clearFlags30((void *)(this), (u32)(0x04040000));
+            obj_clearFlags30((u32)(0x04040000));
         }
         return 1;
     }
@@ -1536,7 +1535,7 @@ s32 TObjGrass::update_action_hold_status() {
             *(s32 *)((s8 *)this + 0x3AC) = 0;
             *(s16 *)((s8 *)this + 0x328) = 2;
             *(s16 *)((s8 *)this + 0xB8) = 1;
-            obj_clearFlags30((void *)(this), (u32)(0x04040000));
+            obj_clearFlags30((u32)(0x04040000));
         }
         return 1;
     }
@@ -1595,7 +1594,7 @@ void TObjGrass__vt26(u8 *arg0) {
             if (q != NULL) {
                 if (((TObjPlayer *)q)->get_field_3e4() == get_current_floor()) {
                     *(u8 **)((s8 *)arg0 + 0x2A8) = q;
-                    obj_clearFlags30((void *) (arg0), 0x04040000);
+                    ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x04040000);
                     return;
                 }
             }
@@ -1604,7 +1603,7 @@ void TObjGrass__vt26(u8 *arg0) {
         }
         if (tid < 0x4000U) {
             *(u8 **)((s8 *)arg0 + 0x2A8) = get_enemy_entity(tid);
-            obj_clearFlags30((void *) (arg0), 0x04040000);
+            ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x04040000);
         }
     }
 }
@@ -1695,7 +1694,7 @@ void TObjGrass::render() {
             if (*(s32 *)((s8 *)arg0 + 0x3A8) == 1) {
                 ((TObjEneRe7Berura *)self)->draw();
             } else {
-                ((TObjPlayer *)self)->render_world_model();
+                ((TObjEnemy *)self)->render_world_model();
             }
             model_render_flags &= 0xFEFFFFFF;
         }

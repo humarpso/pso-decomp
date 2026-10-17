@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_801095EC___vt__15TItemEffLandHit {
@@ -20,7 +21,7 @@ u8 *TItemEffLandHit__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, u8 *arg4) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TItemEffLandHit__class_name;
     VecCopy__FP3VecPC3Vec(arg0 + 0x28, arg4);
     VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg3);
-    *(s32 *)((s8 *)arg0 + 0x34) = ((TObjPlayer *)arg2)->get_field_d8();
+    *(s32 *)((s8 *)arg0 + 0x34) = ((TItem *)arg2)->get_field_d8();
     *(s32 *)((s8 *)arg0 + 0x38) = 0;
     disallow_rendering__7TObjectFv(arg0);
     return arg0;

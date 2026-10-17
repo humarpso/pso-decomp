@@ -43,7 +43,6 @@ struct Weapon_8013CDE4 { f32 f0; f32 f4; s32 f8; s32 fc; s32 f10; };
 
 extern "C" {
 s32 check_visible__11TMainCursorFv(void *, int, void *, void *);
-u16 get_target_id__11TMainCursorFv(void *);
 s32 TLockOnCursor__sub_8013EB34();
 u32 get_player_by_client_id(void *);
 s32 offset_point_toward_camera(void *, void *, f32);
@@ -83,7 +82,7 @@ void *__nw__7TObjectFUl(u32);
 extern s32 tl_loc_end;
 void publish_target_list__11TMainCursorFPvi(Self_8013D4A0 *arg0, s32 arg1);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
-s32 obj_isState3_324(void *);
+s32 obj_isState3_324__13TUnk_804806E8Fv(void *);
 s32 obj_getField1c(void *);
 void *get_item_field_6__10TObjPlayerFPv(void *);
 s32 get_type__10TObjPlayerFPv(s32);
@@ -205,7 +204,7 @@ void setup_action_channel__11TMainCursorFiPviii(s32 self, u8 *player, s32 slot, 
     ((void (*)(void *, u8))TMainCursor__sub_8013E9C0)(cur, id);
     switch ((s16)kind) {
     case 1:
-        if (obj_isState3_324(player) == 0) {
+        if (obj_isState3_324__13TUnk_804806E8Fv(player) == 0) {
             TMainCursor__sub_8013E9A0(cur);
             ((TMainCursor *)C_8013CDE4)->set_color(0x20000);
             ((TMainCursor *)C_8013CDE4)->set_field_0c(0x8000);
@@ -421,14 +420,14 @@ void publish_target_list__11TMainCursorFPvi(Self_8013D4A0 *arg0, s32 arg1) {
         ((TMainCursor *)cur)->set_size(item->size);
         ((TMainCursor *)cur)->set_field2(item->idx);
         ((TLockOnCursor *)cur)->update_ring_sub();
-        if (((TLockOnCursor *)arg0)->is_inactive() == 0 || ((TMainCursor *)ent)->test_button(item->idx, get_target_id__11TMainCursorFv(arg0)) != 0 || (part->flags & 0x08000000)) {
+        if (((TLockOnCursor *)arg0)->is_inactive() == 0 || ((TMainCursor *)ent)->test_button(item->idx, ((TLockOnCursor *)arg0)->get_target_id()) != 0 || (part->flags & 0x08000000)) {
             ((TLockOnCursor *)cur)->is_bit1_set();
         }
         if (mode == 1) {
             ((TLockOnCursor *)cur)->update_ring();
         } else {
             ((TLockOnCursor *)cur)->set_flag_8_bit0();
-            if (((TMainCursor *)ent)->test_button(item->idx, get_target_id__11TMainCursorFv(arg0)) == 0) {
+            if (((TMainCursor *)ent)->test_button(item->idx, ((TLockOnCursor *)arg0)->get_target_id()) == 0) {
                 list = ((TMainCursor *)(arg0->x4EC))->get_list();
                 set_target_index__11TMainCursorFs(list, item->id);
                 update_action_palette__11TMainCursorFv(list, TMainCursor__sub_8013E900(sub));
@@ -437,7 +436,7 @@ void publish_target_list__11TMainCursorFPvi(Self_8013D4A0 *arg0, s32 arg1) {
                 if (update_cursor_pos__13TLockOnCursorFv(arg0->x4EC) == 0 && ((TLockOnCursor *)cur)->render_part() == 0) {
                     cur = __nw__7TObjectFUl(0x68);
                     if (cur != NULL) {
-                        cur = TMainCursor__ct(cur, tl_loc_end, item->id, item->idx, TMainCursor__sub_8013E900(sub), get_active__11TMainCursorFv(sub), get_target_id__11TMainCursorFv(arg0), part->fC);
+                        cur = TMainCursor__ct(cur, tl_loc_end, item->id, item->idx, TMainCursor__sub_8013E900(sub), get_active__11TMainCursorFv(sub), ((TLockOnCursor *)arg0)->get_target_id(), part->fC);
                     }
                     if (cur != NULL) {
                         ((TMainCursor *)cur)->refresh_target_marker();
@@ -446,7 +445,7 @@ void publish_target_list__11TMainCursorFPvi(Self_8013D4A0 *arg0, s32 arg1) {
             }
         }
         part->flags |= 0x10000000;
-        TMainCursor__sub_80154230(ent, item->idx, get_target_id__11TMainCursorFv(arg0));
+        TMainCursor__sub_80154230(ent, item->idx, ((TLockOnCursor *)arg0)->get_target_id());
         count++;
     }
     TMainCursor__sub_8013EA00(sub->x9C, count);
@@ -463,7 +462,7 @@ void TLockOnCursor::renderSecondaryCursor(u8 *arg1, s32 arg2, s32 arg3) {
     s32 temp_r3_2;
     u32 player;
     if (is_inactive() != 0) {
-        player = get_player_by_client_id((void *) (get_target_id__11TMainCursorFv((void *) (this))));
+        player = get_player_by_client_id((void *) (get_target_id()));
         if (player != 0U) {
             temp_r3_2 = check_visible__11TMainCursorFv((void *) (player + 0x500), (int) (player), (void *) (arg2), (void *) (arg3));
             if (temp_r3_2 != -1) {

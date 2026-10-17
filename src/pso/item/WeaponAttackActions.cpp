@@ -640,7 +640,7 @@ void TObjPlayer::fill_status_info(void *arg1) {
     ((s32 (*)(void))remap_extra_attack_type)();
     *(s16 *)((s8 *)arg1 + 0x14) = ((s16 (*)(s32))obj_getField1c)(*(s32 *)&this->unk_F0);
     *(s16 *)((s8 *)arg1 + 0x16) = ((TUnk_804B9870 *)(*(s32 *)&this->unk_F0))->get_stat_by_key_state();
-    *(s32 *)((s8 *)arg1 + 0x18) = ((TObjPlayer *)this)->get_field_d8();
+    *(s32 *)((s8 *)arg1 + 0x18) = ((TItem *)this)->get_field_d8();
     *(f32 *)((s8 *)arg1 + 0x1C) = get_attack_accuracy_scale(*(s32 *)&this->unk_F0 + 0x7CC);
     *(s32 *)((s8 *)arg1 + 0x24) = (s32) is_status_subsystem_ready__10TObjPlayerFv(*(s32 *)&this->unk_F0);
     *(f32 *)((s8 *)arg1 + 0x20) = ((f32 (*)(s32))query_extended_state__10TObjPlayerFv)(*(s32 *)&this->unk_F0);
@@ -705,7 +705,7 @@ void TObjPlayer::launch_rare_weapon_special(void *origin, s32 enable, f32 scale)
                 sp.b = 1;
                 sp.d = obj_getField1c(((Self_8011EDFC *)this)->owner);
                 sp.e = obj_getField1c(t);
-                sp.c = ((TObjPlayer *)((Self_8011EDFC *)this))->get_field_d8();
+                sp.c = ((TItem *)((Self_8011EDFC *)this))->get_field_d8();
                 sp.f = get_captured_target_collider_index(e2);
                 sp.g = scale * ((f32 (*)(void *))query_extended_state__10TObjPlayerFv)(((Self_8011EDFC *)this)->owner);
                 spawn_item_attacker(tl_05, ((Self_8011EDFC *)this)->owner + 0x38,
@@ -790,7 +790,7 @@ s32 TItemWeapon::launch_shot(u8 *arg1, s32 i, s32 arg3, s32 arg4) {
                         hit.kind = (s32) ((s16 (*)(void *))is_status_subsystem_ready__10TObjPlayerFv)((void *) (*(u8 * *)&this->player));
                         hit.source = obj_getField1c((void *) (*(u8 * *)&this->player));
                         hit.target = obj_getField1c((void *) (var_r29));
-                        hit.weapon = ((TObjPlayer *)((u8 *)this))->get_field_d8();
+                        hit.weapon = ((TItem *)((u8 *)this))->get_field_d8();
                         hit.collider = get_captured_target_collider_index(temp_r22_3);
                         hit.damage = ((f32 (*)(void *))query_extended_state__10TObjPlayerFv)((void *) (*(u8 * *)&this->player));
                         spawn_item_attacker((int) (tl_05), (void *) (arg1), (int) ((s32) var_f31), (void *) (&hit.reserved));

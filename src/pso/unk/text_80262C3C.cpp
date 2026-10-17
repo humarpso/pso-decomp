@@ -156,7 +156,7 @@ extern const f32 lbl_805DD120;
 s32 obj_testFlags30(s32, s32);
 s8 TObjPlayer__sub_80102C30(void *);
 void update_photon_blast_player_marker(s32, u32);
-s32 obj_isState3_324(void *);
+s32 obj_isState3_324__13TUnk_804806E8Fv(void *);
 s32 is_script_controlled__10TObjPlayerFv(void *);
 void TWindow__close(void *);
 void calc_row_width__20TWindowSubStatusDispFv(void *);
@@ -232,7 +232,7 @@ bool is_lockable_target__13TWindowLockOnFi(s32 arg0) {
         return 0;
     }
     if (obj_testFlags30((s32)((void *) (arg0)), (s32)((int) (0x10000000))) != 0) {
-        if ((obj_isState3_324((void *) (arg0)) != 0) || (is_script_controlled__10TObjPlayerFv((void *) (arg0)) != 0)) {
+        if ((obj_isState3_324__13TUnk_804806E8Fv((void *) (arg0)) != 0) || (is_script_controlled__10TObjPlayerFv((void *) (arg0)) != 0)) {
             return 0;
         }
         return 1;

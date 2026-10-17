@@ -115,7 +115,7 @@ struct Claw_80090850 {
 struct Vec_80090504 { f32 x, y, z; };
 
 extern "C" {
-void obj_clearFlags30(void *, u32);
+void obj_clearFlags30__13TUnk_804B9870FUl(void *, u32);
 void sub_80090798__18TObjEneBalClawClawFv(u8 *arg0);
 void obj_setFlags30(void *, u32);
 int reset_active_state__18TObjEneBalClawClawFPv(void* p);
@@ -209,7 +209,7 @@ void update_drop__18TObjEneBalClawClawFPv(Claw_800906C8 *self) {
 
 void TObjEneBalClawClaw::sub_80090798() {
     *(s32 *)((s8 *)((u8 *)this) + 0x388) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x388) & 0xEFFFFFFF);
-    obj_clearFlags30(((u8 *)this), 0x06040000U);
+    obj_clearFlags30__13TUnk_804B9870FUl(((u8 *)this), 0x06040000U);
     *(s32 *)((s8 *)((u8 *)this) + 0x374) = 0xB;
 }
 
@@ -454,7 +454,7 @@ void render__18TObjEneBalClawClawFPv(u8 *arg0) {
                             if (temp_r3 == 1) {
                                 ((TObjEneRe7Berura *)arg0)->draw();
                             } else {
-                                ((TObjPlayer *)arg0)->render_world_model();
+                                ((TObjEnemy *)arg0)->render_world_model();
                             }
                         }
                         ((VB_80090950 *)(arg0 + 0x390))->m7();
@@ -464,7 +464,7 @@ void render__18TObjEneBalClawClawFPv(u8 *arg0) {
                 } else if (temp_r3 == 1) {
                     ((TObjEneRe7Berura *)arg0)->draw();
                 } else {
-                    ((TObjPlayer *)arg0)->render_world_model();
+                    ((TObjEnemy *)arg0)->render_world_model();
                 }
             }
             pop_matrix();
@@ -1095,7 +1095,7 @@ void TObjEneBalClawClaw__sub_8009173C(u8 *arg0);
 #define update_chase__18TObjEneBalClawClawFPv (*(s32 (*)(void *))&update_chase__18TObjEneBalClawClawFPv)
 #define push_matrix (*(void (*)(void))&push_matrix)
 #define post_translate_matrix (*(f32 (*)(void *))&post_translate_matrix)
-#define obj_clearFlags30 (*(s32 (*)(void *, int))&obj_clearFlags30)
+#define obj_clearFlags30__13TUnk_804B9870FUl (*(s32 (*)(void *, int))&obj_clearFlags30__13TUnk_804B9870FUl)
 #define obj_setFlags30 (*(s32 (*)(void *, int))&obj_setFlags30)
 #define advance_animation_playback (*(s32 (*)(void *))&advance_animation_playback)
 #define play_sound_effect (*(s32 (*)(s32, s32, s32, s32))&play_sound_effect)
@@ -1649,7 +1649,7 @@ void TObjEneBeast::vfunc_83() {
             *(s32 *)((s8 *)arg0 + 0x390) = 0;
             *(s16 *)((s8 *)arg0 + 0xB8) = 0;
             ((TObjPlayer *)arg0)->clear_player_status_flag(0, 0x0A000000);
-            obj_clearFlags30((void *) (arg0), (int) (0x04000000));
+            obj_clearFlags30__13TUnk_804B9870FUl((void *) (arg0), (int) (0x04000000));
         }
         break;
     case 2:
@@ -1700,7 +1700,7 @@ void render__12TObjEneBeastFPv(Obj_8009211C *o) {
             if (drawMode == 1) {
                 ((TObjEneRe7Berura *)o)->draw();
             } else {
-                ((TObjPlayer *)o)->render_world_model();
+                ((TObjEnemy *)o)->render_world_model();
             }
         }
         TParticleCtrl::end_effect_render();
@@ -1740,7 +1740,7 @@ void render__12TObjEneBeastFPv(Obj_8009211C *o) {
 #undef update_chase__18TObjEneBalClawClawFPv
 #undef push_matrix
 #undef post_translate_matrix
-#undef obj_clearFlags30
+#undef obj_clearFlags30__13TUnk_804B9870FUl
 #undef obj_setFlags30
 #undef advance_animation_playback
 #undef play_sound_effect

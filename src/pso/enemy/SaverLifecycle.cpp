@@ -45,7 +45,6 @@ struct O_800A7734 { u8 pad[0x24]; s32 x24; u8 pad2[0xc]; s32 x34; };
 
 extern "C" {
 s32 update_movement_status__10TObjPlayerFv();
-s32 obj_clearFlags30(void *, int);
 s32 update_movement_status__12TObjEneSaverFv(u8 *arg0);
 s32 update_action_hold_status__10TObjPlayerFv();
 s32 update_action_hold_status__12TObjEneSaverFv(u8 *arg0);
@@ -1660,7 +1659,7 @@ void TObjEneSaver::vfunc_58() {
             this->mode = 0xB;
             this->phase = 0;
             this->m_b8 = 0;
-            obj_clearFlags30((void *) (arg0), (int) (0x200000));
+            ((TUnk_804B9870 *)arg0)->obj_clearFlags30((int) (0x200000));
             obj_setFlags30((void *) (arg0), (int) (0x06040000));
             *(s32 *)&this->m_390 = (s32) (*(s32 *)&this->m_390 & 0xFFFF0000);
             *(s32 *)&this->m_390 = (s32) (*(s32 *)&this->m_390 | 0x40);
@@ -1678,7 +1677,7 @@ void TObjEneSaver::vfunc_58() {
         this->mode = 0xB;
         this->phase = 0;
         this->m_b8 = 0;
-        obj_clearFlags30((void *) (arg0), (int) (0x200000));
+        ((TUnk_804B9870 *)arg0)->obj_clearFlags30((int) (0x200000));
         obj_setFlags30((void *) (arg0), (int) (0x06040000));
         *(s32 *)&this->m_390 = (s32) (*(s32 *)&this->m_390 & 0xFFFF0000);
         *(s32 *)&this->m_390 = (s32) (*(s32 *)&this->m_390 | 0x40);
@@ -1702,7 +1701,7 @@ s32 TObjEneSaver::update_movement_status() {
                 this->mode = 3;
                 this->phase = 0;
                 this->m_b8 = 1;
-                obj_clearFlags30(arg0, 0x06240000);
+                ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x06240000);
             }
             break;
         }
@@ -1725,7 +1724,7 @@ s32 TObjEneSaver::update_action_hold_status() {
                 this->mode = 3;
                 this->phase = 0;
                 this->m_b8 = 1;
-                obj_clearFlags30(arg0, 0x06240000);
+                ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x06240000);
             }
             break;
         }
@@ -1930,7 +1929,7 @@ void TObjPlayer__sub_800A6C54(u8 *arg0) {
             if (v == 1) {
                 ((TObjEneRe7Berura *)arg0)->draw();
             } else {
-                ((TObjPlayer *)arg0)->render_world_model();
+                ((TObjEnemy *)arg0)->render_world_model();
             }
             break;
         }

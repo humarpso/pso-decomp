@@ -6,6 +6,9 @@
 class TUnk_804806E8 : public TObjMotion {
 public:
     virtual ~TUnk_804806E8();
+    u8 obj_isState3_324();
+    u8 obj_isState2_324();
+    void calc_attach_pos();
     u16 get_or_assign_actor_id(s32);
     void add_flags_2e4(u32);
     s16 get_stats_atp_max();

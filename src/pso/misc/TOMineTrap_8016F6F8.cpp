@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804806E8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TOMine.h"
 #include "pso/misc/TOMineTrap.h"
@@ -395,7 +396,7 @@ void TOMine::vfunc_6(s16 *arg1, s32 arg2) {
         this->mode = temp_r0;
         set_indexed_flags((void *)((void *) (((u8 *)this))), (s32)((int) (0)), (s32)((int) (1)));
         *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
-        ((TObjPlayer *)((u8 *)this))->calc_attach_pos();
+        ((TUnk_804806E8 *)((u8 *)this))->calc_attach_pos();
         refresh_collision_body_centers();
         ((TOMine *)(((u8 *)this)))->vfunc_81();
         access_object_saved_state((s16 *)((void *) (arg1)), (s32)((int) (0)));
@@ -482,7 +483,7 @@ void TOMine::vfunc_86() {
     this->mode = 2;
     set_indexed_flags(arg0, 0, 1);
     *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
-    ((TObjPlayer *)arg0)->calc_attach_pos();
+    ((TUnk_804806E8 *)arg0)->calc_attach_pos();
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TOMine *)(arg0))->vfunc_81();
 }
@@ -514,7 +515,7 @@ void TOMine::follow_target() {
   ((TObjPlayer *)arg0)->update_enemy_collision_flags();
   temp_f2 = *((f32 *) (((s8 *) arg0) + 0x48));
   *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) ((lbl_805DB884 * ((lbl_805DB888 + (*((f32 *) (((s8 *) (this->target)) + 0x3C)))) - temp_f2)) + temp_f2);
-  ((TObjPlayer *)arg0)->calc_attach_pos();
+  ((TUnk_804806E8 *)arg0)->calc_attach_pos();
   this->rotation_y = (s32) (lbl_80442200 * atan2_float((f64) stack.sp8, (f64) stack.sp10));
   ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
 }

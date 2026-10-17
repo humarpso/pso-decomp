@@ -231,7 +231,7 @@ extern s32 lbl_805D37E4;
 extern const f32 lbl_805DC878;
 void *TTecLuker__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 s32 mark_area_change_pending();
-s32 obj_isState3_324(void *);
+s32 obj_isState3_324__13TUnk_804806E8Fv(void *);
 s32 are_players_gathered_near(void *, s32, f32);
 s32 play_effect_default__10TObjPlayerFii(void *, s32);
 s32 send_6x21_inter_level_warp(void *, s32);
@@ -855,7 +855,7 @@ block_43:
                     } else {
                         send_6x21_inter_level_warp(p, 0);
                     }
-                } else if (obj_isState3_324(p) != 0) {
+                } else if (obj_isState3_324__13TUnk_804806E8Fv(p) != 0) {
                     ((void (*)(void *, u16))set_state__9TTecLukerFl)(p + 0x848, st2);
                     if (TLobby::get_instance() == 1) {
                         send_6x21_inter_level_warp(p, 0);

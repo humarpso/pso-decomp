@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneRe4Bit.h"
@@ -1352,7 +1353,7 @@ void render__18TObjEneRe4SorcererFv(u8 *arg0) {
             if (var_r28 == 1) {
                 ((TObjEneRe7Berura *)arg0)->draw();
             } else {
-                ((TObjPlayer *)arg0)->render_world_model();
+                ((TObjEnemy *)arg0)->render_world_model();
             }
             model_render_flags &= 0xFEFFFFFF;
             TObjEneRe7Berura::set_global_state((s32)NULL);

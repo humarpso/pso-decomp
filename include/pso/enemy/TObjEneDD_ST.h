@@ -6,6 +6,7 @@
 class TObjEneDD_ST : public TObjEneDD {
 public:
     virtual ~TObjEneDD_ST();
+    void draw_with_alt_model(s32);
     f32 get_speed_or_default();
     void set_active();
     void init_float_params();

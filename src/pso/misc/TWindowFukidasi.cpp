@@ -197,7 +197,7 @@ struct Slice_802523CC { f32 x; u8 pad4[8]; f32 width; u8 pad10[4]; f32 lean; u8 
 
 struct Ctx_802523CC { u8 pad0[0x20]; f32 pivot; u8 pad24[4]; f32 scale; };
 
-s32 obj_isState3_324();
+s32 obj_isState3_324__13TUnk_804806E8Fv();
 s32 is_split_screen();
 void queue_destruction__7TObjectFv(void *);
 s32 get_screen_width__11TCameraCtrlFv();
@@ -829,7 +829,7 @@ void TWindowFukidasi::get_boundary_offset(s32 angle, f32 *out) {
 
 void set_color__15TWindowFukidasiFPvUs(void *arg0, u16 arg1) {
     *(s32 *)((s8 *)arg0 + 0x84) = 0xFFF8F8F8;
-    if (((u32)arg1 < 0xCU) && (get_player_by_client_id((u32)arg1) != 0U) && (obj_isState3_324() == 0)) {
+    if (((u32)arg1 < 0xCU) && (get_player_by_client_id((u32)arg1) != 0U) && (obj_isState3_324__13TUnk_804806E8Fv() == 0)) {
         *(s32 *)((s8 *)arg0 + 0x84) = (s32) TWindowFukidasi__balloon_color_table[(u16)arg1];
     }
 }
