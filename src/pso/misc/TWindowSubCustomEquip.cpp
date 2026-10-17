@@ -153,7 +153,7 @@ void TWindowSubCustomEquip::place_bank_slot_on_ring(s32 arg1, s32 arg2) {
     f32 temp_f30;
     f32 temp_f31;
     s32 temp_r4;
-    u8 *temp_r3;
+    u8 *array_entry;
     if ((s8) TWindowSubCustomEquip__bank_ring_init_done == 0) {
         TWindowSubCustomEquip__bank_ring_init_done = 1;
         TWindowSubCustomEquip__ring_scale = lbl_805DD584;
@@ -164,18 +164,18 @@ void TWindowSubCustomEquip::place_bank_slot_on_ring(s32 arg1, s32 arg2) {
     }
     temp_f30 = sin_table_lookup(arg1);
     temp_f31 = cos_table_lookup(arg1);
-    temp_r3 = (u8 *)(this->get_array_entry(arg2));
-    *(f32 *)((s8 *)temp_r3 + 8) = (f32) ((TWindowSubCustomEquip__ring_scale * temp_f31) + lbl_805DD58C);
-    *(f32 *)((s8 *)temp_r3 + 0xC) = (f32) ((lbl_805D6478 * temp_f30) + lbl_805DD590);
+    array_entry = (u8 *)(this->get_array_entry(arg2));
+    *(f32 *)((s8 *)array_entry + 8) = (f32) ((TWindowSubCustomEquip__ring_scale * temp_f31) + lbl_805DD58C);
+    *(f32 *)((s8 *)array_entry + 0xC) = (f32) ((lbl_805D6478 * temp_f30) + lbl_805DD590);
     if ((arg1 - 0x7200) & 0x8000) {
         temp_f1 = (lbl_805DD598 * cos_table_lookup(arg1 + 0xFFFF4E00)) + lbl_805DD594;
-        *(f32 *)((s8 *)temp_r3 + 0x18) = (f32) lbl_805DD578;
+        *(f32 *)((s8 *)array_entry + 0x18) = (f32) lbl_805DD578;
         temp_r4 = (s32) (lbl_805DD59C * temp_f1);
-        *(s32 *)((s8 *)temp_r3 + 0x2C) = (s32) ((u8) temp_r4 | (((temp_r4 << 0x10) & 0xFF0000) | 0xFF000000 | ((temp_r4 << 8) & 0xFF00)));
+        *(s32 *)((s8 *)array_entry + 0x2C) = (s32) ((u8) temp_r4 | (((temp_r4 << 0x10) & 0xFF0000) | 0xFF000000 | ((temp_r4 << 8) & 0xFF00)));
         return;
     }
-    *(f32 *)((s8 *)temp_r3 + 0x18) = (f32) lbl_805DD5A0;
-    *(s32 *)((s8 *)temp_r3 + 0x2C) = -1;
+    *(f32 *)((s8 *)array_entry + 0x18) = (f32) lbl_805DD5A0;
+    *(s32 *)((s8 *)array_entry + 0x2C) = -1;
 }
 #pragma pop
 

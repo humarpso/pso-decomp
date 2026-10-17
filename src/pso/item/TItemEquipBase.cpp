@@ -560,15 +560,15 @@ typedef struct VObj_18_8e31a0 VObj_18_8e31a0;
 void TItemEquipBase::remove_equip_stats(s32 arg1) {
   u8 *temp_r3;
   s32 temp_r31;
-  s32 temp_r30;
+  s32 player;
   int new_var;
   temp_r3 = (u8 *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0;
   if (temp_r3 != 0)
   {
     temp_r31 = TItemData__sub_8010B810((int) temp_r3);
-    temp_r30 = TItemData__sub_8010B808((void *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0);
+    player = TItemData__sub_8010B808((void *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0);
     new_var = ((TQuestListVM *)((void *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0))->get_quest_id();
-    (((VObj_18_8e31a0 *)(this))->m23((temp_r31), (temp_r30), (new_var)));
+    (((VObj_18_8e31a0 *)(this))->m23((temp_r31), (player), (new_var)));
     if (arg1 != 0)
     {
       add_actor_hp_bonus((void *) ((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_F0, (int) ((s32) ((s16) (-((RecoveredFields_8010B0A8_arg0 *) ((u8 *)this))->field_16C))));

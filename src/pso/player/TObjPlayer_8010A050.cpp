@@ -172,25 +172,25 @@ void TUnk_8049F148::run_task() {
     s32 sp8[6];
     s32 temp_r3_2;
     u32 temp_r3_3;
-    VObj_8010A26C *temp_r3;
+    VObj_8010A26C *player;
 
     if ((u32) this->m_28 != get_item_system_generation()) {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    temp_r3 = (VObj_8010A26C *)get_player_by_client_id(*(u16 *)((s8 *)this + 0x24));
-    if (temp_r3 != NULL) {
-        temp_r3->m63(0x24, sp8);
+    player = (VObj_8010A26C *)get_player_by_client_id(*(u16 *)((s8 *)this + 0x24));
+    if (player != NULL) {
+        player->m63(0x24, sp8);
         temp_r3_2 = get_current_floor();
         if (temp_r3_2 != (s32) this->m_20) {
             this->m_20 = temp_r3_2;
-            if ((reset_key_machine_state__10TObjPlayerFv() != 0) && (temp_r3_2 == ((TObjPlayer *)temp_r3)->get_field_3e4())) {
+            if ((reset_key_machine_state__10TObjPlayerFv() != 0) && (temp_r3_2 == ((TObjPlayer *)player)->get_field_3e4())) {
                 *(u32 *)&this->unk_1C = (u32)create_particle_emitter(sp8, 0x101);
             } else {
                 *(u32 *)&this->unk_1C = 0U;
             }
         }
-        temp_r3_3 = get_item_field_6__10TObjPlayerFPv(temp_r3);
+        temp_r3_3 = get_item_field_6__10TObjPlayerFPv(player);
         if ((u32) *(u32 *)&this->unk_1C != 0U) {
             s32 var_r30 = 0;
             if ((temp_r3_3 != 0U) && (get_field_ed__5TItemFv() == 0x1A)) {

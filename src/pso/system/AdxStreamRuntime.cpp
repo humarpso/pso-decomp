@@ -953,10 +953,10 @@ s32 TLobby::init_stream_position() {
 #pragma pop
 
 s32 TLobby::get_file_offset_relative() {
-    u8 *temp_r3;
-    temp_r3 = (u8 *)this->m_prev;
-    if (temp_r3 != NULL) {
-        return ((TLobby *)temp_r3)->cv_fs_tell() - *(s32 *)&this->m_up;
+    u8 *prev;
+    prev = (u8 *)this->m_prev;
+    if (prev != NULL) {
+        return ((TLobby *)prev)->cv_fs_tell() - *(s32 *)&this->m_up;
     }
     return 0;
 }

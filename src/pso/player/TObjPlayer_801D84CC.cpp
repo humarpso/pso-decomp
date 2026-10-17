@@ -577,14 +577,14 @@ f32 TObjPlayer::get_attack_recovery_count() {
 #pragma scheduling off
 void TObjPlayer::select_normal_attack_marker() {
   s16 temp_r30;
-  s16 temp_r31;
+  s16 falz_phase;
   s16 new_var;
   s32 move_mode;
   move_mode = get_move_mode();
   new_var = ((TObjPlayer *)(((u8 *)this) + 0x7CC))->get_stage_strike_count();
   temp_r30 = new_var;
-  temp_r31 = this->get_falz_phase();
-  lookup_attack_marker((s32) get_handle_value(), temp_r31, temp_r30, move_mode);
+  falz_phase = this->get_falz_phase();
+  lookup_attack_marker((s32) get_handle_value(), falz_phase, temp_r30, move_mode);
 }
 
 #pragma pop

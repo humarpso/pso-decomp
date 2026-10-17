@@ -5751,10 +5751,10 @@ void TObjPlayer__vt71(s32 arg0) {
 
 void TObjPlayer::update_aim_angle(s32 arg1) {
     struct VObj_801B6414_801B3FD8 *obj = (struct VObj_801B6414_801B3FD8 *) this;
-    s32 temp_r31;
+    s32 class_state_field;
 
-    temp_r31 = this->get_class_state_field(TObjPlayer::clamp_index_to_max(arg1 + obj->m14()));
-    obj->m12(temp_r31 - this->obj_getPtr2B0_1C());
+    class_state_field = this->get_class_state_field(TObjPlayer::clamp_index_to_max(arg1 + obj->m14()));
+    obj->m12(class_state_field - this->obj_getPtr2B0_1C());
 }
 
 void TObjPlayer__sub_801B67C4(void* p) { *(s16*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }

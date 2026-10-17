@@ -305,11 +305,11 @@ void TPlyPhotonChair__sub_8035B56C(void* p, f32 v) { *(f32*)((char*)p + 0x14) = 
 void TPlyPhotonChair::set_state_ready() { *(s32*)((char*)this + 0x18) = 2; }
 
 void TPlyPhotonChair::sync_field10_from_child() {
-    void *temp_r4;
+    void *prev;
 
-    temp_r4 = this->m_prev;
-    if (temp_r4 != NULL) {
-        *(f32 *)&this->m_up = (f32) *(u32 *)((s8 *)temp_r4 + 4);
+    prev = this->m_prev;
+    if (prev != NULL) {
+        *(f32 *)&this->m_up = (f32) *(u32 *)((s8 *)prev + 4);
     }
 }
 

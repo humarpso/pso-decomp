@@ -518,11 +518,11 @@ u8 *TObjOnlineEndingHexMove__ct(u8 *arg0, void *origin) {
 
 void copy_move_params__23TObjOnlineEndingHexMoveFPvPv(void* p, void* q) { *(f32*)((char*)p + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(u32*)((char*)p + 0x8) = *(u32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); }
 
-void * fn_802E6218(void *arg0) {
+void * fn_802E6218(void *origin) {
     void *o;
     o = __nw__7TObjectFUl(0x20);
     if (o != NULL) {
-        o = TObjOnlineEndingHexMove__ct((u8 *)o, (void *)arg0);
+        o = TObjOnlineEndingHexMove__ct((u8 *)o, (void *)origin);
     }
     return o;
 }

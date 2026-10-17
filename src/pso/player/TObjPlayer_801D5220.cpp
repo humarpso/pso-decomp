@@ -106,17 +106,17 @@ s32 export_inventory_entry__10TObjPlayerFiPv(s32 arg0, u8 *arg1);
 extern s32 owned_item_export_cursor;
 
 void TObjPlayer::count_owned_items() {
-    void *var_r31;
+    void *down;
     u32 temp;
 
-    var_r31 = this->m_down;
-    while (var_r31 != NULL) {
-        if ((is_item_valid__9TItemListFl(var_r31) != 0) && ((temp = ((TObjPlayer *)var_r31)->get_owner_if_alive()) != 0U) && (export_inventory_entry__10TObjPlayerFiPv((s32)temp, (u8 *)owned_item_export_cursor) != 0)) {
+    down = this->m_down;
+    while (down != NULL) {
+        if ((is_item_valid__9TItemListFl(down) != 0) && ((temp = ((TObjPlayer *)down)->get_owner_if_alive()) != 0U) && (export_inventory_entry__10TObjPlayerFiPv((s32)temp, (u8 *)owned_item_export_cursor) != 0)) {
             owned_item_export_cursor += 0x1C;
             inventory_walk_visit_count += 1;
         }
-        ((TObjPlayer *)var_r31)->count_owned_items();
-        var_r31 = *(void **)((s8 *)var_r31 + 0xC);
+        ((TObjPlayer *)down)->count_owned_items();
+        down = *(void **)((s8 *)down + 0xC);
     }
 }
 
@@ -156,20 +156,20 @@ void TObjPlayer::collect_item_owners_recursive() {
 
 void TObjPlayer::collect_alive_owners() {
     u32 temp_r3;
-    void *var_r31;
+    void *down;
 
-    var_r31 = this->m_down;
-    while (var_r31 != NULL) {
-        if (is_item_valid__9TItemListFl((void *)((s32)var_r31)) != 0) {
-            temp_r3 = ((TObjPlayer *)var_r31)->get_owner_if_alive();
+    down = this->m_down;
+    while (down != NULL) {
+        if (is_item_valid__9TItemListFl((void *)((s32)down)) != 0) {
+            temp_r3 = ((TObjPlayer *)down)->get_owner_if_alive();
             if (temp_r3 != 0U) {
                 *player_owner_collect_cursor = temp_r3;
                 player_owner_collect_cursor += 1;
                 inventory_walk_visit_count += 1;
             }
         }
-        ((TObjPlayer *)var_r31)->collect_alive_owners();
-        var_r31 = *(void **)((s8 *)var_r31 + 0xC);
+        ((TObjPlayer *)down)->collect_alive_owners();
+        down = *(void **)((s8 *)down + 0xC);
     }
 }
 
@@ -191,20 +191,20 @@ void TObjPlayer::unequip_invalid_items_recursive() {
 
 void TObjPlayer::count_items_recursive() {
     s32 sp8[7];
-    void *var_r31;
+    void *down;
 
     u32 temp;
 
-    var_r31 = this->m_down;
-    while (var_r31 != NULL) {
-        if ((is_item_valid__9TItemListFl(var_r31) != 0) && ((temp = ((TObjPlayer *)var_r31)->get_owner_if_alive()) != 0U)) {
+    down = this->m_down;
+    while (down != NULL) {
+        if ((is_item_valid__9TItemListFl(down) != 0) && ((temp = ((TObjPlayer *)down)->get_owner_if_alive()) != 0U)) {
             ((TItem *)temp)->copy_to_item_data(&sp8[0]);
             if (item_identity_matches((u8 *)&sp8[0], (u8 *)inventory_search_item_data) != 0) {
                 inventory_walk_visit_count += 1;
             }
         }
-        ((TObjPlayer *)var_r31)->count_items_recursive();
-        var_r31 = *(void **)((s8 *)var_r31 + 0xC);
+        ((TObjPlayer *)down)->count_items_recursive();
+        down = *(void **)((s8 *)down + 0xC);
     }
 }
 

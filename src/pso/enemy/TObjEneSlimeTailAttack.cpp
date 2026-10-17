@@ -2113,21 +2113,21 @@ s32 TObjEneSlimeOne::create(s32 arg0, s32 arg1) {
     }
     return var_r31;
 }
-s32 try_spawn_child__15TObjEneSlimeOneFiPv(int arg0, void *arg1) {
+s32 try_spawn_child__15TObjEneSlimeOneFiPv(int origin, void *arg1) {
     s32 i;
     Vec_800EB654 pos;
     Vec_800EB654 dir;
     s32 ang;
     s32 n;
-    n = *(s32 *)((s8 *)arg0 + 0x3B4);
-    for (i = 0; i < n && *(s32 *)((s8 *)((u8 *) arg0 + i * 8) + 0x3B8) != 0; i++) {
+    n = *(s32 *)((s8 *)origin + 0x3B4);
+    for (i = 0; i < n && *(s32 *)((s8 *)((u8 *) origin + i * 8) + 0x3B8) != 0; i++) {
     }
     if (i == n) {
         return 0;
     }
     VecCopy((Vec *)&pos, (const Vec *)arg1);
     pos.y += lbl_805DA66C;
-    ang = (s16) (lbl_805DA758 * ((f32 (*)(int)) calc_boss4_scale__10TObjPlayerFi)(arg0));
+    ang = (s16) (lbl_805DA758 * ((f32 (*)(int)) calc_boss4_scale__10TObjPlayerFi)(origin));
     dir.x = sin_table_lookup(ang);
     dir.y = lbl_805DA6B4;
     dir.z = cos_table_lookup(ang);
@@ -2139,7 +2139,7 @@ s32 try_spawn_child__15TObjEneSlimeOneFiPv(int arg0, void *arg1) {
         normalize_vector(&dir);
     }
     play_sound_effect(0x4003A619, &pos, 0, 0);
-    return spawn_slime_in_slot((void *) arg0, i, &pos, &dir);
+    return spawn_slime_in_slot((void *) origin, i, &pos, &dir);
 }
 
 }
