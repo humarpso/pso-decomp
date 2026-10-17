@@ -57,14 +57,14 @@ extern const f32 lbl_805DD410;
 
 typedef char RecoveredGlobal_80270ACC_lbl_8050E208_size[sizeof(RecoveredGlobal_80270ACC_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void TWindowSoundBalance::handle_lr_input() {
-    u8 *temp_r30;
-    temp_r30 = (u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x20;
-    if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (temp_r30), (int) (0x30), (int) (6), (int) (1)) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x160)), (s32)((int) (0x30)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
+    u8 *input;
+    input = (u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x20;
+    if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (input), (int) (0x30), (int) (6), (int) (1)) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x160)), (s32)((int) (0x30)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
         play_sound_effect((s32)(0x54100), (s32)(0U), (s32)(0), (s32)(0));
-        if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (temp_r30), (int) (0x10), (int) (6), (int) (1)) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x160)), (s32)((int) (0x10)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
+        if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (input), (int) (0x10), (int) (6), (int) (1)) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x160)), (s32)((int) (0x10)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
             this->m_61 = (u8) (this->m_61 - 1);
         }
-        if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (temp_r30), (int) (0x20), (int) (6), (int) (1)) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x160)), (s32)((int) (0x20)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
+        if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (input), (int) (0x20), (int) (6), (int) (1)) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x160)), (s32)((int) (0x20)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
             this->m_61 = (u8) (this->m_61 + 1);
         }
         if ((s8) this->m_61 < 0) {

@@ -62,9 +62,9 @@ void TAdMultiChgGameModeGC::set_mode_change_state() {
     lbl_805D63C8 = 1;
 }
 void TAdMultiChgGameModeGC::set_change_mode_flags() { TAdMultiChgGameModeGC::sync_mode_state(); (*(int *)&multi_chg_game_mode_state) = 1; (*(int *)&lbl_805D63C8) = 1; }
-void TAdMultiChgGameModeGC::apply_bgm_col_ctrl(s32 arg0) {
-    if (strcmp(get_current_slot_entry__6TLobbyFv(), arg0) != 0) {
-        play_area_music((char *)arg0);
+void TAdMultiChgGameModeGC::apply_bgm_col_ctrl(s32 name) {
+    if (strcmp(get_current_slot_entry__6TLobbyFv(), name) != 0) {
+        play_area_music((char *)name);
     }
 }
 void TAdMultiChgGameModeGC::set_state_0x1a() {

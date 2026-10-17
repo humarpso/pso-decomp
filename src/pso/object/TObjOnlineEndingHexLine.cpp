@@ -503,13 +503,13 @@ TObjOnlineEndingHexMove::~TObjOnlineEndingHexMove() {}
 
 extern "C" {
 
-u8 *TObjOnlineEndingHexMove__ct(u8 *arg0, void *arg1) {
+u8 *TObjOnlineEndingHexMove__ct(u8 *arg0, void *origin) {
     s32 i;
-    __ct__7TObjectFP7TObject(arg0, arg1);
+    __ct__7TObjectFP7TObject(arg0, origin);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TObjOnlineEndingHexMove;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3FA0;
     for (i = 0; i < 4; i++) {
-        TObjOnlineEndingHexLine::create(arg1, &TObjOnlineEndingHexLine_corner_offsets[i]);
+        TObjOnlineEndingHexLine::create(origin, &TObjOnlineEndingHexLine_corner_offsets[i]);
     }
     copy_move_params__23TObjOnlineEndingHexMoveFPvPv((void*)(&online_ending_hex_line_state), (void*)(TObjOnlineEndingHexMove__default_move_params));
     *(s32 *)((s8 *)arg0 + 0x1C) = 0x1E;

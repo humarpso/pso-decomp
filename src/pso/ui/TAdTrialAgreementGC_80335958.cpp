@@ -85,24 +85,24 @@ void TAdTrialAgreementGC::update_title_prompt() {
 }
 
 void TAdTrialAgreementGC::handle_cursor_input() {
-    u8 *temp_r30;
-    temp_r30 = (u8 *)&controller_physical_port_bank.value + 0x20;
+    u8 *input;
+    input = (u8 *)&controller_physical_port_bank.value + 0x20;
     *(f32 *)&this->m_28 = (f32) lbl_805DF8B4;
-    if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (temp_r30), (int) (0x10), (int) (6), (int) (1)) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x10)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
+    if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (input), (int) (0x10), (int) (6), (int) (1)) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x10)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
         *(s32 *)&this->_pad20 = (s32) (*(s32 *)&this->_pad20 - 1);
         if ((s32) *(s32 *)&this->_pad20 < 0) {
             *(s32 *)&this->_pad20 = 3;
         }
         play_sound_effect((int) (0x54100), (int) (0), (int) (0), (int) (0));
     }
-    if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (temp_r30), (int) (0x20), (int) (6), (int) (1)) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x20)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
+    if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (input), (int) (0x20), (int) (6), (int) (1)) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x20)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
         *(s32 *)&this->_pad20 = (s32) (*(s32 *)&this->_pad20 + 1);
         if ((s32) *(s32 *)&this->_pad20 >= 4) {
             *(s32 *)&this->_pad20 = 0;
         }
         play_sound_effect((int) (0x54100), (int) (0), (int) (0), (int) (0));
     }
-    if ((TWindowShortListCtrl__check_controller_button((int) (temp_r30), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (4)) != 0)) {
+    if ((TWindowShortListCtrl__check_controller_button((int) (input), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (4)) != 0)) {
         *(s32 *)&this->m_24 = 2;
         play_sound_effect((int) (0x40042309), (int) (0), (int) (0), (int) (0));
     }

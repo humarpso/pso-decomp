@@ -65,14 +65,14 @@ void TObjPlayer::spawn_effect_at_ground(s32 arg1) {
 
 extern const f32 lbl_805DA3C8;
 
-void TObjPlayer::apply_effect_variant_a(s32 arg0, s32 arg1) {
-    TObjPlayer__sub_800D93F0(arg0, 0, arg1, lbl_805DA3C8);
+void TObjPlayer::apply_effect_variant_a(s32 point, s32 delay) {
+    TObjPlayer__sub_800D93F0(point, 0, delay, lbl_805DA3C8);
 }
 
 extern const f32 lbl_805DA3CC;
 
-void TObjPlayer::apply_effect_variant_b(s32 arg0, s32 arg1) {
-    TObjPlayer__sub_800D93F0(arg0, 0, arg1, lbl_805DA3CC);
+void TObjPlayer::apply_effect_variant_b(s32 point, s32 delay) {
+    TObjPlayer__sub_800D93F0(point, 0, delay, lbl_805DA3CC);
 }
 
 extern const f32 lbl_805DA3C4;

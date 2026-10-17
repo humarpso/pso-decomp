@@ -51,28 +51,28 @@ void fn_800EB778(Obj_800EB778 *self, s32 id) {
     self->slots[i].state = 2;
 }
 
-s32 spawn_slime_in_slot(Obj_800EB7BC *arg0, s32 arg1, Vec_800EB7BC *arg2, u32 arg3) {
+s32 spawn_slime_in_slot(Obj_800EB7BC *origin, s32 arg1, Vec_800EB7BC *arg2, u32 arg3) {
     Tmpl_800EB7BC t;
     Slot_800EB7BC *slot;
     s32 n;
-    if (arg1 < 0 || arg1 >= arg0->count || arg0->slots[arg1].active != 0) {
+    if (arg1 < 0 || arg1 >= origin->count || origin->slots[arg1].active != 0) {
         return 0;
     }
-    *(Blob_800EB7BC *) &t = *(Blob_800EB7BC *) &arg0->tmpl;
+    *(Blob_800EB7BC *) &t = *(Blob_800EB7BC *) &origin->tmpl;
     n = arg1 + 1;
-    t.a = arg0->tmpl.a + n;
+    t.a = origin->tmpl.a + n;
     t.b = 0;
-    t.d = arg0->tmpl.d + n;
+    t.d = origin->tmpl.d + n;
     if (arg2 == NULL) {
-        VecCopy((Vec *)&t.pos, (const Vec *)&arg0->pos);
+        VecCopy((Vec *)&t.pos, (const Vec *)&origin->pos);
     } else {
         VecCopy((Vec *)&t.pos, (const Vec *)arg2);
     }
-    slot = &arg0->slots[arg1];
+    slot = &origin->slots[arg1];
     if (arg3 == 0) {
-        slot->obj = TObjEneSlimeOne::create((s32) arg0, (s32) &t);
+        slot->obj = TObjEneSlimeOne::create((s32) origin, (s32) &t);
     } else {
-        slot->obj = create__15TObjEneSlimeOneFlll(arg0, &t, arg3);
+        slot->obj = create__15TObjEneSlimeOneFlll(origin, &t, arg3);
     }
     if (slot->obj == 0) {
         return 0;

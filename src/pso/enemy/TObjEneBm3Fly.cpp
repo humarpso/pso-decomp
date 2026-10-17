@@ -2252,7 +2252,7 @@ void TObjEneBm3Fly::run_task() {
   f32 temp_f31;
   f32 var_f30;
   s16 temp_r0;
-  u32 temp_r3;
+  u32 entity;
   u8 *temp_r3_2;
   u8 *temp_r3_3;
   u8 *temp_r3_4;
@@ -2261,8 +2261,8 @@ void TObjEneBm3Fly::run_task() {
     (((VObj_18_6eb1ad *)(arg0))->m103());
     return;
   }
-  temp_r3 = (u32)find_entity_by_id((owner_id));
-  if ((temp_r3 == 0U) || (((TObject *)temp_r3)->all_parents_unqueued_for_destruction() == 0))
+  entity = (u32)find_entity_by_id((owner_id));
+  if ((entity == 0U) || (((TObject *)entity)->all_parents_unqueued_for_destruction() == 0))
   {
     queue_destruction__7TObjectFv((void *) arg0);
     return;

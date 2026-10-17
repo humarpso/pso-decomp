@@ -788,7 +788,7 @@ void *TObjEneBm9Mericarol::create(void *arg0) {
     return o;
 }
 
-s32 TObjPlayer::apply_area_attack_hits(u8 *arg1, s32 arg2, u32 arg3, f32 range) {
+s32 TObjPlayer::apply_area_attack_hits(u8 *arg1, s32 arg2, u32 object, f32 range) {
     s32 hit;
     u32 mask;
     s32 obj;
@@ -818,7 +818,7 @@ s32 TObjPlayer::apply_area_attack_hits(u8 *arg1, s32 arg2, u32 arg3, f32 range) 
                 is_area_attack_target_eligible(((u8 *)this), *(u32 *)((s8 *)obj + 0x30)) != 0 &&
                 !(fabs_float(*(f32 *)((s8 *)((u8 *)this) + 0xB8) - *(f32 *)((s8 *)obj + 0x300)) > lbl_805DE758)) {
                 ok = 1;
-                if (arg3 != 0 && attack_target_history_add(arg3, obj) == 0) {
+                if (object != 0 && attack_target_history_add(object, obj) == 0) {
                     ok = 0;
                 }
                 if (ok != 0) {

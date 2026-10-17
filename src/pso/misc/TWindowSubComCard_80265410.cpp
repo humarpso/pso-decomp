@@ -772,7 +772,7 @@ void render__11TWindowMenuFv(u8 *arg0) {
 void TWindowMenu::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r30;
-    u8 *temp_r29;
+    u8 *input;
     u8 *temp_r29_2;
     u8 *temp_r29_3;
 
@@ -783,11 +783,11 @@ void TWindowMenu::run_task() {
     if ((((TWindowMenu *)arg0)->sub_80266BB8() == 0) && (((TWindowMenu *)arg0)->is_visible() == 0) && ((s32) *(s32 *)&this->m_5c > 2) && (is_window_display_enabled() != 0) && (((TUnk_804CE018 *)arg0)->sub_80244994() != 0)) {
         temp_r30 = is_player_input_active((this->m_20));
         if (this->m_70 & 0x10) {
-            temp_r29 = (u8 *)controller_input_state + (temp_r30 * 0x50) + 0x20;
-            if ((TWindowChoiceSetting::apply_choice((s32)((void *) (temp_r29)), (s32)((int) (0x10)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (is_locked((int) (0x10)) != 0)) {
+            input = (u8 *)controller_input_state + (temp_r30 * 0x50) + 0x20;
+            if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), (s32)((int) (0x10)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (is_locked((int) (0x10)) != 0)) {
                 move_cursor_prev();
             }
-            if ((TWindowChoiceSetting::apply_choice((s32)((void *) (temp_r29)), (s32)((int) (0x20)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (is_locked((int) (0x20)) != 0)) {
+            if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), (s32)((int) (0x20)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (is_locked((int) (0x20)) != 0)) {
                 select_next_item();
             }
         } else {

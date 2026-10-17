@@ -15,7 +15,7 @@ void TEffIndirectCtrl::free_all() {
     s32 var_r28;
     s32 var_r30;
     s32 var_r31;
-    s32 temp_r3;
+    s32 allocation;
 
     TObjPlayer__sub_802A83F4();
     TEffIndirectCtrl::free_buffers();
@@ -23,9 +23,9 @@ void TEffIndirectCtrl::free_all() {
     var_r30 = var_r31;
     var_r28 = 0;
     do {
-        temp_r3 = *(TEffIndirectCtrl__source_buffers + var_r31);
-        if ((u32)temp_r3 != 0U) {
-            xfree__FPv(temp_r3);
+        allocation = *(TEffIndirectCtrl__source_buffers + var_r31);
+        if ((u32)allocation != 0U) {
+            xfree__FPv(allocation);
             *(TEffIndirectCtrl__source_buffers + var_r31) = var_r30;
         }
         var_r28 += 1;

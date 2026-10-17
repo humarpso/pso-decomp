@@ -133,9 +133,9 @@ void TScene__sub_802065EC(void) {  }
 
 extern s32 lbl_8044A98C[];
 
-void TScene::load_floor_rel_file(s32 arg0) {
+void TScene::load_floor_rel_file(s32 name) {
     u8 id[0x20];
-    replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)id), (char *)arg0, (char *)((s32 *)lbl_8044A938));
+    replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)id), (char *)name, (char *)((s32 *)lbl_8044A938));
     if (((TScene *)id)->update_lobby_scene() <= TScene__loaded_floor_rel_file_index) {
         if (TScene__supplementary_rel_buffer != 0U) {
             TScene__texture_wave_resource = (u32)load_relocatable_file((s32)((s32 *)id), TScene__supplementary_rel_buffer);
@@ -145,9 +145,9 @@ void TScene::load_floor_rel_file(s32 arg0) {
     }
 }
 
-void TScene::load_tam_file(s32 arg0) {
+void TScene::load_tam_file(s32 name) {
     u8 sp8[0x20];
-    replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)sp8), (char *)arg0, (char *)((s32 *)((u8 *)&lbl_8044A940)));
+    replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)sp8), (char *)name, (char *)((s32 *)((u8 *)&lbl_8044A940)));
     if (((TScene *)sp8)->update_lobby_scene() <= lbl_805D6018) {
         if (TScene__texture_animation_buffer != 0U) {
             read_disc_file((char *)sp8, TScene__texture_animation_buffer);
@@ -176,9 +176,9 @@ void load_scene_map_file(s32 arg0) {
     }
 }
 
-void load_scene_collision_file(s32 arg0) {
+void load_scene_collision_file(s32 name) {
     struct Sp8Buf20_80206494 sp8;
-    replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)&sp8), (char *)arg0, (char *)lbl_8044A950);
+    replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)&sp8), (char *)name, (char *)lbl_8044A950);
     if (((TScene *)((char *)&sp8))->update_lobby_scene() <= lbl_805D6014) {
         if (TScene__collision_file_buffer != 0U) {
             scene_collision_data = (s32 *)load_relocatable_file((s32)((s32 *)&sp8), TScene__collision_file_buffer);
@@ -286,7 +286,7 @@ void TScene::free_scene_resources() {
 }
 #pragma pop
 
-void TScene::load_file_to_buffer(s32 arg0) {
+void TScene::load_file_to_buffer(s32 name) {
     s32 sp8[8];
     s32 temp_r31;
     u32 temp_r3;
@@ -294,7 +294,7 @@ void TScene::load_file_to_buffer(s32 arg0) {
 
     TScene__material_info_buffer = 0U;
     scene_file_buffer_size = 0;
-    replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)(sp8)), (char *)(arg0), (char *)((s32 *)(lbl_8044A98C)));
+    replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)(sp8)), (char *)(name), (char *)((s32 *)(lbl_8044A98C)));
     temp_r31 = ((TScene *)sp8)->update_lobby_scene();
     if (TOKeyMachine01::get_global_state() == 0xF) {
         if ((temp_r31 > 0) && ((u32) temp_r31 <= 0x100U)) {
@@ -317,15 +317,15 @@ void TScene::load_file_to_buffer(s32 arg0) {
 
 extern const char lbl_8044A9A4[];
 
-void TScene::load_floor_bin_file(s32 arg0) {
+void TScene::load_floor_bin_file(s32 name) {
     u8 sp8[0x20];
     s32 size;
     TScene__data_805D6020 = 0U;
     floor_bin_file_size = 0;
     if (TRaderMapCore::is_not_split_screen() == 1) {
-        replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)sp8), (char *)arg0, (char *)((s32 *)lbl_8044A994));
+        replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)sp8), (char *)name, (char *)((s32 *)lbl_8044A994));
     } else {
-        replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)sp8), (char *)arg0, (char *)((s32 *)lbl_8044A99C));
+        replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)sp8), (char *)name, (char *)((s32 *)lbl_8044A99C));
     }
     size = ((TScene *)sp8)->update_lobby_scene();
     if (TOKeyMachine01::get_global_state() == 0xF) {
@@ -345,7 +345,7 @@ void TScene::load_floor_bin_file(s32 arg0) {
     }
 }
 
-void TScene::load_map_texture_archive(s32 arg0) {
+void TScene::load_map_texture_archive(s32 name) {
     char sp8[0x20];
     s32 global_state;
     s32 var_r30;
@@ -357,11 +357,11 @@ void TScene::load_map_texture_archive(s32 arg0) {
     var_r30 = 0;
     lbl_805D6018 = 0;
     if (TRaderMapCore::is_not_split_screen() == 1) {
-        replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)(sp8)), (char *)(arg0), (char *)((s32 *)(lbl_8044A9A4)));
+        replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)(sp8)), (char *)(name), (char *)((s32 *)(lbl_8044A9A4)));
         var_r30 = ((TScene *)sp8)->update_lobby_scene();
     }
     if (var_r30 <= 0) {
-        replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)(sp8)), (char *)(arg0), (char *)((s32 *)(lbl_8044A940)));
+        replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)(sp8)), (char *)(name), (char *)((s32 *)(lbl_8044A940)));
         var_r30 = ((TScene *)sp8)->update_lobby_scene();
     }
     if (global_state == 0xF) {
@@ -383,13 +383,13 @@ void TScene::load_map_texture_archive(s32 arg0) {
     }
 }
 
-void TScene::load_supplementary_t_rel(s32 arg0) {
+void TScene::load_supplementary_t_rel(s32 name) {
     u8 id[0x20];
     s32 n;
     TScene__texture_wave_resource = 0;
     TScene__supplementary_rel_buffer = 0U;
     TScene__loaded_floor_rel_file_index = 0;
-    replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)id), (char *)arg0, (char *)((s32 *)lbl_8044A938));
+    replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)id), (char *)name, (char *)((s32 *)lbl_8044A938));
     n = ((TScene *)id)->update_lobby_scene();
     if (n > 0) {
         TScene__supplementary_rel_buffer = ((TQuestVmDownLoadServer *)n)->alloc();
@@ -444,7 +444,7 @@ void TScene::load_scene_rel_file(s32 arg0) {
     }
 }
 
-void TScene::load_scene_data(s32 arg0) {
+void TScene::load_scene_data(s32 name) {
     struct Sp8Buf20_80206494 sp8;
     s32 temp_r31;
     u32 temp_r3;
@@ -454,7 +454,7 @@ void TScene::load_scene_data(s32 arg0) {
     scene_collision_data = NULL;
     TScene__collision_file_buffer = 0U;
     lbl_805D6014 = 0;
-    replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)((s32 *)&sp8)), (char *)(arg0), (char *)((s32 *)(lbl_8044A950)));
+    replace_file_extension__6TLobbyFPvPvPv((char *)((s32 *)((s32 *)&sp8)), (char *)(name), (char *)((s32 *)(lbl_8044A950)));
     temp_r31 = ((TScene *)((s32 *)&sp8))->update_lobby_scene();
     if (TOKeyMachine01::get_global_state() == 0xF) {
         if ((temp_r31 > 0) && ((u32) temp_r31 <= 0x10000U)) {

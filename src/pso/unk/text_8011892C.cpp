@@ -336,17 +336,17 @@ void TItemProUnit::apply_unit_effect_flags() {
     }
 }
 
-u8 *TItemProUnit__ct(u8 *arg0, s32 arg1, u8 *arg2) {
+u8 *TItemProUnit__ct(u8 *arg0, s32 arg1, u8 *item) {
     s16 temp_r0;
     u8 *item_pmt_record;
 
     TItemEquipBase__ct();
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__12TItemProUnit;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C40;
-    ((TItemProUnit *)arg0)->vfunc_19((s8) (*(u8 *)((s8 *)arg2 + 4) + 9));
+    ((TItemProUnit *)arg0)->vfunc_19((s8) (*(u8 *)((s8 *)item + 4) + 9));
     *(s16 *)((s8 *)arg0 + 0x190) = 0;
     *(f32 *)((s8 *)arg0 + 0x1B8) = (f32) TItemProUnit__data_805DABF8;
-    item_pmt_record = (u8 *)lookup_item_pmt_record(arg2);
+    item_pmt_record = (u8 *)lookup_item_pmt_record(item);
     if (item_pmt_record != NULL) {
         *(s16 *)((s8 *)arg0 + 0x18C) = (s16) *(s16 *)((s8 *)item_pmt_record + 8);
         ((TItemProUnit *)arg0)->m_18e = (s16) *(s16 *)((s8 *)item_pmt_record + 0xA);
@@ -356,7 +356,7 @@ u8 *TItemProUnit__ct(u8 *arg0, s32 arg1, u8 *arg2) {
         ((TItemProUnit *)arg0)->m_18e = 0;
         *(s16 *)((s8 *)arg0 + 0x1BE) = 0;
     }
-    *(s16 *)((s8 *)arg0 + 0x1BC) = get_field6_bswap__9TItemDataFPv(arg2);
+    *(s16 *)((s8 *)arg0 + 0x1BC) = get_field6_bswap__9TItemDataFPv(item);
     temp_r0 = *(s16 *)((s8 *)arg0 + 0x1BC);
     if ((temp_r0 <= -0xA) || (temp_r0 >= 0xA)) {
         *(s16 *)((s8 *)arg0 + 0x1BC) = 0;

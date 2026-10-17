@@ -98,9 +98,9 @@ void TUnk_804A3260::reserved_53() {
     ((TObjPlayer *)arg0)->draw_status_icons((u8 *)&this->unk_1F8, arg0 + 0x204);
 }
 
-void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *arg2) {
+void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *item) {
     u8 temp_r0;
-    TItemWeapon__ct((u8 *)arg0, (void *)parent, (u8 *)arg2);
+    TItemWeapon__ct((u8 *)arg0, (void *)parent, (u8 *)item);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A3260;
     ((TObjPlayer *)arg0)->set_status_flags(0x203);
     *(void (**)())((s8 *)arg0 + 0x1EC) = &spawn_weapon_impact_effect;
@@ -108,7 +108,7 @@ void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *arg2) {
     *(s32 *)((s8 *)arg0 + 0x214) = 0;
     ((TUnk_804A3260 *)arg0)->m_218 = -1;
     *(s32 *)((s8 *)arg0 + 0x21C) = 0;
-    temp_r0 = *(u8 *)((s8 *)arg2 + 2);
+    temp_r0 = *(u8 *)((s8 *)item + 2);
     switch ((s32) temp_r0) {
     case 6:
         break;
@@ -119,7 +119,7 @@ void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *arg2) {
         ((TUnk_804A3260 *)arg0)->m_210 = 2;
         break;
     }
-    if ((u8) *(u8 *)((s8 *)arg2 + 2) >= 5U) {
+    if ((u8) *(u8 *)((s8 *)item + 2) >= 5U) {
         ((TObjPlayer *)arg0)->set_atp(-1);
     }
     return arg0;

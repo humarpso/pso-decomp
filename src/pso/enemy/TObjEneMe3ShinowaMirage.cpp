@@ -345,22 +345,22 @@ extern const f32 TObjEneMe3ShinowaMirage__data_805DA5B8;
 
 void TObjEneMe3ShinowaMirage::activate_mirage(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    s32 temp_r3;
+    s32 entity;
     s32 temp_r4;
     s32 temp_r4_2;
 
-    temp_r3 = (s32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0x42C)));
-    if (temp_r3 != 0) {
-        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(temp_r3 + 0x38));
+    entity = (s32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0x42C)));
+    if (entity != 0) {
+        VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(entity + 0x38));
         VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
         VecCopy((Vec *)(*(s32 *)&this->m_a4 + 0x1C), (const Vec *)(arg0 + 0x38));
-        ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *) (temp_r3 + 0x5C));
+        ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *) (entity + 0x5C));
         temp_r4 = *(s32 *)&this->actorFlags & 0xFFFFF7FF;
         *(s32 *)&this->actorFlags = temp_r4;
         *(s32 *)&this->actorFlags = 0x20000000;
         this->hp = (s16) this->hpmax;
         *(s32 *)((s8 *)arg0 + 0x3D4) = arg1;
-        enemy_set_target_id((void *) (arg0), (int) (TObjEneMe3ShinowaReal__sub_800E45CC((int) (temp_r3), (int) (temp_r4))));
+        enemy_set_target_id((void *) (arg0), (int) (TObjEneMe3ShinowaReal__sub_800E45CC((int) (entity), (int) (temp_r4))));
         *(f32 *)((s8 *)arg0 + 0x430) = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;
         temp_r4_2 = *(s32 *)((s8 *)arg0 + 0x3C4) & 0xFFFFFDFF;
         *(s32 *)((s8 *)arg0 + 0x3C4) = temp_r4_2;

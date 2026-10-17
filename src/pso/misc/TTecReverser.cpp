@@ -119,7 +119,7 @@ Obj_80239E44 *construct_revival_particle_effect(Obj_80239E44 *self, Player_80239
 void TTecReverser::render() {  }
 
 void run_task__12TTecReverserFv(u8 *arg0) {
-    u32 temp_r31;
+    u32 entity;
     *(u32 *)((s8 *)arg0 + 0x1C) = (u32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0xB4)));
     if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 0U) {
         queue_destruction__7TObjectFv((arg0));
@@ -129,9 +129,9 @@ void run_task__12TTecReverserFv(u8 *arg0) {
         queue_destruction__7TObjectFv((arg0));
         return;
     }
-    temp_r31 = (u32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0xF0)));
-    if ((is_active__12TTecReverserFv() == 0) && (TObjPlayer::is_valid_and_active((int) (temp_r31)) != 0)) {
-        ((TTecReverser *)(arg0))->vfunc_6((void *)temp_r31);
+    entity = (u32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0xF0)));
+    if ((is_active__12TTecReverserFv() == 0) && (TObjPlayer::is_valid_and_active((int) (entity)) != 0)) {
+        ((TTecReverser *)(arg0))->vfunc_6((void *)entity);
     }
     queue_destruction__7TObjectFv((arg0));
 }

@@ -180,7 +180,7 @@ void TUnk_804928CC::vfunc_19(void *arg1) {
     this->call_vt16_with_default(arg1, 0);
 }
 
-s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg2, f32 range) {
+s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *object, f32 range) {
     s32 hit = 0;
     s32 mask = 0;
     Tgt_800BC080 *t;
@@ -208,7 +208,7 @@ s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg
             }
             if (obj_is_hit_receivable() != 0 && t != arg0->self_tgt && is_area_attack_target_eligible(arg0, t->x30) != 0) {
                 ok = 1;
-                if (arg2 != NULL && attack_target_history_add((s32)arg2, (s32)t) == 0) {
+                if (object != NULL && attack_target_history_add((s32)object, (s32)t) == 0) {
                     ok = 0;
                 }
                 if (ok != 0) {
@@ -238,7 +238,7 @@ void TUnk_804928CC::vfunc_16(void *arg1, void *arg2) {
     this->call_vt13_with_default(arg1, arg2, 0);
 }
 
-s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, void *arg3, f32 range) {
+s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, void *object, f32 range) {
     s32 hit = 0;
     s32 mask = 0;
     Tgt_800BC250 *t;
@@ -264,7 +264,7 @@ s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, v
             }
             if (obj_is_hit_receivable() != 0 && t != arg0->self_tgt && is_area_attack_target_eligible(arg0, t->x30) != 0) {
                 ok = 1;
-                if (arg3 != NULL && attack_target_history_add((s32)arg3, (s32)t) == 0) {
+                if (object != NULL && attack_target_history_add((s32)object, (s32)t) == 0) {
                     ok = 0;
                 }
                 if (ok != 0) {

@@ -1155,13 +1155,13 @@ s8 TItemMag::collect_support_events() {
     return ev;
 }
 
-s32 TItemMag__vt39(u8 *arg0, u8 *arg1) {
+s32 TItemMag__vt39(u8 *arg0, u8 *item) {
     MagStats_80112A3C stats;
     u8 pos[0xC];
     s32 *rec;
     u8 *tbl;
     s32 i;
-    if (arg1 == NULL) {
+    if (item == NULL) {
         return 0;
     }
     ((TItemData *)(&stats))->initialize_mag_data();
@@ -1171,8 +1171,8 @@ s32 TItemMag__vt39(u8 *arg0, u8 *arg1) {
     stats.e = 0;
     stats.d = 0;
     stats.c = 0;
-    if (*arg1 == 3) {
-        rec = (s32 *)lookup_item_pmt_record(arg1);
+    if (*item == 3) {
+        rec = (s32 *)lookup_item_pmt_record(item);
         if (rec != NULL) {
             tbl = (u8 *)get_mag_feed_result(*(s32 *)((s8 *)arg0 + 0x1B8), *rec);
             if (tbl != NULL) {

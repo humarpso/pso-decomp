@@ -170,14 +170,14 @@ void TCameraCtrl::update_camera_state(f32 _w0, f32 _w1, f32 _w2) {
 }
 
 void TCameraCtrl::look_at_position(f32 farg0, f32 farg1, f32 farg2) {
-    u8 sp14[0x14];
+    u8 eye[0x14];
     V_803D6558 v;
-    TCameraCtrl__sub_803D65F8((u8 *)(sp14));
+    TCameraCtrl__sub_803D65F8((u8 *)(eye));
     v.x = farg0;
     v.y = farg1;
     v.z = farg2;
     set_matrix_identity(0);
-    set_camera_look_at((u8*)(sp14), (u8*)((u8 *)&v), (u8*)(lbl_804FA4F0));
+    set_camera_look_at((u8*)(eye), (u8*)((u8 *)&v), (u8*)(lbl_804FA4F0));
 }
 
 #pragma push

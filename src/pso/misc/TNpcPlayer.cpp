@@ -3398,7 +3398,7 @@ void TNpcPlayer::run_task() {
 }
 
 u8 *__dt__10TNpcPlayerFv(u8 *arg0, s16 arg1) {
-    u32 temp_r3_3;
+    u32 player;
     u8 *temp_r3;
     u8 *temp_r3_2;
     if (arg0 != NULL) {
@@ -3410,9 +3410,9 @@ u8 *__dt__10TNpcPlayerFv(u8 *arg0, s16 arg1) {
         }
         temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x78));
         if (temp_r3_2 != NULL) {
-            temp_r3_3 = (u32)get_player_by_client_id((get_npc_type__10TNpcPlayerFPv((void*)(temp_r3_2))));
-            if (temp_r3_3 != 0U) {
-                TObjPlayer::send_item_pickup_request((s32) temp_r3_3);
+            player = (u32)get_player_by_client_id((get_npc_type__10TNpcPlayerFPv((void*)(temp_r3_2))));
+            if (player != 0U) {
+                TObjPlayer::send_item_pickup_request((s32) player);
             }
             ((TNpcPlayer *)(*(u8 **)((s8 *)arg0 + 0x78)))->dt(1);
             *(u8 **)((s8 *)arg0 + 0x78) = NULL;

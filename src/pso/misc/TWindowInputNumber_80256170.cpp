@@ -156,7 +156,7 @@ void TWindowInputNumber::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 temp_r30;
     u32 temp_r3;
-    u8 *temp_r29;
+    u8 *input;
     u8 *temp_r29_2;
     u8 *temp_r29_3;
 
@@ -166,17 +166,17 @@ void TWindowInputNumber::run_task() {
     }
     if ((((TWindowInputNumber *)arg0)->is_confirmed() == 0) && !(*(u16 *)((s8 *)arg0 + 0x60) & 0x40) && (((TUnk_804CE018 *)arg0)->sub_80244994() != 0)) {
         if (*(u16 *)((s8 *)arg0 + 0x60) & 0x10) {
-            temp_r29 = (u8 *)controller_input_state + (temp_r30 * 0x50) + 0x20;
-            if ((TWindowChoiceSetting::apply_choice((s32)((void *) (temp_r29)), (s32)((int) (0x10)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x10)) != 0)) {
+            input = (u8 *)controller_input_state + (temp_r30 * 0x50) + 0x20;
+            if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), (s32)((int) (0x10)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x10)) != 0)) {
                 ((TWindowInputNumber *)arg0)->update_value();
             }
-            if ((TWindowChoiceSetting::apply_choice((s32)((void *) (temp_r29)), (s32)((int) (0x20)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x20)) != 0)) {
+            if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), (s32)((int) (0x20)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x20)) != 0)) {
                 ((TWindowInputNumber *)arg0)->update();
             }
-            if ((TWindowChoiceSetting::apply_choice((s32)((void *) (temp_r29)), (s32)((int) (0x40)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x40)) != 0)) {
+            if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), (s32)((int) (0x40)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x40)) != 0)) {
                 ((TWindowInputNumber *)arg0)->move_cursor_next();
             }
-            if ((TWindowChoiceSetting::apply_choice((s32)((void *) (temp_r29)), (s32)((int) (0x80)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x80)) != 0)) {
+            if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), (s32)((int) (0x80)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x80)) != 0)) {
                 ((TWindowInputNumber *)arg0)->handle_decrement();
             }
         } else {

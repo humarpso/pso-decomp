@@ -979,18 +979,18 @@ s16 obj_getField1c(int);
 
 void TObjEneEpsilonGuard::update_guard_state() {
     s16 temp_r0;
-    s32 temp_r3;
+    s32 entity;
 
     if (!(*(s32 *)((s8 *)((u8 *)this) + 0x46C) & 0x40)) {
-        temp_r3 = (s32)find_entity_by_id((*(u16 *)((s8 *)((u8 *)this) + 0x470)));
-        if ((temp_r3 == 0) || (TObjEneEpsilonGuard__sub_8035F950() == 1)) {
+        entity = (s32)find_entity_by_id((*(u16 *)((s8 *)((u8 *)this) + 0x470)));
+        if ((entity == 0) || (TObjEneEpsilonGuard__sub_8035F950() == 1)) {
             if (*(s32 *)((s8 *)((u8 *)this) + 0x46C) & 0x10) {
                 ((s32 (*)(void *, int))transition_enemy_state)((void *) (((u8 *)this)), (int) (5));
             } else {
                 ((s32 (*)(void *, int))transition_enemy_state)((void *) (((u8 *)this)), (int) (4));
             }
         } else {
-            *(s32 *)((s8 *)((u8 *)this) + 0x390) = temp_r3;
+            *(s32 *)((s8 *)((u8 *)this) + 0x390) = entity;
             *(s16 *)((s8 *)((u8 *)this) + 0x38C) = obj_getField1c((int) (*(s32 *)((s8 *)((u8 *)this) + 0x390)));
             enemy_copy_target_destination();
             sub_8035EA90();
@@ -1285,7 +1285,7 @@ void TObjEneEpsilonGuard__vt85(void *arg0, s32 arg1, s32 msg) {
 #pragma push
 #pragma fp_contract on
 void run_task__19TObjEneEpsilonGuardFv(u8 *arg0) {
-    s32 temp_r3;
+    s32 entity;
     if (((TObjEneEpsilonGuard *)(arg0))->vfunc_83() != 4) {
         ((TObjEneEpsilonGuard *)arg0)->update_guard_state();
         ((TObjEneEpsilonGuard *)(arg0))->vfunc_85();
@@ -1296,9 +1296,9 @@ void run_task__19TObjEneEpsilonGuardFv(u8 *arg0) {
             ((TObjEneEpsilonGuard *)(arg0))->vfunc_100();
             return;
         }
-        temp_r3 = (s32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0x470)));
-        if (temp_r3 != 0) {
-            ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (arg0 + 0x38), (void *) (temp_r3 + 0x38));
+        entity = (s32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0x470)));
+        if (entity != 0) {
+            ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (arg0 + 0x38), (void *) (entity + 0x38));
             ((TObjEneEpsilonGuard *)arg0)->update_center_position();
         }
     } else if (*(s16 *)((s8 *)arg0 + 0x326) == 0) {

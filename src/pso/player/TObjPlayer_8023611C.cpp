@@ -161,7 +161,7 @@ s32 find_support_technique_contact(void *self, int target, void *_w2, void *_w3)
     return (s32)&technique_contact_query_results;
 }
 
-s32 *TObjPlayer::gather_player_contacts(u32 arg1, s32 _w2, s32 _w3) {
+s32 *TObjPlayer::gather_player_contacts(u32 actor, s32 _w2, s32 _w3) {
     s32 arg0 = (s32)this;
     Stack_80236290 stack;
     s32 temp_r0;
@@ -170,14 +170,14 @@ s32 *TObjPlayer::gather_player_contacts(u32 arg1, s32 _w2, s32 _w3) {
     u32 temp_r3_2;
     VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x20));
     resetTechniqueContactQuery();
-    if (arg1 == 0U) {
+    if (actor == 0U) {
         return &technique_contact_query_results.value;
     }
-    VecCopy((Vec *)(arg1 + 0x38), (const Vec *)(&stack.sp8));
+    VecCopy((Vec *)(actor + 0x38), (const Vec *)(&stack.sp8));
     var_r29 = 0;
 loop_3:
     temp_r3 = (s32)get_player_by_client_id((var_r29));
-    if ((temp_r3 != 0) && (temp_r3_2 = (u32)find_actor_body_contact((u8 *)(arg1), (u8 *)(temp_r3), (f32) (lbl_805DC89C)), ((temp_r3_2 == 0U) == 0)) && (*(u32 *)((s8 *)((u8 *)&technique_contact_query_results.value + (*(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) * 4)) + 0x40) = temp_r3_2, *(s32 *)((s8 *)(&technique_contact_query_results.value) + (*(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) * 4)) = temp_r3, temp_r0 = *(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) + 1, *(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) = temp_r0, ((temp_r0 < 0x10) == 0))) {
+    if ((temp_r3 != 0) && (temp_r3_2 = (u32)find_actor_body_contact((u8 *)(actor), (u8 *)(temp_r3), (f32) (lbl_805DC89C)), ((temp_r3_2 == 0U) == 0)) && (*(u32 *)((s8 *)((u8 *)&technique_contact_query_results.value + (*(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) * 4)) + 0x40) = temp_r3_2, *(s32 *)((s8 *)(&technique_contact_query_results.value) + (*(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) * 4)) = temp_r3, temp_r0 = *(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) + 1, *(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) = temp_r0, ((temp_r0 < 0x10) == 0))) {
         *(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) = 0xF;
     } else {
         var_r29 += 1;

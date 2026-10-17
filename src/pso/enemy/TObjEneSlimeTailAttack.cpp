@@ -2089,18 +2089,18 @@ u8 *init__15TObjEneSlimeOneFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
 }
 
 s32 TObjEneSlimeOne::create(s32 arg0, s32 arg1, s32 arg2) {
-    s32 var_r31;
+    s32 actor;
     s32 var_r4;
 
-    var_r31 = ((s32 (*)(s32))__nw__7TObjectFUl)(0x3F8);
-    if (var_r31 != 0) {
+    actor = ((s32 (*)(s32))__nw__7TObjectFUl)(0x3F8);
+    if (actor != 0) {
         var_r4 = ((s32 (*)(s32))__nw__7TObjectFUl)(0x20);
         if (var_r4 != 0) {
             var_r4 = ((s32 (*)(s32, s32))TObjControl__ct)(var_r4, tl_04);
         }
-        var_r31 = ((s32)TObjEneSlimeOne__ct((u8 *)(var_r31), (s32)(var_r4), (s32)(arg0), (s32)(arg1), (s32)(arg2)));
+        actor = ((s32)TObjEneSlimeOne__ct((u8 *)(actor), (s32)(var_r4), (s32)(arg0), (s32)(arg1), (s32)(arg2)));
     }
-    return var_r31;
+    return actor;
 }
 
 s32 TObjEneSlimeOne::create(s32 arg0, s32 arg1) {

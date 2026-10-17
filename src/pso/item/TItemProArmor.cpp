@@ -422,16 +422,16 @@ void TItemProArmor::vfunc_16() {
 void TItemProArmor::vfunc_46() { if (((TItemMag *)this)->get_flag_40() == 0) { obj_getField1c(*(void* *)&this->m_f0); spawn_appearance_effect__10TObjPlayerFl(); } }
 
 typedef char RecoveredGlobal_80117B98___vt__13TItemProArmor_size[sizeof(RecoveredGlobal_80117B98___vt__13TItemProArmor) == 0xCC ? 1 : -1];
-u8 *TItemProArmor__ct(u8 *arg0, s32 arg1, u8 *arg2) {
+u8 *TItemProArmor__ct(u8 *arg0, s32 arg1, u8 *item) {
     TItemEquipBase__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80117B98___vt__13TItemProArmor *)&__vt__13TItemProArmor).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C30;
     ((TItemProArmor *)(arg0))->vfunc_19(2);
     *(s16 *)&((TItemProArmor *)arg0)->m_190 = 0;
-    ((TItemProArmor *)arg0)->m_192 = (u8) *(u8 *)((s8 *)arg2 + 5);
-    *(s8 *)&((TItemProArmor *)arg0)->m_193 = getS16_06__9TItemDataFPv(arg2);
-    *(s8 *)&((TItemProArmor *)arg0)->m_194 = get_bswap16_field8__9TItemDataFPv(arg2);
-    *(s32 *)&((TItemProArmor *)arg0)->m_18c = (s32)lookup_item_pmt_record(arg2);
+    ((TItemProArmor *)arg0)->m_192 = (u8) *(u8 *)((s8 *)item + 5);
+    *(s8 *)&((TItemProArmor *)arg0)->m_193 = getS16_06__9TItemDataFPv(item);
+    *(s8 *)&((TItemProArmor *)arg0)->m_194 = get_bswap16_field8__9TItemDataFPv(item);
+    *(s32 *)&((TItemProArmor *)arg0)->m_18c = (s32)lookup_item_pmt_record(item);
     ((TItemProArmor *)arg0)->m_195 = (u8) *(u8 *)((s8 *)(*(s32 *)&((TItemProArmor *)arg0)->m_18c) + 0x16);
     ((TItemProArmor *)arg0)->m_196 = (u8) *(u8 *)((s8 *)(*(s32 *)&((TItemProArmor *)arg0)->m_18c) + 0x17);
     if ((u8) ((TItemProArmor *)arg0)->m_192> 4U) {

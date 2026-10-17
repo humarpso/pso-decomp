@@ -13,9 +13,9 @@ extern u8 lbl_804A5C18[];
 extern const f32 lbl_805DAF58;
 extern const f32 lbl_805DAF68;
 
-void *construct_shot_weapon(void *arg0, s32 parent, void *arg2) {
+void *construct_shot_weapon(void *arg0, s32 parent, void *item) {
     u8 temp_r0;
-    TItemWeapon__ct((u8 *)arg0, (void *)parent, (u8 *)arg2);
+    TItemWeapon__ct((u8 *)arg0, (void *)parent, (u8 *)item);
     *(void **)((s8 *)arg0 + 0x18) = lbl_804A5C18;
     ((TObjPlayer *)arg0)->set_status_flags(2);
     *(void **)((s8 *)arg0 + 0x1F0) = (void *)create_gun_shot;
@@ -26,7 +26,7 @@ void *construct_shot_weapon(void *arg0, s32 parent, void *arg2) {
     ((TUnk_804A5C18 *)arg0)->m_214 = -1;
     *(s32 *)((s8 *)arg0 + 0x218) = -1;
     ((TUnk_804A5C18 *)arg0)->m_220 = -1;
-    temp_r0 = *(u8 *)((s8 *)arg2 + 2);
+    temp_r0 = *(u8 *)((s8 *)item + 2);
     switch ((s32) temp_r0) {
     case 5:
         *(s32 *)((s8 *)arg0 + 0x1F8) = 9;
@@ -69,7 +69,7 @@ void *construct_shot_weapon(void *arg0, s32 parent, void *arg2) {
         *(s32 *)((s8 *)arg0 + 0x210) = 4;
         break;
     }
-    if ((u8) *(u8 *)((s8 *)arg2 + 2) >= 5U) {
+    if ((u8) *(u8 *)((s8 *)item + 2) >= 5U) {
         ((TObjPlayer *)arg0)->set_atp(-1);
     }
     return arg0;

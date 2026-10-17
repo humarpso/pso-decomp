@@ -47,20 +47,20 @@ typedef struct Stack_80283F38 Stack_80283F38;
 
 typedef char RecoveredGlobal_80283A70_lbl_8050E208_size[sizeof(RecoveredGlobal_80283A70_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void TWindowSubSymbolChatFaceType::handle_input() {
-    u8 *temp_r30;
-    temp_r30 = (u8 *)&controller_input_state.value + 0x20;
-    if ((TWindowChoiceSetting::apply_choice((s32)((void *) (temp_r30)), (s32)((int) (0xF0)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0xF0)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
+    u8 *input;
+    input = (u8 *)&controller_input_state.value + 0x20;
+    if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), (s32)((int) (0xF0)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0xF0)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
         play_sound_effect(0x54100, 0U, 0, 0);
-        if ((TWindowChoiceSetting::apply_choice((s32)((void *) (temp_r30)), (s32)((int) (0x10)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x10)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
+        if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), (s32)((int) (0x10)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x10)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
             this->m_62 = (u8) (this->m_62 - 1);
         }
-        if ((TWindowChoiceSetting::apply_choice((s32)((void *) (temp_r30)), (s32)((int) (0x20)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x20)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
+        if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), (s32)((int) (0x20)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x20)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
             this->m_62 = (u8) (this->m_62 + 1);
         }
-        if ((TWindowChoiceSetting::apply_choice((s32)((void *) (temp_r30)), (s32)((int) (0x80)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x80)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
+        if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), (s32)((int) (0x80)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x80)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
             this->m_61 = (u8) (this->m_61 + 1);
         }
-        if ((TWindowChoiceSetting::apply_choice((s32)((void *) (temp_r30)), (s32)((int) (0x40)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x40)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
+        if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), (s32)((int) (0x40)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x40)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
             this->m_61 = (u8) (this->m_61 - 1);
         }
         if ((s8) this->m_61 < 0) {

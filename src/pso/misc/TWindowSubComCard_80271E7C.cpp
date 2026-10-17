@@ -758,7 +758,7 @@ s32 create_menu__17TWindowSubComCardFv(void) {
 void render__17TWindowSubComCardFv(void) {  }
 void run_task__17TWindowSubComCardFv(u8 *arg0) {
     s32 temp_r29;
-    s32 temp_r29_4;
+    s32 character_save_record;
     s32 temp_r29_7;
     s32 temp_r29_8;
     s32 keyboard_mode;
@@ -1260,9 +1260,9 @@ void run_task__17TWindowSubComCardFv(u8 *arg0) {
         if (((u32 (*)(void))get_chr_select__17TWindowSubComCardFv)() != 0U) {
             if ((u32) ((TWindowSubComCard *)arg0)->m_58 == 0U) {
                 ((TWindowSubComCard *)arg0)->m_58 = ((u32 (*)(void))get_chr_select__17TWindowSubComCardFv)();
-                temp_r29_4 = get_character_save_record((0xFFFF));
+                character_save_record = get_character_save_record((0xFFFF));
                 TWindowSubComCard__sub_800778B4((void *) ((u8 *)(arg0) + 0x30), (int) (((TWindowSubComCard *)arg0)->m_58));
-                TWindowSubComCard__sub_800778B4((void *) (temp_r29_4 + 0x22EC), (int) (((TWindowSubComCard *)arg0)->m_58));
+                TWindowSubComCard__sub_800778B4((void *) (character_save_record + 0x22EC), (int) (((TWindowSubComCard *)arg0)->m_58));
             }
             if ((u8) ((TWindowSubComCard *)arg0)->m_1c == 0x28) {
                 ((TWindowSubComCard *)arg0)->m_1c = 0x29U;
