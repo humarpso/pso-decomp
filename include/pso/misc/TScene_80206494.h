@@ -9,7 +9,7 @@ void TScene__sub_802065E8(void);
 void TScene__sub_802065EC(void);
 void *__dt__6TSceneFv(void *arg0, s16 arg1);
 void load_floor_scene(void);
-void load_scene_collision_file(s32 arg0);
+void load_scene_collision_file(s32 name);
 void load_scene_map_file(s32 arg0);
 }
 

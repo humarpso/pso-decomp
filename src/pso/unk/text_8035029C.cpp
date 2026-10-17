@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/unk/text_8035029C.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void *create_item_object_lbl_804F0C48(void *arg0);
-void *__dt__13TUnk_804F0C48Fv(void *arg0, s16 arg1);
 void TItemObject__ct(void *);
 void *__dt__11TItemObjectFv(void *arg0, s16 arg1);
 

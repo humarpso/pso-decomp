@@ -15,6 +15,7 @@ struct TObjEnvSoundGlobal : public TUnk_804B9870 {
 };
 
 typedef char TObjEnvSoundGlobal_size[sizeof(TObjEnvSoundGlobal) == 0x9C ? 1 : -1];
+
 extern "C" {
 void *TObjEnvSoundEx__create(void *arg0);
 u8 *TObjEnvSoundEx__ct(u8 *arg0, s32 arg1, s32 arg2);

@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-u8 *construct_handgun_weapon(u8 *arg0, s32 arg1, u8 *arg2);
+u8 *construct_handgun_weapon(u8 *arg0, s32 parent, u8 *item);
 u8 *create_handgun_weapon(u8 *arg0);
 u8 *create_suppressed_gun_weapon(u8 *arg0);
 }

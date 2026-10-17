@@ -11,6 +11,7 @@ struct TObjNpcFemaleChild : public TUnk_804A8640 {
 };
 
 typedef char TObjNpcFemaleChild_size[sizeof(TObjNpcFemaleChild) == 0x3B8 ? 1 : -1];
+
 extern "C" {
 u8 *TObjNpcFemaleChild__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *TObjNpcFemaleDwarf__create(void *arg0);

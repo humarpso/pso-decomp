@@ -1,4 +1,5 @@
 #include "pso/TMCFormatSequence.h"
+#include "pso/unk/text_8007C0CC.h"
 #include "pso/misc/TWindowMessage.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
@@ -175,10 +176,6 @@ extern const s32 lbl_805DC6B0;
 extern const s32 lbl_805DC6B4;
 extern "C" {
 void subtractive_rng_seed(SubtractiveRng *, u32);
-void subtractive_rng_make_shuffle(s32 *stream);
-void subtractive_rng_unshuffle(void *stream, const u8 *source, u8 *destination, u32 size);
-void subtractive_rng_xor_buffer(s32 *self, u32 *data, s32 len);
-s32 subtractive_rng_next(s32 *arg0);
 void TAdPlayerLoadGC__sub_801E14E4(void *);
 void TAdPlayerLoadGC__sub_801E14E8(u8 *arg0, s32 arg1);
 s32 build_save_file_image__15TAdPlayerLoadGCFPvPv(void *, void *);

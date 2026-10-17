@@ -5,7 +5,6 @@
 
 extern "C" {
 int initialize_enemy_photon_effect(void *p);
-void render_shadows__9TObjEnemyFv(u8 *arg0);
 }
 
 #endif

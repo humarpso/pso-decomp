@@ -11,6 +11,7 @@ struct TObjNpcFemaleTall : public TUnk_804A8640 {
 };
 
 typedef char TObjNpcFemaleTall_size[sizeof(TObjNpcFemaleTall) == 0x3B8 ? 1 : -1];
+
 extern "C" {
 u8 *TObjNpcFemaleTall__ct(u8 *arg0, s32 arg1, s32 arg2);
 void TObjNpcFemaleTall__sub_8014AA28(void *arg0, s32 arg1);

@@ -53,6 +53,7 @@ struct TObjEneRe4Bit : public TObjEneDD_ST {
 };
 
 typedef char TObjEneRe4Bit_size[sizeof(TObjEneRe4Bit) == 0x410 ? 1 : -1];
+
 extern "C" {
 u8 *TObjEneRe4Bit__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5, s16 arg6);
 void TObjEneRe4Bit__sub_800ECC14(u8 *arg0, s32 arg1);

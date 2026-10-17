@@ -21,6 +21,7 @@ struct TJudgmentSequence : public TShopSequence {
 };
 
 typedef char TJudgmentSequence_size[sizeof(TJudgmentSequence) == 0x34 ? 1 : -1];
+
 extern "C" {
 u8 *TJudgmentSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
 void TJudgmentSequence__sub_80215BA0(void *arg0);

@@ -72,8 +72,6 @@ void TObjEneBm3Fly__vt102(void *arg0, f32 farg0);
 void TObjEneBm3Fly__vt103(void);
 void TObjEneBm3Fly__vt104(u8 *arg0);
 void TObjEneBm3Fly__vt85(s32 arg0, u32 arg1, s32 arg2);
-void vfunc_88__13TObjEneBm3FlyFv(u8 *arg0);
-void vfunc_89__13TObjEneBm3FlyFv(void *p);
 void *__dt__13TObjEneBm3FlyFv(void *arg0, s16 arg1);
 void action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1);
 f32 approach_value__13TObjEneBm3FlyFff(f32 farg0, f32 farg1);

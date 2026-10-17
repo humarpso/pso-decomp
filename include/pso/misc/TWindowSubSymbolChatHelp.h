@@ -21,6 +21,7 @@ struct TWindowSubSymbolChatHelp : public TUnk_804CE018 {
 };
 
 typedef char TWindowSubSymbolChatHelp_size[sizeof(TWindowSubSymbolChatHelp) == 0x74 ? 1 : -1];
+
 extern "C" {
 u8 *TWindowSubSymbolChatHelp__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__dt__24TWindowSubSymbolChatHelpFv(void *arg0, s16 arg1);

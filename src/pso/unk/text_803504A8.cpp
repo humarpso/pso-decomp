@@ -1,16 +1,15 @@
 #include "types.h"
+#include "pso/object/TObjBgmColCtrl_8017E8E4.h"
+#include "pso/unk/text_80350440.h"
+#include "pso/unk/text_803504A8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/unk/TUnk_804F0D34.h"
 
 extern "C" {
 
-int get_quest_bgm_issued_flag(void);
 void *__nw__7TObjectFUl(s32);
-u8 *fn_80350440(u8 *arg0, u8 *arg1, s32 arg2);
 extern void *tl_05;
 u8 get_slot_count__14TItemProShieldFv();
-void *__dt__13TUnk_804F0D34Fv(void *arg0, s16 arg1);
-void *fn_80350588(void *arg0);
 void TItemObject__ct(void *);
 void *__dt__11TItemObjectFv(void *arg0, s16 arg1);
 extern s32 item_object_dispatch_table[];

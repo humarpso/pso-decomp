@@ -1,10 +1,9 @@
 #include "types.h"
+#include "pso/unk/text_80353380.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
-void *__dt__13TUnk_804F112CFv(void *arg0, s16 arg1);
-void *fn_803533D8(void *arg0);
 void TItemObject__ct(void *);
 void *__dt__11TItemObjectFv(void *arg0, s16 arg1);
 

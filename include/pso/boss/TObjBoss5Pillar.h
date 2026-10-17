@@ -24,6 +24,7 @@ struct TObjBoss5Pillar : public TObject {
 };
 
 typedef char TObjBoss5Pillar_size[sizeof(TObjBoss5Pillar) == 0x4C ? 1 : -1];
+
 extern "C" {
 u8 *TObjBoss5Pillar__ct(u8 *arg0, u8 *arg1, u8 *arg2);
 void *__dt__15TObjBoss5PillarFv(void *arg0, s16 arg1);

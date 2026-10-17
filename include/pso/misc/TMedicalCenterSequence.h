@@ -28,6 +28,7 @@ struct TMedicalCenterSequence : public TShopSequence {
 };
 
 typedef char TMedicalCenterSequence_size[sizeof(TMedicalCenterSequence) == 0x38 ? 1 : -1];
+
 extern "C" {
 void TMedicalCenterMes__sub_80216260(void);
 u8 *TMedicalCenterSequence__ct(u8 *arg0, s32 arg1, s32 arg2);

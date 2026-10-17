@@ -17,6 +17,7 @@ struct TShopGenerator : public TUnk_804B9870 {
 };
 
 typedef char TShopGenerator_size[sizeof(TShopGenerator) == 0x98 ? 1 : -1];
+
 extern "C" {
 void THunterGuildSeqOffline__sub_8021E180(s32 arg0);
 void *TShopGenerator__create(void *arg0);
