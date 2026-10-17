@@ -1,6 +1,5 @@
 #include "pso/ui/TAdChrSelSlotGC.h"
 #include "pso/ui/TUnk_804E0B28.h"
-#include "pso/ui/TUnk_804E0B28.h"
 
 #include "types.h"
 
@@ -110,23 +109,19 @@ extern const s32 lbl_80471D50[];
 extern const s32 current_language;
 extern u32 lbl_805D67F0;
 void TLobby__sub_802C7920(void);
-extern u8 __vt__15TAdChrSelSlotGC[];
 extern s32 TAdChrSelSlotGC__name;
-S_802C7758 *__ct__15TAdChrSelSlotGCFP7TObject(S_802C7758 *self, TObject* _w1);
 void begin_screen_draw(int);
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(int, int);
 extern const f32 lbl_805DE5C8;
 s32 get_main_phase();
 extern const f32 lbl_805DE5B4, lbl_805DE5B8, lbl_805DE5BC, lbl_805DE5C0;
-s32 __ct__7TObjectFP7TObject(CharacterSelectTransitionState*, TObject* parent);
 void* __nw__7TObjectFUl(u32 size);
 StatusWindow* TWindowSubStatusDisp__ct(void* storage, s32 client);
 CallbackTask* update_display__20TWindowSubSymbolChatFl(void (*callback)());
 extern s32 __vt__13TUnk_804E0B28[];
 extern s32 lbl_805D67E8;
 extern const f32 lbl_805DE5B8, lbl_805DE5BC, lbl_805DE5C0;
-CharacterSelectTransitionState* __ct__13TUnk_804E0B28FP7TObjectl(CharacterSelectTransitionState* self, TObject* parent, s32 client);
 void TAdChrSelSlotGC__sub_802C7498(struct S802C7498_802C70AC *arg0, s32 arg1);
 void TLobby__sub_802C78EC(void);
 void *__dt__13TUnk_804E0B28Fv(void *arg0, s16 arg1);

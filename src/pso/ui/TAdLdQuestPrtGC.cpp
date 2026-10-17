@@ -1,6 +1,5 @@
 #include "types.h"
 #include "pso/ui/TAdLdQuestPrtGC.h"
-#include "pso/ui/TAdLdQuestPrtGC.h"
 
 struct RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 {
     s32 value;
@@ -46,11 +45,7 @@ struct Obj_80322E90 { u8 pad[0x18]; void *vt; void *items[4]; };
 
 extern "C" {
 int ansi_fp_abs(void*);
-void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
-void __dl__7TObjectFPv(void *);
-extern u8 __vt__15TAdLdQuestPrtGC[];
-Obj_80322E90 *__dt__15TAdLdQuestPrtGCFv(Obj_80322E90 *arg0, s16 arg1);
 void TAdLdQuestPrtGC::render() {  }
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 

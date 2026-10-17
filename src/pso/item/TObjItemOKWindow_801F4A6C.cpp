@@ -28,7 +28,6 @@ void *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 TObjItemOKWindow__sub_801F3268(void);
 s32 fn_801F4C98(void);
 void set_status_flag_80__12TQuestThreadFPv(void *);
-void __ct__7TObjectFP7TObject(void *, void *);
 void align_menu_entry_positions(void *);
 void forward_trade_action_default__16TObjCityMainWarpFPviii(void *, void *, s32, s32);
 void *init_shop_judgment_window(void *);
@@ -38,7 +37,6 @@ void *update_window_mode_from_progress__6TLobbyFPv(void *, Pos_801F4B10 *);
 void *get_window_layout_position(s32);
 int sprintf(char *, const char *, ...);
 extern char lbl_8044A638[];
-extern u8 __vt__16TObjItemOKWindow[];
 extern s32 TObjItemOKWindow__class_name;
 extern const f32 lbl_805DC4E0;
 extern const f32 lbl_805DC4E4;
@@ -78,7 +76,4 @@ TObjItemOKWindow::TObjItemOKWindow(TObject *parent) : TObject(parent) {
     if (((Self_801F4B10 *)this)->win64 != NULL) {
         send_and_handle__6TLobbyFii(((Self_801F4B10 *)this)->win64, TQuestVmDownLoadServer__sub_8006EF6C(0x48), 0x81);
     }
-}
-extern "C" {
-
 }

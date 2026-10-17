@@ -28,11 +28,9 @@ typedef struct Floor_8002C968 {
 struct Obj_8002CA38 { u8 pad[0x28]; u32 slot[4]; };
 
 extern "C" {
-void __ct__7TObjectFP7TObject(void *self, void *parent);
 extern char __vt__14TObjBoss1Floor[];
 extern s32 TObjBoss1Floor__name;
 extern const f32 lbl_805D8174;
-Obj_8002CACC *__ct__14TObjBoss1FloorFP7TObject(Obj_8002CACC *self, void *parent);
 void queue_destruction__7TObjectFv(void *);
 void *create_particle_emitter(Vec_8002C968 *, s32);
 Player_8002C968 *get_player_by_client_id(s32);
@@ -142,7 +140,4 @@ TObjBoss1Floor::TObjBoss1Floor(TObject *parent) : TObject(parent) {
     for (i = 0; i < 4; i++) {
         ((Obj_8002CACC *)this)->f28[i] = 0;
     }
-}
-extern "C" {
-
 }

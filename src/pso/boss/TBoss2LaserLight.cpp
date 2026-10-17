@@ -1,7 +1,6 @@
 #include "types.h"
 #include "pso/boss/TBoss2LaserLight.h"
 #include "pso/boss/TUnk_80482C58.h"
-#include "pso/boss/TBoss2LaserLight.h"
 #include "pso/object/TObjLight.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -26,19 +25,12 @@ struct Obj_800372F0 {
 };
 
 extern "C" {
-void __ct__7TObjectFP7TObject(void *, void *);
-extern s32 __vt__13TUnk_80482C58[];
 extern const f32 TBoss2LaserLight__data_805D849C;
-S_80037264 *__ct__13TUnk_80482C58FP7TObjectll(S_80037264 *o, void *parent, s32 arg2, s32 arg3);
 s32 noop_laser__23TAdSinglePlyChrSelectGCFv(void *);
 s32 TAdSinglePlyChrSelectGC__sub_80133508(void *);
 extern const f32 lbl_805D84A8;
 void TBoss2LaserLight__sub_80037474(void* p);
 void TBoss2LaserLight__sub_80037480(void* p);
-void *__dt__13TUnk_80482C58Fv(void *arg0, s16 arg1);
-void *__dt__16TBoss2LaserLightFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
 }
@@ -123,12 +115,7 @@ void TBoss2LaserLight::run_task() {
 void TBoss2LaserLight__sub_80037474(void* p) { *(s32*)((char*)p + 0x24) = 2; }
 void TBoss2LaserLight__sub_80037480(void* p) { *(s32*)((char*)p + 0x24) = 1; }
 
-extern s32 __vt__16TBoss2LaserLight[];
-
 }
 TBoss2LaserLight::~TBoss2LaserLight() {
     if (*(void **)((s8 *)this + 0x40) != NULL) { ((TObjLight *)(*(void **)((s8 *)this + 0x40)))->unregister_and_free(); *(s32 *)((s8 *)this + 0x40) = 0; }
-}
-extern "C" {
-
 }

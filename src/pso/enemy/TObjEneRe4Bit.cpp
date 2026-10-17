@@ -744,10 +744,6 @@ void TObjEneRe4Bit::reset_transform() {
     ((TObjEneDD *)this)->transform_part_positions();
 }
 
-}
-
-extern "C" {
-
 struct ED300Base_800ed300_800ED258 { char pad[0x14]; };
 struct ED300Obj_800ed300_800ED258 : ED300Base_800ed300_800ED258 {
     virtual void m0();

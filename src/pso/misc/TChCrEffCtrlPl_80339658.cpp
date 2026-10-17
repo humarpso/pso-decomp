@@ -12,9 +12,7 @@ extern "C" {
 s32 set_depth_buffer_settings_1__Fv();
 s32 restore_saved_depth_alpha_state();
 s32 draw_ui_sprite(int, void *, f32, f32);
-void __ct__7TObjectFP7TObject(void *);
 extern u8 lbl_80477C70[];
-extern u8 __vt__14TChCrEffCtrlPl[];
 extern s32 TChCrEffCtrlPl__name;
 O_80339808 *__ct__14TChCrEffCtrlPlFP7TObject(O_80339808 *arg0, void * _w1);
 f32 sin_table_lookup(s32);

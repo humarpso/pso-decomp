@@ -9,12 +9,10 @@ void TObjBoss1Floor__sub_8002CB40(void);
 void TObjBoss1Floor__sub_8002CB78(void);
 void create_instance__14TObjBoss1FloorFv(void);
 s32 update_dragon_trail_uvs(void *);
-s32 __ct__14TObjBoss1FloorFP7TObject(void*, s32);
 s32 draw_chunk_object(void *);
 s32 translate_matrix(int, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
-void* __nw__7TObjectFUl(s32);
 s32 set_chunk_material_override_pair(int, int, void *, void *);
 
 void TObjBoss1Floor__sub_8002CB40(void) {  }

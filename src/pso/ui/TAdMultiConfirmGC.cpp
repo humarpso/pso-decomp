@@ -1,6 +1,5 @@
 #include "types.h"
 #include "pso/ui/TAdMultiConfirmGC.h"
-#include "pso/ui/TAdMultiConfirmGC.h"
 #include "pso/TAdMultiChgGameModeGC.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 
@@ -36,7 +35,6 @@ s32 multi_confirm_cancel_requested(s32);
 s32 are_all_entries_finished(s32);
 void *get_localized_text_entry(s32, s32);
 void *__nw__7TObjectFUl(u32);
-void __ct__7TObjectFP7TObject(void *, void *);
 void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__10TAdTitleGCFP7TObjectl(void *, void *, s32);
@@ -50,7 +48,6 @@ void __ct__18TAdMultiPlayerNoGCFv(void *, void *, u32, u32, s32);
 extern s32 __vt__17TAdMultiConfirmGC[];
 extern s32 TAdMultiConfirmGC__name;
 extern u8 lbl_805DEF30;
-TAdMultiConfirmGC_802FFA3C *__ct__17TAdMultiConfirmGCFP7TObject(TAdMultiConfirmGC_802FFA3C *self, void *parent);
 void *__dt__17TAdMultiConfirmGCFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);

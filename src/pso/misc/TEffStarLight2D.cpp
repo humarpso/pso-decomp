@@ -53,7 +53,6 @@ void matrix_mult_vec(int, void *, void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 void project_world_to_screen(int, void *, void *);
-extern u8 __vt__15TEffStarLight2D[];
 extern u32 lbl_805D292C;
 s32 queue_destruction__7TObjectFv(void *);
 f32 approach_vector_fixed_distance(void *, void *, void *, f32);
@@ -63,7 +62,6 @@ f32 newton_sqrtf(f32);
 extern void *__vt__18TEffStarLightChild[];
 extern s32 lbl_805D2928;
 void run_task__15TEffStarLight2DFv(Star_800851B0 *self);
-O_80085388 *__ct__15TEffStarLight2DFPvPvP7TObject(O_80085388 *arg0, void *arg1, void *arg2, void *arg3);
 void run_task__18TEffStarLightChildFv(Star_80085424 *self);
 Star_800855F8 *__ct__18TEffStarLightChildFv(Star_800855F8 *self, Pt_800855F8 *a, Pt_800855F8 *b, void *parent, f32 w, f32 speed);
 void run_task__15TEffStarLight2DFv(Star_800851B0 *self) {

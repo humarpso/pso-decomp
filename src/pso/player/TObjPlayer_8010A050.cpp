@@ -1,7 +1,6 @@
 #include "types.h"
 #include "pso/player/TUnk_8049F130.h"
 #include "pso/item/TUnk_8049F148.h"
-#include "pso/player/TUnk_8049F130.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/misc/TNowLoading.h"
@@ -88,11 +87,9 @@ struct VObj_8010A26C : Base_8010A26C {
 
 extern "C" {
 u32 get_item_system_generation();
-void __ct__7TObjectFP7TObject(void *, void *);
 extern const s32 lbl_8043E280[];
 extern const s32 lbl_8043E2A0[];
 extern s32 __vt__13TUnk_8049F130[];
-Obj_8010A1D0 *__ct__13TUnk_8049F130FP7TObjectsUc(Obj_8010A1D0 *self, void *parent, s16 a, u8 b);
 s32 TObjPlayer__sub_8010A058(void* p);
 void *__dt__13TUnk_8049F130Fv(void *arg0, s16 arg1);
 s32 get_field_3e0__12TBoss3VoloptFv();

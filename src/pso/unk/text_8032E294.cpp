@@ -1,6 +1,5 @@
 #include "types.h"
 #include "pso/item/TUnk_804EDD44.h"
-#include "pso/item/TUnk_804EDD44.h"
 
 struct Eff_8032E34C {
     u8 pad0[0x18];
@@ -27,10 +26,7 @@ extern s32 lbl_805D4218;
 extern const f32 lbl_805DF7E0;
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 atan2_float(f32, f32);
-void __ct__7TObjectFP7TObject(void *, void *);
 extern const f64 lbl_804773A8[];
-extern void *__vt__13TUnk_804EDD44[];
-Eff_8032E34C *__ct__13TUnk_804EDD44FP7TObjectPfPfll(Eff_8032E34C *self, void *parent, f32 *arg2, f32 *arg3, s32 arg4, s32 arg5);
 #pragma fp_contract on
 void TUnk_804EDD44::sub_8032E294() {
   f32 var_f0;
@@ -88,7 +84,4 @@ TUnk_804EDD44::TUnk_804EDD44(TObject *parent, f32 *arg2, f32 *arg3, s32 arg4, s3
     ((Eff_8032E34C *)this)->f58 = (s32)(lbl_804773A8[0] * atan2_float(arg3[0], arg3[2]));
     ((Eff_8032E34C *)this)->f50 = arg4;
     ((TUnk_804EDD44 *)((Eff_8032E34C *)this))->sub_8032E294();
-}
-extern "C" {
-
 }

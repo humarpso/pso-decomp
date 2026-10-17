@@ -809,10 +809,6 @@ u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *ori
     return self;
 }
 
-}
-
-extern "C" {
-
 #pragma push
 #pragma opt_loop_invariants off
 #pragma opt_common_subs off

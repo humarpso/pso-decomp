@@ -69,7 +69,6 @@ struct Cam_8006809C { u8 pad0[0x1C]; Obj_8006809C *obj; u8 pad20[0x60 - 0x20]; V
 extern "C" {
 extern G_80068018 controller_input_state;
 extern s32 __vt__13TUnk_80488838[];
-O_80068018 *__ct__13TUnk_80488838Fv(O_80068018 *self);
 Vec_8006835C *get_target__11TCameraCtrlFv(void *);
 void direction_to_pitch_yaw(void *, void *, void *);
 void set_viewport_scissor__11TCameraCtrlFiPv(s32, void *);
@@ -109,7 +108,6 @@ extern const f32 lbl_805D8F8C;
 extern const f32 lbl_805D8F90;
 extern s32 __vt__13TUnk_80488A28[];
 extern const f32 lbl_805D8FA0;
-void *__ct__13TUnk_80488A28Fv(void *arg0);
 void *__dt__13TUnk_80488838Fv(void *arg0, s16 arg1);
 void TCameraCtrl__sub_80068354(void);
 void TCameraCtrl__sub_80068358(void);

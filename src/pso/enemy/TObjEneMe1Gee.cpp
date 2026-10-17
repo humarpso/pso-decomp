@@ -326,8 +326,6 @@ void TUnk_8049387C::vfunc_112(s32 arg1) {
     }
 }
 
-}
-
 #pragma pop
 #pragma push
 #define set_flag3c8_bit2__13TObjEneMe1GeeFv ((s32 (*)(void *))set_flag3c8_bit2__13TObjEneMe1GeeFv)
@@ -339,9 +337,6 @@ void TUnk_8049387C::vfunc_112(s32 arg1) {
 #define set_flag3c8_bit4__13TObjEneMe1GeeFPv ((s32 (*)(void *))set_flag3c8_bit4__13TObjEneMe1GeeFPv)
 #define TObjEneMe1Gee__sub_800CB5A0 ((s32 (*)(void *, s32))TObjEneMe1Gee__sub_800CB5A0)
 #define sub_800CB764__13TUnk_8049387CFl ((s32 (*)(void *, s32))sub_800CB764__13TUnk_8049387CFl)
-
-extern "C" {
-
 struct Vec_800C82A4 { f32 x, y, z; };
 struct Data_800C82A4 { f32 a; Vec_800C82A4 v; };
 struct Gee_800C82A4 { u8 pad[0x494]; s32 count; void *arr[8]; };

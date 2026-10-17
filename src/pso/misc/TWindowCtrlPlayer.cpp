@@ -1,7 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowCtrlPlayer.h"
 #include "pso/TObject.h"
-#include "pso/misc/TWindowCtrlPlayer.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/object/TObjLuker.h"
 
@@ -30,7 +29,6 @@ void run_all_updates__11TWindowCtrlFv(void* p);
 
 s32 is_split_screen(void);
 void *__nw__7TObjectFUl(u32);
-s32 __ct__7TObjectFP7TObject(void *, void *);
 void *TWindowActionPalette__ct(void *, s32);
 void *create_message_information_window(s32, void *, s32);
 s32 get_window_layout_position(s32);
@@ -98,7 +96,4 @@ TWindowCtrlPlayer::TWindowCtrlPlayer(TObject *parent, s32 arg2) : TObject(parent
     }
     ((struct Ctl_8024E2A8 *)this)->f34 = p;
     ((TObject *)(((struct Ctl_8024E2A8 *)this)->f34))->set_flag_4();
-}
-extern "C" {
-
 }

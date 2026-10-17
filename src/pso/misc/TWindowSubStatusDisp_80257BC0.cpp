@@ -38,12 +38,8 @@ void draw_status_gauge_bar__13TUnk_804CF930FPvPvff(Gauge_80256E0C *self, void *c
 void *destroy__13TUnk_804CF930Fs(void *arg0, s16 arg1);
 void *TWindowSubStatusDisp__sub_80257298(void *arg0, s16 arg1);
 s32 __dl__FPv(void *);
-}
 
 #define draw_status_gauge_bar__13TUnk_804CF930FPvPvff ((s32 (*)(void *, void *, void *, f32, f32))draw_status_gauge_bar__13TUnk_804CF930FPvPvff)
-
-extern "C" {
-
 struct RecoveredGlobal_80257B4C_lbl_804CF948 {
     s32 value;
     u8 remaining[0x14];

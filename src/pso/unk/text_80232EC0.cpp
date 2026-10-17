@@ -26,10 +26,7 @@ u32 spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 u32 *mem_alloc(s32);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
-void __ct__7TObjectFP7TObject(void *, void *);
 extern Profile_80232EC0 grants_effect_emitter_table[];
-extern void *__vt__13TUnk_804CC888[];
-Task_80232EC0 *__ct__13TUnk_804CC888FPUclP7TObject(Task_80232EC0 *self, u8 *src, s32 level, void *parent);
 }
 TUnk_804CC888::TUnk_804CC888(u8 *src, s32 level, TObject *parent) : TObject(parent) {
     u32 i;
@@ -80,7 +77,4 @@ TUnk_804CC888::TUnk_804CC888(u8 *src, s32 level, TObject *parent) : TObject(pare
         }
         break;
     }
-}
-extern "C" {
-
 }

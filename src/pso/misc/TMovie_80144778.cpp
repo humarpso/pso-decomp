@@ -1,7 +1,6 @@
 #include "types.h"
 #include "pso/misc/TMovie.h"
 #include "pso/misc/TKeyBoardControl.h"
-#include "pso/misc/TMovie.h"
 
 struct TMovie_80144910 {
     s32 name;
@@ -27,13 +26,10 @@ struct Vec_80144778 { s32 x, y, z; };
 extern "C" {
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(int);
 u8 *initialize_movie_with_soundtrack(u8 *arg0, s8 *arg1, s32 arg2, s32 arg3, s32 arg4);
-void __ct__7TObjectFP7TObject(void *, void *);
 u8 *load_rel_module(u8 *, void *);
 char *strncpy(char *, const char *, u32);
 extern u8 lbl_8043F380[];
-extern s32 __vt__6TMovie[];
 extern s32 TMovie__name;
-TMovie_80144910 *__ct__6TMovieFP7TObjectPSclll(TMovie_80144910 *self, void *parent, s8 *name, s32 a3, s32 a4, s32 a5);
 s32 queue_destruction__7TObjectFv(void *);
 u8 *__ct__10TAdEndTextFv(void *, void *);
 s32 TAdEndText__sub_8001B41C();

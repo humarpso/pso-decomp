@@ -1,7 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowSubLog.h"
 #include "pso/misc/TWindowChat.h"
-#include "pso/misc/TWindowSubLog.h"
 #include "pso/ui/TAdScrollWinGC.h"
 
 struct VBase_18_204a81 { char pad[0x18]; };
@@ -41,7 +40,6 @@ extern const f32 lbl_805DD638;
 extern const f32 lbl_805DD63C;
 extern const f32 lbl_805DD640;
 extern const f32 lbl_805DD644;
-void __ct__7TObjectFP7TObject(void *, void *);
 void TWindowCtrl__sub_8024ADAC(void *);
 s32 create_message_log_window(void *, void *, void *);
 int fn_8027B288(void* p);
@@ -50,7 +48,6 @@ extern u8 lbl_8044F9C8[];
 extern u8 lbl_8044F9D0[];
 extern s32 __vt__13TWindowSubLog[];
 extern s32 TWindowSubLog__class_name;
-Lg_8027B194 *__ct__13TWindowSubLogFP7TObjectPv(Lg_8027B194 *arg0, void *arg1, void *arg2);
 void *__dt__13TWindowSubLogFv(void *arg0, s16 arg1);
 void TWindowCtrl__sub_8024ADF0(void *);
 void TWindow__close(void *);

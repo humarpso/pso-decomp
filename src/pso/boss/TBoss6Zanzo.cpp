@@ -1,7 +1,6 @@
 #include "types.h"
 #include "pso/boss/TBoss6Zanzo.h"
 #include "pso/boss/TBoss6Type1.h"
-#include "pso/boss/TBoss6Zanzo.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdChrMoveEffectGC.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -34,17 +33,11 @@ struct Obj_803209F0 { s32 f0; u8 pad[0x14]; void *vt; Src_803209F0 *arr; Src_803
 extern "C" {
 void TBoss6Zanzo__sub_803205A0(s32 *arg0, s32 *arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void __dt__7TObjectFv(void *, int);
 void __dl__FPv(void *);
 void mem_free(void *);
-void __dl__7TObjectFPv(void *);
-extern u8 __vt__11TBoss6Zanzo[];
-Obj_80320950 *__dt__11TBoss6ZanzoFv(Obj_80320950 *arg0, s16 arg1);
 void run_task__11TBoss6ZanzoFv(Obj_803208CC *arg0);
 u8 *mem_alloc(s32);
-void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 TBoss6Zanzo__name;
-Obj_803209F0 *__ct__11TBoss6ZanzoFP7TObjectll(Obj_803209F0 *arg0, void *arg1, s32 arg2, s32 arg3);
 s32 fn_803204B0(void* p);
 int TBoss6Zanzo__sub_803205C4(void*);
 int restore_saved_depth_alpha_state(void);
@@ -138,7 +131,4 @@ TBoss6Zanzo::TBoss6Zanzo(TObject *arg1, s32 arg2, s32 arg3) : TObject(arg1) {
     ((Obj_803209F0 *)this)->last = (Src_803209F0 *)((TAdSinglePlyChrSelectGC *)8)->alloc();
     ((Obj_803209F0 *)this)->last->a = 0;
     ((Obj_803209F0 *)this)->last->p = mem_alloc(((Obj_803209F0 *)this)->n * 0x10);
-}
-extern "C" {
-
 }

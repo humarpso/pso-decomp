@@ -4,7 +4,6 @@
 
 extern "C" {
 
-void *__ct__15TAdChrSelSlotGCFP7TObject(void *, void *);
 void *__ct__15TAdSubPlyItemGCFv(void *, void *);
 void *__ct__19TAdPlyChrSelPlateGCFv(void *, void *, void *);
 void *__ct__20TAdChrSelMovePlateGCFv(void *, void *);

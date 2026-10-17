@@ -1,7 +1,6 @@
 #include "types.h"
 #include "pso/misc/TUnk_80488838.h"
 #include "pso/misc/TUnk_80488E00.h"
-#include "pso/misc/TUnk_80488838.h"
 
 struct Stack_80067EE0 {
     f32 sp8;
@@ -42,8 +41,6 @@ struct Obj_80067D20 {
 };
 
 extern "C" {
-void *__nw__7TObjectFUl(int);
-void *__ct__13TUnk_80488838Fv(void *);
 s32 set_target_pos__13TUnk_80488DA0FPv(void *, void *, f32);
 u8 *get_player_by_client_id(s32);
 extern const f32 lbl_805D8F78;

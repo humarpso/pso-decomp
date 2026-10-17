@@ -1,6 +1,5 @@
 #include "types.h"
 #include "pso/boss/TBoss6Demo21_TYPE2_DEAD.h"
-#include "pso/boss/TBoss6Demo21_TYPE2_DEAD.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss6PlotFalz.h"
@@ -54,12 +53,9 @@ struct Pl_8033E0F0 {
 extern "C" {
 void *__nw__7TObjectFUl(int);
 void * create_boss6_type2_death(void *arg0, void *arg1);
-s32 __dt__7TObjectFv(void *, int);
 s32 restore_player_cameras();
-s32 __dl__7TObjectFPv(void *);
 s32 refresh_players_equipment__14TBoss6PlotFalzFPv();
 extern void *__vt__23TBoss6Demo21_TYPE2_DEAD[];
-O_8033E5A8 *__dt__23TBoss6Demo21_TYPE2_DEADFv(O_8033E5A8 *arg0, s16 arg1);
 void clear_render_callback__8TObjFishFv(int);
 void push_matrix();
 void pop_matrix();
@@ -452,7 +448,5 @@ void * create_boss6_type2_death(void *arg0, void *arg1) {
     return o;
 }
 
-void render_shadows__7TObjectFv();
 }
 #undef __vt__23TBoss6Demo21_TYPE2_DEAD
-extern void *__vt__23TBoss6Demo21_TYPE2_DEAD[];
