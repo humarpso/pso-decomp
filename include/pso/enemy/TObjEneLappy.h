@@ -8,6 +8,7 @@ struct LappyVec { f32 x, y, z; };
 
 struct TObjEneLappy : public TObjEnemy {
     virtual ~TObjEneLappy();
+    virtual void vfunc_28();
     virtual int test_flag_256();
     virtual void vfunc_58();
     virtual void vfunc_59();

@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void rocket_punch_marker(u8 *arg0);
+void emit_marker_effects__13TUnk_804A535CFv(u8 *arg0);
 }
 
 #endif

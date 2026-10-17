@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneLappy.h"
 extern "C" void test_flag_256__12TObjEneLappyFv();
 #include "pso/enemy/TObjEneLappy.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
@@ -334,7 +335,7 @@ s32 subtract_vector(void *, void *);
 extern s32 lappy_target_zero_vec[];
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
-void select_target__12TObjEneLappyFPv(u8 *arg0);
+void vfunc_28__12TObjEneLappyFv(u8 *arg0);
 u32 csnVector(void *, void *, s32);
 s32 project_actor_to_ground(void *, void *, s32);
 s32 vec3_add_to(void *, void *);
@@ -1001,13 +1002,14 @@ void TObjEneLappy::vfunc_58() {
     }
 }
 
-void select_target__12TObjEneLappyFPv(u8 *arg0) {
+void TObjEneLappy::vfunc_28() {
     s32 best_id;
     s32 i;
     s32 id;
     u8 *p;
     f32 best;
     f32 d;
+    u8 *arg0 = (u8 *)this;
     if (((TObjEneLappy *)(arg0))->is_actor_cadence_frame(0x1E) != 0) {
         if (*(s32 *)((s8 *)arg0 + 0x30) & 0x1000) {
             if ((*(f32 *)((s8 *)arg0 + 0x2B4) -= lbl_805D9F60) < lbl_805D9F4C) {
@@ -1662,7 +1664,7 @@ void *lbl_80492F28[84] = {
     (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker__13TUnk_804806E8FPUc, (void *)&try_start_action__13TUnk_804806E8Fll, (void *)&roll_physical_accuracy__13TUnk_804806E8FPvlf,
-    (void *)&select_target__12TObjEneLappyFPv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__12TObjEneLappyFv,
+    (void *)&vfunc_28__12TObjEneLappyFv, (void *)&vfunc_29__13TUnk_804806E8Fv, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__12TObjEneLappyFv,
     (void *)&test_flag30_512__13TUnk_804806E8Fv, (void *)&has_flag_0x800__13TUnk_804806E8Fv, (void *)&test_flag_1000__13TUnk_804806E8Fv, (void *)&update_poison_status__13TUnk_804806E8Fv,
     (void *)&update_action_hold__12TObjEneLappyFi, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__13TUnk_804806E8Fv, (void *)&try_clear_flags_60__10TObjPlayerFi,
     (void *)&update_shock_clock__13TUnk_804806E8Fv, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&vfunc_43__13TUnk_804806E8Fv,

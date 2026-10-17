@@ -46,7 +46,6 @@ u16 find_nearest_visible_player(void *, int, f32);
 s32 calc_attach_pos__13TUnk_804806E8Fv();
 f32 horizontal_distance_squared(void *, void *);
 void send_6x2C_impose_hold(void *, void *, s32, int, f32);
-void TOTrap__vt79(Obj_80178CF8 *self);
 struct Base_80178EF8_80178BC0 { char pad[0x18]; };
 struct VObj_80178EF8_80178BC0 : Base_80178EF8_80178BC0 {
 #define VM(n) virtual void m##n();
@@ -112,8 +111,9 @@ void TOTrap::vfunc_82() {
     submit_cursor_candidate(this, -1);
 }
 
-void TOTrap__vt79(Obj_80178CF8 *self) {
+void TOTrap::vfunc_81() {
     u8 *pl;
+    Obj_80178CF8 *self = (Obj_80178CF8 *)this;
     calc_attach_pos__13TUnk_804806E8Fv();
     self->idx = find_nearest_visible_player(self, 0, self->x334);
     if (self->idx != 0xFFFF) {

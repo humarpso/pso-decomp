@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A535C.h"
 #include "pso/player/TObjPlayer_8012C78C.h"
 #include "pso/unk/text_80120908.h"
 #include "pso/TAdRicoRing.h"
@@ -6,8 +7,9 @@
 
 extern "C" {
 
-void rocket_punch_draw(u8 *arg0) {
+void TUnk_804A535C::reserved_53() {
     s32 temp_r31;
+    u8 *arg0 = (u8 *)this;
 
     temp_r31 = *(s32 *)((s8 *)arg0 + 0xF4);
     ((TObjPlayer *)(arg0 + 0x1F8))->set_flags(1);

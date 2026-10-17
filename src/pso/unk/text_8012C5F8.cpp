@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A535C.h"
 #include "pso/item/SpecialProjectileWeapons.h"
 #include "pso/player/TObjPlayer_8012C950.h"
 #include "pso/system/GinjaMaterial.h"
@@ -67,10 +68,11 @@ extern "C" {
 s32 test_flags_any(void *p, s32 n);
 void rocket_punch_node_callback(Obj_8012C714 *self);
 
-void rocket_punch_marker(u8 *arg0) {
+void TUnk_804A535C::emit_marker_effects() {
     s32 temp_r31;
     s32 var_r30;
     u32 temp_r3;
+    u8 *arg0 = (u8 *)this;
     temp_r3 = *(u32 *)((s8 *)arg0 + 0xF0);
     if (temp_r3 == 0U) return;
     temp_r31 = temp_r3 + 0x7CC;

@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void cast_gizonde_chain__10TObjPlayerFPv(u8 *arg0);
+void emit_marker_effects__13TUnk_804A65E0Fv(u8 *arg0);
 }
 
 #endif

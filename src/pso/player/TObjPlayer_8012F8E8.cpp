@@ -12,11 +12,12 @@ s32 get_captured_target_count();
 s32 get_extended_state__10TObjPlayerFv(int);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
 
-void cast_gizonde_chain__10TObjPlayerFPv(u8 *arg0) {
+void TUnk_804A65E0::emit_marker_effects() {
     s32 temp_r3;
     u8 *var_r30;
     s32 i;
     u8 *captured_target_entry;
+    u8 *arg0 = (u8 *)this;
 
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
         ((TObjPlayer *)arg0)->draw_icon((s32)((int) (0)), (s32)((void *) (arg0 + 0x1F8)));

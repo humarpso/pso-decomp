@@ -6,6 +6,8 @@
 class TUnk_804A535C : public TItemWeapon {
 public:
     virtual ~TUnk_804A535C();
+    virtual void reserved_53();
+    virtual void emit_marker_effects();
     void *init_trade_action();
 };
 

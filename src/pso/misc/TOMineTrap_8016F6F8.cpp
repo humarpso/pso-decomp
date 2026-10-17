@@ -27,7 +27,6 @@ s32 create_placed_trap__10TOMineTrapFUiss(u32 arg0, s16 arg1, s16 arg2);
 s32 is_split_screen();
 void *TOMineDisp__ct(void *, void *, u16);
 extern s32 local_client_id;
-void spawn_disp_objects__10TOMineTrapFPv(u8 *arg0);
 }
 
 struct VBase_18_33b813
@@ -104,7 +103,6 @@ struct Pair_80170DD8 { s32 a; s32 b; };
 extern "C" {
 void set_indexed_flags(void *, s32, s32);
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
-s32 apply_object_set_data__13TUnk_804B9870FPv();
 s32 get_localized_text_entry(s32 arg0, s32 arg1);
 s32 get_main_phase();
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -299,9 +297,10 @@ s32 TOMineTrap::can_trigger(u32 arg1) {
     return 0;
 }
 
-void spawn_disp_objects__10TOMineTrapFPv(u8 *arg0) {
+void TOMine::spawn_disp_objects() {
     u8 *obj;
     u16 i;
+    u8 *arg0 = (u8 *)this;
     if (is_split_screen() == 0) {
         obj = (u8 *)__nw__7TObjectFUl(0xAC);
         if (obj != NULL) {

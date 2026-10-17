@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void rocket_punch_draw(u8 *arg0);
+void reserved_53__13TUnk_804A535CFv(u8 *arg0);
 }
 
 #endif

@@ -85,7 +85,7 @@ void roll_physical_accuracy__6TOMineFPvlf();
 void try_start_action__6TOMineFll();
 void apply_knockback_from_attacker__6TOMineFPUc();
 void vfunc_79__6TOMineFv();
-void spawn_disp_objects__10TOMineTrapFPv(u8 *arg0);
+void spawn_disp_objects__6TOMineFv(u8 *arg0);
 void apply_object_set_data__6TOMineFPv();
 void vfunc_85__6TOMineFv();
 void vfunc_6__6TOMineFPsl();
@@ -241,7 +241,7 @@ void *__vt__12TOMineIcon04[87] = {
     (void *)vfunc_80__12TOMineIcon04Fv,
     (void *)spawn_effect__10TOMineTrapFv,
     (void *)vfunc_82__12TOMineIcon04Fv,
-    (void *)spawn_disp_objects__10TOMineTrapFPv,
+    (void *)spawn_disp_objects__6TOMineFv,
     (void *)vfunc_84__12TOMineIcon04Fv,
     (void *)vfunc_85__6TOMineFv,
     (void *)vfunc_86__6TOMineFv,

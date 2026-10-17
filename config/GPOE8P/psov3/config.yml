@@ -1330,7 +1330,7 @@ force_active:
   - construct_technique_disk_item
   - construct_with_index__22TObjFogCollisionPoisonFPUcl
   - construct_with_vtable__13TUnk_8049F40CFPvii
-  - consume_counter__14TOTrapChainSawFPvPv
+  - consume_counter__14TOTrapChainSawFPv
   - controller_default_pad_state
   - convert_serial_hex_to_decimal__22TAdEnterSerialAccessGCFi
   - copy__11TBreakUpMdlFPv
@@ -7644,7 +7644,7 @@ force_active:
   - set_flag_and_clear_download__6TLobbyFv
   - set_flag_and_notify__10TObjPlayerFv
   - set_gauge_param__20TWindowSubStatusDispFl
-  - set_hit_cooldown_for_player__14TOTrapChainSawFPvPv
+  - set_hit_cooldown_for_player__14TOTrapChainSawFPv
   - set_hit_flags_and_notify__20TBoss3VoloptHiraisinFv
   - set_index__9TLanguageFl
   - set_input_active__11TWindowChatFv
@@ -8484,6 +8484,7 @@ force_active:
   - vfunc_26__20TOTrapChainSawDamageFv
   - vfunc_27__17TOTrapChainSawKeyFv
   - vfunc_27__20TOTrapChainSawDamageFv
+  - vfunc_28__12TObjEneLappyFv
   - vfunc_28__13TObjEneBm3FlyFv
   - vfunc_28__13TObjEneRe4BitFv
   - vfunc_28__14TObjEneBm5WolfFv

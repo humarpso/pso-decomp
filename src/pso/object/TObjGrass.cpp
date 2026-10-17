@@ -387,7 +387,6 @@ s32 subtract_vector(void *, void *);
 extern s32 lbl_8043B790[];
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
-void TObjGrass__vt26(u8 *arg0);
 s32 dispatch_shared_handler_a__6TLobbyFl(int);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
@@ -1544,7 +1543,7 @@ s32 TObjGrass::update_action_hold_status() {
 
 extern void *tl_04;
 
-void TObjGrass__vt26(u8 *arg0) {
+void TObjGrass::vfunc_28() {
     s32 best_id;
     s32 i;
     s32 id;
@@ -1553,6 +1552,7 @@ void TObjGrass__vt26(u8 *arg0) {
     f32 d;
     u8 *q;
     u16 tid;
+    u8 *arg0 = (u8 *)this;
     if (((TObjGrass *)(arg0))->is_actor_cadence_frame(0x1E) != 0) {
         if (*(s32 *)((s8 *)arg0 + 0x3AC) == 1) {
             *(u16 *)((s8 *)arg0 + 0x338) = 0xFFFFU;

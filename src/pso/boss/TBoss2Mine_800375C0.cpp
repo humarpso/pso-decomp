@@ -35,15 +35,15 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void init_launch__10TBoss2MineFPvPvii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 s32 subtract_vector(void *, void *);
-void TBoss2Mine__sub_800375C0(u8 *arg0, s32 arg1);
 s32 vec3_add_to(void *, void *);
 s32 is_alive__9TObjEneDDFv(s32);
 
 #pragma push
 #pragma fp_contract on
-void TBoss2Mine__sub_800375C0(u8 *arg0, s32 arg1) {
+void TUnk_80482D04::vfunc_106(s32 arg1) {
     Vec_800375C0 v;
     f32 s;
+    u8 *arg0 = (u8 *)this;
     switch (arg1) {
     case 4:
         ((TUnk_80482D04 *)(arg0))->vfunc_96();
@@ -102,9 +102,10 @@ void TBoss2Mine__sub_800375C0(u8 *arg0, s32 arg1) {
 
 #pragma push
 #pragma fp_contract on
-void TBoss2Mine__sub_800377E8(u8 *arg0, s32 arg1) {
+void TUnk_80482D04::vfunc_105(s32 arg1) {
     Vec_800375C0 v;
     f32 t;
+    u8 *arg0 = (u8 *)this;
     switch (arg1) {
     case 4:
         ((TUnk_80482D04 *)(arg0))->vfunc_95();
@@ -276,7 +277,6 @@ V(80)V(81)V(82)V(83)V(84)V(85)V(86)V(87)V(88)V(89)V(90)V(91)V(92)V(93)V(94)V(95)
 extern "C" {
 f32 atan2_float(f32 y, f32 x);
 f32 newton_sqrtf(s32, f32, f32, f32);
-void TBoss2Mine__sub_80037EE0(u8 *arg0, s32 arg1);
 void*TUnk_80482D04::create(int a1, int a2, int a3) { TBoss2Mine__ct(this, a1, a2, a3, 1); *(int*)((char*)this + 0x18) = (int)lbl_80482D04; *(int*)((char*)this + 0x3f0) = 0; *(int*)((char*)this + 0x3f4) = 0; *(float*)((char*)this + 0x3f8) = (0.0f); *(float*)((char*)this + 0x3fc) = (0.0f); *(float*)((char*)this + 0x400) = (0.0f); *(float*)((char*)this + 0x404) = (0.0f); *(float*)((char*)this + 0x408) = (0.0f); *(float*)((char*)this + 0x40c) = (0.0f); return this; }
 #pragma push
 #pragma fp_contract on
@@ -338,10 +338,11 @@ void TUnk_80482EC0::vfunc_106(s32 arg1) {
 
 #pragma push
 #pragma fp_contract on
-void TBoss2Mine__sub_80037EE0(u8 *arg0, s32 arg1) {
+void TUnk_80482EC0::vfunc_105(s32 arg1) {
     f32 temp_f1;
     f32 temp_f2;
     s32 temp_r3;
+    u8 *arg0 = (u8 *)this;
     switch (arg1) {
     case 4:
         ((VObj_80037EE0 *)arg0)->m93();

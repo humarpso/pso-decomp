@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A403C.h"
 #include "pso/item/SpecialProjectileWeapons.h"
 #include "pso/player/TObjPlayer_80128A70.h"
 #include "pso/system/GinjaMaterial.h"
@@ -68,10 +69,11 @@ s32 test_flags_any(void *p, s32 n);
 void srank_punch_node_callback(Obj_80128E08 *self);
 void clear_rico_ring_flag__10TObjPlayerFv(u32);
 
-void srank_punch_marker(u8 *arg0) {
+void TUnk_804A403C::emit_marker_effects() {
     s32 temp_r31;
     s32 var_r30;
     u32 temp_r3;
+    u8 *arg0 = (u8 *)this;
     TObjPlayer__sub_80128A70();
     temp_r3 = *(u32 *)((s8 *)arg0 + 0xF0);
     if (temp_r3 == 0U) return;
