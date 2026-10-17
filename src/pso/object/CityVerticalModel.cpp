@@ -6,7 +6,6 @@
 #include "pso/object/TUnk_804B5C08.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjFish.h"
-extern const f32 lbl_805DBC00;
 
 struct VBase_18_26a62c
 {
@@ -58,8 +57,6 @@ s32 push_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object();
 extern s32 city_common_texture_list;
-extern const f32 lbl_805DBC04;
-extern const f32 lbl_805DBC08;
 void render__13TUnk_804B5C08Fv(u8 *arg0);
 extern const f32 city_vertical_model_min_y_offset;
 extern const f32 city_vertical_model_max_y_offset;
@@ -70,7 +67,7 @@ extern void *tl_05;
 void __dl__7TObjectFPv(void *);
 extern s32 city_vertical_model_vtable[];
 s32 construct_world_actor_base(void *, void *);
-void TUnk_804B5C08::vfunc_13(s32) { this->m_9c = lbl_805DBC00; *(int*)((char*)this + 0x90) = 1; }
+void TUnk_804B5C08::vfunc_13(s32) { this->m_9c = 0.0f; *(int*)((char*)this + 0x90) = 1; }
 typedef struct RecoveredFields_80182E90_arg0 RecoveredFields_80182E90_arg0;
 typedef struct VBase_18_26a62c VBase_18_26a62c;
 typedef struct VObj_18_26a62c VObj_18_26a62c;
@@ -83,7 +80,7 @@ void TUnk_804B5C08::render() {
   new_var = ((s32) ((RecoveredFields_80182E90_arg0 *) arg0)->field_90) != 0;
   if (new_var)
   {
-    if (PSO_VCALL_VObj_18_26a62c_m8(arg0, lbl_805DBC04, lbl_805DBC08) == 0)
+    if (PSO_VCALL_VObj_18_26a62c_m8(arg0, 600.0f, 50.0f) == 0)
     {
       ((RecoveredFields_80182E90_arg0 *) arg0)->field_9C = ((RecoveredFields_80182E90_arg0 *) arg0)->field_9C;
       return;
@@ -91,7 +88,7 @@ void TUnk_804B5C08::render() {
     TObjFish::set_global_param((s32)((void *) city_common_texture_list));
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
-    translate_matrix((int) 0, (f32) lbl_805DBC00, (f32) ((RecoveredFields_80182E90_arg0 *) arg0)->field_9C, (f32) lbl_805DBC00);
+    translate_matrix((int) 0, (f32) 0.0f, (f32) ((RecoveredFields_80182E90_arg0 *) arg0)->field_9C, (f32) 0.0f);
     new_var2 = arg0;
     rotate_matrix_y((int) 0, (int) ((RecoveredFields_80182E90_arg0 *) new_var2)->field_60);
     get_city_common_model((int) 8);
@@ -168,13 +165,10 @@ u8 *construct_city_vertical_model(u8 *arg0, s32 parent, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x90) = 1;
     ((TUnk_804B5C08 *)arg0)->m_94 = 2;
     *(s32 *)((s8 *)arg0 + 0x98) = 0;
-    *(f32 *)&((TUnk_804B5C08 *)arg0)->m_9c = (f32) lbl_805DBC00;
+    *(f32 *)&((TUnk_804B5C08 *)arg0)->m_9c = (f32) 0.0f;
     return arg0;
 }
 
-__declspec(section ".sdata2") extern const f32 lbl_805DBC00 = 0.0f;
-__declspec(section ".sdata2") extern const f32 lbl_805DBC04 = 600.0f;
-__declspec(section ".sdata2") extern const f32 lbl_805DBC08 = 50.0f;
 __declspec(section ".sdata2") extern const f32 city_vertical_model_min_y_offset = -200.0f;
 __declspec(section ".sdata2") extern const f32 city_vertical_model_max_y_offset = 200.0f;
 __declspec(section ".sdata2") extern const f32 city_vertical_model_y_step = 2.0f;

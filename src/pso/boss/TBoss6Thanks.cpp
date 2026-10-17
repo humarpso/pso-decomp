@@ -35,8 +35,6 @@ s32 scale_matrix(int, f32, f32, f32);
 s32 push_matrix();
 s32 post_translate_matrix(void *);
 extern u8 TBoss6Thanks__data_80479BA8[];
-extern const f32 lbl_805E019C;
-extern const f32 lbl_805E01A0;
 
 }
 
@@ -62,7 +60,6 @@ s32 get_bml_model(void *, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8035D10C___vt__12TBoss6Thanks __vt__12TBoss6Thanks;
 extern s32 TBoss6Thanks__class_name;
-extern const f32 lbl_805E01A4;
 u8 *TBoss6Thanks__ct(u8 *arg0, u8 *arg1);
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
@@ -72,7 +69,6 @@ void TBoss6Thanks__sub_8035CCAC(s32 arg0);
 extern Ent_8035CB88 boss6_thanks_particle_emitter_table[];
 int get_player_data__10TObjPlayerFi(int a0);
 f32 xyz_distance(void *, void *);
-extern const f32 lbl_805E0198;
 u8 fn_8035CAE0(void);
 s32 play_sound_effect(s32, s32, s32, s32);
 int dispatch_by_main_phase__14TBoss4DarkFalzFUs(void*);
@@ -85,9 +81,6 @@ u8 TBoss6Thanks::check_ship_door() {
 }
 int TBoss6Thanks__sub_8035CB40(void) { return dispatch_by_main_phase__14TBoss4DarkFalzFUs((void*)(154)); }
 int TBoss6Thanks::dispatch_darkfalz_phase() { return dispatch_by_main_phase__14TBoss4DarkFalzFUs((void*)(152)); }
-
-extern const f32 lbl_805E01A8;
-extern const f32 lbl_805E01AC;
 
 void TBoss6Thanks::update_particle_emitters() {
     Obj_8035CB88 *o = (Obj_8035CB88 *)this;
@@ -135,7 +128,7 @@ int TBoss6Thanks::is_player_near(void *arg0) {
     u8 *p;
     f32 r;
     n = TLobby::get_game_mode();
-    r = lbl_805E0198;
+    r = 30.0f;
     for (i = 0; i < n; i++) {
         p = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (p != NULL && ((TBoss6PlotFalz *)p)->is_active() != 0 &&
@@ -150,7 +143,7 @@ int TBoss6Thanks::is_player_near(void *arg0) {
 
 void TBoss6Thanks::render() {
     TBoss6Thanks *o = this;
-    if (lbl_805E019C == o->opacity) {
+    if (0.0f == o->opacity) {
         return;
     }
     TBoss6PlotFalz::set_fade_material_color(o->opacity);
@@ -158,13 +151,13 @@ void TBoss6Thanks::render() {
     push_matrix();
     post_translate_matrix(TBoss6Thanks__data_80479BA8);
     TObjFish::set_global_param(o->texture0);
-    scale_matrix(0, lbl_805E01A0, lbl_805E01A0, lbl_805E01A0);
+    scale_matrix(0, 1.2f, 1.2f, 1.2f);
     draw_model_motion(o->model0, o->motions[o->current_motion], o->frame0);
     pop_matrix();
     push_matrix();
     post_translate_matrix(TBoss6Thanks__data_80479BA8);
     TObjFish::set_global_param(o->texture1);
-    scale_matrix(0, lbl_805E01A0, lbl_805E01A0, lbl_805E01A0);
+    scale_matrix(0, 1.2f, 1.2f, 1.2f);
     draw_model_motion(o->model1, o->motion1, o->frame1);
     pop_matrix();
     TObjPlayer::clear_global_state();
@@ -181,7 +174,7 @@ void TBoss6Thanks::update_fade_out() {
             play_sound_effect(0x40033231, 0, 0, 0);
         }
         update_particle_emitters();
-        this->opacity = (f32) (lbl_805E01A4 * (lbl_805E01A8 - ((f32) *(s32 *)&this->m_34 / lbl_805E01AC)));
+        this->opacity = (f32) (0.99f * (1.0f - ((f32) *(s32 *)&this->m_34 / 120.0f)));
         temp_r3 = *(s32 *)&this->m_34;
         if (temp_r3 == 0x78) {
             play_sound_effect(0x40033232, 0, 0, 0);
@@ -203,7 +196,6 @@ void TBoss6Thanks::mark_done() { if (TBoss6Thanks::is_player_near((void *)(this)
 
 typedef struct ThanksMotionHeader ThanksMotionHeader;
 typedef struct Thanks_8035CF78 Thanks_8035CF78;
-extern const f32 lbl_805E01B0;
 void TBoss6Thanks::run_task() {
   f32 lim;
   s32 *new_var;
@@ -220,8 +212,8 @@ void TBoss6Thanks::run_task() {
       ((TBoss6Thanks *)o)->update_fade_out();
       break;
   }
-  o->frame0 += lbl_805E01B0;
-  lim = ((f32) ((ThanksMotionHeader *)o->motions[o->current_motion])->count) - lbl_805E01A8;
+  o->frame0 += 0.6f;
+  lim = ((f32) ((ThanksMotionHeader *)o->motions[o->current_motion])->count) - 1.0f;
   if (o->frame0 >= lim)
   {
     o->frame0 -= lim;
@@ -230,8 +222,8 @@ void TBoss6Thanks::run_task() {
       o->current_motion = *new_var;
     }
   }
-  o->frame1 += lbl_805E01B0;
-  lim = ((f32) ((ThanksMotionHeader *)o->motion1)->count) - lbl_805E01A8;
+  o->frame1 += 0.6f;
+  lim = ((f32) ((ThanksMotionHeader *)o->motion1)->count) - 1.0f;
   if (o->frame1 >= lim)
   {
     o->frame1 -= lim;
@@ -268,18 +260,11 @@ u8 *TBoss6Thanks__ct(u8 *arg0, u8 *arg1) {
     ((TBoss6Thanks *)arg0)->m_1c = 0;
     ((TBoss6Thanks *)arg0)->m_24 = 0;
     ((TBoss6Thanks *)arg0)->current_motion = 0;
-    ((TBoss6Thanks *)arg0)->frame0 = (f32) lbl_805E019C;
-    ((TBoss6Thanks *)arg0)->frame1 = (f32) lbl_805E019C;
-    ((TBoss6Thanks *)arg0)->opacity = (f32) lbl_805E01A4;
+    ((TBoss6Thanks *)arg0)->frame0 = (f32) 0.0f;
+    ((TBoss6Thanks *)arg0)->frame1 = (f32) 0.0f;
+    ((TBoss6Thanks *)arg0)->opacity = (f32) 0.99f;
     *(s32 *)&((TBoss6Thanks *)arg0)->m_34 = 0;
     return arg0;
 }
 
-__declspec(section ".sdata2") const f32 lbl_805E0198 = 30.0f;
-__declspec(section ".sdata2") const f32 lbl_805E019C = 0.0f;
-__declspec(section ".sdata2") const f32 lbl_805E01A0 = 1.2f;
-__declspec(section ".sdata2") const f32 lbl_805E01A4 = 0.99f;
-__declspec(section ".sdata2") const f32 lbl_805E01A8 = 1.0f;
-__declspec(section ".sdata2") const f32 lbl_805E01AC = 120.0f;
-__declspec(section ".sdata2") const f32 lbl_805E01B0 = 0.6f;
 }
