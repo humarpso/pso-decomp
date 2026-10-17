@@ -284,8 +284,8 @@ void TLazerFenceSw::render() {
     u8 *arg0 = (u8 *)this;
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBE7C, lbl_805DBE80) != 0) {
         if (get_state_flag__9TMainTaskFv() != 1) {
-            set_depth_buffer_settings_id((3));
-            set_material_alpha_compare_reference((0x80));
+            set_depth_buffer_settings_id(3);
+            set_material_alpha_compare_reference(0x80);
             if (fn_80156BBC((void *) (arg0 + 0xF0), (void *) (arg0 + 0x38)) != 0) {
                 if (fn_80156C38((f32 *)(arg0 + 0xF0)) != 0) {
                     ((VObj_14_aa9368 *)((u8 *)(arg0) + (240)))->m6();
@@ -295,7 +295,7 @@ void TLazerFenceSw::render() {
                     draw_laser_beam();
                 }
             }
-            set_material_alpha_compare_reference((0x8F));
+            set_material_alpha_compare_reference(0x8F);
             func_80141618__Fv();
         }
     }

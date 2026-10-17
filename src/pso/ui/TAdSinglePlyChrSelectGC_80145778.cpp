@@ -20,7 +20,7 @@ void draw_menu_font_string(const char *s, s32 arg1, u32 flags, f32 x, f32 y, f32
 extern const f32 lbl_805DB1A8;
 
 void TAdSinglePlyChrSelectGC::render_status_disp(f32 arg1, f32 arg2) {
-    draw_menu_font_string((const char *)this, (s32)(-1), (u32)(0), (f32)arg1, (f32)arg2, (f32)lbl_805DB1A8);
+    draw_menu_font_string((const char *)this, -1, (u32)(0), (f32)arg1, (f32)arg2, (f32)lbl_805DB1A8);
 }
 #pragma push
 #pragma fp_contract on

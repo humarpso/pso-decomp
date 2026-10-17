@@ -58,11 +58,11 @@ s32 TWindowSubTrade::open_trade_confirm_prompt(s32 arg1) {
         ((VObj_18_f23ffb *)(player))->m10();
         text_builder_append();
     }
-    TWindowSubStatusDisp::get_message_10((int) (0xD6));
+    TWindowSubStatusDisp::get_message_10(0xD6);
     text_builder_append();
-    temp_r29 = create__19TWindowMessageYesNoFPvPvPvPv((void *) (arg0), (int) (*(s32 *)&this->m_20), (int) (0), (int) (0));
-    open_yes_no_prompt((u8 *)(temp_r29), (u32)(TWindowSubStatusDisp::get_message_10((int) (0x20))), (get_shared_text_buffer()), (get_window_layout_position((int) (0x5B))), (f32) (lbl_805DE298));
-    free_member__17TWindowSubComCardFv((int) (temp_r29), (int) (1));
+    temp_r29 = create__19TWindowMessageYesNoFPvPvPvPv((void *) (arg0), (int) (*(s32 *)&this->m_20), 0, 0);
+    open_yes_no_prompt((u8 *)(temp_r29), (u32)(TWindowSubStatusDisp::get_message_10(0x20)), (get_shared_text_buffer()), (get_window_layout_position(0x5B)), (f32) (lbl_805DE298));
+    free_member__17TWindowSubComCardFv((int) (temp_r29), 1);
     ((TWindowSubShortMail *)temp_r29)->notify_warp_flag70();
     return temp_r29;
 }

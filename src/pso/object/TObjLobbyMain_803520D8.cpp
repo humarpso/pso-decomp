@@ -403,16 +403,16 @@ u8 *TObjLobbyMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80352940___vt__13TObjLobbyMain *)&__vt__13TObjLobbyMain).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4370;
     ((TObjLobbyMain *)(arg0))->apply_object_set_data((void *)arg2);
-    ((TObjLobbyMain *)arg0)->m_d8 = (u32)create_particle_emitter((arg0 + 0x38), (0x222));
+    ((TObjLobbyMain *)arg0)->m_d8 = (u32)create_particle_emitter((arg0 + 0x38), 0x222);
     temp_r3 = ((TObjLobbyMain *)arg0)->m_d8;
     if (temp_r3 != 0U) {
-        ((TBoss4Type2 *)temp_r3)->set_flags((int) (0x40));
+        ((TBoss4Type2 *)temp_r3)->set_flags(0x40);
         enable__13TParticleCtrlFv((int) (((TObjLobbyMain *)arg0)->m_d8));
     }
-    ((TObjLobbyMain *)arg0)->m_dc = (u32)create_particle_emitter((arg0 + 0x38), (0x222));
+    ((TObjLobbyMain *)arg0)->m_dc = (u32)create_particle_emitter((arg0 + 0x38), 0x222);
     temp_r3_2 = ((TObjLobbyMain *)arg0)->m_dc;
     if (temp_r3_2 != 0U) {
-        ((TBoss4Type2 *)temp_r3_2)->set_flags((int) (0x40));
+        ((TBoss4Type2 *)temp_r3_2)->set_flags(0x40);
         enable__13TParticleCtrlFv((int) (((TObjLobbyMain *)arg0)->m_dc));
     }
     set_mode_index_from_state__13TObjLobbyMainFv((void *) (arg0));
@@ -422,7 +422,7 @@ u8 *TObjLobbyMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)&((TObjLobbyMain *)arg0)->m_c8 = 2;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (1.2e+02f);
     ((TObjLobbyMain *)arg0)->m_b0 = (f32) (0.0f);
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804F0F34.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804F0F34.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;

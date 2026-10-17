@@ -145,7 +145,7 @@ void TUnk_804EF8C0::alloc_download_buffer() {
 void TAdSinglePlyChrSelectGC__sub_8033A9F0(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x2C) = 0xB;
     lbl_805D6D90 &= 0xFFFFFFFE;
-    ((TAdSinglePlyChrSelectGC *)arg0)->set_char_slots((s32)(0xA), (s32)(*(s32 *)((s8 *)arg0 + 0x24) + 0xF));
+    ((TAdSinglePlyChrSelectGC *)arg0)->set_char_slots(0xA, (s32)(*(s32 *)((s8 *)arg0 + 0x24) + 0xF));
     ((TAdSinglePlyChrSelectGC *)arg0)->init_warps();
 }
 int queue_destruction__23TAdSinglePlyChrSelectGCFPv(void* p) { return queue_destruction__7TObjectFv(p); }
@@ -228,7 +228,7 @@ void check_memcard_space__23TAdSinglePlyChrSelectGCFPv(O_8033AC44 *arg0) {
         } else {
             arg0->f2c = 0xA;
             lbl_805D6D90 &= ~1;
-            ((TAdSinglePlyChrSelectGC *)arg0)->set_char_slots((s32)(8), (s32)(-1));
+            ((TAdSinglePlyChrSelectGC *)arg0)->set_char_slots(8, -1);
             ((TAdSinglePlyChrSelectGC *)arg0)->init_warps();
         }
         break;
@@ -269,7 +269,7 @@ void TAdSinglePlyChrSelectGC::update_select_state() {
     if (TAdSinglePlyChrSelectGC__sub_801FDA4C() == 0) {
         *(s32 *)((s8 *)this + 0x2C) = 5;
         TAdSinglePlyChrSelectGC::set_player_index(6);
-        set_char_slots((s32)((s32)(0xC)), (s32)((s32)(-1)));
+        set_char_slots(0xC, -1);
         return;
     }
     *(s32 *)((s8 *)this + 0x2C) = 0;
@@ -371,8 +371,8 @@ int TAdSinglePlyChrSelectGC__sub_8033B244(void* p) { return request_queued_main_
 void TAdSinglePlyChrSelectGC__sub_8033B264(void) {
     delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8033B264_main_task *)&main_task).value));
     TLobby::stop_audio_streams();
-    TLobby::set_and_notify((int) (0));
-    call_funcs_reverse__6TLobbyFPvUi((void *) (&(*(RecoveredGlobal_8033B264_lbl_804EF728 *)&character_select_scene_resource_callbacks).value), (int) (0x30));
+    TLobby::set_and_notify(0);
+    call_funcs_reverse__6TLobbyFPvUi((void *) (&(*(RecoveredGlobal_8033B264_lbl_804EF728 *)&character_select_scene_resource_callbacks).value), 0x30);
     render_tick();
 }
 

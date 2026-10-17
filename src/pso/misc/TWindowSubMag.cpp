@@ -227,7 +227,7 @@ void *TWindowSubMag::create() {
     void *temp_r31;
     s32 window_layout_position;
 
-    window_layout_position = get_window_layout_position((s32)(0xB));
+    window_layout_position = get_window_layout_position(0xB);
     temp_r31 = create_message_window__6TLobbyFllUls(window_layout_position, lbl_8044FA00, 1, *(s32 *)&this->m_28);
     TWindowSubEquip__sub_80263AF8(*(s32 *)&this->m_30, 4);
     set_field_1c__6TLobbyFf((void *)(temp_r31));
@@ -249,7 +249,7 @@ void *TWindowSubMag::create_action_menu(s32 id) {
     TWindowSubEquip__sub_80263AF8(menu->field_0x30, 1);
     set_field_1c__6TLobbyFf(window);
     if (((s32 (*)(u8 *))is_mag_full)(item) != 0) {
-        TWindowSubComCard::draw_text_gray((s32)window, (s32)(get_message_10__20TWindowSubStatusDispFl(0x65)), (s32)6, (s32)1);
+        TWindowSubComCard::draw_text_gray((s32)window, (s32)(get_message_10__20TWindowSubStatusDispFl(0x65)), 6, 1);
     } else {
         forward_trade_action_default__16TObjCityMainWarpFPviii(window, get_message_10__20TWindowSubStatusDispFl(0x65), 6, 1);
     }
@@ -257,7 +257,7 @@ void *TWindowSubMag::create_action_menu(s32 id) {
     if (((TItemMag *)mag)->get_photon_blast_at_slot(0) != -1) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(window, get_message_10__20TWindowSubStatusDispFl(0x64), 6, 0);
     } else {
-        TWindowSubComCard::draw_text_gray((s32)window, (s32)(get_message_10__20TWindowSubStatusDispFl(0x64)), (s32)6, (s32)0);
+        TWindowSubComCard::draw_text_gray((s32)window, (s32)(get_message_10__20TWindowSubStatusDispFl(0x64)), 6, 0);
     }
     ((TWindowSubComCardList *)window)->set_flag70_bit10();
     ((TWindowSubComCardList *)window)->update_layout_height((172.0f));
@@ -268,7 +268,7 @@ void *TWindowSubMag::create_action_menu(s32 id) {
 s32 TWindowSubMag::create_list() {
     s32 equip_kind_window;
 
-    s32 window_layout_position = get_window_layout_position((s32)((s32)(0xD)));
+    s32 window_layout_position = get_window_layout_position(0xD);
     equip_kind_window = create_equip_kind_window((s32)(window_layout_position), (s32 *)(lbl_8044F9F8), (s32)(*(s32 *)&this->m_28));
     ((TUnk_804D0618 *)equip_kind_window)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl(0x24));
     TWindowSubEquip__sub_80263AF8(*(s32 *)&this->m_30, 2);
@@ -284,7 +284,7 @@ s32 TWindowSubMag::setup_list() {
     s32 equip_kind_window;
     s32 window_layout_position;
 
-    window_layout_position = get_window_layout_position((s32)((s32)(7)));
+    window_layout_position = get_window_layout_position(7);
     equip_kind_window = create_equip_kind_window((s32)(window_layout_position), (s32 *)(lbl_8044F9F0), (s32)(*(s32 *)&this->m_28));
     ((TUnk_804D0618 *)equip_kind_window)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl(0x29));
     TWindowSubEquip__sub_80263AF8(*(s32 *)&this->m_30, 0);

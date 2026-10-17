@@ -84,7 +84,7 @@ void run_task__26TBoss5GryphonLightningWingFv(u8 *arg0) {
     apply_lightning_effect__26TBoss5GryphonLightningWingFi((s32)((void *) (arg0)));
     if ((s32) *(s32 *)((s8 *)arg0 + 0x94) == (s32) *(s32 *)((s8 *)arg0 + 0x98)) {
         ((TBoss5GryphonLightningWing *)arg0)->get_wing_position((s32)((s32 *)((void *) (&stack.sp8))));
-        play_sound_effect((int) (0x40032516), (void *) (&stack.sp8), (int) (0), (int) (0));
+        play_sound_effect(0x40032516, (void *) (&stack.sp8), 0, 0);
     }
     ((TBoss5GryphonLightning *)arg0)->spawn_gryphon_lightning();
     if ((s32) *(s32 *)((s8 *)arg0 + 0x94) >= (s32) *(s32 *)((s8 *)arg0 + 0x9C)) {

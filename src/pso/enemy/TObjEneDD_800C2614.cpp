@@ -41,7 +41,7 @@ void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1) {
         ((TObjEneDD *)(arg0))->vfunc_96();
         ((TObjEneRe2Flower *)arg0)->clear_child_flags();
         F(u32, 0x3C4) &= ~8;
-        ((TObjEneDD *)arg0)->set_field_378((s32)(8));
+        ((TObjEneDD *)arg0)->set_field_378(8);
         if (!(F(u32, 0x3C4) & 4)) {
             F(u32, 0x3C4) |= 4;
             F(s32, 0x410) = 0;

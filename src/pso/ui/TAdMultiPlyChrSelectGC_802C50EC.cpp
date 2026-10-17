@@ -423,11 +423,11 @@ void TAdMultiPlyChrSelectGC::update_option_cursor() {
     S_802C6008 *self = (S_802C6008 *)this;
     TAdMultiPlyChrSelectGC__sub_802C5F1C(self, self->f1C++);
     if (self->f4DC[self->f4EC] != 0 && self->f4F8 == 0) {
-        if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)WIN_802C6008, (s32)0x10, (s32)6, (s32)1) != 0) {
+        if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)WIN_802C6008, 0x10, 6, 1) != 0) {
             play_sound_effect(0x54100, 0, 0, 0);
             self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC]--;
         }
-        if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)WIN_802C6008, (s32)0x20, (s32)6, (s32)1) != 0) {
+        if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)WIN_802C6008, 0x20, 6, 1) != 0) {
             play_sound_effect(0x54100, 0, 0, 0);
             self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC]++;
         }
@@ -452,17 +452,17 @@ void TAdMultiPlyChrSelectGC::handle_dpad_input() {
     n = TAdMultiPlyChrSelectGC::count_ready();
     m = TAdMultiPlyChrSelectGC__sub_802C6558();
     if (m != n && self->f4DC[self->f4EC] != 0 && self->f4F8 == 0) {
-        if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)WIN_802C61E4, (s32)0x10, (s32)6, (s32)1) != 0) {
-            move_cursor((s32)(self->f4EC), (s32)(self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC]), (s32)(0), (s32)(-1), (s32)(self->f4DC[self->f4EC]));
+        if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)WIN_802C61E4, 0x10, 6, 1) != 0) {
+            move_cursor((s32)(self->f4EC), (s32)(self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC]), 0, -1, (s32)(self->f4DC[self->f4EC]));
         }
-        if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)WIN_802C61E4, (s32)0x20, (s32)6, (s32)1) != 0) {
-            move_cursor((s32)(self->f4EC), (s32)(self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC]), (s32)(0), (s32)(1), (s32)(self->f4DC[self->f4EC]));
+        if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)WIN_802C61E4, 0x20, 6, 1) != 0) {
+            move_cursor((s32)(self->f4EC), (s32)(self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC]), 0, 1, (s32)(self->f4DC[self->f4EC]));
         }
-        if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)WIN_802C61E4, (s32)0x80, (s32)6, (s32)1) != 0) {
-            move_cursor((s32)(self->f4EC), (s32)(self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC]), (s32)(1), (s32)(0), (s32)(2));
+        if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)WIN_802C61E4, 0x80, 6, 1) != 0) {
+            move_cursor((s32)(self->f4EC), (s32)(self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC]), 1, 0, 2);
         }
-        if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)WIN_802C61E4, (s32)0x40, (s32)6, (s32)1) != 0) {
-            move_cursor((s32)(self->f4EC), (s32)(self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC]), (s32)(-1), (s32)(0), (s32)(2));
+        if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)WIN_802C61E4, 0x40, 6, 1) != 0) {
+            move_cursor((s32)(self->f4EC), (s32)(self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC]), -1, 0, 2);
         }
     }
     if (TWindowShortListCtrl__check_controller_button(WIN_802C61E4, 4) != 0 && self->f4F8 == 0) {
@@ -650,7 +650,7 @@ void TAdMultiPlyChrSelectGC::update_selection() {
         switch (TAdMultiPlyChrSelectGC__select_mode) {
         case 0:
             ((TAdMultiPlyChrSelectGC *)o)->handle_dpad_input();
-            if (TAdMultiPlyChrSelectGC::get_clamped_cursor() == 3 && ((s32 (*)(s32))is_multiplayer_character_slot_selected)((s32)(3)) != 0) {
+            if (TAdMultiPlyChrSelectGC::get_clamped_cursor() == 3 && ((s32 (*)(s32))is_multiplayer_character_slot_selected)(3) != 0) {
                 s32 n = TAdMultiPlyChrSelectGC::count_ready();
                 if (TAdMultiPlyChrSelectGC__sub_802C6558() < n) {
                     TAdMultiPlyChrSelectGC__data_805D67D8 = FIND_SLOT(o);

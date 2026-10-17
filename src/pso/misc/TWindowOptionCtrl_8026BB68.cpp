@@ -18,14 +18,14 @@ s32 TWindowOptionCtrl::create_menu() {
 
     temp_r3 = get_option_entry__17TWindowOptionCtrlFi(0xCE);
     temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFl(temp_r3, 9);
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_localized_text_entry(0xF, 0)), (int)(6), (int)(3));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_localized_text_entry(0xF, 1)), (int)(6), (int)(7));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_localized_text_entry(0xF, 2)), (int)(6), (int)(5));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_localized_text_entry(0xF, 3)), (int)(6), (int)(9));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_localized_text_entry(0xF, 4)), (int)(6), (int)(0xB));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_localized_text_entry(0xF, 5)), (int)(6), (int)(0x10));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_localized_text_entry(0xF, 6)), (int)(6), (int)(0x19));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_localized_text_entry(0xF, 7)), (int)(6), (int)(0x1B));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_localized_text_entry(0xF, 0)), 6, 3);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_localized_text_entry(0xF, 1)), 6, 7);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_localized_text_entry(0xF, 2)), 6, 5);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_localized_text_entry(0xF, 3)), 6, 9);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_localized_text_entry(0xF, 4)), 6, 0xB);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_localized_text_entry(0xF, 5)), 6, 0x10);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_localized_text_entry(0xF, 6)), 6, 0x19);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_localized_text_entry(0xF, 7)), 6, 0x1B);
     ((TWindowSubComCardList *)temp_r31)->update_layout_height(lbl_805DD268);
     align_menu_entry_positions(temp_r31);
     return temp_r31;

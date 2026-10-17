@@ -9,7 +9,7 @@ s32 __close_console(s32 arg0) {
     if (GetTRKConnected() == 0) {
         return 1;
     }
-    temp_r3 = TRKCloseFile((int) (0xD3), (void *) (arg0));
+    temp_r3 = TRKCloseFile(0xD3, (void *) (arg0));
     switch ((s32) temp_r3) {
     case 0:
         return 0;

@@ -67,9 +67,9 @@ typedef char RecoveredGlobal_80307784_lbl_804E70A8_size[sizeof(RecoveredGlobal_8
 u8 *TObjPlayer__sub_80307784(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80307784_lbl_804E70A8 *)&lbl_804E70A8).value;
-    set_status_flags__10TObjPlayerFUl((void *)(arg0), (s32)(1));
+    set_status_flags__10TObjPlayerFUl((void *)(arg0), 1);
     if (get_slot_count__14TItemProShieldFv((void *)(arg0)) == 1) {
-        set_status_flags__10TObjPlayerFUl((void *)(arg0), (s32)(0x800));
+        set_status_flags__10TObjPlayerFUl((void *)(arg0), 0x800);
     }
     *(s32 *)((s8 *)arg0 + 0x1F8) = 5;
     ((TUnk_804E70A8 *)arg0)->m_1fc = 0;

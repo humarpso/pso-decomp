@@ -21,10 +21,10 @@ void TWindowInputNumber::confirm_input() {
 
     temp_r3 = this->value;
     if ((temp_r3 < (s32) this->minimum) || (temp_r3 > (s32) this->maximum)) {
-        play_sound_effect((s32)(0x53F06), (s32)(0), (s32)(0), (s32)(0));
+        play_sound_effect(0x53F06, 0, 0, 0);
         return;
     }
-    play_sound_effect((s32)(0x52D01), (s32)(0), (s32)(0), (s32)(0));
+    play_sound_effect(0x52D01, 0, 0, 0);
     this->inputFlags = (u16) (this->inputFlags | 2);
     temp = (u32) *(u32 *)&this->unknown70;
     if (temp != 0U) {
@@ -35,7 +35,7 @@ void TWindowInputNumber::confirm_input() {
 extern s32 number_input_decimal_place_values[];
 
 void TWindowInputNumber::update() {
-    play_sound_effect((s32)(0x54100), (s32)(0), (s32)(0), (s32)(0));
+    play_sound_effect(0x54100, 0, 0, 0);
     this->value = (s32) (this->value - number_input_decimal_place_values[(s8) *(u8 *)&this->selectedDigit]);
     if ((s32) this->value < (s32) this->minimum) {
         this->value = (s32) this->maximum;
@@ -45,7 +45,7 @@ void TWindowInputNumber::update() {
 }
 
 void TWindowInputNumber::update_value() {
-    play_sound_effect((s32)(0x54100), (s32)(0), (s32)(0), (s32)(0));
+    play_sound_effect(0x54100, 0, 0, 0);
     this->value = (s32) (this->value + number_input_decimal_place_values[(s8) *(u8 *)&this->selectedDigit]);
     if ((s32) this->value > (s32) this->maximum) {
         this->value = (s32) this->minimum;
@@ -55,7 +55,7 @@ void TWindowInputNumber::update_value() {
 }
 
 void TWindowInputNumber::handle_decrement() {
-    play_sound_effect((s32)(0x54100), (s32)(0), (s32)(0), (s32)(0));
+    play_sound_effect(0x54100, 0, 0, 0);
     *(u8 *)&this->selectedDigit = (u8) (*(u8 *)&this->selectedDigit - 1);
     if ((s8) *(u8 *)&this->selectedDigit < 0) {
         if (this->inputFlags & 1) {
@@ -69,7 +69,7 @@ void TWindowInputNumber::handle_decrement() {
 void TWindowInputNumber::move_cursor_next() {
     u8 temp_r4;
 
-    play_sound_effect((s32)(0x54100), (s32)(0), (s32)(0), (s32)(0));
+    play_sound_effect(0x54100, 0, 0, 0);
     *(u8 *)&this->selectedDigit = (u8) (*(u8 *)&this->selectedDigit + 1);
     if ((s8) *(u8 *)&this->selectedDigit >= (s8) (temp_r4 = *(u8 *)&this->digitCount)) {
         if (this->inputFlags & 1) {

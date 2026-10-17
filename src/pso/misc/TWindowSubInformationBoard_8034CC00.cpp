@@ -38,7 +38,7 @@ typedef char RecoveredGlobal_8034CC68_lbl_80478C3C_size[sizeof(RecoveredGlobal_8
 void TWindowSubInformationBoard::set_message_index(s32 arg1) {
     if ((s32) *(s32 *)&this->m_24 != arg1) {
         *(s32 *)&this->m_24 = arg1;
-        ((TLobby *)(*(u8 * *)&this->m_34))->send_and_handle((s32)(TWindowSubStatusDisp::get_message_10((int) (*(s32 *)((s8 *)(&lbl_80478C3C.value) + (arg1 * 4))))), (s32)(0x80));
+        ((TLobby *)(*(u8 * *)&this->m_34))->send_and_handle((s32)(TWindowSubStatusDisp::get_message_10((int) (*(s32 *)((s8 *)(&lbl_80478C3C.value) + (arg1 * 4))))), 0x80);
     }
 }
 
@@ -50,7 +50,7 @@ s32 TWindowSubInformationBoard::open_keyboard(s32 arg0) {
         keyboard = TKeyBoardControl__ct(keyboard, arg0, 0xC6, 5, 4, local_client_id);
     }
     get_keyboard_field_6c__15TWindowMakeTeamFv(keyboard, TLobby::get_card_window_field());
-    ((TWindowMakeTeam *)keyboard)->set_sub_position((u8 *)(get_window_layout_position((s32)(0xBB))));
+    ((TWindowMakeTeam *)keyboard)->set_sub_position((u8 *)(get_window_layout_position(0xBB)));
     ((TWindowMakeTeam *)keyboard)->set_keyboard_flag62_bit2();
     ((TWindowSubComCard *)keyboard)->destroy_keyboard();
     return keyboard;
@@ -60,8 +60,8 @@ extern s32 lbl_80478C34[];
 
 void TWindowSubInformationBoard::show_card_a7() {
     s32 window_layout_position;
-    window_layout_position = get_window_layout_position((s32)(0xA7));
-    TLobby::set_window_mode_4((void *)window_layout_position, (s32)lbl_80478C34, (s32)1);
+    window_layout_position = get_window_layout_position(0xA7);
+    TLobby::set_window_mode_4((void *)window_layout_position, (s32)lbl_80478C34, 1);
     *(s32 *)&this->m_24 = -1;
 }
 

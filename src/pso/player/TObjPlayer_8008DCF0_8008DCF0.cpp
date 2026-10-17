@@ -350,7 +350,7 @@ void calc_slot_offset_position__10TObjPlayerFPviPvPv(Obj_8008E18C *self, s32 slo
     out->y = lbl_805D9620;
     out->z = lbl_805D9630;
     set_matrix_identity(0);
-    rotate_matrix_y((s32)(0), (s32)(angle));
+    rotate_matrix_y(0, (s32)(angle));
     matrix_mult_vec(0, out, out);
     vec3_add_to(out, &self->pos);
     pop_matrix();
@@ -368,7 +368,7 @@ void TObjPlayer__sub_8008E254(void *arg0_) {
             return;
         }
         *(s32 *)((s8 *)arg0_ + 0x3D4) = 0;
-        TObjPlayer__sub_8008E934((void *)(arg0_), (s32)(0));
+        TObjPlayer__sub_8008E934((void *)(arg0_), 0);
         *(s16 *)((s8 *)arg0_ + 0x33C) = 0x1E;
         *(s32 *)((s8 *)arg0_ + 0x37C) = 1;
         return;
@@ -458,7 +458,7 @@ void TObjPlayer__sub_8008E310(P_8008E310 *arg0_) {
             queue_destruction__7TObjectFv((void *)arg0_->emit1);
             arg0_->emit1 = 0;
             spawn_particle_effect(arg0_->f2FC, 0x129);
-            TObjPlayer__sub_8008E934((void *)(arg0_), (s32)(1));
+            TObjPlayer__sub_8008E934((void *)(arg0_), 1);
             advance_animation_playback(arg0_);
             arg0_->flags &= ~0x04000000;
             arg0_->f33C = 0x1E;
@@ -477,7 +477,7 @@ void TObjPlayer__sub_8008E310(P_8008E310 *arg0_) {
         break;
     case -1:
         if (arg0_->flags & 0x04000000) {
-            TObjPlayer__sub_8008E934((void *)(arg0_), (s32)(1));
+            TObjPlayer__sub_8008E934((void *)(arg0_), 1);
             advance_animation_playback(arg0_);
         }
         if (((TObjPlayer *)arg0_)->get_flag_0x388_b24() == 0) {

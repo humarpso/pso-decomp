@@ -88,17 +88,17 @@ u8 *TAdTrialAgreementGC__ct(u8 *arg0) {
         queue_destruction__7TObjectFv((arg0));
         return arg0;
     }
-    temp_r3 = __nw__7TObjectFUl((int) (0x54));
+    temp_r3 = __nw__7TObjectFUl(0x54);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (s32)TAdScrollWinGC__ct((void *)(temp_r3), (arg0), (1), (0));
+        var_r0 = (s32)TAdScrollWinGC__ct((void *)(temp_r3), (arg0), 1, 0);
     }
     *(s32 *)&((TAdTrialAgreementGC *)arg0)->m_38 = var_r0;
     return arg0;
 }
 
 void TAdTrialAgreementGC::draw_record_with_camera(s32 arg0, s32 arg1, s32 arg2) {
-    TLobby::draw_with_camera((s32)((void *) (TLobby::get_record((int)((void *) (arg1))))), (s32)((void *) (arg2)), (s32)((int) (0x20)), (f32)((f32) (lbl_805DF8B0)));
+    TLobby::draw_with_camera((s32)((void *) (TLobby::get_record((int)((void *) (arg1))))), (s32)((void *) (arg2)), 0x20, (f32)((f32) (lbl_805DF8B0)));
 }
 
 }

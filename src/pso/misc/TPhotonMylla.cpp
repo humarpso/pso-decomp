@@ -237,14 +237,14 @@ void TPhotonMylla::run_task() {
         stack.sp30 = temp_f1 + lbl_805DC1FC;
         temp_r3_2 = (u8 *)(__nw__7TObjectFUl(0xD0, temp_f1));
         if (temp_r3_2 != NULL) {
-            TPhotonMagicSquare__ct((u8 *)temp_r3_2, (s32)arg0, (s32)(5), (s32)&stack.sp2C, (s32)(0xAA), (f32)lbl_805DC200);
+            TPhotonMagicSquare__ct((u8 *)temp_r3_2, (s32)arg0, 5, (s32)&stack.sp2C, 0xAA, (f32)lbl_805DC200);
         }
     }
     if ((lbl_805DC204 == (f32) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4) && ((s16) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_B8 == 1)) {
-        ((TUnk_804C3248 *)arg0)->begin_photon_summon_camera((int) (3));
+        ((TUnk_804C3248 *)arg0)->begin_photon_summon_camera(3);
         ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4 = 0;
-        ((TObjMotion *)arg0)->set_field_b8((int) (0));
-        spawn_photon_blast_attachment_effects((void *) (arg0), (int) (5));
+        ((TObjMotion *)arg0)->set_field_b8(0);
+        spawn_photon_blast_attachment_effects((void *) (arg0), 5);
     }
     ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_194 = (s16) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_B8;
     ((TUnk_804C3248 *)arg0)->update_state();
@@ -278,7 +278,7 @@ void TPhotonMylla::run_task() {
         stack.spC += lbl_805DC20C;
         spawn_particle_effect(&stack.sp8, 0x169);
         if (temp_r3_5 != NULL) {
-            queue_photon_blast_hit((int) (obj_getField1c(temp_r3_5)), (int) (5), (int) (0), (f32) (((RecoveredFields_801AD5D8_arg0 *)arg0)->field_150));
+            queue_photon_blast_hit((int) (obj_getField1c(temp_r3_5)), 5, 0, (f32) (((RecoveredFields_801AD5D8_arg0 *)arg0)->field_150));
         }
     }
     if ((f32) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4 > lbl_805DC218) {
@@ -288,7 +288,7 @@ void TPhotonMylla::run_task() {
         }
     }
     if ((s32) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A0 != 0) {
-        play_persistent_sound((s32)(0x4002462F), (s32)arg0, (u32)(0U), (s32)(0), (s32)(0));
+        play_persistent_sound(0x4002462F, (s32)arg0, (u32)(0U), 0, 0);
     }
 }
 #pragma pop
@@ -386,7 +386,7 @@ void *TPhotonMylla__ct(Mylla_801AD970 *self, Pkt_801AD970 *pkt) {
         v.y = v.y + lbl_805DC1FC;
         o = NEW_801AD970(0xD0);
         if (o != NULL) {
-            TPhotonMagicSquare__ct((u8 *)o, (s32)self, (s32)(5), (s32)&v, (s32)(0xAA), (f32)lbl_805DC200);
+            TPhotonMagicSquare__ct((u8 *)o, (s32)self, 5, (s32)&v, 0xAA, (f32)lbl_805DC200);
         }
         spawn_photon_blast_attachment_effects(self, 5);
         play_cue_stream_file((s32)lbl_80446E80);

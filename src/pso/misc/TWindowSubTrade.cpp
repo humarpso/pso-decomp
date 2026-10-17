@@ -94,14 +94,14 @@ void TWindowSubTrade::run_task() {
             this->m_34 = 0U;
         }
         if ((u32) this->m_30 == 0U) {
-            this->m_30 = ((TWindowSubTrade *)arg0)->open_player_message_window((int) (*(s32 *)&this->m_24), (int) (TWindowSubStatusDisp::get_message_10((int) (0xD7))));
+            this->m_30 = ((TWindowSubTrade *)arg0)->open_player_message_window((int) (*(s32 *)&this->m_24), (int) (TWindowSubStatusDisp::get_message_10(0xD7)));
         }
         send_modify_trade_proposal__6TLobbyFi((*(s32 *)&this->m_24));
         this->m_1c = 6U;
     case 6:
         temp_r5 = temp_r30 * 0x50;
-        if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)(((u8 *)(controller_input_state) + temp_r5)) + 0x20), (int) (2), (int) (temp_r5)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)(controller_input_state) + 0x160), (int) (2)) != 0)) {
-            play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
+        if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)(((u8 *)(controller_input_state) + temp_r5)) + 0x20), 2, (int) (temp_r5)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)(controller_input_state) + 0x160), 2) != 0)) {
+            play_sound_effect(0x52F16, 0, 0, 0);
             TLobby::cancel_trade();
             this->m_1c = 1U;
         }
@@ -134,7 +134,7 @@ u8 *__dt__15TWindowSubTradeFv(u8 *arg0, s16 arg1) {
             TWindow__close(temp_r3_3);
             *(u8 **)((s8 *)arg0 + 0x2C) = NULL;
         }
-        __dt__7TObjectFv((void *) (arg0), (int) (0));
+        __dt__7TObjectFv((void *) (arg0), 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);
         }

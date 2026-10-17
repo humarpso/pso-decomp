@@ -20,7 +20,7 @@ void TObjPlayer::cast_jellen_zalure() {
     s32 temp_r4_2;
 
     if (get_attack_stage__11TItemWeaponFv() == 0) {
-        ((TObjPlayer *)tl_05)->spawn_cane_effects((TItem*)this, (s32)2, (s32)1);
+        ((TObjPlayer *)tl_05)->spawn_cane_effects((TItem*)this, 2, 1);
     }
     if (is_mode_two_and_ready() != 0) {
         if (get_tp() == 0) {

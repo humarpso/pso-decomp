@@ -79,16 +79,16 @@ void TOSensor__sub_8017546C(u8 *arg0) {
     case 3:
     case 4:
     case 5:
-        play_persistent_sound((s32)(0x43C1C), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
+        play_persistent_sound(0x43C1C, (s32)arg0, (u32)(arg0 + 0x38), 0, 0);
         return;
     case 6:
     case 7:
-        play_persistent_sound((s32)(0x4004BC13), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
+        play_persistent_sound(0x4004BC13, (s32)arg0, (u32)(arg0 + 0x38), 0, 0);
         return;
     case 8:
     case 9:
     case 10:
-        play_persistent_sound((s32)(0x46419), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
+        play_persistent_sound(0x46419, (s32)arg0, (u32)(arg0 + 0x38), 0, 0);
     case 0:
         return;
     case 1:
@@ -113,16 +113,16 @@ void TOSensor__sub_80175514(u8 *arg0) {
     case 3:
     case 4:
     case 5:
-        play_persistent_sound((s32)(0x4411D), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
+        play_persistent_sound(0x4411D, (s32)arg0, (u32)(arg0 + 0x38), 0, 0);
         return;
     case 6:
     case 7:
-        play_persistent_sound((s32)(0x4004C114), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
+        play_persistent_sound(0x4004C114, (s32)arg0, (u32)(arg0 + 0x38), 0, 0);
         return;
     case 8:
     case 9:
     case 10:
-        play_persistent_sound((s32)(0x4641A), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
+        play_persistent_sound(0x4641A, (s32)arg0, (u32)(arg0 + 0x38), 0, 0);
     case 0:
         return;
     case 1:
@@ -330,7 +330,7 @@ void TOSensorAncient01::render() {
     if (((VObj_80175994 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        rotate_matrix_y(0, (int) (this->rotation_y));
         TObjFish::set_global_param(*(s32 *)((s8 *)ancient_sensor_resource_pair_table + (*(s32 *)&this->m_8c * 8)));
         temp_r30 = (u8 *)(*(u8 * *)&this->model);
         post_translate_matrix((void *) (temp_r30 + 8));
@@ -367,28 +367,28 @@ void TOSensorAncient01::render() {
         push_matrix();
         temp_r30_5 = (u8 *)(*(u8 **)((s8 *)temp_r30_4 + 0x30));
         post_translate_matrix((void *) (temp_r30_5 + 8));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0xEC)));
+        rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0xEC)));
         TParticleCtrl::begin_effect_render();
         draw_ginja_model(*(s32 *)((s8 *)temp_r30_5 + 4));
         TParticleCtrl::end_effect_render();
         push_matrix();
         temp_r30_6 = (u8 *)(*(u8 **)((s8 *)temp_r30_5 + 0x2C));
-        translate_matrix((0), (f32) (*(f32 *)((s8 *)temp_r30_6 + 8) + this->m_f0), (f32) (*(f32 *)((s8 *)temp_r30_6 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_6 + 0x10)));
+        translate_matrix(0, (f32) (*(f32 *)((s8 *)temp_r30_6 + 8) + this->m_f0), (f32) (*(f32 *)((s8 *)temp_r30_6 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_6 + 0x10)));
         draw_ginja_model(*(s32 *)((s8 *)temp_r30_6 + 4));
         pop_matrix();
         push_matrix();
         temp_r30_7 = (u8 *)(*(u8 **)((s8 *)temp_r30_6 + 0x30));
-        translate_matrix((0), (f32) (*(f32 *)((s8 *)temp_r30_7 + 8)), (f32) (*(f32 *)((s8 *)temp_r30_7 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_7 + 0x10) - this->m_f0));
+        translate_matrix(0, (f32) (*(f32 *)((s8 *)temp_r30_7 + 8)), (f32) (*(f32 *)((s8 *)temp_r30_7 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_7 + 0x10) - this->m_f0));
         draw_ginja_model(*(s32 *)((s8 *)temp_r30_7 + 4));
         pop_matrix();
         push_matrix();
         temp_r30_8 = (u8 *)(*(u8 **)((s8 *)temp_r30_7 + 0x30));
-        translate_matrix((0), (f32) (*(f32 *)((s8 *)temp_r30_8 + 8) - this->m_f0), (f32) (*(f32 *)((s8 *)temp_r30_8 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_8 + 0x10)));
+        translate_matrix(0, (f32) (*(f32 *)((s8 *)temp_r30_8 + 8) - this->m_f0), (f32) (*(f32 *)((s8 *)temp_r30_8 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_8 + 0x10)));
         draw_ginja_model(*(s32 *)((s8 *)temp_r30_8 + 4));
         pop_matrix();
         push_matrix();
         temp_r30_9 = (u8 *)(*(u8 **)((s8 *)temp_r30_8 + 0x30));
-        translate_matrix((0), (f32) (*(f32 *)((s8 *)temp_r30_9 + 8)), (f32) (*(f32 *)((s8 *)temp_r30_9 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_9 + 0x10) + this->m_f0));
+        translate_matrix(0, (f32) (*(f32 *)((s8 *)temp_r30_9 + 8)), (f32) (*(f32 *)((s8 *)temp_r30_9 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_9 + 0x10) + this->m_f0));
         draw_ginja_model(*(s32 *)((s8 *)temp_r30_9 + 4));
         pop_matrix();
         pop_matrix();

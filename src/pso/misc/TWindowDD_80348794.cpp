@@ -21,7 +21,7 @@ s32 TWindowDD::count_chars_since_newline(s32 *len) {
 
 void TWindowDD::append_char(s8 arg0, s32 arg1, s32 *arg2) {
     s32 temp_r3;
-    if (TWindowDD::can_append_chars((s32)((int) (1)), (s32 *)arg2) != 0) {
+    if (TWindowDD::can_append_chars(1, (s32 *)arg2) != 0) {
         temp_r3 = *(s32 *)((s8 *)arg2 + 0);
         *(s32 *)((s8 *)arg2 + 0) = temp_r3 + 1;
         *(s8 *)((s8 *)(arg1 + temp_r3) + 0) = arg0;

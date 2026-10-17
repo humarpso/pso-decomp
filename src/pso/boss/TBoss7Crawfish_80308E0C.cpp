@@ -31,7 +31,7 @@ void TBoss7Crawfish::update_attack_state() {
     temp_r0 = this->m_3c8 - 1;
     this->m_3c8 = temp_r0;
     if (temp_r0 < 0) {
-        change_state((s32)(1));
+        change_state(1);
     }
     if ((get_floor() == 2) && (objInBand((GameObj *)this, (f32)lbl_805DF0F8) != 0)) {
         temp_r4 = this->m_a4;
@@ -73,7 +73,7 @@ void TBoss7Crawfish::change_state(s32 state) {
         ((TBoss7Crawfish *)o)->set_anim_timer(4);
         break;
     case 4:
-        ((TBoss7Crawfish *)o)->spawn_effect((s32)(0x3990E));
+        ((TBoss7Crawfish *)o)->spawn_effect(0x3990E);
         ((TBoss7Crawfish *)o)->set_anim_timer(1);
         break;
     case 5:

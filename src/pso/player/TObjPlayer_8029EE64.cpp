@@ -104,16 +104,16 @@ void TObjPlayer::setup_projection_texture(s32 arg0, s32 arg1, s32 arg2) {
                 C_MTXLightPerspective((void *) (&sp10), (f32) (temp_f31), (f32) (lbl_805DDDA0), (f32) (lbl_805DDDA4), (f32) (lbl_805DDDA8), (f32) (lbl_805DDDA4), (f32) (lbl_805DDDA4));
             }
             PSMTXConcat((void *) (&sp10), (void *) (current_matrix), (void *) (current_matrix));
-            load_current_tex_matrix((int) (2));
+            load_current_tex_matrix(2);
             pop_matrix();
-            load_current_pos_matrix((int) (2));
-            GXSetTevOrder((int) (1), (int) (1), (int) (2), (int) (4));
-            GXSetTevOp((int) (1), (int) (2));
-            fn_8029F5B0((int) (1), (int) (0), (int) (0), (int) (0x24));
+            load_current_pos_matrix(2);
+            GXSetTevOrder(1, 1, 2, 4);
+            GXSetTevOp(1, 2);
+            fn_8029F5B0(1, 0, 0, 0x24);
             model_render_flags |= 0x80000;
-            set_ginja_post_tev_stage_count((s32)((int) (1)));
-            set_ginja_post_texgen_count((s32)((int) (1)));
-            TObjPlayer::set_global_effect_state((s32)((int) (1)));
+            set_ginja_post_tev_stage_count(1);
+            set_ginja_post_texgen_count(1);
+            TObjPlayer::set_global_effect_state(1);
         }
     }
 }

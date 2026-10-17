@@ -33,7 +33,7 @@ extern const f32 lbl_805DD260;
 void render__19TWindowMessageQuestFPv(Win_8026B148 *w);
 typedef char RecoveredGlobal_8026B118_lbl_8044F464_size[sizeof(RecoveredGlobal_8026B118_lbl_8044F464) == 0xC ? 1 : -1];
 void create_quest_message_window(void) {
-    create_quest_message_window_at((get_window_layout_position((int) (0xAD))), (s32)(&lbl_8044F464.value));
+    create_quest_message_window_at((get_window_layout_position(0xAD)), (s32)(&lbl_8044F464.value));
 }
 void render__19TWindowMessageQuestFPv(Win_8026B148 *w) {
     Ctx_8026B148 *c;

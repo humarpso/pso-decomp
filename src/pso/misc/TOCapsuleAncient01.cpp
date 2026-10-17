@@ -70,17 +70,17 @@ void TOCapsuleAncient01::render() {
     if ((s32) this->m_e0 == 1) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        rotate_matrix_y(0, (int) (this->rotation_y));
         TObjFish::set_global_param((int) (this->texture_id));
         temp_r31 = (unsigned char *) (*(void * *)&this->model);
-        translate_matrix((0), (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));
+        translate_matrix(0, (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
         if ((s32) this->m_cc == 1) {
             TParticleCtrl::begin_effect_render();
             temp_r31_2 = (unsigned char *) (*(void **)((s8 *)temp_r31 + 0x2C));
             push_matrix();
-            translate_matrix((0), (f32) (*(f32 *)((s8 *)temp_r31_2 + 8)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0x10)));
-            rotate_matrix_y((int) (0), (int) (*(s32 *)&this->m_e4));
+            translate_matrix(0, (f32) (*(f32 *)((s8 *)temp_r31_2 + 8)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0x10)));
+            rotate_matrix_y(0, (int) (*(s32 *)&this->m_e4));
             draw_ginja_model((*(s32 *)((s8 *)temp_r31_2 + 4)));
             pop_matrix();
             TParticleCtrl::end_effect_render();
@@ -139,8 +139,8 @@ u8 *TOCapsuleAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TOCapsuleAncient01 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCapsuleAncient01__static_model_resource) + 0x42C)) + 8);
     ((TOCapsuleAncient01 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCapsuleAncient01__static_model_resource) + 0x42C)) + 0xC);
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFE88.value), (int) (1));
-    set_indexed_flags((void *) (arg0), (int) (0), (int) (0x1288));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFE88.value), 1);
+    set_indexed_flags((void *) (arg0), 0, 0x1288);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOHealGeneral *)arg0)->update_heal_gauge_state();

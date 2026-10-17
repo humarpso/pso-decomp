@@ -63,15 +63,15 @@ void TOVS2Wall01::load_resources() {
   s32 temp_r31;
   s32 temp_r3;
   s32 var_r0;
-  temp_r3 = ((TAdSinglePlyChrSelectGC *)((int) 0x440))->alloc();
+  temp_r3 = ((TAdSinglePlyChrSelectGC *)(0x440))->alloc();
   var_r0 = temp_r3;
   if (var_r0 != 0)
   {
-    var_r0 = load_resource_from_descriptor((int) temp_r3, (int) 1, (void *) (&bm_o_vs2_resource_descriptor.value), (int) 0, (int) 0, (int) 0);
+    var_r0 = load_resource_from_descriptor((int) temp_r3, 1, (void *) (&bm_o_vs2_resource_descriptor.value), 0, 0, 0);
   }
   (*(s32 *)&TOVS2Wall01__bml_resource) = var_r0;
   ;
-  TMotorcycle::add_entry((int) 0x3A, (int) ((s32)get_bml_model((s32)((int) (*(s32 *)&TOVS2Wall01__bml_resource)), (s32)((int) 5))), (int) TObjFish__sub_8001EDB0((int)((int) var_r0), (void *)((int) 5)), (f32) lbl_805DBAB4, (f32) lbl_805DBAA8);
+  TMotorcycle::add_entry(0x3A, (int) ((s32)get_bml_model((s32)((int) (*(s32 *)&TOVS2Wall01__bml_resource)), 5)), (int) TObjFish__sub_8001EDB0((int)((int) var_r0), (void *)(5)), (f32) lbl_805DBAB4, (f32) lbl_805DBAA8);
 }
 
 void *TOVS2Wall01::destroy(s16 arg1) {
@@ -98,7 +98,7 @@ u8 *TOVS2Wall01::init_wreck_object(s32 arg1, s32 arg2) {
     *(u8 * *)&this->model = get_bml_model((*(s32 *)&TOVS2Wall01__bml_resource), arg2);
     *(f32 *)&this->unk_C4 = (f32) (lbl_805DBAB0 + *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&this->model) + 4)) + 0x14));
     this->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOVS2Wall01__bml_resource)), (void *) (arg2));
-    init_collision_body_parts((void *) (((u8 *)this)), (void *) ((u8 *)&ovs2wall01_collision_parts.value + (arg2 * 0x2C)), (int) (1));
+    init_collision_body_parts((void *) (((u8 *)this)), (void *) ((u8 *)&ovs2wall01_collision_parts.value + (arg2 * 0x2C)), 1);
     ((TObjPlayer *)((u8 *)this))->reset_photon_effect();
     *(s32 *)&this->m_c8 = TObjMapCsn::create((s32)((void *) (arg1)));
     *(s32 *)&this->unk_CC = 1;

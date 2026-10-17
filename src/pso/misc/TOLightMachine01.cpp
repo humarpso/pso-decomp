@@ -122,8 +122,8 @@ u8 *TOLightMachine01__ct(u8 *arg0, s32 arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016EC04___vt__16TOLightMachine01 *)&__vt__16TOLightMachine01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOLightMachine01__name;
     ((TOLightMachine01 *)(arg0))->apply_object_set_data((void *)arg1);
-    *(u8 * *)&((TOLightMachine01 *)arg0)->model = ((u8 *)get_bml_model((void *)((*(s32 *)&TOLightMachine01__shared_bml_archive)), (s32)(1)));
-    ((TOLightMachine01 *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *)((int) ((*(s32 *)&TOLightMachine01__shared_bml_archive))), (s32)((int) (1)));
+    *(u8 * *)&((TOLightMachine01 *)arg0)->model = ((u8 *)get_bml_model((void *)((*(s32 *)&TOLightMachine01__shared_bml_archive)), 1));
+    ((TOLightMachine01 *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *)((int) ((*(s32 *)&TOLightMachine01__shared_bml_archive))), 1);
     *(f32 *)((s8 *)arg0 + 0x90) = (f32) lbl_805DB82C;
     ((TOLightMachine01 *)arg0)->m_94 = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&((TOLightMachine01 *)arg0)->model) + 4)) + 0x14);
     *(s32 *)&((TOLightMachine01 *)arg0)->actorFlags = (s32) (*(s32 *)&((TOLightMachine01 *)arg0)->actorFlags| 0x40000000);

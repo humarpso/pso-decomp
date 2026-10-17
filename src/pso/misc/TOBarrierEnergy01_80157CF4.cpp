@@ -66,21 +66,21 @@ void TOBarrierEnergy01::play_ambient_loop_sound() {
     switch (global_state) {
     case 1:
     case 2:
-        play_persistent_sound((0x4CB09), (arg0), (arg0 + 0x38), (0), (0));
+        play_persistent_sound(0x4CB09, (arg0), (arg0 + 0x38), 0, 0);
         return;
     case 3:
     case 4:
     case 5:
-        play_persistent_sound((0x44B08), (arg0), (arg0 + 0x38), (0), (0));
+        play_persistent_sound(0x44B08, (arg0), (arg0 + 0x38), 0, 0);
         return;
     case 6:
     case 7:
-        play_persistent_sound((0x4004CB02), (arg0), (arg0 + 0x38), (0), (0));
+        play_persistent_sound(0x4004CB02, (arg0), (arg0 + 0x38), 0, 0);
         return;
     case 8:
     case 9:
     case 10:
-        play_persistent_sound((0x4004CB09), (arg0), (arg0 + 0x38), (0), (0));
+        play_persistent_sound(0x4004CB09, (arg0), (arg0 + 0x38), 0, 0);
         return;
     case 0:
         return;

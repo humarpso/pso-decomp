@@ -115,7 +115,7 @@ void TObjPlayer__sub_8002E7C8(void) {
         var_r0 = (long) (((TBreakUpMdl *)temp_r3)->init_from_model(*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4BA4 + 0x42C)) + 0x58)));
     }
     (*(u8 * *)&lbl_805D4B8C) = (unsigned char *) ((void *) var_r0);
-    TObjPlayer__sub_8002ECC4((Obj_8002ECC4 *)((void *) var_r0), (s32)(0x1C));
+    TObjPlayer__sub_8002ECC4((Obj_8002ECC4 *)((void *) var_r0), 0x1C);
 }
 
 void TObjPlayer__sub_8002E974(u8 *arg0) {
@@ -195,8 +195,8 @@ void TObjPlayer::create_breakup_model() {
         var_r0 = (long) (((TBreakUpMdl *)temp_r3)->init_from_model(*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4BA4 + 0x42C)) + 0x68)));
     }
     (*(u8 * *)&shared_breakup_model) = (unsigned char *) ((void *) var_r0);
-    TObjPlayer__sub_8002ED48((Obj_8002ED48 *)((void *) var_r0), (s32)(0x13));
-    TObjPlayer__sub_8002ECC4((Obj_8002ECC4 *)((*(u8 * *)&shared_breakup_model)), (s32)(0x13));
+    TObjPlayer__sub_8002ED48((Obj_8002ED48 *)((void *) var_r0), 0x13);
+    TObjPlayer__sub_8002ECC4((Obj_8002ECC4 *)((*(u8 * *)&shared_breakup_model)), 0x13);
 }
 
 void *TObjPlayer::deleting_dtor(s16 arg1) {

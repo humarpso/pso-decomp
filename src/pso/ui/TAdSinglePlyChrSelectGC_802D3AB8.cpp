@@ -83,15 +83,15 @@ s32 TAdSinglePlyChrSelectGC::create_chr_warp(s32 arg0, s32 arg1) {
 
     if (TAdSinglePlyChrSelectGC__sub_802D4D9C() != 0) {
         var_r31 = check_room_seq_4__16TAdChrSelASlotGCFl(arg1, 4);
-        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)var_r31, (int)(get_localized_text_entry(0x1E, 1)), (int)(6), (int)(0));
-        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)var_r31, (int)(get_localized_text_entry(0x1E, 2)), (int)(6), (int)(1));
-        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)var_r31, (int)(get_localized_text_entry(0x1E, 3)), (int)(6), (int)(2));
-        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)var_r31, (int)(get_localized_text_entry(0x1E, 4)), (int)(6), (int)(3));
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)var_r31, (int)(get_localized_text_entry(0x1E, 1)), 6, 0);
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)var_r31, (int)(get_localized_text_entry(0x1E, 2)), 6, 1);
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)var_r31, (int)(get_localized_text_entry(0x1E, 3)), 6, 2);
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)var_r31, (int)(get_localized_text_entry(0x1E, 4)), 6, 3);
     } else {
         var_r31 = check_room_seq_4__16TAdChrSelASlotGCFl(arg1, 3);
-        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)var_r31, (int)(get_localized_text_entry(0x1E, 1)), (int)(6), (int)(0));
-        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)var_r31, (int)(get_localized_text_entry(0x1E, 3)), (int)(6), (int)(2));
-        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)var_r31, (int)(get_localized_text_entry(0x1E, 4)), (int)(6), (int)(3));
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)var_r31, (int)(get_localized_text_entry(0x1E, 1)), 6, 0);
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)var_r31, (int)(get_localized_text_entry(0x1E, 3)), 6, 2);
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)var_r31, (int)(get_localized_text_entry(0x1E, 4)), 6, 3);
     }
     ((TWindowSubComCard *)var_r31)->calc_window_size();
     align_menu_entry_positions(var_r31);
@@ -298,21 +298,21 @@ void TAdSinglePlyChrSelectGC::handle_menu_selection() {
             return;
         case 1:
             ((TWindowOptionCtrl *)(*(s32 *)&this->unk_38))->open();
-            this->m_4c = TAdChrSelASlotGC::create_format_message_window((s32)((int) (*(s32 *)&this->m_28)), (s32)((void *) (lbl_80472538)), (s32)((int) (0)));
+            this->m_4c = TAdChrSelASlotGC::create_format_message_window((s32)((int) (*(s32 *)&this->m_28)), (s32)((void *) (lbl_80472538)), 0);
             *(s32 *)&this->m_20 = 9;
             return;
         case 2:
-            ((TAdMultiSelGameModeGC *)(*(s32 *)&this->m_2c))->set_selection_state((s32)((int) (1)));
+            ((TAdMultiSelGameModeGC *)(*(s32 *)&this->m_2c))->set_selection_state(1);
             *(s32 *)&this->m_20 = 5;
             return;
         case 3:
             ((TWindowOptionCtrl *)(*(s32 *)&this->unk_38))->open();
-            *(s32 *)&this->unk_50 = TAdChrSelASlotGC__sub_8030C978((void *)(*(s32 *)&this->m_28), (s32)(lbl_80472538), (0));
+            *(s32 *)&this->unk_50 = TAdChrSelASlotGC__sub_8030C978((void *)(*(s32 *)&this->m_28), (s32)(lbl_80472538), 0);
             *(s32 *)&this->m_20 = 0xA;
             return;
         }
     } else if (((TWindowSubComCard *)(*(s32 *)&this->unk_38))->get_status_flag() != 0) {
-        ((TAdMultiSelGameModeGC *)(*(s32 *)&this->m_2c))->set_selection_state((s32)((int) (1)));
+        ((TAdMultiSelGameModeGC *)(*(s32 *)&this->m_2c))->set_selection_state(1);
         *(s32 *)&this->m_20 = 5;
     }
 }
@@ -384,7 +384,7 @@ void TAdSinglePlyChrSelectGC::handle_slot_selection() {
                     var_r0 = __ct__9TAdFadeGCFP7TObjectPv(var_r0, tl_fade, 0);
                 }
                 this->m_54 = var_r0;
-                *(u32 *)&this->unk_48 = TAdChrSelASlotGC::open_yes_no_window((s32)(*(s32 *)&this->m_28), (s32)lbl_80472540, (s32)0);
+                *(u32 *)&this->unk_48 = TAdChrSelASlotGC::open_yes_no_window((s32)(*(s32 *)&this->m_28), (s32)lbl_80472540, 0);
                 *(s32 *)&this->m_20 = 7;
                 return;
             }
@@ -398,8 +398,8 @@ void TAdSinglePlyChrSelectGC::handle_slot_selection() {
 }
 
 void TAdSinglePlyChrSelectGC__sub_802D4570(u8 *arg0) {
-    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&(*(RecoveredGlobal_802D4570_lbl_8050E208 *)&controller_input_state).value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&(*(RecoveredGlobal_802D4570_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (2)) != 0)) {
-        play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&(*(RecoveredGlobal_802D4570_lbl_8050E208 *)&controller_input_state).value + 0x20), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&(*(RecoveredGlobal_802D4570_lbl_8050E208 *)&controller_input_state).value + 0x160), 2) != 0)) {
+        play_sound_effect(0x52F16, 0, 0, 0);
         *(s32 *)((s8 *)arg0 + 0x20) = 0xB;
         return;
     }
@@ -415,8 +415,8 @@ void TAdSinglePlyChrSelectGC__sub_802D4570(u8 *arg0) {
 }
 
 void TAdSinglePlyChrSelectGC__sub_802D4664(u8 *arg0) {
-    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
-        play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 2) != 0)) {
+        play_sound_effect(0x52F16, 0, 0, 0);
         *(s32 *)((s8 *)arg0 + 0x20) = 0xB;
         return;
     }
@@ -435,8 +435,8 @@ void TAdSinglePlyChrSelectGC__sub_802D4664(u8 *arg0) {
 
 void TAdSinglePlyChrSelectGC__sub_802D4730(u8 *arg0) {
     s32 temp_r0;
-    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
-        play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 2) != 0)) {
+        play_sound_effect(0x52F16, 0, 0, 0);
         *(s32 *)((s8 *)arg0 + 0x20) = 0xB;
         return;
     }
@@ -448,8 +448,8 @@ void TAdSinglePlyChrSelectGC__sub_802D4730(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x20) = 0;
         return;
     }
-    if (TAdPlayerLoadGC__sub_801E1B50((int) (0)) == 0) {
-        if (find_card_file__15TAdPlayerLoadGCFiPv((0), (const char *)(&lbl_804C89BC.value)) == 0) {
+    if (TAdPlayerLoadGC__sub_801E1B50(0) == 0) {
+        if (find_card_file__15TAdPlayerLoadGCFiPv(0, (const char *)(&lbl_804C89BC.value)) == 0) {
             if ((u32) *(u32 *)((s8 *)arg0 + 0x40) != 0U) {
                 TWindow__close(*(void **)((s8 *)arg0 + 0x40));
                 *(u32 *)((s8 *)arg0 + 0x40) = 0U;
@@ -461,7 +461,7 @@ void TAdSinglePlyChrSelectGC__sub_802D4730(u8 *arg0) {
         temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C) + 1;
         *(s32 *)((s8 *)arg0 + 0x1C) = temp_r0;
         if ((temp_r0 > 0xA) && ((u32) *(u32 *)((s8 *)arg0 + 0x40) == 0U)) {
-            *(u32 *)((s8 *)arg0 + 0x40) = TAdChrSelASlotGC__sub_8030CB08((int) (*(s32 *)((s8 *)arg0 + 0x28)), (int) (0), (int) (0x18));
+            *(u32 *)((s8 *)arg0 + 0x40) = TAdChrSelASlotGC__sub_8030CB08((int) (*(s32 *)((s8 *)arg0 + 0x28)), 0, 0x18);
         }
     }
 }

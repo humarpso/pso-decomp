@@ -76,10 +76,10 @@ void render__15TObjSuisouLobbyFv(u8 *arg0) {
         TObjFish::set_global_param((int) (*(u32 *)&((TObjSuisouLobby *)arg0)->texture_id));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (((TObjSuisouLobby *)arg0)->rotation_y));
+        rotate_matrix_y(0, (int) (((TObjSuisouLobby *)arg0)->rotation_y));
         if ((s32) *(s32 *)&((TObjSuisouLobby *)arg0)->m_c8 != 3) {
             temp_f1 = *(f32 *)((s8 *)arg0 + 0xCC);
-            scale_matrix((int) (0), (f32) (temp_f1), 1.0f, (f32) (temp_f1));
+            scale_matrix(0, (f32) (temp_f1), 1.0f, (f32) (temp_f1));
         }
         draw_ginja_object((void *)(*(s32 *)((s8 *)arg0 + 0x34)));
         pop_matrix();

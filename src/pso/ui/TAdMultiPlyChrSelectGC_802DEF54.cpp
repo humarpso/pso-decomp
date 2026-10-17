@@ -427,15 +427,15 @@ void TAdMultiPlyChrSelectGC::create_widgets() {
         if (p != 0) {
             __ct__10TAdTitleGCFP7TObjectl((void *) p, ((u8 *)this), 0);
         }
-        *(s32 *)&this->unk_68 = (s32)get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii((s32)((u8 *)this), (s32)(1));
-        *(s32 *)&this->unk_60 = get_or_create_player__22TAdMultiPlyChrSelectGCFiiii((s32)((u8 *)this), (s32)(1), (s32)(-1), (s32)(0));
+        *(s32 *)&this->unk_68 = (s32)get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii((s32)((u8 *)this), 1);
+        *(s32 *)&this->unk_60 = get_or_create_player__22TAdMultiPlyChrSelectGCFiiii((s32)((u8 *)this), 1, -1, 0);
         break;
     case 1: {
         p = __nw__7TObjectFUl(0x138);
         if (p != 0) {
             __ct__10TAdTitleGCFP7TObjectl((void *) p, ((u8 *)this), 8);
         }
-        *(s32 *)&this->unk_68 = (s32)get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii((s32)((u8 *)this), (s32)(2));
+        *(s32 *)&this->unk_68 = (s32)get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii((s32)((u8 *)this), 2);
         this->m_6c = create__16TAdChrSelBSlotGCFPv(((u8 *)this));
         I2_802DF9B4 pos = lbl_80472828[0];
         p = __nw__7TObjectFUl(0x708);
@@ -443,7 +443,7 @@ void TAdMultiPlyChrSelectGC::create_widgets() {
             p = __ct__14TAdSelectCurGCFv((void *) p, ((u8 *)this), &pos, lbl_80472808);
         }
         *(u32 *)&this->unk_70 = p;
-        *(s32 *)&this->unk_60 = get_or_create_player__22TAdMultiPlyChrSelectGCFiiii((s32)((u8 *)this), (s32)(2), (s32)(-1), (s32)(0));
+        *(s32 *)&this->unk_60 = get_or_create_player__22TAdMultiPlyChrSelectGCFiiii((s32)((u8 *)this), 2, -1, 0);
         break;
     }
     }

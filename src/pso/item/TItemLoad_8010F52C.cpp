@@ -61,16 +61,16 @@ void TItemLoad__sub_8010F5A0(void) {
     temp_r3 = ((TAdSinglePlyChrSelectGC *)0x28)->alloc();
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = ((s32)((TUnk_8049F41C *)temp_r3)->construct((void *)((void *) (lbl_805D2BE8)), (int)((int) (0xB5)), (int)((int) (0x144))));
+        var_r0 = ((s32)((TUnk_8049F41C *)temp_r3)->construct((void *)((void *) (lbl_805D2BE8)), 0xB5, 0x144));
     }
     (*(s32 *)&item_texture_archive_loader) = var_r0;
     temp_r3_2 = ((TAdSinglePlyChrSelectGC *)0x40)->alloc();
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != 0) {
-        var_r0_2 = ((TUnk_8049F40C *)temp_r3_2)->construct_with_vtable((void *)((void *) (lbl_805D2BEC)), (int)((int) (0xB4)), (int)((int) (0x12F)));
+        var_r0_2 = ((TUnk_8049F40C *)temp_r3_2)->construct_with_vtable((void *)((void *) (lbl_805D2BEC)), 0xB4, 0x12F);
     }
     (*(s32 *)&item_model_chunk_loader) = var_r0_2;
-    item_load_model_buffer = (s32)mem_alloc((0x21000));
+    item_load_model_buffer = (s32)mem_alloc(0x21000);
 }
 
 void TItemLoad::start_load_with_id(s32 id, s32 arg2) {

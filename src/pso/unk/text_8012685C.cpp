@@ -118,7 +118,7 @@ void TItemWeaponFist::emit_marker_effects() {
   {
     if (((TItemWeapon *)arg0)->get_attack_stage() == 0)
     {
-      ((TObjPlayer *)tl_05)->spawn_cane_effects((TItem*)arg0, (s32)(-1), (s32)(-2));
+      ((TObjPlayer *)tl_05)->spawn_cane_effects((TItem*)arg0, -1, -2);
     }
   }
   else

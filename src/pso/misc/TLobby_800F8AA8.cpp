@@ -792,7 +792,7 @@ void apply_phase_keyboard_mode(void) {
         TLobby::set_keyboard_mode((int)(TLobby__sub_800F8BD8));
         break;
     default:
-        TLobby::set_keyboard_mode((int)(0));
+        TLobby::set_keyboard_mode(0);
         break;
     }
 }

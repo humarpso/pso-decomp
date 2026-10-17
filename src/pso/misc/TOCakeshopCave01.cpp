@@ -112,7 +112,7 @@ void TOCakeshopCave01::render() {
     if (((VObj_18_26a62c *)(arg0))->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
         post_translate_matrix((void *) ((u8 *)(arg0) + 0x38));
-        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        rotate_matrix_y(0, (int) (this->rotation_y));
         TObjFish::set_global_param((int) (this->texture_id));
         m = *(Model_80159F78 * *)&this->model;
         post_translate_matrix(m->m8);

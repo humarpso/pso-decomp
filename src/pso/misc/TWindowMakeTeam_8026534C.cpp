@@ -35,9 +35,9 @@ void *TWindowMakeTeam__ct(void *arg0, void *arg1, s32 arg2) {
     *(u8 *)((s8 *)self + 0x1F) = 0U;
     temp_r0 = *(s32 *)((s8 *)self + 0x20);
     if ((temp_r0 == 1) || (temp_r0 == 2)) {
-        ((TWindowMakeTeam *)(*(s32 *)((s8 *)self + 0x2C)))->set_entry_string_by_id((void *)(draw_entry_0x110__15TWindowMakeTeamFSc(*(u8 *)((s8 *)self + 0x1E))), (s32)2);
+        ((TWindowMakeTeam *)(*(s32 *)((s8 *)self + 0x2C)))->set_entry_string_by_id((void *)(draw_entry_0x110__15TWindowMakeTeamFSc(*(u8 *)((s8 *)self + 0x1E))), 2);
     }
-    ((TWindowMakeTeam *)(*(s32 *)((s8 *)self + 0x2C)))->set_entry_string_by_id((void *)(init_status_disp__15TWindowMakeTeamFc(*(u8 *)((s8 *)self + 0x1F))), (s32)3);
+    ((TWindowMakeTeam *)(*(s32 *)((s8 *)self + 0x2C)))->set_entry_string_by_id((void *)(init_status_disp__15TWindowMakeTeamFc(*(u8 *)((s8 *)self + 0x1F))), 3);
     return arg0;
 }
 

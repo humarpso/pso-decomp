@@ -766,8 +766,8 @@ void *__vt__15TBoss3VoloptP01[83] = {
 #define __vt__15TBoss3VoloptP01 ((s32 *)__vt__15TBoss3VoloptP01)
 
 void TBoss3VoloptP01__sub_80042F84(u8 *arg0) {
-    if (obj_testFlags30((void *)(arg0), (int)(0x04000800)) == 0) {
-        update_if_active__15TObjEneMe1GiGueFl((void *) (arg0), (int) (9));
+    if (obj_testFlags30((void *)(arg0), 0x04000800) == 0) {
+        update_if_active__15TObjEneMe1GiGueFl((void *) (arg0), 9);
     }
 }
 
@@ -930,7 +930,7 @@ void TBoss3VoloptP01__sub_800430D0(void *arg0_) {
         F430D0(s32, 0x37C) = 5;
     }
     case 5:
-        play_persistent_sound((s32)(0x4002B51E), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
+        play_persistent_sound(0x4002B51E, (s32)arg0, (u32)(arg0 + 0x38), 0, 0);
         if (--F430D0(s16, 0x398) <= 0) {
             if (F430D0(u8 *, 0x3AC) != NULL) {
                 queue_destruction__7TObjectFv(F430D0(u8 *, 0x3AC));
@@ -1078,8 +1078,8 @@ void TBoss3VoloptP01::run_state_machine() {
         }
         break;
     }
-    submit_cursor_candidate((void *)((void *) (arg0)), (s32)((int) (-1)));
-    minimap_render_dot((void *)((void *) (arg0 + 0x38)), (s32)((int) (-0x5DB4)), (s32)((int) (1)), (s32)((int) (0)));
+    submit_cursor_candidate((void *)((void *) (arg0)), -1);
+    minimap_render_dot((void *)((void *) (arg0 + 0x38)), -0x5DB4, 1, 0);
 }
 #pragma pop
 
@@ -1298,10 +1298,10 @@ void run_task__15TBoss3VoloptP01Fv(u8 *arg0) {
     } else if ((((TBoss3VoloptP01 *)(arg0))->test_flag30_512() != 0) && !(*(s32 *)&((TBoss3VoloptP01 *)arg0)->actorFlags& 0x04000000)) {
         ((TBoss3VoloptP01 *)(arg0))->vfunc_62();
     }
-    if (obj_testFlags30((void *) (arg0), (int) (0x4000)) != 0) {
-        if (((TObjPlayer *)arg0)->add_status_effect_timer((int) (4), (int) (-1)) <= 0) {
+    if (obj_testFlags30((void *) (arg0), 0x4000) != 0) {
+        if (((TObjPlayer *)arg0)->add_status_effect_timer(4, -1) <= 0) {
             reset_status_effect_row((arg0 + 0x284));
-            ((TUnk_804B9870 *)arg0)->obj_clearFlags30((int) (0x4000));
+            ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x4000);
         }
     } else {
         if ((s16) ((TBoss3VoloptP01 *)arg0)->mode != (s32) *(s32 *)&((TBoss3VoloptP01 *)arg0)->next_action) {
@@ -1419,7 +1419,7 @@ u8 *TBoss3VoloptP01__ct(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3, s16 arg4) {
     *(f32 *)((s8 *)arg0 + 0x40) = (f32) (((76.0f) * ((f32 (*)(int))sin_table_lookup)((int) (temp_r29))) + *(f32 *)((s8 *)(&boss3_volopt_spawn_pos.value) + 8));
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (0.0f);
     ((TBoss3VoloptP01 *)arg0)->rotation_y = (s32) (-0x4000 - temp_r29);
-    temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x34)));
+    temp_r3 = ((s32)__nw__7TObjectFUl(0x34));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = ((s32)__ct__17TObjVoloptShutterFv((u8 *)((int) (temp_r3)), (s32)((void *) (arg2))));
@@ -1438,7 +1438,7 @@ u8 *TBoss3VoloptP01__sub_800442A0(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) (*(s32 *)&TBoss3VoloptP01_class_name);
     ((TBoss3VoloptP01 *)(arg0))->apply_set_data((void *)arg2);
     ((TBoss3VoloptP01 *)arg0)->init_params();
-    temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x34))));
+    temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x34)));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(__ct__17TObjVoloptShutterFv(temp_r3, 0));

@@ -335,7 +335,7 @@ typedef char RecoveredGlobal_80230D9C_lbl_804CC55C_size[((sizeof(RecoveredGlobal
 void TTecRaFoie::calc_area_parameters() {
     u8 *arg0 = (u8 *)this;
   int new_var;
- new_var = (int) calc_technique_parameters((int) 0x2, (int) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78, (int) 0xFFFF); do { ((TTecAnti *)(arg0 + ((0, 0x88))))->copy_params((u8 *)new_var); if ((((s16) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0)) { ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x8))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0xa))) * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)); return; } } while (0);
+ new_var = (int) calc_technique_parameters(0x2, (int) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78, 0xFFFF); do { ((TTecAnti *)(arg0 + ((0, 0x88))))->copy_params((u8 *)new_var); if ((((s16) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0)) { ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0x8))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0xa))) * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)); return; } } while (0);
   ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) (((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 + ((f32) (((RecoveredFields_80230D9C_arg0 *) arg0)->field_AC * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)));
   if (is_technique_ready__8TTecCtrlFv())
   {
@@ -389,7 +389,7 @@ void TUnk_804CCB28::render() {
     pop_matrix();
     model_render_flags = lbl_805D5660;
     if (o->tev != 0) {
-        TScene::set_indirect_tev((s32)(o->tev), (s32)0);
+        TScene::set_indirect_tev((s32)(o->tev), 0);
     }
     TParticleCtrl::end_effect_render();
 }
@@ -598,10 +598,10 @@ u8 *create_rafoie_explosion(u8 *arg0, s32 *arg1, s16 arg2, s16 arg3, s32 arg4, f
     stack.spC += (5.0f);
     VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(&stack.sp8));
     spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv((void *) (arg0));
-    temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x20)));
+    temp_r3 = ((s32)__nw__7TObjectFUl(0x20));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (s32)fn_802A8210((u8 *)(temp_r3), (0x11), (arg0));
+        var_r0 = (s32)fn_802A8210((u8 *)(temp_r3), 0x11, (arg0));
     }
     ((TUnk_804CCB28 *)arg0)->m_24 = var_r0;
     ((TUnk_804CCB28 *)arg0)->m_40 = (f32) (1.9f);
@@ -634,10 +634,10 @@ u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 fa
     stack.spC += (5.0f);
     VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(&stack.sp8));
     spawn_rafoie_explosion_bursts__13TUnk_804CCB28Fv((void *) (arg0));
-    temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x20)));
+    temp_r3 = ((s32)__nw__7TObjectFUl(0x20));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (s32)fn_802A8210((u8 *)(temp_r3), (0x11), (arg0));
+        var_r0 = (s32)fn_802A8210((u8 *)(temp_r3), 0x11, (arg0));
     }
     ((TUnk_804CCB28 *)arg0)->m_24 = var_r0;
     ((TUnk_804CCB28 *)arg0)->m_40 = (f32) (1.9f);

@@ -160,9 +160,9 @@ void TUnk_804F1280::render() {
     if (((s32) *(s32 *)((s8 *)arg0 + 0x1C) != 0) && (TBoss6PlotFalz__sub_802AB6CC((void *) (arg0 + 0x20), (f32) (this->m_2c - TBoss6Rock__data_805DFF48)) != 0)) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x20));
-        rotate_matrix_y((int) (0), (int) (this->m_34));
-        rotate_matrix_x((int) (0), (int) (*(s32 *)&this->unk_30));
-        rotate_matrix_z((int) (0), (int) (*(s32 *)&this->unk_38));
+        rotate_matrix_y(0, (int) (this->m_34));
+        rotate_matrix_x(0, (int) (*(s32 *)&this->unk_30));
+        rotate_matrix_z(0, (int) (*(s32 *)&this->unk_38));
         TObjFish::set_global_param((int) (this->m_3c));
         TBoss6PlotFalz::set_fade_material_color((f32) (TBoss6Rock__data_805DFF4C));
         draw_ginja_object((void *)(*(s32 *)&this->unk_40));
@@ -464,12 +464,12 @@ void TBoss6Rock::update_fall() {
     if (*(f32 *)((s8 *)arg0 + 0x3C) <= TBoss6Rock__data_805DFF50) {
         *(f32 *)((s8 *)arg0 + 0x3C) = (f32) TBoss6Rock__data_805DFF50;
         *(f32 *)&this->unk_CC = (f32) TBoss6Rock__data_805DFF50;
-        TBoss6Rock__sub_803542E8((void *)((void *) (arg0)), (s32)((int) (1)));
+        TBoss6Rock__sub_803542E8((void *)((void *) (arg0)), 1);
         ((TBoss6Rock *)arg0)->sub_80353F5C();
-        play_sound_effect((s32)((int) (0x4006B51E)), (u32)((void *) (arg0 + 0x38)), (int)((int) (0)), (s32)((int) (0)));
-        spawn_particle_effect(((u8 *)&this->position), (0x220));
-        spawn_particle_effect(((u8 *)&this->position), (0x222));
-        TBoss6PlotFalz::apply_radial_effect_to_players((void *) (arg0 + 0x38), (int) (0xC0), (int) (0xF), (f32) (lbl_805DFF54));
+        play_sound_effect(0x4006B51E, (u32)((void *) (arg0 + 0x38)), 0, 0);
+        spawn_particle_effect(((u8 *)&this->position), 0x220);
+        spawn_particle_effect(((u8 *)&this->position), 0x222);
+        TBoss6PlotFalz::apply_radial_effect_to_players((void *) (arg0 + 0x38), 0xC0, 0xF, (f32) (lbl_805DFF54));
         *(s32 *)&this->m_c4 = 2;
     }
 }

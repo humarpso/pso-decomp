@@ -122,7 +122,7 @@ u8 *TPhotonFarlla__ct(u8 *arg0, u8 *arg1) {
         }
         p = __nw__7TObjectFUl(0xD0);
         if (p != NULL) {
-            construct_photon_magic_square_normal((u8 *)p, (s32)arg0, (s32)(0), (s32)&pos, (s32)(0x78));
+            construct_photon_magic_square_normal((u8 *)p, (s32)arg0, 0, (s32)&pos, 0x78);
         }
         spawn_photon_blast_attachment_effects(arg0, 0);
         play_cue_stream_file((s32)lbl_80446D40);

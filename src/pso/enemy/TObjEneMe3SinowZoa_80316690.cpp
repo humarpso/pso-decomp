@@ -41,7 +41,7 @@ s32 TObjEneMe3SinowZoa::check_floor_contact(void *arg1) {
             TObjEneGibbles__sub_800D8988((u8 *)&this->position);
             p = DELL(hit->obj + 0x38, 0x49);
             if (p != 0) {
-                attach_particle_model((u8 *)p, (s32)(TParticleCtrl::get_particle_model(2)), (s32)(TParticleCtrl::get_instance()), (s32)(0), (s32)(1), (f32)TObjEneMe3SinowZoa__data_805DF2F4);
+                attach_particle_model((u8 *)p, (s32)(TParticleCtrl::get_particle_model(2)), (s32)(TParticleCtrl::get_instance()), 0, 1, (f32)TObjEneMe3SinowZoa__data_805DF2F4);
             }
             spawn_particle_effect(hit->obj + 0x38, 0xA4);
             return 1;
@@ -50,7 +50,7 @@ s32 TObjEneMe3SinowZoa::check_floor_contact(void *arg1) {
             TObjEneGibbles__sub_800D8988((u8 *)&this->position);
             p = DELL(hit->obj + 0x54, 0x49);
             if (p != 0) {
-                attach_particle_model((u8 *)p, (s32)(TParticleCtrl::get_particle_model(2)), (s32)(TParticleCtrl::get_instance()), (s32)(0), (s32)(1), (f32)TObjEneMe3SinowZoa__data_805DF2F4);
+                attach_particle_model((u8 *)p, (s32)(TParticleCtrl::get_particle_model(2)), (s32)(TParticleCtrl::get_instance()), 0, 1, (f32)TObjEneMe3SinowZoa__data_805DF2F4);
             }
             spawn_particle_effect(hit->obj + 0x54, 0xA4);
             return 1;

@@ -29,7 +29,7 @@ void TWindowCtrl::update_com_card_window() {
             this->m_3c = 0U;
         }
     } else if ((u32) this->m_3c == 0U) {
-        temp_r3_4 = __nw__7TObjectFUl((int) (0x2C));
+        temp_r3_4 = __nw__7TObjectFUl(0x2C);
         var_r0 = temp_r3_4;
         if (var_r0 != 0U) {
             var_r0 = TWindowGetComCard__ct((int) (temp_r3_4), (void *) (arg0));

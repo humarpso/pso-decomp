@@ -60,7 +60,7 @@ s32 *TWindowSubStatusDisp__sub_80071820(u32 arg0) {
     if (arg0 == 0U) {
         return &lbl_805D2858;
     }
-    ((TLobby *)(&lbl_804FF820.value))->decode_obfuscated_string((void *) (arg0 + 0xD8), (int) (0xC));
+    ((TLobby *)(&lbl_804FF820.value))->decode_obfuscated_string((void *) (arg0 + 0xD8), 0xC);
     return &lbl_804FF820.value;
 }
 

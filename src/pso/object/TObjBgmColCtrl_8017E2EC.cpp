@@ -59,13 +59,13 @@ void TObjBgmColCtrl::create_controller() {
     u32 temp_r3;
     u32 temp_r3_2;
     u32 var_r0;
-    temp_r3 = __nw__7TObjectFUl((int) (0x1C));
+    temp_r3 = __nw__7TObjectFUl(0x1C);
     var_r0 = temp_r3;
     if (var_r0 != 0U) {
-        var_r0 = __ct__7TObjectFP7TObject((int) (temp_r3), (int) (0));
+        var_r0 = __ct__7TObjectFP7TObject((int) (temp_r3), 0);
     }
     TObjBgmColCtrl__instance = var_r0;
-    temp_r3_2 = __nw__7TObjectFUl((int) (0x20));
+    temp_r3_2 = __nw__7TObjectFUl(0x20);
     if (temp_r3_2 != 0U) {
         TObjBgmColCtrl__ct((int) (temp_r3_2), (int) (tl_05));
     }

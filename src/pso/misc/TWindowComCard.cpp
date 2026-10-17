@@ -128,7 +128,7 @@ u8 *TWindowComCard::create_for_card(s32 arg0, s32 arg1, s32 arg2) {
     }
     var_r3 = (u8 *)((void *)0x60);
     var_r31 = arg2 + (arg1 * 0x90);
-    temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x60))));
+    temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x60)));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
         var_r4 = var_r30;
@@ -164,7 +164,7 @@ s32 create_com_card_window__17TWindowSubComCardFi(s32 arg0) {
     if (TWindowSubComCard__sub_8007B070(keyboard_mode) != 0) {
         ((TWindowSubComCard *)keyboard_mode)->clear_and_init((void *) (local_client_id));
     }
-    temp_r3_2 = ((s32)__nw__7TObjectFUl((int) (0x60)));
+    temp_r3_2 = ((s32)__nw__7TObjectFUl(0x60));
     var_r0 = temp_r3_2;
     if (var_r0 != 0) {
         var_r0 = ((s32)TWindowComCard__ct((u8 *)((void *)(temp_r3_2)), (s32)((void *)(arg0)), (s32)((void *)(keyboard_mode))));

@@ -209,7 +209,7 @@ void TItemWeapon::vfunc_44() {
         if (((TItemMag *)arg0)->get_flag_40() != 0 || obj_isState7_324(*(s32 *)((s8 *)arg0 + 0xF0)) != 0) {
             ((TObjPlayer *)arg0)->set_status_flags(8);
         } else {
-            TItemAttacker::spawn_item_timer((s32)arg0, (s32)((void *)&set_flag_8_if_check_passes__10TObjPlayerFv), (s32)0x14);
+            TItemAttacker::spawn_item_timer((s32)arg0, (s32)((void *)&set_flag_8_if_check_passes__10TObjPlayerFv), 0x14);
             TItemEffEquip::create((void *)tl_05, (void *)(obj_getField1c(*(s32 *)((s8 *)arg0 + 0xF0))), (void *)0x30, (void *)0x9D, (void *)0x9E);
             if (((TItemWeapon *)arg0)->test_flags_1b8(0x200) != 0U) {
                 TItemEffEquip::create((void *)tl_05, (void *)(obj_getField1c(*(s32 *)((s8 *)arg0 + 0xF0))), (void *)0x23, (void *)0x9D, (void *)0x9E);

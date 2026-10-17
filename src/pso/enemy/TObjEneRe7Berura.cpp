@@ -775,7 +775,7 @@ void TObjEneRe7Berura::handle_message_transition(s32 msg) {
     case 0:
         return;
     case 3:
-        ((s32 (*)(void *, s32))transition_enemy_state)((void *)(this), (s32)(1));
+        ((s32 (*)(void *, s32))transition_enemy_state)((void *)(this), 1);
         break;
     }
 }
@@ -836,7 +836,7 @@ s32 TObjEneRe7Berura::check_death_trigger() {
 void TObjEneRe7Berura::play_band_sound() {
     u8 *arg0 = (u8 *)this;
     if ((objInBand((GameObj *)arg0, (f32)lbl_805D9770) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)TObjEneRe7Berura__data_805D9764)) != 0)) {
-        play_sound_effect(copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (int) (0x4003BC1F)), (u32) (arg0 + 0x38), 0, 0);
+        play_sound_effect(copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), 0x4003BC1F), (u32) (arg0 + 0x38), 0, 0);
     }
 }
 #pragma pop
@@ -973,7 +973,7 @@ void apply_attack_params__16TObjEneRe7BeruraFiPv(s32 child, u8 *arg1) {
     berura_attack_node_range_end = temp_r4;
     berura_attack_node_vec_ptr = (long) (arg1 + 0x58);
     push_matrix_from((void *) (identity_matrix), (int) (temp_r4), (int) (temp_r5), (int) (temp_r6));
-    TObjEneRe7Berura::collect_node_matrices((void *)((void *) (child)), (int)((int) (0)));
+    TObjEneRe7Berura::collect_node_matrices((void *)((void *) (child)), 0);
     pop_matrix();
 }
 
@@ -1087,7 +1087,7 @@ void TObjEneRe7Berura::vfunc_62() {
         return;
     }
     if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 0xA) {
-        transition_enemy_state((void*)((void *)(arg0)), (void*)((int) (0xA)));
+        transition_enemy_state((void*)((void *)(arg0)), (void*)(0xA));
     }
 }
 

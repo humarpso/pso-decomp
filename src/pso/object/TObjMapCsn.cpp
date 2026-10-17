@@ -161,7 +161,7 @@ u8 *__dt__10TObjMapCsnFv(u8 *arg0, s16 arg1) {
         if (((u32)TObjMapCsn::get_map_count()) != 0U) {
             fn_80140DFC((((u32)TObjMapCsn::get_map_count())), (s32)(arg0));
         }
-        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller((int) (0));
+        ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }

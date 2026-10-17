@@ -29,7 +29,7 @@ void TWindowSubMag::set_mag_slot_state(s32 item) {
 }
 void fn_8026287C(u8 *arg0) {
     u8 *temp_r3;
-    temp_r3 = (u8 *)(((s32)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(0))));
+    temp_r3 = (u8 *)(((s32)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), 0)));
     *(u8 **)((s8 *)temp_r3 + 0x30) = (unsigned char *) ((void *) (arg0 + 0x70));
     *(u16 *)((s8 *)temp_r3 + 0) = (u16) (*(u16 *)((s8 *)temp_r3 + 0) & 0xFFFFFFFD);
 }

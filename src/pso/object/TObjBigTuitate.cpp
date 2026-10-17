@@ -139,7 +139,7 @@ void *TObjBigTuitate__ct(void *arg0, void *arg1, void *arg2) {
     ((TObjPlayer *)((u8 *)arg0 + 0xAC))->init_and_activate();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3454;
     ((TObjBigTuitate *)(arg0))->apply_object_set_data((void *)((s32)arg2));
-    init_collision_body_parts((void *) (arg0), (void *) (big_tuitate_collision_body), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (big_tuitate_collision_body), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     temp_r4 = (s32)arg2 - 4;

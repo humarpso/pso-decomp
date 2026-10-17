@@ -82,7 +82,7 @@ void TWindowMessagePage::run_task() {
     s32 temp_r5;
     draw__14TWindowMessageFv();
     temp_r5 = is_player_input_active((this->m_20)) * 0x50;
-    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), (int) (4), (int) (temp_r5)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (4)) != 0)) {
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), 4, (int) (temp_r5)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 4) != 0)) {
         if (((TWindowMessagePage *)arg0)->is_message_window_ready() != 0) {
             update_message();
             return;

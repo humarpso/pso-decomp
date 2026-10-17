@@ -619,7 +619,7 @@ void generate_shop_weapon_stock(s32 tbl) {
         ((TLobby *)(buf + ((((s32 *)shop_weapon_stock_counts)[tbl]++) * 0x14)))->copy_item_data(&item);
       }
     }
-    sort_shop_items((s32)(buf), (s32)(((s32 *)shop_weapon_stock_counts)[tbl]), (s32)(2));
+    sort_shop_items((s32)(buf), (s32)(((s32 *)shop_weapon_stock_counts)[tbl]), 2);
   }
 }
 #pragma pop
@@ -633,7 +633,7 @@ void get_shop_weapon_stock_item(C14_80225550 *dst, s32 idx, s32 tbl) {
 #pragma pop
 
 void clear_shop_weapon_flags(void) {
-    memset((void *) (&shop_weapon_stock_generated_flags.value), (int) (0), (int) (0x10));
+    memset((void *) (&shop_weapon_stock_generated_flags.value), 0, 0x10);
 }
 
 #pragma push

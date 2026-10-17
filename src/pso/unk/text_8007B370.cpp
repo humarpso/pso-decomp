@@ -39,7 +39,7 @@ s32 fill_guild_card_from_player(u8 *arg0, u32 arg1) {
     return 0;
   }
   *((u8 *) (((s8 *) arg0) + 0x8C)) = (u8) ((*((u8 *) (((s8 *) arg0) + 0x8C))) | 3);
-  strncpy((void *) (arg0 + 8), (void *) PSO_VCALL_VObj_18_26c590_m10(player), (int) 0x17);
+  strncpy((void *) (arg0 + 8), (void *) PSO_VCALL_VObj_18_26c590_m10(player), 0x17);
   *((s8 *) (((s8 *) arg0) + 0x1F)) = 0;
   *((u8 *) (((s8 *) arg0) + 0x8F)) = (u8) (*((u8 *) (((s8 *) player) + 0x88D)));
   *((s8 *) (((s8 *) arg0) + 0x8E)) = ((TPlyPhotonChair *)player)->get_actor_section_id();

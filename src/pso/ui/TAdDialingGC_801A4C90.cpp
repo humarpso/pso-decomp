@@ -20,16 +20,16 @@ void TUnk_804C2298::sub_801A4CA4() {
     temp_r0 = this->m_20;
     switch (temp_r0) {
     case 0:
-        TAdDialingGC::select_dial_image((void *)1, (s32)0);
+        TAdDialingGC::select_dial_image((void *)1, 0);
         return;
     case 1:
-        TAdDialingGC::select_dial_image((void *)0, (s32)0);
+        TAdDialingGC::select_dial_image((void *)0, 0);
         return;
     case 2:
-        TAdDialingGC::select_dial_image((void *)1, (s32)1);
+        TAdDialingGC::select_dial_image((void *)1, 1);
         return;
     case 3:
-        TAdDialingGC::select_dial_image((void *)0, (s32)1);
+        TAdDialingGC::select_dial_image((void *)0, 1);
     case 4:
         return;
     }

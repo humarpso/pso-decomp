@@ -26,7 +26,7 @@ typedef char RecoveredGlobal_8036AE2C_lbl_804F3628_size[sizeof(RecoveredGlobal_8
 u8 *__dt__15PSOV3EncryptionFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0) = &lbl_804F3628.value;
-        memset((void *) (arg0 + 4), (int) (0), (int) (0x828));
+        memset((void *) (arg0 + 4), 0, 0x828);
         *(s32 *)((s8 *)arg0 + 0x82C) = 0;
         *(s32 *)((s8 *)arg0 + 0x830) = 0;
         TBoss8Dragon__sub_8036AEF8((s32 * *)arg0, 0);

@@ -192,7 +192,7 @@ void *lbl_804933D8[24] = {
 void TObjEneRe2Flower_Bomb::render() {
     u8 *arg0 = (u8 *)this;
     if ((s32) this->m_100 != 0) {
-        ((TObjEneDD *)(arg0 + 0x38))->draw_oriented_shadow((s32)(arg0 + 0xD8), (s32)0, (u32)0);
+        ((TObjEneDD *)(arg0 + 0x38))->draw_oriented_shadow((s32)(arg0 + 0xD8), 0, (u32)0);
     }
 }
 void TObjEneRe2Flower_Bomb::run_task() {

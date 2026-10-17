@@ -23,8 +23,8 @@ void TBoss7LaserPtcl::init_laser() {
     ((TObjBoss2Tunnel *)(arg0 + 0x2C))->clamp_velocity();
     *(f32 *)((s8 *)arg0 + 0x30) = (f32) lbl_805E00F4;
     *(s32 *)&this->m_54 = (s32) (lbl_804796D8 * atan2_float((f32) (*(f32 *)((s8 *)arg0 + 0x2C)), (f32) (*(f32 *)((s8 *)arg0 + 0x34))));
-    spawn_particle_effect_with_flags((arg0 + 0x20), (0x20A), (0x40));
-    *(s32 *)((s8 *)arg0 + 0x44) = (s32)spawn_continuous_particle_effect_with_flags((arg0 + 0x20), (0x177), (0x40));
+    spawn_particle_effect_with_flags((arg0 + 0x20), 0x20A, 0x40);
+    *(s32 *)((s8 *)arg0 + 0x44) = (s32)spawn_continuous_particle_effect_with_flags((arg0 + 0x20), 0x177, 0x40);
     this->state = 1;
 }
 #pragma push

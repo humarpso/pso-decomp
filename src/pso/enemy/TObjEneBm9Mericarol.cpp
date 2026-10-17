@@ -473,7 +473,7 @@ u32 mericarol_phase_param_table[3];
 u32 lbl_80540B88[4];
 
 void TObjEneBm9Mericarol__sub_802D073C(s32 arg0) {
-    play_persistent_sound((copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (int) (0x3A810))), (arg0), (arg0 + 0x38), (0), (0));
+    play_persistent_sound((copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), 0x3A810)), (arg0), (arg0 + 0x38), 0, 0);
 }
 
 s32 TObjEneBm9Mericarol::get_phase() { return *(s32*)((char*)this + 0x45c); }
@@ -636,7 +636,7 @@ void TObjEneBm9Mericarol__sub_802D0B04(u8 *arg0) {
         temp_r3_2 = *(s16 *)((s8 *)arg0 + 0x326);
         if ((temp_r3_2 == 0) || (temp_r3_2 == 1)) {
             ((VSub *)(arg0 + 0x46C))->m2();
-            transition_enemy_state((void *)((void *) (arg0)), (s32)((int) (2)));
+            transition_enemy_state((void *)((void *) (arg0)), 2);
         }
     }
     ((TObjEneBm9Mericarol *)arg0)->sync_center_position();
@@ -834,7 +834,7 @@ s32 TObjPlayer::apply_area_attack_hits(u8 *arg1, s32 arg2, u32 object, f32 range
 void TObjEneBm9Mericarol_Bomb::render() {
     u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x10C) != 0) {
-        ((TObjEneDD *)(arg0 + 0x38))->draw_oriented_shadow((s32)(arg0 + 0xD8), (s32)0, (u32)0);
+        ((TObjEneDD *)(arg0 + 0x38))->draw_oriented_shadow((s32)(arg0 + 0xD8), 0, (u32)0);
     }
 }
 

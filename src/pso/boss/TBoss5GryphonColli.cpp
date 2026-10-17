@@ -56,10 +56,10 @@ u8 *TBoss5GryphonColli__ct(u8 *arg0, s32 arg1) {
     stack.sp8 = lbl_805D8ED0;
     stack.spC = lbl_805D8ED0;
     stack.sp10 = lbl_805D8ED4;
-    temp_r3 = __nw__7TObjectFUl((int) (0xB8));
+    temp_r3 = __nw__7TObjectFUl(0xB8);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = TBoss5GryphonDemo__sub_800663DC((int) (temp_r3), (void *) (arg0), (int) (1), (void *) (&stack.sp8), (f32) (lbl_805D8ED8));
+        var_r0 = TBoss5GryphonDemo__sub_800663DC((int) (temp_r3), (void *) (arg0), 1, (void *) (&stack.sp8), (f32) (lbl_805D8ED8));
     }
     *(s32 *)((s8 *)arg0 + 0x1C) = var_r0;
     return arg0;

@@ -154,7 +154,7 @@ u8 *__dt__24TObjFogCollision_ManagerFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80153258_lbl_804AF7C8 *)&lbl_804AF7C8).value;
         *(s32 *)((s8 *)(&(*(RecoveredGlobal_80153258_TObjFogCollisionPoison__data_8050D430 *)&TObjFogCollisionPoison__instances).value) + (*(s32 *)((s8 *)arg0 + 0x28) * 4)) = 0;
-        __dt__7TObjectFv((void *)(arg0), (int)(0));
+        __dt__7TObjectFv((void *)(arg0), 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)((s32) arg0));
         }

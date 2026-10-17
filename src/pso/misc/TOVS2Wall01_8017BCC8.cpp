@@ -19,8 +19,8 @@ void init__11TOVS2Wall01Fi(s32 arg0) {
         ((TOVS2Wall01 *)arg0)->spawn_debris(var_r31);
         var_r31 += 1;
     } while (var_r31 <= 0xF);
-    spawn_particle_effect((void *)(arg0 + 0x38), (0x45));
-    spawn_particle_effect((void *)(arg0 + 0x38), (0x46));
+    spawn_particle_effect((void *)(arg0 + 0x38), 0x45);
+    spawn_particle_effect((void *)(arg0 + 0x38), 0x46);
     play_sound_effect(0x4004BC05, arg0 + 0x38, 0, 0);
 }
 
@@ -42,8 +42,8 @@ f32 take_hit__11TOVS2Wall01FPvUi(u8 *arg0, u32 arg1) {
         } else {
             ((TOVS2Wall01 *)arg0)->save_and_send_state(0);
         }
-        spawn_particle_effect((arg0 + 0x38), (0x1D0));
-        spawn_particle_effect((arg0 + 0x38), (1));
+        spawn_particle_effect((arg0 + 0x38), 0x1D0);
+        spawn_particle_effect((arg0 + 0x38), 1);
     }
     return lbl_805DBAA8;
 }

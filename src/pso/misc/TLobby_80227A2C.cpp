@@ -37,7 +37,7 @@ void TLobby__sub_80227A94(void) { lbl_805D6314 = lbl_805D3710; }
 int get_music_base_gain(void) {  return music_stream_base_gain; }
 typedef char RecoveredGlobal_80227AA8_lbl_80514F64_size[sizeof(RecoveredGlobal_80227AA8_lbl_80514F64) == 0xC3C ? 1 : -1];
 void TLobby__sub_80227AA8(s32 arg0) {
-    fn_8023F660((&(*(RecoveredGlobal_80227AA8_lbl_80514F64 *)sound_control_state).value), (arg0), (((s32 (*)())get_menu_field_280__6TLobbyFv)() + 0x55), (0x40), (0x40), (0));
+    fn_8023F660((&(*(RecoveredGlobal_80227AA8_lbl_80514F64 *)sound_control_state).value), (arg0), (((s32 (*)())get_menu_field_280__6TLobbyFv)() + 0x55), 0x40, 0x40, 0);
 }
 
 }
@@ -529,7 +529,7 @@ void load_floor_sound_bank(s32 arg0) {
                 TLobby__sub_803CB81C();
                 TLobby::run_frame();
             } while (((s32 (*)(void *))is_ready__6TLobbyFPv)((void *) (sound_control_state)) == 0);
-            TLobby__sub_80226B64((int) (0));
+            TLobby__sub_80226B64(0);
         }
     }
 }
@@ -555,7 +555,7 @@ void TLobby__sub_8022809C(void) {
 typedef char RecoveredGlobal_802280C4_lbl_80514F64_size[sizeof(RecoveredGlobal_802280C4_lbl_80514F64) == 0xC3C ? 1 : -1];
 void TLobby::wait_for_sound_init() {
     init_sound_aux_effects((void *) (&(*(RecoveredGlobal_802280C4_lbl_80514F64 *)&sound_control_state).value));
-    validate_and_set_selection__6TLobbyFPvi((void *) (&(*(RecoveredGlobal_802280C4_lbl_80514F64 *)&sound_control_state).value), (int) (0));
+    validate_and_set_selection__6TLobbyFPvi((void *) (&(*(RecoveredGlobal_802280C4_lbl_80514F64 *)&sound_control_state).value), 0);
     do {
         TLobby__sub_803382E4();
         TLobby::run_disk_error_check();
@@ -810,7 +810,7 @@ void TLobby::add_token(const char *src) {
 }
 
 void clear_work_buffer(u8 *arg0) {
-    memset((void *)(arg0 + 0x1C), (int)(0), (int)(0x1000));
+    memset((void *)(arg0 + 0x1C), 0, 0x1000);
     *(s32 *)((s8 *)arg0 + 0x109C) = 0;
 }
 
@@ -821,7 +821,7 @@ void *TUnk_804CC048::construct(void *arg1, void *arg2, void *arg3) {
     *(s32 **)((s8 *)this + 0x18) = lbl_804CC048;
     *(void **)((s8 *)this + 0x10A0) = arg2;
     this->m_10a4 = arg3;
-    memset((void *)((void *)((char *)this + 28)), (int)(0), (int)(4096));
+    memset((void *)((void *)((char *)this + 28)), 0, 4096);
     this->m_109c = 0;
     return this;
 }

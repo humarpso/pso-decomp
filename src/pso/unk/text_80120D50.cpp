@@ -52,18 +52,18 @@ u8 *TItemWeapon__ct(u8 *arg0, void *parent, u8 *item) {
     if (temp_r3 == 0) {
         ((TItemWeapon *)arg0)->special_selector = (u8) (((TItemWeapon *)arg0)->special_selector| lbl_805DACA4);
     }
-    memcpy((void *) (arg0 + 0x1A4), (void *) (item + 6), (int) (6));
+    memcpy((void *) (arg0 + 0x1A4), (void *) (item + 6), 6);
     *(s32 *)((s8 *)arg0 + 0x1EC) = 0;
     *(s32 *)((s8 *)arg0 + 0x1F4) = 0;
     *(void **)((s8 *)arg0 + 0x1F0) = (void *)create_gun_shot;
     *(s16 *)((s8 *)arg0 + 0x1CE) = (s16) *(u8 *)((s8 *)(*(void * *)&((TItemWeapon *)arg0)->parameters) + 0x1B);
     temp_r6 = (unsigned char *) (*(void * *)&((TItemWeapon *)arg0)->parameters);
-    set_weapon_trail_joints((void *) (arg0), (int) (0), (int) (*(u8 *)((s8 *)temp_r6 + 0x1C)), (int) (*(u8 *)((s8 *)temp_r6 + 0x1D)));
+    set_weapon_trail_joints((void *) (arg0), 0, (int) (*(u8 *)((s8 *)temp_r6 + 0x1C)), (int) (*(u8 *)((s8 *)temp_r6 + 0x1D)));
     temp_r6_2 = (unsigned char *) (*(void * *)&((TItemWeapon *)arg0)->parameters);
-    set_weapon_trail_joints((void *) (arg0), (int) (1), (int) (*(u8 *)((s8 *)temp_r6_2 + 0x1E)), (int) (*(u8 *)((s8 *)temp_r6_2 + 0x1F)));
-    set_weapon_trail_joints((void *) (arg0), (int) (2), (int) (-1U), (int) (-1U));
-    set_weapon_trail_joints((void *) (arg0), (int) (3), (int) (-1U), (int) (-1U));
-    memset((void *) (arg0 + 0x18C), (int) (0), (int) (0x10));
+    set_weapon_trail_joints((void *) (arg0), 1, (int) (*(u8 *)((s8 *)temp_r6_2 + 0x1E)), (int) (*(u8 *)((s8 *)temp_r6_2 + 0x1F)));
+    set_weapon_trail_joints((void *) (arg0), 2, (int) (-1U), (int) (-1U));
+    set_weapon_trail_joints((void *) (arg0), 3, (int) (-1U), (int) (-1U));
+    memset((void *) (arg0 + 0x18C), 0, 0x10);
     *(s32 *)((s8 *)arg0 + 0x1B8) = 0;
     *(f32 *)((s8 *)arg0 + 0x1E4) = (f32) lbl_805DACB0;
     ((TItemWeapon *)arg0)->technique_roll = 0;
@@ -91,13 +91,13 @@ u8 *TItemWeapon__ct(u8 *arg0, void *parent, u8 *item) {
     }
     ((TItemWeapon *)arg0)->set_weapon_category_flags();
     if (*(u8 *)((s8 *)(*(void * *)&((TItemWeapon *)arg0)->parameters) + 0x27) & 1) {
-        ((TObjPlayer *)(arg0 + 0x178))->set_flags((int) (0x20));
+        ((TObjPlayer *)(arg0 + 0x178))->set_flags(0x20);
     }
     if (*(u8 *)((s8 *)(*(void * *)&((TItemWeapon *)arg0)->parameters) + 0x27) & 2) {
-        ((TObjPlayer *)arg0)->set_status_flags((int) (0x40000));
+        ((TObjPlayer *)arg0)->set_status_flags(0x40000);
     }
     if (*(u8 *)((s8 *)(*(void * *)&((TItemWeapon *)arg0)->parameters) + 0x27) & 4) {
-        ((TObjPlayer *)arg0)->set_status_flags((int) (0x80000));
+        ((TObjPlayer *)arg0)->set_status_flags(0x80000);
     }
     return arg0;
 }

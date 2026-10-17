@@ -155,7 +155,7 @@ void TLobby::reduce_owner_matched_items() {
                     lobby = item_reduce_target_player;
                     ((TLobby *)(*(s32 *)(lobby + 0xD00)))->reduce_item_amount((s32)lobby, (s32)it, (s32)(owner->v34()));
                 } else {
-                    ((TLobby *)(*(s32 *)(item_reduce_target_player + 0xD00)))->reduce_item_amount((s32)item_reduce_target_player, (s32)it, (s32)1);
+                    ((TLobby *)(*(s32 *)(item_reduce_target_player + 0xD00)))->reduce_item_amount((s32)item_reduce_target_player, (s32)it, 1);
                 }
             }
         }
@@ -175,7 +175,7 @@ void TLobby::reduce_child_item_amounts() {
                     lobby = item_reduce_target_player;
                     ((TLobby *)(*(s32 *)(lobby + 0xD00)))->reduce_item_amount((s32)lobby, (s32)it, (s32)(owner->v34()));
                 } else {
-                    ((TLobby *)(*(s32 *)(item_reduce_target_player + 0xD00)))->reduce_item_amount((s32)item_reduce_target_player, (s32)it, (s32)1);
+                    ((TLobby *)(*(s32 *)(item_reduce_target_player + 0xD00)))->reduce_item_amount((s32)item_reduce_target_player, (s32)it, 1);
                 }
             }
         }

@@ -9,14 +9,14 @@ int construct_srank_weapon(void);
 
 void s_rank_shot_open_spread(u8 *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x200) < 0x2000) {
-        TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x200), (s32)0x2D8, (s32)0x2000);
+        TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x200), 0x2D8, 0x2000);
     }
 }
 
 void TUnk_804A444C::update_attack() {
     u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x200) > 0) {
-        TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x200), (s32)(-0x2000), (s32)0);
+        TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x200), -0x2000, 0);
     }
 }
 

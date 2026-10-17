@@ -65,8 +65,8 @@ void TUnk_804A64E8::emit_marker_effects() {
     tec.f20 = lbl_805DAFB8;
     tec.f24 = lbl_805DAFC4;
     tec.f28 = ((Self_8012F704 *)this)->owner->f60;
-    ((TObjPlayer *)((Self_8012F704 *)this))->draw_icon((s32)5, (s32)(&tec.pos));
-    ((TObjPlayer *)((Self_8012F704 *)this))->draw_icon((s32)4, (s32)(&tec.dir));
+    ((TObjPlayer *)((Self_8012F704 *)this))->draw_icon(5, (s32)(&tec.pos));
+    ((TObjPlayer *)((Self_8012F704 *)this))->draw_icon(4, (s32)(&tec.dir));
     TTecSlicer::create((u16*)(&tec));
 }
 

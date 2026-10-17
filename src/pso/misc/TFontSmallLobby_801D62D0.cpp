@@ -179,7 +179,7 @@ int set_flags__10TObjPlayerFUl(void*, int);
 
 s32 TFontSmallLobby::construct_pb_controller() {
     s32 arg0 = (s32)this;
-    __construct_array((void *) (arg0 + 0x14), (void *) (fn_80152EF8), (int) (0), (int) (4), (int) (0xA));
+    __construct_array((void *) (arg0 + 0x14), (void *) (fn_80152EF8), 0, 4, 0xA);
     ((TObjPlayer *)(arg0 + 0x40))->init_forward();
     ((TFontSmallLobby *)(arg0 + 0x4C))->init_reset_fields();
     ((TFontSmallLobby *)arg0)->reset_state();

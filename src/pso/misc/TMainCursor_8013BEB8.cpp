@@ -245,13 +245,13 @@ void TMainCursor::reset_cursor_parts() {
     u8 *arg0 = (u8 *)this;
     s32 var_r30;
 
-    TMainCursor__sub_8013F170(((u8 *)&this->m_40), (0));
+    TMainCursor__sub_8013F170(((u8 *)&this->m_40), 0);
     var_r30 = 0;
     *(f32 *)((s8 *)arg0 + 0x18) = (f32) TMainCursor__data_805DB0C0;
     do {
         get_record_at__11TMainCursorFPvi((void *) (arg0 + 0x40), (int) (var_r30));
         set_size__11TMainCursorFf((f32) (TMainCursor__data_805DB0C0));
-        set_cursor_id__11TMainCursorFs(get_record_at__11TMainCursorFPvi((void *) (arg0 + 0x40), (int) (var_r30)), (int) (0xFFFF));
+        set_cursor_id__11TMainCursorFs(get_record_at__11TMainCursorFPvi((void *) (arg0 + 0x40), (int) (var_r30)), 0xFFFF);
         var_r30 += 1;
     } while (var_r30 < 0xA);
 }

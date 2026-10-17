@@ -132,9 +132,9 @@ void TUnk_804C3248::begin_photon_summon_camera(s8 arg1) {
     stack.spC = 0.0f;
     stack.sp10 = 1.0f;
     if ((*(s32 *)((s8 *)(&TCameraCtrl__view_state.value) + 8) & 4) || (*(s32 *)((s8 *)(&TCameraCtrl__view_state.value) + 8) & 8)) {
-        TCameraCtrl::select_active_controller((int) (5));
+        TCameraCtrl::select_active_controller(5);
     }
-    ((TCameraCtrl *)(&stack.sp8))->cache_target_and_forward((int) (0x4222));
+    ((TCameraCtrl *)(&stack.sp8))->cache_target_and_forward(0x4222);
     temp_r3 = (long) (arg0 + 0x38);
     set_scripted_camera_pose((int) (temp_r3), (int) (temp_r3), (void *) (arg0 + 0x5C));
     *(s32 *)((s8 *)arg0 + 0xFC) = 1;

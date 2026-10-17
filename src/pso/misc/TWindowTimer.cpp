@@ -74,27 +74,27 @@ void TWindowTimer::set_time(u32 secs) {
     s32 entry;
     u32 hours;
     u32 mins;
-    entry = get_array_entry((s32)(0));
+    entry = get_array_entry(0);
     text_builder_reset();
     hours = secs / 3600;
     secs %= 3600;
     if (hours > 9) {
         text_builder_append((u8 *)((s32 *)(lbl_8044FCE8)));
     } else {
-        append_padded_number((hours), (1));
+        append_padded_number((hours), 1);
         text_builder_append((u8 *)((s32 *)(&lbl_805DD888)));
         mins = secs / 60;
         secs %= 60;
-        append_padded_number((mins), (2));
+        append_padded_number((mins), 2);
         text_builder_append((u8 *)((s32 *)(&lbl_805DD88C)));
-        append_padded_number((secs), (2));
+        append_padded_number((secs), 2);
     }
-    set_text_entry_string((u8 *)(entry), (u32)(get_shared_text_buffer()), (0x20));
+    set_text_entry_string((u8 *)(entry), (u32)(get_shared_text_buffer()), 0x20);
     ((TWindowHelpItem *)entry)->reset_float_field();
 }
 
 void TWindowTimer::draw_tab(s32 arg0, s32 arg1) {
-    draw_window_tab((void *) (arg1), (void *) (arg1 + 0x10), (int) (3), (f32) (lbl_805DD890));
+    draw_window_tab((void *) (arg1), (void *) (arg1 + 0x10), 3, (f32) (lbl_805DD890));
 }
 
 s32 TWindowTimer::create() {
@@ -130,8 +130,8 @@ void run_task__12TWindowTimerFv(u8 *arg0) {
   int temp_r31;
   if ((*(s32 *)&((TWindowTimer *)arg0)->m_60) & 1)
   {
-    temp_r31 = get_timer_value__12TWindowTimerFi((int) 1);
-    ((TWindowTimer *)arg0)->draw((s32)((int) get_timer_value__12TWindowTimerFi((int) 0)), (s32)((int) temp_r31));
+    temp_r31 = get_timer_value__12TWindowTimerFi(1);
+    ((TWindowTimer *)arg0)->draw((s32)((int) get_timer_value__12TWindowTimerFi(0)), (s32)((int) temp_r31));
   }
  do { ((TWindowDD *)arg0)->initialize_subwindow(); ((TWindowTimer *)arg0)->update_chat_parts(); ((TWindowTimer *)arg0)->ease_window_timer_position(); ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24)); } while (0);
 }

@@ -69,11 +69,11 @@ void TSaveChCr::update_save_state() {
 void fn_80339D78(u8 *arg0) {
     ((s32)close_window__9TSaveChCrFv((void*)(arg0)));
     if (*(s32 *)((s8 *)arg0 + 0x2C) & 1) {
-        ((s32)close_and_advance__9TSaveChCrFPv((void*)((void *) (arg0)), (int)((int) (0))));
+        ((s32)close_and_advance__9TSaveChCrFPv((void*)((void *) (arg0)), 0));
     }
 }
 s32 TAdSinglePlyChrSelectGC__sub_80339DBC(void) {
-    if ((find_card_file__15TAdPlayerLoadGCFiPv((0), (const char *)(pso_system_card_filename)) != 0) || (find_card_file__15TAdPlayerLoadGCFiPv((0), (const char *)(lbl_804C88C0)) != 0) || (find_card_file__15TAdPlayerLoadGCFiPv((0), (const char *)(lbl_804C89BC)) != 0)) {
+    if ((find_card_file__15TAdPlayerLoadGCFiPv(0, (const char *)(pso_system_card_filename)) != 0) || (find_card_file__15TAdPlayerLoadGCFiPv(0, (const char *)(lbl_804C88C0)) != 0) || (find_card_file__15TAdPlayerLoadGCFiPv(0, (const char *)(lbl_804C89BC)) != 0)) {
         return 0;
     }
     return 1;

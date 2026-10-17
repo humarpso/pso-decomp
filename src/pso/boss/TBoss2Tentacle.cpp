@@ -147,29 +147,29 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
     switch (temp_r0) {
     case 0:
-        TObjPlayer::concat_matrix((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x110)));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x11C)));
+        TObjPlayer::concat_matrix(0, (int) (*(s32 *)((s8 *)arg0 + 0x110)));
+        rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x11C)));
         draw_model_motion((lbl_805D4BD0), (TBoss2Tentacle__motion_data), (f32) (*(f32 *)((s8 *)arg0 + 0x114)));
         break;
     case 1:
     case 4:
     case 5:
-        TObjPlayer::concat_matrix((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x110)));
-        rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x120)));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x11C)));
+        TObjPlayer::concat_matrix(0, (int) (*(s32 *)((s8 *)arg0 + 0x110)));
+        rotate_matrix_x(0, (int) (*(s32 *)((s8 *)arg0 + 0x120)));
+        rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x11C)));
         draw_model_motion((lbl_805D4BD0), (TBoss2Tentacle__motion_data), (f32) (*(f32 *)((s8 *)arg0 + 0x114)));
         break;
     case 2:
-        TObjPlayer::concat_matrix((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x110)));
-        rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x120)));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x11C)));
+        TObjPlayer::concat_matrix(0, (int) (*(s32 *)((s8 *)arg0 + 0x110)));
+        rotate_matrix_x(0, (int) (*(s32 *)((s8 *)arg0 + 0x120)));
+        rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x11C)));
         draw_chunk_object((lbl_805D4BD0));
         break;
     case 3:
         post_translate_matrix((void *) ((u8 *)(arg0) + 0x140));
-        scale_matrix((int) (0), (f32) (lbl_805D8528), (f32) (lbl_805D8528), (f32) (lbl_805D8528));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x11C)));
-        rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x120)));
+        scale_matrix(0, (f32) (lbl_805D8528), (f32) (lbl_805D8528), (f32) (lbl_805D8528));
+        rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x11C)));
+        rotate_matrix_z(0, (int) (*(s32 *)((s8 *)arg0 + 0x120)));
         for (i = 0; i < 14; i++) {
             lbl_804FE5D8[i].x = ((Ten_8003933C *)arg0)->pos[i].x;
             lbl_804FE5D8[i].y = ((Ten_8003933C *)arg0)->pos[i].y;

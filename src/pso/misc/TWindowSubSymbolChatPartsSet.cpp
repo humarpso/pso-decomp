@@ -295,10 +295,10 @@ void TWindowSubSymbolChatPartsSet::run_task() {
     if (((TWindowSubSymbolChatPartsSet *)arg0)->is_active() == 0) {
         handle_cursor_input();
         temp_r31 = (u8 *)&controller_input_state.value + 0x20;
-        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (4)) != 0)) {
+        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), 4) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 4) != 0)) {
             handle_decide();
         }
-        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
+        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 2) != 0)) {
             handle_cancel();
         }
     }

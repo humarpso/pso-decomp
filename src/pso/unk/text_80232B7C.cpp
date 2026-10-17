@@ -116,7 +116,7 @@ void grants_presentation_update(Ctl_80232C50 *arg0) {
                 if (e->flags & 0x20) {
                     r = (s32)spawn_particle_effect(obj + 0x38, e->a);
                     if (r != 0) {
-                        attach_particle_model((u8 *)r, (s32)(get_bml_model(technique_effect_bml, technique_effect_entry_table[arg0->kind].ents[i].flags >> 16)), (s32)lbl_805D63B0, (s32)(0), (s32)(1), (f32)lbl_805DC854);
+                        attach_particle_model((u8 *)r, (s32)(get_bml_model(technique_effect_bml, technique_effect_entry_table[arg0->kind].ents[i].flags >> 16)), (s32)lbl_805D63B0, 0, 1, (f32)lbl_805DC854);
                     }
                 } else {
                     spawn_particle_effect(obj + 0x38, e->a);
@@ -139,7 +139,7 @@ void grants_presentation_update(Ctl_80232C50 *arg0) {
         }
         p = __nw__7TObjectFUl(0x28);
         if (p != 0) {
-            construct_timed_sound_voice((u8 *)p, (s32)arg0->f30, (s16)(0xF), (s32)(0x4002A60D), (s32)dir, (s32)tl_07);
+            construct_timed_sound_voice((u8 *)p, (s32)arg0->f30, (s16)(0xF), 0x4002A60D, (s32)dir, (s32)tl_07);
         }
         queue_destruction__7TObjectFv(arg0);
     }

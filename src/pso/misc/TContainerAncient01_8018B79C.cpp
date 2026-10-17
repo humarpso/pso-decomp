@@ -141,7 +141,7 @@ void TContainerAncient01::run_task() {
             }
             temp_f1 = this->m_2b4;
             this->m_2b4 = (f32) (temp_f1 + (*(const f32 *)&TContainerAncient01__data_805DBD10));
-            submit_cursor_candidate((void *) (arg0), (int) (-1), (f32) (temp_f1));
+            submit_cursor_candidate((void *) (arg0), -1, (f32) (temp_f1));
         } else {
             temp_f1_2 = *(f32 *)&this->unk_364;
             if (temp_f1_2 <= lbl_805DBD50) {
@@ -154,11 +154,11 @@ void TContainerAncient01::run_task() {
             }
         }
     }
-    if ((u32) this->unknownF8 == get_bml_motion((int) (TContainerAncient01__bml_resource), (int) (0))) {
-        *(s32 *)&this->model = get_bml_model((int) (TContainerAncient01__bml_resource), (int) (0));
+    if ((u32) this->unknownF8 == get_bml_motion((int) (TContainerAncient01__bml_resource), 0)) {
+        *(s32 *)&this->model = get_bml_model((int) (TContainerAncient01__bml_resource), 0);
     }
-    if ((u32) this->unknownF8 == get_bml_motion((int) (TContainerAncient01__bml_resource), (int) (1))) {
-        *(s32 *)&this->model = get_bml_model((int) (TContainerAncient01__bml_resource), (int) (1));
+    if ((u32) this->unknownF8 == get_bml_motion((int) (TContainerAncient01__bml_resource), 1)) {
+        *(s32 *)&this->model = get_bml_model((int) (TContainerAncient01__bml_resource), 1);
     }
     run_task__7TObjectFv((void *) (arg0));
 }

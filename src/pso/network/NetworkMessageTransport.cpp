@@ -356,7 +356,7 @@ s16 TLobby__sub_804262CC(void *argp) {
     if ((s32) lbl_805D7BB0 == 1) {
         return 0;
     }
-    NetMemset((void *)(arg0), (0), (0x56));
+    NetMemset((void *)(arg0), 0, 0x56);
     if (TLobby__sub_8042AAA0((void *) (lbl_805D7BC8)) != 1) {
         var_r0 = -1;
     } else {

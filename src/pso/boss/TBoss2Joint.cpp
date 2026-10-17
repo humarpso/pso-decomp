@@ -291,7 +291,7 @@ void TBoss2Joint__sub_8003688C(u8 *arg0) {
   *temp_r3 |= 0xFF00;
 }
 
-void TBoss2Joint::call_36A90_with_1() { init_joint_offset((s32)((int)(1))); }
+void TBoss2Joint::call_36A90_with_1() { init_joint_offset(1); }
 
 typedef char RecoveredGlobal_80036A90_lbl_80435A68_size[sizeof(RecoveredGlobal_80036A90_lbl_80435A68) == 0x20 ? 1 : -1];
 void TBoss2Joint::init_joint_offset(s32 arg1) {
@@ -369,7 +369,7 @@ void TBoss2Joint::vfunc_62() {
 
     temp_r31 = *(s16 *)((s8 *)self + 0x2B8) - *(s16 *)((s8 *)self + 0x32C);
     if (!(*(s32 *)((s8 *)self + 0x38C) & 1)) {
-        ((TBoss2Joint *)self)->init_joint_offset((s32)((int)(0)));
+        ((TBoss2Joint *)self)->init_joint_offset(0);
         *(s32 *)((s8 *)self + 0x394) = (s32) (*(s32 *)((s8 *)self + 0x394) - temp_r31);
         if ((s32) *(s32 *)((s8 *)self + 0x394) <= 0) {
             *(s32 *)((s8 *)self + 0x394) = 0;
@@ -400,7 +400,7 @@ void TBoss2Joint::run_task() {
         update_position_history();
         this->vfunc_88();
         ((TBoss8Dragon *)arg0)->set_player_state_default();
-        add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805D848C));
+        add_radar_scaled_marker((void *) (arg0 + 0x38), -0x5DB4, 1, 1, (f32) (lbl_805D848C));
     }
 }
 

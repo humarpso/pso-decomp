@@ -297,7 +297,7 @@ void TObjPlayer__sub_800AB1C8(u8 *arg0) {
   ((TUnk_80491460 *)arg0)->m_60 = (s32) ((((TUnk_80491460 *)arg0)->m_60) + 1);
   if (!((((TUnk_80491460 *)arg0)->m_60) & 3))
   {
-    if (csnVector((void *) (arg0 + 0x28), (void *) (arg0 + 0x1C), (int) (-1)) != 0U)
+    if (csnVector((void *) (arg0 + 0x28), (void *) (arg0 + 0x1C), -1) != 0U)
     {
       queue_destruction__7TObjectFv(arg0);
       return;

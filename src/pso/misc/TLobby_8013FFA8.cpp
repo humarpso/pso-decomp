@@ -206,11 +206,11 @@ s32 TLobby::setup_area() {
     if (TLobby::check_disconnect_conditions() != 0) {
         return 0;
     }
-    run_load_callback_table((s32 *)((void *) (lbl_804A7360)), (s32)((int) (8)));
+    run_load_callback_table((s32 *)((void *) (lbl_804A7360)), 8);
     init_area_lights();
     TLobby::create_tasks();
     TLobby::create_boss2_tunnel();
-    TLobby__sub_801403B4((s32)((int) (0)));
+    TLobby__sub_801403B4(0);
     play_area_music((s32 *)((void *) (lbl_8043F1C8)));
     return 1;
 }
@@ -294,7 +294,7 @@ s32 init_cave_b_stage(void) {
     }
     init_area_lights();
     TLobby::create_tasks();
-    TLobby__sub_801403B4((s32)(0));
+    TLobby__sub_801403B4(0);
     if (is_split_screen() != 0) {
         play_area_music(lbl_8043F1E8);
     } else {
@@ -363,12 +363,12 @@ s32 TLobby::setup_scene() {
     TLobby::create_tasks();
     TObjBgmColCtrl::create_controller();
     if (((s32)TOKeyMachine01::get_global_state()) == 0) {
-        obj = ((void *)__nw__7TObjectFUl((s32)(0x78)));
+        obj = ((void *)__nw__7TObjectFUl(0x78));
         if (obj != NULL) {
             construct_traffic_manager(obj, tl_05);
         }
     }
-    obj = ((void *)__nw__7TObjectFUl((s32)(0x1C)));
+    obj = ((void *)__nw__7TObjectFUl(0x1C));
     if (obj != NULL) {
         __ct__13TQuestBgmCtrlFP7TObject(obj, tl_05);
     }
@@ -423,7 +423,7 @@ void TLobby::update_floor_download() {
 s32 TLobby::init_lobby_floor_scene() {
     TOKeyMachine01::get_global_state();
     load_floor_sound_bank();
-    if (((s32)run_load_callback_table((s32 *)((void *) (&(*(RecoveredGlobal_80140A6C_lbl_804A73D0 *)&lobby_floor_scene_callbacks).value)), (s32)((int) (0x30)))) == 0) {
+    if (((s32)run_load_callback_table((s32 *)((void *) (&(*(RecoveredGlobal_80140A6C_lbl_804A73D0 *)&lobby_floor_scene_callbacks).value)), 0x30)) == 0) {
         return 0;
     }
     if (TLobby::check_disconnect_conditions() != 0) {
@@ -434,7 +434,7 @@ s32 TLobby::init_lobby_floor_scene() {
     ((TLobby *)(&(*(RecoveredGlobal_80140A6C_lbl_8050EA40 *)&lobby_rule_settings).value))->reset_settings_to_default();
     TLobby::create_tasks();
     TObjBgmColCtrl::create_controller();
-    TLobby__sub_801403B4((s32)((int) (0)));
+    TLobby__sub_801403B4(0);
     return 1;
 }
 void TLobby::update_floor_alt() { TLobby::refresh_render_state(); TLobby::stop_audio_streams(); TLobby::update_current_floor(); unload_current_floor_resources(); TLobby::clear_session_buffers(); }

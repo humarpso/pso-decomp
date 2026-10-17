@@ -235,7 +235,7 @@ u8 *TPhotonMagicSquare::construct_at_owner(s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)&this->m_c4 = 0x37;
     *(f32 *)&this->_padC8 = (f32) (0.1f);
     *(s32 *)&this->m_cc = 2;
-    play_sound_effect((int) (0x4002AD2E), (int) (0), (int) (0), (int) (0));
+    play_sound_effect(0x4002AD2E, 0, 0, 0);
     return ((u8 *)this);
 }
 

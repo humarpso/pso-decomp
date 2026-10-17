@@ -24,11 +24,11 @@ void TAdBackGC::render() {
     } else if (TMainTask::get_state_flag() != 1) {
 block_4:
         fn_8029A6EC((void *) (arg0));
-        set_cached_blend_factor((0), (8));
-        set_cached_blend_factor((1), (0xA));
-        draw_title_background_layer((void *) (chr_select_ad_pic_2_texture_descriptor), (int) (0), (int) (-1), (f32) (*(f32 *)((s8 *)arg0 + 0x1C)));
-        set_cached_blend_factor((0), (8));
-        set_cached_blend_factor((1), (6));
+        set_cached_blend_factor(0, 8);
+        set_cached_blend_factor(1, 0xA);
+        draw_title_background_layer((void *) (chr_select_ad_pic_2_texture_descriptor), 0, -1, (f32) (*(f32 *)((s8 *)arg0 + 0x1C)));
+        set_cached_blend_factor(0, 8);
+        set_cached_blend_factor(1, 6);
         if ((s32) *(s32 *)((s8 *)arg0 + 0x20) == 0) {
             restore_saved_depth_alpha_state();
         }

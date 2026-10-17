@@ -216,7 +216,7 @@ void TTecBarta::create_particle_emitters() {
         if (self->emitters[i] != NULL) {
             row = &TTecBarta__emitter_bands[self->band].rows[i];
             if (row->flags & 0x20) {
-                attach_particle_model((u8 *)self->emitters[i], (s32)(get_bml_model(technique_effect_bml, 0)), (s32)lbl_805D63B0, (s32)(get_bml_motion(technique_effect_bml, 0)), (s32)(0), (f32)lbl_805DC7A0);
+                attach_particle_model((u8 *)self->emitters[i], (s32)(get_bml_model(technique_effect_bml, 0)), (s32)lbl_805D63B0, (s32)(get_bml_motion(technique_effect_bml, 0)), 0, (f32)lbl_805DC7A0);
             } else {
                 ((TObjPlayer *)(self->emitters[i]))->set_position_xy(row->scale, row->scale);
             }
@@ -228,7 +228,7 @@ void TTecBarta::create_particle_emitters() {
 void TTecBarta::init_parameters() {
     u8 *arg0 = (u8 *)this;
   int new_var;
-  new_var = (int) calc_technique_parameters((int) 3, (int) (this->level), (int) 0xFFFF);
+  new_var = (int) calc_technique_parameters(3, (int) (this->level), 0xFFFF);
   ((TTecAnti *)(arg0 + 0xCC))->copy_params((u8 *)new_var);
   if ((((s16) (this->level)) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
@@ -322,7 +322,7 @@ void TTecBarta::run_task() {
     if (this->band == 5) {
         TechniqueParticleEmitter *e = (TechniqueParticleEmitter *)create_timed_particle_emitter(&this->position.x, 0x18A, 0x14, 1);
         if (e != NULL) {
-            attach_particle_model((u8 *)e, (s32)(get_bml_model(technique_effect_bml, 5)), (s32)lbl_805D63B0, (s32)(0), (s32)(0), (f32)lbl_805DC7A0);
+            attach_particle_model((u8 *)e, (s32)(get_bml_model(technique_effect_bml, 5)), (s32)lbl_805D63B0, 0, 0, (f32)lbl_805DC7A0);
         }
     }
     move_ground_technique_projectile(this);

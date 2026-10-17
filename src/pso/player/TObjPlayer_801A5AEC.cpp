@@ -122,7 +122,7 @@ s32 TKeyBoardControl::get_ascii_key() {
   {
     return 0;
   }
-  var_r3 = TKeyBoardControl__sub_8013239C((void *) (&(*(RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value), (int) 0);
+  var_r3 = TKeyBoardControl__sub_8013239C((void *) (&(*(RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value), 0);
   temp_r31 = var_r3;
   temp_r3 = TKeyBoardControl__sub_80132310((s32) (&(*(RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__global_key_state).value));
   if ((((s32) temp_r31) >= 0x2A) && (((s32) temp_r31) <= 0x32))

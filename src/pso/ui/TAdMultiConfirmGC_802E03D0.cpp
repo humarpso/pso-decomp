@@ -245,14 +245,14 @@ u8 *__dt__13TUnk_804E3008Fv(u8 *arg0, s16 arg1) {
         }
         temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x170);
         if (temp_r3_2 != 0U) {
-            free_chcr_resources((u8 *)(temp_r3_2), (1));
+            free_chcr_resources((u8 *)(temp_r3_2), 1);
             *(u32 *)((s8 *)arg0 + 0x170) = 0U;
             temp_r3_3 = (u32) get_index__14TAdPlyStatusGCFv();
             if (temp_r3_3 != 0U) {
                 TAdPlyStatusGC::set_status_param((int)((void *) (temp_r3_3)), (int)((void *) (*(u32 *)((s8 *)arg0 + 0x170))));
             }
         }
-        __dt__10TObjMotionFv((arg0), (0));
+        __dt__10TObjMotionFv((arg0), 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }
@@ -291,7 +291,7 @@ void TNpcPlayer::update_model_load() {
             copy_player_visual_record(arg0 + 0x120, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF) + 0x370);
             p = alloc__23TAdSinglePlyChrSelectGCFv(0x4AC);
             if (p != NULL) {
-                p = init_appearance_load_request__10TNpcPlayerFPvPvii((u8 *)p, (u8 *)arg0, (s32)(arg0 + 0x120), (s32)(0));
+                p = init_appearance_load_request__10TNpcPlayerFPvPvii((u8 *)p, (u8 *)arg0, (s32)(arg0 + 0x120), 0);
             }
             F(0x170, void *) = p;
             F(0x60, s32) = 0xF3D5;
@@ -300,7 +300,7 @@ void TNpcPlayer::update_model_load() {
             copy_player_visual_record(arg0 + 0x120, get_entry__23TAdSinglePlyChrSelectGCFi(F(0x110, s32)) + 0x370);
             p = alloc__23TAdSinglePlyChrSelectGCFv(0x4AC);
             if (p != NULL) {
-                p = init_appearance_load_request__10TNpcPlayerFPvPvii((u8 *)p, (u8 *)arg0, (s32)(arg0 + 0x120), (s32)(0));
+                p = init_appearance_load_request__10TNpcPlayerFPvPvii((u8 *)p, (u8 *)arg0, (s32)(arg0 + 0x120), 0);
             }
             F(0x170, void *) = p;
             F(0x60, s32) = 0xF3D5;
@@ -309,7 +309,7 @@ void TNpcPlayer::update_model_load() {
             copy_player_visual_record(arg0 + 0x120, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF) + 0x370);
             p = alloc__23TAdSinglePlyChrSelectGCFv(0x4AC);
             if (p != NULL) {
-                p = init_appearance_load_request__10TNpcPlayerFPvPvii((u8 *)p, (u8 *)arg0, (s32)(arg0 + 0x120), (s32)(0));
+                p = init_appearance_load_request__10TNpcPlayerFPvPvii((u8 *)p, (u8 *)arg0, (s32)(arg0 + 0x120), 0);
             }
             F(0x170, void *) = p;
             F(0x60, s32) = 0xF3D5;
@@ -378,7 +378,7 @@ void TNpcPlayer::update_model_load() {
 void fn_802E0784(u8 *arg0) {
     ((TObjPlayer *)arg0)->set_field_d8((s32)((void *) (&lbl_804E2F78.value)));
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)TAdMultiPlyChrSelectGC__resource_bundle + 0x430)));
-    set_cursor_index__17TAdMultiConfirmGCFPvi((void *) (arg0), (int) (0));
+    set_cursor_index__17TAdMultiConfirmGCFPvi((void *) (arg0), 0);
     set_animation__10TObjPlayerFPvs((arg0), (((TUnk_804E3008 *)arg0)->m_b8));
 }
 
@@ -404,11 +404,11 @@ void TObjPlayer::update_chara_making() {
     u8 *arg0 = (u8 *)this;
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y((int) (0), (int) (this->rotation_y));
+    rotate_matrix_y(0, (int) (this->rotation_y));
     ((TAdPlyStatusGC *)(this->m_170))->get_status_sub();
     set_global_param__8TObjFishFl();
     draw_model_with_arg((void*)((int) (((TAdPlyStatusGC *)(this->m_170))->get_field_4a4())));
-    ((TObjMotion *)arg0)->get_item_ptr((int) (0x3A));
+    ((TObjMotion *)arg0)->get_item_ptr(0x3A);
     push_matrix_from();
     ((TAdPlyStatusGC *)(this->m_170))->get_status_data();
     set_global_param__8TObjFishFl();
@@ -416,7 +416,7 @@ void TObjPlayer::update_chara_making() {
     ((s32 (*)())play_phase_transition_sound__10TObjPlayerFl)();
     pop_matrix();
     if (((TAdPlyStatusGC *)(this->m_170))->get_field_49c() != 0U) {
-        ((TObjMotion *)arg0)->get_item_ptr((int) (0x3B));
+        ((TObjMotion *)arg0)->get_item_ptr(0x3B);
         push_matrix_from();
         ((TAdPlyStatusGC *)(this->m_170))->get_chara_making_data();
         set_global_param__8TObjFishFl();
@@ -427,7 +427,7 @@ void TObjPlayer::update_chara_making() {
         pop_matrix();
     }
     if (((TAdPlyStatusGC *)(this->m_170))->get_field_498() != 0U) {
-        ((TObjMotion *)arg0)->get_item_ptr((int) (0x3B));
+        ((TObjMotion *)arg0)->get_item_ptr(0x3B);
         push_matrix_from();
         ((TAdPlyStatusGC *)(this->m_170))->get_chara_making_data();
         set_global_param__8TObjFishFl();

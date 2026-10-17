@@ -33,7 +33,7 @@ u8 *TWindowSubSymbolChatFaceType__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)&((TWindowSubSymbolChatFaceType *)arg0)->m_64 = arg2;
     var_r31 = ((TAdSinglePlyChrSelectGC *)((void *)0x24))->alloc();
     if (var_r31 != 0) {
-        var_r31 = construct_type1_heading__20TWindowSubStatusDispFll(var_r31, get_message_10__20TWindowSubStatusDispFl((int) (0x33)), (s32) ((TWindowSubSymbolChatFaceType *)arg0)->m_20);
+        var_r31 = construct_type1_heading__20TWindowSubStatusDispFll(var_r31, get_message_10__20TWindowSubStatusDispFl(0x33), (s32) ((TWindowSubSymbolChatFaceType *)arg0)->m_20);
     }
     *(s32 *)&((TWindowSubSymbolChatFaceType *)arg0)->m_68 = var_r31;
     return arg0;

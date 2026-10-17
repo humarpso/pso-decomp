@@ -83,8 +83,8 @@ void TItem::unregister_from_world() {
     ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
     obj_getField1c((void *)((void *) arg0));
     TLobby__sub_80103B04();
-    set_item_count__13TUnk_804B9870Fs((s32)((void *) arg0), (s32)((int) 0xFFFF));
-    set_indexed_flags((void *)arg0, (int) 0, (int) 1);
+    set_item_count__13TUnk_804B9870Fs((s32)((void *) arg0), 0xFFFF);
+    set_indexed_flags((void *)arg0, 0, 1);
   }
 }
 
@@ -104,7 +104,7 @@ void TItem::set_mode(s8 arg1) {
     }
     if (arg1 == 0) {
         *(s32 *)&this->m_f0 = 0;
-        claim_ownership__5TItemFii((s32)(this), (s32)(0));
+        claim_ownership__5TItemFii((s32)(this), 0);
     } else {
         unregister_from_world();
     }

@@ -19,7 +19,7 @@ void TObjEneMe1Canadin_EffLineFade::render() {
     stack.sp10 = 0;
     stack.sp14 = 2;
     TObjPlayer::init_xyz_limits();
-    draw_line_list((void *) (&stack.sp8), (int) (1), (int) (5));
+    draw_line_list((void *) (&stack.sp8), 1, 5);
 }
 
 }

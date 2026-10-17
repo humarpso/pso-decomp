@@ -128,7 +128,7 @@ void *TObjEneRe2Flower_EffCurse3::init_target_ref(s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)this + 0x1C) = 0;
     (this->m_20) = arg2;
     if (is_alive__9TObjEneDDFv((this->m_20)) != 0) {
-        *(s32 *)&this->unk_24 = (s32)spawn_continuous_particle_effect_with_flags((void *)((this->m_20) + 0x38), (s32)(0xDE), (s32)(0x40));
+        *(s32 *)&this->unk_24 = (s32)spawn_continuous_particle_effect_with_flags((void *)((this->m_20) + 0x38), 0xDE, 0x40);
     }
     return this;
 }
@@ -156,7 +156,7 @@ void *mem_alloc(u32 size);
 void pso_load_texture__6TLobbyFv(void *, void *);
 void set_texture_name(void *, void *, s32, s32);
 void TObjPlayer::create_render_texture() {
-    ((TObjPlayer *)(&lbl_80500C00))->set_render_rect((s32)(player_render_texture_buffer = mem_alloc(0x800)), (s32)0x902, (s32)0x20, (s32)0x20);
+    ((TObjPlayer *)(&lbl_80500C00))->set_render_rect((s32)(player_render_texture_buffer = mem_alloc(0x800)), 0x902, 0x20, 0x20);
     set_texture_name(&lbl_80500C24, &lbl_80500C00, 0x18696, 0x40800000);
     ((Node_800C4D88 *)lbl_80500C30)->p = &lbl_80500C24;
     ((Node_800C4D88 *)lbl_80500C30)->v = 1;

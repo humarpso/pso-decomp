@@ -180,7 +180,7 @@ void *labo_design_entry_table[66] = {
 void *create_instance__18TObjLaboDesignBaseFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC0);
     if (o != NULL) {
-        o = TObjLaboDesignBase__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0), (s32)(5));
+        o = TObjLaboDesignBase__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0), 5);
     }
     return o;
 }
@@ -188,7 +188,7 @@ void *create_instance__18TObjLaboDesignBaseFPv(void *arg0) {
 void *create_obj_labo_design_base(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC0);
     if (o != NULL) {
-        o = TObjLaboDesignBase__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0), (s32)(4));
+        o = TObjLaboDesignBase__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0), 4);
     }
     return o;
 }
@@ -196,7 +196,7 @@ void *create_obj_labo_design_base(void *arg0) {
 void *TObjLaboDesignBase__sub_80364D38(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC0);
     if (o != NULL) {
-        o = TObjLaboDesignBase__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0), (s32)(3));
+        o = TObjLaboDesignBase__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0), 3);
     }
     return o;
 }
@@ -204,7 +204,7 @@ void *TObjLaboDesignBase__sub_80364D38(void *arg0) {
 void *create_labo_design_base(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC0);
     if (o != NULL) {
-        o = TObjLaboDesignBase__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0), (s32)(2));
+        o = TObjLaboDesignBase__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0), 2);
     }
     return o;
 }
@@ -212,7 +212,7 @@ void *create_labo_design_base(void *arg0) {
 void *alloc_and_construct__18TObjLaboDesignBaseFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC0);
     if (o != NULL) {
-        o = TObjLaboDesignBase__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0), (s32)(1));
+        o = TObjLaboDesignBase__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0), 1);
     }
     return o;
 }
@@ -220,7 +220,7 @@ void *alloc_and_construct__18TObjLaboDesignBaseFPv(void *arg0) {
 void *TObjLaboDesignBase__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC0);
     if (o != NULL) {
-        o = TObjLaboDesignBase__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0), (s32)(0));
+        o = TObjLaboDesignBase__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0), 0);
     }
     return o;
 }
@@ -273,12 +273,12 @@ void draw_node_tree__18TObjLaboDesignBaseFiPv(s32 arg0, u8 *arg1) {
 }
 
 void render__18TObjLaboDesignBaseFPv(u8 *arg0) {
-    TObjFish__sub_8001EDB0((int) (*(s32 *)((s8 *)arg0 + 0xAC)), (int) (0));
+    TObjFish__sub_8001EDB0((int) (*(s32 *)((s8 *)arg0 + 0xAC)), 0);
     set_global_param__8TObjFishFl();
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-    draw_node_tree__18TObjLaboDesignBaseFiPv((s32)((void *) (arg0)), (u8 *)((int) (get_bml_model((int) (*(s32 *)((s8 *)arg0 + 0xAC)), (int) (0)))));
+    rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+    draw_node_tree__18TObjLaboDesignBaseFiPv((s32)((void *) (arg0)), (u8 *)((int) (get_bml_model((int) (*(s32 *)((s8 *)arg0 + 0xAC)), 0))));
     pop_matrix();
     TParticleCtrl::end_effect_render();
 }
@@ -330,7 +330,7 @@ u8 *TObjLaboDesignBase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     *(s32 *)((s8 *)arg0 + 0xB0) = arg3;
     *(s32 *)((s8 *)arg0 + 0xAC) = ((s32)get_labo_design_object((int) (*(s32 *)((s8 *)arg0 + 0xB0))));
-    init_collision_body_parts((void *) (arg0), (int) (((s32)get_labo_design_entry((int) (*(s32 *)((s8 *)arg0 + 0xB0))))), (int) (1));
+    init_collision_body_parts((void *) (arg0), (int) (((s32)get_labo_design_entry((int) (*(s32 *)((s8 *)arg0 + 0xB0))))), 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) lbl_805E02A0;
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805E02A4;

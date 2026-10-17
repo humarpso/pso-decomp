@@ -143,7 +143,7 @@ int TShopItemTecSequence__sub_8021FE6C(int a0) {  return shop_tool_stock_counts[
 void select_and_advance__20TShopItemTecSequenceFPv(void *arg0) {
     if (arg0 != NULL) {
         ((VObj_8021FE80_8021FE6C *)arg0)->m4(0x1B, 1);
-        ((TShopWindowBase *)arg0)->set_field_20((s32)(6));
+        ((TShopWindowBase *)arg0)->set_field_20(6);
         lbl_805D6248 = 0x1A;
         lbl_805D624C = 2;
     }
@@ -153,7 +153,7 @@ void close__20TShopItemTecSequenceFPv(void *arg0) {
     struct VObj_8021FEE0_8021FE6C *o = (struct VObj_8021FEE0_8021FE6C *)arg0;
     if (o != NULL) {
         o->m4(0x1A, 1);
-        ((TShopWindowBase *)arg0)->set_field_20((s32)(2));
+        ((TShopWindowBase *)arg0)->set_field_20(2);
     }
 }
 
@@ -237,11 +237,11 @@ s32 TShopItemTecSequence::open_greeting() {
   Stack_802202BC stack;
   stack.sp8 = lbl_805DC700;
   stack.spC = lbl_805DC704;
-  ((TShopSequence *)((u8 *)this))->create_message_window(get_window_layout_position((int) 0x2C, (f32) lbl_805DC700), (s32) (&stack.sp8));
-  (((VObj_18_a93f07 *)(((u8 *)this)))->m4((0x2E), (1)));
+  ((TShopSequence *)((u8 *)this))->create_message_window(get_window_layout_position(0x2C, (f32) lbl_805DC700), (s32) (&stack.sp8));
+  (((VObj_18_a93f07 *)(((u8 *)this)))->m4(0x2E, 1));
   this->m_2c = create_meseta_window((s32) ((((((TShopSequence *)((u8 *)this))->get_child_field1c() & 0xFFFF) & 0xFFFF) & 0xFFFF) & 0xFFFF));
   ((TShopWindowBase *)((u8 *)this))->set_field_20(2);
-  this->m_34 = set_service_counter_camera((void *) ((u8 *)this), (int) 5);
+  this->m_34 = set_service_counter_camera((void *) ((u8 *)this), 5);
 }
 
 typedef char RecoveredGlobal_802203E4___vt__20TShopItemTecSequence_size[sizeof(RecoveredGlobal_802203E4___vt__20TShopItemTecSequence) == 0x38 ? 1 : -1];
@@ -254,7 +254,7 @@ void TShopItemTecSequence::vfunc_11() {
     switch (temp_r0) {
     case 0:
         restore_player_state__13TShopSequenceFv((void *) (arg0));
-        ((TShopWindowBase *)arg0)->set_field_20((s32)((int) (1)));
+        ((TShopWindowBase *)arg0)->set_field_20(1);
         return;
     case 1:
         ((TShopItemTecSequence *)arg0)->open_greeting();
@@ -296,7 +296,7 @@ u8 *__dt__20TShopItemTecSequenceFv(u8 *arg0, s16 arg1) {
         }
         lbl_805D6250 = 0;
         *(s32 *)((s8 *)(&TShopItemTecSequence__slot_table.value) + (sub_8022397C__15TShopWindowBaseFv((void *) (arg0)) * 4)) = 0;
-        __dt__13TShopSequenceFv((arg0), (0));
+        __dt__13TShopSequenceFv((arg0), 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }

@@ -114,7 +114,7 @@ void TUnk_8048E5DC::render_shadows() {
     if (is_split_screen() == 0) {
         TCameraCtrl::restore_full_screen_view();
         GXSetViewport((f32) (lbl_805D93D0), (f32) (lbl_805D93D0), (f32) (lbl_805D9404), (f32) (lbl_805D9408), (f32) (lbl_805D93D0), (f32) (lbl_805D93D8));
-        GXSetScissor((int) (0), (int) (0), (int) (0x280), (int) (0x1E0));
+        GXSetScissor(0, 0, 0x280, 0x1E0);
         stack.sp20 = *(s32 *)((s8 *)(&camera_ctrl_up_vector.value) + 0);
         stack.sp24 = *(s32 *)((s8 *)(&camera_ctrl_up_vector.value) + 4);
         stack.sp28 = *(s32 *)((s8 *)(&camera_ctrl_up_vector.value) + 8);
@@ -132,18 +132,18 @@ void TUnk_8048E5DC::render_shadows() {
         TObjPlayer__sub_80084744();
         if ((void *) (*(u8 * *)&camera_render_target_singleton) != NULL) {
             stack.sp8 = lbl_805E1210;
-            GXSetCopyClear((void *) (&stack.sp8), (int) (0xFFFFFF));
-            GXSetZMode((int) (1U), (int) (7), (int) (1));
-            GXSetTexCopySrc((int) (0U), (int) (0), (int) (0x280U), (int) (0x1E0U));
-            GXSetTexCopyDst((int) (0x280), (int) (0x1E0), (int) (4), (int) (0));
+            GXSetCopyClear((void *) (&stack.sp8), 0xFFFFFF);
+            GXSetZMode((int) (1U), 7, 1);
+            GXSetTexCopySrc((int) (0U), 0, (int) (0x280U), (int) (0x1E0U));
+            GXSetTexCopyDst(0x280, 0x1E0, 4, 0);
             GXCopyTex((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&camera_render_target_singleton) + 0x1C)) + 8)) + 0xC)) + 0x20)), (int) (1U));
             GXPixModeSync();
         }
         GXSetViewport((f32) (lbl_805D93D0), (f32) (lbl_805D93D0), (f32) (lbl_805D9404), (f32) (lbl_805D9408), (f32) (lbl_805D93D0), (f32) (lbl_805D93D8));
-        GXSetScissor((int) (0), (int) (0), (int) (0x280), (int) (0x1E0));
+        GXSetScissor(0, 0, 0x280, 0x1E0);
         TCameraCtrl__sub_80068EF0();
         ((TCameraCtrl *)camera_ctrl_instance)->calc_rotated_axes();
-        ((TCameraCtrl *)camera_ctrl_instance)->setup_default_view((int) (0));
+        ((TCameraCtrl *)camera_ctrl_instance)->setup_default_view(0);
     }
 }
 #pragma pop

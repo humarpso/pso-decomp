@@ -62,7 +62,7 @@ int TWindowSubSymbolChat__sub_80076FE0(void* p) { return (*(u32*)((char*)p + 0x1
 
 void TWindowSubSymbolChat::set_entry_name(void *arg1) {
     u8 *arg0 = (u8 *)this;
-    strncpy((void *) (arg0 + 4), arg1, (int) (0x16));
+    strncpy((void *) (arg0 + 4), arg1, 0x16);
     *(s8 *)((s8 *)arg0 + 0x1A) = 0;
     *(s32 *)&this->m_name = (s32) (*(s32 *)&this->m_name | 1);
 }

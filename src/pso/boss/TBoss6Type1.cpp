@@ -648,7 +648,7 @@ void TBoss6Type1__sub_802B5140(s32 arg0, s32 arg1, s32 arg2) {
         var_f30 = TBoss6Type1__data_805DE2E4;
     }
     temp_r31 = (s32) (lbl_805DE2F4 * var_f30);
-    temp_f31 = sin_table_lookup((s32)((int) (0x6000)));
+    temp_f31 = sin_table_lookup(0x6000);
     var_f31 = sin_table_lookup((s32)((int) (temp_r31))) / temp_f31;
     if (temp_r31 > 0x4000) {
         var_f31 += (TBoss6Type1__data_805DE2E4 - var_f31) * TBoss6PlotFalz::cosine_ease((var_f30 - lbl_805DE2F8) / lbl_805DE2FC);
@@ -832,13 +832,13 @@ s32 TBoss6Type1::request_jittered_camera(void *arg0, void *arg1, void *arg2, int
 
 void TBoss6Type1::request_default_jittered_camera() {
     s32 arg0 = (s32)this;
-    TBoss6Type1::request_jittered_camera((void *)((void *) (arg0)), (void *)((void *) (&lbl_80470FFC.value)), (void *)((void *) (&lbl_80471008.value)), (int)((int) (0xFFFF)));
+    TBoss6Type1::request_jittered_camera((void *)((void *) (arg0)), (void *)((void *) (&lbl_80470FFC.value)), (void *)((void *) (&lbl_80471008.value)), 0xFFFF);
 }
 
 typedef char RecoveredGlobal_802B5970_lbl_80470FE4_size[sizeof(RecoveredGlobal_802B5970_lbl_80470FE4) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_802B5970_lbl_80470FF0_size[sizeof(RecoveredGlobal_802B5970_lbl_80470FF0) == 0xC ? 1 : -1];
 void TBoss6Type1__sub_802B5970(s32 arg0) {
-    TBoss6Type1::request_jittered_camera((void *)((void *) (arg0)), (void *)((void *) (&lbl_80470FE4.value)), (void *)((void *) (&lbl_80470FF0.value)), (int)((int) (0xFFFF)));
+    TBoss6Type1::request_jittered_camera((void *)((void *) (arg0)), (void *)((void *) (&lbl_80470FE4.value)), (void *)((void *) (&lbl_80470FF0.value)), 0xFFFF);
 }
 
 void TBoss6Type1__sub_802B59A8(void) {
@@ -964,7 +964,7 @@ void TBoss6Type1::sub_802B5CB4() {
         }
         break;
     default:
-        TBoss6Type1::request_jittered_camera((void *)((void *)((s32) ((u8 *)this))), (void *)((void *)(NULL)), (void *)((void *)(NULL)), (int)((int)(0xFFFF)));
+        TBoss6Type1::request_jittered_camera((void *)((void *)((s32) ((u8 *)this))), (void *)((void *)(NULL)), (void *)((void *)(NULL)), 0xFFFF);
         break;
     }
 }

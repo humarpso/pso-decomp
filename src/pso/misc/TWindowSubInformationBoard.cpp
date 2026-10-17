@@ -74,8 +74,8 @@ void TWindowSubInformationBoard::run_task() {
         TLobby::init_once_data((u32)((void *) ((u8 *)(arg0) + 0x40)));
         this->m_1c = 4U;
     case 4:
-        if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)(controller_input_state) + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)(controller_input_state) + 0x160), (int) (2)) != 0)) {
-            play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
+        if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)(controller_input_state) + 0x20), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)(controller_input_state) + 0x160), 2) != 0)) {
+            play_sound_effect(0x52F16, 0, 0, 0);
             this->m_1c = 5U;
         }
         if (TLobby::get_info_board_ptr() != 0U) {

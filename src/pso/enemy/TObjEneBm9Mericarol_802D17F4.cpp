@@ -356,7 +356,7 @@ void *TObjEneBm9Mericarol_EffCurse3::construct(s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)this + 0x1C) = 0;
     this->m_20 = arg2;
     if (is_alive__9TObjEneDDFv(this->m_20) != 0) {
-        *(s32 *)&this->unk_24 = (s32)spawn_continuous_particle_effect_with_flags((void *)(this->m_20 + 0x38), (s32)(0x20D), (s32)(0x40));
+        *(s32 *)&this->unk_24 = (s32)spawn_continuous_particle_effect_with_flags((void *)(this->m_20 + 0x38), 0x20D, 0x40);
     }
     return this;
 }

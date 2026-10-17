@@ -171,7 +171,7 @@ s32 TLobby::check_trade_items_and_show_error() {
     r = check_trade_offer_inventory(&buf, &code);
     if (r == 4) {
         if (flag) {
-            return TLobby::show_event_message((s32)((void *)(s32)TLobby__trade_partner_client_id), (s32)4, (s32)code);
+            return TLobby::show_event_message((s32)((void *)(s32)TLobby__trade_partner_client_id), 4, (s32)code);
         }
     } else if (r != 0) {
         return TLobby::show_event_message((s32)((void *)(s32)TLobby__trade_partner_client_id), (s32)r, (s32)code);

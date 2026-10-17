@@ -20,9 +20,9 @@ void TBoss8Dragon::draw() {
 
     push_matrix();
     post_translate_matrix((void *) (((u8 *)this) + 0x38));
-    rotate_matrix_y((int) (0), (int) (this->m_60));
-    rotate_matrix_x((int) (0), (int) (this->m_5c));
-    rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x64)));
+    rotate_matrix_y(0, (int) (this->m_60));
+    rotate_matrix_x(0, (int) (this->m_5c));
+    rotate_matrix_z(0, (int) (*(s32 *)((s8 *)((u8 *)this) + 0x64)));
     scale_current_matrix((void *) (((u8 *)this) + 0x68));
     temp_r31 = *(s32 *)&this->m_34;
     temp_r4 = (unsigned char *) (*(void **)((s8 *)TBoss8Dragon__data_805D6988 + 0x42C));

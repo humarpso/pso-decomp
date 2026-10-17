@@ -49,7 +49,7 @@ void fn_8008C4F4(void) {
     var_r3 = (s32 *)(&ending_scene_callbacks.value);
     var_r4 = 0x68;
     var_r3 = (s32 *)(&ending_scene_callbacks.value);
-    call_funcs_reverse__6TLobbyFPvUi((void *) (&ending_scene_callbacks.value), (int) (0x68));
+    call_funcs_reverse__6TLobbyFPvUi((void *) (&ending_scene_callbacks.value), 0x68);
     render_tick();
 }
 
@@ -78,7 +78,7 @@ void run_game_frame(void) {
     }
     if (TQuestVmDownLoadServer::is_ready() != 0) {
         var_r3 = (s32 *)((u8 *)(NULL));
-        TKeyBoardControl__sub_8000F9CC((int) (0));
+        TKeyBoardControl__sub_8000F9CC(0);
     }
     render_tick();
 }

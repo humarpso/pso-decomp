@@ -80,7 +80,7 @@ void remove_list_entry_by_id(s32 arg0) {
     s32 n;
     Ent_801D41B4 *p;
     s32 rem;
-    cnt = ((u8 *)get_char_index__23TAdSinglePlyChrSelectGCFUi((0xFFFF)));
+    cnt = ((u8 *)get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF));
     if (cnt != NULL) {
         p = ((Ent_801D41B4 *)get_ptr_4__10TObjPlayerFv());
         n = *cnt;

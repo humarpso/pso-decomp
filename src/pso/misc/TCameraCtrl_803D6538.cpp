@@ -308,7 +308,7 @@ void sample_camera_motion(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     temp_r26 = (u8 *)(*(u8 **)((s8 *)arg2 + 4));
     temp_r30 = (s32 *)(*(s32 **)((s8 *)arg2 + 8));
     temp_r29 = (s32 *)(*(s32 **)((s8 *)arg2 + 0xC));
-    select_motion_context((int) (0));
+    select_motion_context(0);
     select_motion_sampler((s32 *) (arg1), (f32) (farg0));
     temp_r31 = *(s32 *)((s8 *)current_motion_context + 0x20);
     if ((u32) (temp_r31 & 1) != 0) {
@@ -557,9 +557,9 @@ void interpolate_spline_cyclic_cubic(struct SplineKey_803D7288 *keys, u32 count,
 #pragma push
 #pragma scheduling off
 void bind_motion_blend_channels(u8 *arg0, f32 farg0) {
-    select_motion_context((s32)((int) (1)));
+    select_motion_context(1);
     bind_motion_channel_samplers((int)((int) (*(s32 *)((s8 *)arg0 + 4))), (f32) (*(f32 *)((s8 *)arg0 + 0xC)));
-    select_motion_context((s32)((int) (0)));
+    select_motion_context(0);
     bind_motion_channel_samplers((int)((int) (*(s32 *)((s8 *)arg0 + 0))), (f32) (*(f32 *)((s8 *)arg0 + 8)));
     motion_blend_factor = farg0;
 }
@@ -791,7 +791,7 @@ void find_motion_key_interval(void *keys, s32 stride, s32 count, f32 t, void *k0
 #pragma push
 #pragma scheduling off
 void bind_motion_context(s32 arg0, f32 farg0) {
-    select_motion_context((s32)((int) (0)));
+    select_motion_context(0);
     bind_motion_channel_samplers((int)((int)((void *) (arg0))), (f32) (farg0));
 }
 #pragma pop

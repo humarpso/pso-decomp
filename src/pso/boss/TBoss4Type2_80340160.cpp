@@ -32,7 +32,7 @@ void TBoss6Demo15_TYPE2_WAIT::run_task() {
             ((TNowLoading *)temp_r3)->copy_pos((u8 *)&this->m_40);
         }
         ((TBoss6Demo15_TYPE2_WAIT *)arg0)->check_any_player_near();
-        play_persistent_sound((s32)(0x4003A126), (s32)(arg0), (u32)(arg0 + 0x40), (s32)(0), (s32)(0));
+        play_persistent_sound(0x4003A126, (s32)(arg0), (u32)(arg0 + 0x40), 0, 0);
         if (((TObjFish *)(*(u8 * *)&this->unk_1C))->get_phase() != 4) {
             queue_destruction__7TObjectFv(arg0);
         }

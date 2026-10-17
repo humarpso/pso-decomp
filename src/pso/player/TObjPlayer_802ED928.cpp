@@ -169,7 +169,7 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x628) = (s32) (temp_r3 & 0xFFFFFF7F);
         *(s32 *)((s8 *)arg0 + 0x628) = (s32) (*(s32 *)((s8 *)arg0 + 0x628) | 0x40);
         {
-            void *p = (void *) __nw__7TObjectFUl((int) (0x3C));
+            void *p = (void *) __nw__7TObjectFUl(0x3C);
             if (p != NULL) {
                 ((TObjPlayer *)p)->init_breakup_pieces((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x6D4)));
             }
@@ -241,10 +241,10 @@ void TObjPlayer__sub_802ED988(u8 *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0x7AC) != 0U) {
         TObjPlayer::set_global_flag();
         push_matrix();
-        set_matrix_identity((0));
+        set_matrix_identity(0);
         post_translate_matrix((void *) (arg0 + 0x38));
         post_translate_matrix((void *) (arg0 + 0x6EC));
-        rotate_matrix_by_node_angles((void *) (arg0 + 0x5C), (int) (1));
+        rotate_matrix_by_node_angles((void *) (arg0 + 0x5C), 1);
         scale_current_matrix((void *) (lbl_804E3BF0));
         ((TBoss7DeRolLeC *)arg0)->sub_802E8234();
         ((TUnk_804806E8 *)arg0)->get_speed();

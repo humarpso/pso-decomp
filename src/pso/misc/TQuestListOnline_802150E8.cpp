@@ -230,7 +230,7 @@ void TQuestListOnline::receive_quest_info(void *arg0) {
 void TQuestListOnline::copy_quest_list_data() {
     s32 arg0 = (s32)this;
     if ((u32) TQuestListOnline__quest_list_buffer != 0U) {
-        memcpy((int) (TQuestListOnline__quest_list_buffer), (void *) (arg0), (int) (0x11D4));
+        memcpy((int) (TQuestListOnline__quest_list_buffer), (void *) (arg0), 0x11D4);
         TQuestListOnline__sub_8013ACF4(1);
     }
 }
@@ -270,8 +270,8 @@ void TQuestListOnline::release_resources() {
         (*(u32 *)&TQuestListOnline__download_barrier_window) = 0U;
     }
     (*(s32 *)&quest_download_active) = 0;
-    memset((void*)((void *) (&(*(RecoveredGlobal_80215498_TQuestListOnline__data_80513DE8 *)&TQuestListOnline__dat_download_state).value)), (void*)((int) (0)), (void*)((int) (0x3C)));
-    memset((void*)((void *) (&(*(RecoveredGlobal_80215498_TQuestListOnline__data_80513E24 *)&TQuestListOnline__bin_download_state).value)), (void*)((int) (0)), (void*)((int) (0x3C)));
+    memset((void*)((void *) (&(*(RecoveredGlobal_80215498_TQuestListOnline__data_80513DE8 *)&TQuestListOnline__dat_download_state).value)), (void*)(0), (void*)(0x3C));
+    memset((void*)((void *) (&(*(RecoveredGlobal_80215498_TQuestListOnline__data_80513E24 *)&TQuestListOnline__bin_download_state).value)), (void*)(0), (void*)(0x3C));
     (*(s32 *)&TQuestListOnline__bin_download_complete) = 0;
     (*(s32 *)&TQuestListOnline__dat_download_complete) = 0;
     TQuestListOnline__instance = 0;
@@ -284,8 +284,8 @@ void TQuestListOnline::init_download_buffers() {
     (*(s32 *)&TQuestListOnline__quest_info_window) = 0;
     (*(s32 *)&TQuestListOnline__download_barrier_window) = 0;
     (*(s32 *)&quest_download_active) = 0;
-    memset((void*)((void *) (&(*(RecoveredGlobal_802155B4_TQuestListOnline__data_80513DE8 *)&TQuestListOnline__dat_download_state).value)), (void*)((int) (0)), (void*)((int) (0x3C)));
-    memset((void*)((void *) (&(*(RecoveredGlobal_802155B4_TQuestListOnline__data_80513E24 *)&TQuestListOnline__bin_download_state).value)), (void*)((int) (0)), (void*)((int) (0x3C)));
+    memset((void*)((void *) (&(*(RecoveredGlobal_802155B4_TQuestListOnline__data_80513DE8 *)&TQuestListOnline__dat_download_state).value)), (void*)(0), (void*)(0x3C));
+    memset((void*)((void *) (&(*(RecoveredGlobal_802155B4_TQuestListOnline__data_80513E24 *)&TQuestListOnline__bin_download_state).value)), (void*)(0), (void*)(0x3C));
     (*(s32 *)&TQuestListOnline__bin_download_complete) = 0;
     (*(s32 *)&TQuestListOnline__dat_download_complete) = 0;
     TQuestListOnline__instance = 0;

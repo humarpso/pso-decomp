@@ -29,7 +29,7 @@ void TTecGrants::init_parameters() {
   int new_var3;
   s8 *new_var;
   new_var = (s8 *) arg0;
-  new_var3 = (int) calc_technique_parameters((int) 9, (int) (this->m_78), (int) 0xFFFF);
+  new_var3 = (int) calc_technique_parameters(9, (int) (this->m_78), 0xFFFF);
   ((TTecAnti *)(arg0 + 0x88))->copy_params((u8 *)new_var3);
   if ((((s16) (*((s16 *) (new_var + 0x78)))) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {

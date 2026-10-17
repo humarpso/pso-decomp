@@ -70,7 +70,7 @@ void TPlayerBattleCtrl4P::open_intro_window() {
             get_window_layout_position(0x52), &size, 1);
     }
     lbl_805D6AB0 = 0;
-    set_score((int)(1));
+    set_score(1);
 }
 extern "C" {
 
@@ -168,7 +168,7 @@ TPlayerBattleCtrl4P* TPlayerBattleCtrl4P::construct(TObject* parent) {
     __ct__7TObjectFP7TObject(((void *)this), parent);
     *(void **)((s8 *)((void *)this) + 0x18) = __vt__19TPlayerBattleCtrl4P;
     *(s32 *)&this->m_name = TPlayerBattleCtrl4P__name;
-    set_split_screen_battle_phase((s32)0);
+    set_split_screen_battle_phase(0);
     *(s32 *)&this->intro_window = 0;
     *(s32 *)&this->menu_window = 0;
     clear_split_screen_battle_window_slots(((void *)this));

@@ -154,10 +154,10 @@ void TLobby__sub_8006F48C(void) {
         return;
     }
     if (TBL_8006F48C.count > 0) {
-        ((TLobby *)cur)->decode_obfuscated_string((void *)(win->name), (int)(12));
+        ((TLobby *)cur)->decode_obfuscated_string((void *)(win->name), 12);
         for (i = 0; i < TBL_8006F48C.count; i++) {
             e = &TBL_8006F48C.entries[i];
-            ((TLobby *)key)->decode_obfuscated_string((void *)(e), (int)(12));
+            ((TLobby *)key)->decode_obfuscated_string((void *)(e), 12);
             if (strncmp(key, cur, 12) == 0) {
                 strncpy(win->name, e->name, 11);
                 win->term = 0;
@@ -179,17 +179,17 @@ s32 TLobby__sub_8006F5B0(s32 arg0) {
     s32 valid_slot;
     s32 var_r28;
     u32 character_save_record;
-    character_save_record = get_character_save_record((int) (0xFFFF));
-    temp_r3 = get_layout_id__20TWindowSubStatusDispFv((int) (-1));
+    character_save_record = get_character_save_record(0xFFFF);
+    temp_r3 = get_layout_id__20TWindowSubStatusDispFv(-1);
     if ((character_save_record == 0U) || ((s32) challenge_mode_state.value < 0) || ((s32) challenge_mode_state.value >= temp_r3)) {
         return 0;
     }
-    temp_r3_2 = TWindowSubStatusDisp__sub_8006F0D8((void *) (character_save_record + 0x21C4), (int) (-1));
+    temp_r3_2 = TWindowSubStatusDisp__sub_8006F0D8((void *) (character_save_record + 0x21C4), -1);
     var_r28 = 0;
     temp_r30 = challenge_mode_state.value * 4;
     temp_r3_3 = *(s32 *)((s8 *)temp_r3_2 + temp_r30);
     if (temp_r3_3 == 0) {
-        if (TWindowSubStatusDisp::resolve_player_slot((int) (-1)) == 0) {
+        if (TWindowSubStatusDisp::resolve_player_slot(-1) == 0) {
             TLobby__sub_8006F48C();
         }
         var_r28 = 1;
@@ -213,7 +213,7 @@ block_12:
 typedef char RecoveredGlobal_8006F848_lbl_804FF800_size[sizeof(RecoveredGlobal_8006F848_lbl_804FF800) == 0x20 ? 1 : -1];
 void TLobby::set_name_string() {
     s32 arg0 = (s32)this;
-    strncpy((void *) (&lobby_name_string_buffer.value), (void *) (arg0), (int) (0x1F));
+    strncpy((void *) (&lobby_name_string_buffer.value), (void *) (arg0), 0x1F);
     *(s8 *)((s8 *)(&lobby_name_string_buffer.value) + 0x1F) = 0;
 }
 

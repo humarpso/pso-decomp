@@ -43,9 +43,9 @@ void TSlicerHistory::render() {
             TParticleCtrl::begin_effect_render();
             push_matrix();
             post_translate_matrix((void *) ((u8 *)(arg0) + 0x28));
-            rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x20)));
-            rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x24)));
-            rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x1C)));
+            rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x20)));
+            rotate_matrix_z(0, (int) (*(s32 *)((s8 *)arg0 + 0x24)));
+            rotate_matrix_x(0, (int) (*(s32 *)((s8 *)arg0 + 0x1C)));
             scale_current_matrix((void *) ((u8 *)(arg0) + 0x4C));
             set_chunk_material_color((f32 *)(&col));
             draw_ginja_object((void *)(*(u32 *)((s8 *)arg0 + 0x34)));

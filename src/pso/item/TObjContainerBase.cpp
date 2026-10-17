@@ -119,13 +119,13 @@ void TObjContainerNoItem::vfunc_6(s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             this->vfunc_79();
-            ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
+            ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
             ((TUnk_804AF8A0 *)arg0)->set_flag8();
             queue_destruction__7TObjectFv((arg0));
             this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
-        ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
+        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
         ((TUnk_804AF8A0 *)arg0)->set_flag8();
         queue_destruction__7TObjectFv((arg0));
         this->mode = 1;
@@ -165,9 +165,9 @@ void TObjContainerNoItem::vfunc_79() {
 f32 TObjContainerNoItem::receive_physical_attack(void *, f32) {
     u8 *arg0 = (u8 *)this;
     s16 sp8;
-    if (((u16) this->m_1c >= 0x1000U) && ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (1)) != 0)) {
+    if (((u16) this->m_1c >= 0x1000U) && ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), 1) != 0)) {
         sp8 = 1;
-        ((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (0));
+        ((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), 0);
         ((TUnk_804AF8A0 *)arg0)->send_object_state_update((void *) (&sp8));
     }
     return lbl_805DBCF4;

@@ -103,7 +103,7 @@ u8 *load_gvm_texture_file(s32 arg0) {
 
 u16 read_file_header__9TLanguageFiPv(s32 arg0, u8 *arg1) {
     TLanguage__read_cursor = arg0;
-    TLanguage::read_into_buffer((s32)arg1, (s32)((s32)(4)));
+    TLanguage::read_into_buffer((s32)arg1, 4);
     *(s32 *)((s8 *)arg1 + 4) = TLanguage::read_u32_le();
     *(u16 *)((s8 *)arg1 + 8) = TLanguage::read_u16_le();
     *(u16 *)((s8 *)arg1 + 0xA) = TLanguage::read_u16_le();

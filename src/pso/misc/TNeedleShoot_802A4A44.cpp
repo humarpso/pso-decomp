@@ -61,9 +61,9 @@ int TObjEneMe1Gee_NEEDLE::queue_destruction() {
 int TObjEneMe1Gee_NEEDLE::vfunc_6() {
     u8 *arg0 = (u8 *)this;
     if (TOKeyMachine01::get_global_state() == 0x22) {
-        play_sound_effect((int) (0x4003B20E), (void *) (arg0 + 0x6C), (int) (0), (int) (0));
+        play_sound_effect(0x4003B20E, (void *) (arg0 + 0x6C), 0, 0);
     } else {
-        play_sound_effect((int) (0x3A847), (void *) (arg0 + 0x6C), (int) (0), (int) (0));
+        play_sound_effect(0x3A847, (void *) (arg0 + 0x6C), 0, 0);
     }
     *(s32 *)&this->m_b8 = 0;
 }

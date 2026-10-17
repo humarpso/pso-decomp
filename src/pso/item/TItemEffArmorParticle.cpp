@@ -92,7 +92,7 @@ TItemEffArmorParticle::TItemEffArmorParticle(TObject *arg1, s32 item_id, s32 pla
     *(s32 *)&this->m_item_ctrl = get_item_system_generation();
     player = get_player_by_client_id((u16) player_id);
     if (player != NULL) {
-        *(u32 *)((s8 *)this + 0x20) = (u32)spawn_continuous_particle_effect_with_flags((void *)(((V_A_80364364 *) player)->m7()), (s32)arg4, (s32)(0x10));
+        *(u32 *)((s8 *)this + 0x20) = (u32)spawn_continuous_particle_effect_with_flags((void *)(((V_A_80364364 *) player)->m7()), (s32)arg4, 0x10);
         p = *(u32 *)((s8 *)this + 0x20);
         if (p != 0U) {
             ((TParticleCtrl *)p)->set_owner_id(this->m_player_id);

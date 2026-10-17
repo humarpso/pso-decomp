@@ -37,34 +37,34 @@ void TAdDialingGC::update_status_display() {
         refresh_display__12TAdDialingGCFv((void *)(arg0));
         return;
     case 2:
-        TAdDialingGC::update_dialing_display((s32)(9));
+        TAdDialingGC::update_dialing_display(9);
         return;
     case 3:
-        TAdDialingGC::update_dialing_display((s32)(0xA));
+        TAdDialingGC::update_dialing_display(0xA);
         return;
     case 4:
-        TAdDialingGC::update_dialing_display((s32)(0xC));
+        TAdDialingGC::update_dialing_display(0xC);
         return;
     case 5:
-        TAdDialingGC::update_dialing_display((s32)(0xB));
+        TAdDialingGC::update_dialing_display(0xB);
         return;
     case 6:
-        TAdDialingGC::update_dialing_display((s32)(0xD));
+        TAdDialingGC::update_dialing_display(0xD);
         return;
     case 7:
-        TAdDialingGC::update_dialing_display((s32)(6));
+        TAdDialingGC::update_dialing_display(6);
         return;
     case 16:
-        TAdDialingGC::update_dialing_display((s32)(5));
+        TAdDialingGC::update_dialing_display(5);
         return;
     case 8:
-        TAdDialingGC::update_dialing_display((s32)(0xF));
+        TAdDialingGC::update_dialing_display(0xF);
         return;
     case 9:
-        TAdDialingGC::update_dialing_display((s32)(0x10));
+        TAdDialingGC::update_dialing_display(0x10);
         return;
     case 10:
-        TAdDialingGC::update_dialing_display((s32)(0x10));
+        TAdDialingGC::update_dialing_display(0x10);
         return;
     case 0:
     case 11:

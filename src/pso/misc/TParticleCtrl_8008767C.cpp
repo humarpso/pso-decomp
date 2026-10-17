@@ -616,7 +616,7 @@ void load_particle_entry_resources(void) {
     } else {
         sprintf(name, lbl_804394BC, state);
     }
-    read_disc_file((s32)name, particle_area_entry_table = mem_alloc((s32)(0x2600)));
+    read_disc_file((s32)name, particle_area_entry_table = mem_alloc(0x2600));
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
     if (p != 0) {
         p = load_resource_from_descriptor(p, 1, particle_regular_bml_descriptor, 0, 0, 0);

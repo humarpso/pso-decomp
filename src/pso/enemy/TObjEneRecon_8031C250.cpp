@@ -410,7 +410,7 @@ void run_task__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x444) = (s32) (*(s32 *)((s8 *)arg0 + 0x444) | 2);
         *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x01000000);
         ((WObj_8031c7bc *) (arg0 + 0x480))->w2();
-        create_timed_particle_emitter((arg0 + 0x38), (0x79), (0), (0xF));
+        create_timed_particle_emitter((arg0 + 0x38), 0x79, 0, 0xF);
         return;
     case 3:
         temp_r3 = (s32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0x434)));
@@ -419,7 +419,7 @@ void run_task__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
             return;
         }
         if (is_anim_6__12TObjEneReconFv() == 1) {
-            transition_enemy_state((void *) (arg0), (int) (7));
+            transition_enemy_state((void *) (arg0), 7);
             return;
         }
         if (((WObj_8031c7bc *) (arg0 + 0x480))->w4() != 0) {

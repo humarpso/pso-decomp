@@ -83,14 +83,14 @@ void TOComputerMachine01::render() {
     if ((s32) this->m_e0 == 1) {
         if ((s32) TOComputerMachine01__last_render_frame_tick != (s32) actor_frame_tick) {
             TOComputerMachine01__last_render_frame_tick = actor_frame_tick;
-            scroll_ginja_mesh_uvs((int) (*(s32 *)((s8 *)(&TOComputerMachine01__scroll_mesh_ptrs.value) + 0)), (int) (0), (int) (2), (int) (7), (int) (1));
-            scroll_ginja_mesh_uvs((int) (*(s32 *)((s8 *)(&TOComputerMachine01__scroll_mesh_ptrs.value) + 4)), (int) (0), (int) (-2), (int) (7), (int) (1));
-            scroll_ginja_mesh_uvs((int) (*(s32 *)((s8 *)(&TOComputerMachine01__scroll_mesh_ptrs.value) + 8)), (int) (0), (int) (1), (int) (7), (int) (1));
-            scroll_ginja_mesh_uvs((int) (*(s32 *)((s8 *)(&TOComputerMachine01__scroll_mesh_ptrs.value) + 0xC)), (int) (0), (int) (-1), (int) (7), (int) (1));
+            scroll_ginja_mesh_uvs((int) (*(s32 *)((s8 *)(&TOComputerMachine01__scroll_mesh_ptrs.value) + 0)), 0, 2, 7, 1);
+            scroll_ginja_mesh_uvs((int) (*(s32 *)((s8 *)(&TOComputerMachine01__scroll_mesh_ptrs.value) + 4)), 0, -2, 7, 1);
+            scroll_ginja_mesh_uvs((int) (*(s32 *)((s8 *)(&TOComputerMachine01__scroll_mesh_ptrs.value) + 8)), 0, 1, 7, 1);
+            scroll_ginja_mesh_uvs((int) (*(s32 *)((s8 *)(&TOComputerMachine01__scroll_mesh_ptrs.value) + 0xC)), 0, -1, 7, 1);
         }
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        rotate_matrix_y(0, (int) (this->rotation_y));
         TObjFish::set_global_param((int) (this->texture_id));
         temp_r31 = (u8 *)(*(u8 * *)&this->model);
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
@@ -167,7 +167,7 @@ u8 *TOComputerMachine01__ct(u8 *arg0, s32 arg1) {
     ((TOComputerMachine01 *)arg0)->m_c0 = (f32) lbl_805DB390;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB394;
     *(s32 *)&((TOComputerMachine01 *)arg0)->actorFlags = (s32) (*(s32 *)&((TOComputerMachine01 *)arg0)->actorFlags| 0x40000000);
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFFF8.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFFF8.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOHealGeneral *)arg0)->update_heal_gauge_state();

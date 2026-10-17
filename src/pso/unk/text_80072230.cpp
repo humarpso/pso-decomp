@@ -208,8 +208,8 @@ void TLobby__sub_80072618(void) {
     s32 *q;
     if (is_flag_set__6TLobbyFv() != 0) {
         q = (s32 *)(((u8 *)&challenge_mode_state) + local_client_id * 0x104 + 0x270);
-        if (((u32)get_character_save_record((int)(0xFFFF))) != 0) {
-            TLobby__sub_800703D0(q + 1, (void *)(((u32)get_character_save_record((int)(0xFFFF))) + 0x21C4));
+        if (((u32)get_character_save_record(0xFFFF)) != 0) {
+            TLobby__sub_800703D0(q + 1, (void *)(((u32)get_character_save_record(0xFFFF)) + 0x21C4));
             if ((*(u32 *)&challenge_task) != 0) {
                 TLobby::send_challenge_records((u32)((*(u32 *)&challenge_task)));
             }
@@ -221,7 +221,7 @@ void TLobby::send_challenge_records(u32 _w0) {
     G_SetChallengeRecords_V3_6x7C packet;
     ((TLobby *)(&packet.__base_G_SetChallengeRecordsBase_6x7C.header))->init_pkt_cmd_7C();
     packet.__base_G_SetChallengeRecordsBase_6x7C.client_id = (s16) local_client_id;
-    TLobby__sub_800703D0((void *) (&packet.records[0]), (void *) (get_character_save_record((int) (0xFFFF)) + 0x21C4));
+    TLobby__sub_800703D0((void *) (&packet.records[0]), (void *) (get_character_save_record(0xFFFF) + 0x21C4));
     ((TLobby *)(&packet.__base_G_SetChallengeRecordsBase_6x7C.header))->send_6x7C_packet();
 }
 

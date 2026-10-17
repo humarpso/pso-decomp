@@ -154,7 +154,7 @@ void TChallenge4PResult::show_message(s32 text_handle) {
     if (message_window == NULL) {
         stack.sp8 = *(s32 *)((s8 *)lbl_80478BCC + 0);
         stack.spC = *(s32 *)((s8 *)lbl_80478BCC + 4);
-        message_window = (TWindowMessagePage *)TWindowMessagePage::create(get_window_layout_position((int) (0x40), (int) (*(s32 *)((s8 *)lbl_80478BCC + 0)), (void *) (lbl_80478BCC)), (s32)(&stack.sp8), 1, slot_index);
+        message_window = (TWindowMessagePage *)TWindowMessagePage::create(get_window_layout_position(0x40, (int) (*(s32 *)((s8 *)lbl_80478BCC + 0)), (void *) (lbl_80478BCC)), (s32)(&stack.sp8), 1, slot_index);
     }
     if (message_window != NULL) {
         ((TWindowMessagePage *)message_window)->set_message((void *)text_handle, 0x81);
@@ -184,14 +184,14 @@ void TChallenge4PResult::init() {
 void TChallenge4PResult::sub_8034B8B0() { *(s32*)((char*)this + 0x1c) = 3; }
 
 void TChallenge4PResult::sub_8034B8BC() {
-    ((TChallenge4PResult *)((void *)((void *) (((u8 *)this)))))->show_message((s32)((s32)((int) (get_localized_text_entry((int) (0x2B), (int) (1))))));
+    ((TChallenge4PResult *)((void *)((void *) (((u8 *)this)))))->show_message((s32)((s32)((int) (get_localized_text_entry(0x2B, 1)))));
     TLobby__sub_802924B4((s32)(((u8 *)this) + 0x34), (this->slot_index));
     this->wait_frames = 0x5A;
     *(s32 *)((s8 *)((u8 *)this) + 0x1C) = 5;
 }
 
 void TChallenge4PResult::sub_8034B918() {
-    ((TChallenge4PResult *)((void *)((void *) (((u8 *)this)))))->show_message((s32)((s32)((int) (get_localized_text_entry((int) (0x2B), (int) (2))))));
+    ((TChallenge4PResult *)((void *)((void *) (((u8 *)this)))))->show_message((s32)((s32)((int) (get_localized_text_entry(0x2B, 2)))));
     TLobby__sub_802924B4((s32)(((u8 *)this) + 0x48), (this->slot_index));
     this->wait_frames = 0x5A;
     *(s32 *)((s8 *)((u8 *)this) + 0x1C) = 5;
@@ -230,7 +230,7 @@ void TChallenge4PResult::update_wait_input() {
     s32 temp_r5;
     if (get_player_by_client_id((int) (this->slot_index)) != 0U) {
         temp_r5 = get_map_id__13TRaderMapCoreFv() * 0x50;
-        if (TWindowShortListCtrl__check_controller_button((void *)((void *) ((u8 *)&(*(RecoveredGlobal_8034BA68_lbl_8050E208 *)&controller_input_state).value + temp_r5 + 0x20)), (s32)((int) (4)), (s32)((int) (temp_r5))) != 0) {
+        if (TWindowShortListCtrl__check_controller_button((void *)((void *) ((u8 *)&(*(RecoveredGlobal_8034BA68_lbl_8050E208 *)&controller_input_state).value + temp_r5 + 0x20)), 4, (s32)((int) (temp_r5))) != 0) {
             this->state_1c = 3;
         }
     } else {

@@ -77,7 +77,7 @@ s32 TWindowDD::get_word_select_context() {
 int TWindowDD__sub_80348424(s32 _w0, s32 _w1) { return TWindowDD__sub_8034B008((s32)((void*)(1)), (_w1)); }
 
 void TWindowDD__sub_80348448(s32 arg0, s16 arg1) {
-    TWindowDD__sub_8034B008((0), ((s32) arg1));
+    TWindowDD__sub_8034B008(0, ((s32) arg1));
 }
 
 s32 TWindowDD::get_mode_code() {
@@ -158,7 +158,7 @@ void TWindowDD::update_state() {
 void TWindowDD::append_prompt_newline(s32 *arg1) {
     u8 *arg0 = (u8 *)this;
     s32 p = *arg1;
-    if (((s32)TWindowDD::can_append_chars((s32)((s32)(3)), (s32 *)((s32 *)(arg1)))) != 0) {
+    if (((s32)TWindowDD::can_append_chars(3, (s32 *)((s32 *)(arg1)))) != 0) {
         arg0[p++] = 0xA;
         arg0[p++] = 0x3E;
         arg0[p++] = 0x20;

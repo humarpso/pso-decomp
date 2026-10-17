@@ -404,8 +404,8 @@ u8 *TOKurage__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016E8A8___vt__8TOKurage *)&__vt__8TOKurage).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKurage__name;
     ((TOKurage *)(arg0))->apply_object_set_data((void *)arg2);
-    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TOKurage__static_model_resource)), (int) (0));
-    ((TOKurage *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOKurage__static_model_resource)), (int) (0));
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TOKurage__static_model_resource)), 0);
+    ((TOKurage *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOKurage__static_model_resource)), 0);
     *(u8 **)((s8 *)arg0 + 0xBC) = get_bml_motion((*(s32 *)&TOKurage__static_model_resource), 0);
     *(u8 **)((s8 *)arg0 + 0xC8) = get_bml_motion((*(s32 *)&TOKurage__static_model_resource), 1);
     ((TOKurage *)arg0)->m_b8 = (f32) (0.5f);

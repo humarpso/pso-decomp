@@ -110,7 +110,7 @@ u32 prs_decompress_buffer(s32 arg0, s32 arg1) {
   var_r28 = arg0;
   var_r29 = arg1;
   var_r3 = 0x30U;
-  var_r31 = ((TAdSinglePlyChrSelectGC *)((int) 0x30))->alloc();
+  var_r31 = ((TAdSinglePlyChrSelectGC *)(0x30))->alloc();
   phi_r30 = saved_reg_r30;
   if (var_r31 != 0U)
   {
@@ -122,14 +122,14 @@ u32 prs_decompress_buffer(s32 arg0, s32 arg1) {
     src = var_r29;
     var_r5 = var_r28;
     var_r6 = 0;
-    var_r30_2 = prs_decompress((int) var_r3, (int) src, (int) var_r5, (int) 0);
+    var_r30_2 = prs_decompress((int) var_r3, (int) src, (int) var_r5, 0);
     phi_r30 = var_r30_2;
   }
   if (var_r31 != 0U)
   {
     var_r3 = var_r31;
     src = 1;
-    TLobby::destroy_ep3_exist((int) var_r3, (int) 1);
+    TLobby::destroy_ep3_exist((int) var_r3, 1);
   }
   var_r3 = phi_r30;
   return var_r3;
@@ -268,7 +268,7 @@ u8 *TLobby::dtor_clear_singleton(s16 arg1) {
     if (((u8 *)this) != NULL) {
         *(s32 **)((s8 *)((u8 *)this) + 0x18) = &lbl_80499970.value;
         (*(s32 *)&screen_fade_controller) = 0;
-        __dt__7TObjectFv((void *) (((u8 *)this)), (int) (0));
+        __dt__7TObjectFv((void *) (((u8 *)this)), 0);
         if (arg1 > 0) {
             ((s32 (*)(void *))__dl__7TObjectFPv)((void *) (((u8 *)this)));
         }
@@ -362,7 +362,7 @@ void TLobby::update_fade_in_alpha() {
 void *__dt__13TUnk_804999A0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804999A0;
-        TWindowCtrlMain::set_value((s32)(*(void **)((s8 *)arg0 + 0x24)), (s32)0);
+        TWindowCtrlMain::set_value((s32)(*(void **)((s8 *)arg0 + 0x24)), 0);
         ((TUnk_804999E8 *)arg0)->destroy_task_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

@@ -59,14 +59,14 @@ void TOKeyMachine01::run_task() {
     if ((s32) *(s32 *)&this->m_d4 != 1) {
         this->vfunc_17();
         if (this->is_confirm_pressed() == 1) {
-            ((TOKeyMachine01 *)arg0)->send_switch_changed((int) (1));
+            ((TOKeyMachine01 *)arg0)->send_switch_changed(1);
             this->trigger_activate_sound();
             *(s32 *)&this->m_d4 = 1;
         }
     } else {
         this->vfunc_16();
         if (this->is_confirm_pressed() != 1) {
-            ((TOKeyMachine01 *)arg0)->send_switch_changed((int) (0));
+            ((TOKeyMachine01 *)arg0)->send_switch_changed(0);
             this->vfunc_19();
             *(s32 *)&this->m_d4 = 0;
         }
@@ -83,7 +83,7 @@ void TOKeyMachine01::render() {
         TObjFish::set_global_param(TOKeyMachine01__texture_lists[*(s32 *)&this->m_d4]);
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        rotate_matrix_y(0, (int) (this->rotation_y));
         temp_r31 = *(u8 * *)&this->model;
         post_translate_matrix((void *) (temp_r31 + 8));
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));

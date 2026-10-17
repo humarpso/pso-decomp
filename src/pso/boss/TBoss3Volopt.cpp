@@ -675,7 +675,7 @@ void TCameraCtrl::run_intro_camera_sequence() {
     switch (temp_r0) {
     case 0:
         ((TBoss3Volopt *)arg0)->start_phase2();
-        activate_camera_mode((9));
+        activate_camera_mode(9);
         set_active_camera_pose((u8 *)(&boss3_volopt_intro_camera_poses.value), ((u8 *)&boss3_volopt_intro_camera_poses.value + 0xC));
         TObjPlayer::freeze_all_players();
         TWindowCtrl::init_all_slots();
@@ -705,8 +705,8 @@ void TCameraCtrl::run_intro_camera_sequence() {
         stack.spA = 0;
         stack.spC = lbl_805D8660;
         stack.sp10 = lbl_805D8678;
-        activate_camera_mode((5));
-        ((TCameraCtrl *)(&stack.sp8))->cache_target_and_forward((int) (0x160A));
+        activate_camera_mode(5);
+        ((TCameraCtrl *)(&stack.sp8))->cache_target_and_forward(0x160A);
         temp_r3 = (u8 *)(arg0 + 0x38);
         set_scripted_camera_pose((int) (temp_r3), (int) (temp_r3), (void *) (arg0 + 0x5C));
         *(s32 *)((s8 *)arg0 + 0x37C) = 4;
@@ -871,7 +871,7 @@ void TBoss3Volopt::start_phase2() {
     if (((u8 * (*)(u16))find_entity_by_id)(lbl_805D2718) != NULL) {
         sub_800C7860__15TObjEnemyCustomFv();
     }
-    TBoss3Volopt__sub_8003EA2C((void*)((int) (1)));
+    TBoss3Volopt__sub_8003EA2C((void*)(1));
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)((const Vec *)&boss3_volopt_spawn_pos.value))));
     this->m_3f0 = 0;
     *(s16 *)((s8 *)arg0 + 0x3F2) = 0;
@@ -1160,14 +1160,14 @@ void TBoss3Volopt::update_camera_seq() {
 
 void TBoss3Volopt::run_task() {
     u8 *arg0 = (u8 *)this;
-    if (obj_testFlags30((void *) (arg0), (int) (0x800)) != 0) {
+    if (obj_testFlags30((void *) (arg0), 0x800) != 0) {
         queue_destruction__7TObjectFv((arg0));
         return;
     }
-    if (obj_testFlags30((void *) (arg0), (int) (0x4000)) != 0) {
-        if (((TObjPlayer *)arg0)->add_status_effect_timer((int) (4), (int) (-1)) <= 0) {
+    if (obj_testFlags30((void *) (arg0), 0x4000) != 0) {
+        if (((TObjPlayer *)arg0)->add_status_effect_timer(4, -1) <= 0) {
             reset_status_effect_row(((u8 *)&this->unk_284));
-            ((TUnk_804B9870 *)arg0)->obj_clearFlags30((int) (0x4000));
+            ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x4000);
         }
     } else {
         if ((s32) *(s32 *)&this->next_action != (s16) this->mode) {
@@ -1420,11 +1420,11 @@ u8 *TBoss3Volopt__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2720;
     ((TBoss3Volopt *)(arg0))->apply_set_data((void *)arg1);
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
-    TBoss3Volopt__sub_8003EA2C((void*)((int) (0)));
+    TBoss3Volopt__sub_8003EA2C((void*)(0));
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(&(*(RecoveredGlobal_8003EFF0_lbl_804FEE68 *)&boss3_volopt_spawn_pos).value))));
     *(s32 *)&((TBoss3Volopt *)arg0)->actorFlags = (s32) (*(s32 *)&((TBoss3Volopt *)arg0)->actorFlags| 0x06040000);
-    TBoss3Volopt__cage_entity_id = get_param_offset__12TBoss3VoloptFl((void *) (arg0), (int) (0x20));
-    lbl_805D2714 = get_adjusted_angle__12TBoss3VoloptFl((void *) (arg0), (int) (0x20));
+    TBoss3Volopt__cage_entity_id = get_param_offset__12TBoss3VoloptFl((void *) (arg0), 0x20);
+    lbl_805D2714 = get_adjusted_angle__12TBoss3VoloptFl((void *) (arg0), 0x20);
     *(s32 *)&((TBoss3Volopt *)arg0)->next_action = 0;
     ((TBoss3Volopt *)arg0)->mode = 0;
     *(s32 *)&((TBoss3Volopt *)arg0)->m_3bc = 0;

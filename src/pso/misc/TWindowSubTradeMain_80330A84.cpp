@@ -253,7 +253,7 @@ s32 TWindowSubTradeMain::create_help_item() {
 
     var_r31 = __nw__7TObjectFUl(0xBC);
     if (var_r31 != 0) {
-        var_r31 = __ct__15TWindowHelpItemFPvUs(var_r31, get_window_layout_position((s32)(2)), *(s32 *)&this->m_28);
+        var_r31 = __ct__15TWindowHelpItemFPvUs(var_r31, get_window_layout_position(2), *(s32 *)&this->m_28);
     }
     *(s32 *)&this->m_24 = -1;
     return var_r31;
@@ -264,9 +264,9 @@ s32 TWindowSubTradeMain::create_input_number(s32 maximum) {
 
     storage = __nw__7TObjectFUl(0x7C);
     if (storage != 0) {
-        storage = __ct__18TWindowInputNumberFPvllls(storage, get_window_layout_position((s32)(0x5D)), 1, maximum, 1, (s16) *(s32 *)&this->m_28);
+        storage = __ct__18TWindowInputNumberFPvllls(storage, get_window_layout_position(0x5D), 1, maximum, 1, (s16) *(s32 *)&this->m_28);
     }
-    ((TWindowInputNumber *)storage)->create(get_message_10__20TWindowSubStatusDispFl((s32)(0x28)));
+    ((TWindowInputNumber *)storage)->create(get_message_10__20TWindowSubStatusDispFl(0x28));
     ((TWindowInputNumber *)storage)->set_value(TWindowSubTradeMain__data_805DF858);
     return storage;
 }
@@ -276,8 +276,8 @@ extern s32 lbl_80477494[];
 s32 TWindowSubTradeMain::create_list() {
     s32 equip_kind_window;
 
-    equip_kind_window = create_equip_kind_window(get_window_layout_position((s32)(0x64)), lbl_80477494, *(s32 *)&this->m_28);
-    ((TUnk_804D0618 *)equip_kind_window)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl((s32)(0x24)));
+    equip_kind_window = create_equip_kind_window(get_window_layout_position(0x64), lbl_80477494, *(s32 *)&this->m_28);
+    ((TUnk_804D0618 *)equip_kind_window)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl(0x24));
     ((TWindowSubTradeMain *)equip_kind_window)->refresh_item_list((void*)(TLobby__sub_802D298C()));
     TWindowSubEquip__sub_80263AF8((u8 *)(*(s32 *)&this->m_2c), 2);
     set_field_1c__6TLobbyFf(equip_kind_window);
@@ -329,7 +329,7 @@ u8 *TWindowSubTradeMain::open_confirm_prompt() {
 u8 *open_option_dialog__19TWindowSubTradeMainFPvi(u8 *arg0, s32 arg1) {
     u8 *temp_r31;
     temp_r31 = (u8 *)(create__19TWindowMessageYesNoFPvPvPvPv(arg0, *(u8 **)((s8 *)arg0 + 0x28), NULL, NULL));
-    initialize_option_dialog(temp_r31, arg1, get_window_layout_position((s32)((int) (0x5F))), TWindowSubTradeMain__data_805DF858);
+    initialize_option_dialog(temp_r31, arg1, get_window_layout_position(0x5F), TWindowSubTradeMain__data_805DF858);
     return temp_r31;
 }
 
@@ -434,12 +434,12 @@ s32 TWindowSubTradeMain::create_trade_menu() {
     u8 *arg0 = (u8 *)this;
   s32 titled_window_menu;
   s32 temp_r31_2;
-  temp_r31_2 = (0, get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDD)));
-  titled_window_menu = create_titled_window_menu((int) ((s32 (*)(int))get_window_layout_position)((int) 0x5E), (int) 4, temp_r31_2, (int) ((RecoveredFields_80331434_arg0 *) arg0)->field_28);
-  forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)((int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDC))), (int)((int) 6), (int)((int) 0x11));
-  forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)((int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xE3))), (int)((int) 6), (int)((int) 0x16));
-  ((TWindowSubTradeMain *)titled_window_menu)->add_text_entry((int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDE)), (int) 6, (int) 0x1A, (int) 0xFFEE946E);
-  ((TWindowSubTradeMain *)titled_window_menu)->add_text_entry((int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDF)), (int) 6, (int) 0x17, (int) 0xFFEE6ED8);
+  temp_r31_2 = (0, get_message_10__20TWindowSubStatusDispFl(0xDD));
+  titled_window_menu = create_titled_window_menu((int) ((s32 (*)(int))get_window_layout_position)(0x5E), 4, temp_r31_2, (int) ((RecoveredFields_80331434_arg0 *) arg0)->field_28);
+  forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)((int) get_message_10__20TWindowSubStatusDispFl(0xDC)), 6, 0x11);
+  forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)((int) get_message_10__20TWindowSubStatusDispFl(0xE3)), 6, 0x16);
+  ((TWindowSubTradeMain *)titled_window_menu)->add_text_entry((int) get_message_10__20TWindowSubStatusDispFl(0xDE), 6, 0x1A, (int) 0xFFEE946E);
+  ((TWindowSubTradeMain *)titled_window_menu)->add_text_entry((int) get_message_10__20TWindowSubStatusDispFl(0xDF), 6, 0x17, (int) 0xFFEE6ED8);
   ((TWindowSubComCardList *)titled_window_menu)->update_layout_height((f32) TWindowSubTradeMain__data_805DF858);
   align_menu_entry_positions((int) titled_window_menu);
   return titled_window_menu;
@@ -451,13 +451,13 @@ s32 TWindowSubTradeMain::build_trade_menu() {
     u8 *arg0 = (u8 *)this;
   s32 titled_window_menu;
   s32 temp_r31_2;
-  temp_r31_2 = (0, get_message_10__20TWindowSubStatusDispFl((s32)((int) 0x26)));
-  titled_window_menu = create_titled_window_menu((int) ((s32 (*)(int))get_window_layout_position)((int) 0x5C), (int) 5, temp_r31_2, (int) ((RecoveredFields_80331520_arg0 *) arg0)->field_28);
-  forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)((int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDA))), (int)((int) 6), (int)((int) 3));
-  forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)((int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDB))), (int)((int) 6), (int)((int) 0xA));
-  forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)((int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDC))), (int)((int) 6), (int)((int) 0x11));
-  ((TWindowSubTradeMain *)titled_window_menu)->add_text_entry((int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDD)), (int) 6, (int) 0x14, (int) 0xFFEE946E);
-  ((TWindowSubTradeMain *)titled_window_menu)->add_text_entry((int) get_message_10__20TWindowSubStatusDispFl((s32)((int) 0xDF)), (int) 6, (int) 0x17, (int) 0xFFEE6ED8);
+  temp_r31_2 = (0, get_message_10__20TWindowSubStatusDispFl(0x26));
+  titled_window_menu = create_titled_window_menu((int) ((s32 (*)(int))get_window_layout_position)(0x5C), 5, temp_r31_2, (int) ((RecoveredFields_80331520_arg0 *) arg0)->field_28);
+  forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)((int) get_message_10__20TWindowSubStatusDispFl(0xDA)), 6, 3);
+  forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)((int) get_message_10__20TWindowSubStatusDispFl(0xDB)), 6, 0xA);
+  forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)((int) get_message_10__20TWindowSubStatusDispFl(0xDC)), 6, 0x11);
+  ((TWindowSubTradeMain *)titled_window_menu)->add_text_entry((int) get_message_10__20TWindowSubStatusDispFl(0xDD), 6, 0x14, (int) 0xFFEE946E);
+  ((TWindowSubTradeMain *)titled_window_menu)->add_text_entry((int) get_message_10__20TWindowSubStatusDispFl(0xDF), 6, 0x17, (int) 0xFFEE6ED8);
   ((TWindowSubComCardList *)titled_window_menu)->update_layout_height((f32) TWindowSubTradeMain__data_805DF858);
   align_menu_entry_positions((int) titled_window_menu);
   return titled_window_menu;

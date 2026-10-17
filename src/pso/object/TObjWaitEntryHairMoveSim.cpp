@@ -774,7 +774,7 @@ s32 TObjWaitEntryHairMoveSim__sub_800FE73C(s32 arg0) {
         return 0;
     }
     if (is_level_in_table__24TObjWaitEntryHairMoveSimFPv((Obj_800FE698 *)((void *) (arg0))) != 0) {
-        temp_r3 = ((s32 (*)(int))__nw__7TObjectFUl)((int) (0x20));
+        temp_r3 = ((s32 (*)(int))__nw__7TObjectFUl)(0x20);
         var_r0 = temp_r3;
         if (var_r0 != 0) {
             var_r0 = ((s32)__ct__24TObjWaitEntryHairMoveSimFv((void *)((int) (temp_r3)), (void *)((void *) (arg0))));

@@ -105,8 +105,8 @@ bool TShopGenerator::is_player_in_service_range(u8 *arg1, f32 farg0) {
     stack.spC = *(s32 *)((s8 *)(&shop_service_facing_vec.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&shop_service_facing_vec.value) + 8);
     push_matrix_from((void *) (&identity_matrix.value));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg1 + 0x60)));
-    rotate_vector_by_matrix((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
+    rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg1 + 0x60)));
+    rotate_vector_by_matrix(0, (void *) (&stack.sp8), (void *) (&stack.sp8));
     pop_matrix();
     stack.sp14 = *(f32 *)((s8 *)arg0 + 0x38) - *(f32 *)((s8 *)arg1 + 0x38);
     stack.sp18 = *(f32 *)((s8 *)arg0 + 0x3C) - *(f32 *)((s8 *)arg1 + 0x3C);

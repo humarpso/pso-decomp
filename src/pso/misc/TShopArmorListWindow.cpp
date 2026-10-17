@@ -329,7 +329,7 @@ void handle_buy_confirm__20TShopArmorListWindowFv(Win_8021A634 *w) {
             }
             TWindow__close(w->card);
             w->card = NULL;
-            set_field_20__15TShopWindowBaseFl((void*)(w), (int)(0));
+            set_field_20__15TShopWindowBaseFl((void*)(w), 0);
         }
         if (r == 1) {
             if (w->list != NULL) {
@@ -345,7 +345,7 @@ void handle_buy_confirm__20TShopArmorListWindowFv(Win_8021A634 *w) {
             }
             TWindow__close(w->card);
             w->card = NULL;
-            set_field_20__15TShopWindowBaseFl((void*)(w), (int)(0));
+            set_field_20__15TShopWindowBaseFl((void*)(w), 0);
         }
     }
     if (w->card != NULL && ((TWindowSubComCard *)(w->card))->get_status_flag() != 0) {
@@ -362,7 +362,7 @@ void handle_buy_confirm__20TShopArmorListWindowFv(Win_8021A634 *w) {
         }
         TWindow__close(w->card);
         w->card = NULL;
-        set_field_20__15TShopWindowBaseFl((void*)(w), (int)(0));
+        set_field_20__15TShopWindowBaseFl((void*)(w), 0);
     }
 }
 
@@ -373,23 +373,23 @@ s32 TShopArmorListWindow::open_menu_window() {
     if ((u32) *(u32 *)((s8 *)this + 0x30) == 0U) {
         temp_r31 = obj_getField1c(*(s32 *)((s8 *)this + 0x24));
         *(u32 *)((s8 *)this + 0x30) = create_window_menu(get_window_layout_position(0x2B), 2, temp_r31);
-        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(*(u32 *)((s8 *)this + 0x30)), (int)(get_shop_text(4)), (int)(6), (int)(0));
-        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(*(u32 *)((s8 *)this + 0x30)), (int)(get_shop_text(5)), (int)(6), (int)(1));
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(*(u32 *)((s8 *)this + 0x30)), (int)(get_shop_text(4)), 6, 0);
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(*(u32 *)((s8 *)this + 0x30)), (int)(get_shop_text(5)), 6, 1);
         ((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x30)))->calc_window_size();
         align_menu_entry_positions(*(u32 *)((s8 *)this + 0x30));
         ((TCheckRoomSequence *)(*(u32 *)((s8 *)this + 0x30)))->set_ready_flag();
         temp_f31 = get_scale__15TShopWindowBaseFv(this);
         ((TUnk_804CDFE8 *)(*(u32 *)((s8 *)this + 0x30)))->set_position_xy(get_scale__15TShopWindowBaseFv(this), temp_f31);
     }
-    set_field_20__15TShopWindowBaseFl((void*)((void*)(this)), (int)(2));
+    set_field_20__15TShopWindowBaseFl((void*)((void*)(this)), 2);
 }
-int TShopArmorListWindow::advance_to_preparation_phase() { return set_field_20__15TShopWindowBaseFl((void*)(this), (int)(8)); }
+int TShopArmorListWindow::advance_to_preparation_phase() { return set_field_20__15TShopWindowBaseFl((void*)(this), 8); }
 
 s32 TShopArmorListWindow::update() {
     if ((this->vfunc_10() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
         ((VObj_8021AA2C_8021A394 *)this)->m4(0xB, 1);
         ((TWindowSubItem *)(*(s32 *)((s8 *)this + 0x2C)))->clear_selected_and_update_entry();
-        set_field_20__15TShopWindowBaseFl((void*)(this), (int)(1));
+        set_field_20__15TShopWindowBaseFl((void*)(this), 1);
     }
 }
 
@@ -397,7 +397,7 @@ s32 TShopArmorListWindow::handle_select() {
     if ((this->vfunc_10() != 0) && ((sub_80223A48__15TShopWindowBaseFv(this) != 0) || (sub_802239EC__13TShopSequenceFv(this) != 0))) {
         ((VObj_8021AABC_8021A394 *)this)->m4(0xB, 1);
         ((TWindowSubItem *)(*(s32 *)((s8 *)this + 0x2C)))->clear_selected_and_update_entry();
-        set_field_20__15TShopWindowBaseFl((void*)(this), (int)(1));
+        set_field_20__15TShopWindowBaseFl((void*)(this), 1);
     }
 }
 
@@ -547,7 +547,7 @@ void TShopArmorListWindow::vfunc_11() {
     switch (temp_r0) {
     case 0:
         TShopArmorListWindow::refresh_item_list((void *)((void *) (arg0)));
-        set_field_20__15TShopWindowBaseFl((void*)((void *) (arg0)), (int)((int) (1)));
+        set_field_20__15TShopWindowBaseFl((void*)((void *) (arg0)), 1);
         return;
     case 1:
         ((TShopArmorListWindow *)arg0)->handle_selection();

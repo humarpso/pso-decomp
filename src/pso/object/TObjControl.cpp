@@ -492,8 +492,8 @@ void TObjControl::run_task() {
         if (((EnemyControlDispatch *)(enemy))->m41() == 0) {
             ((EnemyControlDispatch *)(enemy))->m36();
             if ((((EnemyControlDispatch *)(enemy))->m34() != 0) || (((EnemyControlDispatch *)(enemy))->m38() != 0) || (((EnemyControlDispatch *)(enemy))->m37() != 0)) {
-                submit_cursor_candidate((int) (enemy), (int) (-1));
-                minimap_render_dot((void *) (enemy + 0x38), (int) (-0x5DB4), (int) (1), (int) (0));
+                submit_cursor_candidate((int) (enemy), -1);
+                minimap_render_dot((void *) (enemy + 0x38), -0x5DB4, 1, 0);
                 ((EnemyControlDispatch *)(enemy))->m26();
                 set_flag_3__7TObjectFv((enemy));
                 return;

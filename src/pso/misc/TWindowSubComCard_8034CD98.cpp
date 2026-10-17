@@ -23,7 +23,7 @@ extern s32 lbl_80478C2C[];
 void TWindowSubInformationBoard::open_card_info_window() {
     s32 window_layout_position;
     window_layout_position = get_window_layout_position(0xA5);
-    TLobby::set_window_mode_4((void *)window_layout_position, (s32)lbl_80478C2C, (s32)1);
+    TLobby::set_window_mode_4((void *)window_layout_position, (s32)lbl_80478C2C, 1);
     *(s32 *)&this->m_24 = -1;
 }
 void *TWindowSubComCard__sub_8034CDE0(void) {
@@ -40,7 +40,7 @@ void *TWindowSubComCard__sub_8034CDE0(void) {
     it = ((L_8034CDE0 *)it)->items;
     for (i = 0; i < n; i++, it++) {
         if (it->f10 != 0) {
-            forward_trade_action_default__16TObjCityMainWarpFPviii((void *)w, (int)it, (int)(0x16), (int)i);
+            forward_trade_action_default__16TObjCityMainWarpFPviii((void *)w, (int)it, 0x16, (int)i);
         } else {
             draw_text_gray__17TWindowSubComCardFllll(w, it, 0x16, i);
         }

@@ -203,7 +203,7 @@ void update_player_appear_fade(u8 *arg0) {
                     }
                     *(s32 *)((s8 *)arg0 + 4) = 1;
                     ((TObjPlayer *)temp_r3)->activate_body_collision();
-                    if (obj_testFlags30((int) (temp_r3), (int) (0x800)) == 0) {
+                    if (obj_testFlags30((int) (temp_r3), 0x800) == 0) {
                         TObjPlayer::spawn_appearance_effect((int) (*(u16 *)((s8 *)arg0 + 0)));
                     }
                     *(f32 *)((s8 *)temp_r3 + 0x624) = (f32) lbl_805DC32C[0];

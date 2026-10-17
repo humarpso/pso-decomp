@@ -53,8 +53,8 @@ void TBoss7Crawfish::run_task() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
 
-    if (((s16) this->mode != 5) && (obj_testFlags30((void *) (arg0), (int) (0x800)) != 0)) {
-        ((TBoss7Crawfish *)arg0)->change_state((int) (4));
+    if (((s16) this->mode != 5) && (obj_testFlags30((void *) (arg0), 0x800) != 0)) {
+        ((TBoss7Crawfish *)arg0)->change_state(4);
     }
     temp_r0 = this->mode;
     switch (temp_r0) {
@@ -79,9 +79,9 @@ void TBoss7Crawfish::run_task() {
     }
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     if (!(*(s32 *)((s8 *)(this->m_a4) + 0x18) & 0x02000000)) {
-        submit_cursor_candidate((void *) (arg0), (int) (-1));
+        submit_cursor_candidate((void *) (arg0), -1);
     }
-    add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805DF0FC));
+    add_radar_scaled_marker((void *) (arg0 + 0x38), -0x5DB4, 1, 1, (f32) (lbl_805DF0FC));
     advance_animation_playback((void *) (arg0));
 }
 
@@ -104,31 +104,31 @@ u8 *TBoss7Crawfish__ct(u8 *arg0, s32 arg1, s32 arg2) {
     initialize__9TObjEnemyFPv();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TBoss7Crawfish;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss7Crawfish__class_name;
-    ((TBoss7Crawfish *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) (TBoss7Crawfish__shared_resource), (int) (0));
+    ((TBoss7Crawfish *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) (TBoss7Crawfish__shared_resource), 0);
     fn_8002B630((arg0 + 0x374), (u8 *)(crawfish_collision_body_desc));
     ((TUnk_804AF8A0 *)arg0)->initialize_linked_object_reference((void *) (arg0 + 0x374));
     ((TObjPlayer *)arg0)->set_field_d8((s32)((void *) (lbl_804E7380)));
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)((u8 *)TBoss7Crawfish__shared_resource) + 0x430)));
-    ((TBoss7Crawfish *)arg0)->set_anim_timer((int) (2));
+    ((TBoss7Crawfish *)arg0)->set_anim_timer(2);
     set_animation__10TObjPlayerFPvs((arg0), (((TBoss7Crawfish *)arg0)->m_b8));
     set_field_b8__10TObjMotionFs((void *) (arg0), (int) (((TBoss7Crawfish *)arg0)->m_b8));
-    ((TUnk_804806E8 *)arg0)->add_flags_2e4((int) (2));
+    ((TUnk_804806E8 *)arg0)->add_flags_2e4(2);
     ((TBoss7Crawfish *)(arg0))->apply_set_data((void *)arg2);
     if (((TBoss7Crawfish *)arg0)->sub_80308AA8() != 0) {
-        ((TObjEneLappy *)arg0)->set_param((int) (0x4A));
+        ((TObjEneLappy *)arg0)->set_param(0x4A);
         bind_enemy_combat_stats((arg0), (u8 *)(register_boss__6TLobbyFl(8)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(8)), (u8 *)(register_object__6TLobbyFl(8)));
-        *(s32 *)&((TBoss7Crawfish *)arg0)->m_3a0 = dispatch_shared_handler_a__6TLobbyFl((int) (8));
-        *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) (TBoss7Crawfish__shared_resource), (int) (0));
+        *(s32 *)&((TBoss7Crawfish *)arg0)->m_3a0 = dispatch_shared_handler_a__6TLobbyFl(8);
+        *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) (TBoss7Crawfish__shared_resource), 0);
     } else {
-        ((TObjEneLappy *)arg0)->set_param((int) (0x4B));
+        ((TObjEneLappy *)arg0)->set_param(0x4B);
         bind_enemy_combat_stats((arg0), (u8 *)(register_boss__6TLobbyFl(9)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(9)), (u8 *)(register_object__6TLobbyFl(9)));
-        *(s32 *)&((TBoss7Crawfish *)arg0)->m_3a0 = dispatch_shared_handler_a__6TLobbyFl((int) (9));
-        *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) (TBoss7Crawfish__shared_resource), (int) (1));
+        *(s32 *)&((TBoss7Crawfish *)arg0)->m_3a0 = dispatch_shared_handler_a__6TLobbyFl(9);
+        *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) (TBoss7Crawfish__shared_resource), 1);
     }
-    ((TUnk_804806E8 *)arg0)->get_or_assign_actor_id((int) (0));
+    ((TUnk_804806E8 *)arg0)->get_or_assign_actor_id(0);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TBoss7Crawfish *)arg0)->clear_object_state_exchange();
-    ((TBoss7Crawfish *)arg0)->change_state((int) (0));
+    ((TBoss7Crawfish *)arg0)->change_state(0);
     v.z = TBoss7Crawfish__data_805DF0D8;
     v.y = TBoss7Crawfish__data_805DF0D8;
     v.x = TBoss7Crawfish__data_805DF0D8;

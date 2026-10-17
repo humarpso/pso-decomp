@@ -13,7 +13,7 @@ void TObjPlayer::spawn_weapon_casing(s32 arg0, u32 arg1, u32 arg2, u32 arg3, u32
         if (p != 0) {
             p = ((TObjPlayer *)p)->construct_weapon_casing((u8 *)arg0, (u8 *)arg1, (u8 *)arg2, (u8 *)arg3, (u8 *)arg4);
         }
-        TItemAttacker::spawn_item_timer((s32)p, (s32)expire_weapon_casing, (s32)0xF);
+        TItemAttacker::spawn_item_timer((s32)p, (s32)expire_weapon_casing, 0xF);
     }
 }
 
@@ -25,7 +25,7 @@ void TObjPlayer::launch_weapon_casing(s32 arg0, u32 arg1, s32 arg2, u32 arg3, u3
         if (var_r0 != NULL) {
             var_r0 = ((TObjPlayer *)var_r0)->construct_weapon_casing((u8 *)arg0, (u8 *)arg1, (u8 *)sp8, (u8 *)arg3, (u8 *)arg4);
         }
-        TItemAttacker::spawn_item_timer((s32)var_r0, (s32)expire_weapon_casing, (s32)0xF);
+        TItemAttacker::spawn_item_timer((s32)var_r0, (s32)expire_weapon_casing, 0xF);
     }
 }
 

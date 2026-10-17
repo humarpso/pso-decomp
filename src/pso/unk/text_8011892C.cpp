@@ -176,7 +176,7 @@ void TItemProUnit::vfunc_44() {
     case 15:
       if (((u32) (this->m_174)) != 0U)
     {
-      temp_r3 = __nw__15TItemHeapObjectFUl((int) 0x2C);
+      temp_r3 = __nw__15TItemHeapObjectFUl(0x2C);
       if (temp_r3 != 0)
       {
         init_item_timer_event__13TUnk_804A0648Fv((int) temp_r3, (int) (this->m_174), (void *) get_id__13TItemProArmorFv((void *) arg0), (int) ((s32) (lbl_805DABFC * ((f32) (this->m_18e)))));
@@ -187,7 +187,7 @@ void TItemProUnit::vfunc_44() {
     case 16:
       if (((u32) (this->m_174)) != 0U)
     {
-      temp_r3_2 = __nw__15TItemHeapObjectFUl((int) 0x2C);
+      temp_r3_2 = __nw__15TItemHeapObjectFUl(0x2C);
       if (temp_r3_2 != 0)
       {
         construct_timer_event__13TUnk_804A0628Fv((int) temp_r3_2, (int) (this->m_174), (void *) get_id__13TItemProArmorFv((void *) arg0), (int) ((s32) (lbl_805DABFC * ((f32) (this->m_18e)))));
@@ -198,7 +198,7 @@ void TItemProUnit::vfunc_44() {
     case 17:
       if (((u32) (this->m_174)) != 0U)
     {
-      temp_r3_3 = __nw__15TItemHeapObjectFUl((int) 0x2C);
+      temp_r3_3 = __nw__15TItemHeapObjectFUl(0x2C);
       if (temp_r3_3 != 0)
       {
         init_timer_event__13TUnk_804A0608Fv((int) temp_r3_3, (int) (this->m_174), (void *) get_id__13TItemProArmorFv((void *) arg0), (int) ((s32) (lbl_805DABFC * ((f32) (this->m_18e)))));
@@ -306,31 +306,31 @@ void TItemProUnit::apply_unit_effect_flags() {
         *(s16 *)((s8 *)arg0 + 0x190) = (s16) this->m_18e;
         return;
     case 20:
-        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags((int) (8));
+        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags(8);
         return;
     case 21:
-        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags((int) (2));
+        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags(2);
         return;
     case 19:
         *(f32 *)((s8 *)arg0 + 0x1B8) = (f32) (TItemProUnit__data_805DABF8 + ((f32) this->m_18e / lbl_805DAC00));
         return;
     case 22:
-        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags((int) (0x80));
+        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags(0x80);
         return;
     case 23:
-        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags((int) (0x200));
+        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags(0x200);
         return;
     case 24:
-        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags((int) (0x800));
+        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags(0x800);
         return;
     case 25:
-        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags((int) (0x2000));
+        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags(0x2000);
         return;
     case 26:
-        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags((int) (0x8000));
+        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags(0x8000);
         return;
     case 27:
-        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags((int) (0x20000));
+        ((TObjPlayer *)((u8 *)(arg0) + 0x178))->set_flags(0x20000);
     default:
         return;
     }

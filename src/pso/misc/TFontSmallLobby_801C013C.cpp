@@ -22,7 +22,7 @@ extern s32 fn_80152EF8[];
 void __construct_array(void *, void *, int, int, int);
 int read_be16_field2__10TObjPlayerFv(void*);
 void __copy(void *, void *, int);
-int TFontSmallLobby__sub_801C013C(void* p) { return clear_flags__11TAdRicoRingFUl((void*)((char*)p + 0x10), (int)(2)); }
+int TFontSmallLobby__sub_801C013C(void* p) { return clear_flags__11TAdRicoRingFUl((void*)((char*)p + 0x10), 2); }
 
 void *TFontSmallLobby__sub_801C0164(void *arg0) {
     ((TObjPlayer *)((char *)arg0 + 16))->init_forward();

@@ -328,10 +328,10 @@ void run_task__19TBoss3VoloptMonitorFv(u8 *arg0) {
     }
     ((TBoss3VoloptMonitor *)arg0)->update_state();
     ((TObjEnemy *)arg0)->update_prev_position();
-    if (obj_testFlags30((void *) (arg0), (int) (0x800)) == 0) {
+    if (obj_testFlags30((void *) (arg0), 0x800) == 0) {
         copy_position__20TBoss3VoloptHiraisinFi((s32)(arg0));
-        submit_cursor_candidate((void *) (arg0), (int) (-1));
-        minimap_render_dot((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (0));
+        submit_cursor_candidate((void *) (arg0), -1);
+        minimap_render_dot((void *) (arg0 + 0x38), -0x5DB4, 1, 0);
     }
     if (!(*(s32 *)&((TBoss3VoloptMonitor *)arg0)->actorFlags& 0x800)) {
         if ((((TBoss3VoloptMonitor *)arg0)->m_390 -= 1) <= 0) {
@@ -530,8 +530,8 @@ u8 *TBoss3VoloptMonitor__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)&((TBoss3VoloptMonitor *)arg0)->variant = 0;
     *(s16 *)&((TBoss3VoloptMonitor *)arg0)->timer = 0;
     ((TBoss3VoloptMonitor *)arg0)->sub_80042510();
-    init_collision_body_parts((void *) (arg0), (void *) (&TBoss3VoloptMonitor__collision_body_part_table.value), (int) (1));
-    ((TBoss3VoloptMonitor *)arg0)->sub_80042944((s32)((int) (1)));
+    init_collision_body_parts((void *) (arg0), (void *) (&TBoss3VoloptMonitor__collision_body_part_table.value), 1);
+    ((TBoss3VoloptMonitor *)arg0)->sub_80042944(1);
     return arg0;
 }
 

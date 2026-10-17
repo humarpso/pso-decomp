@@ -31,7 +31,7 @@ void TObjBoss8Piller::render() {
         TObjFish::set_global_param((s32)((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)TObjBoss8Piller__shared_resource + 0x42C)) + 0xC))));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x1C));
-        scale_matrix((int) (0), (f32) (lbl_805DF150), (f32) (lbl_805DF150), (f32) (lbl_805DF150));
+        scale_matrix(0, (f32) (lbl_805DF150), (f32) (lbl_805DF150), (f32) (lbl_805DF150));
         draw_model_motion((int) (var_r31), (int) (*(s32 *)((s8 *)arg0 + 0x2C)), (f32) (*(f32 *)((s8 *)arg0 + 0x28)));
         pop_matrix();
         TObjPlayer::reset_transform_state();

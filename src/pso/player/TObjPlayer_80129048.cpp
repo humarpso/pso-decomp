@@ -35,7 +35,7 @@ void TObjPlayer::clear_rico_ring_flag() {
 extern "C" {
 
 s32 TObjPlayer__sub_801290D0(u8 *arg0) {
-    if (test_flags_any((void *) (arg0 + 0x1FC), (int) (4)) != 0) {
+    if (test_flags_any((void *) (arg0 + 0x1FC), 4) != 0) {
         return *(s32 *)((s8 *)arg0 + 0x188);
     }
     return *(s32 *)((s8 *)arg0 + 0x184);

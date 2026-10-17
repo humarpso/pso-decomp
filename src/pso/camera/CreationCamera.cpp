@@ -75,7 +75,7 @@ typedef char RecoveredGlobal_80291D4C_lbl_80540958_size[sizeof(RecoveredGlobal_8
 s32 *TLobby__sub_80291D4C(void) {
     s32 character_save_record;
     character_save_record = get_character_save_record(0xFFFFU);
-    decode_obfuscated_string__6TLobbyFPvi((void *) (&lbl_80540958.value), (void *) (character_save_record + 0x229C), (int) (0xC), (int) (character_save_record));
+    decode_obfuscated_string__6TLobbyFPvi((void *) (&lbl_80540958.value), (void *) (character_save_record + 0x229C), 0xC, (int) (character_save_record));
     return &lbl_80540958.value;
 }
 u32 get_character_creation_selected_entry_id(void) {  return TObjCMMainMenu__selected_entry_id; }
@@ -269,13 +269,13 @@ void update_creation_camera_auto(Cam_80291784 *arg0) {
         f32 s = calc_character_height(creation_player_character);
         switch (arg0->mode) {
         case 0:
-            approach_creation_camera_target((u8 *)arg0, (s32)(0), (s32)(0), (f32)(lbl_805DD96C * s), (f32)(lbl_805DD9A4 * s));
+            approach_creation_camera_target((u8 *)arg0, 0, 0, (f32)(lbl_805DD96C * s), (f32)(lbl_805DD9A4 * s));
             break;
         case 1:
-            approach_creation_camera_target((u8 *)arg0, (s32)(0), (s32)(0), (f32)lbl_805DD998, (f32)lbl_805DD9A8);
+            approach_creation_camera_target((u8 *)arg0, 0, 0, (f32)lbl_805DD998, (f32)lbl_805DD9A8);
             break;
         case 2:
-            approach_creation_camera_target((u8 *)arg0, (s32)(0), (s32)(0), (f32)(lbl_805DD9AC * s), (f32)(lbl_805DD9B0 * s));
+            approach_creation_camera_target((u8 *)arg0, 0, 0, (f32)(lbl_805DD9AC * s), (f32)(lbl_805DD9B0 * s));
             break;
         }
     }

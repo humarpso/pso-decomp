@@ -122,7 +122,7 @@ u8 *create_conversation_camera(s32 arg0) {
         return NULL;
     }
     i = local_client_id;
-    temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x38))));
+    temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x38)));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(((TCameraCtrl *)temp_r3)->init_conversation_camera((s32)(i), (s32)(arg0), (s32)(tl_07)));
@@ -144,7 +144,7 @@ void *__dt__13TUnk_80488AD8Fv(void *arg0, s16 arg1) {
         *(const s32 **)((s8 *)arg0 + 0x18) = lbl_80488AD8;
         restore_player_cameras();
         TCameraCtrl__fixed_npc_camera_active = 0;
-        __dt__7TObjectFv((void *)(arg0), (int)(0));
+        __dt__7TObjectFv((void *)(arg0), 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(arg0));
         }
@@ -159,7 +159,7 @@ u8 *TCameraCtrl::init_conversation_camera(s32 i, s32 arg2, s32 arg3) {
   __ct__7TObjectFP7TObject((void *) ((u8 *)this), (void *) arg3);
   ((RecoveredFields_8006B588_arg0 *) ((u8 *)this))->field_18 = &(*(RecoveredGlobal_8006B588_lbl_80488AD8 *)&lbl_80488AD8).value;
   ((RecoveredFields_8006B588_arg0 *) ((u8 *)this))->field_34 = arg2;
-  activate_camera_mode((int) 9);
+  activate_camera_mode(9);
   if (is_split_screen() != 0)
   {
     new_var = (void *) TCameraCtrl__sub_8006BAC8((void *) (*(s32 *)&camera_ctrl_instance), (void *) i);
@@ -177,7 +177,7 @@ u8 *TCameraCtrl::init_conversation_camera(s32 i, s32 arg2, s32 arg3) {
 }
 
 void TCameraCtrl::create(s32 arg0, s32 arg1, s32 arg2) {
-    void *obj = __nw__7TObjectFUl((int)(0x40));
+    void *obj = __nw__7TObjectFUl(0x40);
     if (obj != NULL) {
         TCameraCtrl__sub_8006B798((void *)(obj), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(tl_07));
     }
@@ -199,7 +199,7 @@ void *TCameraCtrl::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_80488AF0;
         TCameraCtrl::reset_to_local_player();
-        __dt__7TObjectFv((void *)(this), (int)(0));
+        __dt__7TObjectFv((void *)(this), 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(this));
         }
@@ -243,7 +243,7 @@ s32 TCameraCtrl__sub_8006B798(void *p, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
 #pragma pop
 
 void *TCameraCtrl__vt9(void) {
-    void *o = __nw__7TObjectFUl((int)(0x6C));
+    void *o = __nw__7TObjectFUl(0x6C);
     if (o != NULL) {
         o = TCameraCtrl__sub_8006BA68(o);
     }

@@ -174,12 +174,12 @@ void TWindowSubStatusDisp__sub_80271A6C(s32 arg0, u8 *arg1) {
     } else {
         color = -1;
     }
-    set_text_draw_params((s32)arg1, (s32)(0), (s32)(0), (f32)scale, (f32)lbl_805DD4DC);
+    set_text_draw_params((s32)arg1, 0, 0, (f32)scale, (f32)lbl_805DD4DC);
     pos.x = lbl_805DD4E0 + *(f32 *)(arg1 + 0x3C);
     pos.y = lbl_805DD4E4 + *(f32 *)(arg1 + 0x40);
-    draw_window_text((f32 *)&pos, (const char *)(get_message_10__20TWindowSubStatusDispFl(0x11B)), (s32)color, (s32)(0), (f32)lbl_805DD4E8);
+    draw_window_text((f32 *)&pos, (const char *)(get_message_10__20TWindowSubStatusDispFl(0x11B)), (s32)color, 0, (f32)lbl_805DD4E8);
     pos.y = lbl_805DD4EC + *(f32 *)(arg1 + 0x40);
-    draw_window_text((f32 *)&pos, (const char *)(get_message_10__20TWindowSubStatusDispFl(0x11C)), (s32)color, (s32)(0), (f32)lbl_805DD4E8);
+    draw_window_text((f32 *)&pos, (const char *)(get_message_10__20TWindowSubStatusDispFl(0x11C)), (s32)color, 0, (f32)lbl_805DD4E8);
 }
 
 void TWindowSubAreaMapDisp::render() {
@@ -229,12 +229,12 @@ u8 *TWindowSubAreaMapDisp__ct(u8 *arg0) {
     s32 temp_r3_2;
     s32 var_r0;
     u8 *var_r30;
-    ((TWindowDD *)arg0)->construct_base((u8 *)(&TWindowSubAreaMapDisp__window_parameters.value), (s16)((void *) ((s16) local_client_id)), (u8 *)(get_window_layout_position((int) (0x59))));
+    ((TWindowDD *)arg0)->construct_base((u8 *)(&TWindowSubAreaMapDisp__window_parameters.value), (s16)((void *) ((s16) local_client_id)), (u8 *)(get_window_layout_position(0x59)));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80271D00___vt__21TWindowSubAreaMapDisp *)&__vt__21TWindowSubAreaMapDisp).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubAreaMapDisp__name;
     if (get_game_play_mode() == 1) {
         text_builder_reset();
-        text_builder_append((u8 *)(TQuestVmDownLoadServer__sub_8006EF6C((s32)(0x67))));
+        text_builder_append((u8 *)(TQuestVmDownLoadServer__sub_8006EF6C(0x67)));
         append_text_space();
         append_padded_number((get_window_count_ratio_value()), (2U));
         var_r30 = (u8 *)(get_shared_text_buffer());

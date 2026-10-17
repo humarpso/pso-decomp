@@ -36,7 +36,7 @@ s32 TAdMcCheckGC::create(s32 arg1) {
 
     temp_r5 = *(s32 *)&this->m_28 * 8;
     temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFl(lbl_804783B8 + temp_r5, 1, temp_r5);
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_localized_text_entry(0x16, arg1)), (int)(0x20), (int)(0));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)temp_r31, (int)(get_localized_text_entry(0x16, arg1)), 0x20, 0);
     ((TAdChrSelASlotGC *)temp_r31)->set_flag_40();
     set_status_flag_80__12TQuestThreadFPv((void *)temp_r31);
     ((TWindowSubComCard *)temp_r31)->calc_layout_height(lbl_805DFAD8);
@@ -162,7 +162,7 @@ u8 *__dt__12TAdMcCheckGCFv(u8 *arg0, s16 arg1) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x38));
             ((TAdMcCheckGC *)arg0)->m_38 = 0U;
         }
-        __dt__7TObjectFv((void *) (arg0), (int) (0));
+        __dt__7TObjectFv((void *) (arg0), 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }

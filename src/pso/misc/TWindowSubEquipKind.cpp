@@ -61,7 +61,7 @@ void *__dt__19TWindowSubEquipKindFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80278FE0___vt__19TWindowSubEquipKind_size[sizeof(RecoveredGlobal_80278FE0___vt__19TWindowSubEquipKind) == 0x20 ? 1 : -1];
 u8 *TWindowSubEquipKind__ct(u8 *arg0, s32 arg1, s16 arg2) {
-    fn_802683F4((arg0), (arg1), (0x1F), (arg2));
+    fn_802683F4((arg0), (arg1), 0x1F, (arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80278FE0___vt__19TWindowSubEquipKind *)&__vt__19TWindowSubEquipKind).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubEquipKind__class_name;
     ((TUnk_804D0618 *)arg0)->create_menu_scroll_bar();

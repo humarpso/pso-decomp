@@ -39,7 +39,7 @@ s32 fn_802A5C3C(u32 *arg0) {
     u32 temp_r0;
     temp_r0 = *arg0;
     if (temp_r0 == 0U) {
-        ((TWindowSnapShot *)arg0)->set_mode((s32)((int) (7)));
+        ((TWindowSnapShot *)arg0)->set_mode(7);
         return -1;
     }
     return rlc_get_chunk_count((s32)((int) (temp_r0)));
@@ -52,7 +52,7 @@ void fn_802A5CB8(void* p) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)p + 0x8); }
 
 void fn_802A5CC4(u8 *arg0, s32 arg1) {
     if (strlen((void *) (arg1)) > 0x1F) {
-        strncpy((void *) (arg0 + 0x1C), (void *) (arg1), (int) (0x1F));
+        strncpy((void *) (arg0 + 0x1C), (void *) (arg1), 0x1F);
         *(s8 *)((s8 *)arg0 + 0x3B) = 0;
         return;
     }
@@ -70,7 +70,7 @@ s32 alloc_buffer__15TWindowSnapShotFPv(void *arg0) {
     ((TWindowSnapShot *)arg0)->get_buffer_size();
     *(u32 *)((s8 *)arg0 + 8) = mem_alloc();
     if ((u32) *(u32 *)((s8 *)arg0 + 8) == 0U) {
-        ((TWindowSnapShot *)arg0)->set_mode((s32)(4));
+        ((TWindowSnapShot *)arg0)->set_mode(4);
         return 0;
     }
     return 1;
@@ -78,7 +78,7 @@ s32 alloc_buffer__15TWindowSnapShotFPv(void *arg0) {
 s32 TWindowSnapShot::open_stream(s32 arg1) {
     *(s32 *)&this->m_next = TGStream::read_whole_file((s32)arg1, (u8 *)(*(s32 *)&this->m_prev));
     if (TWindowSnapShot__sub_802A605C((u8 *)(this)) == 0) {
-        set_mode((s32)(2));
+        set_mode(2);
         free_buffer();
         return 0;
     }
@@ -87,7 +87,7 @@ s32 TWindowSnapShot::open_stream(s32 arg1) {
 s32 init__15TWindowSnapShotFPvi(void *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0xC) = ((TLobby *)arg1)->get_resource_file_size();
     if (TWindowSnapShot__sub_802A605C((u8 *)(arg0)) == 0) {
-        ((TWindowSnapShot *)arg0)->set_mode((s32)(1));
+        ((TWindowSnapShot *)arg0)->set_mode(1);
         return 0;
     }
     return 1;
@@ -99,7 +99,7 @@ void TWindowSnapShot::reset() {
     u8 *arg0 = (u8 *)this;
     *(s32 *)&this->m_name = 0;
     *(s32 *)&this->m_flags = 0;
-    memset((void *) (arg0 + 0x1C), (int) (0), (int) (0x20));
+    memset((void *) (arg0 + 0x1C), 0, 0x20);
     *(s32 *)&this->m_prev = 0;
     *(s32 *)&this->m_next = 0;
     *(s32 *)&this->m_down = 0;
@@ -126,7 +126,7 @@ u8 *TWindowSnapShot::init_and_reset() {
 void TWindowSnapShot::update_both() { free_buffer(); reset(); }
 s32 TWindowSnapShot::start_capture(s32 arg1) {
     if (arg1 == 0) {
-        set_mode((s32)((s32)((s32)(3))));
+        set_mode(3);
         return 0;
     }
     if (init__15TWindowSnapShotFPvi((void *)(this), (s32)(arg1)) == 0) {

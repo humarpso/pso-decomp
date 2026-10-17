@@ -106,19 +106,19 @@ block_2:
         stack.sp20 = blob_shadow_texture_list;
         stack.sp24 = (s32 *)(&blob_shadow_rect_desc.value);
         set_depth_buffer_settings_1();
-        set_cached_blend_factor((0), (8));
-        set_cached_blend_factor((1), (6));
+        set_cached_blend_factor(0, 8);
+        set_cached_blend_factor(1, 6);
         TParticleCtrl::begin_effect_render();
-        ((TObjPlayer *)(&stack.sp8))->draw_shadow_quad((int) (0), (int) (0x20));
+        ((TObjPlayer *)(&stack.sp8))->draw_shadow_quad(0, 0x20);
         stack.sp8 = lbl_805DA7FC;
         stack.spC = lbl_805DA7FC;
-        ((TObjPlayer *)(&stack.sp8))->draw_shadow_quad((int) (0), (int) (0x24));
+        ((TObjPlayer *)(&stack.sp8))->draw_shadow_quad(0, 0x24);
         stack.sp8 = lbl_805DA7F8;
         stack.spC = lbl_805DA7F8;
-        ((TObjPlayer *)(&stack.sp8))->draw_shadow_quad((int) (0), (int) (0x28));
+        ((TObjPlayer *)(&stack.sp8))->draw_shadow_quad(0, 0x28);
         stack.sp8 = lbl_805DA7FC;
         stack.spC = lbl_805DA7F8;
-        ((TObjPlayer *)(&stack.sp8))->draw_shadow_quad((int) (0), (int) (0x2C));
+        ((TObjPlayer *)(&stack.sp8))->draw_shadow_quad(0, 0x2C);
         TParticleCtrl::end_effect_render();
         restore_saved_depth_alpha_state();
     }

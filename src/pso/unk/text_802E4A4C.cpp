@@ -31,7 +31,7 @@ u8 *construct_attack_collision(u8 *arg0, s32 arg1, u8 *arg2) {
     *(u8 **)((s8 *)arg0 + 0x1C) = (unsigned char *) ((void *) (arg0 + 0x34));
     ((TUnk_804E355C *)arg0)->m_20 = 1;
     VecCopy((Vec *)(arg0 + 0x24), (const Vec *)(arg2));
-    memset((void *) (arg0 + 0x60), (int) (0), (int) (0x40));
+    memset((void *) (arg0 + 0x60), 0, 0x40);
     ((TUnk_804E355C *)arg0)->m_a0 = 0;
     ((TUnk_804E355C *)arg0)->m_a4 = (s32) *(s32 *)((s8 *)arg2 + 0x10);
     ((TUnk_804E355C *)arg0)->m_a8 = (u16) *(u16 *)((s8 *)arg2 + 0x14);

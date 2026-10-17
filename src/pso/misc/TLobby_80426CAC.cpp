@@ -179,11 +179,11 @@ s32 TLobby::write_name_field(s32 *arg0, u8 *arg1) {
         return 0;
     }
     sp12 = 0x102;
-    NetMemcpy((void *)(*arg0), (&sp12), (2));
+    NetMemcpy((void *)(*arg0), (&sp12), 2);
     *arg0 += 2;
     temp_r3 = TLobby::str_length((s32)((void *) (arg1 + 0x3A)));
     sp10 = temp_r3;
-    NetMemcpy((void *)(*arg0), (&sp10), (2));
+    NetMemcpy((void *)(*arg0), (&sp10), 2);
     *arg0 += 2;
     NetMemcpy((void *)(*arg0), (arg1 + 0x3A), (temp_r3));
     *arg0 += temp_r3;

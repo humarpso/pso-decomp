@@ -166,8 +166,8 @@ TAdMultiConfirmGC::TAdMultiConfirmGC(TObject *parent) : TObject(parent) {
         p = __ct__13TAdGuideTxtGCFv(p, ((TAdMultiConfirmGC_802FFA3C *)this));
     }
     ((TAdMultiConfirmGC_802FFA3C *)this)->guide = p;
-    ((TAdMultiPlyChrSelectGC *)(((TAdMultiConfirmGC_802FFA3C *)this)->guide))->set_entry_value((s32)0, (u32)(get_localized_text_entry(0x25, 0)));
-    ((TAdMultiPlyChrSelectGC *)(((TAdMultiConfirmGC_802FFA3C *)this)->guide))->set_entry_value((s32)1, (u32)(&lbl_805DEF30));
+    ((TAdMultiPlyChrSelectGC *)(((TAdMultiConfirmGC_802FFA3C *)this)->guide))->set_entry_value(0, (u32)(get_localized_text_entry(0x25, 0)));
+    ((TAdMultiPlyChrSelectGC *)(((TAdMultiConfirmGC_802FFA3C *)this)->guide))->set_entry_value(1, (u32)(&lbl_805DEF30));
     fn_802FF7EC(((TAdMultiConfirmGC_802FFA3C *)this));
 }
 extern "C" {

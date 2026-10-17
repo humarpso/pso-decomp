@@ -174,7 +174,7 @@ void set_text_entry_string(u8 *arg0, u32 str, s32 arg2) {
         }
     }
     if ((str != 0U) && (arg2 & 0x20)) {
-        temp_r3_2 = TWindowKeyBoardSoft::strnlen((s8 *)str, (u32)((int) (0x400)));
+        temp_r3_2 = TWindowKeyBoardSoft::strnlen((s8 *)str, (u32)(0x400));
         *(u32 *)((s8 *)arg0 + 0x20) = ((u32)mem_alloc((u32)((void *) (temp_r3_2 + 1))));
         strncpy((s32)((int) (*(u32 *)((s8 *)arg0 + 0x20))), (u32)((void *) (str)), (s32)((int) (temp_r3_2)));
         *(s8 *)((s8 *)(temp_r3_2 + *(u32 *)((s8 *)arg0 + 0x20)) + 0) = 0;

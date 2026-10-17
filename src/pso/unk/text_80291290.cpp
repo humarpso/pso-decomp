@@ -94,8 +94,8 @@ void approach_creation_camera_target(u8 *arg0, s32 arg1, s32 arg2, f32 farg0, f3
         *(f32 *)((s8 *)arg0 + 0x8C) = (f32) lbl_805DD974;
     }
     *(f32 *)((s8 *)arg0 + 0x4C) = (f32) (*(f32 *)((s8 *)arg0 + 0x4C) + *(f32 *)((s8 *)arg0 + 0x8C));
-    *(s32 *)((s8 *)arg0 + 0x74) = approach_angle_limited((int) (*(s32 *)((s8 *)arg0 + 0x74)), (void *) (arg2), (int) (0xC0));
-    *(s32 *)((s8 *)arg0 + 0x70) = approach_angle_limited((int) (*(s32 *)((s8 *)arg0 + 0x70)), (void *) (arg1), (int) (0xC0));
+    *(s32 *)((s8 *)arg0 + 0x74) = approach_angle_limited((int) (*(s32 *)((s8 *)arg0 + 0x74)), (void *) (arg2), 0xC0);
+    *(s32 *)((s8 *)arg0 + 0x70) = approach_angle_limited((int) (*(s32 *)((s8 *)arg0 + 0x70)), (void *) (arg1), 0xC0);
 }
 
 }

@@ -377,7 +377,7 @@ void fn_8031FD3C(u8 *arg0) {
     if (((TObjEneRecobox *)(arg0))->vfunc_83() != 4) {
         ((TObjEneRecobox *)(arg0))->vfunc_85();
     } else if ((s16) ((TObjEneRecobox *)arg0)->mode == 1) {
-        transition_enemy_state((void *) (arg0), (int) (0));
+        transition_enemy_state((void *) (arg0), 0);
     }
     ((TObjEneRecobox *)(arg0))->vfunc_88();
     ((TObjEneRecon *)arg0)->restore_position();

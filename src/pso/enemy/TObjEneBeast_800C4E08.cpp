@@ -1021,7 +1021,7 @@ f32 enemy_backstep_from_point(void *, void *, f32);
 s32 update_angle__10TObjPlayerFlPv(void *, void *, void *);
 s32 angle_difference_abs(s32, s32);
 void TUnk_80493450::sub_800C4E08() {
-    if (obj_testFlags30((void *)(((u8 *)this)), (int)(0x100000)) != 0) {
+    if (obj_testFlags30((void *)(((u8 *)this)), 0x100000) != 0) {
         *(f32 *)((s8 *)((u8 *)this) + 0x394) = (f32) *(f32 *)((s8 *)((u8 *)this) + 0x39C);
         this->m_c8 = (f32) *(f32 *)((s8 *)((u8 *)this) + 0x3A4);
         return;
@@ -1075,15 +1075,15 @@ void TUnk_80493450::beast_update_dead() {
         ((VObj_18_90ef41 *)(arg0))->m96();
     }
     if (objInBand((GameObj *)(arg0), (f32) (lbl_805DA038)) != 0) {
-        spawn_particle_effect(((u8 *)&this->position), (0xF3));
+        spawn_particle_effect(((u8 *)&this->position), 0xF3);
         ((VObj_18_90ef41 *)(arg0))->m92();
     }
     if (this->m_c0 < (lbl_805DA03C * (lbl_805DA040 * this->m_c8))) {
         move_with_wall_slide((arg0));
         *(f32 *)((s8 *)arg0 + 0x308) = (f32) (*(f32 *)((s8 *)arg0 + 0x308) * lbl_805DA03C);
         this->m_310 = (f32) (this->m_310 * lbl_805DA03C);
-    } else if (obj_testFlags30((void *) (arg0), (int) (0x800000)) == 0) {
-        apply_actor_gravity((void *) (arg0), (int) (0), (f32) (lbl_805DA034));
+    } else if (obj_testFlags30((void *) (arg0), 0x800000) == 0) {
+        apply_actor_gravity((void *) (arg0), 0, (f32) (lbl_805DA034));
     }
     *(f32 *)((s8 *)arg0 + 0x380) = (f32) (*(f32 *)((s8 *)arg0 + 0x380) - this->m_384);
     if (*(f32 *)((s8 *)arg0 + 0x380) <= *(f32 *)((s8 *)arg0 + 0x388)) {
@@ -1239,8 +1239,8 @@ s32 TUnk_80493450::update_movement_status() {
       this->mode = 1;
       this->phase = 0;
       this->m_b8 = 0;
-      ((TUnk_804B9870 *)arg0)->obj_clearFlags30((s32)((int) 0x04040000));
-      ((TObjPlayer *)arg0)->clear_player_status_flag((s32)((void*)((int) 0)), (u32)((void*)((int) 0x0A000000)));
+      ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x04040000);
+      ((TObjPlayer *)arg0)->clear_player_status_flag((s32)((void*)(0)), (u32)((void*)(0x0A000000)));
     }
     return 1;
   }
@@ -1263,8 +1263,8 @@ s32 TUnk_80493450::update_action_hold_status() {
       this->mode = 1;
       this->phase = 0;
       this->m_b8 = 0;
-      ((TUnk_804B9870 *)arg0)->obj_clearFlags30((s32)((int) 0x04040000));
-      ((TObjPlayer *)arg0)->clear_player_status_flag((s32)((void*)((int) 0)), (u32)((void*)((int) 0x0A000000)));
+      ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x04040000);
+      ((TObjPlayer *)arg0)->clear_player_status_flag((s32)((void*)(0)), (u32)((void*)(0x0A000000)));
     }
     return 1;
   }
@@ -1649,7 +1649,7 @@ void TUnk_80493450::run_task() {
   }
   ((TObjEnemy *)arg0)->update_prev_position();
   copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
-  submit_cursor_candidate((void *) arg0, (int) (-1));
+  submit_cursor_candidate((void *) arg0, -1);
   this->m_2b4 = (f32) ((this->m_2b4) + lbl_805DA048);
 }
 

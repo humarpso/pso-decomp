@@ -19,10 +19,10 @@ s32 TObjEneRecobox::render_trap_model_if_visible() {
             TObjFish::set_global_param((int) (this->texture_id));
             push_matrix();
             post_translate_matrix((void *) (((u8 *)this) + 0x38));
-            rotate_matrix_y((int) (0), (int) (this->rotation_y));
+            rotate_matrix_y(0, (int) (this->rotation_y));
             ((TObjEneRe7Berura *)((u8 *)this))->draw();
             pop_matrix();
-            restore_render_scissor((1));
+            restore_render_scissor(1);
         }
         return 1;
     }

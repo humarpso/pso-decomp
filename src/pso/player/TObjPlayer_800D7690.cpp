@@ -24,7 +24,7 @@ void TUnk_80494968::render() {
     u8 *arg0 = (u8 *)this;
     if ((toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x1C) > 1)) {
         TObjPlayer::init_xyz_limits();
-        ((TObjPlayer *)(arg0 + 0x20))->draw_trail_strip((void *)(*(s32 *)((s8 *)arg0 + 0x1C) * 2), (s32)1);
+        ((TObjPlayer *)(arg0 + 0x20))->draw_trail_strip((void *)(*(s32 *)((s8 *)arg0 + 0x1C) * 2), 1);
     }
 }
 
@@ -37,9 +37,9 @@ void TUnk_80494968::run_task() {
         return;
     }
     ta = arg0->e[0].ta;
-    r = TObjBoss2Tunnel::decrement_packed_timer((u32 *)(&ta), (s32)0x20);
+    r = TObjBoss2Tunnel::decrement_packed_timer((u32 *)(&ta), 0x20);
     tb = arg0->e[0].tb;
-    if (r & TObjBoss2Tunnel::decrement_packed_timer((u32 *)(&tb), (s32)0x20)) {
+    if (r & TObjBoss2Tunnel::decrement_packed_timer((u32 *)(&tb), 0x20)) {
         Ent_800D76E8 *dst = &arg0->e[0];
         Ent_800D76E8 *src = &arg0->e[1];
         s32 i;

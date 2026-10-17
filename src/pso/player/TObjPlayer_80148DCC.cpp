@@ -236,7 +236,7 @@ void run_task__11TObjNpcBaseFPv(u8 *arg0) {
   copy_position__20TBoss3VoloptHiraisinFi((s32) new_var);
   if ((((s32) (*((s32 *) (((s8 *) arg0) + 0x3A8)))) > 0) && (TRaderMapCore::is_not_split_screen() == 0))
   {
-    submit_cursor_candidate((void *) arg0, (int) (-1));
+    submit_cursor_candidate((void *) arg0, -1);
   }
   ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x1B3FU);
 }

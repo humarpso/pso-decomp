@@ -301,11 +301,11 @@ void TUnk_804F14A8::emit_marker_effects() {
         remap_extra_attack_type((arg0));
         ((TObjPlayer *)(&info))->reset_field28();
         ((TObjPlayer *)arg0)->fill_status_info((void *) (&info));
-        draw_icon__10TObjPlayerFll((void *) (arg0), (int) (4), (void *) (&info.v[0]));
-        draw_icon__10TObjPlayerFll((void *) (arg0), (int) (3), (void *) (&info.v[1]));
-        draw_icon__10TObjPlayerFll((void *) (arg0), (int) (6), (void *) (&info.v[2]));
-        draw_icon__10TObjPlayerFll((void *) (arg0), (int) (9), (void *) (&info.v[3]));
-        draw_icon__10TObjPlayerFll((void *) (arg0), (int) (0xA), (void *) (&info.v[4]));
+        draw_icon__10TObjPlayerFll((void *) (arg0), 4, (void *) (&info.v[0]));
+        draw_icon__10TObjPlayerFll((void *) (arg0), 3, (void *) (&info.v[1]));
+        draw_icon__10TObjPlayerFll((void *) (arg0), 6, (void *) (&info.v[2]));
+        draw_icon__10TObjPlayerFll((void *) (arg0), 9, (void *) (&info.v[3]));
+        draw_icon__10TObjPlayerFll((void *) (arg0), 0xA, (void *) (&info.v[4]));
         temp_r5 = *(s32 *)((s8 *)(*(u8 * *)&this->player) + 0x60);
         info.f28 = temp_r5;
         info.f10 = 0xA;
@@ -313,15 +313,15 @@ void TUnk_804F14A8::emit_marker_effects() {
         ((TItemWeapon *)arg0)->restore_action_type();
         return;
     }
-    draw_icon__10TObjPlayerFll((void *) (arg0), (int) (6), (void *) (&sp8));
+    draw_icon__10TObjPlayerFll((void *) (arg0), 6, (void *) (&sp8));
     ((VObj_18 *)(arg0))->m49((s32 *)&sp8, 0, 0, 1);
-    draw_icon__10TObjPlayerFll((void *) (arg0), (int) (9), (void *) (&sp8));
+    draw_icon__10TObjPlayerFll((void *) (arg0), 9, (void *) (&sp8));
     ((VObj_18 *)(arg0))->m49((s32 *)&sp8, 1, 0x11C7, 1);
-    draw_icon__10TObjPlayerFll((void *) (arg0), (int) (3), (void *) (&sp8));
+    draw_icon__10TObjPlayerFll((void *) (arg0), 3, (void *) (&sp8));
     ((VObj_18 *)(arg0))->m49((s32 *)&sp8, 2, -0x11C7, 1);
-    draw_icon__10TObjPlayerFll((void *) (arg0), (int) (0xA), (void *) (&sp8));
+    draw_icon__10TObjPlayerFll((void *) (arg0), 0xA, (void *) (&sp8));
     ((VObj_18 *)(arg0))->m49((s32 *)&sp8, 3, 0x2000, 1);
-    draw_icon__10TObjPlayerFll((void *) (arg0), (int) (4), (void *) (&sp8));
+    draw_icon__10TObjPlayerFll((void *) (arg0), 4, (void *) (&sp8));
     ((VObj_18 *)(arg0))->m49((s32 *)&sp8, 4, -0x2000, 1);
 }
 
@@ -335,10 +335,10 @@ void TObjPlayer__sub_80357954(u8 *arg0) {
         TObjPlayer::play_particle_effect_once();
         return;
     case 1:
-        rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x1F8)));
+        rotate_matrix_z(0, (int) (*(s32 *)((s8 *)arg0 + 0x1F8)));
         return;
     case 7:
-        rotate_matrix_z((int) (0), (int) (-*(s32 *)((s8 *)arg0 + 0x1F8)));
+        rotate_matrix_z(0, (int) (-*(s32 *)((s8 *)arg0 + 0x1F8)));
     default:
         return;
     }
@@ -421,28 +421,28 @@ void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1) {
     case 0:
         obj = __nw__7TObjectFUl(0x260);
         if (obj != 0) {
-            ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&strikes[0].pos), (u8 *)(&strikes[0].dir), (s32)0x14000000, (s32)0x14, (f32)(strikes[0].len), (f32)lbl_805E005C);
+            ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&strikes[0].pos), (u8 *)(&strikes[0].dir), 0x14000000, 0x14, (f32)(strikes[0].len), (f32)lbl_805E005C);
         }
         break;
     case 1:
         scale *= lbl_805E0060;
         obj = __nw__7TObjectFUl(0x260);
         if (obj != 0) {
-            ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&strikes[0].pos), (u8 *)(&strikes[0].dir), (s32)0x14000000, (s32)0x14, (f32)(strikes[0].len), (f32)scale);
+            ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&strikes[0].pos), (u8 *)(&strikes[0].dir), 0x14000000, 0x14, (f32)(strikes[0].len), (f32)scale);
         }
         break;
     case 2:
         scale *= lbl_805E0064;
         obj = __nw__7TObjectFUl(0x260);
         if (obj != 0) {
-            ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&strikes[0].pos), (u8 *)(&strikes[0].dir), (s32)0x14000000, (s32)0x14, (f32)(strikes[0].len), (f32)scale);
+            ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&strikes[0].pos), (u8 *)(&strikes[0].dir), 0x14000000, 0x14, (f32)(strikes[0].len), (f32)scale);
         }
         break;
     case 3:
         for (j = 0; j < 3; j++) {
             obj = __nw__7TObjectFUl(0x260);
             if (obj != 0) {
-                ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&strikes[j].pos), (u8 *)(&strikes[j].dir), (s32)0x14000000, (s32)0x14, (f32)(strikes[j].len), (f32)lbl_805E005C);
+                ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&strikes[j].pos), (u8 *)(&strikes[j].dir), 0x14000000, 0x14, (f32)(strikes[j].len), (f32)lbl_805E005C);
             }
         }
         break;
@@ -451,7 +451,7 @@ void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1) {
         for (k = 0; k < 3; k++) {
             obj = __nw__7TObjectFUl(0x260);
             if (obj != 0) {
-                ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&strikes[k].pos), (u8 *)(&strikes[k].dir), (s32)0x14000000, (s32)0x14, (f32)(strikes[k].len), (f32)scale);
+                ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&strikes[k].pos), (u8 *)(&strikes[k].dir), 0x14000000, 0x14, (f32)(strikes[k].len), (f32)scale);
             }
         }
         break;
@@ -460,12 +460,12 @@ void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1) {
             if (m == 0) {
                 obj = __nw__7TObjectFUl(0x260);
                 if (obj != 0) {
-                    ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&strikes[m].pos), (u8 *)(&strikes[m].dir), (s32)0x14000000, (s32)0x14, (f32)(strikes[m].len), (f32)lbl_805E0068);
+                    ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&strikes[m].pos), (u8 *)(&strikes[m].dir), 0x14000000, 0x14, (f32)(strikes[m].len), (f32)lbl_805E0068);
                 }
             } else {
                 obj = __nw__7TObjectFUl(0x260);
                 if (obj != 0) {
-                    ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&strikes[m].pos), (u8 *)(&strikes[m].dir), (s32)0x14000000, (s32)0x14, (f32)(strikes[m].len), (f32)lbl_805E005C);
+                    ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&strikes[m].pos), (u8 *)(&strikes[m].dir), 0x14000000, 0x14, (f32)(strikes[m].len), (f32)lbl_805E005C);
                 }
             }
         }
@@ -539,7 +539,7 @@ u8 *create_inward_orbit_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {
     stack.sp8 = *(s32 *)((s8 *)(&lbl_804793E4.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_804793E4.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_804793E4.value) + 8);
-    *(s32 *)((s8 *)arg0 + 0x4C) = (s32)spawn_continuous_particle_with_direction((arg0 + 0x34), (&stack.sp8), (0xA));
+    *(s32 *)((s8 *)arg0 + 0x4C) = (s32)spawn_continuous_particle_with_direction((arg0 + 0x34), (&stack.sp8), 0xA);
     return arg0;
 }
 #pragma pop
@@ -556,7 +556,7 @@ void TObjPlayer::handle_exp_steal_effect(s32 arg1, s32 arg2, s32 arg3) {
         update_battle_control_if_unlocked__10TObjPlayerFv();
     }
     if (arg3 == 1) {
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0xA8));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), 0xA8);
     }
 }
 
@@ -568,7 +568,7 @@ void TObjPlayer::handle_action(s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         update_battle_control_if_unlocked__10TObjPlayerFv();
     }
-    if ((arg3 == 1) && (spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0xA8)) != 0U)) {
+    if ((arg3 == 1) && (spawn_particle_effect((s32 *)(arg0 + 0x2FC), 0xA8) != 0U)) {
         set_position_xy__10TObjPlayerFff(lbl_805E0074, lbl_805E0078);
     }
 }
@@ -579,7 +579,7 @@ void TObjPlayer::dispatch_effect_by_type(s32 arg1, s32 arg2, s32 arg3) {
         update_battle_control_if_unlocked__10TObjPlayerFv();
     }
     if (arg3 == 1) {
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0x10A));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), 0x10A);
     }
 }
 
@@ -588,7 +588,7 @@ void weapon_fractional_hp_effect(void *arg0, void *arg1, s32 arg2, s32 arg3) {
         update_battle_control_if_unlocked__10TObjPlayerFv();
     }
     if (arg3 == 1) {
-        spawn_particle_effect((s32 *)(arg2), (0x1AC));
+        spawn_particle_effect((s32 *)(arg2), 0x1AC);
     }
 }
 
@@ -597,7 +597,7 @@ void TObjPlayer::handle_symbol_chat_action(s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         update_battle_control_if_unlocked__10TObjPlayerFv();
     }
-    if ((arg3 == 1) && (spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0x67)) != 0U)) {
+    if ((arg3 == 1) && (spawn_particle_effect((s32 *)(arg0 + 0x2FC), 0x67) != 0U)) {
         set_position_xy__10TObjPlayerFff(lbl_805E0074, lbl_805E0078);
     }
 }
@@ -608,7 +608,7 @@ void TObjPlayer::handle_action_by_type(s32 arg1, s32 arg2, s32 arg3) {
         update_battle_control_if_unlocked__10TObjPlayerFv();
     }
     if (arg3 == 1) {
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0x67));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), 0x67);
     }
 }
 
@@ -618,7 +618,7 @@ void TObjPlayer::handle_stage_event(s32 arg1, s32 arg2, s32 arg3) {
         update_battle_control_if_unlocked__10TObjPlayerFv();
     }
     if (arg3 == 1) {
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0x66));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), 0x66);
     }
 }
 
@@ -628,7 +628,7 @@ void TObjPlayer::trigger_biter_effect(s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         struct VObj_8035836C_80357734 *o = (struct VObj_8035836C_80357734 *)this;
         o->m63(0x30, &sp8);
-        spawn_particle_effect((s32 *)((s32 *) &sp8), (0x1AB));
+        spawn_particle_effect((s32 *)((s32 *) &sp8), 0x1AB);
     }
 }
 
@@ -638,7 +638,7 @@ void prepare_shock_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         struct VObj_803583B4_80357734 *o = (struct VObj_803583B4_80357734 *)arg0;
         o->m63(0x30, &sp8);
-        spawn_particle_effect((s32 *)((s32 *) &sp8), (0x1AA));
+        spawn_particle_effect((s32 *)((s32 *) &sp8), 0x1AA);
     }
 }
 
@@ -646,14 +646,14 @@ extern f32 lbl_805E007C;
 
 void weapon_hell_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0xC6));
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0xC9));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), 0xC6);
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), 0xC9);
     }
     if (arg3 == 1) {
-        if (spawn_particle_effect((s32 *)(arg2), (0x1C5)) != 0U) {
+        if (spawn_particle_effect((s32 *)(arg2), 0x1C5) != 0U) {
             set_position_xy__10TObjPlayerFff(lbl_805E007C, lbl_805E007C);
         }
-        if (spawn_particle_effect((s32 *)(arg2), (0x1C8)) != 0U) {
+        if (spawn_particle_effect((s32 *)(arg2), 0x1C8) != 0U) {
             set_position_xy__10TObjPlayerFff(lbl_805E007C, lbl_805E007C);
         }
     }
@@ -661,12 +661,12 @@ void weapon_hell_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 
 void weapon_dark_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0xC6));
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0xC9));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), 0xC6);
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), 0xC9);
     }
     if (arg3 == 1) {
-        spawn_particle_effect((s32 *)(arg2), (0x1C5));
-        spawn_particle_effect((s32 *)(arg2), (0x1C8));
+        spawn_particle_effect((s32 *)(arg2), 0x1C5);
+        spawn_particle_effect((s32 *)(arg2), 0x1C8);
     }
 }
 
@@ -675,32 +675,32 @@ void weapon_dim_shadow_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
 
     if (arg3 == 0) {
         ((VObj_803584FC_80357734 *)arg0)->m63(0x30, &sp8);
-        spawn_particle_effect((s32 *)(&sp8), (0x1A8));
-        spawn_particle_effect((s32 *)(&sp8), (0x1A9));
+        spawn_particle_effect((s32 *)(&sp8), 0x1A8);
+        spawn_particle_effect((s32 *)(&sp8), 0x1A9);
     }
     if (arg3 == 1) {
         spawn_particle_effect_with_flags((void *)arg2, 0xC8, 0x40);
-        create_timed_particle_emitter_with_flags((void *)arg2, (s32)(0x101), (s32)(0), (s32)(0x1E), (s32)(0x40));
+        create_timed_particle_emitter_with_flags((void *)arg2, 0x101, 0, 0x1E, 0x40);
     }
 }
 
 void TObjPlayer::dispatch_attack_event(void *arg1, s32 arg2, s32 arg3) {
     s32 arg0 = (s32)this;
     if (arg3 == 0) {
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0xA0));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), 0xA0);
     }
     if (arg3 == 1) {
-        spawn_scattered_lightning_strikes((u8 *)(arg2), (s32)(4));
+        spawn_scattered_lightning_strikes((u8 *)(arg2), 4);
     }
 }
 
 void TObjPlayer::dispatch_by_type(void *arg1, s32 arg2, s32 arg3) {
     s32 arg0 = (s32)this;
     if (arg3 == 0) {
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0xA0));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), 0xA0);
     }
     if (arg3 == 1) {
-        spawn_scattered_lightning_strikes((u8 *)(arg2), (s32)(4));
+        spawn_scattered_lightning_strikes((u8 *)(arg2), 4);
     }
 }
 
@@ -723,7 +723,7 @@ void weapon_special_lightning_bolt_effect(void *arg0, s32 arg1, s32 arg2, s32 ar
             Trip_8035862C t = lbl_804793D8;
             obj = __nw__7TObjectFUl(0x260);
             if (obj != 0U) {
-                ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&v), (u8 *)(&t), (s32)0x14000000, (s32)0x14, (f32)lbl_805E0048, (f32)lbl_805E0080);
+                ((TTecZonde *)obj)->construct_bolt_effect((u8 *)tl_07, (u8 *)(&v), (u8 *)(&t), 0x14000000, 0x14, (f32)lbl_805E0048, (f32)lbl_805E0080);
             }
         }
     }
@@ -734,7 +734,7 @@ void TObjPlayer::spawn_effect_by_type(s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_a;
 
     if (arg3 == 0) {
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0xBD));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), 0xBD);
     }
     if (arg3 == 1) {
         temp_a = (s32)create_timed_particle_emitter((void *)arg2, 0xBF, 0, 0xF);
@@ -749,7 +749,7 @@ void TObjPlayer::spawn_hit_effect(s32 arg1, s32 arg2, s32 arg3) {
     s32 timed_particle_emitter;
 
     if (arg3 == 0) {
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0xBD));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), 0xBD);
     }
     if (arg3 == 1) {
         timed_particle_emitter = (s32)create_timed_particle_emitter((void *)arg2, 0x9A, 0, 0xF);
@@ -765,7 +765,7 @@ void prepare_freeze_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         struct VObj_80358824_80357734 *o = (struct VObj_80358824_80357734 *)arg0;
         o->m63(0x30, &sp8);
-        spawn_particle_effect((s32 *)((s32 *) &sp8), (0x6A));
+        spawn_particle_effect((s32 *)((s32 *) &sp8), 0x6A);
     }
 }
 
@@ -792,7 +792,7 @@ void TObjPlayer::spawn_mirror_pair(void *arg1, s32 arg2, s32 arg3) {
     s32 arg0 = (s32)this;
     u32 obj;
     if (arg3 == 0) {
-        spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0x69));
+        spawn_particle_effect((s32 *)(arg0 + 0x2FC), 0x69);
     }
     if (arg3 == 1) {
         obj = __nw__7TObjectFUl(0x50);
@@ -810,11 +810,11 @@ void TObjPlayer::handle_hit_effect(s32 arg1, s32 arg2, s32 arg3) {
     s32 sp8;
 
     if (arg3 == 0) {
-        this->vfunc_65((s32)0x30, (s32)&sp8);
-        spawn_particle_effect((s32 *)(&sp8), (0x68));
+        this->vfunc_65(0x30, (s32)&sp8);
+        spawn_particle_effect((s32 *)(&sp8), 0x68);
     }
     if (arg3 == 1) {
-        create_timed_particle_emitter_with_flags((void *)arg2, (s32)(0x18), (s32)(0), (s32)(5), (s32)(0x40));
+        create_timed_particle_emitter_with_flags((void *)arg2, 0x18, 0, 5, 0x40);
     }
 }
 void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
@@ -822,7 +822,7 @@ void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r3;
     u8 temp_r3_2;
     if (((arg0 != 0) || (arg1 != 0U)) && ((s32) obj_getField1c((void *) (arg0)) < 0xC) && (reset_key_machine_state__10TObjPlayerFv() != 0) && (temp_r3 = get_item_field_6__10TObjPlayerFPv((void *)(arg0)), ((temp_r3 == 0) == 0)) && (get_field_ec__5TItemFv() == 0)) {
-        if (((TItemWeapon *)temp_r3)->test_flags_1b8((int) (0x400020)) != 0U) {
+        if (((TItemWeapon *)temp_r3)->test_flags_1b8(0x400020) != 0U) {
             TObjPlayer::update_battle_control_on_unlock((void *)((void *) (arg0)), (void *)((void *) (arg1)), (void *)((void *) (arg2)), (s32)((void *) (arg3)));
             return;
         }

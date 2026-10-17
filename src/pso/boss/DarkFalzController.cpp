@@ -71,7 +71,7 @@ void TBoss4DarkFalz::render() {  }
 void TBoss4DarkFalz::run_task() {
     u8 *arg0 = (u8 *)this;
     if (((s32) *(s32 *)&this->m_37c != 0) && (TObjPlayer::check_demo_mode() != 0)) {
-        ((TBoss4DarkFalz *)arg0)->change_state((int) (0));
+        ((TBoss4DarkFalz *)arg0)->change_state(0);
     }
     if (query_teammate_state__9TObjEneDDFv() == 0) {
         ((TBoss4DarkFalz *)arg0)->update_visible_flag();
@@ -172,7 +172,7 @@ s32 TBoss4DarkFalz__ct(s32 a0, s32 arg1, s32 a2) {
     *(s32 *)((s8 *)arg0 + 0x388) = 0;
     *(s32 *)((s8 *)arg0 + 0x38C) = 0;
     fn_8030A83C((arg0));
-    init_music_sequencer((int) (4));
+    init_music_sequencer(4);
     dark_falz_form_index = 0;
     *(s32 *)((s8 *)arg0 + 0x374) = 0;
     temp_r0 = *(s32 *)((s8 *)(TLobby::dispatch_shared_handler_a(0x36)) + 0x18);
@@ -185,9 +185,9 @@ s32 TBoss4DarkFalz__ct(s32 a0, s32 arg1, s32 a2) {
     if ((temp_r0_2 < 0) || (temp_r0_2 > 0xE)) {
         lbl_805D4D70 = 0;
     }
-    TBoss4DarkFalz::push_players_out_of_zone((s32)((void *) (arg0)), (s32)((int) (0)));
+    TBoss4DarkFalz::push_players_out_of_zone((s32)((void *) (arg0)), 0);
     *(s32 *)((s8 *)arg0 + 0x37C) = -1;
-    ((TBoss4DarkFalz *)arg0)->change_state((int) (1));
+    ((TBoss4DarkFalz *)arg0)->change_state(1);
     return (s32)arg0;
 }
 

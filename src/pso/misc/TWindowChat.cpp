@@ -339,7 +339,7 @@ void TWindowChat::handle_chat_input() {
     if (((RecoveredFields_8024775C_arg0 *) arg0)->field_1E & 2)
     {
       temp_r30 = ((u8 *) (&(*(RecoveredGlobal_8024775C_lbl_8050E208 *)&controller_input_state).value)) + 0x20;
-      if ((TWindowShortListCtrl__check_controller_button((void *)((void *) temp_r30), (s32)((int) 0x200)) != 0) && (is_on_current_screen__11TCameraCtrlFv((void *)((int) temp_r30), (s32)((void *) fn_8002AE08((s32)((void *) local_client_id)))) == 0))
+      if ((TWindowShortListCtrl__check_controller_button((void *)((void *) temp_r30), 0x200) != 0) && (is_on_current_screen__11TCameraCtrlFv((void *)((int) temp_r30), (s32)((void *) fn_8002AE08((s32)((void *) local_client_id)))) == 0))
       {
         ((RecoveredFields_8024775C_arg0 *) arg0)->field_1E = (u16) (((RecoveredFields_8024775C_arg0 *) arg0)->field_1E & 0xFFFFFFFD);
         ((TWindowChat*)((void *) arg0))->close_all_children();
@@ -352,9 +352,9 @@ void TWindowChat::handle_chat_input() {
       }
     }
     else
-      if ((((TKeyBoardControl *)((int) ((RecoveredFields_8024775C_arg0 *) arg0)->field_28))->is_key_held() == 0) || ((((TWindowChat *)arg0)->sub_80247EC0() != 0) && (TWindowShortListCtrl__check_controller_button((void *)((void *) (((u8 *) (&(*(RecoveredGlobal_8024775C_lbl_8050E208 *)&controller_input_state).value)) + 0x20)), (s32)((int) 0x200)) != 0)))
+      if ((((TKeyBoardControl *)((int) ((RecoveredFields_8024775C_arg0 *) arg0)->field_28))->is_key_held() == 0) || ((((TWindowChat *)arg0)->sub_80247EC0() != 0) && (TWindowShortListCtrl__check_controller_button((void *)((void *) (((u8 *) (&(*(RecoveredGlobal_8024775C_lbl_8050E208 *)&controller_input_state).value)) + 0x20)), 0x200) != 0)))
     {
-      if ((((TWindowChat *)arg0)->sub_80247EC0() != 0) && (TWindowShortListCtrl__check_controller_button((void *)((void *) (((u8 *) (&(*(RecoveredGlobal_8024775C_lbl_8050E208 *)&controller_input_state).value)) + 0x20)), (s32)((int) 0x200)) != 0))
+      if ((((TWindowChat *)arg0)->sub_80247EC0() != 0) && (TWindowShortListCtrl__check_controller_button((void *)((void *) (((u8 *) (&(*(RecoveredGlobal_8024775C_lbl_8050E208 *)&controller_input_state).value)) + 0x20)), 0x200) != 0))
       {
         reset_input__11TWindowChatFv((int)((void *)((int) ((RecoveredFields_8024775C_arg0 *) arg0)->field_20)));
       }
@@ -368,7 +368,7 @@ void TWindowChat::handle_chat_input() {
       }
     }
     else
-      if ((TWindowShortListCtrl__check_controller_button((void *)((void *) (((u8 *) (&(*(RecoveredGlobal_8024775C_lbl_8050E208 *)&controller_input_state).value)) + 0x20)), (s32)((int) 0x400)) != 0) && (sub_8025CB10__19TWindowKeyBoardBaseFv((s32)((int) ((RecoveredFields_8024775C_arg0 *) arg0)->field_20)) == 0))
+      if ((TWindowShortListCtrl__check_controller_button((void *)((void *) (((u8 *) (&(*(RecoveredGlobal_8024775C_lbl_8050E208 *)&controller_input_state).value)) + 0x20)), 0x400) != 0) && (sub_8025CB10__19TWindowKeyBoardBaseFv((s32)((int) ((RecoveredFields_8024775C_arg0 *) arg0)->field_20)) == 0))
     {
       ((TWindowChat*)((void *) arg0))->close_all_children();
       ((RecoveredFields_8024775C_arg0 *) arg0)->field_1C = (u8) (((RecoveredFields_8024775C_arg0 *) arg0)->field_1C + 1);
@@ -395,7 +395,7 @@ void TWindowChat::open_next_input_window() {
     u8 temp_r0;
     if (((RecoveredFields_8024792C_arg0 *)arg0)->field_1E & 2) {
         *((RecoveredFields_8024792C_arg0 *)arg0)->field_38 = 1;
-        ((TWindowSubSymbolChatPartsSet *)(((RecoveredFields_8024792C_arg0 *)arg0)->field_20 + 0x30))->copy_vec2((void*)(get_window_layout_position((int) (0xB7))));
+        ((TWindowSubSymbolChatPartsSet *)(((RecoveredFields_8024792C_arg0 *)arg0)->field_20 + 0x30))->copy_vec2((void*)(get_window_layout_position(0xB7)));
         *(s32 *)((s8 *)(((RecoveredFields_8024792C_arg0 *)arg0)->field_20) + 0x50) = 3;
         return;
     }
@@ -403,21 +403,21 @@ void TWindowChat::open_next_input_window() {
     switch ((s8) temp_r0) {
     case 0:
         *((RecoveredFields_8024792C_arg0 *)arg0)->field_38 = 1;
-        temp_r3 = __nw__7TObjectFUl((int) (0x70));
+        temp_r3 = __nw__7TObjectFUl(0x70);
         var_r0 = temp_r3;
         if (var_r0 != 0) {
             var_r0 = TWindowKeyBoardSoft__ct((int) (temp_r3), (void *) (((RecoveredFields_8024792C_arg0 *)arg0)->field_20), (void *) (local_client_id));
         }
         ((RecoveredFields_8024792C_arg0 *)arg0)->field_24 = var_r0;
         fn_80247ED8((void*)((int) (((RecoveredFields_8024792C_arg0 *)arg0)->field_24)));
-        ((TWindowSubSymbolChatPartsSet *)(((RecoveredFields_8024792C_arg0 *)arg0)->field_20 + 0x30))->copy_vec2((void*)(get_window_layout_position((int) (0xB8))));
+        ((TWindowSubSymbolChatPartsSet *)(((RecoveredFields_8024792C_arg0 *)arg0)->field_20 + 0x30))->copy_vec2((void*)(get_window_layout_position(0xB8)));
         *(s32 *)((s8 *)(((RecoveredFields_8024792C_arg0 *)arg0)->field_20) + 0x50) = 3;
         TKeyBoardControl__sub_8025EC04((u8 *)((int) (((RecoveredFields_8024792C_arg0 *)arg0)->field_28)));
         return;
     case 1:
         ((s32)reset_input__11TWindowChatFv((int)((void *) (((RecoveredFields_8024792C_arg0 *)arg0)->field_20))));
         *((RecoveredFields_8024792C_arg0 *)arg0)->field_38 = 2;
-        temp_r3_2 = __nw__7TObjectFUl((int) (0x108));
+        temp_r3_2 = __nw__7TObjectFUl(0x108);
         var_r0_2 = temp_r3_2;
         if (var_r0_2 != 0) {
             var_r0_2 = TWindowDD__ct((int) (temp_r3_2), (void *) (arg0), (void *) (((u8 *)(((RecoveredFields_8024792C_arg0 *)arg0)->field_38)) + 4));
@@ -428,7 +428,7 @@ void TWindowChat::open_next_input_window() {
     case 2:
         ((s32)reset_input__11TWindowChatFv((int)((void *) (((RecoveredFields_8024792C_arg0 *)arg0)->field_20))));
         *((RecoveredFields_8024792C_arg0 *)arg0)->field_38 = 3;
-        temp_r3_3 = __nw__7TObjectFUl((int) (0x24));
+        temp_r3_3 = __nw__7TObjectFUl(0x24);
         var_r0_3 = temp_r3_3;
         if (var_r0_3 != 0) {
             var_r0_3 = construct_symbol_chat_selection((int) (temp_r3_3), (void *) (arg0));

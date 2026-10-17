@@ -333,12 +333,12 @@ void TObjBoss1MokoHill_SoloM::run_task() {
                 if (self->f3C != 0) {
                     o = __nw__7TObjectFUl(0x50);
                     if (o != NULL) {
-                        TObjBoss1MokoHill_Solo__ct((void *)(o), (void *)(self->f10), (int)(0));
+                        TObjBoss1MokoHill_Solo__ct((void *)(o), (void *)(self->f10), 0);
                     }
                 } else {
                     o = __nw__7TObjectFUl(0x50);
                     if (o != NULL) {
-                        TObjBoss1MokoHill_Solo__ct((void *)(o), (void *)(self->f10), (int)(0x1E));
+                        TObjBoss1MokoHill_Solo__ct((void *)(o), (void *)(self->f10), 0x1E);
                     }
                 }
             }
@@ -405,7 +405,7 @@ void TBoss8Dragon::spawn_child_object() {
     *(f32 *)&this->unk_30 = lbl_805D81A0;
     o = __nw__7TObjectFUl(0x50);
     if (o != NULL) {
-        TObjBoss1MokoHill_Solo__ct((void *)(o), (void *)(*(void * *)&this->m_10), (int)(30));
+        TObjBoss1MokoHill_Solo__ct((void *)(o), (void *)(*(void * *)&this->m_10), 30);
     }
     *(u32 *)&this->unk_3C = 0;
 }

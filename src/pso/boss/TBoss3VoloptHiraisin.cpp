@@ -284,7 +284,7 @@ void update_drop__20TBoss3VoloptHiraisinFPv(Hira_800411F0 *self) {
             self->state = 2;
             self->sub->flags &= ~4;
             self->sub->flags |= 2;
-            play_sound_effect((s32)(0x4003A808), (void *)(&self->x), (s32)(0), (s32)(0));
+            play_sound_effect(0x4003A808, (void *)(&self->x), 0, 0);
         }
         break;
     case 2:
@@ -336,10 +336,10 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
         model_render_flags &= 0xFFFFFBFF;
         post_translate_matrix((void *) (arg0 + 0x38));
         if ((u32) ((RecoveredFields_800413C8_arg0 *)arg0)->field_B4 == 8U) {
-            translate_matrix((0), (f32) ((0.0f)), (f32) ((2e+01f)), (f32) ((0.0f)));
+            translate_matrix(0, (f32) ((0.0f)), (f32) ((2e+01f)), (f32) ((0.0f)));
         }
-        translate_matrix((0), (f32) ((0.0f)), (f32) (sin_table_lookup((int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_38C))), (f32) ((0.0f)));
-        rotate_matrix_y((int) (0), (int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_60));
+        translate_matrix(0, (f32) ((0.0f)), (f32) (sin_table_lookup((int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_38C))), (f32) ((0.0f)));
+        rotate_matrix_y(0, (int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_60));
         if (TObjPlayer::check_demo_mode() == 1) {
             draw_chunk_object((void *)(((RecoveredFields_800413C8_arg0 *)arg0)->field_34));
         } else {
@@ -352,10 +352,10 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
         if (((RecoveredFields_800413C8_arg0 *)arg0)->field_3C < (5e+01f)) {
             push_matrix();
             temp_f31 = (1.0f) - ((0.02202643f) * (((RecoveredFields_800413C8_arg0 *)arg0)->field_3C - (4.6f)));
-            translate_matrix((0), (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_38), (f32) ((4.5f)), (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_40));
-            scale_matrix((int) (0), (f32) (temp_f31), (f32) (temp_f31), (f32) (temp_f31));
-            TObjFish::set_global_param((int) (TObjFish__sub_8001EDB0((s32)((int) (TBoss3VoloptHiraisin__resource_bundle)), (s32)((int) (0)))));
-            draw_chunk_object((void *)(get_bml_model((int) (TBoss3VoloptHiraisin__resource_bundle), (int) (0))));
+            translate_matrix(0, (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_38), (f32) ((4.5f)), (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_40));
+            scale_matrix(0, (f32) (temp_f31), (f32) (temp_f31), (f32) (temp_f31));
+            TObjFish::set_global_param((int) (TObjFish__sub_8001EDB0((s32)((int) (TBoss3VoloptHiraisin__resource_bundle)), 0)));
+            draw_chunk_object((void *)(get_bml_model((int) (TBoss3VoloptHiraisin__resource_bundle), 0)));
             pop_matrix();
         }
     }
@@ -510,8 +510,8 @@ void run_task__20TBoss3VoloptHiraisinFv(u8 *arg0) {
       ((TBoss3VoloptHiraisin *)arg0)->m_300 = (f32) ((((TBoss3VoloptHiraisin *)arg0)->m_300) - (3e+01f));
     }
     copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
-    submit_cursor_candidate((void *) arg0, (int) (-1));
-    minimap_render_dot((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) 1, (int) 0);
+    submit_cursor_candidate((void *) arg0, -1);
+    minimap_render_dot((void *) (arg0 + 0x38), -0x5DB4, 1, 0);
     temp_r4 = *((s32 *) (((s8 *) volopt_hiraisin_model_data) + 0x18));
     new_var = volopt_hiraisin_model_data;
     *((s32 *) (((s8 *) new_var) + 0x18)) = (s32) (temp_r4 + 0x4000);
@@ -727,7 +727,7 @@ void TBoss3VoloptHiraisin::init_params() {
     ((Hira_800418C8 *)this)->unk33E = ((Hira_800418C8 *)this)->hp32C;
     ((TObjEneLappy *)((Hira_800418C8 *)this))->set_param(0x2E);
     ((TBoss3Volopt *)((Hira_800418C8 *)this))->reset_photon_effect();
-    ((TBoss3VoloptHiraisin *)((Hira_800418C8 *)this))->load_params_from_table((s32)(0x10));
+    ((TBoss3VoloptHiraisin *)((Hira_800418C8 *)this))->load_params_from_table(0x10);
     sub_800C7860__15TObjEnemyCustomFv(((Hira_800418C8 *)this));
     ((TUnk_804806E8 *)((Hira_800418C8 *)this))->add_flags_2e4(4);
     obj_setFlags30(((Hira_800418C8 *)this), 0x8000);
@@ -791,7 +791,7 @@ void TBoss3VoloptHiraisin::spawn_effects() {
     stack.spC = this->rotation_y;
     stack.sp10 = 0;
     spawn_directional_particle(((u8 *)&this->m_2fc), (&stack.sp8), (((u32)__cntlzw(*(s16 *)((s8 *)arg0 + 0x38C) & 3) >> 5) + 0x61));
-    spawn_particle_effect(((u8 *)&this->m_2fc), (0x45));
+    spawn_particle_effect(((u8 *)&this->m_2fc), 0x45);
 }
 
 void TBoss3VoloptHiraisin::damage_player_if_aligned() {

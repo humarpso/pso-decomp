@@ -184,7 +184,7 @@ void TUnk_804A204C::emit_marker_effects() {
     s32 sp8;
     void *temp_r31;
     if (((TObjPlayer *)this)->is_mode_two_and_ready() != 0) {
-        if (((TObjPlayer *)this)->draw_icon((s32)5, (s32)(&sp8)) != 0) {
+        if (((TObjPlayer *)this)->draw_icon(5, (s32)(&sp8)) != 0) {
             temp_r31 = *(void * *)&this->player;
             create_ex__9TTecMegidFllll(temp_r31, &sp8, *(s32 *)((s8 *)temp_r31 + 0x60), ((TObjPlayer *)this)->get_tp());
             ((TItemWeapon *)this)->roll_technique();
@@ -213,7 +213,7 @@ void TUnk_804A204C::update_weapon() {
     if (((s32) this->m_204 != temp_r3) && ((u32) *(u32 *)((s8 *)this + 0xF4) != 0U)) {
         this->m_204 = temp_r3;
         if (is_item_area_enabled() != 0) {
-            create_icon__10TObjPlayerFiii((s32)((s32)(tl_05)), (s32)((s32)(((TItem *)this)->get_field_d8())), (s32)((s32)(5)));
+            create_icon__10TObjPlayerFiii((s32)((s32)(tl_05)), (s32)((s32)(((TItem *)this)->get_field_d8())), 5);
         }
     }
 }
@@ -221,13 +221,13 @@ void TUnk_804A204C::update_weapon() {
 void TObjPlayer__sub_8012443C(MegidWeaponRenderView *arg0) {
     switch (((u32)TObjPlayer::get_player_list())) {
     case 1:
-        rotate_matrix_y((int)(0), (int)(arg0->f200));
+        rotate_matrix_y(0, (int)(arg0->f200));
         return;
     case 2:
         TObjPlayer::play_particle_effect_once();
         return;
     case 3:
-        rotate_matrix_y((int)(0), (int)(-arg0->f200));
+        rotate_matrix_y(0, (int)(-arg0->f200));
         return;
     case 4:
         TObjPlayer::play_particle_effect_once();
@@ -252,14 +252,14 @@ void TUnk_804A204C::reserved_53() {
         *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) | 0x18);
         draw_weapon_at_joint(this, 0x30, temp_r5);
         *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) & 0xFFFFFFE7);
-        if (((TObjPlayer *)this)->draw_icon((s32)5, (s32)(&sp8)) != 0) {
+        if (((TObjPlayer *)this)->draw_icon(5, (s32)(&sp8)) != 0) {
             push_matrix();
             TObjPlayer__sub_80364198();
             model_render_flags &= 0xFFFFFFEF;
             ((TObjPlayer *)this)->get_mag_scale();
             set_model_fade_alpha__10TObjPlayerFf();
             post_translate_matrix((void *)(&sp8));
-            rotate_matrix_y((int)(0), (int)(*(s32 *)((s8 *)(*(void * *)&this->player) + 0x60)));
+            rotate_matrix_y(0, (int)(*(s32 *)((s8 *)(*(void * *)&this->player) + 0x60)));
             *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) | 0x11);
             draw_ginja_object(temp_r31);
             TParticleCtrl::begin_effect_render();
@@ -440,8 +440,8 @@ void TUnk_804A2148::render() {
             push_matrix();
             TObjPlayer::notify_fish_if_valid((int) (*(u32 *)&this->m_5C));
             post_translate_matrix((void *) (arg0 + 0x1C));
-            rotate_matrix_y((int) (0), (int) (this->m_count));
-            rotate_matrix_x((int) (0), (int) (this->m_28 - 0x4000));
+            rotate_matrix_y(0, (int) (this->m_count));
+            rotate_matrix_x(0, (int) (this->m_28 - 0x4000));
             draw_ginja_object((*(void * *)&this->m_58));
             pop_matrix();
             *(f32 *)((s8 *)temp_r31 + 0x20) = (f32) 1.0f;
@@ -482,7 +482,7 @@ void TUnk_804A2164::emit_marker_effects() {
     s32 temp_r31;
     s32 var_r30;
     if ((s32) ((RecoilWeaponView *)this)->projectileVisible == 1) {
-        TItemAttacker::spawn_item_timer((s32)((RecoilWeaponView *)this), (s32)drill_launcher_return_timer, (s32)0x1E);
+        TItemAttacker::spawn_item_timer((s32)((RecoilWeaponView *)this), (s32)drill_launcher_return_timer, 0x1E);
         ((RecoilWeaponView *)this)->projectileVisible = 0;
     }
     ((RecoilWeaponView *)this)->recoilPhase = 2;
@@ -496,7 +496,7 @@ void TUnk_804A2164::emit_marker_effects() {
     }
     ((TObjPlayer *)((RecoilWeaponView *)this))->draw_status_icon((s32)((void *) (&sp8)));
     if (((TObjPlayer *)((RecoilWeaponView *)this))->is_mode_two_and_ready() != 0) {
-        launch_rare_weapon_special__10TObjPlayerFPvlf((void *) (((RecoilWeaponView *)this)), (void *) (&sp8), (int) (1), (f32) (1.0f));
+        launch_rare_weapon_special__10TObjPlayerFPvlf((void *) (((RecoilWeaponView *)this)), (void *) (&sp8), 1, (f32) (1.0f));
         return;
     }
     ((RecoilWeaponView *)this)->deliver_projectile(&sp8, 0, 0, 1);

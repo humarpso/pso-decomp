@@ -92,8 +92,8 @@ u8 *__ct__11TAdRicoRingFv(u8 *arg0) {
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__11TAdRicoRing.value;
     ((TObjPlayer *)(arg0 + 0x2C))->init_forward();
     *(s32 *)((s8 *)arg0 + 0) = (s32) TAdRicoRing__class_name;
-    *(s32 *)((s8 *)arg0 + 0x4C) = get_bml_model((void *) (TAdRicoRing__resource_bundle), (int) (0));
-    *(s32 *)((s8 *)arg0 + 0x50) = TObjFish__sub_8001EDB0((void *) (TAdRicoRing__resource_bundle), (int) (0));
+    *(s32 *)((s8 *)arg0 + 0x4C) = get_bml_model((void *) (TAdRicoRing__resource_bundle), 0);
+    *(s32 *)((s8 *)arg0 + 0x50) = TObjFish__sub_8001EDB0((void *) (TAdRicoRing__resource_bundle), 0);
     *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805D7E4C;
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805D7E4C;
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) lbl_805D7E4C;

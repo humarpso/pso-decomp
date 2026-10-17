@@ -256,15 +256,15 @@ void vt2__20TWindowSubStatusDispFv(u8 *arg0) {
     }
     init_window_layout_entries(arg0 + 0x24, TWindowSubStatusDisp__resistance_layout, *(s16 *)((s8 *)arg0 + 0x20));
     temp_r30 = ((s32)get_array_entry__13TUnk_804CE018Fi(arg0, 0));
-    set_text_entry_string((void *)(temp_r30), (s32)(get_message_10__20TWindowSubStatusDispFl(0x89)), (s32)(0x20));
+    set_text_entry_string((void *)(temp_r30), (s32)(get_message_10__20TWindowSubStatusDispFl(0x89)), 0x20);
     temp_r30 = ((s32)get_array_entry__13TUnk_804CE018Fi(arg0, 6));
-    set_text_entry_string((void *)(temp_r30), (s32)(get_message_10__20TWindowSubStatusDispFl(0x8A)), (s32)(0x20));
+    set_text_entry_string((void *)(temp_r30), (s32)(get_message_10__20TWindowSubStatusDispFl(0x8A)), 0x20);
     temp_r30 = ((s32)get_array_entry__13TUnk_804CE018Fi(arg0, 0xC));
-    set_text_entry_string((void *)(temp_r30), (s32)(get_message_10__20TWindowSubStatusDispFl(0x8B)), (s32)(0x20));
+    set_text_entry_string((void *)(temp_r30), (s32)(get_message_10__20TWindowSubStatusDispFl(0x8B)), 0x20);
     temp_r30 = ((s32)get_array_entry__13TUnk_804CE018Fi(arg0, 0x12));
-    set_text_entry_string((void *)(temp_r30), (s32)(get_message_10__20TWindowSubStatusDispFl(0x8C)), (s32)(0x20));
+    set_text_entry_string((void *)(temp_r30), (s32)(get_message_10__20TWindowSubStatusDispFl(0x8C)), 0x20);
     temp_r30 = ((s32)get_array_entry__13TUnk_804CE018Fi(arg0, 0x18));
-    set_text_entry_string((void *)(temp_r30), (s32)(get_message_10__20TWindowSubStatusDispFl(0x8D)), (s32)(0x20));
+    set_text_entry_string((void *)(temp_r30), (s32)(get_message_10__20TWindowSubStatusDispFl(0x8D)), 0x20);
 }
 
 void vt12__20TWindowSubStatusDispFv(u8 *arg0) {
@@ -278,19 +278,19 @@ void vt12__20TWindowSubStatusDispFv(u8 *arg0) {
     ((TWindowSubStatusDisp *)(&req))->clear_fields();
     pl = (s32)get_player_by_client_id(*(s16 *)(arg0 + 0x20));
     if (pl != 0) {
-        e2 = (Entry_80280B1C *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(2));
+        e2 = (Entry_80280B1C *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), 2);
         e2->value = TObjPlayer__sub_800A776C((void *)pl) + (((TObjPlayer *)pl)->get_field_2c8() + ((TUnk_804806E8 *)pl)->get_actor_attack_params_atp_min());
-        e = (Entry_80280B1C *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(8));
+        e = (Entry_80280B1C *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), 8);
         e->value = ((TWindowSubStatusDisp *)pl)->get_value();
-        e = (Entry_80280B1C *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(0x14));
+        e = (Entry_80280B1C *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), 0x14);
         e->value = ((TObjPlayer *)pl)->get_ata();
-        e = (Entry_80280B1C *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(0x1A));
+        e = (Entry_80280B1C *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), 0x1A);
         e->value = ((TObjPlayer *)pl)->get_hp();
         q = ((u8 *(*)(s32))get_quest_id__12TQuestListVMFv)(pl);
         if (q != NULL) {
-            e = (Entry_80280B1C *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(0xE));
+            e = (Entry_80280B1C *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), 0xE);
             e->value = *(s16 *)(q + 2);
-            e = (Entry_80280B1C *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(0x20));
+            e = (Entry_80280B1C *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), 0x20);
             e->value = *(s16 *)(q + 0xC);
         }
     }
@@ -338,13 +338,13 @@ void vt11__20TWindowSubStatusDispFv(Wn_80280F14 *arg0) {
     if (p != NULL) {
         q = get_quest_id__12TQuestListVMFv();
         if (q != NULL) {
-            e = ((En_80280F14 *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(2)));
+            e = ((En_80280F14 *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), 2));
             e->v = p->m14() + 1;
-            e = ((En_80280F14 *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(0x10)));
+            e = ((En_80280F14 *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), 0x10));
             e->v = q->b;
-            e = ((En_80280F14 *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(8)));
+            e = ((En_80280F14 *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), 8));
             e->v = q->a;
-            e = ((En_80280F14 *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(0xC)));
+            e = ((En_80280F14 *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), 0xC));
             e->v = ((TObjPlayer *)p)->get_next_level_exp() - q->a;
         }
     }

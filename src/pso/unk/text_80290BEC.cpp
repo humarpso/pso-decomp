@@ -66,7 +66,7 @@ void run_main_frame(void) {
     }
     if (TQuestVmDownLoadServer::is_ready() != 0) {
         var_r3 = (s32 *)((u8 *)(NULL));
-        TKeyBoardControl__sub_8000F9CC((int) (0));
+        TKeyBoardControl__sub_8000F9CC(0);
     }
     render_tick();
 }

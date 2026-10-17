@@ -374,7 +374,7 @@ void TOMineTrap::detonate_if_triggered() {
     }
 }
 void TOMine::sub_8017070C() {
-    spawn_particle_effect(((void *) (((u8 *)this) + 0x2FC)), ((int) (0x47)));
+    spawn_particle_effect(((void *) (((u8 *)this) + 0x2FC)), 0x47);
     ((TOMine *)(((u8 *)this)))->vfunc_82();
     ((TOMine *)(((u8 *)this)))->vfunc_80();
 }
@@ -388,24 +388,24 @@ void TOMine::vfunc_6(s16 *arg1, s32 arg2) {
         }
         set_flag8();
         queue_destruction__7TObjectFv((((u8 *)this)));
-        access_object_saved_state((s16 *)((void *) (arg1)), (s32)((int) (0)));
+        access_object_saved_state((s16 *)((void *) (arg1)), 0);
         return;
     }
     if (temp_r0 == 3) {
         this->mode = temp_r0;
-        set_indexed_flags((void *)((void *) (((u8 *)this))), (s32)((int) (0)), (s32)((int) (1)));
+        set_indexed_flags((void *)((void *) (((u8 *)this))), 0, 1);
         *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
         ((TUnk_804806E8 *)((u8 *)this))->calc_attach_pos();
         refresh_collision_body_centers();
         ((TOMine *)(((u8 *)this)))->vfunc_81();
-        access_object_saved_state((s16 *)((void *) (arg1)), (s32)((int) (0)));
+        access_object_saved_state((s16 *)((void *) (arg1)), 0);
         ((TObject *)((u8 *)this))->queue_destruction_for_each_node();
     }
 }
 
 f32 TOMine::receive_physical_attack(void *, f32) {
     s16 sp8;
-    if (((u16) *(u16 *)&this->m_1c >= 0x4000U) && ((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state((s16 *)(&sp8), (s32)(1)) != 0)) {
+    if (((u16) *(u16 *)&this->m_1c >= 0x4000U) && ((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state((s16 *)(&sp8), 1) != 0)) {
         this->mode = 5;
         sp8 = this->mode;
         send_object_state_update(&sp8);
@@ -463,7 +463,7 @@ f32 TOMine::receive_direct_attack(void *arg1, void *arg2_arg, void *, s32, s32) 
     else
     {
       block_13:
-      (((TOMine *)(((u8 *)this)))->receive_physical_attack((0), ((*(const f32 *)&TOMineTrap__data_805DB868))));
+      (((TOMine *)(((u8 *)this)))->receive_physical_attack(0, ((*(const f32 *)&TOMineTrap__data_805DB868))));
     }
   }
   return (*(const f32 *)&lbl_805DB85C);
@@ -471,7 +471,7 @@ f32 TOMine::receive_direct_attack(void *arg1, void *arg2_arg, void *, s32, s32) 
 
 void TOMine::update_trigger() {
     s16 sp8;
-    if (((u16) *(u16 *)&this->m_1c >= 0x4000U) && ((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state((s16 *)(&sp8), (s32)(1)) != 0)) {
+    if (((u16) *(u16 *)&this->m_1c >= 0x4000U) && ((u32) *(u32 *)&this->m_80 != 0U) && (access_object_saved_state((s16 *)(&sp8), 1) != 0)) {
         this->mode = 3;
         sp8 = this->mode;
         send_object_state_update(&sp8);

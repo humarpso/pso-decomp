@@ -22,11 +22,11 @@ s32 TObjEneMe3SinowZoa::render_model_if_visible() {
             TObjFish::set_global_param((int) (*(s32 *)((s8 *)((u8 *)this) + 0x24)));
             push_matrix();
             post_translate_matrix((void *) (((u8 *)this) + 0x38));
-            translate_matrix((0), (f32) (TObjEneMe3SinowZoa__data_805DF31C), (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x3E4)), (f32) (TObjEneMe3SinowZoa__data_805DF31C));
-            rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x60)));
+            translate_matrix(0, (f32) (TObjEneMe3SinowZoa__data_805DF31C), (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x3E4)), (f32) (TObjEneMe3SinowZoa__data_805DF31C));
+            rotate_matrix_y(0, (int) (*(s32 *)((s8 *)((u8 *)this) + 0x60)));
             ((TObjEneRe7Berura *)((u8 *)this))->draw();
             pop_matrix();
-            restore_render_scissor((1));
+            restore_render_scissor(1);
         }
         return 1;
     }

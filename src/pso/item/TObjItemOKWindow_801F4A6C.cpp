@@ -65,7 +65,7 @@ TObjItemOKWindow::TObjItemOKWindow(TObject *parent) : TObject(parent) {
             sprintf(((Self_801F4B10 *)this)->buf, lbl_805DC4E8, TObjItemOKWindow__sub_801F3268());
         }
         ((Self_801F4B10 *)this)->term = 0;
-        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(((Self_801F4B10 *)this)->win5C), (int)(((Self_801F4B10 *)this)->buf), (int)(0x81), (int)(0));
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(((Self_801F4B10 *)this)->win5C), (int)(((Self_801F4B10 *)this)->buf), 0x81, 0);
     }
     ((TWindowSubComCardList *)(((Self_801F4B10 *)this)->win5C))->set_scroll_target(lbl_805DC4EC, lbl_805DC4F0);
     align_menu_entry_positions(((Self_801F4B10 *)this)->win5C);

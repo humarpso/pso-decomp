@@ -143,8 +143,8 @@ void TODoorMachine01::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
     if ((this->m_d0 & 1) && (is_any_player_within_radius_xz((f32) (lbl_805DB4F4)) == 1)) {
         *(s32 *)&this->m_ac = 1;
-        set_indexed_flags((arg0), (0), (8));
-        play_sound_effect((s32)((int) (0x4004BC01)), (void *)((void *) (arg0 + 0x38)), (s32)((int) (0)), (s32)((int) (0)));
+        set_indexed_flags((arg0), 0, 8);
+        play_sound_effect(0x4004BC01, (void *)((void *) (arg0 + 0x38)), 0, 0);
     }
     if (this->m_d0 & 0x100000) {
         this->m_e0 = (f32) (this->m_e0 + lbl_805DB4F8);
@@ -237,11 +237,11 @@ void TODoorMachine01::draw_part_models(u8 *arg1, s32 arg2) {
     }
     TParticleCtrl::begin_effect_render();
     push_matrix();
-    translate_matrix((0), (f32) (*(f32 *)((s8 *)p + 8)), (f32) (*(f32 *)((s8 *)p + 0xC)), (f32) (*(f32 *)((s8 *)p + 0x10)));
+    translate_matrix(0, (f32) (*(f32 *)((s8 *)p + 8)), (f32) (*(f32 *)((s8 *)p + 0xC)), (f32) (*(f32 *)((s8 *)p + 0x10)));
     draw_ginja_model((*(s32 *)((s8 *)p + 4)));
     p = *(u8 **)((s8 *)p + 0x2C);
     push_matrix();
-    translate_matrix((0), (f32) (*(f32 *)((s8 *)p + 8)), (f32) (*(f32 *)((s8 *)p + 0xC)), (f32) (*(f32 *)((s8 *)p + 0x10)));
+    translate_matrix(0, (f32) (*(f32 *)((s8 *)p + 8)), (f32) (*(f32 *)((s8 *)p + 0xC)), (f32) (*(f32 *)((s8 *)p + 0x10)));
     draw_ginja_model((*(s32 *)((s8 *)p + 4)));
     pop_matrix();
     pop_matrix();
@@ -368,7 +368,7 @@ u8 *TODoorMachine01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(u8 **)((s8 *)arg0 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODoorMachine01__model_resource) + 0x430)) + 4));
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB4FC);
     ((TODoorMachine01 *)arg0)->m_b8 = (f32) lbl_805DB508;
-    init_collision_body_parts((void *) (arg0), (void *) (&TODoorMachine01__collision_body_parts.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&TODoorMachine01__collision_body_parts.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TODoorMachine01 *)(arg0))->init_door_switch_binding();

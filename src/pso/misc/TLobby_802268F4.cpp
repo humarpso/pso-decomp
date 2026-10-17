@@ -306,8 +306,8 @@ void play_cue_stream_file(s32 name) {
 typedef char RecoveredGlobal_802272B4_lbl_804CB850_size[sizeof(RecoveredGlobal_802272B4_lbl_804CB850) == 0xC ? 1 : -1];
 void TLobby__sub_802272B4(void) {
     s32 temp_r3;
-    TLobby__sub_803C94DC((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_802272B4_lbl_804CB850 *)&lbl_804CB850).value) + (music_fade_slot_index * 4))), (int) (0));
-    TLobby__sub_803C94DC((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_802272B4_lbl_804CB850 *)&lbl_804CB850).value) + 8)), (int) (0));
+    TLobby__sub_803C94DC((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_802272B4_lbl_804CB850 *)&lbl_804CB850).value) + (music_fade_slot_index * 4))), 0);
+    TLobby__sub_803C94DC((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_802272B4_lbl_804CB850 *)&lbl_804CB850).value) + 8)), 0);
     temp_r3 = TLobby__sub_803C9CB0((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_802272B4_lbl_804CB850 *)&lbl_804CB850).value) + (music_fade_slot_index * 4))));
     if ((temp_r3 == 0) || (temp_r3 == 5)) {
         lbl_805D62E4 = 0;
@@ -317,8 +317,8 @@ void TLobby__sub_802272B4(void) {
 }
 typedef char RecoveredGlobal_8022733C_lbl_804CB850_size[sizeof(RecoveredGlobal_8022733C_lbl_804CB850) == 0xC ? 1 : -1];
 void TLobby__sub_8022733C(void) {
-    TLobby__sub_803C94DC((int) (*(s32 *)((s8 *)((u8 *)(&(*(RecoveredGlobal_8022733C_lbl_804CB850 *)&lbl_804CB850).value) + (music_fade_slot_index * 4)) + 0)), (int) (1));
-    TLobby__sub_803C94DC((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8022733C_lbl_804CB850 *)&lbl_804CB850).value) + 8)), (int) (1));
+    TLobby__sub_803C94DC((int) (*(s32 *)((s8 *)((u8 *)(&(*(RecoveredGlobal_8022733C_lbl_804CB850 *)&lbl_804CB850).value) + (music_fade_slot_index * 4)) + 0)), 1);
+    TLobby__sub_803C94DC((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8022733C_lbl_804CB850 *)&lbl_804CB850).value) + 8)), 1);
     lbl_805D62E4 = 2;
 }
 

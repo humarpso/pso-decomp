@@ -20,7 +20,7 @@ void TChCrCharSelect::tick_and_apply_selection() {
     temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x1C) - 1;
     *(s32 *)((s8 *)((u8 *)this) + 0x1C) = temp_r0;
     if (temp_r0 <= 0) {
-        temp_r31 = (unsigned char *) (get_char_index__23TAdSinglePlyChrSelectGCFUi((0xFFFF)) + 0x370);
+        temp_r31 = (unsigned char *) (get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF) + 0x370);
         get_char_select_class_id((TChCrCharSelect__selected_slot_index));
         copy_player_visual_record((int) (temp_r31), (int) (get_class_appearance_preset()));
         *(s8 *)((s8 *)temp_r31 + 0x30) = -1;

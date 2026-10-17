@@ -137,7 +137,7 @@ u8 *TObjPlayer::construct_freeze_shell(u8 *arg1, u8 *arg2) {
     u8 *temp_r3;
     construct_actor_base__10TObjPlayerFPvPv((void *) (((u8 *)this)), (void *) (tl_05));
     ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_18 = lbl_8048E1A4;
-    ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_34 = get_bml_model((void *) ((*(s32 *)&freeze_shell_bml_resource)), (int) (1));
+    ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_34 = get_bml_model((void *) ((*(s32 *)&freeze_shell_bml_resource)), 1);
     if (arg1 != NULL) {
         ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_358 = obj_getField1c((void *) (arg1));
         VecCopy((Vec *)(((u8 *)this) + 0x35C), (const Vec *)(arg1 + 0x38));
@@ -167,7 +167,7 @@ u8 *TObjPlayer::construct_freeze_shell(u8 *arg1, u8 *arg2) {
         ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_344 = (f32) (*(const f32 *)&lbl_805D9378);
         ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_348 = (f32) (*(const f32 *)&lbl_805D9378);
         ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_34C = (f32) (*(const f32 *)&lbl_805D9378);
-        ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_350 = (s32)create_particle_emitter((((u8 *)this) + 0x38), (0x12E));
+        ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_350 = (s32)create_particle_emitter((((u8 *)this) + 0x38), 0x12E);
         ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_354 = 0;
     } else {
         ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_350 = 0;

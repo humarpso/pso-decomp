@@ -397,9 +397,9 @@ void fn_spawn_particle_f3_with_flags(s32 arg0, s32 arg1) {
     u32 particle_effect;
     VecCopy((Vec *)(&position.x), (const Vec *)(arg1));
     position.y += lbl_805D8A90;
-    particle_effect = (u32)spawn_particle_effect((&position.x), (0xF3));
+    particle_effect = (u32)spawn_particle_effect((&position.x), 0xF3);
     if (particle_effect != 0U) {
-        ((TBoss4Type2 *)particle_effect)->set_flags((int) (0x40));
+        ((TBoss4Type2 *)particle_effect)->set_flags(0x40);
     }
 }
 
@@ -462,7 +462,7 @@ void run_task__16TObjDFBeamCursorFv(u8 *arg0) {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C) - 1;
     *(s32 *)((s8 *)arg0 + 0x1C) = temp_r0;
     if (temp_r0 <= 0) {
-        spawn_particle_effect((arg0 + 0x20), (0x38));
+        spawn_particle_effect((arg0 + 0x20), 0x38);
         ((s32 (*)(void *))queue_destruction__7TObjectFv)((void *) (arg0));
     }
 }
@@ -984,10 +984,10 @@ void TObjDFTenchuFuru::transform_node_tree() {
         scale_current_matrix((void *) (var_r31 + 0x20));
         switch ((s32) (*(s32 *)&TObjDFTenchuFuru__matrix_node_index)) {
         case 0x3B:
-            matrix_mult_vec((int) (0), (void *) (&dark_falz_jisin_zero_vec.value), (void *) (&lbl_804FF228.value));
+            matrix_mult_vec(0, (void *) (&dark_falz_jisin_zero_vec.value), (void *) (&lbl_804FF228.value));
             break;
         case 0x3A:
-            matrix_mult_vec((int) (0), (void *) (&dark_falz_jisin_zero_vec.value), (void *) (&lbl_804FF234.value));
+            matrix_mult_vec(0, (void *) (&dark_falz_jisin_zero_vec.value), (void *) (&lbl_804FF234.value));
             break;
         }
         (*(s32 *)&TObjDFTenchuFuru__matrix_node_index) += 1;

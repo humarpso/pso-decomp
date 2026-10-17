@@ -44,7 +44,7 @@ void TBoss3VoloptCtrl__sub_80040B80(s32 arg0) {
     u8 *player;
     player = (u8 *)(get_player_by_client_id(local_client_id));
     if ((player != NULL) && (*(f32 *)((s8 *)player + 0x40) >= lbl_805D86F8)) {
-        init_music_sequencer((int) (3));
+        init_music_sequencer(3);
         queue_destruction__7TObjectFv((void *)(arg0));
     }
 }
@@ -101,22 +101,22 @@ void TBoss3VoloptCtrl::run_task() {
     case 1:
         if ((s32) countdown <= 0) {
             if ((s32) volopt_resources_loaded == 0) {
-                TBoss3Volopt__sub_8003EA2C((int) (1));
+                TBoss3Volopt__sub_8003EA2C(1);
                 activate_camera_mode(9);
                 TObjPlayer::freeze_all_players();
                 play_area_music((char *)(&lbl_8043636C.value));
                 if (get_main_phase() != 0xF) {
                     if (TRaderMapCore::is_not_split_screen() == 1) {
-                        unhide_room_set_objects((s32)(((s32)get_current_floor())), (s32)(0), (s32)(1));
+                        unhide_room_set_objects((s32)(((s32)get_current_floor())), 0, 1);
                     } else if (get_story_flag(0x2F) != 0) {
                         TBoss3VoloptCtrl::dispatch_state(4);
                     } else {
                         TBoss3VoloptCtrl::dispatch_state(3);
                     }
                 } else {
-                    unhide_room_set_objects((s32)(((s32)get_current_floor())), (s32)(0), (s32)(1));
+                    unhide_room_set_objects((s32)(((s32)get_current_floor())), 0, 1);
                 }
-                unhide_room_set_objects((s32)(((s32)get_current_floor())), (s32)(0), (s32)(3));
+                unhide_room_set_objects((s32)(((s32)get_current_floor())), 0, 3);
                 temp_r3 = (u8 *)(__nw__7TObjectFUl(0x1C));
                 if (temp_r3 != NULL) {
                     ((TUnk_80483B88 *)temp_r3)->init_object();

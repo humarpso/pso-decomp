@@ -456,11 +456,11 @@ void TLobby__sub_803C6138(S_803C6138 *arg0) {
 }
 
 void TLobby::clear_net_buffer_1680() {
-    memset((void *) (&(*(RecoveredGlobal_803C6800_lbl_80573AC0 *)&adx_encoder_context_pool).value), (int) (0), (int) (0x1680));
+    memset((void *) (&(*(RecoveredGlobal_803C6800_lbl_80573AC0 *)&adx_encoder_context_pool).value), 0, 0x1680);
 }
 
 void TLobby::clear_buffer_1680() {
-    memset((void *) (&adx_encoder_context_pool.value), (int) (0), (int) (0x1680));
+    memset((void *) (&adx_encoder_context_pool.value), 0, 0x1680);
 }
 
 u32 strlen(const char *);
@@ -747,7 +747,7 @@ s32 adx_write_encoded_blocks(Obj_803C7C10 *arg0) {
 
 void TLobby::set_field_10_and_notify(s32 up) {
     *(s32 *)&this->m_up = up;
-    ((TLobby *)(*(s32 *)&this->m_prev))->cv_fs_seek((int) (*(s32 *)&this->m_up), (int) (0));
+    ((TLobby *)(*(s32 *)&this->m_prev))->cv_fs_seek((int) (*(s32 *)&this->m_up), 0);
     ((TLobby *)(*(s32 *)&this->m_prev))->cv_fs_tell();
 }
 
@@ -962,7 +962,7 @@ s32 TLobby::get_file_offset_relative() {
 }
 
 s32 TLobby::set_scroll_offset(s32 arg1) {
-    ((TLobby *)(*(s32 *)&this->m_prev))->cv_fs_seek((int) (*(s32 *)&this->m_up + arg1), (int) (0));
+    ((TLobby *)(*(s32 *)&this->m_prev))->cv_fs_seek((int) (*(s32 *)&this->m_up + arg1), 0);
     return ((TLobby *)(*(s32 *)&this->m_prev))->cv_fs_tell() - *(s32 *)&this->m_up;
 }
 
@@ -990,7 +990,7 @@ void TLobby__sub_803C8B38(u8 *arg0) {
         if (temp_r3_2 != NULL) {
             ((TLobby *)temp_r3_2)->cv_fs_close();
         }
-        memset((void *) (arg0), (int) (0), (int) (0x40));
+        memset((void *) (arg0), 0, 0x40);
     }
 }
 
@@ -1073,7 +1073,7 @@ Ent_803C8BAC *TLobby__sub_803C8CDC(const char *name, s32 mode, s32 arg) {
     } else {
         size = TLobby__sub_803CE568();
     }
-    h = TLobby__sub_803CF2F4((const char *)(name), (int)(mode), (int)(0));
+    h = TLobby__sub_803CF2F4((const char *)(name), (int)(mode), 0);
     if (h == 0) {
         TLobby::report_adx_error((const char *)lbl_8047C634, (s32)name);
         return NULL;
@@ -1115,7 +1115,7 @@ inline Ent_803C8BAC *alloc_803C8E28(s32 arg, u32 h, s32 f10, s32 size) {
 Ent_803C8BAC *adxstm_open_fname_range_ex_rt__6TLobbyFPviiii(const char *name, s32 mode, s32 off, s32 nsect, s32 arg) {
     u32 h;
     Ent_803C8BAC *p;
-    h = TLobby__sub_803CF2F4((const char *)(name), (int)(mode), (int)(0));
+    h = TLobby__sub_803CF2F4((const char *)(name), (int)(mode), 0);
     if (h == 0) {
         TLobby::report_adx_error((const char *)lbl_8047C600, (s32)name);
         return NULL;
@@ -1157,7 +1157,7 @@ inline Ent_803C8BAC *alloc_803C8F5C(s32 arg, u32 h, s32 f10, s32 size) {
 Ent_803C8BAC *adxstm_open_fname_range__6TLobbyFPviiii(const char *name, s32 mode, s32 off, s32 nsect, s32 arg) {
     u32 h;
     Ent_803C8BAC *p;
-    h = TLobby__sub_803CF2F4((const char *)(name), (int)(mode), (int)(0));
+    h = TLobby__sub_803CF2F4((const char *)(name), (int)(mode), 0);
     if (h == 0) {
         TLobby::report_adx_error((const char *)lbl_8047C660, (s32)name);
         return NULL;
@@ -1176,7 +1176,7 @@ void TLobby::si_get_type_async() {
 
 typedef char RecoveredGlobal_803C90B0_lbl_80575140_size[sizeof(RecoveredGlobal_803C90B0_lbl_80575140) == 0xA00 ? 1 : -1];
 s32 TLobby::clear_buffer_a00() {
-    memset((void *) (&adx_stream_read_requests.value), (int) (0), (int) (0xA00));
+    memset((void *) (&adx_stream_read_requests.value), 0, 0xA00);
     return 1;
 }
 
@@ -1774,8 +1774,8 @@ void stop_audio_stream(u8 *arg0) {
         }
     }
     TLobby::init_once();
-    dispatch_packet__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 0xC)), (int) (0));
-    TLobby__sub_803CC030((int) (*(s32 *)((s8 *)arg0 + 0xC)), (int) (0));
+    dispatch_packet__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 0xC)), 0);
+    TLobby__sub_803CC030((int) (*(s32 *)((s8 *)arg0 + 0xC)), 0);
     ((TLobby *)(*(s32 *)((s8 *)arg0 + 4)))->reset_flag();
     if ((s32) *(u8 *)((s8 *)arg0 + 2) == 2) {
         temp_r3_3 = *(void ***)((s8 *)arg0 + 0x14);
@@ -1796,8 +1796,8 @@ void TLobby__sub_803C9DB4(u8 *arg0) {
     void **temp_r3;
     u8 *temp_r4;
     TLobby::init_once();
-    dispatch_packet__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 0xC)), (int) (0));
-    TLobby__sub_803CC030((int) (*(s32 *)((s8 *)arg0 + 0xC)), (int) (0));
+    dispatch_packet__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 0xC)), 0);
+    TLobby__sub_803CC030((int) (*(s32 *)((s8 *)arg0 + 0xC)), 0);
     ((TLobby *)(*(s32 *)((s8 *)arg0 + 4)))->reset_flag();
     if ((s32) *(u8 *)((s8 *)arg0 + 2) == 2) {
         temp_r3 = *(void ***)((s8 *)arg0 + 0x14);
@@ -2380,8 +2380,8 @@ void TLobby__sub_803CB194(u8 *arg0) {
     temp_r31 = (u8 *)(*(u8 **)((s8 *)arg0 + 8));
     temp_r3 = send_with_offset4_alt__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 4)));
     if ((s8) *(u8 *)((s8 *)arg0 + 0x6C) == 0) {
-        set_field_3c__6TLobbyFl((int) (*(s32 *)((s8 *)arg0 + 4)), (int) (-1));
-        ((TLobby *)(*(u8 **)((s8 *)arg0 + 8)))->set_scroll_position((int) (0x7FFFFFFF));
+        set_field_3c__6TLobbyFl((int) (*(s32 *)((s8 *)arg0 + 4)), -1);
+        ((TLobby *)(*(u8 **)((s8 *)arg0 + 8)))->set_scroll_position(0x7FFFFFFF);
         return;
     }
     ((TLobby *)temp_r31)->set_scroll_offset(temp_r3 / 2048);
@@ -2457,7 +2457,7 @@ void TLobby::reset_field_0C() {
 void TLobby::reset_client_state() {
     u8 *arg0 = (u8 *)this;
     *(s32 *)&this->m_next = 0;
-    memset((void *) (arg0 + 0x28), (int) (0), (int) (8));
+    memset((void *) (arg0 + 0x28), 0, 8);
 }
 
 void TLobby__sub_803CB4A4(u8 *arg0) {
@@ -2545,7 +2545,7 @@ Ch_803CB5C4 *adx_allocate_decoder_channel(void) {
 
 typedef char RecoveredGlobal_800F8A78_lbl_80501178_size[sizeof(RecoveredGlobal_800F8A78_lbl_80501178) == 0x10 ? 1 : -1];
 void TLobby::clear_buffer_340() {
-    memset((void *) (adx_decoder_channel_pool), (int) (0), (int) (0x340));
+    memset((void *) (adx_decoder_channel_pool), 0, 0x340);
 }
 
 void TLobby__sub_803CB74C(s32 *arg0) {

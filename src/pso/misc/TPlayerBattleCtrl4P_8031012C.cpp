@@ -875,7 +875,7 @@ void TPlayerBattleCtrl4P::init_battle() {
     TWindowCtrl::create_alt_timer();
     ((TWindowCtrl *)(((Ctl_8031171C *)this)->f244))->set_timer_window_time();
     TOMineTrap::destroy_matching_traps();
-    ((TPlayerBattleCtrl4P *)((Ctl_8031171C *)this))->apply_rule_configuration((s32)(1));
+    ((TPlayerBattleCtrl4P *)((Ctl_8031171C *)this))->apply_rule_configuration(1);
     for (i = 0; i < 4; i++) {
         TPlayerBattleCtrl4P::remove_player(((Ctl_8031171C *)this), i, 1);
         p = (u8 *)get_player_by_client_id(i);

@@ -1174,8 +1174,8 @@ void TBoss6Mag::vfunc_63() {
     default:
         TBoss6Type2__sub_802BD340((int) (*(s32 *)((s8 *)arg0 + 0x378)));
         *(f32 *)((s8 *)arg0 + 0x3F8) = (f32) (1.0f);
-        ((TBoss6Mag *)arg0)->set_action((int) (4));
-        play_sound_effect((int) (0x69E17), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        ((TBoss6Mag *)arg0)->set_action(4);
+        play_sound_effect(0x69E17, (void *) (arg0 + 0x38), 0, 0);
         break;
     }
 }
@@ -1209,8 +1209,8 @@ void TBoss6Mag::sub_8033040C() {
     TObjPlayer::toggle_particle_effect();
     push_matrix();
     post_translate_matrix((void *) ((u8 *)(((u8 *)this)) + 0x38));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x60)));
-    rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x5C)));
+    rotate_matrix_y(0, (int) (*(s32 *)((s8 *)((u8 *)this) + 0x60)));
+    rotate_matrix_x(0, (int) (*(s32 *)((s8 *)((u8 *)this) + 0x5C)));
     temp_f1 = *(f32 *)((s8 *)((u8 *)this) + 0x3F8);
     var_r31 = 0;
     if (temp_f1 > (0.0f)) {
@@ -1268,14 +1268,14 @@ void TBoss6Mag::run_task() {
         ((TObjPlayer *)arg0)->save_position();
         if ((s32) *(s32 *)((s8 *)arg0 + 0x388) != 0) {
             ((TObjPlayer *)arg0)->update_collisions();
-            submit_cursor_candidate((void *) (arg0), (int) (-1));
+            submit_cursor_candidate((void *) (arg0), -1);
         }
         ((TBoss6Rock *)(arg0 + 0x38))->break_rocks_in_radius((f32) (1e+01f));
         var_r4 = 0xFF7F5126;
         if ((s32) *(s32 *)((s8 *)arg0 + 0x388) != 0) {
             var_r4 = -0x5DB4;
         }
-        add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (var_r4), (int) (1), (int) (1), (f32) (2.0f));
+        add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (var_r4), 1, 1, (f32) (2.0f));
         ((TBoss6Mag *)arg0)->decay_glow_and_calc_hp_ratio();
         ((TBoss6Mag *)arg0)->sync_hp_apply_damage();
         ((TBoss6Mag *)arg0)->spawn_trap_by_stat();

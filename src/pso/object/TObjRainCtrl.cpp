@@ -23,14 +23,14 @@ void TObjRainCtrl::run_task() {
     *(s32 *)((s8 *)arg0 + 0x1C) = temp_r0;
     if (temp_r0 < 0) {
         if (TOKeyMachine01::get_global_state() == 0x1E) {
-            p = (void *) __nw__7TObjectFUl((int) (0x220));
+            p = (void *) __nw__7TObjectFUl(0x220);
             if (p != NULL) {
-                __ct__8TObjRainFv((u8 *)p, (tl_particle), (0x24));
+                __ct__8TObjRainFv((u8 *)p, (tl_particle), 0x24);
             }
         } else {
-            p = (void *) __nw__7TObjectFUl((int) (0x220));
+            p = (void *) __nw__7TObjectFUl(0x220);
             if (p != NULL) {
-                __ct__8TObjRainFv((u8 *)p, (tl_particle), (9));
+                __ct__8TObjRainFv((u8 *)p, (tl_particle), 9);
             }
         }
         *(s32 *)((s8 *)arg0 + 0x1C) = 2;

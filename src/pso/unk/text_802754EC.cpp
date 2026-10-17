@@ -8,7 +8,7 @@ u8 *__nw__7TObjectFUl(s32);
 u8 *fn_802754EC(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
-    fn_80266378((7));
+    fn_80266378(7);
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0xA0));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {

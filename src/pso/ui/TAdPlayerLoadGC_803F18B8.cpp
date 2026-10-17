@@ -210,8 +210,8 @@ void TAdPlayerLoadGC::reset_slot_entry(s32 arg0) {
     u8 *temp_r30;
     temp_r30 = (u8 *)TAdPlayerLoadGC__load_request_slots + (arg0 * 0x68);
     *(s32 *)((s8 *)temp_r30 + 0) = 0;
-    memset((void *) (temp_r30 + 4), (int) (0), (int) (0x20));
-    memset((void *) (temp_r30 + 0x24), (int) (0), (int) (0x20));
+    memset((void *) (temp_r30 + 4), 0, 0x20);
+    memset((void *) (temp_r30 + 0x24), 0, 0x20);
     *(s32 *)((s8 *)temp_r30 + 0x44) = 0;
     *(s32 *)((s8 *)temp_r30 + 0x48) = 0;
     *(s32 *)((s8 *)temp_r30 + 0x4C) = 0;
@@ -227,7 +227,7 @@ s32 TAdPlayerLoadGC::close_card_slot(s32 arg0) {
     if (arg0 >= 0 && arg0 < 0x64) {
         s = &lbl_805A29B0[arg0];
         ret = CARDClose(s->card);
-        memset((void *)(s), (int)(0), (int)(0x88));
+        memset((void *)(s), 0, 0x88);
         s->state = 2;
     }
     return ret;

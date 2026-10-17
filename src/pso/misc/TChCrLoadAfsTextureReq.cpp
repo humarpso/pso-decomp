@@ -236,24 +236,24 @@ void TLobby::update_model_load() {
     *(s32 *)((s8 *)((u8 *)this) + 0x74) = temp_r0;
     if (temp_r0 < 0) {
         if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x68) != 0U) {
-            TLobby__sub_8001FE7C((int) *(u32 *)((s8 *)((u8 *)this) + 0x68), (int) (1));
+            TLobby__sub_8001FE7C((int) *(u32 *)((s8 *)((u8 *)this) + 0x68), 1);
         } else {
             return;
         }
         var_r31 = ((TAdSinglePlyChrSelectGC *)0x440)->alloc();
         if (var_r31 != 0U) {
-            var_r31 = TLobby__sub_8002058C((int) (var_r31), (int) (6), (void *) (((u8 *)this) + 0x60), (void *) (((u8 *)this) + 0x64), (int) (0), (int) (0), (int) (((TLobby *)(*(s32 *)((s8 *)((u8 *)this) + 0x24)))->start_load_default()));
+            var_r31 = TLobby__sub_8002058C((int) (var_r31), 6, (void *) (((u8 *)this) + 0x60), (void *) (((u8 *)this) + 0x64), 0, 0, (int) (((TLobby *)(*(s32 *)((s8 *)((u8 *)this) + 0x24)))->start_load_default()));
         }
         *(u32 *)((s8 *)((u8 *)this) + 0x68) = var_r31;
         if (var_r31 != 0U) {
             *(s32 *)((s8 *)((u8 *)this) + 0x74) = 0x12C;
         }
     } else if (fn_8001ED90((void *)(*(u32 *)((s8 *)((u8 *)this) + 0x68))) != 0) {
-        bml_model = get_bml_model((int) (*(u32 *)((s8 *)((u8 *)this) + 0x68)), (int) (0));
+        bml_model = get_bml_model((int) (*(u32 *)((s8 *)((u8 *)this) + 0x68)), 0);
         **(u32 **)((s8 *)((u8 *)this) + 0x1C) = bml_model;
         if (bml_model != 0U) {
             ((TLobby *)(*(s32 *)((s8 *)((u8 *)this) + 0x24)))->alloc_load_buffer((int) (TLobby__sub_8001ED88((void *)(*(u32 *)((s8 *)((u8 *)this) + 0x68)))));
-            TLobby__sub_8001FE7C((int) (*(u32 *)((s8 *)((u8 *)this) + 0x68)), (int) (1));
+            TLobby__sub_8001FE7C((int) (*(u32 *)((s8 *)((u8 *)this) + 0x68)), 1);
             *(u32 *)((s8 *)((u8 *)this) + 0x68) = 0U;
             ((TChCrLoadGmNjReq *)((u8 *)this))->sub_8028C8A8();
             temp_r5 = *(s32 **)((s8 *)((u8 *)this) + 0x28);

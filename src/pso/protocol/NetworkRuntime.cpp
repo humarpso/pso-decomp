@@ -733,10 +733,10 @@ s32 NetIPv6CPSetInterfaceIdentifier(u8 *arg0, s32 arg1) {
     s32 sp18;
     s32 sp14;
     s32 sp10;
-    NetMemset((void *)((void *) (&sp18)), (int)((int) (0xFF)), (int)((int) (8)));
-    if (NetMemcmp((void *)((void *) (arg1)), (void *)((void *) (&sp18)), (int)((int) (8))) != 0) {
-        NetMemcpy((void *)((void *) (&sp14)), (void *)((void *) (arg1)), (int)((int) (4)));
-        NetMemcpy((void *)((void *) (&sp10)), (void *)((void *) (arg1 + 4)), (int)((int) (4)));
+    NetMemset((void *)((void *) (&sp18)), 0xFF, 8);
+    if (NetMemcmp((void *)((void *) (arg1)), (void *)((void *) (&sp18)), 8) != 0) {
+        NetMemcpy((void *)((void *) (&sp14)), (void *)((void *) (arg1)), 4);
+        NetMemcpy((void *)((void *) (&sp10)), (void *)((void *) (arg1 + 4)), 4);
         ((Fields_arg0*)arg0)->field_8 = sp14;
         ((Fields_arg0*)arg0)->field_C = sp10;
         ((Fields_arg0*)arg0)->field_4 = (s16) (((Fields_arg0*)arg0)->field_4 | 2);

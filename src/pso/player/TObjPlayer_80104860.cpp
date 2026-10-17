@@ -71,24 +71,24 @@ s32 item_identity_matches(u8 *arg0, u8 *arg1) {
     {
       case 0:
         var_r5 = 0x41;
-        return compare_item_data_masked((void *)(arg0), (void *)(arg1), (s32)(0x41));
+        return compare_item_data_masked((void *)(arg0), (void *)(arg1), 0x41);
       case 1:
         var_r5 = 1;
-        return compare_item_data_masked((void *)(arg0), (void *)(arg1), (s32)(1));
+        return compare_item_data_masked((void *)(arg0), (void *)(arg1), 1);
       case 2:
         var_r5 = 0;
-        return compare_item_data_masked((void *)(arg0), (void *)(arg1), (s32)(0));
+        return compare_item_data_masked((void *)(arg0), (void *)(arg1), 0);
       case 3:
         if (var_r6 == 2)
       {
         var_r5 = 0x41;
-        return compare_item_data_masked((void *)(arg0), (void *)(arg1), (s32)(0x41));
+        return compare_item_data_masked((void *)(arg0), (void *)(arg1), 0x41);
       }
         var_r5 = 1;
-        return compare_item_data_masked((void *)(arg0), (void *)(arg1), (s32)(1));
+        return compare_item_data_masked((void *)(arg0), (void *)(arg1), 1);
       case 4:
         var_r5 = 0;
-        return compare_item_data_masked((void *)(arg0), (void *)(arg1), (s32)(0));
+        return compare_item_data_masked((void *)(arg0), (void *)(arg1), 0);
     }
   }
   else

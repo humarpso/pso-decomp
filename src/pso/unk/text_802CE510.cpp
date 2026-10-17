@@ -54,22 +54,22 @@ void fn_802CE510(int arg0) {
     }
     else
     {
-      play_persistent_sound((s32)((void *) copy_target_state__14TObjEnePanarmsFPv((void *) arg0, (int) 0x3B211)), arg0, (arg0 + 0x38), (int) 0, (int) 0);
+      play_persistent_sound((s32)((void *) copy_target_state__14TObjEnePanarmsFPv((void *) arg0, 0x3B211)), arg0, (arg0 + 0x38), 0, 0);
     }
     if (((objInBand((GameObj *)arg0, (f32)((f32) lbl_805DE6EC)) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32) lbl_805DE6E8)) != 0)) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32) lbl_805DE6F0)) != 0))
     {
       if (temp_r31 != 0)
       {
-        particle_effect = (unsigned int)spawn_particle_effect((void *)(((RecoveredFields_802CE510_temp_r3 *) temp_r3)->field_4 + 0x38), (int) 0x49);
+        particle_effect = (unsigned int)spawn_particle_effect((void *)(((RecoveredFields_802CE510_temp_r3 *) temp_r3)->field_4 + 0x38), 0x49);
         if (particle_effect != 0U)
         {
           ;
-          attach_particle_model((u8 *)particle_effect, (s32)((int) TParticleCtrl::get_particle_model((int) 2)), (s32)((int) TParticleCtrl::get_instance()), (s32)((int) 0), (s32)((int) 1), (f32)((f32) lbl_805DE6F4));
+          attach_particle_model((u8 *)particle_effect, (s32)((int) TParticleCtrl::get_particle_model(2)), (s32)((int) TParticleCtrl::get_instance()), 0, 1, (f32)((f32) lbl_805DE6F4));
           temp_r3 = temp_r3;
           new_var = (int) particle_effect;
           ((TObjPlayer *)new_var)->set_position_xy((f32) lbl_805DE6EC, (f32) lbl_805DE6F4);
         }
-        temp_r3_3 = (unsigned int)spawn_particle_effect((void *)(((RecoveredFields_802CE510_temp_r3 *) temp_r3)->field_4 + 0x38), (int) 0xA4);
+        temp_r3_3 = (unsigned int)spawn_particle_effect((void *)(((RecoveredFields_802CE510_temp_r3 *) temp_r3)->field_4 + 0x38), 0xA4);
         if (temp_r3_3 != 0U)
         {
           ((TObjPlayer *)temp_r3_3)->set_position_xy((f32) lbl_805DE6EC, (f32) lbl_805DE6F8);
@@ -77,7 +77,7 @@ void fn_802CE510(int arg0) {
       }
       else
       {
-        temp_r3_4 = (unsigned int)spawn_particle_effect((void *)(arg0 + 0x38), (int) 0xF3);
+        temp_r3_4 = (unsigned int)spawn_particle_effect((void *)(arg0 + 0x38), 0xF3);
         if (temp_r3_4 != 0U)
         {
           ((TObjPlayer *)temp_r3_4)->set_position_xy((f32) lbl_805DE6EC, (f32) lbl_805DE6FC);

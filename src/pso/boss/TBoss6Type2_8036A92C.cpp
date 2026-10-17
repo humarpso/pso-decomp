@@ -8,10 +8,10 @@ void *TBoss6EffFlowSoul__ct(void *, void *, void *, void *, void *);
 s32 spawn_flow_soul__11TBoss6Type2Fiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
     s32 var_r0;
-    temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x3C)));
+    temp_r3 = ((s32)__nw__7TObjectFUl(0x3C));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = ((s32)TBoss6EffFlowSoul__ct((void *)((int) (temp_r3)), (void *)((void *) (arg0)), (void *)((void *) (arg1)), (void *)((int) (0xFFFF)), (void *)((void *) (arg2))));
+        var_r0 = ((s32)TBoss6EffFlowSoul__ct((void *)((int) (temp_r3)), (void *)((void *) (arg0)), (void *)((void *) (arg1)), (void *)(0xFFFF), (void *)((void *) (arg2))));
     }
     return var_r0;
 }

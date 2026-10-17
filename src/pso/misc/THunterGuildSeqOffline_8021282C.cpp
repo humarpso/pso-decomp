@@ -135,7 +135,7 @@ void THunterGuildSeqOffline::handle_cancel_choice() {
                 if ((s32) *(s32 *)((s8 *)(&THunterGuildSeqOffline__quest_result_callbacks.value) + 8) != -1) {
                     this->m_34 = (s32)create_quest_thread(*(s32 *)((s8 *)(&THunterGuildSeqOffline__quest_result_callbacks.value) + 8));
                 }
-                ((TShopWindowBase *)arg0)->set_field_20((s32)(5));
+                ((TShopWindowBase *)arg0)->set_field_20(5);
                 return;
             }
             if (selected_menu_value == 1) {
@@ -143,7 +143,7 @@ void THunterGuildSeqOffline::handle_cancel_choice() {
                 this->m_2c = NULL;
                 ((VObj_18_97738d *)(arg0))->m7(0xA, 1);
                 *(s32 *)&this->unk_38 = 0;
-                ((TShopWindowBase *)arg0)->set_field_20((s32)(5));
+                ((TShopWindowBase *)arg0)->set_field_20(5);
                 return;
             }
             goto block_8;
@@ -154,7 +154,7 @@ block_8:
             this->m_2c = NULL;
             ((VObj_18_97738d *)(arg0))->m7(0xA, 1);
             *(s32 *)&this->unk_38 = 0;
-            ((TShopWindowBase *)arg0)->set_field_20((s32)(5));
+            ((TShopWindowBase *)arg0)->set_field_20(5);
         }
     }
 }

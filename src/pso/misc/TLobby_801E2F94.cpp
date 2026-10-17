@@ -567,7 +567,7 @@ extern "C" {
 
 s32 TKeyBoardControl__sub_801E3E24(s32 id, s32 name, s32 arg2) {
     s32 temp_r3;
-    temp_r3 = adxf_open_file__6TLobbyFiPviPv((void *) (id), (void *) (name), (int) (0), (void *) (arg2));
+    temp_r3 = adxf_open_file__6TLobbyFiPviPv((void *) (id), (void *) (name), 0, (void *) (arg2));
     if (temp_r3 >= 0) {
 loop_2:
         if (read_afs_toc__6TLobbyFl((void *) (id)) != 3) {
@@ -585,7 +585,7 @@ loop_2:
 
 s32 TLobby__sub_801E3E9C(s32 id, s32 name, s32 arg2) {
     s32 temp_r3;
-    temp_r3 = adxf_open_file__6TLobbyFiPviPv((void *) (id), (void *) (name), (int) (0), (void *) (arg2));
+    temp_r3 = adxf_open_file__6TLobbyFiPviPv((void *) (id), (void *) (name), 0, (void *) (arg2));
     if (temp_r3 >= 0) {
 loop_1:
         if (read_afs_toc__6TLobbyFl((void *) (id)) != 3) {

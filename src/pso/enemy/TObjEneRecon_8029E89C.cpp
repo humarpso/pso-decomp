@@ -50,7 +50,7 @@ s32 TObjEneRecon::render_player_marker(u16 arg0, s32 arg1) {
         return 0;
     }
     if (arg1 != 0) {
-        var_r3 = TObjEneRecon__sub_8029EA4C((void *)(sp8), (s32)(1));
+        var_r3 = TObjEneRecon__sub_8029EA4C((void *)(sp8), 1);
     } else {
         var_r3 = 1;
     }
@@ -109,7 +109,7 @@ s32 TObjEneRecon__sub_8029EA4C(void *arg0, s32 _w1) {
     restore_render_scissor(1);
     project_world_to_screen(0, arg0, &v);
     if (v.y >= lbl_805DDD8C && v.y <= lbl_805DDD94) {
-        GXSetScissor((s32)(0), (s32)((u32)v.y), (s32)(0x280), (s32)((u32)(lbl_805DDD94 - v.y)));
+        GXSetScissor(0, (s32)((u32)v.y), 0x280, (s32)((u32)(lbl_805DDD94 - v.y)));
         return 1;
     }
     return 0;

@@ -61,9 +61,9 @@ void TUnk_804A4238::emit_marker_effects() {
     tec.f20 = lbl_805DAE20;
     tec.f24 = lbl_805DAE24;
     tec.f28 = self->owner->f60;
-    ((TObjPlayer *)self)->draw_icon((s32)3, (s32)(&tec.pos));
-    ((TObjPlayer *)self)->draw_icon((s32)2, (s32)(&tec.dir));
-    TItemAttacker::spawn_item_timer((s32)(TTecSlicer::create((u16*)(&tec))), (s32)enlarge_s_rank_j_cutter_blade, (s32)3);
+    ((TObjPlayer *)self)->draw_icon(3, (s32)(&tec.pos));
+    ((TObjPlayer *)self)->draw_icon(2, (s32)(&tec.dir));
+    TItemAttacker::spawn_item_timer((s32)(TTecSlicer::create((u16*)(&tec))), (s32)enlarge_s_rank_j_cutter_blade, 3);
 }
 
 void *__dt__13TUnk_804A4238Fv(void *arg0, s16 arg1);
@@ -203,8 +203,8 @@ void TUnk_804A4338::emit_marker_effects() {
     tec.f20 = lbl_805DAE38;
     tec.f24 = lbl_805DAE3C;
     tec.f28 = self->owner->f60;
-    ((TObjPlayer *)self)->draw_icon((s32)1, (s32)(&tec.pos));
-    ((TObjPlayer *)self)->draw_icon((s32)2, (s32)(&tec.dir));
+    ((TObjPlayer *)self)->draw_icon(1, (s32)(&tec.pos));
+    ((TObjPlayer *)self)->draw_icon(2, (s32)(&tec.dir));
     TTecSlicer::create((u16*)(&tec));
 }
 

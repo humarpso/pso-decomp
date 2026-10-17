@@ -153,7 +153,7 @@ void TItemReverseTech::run_frame() {
     }
     if (TQuestVmDownLoadServer::is_ready() != 0) {
         var_r3 = (s32 *)((u8 *)(NULL));
-        TKeyBoardControl__sub_8000F9CC((int) (0));
+        TKeyBoardControl__sub_8000F9CC(0);
     }
     render_tick();
 }
@@ -201,7 +201,7 @@ void TItemReverseTech::init_scene() {
         }
     }
     init_map_lights(default_scene_light_config);
-    cam = __nw__7TObjectFUl((s32)(0x1D4));
+    cam = __nw__7TObjectFUl(0x1D4);
     if (cam != NULL) {
         TCameraCtrl__ct((u8 *)cam, (void *)tl_camera);
     }

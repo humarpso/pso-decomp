@@ -129,7 +129,7 @@ u8 *TPhotonGolla__ct(u8 *arg0, u8 *arg1) {
         pos.y += lbl_805DC1A0;
         p = __nw__7TObjectFUl(0xD0);
         if (p != NULL) {
-            TPhotonMagicSquare__ct((u8 *)p, (s32)arg0, (s32)(3), (s32)&pos, (s32)(0x96), (f32)lbl_805DC1A4);
+            TPhotonMagicSquare__ct((u8 *)p, (s32)arg0, 3, (s32)&pos, 0x96, (f32)lbl_805DC1A4);
         }
         spawn_photon_blast_attachment_effects(arg0, 2);
         play_cue_stream_file((s32)lbl_80446DA8);

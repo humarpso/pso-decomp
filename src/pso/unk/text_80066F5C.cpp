@@ -19,7 +19,7 @@ void TObjPlayer::draw_shadowed_node_tree() {
     if (arg0 != NULL) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 8));
-        rotate_matrix_by_node_angles((void *) (arg0 + 0x14), (int) (1));
+        rotate_matrix_by_node_angles((void *) (arg0 + 0x14), 1);
         scale_current_matrix((void *) (arg0 + 0x20));
         if (!(*(s32 *)((s8 *)arg0 + 0) & 8) && ((u32) *(u32 *)((s8 *)arg0 + 4) != 0U)) {
             render_projected_shadow_receiver((u8 *)(arg0 + 8), (s32)(arg0 + 0x14));

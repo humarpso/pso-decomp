@@ -124,7 +124,7 @@ s32 TAdMultiSelGameModeGC::build_mode_menu(s32 arg1) {
     r = check_room_seq_4__16TAdChrSelASlotGCFl(&pos.p[arg1], n);
     for (i = 0; i < n; i++) {
         if (TAdMultiSelGameModeGC::is_mode_entry_enabled(this, arg1, i) != 0) {
-            forward_trade_action_default__16TObjCityMainWarpFPviii((void *)r, (int)(get_localized_text_entry(0x18, i + b.v[arg1])), (int)(6), (int)(i + a.v[arg1]));
+            forward_trade_action_default__16TObjCityMainWarpFPviii((void *)r, (int)(get_localized_text_entry(0x18, i + b.v[arg1])), 6, (int)(i + a.v[arg1]));
         } else {
             TWindowSubComCard::draw_text_gray(r, get_localized_text_entry(0x18, i + b.v[arg1]), 6, i + a.v[arg1]);
         }
@@ -279,7 +279,7 @@ Obj_8030095C *__ct__21TAdMultiSelGameModeGCFv(Obj_8030095C *self, s32 parent, s3
         p = __ct__13TAdGuideTxtGCFv(p, self);
     }
     self->f40 = p;
-    create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)self, (s32)(0x10), (f32)lbl_805DEF44);
+    create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)self, 0x10, (f32)lbl_805DEF44);
     return self;
 }
 

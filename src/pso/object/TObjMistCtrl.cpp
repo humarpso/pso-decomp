@@ -65,7 +65,7 @@ u8 *TObjMistCtrl__ct(u8 *arg0, s32 parent, u32 arg2) {
     if (arg2 != 0U) {
         ((TObjMistCtrl *)(arg0))->apply_object_set_data((void *)arg2);
     }
-    *(s32 *)((s8 *)arg0 + 0x90) = (s32)spawn_continuous_particle_effect_with_flags((arg0 + 0x38), (0x200), (0x800));
+    *(s32 *)((s8 *)arg0 + 0x90) = (s32)spawn_continuous_particle_effect_with_flags((arg0 + 0x38), 0x200, 0x800);
     return arg0;
 }
 

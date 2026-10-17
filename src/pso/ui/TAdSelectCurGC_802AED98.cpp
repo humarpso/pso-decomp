@@ -86,13 +86,13 @@ void run_task__14TAdSelectCurGCFv(TAdSelectCurGC_802AED98 *o) {
             ok = 1;
         }
         if (ok != 0) {
-            if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)(controller_input_state + 0x20), (s32)0x10, (s32)6, (s32)1) != 0 ||
-                TWindowChoiceSetting::apply_choice((s32)(controller_input_state + 0x160), (s32)0x10, (s32)6, (s32)1) != 0) {
+            if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)(controller_input_state + 0x20), 0x10, 6, 1) != 0 ||
+                TWindowChoiceSetting::apply_choice((s32)(controller_input_state + 0x160), 0x10, 6, 1) != 0) {
                 play_sound_effect(0x54100, 0, 0, 0);
                 o->fA4--;
             }
-            if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)(controller_input_state + 0x20), (s32)0x20, (s32)6, (s32)1) != 0 ||
-                TWindowChoiceSetting::apply_choice((s32)(controller_input_state + 0x160), (s32)0x20, (s32)6, (s32)1) != 0) {
+            if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)(controller_input_state + 0x20), 0x20, 6, 1) != 0 ||
+                TWindowChoiceSetting::apply_choice((s32)(controller_input_state + 0x160), 0x20, 6, 1) != 0) {
                 play_sound_effect(0x54100, 0, 0, 0);
                 o->fA4++;
             }

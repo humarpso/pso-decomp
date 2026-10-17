@@ -15,11 +15,11 @@ s32 create_status_window(s32 arg0) {
     s32 window_layout_position;
     s32 temp_r3;
     s32 var_r0;
-    window_layout_position = get_window_layout_position((int) (0x1C));
+    window_layout_position = get_window_layout_position(0x1C);
     if (is_split_screen() != 0) {
         return create__19TWindowSimpleStatusFPv((int) (window_layout_position), (void *) (arg0));
     }
-    temp_r3 = __nw__7TObjectFUl((int) (0x78));
+    temp_r3 = __nw__7TObjectFUl(0x78);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = TWindowStatus__ct((int) (temp_r3), (int) (window_layout_position), (void *) (arg0), (void *) (&lbl_804D0F78.value));

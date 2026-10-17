@@ -31,9 +31,9 @@ int queue_destruction__7TObjectFv(void);
 void TAdMultiSaveGC::queue_destruction() { queue_destruction__7TObjectFv(); TAdMultiChgGameModeGC::begin_change_game_mode(); }
 s32 TAdMultiSaveGC__sub_802FF170(void) {
     s32 temp_r31;
-    temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFl((void *) (lbl_80474D90), (int) (2));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(temp_r31), (int)(TQuestVmDownLoadServer__sub_8006EF6C((s32)(0xD))), (int)(6), (int)(0));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(temp_r31), (int)(TQuestVmDownLoadServer__sub_8006EF6C((s32)(0xE))), (int)(6), (int)(1));
+    temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFl((void *) (lbl_80474D90), 2);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(temp_r31), (int)(TQuestVmDownLoadServer__sub_8006EF6C(0xD)), 6, 0);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(temp_r31), (int)(TQuestVmDownLoadServer__sub_8006EF6C(0xE)), 6, 1);
     ((TWindowSubComCardList *)temp_r31)->update_layout_height((f32) (lbl_805DEF28));
     return temp_r31;
 }
@@ -96,7 +96,7 @@ void run_task__14TAdMultiSaveGCFv(u8 *arg0) {
             TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x20)));
             ((TAdMultiSaveGC *)arg0)->m_20 = 0U;
         }
-        if (TAdPlayerLoadGC::check_memcard_status((int) (0)) == 0) {
+        if (TAdPlayerLoadGC::check_memcard_status(0) == 0) {
             ((TAdMultiSaveGC *)arg0)->m_1c = 2U;
             return;
         }

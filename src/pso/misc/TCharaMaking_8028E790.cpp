@@ -110,7 +110,7 @@ u8 *TCharaMaking__ct(u8 *arg0, s32 arg1) {
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__12TCharaMaking.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3B6C;
-    temp_r3 = ((u32)__nw__7TObjectFUl((int) (0x10C)));
+    temp_r3 = ((u32)__nw__7TObjectFUl(0x10C));
     if (temp_r3 != 0U) {
         TCMCharacter__ct((void *)(temp_r3), (arg0));
     }

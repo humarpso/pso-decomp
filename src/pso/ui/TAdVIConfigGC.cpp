@@ -140,7 +140,7 @@ u8 *TAdVIConfigGC::init(f32 farg0) {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 8));
     *(f32 *)&this->m_name = (f32) (farg0 * farg0);
     *(s32 *)&this->m_24 = 0;
-    memset((void *) (arg0 + 0x28), (int) (0), (int) (0x60));
+    memset((void *) (arg0 + 0x28), 0, 0x60);
     *(s32 *)&this->m_flags = TLobby::count_members();
     *(s32 *)&this->m_down = 0;
     *(s32 *)((s8 *)arg0 + 0x18) = 0;

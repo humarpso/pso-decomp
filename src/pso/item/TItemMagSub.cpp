@@ -432,11 +432,11 @@ void TItemMagSub::apply_placement_matrix() {
   if (obj_isState7_324((void *) (*(void * *)&this->owner)) != 0)
   {
     feed = (void *) ((TItemMagSub *)arg0)->resolve_owner_heading();
-    rotate_matrix_y((int) 0, feed);
+    rotate_matrix_y(0, feed);
   }
   else
   {
-    rotate_matrix_y((int) 0, (void *) (*((s32 *) (((s8 *) (*(void * *)&this->owner)) + 0x60))));
+    rotate_matrix_y(0, (void *) (*((s32 *) (((s8 *) (*(void * *)&this->owner)) + 0x60))));
   }
   post_translate_matrix((void *) (arg0 + 0xAC));
   temp_r6 = (unsigned char *) (*(void * *)&this->motion);
@@ -446,10 +446,10 @@ void TItemMagSub::apply_placement_matrix() {
     a2 = a2 + (*((s32 *) (((s8 *) arg0) + 0x34)));
     a3 = (*((s32 *) (((s8 *) temp_r6) + 0x20))) + (*((s32 *) (((s8 *) arg0) + 0x38)));
     a4 = (*((s32 *) (((s8 *) temp_r6) + 0x24))) + (*((s32 *) (((s8 *) arg0) + 0x3C)));
-    rotate_matrix_zyx((int) 0, (int) a2, (int) a3, (int) a4, (int) (*((s32 *) (((s8 *) temp_r6) + 0x20))));
+    rotate_matrix_zyx(0, (int) a2, (int) a3, (int) a4, (int) (*((s32 *) (((s8 *) temp_r6) + 0x20))));
   }
   temp_f1 = this->owner_height_scale;
-  scale_matrix((int) 0, (f32) temp_f1, (f32) temp_f1, (f32) temp_f1);
+  scale_matrix(0, (f32) temp_f1, (f32) temp_f1, (f32) temp_f1);
 }
 extern "C" {
 
@@ -473,7 +473,7 @@ void TItemMagSub::render_shadows() {
             TObjPlayer::set_global_flag();
             draw_model_motion(self->model, self->animation, self->animation_frame);
             TObjPlayer::clear_global_state();
-            TObjEneRe7Berura::set_global_state((s32)0);
+            TObjEneRe7Berura::set_global_state(0);
         } else {
             model_render_flags |= 0x8011;
             set_color_blend_mode(1, 4, 5, 0);
@@ -488,7 +488,7 @@ void TItemMagSub::render_shadows() {
             TParticleCtrl::end_effect_render();
             copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
             model_render_flags = lbl_805D5660;
-            ((TItemMagSub *)self)->clear_flags((s32)(0x20));
+            ((TItemMagSub *)self)->clear_flags(0x20);
         }
     }
     TObjPlayer::reset_transform_state();
@@ -511,7 +511,7 @@ void TItemMagSub::render() {
             TObjPlayer::set_global_flag();
             draw_model_motion(self->model, self->animation, self->animation_frame);
             TObjPlayer::clear_global_state();
-            TObjEneRe7Berura::set_global_state((s32)0);
+            TObjEneRe7Berura::set_global_state(0);
         } else {
             run_with_transform_context__10TObjPlayerFii(self->model, TItemMagSub::update_node_oscillation);
         }
@@ -522,7 +522,7 @@ void TItemMagSub::render() {
             TParticleCtrl::end_effect_render();
             copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
             model_render_flags = lbl_805D5660;
-            ((TItemMagSub *)self)->clear_flags((s32)(0x20));
+            ((TItemMagSub *)self)->clear_flags(0x20);
         }
     }
 }
@@ -572,7 +572,7 @@ void TItemMagSub::update_transition() {
     TItemMagSub_801152AC* self=(TItemMagSub_801152AC*)this;
     self->timer += mag_sub_one;
     if (mag_sub_transition_frames == self->timer) {
-        ((TItemMagSub *)self)->clear_flags((s32)(0x18));
+        ((TItemMagSub *)self)->clear_flags(0x18);
         memset(self->vec34, 0, 0xC);
         memset(self->vec58, 0, 0xC);
         self->f9C = mag_sub_zero;

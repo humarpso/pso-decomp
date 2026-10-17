@@ -56,10 +56,10 @@ void TObjEnvSound::run_task() {
         case 0:
             break;
         case 1:
-            play_persistent_sound((s32)(*(s32 *)&this->m_98), (s32)(arg0), (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
+            play_persistent_sound((s32)(*(s32 *)&this->m_98), (s32)(arg0), (u32)(arg0 + 0x38), 0, 0);
             return;
         case 2:
-            play_persistent_sound((s32)(*(s32 *)&this->m_98), (s32)(arg0), (u32)(arg0 + 0x38), (s32)(*(s32 *)&this->m_94), (s32)(2));
+            play_persistent_sound((s32)(*(s32 *)&this->m_98), (s32)(arg0), (u32)(arg0 + 0x38), (s32)(*(s32 *)&this->m_94), 2);
             break;
         }
     }

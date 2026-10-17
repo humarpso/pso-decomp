@@ -785,11 +785,11 @@ void TCameraCtrl::calc_axes_from_angles(s32 arg0, s32 arg1, s32 arg2) {
     stack.spC = *(s32 *)((s8 *)(&lbl_804381B0.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_804381B0.value) + 8);
     push_matrix_from((void *) (&identity_matrix.value));
-    rotate_matrix_y((int) (0), (void *) (arg2));
+    rotate_matrix_y(0, (void *) (arg2));
     rotate_vector_by_current_matrix((void *) (&stack.sp14), (void *) (&lbl_804FF610.value));
     pop_matrix();
     push_matrix_from((void *) (&identity_matrix.value));
-    rotate_matrix_x((int) (0), (void *) (arg1));
+    rotate_matrix_x(0, (void *) (arg1));
     rotate_vector_by_current_matrix((void *) (&stack.sp8), (void *) (&camera_pitch_rotated_up_vector.value));
     pop_matrix();
 }
@@ -817,11 +817,11 @@ void TCameraCtrl::calc_rotated_axes() {
     stack.spC = *(s32 *)((s8 *)(&lbl_80438198.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_80438198.value) + 8);
     push_matrix_from((void *) (&(*(RecoveredGlobal_8006AC70_lbl_8058D490 *)&identity_matrix).value));
-    rotate_matrix_y((int)((int) (0)), (void *)((int) (*(s32 *)&this->m_194)));
+    rotate_matrix_y(0, (void *)((int) (*(s32 *)&this->m_194)));
     rotate_vector_by_current_matrix((void *) (&stack.sp14), (void *) (&(*(RecoveredGlobal_8006AC70_lbl_804FF610 *)&lbl_804FF610).value));
     pop_matrix();
     push_matrix_from((void *) (&(*(RecoveredGlobal_8006AC70_lbl_8058D490 *)&identity_matrix).value));
-    rotate_matrix_x((int)((int) (0)), (void *)((int) (*(s32 *)&this->m_190)));
+    rotate_matrix_x(0, (void *)((int) (*(s32 *)&this->m_190)));
     rotate_vector_by_current_matrix((void *) (&stack.sp8), (void *) (&(*(RecoveredGlobal_8006AC70_lbl_804FF61C *)&camera_pitch_rotated_up_vector).value));
     pop_matrix();
 }

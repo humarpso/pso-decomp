@@ -198,14 +198,14 @@ void TWindowSubCustomEquip::update_rotate_anim() {
     if (*(s32 *)&this->m_68 & 0x8000) {
         *(s8 *)&this->m_64 = 0;
         *(s8 *)&this->m_65 = 1;
-        place_bank_slot_on_ring((s32)(*(s32 *)&this->m_68), (s32)(9));
-        place_bank_slot_on_ring((s32)(*(s32 *)&this->m_68 + 0x8000), (s32)(0));
+        place_bank_slot_on_ring((s32)(*(s32 *)&this->m_68), 9);
+        place_bank_slot_on_ring((s32)(*(s32 *)&this->m_68 + 0x8000), 0);
         return;
     }
     *(s8 *)&this->m_64 = 1;
     *(s8 *)&this->m_65 = 0;
-    place_bank_slot_on_ring((s32)(*(s32 *)&this->m_68 + 0x8000), (s32)(9));
-    place_bank_slot_on_ring((s32)(*(s32 *)&this->m_68), (s32)(0));
+    place_bank_slot_on_ring((s32)(*(s32 *)&this->m_68 + 0x8000), 9);
+    place_bank_slot_on_ring((s32)(*(s32 *)&this->m_68), 0);
 }
 
 void TWindowSubCustomEquip::handle_cancel() {
@@ -233,8 +233,8 @@ void TWindowSubCustomEquip::handle_cursor_input() {
     u8 *temp_r31_2;
     u8 *array_entry;
     temp_r29 = is_player_input_active((this->m_20));
-    temp_r31 = (u8 *)(((u8 *)get_array_entry((s32)(0x10))));
-    array_entry = (u8 *)(((u8 *)get_array_entry((s32)(7))));
+    temp_r31 = (u8 *)(((u8 *)get_array_entry(0x10)));
+    array_entry = (u8 *)(((u8 *)get_array_entry(7)));
     temp_r4 = this->m_63;
     if ((s8) temp_r4 > 0) {
         this->m_63 = (u8) (temp_r4 - 1);
@@ -245,22 +245,22 @@ void TWindowSubCustomEquip::handle_cursor_input() {
         *(s32 *)((s8 *)array_entry + 0x2C) = 0xFF666666;
     }
     temp_r31_2 = (u8 *)&controller_input_state.value + (temp_r29 * 0x50) + 0x20;
-    if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r31_2), (int) (0xF0), (int) (6), (int) (1)) != 0) || (TWindowShortListCtrl__check_controller_button((int) (temp_r31_2), (int) (fn_8002AE08((int) (this->m_20)))) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0xF0), (int) (6), (int) (1)) != 0)) {
-        play_sound_effect((s32)((int) (0x54100)), (s32)((int) (0)), (s32)((int) (0)), (s32)((int) (0)));
+    if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r31_2), 0xF0, 6, 1) != 0) || (TWindowShortListCtrl__check_controller_button((int) (temp_r31_2), (int) (fn_8002AE08((int) (this->m_20)))) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0xF0, 6, 1) != 0)) {
+        play_sound_effect(0x54100, 0, 0, 0);
         if (TWindowShortListCtrl__check_controller_button((int) (temp_r31_2), (int) (fn_8002AE08((int) (this->m_20)))) != 0) {
             this->m_62 = (u8) (1 - this->m_62);
             this->m_63 = 3U;
         }
-        if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r31_2), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
+        if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r31_2), 0x10, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x10, 6, 1) != 0)) {
             this->m_61 = (u8) (this->m_61 - 1);
         }
-        if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r31_2), (int) (0x20), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x20), (int) (6), (int) (1)) != 0)) {
+        if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r31_2), 0x20, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x20, 6, 1) != 0)) {
             this->m_61 = (u8) (this->m_61 + 1);
         }
-        if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r31_2), (int) (0x80), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x80), (int) (6), (int) (1)) != 0)) {
+        if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r31_2), 0x80, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x80, 6, 1) != 0)) {
             this->m_61 = (u8) (this->m_61 - 1);
         }
-        if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r31_2), (int) (0x40), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x40), (int) (6), (int) (1)) != 0)) {
+        if ((apply_choice__20TWindowChoiceSettingFllll((void *) (temp_r31_2), 0x40, 6, 1) != 0) || (apply_choice__20TWindowChoiceSettingFllll((void *) ((u8 *)&controller_input_state.value + 0x160), 0x40, 6, 1) != 0)) {
             this->m_61 = (u8) (this->m_61 + 1);
         }
         temp_r3_2 = this->m_61;
@@ -292,10 +292,10 @@ void TWindowSubCustomEquip::run_task() {
     if (((TWindowSubCustomEquip *)arg0)->is_selected() == 0) {
         ((TWindowSubCustomEquip *)arg0)->handle_cursor_input();
         temp_r30_2 = (u8 *)&(*(RecoveredGlobal_80277014_lbl_8050E208 *)&controller_input_state).value + (temp_r30 * 0x50) + 0x20;
-        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r30_2), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&(*(RecoveredGlobal_80277014_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (4)) != 0)) {
+        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r30_2), 4) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&(*(RecoveredGlobal_80277014_lbl_8050E208 *)&controller_input_state).value + 0x160), 4) != 0)) {
             handle_decide();
         }
-        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r30_2), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&(*(RecoveredGlobal_80277014_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (2)) != 0)) {
+        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r30_2), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&(*(RecoveredGlobal_80277014_lbl_8050E208 *)&controller_input_state).value + 0x160), 2) != 0)) {
             handle_cancel();
         }
     }

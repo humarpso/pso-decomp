@@ -289,7 +289,7 @@ void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec
 
 void TObjEneBalClawBody::sub_800C73F4() {
     if (xz_distance_squared((void *) (((u8 *)this) + 0x38), (void *) (((u8 *)this) + 0x50)) > lbl_805DA080) {
-        ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active((int) (8));
+        ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active(8);
         return;
     }
     this->vfunc_58();

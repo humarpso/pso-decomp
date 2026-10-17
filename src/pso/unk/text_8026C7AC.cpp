@@ -73,7 +73,7 @@ void draw_list_page_indicator(Self_8026C800 *self, Rect_8026C800 *r) {
     fn_8026C708((u8 *)r, (f32)(lbl_805DD2AC + pos.x), (f32)(lbl_805DD2B0 + pos.y), (f32)scale, (f32)self->phase);
     fn_8026C664((u8 *)r, (f32)(pos.x - lbl_805DD2B4), (f32)(lbl_805DD2B0 + pos.y), (f32)scale, (f32)self->phase);
     TWindowSubStatusDisp::get_player();
-    set_text_draw_params((s32)r, (s32)(0), (s32)(1), (f32)scale, (f32)lbl_805DD2B8);
+    set_text_draw_params((s32)r, 0, 1, (f32)scale, (f32)lbl_805DD2B8);
     text_builder_reset();
     TWindowSubStatusDisp__sub_80228F5C(self->page + 1);
     get_shared_text_buffer();
@@ -82,7 +82,7 @@ void draw_list_page_indicator(Self_8026C800 *self, Rect_8026C800 *r) {
     { u32 adv = get_font_char_advance(); pos.x -= lbl_805DD2BC * (f32)adv; }
     text_builder_append((u8 *)lbl_805DD2C0);
     TWindowSubStatusDisp__sub_80228F5C(self->count);
-    draw_window_text((f32 *)&pos, (const char *)(get_shared_text_buffer()), (s32)(-1), (s32)(0), (f32)lbl_805DD2B8);
+    draw_window_text((f32 *)&pos, (const char *)(get_shared_text_buffer()), -1, 0, (f32)lbl_805DD2B8);
 }
 #pragma pop
 

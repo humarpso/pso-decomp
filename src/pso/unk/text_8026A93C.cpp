@@ -46,7 +46,7 @@ void post_chat_log_message(u16 arg0, s32 *shared_text_buffer) {
 u8 *create_message_log_window(s32 arg0, s32 arg1, s32 arg2) {
     u8 *temp_r3;
     u8 *var_r0;
-    TLobby__sub_80269DA4((void *) (arg1), (int) (0x1E));
+    TLobby__sub_80269DA4((void *) (arg1), 0x1E);
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x98));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {

@@ -182,7 +182,7 @@ u8 *__dt__22TAdMultiPlyChrSelectGCFv(u8 *arg0, s16 arg1) {
         if ((u32) (*(u32 *)&TAdMultiPlyChrSelectGC__instance) != 0U) {
             (*(u32 *)&TAdMultiPlyChrSelectGC__instance) = 0U;
         }
-        __dt__7TObjectFv((void *) (arg0), (int) (0));
+        __dt__7TObjectFv((void *) (arg0), 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);
         }

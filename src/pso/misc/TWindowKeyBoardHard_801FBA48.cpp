@@ -32,7 +32,7 @@ void poll_load_status__15TAdPlayerLoadGCFl(s32, void *);
 extern char lbl_804C88C0[];
 extern char lbl_804C89BC[];
 extern char pso_system_card_filename[];
-int TWindowKeyBoardHard::is_card_flag_set() { return TWindowKeyBoardHard::test_card_flag((s32)this, (s32)1); }
+int TWindowKeyBoardHard::is_card_flag_set() { return TWindowKeyBoardHard::test_card_flag((s32)this, 1); }
 void draw_ginja_box_tree(u8 *arg0) {
     s32 temp_r31;
     u8 *temp_r3;
@@ -118,7 +118,7 @@ void TAdSinglePlyChrSelectGC__sub_801FBC3C(void *arg0) {
     destroy_chardata_array__23TAdSinglePlyChrSelectGCFis((s32)b, (s16)(1));
     destroy_chardata_array__23TAdSinglePlyChrSelectGCFis((s32)a, (s16)(1));
     subtractive_rng_seed(chr_select_rng_state, chr_select_serial_seeds[0]);
-    ((TAdSinglePlyChrSelectGC *)chr_select_rng_state)->apply_rng_cipher((u32 *)arg0, (s32)0x194B0);
+    ((TAdSinglePlyChrSelectGC *)chr_select_rng_state)->apply_rng_cipher((u32 *)arg0, 0x194B0);
     subtractive_rng_seed(chr_select_rng_state, TAdSinglePlyChrSelectGC__sub_80202A68((u8 *)arg0));
     subtractive_rng_xor_buffer((s32 *)chr_select_rng_state, (u32 *)arg0, 0x194AC);
 }

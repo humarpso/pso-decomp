@@ -69,7 +69,7 @@ void set_part_position__9TObjEneDDFPvPvi(Obj_800BA9BC *self, Vec_800BA9BC *v, s3
 void update_local_colliders_from_world(Obj_800BAA2C *arg0, V3_800BAA2C *arg1) {
     s32 i;
     push_matrix();
-    set_matrix_identity((0));
+    set_matrix_identity(0);
     rotate_matrix_y((void *)(0), (void *)(-arg0->rot));
     translate_matrix(0, -arg0->x, -arg0->y, -arg0->z);
     for (i = 0; i < arg0->count; i++) {

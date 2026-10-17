@@ -102,8 +102,8 @@ u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8018BD00___vt__19TContainerAncient01 *)&__vt__19TContainerAncient01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TContainerAncient01__name;
     ((TContainerAncient01 *)(arg0))->apply_object_set_data((void *)arg2);
-    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(u8 * *)&TContainerAncient01__bml_resource)), (int) (0));
-    ((TContainerAncient01 *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(u8 * *)&TContainerAncient01__bml_resource)), (int) (0));
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(u8 * *)&TContainerAncient01__bml_resource)), 0);
+    ((TContainerAncient01 *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(u8 * *)&TContainerAncient01__bml_resource)), 0);
     *(s32 * *)&((TContainerAncient01 *)arg0)->action_table = &TContainerAncient01__anim_table.value;
     ((TObjPlayer *)arg0)->set_field_d8((s32)((void *) (*(s32 * *)&((TContainerAncient01 *)arg0)->action_table)));
     *(s32 *)((s8 *)arg0 + 0xDC) = (s32) *(s32 *)((s8 *)(*(u8 * *)&TContainerAncient01__bml_resource) + 0x430);
@@ -111,7 +111,7 @@ u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     set_animation__10TObjPlayerFPvs((arg0), (((TContainerAncient01 *)arg0)->m_b8));
     ((TObjMotion *)arg0)->set_field_b8((int) (((TContainerAncient01 *)arg0)->m_b8));
     *(s32 *)&((TContainerAncient01 *)arg0)->actorFlags = (s32) (*(s32 *)&((TContainerAncient01 *)arg0)->actorFlags| 0x60000000);
-    init_collision_body_parts((void *) (arg0), (void *) (&TContainerAncient01__collision_body_parts.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&TContainerAncient01__collision_body_parts.value), 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x78) = (f32) ((*(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4) * lbl_805DBD5C) + *(f32 *)((s8 *)arg0 + 0x78));
@@ -345,7 +345,7 @@ void run_task__16TObjContainerIdoFv(Ido_8018C18C *self) {
             self->pos.y -= v.y;
             self->pos.z -= v.z;
             self->e0 |= 0x04000000;
-            play_persistent_sound((s32)(0x4B717), (s32)self, (u32)&self->pos, (s32)(0), (s32)(0));
+            play_persistent_sound(0x4B717, (s32)self, (u32)&self->pos, 0, 0);
         } else if (!(self->e0 & 0x01000000)) {
             play_sound_effect(0x4C118, &self->pos, 0, 0);
             self->e0 |= 0x01000000;
@@ -363,7 +363,7 @@ void run_task__16TObjContainerIdoFv(Ido_8018C18C *self) {
             self->pos.y += w.y;
             self->pos.z += w.z;
             self->e0 |= 0x04000000;
-            play_persistent_sound((s32)(0x4B717), (s32)self, (u32)&self->pos, (s32)(0), (s32)(0));
+            play_persistent_sound(0x4B717, (s32)self, (u32)&self->pos, 0, 0);
         } else if (!(self->e0 & 0x01000000)) {
             play_sound_effect(0x4C118, &self->pos, 0, 0);
             self->e0 |= 0x01000000;
@@ -547,13 +547,13 @@ void TObjContainerJungEnemy::vfunc_6(s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             ((TObjContainerJungEnemy *)arg0)->vfunc_79();
-            ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
+            ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
             ((TUnk_804AF8A0 *)arg0)->set_flag8();
             queue_destruction__7TObjectFv((arg0));
             this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
-        ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
+        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
         ((TUnk_804AF8A0 *)arg0)->set_flag8();
         queue_destruction__7TObjectFv((arg0));
         this->mode = 1;
@@ -619,8 +619,8 @@ void TObjContainerJungEnemy__vt77(const Obj_8018C9F0 *self) {
         b.f38 = yb;
         b.f40 = self->f370;
         b.f44 = self->f24;
-        spawn_particle_effect_with_flags((void *)&self->pos, (s32)(0x45), (s32)(0x40));
-        spawn_particle_effect_with_flags((void *)&self->pos, (s32)(0x46), (s32)(0x40));
+        spawn_particle_effect_with_flags((void *)&self->pos, 0x45, 0x40);
+        spawn_particle_effect_with_flags((void *)&self->pos, 0x46, 0x40);
         void *o = __nw__7TObjectFUl(0x234);
         if (o != 0) {
             construct_debris__8TObjChipFPvPvPv((u8 *)o, (u8 *)tl_05, (u8 *)&a);

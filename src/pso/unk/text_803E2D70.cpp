@@ -467,16 +467,16 @@ void apply_chunk_texture_command(s32 arg0, s32 arg1) {
     idx = var_r31;
     var_r4 = var_r6;
     var_r6 = 0;
-    load_list_texture((idx), (var_r4), (var_r5), (0));
+    load_list_texture((idx), (var_r4), (var_r5), 0);
     chunk_texture_record_index = var_r31;
 }
 #pragma pop
 
 void TObjPlayer::setup_tev_passclr() {
-    GXSetNumTevStages((int) (1));
+    GXSetNumTevStages(1);
     GXSetNumTexGens(0U);
-    GXSetTevOp((int) (0), (int) (4));
-    GXSetTevOrder((int) (0), (int) (0xFF), (int) (0xFF), (int) (4));
+    GXSetTevOp(0, 4);
+    GXSetTevOrder(0, 0xFF, 0xFF, 4);
 }
 
 #pragma push
@@ -489,8 +489,8 @@ void setup_chunk_tev_stages(void) {
         GXSetNumTevStages((int)((void *) (1U)));
         GXSetNumTexGens((u8)((void *) (1U)));
     }
-    GXSetTevOp((int) (0), (int) (0));
-    GXSetTevOrder((int) (0), (int) (0), (int) (0), (int) (4));
+    GXSetTevOp(0, 0);
+    GXSetTevOrder(0, 0, 0, 4);
 }
 #pragma pop
 
@@ -539,9 +539,9 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
         TObjPlayer::clear_move_state_bits();
     }
     if (arg1 == 0) {
-        GXSetBlendMode((int) (var_r31), (int) (temp_r30), (int) (temp_r29), (int) (0));
-        GXSetZCompLoc((int) (0));
-        GXSetZMode((int) (1), (int) (3), (int) (0));
+        GXSetBlendMode((int) (var_r31), (int) (temp_r30), (int) (temp_r29), 0);
+        GXSetZCompLoc(0);
+        GXSetZMode(1, 3, 0);
     } else if (var_r31 != 0) {
         var_r6 = 0;
         var_r28 = 1U;
@@ -569,14 +569,14 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
             if ((u32) chunk_render_flags != 0) {
                 chunk_render_flags |= 0x200;
             }
-            GXSetBlendMode((int) (var_r31), (int) (temp_r30), (int) (temp_r29), (int) (0));
+            GXSetBlendMode((int) (var_r31), (int) (temp_r30), (int) (temp_r29), 0);
             if ((u32) (model_render_flags & 0x200000) != 0) {
-                GXSetZCompLoc((int) (0));
-                GXSetZMode((int) (1), (int) (3), (int) (1));
+                GXSetZCompLoc(0);
+                GXSetZMode(1, 3, 1);
                 set_chunk_alpha_compare_ref(0);
             } else {
-                GXSetZCompLoc((int) (0));
-                GXSetZMode((int) (1), (int) (3), (int) (1));
+                GXSetZCompLoc(0);
+                GXSetZMode(1, 3, 1);
                 set_chunk_alpha_compare_ref((u8) material_alpha_compare_reference);
             }
         } else {
@@ -584,17 +584,17 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
                 chunk_render_flags |= 0x200;
             }
             if (((u32) (id & 0x01000000) != 0) && ((u32) (ginja_draw_flags & 2) == 0)) {
-                GXSetBlendMode((int) (var_r31), (int) (temp_r30), (int) (temp_r29), (int) (0));
-                GXSetZCompLoc((int) (0));
-                GXSetZMode((int) (1), (int) (3), (int) (1));
+                GXSetBlendMode((int) (var_r31), (int) (temp_r30), (int) (temp_r29), 0);
+                GXSetZCompLoc(0);
+                GXSetZMode(1, 3, 1);
                 set_chunk_alpha_compare_ref((u8) material_alpha_compare_reference);
             } else {
-                GXSetBlendMode((int) (var_r31), (int) (temp_r30), (int) (temp_r29), (int) (0));
-                GXSetZCompLoc((int) (0));
+                GXSetBlendMode((int) (var_r31), (int) (temp_r30), (int) (temp_r29), 0);
+                GXSetZCompLoc(0);
                 if (var_r28 != 0U) {
-                    GXSetZMode((int) (1), (int) (3), (int) (0));
+                    GXSetZMode(1, 3, 0);
                 } else {
-                    GXSetZMode((int) (1), (int) (3), (int) (1));
+                    GXSetZMode(1, 3, 1);
                 }
                 set_chunk_alpha_compare_ref(0);
             }
@@ -606,17 +606,17 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
         temp_r3 = (u8 *)((*(Holder_803E3B6C **)(current_render_context + 0x20))->recs[chunk_texture_record_index].p->q);
         if (((u32) *(u32 *)((s8 *)temp_r3 + 4) == 0xEU) && ((u32) (*(s32 *)((s8 *)temp_r3 + 0x1C) & 0x40000000) != 0)) {
             set_chunk_alpha_compare_ref(0x1F);
-            GXSetBlendMode((int) (0), (int) (temp_r30), (int) (temp_r29), (int) (0));
-            GXSetZCompLoc((int) (0));
-            GXSetZMode((int) (1), (int) (3), (int) (1));
+            GXSetBlendMode(0, (int) (temp_r30), (int) (temp_r29), 0);
+            GXSetZCompLoc(0);
+            GXSetZMode(1, 3, 1);
         } else {
-            GXSetBlendMode((int) (0), (int) (temp_r30), (int) (temp_r29), (int) (0));
-            GXSetZCompLoc((int) (1));
-            GXSetZMode((int) (1), (int) (3), (int) (1));
+            GXSetBlendMode(0, (int) (temp_r30), (int) (temp_r29), 0);
+            GXSetZCompLoc(1);
+            GXSetZMode(1, 3, 1);
         }
     }
     if ((u32) (model_render_flags & 0x400) != 0) {
-        GXSetZMode((int) (1), (int) (3), (int) (0));
+        GXSetZMode(1, 3, 0);
     }
 }
 
@@ -654,9 +654,9 @@ void TObjPlayer::end_chunk_draw() {
         apply_scene_fog();
     }
     pop_matrix();
-    GXSetZCompLoc((int) (1));
-    GXSetZMode((int) (1), (int) (1), (int) (1));
-    set_chunk_alpha_compare_ref((int)((int) (0)));
+    GXSetZCompLoc(1);
+    GXSetZMode(1, 1, 1);
+    set_chunk_alpha_compare_ref(0);
     if (((s32 (*)()) player_chunk_draw_end_callback) != NULL) {
         player_chunk_draw_end_callback();
     }

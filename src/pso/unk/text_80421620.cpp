@@ -343,7 +343,7 @@ s32 TLobby__sub_804218AC(s32 arg0, s32 arg1) {
         return -2;
     }
     TLobby::lock_mutex((int)((void *) ((*(RecoveredGlobal_804218AC_lbl_805C1C50 *)&network_dispatch_state).value)));
-    temp_r31 = NetRegisterTimer((void *) (arg1), (int) (0), (void *) (arg0));
+    temp_r31 = NetRegisterTimer((void *) (arg1), 0, (void *) (arg0));
     TUdpSocket::unlock_mutex((int)((void *) ((*(RecoveredGlobal_804218AC_lbl_805C1C50 *)&network_dispatch_state).value)));
     return temp_r31;
 }
@@ -368,7 +368,7 @@ s32 TLobby__sub_80421938(O_80421938 *o, void *src, void *dst, void *cb, s32 flag
 s32 TLobby__sub_804219D0(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r31;
     TLobby::lock_mutex((int)((void *) ((*(RecoveredGlobal_804219D0_lbl_805C1C50 *)&network_dispatch_state).value)));
-    temp_r31 = TLobby__sub_8040F9CC((void *) (arg0), (void *) (arg1), (void *) (arg2), (int) (0));
+    temp_r31 = TLobby__sub_8040F9CC((void *) (arg0), (void *) (arg1), (void *) (arg2), 0);
     TUdpSocket::unlock_mutex((int)((void *) ((*(RecoveredGlobal_804219D0_lbl_805C1C50 *)&network_dispatch_state).value)));
     return temp_r31;
 }
@@ -378,7 +378,7 @@ typedef char RecoveredGlobal_80421A50_lbl_805C1C50_size[sizeof(RecoveredGlobal_8
 s32 TLobby__sub_80421A50(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r31;
     TLobby::lock_mutex((int)((void *) ((*(RecoveredGlobal_80421A50_lbl_805C1C50 *)&network_dispatch_state).value)));
-    temp_r31 = TRKValidMemory32((void *) (arg0), (void *) (arg1), (void *) (arg2), (int) (1), (int) (0U), (int) (0U));
+    temp_r31 = TRKValidMemory32((void *) (arg0), (void *) (arg1), (void *) (arg2), 1, (int) (0U), (int) (0U));
     TUdpSocket::unlock_mutex((int)((void *) ((*(RecoveredGlobal_80421A50_lbl_805C1C50 *)&network_dispatch_state).value)));
     return temp_r31;
 }

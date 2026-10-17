@@ -138,7 +138,7 @@ void handle_confirm_dialog__21TShopDeleteItemWindowFPv(u8 *arg0) {
                 remove_bank_item_amount__18TCheckRoomSequenceFiii((int) (idx), (int) (*(s32 *)((s8 *)arg0 + 0x5C)), (int) (slot));
                 compact_items__18TCheckRoomSequenceFi((int) (slot));
                 copy_bank_to_card_window((int) (slot));
-                ((TShopWindowBase *)arg0)->set_field_20((s32)((int) (0)));
+                ((TShopWindowBase *)arg0)->set_field_20(0);
             }
             TWindow__close((void *)((int) (*(u32 *)((s8 *)arg0 + 0x34))));
             *(u32 *)((s8 *)arg0 + 0x34) = 0U;
@@ -147,7 +147,7 @@ void handle_confirm_dialog__21TShopDeleteItemWindowFPv(u8 *arg0) {
         if (selected_menu_value == 1) {
             TWindow__close((void *)((int) (*(u32 *)((s8 *)arg0 + 0x34))));
             *(u32 *)((s8 *)arg0 + 0x34) = 0U;
-            ((TShopWindowBase *)arg0)->set_field_20((s32)((int) (4)));
+            ((TShopWindowBase *)arg0)->set_field_20(4);
             return;
         }
         goto block_8;
@@ -157,7 +157,7 @@ block_8:
     if ((temp_r3_4 != 0U) && (((TWindowSubComCard *)temp_r3_4)->get_status_flag() != 0)) {
         TWindow__close((void *)((int) (*(u32 *)((s8 *)arg0 + 0x34))));
         *(u32 *)((s8 *)arg0 + 0x34) = 0U;
-        ((TShopWindowBase *)arg0)->set_field_20((s32)((int) (4)));
+        ((TShopWindowBase *)arg0)->set_field_20(4);
     }
 }
 

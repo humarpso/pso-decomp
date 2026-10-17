@@ -125,7 +125,7 @@ void TOSparkMachine01::run_task() {
     *(s8 *)&this->m_a3 = 0;
     *(s8 *)&this->m_a2 = 0;
     *(s8 *)&this->m_a0 = 0;
-    update_spark_toggle((s32)(1));
+    update_spark_toggle(1);
 }
 
 void TOSparkMachine01::render() {

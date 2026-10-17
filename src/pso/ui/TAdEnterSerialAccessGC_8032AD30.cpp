@@ -147,7 +147,7 @@ void TAdEnterSerialAccessGC::store_serial_access_key(s32 arg0, s32 arg1, s32 arg
 char *TAdEnterSerialAccessGC::serial_to_hex_string(int arg0) {
     u32 v = 0;
     sscanf(arg0, lbl_80477260, &v);
-    memset((s32)((s32)serial_access_hex_string_buf), (s32)(0), (s32)(0x40));
+    memset((s32)((s32)serial_access_hex_string_buf), 0, 0x40);
     if (v != 0) {
         sprintf(serial_access_hex_string_buf, lbl_80477268, v);
     }

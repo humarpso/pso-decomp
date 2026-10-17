@@ -243,10 +243,10 @@ u8 *TObjContainerItem__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_container_base((arg0), (arg1), (arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80189BE0___vt__17TObjContainerItem *)&__vt__17TObjContainerItem).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjContainerItem__name;
-    *(s32 *)((s8 *)arg0 + 0x34) = get_container_param((int) (1));
+    *(s32 *)((s8 *)arg0 + 0x34) = get_container_param(1);
     ((TObjContainerItem *)arg0)->mode = 0;
     *(s32 *)&((TObjContainerItem *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjContainerItem *)arg0)->actorFlags| 0x60000000);
-    init_collision_body_parts((void *) (arg0), (void *) (&forest_box_collision_body_parts.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&forest_box_collision_body_parts.value), 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38));
     VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
@@ -264,50 +264,50 @@ void play_container_break_sound(s32 arg0) {
     switch (global_state) {
     case 1:
     case 2:
-        play_sound_effect((int) (0x4BC10), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(0x4BC10, (void *) (arg0 + 0x38), 0, 0);
         return;
     case 3:
     case 4:
     case 5:
-        play_sound_effect((int) (0x43C0F), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(0x43C0F, (void *) (arg0 + 0x38), 0, 0);
         return;
     case 6:
     case 7:
-        play_sound_effect((int) (0x4004BC09), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(0x4004BC09, (void *) (arg0 + 0x38), 0, 0);
         return;
     case 8:
     case 9:
     case 10:
-        play_sound_effect((int) (0x4004BC10), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(0x4004BC10, (void *) (arg0 + 0x38), 0, 0);
         return;
     case 16:
     case 17:
-        play_sound_effect((int) (0x4004BC05), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(0x4004BC05, (void *) (arg0 + 0x38), 0, 0);
         return;
     case 19:
     case 20:
-        play_sound_effect((int) (0x4BC05), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(0x4BC05, (void *) (arg0 + 0x38), 0, 0);
         return;
     case 21:
     case 22:
-        play_sound_effect((int) (0x4004BC05), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(0x4004BC05, (void *) (arg0 + 0x38), 0, 0);
         return;
     case 23:
     case 24:
     case 25:
     case 26:
     case 27:
-        play_sound_effect((int) (0x4BC16), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(0x4BC16, (void *) (arg0 + 0x38), 0, 0);
         return;
     case 28:
     case 29:
-        play_sound_effect((int) (0x4004BC16), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(0x4004BC16, (void *) (arg0 + 0x38), 0, 0);
         return;
     case 34:
-        play_sound_effect((int) (0x4004BC16), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(0x4004BC16, (void *) (arg0 + 0x38), 0, 0);
         return;
     case 35:
-        play_sound_effect((int) (0x4004BC16), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(0x4004BC16, (void *) (arg0 + 0x38), 0, 0);
     default:
         return;
     }

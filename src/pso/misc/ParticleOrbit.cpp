@@ -258,7 +258,7 @@ void clear_active_flag__13TParticleCtrlFv(void* p) { *(u16*)((char*)p + 0x2c) &=
 u8 *create_orbit_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5) {
     u8 *particle_memory;
     u8 *var_r0;
-    particle_memory = (u8 *)(((u8 *)alloc_particle_memory((int)(0xE0))));
+    particle_memory = (u8 *)(((u8 *)alloc_particle_memory(0xE0)));
     var_r0 = (u8 *)(particle_memory);
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(init_orbit_sprite_particle((u8 *)(particle_memory), (u8 *)(arg0), (u8 *)(arg1), (u8 *)(arg2), (s32)(arg3), arg4, arg5));

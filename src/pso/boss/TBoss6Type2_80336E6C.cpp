@@ -30,10 +30,10 @@ void TBoss6Type2::update_recover_timer() {
     if ((s32) this->m_3cc >= 0x5A) {
         TBoss6Type2__sub_8032F5C4(arg0);
         if ((s32) this->m_40c != 0) {
-            set_action__9TBoss6MagFl((void *)((void *) (arg0)), (s32)((int) (1)));
+            set_action__9TBoss6MagFl((void *)((void *) (arg0)), 1);
             return;
         }
-        set_action__9TBoss6MagFl((void *)((void *) (arg0)), (s32)((int) (2)));
+        set_action__9TBoss6MagFl((void *)((void *) (arg0)), 2);
     }
 }
 #pragma pop

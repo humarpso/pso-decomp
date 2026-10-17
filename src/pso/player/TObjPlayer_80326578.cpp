@@ -158,7 +158,7 @@ void dark_bridge_start_timers(void *arg0) {
         }
         temp_r3_3 = __nw__15TItemHeapObjectFUl(0x30);
         if (temp_r3_3 != 0) {
-            paralysis_curse_timer_ct((u8 *)(temp_r3_3), (u32)(*(u32 *)((s8 *)arg0 + 0x174)), (s32)(get_id__13TItemProArmorFv(arg0)), (s32)(0x2328), lbl_805DF658);
+            paralysis_curse_timer_ct((u8 *)(temp_r3_3), (u32)(*(u32 *)((s8 *)arg0 + 0x174)), (s32)(get_id__13TItemProArmorFv(arg0)), 0x2328, lbl_805DF658);
         }
     }
 }
@@ -220,17 +220,17 @@ void TObjPlayer::apply_container_item() {
 
 void TObjPlayer::approach_target_angle() {
     u8 *arg0 = (u8 *)this;
-    TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x1F8), (s32)0x71C, (s32)0x4000);
+    TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x1F8), 0x71C, 0x4000);
     if ((s32) *(s32 *)&this->unk_1F8 == 0x4000) {
-        TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x1FC), (s32)0x71C, (s32)0x4000);
+        TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x1FC), 0x71C, 0x4000);
     }
 }
 
 void TUnk_804ED0A8::update_attack() {
     u8 *arg0 = (u8 *)this;
-    TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x1FC), (s32)(-0xAAA), (s32)0);
+    TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x1FC), -0xAAA, 0);
     if ((s32) this->m_1fc == 0) {
-        TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x1F8), (s32)(-0xAAA), (s32)0);
+        TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x1F8), -0xAAA, 0);
     }
 }
 

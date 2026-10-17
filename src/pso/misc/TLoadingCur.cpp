@@ -230,7 +230,7 @@ u8 *TLoadingCur__ct(u8 *arg0, s32 arg1) {
     stack.spC = 0;
     stack.sp10 = 0;
     direction_to_rotation_xz((arg0 + 0x50), (&stack.sp8), (&stack.sp10));
-    *(s32 *)((s8 *)arg0 + 0x1C) = (s32)fn_80086FE0((arg0 + 0x20), (&stack.sp8), (0x16), (1));
+    *(s32 *)((s8 *)arg0 + 0x1C) = (s32)fn_80086FE0((arg0 + 0x20), (&stack.sp8), 0x16, 1);
     return arg0;
 }
 #pragma pop

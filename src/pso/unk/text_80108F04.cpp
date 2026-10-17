@@ -53,7 +53,7 @@ void spawn_flame_effect(void *self, void *target) {
         if (p != NULL) {
             p = TItemEffFlame__ct((void *)(p), (void *)(tl_05), (void *)(target));
         }
-        TItemAttacker::spawn_item_timer((s32)p, (s32)((void *)destroy__14TItemEffHeavenFPv), (s32)0x1E);
+        TItemAttacker::spawn_item_timer((s32)p, (s32)((void *)destroy__14TItemEffHeavenFPv), 0x1E);
     }
 }
 

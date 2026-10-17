@@ -429,7 +429,7 @@ u8 *TQuestListChallenge__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
         *(s32 *)((s8 *)arg0 + 0x54) = 8;
         break;
     }
-    ((TShopWindowBase *)arg0)->set_field_20((s32)((int) (0)));
+    ((TShopWindowBase *)arg0)->set_field_20(0);
     (*(u8 * *)&TQuestListChallenge__active_instance) = arg0;
     return arg0;
 }

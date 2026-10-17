@@ -179,12 +179,12 @@ void TBoss6RockChase::run_task() {
             *(f32 *)((s8 *)arg0 + 0x3C) = (f32) TBoss6RockChase__data_805E03B8;
             *(f32 *)&this->_padB8 = (f32) TBoss6RockChase__data_805E03B8;
             damage_players_in_range();
-            play_sound_effect((int) (0x4006B51E), (void *) (arg0 + 0x38), (int) (0), (int) (0));
-            spawn_particle_effect(((u8 *)&this->position), (0x220));
-            spawn_particle_effect(((u8 *)&this->position), (0x222));
-            TBoss6PlotFalz::apply_radial_effect_to_players((void *) (arg0 + 0x38), (int) (0xC0), (int) (0xF), (f32) (lbl_805E03C8));
+            play_sound_effect(0x4006B51E, (void *) (arg0 + 0x38), 0, 0);
+            spawn_particle_effect(((u8 *)&this->position), 0x220);
+            spawn_particle_effect(((u8 *)&this->position), 0x222);
+            TBoss6PlotFalz::apply_radial_effect_to_players((void *) (arg0 + 0x38), 0xC0, 0xF, (f32) (lbl_805E03C8));
             ((TBoss6Rock *)(arg0 + 0x38))->spawn_crush_rocks((int) (*(s32 *)&this->m_b0));
-            play_sound_effect((int) (0x4006AB1F), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+            play_sound_effect(0x4006AB1F, (void *) (arg0 + 0x38), 0, 0);
             queue_destruction__7TObjectFv(arg0);
         }
     }
@@ -238,7 +238,7 @@ s32 spawn__15TBoss6RockChaseFii(s32 arg0, s32 arg1) {
     if ((lbl_805E03D0 * (f32) rand()) < lbl_805E03D8) {
         var_r31 = 1;
     }
-    temp_r3 = __nw__7TObjectFUl((int) (0xC8));
+    temp_r3 = __nw__7TObjectFUl(0xC8);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = ((s32)TBoss6RockChase__ct((u8 *)((int) (temp_r3)), (s32)((void *) (arg0)), (s32)((void *) (&stack.sp8)), (s32)((int) (var_r31))));

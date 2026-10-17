@@ -107,7 +107,7 @@ void init_character_stats_for_level(void *cls, Char_802C38B4 *c, s32 level) {
 }
 
 void init_new_character_stats(void *arg0) {
-    init_character_stats_for_level((void *)(*(u8 *)((s8 *)arg0 + 0x3A1)), (Char_802C38B4 *)(arg0), (s32)(0));
+    init_character_stats_for_level((void *)(*(u8 *)((s8 *)arg0 + 0x3A1)), (Char_802C38B4 *)(arg0), 0);
 }
 
 }

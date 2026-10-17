@@ -177,12 +177,12 @@ void update_title_idle_transition(Obj_80336340 *arg0_) {
     }
     if ((s32) ((TUnk_804EEF64 *)arg0_)->m_38 == (s32) *(s32 *)((s8 *)arg0_ + 0x34)) {
         ((TObject *)(*(void **)((s8 *)arg0_ + 0x24)))->set_flag_4();
-        TWindowOptionCtrl__sub_802273B4((0x1E));
+        TWindowOptionCtrl__sub_802273B4(0x1E);
     }
     if (((s32) ((TUnk_804EEF64 *)arg0_)->m_38< (s32) *(s32 *)((s8 *)arg0_ + 0x34)) && (((TAdSinglePlyChrSelectGC *)arg0_)->start_offline_seq() != 0)) {
-        TKeyBoardControl__sub_8000F90C((int) (2));
-        set_opening_movie_purpose((0));
-        TKeyBoardControl__sub_8000F9CC((3));
+        TKeyBoardControl__sub_8000F90C(2);
+        set_opening_movie_purpose(0);
+        TKeyBoardControl__sub_8000F9CC(3);
     }
     *(s32 *)((s8 *)arg0_ + 0x34) = (s32) (*(s32 *)((s8 *)arg0_ + 0x34) + 1);
 }
@@ -276,7 +276,7 @@ u8 *TUnk_804EEF64::construct_title_scene() {
 typedef char RecoveredGlobal_8033670C_lbl_804EE58C_size[sizeof(RecoveredGlobal_8033670C_lbl_804EE58C) == 0x50 ? 1 : -1];
 void TLobby::destroy_global_object() {
     u32 temp_r4;
-    temp_r4 = (u32) call_funcs_reverse__6TLobbyFPvUi((void *) (&lobby_load_callback_table.value), (int) (0x20));
+    temp_r4 = (u32) call_funcs_reverse__6TLobbyFPvUi((void *) (&lobby_load_callback_table.value), 0x20);
     if ((void *) lobby_title_texture_list != NULL) {
         TLobby__sub_803DA16C(lobby_title_texture_list, (s32) temp_r4);
         lobby_title_texture_list = NULL;

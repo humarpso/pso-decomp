@@ -161,14 +161,14 @@ void TBoss7Tentacle::restart_particle_effect() {
     queue_destruction__7TObjectFv((*((void **) (((s8 *) arg0) + 0x40))));
     *((u32 *) (((s8 *) arg0) + 0x40)) = 0U;
   }
-  particle_effect = (s32)spawn_particle_effect((arg0 + 0x1C), (int) 0x215);
+  particle_effect = (s32)spawn_particle_effect((arg0 + 0x1C), 0x215);
   temp_r3 = particle_effect;
   if (temp_r3 != 0)
   {
     particle_effect = TObjPlayer__sub_802E80A0();
-    attach_particle_model((int) temp_r3, (int) queue_boss_effect__10TObjPlayerFPv((int) 4), (int) particle_effect, (int) 0, (int) 0, (f32) (*(f32 *)&TBoss7Tentacle__data_805DEC00));
+    attach_particle_model((int) temp_r3, (int) queue_boss_effect__10TObjPlayerFPv(4), (int) particle_effect, 0, 0, (f32) (*(f32 *)&TBoss7Tentacle__data_805DEC00));
   }
-  play_sound_effect((int) 0x3A809, (void *) (arg0 + 0x1C), (int) 0, (int) 0);
+  play_sound_effect(0x3A809, (void *) (arg0 + 0x1C), 0, 0);
 }
 
 s32 TBoss7Tentacle::advance_anim_time_wrapped(f32 d) {
@@ -304,10 +304,10 @@ void fn_802EFEA8(void) {
 }
 
 void TObjPlayer__sub_802EFEC4(void) {
-    lbl_805D6948 = queue_boss_effect__10TObjPlayerFPv((int) (5));
-    *(s32 *)((s8 *)(&(*(RecoveredGlobal_802EFEC4_lbl_80541918 *)&boss7_tentacle_needle_target_state).value) + 0) = notify_fish_obj__10TObjPlayerFPv((int) (0x13));
-    *(s32 *)((s8 *)(&(*(RecoveredGlobal_802EFEC4_lbl_80541918 *)&boss7_tentacle_needle_target_state).value) + 4) = notify_fish_obj__10TObjPlayerFPv((int) (0x14));
-    *(s32 *)((s8 *)(&(*(RecoveredGlobal_802EFEC4_lbl_80541918 *)&boss7_tentacle_needle_target_state).value) + 8) = notify_fish_obj__10TObjPlayerFPv((int) (0x12));
+    lbl_805D6948 = queue_boss_effect__10TObjPlayerFPv(5);
+    *(s32 *)((s8 *)(&(*(RecoveredGlobal_802EFEC4_lbl_80541918 *)&boss7_tentacle_needle_target_state).value) + 0) = notify_fish_obj__10TObjPlayerFPv(0x13);
+    *(s32 *)((s8 *)(&(*(RecoveredGlobal_802EFEC4_lbl_80541918 *)&boss7_tentacle_needle_target_state).value) + 4) = notify_fish_obj__10TObjPlayerFPv(0x14);
+    *(s32 *)((s8 *)(&(*(RecoveredGlobal_802EFEC4_lbl_80541918 *)&boss7_tentacle_needle_target_state).value) + 8) = notify_fish_obj__10TObjPlayerFPv(0x12);
 }
 
 }
@@ -329,8 +329,8 @@ void render__14TBoss7TentacleFv(u8 *arg0) {
     switch (temp_r0) {
     case 0:
         TObjPlayer::set_global_flag();
-        TObjPlayer::concat_matrix((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x130)));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x13C)));
+        TObjPlayer::concat_matrix(0, (int) (*(s32 *)((s8 *)arg0 + 0x130)));
+        rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x13C)));
         scale_current_matrix((void *) ((u8 *)(arg0) + 0x24));
         ((s32 (*)(void *, int, f32))draw_model_motion)((void *) (*(s32 **)((s8 *)arg0 + 0x1C)), (int) (*(s32 *)((s8 *)arg0 + 0x20)), (f32) (*(f32 *)((s8 *)arg0 + 0x134)));
         TObjPlayer::clear_global_state();
@@ -339,22 +339,22 @@ void render__14TBoss7TentacleFv(u8 *arg0) {
     case 4:
     case 5:
         TObjPlayer::set_global_flag();
-        TObjPlayer::concat_matrix((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x130)));
-        rotate_matrix_zyx((0), (*(s32 *)((s8 *)arg0 + 0x140)), (*(s32 *)((s8 *)arg0 + 0x13C)), (0));
+        TObjPlayer::concat_matrix(0, (int) (*(s32 *)((s8 *)arg0 + 0x130)));
+        rotate_matrix_zyx(0, (*(s32 *)((s8 *)arg0 + 0x140)), (*(s32 *)((s8 *)arg0 + 0x13C)), 0);
         scale_current_matrix((void *) ((u8 *)(arg0) + 0x24));
         ((s32 (*)(void *, int, f32))draw_model_motion)((void *) (*(s32 **)((s8 *)arg0 + 0x1C)), (int) (*(s32 *)((s8 *)arg0 + 0x20)), (f32) (*(f32 *)((s8 *)arg0 + 0x134)));
         TObjPlayer::clear_global_state();
         break;
     case 2:
-        TObjPlayer::concat_matrix((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x130)));
-        rotate_matrix_zyx((0), (*(s32 *)((s8 *)arg0 + 0x140)), (*(s32 *)((s8 *)arg0 + 0x13C)), (0));
+        TObjPlayer::concat_matrix(0, (int) (*(s32 *)((s8 *)arg0 + 0x130)));
+        rotate_matrix_zyx(0, (*(s32 *)((s8 *)arg0 + 0x140)), (*(s32 *)((s8 *)arg0 + 0x13C)), 0);
         scale_current_matrix((void *) ((u8 *)(arg0) + 0x24));
         draw_chunk_object((*(s32 **)((s8 *)arg0 + 0x1C)));
         break;
     case 3:
         ((s32 (*)(void *))post_translate_matrix)((void *) ((u8 *)(arg0) + 0x40));
         scale_current_matrix((void *) (lbl_80474070));
-        rotate_matrix_zyx((0), (0), (*(s32 *)((s8 *)arg0 + 0x13C)), (*(s32 *)((s8 *)arg0 + 0x140)));
+        rotate_matrix_zyx(0, 0, (*(s32 *)((s8 *)arg0 + 0x13C)), (*(s32 *)((s8 *)arg0 + 0x140)));
         for (var_ctr = 0; var_ctr < 14; var_ctr++) {
             lbl_80541528[var_ctr].pos.x = ((Tent_802EFF24 *)arg0)->pos[var_ctr].x;
             lbl_80541528[var_ctr].pos.y = ((Tent_802EFF24 *)arg0)->pos[var_ctr].y;

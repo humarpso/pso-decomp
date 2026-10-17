@@ -59,7 +59,7 @@ void TSaveChCr::create_backgrounds() {
     *(void **)((s8 *)this + 0x34) = o2;
 }
 
-int TSaveChCr__sub_8033A138(void) { return load_character_from_card__23TAdSinglePlyChrSelectGCFi((0)); }
+int TSaveChCr__sub_8033A138(void) { return load_character_from_card__23TAdSinglePlyChrSelectGCFi(0); }
 void TSaveChCr::save_character() { begin_action_from_char_select__10TObjPlayerFv(this); load_character_from_card__23TAdSinglePlyChrSelectGCFi((s32)((void*)1)); }
 
 extern void *tl_03;
@@ -133,7 +133,7 @@ u8 *TSaveChCr__ct(u8 *arg0, u8 *arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x3C) = 0;
     *(s32 *)((s8 *)arg0 + 0x38) = 0;
     ((TSaveChCr *)arg0)->create_backgrounds();
-    ((TSaveChCr *)arg0)->set_state((s32)(0));
+    ((TSaveChCr *)arg0)->set_state(0);
     return arg0;
 }
 

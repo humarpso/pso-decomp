@@ -339,7 +339,7 @@ void TObjEneMe3ShinowaMirage::set_flag_0x100() {
     o->m92();
 }
 
-int TObjEneMe3ShinowaMirage::init_mirage() { return transition_enemy_state((void*)(this), (int)(15)); }
+int TObjEneMe3ShinowaMirage::init_mirage() { return transition_enemy_state((void*)(this), 15); }
 
 extern const f32 TObjEneMe3ShinowaMirage__data_805DA5B8;
 
@@ -367,19 +367,19 @@ void TObjEneMe3ShinowaMirage::activate_mirage(s32 arg1) {
         this->m_b8 = 0xA;
         advance_animation_playback((void *)((void *) (arg0)), (int)((int) (temp_r4_2)));
         this->m_c0 = (f32) (u32) (*(s32 *)((s8 *)(*(void * *)&this->unknownF8) + 4) - 1);
-        transition_enemy_state((void*)((void *) (arg0)), (int)((int) (8)));
+        transition_enemy_state((void*)((void *) (arg0)), 8);
         clear_mirage();
     }
 }
 
 void TObjEneMe3ShinowaMirage::update_player_state_default() {  }
-void TObjEneMe3ShinowaMirage::vfunc_107() { transition_enemy_state((void*)(this), (int)(4)); }
+void TObjEneMe3ShinowaMirage::vfunc_107() { transition_enemy_state((void*)(this), 4); }
 u8 TObjEneMe3ShinowaMirage::can_hit_same_target() { return 0; }
 void TObjEneMe3ShinowaMirage::vfunc_105() {  }
 
 void TObjEneMe3ShinowaMirage::vfunc_62() {
     if (this->mode != 15) {
-        transition_enemy_state((void*)(this), (int)(15));
+        transition_enemy_state((void*)(this), 15);
     }
     clear_attack_receipts();
 }
@@ -389,7 +389,7 @@ extern s32 __vt__23TObjEneMe3ShinowaMirage[];
 void TObjEneMe3ShinowaMirage::vfunc_63() {
     u8 *arg0 = (u8 *)this;
     if ((s16) this->mode != 0xF) {
-        transition_enemy_state((void*)((void *)(arg0)), (int)((int) (0xF)));
+        transition_enemy_state((void*)((void *)(arg0)), 0xF);
     }
 }
 
@@ -486,7 +486,7 @@ void TObjEneMe3ShinowaReal::vfunc_116(s32 arg1) {
     case 3:
         if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x404) == 3) {
             ((TObjEneMe3ShinowaReal *)((u8 *)this))->try_spawn_mirages();
-            transition_enemy_state((void*)(((u8 *)this)), (int)(4));
+            transition_enemy_state((void*)(((u8 *)this)), 4);
         }
         return;
     case 0:

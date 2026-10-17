@@ -86,11 +86,11 @@ s32 TWindowSubTechnique::open_menu() {
     TWindowSubEquip__sub_80263AF8((u8 *)(*(s32 *)&this->m_30), 0);
     set_field_1c__6TLobbyFf(titled_window_menu);
     ((TWindowSubComCardList *)titled_window_menu)->set_flag70_bit100();
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)(get_message_10__20TWindowSubStatusDispFl(0x9C)), (int)(6), (int)(0));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)(get_message_10__20TWindowSubStatusDispFl(0x9D)), (int)(6), (int)(1));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)(get_message_10__20TWindowSubStatusDispFl(0x9E)), (int)(6), (int)(2));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)(get_message_10__20TWindowSubStatusDispFl(0x9F)), (int)(6), (int)(3));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)(get_message_10__20TWindowSubStatusDispFl(0xA0)), (int)(6), (int)(4));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)(get_message_10__20TWindowSubStatusDispFl(0x9C)), 6, 0);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)(get_message_10__20TWindowSubStatusDispFl(0x9D)), 6, 1);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)(get_message_10__20TWindowSubStatusDispFl(0x9E)), 6, 2);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)(get_message_10__20TWindowSubStatusDispFl(0x9F)), 6, 3);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)(get_message_10__20TWindowSubStatusDispFl(0xA0)), 6, 4);
     ((TWindowSubComCardList *)titled_window_menu)->set_flag70_bit10();
     ((TWindowSubComCardList *)titled_window_menu)->update_layout_height(lbl_805DD838);
     align_menu_entry_positions(titled_window_menu);
@@ -117,20 +117,20 @@ void TWindowSubTechnique::update_selected_help(s32 arg1) {
       *(s16 *)&this->m_1e = (s16) tech;
       if (((s16) tech) == 0x13)
       {
-        send_and_handle__6TLobbyFii((int) (*(s32 *)&this->m_3c), (void *) (&lbl_805DD83C), (int) 0x82);
+        send_and_handle__6TLobbyFii((int) (*(s32 *)&this->m_3c), (void *) (&lbl_805DD83C), 0x82);
         return;
       }
       text_builder_reset();
       if ((((s16) tech) != 0x11) && (((s16) tech) != 0xE))
       {
         cast_technique_level = get_cast_technique_level((void *) (player + 0x428), (int) tech);
-        text_builder_append((u8 *)((int) TWindowSubTechnique__sub_8028753C((s32)((int) 0x13))));
+        text_builder_append((u8 *)((int) TWindowSubTechnique__sub_8028753C(0x13)));
         TWindowSubStatusDisp__sub_80228F5C((((u8) cast_technique_level) + 1));
       }
-      text_builder_append((u8 *)((int) get_help_text_string((s32)((int) 0x2E))));
+      text_builder_append((u8 *)((int) get_help_text_string(0x2E)));
       TWindowSubStatusDisp__sub_80228F5C(((s32) (*((s16 *) (((s8 *) calc_technique_parameters((s16) tech, (u8) cast_technique_level, 0xFFFF)) + 0x10)))));
       text_builder_append((u8 *)((int) TWindowSubTechnique__sub_8028753C((s32)((int) ((s32) ((s16) tech))))));
-      send_and_handle__6TLobbyFii((int) (*(s32 *)&this->m_3c), (void *) get_shared_text_buffer(), (int) 0x82);
+      send_and_handle__6TLobbyFii((int) (*(s32 *)&this->m_3c), (void *) get_shared_text_buffer(), 0x82);
     }
   }
 }

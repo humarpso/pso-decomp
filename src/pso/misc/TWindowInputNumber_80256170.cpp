@@ -167,38 +167,38 @@ void TWindowInputNumber::run_task() {
     if ((((TWindowInputNumber *)arg0)->is_confirmed() == 0) && !(*(u16 *)((s8 *)arg0 + 0x60) & 0x40) && (((TUnk_804CE018 *)arg0)->sub_80244994() != 0)) {
         if (*(u16 *)((s8 *)arg0 + 0x60) & 0x10) {
             input = (u8 *)controller_input_state + (temp_r30 * 0x50) + 0x20;
-            if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), (s32)((int) (0x10)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x10)) != 0)) {
+            if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), 0x10, 6, 1) != 0) || (((TWindowInputNumber *)arg0)->is_locked(0x10) != 0)) {
                 ((TWindowInputNumber *)arg0)->update_value();
             }
-            if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), (s32)((int) (0x20)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x20)) != 0)) {
+            if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), 0x20, 6, 1) != 0) || (((TWindowInputNumber *)arg0)->is_locked(0x20) != 0)) {
                 ((TWindowInputNumber *)arg0)->update();
             }
-            if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), (s32)((int) (0x40)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x40)) != 0)) {
+            if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), 0x40, 6, 1) != 0) || (((TWindowInputNumber *)arg0)->is_locked(0x40) != 0)) {
                 ((TWindowInputNumber *)arg0)->move_cursor_next();
             }
-            if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), (s32)((int) (0x80)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x80)) != 0)) {
+            if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), 0x80, 6, 1) != 0) || (((TWindowInputNumber *)arg0)->is_locked(0x80) != 0)) {
                 ((TWindowInputNumber *)arg0)->handle_decrement();
             }
         } else {
             temp_r29_2 = (u8 *)controller_input_state + (temp_r30 * 0x50) + 0x20;
-            if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (temp_r29_2), (int) (0x10), (int) (6), (int) (1)) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x10)) != 0)) {
+            if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (temp_r29_2), 0x10, 6, 1) != 0) || (((TWindowInputNumber *)arg0)->is_locked(0x10) != 0)) {
                 ((TWindowInputNumber *)arg0)->update_value();
             }
-            if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (temp_r29_2), (int) (0x20), (int) (6), (int) (1)) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x20)) != 0)) {
+            if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (temp_r29_2), 0x20, 6, 1) != 0) || (((TWindowInputNumber *)arg0)->is_locked(0x20) != 0)) {
                 ((TWindowInputNumber *)arg0)->update();
             }
-            if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (temp_r29_2), (int) (0x40), (int) (6), (int) (1)) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x40)) != 0)) {
+            if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (temp_r29_2), 0x40, 6, 1) != 0) || (((TWindowInputNumber *)arg0)->is_locked(0x40) != 0)) {
                 ((TWindowInputNumber *)arg0)->move_cursor_next();
             }
-            if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (temp_r29_2), (int) (0x80), (int) (6), (int) (1)) != 0) || (((TWindowInputNumber *)arg0)->is_locked((int) (0x80)) != 0)) {
+            if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (temp_r29_2), 0x80, 6, 1) != 0) || (((TWindowInputNumber *)arg0)->is_locked(0x80) != 0)) {
                 ((TWindowInputNumber *)arg0)->handle_decrement();
             }
         }
         temp_r29_3 = (u8 *)controller_input_state + (temp_r30 * 0x50) + 0x20;
-        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r29_3), (int) (4)) != 0) || (((s32 (*)(void *, int))test_input_flag__18TWindowInputNumberFv)((void *) (arg0), (int) (4)) != 0)) {
+        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r29_3), 4) != 0) || (((s32 (*)(void *, int))test_input_flag__18TWindowInputNumberFv)((void *) (arg0), 4) != 0)) {
             ((TWindowInputNumber *)arg0)->confirm_input();
         }
-        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r29_3), (int) (2)) != 0) || (((s32 (*)(void *, int))test_input_flag__18TWindowInputNumberFv)((void *) (arg0), (int) (2)) != 0)) {
+        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r29_3), 2) != 0) || (((s32 (*)(void *, int))test_input_flag__18TWindowInputNumberFv)((void *) (arg0), 2) != 0)) {
             ((TWindowInputNumber *)arg0)->mark_confirmed();
         }
     }
@@ -260,7 +260,7 @@ s32 TWindowInputNumber::is_locked(s32 arg1) {
     if (*(u16 *)((s8 *)this + 0x60) & 0x20) {
         return 0;
     }
-    return TWindowChoiceSetting::apply_choice((s32)(controller_input_state + 0x160), (s32)arg1, (s32)6, (s32)1);
+    return TWindowChoiceSetting::apply_choice((s32)(controller_input_state + 0x160), (s32)arg1, 6, 1);
 }
 
 }

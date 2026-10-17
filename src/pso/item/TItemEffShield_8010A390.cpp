@@ -148,7 +148,7 @@ void TItemEffShield::spawn_recipe_particles() {
     temp_r5 = *((s32 *) (((s8 *) (*((s32 *) (((s8 *) arg0) + 0x34)))) + var_r31));
     if (temp_r5 != (-1))
     {
-      create_oneshot_particle_emitter((arg0 + 0x1C), (arg0 + 0x28), temp_r5, (int) 4);
+      create_oneshot_particle_emitter((arg0 + 0x1C), (arg0 + 0x28), temp_r5, 4);
     }
     var_r30 += 1;
     var_r31 += 4;

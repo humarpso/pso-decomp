@@ -23,7 +23,7 @@ void TBoss6Type2::render_body_effects() {
     TObjPlayer::toggle_particle_effect();
     push_matrix();
     post_translate_matrix((void *) (((u8 *)this) + 0x38));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)&this->m_60));
+    rotate_matrix_y(0, (int) (*(s32 *)&this->m_60));
     var_r31 = 0;
     if ((TBoss6Type2__data_805DE410 == *(f32 *)&this->_pad41C) || (TBoss6Type2__data_805DE40C == *(f32 *)&this->_pad41C)) {
         var_r31 = 1;

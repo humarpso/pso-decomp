@@ -352,8 +352,8 @@ void vt4__13TBoss6MagMineFv(void* p) { spawn_particle_effect_with_flags(((char*)
 
 void vt3__13TBoss6MagMineFv(s32 arg0) {
     explode__13TBoss6MagMineFPv((Mine_80368C14 *)(arg0));
-    spawn_particle_effect_with_flags((void *)(arg0 + 0x38), (0xFB), (0x40));
-    spawn_particle_effect_with_flags((void *)(arg0 + 0x38), (0xFC), (0x40));
+    spawn_particle_effect_with_flags((void *)(arg0 + 0x38), 0xFB, 0x40);
+    spawn_particle_effect_with_flags((void *)(arg0 + 0x38), 0xFC, 0x40);
     TBoss6PlotFalz::apply_radial_effect_to_players((void *)(arg0 + 0x38), (s16)0xC0, (s16)0xF, (f32)100.0f);
     queue_destruction__7TObjectFv((void *)(arg0));
 }

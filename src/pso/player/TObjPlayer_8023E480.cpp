@@ -75,7 +75,7 @@ s32 TLobby__sub_8023E554(s32 arg0, s32 arg1) {
         ((TLobby *)a)->close_adxf_handle();
         b = xmalloc__FUl((s32)(b << 11));
         if (read_disc_file(texture_prs_disc_filename_buffer, b) != -1) {
-            c = xmalloc__FUl((s32)(0x200000));
+            c = xmalloc__FUl(0x200000);
             prs_decompress_buffer(b, c);
             load_gvm_texture_archive(c, arg1);
             xfree__FPv(c);
@@ -94,7 +94,7 @@ s32 bind_gvm_texture_list(s32 name, List_8023E638 *arg1) {
     if (name == 0 || arg1 == NULL) {
         return 0;
     }
-    memset((s32)(lbl_805D63C0), (s32)(0), (s32)(0x1800));
+    memset((s32)(lbl_805D63C0), 0, 0x1800);
     TObjPlayer__sub_803DD5E8(m_texture_list, lbl_805D63C0, lbl_805D63C4, 0x200);
     if (TLobby::load_texture_pvm_file((const char *)name, (s32)m_texture_list) == -1) {
         return 0;

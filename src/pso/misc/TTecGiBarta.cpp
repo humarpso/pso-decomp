@@ -249,7 +249,7 @@ void TTecGiBarta::create_particles() {
                 ((TObjPlayer *)emitter)->set_position_xy(TTecGiBarta__emitter_profile_table[shot->band].rows[i].scale, TTecGiBarta__emitter_profile_table[shot->band].rows[i].scale);
             }
             if (TTecGiBarta__emitter_profile_table[shot->band].rows[i].flags & 0x20) {
-                attach_particle_model((u8 *)emitter, (s32)(get_bml_model(technique_effect_bml, (u16)(TTecGiBarta__emitter_profile_table[shot->band].rows[i].flags >> 16))), (s32)lbl_805D63B0, (s32)NULL, (s32)(0), (f32)lbl_805DC804);
+                attach_particle_model((u8 *)emitter, (s32)(get_bml_model(technique_effect_bml, (u16)(TTecGiBarta__emitter_profile_table[shot->band].rows[i].flags >> 16))), (s32)lbl_805D63B0, (s32)NULL, 0, (f32)lbl_805DC804);
             }
         }
         shot->emitters[i] = emitter;
@@ -263,19 +263,19 @@ void TTecGiBarta::create_particles() {
         if (src != NULL) {
             emitter = spawn_particle_effect(src + 0x38, 0x18B);
             if (emitter != NULL) {
-                attach_particle_model((u8 *)emitter, (s32)(get_bml_model(technique_effect_bml, 6)), (s32)lbl_805D63B0, (s32)(get_bml_motion(technique_effect_bml, 2)), (s32)(0), (f32)lbl_805DC804);
+                attach_particle_model((u8 *)emitter, (s32)(get_bml_model(technique_effect_bml, 6)), (s32)lbl_805D63B0, (s32)(get_bml_motion(technique_effect_bml, 2)), 0, (f32)lbl_805DC804);
             }
             emitter = create_timed_particle_emitter(src + 0x38, 0x18B, 5, 1);
             if (emitter != NULL) {
-                attach_particle_model((u8 *)emitter, (s32)(get_bml_model(technique_effect_bml, 7)), (s32)lbl_805D63B0, (s32)(get_bml_motion(technique_effect_bml, 2)), (s32)(0), (f32)lbl_805DC804);
+                attach_particle_model((u8 *)emitter, (s32)(get_bml_model(technique_effect_bml, 7)), (s32)lbl_805D63B0, (s32)(get_bml_motion(technique_effect_bml, 2)), 0, (f32)lbl_805DC804);
             }
             emitter = create_timed_particle_emitter(src + 0x38, 0x18B, 10, 1);
             if (emitter != NULL) {
-                attach_particle_model((u8 *)emitter, (s32)(get_bml_model(technique_effect_bml, 8)), (s32)lbl_805D63B0, (s32)(get_bml_motion(technique_effect_bml, 2)), (s32)(0), (f32)lbl_805DC804);
+                attach_particle_model((u8 *)emitter, (s32)(get_bml_model(technique_effect_bml, 8)), (s32)lbl_805D63B0, (s32)(get_bml_motion(technique_effect_bml, 2)), 0, (f32)lbl_805DC804);
             }
             emitter = create_timed_particle_emitter(src + 0x38, 0x18F, 20, 1);
             if (emitter != NULL) {
-                attach_particle_model((u8 *)emitter, (s32)(get_bml_model(technique_effect_bml, 5)), (s32)lbl_805D63B0, (s32)NULL, (s32)(0), (f32)lbl_805DC804);
+                attach_particle_model((u8 *)emitter, (s32)(get_bml_model(technique_effect_bml, 5)), (s32)lbl_805D63B0, (s32)NULL, 0, (f32)lbl_805DC804);
             }
         }
     }
@@ -290,7 +290,7 @@ typedef char RecoveredGlobal_802308A0_lbl_804CC55C_size[((sizeof(RecoveredGlobal
 void TTecGiBarta::calc_params() {
     u8 *arg0 = (u8 *)this;
   s32 new_var;
-  new_var = calc_technique_parameters((int) 4, (int) ((RecoveredFields_802308A0_arg0 *) arg0)->field_C4, (int) 0xFFFF);
+  new_var = calc_technique_parameters(4, (int) ((RecoveredFields_802308A0_arg0 *) arg0)->field_C4, 0xFFFF);
   ((TTecAnti *)(arg0 + 0xCC))->copy_params((u8 *)new_var);
   if ((((s16) ((RecoveredFields_802308A0_arg0 *) arg0)->field_C4) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {

@@ -84,7 +84,7 @@ void TObjEneDf2Bringer::vfunc_105() {
         TObjFish::set_global_param((s32)(self->texlist));
         push_matrix();
         post_translate_matrix(self->pos);
-        rotate_matrix_y((s32)(0), (s32)(self->f60));
+        rotate_matrix_y(0, (s32)(self->f60));
         i = (s32)self->animIdx;
         if (i < 0) {
             i = 0;

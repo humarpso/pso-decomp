@@ -291,10 +291,10 @@ u8 *TBoss6Kakusan__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4, f32 farg
     if (((TBoss6Kakusan *)arg0)->m_28< TBoss6Kakusan__data_805DF518) {
         ((TBoss6Kakusan *)arg0)->m_28 = (f32) TBoss6Kakusan__data_805DF518;
     }
-    ((TBoss6Kakusan *)arg0)->m_54 = (u32)create_particle_emitter((arg0 + 0x30), (0x214));
+    ((TBoss6Kakusan *)arg0)->m_54 = (u32)create_particle_emitter((arg0 + 0x30), 0x214);
     temp_r3 = ((TBoss6Kakusan *)arg0)->m_54;
     if (temp_r3 != 0U) {
-        ((TBoss4Type2 *)temp_r3)->set_flags((int) (0x40));
+        ((TBoss4Type2 *)temp_r3)->set_flags(0x40);
     }
     *(s32 *)&((TBoss6Kakusan *)arg0)->m_2c = 0;
     return arg0;

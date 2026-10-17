@@ -61,25 +61,25 @@ void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0) {
     s32 temp_r3;
 
     TBoss6GravBall__sub_803233AC();
-    play_persistent_sound((int) (0x4003C418), (void *) (arg0), (void *) (arg0 + 0xC8), (int) (0), (int) (0));
+    play_persistent_sound(0x4003C418, (void *) (arg0), (void *) (arg0 + 0xC8), 0, 0);
     temp_r0 = *(s32 *)((s8 *)arg0 + 0xB8);
     if (temp_r0 >= 0x96) {
         if (temp_r0 == 0x96) {
-            create_emitter__14TBoss6GravBallFl((void *) (arg0), (int) (3));
+            create_emitter__14TBoss6GravBallFl((void *) (arg0), 3);
         }
     } else if (temp_r0 > 0x4B) {
         temp_r0_2 = temp_r0 & 0xF;
         if (temp_r0_2 == 0) {
-            create_emitter__14TBoss6GravBallFl((void *) (arg0), (int) (3));
+            create_emitter__14TBoss6GravBallFl((void *) (arg0), 3);
         } else if (temp_r0_2 == 0xE) {
-            destroy_part__14TBoss6GravBallFl((void *) (arg0), (int) (3));
+            destroy_part__14TBoss6GravBallFl((void *) (arg0), 3);
         }
     } else {
         temp_r0_3 = temp_r0 & 0xF;
         if (temp_r0_3 == 0) {
-            create_emitter__14TBoss6GravBallFl((void *) (arg0), (int) (3));
+            create_emitter__14TBoss6GravBallFl((void *) (arg0), 3);
         } else if (temp_r0_3 == 0xA) {
-            destroy_part__14TBoss6GravBallFl((void *) (arg0), (int) (3));
+            destroy_part__14TBoss6GravBallFl((void *) (arg0), 3);
         }
     }
     *(s32 *)((s8 *)arg0 + 0xB8) = (s32) (*(s32 *)((s8 *)arg0 + 0xB8) + 1);
@@ -92,26 +92,26 @@ void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0) {
         return;
     case 31:
         if ((s32) *(s32 *)((s8 *)arg0 + 0xC4) == 0) {
-            spawn_particle_effect((arg0 + 0xC8), (0x21C));
-            spawn_particle_effect((arg0 + 0xC8), (0x21D));
+            spawn_particle_effect((arg0 + 0xC8), 0x21C);
+            spawn_particle_effect((arg0 + 0xC8), 0x21D);
             *(s32 *)((s8 *)arg0 + 0xC4) = 1;
         }
-        destroy_part__14TBoss6GravBallFl((void *) (arg0), (int) (5));
-        destroy_part__14TBoss6GravBallFl((void *) (arg0), (int) (6));
-        destroy_part__14TBoss6GravBallFl((void *) (arg0), (int) (7));
-        destroy_part__14TBoss6GravBallFl((void *) (arg0), (int) (8));
+        destroy_part__14TBoss6GravBallFl((void *) (arg0), 5);
+        destroy_part__14TBoss6GravBallFl((void *) (arg0), 6);
+        destroy_part__14TBoss6GravBallFl((void *) (arg0), 7);
+        destroy_part__14TBoss6GravBallFl((void *) (arg0), 8);
         return;
     case 32:
-        destroy_part__14TBoss6GravBallFl((void *) (arg0), (int) (4));
-        destroy_part__14TBoss6GravBallFl((void *) (arg0), (int) (3));
-        destroy_part__14TBoss6GravBallFl((void *) (arg0), (int) (5));
-        destroy_part__14TBoss6GravBallFl((void *) (arg0), (int) (6));
-        destroy_part__14TBoss6GravBallFl((void *) (arg0), (int) (7));
-        destroy_part__14TBoss6GravBallFl((void *) (arg0), (int) (8));
+        destroy_part__14TBoss6GravBallFl((void *) (arg0), 4);
+        destroy_part__14TBoss6GravBallFl((void *) (arg0), 3);
+        destroy_part__14TBoss6GravBallFl((void *) (arg0), 5);
+        destroy_part__14TBoss6GravBallFl((void *) (arg0), 6);
+        destroy_part__14TBoss6GravBallFl((void *) (arg0), 7);
+        destroy_part__14TBoss6GravBallFl((void *) (arg0), 8);
         *(s32 *)((s8 *)arg0 + 0xB4) = 0;
         clear_player_grav_flags__14TBoss6GravBallFv((void *)((void *) (arg0)));
         *(s32 *)((s8 *)arg0 + 0xB0) = 2;
-        play_sound_effect((int) (0x4003C417), (void *) (arg0 + 0xC8), (int) (0), (int) (0));
+        play_sound_effect(0x4003C417, (void *) (arg0 + 0xC8), 0, 0);
         return;
     default:
         queue_destruction__7TObjectFv((arg0));
@@ -129,7 +129,7 @@ void update_state__14TBoss6GravBallFPv(u8 *arg0) {
     }
     fn_80323134((void *) (arg0));
     if (temp_r3 != 0) {
-        create_emitter__14TBoss6GravBallFl((void *) (arg0), (int) (2));
+        create_emitter__14TBoss6GravBallFl((void *) (arg0), 2);
         temp_f2 = *(f32 *)((s8 *)arg0 + 0xBC);
         if (temp_f2 < lbl_805DF568) {
             *(f32 *)((s8 *)arg0 + 0xBC) = (f32) (temp_f2 + lbl_805DF578);
@@ -138,7 +138,7 @@ void update_state__14TBoss6GravBallFPv(u8 *arg0) {
             }
         }
         TBoss6GravBall__sub_80323544((arg0));
-        play_persistent_sound((int) (0x4003B51A), (void *) (arg0), (void *) (arg0 + 0xC8), (int) (0), (int) (0));
+        play_persistent_sound(0x4003B51A, (void *) (arg0), (void *) (arg0 + 0xC8), 0, 0);
         switch (get_state__14TBoss6GravBallFv((int) (*(s32 *)((s8 *)arg0 + 0xAC)))) {
         case 0x27:
             return;
@@ -146,14 +146,14 @@ void update_state__14TBoss6GravBallFPv(u8 *arg0) {
             break;
         case 0x1E:
         case 0x1F:
-            destroy_part__14TBoss6GravBallFl((void *) (arg0), (int) (0));
-            destroy_part__14TBoss6GravBallFl((void *) (arg0), (int) (1));
-            destroy_part__14TBoss6GravBallFl((void *) (arg0), (int) (2));
-            TBoss6GravBall__sub_80323214((void *) (arg0), (int) (4));
+            destroy_part__14TBoss6GravBallFl((void *) (arg0), 0);
+            destroy_part__14TBoss6GravBallFl((void *) (arg0), 1);
+            destroy_part__14TBoss6GravBallFl((void *) (arg0), 2);
+            TBoss6GravBall__sub_80323214((void *) (arg0), 4);
             *(s32 *)((s8 *)arg0 + 0xB8) = 0;
             *(s32 *)((s8 *)arg0 + 0xB4) = 0;
             *(s32 *)((s8 *)arg0 + 0xB0) = 1;
-            play_sound_effect((int) (0x4003B516), (void *) (arg0 + 0xC8), (int) (0), (int) (0));
+            play_sound_effect(0x4003B516, (void *) (arg0 + 0xC8), 0, 0);
             break;
         case 0x20:
         default:

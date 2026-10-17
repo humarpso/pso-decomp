@@ -306,7 +306,7 @@ typedef char RecoveredGlobal_8024F5B0_lbl_804CF020_size[sizeof(RecoveredGlobal_8
 u8 *TWindowDuelResult__ct(u8 *arg0_, s16 arg1) {
     u8 *temp_r3;
     u8 *var_r0;
-    construct_base__9TWindowDDFPUcsPUc((void *) (arg0_), (void *) (&__vt__17TWindowDuelResult.value), (void *) (arg1), (int) (get_window_layout_position((int) (0x24))));
+    construct_base__9TWindowDDFPUcsPUc((void *) (arg0_), (void *) (&__vt__17TWindowDuelResult.value), (void *) (arg1), (int) (get_window_layout_position(0x24)));
     *(s32 **)((s8 *)arg0_ + 0x18) = &(*(RecoveredGlobal_8024F5B0_lbl_804CF020 *)lbl_804CF020).value;
     *(s32 *)((s8 *)arg0_ + 0) = (s32) lbl_805D38F0;
     temp_r3 = (u8 *)(((TAdSinglePlyChrSelectGC *)((void *)0xC))->alloc());

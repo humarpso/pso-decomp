@@ -129,13 +129,13 @@ extern "C" {
 #define self ((Obj_80243968 *)arg0)
 void TWindowActionPalette::update_slot_icon(void *arg0, int idx, int mode, int slot) {
     if (((u32 (*)(int))get_player_by_client_id)(self->id) != 0) {
-        Ent_80243968 *ent = (Ent_80243968 *)((void *)get_array_entry__13TUnk_804CE018Fi((TWindowActionPalette*)(self), (int)(4)));
+        Ent_80243968 *ent = (Ent_80243968 *)((void *)get_array_entry__13TUnk_804CE018Fi((TWindowActionPalette*)(self), 4));
         if (TObjPlayer__sub_80354C7C((u16)self->id) != 0) {
             ent->color = -1;
         } else {
             ent->color = 0xFF404040;
         }
-        ((TWindowHelpItem *)((void *)get_array_entry__13TUnk_804CE018Fi((TWindowActionPalette*)(self), (int)(5))))->set_flag0_bit2();
+        ((TWindowHelpItem *)((void *)get_array_entry__13TUnk_804CE018Fi((TWindowActionPalette*)(self), 5)))->set_flag0_bit2();
         void *cur = &self->cur[idx];
         if ((u16)mode != ((TMainCursor *)cur)->get_type() || ((TMainCursor *)cur)->get_enabled() != (u16)slot) {
             ((TWindowActionPalette *)cur)->set_mode(mode);
@@ -279,7 +279,7 @@ void run_task__20TWindowActionPaletteFv(u8 *arg0) {
         ((TWindowActionPalette *)arg0)->update_slot_sprites(0, 7, v);
     }
     if (TObjPlayer__sub_80354D5C((u16)((TWindowActionPalette *)arg0)->m_20) != 0 && ((TWindowActionPalette *)(player + 0x500))->handle_input_forward() != 0) {
-        TWindowActionPalette::update_slot_icon((void *)(arg0), (int)(1), (int)(7), (int)(7));
+        TWindowActionPalette::update_slot_icon((void *)(arg0), 1, 7, 7);
     } else {
         v = get_entry_by_index__20TWindowActionPaletteFPll(effect, 2);
         ((TWindowActionPalette *)arg0)->update_slot_sprites(1, get_slot_type_for_index__20TWindowActionPaletteFPll(effect, 2), v);

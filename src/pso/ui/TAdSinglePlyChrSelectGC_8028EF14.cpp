@@ -1117,7 +1117,7 @@ u8 *TAdSinglePlyChrSelectGC__sub_802908CC(u8 *arg0, s16 arg1) {
             }
         }
         ((TAdSinglePlyChrSelectGC *)arg0)->free_field_FC();
-        TLobby__sub_8001FE7C((void *) (chara_select_preview_resource), (int) (1));
+        TLobby__sub_8001FE7C((void *) (chara_select_preview_resource), 1);
         chara_select_preview_resource = 0;
         TAdSinglePlyChrSelectGC__sub_802905D4((void *) (arg0));
         (*(s32 *)&chara_select_head_node) = 0;
@@ -1129,7 +1129,7 @@ u8 *TAdSinglePlyChrSelectGC__sub_802908CC(u8 *arg0, s16 arg1) {
         creation_figure_object = 0;
         lbl_805D49B4 = 0;
         char_creation_figure_draw_flag = 0;
-        __dt__10TObjMotionFv((arg0), (0));
+        __dt__10TObjMotionFv((arg0), 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }

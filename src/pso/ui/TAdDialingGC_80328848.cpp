@@ -19,25 +19,25 @@ void TAdDialingGC::update_status_message() {
     Obj_80328874 *arg0 = (Obj_80328874 *)this;
     switch (arg0->state) {
     case 11:
-        TAdDialingGC::update_dialing_display((int)(0x11));
+        TAdDialingGC::update_dialing_display(0x11);
         return;
     case 12:
-        TAdDialingGC::update_dialing_display((int)(0x12));
+        TAdDialingGC::update_dialing_display(0x12);
         return;
     case 13:
-        TAdDialingGC::update_dialing_display((int)(0x13));
+        TAdDialingGC::update_dialing_display(0x13);
         return;
     case 14:
         refresh_display__12TAdDialingGCFv(arg0);
         return;
     case 8:
-        TAdDialingGC::update_dialing_display((int)(0xF));
+        TAdDialingGC::update_dialing_display(0xF);
         return;
     case 15:
-        TAdDialingGC::update_dialing_display((int)(0x16));
+        TAdDialingGC::update_dialing_display(0x16);
         return;
     default:
-        TAdDialingGC::update_dialing_display((int)(0x10));
+        TAdDialingGC::update_dialing_display(0x10);
         return;
     }
 }

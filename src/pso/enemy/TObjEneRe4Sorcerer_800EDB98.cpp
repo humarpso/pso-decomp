@@ -1321,13 +1321,13 @@ void render__18TObjEneRe4SorcererFv(u8 *arg0) {
     }
     if (var_r28 != 0) {
         if (*(s32 *)((s8 *)arg0 + 0x3C8) & 0x10) {
-            update_player_state__9TObjEneDDFv((void *) (arg0), (int) (0), (int) (0));
+            update_player_state__9TObjEneDDFv((void *) (arg0), 0, 0);
         }
         ((TObjEneDD *)arg0)->update_secondary_light();
         TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         lbl_805D5660 = model_render_flags;
         TObjEneDD::clear_global_flag_400();
-        scroll_strip_uvs((int) ((*(s32 *)&TObjEneRe4Sorcerer__uv_scroll_buffer)), (int) (*(s16 *)((s8 *)arg0 + 0x3C0)), (int) (0));
+        scroll_strip_uvs((int) ((*(s32 *)&TObjEneRe4Sorcerer__uv_scroll_buffer)), (int) (*(s16 *)((s8 *)arg0 + 0x3C0)), 0);
         model_render_flags |= 0x20000;
         TObjEneRe4Sorcerer__sub_801E3F1C((f32) ((*(f32 *)&TObjEneRe4Sorcerer__data_805DA790)), (f32) (*(f32 *)((s8 *)arg0 + 0x3C4)));
         TObjPlayer::toggle_particle_effect();
@@ -1346,8 +1346,8 @@ void render__18TObjEneRe4SorcererFv(u8 *arg0) {
         if (var_r27 != 0) {
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
-            translate_matrix((int) (0), (f32) ((*(f32 *)&TObjEneRe4Sorcerer__data_805DA790)), (f32) ((*(f32 *)&TObjEneRe4Sorcerer__data_805DA794)), (f32) ((*(f32 *)&TObjEneRe4Sorcerer__data_805DA790)));
-            rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+            translate_matrix(0, (f32) ((*(f32 *)&TObjEneRe4Sorcerer__data_805DA790)), (f32) ((*(f32 *)&TObjEneRe4Sorcerer__data_805DA794)), (f32) ((*(f32 *)&TObjEneRe4Sorcerer__data_805DA790)));
+            rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x60)));
             TObjEneRe4Sorcerer__render_node_index = 0;
             TObjEneRe4Sorcerer__saved_render_flags = 0;
             TObjEneRe4Sorcerer__effect_render_scale = *(f32 *)((s8 *)arg0 + 0x3F8);
@@ -1412,12 +1412,12 @@ void TObjEneRe4Sorcerer::handle_death_state(s32 arg1) {
         ((TObjPlayer *)(arg0 + 0x2FC))->request_two_effects();
         TObjPlayer__sub_800A04F0((void *) (arg0 + 0x3FC));
         *(f32 *)((s8 *)arg0 + 0x3F8) = (f32) TObjEneRe4Sorcerer__data_805DA790;
-        play_sound_effect((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) (arg0)), (s32)((int) (0x4003AD19))))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) (arg0)), 0x4003AD19))), (void *) (arg0 + 0x38), 0, 0);
         return;
     case 0:
         advance_animation_playback((void *) (arg0));
         if (((VObj_14_c1c33b *)((u8 *)(arg0) + (1020)))->m4() != 0) {
-            TObjPlayer::apply_effect_variant_b((s32)((void *) (arg0 + 0x38)), (s32)((int) (0)));
+            TObjPlayer::apply_effect_variant_b((s32)((void *) (arg0 + 0x38)), 0);
             queue_destruction__7TObjectFv((arg0));
         }
     case 3:
@@ -1463,7 +1463,7 @@ void TObjEneRe4Sorcerer__sub_800EE1CC(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-        set_field_378__9TObjEneDDFl((void *) (arg0), (int) (3));
+        set_field_378__9TObjEneDDFl((void *) (arg0), 3);
         *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C8) | 0xA);
         *(s32 *)((s8 *)arg0 + 0x4E4) = 0;
         *(s32 *)((s8 *)arg0 + 0x4E8) = 0;
@@ -1471,7 +1471,7 @@ void TObjEneRe4Sorcerer__sub_800EE1CC(u8 *arg0, s32 arg1) {
     case 3:
         if ((s32) *(s32 *)((s8 *)arg0 + 0x4E8) == 5) {
             ((TObjEneRe4Sorcerer *)arg0)->advance_anim_frame();
-            transition_enemy_state((void *) (arg0), (int) (3));
+            transition_enemy_state((void *) (arg0), 3);
         }
         return;
     case 0:
@@ -1515,7 +1515,7 @@ void TObjEneRe4Sorcerer__sub_800EE1CC(u8 *arg0, s32 arg1) {
                 *(s16 *)((s8 *)arg0 + 0xB8) = 4;
                 *(s32 *)((s8 *)arg0 + 0x4E8) = 3;
             }
-            play_persistent_sound((s32)(copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (int) (0x4003A814))), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
+            play_persistent_sound((s32)(copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), 0x4003A814)), (s32)arg0, (u32)(arg0 + 0x38), 0, 0);
             break;
         case 2:
         case 3:
@@ -1691,7 +1691,7 @@ void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-        set_field_378__9TObjEneDDFl((void *)((void *) (arg0)), (s32)((int) (3)));
+        set_field_378__9TObjEneDDFl((void *)((void *) (arg0)), 3);
         *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C8) | 0xA);
         *(s32 *)((s8 *)arg0 + 0x4E4) = 0;
         *(s32 *)((s8 *)arg0 + 0x4E8) = 0;
@@ -1701,7 +1701,7 @@ void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1) {
             ((TObjEneRe4Sorcerer *)arg0)->advance_anim_frame();
             temp_r5 = *(s32 *)((s8 *)arg0 + 0x3EC);
             *(s32 *)((s8 *)arg0 + 0x3EC) = (s32) (temp_r5 + 1);
-            transition_enemy_state((void *) (arg0), (int) (3));
+            transition_enemy_state((void *) (arg0), 3);
         }
         return;
     case 0:
@@ -1975,7 +1975,7 @@ void TObjEneRe4Sorcerer__sub_800EEFE4(u8 *arg0, s32 arg1) {
   switch (arg1)
   {
     case 4:
-      ((s32)set_field_378__9TObjEneDDFl((void *)((void *) arg0), (s32)((int) 1)));
+      ((s32)set_field_378__9TObjEneDDFl((void *)((void *) arg0), 1));
       VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg0 + 0x50));
       VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x50));
       VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x50));
@@ -1989,7 +1989,7 @@ void TObjEneRe4Sorcerer__sub_800EEFE4(u8 *arg0, s32 arg1) {
       ((TObjEneDD *)arg0)->update_velocity();
       *((s32 *) (((s8 *) arg0) + 0x3F0)) = (s32) (TObjEneRe4Sorcerer__data_8043D408 * (atan2_float(-(*((f32 *) (((s8 *) arg0) + 0x3A0))), -(*((f32 *) (((s8 *) arg0) + 0x3A8))))));
       ((s32 (*)(void *, f32))TObjEneRe4Sorcerer__sub_800EF95C)((void *) arg0, (f32) lbl_805DA7DC);
-      transition_enemy_state((void *)((void *) arg0), (s32)((int) 2));
+      transition_enemy_state((void *)((void *) arg0), 2);
     }
     case 5:
       return;
@@ -2054,16 +2054,16 @@ void TObjEneRe4Sorcerer__vt85(s32 arg0p, u32 arg1, s32 arg1p) {
 }
 
 void TObjEneRe4Sorcerer__sub_800EF214(s32 arg0) {
-    play_persistent_sound((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) (arg0)), (s32)((int) (0x4003A81D)))))), (s32)((void *) (arg0)), (u32)((void *) (arg0 + 0x38)), ((int) (0)), ((int) (0)));
+    play_persistent_sound((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) (arg0)), 0x4003A81D)))), (s32)((void *) (arg0)), (u32)((void *) (arg0 + 0x38)), 0, 0);
 }
 
 void TObjEneRe4Sorcerer::create_effect() {
     u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x3E8) == 0) {
-        play_persistent_sound((s32)(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003A812)), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
+        play_persistent_sound((s32)(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003A812)), (s32)arg0, (u32)(arg0 + 0x38), 0, 0);
         return;
     }
-    play_persistent_sound((s32)(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003AB13)), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
+    play_persistent_sound((s32)(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003AB13)), (s32)arg0, (u32)(arg0 + 0x38), 0, 0);
 }
 
 s32 TObjEneRe4Sorcerer::cast_resta() {
@@ -2142,7 +2142,7 @@ void TObjEneRe4Sorcerer::apply_mylla_effect() {
     u32 entity;
     entity = (u32)find_entity_by_id(*(u16 *)((s8 *)this + 0x3E6));
     if (entity != 0U) {
-        ((TObjEneRe4Sorcerer *)entity)->set_state_flag_and_mode((s32)(2));
+        ((TObjEneRe4Sorcerer *)entity)->set_state_flag_and_mode(2);
     }
 }
 
@@ -2151,12 +2151,12 @@ void TObjEneRe4Sorcerer::set_photon_state() {
     if ((s32) *(s32 *)((s8 *)this + 0x3E8) == 0) {
         entity = (u32)find_entity_by_id(*(u16 *)((s8 *)this + 0x3E4));
         if (entity != 0U) {
-            ((TObjEneRe4Sorcerer *)entity)->set_state_flag_and_mode((s32)(0));
+            ((TObjEneRe4Sorcerer *)entity)->set_state_flag_and_mode(0);
         }
     } else {
         entity = (u32)find_entity_by_id(*(u16 *)((s8 *)this + 0x3E4));
         if (entity != 0U) {
-            ((TObjEneRe4Sorcerer *)entity)->set_state_flag_and_mode((s32)(1));
+            ((TObjEneRe4Sorcerer *)entity)->set_state_flag_and_mode(1);
         }
     }
 }
@@ -2380,7 +2380,7 @@ void TObjEneRe4Sorcerer::vfunc_62() {
     u8 *arg0 = (u8 *)this;
     if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 8) {
         if (!(*(s32 *)((s8 *)arg0 + 0x3C8) & 8)) {
-            ((int (*)(void*, void*))transition_enemy_state)((void*)((void *)(arg0)), (void*)((int) (8)));
+            ((int (*)(void*, void*))transition_enemy_state)((void*)((void *)(arg0)), (void*)(8));
             return;
         }
         ((s32 (*)(void))clear_attack_receipts__9TObjEneDDFv)();
@@ -2459,7 +2459,7 @@ void TObjEneRe4Sorcerer::init_enemy() {
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&sorcerer_bml_resource) + 0x42C)) + 8);
     temp_r6 = (u8 *)(*(u8 **)((s8 *)(*(u8 * *)&sorcerer_bml_resource) + 0x42C));
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)temp_r6 + 0xC);
-    init_model__9TObjEneDDFv((void *) (arg0), (void *) ((void * *)re4_sorcerer_collision_body_part_table), (int) (1), (int) (temp_r6));
+    init_model__9TObjEneDDFv((void *) (arg0), (void *) ((void * *)re4_sorcerer_collision_body_part_table), 1, (int) (temp_r6));
     ((TObjPlayer *)arg0)->set_field_d8((s32)((void *) re4_sorcerer_action_params));
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)(*(u8 * *)&sorcerer_bml_resource) + 0x430)));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
@@ -2468,10 +2468,10 @@ void TObjEneRe4Sorcerer::init_enemy() {
     reset_hp__9TObjEneDDFv((void *) (arg0), (void *) (lbl_805D52D0), (void *) (TObjEneRe4Sorcerer__attack_params), (void *) (TObjEneRe4Sorcerer__resistance_params));
     ((TObjEneDD *)arg0)->set_state_8();
     *(void **)((s8 *)arg0 + 0x350) = (void *) re4_sorcerer_init_params;
-    initialize_enemy_state__9TObjEneDDFv((void *) (arg0), (int) (0x1F));
+    initialize_enemy_state__9TObjEneDDFv((void *) (arg0), 0x1F);
     *(f32 *)((s8 *)arg0 + 0x37C) = (f32) TObjEneRe4Sorcerer__data_805DA78C;
-    ((TObjEneDD_ST *)arg0)->enemy_init_acquire_period((int) (0x1E));
-    ((TObjEneDD_ST *)arg0)->enemy_init_validate_period((int) (0x1E));
+    ((TObjEneDD_ST *)arg0)->enemy_init_acquire_period(0x1E);
+    ((TObjEneDD_ST *)arg0)->enemy_init_validate_period(0x1E);
     ((TObjEneDD_ST *)arg0)->set_active();
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     ((VObj_18_be4a70 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 4);

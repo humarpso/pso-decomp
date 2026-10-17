@@ -40,7 +40,7 @@ void TChCrEffTag::draw_chcr_tag_frame() {
     sp8[0] = b;
     fn_802910A4(0x34, sp10, sp8, lbl_805DDC8C, b, a);
     sp10[0] = arg0->f20;
-    draw_default_sprite__12TChCrEffWallFv((s32)(0x35), (f32 *)(sp10), lbl_805DDC8C);
+    draw_default_sprite__12TChCrEffWallFv(0x35, (f32 *)(sp10), lbl_805DDC8C);
 }
 
 }

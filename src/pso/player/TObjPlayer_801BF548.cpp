@@ -23,7 +23,7 @@ s16 TObjPlayer__sub_801BF57C(void* p) { return *(s16*)((char*)p + 0x0); }
 
 s32 TObjPlayer__sub_801BF584(u8 *arg0) {
     if ((TObjPlayer__sub_801BF5F8((void *)((void *) (arg0)), (s32)((int) (TObjPlayer__sub_801BF60C((u8 *)(arg0))))) != 0) && (TObjPlayer__sub_801BF5F8((void *)((void *) (arg0)), (s32)((int) (*(s32 *)((s8 *)arg0 + 8)))) != 0)) {
-        TObjPlayer__sub_801BF5F0((void*)((void *) (arg0)), (s32)((int) (0x96)));
+        TObjPlayer__sub_801BF5F0((void*)((void *) (arg0)), 0x96);
         return 1;
     }
     return 0;

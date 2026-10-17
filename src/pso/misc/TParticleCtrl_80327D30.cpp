@@ -82,7 +82,7 @@ void TUnk_804ED598::render() {
         TParticleCtrl::setup_particle_draw(1);
         GXSetNumTevStages(2);
         GXSetNumTexGens(2);
-        ((TParticleCtrl *)(o->f40))->play_particle((s32)(0), (s16)(-1));
+        ((TParticleCtrl *)(o->f40))->play_particle(0, (s16)(-1));
         setup_particle_tev(0);
         if (o->f34 != 0) {
             set_depth_buffer_settings_2();
@@ -141,10 +141,10 @@ u8 *create_telepipe_marker(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 a
     ((TUnk_804ED598 *)arg0)->m_30 = arg2;
     *(s8 *)((s8 *)arg0 + 0x31) = arg3;
     ((TUnk_804ED598 *)arg0)->m_34 = arg5;
-    temp_r3 = __nw__7TObjectFUl((int) (0x20));
+    temp_r3 = __nw__7TObjectFUl(0x20);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (s32)construct_indirect_effect_task((u8 *)(temp_r3), (0x1F), (0), (u8 *)(tl_05));
+        var_r0 = (s32)construct_indirect_effect_task((u8 *)(temp_r3), 0x1F, 0, (u8 *)(tl_05));
     }
     *(s32 *)((s8 *)arg0 + 0x40) = var_r0;
     *(s32 *)((s8 *)arg0 + 0x38) = 1;
@@ -172,7 +172,7 @@ void TParticleCtrl::play_particle(s32 arg1, s16 arg2) {
     if (arg2 < 0) {
         arg2 = (s16) *(u8 *)((s8 *)this + 0x1C);
     }
-    TObjPlayer::play_particle_at_active_slot((u8)((u8) arg2), (u8)(*(u8 *)((s8 *)this + 0x1D)), (s32)(0), (s32)(0), (s32)(0), (s32)(1));
+    TObjPlayer::play_particle_at_active_slot((u8)((u8) arg2), (u8)(*(u8 *)((s8 *)this + 0x1D)), 0, 0, 0, 1);
 }
 void *__dt__13TUnk_804ED5B0Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

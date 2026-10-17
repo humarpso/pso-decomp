@@ -37,16 +37,16 @@ s32 TWindowSubQuestBoardSelect::handle_page_input() {
     void *p;
     s8 d;
     if (is_shortcut_active__26TWindowSubQuestBoardSelectFv() == 0 &&
-        (TWindowChoiceSetting::apply_choice((s32)(p = TBL_8027D6A0[0].f20), (s32)0xC0, (s32)6, (s32)1) != 0 ||
-        TWindowChoiceSetting::apply_choice((s32)(TBL_8027D6A0[4].f20), (s32)0xC0, (s32)6, (s32)1) != 0)) {
+        (TWindowChoiceSetting::apply_choice((s32)(p = TBL_8027D6A0[0].f20), 0xC0, 6, 1) != 0 ||
+        TWindowChoiceSetting::apply_choice((s32)(TBL_8027D6A0[4].f20), 0xC0, 6, 1) != 0)) {
         play_sound_effect(0x54100, 0, 0, 0);
         d = 0;
-        if (TWindowChoiceSetting::apply_choice((s32)p, (s32)0x80, (s32)6, (s32)1) != 0 ||
-            TWindowChoiceSetting::apply_choice((s32)(TBL_8027D6A0[4].f20), (s32)0x80, (s32)6, (s32)1) != 0) {
+        if (TWindowChoiceSetting::apply_choice((s32)p, 0x80, 6, 1) != 0 ||
+            TWindowChoiceSetting::apply_choice((s32)(TBL_8027D6A0[4].f20), 0x80, 6, 1) != 0) {
             d = 1;
         }
-        if (TWindowChoiceSetting::apply_choice((s32)p, (s32)0x40, (s32)6, (s32)1) != 0 ||
-            TWindowChoiceSetting::apply_choice((s32)(TBL_8027D6A0[4].f20), (s32)0x40, (s32)6, (s32)1) != 0) {
+        if (TWindowChoiceSetting::apply_choice((s32)p, 0x40, 6, 1) != 0 ||
+            TWindowChoiceSetting::apply_choice((s32)(TBL_8027D6A0[4].f20), 0x40, 6, 1) != 0) {
             d--;
         }
         if (d != 0) {
@@ -80,10 +80,10 @@ void TWindowSubQuestBoardSelect::run_task() {
         ((TWindowSubQuestBoardSelect *)arg0)->select_next();
         handle_page_input();
         temp_r31 = (u8 *)&controller_input_state.value + 0x20;
-        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (4)) != 0)) {
+        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), 4) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 4) != 0)) {
             ((TWindowSubQuestBoardSelect *)arg0)->handle_decide();
         }
-        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
+        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 2) != 0)) {
             ((TWindowSubQuestBoardSelect *)arg0)->handle_cancel();
         }
     }

@@ -471,10 +471,10 @@ void TLockOnCursor::renderSecondaryCursor(u8 *arg1, s32 arg2, s32 arg3) {
                 push_matrix();
                 offset_point_toward_camera((u8 *)(arg1 + 0x1C), (u8 *)(&sp8), (f32) (temp_f31));
                 translate_matrix_vec3((u8 *)(0), (u8 *)(&sp8));
-                rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)camera_ctrl_instance + 0x194)));
+                rotate_matrix_y(0, (int) (*(s32 *)((s8 *)camera_ctrl_instance + 0x194)));
                 TParticleCtrl::begin_effect_render();
                 push_matrix();
-                translate_matrix((0), (f32) (TMainCursor__data_805DB0C0), (f32) (temp_f31), (f32) (TMainCursor__data_805DB0C0));
+                translate_matrix(0, (f32) (TMainCursor__data_805DB0C0), (f32) (temp_f31), (f32) (TMainCursor__data_805DB0C0));
                 TPlyPhotonChair::update_parts2((void *) (arg0 + 0x48));
                 TPlyPhotonChair::play_sound_with_arg((void *) (arg0 + 0x48), (void *) ((u8 *)&target_cursor_color_table.value + 0x50));
                 TMainCursor::get_cursor_state();

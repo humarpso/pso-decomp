@@ -97,7 +97,7 @@ void TItemLoad::lookup_item_data(s32 arg0, s32 *bml_model) {
 
 void TItemLoad::get_item_params(s32 *bml_model, s32 *arg1, s32 *bml_motion) {
     if ((bml_model != NULL) && (arg1 != NULL) && (bml_motion != NULL)) {
-        *bml_model = get_bml_model((s32)(TItemLoad__bml_resource), (s32)(1));
+        *bml_model = get_bml_model((s32)(TItemLoad__bml_resource), 1);
         *arg1 = TObjFish__sub_8001EDB0(TItemLoad__bml_resource, 0);
         *bml_motion = get_bml_motion(TItemLoad__bml_resource, 0);
     }

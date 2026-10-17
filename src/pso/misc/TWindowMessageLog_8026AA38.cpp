@@ -77,7 +77,7 @@ u8 *TWindowMessageLog__ct(u8 *arg0, s32 arg1, s32 arg2) {
     f32 temp_f2;
     s32 temp_r3;
     s32 var_r0;
-    TWindowMessage__ct((arg0), (arg1), (0x1E), (arg2));
+    TWindowMessage__ct((arg0), (arg1), 0x1E, (arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8026ABA8___vt__17TWindowMessageLog *)&__vt__17TWindowMessageLog).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3990;
     TWindowCtrl__sub_8026AD78((s32)(arg0));
@@ -85,7 +85,7 @@ u8 *TWindowMessageLog__ct(u8 *arg0, s32 arg1, s32 arg2) {
     temp_f1 = temp_f2 - lbl_805DD258;
     stack.spC = lbl_805DD240;
     stack.sp8 = temp_f1;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv((int) (0xC), (f32) (temp_f1), (f32) (temp_f2));
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFv(0xC, (f32) (temp_f1), (f32) (temp_f2));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = reset_selection__20TWindowSubStatusDispFv((int) (temp_r3), (void *) (&stack.sp8));

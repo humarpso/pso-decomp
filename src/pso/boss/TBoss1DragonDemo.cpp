@@ -64,8 +64,8 @@ u8 *__ct__16TBoss1DragonDemoFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
         stack.spA = 0;
         stack.spC = *(f32 *)((s8 *)arg0 + 0x20);
         stack.sp10 = *(f32 *)((s8 *)arg0 + 0x1C);
-        activate_camera_mode((5));
-        ((TCameraCtrl *)(&stack.sp8))->cache_target_and_forward((int) (0x238E));
+        activate_camera_mode(5);
+        ((TCameraCtrl *)(&stack.sp8))->cache_target_and_forward(0x238E);
         break;
     case 1:
         stack.sp8 = 1;
@@ -73,8 +73,8 @@ u8 *__ct__16TBoss1DragonDemoFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
         stack.spA = 0;
         stack.spC = *(f32 *)((s8 *)arg0 + 0x20);
         stack.sp10 = *(f32 *)((s8 *)arg0 + 0x1C);
-        activate_camera_mode((5));
-        ((TCameraCtrl *)(&stack.sp8))->cache_target_and_forward((int) (0x3333));
+        activate_camera_mode(5);
+        ((TCameraCtrl *)(&stack.sp8))->cache_target_and_forward(0x3333);
         break;
     }
     return arg0;

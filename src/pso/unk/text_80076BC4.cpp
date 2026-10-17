@@ -28,7 +28,7 @@ void submit_chat_text(u8 *arg0) {
             Tag_80076BC8 tmp = *(Tag_80076BC8 *)&TPlyGuildCardTag(0, 0);
             send_chat__9TProtocolFR16TPlyGuildCardTagPc(TLobby__protocol_instance, (TPlyGuildCardTag *)&tmp, arg0);
         } else {
-            TWindowCtrl::open((s32)(obj_getField1c(player)), (s32)arg0, (s32)0xCB);
+            TWindowCtrl::open((s32)(obj_getField1c(player)), (s32)arg0, 0xCB);
         }
     }
 }

@@ -227,7 +227,7 @@ s32 TObjPlayer__sub_803D9E38(s32 *arg0, u32 arg1, s32 *arg2, u32 *arg3) {
         *(s32 *)((s8 *)arg2 + 0) = *(s32 *)((s8 *)(*(s32 **)((s8 *)temp_r29 + 0xC)) + 0);
         record_index = TObjPlayer::find_record_index((int) (*(s32 *)((s8 *)arg2 + 0)), (int) (*(u32 *)((s8 *)arg3 + 0)));
         if (record_index < 0) {
-            if (find_free_slot__10TObjPlayerFPvPv((void *) (&sp8), (int) (0)) < 0) {
+            if (find_free_slot__10TObjPlayerFPvPv((void *) (&sp8), 0) < 0) {
                 return -1;
             }
             *(s32 *)((s8 *)temp_r31 + 8) = sp8;

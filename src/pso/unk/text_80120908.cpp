@@ -77,10 +77,10 @@ s32 draw_weapon_model(void *arg0) {
             set_model_fade_alpha__10TObjPlayerFf();
             if (((TItemWeapon *)arg0)->is_flag_400() != 0) {
                 model_render_flags |= 0x8011;
-                set_color_blend_mode((1), (4), (5), (0));
+                set_color_blend_mode(1, 4, 5, 0);
                 set_shadow_material_state();
                 if ((u32) *(u32 *)((s8 *)arg0 + 0x17C) == 0U) {
-                    if (((TItemWeapon *)arg0)->test_flags_1b8((int) (0x800000)) != 0U) {
+                    if (((TItemWeapon *)arg0)->test_flags_1b8(0x800000) != 0U) {
                         draw_chunk_object((void *)(*(u32 *)((s8 *)arg0 + 0xF4)));
                     } else {
                         ((TItemWeapon *)arg0)->run_with_callback((int)((void *) (0)));
@@ -92,9 +92,9 @@ s32 draw_weapon_model(void *arg0) {
                 }
                 model_render_flags &= 0xFFFF7FEE;
             } else if ((u32) *(u32 *)((s8 *)arg0 + 0x17C) == 0U) {
-                if (((TItemWeapon *)arg0)->test_flags_1b8((int) (0x40)) != 0U) {
+                if (((TItemWeapon *)arg0)->test_flags_1b8(0x40) != 0U) {
                     ((TItemWeapon *)arg0)->apply_sign_effect((int)((void *) (*(s32 *)((s8 *)(*(u8 * *)&((TItemWeapon *)arg0)->player) + 0xDB4))));
-                } else if (((TItemWeapon *)arg0)->test_flags_1b8((int) (0x800000)) != 0U) {
+                } else if (((TItemWeapon *)arg0)->test_flags_1b8(0x800000) != 0U) {
                     draw_chunk_object((void *)(*(u32 *)((s8 *)arg0 + 0xF4)));
                 } else {
                     ((TItemWeapon *)arg0)->run_with_callback((int)((void *) (*(s32 *)((s8 *)(*(u8 * *)&((TItemWeapon *)arg0)->player) + 0xDB4))));

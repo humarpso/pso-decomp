@@ -104,7 +104,7 @@ void spawn_item_follow_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
 void TObjPlayer::cast_gifoie() {
     s32 sp8;
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
-        if ((((TObjPlayer *)(*(s32 *)&this->unk_F0 + 0x7CC))->get_stage_strike_count() == 0) && (draw_icon((s32)((s32)(0)), (s32)((s32 *)(&sp8))) != 0)) {
+        if ((((TObjPlayer *)(*(s32 *)&this->unk_F0 + 0x7CC))->get_stage_strike_count() == 0) && (draw_icon(0, (s32)((s32 *)(&sp8))) != 0)) {
             TTecGiFoie::create((void *)(*(s32 *)&this->unk_F0), (void *)(&sp8), (void *)(get_tp()));
             roll_technique__11TItemWeaponFv(this);
         }
@@ -131,8 +131,8 @@ void TUnk_804A2678::update_weapon() {
     if ((temp_r3 != (s32) *(s32 *)&this->unk_1F8) && (item_model_is_shown(this) != 0)) {
         *(s32 *)&this->unk_1F8 = temp_r3;
         if (is_item_area_enabled(temp_r3) != 0) {
-            spawn_item_follow_effect((s32)(tl_05), (u32)(this), (s32)(1), (s32)(0x1AE));
-            spawn_item_follow_effect((s32)(tl_05), (u32)(this), (s32)(2), (s32)(0x1AE));
+            spawn_item_follow_effect((s32)(tl_05), (u32)(this), 1, 0x1AE);
+            spawn_item_follow_effect((s32)(tl_05), (u32)(this), 2, 0x1AE);
         }
     }
 }

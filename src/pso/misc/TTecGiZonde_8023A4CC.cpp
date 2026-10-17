@@ -148,7 +148,7 @@ void step_ground_technique_projectile(RecoveredFields_8023A510_arg0 *arg0) {
         stack.sp14 = ((RecoveredFields_8023A510_temp_r6 *)temp_r6)->field_10;
         stack.sp18 = ((RecoveredFields_8023A510_temp_r6 *)temp_r6)->field_14;
         direction_to_rotation_xy((void *) (&stack.sp10), (void *) (&stack.spC), (void *) (&stack.sp8));
-        if (angle_difference_abs((int) (0), (int) (stack.spC)) >= 0x1555) {
+        if (angle_difference_abs(0, (int) (stack.spC)) >= 0x1555) {
             queue_destruction__7TObjectFv((void *)((void *) (((u8 *)arg0))));
         }
     }

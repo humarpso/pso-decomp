@@ -87,16 +87,16 @@ void TBoss8Dragon__sub_8036B088(void) {
     o[0] = (545.0f);
     o[1] = (3.9e+02f);
     p[1] = p[0] = 1.0f;
-    TBoss8Dragon__sub_8036AF50((f32 *)(o), (f32 *)(p), (s32)(0), (s32)(ang));
+    TBoss8Dragon__sub_8036AF50((f32 *)(o), (f32 *)(p), 0, (s32)(ang));
     p[0] = 1.0f;
     p[1] = (0.5f);
-    TBoss8Dragon__sub_8036AF50((f32 *)(o), (f32 *)(p), (s32)(0), (s32)(ang));
+    TBoss8Dragon__sub_8036AF50((f32 *)(o), (f32 *)(p), 0, (s32)(ang));
     p[0] = 1.0f;
     p[1] = (0.5f);
-    TBoss8Dragon__sub_8036AF50((f32 *)(o), (f32 *)(p), (s32)(0x2000), (s32)(ang));
+    TBoss8Dragon__sub_8036AF50((f32 *)(o), (f32 *)(p), 0x2000, (s32)(ang));
     p[0] = 1.0f;
     p[1] = (0.5f);
-    TBoss8Dragon__sub_8036AF50((f32 *)(o), (f32 *)(p), (s32)(-0x2000), (s32)(ang));
+    TBoss8Dragon__sub_8036AF50((f32 *)(o), (f32 *)(p), -0x2000, (s32)(ang));
     TWindowSubStatusDisp::get_player();
     TObjPlayer::reset_transform_state();
 }

@@ -160,8 +160,8 @@ void TObjContainerBase__vt77(const Obj_80188B3C *self) {
     b.f38 = yb;
     b.f40 = ((s32 (*)(void *))dispatch_fish_event__6TLobbyFPv)((void *)1);
     b.f44 = lbl_805D5B8C;
-    spawn_particle_effect_with_flags((void *)&self->x, (s32)(0x45), (s32)(0x40));
-    spawn_particle_effect_with_flags((void *)&self->x, (s32)(0x46), (s32)(0x40));
+    spawn_particle_effect_with_flags((void *)&self->x, 0x45, 0x40);
+    spawn_particle_effect_with_flags((void *)&self->x, 0x46, 0x40);
     void *o = __nw__7TObjectFUl(0x234);
     if (o != NULL) {
         construct_debris__8TObjChipFPvPvPv((u8 *)o, (u8 *)tl_05, (u8 *)&a);

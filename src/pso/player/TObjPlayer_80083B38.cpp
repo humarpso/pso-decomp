@@ -158,19 +158,19 @@ void func_80083a00__Fv(void) {
         Dolphin_GXSetCopyFilter((int) (0U), (void *) (NULL), (int) (0U), (void *) (NULL));
         TObjFish::set_cull_none();
         GXSetCopyClear(c, 0xFFFFFF);
-        GXSetTexCopySrc((int) (0), (int) (0), (int) (0x100), (int) (0x100));
-        GXSetTexCopyDst((int) (0x100), (int) (0x100), (int) (2), (int) (0));
-        GXCopyTex((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)(((u8 **)lbl_8048E5C8)[0]) + 8)) + 0xC)) + 0x20)), (int) (1));
+        GXSetTexCopySrc(0, 0, 0x100, 0x100);
+        GXSetTexCopyDst(0x100, 0x100, 2, 0);
+        GXCopyTex((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)(((u8 **)lbl_8048E5C8)[0]) + 8)) + 0xC)) + 0x20)), 1);
         GXPixModeSync();
         temp_r31 = (u8 *)(active_gx_render_mode);
         Dolphin_GXSetCopyFilter((int) (*(u8 *)((s8 *)temp_r31 + 0x19)), (void *) (temp_r31 + 0x1A), (int) (TObjBoss2Tunnel__sub_8036EF44()), (void *) (temp_r31 + 0x32));
         GXSetViewport((f32) (lbl_805D93D0), (f32) (lbl_805D93D0), (f32) (lbl_805D9404), (f32) (lbl_805D9408), (f32) (lbl_805D93D0), (f32) (lbl_805D93D8));
-        GXSetScissor((int) (0), (int) (0), (int) (0x280), (int) (0x1E0));
-        GXSetProjection((void *) (scene_projection_state), (int) (0));
+        GXSetScissor(0, 0, 0x280, 0x1E0);
+        GXSetProjection((void *) (scene_projection_state), 0);
         set_light_ambient_color((f32) (lbl_805D9430), (f32) (lbl_805D9430), (f32) (lbl_805D9430));
-        submit_light0((int) (0), (int) (1));
-        load_gx_light_slot((int) (0));
-        set_ginja_draw_flags((int) (0));
+        submit_light0(0, 1);
+        load_gx_light_slot(0);
+        set_ginja_draw_flags(0);
         TCameraCtrl__sub_80068EF0();
     }
 }
@@ -356,19 +356,19 @@ void TObjPlayer::draw_textured_screen_quad(u32 arg0, f32 *arg1, f32 *arg2, s32 a
     TObjPlayer::reset_transform_state();
     TObjPlayer::load_screen_space_matrix();
     setup_blended_textured_draw();
-    GXSetNumTexGens((s32)(1));
-    GXSetNumChans((s32)(1));
-    TObjPlayer::set_tex_coord_gen((s32)(0), (s32)(1), (s32)(4), (s32)(0x3C));
-    GXSetTevOp((s32)(0), (s32)(1));
-    GXSetTevOrder((s32)(0), (s32)(0), (s32)(0), (s32)(4));
+    GXSetNumTexGens(1);
+    GXSetNumChans(1);
+    TObjPlayer::set_tex_coord_gen(0, 1, 4, 0x3C);
+    GXSetTevOp(0, 1);
+    GXSetTevOrder(0, 0, 0, 4);
     GXClearVtxDesc();
-    Dolphin_GXSetVtxDesc((s32)(9), (s32)(1));
-    Dolphin_GXSetVtxDesc((s32)(0xB), (s32)(1));
-    Dolphin_GXSetVtxDesc((s32)(0xD), (s32)(1));
-    GXSetVtxAttrFmt((s32)(4), (s32)(9), (s32)(1), (s32)(4), (s32)(0));
-    GXSetVtxAttrFmt((s32)(4), (s32)(0xB), (s32)(1), (s32)(5), (s32)(0));
-    GXSetVtxAttrFmt((s32)(4), (s32)(0xD), (s32)(1), (s32)(4), (s32)(0));
-    GXBegin((s32)(0x80), (s32)(4), (s32)(4));
+    Dolphin_GXSetVtxDesc(9, 1);
+    Dolphin_GXSetVtxDesc(0xB, 1);
+    Dolphin_GXSetVtxDesc(0xD, 1);
+    GXSetVtxAttrFmt(4, 9, 1, 4, 0);
+    GXSetVtxAttrFmt(4, 0xB, 1, 5, 0);
+    GXSetVtxAttrFmt(4, 0xD, 1, 4, 0);
+    GXBegin(0x80, 4, 4);
     TObjPlayer__sub_80084840(arg1[0] * lbl_805D9444, arg1[1] * lbl_805D9444, lbl_805D9444);
     temp_r31 = (arg0 << 8) | (arg0 >> 24);
     TObjPlayer__sub_80084834(temp_r31);
@@ -393,7 +393,7 @@ void TObjPlayer::draw_textured_screen_quad(u32 arg0, f32 *arg1, f32 *arg2, s32 a
 
 void TObjPlayer__sub_80084500(void) {
     TObjFish::set_global_param((s32)((s32 *)(((u8 *)&shared_capture_texture_list))));
-    load_list_texture((s32)(0), (s32)(0), (s32)(0), (s32)(0));
+    load_list_texture(0, 0, 0, 0);
 }
 
 void capture_viewport_texture(void) {

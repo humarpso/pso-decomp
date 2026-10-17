@@ -72,7 +72,7 @@ u8 *TObjNpcAHM01__ct(u8 *arg0, s32 arg1, s32 arg2) {
 
 void TObjNpcAHM01::play_voice() {
     s32 arg0 = (s32)this;
-    play_sound_effect((int) (0x40004C15), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_sound_effect(0x40004C15, (void *) (arg0 + 0x38), 0, 0);
 }
 
 s32 TObjNpcBase::is_target_in_attack_range() { return 0; }

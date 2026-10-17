@@ -59,13 +59,13 @@ void render__18TObjButterflyLobbyFPv(u8 *arg0) {
 
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y((int) (0), (int) (((TObjButterflyLobby *)arg0)->rotation_y));
-    rotate_matrix_x((int) (0), (int) (-0x2000));
+    rotate_matrix_y(0, (int) (((TObjButterflyLobby *)arg0)->rotation_y));
+    rotate_matrix_x(0, -0x2000);
     if ((s32) *(s32 *)&((TObjButterflyLobby *)arg0)->m_90 != 3) {
         temp_f1 = *(f32 *)((s8 *)arg0 + 0x94);
-        scale_matrix((int) (0), (f32) (temp_f1), (f32) (temp_f1), (f32) (temp_f1));
+        scale_matrix(0, (f32) (temp_f1), (f32) (temp_f1), (f32) (temp_f1));
     }
-    draw_ginja_model_with_motion((int) (*(s32 *)&((TObjButterflyLobby *)arg0)->m_c4), (void *) (get_bml_motion((void *) (lobby_butterfly_bml_resource), (int) (0))), (f32) (*(f32 *)((s8 *)arg0 + 0xB0)));
+    draw_ginja_model_with_motion((int) (*(s32 *)&((TObjButterflyLobby *)arg0)->m_c4), (void *) (get_bml_motion((void *) (lobby_butterfly_bml_resource), 0)), (f32) (*(f32 *)((s8 *)arg0 + 0xB0)));
     pop_matrix();
 }
 
@@ -316,11 +316,11 @@ u8 *TObjButterflyLobby__ct(u8 *arg0, int arg1, u8 *arg2) {
     }
     *(f32 *)((s8 *)arg0 + 0x94) = 1.0f;
     if ((s32) *(s32 *)((s8 *)arg2 + 0x30) < 1) {
-        *(s32 *)&((TObjButterflyLobby *)arg0)->m_c4 = get_bml_model((void *) (lobby_butterfly_bml_resource), (int) (0));
-        *(s32 *)&((TObjButterflyLobby *)arg0)->m_c8 = TObjFish__sub_8001EDB0((void *) (lobby_butterfly_bml_resource), (int) (0));
+        *(s32 *)&((TObjButterflyLobby *)arg0)->m_c4 = get_bml_model((void *) (lobby_butterfly_bml_resource), 0);
+        *(s32 *)&((TObjButterflyLobby *)arg0)->m_c8 = TObjFish__sub_8001EDB0((void *) (lobby_butterfly_bml_resource), 0);
     } else {
-        *(s32 *)&((TObjButterflyLobby *)arg0)->m_c4 = get_bml_model((void *) (lobby_butterfly_bml_resource), (int) (1));
-        *(s32 *)&((TObjButterflyLobby *)arg0)->m_c8 = TObjFish__sub_8001EDB0((void *) (lobby_butterfly_bml_resource), (int) (1));
+        *(s32 *)&((TObjButterflyLobby *)arg0)->m_c4 = get_bml_model((void *) (lobby_butterfly_bml_resource), 1);
+        *(s32 *)&((TObjButterflyLobby *)arg0)->m_c8 = TObjFish__sub_8001EDB0((void *) (lobby_butterfly_bml_resource), 1);
     }
     ((TObjButterflyLobby *)arg0)->init_params();
     return arg0;

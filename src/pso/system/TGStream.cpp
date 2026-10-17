@@ -193,10 +193,10 @@ s32 TGStream::load_sct_file(s32 name, s32 dst) {
     s32 size;
     s32 sectors;
     s32 buf;
-    ((s32 (*)(s32 *, s32, s32))open__8TGStreamFPvPvi)((s32 *)((s32 *)&st), (s32)(name), (s32)(1));
+    ((s32 (*)(s32 *, s32, s32))open__8TGStreamFPvPvi)((s32 *)((s32 *)&st), (s32)(name), 1);
     size = ((s32 (*)(s32 *))get_gstream_file_size)((s32 *)((s32 *)&st));
     if (size <= 0) {
-        ((s32 (*)(s32 *, s32))destroy_gstream)((s32 *)((s32 *)&st), (s32)(-1));
+        ((s32 (*)(s32 *, s32))destroy_gstream)((s32 *)((s32 *)&st), -1);
         return -1;
     }
     sectors = (size + 0x7FF) / 2048;
@@ -209,11 +209,11 @@ s32 TGStream::load_sct_file(s32 name, s32 dst) {
         prs_decompress_buffer(buf, dst);
         TAdSinglePlyChrSelectGC::safe_free(buf);
         size = st.info->size;
-        ((s32 (*)(s32 *, s32))destroy_gstream)((s32 *)((s32 *)&st), (s32)(-1));
+        ((s32 (*)(s32 *, s32))destroy_gstream)((s32 *)((s32 *)&st), -1);
         return size;
     }
     ((TGStream *)((s32 *)&st))->read_sectors_sync((s32)(sectors), (s32)(dst));
-    ((s32 (*)(s32 *, s32))destroy_gstream)((s32 *)((s32 *)&st), (s32)(-1));
+    ((s32 (*)(s32 *, s32))destroy_gstream)((s32 *)((s32 *)&st), -1);
     return size;
 }
 
@@ -282,7 +282,7 @@ void open_gsl_archive(char *name) {
         if (TItemDrop__gsl_adxf_handle != 0) {
             TGStream::reset();
             ((s32 (*)(u32, s32, GslArchiveEntry *))read_checked_align__6TLobbyFlll)(TItemDrop__gsl_adxf_handle, 6, gsl_archive_entries);
-            TLobby::set_read_params((int)(&TItemDrop__gsl_adxf_handle), (int)6, (int)gsl_archive_entries);
+            TLobby::set_read_params((int)(&TItemDrop__gsl_adxf_handle), 6, (int)gsl_archive_entries);
             for (;;) {
                 if (((s32 (*)(u32))TLobby__sub_803CC4C0)(TItemDrop__gsl_adxf_handle) == 3) {
                     break;

@@ -411,19 +411,19 @@ void TItemWeapon::spawn_light_task() {
 void TItemWeapon::restore_action_type() {
     u8 *arg0 = (u8 *)this;
     if (((TItemWeapon *)arg0)->test_flags_1b8(0x04000000) != 0U) {
-        set_action_type__10TObjPlayerFs((int) (*(s32 *)&this->player + 0x7CC), (int) (2));
-        ((TItemWeapon *)arg0)->clear_equip_flags((int) (0x04000000));
+        set_action_type__10TObjPlayerFs((int) (*(s32 *)&this->player + 0x7CC), 2);
+        ((TItemWeapon *)arg0)->clear_equip_flags(0x04000000);
     }
 }
 
 void remap_extra_attack_type(u8 *arg0) {
     if ((((TItemWeapon *)arg0)->test_flags_1b8(0x20) != 0U) && (TObjPlayer__sub_801D2F4C((s16 *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC)) == 2)) {
         if (((TItemWeapon *)arg0)->test_flags_1b8(0x100000) != 0U) {
-            set_action_type__10TObjPlayerFs((int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC), (int) (0));
+            set_action_type__10TObjPlayerFs((int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC), 0);
         } else {
-            set_action_type__10TObjPlayerFs((int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC), (int) (1));
+            set_action_type__10TObjPlayerFs((int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC), 1);
         }
-        ((s32 (*)(void *, int))set_status_flags__10TObjPlayerFUl)((void *) (arg0), (int) (0x04000000));
+        ((s32 (*)(void *, int))set_status_flags__10TObjPlayerFUl)((void *) (arg0), 0x04000000);
     }
 }
 
@@ -431,7 +431,7 @@ void TObjPlayer__sub_8011E56C(u8 *arg0, u8 *arg1) {
     Stack_8011E56C stack;
     VecCopy((Vec *)(&stack.sp8), (const Vec *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x2FC));
     stack.spC = *(f32 *)((s8 *)arg1 + 4);
-    ((s32 (*)(void *, void *, int))csnVector)((void *) (&stack.sp8), (void *) (arg1), (int) (0x8100));
+    ((s32 (*)(void *, void *, int))csnVector)((void *) (&stack.sp8), (void *) (arg1), 0x8100);
 }
 
 void TItemWeapon__sub_8011E5C0(void) {  }
@@ -770,7 +770,7 @@ s32 TItemWeapon::launch_shot(u8 *arg1, s32 i, s32 arg3, s32 arg4) {
                 fallback.y = lbl_805DAC98;
                 fallback.x = lbl_805DAC98;
                 fallback.z = *(f32 *)((s8 *)weapon_range_record + 0);
-                rotate_matrix_y((int) (0), (void *) (*(s32 *)((s8 *)(*(u8 * *)&this->player) + 0x60) + arg3));
+                rotate_matrix_y(0, (void *) (*(s32 *)((s8 *)(*(u8 * *)&this->player) + 0x60) + arg3));
                 transform_point_by_current_matrix((void *) (&fallback.x), (void *) (&endpoint.x));
                 pop_matrix();
                 vec3_add_to((void *) (&endpoint.x), (void *) (arg1));

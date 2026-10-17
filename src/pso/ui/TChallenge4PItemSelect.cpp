@@ -77,7 +77,7 @@ void TChallenge4PItemSelect::submit_selected_item() {
         stack.spA = (s8) *(s32 *)((s8 *)temp_r31 + 8);
         temp_r3_2 = (u32)result;
         if (temp_r3_2 != 0U) {
-            ((TChallenge4PResult *)temp_r3_2)->set_entry_item((void *)((s32) &stack.sp8), (s32)2);
+            ((TChallenge4PResult *)temp_r3_2)->set_entry_item((void *)((s32) &stack.sp8), 2);
         }
         state = 2;
     }

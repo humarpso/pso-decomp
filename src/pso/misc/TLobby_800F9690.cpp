@@ -85,7 +85,7 @@ s32 load_encrypted_text_archive(char *name, s32 *arg1) {
     } else {
         open__8TGStreamFPvPvi((s32 *)&st, (s32)name, 1);
         buf = (u8 *)((TQuestVmDownLoadServer *)0x800)->alloc();
-        ((TGStream *)((s32 *)&st))->read_sectors_sync((s32)1, (s32)buf);
+        ((TGStream *)((s32 *)&st))->read_sectors_sync(1, (s32)buf);
         sp8 = *(s32 *)((s8 *)buf + 0);
         h = *(s32 *)((s8 *)buf + 4);
         TAdSinglePlyChrSelectGC::safe_free((u32)buf);

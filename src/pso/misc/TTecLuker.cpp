@@ -290,7 +290,7 @@ u8 *construct_resta_charge_sound(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x1C) = arg1;
     VecCopy((Vec *)((void *) (arg0 + 0x20)), (const Vec *)((int) (*(s32 *)((s8 *)arg0 + 0x1C) + 0x2FC)));
     ((TUnk_804CC990 *)arg0)->m_2c = 0;
-    *(s32 *)((s8 *)arg0 + 0x30) = play_sound_effect((int) (0x4002BC20), (void *) (arg0 + 0x20), (int) (0), (int) (0));
+    *(s32 *)((s8 *)arg0 + 0x30) = play_sound_effect(0x4002BC20, (void *) (arg0 + 0x20), 0, 0);
     return arg0;
 }
 
@@ -331,8 +331,8 @@ u8 *TTecLuker::construct_field_collider(s32 arg1, s32 arg2, s32 ac) {
     construct_collider_proxy__13TUnk_804AF8A0Fv((void *) (((u8 *)this)), (void *) (arg2));
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80233D18_lbl_804CC9D4 *)&telepipe_field_collider_vtable).value;
     VecCopy((Vec *)(((u8 *)this) + 0x38), (const Vec *)(arg1));
-    init_collision_body_parts((void *) (((u8 *)this)), (void *) (&telepipe_field_collision_body_template.value), (int) (1));
-    obj_setFlags30((void *) (((u8 *)this)), (int) (0x40000000));
+    init_collision_body_parts((void *) (((u8 *)this)), (void *) (&telepipe_field_collision_body_template.value), 1);
+    obj_setFlags30((void *) (((u8 *)this)), 0x40000000);
     ((TObjPlayer *)((u8 *)this))->reset_photon_effect();
     TTecLuker__sub_80234F68((void*)((void *) (((u8 *)this) + 0x98)));
     *(s32 *)&this->unk_B0 = 0;
@@ -613,7 +613,7 @@ Obj_8023448C *__dt__13TUnk_804CCA0CFv(Obj_8023448C *arg0, s16 arg1) {
             queue_destruction__7TObjectFv((void *)(arg0->f28));
             arg0->f28 = 0;
         }
-        __dt__7TObjectFv((void *)(arg0), (int)(0));
+        __dt__7TObjectFv((void *)(arg0), 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

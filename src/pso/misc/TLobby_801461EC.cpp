@@ -287,8 +287,8 @@ s32 TLobby::query_task_active() {
     return 0;
 }
 
-int TLobby__sub_8014677C(void) { return TLobby__sub_80145DB4((1)); }
-int TLobby::get_link_status_value() { return TLobby__sub_80145DB4((4)); }
+int TLobby__sub_8014677C(void) { return TLobby__sub_80145DB4(1); }
+int TLobby::get_link_status_value() { return TLobby__sub_80145DB4(4); }
 
 extern u32 lbl_805D5700;
 extern s32 TLobby__net_session_mode;
@@ -317,13 +317,13 @@ void TLobby::flush_pending_flags() {
     TLobby::teardown_boss2();
     if (TLobby__sub_80145EE4() != 0) {
         if (TLobby__connect_pending_flags & 0x10) {
-            TLobby__sub_80424CF4((void *) ((s16) lbl_805D2D00), (void *) (lbl_805D56D8), (int) (3));
+            TLobby__sub_80424CF4((void *) ((s16) lbl_805D2D00), (void *) (lbl_805D56D8), 3);
             TLobby__connect_pending_flags &= 0xFFFFFFEF;
             TLobby__sub_80424CA8();
         }
     } else if (TLobby::is_state_active() != 0) {
         if ((s32) lbl_805D2D00 != -1) {
-            TLobby__sub_80423064(((s16) lbl_805D2D00), (0));
+            TLobby__sub_80423064(((s16) lbl_805D2D00), 0);
             sp8 = 0;
             TLobby__sub_803FB1A4((void *) (&sp8));
             do {
@@ -419,7 +419,7 @@ void TLobby::set_ppp_password(s32 arg0) {
     TLobby__sub_8014618C();
     TLobby::is_state_active();
     temp_r31 = (u8 *)&lbl_8050CCE8.value + 0xFC;
-    memset((int) (temp_r31), (int) (0), (int) (0x20));
+    memset((int) (temp_r31), 0, 0x20);
     strncpy((s32) temp_r31, arg0, 0x1F);
 }
 

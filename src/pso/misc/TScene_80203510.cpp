@@ -988,7 +988,7 @@ void TScene::update_room_visibility_from_camera() {
                 fwd.z = lbl_805DC5E4;
                 push_matrix_from(identity_matrix);
                 rotate_matrix_y(0, (*(Cam_802043CC * *)&camera_ctrl_instance)->angY);
-                rotate_vector_by_matrix((s32)(0), (void *)(&fwd), (Vec_80204024 *)(&out));
+                rotate_vector_by_matrix(0, (void *)(&fwd), (Vec_80204024 *)(&out));
                 pop_matrix();
                 normalize_vector((Vec_80204024 *)(&out));
                 if (vec3_dot(&dir, &out) < TScene__data_805DC5D8) {
@@ -1008,7 +1008,7 @@ void TScene::update_room_visibility_from_camera() {
         s32 k;
         push_matrix_from(identity_matrix);
         rotate_matrix_y(0, (*(Cam_802043CC * *)&camera_ctrl_instance)->angY);
-        rotate_vector_by_matrix((s32)(0), (void *)(&w), (Vec_80204024 *)(&out2));
+        rotate_vector_by_matrix(0, (void *)(&w), (Vec_80204024 *)(&out2));
         normalize_vector((Vec_80204024 *)(&out2));
         pop_matrix();
         s = (*(SceneMaterialRoot * *)&TScene__data_805D5FCC)->sections;

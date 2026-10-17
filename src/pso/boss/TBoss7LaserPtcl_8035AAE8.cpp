@@ -193,8 +193,8 @@ u8 *TBoss7LaserPtcl__sub_8035AE54(u8 *arg0, s32 arg1, s32 arg2) {
     *(u8 **)((s8 *)arg0 + 0x1C) = (unsigned char *) ((void *) (arg0 + 0x34));
     *(s32 *)((s8 *)arg0 + 0x20) = 1;
     VecCopy((Vec *)(arg0 + 0x24), (const Vec *)(arg2));
-    spawn_particle_effect((arg0 + 0x24), (0x211));
-    create_timed_particle_emitter((arg0 + 0x24), (0x213), (0), (0x1E));
+    spawn_particle_effect((arg0 + 0x24), 0x211);
+    create_timed_particle_emitter((arg0 + 0x24), 0x213, 0, 0x1E);
     return arg0;
 }
 

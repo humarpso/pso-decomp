@@ -131,7 +131,7 @@ void TLobby::clear_shop_entry_value(s32 i, s32 j) {
 }
 
 void clear_shop_armor_flags(void) {
-    memset((void *) (&shop_armor_stock_generated_flags.value), (int) (0), (int) (0x10));
+    memset((void *) (&shop_armor_stock_generated_flags.value), 0, 0x10);
 }
 
 void TLobby::copy_armor_shop_entry(s32 arg1, s32 arg2) {

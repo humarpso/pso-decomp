@@ -91,12 +91,12 @@ s32 TWindowMakeTeam::create_status_menu_window() {
     s32 r;
     s32 m;
     r = check_room_seq_4__16TAdChrSelASlotGCFl(lbl_8044F308, 4);
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)r, (int)(STATUS(0)), (int)(6), (int)(0));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)r, (int)(STATUS(1)), (int)(6), (int)(1));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)r, (int)(STATUS(2)), (int)(6), (int)(2));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)r, (int)(STATUS(0)), 6, 0);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)r, (int)(STATUS(1)), 6, 1);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)r, (int)(STATUS(2)), 6, 2);
     m = *(s32 *)(arg0 + 0x20);
     if (m == 1 || m == 2) {
-        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)r, (int)(STATUS(3)), (int)(6), (int)(3));
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)r, (int)(STATUS(3)), 6, 3);
     }
     ((TWindowSubComCard *)r)->calc_window_size();
     align_menu_entry_positions(r);
@@ -108,9 +108,9 @@ s32 TWindowMakeTeam::create_entry_menu_window() {
     u8 *arg0 = (u8 *)this;
     s32 r;
     r = check_room_seq_4__16TAdChrSelASlotGCFl(lbl_8044F300, 3);
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)r, (int)(TWindowMakeTeam::draw_entry_0x110(0)), (int)(6), (int)(0));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)r, (int)(TWindowMakeTeam::draw_entry_0x110(1)), (int)(6), (int)(1));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)r, (int)(TWindowMakeTeam::draw_entry_0x110(2)), (int)(6), (int)(2));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)r, (int)(TWindowMakeTeam::draw_entry_0x110(0)), 6, 0);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)r, (int)(TWindowMakeTeam::draw_entry_0x110(1)), 6, 1);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)r, (int)(TWindowMakeTeam::draw_entry_0x110(2)), 6, 2);
     ((TWindowSubComCard *)r)->calc_window_size();
     align_menu_entry_positions(r);
     ((TWindowSubComCardList *)r)->set_selected_index(*(s8 *)(arg0 + 0x1E));

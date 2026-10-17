@@ -134,7 +134,7 @@ void TOHealGeneral::render() {
     if (((VObj_801695a8_80169520 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        rotate_matrix_y(0, (int) (this->rotation_y));
         TObjFish::set_global_param((int) (this->texture_id));
         temp_r31 = (unsigned char *) (*(void * *)&this->model);
         post_translate_matrix((void *) (temp_r31 + 8));
@@ -142,13 +142,13 @@ void TOHealGeneral::render() {
         push_matrix();
         temp_r31_2 = (unsigned char *) (*(void **)((s8 *)temp_r31 + 0x2C));
         post_translate_matrix((void *) (temp_r31_2 + 8));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)&this->m_cc));
+        rotate_matrix_y(0, (int) (*(s32 *)&this->m_cc));
         draw_ginja_model((*(s32 *)((s8 *)temp_r31_2 + 4)));
         pop_matrix();
         push_matrix();
         temp_r31_3 = (unsigned char *) (*(void **)((s8 *)temp_r31_2 + 0x30));
-        translate_matrix((0), (f32) (*(f32 *)((s8 *)temp_r31_3 + 8)), (f32) (*(f32 *)((s8 *)temp_r31_3 + 0xC) - *(f32 *)&this->_padD0), (f32) (*(f32 *)((s8 *)temp_r31_3 + 0x10)));
-        rotate_matrix_y((int) (0), (int) (-*(s32 *)&this->m_cc));
+        translate_matrix(0, (f32) (*(f32 *)((s8 *)temp_r31_3 + 8)), (f32) (*(f32 *)((s8 *)temp_r31_3 + 0xC) - *(f32 *)&this->_padD0), (f32) (*(f32 *)((s8 *)temp_r31_3 + 0x10)));
+        rotate_matrix_y(0, (int) (-*(s32 *)&this->m_cc));
         draw_ginja_model((*(s32 *)((s8 *)temp_r31_3 + 4)));
         pop_matrix();
         pop_matrix();

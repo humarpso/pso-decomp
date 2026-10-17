@@ -41,20 +41,20 @@ void update_button_hold_counter(void *arg0, void *arg1, int mask, int held) {
     *(s16 *)arg1 = value;
 }
 void update_button_hold_counters(u8 *arg0) {
-    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x2C), (int) (0x10), (int) (*(s32 *)((s8 *)arg0 + 0x48)));
-    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x2E), (int) (0x20), (int) (*(s32 *)((s8 *)arg0 + 0x48)));
-    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x30), (int) (0x40), (int) (*(s32 *)((s8 *)arg0 + 0x48)));
-    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x32), (int) (0x80), (int) (*(s32 *)((s8 *)arg0 + 0x48)));
-    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x34), (int) (0x100000), (int) (*(s32 *)((s8 *)arg0 + 0x48)));
-    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x36), (int) (0x200000), (int) (*(s32 *)((s8 *)arg0 + 0x48)));
-    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x38), (int) (0x400000), (int) (*(s32 *)((s8 *)arg0 + 0x48)));
-    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x3A), (int) (0x800000), (int) (*(s32 *)((s8 *)arg0 + 0x48)));
-    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x3C), (int) (0x04000000), (int) (*(s32 *)((s8 *)arg0 + 0x48)));
-    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x3E), (int) (0x08000000), (int) (*(s32 *)((s8 *)arg0 + 0x48)));
-    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x40), (int) (0x10000000), (int) (*(s32 *)((s8 *)arg0 + 0x48)));
-    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x42), (int) (0x20000000), (int) (*(s32 *)((s8 *)arg0 + 0x48)));
-    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x44), (int) (0x20000), (int) (*(s32 *)((s8 *)arg0 + 0x48)));
-    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x46), (int) (0x10000), (int) (*(s32 *)((s8 *)arg0 + 0x48)));
+    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x2C), 0x10, (int) (*(s32 *)((s8 *)arg0 + 0x48)));
+    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x2E), 0x20, (int) (*(s32 *)((s8 *)arg0 + 0x48)));
+    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x30), 0x40, (int) (*(s32 *)((s8 *)arg0 + 0x48)));
+    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x32), 0x80, (int) (*(s32 *)((s8 *)arg0 + 0x48)));
+    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x34), 0x100000, (int) (*(s32 *)((s8 *)arg0 + 0x48)));
+    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x36), 0x200000, (int) (*(s32 *)((s8 *)arg0 + 0x48)));
+    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x38), 0x400000, (int) (*(s32 *)((s8 *)arg0 + 0x48)));
+    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x3A), 0x800000, (int) (*(s32 *)((s8 *)arg0 + 0x48)));
+    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x3C), 0x04000000, (int) (*(s32 *)((s8 *)arg0 + 0x48)));
+    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x3E), 0x08000000, (int) (*(s32 *)((s8 *)arg0 + 0x48)));
+    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x40), 0x10000000, (int) (*(s32 *)((s8 *)arg0 + 0x48)));
+    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x42), 0x20000000, (int) (*(s32 *)((s8 *)arg0 + 0x48)));
+    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x44), 0x20000, (int) (*(s32 *)((s8 *)arg0 + 0x48)));
+    update_button_hold_counter((void *) (arg0), (void *) (arg0 + 0x46), 0x10000, (int) (*(s32 *)((s8 *)arg0 + 0x48)));
 }
 
 }

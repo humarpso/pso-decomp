@@ -62,16 +62,16 @@ void TPhotonFarlla::run_task() {
             VecCopy((Vec *)(&stack.sp20), (const Vec *)(entity + 0x38));
             stack.sp24 += lbl_805DC15C;
         }
-        temp_r3_2 = __nw__7TObjectFUl((int) (0xD0));
+        temp_r3_2 = __nw__7TObjectFUl(0xD0);
         if (temp_r3_2 != 0U) {
-            construct_photon_magic_square_normal((u8 *)(temp_r3_2), (s32)(arg0), (s32)(0), (s32)(&stack.sp20), (s32)(0x78));
+            construct_photon_magic_square_normal((u8 *)(temp_r3_2), (s32)(arg0), 0, (s32)(&stack.sp20), 0x78);
         }
     }
     if (((s32) *(s32 *)&this->unk_1A4 == 0x64) && ((s16) this->m_b8 == 1)) {
-        ((TUnk_804C3248 *)arg0)->begin_photon_summon_camera((int) (1));
+        ((TUnk_804C3248 *)arg0)->begin_photon_summon_camera(1);
         *(s32 *)&this->unk_1A4 = 0;
-        ((TObjMotion *)arg0)->set_field_b8((int) (0));
-        spawn_photon_blast_attachment_effects((void *) (arg0), (int) (0));
+        ((TObjMotion *)arg0)->set_field_b8(0);
+        spawn_photon_blast_attachment_effects((void *) (arg0), 0);
     }
     this->m_194 = (s16) this->m_b8;
     ((TUnk_804C3248 *)arg0)->update_state();
@@ -88,9 +88,9 @@ void TPhotonFarlla::run_task() {
             VecCopy((Vec *)(&stack.sp14), (const Vec *)(temp_r3_3 + 0x38));
         }
         stack.sp18 += lbl_805DC168;
-        spawn_particle_effect((&stack.sp14), (0x151));
+        spawn_particle_effect((&stack.sp14), 0x151);
         stack.sp18 += lbl_805DC16C;
-        spawn_particle_effect((&stack.sp14), (0x15F));
+        spawn_particle_effect((&stack.sp14), 0x15F);
     }
     temp_r3_4 = *(s32 *)&this->unk_1A4;
     if ((lbl_805DC170 == (f32) temp_r3_4) || (lbl_805DC174 == (f32) temp_r3_4)) {
@@ -99,7 +99,7 @@ void TPhotonFarlla::run_task() {
             VecCopy((Vec *)(&stack.sp8), (const Vec *)(temp_r3_5 + 0x38));
             stack.spC += lbl_805DC168;
         }
-        spawn_particle_effect((&stack.sp8), (0x151));
+        spawn_particle_effect((&stack.sp8), 0x151);
     }
     if ((f32) *(s32 *)&this->unk_1A4 > lbl_805DC178) {
         temp_f1 = this->m_184;
@@ -108,7 +108,7 @@ void TPhotonFarlla::run_task() {
         }
     }
     if ((s32) this->m_1a0 != 0) {
-        play_persistent_sound((0x4002462F), (s32)(arg0), (0), (0), (0));
+        play_persistent_sound(0x4002462F, (s32)(arg0), 0, 0, 0);
     }
 }
 #pragma pop

@@ -31,7 +31,7 @@ void TUnk_804A4D70::emit_marker_effects() {
     case 6:
         if (is_mode_two_and_ready__10TObjPlayerFv(this) && obj_getPtr2B0_20((u8 *)player) >= 10000) {
             try_spend_actor_meseta((u8 *)player, 10000);
-            show_meseta_label((s32)player, (u32)((WeaponVector*)((u8*)player + 0x2FC)), (s32)(0), (s32)(-10000));
+            show_meseta_label((s32)player, (u32)((WeaponVector*)((u8*)player + 0x2FC)), 0, -10000);
             apply_scale_if_active(*(const volatile f32 *)&lbl_805DAE80);
             spawn_particle_effect((WeaponVector*)((u8*)player + 0x2FC), 0x66);
             spawn_particle_effect((WeaponVector*)((u8*)player + 0x2FC), 0x66);

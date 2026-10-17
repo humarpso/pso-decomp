@@ -71,7 +71,7 @@ void fn_80048560(u8 *arg0) {
     VecCopy((Vec *)(&lbl_804FF1D0.value), (const Vec *)(*(s32 *)((s8 *)arg0 + 0x1C)));
     VecCopy((Vec *)((u8 *)&lbl_804FF1D0.value + 0xC), (const Vec *)(((TUnk_80484870 *)arg0)->m_20));
     TObjPlayer::init_xyz_limits();
-    draw_line_list((void *) (&lbl_80484860.value), (int) (1), (int) (5));
+    draw_line_list((void *) (&lbl_80484860.value), 1, 5);
     TObjPlayer::reset_transform_state();
 }
 

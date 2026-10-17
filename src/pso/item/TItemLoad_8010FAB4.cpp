@@ -13,7 +13,7 @@ s32 TItemLoad::begin_load(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x18) == 0) {
         *(s32 *)((s8 *)arg0 + 0x20) = arg1;
-        ((TAdRicoRing *)(arg0 + 0x1C))->clear_flags((int)(2));
+        ((TAdRicoRing *)(arg0 + 0x1C))->clear_flags(2);
         *(s32 *)((s8 *)arg0 + 0x18) = 1;
         return 1;
     }
@@ -30,7 +30,7 @@ void TItemLoad::reset_state() {
     x = test_flags_any(self->f_1C, 4);
     if (x != 0) {
         item_load_work_buffer_busy = 0;
-        ((TAdRicoRing *)(self->f_1C))->clear_flags((int)(4));
+        ((TAdRicoRing *)(self->f_1C))->clear_flags(4);
     }
     *(u32 *)((s8 *)this + 0x18) = 0;
 }

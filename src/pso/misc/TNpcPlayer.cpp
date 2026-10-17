@@ -1788,11 +1788,11 @@ void deliver_partner_chatter(Npc_8014E250 *self) {
     if (id != 0xFFFF) {
         text = (char *)get_partner_custom_text(self->state, id);
         if (text != 0) {
-            TWindowCtrl::open((s32)id, (s32)text, (s32)0x1B);
+            TWindowCtrl::open((s32)id, (s32)text, 0x1B);
         } else {
             text = npc_partner_dialogue_state[self->state].text;
             if (text[0] != 0) {
-                TWindowCtrl::open((s32)id, (s32)text, (s32)0x1B);
+                TWindowCtrl::open((s32)id, (s32)text, 0x1B);
             }
         }
     }
@@ -2133,7 +2133,7 @@ s32 partner_route_around_wall(Self_8014EE98 *self, Vec_8014E3B0 *from, Vec_8014E
     out->y = from->y;
     out->z = perp.z * s + from->z;
     VecCopy__FP3VecPC3Vec(&tmp, (int)&self->f74->obj->pos);
-    if (csnVector((s32)((s32)&tmp), (s32)((s32)&hit), (s32)(0x2100)) != 0) {
+    if (csnVector((s32)((s32)&tmp), (s32)((s32)&hit), 0x2100) != 0) {
         hit.x = TNpcPlayer__data_805DB20C * perp.x + hit.x;
         hit.z = TNpcPlayer__data_805DB20C * perp.z + hit.z;
         return 0;
@@ -2324,7 +2324,7 @@ bool is_target_line_clear__10TNpcPlayerFPvUs(u8 *arg0, u16 arg1) {
     VecCopy__FP3VecPC3Vec((void *)((void *) (&stack.sp8)), (int)((void *) (find_active_entity_by_id((void *) (arg1)) + 0x2FC)));
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x94));
     stack.spC = *(f32 *)((s8 *)temp_r3 + 0x300);
-    return ((s32)csnVector((s32)((void *) (temp_r3 + 0x2FC)), (s32)((void *) (&stack.sp8)), (s32)((int) (0x2100)))) == 0;
+    return ((s32)csnVector((s32)((void *) (temp_r3 + 0x2FC)), (s32)((void *) (&stack.sp8)), 0x2100)) == 0;
 }
 
 void *TNpcPlayer::dt(s16 arg1) {
@@ -2491,7 +2491,7 @@ s32 TNpcPlayer::try_attack(s32 arg1, s32 arg2) {
             *(s32 *)((s8 *)this + 0x90) = (s32) (*(s32 *)((s8 *)this + 0x90) | 0x20);
             return 1;
         }
-        if (TObjPlayer::try_camera_action((s32)(*(s32 *)((s8 *)this + 0x94)), (s32)0xF) != 0) {
+        if (TObjPlayer::try_camera_action((s32)(*(s32 *)((s8 *)this + 0x94)), 0xF) != 0) {
             return 1;
         }
         break;
@@ -2502,7 +2502,7 @@ s32 TNpcPlayer::try_attack(s32 arg1, s32 arg2) {
         }
         break;
     case 2:
-        if (TObjPlayer::try_camera_action((s32)(*(s32 *)((s8 *)this + 0x94)), (s32)0x10) != 0) {
+        if (TObjPlayer::try_camera_action((s32)(*(s32 *)((s8 *)this + 0x94)), 0x10) != 0) {
             return 1;
         }
         break;
@@ -2511,7 +2511,7 @@ s32 TNpcPlayer::try_attack(s32 arg1, s32 arg2) {
             *(s32 *)((s8 *)this + 0x90) = (s32) (*(s32 *)((s8 *)this + 0x90) | 0x20);
             return 1;
         }
-        if (TObjPlayer::try_camera_action((s32)(*(s32 *)((s8 *)this + 0x94)), (s32)0x11) != 0) {
+        if (TObjPlayer::try_camera_action((s32)(*(s32 *)((s8 *)this + 0x94)), 0x11) != 0) {
             return 1;
         }
         break;
@@ -2552,16 +2552,16 @@ s32 TNpcPlayer::check_movement_progress() {
     if (temp_r3 > 0x1E) {
         *(u8 *)((s8 *)arg0 + 0x8C) = 0x1EU;
         *(s32 *)((s8 *)arg0 + 0x80) = (s32) (*(s32 *)((s8 *)arg0 + 0x80) | 0x4000);
-        if (((s16 (*)(void *, int))get_partner_counter)((void *) (arg0 + 0x5C), (int) (7)) == 0) {
-            request_chatter((int) (7));
+        if (((s16 (*)(void *, int))get_partner_counter)((void *) (arg0 + 0x5C), 7) == 0) {
+            request_chatter(7);
         }
-        ((s32 (*)(void *, int))increment_partner_counter)((void *) (arg0 + 0x5C), (int) (7));
-        ((s32 (*)(void *, int, int))npc_counter_reset_if_reached)((void *) (arg0 + 0x5C), (int) (7), (int) (0x12C));
+        ((s32 (*)(void *, int))increment_partner_counter)((void *) (arg0 + 0x5C), 7);
+        ((s32 (*)(void *, int, int))npc_counter_reset_if_reached)((void *) (arg0 + 0x5C), 7, 0x12C);
         return 0;
     }
     if ((temp_r3 == 0) && (*(s32 *)((s8 *)arg0 + 0x80) & 0x4000)) {
-        ((s32 (*)(void *, int))reset_partner_counter)((void *) (arg0 + 0x5C), (int) (7));
-        request_chatter((int) (0x18));
+        ((s32 (*)(void *, int))reset_partner_counter)((void *) (arg0 + 0x5C), 7);
+        request_chatter(0x18);
         *(s32 *)((s8 *)arg0 + 0x80) = (s32) (*(s32 *)((s8 *)arg0 + 0x80) & 0xFFFFBFFF);
     }
     return 1;
@@ -2763,20 +2763,20 @@ void partner_observe_surroundings(u8 *arg0) {
     ((s32 (*)(void *))partner_probe_obstacles)((void *) (*(u8 **)((s8 *)arg0 + 0x78)));
     if (partner_view_update_hp_change((void *) (*(u8 **)((s8 *)arg0 + 0x78))) != 0) {
         if (((TNpcPlayer *)(*(u8 **)((s8 *)arg0 + 0x78)))->get_condition() & 0x40) {
-            ((TNpcPlayer *)arg0)->request_chatter((s32)((int) (0xE)));
+            ((TNpcPlayer *)arg0)->request_chatter(0xE);
         } else if (((TNpcPlayer *)(*(u8 **)((s8 *)arg0 + 0x78)))->get_condition() & 0x80) {
-            ((TNpcPlayer *)arg0)->request_chatter((s32)((int) (0xF)));
+            ((TNpcPlayer *)arg0)->request_chatter(0xF);
         } else if (((TNpcPlayer *)(*(u8 **)((s8 *)arg0 + 0x78)))->get_condition() & 0x200) {
             if ((u32) *(u32 *)((s8 *)arg0 + 0x7C) != 8U) {
                 temp_r3_2 = *(s32 *)((s8 *)arg0 + 0x80);
                 if (temp_r3_2 & 0x10000) {
                     *(s32 *)((s8 *)arg0 + 0x80) = (s32) (temp_r3_2 & 0xFFFEFFFF);
                 } else {
-                    ((TNpcPlayer *)arg0)->request_chatter((s32)((int) (0x11)));
+                    ((TNpcPlayer *)arg0)->request_chatter(0x11);
                 }
             }
         } else {
-            ((TNpcPlayer *)arg0)->request_chatter((s32)((int) (0x10)));
+            ((TNpcPlayer *)arg0)->request_chatter(0x10);
         }
     }
     if (((s32)((s32 (*)(s32))partner_view_check_moved)((s32)((void *) (*(u8 **)((s8 *)arg0 + 0x78))))) == 0) {
@@ -3215,7 +3215,7 @@ s32 TNpcPlayer::update_follow_target() {
         if (check_movement_progress() != 0) {
             ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (arg0 + 0xAC), (void *) (arg0 + 0xD0));
             if ((u32) *(u32 *)((s8 *)arg0 + 0x7C) != 2U) {
-                change_ai_state((int) (1));
+                change_ai_state(1);
             }
         } else {
             ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (arg0 + 0xAC), (void *) (*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x78)) + 0x94) + 0x38));
@@ -3223,7 +3223,7 @@ s32 TNpcPlayer::update_follow_target() {
         return 1;
     }
     if ((*(s32 *)((s8 *)arg0 + 0x80) & 0x20) && ((u32) *(u32 *)((s8 *)arg0 + 0x7C) != 8U)) {
-        change_ai_state((int) (0));
+        change_ai_state(0);
     }
     return 0;
 }
@@ -3240,7 +3240,7 @@ void TNpcPlayer::decide_action() {
     s32 temp_r3_3;
     if ((TOKeyMachine01::get_global_state() == 0) || (TOKeyMachine01::get_global_state() == 0x12)) {
         calc_follow_goal();
-        change_ai_state((int) (1));
+        change_ai_state(1);
         return;
     }
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
@@ -3248,28 +3248,28 @@ void TNpcPlayer::decide_action() {
     case 0:
         if (((TNpcPlayer *)(*(u8 **)((s8 *)arg0 + 0x78)))->get_action_state() & 2) {
             *(s32 *)((s8 *)arg0 + 0x1C) = 1;
-            change_ai_state((int) (0));
+            change_ai_state(0);
             return;
         }
         *(s32 *)((s8 *)arg0 + 0x80) = (s32) (*(s32 *)((s8 *)arg0 + 0x80) & 0xFFFFFEFF);
-        if (select_recovery_action__10TNpcPlayerFv((Npc_801510F8 *) (arg0), (int) (1)) != 0) {
+        if (select_recovery_action__10TNpcPlayerFv((Npc_801510F8 *) (arg0), 1) != 0) {
             temp_r3 = *(s32 *)((s8 *)arg0 + 0x80);
             if (temp_r3 & 0x200) {
-                request_chatter((int) (0x13));
-                change_ai_state((int) (8));
+                request_chatter(0x13);
+                change_ai_state(8);
                 return;
             }
             *(s32 *)((s8 *)arg0 + 0x80) = (s32) (temp_r3 & 0xFFFFFDFF);
             if (((f32 (*)(void *, void *))horizontal_distance_squared)((void *) (arg0 + 0xDC), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x78)) + 0x94) + 0x38)) < lbl_805DB248) {
-                change_ai_state((int) (8));
+                change_ai_state(8);
                 return;
             }
             calc_follow_goal();
-            change_ai_state((int) (1));
+            change_ai_state(1);
             return;
         }
         calc_follow_goal();
-        change_ai_state((int) (1));
+        change_ai_state(1);
         *(s16 *)((s8 *)arg0 + 0x8E) = 0;
         return;
     case 1:
@@ -3292,52 +3292,52 @@ void TNpcPlayer::decide_action() {
             *(s16 *)((s8 *)arg0 + 0x8E) = 0;
         }
         if ((check_return_to_leader() != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x84) == 0)) {
-            if (select_recovery_action__10TNpcPlayerFv((Npc_801510F8 *) (arg0), (int) (0)) != 0) {
-                request_chatter((int) (0x13));
-                change_ai_state((int) (8));
+            if (select_recovery_action__10TNpcPlayerFv((Npc_801510F8 *) (arg0), 0) != 0) {
+                request_chatter(0x13);
+                change_ai_state(8);
                 *(s32 *)((s8 *)arg0 + 0x80) = (s32) (*(s32 *)((s8 *)arg0 + 0x80) & 0xFFFFFF7F);
             } else {
                 temp_r3_2 = *(s32 *)((s8 *)arg0 + 0x80);
                 if (temp_r3_2 & 0x80) {
                     *(s32 *)((s8 *)arg0 + 0x80) = (s32) (temp_r3_2 & 0xFFFFFF7F);
                     if (*(s16 *)((s8 *)arg0 + 0x8E) == 0) {
-                        change_ai_state((int) (2));
+                        change_ai_state(2);
                     }
                 } else {
                     calc_follow_goal();
-                    change_ai_state((int) (1));
+                    change_ai_state(1);
                 }
             }
-        } else if (select_recovery_action__10TNpcPlayerFv((Npc_801510F8 *) (arg0), (int) (1)) != 0) {
-            ((s32 (*)(void *, int))reset_partner_counter)((void *) (arg0 + 0x5C), (int) (8));
+        } else if (select_recovery_action__10TNpcPlayerFv((Npc_801510F8 *) (arg0), 1) != 0) {
+            ((s32 (*)(void *, int))reset_partner_counter)((void *) (arg0 + 0x5C), 8);
             temp_r3_3 = *(s32 *)((s8 *)arg0 + 0x80);
             if (temp_r3_3 & 0x200) {
-                request_chatter((int) (0x13));
-                change_ai_state((int) (8));
+                request_chatter(0x13);
+                change_ai_state(8);
             } else if (temp_r3_3 & 0x80) {
                 *(s32 *)((s8 *)arg0 + 0x80) = (s32) (temp_r3_3 & ~0x280);
                 if (*(s16 *)((s8 *)arg0 + 0x8E) == 0) {
-                    change_ai_state((int) (2));
+                    change_ai_state(2);
                 }
             } else {
                 *(s32 *)((s8 *)arg0 + 0x80) = (s32) (temp_r3_3 & 0xFFFFFDFF);
                 if (((f32 (*)(void *, void *))horizontal_distance_squared)((void *) (arg0 + 0xDC), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x78)) + 0x94) + 0x38)) < lbl_805DB248) {
-                    change_ai_state((int) (8));
+                    change_ai_state(8);
                 } else if ((s32) *(s32 *)((s8 *)arg0 + 0x84) != 0) {
                     if (*(s16 *)((s8 *)arg0 + 0x8E) == 0) {
-                        change_ai_state((int) (2));
+                        change_ai_state(2);
                     }
                 } else {
                     calc_follow_goal();
-                    change_ai_state((int) (1));
+                    change_ai_state(1);
                 }
             }
         } else if ((choose_attack_target() != 0) && (*(s16 *)((s8 *)arg0 + 0x8E) == 0)) {
             if (*(s32 *)((s8 *)arg0 + 0x80) & 0x1000) {
-                change_ai_state((int) (2));
+                change_ai_state(2);
                 *(s32 *)((s8 *)arg0 + 0x80) = (s32) (*(s32 *)((s8 *)arg0 + 0x80) & 0xFFFFEFFF);
             } else {
-                change_ai_state((int) (1));
+                change_ai_state(1);
             }
             *(s32 *)((s8 *)arg0 + 0x80) = (s32) (*(s32 *)((s8 *)arg0 + 0x80) & 0xFFFFEFFF);
         } else {
@@ -3346,7 +3346,7 @@ void TNpcPlayer::decide_action() {
             } else {
                 ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (arg0 + 0xDC), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x78)) + 0x94) + 0x38));
             }
-            change_ai_state((int) (1));
+            change_ai_state(1);
         }
         if (!(((TNpcPlayer *)(*(u8 **)((s8 *)arg0 + 0x78)))->get_action_state() & 2)) {
             *(s32 *)((s8 *)arg0 + 0x1C) = 0;
@@ -3376,13 +3376,13 @@ void TNpcPlayer::run_task() {
             ((TNpcPlayer *)arg0)->init_state();
             if (!(*(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x74)) + 0x94)) + 0x30) & 0x800)) {
                 if (*(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x78)) + 0x94)) + 0x30) & 0x800) {
-                    if (((s32 (*)(void *, int, int))clamp_partner_counter)((void *) (arg0 + 0x5C), (int) (3), (int) (0x400)) != 0) {
-                        ((TNpcPlayer *)arg0)->request_chatter((int) (5));
-                    } else if (((s32 (*)(void *, int, int))is_partner_counter_reached)((void *) (arg0 + 0x5C), (int) (3), (int) (0)) != 0) {
-                        ((TNpcPlayer *)arg0)->request_chatter((int) (4));
+                    if (((s32 (*)(void *, int, int))clamp_partner_counter)((void *) (arg0 + 0x5C), 3, 0x400) != 0) {
+                        ((TNpcPlayer *)arg0)->request_chatter(5);
+                    } else if (((s32 (*)(void *, int, int))is_partner_counter_reached)((void *) (arg0 + 0x5C), 3, 0) != 0) {
+                        ((TNpcPlayer *)arg0)->request_chatter(4);
                     }
                     increment_partner_counter((s32) (arg0 + 0x5C), 3);
-                    ((TNpcPlayer *)arg0)->change_ai_state((int) (0));
+                    ((TNpcPlayer *)arg0)->change_ai_state(0);
                 } else {
                     reset_partner_counter((s32) (arg0 + 0x5C), 3);
                     ((TNpcPlayer *)arg0)->update_condition_flags();
@@ -3417,7 +3417,7 @@ u8 *__dt__10TNpcPlayerFv(u8 *arg0, s16 arg1) {
             ((TNpcPlayer *)(*(u8 **)((s8 *)arg0 + 0x78)))->dt(1);
             *(u8 **)((s8 *)arg0 + 0x78) = NULL;
         }
-        __dt__7TObjectFv((void *) (arg0), (int) (0));
+        __dt__7TObjectFv((void *) (arg0), 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);
         }

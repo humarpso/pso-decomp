@@ -405,7 +405,7 @@ void TOTrapAncient01::load_resources() {
   }
   (*(u8 * *)&TOTrapAncient01__bml_resource) = (unsigned char *) ((void *) var_r0);
   temp_r31 = TObjFish__sub_8001EDB0((void *) var_r0, 3);
-  TMotorcycle::add_entry((int) 0x39, (int) get_bml_model((*(u8 * *)&TOTrapAncient01__bml_resource), 3), (int) temp_r31, (f32) lbl_805DBA5C, (f32) TOTrapAncient01__data_805DBA4C);
+  TMotorcycle::add_entry(0x39, (int) get_bml_model((*(u8 * *)&TOTrapAncient01__bml_resource), 3), (int) temp_r31, (f32) lbl_805DBA5C, (f32) TOTrapAncient01__data_805DBA4C);
 }
 
 Self_80179EC0 *__dt__15TOTrapAncient01Fv(Self_80179EC0 *self, s16 flag) {

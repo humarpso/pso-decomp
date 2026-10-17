@@ -79,7 +79,7 @@ s16 TObjHashiBase::update_object_view_visibility(f32 farg0, f32 farg1) {
         this->m_1e = 1;
         return 1;
     }
-    matrix_mult_vec((int) (0), (void *) (arg0 + 0x38), (void *) (&stack.sp10));
+    matrix_mult_vec(0, (void *) (arg0 + 0x38), (void *) (&stack.sp10));
     if (stack.sp18 > lbl_805DBE2C) {
         this->m_1e = 0;
         return 0;
@@ -92,7 +92,7 @@ s16 TObjHashiBase::update_object_view_visibility(f32 farg0, f32 farg1) {
         stack.sp10 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 0) * farg1) + *(f32 *)((s8 *)arg0 + 0x38);
         stack.sp14 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 4) * farg1) + *(f32 *)((s8 *)arg0 + 0x3C);
         stack.sp18 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 8) * farg1) + *(f32 *)((s8 *)arg0 + 0x40);
-        project_world_to_screen((int) (0), (void *) (&stack.sp10), (void *) (&stack.sp8));
+        project_world_to_screen(0, (void *) (&stack.sp10), (void *) (&stack.sp8));
         if (stack.sp8 < lbl_805DBE2C) {
             this->m_1e = 0;
             return 0;
@@ -102,7 +102,7 @@ s16 TObjHashiBase::update_object_view_visibility(f32 farg0, f32 farg1) {
     stack.sp10 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 0) * farg1) - *(f32 *)((s8 *)arg0 + 0x38));
     stack.sp14 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 4) * farg1) - *(f32 *)((s8 *)arg0 + 0x3C));
     stack.sp18 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 8) * farg1) - *(f32 *)((s8 *)arg0 + 0x40));
-    project_world_to_screen((int) (0), (void *) (&stack.sp10), (void *) (&stack.sp8));
+    project_world_to_screen(0, (void *) (&stack.sp10), (void *) (&stack.sp8));
     if (stack.sp8 > lbl_805DBE30) {
         this->m_1e = 0;
         return 0;

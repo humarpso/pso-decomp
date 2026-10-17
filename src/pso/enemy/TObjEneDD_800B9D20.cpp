@@ -40,7 +40,7 @@ int set_param__12TObjEneLappyFl(void*);
 void TObjEneDD::vfunc_100() {
     u8 *arg0 = (u8 *)this;
     if (!(*(s32 *)&this->actorFlags & 0x40800)) {
-        minimap_render_dot((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (0));
+        minimap_render_dot((void *) (arg0 + 0x38), -0x5DB4, 1, 0);
     }
 }
 
@@ -54,15 +54,15 @@ void TObjEneDD::draw_oriented_shadow(s32 arg1, s32 arg2, u32 arg3) {
     direction_to_rotation_xz((u8 *)(arg1), (&stack.sp8), (&stack.sp10));
     push_matrix();
     post_translate_matrix((void *) (arg0));
-    translate_matrix((0), (f32) (TObjEneDD__data_805D9E8C), (f32) (lbl_805D9E90), (f32) (TObjEneDD__data_805D9E8C));
-    rotate_matrix_z((int) (0), (int) (stack.sp10));
-    rotate_matrix_x((int) (0), (int) (stack.sp8));
-    rotate_matrix_y((int) (0), (void *) (arg2));
+    translate_matrix(0, (f32) (TObjEneDD__data_805D9E8C), (f32) (lbl_805D9E90), (f32) (TObjEneDD__data_805D9E8C));
+    rotate_matrix_z(0, (int) (stack.sp10));
+    rotate_matrix_x(0, (int) (stack.sp8));
+    rotate_matrix_y(0, (void *) (arg2));
     if (arg3 != 0U) {
         scale_current_matrix((void *) (arg3));
     }
-    rotate_matrix_x((int) (0), (int) (-0x4000));
-    draw_blob_shadow((0));
+    rotate_matrix_x(0, -0x4000);
+    draw_blob_shadow(0);
     pop_matrix();
 }
 

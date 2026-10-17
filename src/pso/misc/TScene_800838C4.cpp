@@ -65,19 +65,19 @@ void render_projected_shadow_receiver(u8 *arg0, s32 arg1) {
     if ((is_split_screen() == 0) && (TObjPlayer::check_all_players_ready() != 0)) {
         push_identity_matrix_ps();
         translate_current_matrix_ps(lbl_805D93D0, lbl_805D93D0, lbl_805D9418);
-        rotate_current_matrix_x_ps((int) (0x3800));
+        rotate_current_matrix_x_ps(0x3800);
         translate_current_matrix_ps(-*(f32 *)((s8 *)(&shadow_light_position.value) + 0), -*(f32 *)((s8 *)(&shadow_light_position.value) + 4), -*(f32 *)((s8 *)(&shadow_light_position.value) + 8));
         translate_current_matrix_ps(*(f32 *)((s8 *)arg0 + 0), *(f32 *)((s8 *)arg0 + 4), *(f32 *)((s8 *)arg0 + 8));
-        rotate_matrix_by_node_angles((void *) (arg1), (int) (1));
+        rotate_matrix_by_node_angles((void *) (arg1), 1);
         stack.sp8 = lbl_805D93DC;
         C_MTXLightFrustum((void *) (&stack.sp10), (f32) (-lbl_805D941C), (f32) (lbl_805D941C), (f32) (lbl_805D9420), (f32) (-lbl_805D9420), (f32) (lbl_805D9424), (f32) (lbl_805D93DC), (f32) (lbl_805D93DC), (f32) (lbl_805D93DC));
         PSMTXConcat((void *) (&stack.sp10), (void *) (current_matrix), (void *) (current_matrix));
-        load_current_tex_matrix((int) (0));
+        load_current_tex_matrix(0);
         pop_matrix();
-        load_current_pos_matrix((int) (0));
-        GXSetTevOrder((int) (1), (int) (1), (int) (1), (int) (4));
-        GXSetTevOp((int) (1), (int) (1));
-        TObjPlayer::set_tex_coord_gen((int) (1), (int) (0), (int) (0), (int) (0x1E));
+        load_current_pos_matrix(0);
+        GXSetTevOrder(1, 1, 1, 4);
+        GXSetTevOp(1, 1);
+        TObjPlayer::set_tex_coord_gen(1, 0, 0, 0x1E);
         model_render_flags |= 0x80000;
         set_ginja_post_tev_stage_count((s32)((int) (1U)));
         set_ginja_post_texgen_count((s32)((int) (1U)));

@@ -46,7 +46,7 @@ struct VObj_8021B288 : Base_8021B288 {
 void TShopEquipmentGearSequence::open_gear_shop() {
     if (((struct VObj_8021B288 *)this) != NULL) {
         ((struct VObj_8021B288 *)this)->m4(0x1B, 1);
-        ((TShopWindowBase *)((struct VObj_8021B288 *)this))->set_field_20((s32)(7));
+        ((TShopWindowBase *)((struct VObj_8021B288 *)this))->set_field_20(7);
         lbl_805D6218 = 0x1A;
         lbl_805D621C = 2;
     }
@@ -56,7 +56,7 @@ void TShopEquipmentGearSequence::enter_quest_list() {
     struct VObj_8021B2E8 *o = (struct VObj_8021B2E8 *)this;
     if (o != NULL) {
         o->m4(0x1A, 1);
-        ((TShopWindowBase *)this)->set_field_20((s32)(2));
+        ((TShopWindowBase *)this)->set_field_20(2);
     }
 }
 

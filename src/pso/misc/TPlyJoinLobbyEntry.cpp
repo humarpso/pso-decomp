@@ -692,7 +692,7 @@ void send_6x70_player_data__6TLobbyFi(s32 arg0) {
 #pragma peephole off
 void handle_6x6F_set_quest_flags_v2(s32 arg0) {
     if (((s16) TLobby__data_805D5CE8 == 0) && (((s32) TLobby__data_805D5594 == 0xE) || ((s32) TLobby__data_805D5594 == 0xF))) {
-        memcpy((void *) (&(*(RecoveredGlobal_8013561C_lbl_805127F8 *)&quest_story_flags_by_difficulty).value), (void *) (arg0 + 4), (int) (0x200));
+        memcpy((void *) (&(*(RecoveredGlobal_8013561C_lbl_805127F8 *)&quest_story_flags_by_difficulty).value), (void *) (arg0 + 4), 0x200);
     }
 }
 #pragma pop
@@ -741,7 +741,7 @@ void handle_6x6D_sync_game_state(Pkt_8013574C *arg0) {
     if (TLobby__data_805D5CE8 == 0 && (TLobby__data_805D5594 == 0xE || TLobby__data_805D5594 == 0xF)) {
         len = arg0->len - 8;
         lobby_debug_printf_stub(lbl_8043EEA4, arg0->len);
-        buf = mem_alloc((s32)(0x8000));
+        buf = mem_alloc(0x8000);
         if (buf != NULL) {
             tmp = alloc__23TAdSinglePlyChrSelectGCFv(0x7230);
             if (tmp != NULL) {
@@ -803,7 +803,7 @@ void send_6x6F_quest_flags(s32 arg0) {
     typedef char spC_offset[(offsetof(Stack_80135974, spC) == 0x4) ? 1 : -1];
     Stack_80135974 stack;
     TLobby__sub_8013A578((void *) (&stack.sp8));
-    memcpy((void *) (&stack.spC), (void *) (&quest_story_flags_by_difficulty.value), (int) (0x200));
+    memcpy((void *) (&stack.spC), (void *) (&quest_story_flags_by_difficulty.value), 0x200);
     bswap_and_handle_packet__6TLobbyFii((void *) (&stack.sp8), (void *) (arg0));
 }
 
@@ -813,7 +813,7 @@ void send_6x6E_sync_game_state__6TLobbyFi(s32 arg0) {
     Pkt_801359C4 *buf;
     Hdr_801359C4 *hdr;
     void *tmp;
-    buf = (Pkt_801359C4 *)mem_alloc((s32)(0x4000));
+    buf = (Pkt_801359C4 *)mem_alloc(0x4000);
     if (buf != NULL) {
         memset(buf, 0, 0x4000);
         hdr = (Hdr_801359C4 *)alloc__23TAdSinglePlyChrSelectGCFv(0x4008);
@@ -850,10 +850,10 @@ void TLobby::send_6x6D_item_state() {
     Pkt_80135AE0 *buf;
     u8 *src;
     void *tmp;
-    buf = (Pkt_80135AE0 *)mem_alloc((s32)(0x8000));
+    buf = (Pkt_80135AE0 *)mem_alloc(0x8000);
     if (buf != NULL) {
         memset(buf, 0, 0x8000);
-        src = mem_alloc((s32)(0x8000));
+        src = mem_alloc(0x8000);
         if (src != NULL) {
             memset(src, 0, 0x8000);
             n = ((TLobby *)src)->write_sync_item_state();
@@ -882,7 +882,7 @@ void send_compressed_packet_6c__6TLobbyFi(s32 arg0) {
     u32 n;
     u32 *p;
     u32 i;
-    buf = (Pkt_80135BD0 *)mem_alloc((s32)(0x8000));
+    buf = (Pkt_80135BD0 *)mem_alloc(0x8000);
     if (buf != NULL) {
         memset(buf, 0, 0x8000);
         tmp = alloc__23TAdSinglePlyChrSelectGCFv(0x7230);
@@ -917,7 +917,7 @@ void send_cmd_6B__6TLobbyFi(s32 arg0) {
     u32 n;
     S12_801358B4 *p;
     u32 i;
-    buf = (Pkt_80135CD8 *)mem_alloc((s32)(0x8000));
+    buf = (Pkt_80135CD8 *)mem_alloc(0x8000);
     if (buf != NULL) {
         memset(buf, 0, 0x8000);
         tmp = alloc__23TAdSinglePlyChrSelectGCFv(0x7230);
@@ -958,16 +958,16 @@ void open_download_list_window__6TLobbyFiPv(s32 arg0, Ent_80135E7C *arg1) {
         e = &arg1[i];
         switch (e->kind) {
         case 0:
-            ((TLobby *)TLobby__list_window)->add_list_entry((s32)0x2C, (s32)(e->name), (s32)i);
+            ((TLobby *)TLobby__list_window)->add_list_entry(0x2C, (s32)(e->name), (s32)i);
             break;
         case 1:
-            ((TLobby *)TLobby__list_window)->add_list_entry((s32)0x17, (s32)(e->name), (s32)i);
+            ((TLobby *)TLobby__list_window)->add_list_entry(0x17, (s32)(e->name), (s32)i);
             break;
         case 2:
-            ((TLobby *)TLobby__list_window)->add_list_entry((s32)0x31, (s32)(e->name), (s32)i);
+            ((TLobby *)TLobby__list_window)->add_list_entry(0x31, (s32)(e->name), (s32)i);
             break;
         default:
-            ((TLobby *)TLobby__list_window)->add_list_entry((s32)0x2C, (s32)(e->name), (s32)i);
+            ((TLobby *)TLobby__list_window)->add_list_entry(0x2C, (s32)(e->name), (s32)i);
             break;
         }
     }
@@ -1654,7 +1654,7 @@ void handle_verify_result__6TLobbyFUi(u32 arg0) {
     case 0:
     case 2:
         lobby_debug_printf_stub(lbl_8043F05C);
-        TLobby::dispatch_by_index((int) (1));
+        TLobby::dispatch_by_index(1);
         option_state = TLobby::get_option_state();
         send_login_9e_extended__6TLobbyFPvPvi((int) (TLobby__protocol_instance), (void *) (((s32)get_char_index__23TAdSinglePlyChrSelectGCFUi((u32)(0xFFFF))) + 0x370), (int) (option_state));
         return;
@@ -1662,52 +1662,52 @@ void handle_verify_result__6TLobbyFUi(u32 arg0) {
         send_register_9c((int) (TLobby__protocol_instance));
         return;
     case 3:
-        TLobby::dispatch_by_index((int) (0));
-        ((void (*)(s32))reset_state__6TLobbyFv)((int) (0x4E));
+        TLobby::dispatch_by_index(0);
+        ((void (*)(s32))reset_state__6TLobbyFv)(0x4E);
         return;
     case 4:
-        TLobby::dispatch_by_index((int) (0));
-        ((void (*)(s32))reset_state__6TLobbyFv)((int) (0x4F));
+        TLobby::dispatch_by_index(0);
+        ((void (*)(s32))reset_state__6TLobbyFv)(0x4F);
         return;
     case 7:
-        ((void (*)(s32))reset_state__6TLobbyFv)((int) (0x1B));
+        ((void (*)(s32))reset_state__6TLobbyFv)(0x1B);
         return;
     case 8:
-        ((void (*)(s32))reset_state__6TLobbyFv)((int) (0x1A));
+        ((void (*)(s32))reset_state__6TLobbyFv)(0x1A);
         return;
     case 11:
-        ((void (*)(s32))reset_state__6TLobbyFv)((int) (0x16));
+        ((void (*)(s32))reset_state__6TLobbyFv)(0x16);
         return;
     case 12:
-        ((void (*)(s32))reset_state__6TLobbyFv)((int) (0x17));
+        ((void (*)(s32))reset_state__6TLobbyFv)(0x17);
         return;
     case 13:
-        ((void (*)(s32))reset_state__6TLobbyFv)((int) (0x18));
+        ((void (*)(s32))reset_state__6TLobbyFv)(0x18);
         return;
     case 14:
-        ((void (*)(s32))reset_state__6TLobbyFv)((int) (0x19));
+        ((void (*)(s32))reset_state__6TLobbyFv)(0x19);
         return;
     case 15:
     case 16:
-        ((void (*)(s32))reset_state__6TLobbyFv)((int) (0x15));
+        ((void (*)(s32))reset_state__6TLobbyFv)(0x15);
         return;
     case 17:
-        ((void (*)(s32))reset_state__6TLobbyFv)((int) (0x1A));
+        ((void (*)(s32))reset_state__6TLobbyFv)(0x1A);
         return;
     case 18:
-        ((void (*)(s32))reset_state__6TLobbyFv)((int) (0x1B));
+        ((void (*)(s32))reset_state__6TLobbyFv)(0x1B);
         return;
     case 19:
-        ((void (*)(s32))reset_state__6TLobbyFv)((int) (0x1C));
+        ((void (*)(s32))reset_state__6TLobbyFv)(0x1C);
         return;
     case 26:
-        ((void (*)(s32))reset_state__6TLobbyFv)((int) (0x1D));
+        ((void (*)(s32))reset_state__6TLobbyFv)(0x1D);
         return;
     case 27:
-        ((void (*)(s32))reset_state__6TLobbyFv)((int) (0x1E));
+        ((void (*)(s32))reset_state__6TLobbyFv)(0x1E);
         return;
     default:
-        ((void (*)(s32))reset_state__6TLobbyFv)((int) (0x1D));
+        ((void (*)(s32))reset_state__6TLobbyFv)(0x1D);
         return;
     }
 }
@@ -1916,7 +1916,7 @@ u8 *__dt__6TLobbyFv(u8 *arg0, s16 arg1) {
         lobby_selected_game_list_index = 0;
         TLobby__join_lobby_controller = 0;
         TLobby__data_805D4E30 = 0;
-        __dt__7TObjectFv((void *) (arg0), (int) (0));
+        __dt__7TObjectFv((void *) (arg0), 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }

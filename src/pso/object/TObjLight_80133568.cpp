@@ -253,7 +253,7 @@ void TObjLight__sub_8013379C(void) {  }
 typedef char RecoveredGlobal_801337A0_TObjLight__data_80506320_size[sizeof(RecoveredGlobal_801337A0_TObjLight__data_80506320) == 0x50 ? 1 : -1];
 typedef char RecoveredGlobal_801337A0_TObjLight__data_8058D528_size[sizeof(RecoveredGlobal_801337A0_TObjLight__data_8058D528) == 0x140 ? 1 : -1];
 void TObjLight::init_directional_light() {
-    init_distant_light((0), *(f32 *)((s8 *)(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0xC), *(f32 *)((s8 *)(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x10), *(f32 *)((s8 *)(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x14));
+    init_distant_light(0, *(f32 *)((s8 *)(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0xC), *(f32 *)((s8 *)(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x10), *(f32 *)((s8 *)(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x14));
     GXInitLightDir((s32 *)(&(*(RecoveredGlobal_801337A0_TObjLight__data_8058D528 *)&TObjLight__gx_light_objects).value), *(f32 *)((s8 *)(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0xC), *(f32 *)((s8 *)(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x10), *(f32 *)((s8 *)(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x14));
 }
 
@@ -282,17 +282,17 @@ void apply_environment_light(s32 arg0) {
     TObjLight__sub_8013397C((void *)arg0);
     GXInitLightSpot(((s32 *)&TObjLight__gx_light_objects), 1, lbl_805DB098);
     GXInitLightDistAttn(((s32 *)&TObjLight__gx_light_objects), 0, lbl_805DB09C, lbl_805DB0A0);
-    load_gx_light_slot((0));
+    load_gx_light_slot(0);
 }
 
 void set_scene_light_diffuse(void * _w0) {
-    set_gx_light_color(((int) (0)), (f32) (*(f32 *)((s8 *)(&(*(RecoveredGlobal_801338EC_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x28)), (f32) (*(f32 *)((s8 *)(&(*(RecoveredGlobal_801338EC_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x2C)), (f32) (*(f32 *)((s8 *)(&(*(RecoveredGlobal_801338EC_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x30)));
+    set_gx_light_color(0, (f32) (*(f32 *)((s8 *)(&(*(RecoveredGlobal_801338EC_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x28)), (f32) (*(f32 *)((s8 *)(&(*(RecoveredGlobal_801338EC_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x2C)), (f32) (*(f32 *)((s8 *)(&(*(RecoveredGlobal_801338EC_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x30)));
 }
 
 typedef char RecoveredGlobal_80133924_TObjLight__data_80506320_size[sizeof(RecoveredGlobal_80133924_TObjLight__data_80506320) == 0x50 ? 1 : -1];
 typedef char RecoveredGlobal_80133924_TObjLight__data_8058D528_size[sizeof(RecoveredGlobal_80133924_TObjLight__data_8058D528) == 0x140 ? 1 : -1];
 void submit_scene_light_direction(void * _w0) {
-    init_distant_light((0), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133924_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0xC), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133924_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x10), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133924_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x14));
+    init_distant_light(0, *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133924_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0xC), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133924_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x10), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133924_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x14));
     GXInitLightDir((s32 *)(&(*(RecoveredGlobal_80133924_TObjLight__data_8058D528 *)&TObjLight__gx_light_objects).value), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133924_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0xC), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133924_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x10), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133924_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x14));
 }
 
@@ -305,7 +305,7 @@ typedef char RecoveredGlobal_80133980_TObjLight__data_80506320_size[sizeof(Recov
 u8 *TObjLight__sub_80133980(u8 *arg0, int _w1) {
     ((TObjLight *)arg0)->init_object();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80133980_lbl_804A6F90 *)&lbl_804A6F90).value;
-    rotate_vector_by_matrix((int) (0), (void *) (&(*(RecoveredGlobal_80133980_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value), (void *) ((u8 *)&(*(RecoveredGlobal_80133980_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value + 0xC));
+    rotate_vector_by_matrix(0, (void *) (&(*(RecoveredGlobal_80133980_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value), (void *) ((u8 *)&(*(RecoveredGlobal_80133980_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value + 0xC));
     TObjLight__sub_8013397C((void *)((void *) (arg0)));
     submit_scene_light_direction((void *)((void *) (arg0)));
     set_scene_light_diffuse((void *)((void *) (arg0)));
@@ -349,11 +349,11 @@ void init_menu_scene_lights(u8 *arg0) {
     *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0xC) = (f32) *(f32 *)((s8 *)arg0 + 0xC);
     *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x10) = (f32) *(f32 *)((s8 *)arg0 + 0x10);
     *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x14) = (f32) *(f32 *)((s8 *)arg0 + 0x14);
-    temp_r3 = __nw__7TObjectFUl((int) (0x1C));
+    temp_r3 = __nw__7TObjectFUl(0x1C);
     if (temp_r3 != 0U) {
         TObjLight__sub_80133980((u8 *)((int) (temp_r3)), (int)((int) (tl_02)));
     }
-    temp_r3_2 = __nw__7TObjectFUl((int) (0x1C));
+    temp_r3_2 = __nw__7TObjectFUl(0x1C);
     if (temp_r3_2 != 0U) {
         ((TObjLight *)temp_r3_2)->init((int)((int) (tl_02)));
     }
@@ -386,15 +386,15 @@ void init_map_lights(u8 *arg0) {
     *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133B10_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x3C) = (f32) *(f32 *)((s8 *)arg0 + 0x3C);
     *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133B10_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x40) = (f32) *(f32 *)((s8 *)arg0 + 0x40);
     TObjLight::init_light_tables();
-    temp_r3 = __nw__7TObjectFUl((int) (0x1C));
+    temp_r3 = __nw__7TObjectFUl(0x1C);
     if (temp_r3 != 0U) {
         TObjLight__sub_80133980((u8 *)((int) (temp_r3)), (int)((int) (tl_02)));
     }
-    temp_r3_2 = __nw__7TObjectFUl((int) (0x1C));
+    temp_r3_2 = __nw__7TObjectFUl(0x1C);
     if (temp_r3_2 != 0U) {
         ((TObjLight *)temp_r3_2)->init((int)((int) (tl_02)));
     }
-    temp_r3_3 = __nw__7TObjectFUl((int) (0x1C));
+    temp_r3_3 = __nw__7TObjectFUl(0x1C);
     if (temp_r3_3 != 0U) {
         ((TObjLight *)temp_r3_3)->init_map_light((int)((int) (tl_02)));
     }
@@ -511,10 +511,10 @@ typedef char RecoveredGlobal_80133F6C_TObjLight__data_80506320_size[sizeof(Recov
 typedef char RecoveredGlobal_80133F6C_TObjLight__data_8058D528_size[sizeof(RecoveredGlobal_80133F6C_TObjLight__data_8058D528) == 0x140 ? 1 : -1];
 void TObjLight::apply_distant_light() {
     set_light_ambient_color(*(f32 *)((s8 *)(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x20), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x20), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x20));
-    init_distant_light((0), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0xC), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x10), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x14));
+    init_distant_light(0, *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0xC), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x10), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x14));
     GXInitLightDir((s32 *)(&(*(RecoveredGlobal_80133F6C_TObjLight__data_8058D528 *)&TObjLight__gx_light_objects).value), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0xC), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x10), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x14));
-    set_gx_light_color((0), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x28), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x2C), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x30));
-    load_gx_light_slot((0));
+    set_gx_light_color(0, *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x28), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x2C), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x30));
+    load_gx_light_slot(0);
 }
 
 void TObjLight::set_light(void *arg1, f32 farg0) {
@@ -529,15 +529,15 @@ typedef char RecoveredGlobal_80134098_TObjLight__data_80506320_size[sizeof(Recov
 typedef char RecoveredGlobal_80134098_TObjLight__data_8058D528_size[sizeof(RecoveredGlobal_80134098_TObjLight__data_8058D528) == 0x140 ? 1 : -1];
 void restore_scene_lighting(void) {
     if (TOKeyMachine01::get_global_state() == 0xF) {
-        init_distant_light((0), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0xC), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x10), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x14));
+        init_distant_light(0, *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0xC), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x10), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x14));
         GXInitLightDir((s32 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_8058D528 *)&TObjLight__gx_light_objects).value), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0xC), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x10), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x14));
-        set_gx_light_color((0), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x28), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x2C), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x30));
-        load_gx_light_slot((0));
+        set_gx_light_color(0, *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x28), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x2C), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x30));
+        load_gx_light_slot(0);
     } else {
-        init_distant_light((0), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0xC), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x10), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x14));
+        init_distant_light(0, *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0xC), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x10), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x14));
         GXInitLightDir((s32 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_8058D528 *)&TObjLight__gx_light_objects).value), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0xC), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x10), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x14));
-        set_gx_light_color((0), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x28), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x2C), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x30));
-        load_gx_light_slot((0));
+        set_gx_light_color(0, *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x28), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x2C), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x30));
+        load_gx_light_slot(0);
     }
     set_light_ambient_color(*(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x20), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x20), *(f32 *)((s8 *)(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x20));
 }

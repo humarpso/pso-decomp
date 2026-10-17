@@ -50,7 +50,7 @@ void TOJungleDesign::render() {
         TObjFish::set_global_param((int) (this->texture_id));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_yxz((0), (*(s32 *)&this->m_5c), (this->rotation_y), (this->rotation_z));
+        rotate_matrix_yxz(0, (*(s32 *)&this->m_5c), (this->rotation_y), (this->rotation_z));
         draw_ginja_object((void *)(*(s32 *)&this->m_ac));
         pop_matrix();
     }
@@ -76,7 +76,7 @@ u8 *TOJungleDesign__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOJungleDesign__name;
     ((TOJungleDesign *)(arg0))->apply_object_set_data((void *)arg2);
     ((TOJungleDesign *)arg0)->init_design_variant();
-    init_collision_body_parts((void *) (arg0), (int) ((u8 *)&TOJungleDesign__collision_desc_table.value + (*(s32 *)&((TOJungleDesign *)arg0)->m_b0* 0x2C)), (int) (1));
+    init_collision_body_parts((void *) (arg0), (int) ((u8 *)&TOJungleDesign__collision_desc_table.value + (*(s32 *)&((TOJungleDesign *)arg0)->m_b0* 0x2C)), 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
 }

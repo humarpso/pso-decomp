@@ -21,7 +21,7 @@ void fn_802FE9E0(void) {
 }
 typedef char RecoveredGlobal_802FEA0C_lbl_804E6218_size[sizeof(RecoveredGlobal_802FEA0C_lbl_804E6218) == 0x28 ? 1 : -1];
 void fn_802FEA0C(void) {
-    run_load_callback_table((void *) (&(*(RecoveredGlobal_802FEA0C_lbl_804E6218 *)&static_resource_callback_table).value), (int) (0x28));
+    run_load_callback_table((void *) (&(*(RecoveredGlobal_802FEA0C_lbl_804E6218 *)&static_resource_callback_table).value), 0x28);
 }
 
 }

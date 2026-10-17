@@ -80,7 +80,7 @@ u8 *TItemEffPG__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TItemEffPG *)arg0)->m_c8 = (f32) *(f32 *)((s8 *)arg2 + 0x30);
     *(f32 *)((s8 *)arg0 + 0xCC) = (f32) *(f32 *)((s8 *)arg2 + 0x2C);
     *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (*(f32 *)((s8 *)arg0 + 0xB0) * lbl_805DFE18);
-    temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x68)));
+    temp_r3 = ((s32)__nw__7TObjectFUl(0x68));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (s32)TItemEffPG__visual_ct((u8 *)(temp_r3), (u8 *)(arg0), (u8 *)(arg2));

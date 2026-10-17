@@ -24,7 +24,7 @@ void TObjBoss2Tunnel::create_particle_effect(s32 position, s32 arg1, f32 farg0) 
 
     var_r31 = __nw__7TObjectFUl(0x78);
     if (var_r31 != NULL) {
-        var_r31 = ((TParticleCtrl *)var_r31)->initialize_with_flags((const void *)position, (s32)(TParticleCtrl::get_particle_by_index(arg1)), (s32)1, (s32)0, (s32)0, (s32)1, (u16)0x40);
+        var_r31 = ((TParticleCtrl *)var_r31)->initialize_with_flags((const void *)position, (s32)(TParticleCtrl::get_particle_by_index(arg1)), 1, 0, 0, 1, (u16)0x40);
     }
 #define release_children__15TObjBoss2TunnelFPvf ((s32 (*)(void *, f32))release_children__15TObjBoss2TunnelFPvf)
     if (var_r31 != NULL) {
@@ -681,12 +681,12 @@ extern s32 boss2_tunnel_shift_queue_table[];
 extern "C" {
 
 void enable_fog__15TObjBoss2TunnelFPv(void *arg0) {
-    TFogCtrl::update_all((s32)(*(s32 *)&((TObjBoss2Tunnel *)arg0)->m_b0), (s32)(1));
+    TFogCtrl::update_all((s32)(*(s32 *)&((TObjBoss2Tunnel *)arg0)->m_b0), 1);
     (*(s32 *)&TObjBoss2Tunnel__global_flags) |= 4;
 }
 
 void enable_fog__15TObjBoss2TunnelFv(void) {
-    TFogCtrl::update_all((s32)(0xB), (s32)(1));
+    TFogCtrl::update_all(0xB, 1);
     (*(s32 *)&TObjBoss2Tunnel__global_flags) |= 2;
 }
 

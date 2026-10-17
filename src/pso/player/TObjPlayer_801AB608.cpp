@@ -350,16 +350,16 @@ void TPhotonGolla::run_task() {
             VecCopy((Vec *)(&stack.sp8), (const Vec *)(entity + 0x38));
         }
         stack.spC += lbl_805DC1A0;
-        temp_r3_2 = __nw__7TObjectFUl((int) (0xD0));
+        temp_r3_2 = __nw__7TObjectFUl(0xD0);
         if (temp_r3_2 != 0U) {
-            TPhotonMagicSquare__ct((u8 *)(temp_r3_2), (s32)(arg0), (s32)(3), (s32)(&stack.sp8), (s32)(0xFA), (f32) (lbl_805DC1A4));
+            TPhotonMagicSquare__ct((u8 *)(temp_r3_2), (s32)(arg0), 3, (s32)(&stack.sp8), 0xFA, (f32) (lbl_805DC1A4));
         }
     }
     if ((lbl_805DC1A8 == (f32) *(s32 *)&this->unk_1C8) && ((s16) this->m_b8 == 1)) {
-        ((TUnk_804C3248 *)arg0)->begin_photon_summon_camera((int) (5));
+        ((TUnk_804C3248 *)arg0)->begin_photon_summon_camera(5);
         *(s32 *)&this->unk_1C8 = 0;
-        ((TObjMotion *)arg0)->set_field_b8((int) (0));
-        spawn_photon_blast_attachment_effects((void *) (arg0), (int) (2));
+        ((TObjMotion *)arg0)->set_field_b8(0);
+        spawn_photon_blast_attachment_effects((void *) (arg0), 2);
     }
     this->m_1b8 = (s16) this->m_b8;
     ((TUnk_804C3248 *)arg0)->update_state();
@@ -369,7 +369,7 @@ void TPhotonGolla::run_task() {
     *(s16 *)((s8 *)arg0 + 0x14C) = (s16) (u8) *(s16 *)((s8 *)arg0 + 0x14C);
     if ((s32) *(s32 *)&this->unk_1C8 == 0x50) {
         VecCopy((Vec *)(arg0 + 0x1AC), (const Vec *)(this->m_148 + 0x44));
-        spawn_particle_effect((arg0 + 0x1AC), (0x133));
+        spawn_particle_effect((arg0 + 0x1AC), 0x133);
         spawn_concentrate__12TPhotonGollaFPv((void *)((void *) (arg0)));
     }
     temp_r0 = *(s32 *)&this->unk_1C8;
@@ -377,7 +377,7 @@ void TPhotonGolla::run_task() {
         spawn_concentrate__12TPhotonGollaFPv((void *)((void *) (arg0)));
     }
     if ((s32) this->m_1c4 != 0) {
-        play_persistent_sound((0x4002462F), (s32)(arg0), (0), (0), (0));
+        play_persistent_sound(0x4002462F, (s32)(arg0), 0, 0, 0);
     }
 }
 

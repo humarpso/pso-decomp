@@ -181,7 +181,7 @@ s32 TOExplosiveMachine::update_trigger() {
         }
         break;
     }
-    play_persistent_sound((s32)(0x4004C10F), (s32)(this), (u32)((u8 *)this + 0x38), (s32)(0), (s32)(0));
+    play_persistent_sound(0x4004C10F, (s32)(this), (u32)((u8 *)this + 0x38), 0, 0);
 }
 
 void TOExplosiveMachine::update() {

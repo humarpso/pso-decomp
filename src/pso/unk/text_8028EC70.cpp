@@ -87,7 +87,7 @@ void TAdSinglePlyChrSelectGC__sub_8028ED54(s32 arg1_) {
 block_7:
             h = find_free_slot__23TAdSinglePlyChrSelectGCFv();
             if (h == 0U) {
-                if (TAdSinglePlyChrSelectGC::evict_char_entries((int) (1)) == 0) {
+                if (TAdSinglePlyChrSelectGC::evict_char_entries(1) == 0) {
                     return;
                 }
                 h = find_free_slot__23TAdSinglePlyChrSelectGCFv();

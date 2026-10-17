@@ -127,7 +127,7 @@ s32 TObjCityMainWarp::get_floor_warp_bit(s32 floor) {
 }
 
 void TObjCityMainWarp__sub_80186AB8(void) {  }
-void TObjCityMainWarp::reset() { clear_enabled_main_warps(); update_main_warp_visible_mask((s32)(0)); }
+void TObjCityMainWarp::reset() { clear_enabled_main_warps(); update_main_warp_visible_mask(0); }
 void TWindowSubComCardList::set_flag70_bit10() { this->m_70 |= 0x10; }
 
 typedef char RecoveredGlobal_80186AF4_lbl_804FF800_size[sizeof(RecoveredGlobal_80186AF4_lbl_804FF800) == 0x20 ? 1 : -1];

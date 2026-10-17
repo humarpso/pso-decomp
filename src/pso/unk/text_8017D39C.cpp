@@ -23,11 +23,11 @@ typedef char RecoveredGlobal_8017D39C_lbl_804B5418_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8017D39C___vt__24TOWreckAncientBrakable05_size[sizeof(RecoveredGlobal_8017D39C___vt__24TOWreckAncientBrakable05) == 0x38 ? 1 : -1];
 u8 *TOWreckAncientBrakable05__ct(u8 *arg0, s32 arg1) {
     s32 temp_r0;
-    TOWreckAncientBrakable__ct((void *) (arg0), (int) (3));
+    TOWreckAncientBrakable__ct((void *) (arg0), 3);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__24TOWreckAncientBrakable05.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOWreckAncientBrakable05__name;
     ((TOWreckAncientBrakable05 *)(arg0))->apply_object_set_data((void *)arg1);
-    init_collision_body_parts((void *) (arg0), (void *) ((u8 *)&TOWreckAncient__collision_body_templates.value + 0x84), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) ((u8 *)&TOWreckAncient__collision_body_templates.value + 0x84), 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s32 *)&((TOWreckAncientBrakable05 *)arg0)->m_b8 = (s32) ((TOWreckAncientBrakable05 *)arg0)->m_84;
     temp_r0 = *(s32 *)&((TOWreckAncientBrakable05 *)arg0)->m_b8;

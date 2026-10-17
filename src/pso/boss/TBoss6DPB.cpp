@@ -166,7 +166,7 @@ u8 *__ct__9TBoss6DPBFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
     if (lbl_805E01CC == temp_f1) {
         *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805E01D4;
     }
-    play_sound_effect((s32)((int) (0x40069410)), (u32)((void *) (arg0 + 0x20)), (int)((int) (0)), (s32)((int) (0)));
+    play_sound_effect(0x40069410, (u32)((void *) (arg0 + 0x20)), 0, 0);
     *(s32 *)((s8 *)arg0 + 0x30) = 0;
     return arg0;
 }
@@ -187,19 +187,19 @@ u8 *TBoss6Type2::create_dpb(s32 arg0, s32 arg1, f32 farg0) {
 
 f32 TObjEneEpsilonGuard::receive_weapon_special_attack(void *, void *) {
     s32 arg0 = (s32)this;
-    ((TUnk_804806E8 *)arg0)->try_apply_damage((u32)((void *) (arg0 + 0x2FC)), (s32)((int) (0)));
+    ((TUnk_804806E8 *)arg0)->try_apply_damage((u32)((void *) (arg0 + 0x2FC)), 0);
     return TObjEneEpsilonGuard__data_805E01D8;
 }
 f32 TObjEneEpsilonGuard::receive_physical_attack(void *, f32) {
     s32 arg0 = (s32)this;
-    ((TUnk_804806E8 *)arg0)->try_apply_damage((u32)((void *) (arg0 + 0x2FC)), (s32)((int) (0)));
+    ((TUnk_804806E8 *)arg0)->try_apply_damage((u32)((void *) (arg0 + 0x2FC)), 0);
     return TObjEneEpsilonGuard__data_805E01D8;
 }
 f32 TObjEneEpsilonGuard__vt21(s32 arg0, s32 att, Msg_8035DD18 *msg, void *coll, s32 tech, s32 arg5) {
     if (msg->type == 0x14) {
         return receive_direct_attack__10TObjPlayerFv((void *)arg0, att, *msg, coll, tech, arg5);
     }
-    ((TUnk_804806E8 *)arg0)->try_apply_damage((u32)((void *) (arg0 + 0x2FC)), (s32)((int) (0)));
+    ((TUnk_804806E8 *)arg0)->try_apply_damage((u32)((void *) (arg0 + 0x2FC)), 0);
     return TObjEneEpsilonGuard__data_805E01D8;
 }
 

@@ -203,7 +203,7 @@ void TLobby::set_short_mail_text() {
     u8 *temp_r31;
     temp_r31 = (u8 *)(get_character_save_record((0xFFFFU)) + 0x2050);
     TWindowSubComCard__sub_80225E80((void *) (arg0), (int) (((s32 (*)(void))get_shared_text_buffer)()));
-    strncpy((int) (temp_r31), (int) (((s32 (*)(void))get_shared_text_buffer)()), (int) (0xAB));
+    strncpy((int) (temp_r31), (int) (((s32 (*)(void))get_shared_text_buffer)()), 0xAB);
     *(s8 *)((s8 *)temp_r31 + 0xAB) = 0;
     auto_reply_flags |= 4;
     if (TLobby::is_active() != 0) {

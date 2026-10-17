@@ -81,12 +81,12 @@ void update_wait_confirm__17TMCFormatSequenceFPv(void *arg0) {
 
 void TMCFormatSequence::check_memcard_load_result() {
     if (((TAdPlayerLoadGC *)(*(s32 *)((s8 *)this + 0x28)))->probe_card_slot() == 0) {
-        show_message((s32)(get_localized_text_entry(0xB, 0x6C)), (s32)(0));
+        show_message((s32)(get_localized_text_entry(0xB, 0x6C)), 0);
         this->m_24 = 3;
         return;
     }
     if (TAdPlayerLoadGC__sub_801E1B50(*(s32 *)((s8 *)this + 0x28)) == 0) {
-        show_message((s32)(get_localized_text_entry(0xB, 0x6B)), (s32)(0));
+        show_message((s32)(get_localized_text_entry(0xB, 0x6B)), 0);
         this->m_24 = 4;
     }
 }
@@ -95,17 +95,17 @@ void TMCFormatSequence::process_format_result() {
     s32 selected_menu_value;
 
     if (((TAdPlayerLoadGC *)(*(s32 *)((s8 *)this + 0x28)))->probe_card_slot() == 0) {
-        show_message((s32)(get_localized_text_entry(0xB, 0x6C)), (s32)(0));
+        show_message((s32)(get_localized_text_entry(0xB, 0x6C)), 0);
         this->m_24 = 3;
         return;
     }
     if (((TAdPlayerLoadGC *)(*(s32 *)((s8 *)this + 0x28)))->probe_and_check_card() == 0) {
-        show_message((s32)(get_localized_text_entry(0xB, 0x6C)), (s32)(0));
+        show_message((s32)(get_localized_text_entry(0xB, 0x6C)), 0);
         this->m_24 = 3;
         return;
     }
     if ((u32) (TAdPlayerLoadGC::check_memcard_status(*(s32 *)((s8 *)this + 0x28)) + 0x10000) != 0xFF03U) {
-        show_message((s32)(get_localized_text_entry(0xB, 0x6C)), (s32)(0));
+        show_message((s32)(get_localized_text_entry(0xB, 0x6C)), 0);
         this->m_24 = 3;
         return;
     }
@@ -115,7 +115,7 @@ void TMCFormatSequence::process_format_result() {
             if (TAdPlayerLoadGC__sub_801E24F8(*(s32 *)((s8 *)this + 0x28), 0, 0, 0, 0) == 0) {
                 this->m_24 = 2;
             } else {
-                show_message((s32)(get_localized_text_entry(0xB, 0x6C)), (s32)(0));
+                show_message((s32)(get_localized_text_entry(0xB, 0x6C)), 0);
                 this->m_24 = 3;
             }
         }

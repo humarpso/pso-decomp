@@ -215,8 +215,8 @@ void TItem::refresh_owner_stats() {
     s16 temp_r30;
     temp_r31 = obj_getS16_32C(temp_r3);
     temp_r30 = obj_getS16_32E(*((u8 **) (((s8 *) ((u8 *)this)) + 0xF0)));
-    (this->vfunc_23((0)));
-    (this->vfunc_22((0)));
+    (this->vfunc_23(0));
+    (this->vfunc_22(0));
     temp_r3_2 = (u8 *) (*((u8 **) (((s8 *) ((u8 *)this)) + 0xF0)));
     (((VObj_18_94668e *)(temp_r3_2))->m71());
     ((TObjPlayer *)(*((u8 **) (((s8 *) ((u8 *)this)) + 0xF0))))->set_hp_clamped(temp_r31);

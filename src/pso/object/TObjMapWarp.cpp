@@ -154,7 +154,7 @@ void TObjMapWarp::closePlayerWindow(u16 arg1) {
         *(u32 *)((s8 *)temp_r31 + 0xEC) = 0U;
         player = ((u32)get_player_by_client_id((u32)((void *) ((s32) arg1))));
         if (player != 0U) {
-            fn_8019DD24((void *)(player + 0x550), (4));
+            fn_8019DD24((void *)(player + 0x550), 4);
         }
     }
 }
@@ -198,11 +198,11 @@ void *TObjMapWarp__ct(W_8019D764 *self, void *parent, void *set) {
 }
 
 void TObjWarpBase__vt15(s32 arg0, s32 arg1) {
-    TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&(*(RecoveredGlobal_8019D818_lbl_8050E208 *)&controller_input_state).value + (arg1 * 0x50) + 0x20), (int) (4));
+    TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&(*(RecoveredGlobal_8019D818_lbl_8050E208 *)&controller_input_state).value + (arg1 * 0x50) + 0x20), 4);
 }
 
 void TObjWarpBase::vfunc_17() {
-    TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), (int) (4));
+    TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), 4);
 }
 
 u8 TObjWarpBase__vt13(void *arg0) {

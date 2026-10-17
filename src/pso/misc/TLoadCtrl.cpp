@@ -148,10 +148,10 @@ u8 *TLoadCtrl__ct(u8 *arg0, s32 arg1) {
     *(s32 *)&((TLoadCtrl *)arg0)->m_20 = 0;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TLoadCtrl__class_name;
     if (((u32) (*(u32 *)&TLoadCtrl__loading_mode) == 0U) || ((u32) (*(u32 *)&TLoadCtrl__loading_mode) == 1U)) {
-        temp_r3 = __nw__7TObjectFUl((int) (0x38));
+        temp_r3 = __nw__7TObjectFUl(0x38);
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = __ct__9TAdFadeGCFP7TObjectPv((int) (temp_r3), (int) (tl_fade), (int) (2));
+            var_r0 = __ct__9TAdFadeGCFP7TObjectPv((int) (temp_r3), (int) (tl_fade), 2);
         }
         TLoadCtrl__fade_task = var_r0;
     }
@@ -229,23 +229,23 @@ void TLoadCtrl::start_loading(u32 arg0) {
     case 2:
         break;
     case 0:
-        TLoadCtrl__sub_80226DA0((int) (0));
+        TLoadCtrl__sub_80226DA0(0);
         break;
     case 1:
-        TLoadCtrl__sub_80226DA0((int) (3));
+        TLoadCtrl__sub_80226DA0(3);
         break;
     case 3:
-        TLoadCtrl__sub_80226DA0((int) (1));
+        TLoadCtrl__sub_80226DA0(1);
         break;
     case 4:
-        TLoadCtrl__sub_80226DA0((int) (2));
+        TLoadCtrl__sub_80226DA0(2);
         break;
     }
-    temp_cam = (u8 *) __nw__7TObjectFUl((int) (0x1D4));
+    temp_cam = (u8 *) __nw__7TObjectFUl(0x1D4);
     if (temp_cam != NULL) {
         TCameraCtrl__ct(temp_cam, (void *)tl_camera);
     }
-    var_r0 = (u8 *) __nw__7TObjectFUl((int) (0x24));
+    var_r0 = (u8 *) __nw__7TObjectFUl(0x24);
     if (var_r0 != NULL) {
         var_r0 = TLoadCtrl__ct(var_r0, tl_su);
     }

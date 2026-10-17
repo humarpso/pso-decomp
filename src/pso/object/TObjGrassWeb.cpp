@@ -37,19 +37,19 @@ void TObjGrassWeb__sub_800BC798(Web_800BC798 *o) {
     case 3:
     case 4:
     case 5:
-        play_persistent_sound((s32)(0x4003A809), (s32)o, (u32)o->pos, (s32)(0), (s32)(0));
+        play_persistent_sound(0x4003A809, (s32)o, (u32)o->pos, 0, 0);
         break;
     case 16:
     case 17:
         if (enable_v2_features == 1) {
-            play_persistent_sound((s32)(0x3051E), (s32)o, (u32)o->pos, (s32)(0), (s32)(0));
+            play_persistent_sound(0x3051E, (s32)o, (u32)o->pos, 0, 0);
         }
         break;
     case 18:
         break;
     case 19:
     case 20:
-        play_persistent_sound((s32)(0x3A81D), (s32)o, (u32)o->pos, (s32)(0), (s32)(0));
+        play_persistent_sound(0x3A81D, (s32)o, (u32)o->pos, 0, 0);
         break;
     }
     if (o->timer-- < 0) {

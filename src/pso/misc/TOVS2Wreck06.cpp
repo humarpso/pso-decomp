@@ -31,7 +31,7 @@ void *__dt__12TOVS2Wreck06Fv(void *arg0, s16 arg1) {
 extern void *TOVS2Wreck06__class_name;
 
 void *TOVS2Wreck06__ct(void *arg0, void *arg1) {
-    ((TOVS2Wall01 *)arg0)->init_wreck_object((s32)arg1, (s32)5);
+    ((TOVS2Wall01 *)arg0)->init_wreck_object((s32)arg1, 5);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TOVS2Wreck06;
     *(void * *)&((TOVS2Wreck06 *)arg0)->m_name = TOVS2Wreck06__class_name;
     return arg0;

@@ -47,7 +47,7 @@ void TObjEneRecon__sub_8031FB6C(u8 *arg0) {
     if ((temp_r3 == NULL) || (((TObjEneRecobox *)arg0)->m_300 >= (lbl_805DF460 + *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 4)) + 4)))) {
         ((TObjEneRecobox *)(arg0))->vfunc_97();
     }
-    set_part_local_pos__9TObjEneDDFPvPvi((void *) (arg0), (void *) (arg0 + 0x2FC), (int) (0));
+    set_part_local_pos__9TObjEneDDFPvPvi((void *) (arg0), (void *) (arg0 + 0x2FC), 0);
 }
 
 }

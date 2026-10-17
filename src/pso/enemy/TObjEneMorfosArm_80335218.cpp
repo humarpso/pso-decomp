@@ -43,7 +43,7 @@ void TObjEneMorfosArm::render() {
     }
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y((int) (0), (int) (this->rotation_y));
+    rotate_matrix_y(0, (int) (this->rotation_y));
     TObjFish::set_global_param((int) (this->texture_id));
     TObjPlayer::toggle_particle_effect();
     ((TObjEneRe7Berura *)arg0)->draw();

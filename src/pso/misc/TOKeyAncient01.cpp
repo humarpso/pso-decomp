@@ -91,16 +91,16 @@ void TOKeyAncient01::render() {
     if (((VObj18*)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (void *) (this->rotation_y));
+        rotate_matrix_y(0, (void *) (this->rotation_y));
         TObjFish::set_global_param((int) (this->texture_id));
         if ((s32) *(s32 *)&this->m_d4 != 1) {
             draw_ginja_model_with_motion((void *) (*(u8 * *)&this->model), (int) (*(s32 *)&this->m_bc), (f32) (this->m_b0));
         } else {
             push_matrix();
             post_translate_matrix((void *) (*(u8 * *)&this->model + 8));
-            rotate_matrix_z((int) (0), (void *) (*(s32 *)((s8 *)(*(u8 * *)&this->model) + 0x1C)));
-            rotate_matrix_x((int) (0), (void *) (*(s32 *)((s8 *)(*(u8 * *)&this->model) + 0x14)));
-            rotate_matrix_y((int) (0), (void *) (*(s32 *)((s8 *)(*(u8 * *)&this->model) + 0x18)));
+            rotate_matrix_z(0, (void *) (*(s32 *)((s8 *)(*(u8 * *)&this->model) + 0x1C)));
+            rotate_matrix_x(0, (void *) (*(s32 *)((s8 *)(*(u8 * *)&this->model) + 0x14)));
+            rotate_matrix_y(0, (void *) (*(s32 *)((s8 *)(*(u8 * *)&this->model) + 0x18)));
             draw_ginja_model((*(s32 *)((s8 *)(*(u8 * *)&this->model) + 4)));
             pop_matrix();
         }

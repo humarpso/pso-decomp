@@ -109,7 +109,7 @@ void TOAttackableCol::init_params() {
     if (this->target_scale < lbl_805DB2C8) {
         set_indexed_flags(this, 0, 0x08000000);
     } else {
-        clear_player_status_flag__10TObjPlayerFlUl((void*)(this), (int)(0), (int)(0x08000000));
+        clear_player_status_flag__10TObjPlayerFlUl((void*)(this), 0, 0x08000000);
     }
     if ((s32) this->m_344 == 0) {
         *(s32 *)&this->unk_348 = (s32) *(f32 *)&this->m_70;
@@ -168,10 +168,10 @@ void TOAttackableCol::vfunc_6(s16 *arg1, s32 arg2) {
         }
     }
     sp8 = this->mode;
-    ((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (0));
+    ((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), 0);
 }
 
-int TOAttackableCol::handle_6x91_update_state() { return clear_player_status_flag__10TObjPlayerFlUl((void*)(this), (int)(0), (int)(1)); }
+int TOAttackableCol::handle_6x91_update_state() { return clear_player_status_flag__10TObjPlayerFlUl((void*)(this), 0, 1); }
 
 f32 TOAttackableCol::apply_hit(s32 arg1) {
     u8 *arg0 = (u8 *)this;
@@ -198,13 +198,13 @@ f32 TOAttackableCol::apply_hit(s32 arg1) {
     if (((s32) (*(s32 *)&this->m_33c)) <= 0)
     {
       *(s32 *)&this->m_33c = 0;
-      send_state_change((u16)((s32)((int) 1)));
+      send_state_change((u16)(1));
       if (((s32) (this->m_344)) > 0)
       {
         temp_r0_2 = *((s32 *) (((s8 *) arg0) + 0x340));
         if ((((temp_r0_2 >= 0x64) && (temp_r0_2 < 0x3E8)) && (((u32) quest_mission_manager) != 0U)) && (((TObject *)quest_mission_manager)->all_parents_unqueued_for_destruction() != 0))
         {
-          temp_r3 = ((u32)__nw__7TObjectFUl((int) 0x194));
+          temp_r3 = ((u32)__nw__7TObjectFUl(0x194));
           var_r0 = temp_r3;
           if (var_r0 != 0U)
           {
@@ -218,7 +218,7 @@ f32 TOAttackableCol::apply_hit(s32 arg1) {
         else
           if ((((u32) quest_area_manager) != 0U) && (((TObject *)quest_area_manager)->all_parents_unqueued_for_destruction() != 0))
         {
-          temp_r3_2 = ((u32)__nw__7TObjectFUl((int) 0x194));
+          temp_r3_2 = ((u32)__nw__7TObjectFUl(0x194));
           var_r0_2 = temp_r3_2;
           if (var_r0_2 != 0U)
           {
@@ -233,13 +233,13 @@ f32 TOAttackableCol::apply_hit(s32 arg1) {
     }
     else
     {
-      send_state_change((u16)((s32)((int) 0)));
+      send_state_change((u16)(0));
     }
     goto block_26;
   }
   block_26:
-  spawn_particle_effect(((u8 *)&this->position), (int) 0x1D0);
-  spawn_particle_effect(((u8 *)&this->position), (int) 1);
+  spawn_particle_effect(((u8 *)&this->position), 0x1D0);
+  spawn_particle_effect(((u8 *)&this->position), 1);
   return lbl_805DB2C8;
 }
 
@@ -251,7 +251,7 @@ void TOAttackableCol::check_door_trigger() {
     temp_r0 = this->m_34c;
     if (((temp_r0 < 0) || (temp_r0 >= 0x100) || (is_current_floor_switch_set((u16) temp_r0) == 1)) && ((submit_cursor_candidate(this, -1), (((s32) *(s32 *)&this->m_33c > 0) == 0)) || (((s32) this->m_344 == 0) && (temp_r0_2 = *(s32 *)&this->unk_348, ((temp_r0_2 < 0) == 0)) && (temp_r0_2 < 0x100) && (is_current_floor_switch_set((u16) temp_r0_2) == 1)))) {
         *(s32 *)&this->m_33c = 0;
-        send_state_change((u16)((s32)(1)));
+        send_state_change((u16)(1));
     }
 }
 
@@ -307,9 +307,9 @@ u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2E98;
     ((TOAttackableCol *)(arg0))->apply_object_set_data((void *)arg1);
     ((TUnk_804806E8 *)arg0)->calc_attach_pos();
-    obj_setFlags30((void *) (arg0), (int) (0x60000000));
-    init_collision_body_parts((void *) (arg0), (void *) (&TOAttackableCol__collision_parts.value), (int) (1));
-    set_indexed_flags(((void *) (arg0)), ((int) (0)), ((int) (0x718)));
+    obj_setFlags30((void *) (arg0), 0x60000000);
+    init_collision_body_parts((void *) (arg0), (void *) (&TOAttackableCol__collision_parts.value), 1);
+    set_indexed_flags(((void *) (arg0)), 0, 0x718);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOAttackableCol *)arg0)->mode = 0;
     *(f32 *)((s8 *)arg0 + 0x334) = (f32) lbl_805DB2CC;

@@ -132,7 +132,7 @@ void TItem::render_shadows() {
     if (((TObject *)arg0)->all_parents_unqueued_for_destruction() != 0) {
         ((TUnk_804AF8A0 *)arg0)->set_shadow_flag();
         if ((TObjPlayer__sub_80102C30((u8 *)((void *) (arg0))) == 2) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
-            set_depth_buffer_settings_id__FUl((int) (1));
+            set_depth_buffer_settings_id__FUl(1);
             lbl_805D5660 = model_render_flags;
             lbl_805D5664 = chunk_polygon_flags_and_mask;
             lbl_805D5668 = chunk_polygon_flags_or_mask;

@@ -420,7 +420,7 @@ s32 TLobby__sub_800710D8(s32 arg0) {
     }
     var_r3 = 0x10000;
     var_r3 = 0xFFFF;
-    if (((u32)get_character_save_record((u32)((int) (0xFFFF)))) == 0U) {
+    if (((u32)get_character_save_record((u32)(0xFFFF))) == 0U) {
         var_r3 = 0;
         return 0;
     }
@@ -432,7 +432,7 @@ s32 TLobby__sub_800710D8(s32 arg0) {
         var_r3 = 0xFFFF;
         var_r4 = (s32 *)((u8 *)(&(*(RecoveredGlobal_800710D8_lbl_8048C9D8 *)&challenge_mode_state).value) + var_r5);
         var_r31 = (s32 *)((u8 *)(var_r4) + 0x21C);
-        var_r3 = ((u32)get_character_save_record((u32)((int) (0xFFFF)))) + 0x21C4;
+        var_r3 = ((u32)get_character_save_record((u32)(0xFFFF))) + 0x21C4;
         var_r4 = (s32 *)((u8 *)((s32 *)-1));
         temp_r3 = (s32 **)(TWindowSubStatusDisp__sub_8006F134(var_r3, -1));
         var_r4 = (s32 *)(*(s32 **)((s8 *)temp_r3 + 0));
@@ -448,7 +448,7 @@ s32 TLobby__sub_8007119C(s32 arg0) {
     s32 temp_r3;
     s32 var_r31;
     var_r31 = arg0;
-    if ((((s32 (*)(void))is_flag_set__6TLobbyFv)() == 0) || ((s32) *(s32 *)((s8 *)(&(*(RecoveredGlobal_8007119C_lbl_8048C9D8 *)&challenge_mode_state).value) + 0) == -1) || (((u32)get_character_save_record((u32)((int) (0xFFFF)))) == 0U)) {
+    if ((((s32 (*)(void))is_flag_set__6TLobbyFv)() == 0) || ((s32) *(s32 *)((s8 *)(&(*(RecoveredGlobal_8007119C_lbl_8048C9D8 *)&challenge_mode_state).value) + 0) == -1) || (((u32)get_character_save_record((u32)(0xFFFF))) == 0U)) {
         *(s32 *)((s8 *)(&(*(RecoveredGlobal_8007119C_lbl_8048C9D8 *)&challenge_mode_state).value) + 0x14) = -4;
         return -4;
     }
@@ -508,7 +508,7 @@ s32 TLobby__sub_800712D8(s32 idx, s32 value, s32 arg) {
 s32 *TLobby__sub_800713C8(void) {
     s32 character_save_record;
     character_save_record = get_character_save_record(0xFFFFU);
-    decode_obfuscated_string__6TLobbyFPvi((void *) (&lbl_804FF82C.value), (void *) (character_save_record + 0x229C), (int) (0xC), (int) (character_save_record));
+    decode_obfuscated_string__6TLobbyFPvi((void *) (&lbl_804FF82C.value), (void *) (character_save_record + 0x229C), 0xC, (int) (character_save_record));
     return &lbl_804FF82C.value;
 }
 
@@ -550,8 +550,8 @@ s32 add_entry__6TLobbyFiii(s32 src, s32 arg1, s32 arg2) {
         return 0;
     }
     dst = (unsigned char *) (challenge_mode_state + (*(s32 *)((s8 *)challenge_mode_state + 0x1C) * 0x1C) + 0x5C);
-    TLobby::encode_name_xor((u8 *)dst, (u8 *)src, (s32)((int) (0xC)));
-    TLobby::encode_name_xor((u8 *)(dst + 0xC), (u8 *)arg1, (s32)((int) (0xC)));
+    TLobby::encode_name_xor((u8 *)dst, (u8 *)src, 0xC);
+    TLobby::encode_name_xor((u8 *)(dst + 0xC), (u8 *)arg1, 0xC);
     *(s32 *)((s8 *)dst + 0x18) = arg2;
     *(s32 *)((s8 *)challenge_mode_state + 0x1C) = (s32) (*(s32 *)((s8 *)challenge_mode_state + 0x1C) + 1);
     return 1;
@@ -560,7 +560,7 @@ typedef char RecoveredGlobal_80291F9C_lbl_804DB1F0_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80292200_lbl_804DB1F0_size[sizeof(RecoveredGlobal_80292200_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
 typedef char RecoveredGlobal_80292574_lbl_804DB1F0_size[sizeof(RecoveredGlobal_80292574_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
 void TLobby::set_player_name_and_color(s32 arg1) {
-    TLobby::encode_name_xor((u8 *)((u8 *)&(*(RecoveredGlobal_80292574_lbl_804DB1F0 *)&challenge_mode_state).value + 0x50), (u8 *)((u8 *)this), (s32)((int)(0xC)));
+    TLobby::encode_name_xor((u8 *)((u8 *)&(*(RecoveredGlobal_80292574_lbl_804DB1F0 *)&challenge_mode_state).value + 0x50), (u8 *)((u8 *)this), 0xC);
     *(s32 *)((s8 *)(&(*(RecoveredGlobal_80292574_lbl_804DB1F0 *)&challenge_mode_state).value) + 0x18) = (s32) (arg1 | 0xFF000000);
 }
 typedef char RecoveredGlobal_802925C4_lbl_80540968_size[sizeof(RecoveredGlobal_802925C4_lbl_80540968) == 0x20 ? 1 : -1];

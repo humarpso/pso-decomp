@@ -59,9 +59,9 @@ void TItemEffArmor::render() {
     f32 temp_f1;
     push_matrix();
     post_translate_matrix((void *) ((u8 *)(arg0) + 0x2C));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)&this->m_68));
+    rotate_matrix_y(0, (int) (*(s32 *)&this->m_68));
     temp_f1 = *(f32 *)&this->unk_28;
-    scale_matrix((int) (0), (f32) (temp_f1), (f32) (TItemEffArmor__data_805DAAEC), (f32) (temp_f1));
+    scale_matrix(0, (f32) (temp_f1), (f32) (TItemEffArmor__data_805DAAEC), (f32) (temp_f1));
     lbl_805D5660 = model_render_flags;
     model_render_flags |= 0x10;
     copy_vec4__13TRaderMapCoreFPvPv(&saved_model_draw_color.value, &model_material_color.value);

@@ -841,7 +841,7 @@ s32 TLobby::validate_and_store_net_params() {
     lbl_805D480C = *(s32 *)&this->m_up;
     net_param_word_h = *(s32 *)&this->m_down;
     net_param_word_i = *(s32 *)((s8 *)arg0 + 0x18);
-    return TLobby__sub_803F861C((Info_803F861C *)((int) (0)));
+    return TLobby__sub_803F861C((Info_803F861C *)(0));
 }
 #pragma pop
 

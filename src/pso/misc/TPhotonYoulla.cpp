@@ -168,7 +168,7 @@ u8 *TPhotonYoulla__ct(u8 *arg0, u8 *arg1) {
         *(s32 *)&((TPhotonYoulla *)arg0)->m_1a0 = 1;
         spawn_photon_blast_attachment_effects(arg0, 6);
     } else {
-        spawn_photon_blast_opening_effects((6), (((TPhotonYoulla *)arg0)->m_17c));
+        spawn_photon_blast_opening_effects(6, (((TPhotonYoulla *)arg0)->m_17c));
     }
     return arg0;
 }

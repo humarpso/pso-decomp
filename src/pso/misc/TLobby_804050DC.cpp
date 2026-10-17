@@ -3100,7 +3100,7 @@ s32 TLobby__sub_8040C9E0(u8 *arg0, u8 *arg1) {
             var_r3 = (u8 *)(arg0 + 8);
             var_r4 = (u8 *)(arg1 + 8);
             var_r5 = 4;
-            return NetMemcmp((void *)((int) (var_r3)), (void *)((int) (var_r4)), (int)((int) (4)));
+            return NetMemcmp((void *)((int) (var_r3)), (void *)((int) (var_r4)), 4);
         case 6:
             if ((u32) ((Fields_arg1*)arg1)->field_4 != 6U) {
                 var_r3 = (u8 *)((void *)-1);
@@ -3109,7 +3109,7 @@ s32 TLobby__sub_8040C9E0(u8 *arg0, u8 *arg1) {
             var_r3 = (u8 *)(arg0 + 8);
             var_r4 = (u8 *)(arg1 + 8);
             var_r5 = 0x10;
-            return NetMemcmp((void *)((int) (var_r3)), (void *)((int) (var_r4)), (int)((int) (0x10)));
+            return NetMemcmp((void *)((int) (var_r3)), (void *)((int) (var_r4)), 0x10);
         default:
         case 0:
             var_r3 = (u8 *)((void *)-1);
@@ -3131,7 +3131,7 @@ s32 TLobby__sub_8040C9E0(u8 *arg0, u8 *arg1) {
             var_r3 = (u8 *)(arg0 + 8);
             var_r4 = (u8 *)(arg1 + 8);
             var_r5 = 4;
-            return NetMemcmp((void *)((int) (var_r3)), (void *)((int) (var_r4)), (int)((int) (4)));
+            return NetMemcmp((void *)((int) (var_r3)), (void *)((int) (var_r4)), 4);
         case 6:
             if ((u32) ((Fields_arg1*)arg1)->field_4 != 6U) {
                 var_r3 = (u8 *)((void *)-1);
@@ -3140,7 +3140,7 @@ s32 TLobby__sub_8040C9E0(u8 *arg0, u8 *arg1) {
             var_r3 = (u8 *)(arg0 + 8);
             var_r4 = (u8 *)(arg1 + 8);
             var_r5 = 0x10;
-            return NetMemcmp((void *)((int) (var_r3)), (void *)((int) (var_r4)), (int)((int) (0x10)));
+            return NetMemcmp((void *)((int) (var_r3)), (void *)((int) (var_r4)), 0x10);
         default:
         case 0:
             var_r3 = (u8 *)((void *)-1);
@@ -3374,7 +3374,7 @@ s16 TLobby__sub_8040DC8C(u8 *arg0, u8 *arg1) {
 }
 
 s32 TLobby__sub_8040DD68(void) {
-    TLobby::release_slot_by_id((int) (0x800));
+    TLobby::release_slot_by_id(0x800);
     TLobby__sub_803F892C((void *)((void *) (&ipv4_protocol_state.value)));
     ipv4_protocol_state.value = 0;
     return 0;
@@ -3448,9 +3448,9 @@ s32 TLobby__sub_8040ED28(void) {
 typedef char RecoveredGlobal_8040ED70_lbl_805C1B60_size[sizeof(RecoveredGlobal_8040ED70_lbl_805C1B60) == 0x18 ? 1 : -1];
 s32 TLobby__sub_8040ED70(void) {
     ((TLobby *)(&(*(RecoveredGlobal_8040ED70_lbl_805C1B60 *)&ipv4_address_routing_state).value))->init_buffer_descriptor_a();
-    NetMemset((void *)((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8040ED70_lbl_805C1B60 *)&ipv4_address_routing_state).value) + 8))), (int)((int) (0)), (int)((int) (*(s16 *)((s8 *)(&(*(RecoveredGlobal_8040ED70_lbl_805C1B60 *)&ipv4_address_routing_state).value) + 0) * 0x14)));
-    NetMemset((void *)((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8040ED70_lbl_805C1B60 *)&ipv4_address_routing_state).value) + 0xC))), (int)((int) (0)), (int)((int) (*(s16 *)((s8 *)(&(*(RecoveredGlobal_8040ED70_lbl_805C1B60 *)&ipv4_address_routing_state).value) + 2) * 0x14)));
-    NetMemset((void *)((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8040ED70_lbl_805C1B60 *)&ipv4_address_routing_state).value) + 0x10))), (int)((int) (0)), (int)((int) (*(s16 *)((s8 *)(&(*(RecoveredGlobal_8040ED70_lbl_805C1B60 *)&ipv4_address_routing_state).value) + 4) * 0x18)));
+    NetMemset((void *)((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8040ED70_lbl_805C1B60 *)&ipv4_address_routing_state).value) + 8))), 0, (int)((int) (*(s16 *)((s8 *)(&(*(RecoveredGlobal_8040ED70_lbl_805C1B60 *)&ipv4_address_routing_state).value) + 0) * 0x14)));
+    NetMemset((void *)((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8040ED70_lbl_805C1B60 *)&ipv4_address_routing_state).value) + 0xC))), 0, (int)((int) (*(s16 *)((s8 *)(&(*(RecoveredGlobal_8040ED70_lbl_805C1B60 *)&ipv4_address_routing_state).value) + 2) * 0x14)));
+    NetMemset((void *)((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8040ED70_lbl_805C1B60 *)&ipv4_address_routing_state).value) + 0x10))), 0, (int)((int) (*(s16 *)((s8 *)(&(*(RecoveredGlobal_8040ED70_lbl_805C1B60 *)&ipv4_address_routing_state).value) + 4) * 0x18)));
     return 0;
 }
 
@@ -3608,7 +3608,7 @@ typedef char RecoveredGlobal_80411ECC_lbl_805C1BB8_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_8040FF0C_lbl_805C1B78_size[sizeof(RecoveredGlobal_8040FF0C_lbl_805C1B78) == 0x40 ? 1 : -1];
 s32 NetIPv6Shutdown(void) {
-    TLobby::release_slot_by_id((int) (0x86DD));
+    TLobby::release_slot_by_id(0x86DD);
     TLobby__sub_803F87DC((void *)((void *) (&ipv6_protocol_state.value)));
     ipv6_protocol_state.value = 0;
     return 0;
@@ -3661,8 +3661,8 @@ s32 TUdpSocket__sub_8041118C(void) {
     NetMemset(g->p1C, 0, g->n1 * 0x2A);
     NetMemset(g->p20, 0, g->n2 * 0x2C);
     NetMemset(g->p24, 0, g->n14 * 0x16);
-    NetRegisterTimer((s32)(0x3E8), (s16)(1), (NetTimerCallback)(TLobby__sub_80411334));
-    NetRegisterTimer((s32)(0x3E8), (s16)(1), (NetTimerCallback)(TLobby::tick_entry_timers));
+    NetRegisterTimer(0x3E8, (s16)(1), (NetTimerCallback)(TLobby__sub_80411334));
+    NetRegisterTimer(0x3E8, (s16)(1), (NetTimerCallback)(TLobby::tick_entry_timers));
     return 0;
 }
 #undef g
@@ -3677,7 +3677,7 @@ s32 TLobby__sub_8041123C(s32 arg0, s32 arg1, s16 arg2) {
     if ((s16) ((Fields_temp_r3*)temp_r3)->field_0 != 1) {
         return -6;
     }
-    return TLobby::call_handler_by_index(arg2, (s32)((s32) ((Fields_temp_r3*)temp_r3)->field_2), (s32)(0), (s32)(arg1), (s32)(arg0));
+    return TLobby::call_handler_by_index(arg2, (s32)((s32) ((Fields_temp_r3*)temp_r3)->field_2), 0, (s32)(arg1), (s32)(arg0));
 }
 #pragma pop
 
@@ -3693,7 +3693,7 @@ s32 TLobby__sub_804112B8(s32 arg0, s32 arg1, s16 arg2) {
     if ((s16) ((Fields_temp_r3*)temp_r3)->field_0 != 1) {
         return -6;
     }
-    return TLobby::call_handler_by_index(arg2, (s32)((s32) ((Fields_temp_r3*)temp_r3)->field_2), (s32)(2), (s32)(arg1), (s32)(arg0));
+    return TLobby::call_handler_by_index(arg2, (s32)((s32) ((Fields_temp_r3*)temp_r3)->field_2), 2, (s32)(arg1), (s32)(arg0));
 }
 #pragma pop
 
@@ -4234,7 +4234,7 @@ s32 NetIPv6IsUnspecified(u8 *arg0) {
 
 s32 NetIPv6CompareAddresses(s32 arg0, s32 arg1) {
     s32 temp_r3;
-    temp_r3 = NetMemcmp((void *) (arg0), (void *) (arg1), (int) (0x10));
+    temp_r3 = NetMemcmp((void *) (arg0), (void *) (arg1), 0x10);
     if (temp_r3 < 0) {
         return -1;
     }
@@ -4570,7 +4570,7 @@ s32 NetIPv6InitNeighborDiscovery(void) {
         b->f26 = 0;
         b++;
     }
-    NetRegisterTimer((s32)(1000), (s16)(1), (NetTimerCallback)(NetIPv6TickNeighborDiscovery));
+    NetRegisterTimer(1000, (s16)(1), (NetTimerCallback)(NetIPv6TickNeighborDiscovery));
     return 0;
 }
 
@@ -4595,9 +4595,9 @@ s32 NetIPv6SendUnspecifiedSourceNeighborSolicitation(s32 arg0, s32 arg1) {
     }
     ((Fields_temp_r3*)free_entry)->field_4 = 0;
     ((Fields_temp_r3*)free_entry)->field_8 = 0;
-    NetMemset((void *) (&stack.sp10), (int) (0), (int) (0x10));
+    NetMemset((void *) (&stack.sp10), 0, 0x10);
     NetIPv6MakeSolicitedNodeMulticastAddress((u8 *)((void *) (&stack.sp20)), (u8 *)((void *) (arg0)));
-    temp_r31 = NetIPv6EmitNeighborSolicitation((int) (free_entry), (void *) (arg0), (void *) (&stack.sp10), (void *) (arg1), (int) (0));
+    temp_r31 = NetIPv6EmitNeighborSolicitation((int) (free_entry), (void *) (arg0), (void *) (&stack.sp10), (void *) (arg1), 0);
     ((TUdpSocket *)free_entry)->release_entry();
     return temp_r31;
 }
@@ -4616,9 +4616,9 @@ s32 NetIPv6SendRouterSolicitation(s32 arg0) {
     }
     *(s32 *)((s8 *)free_entry + 4) = 0;
     *(s32 *)((s8 *)free_entry + 8) = 0;
-    init_ipv6_all_routers_multicast_address((u8 *)((void *) (address)), (s8)((int) (2)));
+    init_ipv6_all_routers_multicast_address((u8 *)((void *) (address)), (s8)(2));
     if (TLobby__sub_804145D4((void *) (addr), (void *) (arg0)) < 0) {
-        NetMemset((void *) (addr), (int) (0), (int) (0x10));
+        NetMemset((void *) (addr), 0, 0x10);
     }
     temp_r31 = NetIPv6EmitRouterSolicitation((NetPacket *)((int) (free_entry)), (NetIPv6SendParameters *)((void *) (addr)), (s32)((void *) (arg0)));
     ((TUdpSocket *)free_entry)->release_entry();
@@ -5690,7 +5690,7 @@ s32 TLobby::init_packet_fragment_pools() {
         b->f4 = 0;
         b++;
     }
-    NetRegisterTimer((s32)(1000), (s16)(1), (NetTimerCallback)(TLobby::update_timeout_entries));
+    NetRegisterTimer(1000, (s16)(1), (NetTimerCallback)(TLobby::update_timeout_entries));
     return 0;
 }
 
@@ -5805,13 +5805,13 @@ s32 TLobby::reset_other_connection_lists() {
 
 typedef char NetworkDispatchState_size[sizeof(NetworkDispatchState) == 0xF8 ? 1 : -1];
 void TLobby__sub_80419A00(void) {
-    NetMemset((void *) (&network_dispatch_state.lock_handle), (int) (0), (int) (0xF4));
+    NetMemset((void *) (&network_dispatch_state.lock_handle), 0, 0xF4);
     TLobby::cancel_pending_alarms();
 }
 
 typedef char RecoveredGlobal_80419A34_lbl_805C1C50_size[sizeof(RecoveredGlobal_80419A34_lbl_805C1C50) == 0xF8 ? 1 : -1];
 void TLobby__sub_80419A34(void) {
-    NetMemset((void *) (&(*(RecoveredGlobal_80419A34_lbl_805C1C50 *)&network_dispatch_state).value), (int) (0), (int) (0xF4));
+    NetMemset((void *) (&(*(RecoveredGlobal_80419A34_lbl_805C1C50 *)&network_dispatch_state).value), 0, 0xF4);
     *(s32 *)((s8 *)(&(*(RecoveredGlobal_80419A34_lbl_805C1C50 *)&network_dispatch_state).value) + 0x10) = 0x1E;
     TLobby__sub_803F8E9C();
 }
@@ -5977,8 +5977,8 @@ s32 NetTCPInit(void) {
     (*(G_8041A230 *)&tcp_protocol_state).s70 = 0x40;
     (*(G_8041A230 *)&tcp_protocol_state).s72 = 0x40;
     (*(G_8041A230 *)&tcp_protocol_state).s74 = 0x40;
-    NetRegisterTimer((s32)(500), (s16)(1), (NetTimerCallback)(TLobby__sub_8041A5B4));
-    NetRegisterTimer((s32)(100), (s16)(1), (NetTimerCallback)(TLobby__sub_8041A3CC));
+    NetRegisterTimer(500, (s16)(1), (NetTimerCallback)(TLobby__sub_8041A5B4));
+    NetRegisterTimer(100, (s16)(1), (NetTimerCallback)(TLobby__sub_8041A3CC));
     return 0;
 }
 #pragma pop
@@ -6439,7 +6439,7 @@ s32 TLobby__sub_8041EC14(u8 *arg0) {
     s32 spC[3];
 
     if ((u8) *(u8 *)((s8 *)arg0 + 0xCC) == 0) {
-        if (TLobby__sub_80415954((void *) (&spC[0]), (int) (*(s32 *)((s8 *)arg0 + 0x534)), (int) (1)) < 0) {
+        if (TLobby__sub_80415954((void *) (&spC[0]), (int) (*(s32 *)((s8 *)arg0 + 0x534)), 1) < 0) {
             return -0x102;
         }
         ((TLobby *)(arg0 + 0xD0))->init_msg((int) (spC[0]));
@@ -6461,7 +6461,7 @@ s32 TLobby__sub_8041ECA4(u8 *arg0) {
   s32 spC;
   if (((u8) (*((u8 *) (((s8 *) arg0) + 0x14)))) == 0)
   {
-    if (TLobby__sub_80415954((void *) (&spC), (int) (*((s32 *) (((s8 *) arg0) + 0x530))), (int) 1) < 0)
+    if (TLobby__sub_80415954((void *) (&spC), (int) (*((s32 *) (((s8 *) arg0) + 0x530))), 1) < 0)
     {
       return -0x102;
     }

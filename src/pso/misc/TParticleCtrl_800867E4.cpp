@@ -97,7 +97,7 @@ void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c) {
     if (particle_pool_limit > idx) {
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
-            p = ((TParticleCtrl *)p)->initialize((const void *)owner, (s32)(&particle_global_entry_table[idx]), (s32)0, (s32)b, (s32)c, (s32)0);
+            p = ((TParticleCtrl *)p)->initialize((const void *)owner, (s32)(&particle_global_entry_table[idx]), 0, (s32)b, (s32)c, 0);
         }
         return p;
     }
@@ -105,7 +105,7 @@ void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c) {
         idx -= 0x200;
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
-            p = ((TParticleCtrl *)p)->initialize((const void *)owner, (s32)(&particle_area_entry_table[idx]), (s32)0, (s32)b, (s32)c, (s32)0);
+            p = ((TParticleCtrl *)p)->initialize((const void *)owner, (s32)(&particle_area_entry_table[idx]), 0, (s32)b, (s32)c, 0);
         }
         return p;
     }

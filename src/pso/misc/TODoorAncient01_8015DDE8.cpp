@@ -107,7 +107,7 @@ void TODoorAncient01::render() {
     if ((((VObj *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) && (((TUnk_804AFBF8 *)arg0)->is_in_view_depth((f32) (lbl_805DB3E8)) != 0)) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        rotate_matrix_y(0, (int) (this->rotation_y));
         TObjFish::set_global_param((int) (*(s32 *)((s8 *)(*(s32 *)&TODoorAncient01__texture_lists) + ((this->m_d0 * 4) & 4))));
         if ((s32) *(s32 *)&this->m_ac == 0) {
             temp_r31 = *(u8 * *)&this->model;
@@ -203,7 +203,7 @@ u8 *TODoorAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(u8 **)((s8 *)arg0 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODoorAncient01__shared_resource) + 0x430)) + 4));
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB3EC);
     ((TODoorAncient01 *)arg0)->m_b8 = (f32) (*(f32 *)((s8 *)arg0 + 0xB4) / lbl_805DB3E8);
-    init_collision_body_parts((void *) (arg0), (void *) (&TODoorAncient01__collision_body.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&TODoorAncient01__collision_body.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TODoorAncient01 *)(arg0))->init_door_switch_binding();

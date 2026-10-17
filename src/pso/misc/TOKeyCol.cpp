@@ -23,14 +23,14 @@ void TOKeyCol::run_task() {
     if ((s32) *(s32 *)&this->m_d4 != 1) {
         this->vfunc_17();
         if (this->is_confirm_pressed() == 1) {
-            ((TOKeyCol *)arg0)->send_switch_changed((int) (1));
+            ((TOKeyCol *)arg0)->send_switch_changed(1);
             this->trigger_activate_sound();
             *(s32 *)&this->m_d4 = 1;
         }
     } else {
         this->vfunc_16();
         if (this->is_confirm_pressed() != 1) {
-            ((TOKeyCol *)arg0)->send_switch_changed((int) (0));
+            ((TOKeyCol *)arg0)->send_switch_changed(0);
             this->vfunc_19();
             *(s32 *)&this->m_d4 = 0;
         }

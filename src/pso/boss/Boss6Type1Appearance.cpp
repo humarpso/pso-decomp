@@ -99,18 +99,18 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
     if (temp_f1 > lbl_805DFA4C) {
         *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805DFA4C;
     }
-    ((TBoss6PlotFalz *)(arg0 + 0x40))->scroll_strips_uv((int) (8), (int) (0));
+    ((TBoss6PlotFalz *)(arg0 + 0x40))->scroll_strips_uv(8, 0);
     if ((s32) ((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38 == 0x78) {
-        play_sound_effect((int) (0x4003A105), (int) (0), (int) (0), (int) (0));
+        play_sound_effect(0x4003A105, 0, 0, 0);
     }
     temp_r0 = ((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38;
     switch (temp_r0) {
     case 0x1B8:
     case 0xFA:
-        play_sound_effect((int) (0x4003A811), (int) (0), (int) (0), (int) (0));
+        play_sound_effect(0x4003A811, 0, 0, 0);
         break;
     case 0x154:
-        play_sound_effect((int) (0x40031222), (int) (0), (int) (0), (int) (0));
+        play_sound_effect(0x40031222, 0, 0, 0);
         break;
     }
     temp_r0_2 = ((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38;
@@ -120,16 +120,16 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
     case 0xFA:
     case 0x13F:
     case 0x1B8:
-        TBoss3Volopt::queue_event_1D((int) (0xC0), (int) (0xF));
+        TBoss3Volopt::queue_event_1D(0xC0, 0xF);
         break;
     }
     temp_r0_3 = ((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38;
     temp_r30 = arg0 + 0x54;
     switch (temp_r0_3) {
     case 0x1:
-        *(u32 *)((s8 *)arg0 + 0x64) = (u32)create_particle_emitter((temp_r30), (0x210));
+        *(u32 *)((s8 *)arg0 + 0x64) = (u32)create_particle_emitter((temp_r30), 0x210);
         if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
-            ((TBoss4Type2 *)(*(u32 *)((s8 *)arg0 + 0x64)))->set_flags((int) (0x40));
+            ((TBoss4Type2 *)(*(u32 *)((s8 *)arg0 + 0x64)))->set_flags(0x40);
         }
         break;
     case 0x1AC:
@@ -138,9 +138,9 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
             TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x64)));
             *(u32 *)((s8 *)arg0 + 0x64) = 0U;
         }
-        *(u32 *)((s8 *)arg0 + 0x64) = (u32)create_particle_emitter((temp_r30), (0x211));
+        *(u32 *)((s8 *)arg0 + 0x64) = (u32)create_particle_emitter((temp_r30), 0x211);
         if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
-            ((TBoss4Type2 *)(*(u32 *)((s8 *)arg0 + 0x64)))->set_flags((int) (0x40));
+            ((TBoss4Type2 *)(*(u32 *)((s8 *)arg0 + 0x64)))->set_flags(0x40);
         }
         break;
     case 0x11D:
@@ -148,9 +148,9 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
             TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x64)));
             *(u32 *)((s8 *)arg0 + 0x64) = 0U;
         }
-        *(u32 *)((s8 *)arg0 + 0x64) = (u32)create_particle_emitter((temp_r30), (0x210));
+        *(u32 *)((s8 *)arg0 + 0x64) = (u32)create_particle_emitter((temp_r30), 0x210);
         if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
-            ((TBoss4Type2 *)(*(u32 *)((s8 *)arg0 + 0x64)))->set_flags((int) (0x40));
+            ((TBoss4Type2 *)(*(u32 *)((s8 *)arg0 + 0x64)))->set_flags(0x40);
         }
         break;
     }

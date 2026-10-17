@@ -413,7 +413,7 @@ void TLobby::teardown_scene() {
     clear_flag3_all_tasks__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A3540_main_task *)&main_task).value));
     ((TObject *)tl_su)->delete_children();
     run_area_scene_cleanup((void *) (&lbl_80515BA0.value));
-    call_funcs_reverse__6TLobbyFPvUi((void *) (&offline_game_scene_callbacks.value), (int) (0x180));
+    call_funcs_reverse__6TLobbyFPvUi((void *) (&offline_game_scene_callbacks.value), 0x180);
     clear_resource_load_tasks();
     TKeyBoardControl::update();
     render_tick();
@@ -489,7 +489,7 @@ void run_offline_transfer_frame(void) {
 
 void run_single_view_frame(void) {
     some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A3770_main_task *)&(*(RecoveredGlobal_801A3540_main_task *)&main_task)).value));
-    TCameraCtrl::set_mode((int) (0));
+    TCameraCtrl::set_mode(0);
     run_task__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A3770_main_task *)&(*(RecoveredGlobal_801A3540_main_task *)&main_task)).value));
     render_shadows__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A3770_main_task *)&(*(RecoveredGlobal_801A3540_main_task *)&main_task)).value));
     render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A3770_main_task *)&(*(RecoveredGlobal_801A3540_main_task *)&main_task)).value));

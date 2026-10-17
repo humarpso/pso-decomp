@@ -172,10 +172,10 @@ void TODoorAncient09::update_door_switch_state() {
         if ((is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_C8)) == 1) && (is_current_floor_switch_set((int) (this->m_d4)) == 1)) {
             ((TODoorAncient09 *)arg0)->sub_80160968();
             this->m_d0 = (s32) (this->m_d0 | 1);
-            if (((u32) *(u32 *)&this->m_80 != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (1)) != 0)) {
+            if (((u32) *(u32 *)&this->m_80 != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), 1) != 0)) {
                 sp8 = 1;
                 ((TODoorAncient09 *)arg0)->door_ancient09_sync_state((void *) (&sp8));
-                ((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (0));
+                ((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), 0);
             }
         }
         return;
@@ -214,7 +214,7 @@ void TODoorAncient09::draw_model() {
     TObjFish::set_global_param(((s32 *)TODoorAncient09__texture_lists)[0]);
     post_translate_matrix(self->pos);
     post_translate_matrix(root->pos);
-    rotate_matrix_y((s32)(0), (s32)(self->x60));
+    rotate_matrix_y(0, (s32)(self->x60));
     draw_ginja_model((s32)root->model);
     draw_ginja_model((s32)root->x2c->model);
     TParticleCtrl::begin_effect_render();

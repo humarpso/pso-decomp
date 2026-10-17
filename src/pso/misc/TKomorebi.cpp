@@ -110,8 +110,8 @@ u8 *TKomorebi__ct(u8 *arg0, s32 arg1, s32 arg2) {
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2 + 0xC));
     ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *) (arg2 + 0x18));
     VecCopy((Vec *)(arg0 + 0x68), (const Vec *)(arg2 + 0x24));
-    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *) ((*(s32 *)&TKomorebi__resource_bundle)), (int) (0));
-    ((TKomorebi *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&TKomorebi__resource_bundle)), (int) (0));
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *) ((*(s32 *)&TKomorebi__resource_bundle)), 0);
+    ((TKomorebi *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&TKomorebi__resource_bundle)), 0);
     return arg0;
 }
 

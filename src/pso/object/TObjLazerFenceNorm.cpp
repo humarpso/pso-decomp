@@ -79,7 +79,7 @@ u8 *TObjLazerFenceNorm__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjLazerFenceNorm *)arg0)->select_models();
     temp_r4 = ((TObjLazerFenceNorm *)arg0)->m_8c;
     temp_r6 = temp_r4 >> 0x1FU;
-    init_collision_body_parts((void *) (arg0), (void *) ((u8 *)&laser_fence_collision_body_parts.value + ((((temp_r4 & 1) ^ temp_r6) - temp_r6) * 0x84)), (int) (3));
+    init_collision_body_parts((void *) (arg0), (void *) ((u8 *)&laser_fence_collision_body_parts.value + ((((temp_r4 & 1) ^ temp_r6) - temp_r6) * 0x84)), 3);
     *(s32 *)&((TObjLazerFenceNorm *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjLazerFenceNorm *)arg0)->actorFlags| 0x40000000);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();

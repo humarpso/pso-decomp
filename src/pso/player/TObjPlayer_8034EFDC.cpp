@@ -157,7 +157,7 @@ void TUnk_804F0810::emit_marker_effects() {
 void TObjPlayer::rotate_by_player_list() {
     switch (TObjPlayer::get_player_list()) {
     case 1:
-        ((s32)rotate_matrix_z((s32)(0), (s32)(((P_8034F020 *)this)->f1F8)));
+        ((s32)rotate_matrix_z(0, (s32)(((P_8034F020 *)this)->f1F8)));
         break;
     }
 }
@@ -230,8 +230,8 @@ void launch_rappys_fan_slicer__10TObjPlayerFPv(u8 *weapon) {
     copy_vec4__13TRaderMapCoreFPvPv(launch.color, tmp);
     launch.facing = *(s32 *)((s8 *)(*(u8 * *)&((TUnk_804F0908 *)weapon)->player) + 0x60);
     launch.spin = 0;
-    ((TObjPlayer *)weapon)->draw_icon((s32)3, (s32)launch.first);
-    ((TObjPlayer *)weapon)->draw_icon((s32)2, (s32)launch.second);
+    ((TObjPlayer *)weapon)->draw_icon(3, (s32)launch.first);
+    ((TObjPlayer *)weapon)->draw_icon(2, (s32)launch.second);
     t = create__10TTecSlicerFPUs(&launch);
     if (t != NULL) {
         *(s32 *)((s8 *)t + 0x5C) += 0x4000;
@@ -352,7 +352,7 @@ typedef char RecoveredGlobal_8034F754_lbl_804F0A00_size[sizeof(RecoveredGlobal_8
 u8 *construct_gi_gue_bazooka(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct((void *)(arg0), (void *)(arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8034F754_lbl_804F0A00 *)&lbl_804F0A00).value;
-    set_status_flags__10TObjPlayerFUl((void *)(arg0), (int)(0x8000));
+    set_status_flags__10TObjPlayerFUl((void *)(arg0), 0x8000);
     *(s32 *)((s8 *)arg0 + 0x1F8) = -0x1C71;
     ((TUnk_804F0A00 *)arg0)->m_1fc = -0x1555;
     *(s32 *)((s8 *)arg0 + 0x200) = 0x238E;

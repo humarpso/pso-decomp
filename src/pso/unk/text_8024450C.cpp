@@ -30,7 +30,7 @@ void fn_8024450C(s32 arg0) {
 s32 create_area_window(s32 arg0) {
     s32 var_r30;
     u8 *temp_r31;
-    var_r30 = __nw__7TObjectFUl((int) (0x64));
+    var_r30 = __nw__7TObjectFUl(0x64);
     if (var_r30 != 0) {
         var_r30 = TWindowArea__ct();
     }

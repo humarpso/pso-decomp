@@ -915,11 +915,11 @@ void set_text__15TWindowFukidasiFPvii(u8 *arg0, s32 str, s32 arg2) {
   temp_r3 = (u8 *) ((u8 * (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(arg0, 0);
   if (arg2 & 1)
   {
-    set_text_entry_string(temp_r3, str, (int) 0x20);
+    set_text_entry_string(temp_r3, str, 0x20);
   }
   else
   {
-    set_text_entry_string(temp_r3, str, (int) 0);
+    set_text_entry_string(temp_r3, str, 0);
   }
   if (arg2 & 4)
   {
@@ -939,13 +939,13 @@ void set_text__15TWindowFukidasiFPvii(u8 *arg0, s32 str, s32 arg2) {
     *((u16 *) (((s8 *) temp_r3) + 0)) = (u16) ((*((u16 *) (((s8 *) temp_r3) + 0))) & 0xFFFFFDFF);
   }
   *((s32 *) (((s8 *) temp_r3) + 0x24)) = 0xFF000000;
-  new_var = TWindowKeyBoardSoft::strnlen((s8 *)str, (u32)((int) 0x100));
+  new_var = TWindowKeyBoardSoft::strnlen((s8 *)str, (u32)(0x100));
   *((s16 *) (((s8 *) arg0) + 0x74)) = (s16) ((lbl_805DCCF0 * ((f32) new_var)) + lbl_805DCCEC);
   if (TWindowSubStatusDisp::get_card_window_scale((int) ((s32) (*((s16 *) (((s8 *) arg0) + 0x20))))) > TWindowFukidasi__data_805DCD30)
   {
     *((s32 *) (((s8 *) arg0) + 0x5C)) = 0;
   }
-  play_sound_effect((int) 0x53705, (int) 0, (int) 0, (int) 0);
+  play_sound_effect(0x53705, 0, 0, 0);
   if (((u8) (*((u8 *) (((s8 *) arg0) + 0x70)))) != 0)
   {
     *((u8 *) (((s8 *) arg0) + 0x70)) = 5U;

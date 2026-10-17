@@ -392,7 +392,7 @@ s32 TObjDoor::is_visible(f32 farg0, f32 farg1) {
     if (temp_f1 < (farg1 * farg1)) {
         return 1;
     }
-    project_world_to_screen((int) (0), (void *) (arg0 + 0x38), (void *) (&sp8));
+    project_world_to_screen(0, (void *) (arg0 + 0x38), (void *) (&sp8));
     if ((-farg1 <= sp8) && (sp8 <= ((6.4e+02f) + farg1))) {
         return 1;
     }
@@ -492,7 +492,7 @@ void TObjDoor::update_state() {
         break;
     case 5:
         clear_player_status_flag__10TObjPlayerFlUl(this,0,1);
-        if(check_player_door_proximity((s32)this, 1, 100.0f)!=0) {this->state=3;set_indexed_flags((void *)this, (s32)(0), (s32)(1));}
+        if(check_player_door_proximity((s32)this, 1, 100.0f)!=0) {this->state=3;set_indexed_flags((void *)this, 0, 1);}
         break;
     }
 }

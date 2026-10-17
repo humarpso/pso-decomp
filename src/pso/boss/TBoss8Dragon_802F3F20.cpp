@@ -131,7 +131,7 @@ void TBoss8Dragon::draw_with_fade(s32 arg1, s32 arg2) {
         TObjFish::set_global_param((int) (*(s32 *)&this->m_24));
         TObjEneDD::clear_global_flag_400();
         lbl_805D5660 = model_render_flags;
-        set_material_alpha_compare_reference((0));
+        set_material_alpha_compare_reference(0);
         if (TBoss8Dragon__sub_802F3F20(((u8 *)this)) != 0) {
             ((RenderFadeState *)(&((Obj_802F4114 *)((u8 *)this))->fades[arg2]))->fadeOut();
         } else {
@@ -143,13 +143,13 @@ void TBoss8Dragon::draw_with_fade(s32 arg1, s32 arg2) {
         }
         push_matrix();
         post_translate_matrix((void *) (arg1));
-        rotate_matrix_y((int) (0), (int) (this->m_60));
-        rotate_matrix_x((int) (0), (int) (this->m_5c));
-        rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x64)));
+        rotate_matrix_y(0, (int) (this->m_60));
+        rotate_matrix_x(0, (int) (this->m_5c));
+        rotate_matrix_z(0, (int) (*(s32 *)((s8 *)((u8 *)this) + 0x64)));
         scale_current_matrix((void *) (((u8 *)this) + 0x68));
         TObjPlayer::toggle_particle_effect();
         if (*(s32 *)&this->m_3c0 & 0x80) {
-            fn_801414B0((3), (3), (3), (3));
+            fn_801414B0(3, 3, 3, 3);
         }
         if (has_enough_enemies__12TBoss8DragonFv() != 0) {
             *(s32 *)&this->m_34 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TBoss8Dragon__data_805D6988 + 0x42C)) + 0x18);
@@ -161,8 +161,8 @@ void TBoss8Dragon::draw_with_fade(s32 arg1, s32 arg2) {
         TParticleCtrl::end_effect_render();
         TObjLight__sub_801337F8((void *) (current_scene_light));
         pop_matrix();
-        set_chunk_material_override_pair((0xFF00), (0));
-        set_material_alpha_compare_reference((0xBF));
+        set_chunk_material_override_pair(0xFF00, 0);
+        set_material_alpha_compare_reference(0xBF);
         model_render_flags = lbl_805D5660;
     }
 }

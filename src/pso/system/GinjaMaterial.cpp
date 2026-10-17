@@ -136,7 +136,7 @@ s32 queue_model_draw_current_matrix(s32 model) {
 #pragma pop
 
 void draw_ginja_model(s32 model) {
-    load_ginja_model_matrices((int)((int) (0)));
+    load_ginja_model_matrices(0);
     prepare_ginja_model();
     draw_ginja_model_lists((GinjaModel *)model);
     end_ginja_model_draw();
@@ -160,10 +160,10 @@ u32 update_ginja_cached_parameter(s32 i, u32 v) {
 
 void set_ginja_indexed_vtx_desc(s32 arg0) {
     GXClearVtxDesc();
-    Dolphin_GXSetVtxDesc((int) (9), (void *) (get_ginja_vertex_descriptor_type((u32)((void *) (arg0)), (s32)((int) (1)))));
-    Dolphin_GXSetVtxDesc((int) (0xA), (void *) (get_ginja_vertex_descriptor_type((u32)((void *) (arg0)), (s32)((int) (2)))));
-    Dolphin_GXSetVtxDesc((int) (0xB), (void *) (get_ginja_vertex_descriptor_type((u32)((void *) (arg0)), (s32)((int) (3)))));
-    Dolphin_GXSetVtxDesc((int) (0xD), (void *) (get_ginja_vertex_descriptor_type((u32)((void *) (arg0)), (s32)((int) (5)))));
+    Dolphin_GXSetVtxDesc(9, (void *) (get_ginja_vertex_descriptor_type((u32)((void *) (arg0)), 1)));
+    Dolphin_GXSetVtxDesc(0xA, (void *) (get_ginja_vertex_descriptor_type((u32)((void *) (arg0)), 2)));
+    Dolphin_GXSetVtxDesc(0xB, (void *) (get_ginja_vertex_descriptor_type((u32)((void *) (arg0)), 3)));
+    Dolphin_GXSetVtxDesc(0xD, (void *) (get_ginja_vertex_descriptor_type((u32)((void *) (arg0)), 5)));
 }
 
 void set_ginja_channel_ctrl(s32 channel,s32 flags) {
@@ -479,7 +479,7 @@ void end_ginja_model_draw(void) {
     if ((u32) (model_render_flags & 1) == 0) {
         GXSetZCompLoc(1);
         GXSetZMode(1U, 1, 1);
-        ginja_set_alpha_compare((s32)(0));
+        ginja_set_alpha_compare(0);
         if (((s32 (*)()) ginja_draw_end_callback) != NULL) {
             ginja_draw_end_callback();
         }

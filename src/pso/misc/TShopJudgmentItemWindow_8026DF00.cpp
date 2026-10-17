@@ -26,7 +26,7 @@ u8 *create_item_list_window(s32 arg0, s32 arg1, s32 arg2) {
         TShopJudgmentItemWindow__sub_80267F9C((void *) ((u8 *)TShopJudgmentItemWindow__item_list_rect_table + 0x10), arg1);
         break;
     }
-    var_r0 = __nw__7TObjectFUl((int) (0x8C));
+    var_r0 = __nw__7TObjectFUl(0x8C);
     if (var_r0 != NULL) {
         var_r0 = construct_item_list__20TWindowSubStatusDispFlls(var_r0, arg0, arg1, arg2);
     }
@@ -34,7 +34,7 @@ u8 *create_item_list_window(s32 arg0, s32 arg1, s32 arg2) {
 }
 
 void TShopJudgmentItemWindow::open_default(s32 a) {
-    create_item_list_window((s32)(a), (s32)(0x40), (s32)(local_client_id));
+    create_item_list_window((s32)(a), 0x40, (s32)(local_client_id));
 }
 
 }

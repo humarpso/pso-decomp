@@ -31,7 +31,7 @@ void unload_items() {
 void load_item_pmt() {
     void* p = alloc__23TAdSinglePlyChrSelectGCFv(8);
     if (p != NULL) {
-        p = ((TItemLoad *)p)->load_buffer((u32)item_pmt_filename_descriptor, (s32)0x10000);
+        p = ((TItemLoad *)p)->load_buffer((u32)item_pmt_filename_descriptor, 0x10000);
     }
     item_pmt = p;
     if (p != NULL) {

@@ -69,7 +69,7 @@ void TWindowHelpItem::init_text(void *arg1) {
     u8 *e;
     init_window_layout_entries(((u8 *)this) + 0x24, TWindowHelpItem__description_text_layout, this->m_20);
     *(V3_802531A4 *)(((u8 *)this) + 0xB0) = TWindowHelpItem__description_update_callback;
-    e = get_array_entry__13TUnk_804CE018Fi((void *)(((u8 *)this)), (s32)(0));
+    e = get_array_entry__13TUnk_804CE018Fi((void *)(((u8 *)this)), 0);
     set_text_entry_string(e, (u32)arg1, 0x20);
     ((TWindowHelpItem *)e)->reset_float_field();
 }
@@ -152,11 +152,11 @@ void TWindowHelpItem::sub_802534B0() {
     u8 *e2;
     init_window_layout_entries(((u8 *)this) + 0x24, window_help_item_layout_entries, this->m_20);
     *(V3_802534B0 *)(((u8 *)this) + 0xB0) = item_help_description_idle_callback;
-    e = get_array_entry__13TUnk_804CE018Fi((void *)(((u8 *)this)), (s32)(0));
+    e = get_array_entry__13TUnk_804CE018Fi((void *)(((u8 *)this)), 0);
     ((TWindowHelpItem *)((u8 *)this))->format_description_with_price();
-    set_text_entry_string((e), (u32)(get_shared_text_buffer()), (0x20));
+    set_text_entry_string((e), (u32)(get_shared_text_buffer()), 0x20);
     ((TWindowHelpItem *)e)->reset_float_field();
-    e2 = get_array_entry__13TUnk_804CE018Fi((void *)(((u8 *)this)), (s32)(1));
+    e2 = get_array_entry__13TUnk_804CE018Fi((void *)(((u8 *)this)), 1);
     *(s32 *)(e2 + 0x10) = calc_display_grade__9TItemDataFv(*(void **)(((u8 *)this) + 0x68));
 }
 

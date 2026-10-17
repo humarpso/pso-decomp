@@ -197,7 +197,7 @@ u8 *TItemList__sub_801D39C8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, s32 arg4, s8
     construct_placement_search_base((u8 *)(arg0), (u8 *)(arg1), (u8 *)(arg3), (u8 *)(arg4), arg5);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801D39C8_lbl_804C4468 *)&item_drop_search_task_vtable).value;
     *(s32 *)((s8 *)arg0 + 0x54) = arg2;
-    TItemList__sub_801D5884((arg0), (1));
+    TItemList__sub_801D5884((arg0), 1);
     ((TUnk_804C4498 *)arg0)->reset_placement_search_ring();
     if (check_player_action_allowed() != 0) {
         temp_r3 = (u8 *)(run_item_count_update__9TItemListFv(arg0));

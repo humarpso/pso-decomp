@@ -41,8 +41,8 @@ void TObjEneDelDepth::setup_draw_material(f32 farg0, f32 farg1, f32 farg2, f32 f
     lbl_805D5664 = chunk_polygon_flags_and_mask;
     lbl_805D5668 = chunk_polygon_flags_or_mask;
     model_render_flags |= 0x8820;
-    set_chunk_material_override_pair((0xFF00), (0x800));
-    set_chunk_blend(((int) (0x2100)));
+    set_chunk_material_override_pair(0xFF00, 0x800);
+    set_chunk_blend(0x2100);
     stack.spC = farg1;
     stack.sp10 = farg2;
     stack.sp8 = lbl_805DF2E0 + farg0;

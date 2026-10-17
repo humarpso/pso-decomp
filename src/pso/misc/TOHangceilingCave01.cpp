@@ -271,7 +271,7 @@ void TOHangceilingCave01KeyQuick::vfunc_80() {
     switch (temp_r0) {
     case 3:
         if ((is_current_floor_switch_set((int) ((u16) *(s32 *)&this->unk_35C)) == 1) && (this->m_c0 <= *(f32 *)&this->unk_C4)) {
-            ((s32 (*)(void *, int))sub_801682E4__13TUnk_804B2578Fl)((void *) (arg0), (int) (2));
+            ((s32 (*)(void *, int))sub_801682E4__13TUnk_804B2578Fl)((void *) (arg0), 2);
         }
         ((s32 (*)(void *))advance_wrap_offset__13TUnk_804B2578Fv)((void *) (arg0));
         return;
@@ -310,7 +310,7 @@ void TOHangceilingCave01KeyQuick::vfunc_80() {
             } else {
                 this->m_c0 = (f32) lbl_805DB684;
             }
-            ((s32 (*)(void *, int))sub_801682E4__13TUnk_804B2578Fl)((void *) (arg0), (int) (1));
+            ((s32 (*)(void *, int))sub_801682E4__13TUnk_804B2578Fl)((void *) (arg0), 1);
         }
         break;
     }
@@ -561,7 +561,7 @@ void TUnk_804B2578::sub_80168398() {
         break;
     }
     if (id != 0) {
-        play_persistent_sound((s32)id, (s32)((u8 *)this), (u32)(((u8 *)this) + 0x38), (s32)(0), (s32)(0));
+        play_persistent_sound((s32)id, (s32)((u8 *)this), (u32)(((u8 *)this) + 0x38), 0, 0);
     }
 }
 
@@ -687,7 +687,7 @@ void TUnk_804B2578::render() {
     if ((((s32 (*)(u8 *))TOHangceilingCave01__sub_801688C0)(arg0) != 0) || (TObjPlayer::check_demo_mode() == 1)) {
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
-        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        rotate_matrix_y(0, (int) (this->rotation_y));
         TObjFish::set_global_param(*(s32 *)((s8 *)turiten_singo_texture_lists + 8));
         if (*(void * *)&this->model != NULL && *(void * *)&this->unknownF8 != NULL) {
             draw_ginja_model_with_motion(*(void * *)&this->model, *(void * *)&this->unknownF8, this->m_c0);
@@ -773,7 +773,7 @@ s32 TOHangceilingCave01__create(u8 *arg0) {
     switch (temp_r0)
     {
       case 0:
-        temp_r3 = ((s32 (*)(int))__nw__7TObjectFUl)((int) 0x360);
+        temp_r3 = ((s32 (*)(int))__nw__7TObjectFUl)(0x360);
         var_r0 = temp_r3;
         if (var_r0 != 0)
       {
@@ -781,7 +781,7 @@ s32 TOHangceilingCave01__create(u8 *arg0) {
       }
         return var_r0;
       case 1:
-        temp_r3_2 = ((s32 (*)(int))__nw__7TObjectFUl)((int) 0x360);
+        temp_r3_2 = ((s32 (*)(int))__nw__7TObjectFUl)(0x360);
         var_r0_2 = temp_r3_2;
         if (var_r0_2 != 0)
       {
@@ -789,7 +789,7 @@ s32 TOHangceilingCave01__create(u8 *arg0) {
       }
         return var_r0_2;
       case 2:
-        temp_r3_3 = ((s32 (*)(int))__nw__7TObjectFUl)((int) 0x360);
+        temp_r3_3 = ((s32 (*)(int))__nw__7TObjectFUl)(0x360);
         var_r0_3 = temp_r3_3;
         if (var_r0_3 != 0)
       {

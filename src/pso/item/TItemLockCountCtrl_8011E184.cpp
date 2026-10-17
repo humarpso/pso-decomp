@@ -16,14 +16,14 @@ void TItemLockCountCtrl::create_instance() {
     void *o;
     o = __nw__7TObjectFUl(0x2C);
     if (o != NULL) {
-        o = TItemLockCountCtrl__ct((void *)o, (s32)(0), (s32)(12), (s32)notify_if_active__15TItemTimerEventFi, (s32)check_battle_ctrl__15TItemTimerEventFi);
+        o = TItemLockCountCtrl__ct((void *)o, 0, 12, (s32)notify_if_active__15TItemTimerEventFi, (s32)check_battle_ctrl__15TItemTimerEventFi);
     }
     item_timer_event_instance = o;
 }
 
 void fn_8011E1D4(u8 *arg0) {
     if (!(*(s32 *)((s8 *)arg0 + 0x890) & 0x10)) {
-        TObjPlayer__sub_8011E204((void *)((void *)((void *)(arg0))), (s32)((int)((int) (0x10000))));
+        TObjPlayer__sub_8011E204((void *)((void *)((void *)(arg0))), 0x10000);
     }
 }
 void TObjPlayer__sub_8011E204(void *arg0, s32 arg1) {

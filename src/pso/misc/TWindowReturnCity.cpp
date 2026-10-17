@@ -69,7 +69,7 @@ void return_to_city_after_defeat(void) {
         if (((s32)get_player_by_client_id((s32)((u32) (*(s32 *)&TWindowReturnCity__client_scan_index)))) != 0U) {
             prepare_hospital_return__10TObjPlayerFv();
         }
-        set_area__6TLobbyFl((void *) (&lbl_80515BA0.value), (int) (0), (int) (get_floor_map_terrain(0)));
+        set_area__6TLobbyFl((void *) (&lbl_80515BA0.value), 0, (int) (get_floor_map_terrain(0)));
         mark_area_change_pending();
         ((TObjAreaWarpQuest *)(&lbl_80515BA0.value))->get_dest_area();
         send_inter_level_warp_all__10TNpcPlayerFl();
@@ -157,14 +157,14 @@ u8 *TWindowReturnCity__ct(u8 *arg0, s32 arg1, s32 arg2) {
   *((s32 **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_8026D40C___vt__17TWindowReturnCity *)&__vt__17TWindowReturnCity).value;
   *((s32 *) (((s8 *) arg0) + 0)) = (s32) TWindowReturnCity__class_name;
   *(s32 *)&((TWindowReturnCity *)arg0)->m_24 = arg2;
-  temp_r31 = create__19TWindowMessageYesNoFPvPvPvPv((void *) arg0, (int) (*(s32 *)&((TWindowReturnCity *)arg0)->m_24), (int) 0, (int) 0);
+  temp_r31 = create__19TWindowMessageYesNoFPvPvPvPv((void *) arg0, (int) (*(s32 *)&((TWindowReturnCity *)arg0)->m_24), 0, 0);
   *(s32 *)&((TWindowReturnCity *)arg0)->m_1c = temp_r31;
   if (arg0)
   {
   }
-  temp_r31 = get_window_layout_position((int) 0x23);
-  forward_slot_selection__16TAdChrSelASlotGCFPvPv((int) (*(s32 *)&((TWindowReturnCity *)arg0)->m_1c), (int) TWindowSubStatusDisp::get_message_10((int) 0x43), (int) temp_r31, (f32) lbl_805DD2E8);
-  free_member__17TWindowSubComCardFv((int) (*(s32 *)&((TWindowReturnCity *)arg0)->m_1c), (int) 1);
+  temp_r31 = get_window_layout_position(0x23);
+  forward_slot_selection__16TAdChrSelASlotGCFPvPv((int) (*(s32 *)&((TWindowReturnCity *)arg0)->m_1c), (int) TWindowSubStatusDisp::get_message_10(0x43), (int) temp_r31, (f32) lbl_805DD2E8);
+  free_member__17TWindowSubComCardFv((int) (*(s32 *)&((TWindowReturnCity *)arg0)->m_1c), 1);
   fn_8024AC64((*(s32 *)&((TWindowReturnCity *)arg0)->m_24));
   TWindowCtrl::set_close_flag();
   TWindowCtrl__sub_8026D4E8();

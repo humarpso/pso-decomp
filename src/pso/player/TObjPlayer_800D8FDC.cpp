@@ -20,12 +20,12 @@ void TObjPlayer::create_dead_spot(s32 arg0, s32 arg1, f32 farg0) {
 
     temp_r3 = __nw__7TObjectFUl(0x38);
     if (temp_r3 != 0) {
-        construct_fire_base__9TDeadSpotFPvPvPvif((u8 *)temp_r3, (u8 *)tl_05, (u8 *)arg0, (s32)(create_timed_particle_emitter((void *)(arg0), (0xF8), (0), (arg1))), (f32)farg0);
+        construct_fire_base__9TDeadSpotFPvPvPvif((u8 *)temp_r3, (u8 *)tl_05, (u8 *)arg0, (s32)(create_timed_particle_emitter((void *)(arg0), 0xF8, 0, (arg1))), (f32)farg0);
     }
 }
 
 void TObjPlayer::spawn_effect_f8(s32 arg1, s32 arg2) {
-    create_timed_particle_emitter((void *)(arg1), (0xF8), (0), (arg2));
+    create_timed_particle_emitter((void *)(arg1), 0xF8, 0, (arg2));
 }
 
 void TObjPlayer::set_field_e4(s32 arg1, s32 arg2) {
@@ -41,7 +41,7 @@ void create_dead_spot__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0
 
     temp_r3 = __nw__7TObjectFUl(0x38);
     if (temp_r3 != 0) {
-        init__9TDeadSpotFPv((void *)temp_r3, (u8 *)tl_05, (u8 *)arg0, (s32)(create_timed_particle_emitter((void *)(arg0), (arg1), (0), (arg2))), (f32)farg0);
+        init__9TDeadSpotFPv((void *)temp_r3, (u8 *)tl_05, (u8 *)arg0, (s32)(create_timed_particle_emitter((void *)(arg0), (arg1), 0, (arg2))), (f32)farg0);
     }
 }
 
@@ -53,7 +53,7 @@ void TObjPlayer::spawn_ground_effect(s32 arg1) {
     s32 sp8;
 
     TObjBoss2Tunnel::adjust_to_ground((s32)this, (void *)(&sp8));
-    create_timed_particle_emitter((&sp8), (0xE5), (0), (arg1));
+    create_timed_particle_emitter((&sp8), 0xE5, 0, (arg1));
 }
 
 void TObjPlayer::spawn_effect_at_ground(s32 arg1) {

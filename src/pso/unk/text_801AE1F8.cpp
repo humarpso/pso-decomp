@@ -130,7 +130,7 @@ u8 *TPhotonPilla__ct(u8 *arg0, u8 *arg1) {
         pos.y += lbl_805DC258;
         mem = __nw__7TObjectFUl(0xD0);
         if (mem != NULL) {
-            TPhotonMagicSquare__ct((u8 *)mem, (s32)arg0, (s32)(3), (s32)&pos, (s32)(0xAA), (f32)lbl_805DC234);
+            TPhotonMagicSquare__ct((u8 *)mem, (s32)arg0, 3, (s32)&pos, 0xAA, (f32)lbl_805DC234);
         }
         }
         spawn_photon_blast_attachment_effects(arg0, 3);

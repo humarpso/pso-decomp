@@ -42,10 +42,10 @@ void TBoss7Crawfish::update_motion_and_release() {
     }
     if (TBoss7Crawfish__sub_80308ED8((void *) (arg0), (void *) (arg0 + 0x308)) == 0) {
         ((TBoss7Crawfish *)arg0)->free_child();
-        ((TBoss7Crawfish *)arg0)->change_state((int) (3));
+        ((TBoss7Crawfish *)arg0)->change_state(3);
         return;
     }
-    TBoss7Crawfish__sub_803087D4((s32)(arg0), (0x3A80C));
+    TBoss7Crawfish__sub_803087D4((s32)(arg0), 0x3A80C);
 }
 void TBoss7Crawfish::aim_at_nearest_player() {
     Craw_80308D1C *o = (Craw_80308D1C *)this;
@@ -62,7 +62,7 @@ void TBoss7Crawfish::aim_at_nearest_player() {
         o->vz = s * cos_table_lookup(o->angle);
     }
     o->angle = lbl_804755B0[0] * atan2_float(o->vx, o->vz);
-    ((TBoss7Crawfish *)o)->change_state((int)(2));
+    ((TBoss7Crawfish *)o)->change_state(2);
 }
 
 }

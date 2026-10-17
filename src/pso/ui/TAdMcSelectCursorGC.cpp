@@ -55,9 +55,9 @@ extern const f32 lbl_805DF728;
 
 void TAdMcSelectCursorGC::render_cursor() {
     u8 *arg0 = (u8 *)this;
-    begin_screen_draw((1));
+    begin_screen_draw(1);
     TObjFish::set_global_param((s32)((void *) (TAdMcSelectCursorGC__texture_entry)));
-    set_draw_texture_and_color((0), ((*(s32 *)&this->m_128 << 0x18) | 0xFF0000 | 0xFFFF));
+    set_draw_texture_and_color(0, ((*(s32 *)&this->m_128 << 0x18) | 0xFF0000 | 0xFFFF));
     draw_textured_quad_at_depth((f32 *)(arg0 + 0x28), (f32) (lbl_805DF728));
     TWindowSubStatusDisp::get_player();
 }
@@ -92,16 +92,16 @@ void TAdMcSelectCursorGC::run_task() {
     s32 i;
     if (self->f1C == 0) {
         t = TAdMcSelectCursorGC::get_cursor_type(1 - self->f20);
-        if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)(controller_physical_port_bank + 0x20), (s32)0x80, (s32)6, (s32)1) != 0 ||
-            TWindowChoiceSetting::apply_choice((s32)(controller_input_state + 0x160), (s32)0x80, (s32)6, (s32)1) != 0) {
+        if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)(controller_physical_port_bank + 0x20), 0x80, 6, 1) != 0 ||
+            TWindowChoiceSetting::apply_choice((s32)(controller_input_state + 0x160), 0x80, 6, 1) != 0) {
             if (TAdMcSelectCursorGC__sub_8032A6D8((void *)t) >= 4) {
                 self->f20++;
                 if (self->f20 > 1) {
                     self->f20 = 1;
                 }
             }
-        } else if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)(controller_physical_port_bank + 0x20), (s32)0x40, (s32)6, (s32)1) != 0 ||
-                    TWindowChoiceSetting::apply_choice((s32)(controller_input_state + 0x160), (s32)0x40, (s32)6, (s32)1) != 0) &&
+        } else if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)(controller_physical_port_bank + 0x20), 0x40, 6, 1) != 0 ||
+                    TWindowChoiceSetting::apply_choice((s32)(controller_input_state + 0x160), 0x40, 6, 1) != 0) &&
                    TAdMcSelectCursorGC__sub_8032A6D8((void *)t) >= 4) {
             self->f20--;
             if (self->f20 < 0) {

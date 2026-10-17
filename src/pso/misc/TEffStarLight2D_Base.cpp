@@ -67,7 +67,7 @@ extern void *tl_particle;
 void __dl__7TObjectFPv(void *);
 
 void *TEffStarLight2D_Base__create(void *arg0, s32 _w1) {
-    void *o = __nw__7TObjectFUl((s32)(0x94), (s32)(_w1));
+    void *o = __nw__7TObjectFUl(0x94, (s32)(_w1));
     if (o != NULL) {
         o = TEffStarLight2D_Base__ct((u8 *)(o), (s32)(tl_particle), (s32)(arg0));
     }
@@ -140,7 +140,7 @@ u8 *TEffStarLight2D_Base__ct(u8 *arg0, s32 arg1, s32 arg2) {
     temp_r4 = *(s32 *)&((TUnk_8048E640 *)arg0)->m_8c;
     stack.sp13 = (s8) temp_r4;
     stack.sp14 = 0;
-    temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((s32)(0x4C), (s32)(temp_r4))));
+    temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x4C, (s32)(temp_r4))));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(__ct__15TEffStarLight2DFPvPvP7TObject(temp_r3, (s32) (arg0 + 0x38), (s32) &stack.sp8, (*(s32 *)&tl_particle)));

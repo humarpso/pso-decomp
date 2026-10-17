@@ -575,7 +575,7 @@ void TLobby::set_encoded_name_and_color(u8 *arg0, s32 arg1) {
 }
 typedef char RecoveredGlobal_802925C4_lbl_80540968_size[sizeof(RecoveredGlobal_802925C4_lbl_80540968) == 0x20 ? 1 : -1];
 void set_split_screen_name__6TLobbyFi(s32 arg0) {
-    strncpy((void *) (&split_screen_player_name.value), (void *) (arg0), (int) (0x20));
+    strncpy((void *) (&split_screen_player_name.value), (void *) (arg0), 0x20);
     *(s8 *)((s8 *)(&split_screen_player_name.value) + 0x1F) = 0;
 }
 typedef char RecoveredGlobal_80292604_lbl_804DB1F0_size[sizeof(RecoveredGlobal_80292604_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
@@ -952,7 +952,7 @@ s32 TLobby__sub_80292DA0(s32 seed, u16 card) {
     u8 *base;
     s32 next;
     E_80292DA0 *e;
-    id = ((s32)TWindowSubStatusDisp::resolve_player_slot((s32)(-1)));
+    id = ((s32)TWindowSubStatusDisp::resolve_player_slot(-1));
     result = -4;
     TLobby__sub_80292BB8(seed, card, id);
     total = TWindowSubStatusDisp__sub_80071988(card, id);

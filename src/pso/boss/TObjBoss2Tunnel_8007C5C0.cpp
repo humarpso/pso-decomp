@@ -259,7 +259,7 @@ void TObjBoss2Tunnel__sub_8007CAE8(u32 arg0) {
     }
     stack.sp8 = lbl_805D922C;
     stack.spC = lbl_805D9230;
-    draw_textured_screen_quad__10TObjPlayerFUlPfPfl((int) (-1), (void *) (&stack.sp10), (void *) (&stack.sp8), (int) (1), (f32) (lbl_805D922C));
+    draw_textured_screen_quad__10TObjPlayerFUlPfPfl(-1, (void *) (&stack.sp10), (void *) (&stack.sp8), 1, (f32) (lbl_805D922C));
 }
 
 bool TObjBoss2Tunnel::verify_snapshot_checksum() {
@@ -281,12 +281,12 @@ bool TObjBoss2Tunnel::verify_snapshot_checksum() {
 s32 TObjBoss2Tunnel::load_snapshot() {
     Stack_8007CBC4 stack;
     s32 buf;
-    if (TAdPlayerLoadGC__sub_801E1B50((int) (1)) == 0) {
+    if (TAdPlayerLoadGC__sub_801E1B50(1) == 0) {
         if (((s32) (*(u16 *)&TObjBoss2Tunnel__snapshot_state) != 0) && ((s32) (*(u16 *)&TObjBoss2Tunnel__snapshot_state) >= 0) && ((s32) (*(u16 *)&TObjBoss2Tunnel__snapshot_state) < 3)) {
             buf = TObjPlayer__sub_800845F8();
             if (TAdPlayerLoadGC__sub_801E1538((void *) (&stack.sp8), (int) (TObjBoss2Tunnel__snapshot_buffer)) == 0) {
-                memcpy((int) (buf), (void *) (stack.sp60 + 8), (int) (0x1818C));
-                DCFlushRange((int) (buf), (int) (0x1818C));
+                memcpy((int) (buf), (void *) (stack.sp60 + 8), 0x1818C);
+                DCFlushRange((int) (buf), 0x1818C);
             }
             lbl_805D49B4 = 0;
         }

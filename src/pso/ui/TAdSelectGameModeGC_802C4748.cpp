@@ -83,11 +83,11 @@ void run_task__19TAdSelectGameModeGCFv(u8 *arg0) {
     s32 mode_data;
     TAdMultiChgGameModeGC::set_default_camera();
     if ((s32) TAdSelectGameModeGC__cached_mode_value != TAdSinglePlyChrSelectGC__sub_801334DC((void *)(*(s32 *)((s8 *)arg0 + 0x1C)))) {
-        ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x20)))->set_entry_value((int) (1), (int) (get_localized_text_entry((s32)(0x15), (s32)(TAdSinglePlyChrSelectGC__sub_801334DC((void *)(*(s32 *)((s8 *)arg0 + 0x1C))) + 1))));
+        ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x20)))->set_entry_value(1, (int) (get_localized_text_entry(0x15, (s32)(TAdSinglePlyChrSelectGC__sub_801334DC((void *)(*(s32 *)((s8 *)arg0 + 0x1C))) + 1))));
     }
     TAdSelectGameModeGC__cached_mode_value = TAdSinglePlyChrSelectGC__sub_801334DC((void *)(*(s32 *)((s8 *)arg0 + 0x1C)));
-    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_physical_port_bank.value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
-        play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_physical_port_bank.value + 0x20), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 2) != 0)) {
+        play_sound_effect(0x52F16, 0, 0, 0);
         TAdMultiChgGameModeGC::request_scene_change();
         return;
     }
@@ -153,7 +153,7 @@ u8 *__ct__19TAdSelectGameModeGCFv(u8 *arg0, void *parent) {
     *(void **)((s8 *)arg0 + 0x20) = p;
     ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x20)))->set_entry_value(0, get_localized_text_entry(0x15, 0));
     ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x20)))->set_entry_value(1, get_localized_text_entry(0x15, 1));
-    create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)arg0, (s32)(0xA), (f32)lbl_805DE538);
+    create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)arg0, 0xA, (f32)lbl_805DE538);
     return arg0;
 }
 

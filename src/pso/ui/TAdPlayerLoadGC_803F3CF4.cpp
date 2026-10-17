@@ -16,9 +16,9 @@ s32 TLobby__sub_803F3D60(void) {
         OSFreeToHeap((int) (__OSCurrHeap), (void *) (lobby_net_config_buffer));
         lobby_net_config_buffer = 0U;
     }
-    get_or_set_network_config_mode((0));
-    get_or_set_network_config_backup_mode((0));
-    set_network_config_card_channel((2));
+    get_or_set_network_config_mode(0);
+    get_or_set_network_config_backup_mode(0);
+    set_network_config_card_channel(2);
     return 0;
 }
 

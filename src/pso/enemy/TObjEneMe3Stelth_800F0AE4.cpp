@@ -47,13 +47,13 @@ s32 TObjEneMe3Stelth::try_spawn_ground_effect(s32 arg1) {
   temp_r3 = (u8 *) csnVectorUnder((s32)&stack.sp8, (u32 *)(arg0 + 0x120), 0x15);
   if ((temp_r3 != 0) && ((*((s32 *) (((s8 *) temp_r3) + 0))) & 4))
   {
-    particle_effect = ((s32)spawn_particle_effect((void *)((int) ((*((s32 *) (((s8 *) temp_r3) + 4))) + 0x38)), ((int) 0x49)));
+    particle_effect = ((s32)spawn_particle_effect((void *)((int) ((*((s32 *) (((s8 *) temp_r3) + 4))) + 0x38)), 0x49));
     if (particle_effect != 0)
     {
       ;
-      attach_particle_model((u8 *)particle_effect, (int) TParticleCtrl::get_particle_model((int) 2), (int) TParticleCtrl::get_instance(), (int) 0, (int) 1, (f32) TObjEneMe3Stelth__data_805DA80C);
+      attach_particle_model((u8 *)particle_effect, (int) TParticleCtrl::get_particle_model(2), (int) TParticleCtrl::get_instance(), 0, 1, (f32) TObjEneMe3Stelth__data_805DA80C);
     }
-    spawn_particle_effect((void *)((int) ((*((s32 *) (((s8 *) temp_r3) + 4))) + 0x38)), ((int) 0xA4));
+    spawn_particle_effect((void *)((int) ((*((s32 *) (((s8 *) temp_r3) + 4))) + 0x38)), 0xA4);
     TObjEneGibbles__sub_800D8988((void *) (arg0 + 0x38));
     return 1;
   }

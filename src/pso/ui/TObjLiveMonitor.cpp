@@ -45,7 +45,7 @@ s32 draw_ginja_object(int);
 
 void render__15TObjLiveMonitorFv(u8 *arg0) {
     s32 temp_r3;
-    temp_r3 = TObjLiveCameraCtrl::get_table_entry((int) (0));
+    temp_r3 = TObjLiveCameraCtrl::get_table_entry(0);
     if ((temp_r3 != 0) && (TObjLiveMonitor__sub_8030C050() != 0)) {
         ((TObjLiveMonitor *)temp_r3)->update_camera();
     } else if (is_split_screen() == 0) {
@@ -343,7 +343,7 @@ void TBoss8Dragon::update_live_camera() {
         }
         break;
     case 5:
-        temp_r3_4 = TBoss8Dragon__sub_802F3348((int) (0));
+        temp_r3_4 = TBoss8Dragon__sub_802F3348(0);
         if ((temp_r3_4 != 0U) && (TBoss8Dragon__sub_802FCCBC((int) (temp_r3_4)) != 0)) {
             this->m_1e = 0;
         }

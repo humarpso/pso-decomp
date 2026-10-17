@@ -85,7 +85,7 @@ u8 *TObjQuestCol2__vt14(u8 *arg0) {
     TQuestThreadBoard::destroy_board();
     var_r31 = (u8 *)(NULL);
     if ((u32) *(u32 *)((s8 *)arg0 + 0xBC) != 0U) {
-        temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x194))));
+        temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x194)));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
             var_r0 = (u8 *)(__ct__12TQuestThreadFv(temp_r3, (s32) *(u32 *)((s8 *)arg0 + 0xBC), *(s32 *)&((TObjQuestCol2 *)arg0)->m_b0));

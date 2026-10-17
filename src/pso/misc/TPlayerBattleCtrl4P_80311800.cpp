@@ -162,7 +162,7 @@ void TPlayerBattleCtrl4P::record_battle_results_after_delay() {
         } else {
             TPlayerBattleCtrl4P::notify_lobby((void*)this, (void*)lbl_80475BCC, (void*)0x96);
         }
-        set_score((s32)((void*)((int) (3))));
+        set_score((s32)((void*)(3)));
     }
 }
 void TPlayerBattleCtrl4P::wait_for_rematch_menu_button() {
@@ -188,11 +188,11 @@ void TPlayerBattleCtrl4P::close_rematch_menu() {
     var_r31 = 0;
     do {
         if ((((s32)get_player_by_client_id((s32)(var_r31))) != 0U) && (check_player_flag1__6TLobbyFv() != 0)) {
-            send_code_45_to_window__19TPlayerBattleCtrl4PFPvii((((u8 *)this)), ((u16) var_r31), (1));
+            send_code_45_to_window__19TPlayerBattleCtrl4PFPvii((((u8 *)this)), ((u16) var_r31), 1);
         }
         var_r31 += 1;
     } while ((s32) var_r31 < 4);
-    set_score((s32)((void*)((int) (7))));
+    set_score((s32)((void*)(7)));
 }
 extern "C" {
 
@@ -256,13 +256,13 @@ void TPlayerBattleCtrl4P::open_result_windows() {
     {
       if (check_player_flag1__6TLobbyFv() == 0)
       {
-        TPlayerBattleCtrl4P::remove_player((void *) ((s32)this), (int) ((u16) var_r31), (int) 1);
+        TPlayerBattleCtrl4P::remove_player((void *) ((s32)this), (int) ((u16) var_r31), 1);
       }
       ((TObjPlayer *)player)->release_attached_resource();
     }
     var_r31 += 1;
   }
   while (((s32) var_r31) < 4);
-  set_score((s32)((void*)((int) 4)));
+  set_score((s32)((void*)(4)));
 }
 #pragma pop

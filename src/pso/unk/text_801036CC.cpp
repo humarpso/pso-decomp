@@ -171,7 +171,7 @@ void TLobby::apply_sync_item_state() {
         }
     }
     if (test_flags_any(&lbl_805D5440, 1) != 0) {
-        TLobby::respawn_missing_floor_items((s32)(0));
+        TLobby::respawn_missing_floor_items(0);
     }
     TLobby__sub_801041D8();
 }

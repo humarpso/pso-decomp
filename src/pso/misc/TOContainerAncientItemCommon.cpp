@@ -104,14 +104,14 @@ s32 TOContainerAncientItemCommon::create() {
     s32 var_r0;
     s32 var_r0_2;
     if (((s32) enable_v2_features == 1) && (get_game_play_mode() == 1) && (is_quest_active() == 1)) {
-        temp_r3 = __nw__7TObjectFUl((int) (0x368));
+        temp_r3 = __nw__7TObjectFUl(0x368);
         var_r0_2 = temp_r3;
         if (var_r0_2 != 0) {
             var_r0_2 = ((s32)TOContainerAncientItemCommon__ct((void *)((int) (temp_r3)), (void *)((void *) (arg0))));
         }
         return var_r0_2;
     }
-    temp_r3_2 = __nw__7TObjectFUl((int) (0x368));
+    temp_r3_2 = __nw__7TObjectFUl(0x368);
     var_r0 = temp_r3_2;
     if (var_r0 != 0) {
         var_r0 = ((s32)TOContainerAncientItemCommon__ct((void *)((int) (temp_r3_2)), (void *)((void *) (arg0))));
@@ -190,7 +190,7 @@ void TUnk_804B08BC::vfunc_81() {
         case 0:
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
-            rotate_matrix_y((int) (0), (int) (this->rotation_y));
+            rotate_matrix_y(0, (int) (this->rotation_y));
             TObjFish::set_global_param((int) (this->texture_id));
             temp_r31 = (unsigned char *) (*(void * *)&this->model);
             push_matrix();

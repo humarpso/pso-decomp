@@ -160,7 +160,7 @@ f32 TTecResta::calc_heal_amount(s32 arg0) {
 void TTecResta::init_parameters() {
     u8 *arg0 = (u8 *)this;
   int new_var;
-  new_var = (int) calc_technique_parameters((int) 0xF, (int) (this->m_a4), (int) 0xFFFF);
+  new_var = (int) calc_technique_parameters(0xF, (int) (this->m_a4), 0xFFFF);
   ((TTecAnti *)(arg0 + 0x74))->copy_params((u8 *)new_var);
   this->m_74 = (f32) ((this->m_74) + ((f32) ((this->m_98) * (this->m_a4))));
   if (((s32 (*)(void))is_technique_ready__8TTecCtrlFv)() != 0)

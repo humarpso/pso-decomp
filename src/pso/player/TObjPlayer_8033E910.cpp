@@ -80,16 +80,16 @@ void setup_projection_tex_matrix__10TObjPlayerFv(void) {
             C_MTXLightPerspective((void *) (&sp10), (f32) (temp_f31), (f32) (lbl_805DFAC8), (f32) (lbl_805DFACC), (f32) (lbl_805DFAD0), (f32) (lbl_805DFACC), (f32) (lbl_805DFACC));
         }
         PSMTXConcat((void *) (&sp10), (void *) (current_matrix), (void *) (current_matrix));
-        load_current_tex_matrix((int) (2));
+        load_current_tex_matrix(2);
         pop_matrix();
-        load_current_pos_matrix((int) (2));
-        GXSetTevOrder((int) (1), (int) (1), (int) (2), (int) (4));
-        GXSetTevOp((int) (1), (int) (1));
-        set_tex_coord_gen2((int) (1), (int) (0), (int) (0), (int) (0x24));
+        load_current_pos_matrix(2);
+        GXSetTevOrder(1, 1, 2, 4);
+        GXSetTevOp(1, 1);
+        set_tex_coord_gen2(1, 0, 0, 0x24);
         (*(s32 *)&model_render_flags) |= 0x80000;
-        set_ginja_post_tev_stage_count((void*)((int) (1)));
-        set_ginja_post_texgen_count((void*)((int) (1)));
-        TObjPlayer::set_global_effect_state((s32)((void*)((int) (1))));
+        set_ginja_post_tev_stage_count((void*)(1));
+        set_ginja_post_texgen_count((void*)(1));
+        TObjPlayer::set_global_effect_state((s32)((void*)(1)));
     }
 }
 

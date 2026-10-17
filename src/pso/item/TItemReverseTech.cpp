@@ -58,12 +58,12 @@ void TItemReverseTech::run_task() {
     stack.sp8 = *(s32 *)((s8 *)(&lbl_8043E6B0.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_8043E6B0.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_8043E6B0.value) + 8);
-    activate_camera_mode((9));
+    activate_camera_mode(9);
     set_active_camera_pose((u8 *)(&stack.sp14), (u8 *)(&stack.sp8));
     temp_r3 = (u32)part_one;
     if ((temp_r3 != 0U) && (((TObject *)temp_r3)->all_parents_unqueued_for_destruction() == 0)) {
         part_one = NULL;
-        temp_r3_2 = (u32)__nw__7TObjectFUl((int) (0x158));
+        temp_r3_2 = (u32)__nw__7TObjectFUl(0x158);
         var_r0 = temp_r3_2;
         if (var_r0 != 0U) {
             var_r0 = (u32)__ct__21TItemReverseTechPart2Fv((u8 *)(temp_r3_2), (s32)(this), (s32)(TItemReverseTech__texture_archive));

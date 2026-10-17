@@ -92,11 +92,11 @@ u8 *call_area_set_factory(void *, void *);
 void spawn_decorations_in_range(void *arg0);
 void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2) {
     push_matrix_from(&identity_matrix.value);
-    translate_matrix((0), (f32) (*(f32 *)((s8 *)arg2 + 4)), (f32) (*(f32 *)((s8 *)arg2 + 8)), (f32) (*(f32 *)((s8 *)arg2 + 0xC)));
-    rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)arg2 + 0x18)));
-    rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg2 + 0x10)));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg2 + 0x14)));
-    matrix_mult_vec((int) (0), (void *) (arg0), (void *) (arg0));
+    translate_matrix(0, (f32) (*(f32 *)((s8 *)arg2 + 4)), (f32) (*(f32 *)((s8 *)arg2 + 8)), (f32) (*(f32 *)((s8 *)arg2 + 0xC)));
+    rotate_matrix_z(0, (int) (*(s32 *)((s8 *)arg2 + 0x18)));
+    rotate_matrix_x(0, (int) (*(s32 *)((s8 *)arg2 + 0x10)));
+    rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg2 + 0x14)));
+    matrix_mult_vec(0, (void *) (arg0), (void *) (arg0));
     pop_matrix();
     *(s32 *)((s8 *)arg1 + 0) = (s32) (*(s32 *)((s8 *)arg1 + 0) + *(s32 *)((s8 *)arg2 + 0x10));
     *(s32 *)((s8 *)arg1 + 4) = (s32) (*(s32 *)((s8 *)arg1 + 4) + *(s32 *)((s8 *)arg2 + 0x14));

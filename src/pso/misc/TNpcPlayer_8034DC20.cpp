@@ -96,7 +96,7 @@ u8 *__dt__13TUnk_804F07C8Fv(u8 *arg0, s16 arg1) {
       var_r31 += 1;
     }
     while (var_r31 < 4);
-    __dt__7TObjectFv((void *) arg0, (int) 0);
+    __dt__7TObjectFv((void *) arg0, 0);
     if (arg1 > 0)
     {
       __dl__7TObjectFPv((void *) arg0);

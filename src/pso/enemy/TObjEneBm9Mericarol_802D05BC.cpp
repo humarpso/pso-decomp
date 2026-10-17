@@ -54,7 +54,7 @@ void TObjEneBm9Mericarol__sub_802D05BC(u8 *arg0, s32 arg1) {
         return;
     case 3:
         if (((SubObj_802d05bc *)(arg0 + 0x46C))->v5() != 0) {
-            transition_enemy_state((void *)(arg0), (s32)(2));
+            transition_enemy_state((void *)(arg0), 2);
         }
     case 1:
         return;
@@ -75,7 +75,7 @@ void TObjEneBm9Mericarol::handle_action(s32 arg1) {
         ((VObj_802D06E0_802D05BC *)this)->m93();
         return;
     case 3:
-        transition_enemy_state((void *)(this), (s32)(1));
+        transition_enemy_state((void *)(this), 1);
     case 5:
     case 0:
         return;

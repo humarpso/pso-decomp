@@ -69,7 +69,7 @@ void TObjEneRecon::load_resources() {
   s32 var_r4;
   u8 *temp_r5;
   TObjEneRecon__recobox_static_instance = (u8 *)TObjEneRecobox__sub_803201D0();
-  temp_r3 = (var_r4 = ((TAdSinglePlyChrSelectGC *)((int) 0x10))->alloc());
+  temp_r3 = (var_r4 = ((TAdSinglePlyChrSelectGC *)(0x10))->alloc());
   if (var_r4 != 0)
   {
     var_r4 = init_from_model__11TBreakUpMdlFl((int) temp_r3, (void *) (*((s32 *) (((s8 *) ((RecoveredFields_8031E708_TObjEneRecon__data_805D6B00 *) TObjEneRecon__recobox_static_instance)->field_42C) + 8))));
@@ -77,10 +77,10 @@ void TObjEneRecon::load_resources() {
   boss3_volopt_instance = var_r4;
   recon_intro_stage = 0;
   recon_model_matrix_ptr = 0;
-  lbl_805D6AF0 = register_boss__6TLobbyFl((int) 0x42);
-  TObjEneRecon__attack_params = dispatch_shared_handler_b__6TLobbyFl((int) 0x42);
-  TObjEneRecon__resistance_params = register_object__6TLobbyFl((int) 0x42);
-  TObjEneRecon__data_805D6AFC = dispatch_shared_handler_a__6TLobbyFl((int) 0x42);
+  lbl_805D6AF0 = register_boss__6TLobbyFl(0x42);
+  TObjEneRecon__attack_params = dispatch_shared_handler_b__6TLobbyFl(0x42);
+  TObjEneRecon__resistance_params = register_object__6TLobbyFl(0x42);
+  TObjEneRecon__data_805D6AFC = dispatch_shared_handler_a__6TLobbyFl(0x42);
   TObjEneRecon__sub_8031BC94();
   stack.sp8 = *((s32 *) (((s8 *) (&recon_anim_binding.value)) + 0));
   stack.spC = *((s32 *) (((s8 *) (&recon_anim_binding.value)) + 4));
@@ -88,7 +88,7 @@ void TObjEneRecon::load_resources() {
   stack.sp14 = *((s32 *) (((s8 *) (&recon_anim_binding.value)) + 0xC));
   stack.sp8 = ((RecoveredFields_8031E708_TObjEneRecon__data_805D6B00 *) TObjEneRecon__recobox_static_instance)->field_430;
   temp_r5 = (u8 *) ((RecoveredFields_8031E708_TObjEneRecon__data_805D6B00 *) TObjEneRecon__recobox_static_instance)->field_42C;
-  TLobby::spawn_npc_enemy((s16)((int) 0xC), (s32)((int) ((RecoveredFields_8031E708_temp_r5 *) temp_r5)->field_8), (s32)((int) ((RecoveredFields_8031E708_temp_r5 *) temp_r5)->field_C), (s32)((void *) (&stack.sp8)), (f32)((f32) (*((f32 *) (((s8 *) (&TObjEneRecon__collision_body_template.value)) + 0xC)))), (f32)((f32) TObjEneRecon__data_805DF3C0));
+  TLobby::spawn_npc_enemy((s16)(0xC), (s32)((int) ((RecoveredFields_8031E708_temp_r5 *) temp_r5)->field_8), (s32)((int) ((RecoveredFields_8031E708_temp_r5 *) temp_r5)->field_C), (s32)((void *) (&stack.sp8)), (f32)((f32) (*((f32 *) (((s8 *) (&TObjEneRecon__collision_body_template.value)) + 0xC)))), (f32)((f32) TObjEneRecon__data_805DF3C0));
 }
 
 }

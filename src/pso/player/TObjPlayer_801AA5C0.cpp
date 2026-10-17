@@ -23,7 +23,7 @@ extern "C" {
 s32 TObjPlayer::init_arrays() {
     s32 arg0 = (s32)this;
     ((TObjPlayer *)(arg0 + 4))->init_forward();
-    __construct_array((void *) (arg0 + 8), (void *) (&TObjPlayer__sub_801AA61C), (void *) (&TObjPlayer__sub_801AA584), (int) (4), (int) (4));
+    __construct_array((void *) (arg0 + 8), (void *) (&TObjPlayer__sub_801AA61C), (void *) (&TObjPlayer__sub_801AA584), 4, 4);
     ((TObjPlayer *)arg0)->reset_id_entry();
     return arg0;
 }

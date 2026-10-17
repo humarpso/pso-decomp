@@ -113,7 +113,7 @@ void TObjPlayer::set_pause_flag_from_state() {
 
 void TObjPlayer::create_cane_if_ready(s32 arg0, void *position) {
     if (get_attack_stage__11TItemWeaponFv() == 0) {
-        ((TObjPlayer *)tl_05)->create_item_eff_cane((TItem*)arg0, (s32)(-1), (s32)0x1BD);
+        ((TObjPlayer *)tl_05)->create_item_eff_cane((TItem*)arg0, -1, 0x1BD);
     }
 }
 
@@ -126,11 +126,11 @@ void TUnk_804F27E0::emit_marker_effects() {
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xF0));
     ((VObj_18_f1aa6a *)(temp_r3))->m63(0x30, &sp8);
     if (get_validated_attack_stage(*(u8 **)((s8 *)arg0 + 0xF0) + 0x7CC) == 2) {
-        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), (int) (0));
-        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), (int) (0x1555));
-        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), (int) (-0x1555));
+        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0);
+        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0x1555);
+        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), -0x1555);
     } else {
-        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), (int) (0));
+        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), 0);
     }
     TObjPlayer::create_cane_if_ready((s32)((void *) (arg0)), (void *)((void *) (&sp8)));
 }
@@ -146,14 +146,14 @@ void TObjPlayer__sub_80362FB4(u8 *arg0) {
         stack.spC = *(s32 *)((s8 *)(&lbl_80479FC8.value) + 4);
         stack.sp10 = *(s32 *)((s8 *)(&lbl_80479FC8.value) + 8);
         post_translate_matrix((void *) (&stack.sp8));
-        rotate_matrix_x((int) (0), (int) (0x18E3));
+        rotate_matrix_x(0, 0x18E3);
         if (*(s32 *)((s8 *)arg0 + 0x1FC) & 1) {
             push_matrix();
-            rotate_matrix_x((int) (0), (int) (0x2AAA));
+            rotate_matrix_x(0, 0x2AAA);
             ((TItemWeapon *)arg0)->check_boss2tunnel_field_f4();
             pop_matrix();
             push_matrix();
-            rotate_matrix_x((int) (0), (int) (-0x2AAA));
+            rotate_matrix_x(0, -0x2AAA);
             ((TItemWeapon *)arg0)->check_boss2tunnel_field_f4();
             pop_matrix();
         }

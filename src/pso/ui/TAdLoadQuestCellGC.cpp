@@ -58,7 +58,7 @@ s32 get_or_create_cell__14TAdLoadQuestGCFii(s32 arg0, s32 arg1) {
     s32 var_r0;
     temp_r30 = arg1 * 4;
     if ((u32) *(s32 *)((s8 *)((s32 *)ad_load_quest_cell_table) + temp_r30) == 0U) {
-        temp_r3 = __nw__7TObjectFUl((int) (0x24));
+        temp_r3 = __nw__7TObjectFUl(0x24);
         var_r0 = temp_r3;
         if (var_r0 != 0) {
             var_r0 = ((s32)__ct__18TAdLoadQuestCellGCFP7TObjectPv((void *)((int) (temp_r3)), (void *)((void *) (arg0)), (void *)((void *) (arg1))));

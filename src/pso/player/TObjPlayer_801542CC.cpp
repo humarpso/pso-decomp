@@ -622,7 +622,7 @@ s32 resolve_actor_sphere_contact(u8 *arg0, s32 arg1, s32 arg2) {
 block_7:
     if ((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x1000U) {
         push_matrix_from((void *) (&identity_matrix));
-        rotate_matrix_y((int) (0), (int) (var_r31));
+        rotate_matrix_y(0, (int) (var_r31));
         rotate_vector_by_current_matrix((void *) (&displacement), (void *) (&displacement));
         pop_matrix();
         if (lbl_805DB284 < ((displacement.x * displacement.x) + (displacement.z * displacement.z))) {
@@ -632,13 +632,13 @@ block_7:
             displacement.x = temp_f1;
             displacement.z *= tangentScale;
             vec3_add_to((void *) (&displacement), (void *) (arg0 + 0x44));
-            if (project_actor_to_ground((Obj_80156844 *)((void *) (arg0)), (Vec_80156844 *)((void *) (&displacement)), (Vec_80156844 *)((int) (0))) != 0) {
+            if (project_actor_to_ground((Obj_80156844 *)((void *) (arg0)), (Vec_80156844 *)((void *) (&displacement)), (Vec_80156844 *)(0)) != 0) {
                 VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (&displacement));
                 return 1;
             }
         }
     }
-    if (project_actor_to_ground((Obj_80156844 *)((void *) (arg0)), (Vec_80156844 *)((void *) (arg0 + 0x44)), (Vec_80156844 *)((int) (0))) != 0) {
+    if (project_actor_to_ground((Obj_80156844 *)((void *) (arg0)), (Vec_80156844 *)((void *) (arg0 + 0x44)), (Vec_80156844 *)(0)) != 0) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg0 + 0x44));
         return 1;
     }

@@ -776,7 +776,7 @@ block_11:
     *(s16 *)((s8 *)arg0 + 0x7E) = temp_r6;
     *(u8 **)((s8 *)arg0 + 0x80) = temp_r3;
     *(s32 *)((s8 *)arg0 + 0x9C) = 0;
-    memset((void *) (temp_r3), (int) (0), (int) (4));
+    memset((void *) (temp_r3), 0, 4);
     return sp10;
 }
 
@@ -784,7 +784,7 @@ void TLobby::clear_record() {
     u8 *arg0 = (u8 *)this;
     if (arg0 != NULL) {
         ((TLobby *)(*(s32 *)&this->m_prev))->clear_record_data();
-        memset((void *) (arg0), (int) (0), (int) (0xB8));
+        memset((void *) (arg0), 0, 0xB8);
         *(s16 *)&this->m_name = 0;
     }
 }
@@ -845,7 +845,7 @@ typedef char RecoveredGlobal_803C0B08_lbl_80570AC0_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_803C0AD8_lbl_80570AC0_size[sizeof(RecoveredGlobal_803C0AD8_lbl_80570AC0) == 0x9C0 ? 1 : -1];
 void TLobby__sub_803C406C(void) {
     TLobby::clear_buffer_340();
-    memset((void *) (&adx_channel_record_pool.value), (int) (0), (int) (0xb80));
+    memset((void *) (&adx_channel_record_pool.value), 0, 0xb80);
 }
 s32 TLobby::is_spsd_header() {
     if (memcmp(this, lbl_805E0CE0, 4) == 0) {
@@ -883,7 +883,7 @@ s32 TLobby__sub_803C43A8(void *arg0, void *hdr, void *arg2) {
     h->f9c = 0;
     h->f98 = 0;
     h->fa8 = 2;
-    memset((void *)(h->f4c), (int)(0), (int)(4));
+    memset((void *)(h->f4c), 0, 4);
     return n;
 }
 s32 TLobby__sub_803C44C0(Hdr_803C44C0 *hdr, s32 arg1, s16 *arg2, s8 *arg3, s8 *arg4, s8 *arg5, s8 *arg6, s32 *arg7, s32 *arg8, s32 *arg9, s16 *arg10) {

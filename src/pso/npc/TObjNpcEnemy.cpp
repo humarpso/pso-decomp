@@ -256,18 +256,18 @@ void TObjNpcEnemy::render() {
             model_render_flags |= 1;
         }
         TObjFish::set_global_param((int) (this->texture_id));
-        push_matrix_from((0));
-        translate_matrix_vec3((0), ((u8 *)&this->position));
+        push_matrix_from(0);
+        translate_matrix_vec3(0, ((u8 *)&this->position));
         temp_r4 = (unsigned char *) (*(void * *)&this->m_3b8);
-        translate_matrix((int) (0), (int) (temp_r4), (f32) (lbl_805DE7D8), (f32) (*(f32 *)((s8 *)temp_r4 + 4)), (f32) (lbl_805DE7D8));
-        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        translate_matrix(0, (int) (temp_r4), (f32) (lbl_805DE7D8), (f32) (*(f32 *)((s8 *)temp_r4 + 4)), (f32) (lbl_805DE7D8));
+        rotate_matrix_y(0, (int) (this->rotation_y));
         update_state();
         pop_matrix();
         if (((TObjNpcEnemy *)arg0)->sub_802D7444() != 0) {
             model_render_flags &= 0xFFFFFFFE;
         }
         restore_scene_lighting();
-        ((TObjEnemy *)arg0)->render_with_position_override((int) (0), (int) (0));
+        ((TObjEnemy *)arg0)->render_with_position_override(0, 0);
     }
 }
 
@@ -297,7 +297,7 @@ u8 *TObjNpcEnemy__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjNpcEnemy *)(arg0))->apply_set_params(0, 1);
     *(s32 * *)&((TObjNpcEnemy *)arg0)->movementParameters = &npc_movement_parameters.value;
     ((TUnk_804806E8 *)arg0)->set_motion_params((void *) (&npc_default_battle_stats.value));
-    init_collision_body_parts((void *) (arg0), (void *) (&TObjNpcEnemy__collision_body_parts.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&TObjNpcEnemy__collision_body_parts.value), 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TObjEnemy *)arg0)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi((s32)(arg0));

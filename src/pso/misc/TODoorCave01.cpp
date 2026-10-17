@@ -41,7 +41,7 @@ s32 TODoorCave01::draw_door_model(void *p0, int p1, int arg2) {
     u8 *temp_r31_2;
     TObjFish::set_global_param((int) (*(s32 *)((s8 *)TODoorCave01__texture_lists + (arg2 * 4))));
     push_matrix();
-    translate_matrix((0), (f32) (*(f32 *)((s8 *)((u8 *) p1) + 8)), (f32) (*(f32 *)((s8 *)((u8 *) p1) + 0xC)), (f32) (*(f32 *)((s8 *)((u8 *) p1) + 0x10)));
+    translate_matrix(0, (f32) (*(f32 *)((s8 *)((u8 *) p1) + 8)), (f32) (*(f32 *)((s8 *)((u8 *) p1) + 0xC)), (f32) (*(f32 *)((s8 *)((u8 *) p1) + 0x10)));
     draw_ginja_model((*(s32 *)((s8 *)((u8 *) p1) + 4)));
     temp_r31 = *(u8 **)((s8 *)((u8 *) p1) + 0x2C);
     if (arg2 != 1) {
@@ -52,11 +52,11 @@ s32 TODoorCave01::draw_door_model(void *p0, int p1, int arg2) {
     }
     TParticleCtrl::begin_effect_render();
     push_matrix();
-    translate_matrix((0), (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));
+    translate_matrix(0, (f32) (*(f32 *)((s8 *)temp_r31 + 8)), (f32) (*(f32 *)((s8 *)temp_r31 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r31 + 0x10)));
     draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
     temp_r31_2 = *(u8 **)((s8 *)temp_r31 + 0x2C);
     push_matrix();
-    translate_matrix((0), (f32) (*(f32 *)((s8 *)temp_r31_2 + 8)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0x10)));
+    translate_matrix(0, (f32) (*(f32 *)((s8 *)temp_r31_2 + 8)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r31_2 + 0x10)));
     draw_ginja_model((*(s32 *)((s8 *)temp_r31_2 + 4)));
     pop_matrix();
     pop_matrix();
@@ -75,7 +75,7 @@ void render__12TODoorCave01Fv(u8 *arg0) {
     if ((((VObj_801618fc *) arg0)->m8(((TODoorCave01 *)arg0)->m_c0, *(f32 *)((s8 *)arg0 + 0xC4)) != 0) && (((TUnk_804AFBF8 *)arg0)->is_in_view_depth((f32) (lbl_805DB4A4)) != 0)) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (((TODoorCave01 *)arg0)->rotation_y));
+        rotate_matrix_y(0, (int) (((TODoorCave01 *)arg0)->rotation_y));
         if ((s32) *(s32 *)&((TODoorCave01 *)arg0)->m_ac == 0) {
             var_r29 = 0;
             var_r30 = (unsigned char *) (*(void **)((s8 *)(*(void * *)&((TODoorCave01 *)arg0)->model) + 0x2C));

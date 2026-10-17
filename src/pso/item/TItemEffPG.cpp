@@ -85,7 +85,7 @@ void TUnk_804F0BF0::render() {
     }
     {
         if (((void *) *(u8 **)((s8 *)arg0 + 0x20) != NULL) && (get_state_flag__9TMainTaskFv() == 1)) {
-            set_depth_buffer_settings_id((3));
+            set_depth_buffer_settings_id(3);
             lbl_805D5660 = model_render_flags;
             lbl_805D5664 = chunk_polygon_flags_and_mask;
             lbl_805D5668 = chunk_polygon_flags_or_mask;
@@ -97,12 +97,12 @@ void TUnk_804F0BF0::render() {
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x5C));
             push_matrix();
-            rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x3C)));
+            rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x3C)));
             scale_current_matrix((void *) (arg0 + 0x48));
             draw_ginja_model((*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x20)) + 4)));
             pop_matrix();
             push_matrix();
-            rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x40)));
+            rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x40)));
             scale_current_matrix((void *) (arg0 + 0x48));
             draw_ginja_model((*(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x20)) + 0x2C)) + 4)));
             pop_matrix();
@@ -145,7 +145,7 @@ void TUnk_804F0BF0::run_task() {
             *(f32 *)((s8 *)arg0 + 0x28) = (f32) (temp_f1_3 - lbl_805DFE0C);
         }
     }
-    play_persistent_sound((s32)(0x4001A343), (s32)(arg0), (u32)(arg0 + 0x5C), (s32)(0), (s32)(0));
+    play_persistent_sound(0x4001A343, (s32)(arg0), (u32)(arg0 + 0x5C), 0, 0);
 }
 
 void *__dt__13TUnk_804F0BF0Fv(void *arg0, s16 arg1) {

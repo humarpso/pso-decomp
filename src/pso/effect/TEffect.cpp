@@ -103,8 +103,8 @@ void TObjPlayer__sub_80082C30(void) {
     typedef char sp24_offset[(offsetof(Stack_80082C30, sp24) == 0x1C) ? 1 : -1];
     Stack_80082C30 stack;
     TObjFish::set_global_param((s32)((void *) (lbl_805D63F0)));
-    set_draw_texture_and_color((0), (-1));
-    begin_screen_draw((1));
+    set_draw_texture_and_color(0, -1);
+    begin_screen_draw(1);
     stack.sp8 = lbl_805D93C0;
     stack.spC = lbl_805D93C4;
     stack.sp10 = lbl_805D93C8 + lbl_805D93C0;
@@ -153,7 +153,7 @@ void TObjPlayer::copy_screen_to_texture(s32 mode, void *src) {
         if (is_on_current_screen__11TCameraCtrlFv(cam, 0x100) != 0) {
             TObjPlayer::set_tev_swap_mode(0);
         }
-        TObjPlayer::draw_textured_screen_quad((u32)(-1), (f32 *)(&a), (f32 *)(&b), (s32)1);
+        TObjPlayer::draw_textured_screen_quad((u32)(-1), (f32 *)(&a), (f32 *)(&b), 1);
         if (is_on_current_screen__11TCameraCtrlFv(cam, 0x100) != 0) {
             TObjPlayer::setup_tev_swap();
         }
@@ -177,7 +177,7 @@ void TObjPlayer::copy_screen_to_texture(s32 mode, void *src) {
         if (is_on_current_screen__11TCameraCtrlFv(cam, 0x100) != 0) {
             TObjPlayer::set_tev_swap_mode(0);
         }
-        TObjPlayer::draw_textured_screen_quad((u32)(-1), (f32 *)(&a), (f32 *)(&b), (s32)0);
+        TObjPlayer::draw_textured_screen_quad((u32)(-1), (f32 *)(&a), (f32 *)(&b), 0);
         if (is_on_current_screen__11TCameraCtrlFv(cam, 0x100) != 0) {
             TObjPlayer::setup_tev_swap();
         }

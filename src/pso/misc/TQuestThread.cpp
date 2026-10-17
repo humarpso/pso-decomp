@@ -317,7 +317,7 @@ Self_801F4DFC *TObjItemNameSelect__ct(Self_801F4DFC *self, void *parent) {
 }
 
 void fn_801F4F20(s32 arg0) {
-    strncpy((void *) (&lbl_80512B18.value), (void *) (arg0), (int) (8));
+    strncpy((void *) (&lbl_80512B18.value), (void *) (arg0), 8);
     *(s8 *)((s8 *)(&lbl_80512B18.value) + 8) = 0;
 }
 
@@ -377,7 +377,7 @@ void *TObjItemNameEntry__ct(void *arg0) {
     }
     *(u32 *)((s8 *)arg0 + 0x20) = ((u32 (*)(s32, s32))check_room_seq_4__16TAdChrSelASlotGCFl)(((s32 (*)(s32))get_window_layout_position)(0x56), 1);
     if ((u32) *(u32 *)((s8 *)arg0 + 0x20) != 0U) {
-        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(*(u32 *)((s8 *)arg0 + 0x20)), (int)(((s32 (*)(s32))TQuestVmDownLoadServer__sub_8006EF6C)(0x47)), (int)(0x81), (int)(0));
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(*(u32 *)((s8 *)arg0 + 0x20)), (int)(((s32 (*)(s32))TQuestVmDownLoadServer__sub_8006EF6C)(0x47)), 0x81, 0);
     }
     ((TWindowSubComCardList *)(*(u32 *)((s8 *)arg0 + 0x20)))->set_scroll_target(lbl_805DC4EC, lbl_805DC4F0);
     align_menu_entry_positions(*(u32 *)((s8 *)arg0 + 0x20));
@@ -534,7 +534,7 @@ TQuestThreadBoard::~TQuestThreadBoard() {
 extern "C" {
 
 u8 *TQuestThreadBoard__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    ((s32 (*)(void *, int))__ct__7TObjectFP7TObject)((void *) (arg0), (int) (0));
+    ((s32 (*)(void *, int))__ct__7TObjectFP7TObject)((void *) (arg0), 0);
     *(void ***)((s8 *)arg0 + 0x18) = __vt__17TQuestThreadBoard;
     *(s32 *)((s8 *)arg0 + 0) = TQuestThreadBoard__class_name;
     ((s32 (*)(void *, void *))copy_quest_script_context)((void *) ((u8 *)(arg0) + 0x1C), (void *) (arg1 + 0x24));
@@ -833,7 +833,7 @@ char *get_quest_name__12TQuestThreadFv(void) {
 }
 
 void clear_thread_state__12TQuestThreadFv(void) {
-    memset((void*)((void *) (&quest_board_handlers.value)), (void*)((int) (0)), (void*)((int) (0xD8)));
+    memset((void*)((void *) (&quest_board_handlers.value)), (void*)(0), (void*)(0xD8));
 }
 
 s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1) {

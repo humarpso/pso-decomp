@@ -21,7 +21,7 @@ void fn_8023F160(void) {
 }
 typedef char RecoveredGlobal_8023F18C_lbl_804CCE60_size[sizeof(RecoveredGlobal_8023F18C_lbl_804CCE60) == 0x38 ? 1 : -1];
 void fn_8023F18C(void) {
-    run_load_callback_table((void *) (&(*(RecoveredGlobal_8023F18C_lbl_804CCE60 *)&lobby_scene_release_callback_table).value), (int) (0x38));
+    run_load_callback_table((void *) (&(*(RecoveredGlobal_8023F18C_lbl_804CCE60 *)&lobby_scene_release_callback_table).value), 0x38);
 }
 
 }

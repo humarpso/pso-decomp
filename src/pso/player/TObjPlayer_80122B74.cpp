@@ -12,7 +12,7 @@ void TObjPlayer::cast_foie() {
     s32 sp8;
     void *temp_r3;
 
-    draw_icon((s32)2, (s32)(&sp8));
+    draw_icon(2, (s32)(&sp8));
     spawn_particle_effect(&sp8, 0x1BF);
     if (is_mode_two_and_ready() != 0) {
         temp_r3 = *(void * *)&this->unk_F0;

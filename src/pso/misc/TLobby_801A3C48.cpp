@@ -305,10 +305,10 @@ void reload_lobby_floor_scene(void) {
     TLobby::create_map_csn_ctrl();
     TParticleCtrl::create_quad_sprites();
     TLoadCtrl::start_loading(2);
-    TLobby__sub_8020A6B0((int)(0xF));
+    TLobby__sub_8020A6B0(0xF);
     TLobby__sub_80141038(lbl_80515BA0, 0xF, TLobby__lobby_number);
-    ((TLobby *)lbl_80515BA0)->set_value((s32)(0));
-    set_current_floor_area((int)(0xF));
+    ((TLobby *)lbl_80515BA0)->set_value(0);
+    set_current_floor_area(0xF);
     TScene::set_scene((int)(TLobby__lobby_number));
     load_area_scene_and_init(lbl_80515BA0);
     load_battle_param_entry();
@@ -331,7 +331,7 @@ void TLobby::send_and_handle() { TLobby::blocking_vsync((void*)(this)); }
 
 typedef char RecoveredGlobal_801A400C_main_task_size[sizeof(RecoveredGlobal_801A400C_main_task) == 0x34 ? 1 : -1];
 void TLobby::blocking_vsync(void* _w0) {
-    TLoadCtrl::set_field1C((int) (0));
+    TLoadCtrl::set_field1C(0);
     func_803DCDFC__Fv();
     if ((s32) lbl_805D5718 != 0) {
         some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&(*(RecoveredGlobal_801A4820_main_task *)&main_task)).value));
@@ -352,7 +352,7 @@ void TLobby::blocking_vsync(void* _w0) {
         run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
         TAdSinglePlyChrSelectGC::noop();
     }
-    TLoadCtrl::set_field1C((int) (1));
+    TLoadCtrl::set_field1C(1);
     render_tick__Fv();
 }
 
@@ -604,11 +604,11 @@ void cleanup_online_lobby_scene(void) {
     var_r3 = (s32 *)(&lobby_area_reload_callbacks.value);
     var_r4 = 0x48;
     var_r3 = (s32 *)(&lobby_area_reload_callbacks.value);
-    call_funcs_reverse__6TLobbyFPvUi((void *) (&lobby_area_reload_callbacks.value), (int) (0x48));
+    call_funcs_reverse__6TLobbyFPvUi((void *) (&lobby_area_reload_callbacks.value), 0x48);
     var_r3 = (s32 *)(&online_lobby_scene_callback_table.value);
     var_r4 = 0x158;
     var_r3 = (s32 *)(&online_lobby_scene_callback_table.value);
-    call_funcs_reverse__6TLobbyFPvUi((void *) (&online_lobby_scene_callback_table.value), (int) (0x158));
+    call_funcs_reverse__6TLobbyFPvUi((void *) (&online_lobby_scene_callback_table.value), 0x158);
     local_client_id = 0;
     TLobby__lobby_state_flags = 0;
     clear_resource_load_tasks();
@@ -648,7 +648,7 @@ void TLobby::run_lobby_frame() {
     }
     if (TQuestVmDownLoadServer::is_ready() != 0) {
         send_logout__6TLobbyFv();
-        TKeyBoardControl__sub_8000F9CC((int) (0));
+        TKeyBoardControl__sub_8000F9CC(0);
     }
     if (TKeyBoardControl::get_key_state() != 0) {
         change_floor_reload_area();
@@ -713,7 +713,7 @@ void TLobby::run_main_frame() {
     }
     if (TQuestVmDownLoadServer::is_ready() != 0) {
         send_logout__6TLobbyFv();
-        TKeyBoardControl__sub_8000F9CC((int) (0));
+        TKeyBoardControl__sub_8000F9CC(0);
     }
     render_tick__Fv();
 }
@@ -744,7 +744,7 @@ void run_online_lobby_scene(void) {
     TLoadCtrl::poll_default();
     TLobby::reset_keyboard_state();
     apply_phase_keyboard_mode();
-    run_load_callback_table((void *)(&online_lobby_scene_callback_table.value), (s32)(0x158));
+    run_load_callback_table((void *)(&online_lobby_scene_callback_table.value), 0x158);
     if (is_area_transfer_pending() != 0) {
         TLobby::reset_keyboard_state();
         TLobby::invoke_callback();
@@ -784,11 +784,11 @@ void run_online_lobby_scene(void) {
         TKeyBoardControl__sub_8000F9CC(0x12);
         TLoadCtrl::cleanup_scene();
     } else {
-        lobby = __nw__7TObjectFUl((s32)(0x1C));
+        lobby = __nw__7TObjectFUl(0x1C);
         if (lobby != NULL) {
             lobby = TLobby__ct(lobby, tl_su);
         }
-        p = __nw__7TObjectFUl((s32)(0x20));
+        p = __nw__7TObjectFUl(0x20);
         if (p != NULL) {
             TGameProtocol__ct(p, tl_su);
         }
@@ -799,7 +799,7 @@ void run_online_lobby_scene(void) {
             ((TLobby *)lbl_80515BA0)->init_range(0);
         } else {
             ((TLobby *)lbl_80515BA0)->init_range(0xF);
-            ((TLobby *)lbl_80515BA0)->set_value((s32)(0));
+            ((TLobby *)lbl_80515BA0)->set_value(0);
             set_current_floor_area(0xF);
             TScene::set_scene(0);
         }

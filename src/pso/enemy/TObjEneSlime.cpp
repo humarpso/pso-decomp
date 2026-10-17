@@ -155,7 +155,7 @@ void TObjEneSlime::render() {
     temp_r31 = toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
     if (TObjPlayer::check_demo_mode() != 0) {
         temp_r30 = (*(s32 *)&this->state36C * 4) & 4;
-        debug_printf_at((int) (0x130020), lbl_8043D298, (int) (*(s32 *)((s8 *)((u8 *)(slime_debug_label_table) + temp_r30) + 0)));
+        debug_printf_at(0x130020, lbl_8043D298, (int) (*(s32 *)((s8 *)((u8 *)(slime_debug_label_table) + temp_r30) + 0)));
         TObjPlayer::toggle_particle_effect();
         push_matrix();
         temp_r30_2 = *(s32 *)((s8 *)((u8 *)(lbl_80496368) + temp_r30) + 0);
@@ -164,13 +164,13 @@ void TObjEneSlime::render() {
         set_global_param__8TObjFishFl();
         if (temp_r31 != 0) {
             model_render_flags |= 0x400000;
-            func_803e11e8__FUl((1));
+            func_803e11e8__FUl(1);
             get_bml_model((void *) (slime_bml_resource), (int) (temp_r30_2));
             draw_chunk_object();
             func_803e11f0__Fv();
             model_render_flags &= 0xFFBFFFFF;
         } else {
-            func_803e11e8__FUl((2));
+            func_803e11e8__FUl(2);
             TObjFish::set_cull_back();
             get_bml_model((void *) (slime_bml_resource), (int) (temp_r30_2));
             draw_chunk_object();

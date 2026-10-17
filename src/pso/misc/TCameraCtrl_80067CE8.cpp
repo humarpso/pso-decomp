@@ -99,15 +99,15 @@ void TCameraCtrl::reset_behind_player() {
     typedef char sp10_offset[(offsetof(Stack_80067E30, sp10) == 0x8) ? 1 : -1];
     Stack_80067E30 stack;
     u8 *player;
-    player = (u8 *)(get_player_by_client_id((0)));
+    player = (u8 *)(get_player_by_client_id(0));
     if (player != NULL) {
         this->m_30 = (s32) *(s32 *)((s8 *)player + 0x60);
         stack.sp8 = lbl_805D8F74;
         stack.spC = lbl_805D8F74;
         stack.sp10 = this->m_70;
         push_matrix_from((void *) (&identity_matrix.value));
-        rotate_matrix_y((int) (0), (int) (this->m_30));
-        matrix_mult_vec((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
+        rotate_matrix_y(0, (int) (this->m_30));
+        matrix_mult_vec(0, (void *) (&stack.sp8), (void *) (&stack.sp8));
         pop_matrix();
         this->m_3c = (f32) (*(f32 *)&this->unk_48 + stack.sp8);
         *(f32 *)&this->unk_40 = (f32) (this->m_4c + stack.spC);

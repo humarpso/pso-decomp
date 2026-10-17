@@ -74,9 +74,9 @@ void TWindowPartyStatus::draw_background(u8 *arg1) {
     f32 temp_f31;
     f32 temp_f6;
     temp_f31 = lbl_805DF1EC / this->m_54;
-    begin_screen_draw((1));
+    begin_screen_draw(1);
     TObjFish::set_global_param((s32)((void *) (lbl_805D63F0)));
-    set_draw_texture_and_color((0xB), (*(s32 *)((s8 *)arg1 + 0x34)));
+    set_draw_texture_and_color(0xB, (*(s32 *)((s8 *)arg1 + 0x34)));
     temp_f2 = *(f32 *)((s8 *)arg1 + 0x10);
     stack.sp8 = temp_f2;
     temp_f6 = *(f32 *)((s8 *)arg1 + 0x14);
@@ -91,9 +91,9 @@ void TWindowPartyStatus::draw_background(u8 *arg1) {
     draw_textured_quad_at_depth((&stack.sp8), (f32) (temp_f31));
     TWindowSubStatusDisp::get_player();
     if (TWindowSubComCard__sub_80245558((void *) (arg1), (void *) (arg1 + 0x10), (void *) (arg1 + 0x18)) != 0) {
-        TWindowSubComCard__sub_802454E4((int) (0xB));
+        TWindowSubComCard__sub_802454E4(0xB);
         TWindowSubComCard__sub_80245320((void *) (&stack.sp8), (void *) (arg1));
-        TWindowSubComCard__sub_802452DC((int) (0xB));
+        TWindowSubComCard__sub_802452DC(0xB);
     }
 }
 
@@ -109,7 +109,7 @@ void TWindowPartyStatus::run_task() {
     update_lockon_window();
     draw();
     update_status_help_item((arg0));
-    ((TWindowSimpleStatus *)arg0)->update_status_icons((void *)(get_window_layout_position((int) (0xAC))));
+    ((TWindowSimpleStatus *)arg0)->update_status_icons((void *)(get_window_layout_position(0xAC)));
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TUnk_804CE018 *)arg0)->update_fade();
     ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24));
@@ -128,7 +128,7 @@ void *__dt__18TWindowPartyStatusFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_8030C2D8___vt__18TWindowPartyStatus_size[sizeof(RecoveredGlobal_8030C2D8___vt__18TWindowPartyStatus) == 0x1C ? 1 : -1];
 u8 *TWindowPartyStatus__ct(u8 *arg0, s16 arg1, s32 arg2) {
-    TWindowSimpleStatus__ct((void *) (arg0), (int) (get_window_layout_position((int) (0xAB))), (void *) (local_client_id), (void *) (arg2));
+    TWindowSimpleStatus__ct((void *) (arg0), (int) (get_window_layout_position(0xAB)), (void *) (local_client_id), (void *) (arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8030C2D8___vt__18TWindowPartyStatus *)&__vt__18TWindowPartyStatus).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowPartyStatus__name;
     *(s16 *)&((TWindowPartyStatus *)arg0)->m_20 = arg1;

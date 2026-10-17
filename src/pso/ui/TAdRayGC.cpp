@@ -57,14 +57,14 @@ void TAdRayGC::render() {
         temp_r0 = *(s32 *)((s8 *)this + 0x1C);
         switch (temp_r0) {
         case 0:
-            TAdRayGC::draw_ray_quads((s32)(this), (u8 *)(*(s32 *)((s8 *)this + 0x20)), (void *)(-1), (s32)(0));
+            TAdRayGC::draw_ray_quads((s32)(this), (u8 *)(*(s32 *)((s8 *)this + 0x20)), (void *)(-1), 0);
             break;
         case 1:
-            TAdRayGC::draw_ray_quads((s32)(this), (u8 *)(*(s32 *)((s8 *)this + 0x20)), (void *)(-1), (s32)(0));
-            TAdRayGC::draw_ray_quads((s32)(this), (u8 *)(*(s32 *)((s8 *)this + 0x20) - 0xD), (void *)(-1), (s32)(1));
+            TAdRayGC::draw_ray_quads((s32)(this), (u8 *)(*(s32 *)((s8 *)this + 0x20)), (void *)(-1), 0);
+            TAdRayGC::draw_ray_quads((s32)(this), (u8 *)(*(s32 *)((s8 *)this + 0x20) - 0xD), (void *)(-1), 1);
             break;
         case 2:
-            TAdRayGC::draw_ray_quads((s32)(this), (u8 *)(*(s32 *)((s8 *)this + 0x20) - 0xD), (void *)(-1), (s32)(1));
+            TAdRayGC::draw_ray_quads((s32)(this), (u8 *)(*(s32 *)((s8 *)this + 0x20) - 0xD), (void *)(-1), 1);
             break;
         }
         set_cached_blend_factor(0, 8);

@@ -178,8 +178,8 @@ void TBoss7Crawfish::spawn_ground_effects() {
     position.x = *(f32 *)((s8 *)arg0 + 0x38);
     position.y = TBoss7Crawfish__data_805DF0D8;
     position.z = *(f32 *)((s8 *)arg0 + 0x40);
-    spawn_particle_effect((&position.x), (0x20D));
-    spawn_particle_effect((&position.x), (0x20E));
+    spawn_particle_effect((&position.x), 0x20D);
+    spawn_particle_effect((&position.x), 0x20E);
 }
 
 #define arg0 ((s32)arg0_)
@@ -229,10 +229,10 @@ void TBoss7Crawfish::clear_object_state_exchange() {
     typedef char sp8_offset[(offsetof(Stack_80308B38, sp8) == 0x0) ? 1 : -1];
     typedef char spE_offset[(offsetof(Stack_80308B38, spE) == 0x6) ? 1 : -1];
     Stack_80308B38 stack;
-    if (exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&stack.sp8), (int) (1)) != 0) {
+    if (exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&stack.sp8), 1) != 0) {
         stack.sp8 = 0;
         stack.spE = 0;
-        exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&stack.sp8), (int) (0));
+        exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&stack.sp8), 0);
     }
 }
 

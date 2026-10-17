@@ -122,16 +122,16 @@ void TObjDoaEx01::draw_model() {
     if (((VObj_18_26a62c *)(((u8 *)this)))->m8(lbl_805DBDB4, lbl_805DBDB8) != 0) {
         ((TObjDoorJung *)(*(s32 *)((s8 *)TObjDoaEx01__alpha_model_node + 4)))->free_children((void *)0);
         ((TObjDoorJung *)(*(s32 *)((s8 *)TObjDoaEx01__alpha_model_sibling + 4)))->free_children((void *)0);
-        temp_r31 = get_bml_model((TObjDoaEx01__resource_bundle), (0));
-        TObjFish__sub_8001EDB0((TObjDoaEx01__resource_bundle), (0));
+        temp_r31 = get_bml_model((TObjDoaEx01__resource_bundle), 0);
+        TObjFish__sub_8001EDB0((TObjDoaEx01__resource_bundle), 0);
         set_global_param__8TObjFishFl();
         push_matrix();
         post_translate_matrix((void *) (((u8 *)this) + 0x38));
-        rotate_matrix_y((0), (this->rotation_y));
+        rotate_matrix_y(0, (this->rotation_y));
         temp_f31 = this->m_b0;
         if (temp_f31 > TObjDoaEx01__data_805DBDA0) {
-            temp_r31 = get_bml_motion((TObjDoaEx01__resource_bundle), (0));
-            draw_ginja_model_with_motion(get_bml_model((TObjDoaEx01__resource_bundle), (0)), temp_r31, temp_f31);
+            temp_r31 = get_bml_motion((TObjDoaEx01__resource_bundle), 0);
+            draw_ginja_model_with_motion(get_bml_model((TObjDoaEx01__resource_bundle), 0), temp_r31, temp_f31);
         } else {
             ((TObjDoaEx01 *)((u8 *)this))->draw_object_tree((temp_r31));
         }

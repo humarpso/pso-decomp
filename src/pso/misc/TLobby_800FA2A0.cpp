@@ -17,7 +17,7 @@ s32 create_named_entry__6TLobbyFiiUiiPv(s32 name, s32 arg1, u32 arg2, s32 src, v
     if (arg4 != NULL) {
         *arg4 = NULL;
     }
-    temp_r3 = adxf_open__6TLobbyFUii((void *) (name), (int) (0));
+    temp_r3 = adxf_open__6TLobbyFUii((void *) (name), 0);
     if (temp_r3 == 0) {
         return -2;
     }
@@ -25,7 +25,7 @@ s32 create_named_entry__6TLobbyFiiUiiPv(s32 name, s32 arg1, u32 arg2, s32 src, v
     if (var_r31 != NULL) {
         var_r31 = link_into_list__6TLobbyFv();
     }
-    strncpy((void *) (var_r31 + 8), (void *) (name), (int) (0x20));
+    strncpy((void *) (var_r31 + 8), (void *) (name), 0x20);
     *(s32 *)((s8 *)var_r31 + 0) = 1;
     *(s32 *)((s8 *)var_r31 + 0x28) = arg1;
     *(s32 *)((s8 *)var_r31 + 0x2C) = ((TLobby *)temp_r3)->adxf_get_fsize_byte();
@@ -34,7 +34,7 @@ s32 create_named_entry__6TLobbyFiiUiiPv(s32 name, s32 arg1, u32 arg2, s32 src, v
     *(s32 *)((s8 *)var_r31 + 0x34) = 0;
     *(u32 *)((s8 *)var_r31 + 0x40) = arg2;
     if (arg2 != 0U) {
-        ((TLobby *)(var_r31 + 0x44))->move_words((u32 *)src, (s32)((int) (8)));
+        ((TLobby *)(var_r31 + 0x44))->move_words((u32 *)src, 8);
     }
     if (arg4 != NULL) {
         *arg4 = var_r31;

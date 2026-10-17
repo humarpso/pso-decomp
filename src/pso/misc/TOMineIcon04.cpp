@@ -254,39 +254,39 @@ void TOMineIcon04::vfunc_80() {
     switch (global_state) {
     case 1:
     case 2:
-        play_sound_effect((int) (0x4C111), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(0x4C111, (void *) (arg0 + 0x38), 0, 0);
         return;
     case 3:
     case 4:
     case 5:
-        play_sound_effect((int) (0x44110), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(0x44110, (void *) (arg0 + 0x38), 0, 0);
         return;
     case 6:
     case 7:
-        play_sound_effect((int) (0x4004C10A), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(0x4004C10A, (void *) (arg0 + 0x38), 0, 0);
         return;
     case 8:
     case 9:
     case 10:
-        play_sound_effect((int) (0x4004C111), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(0x4004C111, (void *) (arg0 + 0x38), 0, 0);
         return;
     case 19:
     case 20:
-        play_sound_effect((int) (0x4BC07), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(0x4BC07, (void *) (arg0 + 0x38), 0, 0);
         return;
     case 21:
     case 22:
-        play_sound_effect((int) (0x4004BC07), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(0x4004BC07, (void *) (arg0 + 0x38), 0, 0);
         return;
     case 23:
     case 24:
     case 25:
     case 26:
     case 27:
-        play_sound_effect((int) (0x4BC19), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(0x4BC19, (void *) (arg0 + 0x38), 0, 0);
     case 28:
     case 29:
-        play_sound_effect((int) (0x4004BC19), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(0x4004BC19, (void *) (arg0 + 0x38), 0, 0);
     default:
         return;
     }

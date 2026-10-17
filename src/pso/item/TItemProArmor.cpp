@@ -467,7 +467,7 @@ s32 TItemProArmor::create_armor_object() {
           }
           goto block_11;
         }
-        temp_r3 = ((s32)alloc_from_obj_heap__10TObjPlayerFPv((s32)((int) 0x198)));
+        temp_r3 = ((s32)alloc_from_obj_heap__10TObjPlayerFPv(0x198));
         var_r0_2 = temp_r3;
         if (var_r0_2 != 0)
         {
@@ -477,7 +477,7 @@ s32 TItemProArmor::create_armor_object() {
       }
       goto block_11;
     }
-    temp_r3_2 = ((s32)alloc_from_obj_heap__10TObjPlayerFPv((s32)((int) 0x1A4)));
+    temp_r3_2 = ((s32)alloc_from_obj_heap__10TObjPlayerFPv(0x1A4));
     var_r0 = temp_r3_2;
     if (var_r0 != 0)
     {

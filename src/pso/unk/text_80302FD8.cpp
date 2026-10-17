@@ -53,7 +53,7 @@ u8 *fn_80302FD8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 
     stack.sp8 = *(s32 *)((s8 *)(&lbl_8047512C.value) + 0);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_8047512C.value) + 8);
     stack.spC = arg4 - 0x4000;
-    *(s32 *)((s8 *)arg0 + 0xCC) = (s32)create_particle_controller_with_angles((arg0 + 0x38), (&stack.sp8), (0x210), (0x32), (2));
+    *(s32 *)((s8 *)arg0 + 0xCC) = (s32)create_particle_controller_with_angles((arg0 + 0x38), (&stack.sp8), 0x210, 0x32, 2);
     ((TParticleCtrl *)(*(s32 *)((s8 *)arg0 + 0xCC)))->clear_active_flag();
     return arg0;
 }

@@ -97,9 +97,9 @@ void TAdMultiChgGameModeGC::run_task() {
   new_var = &arg0->field_2C;
   if (((s32) arg0->field_24) != temp_r4)
   {
-    ((TAdMultiPlyChrSelectGC *)((int) arg0->field_28))->set_entry_value((int) 0, (int) get_localized_text_entry((int) 0x21, arg0->field_20));
+    ((TAdMultiPlyChrSelectGC *)((int) arg0->field_28))->set_entry_value(0, (int) get_localized_text_entry(0x21, arg0->field_20));
   }
-  if ((TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&controller_input_state.value)) + 0x20), (int) 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) (((u8 *) (&controller_input_state.value)) + 0x160), (int) 2) != 0))
+  if ((TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&controller_input_state.value)) + 0x20), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) (((u8 *) (&controller_input_state.value)) + 0x160), 2) != 0))
   {
     TAdMultiChgGameModeGC::request_scene_change();
   }
@@ -187,7 +187,7 @@ Obj_802FFE58 *__ct__21TAdMultiChgGameModeGCFv(Obj_802FFE58 *self) {
         p = __ct__13TAdGuideTxtGCFv(p, self);
     }
     self->f28 = p;
-    create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)self, (s32)(0xF), (f32)lbl_805DEF38);
+    create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)self, 0xF, (f32)lbl_805DEF38);
     return self;
 }
 

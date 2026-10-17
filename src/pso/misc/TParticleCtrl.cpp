@@ -316,7 +316,7 @@ void TUnk_8048E6DC::run_task() {
         }
         push_matrix_from(identity_matrix);
         Vec_80085CB0 t = lbl_804393D0;
-        rotate_matrix_y((int)(0), (s32)((*(Player_80085CB0 * *)&camera_ctrl_instance)->f194));
+        rotate_matrix_y(0, (s32)((*(Player_80085CB0 * *)&camera_ctrl_instance)->f194));
         rotate_vector_by_matrix(0, &t, &out);
         pop_matrix();
         self->f94 = vec3_dot(&out, &d);

@@ -285,14 +285,14 @@ u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 parent) {
         return arg0;
     }
     get_rader_map__11TMainCursorFv((void *) (arg0 + 0xD0), (void *) ((u8 *)&TPlyPhotonChair__section_id_color_table.value + (get_actor_section_id__15TPlyPhotonChairFv((int) (player)) * 0x10)));
-    ((TPlyPhotonChair *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), (int) (1));
-    ((TPlyPhotonChair *)(arg0 + 0x98))->set_type((s32)((int) (get_bml_model((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), (int) (1)))));
-    ((TPlyPhotonChair *)(arg0 + 0x98))->set_field_8((s32)((int) (get_bml_motion((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), (int) (1)))));
+    ((TPlyPhotonChair *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), 1);
+    ((TPlyPhotonChair *)(arg0 + 0x98))->set_type((s32)((int) (get_bml_model((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), 1))));
+    ((TPlyPhotonChair *)(arg0 + 0x98))->set_field_8((s32)((int) (get_bml_motion((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), 1))));
     ((TPlyPhotonChair *)(arg0 + 0x98))->sync_field10_from_child();
     TPlyPhotonChair__sub_8035B56C((void*)((void *) (arg0 + 0x98)), (f32) (lbl_805E0130));
     ((TPlyPhotonChair *)(arg0 + 0x98))->set_state_ready();
-    ((TPlyPhotonChair *)(arg0 + 0xB4))->set_type((s32)((int) (get_bml_model((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), (int) (0)))));
-    ((TPlyPhotonChair *)(arg0 + 0xB4))->set_field_8((s32)((int) (get_bml_motion((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), (int) (0)))));
+    ((TPlyPhotonChair *)(arg0 + 0xB4))->set_type((s32)((int) (get_bml_model((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), 0))));
+    ((TPlyPhotonChair *)(arg0 + 0xB4))->set_field_8((s32)((int) (get_bml_motion((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), 0))));
     ((TPlyPhotonChair *)(arg0 + 0xB4))->sync_field10_from_child();
     TPlyPhotonChair__sub_8035B56C((void*)((void *) (arg0 + 0xB4)), (f32) (lbl_805E0130));
     ((TPlyPhotonChair *)(arg0 + 0xB4))->set_state_ready();

@@ -68,7 +68,7 @@ void TOHangerMachine01::render() {
     if (((VObj *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        rotate_matrix_y(0, (int) (this->rotation_y));
         TObjFish::set_global_param((int) (this->texture_id));
         p = (u8 *)(*(u8 * *)&this->model);
         post_translate_matrix((void *) (p + 8));
@@ -87,9 +87,9 @@ void TOHangerMachine01::render() {
         p = (u8 *)(*(u8 **)((s8 *)p + 0x2C));
         push_matrix();
         post_translate_matrix((void *) (p + 8));
-        rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)p + 0x1C)));
-        rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)p + 0x14)));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)p + 0x18) + *(s32 *)&this->m_c8));
+        rotate_matrix_z(0, (int) (*(s32 *)((s8 *)p + 0x1C)));
+        rotate_matrix_x(0, (int) (*(s32 *)((s8 *)p + 0x14)));
+        rotate_matrix_y(0, (int) (*(s32 *)((s8 *)p + 0x18) + *(s32 *)&this->m_c8));
         TParticleCtrl::begin_effect_render();
         draw_ginja_model((*(s32 *)((s8 *)p + 4)));
         TParticleCtrl::end_effect_render();
@@ -100,9 +100,9 @@ void TOHangerMachine01::render() {
         p = (u8 *)(*(u8 **)((s8 *)p + 0x2C));
         push_matrix();
         post_translate_matrix((void *) (p + 8));
-        rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)p + 0x1C)));
-        rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)p + 0x14)));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)p + 0x18) + *(s32 *)&this->m_c8));
+        rotate_matrix_z(0, (int) (*(s32 *)((s8 *)p + 0x1C)));
+        rotate_matrix_x(0, (int) (*(s32 *)((s8 *)p + 0x14)));
+        rotate_matrix_y(0, (int) (*(s32 *)((s8 *)p + 0x18) + *(s32 *)&this->m_c8));
         TParticleCtrl::begin_effect_render();
         draw_ginja_model((*(s32 *)((s8 *)p + 4)));
         TParticleCtrl::end_effect_render();
@@ -170,7 +170,7 @@ u8 *TOHangerMachine01__ct(u8 *arg0, s32 arg1) {
     ((TOHangerMachine01 *)arg0)->m_c0 = (f32) lbl_805DB6AC;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB6B0;
     *(s32 *)&((TOHangerMachine01 *)arg0)->actorFlags = (s32) (*(s32 *)&((TOHangerMachine01 *)arg0)->actorFlags| 0x40000000);
-    init_collision_body_parts((void *) (arg0), (void *) (&hanger_machine01_collision_body_parts.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&hanger_machine01_collision_body_parts.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s32 *)&((TOHangerMachine01 *)arg0)->m_c8 = 0;

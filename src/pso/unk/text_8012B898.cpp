@@ -64,13 +64,13 @@ void TUnk_804A4F60::vfunc_17(s32 arg1) {
         switch (arg1)
         {
           case 0:
-            TObjPlayer::create_tec_zonde((void *)(*((u32 *) (((s8 *) arg0) + 0xF0))), (void *)(arg0 + 0x1FC), (void *)(arg0 + 0x208), (void *)((int) 0xA));
+            TObjPlayer::create_tec_zonde((void *)(*((u32 *) (((s8 *) arg0) + 0xF0))), (void *)(arg0 + 0x1FC), (void *)(arg0 + 0x208), (void *)(0xA));
             return;
           case 1:
-            TTecFoie::create((void *)(*((u32 *) (((s8 *) arg0) + 0xF0))), (void *)(arg0 + 0x1FC), (void *)(this->m_264), (void *)((int) 0xA));
+            TTecFoie::create((void *)(*((u32 *) (((s8 *) arg0) + 0xF0))), (void *)(arg0 + 0x1FC), (void *)(this->m_264), (void *)(0xA));
             return;
           case 2:
-            ((TTecBarta *)(*((u32 *) (((s8 *) arg0) + 0xF0))))->create_ex((void *)(arg0 + 0x268), (void *)(this->m_264), (void *)((int) 0xA));
+            ((TTecBarta *)(*((u32 *) (((s8 *) arg0) + 0xF0))))->create_ex((void *)(arg0 + 0x268), (void *)(this->m_264), (void *)(0xA));
             break;
         }
       }
@@ -80,7 +80,7 @@ void TUnk_804A4F60::vfunc_17(s32 arg1) {
 void TUnk_804A4F60::psycho_wand_roll_extra() {
     s32 ext;
     s32 item;
-    ((TObjPlayer *)((Self_8012B9B4 *)this))->draw_icon((s32)4, (s32)(((Self_8012B9B4 *)this)->icon));
+    ((TObjPlayer *)((Self_8012B9B4 *)this))->draw_icon(4, (s32)(((Self_8012B9B4 *)this)->icon));
     ext = get_extended_state__10TObjPlayerFv(((Self_8012B9B4 *)this)->owner);
     item = get_captured_target_entry(ext, 0);
     if (get_captured_target_count((s32 *)ext) != 0) {

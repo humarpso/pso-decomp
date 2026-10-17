@@ -50,8 +50,8 @@ void TAdSinglePlyChrSelectGC::init_image_buffer(u8 *arg1, s32 arg2) {
     this->m_44 = ((TQuestVmDownLoadServer *)((*(s32 *)&this->m_name * (*(s32 *)&this->m_flags * 2)) + 0x20))->alloc();
     *(void **)((s8 *)(*(void * *)&this->m_3c) + 0) = (void *) (arg0 + 0xC);
     *(s32 *)((s8 *)(*(void * *)&this->m_3c) + 4) = 1;
-    ((TObjPlayer *)(arg0 + 0x18))->set_render_rect((int) (this->m_44 + 0x20), (int) (5), (int) (*(s32 *)&this->m_flags), (int) (*(s32 *)&this->m_name));
-    set_texture_name((void *) (arg0 + 0xC), (void *) (arg0 + 0x18), (int) (*(s32 *)&this->m_prev), (int) (0x40800000));
+    ((TObjPlayer *)(arg0 + 0x18))->set_render_rect((int) (this->m_44 + 0x20), 5, (int) (*(s32 *)&this->m_flags), (int) (*(s32 *)&this->m_name));
+    set_texture_name((void *) (arg0 + 0xC), (void *) (arg0 + 0x18), (int) (*(s32 *)&this->m_prev), 0x40800000);
     ((TLobby *)(*(void * *)&this->m_3c))->pso_load_texture();
 }
 

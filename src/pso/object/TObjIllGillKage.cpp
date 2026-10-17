@@ -26,7 +26,7 @@ int TObjIllGillKage::queue_destruction() { return queue_destruction__7TObjectFv(
 
 void TObjIllGillKage::tick_persistent_sound() {
     s32 temp_r3;
-    play_persistent_sound((s32)(0x4003A357), (s32)(((u8 *)this)), (u32)(((u8 *)this) + 0x38), (s32)(0), (s32)(0));
+    play_persistent_sound(0x4003A357, (s32)(((u8 *)this)), (u32)(((u8 *)this) + 0x38), 0, 0);
     temp_r3 = *(s32 *)&this->m_94;
     *(s32 *)&this->m_94 = (s32) (temp_r3 - 1);
     if (temp_r3 < 0) {

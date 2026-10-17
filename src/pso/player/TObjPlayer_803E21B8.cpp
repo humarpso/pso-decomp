@@ -127,24 +127,24 @@ void load_context_texture_obj(void) {
 
 void TObjPlayer::setup_vertex_format() {
     GXClearVtxDesc();
-    Dolphin_GXSetVtxDesc((int) (9), (int) (1));
-    Dolphin_GXSetVtxDesc((int) (0xB), (int) (1));
-    GXSetVtxAttrFmt((int) (4), (int) (9), (int) (1), (int) (4), (int) (0));
-    GXSetVtxAttrFmt((int) (4), (int) (0xB), (int) (1), (int) (5), (int) (0));
+    Dolphin_GXSetVtxDesc(9, 1);
+    Dolphin_GXSetVtxDesc(0xB, 1);
+    GXSetVtxAttrFmt(4, 9, 1, 4, 0);
+    GXSetVtxAttrFmt(4, 0xB, 1, 5, 0);
     TObjPlayer::setup_color_channels(1);
     TObjPlayer::set_tev_passclr();
     TObjPlayer::set_num_tex_gens_zero();
 }
 void TObjPlayer::setup_vtx_desc() {
     GXClearVtxDesc();
-    Dolphin_GXSetVtxDesc((int) (9), (int) (1));
-    Dolphin_GXSetVtxDesc((int) (0xB), (int) (1));
-    Dolphin_GXSetVtxDesc((int) (0xD), (int) (1));
-    GXSetVtxAttrFmt((int) (4), (int) (9), (int) (1), (int) (4), (int) (0));
-    GXSetVtxAttrFmt((int) (4), (int) (0xB), (int) (1), (int) (5), (int) (0));
-    GXSetVtxAttrFmt((int) (4), (int) (0xD), (int) (1), (int) (4), (int) (0));
+    Dolphin_GXSetVtxDesc(9, 1);
+    Dolphin_GXSetVtxDesc(0xB, 1);
+    Dolphin_GXSetVtxDesc(0xD, 1);
+    GXSetVtxAttrFmt(4, 9, 1, 4, 0);
+    GXSetVtxAttrFmt(4, 0xB, 1, 5, 0);
+    GXSetVtxAttrFmt(4, 0xD, 1, 4, 0);
     TObjPlayer::setup_color_channels(1);
-    set_tev_stage_mode((s32)((int) (1)));
+    set_tev_stage_mode(1);
     TObjPlayer::setup_tex_gen();
 }
 
@@ -170,9 +170,9 @@ s32 TObjPlayer::apply_blend_mode_1() { return apply_cached_blend_mode(0x1); }
 #pragma push
 #pragma scheduling off
 void TObjPlayer::set_tev_passclr() {
-    GXSetNumTevStages((void *)((int) (1)));
-    GXSetTevOrder((int) (0), (int) (0xFF), (int) (0xFF), (int) (4));
-    GXSetTevOp((int) (0), (int) (4));
+    GXSetNumTevStages((void *)(1));
+    GXSetTevOrder(0, 0xFF, 0xFF, 4);
+    GXSetTevOp(0, 4);
 }
 #pragma pop
 
@@ -184,15 +184,15 @@ void set_tev_stage_mode(s32 arg0) {
     GXSetNumTevStages((void *) ((u8) temp_r31));
     switch (temp_r31) {
     case 1:
-        GXSetTevOrder((int) (0), (int) (0), (int) (0), (int) (4));
-        GXSetTevOp((int) (0), (int) (0));
+        GXSetTevOrder(0, 0, 0, 4);
+        GXSetTevOp(0, 0);
         return;
     case 2:
-        GXSetTevOrder((int) (0), (int) (0), (int) (0), (int) (4));
-        GXSetTevOrder((int) (1), (int) (0xFF), (int) (0xFF), (int) (5));
-        GXSetTevOp((int) (0), (int) (0));
-        GXSetTevColorOp((int) (1), (int) (0), (int) (0), (int) (0), (int) (1), (int) (0));
-        GXSetTevColorIn((int) (1), (int) (0xF), (int) (0xA), (int) (0xC), (int) (0));
+        GXSetTevOrder(0, 0, 0, 4);
+        GXSetTevOrder(1, 0xFF, 0xFF, 5);
+        GXSetTevOp(0, 0);
+        GXSetTevColorOp(1, 0, 0, 0, 1, 0);
+        GXSetTevColorIn(1, 0xF, 0xA, 0xC, 0);
         return;
     }
 }
@@ -205,7 +205,7 @@ s32 TObjPlayer::set_num_tex_gens_zero() { return GXSetNumTexGens(0x0); }
 #pragma scheduling off
 void TObjPlayer::setup_tex_gen() {
     GXSetNumTexGens((s32)(1U));
-    GXSetTexCoordGen2((int) (0), (int) (1), (int) (4), (int) (0x3C), (int) (0), (int) (0x7D));
+    GXSetTexCoordGen2(0, 1, 4, 0x3C, 0, 0x7D);
 }
 #pragma pop
 

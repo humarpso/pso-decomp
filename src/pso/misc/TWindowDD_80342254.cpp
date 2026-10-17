@@ -107,7 +107,7 @@ s32 TWindowDD__sub_80342384(s32 arg0, s32 arg1) {
     s32 temp_r3;
     s32 var_r0;
     *(s32 *)((s8 *)(&TWindowDD__data_804EFC50.value) + 4) = arg1;
-    temp_r3 = __nw__7TObjectFUl((int) (0x90));
+    temp_r3 = __nw__7TObjectFUl(0x90);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = TWindowDD__sub_803422F0((int)((int) (temp_r3)), (void *)((void *) (arg0)), (void *)((void *) (arg1)));

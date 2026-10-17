@@ -181,8 +181,8 @@ u8 *TAdSinglePlyChrSelectGC__ct(u8 *arg0, void *parent) {
     if (p != NULL) {
         __ct__10TAdTitleGCFP7TObjectl(p, arg0, 0);
     }
-    *(s32 *)((s8 *)arg0 + 0x28) = (s32)get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii((s32)arg0, (s32)(0));
-    *(s32 *)((s8 *)arg0 + 0x30) = get_or_create_player__22TAdMultiPlyChrSelectGCFiiii((s32)arg0, (s32)(0), (s32)(-1), (s32)(0));
+    *(s32 *)((s8 *)arg0 + 0x28) = (s32)get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii((s32)arg0, 0);
+    *(s32 *)((s8 *)arg0 + 0x30) = get_or_create_player__22TAdMultiPlyChrSelectGCFiiii((s32)arg0, 0, -1, 0);
     p = __nw__7TObjectFUl(0x44);
     if (p != NULL) {
         p = __ct__13TAdGuideTxtGCFv(p, arg0);

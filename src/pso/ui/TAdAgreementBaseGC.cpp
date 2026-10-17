@@ -120,7 +120,7 @@ void TAdAgreementBaseGC::update_state() {
                 *(s32 *)&this->m_24 = 4;
                 break;
             }
-        } else if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_physical_port_bank.value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
+        } else if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_physical_port_bank.value + 0x20), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 2) != 0)) {
             *(s32 *)&this->m_1c = 2;
             *(s32 *)&this->m_24 = 5;
         }

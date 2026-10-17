@@ -76,7 +76,7 @@ void boss2_dust_draw_at(s32 *arg0, s32 arg1) {
     var_r4 = 6;
     var_r3 = (s32 *)((u8 *)(s32 *)boss2_dust_output_table + var_r5);
     var_r5 = 0;
-    ((TObjPlayer *)var_r3)->draw_trail_strip((void *)6, (s32)((int) (0)));
+    ((TObjPlayer *)var_r3)->draw_trail_strip((void *)6, 0);
     pop_matrix();
 }
 

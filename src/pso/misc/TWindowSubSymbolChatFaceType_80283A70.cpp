@@ -49,18 +49,18 @@ typedef char RecoveredGlobal_80283A70_lbl_8050E208_size[sizeof(RecoveredGlobal_8
 void TWindowSubSymbolChatFaceType::handle_input() {
     u8 *input;
     input = (u8 *)&controller_input_state.value + 0x20;
-    if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), (s32)((int) (0xF0)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0xF0)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
+    if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), 0xF0, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), 0xF0, 6, 1) != 0)) {
         play_sound_effect(0x54100, 0U, 0, 0);
-        if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), (s32)((int) (0x10)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x10)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
+        if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), 0x10, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), 0x10, 6, 1) != 0)) {
             this->m_62 = (u8) (this->m_62 - 1);
         }
-        if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), (s32)((int) (0x20)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x20)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
+        if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), 0x20, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), 0x20, 6, 1) != 0)) {
             this->m_62 = (u8) (this->m_62 + 1);
         }
-        if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), (s32)((int) (0x80)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x80)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
+        if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), 0x80, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), 0x80, 6, 1) != 0)) {
             this->m_61 = (u8) (this->m_61 + 1);
         }
-        if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), (s32)((int) (0x40)), (s32)((int) (6)), (s32)((int) (1))) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), (s32)((int) (0x40)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {
+        if ((TWindowChoiceSetting::apply_choice((s32)((void *) (input)), 0x40, 6, 1) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&controller_input_state.value + 0x160)), 0x40, 6, 1) != 0)) {
             this->m_61 = (u8) (this->m_61 - 1);
         }
         if ((s8) this->m_61 < 0) {
@@ -115,10 +115,10 @@ void run_task__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0) {
     if (((TWindowSubSymbolChatFaceType *)arg0)->is_open() == 0) {
         ((TWindowSubSymbolChatFaceType *)arg0)->handle_input();
         temp_r31 = (u8 *)&(*(RecoveredGlobal_80284074_lbl_8050E208 *)&controller_input_state).value + 0x20;
-        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&(*(RecoveredGlobal_80284074_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (4)) != 0)) {
+        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), 4) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&(*(RecoveredGlobal_80284074_lbl_8050E208 *)&controller_input_state).value + 0x160), 4) != 0)) {
             ((TWindowSubSymbolChatFaceType *)arg0)->confirm_selection();
         }
-        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&(*(RecoveredGlobal_80284074_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (2)) != 0)) {
+        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&(*(RecoveredGlobal_80284074_lbl_8050E208 *)&controller_input_state).value + 0x160), 2) != 0)) {
             ((TWindowSubSymbolChatFaceType *)arg0)->close_when_chat_closed();
         }
     }

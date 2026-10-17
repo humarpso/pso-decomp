@@ -169,7 +169,7 @@ f32 calc_key_x__19TWindowKeyBoardSoftFiii(s32 arg0, s32 arg1, s32 arg2) {
   s32 temp_r3;
   temp_r3 = calc_key_index__19TWindowKeyBoardSoftFiii((s32)(arg0), (s32)(arg1), (s32)(arg2));
   temp_r31 = arg1 + ((s8) (*((u8 *) (((s8 *) (((u8 *) (&TWindowKeyBoardSoft__data_8044F124.value)) + (*((u8 *) (((s8 *) (((u8 *) (&TWindowKeyBoardSoft__data_804CB7C8.value)) + temp_r3)) + 0))))) + 0))));
-  TWindowKeyBoardSoft__sub_80260760((void *) arg0, (int) temp_r3, (void *) (&sp8), (int) 0);
+  TWindowKeyBoardSoft__sub_80260760((void *) arg0, (int) temp_r3, (void *) (&sp8), 0);
   new_var = TWindowKeyBoardSoft::calc_key_coord(arg0, sp8);
   return TWindowKeyBoardSoft__data_805DD078 + ((TWindowKeyBoardSoft__data_805DD07C * ((f32) temp_r31)) + (TWindowKeyBoardSoft__data_805DD080 * new_var));
 }
@@ -203,9 +203,9 @@ f32 TWindowKeyBoardSoft::calc_key_coord(s32 arg0, s32 arg1) {
 void TWindowKeyBoardSoft::sub_80260808(s32 arg1) {
     s32 temp_r5;
     temp_r5 = arg1 * 0x50;
-    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), (int) (2), (int) (temp_r5)) != 0) && ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x6C) != 0U)) {
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), 2, (int) (temp_r5)) != 0) && ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x6C) != 0U)) {
         *(s32 *)&this->m_7c = (s32) (*(s32 *)&this->m_7c & 0xFFFFFFEF);
-        play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
+        play_sound_effect(0x52F16, 0, 0, 0);
         ((TWindowKeyBoardSoft *)(*(u32 *)((s8 *)((u8 *)this) + 0x6C)))->handle_backspace();
     }
 }
@@ -216,7 +216,7 @@ typedef char RecoveredFields_8026088C_arg0_60_offset[offsetof(RecoveredFields_80
 typedef char RecoveredFields_8026088C_arg0_6C_offset[offsetof(RecoveredFields_8026088C_arg0, field_6C) == 0x6C ? 1 : -1];
 void TWindowKeyBoardSoft::update_keyboard_child_input_from_controller(s32 arg1) {
     u32 temp_r3;
-    if (((s32 (*)(void *, int))TWindowShortListCtrl__check_controller_button)((void *)((void *) ((u8 *)&(*(RecoveredGlobal_8026088C_lbl_8050E208 *)&controller_input_state).value + (arg1 * 0x50) + 0x20)), (int)((int) (0x400))) != 0) {
+    if (((s32 (*)(void *, int))TWindowShortListCtrl__check_controller_button)((void *)((void *) ((u8 *)&(*(RecoveredGlobal_8026088C_lbl_8050E208 *)&controller_input_state).value + (arg1 * 0x50) + 0x20)), 0x400) != 0) {
         temp_r3 = ((RecoveredFields_8026088C_arg0 *)((u8 *)this))->field_6C;
         if (temp_r3 != 0U) {
             ((TWindowKeyBoardSoft *)temp_r3)->update_input_state2();
@@ -262,14 +262,14 @@ void TWindowKeyBoardSoft::handle_page_cycle_input(s32 arg1) {
     s32 sp8;
     u8 *temp_r30;
     temp_r30 = (u8 *)&controller_input_state.value + (arg1 * 0x50) + 0x20;
-    if (((s32 (*)(int, int))TWindowShortListCtrl__check_controller_button)((int) (temp_r30), (int) (0x30000)) != 0) {
-        play_sound_effect((int) (0x54100), (int) (0), (int) (0), (int) (0));
+    if (((s32 (*)(int, int))TWindowShortListCtrl__check_controller_button)((int) (temp_r30), 0x30000) != 0) {
+        play_sound_effect(0x54100, 0, 0, 0);
         calc_cursor_step__19TWindowKeyBoardSoftFiPvPv((s32) (((u8 *)this)), &spC, &sp8);
-        if (((s32 (*)(int, int))TWindowShortListCtrl__check_controller_button)((int) (temp_r30), (int) (0x10000)) != 0) {
+        if (((s32 (*)(int, int))TWindowShortListCtrl__check_controller_button)((int) (temp_r30), 0x10000) != 0) {
             *(f32 *)((s8 *)((u8 *)this) + 0x68) = (f32) TWindowKeyBoardSoft__data_805DD088;
             *(u8 *)((s8 *)((u8 *)this) + 0x64) = (u8) (*(u8 *)((s8 *)((u8 *)this) + 0x64) + 1);
         }
-        if (((s32 (*)(int, int))TWindowShortListCtrl__check_controller_button)((int) (temp_r30), (int) (0x20000)) != 0) {
+        if (((s32 (*)(int, int))TWindowShortListCtrl__check_controller_button)((int) (temp_r30), 0x20000) != 0) {
             *(f32 *)((s8 *)((u8 *)this) + 0x68) = (f32) lbl_805DD08C;
             *(u8 *)((s8 *)((u8 *)this) + 0x64) = (u8) (*(u8 *)((s8 *)((u8 *)this) + 0x64) - 1);
         }

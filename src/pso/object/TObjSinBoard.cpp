@@ -156,12 +156,12 @@ void TUnk_804B8DD0::render() {
         ::draw_ginja_model((*(s32 *)((s8 *)(*(u8 **)((s8 *)bml_model + 0x2C)) + 4)));
         pop_matrix();
         push_matrix();
-        rotate_matrix_z((int) (0), (int) (this->m_38));
-        rotate_matrix_y((int) (0), (int) (0x8000));
+        rotate_matrix_z(0, (int) (this->m_38));
+        rotate_matrix_y(0, 0x8000);
         ::draw_ginja_model((*(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)bml_model + 0x2C)) + 0x30)) + 4)));
         pop_matrix();
         push_matrix();
-        rotate_matrix_z((int) (0), (int) (-this->m_38));
+        rotate_matrix_z(0, (int) (-this->m_38));
         ::draw_ginja_model((*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)bml_model + 0x2C)) + 0x30)) + 0x30)) + 4)));
         pop_matrix();
         pop_matrix();
@@ -245,7 +245,7 @@ void TUnk_804B8DD0::update_effects() {
                 spawn_particle_effect_with_flags(&vda, 0x20E, 0x40);
                 o = (void *)__nw__7TObjectFUl(0x28);
                 if (o != NULL) {
-                    construct_timed_sound_voice((u8 *)o, (s32)&this->unk_1C, (s16)(5), (s32)(0x4002A90C), (s32)(0), (s32)tl_05);
+                    construct_timed_sound_voice((u8 *)o, (s32)&this->unk_1C, (s16)(5), 0x4002A90C, 0, (s32)tl_05);
                 }
             }
         } else {
@@ -255,7 +255,7 @@ void TUnk_804B8DD0::update_effects() {
                 spawn_particle_effect_with_flags(&vdb, 0x20F, 0x40);
                 o = (void *)__nw__7TObjectFUl(0x28);
                 if (o != NULL) {
-                    construct_timed_sound_voice((u8 *)o, (s32)&this->unk_1C, (s16)(5), (s32)(0x4002A90C), (s32)(0), (s32)tl_05);
+                    construct_timed_sound_voice((u8 *)o, (s32)&this->unk_1C, (s16)(5), 0x4002A90C, 0, (s32)tl_05);
                 }
             }
         }

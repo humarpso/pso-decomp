@@ -116,7 +116,7 @@ void TObjVoloptCage::run_task() {
     update_state();
     ((TObjEnemy *)arg0)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi((s32)(arg0));
-    submit_cursor_candidate((void *) (arg0), (int) (-1));
+    submit_cursor_candidate((void *) (arg0), -1);
 }
 
 u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1) {
@@ -132,7 +132,7 @@ u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1) {
         }
         clear_volopt_cage_flag();
         free_collision_body_parts((void *) (arg0));
-        __dt__15TObjEnemyCustomFv((arg0), (0));
+        __dt__15TObjEnemyCustomFv((arg0), 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }

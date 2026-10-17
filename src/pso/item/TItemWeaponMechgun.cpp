@@ -74,7 +74,7 @@ void TItemWeaponMechgun::prepareMarker() {
     } else {
         ((WeaponDispatch *)(arg0))->launchShot(arg0->muzzle[1], 0, 0, 1);
     }
-    advance_angle_wrap((&arg0->effectAngle), (0x2000));
+    advance_angle_wrap((&arg0->effectAngle), 0x2000);
     arg0->effectFrame = 1;
 }
 

@@ -90,7 +90,7 @@ void TAdPlyPltAnimCtrlGC::set_anim_state(s32 arg1) {
 }
 
 void TAdPlyPltAnimCtrlGC__sub_80355D38(void *arg0) {
-    ((TAdPlyPltAnimCtrlGC *)arg0)->set_anim_state((s32)(0));
+    ((TAdPlyPltAnimCtrlGC *)arg0)->set_anim_state(0);
 }
 #pragma push
 #pragma fp_contract on
@@ -179,7 +179,7 @@ s32 get_or_create__15TAdPlyPltAnimGCFii(s32 arg0, s32 arg1) {
     s32 var_r0;
     temp_r30 = arg1 * 4;
     if ((u32) *(s32 *)((s8 *)(&TAdPlyPltAnimGC__instances.value) + temp_r30) == 0U) {
-        temp_r3 = __nw__7TObjectFUl((int) (0x7C));
+        temp_r3 = __nw__7TObjectFUl(0x7C);
         var_r0 = temp_r3;
         if (var_r0 != 0) {
             var_r0 = TAdPlyPltAnimGC__ct((int) (temp_r3), (void *) (arg0), (void *) (arg1));

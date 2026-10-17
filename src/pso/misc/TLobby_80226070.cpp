@@ -131,17 +131,17 @@ void TLobby::set_sound_output_mode(s32 arg0) {
     switch (arg0) {
     case 0:
         var_r30 = 1;
-        OSSetSoundMode((int) (1));
+        OSSetSoundMode(1);
         break;
     case 2:
-        OSSetSoundMode((int) (1));
+        OSSetSoundMode(1);
         if (temp_r3 != NULL) {
             *(s16 *)((s8 *)temp_r3 + 0xE) = 1;
         }
         var_r30 = 2;
         break;
     case 1:
-        OSSetSoundMode((int) (0));
+        OSSetSoundMode(0);
         var_r30 = 0;
         break;
     }

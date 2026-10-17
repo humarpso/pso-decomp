@@ -201,7 +201,7 @@ u8 *__dt__22TMedicalCenterSequenceFv(u8 *arg0, s16 arg1) {
             ((TMedicalCenterSequence *)arg0)->m_30 = 0U;
         }
         *(s32 *)((s8 *)(&TMedicalCenterSequence__data_80513E90.value) + (sub_8022397C__15TShopWindowBaseFv((void *) (arg0)) * 4)) = 0;
-        __dt__13TShopSequenceFv((arg0), (0));
+        __dt__13TShopSequenceFv((arg0), 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }
@@ -261,11 +261,11 @@ s32 TMedicalCenterSequence::open_greeting_window() {
   Stack_80216830 stack;
   stack.sp8 = lbl_805DC688;
   stack.spC = lbl_805DC68C;
-  ((TShopSequence *)arg0)->create_message_window(get_window_layout_position((int) 0x2C, (f32) lbl_805DC688), (s32) (&stack.sp8));
-  (((VObj_18_a93f07 *)(arg0))->m4((0x1F), (1)));
+  ((TShopSequence *)arg0)->create_message_window(get_window_layout_position(0x2C, (f32) lbl_805DC688), (s32) (&stack.sp8));
+  (((VObj_18_a93f07 *)(arg0))->m4(0x1F, 1));
   this->m_2c = create_meseta_window((s32) ((TShopSequence *)arg0)->get_child_field1c());
   ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(2)));
-  *((s32 *) (((s8 *) arg0) + 0x34)) = set_service_counter_camera((void *) arg0, (int) 0);
+  *((s32 *) (((s8 *) arg0) + 0x34)) = set_service_counter_camera((void *) arg0, 0);
 }
 
 void TMedicalCenterSequence::handle_confirm() {

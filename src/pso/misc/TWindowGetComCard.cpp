@@ -176,19 +176,19 @@ u8 *TWindowGetComCard__ct(u8 *arg0) {
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80252FCC___vt__17TWindowGetComCard *)&__vt__17TWindowGetComCard).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowGetComCard__name;
-    *(s32 *)&((TWindowGetComCard *)arg0)->m_1c = set_window_mode_4__6TLobbyFPvll((void *) (lbl_8044ED94), (void *) (lbl_8044ED9C), (int) (1));
+    *(s32 *)&((TWindowGetComCard *)arg0)->m_1c = set_window_mode_4__6TLobbyFPvll((void *) (lbl_8044ED94), (void *) (lbl_8044ED9C), 1);
     *(s32 *)&((TWindowGetComCard *)arg0)->m_20 = 0;
     if (init_com_card__17TWindowSubComCardFv() != 0) {
         temp_r31 = (s32)TWindowGetComCard__sub_8007B594();
         text_builder_reset();
         get_com_card_list__6TLobbyFPv((void *)(temp_r31));
         text_builder_append();
-        TWindowSubStatusDisp::get_message_10((int) (0x36));
+        TWindowSubStatusDisp::get_message_10(0x36);
         text_builder_append();
-        ((TLobby *)(*(s32 *)&((TWindowGetComCard *)arg0)->m_1c))->send_and_handle((int) (get_shared_text_buffer()), (int) (2));
+        ((TLobby *)(*(s32 *)&((TWindowGetComCard *)arg0)->m_1c))->send_and_handle((int) (get_shared_text_buffer()), 2);
         *(s32 *)&((TWindowGetComCard *)arg0)->m_28 = 0;
     } else {
-        ((TLobby *)(*(s32 *)&((TWindowGetComCard *)arg0)->m_1c))->send_and_handle((int) (TWindowSubStatusDisp::get_message_10((int) (0x37))), (int) (0));
+        ((TLobby *)(*(s32 *)&((TWindowGetComCard *)arg0)->m_1c))->send_and_handle((int) (TWindowSubStatusDisp::get_message_10(0x37)), 0);
         *(s32 *)&((TWindowGetComCard *)arg0)->m_28 = 0x384;
     }
     if (get_player_by_client_id((s32)((void *) (local_client_id))) != 0U) {

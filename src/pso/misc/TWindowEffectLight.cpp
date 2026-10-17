@@ -119,13 +119,13 @@ void render__18TWindowEffectLightFv(u8 *arg0) {
       switch (temp_r0)
       {
         case 0:
-          ((TWindowEffectLight *)arg0)->draw_outline_quad((s32)(0xAA0E));
+          ((TWindowEffectLight *)arg0)->draw_outline_quad(0xAA0E);
           break;
         case 1:
-          ((TWindowEffectLight *)arg0)->draw_outline_quad((s32)(0xFF2417));
+          ((TWindowEffectLight *)arg0)->draw_outline_quad(0xFF2417);
           break;
         case 2:
-          ((TWindowEffectLight *)arg0)->draw_outline_quad((s32)(0xFFFFFF));
+          ((TWindowEffectLight *)arg0)->draw_outline_quad(0xFFFFFF);
           break;
         case 3:
           TWindowEffectLight__sub_802AD040(arg0, lbl_805DE0F4);

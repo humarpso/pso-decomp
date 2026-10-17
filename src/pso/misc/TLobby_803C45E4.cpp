@@ -15,7 +15,7 @@ void TLobby::clear_entry() {
     s32 arg0 = (s32)this;
     if (arg0 != 0) {
         TLobby::init_once();
-        memset((void *) (arg0), (int) (0), (int) (0x30));
+        memset((void *) (arg0), 0, 0x30);
         TLobby::release_ref();
     }
 }

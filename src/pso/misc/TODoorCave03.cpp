@@ -115,7 +115,7 @@ void TODoorCave03::vfunc_18() {
     } else {
         *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (temp_f2 - TODoorCave03__data_805DB4D4);
     }
-    play_persistent_sound((s32)(0x42807), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
+    play_persistent_sound(0x42807, (s32)arg0, (u32)(arg0 + 0x38), 0, 0);
 }
 
 void TODoorCave03::vfunc_17() {
@@ -146,7 +146,7 @@ void TODoorCave03::vfunc_16() {
   {
     *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) (temp_f1 + TODoorCave03__data_805DB4D4);
   }
-  play_persistent_sound((s32)(0x42807), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
+  play_persistent_sound(0x42807, (s32)arg0, (u32)(arg0 + 0x38), 0, 0);
 }
 
 void TODoorCave03::play_proximity_sound() {
@@ -156,7 +156,7 @@ void TODoorCave03::play_proximity_sound() {
     if (temp_r4 & 1) {
         if (is_any_player_within_radius_xz((u8 *)((void *) (arg0)), (f32) (lbl_805DB4E0)) == 1) {
             *(s32 *)((s8 *)arg0 + 0xAC) = 1;
-            set_indexed_flags((arg0), (0), (8));
+            set_indexed_flags((arg0), 0, 8);
         }
     } else if (temp_r4 & 0x10000) {
         *(f32 *)((s8 *)arg0 + 0xD8) = (f32) (*(f32 *)((s8 *)arg0 + 0xD8) + lbl_805DB4E4);
@@ -261,7 +261,7 @@ u8 *TODoorCave03__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TODoorCave03 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODoorCave03__model_resource) + 0x42C)) + 8);
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODoorCave03__model_resource) + 0x42C)) + 0xC);
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B1548.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B1548.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TODoorCave03 *)(arg0))->init_door_switch_binding();

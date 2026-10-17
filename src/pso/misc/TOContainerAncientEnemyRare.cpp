@@ -48,14 +48,14 @@ s32 TOContainerAncientEnemyCommon__create(s32 arg0) {
     s32 var_r0;
     s32 var_r0_2;
     if (((s32) enable_v2_features == 1) && (get_game_play_mode() == 1) && (is_quest_active() == 1)) {
-        temp_r3 = __nw__7TObjectFUl((int) (0x368));
+        temp_r3 = __nw__7TObjectFUl(0x368);
         var_r0_2 = temp_r3;
         if (var_r0_2 != 0) {
             var_r0_2 = TOContainerAncientEnemyCommon__ct((int) (temp_r3), (void *) (arg0));
         }
         return var_r0_2;
     }
-    temp_r3_2 = __nw__7TObjectFUl((int) (0x368));
+    temp_r3_2 = __nw__7TObjectFUl(0x368);
     var_r0 = temp_r3_2;
     if (var_r0 != 0) {
         var_r0 = TOContainerAncientEnemyCommon__ct((int) (temp_r3_2), (void *) (arg0));

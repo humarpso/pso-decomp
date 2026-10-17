@@ -178,10 +178,10 @@ void TOCtrlDubchik::sub_8015CA74() {
 void TOCtrlDubchik::complete_and_destroy() {
     u8 *arg0 = (u8 *)this;
     s32 sp8;
-    if (exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&sp8), (int) (1)) != 0) {
+    if (exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&sp8), 1) != 0) {
         sp8 = 1;
         send_6x0A_enemy_state((void *) (arg0), (void *) (&sp8));
-        exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&sp8), (int) (0));
+        exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&sp8), 0);
         ((VObj_18_65b835 *)(arg0))->m77(&sp8);
         ((TOCtrlDubchik *)arg0)->sub_8015CA74();
         ((TUnk_804AF8A0 *)arg0)->set_flag8();
@@ -197,7 +197,7 @@ void TOCtrlDubchik::decay_timer_and_clear_flag() {
     if (*(f32 *)&this->unk_384 < TOCtrlDubchik__data_805DB3A8) {
         *(f32 *)&this->unk_384 = (f32) TOCtrlDubchik__data_805DB3A8;
         this->mode = 0;
-        set_indexed_flags((void *)((void *) (arg0)), (s32)((int) (0)), (s32)((int) (0x08000000)));
+        set_indexed_flags((void *)((void *) (arg0)), 0, 0x08000000);
     }
 }
 #pragma pop
@@ -377,10 +377,10 @@ u8 *TOCtrlDubchik__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjPlayer *)arg0)->init_position_vectors();
     *(u8 **)((s8 *)arg0 + 0x34) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCtrlDubchik__shared_resource) + 0x42C)) + 8));
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCtrlDubchik__shared_resource) + 0x42C)) + 0xC);
-    init_collision_body_parts((void *) (arg0), (void *) (&TOCtrlDubchik__collision_body.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&TOCtrlDubchik__collision_body.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    set_indexed_flags((void *)((void *) (arg0)), (s32)((int) (0)), (s32)((int) (0x08000000)));
+    set_indexed_flags((void *)((void *) (arg0)), 0, 0x08000000);
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     *(s16 *)((s8 *)arg0 + 0x32C) = 0x12C;
     *(s16 *)((s8 *)arg0 + 0x2B8) = 0x12C;

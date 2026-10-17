@@ -48,7 +48,7 @@ void TCheckMemoryCard::run_task() {
     *(s32 *)&this->m_3c = 0;
     *(s32 *)&this->m_28 = ((TCheckMemoryCard *)arg0)->sub_8033BB14();
     if (*(s32 *)&this->m_28 & 1) {
-        ((TWindowSubComCard *)arg0)->set_state((s32)((int) (0)));
+        ((TWindowSubComCard *)arg0)->set_state(0);
     }
     temp_r6 = (u8 *)&lbl_804EF940.value + (*(s32 *)&this->m_20 * 0x18);
     member_action.words[0] = *(s32 *)((s8 *)temp_r6 + 0xC);

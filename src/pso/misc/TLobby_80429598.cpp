@@ -243,7 +243,7 @@ void TLobby::start_exi_send(s32 arg0, s32 arg1, s32 arg2) {
     var_r4 = 0;
     exi_send_started_flag = 1;
     lbl_805D7C54 = arg2;
-    TLobby::exi_start_send_dma((int)((int) (0)), (int)((int) (0)));
+    TLobby::exi_start_send_dma(0, 0);
 }
 
 s32 TLobby::exi_start_send_dma(int, int) {
@@ -270,7 +270,7 @@ void TLobby::copy_6_byte_config() {
 
 void TLobby::copy_mac_address() {
     s32 arg0 = (s32)this;
-    memcpy((void *) (&exi_mac_address), (void *) (arg0), (int) (6));
+    memcpy((void *) (&exi_mac_address), (void *) (arg0), 6);
 }
 
 void TLobby__sub_8042B58C(u32 arg0, s32 arg1) {

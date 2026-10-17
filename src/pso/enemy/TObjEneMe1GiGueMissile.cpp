@@ -127,12 +127,12 @@ void TObjEneMe1GiGueMissile::render() {
   TParticleCtrl::begin_effect_render();
   post_translate_matrix((void *) (arg0 + 0x6C));
   bml_motion = (int) (*(s32 *)&this->m_a4);
-  rotate_matrix_y((int) 0, bml_motion);
-  rotate_matrix_x((int) 0, (int) (*(s32 *)&this->m_a0));
+  rotate_matrix_y(0, bml_motion);
+  rotate_matrix_x(0, (int) (*(s32 *)&this->m_a0));
   TObjFish::set_global_param((s32)((void *) (*((s32 *) (((s8 *) (*((u8 **) (((s8 *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count)) + 0x42C)))) + 0x1C)))));
   TObjPlayer::set_global_flag();
-  bml_motion = get_bml_motion((void *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count), (int) 5);
-  draw_model_motion((void *) get_bml_model((void *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count), (int) 1), (void *)bml_motion, (f32) (*((f32 *) (((s8 *) arg0) + 0xBC))));
+  bml_motion = get_bml_motion((void *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count), 5);
+  draw_model_motion((void *) get_bml_model((void *) (*(u8 * *)&TObjEneMe1GiGue_barrier_count), 1), (void *)bml_motion, (f32) (*((f32 *) (((s8 *) arg0) + 0xBC))));
   TObjPlayer::clear_global_state();
   TParticleCtrl::end_effect_render();
   pop_matrix();
@@ -157,7 +157,7 @@ void TObjEneMe1GiGueMissile::run_task() {
     }
     ((TNeedleShoot *)arg0)->update_position();
     ((TObjEneMe1GiGueMissile *)arg0)->update_lifetime();
-    TObjPlayer__sub_802A445C((void *) (arg0), (int) (1));
+    TObjPlayer__sub_802A445C((void *) (arg0), 1);
 }
 #pragma pop
 

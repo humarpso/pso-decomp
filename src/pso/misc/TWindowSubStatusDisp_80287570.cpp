@@ -174,9 +174,9 @@ void TWindowSubStatusDisp__sub_802878B8(u8 *arg0, u8 *arg1) {
     stack.sp8 = -(((0.5f) * (*((f32 *) (((s8 *) arg0) + 0x10)))) - (((0.5f) * ((1.6e+02f) + (*((f32 *) (((s8 *) arg0) + 0xC))))) + ((*((f32 *) (((s8 *) arg1) + 0))) + (*((f32 *) (((s8 *) arg0) + 4))))));
     temp_f4 = *((f32 *) (((s8 *) arg1) + 4));
     stack.spC = (4.0f) + (temp_f4 + (*((f32 *) (((s8 *) arg0) + 8))));
-    set_text_draw_params((void *) arg1, (int) 0, (int) 1, (f32) ((-1.0f) / ((0.0598f) + (*((f32 *) (((s8 *) arg1) + 0x38))))), (f32) (1e+05f), (f32) (-1.0f), (f32) temp_f4, (f32) (4.0f), (f32) (0.5f));
+    set_text_draw_params((void *) arg1, 0, 1, (f32) ((-1.0f) / ((0.0598f) + (*((f32 *) (((s8 *) arg1) + 0x38))))), (f32) (1e+05f), (f32) (-1.0f), (f32) temp_f4, (f32) (4.0f), (f32) (0.5f));
     new_var = *((f32 *) (((s8 *) arg0) + 0x1C));
-    draw_window_text((&stack.sp8), (const char *)(*((s32 *) (((s8 *) arg0) + 0))), (*((s32 *) (((s8 *) arg0) + 0x14))), (int) 1, (f32) new_var);
+    draw_window_text((&stack.sp8), (const char *)(*((s32 *) (((s8 *) arg0) + 0))), (*((s32 *) (((s8 *) arg0) + 0x14))), 1, (f32) new_var);
   }
 }
 

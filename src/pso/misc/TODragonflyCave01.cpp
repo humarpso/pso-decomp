@@ -204,8 +204,8 @@ s32 TODragonfly::pick_random_destination(f32 farg0) {
     *(f32 *)((s8 *)(&lbl_8050BEE0.value) + 8) = (f32) (*(f32 *)&this->_padD0 * (lbl_805DB57C * (f32) rand()));
     *(s32 *)((s8 *)(&lbl_8050BFA0.value) + 4) = (s32) (lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32) rand())));
     push_matrix_from((void *) (&identity_matrix.value));
-    rotate_matrix_y((s32)((int) (0)), (s32)((int) (*(s32 *)((s8 *)(&lbl_8050BFA0.value) + 4))));
-    rotate_vector_by_matrix((int) (0), (void *) (&lbl_8050BEE0.value), (void *) (&lbl_8050BEE0.value));
+    rotate_matrix_y(0, (s32)((int) (*(s32 *)((s8 *)(&lbl_8050BFA0.value) + 4))));
+    rotate_vector_by_matrix(0, (void *) (&lbl_8050BEE0.value), (void *) (&lbl_8050BEE0.value));
     pop_matrix();
     vec3_add_to((void *) (&lbl_8050BEE0.value), (void *) (arg0 + 0x50));
     VecCopy((Vec *)(arg0 + 0xD4), (const Vec *)(&lbl_8050BEE0.value));

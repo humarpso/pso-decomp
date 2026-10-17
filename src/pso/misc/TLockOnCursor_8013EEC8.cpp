@@ -49,7 +49,7 @@ void *fn_8013F0A0(void *arg0) {
     struct VOff_8013F0A0_arg0 *self = (struct VOff_8013F0A0_arg0 *)arg0;
     TMainCursor__sub_8013F114((void*)(arg0));
     __construct_array(self->f_8, TMainCursor__sub_8013E2B0, 0, 4, 4);
-    TMainCursor__sub_8013F10C((void*)(arg0), (s32)(4));
+    TMainCursor__sub_8013F10C((void*)(arg0), 4);
     TMainCursor__sub_8013F104((void*)(arg0), (s32)(self->f_8));
     return arg0;
 }

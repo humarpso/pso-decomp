@@ -42,7 +42,7 @@ s32 TWindowSubSymbolChat::select_symbol_chat_record(s8 *arg1, s32 *arg2) {
         *(f32 *)((s8 *)((u8 *)this) + 0x94) = (f32) lbl_805DD810;
         temp_r29 = (u8 *)&temp_r28->recs[temp_r0];
         *(s32 *)((s8 *)((u8 *)this) + 0x74) = (s32) *(s16 *)((s8 *)((u8 *)this) + 0x6E);
-        *(s32 *)((s8 *)((u8 *)this) + 0x78) = ((TWindowSubSymbolChat *)instance)->find_free_entry((s32)((int) (0)));
+        *(s32 *)((s8 *)((u8 *)this) + 0x78) = ((TWindowSubSymbolChat *)instance)->find_free_entry(0);
         var_r31 = 0;
         *(s16 *)((s8 *)((u8 *)this) + 0x6E) = (s16) (s8) *(u8 *)((s8 *)temp_r29 + 0);
         *(s16 *)((s8 *)((u8 *)this) + 0x6A) = (s16) *(u8 *)((s8 *)temp_r29 + 1);

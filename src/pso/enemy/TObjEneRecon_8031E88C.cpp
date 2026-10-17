@@ -201,14 +201,14 @@ void TObjEneRecobox::draw_with_debug_info() {
         TObjFish::set_global_param((int) (this->texture_id));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        rotate_matrix_y(0, (int) (this->rotation_y));
         temp_r0_2 = *(s32 *)&this->m_3f8;
         switch (temp_r0_2) {
         case 1:
-            rotate_matrix_x((int) (0), (int) (0x8000));
+            rotate_matrix_x(0, 0x8000);
             break;
         case 2:
-            rotate_matrix_x((int) (0), (int) (0x4000));
+            rotate_matrix_x(0, 0x4000);
             break;
         }
         TObjEneDD::clear_global_flag_400();
@@ -219,7 +219,7 @@ void TObjEneRecobox::draw_with_debug_info() {
     }
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y((int) (0), (int) (this->rotation_y));
+    rotate_matrix_y(0, (int) (this->rotation_y));
     draw_chunk_object((void *)(debug_chunk_object));
     pop_matrix();
 }
@@ -288,14 +288,14 @@ block_23:
                 TObjFish::set_global_param((int) (((TObjEneRecobox *)arg0)->texture_id));
                 push_matrix();
                 post_translate_matrix((void *) (arg0 + 0x38));
-                rotate_matrix_y((int) (0), (int) (((TObjEneRecobox *)arg0)->rotation_y));
+                rotate_matrix_y(0, (int) (((TObjEneRecobox *)arg0)->rotation_y));
                 temp_r0 = *(s32 *)&((TObjEneRecobox *)arg0)->m_3f8;
                 switch (temp_r0) {
                 case 1:
-                    rotate_matrix_x((int) (0), (int) (0x8000));
+                    rotate_matrix_x(0, 0x8000);
                     break;
                 case 2:
-                    rotate_matrix_x((int) (0), (int) (0x4000));
+                    rotate_matrix_x(0, 0x4000);
                     break;
                 }
                 TObjEneDD::clear_global_flag_400();

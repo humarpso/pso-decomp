@@ -323,7 +323,7 @@ void generate_shop_common_tool_pool(s32 arg0) {
 }
 
 void clear_shop_tool_flags(void) {
-    memset((void *) (&shop_tool_flags.value), (int) (0), (int) (0x10));
+    memset((void *) (&shop_tool_flags.value), 0, 0x10);
 }
 
 void TLobby::copy_shop_item_entry(s32 arg1, s32 arg2) {

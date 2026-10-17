@@ -94,8 +94,8 @@ void TUnk_804A6AD8::update_weapon() {
         break;
     case 3:
         *(s32 *)((s8 *)arg0 + 0x1F8) = 1;
-        ((TUnk_804A6AD8 *)arg0)->yasminkov_9000m_eject_casing((s32)((s32) ((u8 *)(arg0) + 0x220)), (s32)(0x4000));
-        ((TUnk_804A6AD8 *)arg0)->yasminkov_9000m_eject_casing((s32)((s32) ((u8 *)(arg0) + 0x22C)), (s32)(-0x4000));
+        ((TUnk_804A6AD8 *)arg0)->yasminkov_9000m_eject_casing((s32)((s32) ((u8 *)(arg0) + 0x220)), 0x4000);
+        ((TUnk_804A6AD8 *)arg0)->yasminkov_9000m_eject_casing((s32)((s32) ((u8 *)(arg0) + 0x22C)), -0x4000);
         break;
     }
 }

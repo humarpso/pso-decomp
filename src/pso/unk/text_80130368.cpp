@@ -84,7 +84,7 @@ s32 create_shoot_model__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg
     s32 var_r3;
     var_r3 = 0;
     if (arg0 != 0) {
-        temp_r3 = __nw__7TObjectFUl((int) (0x6C));
+        temp_r3 = __nw__7TObjectFUl(0x6C);
         var_r0 = temp_r3;
         if (var_r0 != 0) {
             var_r0 = init_shoot_model__13TUnk_804A69C0Fv((int) (temp_r3), (void *) (arg0), (void *) (arg1), (void *) (arg2), (f32) (farg0));
@@ -105,7 +105,7 @@ void TUnk_804A69DC::vfunc_17(s32) {
       if (!arg0)
       {
       }
-      update_technique_slot__10TTecRaFoieFl((int) play_sound_effect((int) 0x4001AA05, (int) ((*((u32 *) (((s8 *) arg0) + 0xF0))) + 0x38), (int) 0, (int) 0), (int) 0x300, (int) 0);
+      update_technique_slot__10TTecRaFoieFl((int) play_sound_effect(0x4001AA05, (int) ((*((u32 *) (((s8 *) arg0) + 0xF0))) + 0x38), 0, 0), 0x300, 0);
       PSO_VCALL_VObj_18_382324_m49(arg0, arg0 + 0x208, 0, 0, 1);
     }
   }
@@ -115,8 +115,8 @@ void TUnk_804A69DC::emit_marker_effects() {
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
         ((TObjPlayer *)arg0)->draw_status_icon((s32)((void *) (arg0 + 0x208)));
         if ((s32) this->m_1fc > 0x1999) {
-            ((TItemEquipBase *)arg0)->send_6x61_activate_mag_effect((int) (0));
-            TItemAttacker::spawn_item_timer((s32)((void *) (arg0)), (s32)((void *) (TObjPlayer__sub_801307D0)), (s32)((int) (0x1E)));
+            ((TItemEquipBase *)arg0)->send_6x61_activate_mag_effect(0);
+            TItemAttacker::spawn_item_timer((s32)((void *) (arg0)), (s32)((void *) (TObjPlayer__sub_801307D0)), 0x1E);
             this->m_204 = 0;
             return;
         }

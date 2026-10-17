@@ -285,7 +285,7 @@ void TWindowLockOn::request_close() {
         return;
     }
     if (!(temp_r3 & 0x20)) {
-        ((s32)play_sound_effect((s32)((int) (0x53704)), (s32)((int) (0)), (s32)((int) (0)), (s32)((int) (0))));
+        ((s32)play_sound_effect(0x53704, 0, 0, 0));
     }
     *(s32 *)&(*(u32 *)((u8 *)this + 0x2C)) = (s32) (*(s32 *)&(*(u32 *)((u8 *)this + 0x2C)) & 0xFFFFFFFE);
     *(s32 *)&(*(u32 *)((u8 *)this + 0x2C)) = (s32) (*(s32 *)&(*(u32 *)((u8 *)this + 0x2C)) | 2);
@@ -318,7 +318,7 @@ void window_request_show(void *arg0) {
     }
     *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (*(s32 *)((s8 *)arg0 + 0x2C) | 3);
     if (!(*(s32 *)((s8 *)arg0 + 0x2C) & 0x20)) {
-        play_sound_effect((s32)(0x53703), (s32)(0), (s32)(0), (s32)(0));
+        play_sound_effect(0x53703, 0, 0, 0);
     }
     allow_rendering__7TObjectFv(arg0);
 }
@@ -424,7 +424,7 @@ void TUnk_804CE018::sub_80244F2C(u8 *arg1, u8 *arg2, s16 arg3) {
     }
     temp_r3_2 = *(s32 *)((s8 *)((u8 *)this) + 0x2C);
     if ((temp_r3_2 & 1) && (temp_r3_2 & 2) && !(temp_r3_2 & 0x20)) {
-        ((s32 (*)(int, int, int, int))play_sound_effect)((int) (0x53703), (int) (0), (int) (0), (int) (0));
+        ((s32 (*)(int, int, int, int))play_sound_effect)(0x53703, 0, 0, 0);
     }
     if (TWindowSubStatusDisp::get_card_window_scale((int) (*(s16 *)((s8 *)((u8 *)this) + 0x20))) <= lbl_805DCAD4) {
         *(s32 *)((s8 *)((u8 *)this) + 0x5C) = 0x01000000;
@@ -566,9 +566,9 @@ void TUnk_804CE018::draw_quest_message_frame(void *c_arg) {
   f32 step;
   f32 rem;
   f32 half;
-  begin_screen_draw((s32)(1));
+  begin_screen_draw(1);
   TObjFish::set_global_param((s32)((*(void * *)&lbl_805D63F0)));
-  set_draw_texture_and_color((s32)(1), (s32)(-1));
+  set_draw_texture_and_color(1, -1);
   if (((struct QFrameWindow_80245808 *)this)->height < 64.0f)
   {
     half = 0.5f * ((struct QFrameWindow_80245808 *)this)->height;

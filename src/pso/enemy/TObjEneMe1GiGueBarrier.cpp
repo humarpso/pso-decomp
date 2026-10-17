@@ -80,7 +80,7 @@ block_6:
         if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) == 0) {
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
-            rotate_matrix_y((int) (0), (int) (this->rotation_y));
+            rotate_matrix_y(0, (int) (this->rotation_y));
             TObjFish::set_global_param((int) (this->texture_id));
             TParticleCtrl::end_effect_render();
             ((TObjEneRe7Berura *)arg0)->draw();
@@ -110,9 +110,9 @@ void TObjEneMe1GiGueBarrier::run_task() {
             *(s32 *)&this->m_104 = 1;
             this->m_b8 = 1;
             if (TOKeyMachine01::get_global_state() == 0x23) {
-                play_sound_effect((int) (0x4003A316), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+                play_sound_effect(0x4003A316, (void *) (arg0 + 0x38), 0, 0);
             } else {
-                play_sound_effect((int) (0x3A346), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+                play_sound_effect(0x3A346, (void *) (arg0 + 0x38), 0, 0);
             }
         }
         break;

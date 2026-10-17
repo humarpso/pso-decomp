@@ -226,7 +226,7 @@ void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0) {
         TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x194), (f32)((f32) (lbl_805E0034)), (f32)((f32) (*(f32 *)((s8 *)arg0 + 0x198))));
     }
     for (i = 0; i != 10; i++) {
-        TObjBoss2Tunnel::decrement_packed_timer((u32 *)(&((O_8035740C *)arg0)->v[i].w), (s32)2);
+        TObjBoss2Tunnel::decrement_packed_timer((u32 *)(&((O_8035740C *)arg0)->v[i].w), 2);
     }
     if (*(f32 *)((s8 *)arg0 + 0x194) == *(f32 *)((s8 *)arg0 + 0x198)) {
         temp_r3 = *(s32 *)&((TItemEffOrgaFlowShot *)arg0)->m_19c;

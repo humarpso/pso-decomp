@@ -333,16 +333,16 @@ void TLobby::reset_entry() {
             ((TLobby *)temp_r3)->clear_record();
         }
         TLobby::init_once();
-        memset((void *) (arg0), (int) (0), (int) (0x9C));
+        memset((void *) (arg0), 0, 0x9C);
         TLobby::release_ref();
     }
 }
 void TLobby::clear_session_buffer() {
-    memset((void *) (&(*(RecoveredGlobal_803C0AD8_lbl_80570AC0 *)&lbl_80570AC0).value), (int) (0), (int) (0x9C0));
+    memset((void *) (&(*(RecoveredGlobal_803C0AD8_lbl_80570AC0 *)&lbl_80570AC0).value), 0, 0x9C0);
 }
 void TLobby::reset_sound_buffers() {
     TLobby__sub_803C406C();
-    memset((void *) (&lbl_80570AC0.value), (int) (0), (int) (0x9C0));
+    memset((void *) (&lbl_80570AC0.value), 0, 0x9C0);
 }
 void TLobby__sub_803C0B3C(u8 *arg0) {
     s16 temp_r0;

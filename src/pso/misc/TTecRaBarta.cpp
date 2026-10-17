@@ -216,7 +216,7 @@ void TTecRaBarta::vfunc_8(void *pos) {
       if (self && self)
       {
       }
-      attach_particle_model((u8 *)self->emitters[i], (s32)(get_bml_model(technique_effect_bml, mid)), (s32)lbl_805D63B0, (s32)(0), (s32)(0), (f32)(1.0f));
+      attach_particle_model((u8 *)self->emitters[i], (s32)(get_bml_model(technique_effect_bml, mid)), (s32)lbl_805D63B0, 0, 0, (f32)(1.0f));
     }
   }
   if (self->band == 5)
@@ -239,7 +239,7 @@ void TTecRaBarta::vfunc_8(void *pos) {
     id = b2->flags >> 16;
     if (emitter != 0)
     {
-      attach_particle_model((u8 *)emitter, (s32)(get_bml_model(technique_effect_bml, id)), (s32)lbl_805D63B0, (s32)(get_bml_motion(technique_effect_bml, 1)), (s32)(0), (f32)(1.0f));
+      attach_particle_model((u8 *)emitter, (s32)(get_bml_model(technique_effect_bml, id)), (s32)lbl_805D63B0, (s32)(get_bml_motion(technique_effect_bml, 1)), 0, (f32)(1.0f));
     }
   }
 }
@@ -444,7 +444,7 @@ struct Self_80237A94 *__dt__11TTecRaBartaFv(struct Self_80237A94 *self, s16 arg1
         }
         stop_sound_request((s32)self->emitters);
         mem_free(self->objs);
-        ((TUnk_804CC148 *)self)->destroy_technique_base((int) (0));
+        ((TUnk_804CC148 *)self)->destroy_technique_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (self));
         }

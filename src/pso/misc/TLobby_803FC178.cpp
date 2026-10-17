@@ -1017,7 +1017,7 @@ void TLobby__sub_803FD958(u8 *arg0) {
           *((u8 *) (((s8 *) arg0) + 3)) = (u8) (temp_r3 - 1);
           TLobby__sub_80405328((u8 *)((void *) (((u8 *) arg0) + 0x10)));
           temp_r4_3 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0x2C)));
-          TLobby__sub_803FE6CC((void *) arg0, (int) 1, (int) 0, (void *) (*((s32 (**)(void *, void *)) (((s8 *) temp_r4_3) + 0x28)))(arg0, temp_r4_3));
+          TLobby__sub_803FE6CC((void *) arg0, 1, 0, (void *) (*((s32 (**)(void *, void *)) (((s8 *) temp_r4_3) + 0x28)))(arg0, temp_r4_3));
         }
         *((u8 *) (((s8 *) arg0) + 0)) = 2U;
       }
@@ -1111,7 +1111,7 @@ s32 TLobby__sub_803FE658(u8 *arg0) {
     ((Fields_arg0*)arg0)->field_3 = (u8) (temp_r3 - 1);
     TLobby__sub_80405328((u8 *)((void *) (arg0 + 0x10)));
     temp_r4 = (u8 *)(((Fields_arg0*)arg0)->field_2C);
-    return TLobby__sub_803FE6CC((void *) (arg0), (int) (1), (int) (0), (void *) ((*(s32 (**)(void *, void *))((s8 *)temp_r4 + 0x28))(arg0, temp_r4)));
+    return TLobby__sub_803FE6CC((void *) (arg0), 1, 0, (void *) ((*(s32 (**)(void *, void *))((s8 *)temp_r4 + 0x28))(arg0, temp_r4)));
 }
 
 void TLobby__sub_803FE820(s32 arg0) {
@@ -2239,7 +2239,7 @@ s32 TLobby__sub_80403D28(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 a
     *(s8 *)((s8 *)(&lbl_805C0638.value) + 0x78) = 0;
     *(s8 *)((s8 *)(&lbl_805C0638.value) + 0x8C) = 0;
     temp_r31 = TLobby__sub_80403DA8((void *) (arg1), (void *) (arg2), (void *) (arg3), (void *) (arg4), (void *) (arg5), (void *) (arg6), (void *) (arg7));
-    TLobby__sub_804062A0((int) (0x82));
+    TLobby__sub_804062A0(0x82);
     return temp_r31;
 }
 

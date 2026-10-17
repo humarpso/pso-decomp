@@ -461,11 +461,11 @@ s32 request_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2) {
   var_r3 = (u8 *) var_r29;
   entry = var_r30;
   var_r4 = 2;
-  ((TFogCtrl *)var_r3)->load_entry_into_slot((int) 2, (int) entry);
+  ((TFogCtrl *)var_r3)->load_entry_into_slot(2, (int) entry);
   var_r3 = (u8 *) var_r29;
   entry = var_r31;
   var_r4 = 0;
-  ((TFogCtrl *)var_r3)->request_transition((s32)((int) 0), (s32)((int) entry));
+  ((TFogCtrl *)var_r3)->request_transition(0, (s32)((int) entry));
   var_r3 = (u8 *) ((void *) 1);
   return 1;
 }
@@ -710,7 +710,7 @@ TFogCtrl_800FB92C *TFogCtrl__ct(TFogCtrl_800FB92C *self, void *parent, s32 index
     self->f1BC = one;
     self->f1C0 = 0;
     self->f1C = 0;
-    ((TFogCtrl *)self)->apply_slot_params((s32)(0));
+    ((TFogCtrl *)self)->apply_slot_params(0);
     return self;
 }
 #pragma pop
@@ -773,7 +773,7 @@ void create_area_fog_ctrl(void) {
         var_r31 = 0;
         do {
             var_r3 = (s32 *)((u8 *)((s32 *)0x1C8));
-            temp_r3 = __nw__7TObjectFUl((int) (0x1C8));
+            temp_r3 = __nw__7TObjectFUl(0x1C8);
             if (temp_r3 != 0U) {
                 var_r4 = (s32 *)((u8 *)(tl_02));
                 var_r5 = var_r31;
@@ -783,11 +783,11 @@ void create_area_fog_ctrl(void) {
         } while (var_r31 != 4);
     } else {
         var_r3 = (s32 *)((u8 *)((s32 *)0x1C8));
-        temp_r3_2 = __nw__7TObjectFUl((int) (0x1C8));
+        temp_r3_2 = __nw__7TObjectFUl(0x1C8);
         if (temp_r3_2 != 0U) {
             var_r4 = (s32 *)((u8 *)(tl_02));
             var_r5 = 0;
-            ((s32 (*)(int, int, int))TFogCtrl__ct)((int) (temp_r3_2), (int) (var_r4), (int) (0));
+            ((s32 (*)(int, int, int))TFogCtrl__ct)((int) (temp_r3_2), (int) (var_r4), 0);
         }
     }
     TObjFogCollisionPoison::create();
@@ -795,7 +795,7 @@ void create_area_fog_ctrl(void) {
     var_r3 = (s32 *)(&area_fog_row_table.value);
     var_r3 = (s32 *)(*(s32 *)((s8 *)(&area_fog_row_table.value) + (TOKeyMachine01::get_global_state() * 4)));
     var_r4 = (s32 *)((u8 *)((s32 *)1));
-    TFogCtrl::update_all((int) (var_r3), (int) (1));
+    TFogCtrl::update_all((int) (var_r3), 1);
 }
 
 void TFogCtrl::reset() {

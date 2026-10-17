@@ -94,7 +94,7 @@ u8 *TObjNpcARW00__ct(u8 *arg0, s32 arg1, s32 arg2) {
 
 void TObjNpcARW00::play_voice() {
     s32 arg0 = (s32)this;
-    play_sound_effect((int) (0x40004C15), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_sound_effect(0x40004C15, (void *) (arg0 + 0x38), 0, 0);
 }
 
 void TObjNpcBase::vfunc_92() {  }

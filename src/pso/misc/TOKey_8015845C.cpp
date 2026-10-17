@@ -46,7 +46,7 @@ void TUnk_804AFBF8::render() {
     if ((temp_r3 != 0) && (((TUnk_804AFBF8 *)arg0)->is_in_view_depth((f32) (lbl_805DB2EC)) != 0)) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        rotate_matrix_y(0, (int) (this->rotation_y));
         TObjFish::set_global_param((int) (this->texture_id));
         temp_r4 = *(u32 *)&this->m_bc;
         if (temp_r4 != 0U) {

@@ -189,7 +189,7 @@ void TObjBoss2Tunnel__sub_802F23FC(void) {  }
 void TObjBoss2Tunnel__sub_802F2400(u8 *arg0) {
     f32 temp_f1;
     u32 temp_r3;
-    ((TObjBoss2Tunnel *)arg0)->update_spawn_timer((s32)((s32)((s32 *)((void *) (&boss2_tunnel_spawn_timer_table_b.value)))), (s32)((s32)((s32)((int) (0xA)))), (s32)((s32)((s32)((int) (1)))));
+    ((TObjBoss2Tunnel *)arg0)->update_spawn_timer((s32)((s32)((s32 *)((void *) (&boss2_tunnel_spawn_timer_table_b.value)))), 0xA, 1);
     if ((*(s32 *)&boss2_tunnel_state_flags) & 8) {
         temp_f1 = *(f32 *)((s8 *)arg0 + 0x80);
         if (temp_f1 < lbl_805DEC98) {
@@ -222,7 +222,7 @@ void TObjBoss2Tunnel__sub_802F2400(u8 *arg0) {
 }
 void TObjBoss2Tunnel::init_effect() {
     advance_effect_timer();
-    update_spawn_timer((s32)((s32)(boss2_tunnel_spawn_timer_table)), (s32)((s32)(0x1F)), (s32)((s32)(0)));
+    update_spawn_timer((s32)((s32)(boss2_tunnel_spawn_timer_table)), 0x1F, 0);
     if ((*(s32 *)&boss2_tunnel_state_flags) & 0x200) {
         (*(s32 *)&boss2_tunnel_state_flags) &= 0xFFFFFDFF;
         *(s32 *)((s8 *)this + 0x1C) = 1;
@@ -242,7 +242,7 @@ void TObjBoss2Tunnel::update_dust_spawn() {
         v.x = 200.0f * rand_signed_unit();
         v.y = 90.0f * (3.0517578125e-05f * (f32)rand()) + 10.0f;
         v.z = 600.0f;
-        p = __nw__7TObjectFUl((s32)(0x30));
+        p = __nw__7TObjectFUl(0x30);
         if (p != 0U) {
             __ct__13TObjBoss7DustFv((u8 *)p, (s32)tl_05, (s32)&v);
         }
@@ -430,7 +430,7 @@ void *TObjBoss2Tunnel__sub_802F2A2C(void *arg0p, s32 parent) {
 
 void TObjBoss2Tunnel__sub_802F2C4C(void) {  }
 void TObjBoss2Tunnel__sub_802F2C50(void) {
-    void* obj = ((void*)__nw__7TObjectFUl((s32)(0x94)));
+    void* obj = ((void*)__nw__7TObjectFUl(0x94));
     if (obj != 0) {
         TObjBoss2Tunnel__sub_802F2A2C((void *)(obj), (s32)(tl_04));
     }

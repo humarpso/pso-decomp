@@ -315,7 +315,7 @@ void TItemMag__vt40(TItemMag_80110B94 *self) {
     for (i = 0; i != 2; i++) {
         if (self->subs[i] != 0) {
             ((TItemMagSub *)(self->subs[i]))->set_flags(2);
-            TItemAttacker::spawn_item_timer((s32)(self->subs[i]), (s32)((void *)TItemMagSub::clear_optional_oscillation_flag), (s32)0x1e);
+            TItemAttacker::spawn_item_timer((s32)(self->subs[i]), (s32)((void *)TItemMagSub::clear_optional_oscillation_flag), 0x1e);
         }
     }
 }
@@ -519,29 +519,29 @@ void TItemMag::apply_transform_action(u8 arg1) {
     switch ((s32) arg1) {
     case 0:
         if (*(u8 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0xF0)) + 0x88C) & 1) {
-            ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), (int) (0x1D));
+            ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), 0x1D);
         } else {
-            ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), (int) (0x21));
+            ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), 0x21);
         }
         break;
     case 1:
         if (*(u8 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0xF0)) + 0x88C) & 1) {
-            ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), (int) (0x22));
+            ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), 0x22);
         } else {
-            ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), (int) (0x27));
+            ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), 0x27);
         }
         break;
     case 2:
-        ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), (int) (0x28));
+        ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), 0x28);
         break;
     case 3:
-        ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), (int) (0x29));
+        ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), 0x29);
         break;
     case 4:
-        ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), (int) (0x2A));
+        ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), 0x2A);
         break;
     case 5:
-        ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), (int) (0x2B));
+        ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (((u8 *)this)), 0x2B);
         break;
     }
     if (temp_r31 != ((u8 (*)(void *))get_field_ed__5TItemFv)((void *) (((u8 *)this)))) {
@@ -755,157 +755,157 @@ void TItemMag::update_feed_anim() {
             if (temp_r25 & 0x108) {
                 if (!(temp_r28 & 1)) {
                     if (temp_r31 <= temp_r30) {
-                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(5));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 5);
                         return;
                     }
-                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0xC));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0xC);
                     return;
                 }
                 if (temp_r31 <= temp_r30) {
-                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(6));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 6);
                     return;
                 }
-                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(8));
+                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 8);
                 return;
             }
             if (temp_r25 & 0x10) {
                 if (!(temp_r28 & 1)) {
                     if (temp_r29 <= temp_r31) {
-                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x13));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0x13);
                         return;
                     }
-                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x17));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0x17);
                     return;
                 }
                 if (temp_r29 <= temp_r31) {
-                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x10));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0x10);
                     return;
                 }
-                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x12));
+                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0x12);
                 return;
             }
             if (temp_r25 & 0x20) {
                 if (!(temp_r28 & 1)) {
                     if (temp_r30 <= temp_r29) {
-                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x1E));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0x1E);
                         return;
                     }
-                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(7));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 7);
                     return;
                 }
                 if (temp_r30 <= temp_r29) {
-                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x24));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0x24);
                     return;
                 }
-                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x16));
+                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0x16);
             }
         } else if (((s32 (*)(void *, s32))check_class_equip_permission)(*(void * *)&this->m_f0, 0xFA) != 0) {
             if (temp_r25 & 0x110) {
                 if (!(temp_r28 & 1)) {
                     if (temp_r29 <= temp_r31) {
-                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(6));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 6);
                         return;
                     }
-                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0xC));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0xC);
                     return;
                 }
                 if (temp_r29 <= temp_r31) {
-                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(5));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 5);
                     return;
                 }
-                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0xA));
+                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0xA);
                 return;
             }
             if (temp_r25 & 8) {
                 if (!(temp_r28 & 1)) {
                     if (temp_r31 <= temp_r30) {
-                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(6));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 6);
                         return;
                     }
-                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0xC));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0xC);
                     return;
                 }
                 if (temp_r31 <= temp_r30) {
-                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x26));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0x26);
                     return;
                 }
-                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0xA));
+                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0xA);
                 return;
             }
             if (temp_r25 & 0x20) {
                 if (!(temp_r28 & 1)) {
                     if (temp_r30 <= temp_r29) {
-                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(5));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 5);
                         return;
                     }
-                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(8));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 8);
                     return;
                 }
                 if (temp_r30 <= temp_r29) {
-                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x1E));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0x1E);
                     return;
                 }
-                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x18));
+                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0x18);
             }
         } else if (((s32 (*)(void *, s32))check_class_equip_permission)(*(void * *)&this->m_f0, 0xFC) != 0) {
             if (temp_r25 & 0x120) {
                 if (temp_r26 <= 0x2C) {
                     if (!(temp_r28 & 1)) {
                         if (temp_r30 <= temp_r29) {
-                            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x1C));
+                            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0x1C);
                             return;
                         }
-                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x1E));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0x1E);
                         return;
                     }
                     if (temp_r30 <= temp_r29) {
-                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(9));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 9);
                         return;
                     }
-                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x17));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0x17);
                     return;
                 }
-                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x24));
+                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0x24);
                 return;
             }
             if (temp_r25 & 8) {
                 if (temp_r26 <= 0x2C) {
                     if (!(temp_r28 & 1)) {
                         if (temp_r31 <= temp_r30) {
-                            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x25));
+                            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0x25);
                             return;
                         }
-                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x1F));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0x1F);
                         return;
                     }
                     if (temp_r31 <= temp_r30) {
-                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x20));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0x20);
                         return;
                     }
-                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x1C));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0x1C);
                     return;
                 }
-                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x23));
+                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0x23);
                 return;
             }
             if (temp_r25 & 0x10) {
                 if (temp_r26 <= 0x2C) {
                     if (!(temp_r28 & 1)) {
                         if (temp_r29 <= temp_r31) {
-                            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x11));
+                            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0x11);
                             return;
                         }
-                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x15));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0x15);
                         return;
                     }
                     if (temp_r29 <= temp_r31) {
-                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0xC));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0xC);
                         return;
                     }
-                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x12));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0x12);
                     return;
                 }
-                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), (s32)(0x24));
+                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(this), 0x24);
             }
         }
     }
@@ -921,42 +921,42 @@ void TItemMag::do_action_by_class() {
     switch ((s32) temp_r3) {
     case 1:
         if (temp_r31 & 0x108) {
-            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0xE));
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), 0xE);
             return;
         }
         if (temp_r31 & 0x10) {
-            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0xF));
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), 0xF);
             return;
         }
         if (temp_r31 & 0x20) {
-            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(4));
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), 4);
         }
         break;
     case 13:
         if (temp_r31 & 0x110) {
-            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(2));
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), 2);
             return;
         }
         if (temp_r31 & 8) {
-            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(3));
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), 3);
             return;
         }
         if (temp_r31 & 0x20) {
-            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0xB));
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), 0xB);
             return;
         }
         break;
     case 25:
         if (temp_r31 & 0x120) {
-            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x1A));
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), 0x1A);
             return;
         }
         if (temp_r31 & 8) {
-            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x1B));
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), 0x1B);
             return;
         }
         if (temp_r31 & 0x10) {
-            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x14));
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), 0x14);
         }
         break;
     }
@@ -967,16 +967,16 @@ void TItemMag::evolve_first_form() {
     u8 *temp_r3;
     temp_r3 = (u8 *)(*(u8 * *)&this->m_f0);
     if (temp_r3 != NULL) {
-        if (((s32 (*)(void *, s32))check_class_equip_permission)((void *)(temp_r3), (s32)(0xF9)) != 0) {
-            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)((s32) arg0), (s32)(1));
+        if (((s32 (*)(void *, s32))check_class_equip_permission)((void *)(temp_r3), 0xF9) != 0) {
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)((s32) arg0), 1);
             return;
         }
-        if (((s32 (*)(void *, s32))check_class_equip_permission)((void *)(*(u8 * *)&this->m_f0), (s32)(0xFA)) != 0) {
-            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)((s32) arg0), (s32)(0xD));
+        if (((s32 (*)(void *, s32))check_class_equip_permission)((void *)(*(u8 * *)&this->m_f0), 0xFA) != 0) {
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)((s32) arg0), 0xD);
             return;
         }
-        if (((s32 (*)(void *, s32))check_class_equip_permission)((void *)(*(u8 * *)&this->m_f0), (s32)(0xFC)) != 0) {
-            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)((s32) arg0), (s32)(0x19));
+        if (((s32 (*)(void *, s32))check_class_equip_permission)((void *)(*(u8 * *)&this->m_f0), 0xFC) != 0) {
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)((s32) arg0), 0x19);
         }
     }
 }
@@ -995,7 +995,7 @@ void TItemMag::apply_form_change() {
         ((s32 (*)(void *))register_photon_blasts__8TItemMagFPv)((void *) (arg0));
     }
     if (((TItemMag *)arg0)->get_flag_40() == 0) {
-        play_sound_effect((int) (0x4000B20A), (int) (*(s32 *)&this->m_f0 + 0x38), (int) (0), (int) (0));
+        play_sound_effect(0x4000B20A, (int) (*(s32 *)&this->m_f0 + 0x38), 0, 0);
     }
     copy_owner_data();
 }
@@ -1252,7 +1252,7 @@ s32 TItemMag::apply_feed_stats(u8 *arg1) {
             ((TItem *)arg0)->refresh_owner_stats();
             if (obj_isState2_324__13TUnk_804806E8Fv((int) (*(s32 *)&this->m_f0)) == 0) {
                 arg1 = (u8 *) get_item_field_6__10TObjPlayerFPv((void *)(*(s32 *)&this->m_f0));
-                if ((arg1 != NULL) && (get_item_info__10TObjPlayerFllPs((int) (arg1), (int) (*(s32 *)&this->m_f0), (int) (0)) == 0)) {
+                if ((arg1 != NULL) && (get_item_info__10TObjPlayerFllPs((int) (arg1), (int) (*(s32 *)&this->m_f0), 0) == 0)) {
                     send_6x26_unequip_item__10TObjPlayerFPvPv((void *)(*(s32 *)&this->m_f0), (void *)(get_field_d8__5TItemFv((int) (arg1))));
                 }
             }
@@ -1274,7 +1274,7 @@ void TItemMag::select_support_action(s32 arg1) {
     *(f32 *)((s8 *)((u8 *)this) + 0x1C8) = (f32) lbl_805DABB4;
     *(s32 *)((s8 *)((u8 *)this) + 0x1CC) = 0;
     ((s32 (*)(void *, int))select_action_motion__8TItemMagFPv)((void *) (((u8 *)this)), (int) (temp_r4));
-    ((TItemMag *)((u8 *)this))->set_subs_visible((int) (1));
+    ((TItemMag *)((u8 *)this))->set_subs_visible(1);
 }
 
 void TItemMag::request_support_action(s32 arg1) {
@@ -1362,7 +1362,7 @@ void TItemMag::check_level_cap() {
 
     temp_r0 = *(s32 *)&this->m_1cc;
     if (temp_r0 == 0x5A) {
-        cast_support_technique((s32)(0x11));
+        cast_support_technique(0x11);
         return;
     }
     if (temp_r0 > 0x5A) {
@@ -1376,7 +1376,7 @@ void TItemMag::check_level_evolve() {
     temp_r0 = *(s32 *)&this->m_1cc;
     if (temp_r0 == 0x5A) {
         if (obj_getS16_32C(*(s32 *)&this->m_f0) > 0) {
-            cast_support_technique((s32)(0xF));
+            cast_support_technique(0xF);
         }
     } else if (temp_r0 > 0x5A) {
         request_support_action((s32)((void*)(1)));
@@ -1388,8 +1388,8 @@ void TItemMag::apply_auto_support_techniques() {
     s32 temp_r0;
     temp_r0 = arg0->field_1CC;
     if (temp_r0 == 0x5A) {
-        cast_support_technique((s32)((s32)(0xD)));
-        cast_support_technique((s32)((s32)(0xA)));
+        cast_support_technique(0xD);
+        cast_support_technique(0xA);
         return;
     }
     if (temp_r0 > 0x5A) {
@@ -1608,7 +1608,7 @@ void TItemMag__vt25(Self_801134CC *self) {
     VObj_18_801134CC *child;
     s32 i;
     f32 scale;
-    if (self->owner != NULL && obj_testFlags30((void *)(self), (s32)(0x08000000)) == 0 && ((TItemMag *)self)->get_flag_40() == 0) {
+    if (self->owner != NULL && obj_testFlags30((void *)(self), 0x08000000) == 0 && ((TItemMag *)self)->get_flag_40() == 0) {
     scaled = ((TItemMag *)(self->owner->stats))->check_state_flag_1();
     scale = ((TItemMag *)(self->owner->stats))->get_stat_f32();
     push_matrix();
@@ -1633,7 +1633,7 @@ void TItemMag__vt24(Self_801135E0 *self) {
     VObj_18_801135E0 *child;
     s32 i;
     f32 scale;
-    if (self->owner != NULL && obj_testFlags30((void *)(self), (s32)(0x08000000)) == 0 && ((TItemMag *)self)->get_flag_40() == 0) {
+    if (self->owner != NULL && obj_testFlags30((void *)(self), 0x08000000) == 0 && ((TItemMag *)self)->get_flag_40() == 0) {
     scaled = ((TItemMag *)(self->owner->stats))->check_state_flag_1();
     scale = ((TItemMag *)(self->owner->stats))->get_stat_f32();
     push_matrix();
@@ -1677,7 +1677,7 @@ void TItemMag__vt43(u8 *arg0) {
       {
         new_var = arg0;
         temp_r6 = (u8 *) (*((u8 **) (((s8 *) new_var) + 0xF0)));
-        ((s32 (*)(void *, int, int, int))TItemMag__sub_80113EDC)((void *) (temp_r6 + 0x4AC), (int) ((s16) temp_r3), (int) (-1), (int) temp_r6);
+        ((s32 (*)(void *, int, int, int))TItemMag__sub_80113EDC)((void *) (temp_r6 + 0x4AC), (int) ((s16) temp_r3), -1, (int) temp_r6);
       }
       slot += 1;
     }
@@ -1698,7 +1698,7 @@ void TItemMag__vt42(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x18C) = 0x10;
         ((s32 (*)(void *))register_photon_blasts__8TItemMagFPv)((void *) (arg0));
     }
-    ((TItemMag *)arg0)->request_support_action((int) (1));
+    ((TItemMag *)arg0)->request_support_action(1);
     temp_r3 = *(u8 **)((s8 *)arg0 + 0xF0);
     *(s16 *)((s8 *)arg0 + 0x1D4) = ((VObj_18 *)(temp_r3))->m14();
     if ((s16) *(s16 *)((s8 *)arg0 + 0x1D6) == -1) {
@@ -1706,13 +1706,13 @@ void TItemMag__vt42(u8 *arg0) {
     }
     *(s16 *)((s8 *)arg0 + 0x1DC) = ((s16 (*)(void *))obj_getS16_32C)((void *) (*(u8 **)((s8 *)arg0 + 0xF0)));
     *(s16 *)((s8 *)arg0 + 0x1DE) = obj_getS16_32E((void *) (*(u8 **)((s8 *)arg0 + 0xF0)));
-    if (test_flags_any((void *) (arg0 + 0x178), (int) (1)) != 0) {
+    if (test_flags_any((void *) (arg0 + 0x178), 1) != 0) {
         *(s32 *)((s8 *)arg0 + 0x18C) = (s32) (*(s32 *)((s8 *)arg0 + 0x18C) & 0xFFFFFFDF);
     } else {
         *(s32 *)((s8 *)arg0 + 0x18C) = (s32) (*(s32 *)((s8 *)arg0 + 0x18C) | 0x20);
     }
     if ((((TItemMag *)arg0)->get_flag_40() == 0) && (obj_isState7_324((void *) (*(u8 **)((s8 *)arg0 + 0xF0))) == 0)) {
-        ((s32 (*)(int, void *, int, int))play_sound_effect)((int) (0x4000B20A), (void *) (*(u8 **)((s8 *)arg0 + 0xF0) + 0x38), (int) (0), (int) (0));
+        ((s32 (*)(int, void *, int, int))play_sound_effect)(0x4000B20A, (void *) (*(u8 **)((s8 *)arg0 + 0xF0) + 0x38), 0, 0);
     }
 }
 

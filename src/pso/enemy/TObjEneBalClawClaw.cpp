@@ -49,7 +49,7 @@ void spawn_lobby_npc_enemy(void) {
     stack.sp14 = *(s32 *)((s8 *)(&lbl_80439B8C.value) + 0xC);
     stack.sp8 = *(s32 *)((s8 *)lbl_805D4F20 + 0x430);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)lbl_805D4F20 + 0x42C));
-    TLobby::spawn_npc_enemy((s16)((int) (0x14)), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0x28))), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0x2C))), (s32)((void *) (&stack.sp8)), (f32)((f32) (*(f32 *)((s8 *)((s32 *)TObjEneBalClawClaw__collision_body_template) + 0xC))), (f32)((f32) ((15.0f))));
+    TLobby::spawn_npc_enemy((s16)(0x14), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0x28))), (s32)((int) (*(s32 *)((s8 *)temp_r5 + 0x2C))), (s32)((void *) (&stack.sp8)), (f32)((f32) (*(f32 *)((s8 *)((s32 *)TObjEneBalClawClaw__collision_body_template) + 0xC))), (f32)((f32) ((15.0f))));
 }
 
 }
@@ -373,7 +373,7 @@ void TObjEneBalClawClaw::enter_hit_state(s16 arg1) {
     *(s32 *)((s8 *)((u8 *)this) + 0x388) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x388) | 0x20000000);
     *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0xFFFBFFFF);
     *(f32 *)((s8 *)((u8 *)this) + 0x3C0) = (f32) (1e+05f);
-    update_if_active__15TObjEneMe1GiGueFl((void *) (((u8 *)this)), (int) (0xA));
+    update_if_active__15TObjEneMe1GiGueFl((void *) (((u8 *)this)), 0xA);
     ((TObjEnemyCustom *)(((u8 *)this)))->clear_all_status_effects();
 }
 
@@ -761,7 +761,7 @@ void TObjEneBalClawClaw__sub_80091134(Claw_80091134 *self) {
     case 1:
         ((s32)advance_animation_playback(self));
         if (self->motion.m4() == 1) {
-            TObjPlayer::apply_effect_variant_a((s32)(self->pos), (s32)0);
+            TObjPlayer::apply_effect_variant_a((s32)(self->pos), 0);
             ((TObjEnemy *)self)->send_entity_set_flags();
             queue_destruction__7TObjectFv(self);
         }
@@ -791,7 +791,7 @@ void TObjEneBalClawClaw__sub_80091200(Claw_80091200 *self) {
         self->vel.z *= (0.9f);
         apply_actor_gravity((u8 *)self, (s32 *)(0), (0.0f));
         update_collisions__10TObjPlayerFv(self);
-        play_persistent_sound((s32)(0x4003B235), (s32)self, (u32)((u8 *)self + 0x38), (s32)(0), (s32)(0));
+        play_persistent_sound(0x4003B235, (s32)self, (u32)((u8 *)self + 0x38), 0, 0);
         if (self->fB4 != 8) {
             self->f30 &= ~0x200;
             self->f388 &= ~1;
@@ -827,7 +827,7 @@ void update_chase__18TObjEneBalClawClawFPv(Claw_80091354 *self) {
             RESET(self);
             break;
         }
-        play_persistent_sound((s32)(0x4003B235), (s32)self, (u32)((u8 *)self + 0x38), (s32)(0), (s32)(0));
+        play_persistent_sound(0x4003B235, (s32)self, (u32)((u8 *)self + 0x38), 0, 0);
         Vec_80091354 v = self->target->pos;
         update_enemy_wander_move(self, &v, 1, self->info, self->info->f4);
         update_angle__10TObjPlayerFlPv(self, self->info->f8, (u8 *)self + 0x308);
@@ -1233,12 +1233,12 @@ void TObjEneBalClawClaw::update_attack_distance_state() {
     case 0:
         if (((TObjEneBalClawClaw *)((u8 *)this))->is_actor_cadence_frame(0x1E) != 0) {
             if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x2A8) != 0U) {
-                update_if_active__15TObjEneMe1GiGueFl((void *) (((u8 *)this)), (int) (1));
+                update_if_active__15TObjEneMe1GiGueFl((void *) (((u8 *)this)), 1);
                 *(s32 *)((s8 *)((u8 *)this) + 0x38C) = 2;
                 return;
             }
             if (xz_distance_squared((void *) (((u8 *)this) + 0x38), (void *) (((u8 *)this) + 0x50)) > (1e+02f)) {
-                update_if_active__15TObjEneMe1GiGueFl((void *) (((u8 *)this)), (int) (8));
+                update_if_active__15TObjEneMe1GiGueFl((void *) (((u8 *)this)), 8);
                 return;
             }
             reset_active_state__18TObjEneBalClawClawFPv((void *) (((u8 *)this)));
@@ -1274,7 +1274,7 @@ void TObjEneBalClawClaw::update_attack_distance_state() {
             if (temp_r31 != temp_r0_2) {
                 switch (temp_r0_2) {
                 case 0:
-                    update_if_active__15TObjEneMe1GiGueFl((void *) (((u8 *)this)), (int) (2));
+                    update_if_active__15TObjEneMe1GiGueFl((void *) (((u8 *)this)), 2);
                     return;
                 case 1:
                     clear_attack_flag__14TObjEneBalClawFv((void *) (((u8 *)this)));
@@ -1285,7 +1285,7 @@ void TObjEneBalClawClaw::update_attack_distance_state() {
                 }
             }
         } else {
-            update_if_active__15TObjEneMe1GiGueFl((void *) (((u8 *)this)), (int) (8));
+            update_if_active__15TObjEneMe1GiGueFl((void *) (((u8 *)this)), 8);
         }
         break;
     }
@@ -1358,9 +1358,9 @@ void TObjEneBalClawClaw__sub_8009173C(u8 *arg0) {
     }
     temp_r3 = *(s32 *)((s8 *)arg0 + 0x388);
     if (temp_r3 & 0x20000000) {
-        update_if_active__15TObjEneMe1GiGueFl((void *) (arg0), (int) (0xA));
+        update_if_active__15TObjEneMe1GiGueFl((void *) (arg0), 0xA);
     } else if (temp_r3 & 0x10000000) {
-        update_if_active__15TObjEneMe1GiGueFl((void *) (arg0), (int) (9));
+        update_if_active__15TObjEneMe1GiGueFl((void *) (arg0), 9);
     } else {
         ((TObjEneBalClawClaw *)arg0)->update_attack_distance_state();
     }
@@ -1389,8 +1389,8 @@ void TObjEneBalClawClaw__sub_8009173C(u8 *arg0) {
         temp_f1 = *(f32 *)((s8 *)arg0 + 0x3B4);
         temp_r5 = (unsigned char *) (*(void **)((s8 *)arg0 + 0xA4));
         *(f32 *)((s8 *)temp_r5 + 4) = (f32) (temp_f1 + *(f32 *)((s8 *)arg0 + 0x3BC));
-        submit_cursor_candidate((void *) (arg0), (int) (-1), (int) (temp_r5), (f32) (temp_f1), (f32) (temp_f2));
-        minimap_render_dot((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (0));
+        submit_cursor_candidate((void *) (arg0), -1, (int) (temp_r5), (f32) (temp_f1), (f32) (temp_f2));
+        minimap_render_dot((void *) (arg0 + 0x38), -0x5DB4, 1, 0);
         return;
     }
     entity = (s32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0x3C6)));
@@ -1543,12 +1543,12 @@ void TObjEneBeast::vfunc_94() {
     stack.spC = lbl_805D96DC;
     stack.sp10 = lbl_805D96E0 * *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x2B0)) + 0x10);
     push_matrix_from((void *) (&identity_matrix.value));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-    rotate_vector_by_matrix((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
+    rotate_matrix_y(0, (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+    rotate_vector_by_matrix(0, (void *) (&stack.sp8), (void *) (&stack.sp8));
     pop_matrix();
     vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x38));
-    ((TObjPlayer *)(&stack.sp8))->spawn_effect_at_ground((int) (0x23));
-    TObjPlayer::spawn_dead_spot_type2((s32)((void *) (&stack.sp8)), (s32)((int) (0xF)));
+    ((TObjPlayer *)(&stack.sp8))->spawn_effect_at_ground(0x23);
+    TObjPlayer::spawn_dead_spot_type2((s32)((void *) (&stack.sp8)), 0xF);
 }
 
 void TObjEneBeast::vfunc_93() {
@@ -1625,8 +1625,8 @@ void TObjEneBeast::vfunc_83() {
         } else {
             *(s16 *)((s8 *)arg0 + 0x328) = 1;
             *(s16 *)((s8 *)arg0 + 0xB8) = 0xB;
-            set_indexed_flags((arg0), (0), (0x0A000000));
-            obj_setFlags30((void *) (arg0), (int) (0x04000000));
+            set_indexed_flags((arg0), 0, 0x0A000000);
+            obj_setFlags30((void *) (arg0), 0x04000000);
             play_sound_effect(0x4003AB32, (s32) (arg0 + 0x38), 0, 0);
         }
         break;
@@ -1636,7 +1636,7 @@ void TObjEneBeast::vfunc_83() {
             *(s32 *)((s8 *)arg0 + 0x390) = 0;
             *(s16 *)((s8 *)arg0 + 0xB8) = 0;
             ((TObjPlayer *)arg0)->clear_player_status_flag(0, 0x0A000000);
-            obj_clearFlags30__13TUnk_804B9870FUl((void *) (arg0), (int) (0x04000000));
+            obj_clearFlags30__13TUnk_804B9870FUl((void *) (arg0), 0x04000000);
         }
         break;
     case 2:
@@ -1702,7 +1702,7 @@ void render__12TObjEneBeastFPv(Obj_8009211C *o) {
         v.x = lbl_805D96F4;
         v.y = lbl_805D96F8;
         v.z = lbl_805D96FC;
-        ((TObjEnemy *)o)->render_with_position_override((u8 *)(&v), (s32)0);
+        ((TObjEnemy *)o)->render_with_position_override((u8 *)(&v), 0);
     }
 }
 

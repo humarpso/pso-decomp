@@ -62,7 +62,7 @@ bool TShopSequence::sub_802239EC() {
     if (*(s32 *)((s8 *)((u8 *)&controller_input_state.value + (((TRaderMapCore *)(*(s32 *)((s8 *)((u8 *)this) + 0x24)))->get_map_id() * 0x50)) + 0x28) & 2) {
         return 1;
     }
-    return test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0;
+    return test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 2) != 0;
 }
 
 typedef char RecoveredGlobal_80223A48_lbl_8050E208_size[sizeof(RecoveredGlobal_80223A48_lbl_8050E208) == 0x1B0 ? 1 : -1];
@@ -71,7 +71,7 @@ bool TShopWindowBase::sub_80223A48() {
     if (*(s32 *)((s8 *)((u8 *)&(*(RecoveredGlobal_80223A48_lbl_8050E208 *)&controller_input_state).value + (((TRaderMapCore *)(*(s32 *)((s8 *)arg0 + 0x24)))->get_map_id() * 0x50)) + 0x28) & 4) {
         return 1;
     }
-    return test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&(*(RecoveredGlobal_80223A48_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (4)) != 0;
+    return test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&(*(RecoveredGlobal_80223A48_lbl_8050E208 *)&controller_input_state).value + 0x160), 4) != 0;
 }
 
 void TShopWindowBase::run_task() {

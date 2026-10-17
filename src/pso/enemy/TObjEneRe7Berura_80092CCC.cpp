@@ -470,7 +470,7 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
                 if (f1 != 0) {
                     TObjEneRe7Berura::set_global_state((s32)((void *)TObjEneRe7Berura::demo_frame_callback));
                     ((TObjEneRe7Berura *)o)->draw();
-                    TObjEneRe7Berura::set_global_state((s32)0);
+                    TObjEneRe7Berura::set_global_state(0);
                 }
                 ((Fade_80092CCC *)fade)->v.m7();
             } else {
@@ -480,7 +480,7 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
                 } else {
                     ((TObjEnemy *)o)->render_world_model();
                 }
-                TObjEneRe7Berura::set_global_state((s32)0);
+                TObjEneRe7Berura::set_global_state(0);
             }
         } else {
             re7_berura_demo_state = 0;
@@ -495,7 +495,7 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
                     if (f2 != 0) {
                         TObjEneRe7Berura::set_global_state((s32)((void *)TObjEneRe7Berura::advance_state));
                         ((TObjEneRe7Berura *)o)->draw();
-                        TObjEneRe7Berura::set_global_state((s32)0);
+                        TObjEneRe7Berura::set_global_state(0);
                     }
                     o->f3D8.v.m7();
                 }
@@ -503,7 +503,7 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
                 ((Fade_80092CCC *)fade)->v.m6();
                 TObjEneRe7Berura::set_global_state((s32)((void *)TObjEneRe7Berura::advance_state));
                 ((TObjEneRe7Berura *)o)->draw();
-                TObjEneRe7Berura::set_global_state((s32)0);
+                TObjEneRe7Berura::set_global_state(0);
                 ((Fade_80092CCC *)fade)->v.m7();
             } else if (mode == 1) {
                 ((TObjEneRe7Berura *)o)->draw();
@@ -605,7 +605,7 @@ void TObjEneRe7Berura::update_death_state(s32 mode) {
             if (((VObj_14_c1c33b *)((u8 *)self + 0x3D8))->m4() != 0) {
                 self->f4C4 = 4;
                 self->f3C0 |= 1;
-                TObjPlayer::apply_effect_variant_b((s32)((u8 *)self + 0x38), (s32)0);
+                TObjPlayer::apply_effect_variant_b((s32)((u8 *)self + 0x38), 0);
                 queue_destruction__7TObjectFv(self);
             }
         }

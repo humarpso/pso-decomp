@@ -83,7 +83,7 @@ void TEffClitical::render() {
     s32 sp8;
     s32 temp_r3;
     set_depth_buffer_settings_1();
-    init_texture_copy_rect((void *)((void *) (&sp8)), (s32)((void *) (lbl_8048E2E0)), (s32)((void *) (technique_ringwave_texture_list)), (s32)((int) (0)), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x70) + 1)));
+    init_texture_copy_rect((void *)((void *) (&sp8)), (s32)((void *) (lbl_8048E2E0)), (s32)((void *) (technique_ringwave_texture_list)), 0, (s32)((int) (*(s32 *)((s8 *)arg0 + 0x70) + 1)));
     temp_r3 = model_render_flags;
     lbl_805D5660 = temp_r3;
     model_render_flags = temp_r3 | 0x10;
@@ -93,8 +93,8 @@ void TEffClitical::render() {
     push_matrix();
     TObjFish::set_global_param((s32)((void *) (lbl_8048E2E0)));
     post_translate_matrix((void *) ((u8 *)(arg0) + 0x20));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)camera_ctrl_instance + 0x194)));
-    scale_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg0 + 0x3C)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)), (f32) (*(f32 *)((s8 *)arg0 + 0x44)));
+    rotate_matrix_y(0, (int) (*(s32 *)((s8 *)camera_ctrl_instance + 0x194)));
+    scale_matrix(0, (f32) (*(f32 *)((s8 *)arg0 + 0x3C)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)), (f32) (*(f32 *)((s8 *)arg0 + 0x44)));
     draw_chunk_object((void *)(*(s32 *)((s8 *)lbl_805D4ED8 + 0)));
     pop_matrix();
     copy_slot_to_anim_frame((void *) (&sp8));
@@ -134,19 +134,19 @@ void TEffClitical::run_task() {
         do {
             switch (var_r30) {
             case 0:
-                spawn_particle_effect((arg0 + 0x20), (7));
+                spawn_particle_effect((arg0 + 0x20), 7);
                 break;
             case 1:
-                spawn_particle_effect((arg0 + 0x20), (0xB));
+                spawn_particle_effect((arg0 + 0x20), 0xB);
                 break;
             case 2:
                 stack.sp8 = *(f32 *)((s8 *)arg0 + 0x20);
                 stack.spC = *(f32 *)((s8 *)arg0 + 0x24) - lbl_805D93A8;
                 stack.sp10 = *(f32 *)((s8 *)arg0 + 0x28);
-                spawn_particle_effect((&stack.sp8), (0xC));
+                spawn_particle_effect((&stack.sp8), 0xC);
                 break;
             case 3:
-                spawn_particle_effect((arg0 + 0x20), (0xE));
+                spawn_particle_effect((arg0 + 0x20), 0xE);
                 break;
             }
             var_r30 += 1;

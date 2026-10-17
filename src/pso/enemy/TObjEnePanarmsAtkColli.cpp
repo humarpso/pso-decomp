@@ -505,7 +505,7 @@ void TObjEnePanarmsAtkColli::run_task() {
         ((void (*)(void *))fn_800E35C8)(arg0);
         return;
     case 1:
-        play_persistent_sound((s32)(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003BA2A)), (s32)arg0, (u32)&this->position, (s32)(0), (s32)(0));
+        play_persistent_sound((s32)(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003BA2A)), (s32)arg0, (u32)&this->position, 0, 0);
         ((void (*)(void *))fn_800E3428)(arg0);
         return;
     }

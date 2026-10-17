@@ -1259,7 +1259,7 @@ void init_battle_ctrl__6TLobbyFii(s32 arg0, s32 arg1) {
         (*(u32 *)&TLobby__battle_mode_data_ptr) = var_r3;
     }
     if ((u32) (*(u32 *)&TLobby__battle_mode_data_ptr) != 0U) {
-        strncpy((void *)((*(u32 *)&TLobby__battle_mode_data_ptr) + 0x68), (void *)(arg1), (int)(0x200));
+        strncpy((void *)((*(u32 *)&TLobby__battle_mode_data_ptr) + 0x68), (void *)(arg1), 0x200);
         TLobby__battle_config_ptr = arg0;
     }
 }
@@ -1560,7 +1560,7 @@ void update_duel_result__6TLobbyFPv(u8 *arg0) {
         }
         break;
     case 6:
-        if (check_team_balance__6TLobbyFPvi((Lobby_801C484C *)((Lobby_801C484C *)arg0), (s32)(0)) != 0) {
+        if (check_team_balance__6TLobbyFPvi((Lobby_801C484C *)((Lobby_801C484C *)arg0), 0) != 0) {
             send_battle_mode_params__6TLobbyFcii(5, 1, 0);
         } else {
             q = (void *)update_battle_controller__10TObjPlayerFv();
@@ -1622,7 +1622,7 @@ void update_duel_result__6TLobbyFPv(u8 *arg0) {
         }
         *(s32 *)((s8 *)arg0 + 0x20) = 8;
     case 8:
-        if (check_team_balance__6TLobbyFPvi((Lobby_801C484C *)((Lobby_801C484C *)arg0), (s32)(0)) != 0) {
+        if (check_team_balance__6TLobbyFPvi((Lobby_801C484C *)((Lobby_801C484C *)arg0), 0) != 0) {
             send_battle_mode_params__6TLobbyFcii(5, 1, 0);
         } else {
             p = (void *)((u32 (*)(s32))get_player_by_client_id)(local_client_id);
@@ -1680,7 +1680,7 @@ void update_timed_wait__6TLobbyFPv(Lobby_801C484C *self) {
         start_duel_battle__6TLobbyFPv(self);
         self->state = 1;
     case 1:
-        if (check_team_balance__6TLobbyFPvi((Lobby_801C484C *)(self), (s32)(1)) != 0) {
+        if (check_team_balance__6TLobbyFPvi((Lobby_801C484C *)(self), 1) != 0) {
             send_battle_mode_params__6TLobbyFcii(5, 0, 0);
             return;
         }
@@ -1782,7 +1782,7 @@ void update_battle_intro__6TLobbyFPv(Lobby_801C49B8 *self) {
         if (check_all_players_ready__6TLobbyFv(self) != 0 || self->timer2 <= 0) {
             void *o = (void *)__nw__7TObjectFUl(0x28);
             if (o != NULL) {
-                __ct__15TDuelEffectCtrlFP7TObjectUc((void *)(o), (void *)(self), (int)(0));
+                __ct__15TDuelEffectCtrlFP7TObjectUc((void *)(o), (void *)(self), 0);
             }
             self->timer = 0x96;
             self->state = 8;

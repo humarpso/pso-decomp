@@ -86,10 +86,10 @@ void TObjTreeLobby::render() {
         TObjFish::set_global_param((int) (this->texture_id));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        rotate_matrix_y(0, (int) (this->rotation_y));
         if ((s32) *(s32 *)&this->m_c8 != 3) {
             temp_f1 = *(f32 *)&this->unk_CC;
-            scale_matrix((int) (0), (f32) (temp_f1), (f32) (1.0f), (f32) (temp_f1));
+            scale_matrix(0, (f32) (temp_f1), (f32) (1.0f), (f32) (temp_f1));
         }
         draw_ginja_object((void *)(*(s32 *)&this->model));
         pop_matrix();

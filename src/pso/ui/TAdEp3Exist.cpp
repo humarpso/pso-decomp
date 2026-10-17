@@ -103,8 +103,8 @@ void TAdEp3Exist::draw_message_window(s32 arg1) {
     s32 arg0 = (s32)this;
     f32 temp_f31;
     draw_window_frame((void *) (arg0), (void *) (arg1));
-    temp_f31 = lbl_805E0440 - (f32) (calc_text_width((char *)(get_localized_text_entry((0x2C), (0xA)))) >> 1U);
-    render_status_line__15TAdSubPlyItemGCFi((int) (get_localized_text_entry((0x2C), (0xA))), (int) (-1), (f32) (temp_f31), (f32) (lbl_805E0444), (f32) (lbl_805E0448));
+    temp_f31 = lbl_805E0440 - (f32) (calc_text_width((char *)(get_localized_text_entry(0x2C, 0xA))) >> 1U);
+    render_status_line__15TAdSubPlyItemGCFi((int) (get_localized_text_entry(0x2C, 0xA)), -1, (f32) (temp_f31), (f32) (lbl_805E0444), (f32) (lbl_805E0448));
 }
 
 void TAdEp3Exist::render() {
@@ -228,7 +228,7 @@ void *TAdEp3Exist__ct(Ep3_8036F354 *o) {
     }
     r = (u32)__nw__7TObjectFUl(0x54);
     if (r != 0) {
-        r = (u32)TAdScrollWinGC__ct((void *)r, (void *)o, (s32)(3), (s32)(get_localized_text_entry((s32)(0x2C), (s32)(9))));
+        r = (u32)TAdScrollWinGC__ct((void *)r, (void *)o, 3, (s32)(get_localized_text_entry(0x2C, 9)));
     }
     o->win1C = r;
     r = (u32)__nw__7TObjectFUl(0x708);

@@ -56,8 +56,8 @@ void launch_slicer_shot(u8 *weapon) {
     get_weapon_color__11TItemWeaponFPv(tmp, weapon);
     copy_vec4__13TRaderMapCoreFPvPv(launch.color, tmp);
     launch.facing = *(s32 *)((s8 *)(*(u8 * *)&((TUnk_804A5B20 *)weapon)->player) + 0x60);
-    ((TObjPlayer *)weapon)->draw_icon((s32)1, (s32)launch.first);
-    ((TObjPlayer *)weapon)->draw_icon((s32)2, (s32)launch.second);
+    ((TObjPlayer *)weapon)->draw_icon(1, (s32)launch.first);
+    ((TObjPlayer *)weapon)->draw_icon(2, (s32)launch.second);
     TTecSlicer::create((u16*)(&launch));
 }
 
@@ -71,7 +71,7 @@ void TObjPlayer::update_slicer_hinge_idle() {
     case 5:
     {
       s32 lim;
-      TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x1F8), (s32)((int)(0x1555)), (s32)((int)(0x8000)));
+      TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x1F8), 0x1555, 0x8000);
       new_var = 0x8000;
       if (new_var <= ((s32) (*((s32 *) (((s8 *) arg0) + 0x1F8)))))
       {
@@ -83,7 +83,7 @@ void TObjPlayer::update_slicer_hinge_idle() {
       break;
     case 7:
       TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x204), (f32)lbl_805DAF48, (f32)lbl_805DAF4C);
-      TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x1F8), (s32)((int)(-0x1555)), (s32)((int)(-0x8000)));
+      TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x1F8), -0x1555, -0x8000);
       break;
   }
 }
@@ -98,14 +98,14 @@ void TUnk_804A5B20::update_attack() {
       TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x204), (f32)((f32) lbl_805DAF50), (f32)((f32) lbl_805DAF38));
       if (lbl_805DAF38 <= (this->m_204))
     {
-      TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x1F8), (s32)((int) (-0x2AAA)), (s32)((int) 0));
+      TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x1F8), -0x2AAA, 0);
     }
     case 6:
       return;
     return;
     case 7:
       TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x204), (f32)((f32) lbl_805DAF54), (f32)((f32) lbl_805DAF3C));
-      TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x1F8), (s32)((int) 0x2AAA), (s32)((int) 0));
+      TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x1F8), 0x2AAA, 0);
       break;
   }
 }

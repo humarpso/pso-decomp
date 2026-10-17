@@ -130,10 +130,10 @@ void *__ct__7TSwitchFv(void *arg0) {
     return arg0;
 }
 void clear_switch_table(void) {
-    memset((void *) TSwitch__floor_switch_table, (int) (0), (int) (0x240));
+    memset((void *) TSwitch__floor_switch_table, 0, 0x240);
 }
 void init_switch_table(void) {
-    memset((void *) TSwitch__floor_switch_table, (int) (0), (int) (0x240));
+    memset((void *) TSwitch__floor_switch_table, 0, 0x240);
 }
 TSwitch::~TSwitch() {}
 

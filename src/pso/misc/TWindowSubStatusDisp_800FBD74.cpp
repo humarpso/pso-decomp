@@ -128,9 +128,9 @@ void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg
     f32 temp_f7;
     f32 temp_f8;
     TObjPlayer::reset_transform_state();
-    begin_screen_draw((1));
+    begin_screen_draw(1);
     render_forward__20TWindowSubStatusDispFPv();
-    set_draw_texture_and_color((0), (arg0));
+    set_draw_texture_and_color(0, (arg0));
     stack.sp8 = farg0;
     stack.spC = farg1;
     stack.sp10 = (109.0f) + farg0;

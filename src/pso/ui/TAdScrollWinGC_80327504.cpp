@@ -100,7 +100,7 @@ void *TAdScrollWinGC__ct(void *arg0, void *arg1, s32 arg2, s32 arg3) {
     *(s32 *)&((TAdScrollWinGC *)arg0)->m_4c = 0;
     *(s32 *)&((TAdScrollWinGC *)arg0)->m_50 = 0;
     base = ((TAdScrollWinGC *)arg0)->get_scroll_delay_for_mode();
-    *(s32 *)&((TAdScrollWinGC *)arg0)->m_40 = (s32)create_message_log_window((s32)lbl_80476770, (s32)lbl_80476778, (s32)(0));
+    *(s32 *)&((TAdScrollWinGC *)arg0)->m_40 = (s32)create_message_log_window((s32)lbl_80476770, (s32)lbl_80476778, 0);
     switch (*(s32 *)&((TAdScrollWinGC *)arg0)->m_44) {
     case 0:
     case 1:

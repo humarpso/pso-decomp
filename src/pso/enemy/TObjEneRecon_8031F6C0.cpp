@@ -56,10 +56,10 @@ void TObjEneRecobox::sub_8031F6C0(s32 arg1) {
         *(s32 *)((s8 *)this + 0x40C) = temp_r4;
         *(s16 *)((s8 *)this + 0xB8) = 0;
         ((VObj_8031F6C0 *)this)->m93(temp_r4);
-        set_field_378((int)(0));
+        set_field_378(0);
         return;
     case 3:
-        transition_enemy_state((void *)(this), (int)(1));
+        transition_enemy_state((void *)(this), 1);
     case 5:
     case 0:
         return;
@@ -76,12 +76,12 @@ void TObjEneRecon::handle_state(s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x40C) = temp_r4;
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
         this->vfunc_95();
-        ((TObjEneDD *)arg0)->set_field_378((int)(0));
+        ((TObjEneDD *)arg0)->set_field_378(0);
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3C0);
         return;
     case 3:
         if (((V_Sub_8031f748 *) (arg0 + 0x3C0))->m5() != 0) {
-            transition_enemy_state((void *)(arg0), (int)(2));
+            transition_enemy_state((void *)(arg0), 2);
         }
     case 5:
         return;

@@ -8,7 +8,7 @@
 
 extern "C" {
 
-int TBoss8Dragon::test_card_flag_2() { return TWindowKeyBoardHard::test_card_flag((s32)this, (s32)2); }
+int TBoss8Dragon::test_card_flag_2() { return TWindowKeyBoardHard::test_card_flag((s32)this, 2); }
 
 void TBoss8Dragon::set_speed(f32 v) { this->m_10 = v; }
 

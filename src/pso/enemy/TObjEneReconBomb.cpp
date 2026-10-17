@@ -149,19 +149,19 @@ void TObjEneReconBomb::render() {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    bml_model = get_bml_model((void *) (recon_bomb_bml_resource), (int) (2));
-    temp_r30 = TObjFish__sub_8001EDB0((void *) (recon_bomb_bml_resource), (int) (2));
+    bml_model = get_bml_model((void *) (recon_bomb_bml_resource), 2);
+    temp_r30 = TObjFish__sub_8001EDB0((void *) (recon_bomb_bml_resource), 2);
     push_matrix();
-    translate_matrix((0), (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) ((2.0f) + *(f32 *)((s8 *)arg0 + 0x3C)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
-    rotate_matrix_zyx((0), (*(s32 *)&this->m_5c), (this->rotation_y), (this->rotation_z));
+    translate_matrix(0, (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) ((2.0f) + *(f32 *)((s8 *)arg0 + 0x3C)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
+    rotate_matrix_zyx(0, (*(s32 *)&this->m_5c), (this->rotation_y), (this->rotation_z));
     TObjFish::set_global_param((int) (temp_r30));
     draw_chunk_object((void *)(bml_model));
     pop_matrix();
     push_matrix();
-    translate_matrix((0), (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) ((0.1f) + this->m_348), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
+    translate_matrix(0, (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) ((0.1f) + this->m_348), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
     direction_to_rotation_xz(((u8 *)&this->m_248), (&spC), (&sp8));
-    rotate_matrix_z((int) (0), (int) (sp8));
-    rotate_matrix_x((int) (0), (void *) (spC + 0x4000));
+    rotate_matrix_z(0, (int) (sp8));
+    rotate_matrix_x(0, (void *) (spC + 0x4000));
     var_f1 = *(f32 *)((s8 *)arg0 + 0x3C) - this->m_348;
     if (var_f1 > 40.0f) {
         var_f1 = 40.0f;
@@ -171,7 +171,7 @@ void TObjEneReconBomb::render() {
     sc.x = sc.y = 0.65f * (1.0f - (var_f1 / 40.0f)) + 0.1f;
     sc.z = 1.0f;
     scale_current_matrix((void *) (&sc));
-    draw_blob_shadow((0));
+    draw_blob_shadow(0);
     pop_matrix();
 }
 #pragma pop

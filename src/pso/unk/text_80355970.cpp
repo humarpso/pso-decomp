@@ -33,7 +33,7 @@ s32 spawn_gryphon_tornado(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
         return 0;
     }
     stack.spC = temp_f1;
-    temp_r3_2 = __nw__7TObjectFUl((int) (0x5C));
+    temp_r3_2 = __nw__7TObjectFUl(0x5C);
     var_r0 = temp_r3_2;
     if (var_r0 != 0) {
         var_r0 = TBoss5GryphonTornado__ct((int) (temp_r3_2), (void *) (arg0), (void *) (arg1), (void *) (&stack.sp8), (void *) (arg3));

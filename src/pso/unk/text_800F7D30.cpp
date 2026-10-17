@@ -23,7 +23,7 @@ u32 prs_decompress_alloc(s32 arg0, s32 arg1) {
   var_r28 = arg0;
   var_r29 = arg1;
   var_r3 = 0x30U;
-  var_r31 = ((TAdSinglePlyChrSelectGC *)((int) 0x30))->alloc();
+  var_r31 = ((TAdSinglePlyChrSelectGC *)(0x30))->alloc();
   phi_r30 = saved_reg_r30;
   if (var_r31 != 0U)
   {
@@ -35,14 +35,14 @@ u32 prs_decompress_alloc(s32 arg0, s32 arg1) {
     src = var_r29;
     var_r5 = var_r28;
     var_r6 = 0;
-    var_r30_2 = prs_decompress((int) var_r3, (int) src, (int) var_r5, (int) 0);
+    var_r30_2 = prs_decompress((int) var_r3, (int) src, (int) var_r5, 0);
     phi_r30 = var_r30_2;
   }
   if (var_r31 != 0U)
   {
     var_r3 = var_r31;
     src = 1;
-    TLobby::destroy_ep3_exist((int) var_r3, (int) 1);
+    TLobby::destroy_ep3_exist((int) var_r3, 1);
   }
   var_r3 = phi_r30;
   return var_r3;

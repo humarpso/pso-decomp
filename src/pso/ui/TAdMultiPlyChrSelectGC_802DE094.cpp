@@ -58,7 +58,7 @@ void TAdMultiPlyChrSelectGC::open_windows() {
     destroy_windows__14TAdGameStartGCFPv(*(s32 *)((s8 *)this + 0x78));
     TAdMultiPlyChrSelectGC::set_select_mode(*(s32 *)((s8 *)this + 0x5C), 1);
     ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x60)))->set_index_and_close_status(1);
-    *(s32 *)((s8 *)this + 0x68) = (s32)get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii((s32)this, (s32)(2));
+    *(s32 *)((s8 *)this + 0x68) = (s32)get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii((s32)this, 2);
     *(s32 *)((s8 *)this + 0x6C) = create__16TAdChrSelBSlotGCFPv(this);
     set_entry_value__22TAdMultiPlyChrSelectGCFlUl(*(s32 *)((s8 *)this + 0x64), 0, &TAdMultiPlyChrSelectGC__data_805DE898);
     set_entry_value__22TAdMultiPlyChrSelectGCFlUl(*(s32 *)((s8 *)this + 0x64), 1, &TAdMultiPlyChrSelectGC__data_805DE898);
@@ -70,7 +70,7 @@ void TAdMultiPlyChrSelectGC::init_windows() {
         TWindow__close(*(void **)((s8 *)this + 0x7C));
         *(u32 *)((s8 *)this + 0x7C) = 0U;
     }
-    TAdMultiPlyChrSelectGC__sub_802E006C((u8 *)(*(s32 *)((s8 *)this + 0x5C)), (2), (2));
+    TAdMultiPlyChrSelectGC__sub_802E006C((u8 *)(*(s32 *)((s8 *)this + 0x5C)), 2, 2);
     ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x5C)))->set_field_4ec((s32)((void*)(2)));
     ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x5C)))->set_state(1);
     ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x60)))->set_field_100(1);

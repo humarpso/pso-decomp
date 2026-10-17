@@ -595,7 +595,7 @@ void TWindowKeyBoardBase::sub_8025E6DC(u8 *arg1) {
     if (!(*(u16 *)((s8 *)((u8 *)this) + 0x62) & 2) || ((s32) *(s32 *)((s8 *)arg1 + 0x30) >= 0)) {
         stack.sp10 = *(f32 *)((s8 *)arg1 + 0x10);
         stack.sp14 = *(f32 *)((s8 *)arg1 + 0x14);
-        TWindowSubStatusDisp__sub_8025E530((void *) (((u8 *)this)), (void *) (arg1), (void *) (&stack.sp10), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x6C)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x70)), (int) (0));
+        TWindowSubStatusDisp__sub_8025E530((void *) (((u8 *)this)), (void *) (arg1), (void *) (&stack.sp10), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x6C)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x70)), 0);
         temp_r3 = *(u16 *)((s8 *)((u8 *)this) + 0x60);
         if (temp_r3 & 2) {
             if (temp_r3 & 4) {
@@ -605,22 +605,22 @@ void TWindowKeyBoardBase::sub_8025E6DC(u8 *arg1) {
                 TWindowSubStatusDisp__sub_8025E148((void *) (((u8 *)this)), (void *) (arg1), (void *) (&stack.sp10), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x84)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x94)));
             }
         }
-        TWindowSubStatusDisp::reset_gauge((int) (0));
+        TWindowSubStatusDisp::reset_gauge(0);
         stack.sp10 = *(f32 *)((s8 *)arg1 + 0x10);
         stack.sp14 = *(f32 *)((s8 *)arg1 + 0x14);
-        TWindowSubStatusDisp__sub_8025E530((void *) (((u8 *)this)), (void *) (arg1), (void *) (&stack.sp10), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x6C)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x70)), (int) (1));
+        TWindowSubStatusDisp__sub_8025E530((void *) (((u8 *)this)), (void *) (arg1), (void *) (&stack.sp10), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x6C)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x70)), 1);
         temp_r3_2 = *(u16 *)((s8 *)((u8 *)this) + 0x60);
         if (temp_r3_2 & 2) {
             if (temp_r3_2 & 4) {
                 ((TWindowKeyBoardBase *)((u8 *)this))->draw_wrapped_text((void *) (arg1), (void *) (&stack.sp10));
             } else {
-                TWindowSubStatusDisp__sub_8025E530((void *) (((u8 *)this)), (void *) (arg1), (void *) (&stack.sp10), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x84)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x88)), (int) (1));
+                TWindowSubStatusDisp__sub_8025E530((void *) (((u8 *)this)), (void *) (arg1), (void *) (&stack.sp10), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x84)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x88)), 1);
                 stack.sp8 = stack.sp10;
                 stack.spC = stack.sp14;
                 temp_r3_3 = *(s32 *)((s8 *)((u8 *)this) + 0x88);
                 temp_r7 = *(s32 *)((s8 *)((u8 *)this) + 0x94) - temp_r3_3;
                 if (temp_r7 != 0) {
-                    TWindowSubStatusDisp__sub_8025E530((void *) (((u8 *)this)), (void *) (arg1), (void *) (&stack.sp10), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x84) + (temp_r3_3 * 2)), (int) (temp_r7), (int) (1));
+                    TWindowSubStatusDisp__sub_8025E530((void *) (((u8 *)this)), (void *) (arg1), (void *) (&stack.sp10), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x84) + (temp_r3_3 * 2)), (int) (temp_r7), 1);
                 }
             }
         } else {
@@ -630,7 +630,7 @@ void TWindowKeyBoardBase::sub_8025E6DC(u8 *arg1) {
         temp_r3_4 = *(s32 *)((s8 *)((u8 *)this) + 0x70);
         temp_r7_2 = *(s32 *)((s8 *)((u8 *)this) + 0x7C) - temp_r3_4;
         if (temp_r7_2 != 0) {
-            TWindowSubStatusDisp__sub_8025E530((void *) (((u8 *)this)), (void *) (arg1), (void *) (&stack.sp10), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x6C) + (temp_r3_4 * 2)), (int) (temp_r7_2), (int) (1));
+            TWindowSubStatusDisp__sub_8025E530((void *) (((u8 *)this)), (void *) (arg1), (void *) (&stack.sp10), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x6C) + (temp_r3_4 * 2)), (int) (temp_r7_2), 1);
         }
         end_render_forward__20TWindowSubStatusDispFPv();
         if ((var_r31 != 0) && !(*(s32 *)((s8 *)((u8 *)this) + 0x2C) & 2)) {

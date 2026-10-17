@@ -191,7 +191,7 @@ u8 *TObjPlayer__sub_8001A8F0(u8 *arg0, s32 arg1) {
     stack.sp8 = *(s32 *)((s8 *)(&lbl_8043455C.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_8043455C.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_8043455C.value) + 8);
-    temp_r3 = ((TObjPlayer *)(get_char_index__23TAdSinglePlyChrSelectGCFUi((0xFFFF))))->create_ending_player();
+    temp_r3 = ((TObjPlayer *)(get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF)))->create_ending_player();
     lbl_805D49E0 = temp_r3;
     query_darkfalz_state__10TObjPlayerFv((int) (temp_r3), (void *) (&stack.sp8));
     init__9TItemDataFv((void *) (&stack.sp14));

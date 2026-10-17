@@ -55,9 +55,9 @@ void TWindowSubStatusDisp::draw_tiled_background() {
     s32 i;
     s32 j;
     f32 buf[8];
-    begin_screen_draw((1));
+    begin_screen_draw(1);
     TObjFish::set_global_param((s32)((void *) (TBGMulti__textures)));
-    set_draw_texture_and_color((0), (-1));
+    set_draw_texture_and_color(0, -1);
     i = 0;
     buf[4] = 0.5f;
     buf[5] = 0.0f;
@@ -89,9 +89,9 @@ void TWindowSubStatusDisp__sub_8036D994(void) {
     f32 buf[8];
     if (split_screen_hud_animation_frame <= 0x1E) {
         TObjPlayer::init_xyz_limits();
-        begin_screen_draw((1));
+        begin_screen_draw(1);
         TObjFish::set_global_param((s32)((void *) (TBGMulti__textures)));
-        set_draw_texture_and_color((0), (-1));
+        set_draw_texture_and_color(0, -1);
         i = 0;
         buf[0] = 0.0f;
         buf[1] = 10.133333f * split_screen_hud_animation_frame + 176.0f;
@@ -117,9 +117,9 @@ void TWindowSubStatusDisp::draw_bottom_bar() {
   s32 var_r31;
   f32 buffer_8[8];
   f32 temp_f31;
-  begin_screen_draw((int) 1);
+  begin_screen_draw(1);
   TObjFish::set_global_param((s32)((void *) TBGMulti__textures));
-  set_draw_texture_and_color((int) 0, (-1));
+  set_draw_texture_and_color(0, -1);
   var_r31 = 0;
   ;
   buffer_8[0] = (0.0f);

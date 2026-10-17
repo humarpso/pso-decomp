@@ -133,20 +133,20 @@ void draw_item_row__20TWindowSubStatusDispFPvPv(Item_80338890 *arg0, Win_8033889
   scale = lbl_805DF9C4 / (lbl_805DF9C8 + arg1->x38);
   draw_item_list_icon(arg1, &pos, arg0->c1c, -1, scale);
   pos.x += lbl_805DF9CC;
-  set_text_draw_params((s32)arg1, (s32)(1), (s32)(1), (f32)scale, (f32)lbl_805DF9D0);
-  draw_window_text((f32 *)&pos, (const char *)arg0->x24, (s32)(-1), (s32)(1), (f32)lbl_805DF9D0);
+  set_text_draw_params((s32)arg1, 1, 1, (f32)scale, (f32)lbl_805DF9D0);
+  draw_window_text((f32 *)&pos, (const char *)arg0->x24, -1, 1, (f32)lbl_805DF9D0);
   pos.x += lbl_805DF9D4;
-  draw_window_text((f32 *)&pos, (const char *)(TWindowSubStatusDisp::get_flag_or_zero(arg0, arg0->c1d)), (s32)(-1), (s32)(0), (f32)lbl_805DF9D0);
+  draw_window_text((f32 *)&pos, (const char *)(TWindowSubStatusDisp::get_flag_or_zero(arg0, arg0->c1d)), -1, 0, (f32)lbl_805DF9D0);
   pos.x += lbl_805DF9D8;
-  draw_window_text((f32 *)&pos, (const char *)(TWindowSubStatusDisp::query_status_field(arg0, arg0->c1e)), (s32)(-1), (s32)(0), (f32)lbl_805DF9D0);
+  draw_window_text((f32 *)&pos, (const char *)(TWindowSubStatusDisp::query_status_field(arg0, arg0->c1e)), -1, 0, (f32)lbl_805DF9D0);
   pos.x += lbl_805DF9DC;
-  draw_window_text((f32 *)&pos, (const char *)(((s32 (*)(void *, s8)) TWindowSubStatusDisp__sub_803387F8)(arg0, arg0->c1f)), (s32)(-1), (s32)(0), (f32)lbl_805DF9D0);
+  draw_window_text((f32 *)&pos, (const char *)(((s32 (*)(void *, s8)) TWindowSubStatusDisp__sub_803387F8)(arg0, arg0->c1f)), -1, 0, (f32)lbl_805DF9D0);
   pos.x += lbl_805DF9E0;
   text_builder_reset();
   TWindowSubStatusDisp__sub_80228F5C(arg0->c20);
   text_builder_append((u8 *)lbl_805D6D68);
   TWindowSubStatusDisp__sub_80228F5C(arg0->c21);
-  draw_window_text((f32 *)&pos, (const char *)(get_shared_text_buffer()), (s32)(-1), (s32)(0), (f32)lbl_805DF9D0);
+  draw_window_text((f32 *)&pos, (const char *)(get_shared_text_buffer()), -1, 0, (f32)lbl_805DF9D0);
 }
 
 void TWindowSubStatusDisp__sub_80338A9C(void) {  }

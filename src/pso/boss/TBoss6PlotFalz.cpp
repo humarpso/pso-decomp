@@ -1018,8 +1018,8 @@ void TBoss6PlotFalz::apply_fade_material_color(f32 farg0, f32 farg1, f32 farg2, 
         lbl_805D5664 = chunk_polygon_flags_and_mask;
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         model_render_flags = temp_r5 | lbl_805DE0C8;
-        set_chunk_material_override_pair((int) (0), (int) (0x800), (int) (temp_r5), (void *) (chunk_polygon_flags_or_mask), (void *) (chunk_polygon_flags_and_mask), (int) (temp_r8));
-        set_chunk_blend((0x2500));
+        set_chunk_material_override_pair(0, 0x800, (int) (temp_r5), (void *) (chunk_polygon_flags_or_mask), (void *) (chunk_polygon_flags_and_mask), (int) (temp_r8));
+        set_chunk_blend(0x2500);
         stack.sp8 = 1.0f;
         temp_f2 = -((TBoss6PlotFalz__fade_amount * (1.0f - farg1)) - 1.0f);
         temp_f1 = -((TBoss6PlotFalz__fade_amount * (1.0f - farg2)) - 1.0f);
@@ -1542,7 +1542,7 @@ u8 *__dt__14TBoss6PlotFalzFv(u8 *arg0, s16 arg1) {
     destroy_static_instance__14TBoss6PlotFalzFv((void *) arg0);
     TBoss6PlotFalz__instance = 0;
     TBoss6PlotFalz__fade_amount = (-1.0f);
-    __dt__9TObjEnemyFv(arg0, (int) 0);
+    __dt__9TObjEnemyFv(arg0, 0);
     if (arg1 > 0)
     {
       __dl__7TObjectFPv((void *) arg0);
@@ -1568,10 +1568,10 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     TBoss4DarkFalz__sub_8004B4F0((arg0 + 0x388), (void *)(arg2));
     *(s16 *)((s8 *)arg0 + 0x38A) = 0;
-    if (((TObjEnemy *)arg0)->exchange_object_state((s32)((void *) (&sp8)), (s16)((int) (1))) != 0) {
+    if (((TObjEnemy *)arg0)->exchange_object_state((s32)((void *) (&sp8)), (s16)(1)) != 0) {
         sp8.a = 0;
         sp8.c = 0;
-        ((TObjEnemy *)arg0)->exchange_object_state((s32)((void *) (&sp8)), (s16)((int) (0)));
+        ((TObjEnemy *)arg0)->exchange_object_state((s32)((void *) (&sp8)), (s16)(0));
     }
     VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(VecCopy((Vec *)(arg0 + 0x50), (const Vec *)(VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38))))));
     VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
@@ -1579,9 +1579,9 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0x30C) = (f32) 0.0f;
     *(f32 *)((s8 *)arg0 + 0x308) = (f32) 0.0f;
     *(s32 *)((s8 *)arg0 + 0x2A8) = 0;
-    temp_r30 = register_boss__6TLobbyFl((int) (0x2C));
-    temp_r29 = dispatch_shared_handler_b__6TLobbyFl((int) (0x2C));
-    temp_r6 = register_object__6TLobbyFl((int) (0x2C));
+    temp_r30 = register_boss__6TLobbyFl(0x2C);
+    temp_r29 = dispatch_shared_handler_b__6TLobbyFl(0x2C);
+    temp_r6 = register_object__6TLobbyFl(0x2C);
     bind_enemy_combat_stats((arg0), (u8 *)(temp_r30), (u8 *)(temp_r29), (u8 *)(temp_r6));
     register_entity_by_id((arg0));
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x02000000);

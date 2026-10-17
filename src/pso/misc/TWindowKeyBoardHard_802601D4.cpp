@@ -70,7 +70,7 @@ void *__dt__19TWindowKeyBoardHardFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80260304_lbl_804CFAD0_size[sizeof(RecoveredGlobal_80260304_lbl_804CFAD0) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80260304___vt__19TWindowKeyBoardHard_size[sizeof(RecoveredGlobal_80260304___vt__19TWindowKeyBoardHard) == 0x1C ? 1 : -1];
 u8 *TWindowKeyBoardHard__ct(u8 *arg0, s32 arg1) {
-    ((TWindowDD *)arg0)->construct_base((u8 *)(&lbl_804CFAD0.value), (s16)((int) (4)), (u8 *)(get_window_layout_position((int) (0xB9))));
+    ((TWindowDD *)arg0)->construct_base((u8 *)(&lbl_804CFAD0.value), (s16)(4), (u8 *)(get_window_layout_position(0xB9)));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80260304___vt__19TWindowKeyBoardHard *)&__vt__19TWindowKeyBoardHard).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowKeyBoardHard__name;
     *(s32 *)&((TWindowKeyBoardHard *)arg0)->m_60 = 0;

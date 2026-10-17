@@ -112,7 +112,7 @@ s32 create_variant_13__14TObjNpcNgcBaseFi(s32 arg0) {
     {
       var_r30 = TObjControl__ct((int) temp_r3, (int) tl_04);
     }
-    temp_r3_2 = __nw__7TObjectFUl((int) 0x3B8);
+    temp_r3_2 = __nw__7TObjectFUl(0x3B8);
     var_r0 = temp_r3_2;
     if (var_r0 != 0)
     {
@@ -129,10 +129,10 @@ s32 TObjNpcNgcBase__sub_80358B70(s32 arg0) {
   int new_var;
   s32 var_r0;
   s32 var_r30;
-  new_var = (int) 0x3B8;
+  new_var = 0x3B8;
   if (((u32) (*((u32 *) (((s8 *) (&(*(RecoveredGlobal_80358B70_TObjNpcNgcBase__data_805439A8 *)&TObjNpcNgcBase__data_805439A8).value)) + 0x30)))) != 0U)
   {
-    temp_r3 = (var_r30 = __nw__7TObjectFUl((int) 0x20));
+    temp_r3 = (var_r30 = __nw__7TObjectFUl(0x20));
     if (var_r30 != 0)
     {
       var_r30 = TObjControl__ct((int) temp_r3, (int) tl_04);
@@ -155,12 +155,12 @@ s32 TObjNpcNgcBase__sub_80358BF8(s32 arg0) {
   s32 var_r30;
   if (((u32) (*((u32 *) (((s8 *) (&(*(RecoveredGlobal_80358BF8_TObjNpcNgcBase__data_805439A8 *)&TObjNpcNgcBase__data_805439A8).value)) + 0x2C)))) != 0U)
   {
-    temp_r3 = (var_r30 = __nw__7TObjectFUl((int) 0x20));
+    temp_r3 = (var_r30 = __nw__7TObjectFUl(0x20));
     if (var_r30 != 0)
     {
       var_r30 = TObjControl__ct((int) temp_r3, (int) tl_04);
     }
-    temp_r3_2 = __nw__7TObjectFUl((int) 0x3B8);
+    temp_r3_2 = __nw__7TObjectFUl(0x3B8);
     var_r0 = temp_r3_2;
     if (var_r0 != 0)
     {
@@ -180,12 +180,12 @@ s32 TObjNpcNgcBase__sub_80358C80(s32 arg0) {
   s32 var_r30;
   if (((u32) (*((u32 *) (((s8 *) (&(*(RecoveredGlobal_80358C80_TObjNpcNgcBase__data_805439A8 *)&TObjNpcNgcBase__data_805439A8).value)) + 0x28)))) != 0U)
   {
-    temp_r3 = (var_r30 = __nw__7TObjectFUl((int) 0x20));
+    temp_r3 = (var_r30 = __nw__7TObjectFUl(0x20));
     if (var_r30 != 0)
     {
       var_r30 = TObjControl__ct((int) temp_r3, (int) tl_04);
     }
-    temp_r3_2 = __nw__7TObjectFUl((int) 0x3B8);
+    temp_r3_2 = __nw__7TObjectFUl(0x3B8);
     var_r0 = temp_r3_2;
     if (var_r0 != 0)
     {
@@ -213,12 +213,12 @@ s32 TObjNpcNgcBase__sub_80358D08(s32 arg0) {
   new_var = (s8 *) (&(*(RecoveredGlobal_80358D08_TObjNpcNgcBase__data_805439A8 *)&TObjNpcNgcBase__data_805439A8).value);
   if (((u32) (*((u32 *) (new_var + 0x24)))) != 0U)
   {
-    temp_r3 = (var_r30 = __nw__7TObjectFUl((int) 0x20));
+    temp_r3 = (var_r30 = __nw__7TObjectFUl(0x20));
     if (var_r30)
     {
       var_r30 = TObjControl__ct((int) temp_r3, (int) tl_04);
     }
-    temp_r3_2 = __nw__7TObjectFUl((int) 0x3B8);
+    temp_r3_2 = __nw__7TObjectFUl(0x3B8);
     var_r0 = temp_r3_2;
     if (var_r0 != 0)
     {
@@ -237,12 +237,12 @@ s32 create_variant_8__14TObjNpcNgcBaseFi(s32 arg0) {
   s32 var_r30;
   if (((u32) (*((u32 *) (((s8 *) (&(*(RecoveredGlobal_80358D90_TObjNpcNgcBase__data_805439A8 *)&TObjNpcNgcBase__data_805439A8).value)) + 0x20)))) != 0U)
   {
-    temp_r3 = (var_r30 = __nw__7TObjectFUl((int) 0x20));
+    temp_r3 = (var_r30 = __nw__7TObjectFUl(0x20));
     if (var_r30 != 0)
     {
       var_r30 = TObjControl__ct((int) temp_r3, (int) tl_04);
     }
-    var_r0 = __nw__7TObjectFUl((int) 0x3B8);
+    var_r0 = __nw__7TObjectFUl(0x3B8);
     temp_r3_2 = var_r0;
     var_r0 = temp_r3_2;
     if (var_r0 != 0)
@@ -264,12 +264,12 @@ s32 create_variant_7__14TObjNpcNgcBaseFi(s32 arg0) {
   new_var = (s8 *) (&(*(RecoveredGlobal_80358E18_TObjNpcNgcBase__data_805439A8 *)&TObjNpcNgcBase__data_805439A8).value);
   if (((u32) (*((u32 *) (new_var + 0x1C)))) != 0U)
   {
-    temp_r3 = (var_r30 = __nw__7TObjectFUl((int) 0x20));
+    temp_r3 = (var_r30 = __nw__7TObjectFUl(0x20));
     if (var_r30 != 0)
     {
       var_r30 = TObjControl__ct((int) temp_r3, (int) tl_04);
     }
-    temp_r3_2 = __nw__7TObjectFUl((int) 0x3B8);
+    temp_r3_2 = __nw__7TObjectFUl(0x3B8);
     var_r0 = temp_r3_2;
     if (var_r0 != 0)
     {
@@ -292,12 +292,12 @@ s32 create_variant_6__14TObjNpcNgcBaseFi(s32 arg0) {
   s32 var_r30;
   if (((u32) (*((u32 *) (((s8 *) (&(*(RecoveredGlobal_80358EA0_TObjNpcNgcBase__data_805439A8 *)&TObjNpcNgcBase__data_805439A8).value)) + 0x18)))) != 0U)
   {
-    temp_r3 = (var_r30 = __nw__7TObjectFUl((int) 0x20));
+    temp_r3 = (var_r30 = __nw__7TObjectFUl(0x20));
     if (var_r30 != 0)
     {
       var_r30 = TObjControl__ct((int) temp_r3, (int) tl_04);
     }
-    temp_r3_2 = __nw__7TObjectFUl((int) 0x3B8);
+    temp_r3_2 = __nw__7TObjectFUl(0x3B8);
     var_r0 = temp_r3_2;
     if (var_r0 != 0)
     {
@@ -329,7 +329,7 @@ s32 create_variant_5__14TObjNpcNgcBaseFi(s32 arg0) {
       {
         var_r30 = TObjControl__ct((int) temp_r3, (int) tl_04);
       }
-      temp_r3_2 = __nw__7TObjectFUl((int) 0x3B8);
+      temp_r3_2 = __nw__7TObjectFUl(0x3B8);
       var_r0 = temp_r3_2;
       if (var_r0 != 0)
       {
@@ -353,7 +353,7 @@ s32 TObjNpcNgcBase__sub_80358FB0(s32 arg0) {
     {
       var_r30 = TObjControl__ct((int) temp_r3, (int) tl_04);
     }
-    temp_r3_2 = __nw__7TObjectFUl((int) 0x3B8);
+    temp_r3_2 = __nw__7TObjectFUl(0x3B8);
     var_r0 = temp_r3_2;
     if (var_r0 != 0)
     {
@@ -371,12 +371,12 @@ s32 TObjNpcNgcBase__sub_80359038(s32 arg0) {
   s32 temp_r3;
   if (((u32) (*((u32 *) (((s8 *) (&(*(RecoveredGlobal_80359038_TObjNpcNgcBase__data_805439A8 *)&TObjNpcNgcBase__data_805439A8).value)) + 0xC)))) != 0U)
   {
-    temp_r3 = (var_r30 = __nw__7TObjectFUl((int) 0x20));
+    temp_r3 = (var_r30 = __nw__7TObjectFUl(0x20));
     if (var_r30 != 0)
     {
       var_r30 = TObjControl__ct((int) temp_r3, (int) tl_04);
     }
-    temp_r3_2 = __nw__7TObjectFUl((int) 0x3B8);
+    temp_r3_2 = __nw__7TObjectFUl(0x3B8);
     var_r0 = temp_r3_2;
     if (var_r0 != 0)
     {
@@ -394,12 +394,12 @@ s32 TObjNpcNgcBase__sub_803590C0(s32 arg0) {
   s32 var_r30;
   if (((u32) (*((u32 *) (((s8 *) (&(*(RecoveredGlobal_803590C0_TObjNpcNgcBase__data_805439A8 *)&TObjNpcNgcBase__data_805439A8).value)) + 8)))) != 0U)
   {
-    temp_r3 = (var_r30 = __nw__7TObjectFUl((int) 0x20));
+    temp_r3 = (var_r30 = __nw__7TObjectFUl(0x20));
     if (var_r30 != 0)
     {
       var_r30 = TObjControl__ct((int) temp_r3, (int) tl_04);
     }
-    temp_r3_2 = __nw__7TObjectFUl((int) 0x3B8);
+    temp_r3_2 = __nw__7TObjectFUl(0x3B8);
     var_r0 = temp_r3_2 & 0xFFFFFFFFFFFFFFFF;
     if (var_r0 != 0)
     {
@@ -422,7 +422,7 @@ s32 TObjNpcNgcBase__sub_80359148(s32 arg0) {
     {
       var_r30 = TObjControl__ct((int) temp_r3, (int) tl_04);
     }
-    temp_r3_2 = __nw__7TObjectFUl((int) 0x3B8);
+    temp_r3_2 = __nw__7TObjectFUl(0x3B8);
     var_r0 = temp_r3_2;
     if (var_r0 != 0)
     {
@@ -440,12 +440,12 @@ s32 TObjNpcNgcBase__create(s32 arg0) {
   s32 var_r31;
   if (((u32) TObjNpcNgcBase__data_805439A8.value) != 0U)
   {
-    temp_r3 = (var_r31 = __nw__7TObjectFUl((int) 0x20));
+    temp_r3 = (var_r31 = __nw__7TObjectFUl(0x20));
     if (var_r31 != 0)
     {
       var_r31 = TObjControl__ct((int) temp_r3, (int) tl_04);
     }
-    temp_r3_2 = __nw__7TObjectFUl((int) 0x3B8);
+    temp_r3_2 = __nw__7TObjectFUl(0x3B8);
     var_r0 = temp_r3_2;
     if (var_r0 != 0)
     {

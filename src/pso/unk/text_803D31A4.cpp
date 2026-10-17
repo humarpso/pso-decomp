@@ -48,9 +48,9 @@ RecoveredGlobal_803D31A4_lbl_8058B6D4 svm_callback_counts;
 
 void TLobby::init_callback_tables() {
     if ((s32) lobby_callback_tables_refcount == 0) {
-        memset((void *) (&worker_callback_flag_table.value), (int) (0), (int) (0x1C));
-        memset((void *) (&lbl_805D766C), (int) (0), (int) (8));
-        memset((void *) (&lbl_805D7664), (int) (0), (int) (8));
+        memset((void *) (&worker_callback_flag_table.value), 0, 0x1C);
+        memset((void *) (&lbl_805D766C), 0, 8);
+        memset((void *) (&lbl_805D7664), 0, 8);
         *(s32 *)((s8 *)(&svm_callback_counts.value) + 0) = 0;
         *(s32 *)((s8 *)(&svm_callback_counts.value) + 4) = 0;
         *(s32 *)((s8 *)(&svm_callback_counts.value) + 8) = 0;

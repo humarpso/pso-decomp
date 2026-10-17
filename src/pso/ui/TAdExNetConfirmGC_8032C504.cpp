@@ -47,10 +47,10 @@ void TAdExNetConfirmGC::render() {
 
 void TAdExNetConfirmGC::vfunc_7() {
     if (TAdExNetConfirmGC::is_confirmed() != 0) {
-        get_localized_text_entry((0x22), (1));
+        get_localized_text_entry(0x22, 1);
         return;
     }
-    get_localized_text_entry((0x22), (0));
+    get_localized_text_entry(0x22, 0);
 }
 
 int TAdExNetConfirmGC::vfunc_6() { return request_scene_change__21TAdMultiChgGameModeGCFv(this); }

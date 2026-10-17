@@ -10,7 +10,7 @@ u8 get_slot_count__14TItemProShieldFv();
 void TObjPlayer::update_boss2tunnel() {
     if (((s32) *(s32 *)&this->unk_1F8 != 0) && (TObjPlayer::get_player_list() == 1)) {
         setup_particle_once();
-        TObjPlayer::load_projection_tex((s32)this, (s32)0);
+        TObjPlayer::load_projection_tex((s32)this, 0);
     }
 }
 

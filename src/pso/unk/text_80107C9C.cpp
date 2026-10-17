@@ -18,7 +18,7 @@ void TUnk_8049EFB8::run_task() {
             if (is_item_area_enabled() == 1) {
                 obj_getField1c((int) (player));
                 if (TObjPlayer__sub_80117E50() != 0) {
-                    spawn_particle_effect((void *)(player + 0x2FC), (0x1BE));
+                    spawn_particle_effect((void *)(player + 0x2FC), 0x1BE);
                 }
             }
         }

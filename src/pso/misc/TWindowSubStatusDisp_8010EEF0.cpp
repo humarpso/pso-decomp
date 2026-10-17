@@ -4,6 +4,6 @@
 
 extern "C" {
 
-int TWindowSubStatusDisp::get_download_server() { return TQuestVmDownLoadServer__sub_8006EF6C((0)); }
+int TWindowSubStatusDisp::get_download_server() { return TQuestVmDownLoadServer__sub_8006EF6C(0); }
 
 }

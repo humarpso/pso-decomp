@@ -235,7 +235,7 @@ void TOKeyJungleMain::vfunc_16() {
   s32 temp_r3_3;
   u32 temp_r3_2;
   new_var = 0;
-  bml_motion = get_bml_motion((s32)((*(u8 * *)&TOKeyJungleMain__static_model_resource)), (s32)(1));
+  bml_motion = get_bml_motion((s32)((*(u8 * *)&TOKeyJungleMain__static_model_resource)), 1);
   this->m_e8 = (f32) ((this->m_e8) + lbl_805DDD38);
   temp_r3_2 = (*((s32 *) (((s8 *) bml_motion) + 4))) - 1;
   if ((this->m_e8) > ((f32) temp_r3_2))
@@ -276,7 +276,7 @@ u8 *TOKeyJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3D50;
     ((TOKeyJungleMain *)(arg0))->apply_object_set_data((void *)arg2);
     ((TOKey *)arg0)->init_switch_id();
-    init_collision_body_parts((void *) (arg0), (void *) (&TOKeyJungleMain_collision_body_parts.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&TOKeyJungleMain_collision_body_parts.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s32 *)&((TOKeyJungleMain *)arg0)->m_d0 = 0;

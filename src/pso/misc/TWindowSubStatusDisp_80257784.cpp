@@ -256,7 +256,7 @@ void update_item_colors__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
                 *(s32 *)((s8 *)arg0 + 0x30) = 0xFF61E853;
                 return;
             }
-            if (((TItemData *)arg1)->calc_action_flags((s32)0x10000, (u8 *)player) != 0U) {
+            if (((TItemData *)arg1)->calc_action_flags(0x10000, (u8 *)player) != 0U) {
                 *(s32 *)((s8 *)arg0 + 0x30) = 0xFF909090;
                 return;
             }
@@ -335,7 +335,7 @@ void TWindowSubStatusDisp::setup_entry_msg_d1(s32 arg1) {
     *(f32 *)((s8 *)((u8 *)this) + 8) = (f32) lbl_805DCF04;
     *(s8 *)((s8 *)((u8 *)this) + 0x1C) = 0x33;
     *(s8 *)((s8 *)((u8 *)this) + 0x1D) = 0x33;
-    *(s32 *)((s8 *)((u8 *)this) + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii((void *)((void *) (((u8 *)this))), (s32)((int) (TWindowSubStatusDisp::get_message_10((int) (0xD1)))), (s32)((int) (*(s32 *)((s8 *)((u8 *)this) + 0x20))), (s32)((int) (8)), (s32)((int) (1)));
+    *(s32 *)((s8 *)((u8 *)this) + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii((void *)((void *) (((u8 *)this))), (s32)((int) (TWindowSubStatusDisp::get_message_10(0xD1))), (s32)((int) (*(s32 *)((s8 *)((u8 *)this) + 0x20))), 8, 1);
     *(s32 *)((s8 *)((u8 *)this) + 0x30) = 0xFF909090;
     *(s32 *)((s8 *)((u8 *)this) + 0x18) = arg1;
     *(u16 *)((s8 *)((u8 *)this) + 0) = (u16) (*(u16 *)((s8 *)((u8 *)this) + 0) | 0xC5);
@@ -345,7 +345,7 @@ void TWindowSubStatusDisp::setup_entry_msg_d0(s32 arg1) {
     *(f32 *)((s8 *)((u8 *)this) + 8) = (f32) lbl_805DCF08;
     *(s8 *)((s8 *)((u8 *)this) + 0x1C) = 0x33;
     *(s8 *)((s8 *)((u8 *)this) + 0x1D) = 0x33;
-    *(s32 *)((s8 *)((u8 *)this) + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii((void *)((void *) (((u8 *)this))), (s32)((int) (TWindowSubStatusDisp::get_message_10((int) (0xD0)))), (s32)((int) (*(s32 *)((s8 *)((u8 *)this) + 0x20))), (s32)((int) (8)), (s32)((int) (1)));
+    *(s32 *)((s8 *)((u8 *)this) + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii((void *)((void *) (((u8 *)this))), (s32)((int) (TWindowSubStatusDisp::get_message_10(0xD0))), (s32)((int) (*(s32 *)((s8 *)((u8 *)this) + 0x20))), 8, 1);
     *(s32 *)((s8 *)((u8 *)this) + 0x30) = 0xFF909090;
     *(s32 *)((s8 *)((u8 *)this) + 0x18) = arg1;
     *(u16 *)((s8 *)((u8 *)this) + 0) = (u16) (*(u16 *)((s8 *)((u8 *)this) + 0) | 0xC5);
@@ -355,7 +355,7 @@ void TWindowSubStatusDisp::init_no_item_entry(s32 arg1) {
     *(f32 *)((s8 *)((u8 *)this) + 8) = (f32) lbl_805DCF08;
     *(s8 *)((s8 *)((u8 *)this) + 0x1C) = 0x33;
     *(s8 *)((s8 *)((u8 *)this) + 0x1D) = 0x33;
-    *(s32 *)((s8 *)((u8 *)this) + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii((void *)((void *) (((u8 *)this))), (s32)((int) (TWindowSubStatusDisp::get_message_10((int) (0xCF)))), (s32)((int) (*(s32 *)((s8 *)((u8 *)this) + 0x20))), (s32)((int) (8)), (s32)((int) (1)));
+    *(s32 *)((s8 *)((u8 *)this) + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii((void *)((void *) (((u8 *)this))), (s32)((int) (TWindowSubStatusDisp::get_message_10(0xCF))), (s32)((int) (*(s32 *)((s8 *)((u8 *)this) + 0x20))), 8, 1);
     *(s32 *)((s8 *)((u8 *)this) + 0x30) = 0xFF909090;
     *(s32 *)((s8 *)((u8 *)this) + 0x18) = arg1;
     *(u16 *)((s8 *)((u8 *)this) + 0) = (u16) (*(u16 *)((s8 *)((u8 *)this) + 0) | 0xC5);
@@ -367,7 +367,7 @@ void TWindowSubStatusDisp::init_entry(s8 arg1, s8 arg2, u8 arg3, u32 src, s32 ar
     *(s8 *)((s8 *)((u8 *)this) + 0x1D) = arg2;
     *(s32 *)((s8 *)((u8 *)this) + 0x28) = (s32) arg3;
     *(s32 *)((s8 *)((u8 *)this) + 0x2C) = -1;
-    *(s32 *)((s8 *)((u8 *)this) + 0x20) = ((u32)replace_owned_string__20TWindowSubStatusDispFPviiii((void *)(((u8 *)this)), (s32)(src), (s32)(*(s32 *)((s8 *)((u8 *)this) + 0x20)), (s32)(8), (s32)(1)));
+    *(s32 *)((s8 *)((u8 *)this) + 0x20) = ((u32)replace_owned_string__20TWindowSubStatusDispFPviiii((void *)(((u8 *)this)), (s32)(src), (s32)(*(s32 *)((s8 *)((u8 *)this) + 0x20)), 8, 1));
     *(s32 *)((s8 *)((u8 *)this) + 0x30) = -1;
     *(s32 *)((s8 *)((u8 *)this) + 0x18) = arg5;
     *(u16 *)((s8 *)((u8 *)this) + 0) = (u16) (*(u16 *)((s8 *)((u8 *)this) + 0) | 0x245);
@@ -380,7 +380,7 @@ void TWindowSubStatusDisp__sub_80258A28(u8 *arg0, s32 arg1, s32 arg2) {
     text_builder_reset();
     TWindowSubStatusDisp__sub_80228F5C((s32) (arg1));
     text_builder_append((u8 *)((s32 *) (TWindowSubStatusDisp::get_download_server())));
-    *(s32 *)((s8 *)arg0 + 0x24) = replace_owned_string__20TWindowSubStatusDispFPviiii((void *)((void *) (arg0)), (s32)((int) (get_shared_text_buffer())), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x24))), (s32)((int) (0x10)), (s32)((int) (1)));
+    *(s32 *)((s8 *)arg0 + 0x24) = replace_owned_string__20TWindowSubStatusDispFPviiii((void *)((void *) (arg0)), (s32)((int) (get_shared_text_buffer())), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x24))), 0x10, 1);
     *(s32 *)((s8 *)arg0 + 0x34) = -1;
     *(s32 *)((s8 *)arg0 + 0x18) = arg2;
     *(u16 *)((s8 *)arg0 + 0) = (u16) (*(u16 *)((s8 *)arg0 + 0) | 0x45);
@@ -441,7 +441,7 @@ void init_status_entry__20TWindowSubStatusDispFPvcUii(u8 *arg0, s8 arg1, u32 src
     *(s8 *)((s8 *)arg0 + 0x1D) = arg1;
     *(s32 *)((s8 *)arg0 + 0x28) = -1;
     *(s32 *)((s8 *)arg0 + 0x2C) = -1;
-    *(s32 *)((s8 *)arg0 + 0x20) = ((u32)replace_owned_string__20TWindowSubStatusDispFPviiii((void *)(arg0), (s32)(src), (s32)(*(s32 *)((s8 *)arg0 + 0x20)), (s32)(8), (s32)(1)));
+    *(s32 *)((s8 *)arg0 + 0x20) = ((u32)replace_owned_string__20TWindowSubStatusDispFPviiii((void *)(arg0), (s32)(src), (s32)(*(s32 *)((s8 *)arg0 + 0x20)), 8, 1));
     *(s32 *)((s8 *)arg0 + 0x30) = -1;
     *(s32 *)((s8 *)arg0 + 0x34) = -1;
     *(s32 *)((s8 *)arg0 + 0x18) = arg3;
@@ -635,11 +635,11 @@ void TWindowSubStatusDisp::set_ground_item(void *it, s32 arg2) {
     temp_r31 = get_item_data__6TLobbyFUl(it);
     select_item_icon__20TWindowSubStatusDispFPviUcUci(this, temp_r31, *(u8 *)((s8 *)it + 0), *(u8 *)((s8 *)it + 1), is_wrapped__9TItemDataFPv(it));
     forward_message__6TLobbyFlUl(get_shared_text_buffer(), it);
-    *(s32 *)((s8 *)this + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii((void *)(this), (s32)(get_shared_text_buffer()), (s32)(*(s32 *)((s8 *)this + 0x20)), (s32)(8), (s32)(1));
+    *(s32 *)((s8 *)this + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii((void *)(this), (s32)(get_shared_text_buffer()), (s32)(*(s32 *)((s8 *)this + 0x20)), 8, 1);
     if (TCameraCtrl::get_camera_id() <= 2) {
         text_builder_reset();
         TWindowSubStatusDisp__sub_80228F5C(*(s32 *)((s8 *)it + 0x10));
-        *(s32 *)((s8 *)this + 0x24) = replace_owned_string__20TWindowSubStatusDispFPviiii((void *)(this), (s32)(get_shared_text_buffer()), (s32)(*(s32 *)((s8 *)this + 0x24)), (s32)(0x10), (s32)(1));
+        *(s32 *)((s8 *)this + 0x24) = replace_owned_string__20TWindowSubStatusDispFPviiii((void *)(this), (s32)(get_shared_text_buffer()), (s32)(*(s32 *)((s8 *)this + 0x24)), 0x10, 1);
     }
     update_item_colors__20TWindowSubStatusDispFPvi((void *)this, (s32)it);
     *(s32 *)((s8 *)this + 0x18) = arg2;
@@ -652,7 +652,7 @@ void TWindowSubStatusDisp::init_display(s32 src, s32 arg2) {
     *(f32 *)((s8 *)this + 8) = (f32) lbl_805DCF0C;
     *(s8 *)((s8 *)this + 0x1C) = 0x33;
     *(s8 *)((s8 *)this + 0x1D) = 0x33;
-    *(s32 *)((s8 *)this + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii((void *)(this), (s32)(src), (s32)(*(s32 *)((s8 *)this + 0x20)), (s32)(8), (s32)(1));
+    *(s32 *)((s8 *)this + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii((void *)(this), (s32)(src), (s32)(*(s32 *)((s8 *)this + 0x20)), 8, 1);
     *(s32 *)((s8 *)this + 0x30) = -1;
     *(s32 *)((s8 *)this + 0x18) = arg2;
     *(u16 *)((s8 *)this + 0) = (u16) (*(u16 *)((s8 *)this + 0) | 0x45);
@@ -745,11 +745,11 @@ void draw_item_list_row(ItemListRow *row, ItemListWindowView *win) {
       new_var = row;
       if (new_var->flags & 0x1000)
       {
-        set_text_draw_params((s32)win, (s32)(1), (s32)(0), (f32)depth, (f32)win->text_clip);
+        set_text_draw_params((s32)win, 1, 0, (f32)depth, (f32)win->text_clip);
       }
       else
       {
-        set_text_draw_params((s32)win, (s32)(1), (s32)(1), (f32)depth, (f32)lbl_805DCF28);
+        set_text_draw_params((s32)win, 1, 1, (f32)depth, (f32)lbl_805DCF28);
       }
       if (new_var->flags & 0x400)
       {
@@ -766,15 +766,15 @@ void draw_item_list_row(ItemListRow *row, ItemListWindowView *win) {
       }
       if (new_var->flags & 0x1000)
       {
-        draw_window_text((f32 *)&pos, (const char *)row->label, (s32)style, (s32)(0), (f32)lbl_805DCF28);
+        draw_window_text((f32 *)&pos, (const char *)row->label, (s32)style, 0, (f32)lbl_805DCF28);
       }
       else
       {
-        draw_window_text((f32 *)&pos, (const char *)new_var->label, (s32)style, (s32)(1), (f32)lbl_805DCF28);
+        draw_window_text((f32 *)&pos, (const char *)new_var->label, (s32)style, 1, (f32)lbl_805DCF28);
       }
       f32 width = (f32) calc_text_width((char *)new_var->suffix);
       pos.x = (win->x + win->width) - width;
-      draw_window_text((f32 *)&pos, (const char *)row->suffix, (s32)new_var->suffix_style, (s32)(1), (f32)lbl_805DCF28);
+      draw_window_text((f32 *)&pos, (const char *)row->suffix, (s32)new_var->suffix_style, 1, (f32)lbl_805DCF28);
     }
   }
 }

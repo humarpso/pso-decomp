@@ -76,18 +76,18 @@ void TODoorVoShip::run_task() {
                 *(s32 *)&this->m_cc = (s32) (*(s32 *)&this->m_cc | 0x10);
             }
         }
-        if (get_story_flag((s32)((int) (0x2C))) != 0) {
+        if (get_story_flag(0x2C) != 0) {
             *(s32 *)&this->m_cc = (s32) (*(s32 *)&this->m_cc & 0xFFFFFFFD);
         }
-        if (get_story_flag((s32)((int) (0x2D))) != 0) {
+        if (get_story_flag(0x2D) != 0) {
             *(s32 *)&this->m_cc = (s32) (*(s32 *)&this->m_cc & 0xFFFFFFFB);
         }
-        if (get_story_flag((s32)((int) (0x2E))) != 0) {
+        if (get_story_flag(0x2E) != 0) {
             *(s32 *)&this->m_cc = (s32) (*(s32 *)&this->m_cc & 0xFFFFFFF7);
         }
-        if ((get_story_flag((s32)((int) (0x2F))) != 0) || (get_main_phase() == 0xF)) {
+        if ((get_story_flag(0x2F) != 0) || (get_main_phase() == 0xF)) {
             *(s32 *)&this->m_cc = (s32) (*(s32 *)&this->m_cc & 0xFFFFFFF1);
-            ((TObjPlayer *)arg0)->clear_player_status_flag((int)(0), (int)(1U));
+            ((TObjPlayer *)arg0)->clear_player_status_flag(0, (int)(1U));
         }
     }
 }
@@ -103,7 +103,7 @@ void TODoorVoShip::render() {
     if ((((VObj_801639B4 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) && (*(s32 *)&this->m_cc & 0xE)) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        rotate_matrix_y(0, (int) (this->rotation_y));
         TObjFish::set_global_param((int) (this->texture_id));
         TObjEneSlimeOne__sub_803E4B54((void *)(*(s32 *)&this->model), (void *)(*(s32 *)&this->m_bc), (void *)(*(s32 *)&this->m_d0), (f32) (this->m_b0));
         TObjFish::set_global_param((int) (*(s32 *)&this->m_d8));
@@ -221,7 +221,7 @@ u8 *TODoorVoShip__ct(u8 *arg0, s32 arg1, s32 arg2) {
     } else {
 block_8:
         *(s32 *)&((TODoorVoShip *)arg0)->m_cc = (s32) (*(s32 *)&((TODoorVoShip *)arg0)->m_cc& 0xFFFFFFF1);
-        ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
+        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
     }
     return arg0;
 }

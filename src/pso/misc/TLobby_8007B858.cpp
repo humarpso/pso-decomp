@@ -157,12 +157,12 @@ void TLobby::clear_session_buffers() {
 s32 TLobby::run_lobby_load_tables() {
     s32 temp_r3;
     s32 temp_r3_2;
-    temp_r3_2 = run_load_callback_table((void *) (&lbl_8048D4C0.value), (int) (0xE8));
+    temp_r3_2 = run_load_callback_table((void *) (&lbl_8048D4C0.value), 0xE8);
     if (temp_r3_2 == 0) {
         return temp_r3_2;
     }
     if ((TOKeyMachine01::get_global_state() != 0) && (TOKeyMachine01::get_global_state() != 0xF) && (TOKeyMachine01::get_global_state() != 0x12)) {
-        temp_r3 = run_load_callback_table((void *) (&lbl_8048D5A8.value), (int) (0x20));
+        temp_r3 = run_load_callback_table((void *) (&lbl_8048D5A8.value), 0x20);
         if (temp_r3 == 0) {
             return temp_r3;
         }

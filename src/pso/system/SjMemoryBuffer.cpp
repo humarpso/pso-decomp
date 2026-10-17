@@ -152,7 +152,7 @@ const u8* sj_memory_buffer_get_uuid(SjMemoryBuffer* arg0) {
 
 void sj_memory_buffer_destroy(SjMemoryBuffer* arg0) {
     if (arg0 != NULL) {
-        memset((void *)(arg0), (int) (0), (int) (0x24));
+        memset((void *)(arg0), 0, 0x24);
         arg0->in_use = 0;
     }
 }
@@ -189,13 +189,13 @@ void sj_memory_buffer_shutdown(void) {
     temp_r0 = sj_memory_buffer_init_count - 1;
     sj_memory_buffer_init_count = temp_r0;
     if (temp_r0 == 0) {
-        memset((void *) (&sj_memory_buffer_pool), (int) (0), (int) (0x480));
+        memset((void *) (&sj_memory_buffer_pool), 0, 0x480);
     }
 }
 
 void sj_memory_buffer_init(void) {
     if ((s32) sj_memory_buffer_init_count == 0) {
-        memset((void *) (sj_memory_buffer_pool), (int) (0), (int) (0x480));
+        memset((void *) (sj_memory_buffer_pool), 0, 0x480);
     }
     sj_memory_buffer_init_count += 1;
 }

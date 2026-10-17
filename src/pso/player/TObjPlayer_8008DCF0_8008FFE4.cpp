@@ -27,7 +27,7 @@ void TObjPlayer::update_control_state() {
         return;
     }
     if ((*(s32 *)&this->unk_388 & 0x02000000) && (((TObjPlayer *)arg0)->get_flag_0x388_b24() == 0)) {
-        ((TObjEneMe1GiGue *)arg0)->update_if_active((int) (2));
+        ((TObjEneMe1GiGue *)arg0)->update_if_active(2);
     } else {
         TObjEneMe1GiGue__sub_8008FC10((arg0));
     }
@@ -48,8 +48,8 @@ void TObjPlayer::update_control_state() {
     temp_f1 = *(f32 *)&this->m_3b4;
     temp_r5 = (unsigned char *) (*(void * *)&this->m_a4);
     *(f32 *)((s8 *)temp_r5 + 4) = (f32) (temp_f1 + *(f32 *)&this->m_3bc);
-    submit_cursor_candidate((void *) (arg0), (int) (-1), (int) (temp_r5), (f32) (temp_f1), (f32) (temp_f2));
-    minimap_render_dot((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (0));
+    submit_cursor_candidate((void *) (arg0), -1, (int) (temp_r5), (f32) (temp_f1), (f32) (temp_f2));
+    minimap_render_dot((void *) (arg0 + 0x38), -0x5DB4, 1, 0);
 }
 
 }

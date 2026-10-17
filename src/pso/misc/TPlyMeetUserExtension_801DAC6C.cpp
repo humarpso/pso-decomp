@@ -101,18 +101,18 @@ void handle_cmd_9B__9TProtocolFR6packet(u8 *arg0, Regist_801DAD38 *arg1) {
         reset__18PSOV3EncryptionTCPFUl(arg0 + 0x884, r.key1);
         *(s32 *)(arg0 + 0x18F4) = 1;
         fn_801DF2BC((s32)&pkt);
-        memset((void *)(&pkt), (s32)(0), (s32)(0xE0));
+        memset((void *)(&pkt), 0, 0xE0);
         pkt.cmd = 0xDB;
         pkt.size = 0xE0;
-        strncpy((void *)(pkt.a), (s32)((s32)(arg0 + 0x3EB8)), (s32)(0x10));
-        strncpy((void *)(pkt.b), (s32)((s32)(arg0 + 0x3EC9)), (s32)(0x10));
-        strncpy((void *)(pkt.c), (s32)((s32)(arg0 + 0x3F8A)), (s32)(0x10));
-        strncpy((void *)(pkt.d), (s32)((s32)(arg0 + 0x3F9B)), (s32)(0x10));
+        strncpy((void *)(pkt.a), (s32)((s32)(arg0 + 0x3EB8)), 0x10);
+        strncpy((void *)(pkt.b), (s32)((s32)(arg0 + 0x3EC9)), 0x10);
+        strncpy((void *)(pkt.c), (s32)((s32)(arg0 + 0x3F8A)), 0x10);
+        strncpy((void *)(pkt.d), (s32)((s32)(arg0 + 0x3F9B)), 0x10);
         __as__8TPlySmthFRC8TPlySmth((s32)pkt.smth, (s32)(arg0 + 0x18F8));
         pkt.port = *(u16 *)(arg0 + 0x1908);
-        strncpy((void *)(pkt.e), (s32)((s32)(arg0 + 0x3EDA)), (s32)(0x30));
-        strncpy((void *)(pkt.f), (s32)((s32)(arg0 + 0x3F0A)), (s32)(0x30));
-        strncpy((void *)(pkt.g), (s32)((s32)(arg0 + 0x3F3A)), (s32)(0x30));
+        strncpy((void *)(pkt.e), (s32)((s32)(arg0 + 0x3EDA)), 0x30);
+        strncpy((void *)(pkt.f), (s32)((s32)(arg0 + 0x3F0A)), 0x30);
+        strncpy((void *)(pkt.g), (s32)((s32)(arg0 + 0x3F3A)), 0x30);
         fn_801DF280(&pkt);
         ((VObjDAD38 *)arg0)->m8(&pkt, 0xE0);
     } else {

@@ -23,7 +23,7 @@ typedef char RecoveredGlobal_8014B8A4_lbl_804A9F50_size[sizeof(RecoveredGlobal_8
 u8 *construct_male_npc_base(u8 *arg0) {
     TObjNpcBase__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A9F50.value;
-    ((TObjPlayer *)arg0)->init_npc_animation((void *) (&male_npc_idle_animation_parameters.value), (void *) (*npc_town_motion_data), (int) (0));
+    ((TObjPlayer *)arg0)->init_npc_animation((void *) (&male_npc_idle_animation_parameters.value), (void *) (*npc_town_motion_data), 0);
     ((TObjMotion *)arg0)->set_motion_interpolation_flag();
     return arg0;
 }

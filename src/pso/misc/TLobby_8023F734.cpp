@@ -376,7 +376,7 @@ s32 update_sound_frame(Lobby_802401D0 *self) {
 }
 
 s32 reset_sound_state__6TLobbyFPv(u8 *arg0) {
-    pop_sound_groups__6TLobbyFPvi((void *)(arg0), (s32)(1));
+    pop_sound_groups__6TLobbyFPvi((void *)(arg0), 1);
     *(s32 *)((s8 *)arg0 + 0x298) = 4;
     return 0;
 }
@@ -929,21 +929,21 @@ void send_voice_controller_updates(u8 *arg0) {
     temp_r3 = *(s32 *)((s8 *)arg0 + 0x24);
     if (temp_r3 != (s32) *(s32 *)((s8 *)arg0 + 0x28)) {
         *(s32 *)((s8 *)arg0 + 0x24) = *(s32 *)((s8 *)arg0 + 0x28);
-        sndFXCtrl((int) (*(s32 *)((s8 *)arg0 + 0x20)), (int) (7), (int) ((u8) *(s32 *)((s8 *)arg0 + 0x28)));
+        sndFXCtrl((int) (*(s32 *)((s8 *)arg0 + 0x20)), 7, (int) ((u8) *(s32 *)((s8 *)arg0 + 0x28)));
     }
     temp_r3_2 = *(s32 *)((s8 *)arg0 + 0x2C);
     if (temp_r3_2 != (s32) *(s32 *)((s8 *)arg0 + 0x30)) {
         *(s32 *)((s8 *)arg0 + 0x2C) = *(s32 *)((s8 *)arg0 + 0x30);
-        sndFXCtrl((int) (*(s32 *)((s8 *)arg0 + 0x20)), (int) (0xA), (int) ((u8) *(s32 *)((s8 *)arg0 + 0x30)));
+        sndFXCtrl((int) (*(s32 *)((s8 *)arg0 + 0x20)), 0xA, (int) ((u8) *(s32 *)((s8 *)arg0 + 0x30)));
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x10) == 5) {
-        sndFXCtrl((int) (*(s32 *)((s8 *)arg0 + 0x20)), (int) (0x83), (int) (0U));
+        sndFXCtrl((int) (*(s32 *)((s8 *)arg0 + 0x20)), 0x83, (int) (0U));
         return;
     }
     temp_r3_3 = *(s32 *)((s8 *)arg0 + 0x34);
     if (temp_r3_3 != (s32) *(s32 *)((s8 *)arg0 + 0x38)) {
         *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)arg0 + 0x38);
-        sndFXCtrl((int) (*(s32 *)((s8 *)arg0 + 0x20)), (int) (0x83), (int) ((u8) *(s32 *)((s8 *)arg0 + 0x38)));
+        sndFXCtrl((int) (*(s32 *)((s8 *)arg0 + 0x20)), 0x83, (int) ((u8) *(s32 *)((s8 *)arg0 + 0x38)));
     }
         break;
     }
@@ -1232,8 +1232,8 @@ char *build_text_from_comma_list__6TLobbyFPv(char *list) {
 
 void TLobby__sub_8024259C(s32 arg0) {
     if ((u32) TLobby__protocol_instance != 0U) {
-        memset((void *) (&TLobby__data_8050AAAC.value), (int) (0), (int) (0x11));
-        strncpy((void *) (&TLobby__data_8050AAAC.value), (void *) (arg0 + 0x19), (int) (0x10));
+        memset((void *) (&TLobby__data_8050AAAC.value), 0, 0x11);
+        strncpy((void *) (&TLobby__data_8050AAAC.value), (void *) (arg0 + 0x19), 0x10);
         *(s8 *)((s8 *)(&TLobby__data_8050AAAC.value) + 0x10) = 0;
         seq_jump__9TProtocolFPUcR21TPlyMeetUserExtension((int) (TLobby__protocol_instance), (void *) (arg0 + 0x4C), (void *) (arg0 + 0x58));
     }
@@ -1289,9 +1289,9 @@ void init_player_entry__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension((void *) (arg0 + 0x58), (void *) (arg1 + 0x60));
     ((TLobby *)arg0)->get_id();
     if (find_card_by_id__17TWindowSubComCardFUl() == 0U) {
-        strncpy((void *) (arg0 + 8), (void *) (((TWindowSubStatusDisp *)arg0)->get_sub_disp_ptr()), (int) (0x10));
+        strncpy((void *) (arg0 + 8), (void *) (((TWindowSubStatusDisp *)arg0)->get_sub_disp_ptr()), 0x10);
     } else {
-        strncpy((void *) (arg0 + 8), (void *) (get_com_card_list__6TLobbyFPv()), (int) (0x10));
+        strncpy((void *) (arg0 + 8), (void *) (get_com_card_list__6TLobbyFPv()), 0x10);
     }
     *(s8 *)((s8 *)arg0 + 0x18) = 0;
     p = ((void* (*)(void*))build_text_from_comma_list__6TLobbyFPv)((void *) (arg1 + 0x1C));

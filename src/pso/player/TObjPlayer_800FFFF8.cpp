@@ -84,12 +84,12 @@ void TObjPlayer__sub_80100070(u8 *arg0) {
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         copy_vec4__13TRaderMapCoreFPvPv((&saved_model_draw_color.value), (&model_material_color.value));
         model_render_flags |= 0x10;
-        set_depth_buffer_settings_id(((int) (3)));
+        set_depth_buffer_settings_id(3);
         TParticleCtrl::begin_effect_render();
         TObjPlayer::notify_fish_if_valid((s32)((int) (sp8)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((s32)((int) (0)), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x60))));
+        rotate_matrix_y(0, (s32)((int) (*(s32 *)((s8 *)arg0 + 0x60))));
         set_chunk_material_color((f32 *)((u8 *)&item_box_primary_colors.value + ((s8) *(u8 *)((s8 *)arg0 + 0xEA) * 0x10)));
         draw_ginja_model((*(s32 *)((s8 *)spC + 4)));
         set_chunk_material_color((f32 *)((u8 *)&item_box_secondary_colors.value + ((s8) *(u8 *)((s8 *)arg0 + 0xEA) * 0x10)));

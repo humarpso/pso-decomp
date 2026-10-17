@@ -178,7 +178,7 @@ void fn_800C3088(u8 *arg0, int arg1) {
       (((TObjEneDD *)(arg0))->vfunc_96());
       ((TObjEneRe2Flower *)arg0)->set_child_flags();
       ((RecoveredFields_800C3088_arg0 *) arg0)->field_3C4 = (int) (((RecoveredFields_800C3088_arg0 *) arg0)->field_3C4 & 0xFFFFFFF7);
-      ((TObjEneDD *)arg0)->set_field_378((int) 3);
+      ((TObjEneDD *)arg0)->set_field_378(3);
       ((RecoveredFields_800C3088_arg0 *) arg0)->field_410 = 0;
       ((RecoveredFields_800C3088_arg0 *) arg0)->field_414 = 0;
       ((RecoveredFields_800C3088_arg0 *) arg0)->field_418 = 0;
@@ -186,7 +186,7 @@ void fn_800C3088(u8 *arg0, int arg1) {
     case 3:
       if (((int) ((RecoveredFields_800C3088_arg0 *) arg0)->field_410) >= 0x14)
     {
-      transition_enemy_state((void *) arg0, (int) 3);
+      transition_enemy_state((void *) arg0, 3);
     }
     case 1:
       return;
@@ -221,8 +221,8 @@ void fn_800C3088(u8 *arg0, int arg1) {
             (((VObj_18_880cfd *)(temp_r3_3))->m23((arg0), (lbl_805D9FD4)));
           }
         }
-        play_sound_effect((void *) fn_800C3A60((s32)arg0, (int) 0x4003A814), (void *) (arg0 + 0x38), (int) 0, (int) 0);
-        TObjPlayer::play_effect_if_v2((int) (-0x200));
+        play_sound_effect((void *) fn_800C3A60((s32)arg0, 0x4003A814), (void *) (arg0 + 0x38), 0, 0);
+        TObjPlayer::play_effect_if_v2(-0x200);
       }
         break;
       case 1:
@@ -253,12 +253,12 @@ void fn_800C32DC(u8 *owner, s32 arg1) {
         ((TObjEneDD *)(owner))->vfunc_96();
         ((TObjEneRe2Flower *)owner)->set_child_flags();
         *(s32 *)((s8 *)owner + 0x3C4) = (s32) (*(s32 *)((s8 *)owner + 0x3C4) & 0xFFFFFFF7);
-        ((TObjEneDD *)owner)->set_field_378((int) (3));
+        ((TObjEneDD *)owner)->set_field_378(3);
         *(u32 *)((s8 *)owner + 0x428) = 0U;
         break;
     case 3:
         if ((check_hit_flag__16TObjEneRe2FlowerFv((void *) (owner)) == 0) && (((TObjEneDD *)owner)->get_flag_b4() != 0)) {
-            transition_enemy_state((void *) (owner), (int) (3));
+            transition_enemy_state((void *) (owner), 3);
             break;
         }
     case 1:
@@ -266,7 +266,7 @@ void fn_800C32DC(u8 *owner, s32 arg1) {
     case 0:
         advance_animation_playback((void *) (owner));
         if ((u32) *(u32 *)((s8 *)owner + 0x428) == 0U) {
-            *(u32 *)((s8 *)owner + 0x428) = (u32)create_particle_emitter((owner + 0x3E8), (0xD1));
+            *(u32 *)((s8 *)owner + 0x428) = (u32)create_particle_emitter((owner + 0x3E8), 0xD1);
             temp_r3 = *(u32 *)((s8 *)owner + 0x428);
             if (temp_r3 != 0U) {
                 ((TParticleCtrl *)temp_r3)->enable();
@@ -286,12 +286,12 @@ void fn_800C32DC(u8 *owner, s32 arg1) {
             if ((((TObjEneRe2Flower *)owner)->get_flag_11() != 0) || (TObjEneDD::check_v2_mode() != 0)) {
                 TTecMegid::create_ex((s32)((void *) (owner)), (s32)((void *) (&stack.sp8)), (s32)((int) (*(s32 *)((s8 *)owner + 0x60))), (s32)((int) (TObjEneDD::clamp_frame_index((int) (*(s32 *)((s8 *)lbl_805D5170 + 0x18))))));
             } else {
-                temp_r3_3 = __nw__7TObjectFUl((int) (0x104));
+                temp_r3_3 = __nw__7TObjectFUl(0x104);
                 if (temp_r3_3 != 0U) {
                     TObjPlayer__sub_800C4A5C((int) (temp_r3_3), (void *) (owner), (void *) (&stack.sp8), (int) (*(s32 *)((s8 *)owner + 0x60)));
                 }
             }
-            play_sound_effect((void *) (fn_800C3A60((s32)(owner), (0x4003A10E))), (void *) (owner + 0x3DC), (int) (0), (int) (0));
+            play_sound_effect((void *) (fn_800C3A60((s32)(owner), 0x4003A10E)), (void *) (owner + 0x3DC), 0, 0);
         }
         ((TObjEneDD *)(owner))->vfunc_102();
         ((TObjEneDD *)(owner))->vfunc_88();

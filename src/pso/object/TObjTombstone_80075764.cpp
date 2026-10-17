@@ -22,7 +22,7 @@ void TObjTombstone::update_render_flags() {
 
     if ((u32) TObjTombstone__shared_resource_object != 0U) {
         if ((s32) tombstone_first_run_flag == 0) {
-            scroll_ginja_mesh_uvs((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void * *)&this->model) + 0x2C)) + 0x30)) + 4)), (int) (-8), (int) (0), (int) (0), (int) (1));
+            scroll_ginja_mesh_uvs((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void * *)&this->model) + 0x2C)) + 0x30)) + 4)), -8, 0, 0, 1);
             tombstone_first_run_flag = 1;
             PPCSync();
         }
@@ -37,7 +37,7 @@ void TObjTombstone::update_render_flags() {
         }
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        rotate_matrix_y(0, (int) (this->rotation_y));
         TObjFish::set_global_param((int) (this->texture_id));
         draw_ginja_object((*(void * *)&this->model));
         pop_matrix();

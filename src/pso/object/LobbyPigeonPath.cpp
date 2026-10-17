@@ -571,10 +571,10 @@ void TUnk_804E0898::vfunc_14() {
   TObjFish::set_global_param((s32)(lobby_pigeon_lobby_type));
   push_matrix();
   post_translate_matrix((void *)(self->position));
-  rotate_matrix_y((s32)(0), (s32)(self->facing));
+  rotate_matrix_y(0, (s32)(self->facing));
   post_translate_matrix((void *)(self->pathPosition));
-  rotate_matrix_y((s32)(0), (s32)(self->pathYaw));
-  rotate_matrix_z((s32)(0), (s32)(self->pathRoll));
+  rotate_matrix_y(0, (s32)(self->pathYaw));
+  rotate_matrix_z(0, (s32)(self->pathRoll));
   if (self->phase != 3)
     scale_matrix(0, self->scale, self->scale, self->scale);
   draw_model_motion((self->model), (self->animation), self->animationFrame);
@@ -659,7 +659,7 @@ LobbyPigeon* construct_lobby_pigeon(LobbyPigeon* self, void* parent, const void*
     ((TUnk_804E0898 *)self)->select_lobby_pigeon_model();
     self->scale = (1.0f);
     self->model = ((void*)get_bml_model((void *)(lobby_pigeon_bml_archive), (s32)(self->modelIndex)));
-    self->animation = ((void*)get_bml_motion((void *)(lobby_pigeon_bml_archive), (s32)(0)));
+    self->animation = ((void*)get_bml_motion((void *)(lobby_pigeon_bml_archive), 0));
     selector = self->movementSelector;
     if (selector < 0) movement = 0;
     else {

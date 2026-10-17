@@ -421,7 +421,7 @@ void TQuestListVM::handle_confirm_window() {
             case 0:
                 TWindow__close((u8 *)(*(void * *)&this->m_2378));
                 *(void * *)&this->m_2378 = NULL;
-                ((TShopWindowBase *)arg0)->set_field_20((s32)0xB);
+                ((TShopWindowBase *)arg0)->set_field_20(0xB);
                 return;
             case 1:
                 TWindow__close((u8 *)(*(void * *)&this->m_2378));
@@ -437,7 +437,7 @@ void TQuestListVM::handle_confirm_window() {
                 TQuestListVM__decompression_capacity = 0x40000;
                 ((VObj_80218BBC *)arg0)->m7(0x19, 1);
                 close_windows();
-                ((TShopWindowBase *)arg0)->set_field_20((s32)5);
+                ((TShopWindowBase *)arg0)->set_field_20(5);
                 return;
             }
         }
@@ -455,7 +455,7 @@ void TQuestListVM::handle_confirm_window() {
             TQuestListVM__decompression_capacity = 0x40000;
             ((VObj_80218BBC *)arg0)->m7(0x19, 1);
             close_windows();
-            ((TShopWindowBase *)arg0)->set_field_20((s32)5);
+            ((TShopWindowBase *)arg0)->set_field_20(5);
         }
     }
 }
@@ -610,13 +610,13 @@ s32 TQuestListVM::build_download_list(void *p) {
                 e = arg0 + off;
                 switch (*(s32 *)(e + 0xE0)) {
                 case 0:
-                    ((TLobby *)(*(u32 *)(arg0 + 0x2374)))->add_list_entry((s32)0x17, (s32)(e + 0x35), (s32)i);
+                    ((TLobby *)(*(u32 *)(arg0 + 0x2374)))->add_list_entry(0x17, (s32)(e + 0x35), (s32)i);
                     break;
                 case 1:
-                    ((TLobby *)(*(u32 *)(arg0 + 0x2374)))->add_list_entry((s32)0x31, (s32)(e + 0x35), (s32)i);
+                    ((TLobby *)(*(u32 *)(arg0 + 0x2374)))->add_list_entry(0x31, (s32)(e + 0x35), (s32)i);
                     break;
                 default:
-                    ((TLobby *)(*(u32 *)(arg0 + 0x2374)))->add_list_entry((s32)0x17, (s32)(e + 0x35), (s32)i);
+                    ((TLobby *)(*(u32 *)(arg0 + 0x2374)))->add_list_entry(0x17, (s32)(e + 0x35), (s32)i);
                     break;
                 }
             }
@@ -825,8 +825,8 @@ void TQuestListVM::vfunc_11() {
     u8 *arg0 = (u8 *)this;
     u32 temp_r0;
     if (((TQuestListVM *)arg0)->update_load_status() != 0) {
-        ((VObj_18_a70a39 *)(arg0))->m5(TQuestVmDownLoadServer__sub_8006EF6C((s32)((int) (0x44))), 1);
-        ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)((int) (0x12))));
+        ((VObj_18_a70a39 *)(arg0))->m5(TQuestVmDownLoadServer__sub_8006EF6C(0x44), 1);
+        ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(0x12)));
     }
     temp_r0 = this->m_20;
     switch (temp_r0) {
@@ -951,7 +951,7 @@ u8 *TQuestListVM__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)&((TQuestListVM *)arg0)->m_23b8 = 0;
     *(s32 *)&((TQuestListVM *)arg0)->m_23bc = 0;
     *(s32 *)&((TQuestListVM *)arg0)->m_23c0 = 0;
-    ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)((int) (0))));
+    ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(0)));
     (*(u8 * *)&quest_list_vm_instance) = arg0;
     *(s32 *)&((TQuestListVM *)arg0)->m_24 = arg3;
     *(s32 *)&((TQuestListVM *)arg0)->m_23a8 = 0;

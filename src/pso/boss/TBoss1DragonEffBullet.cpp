@@ -157,7 +157,7 @@ u8 *TBoss1DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)&((TBoss1DragonEffBullet *)arg0)->m_38 = 0;
     *(s32 *)&((TBoss1DragonEffBullet *)arg0)->m_44 = 0;
     *(s32 *)&((TBoss1DragonEffBullet *)arg0)->m_48 = 0;
-    play_sound_effect((int) (0x4003B20B), (void *) (arg0 + 0x1C), (int) (0), (int) (0));
+    play_sound_effect(0x4003B20B, (void *) (arg0 + 0x1C), 0, 0);
     return arg0;
 }
 

@@ -55,7 +55,7 @@ void TBoss6PlotFalz::finish_and_dispatch_next_phase() {
     TBoss6PlotFalz::freeze_all_players();
     *(s32 *)((s8 *)((u8 *)this) + 0x3D0) = 0;
     *(s32 *)((s8 *)((u8 *)this) + 0x3CC) = 0;
-    TBoss4DarkFalz::dispatch_by_main_phase((int) (0x57));
+    TBoss4DarkFalz::dispatch_by_main_phase(0x57);
     TBoss6Thanks::try_dispatch_darkfalz_phase();
     create_boss6_type2_death((((u8 *)this)), (sp10));
 }

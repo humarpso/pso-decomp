@@ -174,7 +174,7 @@ void TAdChrSelBSlotGC__sub_8030F13C(u8 *arg0) {
         } else {
             var_r31 = 0;
         }
-        *(u32 *)((s8 *)arg0 + 0x6C) = ((TAdChrSelASlotGC *)(TAdChrSelBSlotGC::get_global_slot_data()))->create_message_window((int) (1), (int) (var_r31));
+        *(u32 *)((s8 *)arg0 + 0x6C) = ((TAdChrSelASlotGC *)(TAdChrSelBSlotGC::get_global_slot_data()))->create_message_window(1, (int) (var_r31));
         *(s32 *)((s8 *)arg0 + 0x1C) = 6;
     }
 }
@@ -198,7 +198,7 @@ void TAdChrSelBSlotGC__sub_8030F228(u8 *arg0) {
     }
     if (((s32) *(s32 *)((s8 *)arg0 + 0x24) > 0xA) && ((u32) *(u32 *)((s8 *)arg0 + 0x4C) == 0U)) {
         TAdChrSelBSlotGC::get_global_slot_data();
-        *(u32 *)((s8 *)arg0 + 0x4C) = TAdChrSelASlotGC__sub_8030CB08((s32)((void *)(((s32)TAdChrSelBSlotGC::get_global_slot_data()))), (s32)((int) (1)), (s32)((int) (7)));
+        *(u32 *)((s8 *)arg0 + 0x4C) = TAdChrSelASlotGC__sub_8030CB08((s32)((void *)(((s32)TAdChrSelBSlotGC::get_global_slot_data()))), 1, 7);
     }
 }
 
@@ -221,7 +221,7 @@ void TAdChrSelBSlotGC__sub_8030F2E4(u8 *arg0) {
     }
     if (((s32) *(s32 *)((s8 *)arg0 + 0x24) > 0xA) && ((u32) *(u32 *)((s8 *)arg0 + 0x48) == 0U)) {
         TAdChrSelBSlotGC::get_global_slot_data();
-        *(u32 *)((s8 *)arg0 + 0x48) = TAdChrSelASlotGC__sub_8030CB08((s32)((void *)(((s32)TAdChrSelBSlotGC::get_global_slot_data()))), (s32)((int) (1)), (s32)((int) (5)));
+        *(u32 *)((s8 *)arg0 + 0x48) = TAdChrSelASlotGC__sub_8030CB08((s32)((void *)(((s32)TAdChrSelBSlotGC::get_global_slot_data()))), 1, 5);
     }
 }
 
@@ -244,7 +244,7 @@ void TAdChrSelBSlotGC__sub_8030F3A0(u8 *arg0) {
     }
     if (((s32) *(s32 *)((s8 *)arg0 + 0x24) > 0xA) && ((u32) *(u32 *)((s8 *)arg0 + 0x44) == 0U)) {
         TAdChrSelBSlotGC::get_global_slot_data();
-        *(u32 *)((s8 *)arg0 + 0x44) = TAdChrSelASlotGC__sub_8030CB08((s32)((void *)(((s32)TAdChrSelBSlotGC::get_global_slot_data()))), (s32)((int) (1)), (s32)((int) (3)));
+        *(u32 *)((s8 *)arg0 + 0x44) = TAdChrSelASlotGC__sub_8030CB08((s32)((void *)(((s32)TAdChrSelBSlotGC::get_global_slot_data()))), 1, 3);
     }
 }
 

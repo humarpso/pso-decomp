@@ -102,7 +102,7 @@ Warp_8019DAC0 *TObjWarpBase__ct(Warp_8019DAC0 *self, void *parent, void *set) {
     self->fb0 = 0;
     o = __nw__7TObjectFUl(0xB4);
     if (o != 0) {
-        o = ((TTecLuker *)o)->construct_field_collider((s32)((u8 *)self + 0x38), (s32)self, (s32)1);
+        o = ((TTecLuker *)o)->construct_field_collider((s32)((u8 *)self + 0x38), (s32)self, 1);
     }
     self->fb4 = o;
     self->fb8 = 0xFFFF;

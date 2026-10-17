@@ -165,7 +165,7 @@ s32 TAdPlayerLoadGC::probe_and_check_card() {
                 return 0;
             }
         }
-        temp_r3_3 = CARDCheckAsync((void *) (arg0), (int) (0));
+        temp_r3_3 = CARDCheckAsync((void *) (arg0), 0);
         if (temp_r3_3 == 0) {
             for (;;) {
                 temp_r3_4 = CARDGetResultCode((void *) (arg0));

@@ -633,9 +633,9 @@ void TBoss4DarkFalz::update_roar_sound_timer() {
         *(s32 *)&this->m_374 = temp_r0_2;
         if (temp_r0_2 < 0) {
             if ((lbl_805D8918 * (f32) rand()) < lbl_805D8930) {
-                play_sound_effect((s32)(0x3A300), (s32)(0), (s32)(0), (s32)(0));
+                play_sound_effect(0x3A300, 0, 0, 0);
             } else {
-                play_sound_effect((s32)(0x3A801), (s32)(0), (s32)(0), (s32)(0));
+                play_sound_effect(0x3A801, 0, 0, 0);
             }
             {
                 f32 r = lbl_805D8918 * (f32) rand();

@@ -150,7 +150,7 @@ void TCharaMaking__draw_colored_hair(f32 farg0, s32 arg0, CharacterAppearanceFie
     lbl_805D5668 = second;
     model_render_flags = temp_r3 | lbl_805DD930;
     if (farg0 < 1.0f) {
-        set_chunk_material_override_pair((int) (-1), (int) (0x800));
+        set_chunk_material_override_pair(-1, 0x800);
     }
     if (arg2 != 0) {
         set_shadow_material_state();

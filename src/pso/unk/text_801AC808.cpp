@@ -111,7 +111,7 @@ void *TPhotonLeilla__ct(Leilla_801AC808 *self, Pkt_801AC808 *pkt) {
         v.y = v.y + lbl_805DC1C4;
         o = NEW_801AC808(0xD0);
         if (o != NULL) {
-            construct_photon_magic_square_normal((u8 *)o, (s32)self, (s32)(4), (s32)&v, (s32)(0x78));
+            construct_photon_magic_square_normal((u8 *)o, (s32)self, 4, (s32)&v, 0x78);
         }
         spawn_photon_blast_attachment_effects(self, 4);
         play_cue_stream_file((s32)lbl_80446DF8);

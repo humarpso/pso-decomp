@@ -101,9 +101,9 @@ void render__18TObjCityAirCar_CarFPv(u8 *arg0) {
         TParticleCtrl::end_effect_render();
         push_matrix();
         post_translate_matrix((void *) ((u8 *)(arg0) + 0x38));
-        rotate_matrix_y((int) (0), (int) (((TObjCityAirCar_Car *)arg0)->rotation_y));
+        rotate_matrix_y(0, (int) (((TObjCityAirCar_Car *)arg0)->rotation_y));
         if ((s32) ((TObjCityAirCar_Car *)arg0)->m_9c != 0) {
-            rotate_matrix_z((int) (0), (int) (((TObjCityAirCar_Car *)arg0)->rotation_z));
+            rotate_matrix_z(0, (int) (((TObjCityAirCar_Car *)arg0)->rotation_z));
         }
         TObjFish::set_global_param((int) (city_common_texture_list));
         get_city_common_model((*(s32 *)((s8 *)((u8 *)(city_aircar_model_indices) + (((TObjCityAirCar_Car *)arg0)->m_9c* 4)) + 0)));
@@ -142,11 +142,11 @@ void run_task__18TObjCityAirCar_CarFv(Car_80180E70 *self) {
     if ((self->path == 1 && self->frame >= lbl_805DBBA8 && self->frame <= lbl_805DBBAC) ||
         (self->path == 2 && self->frame >= lbl_805DBBB0 && self->frame <= lbl_805DBBB4)) {
         if (self->model == 4) {
-            play_persistent_sound((s32)(0x4004CB02), (s32)self, (u32)&self->pos, (s32)(0), (s32)(0));
+            play_persistent_sound(0x4004CB02, (s32)self, (u32)&self->pos, 0, 0);
         } else if (self->model == 0) {
-            update_technique_slot__10TTecRaFoieFl(play_persistent_sound((s32)(0x4004C101), (s32)self, (u32)&self->pos, (s32)(0), (s32)(0)), -0x200, 0);
+            update_technique_slot__10TTecRaFoieFl(play_persistent_sound(0x4004C101, (s32)self, (u32)&self->pos, 0, 0), -0x200, 0);
         } else {
-            play_persistent_sound((s32)(0x4004C101), (s32)self, (u32)&self->pos, (s32)(0), (s32)(0));
+            play_persistent_sound(0x4004C101, (s32)self, (u32)&self->pos, 0, 0);
         }
     }
     if (city_air_car_model_resource != 0) {

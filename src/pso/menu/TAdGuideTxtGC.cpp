@@ -85,7 +85,7 @@ TAdGuideTxtGC_802B19E8 *__ct__13TAdGuideTxtGCFv(TAdGuideTxtGC_802B19E8 *o) {
         o->b[i] = &lbl_805DE290;
         o->c[i] = 0;
     }
-    create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)o, (s32)(9), (f32)lbl_805DE294);
+    create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)o, 9, (f32)lbl_805DE294);
     return o;
 }
 #pragma pop

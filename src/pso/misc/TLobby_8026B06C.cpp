@@ -24,8 +24,8 @@ int dispatch_message_window_text(void *w, int text, int flags) {
 s32 create_quest_message_window_at(s32 arg0, s32 arg1) {
     s32 temp_r3;
     s32 var_r0;
-    TLobby__sub_80269DA4((void *) (arg1), (int) (1));
-    temp_r3 = __nw__7TObjectFUl((int) (0x94));
+    TLobby__sub_80269DA4((void *) (arg1), 1);
+    temp_r3 = __nw__7TObjectFUl(0x94);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (s32)TWindowMessageQuest__ct((u8 *)(temp_r3), (arg0));

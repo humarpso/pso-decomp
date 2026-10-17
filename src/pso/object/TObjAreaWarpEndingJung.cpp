@@ -874,9 +874,9 @@ u8 *TObjAreaWarpEnding__ct(u8 *arg0, s32 arg1, s32 arg2) {
     temp_r0 = *(u32 *)((s8 *)arg0 + 0x8C);
     temp_r4 = temp_r0 >> 0x1FU;
     *(u32 *)((s8 *)arg0 + 0x8C) = (u32) (((temp_r0 & 1) ^ temp_r4) - temp_r4);
-    *(s32 *)((s8 *)arg0 + 0xCC) = register_warp__16TObjMapForceWarpFPv((int) (0));
-    *(s32 *)((s8 *)arg0 + 0xD0) = register_warp__16TObjMapForceWarpFPv((int) (1));
-    *(s32 *)((s8 *)arg0 + 0xD4) = register_area_warp_object__16TAdStorySelectGCFPv((int) (0));
+    *(s32 *)((s8 *)arg0 + 0xCC) = register_warp__16TObjMapForceWarpFPv(0);
+    *(s32 *)((s8 *)arg0 + 0xD0) = register_warp__16TObjMapForceWarpFPv(1);
+    *(s32 *)((s8 *)arg0 + 0xD4) = register_area_warp_object__16TAdStorySelectGCFPv(0);
     *(s32 *)((s8 *)arg0 + 0xD8) = TAdStorySelectGC::get_story_select();
     if (TRaderMapCore::is_not_split_screen() == 1) {
         temp_r3 = ((TAdSinglePlyChrSelectGC *)0x88)->alloc();
@@ -951,7 +951,7 @@ void TObjAreaWarpQuest::render() {
         TObjFish::set_global_param((int)(self->fDC));
         push_matrix();
         ((void (*)(void *))post_translate_matrix)(self->f38);
-        ((void (*)(int, int))rotate_matrix_y)((int)(0), (int)(self->f60));
+        ((void (*)(int, int))rotate_matrix_y)(0, (int)(self->f60));
         push_matrix();
         ((void (*)(void *))post_translate_matrix)(m->f8);
         draw_ginja_model((s32)m->f4);
@@ -960,8 +960,8 @@ void TObjAreaWarpQuest::render() {
         while (m != NULL) {
             push_matrix();
             ((void (*)(void *))post_translate_matrix)(m->f8);
-            rotate_matrix_zyx((0), (m->f14), (m->f18), (m->f1C));
-            rotate_matrix_x((int)(0), (s32)(self->fCC));
+            rotate_matrix_zyx(0, (m->f14), (m->f18), (m->f1C));
+            rotate_matrix_x(0, (s32)(self->fCC));
             draw_ginja_model((s32)m->f4);
             ((void (*)(void))pop_matrix)();
             m = m->next30;
@@ -1011,9 +1011,9 @@ u8 *TObjAreaWarpQuest__ct(u8 *arg0, s32 arg1, s32 arg2) {
     temp_r4 = temp_r0 >> 0x1FU;
     *(u32 *)((s8 *)arg0 + 0x8C) = (u32) (((temp_r0 & 1) ^ temp_r4) - temp_r4);
     *(s32 *)((s8 *)arg0 + 0xC4) = (s32) *(f32 *)((s8 *)arg0 + 0x68);
-    *(s32 *)((s8 *)arg0 + 0xD0) = register_warp__16TObjMapForceWarpFPv((int) (0));
-    *(s32 *)((s8 *)arg0 + 0xD4) = register_warp__16TObjMapForceWarpFPv((int) (1));
-    *(s32 *)((s8 *)arg0 + 0xD8) = register_area_warp_object__16TAdStorySelectGCFPv((int) (0));
+    *(s32 *)((s8 *)arg0 + 0xD0) = register_warp__16TObjMapForceWarpFPv(0);
+    *(s32 *)((s8 *)arg0 + 0xD4) = register_warp__16TObjMapForceWarpFPv(1);
+    *(s32 *)((s8 *)arg0 + 0xD8) = register_area_warp_object__16TAdStorySelectGCFPv(0);
     *(s32 *)((s8 *)arg0 + 0xDC) = TAdStorySelectGC::get_story_select();
     if (TRaderMapCore::is_not_split_screen() == 1) {
         temp_r3 = ((TAdSinglePlyChrSelectGC *)0x88)->alloc();
@@ -1062,7 +1062,7 @@ void TObjAreaWarpForest::render() {
         TObjFish::set_global_param((int)(self->fDC));
         push_matrix();
         ((void (*)(void *))post_translate_matrix)(self->f38);
-        ((void (*)(int, int))rotate_matrix_y)((int)(0), (int)(self->f60));
+        ((void (*)(int, int))rotate_matrix_y)(0, (int)(self->f60));
         push_matrix();
         ((void (*)(void *))post_translate_matrix)(m->f8);
         draw_ginja_model((s32)m->f4);
@@ -1071,8 +1071,8 @@ void TObjAreaWarpForest::render() {
         while (m != NULL) {
             push_matrix();
             ((void (*)(void *))post_translate_matrix)(m->f8);
-            rotate_matrix_zyx((0), (m->f14), (m->f18), (m->f1C));
-            rotate_matrix_x((int)(0), (s32)(self->fCC));
+            rotate_matrix_zyx(0, (m->f14), (m->f18), (m->f1C));
+            rotate_matrix_x(0, (s32)(self->fCC));
             draw_ginja_model((s32)m->f4);
             ((void (*)(void))pop_matrix)();
             m = m->next30;
@@ -1127,9 +1127,9 @@ u8 *TObjAreaWarpForest__ct(u8 *arg0, s32 arg1, s32 arg2) {
         ((s32 (*)(void *))queue_destruction__7TObjectFv)((void *) (arg0));
         return arg0;
     }
-    *(s32 *)((s8 *)arg0 + 0xCC) = register_warp__16TObjMapForceWarpFPv((int) (0));
-    *(s32 *)((s8 *)arg0 + 0xD0) = register_warp__16TObjMapForceWarpFPv((int) (1));
-    *(s32 *)((s8 *)arg0 + 0xD4) = register_area_warp_object__16TAdStorySelectGCFPv((int) (0));
+    *(s32 *)((s8 *)arg0 + 0xCC) = register_warp__16TObjMapForceWarpFPv(0);
+    *(s32 *)((s8 *)arg0 + 0xD0) = register_warp__16TObjMapForceWarpFPv(1);
+    *(s32 *)((s8 *)arg0 + 0xD4) = register_area_warp_object__16TAdStorySelectGCFPv(0);
     *(s32 *)((s8 *)arg0 + 0xD8) = TAdStorySelectGC::get_story_select();
     if (TRaderMapCore::is_not_split_screen() == 1) {
         temp_r3_2 = ((TAdSinglePlyChrSelectGC *)0x88)->alloc();
@@ -1330,9 +1330,9 @@ u8 *TObjMapWarpForest__ct(u8 *arg0) {
     ((s32 (*)(void *))TObjMapWarp__ct)((void *) (arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__17TObjMapWarpForest.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjMapWarpForest__name;
-    *(s32 *)((s8 *)arg0 + 0x100) = register_warp__16TObjMapForceWarpFPv((int) (4));
-    *(s32 *)((s8 *)arg0 + 0x104) = register_warp__16TObjMapForceWarpFPv((int) (5));
-    *(s32 *)((s8 *)arg0 + 0x108) = register_area_warp_object__16TAdStorySelectGCFPv((int) (2));
+    *(s32 *)((s8 *)arg0 + 0x100) = register_warp__16TObjMapForceWarpFPv(4);
+    *(s32 *)((s8 *)arg0 + 0x104) = register_warp__16TObjMapForceWarpFPv(5);
+    *(s32 *)((s8 *)arg0 + 0x108) = register_area_warp_object__16TAdStorySelectGCFPv(2);
     *(s32 *)((s8 *)arg0 + 0x10C) = TAdStorySelectGC::get_story_select();
     *(f32 *)((s8 *)arg0 + 0xFC) = (f32) lbl_805DBFE4;
     return arg0;
@@ -1354,13 +1354,13 @@ void TObjMapWarp::draw_debug_destinations() {
         Vec_8019D0A8 a = lbl_804462FC;
         push_matrix_from(identity_matrix);
         post_translate_matrix(&self->pos);
-        rotate_matrix_y((s32)(0), (s32)(self->yaw));
+        rotate_matrix_y(0, (s32)(self->yaw));
         end = &self->ends[i];
         matrix_mult_vec(0, &map_warp_destination_offsets[i], end);
         pop_matrix();
         push_matrix_from(identity_matrix);
         post_translate_matrix(end);
-        rotate_matrix_y((s32)(0), (s32)(self->yaw2));
+        rotate_matrix_y(0, (s32)(self->yaw2));
         matrix_mult_vec(0, &a, &a);
         pop_matrix();
         VecCopy((Vec *)&b, (const Vec *)end);

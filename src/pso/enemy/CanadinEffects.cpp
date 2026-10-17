@@ -110,7 +110,7 @@ void render__26TObjEneMe1Canadin_EffLightFv(Trail_8009F7AC *o) {
         }
     }
     TObjPlayer::init_xyz_limits();
-    ((TObjPlayer *)(o->verts))->draw_trail_strip((void *)(n * 2), (s32)1);
+    ((TObjPlayer *)(o->verts))->draw_trail_strip((void *)(n * 2), 1);
 }
 #pragma pop
 
@@ -370,7 +370,7 @@ void render__25TObjEneMe1Canadin_EffLineFv(s32 arg0) {
     stack.sp10 = 0;
     stack.sp14 = 2;
     TObjPlayer::init_xyz_limits();
-    draw_line_list((void *) (&stack.sp8), (int) (1), (int) (5));
+    draw_line_list((void *) (&stack.sp8), 1, 5);
 }
 
 void *__dt__25TObjEneMe1Canadin_EffLineFv(void *arg0, s16 arg1);

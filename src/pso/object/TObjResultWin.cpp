@@ -134,7 +134,7 @@ void TObjResultWin::run_task() {
                 TWindow__close((int) (m_window));
                 queue_destruction__7TObjectFv(this);
             }
-        } else if (TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), (int) (4)) != 0) {
+        } else if (TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), 4) != 0) {
             m_close_requested = 1;
         }
     }

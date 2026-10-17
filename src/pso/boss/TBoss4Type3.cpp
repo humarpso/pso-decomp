@@ -1061,13 +1061,13 @@ void TBoss4Type3::advance_capture() {
     if ((s32) this->m_398 == 0) {
         this->m_3ba = (u16) this->m_3b8;
         this->m_3b8 = 0xFFFFU;
-        play_sound_effect((int)(0x4003C12C), (void *)(0), (int)(0), (int)(0));
+        play_sound_effect(0x4003C12C, (void *)(0), 0, 0);
         *(s32 *)&this->m_3bc = 0;
         ((TBoss4Type3 *)arg0)->spawn_random_effect();
     }
 }
 void TBoss4Type3::enter_capture() {
-    play_sound_effect((int)(0x4003C12B), (void *)(0), (int)(0), (int)(0));
+    play_sound_effect(0x4003C12B, (void *)(0), 0, 0);
     *(s32 *)&this->m_52c = 0;
     this->m_398 = 0x62;
 }
@@ -1121,7 +1121,7 @@ void TBoss4Type3::enter_dark_magic() {
     this->m_3a0 = 0x11;
     *(s32 *)&this->m_3a4 = 0x11;
     *(s32 *)&this->m_3ac = (s32) *(s32 *)&this->m_3a8;
-    play_sound_effect((int)(0x4003B238), (void *)(0), (int)(0), (int)(0));
+    play_sound_effect(0x4003B238, (void *)(0), 0, 0);
     *(s32 *)&this->m_52c = 1;
     this->m_398 = 0x62;
 }
@@ -1266,7 +1266,7 @@ void TBoss4Type3::update_go_down() {
     temp_r0 = this->m_398 - 1;
     this->m_398 = temp_r0;
     if (temp_r0 < 0) {
-        set_action_from_table((s32)(1));
+        set_action_from_table(1);
     }
 }
 extern "C" {
@@ -1293,9 +1293,9 @@ void TBoss4Type3::enter_go_down() {
     *(s32 *)&this->m_3a4 = 0x11;
     this->m_3a0 = 0x10;
     *(s32 *)&this->m_3ac = (s32) *(s32 *)&this->m_3a8;
-    play_sound_effect((int)(0x4003B032), (void *)(arg0 + 0x38), (int)(0), (int)(1));
+    play_sound_effect(0x4003B032, (void *)(arg0 + 0x38), 0, 1);
     if ((u16) this->m_3ba == (u16)-1) {
-        play_sound_effect((int)(0x4003C62D), (void *)(0), (int)(0), (int)(0));
+        play_sound_effect(0x4003C62D, (void *)(0), 0, 0);
     }
     *(s32 *)&this->m_52c = 0;
     this->m_398 = 0x31;
@@ -1311,7 +1311,7 @@ void TBoss4Type3::update_go_up() {
     temp_r0 = this->m_398 - 1;
     this->m_398 = temp_r0;
     if (temp_r0 < 0) {
-        set_action_from_table((s32)(1));
+        set_action_from_table(1);
     }
 }
 extern "C" {
@@ -1338,7 +1338,7 @@ void TBoss4Type3::enter_go_up() {
     *(s32 *)&this->m_3a4 = (s32) this->m_3a0;
     this->m_3a0 = 0x11;
     *(s32 *)&this->m_3ac = (s32) *(s32 *)&this->m_3a8;
-    play_sound_effect((int)(0x4003B031), (void *)(arg0 + 0x38), (int)(0), (int)(1));
+    play_sound_effect(0x4003B031, (void *)(arg0 + 0x38), 0, 1);
     *(s32 *)&this->m_52c = 1;
     this->m_398 = 0x31;
 }
@@ -1413,7 +1413,7 @@ void TBoss4Type3::update_dead() {
     temp_r0 = this->m_398 - 1;
     this->m_398 = temp_r0;
     if (temp_r0 < 0) {
-        ((TBoss4Type3 *)arg0)->set_action_from_table((s32)((int) (2)));
+        ((TBoss4Type3 *)arg0)->set_action_from_table(2);
     }
 }
 void TBoss4Type3::advance_dead() {  }
@@ -1700,7 +1700,7 @@ void TBoss4Type3::spawn_random_effect() {
     s32 temp_r5;
 
     temp_r5 = (s32) (lbl_805D8C8C * ((f32 (*)(void))calc_boss4_scale__10TObjPlayerFi)());
-    send_packed_action((s32)(0xF), (s32)(temp_r5), (s32)(temp_r5));
+    send_packed_action(0xF, (s32)(temp_r5), (s32)(temp_r5));
 }
 
 void TBoss4Type3__sub_80059EA8(Obj_80059EA8 *self, s32 arg1, s32 arg2) {
@@ -1775,7 +1775,7 @@ void update_scale_sound__11TBoss4Type3FPv(u8 *arg0) {
             var_r3 = 0x4003B02F;
             var_r5 = 0;
             var_r6 = 1;
-            ((s32 (*)(s32, s32, s32, s32))play_sound_effect)((s32)((int) (0x4003B02F)), (s32)((int) (var_r4)), (s32)((int) (0)), (s32)((int) (1)));
+            ((s32 (*)(s32, s32, s32, s32))play_sound_effect)(0x4003B02F, (s32)((int) (var_r4)), 0, 1);
         }
         if ((temp_f31 > TBoss4Type3__data_805D8C40) && (TBoss4Type3__data_805D8C40 == *(f32 *)((s8 *)var_r31 + 0x3B0))) {
             var_r3 = 0x40040000;
@@ -1783,7 +1783,7 @@ void update_scale_sound__11TBoss4Type3FPv(u8 *arg0) {
             var_r3 = 0x4003AD30;
             var_r5 = 0;
             var_r6 = 1;
-            ((s32 (*)(s32, s32, s32, s32))play_sound_effect)((s32)((int) (0x4003AD30)), (s32)((int) (var_r4)), (s32)((int) (0)), (s32)((int) (1)));
+            ((s32 (*)(s32, s32, s32, s32))play_sound_effect)(0x4003AD30, (s32)((int) (var_r4)), 0, 1);
         }
     }
 }

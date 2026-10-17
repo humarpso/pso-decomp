@@ -79,7 +79,7 @@ void TAdTitleGC::render() {
 block_5:
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 0xA);
-        draw_title_layer((s32)(*(s32 *)((s8 *)arg0 + 0x1C)), (s32)(0x1FFFFFFF));
+        draw_title_layer((s32)(*(s32 *)((s8 *)arg0 + 0x1C)), 0x1FFFFFFF);
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 6);
         fn_802A0A30((s32)arg0, (u8 *)(arg0 + 0x120), (s32)(*(s32 *)((s8 *)arg0 + 0x1C)), (s32)((*(s32 *)((s8 *)arg0 + 0x12C) << 0x18) | 0xFF0000 | 0xFFFF), (s32)(get_localized_text_entry(0x13, *(s32 *)((s8 *)arg0 + 0x1C))));
@@ -143,7 +143,7 @@ TAdTitleGC::TAdTitleGC(TObject *parent, s32 idx) : TObject(parent) {
         ((TAdTitleGC_802A0E08 *)this)->recs[i].c = 1.0f;
         ((TAdTitleGC_802A0E08 *)this)->recs[i].d = (4e+01f) * (f32)(((TAdTitleGC_802A0E08 *)this)->idx + off + 1) / 512.0f;
     }
-    ((TAdTitleGC_802A0E08 *)this)->f130 = (u32)create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)((TAdTitleGC_802A0E08 *)this), (s32)(8), (f32)(0.0f));
+    ((TAdTitleGC_802A0E08 *)this)->f130 = (u32)create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)((TAdTitleGC_802A0E08 *)this), 8, (f32)(0.0f));
 }
 extern "C" {
 #pragma pop

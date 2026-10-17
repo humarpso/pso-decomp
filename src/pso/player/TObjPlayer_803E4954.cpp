@@ -50,9 +50,9 @@ extern s32 motion_packed_rotation_mode;
 void draw_blend_motion_tree__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     bind_motion_blend_channels((void *) (arg1));
     if ((s32) motion_packed_rotation_mode != 0) {
-        select_motion_context((1));
+        select_motion_context(1);
         *(s32 *)((s8 *)current_motion_context + 0x28) = (s32) *(s32 *)((s8 *)motion_angle_sampler_table + 0xC);
-        select_motion_context((0));
+        select_motion_context(0);
         *(s32 *)((s8 *)current_motion_context + 0x28) = (s32) *(s32 *)((s8 *)motion_angle_sampler_table + 0xC);
     }
     *(s32 *)((s8 *)model_draw_context + 0xC) = arg2;

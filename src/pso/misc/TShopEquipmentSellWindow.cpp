@@ -195,7 +195,7 @@ s32 TShopEquipmentSellWindow::update() {
     VObj_8021C8E0_8021C870 *o = (VObj_8021C8E0_8021C870 *)this;
     if (o->m8() != 0 && (sub_80223A48__15TShopWindowBaseFv(this) != 0 || sub_802239EC__13TShopSequenceFv(this) != 0)) {
         o->m4(0xc, 1);
-        set_field_20((int)(5));
+        set_field_20(5);
     }
 }
 
@@ -252,13 +252,13 @@ void TShopEquipmentSellWindow::handle_input_window_result() {
         *(s32 *)((s8 *)this + 0x37C) = ((TShopEquipmentSellWindow *)(*(u32 *)((s8 *)this + 0x394)))->get_result();
         TWindow__close((u8 *)(*(u32 *)((s8 *)this + 0x394)));
         *(u32 *)((s8 *)this + 0x394) = 0U;
-        set_field_20((int)(2));
+        set_field_20(2);
         return;
     }
     if (((u32) *(u32 *)((s8 *)this + 0x394) != 0U) && (((TShopEquipmentSellWindow *)(*(u32 *)((s8 *)this + 0x394)))->is_confirmed() != 0)) {
         TWindow__close((u8 *)(*(u32 *)((s8 *)this + 0x394)));
         *(u32 *)((s8 *)this + 0x394) = 0U;
-        set_field_20((int)(5));
+        set_field_20(5);
     }
 }
 
@@ -266,7 +266,7 @@ s32 TShopEquipmentSellWindow::close() {
     if ((u32) *(u32 *)((s8 *)this + 0x38C) != 0U) {
         ((TWindowSubItem *)(*(void **)((s8 *)this + 0x38C)))->clear_selected_and_update_entry();
     }
-    set_field_20((int)(1));
+    set_field_20(1);
 }
 
 extern s32 __vt__24TShopEquipmentSellWindow[];

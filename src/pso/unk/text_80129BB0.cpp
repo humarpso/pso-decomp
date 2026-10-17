@@ -39,7 +39,7 @@ void s_rank_bazooka_recoil(Self_80129BB0 *self) {
             a.x = 0x4000;
             a.y = self->owner->f60;
             a.z = 0;
-            TObjPlayer::launch_weapon_casing((s32)tl_05, (u32)self, (s32)3, (u32)(&v), (u32)(&a));
+            TObjPlayer::launch_weapon_casing((s32)tl_05, (u32)self, 3, (u32)(&v), (u32)(&a));
         }
     } else if (self->state == 2) {
         TItemEffOrgaFlowShot::approach_value(&self->f1FC, lbl_805DAE58, lbl_805DAE48);

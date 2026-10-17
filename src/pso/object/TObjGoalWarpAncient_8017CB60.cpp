@@ -99,7 +99,7 @@ void TObjGoalWarpAncient::debug_print_area_num() {
         *(s32 *)((s8 *)this + 0xD8) = TObjGoalWarpAncient::get_instance();
         debug_printf_at(0x130022, lbl_80443288);
     } else {
-        *(s32 *)((s8 *)this + 0xD8) = register_warp_object__19TObjGoalWarpAncientFPv((int)(1));
+        *(s32 *)((s8 *)this + 0xD8) = register_warp_object__19TObjGoalWarpAncientFPv(1);
         debug_printf_at(0x130022, lbl_804432A4);
     }
     TObjNpcEnemy::set_global_count(0xF0F0F0FF);
@@ -165,18 +165,18 @@ u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjGoalWarpAncient__class_name;
     *(f32 *)((s8 *)arg0 + 0xC8) = (f32) lbl_805DBAC4;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DBAC4;
-    *(s32 *)&((TObjGoalWarpAncient *)arg0)->m_e8 = TObjGoalWarpAncient__sub_8017D2D4((int) (1));
-    *(s32 *)((s8 *)arg0 + 0xD0) = TObjGoalWarpAncient__sub_8017D2D4((int) (3));
-    *(s32 *)((s8 *)arg0 + 0xD4) = TObjGoalWarpAncient__sub_8017D2D4((int) (5));
+    *(s32 *)&((TObjGoalWarpAncient *)arg0)->m_e8 = TObjGoalWarpAncient__sub_8017D2D4(1);
+    *(s32 *)((s8 *)arg0 + 0xD0) = TObjGoalWarpAncient__sub_8017D2D4(3);
+    *(s32 *)((s8 *)arg0 + 0xD4) = TObjGoalWarpAncient__sub_8017D2D4(5);
     if ((s32) *(s32 *)&((TObjGoalWarpAncient *)arg0)->m_8c< 0) {
         *(s32 *)((s8 *)arg0 + 0xD8) = TObjGoalWarpAncient::get_instance();
     } else {
-        *(s32 *)((s8 *)arg0 + 0xD8) = register_warp_object__19TObjGoalWarpAncientFPv((int) (1));
+        *(s32 *)((s8 *)arg0 + 0xD8) = register_warp_object__19TObjGoalWarpAncientFPv(1);
     }
-    *(s32 *)((s8 *)arg0 + 0xDC) = register_warp_object__19TObjGoalWarpAncientFPv((int) (3));
-    *(s32 *)((s8 *)arg0 + 0xE0) = register_warp_object__19TObjGoalWarpAncientFPv((int) (5));
-    *(s32 *)((s8 *)arg0 + 0xE4) = register_warp__19TObjGoalWarpAncientFPv((int) (0));
-    *(s32 *)((s8 *)arg0 + 0xE8) = register_warp__19TObjGoalWarpAncientFPv((int) (2));
+    *(s32 *)((s8 *)arg0 + 0xDC) = register_warp_object__19TObjGoalWarpAncientFPv(3);
+    *(s32 *)((s8 *)arg0 + 0xE0) = register_warp_object__19TObjGoalWarpAncientFPv(5);
+    *(s32 *)((s8 *)arg0 + 0xE4) = register_warp__19TObjGoalWarpAncientFPv(0);
+    *(s32 *)((s8 *)arg0 + 0xE8) = register_warp__19TObjGoalWarpAncientFPv(2);
     if ((get_game_play_mode() == 1) && ((s32) *(s32 *)&((TObjGoalWarpAncient *)arg0)->m_8c >= 0)) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }

@@ -143,8 +143,8 @@ void TObjContainerJung__vt77(const Obj_8018D4DC *self) {
         b.f38 = qy;
         b.f40 = (s32) get_bml_model((void *) TObjContainerJung__bml_model_resource, 2);
         b.f44 = TObjContainerJung__bml_aux_handle;
-        spawn_particle_effect_with_flags((void *)&self->pos, (s32)(0x45), (s32)(0x40));
-        spawn_particle_effect_with_flags((void *)&self->pos, (s32)(0x46), (s32)(0x40));
+        spawn_particle_effect_with_flags((void *)&self->pos, 0x45, 0x40);
+        spawn_particle_effect_with_flags((void *)&self->pos, 0x46, 0x40);
         o = __nw__7TObjectFUl(0x234);
         if (o != 0) {
             construct_debris__8TObjChipFPvPvPv((u8 *)o, (u8 *)tl_05, (u8 *)&a);
@@ -163,14 +163,14 @@ void TObjContainerJung::vfunc_6(s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             this->vfunc_79();
-            ((TUnk_804806E8 *)arg0)->request_box_item_drop((void *) (arg0 + 0x38), (int) (1));
-            ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
+            ((TUnk_804806E8 *)arg0)->request_box_item_drop((void *) (arg0 + 0x38), 1);
+            ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
             ((TUnk_804AF8A0 *)arg0)->set_flag8();
             queue_destruction__7TObjectFv((arg0));
             this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
-        ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
+        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
         ((TUnk_804AF8A0 *)arg0)->set_flag8();
         queue_destruction__7TObjectFv((arg0));
         this->mode = 1;

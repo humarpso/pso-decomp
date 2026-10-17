@@ -92,9 +92,9 @@ void TUnk_804EE470::render() {
   Stack_80335E7C stack;
   TParticleCtrl::begin_effect_render();
   TCameraCtrl::restore_full_screen_view();
-  begin_screen_draw((int) 1);
+  begin_screen_draw(1);
   bind_title_texture_list();
-  set_draw_texture_and_color((int) 1, (-1));
+  set_draw_texture_and_color(1, -1);
   stack.sp8 = lbl_805DF8C8;
   stack.spC = lbl_805DF8CC;
   stack.sp10 = lbl_805DF8D0;
@@ -102,7 +102,7 @@ void TUnk_804EE470::render() {
   stack.sp1C = (stack.sp18 = lbl_805DF8D8);
   stack.sp24 = (stack.sp20 = lbl_805DF8DC);
   draw_textured_quad_at_depth((&stack.sp8), (f32) lbl_805DF8E0);
-  set_draw_texture_and_color((int) 2, (-1));
+  set_draw_texture_and_color(2, -1);
   stack.sp8 = lbl_805DF8D0;
   stack.spC = lbl_805DF8CC;
   stack.sp10 = lbl_805DF8E4;

@@ -73,12 +73,12 @@ void *__nw__7TObjectFUl(int);
 void TMotorcycle::render() {
     u8 *arg0 = (u8 *)this;
     if ((get_state_flag__9TMainTaskFv() != 1) && (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBED0, lbl_805DBED4) != 0)) {
-        set_depth_buffer_settings_id((3));
+        set_depth_buffer_settings_id(3);
         if ((u32) TMotorcycle__texture_list != 0U) {
             TObjFish::set_global_param((s32) TMotorcycle__texture_list);
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
-            rotate_matrix_yxz((0), (*(s32 *)&this->m_5c), (this->rotation_y), (this->rotation_z));
+            rotate_matrix_yxz(0, (*(s32 *)&this->m_5c), (this->rotation_y), (this->rotation_z));
             get_bml_model((void *) ((*(s32 *)&TMotorcycle__bml_resource)), (int) (*(s32 *)&this->m_bc));
             draw_ginja_object();
             pop_matrix();
@@ -121,8 +121,8 @@ void TMotorcycle::load_resources() {
     }
     (*(u8 * *)&TMotorcycle__bml_resource) = (unsigned char *) ((void *) var_r0);
     (*(u8 * *)&TMotorcycle__texture_list) = load_gvm_texture_file((s32) &lbl_80445E18.value);
-    TMotorcycle::add_entry((s16)((int) (0x3C)), (s32)((void *) (((s32)get_bml_model((void *)((*(u8 * *)&TMotorcycle__bml_resource)), (int)(0))))), (s32)((void *) ((*(u8 * *)&TMotorcycle__texture_list))), (f32)((f32) (lbl_805DBED8)), (f32)((f32) (lbl_805DBEDC)));
-    TMotorcycle::add_entry((s16)((int) (0x3D)), (s32)((void *) (((s32)get_bml_model((void *)((*(u8 * *)&TMotorcycle__bml_resource)), (int)(1))))), (s32)((void *) ((*(u8 * *)&TMotorcycle__texture_list))), (f32)((f32) (lbl_805DBED8)), (f32)((f32) (lbl_805DBEDC)));
+    TMotorcycle::add_entry((s16)(0x3C), (s32)((void *) (((s32)get_bml_model((void *)((*(u8 * *)&TMotorcycle__bml_resource)), 0)))), (s32)((void *) ((*(u8 * *)&TMotorcycle__texture_list))), (f32)((f32) (lbl_805DBED8)), (f32)((f32) (lbl_805DBEDC)));
+    TMotorcycle::add_entry((s16)(0x3D), (s32)((void *) (((s32)get_bml_model((void *)((*(u8 * *)&TMotorcycle__bml_resource)), 1)))), (s32)((void *) ((*(u8 * *)&TMotorcycle__texture_list))), (f32)((f32) (lbl_805DBED8)), (f32)((f32) (lbl_805DBEDC)));
 }
 
 void *__dt__11TMotorcycleFv(void *arg0, s16 arg1) {

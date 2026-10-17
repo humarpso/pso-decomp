@@ -23,7 +23,7 @@ void TBoss4CheckEmpty::run_task() {
             TBoss4Thanks::create();
             play_area_music((char *)(lbl_804789DC));
         } else {
-            init_music_sequencer((int) (4));
+            init_music_sequencer(4);
         }
         queue_destruction__7TObjectFv((arg0));
     }

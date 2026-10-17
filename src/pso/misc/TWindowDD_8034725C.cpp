@@ -277,7 +277,7 @@ void TWindowDD__sub_80347A4C(u8 *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x9C) = (s32) (s16) temp_r3;
         return;
     }
-    TWindowDD__sub_80347FA0((s32)(arg0), (3));
+    TWindowDD__sub_80347FA0((s32)(arg0), 3);
     *(s32 *)((s8 *)arg0 + 0x98) = 0;
     *(s32 *)((s8 *)arg0 + 0x9C) = (s32) (s16) temp_r3;
 }
@@ -376,7 +376,7 @@ void TWindowDD__sub_80347E04(W_80347E04 *arg0, s32 arg1) {
         }
         b.x = lbl_805DFB60;
         b.y = a.y;
-        o = (u8 *)TWindowDD__sub_8034146C((s32)&a, (s32)&b, (s32)r, (s32)(1), (f32)lbl_805DFBE4);
+        o = (u8 *)TWindowDD__sub_8034146C((s32)&a, (s32)&b, (s32)r, 1, (f32)lbl_805DFBE4);
         if (o != NULL) {
             ((TLobby *)o)->set_field_1c(lbl_805DFC28);
             TWindowDD__sub_803412A0((u32)o);

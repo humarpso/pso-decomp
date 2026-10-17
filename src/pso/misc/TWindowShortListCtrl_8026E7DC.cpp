@@ -175,7 +175,7 @@ void TWindowShortListCtrl::assign_item_to_palette(u32 arg0, u32 arg1) {
                     if (canSetMenuCursorAction((s32) var_r3, var_r4, 4U, parameter) != 0) {
                         var_r3 = var_r29 + 0x520;
                         var_r4 = 4;
-                        ((TWindowActionPalette *)var_r3)->set_mode((int) (4));
+                        ((TWindowActionPalette *)var_r3)->set_mode(4);
                         var_r3 = var_r29 + 0x520;
                         var_r4 = (s32) (u8) var_r31;
                         ((TWindowActionPalette *)var_r3)->set_slot((int) (var_r4));

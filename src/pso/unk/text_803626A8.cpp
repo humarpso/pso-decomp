@@ -236,11 +236,11 @@ void TObjEneEpsilonGuard::sub_803626A8(s32 arg1, s32 arg2) {
     stack.sp10 = *(s32 *)((s8 *)(&lbl_80479FBC.value) + 8);
     push_matrix_from((void *) (&identity_matrix.value));
     post_translate_matrix((void *) (((u8 *)this) + 0x38));
-    rotate_matrix_y((int) (0), (int) (this->rotation_y));
+    rotate_matrix_y(0, (int) (this->rotation_y));
     ((TObjEnemy *)((u8 *)this))->render_anim_model((f32) (this->m_c0));
     pop_matrix();
     push_matrix_from((void *) (anim_model_matrix_array + (arg2 * 0x30)));
-    matrix_mult_vec((int) (0), (void *) (&stack.sp8), (void *) (arg1));
+    matrix_mult_vec(0, (void *) (&stack.sp8), (void *) (arg1));
     pop_matrix();
 }
 
@@ -309,7 +309,7 @@ void TObjEneEpsilonGuard::load_assets() {
 u8 *__dt__14TObjEneEpsilonFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80362B48___vt__14TObjEneEpsilon *)&__vt__14TObjEneEpsilon).value;
-        __destroy_arr((void *) (arg0 + 0x3C0), (void *) (&__dt__13TUnk_804949A8Fv), (int) (0x1C), (int) (4));
+        __destroy_arr((void *) (arg0 + 0x3C0), (void *) (&__dt__13TUnk_804949A8Fv), 0x1C, 4);
         __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));

@@ -517,7 +517,7 @@ void TObjPlayer::run_death_sequence() {
     case 4:
         advance_animation_playback(arg0);
         if (((VObj_14_c1c33b *)(arg0 + 0x390))->m4() == 1) {
-            TObjPlayer::apply_effect_variant_a((s32)(arg0 + 0x38), (s32)0);
+            TObjPlayer::apply_effect_variant_a((s32)(arg0 + 0x38), 0);
             ((TObjEnemy *)arg0)->send_entity_set_flags();
             queue_destruction__7TObjectFv(arg0);
         }
@@ -595,7 +595,7 @@ void TObjPlayer__sub_8008FAD0(u8 *arg0) {
             reset_enemy_state__10TObjPlayerFv();
             break;
         }
-        play_persistent_sound((s32)(0x4003B235), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
+        play_persistent_sound(0x4003B235, (s32)arg0, (u32)(arg0 + 0x38), 0, 0);
         *(f32 *)((s8 *)arg0 + 0x30C) = lbl_805D9620;
         {
             Vec_8008FAD0 pos = *(Vec_8008FAD0 *)(*(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC);

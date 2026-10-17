@@ -39,7 +39,7 @@ void update_casing_eject__10TObjPlayerFPv(Self_8012E5A0 *self) {
             a.x = 0x4000;
             a.y = self->owner->f60;
             a.z = 0;
-            TObjPlayer::launch_weapon_casing((s32)tl_05, (u32)self, (s32)3, (u32)(&v), (u32)(&a));
+            TObjPlayer::launch_weapon_casing((s32)tl_05, (u32)self, 3, (u32)(&v), (u32)(&a));
         }
     } else if (self->state == 2) {
         TItemEffOrgaFlowShot::approach_value(&self->f1FC, lbl_805DAF8C, lbl_805DAF7C);

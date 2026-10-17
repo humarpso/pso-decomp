@@ -138,18 +138,18 @@ extern const f32 lbl_805DFEF0;
 
 void TEndingPic::draw_current_pic() {
     u8 *arg0 = (u8 *)this;
-    begin_screen_draw((1));
+    begin_screen_draw(1);
     switch ((s32) TEndingPic__animation_state) {
     case 1:
     case 3:
         break;
     case 2:
-        set_draw_texture_and_color(((*(s32 *)((s8 *)arg0 + 0x28) * 2) + 2), (-1));
+        set_draw_texture_and_color(((*(s32 *)((s8 *)arg0 + 0x28) * 2) + 2), -1);
         draw_textured_quad_at_depth((f32 *)(arg0 + 0xAC), (f32) (lbl_805DFEF0));
         break;
     case 4:
     case 5:
-        set_draw_texture_and_color(((*(s32 *)((s8 *)arg0 + 0x28) * 2) + 3), (-1));
+        set_draw_texture_and_color(((*(s32 *)((s8 *)arg0 + 0x28) * 2) + 3), -1);
         draw_textured_quad_at_depth((f32 *)(arg0 + 0xCC), (f32) (lbl_805DFEF0));
         break;
     default:
@@ -227,8 +227,8 @@ void TEndingPic::send_obj_position_event(s32 arg1) {
     }
 }
 
-void TEndingPic::set_phase_18() { send_obj_position_event((s32)(18)); }
-void TEndingPic__sub_803530A0(void* p) { ((TEndingPic *)p)->send_obj_position_event((s32)(17)); }
+void TEndingPic::set_phase_18() { send_obj_position_event(18); }
+void TEndingPic__sub_803530A0(void* p) { ((TEndingPic *)p)->send_obj_position_event(17); }
 
 void TEndingPic::update_player_object() {
     void *temp_r3 = *(void **)((s8 *)this + 0xF0);
@@ -238,8 +238,8 @@ void TEndingPic::update_player_object() {
     }
 }
 
-void TEndingPic__sub_80353110(void* p) { ((TEndingPic *)p)->send_obj_position_event((s32)(16)); }
-void TEndingPic__sub_80353134(void* p) { ((TEndingPic *)p)->send_obj_position_event((s32)(15)); }
+void TEndingPic__sub_80353110(void* p) { ((TEndingPic *)p)->send_obj_position_event(16); }
+void TEndingPic__sub_80353134(void* p) { ((TEndingPic *)p)->send_obj_position_event(15); }
 void TEndingPic::update_shield() {
     add_actor_hp(*(s32 *)((s8 *)this + 0xF0), get_field_2b8__14TItemProShieldFv(*(s32 *)((s8 *)this + 0xF0)));
 }

@@ -171,7 +171,7 @@ void set_quest_floor_designation(s16 mode, s32 floor, s32 terrain, s32 unused) {
 }
 
 void clear_quest_floor_designations(void) {
-    memset((void *) (&quest_floor_designations), (int) (0), (int) (0x24));
+    memset((void *) (&quest_floor_designations), 0, 0x24);
 }
 
 void populate_quest_floor_sets(void) {

@@ -768,31 +768,31 @@ void spawn_ground_effect__16TObjEneMerillLiaFPv(u8 *arg0) {
 }
 
 void TObjEneMerillLia__sub_800D4EC8(s32 arg0) {
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (int) (0x3AD04))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), 0x3AD04)), (void *) (arg0 + 0x38), 0, 0);
 }
 
 void TObjEneMerillLia::vfunc_99() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (int) (0x3B205))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), 0x3B205)), (void *) (arg0 + 0x38), 0, 0);
 }
 
 void TObjEneMerillLia::vfunc_98() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (int) (0x3AD00))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), 0x3AD00)), (void *) (arg0 + 0x38), 0, 0);
 }
 
 void TObjEneMerillLia::vfunc_97() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (int) (0x3B201))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), 0x3B201)), (void *) (arg0 + 0x38), 0, 0);
 }
 
 void TObjEneMerillLia::vfunc_96() {
     s32 arg0 = (s32)this;
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (int) (0x3AB02))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), 0x3AB02)), (void *) (arg0 + 0x38), 0, 0);
 }
 
 void TObjEneMerillLia__sub_800D501C(s32 arg0) {
-    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (int) (0x3B206))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), 0x3B206)), (void *) (arg0 + 0x38), 0, 0);
 }
 
 void TObjEneMerillLia::vfunc_94() {
@@ -805,12 +805,12 @@ void TObjEneMerillLia::vfunc_94() {
     stack.spC = lbl_805DA304;
     stack.sp10 = TObjEneMerillLia__data_805DA308 * *(f32 *)((s8 *)(this->m_2b0) + 0x10);
     push_matrix_from((void *) (&identity_matrix.value));
-    rotate_matrix_y((int) (0), (int) (this->rotation_y));
-    rotate_vector_by_matrix((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
+    rotate_matrix_y(0, (int) (this->rotation_y));
+    rotate_vector_by_matrix(0, (void *) (&stack.sp8), (void *) (&stack.sp8));
     pop_matrix();
     vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x38));
-    ((TObjPlayer *)(&stack.sp8))->spawn_ground_effect((int) (0x23));
-    TObjPlayer__sub_800D92BC((void *) (&stack.sp8), (int) (0xF));
+    ((TObjPlayer *)(&stack.sp8))->spawn_ground_effect(0x23);
+    TObjPlayer__sub_800D92BC((void *) (&stack.sp8), 0xF);
 }
 
 void TObjEneMerillLia::vfunc_93() {  }
@@ -876,8 +876,8 @@ void TObjEneMerillLia::vfunc_59() {
             arg0->state = 2;
             arg0->fB8 = 10;
         }
-        ((TUnk_804B9870 *)arg0)->obj_clearFlags30((s32)(0x4040000));
-        clear_player_status_flag__10TObjPlayerFlUl((void *)(arg0), (s32)(0), (s32)(0xA000000));
+        ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x4040000);
+        clear_player_status_flag__10TObjPlayerFlUl((void *)(arg0), 0, 0xA000000);
         break;
     case 4:
         arg0->fB8 = 5;
@@ -886,8 +886,8 @@ void TObjEneMerillLia::vfunc_59() {
         arg0->state = 3;
         arg0->f328 = 1;
         arg0->fB8 = 2;
-        ((TUnk_804B9870 *)arg0)->obj_clearFlags30((s32)(0x4040000));
-        clear_player_status_flag__10TObjPlayerFlUl((void *)(arg0), (s32)(0), (s32)(0xA000000));
+        ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x4040000);
+        clear_player_status_flag__10TObjPlayerFlUl((void *)(arg0), 0, 0xA000000);
         break;
     }
 }
@@ -912,8 +912,8 @@ void TObjEneMerillLia::vfunc_60() {
             arg0->state = 2;
             arg0->fB8 = 10;
         }
-        ((TUnk_804B9870 *)arg0)->obj_clearFlags30((s32)(0x4040000));
-        clear_player_status_flag__10TObjPlayerFlUl((void *)(arg0), (s32)(0), (s32)(0xA000000));
+        ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x4040000);
+        clear_player_status_flag__10TObjPlayerFlUl((void *)(arg0), 0, 0xA000000);
         break;
     default:
         arg0->state = 5;
@@ -923,9 +923,9 @@ void TObjEneMerillLia::vfunc_60() {
         } else {
             arg0->fB8 = 4;
         }
-        obj_setFlags30((void *)(arg0), (s32)(0x200000));
-        ((TUnk_804B9870 *)arg0)->obj_clearFlags30((s32)(0x4040000));
-        clear_player_status_flag__10TObjPlayerFlUl((void *)(arg0), (s32)(0), (s32)(0xA000000));
+        obj_setFlags30((void *)(arg0), 0x200000);
+        ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x4040000);
+        clear_player_status_flag__10TObjPlayerFlUl((void *)(arg0), 0, 0xA000000);
         break;
     }
 }
@@ -965,7 +965,7 @@ void TObjEneMerillLia::reset_state_clear_status() {
     this->mode = 0xB;
     this->phase = 0;
     *(s32 *)&this->target = 0;
-    clear_player_status_flag__10TObjPlayerFlUl((void *)(arg0), (s32)(0), (s32)(0x0A000000U));
+    clear_player_status_flag__10TObjPlayerFlUl((void *)(arg0), 0, (s32)(0x0A000000U));
 }
 
 void TObjEneMerillLia::init_attack_state() {
@@ -1366,8 +1366,8 @@ void TObjEneMerillLia::vfunc_83() {
         } else {
             arg0->sub = 1;
             arg0->fB8 = 0xB;
-            set_indexed_flags((void *)(arg0), (s32)(0), (s32)(0xA000000));
-            obj_setFlags30((void *)(arg0), (s32)(0x4000000));
+            set_indexed_flags((void *)(arg0), 0, 0xA000000);
+            obj_setFlags30((void *)(arg0), 0x4000000);
             arg0->m95();
         }
         break;
@@ -1380,8 +1380,8 @@ void TObjEneMerillLia::vfunc_83() {
             arg0->sub = 2;
             arg0->f390 = 0;
             arg0->fB8 = 0;
-            clear_player_status_flag__10TObjPlayerFlUl((void *)(arg0), (s32)(0), (s32)(0xA000000));
-            ((TUnk_804B9870 *)arg0)->obj_clearFlags30((s32)(0x4000000));
+            clear_player_status_flag__10TObjPlayerFlUl((void *)(arg0), 0, 0xA000000);
+            ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x4000000);
         }
         break;
     case 2:
@@ -1454,9 +1454,9 @@ void render__16TObjEneMerillLiaFPv(u8 *arg0) {
     select_actor_lighting((void *) arg0);
     TObjFish::set_global_param((int) ((RecoveredFields_800D6810_arg0 *) arg0)->field_24);
     push_matrix();
-    translate_matrix((int) 0, (f32) TObjEneMerillLia__data_805DA300, (f32) ((RecoveredFields_800D6810_arg0 *) arg0)->field_380, (f32) TObjEneMerillLia__data_805DA300);
+    translate_matrix(0, (f32) TObjEneMerillLia__data_805DA300, (f32) ((RecoveredFields_800D6810_arg0 *) arg0)->field_380, (f32) TObjEneMerillLia__data_805DA300);
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y((int) 0, (int) ((RecoveredFields_800D6810_arg0 *) arg0)->field_60);
+    rotate_matrix_y(0, (int) ((RecoveredFields_800D6810_arg0 *) arg0)->field_60);
     if (TObjPlayer::check_demo_mode() == 1)
     {
       draw_chunk_object((int) ((RecoveredFields_800D6810_arg0 *) arg0)->field_34);
@@ -1508,7 +1508,7 @@ void render__16TObjEneMerillLiaFPv(u8 *arg0) {
       stack.sp8 = lbl_805DA32C;
       stack.spC = TObjEneMerillLia__data_805DA2F4;
       stack.sp10 = lbl_805DA330;
-      ((TObjEnemy *)arg0)->render_with_position_override((u8 *)(&stack.sp8), (s32)((int) 0));
+      ((TObjEnemy *)arg0)->render_with_position_override((u8 *)(&stack.sp8), 0);
     }
   }
 }
@@ -1603,7 +1603,7 @@ void run_state_dispatch__16TObjEneMerillLiaFPv(u8 *arg0) {
   }
   ((TObjEnemy *)arg0)->update_prev_position();
   copy_position__20TBoss3VoloptHiraisinFi((void *) arg0);
-  submit_cursor_candidate((void *) arg0, (int) (-1));
+  submit_cursor_candidate((void *) arg0, -1);
   ((TObjEneMerillLia *)arg0)->m_2b4 = (f32) ((((TObjEneMerillLia *)arg0)->m_2b4) + TObjEneMerillLia__data_805DA2F4);
 }
 

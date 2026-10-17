@@ -161,7 +161,7 @@ void TObjPlayer::draw_area_chunk_objects() {
     Ent_8030AB48 *p = t->ents;
     s32 r31;
     s32 i;
-    r31 = ((s32)get_bml_model((s32)(TBoss4Uro::get_instance_count()), (s32)(8)));
+    r31 = ((s32)get_bml_model((s32)(TBoss4Uro::get_instance_count()), 8));
     TObjPlayer__sub_80052390(lbl_805DF148);
     TObjFish::set_global_param(falz_zako_texture_list);
     for (i = 0; i < t->count; i++, p++) {
@@ -188,7 +188,7 @@ void TCameraCtrl__sub_8030ABF4(void) {
         if (is_split_screen() == 0) {
             var_r4 = (u8 *)(var_r31);
             var_r3 = (s32 *)((u8 *)((s32 *)2));
-            set_viewport_scissor__11TCameraCtrlFiPv((int) (2), (int) (var_r4));
+            set_viewport_scissor__11TCameraCtrlFiPv(2, (int) (var_r4));
         }
         var_r4 = (u8 *)((void *)8);
         var_r3 = (s32 *)(*(s32 **)((s8 *)(get_bml_model(TBoss4Uro::get_instance_count(), 8)) + 0x2C));

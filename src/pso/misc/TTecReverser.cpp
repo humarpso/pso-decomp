@@ -163,7 +163,7 @@ u8 *TTecReverser__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     ((TTecAnti *)(arg0 + 0x88))->copy_params((u8 *)((u8 *)&technique_param_table.value + 0x2EC));
     ((TTecReverser *)arg0)->sub_8022BE64((u8 *)(arg0 + 0x88), (s32)((void *) (arg4)));
     copy_technique_target_list((void *) (arg0 + 0xEC), (void *) (arg3));
-    play_sound_effect((int) (0x4002A812), (void *) (arg0 + 0x20), (int) (0), (int) (0));
+    play_sound_effect(0x4002A812, (void *) (arg0 + 0x20), 0, 0);
     temp_r3 = *(u32 *)((s8 *)arg0 + 0x1C);
     if (temp_r3 != 0U) {
         *(s16 *)((s8 *)arg0 + 0xB4) = obj_getField1c((int) (temp_r3));

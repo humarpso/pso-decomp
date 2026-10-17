@@ -619,14 +619,14 @@ void city_door_play_open_sound__17TObjCityDoor_WarpFv(s32 arg0);
 
 void TObjCityDoor_Warp::city_door_play_close_sound() {
     s32 arg0 = (s32)this;
-    update_technique_slot__10TTecRaFoieFl((s32)(play_sound_effect(0x42A05, arg0 + 0x38, 0, 0)), (s32)(-0x500), (s32)(0));
+    update_technique_slot__10TTecRaFoieFl((s32)(play_sound_effect(0x42A05, arg0 + 0x38, 0, 0)), -0x500, 0);
 }
 
 void TObjCityDoor_Warp::city_door_play_open_sound() {
     s32 arg0 = (s32)this;
     if (is_rader_map_active() != 0) {
         s32 r = play_sound_effect(0x42A04, arg0 + 0x38, 0, 0);
-        update_technique_slot__10TTecRaFoieFl((s32)(r), (s32)(-0x800), (s32)(0));
+        update_technique_slot__10TTecRaFoieFl((s32)(r), -0x800, 0);
     }
 }
 #pragma push
@@ -636,7 +636,7 @@ void TObjCityDoor_Warp::city_door_tick_opening() {
     f32 temp_f1;
     temp_f1 = this->m_b4;
     if ((temp_f1 >= lbl_805DBBF8) && (temp_f1 <= lbl_805DBBFC)) {
-        update_technique_slot__10TTecRaFoieFl((s32)(play_sound_effect((s32)((int) (0x42A04)), (s32)((void *) (arg0 + 0x38)), (s32)((int) (0)), (s32)((int) (0)))), (s32)((int) (-0x500)), (s32)((int) (0)));
+        update_technique_slot__10TTecRaFoieFl((s32)(play_sound_effect(0x42A04, (s32)((void *) (arg0 + 0x38)), 0, 0)), -0x500, 0);
     }
     city_door_tick_opening__13TUnk_804B5BA8Fv((void *) (arg0));
 }
@@ -1140,7 +1140,7 @@ u8 *init_city_door(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3) {
     count = (u8 *)(*(u8 **)((s8 *)arg0 + 0xB8));
     (*(f32 *)(copy_storage_80182D8C.bytes + 0xC)) = *(f32 *)((s8 *)count + 0xC);
     (*(f32 *)(copy_storage_80182D8C.bytes + 0x10)) = *(f32 *)((s8 *)count + 0x10);
-    init_collision_body_parts((void *) (arg0), (void *) ((copy_storage_80182D8C.bytes)), (int) (1), (int) (count));
+    init_collision_body_parts((void *) (arg0), (void *) ((copy_storage_80182D8C.bytes)), 1, (int) (count));
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
 }

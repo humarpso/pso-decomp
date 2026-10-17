@@ -146,11 +146,11 @@ s32 refresh_player_status__6TLobbyFv(s32);
 
 s32 format_trade_out_of_range_message(s32 arg0) {
     if ((s32) local_client_id == arg0) {
-        return ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)((s32)(0xF0));
+        return ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)(0xF0);
     }
     text_builder_reset();
     refresh_player_status__6TLobbyFv(arg0);
-    ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)((s32)(0xEF));
+    ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)(0xEF);
     text_builder_append();
     return get_shared_text_buffer();
 }
@@ -163,11 +163,11 @@ s32 TLobby::show_event_message(s32 arg0, s32 arg1, s32 arg2) {
         return 0;
     case 1:
         if (arg0 == (s32) local_client_id) {
-            return ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)((s32)(0xF4));
+            return ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)(0xF4);
         }
         text_builder_reset();
         refresh_player_status__6TLobbyFv(arg0);
-        ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)((s32)(0xEA));
+        ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)(0xEA);
         text_builder_append();
         return get_shared_text_buffer();
     case 2:
@@ -177,29 +177,29 @@ s32 TLobby::show_event_message(s32 arg0, s32 arg1, s32 arg2) {
         }
         text_builder_reset();
         if (arg0 == (s32) local_client_id) {
-            ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)((s32)(0xF3));
+            ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)(0xF3);
             text_builder_append();
         } else {
             refresh_player_status__6TLobbyFv(arg0);
-            ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)((s32)(0xE8));
+            ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)(0xE8);
             text_builder_append();
         }
         ((VObj_802D2E28_0x30_802D2B64 *)item)->vma();
         text_builder_append();
-        ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)((s32)(0xE9));
+        ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)(0xE9);
         text_builder_append();
         return get_shared_text_buffer();
     case 3:
         if (arg0 == (s32) local_client_id) {
-            return ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)((s32)(0xF2));
+            return ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)(0xF2);
         }
         text_builder_reset();
         refresh_player_status__6TLobbyFv(arg0);
-        ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)((s32)(0xE7));
+        ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)(0xE7);
         text_builder_append();
         return get_shared_text_buffer();
     case 4:
-        return ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)((s32)(0xEE));
+        return ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)(0xEE);
     default:
         return 0;
     }
@@ -377,7 +377,7 @@ void send_modify_trade_proposal__6TLobbyFi(s32 arg0) {
             TWindowTradeRequest::close_request_window();
             if ((s8) (*(u8 *)&(*(s8 *)&TLobby__trade_partner_client_id)) == arg0) {
                 TLobby::send_trade_proposal_modify();
-                TLobby__sub_8024AAA0((s32)((void *) (local_client_id)), ((int) (0x1D)));
+                TLobby__sub_8024AAA0((s32)((void *) (local_client_id)), 0x1D);
                 return;
             }
             send_trade_busy_reply((s32)((int) ((s32) (s8) (*(u8 *)&(*(s8 *)&TLobby__trade_partner_client_id)))));

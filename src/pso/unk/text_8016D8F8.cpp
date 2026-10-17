@@ -21,8 +21,8 @@ void TOKurage::sub_8016D8F8() {
     ((TObjPlayer *)(&stack.sp8))->copy_xyz((void *) (arg0 + 0x5C));
     *(s32 *)&this->m_5c = (s32) (lbl_805DB7A0 * (*(f32 *)((s8 *)arg0 + 0x40) - *(f32 *)&this->m_4c));
     this->rotation_z = (s32) (lbl_805DB7A4 * (*(f32 *)((s8 *)arg0 + 0x38) - *(f32 *)&this->m_44));
-    *(s32 *)&this->m_5c = approach_angle_limited((int) (stack.sp8), (int) (*(s32 *)&this->m_5c), (int) (0x40));
-    this->rotation_z = approach_angle_limited((int) (stack.sp10), (int) (this->rotation_z), (int) (0x40));
+    *(s32 *)&this->m_5c = approach_angle_limited((int) (stack.sp8), (int) (*(s32 *)&this->m_5c), 0x40);
+    this->rotation_z = approach_angle_limited((int) (stack.sp10), (int) (this->rotation_z), 0x40);
 }
 
 }

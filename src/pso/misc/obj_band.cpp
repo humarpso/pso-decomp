@@ -359,7 +359,7 @@ void TObjEneRe7Berura::draw() {
     } else {
         TObjEneRe7Berura::set_global_state((s32)chunk_model_node_callback);
         draw_model_motion((void *)(*(s32 *)&this->model), (void *)(*(s32 *)&this->unknownF8), this->m_c0);
-        TObjEneRe7Berura::set_global_state((s32)0);
+        TObjEneRe7Berura::set_global_state(0);
     }
     TObjPlayer::reset_transform_state();
     restore_actor_draw_lighting(*(s32 *)&this->m_name);

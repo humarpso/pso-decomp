@@ -39,13 +39,13 @@ void TObjBoss1MokoHill_Solo::render() {
     TObjFish::set_global_param((s32)((void *) (dragon_common_texture_list)));
     update_dragon_trail_uvs((void *) (arg0 + 0x28));
     push_matrix();
-    translate_matrix((0), (f32) (this->m_28), (f32) (*(f32 *)((s8 *)arg0 + 0x34)), (f32) (this->m_30));
+    translate_matrix(0, (f32) (this->m_28), (f32) (*(f32 *)((s8 *)arg0 + 0x34)), (f32) (this->m_30));
     if ((s32) this->m_48 != 0) {
         lbl_805D5660 = model_render_flags;
         lbl_805D5664 = chunk_polygon_flags_and_mask;
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         model_render_flags |= 0x800;
-        set_chunk_material_override_pair((int) (0xFF00), (int) (0x100), (void *) (chunk_polygon_flags_or_mask), (void *) (chunk_polygon_flags_and_mask));
+        set_chunk_material_override_pair(0xFF00, 0x100, (void *) (chunk_polygon_flags_or_mask), (void *) (chunk_polygon_flags_and_mask));
         draw_chunk_object((void *)(*(s32 *)((s8 *)(*(void **)((s8 *)lbl_805D4B50 + 0x42C)) + 0x38)));
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;

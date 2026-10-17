@@ -272,7 +272,7 @@ u8 *TODoorVS2Door01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) 30.0f;
     ((TODoorVS2Door01 *)arg0)->m_b8 = (f32) ((19.0f) / *(f32 *)((s8 *)arg0 + 0xB4));
     *(f32 *)((s8 *)arg0 + 0xD4) = (f32) (0.0f);
-    init_collision_body_parts((void *) (arg0), (void *) (&todoor_vs2_door01_collision_parts.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&todoor_vs2_door01_collision_parts.value), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TODoorVS2Door01 *)(arg0))->init_door_switch_binding();

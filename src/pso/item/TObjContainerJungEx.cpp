@@ -99,8 +99,8 @@ void TObjContainerJungEx__vt77(const Obj_8018CFD4 *self) {
     b.f38 = qy;
     b.f40 = get_model__19TObjContainerJungExFl(2);
     b.f44 = (s32)TObjContainerJungEx__sub_8018D900(0);
-    spawn_particle_effect_with_flags((void *)&self->pos, (s32)(0x45), (s32)(0x40));
-    spawn_particle_effect_with_flags((void *)&self->pos, (s32)(0x46), (s32)(0x40));
+    spawn_particle_effect_with_flags((void *)&self->pos, 0x45, 0x40);
+    spawn_particle_effect_with_flags((void *)&self->pos, 0x46, 0x40);
     void *o = __nw__7TObjectFUl(0x234);
     if (o != NULL) {
         construct_debris__8TObjChipFPvPvPv((u8 *)o, (u8 *)tl_05, (u8 *)&a);

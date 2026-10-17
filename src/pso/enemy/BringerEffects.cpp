@@ -454,9 +454,9 @@ u8 *construct_bringer_rush_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 fa
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) 0.0f;
     ((TObjEneDf2Bringer_Eff_Rush *)arg0)->m_28 = cos_table_lookup((int) (*(s32 *)((s8 *)arg2 + 0x60)));
     if (is_vec_xz_cross_negative((void *) (arg0 + 0x20), (void *) (&stack.sp8)) != 0) {
-        rotate_xz_pair_by_angle((void *) (arg0 + 0x20), (void *) (arg0 + 0x28), (int) (-0x1800));
+        rotate_xz_pair_by_angle((void *) (arg0 + 0x20), (void *) (arg0 + 0x28), -0x1800);
     } else {
-        rotate_xz_pair_by_angle((void *) (arg0 + 0x20), (void *) (arg0 + 0x28), (int) (0x1800));
+        rotate_xz_pair_by_angle((void *) (arg0 + 0x20), (void *) (arg0 + 0x28), 0x1800);
     }
     return arg0;
 }

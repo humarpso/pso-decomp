@@ -357,7 +357,7 @@ void run_task__12TObjEneReconFv(u8 *arg0) {
     temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
     if ((temp_r0 != 8) && (temp_r0 != 7) && (is_anim_6__12TObjEneReconFv((int) (entity)) == 1)) {
         *(s32 *)((s8 *)arg0 + 0x2DC) = (s32) (*(s32 *)((s8 *)arg0 + 0x2DC) | 4);
-        ((TObjPlayer *)arg0)->set_hp_clamped((int) (0));
+        ((TObjPlayer *)arg0)->set_hp_clamped(0);
         obj_setFlags30(arg0, 0xA00U);
         ((TObjEneRecon *)(arg0))->vfunc_74(0);
     }
@@ -431,7 +431,7 @@ void TObjEneRecon::init_state() {
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneRecon__recobox_static_instance + 0x42C)) + 8);
     temp_r6 = (u8 *)(*(u8 **)((s8 *)TObjEneRecon__recobox_static_instance + 0x42C));
     *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)temp_r6 + 0xC);
-    init_model__9TObjEneDDFv((void *) (arg0), (void *) TObjEneRecon__collision_body_template, (int) (1), (int) (temp_r6));
+    init_model__9TObjEneDDFv((void *) (arg0), (void *) TObjEneRecon__collision_body_template, 1, (int) (temp_r6));
     ((TObjPlayer *)arg0)->set_field_d8((s32)((void *) TObjEneRecon__animation_entries));
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)TObjEneRecon__recobox_static_instance + 0x430)));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
@@ -440,10 +440,10 @@ void TObjEneRecon::init_state() {
     reset_hp__9TObjEneDDFv((void *) (arg0), (void *) (lbl_805D6AF0), (int) (TObjEneRecon__attack_params), (void *) (TObjEneRecon__resistance_params));
     ((TObjEneDD *)arg0)->check_state_flag_4();
     *(void **)((s8 *)arg0 + 0x350) = (void *) TObjEneRecon__ai_parameters;
-    initialize_enemy_state__9TObjEneDDFv((void *) (arg0), (int) (0x44));
+    initialize_enemy_state__9TObjEneDDFv((void *) (arg0), 0x44);
     *(f32 *)((s8 *)arg0 + 0x37C) = (f32) TObjEneRecon__data_805DF3D4;
-    ((TObjEneDD_ST *)arg0)->enemy_init_acquire_period((int) (0xA));
-    ((TObjEneDD_ST *)arg0)->enemy_init_validate_period((int) (0xA));
+    ((TObjEneDD_ST *)arg0)->enemy_init_acquire_period(0xA);
+    ((TObjEneDD_ST *)arg0)->enemy_init_validate_period(0xA);
     ((TObjEneDD_ST *)arg0)->set_active();
     temp_r5 = *(s32 *)((s8 *)arg0 + 0x30) | 0x01000000;
     *(s32 *)((s8 *)arg0 + 0x30) = temp_r5;

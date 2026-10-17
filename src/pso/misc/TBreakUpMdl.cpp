@@ -277,7 +277,7 @@ s32 TBreakUpMdl::collect_node_positions(u8 *arg1, s32 arg2) {
         if (!(temp_r30 & 8)) {
             temp_r31 = (u8 *)(*(s32 *)&this->m_flags + (var_r29 * 0x1C));
             temp_r4 = (long) (temp_r31 + 4);
-            matrix_mult_vec((int) (0), (int) (temp_r4), (int) (temp_r4));
+            matrix_mult_vec(0, (int) (temp_r4), (int) (temp_r4));
             VecCopy((Vec *)(temp_r31 + 0x10), (const Vec *)(temp_r31 + 4));
             ((TObjBoss2Tunnel *)(temp_r31 + 0x10))->clamp_velocity();
             var_r29 += 1;
@@ -306,13 +306,13 @@ s32 TBreakUpMdl::build_node_records(u8 *arg1, s32 arg2) {
     do {
         push_matrix();
         post_translate_matrix((void *) (var_r28 + 8));
-        rotate_matrix_by_node_angles((void *) (var_r28 + 0x14), (int) (0));
+        rotate_matrix_by_node_angles((void *) (var_r28 + 0x14), 0);
         scale_current_matrix((void *) (var_r28 + 0x20));
         temp_r30 = *(s32 *)((s8 *)var_r28 + 0);
         if (!(temp_r30 & 8)) {
             temp_r31 = (u8 *)(*(s32 *)&this->m_flags + (var_r29 * 0x1C));
             temp_r4 = (long) (temp_r31 + 4);
-            matrix_mult_vec((int) (0), (int) (temp_r4), (int) (temp_r4));
+            matrix_mult_vec(0, (int) (temp_r4), (int) (temp_r4));
             VecCopy((Vec *)(temp_r31 + 0x10), (const Vec *)(temp_r31 + 4));
             ((TObjBoss2Tunnel *)(temp_r31 + 0x10))->clamp_velocity();
             var_r29 += 1;
@@ -358,7 +358,7 @@ u8 *TBreakUpMdl::setup_pieces(s32 arg1, s32 arg2, f32 farg0) {
     alloc_breakup_piece_records((Brk_80096EBC *)(((u8 *)this)), (void *)(arg1));
     bind_motion_context(arg2, farg0);
     push_matrix_from(&identity_matrix.value);
-    ((TBreakUpMdl *)((u8 *)this))->collect_node_positions((u8 *)((void *) arg1), (s32)(0));
+    ((TBreakUpMdl *)((u8 *)this))->collect_node_positions((u8 *)((void *) arg1), 0);
     pop_matrix();
     return ((u8 *)this);
 }
@@ -369,7 +369,7 @@ u8 *init__11TBreakUpMdlFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
     alloc_breakup_piece_records((Brk_80096EBC *)(arg0), (void *)(arg1));
     bind_motion_context(arg2, farg0);
     push_matrix_from((void *)((u32) &(*(RecoveredGlobal_80096FD8_lbl_8058D490 *)&identity_matrix).value));
-    ((TBreakUpMdl *)arg0)->collect_node_positions((u8 *)((void *) arg1), (s32)(0));
+    ((TBreakUpMdl *)arg0)->collect_node_positions((u8 *)((void *) arg1), 0);
     pop_matrix();
     return arg0;
 }
@@ -380,7 +380,7 @@ u8 *TBreakUpMdl::init_from_model(s32 arg1) {
     *(s32 * *)&this->m_next = &(*(RecoveredGlobal_8009705C_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__vtable).value;
     alloc_breakup_piece_records((Brk_80096EBC *)(((u8 *)this)), (void *)(arg1));
     push_matrix_from((void *)((u32) &(*(RecoveredGlobal_8009705C_lbl_8058D490 *)&identity_matrix).value));
-    ((TBreakUpMdl *)((u8 *)this))->build_node_records((u8 *)((void *) arg1), (s32)(0));
+    ((TBreakUpMdl *)((u8 *)this))->build_node_records((u8 *)((void *) arg1), 0);
     pop_matrix();
     *(s32 *)&this->m_prev = 0;
     return ((u8 *)this);

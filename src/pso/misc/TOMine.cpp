@@ -74,7 +74,7 @@ int TOMine::find_target_player() {
     u8 *arg0 = (u8 *)this;
   u16 temp_r3;
   unsigned short new_var;
-  ((RecoveredFields_80170F0C_arg0 *) arg0)->field_35C = find_nearest_visible_player((void *) arg0, (int) 0, (f32) ((RecoveredFields_80170F0C_arg0 *) arg0)->field_34C);
+  ((RecoveredFields_80170F0C_arg0 *) arg0)->field_35C = find_nearest_visible_player((void *) arg0, 0, (f32) ((RecoveredFields_80170F0C_arg0 *) arg0)->field_34C);
   temp_r3 = ((RecoveredFields_80170F0C_arg0 *) arg0)->field_35C;
   new_var = -1;
   if (temp_r3 != new_var)
@@ -120,7 +120,7 @@ void TOMine::run_task() {
                 ((TOMine *)arg0)->follow_target();
                 break;
             }
-            submit_cursor_candidate((void *) (arg0), (int) (-1));
+            submit_cursor_candidate((void *) (arg0), -1);
             return;
         case 4:
             ((TOMine *)arg0)->detonate();

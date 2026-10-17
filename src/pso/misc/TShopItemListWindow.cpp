@@ -314,7 +314,7 @@ void TShopItemListWindow::vfunc_11() {
     switch (temp_r0) {
     case 0:
         TShopItemListWindow::build_item_list((void *)((void *) (arg0)));
-        ((TShopWindowBase *)arg0)->set_field_20((s32)((int) (1)));
+        ((TShopWindowBase *)arg0)->set_field_20(1);
         return;
     case 1:
         TShopItemListWindow::handle_tool_list_select((void *)((void *) (arg0)));

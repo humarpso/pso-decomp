@@ -33,7 +33,7 @@ void TWindowDD::play_sound() { play_sound_effect((void*)339201, (void*)0, (void*
 u8 TWindowDD__sub_803482B0(u8 *arg0) {
     s32 var_r31;
     var_r31 = 0;
-    if ((((s32)TWindowDD_check_input_mask((void*)((void *) (arg0 + 0x1C)), (int)((int) (2)))) != 0) || (*(s32 *)((s8 *)arg0 + 0x94) & 2)) {
+    if ((((s32)TWindowDD_check_input_mask((void*)((void *) (arg0 + 0x1C)), 2)) != 0) || (*(s32 *)((s8 *)arg0 + 0x94) & 2)) {
         var_r31 = 1;
     }
     return (u8) var_r31;

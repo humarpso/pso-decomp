@@ -17,7 +17,7 @@ void TObjPlayer::init_select_txt() { *(int*)(this) = 0; TAdSelectTxtGC__sub_802A
 
 void TObjPlayer::copy_lobby_header(s32 arg1) {
     s32 *arg0 = (s32 *)this;
-    ((TObjPlayer *)((s8 *)arg0 + 0x428))->set_flags((int) (1));
+    ((TObjPlayer *)((s8 *)arg0 + 0x428))->set_flags(1);
     *arg0 = TAdSelectTxtGC__sub_802A16C0((void *) (arg1));
     ((TLobby *)((s8 *)arg0 + 4))->copy_header_struct((void *) ((s8 *)arg1 + 0xDAC));
     export_character_data__10TObjPlayerFPvPv((u8 *)(arg1), (u8 *)((s8 *)arg0 + 0xC));

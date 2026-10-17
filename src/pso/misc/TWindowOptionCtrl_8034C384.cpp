@@ -77,54 +77,54 @@ void TWindowOptionCtrl::handle_save_result() {
                 *(s32 *)((s8 *)arg0 + 0x1C) = 3;
             }
             if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) == 4) {
-                set_option_and_confirm((int) (1), (int) (0));
+                set_option_and_confirm(1, 0);
             }
             break;
         case -3:
             if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) == 4) {
-                set_option_and_confirm((int) (2), (int) (1));
+                set_option_and_confirm(2, 1);
                 *(s32 *)((s8 *)arg0 + 0x1C) = 0xB;
             }
             break;
         case -2:
             if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) == 4) {
-                set_option_and_confirm((int) (3), (int) (0));
+                set_option_and_confirm(3, 0);
             }
             break;
         case -9:
             temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
             if ((temp_r0 == 4) || (temp_r0 == 0)) {
-                set_option_and_confirm((int) (7), (int) (1));
+                set_option_and_confirm(7, 1);
                 *(s32 *)((s8 *)arg0 + 0x1C) = 9;
             }
             break;
         case -1:
             if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) == 4) {
-                set_option_and_confirm((int) (4), (int) (1));
+                set_option_and_confirm(4, 1);
                 *(s32 *)((s8 *)arg0 + 0x1C) = 7;
             }
             break;
         case -7:
             if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) == 4) {
-                set_option_and_confirm((int) (5), (int) (1));
+                set_option_and_confirm(5, 1);
                 *(s32 *)((s8 *)arg0 + 0x1C) = 7;
             }
             break;
         case 0:
             if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) == 4) {
-                set_option_and_confirm((int) (6), (int) (0));
+                set_option_and_confirm(6, 0);
                 *(s32 *)((s8 *)arg0 + 0x1C) = 5;
             }
             break;
         case -6:
             if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) == 4) {
-                set_option_and_confirm((int) (0xA), (int) (0));
+                set_option_and_confirm(0xA, 0);
             }
             break;
         case -8:
             if (((s32) *(s32 *)((s8 *)arg0 + 0x1C) == 4) && ((s32) *(s32 *)&this->m_28 != 0xF)) {
                 *(s32 *)&this->m_28 = 0xF;
-                open_confirm_dialog((int) (((s32 (*)(int, int)) get_localized_text_entry)((int) (0x16), (int) (5))), (int) (0));
+                open_confirm_dialog((int) (((s32 (*)(int, int)) get_localized_text_entry)(0x16, 5)), 0);
             }
             break;
         }
@@ -134,7 +134,7 @@ void TWindowOptionCtrl::handle_save_result() {
         switch (temp_r0_2) {
         case 0:
         case 1:
-            set_option_and_confirm((int) (0), (int) (1));
+            set_option_and_confirm(0, 1);
             *(s32 *)((s8 *)arg0 + 0x1C) = 2;
         case 2:
             if (((TWindowSubComCard *)(*(s32 *)&this->m_2c))->get_card_data() != 0) {
@@ -156,8 +156,8 @@ void TWindowOptionCtrl::handle_save_result() {
             *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) & 0xFFFFFFFD);
             *(s32 *)((s8 *)arg0 + 0x1C) = 4;
         case 4:
-            if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)(controller_input_state) + 0x20), (int) (6)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)(controller_input_state) + 0x160), (int) (6)) != 0)) {
-                play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
+            if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)(controller_input_state) + 0x20), 6) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)(controller_input_state) + 0x160), 6) != 0)) {
+                play_sound_effect(0x52F16, 0, 0, 0);
                 *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) & 0xFFFFFFFD);
                 *(s32 *)&this->m_24 = 2;
                 *(s32 *)((s8 *)arg0 + 0x1C) = 0x10;
@@ -242,19 +242,19 @@ void TWindowOptionCtrl::handle_save_result() {
             }
             break;
         case 13:
-            if (TAdPlayerLoadGC__sub_801E24F8((int) (1), (int) (0), (int) (0), (int) (0), (int) (0)) == 0) {
-                set_option_and_confirm((int) (8), (int) (0));
+            if (TAdPlayerLoadGC__sub_801E24F8(1, 0, 0, 0, 0) == 0) {
+                set_option_and_confirm(8, 0);
                 *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) | 1);
                 *(s32 *)((s8 *)arg0 + 0x1C) = 0xE;
                 return;
             }
-            set_option_and_confirm((int) (9), (int) (0));
+            set_option_and_confirm(9, 0);
             *(s32 *)((s8 *)arg0 + 0x1C) = 0xF;
             return;
         case 14:
-            if (TAdPlayerLoadGC__sub_801E1B50((int) (1)) == 0) {
+            if (TAdPlayerLoadGC__sub_801E1B50(1) == 0) {
                 if ((u32) TAdPlayerLoadGC::get_load_result((void *)1) == 0xFFFFFF81U) {
-                    set_option_and_confirm((int) (9), (int) (0));
+                    set_option_and_confirm(9, 0);
                     *(s32 *)((s8 *)arg0 + 0x1C) = 0xF;
                     return;
                 }
@@ -264,8 +264,8 @@ void TWindowOptionCtrl::handle_save_result() {
             }
             break;
         case 15:
-            if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)(controller_input_state) + 0x20), (int) (6)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)(controller_input_state) + 0x160), (int) (6)) != 0)) {
-                play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
+            if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)(controller_input_state) + 0x20), 6) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)(controller_input_state) + 0x160), 6) != 0)) {
+                play_sound_effect(0x52F16, 0, 0, 0);
                 *(s32 *)((s8 *)arg0 + 0x1C) = 3;
             }
             break;

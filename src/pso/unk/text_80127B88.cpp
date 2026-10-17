@@ -48,7 +48,7 @@ void TUnk_804A3640::emit_marker_effects() {
         kind = 8;
         break;
     }
-    if (((TObjPlayer *)((Self_80127BE0 *)this))->draw_icon((s32)1, (s32)buf) != 0) {
+    if (((TObjPlayer *)((Self_80127BE0 *)this))->draw_icon(1, (s32)buf) != 0) {
         ext = get_extended_state__10TObjPlayerFv(((Self_80127BE0 *)this)->fF0);
         if (ext != 0) {
             for (i = 0; i != get_captured_target_count((s32 *)ext); i++) {

@@ -23,7 +23,7 @@ typedef char RecoveredGlobal_800BC4C8_lbl_804928CC_size[sizeof(RecoveredGlobal_8
 u8 *construct_collision_body(u8 *arg0, s32 arg1, u32 arg2) {
     ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &collision_body_vtable.value;
-    init_collision_body_parts((void *) (arg0), (void *) (&construct_collision_body_parts.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&construct_collision_body_parts.value), 1);
     if (arg2 != 0U) {
         ((TUnk_804928CC *)arg0)->sub_800BC3E8((u8 *)arg2);
     } else {

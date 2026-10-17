@@ -170,11 +170,11 @@ s32 TShopEquipmentGearSequence::open_greeting() {
   Stack_8021D948 stack;
   stack.sp8 = lbl_805DC6C8;
   stack.spC = lbl_805DC6CC;
-  ((TShopSequence *)((u8 *)this))->create_message_window(get_window_layout_position((int) 0x2C, (f32) lbl_805DC6C8), (s32) (&stack.sp8));
+  ((TShopSequence *)((u8 *)this))->create_message_window(get_window_layout_position(0x2C, (f32) lbl_805DC6C8), (s32) (&stack.sp8));
   PSO_VCALL_VObj_18_a93f07_m4(((u8 *)this), 0x2b, 1);
   this->m_30 = create_meseta_window((s32) get_child_field1c__13TShopSequenceFv(((u8 *)this)));
   ((TShopWindowBase *)((u8 *)this))->set_field_20(2);
-  *((s32 *) (((s8 *) ((u8 *)this)) + 0x34)) = set_service_counter_camera((void *) ((u8 *)this), (int) 0x4);
+  *((s32 *) (((s8 *) ((u8 *)this)) + 0x34)) = set_service_counter_camera((void *) ((u8 *)this), 0x4);
 }
 typedef char RecoveredGlobal_8021B7D0___vt__26TShopEquipmentGearSequence_size[sizeof(RecoveredGlobal_8021B7D0___vt__26TShopEquipmentGearSequence) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0_size[sizeof(RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0) == 0x10 ? 1 : -1];
@@ -186,7 +186,7 @@ void TShopEquipmentGearSequence::vfunc_11() {
     switch (temp_r0) {
     case 0:
         restore_player_state__13TShopSequenceFv((void *) (arg0));
-        ((TShopWindowBase *)arg0)->set_field_20((s32)((int) (1)));
+        ((TShopWindowBase *)arg0)->set_field_20(1);
         return;
     case 1:
         ((TShopEquipmentGearSequence *)arg0)->open_greeting();
@@ -228,7 +228,7 @@ u8 *__dt__26TShopEquipmentGearSequenceFv(u8 *arg0, s16 arg1) {
         ((TShopSequence *)arg0)->close_message_window();
         lbl_805D6220 = 0;
         *(s32 *)((s8 *)(&TShopEquipmentGearSequence__window_slot_table.value) + (sub_8022397C__15TShopWindowBaseFv((void *) (arg0)) * 4)) = 0;
-        __dt__13TShopSequenceFv((arg0), (0));
+        __dt__13TShopSequenceFv((arg0), 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
         }

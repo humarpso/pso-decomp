@@ -49,7 +49,7 @@ f32 TOCtrlDubchik__vt22(O_8015C9D4 *arg0, void *att, A_8015C9D4 *arg2) {
         } else {
             VecCopy((Vec *)&sp8, (const Vec *)&arg0->pos);
         }
-        TOCtrlDubchik::create_font((s32)(&sp8), (s32)0xFFFF0000, (s32)0x14, (s32)lbl_80440984);
+        TOCtrlDubchik::create_font((s32)(&sp8), (s32)0xFFFF0000, 0x14, (s32)lbl_80440984);
     }
     return TOCtrlDubchik__data_805DB3A8;
 }

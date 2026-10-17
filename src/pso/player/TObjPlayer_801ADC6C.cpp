@@ -166,7 +166,7 @@ void TPhotonPilla::run_task() {
         sp8.y = sp8.y + lbl_805DC230;
         entity = __nw__7TObjectFUl(0xD0);
         if (entity != 0U) {
-            TPhotonMagicSquare__ct((u8 *)entity, (s32)this, (s32)(3), (s32)&sp8, (s32)(0xD2), (f32)lbl_805DC234);
+            TPhotonMagicSquare__ct((u8 *)entity, (s32)this, 3, (s32)&sp8, 0xD2, (f32)lbl_805DC234);
         }
     }
     if ((lbl_805DC238 == (f32) *(s32 *)((s8 *)this + 0x1A8)) && ((s16) *(s16 *)((s8 *)this + 0xB8) == 1) && ((s32) *(s32 *)((s8 *)this + 0x1A4) == 1)) {

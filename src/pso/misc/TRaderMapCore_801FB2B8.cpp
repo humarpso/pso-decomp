@@ -106,12 +106,12 @@ void run_task__13TRaderMapCoreFv(u8 *arg0) {
             do {
                 player = get_player_by_client_id((int) (var_r31));
                 if (player != 0) {
-                    update_radar_auto_discovery((void *) (arg0), (int) (0), (void *) (player + 0x38));
+                    update_radar_auto_discovery((void *) (arg0), 0, (void *) (player + 0x38));
                 }
                 var_r31 += 1;
             } while (var_r31 < 4);
         } else {
-            update_radar_auto_discovery((void *) (arg0), (int) (0), (void *) (arg0 + ((TRaderMapCore *)arg0)->m_134* 0x28 + 0x94));
+            update_radar_auto_discovery((void *) (arg0), 0, (void *) (arg0 + ((TRaderMapCore *)arg0)->m_134* 0x28 + 0x94));
         }
         ((TRaderMapCore *)arg0)->advance_scroll();
     }

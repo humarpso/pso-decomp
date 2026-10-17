@@ -343,7 +343,7 @@ void TODoorJungleMain::run_task() {
             flag = 0;
             *(f32 *)&this->m_b4 = (f32)(u32)(*(s32 *)((s8 *)(*(u8 * *)&this->m_bc) + 4) - 1);
         } else {
-            play_persistent_sound((s32)(0x43220), (s32)arg0, (u32)&this->position, (s32)(0), (s32)(0));
+            play_persistent_sound(0x43220, (s32)arg0, (u32)&this->position, 0, 0);
         }
         if (flag != 0) {
             if (++*(s32 *)&this->m_d8 % 30 == 0) {

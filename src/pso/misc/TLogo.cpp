@@ -116,7 +116,7 @@ void run_task__5TLogoFv(u8 *arg0) {
     case 0:
         if (check_progressive_ready__5TLogoFv() != 0) {
             if (((s32)TLogo__sub_8013F808()) != 0) {
-                var_r0 = __nw__7TObjectFUl((int) (0x4C));
+                var_r0 = __nw__7TObjectFUl(0x4C);
                 if (var_r0 != 0U) {
                     var_r0 = TAdVIConfigGC__ct((void *)var_r0, arg0);
                 }
@@ -124,7 +124,7 @@ void run_task__5TLogoFv(u8 *arg0) {
                 *(u32 *)((s8 *)arg0 + 0x20) = 1U;
                 return;
             }
-            var_r0_2 = __nw__7TObjectFUl((int) (0x20));
+            var_r0_2 = __nw__7TObjectFUl(0x20);
             if (var_r0_2 != 0U) {
                 var_r0_2 = __ct__11TAdSEGAlogoFv((void *)var_r0_2, arg0);
             }
@@ -132,7 +132,7 @@ void run_task__5TLogoFv(u8 *arg0) {
             *(u32 *)((s8 *)arg0 + 0x20) = 4U;
             return;
         }
-        var_r0_3 = __nw__7TObjectFUl((int) (0x20));
+        var_r0_3 = __nw__7TObjectFUl(0x20);
         if (var_r0_3 != 0U) {
             var_r0_3 = __ct__11TAdSEGAlogoFv((void *)var_r0_3, arg0);
         }
@@ -141,7 +141,7 @@ void run_task__5TLogoFv(u8 *arg0) {
         return;
     case 1:
         if (((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) && (TLogo__sub_8013F800((void*)(*(void **)((s8 *)arg0 + 0x24))) != 0)) {
-            var_r0_4 = __nw__7TObjectFUl((int) (0x20));
+            var_r0_4 = __nw__7TObjectFUl(0x20);
             if (var_r0_4 != 0U) {
                 var_r0_4 = __ct__11TAdSEGAlogoFv((void *)var_r0_4, arg0);
             }
@@ -151,8 +151,8 @@ void run_task__5TLogoFv(u8 *arg0) {
         }
         break;
     case 2:
-        if (TLobby__sub_80145DB4((1)) == 0) {
-            var_r0_5 = __nw__7TObjectFUl((int) (0x30));
+        if (TLobby__sub_80145DB4(1) == 0) {
+            var_r0_5 = __nw__7TObjectFUl(0x30);
             if (var_r0_5 != 0U) {
                 var_r0_5 = TAdTrialModemChkGC__ct((void *)var_r0_5, arg0);
             }
@@ -160,7 +160,7 @@ void run_task__5TLogoFv(u8 *arg0) {
             *(u32 *)((s8 *)arg0 + 0x20) = 3U;
             return;
         }
-        var_r0_6 = __nw__7TObjectFUl((int) (0x20));
+        var_r0_6 = __nw__7TObjectFUl(0x20);
         if (var_r0_6 != 0U) {
             var_r0_6 = __ct__11TAdSEGAlogoFv((void *)var_r0_6, arg0);
         }
@@ -171,7 +171,7 @@ void run_task__5TLogoFv(u8 *arg0) {
         if (((s32)is_sega_logo_done((int)((int) (*(u32 *)((s8 *)arg0 + 0x2C))))) != 0) {
             queue_destruction__7TObjectFv((void *)(*(u32 *)((s8 *)arg0 + 0x2C)));
             *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
-            var_r0_7 = __nw__7TObjectFUl((int) (0x20));
+            var_r0_7 = __nw__7TObjectFUl(0x20);
             if (var_r0_7 != 0U) {
                 var_r0_7 = __ct__12TAdSoniclogoFv((void *)var_r0_7, arg0);
             }
@@ -184,7 +184,7 @@ void run_task__5TLogoFv(u8 *arg0) {
         if (((s32)is_logo_exit_requested((int)((int) (*(u32 *)((s8 *)arg0 + 0x30))))) != 0) {
             queue_destruction__7TObjectFv((void *)(*(u32 *)((s8 *)arg0 + 0x30)));
             *(u32 *)((s8 *)arg0 + 0x30) = 0U;
-            var_r0_8 = __nw__7TObjectFUl((int) (0x20));
+            var_r0_8 = __nw__7TObjectFUl(0x20);
             if (var_r0_8 != 0U) {
                 var_r0_8 = __ct__10TAdADXlogoFv((void *)var_r0_8, arg0);
             }
@@ -202,7 +202,7 @@ void run_task__5TLogoFv(u8 *arg0) {
         }
         break;
     case 7:
-        TKeyBoardControl__sub_8000F9CC((int) (0xA));
+        TKeyBoardControl__sub_8000F9CC(0xA);
         break;
     }
 }

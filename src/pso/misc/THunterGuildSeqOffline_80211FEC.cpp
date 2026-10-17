@@ -121,15 +121,15 @@ void TMemberCheck::update_member_proximity() {
                 player = get_player_by_client_id((int) (var_r30));
                 if (player != 0) {
                     if (xz_distance_squared((void *) (temp_r31 + 0x38), (void *) (player + 0x38)) <= THunterGuildSeqOffline__data_805DC648) {
-                        ((THunterGuildSeqOffline *)(this->m_1C))->advance_matching_entries((int) (1), (int) (var_r30));
+                        ((THunterGuildSeqOffline *)(this->m_1C))->advance_matching_entries(1, (int) (var_r30));
                     } else {
-                        ((THunterGuildSeqOffline *)(this->m_1C))->advance_matching_entries((int) (0), (int) (var_r30));
+                        ((THunterGuildSeqOffline *)(this->m_1C))->advance_matching_entries(0, (int) (var_r30));
                     }
                 } else {
-                    ((THunterGuildSeqOffline *)(this->m_1C))->advance_matching_entries((int) (0), (int) (var_r30));
+                    ((THunterGuildSeqOffline *)(this->m_1C))->advance_matching_entries(0, (int) (var_r30));
                 }
             } else {
-                ((THunterGuildSeqOffline *)(this->m_1C))->advance_matching_entries((int) (1), (int) (var_r30));
+                ((THunterGuildSeqOffline *)(this->m_1C))->advance_matching_entries(1, (int) (var_r30));
             }
             var_r30 += 1;
         } while (var_r30 < 4);

@@ -25,7 +25,7 @@ void __dl__7TObjectFPv(void *);
 u8 *create_sub_item_list_window(s32 arg0, s32 arg1, s16 arg2) {
     u8 *temp_r3;
     u8 *var_r0;
-    TShopJudgmentItemWindow__sub_80267F9C((void *) (arg1), (int) (0x24));
+    TShopJudgmentItemWindow__sub_80267F9C((void *) (arg1), 0x24);
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x90));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
@@ -44,7 +44,7 @@ void TWindowSubItemList::render() {
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
     ((TUnk_804D0618 *)arg0)->draw_selected_list_entry((int) (temp_r3));
     ((TWindowSubItemList *)arg0)->sub_8027ACF8((u8 *)temp_r3);
-    draw_item_list_capacity((void *) (arg0), (int) (temp_r3), (int) (this->m_8c), (int) (0x1E));
+    draw_item_list_capacity((void *) (arg0), (int) (temp_r3), (int) (this->m_8c), 0x1E);
     if ((u32) *(u32 *)&this->m_80 != 0U) {
         forward_render__20TWindowSubStatusDispFv(this->m_80, (int) (temp_r3));
     }
@@ -67,10 +67,10 @@ void *__dt__18TWindowSubItemListFv(void *arg0, s16 arg1) {
     return arg0;
 }
 u8 *TWindowSubItemList__ct(u8 *arg0, s32 arg1, s16 arg2) {
-    fn_802683F4((arg0), (arg1), (0x24), (arg2));
+    fn_802683F4((arg0), (arg1), 0x24, (arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8027AEDC___vt__18TWindowSubItemList *)&__vt__18TWindowSubItemList).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubItemList__class_name;
-    ((TUnk_804D0618 *)arg0)->ensure_status_display((int) (TWindowSubStatusDisp::get_message_10((int) (0x24))));
+    ((TUnk_804D0618 *)arg0)->ensure_status_display((int) (TWindowSubStatusDisp::get_message_10(0x24)));
     ((TUnk_804D0618 *)arg0)->create_menu_scroll_bar();
     ((TWindowSubItem *)arg0)->reset_selected();
     ((TWindowSubItemList *)arg0)->m_8c = 0;

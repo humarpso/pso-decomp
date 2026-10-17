@@ -110,7 +110,7 @@ void TBoss8DragonEffBullet::run_task() {
     case 1:
         arg0->field_34 += 1;
         if ((s32) arg0->field_34 == 1) {
-            spawn_particle_effect_with_flags((void *)&arg0->field_1C, (s32)(*(u8 **)((s8 *)arg0->field_54 + 4)), (s32)(0x40));
+            spawn_particle_effect_with_flags((void *)&arg0->field_1C, (s32)(*(u8 **)((s8 *)arg0->field_54 + 4)), 0x40);
             temp_r3_3 = (u8 *)(arg0->field_50);
             if (temp_r3_3 != NULL) {
                 queue_destruction__7TObjectFv(temp_r3_3);
@@ -125,7 +125,7 @@ void TBoss8DragonEffBullet::run_task() {
             TBoss8Dragon__sub_802FB220(get_enemy_entity((u16)arg0->field_48), (int)&arg0->field_1C, arg0->field_44);
         }
         if ((s32) arg0->field_34 <= 2) {
-            spawn_particle_effect_with_flags((void *)&arg0->field_1C, (s32)(*(u8 **)((s8 *)arg0->field_54 + 8)), (s32)(0x40));
+            spawn_particle_effect_with_flags((void *)&arg0->field_1C, (s32)(*(u8 **)((s8 *)arg0->field_54 + 8)), 0x40);
             return;
         }
         arg0->field_38 = 2;
@@ -172,7 +172,7 @@ u8 *TBoss8DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, 
     *(s16 *)&((TBoss8DragonEffBullet *)arg0)->m_48 = arg5;
     *(s32 *)&((TBoss8DragonEffBullet *)arg0)->m_4c = 0;
     *(s32 *)&((TBoss8DragonEffBullet *)arg0)->m_50 = 0;
-    play_sound_effect((int) (0x4003B20B), (void *) (arg0 + 0x1C), (int) (0), (int) (0));
+    play_sound_effect(0x4003B20B, (void *) (arg0 + 0x1C), 0, 0);
     temp_r0 = *(s32 *)&((TBoss8DragonEffBullet *)arg0)->m_44;
     switch (temp_r0) {
     case 1:

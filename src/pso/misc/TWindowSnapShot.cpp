@@ -106,7 +106,7 @@ void render__15TWindowSnapShotFv(u8 *arg0) {
             TObjBoss2Tunnel__sub_8007CAE8(&stack.sp8, lbl_805DE018);
         }
     } else {
-        draw_window_text((f32 *)(temp_r3 + 0x10), (const char *)(get_localized_text_entry(0x24, 7)), (s32)(-1), (s32)(0), (f32)lbl_805DE01C);
+        draw_window_text((f32 *)(temp_r3 + 0x10), (const char *)(get_localized_text_entry(0x24, 7)), -1, 0, (f32)lbl_805DE01C);
     }
 }
 
@@ -116,7 +116,7 @@ void TWindowSnapShot::run_task() {
     if (!(*(s32 *)&this->m_2c & 2)) {
         *(s32 *)&this->m_5c = 0x01000000;
     }
-    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), 2) != 0)) {
         play_open_sound();
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
@@ -146,7 +146,7 @@ u8 *TWindowSnapShot__ct(u8 *arg0, s32 arg1) {
         ((TWindowSnapShot *)arg0)->m_60 = (u8) (((TWindowSnapShot *)arg0)->m_60| 2);
     }
     temp_r31 = ((TUnk_804CE018 *)arg0)->get_array_entry(1);
-    TWindowDuelResult::set_default_status((void *) temp_r31, get_localized_text_entry((s32)(0xF), (s32)(0x13)));
+    TWindowDuelResult::set_default_status((void *) temp_r31, get_localized_text_entry(0xF, 0x13));
     return arg0;
 }
 
