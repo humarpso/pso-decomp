@@ -140,7 +140,7 @@ void TORainbowCave01::run_task() {
 void *TORainbowCave01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE0);
     if (o != NULL) {
-        o = TORainbowCave01__ct((u8 *)o, (s32)tl_05, (s32)arg0);
+        o = TORainbowCave01__ct((TORainbowCave01 *)((u8 *)o), (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -173,7 +173,7 @@ void *__dt__15TORainbowCave01Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TORainbowCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TORainbowCave01__ct(TORainbowCave01 *arg0, s32 arg1, s32 arg2) {
     u8 *temp_r4;
     init_map_object_base(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801733D8___vt__15TORainbowCave01 *)&__vt__15TORainbowCave01).value;
@@ -181,12 +181,12 @@ u8 *TORainbowCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TORainbowCave01 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TORainbowCave01__static_model_resource) + 0x42C)) + 8);
     temp_r4 = (u8 *)(*(u8 **)((s8 *)(*(u8 * *)&TORainbowCave01__static_model_resource) + 0x42C));
-    ((TORainbowCave01 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)temp_r4 + 0xC);
-    ((TORainbowCave01 *)arg0)->m_c0 = (f32) 400.0f;
+    arg0->texture_id = (s32) *(s32 *)((s8 *)temp_r4 + 0xC);
+    arg0->m_c0 = (f32) 400.0f;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (4e+04f);
-    ((TORainbowCave01 *)arg0)->m_cc = (f32) (0.0f);
-    ((TORainbowCave01 *)arg0)->init_light_params((int)temp_r4, (f32) ((4e+04f)), (f32) (400.0f));
-    return arg0;
+    arg0->m_cc = (f32) (0.0f);
+    arg0->init_light_params((int)temp_r4, (f32) ((4e+04f)), (f32) (400.0f));
+    return (u8 *)arg0;
 }
 
 }

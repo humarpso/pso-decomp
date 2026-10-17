@@ -123,7 +123,7 @@ extern s32 tec_barta_class_name_ptr;
 TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _w2, void * _w3, void * _w4);
 void construct_facing_technique__10TObjPlayerFPviPvii();
 extern const f32 lbl_805DC7A8;
-u8 *construct_tec_barta_facing(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4);
+u8 *construct_tec_barta_facing(TTecBarta *arg0, void *_w1, void *_w2, void *_w3, void *_w4);
 s32 get_bml_model(s32, s32);
 void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
@@ -255,7 +255,7 @@ void TTecBarta::create_ex(void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x178);
     if (o != NULL) {
-        construct_tec_barta_facing((u8 *)o, (void *)this, (void *)arg1, (void *)arg2, (void *)arg3);
+        construct_tec_barta_facing((TTecBarta *)((u8 *)o), (void *)((void *)this), (void *)((void *)arg1), (void *)((void *)arg2), (void *)((void *)arg3));
     }
 }
 
@@ -348,24 +348,24 @@ TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _
     return self;
 }
 
-u8 *construct_tec_barta_facing(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4) {
+u8 *construct_tec_barta_facing(TTecBarta *arg0, void * _w1, void * _w2, void * _w3, void * _w4) {
     s32 i;
     construct_facing_technique__10TObjPlayerFPviPvii();
     *(void **)((s8 *)arg0 + 0x18) = ((u8 *)&__vt__9TTecBarta);
     *(s32 *)((s8 *)arg0 + 0) = tec_barta_class_name_ptr;
-    ((TTecBarta *)arg0)->init_parameters();
+    arg0->init_parameters();
     for (i = 0; i < 0x20; i++) {
         ((Obj_8022BCB8 *)arg0)->ids[i] = 0xFFFF;
     }
-    ((TTecBarta *)arg0)->hitCursor = 0;
+    arg0->hitCursor = 0;
     *(s32 *)((s8 *)arg0 + 0x114) = 0x40003;
     *(f32 *)((s8 *)arg0 + 0x24) = *(f32 *)((s8 *)arg0 + 0x24) + lbl_805DC7A8;
-    ((TTecBarta *)arg0)->create_particle_emitters();
-    ((TTecBarta *)arg0)->update_technique_by_state();
+    arg0->create_particle_emitters();
+    arg0->update_technique_by_state();
     if (*(void **)((s8 *)arg0 + 0x1C) != 0) {
-        ((TTecBarta *)arg0)->sourceId = obj_getField1c(*(void **)((s8 *)arg0 + 0x1C));
+        arg0->sourceId = obj_getField1c(*(void **)((s8 *)arg0 + 0x1C));
     }
-    return arg0;
+    return (u8 *)arg0;
 }
 
 void TUnk_804CCC68::vfunc_6() {  }

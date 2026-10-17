@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TWindowOptionCtrl;
 extern "C" {
-void *TWindowOptionCtrl__ct(void *arg0);
+void *TWindowOptionCtrl__ct(TWindowOptionCtrl *arg0);
 }
 
 #endif

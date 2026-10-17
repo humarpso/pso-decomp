@@ -39,7 +39,7 @@ struct TOKurage : public TUnk_804AFBF8 {
 typedef char TOKurage_size[sizeof(TOKurage) == 0x114 ? 1 : -1];
 
 extern "C" {
-u8 *TOKurage__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TOKurage__ct(TOKurage *arg0, s32 arg1, s32 arg2);
 void *__dt__8TOKurageFv(void *arg0, s16 arg1);
 }
 

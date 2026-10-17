@@ -125,7 +125,7 @@ extern "C" {
 s32 query_teammate_state__9TObjEneDDFv();
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
-void release_grabbed_player__12TBoss8DragonFPv(u8 *arg0);
+void release_grabbed_player__12TBoss8DragonFPv(TBoss8Dragon *arg0);
 extern s32 local_client_id;
 extern s32 TBoss8Dragon__data_805D69B8;
 extern const f32 lbl_805E00B0;
@@ -176,7 +176,7 @@ void TBoss8Dragon__sub_80359A7C(u8 *arg0) {
         if ((s32) *(s32 *)((s8 *)arg0 + 0x74C) != 0) {
             if ((s32) *(u16 *)((s8 *)arg0 + 0x750) == (s32) local_client_id) {
                 if ((s32) TBoss8Dragon__data_805D69B8 == 0) {
-                    release_grabbed_player__12TBoss8DragonFPv((arg0));
+                    release_grabbed_player__12TBoss8DragonFPv((TBoss8Dragon *)(arg0));
                 } else {
                     ((TBoss8Dragon *)arg0)->check_death();
                 }
@@ -184,7 +184,7 @@ void TBoss8Dragon__sub_80359A7C(u8 *arg0) {
                 ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
             } else {
                 if ((s32) TBoss8Dragon__data_805D69B8 == 0) {
-                    release_grabbed_player__12TBoss8DragonFPv((arg0));
+                    release_grabbed_player__12TBoss8DragonFPv((TBoss8Dragon *)(arg0));
                 }
                 ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
             }

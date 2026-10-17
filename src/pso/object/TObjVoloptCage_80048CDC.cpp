@@ -176,7 +176,7 @@ void TObjVoloptCage::update_breakup() {
         create_breakup_mdl__12TBoss3VoloptFlllll(volopt_cage_breakup_model, volopt_cage_breakup_params, TObjVoloptCage__texture_list, (u8 *)&this->m_2fc, this->rotation_y);
         ((TObjPlayer *)(arg0 + 0x2FC))->trigger_dell_biter_events();
         *(s16 *)&this->timer = 0xC;
-        disallow_rendering__7TObjectFv(arg0);
+        disallow_rendering__7TObjectFv((TObject *)arg0);
         *(s32 *)&this->state = 1;
         break;
     case 1:

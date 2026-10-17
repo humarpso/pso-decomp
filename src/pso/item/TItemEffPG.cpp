@@ -140,7 +140,7 @@ void TUnk_804F0BF0::run_task() {
         temp_f1_3 = *(f32 *)((s8 *)arg0 + 0x28);
         if (temp_f1_3 <= lbl_805DFE08) {
             queue_destruction__7TObjectFv(arg0);
-            disallow_rendering__7TObjectFv(arg0);
+            disallow_rendering__7TObjectFv((TObject *)arg0);
         } else {
             *(f32 *)((s8 *)arg0 + 0x28) = (f32) (temp_f1_3 - lbl_805DFE0C);
         }

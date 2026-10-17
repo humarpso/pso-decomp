@@ -62,7 +62,7 @@ extern s32 TOVS2Wall01__bml_resource;
 extern void *tl_05;
 extern const f32 lbl_805DBAAC;
 extern const f32 lbl_805DBAB0;
-void *TOVS2Wall01__ct(void *arg0, void *arg1);
+void *TOVS2Wall01__ct(TOVS2Wall01 *arg0, void *arg1);
 void *__dt__11TOVS2Wall01Fv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
@@ -127,7 +127,7 @@ void TOVS2Wall01::render() {
 void *TOVS2Wall01::create() {
     void *o = __nw__7TObjectFUl(0x360);
     if (o != NULL) {
-        o = TOVS2Wall01__ct(o, this);
+        o = TOVS2Wall01__ct((TOVS2Wall01 *)o, this);
     }
     return o;
 }
@@ -147,27 +147,27 @@ void *__dt__11TOVS2Wall01Fv(void *arg0, s16 arg1) {
 }
 #pragma push
 #pragma opt_common_subs off
-void *TOVS2Wall01__ct(void *arg0, void *arg1) {
+void *TOVS2Wall01__ct(TOVS2Wall01 *arg0, void *arg1) {
     s32 t;
     construct_actor_base__10TObjPlayerFPvPv(arg0, tl_05);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TOVS2Wall01;
     ((TObjPlayer *)((u8 *)arg0 + 0x340))->init_and_activate();
     *(s32 *)((s8 *)arg0 + 0) = TOVS2Wall01__class_name;
-    ((TOVS2Wall01 *)arg0)->apply_object_set_data(arg1);
+    arg0->apply_object_set_data(arg1);
     ((TUnk_804806E8 *)arg0)->calc_attach_pos();
     obj_setFlags30(arg0, 0x60000000);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(TOVS2Wall01__bml_resource, 6);
-    ((TOVS2Wall01 *)arg0)->texture_id = TObjFish__sub_8001EDB0(TOVS2Wall01__bml_resource, 6);
+    arg0->texture_id = TObjFish__sub_8001EDB0(TOVS2Wall01__bml_resource, 6);
     init_collision_body_parts(arg0, ovs2wall01_collision_parts + 0x108, 1);
     set_indexed_flags(arg0, 0, 0x08000000);
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    ((TOVS2Wall01 *)arg0)->mode = 0;
+    arg0->mode = 0;
     *(f32 *)((s8 *)arg0 + 0x334) = lbl_805DBAAC;
-    ((TOVS2Wall01 *)arg0)->m_338 = lbl_805DBAB0 + *(f32 *)((s8 *)(*(void **)((s8 *)(((TOVS2Wall01 *)arg0)->model) + 4)) + 0x14);
-    t = ((TOVS2Wall01 *)arg0)->m_84;
-    ((TOVS2Wall01 *)arg0)->m_33c = t + 0x100;
+    arg0->m_338 = lbl_805DBAB0 + *(f32 *)((s8 *)(*(void **)((s8 *)(arg0->model) + 4)) + 0x14);
+    t = arg0->m_84;
+    arg0->m_33c = t + 0x100;
     activate_and_dispatch__10TObjPlayerFv((u8 *)arg0 + 0x340, t, lbl_805DBAB0);
-    ((TOVS2Wall01 *)arg0)->m_35c = 1;
+    arg0->m_35c = 1;
     return arg0;
 }
 #pragma pop

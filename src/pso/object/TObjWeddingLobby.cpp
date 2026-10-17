@@ -127,7 +127,7 @@ void TObjWeddingLobby::run_task() {
 void *TObjWeddingLobby::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD4);
     if (o != NULL) {
-        o = TObjWeddingLobby__ct((u8 *)o, (s32)tl_05, (s32)arg0);
+        o = TObjWeddingLobby__ct((TObjWeddingLobby *)((u8 *)o), (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -162,19 +162,19 @@ void *__dt__16TObjWeddingLobbyFv(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_8035BF68___vt__16TObjWeddingLobby_size[sizeof(RecoveredGlobal_8035BF68___vt__16TObjWeddingLobby) == 0x3C ? 1 : -1];
-u8 *TObjWeddingLobby__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TObjWeddingLobby__ct(TObjWeddingLobby *arg0, s32 arg1, s32 arg2) {
     init_map_object_base((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8035BF68___vt__16TObjWeddingLobby *)&__vt__16TObjWeddingLobby).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjWeddingLobby__class_name;
     ((TObjWeddingLobby *)(arg0))->apply_object_set_data((void *)arg2);
     if (TLobby::get_filtered_event_theme() == 0xA) {
-        ((TObjWeddingLobby *)arg0)->m_c8 = 3;
+        arg0->m_c8 = 3;
     } else {
-        ((TObjWeddingLobby *)arg0)->m_c8 = 0;
+        arg0->m_c8 = 0;
     }
     *(f32 *)((s8 *)arg0 + 0xCC) = 1.0f;
-    ((TObjWeddingLobby *)arg0)->m_b0 = 0.0f;
-    return arg0;
+    arg0->m_b0 = 0.0f;
+    return (u8 *)arg0;
 }
 
 __declspec(section ".data") const char *bm_obj_lobby_bell_model_names[3] = { lbl_80479940, lbl_8047995C, NULL };

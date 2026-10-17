@@ -77,7 +77,7 @@ struct V_A_80364364 : Base_A_80364364 {
 extern "C" {
 
 void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
-void disallow_rendering__7TObjectFv(void *arg0);
+void disallow_rendering__7TObjectFv(TObject *arg0);
 
 extern s32 TItemEffArmorParticle__class_name;
 

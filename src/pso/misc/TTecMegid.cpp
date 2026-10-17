@@ -200,7 +200,7 @@ u16 obj_getField1c(void *);
 void __ct__13TUnk_804CCC68FlPUcPUcl();
 extern s32 lbl_805D37E8;
 extern const f32 lbl_805DC884;
-u8 *TTecMegid__ct(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
+u8 *TTecMegid__ct(TTecMegid *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
 void construct_facing_technique__10TObjPlayerFPviPvii();
 s32 obj_isState3_324__13TUnk_804806E8Fv(void *);
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -377,7 +377,7 @@ void TTecMegid::create(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 obj;
     obj = __nw__7TObjectFUl(0x17C);
     if (obj != 0U) {
-        TTecMegid__ct((u8 *)obj, (s32)arg0, (s32)arg1, (s32)arg2, (s32)arg3);
+        TTecMegid__ct((TTecMegid *)((u8 *)obj), (s32)arg0, (s32)arg1, (s32)arg2, (s32)arg3);
     }
 }
 void TTecMegid::create_ex(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
@@ -437,23 +437,23 @@ void run_task__9TTecMegidFv(Obj_80235740 *self) {
     dispatch_technique_contact__13TUnk_804CCC68Fv(self, 1);
 }
 
-u8 *TTecMegid__ct(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
+u8 *TTecMegid__ct(TTecMegid *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
     s32 i;
     __ct__13TUnk_804CCC68FlPUcPUcl();
     *(void **)((s8 *)arg0 + 0x18) = __vt__9TTecMegid;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D37E8;
-    ((TTecMegid *)arg0)->init_parameters();
+    arg0->init_parameters();
     *(f32 *)((s8 *)arg0 + 0x178) = lbl_805DC884;
     for (i = 0; i < 0x20; i++) {
         ((Obj_8023589C *)arg0)->ids[i] = 0xFFFF;
     }
-    ((TTecMegid *)arg0)->m_174 = 0;
-    ((TTecMegid *)arg0)->spawn_particle_emitters();
-    ((TTecMegid *)arg0)->update_by_state();
+    arg0->m_174 = 0;
+    arg0->spawn_particle_emitters();
+    arg0->update_by_state();
     if (*(void **)((s8 *)arg0 + 0x1C) != 0) {
-        ((TTecMegid *)arg0)->sourceId = obj_getField1c(*(void **)((s8 *)arg0 + 0x1C));
+        arg0->sourceId = obj_getField1c(*(void **)((s8 *)arg0 + 0x1C));
     }
-    return arg0;
+    return (u8 *)arg0;
 }
 
 u8 *TTecMegid::construct_facing(s32 _w1, s32 _w2, s32 _w3, s32 _w4) {

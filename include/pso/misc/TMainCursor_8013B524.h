@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TMainCursor;
 extern "C" {
-void render__11TMainCursorFPv(u8 *arg0);
+void render__11TMainCursorFPv(TMainCursor *arg0);
 }
 
 #endif

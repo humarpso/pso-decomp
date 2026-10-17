@@ -79,9 +79,9 @@ struct Luker_801A1260
 };
 
 extern "C" {
-void allow_rendering__7TObjectFv(void *);
+void allow_rendering__7TObjectFv(TObject *);
 s32 play_sound_effect(s32, u32, s16, s32);
-void disallow_rendering__7TObjectFv(void *w);
+void disallow_rendering__7TObjectFv(TObject *w);
 void close_windows__9TObjLukerFPv(Obj_801A0DB4 *self);
 Ctrl_801A0E38 *get_player_by_client_id(u16 id);
 s32 is_split_screen(void);
@@ -131,7 +131,7 @@ void *TObjLuker__create(void *arg0);
 void hide_part__9TObjLukerFPvUs(Obj_801A0C38 *self, u16 i) {
     if (self->parts[i] != 0) {
         ((TObject *)(self->parts[i]))->set_flag_4();
-        disallow_rendering__7TObjectFv(self->parts[i]);
+        disallow_rendering__7TObjectFv((TObject *)self->parts[i]);
     }
 }
 
@@ -148,7 +148,7 @@ void TObjLuker::show_part(s32 arg1) {
             play_sound_effect(0x53703, 0U, 0, 0);
         }
         ((TQuestVmDownLoadServer *)(*(u8 **)((s8 *)temp_r31 + 0x90)))->clear_flag4_bit4();
-        allow_rendering__7TObjectFv(*(u8 **)((s8 *)temp_r31 + 0x90));
+        allow_rendering__7TObjectFv((TObject *)(*(u8 **)((s8 *)temp_r31 + 0x90)));
     }
 }
 #pragma pop
@@ -181,7 +181,7 @@ void close_windows__9TObjLukerFPv(Obj_801A0DB4 *self) {
                 play_sound_effect(0x53704, 0, 0, 0);
             }
             ((TObject *)(self->wins[i]))->set_flag_4();
-            disallow_rendering__7TObjectFv(self->wins[i]);
+            disallow_rendering__7TObjectFv((TObject *)self->wins[i]);
         }
     }
 }
@@ -204,7 +204,7 @@ void TObjLuker::open_destination_windows() {
                 ((TWindowSubComCard *)(self->wins[i]))->calc_window_size();
                 align_menu_entry_positions(self->wins[i]);
                 ((TObject *)(self->wins[i]))->set_flag_4();
-                disallow_rendering__7TObjectFv(self->wins[i]);
+                disallow_rendering__7TObjectFv((TObject *)self->wins[i]);
             }
         }
     }

@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TOKeyMachine01;
 extern "C" {
-u8 *TOKeyMachine01__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TOKeyMachine01__ct(TOKeyMachine01 *arg0, s32 arg1, s32 arg2);
 void *__dt__14TOKeyMachine01Fv(void *arg0, s16 arg1);
 }
 

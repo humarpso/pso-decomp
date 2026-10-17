@@ -20,7 +20,7 @@ extern const char *fs_obj_ex_entombo_motion_names[2];
 extern BmlResourceDescriptor TODragonflyCave01__resource_descriptor;
 
 extern "C" {
-u8 *TODragonfly__ct(u8 *arg0);
+u8 *TODragonfly__ct(TODragonfly *arg0);
 f32 sin_table_lookup(s32);
 s32 rand(void);
 extern s32 __vt__17TODragonflyCave01[];
@@ -34,7 +34,7 @@ extern const f32 lbl_805DB570;
 extern const f32 lbl_805DB574;
 extern const f32 lbl_805DB578;
 extern const f32 lbl_805DB57C;
-u8 *TODragonflyCave01__ct(u8 *arg0, void *arg1);
+u8 *TODragonflyCave01__ct(TODragonflyCave01 *arg0, void *arg1);
 void *TODragonflyCave01__create(void *arg0);
 void *__dt__17TODragonflyCave01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
@@ -45,7 +45,7 @@ void *__nw__7TObjectFUl(int);
 void *TODragonflyCave01__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x100);
     if (o != NULL) {
-        o = TODragonflyCave01__ct((u8 *)o, (void *)arg0);
+        o = TODragonflyCave01__ct((TODragonflyCave01 *)((u8 *)o), (void *)arg0);
     }
     return o;
 }
@@ -170,25 +170,25 @@ s32 push_matrix();
 
 #pragma push
 #pragma fp_contract on
-u8 *TODragonflyCave01__ct(u8 *arg0, void *arg1) {
+u8 *TODragonflyCave01__ct(TODragonflyCave01 *arg0, void *arg1) {
     TODragonfly__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TODragonflyCave01;
     *(s32 *)((s8 *)arg0 + 0) = TODragonflyCave01__class_name;
     ((TODragonflyCave01 *)(arg0))->apply_object_set_data(arg1);
-    ((TODragonflyCave01 *)arg0)->model = *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyCave01__static_model_resource) + 0x42C)) + 8);
-    ((TODragonflyCave01 *)arg0)->texture_id = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyCave01__static_model_resource) + 0x42C)) + 0xC);
+    arg0->model = *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyCave01__static_model_resource) + 0x42C)) + 8);
+    arg0->texture_id = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyCave01__static_model_resource) + 0x42C)) + 0xC);
     *(void **)((s8 *)arg0 + 0xBC) = *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyCave01__static_model_resource) + 0x430)) + 4);
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32)*(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB560;
-    ((TODragonflyCave01 *)arg0)->m_b8 = lbl_805DB564;
-    ((TODragonflyCave01 *)arg0)->m_c0 = lbl_805DB568;
-    *(f32 *)((s8 *)arg0 + 0xC4) = *(f32 *)((s8 *)(*(u8 **)((s8 *)(((TODragonflyCave01 *)arg0)->model) + 4)) + 0x14);
-    ((TODragonflyCave01 *)arg0)->m_ac = 0;
-    ((TODragonflyCave01 *)arg0)->m_f4 = lbl_805DB56C * (f32)((TODragonflyCave01 *)arg0)->m_84 + lbl_805DB560;
-    ((TODragonflyCave01 *)arg0)->m_f8 = (s32)(lbl_805DB570 * (lbl_805DB574 / (lbl_805DB578 / ((TODragonflyCave01 *)arg0)->m_f4)));
-    ((TODragonflyCave01 *)arg0)->m_fc = (s32)(lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32)rand())));
-    ((TODragonflyCave01 *)arg0)->m_ec = lbl_805DB56C * (f32)*(s32 *)((s8 *)arg0 + 0x88) + lbl_805DB560;
-    *(f32 *)((s8 *)arg0 + 0xF0) = ((TODragonflyCave01 *)arg0)->m_ec * sin_table_lookup(((TODragonflyCave01 *)arg0)->m_fc);
-    return arg0;
+    arg0->m_b8 = lbl_805DB564;
+    arg0->m_c0 = lbl_805DB568;
+    *(f32 *)((s8 *)arg0 + 0xC4) = *(f32 *)((s8 *)(*(u8 **)((s8 *)(arg0->model) + 4)) + 0x14);
+    arg0->m_ac = 0;
+    arg0->m_f4 = lbl_805DB56C * (f32)arg0->m_84 + lbl_805DB560;
+    arg0->m_f8 = (s32)(lbl_805DB570 * (lbl_805DB574 / (lbl_805DB578 / arg0->m_f4)));
+    arg0->m_fc = (s32)(lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32)rand())));
+    arg0->m_ec = lbl_805DB56C * (f32)*(s32 *)((s8 *)arg0 + 0x88) + lbl_805DB560;
+    *(f32 *)((s8 *)arg0 + 0xF0) = arg0->m_ec * sin_table_lookup(arg0->m_fc);
+    return (u8 *)arg0;
 }
 #pragma pop
 
@@ -344,22 +344,22 @@ void *__dt__11TODragonflyFv(void *arg0, s16 arg1) {
 }
 #pragma push
 #pragma fp_contract on
-u8 *TODragonfly__ct(u8 *arg0) {
+u8 *TODragonfly__ct(TODragonfly *arg0) {
     init_map_object_base(arg0, tl_05);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80164DEC___vt__11TODragonfly *)&__vt__11TODragonfly).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TODragonfly__class_name;
-    ((TODragonfly *)arg0)->m_cc = 0;
-    *(f32 *)((s8 *)arg0 + 0xD0) = (f32) (lbl_805DB594 + ((TODragonfly *)arg0)->scale);
-    VecCopy((Vec *)(arg0 + 0xD4), (const Vec *)(arg0 + 0x38));
-    ((TODragonfly *)arg0)->m_e8 = (f32) lbl_805DB580;
+    arg0->m_cc = 0;
+    *(f32 *)((s8 *)arg0 + 0xD0) = (f32) (lbl_805DB594 + arg0->scale);
+    VecCopy((Vec *)((u8 *)arg0 + 0xD4), (const Vec *)((u8 *)arg0 + 0x38));
+    arg0->m_e8 = (f32) lbl_805DB580;
     *(f32 *)((s8 *)arg0 + 0xE4) = (f32) lbl_805DB580;
-    ((TODragonfly *)arg0)->m_e0 = (f32) lbl_805DB580;
-    ((TODragonfly *)arg0)->m_f4 = (f32) ((lbl_805DB56C * (f32) ((TODragonfly *)arg0)->m_84) + lbl_805DB560);
-    ((TODragonfly *)arg0)->m_f8 = (s32) (lbl_805DB570 * (lbl_805DB574 / (lbl_805DB578 / ((TODragonfly *)arg0)->m_f4)));
-    ((TODragonfly *)arg0)->m_fc = (s32) (lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32) rand())));
-    ((TODragonfly *)arg0)->m_ec = (f32) ((lbl_805DB56C * (f32) *(s32 *)((s8 *)arg0 + 0x88)) + lbl_805DB560);
-    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (((TODragonfly *)arg0)->m_ec * sin_table_lookup((s32)((int) (((TODragonfly *)arg0)->m_fc))));
-    return arg0;
+    arg0->m_e0 = (f32) lbl_805DB580;
+    arg0->m_f4 = (f32) ((lbl_805DB56C * (f32) arg0->m_84) + lbl_805DB560);
+    arg0->m_f8 = (s32) (lbl_805DB570 * (lbl_805DB574 / (lbl_805DB578 / arg0->m_f4)));
+    arg0->m_fc = (s32) (lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32) rand())));
+    arg0->m_ec = (f32) ((lbl_805DB56C * (f32) *(s32 *)((s8 *)arg0 + 0x88)) + lbl_805DB560);
+    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (arg0->m_ec * sin_table_lookup((s32)((int) (arg0->m_fc))));
+    return (u8 *)arg0;
 }
 #pragma pop
 

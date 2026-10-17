@@ -3,6 +3,7 @@
 
 #include "types.h"
 
+class TPlayerBattleCtrl;
 extern "C" {
 u8 TLobby__sub_801C2614(void);
 s32 TLobby__sub_801C2678(void);
@@ -26,7 +27,7 @@ void close_and_play_effect__6TLobbyFii(int arg0, s32 arg1);
 void destroy_matching_children__6TLobbyFPv(void *arg0);
 void end_battle_mode_cleanup__6TLobbyFPv(void *arg0);
 void finish_chr_select_scene_init__6TLobbyFv(void);
-s32 fn_801C4CE0(void *arg0);
+s32 fn_801C4CE0(TPlayerBattleCtrl *arg0);
 void handle_6x7E(void);
 void handle_6x7F_battle_scores(s32 arg0);
 void handle_battle_result__6TLobbyFii(int arg0, s32 arg1);

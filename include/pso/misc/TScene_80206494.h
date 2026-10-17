@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+class TScene;
 extern "C" {
-u8 *TScene__ct(u8 *arg0, s32 arg1);
+u8 *TScene__ct(TScene *arg0, s32 arg1);
 void TScene__sub_802065E8(void);
 void TScene__sub_802065EC(void);
 void *__dt__6TSceneFv(void *arg0, s16 arg1);

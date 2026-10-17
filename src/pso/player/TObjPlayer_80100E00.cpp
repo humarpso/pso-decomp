@@ -217,10 +217,10 @@ void TItemEquipBase::send_6x61_activate_mag_effect(s32 arg1) {
         ((TObjPlayer *)(&stack.sp8))->bswap_and_send_6x61();
     }
 }
-void handle_6x61_activate_mag_effect(void *arg0) {
+void handle_6x61_activate_mag_effect(TObjPlayer *arg0) {
     struct VObj_80101350_80100E00 *obj;
     if (TOKeyMachine01::get_global_state() != 0xF) {
-        ((TObjPlayer *)arg0)->swap_6x61_fields();
+        arg0->swap_6x61_fields();
         obj = (VObj_80101350_80100E00 *)find_item_by_id(*(s32 *)((s8 *)arg0 + 4));
         if ((obj != NULL) && ((u32) *(u32 *)((s8 *)obj + 0xF0) != 0U)) {
             obj->m17(*(s32 *)((s8 *)arg0 + 8));

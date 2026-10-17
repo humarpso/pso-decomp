@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TObjEneSlime;
 extern "C" {
-u8 *TObjEneSlime__ct(u8 *arg0, s32 arg1, u8 *arg2);
+u8 *TObjEneSlime__ct(TObjEneSlime *arg0, s32 arg1, u8 *arg2);
 void *__dt__12TObjEneSlimeFv(void *arg0, s16 arg1);
 }
 

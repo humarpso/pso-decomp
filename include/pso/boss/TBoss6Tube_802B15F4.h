@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TBoss6Tube;
 extern "C" {
-u8 *TBoss6Tube__ct(u8 *arg0, u8 *arg1);
+u8 *TBoss6Tube__ct(TBoss6Tube *arg0, u8 *arg1);
 void *__dt__10TBoss6TubeFv(void *arg0, s16 arg1);
 }
 

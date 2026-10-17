@@ -60,28 +60,28 @@ u8 *__dt__10TBoss6RockFv(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TBoss6Rock__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TBoss6Rock__ct(TBoss6Rock *arg0, s32 arg1, s32 arg2) {
     ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__10TBoss6Rock.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D438C;
-    ((TBoss6Rock *)arg0)->m_ac = arg2;
-    VecCopy((Vec *)(arg0 + 0xD4), (const Vec *)((u8 *)&TBoss6Rock__rock_point_table.value + (((TBoss6Rock *)arg0)->m_ac * 0xC)));
-    ((TBoss6Rock *)arg0)->m_b8 = 0;
-    ((TBoss6Rock *)arg0)->m_b4 = 0;
-    ((TBoss6Rock *)arg0)->m_c0 = 0;
-    ((TBoss6Rock *)arg0)->m_bc = 0;
-    ((TBoss6Rock *)arg0)->m_b0 = 0;
-    ((TBoss6Rock *)arg0)->randomize_motion();
-    ((TBoss6Rock *)arg0)->m_c8 = 0;
-    ((TBoss6Rock *)arg0)->m_c4 = 0;
-    ((TBoss6Rock *)arg0)->m_e4 = create__10TBoss6RockFv();
-    return arg0;
+    arg0->m_ac = arg2;
+    VecCopy((Vec *)((u8 *)arg0 + 0xD4), (const Vec *)((u8 *)&TBoss6Rock__rock_point_table.value + (arg0->m_ac * 0xC)));
+    arg0->m_b8 = 0;
+    arg0->m_b4 = 0;
+    arg0->m_c0 = 0;
+    arg0->m_bc = 0;
+    arg0->m_b0 = 0;
+    arg0->randomize_motion();
+    arg0->m_c8 = 0;
+    arg0->m_c4 = 0;
+    arg0->m_e4 = create__10TBoss6RockFv();
+    return (u8 *)arg0;
 }
 
 void *TBoss6Rock::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE8);
     if (o != NULL) {
-        o = TBoss6Rock__ct((u8 *)o, (s32)tl_02, (s32)arg0);
+        o = TBoss6Rock__ct((TBoss6Rock *)((u8 *)o), (s32)tl_02, (s32)arg0);
     }
     return o;
 }

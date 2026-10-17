@@ -276,10 +276,10 @@ void TObjLobbyMain::update_fade() {
     }
 }
 
-void reset_state__13TObjLobbyMainFPv(void *arg0) {
+void reset_state__13TObjLobbyMainFPv(TObjLobbyMain *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0xCC) != get_theme_lobby_type()) {
-        ((TObjLobbyMain *)arg0)->m_c8 = 0;
-        ((TObjLobbyMain *)arg0)->m_d4 = (f32) (1.0f);
+        arg0->m_c8 = 0;
+        arg0->m_d4 = (f32) (1.0f);
     }
 }
 

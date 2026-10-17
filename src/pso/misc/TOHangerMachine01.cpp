@@ -120,7 +120,7 @@ void TOHangerMachine01::render() {
 void *TOHangerMachine01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xCC);
     if (o != NULL) {
-        o = TOHangerMachine01__ct((u8 *)o, (s32)arg0);
+        o = TOHangerMachine01__ct((TOHangerMachine01 *)((u8 *)o), (s32)arg0);
     }
     return o;
 }
@@ -160,21 +160,21 @@ extern s32 local_client_id;
 
 typedef char RecoveredGlobal_8016904C_lbl_804B26D8_size[sizeof(RecoveredGlobal_8016904C_lbl_804B26D8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8016904C___vt__17TOHangerMachine01_size[sizeof(RecoveredGlobal_8016904C___vt__17TOHangerMachine01) == 0x3C ? 1 : -1];
-u8 *TOHangerMachine01__ct(u8 *arg0, s32 arg1) {
+u8 *TOHangerMachine01__ct(TOHangerMachine01 *arg0, s32 arg1) {
     init_map_object_base(arg0, tl_05);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016904C___vt__17TOHangerMachine01 *)&__vt__17TOHangerMachine01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOHangerMachine01__class_name;
     ((TOHangerMachine01 *)(arg0))->apply_object_set_data((void *)arg1);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOHangerMachine01__bml_resource) + 0x42C)) + 8);
-    ((TOHangerMachine01 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOHangerMachine01__bml_resource) + 0x42C)) + 0xC);
-    ((TOHangerMachine01 *)arg0)->m_c0 = (f32) lbl_805DB6AC;
+    arg0->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOHangerMachine01__bml_resource) + 0x42C)) + 0xC);
+    arg0->m_c0 = (f32) lbl_805DB6AC;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB6B0;
-    ((TOHangerMachine01 *)arg0)->actorFlags = (s32) (((TOHangerMachine01 *)arg0)->actorFlags | 0x40000000);
+    arg0->actorFlags = (s32) (arg0->actorFlags | 0x40000000);
     init_collision_body_parts(arg0, &hanger_machine01_collision_body_parts.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    ((TOHangerMachine01 *)arg0)->m_c8 = 0;
-    return arg0;
+    arg0->m_c8 = 0;
+    return (u8 *)arg0;
 }
 
 s32 TOHangerMachine01::is_valid_slot(int arg0, u16 arg1) {

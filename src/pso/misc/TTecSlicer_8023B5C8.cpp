@@ -192,7 +192,7 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 lbl_805DC95C;
 extern const f32 lbl_805DC960;
-void disallow_rendering__7TObjectFv(void *);
+void disallow_rendering__7TObjectFv(TObject *);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 find_item_by_id(s32);
 void set_item_count__13TUnk_804B9870Fs(void *, s32);
@@ -424,7 +424,7 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4) {
     ((TTecSlicer *)(self->fc8))->reset_fields_1e();
     ((TTecSlicer *)(self->fe8))->reset_fields_1e();
     self->f0 = lbl_805D3828;
-    disallow_rendering__7TObjectFv(self);
+    disallow_rendering__7TObjectFv((TObject *)self);
     set_item_count__13TUnk_804B9870Fs(self, pop_free_id__6TLobbyFv());
     self->f110 = init->f8;
     self->f24 = init->f4;

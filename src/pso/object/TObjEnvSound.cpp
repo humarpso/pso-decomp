@@ -31,7 +31,7 @@ s32 set_floor_event_flags(s32 arg0, s32 arg1, s32 arg2);
 s32 activate_first_floor_event(s32 idx, s32 id);
 void handle_6x67_trigger_set_event(Pkt_80190BA0 *pkt);
 void queue_destruction__7TObjectFv(void *);
-void disallow_rendering__7TObjectFv(void *);
+void disallow_rendering__7TObjectFv(TObject *);
 void copy_pair__18TObjEnvSoundGlobalFPvPv(void *p, void *q);
 void construct_world_actor_base(void *, void *);
 extern Row_80190AA0 *environment_sound_tables_by_area[];
@@ -98,7 +98,7 @@ void *TObjEnvSound__ct(Obj_80190AA0 *self, void *parent, void *arg2) {
     if (self->attenuation > 127) {
         self->attenuation = 127;
     }
-    disallow_rendering__7TObjectFv(self);
+    disallow_rendering__7TObjectFv((TObject *)self);
     return self;
 }
 

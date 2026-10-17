@@ -49,7 +49,7 @@ extern s32 record_array_ptr;
 void TObjPlayer__sub_803DAC1C(s32 arg0);
 s32 fn_803DB20C(void *);
 extern u8 *current_render_context;
-s32 TObjPlayer__sub_803DAE98(u8 *arg0, s32 _w1);
+s32 TObjPlayer__sub_803DAE98(TObjPlayer *arg0, s32 _w1);
 s32 TObjPlayer__sub_803DA84C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TObjPlayer__sub_803DAD28(u32 arg0);
 s32 TObjPlayer__sub_803DA8B4(u8 *arg0, s32 arg1);
@@ -240,7 +240,7 @@ s32 TObjPlayer__sub_803DAB9C(s32 arg0, s32 arg1) {
 #pragma push
 #pragma scheduling off
 void TObjPlayer__sub_803DAC1C(s32 arg0) {
-    TObjPlayer__sub_803DAE98((u8 *)((void *) (record_array_ptr + (arg0 * 0x18))), record_array_ptr);
+    TObjPlayer__sub_803DAE98((TObjPlayer *)((u8 *)((void *) (record_array_ptr + (arg0 * 0x18)))), record_array_ptr);
 }
 #pragma pop
 
@@ -328,7 +328,7 @@ s32 TObjPlayer__sub_803DAE1C(s32 arg0, s32 arg1, u32 arg2) {
 #pragma scheduling off
 #pragma peephole off
 #pragma scheduling off
-s32 TObjPlayer__sub_803DAE98(u8 *arg0, s32 _w1) {
+s32 TObjPlayer__sub_803DAE98(TObjPlayer *arg0, s32 _w1) {
     s32 temp_r3;
     s32 temp_r3_2;
     u8 *temp_r3_3;
@@ -350,7 +350,7 @@ s32 TObjPlayer__sub_803DAE98(u8 *arg0, s32 _w1) {
             *(s32 *)((s8 *)current_render_context + 0x14) = -1;
         }
     }
-    ((TObjPlayer *)arg0)->release_empty_ref_entry();
+    arg0->release_empty_ref_entry();
     return 1;
 }
 #pragma pop

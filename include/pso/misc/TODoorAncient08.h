@@ -31,7 +31,7 @@ struct TODoorAncient08 : public TUnk_804B0BB8 {
 
 typedef char TODoorAncient08_size[sizeof(TODoorAncient08) == 0xEC ? 1 : -1];
 extern "C" {
-u8 *TODoorAncient08__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TODoorAncient08__ct(TODoorAncient08 *arg0, s32 arg1, s32 arg2);
 void *__dt__15TODoorAncient08Fv(void *arg0, s16 arg1);
 }
 

@@ -12,7 +12,7 @@
 #include "pso/misc/TTecGiFoie.h"
 
 extern "C" {
-void disallow_rendering__7TObjectFv(void *arg0);
+void disallow_rendering__7TObjectFv(TObject *arg0);
 void *create_particle_emitter(void *pos, s32 id);
 int get_item_system_generation(void);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -87,7 +87,7 @@ u8 *construct_item_follow_effect(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg
     Vec position;
     __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = item_follow_effect_vtable;
-    disallow_rendering__7TObjectFv((arg0));
+    disallow_rendering__7TObjectFv((TObject *)(arg0));
     *(s32 *)((s8 *)arg0 + 0x1C) = ((TItem *)arg2)->get_field_d8();
     ((TUnk_804A2660 *)arg0)->m_20 = arg3;
     ((TObjPlayer *)arg2)->draw_icon((s32)((s32)((int) (((TUnk_804A2660 *)arg0)->m_20))), (s32)&position);

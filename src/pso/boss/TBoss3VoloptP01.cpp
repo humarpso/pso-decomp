@@ -505,15 +505,15 @@ s32 link_photon__10TObjPlayerFUs(u16, s32);
 s32 copy_position__20TBoss3VoloptHiraisinFi(void *, int, f32, f32);
 void TBoss3VoloptP01__sub_80042F84(u8 *arg0);
 s32 TBoss3VoloptP01__sub_80042FCC(u8 *arg0);
-void reset_state__15TBoss3VoloptP01FPv(void *arg0);
+void reset_state__15TBoss3VoloptP01FPv(TBoss3VoloptP01 *arg0);
 void TBoss3VoloptP01__sub_800430D0(void *);
 typedef struct { f32 x, y, z; } Vec_800430D0;
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
-void render__15TBoss3VoloptP01Fv(u8 *arg0);
+void render__15TBoss3VoloptP01Fv(TBoss3VoloptP01 *arg0);
 void TBoss3VoloptP01__sub_80043CA8(void * _w0);
-void run_task__15TBoss3VoloptP01Fv(u8 *arg0);
+void run_task__15TBoss3VoloptP01Fv(TBoss3VoloptP01 *arg0);
 void * __dt__15TBoss3VoloptP01Fv(void *arg0, s16 arg1);
-u8 * TBoss3VoloptP01__ct(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3, s16 arg4);
+u8 *TBoss3VoloptP01__ct(TBoss3VoloptP01 *arg0, u8 *arg1, s32 arg2, s16 arg3, s16 arg4);
 u8 * TBoss3VoloptP01__sub_800442A0(u8 *arg0, s32 arg1, s32 arg2);
 void fn_80044330(void* p);
 void* fn_8004438C(void* p);
@@ -743,12 +743,12 @@ s32 update_pulse_scale__15TBoss3VoloptP01FPv(S_8004301C *o) {
 #define update_if_active__15TObjEneMe1GiGueFl ((s32 (*)(void*,int))update_if_active__15TObjEneMe1GiGueFl)
 #define update_pulse_scale__15TBoss3VoloptP01FPv ((s32 (*)(void*))update_pulse_scale__15TBoss3VoloptP01FPv)
 #define sub_80043758__15TBoss3VoloptP01Fv ((void (*)(void*))sub_80043758__15TBoss3VoloptP01Fv)
-void reset_state__15TBoss3VoloptP01FPv(void *arg0) {
+void reset_state__15TBoss3VoloptP01FPv(TBoss3VoloptP01 *arg0) {
     void *temp_r3;
 
-    ((TBoss3VoloptP01 *)arg0)->m_390 = 0;
+    arg0->m_390 = 0;
     *(f32 *)((s8 *)arg0 + 0x38C) = (f32) (-4e+01f);
-    temp_r3 = ((TBoss3VoloptP01 *)arg0)->m_a4;
+    temp_r3 = arg0->m_a4;
     *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) | 1);
 }
 
@@ -936,7 +936,7 @@ void TBoss3VoloptP01::run_state_machine() {
         if (*(f32 *)((s8 *)arg0 + 0x38C) >= (0.0f)) {
             this->state = 2;
         } else {
-            reset_state__15TBoss3VoloptP01FPv(arg0);
+            reset_state__15TBoss3VoloptP01FPv((TBoss3VoloptP01 *)arg0);
             set_mode__11TCameraCtrlFv(*(u8 * *)&this->m_3b8);
             push_nearby_players__10TObjPlayerFPv((void *) (arg0));
             this->state = 1;
@@ -1140,27 +1140,27 @@ void TBoss3VoloptP01::update_state() {
     minimap_render_dot((u8 *)&this->position, -0x5DB4, 1, 0);
 }
 
-void render__15TBoss3VoloptP01Fv(u8 *arg0) {
+void render__15TBoss3VoloptP01Fv(TBoss3VoloptP01 *arg0) {
     s32 temp_r3;
 
-    if (!(((TBoss3VoloptP01 *)arg0)->actorFlags & 0x02000000) && (((TBoss3VoloptP01_800430AC*)arg0)->m8((4e+02f), (4e+01f)) != 0)) {
-        TObjFish::set_global_param(((TBoss3VoloptP01 *)arg0)->texture_id);
+    if (!(arg0->actorFlags & 0x02000000) && (((TBoss3VoloptP01_800430AC*)arg0)->m8((4e+02f), (4e+01f)) != 0)) {
+        TObjFish::set_global_param(arg0->texture_id);
         select_actor_lighting((s32)arg0);
         TObjPlayer::toggle_particle_effect();
         push_matrix();
         if (TObjPlayer::check_demo_mode() == 1) {
-            post_translate_matrix(arg0 + 0x38);
-            rotate_matrix_y(0, ((TBoss3VoloptP01 *)arg0)->rotation_y);
-            draw_chunk_object(((TBoss3VoloptP01 *)arg0)->model);
+            post_translate_matrix((u8 *)arg0 + 0x38);
+            rotate_matrix_y(0, arg0->rotation_y);
+            draw_chunk_object(arg0->model);
         } else {
             translate_matrix(0, *(f32 *)((s8 *)arg0 + 0x38), *(f32 *)((s8 *)arg0 + 0x3C) + *(f32 *)((s8 *)arg0 + 0x38C), *(f32 *)((s8 *)arg0 + 0x40));
-            rotate_matrix_y(0, ((TBoss3VoloptP01 *)arg0)->rotation_y);
-            temp_r3 = ((TBoss3VoloptP01 *)arg0)->m_388;
+            rotate_matrix_y(0, arg0->rotation_y);
+            temp_r3 = arg0->m_388;
             if (temp_r3 & 0x40000) {
-                draw_chunk_model((void *)(*(s32 *)((s8 *)(*(void **)((s8 *)(((TBoss3VoloptP01 *)arg0)->model) + 0x2C)) + 4)));
+                draw_chunk_model((void *)(*(s32 *)((s8 *)(*(void **)((s8 *)(arg0->model) + 0x2C)) + 4)));
             } else {
                 if (temp_r3 & 0x80000) {
-                    sin_table_lookup(((TBoss3VoloptP01 *)arg0)->m_3b4);
+                    sin_table_lookup(arg0->m_3b4);
                     *(s8 *)((s8 *)volopt_p01_breakup_color_ptr + 7) = (s8) ((255.0f) * fabs_float());
                     *(s8 *)((s8 *)volopt_p01_breakup_color_ptr + 4) = 0;
                     *(s8 *)((s8 *)volopt_p01_breakup_color_ptr + 5) = 0;
@@ -1191,7 +1191,7 @@ void TBoss3VoloptP01::dispatch_state() {
     }
 }
 
-void run_task__15TBoss3VoloptP01Fv(u8 *arg0) {
+void run_task__15TBoss3VoloptP01Fv(TBoss3VoloptP01 *arg0) {
     f32 temp_f2;
     s32 temp_r4_2;
     u8 *temp_r4;
@@ -1201,32 +1201,32 @@ void run_task__15TBoss3VoloptP01Fv(u8 *arg0) {
     }
     if (((TBoss3VoloptP01 *)(arg0))->has_flag_0x800() != 0) {
         ((TBoss3VoloptP01 *)(arg0))->vfunc_63();
-    } else if ((((TBoss3VoloptP01 *)(arg0))->test_flag30_512() != 0) && !(((TBoss3VoloptP01 *)arg0)->actorFlags & 0x04000000)) {
+    } else if ((((TBoss3VoloptP01 *)(arg0))->test_flag30_512() != 0) && !(arg0->actorFlags & 0x04000000)) {
         ((TBoss3VoloptP01 *)(arg0))->vfunc_62();
     }
     if (obj_testFlags30((void *) (arg0), 0x4000) != 0) {
         if (((TObjPlayer *)arg0)->add_status_effect_timer(4, -1) <= 0) {
-            reset_status_effect_row((arg0 + 0x284));
+            reset_status_effect_row(((u8 *)arg0 + 0x284));
             ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x4000);
         }
     } else {
-        if ((s16) ((TBoss3VoloptP01 *)arg0)->mode != (s32) ((TBoss3VoloptP01 *)arg0)->next_action) {
-            if ((s32) ((TBoss3VoloptP01 *)arg0)->state != -1) {
-                ((TBoss3VoloptP01 *)arg0)->state = -1;
-                ((TBoss3VoloptP01 *)arg0)->dispatch_state();
+        if ((s16) arg0->mode != (s32) arg0->next_action) {
+            if ((s32) arg0->state != -1) {
+                arg0->state = -1;
+                arg0->dispatch_state();
             }
-            ((TBoss3VoloptP01 *)arg0)->mode = (s16) ((TBoss3VoloptP01 *)arg0)->next_action;
-            ((TBoss3VoloptP01 *)arg0)->state = 0;
+            arg0->mode = (s16) arg0->next_action;
+            arg0->state = 0;
         }
-        ((TBoss3VoloptP01 *)arg0)->dispatch_state();
-        VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
-        temp_f2 = ((TBoss3VoloptP01 *)arg0)->m_300;
-        ((TBoss3VoloptP01 *)arg0)->m_300 = (f32) (temp_f2 + ((18.0f) + *(f32 *)((s8 *)arg0 + 0x38C)));
-        temp_r4 = (unsigned char *) (((TBoss3VoloptP01 *)arg0)->m_a4);
+        arg0->dispatch_state();
+        VecCopy((Vec *)((u8 *)arg0 + 0x2FC), (const Vec *)((u8 *)arg0 + 0x38));
+        temp_f2 = arg0->m_300;
+        arg0->m_300 = (f32) (temp_f2 + ((18.0f) + *(f32 *)((s8 *)arg0 + 0x38C)));
+        temp_r4 = (unsigned char *) (arg0->m_a4);
         *(f32 *)((s8 *)temp_r4 + 4) = (f32) ((18.0f) + *(f32 *)((s8 *)arg0 + 0x38C));
         copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0), (int) (temp_r4), (f32) ((18.0f)), (f32) (temp_f2));
-        temp_r4_2 = ((TBoss3VoloptP01 *)arg0)->m_3b4;
-        ((TBoss3VoloptP01 *)arg0)->m_3b4 = (s32) (temp_r4_2 + 0x400);
+        temp_r4_2 = arg0->m_3b4;
+        arg0->m_3b4 = (s32) (temp_r4_2 + 0x400);
         ((VObj_18 *)(arg0))->m53(temp_r4_2);
     }
 }
@@ -1306,32 +1306,32 @@ void TBoss3VoloptP01::init_params() {
 
 #pragma push
 #pragma fp_contract on
-u8 *TBoss3VoloptP01__ct(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3, s16 arg4) {
+u8 *TBoss3VoloptP01__ct(TBoss3VoloptP01 *arg0, u8 *arg1, s32 arg2, s16 arg3, s16 arg4) {
     s32 temp_r29;
     s32 temp_r3;
     s32 var_r0;
-    TObjEnemyCustom__ct((arg0));
+    TObjEnemyCustom__ct(((u8 *)arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80044174___vt__15TBoss3VoloptP01 *)&*__vt__15TBoss3VoloptP01).value;
-    ((TObjPlayer *)(arg0 + 0x3BC))->construct_target_cursor_records();
+    ((TObjPlayer *)((u8 *)arg0 + 0x3BC))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) (*(s32 *)&TBoss3VoloptP01_class_name);
-    ((TBoss3VoloptP01 *)arg0)->m_1c = arg3;
+    arg0->m_1c = arg3;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg4;
     *(s32 *)((s8 *)arg0 + 0x80) = 0;
     *(s16 *)((s8 *)arg0 + 0x28) = (s16) *(s16 *)((s8 *)arg1 + 0x28);
     *(s16 *)((s8 *)arg0 + 0x2A) = (s16) *(s16 *)((s8 *)arg1 + 0x2A);
-    ((TBoss3VoloptP01 *)arg0)->init_params();
+    arg0->init_params();
     temp_r29 = (s32) ((182.04445f) * (f32) (arg2 * 0x3C));
     *(f32 *)((s8 *)arg0 + 0x38) = (f32) (((76.0f) * cos_table_lookup((int) (temp_r29))) + *(f32 *)((s8 *)(&boss3_volopt_spawn_pos.value) + 0));
     *(f32 *)((s8 *)arg0 + 0x40) = (f32) (((76.0f) * ((f32 (*)(int))sin_table_lookup)((int) (temp_r29))) + *(f32 *)((s8 *)(&boss3_volopt_spawn_pos.value) + 8));
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (0.0f);
-    ((TBoss3VoloptP01 *)arg0)->rotation_y = (s32) (-0x4000 - temp_r29);
+    arg0->rotation_y = (s32) (-0x4000 - temp_r29);
     temp_r3 = ((s32)__nw__7TObjectFUl(0x34));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = ((s32)__ct__17TObjVoloptShutterFv((u8 *)((int) (temp_r3)), (s32)((void *) (arg2))));
     }
-    ((TBoss3VoloptP01 *)arg0)->m_3b8 = var_r0;
-    return arg0;
+    arg0->m_3b8 = var_r0;
+    return (u8 *)arg0;
 }
 #pragma pop
 

@@ -112,7 +112,7 @@ void TAdMultiPlyChrSelectGC__sub_802DC8A0(void *arg0) {
         if (is_slot_active__23TAdSinglePlyChrSelectGCFUi(k) != 0) {
             ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x60)))->set_field_100(2);
             if (*(u32 *)((s8 *)arg0 + 0x70) != 0U) {
-                allow_rendering__7TObjectFv(*(void **)((s8 *)arg0 + 0x70));
+                allow_rendering__7TObjectFv((TObject *)(*(void **)((s8 *)arg0 + 0x70)));
             }
             ((TAdEnterSerialAccessGC *)(*(u32 *)((s8 *)arg0 + 0x70)))->reset_input_state();
             ((TLevelSelect *)(*(u32 *)((s8 *)arg0 + 0x70)))->add_item_rect(&((Pair_802DC8A0 *)&TAdMultiPlyChrSelectGC__character_slot_positions)[i]);

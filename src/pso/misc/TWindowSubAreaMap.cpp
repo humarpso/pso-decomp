@@ -74,7 +74,7 @@ TWindowSubAreaMap::TWindowSubAreaMap(TObject *arg1, void *arg2) : TObject(arg1) 
     *(void **)((s8 *)this + 0x1C) = arg2;
     o = __nw__7TObjectFUl(0x78);
     if (o != NULL) {
-        o = TWindowSubAreaMapDisp__ct((u8 *)o);
+        o = TWindowSubAreaMapDisp__ct((TWindowSubAreaMapDisp *)((u8 *)o));
     }
     *(void **)((s8 *)this + 0x24) = o;
 }

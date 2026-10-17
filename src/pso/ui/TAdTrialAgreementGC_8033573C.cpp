@@ -91,7 +91,7 @@ u8 *TAdTrialAgreementGC__ct(u8 *arg0) {
     temp_r3 = __nw__7TObjectFUl(0x54);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (s32)TAdScrollWinGC__ct((void *)temp_r3, (arg0), 1, 0);
+        var_r0 = (s32)TAdScrollWinGC__ct((TAdScrollWinGC *)((void *)temp_r3), (arg0), 1, 0);
     }
     ((TAdTrialAgreementGC *)arg0)->m_38 = var_r0;
     return arg0;

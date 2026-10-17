@@ -36,7 +36,7 @@ typedef char TObjEneBalClaw_size[sizeof(TObjEneBalClaw) == 0x3C0 ? 1 : -1];
 
 extern "C" {
 void TObjEneBalClawClaw__sub_8008DC14(void);
-u8 *TObjEneBalClaw__ct(u8 *arg0);
+u8 *TObjEneBalClaw__ct(TObjEneBalClaw *arg0);
 void TObjEneBalClaw__sub_8008D68C(void);
 void *__dt__14TObjEneBalClawFv(void *arg0, s16 arg1);
 }

@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TBoss6PlotFalz;
 extern "C" {
-void TBoss6PlotFalz__sub_802B0228(void *arg0);
+void TBoss6PlotFalz__sub_802B0228(TBoss6PlotFalz *arg0);
 void load_player_footstamp(void);
 }
 

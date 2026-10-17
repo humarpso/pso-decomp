@@ -55,22 +55,22 @@ void *__dt__15TWindowShortCutFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_8026E728_lbl_804D0AE0_size[sizeof(RecoveredGlobal_8026E728_lbl_804D0AE0) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_8026E728___vt__15TWindowShortCut_size[sizeof(RecoveredGlobal_8026E728___vt__15TWindowShortCut) == 0x1C ? 1 : -1];
-u8 *TWindowShortCut__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+u8 *TWindowShortCut__ct(TWindowShortCut *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 var_r31;
     ((TWindowDD *)arg0)->construct_base((u8 *)((s32) &lbl_804D0AE0.value), (s16)4, (u8 *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8026E728___vt__15TWindowShortCut *)&__vt__15TWindowShortCut).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowShortCut__name;
     var_r31 = ((TAdSinglePlyChrSelectGC *)((void *)0x24))->alloc();
     if (var_r31 != 0) {
-        var_r31 = construct_type1_heading__20TWindowSubStatusDispFll(var_r31, get_message_10__20TWindowSubStatusDispFl(0x35), (s32) ((TWindowShortCut *)arg0)->m_20);
+        var_r31 = construct_type1_heading__20TWindowSubStatusDispFll(var_r31, get_message_10__20TWindowSubStatusDispFl(0x35), (s32) arg0->m_20);
     }
-    ((TWindowShortCut *)arg0)->m_60 = var_r31;
-    ((TWindowShortCut *)arg0)->m_64 = 0;
-    ((TWindowShortCut *)arg0)->m_68 = 0;
-    ((TWindowShortCut *)arg0)->m_6c = arg2;
-    ((TWindowShortCut *)arg0)->m_70 = arg3;
+    arg0->m_60 = var_r31;
+    arg0->m_64 = 0;
+    arg0->m_68 = 0;
+    arg0->m_6c = arg2;
+    arg0->m_70 = arg3;
     TWindowSubStatusDisp__sub_8026E1D4((void *)arg0, (void *)arg2, (void *)arg3);
-    return arg0;
+    return (u8 *)arg0;
 }
 
 }

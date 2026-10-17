@@ -48,7 +48,7 @@ extern RecoveredGlobal_80191874_lbl_804FF610 lbl_804FF610;
 extern s32 camera_ctrl_instance;
 extern const f32 lbl_805DBE2C;
 extern const f32 lbl_805DBE30;
-void *TObjHashiBase__ct(void *arg0, s32 arg1, s32 arg2);
+void *TObjHashiBase__ct(TObjHashiBase *arg0, s32 arg1, s32 arg2);
 void *__dt__13TObjHashiBaseFv(void *arg0, s16 arg1);
 void handle_6x78(void *arg0);
 u8 is_current_floor_switch_set(u16, f32);
@@ -184,20 +184,20 @@ extern const f32 lbl_805DBE28;
 extern const f32 lbl_805DBE34;
 extern const f32 lbl_805DBE38;
 
-void *TObjHashiBase__ct(void *arg0, s32 arg1, s32 arg2) {
+void *TObjHashiBase__ct(TObjHashiBase *arg0, s32 arg1, s32 arg2) {
     init_map_object_base();
-    ((TObjHashiBase *)arg0)->m_18 = __vt__13TObjHashiBase;
+    arg0->m_18 = __vt__13TObjHashiBase;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3374;
     ((VObj_80191BEC_80191B94 *)arg0)->m5(arg2);
-    ((TObjHashiBase *)arg0)->switchId = (s32) ((TObjHashiBase *)arg0)->m_84;
+    arg0->switchId = (s32) arg0->m_84;
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DBE24;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DBE28;
-    if (is_current_floor_switch_set((u16) ((TObjHashiBase *)arg0)->switchId, lbl_805DBE24) == 1) {
-        ((TObjHashiBase *)arg0)->phase = 2;
+    if (is_current_floor_switch_set((u16) arg0->switchId, lbl_805DBE24) == 1) {
+        arg0->phase = 2;
         *(f32 *)((s8 *)arg0 + 0xCC) = (f32) *(f32 *)((s8 *)arg0 + 0x3C);
         *(f32 *)((s8 *)arg0 + 0xD0) = (f32) lbl_805DBE34;
     } else {
-        ((TObjHashiBase *)arg0)->phase = 0;
+        arg0->phase = 0;
         *(f32 *)((s8 *)arg0 + 0xCC) = (f32) *(f32 *)((s8 *)arg0 + 0x3C);
         *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) - lbl_805DBE38);
         *(f32 *)((s8 *)arg0 + 0xD0) = (f32) lbl_805DBE34;

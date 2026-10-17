@@ -85,7 +85,7 @@ namespace P802D5318 {
 
 extern "C" {
 
-void setup_radar_marker__10TObjPlayerFPvPv(void *arg0, void *arg1);
+void setup_radar_marker__10TObjPlayerFPvPv(TObjPlayer *arg0, void *arg1);
 void* setup_state__10TObjPlayerFPv(void* a0);
 int init_state_445__10TObjPlayerFPv(void);
 s32 set_radar_marker_params__10TObjPlayerFPvPv();
@@ -94,10 +94,10 @@ int set_status_flags__10TObjPlayerFUl(void*, void*);
 extern const f32 lbl_805DE788;
 extern const f32 lbl_805DE78C;
 
-void setup_radar_marker__10TObjPlayerFPvPv(void *arg0, void *arg1) {
+void setup_radar_marker__10TObjPlayerFPvPv(TObjPlayer *arg0, void *arg1) {
     set_radar_marker_params__10TObjPlayerFPvPv();
-    if (((TObjPlayer *)arg0)->is_mode_two_and_ready() != 0) {
-        ((TObjPlayer *)arg0)->drain_owner_hp_fraction(lbl_805DE788);
+    if (arg0->is_mode_two_and_ready() != 0) {
+        arg0->drain_owner_hp_fraction(lbl_805DE788);
         *(s32 *)((s8 *)arg1 + 0x10) = 0xA;
         *(s32 *)((s8 *)arg1 + 0x44) = (s32) ((TUnk_804E1CA8 *)arg0)->projectile;
         *(f32 *)((s8 *)arg1 + 0x4C) = lbl_805DE78C;
@@ -699,7 +699,7 @@ extern "C" {
 s32 fire_shot_at_target__11TItemWeaponFv(void *, void *, int, int);
 s16 get_validated_attack_stage(u8 *arg0);
 void fire_spread_shot__10TObjPlayerFPv(u8 *arg0);
-s32 draw_weapon_model(void *);
+s32 draw_weapon_model(TItemWeapon *);
 void draw_weapon_if_not_hidden__10TObjPlayerFPv(u8 *arg0);
 s32 rotate_matrix_x(int, int);
 s32 push_matrix();
@@ -790,7 +790,7 @@ void TObjPlayer__sub_802D5DE0(u8 *arg0) {
 
 void draw_weapon_if_not_hidden__10TObjPlayerFPv(u8 *arg0) {
     if (((TItemWeapon *)arg0)->test_flags_1b8(0x01000000U) == 0U) {
-        draw_weapon_model(arg0);
+        draw_weapon_model((TItemWeapon *)arg0);
     }
 }
 

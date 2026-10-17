@@ -31,7 +31,7 @@ extern s32 TLoadCtrl__class_name;
 extern s32 TLoadCtrl__loading_mode;
 extern s32 TLoadCtrl__fade_task;
 extern s32 tl_fade;
-u8 *TLoadCtrl__ct(u8 *arg0, s32 arg1);
+u8 *TLoadCtrl__ct(TLoadCtrl *arg0, s32 arg1);
 u8 * __dt__7TObjectFv(void *, s16);
 void queue_destruction__7TObjectFv(void *arg0);
 void __dl__7TObjectFPv(s32);
@@ -138,14 +138,14 @@ u8 *__dt__9TLoadCtrlFv(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TLoadCtrl__ct(u8 *arg0, s32 arg1) {
+u8 *TLoadCtrl__ct(TLoadCtrl *arg0, s32 arg1) {
     s32 temp_r3;
     s32 var_r0;
     __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__9TLoadCtrl.value;
-    ((TLoadCtrl *)arg0)->m_1c = 1;
+    arg0->m_1c = 1;
     TLoadCtrl__fade_task = 0;
-    ((TLoadCtrl *)arg0)->m_20 = 0;
+    arg0->m_20 = 0;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TLoadCtrl__class_name;
     if (((u32) (*(u32 *)&TLoadCtrl__loading_mode) == 0U) || ((u32) (*(u32 *)&TLoadCtrl__loading_mode) == 1U)) {
         temp_r3 = __nw__7TObjectFUl(0x38);
@@ -155,7 +155,7 @@ u8 *TLoadCtrl__ct(u8 *arg0, s32 arg1) {
         }
         TLoadCtrl__fade_task = var_r0;
     }
-    return arg0;
+    return (u8 *)arg0;
 }
 
 void TLoadCtrl::cleanup_scene() {
@@ -247,7 +247,7 @@ void TLoadCtrl::start_loading(u32 arg0) {
     }
     var_r0 = (u8 *) __nw__7TObjectFUl(0x24);
     if (var_r0 != NULL) {
-        var_r0 = TLoadCtrl__ct(var_r0, tl_su);
+        var_r0 = TLoadCtrl__ct((TLoadCtrl *)var_r0, tl_su);
     }
     TLoadCtrl__instance = (u32) var_r0;
 }

@@ -131,7 +131,7 @@ u8 * create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3);
 u8 * init_shop_judgment_window(void* p);
 s32 create_window_menu(s32 arg0, s32 arg1, s32 arg2);
 s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void render__11TWindowMenuFv(u8 *arg0);
+void render__11TWindowMenuFv(TWindowMenu *arg0);
 void * __dt__11TWindowMenuFv(void *arg0, s16 arg1);
 u8 * TWindowMenu__ct(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 u8 test_menu_flag__11TWindowMenuFv(u8 *arg0);
@@ -751,21 +751,21 @@ void TWindowMenu::render_selected_entry(s32 arg1) {
     }
 }
 
-void render__11TWindowMenuFv(u8 *arg0) {
+void render__11TWindowMenuFv(TWindowMenu *arg0) {
     s32 temp_r3;
 
     temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame(arg0, temp_r3);
-    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
-    if (!(((TWindowMenu *)arg0)->m_70 & 0x80)) {
-        ((TWindowMenu *)arg0)->render_selected_entry(temp_r3);
-        ((TWindowMenu *)arg0)->draw_selected_bar((u8 *)temp_r3);
+    draw_visible_window_entries(arg0, (u8 *)arg0 + 0x24, temp_r3);
+    if (!(arg0->m_70 & 0x80)) {
+        arg0->render_selected_entry(temp_r3);
+        arg0->draw_selected_bar((u8 *)temp_r3);
     }
-    if ((u32) ((TWindowMenu *)arg0)->m_88 != 0U) {
-        forward_render__20TWindowSubStatusDispFv(((TWindowMenu *)arg0)->m_88, temp_r3);
+    if ((u32) arg0->m_88 != 0U) {
+        forward_render__20TWindowSubStatusDispFv(arg0->m_88, temp_r3);
     }
-    if ((u32) ((TWindowMenu *)arg0)->m_84 != 0U) {
-        draw_window_scrollbar(((TWindowMenu *)arg0)->m_84, temp_r3, arg0 + 0x68);
+    if ((u32) arg0->m_84 != 0U) {
+        draw_window_scrollbar(arg0->m_84, temp_r3, (u8 *)arg0 + 0x68);
     }
 }
 

@@ -3,9 +3,10 @@
 
 #include "types.h"
 
+struct TItemEffOrgaFlowShot;
 extern "C" {
 void TBoss6Type2__sub_803570C8(s8 *arg0);
-u8 *TItemEffOrgaFlowShot__ct(u8 *arg0, s32 arg1, u8 *arg2);
+u8 *TItemEffOrgaFlowShot__ct(TItemEffOrgaFlowShot *arg0, s32 arg1, u8 *arg2);
 void TItemEffOrgaFlowShot__sub_80357204(void);
 void TItemEffOrgaFlowShot__sub_80357210(void);
 void *__dt__20TItemEffOrgaFlowShotFv(void *arg0, s16 arg1);

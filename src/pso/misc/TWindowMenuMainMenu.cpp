@@ -22,30 +22,30 @@ void render__19TWindowMenuMainMenuFv(s32 arg0) {
     ((TWindowMainMenu *)arg0)->draw_entries_reversed((u8 *)temp_r3);
 }
 
-void run_task__19TWindowMenuMainMenuFv(u8 *arg0) {
+void run_task__19TWindowMenuMainMenuFv(TWindowMenuMainMenu *arg0) {
     s32 var_r31;
     u8 temp_r3;
     u8 temp_r3_2;
     u8 *var_r30;
 
-    temp_r3 = ((TWindowMenuMainMenu *)arg0)->m_60;
+    temp_r3 = arg0->m_60;
     if (temp_r3 & 8) {
-        ((TWindowMenuMainMenu *)arg0)->m_60 = (u8) (temp_r3 | 4);
+        arg0->m_60 = (u8) (temp_r3 | 4);
     }
-    var_r30 = arg0 + 0x64;
+    var_r30 = (u8 *)arg0 + 0x64;
     var_r31 = 0;
     do {
         ((TWindowMainMenu *)var_r30)->update_item_tween();
         var_r31 += 1;
         var_r30 += 0x18;
     } while (var_r31 < 8);
-    ((TWindowMenuMainMenu *)arg0)->handle_navigation_input();
+    arg0->handle_navigation_input();
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TWindowMainMenu *)arg0)->update_slide_position();
     ((TUnk_804CE018 *)arg0)->update_fade();
-    temp_r3_2 = ((TWindowMenuMainMenu *)arg0)->m_60;
+    temp_r3_2 = arg0->m_60;
     if (temp_r3_2 & 8) {
-        ((TWindowMenuMainMenu *)arg0)->m_60 = (u8) (temp_r3_2 & 0xFFFFFFF3);
+        arg0->m_60 = (u8) (temp_r3_2 & 0xFFFFFFF3);
     }
 }
 
@@ -59,18 +59,18 @@ void *__dt__19TWindowMenuMainMenuFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TWindowMenuMainMenu__ct(u8 *arg0, s32 arg1, s16 arg2) {
+u8 *TWindowMenuMainMenu__ct(TWindowMenuMainMenu *arg0, s32 arg1, s16 arg2) {
     s32 i;
     u8 *p;
     ((TWindowDD *)arg0)->construct_base((u8 *)window_menu_main_menu_params, (s16)arg2, (u8 *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowMenuMainMenu;
-    p = arg0 + 0x64;
+    p = (u8 *)arg0 + 0x64;
     i = 0;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3E68;
-    ((TWindowMenuMainMenu *)arg0)->m_60 = 4;
-    ((TWindowMenuMainMenu *)arg0)->m_61 = 0;
-    ((TWindowMenuMainMenu *)arg0)->m_62 = 0;
-    ((TWindowMenuMainMenu *)arg0)->m_20 = arg2;
+    arg0->m_60 = 4;
+    arg0->m_61 = 0;
+    arg0->m_62 = 0;
+    arg0->m_20 = arg2;
     do {
         ((TWindowMainMenu *)p)->init_color();
         i++;
@@ -81,7 +81,7 @@ u8 *TWindowMenuMainMenu__ct(u8 *arg0, s32 arg1, s16 arg2) {
     }
     ((TWindowMainMenu *)arg0)->update_scaled_position();
     ((TUnk_804CE018 *)arg0)->save_position();
-    return arg0;
+    return (u8 *)arg0;
 }
 
 }

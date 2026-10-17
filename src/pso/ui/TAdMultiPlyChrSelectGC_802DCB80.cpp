@@ -32,7 +32,7 @@ void TAdMultiPlyChrSelectGC::close_and_reset() {
     }
     ((TAdMultiPlyChrSelectGC *)(this->m_5c))->reset_cursor_state();
     if ((u32) *(u32 *)&this->unk_70 != 0U) {
-        disallow_rendering__7TObjectFv(*(void * *)&this->unk_70);
+        disallow_rendering__7TObjectFv((TObject *)(*(void * *)&this->unk_70));
     }
     ((TAdMultiPlyChrSelectGC *)(*(s32 *)&this->unk_60))->set_field_100(1);
     set_entry_value__22TAdMultiPlyChrSelectGCFlUl(*(s32 *)&this->m_64, 0, &TAdMultiPlyChrSelectGC__data_805DE898);

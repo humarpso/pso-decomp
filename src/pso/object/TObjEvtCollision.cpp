@@ -14,10 +14,10 @@ struct Pkt_80190CFC { u8 hdr[2]; u16 id; s32 player; s32 x10; s32 x14; };
 struct Obj_80190CFC { u8 pad0[0x1C]; u16 id; u8 pad1E[0x84 - 0x1E]; s32 x84; u8 pad88[0xAC - 0x88]; f32 radius; u8 padB0[4]; s32 timer; };
 
 extern "C" {
-void disallow_rendering__7TObjectFv(void *arg0);
+void disallow_rendering__7TObjectFv(TObject *arg0);
 extern s32 __vt__16TObjEvtCollision[];
 extern s32 TObjEvtCollision__class_name;
-u8 *TObjEvtCollision__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TObjEvtCollision__ct(TObjEvtCollision *arg0, s32 arg1, s32 arg2);
 s32 get_current_floor();
 void queue_destruction__7TObjectFv(void *arg0);
 extern s32 local_client_id;
@@ -57,7 +57,7 @@ extern void *tl_05;
 void *TObjEvtCollision__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xB8);
     if (o != NULL) {
-        o = TObjEvtCollision__ct((u8 *)o, (s32)tl_05, (s32)arg0);
+        o = TObjEvtCollision__ct((TObjEvtCollision *)((u8 *)o), (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -92,16 +92,16 @@ void *__dt__16TObjEvtCollisionFv(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_80190DE4___vt__16TObjEvtCollision_size[sizeof(RecoveredGlobal_80190DE4___vt__16TObjEvtCollision) == 0x38 ? 1 : -1];
-u8 *TObjEvtCollision__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TObjEvtCollision__ct(TObjEvtCollision *arg0, s32 arg1, s32 arg2) {
     ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80190DE4___vt__16TObjEvtCollision *)&__vt__16TObjEvtCollision).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEvtCollision__class_name;
     ((TObjEvtCollision *)(arg0))->apply_object_set_data((void *)arg2);
-    *(f32 *)((s8 *)arg0 + 0xAC) = (f32) ((TObjEvtCollision *)arg0)->scale;
-    ((TObjEvtCollision *)arg0)->m_b0 = (s32) ((TObjEvtCollision *)arg0)->m_84;
-    ((TObjEvtCollision *)arg0)->m_b4 = 3;
+    *(f32 *)((s8 *)arg0 + 0xAC) = (f32) arg0->scale;
+    arg0->m_b0 = (s32) arg0->m_84;
+    arg0->m_b4 = 3;
     disallow_rendering__7TObjectFv((arg0));
-    return arg0;
+    return (u8 *)arg0;
 }
 
 }

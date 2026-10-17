@@ -75,30 +75,30 @@ void TRaderMapCore::advance_scroll() {
     this->m_198 = (this->m_198 + 0x888);
     this->m_19c = lbl_805DC59C + lbl_805DC5A0 * (TRaderMapCore__data_805DC534 + sin_table_lookup(this->m_198));
 }
-void run_task__13TRaderMapCoreFv(u8 *arg0) {
+void run_task__13TRaderMapCoreFv(TRaderMapCore *arg0) {
     s32 player;
     s32 temp_r4;
     s32 var_r31;
     if ((u32) TRaderMapCore__floor_map_resource != 0U) {
-        temp_r4 = ((TRaderMapCore *)arg0)->m_90;
+        temp_r4 = arg0->m_90;
         if (temp_r4 > 0) {
-            ((TRaderMapCore *)arg0)->m_90 = (temp_r4 - 1);
+            arg0->m_90 = (temp_r4 - 1);
             return;
         }
         switch ((s32) TRaderMapCore__view_mode) {
         case 0:
-            ((TRaderMapCore *)arg0)->update_target();
+            arg0->update_target();
             break;
         case 1:
-            ((TRaderMapCore *)arg0)->update_target();
+            arg0->update_target();
             break;
         case 2:
             update_pan_zoom_input__13TRaderMapCoreFv();
             break;
         }
-        ((TRaderMapCore *)arg0)->gather_player_markers();
+        arg0->gather_player_markers();
         if ((TRaderMapCore::is_not_split_screen() == 1) && ((u32) *(u32 *)((s8 *)arg0 + 0x184) != 0U)) {
-            ((TRaderMapCore *)arg0)->m_134 = (s32) obj_getField1c(((TRaderMapCore *)arg0)->m_184);
+            arg0->m_134 = (s32) obj_getField1c(arg0->m_184);
         }
         update_follow_projection__13TRaderMapCoreFv((void *)arg0, (void *)TRaderMapCore__view_mode);
         if (TRaderMapCore::is_not_split_screen() == 1) {
@@ -111,9 +111,9 @@ void run_task__13TRaderMapCoreFv(u8 *arg0) {
                 var_r31 += 1;
             } while (var_r31 < 4);
         } else {
-            update_radar_auto_discovery(arg0, 0, (void *) (arg0 + ((TRaderMapCore *)arg0)->m_134 * 0x28 + 0x94));
+            update_radar_auto_discovery(arg0, 0, (void *) ((u8 *)arg0 + arg0->m_134 * 0x28 + 0x94));
         }
-        ((TRaderMapCore *)arg0)->advance_scroll();
+        arg0->advance_scroll();
     }
 }
 typedef char RecoveredGlobal_801FB430___vt__13TRaderMapCore_size[sizeof(RecoveredGlobal_801FB430___vt__13TRaderMapCore) == 0x34 ? 1 : -1];

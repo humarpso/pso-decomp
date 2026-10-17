@@ -19,7 +19,7 @@ TWindowSubQuestBoard::TWindowSubQuestBoard(TObject *arg1, void *arg2) : TObject(
     *(void **)((s8 *)this + 0x20) = arg2;
     o = __nw__7TObjectFUl(0x68);
     if (o != NULL) {
-        o = TWindowSubQuestBoardSelect__ct((u8 *)o);
+        o = TWindowSubQuestBoardSelect__ct((TWindowSubQuestBoardSelect *)((u8 *)o));
     }
     *(void **)((s8 *)this + 0x28) = o;
     this->m_2c = 0;

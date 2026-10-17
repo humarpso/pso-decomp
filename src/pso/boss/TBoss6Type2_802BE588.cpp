@@ -252,7 +252,7 @@ void TBoss6Type2__sub_802BEB78(u8 *arg0) {
 #pragma push
 #pragma opt_common_subs off
 #pragma fp_contract on
-void TBoss6Type2__sub_802BEC28(u8 *arg0) {
+void TBoss6Type2__sub_802BEC28(TBoss6Type2 *arg0) {
     f32 temp_f1;
     s32 temp_r0;
     u32 player;
@@ -263,24 +263,24 @@ void TBoss6Type2__sub_802BEC28(u8 *arg0) {
     } else if (temp_f1 > lbl_805DE4E4) {
         *(f32 *)((s8 *)arg0 + 0x41C) = (f32) lbl_805DE4E4;
     }
-    play_persistent_sound(0x4006A30B, (s32)arg0, (u32)(arg0 + 0x38), 0, 1);
+    play_persistent_sound(0x4006A30B, (s32)arg0, (u32)((u8 *)arg0 + 0x38), 0, 1);
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x460) - 1;
     *(s32 *)((s8 *)arg0 + 0x460) = temp_r0;
     if (temp_r0 < 0) {
         *(s32 *)((s8 *)arg0 + 0x418) = 1;
         *(f32 *)((s8 *)arg0 + 0x41C) = (f32) lbl_805DE4E4;
-        if (((TBoss6Type2 *)arg0)->check_target() != 0) {
-            if (((TBoss6Type2 *)arg0)->is_target_valid() == 0) {
-                play_sound_effect(0x40069E13, arg0 + 0x38, 0, 1);
+        if (arg0->check_target() != 0) {
+            if (arg0->is_target_valid() == 0) {
+                play_sound_effect(0x40069E13, (u8 *)arg0 + 0x38, 0, 1);
             }
             player = (u32)get_player_by_client_id(((s32) *(u16 *)((s8 *)arg0 + 0x55C)));
             if (player != 0U) {
                 spawn_particle_effect((void *)(player + 0x38), 0x36);
             }
         }
-        ((TBoss6Type2 *)arg0)->copy_anim_state();
-        ((TBoss6Type2 *)arg0)->destroy_part(6);
-        ((TBoss6Type2 *)arg0)->set_action_state((void *)0x1B);
+        arg0->copy_anim_state();
+        arg0->destroy_part(6);
+        arg0->set_action_state((void *)0x1B);
     }
 }
 #pragma pop

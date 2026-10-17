@@ -18,7 +18,7 @@ struct TOHangerMachine01 : public TUnk_804AFBF8 {
 typedef char TOHangerMachine01_size[sizeof(TOHangerMachine01) == 0xCC ? 1 : -1];
 
 extern "C" {
-u8 *TOHangerMachine01__ct(u8 *arg0, s32 arg1);
+u8 *TOHangerMachine01__ct(TOHangerMachine01 *arg0, s32 arg1);
 void TOHangerMachine01__sub_80169168(void);
 void *__dt__17TOHangerMachine01Fv(void *arg0, s16 arg1);
 }

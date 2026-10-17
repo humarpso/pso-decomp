@@ -94,7 +94,7 @@ extern s32 __vt__15TODoorMachine01[];
 extern s32 TODoorMachine01__class_name;
 extern u32 TODoorMachine01__model_resource;
 extern const f32 lbl_805DB508;
-u8 *TODoorMachine01__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TODoorMachine01__ct(TODoorMachine01 *arg0, s32 arg1, s32 arg2);
 u8 is_current_floor_switch_set(u16);
 int rotate_matrix_y(int, int);
 int push_matrix();
@@ -303,7 +303,7 @@ void TODoorMachine01::render() {
 void *TODoorMachine01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xEC);
     if (o != NULL) {
-        o = TODoorMachine01__ct((u8 *)o, (s32)tl_05, (s32)arg0);
+        o = TODoorMachine01__ct((TODoorMachine01 *)((u8 *)o), (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -357,17 +357,17 @@ void *__dt__15TODoorMachine01Fv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80163158_lbl_804B1608_size[sizeof(RecoveredGlobal_80163158_lbl_804B1608) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80163158___vt__15TODoorMachine01_size[sizeof(RecoveredGlobal_80163158___vt__15TODoorMachine01) == 0x54 ? 1 : -1];
-u8 *TODoorMachine01__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TODoorMachine01__ct(TODoorMachine01 *arg0, s32 arg1, s32 arg2) {
     s32 temp_r0;
     init_door_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80163158___vt__15TODoorMachine01 *)&__vt__15TODoorMachine01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TODoorMachine01__class_name;
     ((TODoorMachine01 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODoorMachine01__model_resource) + 0x42C)) + 8);
-    ((TODoorMachine01 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODoorMachine01__model_resource) + 0x42C)) + 0xC);
+    arg0->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODoorMachine01__model_resource) + 0x42C)) + 0xC);
     *(u8 **)((s8 *)arg0 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODoorMachine01__model_resource) + 0x430)) + 4));
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB4FC);
-    ((TODoorMachine01 *)arg0)->m_b8 = (f32) lbl_805DB508;
+    arg0->m_b8 = (f32) lbl_805DB508;
     init_collision_body_parts(arg0, &TODoorMachine01__collision_body_parts.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
@@ -378,13 +378,13 @@ u8 *TODoorMachine01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     } else if (temp_r0 > 4) {
         *(s32 *)((s8 *)arg0 + 0x88) = 4;
     }
-    ((TODoorMachine01 *)arg0)->m_d4 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
-    ((TODoorMachine01 *)arg0)->m_d8 = (s32) (4 - ((TODoorMachine01 *)arg0)->m_d4);
+    arg0->m_d4 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
+    arg0->m_d8 = (s32) (4 - arg0->m_d4);
     *(f32 *)((s8 *)arg0 + 0xDC) = (f32) lbl_805DB4FC;
-    ((TODoorMachine01 *)arg0)->m_e0 = (f32) lbl_805DB4FC;
+    arg0->m_e0 = (f32) lbl_805DB4FC;
     *(f32 *)((s8 *)arg0 + 0xE4) = (f32) lbl_805DB4FC;
-    ((TODoorMachine01 *)arg0)->m_e8 = (f32) lbl_805DB4FC;
-    return arg0;
+    arg0->m_e8 = (f32) lbl_805DB4FC;
+    return (u8 *)arg0;
 }
 
 __declspec(section ".data") const char *bm_fs_obj_ki_doa_a_model_names[2] = { lbl_80440ED0, NULL };

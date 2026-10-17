@@ -3,12 +3,13 @@
 
 #include "types.h"
 
+struct TObjFogCollisionSwitch;
 extern "C" {
 void *TObjFogCollisionPoison__ct(void *arg0, void *arg1, void *arg2);
 void *__dt__22TObjFogCollisionPoisonFv(void *arg0, s16 arg1);
 void *create__22TObjFogCollisionPoisonFPv(void *arg0);
 void run_task__22TObjFogCollisionPoisonFv(void *self);
-void run_task__22TObjFogCollisionSwitchFv(void *arg0);
+void run_task__22TObjFogCollisionSwitchFv(TObjFogCollisionSwitch *arg0);
 }
 
 #endif

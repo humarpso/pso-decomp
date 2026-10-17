@@ -148,7 +148,7 @@ void TWindow::close_sub_windows() {
     }
 }
 
-void handle_confirm_dialog(void *arg0) {
+void handle_confirm_dialog(TShopWindowBase *arg0) {
     s32 temp_r0;
     s32 selected_menu_value;
     VObj_80216BCC_80216B44 *temp_r3;
@@ -162,7 +162,7 @@ void handle_confirm_dialog(void *arg0) {
             if (selected_menu_value == 0) {
                 temp_r0 = select_cursor_entry__22TWindowSubShortCutListFv(*(s32 *)((s8 *)arg0 + 0x3C));
                 prepare_offline_quest_filenames((const char *)((*(Entry_80216BCC_80216B44 **)((s8 *)arg0 + 0x54))[temp_r0].field18));
-                ((TShopWindowBase *)arg0)->set_field_20(3);
+                arg0->set_field_20(3);
                 return;
             }
             if (selected_menu_value == 1) {
@@ -171,7 +171,7 @@ void handle_confirm_dialog(void *arg0) {
                 if (temp_r3_3 != NULL) {
                     temp_r3_3->m7(0x19, 1);
                 }
-                ((TShopWindowBase *)arg0)->set_field_20(0);
+                arg0->set_field_20(0);
                 return;
             }
             goto block_9;
@@ -183,7 +183,7 @@ block_9:
             if (temp_r3_4 != NULL) {
                 temp_r3_4->m7(0x19, 1);
             }
-            ((TShopWindowBase *)arg0)->set_field_20(0);
+            arg0->set_field_20(0);
         }
     }
 }

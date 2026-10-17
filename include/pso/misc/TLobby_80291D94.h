@@ -3,6 +3,7 @@
 
 #include "types.h"
 
+struct TLobby;
 extern "C" {
 void TLobby__sub_80291DF8(s32 v);
 void TLobby__sub_80291EAC(s32 arg0);
@@ -32,7 +33,7 @@ s32 is_challenge_mode_active(void);
 void set_split_screen_name__6TLobbyFi(s32 arg0);
 void setup_split_screen(void);
 void snapshot_player_card_status__6TLobbyFv(void);
-void update_destruction_countdown__6TLobbyFPv(void *arg0);
+void update_destruction_countdown__6TLobbyFPv(TLobby *arg0);
 }
 
 #endif

@@ -14,7 +14,7 @@ extern const f32 lbl_805DAF58;
 extern const f32 lbl_805DAF68;
 
 void *construct_shot_weapon(void *arg0, s32 parent, void *item) {
-    TItemWeapon__ct((u8 *)arg0, (void *)parent, (u8 *)item);
+    TItemWeapon__ct((TItemWeapon *)((u8 *)arg0), (void *)parent, (u8 *)item);
     *(void **)((s8 *)arg0 + 0x18) = lbl_804A5C18;
     ((TObjPlayer *)arg0)->set_status_flags(2);
     *(void **)((s8 *)arg0 + 0x1F0) = (void *)create_gun_shot;

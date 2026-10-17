@@ -295,10 +295,10 @@ void update_scale_state__11TBoss4Type2FPv(void *arg0);
 void init_child_and_set_timer__11TBoss4Type2FPv(void *arg0);
 void update_attack_countdown__11TBoss4Type2FPv(u8 *arg0);
 void update_state__11TBoss4Type2FPv(void *arg0);
-void set_motion_for_state__11TBoss4Type2FPv(u8 *arg0);
-void tick_countdown_set_state7__11TBoss4Type2FPv(u8 *arg0);
+void set_motion_for_state__11TBoss4Type2FPv(TBoss4Type2 *arg0);
+void tick_countdown_set_state7__11TBoss4Type2FPv(TBoss4Type2 *arg0);
 void update_spawn_uro__14TBoss4DarkFalzFPv(Obj_80052CDC *arg0);
-void tick_state_398_timer__11TBoss4Type2FPv(void *arg0);
+void tick_state_398_timer__11TBoss4Type2FPv(TBoss4Type2 *arg0);
 void TBoss4Type2__sub_80052EE8(void);
 void TBoss4Type2__sub_80052EEC(void* p);
 void update_state_transition__11TBoss4Type2FPv(void* p);
@@ -307,7 +307,7 @@ void update_flag800_state__11TBoss4Type2FPv(void *arg0);
 void check_state_if_idle__11TBoss4Type2FPv(void* p);
 void TBoss4Type2__sub_800531BC(void* p);
 void fn_80053440(Obj_80053440 *arg0);
-void TBoss4Type2__sub_80053504(u8 *arg0);
+void TBoss4Type2__sub_80053504(TBoss4Type2 *arg0);
 void TBoss4Type2__sub_800535A8(Boss_800535A8 *arg0);
 void TRaderMapCore__sub_80053670(u8 *arg0);
 void pick_target_position__13TRaderMapCoreFPvPv(O_80053914 *self, Vec_80053914 *out);
@@ -315,7 +315,7 @@ f32 calc_wave_offset__11TBoss4Type2Ff(f32 farg0);
 void set_pos_from_scaled_offset__11TBoss4Type2FPvPvPv(S_80054224 *o, void *src, V_80054224 *in);
 u8 * TBoss4Type2__sub_80054384(void *self, s32 i, s32 j);
 void render_and_update_effects__10TObjPlayerFPv(void* p);
-void request_state_3__11TBoss4Type2FPv(void *arg0);
+void request_state_3__11TBoss4Type2FPv(TBoss4Type2 *arg0);
 void fn_800548E4(u8 *arg0);
 S_80054938 * __dt__11TBoss4Type1Fv(S_80054938 *o, s16 flag);
 s32 TBoss4Type2__sub_80054DA8();
@@ -912,18 +912,18 @@ void update_state__11TBoss4Type2FPv(void *arg0) {
     }
 }
 
-void set_motion_for_state__11TBoss4Type2FPv(u8 *arg0) {
-    ((TBoss4Type2 *)arg0)->set_motion_index(*(s32 *)((s8 *)&boss4_type2_state_motion_index_table.value + (*(s32 *)((s8 *)arg0 + 0x3A8) * 4)));
+void set_motion_for_state__11TBoss4Type2FPv(TBoss4Type2 *arg0) {
+    arg0->set_motion_index(*(s32 *)((s8 *)&boss4_type2_state_motion_index_table.value + (*(s32 *)((s8 *)arg0 + 0x3A8) * 4)));
     *(s32 *)((s8 *)arg0 + 0x398) = 0x3C;
 }
 
-void tick_countdown_set_state7__11TBoss4Type2FPv(u8 *arg0) {
+void tick_countdown_set_state7__11TBoss4Type2FPv(TBoss4Type2 *arg0) {
     s32 temp_r0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x398) - 1;
     *(s32 *)((s8 *)arg0 + 0x398) = temp_r0;
     if (temp_r0 < 0) {
         *(s32 *)((s8 *)arg0 + 0x3D0) = 5;
-        ((TBoss4Type2 *)arg0)->set_state(7);
+        arg0->set_state(7);
     }
 }
 
@@ -970,12 +970,12 @@ void start_motion_for_index__11TBoss4Type2FPv(S_80052E10 *o) {
 
 void TWindowSubSymbolChatPartsSet::copy_vec2(void* q) { *(f32*)((char*)this + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)this + 0x4) = *(f32*)((char*)q + 0x4); }
 
-void tick_state_398_timer__11TBoss4Type2FPv(void *arg0) {
+void tick_state_398_timer__11TBoss4Type2FPv(TBoss4Type2 *arg0) {
     s32 temp_r0;
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x398) - 1;
     *(s32 *)((s8 *)arg0 + 0x398) = temp_r0;
     if (temp_r0 < 0) {
-        ((TBoss4Type2 *)arg0)->set_state(4);
+        arg0->set_state(4);
     }
 }
 
@@ -1110,11 +1110,11 @@ void fn_80053440(Obj_80053440 *arg0) {
     play_persistent_sound(0x4003BC0E, (s32)arg0, (u32)&arg0->pos, 0x40, 2);
 }
 
-void TBoss4Type2__sub_80053504(u8 *arg0) {
+void TBoss4Type2__sub_80053504(TBoss4Type2 *arg0) {
     s32 spC;
     s32 sp8;
-    ((TBoss4Type2 *)arg0)->calc_scale_slot_indices(&spC, &sp8);
-    ((TBoss4Type2 *)arg0)->send_darkfalz_code(2, spC, sp8);
+    arg0->calc_scale_slot_indices(&spC, &sp8);
+    arg0->send_darkfalz_code(2, spC, sp8);
 }
 
 void TBoss4Type2::check_state_transition() {
@@ -1590,12 +1590,12 @@ void TBoss4Type2__sub_80054738(Obj_80054738 *self) {
 }
 #pragma pop
 
-void request_state_3__11TBoss4Type2FPv(void *arg0) {
+void request_state_3__11TBoss4Type2FPv(TBoss4Type2 *arg0) {
     s32 temp_r0;
 
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x374);
     if ((temp_r0 != 3) && (temp_r0 != 4)) {
-        ((TBoss4Type2 *)arg0)->set_state(3);
+        arg0->set_state(3);
     }
 }
 

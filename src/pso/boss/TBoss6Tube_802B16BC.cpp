@@ -17,7 +17,7 @@ void *__nw__7TObjectFUl(int);
 void *TBoss6Tube::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x30);
     if (o != NULL) {
-        o = TBoss6Tube__ct((u8 *)o, (u8 *)arg0);
+        o = TBoss6Tube__ct((TBoss6Tube *)((u8 *)o), (u8 *)arg0);
     }
     return o;
 }

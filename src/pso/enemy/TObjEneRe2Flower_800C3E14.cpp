@@ -90,7 +90,7 @@ void fn_800C2AC4(u8 *arg0, int arg1);
 s32 TObjEneRe2Flower__sub_800C2E64(void *, void *);
 void fn_800C3088(u8 *arg0, int arg1);
 void fn_800C32DC(u8 *owner, s32 arg1);
-void handle_flower_state_change(void *arg0, s32 arg1);
+void handle_flower_state_change(TObjEneDD *arg0, s32 arg1);
 void dispatch_action__16TObjEneRe2FlowerFiUii(s32 arg0, u32 arg1, s32 arg2);
 s32 obj_is_hit_receivable(void *);
 f32 fabs_float(f32);
@@ -322,7 +322,7 @@ void dispatch_action__16TObjEneRe2FlowerFiUii(s32 arg0, u32 arg1, s32 arg2) {
         ((TObjEneDD *)arg0)->handle_state(arg2);
         return;
     case 2:
-        handle_flower_state_change((void *)arg0, (arg2));
+        handle_flower_state_change((TObjEneDD *)((void *)arg0), (arg2));
         return;
     case 3:
         ((TObjEneDD *)arg0)->state_chase_target(arg2);

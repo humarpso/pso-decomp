@@ -1,4 +1,5 @@
 #include "types.h"
+struct TObjGoalWarpAncient;
 #include "pso/misc/TLobby_801E43E4.h"
 #include "pso/misc/TOVS2Wall01_8017C7A4.h"
 #include "pso/object/TObject_80019A50.h"
@@ -44,7 +45,7 @@ extern const f32 lbl_805DBAA8;
 extern const f32 lbl_805DBAB4;
 void TLobby__sub_8001FE7C(void*, int);
 void free_collision_body_parts(void *);
-u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TObjGoalWarpAncient__ct(TObjGoalWarpAncient *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 int bswap_header__6TLobbyFv(void*);
@@ -130,7 +131,7 @@ void*TOVS2Wall01::init() { init__17TOBarrierEnergy01Fv(this); *(short *)&this->m
 void *TObjGoalWarpAncient__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xEC);
     if (o != NULL) {
-        o = TObjGoalWarpAncient__ct((u8 *)o, (s32)tl_05, (s32)arg0);
+        o = TObjGoalWarpAncient__ct((TObjGoalWarpAncient *)((u8 *)o), (s32)tl_05, (s32)arg0);
     }
     return o;
 }

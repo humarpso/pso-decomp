@@ -47,7 +47,7 @@ struct VObj_8011F578 : Base_8011F578 {
 void TUnk_804A4D70::apply_scale_if_active(f32 farg0) {
 
     if (is_active_in_game__11TItemWeaponFv() != 0) {
-        remap_extra_attack_type((u8 *)this);
+        remap_extra_attack_type((TItemWeapon *)((u8 *)this));
         ((VObj_8011F578 *)(this->player))->m65(farg0);
         restore_action_type__11TItemWeaponFv(this);
     }
@@ -58,7 +58,7 @@ extern f32 lbl_805DAC9C;
 void TObjPlayer::update_active_game_effect() {
 
     if (is_active_in_game__11TItemWeaponFv() != 0) {
-        remap_extra_attack_type((u8 *)this);
+        remap_extra_attack_type((TItemWeapon *)((u8 *)this));
         ((VObj_8011F5E0 *)(*(void * *)&this->unk_F0))->v67(lbl_805DAC9C);
         restore_action_type__11TItemWeaponFv(this);
     }

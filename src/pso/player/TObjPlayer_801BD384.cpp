@@ -97,7 +97,7 @@ void TObjPlayer__sub_803374C4(void *);
 void TObjPlayer__sub_80351974(void *);
 extern void *lbl_805D3530;
 
-void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2) {
+void *TObjPlayer__ct(TObjPlayer *arg0, void *arg1, void *arg2) {
     construct_actor_base__10TObjPlayerFPvPv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjPlayer;
     ((TObjPlayer *)((char *)arg0 + 832))->init_subobject();
@@ -135,13 +135,13 @@ void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2) {
     ((TObjPlayer *)((char *)arg0 + 2136))->init_forward();
     TObjPlayer::reset_and_return((s32)((void *)((char *)arg0 + 3332)));
     ((TObjPlayer *)((char *)arg0 + 3500))->clear_header_struct();
-    *(void * *)&((TObjPlayer *)arg0)->m_name = lbl_805D3530;
-    ((TObjPlayer *)arg0)->init_action_provider();
-    ((TObjPlayer *)arg0)->m_1c = 0;
-    ((TObjPlayer *)arg0)->setup_control_role(7);
+    *(void * *)&arg0->m_name = lbl_805D3530;
+    arg0->init_action_provider();
+    arg0->m_1c = 0;
+    arg0->setup_control_role(7);
     ((Fn_vpvp_801BD570)update_body_parts__10TObjPlayerFv)(arg0, arg2);
     init_player_data__10TObjPlayerFv(arg0, (void *)((char *)arg2 + 136));
-    ((TObjPlayer *)arg0)->init_data_table_ptr();
+    arg0->init_data_table_ptr();
     return arg0;
 }
 

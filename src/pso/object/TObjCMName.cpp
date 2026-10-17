@@ -389,7 +389,7 @@ void * create__10TObjCMNameFPv(void *arg0);
 void * __ct__10TObjCMNameFv(void *arg0);
 void * create__16TObjCMProportionFPv(void *arg0);
 void * __dt__16TObjCMProportionFv(void *arg0, s16 arg1);
-void * TObjCMProportion__ct(void *arg0);
+void *TObjCMProportion__ct(TObjCMProportion *arg0);
 void * create__16TObjCMAutoMkDataFPv(void *arg0);
 void * __dt__16TObjCMAutoMkDataFv(void *arg0, s16 arg1);
 u8 * TObjCMAutoMkData__ct(u8 *arg0);
@@ -680,14 +680,14 @@ void *__dt__16TObjCMProportionFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void *TObjCMProportion__ct(void *arg0) {
+void *TObjCMProportion__ct(TObjCMProportion *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjCMProportion;
-    *(void * *)&((TObjCMProportion *)arg0)->m_name = lbl_805D3CE8;
-    *(void * *)&((TObjCMProportion *)arg0)->appearance = creation_player_character;
+    *(void * *)&arg0->m_name = lbl_805D3CE8;
+    *(void * *)&arg0->appearance = creation_player_character;
     *(u32 *)((s8 *)arg0 + 0x20) = 0;
     *(u32 *)((s8 *)arg0 + 0x24) = 1;
-    ((TObjCMProportion *)arg0)->fade = lbl_805DDA90;
+    arg0->fade = lbl_805DDA90;
     TChCrEffTag::set_eff_tag(9);
     return arg0;
 }

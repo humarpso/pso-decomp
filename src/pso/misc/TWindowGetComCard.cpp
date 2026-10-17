@@ -45,7 +45,7 @@ extern s32 lbl_8044ED9C[];
 extern void *__vt__17TWindowGetComCard[];
 extern s32 TWindowGetComCard__name;
 extern s32 local_client_id;
-u8 *TWindowGetComCard__ct(u8 *arg0);
+u8 *TWindowGetComCard__ct(TWindowGetComCard *arg0);
 void queue_destruction__7TObjectFv(void *);
 void start_player_data_load__17TWindowSubComCardFl(void);
 void TWindowGetComCard__sub_8007B54C(void);
@@ -171,13 +171,13 @@ void *__dt__17TWindowGetComCardFv(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_80252FCC___vt__17TWindowGetComCard_size[sizeof(RecoveredGlobal_80252FCC___vt__17TWindowGetComCard) == 0x18 ? 1 : -1];
-u8 *TWindowGetComCard__ct(u8 *arg0) {
+u8 *TWindowGetComCard__ct(TWindowGetComCard *arg0) {
     s32 temp_r31;
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80252FCC___vt__17TWindowGetComCard *)&__vt__17TWindowGetComCard).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowGetComCard__name;
-    ((TWindowGetComCard *)arg0)->m_1c = set_window_mode_4__6TLobbyFPvll(lbl_8044ED94, lbl_8044ED9C, 1);
-    ((TWindowGetComCard *)arg0)->m_20 = 0;
+    arg0->m_1c = set_window_mode_4__6TLobbyFPvll(lbl_8044ED94, lbl_8044ED9C, 1);
+    arg0->m_20 = 0;
     if (init_com_card__17TWindowSubComCardFv() != 0) {
         temp_r31 = (s32)TWindowGetComCard__sub_8007B594();
         text_builder_reset();
@@ -185,19 +185,19 @@ u8 *TWindowGetComCard__ct(u8 *arg0) {
         text_builder_append();
         TWindowSubStatusDisp::get_message_10(0x36);
         text_builder_append();
-        ((TLobby *)(((TWindowGetComCard *)arg0)->m_1c))->send_and_handle((int) (get_shared_text_buffer()), 2);
-        ((TWindowGetComCard *)arg0)->m_28 = 0;
+        ((TLobby *)(arg0->m_1c))->send_and_handle((int) (get_shared_text_buffer()), 2);
+        arg0->m_28 = 0;
     } else {
-        ((TLobby *)(((TWindowGetComCard *)arg0)->m_1c))->send_and_handle((int) (TWindowSubStatusDisp::get_message_10(0x37)), 0);
-        ((TWindowGetComCard *)arg0)->m_28 = 0x384;
+        ((TLobby *)(arg0->m_1c))->send_and_handle((int) (TWindowSubStatusDisp::get_message_10(0x37)), 0);
+        arg0->m_28 = 0x384;
     }
     if (get_player_by_client_id(local_client_id) != 0U) {
         reset_equip_slots__10TObjPlayerFv();
     }
     TObjPlayer__sub_8024ABDC((local_client_id));
     fn_8024AC64((local_client_id));
-    ((TWindowGetComCard *)arg0)->m_24 = 0;
-    return arg0;
+    arg0->m_24 = 0;
+    return (u8 *)arg0;
 }
 
 }

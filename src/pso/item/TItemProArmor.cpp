@@ -44,7 +44,7 @@ s16 getS16_06__9TItemDataFPv(void *);
 void *lookup_item_pmt_record(u8 *item);
 extern void *__vt__13TItemProArmor[];
 extern s32 lbl_805D2C30;
-u8 *TItemProArmor__ct(u8 *arg0, s32 arg1, u8 *arg2);
+u8 *TItemProArmor__ct(TItemProArmor *arg0, s32 arg1, u8 *arg2);
 s32 TItemProArmorParticle__ct(int, int, void *);
 s32 get_id__13TItemProArmorFv(void *);
 void *fn_80107DA4(void *, void *, s32);
@@ -64,7 +64,7 @@ void vfunc_16__13TItemProArmorFv(void *arg0);
 void *__dt__13TItemProArmorFv(void *arg0, s16 arg1);
 void vfunc_44__13TUnk_8049FF88Fv(void *arg0);
 void vfunc_46__13TItemProArmorFv(void* p);
-void write_item_data__13TItemProArmorFPvPv(void *arg0, void *arg1);
+void write_item_data__13TItemProArmorFPvPv(TItemProArmor *arg0, void *arg1);
 void TItemObject__ct(void *);
 s32 get_tool_pmt_amount_byte__11TItemObjectFv(void *);
 void TItemTimerEvent__ct(void *);
@@ -183,10 +183,10 @@ void TItemProArmor::vfunc_14() {
     }
 }
 
-void write_item_data__13TItemProArmorFPvPv(void *arg0, void *arg1) {
-    *(u8 *)((s8 *)arg1 + 5) = (u8) ((TItemProArmor *)arg0)->m_192;
-    ((TItemData *)arg1)->set_dfp_bonus(((TItemProArmor *)arg0)->m_193);
-    ((TItemData *)arg1)->set_bswapped_field_8(((TItemProArmor *)arg0)->m_194);
+void write_item_data__13TItemProArmorFPvPv(TItemProArmor *arg0, void *arg1) {
+    *(u8 *)((s8 *)arg1 + 5) = (u8) arg0->m_192;
+    ((TItemData *)arg1)->set_dfp_bonus(arg0->m_193);
+    ((TItemData *)arg1)->set_bswapped_field_8(arg0->m_194);
 }
 
 typedef void *(*Ctor4_80117954)(void *, void *, s32, s32);
@@ -225,7 +225,7 @@ void vfunc_33__5TItemFv();
 void vfunc_34__5TItemFv();
 void vfunc_35__5TItemFv();
 void vfunc_36__11TItemObjectFv();
-s32 TItemObject__vt35(void *arg0, s32 arg1);
+s32 TItemObject__vt35(TItemObject *arg0, s32 arg1);
 s32 vfunc_38__11TItemObjectFl(void *arg0, s32 arg1);
 int ret_8010064C(void);
 void TItem__sub_80100648();
@@ -241,7 +241,7 @@ void remove_equip_stats__14TItemEquipBaseFl();
 void subtract_item_stat_bonus__14TItemEquipBaseFllPs();
 void subtract_equip_stats__14TItemEquipBaseFlPUcPUc();
 void update_equip__14TItemEquipBaseFv();
-s8 TItemEquipBase__sub_8010A77C(u8 *arg0);
+s8 TItemEquipBase__sub_8010A77C(TItemEquipBase *arg0);
 int ret_80100664(void);
 int ret_8010065C(void);
 int ret_80100654(void);
@@ -422,23 +422,23 @@ void TItemProArmor::vfunc_16() {
 void TItemProArmor::vfunc_46() { if (((TItemMag *)this)->get_flag_40() == 0) { obj_getField1c(*(void* *)&this->m_f0); spawn_appearance_effect__10TObjPlayerFl(); } }
 
 typedef char RecoveredGlobal_80117B98___vt__13TItemProArmor_size[sizeof(RecoveredGlobal_80117B98___vt__13TItemProArmor) == 0xCC ? 1 : -1];
-u8 *TItemProArmor__ct(u8 *arg0, s32 arg1, u8 *item) {
+u8 *TItemProArmor__ct(TItemProArmor *arg0, s32 arg1, u8 *item) {
     TItemEquipBase__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80117B98___vt__13TItemProArmor *)&__vt__13TItemProArmor).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C30;
     ((TItemProArmor *)(arg0))->vfunc_19(2);
-    ((TItemProArmor *)arg0)->m_190 = 0;
-    ((TItemProArmor *)arg0)->m_192 = (u8) *(u8 *)((s8 *)item + 5);
-    ((TItemProArmor *)arg0)->m_193 = getS16_06__9TItemDataFPv(item);
-    ((TItemProArmor *)arg0)->m_194 = get_bswap16_field8__9TItemDataFPv(item);
-    ((TItemProArmor *)arg0)->m_18c = (s32)lookup_item_pmt_record(item);
-    ((TItemProArmor *)arg0)->m_195 = (u8) *(u8 *)((s8 *)(((TItemProArmor *)arg0)->m_18c) + 0x16);
-    ((TItemProArmor *)arg0)->m_196 = (u8) *(u8 *)((s8 *)(((TItemProArmor *)arg0)->m_18c) + 0x17);
-    if ((u8) ((TItemProArmor *)arg0)->m_192 > 4U) {
-        ((TItemProArmor *)arg0)->m_192 = 4U;
+    arg0->m_190 = 0;
+    arg0->m_192 = (u8) *(u8 *)((s8 *)item + 5);
+    arg0->m_193 = getS16_06__9TItemDataFPv(item);
+    arg0->m_194 = get_bswap16_field8__9TItemDataFPv(item);
+    arg0->m_18c = (s32)lookup_item_pmt_record(item);
+    arg0->m_195 = (u8) *(u8 *)((s8 *)(arg0->m_18c) + 0x16);
+    arg0->m_196 = (u8) *(u8 *)((s8 *)(arg0->m_18c) + 0x17);
+    if ((u8) arg0->m_192 > 4U) {
+        arg0->m_192 = 4U;
     }
-    ((TItemProArmor *)arg0)->init_effect_flags();
-    return arg0;
+    arg0->init_effect_flags();
+    return (u8 *)arg0;
 }
 
 #pragma push
@@ -471,7 +471,7 @@ s32 TItemProArmor::create_armor_object() {
         var_r0_2 = temp_r3;
         if (var_r0_2 != 0)
         {
-          var_r0_2 = ((s32)TItemProArmor__ct((u8 *)((int) temp_r3), (s32)((int) tl_05), (u8 *)((void *) arg0)));
+          var_r0_2 = ((s32)TItemProArmor__ct((TItemProArmor *)((u8 *)((int) temp_r3)), (s32)((int) tl_05), (u8 *)((void *) arg0)));
         }
         return var_r0_2;
       }

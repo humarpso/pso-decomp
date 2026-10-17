@@ -21,7 +21,7 @@ extern const f32 lbl_805DD978;
 
 typedef char RecoveredGlobal_80291290_lbl_804DAA78_size[sizeof(RecoveredGlobal_80291290_lbl_804DAA78) == 0x90 ? 1 : -1];
 void fn_80291290(void) {
-    TCameraCtrl__sub_800695A0(((u8 *)&creation_view_parameters.value + 0x48));
+    TCameraCtrl__sub_800695A0((TCameraCtrl *)((u8 *)&creation_view_parameters.value + 0x48));
     set_creation_projection_center(lbl_805DD978);
 }
 

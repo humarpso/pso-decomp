@@ -12,7 +12,7 @@ extern const f32 lbl_805DAEE0;
 
 TItemWeaponRifle* TItemWeaponRifle::initialize(s32 parent,u8* item) {
     TItemWeaponRifle* self=this;
-    TItemWeapon__ct((u8 *)self, (void *)parent, item);
+    TItemWeapon__ct((TItemWeapon *)((u8 *)self), (void *)parent, item);
     self->dispatch=lbl_804A5248;
     self->impactFactory=spawn_weapon_impact_effect;
     self->phase=lbl_805DAEE0;

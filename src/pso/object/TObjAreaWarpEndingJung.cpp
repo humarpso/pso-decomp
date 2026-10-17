@@ -329,8 +329,8 @@ u16 obj_getField1c(void *);
 s32 is_split_screen();
 s32 get_current_floor();
 void queue_destruction__7TObjectFv(void *);
-void allow_rendering__7TObjectFv(void *);
-void disallow_rendering__7TObjectFv(void *arg0);
+void allow_rendering__7TObjectFv(TObject *);
+void disallow_rendering__7TObjectFv(TObject *arg0);
 s32 get_split_screen_view_index__11TCameraCtrlFUs(void *);
 u32 TLobby__sub_80070AD8(s32 arg0);
 s32 get_floor_destination_name();
@@ -350,7 +350,7 @@ void TObjWarpString__sub_8019B728(void *arg0);
 void update_fade_in__14TObjWarpStringFPv(u8 *arg0);
 void sub_8019B77C__14TObjWarpStringFv(void *arg0);
 u8 * __ct__14TObjWarpStringFv(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3);
-s32 TObjMapForceWarp__vt16(void *arg0, u16 arg1);
+s32 TObjMapForceWarp__vt16(TObjMapForceWarp *arg0, u16 arg1);
 void TObjMapForceWarp__vt17(Obj_8019B978 *arg0);
 void * __dt__16TObjMapForceWarpFv(void *arg0, s16 arg1);
 void * TObjMapForceWarp__ct(void *arg0);
@@ -678,9 +678,9 @@ void TObjMapForceWarp::create_warp_id_string(void *arg) {
     create_TObjWarpString(buf, arg);
 }
 
-s32 TObjMapForceWarp__vt16(void *arg0, u16 arg1) {
+s32 TObjMapForceWarp__vt16(TObjMapForceWarp *arg0, u16 arg1) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0xFC) != 0) {
-        ((TObjMapForceWarp *)arg0)->create_warp_id_string((void *)arg1);
+        arg0->create_warp_id_string((void *)arg1);
     }
     return 1;
 }
@@ -727,7 +727,7 @@ void *TObjMapForceWarp__ct(void *arg0) {
         *(s32 *)((s8 *)arg0 + 0xFC) = 1;
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0xB4) != 0U) {
-        disallow_rendering__7TObjectFv(*(void **)((s8 *)arg0 + 0xB4));
+        disallow_rendering__7TObjectFv((TObject *)(*(void **)((s8 *)arg0 + 0xB4)));
         ((TObject *)(*(u32 *)((s8 *)arg0 + 0xB4)))->set_flag_4();
     }
     return arg0;
@@ -1183,7 +1183,7 @@ void TObjAreaWarp::handle_area_selection() {
     } else {
         if (d->fB0 != NULL) {
             ((TQuestVmDownLoadServer *)(d->fB0))->clear_flag4_bit4();
-            allow_rendering__7TObjectFv(d->fB0);
+            allow_rendering__7TObjectFv((TObject *)d->fB0);
         }
         if (is_split_screen() != 0) {
             found = 0;
@@ -1380,7 +1380,7 @@ void process_player_warps__11TObjMapWarpFPv(VObj_8019D250 *self) {
             } else {
                 if (d->win[i] != NULL) {
                     ((TQuestVmDownLoadServer *)(d->win[i]))->clear_flag4_bit4();
-                    allow_rendering__7TObjectFv(d->win[i]);
+                    allow_rendering__7TObjectFv((TObject *)d->win[i]);
                 }
                 t = find_warp_player_in_range(self, i, d->fAC);
                 if (t != NULL) {
@@ -1409,7 +1409,7 @@ void process_player_warps__11TObjMapWarpFPv(VObj_8019D250 *self) {
         s32 j2;
         if (d->fB0 != NULL) {
             ((TQuestVmDownLoadServer *)(d->fB0))->clear_flag4_bit4();
-            allow_rendering__7TObjectFv(d->fB0);
+            allow_rendering__7TObjectFv((TObject *)d->fB0);
         }
         t2 = find_warp_player_in_range(self, local_client_id, d->fAC);
         if (t2 != NULL) {

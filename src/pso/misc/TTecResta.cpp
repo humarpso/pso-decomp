@@ -112,7 +112,7 @@ s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 extern s32 __vt__9TTecResta[];
 extern s32 lbl_805D3810;
 extern const f32 TTecResta__data_805DC908;
-u8 *TTecResta__sub_80239C48(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+u8 *TTecResta__sub_80239C48(TTecResta *arg0, s32 arg1, s32 arg2, s32 arg3);
 f32 *calc_technique_parameters(s32, s32, s32);
 s32 is_technique_ready__8TTecCtrlFv(int);
 extern RecoveredGlobal_802394B0_lbl_804CC55C lbl_804CC55C;
@@ -131,7 +131,7 @@ void *__nw__7TObjectFUl(int);
 void construct_delayed_point_sound(void *, void *, s32, s32, s32);
 extern s32 tl_07;
 s32 copy_technique_target_list(void *, void *);
-void *TTecResta__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
+void *TTecResta__ct(TTecResta *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void *__dt__13TUnk_804CCBC0Fv(void *arg0, s16 arg1);
 void *__dt__9TTecRestaFv(void *arg0, s16 arg1);
 void create__9TTecRestaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
@@ -226,7 +226,7 @@ void create__9TTecRestaFPvPvPvPv(void *owner, void *pos, void *arg2, void *level
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {
-        TTecResta__ct(o, owner, pos, arg2, level);
+        TTecResta__ct((TTecResta *)o, owner, pos, arg2, level);
     }
 }
 
@@ -234,7 +234,7 @@ void TTecResta::create(void *arg0, void *pos, void *level) {
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {
-        TTecResta__sub_80239C48((u8 *)o, (s32)arg0, (s32)pos, (s32)level);
+        TTecResta__sub_80239C48((TTecResta *)((u8 *)o), (s32)arg0, (s32)pos, (s32)level);
     }
 }
 
@@ -326,54 +326,54 @@ typedef char RecoveredGlobal_80239C48___vt__9TTecResta_size[sizeof(RecoveredGlob
 
 #pragma push
 #pragma opt_common_subs off
-void *TTecResta__ct(void *arg0, void *owner, void *pos, void *arg3, void *level) {
+void *TTecResta__ct(TTecResta *arg0, void *owner, void *pos, void *arg3, void *level) {
     u32 src;
     u8 *p;
     TTecPlayerInfluence__ct(arg0, owner, pos, level);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TTecResta;
     ((TObjPlayer *)((u8 *)arg0 + 0xE0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3810;
-    *(s32 *)&((TTecResta *)arg0)->m_13c = 1;
+    *(s32 *)&arg0->m_13c = 1;
     copy_technique_target_list((u8 *)arg0 + 0xE0, arg3);
-    ((TTecResta *)arg0)->init_parameters();
+    arg0->init_parameters();
     p = *(u8 **)((s8 *)arg0 + 0xDC);
     if (p != NULL) {
-        *(f32 *)((s8 *)(*(u8 **)((s8 *)p + 0xA4)) + 0xC) = TTecResta__data_805DC908 + ((TTecResta *)arg0)->m_7c;
+        *(f32 *)((s8 *)(*(u8 **)((s8 *)p + 0xA4)) + 0xC) = TTecResta__data_805DC908 + arg0->m_7c;
     }
-    src = ((TTecResta *)arg0)->source;
+    src = arg0->source;
     if (src != 0) {
-        *(s16 *)&((TTecResta *)arg0)->m_a8 = obj_getField1c(src);
+        *(s16 *)&arg0->m_a8 = obj_getField1c(src);
     }
-    if (*(s32 *)&((TTecResta *)arg0)->m_ac != 0) {
-        ((TTecResta *)arg0)->init_cast();
-        ((TTecResta *)arg0)->play_launch_sound();
+    if (*(s32 *)&arg0->m_ac != 0) {
+        arg0->init_cast();
+        arg0->play_launch_sound();
     }
     return arg0;
 }
 #pragma pop
 
-u8 *TTecResta__sub_80239C48(u8 *arg0, s32 owner, s32 pos, s32 level) {
+u8 *TTecResta__sub_80239C48(TTecResta *arg0, s32 owner, s32 pos, s32 level) {
     u32 temp_r3_2;
     u8 *temp_r3;
     TTecPlayerInfluence__ct((void *)arg0, (void *)owner, (void *)pos, (void *)level);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80239C48___vt__9TTecResta *)&__vt__9TTecResta).value;
-    ((TObjPlayer *)(arg0 + 0xE0))->construct_target_cursor_records();
+    ((TObjPlayer *)((u8 *)arg0 + 0xE0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3810;
-    ((TTecResta *)arg0)->m_13c = 0;
-    ((TTecResta *)arg0)->init_parameters();
+    arg0->m_13c = 0;
+    arg0->init_parameters();
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xDC));
     if (temp_r3 != NULL) {
-        *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0xA4)) + 0xC) = (f32) (TTecResta__data_805DC908 + ((TTecResta *)arg0)->m_7c);
+        *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0xA4)) + 0xC) = (f32) (TTecResta__data_805DC908 + arg0->m_7c);
     }
-    temp_r3_2 = ((TTecResta *)arg0)->source;
+    temp_r3_2 = arg0->source;
     if (temp_r3_2 != 0U) {
-        ((TTecResta *)arg0)->m_a8 = obj_getField1c(temp_r3_2);
+        arg0->m_a8 = obj_getField1c(temp_r3_2);
     }
-    if ((s32) ((TTecResta *)arg0)->m_ac != 0) {
-        ((TTecResta *)arg0)->init_cast();
-        ((TTecResta *)arg0)->play_launch_sound();
+    if ((s32) arg0->m_ac != 0) {
+        arg0->init_cast();
+        arg0->play_launch_sound();
     }
-    return arg0;
+    return (u8 *)arg0;
 }
 void TTecReverser::vfunc_6(void *arg1_arg) {
     Obj_80239CF4 *arg0 = (Obj_80239CF4 *)this;

@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TOBind;
 extern "C" {
-u8 *TOBind__ct(u8 *arg0, s32 arg1);
+u8 *TOBind__ct(TOBind *arg0, s32 arg1);
 void *__dt__6TOBindFv(void *arg0, s16 arg1);
 }
 

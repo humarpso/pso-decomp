@@ -131,7 +131,7 @@ void *__dt__20TODragonflyMachine01Fv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80165538___vt__20TODragonflyMachine01_size[sizeof(RecoveredGlobal_80165538___vt__20TODragonflyMachine01) == 0x40 ? 1 : -1];
 u8 *TODragonflyMachine01__ct(u8 *arg0, int arg1) {
     struct Fields_arg0 { int field_0; u8 pad_4[20]; s32 * field_18; u8 pad_1C[8]; int field_24; u8 pad_28[12]; u8 * field_34; u8 pad_38[76]; int field_84; int field_88; u8 pad_8C[32]; int field_AC; u8 pad_B0[4]; f32 field_B4; f32 field_B8; u8 * field_BC; f32 field_C0; f32 field_C4; u8 pad_C8[36]; f32 field_EC; f32 field_F0; f32 field_F4; int field_F8; int field_FC; s16 field_100; s16 field_102; int field_104; };
-    TODragonfly__ct(arg0);
+    TODragonfly__ct((TODragonfly *)arg0);
     ((Fields_arg0*)arg0)->field_18 = &(*(RecoveredGlobal_80165538___vt__20TODragonflyMachine01 *)&__vt__20TODragonflyMachine01).value;
     ((Fields_arg0*)arg0)->field_0 = (int) TODragonflyMachine01__class_name;
     ((TODragonflyMachine01 *)(arg0))->apply_object_set_data((void *)arg1);

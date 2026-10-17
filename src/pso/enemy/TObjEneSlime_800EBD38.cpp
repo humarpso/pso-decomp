@@ -42,7 +42,7 @@ s32 TObjEneSlime::create(s32 arg0) {
         if (var_r4 != 0) {
             var_r4 = TObjControl__ct(var_r4, tl_04);
         }
-        var_r31 = (s32)TObjEneSlime__ct((u8 *)var_r31, var_r4, (u8 *)arg0);
+        var_r31 = (s32)TObjEneSlime__ct((TObjEneSlime *)((u8 *)var_r31), var_r4, (u8 *)arg0);
     }
     return var_r31;
 }

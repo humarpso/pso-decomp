@@ -43,7 +43,7 @@ struct VtObj8032C1C8_8032C188 : VtBase8032C1C8_8032C188 {
     virtual void m7();
 };
 
-void *TAdYesNoBaseGC__ct(void *arg0);
+void *TAdYesNoBaseGC__ct(TAdYesNoBaseGC *arg0);
 void *__dt__14TAdYesNoBaseGCFv(void *arg0, s16 arg1);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 get_selected_menu_value(u32);
@@ -162,22 +162,22 @@ extern void *lbl_805D41F8;
 extern const f32 lbl_805DF798;
 extern const f32 lbl_805DF79C;
 
-void *TAdYesNoBaseGC__ct(void *arg0) {
+void *TAdYesNoBaseGC__ct(TAdYesNoBaseGC *arg0) {
     void *o;
     void *o2;
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TAdYesNoBaseGC;
-    *(void * *)&((TAdYesNoBaseGC *)arg0)->m_name = lbl_805D41F8;
-    ((TAdYesNoBaseGC *)arg0)->m_28 = 0;
+    *(void * *)&arg0->m_name = lbl_805D41F8;
+    arg0->m_28 = 0;
     *(f32 *)((s8 *)arg0 + 0x30) = lbl_805DF790;
-    ((TAdYesNoBaseGC *)arg0)->m_34 = lbl_805DF794;
+    arg0->m_34 = lbl_805DF794;
     *(f32 *)((s8 *)arg0 + 0x38) = lbl_805DF798;
-    ((TAdYesNoBaseGC *)arg0)->m_3c = lbl_805DF79C;
-    ((TAdYesNoBaseGC *)arg0)->m_1c = 0;
-    ((TAdYesNoBaseGC *)arg0)->m_24 = 0;
-    ((TAdYesNoBaseGC *)arg0)->m_2c = 1;
-    ((TAdYesNoBaseGC *)arg0)->m_40 = 0;
-    ((TAdYesNoBaseGC *)arg0)->m_44 = 0;
+    arg0->m_3c = lbl_805DF79C;
+    arg0->m_1c = 0;
+    arg0->m_24 = 0;
+    arg0->m_2c = 1;
+    arg0->m_40 = 0;
+    arg0->m_44 = 0;
     o = __nw__7TObjectFUl(0x24);
     if (o != NULL) {
         __ct__9TAdBackGCFv(o, arg0);

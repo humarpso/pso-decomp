@@ -12,10 +12,11 @@ struct TODragonflyCave01 : public TODragonfly {
 
 typedef char TODragonflyCave01_size[sizeof(TODragonflyCave01) == 0x100 ? 1 : -1];
 
+struct TODragonfly;
 extern "C" {
 void *TODragonflyCave01__create(void *arg0);
-u8 *TODragonflyCave01__ct(u8 *arg0, void *arg1);
-u8 *TODragonfly__ct(u8 *arg0);
+u8 *TODragonflyCave01__ct(TODragonflyCave01 *arg0, void *arg1);
+u8 *TODragonfly__ct(TODragonfly *arg0);
 void *__dt__11TODragonflyFv(void *arg0, s16 arg1);
 void *__dt__17TODragonflyCave01Fv(void *arg0, s16 arg1);
 }

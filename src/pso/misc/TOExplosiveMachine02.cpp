@@ -13,7 +13,7 @@ void *__nw__7TObjectFUl(int);
 void *TOExplosiveMachine02__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xAC);
     if (o != NULL) {
-        o = TOExplosiveMachine02__ct((void *)o, (s32)arg0);
+        o = TOExplosiveMachine02__ct((TOExplosiveMachine02 *)((void *)o), (s32)arg0);
     }
     return o;
 }
@@ -34,18 +34,18 @@ void *__dt__20TOExplosiveMachine02Fv(void *arg0, s16 arg1) {
 extern s32 TOExplosiveMachine02__class_name;
 extern s32 explosive_machine_model_archive;
 
-void *TOExplosiveMachine02__ct(void *arg0, s32 arg1) {
+void *TOExplosiveMachine02__ct(TOExplosiveMachine02 *arg0, s32 arg1) {
     TOExplosiveMachine__ct();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TOExplosiveMachine02;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOExplosiveMachine02__class_name;
-    ((TOExplosiveMachine02 *)arg0)->apply_object_set_data((void *)arg1);
-    ((TOExplosiveMachine02 *)arg0)->model = get_bml_model(explosive_machine_model_archive, 3);
-    ((TOExplosiveMachine02 *)arg0)->texture_id = TObjFish__sub_8001EDB0(explosive_machine_model_archive, 3);
-    ((TOExplosiveMachine02 *)arg0)->m_94 = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(((TOExplosiveMachine02 *)arg0)->model) + 4)) + 0x14);
+    arg0->apply_object_set_data((void *)arg1);
+    arg0->model = get_bml_model(explosive_machine_model_archive, 3);
+    arg0->texture_id = TObjFish__sub_8001EDB0(explosive_machine_model_archive, 3);
+    arg0->m_94 = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(arg0->model) + 4)) + 0x14);
     *(void **)((s8 *)arg0 + 0x9C) = get_bml_model(explosive_machine_model_archive, 4);
-    ((TOExplosiveMachine02 *)arg0)->m_a4 = TObjFish__sub_8001EDB0(explosive_machine_model_archive, 4);
+    arg0->m_a4 = TObjFish__sub_8001EDB0(explosive_machine_model_archive, 4);
     *(void **)((s8 *)arg0 + 0xA0) = get_bml_model(explosive_machine_model_archive, 5);
-    ((TOExplosiveMachine02 *)arg0)->m_a8 = TObjFish__sub_8001EDB0(explosive_machine_model_archive, 5);
+    arg0->m_a8 = TObjFish__sub_8001EDB0(explosive_machine_model_archive, 5);
     return arg0;
 }
 

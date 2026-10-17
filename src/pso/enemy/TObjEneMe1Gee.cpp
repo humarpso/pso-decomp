@@ -1,4 +1,5 @@
 #include "types.h"
+class TObjEneMe1Gee_NEEDLE;
 #include "pso/enemy/TUnk_8049387C.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
@@ -905,7 +906,7 @@ void TObjEneMe1Gee__sub_800C9A94(void *arg0, s32 arg1);
 void TObjEneEpsilon__sub_800B92F8(u8 *arg0, s32 arg1, f32 farg0);
 void destroy_subobj__13TObjEneMe1GeeFPv(void* p, void * _w1);
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
-u8 *TObjEneMe1Gee_NEEDLE__ct(u8 *arg0, s32 arg1, u8 *from, u8 *to, f32 farg0, f32 farg1);
+u8 *TObjEneMe1Gee_NEEDLE__ct(TObjEneMe1Gee_NEEDLE *arg0, s32 arg1, u8 *from, u8 *to, f32 farg0, f32 farg1);
 void matrix_mult_vec(void *, Vec_800CA454 *, Vec_800CA454 *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *src);
@@ -1996,7 +1997,7 @@ s32 collect_enemy_target_candidates(void *, Rec_800CBB34 *);
 s32 get_target_info__9TObjEneDDFv();
 s32 pack_debug_text_position(s32, s32);
 void TObjEneMe1Gee__sub_800C9580(u8 *arg0, s32 arg1);
-void run_task__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1);
+void run_task__13TObjEneMe1GeeFPvi(TObjEneMe1Gee *arg0, s32 arg1);
 void TObjEneMe1Gee__sub_800C9DF8(void *, s32);
 void TObjEneMe1Gee__sub_800CAFD8(u8 *arg0, s32 arg1);
 void TObjEneMe1Gee__sub_800CB560(u8 *arg0);
@@ -2534,13 +2535,13 @@ void TObjEneMe1Gee__sub_800C96B4(Gee_800C96B4 *o, s32 mode) {
     }
 }
 
-void run_task__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1) {
+void run_task__13TObjEneMe1GeeFPvi(TObjEneMe1Gee *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
         ((TObjEneDD *)arg0)->set_field_378(0xA);
         *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C8) & 0xFFBFFFFF);
-        ((TObjEneMe1Gee *)arg0)->vfunc_95();
+        arg0->vfunc_95();
         if ((s32) *(s32 *)((s8 *)arg0 + 0x3C4) == 1) {
             *(s32 *)((s8 *)arg0 + 0x3C0) = (s32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0x48C)));
             ((TObjEneMe1Gee *)(*(s32 *)((s8 *)arg0 + 0x3C0)))->set_flag3c8_bit8();
@@ -2548,19 +2549,19 @@ void run_task__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x408) = 0;
         return;
     case 3:
-        if ((((TObjEneMe1Gee *)arg0)->vfunc_108() == 0) && (*(f32 *)((s8 *)arg0 + 0x3AC) < TObjEneMe1Gee__data_805DA0EC)) {
+        if ((arg0->vfunc_108() == 0) && (*(f32 *)((s8 *)arg0 + 0x3AC) < TObjEneMe1Gee__data_805DA0EC)) {
             ((s32 (*)(void *, int))transition_enemy_state)(arg0, 6);
         }
     case 5:
         return;
     case 0:
         advance_animation_playback();
-        copy_position__14TObjEneEpsilonFPv((arg0), (arg0 + 0x50));
+        copy_position__14TObjEneEpsilonFPv((arg0), ((u8 *)arg0 + 0x50));
         ((TObjEneDD *)arg0)->update_velocity();
-        ((TObjEneMe1Gee *)arg0)->update_angle();
-        ((TObjEneMe1Gee *)arg0)->set_move_speed_x();
+        arg0->update_angle();
+        arg0->set_move_speed_x();
         ((TObjEneDD *)arg0)->move_with_wall_slide_commit((f32) (*(f32 *)((s8 *)arg0 + 0x3A0)), (f32) (*(f32 *)((s8 *)arg0 + 0x3A8)), lbl_805DA0D0);
-        ((TObjEneMe1Gee *)arg0)->vfunc_88();
+        arg0->vfunc_88();
         break;
     }
 }
@@ -3041,7 +3042,7 @@ void TObjEneMe1Gee__sub_800CA454(void *arg0, s32 arg1) {
                     out.y += o->f3E8;
                     p = __nw__7TObjectFUl(0xC4);
                     if (p != NULL) {
-                        TObjEneMe1Gee_NEEDLE__ct((u8 *)p, (s32)o, (u8 *)&out, (u8 *)dir, (f32)o->f3FC, (f32)o->param->f4);
+                        TObjEneMe1Gee_NEEDLE__ct((TObjEneMe1Gee_NEEDLE *)((u8 *)p), (s32)((s32)o), (u8 *)((u8 *)&out), (u8 *)((u8 *)dir), (f32)((f32)o->f3FC), (f32)((f32)o->param->f4));
                     }
                 }
             }

@@ -72,11 +72,11 @@ s32 get_help_value__15TWindowHelpItemFv(void) {
 }
 #pragma push
 #pragma fp_contract on
-void update_palette_item_count_label(u8 *arg0, u8 *arg1, u16 arg2, u16 arg3, s32 arg4) {
+void update_palette_item_count_label(TWindowHelpItem *arg0, u8 *arg1, u16 arg2, u16 arg3, s32 arg4) {
     s32 v;
     u32 p;
     if (arg2 != 4) {
-        ((TWindowHelpItem *)arg0)->set_flag0_bit2();
+        arg0->set_flag0_bit2();
         return;
     }
     if (arg3 >= 0xD) {
@@ -90,7 +90,7 @@ void update_palette_item_count_label(u8 *arg0, u8 *arg1, u16 arg2, u16 arg3, s32
         v = ((s32 (*)(u16, s32))get_help_value__15TWindowHelpItemFv)(arg3, arg4);
     }
     if (v <= 0) {
-        ((TWindowHelpItem *)arg0)->set_flag0_bit2();
+        arg0->set_flag0_bit2();
         return;
     }
     ((TWindowSubStatusDisp *)arg0)->clear_visible_flag();

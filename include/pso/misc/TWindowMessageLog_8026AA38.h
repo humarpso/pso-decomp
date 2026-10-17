@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TWindowMessageLog;
 extern "C" {
-u8 *TWindowMessageLog__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TWindowMessageLog__ct(TWindowMessageLog *arg0, s32 arg1, s32 arg2);
 u8 *__dt__17TWindowMessageLogFv(u8 *arg0, s16 arg1);
 }
 

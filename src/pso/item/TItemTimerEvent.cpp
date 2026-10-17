@@ -20,11 +20,11 @@ u32 get_player_by_client_id(u16);
 void fn_8011085C(u8 *arg0, s32 arg1);
 extern struct VObj_8011E140_8011DA9C *item_timer_event_instance;
 void fn_801108C8(u8 *arg0, s32 arg1);
-void disallow_rendering__7TObjectFv(void *arg0);
+void disallow_rendering__7TObjectFv(TObject *arg0);
 s32 __ct__15TItemHeapObjectFP7TObject(void *);
 extern s32 __vt__15TItemTimerEvent[];
 extern s32 TItemTimerEvent__class_name;
-u8 *TItemTimerEvent__ct(u8 *arg0, s32 arg1, s16 arg2, s32 arg3);
+u8 *TItemTimerEvent__ct(TItemTimerEvent *arg0, s32 arg1, s16 arg2, s32 arg3);
 void *__dt__13TUnk_804A0568Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804A0588Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804A05A8Fv(void *arg0, s16 arg1);
@@ -97,16 +97,16 @@ void *__dt__15TItemTimerEventFv(void *arg0, s16 arg1) {
 extern s32 lbl_804A0568[];
 
 typedef char RecoveredGlobal_8011DC90___vt__15TItemTimerEvent_size[sizeof(RecoveredGlobal_8011DC90___vt__15TItemTimerEvent) == 0x20 ? 1 : -1];
-u8 *TItemTimerEvent__ct(u8 *arg0, s32 arg1, s16 arg2, s32 arg3) {
+u8 *TItemTimerEvent__ct(TItemTimerEvent *arg0, s32 arg1, s16 arg2, s32 arg3) {
     __ct__15TItemHeapObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8011DC90___vt__15TItemTimerEvent *)&__vt__15TItemTimerEvent).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TItemTimerEvent__class_name;
-    *(s16 *)&((TItemTimerEvent *)arg0)->m_1c = arg2;
-    *(s32 *)&((TItemTimerEvent *)arg0)->m_28 = 0;
-    *(s32 *)&((TItemTimerEvent *)arg0)->m_20 = arg3;
-    *(s32 *)&((TItemTimerEvent *)arg0)->m_24 = 0;
+    *(s16 *)&arg0->m_1c = arg2;
+    *(s32 *)&arg0->m_28 = 0;
+    *(s32 *)&arg0->m_20 = arg3;
+    *(s32 *)&arg0->m_24 = 0;
     disallow_rendering__7TObjectFv((arg0));
-    return arg0;
+    return (u8 *)arg0;
 }
 
 void *__dt__13TUnk_804A0568Fv(void *arg0, s16 arg1) {

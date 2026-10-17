@@ -52,7 +52,7 @@ u8 *TObjTradeCollision__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjTradeCollision__name;
     ((TObjTradeCollision *)(arg0))->apply_object_set_data((void *)arg2);
     *(f32 *)((s8 *)arg0 + 0xAC) = (f32) ((TObjTradeCollision *)arg0)->scale;
-    disallow_rendering__7TObjectFv((arg0));
+    disallow_rendering__7TObjectFv((TObject *)(arg0));
     return arg0;
 }
 

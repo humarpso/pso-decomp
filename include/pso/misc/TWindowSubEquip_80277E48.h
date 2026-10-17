@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TWindowSubEquip;
 extern "C" {
-u8 *TWindowSubEquip__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TWindowSubEquip__ct(TWindowSubEquip *arg0, s32 arg1, s32 arg2);
 void *__dt__15TWindowSubEquipFv(void *arg0, s16 arg1);
 }
 

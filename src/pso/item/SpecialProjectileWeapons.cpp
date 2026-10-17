@@ -1,4 +1,5 @@
 #include "types.h"
+struct TItemEquipBase;
 #include "pso/item/TItemShootParticle.h"
 #include "pso/item/TUnk_804A204C.h"
 #include "pso/item/TUnk_804A2164.h"
@@ -288,7 +289,7 @@ void init_armor__10TObjPlayerFPv(void *arg0) {
 }
 
 void render__13TUnk_804A2148Fv(u8 *);
-extern "C" s8 TItemEquipBase__sub_8010A77C(u8 *arg0);
+extern "C" s8 TItemEquipBase__sub_8010A77C(TItemEquipBase *arg0);
 extern "C" void TItemWeapon__sub_8011E5C4();
 extern "C" void TItemWeapon__sub_8011E5C8();
 extern "C" void TItemWeapon__sub_8011E5CC();

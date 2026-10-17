@@ -121,21 +121,21 @@ u8 *__dt__17TWindowMainMenu1PFv(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
-void *TWindowMainMenu1P__ct(void *arg0) {
+void *TWindowMainMenu1P__ct(TWindowMainMenu1P *arg0) {
     TWindowMainMenu__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TWindowMainMenu1P;
-    *(void * *)&((TWindowMainMenu1P *)arg0)->m_name = TWindowMainMenu1P__name;
+    *(void * *)&arg0->m_name = TWindowMainMenu1P__name;
     *(u8 *)((s8 *)arg0 + 0x60) = 0;
     *(u8 *)((s8 *)arg0 + 0x61) = 0;
-    ((TWindowMainMenu1P *)arg0)->m_6c = lbl_805DD8A8;
+    arg0->m_6c = lbl_805DD8A8;
     *(f32 *)((s8 *)arg0 + 0x70) = lbl_805DD8B0;
-    ((TWindowMainMenu1P *)arg0)->m_8c = lbl_805DD8C4;
+    arg0->m_8c = lbl_805DD8C4;
     *(f32 *)((s8 *)arg0 + 0x90) = lbl_805DD8BC;
-    ((TWindowMainMenu1P *)arg0)->m_94 = lbl_805DD8CC;
+    arg0->m_94 = lbl_805DD8CC;
     *(f32 *)((s8 *)arg0 + 0x98) = lbl_805DD8CC;
-    ((TWindowMainMenu1P *)arg0)->m_9c = lbl_805DD8D0;
+    arg0->m_9c = lbl_805DD8D0;
     *(f32 *)((s8 *)arg0 + 0xA0) = lbl_805DD8D4;
-    ((TWindowMainMenu1P *)arg0)->m_a4 = lbl_805DD8D8;
+    arg0->m_a4 = lbl_805DD8D8;
     *(f32 *)((s8 *)arg0 + 0xA8) = lbl_805DD8C8;
     return arg0;
 }

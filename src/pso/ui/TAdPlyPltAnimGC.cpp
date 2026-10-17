@@ -89,8 +89,8 @@ void TAdPlyPltAnimCtrlGC::set_anim_state(s32 arg1) {
     *(s32 *)((s8 *)this + 0x74) = arg1;
 }
 
-void TAdPlyPltAnimCtrlGC__sub_80355D38(void *arg0) {
-    ((TAdPlyPltAnimCtrlGC *)arg0)->set_anim_state(0);
+void TAdPlyPltAnimCtrlGC__sub_80355D38(TAdPlyPltAnimCtrlGC *arg0) {
+    arg0->set_anim_state(0);
 }
 #pragma push
 #pragma fp_contract on

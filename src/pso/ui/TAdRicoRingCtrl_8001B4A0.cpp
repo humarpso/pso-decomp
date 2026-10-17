@@ -99,7 +99,7 @@ TAdRicoRingCtrl::~TAdRicoRingCtrl() {
 }
 extern "C" {
 
-u8 *TAdRicoRingCtrl__ct(u8 *arg0, s32 arg1) {
+u8 *TAdRicoRingCtrl__ct(TAdRicoRingCtrl *arg0, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_8001B8AC, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8001B8AC, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8001B8AC, sp10) == 0x8) ? 1 : -1];
@@ -109,25 +109,25 @@ u8 *TAdRicoRingCtrl__ct(u8 *arg0, s32 arg1) {
     __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__15TAdRicoRingCtrl.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TAdRicoRingCtrl__class_name;
-    ((TAdRicoRingCtrl *)arg0)->m_1c = create__15TAdRicoRingCtrlFPv(tl_04);
-    temp_r3 = ((TAdRicoRingCtrl *)arg0)->m_1c;
+    arg0->m_1c = create__15TAdRicoRingCtrlFPv(tl_04);
+    temp_r3 = arg0->m_1c;
     if (temp_r3 != 0U) {
         TAdRicoRingCtrl__sub_8001BED0((void *)temp_r3, (f32)lbl_805D7E4C);
-        ((TAdRicoRingCtrl *)(((TAdRicoRingCtrl *)arg0)->m_1c))->set_scale4(lbl_805D7E4C);
+        ((TAdRicoRingCtrl *)(arg0->m_1c))->set_scale4(lbl_805D7E4C);
     }
-    ((TAdRicoRingCtrl *)arg0)->m_20 = create__15TAdRicoRingCtrlFPv(tl_04);
-    temp_r3_2 = ((TAdRicoRingCtrl *)arg0)->m_20;
+    arg0->m_20 = create__15TAdRicoRingCtrlFPv(tl_04);
+    temp_r3_2 = arg0->m_20;
     if (temp_r3_2 != 0U) {
         TAdRicoRingCtrl__sub_8001BED0((void *)temp_r3_2, (f32)lbl_805D7E4C);
-        ((TAdRicoRingCtrl *)(((TAdRicoRingCtrl *)arg0)->m_20))->set_scale4(lbl_805D7E4C);
+        ((TAdRicoRingCtrl *)(arg0->m_20))->set_scale4(lbl_805D7E4C);
     }
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) TAdRicoRingCtrl__data_805D7E50;
-    ((TAdRicoRingCtrl *)arg0)->m_28 = (f32) lbl_805D7E4C;
+    arg0->m_28 = (f32) lbl_805D7E4C;
     stack.sp8 = *(s32 *)((s8 *)&lbl_8043481C.value + 0);
     stack.spC = *(s32 *)((s8 *)&lbl_8043481C.value + 4);
     stack.sp10 = *(s32 *)((s8 *)&lbl_8043481C.value + 8);
-    ((TAdRicoRingCtrl *)arg0)->sub_8001B424((s32)((void *)&stack.sp8));
-    return arg0;
+    arg0->sub_8001B424((s32)((void *)&stack.sp8));
+    return (u8 *)arg0;
 }
 
 void TAdRicoRingCtrl::start_fade(f32 farg0) {

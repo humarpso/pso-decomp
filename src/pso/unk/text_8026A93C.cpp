@@ -3,7 +3,7 @@
 #include "pso/misc/TWindowCtrl.h"
 
 extern "C" {
-u8 *TWindowMessageLog__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TWindowMessageLog__ct(TWindowMessageLog *arg0, s32 arg1, s32 arg2);
 u8 *__nw__7TObjectFUl(s32);
 s32 TLobby__sub_80269DA4(void *, int);
 u8 *create_message_log_window(s32 arg0, s32 arg1, s32 arg2);
@@ -50,7 +50,7 @@ u8 *create_message_log_window(s32 arg0, s32 arg1, s32 arg2) {
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x98));
     var_r0 = temp_r3;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TWindowMessageLog__ct(temp_r3, arg0, arg2));
+        var_r0 = (u8 *)(TWindowMessageLog__ct((TWindowMessageLog *)temp_r3, arg0, arg2));
     }
     return var_r0;
 }

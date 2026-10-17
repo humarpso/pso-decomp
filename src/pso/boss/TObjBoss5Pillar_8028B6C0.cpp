@@ -11,7 +11,7 @@ extern void *tl_02;
 void *TObjBoss5Pillar::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x4C);
     if (o != NULL) {
-        o = TObjBoss5Pillar__ct((u8 *)o, (u8 *)tl_02, (u8 *)arg0);
+        o = TObjBoss5Pillar__ct((TObjBoss5Pillar *)((u8 *)o), (u8 *)((u8 *)tl_02), (u8 *)((u8 *)arg0));
     }
     return o;
 }

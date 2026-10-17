@@ -31,7 +31,7 @@ void TLobby__sub_8020C07C(s32 pl, s16 b, s16 a, s32 mask, s32 set);
 void __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void disallow_rendering__7TObjectFv(void *);
+void disallow_rendering__7TObjectFv(TObject *);
 
 extern s32 lbl_80483B88[];
 

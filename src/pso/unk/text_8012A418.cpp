@@ -113,7 +113,7 @@ typedef struct Pl_8012A470
 
 extern "C" {
 s8 TObjPlayer__sub_80102C30();
-void receive_srank_hit(void *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0);
+void receive_srank_hit(TItemWeapon *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0);
 u8 * TObjPlayer__sub_8012A3B4(void *, s32, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
@@ -189,7 +189,7 @@ s32 TUnk_804A4948::send_srank_stat_extra(u32 arg1, s32 arg2) {
     }
 }
 
-void receive_srank_hit(void *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0) {
+void receive_srank_hit(TItemWeapon *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0) {
     u32 f;
     if (TObjPlayer__sub_80102C30() == 2) {
         f = *(u32 *)((s8 *)arg0 + 0xF0);
@@ -200,11 +200,11 @@ void receive_srank_hit(void *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 f
                 if (arg3 == 2) {
                     ((TUnk_804A4948 *)arg0)->send_srank_stat_extra(arg2, arg4);
                 } else {
-                    ((TItemWeapon *)arg0)->deliver_hit((s32)f, (u8 *)arg2, (s32)arg3, (s32)arg4, (f32)farg0);
+                    arg0->deliver_hit((s32)f, (u8 *)arg2, (s32)arg3, (s32)arg4, (f32)farg0);
                 }
                 break;
             default:
-                ((TItemWeapon *)arg0)->deliver_hit((s32)f, (u8 *)arg2, (s32)arg3, (s32)arg4, (f32)farg0);
+                arg0->deliver_hit((s32)f, (u8 *)arg2, (s32)arg3, (s32)arg4, (f32)farg0);
                 break;
             }
         }

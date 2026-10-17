@@ -340,7 +340,7 @@ s32 TBoss6Type1__sub_802B5FDC(u8 *arg0);
 s32 TBoss6Type1__sub_802B5FF4(u8 *arg0);
 s32 TBoss6Type1__sub_802B600C(T1_802B600C *arg0, f32 _w1);
 void randomize_attack__11TBoss6Type1FPvPv(Boss_802B8EE0 *self, Atk_802B8EE0 *atk);
-void send_flow_action_if_idle__11TBoss6Type1FPvc(u8 *arg0, s8 arg1);
+void send_flow_action_if_idle__11TBoss6Type1FPvc(TBoss6Type1 *arg0, s8 arg1);
 s32 rand();
 extern u8 boss6_type1_random_action_table[];
 extern const f32 TBoss6Type1__data_805DE304;
@@ -1957,7 +1957,7 @@ void TBoss6Type1__sub_802B8BB4(u8 *arg0) {
         }
         switch (((TBoss6Type1 *)arg0)->pick_remapped_list_value(3, 5, 0x20)) {
         case 3:
-            send_flow_action_if_idle__11TBoss6Type1FPvc(arg0, 3);
+            send_flow_action_if_idle__11TBoss6Type1FPvc((TBoss6Type1 *)arg0, (s8)(3));
             return;
         case 5:
             ((void (*)(u8 *, s32))send_flow_action_if_idle__11TBoss6Type1FPvc)(arg0, TBoss6Type1::rand_range_inclusive((s32)arg0, 5, 6));
@@ -2088,13 +2088,13 @@ s32 TBoss6Type1::send_6xA4_action(s32 t, s32 *src) {
     }
 }
 
-void send_flow_action_if_idle__11TBoss6Type1FPvc(u8 *arg0, s8 arg1) {
+void send_flow_action_if_idle__11TBoss6Type1FPvc(TBoss6Type1 *arg0, s8 arg1) {
     typedef char sp8_offset[(offsetof(Stack_802B9204_boss6_1, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802B9204_boss6_1, spC) == 0x4) ? 1 : -1];
     Stack_802B9204_boss6_1 stack;
     if (((s32)((TBoss6Type1 *)(*(s32 *)((s8 *)arg0 + 0x3F8)))->is_idle()) != 0) {
         build_6xA4_olga_flow_boss_actions(&stack.sp8);
-        ((TBoss6Type1 *)arg0)->set_sync_data(&stack.sp8);
+        arg0->set_sync_data(&stack.sp8);
         stack.spC = arg1;
         ((TBoss6Type1 *)(&stack.sp8))->step_and_send_60();
     }

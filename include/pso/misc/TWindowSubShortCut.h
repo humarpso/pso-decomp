@@ -35,7 +35,7 @@ struct TWindowSubShortCut : public TObject {
 
 typedef char TWindowSubShortCut_size[sizeof(TWindowSubShortCut) == 0x94 ? 1 : -1];
 extern "C" {
-void *__dt__18TWindowSubShortCutFv(void *arg0, s16 arg1);
+void *__dt__18TWindowSubShortCutFv(TWindowSubShortCut *arg0, s16 arg1);
 }
 
 #endif

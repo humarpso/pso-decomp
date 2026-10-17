@@ -35,8 +35,8 @@ TFontSmallTask_800FD4D4 *__ct__14TFontSmallTaskFv(TFontSmallTask_800FD4D4 *self,
 struct Vec_800FCD40 { f32 x, y, z; };
 static const Vec_800FCD40 font_small_forward_vec = {0.0f, 0.0f, -1.0f};
 extern "C" {
-void allow_rendering__7TObjectFv(void *arg0);
-void disallow_rendering__7TObjectFv(void *arg0);
+void allow_rendering__7TObjectFv(TObject *arg0);
+void disallow_rendering__7TObjectFv(TObject *arg0);
 void queue_destruction__7TObjectFv(void *arg0);
 extern const f32 lbl_805DAA30;
 extern const f32 lbl_805DAA00;
@@ -378,7 +378,7 @@ TFontSmallTask_800FD4D4 *__ct__14TFontSmallTaskFv(TFontSmallTask_800FD4D4 *self,
     if (self->view >= 4) {
         self->view = 0xFFFF;
     }
-    disallow_rendering__7TObjectFv(self);
+    disallow_rendering__7TObjectFv((TObject *)self);
     strncpy(self->text, text, 0xF);
     self->text[0xF] = 0;
     self->width = calc_small_font_text_width(self->text);

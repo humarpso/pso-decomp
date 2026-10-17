@@ -23,8 +23,8 @@ struct TAdMultiSaveGC : public TObject {
 typedef char TAdMultiSaveGC_size[sizeof(TAdMultiSaveGC) == 0x34 ? 1 : -1];
 
 extern "C" {
-void *TAdMultiSaveGC__ct(void *arg0);
-void *__dt__14TAdMultiSaveGCFv(void *arg0, s16 arg1);
+void *TAdMultiSaveGC__ct(TAdMultiSaveGC *arg0);
+void *__dt__14TAdMultiSaveGCFv(TAdMultiSaveGC *arg0, s16 arg1);
 }
 
 #endif

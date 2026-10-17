@@ -35,7 +35,7 @@ void *TWindowLoadItemTexture::create(void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x74);
     if (o != NULL) {
-        o = TWindowLoadItemTexture__ct(o, this, lbl_8044F280, arg1);
+        o = TWindowLoadItemTexture__ct((TWindowLoadItemTexture *)o, (void *)this, (void *)lbl_8044F280, (void *)arg1);
     }
     get_array_entry__13TUnk_804CE018Fi(o, 0);
     set_sprite_uv_bounds(lbl_805DD0EC, lbl_805DD0EC, lbl_805DD0F4, lbl_805DD0F8);
@@ -73,7 +73,7 @@ void *__dt__22TWindowLoadItemTextureFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void *TWindowLoadItemTexture__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
+void *TWindowLoadItemTexture__ct(TWindowLoadItemTexture *arg0, void *arg1, void *arg2, void *arg3) {
     void *e;
     ((TWindowDD *)arg0)->construct_base((u8 *)lbl_804D0058, (s16)((s16)(s32)arg3), (u8 *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TWindowLoadItemTexture;
@@ -90,15 +90,15 @@ void *TWindowLoadItemTexture__ct(void *arg0, void *arg1, void *arg2, void *arg3)
         *(f32 *)((s8 *)arg0 + 0x68) = *(f32 *)((s8 *)arg0 + 0x64) = lbl_805DD0FC;
         break;
     }
-    ((TWindowLoadItemTexture *)arg0)->m_38 = *(f32 *)((s8 *)arg2 + 0);
+    arg0->m_38 = *(f32 *)((s8 *)arg2 + 0);
     *(f32 *)((s8 *)arg0 + 0x3C) = *(f32 *)((s8 *)arg2 + 4);
     ((TUnk_804CE018 *)arg0)->save_position();
     e = ((void *(*)(void *, int))get_array_entry__13TUnk_804CE018Fi)(arg0, 0);
     *(f32 *)((s8 *)e + 0x10) = *(f32 *)((s8 *)arg2 + 0);
     *(f32 *)((s8 *)e + 0x14) = *(f32 *)((s8 *)arg2 + 4);
-    ((TWindowLoadItemTexture *)arg0)->m_6c = (s32)TItemTexLoad::create((TObject*)tl_07);
-    ((TWindowLoadItemTexture *)arg0)->m_61 = 0;
-    ((TWindowLoadItemTexture *)arg0)->m_60 = 2;
+    arg0->m_6c = (s32)TItemTexLoad::create((TObject*)tl_07);
+    arg0->m_61 = 0;
+    arg0->m_60 = 2;
     return arg0;
 }
 

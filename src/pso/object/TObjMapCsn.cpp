@@ -40,7 +40,7 @@ s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_80194988___vt__10TObjMapCsn __vt__10TObjMapCsn;
 u8 *__dt__10TObjMapCsnFv(u8 *arg0, s16 arg1);
 extern s32 TObjMapCsn__class_name;
-u8 *TObjMapCsn__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TObjMapCsn__ct(TObjMapCsn *arg0, s32 arg1, s32 arg2);
 s32 matrix_mult_vec(int, void *, void *);
 s32 translate_matrix_vec3(int, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
@@ -151,7 +151,7 @@ s32 TObjMapCsn::create(s32 arg0) {
 
     var_r31 = __nw__7TObjectFUl(0x254);
     if (var_r31 != 0) {
-        var_r31 = ((s32)TObjMapCsn__ct((u8 *)var_r31, (s32)(TObjMapCsn::get_map_count()), (s32)arg0));
+        var_r31 = ((s32)TObjMapCsn__ct((TObjMapCsn *)((u8 *)var_r31), (s32)(TObjMapCsn::get_map_count()), (s32)arg0));
     }
     return var_r31;
 }
@@ -168,30 +168,30 @@ u8 *__dt__10TObjMapCsnFv(u8 *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TObjMapCsn__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TObjMapCsn__ct(TObjMapCsn *arg0, s32 arg1, s32 arg2) {
     f32 temp_f0;
     f32 temp_f1;
     ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801949FC___vt__10TObjMapCsn *)&__vt__10TObjMapCsn).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjMapCsn__class_name;
     ((TObjMapCsn *)(arg0))->apply_object_set_data((void *)arg2);
-    ((TObjMapCsn *)arg0)->actorFlags = (s32) (((TObjMapCsn *)arg0)->actorFlags | 0x40000000);
-    ((TObjMapCsn *)arg0)->update_state();
-    ((TObjMapCsn *)arg0)->build_box_triangles();
-    ((TObjMapCsn *)arg0)->m_c4 = 8;
-    *(u8 **)((s8 *)arg0 + 0xC8) = (unsigned char *) (arg0 + 0x1F4);
-    ((TObjMapCsn *)arg0)->m_cc = 8;
-    *(u8 **)((s8 *)arg0 + 0xD0) = (unsigned char *) (arg0 + 0xD4);
-    *(u8 **)((s8 *)arg0 + 0xAC) = (unsigned char *) (arg0 + 0xC4);
-    VecCopy((Vec *)(arg0 + 0xB0), (const Vec *)(arg0 + 0x38));
-    temp_f1 = (0.5f) * ((TObjMapCsn *)arg0)->scale;
+    arg0->actorFlags = (s32) (arg0->actorFlags | 0x40000000);
+    arg0->update_state();
+    arg0->build_box_triangles();
+    arg0->m_c4 = 8;
+    *(u8 **)((s8 *)arg0 + 0xC8) = (unsigned char *) ((u8 *)arg0 + 0x1F4);
+    arg0->m_cc = 8;
+    *(u8 **)((s8 *)arg0 + 0xD0) = (unsigned char *) ((u8 *)arg0 + 0xD4);
+    *(u8 **)((s8 *)arg0 + 0xAC) = (unsigned char *) ((u8 *)arg0 + 0xC4);
+    VecCopy((Vec *)((u8 *)arg0 + 0xB0), (const Vec *)((u8 *)arg0 + 0x38));
+    temp_f1 = (0.5f) * arg0->scale;
     temp_f0 = (0.5f) * *(f32 *)((s8 *)arg0 + 0x70);
-    ((TObjMapCsn *)arg0)->m_bc = (f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0));
-    ((TObjMapCsn *)arg0)->m_c0 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
+    arg0->m_bc = (f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0));
+    arg0->m_c0 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
     if (((u32)TObjMapCsn::get_map_count()) != 0U) {
         fn_80140EA8((((u32)TObjMapCsn::get_map_count())), (s32)arg0);
     }
-    return arg0;
+    return (u8 *)arg0;
 }
 
 }

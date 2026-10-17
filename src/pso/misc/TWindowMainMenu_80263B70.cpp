@@ -1,4 +1,6 @@
 #include "types.h"
+struct TWindowSubItem;
+struct TWindowSubMag;
 #include "pso/misc/TWindowSubEquip_80275C0C.h"
 #include "pso/misc/TWindowSubEquip_80277E48.h"
 #include "pso/misc/TWindowSubGameEnd.h"
@@ -237,9 +239,9 @@ void *__nw__7TObjectFUl(int);
 void destroy_submenu__15TWindowMainMenuFv(void *);
 s32 __ct__17TWindowSubAreaMapFP7TObjectPv(int, void *, int);
 s32 __ct__17TWindowSubComCardFP7TObjectPv(int, void *, int);
-void *TWindowSubItem__ct(void *arg0, s32 arg1, s32 arg2);
+void *TWindowSubItem__ct(TWindowSubItem *arg0, s32 arg1, s32 arg2);
 s32 __ct__13TWindowSubLogFP7TObjectPv(int, void *, int);
-void *TWindowSubMag__ct(void *arg0, s32 arg1, s32 arg2);
+void *TWindowSubMag__ct(TWindowSubMag *arg0, s32 arg1, s32 arg2);
 s32 __ct__20TWindowSubQuestBoardFP7TObjectPv(int, void *, int);
 s32 __ct__18TWindowSubShortCutFP7TObjectPv(int, void *, int);
 s32 __ct__19TWindowSubShortMailFP7TObjectPv(int, void *, int);
@@ -324,7 +326,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_3 = ((s32)__nw__7TObjectFUl(0x3C));
         var_r0_3 = temp_r3_3;
         if (var_r0_3 != 0) {
-            var_r0_3 = (s32)TWindowSubEquip__ct((u8 *)temp_r3_3, (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_3 = (s32)TWindowSubEquip__ct((TWindowSubEquip *)((u8 *)temp_r3_3), (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_3;
         return;
@@ -332,7 +334,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_4 = ((s32)__nw__7TObjectFUl(0x44));
         var_r0_4 = temp_r3_4;
         if (var_r0_4 != 0) {
-            var_r0_4 = (s32)TWindowSubItem__ct((void *)temp_r3_4, (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_4 = (s32)TWindowSubItem__ct((TWindowSubItem *)((void *)temp_r3_4), (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_4;
         return;
@@ -341,7 +343,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_5 = ((s32)__nw__7TObjectFUl(0x50));
         var_r0_5 = temp_r3_5;
         if (var_r0_5 != 0) {
-            var_r0_5 = (s32)TWindowSubMag__ct((void *)temp_r3_5, (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_5 = (s32)TWindowSubMag__ct((TWindowSubMag *)((void *)temp_r3_5), (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_5;
         return;
@@ -394,7 +396,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_11 = ((s32)__nw__7TObjectFUl(0x40));
         var_r0_11 = temp_r3_11;
         if (var_r0_11 != 0) {
-            var_r0_11 = (s32)TWindowSubTechnique__ct((void *)temp_r3_11, (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_11 = (s32)TWindowSubTechnique__ct((TWindowSubTechnique *)((void *)temp_r3_11), (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_11;
         return;
@@ -402,7 +404,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_12 = ((s32)__nw__7TObjectFUl(0x60));
         var_r0_12 = temp_r3_12;
         if (var_r0_12 != 0) {
-            var_r0_12 = (s32)TWindowSubSymbolChat__ct((void *)temp_r3_12, (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_12 = (s32)TWindowSubSymbolChat__ct((TWindowSubSymbolChat *)((void *)temp_r3_12), (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_12;
         return;
@@ -460,7 +462,7 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         temp_r3_19 = ((s32)__nw__7TObjectFUl(0x2C));
         var_r0_19 = temp_r3_19;
         if (var_r0_19 != 0) {
-            var_r0_19 = (s32)TWindowSubGameEnd__ct((void *)temp_r3_19, (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_19 = (s32)TWindowSubGameEnd__ct((TWindowSubGameEnd *)((void *)temp_r3_19), (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_19;
     default:

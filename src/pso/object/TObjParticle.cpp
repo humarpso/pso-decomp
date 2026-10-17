@@ -164,7 +164,7 @@ Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, s32 parent, Src_80195400 *a
             arg0->emitter = spawn_continuous_particle_with_direction(&arg0->pos, &arg0->ang, entry);
         }
     }
-    disallow_rendering__7TObjectFv(arg0);
+    disallow_rendering__7TObjectFv((TObject *)arg0);
     return arg0;
 }
 

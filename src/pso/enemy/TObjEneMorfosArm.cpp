@@ -14,7 +14,7 @@ void *TObjEneMorfosArm::create(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x104);
     if (o != NULL) {
-        o = TObjEneMorfosArm__ct((u8 *)o, (s32)arg0, (u8 *)arg1);
+        o = TObjEneMorfosArm__ct((TObjEneMorfosArm *)((u8 *)o), (s32)((s32)arg0), (u8 *)((u8 *)arg1));
     }
     return o;
 }

@@ -56,7 +56,7 @@ extern u32 TOKeyCave01__resource_bundle;
 extern s32 *TOKeyCave01__texture_lists;
 extern s32 key_cave_render_state;
 s32 get_main_phase(void);
-void *TOKey__ct(void *arg0);
+void *TOKey__ct(TOKey *arg0);
 extern s32 __vt__11TOKeyCave01[];
 extern s32 TOKeyCave01__class_name;
 extern const f32 lbl_805DB73C;
@@ -64,7 +64,7 @@ extern const f32 lbl_805DB740;
 extern const f32 lbl_805DB74C;
 extern const f32 lbl_805DB750;
 extern const f32 lbl_805DB754;
-u8 *TOKeyCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TOKeyCave01__ct(TOKeyCave01 *arg0, s32 arg1, s32 arg2);
 s32 get_current_floor();
 extern s32 local_client_id;
 s32 rotate_matrix_y(int, int);
@@ -171,7 +171,7 @@ void TOKeyCave01::render() {
 void *TOKeyCave01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x100);
     if (o != NULL) {
-        o = TOKeyCave01__ct((u8 *)o, (s32)tl_05, (s32)arg0);
+        o = TOKeyCave01__ct((TOKeyCave01 *)((u8 *)o), (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -233,15 +233,15 @@ void *__dt__11TOKeyCave01Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TOKeyCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TOKeyCave01__ct(TOKeyCave01 *arg0, s32 arg1, s32 arg2) {
     TOKey__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016C5F8___vt__11TOKeyCave01 *)&__vt__11TOKeyCave01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKeyCave01__class_name;
     ((TOKeyCave01 *)(arg0))->apply_object_set_data((void *)arg2);
     ((TOKey *)arg0)->init_switch_id();
-    ((TOKeyCave01 *)arg0)->texture_id = (s32) *TOKeyCave01__texture_lists;
+    arg0->texture_id = (s32) *TOKeyCave01__texture_lists;
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOKeyCave01__resource_bundle) + 0x42C)) + 8);
-    ((TOKeyCave01 *)arg0)->m_c0 = (f32) lbl_805DB74C;
+    arg0->m_c0 = (f32) lbl_805DB74C;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB750;
     *(f32 *)((s8 *)arg0 + 0xCC) = (f32) lbl_805DB754;
     if (get_main_phase() != 0xF) {
@@ -250,27 +250,27 @@ u8 *TOKeyCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
         }
     } else {
 block_2:
-        if ((s32) ((TOKeyCave01 *)arg0)->m_d0 != 2) {
+        if ((s32) arg0->m_d0 != 2) {
             if ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0) {
-                ((TOKeyCave01 *)arg0)->m_d0 = 1;
+                arg0->m_d0 = 1;
             } else {
                 goto block_5;
             }
         } else {
 block_5:
-            ((TOKeyCave01 *)arg0)->m_d0 = 0;
+            arg0->m_d0 = 0;
         }
     }
-    ((TOKeyCave01 *)arg0)->m_e8 = (f32) lbl_805DB73C;
-    ((TOKeyCave01 *)arg0)->m_ec = (f32) lbl_805DB73C;
+    arg0->m_e8 = (f32) lbl_805DB73C;
+    arg0->m_ec = (f32) lbl_805DB73C;
     *(f32 *)((s8 *)arg0 + 0xF0) = (f32) lbl_805DB73C;
-    ((TOKeyCave01 *)arg0)->m_f4 = (f32) lbl_805DB73C;
-    ((TOKeyCave01 *)arg0)->m_f8 = 0;
+    arg0->m_f4 = (f32) lbl_805DB73C;
+    arg0->m_f8 = 0;
     *(f32 *)((s8 *)arg0 + 0x70) = (f32) lbl_805DB740;
-    ((TOKeyCave01 *)arg0)->target_scale = (f32) lbl_805DB740;
-    ((TOKeyCave01 *)arg0)->scale = (f32) lbl_805DB740;
+    arg0->target_scale = (f32) lbl_805DB740;
+    arg0->scale = (f32) lbl_805DB740;
     *(s32 *)((s8 *)arg0 + 0xFC) = 0;
-    return arg0;
+    return (u8 *)arg0;
 }
 
 void TOKeyCol::vfunc_25() {  }

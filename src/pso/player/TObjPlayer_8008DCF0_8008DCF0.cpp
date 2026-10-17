@@ -188,7 +188,7 @@ extern const f32 lbl_805D9620;
 extern const f32 lbl_805D962C;
 extern const f32 lbl_805D9630;
 void calc_slot_offset_position__10TObjPlayerFPviPvPv(Obj_8008E18C *self, s32 slot, Vec_8008E18C *out, s32 *angle_out);
-void apply_actor_gravity(u8 *arg0, s32 *arg1, f32 farg0);
+void apply_actor_gravity(TObjEnemy *arg0, s32 *arg1, f32 farg0);
 void move_with_wall_slide(u8 *arg0);
 s32 calc_velocity_toward_destination(void *, Vec_8008DD14, Vec_8008DD14, Info_8008DD14 *, f32);
 s32 check_path_obstructed(void *, void *);
@@ -271,7 +271,7 @@ void TObjPlayer__sub_8008DD14(Obj_8008DD14 *self) {
             ((TObjPlayer *)self)->reset_enemy_state();
         }
         advance_animation_playback(self);
-        apply_actor_gravity((u8 *)self, (s32 *)(0), lbl_805D9620);
+        apply_actor_gravity((TObjEnemy *)((u8 *)self), (s32 *)(0), lbl_805D9620);
         break;
     }
     case -1:
@@ -313,7 +313,7 @@ void TObjPlayer::update_move_to_target() {
             move_with_wall_slide((u8 *)self);
         }
         advance_animation_playback(self);
-        apply_actor_gravity((u8 *)self, (s32 *)(0), lbl_805D9620);
+        apply_actor_gravity((TObjEnemy *)((u8 *)self), (s32 *)(0), lbl_805D9620);
         ((TObjPlayer *)self)->update_collisions();
         break;
     }
@@ -372,7 +372,7 @@ void TObjPlayer__sub_8008E254(void *arg0_) {
         return;
     case 1:
         advance_animation_playback(arg0_);
-        apply_actor_gravity((u8 *)arg0_, (s32 *)(0), lbl_805D9620);
+        apply_actor_gravity((TObjEnemy *)((u8 *)arg0_), (s32 *)(0), lbl_805D9620);
         (*(s16 *)((s8 *)arg0_ + 0x33C))--;
         if (*(s16 *)((s8 *)arg0_ + 0x33C) <= 0) {
             ((TObjPlayer *)arg0_)->reset_enemy_state();
@@ -407,7 +407,7 @@ void TObjPlayer__sub_8008E310(P_8008E310 *arg0_) {
     case 1:
         ((TNowLoading *)(arg0_->emit1))->copy_pos(arg0_->f2FC);
         advance_animation_playback(arg0_);
-        apply_actor_gravity((u8 *)arg0_, (s32 *)(0), lbl_805D9620);
+        apply_actor_gravity((TObjEnemy *)((u8 *)arg0_), (s32 *)(0), lbl_805D9620);
         all = 1;
         cnt = 0;
         lim = lbl_805D9634;
@@ -445,7 +445,7 @@ void TObjPlayer__sub_8008E310(P_8008E310 *arg0_) {
     case 2:
         ((TNowLoading *)(arg0_->emit1))->copy_pos(arg0_->f2FC);
         advance_animation_playback(arg0_);
-        apply_actor_gravity((u8 *)arg0_, (s32 *)(0), lbl_805D9620);
+        apply_actor_gravity((TObjEnemy *)((u8 *)arg0_), (s32 *)(0), lbl_805D9620);
         if (arg0_->fC0 < lbl_805D9638) {
             ((TParticleCtrl *)(arg0_->emit2))->enable();
         } else {
@@ -467,7 +467,7 @@ void TObjPlayer__sub_8008E310(P_8008E310 *arg0_) {
     case 3:
         ((TNowLoading *)(arg0_->emit2))->copy_pos(arg0_->f2FC);
         advance_animation_playback(arg0_);
-        apply_actor_gravity((u8 *)arg0_, (s32 *)(0), lbl_805D9620);
+        apply_actor_gravity((TObjEnemy *)((u8 *)arg0_), (s32 *)(0), lbl_805D9620);
         if (--arg0_->f33C <= 0) {
             arg0_->flags &= ~1;
             ((TObjPlayer *)arg0_)->reset_enemy_state();

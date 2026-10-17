@@ -225,9 +225,9 @@ Hit_8004B7DC *get_hit_data__14TBoss4DarkFalzFv(void *);
 void reset_cameras_to_actor(void *, s32);
 extern Vec_8004B7DC dark_falz_player_ring_center;
 extern const f32 lbl_805D892C;
-void TBoss4DarkFalz__sub_8004B7DC(void *arg0);
+void TBoss4DarkFalz__sub_8004B7DC(TBoss4DarkFalz *arg0);
 extern Vec_8004B8F8 lbl_804371BC;
-void TBoss4DarkFalz__sub_8004B8F8(void *arg0);
+void TBoss4DarkFalz__sub_8004B8F8(TBoss4DarkFalz *arg0);
 int TBoss4DarkFalz__sub_8004B07C(void);
 s32 is_local_client_floor_leader();
 s32 get_main_phase();
@@ -542,13 +542,13 @@ void TBoss4DarkFalz::refresh_player_equipment(void *self) {
 }
 
 #pragma fp_contract on
-void TBoss4DarkFalz__sub_8004B7DC(void *arg0) {
+void TBoss4DarkFalz__sub_8004B7DC(TBoss4DarkFalz *arg0) {
     Vec_8004B7DC base = dark_falz_player_ring_center;
     s32 rate;
     s32 ang;
     s32 i;
     void *p;
-    rate = ((TBoss4DarkFalz *)arg0)->calc_rate_from_field();
+    rate = arg0->calc_rate_from_field();
     ang = 0;
     for (i = 0; i < lbl_805D586C; i++) {
         p = get_player_data__10TObjPlayerFi(i);
@@ -569,13 +569,13 @@ void TBoss4DarkFalz__sub_8004B7DC(void *arg0) {
 }
 
 #pragma fp_contract on
-void TBoss4DarkFalz__sub_8004B8F8(void *arg0) {
+void TBoss4DarkFalz__sub_8004B8F8(TBoss4DarkFalz *arg0) {
     Vec_8004B8F8 base = lbl_804371BC;
     s32 rate;
     s32 ang;
     s32 i;
     void *p;
-    rate = ((TBoss4DarkFalz *)arg0)->calc_rate_from_field();
+    rate = arg0->calc_rate_from_field();
     ang = rate / 2;
     for (i = 0; i < lbl_805D586C; i++) {
         p = get_player_data__10TObjPlayerFi(i);

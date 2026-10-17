@@ -180,7 +180,7 @@ void handle_6x38_donate_to_photon_blast(s32 arg0) {
 }
 
 void draw_party_label__15TFontSmallLobbyFiUis(s32 arg0, u32 arg1, s16 arg2);
-s32 subtract_photon_blast_charge(u8 *arg0, f32 farg0);
+s32 subtract_photon_blast_charge(TFontSmallLobby *arg0, f32 farg0);
 void TFontSmallLobby__sub_801D671C(void *a0, int a1);
 s32 set_flag_40_bit5__15TFontSmallLobbyFv();
 s32 create_party_effect__11TWindowCtrlFPvPv(s16, s16);
@@ -192,7 +192,7 @@ void draw_party_label__15TFontSmallLobbyFiUis(s32 arg0, u32 arg1, s16 arg2) {
     Sp801D6230_801d6230 sp8;
 
     set_flag_40_bit5__15TFontSmallLobbyFv();
-    subtract_photon_blast_charge((u8 *)arg0, lbl_805DC3D8);
+    subtract_photon_blast_charge((TFontSmallLobby *)((u8 *)arg0), lbl_805DC3D8);
     ((TFontSmallLobby *)(arg0 + 0x4C))->set_target_index(8);
     TFontSmallLobby__sub_801D671C((void *)(arg0 + 0x4C), 1);
     create_party_effect__11TWindowCtrlFPvPv(obj_getField1c(arg1), arg2);

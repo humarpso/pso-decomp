@@ -95,11 +95,11 @@ Obj_8004FD50 *__dt__11TObjDFDemo5Fv(Obj_8004FD50 *arg0, s16 arg1);
 #pragma push
 #pragma opt_common_subs off
 #pragma readonly_strings on
-void darkfalz_death_update(u8 *arg0) {
+void darkfalz_death_update(TObjDFDemo5 *arg0) {
     f32 temp_f1;
     s32 temp_r0;
-    ((TObjDFDemo5 *)arg0)->update_particle_emitters();
-    if ((s32) ((TObjDFDemo5 *)arg0)->m_e4 == 0x8C) {
+    arg0->update_particle_emitters();
+    if ((s32) arg0->m_e4 == 0x8C) {
         play_cue_stream_file((s32) "dfdeath.adx");
         TBoss3Volopt::queue_event_1D(0xC0, 0xF);
     }
@@ -108,8 +108,8 @@ void darkfalz_death_update(u8 *arg0) {
     if (temp_f1 > 149.0f) {
         *(f32 *)((s8 *)arg0 + 0xE8) = (f32) 149.0f;
     }
-    temp_r0 = ((TObjDFDemo5 *)arg0)->m_e4 + 1;
-    ((TObjDFDemo5 *)arg0)->m_e4 = temp_r0;
+    temp_r0 = arg0->m_e4 + 1;
+    arg0->m_e4 = temp_r0;
     if (temp_r0 >= 0x12C) {
         queue_destruction__7TObjectFv(arg0);
     }

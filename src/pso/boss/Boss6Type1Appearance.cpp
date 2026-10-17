@@ -83,7 +83,7 @@ void render__25TBoss6Demo10_TYPE1_APPEARFv(void* p) { ((TBoss6Demo10_TYPE1_APPEA
 
 #pragma push
 #pragma opt_common_subs off
-void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
+void run_task__25TBoss6Demo10_TYPE1_APPEARFv(TBoss6Demo10_TYPE1_APPEAR *arg0) {
     f32 temp_f1;
     s32 temp_r0_3;
     u8 *temp_r30;
@@ -92,11 +92,11 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
     if (temp_f1 > lbl_805DFA4C) {
         *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805DFA4C;
     }
-    ((TBoss6PlotFalz *)(arg0 + 0x40))->scroll_strips_uv(8, 0);
-    if ((s32) ((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38 == 0x78) {
+    ((TBoss6PlotFalz *)((u8 *)arg0 + 0x40))->scroll_strips_uv(8, 0);
+    if ((s32) arg0->m_38 == 0x78) {
         play_sound_effect(0x4003A105, 0, 0, 0);
     }
-    switch (((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38) {
+    switch (arg0->m_38) {
     case 0x1B8:
     case 0xFA:
         play_sound_effect(0x4003A811, 0, 0, 0);
@@ -105,7 +105,7 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
         play_sound_effect(0x40031222, 0, 0, 0);
         break;
     }
-    switch (((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38) {
+    switch (arg0->m_38) {
     case 0x14:
     case 0xC6:
     case 0xFA:
@@ -114,8 +114,8 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
         TBoss3Volopt::queue_event_1D(0xC0, 0xF);
         break;
     }
-    temp_r0_3 = ((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38;
-    temp_r30 = arg0 + 0x54;
+    temp_r0_3 = arg0->m_38;
+    temp_r30 = (u8 *)arg0 + 0x54;
     switch (temp_r0_3) {
     case 0x1:
         *(u32 *)((s8 *)arg0 + 0x64) = (u32)create_particle_emitter((temp_r30), 0x210);
@@ -148,8 +148,8 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
         ((TNowLoading *)(*(u32 *)((s8 *)arg0 + 0x64)))->copy_pos((void*)temp_r30);
     }
-    ((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38 = (s32) (((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38 + 1);
-    if (((s32) ((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38 >= 0x1F4) || (((TObjFish *)(*(s32 *)((s8 *)arg0 + 0x3C)))->get_phase() != 1)) {
+    arg0->m_38 = (s32) (arg0->m_38 + 1);
+    if (((s32) arg0->m_38 >= 0x1F4) || (((TObjFish *)(*(s32 *)((s8 *)arg0 + 0x3C)))->get_phase() != 1)) {
         queue_destruction__7TObjectFv((arg0));
     }
 }

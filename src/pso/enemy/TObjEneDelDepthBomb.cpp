@@ -355,7 +355,7 @@ int TObjEneDelDepthBomb__sub_80313268(void);
 void run_task__19TObjEneDelDepthBombFv(Bomb_803133BC *o);
 void * create__19TObjEneDelDepthBombFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void * __dt__19TObjEneDelDepthBombFv(void *arg0, s16 arg1);
-u8 * TObjEneDelDepthBomb__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+u8 *TObjEneDelDepthBomb__ct(TObjEneDelDepthBomb *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void TObjEneDelDepth__sub_803138F8(void* a0);
 void TObjEneDelDepth__sub_80313954(u8 *arg0);
 void TObjEneDelDepth__sub_80313DE4(void* p);
@@ -507,7 +507,7 @@ void * create__19TObjEneDelDepthBombFPvPvPvPv(void *arg0, void *arg1, void *arg2
     void *o;
     o = __nw__7TObjectFUl(0x358);
     if (o != NULL) {
-        o = TObjEneDelDepthBomb__ct((u8 *)o, (s32)arg0, (s32)arg1, (s32)arg2, (s32)arg3);
+        o = TObjEneDelDepthBomb__ct((TObjEneDelDepthBomb *)((u8 *)o), (s32)((s32)arg0), (s32)((s32)arg1), (s32)((s32)arg2), (s32)((s32)arg3));
     }
     return o;
 }
@@ -523,25 +523,25 @@ void *__dt__19TObjEneDelDepthBombFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TObjEneDelDepthBomb__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+u8 *TObjEneDelDepthBomb__ct(TObjEneDelDepthBomb *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     f32 temp_f30;
     f32 temp_f31;
     construct_actor_base__10TObjPlayerFPvPv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_803135B4___vt__19TObjEneDelDepthBomb *)&__vt__19TObjEneDelDepthBomb).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneDelDepthBomb__name;
-    ((TObjEneDelDepthBomb *)arg0)->m_348 = arg2;
-    ((TObjEneDelDepthBomb *)arg0)->rotation_y = (s32) *(s32 *)((s8 *)(((TObjEneDelDepthBomb *)arg0)->m_up) + 0x60);
-    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg3));
-    temp_f30 = ((f32 (*)(int))sin_table_lookup)((int) (((TObjEneDelDepthBomb *)arg0)->rotation_y));
-    temp_f31 = ((f32 (*)(int))cos_table_lookup)((int) (((TObjEneDelDepthBomb *)arg0)->rotation_y));
-    *(f32 *)((s8 *)arg0 + 0x354) = ((TObjEneDelDepthBomb *)(((TObjEneDelDepthBomb *)arg0)->m_up))->get_depth_radius();
+    arg0->m_348 = arg2;
+    arg0->rotation_y = (s32) *(s32 *)((s8 *)(arg0->m_up) + 0x60);
+    VecCopy((Vec *)((u8 *)arg0 + 0x38), (const Vec *)(arg3));
+    temp_f30 = ((f32 (*)(int))sin_table_lookup)((int) (arg0->rotation_y));
+    temp_f31 = ((f32 (*)(int))cos_table_lookup)((int) (arg0->rotation_y));
+    *(f32 *)((s8 *)arg0 + 0x354) = ((TObjEneDelDepthBomb *)(arg0->m_up))->get_depth_radius();
     *(f32 *)((s8 *)arg0 + 0x334) = (f32) (*(f32 *)((s8 *)arg0 + 0x354) * temp_f30);
     *(f32 *)((s8 *)arg0 + 0x338) = 0.0f;
-    ((TObjEneDelDepthBomb *)arg0)->m_33c = (f32) (*(f32 *)((s8 *)arg0 + 0x354) * temp_f31);
-    ((TObjEneDelDepthBomb *)arg0)->m_350 = arg4;
-    ((TObjEneDelDepthBomb *)arg0)->m_344 = 0.0f;
-    ((TObjEneDelDepthBomb *)arg0)->m_34c = 0;
-    return arg0;
+    arg0->m_33c = (f32) (*(f32 *)((s8 *)arg0 + 0x354) * temp_f31);
+    arg0->m_350 = arg4;
+    arg0->m_344 = 0.0f;
+    arg0->m_34c = 0;
+    return (u8 *)arg0;
 }
 
 void TObjEneDelDepth::update_ground_check() {

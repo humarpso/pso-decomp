@@ -116,7 +116,7 @@ s32 exchange_object_state__9TObjEnemyFls(void *, void *, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8015D314_lbl_804B0A10 bm_fs_obj_zombie_con_resource_descriptor;
 extern u32 TOCtrlDubchik__shared_resource;
-void apply_actor_gravity(u8 *arg0, s32 *arg1, f32 farg0);
+void apply_actor_gravity(TObjEnemy *arg0, s32 *arg1, f32 farg0);
 void set_indexed_flags(void *, s32, s32);
 extern const f32 TOCtrlDubchik__data_805DB3AC;
 extern const f32 TOCtrlDubchik__data_805DB3B0;
@@ -219,7 +219,7 @@ void TOCtrlDubchik::update_spin() {
 
     *(s32 *)&this->m_380 = (s32) (((f32) (*(s32 *)&this->m_380)) + TOCtrlDubchik__data_805DB3B4);
     this->m_37c = (f32) (TOCtrlDubchik__data_805DB3B8 + sin_table_lookup(*(s32 *)&this->m_380));
-    apply_actor_gravity((u8 *)this, (s32 *)(((u8 *)this) + 0x390), (f32)this->m_37c);
+    apply_actor_gravity((TObjEnemy *)((u8 *)this), (s32 *)(((u8 *)this) + 0x390), (f32)this->m_37c);
     *(s32 *)&this->m_38c = (s32) (*(s32 *)&this->m_38c + 0x147);
 }
 
@@ -235,7 +235,7 @@ void TOCtrlDubchik::sub_8015CCF4() {
   new_var3 = ((s8 *) ((u8 *)this)) + 0x380;
   *((f32 *) (((s8 *) ((u8 *)this)) + 0x37C)) = (f32) (TOCtrlDubchik__data_805DB3B8 + sin_table_lookup((s32)(*((s32 *) new_var3))));
   new_var = &(*((f32 *) (((s8 *) ((u8 *)this)) + 0x37C)));
-  apply_actor_gravity((u8 *)this, (s32 *)(((u8 *)this) + 0x390), (f32)(*new_var));
+  apply_actor_gravity((TObjEnemy *)((u8 *)this), (s32 *)(((u8 *)this) + 0x390), (f32)(*new_var));
   new_var4 = *((f32 *) (((s8 *) ((u8 *)this)) + 0x388));
   *((f32 *) (((s8 *) ((u8 *)this)) + 0x388)) = (f32) (new_var4 + TOCtrlDubchik__data_805DB3B0);
   if (TOCtrlDubchik__data_805DB3AC < (*((f32 *) (((s8 *) ((u8 *)this)) + 0x388))))
@@ -254,7 +254,7 @@ void TOCtrlDubchik::sub_8015CCF4() {
 void TOCtrlDubchik::update_bobbing() {
     *(s32 *)&this->m_380 = (s32) (((f32) (*(s32 *)&this->m_380)) + TOCtrlDubchik__data_805DB3B4);
     this->m_37c = (f32) (TOCtrlDubchik__data_805DB3B8 + sin_table_lookup((s32)((int) (*(s32 *)&this->m_380))));
-    apply_actor_gravity((u8 *)this, (s32 *)(((u8 *)this) + 0x390), this->m_37c);
+    apply_actor_gravity((TObjEnemy *)((u8 *)this), (s32 *)(((u8 *)this) + 0x390), this->m_37c);
     *(f32 *)&this->unk_384 = (f32) (*(f32 *)&this->unk_384 + TOCtrlDubchik__data_805DB3B0);
     if (TOCtrlDubchik__data_805DB3AC < *(f32 *)&this->unk_384) {
         *(f32 *)&this->unk_384 = (f32) TOCtrlDubchik__data_805DB3AC;
@@ -268,7 +268,7 @@ void TOCtrlDubchik::sub_8015CE80() {
     u8 *p;
     *(s32 *)(((u8 *)this) + 0x380) = (f32)*(s32 *)(((u8 *)this) + 0x380) + TOCtrlDubchik__data_805DB3B4;
     *(f32 *)(((u8 *)this) + 0x37C) = lbl_805DB3BC + sin_table_lookup(*(s32 *)(((u8 *)this) + 0x380));
-    apply_actor_gravity((u8 *)this, (s32 *)(((u8 *)this) + 0x390), (f32)(*(f32 *)(((u8 *)this) + 0x37C)));
+    apply_actor_gravity((TObjEnemy *)((u8 *)this), (s32 *)(((u8 *)this) + 0x390), (f32)(*(f32 *)(((u8 *)this) + 0x37C)));
     for (i = lbl_805D586C; i < lbl_805D586C + lbl_805D5870; i++) {
         p = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (p != NULL && p != ((u8 *)this) && obj_testFlags30(p, 0x800) != 0 &&

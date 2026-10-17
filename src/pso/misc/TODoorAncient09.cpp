@@ -78,7 +78,7 @@ struct TODoor9VObj_801608B4 : TODoor9Base_801608B4 {
 
 void *__dt__15TODoorAncient09Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
-u8 *TODoorAncient09__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TODoorAncient09__ct(TODoorAncient09 *arg0, s32 arg1, s32 arg2);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
@@ -340,7 +340,7 @@ void TODoorAncient09::play_proximity_sound() {
 void *TODoorAncient09::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE8);
     if (o != NULL) {
-        o = TODoorAncient09__ct((u8 *)o, (s32)tl_05, (s32)arg0);
+        o = TODoorAncient09__ct((TODoorAncient09 *)((u8 *)o), (s32)tl_05, (s32)arg0);
     }
     return o;
 }

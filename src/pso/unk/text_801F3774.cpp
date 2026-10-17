@@ -42,7 +42,7 @@ void TLobby::send_6x75_quest_flag(s16 arg0, s16 arg1, s16 arg2) {
     stack.spE = arg1;
     stack.sp10 = arg2;
     stack.sp12 = 0;
-    send_and_handle_6x75(&stack.sp8);
+    send_and_handle_6x75((TLobby *)&stack.sp8);
 }
 
 void TLobby::send_6x75_quest_flag_cur_difficulty(s16 arg0, s16 arg1) {
@@ -52,12 +52,12 @@ void TLobby::send_6x75_quest_flag_cur_difficulty(s16 arg0, s16 arg1) {
     stack.spE = arg1;
     stack.sp10 = (s16) game_difficulty_selection;
     stack.sp12 = 0;
-    send_and_handle_6x75(&stack.sp8);
+    send_and_handle_6x75((TLobby *)&stack.sp8);
 }
 
-void handle_6x75_update_quest_flag_dc(u8 *arg0) {
+void handle_6x75_update_quest_flag_dc(TLobby *arg0) {
     u16 temp_r0;
-    ((TLobby *)arg0)->byteswap_6x75_packet();
+    arg0->byteswap_6x75_packet();
     temp_r0 = *(u16 *)((s8 *)arg0 + 6);
     if (temp_r0 == 0) {
         set_story_flag_in_bank(((s32) *(s16 *)((s8 *)arg0 + 8)), ((s32) *(u16 *)((s8 *)arg0 + 4)));
@@ -80,8 +80,8 @@ void prepare_offline_quest_filenames(const char* identity) {
  replace_file_extension__6TLobbyFPvPvPv(offline_quest_filename_buffer_b,identity,lbl_80449D00);
 }
 
-void send_and_handle_6x75(void *arg0) {
-    ((TLobby *)arg0)->byteswap_6x75_packet();
+void send_and_handle_6x75(TLobby *arg0) {
+    arg0->byteswap_6x75_packet();
     TLobby__send_and_handle_60((u8 *)arg0);
 }
 

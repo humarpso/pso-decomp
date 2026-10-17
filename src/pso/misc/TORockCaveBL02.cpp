@@ -13,7 +13,7 @@ s32 free_collision_body_parts(void *);
 void *TORockCaveBL02__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xBC);
     if (o != NULL) {
-        o = TORockCaveBL02__ct((u8 *)o, (s32)arg0);
+        o = TORockCaveBL02__ct((TORockCaveBL02 *)((u8 *)o), (s32)arg0);
     }
     return o;
 }

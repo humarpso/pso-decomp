@@ -53,7 +53,7 @@ TItemShootParticle_8011B7FC *TItemShootParticle__ct(TItemShootParticle_8011B7FC 
     for (i = 0; i < 2; i++) {
         self->parts[i] = 0;
     }
-    disallow_rendering__7TObjectFv(self);
+    disallow_rendering__7TObjectFv((TObject *)self);
     return self;
 }
 

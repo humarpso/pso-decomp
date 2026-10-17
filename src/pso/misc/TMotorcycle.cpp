@@ -56,7 +56,7 @@ extern const f32 lbl_805DBED8;
 extern const f32 lbl_805DBEDC;
 f32 fabs_float(f32);
 s32 init_collision_body_parts(void *, void *, int);
-void *TObjMesBase__ct(void *arg0, s32 arg1, s32 arg2);
+void *TObjMesBase__ct(TObjMesBase *arg0, s32 arg1, s32 arg2);
 extern s32 lbl_80445DF4[];
 extern s32 TMotorcycle__collision_parts[];
 extern s32 __vt__11TMotorcycle[];
@@ -139,7 +139,7 @@ void *__dt__11TMotorcycleFv(void *arg0, s16 arg1) {
 }
 #define self ((Moto_801951C8 *)arg0)
 void *TMotorcycle__ct(void *arg0, void *arg1, void *arg2) {
-    TObjMesBase__ct(arg0, (s32)arg1, (s32)arg2);
+    TObjMesBase__ct((TObjMesBase *)arg0, (s32)arg1, (s32)arg2);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TMotorcycle;
     self->x0 = motorcycle_class_name;
     self->xBC = fabs_float(self->x68);

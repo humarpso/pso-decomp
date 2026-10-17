@@ -24,7 +24,7 @@ typedef char TBoss1DragonEffTail_size[sizeof(TBoss1DragonEffTail) == 0xCC ? 1 : 
 
 extern "C" {
 void TBoss1DragonEffTail__vt18(s32 arg0, s32 arg1);
-void TBoss1DragonEffTail__vt20(u8 *arg0, u8 *arg1);
+void TBoss1DragonEffTail__vt20(TBoss1DragonEffTail *arg0, u8 *arg1);
 void *__dt__19TBoss1DragonEffTailFv(void *arg0, s16 arg1);
 void run_task__19TBoss1DragonEffTailFv(u8 *arg0);
 }

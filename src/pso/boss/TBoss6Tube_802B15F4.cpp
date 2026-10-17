@@ -23,17 +23,17 @@ void *__dt__10TBoss6TubeFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TBoss6Tube__ct(u8 *arg0, u8 *arg1) {
+u8 *TBoss6Tube__ct(TBoss6Tube *arg0, u8 *arg1) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802B1654___vt__10TBoss6Tube *)&__vt__10TBoss6Tube).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3E9C;
     *(u8 **)((s8 *)arg0 + 0x2C) = arg1;
-    ((TBoss6Tube *)arg0)->m_24 = 0;
-    ((TBoss6Tube *)arg0)->m_28 = 0;
+    arg0->m_24 = 0;
+    arg0->m_28 = 0;
     TBoss6Tube::reset_state();
-    ((TBoss6Tube *)arg0)->m_20 = 0;
-    ((TBoss6Tube *)arg0)->m_1c = 0;
-    return arg0;
+    arg0->m_20 = 0;
+    arg0->m_1c = 0;
+    return (u8 *)arg0;
 }
 
 }

@@ -25,7 +25,7 @@ void load_bg_lightning(void);
 void render__12TBGLightningFv(s32 arg0);
 void run_task__12TBGLightningFv(void *arg0);
 void run_task__16TBGLightningCtrlFv(void *arg0);
-void spawn_lightning_at_angle__16TBGLightningCtrlFPvi(u8 *arg0, s32 arg1);
+void spawn_lightning_at_angle__16TBGLightningCtrlFPvi(TBGLightningCtrl *arg0, s32 arg1);
 void submit_particle_quad(void *arg0, f32 *p, f32 *d, s32 c);
 }
 

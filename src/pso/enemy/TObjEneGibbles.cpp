@@ -109,7 +109,7 @@ extern u32 gibbles_combat_stat_entries;
 extern const f32 lbl_805DE834;
 extern const f32 lbl_805DE85C;
 s32 is_target_in_attack_range__14TObjEneGibblesFv(u8 *arg0);
-void apply_actor_gravity(u8 *arg0, s32 *arg1, f32 farg0);
+void apply_actor_gravity(TObjEnemy *arg0, s32 *arg1, f32 farg0);
 s16 get_attack_params_atp_min(void *);
 s32 get_current_floor();
 s32 get_enemy_entity();
@@ -166,7 +166,7 @@ extern s32 model_render_flags;
 extern const f32 lbl_805DE87C;
 extern const f32 lbl_805DE880;
 extern const f32 lbl_805DE884;
-void draw_model__14TObjEneGibblesFPv(u8 *arg0);
+void draw_model__14TObjEneGibblesFPv(TObjEneGibbles *arg0);
 f32 subtract_vector(void *, void *);
 s32 check_path_obstructed(void *, void *);
 u8 * get_player_data__10TObjPlayerFi(s32);
@@ -394,7 +394,7 @@ struct Gib_802D9110;
 void TObjEneGibbles__sub_802D9110(Gib_802D9110 *);
 void vfunc_60__14TObjEneGibblesFv(u8 *arg0);
 void vfunc_58__14TObjEneGibblesFv(u8 *arg0);
-void run_task__14TObjEneGibblesFPv(u8 *arg0);
+void run_task__14TObjEneGibblesFPv(TObjEneGibbles *arg0);
 void* vfunc_9__14TObjEneGibblesFv(void* p);
 s32 vec3_add_to(f32 *, void *);
 s32 matrix_mult_vec(int, void *, void *);
@@ -1025,7 +1025,7 @@ void TObjEneGibbles::sub_802D8140() {
     case 0:
       this->phase = 1;
       *((f32 *) (((s8 *) ((u8 *)this)) + 0x3A0)) = (f32) TObjEneGibbles__data_805DE7E4;
-      apply_actor_gravity((u8 *)this, (s32 *)(0), TObjEneGibbles__data_805DE7E4);
+      apply_actor_gravity((TObjEnemy *)((u8 *)this), (s32 *)(0), TObjEneGibbles__data_805DE7E4);
       play_sound_effect((int)((void *) ((s32)this->resolve_sound_id((u32)(0x3A333)))), (void *)(((u8 *)this) + 0x38), 0, 0);
       return;
     case 1:
@@ -1084,20 +1084,20 @@ void TObjEneGibbles::update_action_state() {
         break;
     case 0:
         this->phase = 1;
-        apply_actor_gravity((arg0), 0, TObjEneGibbles__data_805DE7E4);
+        apply_actor_gravity((TObjEnemy *)(arg0), (s32 *)(0), TObjEneGibbles__data_805DE7E4);
         play_sound_effect(((TObjEneGibbles*)((void *)((void *)(arg0))))->resolve_sound_id((u32)(0x3AD34)), (void *) (arg0 + 0x38), 0, 0);
         break;
     case 1:
         this->m_310 = (f32) TObjEneGibbles__data_805DE7E4;
         (*(f32 *)&this->unk_308) = (f32) TObjEneGibbles__data_805DE7E4;
-        apply_actor_gravity((arg0), 0, TObjEneGibbles__data_805DE7E4);
+        apply_actor_gravity((TObjEnemy *)(arg0), (s32 *)(0), TObjEneGibbles__data_805DE7E4);
         if ((u32) this->m_b4 != 8U) {
             this->phase = 3;
         }
         break;
     case 3:
         if (!((this->actorFlags) & 0x800000)) {
-            apply_actor_gravity((arg0), 0, TObjEneGibbles__data_805DE7E4);
+            apply_actor_gravity((TObjEnemy *)(arg0), (s32 *)(0), TObjEneGibbles__data_805DE7E4);
         }
         (this->actorFlags) = (s32) ((this->actorFlags) & 0xFFFFF9FF);
         temp_r4 = (unsigned char *) (this->m_a4);
@@ -1204,7 +1204,7 @@ void TObjEneGibbles::sub_802D8984() {
     case 0:
         o->f38C = TObjEneGibbles__data_805DE7E4;
         if (!(o->f30 & 0x800000)) {
-            apply_actor_gravity((u8 *)o, (s32 *)(0), TObjEneGibbles__data_805DE7E4);
+            apply_actor_gravity((TObjEnemy *)((u8 *)o), (s32 *)(0), TObjEneGibbles__data_805DE7E4);
         }
         o->f3A4 = 0;
         if (o->f374 & 0x80) {
@@ -1287,7 +1287,7 @@ void TObjEneGibbles::sub_802D8984() {
         break;
     case 3:
         if (!(o->f30 & 0x800000)) {
-            apply_actor_gravity((u8 *)o, (s32 *)(0), TObjEneGibbles__data_805DE7E4);
+            apply_actor_gravity((TObjEnemy *)((u8 *)o), (s32 *)(0), TObjEneGibbles__data_805DE7E4);
         }
         if (objInBand__FP7GameObjf(o, o->fC4 - TObjEneGibbles__data_805DE7EC - o->fC8) != 0) {
             o->f30 &= ~0x200000;
@@ -1325,14 +1325,14 @@ void TObjEneGibbles__sub_802D8E8C(u8 *arg0) {
     switch (F_802D(0x328, s16)) {
     case 0:
         F_802D(0x328, s16) = 1;
-        apply_actor_gravity(arg0, 0, TObjEneGibbles__data_805DE7E4);
+        apply_actor_gravity((TObjEnemy *)arg0, (s32 *)(0), TObjEneGibbles__data_805DE7E4);
         F_802D(0x374, s32) |= 0x100;
         play_sound_effect(((TObjEneGibbles*)(arg0))->resolve_sound_id((u32)(0x3AD2E)), arg0 + 0x38, 0, 0);
         break;
     case 1:
     case 2:
         if (!(F_802D(0x30, s32) & 0x800000)) {
-            apply_actor_gravity(arg0, 0, TObjEneGibbles__data_805DE7E4);
+            apply_actor_gravity((TObjEnemy *)arg0, (s32 *)(0), TObjEneGibbles__data_805DE7E4);
         }
         if (objInBand__FP7GameObjf(arg0, lbl_805DE834) != 0) {
             play_sound_effect(((TObjEneGibbles*)(arg0))->resolve_sound_id((u32)(0x3A82D)), arg0 + 0x2FC, 0, 0);
@@ -1437,7 +1437,7 @@ void TObjEneGibbles__sub_802D9110(Gib_802D9110 *self) {
             subtract_vector(&d, &self->pos);
             diff = update_angle__10TObjPlayerFlPv(self, self->param->turn, &d);
             if (!(self->flags30 & 0x800000)) {
-                apply_actor_gravity((u8 *)self, (s32 *)(0), TObjEneGibbles__data_805DE7E4);
+                apply_actor_gravity((TObjEnemy *)((u8 *)self), (s32 *)(0), TObjEneGibbles__data_805DE7E4);
             }
             if (diff < 0x10) {
                 self->flags374 |= 0x100;
@@ -1696,7 +1696,7 @@ void TObjEneGibbles::sub_802DA0BC() {
                 Vec_802DA0BC v2 = *(Vec_802DA0BC *)(((u8 *)this) + 0x2FC);
                 copy_position_if_valid__10TObjPlayerFii((s32)this, (s32)&v2);
             }
-            apply_actor_gravity(((u8 *)this), 0, TObjEneGibbles__data_805DE7E4);
+            apply_actor_gravity((TObjEnemy *)((u8 *)this), (s32 *)(0), TObjEneGibbles__data_805DE7E4);
             *(f32 *)((s8 *)((u8 *)this) + 0x3A0) = TObjEneGibbles__data_805DE7E4;
         } else {
             this->phase = 0;
@@ -1772,7 +1772,7 @@ void TObjEneGibbles::update_death_sequence() {
         TObjEneMe3SinowZoa__sub_800D758C((void *) (arg0 + 0x3C0));
         this->m_38c = (f32) lbl_805DE868;
         *(f32 *)&this->unk_390 = (f32) TObjEneGibbles__data_805DE830;
-        apply_actor_gravity((arg0), 0, TObjEneGibbles__data_805DE7E4);
+        apply_actor_gravity((TObjEnemy *)(arg0), (s32 *)(0), TObjEneGibbles__data_805DE7E4);
         break;
     case 1:
         if (((struct GibVObj_802da394_802D87D8 *) (arg0 + 0x3C0))->m5() != 0) {
@@ -1818,7 +1818,7 @@ void TObjEneGibbles::update_spawn_state() {
     switch (this->phase) {
     case 0:
         this->phase = 1;
-        apply_actor_gravity(arg0, 0, TObjEneGibbles__data_805DE7E4);
+        apply_actor_gravity((TObjEnemy *)arg0, (s32 *)(0), TObjEneGibbles__data_805DE7E4);
         return;
     case 1:
         if (horizontal_distance_squared((int) ((this->target) + 0x2FC), (void *) (arg0 + 0x2FC)) < lbl_805DE870) {
@@ -1913,7 +1913,7 @@ void TObjEneGibbles::sub_802DA7A4() {
         this->m_b8 = 5;
         this->m_38c = (f32) TObjEneGibbles__data_805DE7E4;
         *(f32 *)&this->unk_390 = (f32) lbl_805DE874;
-        apply_actor_gravity((((u8 *)this)), 0, TObjEneGibbles__data_805DE7E4);
+        apply_actor_gravity((TObjEnemy *)(((u8 *)this)), (s32 *)(0), TObjEneGibbles__data_805DE7E4);
         break;
     case 1:
         if (objInBand__FP7GameObjf((void *) (this), TObjEneGibbles__data_805DE7F8) != 0) {
@@ -1922,7 +1922,7 @@ void TObjEneGibbles::sub_802DA7A4() {
             play_sound_effect((int)(this->resolve_sound_id((u32)(0x3A82F))), (void *) (((u8 *)this) + 0x38), 0, 0);
             ((V_802DA7A4 *)(((u8 *)this) + 0x3C0))->m2();
         }
-        apply_actor_gravity((((u8 *)this)), 0, TObjEneGibbles__data_805DE7E4);
+        apply_actor_gravity((TObjEnemy *)(((u8 *)this)), (s32 *)(0), TObjEneGibbles__data_805DE7E4);
         break;
     case 2:
         if (((V_802DA7A4 *)(((u8 *)this) + 0x3C0))->m4() == 1) {
@@ -2233,7 +2233,7 @@ void gibbles_render_node_callback(void) {
     TObjEneGibbles__render_node_index += 1;
 }
 
-void draw_model__14TObjEneGibblesFPv(u8 *arg0) {
+void draw_model__14TObjEneGibblesFPv(TObjEneGibbles *arg0) {
     Obj_802DB200 *self = (Obj_802DB200 *)arg0;
     Vec_800A6B14 v;
     s32 fade;
@@ -2250,26 +2250,26 @@ void draw_model__14TObjEneGibblesFPv(u8 *arg0) {
     }
     if (vis != 0) {
         update_obstruction_fade(&self->fades[cam]);
-        fade = ((RenderFadeState *)(&self->fades[cam]))->updateFromCamera((const f32*)(arg0 + 0x2FC));
+        fade = ((RenderFadeState *)(&self->fades[cam]))->updateFromCamera((const f32*)((u8 *)arg0 + 0x2FC));
         select_actor_lighting((s32)arg0);
-        TObjFish::set_global_param(((TObjEneGibbles *)arg0)->texture_id);
+        TObjFish::set_global_param(arg0->texture_id);
         push_matrix_from(0);
-        VecCopy((Vec *)&v, (const Vec *)((Vec_800A6B14 *)(arg0 + 0x38)));
-        switch (((TObjEneGibbles *)arg0)->mode) {
+        VecCopy((Vec *)&v, (const Vec *)((Vec_800A6B14 *)((u8 *)arg0 + 0x38)));
+        switch (arg0->mode) {
         case 2:
         case 6:
         case 10:
-            v.y += ((TObjEneGibbles *)arg0)->m_38c;
+            v.y += arg0->m_38c;
             break;
         }
         translate_matrix_vec3((u8 *)(0), (u8 *)&v);
-        rotate_matrix_y(0, ((TObjEneGibbles *)arg0)->rotation_y);
-        scale_matrix_vec3(0, arg0 + 0x68);
+        rotate_matrix_y(0, arg0->rotation_y);
+        scale_matrix_vec3(0, (u8 *)arg0 + 0x68);
         TObjEneGibbles__render_node_index = 0;
-        TObjEneGibbles__render_rotation_x = ((TObjEneGibbles *)arg0)->m_3bc;
+        TObjEneGibbles__render_rotation_x = arg0->m_3bc;
         TObjEneRe7Berura::set_global_state((s32)((void *)gibbles_render_node_callback));
         TObjPlayer::toggle_particle_effect();
-        switch (((TObjEneGibbles *)arg0)->mode) {
+        switch (arg0->mode) {
         case 0:
             break;
         case 1:
@@ -2318,73 +2318,73 @@ void draw_model__14TObjEneGibblesFPv(u8 *arg0) {
         TObjEneRe7Berura::set_global_state((s32)NULL);
         pop_matrix();
         restore_scene_lighting();
-        if (!(((TObjEneGibbles *)arg0)->m_374 & 1)) {
+        if (!(arg0->m_374 & 1)) {
             ((TObjEnemy *)arg0)->render_with_position_override(0, 0);
         }
     } else {
-        ((TObjEneGibbles *)arg0)->update_position();
+        arg0->update_position();
     }
 }
 
-void run_task__14TObjEneGibblesFPv(u8 *arg0) {
+void run_task__14TObjEneGibblesFPv(TObjEneGibbles *arg0) {
     s16 temp_r0;
     u8 *temp_r4;
     if (TObjPlayer::check_demo_mode() == 1) {
-        ((void (*)(u8 *))TObjEneGibbles__sub_802D7E3C)(arg0);
+        ((void (*)(u8 *))TObjEneGibbles__sub_802D7E3C)((u8 *)arg0);
         return;
     }
     {
-        switch (((TObjEneGibbles *)arg0)->mode) {
+        switch (arg0->mode) {
         case 0:
-            ((TObjEneGibbles *)arg0)->init_state();
+            arg0->init_state();
             break;
         case 1:
-            ((TObjEneGibbles *)arg0)->update_spawn_state();
+            arg0->update_spawn_state();
             break;
         case 2:
-            ((TObjEneGibbles *)arg0)->update_death_sequence();
+            arg0->update_death_sequence();
             break;
         case 3:
-            ((TObjEneGibbles *)arg0)->sub_802DA0BC();
+            arg0->sub_802DA0BC();
             break;
         case 4:
             TObjEneGibbles__sub_802D9110((Gib_802D9110 *)arg0);
             break;
         case 5:
-            TObjEneGibbles__sub_802D8E8C(arg0);
+            TObjEneGibbles__sub_802D8E8C((u8 *)arg0);
             break;
         case 6:
-            ((TObjEneGibbles *)arg0)->sub_802D8984();
+            arg0->sub_802D8984();
             break;
         case 7:
-            TObjEneGibbles__sub_802D8580(arg0);
+            TObjEneGibbles__sub_802D8580((u8 *)arg0);
             break;
         case 8:
-            ((TObjEneGibbles *)arg0)->update_action_state();
+            arg0->update_action_state();
             break;
         case 9:
-            ((TObjEneGibbles *)arg0)->sub_802D8140();
+            arg0->sub_802D8140();
             break;
         case 10:
-            ((TObjEneGibbles *)arg0)->sub_802DA7A4();
+            arg0->sub_802DA7A4();
             break;
         case 11:
-            ((TObjEneGibbles *)arg0)->update_wander();
+            arg0->update_wander();
             break;
         }
     }
-    temp_r4 = (u8 *)(((TObjEneGibbles *)arg0)->target);
+    temp_r4 = (u8 *)(arg0->target);
     if ((temp_r4 != NULL) && (*(s32 *)((s8 *)temp_r4 + 0x30) & 0x02000800)) {
         *(s16 *)((s8 *)arg0 + 0x37E) = 0;
-        ((TObjEneGibbles *)arg0)->actorFlags = (s32) (((TObjEneGibbles *)arg0)->actorFlags & 0xFFDFFFFF);
-        ((TObjEneGibbles *)arg0)->m_374 = (s32) (((TObjEneGibbles *)arg0)->m_374 & 0xFFFF0000);
-        ((TObjEneGibbles *)arg0)->target = NULL;
+        arg0->actorFlags = (s32) (arg0->actorFlags & 0xFFDFFFFF);
+        arg0->m_374 = (s32) (arg0->m_374 & 0xFFFF0000);
+        arg0->target = NULL;
     }
-    ((TObjEneGibbles *)arg0)->update_position();
-    ((TObjEneGibbles *)arg0)->update_shadow_height();
+    arg0->update_position();
+    arg0->update_shadow_height();
     copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
-    ((TObjEneGibbles *)arg0)->sync_state();
-    ((TObjEneGibbles *)arg0)->m_2b4 = (f32) (((TObjEneGibbles *)arg0)->m_2b4 + TObjEneGibbles__data_805DE7EC);
+    arg0->sync_state();
+    arg0->m_2b4 = (f32) (arg0->m_2b4 + TObjEneGibbles__data_805DE7EC);
 }
 
 void TObjEneGibbles::init_params() {

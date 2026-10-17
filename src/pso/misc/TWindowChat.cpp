@@ -500,7 +500,7 @@ TWindowChat::TWindowChat(TObject *arg1, void *arg2) : TObject(arg1) {
     init_keyboard_text_field((u8 *)this->composer, 200, 2);
     o2 = ((void *)__nw__7TObjectFUl(0x74));
     if (o2 != NULL) {
-        o2 = TWindowKeyBoardHard__ct((u8 *)o2, (s32)this->composer);
+        o2 = TWindowKeyBoardHard__ct((TWindowKeyBoardHard *)((u8 *)o2), (s32)this->composer);
     }
     this->hardKeyboard = o2;
     *(u32 *)((s8 *)this + 0x24) = 0;

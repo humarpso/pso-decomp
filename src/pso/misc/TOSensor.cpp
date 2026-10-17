@@ -66,7 +66,7 @@ void *get_player_by_client_id(s32 i);
 void *TOSensor__ct(void *arg0);
 void *__dt__8TOSensorFv(void *arg0, s16 arg1);
 void render__8TOSensorFv(void);
-void *TOKey__ct(void *arg0);
+void *TOKey__ct(TOKey *arg0);
 void __dl__7TObjectFPv(void *);
 void *__dt__5TOKeyFv(void *arg0, s16 arg1);
 
@@ -207,7 +207,7 @@ void *__dt__8TOSensorFv(void *arg0, s16 arg1) {
 extern void *lbl_805D3140;
 
 void *TOSensor__ct(void *arg0) {
-    TOKey__ct(arg0);
+    TOKey__ct((TOKey *)arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TOSensor;
     VecCopy((Vec *)((char *)arg0 + 80), (const Vec *)((char *)arg0 + 56));
     *(void * *)&((TOSensor *)arg0)->m_name = lbl_805D3140;
@@ -290,7 +290,7 @@ extern "C" {
 extern s32 __vt__17TOSensorAncient01[];
 extern s32 TOSensorAncient01_class_name;
 extern u32 sensor_ancient01_model_resource;
-u8 *TOSensorAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TOSensorAncient01__ct(TOSensorAncient01 *arg0, s32 arg1, s32 arg2);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void *mem_alloc(u32 size);
@@ -399,7 +399,7 @@ extern void *tl_05;
 void *TOSensorAncient01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF8);
     if (o != NULL) {
-        o = TOSensorAncient01__ct((u8 *)o, (s32)tl_05, (s32)arg0);
+        o = TOSensorAncient01__ct((TOSensorAncient01 *)((u8 *)o), (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -462,39 +462,39 @@ void *__dt__17TOSensorAncient01Fv(void *arg0, s16 arg1) {
 }
 #pragma push
 #pragma opt_common_subs off
-u8 *TOSensorAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TOSensorAncient01__ct(TOSensorAncient01 *arg0, s32 arg1, s32 arg2) {
     s32 temp_r0;
     ((s32 (*)(void *))TOSensor__ct)(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80175E2C___vt__17TOSensorAncient01 *)&__vt__17TOSensorAncient01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOSensorAncient01_class_name;
     ((TOSensorAncient01 *)(arg0))->apply_object_set_data((void *)arg2);
     ((TOKey *)arg0)->init_switch_id();
-    temp_r0 = *(s32 *)&((TOSensorAncient01 *)arg0)->m_8c;
+    temp_r0 = *(s32 *)&arg0->m_8c;
     if (temp_r0 < 0) {
-        *(s32 *)&((TOSensorAncient01 *)arg0)->m_8c = 0;
+        *(s32 *)&arg0->m_8c = 0;
     } else if (temp_r0 >= 2) {
-        *(s32 *)&((TOSensorAncient01 *)arg0)->m_8c = 1;
+        *(s32 *)&arg0->m_8c = 1;
     }
-    *(u8 * *)&((TOSensorAncient01 *)arg0)->model = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&sensor_ancient01_model_resource) + 0x42C)) + 8));
+    *(u8 * *)&arg0->model = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&sensor_ancient01_model_resource) + 0x42C)) + 8));
     *(u8 **)((s8 *)arg0 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&sensor_ancient01_model_resource) + 0x430)) + 4));
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - (1.0f));
-    ((TOSensorAncient01 *)arg0)->m_b8 = (f32) (1.0f);
-    ((TOSensorAncient01 *)arg0)->m_c0 = (f32) (4e+02f);
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&((TOSensorAncient01 *)arg0)->model) + 4)) + 0x14);
-    *(f32 *)((s8 *)arg0 + 0xCC) = (f32) ((5e+01f) + ((TOSensorAncient01 *)arg0)->scale);
+    arg0->m_b8 = (f32) (1.0f);
+    arg0->m_c0 = (f32) (4e+02f);
+    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&arg0->model) + 4)) + 0x14);
+    *(f32 *)((s8 *)arg0 + 0xCC) = (f32) ((5e+01f) + arg0->scale);
     if (*(f32 *)((s8 *)arg0 + 0xCC) < (0.0f)) {
         *(f32 *)((s8 *)arg0 + 0xCC) = (f32) (0.0f);
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0) {
-        *(s32 *)&((TOSensorAncient01 *)arg0)->m_d0 = 2;
+        *(s32 *)&arg0->m_d0 = 2;
     } else {
-        *(s32 *)&((TOSensorAncient01 *)arg0)->m_d0 = 1;
+        *(s32 *)&arg0->m_d0 = 1;
     }
-    ((TOSensorAncient01 *)arg0)->m_e8 = 0x78;
+    arg0->m_e8 = 0x78;
     *(s32 *)((s8 *)arg0 + 0xEC) = 0;
-    ((TOSensorAncient01 *)arg0)->m_f0 = (f32) (0.0f);
+    arg0->m_f0 = (f32) (0.0f);
     *(s32 *)((s8 *)arg0 + 0xF4) = 0;
-    return arg0;
+    return (u8 *)arg0;
 }
 #pragma pop
 

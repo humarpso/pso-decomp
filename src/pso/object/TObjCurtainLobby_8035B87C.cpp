@@ -144,19 +144,19 @@ void *__dt__16TObjCurtainLobbyFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void *TObjCurtainLobby__ct(void *arg0, s32 arg1, s32 arg2) {
+void *TObjCurtainLobby__ct(TObjCurtainLobby *arg0, s32 arg1, s32 arg2) {
     init_map_object_base();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjCurtainLobby;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjCurtainLobby__class_name;
-    ((TObjCurtainLobby *)arg0)->apply_object_set_data((void *)arg2);
+    arg0->apply_object_set_data((void *)arg2);
     if (((s32 (*)(void *))get_lobby_theme_clamped__16TObjCurtainLobbyFv)(arg0) == 0xC) {
-        ((TObjCurtainLobby *)arg0)->m_c8 = 3;
+        arg0->m_c8 = 3;
     } else {
-        ((TObjCurtainLobby *)arg0)->m_c8 = 0;
+        arg0->m_c8 = 0;
     }
     *(f32 *)((s8 *)arg0 + 0xCC) = 1.0f;
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)((void *)TObjCurtainLobby__model_resource) + 0x42C)) + 8);
-    ((TObjCurtainLobby *)arg0)->texture_id = (s32) curtain_lobby_type;
+    arg0->texture_id = (s32) curtain_lobby_type;
     return arg0;
 }
 

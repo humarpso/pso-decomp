@@ -388,7 +388,7 @@ void *TItemProShield__sub_80116D54(void *arg0) {
 void vfunc_14__11TItemObjectFv();
 void TItemObject__vt16(u8 *arg0, u8 *item);
 void vfunc_31__11TItemObjectFv();
-s32 TItemObject__vt35(void *arg0, s32 arg1);
+s32 TItemObject__vt35(TItemObject *arg0, s32 arg1);
 s32 vfunc_38__11TItemObjectFl(void *arg0, s32 arg1);
 void vfunc_9__11TItemObjectFv();
 void TItem__sub_801005D8();

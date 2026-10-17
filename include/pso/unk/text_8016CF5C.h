@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TOKeyGenericSw;
 extern "C" {
-void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source);
+void *TOKeyGenericSw__ct(TOKeyGenericSw *arg0, void *parent, void *source);
 void TOKeyMachine01__vt16(s32 arg0);
 }
 

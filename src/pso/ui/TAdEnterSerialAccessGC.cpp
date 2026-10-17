@@ -735,30 +735,30 @@ void *__dt__22TAdEnterSerialAccessGCFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TAdEnterSerialAccessGC__ct(u8 *arg0) {
+u8 *TAdEnterSerialAccessGC__ct(TAdEnterSerialAccessGC *arg0) {
     s8 flag[0x10];
     u8 sp8[0x10];
     void *p;
     TAdEnterBaseGC__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TAdEnterSerialAccessGC;
     *(s32 *)((s8 *)arg0 + 0) = TAdEnterSerialAccessGC__name;
-    ((TAdEnterSerialAccessGC *)arg0)->m_48 = 0;
+    arg0->m_48 = 0;
     TAdEnterSerialAccessGC__input_state = 0;
-    ((TAdEnterSerialAccessGC *)arg0)->m_44 = 0;
-    ((TAdEnterSerialAccessGC *)arg0)->m_4c = 0;
-    ((TAdEnterSerialAccessGC *)arg0)->m_60 = 0;
-    ((TAdEnterSerialAccessGC *)arg0)->m_64 = 0;
-    ((TAdEnterSerialAccessGC *)arg0)->m_50 = 0;
-    ((TAdEnterSerialAccessGC *)arg0)->m_54 = 0;
-    ((TAdEnterSerialAccessGC *)arg0)->m_58 = 0;
-    ((TAdEnterSerialAccessGC *)arg0)->m_5c = 0;
+    arg0->m_44 = 0;
+    arg0->m_4c = 0;
+    arg0->m_60 = 0;
+    arg0->m_64 = 0;
+    arg0->m_50 = 0;
+    arg0->m_54 = 0;
+    arg0->m_58 = 0;
+    arg0->m_5c = 0;
     TAdEnterSerialAccessGC__keyboard_control = 0;
     if (*(s8 *) (TAdSinglePlyChrSelectGC::get_instance() + 0x1152C) != 0) {
         ((void (*)(s32)) init__22TAdEnterSerialAccessGCFv)(TAdSinglePlyChrSelectGC::get_instance() + 0x1152C);
         TAdEnterSerialAccessGC__sub_8032190C(TAdSinglePlyChrSelectGC::get_instance() + 0x1153C);
         TAdEnterSerialAccessGC::init_state();
         queue_destruction__7TObjectFv(arg0);
-        return arg0;
+        return (u8 *)arg0;
     }
     flag[0] = 0;
     if (load_and_verify_character_save__23TAdSinglePlyChrSelectGCFPc(flag, sp8) != 0 && flag[0] != 0) {
@@ -778,7 +778,7 @@ u8 *TAdEnterSerialAccessGC__ct(u8 *arg0) {
         p = __ct__14TAdSelectCurGCFv(p, tl_clipout, &TAdEnterSerialAccessGC__selection_positions, lbl_804764F8);
     }
     *(void **)((s8 *)arg0 + 0x54) = p;
-    return arg0;
+    return (u8 *)arg0;
 }
 
 s32 TAdEnterSerialAccessGC::get_field20_state() {

@@ -299,7 +299,7 @@ extern "C" {
 s32 approach_angle_limited(s32, s32, s32);
 f32 calc_boss4_scale__10TObjPlayerFi();
 void move_with_wall_slide(u8 *arg0);
-void enemy_set_heading_velocity(u8 *arg0, s32 arg1, f32 farg0);
+void enemy_set_heading_velocity(TObjEnemy *arg0, s32 arg1, f32 farg0);
 void select_enemy_destination(void *, void *, s32);
 void enemy_turn_toward_dest(void *, s32);
 f32 horizontal_distance_squared(void *, void *);
@@ -569,7 +569,7 @@ void TObjNpcBase::update_wandering() {
         u8 *o;
         f32 r;
         enemy_turn_toward_dest(arg0, *(s32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 8));
-        enemy_set_heading_velocity(arg0, this->rotation_y, *(f32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 4));
+        enemy_set_heading_velocity((TObjEnemy *)arg0, this->rotation_y, *(f32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 4));
         move_with_wall_slide(arg0);
         if (objInBand((GameObj *)arg0, (f32)lbl_805DB1C8) != 0 || objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805DB1D8)) != 0) {
             this->play_voice();

@@ -19,8 +19,9 @@ struct TAdPlyPltAnimGC : public TObject {
 
 typedef char TAdPlyPltAnimGC_size[sizeof(TAdPlyPltAnimGC) == 0x7C ? 1 : -1];
 
+struct TAdPlyPltAnimCtrlGC;
 extern "C" {
-void TAdPlyPltAnimCtrlGC__sub_80355D38(void *arg0);
+void TAdPlyPltAnimCtrlGC__sub_80355D38(TAdPlyPltAnimCtrlGC *arg0);
 s32 TAdPlyPltAnimGC__ct(int arg0, void *arg1, void *arg2);
 void TAdPlyPltAnimGC__sub_8035615C(void);
 void *__dt__15TAdPlyPltAnimGCFv(void *arg0, s16 arg1);

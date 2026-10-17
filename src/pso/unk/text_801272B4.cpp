@@ -14,7 +14,7 @@ extern const f32 lbl_805DADC8;
 
 u8 *TObjPlayer__sub_801272B4(void *self_, s32 a, void *b) {
     Self_801272B4 *self = (Self_801272B4 *)self_;
-    TItemWeapon__ct((u8 *)self, (void *)a, (u8 *)b);
+    TItemWeapon__ct((TItemWeapon *)((u8 *)self), (void *)a, (u8 *)b);
     self->vt = lbl_804A3168;
     ((TObjPlayer *)self)->set_status_flags(0x100622);
     self->f1f0 = (void *)create_lavis_shot;

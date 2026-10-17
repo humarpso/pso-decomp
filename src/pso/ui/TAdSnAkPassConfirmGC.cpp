@@ -40,7 +40,7 @@ struct Obj_8032C004 { s32 f0; u8 pad[0x14]; void *vt; u8 pad2[0x48 - 0x1C]; s32 
 extern "C" {
 void *__nw__7TObjectFUl(u32);
 void __ct__10TAdTitleGCFP7TObjectl(void *, void *, int);
-void *TAdYesNoBaseGC__ct(void *arg0);
+void *TAdYesNoBaseGC__ct(TAdYesNoBaseGC *arg0);
 extern u8 lbl_804772C0[];
 extern u8 lbl_804772C8[];
 extern u8 lbl_804772D0[];
@@ -84,7 +84,7 @@ void *__dt__20TAdSnAkPassConfirmGCFv(void *arg0, s16 arg1) {
 
 Obj_8032C004 *TAdSnAkPassConfirmGC__ct(Obj_8032C004 *parent) {
     void *p;
-    TAdYesNoBaseGC__ct(parent);
+    TAdYesNoBaseGC__ct((TAdYesNoBaseGC *)parent);
     parent->vt = ((u8 *)&__vt__20TAdSnAkPassConfirmGC);
     parent->f0 = lbl_805D41F0;
     p = __nw__7TObjectFUl(0x138);

@@ -63,7 +63,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8035D10C___vt__12TBoss6Thanks __vt__12TBoss6Thanks;
 extern s32 TBoss6Thanks__class_name;
 extern const f32 lbl_805E01A4;
-u8 *TBoss6Thanks__ct(u8 *arg0, u8 *arg1);
+u8 *TBoss6Thanks__ct(TBoss6Thanks *arg0, u8 *arg1);
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 int TBoss6Thanks__sub_8035CB40(void);
@@ -251,28 +251,28 @@ u8 *__dt__12TBoss6ThanksFv(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TBoss6Thanks__ct(u8 *arg0, u8 *arg1) {
+u8 *TBoss6Thanks__ct(TBoss6Thanks *arg0, u8 *arg1) {
     u8 *fish_count;
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__12TBoss6Thanks.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss6Thanks__class_name;
     fish_count = (u8 *)(TObjFish::get_fish_count());
     *(s32 *)((s8 *)arg0 + 0x38) = get_bml_model(fish_count, 7);
-    ((TBoss6Thanks *)arg0)->texture0 = TObjFish__sub_8001EDB0(fish_count, 7);
+    arg0->texture0 = TObjFish__sub_8001EDB0(fish_count, 7);
     *(s32 *)((s8 *)arg0 + 0x48) = get_bml_motion(fish_count, 9);
     *(s32 *)((s8 *)arg0 + 0x4C) = get_bml_motion(fish_count, 0xB);
     *(s32 *)((s8 *)arg0 + 0x3C) = get_bml_model(fish_count, 9);
-    ((TBoss6Thanks *)arg0)->texture1 = TObjFish__sub_8001EDB0(fish_count, 9);
+    arg0->texture1 = TObjFish__sub_8001EDB0(fish_count, 9);
     *(s32 *)((s8 *)arg0 + 0x50) = get_bml_motion(fish_count, 0xA);
     TBoss6Thanks__sub_8035CCAC((s32)((s32) arg0));
-    ((TBoss6Thanks *)arg0)->m_1c = 0;
-    ((TBoss6Thanks *)arg0)->m_24 = 0;
-    ((TBoss6Thanks *)arg0)->current_motion = 0;
-    ((TBoss6Thanks *)arg0)->frame0 = (f32) lbl_805E019C;
-    ((TBoss6Thanks *)arg0)->frame1 = (f32) lbl_805E019C;
-    ((TBoss6Thanks *)arg0)->opacity = (f32) lbl_805E01A4;
-    ((TBoss6Thanks *)arg0)->m_34 = 0;
-    return arg0;
+    arg0->m_1c = 0;
+    arg0->m_24 = 0;
+    arg0->current_motion = 0;
+    arg0->frame0 = (f32) lbl_805E019C;
+    arg0->frame1 = (f32) lbl_805E019C;
+    arg0->opacity = (f32) lbl_805E01A4;
+    arg0->m_34 = 0;
+    return (u8 *)arg0;
 }
 
 __declspec(section ".sdata2") const f32 lbl_805E0198 = 30.0f;

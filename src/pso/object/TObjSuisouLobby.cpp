@@ -68,16 +68,16 @@ const f32 lbl_8047A3DC[1][3] = { { 0.0f, 0.0f, -60.0f } };
 #define lbl_8047A3DC ((const Vec_80369ED4 *)lbl_8047A3DC)
 void TObjSuisouLobby__sub_80369B5C(void) {  }
 
-void render__15TObjSuisouLobbyFv(u8 *arg0) {
+void render__15TObjSuisouLobbyFv(TObjSuisouLobby *arg0) {
     f32 temp_f1;
 
-    if (((s32) ((TObjSuisouLobby *)arg0)->m_c8 != 0) && ((u32) ((TObjSuisouLobby *)arg0)->texture_id != 0U)) {
+    if (((s32) arg0->m_c8 != 0) && ((u32) arg0->texture_id != 0U)) {
         TParticleCtrl::begin_effect_render();
-        TObjFish::set_global_param((int) (((TObjSuisouLobby *)arg0)->texture_id));
+        TObjFish::set_global_param((int) (arg0->texture_id));
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, (int) (((TObjSuisouLobby *)arg0)->rotation_y));
-        if ((s32) ((TObjSuisouLobby *)arg0)->m_c8 != 3) {
+        post_translate_matrix((u8 *)arg0 + 0x38);
+        rotate_matrix_y(0, (int) (arg0->rotation_y));
+        if ((s32) arg0->m_c8 != 3) {
             temp_f1 = *(f32 *)((s8 *)arg0 + 0xCC);
             scale_matrix(0, temp_f1, 1.0f, temp_f1);
         }

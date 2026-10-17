@@ -15,7 +15,7 @@ void TUnk_804A2B98::reserved_53() {
     s32 arg0 = (s32)this;
     if (get_slot_count__14TItemProShieldFv() == 3) {
         knuckle_second_hand_pass = 0;
-        draw_weapon_model((void *)arg0);
+        draw_weapon_model((TItemWeapon *)((void *)arg0));
         knuckle_second_hand_pass = 1;
         draw_weapon_at_joint(arg0, 0x23);
     }

@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+class TSaveChCr;
 extern "C" {
-u8 *TSaveChCr__ct(u8 *arg0, u8 *arg1, s32 arg2);
+u8 *TSaveChCr__ct(TSaveChCr *arg0, u8 *arg1, s32 arg2);
 int TSaveChCr__sub_8033A138(void);
 }
 

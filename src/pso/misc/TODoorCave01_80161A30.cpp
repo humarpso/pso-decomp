@@ -103,17 +103,17 @@ void *__dt__12TODoorCave01Fv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80161BE4_lbl_804B13C8_size[sizeof(RecoveredGlobal_80161BE4_lbl_804B13C8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80161BE4___vt__12TODoorCave01_size[sizeof(RecoveredGlobal_80161BE4___vt__12TODoorCave01) == 0x54 ? 1 : -1];
-u8 *TODoorCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TODoorCave01__ct(TODoorCave01 *arg0, s32 arg1, s32 arg2) {
     s32 temp_r0;
     init_door_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80161BE4___vt__12TODoorCave01 *)&__vt__12TODoorCave01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2F60;
     ((TODoorCave01 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&door_cave_shared_bml_archive) + 0x42C)) + 8);
-    ((TODoorCave01 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&door_cave_shared_bml_archive) + 0x42C)) + 0xC);
+    arg0->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&door_cave_shared_bml_archive) + 0x42C)) + 0xC);
     *(u8 **)((s8 *)arg0 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&door_cave_shared_bml_archive) + 0x430)) + 4));
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB49C);
-    ((TODoorCave01 *)arg0)->m_b8 = (f32) lbl_805DB4A8;
+    arg0->m_b8 = (f32) lbl_805DB4A8;
     init_collision_body_parts(arg0, &TODoorCave01__collision_body_template.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
@@ -124,13 +124,13 @@ u8 *TODoorCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     } else if (temp_r0 > 4) {
         *(s32 *)((s8 *)arg0 + 0x88) = 4;
     }
-    ((TODoorCave01 *)arg0)->m_d4 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
-    ((TODoorCave01 *)arg0)->m_d8 = (s32) (4 - ((TODoorCave01 *)arg0)->m_d4);
+    arg0->m_d4 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
+    arg0->m_d8 = (s32) (4 - arg0->m_d4);
     *(f32 *)((s8 *)arg0 + 0xDC) = (f32) lbl_805DB49C;
-    ((TODoorCave01 *)arg0)->m_e0 = (f32) lbl_805DB49C;
+    arg0->m_e0 = (f32) lbl_805DB49C;
     *(f32 *)((s8 *)arg0 + 0xE4) = (f32) lbl_805DB49C;
-    ((TODoorCave01 *)arg0)->m_e8 = (f32) lbl_805DB49C;
-    return arg0;
+    arg0->m_e8 = (f32) lbl_805DB49C;
+    return (u8 *)arg0;
 }
 
 }

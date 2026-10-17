@@ -40,7 +40,7 @@ void *TItemEffFlame__ct(void *arg0, void *parent, void *target) {
         Src_80108F04 *src = arg2->src;
         self->x1c = ((void *(*)(void *, s32, void *))create_particle_emitter)(src->ents[self->idx].sub, 0x1BB, src);
     }
-    disallow_rendering__7TObjectFv(arg0);
+    disallow_rendering__7TObjectFv((TObject *)arg0);
     return arg0;
 }
 #undef self

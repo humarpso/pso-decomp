@@ -824,7 +824,7 @@ s32 add_actor_tp_bonus(O_80011274 *self, s32 x);
 s32 add_actor_hp_bonus(O_80011378 *self, s32 x);
 u16 find_nearest_visible_player(u8 *arg0, Vec_800115C4 *arg1, f32 farg0);
 s32 is_actor_cadence_frame__13TUnk_804806E8Fl(O_80011704 *self, s32 x);
-void apply_actor_gravity(u8 *arg0, s32 *arg1, f32 farg0);
+void apply_actor_gravity(TObjEnemy *arg0, s32 *arg1, f32 farg0);
 void apply_knockback_from_attacker__13TUnk_804806E8FPUc(u8 *arg0, u8 *arg1);
 int vfunc_67__13TUnk_804806E8Fv(void);
 int vfunc_66__13TUnk_804806E8Fv(void);
@@ -848,7 +848,7 @@ f32 enemy_pursue_point(u8 *arg0, s32 arg1, Vec_800180E8 arg2, f32 farg0, f32 far
 f32 enemy_backstep_from_point(Obj_80017ABC *arg0, Vec_800180E8 arg1, f32 farg0);
 f32 enemy_wander_home(u8 *arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2);
 void move_with_wall_slide(u8 *arg0);
-void enemy_set_heading_velocity(u8 *arg0, s32 arg1, f32 farg0);
+void enemy_set_heading_velocity(TObjEnemy *arg0, s32 arg1, f32 farg0);
 void calc_velocity_toward_destination(Obj_800180E8 *self, Vec_800180E8 *pos, Vec_800180E8 *dest, f32 speed);
 s32 TObjPlayer__sub_800181DC(u8 *arg0, Vec_800180E8 arg1);
 s32 select_enemy_destination(Obj_800182A0 *self, Vec_800182A0 *arg1, int flags);
@@ -1766,12 +1766,12 @@ s32 TUnk_804806E8::is_actor_cadence_frame(s32 x) {
     return 0;
 }
 
-void apply_actor_gravity(u8 *arg0, s32 *arg1, f32 farg0) {
+void apply_actor_gravity(TObjEnemy *arg0, s32 *arg1, f32 farg0) {
     Vec position;
     f32 temp_f1;
     s32 temp_r31;
-    ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&position.x, arg0 + 0x38);
-    temp_r31 = ((s32 (*)(void *, void *, void *))project_actor_to_ground)(arg0, &position.x, arg0 + 0x248);
+    ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&position.x, (u8 *)arg0 + 0x38);
+    temp_r31 = ((s32 (*)(void *, void *, void *))project_actor_to_ground)(arg0, &position.x, (u8 *)arg0 + 0x248);
     if (arg1 != NULL) {
         ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg1, &position.x);
     }
@@ -1783,13 +1783,13 @@ void apply_actor_gravity(u8 *arg0, s32 *arg1, f32 farg0) {
         if (*(f32 *)((s8 *)arg0 + 0x3C) <= temp_f1) {
             *(f32 *)((s8 *)arg0 + 0x3C) = temp_f1;
             *(f32 *)((s8 *)arg0 + 0x30C) = (f32) (0.0f);
-            ((TObjEnemy *)arg0)->actorFlags = (s32) (((TObjEnemy *)arg0)->actorFlags | 0x800000);
+            arg0->actorFlags = (s32) (arg0->actorFlags | 0x800000);
             return;
         }
-        ((TObjEnemy *)arg0)->actorFlags = (s32) (((TObjEnemy *)arg0)->actorFlags & 0xFF7FFFFF);
+        arg0->actorFlags = (s32) (arg0->actorFlags & 0xFF7FFFFF);
         return;
     }
-    ((TObjEnemy *)arg0)->actorFlags = (s32) (((TObjEnemy *)arg0)->actorFlags & 0xFF7FFFFF);
+    arg0->actorFlags = (s32) (arg0->actorFlags & 0xFF7FFFFF);
 }
 
 #pragma push
@@ -3972,7 +3972,7 @@ f32 enemy_move_toward(u8 *arg0, s32 arg1, Vec_800180E8 arg2, s32 arg3, f32 farg0
         }
     }
     enemy_turn_toward_dest((Obj_80018660 *)arg0, arg1);
-    enemy_set_heading_velocity(arg0, ((TObjEnemy *)arg0)->rotation_y, farg0);
+    enemy_set_heading_velocity((TObjEnemy *)arg0, ((TObjEnemy *)arg0)->rotation_y, farg0);
     move_with_wall_slide(arg0);
     return horizontal_distance_squared(&arg2, arg0 + 0x38);
 }
@@ -4011,7 +4011,7 @@ f32 enemy_pursue_point(u8 *arg0, s32 arg1, Vec_800180E8 arg2, f32 farg0, f32 far
         }
     }
     enemy_turn_toward_dest((Obj_80018660 *)arg0, arg1);
-    enemy_set_heading_velocity(arg0, ((TObjEnemy *)arg0)->rotation_y, farg0);
+    enemy_set_heading_velocity((TObjEnemy *)arg0, ((TObjEnemy *)arg0)->rotation_y, farg0);
     move_with_wall_slide(arg0);
     return horizontal_distance_squared(&arg2, arg0 + 0x2FC);
 }
@@ -4050,7 +4050,7 @@ f32 enemy_wander_home(u8 *arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2) {
         ((TObjEnemy *)arg0)->m_2ac = 0;
     } else {
         enemy_turn_toward_dest((Obj_80018660 *) arg0, arg1);
-        enemy_set_heading_velocity(arg0, ((TObjEnemy *)arg0)->rotation_y, farg0);
+        enemy_set_heading_velocity((TObjEnemy *)arg0, ((TObjEnemy *)arg0)->rotation_y, farg0);
         move_with_wall_slide(arg0);
         var_f31 = horizontal_distance_squared(arg0 + 0x29C, arg0 + 0x2FC);
         ((TObjEnemy *)arg0)->m_2ac = ((TObjEnemy *)arg0)->m_2ac + 1;
@@ -4131,7 +4131,7 @@ void move_with_wall_slide(u8 *arg0) {
 }
 #pragma pop
 
-void enemy_set_heading_velocity(u8 *arg0, s32 arg1, f32 farg0) {
+void enemy_set_heading_velocity(TObjEnemy *arg0, s32 arg1, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_8001806C, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8001806C, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8001806C, sp10) == 0x8) ? 1 : -1];
@@ -4144,7 +4144,7 @@ void enemy_set_heading_velocity(u8 *arg0, s32 arg1, f32 farg0) {
     rotate_vector_by_matrix(0, &stack.sp8, &stack.sp8);
     pop_matrix();
     *(f32 *)((s8 *)arg0 + 0x308) = stack.sp8;
-    ((TObjEnemy *)arg0)->m_310 = stack.sp10;
+    arg0->m_310 = stack.sp10;
 }
 
 void calc_velocity_toward_destination(Obj_800180E8 *self, Vec_800180E8 *pos, Vec_800180E8 *dest, f32 speed) {

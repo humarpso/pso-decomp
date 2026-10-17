@@ -139,12 +139,12 @@ struct Quad_802455CC { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 struct Rect_802455CC { f32 x, y, w, h; u8 pad10[0x20 - 0x10]; f32 px, py, sx, sy; u8 pad30[0x38 - 0x30]; f32 depth; };
 
 void queue_destruction__7TObjectFv(void *);
-void allow_rendering__7TObjectFv(void *arg0);
-void disallow_rendering__7TObjectFv(void *);
+void allow_rendering__7TObjectFv(TObject *arg0);
+void disallow_rendering__7TObjectFv(TObject *);
 int copy_vec2__28TWindowSubSymbolChatPartsSetFPv(void*);
 s32 play_sound_effect(s32, s32, s32, s32);
 int TWindowSubComCard__sub_80244774(void);
-f32 TWindowSubComCard__sub_80244784(void *arg0);
+f32 TWindowSubComCard__sub_80244784(TWindowSubComCard *arg0);
 void save_position__13TUnk_804CE018Fv(void* p);
 void TWindowSubTradeMain__sub_802448E4(void *arg0);
 void fn_8024491C(void *arg0);
@@ -193,12 +193,12 @@ int TWindowSubComCard__sub_80244774(void) {  return lbl_805D3614; }
 
 s32 TWindowSubComCard::get_field_20() { return this->m_20; }
 
-f32 TWindowSubComCard__sub_80244784(void *arg0) {
-    f32 v = ((TWindowSubComCard *)arg0)->calc_offset();
+f32 TWindowSubComCard__sub_80244784(TWindowSubComCard *arg0) {
+    f32 v = arg0->calc_offset();
     if (v < lbl_805DCAC8) {
         return v;
     }
-    return ((TWindowSubComCard *)arg0)->get_normalized_progress();
+    return arg0->get_normalized_progress();
 }
 
 f32 TWindowSubComCard::calc_offset() {
@@ -264,7 +264,7 @@ s32 TUnk_804CE018::sub_80244994() {
 void fn_802449E0(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (*(s32 *)((s8 *)arg0 + 0x2C) & 0xFFFFFFF8);
     *(s16 *)((s8 *)arg0 + 0x22) = 0;
-    disallow_rendering__7TObjectFv(arg0);
+    disallow_rendering__7TObjectFv((TObject *)arg0);
 }
 
 void TWindow__close(u8 *arg0) {
@@ -320,7 +320,7 @@ void window_request_show(void *arg0) {
     if (!(*(s32 *)((s8 *)arg0 + 0x2C) & 0x20)) {
         play_sound_effect(0x53703, 0, 0, 0);
     }
-    allow_rendering__7TObjectFv(arg0);
+    allow_rendering__7TObjectFv((TObject *)arg0);
 }
 
 s32 TUnk_804CE018::setup_window_draw_context(s32 arg1) {
@@ -805,7 +805,7 @@ void TWindowSubComCard::update_open_close() {
         *(s16 *)((s8 *)arg0 + 0x22) = (s16) (*(s16 *)((s8 *)arg0 + 0x22) + 1);
         if ((f32) *(s16 *)((s8 *)arg0 + 0x22) >= lbl_805DCACC) {
             if (*(s32 *)&this->m_2c & 0x10) {
-                disallow_rendering__7TObjectFv(arg0);
+                disallow_rendering__7TObjectFv((TObject *)arg0);
                 queue_destruction__7TObjectFv(arg0);
             }
             *(s16 *)((s8 *)arg0 + 0x22) = 0;
@@ -820,7 +820,7 @@ void TWindowSubComCard::update_open_close() {
                 return;
             }
             *(s32 *)&this->m_2c = (s32) (card_window_flags & 0xFFFFFFFD);
-            disallow_rendering__7TObjectFv(arg0);
+            disallow_rendering__7TObjectFv((TObject *)arg0);
         }
     }
 }

@@ -205,7 +205,7 @@ void handle_6x85_vol_opt_phase2_boss_actions(Obj_8003CA2C *self);
 bool is_volopt_death_active(void);
 void handle_6x17_set_entity_position_and_angle(u8 *arg0);
 void send_position_message__12TBoss3VoloptFPvPvi(void *obj, V3_8003CC18 *pos, s32 arg);
-void handle_6x16_vol_opt_boss_actions(void *arg0);
+void handle_6x16_vol_opt_boss_actions(TBoss3Volopt *arg0);
 void fn_8003CFEC(int a0);
 int TCameraCtrl__sub_8003CFF4(void);
 int TCameraCtrl__sub_8003D1E8(void * _w0);
@@ -329,8 +329,8 @@ void handle_6x85_vol_opt_phase2_boss_actions(Obj_8003CA2C *self) {
     }
 }
 
-void handle_6x84_vol_opt_boss_actions(void *arg0) {
-    ((TBoss3Volopt *)arg0)->bswap_actions();
+void handle_6x84_vol_opt_boss_actions(TBoss3Volopt *arg0) {
+    arg0->bswap_actions();
     ((TLobby *)boss3_volopt_player_target_ids)->move_data((void *)((char *)arg0 + 4), 6);
     volopt_active_player_id = *(s16 *)((s8 *)arg0 + 0xC);
     TCameraCtrl::set_player_targets(*(s16 *)((s8 *)arg0 + 0xA));
@@ -387,18 +387,18 @@ void send_position_message__12TBoss3VoloptFPvPvi(void *obj, V3_8003CC18 *pos, s3
     }
 }
 
-void handle_6x16_vol_opt_boss_actions(void *arg0) {
-    ((TBoss3Volopt *)arg0)->swap_6x16_fields();
+void handle_6x16_vol_opt_boss_actions(TBoss3Volopt *arg0) {
+    arg0->swap_6x16_fields();
     ((TLobby *)boss3_volopt_player_target_ids)->move_data((void *)((char *)arg0 + 4), 6);
     TCameraCtrl::set_player_targets(*(s16 *)((s8 *)arg0 + 0xA));
     volopt_active_player_id = -1;
 }
 
-void handle_6x15_vol_opt_boss_actions(u8 *arg0) {
+void handle_6x15_vol_opt_boss_actions(TBoss3Volopt *arg0) {
     u8 *p;
     s32 i;
 
-    ((TBoss3Volopt *)arg0)->swap_6x15_fields();
+    arg0->swap_6x15_fields();
     switch (*(s16 *)((s8 *)arg0 + 4)) {
     case 0:
         p = ((u8 * (*)(u16))find_entity_by_id)(lbl_805D271C);

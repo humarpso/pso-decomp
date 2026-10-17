@@ -35,7 +35,7 @@ extern const f32 lbl_805DC3E4;
 void add_photon_blast_chain_charge(u8 *arg0, f32 farg0);
 s32 send_6x3A_clear_photon_blast_ready_flag();
 extern const f32 lbl_805DC3E0;
-s32 subtract_photon_blast_charge(u8 *arg0, f32 farg0);
+s32 subtract_photon_blast_charge(TFontSmallLobby *arg0, f32 farg0);
 void TFontSmallLobby__sub_80152F28(void *);
 void TFontSmallLobby__sub_801D67C8(void* p);
 void reset_photon_blast_gauge(struct Lobby_801D6498 *s);
@@ -45,7 +45,7 @@ void *get_player_by_client_id(s32 i);
 u16 get_type__15TFontSmallLobbyFPv(void* p);
 s32 send_field_state__10TObjPlayerFPv();
 
-s32 subtract_photon_blast_charge(u8 *arg0, f32 farg0) {
+s32 subtract_photon_blast_charge(TFontSmallLobby *arg0, f32 farg0) {
   const f32 *new_var;
   f32 temp_f0;
   f32 temp_f1;
@@ -69,7 +69,7 @@ s32 subtract_photon_blast_charge(u8 *arg0, f32 farg0) {
   else
     if (temp_f1 < lbl_805DC3E4)
   {
-    ((TFontSmallLobby *)arg0)->update_field_40();
+    arg0->update_field_40();
   }
   block_7:
   return 1;

@@ -216,20 +216,20 @@ void TWindowSubCustomSelect::draw_palette_cells(int ctx) {
             *(s32 *)((s8 *)w1 + 0x2C) = 0xFF404040;
         }
         draw_action_palette_icon(w1, id, sub);
-        update_palette_item_count_label(w2, w1, id, sub, this->m_20);
+        update_palette_item_count_label((TWindowHelpItem *)w2, (u8 *)w1, (u16)id, (u16)sub, (s32)this->m_20);
         draw_visible_window_entries(this, &*(u8 *)((s8 *)this + 0x24), (void *)ctx);
     }
 }
 #pragma pop
 
-void render__22TWindowSubCustomSelectFv(u8 *arg0) {
+void render__22TWindowSubCustomSelectFv(TWindowSubCustomSelect *arg0) {
     s32 temp_r3;
     temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame(arg0, temp_r3);
-    ((TWindowSubCustomSelect *)arg0)->draw_palette_cells(temp_r3);
-    ((TWindowSubCustomSelect *)arg0)->draw_cursor((u8 *)temp_r3);
-    forward_render__20TWindowSubStatusDispFv((int) (((TWindowSubCustomSelect *)arg0)->m_7c), temp_r3);
-    draw_window_scrollbar((int) (((TWindowSubCustomSelect *)arg0)->m_80), temp_r3, arg0 + 0x68);
+    arg0->draw_palette_cells(temp_r3);
+    arg0->draw_cursor((u8 *)temp_r3);
+    forward_render__20TWindowSubStatusDispFv((int) (arg0->m_7c), temp_r3);
+    draw_window_scrollbar((int) (arg0->m_80), temp_r3, (u8 *)arg0 + 0x68);
 }
 
 typedef char RecoveredGlobal_80277928_lbl_8050E208_size[sizeof(RecoveredGlobal_80277928_lbl_8050E208) == 0x1B0 ? 1 : -1];
@@ -276,7 +276,7 @@ void *__dt__22TWindowSubCustomSelectFv(void *arg0, s16 arg1) {
 #pragma push
 #pragma fp_contract on
 #pragma fp_contract on
-u8 *TWindowSubCustomSelect__ct(u8 *arg0, s32 arg1) {
+u8 *TWindowSubCustomSelect__ct(TWindowSubCustomSelect *arg0, s32 arg1) {
     Pos_80277AEC pos;
     Big_80277AEC *p;
     Sub_80277AEC *q;
@@ -285,43 +285,43 @@ u8 *TWindowSubCustomSelect__ct(u8 *arg0, s32 arg1) {
     construct_with_parent__13TUnk_804CDFE8FPv(arg0, TWindowSubCustomSelect__window_settings, arg1, get_window_layout_position(0x10));
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TWindowSubCustomSelect;
     *(s32 *)((s8 *)arg0 + 0) = TWindowSubCustomSelect__class_name;
-    ((TWindowSubCustomSelect *)arg0)->m_20 = arg1;
-    p = (Big_80277AEC *)get_player_by_client_id(((TWindowSubCustomSelect *)arg0)->m_20);
+    arg0->m_20 = arg1;
+    p = (Big_80277AEC *)get_player_by_client_id(arg0->m_20);
     if (p == NULL) {
-        return arg0;
+        return (u8 *)arg0;
     }
     q = &p->sub;
     if (q == NULL) {
-        return arg0;
+        return (u8 *)arg0;
     }
     if (q->flags & 0x10) {
         *(u8 **)((s8 *)arg0 + 0x78) = custom_select_android_action_table;
     } else {
         *(u8 **)((s8 *)arg0 + 0x78) = custom_select_organic_action_table;
     }
-    ((TWindowSubCustomSelect *)arg0)->m_73 = 0;
-    ((TWindowSubCustomSelect *)arg0)->m_70 = 0;
-    ((TWindowSubCustomSelect *)arg0)->m_71 = 0;
-    ((TWindowSubCustomSelect *)arg0)->m_74 = 0;
+    arg0->m_73 = 0;
+    arg0->m_70 = 0;
+    arg0->m_71 = 0;
+    arg0->m_74 = 0;
     e = *(Ent_80277AEC **)((s8 *)arg0 + 0x78);
-    ((TWindowSubCustomSelect *)arg0)->m_72 = 0;
+    arg0->m_72 = 0;
     while (e->id != 8) {
         e++;
-        (((TWindowSubCustomSelect *)arg0)->m_72)++;
+        (arg0->m_72)++;
     }
     o = alloc__23TAdSinglePlyChrSelectGCFv(0x24);
     if (o != NULL) {
-        o = ((TWindowSubStatusDisp *)o)->construct_type1_heading(get_message_10__20TWindowSubStatusDispFl(0x22), ((TWindowSubCustomSelect *)arg0)->m_20);
+        o = ((TWindowSubStatusDisp *)o)->construct_type1_heading(get_message_10__20TWindowSubStatusDispFl(0x22), arg0->m_20);
     }
     *(void **)((s8 *)arg0 + 0x7C) = o;
     pos.x = lbl_805DD5E8;
-    pos.y = TWindowSubCustomSelect__data_805DD5B0 * (f32)(s8)((TWindowSubCustomSelect *)arg0)->m_72 + lbl_805DD5EC;
+    pos.y = TWindowSubCustomSelect__data_805DD5B0 * (f32)(s8)arg0->m_72 + lbl_805DD5EC;
     o = alloc__23TAdSinglePlyChrSelectGCFv(0xC);
     if (o != NULL) {
         o = reset_selection__20TWindowSubStatusDispFv(o, &pos);
     }
     *(void **)((s8 *)arg0 + 0x80) = o;
-    return arg0;
+    return (u8 *)arg0;
 }
 #pragma pop
 

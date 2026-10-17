@@ -612,9 +612,9 @@ void TBoss6Type2__sub_802BCC54(void *, int);
 Blk_802BCFD4 * copy_block__11TBoss6Type2FPvPv(Blk_802BCFD4 *d, Blk_802BCFD4 *s);
 void TBoss6Type2__sub_802BD340(void);
 void TBoss6Type2__sub_802BD378(T2_802BD378 *arg0, s32 arg1, void *arg2, s32 *arg3);
-f32 TBoss6Type2__vt20(void *arg0, u32 arg1, f32 farg0);
+f32 TBoss6Type2__vt20(TBoss6Type2 *arg0, u32 arg1, f32 farg0);
 void TBoss6Type2__vt61(void* p);
-void TBoss6Type2__vt60(u8 *arg0);
+void TBoss6Type2__vt60(TBoss6Type2 *arg0);
 void TBoss6Type2__vt42(void);
 void TBoss6Type2__vt43(void);
 void TBoss6Type2__vt44(void);
@@ -2421,13 +2421,13 @@ void TBoss6Type2::get_phase_values(u16 *a, u16 *b, u16 *out) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-f32 TBoss6Type2__vt20(void *arg0, u32 att, f32 scale) {
+f32 TBoss6Type2__vt20(TBoss6Type2 *arg0, u32 att, f32 scale) {
     s32 var_r31;
     s32 var_r30;
     s32 var_r29;
 
     var_r31 = 1;
-    if (((s32) ((TBoss6Type2 *)arg0)->m_418 != 0) && (att != 0U)) {
+    if (((s32) arg0->m_418 != 0) && (att != 0U)) {
         var_r30 = 0;
         var_r29 = 0;
         do {
@@ -2447,15 +2447,15 @@ f32 TBoss6Type2__vt20(void *arg0, u32 att, f32 scale) {
             }
             var_r29 += 1;
         } while (var_r29 < 3);
-        if (!(((TBoss6Type2 *)arg0)->m_2e4 & var_r30)) {
+        if (!(arg0->m_2e4 & var_r30)) {
             var_r31 = 0;
         }
     }
     if (var_r31 != 0) {
         return receive_physical_attack__10TObjPlayerFv(arg0, att, scale);
     }
-    ((TBoss6Type2 *)arg0)->sub_802BA078();
-    ((TBoss6Type2 *)arg0)->spawn_hit_effects();
+    arg0->sub_802BA078();
+    arg0->spawn_hit_effects();
     return TBoss6Type2__data_805DE410;
 }
 #pragma pop
@@ -2477,17 +2477,17 @@ void TBoss6Type2__vt61(void* p) { if (*(int *)&((TBoss6Type2 *)p)->m_374 != 35) 
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TBoss6Type2__vt60(u8 *arg0) {
-    ((TBoss6Type2 *)arg0)->m_30 = (s32) (((TBoss6Type2 *)arg0)->m_30 & 0xFFFFFDFF);
+void TBoss6Type2__vt60(TBoss6Type2 *arg0) {
+    arg0->m_30 = (s32) (arg0->m_30 & 0xFFFFFDFF);
     *(f32 *)((s8 *)arg0 + 0x4FC) = (f32) TBoss6Type2__data_805DE40C;
     {
-        int diff = ((TBoss6Type2 *)arg0)->m_4f8 - ((TBoss6Type2 *)arg0)->m_32c;
+        int diff = arg0->m_4f8 - arg0->m_32c;
         if (diff > 0) {
-            ((TBoss6Type2 *)arg0)->add_damage(diff);
+            arg0->add_damage(diff);
         }
     }
-    if ((s32) ((TBoss6Type2 *)arg0)->m_418 != 0) {
-        ((s32 (*)(int, void *, int, int))play_sound_effect)(0x68A24, arg0 + 0x38, 0, 1);
+    if ((s32) arg0->m_418 != 0) {
+        ((s32 (*)(int, void *, int, int))play_sound_effect)(0x68A24, (u8 *)arg0 + 0x38, 0, 1);
     }
 }
 #pragma pop

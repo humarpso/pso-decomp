@@ -28,14 +28,15 @@ struct TObjDFHorming : public TUnk_804806E8 {
 
 typedef char TObjDFHorming_size[sizeof(TObjDFHorming) == 0x380 ? 1 : -1];
 
+struct TBoss4DarkFalz;
 extern "C" {
 s32 TBoss4DarkFalz__sub_8004AF5C(u8 *arg0, s16 *arg1, s16 *arg2);
 int TBoss4DarkFalz__sub_8004B07C(void);
 void TBoss4DarkFalz__sub_8004B4F0(void *arg0p, void *arg1p);
 void TBoss4DarkFalz__sub_8004B5A0(void);
 void TBoss4DarkFalz__sub_8004B730(u8 *arg0, s32 arg1, f32 farg0);
-void TBoss4DarkFalz__sub_8004B7DC(void *arg0);
-void TBoss4DarkFalz__sub_8004B8F8(void *arg0);
+void TBoss4DarkFalz__sub_8004B7DC(TBoss4DarkFalz *arg0);
+void TBoss4DarkFalz__sub_8004B8F8(TBoss4DarkFalz *arg0);
 }
 
 #endif

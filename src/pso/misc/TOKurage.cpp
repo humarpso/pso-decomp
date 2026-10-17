@@ -366,7 +366,7 @@ extern void *tl_05;
 void *TOKurage::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x114);
     if (o != NULL) {
-        o = TOKurage__ct((u8 *)o, (s32)tl_05, (s32)arg0);
+        o = TOKurage__ct((TOKurage *)((u8 *)o), (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -399,21 +399,21 @@ void *__dt__8TOKurageFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TOKurage__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TOKurage__ct(TOKurage *arg0, s32 arg1, s32 arg2) {
     init_map_object_base((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016E8A8___vt__8TOKurage *)&__vt__8TOKurage).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKurage__name;
     ((TOKurage *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TOKurage__static_model_resource)), 0);
-    ((TOKurage *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOKurage__static_model_resource)), 0);
+    arg0->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOKurage__static_model_resource)), 0);
     *(u8 **)((s8 *)arg0 + 0xBC) = get_bml_motion((*(s32 *)&TOKurage__static_model_resource), 0);
     *(u8 **)((s8 *)arg0 + 0xC8) = get_bml_motion((*(s32 *)&TOKurage__static_model_resource), 1);
-    ((TOKurage *)arg0)->m_b8 = (f32) (0.5f);
+    arg0->m_b8 = (f32) (0.5f);
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - (1.0f));
-    ((TOKurage *)arg0)->m_c0 = (f32) (5e+02f);
+    arg0->m_c0 = (f32) (5e+02f);
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (1e+02f);
-    ((TOKurage *)arg0)->init();
-    return arg0;
+    arg0->init();
+    return (u8 *)arg0;
 }
 
 }

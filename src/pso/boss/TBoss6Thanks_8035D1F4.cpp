@@ -7,7 +7,7 @@
 extern "C" {
 s32 fn_8035CAE0();
 int check_ship_door__12TBoss6ThanksFv(void*);
-u8 *TBoss6Thanks__ct(u8 *arg0, u8 *arg1);
+u8 *TBoss6Thanks__ct(TBoss6Thanks *arg0, u8 *arg1);
 void *__nw__7TObjectFUl(int);
 s32 is_split_screen();
 
@@ -16,7 +16,7 @@ extern void *tl_02;
 void *TBoss6Thanks::create() {
     void *o = __nw__7TObjectFUl(0x64);
     if (o != NULL) {
-        o = TBoss6Thanks__ct((u8 *)o, (u8 *)tl_02);
+        o = TBoss6Thanks__ct((TBoss6Thanks *)((u8 *)o), (u8 *)tl_02);
     }
     return o;
 }

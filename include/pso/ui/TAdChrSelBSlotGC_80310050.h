@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TAdChrSelBSlotGC;
 extern "C" {
-void *TAdChrSelBSlotGC__ct(void *arg0);
+void *TAdChrSelBSlotGC__ct(TAdChrSelBSlotGC *arg0);
 }
 
 #endif

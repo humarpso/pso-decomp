@@ -192,7 +192,7 @@ s32 TBoss7Tentacle::advance_toward_limit(f32 farg0) {
     return 1;
 }
 
-void TBoss7Tentacle__sub_802EF954(void* p) { if (((TBoss7Tentacle *)p)->advance_toward_limit(TBoss7Tentacle__data_805DEC00) != 0) { queue_destruction__7TObjectFv(p); disallow_rendering__7TObjectFv(p); } }
+void TBoss7Tentacle__sub_802EF954(void* p) { if (((TBoss7Tentacle *)p)->advance_toward_limit(TBoss7Tentacle__data_805DEC00) != 0) { queue_destruction__7TObjectFv(p); disallow_rendering__7TObjectFv((TObject *)p); } }
 
 void damage_nearby_players__14TBoss7TentacleFPv(u8 *arg0) {
     s32 i;
@@ -227,13 +227,13 @@ void damage_nearby_players__14TBoss7TentacleFPv(u8 *arg0) {
     }
 }
 
-void update_retract_state__14TBoss7TentacleFPv(u8 *arg0) {
+void update_retract_state__14TBoss7TentacleFPv(TBoss7Tentacle *arg0) {
     f32 temp_f1;
     temp_f1 = *(f32 *)((s8 *)arg0 + 0x74);
     if ((lbl_805DEC14 < temp_f1) && (temp_f1 <= lbl_805DEC18)) {
-        ((TBoss7Tentacle *)arg0)->restart_particle_effect();
+        arg0->restart_particle_effect();
     }
-    if (((TBoss7Tentacle *)arg0)->advance_toward_limit(TBoss7Tentacle__data_805DEC00) != 0) {
+    if (arg0->advance_toward_limit(TBoss7Tentacle__data_805DEC00) != 0) {
         *(s32 *)((s8 *)arg0 + 0x38) = 2;
         *(s32 *)((s8 *)arg0 + 0x3C) = 0;
         *(s32 *)((s8 *)arg0 + 0x78) = (s32) *(s32 *)((s8 *)(&boss7_tentacle_needle_target_state.value) + 4);

@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TQuestListOnline;
 extern "C" {
-void *__dt__16TQuestListOnlineFv(void *arg0, s16 arg1);
+void *__dt__16TQuestListOnlineFv(TQuestListOnline *arg0, s16 arg1);
 }
 
 #endif

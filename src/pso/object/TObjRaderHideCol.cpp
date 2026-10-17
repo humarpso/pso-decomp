@@ -58,7 +58,7 @@ u8 *TObjRaderHideCol__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjRaderHideCol *)(arg0))->apply_object_set_data((void *)arg2);
     *(f32 *)((s8 *)arg0 + 0x90) = (f32) ((TObjRaderHideCol *)arg0)->scale;
     ((TObjRaderHideCol *)arg0)->m_94 = 0;
-    disallow_rendering__7TObjectFv((arg0));
+    disallow_rendering__7TObjectFv((TObject *)(arg0));
     return arg0;
 }
 

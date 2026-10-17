@@ -62,7 +62,7 @@ s32 post_translate_matrix(void *);
 s32 TOSensor__ct(void *, void *);
 extern s32 __vt__17TOSensorGeneral01[];
 extern s32 lbl_805D3154;
-void *TOSensorGeneral01__ct(void *arg0, void *arg1, void *arg2);
+void *TOSensorGeneral01__ct(TOSensorGeneral01 *arg0, void *arg1, void *arg2);
 void *__dt__17TOSensorGeneral01Fv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
@@ -150,7 +150,7 @@ void TOSensorGeneral01::render() {
 void *TOSensorGeneral01::create() {
     void *o = __nw__7TObjectFUl(0xF4);
     if (o != NULL) {
-        o = TOSensorGeneral01__ct(o, tl_05, this);
+        o = TOSensorGeneral01__ct((TOSensorGeneral01 *)o, tl_05, this);
     }
     return o;
 }
@@ -197,28 +197,28 @@ void *__dt__17TOSensorGeneral01Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void *TOSensorGeneral01__ct(void *arg0, void *arg1, void *arg2) {
+void *TOSensorGeneral01__ct(TOSensorGeneral01 *arg0, void *arg1, void *arg2) {
     TOSensor__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TOSensorGeneral01;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3154;
-    ((TOSensorGeneral01 *)arg0)->apply_object_set_data(arg2);
+    arg0->apply_object_set_data(arg2);
     ((TOKey *)arg0)->init_switch_id();
-    ((TOSensorGeneral01 *)arg0)->texture_id = (s32) *TOSensorGeneral01__texture_lists;
-    ((TOSensorGeneral01 *)arg0)->model = (void *) *(void **)((s8 *)(*(void **)((s8 *)(*(void * *)&sensor_general_shared_bml_archive) + 0x42C)) + 8);
-    ((TOSensorGeneral01 *)arg0)->m_c0 = 400.0f;
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(((TOSensorGeneral01 *)arg0)->model) + 4)) + 0x14);
-    *(f32 *)((s8 *)arg0 + 0xCC) = 50.0f + ((TOSensorGeneral01 *)arg0)->scale;
+    arg0->texture_id = (s32) *TOSensorGeneral01__texture_lists;
+    arg0->model = (void *) *(void **)((s8 *)(*(void **)((s8 *)(*(void * *)&sensor_general_shared_bml_archive) + 0x42C)) + 8);
+    arg0->m_c0 = 400.0f;
+    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(arg0->model) + 4)) + 0x14);
+    *(f32 *)((s8 *)arg0 + 0xCC) = 50.0f + arg0->scale;
     if (*(f32 *)((s8 *)arg0 + 0xCC) < 0.0f) {
         *(f32 *)((s8 *)arg0 + 0xCC) = 0.0f;
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0) {
-        ((TOSensorGeneral01 *)arg0)->m_d0 = 2;
+        arg0->m_d0 = 2;
     } else {
-        ((TOSensorGeneral01 *)arg0)->m_d0 = 1;
+        arg0->m_d0 = 1;
     }
-    ((TOSensorGeneral01 *)arg0)->m_e8 = 0;
+    arg0->m_e8 = 0;
     *(s32 *)((s8 *)arg0 + 0xEC) = 3;
-    ((TOSensorGeneral01 *)arg0)->m_f0 = 0x5A;
+    arg0->m_f0 = 0x5A;
     return arg0;
 }
 

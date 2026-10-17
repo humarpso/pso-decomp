@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TAdSinglePlyChrSelectGC;
 extern "C" {
-void TAdSinglePlyChrSelectGC__sub_8033A9F0(u8 *arg0);
+void TAdSinglePlyChrSelectGC__sub_8033A9F0(TAdSinglePlyChrSelectGC *arg0);
 void TAdSinglePlyChrSelectGC__sub_8033B0AC(void *arg0);
 int TAdSinglePlyChrSelectGC__sub_8033B244(void *p);
 void TAdSinglePlyChrSelectGC__sub_8033B264(void);

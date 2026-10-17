@@ -24,7 +24,7 @@ u8 *TItemEffLandHit__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, u8 *arg4) {
     VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)arg3);
     *(s32 *)((s8 *)arg0 + 0x34) = ((TItem *)arg2)->get_field_d8();
     ((TItemEffLandHit *)arg0)->m_38 = 0;
-    disallow_rendering__7TObjectFv(arg0);
+    disallow_rendering__7TObjectFv((TObject *)arg0);
     return arg0;
 }
 

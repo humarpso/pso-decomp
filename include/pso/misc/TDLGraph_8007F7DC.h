@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TDLGraph;
 extern "C" {
-void *TDLGraph__ct(void *arg0);
+void *TDLGraph__ct(TDLGraph *arg0);
 }
 
 #endif

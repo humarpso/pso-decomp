@@ -212,7 +212,7 @@ extern const f32 lbl_805DABB4;
 #pragma inline_depth(4)
 #pragma auto_inline off
 #pragma dont_inline off
-extern "C" s8 TItemEquipBase__sub_8010A77C(u8 *arg0);
+extern "C" s8 TItemEquipBase__sub_8010A77C(TItemEquipBase *arg0);
 extern "C" void vfunc_49__14TItemEquipBaseFv();
 extern "C" void vfunc_48__14TItemEquipBaseFv();
 extern "C" void TItemMag__vt48();

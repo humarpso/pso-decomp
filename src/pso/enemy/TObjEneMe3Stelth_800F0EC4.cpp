@@ -247,7 +247,7 @@ extern const f32 lbl_805DA828;
 extern const f32 lbl_805DA82C;
 void TObjEneMe3Stelth__sub_800F1440(u8 *arg0, s32 arg1);
 void move_with_wall_slide(u8 *arg0);
-void enemy_set_heading_velocity(u8 *arg0, s32 arg1, f32 farg0);
+void enemy_set_heading_velocity(TObjEnemy *arg0, s32 arg1, f32 farg0);
 s32 select_enemy_destination(void *, Vec_800F1098 *, int);
 s32 copy_position_if_valid__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 update_angle__10TObjPlayerFlPv(void *, s32, void *);
@@ -355,7 +355,7 @@ void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1) {
                     copy_position_if_valid__10TObjPlayerFii((s32)arg0, (s32)&pos);
                     F(f32, 0x300) += TObjEneMe3Stelth__data_805DA820;
                     r = enemy_turn_toward_dest(arg0, F(Spd_800F1098 *, 0x350)->turn);
-                    enemy_set_heading_velocity(arg0, F(s32, 0x60), F(Spd_800F1098 *, 0x350)->speed);
+                    enemy_set_heading_velocity((TObjEnemy *)arg0, F(s32, 0x60), F(Spd_800F1098 *, 0x350)->speed);
                     move_with_wall_slide(arg0);
                 } else {
                     VecCopy((Vec *)&d, (const Vec *)(arg0 + 0x394));

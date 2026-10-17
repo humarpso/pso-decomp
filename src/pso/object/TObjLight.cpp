@@ -204,28 +204,28 @@ void *__dt__9TObjLightFv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_80194528___vt__9TObjLight_size[sizeof(RecoveredGlobal_80194528___vt__9TObjLight) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_80194528_TObjLight__data_80506320_size[sizeof(RecoveredGlobal_80194528_TObjLight__data_80506320) == 0x50 ? 1 : -1];
-u8 *TObjLight__ct(u8 *arg0, s32 arg1, u8 *arg2) {
+u8 *TObjLight__ct(TObjLight *arg0, s32 arg1, u8 *arg2) {
     construct_world_actor_base(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80194528___vt__9TObjLight *)&__vt__9TObjLight).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D33B8;
     ((TObjLight *)(arg0))->apply_object_set_data(arg2);
-    ((TObjLight *)arg0)->m_90 = (s32) *(s16 *)((s8 *)arg2 + 8);
+    arg0->m_90 = (s32) *(s16 *)((s8 *)arg2 + 8);
     *(f32 *)((s8 *)arg0 + 0xF0) = (f32) 0.5f;
-    ((TObjLight *)arg0)->m_f4 = (f32) ((TObjLight *)arg0)->scale;
-    *(f32 *)((s8 *)arg0 + 0xF8) = (f32) ((TObjLight *)arg0)->target_scale;
-    ((TObjLight *)arg0)->m_fc = (f32) *(f32 *)((s8 *)arg0 + 0x70);
-    ((TObjLight *)arg0)->m_e4 = (f32) (0.0f);
+    arg0->m_f4 = (f32) arg0->scale;
+    *(f32 *)((s8 *)arg0 + 0xF8) = (f32) arg0->target_scale;
+    arg0->m_fc = (f32) *(f32 *)((s8 *)arg0 + 0x70);
+    arg0->m_e4 = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0xE8) = (f32) (0.0f);
-    ((TObjLight *)arg0)->m_ec = (f32) (0.0f);
-    ((TObjLight *)arg0)->m_9c = 0;
-    copy_vec4__13TRaderMapCoreFPvPv((arg0 + 0xBC), ((u8 *)&TObjLight__scene_light_state.value + 0x24));
-    VecCopy((Vec *)(arg0 + 0xD8), (const Vec *)((u8 *)&TObjLight__scene_light_state.value + 0xC));
+    arg0->m_ec = (f32) (0.0f);
+    arg0->m_9c = 0;
+    copy_vec4__13TRaderMapCoreFPvPv(((u8 *)arg0 + 0xBC), ((u8 *)&TObjLight__scene_light_state.value + 0x24));
+    VecCopy((Vec *)((u8 *)arg0 + 0xD8), (const Vec *)((u8 *)&TObjLight__scene_light_state.value + 0xC));
     *(f32 *)((s8 *)arg0 + 0xF0) = (f32) 0.5f;
-    ((TObjLight *)arg0)->m_f4 = (f32) (0.0f);
+    arg0->m_f4 = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0xF8) = (f32) (0.0f);
-    ((TObjLight *)arg0)->m_fc = (f32) (0.0f);
+    arg0->m_fc = (f32) (0.0f);
     disallow_rendering__7TObjectFv((arg0));
-    return arg0;
+    return (u8 *)arg0;
 }
 
 u8 *TObjLight__create(u8 *arg0) {
@@ -237,7 +237,7 @@ u8 *TObjLight__create(u8 *arg0) {
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x100));
     var_r0 = temp_r3;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TObjLight__ct(temp_r3, tl_05, arg0));
+        var_r0 = (u8 *)(TObjLight__ct((TObjLight *)temp_r3, tl_05, arg0));
     }
     return var_r0;
 }

@@ -122,25 +122,25 @@ extern "C" {
 
 typedef char RecoveredGlobal_8033A34C___vt__9TSaveChCr_size[sizeof(RecoveredGlobal_8033A34C___vt__9TSaveChCr) == 0x18 ? 1 : -1];
 
-u8 *TSaveChCr__ct(u8 *arg0, u8 *arg1, s32 arg2) {
+u8 *TSaveChCr__ct(TSaveChCr *arg0, u8 *arg1, s32 arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__9TSaveChCr.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TSaveChCr__name;
     *(s32 *)((s8 *)arg0 + 0x20) = arg2;
     *(s32 *)((s8 *)arg0 + 0x24) = 0;
     *(s32 *)((s8 *)arg0 + 0x28) = 0;
-    *(s32 *)((s8 *)arg0 + 0x2C) = ((TSaveChCr *)arg0)->poll_memcard_status();
+    *(s32 *)((s8 *)arg0 + 0x2C) = arg0->poll_memcard_status();
     *(s32 *)((s8 *)arg0 + 0x3C) = 0;
     *(s32 *)((s8 *)arg0 + 0x38) = 0;
-    ((TSaveChCr *)arg0)->create_backgrounds();
-    ((TSaveChCr *)arg0)->set_state(0);
-    return arg0;
+    arg0->create_backgrounds();
+    arg0->set_state(0);
+    return (u8 *)arg0;
 }
 
 void *TSaveChCr::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x40);
     if (o != NULL) {
-        o = TSaveChCr__ct((u8 *)o, (u8 *)tl_03, (s32)arg0);
+        o = TSaveChCr__ct((TSaveChCr *)((u8 *)o), (u8 *)tl_03, (s32)arg0);
     }
     return o;
 }

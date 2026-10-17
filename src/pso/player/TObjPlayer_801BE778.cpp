@@ -82,7 +82,7 @@ void TObjPlayer::clamp_nested_index() {
     TObjPlayer::clamp_index_to_max(*(s32 *)(this->m_2b0 + 0x18));
 }
 void TObjPlayer__sub_801BE9A8(s32 arg0) {
-    TObjPlayer__sub_8011E204((void *)arg0, 0x20000);
+    TObjPlayer__sub_8011E204((TObjPlayer *)((void *)arg0), 0x20000);
 }
 void set_flag_20000__10TObjPlayerFi(s32 arg0) {
     ((TObjPlayer *)arg0)->set_state_flags(0x20000);

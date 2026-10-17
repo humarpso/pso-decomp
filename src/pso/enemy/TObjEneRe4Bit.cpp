@@ -298,9 +298,9 @@ s32 clear_attack_receipts__9TObjEneDDFv(void *);
 void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1);
 extern const f32 lbl_805DA76C;
 extern const f32 lbl_805DA778;
-void TObjEneRe4Bit__sub_800ECED0(void *arg0, s32 arg1);
+void TObjEneRe4Bit__sub_800ECED0(TObjEneRe4Bit *arg0, s32 arg1);
 void TObjEneRe4Bit__vt85(s32 arg0, u32 arg1, s32 arg2);
-void TObjEneRe4Bit__sub_800ECE04(u8 *arg0, s32 arg1);
+void TObjEneRe4Bit__sub_800ECE04(TObjEneRe4Bit *arg0, s32 arg1);
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 int scale_matrix(int, f32, f32, f32);
@@ -587,7 +587,7 @@ void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1) {
 
 #pragma push
 #pragma opt_common_subs off
-void TObjEneRe4Bit__sub_800ECE04(u8 *arg0, s32 arg1) {
+void TObjEneRe4Bit__sub_800ECE04(TObjEneRe4Bit *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         ((TObjEneDD *)arg0)->set_field_378(3);
@@ -607,8 +607,8 @@ void TObjEneRe4Bit__sub_800ECE04(u8 *arg0, s32 arg1) {
             *(f32 *)((s8 *)arg0 + 0x3D8) = (f32) TObjEneRe4Bit__data_805DA770;
         }
         *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0x60) - 0x1800);
-        ((TObjEneRe4Bit *)arg0)->update_homing_velocity();
-        ((TObjEneRe4Bit *)arg0)->update_position_flag();
+        arg0->update_homing_velocity();
+        arg0->update_position_flag();
         break;
     }
 }
@@ -617,7 +617,7 @@ void TObjEneRe4Bit__sub_800ECE04(u8 *arg0, s32 arg1) {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-void TObjEneRe4Bit__sub_800ECED0(void *arg0, s32 arg1) {
+void TObjEneRe4Bit__sub_800ECED0(TObjEneRe4Bit *arg0, s32 arg1) {
     s32 temp_r4;
     switch (arg1) {
     case 4:
@@ -648,8 +648,8 @@ void TObjEneRe4Bit__sub_800ECED0(void *arg0, s32 arg1) {
             *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0x60) + 0x1800);
             break;
         }
-        ((TObjEneRe4Bit *)arg0)->update_homing_velocity();
-        ((TObjEneRe4Bit *)arg0)->update_position_flag();
+        arg0->update_homing_velocity();
+        arg0->update_position_flag();
         return;
     case 5:
         *(s32 *)((s8 *)arg0 + 0x404) = 0;
@@ -706,10 +706,10 @@ void TObjEneRe4Bit__vt85(s32 arg0, u32 arg1, s32 msg) {
         ((TObjEneRe4Bit *)arg0)->handle_event(msg);
         return;
     case 2:
-        TObjEneRe4Bit__sub_800ECED0((void *)arg0, (s32)msg);
+        TObjEneRe4Bit__sub_800ECED0((TObjEneRe4Bit *)((void *)arg0), (s32)msg);
         return;
     case 3:
-        TObjEneRe4Bit__sub_800ECE04((u8 *)arg0, (s32)msg);
+        TObjEneRe4Bit__sub_800ECE04((TObjEneRe4Bit *)((u8 *)arg0), (s32)msg);
         return;
     case 5:
         TObjEneRe4Bit__sub_800ECD28((u8 *)arg0, (s32)msg);

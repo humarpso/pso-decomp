@@ -1076,7 +1076,7 @@ extern const f32 lbl_805D9E30;
 void queue_destruction__7TObjectFv(void *self);
 void anchor_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
 void appearing_state__14TObjEneBm5WolfFPvi(Obj_800B7018 *o, s32 arg1);
-void dispatch_state__14TObjEneBm5WolfFPvUii(u8 *arg0, u32 state, s32 event);
+void dispatch_state__14TObjEneBm5WolfFPvUii(TObjEneBm5Wolf *arg0, u32 state, s32 event);
 #define spawn_recoil_dust__14TObjEneBm5WolfFiPv ((s32 (*)(void *, void *))&spawn_recoil_dust__14TObjEneBm5WolfFiPv)
 s32 TBoss8Dragon__sub_800BB7D4(void *, int);
 extern const f32 lbl_805D9DA0;
@@ -2675,61 +2675,61 @@ void *lbl_804922F8[107] = {
 };
 }
 typedef void (*State_800B73A8)(u8 *, s32);
-void dispatch_state__14TObjEneBm5WolfFPvUii(u8 *arg0, u32 state, s32 event) {
+void dispatch_state__14TObjEneBm5WolfFPvUii(TObjEneBm5Wolf *arg0, u32 state, s32 event) {
     switch (state) {
     case 0:
-        anchor_state__14TObjEneBm5WolfFPvi(arg0, event);
+        anchor_state__14TObjEneBm5WolfFPvi((u8 *)arg0, event);
         break;
     case 1:
         appearing_state__14TObjEneBm5WolfFPvi((Obj_800B7018 *)arg0, event);
         break;
     case 2:
-        ((TObjEneBm5Wolf *)arg0)->sleeping_state(event);
+        arg0->sleeping_state(event);
         break;
     case 3:
-        ((State_800B73A8)TObjEneBm5Wolf::empty_state)(arg0, event);
+        ((State_800B73A8)TObjEneBm5Wolf::empty_state)((u8 *)arg0, event);
         break;
     case 4:
-        ((TObjEneBm5Wolf *)arg0)->alerted_state(event);
+        arg0->alerted_state(event);
         break;
     case 5:
-        ((TObjEneBm5Wolf *)arg0)->standing_state(event);
+        arg0->standing_state(event);
         break;
     case 6:
-        ((TObjEneBm5Wolf *)arg0)->howling_state(event);
+        arg0->howling_state(event);
         break;
     case 7:
-        ((TObjEneBm5Wolf *)arg0)->roaming_state(event);
+        arg0->roaming_state(event);
         break;
     case 8:
-        ((TObjEneBm5Wolf *)arg0)->chasing_state(event);
+        arg0->chasing_state(event);
         break;
     case 9:
-        ((TObjEneBm5Wolf *)arg0)->flanking_state(event);
+        arg0->flanking_state(event);
         break;
     case 10:
-        ((TObjEneBm5Wolf *)arg0)->circling_state(event);
+        arg0->circling_state(event);
         break;
     case 11:
-        ((TObjEneBm5Wolf *)arg0)->update_lunge(event);
+        arg0->update_lunge(event);
         break;
     case 12:
-        returning_state__14TObjEneBm5WolfFPvi(arg0, event);
+        returning_state__14TObjEneBm5WolfFPvi((u8 *)arg0, event);
         break;
     case 13:
-        ((TObjEneBm5Wolf *)arg0)->repositioning_state(event);
+        arg0->repositioning_state(event);
         break;
     case 14:
-        ((TObjEneBm5Wolf *)arg0)->action(event);
+        arg0->action(event);
         break;
     case 15:
-        ((TObjEneBm5Wolf *)arg0)->hurt_state(event);
+        arg0->hurt_state(event);
         break;
     case 16:
-        ((TObjEneBm5Wolf *)arg0)->update_dying_state(event);
+        arg0->update_dying_state(event);
         break;
     case 17:
-        ((TObjEneBm5Wolf *)arg0)->despawn_state(event);
+        arg0->despawn_state(event);
         break;
     }
 }

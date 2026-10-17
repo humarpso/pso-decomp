@@ -15,7 +15,7 @@ struct RecoveredGlobal_80195720___vt__13TObjPlayerSet {
 extern "C" {
 void *__nw__7TObjectFUl(int);
 extern s32 tl_00;
-u8 *TObjQuestCol2__vt14(u8 *arg0);
+u8 *TObjQuestCol2__vt14(TObjQuestCol2 *arg0);
 u8 * construct_world_actor_base(void *);
 extern s32 __vt__13TObjPlayerSet[];
 extern s32 TObjPlayer__player_set_class_name;
@@ -66,7 +66,7 @@ u8 *TObjPlayerSet__ct(u8 *arg0, s32 arg1, s32 arg2) {
     if ((s32) ((TObjPlayerSet *)arg0)->m_84 < 0) {
         ((TObjPlayerSet *)arg0)->m_84 = 0;
     }
-    disallow_rendering__7TObjectFv(arg0);
+    disallow_rendering__7TObjectFv((TObject *)arg0);
     return arg0;
 }
 #pragma pop
@@ -78,7 +78,7 @@ void *TObjQuestCol2__create(void *arg0) {
     }
     return o;
 }
-u8 *TObjQuestCol2__vt14(u8 *arg0) {
+u8 *TObjQuestCol2__vt14(TObjQuestCol2 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     u8 *var_r31;
@@ -88,7 +88,7 @@ u8 *TObjQuestCol2__vt14(u8 *arg0) {
         temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x194)));
         var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(__ct__12TQuestThreadFv(temp_r3, (s32) *(u32 *)((s8 *)arg0 + 0xBC), ((TObjQuestCol2 *)arg0)->m_b0));
+            var_r0 = (u8 *)(__ct__12TQuestThreadFv(temp_r3, (s32) *(u32 *)((s8 *)arg0 + 0xBC), arg0->m_b0));
         }
         var_r31 = var_r0;
         if (var_r0 != NULL) {

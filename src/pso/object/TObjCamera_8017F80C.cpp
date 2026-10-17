@@ -166,14 +166,14 @@ void run_task__10TObjCameraFv(Obj_8017F910 *self) {
         if (vec_squared_length(&d) <= lbl_805DBB6C) {
             for (i = 0; i < 8; i++) {
                 if (self->lights[i] != NULL) {
-                    allow_rendering__7TObjectFv(self->lights[i]);
+                    allow_rendering__7TObjectFv((TObject *)self->lights[i]);
                 }
             }
             self->visible = 1;
         } else {
             for (j = 0; j < 8; j++) {
                 if (self->lights[j] != NULL) {
-                    disallow_rendering__7TObjectFv(self->lights[j]);
+                    disallow_rendering__7TObjectFv((TObject *)self->lights[j]);
                     ((TObjCamera *)(self->lights[j]))->queue_target_destruction();
                 }
             }

@@ -17,7 +17,7 @@ void vfunc_28__15TObjEnemyCustomFv(void);
 void run_task__15TObjEnemyCustomFv(u8 *arg0);
 int vfunc_59__15TObjEnemyCustomFv(void* p);
 s32 advance_animation_playback(void *);
-void apply_actor_gravity(u8 *arg0, s32 *arg1, f32 farg0);
+void apply_actor_gravity(TObjEnemy *arg0, s32 *arg1, f32 farg0);
 s32 TObjVoloptCage__sub_800C76F0(void *);
 int update_if_active__15TObjEneMe1GiGueFl(void*, int);
 
@@ -192,7 +192,7 @@ void TObjEnemyCustom::update_state() {
     case 1:
         advance_animation_playback(this);
         if (!(this->actorFlags & 0x800000)) {
-            apply_actor_gravity((u8 *)this, (s32 *)(0), lbl_805DA070);
+            apply_actor_gravity((TObjEnemy *)((u8 *)this), (s32 *)(0), lbl_805DA070);
         }
         break;
     case -1:

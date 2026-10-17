@@ -1,4 +1,5 @@
 #include "types.h"
+class TChCrTagPlBack;
 #include "pso/misc/TWindowSubShortMail.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TWindowMenu.h"
@@ -57,7 +58,7 @@ void *set_window_mode_4__6TLobbyFPvll(s32, void *, s32);
 extern s32 lbl_8044FACC[];
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, s32, s32);
 s32 free_member__17TWindowSubComCardFv(s32, s32);
-void open_yes_no_prompt(u8 *arg0, u32 arg1, s32 arg2, s32 arg3, f32 farg0);
+void open_yes_no_prompt(TChCrTagPlBack *arg0, u32 arg1, s32 arg2, s32 arg3, f32 farg0);
 extern const f32 lbl_805DD6D0;
 void TWindowSubShortMail__sub_8027E620(void* p);
 s32 TKeyBoardControl__ct(s32, s32, s32, s32, s32, s32);
@@ -111,7 +112,7 @@ s32 TWindowSubShortMail::open_delete_confirm_dialog() {
     s32 temp_r29;
 
     temp_r29 = create__19TWindowMessageYesNoFPvPvPvPv(this, this->m_20, 0, 0);
-    open_yes_no_prompt((u8 *)temp_r29, get_message_10__20TWindowSubStatusDispFl(0x20), get_message_10__20TWindowSubStatusDispFl(0x104), get_window_layout_position(0xa3), TWindowSubShortMail__data_805DD6C8);
+    open_yes_no_prompt((TChCrTagPlBack *)((u8 *)temp_r29), (u32)(get_message_10__20TWindowSubStatusDispFl(0x20)), (s32)(get_message_10__20TWindowSubStatusDispFl(0x104)), (s32)(get_window_layout_position(0xa3)), (f32)TWindowSubShortMail__data_805DD6C8);
     free_member__17TWindowSubComCardFv(temp_r29, 0);
     ((TWindowSubShortMail *)temp_r29)->notify_warp_flag70();
     return temp_r29;
@@ -121,7 +122,7 @@ s32 TWindowSubShortMail::open_confirm_dialog() {
     s32 temp_r29;
 
     temp_r29 = create__19TWindowMessageYesNoFPvPvPvPv(this, this->m_20, 0, 0);
-    open_yes_no_prompt((u8 *)temp_r29, get_message_10__20TWindowSubStatusDispFl(0x20), get_message_10__20TWindowSubStatusDispFl(0x3e), get_window_layout_position(0x9f), TWindowSubShortMail__data_805DD6C8);
+    open_yes_no_prompt((TChCrTagPlBack *)((u8 *)temp_r29), (u32)(get_message_10__20TWindowSubStatusDispFl(0x20)), (s32)(get_message_10__20TWindowSubStatusDispFl(0x3e)), (s32)(get_window_layout_position(0x9f)), (f32)TWindowSubShortMail__data_805DD6C8);
     free_member__17TWindowSubComCardFv(temp_r29, 0);
     ((TWindowSubShortMail *)temp_r29)->notify_warp_flag70();
     return temp_r29;
@@ -180,7 +181,7 @@ s32 create_confirm_menu_window__19TWindowSubShortMailFv(void) {
 s32 open_confirm_prompt__19TWindowSubShortMailFPvi(void *arg0, s32 arg1) {
     s32 temp_r29;
     temp_r29 = create__19TWindowMessageYesNoFPvPvPvPv(arg0, arg1, 0, 0);
-    open_yes_no_prompt((u8 *)temp_r29, get_message_10__20TWindowSubStatusDispFl(0x20), get_message_10__20TWindowSubStatusDispFl(0x3f), get_window_layout_position(0x9e), lbl_805DD6D0);
+    open_yes_no_prompt((TChCrTagPlBack *)((u8 *)temp_r29), (u32)(get_message_10__20TWindowSubStatusDispFl(0x20)), (s32)(get_message_10__20TWindowSubStatusDispFl(0x3f)), (s32)(get_window_layout_position(0x9e)), (f32)lbl_805DD6D0);
     free_member__17TWindowSubComCardFv(temp_r29, 0);
     ((TWindowSubShortMail *)temp_r29)->notify_warp_flag70();
     return temp_r29;
@@ -361,7 +362,7 @@ struct VObj_8027FBF0_8027E620 : VObj_8027FBF0_Base_8027fbf0_8027E620 {
     virtual void m9();
 };
 
-void *__dt__19TWindowSubShortMailFv(void *arg0, s16 arg1);
+void *__dt__19TWindowSubShortMailFv(TWindowSubShortMail *arg0, s16 arg1);
 void TLobby__sub_802258C8(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -619,48 +620,48 @@ void TWindowSubShortMail::run_task() {
     }
 }
 
-void *__dt__19TWindowSubShortMailFv(void *arg0, s16 arg1) {
+void *__dt__19TWindowSubShortMailFv(TWindowSubShortMail *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowSubShortMail;
-        if ((u32) ((TWindowSubShortMail *)arg0)->m_50 != 0U) {
+        if ((u32) arg0->m_50 != 0U) {
             ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x50)))->close();
-            ((TWindowSubShortMail *)arg0)->m_50 = 0U;
+            arg0->m_50 = 0U;
         }
-        if ((u32) ((TWindowSubShortMail *)arg0)->m_5c != 0U) {
+        if ((u32) arg0->m_5c != 0U) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x5C));
-            ((TWindowSubShortMail *)arg0)->m_5c = 0U;
+            arg0->m_5c = 0U;
         }
-        if ((u32) ((TWindowSubShortMail *)arg0)->m_4c != 0U) {
+        if ((u32) arg0->m_4c != 0U) {
             TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x4C)));
-            ((TWindowSubShortMail *)arg0)->m_4c = 0U;
+            arg0->m_4c = 0U;
         }
-        if ((u32) ((TWindowSubShortMail *)arg0)->m_48 != 0U) {
+        if ((u32) arg0->m_48 != 0U) {
             TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x48)));
-            ((TWindowSubShortMail *)arg0)->m_48 = 0U;
+            arg0->m_48 = 0U;
         }
-        if ((u32) ((TWindowSubShortMail *)arg0)->m_44 != 0U) {
+        if ((u32) arg0->m_44 != 0U) {
             TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x44)));
-            ((TWindowSubShortMail *)arg0)->m_44 = 0U;
+            arg0->m_44 = 0U;
         }
-        if ((u32) ((TWindowSubShortMail *)arg0)->m_3c != 0U) {
+        if ((u32) arg0->m_3c != 0U) {
             TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x3C)));
-            ((TWindowSubShortMail *)arg0)->m_3c = 0U;
+            arg0->m_3c = 0U;
         }
-        if ((u32) ((TWindowSubShortMail *)arg0)->m_38 != 0U) {
+        if ((u32) arg0->m_38 != 0U) {
             TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x38)));
-            ((TWindowSubShortMail *)arg0)->m_38 = 0U;
+            arg0->m_38 = 0U;
         }
-        if ((u32) ((TWindowSubShortMail *)arg0)->m_58 != 0U) {
+        if ((u32) arg0->m_58 != 0U) {
             TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x58)));
-            ((TWindowSubShortMail *)arg0)->m_58 = 0U;
+            arg0->m_58 = 0U;
         }
-        if ((u32) ((TWindowSubShortMail *)arg0)->m_54 != 0U) {
+        if ((u32) arg0->m_54 != 0U) {
             TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x54)));
-            ((TWindowSubShortMail *)arg0)->m_54 = 0U;
+            arg0->m_54 = 0U;
         }
-        if ((u32) ((TWindowSubShortMail *)arg0)->m_40 != 0U) {
+        if ((u32) arg0->m_40 != 0U) {
             TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x40)));
-            ((TWindowSubShortMail *)arg0)->m_40 = 0U;
+            arg0->m_40 = 0U;
         }
         TLobby__sub_802258C8();
         TLobby::sync_auto_reply_state();

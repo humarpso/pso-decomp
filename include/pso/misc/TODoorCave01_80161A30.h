@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TODoorCave01;
 extern "C" {
-u8 *TODoorCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TODoorCave01__ct(TODoorCave01 *arg0, s32 arg1, s32 arg2);
 void *__dt__12TODoorCave01Fv(void *arg0, s16 arg1);
 }
 

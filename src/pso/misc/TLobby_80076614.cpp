@@ -10,7 +10,7 @@ void *TLobby::create_tombstone(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x238);
     if (o != NULL) {
-        o = TObjTombstone__ct((u8 *)o, (s32)arg0, (s32)arg1, (u8 *)arg2);
+        o = TObjTombstone__ct((TObjTombstone *)((u8 *)o), (s32)((s32)arg0), (s32)((s32)arg1), (u8 *)((u8 *)arg2));
     }
     return o;
 }

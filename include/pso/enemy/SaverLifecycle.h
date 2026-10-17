@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TObjEneSaver;
 extern "C" {
-u8 *TObjEneSaver__ct(u8 *arg0, void *arg1, void *arg2);
+u8 *TObjEneSaver__ct(TObjEneSaver *arg0, void *arg1, void *arg2);
 void TObjPlayer__sub_800A4294(void);
 void TObjPlayer__sub_800A42C0(void);
 void TObjPlayer__sub_800A4D9C(u8 *arg0);

@@ -80,7 +80,7 @@ void *TAdLicAgreementGC__ct(void *arg0) {
     ((TAdLicAgreementGC *)arg0)->m_38 = 0;
     o = __nw__7TObjectFUl(0x54);
     if (o != NULL) {
-        o = TAdScrollWinGC__ct(o, arg0, 0, 0);
+        o = TAdScrollWinGC__ct((TAdScrollWinGC *)o, arg0, 0, 0);
     }
     *(void **)((s8 *)arg0 + 0x38) = o;
     return arg0;

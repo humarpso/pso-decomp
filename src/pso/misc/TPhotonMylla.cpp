@@ -1,4 +1,5 @@
 #include "types.h"
+struct TPhotonYoulla;
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
@@ -142,7 +143,7 @@ void spawn_photon_blast_opening_effects(s32 arg0, s32 arg1);
 void *photon_base_ct(void *arg0);
 void sub_801AD4A8__12TPhotonMyllaFv(void* a0);
 void TPhotonRainbow__ct(void *, void *, void *, s32);
-u8 *TPhotonYoulla__ct(u8 *arg0, u8 *arg1);
+u8 *TPhotonYoulla__ct(TPhotonYoulla *arg0, u8 *arg1);
 void play_cue_stream_file(s32 name);
 extern YPkt_801AD970 photon_mylla_packet_template;
 extern u8 lbl_80446E80[];
@@ -341,7 +342,7 @@ void *TPhotonMylla__ct(Mylla_801AD970 *self, Pkt_801AD970 *pkt) {
         y.more = F_801AD970(self, s32, 0x19C);
         o = NEW_801AD970(0x1A8);
         if (o != NULL) {
-            TPhotonYoulla__ct(o, (u8 *)&y);
+            TPhotonYoulla__ct((TPhotonYoulla *)o, (u8 *)&y);
         }
     }
     ((void (*)(void *, u8))sub_801AD4A8__12TPhotonMyllaFv)(self, pkt->count);

@@ -25,14 +25,14 @@ void TPlayerFootStamp::sub_802B0204(s32 v) {
     }
 }
 
-void TBoss6PlotFalz__sub_802B0228(void *arg0) {
+void TBoss6PlotFalz__sub_802B0228(TBoss6PlotFalz *arg0) {
     s32 temp_r0;
 
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x3CC) + 1;
     *(s32 *)((s8 *)arg0 + 0x3CC) = temp_r0;
     if (temp_r0 > 0x1C6) {
         end_cutscene_camera__14TBoss6PlotFalzFPv();
-        ((TBoss6PlotFalz *)arg0)->award_exp_and_destroy();
+        arg0->award_exp_and_destroy();
     }
 }
 

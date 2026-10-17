@@ -326,7 +326,7 @@ typedef struct {
     s32 arr[9];
     Trip_8033DA94 t[5];
 } Fish_8033DA94;
-u8 *TBoss6Demo20_TYPE2_APPEAR__ct(u8 *arg0, s32 arg1) {
+u8 *TBoss6Demo20_TYPE2_APPEAR__ct(TBoss6Demo20_TYPE2_APPEAR *arg0, s32 arg1) {
     Fish_8033DA94 *self = (Fish_8033DA94 *)arg0;
     s32 v;
     s32 count;
@@ -334,7 +334,7 @@ u8 *TBoss6Demo20_TYPE2_APPEAR__ct(u8 *arg0, s32 arg1) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__25TBoss6Demo20_TYPE2_APPEAR;
     *(s32 *)((s8 *)arg0 + 0) = (s32)TBoss6Demo20_TYPE2_APPEAR__name.value;
-    ((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_ec = arg1;
+    arg0->m_ec = arg1;
     count = TObjFish::get_fish_count();
     for (i = 0; i < 2; i++) {
         {
@@ -345,16 +345,16 @@ u8 *TBoss6Demo20_TYPE2_APPEAR__ct(u8 *arg0, s32 arg1) {
         self->t[i].b = TObjFish__sub_8001EDB0(count, v);
         self->t[i].c = get_bml_motion(count, boss6_type2_appear_motion_indices[i]);
     }
-    ((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_bc = get_bml_model(count, 4);
+    arg0->m_bc = get_bml_model(count, 4);
     *(s32 *)((s8 *)arg0 + 0xC0) = TObjFish__sub_8001EDB0(count, 4);
-    ((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_c4 = get_bml_motion(count, 0x20);
+    arg0->m_c4 = get_bml_motion(count, 0x20);
     *(s32 *)((s8 *)arg0 + 0xC8) = get_bml_model(count, 1);
-    ((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_cc = TObjFish__sub_8001EDB0(count, 1);
+    arg0->m_cc = TObjFish__sub_8001EDB0(count, 1);
     *(s32 *)((s8 *)arg0 + 0xD0) = get_bml_motion(count, 0x36);
-    ((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_d4 = get_bml_model(count, 0xC);
+    arg0->m_d4 = get_bml_model(count, 0xC);
     *(s32 *)((s8 *)arg0 + 0xD8) = TObjFish__sub_8001EDB0(count, 0xC);
-    ((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_dc = get_bml_motion(count, 0x22);
-    ((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_7c = TObjFish__sub_800E3124((u8 *)boss6_type2_appear_model_node_descriptors, (s32)(arg0 + 0x1C));
+    arg0->m_dc = get_bml_motion(count, 0x22);
+    arg0->m_7c = TObjFish__sub_800E3124((u8 *)boss6_type2_appear_model_node_descriptors, (s32)((u8 *)arg0 + 0x1C));
     for (i = 0; i < 9; i++) {
         self->arr[i] = 0;
     }
@@ -362,16 +362,16 @@ u8 *TBoss6Demo20_TYPE2_APPEAR__ct(u8 *arg0, s32 arg1) {
     set_scripted_camera_pose((void *)lbl_80478058, (void *)lbl_80478058, (void *)lbl_80478064);
     ((TCameraCtrl *)boss6_type2_appear_camera_script)->cache_target_and_forward(0x416C);
     *(f32 *)((s8 *)arg0 + 0xE0) = lbl_805DFA70;
-    ((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_e4 = lbl_805DFA70;
+    arg0->m_e4 = lbl_805DFA70;
     *(s32 *)((s8 *)arg0 + 0xE8) = 0;
-    return arg0;
+    return (u8 *)arg0;
 }
 #pragma pop
 
 void *create_boss6_type2_appearance(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF0);
     if (o != NULL) {
-        o = TBoss6Demo20_TYPE2_APPEAR__ct((u8 *)o, (s32)arg0);
+        o = TBoss6Demo20_TYPE2_APPEAR__ct((TBoss6Demo20_TYPE2_APPEAR *)((u8 *)o), (s32)arg0);
     }
     return o;
 }

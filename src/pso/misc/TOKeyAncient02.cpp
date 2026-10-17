@@ -50,14 +50,14 @@ extern RecoveredGlobal_8016B5A4_lbl_80441A74 lbl_80441A74;
 extern RecoveredGlobal_8016B5A4_lbl_804B2A7C bm_fs_obj_o_doorswitch01_resource_descriptor;
 extern u32 TOKeyAncient02__model_archive;
 s32 init_collision_body_parts(void *, void *, int);
-void *TOKey__ct(void *arg0);
+void *TOKey__ct(TOKey *arg0);
 extern RecoveredGlobal_8016B6A4_lbl_804B2A8C lbl_804B2A8C;
 extern s32 __vt__14TOKeyAncient02[];
 extern s32 TOKeyAncient02__class_name;
 extern const f32 TOKeyAncient02__data_805DB70C;
 extern const f32 lbl_805DB710;
 extern const f32 lbl_805DB714;
-u8 *TOKeyAncient02__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TOKeyAncient02__ct(TOKeyAncient02 *arg0, s32 arg1, s32 arg2);
 s32 get_current_floor();
 extern s32 local_client_id;
 extern const f32 lbl_805DB700;
@@ -168,7 +168,7 @@ void TOKeyAncient02::vfunc_16() {
 void *TOKeyAncient02::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF0);
     if (o != NULL) {
-        o = TOKeyAncient02__ct((u8 *)o, (s32)tl_05, (s32)arg0);
+        o = TOKeyAncient02__ct((TOKeyAncient02 *)((u8 *)o), (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -218,30 +218,30 @@ void *__dt__14TOKeyAncient02Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TOKeyAncient02__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TOKeyAncient02__ct(TOKeyAncient02 *arg0, s32 arg1, s32 arg2) {
     TOKey__ct((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016B6A4___vt__14TOKeyAncient02 *)&__vt__14TOKeyAncient02).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKeyAncient02__class_name;
     ((TOKeyAncient02 *)(arg0))->apply_object_set_data((void *)arg2);
     ((TOKey *)arg0)->init_switch_id();
-    ((TOKeyAncient02 *)arg0)->model = ((u8 *)get_bml_model((void *)((*(s32 *)&TOKeyAncient02__model_archive)), 1));
-    ((TOKeyAncient02 *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *)((void *) ((*(s32 *)&TOKeyAncient02__model_archive))), 1);
+    arg0->model = ((u8 *)get_bml_model((void *)((*(s32 *)&TOKeyAncient02__model_archive)), 1));
+    arg0->texture_id = TObjFish__sub_8001EDB0((void *)((void *) ((*(s32 *)&TOKeyAncient02__model_archive))), 1);
     init_collision_body_parts(arg0, &lbl_804B2A8C.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    ((TOKeyAncient02 *)arg0)->m_c0 = (f32) lbl_805DB710;
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (lbl_805DB714 + *(f32 *)((s8 *)(*(void **)((s8 *)(((TOKeyAncient02 *)arg0)->model) + 4)) + 0x14));
-    ((TOKeyAncient02 *)arg0)->m_e8 = 0;
-    ((TOKeyAncient02 *)arg0)->m_ec = 0;
-    if (((s32) ((TOKeyAncient02 *)arg0)->m_d0 != 2) && ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0)) {
-        ((TOKeyAncient02 *)arg0)->m_d0 = 1;
+    arg0->m_c0 = (f32) lbl_805DB710;
+    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (lbl_805DB714 + *(f32 *)((s8 *)(*(void **)((s8 *)(arg0->model) + 4)) + 0x14));
+    arg0->m_e8 = 0;
+    arg0->m_ec = 0;
+    if (((s32) arg0->m_d0 != 2) && ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0)) {
+        arg0->m_d0 = 1;
     } else {
-        ((TOKeyAncient02 *)arg0)->m_d0 = 0;
+        arg0->m_d0 = 0;
     }
     *(f32 *)((s8 *)arg0 + 0x70) = (f32) TOKeyAncient02__data_805DB70C;
-    ((TOKeyAncient02 *)arg0)->target_scale = (f32) TOKeyAncient02__data_805DB70C;
-    ((TOKeyAncient02 *)arg0)->scale = (f32) TOKeyAncient02__data_805DB70C;
-    return arg0;
+    arg0->target_scale = (f32) TOKeyAncient02__data_805DB70C;
+    arg0->scale = (f32) TOKeyAncient02__data_805DB70C;
+    return (u8 *)arg0;
 }
 
 void TOKeyAncient03::vfunc_25() {  }

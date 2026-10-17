@@ -56,7 +56,7 @@ extern char lbl_80441958[];
 struct Base0_8016ab58_8016A8D0 { char pad[0x18]; };
 struct VObj0_8016ab58_8016A8D0 : Base0_8016ab58_8016A8D0 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); };
 
-void *TOKey__ct(void *arg0);
+void *TOKey__ct(TOKey *arg0);
 void *__dt__5TOKeyFv(void *arg0, s16 arg1);
 u8 is_current_floor_switch_set(u16);
 void __dl__7TObjectFPv(void *);
@@ -163,14 +163,14 @@ void *__dt__5TOKeyFv(void *arg0, s16 arg1) {
 extern const f32 lbl_805DB6E0;
 extern void *TOKey__class_name;
 
-void *TOKey__ct(void *arg0) {
+void *TOKey__ct(TOKey *arg0) {
     init_map_object_base(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__5TOKey;
-    *(void * *)&((TOKey *)arg0)->m_name = TOKey__class_name;
-    ((TOKey *)arg0)->m_e4 = -1;
+    *(void * *)&arg0->m_name = TOKey__class_name;
+    arg0->m_e4 = -1;
     *(f32 *)((s8 *)arg0 + 0xCC) = lbl_805DB6E0;
-    ((TOKey *)arg0)->m_d0 = 2;
-    ((TOKey *)arg0)->m_d4 = 0;
+    arg0->m_d0 = 2;
+    arg0->m_d4 = 0;
     *(u32 *)((s8 *)arg0 + 0xE0) = 0;
     *(u32 *)((s8 *)arg0 + 0xD8) = 28;
     *(u32 *)((s8 *)arg0 + 0xDC) = 28;

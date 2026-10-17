@@ -55,7 +55,7 @@ struct A_80291FC0 {
 };
 extern "C" {
 void *TLobby__sub_802936AC(void *arg0, s16 arg1);
-void update_destruction_countdown__6TLobbyFPv(void *arg0);
+void update_destruction_countdown__6TLobbyFPv(TLobby *arg0);
 void render__7TObjectFv();
 void render_shadows__7TObjectFv();
 void *challenge_default_settings[420] = {
@@ -1372,12 +1372,12 @@ s32 TLobby::check_destruction_by_phase() {
 
 void TLobby::maybe_handle_destruction() { if (check_destruction_by_phase() == 0) { TLobby__sub_802933FC(this); } }
 
-void update_destruction_countdown__6TLobbyFPv(void *arg0) {
+void update_destruction_countdown__6TLobbyFPv(TLobby *arg0) {
     if (TAdPlayerLoadGC__sub_801E1510() != 1) {
-        if (((TLobby *)arg0)->check_destruction_by_phase() == 1) {
+        if (arg0->check_destruction_by_phase() == 1) {
             queue_destruction__7TObjectFv(arg0);
         }
-        ((TLobby *)arg0)->maybe_handle_destruction();
+        arg0->maybe_handle_destruction();
         *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) + 1);
     }
 }

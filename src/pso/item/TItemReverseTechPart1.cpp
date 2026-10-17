@@ -32,7 +32,7 @@ void TItemReverseTechPart1::run_task() {
         if (self->ring == NULL) {
             p = __nw__7TObjectFUl(0x2C);
             if (p != NULL) {
-                p = TAdRicoRingCtrl__ct((u8 *)p, (s32)self);
+                p = TAdRicoRingCtrl__ct((TAdRicoRingCtrl *)((u8 *)p), (s32)self);
             }
             self->ring = p;
             if (self->ring != NULL) {

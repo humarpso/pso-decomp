@@ -48,12 +48,12 @@ int TObjQuestColApcINW::vfunc_15() {
     return 0;
 }
 
-void *TObjQuestColApcINW__ct(void *arg0) {
+void *TObjQuestColApcINW__ct(TObjQuestColApcINW *arg0) {
     TObjQuestColBase__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjQuestColApcINW;
-    *(void * *)&((TObjQuestColApcINW *)arg0)->m_name = lbl_805D3400;
-    *(f32 *)((s8 *)arg0 + 0xBC) = ((TObjQuestColApcINW *)arg0)->target_scale;
-    ((TObjQuestColApcINW *)arg0)->m_c8 = lbl_805DBF04;
+    *(void * *)&arg0->m_name = lbl_805D3400;
+    *(f32 *)((s8 *)arg0 + 0xBC) = arg0->target_scale;
+    arg0->m_c8 = lbl_805DBF04;
     *(f32 *)((s8 *)arg0 + 0xC4) = lbl_805DBF04;
     *(f32 *)((s8 *)arg0 + 0xC0) = lbl_805DBF04;
     return arg0;

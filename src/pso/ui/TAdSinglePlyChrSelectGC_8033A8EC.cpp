@@ -142,11 +142,11 @@ void TUnk_804EF8C0::alloc_download_buffer() {
         *(u32 *)((s8 *)this + 0x20) = ((TQuestVmDownLoadServer *)(*(s32 *)((s8 *)this + 0x1C)))->alloc();
     }
 }
-void TAdSinglePlyChrSelectGC__sub_8033A9F0(u8 *arg0) {
+void TAdSinglePlyChrSelectGC__sub_8033A9F0(TAdSinglePlyChrSelectGC *arg0) {
     *(s32 *)((s8 *)arg0 + 0x2C) = 0xB;
     lbl_805D6D90 &= 0xFFFFFFFE;
-    ((TAdSinglePlyChrSelectGC *)arg0)->set_char_slots(0xA, (s32)(*(s32 *)((s8 *)arg0 + 0x24) + 0xF));
-    ((TAdSinglePlyChrSelectGC *)arg0)->init_warps();
+    arg0->set_char_slots(0xA, (s32)(*(s32 *)((s8 *)arg0 + 0x24) + 0xF));
+    arg0->init_warps();
 }
 int queue_destruction__23TAdSinglePlyChrSelectGCFPv(void* p) { return queue_destruction__7TObjectFv(p); }
 

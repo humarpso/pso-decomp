@@ -1,4 +1,5 @@
 #include "types.h"
+class TChCrTagPlBack;
 #include "pso/misc/TWindowSubTrade.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubShortMail.h"
@@ -43,7 +44,7 @@ s32 text_builder_append();
 void text_builder_reset(void);
 s32 get_window_layout_position(int);
 s32 free_member__17TWindowSubComCardFv(int, int);
-void open_yes_no_prompt(u8 *arg0, u32 arg1, s32 arg2, s32 arg3, f32 farg0);
+void open_yes_no_prompt(TChCrTagPlBack *arg0, u32 arg1, s32 arg2, s32 arg3, f32 farg0);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, int, int, int);
 extern const f32 lbl_805DE298;
 s32 create_message_window__6TLobbyFllUls(s32, void *, int, int);
@@ -61,7 +62,7 @@ s32 TWindowSubTrade::open_trade_confirm_prompt(s32 arg1) {
     TWindowSubStatusDisp::get_message_10(0xD6);
     text_builder_append();
     temp_r29 = create__19TWindowMessageYesNoFPvPvPvPv(arg0, this->m_20, 0, 0);
-    open_yes_no_prompt((u8 *)temp_r29, (u32)(TWindowSubStatusDisp::get_message_10(0x20)), (get_shared_text_buffer()), (get_window_layout_position(0x5B)), (f32)lbl_805DE298);
+    open_yes_no_prompt((TChCrTagPlBack *)((u8 *)temp_r29), (u32)(TWindowSubStatusDisp::get_message_10(0x20)), (s32)(get_shared_text_buffer()), (s32)(get_window_layout_position(0x5B)), (f32)((f32)lbl_805DE298));
     free_member__17TWindowSubComCardFv(temp_r29, 1);
     ((TWindowSubShortMail *)temp_r29)->notify_warp_flag70();
     return temp_r29;

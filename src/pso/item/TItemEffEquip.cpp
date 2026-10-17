@@ -79,7 +79,7 @@ void *TItemEffEquip__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *ar
     __ct__7TObjectFP7TObject(arg0, arg1);
     self->vt = __vt__13TItemEffEquip;
     self->x0 = TItemEffEquip__class_name;
-    disallow_rendering__7TObjectFv(arg0);
+    disallow_rendering__7TObjectFv((TObject *)arg0);
     mem = __nw__7TObjectFUl(0xE0);
     if (mem != NULL) {
         mem = ((void *(*)(void *, void *, void *, void *))TItemEffFlame__sub_80108C90)(mem, arg0, arg2, arg3);
@@ -293,7 +293,7 @@ Obj_80108C90 *TItemEffFlame__sub_80108C90(Obj_80108C90 *self, void *parent, s16 
     }
     ((TUnk_804AF8A0 *)self)->initialize_linked_object_reference(self->sub);
     ((TObjPlayer *)self)->reset_photon_effect();
-    disallow_rendering__7TObjectFv(self);
+    disallow_rendering__7TObjectFv((TObject *)self);
     return self;
 }
 

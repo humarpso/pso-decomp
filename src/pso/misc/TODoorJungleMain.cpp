@@ -9,7 +9,7 @@
 #include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
-extern "C" u8 * TODoorJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2);
+extern "C" u8 *TODoorJungleMain__ct(TODoorJungleMain *arg0, s32 arg1, s32 arg2);
 
 extern "C" {
 
@@ -191,7 +191,7 @@ extern const f32 lbl_805DDCE4;
 extern const f32 lbl_805DDCE8;
 extern const f32 lbl_805DDCEC;
 extern const f32 lbl_805DDCF0;
-u8 *TODoorJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TODoorJungleMain__ct(TODoorJungleMain *arg0, s32 arg1, s32 arg2);
 void *get_bml_model(u32, int);
 s32 rotate_matrix_y(int, int);
 int push_matrix(void *);
@@ -379,7 +379,7 @@ void *__dt__16TODoorJungleMainFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_8029B924_lbl_804DC014_size[sizeof(RecoveredGlobal_8029B924_lbl_804DC014) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8029B924___vt__16TODoorJungleMain_size[sizeof(RecoveredGlobal_8029B924___vt__16TODoorJungleMain) == 0x58 ? 1 : -1];
-u8 *TODoorJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TODoorJungleMain__ct(TODoorJungleMain *arg0, s32 arg1, s32 arg2) {
     struct CopyStack_8029B924 { u8 bytes[0x3C]; };
     CopyStack_8029B924 copy_storage_8029B924;
     s32 temp_r4;
@@ -387,24 +387,24 @@ u8 *TODoorJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8029B924___vt__16TODoorJungleMain *)&__vt__16TODoorJungleMain).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TODoorJungleMain__name;
     ((TODoorJungleMain *)(arg0))->apply_object_set_data((void *)arg2);
-    ((TODoorJungleMain *)arg0)->m_bc = get_bml_motion((*(u8 * *)&TODoorJungleMain__bml_resource), 0);
-    ((TODoorJungleMain *)arg0)->m_b8 = (f32) lbl_805DDCD8;
+    arg0->m_bc = get_bml_motion((*(u8 * *)&TODoorJungleMain__bml_resource), 0);
+    arg0->m_b8 = (f32) lbl_805DDCD8;
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) lbl_805DDCDC;
     init_collision_body_parts(arg0, (s32) &TODoorJungleMain_collision_body_parts.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    ((TODoorJungleMain *)arg0)->m_c0 = (f32) lbl_805DDCE0;
+    arg0->m_c0 = (f32) lbl_805DDCE0;
     temp_r4 = arg2 - 4;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DDCE4;
-    ((TODoorJungleMain *)arg0)->m_d4 = 0;
-    ((TODoorJungleMain *)arg0)->m_d8 = 0;
+    arg0->m_d4 = 0;
+    arg0->m_d8 = 0;
     *(ByteBlock_3C *)(copy_storage_8029B924.bytes) = *(const ByteBlock_3C *)(temp_r4 + 4);
     (*(f32 *)(copy_storage_8029B924.bytes + 0x24)) = lbl_805DDCE8;
     (*(f32 *)(copy_storage_8029B924.bytes + 0x28)) = lbl_805DDCEC;
     (*(f32 *)(copy_storage_8029B924.bytes + 0x2C)) = lbl_805DDCF0;
     (*(s32 *)(copy_storage_8029B924.bytes + 0x30)) = 2;
-    ((TODoorJungleMain *)arg0)->m_dc = TObjMapCsn::create((s32)copy_storage_8029B924.bytes);
-    return arg0;
+    arg0->m_dc = TObjMapCsn::create((s32)copy_storage_8029B924.bytes);
+    return (u8 *)arg0;
 }
 
 }

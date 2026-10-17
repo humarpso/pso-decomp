@@ -1065,7 +1065,7 @@ struct VObj_18_b345b0 : VBase_18_b345b0 {
 };
 
 extern "C" {
-void TObjEneEpsilonGuard__vt85(void *arg0, s32 arg1, s32 arg2);
+void TObjEneEpsilonGuard__vt85(TObjEneEpsilonGuard *arg0, s32 arg1, s32 arg2);
 void run_task__19TObjEneEpsilonGuardFv(u8 *arg0);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -1257,25 +1257,25 @@ void TObjEneEpsilonGuard::vfunc_28() {  }
 
 extern void *tl_04;
 
-void TObjEneEpsilonGuard__vt85(void *arg0, s32 arg1, s32 msg) {
+void TObjEneEpsilonGuard__vt85(TObjEneEpsilonGuard *arg0, s32 arg1, s32 msg) {
     switch (arg1) {
     case 0:
-        ((TObjEneEpsilonGuard *)arg0)->handle_event(msg);
+        arg0->handle_event(msg);
         return;
     case 1:
         ((s32 (*)(void *, s32))TObjEneEpsilonGuard__sub_8035E8C0)(arg0, msg);
         return;
     case 2:
-        ((TObjEneEpsilonGuard *)arg0)->state_orbit(msg);
+        arg0->state_orbit(msg);
         return;
     case 3:
         ((s32 (*)(void *, s32))TObjEneEpsilonGuard__sub_8035E578)(arg0, msg);
         return;
     case 4:
-        ((TObjEneEpsilonGuard *)arg0)->handle_break_state(msg);
+        arg0->handle_break_state(msg);
         return;
     case 5:
-        ((TObjEneEpsilonGuard *)arg0)->handle_message(msg);
+        arg0->handle_message(msg);
         return;
     }
 }

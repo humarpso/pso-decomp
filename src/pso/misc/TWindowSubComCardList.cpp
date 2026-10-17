@@ -81,7 +81,7 @@ s32 set_field_1c__6TLobbyFf(void *);
 f32 TWindowSubEquip__sub_80263AF8(u8 *arg0, u32 arg1);
 Ev_802758C8 *calc_equip_index__21TWindowSubCustomEquipFv(void *);
 void *__dt__21TWindowSubComCardListFv(void *arg0, s16 arg1);
-void render__21TWindowSubComCardListFv(u8 *arg0);
+void render__21TWindowSubComCardListFv(TWindowSubComCardList *arg0);
 s32 handle_list_page_flip_input(s32);
 s32 draw_window_frame(void *, s32);
 s32 get_draw_context__11TWindowBaseFPv();
@@ -92,19 +92,19 @@ void *__dt__11TWindowMenuFv(void *arg0, s16 arg1);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
 s32 run_task__11TWindowMenuFv();
 
-void render__21TWindowSubComCardListFv(u8 *arg0) {
+void render__21TWindowSubComCardListFv(TWindowSubComCardList *arg0) {
     s32 temp_r3;
 
     temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame(arg0, temp_r3);
-    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
+    draw_visible_window_entries(arg0, (u8 *)arg0 + 0x24, temp_r3);
     ((TWindowMenu *)arg0)->render_selected_entry(temp_r3);
-    ((TWindowSubComCardList *)arg0)->draw_card_list_selection((u8 *)temp_r3);
-    if ((u32) ((TWindowSubComCardList *)arg0)->m_88 != 0U) {
-        forward_render__20TWindowSubStatusDispFv(((TWindowSubComCardList *)arg0)->m_88, temp_r3);
+    arg0->draw_card_list_selection((u8 *)temp_r3);
+    if ((u32) arg0->m_88 != 0U) {
+        forward_render__20TWindowSubStatusDispFv(arg0->m_88, temp_r3);
     }
-    if ((u32) ((TWindowSubComCardList *)arg0)->m_8c != 0U) {
-        draw_list_page_indicator(((TWindowSubComCardList *)arg0)->m_8c, temp_r3);
+    if ((u32) arg0->m_8c != 0U) {
+        draw_list_page_indicator(arg0->m_8c, temp_r3);
     }
 }
 
@@ -272,7 +272,7 @@ void TUnk_804D1160::run_task() {
     case 3:
         p = __nw__7TObjectFUl(0x84);
         if (p != NULL) {
-            p = TWindowSubCustomSelect__ct((u8 *)p, self->f20);
+            p = TWindowSubCustomSelect__ct((TWindowSubCustomSelect *)((u8 *)p), self->f20);
         }
         self->f2c = p;
         TWindowSubEquip__sub_80263AF8((u8 *)self->f24, 1);

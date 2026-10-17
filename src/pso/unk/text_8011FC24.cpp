@@ -32,7 +32,7 @@ void TItemWeapon::update_trails() {
         return;
     }
     if (test_flags_1b8__11TItemWeaponFUl(arg0, 1U) == 0U) {
-        draw_weapon_model(arg0);
+        draw_weapon_model((TItemWeapon *)arg0);
         update_trail_slot__11TItemWeaponFPvi(arg0, 0);
         update_trail_slot__11TItemWeaponFPvi(arg0, 1);
     }
@@ -55,7 +55,7 @@ void TItemWeapon::vfunc_27() {
             return;
         }
         if (test_flags_1b8__11TItemWeaponFUl(arg0, 1U) == 0U) {
-            draw_weapon_model(arg0);
+            draw_weapon_model((TItemWeapon *)arg0);
         }
     }
 }

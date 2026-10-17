@@ -91,10 +91,10 @@ void *create_equip_kind_window(s32, u8 *, s32);
 s32 update_selection__19TWindowSubTechniqueFPsPl(void *, void *, s32);
 void get_current_selection__19TWindowSubTechniqueFPv(void *, void *, s32);
 extern u8 lbl_8044F5A0[];
-void run_task__20TWindowShortListCtrlFv(u8 *arg0);
+void run_task__20TWindowShortListCtrlFv(TWindowShortListCtrl *arg0);
 extern const Buf_8026E884 lbl_8044F5A8;
 void TWindowShortListCtrl__sub_8026E884(s16 *dst);
-void *__dt__20TWindowShortListCtrlFv(void *arg0, s16 arg1);
+void *__dt__20TWindowShortListCtrlFv(TWindowShortListCtrl *arg0, s16 arg1);
 s32 create_window_menu(s32 arg0, s32 arg1, s32 arg2);
 s32 end_player_keyboard_hold(s32);
 s32 TWindowCtrl__sub_8024A1A8();
@@ -298,7 +298,7 @@ extern void *__vt__20TWindowShortListCtrl[];
 
 #define PAD(i) ((void *) ((((u8 *) (&controller_input_state.value)) + ((i) * 0x50)) + 0x20))
 #define BACK_PRESSED(i) (TWindowShortListCtrl__check_controller_button(PAD(i), 2) != 0 || test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) (((u8 *) (&controller_input_state.value)) + 0x160), 2) != 0)
-void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
+void run_task__20TWindowShortListCtrlFv(TWindowShortListCtrl *arg0) {
     Ctrl_8026ECBC *self = (Ctrl_8026ECBC *) arg0;
     s32 idx;
     u8 *player;
@@ -309,7 +309,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
         queue_destruction__7TObjectFv(self);
         return;
     }
-    ((TWindowShortListCtrl *)arg0)->cycle_list_page();
+    arg0->cycle_list_page();
     switch (self->state) {
     case 0:
         if (self->list_win == NULL) {
@@ -449,7 +449,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
             if (((TWindowSubComCardList *)(self->tech_win))->get_selected_index() == -1) {
                 ((TWindowShortListCtrl *)((u8 *) self->tech_win))->update_cursor_pos();
             } else {
-                ((TWindowShortListCtrl *)arg0)->swap_card_entries(((TWindowSubComCardList *)(self->tech_win))->get_selected_index(), ((TWindowShortListCtrl *)(self->tech_win))->get_cursor_pos());
+                arg0->swap_card_entries(((TWindowSubComCardList *)(self->tech_win))->get_selected_index(), ((TWindowShortListCtrl *)(self->tech_win))->get_cursor_pos());
                 ((TWindowMenu *)(self->tech_win))->reset_selection();
                 ((TWindowShortListCtrl *)self)->refresh_technique_rows((s32) self->tech_win, (Sc_8026EBB0 *) lbl_8044F5A0);
             }
@@ -486,28 +486,28 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
     }
 }
 
-void *__dt__20TWindowShortListCtrlFv(void *arg0, s16 arg1) {
+void *__dt__20TWindowShortListCtrlFv(TWindowShortListCtrl *arg0, s16 arg1) {
     s32 player;
 
     if (arg0 != NULL) {
         *(void **)((s8 *)arg0 + 0x18) = __vt__20TWindowShortListCtrl;
-        player = get_player_by_client_id((s32)(((TWindowShortListCtrl *)arg0)->m_24));
-        if ((player != 0) && (has_player_active_menu__11TWindowCtrlFv(((TWindowShortListCtrl *)arg0)->m_24) == 0) && (TWindowCtrl__sub_8024A1A8() == 0)) {
+        player = get_player_by_client_id((s32)(arg0->m_24));
+        if ((player != 0) && (has_player_active_menu__11TWindowCtrlFv(arg0->m_24) == 0) && (TWindowCtrl__sub_8024A1A8() == 0)) {
             ((TObjPlayer *)player)->init_parts();
         }
-        end_player_keyboard_hold(((TWindowShortListCtrl *)arg0)->m_24);
+        end_player_keyboard_hold(arg0->m_24);
         TWindowCtrl::clear_flag_8();
-        if ((u32) ((TWindowShortListCtrl *)arg0)->m_34 != 0U) {
+        if ((u32) arg0->m_34 != 0U) {
             TWindow__close(*(void **)((s8 *)arg0 + 0x34));
-            ((TWindowShortListCtrl *)arg0)->m_34 = 0U;
+            arg0->m_34 = 0U;
         }
-        if ((u32) ((TWindowShortListCtrl *)arg0)->m_30 != 0U) {
+        if ((u32) arg0->m_30 != 0U) {
             TWindow__close(*(void **)((s8 *)arg0 + 0x30));
-            ((TWindowShortListCtrl *)arg0)->m_30 = 0U;
+            arg0->m_30 = 0U;
         }
-        if ((u32) ((TWindowShortListCtrl *)arg0)->m_2c != 0U) {
+        if ((u32) arg0->m_2c != 0U) {
             TWindow__close(*(void **)((s8 *)arg0 + 0x2C));
-            ((TWindowShortListCtrl *)arg0)->m_2c = 0U;
+            arg0->m_2c = 0U;
         }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

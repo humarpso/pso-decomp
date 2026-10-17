@@ -360,9 +360,9 @@ u16 TCameraCtrl__sub_8006A5DC();
 void *get_scripted_camera_playback();
 
 s32 queue_destruction__7TObjectFv(void *);
-void allow_rendering__7TObjectFv(void *arg0);
+void allow_rendering__7TObjectFv(TObject *arg0);
 
-void disallow_rendering__7TObjectFv(void *arg0);
+void disallow_rendering__7TObjectFv(TObject *arg0);
 
 extern void *tl_05;
 
@@ -374,7 +374,7 @@ void TUnk_804C3248::update_if_active() {
         TObjPlayer__sub_800D8A6C();
     }
     if (tl_05 != 0) {
-        allow_rendering__7TObjectFv(tl_05);
+        allow_rendering__7TObjectFv((TObject *)tl_05);
     }
 }
 
@@ -385,7 +385,7 @@ void TUnk_804C3248::enter_scene() {
     ((s32 (*)(s32))apply_all_default__8TFogCtrlFv)(arg0);
     TObjPlayer__sub_800D8A60();
     if (tl_05 != NULL) {
-        disallow_rendering__7TObjectFv(tl_05);
+        disallow_rendering__7TObjectFv((TObject *)tl_05);
     }
 }
 void TSceneSora::update(s32 _w0) {

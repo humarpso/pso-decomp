@@ -105,7 +105,7 @@ void init_collision_body_parts(void *, void *, s32);
 void *__nw__7TObjectFUl(int);
 u8 *TEneParticleCtrl__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern s32 TObjEneSaver__class_name;
-u8 *TObjEneSaver__ct(u8 *arg0, void *arg1, void *arg2);
+u8 *TObjEneSaver__ct(TObjEneSaver *arg0, void *arg1, void *arg2);
 void step_angle_clamped__10TObjPlayerFPvi(void*, s32);
 void turn_toward_target__10TObjPlayerFPv(Obj_800A6B14*);
 void sub_800A62D4__12TObjEneSaverFv(u8*);
@@ -139,7 +139,7 @@ void calc_move_state__12TObjEneSaverFv(void *arg0);
 s32 TObjPlayer__sub_800A7774(void *, void *);
 s32 set_param__16TEneParticleCtrlFv(void *, s32);
 void sub_800A435C__12TObjEneSaverFv(u8 *arg0);
-void apply_actor_gravity(u8 *arg0, s32 *arg1, f32 farg0);
+void apply_actor_gravity(TObjEnemy *arg0, s32 *arg1, f32 farg0);
 void move_with_wall_slide(u8 *arg0);
 s32 TObjPlayer__sub_800A04F0(void *);
 #define step_angle_clamped__10TObjPlayerFPvi ((s32 (*)(void*, int))(step_angle_clamped__10TObjPlayerFPvi))
@@ -401,7 +401,7 @@ void update_collapse_and_destroy__10TObjPlayerFPv(u8 *arg0) {
         ((TObjEneSaver *)arg0)->phase = 1;
         ((TObjPlayer *)(arg0 + 0x38))->request_two_effects();
         TObjPlayer__sub_800A04F0(arg0 + 0x3A4);
-        apply_actor_gravity((arg0), 0, lbl_805D9A14);
+        apply_actor_gravity((TObjEnemy *)(arg0), (s32 *)(0), lbl_805D9A14);
         prev_r3 = copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003B207);
         play_sound_effect(prev_r3, arg0 + 0x38, 0, 0);
         return;
@@ -449,19 +449,19 @@ void TObjEneSaver::update_entry_motion() {
     switch (this->phase) {
     case 0:
         this->phase = 1;
-        apply_actor_gravity((((u8 *)this)), 0, lbl_805D9A14);
+        apply_actor_gravity((TObjEnemy *)(((u8 *)this)), (s32 *)(0), lbl_805D9A14);
         break;
     case 1:
         this->m_310 = (f32) lbl_805D9A14;
         *(f32 *)((s8 *)((u8 *)this) + 0x308) = (f32) lbl_805D9A14;
-        apply_actor_gravity((((u8 *)this)), 0, lbl_805D9A14);
+        apply_actor_gravity((TObjEnemy *)(((u8 *)this)), (s32 *)(0), lbl_805D9A14);
         if ((u32) this->m_b4 != 8U) {
             this->phase = 2;
         }
         break;
     case 2:
         if (!(this->actorFlags & 0x800000)) {
-            apply_actor_gravity((((u8 *)this)), 0, lbl_805D9A14);
+            apply_actor_gravity((TObjEnemy *)(((u8 *)this)), (s32 *)(0), lbl_805D9A14);
         }
         this->actorFlags = (s32) (this->actorFlags & 0xFFFFF9FF);
         temp_r3 = (unsigned char *) (this->m_a4);
@@ -525,7 +525,7 @@ void TObjEneSaver::update_knockback_state() {
     switch (this->phase) {
     case 0:
         this->phase = 1;
-        apply_actor_gravity(((u8 *)this), 0, lbl_805D9A14);
+        apply_actor_gravity((TObjEnemy *)((u8 *)this), (s32 *)(0), lbl_805D9A14);
         break;
     case 1:
         move_with_wall_slide(((u8 *)this));
@@ -538,7 +538,7 @@ void TObjEneSaver::update_knockback_state() {
         break;
     case 2:
         if (!(this->actorFlags & 0x800000)) {
-            apply_actor_gravity(((u8 *)this), 0, lbl_805D9A14);
+            apply_actor_gravity((TObjEnemy *)((u8 *)this), (s32 *)(0), lbl_805D9A14);
         }
         if ((u32) this->m_b4 != 0x20U) {
             if ((s32) *(s16 *)((s8 *)((u8 *)this) + 0x388) <= 0) {
@@ -823,7 +823,7 @@ void TObjPlayer__sub_800A4D9C(u8 *arg0) {
     switch (F(s16, 0x328)) {
     case 0:
         if (!(F(u32, 0x30) & 0x800000)) {
-            apply_actor_gravity(arg0, 0, lbl_805D9A14);
+            apply_actor_gravity((TObjEnemy *)arg0, (s32 *)(0), lbl_805D9A14);
         }
         if (objInBand((GameObj *)arg0, (f32)lbl_805D9A28) != 0) {
             u8 *t = F(u8 *, 0x2A8);
@@ -883,7 +883,7 @@ void TObjPlayer__sub_800A4D9C(u8 *arg0) {
         break;
     case 2:
         if (!(F(u32, 0x30) & 0x800000)) {
-            apply_actor_gravity(arg0, 0, lbl_805D9A14);
+            apply_actor_gravity((TObjEnemy *)arg0, (s32 *)(0), lbl_805D9A14);
         }
         if (F(u32, 0xB4) != 4) {
             ((s32 (*)(f32, void *, s32))enemy_set_heading_velocity)(lbl_805D9A14, arg0, F(s32, 0x60));
@@ -976,12 +976,12 @@ void TObjPlayer__sub_800A5154(void *arg0) {
     switch (o->phase) {
     case 0:
         o->phase = 1;
-        apply_actor_gravity((u8 *)o, (s32 *)(0), lbl_805D9A14);
+        apply_actor_gravity((TObjEnemy *)((u8 *)o), (s32 *)(0), lbl_805D9A14);
         play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(o, 0x4003AD02), &o->pos, 0, 0);
         break;
     case 1:
         if (!(o->flags & 0x800000)) {
-            apply_actor_gravity((u8 *)o, (s32 *)(0), lbl_805D9A14);
+            apply_actor_gravity((TObjEnemy *)((u8 *)o), (s32 *)(0), lbl_805D9A14);
         }
         if (objInBand((GameObj *)o, (f32)lbl_805D9A3C) != 0) {
             if (o->target != NULL && o->target->m18(o, lbl_805D9A40) != 0) {
@@ -1061,7 +1061,7 @@ void TObjPlayer__sub_800A54B4(u8 *arg0) {
             subtract_vector(&d, arg0 + 0x2FC);
             a = update_angle__10TObjPlayerFlPv(arg0, *(s32 *)((s8 *)(F(u8 *, 0x350)) + 8), &d);
             if (!(F(s32, 0x30) & 0x800000)) {
-                apply_actor_gravity(arg0, 0, lbl_805D9A14);
+                apply_actor_gravity((TObjEnemy *)arg0, (s32 *)(0), lbl_805D9A14);
             }
             if (a < 0x10) {
                 F(s16, 0x328) = 1;
@@ -1276,7 +1276,7 @@ void TObjEneSaver::update_move_toward_target() {
                 Vec_800A5DC4 v2 = *(Vec_800A5DC4 *)(((u8 *)this) + 0x2FC);
                 copy_position_if_valid__10TObjPlayerFii((s32)this, (s32)&v2);
                 }
-                apply_actor_gravity((((u8 *)this)), 0, lbl_805D9A14);
+                apply_actor_gravity((TObjEnemy *)(((u8 *)this)), (s32 *)(0), lbl_805D9A14);
             }
             break;
         }
@@ -1321,7 +1321,7 @@ void TObjPlayer__sub_800A5FA8(u8 *arg0) {
         ((TObjEneSaver *)arg0)->phase = 1;
         ((TBoss3Volopt *)(arg0 + 0x38))->play_area_se_with_particle();
         TObjPlayer__sub_800A0554(arg0 + 0x3A4);
-        apply_actor_gravity((arg0), 0, lbl_805D9A14);
+        apply_actor_gravity((TObjEnemy *)(arg0), (s32 *)(0), lbl_805D9A14);
         ((TBoss3Volopt *)(arg0 + 0x38))->play_area_variant_sound();
         break;
     case 1:
@@ -1345,7 +1345,7 @@ void TObjEneSaver::advance_motion_state() {
     switch (this->phase) {
     case 0:
         this->phase = 1;
-        apply_actor_gravity(((u8 *)this), 0, lbl_805D9A14);
+        apply_actor_gravity((TObjEnemy *)((u8 *)this), (s32 *)(0), lbl_805D9A14);
         return;
     case 1:
         if (horizontal_distance_squared((int)(this->target + 0x2FC), (void *) (((u8 *)this) + 0x2FC)) < lbl_805D9A7C) {
@@ -1581,7 +1581,7 @@ void TObjEneSaver::sub_800A62D4() {
             this->scale = (f32) lbl_805D9A40;
             *(s16 *)((s8 *)((u8 *)this) + 0x37E) = 0;
             TObjPlayer__sub_800A04F0((void *) (((u8 *)this) + 0x3A4));
-            apply_actor_gravity((((u8 *)this)), 0, lbl_805D9A14);
+            apply_actor_gravity((TObjEnemy *)(((u8 *)this)), (s32 *)(0), lbl_805D9A14);
             ((TBoss3Volopt *)(((u8 *)this) + 0x38))->play_area_variant_sound();
         }
         break;
@@ -2007,7 +2007,7 @@ void * create_ene_saver(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x3CC);
     if (o2 != NULL) {
-        o2 = TObjEneSaver__ct((u8 *)o2, (void *)o, (void *)arg0);
+        o2 = TObjEneSaver__ct((TObjEneSaver *)((u8 *)o2), (void *)o, (void *)arg0);
     }
     return o2;
 }
@@ -2121,18 +2121,18 @@ Obj_800A73F8 *__dt__12TObjEneSaverFv(Obj_800A73F8 *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TObjEneSaver__ct(u8 *arg0, void *arg1, void *arg2) {
+u8 *TObjEneSaver__ct(TObjEneSaver *arg0, void *arg1, void *arg2) {
     s16 t;
     void *p;
     initialize__9TObjEnemyFPv(arg0, arg1, arg2);
     *(u8 **)((s8 *)arg0 + 0x18) = (u8 *)TObjEneSaver__vtable;
-    ((TUnk_80490470 *)(arg0 + 0x3A4))->init_vtable_and_field18();
+    ((TUnk_80490470 *)((u8 *)arg0 + 0x3A4))->init_vtable_and_field18();
     *(s32 *)((s8 *)arg0 + 0) = TObjEneSaver__class_name;
-    ((TObjEneSaver *)arg0)->apply_set_data(arg2);
+    arg0->apply_set_data(arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();
     *(f32 *)((s8 *)arg0 + 0x70) = 1.0f;
-    ((TObjEneSaver *)arg0)->target_scale = 1.0f;
-    ((TObjEneSaver *)arg0)->scale = 1.0f;
+    arg0->target_scale = 1.0f;
+    arg0->scale = 1.0f;
     t = (s16)(100.0f + *(f32 *)((s8 *)arg0 + 0x354));
     *(s16 *)((s8 *)arg0 + 0x388) = t;
     *(s16 *)((s8 *)arg0 + 0x38A) = t;
@@ -2143,45 +2143,45 @@ u8 *TObjEneSaver__ct(u8 *arg0, void *arg1, void *arg2) {
     }
     *(s32 *)((s8 *)arg0 + 0x378) = 0;
     *(s32 *)((s8 *)arg0 + 0x378) |= 1 << (s32)*(f32 *)((s8 *)arg0 + 0x358);
-    ((TObjEneSaver *)arg0)->mode = 0;
-    ((TObjEneSaver *)arg0)->phase = 0;
-    ((TObjEneSaver *)arg0)->variant = 0;
+    arg0->mode = 0;
+    arg0->phase = 0;
+    arg0->variant = 0;
     ((TObjEneLappy *)arg0)->set_param(0x1E);
-    ((TObjEneSaver *)arg0)->subtype = 0;
-    ((TObjEneSaver *)arg0)->sub_800A7734((s32)(((TObjEneSaver *)arg0)->variant));
-    ((TObjEneSaver *)arg0)->action_table = (u8 *)TObjEneSaver__trail_record_table;
-    ((TObjPlayer *)arg0)->set_field_d8((s32)(((TObjEneSaver *)arg0)->action_table));
+    arg0->subtype = 0;
+    arg0->sub_800A7734((s32)(arg0->variant));
+    arg0->action_table = (u8 *)TObjEneSaver__trail_record_table;
+    ((TObjPlayer *)arg0)->set_field_d8((s32)(arg0->action_table));
     *(s32 *)((s8 *)arg0 + 0xDC) = *(s32 *)((s8 *)(*(u8 * *)&saver_bml_resource) + 0x430);
-    ((TObjEneSaver *)arg0)->m_b8 = 0;
-    set_animation__10TObjPlayerFPvs(arg0, ((TObjEneSaver *)arg0)->m_b8);
-    ((TObjMotion *)arg0)->set_field_b8(((TObjEneSaver *)arg0)->m_b8);
+    arg0->m_b8 = 0;
+    set_animation__10TObjPlayerFPvs(arg0, arg0->m_b8);
+    ((TObjMotion *)arg0)->set_field_b8(arg0->m_b8);
     init_collision_body_parts(arg0, (u8 *)saver_collision_body_part_table, 1);
     *(s16 *)((s8 *)arg0 + 0x37C) = 0;
     *(s16 *)((s8 *)arg0 + 0x37E) = 0;
-    bind_enemy_combat_stats((arg0), (u8 *)saver_boss_stat_handle, (u8 *)(player_object_ptr_array[*(s16 *)((s8 *)arg0 + 0x37C)]), (u8 *)saver_object_stat_handle);
-    ((TObjEneSaver *)arg0)->movementParameters = (u8*)lbl_80490B28;
-    ((TObjEneSaver *)arg0)->referenceHp = ((TObjEneSaver *)arg0)->hp;
+    bind_enemy_combat_stats(((u8 *)arg0), (u8 *)saver_boss_stat_handle, (u8 *)(player_object_ptr_array[*(s16 *)((s8 *)arg0 + 0x37C)]), (u8 *)saver_object_stat_handle);
+    arg0->movementParameters = (u8*)lbl_80490B28;
+    arg0->referenceHp = arg0->hp;
     ((TObjEnemy *)arg0)->update_prev_position();
     copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
     initialize_enemy_photon_effect(arg0);
     *(s32 *)((s8 *)arg0 + 0x374) = 1;
     *(s32 *)((s8 *)arg0 + 0x38C) = 0;
-    VecCopy((Vec *)(arg0 + 0x390), (const Vec *)(arg0 + 0x2FC));
+    VecCopy((Vec *)((u8 *)arg0 + 0x390), (const Vec *)((u8 *)arg0 + 0x2FC));
     *(s32 *)((s8 *)arg0 + 0x39C) = 0;
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(8);
-    ((TObjEneSaver *)arg0)->actorFlags |= 0x06040000;
-    ((TObjEneSaver *)arg0)->m_39c = 0x101;
-    ((TObjEneSaver *)arg0)->m_3a0 = 0x101;
+    arg0->actorFlags |= 0x06040000;
+    arg0->m_39c = 0x101;
+    arg0->m_3a0 = 0x101;
     p = __nw__7TObjectFUl(0xC4);
     if (p != NULL) {
-        p = TEneParticleCtrl__ct((u8 *)p, (s32)arg0, ((TObjEneSaver *)arg0)->m_39c);
+        p = TEneParticleCtrl__ct((u8 *)p, (s32)arg0, arg0->m_39c);
     }
     *(void **)((s8 *)arg0 + 0x3A0) = p;
     *(s32 *)((s8 *)arg0 + 0x3C0) = create__12TObjEneSaverFPvPv(0xA0303030, 0xFFFF0088);
     *(s32 *)((s8 *)arg0 + 0x3C4) = create__12TObjEneSaverFPvPv(0xA0303030, 0xFFFF0088);
     *(s32 *)((s8 *)arg0 + 0x3C8) = create__12TObjEneSaverFPvPv(0xA0303030, 0xFF303030);
-    ((TObjEneSaver *)arg0)->clear_lobby_object_state();
-    return arg0;
+    arg0->clear_lobby_object_state();
+    return (u8 *)arg0;
 }
 
 void*TObjEneSaver::vfunc_9() { return (char*)this + 0x2fc; }

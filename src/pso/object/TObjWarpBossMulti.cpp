@@ -376,9 +376,9 @@ s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-void allow_rendering__7TObjectFv(void *arg0);
+void allow_rendering__7TObjectFv(TObject *arg0);
 int check_flag_100__10TObjPlayerFPv(void *p);
-void disallow_rendering__7TObjectFv(void *arg0);
+void disallow_rendering__7TObjectFv(TObject *arg0);
 f32 xz_distance_squared(s32, void *);
 s32 get_current_floor();
 u8 is_current_floor_switch_set(int);
@@ -647,28 +647,28 @@ void TObjWarpBoss::update_warp_boss_visibility() {
     if (var_r30 == 0) {
         if ((u32) *(u32 *)((s8 *)this + 0x168) != 0U) {
             ((TObject *)(*(void **)((s8 *)this + 0x168)))->set_flag_4();
-            disallow_rendering__7TObjectFv((void *)(*(u32 *)((s8 *)this + 0x168)));
+            disallow_rendering__7TObjectFv((TObject *)((void *)(*(u32 *)((s8 *)this + 0x168))));
         }
         if ((u32) *(u32 *)((s8 *)this + 0xB0) != 0U) {
             ((TObject *)(*(void **)((s8 *)this + 0xB0)))->set_flag_4();
-            disallow_rendering__7TObjectFv((void *)(*(u32 *)((s8 *)this + 0xB0)));
+            disallow_rendering__7TObjectFv((TObject *)((void *)(*(u32 *)((s8 *)this + 0xB0))));
         }
         if ((u32) *(u32 *)((s8 *)this + 0x164) != 0U) {
             ((TObject *)(*(void **)((s8 *)this + 0x164)))->set_flag_4();
-            disallow_rendering__7TObjectFv((void *)(*(u32 *)((s8 *)this + 0x164)));
+            disallow_rendering__7TObjectFv((TObject *)((void *)(*(u32 *)((s8 *)this + 0x164))));
         }
     } else {
         if ((u32) *(u32 *)((s8 *)this + 0x168) != 0U) {
             ((TQuestVmDownLoadServer *)(*(void **)((s8 *)this + 0x168)))->clear_flag4_bit4();
-            allow_rendering__7TObjectFv((void *)(*(u32 *)((s8 *)this + 0x168)));
+            allow_rendering__7TObjectFv((TObject *)((void *)(*(u32 *)((s8 *)this + 0x168))));
         }
         if ((u32) *(u32 *)((s8 *)this + 0xB0) != 0U) {
             ((TQuestVmDownLoadServer *)(*(void **)((s8 *)this + 0xB0)))->clear_flag4_bit4();
-            allow_rendering__7TObjectFv((void *)(*(u32 *)((s8 *)this + 0xB0)));
+            allow_rendering__7TObjectFv((TObject *)((void *)(*(u32 *)((s8 *)this + 0xB0))));
         }
         if ((u32) *(u32 *)((s8 *)this + 0x164) != 0U) {
             ((TQuestVmDownLoadServer *)(*(void **)((s8 *)this + 0x164)))->clear_flag4_bit4();
-            allow_rendering__7TObjectFv((void *)(*(u32 *)((s8 *)this + 0x164)));
+            allow_rendering__7TObjectFv((TObject *)((void *)(*(u32 *)((s8 *)this + 0x164))));
         }
     }
 }

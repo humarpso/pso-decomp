@@ -263,7 +263,7 @@ extern "C" {
 s32 fn_8026C7AC(void *arg0, s8 arg1);
 s32 handle_list_page_flip_input(int);
 extern s32 lbl_805DD6F4;
-void TWindowSubStatusDisp__sub_80281644(u8 *arg0);
+void TWindowSubStatusDisp__sub_80281644(TWindowSubStatusDisp *arg0);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 void *init__21TWindowSubComCardListFiii(void *, int, int, s32);
 s32 get_window_layout_position(int);
@@ -348,22 +348,22 @@ void TWindowSubStatusDisp::update_status() {
     }
 }
 
-void TWindowSubStatusDisp__sub_80281644(u8 *arg0) {
-  if (!((((TWindowSubStatusDisp *)arg0)->m_2c) & 2))
+void TWindowSubStatusDisp__sub_80281644(TWindowSubStatusDisp *arg0) {
+  if (!((arg0->m_2c) & 2))
   {
-    *(s32 *)&((TWindowSubStatusDisp *)arg0)->m_5c = 0x01000000;
+    *(s32 *)&arg0->m_5c = 0x01000000;
   }
-  if ((handle_list_page_flip_input((int) (*(s32 *)&((TWindowSubStatusDisp *)arg0)->m_68)) != 0) || (((s16) (((TWindowSubStatusDisp *)arg0)->m_60)) != ((s16) (*(s16 *)&((TWindowSubStatusDisp *)arg0)->m_62))))
+  if ((handle_list_page_flip_input((int) (*(s32 *)&arg0->m_68)) != 0) || (((s16) (arg0->m_60)) != ((s16) (*(s16 *)&arg0->m_62))))
   {
-    if (((s16) (((TWindowSubStatusDisp *)arg0)->m_60)) != (*(s16 *)&((TWindowSubStatusDisp *)arg0)->m_62))
+    if (((s16) (arg0->m_60)) != (*(s16 *)&arg0->m_62))
     {
-      ((TWindowSubStatusDisp *)arg0)->m_60 = *(s16 *)&((TWindowSubStatusDisp *)arg0)->m_62;
-      fn_8026C7AC((void *)(*(s32 *)&((TWindowSubStatusDisp *)arg0)->m_68), ((s8) (*((u8 *) (((s8 *) (((u8 *)&lbl_805DD6F4) + (((TWindowSubStatusDisp *)arg0)->m_60))) + 0)))));
+      arg0->m_60 = *(s16 *)&arg0->m_62;
+      fn_8026C7AC((void *)(*(s32 *)&arg0->m_68), ((s8) (*((u8 *) (((s8 *) (((u8 *)&lbl_805DD6F4) + (arg0->m_60))) + 0)))));
     }
     ((TWindowSubStatusDisp *)(((u8 *) arg0) + 0x24))->destroy_all_items();
-    ((TWindowSubStatusDisp *)arg0)->dispatch_page_init();
+    arg0->dispatch_page_init();
   }
-  ((TWindowSubStatusDisp *)arg0)->dispatch_page_update();
+  arg0->dispatch_page_update();
   ((TWindowDD *)arg0)->initialize_subwindow();
   ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (((u8 *) arg0) + 0x24));
 }

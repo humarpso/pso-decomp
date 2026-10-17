@@ -188,7 +188,7 @@ void *__ct__13TObjBoss2DustFv(void *, void *, Vec_8003B6E8 *);
 void play_sound_effect(int, void *, int, int);
 void play_persistent_sound(int, void *, int, int, int);
 void enable_fog__15TObjBoss2TunnelFv(void);
-void enable_fog__15TObjBoss2TunnelFPv(void *arg0);
+void enable_fog__15TObjBoss2TunnelFPv(TObjBoss2Tunnel *arg0);
 void TObjBoss2Tunnel__sub_801339EC(f32, f32, f32);
 extern u32 TObjBoss2Tunnel__global_flags;
 extern void *tl_05;
@@ -540,7 +540,7 @@ void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o) {
             o->fb8 = 0;
             o->fbc++;
             if (o->fbc & 1) {
-                enable_fog__15TObjBoss2TunnelFPv(o);
+                enable_fog__15TObjBoss2TunnelFPv((TObjBoss2Tunnel *)o);
             } else {
                 enable_fog__15TObjBoss2TunnelFv(o);
                 play_sound_effect(0x4003A80B, 0, 0, 0);
@@ -556,7 +556,7 @@ void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o) {
             o->fb4 = 3;
             o->fb8 = 0;
             o->fbc = 0;
-            enable_fog__15TObjBoss2TunnelFPv(o);
+            enable_fog__15TObjBoss2TunnelFPv((TObjBoss2Tunnel *)o);
         }
         break;
     case 3:
@@ -567,7 +567,7 @@ void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o) {
             if (o->fbc & 1) {
                 enable_fog__15TObjBoss2TunnelFv(o);
             } else {
-                enable_fog__15TObjBoss2TunnelFPv(o);
+                enable_fog__15TObjBoss2TunnelFPv((TObjBoss2Tunnel *)o);
                 play_sound_effect(0x4003A80B, 0, 0, 0);
                 if (lbl_80483480[o->fbc] == -1) {
                     o->fb4 = 0;
@@ -680,8 +680,8 @@ extern s32 boss2_tunnel_shift_queue_table[];
 
 extern "C" {
 
-void enable_fog__15TObjBoss2TunnelFPv(void *arg0) {
-    TFogCtrl::update_all((s32)(((TObjBoss2Tunnel *)arg0)->m_b0), 1);
+void enable_fog__15TObjBoss2TunnelFPv(TObjBoss2Tunnel *arg0) {
+    TFogCtrl::update_all((s32)(arg0->m_b0), 1);
     (*(s32 *)&TObjBoss2Tunnel__global_flags) |= 4;
 }
 

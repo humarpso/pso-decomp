@@ -105,16 +105,16 @@ void *__dt__16TAdWarningBaseGCFv(void *arg0, s16 arg1) {
 
 extern void *lbl_805D4208;
 
-void *TAdWarningBaseGC__ct(void *arg0) {
+void *TAdWarningBaseGC__ct(TAdWarningBaseGC *arg0) {
     void *o;
     void *o2;
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TAdWarningBaseGC;
-    *(void * *)&((TAdWarningBaseGC *)arg0)->m_name = lbl_805D4208;
-    ((TAdWarningBaseGC *)arg0)->m_28 = 0;
-    ((TAdWarningBaseGC *)arg0)->m_1c = 0;
-    ((TAdWarningBaseGC *)arg0)->m_24 = 0;
-    ((TAdWarningBaseGC *)arg0)->m_2c = 0;
+    *(void * *)&arg0->m_name = lbl_805D4208;
+    arg0->m_28 = 0;
+    arg0->m_1c = 0;
+    arg0->m_24 = 0;
+    arg0->m_2c = 0;
     o = __nw__7TObjectFUl(0x24);
     if (o != NULL) {
         __ct__9TAdBackGCFv(o, arg0);

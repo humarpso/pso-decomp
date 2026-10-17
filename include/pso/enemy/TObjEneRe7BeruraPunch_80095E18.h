@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TObjEneRe7BeruraPunch;
 extern "C" {
-void TObjEneRe7BeruraPunch__vt20(void *arg0, s32 target);
+void TObjEneRe7BeruraPunch__vt20(TObjEneRe7BeruraPunch *arg0, s32 target);
 }
 
 #endif

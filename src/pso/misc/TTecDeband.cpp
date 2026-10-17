@@ -115,7 +115,7 @@ void TTecDeband::create(s32 arg0, s32 pos, s32 level) {
     u32 obj;
     obj = __nw__7TObjectFUl(0x140);
     if (obj != 0U) {
-        TTecDeband__sub_8022F948((u8 *)obj, (s32)arg0, (s32)pos, (s32)level);
+        TTecDeband__sub_8022F948((TTecDeband *)((u8 *)obj), (s32)((s32)arg0), (s32)((s32)pos), (s32)((s32)level));
     }
 }
 void TTecDeband::render() {  }
@@ -196,26 +196,26 @@ s32 TTecDeband__ct(u32 a0, s32 owner, s32 pos, s32 arg3, s32 level) {
 }
 #pragma opt_common_subs reset
 
-u8 *TTecDeband__sub_8022F948(u8 *arg0, s32 owner, s32 pos, s32 level) {
+u8 *TTecDeband__sub_8022F948(TTecDeband *arg0, s32 owner, s32 pos, s32 level) {
     u32 temp_r3_2;
     u8 *temp_r3;
     TTecPlayerInfluence__ct((void *)arg0, (void *)owner, (void *)pos, (void *)level);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8022F948___vt__10TTecDeband *)&__vt__10TTecDeband).value;
-    ((TObjPlayer *)(arg0 + 0xE0))->construct_target_cursor_records();
+    ((TObjPlayer *)((u8 *)arg0 + 0xE0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) tec_deband_class_name_ptr;
-    ((TTecDeband *)arg0)->m_13c = 0;
-    ((TTecDeband *)arg0)->update_effect_params();
+    arg0->m_13c = 0;
+    arg0->update_effect_params();
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xDC));
     if (temp_r3 != NULL) {
-        *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0xA4)) + 0xC) = (f32) (lbl_805DC7F0 + ((TTecDeband *)arg0)->m_7c);
+        *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0xA4)) + 0xC) = (f32) (lbl_805DC7F0 + arg0->m_7c);
     }
-    temp_r3_2 = ((TTecDeband *)arg0)->source;
+    temp_r3_2 = arg0->source;
     if (temp_r3_2 != 0U) {
-        ((TTecDeband *)arg0)->m_a8 = obj_getField1c(temp_r3_2);
+        arg0->m_a8 = obj_getField1c(temp_r3_2);
     }
-    ((TTecDeband *)arg0)->init_params();
-    ((TTecDeband *)arg0)->play_state_sound();
-    return arg0;
+    arg0->init_params();
+    arg0->play_state_sound();
+    return (u8 *)arg0;
 }
 
 }

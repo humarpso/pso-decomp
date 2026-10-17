@@ -45,7 +45,7 @@ u8 *construct_symbol_chat_selection(u8 *arg0) {
     temp_r3_2 = (u8 *)(__nw__7TObjectFUl(0x68));
     var_r0 = temp_r3_2;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TWindowChatSymbol__ct(temp_r3_2, (s32)lbl_8044EAC8, (s32)lbl_8044EAD0));
+        var_r0 = (u8 *)(TWindowChatSymbol__ct((TWindowChatSymbol *)temp_r3_2, (s32)lbl_8044EAC8, (s32)lbl_8044EAD0));
     }
     *(u8 **)((s8 *)arg0 + 0x20) = var_r0;
     return arg0;

@@ -126,8 +126,8 @@ void TBoss1DragonEffTail__vt18(s32 arg0, s32 arg1) {
     vec3_add_to(arg1 + 0x308, arg0 + 0xC0, arg0);
 }
 
-void TBoss1DragonEffTail__vt20(u8 *arg0, u8 *arg1) {
-    ((VObj_18 *)(arg1))->m20(((TBoss1DragonEffTail *)arg0)->m_ac, lbl_805D8158);
+void TBoss1DragonEffTail__vt20(TBoss1DragonEffTail *arg0, u8 *arg1) {
+    ((VObj_18 *)(arg1))->m20(arg0->m_ac, lbl_805D8158);
     if (TObjEneDD::check_v2_mode() != 0) {
         TBoss1Dragon__sub_8002AB6C((arg1));
     }

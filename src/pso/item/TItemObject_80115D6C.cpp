@@ -63,7 +63,7 @@ s32 copy_and_register_item_data__11TItemObjectFv(void *);
 void *__dt__11TItemObjectFv(void *arg0, s16 arg1);
 void TItemObject__vt16(u8 *arg0, u8 *arg1);
 void vfunc_31__11TItemObjectFv(void *arg0);
-s32 TItemObject__vt35(void *arg0, s32 arg1);
+s32 TItemObject__vt35(TItemObject *arg0, s32 arg1);
 s32 vfunc_38__11TItemObjectFl(void *arg0, s32 arg1);
 void vfunc_44__11TItemObjectFv(void *arg0);
 s32 vfunc_36__11TItemObjectFv(void);
@@ -302,12 +302,12 @@ int TItemObject::vfunc_38(s32 arg1) {
     return 0;
 }
 
-s32 TItemObject__vt35(void *arg0, s32 arg1) {
+s32 TItemObject__vt35(TItemObject *arg0, s32 arg1) {
     s32 temp_r3;
 
-    temp_r3 = ((TItemObject *)arg0)->vfunc_36();
+    temp_r3 = arg0->vfunc_36();
     if (arg1 <= temp_r3) {
-        ((TItemObject *)arg0)->store_encoded_value(temp_r3 - arg1);
+        arg0->store_encoded_value(temp_r3 - arg1);
         return 1;
     }
     return 0;

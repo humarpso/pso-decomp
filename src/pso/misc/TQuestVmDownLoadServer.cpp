@@ -16,7 +16,7 @@ s32 update_wait_confirm__17TMCFormatSequenceFPv();
 s32 check_memcard_load_result__17TMCFormatSequenceFv();
 s32 process_format_result__17TMCFormatSequenceFv();
 s32 open_windows__17TMCFormatSequenceFv();
-void *TMCFormatSequence__ct(void *arg0, void *arg1, void *arg2);
+void *TMCFormatSequence__ct(TMCFormatSequence *arg0, void *arg1, void *arg2);
 void __ct__7TObjectFP7TObject(void *);
 }
 extern s32 __vt__17TMCFormatSequence[];
@@ -67,7 +67,7 @@ s32 get_window_layout_position(s32);
 extern s32 lbl_8044A668[];
 extern "C" {
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-void allow_rendering__7TObjectFv(void *);
+void allow_rendering__7TObjectFv(TObject *);
 void queue_destruction__7TObjectFv(void *);
 void set_ready__6TSceneFv(void *);
 }
@@ -213,7 +213,7 @@ Src_801F718C quest_download_file_info;
 RecoveredGlobal_801F84AC_lbl_80512BDC quest_download_file_header;
 SubtractiveRng TQuestVmDownLoadServer__rng_cipher_state;
 __declspec(section ".data") u32 download_rng_seed_pair[2];
-void disallow_rendering__7TObjectFv(void *arg0);
+void disallow_rendering__7TObjectFv(TObject *arg0);
 u32 create__13TAdMcSelectGCFPv(s32);
 }
 extern s32 tl_03;
@@ -785,7 +785,7 @@ void TQuestVmDownLoadServer::update_mc_select() {
         if ((void *) this->m_29c == NULL) {
             TScene::reset_counter();
             if (lobby_player_construction_window != 0) {
-                disallow_rendering__7TObjectFv((void *)lobby_player_construction_window);
+                disallow_rendering__7TObjectFv((TObject *)((void *)lobby_player_construction_window));
             }
             *(u32 *)&this->m_29c = create__13TAdMcSelectGCFPv(tl_03);
         }
@@ -827,7 +827,7 @@ void TQuestVmDownLoadServer::open() {
         TScene::reset_counter();
         u32 temp_r3 = lobby_player_construction_window;
         if (temp_r3 != 0U) {
-            disallow_rendering__7TObjectFv((void *)temp_r3);
+            disallow_rendering__7TObjectFv((TObject *)((void *)temp_r3));
         }
         *(u32 *)&this->m_29c = create__13TAdMcSelectGCFPv(tl_03);
     }
@@ -865,7 +865,7 @@ void TQuestVmDownLoadServer::check_memcard_slot() {
         case -0xFD:
             seq = (u8 *)__nw__7TObjectFUl(0x3C);
             if (seq != NULL) {
-                seq = (u8 *)TMCFormatSequence__ct(seq, arg0, (void *)slot);
+                seq = (u8 *)TMCFormatSequence__ct((TMCFormatSequence *)seq, (void *)arg0, (void *)((void *)slot));
             }
             *(void **)((s8 *)seq + 0x1C) = (void *)TQuestVmDownLoadServer__sub_801F6B98;
             *(void **)((s8 *)seq + 0x20) = (void *)TQuestVmDownLoadServer::clear_field2A0;
@@ -1192,7 +1192,7 @@ void TQuestVmDownLoadServer::close_download() {
 void TQuestVmDownLoadServer::destroy() {
     set_ready__6TSceneFv(this);
     if (lobby_player_construction_window != 0) {
-        allow_rendering__7TObjectFv((void *)lobby_player_construction_window);
+        allow_rendering__7TObjectFv((TObject *)((void *)lobby_player_construction_window));
     }
     TQuestVmDownLoadServer::free_buffers();
     queue_destruction__7TObjectFv(this);
@@ -1329,17 +1329,17 @@ void TQuestVmDownLoadServer::sub_801F6B00() {
         }
     }
 }
-void *TMCFormatSequence__ct(void *arg0, void *arg1, void *arg2) {
+void *TMCFormatSequence__ct(TMCFormatSequence *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TMCFormatSequence;
-    *(void * *)&((TMCFormatSequence *)arg0)->m_name = TMCFormatSequence__class_name;
-    ((TMCFormatSequence *)arg0)->m_24 = 0;
+    *(void * *)&arg0->m_name = TMCFormatSequence__class_name;
+    arg0->m_24 = 0;
     *(void **)((s8 *)arg0 + 0x28) = arg2;
     *(u32 *)((s8 *)arg0 + 0x1C) = 0;
-    ((TMCFormatSequence *)arg0)->m_20 = 0;
-    ((TMCFormatSequence *)arg0)->m_34 = 0;
+    arg0->m_20 = 0;
+    arg0->m_34 = 0;
     *(u32 *)((s8 *)arg0 + 0x38) = 0;
-    ((TMCFormatSequence *)arg0)->m_2c = 11;
+    arg0->m_2c = 11;
     *(u32 *)((s8 *)arg0 + 0x30) = 101;
     return arg0;
 }

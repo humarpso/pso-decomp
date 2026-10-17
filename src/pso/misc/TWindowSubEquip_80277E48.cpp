@@ -43,7 +43,7 @@ s32 create_equip_list_window(void *, void *, s32);
 extern s32 lbl_8044F918[];
 extern s32 __vt__15TWindowSubEquip[];
 extern s32 TWindowSubEquip__class_name;
-u8 *TWindowSubEquip__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TWindowSubEquip__ct(TWindowSubEquip *arg0, s32 arg1, s32 arg2);
 void *__dt__15TWindowSubEquipFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -163,29 +163,29 @@ void *__dt__15TWindowSubEquipFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TWindowSubEquip__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TWindowSubEquip__ct(TWindowSubEquip *arg0, s32 arg1, s32 arg2) {
     void *p;
     __ct__7TObjectFP7TObject(arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TWindowSubEquip;
     *(s32 *)((s8 *)arg0 + 0) = TWindowSubEquip__class_name;
-    ((TWindowSubEquip *)arg0)->m_2c = arg1;
-    ((TWindowSubEquip *)arg0)->m_28 = arg2;
-    ((TWindowSubEquip *)arg0)->m_34 = create_equip_list_window(get_window_layout_position(0), lbl_8044F918, ((TWindowSubEquip *)arg0)->m_28);
-    TWindowSubEquip__sub_80263AF8((u8 *)(((TWindowSubEquip *)arg0)->m_2c), 0);
-    set_field_1c__6TLobbyFf(((TWindowSubEquip *)arg0)->m_34);
-    ((TWindowSubShortCutList *)(((TWindowSubEquip *)arg0)->m_34))->set_flag70_bit10();
+    arg0->m_2c = arg1;
+    arg0->m_28 = arg2;
+    arg0->m_34 = create_equip_list_window(get_window_layout_position(0), lbl_8044F918, arg0->m_28);
+    TWindowSubEquip__sub_80263AF8((u8 *)(arg0->m_2c), 0);
+    set_field_1c__6TLobbyFf(arg0->m_34);
+    ((TWindowSubShortCutList *)(arg0->m_34))->set_flag70_bit10();
     p = __nw__7TObjectFUl(0xBC);
     if (p != 0) {
-        p = (void *)__ct__15TWindowHelpItemFPvUs(p, get_window_layout_position(2), ((TWindowSubEquip *)arg0)->m_28);
+        p = (void *)__ct__15TWindowHelpItemFPvUs(p, get_window_layout_position(2), arg0->m_28);
     }
     *(void **)((s8 *)arg0 + 0x30) = p;
-    TWindowSubEquip__sub_80263AF8((u8 *)(((TWindowSubEquip *)arg0)->m_2c), 2);
-    set_field_1c__6TLobbyFf(((TWindowSubEquip *)arg0)->m_30);
-    ((TWindowSubEquip *)arg0)->m_38 = 0;
-    ((TWindowSubEquip *)arg0)->m_20 = -1;
-    ((TWindowSubEquip *)arg0)->m_24 = -1;
-    ((TWindowSubEquip *)arg0)->m_1c = 0;
-    return arg0;
+    TWindowSubEquip__sub_80263AF8((u8 *)(arg0->m_2c), 2);
+    set_field_1c__6TLobbyFf(arg0->m_30);
+    arg0->m_38 = 0;
+    arg0->m_20 = -1;
+    arg0->m_24 = -1;
+    arg0->m_1c = 0;
+    return (u8 *)arg0;
 }
 
 }

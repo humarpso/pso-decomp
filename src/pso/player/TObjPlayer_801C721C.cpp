@@ -8,7 +8,7 @@ extern "C" {
 
 int TFontSmallLobby__sub_801C01BC(void*);
 int TFontSmallLobby__sub_801C0228(void*);
-void TObjPlayer__sub_8011E204(void *arg0, s32 arg1);
+void TObjPlayer__sub_8011E204(TObjPlayer *arg0, s32 arg1);
 
 void TObjPlayer::set_flag_2000000_alt() { set_state_flags((u32)((void*)2097152)); }
 void TObjPlayer::check_flag_04000000() { check_flag((s32)((void*)4194304)); }

@@ -30,7 +30,7 @@ typedef char TPhotonYoulla_size[sizeof(TPhotonYoulla) == 0x1A8 ? 1 : -1];
 extern "C" {
 void TObjPlayer__sub_801AEB74(void);
 void TObjPlayer__sub_801AEB80(void);
-u8 *TPhotonYoulla__ct(u8 *arg0, u8 *arg1);
+u8 *TPhotonYoulla__ct(TPhotonYoulla *arg0, u8 *arg1);
 void *__dt__13TPhotonYoullaFv(void *arg0, s16 arg1);
 }
 

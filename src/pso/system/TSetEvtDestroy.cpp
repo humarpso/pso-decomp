@@ -93,7 +93,7 @@ s32 get_current_floor();
 void queue_destruction__7TObjectFv(void *);
 
 s32 item_drop_rng_below(s32, u32);
-void shuffle_event_entries(void *arg0);
+void shuffle_event_entries(EventShuffleTable *arg0);
 typedef char RecoveredGlobal_802093EC_lbl_805139F8_size[sizeof(RecoveredGlobal_802093EC_lbl_805139F8) == 0x48 ? 1 : -1];
 
 }
@@ -130,8 +130,8 @@ s32 next_event_shuffle_entry(EventShuffleTable *s) {
     if (s->count < s->cursor) return 0;
     return s->entries[s->cursor++];
 }
-void shuffle_event_entries(void *arg0) {
-    EventShuffleTable *s = (EventShuffleTable *)arg0;
+void shuffle_event_entries(EventShuffleTable *arg0) {
+    EventShuffleTable *s = arg0;
     s32 i = 0;
     for (; i < s->count; i++) {
         s32 k = item_drop_rng_below(s->rngState, s->count);

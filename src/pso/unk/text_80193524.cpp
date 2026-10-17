@@ -125,7 +125,7 @@ extern u8 lbl_80445CD8[];
 void TLazerFenceSw__vt24(Sw_80193978 *arg0);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_key__5TOKeyFv(void *, void *);
-void *TOKey__ct(void *arg0);
+void *TOKey__ct(TOKey *arg0);
 extern u8 lbl_804B8370[];
 extern s32 __vt__13TLazerFenceSw[];
 extern s32 lbl_805D33B0;
@@ -445,7 +445,7 @@ void *__dt__13TLazerFenceSwFv(void *arg0, s16 arg1) {
 #pragma push
 #pragma opt_common_subs off
 void *TLazerFenceSw__ct(void *arg0, void *arg1, void *arg2) {
-    TOKey__ct(arg0);
+    TOKey__ct((TOKey *)arg0);
     *(u8 **)((s8 *)arg0 + 0x18) = ((u8 *)&__vt__13TLazerFenceSw);
     ((TUnk_804AF8D8 *)((u8 *)arg0 + 0xF0))->init_vtable_804AF8D8();
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D33B0;

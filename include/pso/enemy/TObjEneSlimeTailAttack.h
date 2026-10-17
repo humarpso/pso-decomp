@@ -9,11 +9,13 @@ struct TObjEneSlimeTailAttack : public TObjEnemy {
     int find_nearest_enemy_with_flag(f32);
 };
 
+struct TObjEneSlimeOne;
+struct TObjEneSlimeWaterBomb;
 extern "C" {
 u8 *TObjEneSlimeOne__ct(u8 *actor, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-void TObjEneSlimeOne__sub_800E969C(void *arg0);
-void *TObjEneSlimeTailAttack__ct(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4);
-void *TObjEneSlimeWaterBomb__ct(void *arg0, void *arg1, void *arg2);
+void TObjEneSlimeOne__sub_800E969C(TObjEneSlimeOne *arg0);
+void *TObjEneSlimeTailAttack__ct(TObjEneSlimeTailAttack *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4);
+void *TObjEneSlimeWaterBomb__ct(TObjEneSlimeWaterBomb *arg0, void *arg1, void *arg2);
 void TObjPlayer__sub_800E80C0(u8 *dst);
 void TObjPlayer__sub_800E8128(void);
 void TObjPlayer__sub_800E81A8(void);
@@ -43,18 +45,18 @@ void init_slime_state__10TObjPlayerFPv(void *actor);
 void init_split_effect__15TObjEneSlimeOneFPv(u8 *arg0);
 void init_state__15TObjEneSlimeOneFPv(void *a0);
 void initialize_slime_instance_state(u8 *actor);
-void render__15TObjEneSlimeOneFv(u8 *arg0);
+void render__15TObjEneSlimeOneFv(TObjEneSlimeOne *arg0);
 void reset_display__15TObjEneSlimeOneFPv(void *a0);
 void reset_display_state__15TObjEneSlimeOneFPv(void *a0);
 void set_display_mode__15TObjEneSlimeOneFPvi(void *arg0, s32 arg1);
 void set_random_timer__15TObjEneSlimeOneFPvii(void *arg0, s32 arg1, s32 arg2);
-void tick_timer__15TObjEneSlimeOneFPv(void *arg0);
+void tick_timer__15TObjEneSlimeOneFPv(TObjEneSlimeOne *arg0);
 s32 try_spawn_child__15TObjEneSlimeOneFiPv(int origin, void *arg1);
 void update_dive_timer__10TObjPlayerFPv(u8 *arg0);
 void update_effect_fade_lifetime(u8 *arg0);
 void update_slime_timer__10TObjPlayerFPv(u8 *arg0);
-void update_tick__15TObjEneSlimeOneFPv(u8 *arg0);
-void update_wait_search__15TObjEneSlimeOneFPv(void *arg0);
+void update_tick__15TObjEneSlimeOneFPv(TObjEneSlimeOne *arg0);
+void update_wait_search__15TObjEneSlimeOneFPv(TObjEneSlimeOne *arg0);
 void update_water_bomb_timer__15TObjEneSlimeOneFPv(u8 *arg0);
 s32 water_bomb_hit_nearby(u8 *target);
 }

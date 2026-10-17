@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TWindowLockOn;
 extern "C" {
-u8 *TWindowLockOn__ct(u8 *arg0, s16 arg1, s32 arg2);
+u8 *TWindowLockOn__ct(TWindowLockOn *arg0, s16 arg1, s32 arg2);
 void TWindowLockOn__update_for_enemy(s32 a0, s32 a1);
 s32 TWindowLockOn__update_for_item(s32 a0, s32 a1);
 s32 TWindowLockOn__update_for_other_player(s32 a0, s32 a1);

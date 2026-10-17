@@ -127,7 +127,7 @@ void * TItemList__sub_801D3B00(void *arg0, void *arg1, void *arg2, s8 arg3);
 void *__dt__13TUnk_804C4480Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804C4498Fv(void *arg0, s16 arg1);
 void decrement_placement_search_pending(void *p, void *a1);
-void clear_placement_search_slot(u8 *arg0, s32 arg1);
+void clear_placement_search_slot(TItemList *arg0, s32 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -181,7 +181,7 @@ void *TItemList::create_node(void *arg0, void *arg1, void *arg2, s8 arg3) {
 void *TItemList::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = item_drop_search_task_vtable;
-        clear_placement_search_slot((u8 *)this, *(s32 *)((s8 *)this + 0x54));
+        clear_placement_search_slot((TItemList *)((u8 *)this), *(s32 *)((s8 *)this + 0x54));
         decrement_placement_search_pending(this, (void *)(*(s32 *)((s8 *)this + 0x54)));
         __dt__13TUnk_804C4498Fv(this, (s16)(0));
         if (arg1 > 0) {
@@ -242,7 +242,7 @@ void * TItemList__sub_801D3B00(void *arg0, void *arg1, void *arg2, s8 arg3) {
 void *__dt__13TUnk_804C4480Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = placement_search_task_vtable;
-        clear_placement_search_slot((u8 *)arg0, *(s32 *)((s8 *)arg0 + 0x54));
+        clear_placement_search_slot((TItemList *)((u8 *)arg0), *(s32 *)((s8 *)arg0 + 0x54));
         decrement_placement_search_pending(arg0, (void *)(*(s32 *)((s8 *)arg0 + 0x54)));
         __dt__13TUnk_804C4498Fv(arg0, (s16)(0));
         if (arg1 > 0) {

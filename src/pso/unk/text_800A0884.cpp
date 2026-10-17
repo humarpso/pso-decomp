@@ -34,9 +34,9 @@ s32 fn_800A0884(Obj_800A0884 *o) {
     for (j = 0; j < o->count; j++) {
         if (ents[j] != NULL) {
             if (j == o->sel) {
-                fn_800A0FDC((u8 *)ents[j]);
+                fn_800A0FDC((TObjEneLappy *)((u8 *)ents[j]));
             } else {
-                clear_lappy_flag_set_param((u8 *)ents[j]);
+                clear_lappy_flag_set_param((TObjEneLappy *)((u8 *)ents[j]));
             }
         }
     }

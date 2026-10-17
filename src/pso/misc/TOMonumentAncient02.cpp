@@ -205,7 +205,7 @@ void TOMonumentAncient02::render() {
 void *TOMonumentAncient02::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF0);
     if (o != NULL) {
-        o = TOMonumentAncient02__ct((u8 *)o, (s32)tl_05, (s32)arg0);
+        o = TOMonumentAncient02__ct((TOMonumentAncient02 *)((u8 *)o), (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -260,50 +260,50 @@ void *__dt__19TOMonumentAncient02Fv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80172EA0_lbl_804B39A8_size[sizeof(RecoveredGlobal_80172EA0_lbl_804B39A8) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80172EA0___vt__19TOMonumentAncient02_size[sizeof(RecoveredGlobal_80172EA0___vt__19TOMonumentAncient02) == 0x3C ? 1 : -1];
-u8 *TOMonumentAncient02__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TOMonumentAncient02__ct(TOMonumentAncient02 *arg0, s32 arg1, s32 arg2) {
     s32 global_state;
     init_map_object_base(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80172EA0___vt__19TOMonumentAncient02 *)&__vt__19TOMonumentAncient02).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOMonumentAncient02__name;
     ((TOMonumentAncient02 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOMonumentAncient02__model_resource) + 0x42C)) + 8);
-    ((TOMonumentAncient02 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOMonumentAncient02__model_resource) + 0x42C)) + 0xC);
+    arg0->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOMonumentAncient02__model_resource) + 0x42C)) + 0xC);
     init_collision_body_parts(arg0, (s32) &monument_ancient02_collision_parts.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     global_state = TOKeyMachine01::get_global_state();
     switch (global_state) {
     default:
-        ((TOMonumentAncient02 *)arg0)->m_d0 = 0x2C;
-        ((TOMonumentAncient02 *)arg0)->m_d4 = 0x4C119;
+        arg0->m_d0 = 0x2C;
+        arg0->m_d4 = 0x4C119;
         break;
     case 4:
-        ((TOMonumentAncient02 *)arg0)->m_d0 = 0x2D;
-        ((TOMonumentAncient02 *)arg0)->m_d4 = 0x44116;
+        arg0->m_d0 = 0x2D;
+        arg0->m_d4 = 0x44116;
         break;
     case 7:
-        ((TOMonumentAncient02 *)arg0)->m_d0 = 0x2E;
-        ((TOMonumentAncient02 *)arg0)->m_d4 = 0x4004C10F;
+        arg0->m_d0 = 0x2E;
+        arg0->m_d4 = 0x4004C10F;
         break;
     }
-    ((TOMonumentAncient02 *)arg0)->m_ac = 0;
-    ((TOMonumentAncient02 *)arg0)->m_c8 = 0;
-    ((TOMonumentAncient02 *)arg0)->m_cc = 0;
-    ((TOKeyAncient01 *)(arg0 + 0x98))->set_type();
-    ((TOMonumentAncient02 *)arg0)->m_c0 = (f32) lbl_805DB934;
+    arg0->m_ac = 0;
+    arg0->m_c8 = 0;
+    arg0->m_cc = 0;
+    ((TOKeyAncient01 *)((u8 *)arg0 + 0x98))->set_type();
+    arg0->m_c0 = (f32) lbl_805DB934;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB938;
     *(f32 *)((s8 *)arg0 + 0xD8) = (f32) lbl_805DB92C;
     *(f32 *)((s8 *)arg0 + 0xDC) = (f32) lbl_805DB92C;
-    ((TOMonumentAncient02 *)arg0)->m_e0 = (f32) lbl_805DB92C;
+    arg0->m_e0 = (f32) lbl_805DB92C;
     *(f32 *)((s8 *)arg0 + 0xE4) = (f32) lbl_805DB92C;
-    ((TOMonumentAncient02 *)arg0)->m_e8 = (s32)create_particle_emitter((arg0 + 0x38), 0x7F);
-    ((TOMonumentAncient02 *)arg0)->m_ec = 1;
+    arg0->m_e8 = (s32)create_particle_emitter(((u8 *)arg0 + 0x38), 0x7F);
+    arg0->m_ec = 1;
     if ((s32) enable_v2_features == 1) {
         if (get_game_play_mode() == 1) {
             queue_destruction__7TObjectFv((arg0));
         }
     }
-    return arg0;
+    return (u8 *)arg0;
 }
 
 __declspec(section ".data") BmlResourceBlock_804B3960 monument_ancient02_resource_table = { { lbl_80442330, NULL }, { lbl_80442348, monument_ancient02_resource_table.model_filenames, bm_fs_obj_o_monument01_motion_names, 1, 0 } };

@@ -254,7 +254,7 @@ extern const f32 lbl_805E0060;
 extern const f32 lbl_805E0064;
 void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
-void remap_extra_attack_type(u8 *arg0);
+void remap_extra_attack_type(TItemWeapon *arg0);
 s32 draw_icon__10TObjPlayerFll(void *, int, void *);
 s32 create__20TItemEffOrgaFlowShotFPvPv(int, void *, int);
 void *__dt__13TUnk_804F14A8Fv(void *arg0, s16 arg1);
@@ -298,7 +298,7 @@ void TUnk_804F14A8::emit_marker_effects() {
     V_80357784 sp8;
     s32 temp_r5;
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
-        remap_extra_attack_type((arg0));
+        remap_extra_attack_type((TItemWeapon *)(arg0));
         ((TObjPlayer *)(&info))->reset_field28();
         ((TObjPlayer *)arg0)->fill_status_info(&info);
         draw_icon__10TObjPlayerFll(arg0, 4, &info.v[0]);

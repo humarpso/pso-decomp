@@ -3,7 +3,7 @@
 
 extern "C" {
 
-void *TObjQuestCol2__ct(void *arg0);
+void *TObjQuestCol2__ct(TObjQuestCol2 *arg0);
 s32 TObjQuestColBase__ct();
 s32 update_trigger_state__16TObjQuestColBaseFf(f32);
 
@@ -16,19 +16,19 @@ extern s32 lbl_805D340C;
 extern s32 quest_mission_manager;
 extern s32 quest_area_manager;
 
-void *TObjQuestCol2__ct(void *arg0) {
+void *TObjQuestCol2__ct(TObjQuestCol2 *arg0) {
 
     TObjQuestColBase__ct();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjQuestCol2;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D340C;
-    ((TObjQuestCol2 *)arg0)->m_c0 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
-    if ((s32) ((TObjQuestCol2 *)arg0)->m_c0 < 0) {
-        ((TObjQuestCol2 *)arg0)->m_c0 = 0;
+    arg0->m_c0 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
+    if ((s32) arg0->m_c0 < 0) {
+        arg0->m_c0 = 0;
     }
-    if ((s32) ((TObjQuestCol2 *)arg0)->m_c0 > 1) {
-        ((TObjQuestCol2 *)arg0)->m_c0 = 1;
+    if ((s32) arg0->m_c0 > 1) {
+        arg0->m_c0 = 1;
     }
-    switch (((TObjQuestCol2 *)arg0)->m_c0) {
+    switch (arg0->m_c0) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0xBC) = (s32) quest_mission_manager;
         break;

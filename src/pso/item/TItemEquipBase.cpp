@@ -245,7 +245,7 @@ struct VObj_8010B224 : VBase_8010B224 {
 };
 
 extern "C" {
-s8 TItemEquipBase__sub_8010A77C(u8 *arg0);
+s8 TItemEquipBase__sub_8010A77C(TItemEquipBase *arg0);
 s32 get_id__13TItemProArmorFv(void *);
 s32 apply_equip_slot_effect__14TItemEquipBaseFUsUl(s32, int);
 s32 start_event_by_index__15TItemTimerEventFUs();
@@ -324,8 +324,8 @@ s8 TItemWeapon::get_attach_joint() {
     return (s8) (*(u8 *)((u8 *)this + 0x171));
 }
 
-s8 TItemEquipBase__sub_8010A77C(u8 *arg0) {
-    return (s8) ((TItemEquipBase *)arg0)->m_170;
+s8 TItemEquipBase__sub_8010A77C(TItemEquipBase *arg0) {
+    return (s8) arg0->m_170;
 }
 
 void TItemEquipBase::vfunc_50() {  }

@@ -1,4 +1,5 @@
 #include "types.h"
+struct TItemEquipBase;
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItem.h"
 #include "pso/items/TItemWeapon.h"
@@ -24,7 +25,7 @@ void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
 
 extern s32 lbl_804E1E08[];
 
-extern "C" s8 TItemEquipBase__sub_8010A77C(u8 *arg0);
+extern "C" s8 TItemEquipBase__sub_8010A77C(TItemEquipBase *arg0);
 extern "C" void TItem__sub_801005D8();
 extern "C" void TItem__sub_801005E0();
 extern "C" int TItem__sub_801005E4(void);
@@ -78,7 +79,7 @@ extern "C" int ret_8010065C(void);
 extern "C" int ret_80100664(void);
 extern "C" void run_task__5TItemFv();
 extern "C" void set_attach_slot__14TItemEquipBaseFSc();
-extern "C" void setup_radar_marker__10TObjPlayerFPvPv(void *arg0, void *arg1);
+extern "C" void setup_radar_marker__10TObjPlayerFPvPv(TObjPlayer *arg0, void *arg1);
 extern "C" void subtract_equip_stats__14TItemEquipBaseFlPUcPUc();
 extern "C" void subtract_item_stat_bonus__14TItemEquipBaseFllPs();
 extern "C" void try_pick_up_item__5TItemFl();

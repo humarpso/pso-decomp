@@ -92,15 +92,15 @@ void TBGLightningCtrl__sub_802A9A08(void) { TObjFish::set_global_param(bg_lightn
 
 #pragma push
 #pragma fp_contract on
-void spawn_lightning_at_angle__16TBGLightningCtrlFPvi(u8 *arg0, s32 arg1) {
+void spawn_lightning_at_angle__16TBGLightningCtrlFPvi(TBGLightningCtrl *arg0, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_802A9A2C, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802A9A2C, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_802A9A2C, sp10) == 0x8) ? 1 : -1];
     Stack_802A9A2C stack;
 
-    stack.sp8 = ((TBGLightningCtrl *)arg0)->scale * sin_table_lookup(arg1);
-    stack.spC = ((TBGLightningCtrl *)arg0)->target_scale;
-    stack.sp10 = ((TBGLightningCtrl *)arg0)->scale * cos_table_lookup(arg1);
+    stack.sp8 = arg0->scale * sin_table_lookup(arg1);
+    stack.spC = arg0->target_scale;
+    stack.sp10 = arg0->scale * cos_table_lookup(arg1);
     ((s32 (*)(s32, s32, f32))create__12TBGLightningFiif)((s32) arg0, (s32) &stack.sp8, *(f32 *)((s8 *)arg0 + 0x70) * (((0.3f) * ((3.0517578e-05f) * (f32) rand())) + (1.0f)));
 }
 #pragma pop

@@ -43,7 +43,7 @@ s32 TObjLiveMonitor__sub_8030C050();
 s32 push_matrix();
 s32 draw_ginja_object(int);
 
-void render__15TObjLiveMonitorFv(u8 *arg0) {
+void render__15TObjLiveMonitorFv(TObjLiveMonitor *arg0) {
     s32 temp_r3;
     temp_r3 = TObjLiveCameraCtrl::get_table_entry(0);
     if ((temp_r3 != 0) && (TObjLiveMonitor__sub_8030C050() != 0)) {
@@ -51,7 +51,7 @@ void render__15TObjLiveMonitorFv(u8 *arg0) {
     } else if (is_split_screen() == 0) {
         TObjPlayer__sub_80084500();
     } else {
-        ((TObjLiveMonitor *)arg0)->render_live_monitor_screen();
+        arg0->render_live_monitor_screen();
     }
     push_matrix();
     draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x1C)));

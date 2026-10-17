@@ -64,7 +64,7 @@ f32 newton_sqrtf(f32 x);
 s32 TObjRoomId__sub_80141CF4(void *, void *);
 extern const f32 lbl_805DBA10;
 extern const f32 lbl_805DBA14;
-void *TOKey__ct(void *arg0);
+void *TOKey__ct(TOKey *arg0);
 extern s32 __vt__12TOSwitchItem[];
 extern s32 lbl_805D3180;
 u8 *TOSwitchItem__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -202,7 +202,7 @@ void *__dt__12TOSwitchItemFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_801780E0___vt__12TOSwitchItem_size[sizeof(RecoveredGlobal_801780E0___vt__12TOSwitchItem) == 0x70 ? 1 : -1];
 u8 *TOSwitchItem__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TOKey__ct((arg0));
+    TOKey__ct((TOKey *)(arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801780E0___vt__12TOSwitchItem *)&__vt__12TOSwitchItem).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3180;
     ((TOSwitchItem *)(arg0))->apply_object_set_data((void *)arg2);

@@ -578,7 +578,7 @@ extern Vec_800AE450 lbl_8050BEE0;
 void update_appearance_drop__11TObjEneMojaFv(Moja_800AE450 *self);
 
 s32 enemy_turn_toward_dest(void *, s32);
-void enemy_set_heading_velocity(u8 *arg0, s32 arg1, f32 farg0);
+void enemy_set_heading_velocity(TObjEnemy *arg0, s32 arg1, f32 farg0);
 s32 update_angle__10TObjPlayerFlPv(void *, s32, void *);
 
 void *__nw__7TObjectFUl(u32);
@@ -784,7 +784,7 @@ s32 TObjEneMoja::update_technique_state(void *self_800AD3D8) {
                 Vec_800AE18C cur = self->pos;
                 copy_position_if_valid__10TObjPlayerFii(self, &cur);
                 a = enemy_turn_toward_dest(self, self->info->turn);
-                enemy_set_heading_velocity((u8 *)self, self->rot_y, self->info->speed);
+                enemy_set_heading_velocity((TObjEnemy *)((u8 *)self), self->rot_y, self->info->speed);
                 move_with_wall_slide(self);
             } else {
                 VecCopy((Vec *)&dir, (const Vec *)&self->target->pos);

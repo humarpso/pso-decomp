@@ -22,7 +22,7 @@ extern s32 tl_05;
 void TItemWeapon__ct(void *);
 
 struct Inc_8012A884;
-extern "C" s8 TItemEquipBase__sub_8010A77C(u8 *arg0);
+extern "C" s8 TItemEquipBase__sub_8010A77C(TItemEquipBase *arg0);
 extern "C" void vfunc_6__13TUnk_804B9870FPsl();
 extern "C" void update_weapon__11TItemWeaponFv();
 extern "C" void reserved_53__11TItemWeaponFv();

@@ -3,9 +3,10 @@
 
 #include "types.h"
 
+struct TObjPlayer;
 extern "C" {
 void TObjPlayer__sub_801BFD3C(void *p);
-int init_player_scale_state(void *arg0);
+int init_player_scale_state(TObjPlayer *arg0);
 }
 
 #endif

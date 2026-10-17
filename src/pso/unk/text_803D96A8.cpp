@@ -156,7 +156,7 @@ void TObjPlayer__sub_803D9C60(u32 *p) {
 }
 #pragma pop
 
-u32 *find_gvrt_texture_chunk(void *arg0, u32 *arg1, u32 *arg2) {
+u32 *find_gvrt_texture_chunk(TLobby *arg0, u32 *arg1, u32 *arg2) {
     u32 tag;
     u32 *p = arg2;
     if (arg1 != NULL) {
@@ -167,7 +167,7 @@ u32 *find_gvrt_texture_chunk(void *arg0, u32 *arg1, u32 *arg2) {
         TObjPlayer__sub_803D9C60(&tag);
         switch (tag) {
         case 0x54525647:
-            ((TLobby *)arg0)->move_data(p + 2, 8);
+            arg0->move_data(p + 2, 8);
             return p + 4;
         case 0x58494247: {
             u32 len;

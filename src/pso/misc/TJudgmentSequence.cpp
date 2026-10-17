@@ -1,4 +1,5 @@
 #include "types.h"
+struct TShopJudgmentItemWindow;
 #include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_8026934C.h"
@@ -63,7 +64,7 @@ extern RecoveredGlobal_80215EF8___vt__17TJudgmentSequence __vt__17TJudgmentSeque
 extern RecoveredGlobal_80215EF8_TJudgmentSequence__data_80513E80 TJudgmentSequence__slot_flags;
 extern s32 judgment_sequence_instance;
 void *__nw__7TObjectFUl(u32);
-void *TShopJudgmentItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
+void *TShopJudgmentItemWindow__ct(TShopJudgmentItemWindow *arg0, void *arg1, void *arg2, void *arg3);
 extern void *tl_05;
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
@@ -100,7 +101,7 @@ void TJudgmentSequence::handle_close_input() {
 void TJudgmentSequence::open_judgment_window() {
     Win_80215CB8 *o = (Win_80215CB8 *)__nw__7TObjectFUl(0x178);
     if (o != 0) {
-        o = (Win_80215CB8 *)TShopJudgmentItemWindow__ct((void *)o, (void *)tl_05, (void *)((Seq_80215CB8 *)this), (void *)(((Seq_80215CB8 *)this)->f24));
+        o = (Win_80215CB8 *)TShopJudgmentItemWindow__ct((TShopJudgmentItemWindow *)((void *)o), (void *)((void *)tl_05), (void *)((Seq_80215CB8 *)this), (void *)(((Seq_80215CB8 *)this)->f24));
     }
     o->cb0 = (void *)TJudgmentSequence__sub_80215BCC;
     o->cb2 = (void *)TJudgmentSequence__sub_80215BA0;

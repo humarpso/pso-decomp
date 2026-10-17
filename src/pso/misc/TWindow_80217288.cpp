@@ -166,7 +166,7 @@ void TQuestListOffline::vfunc_11() {
         ((TQuestListOffline *)self)->update_list_navigation();
         break;
     case 2:
-        handle_confirm_dialog(self);
+        handle_confirm_dialog((TShopWindowBase *)self);
         break;
     case 3:
         if (self->accepted) {

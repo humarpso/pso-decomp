@@ -70,8 +70,8 @@ struct RecoveredGlobal_80248494_lbl_804CE2E8 {
 
 typedef char RecoveredGlobal_80248494_lbl_804CE2E8_size[sizeof(RecoveredGlobal_80248494_lbl_804CE2E8) == 0x4B8 ? 1 : -1];
 
-void allow_rendering__7TObjectFv(void *arg0);
-void disallow_rendering__7TObjectFv(void *arg0);
+void allow_rendering__7TObjectFv(TObject *arg0);
+void disallow_rendering__7TObjectFv(TObject *arg0);
 u8 * draw_default_entry__9TWindowDDFl();
 void fn_80248324(Ctl_80248324 *c, s32 arg1, s32 arg2);
 s32 draw_visible_window_entries(void *, void *, void *, f32, f32, f32);
@@ -241,10 +241,10 @@ void TWindowSubSymbolChat::init_layout_entries(s32 player) {
 void TWindowSubSymbolChatPartsSet::update_visibility() {
     u8 *arg0 = (u8 *)this;
     if (((s32) this->m_64 == 0) && (((u32) this->m_60 == 0U) || (is_symbol_chat_preset_in_use((u32 *)this->m_60) == 0))) {
-        disallow_rendering__7TObjectFv(arg0);
+        disallow_rendering__7TObjectFv((TObject *)arg0);
         return;
     }
-    allow_rendering__7TObjectFv(arg0);
+    allow_rendering__7TObjectFv((TObject *)arg0);
     set_symbol_chat_parts__20TWindowSubSymbolChatFiPv((s32)(arg0 + 0x24), (void *)(((TWindowSubSymbolChat *)(this->m_60))->get_data_ptr()));
 }
 

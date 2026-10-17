@@ -47,7 +47,7 @@ extern RecoveredGlobal_80325BCC_lbl_804ECD40 TObjEneMe1GiGueBarrier__animation_d
 extern s32 __vt__22TObjEneMe1GiGueBarrier[];
 extern s32 lbl_805D4198;
 extern s32 TObjEneMe1GiGueBarrier__barrier_resource_object;
-u8 *TObjEneMe1GiGueBarrier__ct(u8 *arg0, s32 arg1, u8 *arg2);
+u8 *TObjEneMe1GiGueBarrier__ct(TObjEneMe1GiGueBarrier *arg0, s32 arg1, u8 *arg2);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
@@ -141,27 +141,27 @@ void *__dt__22TObjEneMe1GiGueBarrierFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TObjEneMe1GiGueBarrier__ct(u8 *arg0, s32 arg1, u8 *arg2) {
+u8 *TObjEneMe1GiGueBarrier__ct(TObjEneMe1GiGueBarrier *arg0, s32 arg1, u8 *arg2) {
     u8 *temp_r5;
-    TObjMotion__ct(arg0);
+    TObjMotion__ct((u8 *)arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80325BCC___vt__22TObjEneMe1GiGueBarrier *)&__vt__22TObjEneMe1GiGueBarrier).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4198;
     *(u8 **)((s8 *)arg0 + 0xFC) = arg2;
-    ((TObjEneMe1GiGueBarrier *)arg0)->m_100 = obj_getField1c(*(u8 **)((s8 *)arg0 + 0xFC));
-    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)((void *) (((TObjEneMe1GiGueBarrier *)((s32) *(u8 **)((s8 *)arg0 + 0xFC)))->update_and_get_pos())));
-    ((TObjEneMe1GiGueBarrier *)arg0)->rotation_y = ((TObjEneMe1GiGueBarrier *)(*(u8 **)((s8 *)arg0 + 0xFC)))->get_timer();
-    ((TObjEneMe1GiGueBarrier *)arg0)->m_108 = ((TObjEneMe1GiGueBarrier *)(*(u8 **)((s8 *)arg0 + 0xFC)))->get_field_44c();
+    arg0->m_100 = obj_getField1c(*(u8 **)((s8 *)arg0 + 0xFC));
+    VecCopy((Vec *)((u8 *)arg0 + 0x38), (const Vec *)((void *) (((TObjEneMe1GiGueBarrier *)((s32) *(u8 **)((s8 *)arg0 + 0xFC)))->update_and_get_pos())));
+    arg0->rotation_y = ((TObjEneMe1GiGueBarrier *)(*(u8 **)((s8 *)arg0 + 0xFC)))->get_timer();
+    arg0->m_108 = ((TObjEneMe1GiGueBarrier *)(*(u8 **)((s8 *)arg0 + 0xFC)))->get_field_44c();
     TObjEneMe1GiGueBarrier__sub_802CABF4((*(u8 **)((s8 *)arg0 + 0xFC)));
-    ((TObjEneMe1GiGueBarrier *)arg0)->m_104 = 0;
+    arg0->m_104 = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjEneMe1GiGueBarrier__barrier_resource_object) + 0x42C)) + 0x28);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjEneMe1GiGueBarrier__barrier_resource_object) + 0x42C));
-    ((TObjEneMe1GiGueBarrier *)arg0)->texture_id = (s32) *(s32 *)((s8 *)temp_r5 + 0x2C);
+    arg0->texture_id = (s32) *(s32 *)((s8 *)temp_r5 + 0x2C);
     set_field_d8__10TObjPlayerFl((void *)arg0, &TObjEneMe1GiGueBarrier__animation_definitions.value, (int)temp_r5);
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)(*(u8 * *)&TObjEneMe1GiGueBarrier__barrier_resource_object) + 0x430)));
-    ((TObjEneMe1GiGueBarrier *)arg0)->m_b8 = 0;
-    set_animation__10TObjPlayerFPvs((arg0), (((TObjEneMe1GiGueBarrier *)arg0)->m_b8));
-    ((TObjMotion *)arg0)->set_field_b8((int) (((TObjEneMe1GiGueBarrier *)arg0)->m_b8));
-    return arg0;
+    arg0->m_b8 = 0;
+    set_animation__10TObjPlayerFPvs((arg0), (arg0->m_b8));
+    ((TObjMotion *)arg0)->set_field_b8((int) (arg0->m_b8));
+    return (u8 *)arg0;
 }
 
 void TObjEneMe1GiGueBarrier__sub_80325CC0(void) {  }
@@ -170,7 +170,7 @@ void *TObjEneMe1GiGueBarrier::create(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x10C);
     if (o != NULL) {
-        o = TObjEneMe1GiGueBarrier__ct((u8 *)o, (s32)arg0, (u8 *)arg1);
+        o = TObjEneMe1GiGueBarrier__ct((TObjEneMe1GiGueBarrier *)((u8 *)o), (s32)((s32)arg0), (u8 *)((u8 *)arg1));
     }
     return o;
 }

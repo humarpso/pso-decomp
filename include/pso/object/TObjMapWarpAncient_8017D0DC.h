@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TObjMapWarpAncient;
 extern "C" {
-u8 *TObjMapWarpAncient__ct(u8 *arg0);
+u8 *TObjMapWarpAncient__ct(TObjMapWarpAncient *arg0);
 void *__dt__18TObjMapWarpAncientFv(void *arg0, s16 arg1);
 }
 

@@ -41,7 +41,7 @@ extern "C" {
 u8 *__ct__12TQuestThreadFv(u8 *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
 extern s32 tl_00;
-u8 *TObjQuestColALock2__vt14(u8 *arg0);
+u8 *TObjQuestColALock2__vt14(TObjQuestColALock2 *arg0);
 void set_indexed_flags(void *, s32, s32);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * TObjQuestColBase__ct(void *, s32);
@@ -50,7 +50,7 @@ extern s32 __vt__18TObjQuestColALock2[];
 extern s32 lbl_805D3408;
 extern s32 quest_mission_manager;
 extern s32 quest_area_manager;
-u8 *TObjQuestColALock2__ct(u8 *arg0, s32 arg1, s32 _w2);
+u8 *TObjQuestColALock2__ct(TObjQuestColALock2 *arg0, s32 arg1, s32 _w2);
 s32 fn_80141CBC(void *, void *, int, f32);
 s32 TObjRoomId__sub_80141CF4(void *, void *, f32);
 extern RecoveredGlobal_801959A0_lbl_804A7428 lbl_804A7428;
@@ -74,7 +74,7 @@ extern void *quest_collision_task_root;
 void *TObjQuestColALock2__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC4);
     if (o != NULL) {
-        o = TObjQuestColALock2__ct((u8 *)o, (s32)quest_collision_task_root, (s32)arg0);
+        o = TObjQuestColALock2__ct((TObjQuestColALock2 *)((u8 *)o), (s32)quest_collision_task_root, (s32)arg0);
     }
     return o;
 }
@@ -94,7 +94,7 @@ void TObjQuestColALock2::update_room_id_check() {
     }
 }
 
-u8 *TObjQuestColALock2__vt14(u8 *arg0) {
+u8 *TObjQuestColALock2__vt14(TObjQuestColALock2 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     u8 *var_r31;
@@ -104,7 +104,7 @@ u8 *TObjQuestColALock2__vt14(u8 *arg0) {
         temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x194)));
         var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(__ct__12TQuestThreadFv(temp_r3, (s32) *(u32 *)((s8 *)arg0 + 0xBC), ((TObjQuestColALock2 *)arg0)->m_b0));
+            var_r0 = (u8 *)(__ct__12TQuestThreadFv(temp_r3, (s32) *(u32 *)((s8 *)arg0 + 0xBC), arg0->m_b0));
         }
         var_r31 = var_r0;
         if (var_r0 != NULL) {
@@ -160,26 +160,26 @@ void *__dt__18TObjQuestColALock2Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TObjQuestColALock2__ct(u8 *arg0, s32 arg1, s32 _w2) {
+u8 *TObjQuestColALock2__ct(TObjQuestColALock2 *arg0, s32 arg1, s32 _w2) {
     u8 *temp_r4;
     TObjQuestColBase__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80195BEC___vt__18TObjQuestColALock2 *)&__vt__18TObjQuestColALock2).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3408;
     init_collision_body_parts(arg0, (s32) &TObjQuestColALock__collision_desc.value, 1);
     set_indexed_flags(arg0, 0, 0xF0);
-    temp_r4 = (u8 *)(((TObjQuestColALock2 *)arg0)->m_a4);
-    *(f32 *)((s8 *)temp_r4 + 4) = (f32) (*(f32 *)((s8 *)temp_r4 + 4) + ((TObjQuestColALock2 *)arg0)->target_scale);
+    temp_r4 = (u8 *)(arg0->m_a4);
+    *(f32 *)((s8 *)temp_r4 + 4) = (f32) (*(f32 *)((s8 *)temp_r4 + 4) + arg0->target_scale);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    ((TObjQuestColALock2 *)arg0)->actorFlags = (s32) (((TObjQuestColALock2 *)arg0)->actorFlags | 0x40000000);
+    arg0->actorFlags = (s32) (arg0->actorFlags | 0x40000000);
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    ((TObjQuestColALock2 *)arg0)->m_c0 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
-    if ((s32) ((TObjQuestColALock2 *)arg0)->m_c0 < 0) {
-        ((TObjQuestColALock2 *)arg0)->m_c0 = 0;
+    arg0->m_c0 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
+    if ((s32) arg0->m_c0 < 0) {
+        arg0->m_c0 = 0;
     }
-    if ((s32) ((TObjQuestColALock2 *)arg0)->m_c0 > 1) {
-        ((TObjQuestColALock2 *)arg0)->m_c0 = 1;
+    if ((s32) arg0->m_c0 > 1) {
+        arg0->m_c0 = 1;
     }
-    switch (((TObjQuestColALock2 *)arg0)->m_c0) {
+    switch (arg0->m_c0) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0xBC) = (s32) quest_mission_manager;
         break;
@@ -190,7 +190,7 @@ u8 *TObjQuestColALock2__ct(u8 *arg0, s32 arg1, s32 _w2) {
         *(s32 *)((s8 *)arg0 + 0xBC) = 0;
         break;
     }
-    return arg0;
+    return (u8 *)arg0;
 }
 
 }

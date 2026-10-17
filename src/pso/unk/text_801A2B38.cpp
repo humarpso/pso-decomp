@@ -34,7 +34,7 @@ extern void *tl_05;
 void *TObjRaderCol__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xA0);
     if (o != NULL) {
-        o = TObjRaderCol__ct((u8 *)o, (s32)tl_05, (s32)arg0);
+        o = TObjRaderCol__ct((TObjRaderCol *)((u8 *)o), (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -58,7 +58,7 @@ void *TObjContainerAbeEnemy__create(void *arg0) {
 void *TObjBgmCol__create(void *set) {
     void *o = __nw__7TObjectFUl(0xA0);
     if (o != NULL) {
-        o = TObjBgmCol__ct(o, (s32)tl_05, (s32)set);
+        o = TObjBgmCol__ct((TObjBgmCol *)o, (s32)tl_05, (s32)set);
     }
     return o;
 }
@@ -66,7 +66,7 @@ void *TObjBgmCol__create(void *set) {
 void *TObjItemLight__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x98);
     if (o != NULL) {
-        o = TObjItemLight__ct((u8 *)o, (s32)tl_05, (s32)arg0);
+        o = TObjItemLight__ct((TObjItemLight *)((u8 *)o), (s32)tl_05, (s32)arg0);
     }
     return o;
 }

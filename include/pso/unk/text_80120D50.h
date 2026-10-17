@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TItemWeapon;
 extern "C" {
-u8 *TItemWeapon__ct(u8 *arg0, void *parent, u8 *item);
+u8 *TItemWeapon__ct(TItemWeapon *arg0, void *parent, u8 *item);
 }
 
 #endif

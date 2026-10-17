@@ -14,7 +14,7 @@ void *TObjEneRecon::create_bomb(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x364);
     if (o != NULL) {
-        o = TObjEneReconBomb__ct((u8 *)o, (s32)arg0, (s32)arg1, (s32)arg2);
+        o = TObjEneReconBomb__ct((TObjEneReconBomb *)((u8 *)o), (s32)arg0, (s32)arg1, (s32)arg2);
     }
     return o;
 }

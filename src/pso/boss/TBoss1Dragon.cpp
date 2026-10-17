@@ -1797,7 +1797,7 @@ s32 filter_input_flags__12TBoss1DragonFiii(s32 arg1, s32 arg2, s32 arg3);
 u8 check_attack_ready__12TBoss1DragonFPv(void *arg0);
 void sweep_head_fall_spheres_late__12TBoss1DragonFv(void);
 void update_from_data__12TBoss1DragonFv(void);
-void handle_6x12_dragon_boss_actions(void *arg0);
+void handle_6x12_dragon_boss_actions(TObjPlayer *arg0);
 void sweep_body_attack_spheres__12TBoss1DragonFv(u8 *arg0, f32 a, f32 b, f32 c);
 s32 check_flag_100__10TObjPlayerFPv();
 u8 *get_enemy_entity(u16 arg0);
@@ -5783,9 +5783,9 @@ void TBoss1Dragon::receive_state_request(u8 *arg1) {
     }
 }
 
-void handle_6x12_dragon_boss_actions(void *arg0) {
+void handle_6x12_dragon_boss_actions(TObjPlayer *arg0) {
     void *x;
-    ((TObjPlayer *)arg0)->bswap_6x12_packet();
+    arg0->bswap_6x12_packet();
     x = get_enemy_entity(*(u16 *)((s8 *)arg0 + 0x2));
     if (x != NULL) {
         ((TBoss1Dragon *)x)->receive_state_request((u8 *)arg0);

@@ -14,7 +14,7 @@ struct Status_80118558 { s8 a; u8 b; u8 pad[2]; u32 c; s32 d; s32 e; s32 f; };
 extern "C" {
 s32 set_dfp_bonus__9TItemDataFs(s32 a0, int a1);
 s32 set_bswapped_field_8__9TItemDataFs(s32 a0, int a1);
-void TItemProShield__vt16(void *arg0, void *arg1);
+void TItemProShield__vt16(TItemProShield *arg0, void *arg1);
 void TItemEquipBase__sub_8010A82C(s32 arg0);
 s32 play_sound_effect(int, int, int, int);
 s32 ct_init__14TItemEffShieldFPUcs(int, int, void *);
@@ -39,7 +39,7 @@ s16 get_bswap16_field8__9TItemDataFPv(void *);
 s16 getS16_06__9TItemDataFPv(void *);
 void *lookup_item_pmt_record(u8 *item);
 extern s32 lbl_805D2C38;
-u8 *TItemProShield__ct(u8 *arg0, s32 arg1, u8 *arg2);
+u8 *TItemProShield__ct(TItemProShield *arg0, s32 arg1, u8 *arg2);
 s32 add_actor_tp(u8 *arg0, s32 arg1);
 s32 add_actor_hp(u8 *arg0, s16 arg1);
 s16 obj_getS16_2BA(u8 *p);
@@ -104,9 +104,9 @@ void TItemProShield::vfunc_16() {
     }
     this->bind_loaded_resources();
 }
-void TItemProShield__vt16(void *arg0, void *arg1) {
-    set_dfp_bonus__9TItemDataFs((s32)arg1, (int)(((TItemProShield *)arg0)->m_198));
-    set_bswapped_field_8__9TItemDataFs((s32)arg1, (int)(((TItemProShield *)arg0)->m_199));
+void TItemProShield__vt16(TItemProShield *arg0, void *arg1) {
+    set_dfp_bonus__9TItemDataFs((s32)arg1, (int)(arg0->m_198));
+    set_bswapped_field_8__9TItemDataFs((s32)arg1, (int)(arg0->m_199));
 }
 void TItemProShield::vfunc_45() { TItemEquipBase__sub_8010A82C((s32)this); }
 void TItemProShield::vfunc_44() {
@@ -176,22 +176,22 @@ void TItemProShield::vfunc_30() {
     }
 }
 
-u8 *TItemProShield__ct(u8 *arg0, s32 arg1, u8 *item) {
+u8 *TItemProShield__ct(TItemProShield *arg0, s32 arg1, u8 *item) {
     TItemEquipBase__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801186EC___vt__14TItemProShield *)&__vt__14TItemProShield).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C38;
     ((TItemProShield *)(arg0))->vfunc_19(3);
-    ((TItemProShield *)arg0)->m_18c = (s32)lookup_item_pmt_record(item);
-    ((TItemProShield *)arg0)->m_190 = (s32) ((*(s32 *)&TItemProShield__shield_table) + ((s8) *(u8 *)((s8 *)(((TItemProShield *)arg0)->m_18c) + 0xD) * 0x2C));
-    ((TItemProShield *)arg0)->m_194 = TObjPlayer::get_shield_pmt_entry(*(u8 *)((s8 *)(((TItemProShield *)arg0)->m_18c) + 0x19));
-    ((TItemProShield *)arg0)->m_19a = (u8) *(u8 *)((s8 *)(((TItemProShield *)arg0)->m_18c) + 0x17);
-    ((TItemProShield *)arg0)->m_19b = (u8) *(u8 *)((s8 *)(((TItemProShield *)arg0)->m_18c) + 0x16);
-    ((TItemProShield *)arg0)->m_198 = getS16_06__9TItemDataFPv(item);
-    ((TItemProShield *)arg0)->m_199 = get_bswap16_field8__9TItemDataFPv(item);
-    ((TItemProShield *)arg0)->m_19c = 0;
+    arg0->m_18c = (s32)lookup_item_pmt_record(item);
+    arg0->m_190 = (s32) ((*(s32 *)&TItemProShield__shield_table) + ((s8) *(u8 *)((s8 *)(arg0->m_18c) + 0xD) * 0x2C));
+    arg0->m_194 = TObjPlayer::get_shield_pmt_entry(*(u8 *)((s8 *)(arg0->m_18c) + 0x19));
+    arg0->m_19a = (u8) *(u8 *)((s8 *)(arg0->m_18c) + 0x17);
+    arg0->m_19b = (u8) *(u8 *)((s8 *)(arg0->m_18c) + 0x16);
+    arg0->m_198 = getS16_06__9TItemDataFPv(item);
+    arg0->m_199 = get_bswap16_field8__9TItemDataFPv(item);
+    arg0->m_19c = 0;
     ((TItemEquipBase *)arg0)->set_equip_flag(0x24);
-    ((TItemProShield *)arg0)->sub_80117FEC();
-    return arg0;
+    arg0->sub_80117FEC();
+    return (u8 *)arg0;
 }
 
 u8 *TItemProShield::create_instance() {
@@ -202,7 +202,7 @@ u8 *TItemProShield::create_instance() {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1A0));
         var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(TItemProShield__ct((u8 *)temp_r3, (s32)tl_05, (u8 *)arg0));
+            var_r0 = (u8 *)(TItemProShield__ct((TItemProShield *)((u8 *)temp_r3), (s32)tl_05, (u8 *)arg0));
         }
         return var_r0;
     }

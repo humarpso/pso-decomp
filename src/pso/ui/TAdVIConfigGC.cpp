@@ -56,12 +56,12 @@ s32 get_window_layout_position(s32);
 char *strncpy(char *, const char *, u32);
 extern u8 player_names_window_pos[];
 extern s32 local_client_id;
-void *TAdVIConfigGC__ct(void *arg0);
+void *TAdVIConfigGC__ct(TAdVIConfigGC *arg0);
 void TAdVIConfigGC__vt8(void);
 void *__dt__13TAdVIConfigGCFv(void *arg0, s16 arg1);
 void *destroy__13TAdVIConfigGCFPvs(void *arg0, s16 arg1);
 int OSSetProgressiveMode(void*);
-void *TAdYesNoBaseGC__ct(void *arg0);
+void *TAdYesNoBaseGC__ct(TAdYesNoBaseGC *arg0);
 void *__dt__14TAdYesNoBaseGCFv(void *arg0, s16 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *);
 void __dl__7TObjectFPv(void *);
@@ -110,11 +110,11 @@ void TAdVIConfigGC::update_visibility() {
     if (temp_r3_2 != NULL) {
         if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x18) != 0) {
             ((TQuestVmDownLoadServer *)temp_r3_2)->clear_flag4_bit4();
-            allow_rendering__7TObjectFv((*(u8 * *)&this->m_24));
+            allow_rendering__7TObjectFv((TObject *)(*(u8 * *)&this->m_24));
             return;
         }
         ((TObject *)temp_r3_2)->set_flag_4();
-        disallow_rendering__7TObjectFv(*(u8 * *)&this->m_24);
+        disallow_rendering__7TObjectFv((TObject *)(*(u8 * *)&this->m_24));
     }
 }
 
@@ -122,7 +122,7 @@ void *destroy__13TAdVIConfigGCFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) {
             ((TQuestVmDownLoadServer *)(*(void **)((s8 *)arg0 + 0x24)))->clear_flag4_bit4();
-            allow_rendering__7TObjectFv((void *)(*(u32 *)((s8 *)arg0 + 0x24)));
+            allow_rendering__7TObjectFv((TObject *)((void *)(*(u32 *)((s8 *)arg0 + 0x24))));
             TWindow__close((u8 *)(*(u32 *)((s8 *)arg0 + 0x24)));
             *(u32 *)((s8 *)arg0 + 0x24) = 0U;
         }
@@ -201,12 +201,12 @@ void *__dt__13TAdVIConfigGCFv(void *arg0, s16 arg1) {
 
 extern void *TAdVIConfigGC__class_name;
 
-void *TAdVIConfigGC__ct(void *arg0) {
+void *TAdVIConfigGC__ct(TAdVIConfigGC *arg0) {
     TAdYesNoBaseGC__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TAdVIConfigGC;
-    *(void * *)&((TAdVIConfigGC *)arg0)->m_name = TAdVIConfigGC__class_name;
-    ((TAdVIConfigGC *)arg0)->set_field_2c(0);
-    ((TAdVIConfigGC *)arg0)->m_48 = 0;
+    *(void * *)&arg0->m_name = TAdVIConfigGC__class_name;
+    arg0->set_field_2c(0);
+    arg0->m_48 = 0;
     return arg0;
 }
 

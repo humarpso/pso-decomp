@@ -27,7 +27,7 @@ struct TObjLazerFenceExtra_801926D0 {
 
 extern "C" {
 
-void render__19TObjLazerFenceExtraFv(void *arg0);
+void render__19TObjLazerFenceExtraFv(TObjLazerFenceExtra *arg0);
 void reset_by_door__19TObjLazerFenceExtraFPv(void *arg0);
 void update_wait_switch__19TObjLazerFenceExtraFv(TObjLazerFenceExtra_801926D0 *self);
 u8 is_current_floor_switch_set(u16);
@@ -52,15 +52,15 @@ void TObjLazerFenceExtra::render_lazer_fence_model() {
 extern const f32 lbl_805DBE5C;
 extern const f32 lbl_805DBE60;
 
-void render__19TObjLazerFenceExtraFv(void *arg0) {
+void render__19TObjLazerFenceExtraFv(TObjLazerFenceExtra *arg0) {
 
     if ((((LazerFenceExtraVObj_801925F8*)arg0)->m8(lbl_805DBE5C, lbl_805DBE60) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0xD8) != 0)) {
-        switch (((TObjLazerFenceExtra *)arg0)->m_b4) {
+        switch (arg0->m_b4) {
         case 0:
-            ((TObjLazerFenceExtra *)arg0)->draw_lazer_fence_extra_model();
+            arg0->draw_lazer_fence_extra_model();
             return;
         case 1:
-            ((TObjLazerFenceExtra *)arg0)->render_lazer_fence_model();
+            arg0->render_lazer_fence_model();
             break;
         }
     }
@@ -115,14 +115,14 @@ extern s32 lazer_fence_extra_class_name;
 void *TObjLazerFenceExtra__ct(void *arg0, void *arg1, void *arg2);
 void *TObjLazerFenceExtra__create(void *arg0);
 void *__dt__19TObjLazerFenceExtraFv(void *arg0, s16 arg1);
-void run_task__19TObjLazerFenceExtraFv(void *arg0);
+void run_task__19TObjLazerFenceExtraFv(TObjLazerFenceExtra *arg0);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
-void run_task__19TObjLazerFenceExtraFv(void *arg0) {
+void run_task__19TObjLazerFenceExtraFv(TObjLazerFenceExtra *arg0) {
 
-    switch (((TObjLazerFenceExtra *)arg0)->m_b4) {
+    switch (arg0->m_b4) {
     case 0:
         ((s32 (*)())update_wait_switch__19TObjLazerFenceExtraFv)();
         return;

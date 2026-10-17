@@ -83,7 +83,7 @@ f32 vec3_dot(Vec_801A1A60 *, Vec_801A1A60 *);
 extern Vec_801A1A60 lbl_8044688C[];
 extern u8 identity_matrix[];
 extern const f32 lbl_805DC090;
-void set_player_room_control_flag(void *arg0);
+void set_player_room_control_flag(TObjPlayer *arg0);
 void *__dt__10TObjRoomIdFv(void *arg0, s16 arg1);
 void *create__10TObjRoomIdFPv(void *arg0);
 void set__10TObjRoomIdFPvs(void *arg0, s16 arg1);
@@ -168,14 +168,14 @@ void TObjRoomId::run_task() {
         if (vec3_dot(&d, &o->normal) > lbl_805DC094) {
             if (o->mode == 0x10000) {
                 *(s16 *)((s8 *)p + 0x28) = (s16)o->room_pos;
-                set_player_room_control_flag(p);
+                set_player_room_control_flag((TObjPlayer *)p);
             } else {
                 set__10TObjRoomIdFPvs(p, (s16)o->room_pos);
             }
         } else {
             if (o->mode == 0x10000) {
                 *(s16 *)((s8 *)p + 0x28) = (s16)o->room_other;
-                set_player_room_control_flag(p);
+                set_player_room_control_flag((TObjPlayer *)p);
             } else {
                 set__10TObjRoomIdFPvs(p, (s16)o->room_other);
             }
@@ -219,8 +219,8 @@ void *create__10TObjRoomIdFPv(void *arg0) {
     return o;
 }
 
-void set_player_room_control_flag(void *arg0) {
-    ((TObjPlayer *)arg0)->set_state_flags(0x02000000);
+void set_player_room_control_flag(TObjPlayer *arg0) {
+    arg0->set_state_flags(0x02000000);
 }
 
 extern s32 local_client_id;

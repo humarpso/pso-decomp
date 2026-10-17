@@ -56,7 +56,7 @@ P2_802E530C TObjOnlineEndingHexLine__direction_table[18] = {
     { 0, 0 }, { 0, 0 }, { 0, 0 },
 };
 void *__dt__23TObjOnlineEndingHexLineFv(void *arg0, s16 arg1);
-void run_task__23TObjOnlineEndingHexLineFv(u8 *arg0);
+void run_task__23TObjOnlineEndingHexLineFv(TObjOnlineEndingHexLine *arg0);
 void render__23TObjOnlineEndingHexLineFv(u8 *arg0);
 void render_shadows__7TObjectFv(void);
 void *__vt__23TObjOnlineEndingHexLine[6] = {
@@ -224,10 +224,10 @@ void render__23TObjOnlineEndingHexLineFv(u8 *arg0) {
 }
 #pragma pop
 
-void run_task__23TObjOnlineEndingHexLineFv(u8 *arg0) {
+void run_task__23TObjOnlineEndingHexLineFv(TObjOnlineEndingHexLine *arg0) {
     *(f32 *)((s8 *)arg0 + 0x9C) = (f32) (*(f32 *)((s8 *)arg0 + 0x9C) + TObjOnlineEndingHexLine__hex_line_params.a);
     if (*(f32 *)((s8 *)arg0 + 0x9C) >= lbl_805DE968) {
-        ((TObjOnlineEndingHexLine *)arg0)->step_line();
+        arg0->step_line();
     }
 }
 

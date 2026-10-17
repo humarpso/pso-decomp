@@ -258,7 +258,7 @@ extern const f32 lbl_805DC870;
 extern const f32 lbl_805DC874;
 void *create_telepipe_visual(void *self, Vec_802347B4 *pos, u32 id, s32 res);
 void *__dt__13TUnk_804CC9D4Fv(void *arg0, s16 arg1);
-void *__dt__9TTecLukerFv(void *arg0, s16 arg1);
+void *__dt__9TTecLukerFv(TTecLuker *arg0, s16 arg1);
 void stop_sound_request(s32 idx);
 s32 free_collision_body_parts(void *);
 s32 submit_cursor_candidate(void *, s32);
@@ -877,15 +877,15 @@ block_43:
     }
 }
 
-void *__dt__9TTecLukerFv(void *arg0, s16 arg1) {
+void *__dt__9TTecLukerFv(TTecLuker *arg0, s16 arg1) {
     s32 temp_cr0_eq;
     void *temp_r3;
 
     if (arg0 != NULL) {
         *(void **)((s8 *)arg0 + 0x18) = (void *) __vt__9TTecLuker;
-        if ((u32) ((TTecLuker *)arg0)->m_f8 != 0U) {
+        if ((u32) arg0->m_f8 != 0U) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xF8));
-            ((TTecLuker *)arg0)->m_f8 = 0U;
+            arg0->m_f8 = 0U;
         }
         temp_r3 = *(void **)((s8 *)arg0 + 0xEC);
         if (temp_r3 != NULL) {
@@ -894,11 +894,11 @@ void *__dt__9TTecLukerFv(void *arg0, s16 arg1) {
             }
             *(void **)((s8 *)arg0 + 0xEC) = NULL;
         }
-        if ((u32) ((TTecLuker *)arg0)->m_f0 != 0U) {
+        if ((u32) arg0->m_f0 != 0U) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xF0));
-            ((TTecLuker *)arg0)->m_f0 = 0U;
+            arg0->m_f0 = 0U;
         }
-        ((TTecLuker *)arg0)->m_f0 = 0U;
+        arg0->m_f0 = 0U;
         ((TUnk_804CC148 *)arg0)->destroy_technique_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

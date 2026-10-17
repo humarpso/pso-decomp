@@ -71,7 +71,7 @@ void *__dt__17TAdExNetConfirmGCFv(void *arg0, s16 arg1) {
     return arg0;
 }
 u8 *TAdExNetConfirmGC__ct(u8 *arg0) {
-    TAdWarningBaseGC__ct(arg0);
+    TAdWarningBaseGC__ct((TAdWarningBaseGC *)arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8032C618___vt__17TAdExNetConfirmGC *)&__vt__17TAdExNetConfirmGC).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4200;
     if ((TLobby__sub_80145DB4(1) != 0) || (TLobby__sub_80145DB4(4) != 0)) {

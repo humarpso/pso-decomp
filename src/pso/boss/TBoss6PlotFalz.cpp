@@ -365,8 +365,8 @@ union MemberActionStorage_802AB2B8 { s32 words[3]; void (TBoss6PlotFalz::*action
 
 extern "C" {
 extern RecoveredGlobal_802AB1C8_TBoss6PlotFalz__data_804DE66C TBoss6PlotFalz__data_804DE66C;
-void call_state_action__14TBoss6PlotFalzFPv(u8 *arg0);
-void run_phase_action__14TBoss6PlotFalzFPv(u8 *arg0);
+void call_state_action__14TBoss6PlotFalzFPv(TBoss6PlotFalz *arg0);
+void run_phase_action__14TBoss6PlotFalzFPv(TBoss6PlotFalz *arg0);
 void TBoss6EmptyWarp__sub_802B1004(void *p);
 
 s32 is_state_1f__14TBoss6PlotFalzFUi(u32 arg0) {
@@ -381,12 +381,12 @@ typedef char RecoveredGlobal_802AB1C8_TBoss6PlotFalz__data_804DE66C_size[sizeof(
 
 typedef char MemberActionStorage_802AB14C_size[sizeof(MemberActionStorage_802AB14C) == 12 ? 1 : -1];
 typedef char RecoveredGlobal_802AB14C_TBoss6PlotFalz__data_804DE66C_size[sizeof(RecoveredGlobal_802AB14C_TBoss6PlotFalz__data_804DE66C) == 0x1D4 ? 1 : -1];
-void run_phase_action__14TBoss6PlotFalzFPv(u8 *arg0) {
+void run_phase_action__14TBoss6PlotFalzFPv(TBoss6PlotFalz *arg0) {
   MemberActionStorage_802AB14C member_action;
   Stack_802AB14C stack;
   u8 *temp_r6;
   temp_r6 = (u8 *) (&(*(RecoveredGlobal_802AB14C_TBoss6PlotFalz__data_804DE66C *)&TBoss6PlotFalz__data_804DE66C).value);
-  temp_r6 = temp_r6 + ((((TBoss6PlotFalz *)arg0)->m_378) * 0x34);
+  temp_r6 = temp_r6 + ((arg0->m_378) * 0x34);
   member_action.words[0] = *((s32 *) (((s8 *) temp_r6) + 0x28));
   member_action.words[1] = *((s32 *) (((s8 *) temp_r6) + 0x2C));
   member_action.words[2] = *((s32 *) (((s8 *) temp_r6) + 0x30));
@@ -397,14 +397,14 @@ void run_phase_action__14TBoss6PlotFalzFPv(u8 *arg0) {
   update_random_shake__14TBoss6PlotFalzFPv((void *) arg0);
 }
 
-void call_state_action__14TBoss6PlotFalzFPv(u8 *arg0) {
+void call_state_action__14TBoss6PlotFalzFPv(TBoss6PlotFalz *arg0) {
   MemberActionStorage_802AB1C8 member_action;
   Stack_802AB1C8 stack;
   u8 *temp_r6;
   if (1)
   {
     temp_r6 = (u8 *)&TBoss6PlotFalz__data_804DE66C.value;
-    temp_r6 = temp_r6 + ((((TBoss6PlotFalz *)arg0)->m_378) * 0x34);
+    temp_r6 = temp_r6 + ((arg0->m_378) * 0x34);
     member_action.words[0] = *((s32 *) (((s8 *) temp_r6) + 0x1C));
   }
   member_action.words[1] = *((s32 *) (((s8 *) temp_r6) + 0x20));
@@ -1449,9 +1449,9 @@ void TBoss6PlotFalz::run_task() {
     if (query_teammate_state__9TObjEneDDFv() == 0) {
         set_visible_flag__14TBoss6PlotFalzFPv(arg0);
         if ((s32) *(s32 *)((s8 *)arg0 + 0x374) == 0) {
-            call_state_action__14TBoss6PlotFalzFPv((arg0));
+            call_state_action__14TBoss6PlotFalzFPv((TBoss6PlotFalz *)(arg0));
         }
-        run_phase_action__14TBoss6PlotFalzFPv((arg0));
+        run_phase_action__14TBoss6PlotFalzFPv((TBoss6PlotFalz *)(arg0));
     }
 }
 

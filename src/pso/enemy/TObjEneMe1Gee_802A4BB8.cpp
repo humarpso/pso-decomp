@@ -64,20 +64,20 @@ void TObjEneMe1Gee_NEEDLE::run_task() {
     }
     TNeedleShoot__sub_802A4668(this);
 }
-u8 *TObjEneMe1Gee_NEEDLE__ct(u8 *arg0, s32 arg1, u8 *from, u8 *to, f32 farg0, f32 farg1) {
+u8 *TObjEneMe1Gee_NEEDLE__ct(TObjEneMe1Gee_NEEDLE *arg0, s32 arg1, u8 *from, u8 *to, f32 farg0, f32 farg1) {
     u8 *temp_r3;
     TNeedleShoot__ct(arg0, arg1, from, to);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__20TObjEneMe1Gee_NEEDLE.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneMe1Gee_NEEDLE__name;
     *(f32 *)((s8 *)arg0 + 0xBC) = farg1;
     *(f32 *)((s8 *)arg0 + 0xAC) = farg0;
-    ((TObjEneMe1Gee_NEEDLE *)arg0)->m_c0 = 0x96;
-    ((TObjEneMe1Gee_NEEDLE *)arg0)->m_b0 = 1;
+    arg0->m_c0 = 0x96;
+    arg0->m_b0 = 1;
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C));
     if (temp_r3 != NULL) {
-        ((TObjEneMe1Gee_NEEDLE *)arg0)->m_34 = obj_getField1c(temp_r3);
+        arg0->m_34 = obj_getField1c(temp_r3);
     }
-    return arg0;
+    return (u8 *)arg0;
 }
 void TObjEneMe1Gee__sub_802A4D4C(void) {  }
 void TObjEneMe1Gee::cache_result_805D6660() { (*(int *)&me1gee_cached_model_handle) = TObjEneMe1Gee__sub_800CC2BC(); }

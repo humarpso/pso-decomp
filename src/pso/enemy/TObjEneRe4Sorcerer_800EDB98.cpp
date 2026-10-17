@@ -405,7 +405,7 @@ void TObjEneRe4Sorcerer__sub_800EF214(s32 arg0);
 s32 advance_animation_playback(void *);
 void *find_entity_by_id(u16 id);
 extern const f64 TObjEneRe4Sorcerer__data_8043D408;
-void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1);
+void TObjEneRe4Sorcerer__sub_800EE7DC(TObjEneRe4Sorcerer *arg0, s32 arg1);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();
@@ -1682,7 +1682,7 @@ void TObjEneRe4Sorcerer::update_state_machine(void *arg1p) {
 
 }
 
-void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1) {
+void TObjEneRe4Sorcerer__sub_800EE7DC(TObjEneRe4Sorcerer *arg0, s32 arg1) {
     s32 temp_r0;
     s32 var_r3;
     u32 entity;
@@ -1697,7 +1697,7 @@ void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1) {
         return;
     case 3:
         if ((s32) *(s32 *)((s8 *)arg0 + 0x4E8) == 5) {
-            ((TObjEneRe4Sorcerer *)arg0)->advance_anim_frame();
+            arg0->advance_anim_frame();
             *(s32 *)((s8 *)arg0 + 0x3EC) = ((*(s32 *)((s8 *)arg0 + 0x3EC)) + 1);
             transition_enemy_state(arg0, 3);
         }
@@ -1710,7 +1710,7 @@ void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1) {
         case 0:
             if ((entity != 0U) && (TObjEneRe4Sorcerer__sub_800ED498((u8 *)entity) != 0)) {
                 *(s32 *)((s8 *)arg0 + 0x4E4) = 0;
-                if (((TObjEneRe4Sorcerer *)arg0)->try_attack(lbl_805DA7BC, lbl_805DA7BC) == 0) {
+                if (arg0->try_attack(lbl_805DA7BC, lbl_805DA7BC) == 0) {
                     *(s32 *)((s8 *)arg0 + 0x4E8) = 4;
                 } else {
                     ((TObjEneDD_ST *)arg0)->enemy_copy_target_destination();
@@ -1721,15 +1721,15 @@ void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1) {
                         *(s32 *)((s8 *)arg0 + 0x4E8) = 1;
                         *(s16 *)((s8 *)arg0 + 0xB8) = 1;
                         *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C8) | 8);
-                        ((TObjEneRe4Sorcerer *)arg0)->set_photon_state();
+                        arg0->set_photon_state();
                     }
                     *(s32 *)((s8 *)arg0 + 0x60) = (s32) (TObjEneRe4Sorcerer__data_8043D408 * atan2_float((f32) (*(f32 *)((s8 *)arg0 + 0x3A0)), (f32) (*(f32 *)((s8 *)arg0 + 0x3A8))));
                 }
             } else if ((s32) *(s32 *)((s8 *)arg0 + 0x4E4) >= 0xF0) {
                 *(s32 *)((s8 *)arg0 + 0x4E8) = 5;
             }
-            ((TObjEneRe4Sorcerer *)arg0)->turn_to_target();
-            ((TObjEneRe4Sorcerer *)arg0)->create_effect();
+            arg0->turn_to_target();
+            arg0->create_effect();
             break;
         case 1:
             if ((entity != 0U) && (TObjEneRe4Sorcerer__sub_800ED498((u8 *)entity) == 0)) {
@@ -1738,8 +1738,8 @@ void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1) {
                 *(s16 *)((s8 *)arg0 + 0xB8) = 3;
                 *(s32 *)((s8 *)arg0 + 0x4E8) = 3;
             }
-            ((TObjEneRe4Sorcerer *)arg0)->turn_to_target();
-            ((TObjEneRe4Sorcerer *)arg0)->create_effect();
+            arg0->turn_to_target();
+            arg0->create_effect();
             break;
         case 2:
         case 3:
@@ -1752,7 +1752,7 @@ void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1) {
                 switch (var_r3) {
                 case 2:
                     *(s32 *)((s8 *)arg0 + 0x4E8) = 2;
-                    ((TObjEneRe4Sorcerer *)arg0)->cast_technique();
+                    arg0->cast_technique();
                     break;
                 case 3:
                     *(s32 *)((s8 *)arg0 + 0x4E8) = 2;
@@ -2031,7 +2031,7 @@ void TObjEneRe4Sorcerer__vt85(s32 arg0p, u32 arg1, s32 arg1p) {
         ((TObjEneRe4Sorcerer *)arg0p)->state_wait(arg1p);
         return;
     case 5:
-        TObjEneRe4Sorcerer__sub_800EE7DC((u8 *)arg0p, (s32)arg1p);
+        TObjEneRe4Sorcerer__sub_800EE7DC((TObjEneRe4Sorcerer *)((u8 *)arg0p), (s32)arg1p);
         return;
     case 6:
         ((TObjEneRe4Sorcerer *)arg0p)->update_state_machine((void *)arg1p);

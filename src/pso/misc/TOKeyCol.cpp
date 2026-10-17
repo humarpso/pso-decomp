@@ -4,7 +4,7 @@
 
 extern "C" {
 
-void *TOKeyCol__ct(void *arg0, s32 arg1, s32 arg2);
+void *TOKeyCol__ct(TOKeyCol *arg0, s32 arg1, s32 arg2);
 void TOKeyCol__vt16(void);
 void *__dt__8TOKeyColFv(void *arg0, s16 arg1);
 s32 TOKey__ct();
@@ -44,7 +44,7 @@ extern void *tl_05;
 void *TOKeyCol::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE8);
     if (o != NULL) {
-        o = TOKeyCol__ct((void *)o, (s32)tl_05, (s32)arg0);
+        o = TOKeyCol__ct((TOKeyCol *)((void *)o), (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -67,19 +67,19 @@ extern const f32 lbl_805DB758;
 extern const f32 lbl_805DB75C;
 extern const f32 lbl_805DB760;
 
-void *TOKeyCol__ct(void *arg0, s32 arg1, s32 arg2) {
+void *TOKeyCol__ct(TOKeyCol *arg0, s32 arg1, s32 arg2) {
     TOKey__ct();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TOKeyCol;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKeyCol__name;
-    ((TOKeyCol *)arg0)->apply_object_set_data((void *)arg2);
+    arg0->apply_object_set_data((void *)arg2);
     ((TOKey *)arg0)->init_switch_id();
-    ((TOKeyCol *)arg0)->m_c0 = (f32) lbl_805DB758;
+    arg0->m_c0 = (f32) lbl_805DB758;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB75C;
-    *(f32 *)((s8 *)arg0 + 0xCC) = (f32) (lbl_805DB760 + ((TOKeyCol *)arg0)->scale);
-    if (((s32) ((TOKeyCol *)arg0)->m_d0 != 2) && ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0)) {
-        ((TOKeyCol *)arg0)->m_d0 = 1;
+    *(f32 *)((s8 *)arg0 + 0xCC) = (f32) (lbl_805DB760 + arg0->scale);
+    if (((s32) arg0->m_d0 != 2) && ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0)) {
+        arg0->m_d0 = 1;
     } else {
-        ((TOKeyCol *)arg0)->m_d0 = 0;
+        arg0->m_d0 = 0;
     }
     return arg0;
 }

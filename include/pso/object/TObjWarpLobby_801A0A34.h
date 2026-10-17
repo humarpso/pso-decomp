@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TObjWarpLobby;
 extern "C" {
-void *TObjWarpLobby__ct(void *arg0);
+void *TObjWarpLobby__ct(TObjWarpLobby *arg0);
 }
 
 #endif

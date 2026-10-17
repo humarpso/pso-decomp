@@ -3,9 +3,10 @@
 
 #include "types.h"
 
+struct TObjPlayer;
 extern "C" {
 int TObjPlayer__sub_802C46E0(void *p);
-void export_player_record__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
+void export_player_record__10TObjPlayerFPvPv(TObjPlayer *arg0, u8 *arg1);
 int init_character_action_config(void *p);
 s32 sync_state__10TObjPlayerFi(s32 arg0);
 s32 try_assign_battle_ctrl__10TObjPlayerFiUs(s32 arg0, u16 arg1);

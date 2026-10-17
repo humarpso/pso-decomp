@@ -32,7 +32,7 @@ struct TWindowSubInformationBoard : public TObject {
 typedef char TWindowSubInformationBoard_size[sizeof(TWindowSubInformationBoard) == 0x914 ? 1 : -1];
 
 extern "C" {
-void *__dt__26TWindowSubInformationBoardFv(void *arg0, s16 arg1);
+void *__dt__26TWindowSubInformationBoardFv(TWindowSubInformationBoard *arg0, s16 arg1);
 }
 
 #endif

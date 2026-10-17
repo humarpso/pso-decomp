@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TObjAreaWarpForest;
 extern "C" {
-void TObjAreaWarpForest__sub_802F0F30(void *arg0);
+void TObjAreaWarpForest__sub_802F0F30(TObjAreaWarpForest *arg0);
 void *__dt__13TUnk_804E48D8Fv(void *arg0, s16 arg1);
 }
 

@@ -426,7 +426,7 @@ s32 check_and_set_reached__10TNpcPlayerFPv(void *arg0);
 s32 partner_view_check_moved(u8 *arg0);
 s32 needs_movement__10TNpcPlayerFPvPvi(u8 *arg0, void * _w1, int _w2);
 void select_path_waypoint__10TNpcPlayerFv(Self_801501A0 *self);
-void partner_observe_surroundings(u8 *arg0);
+void partner_observe_surroundings(TNpcPlayer *arg0);
 void request_technique_cast__10TNpcPlayerFPvi(Npc_80150A34 *self, s32 kind);
 s32 deliver_partner_action__10TNpcPlayerFv(void *);
 s32 select_recovery_action__10TNpcPlayerFv(Npc_801510F8 *self, s32 arg1);
@@ -2743,7 +2743,7 @@ void select_path_waypoint__10TNpcPlayerFv(Self_801501A0 *self) {
 
 #pragma push
 #pragma fp_contract on
-void partner_observe_surroundings(u8 *arg0) {
+void partner_observe_surroundings(TNpcPlayer *arg0) {
     f32 temp_f3;
     s32 temp_r3_2;
     s32 temp_r5;
@@ -2763,20 +2763,20 @@ void partner_observe_surroundings(u8 *arg0) {
     ((s32 (*)(void *))partner_probe_obstacles)((void *) (*(u8 **)((s8 *)arg0 + 0x78)));
     if (partner_view_update_hp_change((void *) (*(u8 **)((s8 *)arg0 + 0x78))) != 0) {
         if (((TNpcPlayer *)(*(u8 **)((s8 *)arg0 + 0x78)))->get_condition() & 0x40) {
-            ((TNpcPlayer *)arg0)->request_chatter(0xE);
+            arg0->request_chatter(0xE);
         } else if (((TNpcPlayer *)(*(u8 **)((s8 *)arg0 + 0x78)))->get_condition() & 0x80) {
-            ((TNpcPlayer *)arg0)->request_chatter(0xF);
+            arg0->request_chatter(0xF);
         } else if (((TNpcPlayer *)(*(u8 **)((s8 *)arg0 + 0x78)))->get_condition() & 0x200) {
             if ((u32) *(u32 *)((s8 *)arg0 + 0x7C) != 8U) {
                 temp_r3_2 = *(s32 *)((s8 *)arg0 + 0x80);
                 if (temp_r3_2 & 0x10000) {
                     *(s32 *)((s8 *)arg0 + 0x80) = (s32) (temp_r3_2 & 0xFFFEFFFF);
                 } else {
-                    ((TNpcPlayer *)arg0)->request_chatter(0x11);
+                    arg0->request_chatter(0x11);
                 }
             }
         } else {
-            ((TNpcPlayer *)arg0)->request_chatter(0x10);
+            arg0->request_chatter(0x10);
         }
     }
     if (((s32)((s32 (*)(s32))partner_view_check_moved)((s32)((void *) (*(u8 **)((s8 *)arg0 + 0x78))))) == 0) {

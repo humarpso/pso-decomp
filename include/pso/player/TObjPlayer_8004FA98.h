@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TObjDFDemo5;
 extern "C" {
-void darkfalz_death_update(u8 *arg0);
+void darkfalz_death_update(TObjDFDemo5 *arg0);
 }
 
 #endif

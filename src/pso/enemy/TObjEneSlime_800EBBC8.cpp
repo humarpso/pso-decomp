@@ -33,7 +33,7 @@ void *__dt__12TObjEneSlimeFv(void *arg0, s16 arg1) {
 extern u32 slime_bml_resource;
 
 typedef char RecoveredGlobal_800EBC28___vt__12TObjEneSlime_size[sizeof(RecoveredGlobal_800EBC28___vt__12TObjEneSlime) == 0x150 ? 1 : -1];
-u8 *TObjEneSlime__ct(u8 *arg0, s32 arg1, u8 *arg2) {
+u8 *TObjEneSlime__ct(TObjEneSlime *arg0, s32 arg1, u8 *arg2) {
     s32 temp_r0;
     initialize__9TObjEnemyFPv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800EBC28___vt__12TObjEneSlime *)&__vt__12TObjEneSlime).value;
@@ -41,19 +41,19 @@ u8 *TObjEneSlime__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TObjEneSlime *)(arg0))->apply_set_data(arg2);
     ((TObjEneSlime *)(arg0))->clear_lobby_object_state();
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
-    TBoss4DarkFalz__sub_8004B4F0((arg0 + 0x374), (arg2));
-    ((TObjEneSlime *)arg0)->m_3b4 = (s32) *(s16 *)((s8 *)arg2 + 2);
-    temp_r0 = ((TObjEneSlime *)arg0)->m_3b4;
+    TBoss4DarkFalz__sub_8004B4F0(((u8 *)arg0 + 0x374), (arg2));
+    arg0->m_3b4 = (s32) *(s16 *)((s8 *)arg2 + 2);
+    temp_r0 = arg0->m_3b4;
     if (temp_r0 < 1) {
         if (TObjPlayer::check_demo_mode() != 0) {
-            ((TObjEneSlime *)arg0)->m_3b4 = 3;
+            arg0->m_3b4 = 3;
         }
     } else if (temp_r0 > 4) {
-        ((TObjEneSlime *)arg0)->m_3b4 = 4;
+        arg0->m_3b4 = 4;
     }
-    ((TObjEneSlime *)arg0)->actorFlags = (s32) (((TObjEneSlime *)arg0)->actorFlags | 0x02000000);
-    ((TObjEneSlime *)arg0)->init_slots();
-    return arg0;
+    arg0->actorFlags = (s32) (arg0->actorFlags | 0x02000000);
+    arg0->init_slots();
+    return (u8 *)arg0;
 }
 
 void TObjEneSlime::free_instance() {

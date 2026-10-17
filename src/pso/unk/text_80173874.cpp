@@ -26,24 +26,24 @@ extern u8 *cave_rock_resource_bundle;
 extern const f32 lbl_805DB970;
 typedef char RecoveredGlobal_80173874_lbl_804B3BA8_size[sizeof(RecoveredGlobal_80173874_lbl_804B3BA8) == 0x84 ? 1 : -1];
 typedef char RecoveredGlobal_80173874___vt__14TORockCaveBL03_size[sizeof(RecoveredGlobal_80173874___vt__14TORockCaveBL03) == 0x50 ? 1 : -1];
-u8 *TORockCaveBL03__ct(u8 *arg0, s32 arg1) {
+u8 *TORockCaveBL03__ct(TORockCaveBL03 *arg0, s32 arg1) {
     s32 temp_r0;
     TORockCaveBrakable__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TORockCaveBL03.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D313C;
     ((TORockCaveBL03 *)(arg0))->apply_object_set_data((void *)arg1);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(cave_rock_resource_bundle, 0);
-    ((TORockCaveBL03 *)arg0)->texture_id = TObjFish__sub_8001EDB0(cave_rock_resource_bundle, 0);
-    ((TORockCaveBL03 *)arg0)->m_b0 = (f32) lbl_805DB970;
+    arg0->texture_id = TObjFish__sub_8001EDB0(cave_rock_resource_bundle, 0);
+    arg0->m_b0 = (f32) lbl_805DB970;
     init_collision_body_parts(arg0, (s32) ((u8 *)&cave_rock_collision_body_templates.value + 0x58), 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    ((TORockCaveBL03 *)arg0)->m_b8 = (s32) ((TORockCaveBL03 *)arg0)->m_84;
-    temp_r0 = ((TORockCaveBL03 *)arg0)->m_b8;
+    arg0->m_b8 = (s32) arg0->m_84;
+    temp_r0 = arg0->m_b8;
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
-        ((TORockCaveBL03 *)arg0)->m_b8 = -1;
+        arg0->m_b8 = -1;
     }
-    return arg0;
+    return (u8 *)arg0;
 }
 
 }

@@ -60,7 +60,7 @@ s32 check_flag_100__10TObjPlayerFPv();
 u32 set_window_mode_4__6TLobbyFPvll(s32, void *, s32);
 __declspec(section ".data") f32 challenge_retry_window_pos[2] = { 360.0f, 125.0f };
 extern const f32 lbl_805D9110;
-void TLobby__sub_80072724(void *arg0);
+void TLobby__sub_80072724(TLobby *arg0);
 void TLobby__sub_80072758(u8 *arg0);
 void TLobby__sub_800727A0(void *arg0);
 void TLobby__sub_800727EC(u8 *arg0);
@@ -70,8 +70,8 @@ void TLobby::bswap_challenge_dead_flag() {
     bswap_32((u32 *)((char *)this + 4));
 }
 
-void TLobby__sub_80072724(void *arg0) {
-    ((TLobby *)arg0)->bswap_challenge_dead_flag();
+void TLobby__sub_80072724(TLobby *arg0) {
+    arg0->bswap_challenge_dead_flag();
     TLobby__send_and_handle_60((u8 *)arg0);
 }
 

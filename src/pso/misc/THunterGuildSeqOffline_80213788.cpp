@@ -501,7 +501,7 @@ void fn_80214058(Seq_80214058 *arg0) {
     void *e;
     l = (List_80214058 *)__nw__7TObjectFUl(0x70);
     if (l != 0) {
-        l = (List_80214058 *)TQuestListOnline__ct(l, (void *)tl_05, arg0, (void *)arg0->f24);
+        l = (List_80214058 *)TQuestListOnline__ct((TQuestListOnline *)l, (void *)((void *)tl_05), (void *)arg0, (void *)((void *)arg0->f24));
     }
     if (l != 0) {
         arg0->m7(4, 1);

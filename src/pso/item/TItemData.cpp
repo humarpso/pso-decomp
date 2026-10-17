@@ -630,7 +630,7 @@ s32 get_item_icon_index(const u8 *q) {
 #define lookup_item_def__9TItemDataFPv ((s32 (*)())lookup_item_def__9TItemDataFPv)
 #define init__9TItemDataFv ((s32 (*)())init__9TItemDataFv)
 s32 strncpy(s8 *, u32, s32);
-void TItemData__sub_8010CA08(void *arg0, u32 arg1, u8 arg2);
+void TItemData__sub_8010CA08(TItemData *arg0, u32 arg1, u8 arg2);
 s32 TItemData__sub_8010CAB0(s32 arg0, s8 arg1);
 u8 *find_item_by_id(s32 id);
 void TItemData__sub_8010CCB0(void);
@@ -664,7 +664,7 @@ int TItemData::isValidGroundDrop() {
 
 extern "C" {
 
-void TItemData__sub_8010CA08(void *arg0, u32 arg1, u8 arg2) {
+void TItemData__sub_8010CA08(TItemData *arg0, u32 arg1, u8 arg2) {
     s8 sp8[10];
     init__9TItemDataFv();
     if ((arg1 != 0U) && (((arg2 >= 0x70U) && (arg2 <= 0x88U)) || ((arg2 >= 0xA5U) && (arg2 <= 0xA9U)))) {
@@ -674,7 +674,7 @@ void TItemData__sub_8010CA08(void *arg0, u32 arg1, u8 arg2) {
         memset(sp8, 0, 0xA);
         sp8[0] = 0x41;
         strncpy(&sp8[1], arg1, 8);
-        ((TItemData *)arg0)->pack_three_colors((u8 *)sp8);
+        arg0->pack_three_colors((u8 *)sp8);
     }
 }
 

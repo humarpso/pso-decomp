@@ -39,7 +39,7 @@ u8 *TObjFogCollision__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjFogCollision *)(arg0))->apply_object_set_data((void *)arg2);
     ((TObjFogCollision *)arg0)->m_90 = 0;
     ((TObjFogCollision *)arg0)->m_94 = 0;
-    disallow_rendering__7TObjectFv((arg0));
+    disallow_rendering__7TObjectFv((TObject *)(arg0));
     return arg0;
 }
 

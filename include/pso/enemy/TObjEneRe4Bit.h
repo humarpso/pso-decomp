@@ -58,8 +58,8 @@ extern "C" {
 u8 *TObjEneRe4Bit__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5, s16 arg6);
 void TObjEneRe4Bit__sub_800ECC14(u8 *arg0, s32 arg1);
 void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1);
-void TObjEneRe4Bit__sub_800ECE04(u8 *arg0, s32 arg1);
-void TObjEneRe4Bit__sub_800ECED0(void *arg0, s32 arg1);
+void TObjEneRe4Bit__sub_800ECE04(TObjEneRe4Bit *arg0, s32 arg1);
+void TObjEneRe4Bit__sub_800ECED0(TObjEneRe4Bit *arg0, s32 arg1);
 void TObjEneRe4Bit__sub_800EDAB0(void);
 void TObjEneRe4Bit__sub_800EDAB4(void);
 void TObjEneRe4Bit__vt85(s32 arg0, u32 arg1, s32 msg);

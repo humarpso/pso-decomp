@@ -30,33 +30,33 @@ void TMainCursor::update_chair() {
 extern u8 *camera_ctrl_instance;
 extern const f32 TMainCursor__data_805DB0C0;
 
-void render__11TMainCursorFPv(u8 *arg0) {
+void render__11TMainCursorFPv(TMainCursor *arg0) {
     s32 sp8;
     f32 temp_f31;
 
     TParticleCtrl::begin_effect_render();
     temp_f31 = *(f32 *)((s8 *)arg0 + 0x30);
     push_matrix();
-    offset_point_toward_camera(arg0 + 0x40, (u8 *)&sp8, ((TMainCursor *)arg0)->m_2c);
+    offset_point_toward_camera((u8 *)arg0 + 0x40, (u8 *)&sp8, arg0->m_2c);
     translate_matrix_vec3((u8 *)(0), (u8 *)&sp8);
     rotate_matrix_y(0, *(s32 *)((s8 *)camera_ctrl_instance + 0x194));
     push_matrix();
     rotate_matrix_z(0, 0x2AAA);
     translate_matrix(0, TMainCursor__data_805DB0C0, temp_f31, TMainCursor__data_805DB0C0);
-    ((TMainCursor *)arg0)->update_photon_chair();
-    ((TMainCursor *)arg0)->update_chair();
+    arg0->update_photon_chair();
+    arg0->update_chair();
     pop_matrix();
     push_matrix();
     rotate_matrix_z(0, 0x7FFF);
     translate_matrix(0, TMainCursor__data_805DB0C0, temp_f31, TMainCursor__data_805DB0C0);
-    ((TMainCursor *)arg0)->update_photon_chair();
-    ((TMainCursor *)arg0)->update_chair();
+    arg0->update_photon_chair();
+    arg0->update_chair();
     pop_matrix();
     push_matrix();
     rotate_matrix_z(0, 0xD554);
     translate_matrix(0, TMainCursor__data_805DB0C0, temp_f31, TMainCursor__data_805DB0C0);
-    ((TMainCursor *)arg0)->update_photon_chair();
-    ((TMainCursor *)arg0)->update_chair();
+    arg0->update_photon_chair();
+    arg0->update_chair();
     pop_matrix();
     pop_matrix();
     TParticleCtrl::end_effect_render();

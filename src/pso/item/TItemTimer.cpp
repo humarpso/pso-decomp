@@ -151,7 +151,7 @@ s32 add_actor_tp(u8 *arg0, s32 arg1);
 s32 set_owner_id__13TParticleCtrlFUs(s32, s32);
 s32 is_item_area_enabled();
 s32 __ct__7TObjectFP7TObject();
-void disallow_rendering__7TObjectFv(void *arg0);
+void disallow_rendering__7TObjectFv(TObject *arg0);
 s32 is_flag_20000_set__10TObjPlayerFv(s32);
 s32 obj_getField1c(s32);
 s32 obj_isState2_324__13TUnk_804806E8Fv(void *);
@@ -173,7 +173,7 @@ u8 *TItemTimer__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
         ((TItemTimer *)arg0)->m_1C = 1;
     }
     TItemTimer__sub_8011D598(arg0 + 0x20, arg1, arg2);
-    disallow_rendering__7TObjectFv((arg0));
+    disallow_rendering__7TObjectFv((TObject *)(arg0));
     return arg0;
 }
 

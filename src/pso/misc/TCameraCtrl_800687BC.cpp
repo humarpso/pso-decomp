@@ -383,7 +383,7 @@ s32 activate_camera_mode(s32 arg0);
 bool TCameraCtrl__sub_800689F4(void);
 extern s32 local_client_id;
 Cam_80068958 *get_character_select_request_buffer(void);
-s32 TCameraCtrl__sub_800695A0(u8 *arg0);
+s32 TCameraCtrl__sub_800695A0(TCameraCtrl *arg0);
 void reset_cameras_to_actor(u8 *, int);
 u16 TCameraCtrl__sub_8006A5DC();
 u8 *get_player_by_client_id(s32);
@@ -805,12 +805,12 @@ void TCameraCtrl::reset_viewport_scissor() {
 }
 #pragma pop
 
-s32 TCameraCtrl__sub_800695A0(u8 *arg0) {
+s32 TCameraCtrl__sub_800695A0(TCameraCtrl *arg0) {
     if ((*(G_800695A0 *)&TCameraCtrl__view_state).flags & 0x400) {
         return 0;
     }
     (*(G_800695A0 *)&TCameraCtrl__view_state).flags |= 0x400;
-    ((TCameraCtrl *)arg0)->set_view_params();
+    arg0->set_view_params();
     return 1;
 }
 

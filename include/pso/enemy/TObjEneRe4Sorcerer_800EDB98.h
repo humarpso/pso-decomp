@@ -3,12 +3,13 @@
 
 #include "types.h"
 
+struct TObjEneRe4Sorcerer;
 extern "C" {
 void TBoss3Volopt__sub_800F059C(void);
 void *TObjEneRe4Sorcerer__ct(void *arg0, void *arg1, void *arg2);
 void TObjEneRe4Sorcerer__sub_800EE0F8(u8 *arg0, s32 arg1);
 void TObjEneRe4Sorcerer__sub_800EE1CC(u8 *arg0, s32 arg1);
-void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1);
+void TObjEneRe4Sorcerer__sub_800EE7DC(TObjEneRe4Sorcerer *arg0, s32 arg1);
 s32 TObjEneRe4Sorcerer__sub_800EEC00(void *arg0p, void *arg1p);
 s32 TObjEneRe4Sorcerer__sub_800EEDE4(void *arg0p, void *arg1p);
 void TObjEneRe4Sorcerer__sub_800EEFE4(u8 *arg0, s32 arg1);

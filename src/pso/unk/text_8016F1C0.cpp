@@ -38,18 +38,18 @@ s32 is_split_screen();
 extern s32 local_client_id;
 
 typedef char RecoveredGlobal_8016F1C0___vt__10TOMineDisp_size[sizeof(RecoveredGlobal_8016F1C0___vt__10TOMineDisp) == 0x34 ? 1 : -1];
-u8 *TOMineDisp__ct(u8 *arg0, s32 arg1, s16 arg2) {
+u8 *TOMineDisp__ct(TOMineDisp *arg0, s32 arg1, s16 arg2) {
     construct_world_actor_base();
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__10TOMineDisp.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOMineDisp__name;
-    ((TOMineDisp *)arg0)->m_a8 = arg2;
+    arg0->m_a8 = arg2;
     *(f32 *)((s8 *)arg0 + 0x94) = (f32) lbl_805DB85C;
-    ((TOMineDisp *)arg0)->m_98 = (f32) lbl_805DB85C;
+    arg0->m_98 = (f32) lbl_805DB85C;
     *(f32 *)((s8 *)arg0 + 0x9C) = (f32) lbl_805DB85C;
-    ((TOMineDisp *)arg0)->m_a0 = (f32) lbl_805DB85C;
-    ((TOMineDisp *)arg0)->m_a4 = 0;
-    ((TOMineDisp *)arg0)->m_90 = 0;
-    return arg0;
+    arg0->m_a0 = (f32) lbl_805DB85C;
+    arg0->m_a4 = 0;
+    arg0->m_90 = 0;
+    return (u8 *)arg0;
 }
 
 void TOMineTrap::spawn_disp_objects() {

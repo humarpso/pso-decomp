@@ -1,4 +1,5 @@
 #include "types.h"
+struct TWindowSubComCard;
 #include "pso/misc/TWindowMenuMainMenu.h"
 #include "pso/misc/TWindowMainMenu.h"
 #include "pso/misc/TLanguage.h"
@@ -111,7 +112,7 @@ void begin_render__20TWindowSubStatusDispFl(void);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 apply_choice__20TWindowChoiceSettingFllll(void *, int, int, int);
-f32 TWindowSubComCard__sub_80244784(void *);
+f32 TWindowSubComCard__sub_80244784(TWindowSubComCard *);
 s32 is_window_reveal_complete__13TUnk_804CE018Fv();
 s32 sub_80246948__13TUnk_804CE018Fv();
 s32 is_player_input_active(s32 param_1);
@@ -542,7 +543,7 @@ Rect_802AE2B0 *setup_content_frame__15TWindowMainMenuFPv(u8 *arg0) {
         v = lbl_805DE164;
     }
     ((TWindowKeyBoardSoft *)r)->set_bounds(lbl_805DE1A4 + r->x, r->y + v, (r->x + r->w) - lbl_805DE1A4, (r->y + r->h) - lbl_805DE164);
-    r->color = ((s32)(lbl_805DE148 * TWindowSubComCard__sub_80244784(arg0)) << 24) | 0xFF0000 | 0xFFFF;
+    r->color = ((s32)(lbl_805DE148 * TWindowSubComCard__sub_80244784((TWindowSubComCard *)arg0)) << 24) | 0xFF0000 | 0xFFFF;
     return r;
 }
 

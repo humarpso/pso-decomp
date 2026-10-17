@@ -1800,15 +1800,15 @@ s32 update_timed_wait__6TLobbyFPv(void *);
 s32 update_battle_intro__6TLobbyFPv(void *);
 void update_player_battle_ctrl_state(void *arg0);
 s32 init_battle_round__6TLobbyFPv();
-s32 fn_801C4CE0(void *arg0);
+s32 fn_801C4CE0(TPlayerBattleCtrl *arg0);
 
-s32 fn_801C4CE0(void *arg0) {
-    switch (((TPlayerBattleCtrl *)arg0)->state_20) {
+s32 fn_801C4CE0(TPlayerBattleCtrl *arg0) {
+    switch (arg0->state_20) {
     case -1:
         break;
     case 0:
         init_battle_round__6TLobbyFPv();
-        ((TPlayerBattleCtrl *)arg0)->state_24 = 1;
+        arg0->state_24 = 1;
         break;
     }
 }
@@ -1816,7 +1816,7 @@ s32 fn_801C4CE0(void *arg0) {
 void update_player_battle_ctrl_state(void *arg0) {
     switch (*(u32 *)((s8 *)arg0 + 0x1C)) {
     case 0:
-        fn_801C4CE0(arg0);
+        fn_801C4CE0((TPlayerBattleCtrl *)arg0);
         return;
     case 1:
         update_battle_intro__6TLobbyFPv(arg0);

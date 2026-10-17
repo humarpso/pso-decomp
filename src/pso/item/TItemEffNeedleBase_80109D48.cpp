@@ -67,10 +67,10 @@ void TItemEffNeedleBase::run_task() {
     u8 *arg0 = (u8 *)this;
     if (query_game_join_id__10TObjPlayerFv((int) (*(s32 *)((s8 *)arg0 + 0x2C))) == 0U) {
         queue_destruction__7TObjectFv((arg0));
-        disallow_rendering__7TObjectFv((arg0));
+        disallow_rendering__7TObjectFv((TObject *)(arg0));
         return;
     }
-    allow_rendering__7TObjectFv((arg0));
+    allow_rendering__7TObjectFv((TObject *)(arg0));
     if (this->vfunc_6() != 0) {
         *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (*(f32 *)((s8 *)arg0 + 0x1C) - lbl_805DAB50);
         if (*(f32 *)((s8 *)arg0 + 0x1C) <= lbl_805DAB54) {
@@ -94,7 +94,7 @@ u8 *__ct__18TItemEffNeedleBaseFv(u8 *arg0, void *arg1, u8 *arg2) {
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805DAB4C;
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) lbl_805DAB4C;
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) lbl_805DAB4C;
-    disallow_rendering__7TObjectFv(arg0);
+    disallow_rendering__7TObjectFv((TObject *)arg0);
     return arg0;
 }
 

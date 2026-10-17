@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TWindowSubQuestBoardSelect;
 extern "C" {
-u8 *TWindowSubQuestBoardSelect__ct(u8 *arg0);
+u8 *TWindowSubQuestBoardSelect__ct(TWindowSubQuestBoardSelect *arg0);
 }
 
 #endif

@@ -37,7 +37,7 @@ extern "C" void render_body__13TBoss2DeRolLeFv(u8 *arg0);
 extern "C" void dispatch_action__13TBoss2DeRolLeFiUii(s32 arg0, u32 arg1, s32 arg2);
 extern "C" void update_colliders_from_offsets__13TBoss2DeRolLeFi(s32 arg0);
 extern "C" void vfunc_61__13TBoss2DeRolLeFv();
-extern "C" void apply_damage_taken__13TBoss2DeRolLeFPv(u8 *arg0);
+extern "C" void apply_damage_taken__13TBoss2DeRolLeFPv(TBoss2DeRolLe *arg0);
 extern "C" void vfunc_63__13TBoss2DeRolLeFv();
 extern "C" void vfunc_28__13TBoss2DeRolLeFv();
 extern "C" u8 *__dt__13TBoss2DeRolLeFv(u8 *arg0, s16 arg1);
@@ -4083,11 +4083,11 @@ void TBoss2DeRolLe__sub_80034034(Obj_80034034 *self) {
     }
 }
 
-u8 is_ready__13TBoss2DeRolLeFPv(void *arg0) {
+u8 is_ready__13TBoss2DeRolLeFPv(TBoss2DeRolLe *arg0) {
     int var_r4;
 
     var_r4 = 0;
-    if (((s32) ((TBoss2DeRolLe *)arg0)->m_6c8 <= 0) && !(*(s32 *)((s8 *)arg0 + 0x3C0) & 4)) {
+    if (((s32) arg0->m_6c8 <= 0) && !(*(s32 *)((s8 *)arg0 + 0x3C0) & 4)) {
         var_r4 = 1;
     }
     return (u8)var_r4;
@@ -4573,7 +4573,7 @@ void spawn_offset_particle__13TBoss2DeRolLeFiff(s32, f32, f32);
 void set_flags_play_sound__13TBoss2DeRolLeFPv(u8 *arg0);
 extern const f32 TBoss2DeRolLe__data_805D82A0;
 extern const f32 lbl_805D8448;
-void apply_damage_taken__13TBoss2DeRolLeFPv(u8 *arg0);
+void apply_damage_taken__13TBoss2DeRolLeFPv(TBoss2DeRolLe *arg0);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 extern RecoveredGlobal_80034C90_lbl_8043567C TBoss2DeRolLe__position_point_table;
 extern const f32 TBoss2DeRolLe__data_805D827C;
@@ -4828,21 +4828,21 @@ void backup_pos__13TBoss2DeRolLeFi(s32 arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
 }
 void TBoss2DeRolLe::vfunc_61() {  }
-void apply_damage_taken__13TBoss2DeRolLeFPv(u8 *arg0) {
+void apply_damage_taken__13TBoss2DeRolLeFPv(TBoss2DeRolLe *arg0) {
     s32 temp_r4;
-    temp_r4 = ((TBoss2DeRolLe *)arg0)->hpmax - ((TBoss2DeRolLe *)arg0)->hp;
+    temp_r4 = arg0->hpmax - arg0->hp;
     if (*(s32 *)((s8 *)arg0 + 0x3C0) & 8) {
-        ((TBoss2DeRolLe *)arg0)->m_6c8 = (s32) (((TBoss2DeRolLe *)arg0)->m_6c8 - temp_r4);
+        arg0->m_6c8 = (s32) (arg0->m_6c8 - temp_r4);
         spawn_offset_particle__13TBoss2DeRolLeFiff(*(s32 *)((s8 *)arg0 + 0xA4) + 0x1C, TBoss2DeRolLe__data_805D82A0, lbl_805D8448);
-        play_sound((void *)0x4003A80F, (s32)(arg0 + 0x518));
+        play_sound((void *)0x4003A80F, (s32)((u8 *)arg0 + 0x518));
     } else {
-        ((TBoss2DeRolLe *)arg0)->m_6cc = (s32) (((TBoss2DeRolLe *)arg0)->m_6cc - temp_r4);
-        if ((s32) ((TBoss2DeRolLe *)arg0)->m_6cc < 0) {
-            ((TBoss2DeRolLe *)arg0)->m_6cc = 0;
-            set_flags_play_sound__13TBoss2DeRolLeFPv(arg0);
+        arg0->m_6cc = (s32) (arg0->m_6cc - temp_r4);
+        if ((s32) arg0->m_6cc < 0) {
+            arg0->m_6cc = 0;
+            set_flags_play_sound__13TBoss2DeRolLeFPv((u8 *)arg0);
         }
     }
-    ((TBoss2DeRolLe *)arg0)->hp = (s16) ((TBoss2DeRolLe *)arg0)->hpmax;
+    arg0->hp = (s16) arg0->hpmax;
     ((TObjEneDD *)arg0)->clear_attack_receipts();
 }
 
@@ -5590,7 +5590,7 @@ extern "C" void render_body__13TBoss2DeRolLeFv(u8 *arg0);
 extern "C" void dispatch_action__13TBoss2DeRolLeFiUii(s32 arg0, u32 arg1, s32 arg2);
 extern "C" void update_colliders_from_offsets__13TBoss2DeRolLeFi(s32 arg0);
 extern "C" void vfunc_61__13TBoss2DeRolLeFv();
-extern "C" void apply_damage_taken__13TBoss2DeRolLeFPv(u8 *arg0);
+extern "C" void apply_damage_taken__13TBoss2DeRolLeFPv(TBoss2DeRolLe *arg0);
 extern "C" void vfunc_63__13TBoss2DeRolLeFv();
 extern "C" void vfunc_28__13TBoss2DeRolLeFv();
 extern "C" u8 *__dt__13TBoss2DeRolLeFv(u8 *arg0, s16 arg1);

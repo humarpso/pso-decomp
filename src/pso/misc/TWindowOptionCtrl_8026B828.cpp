@@ -13,7 +13,7 @@ s32 TWindowOptionCtrl::create_snap_shot_window() {
 
     var_r31 = __nw__7TObjectFUl(0x64);
     if (var_r31 != 0) {
-        var_r31 = (s32)TWindowSnapShot__ct((u8 *)var_r31, get_option_entry__17TWindowOptionCtrlFi(0xCF));
+        var_r31 = (s32)TWindowSnapShot__ct((TWindowSnapShot *)((u8 *)var_r31), get_option_entry__17TWindowOptionCtrlFi(0xCF));
     }
     return var_r31;
 }

@@ -25,7 +25,7 @@ u8 *TOSwitchAttackSub__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, u32 arg4, f32 
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)(arg0 + 0x18) = __vt__17TOSwitchAttackSub;
     *(s32 *)(arg0 + 0) = lbl_805D317C;
-    disallow_rendering__7TObjectFv(arg0);
+    disallow_rendering__7TObjectFv((TObject *)arg0);
     *(s16 *)(arg0 + 0x1C) = arg2;
     *(s16 *)(arg0 + 0x1E) = arg3;
     *(void **)(arg0 + 0x20) = 0;

@@ -115,7 +115,7 @@ void update_pad_rumble(void) {
     }
     p = (Ent_802430F4 *)&pad_rumble_effect_slots;
     for (j = 0; j < 16; j++, p++) {
-        fn_80242C54(p);
+        fn_80242C54((TAdSinglePlyChrSelectGC *)p);
     }
 }
 

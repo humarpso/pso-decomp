@@ -1,8 +1,8 @@
 #include "pso/TItemShoot.h"
 #include "pso/system/vector.h"
 
-extern "C" void disallow_rendering__7TObjectFv(void *arg0);
-extern "C" void allow_rendering__7TObjectFv(void *arg0);
+extern "C" void disallow_rendering__7TObjectFv(TObject *arg0);
+extern "C" void allow_rendering__7TObjectFv(TObject *arg0);
 extern "C" void queue_destruction__7TObjectFv(void *arg0);
 extern "C" u32   query_game_join_id__10TObjPlayerFv(void*);
 extern "C" void  vec3_add_to(Vec*, Vec*);

@@ -12,13 +12,13 @@ extern s32 __vt__19TChCrTagInformation[];
 extern const f32 lbl_805DDE24;
 extern void *TChCrTagInformation__class_name;
 
-void *TChCrTagInformation__ct(void *arg0) {
+void *TChCrTagInformation__ct(TChCrTagInformation *arg0) {
     __ct__8TChCrTagFv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TChCrTagInformation;
-    *(void * *)&((TChCrTagInformation *)arg0)->m_name = TChCrTagInformation__class_name;
-    ((TChCrTagInformation *)arg0)->m_28 = lbl_805DDE20;
+    *(void * *)&arg0->m_name = TChCrTagInformation__class_name;
+    arg0->m_28 = lbl_805DDE20;
     *(f32 *)((s8 *)arg0 + 0x2C) = lbl_805DDE24;
-    ((TChCrTagInformation *)arg0)->m_34 = lbl_805DDE20;
+    arg0->m_34 = lbl_805DDE20;
     *(f32 *)((s8 *)arg0 + 0x38) = lbl_805DDE24;
     fn_803098E8();
     return arg0;

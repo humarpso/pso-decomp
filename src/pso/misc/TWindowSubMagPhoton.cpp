@@ -54,7 +54,7 @@ s32 construct_base__9TWindowDDFPUcsPUc(void *, void *, void *, void *);
 extern RecoveredGlobal_8027C6B4_lbl_804D17E8 TWindowSubMagPhoton__layout_descriptor;
 extern s32 __vt__19TWindowSubMagPhoton[];
 extern s32 TWindowSubMagPhoton__class_name;
-u8 *TWindowSubMagPhoton__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3);
+u8 *TWindowSubMagPhoton__ct(TWindowSubMagPhoton *arg0, s32 arg1, s32 arg2, s16 arg3);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 apply_choice__20TWindowChoiceSettingFllll(void *, int, int, int);
 void draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(void *, void *, int, f32);
@@ -165,21 +165,21 @@ void *__dt__19TWindowSubMagPhotonFv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_8027C6B4_lbl_804D17E8_size[sizeof(RecoveredGlobal_8027C6B4_lbl_804D17E8) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_8027C6B4___vt__19TWindowSubMagPhoton_size[sizeof(RecoveredGlobal_8027C6B4___vt__19TWindowSubMagPhoton) == 0x1C ? 1 : -1];
-u8 *TWindowSubMagPhoton__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3) {
+u8 *TWindowSubMagPhoton__ct(TWindowSubMagPhoton *arg0, s32 arg1, s32 arg2, s16 arg3) {
     s16 temp_r4;
     construct_base__9TWindowDDFPUcsPUc((void *)arg0, &TWindowSubMagPhoton__layout_descriptor.value, (void *)arg3, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8027C6B4___vt__19TWindowSubMagPhoton *)&__vt__19TWindowSubMagPhoton).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubMagPhoton__class_name;
-    ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x30))->copy_vec2((void *)arg1);
+    ((TWindowSubSymbolChatPartsSet *)((u8 *)arg0 + 0x30))->copy_vec2((void *)arg1);
     ((TUnk_804CE018 *)arg0)->save_position();
-    ((TWindowSubMagPhoton *)arg0)->m_20 = arg3;
-    ((TWindowSubMagPhoton *)arg0)->m_70 = arg2;
-    ((TWindowSubMagPhoton *)arg0)->m_60 = 0;
-    ((TWindowSubMagPhoton *)arg0)->m_61 = 1;
-    temp_r4 = ((TWindowSubMagPhoton *)arg0)->m_62;
-    ((TWindowSubMagPhoton *)arg0)->m_62 = (temp_r4 + 1);
+    arg0->m_20 = arg3;
+    arg0->m_70 = arg2;
+    arg0->m_60 = 0;
+    arg0->m_61 = 1;
+    temp_r4 = arg0->m_62;
+    arg0->m_62 = (temp_r4 + 1);
     init_photon_blast_entries__19TWindowSubMagPhotonFv(arg0, temp_r4);
-    return arg0;
+    return (u8 *)arg0;
 }
 
 void TUnk_804D1818::update_photon_selection() {

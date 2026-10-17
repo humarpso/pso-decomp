@@ -271,7 +271,7 @@ extern const f32 lbl_805DD740;
 s32 TWindowSubSymbolChat::open_confirm_prompt() {
     Win_80281EA8 *arg0 = (Win_80281EA8 *)this;
     s32 r = create__19TWindowMessageYesNoFPvPvPvPv(arg0, arg0->f24, 0, 0);
-    open_yes_no_prompt((u8 *)r, get_message_10__20TWindowSubStatusDispFl(0x20), get_message_10__20TWindowSubStatusDispFl(0x44), get_window_layout_position(0x7A), lbl_805DD738);
+    open_yes_no_prompt((TChCrTagPlBack *)((u8 *)r), (u32)(get_message_10__20TWindowSubStatusDispFl(0x20)), (s32)(get_message_10__20TWindowSubStatusDispFl(0x44)), (s32)(get_window_layout_position(0x7A)), (f32)lbl_805DD738);
     ((TWindowSubShortMail *)r)->notify_warp_flag70();
     return r;
 }

@@ -3,6 +3,7 @@
 
 #include "types.h"
 
+struct TKeyBoardControl;
 extern "C" {
 void TKeyBoardControl__sub_80131F5C(void);
 void TKeyBoardControl__sub_80131F60(void);
@@ -15,7 +16,7 @@ bool is_key_57_pressed__16TKeyBoardControlFi(s32 arg0);
 void render__16TKeyBoardControlFv(void);
 void reset_inactive_keys__16TKeyBoardControlFi(s32 arg0);
 void reset_state__16TKeyBoardControlFi(s32 arg0);
-void run_task__16TKeyBoardControlFv(u8 *arg0);
+void run_task__16TKeyBoardControlFv(TKeyBoardControl *arg0);
 }
 
 #endif

@@ -16,7 +16,7 @@ extern const f32 lbl_805DADB8;
 
 u8 *TUnk_804A3070::construct_agito(s32 a, void *b) {
     Self_8012712C *self = (Self_8012712C *)this;
-    TItemWeapon__ct((u8 *)self, (void *)a, (u8 *)b);
+    TItemWeapon__ct((TItemWeapon *)((u8 *)self), (void *)a, (u8 *)b);
     self->vt = lbl_804A3070;
     ((TObjPlayer *)self)->set_status_flags(2);
     if (((TItemProShield *)self)->get_slot_count() == 0) {

@@ -87,7 +87,7 @@ extern s32 vol_opt_active_hit_zone;
 extern s32 model_render_flags;
 extern const f32 lbl_805D8738;
 extern const f32 lbl_805D873C;
-void render__19TBoss3VoloptMonitorFv(void *arg0);
+void render__19TBoss3VoloptMonitorFv(TBoss3VoloptMonitor *arg0);
 s32 obj_testFlags30(void *, int);
 void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0);
 void TBoss3VoloptMonitor__sub_800420D8(void);
@@ -98,7 +98,7 @@ s32 PPCSync();
 extern s32 lbl_805D4CA8;
 extern s32 actor_frame_tick;
 extern const f32 lbl_805D8744;
-void run_task__19TBoss3VoloptMonitorFv(u8 *arg0);
+void run_task__19TBoss3VoloptMonitorFv(TBoss3VoloptMonitor *arg0);
 extern void *__vt__19TBoss3VoloptMonitor[];
 extern void *volopt_monitor_texture_list_desc[];
 void *__dt__19TBoss3VoloptMonitorFv(void *arg0, s16 arg1);
@@ -243,25 +243,25 @@ void *lbl_80483E84[12] = {
     (void *)0xc2e60000, (void *)0x41d00000, (void *)0x0, (void *)0xc2dc0000,
 };
 
-void render__19TBoss3VoloptMonitorFv(void *arg0) {
+void render__19TBoss3VoloptMonitorFv(TBoss3VoloptMonitor *arg0) {
     s32 v;
     s32 hit;
-    if (!(((TBoss3VoloptMonitor *)arg0)->actorFlags & 0x02000000) && ((VObj_80041F6C *)arg0)->m8(lbl_805D8738, lbl_805D873C) != 0) {
-        if (((TBoss3VoloptMonitor *)arg0)->actorFlags & 0x800) {
-            ((TBoss3VoloptMonitor *)arg0)->sub_80042944((&volopt_monitor_model_indices[((TBoss3VoloptMonitor *)arg0)->variant])[8]);
+    if (!(arg0->actorFlags & 0x02000000) && ((VObj_80041F6C *)arg0)->m8(lbl_805D8738, lbl_805D873C) != 0) {
+        if (arg0->actorFlags & 0x800) {
+            arg0->sub_80042944((&volopt_monitor_model_indices[arg0->variant])[8]);
             v = 0x18;
         } else {
             hit = 0;
-            if (vol_opt_active_hit_zone >= 0 && vol_opt_active_hit_zone / 4 == ((TBoss3VoloptMonitor *)arg0)->m_38c / 4) {
+            if (vol_opt_active_hit_zone >= 0 && vol_opt_active_hit_zone / 4 == arg0->m_38c / 4) {
                 hit = 1;
             }
             if (hit != 0) {
-                ((TBoss3VoloptMonitor *)arg0)->sub_80042944((&volopt_monitor_model_indices[((TBoss3VoloptMonitor *)arg0)->variant])[4]);
-                v = ((TBoss3VoloptMonitor *)arg0)->m_38e + 0x10;
+                arg0->sub_80042944((&volopt_monitor_model_indices[arg0->variant])[4]);
+                v = arg0->m_38e + 0x10;
             } else {
-                ((TBoss3VoloptMonitor *)arg0)->sub_80042944(((s32 (*)[4])volopt_monitor_model_indices)[0][((TBoss3VoloptMonitor *)arg0)->variant]);
-                v = ((TBoss3VoloptMonitor *)arg0)->m_38e;
-                if (((TBoss3VoloptMonitor *)arg0)->m_388 & 0x10000) {
+                arg0->sub_80042944(((s32 (*)[4])volopt_monitor_model_indices)[0][arg0->variant]);
+                v = arg0->m_38e;
+                if (arg0->m_388 & 0x10000) {
                     v += 8;
                 }
             }
@@ -271,7 +271,7 @@ void render__19TBoss3VoloptMonitorFv(void *arg0) {
         set_depth_buffer_settings_id(3);
         push_matrix();
         model_render_flags &= 0xFFFFFBFF;
-        rotate_matrix_y(0, ((TBoss3VoloptMonitor *)arg0)->rotation_y);
+        rotate_matrix_y(0, arg0->rotation_y);
         draw_ginja_object((void *)(*(s32 *)((s8 *)arg0 + 0x34)));
         pop_matrix();
         func_80141618__Fv();
@@ -297,7 +297,7 @@ void TBoss3VoloptMonitor::update_state() {
     }
 }
 
-void run_task__19TBoss3VoloptMonitorFv(u8 *arg0) {
+void run_task__19TBoss3VoloptMonitorFv(TBoss3VoloptMonitor *arg0) {
     s16 temp_r3;
     s16 temp_r3_2;
     s16 temp_r3_4;
@@ -315,31 +315,31 @@ void run_task__19TBoss3VoloptMonitorFv(u8 *arg0) {
     } else if (((TBoss3VoloptMonitor *)(arg0))->test_flag30_512() != 0) {
         ((TBoss3VoloptMonitor *)(arg0))->vfunc_62();
     }
-    if ((s16) ((TBoss3VoloptMonitor *)arg0)->mode != (s32) ((TBoss3VoloptMonitor *)arg0)->next_action) {
-        if ((s32) ((TBoss3VoloptMonitor *)arg0)->state != -1) {
-            ((TBoss3VoloptMonitor *)arg0)->state = -1;
-            ((TBoss3VoloptMonitor *)arg0)->update_state();
+    if ((s16) arg0->mode != (s32) arg0->next_action) {
+        if ((s32) arg0->state != -1) {
+            arg0->state = -1;
+            arg0->update_state();
         }
-        ((TBoss3VoloptMonitor *)arg0)->mode = (s16) ((TBoss3VoloptMonitor *)arg0)->next_action;
-        ((TBoss3VoloptMonitor *)arg0)->state = 0;
+        arg0->mode = (s16) arg0->next_action;
+        arg0->state = 0;
     }
-    ((TBoss3VoloptMonitor *)arg0)->update_state();
+    arg0->update_state();
     ((TObjEnemy *)arg0)->update_prev_position();
     if (obj_testFlags30(arg0, 0x800) == 0) {
         copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
         submit_cursor_candidate(arg0, -1);
-        minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
+        minimap_render_dot((u8 *)arg0 + 0x38, -0x5DB4, 1, 0);
     }
-    if (!(((TBoss3VoloptMonitor *)arg0)->actorFlags & 0x800)) {
-        if ((((TBoss3VoloptMonitor *)arg0)->m_390 -= 1) <= 0) {
-            ((TBoss3VoloptMonitor *)arg0)->m_390 = 3;
-            if ((((TBoss3VoloptMonitor *)arg0)->m_38e += 1) >= 8) {
-                ((TBoss3VoloptMonitor *)arg0)->m_38e = 0;
-                temp_r3_3 = ((TBoss3VoloptMonitor *)arg0)->m_388;
+    if (!(arg0->actorFlags & 0x800)) {
+        if ((arg0->m_390 -= 1) <= 0) {
+            arg0->m_390 = 3;
+            if ((arg0->m_38e += 1) >= 8) {
+                arg0->m_38e = 0;
+                temp_r3_3 = arg0->m_388;
                 if (temp_r3_3 & 0x10000) {
-                    ((TBoss3VoloptMonitor *)arg0)->m_388 = (s32) (temp_r3_3 & 0xFFFEFFFF);
+                    arg0->m_388 = (s32) (temp_r3_3 & 0xFFFEFFFF);
                 } else if ((lbl_805D8740 * (f32) rand()) <= lbl_805D8744) {
-                    ((TBoss3VoloptMonitor *)arg0)->m_388 = (s32) (((TBoss3VoloptMonitor *)arg0)->m_388 | 0x10000);
+                    arg0->m_388 = (s32) (arg0->m_388 | 0x10000);
                 }
             }
         }
@@ -353,7 +353,7 @@ void run_task__19TBoss3VoloptMonitorFv(u8 *arg0) {
     }
     var_r4 = 0;
     if ((s32) vol_opt_active_hit_zone >= 0) {
-        temp_r3_4 = ((TBoss3VoloptMonitor *)arg0)->m_38c;
+        temp_r3_4 = arg0->m_38c;
         temp_r5 = ((s32) vol_opt_active_hit_zone / 4) * 4;
         if ((temp_r3_4 >= temp_r5) && (temp_r3_4 < (temp_r5 + 4))) {
             var_r4 = 1;

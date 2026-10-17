@@ -306,19 +306,19 @@ extern RecoveredGlobal_801D8D8C_lbl_804C49B0 lbl_804C49B0;
 s32 get_class_starting_inventory(s8 arg0);
 extern RecoveredGlobal_801D8E60_lbl_804C4980 lbl_804C4980;
 extern RecoveredGlobal_801D9328_lbl_80447430 class_defense_template_table;
-u8 *get_class_defense_template(u8 *arg0);
+u8 *get_class_defense_template(TObjPlayer *arg0);
 extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_80449254;
 s32 TObjPlayer__sub_801D8C3C(void);
 extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_80449234;
 extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_804491CC;
 player_stats *get_class_stat_caps(s8 arg0);
 extern RecoveredGlobal_801D92F4_lbl_804475B0 class_attack_template_table;
-u8 *get_class_attack_template(u8 *arg0);
+u8 *get_class_attack_template(TObjPlayer *arg0);
 stats *get_class_base_stats(s8 arg0);
 extern const f32 lbl_805DC400;
 extern RecoveredGlobal_801D9004_lbl_80447970 attack_recovery_count_table;
 extern RecoveredGlobal_801D8DCC_lbl_804C4998 lbl_804C4998;
-s32 TObjPlayer__sub_801D8DCC(u8 *arg0);
+s32 TObjPlayer__sub_801D8DCC(TObjPlayer *arg0);
 extern RecoveredGlobal_801D8E1C_lbl_804C498C lbl_804C498C;
 extern RecoveredGlobal_801D8FB4_lbl_804C495C photon_blast_motion_timing_tables;
 extern u8 *lbl_804C49E0[];
@@ -508,11 +508,11 @@ typedef char RecoveredGlobal_801D8E60_lbl_804C4980_size[sizeof(RecoveredGlobal_8
 
 typedef struct RecoveredGlobal_801D8DCC_lbl_804C4998 RecoveredGlobal_801D8DCC_lbl_804C4998;
 typedef char RecoveredGlobal_801D8DCC_lbl_804C4998_size[((sizeof(RecoveredGlobal_801D8DCC_lbl_804C4998)) == 0x18) ? (1) : (-1)];
-s32 TObjPlayer__sub_801D8DCC(u8 *arg0) {
+s32 TObjPlayer__sub_801D8DCC(TObjPlayer *arg0) {
   s32 temp_r31;
   s8 *new_var;
-  temp_r31 = ((TObjPlayer *)arg0)->get_handle_value() * 0x14;
-  new_var = ((s8 *)&lbl_804C4998.value) + (((TObjPlayer *)arg0)->has_valid_handle() * 4);
+  temp_r31 = arg0->get_handle_value() * 0x14;
+  new_var = ((s8 *)&lbl_804C4998.value) + (arg0->has_valid_handle() * 4);
   return (*((s32 *) new_var)) + temp_r31;
 }
 
@@ -632,12 +632,12 @@ void load_ply_level_tbl(void) { ply_level_table = load_encrypted_archive_data(lb
 typedef char RecoveredGlobal_801D9328_lbl_80447430_size[sizeof(RecoveredGlobal_801D9328_lbl_80447430) == 0x180 ? 1 : -1];
 
 typedef char RecoveredGlobal_801D92F4_lbl_804475B0_size[sizeof(RecoveredGlobal_801D92F4_lbl_804475B0) == 0x240 ? 1 : -1];
-u8 *get_class_attack_template(u8 *arg0) {
-    return (u8 *)&class_attack_template_table.value + (((TObjPlayer *)arg0)->get_class_index() * 0x30);
+u8 *get_class_attack_template(TObjPlayer *arg0) {
+    return (u8 *)&class_attack_template_table.value + (arg0->get_class_index() * 0x30);
 }
 
-u8 *get_class_defense_template(u8 *arg0) {
-    return (u8 *)&class_defense_template_table.value + (((TObjPlayer *)arg0)->get_class_index() << 5);
+u8 *get_class_defense_template(TObjPlayer *arg0) {
+    return (u8 *)&class_defense_template_table.value + (arg0->get_class_index() << 5);
 }
 
 stats *get_class_base_stats(s8 arg0) {

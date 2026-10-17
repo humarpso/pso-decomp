@@ -14,7 +14,7 @@ extern "C" {
 void __ct__7TObjectFP7TObject(void *);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
-void render__12TAdBackTxtGCFv(void *arg0) {
+void render__12TAdBackTxtGCFv(TAdBackTxtGC *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x24) == 0) {
         if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
             set_depth_buffer_settings_2();
@@ -24,7 +24,7 @@ void render__12TAdBackTxtGCFv(void *arg0) {
 block_4:
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 0xA);
-        ((TAdBackTxtGC *)arg0)->draw_character_background_frame((s32) *(s32 *)((s8 *)arg0 + 0x1C) / 3, -1);
+        arg0->draw_character_background_frame((s32) *(s32 *)((s8 *)arg0 + 0x1C) / 3, -1);
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 6);
         if ((s32) *(s32 *)((s8 *)arg0 + 0x24) == 0) {

@@ -47,32 +47,32 @@ extern const f32 lbl_805DB76C;
 extern const f32 lbl_805DB770;
 extern const f32 lbl_805DB774;
 extern const f32 lbl_805DB778;
-void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source);
-void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source) {
+void *TOKeyGenericSw__ct(TOKeyGenericSw *arg0, void *parent, void *source);
+void *TOKeyGenericSw__ct(TOKeyGenericSw *arg0, void *parent, void *source) {
     TOKey__ct(arg0, parent);
     *(void **)((s8 *)arg0 + 0x18) = __vt__14TOKeyGenericSw;
     *(s32 *)((s8 *)arg0 + 0) = TOKeyGenericSw__name;
-    ((TOKeyGenericSw *)arg0)->apply_object_set_data(source);
+    arg0->apply_object_set_data(source);
     ((TOKey *)arg0)->init_switch_id();
     *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(void **)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1] + 0x42C)) + 8);
     *(void **)((s8 *)arg0 + 0xBC) = *(void **)((s8 *)(*(void **)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1] + 0x430)) + 4);
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) *(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB768;
-    ((TOKeyGenericSw *)arg0)->m_b8 = lbl_805DB76C;
-    *(u32 *)&((TOKeyGenericSw *)arg0)->texture_id = TOKeyGenericSw__texture_lists[1];
+    arg0->m_b8 = lbl_805DB76C;
+    *(u32 *)&arg0->texture_id = TOKeyGenericSw__texture_lists[1];
     init_collision_body_parts(arg0, lbl_804B2D30, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    ((TOKeyGenericSw *)arg0)->m_c0 = lbl_805DB770;
+    arg0->m_c0 = lbl_805DB770;
     *(f32 *)((s8 *)arg0 + 0xC4) = lbl_805DB774;
-    if ((*(s32 *)&((TOKeyGenericSw *)arg0)->m_d0 != 2) && (((TOKeyGenericSw *)arg0)->scale < lbl_805DB778)) {
-        *(s32 *)&((TOKeyGenericSw *)arg0)->m_d0 = 1;
+    if ((*(s32 *)&arg0->m_d0 != 2) && (arg0->scale < lbl_805DB778)) {
+        *(s32 *)&arg0->m_d0 = 1;
     } else {
-        *(s32 *)&((TOKeyGenericSw *)arg0)->m_d0 = 0;
+        *(s32 *)&arg0->m_d0 = 0;
     }
-    ((TOKeyGenericSw *)arg0)->m_e8 = TOKeyMachine01::get_global_state();
-    ((TOKeyGenericSw *)arg0)->m_ec = 0;
+    arg0->m_e8 = TOKeyMachine01::get_global_state();
+    arg0->m_ec = 0;
     *(s32 *)((s8 *)arg0 + 0xF0) = 0;
-    ((TOKeyGenericSw *)arg0)->m_f4 = 0;
+    arg0->m_f4 = 0;
     *(s32 *)((s8 *)arg0 + 0xF8) = 0;
     return arg0;
 }

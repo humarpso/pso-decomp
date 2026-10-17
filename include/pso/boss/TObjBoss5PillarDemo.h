@@ -13,7 +13,7 @@ struct TObjBoss5PillarDemo : public TObjBoss5Pillar {
 typedef char TObjBoss5PillarDemo_size[sizeof(TObjBoss5PillarDemo) == 0x4C ? 1 : -1];
 
 extern "C" {
-u8 *TObjBoss5PillarDemo__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TObjBoss5PillarDemo__ct(TObjBoss5PillarDemo *arg0, s32 arg1, s32 arg2);
 void TObjBoss5PillarDemo__sub_8028AB38(void);
 void TObjBoss5PillarDemo__sub_8028ACE0(void);
 void TObjBoss5PillarDemo__sub_8028ACE4(void);

@@ -149,7 +149,7 @@ s32 TWindowSubSymbolChat::create_chat_symbol_window(s32 arg0, s32 arg1) {
     s32 var_r31;
     var_r31 = __nw__7TObjectFUl(0x68);
     if (var_r31 != 0) {
-        var_r31 = (s32)TWindowChatSymbol__ct((u8 *)var_r31, (((s32)get_window_layout_position(arg1 + 0x7B))), (s32)lbl_8044FB20);
+        var_r31 = (s32)TWindowChatSymbol__ct((TWindowChatSymbol *)((u8 *)var_r31), (((s32)get_window_layout_position(arg1 + 0x7B))), (s32)lbl_8044FB20);
     }
     return var_r31;
 }
@@ -298,14 +298,14 @@ void TWindowSubSymbolChat::run_task() {
         if ((u32) this->m_48 == 0U) {
             var_r30 = ((u32)__nw__7TObjectFUl(0x6C));
             if (var_r30 != 0U) {
-                var_r30 = (u32)TWindowSubSymbolChatFaceType__ct((u8 *)var_r30, (s32)(((s32)get_window_layout_position(0x7D))), (s32)&TWindowSubSymbolChat__data_805D6494);
+                var_r30 = (u32)TWindowSubSymbolChatFaceType__ct((TWindowSubSymbolChatFaceType *)((u8 *)var_r30), (s32)(((s32)get_window_layout_position(0x7D))), (s32)((s32)&TWindowSubSymbolChat__data_805D6494));
             }
             this->m_48 = var_r30;
         }
         if ((u32) this->m_54 == 0U) {
             var_r0 = ((u32)__nw__7TObjectFUl(0x74));
             if (var_r0 != 0U) {
-                var_r0 = (u32)TWindowSubSymbolChatHelp__ct((u8 *)var_r0, (s32)&TWindowSubSymbolChat__data_805D6494, (s32)&TWindowSubSymbolChat__help_window);
+                var_r0 = (u32)TWindowSubSymbolChatHelp__ct((TWindowSubSymbolChatHelp *)((u8 *)var_r0), (s32)&TWindowSubSymbolChat__data_805D6494, (s32)&TWindowSubSymbolChat__help_window);
             }
             this->m_54 = var_r0;
         }
@@ -367,7 +367,7 @@ void TWindowSubSymbolChat::run_task() {
         if ((u32) this->m_54 == 0U) {
             var_r0_2 = ((u32)__nw__7TObjectFUl(0x74));
             if (var_r0_2 != 0U) {
-                var_r0_2 = (u32)TWindowSubSymbolChatHelp__ct((u8 *)var_r0_2, (s32)&TWindowSubSymbolChat__data_805D6494, (s32)&TWindowSubSymbolChat__help_window);
+                var_r0_2 = (u32)TWindowSubSymbolChatHelp__ct((TWindowSubSymbolChatHelp *)((u8 *)var_r0_2), (s32)&TWindowSubSymbolChat__data_805D6494, (s32)&TWindowSubSymbolChat__help_window);
             }
             this->m_54 = var_r0_2;
         }
@@ -430,7 +430,7 @@ void TWindowSubSymbolChat::run_task() {
         if ((u32) this->m_54 == 0U) {
             var_r0_3 = ((u32)__nw__7TObjectFUl(0x74));
             if (var_r0_3 != 0U) {
-                var_r0_3 = (u32)TWindowSubSymbolChatHelp__ct((u8 *)var_r0_3, (s32)&TWindowSubSymbolChat__data_805D6494, (s32)&TWindowSubSymbolChat__help_window);
+                var_r0_3 = (u32)TWindowSubSymbolChatHelp__ct((TWindowSubSymbolChatHelp *)((u8 *)var_r0_3), (s32)&TWindowSubSymbolChat__data_805D6494, (s32)&TWindowSubSymbolChat__help_window);
             }
             this->m_54 = var_r0_3;
         }
@@ -511,7 +511,7 @@ void TWindowSubSymbolChat::run_task() {
         if ((u32) this->m_54 == 0U) {
             var_r0_4 = ((u32)__nw__7TObjectFUl(0x74));
             if (var_r0_4 != 0U) {
-                var_r0_4 = (u32)TWindowSubSymbolChatHelp__ct((u8 *)var_r0_4, (s32)&TWindowSubSymbolChat__data_805D6494, (s32)&TWindowSubSymbolChat__help_window);
+                var_r0_4 = (u32)TWindowSubSymbolChatHelp__ct((TWindowSubSymbolChatHelp *)((u8 *)var_r0_4), (s32)&TWindowSubSymbolChat__data_805D6494, (s32)&TWindowSubSymbolChat__help_window);
             }
             this->m_54 = var_r0_4;
         }
@@ -686,7 +686,7 @@ void TWindowSubSymbolChat::run_task() {
     }
 }
 
-u8 *__dt__20TWindowSubSymbolChatFv(u8 *arg0, s16 arg1) {
+u8 *__dt__20TWindowSubSymbolChatFv(TWindowSubSymbolChat *arg0, s16 arg1) {
     u32 temp_r3;
     u32 temp_r3_10;
     u32 temp_r3_11;
@@ -701,72 +701,72 @@ u8 *__dt__20TWindowSubSymbolChatFv(u8 *arg0, s16 arg1) {
     u32 temp_r3_9;
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8028351C___vt__20TWindowSubSymbolChat *)&__vt__20TWindowSubSymbolChat).value;
-        temp_r3 = ((TWindowSubSymbolChat *)arg0)->m_58;
+        temp_r3 = arg0->m_58;
         if (temp_r3 != 0U) {
             queue_destruction__7TObjectFv(temp_r3);
-            ((TWindowSubSymbolChat *)arg0)->m_58 = 0U;
+            arg0->m_58 = 0U;
         }
-        if ((u32) ((TWindowSubSymbolChat *)arg0)->m_44 != 0U) {
-            if ((TWindowCtrlMain__sub_8024CE58() != 0) && ((u8) ((TWindowSubSymbolChat *)arg0)->m_1c == 0x27)) {
-                ((TWindowSubSymbolChat *)(((TWindowSubSymbolChat *)arg0)->m_28))->set_flag_bit9((int) (update_selected_item__17TWindowOptionCtrlFv((int) (((TWindowSubSymbolChat *)arg0)->m_44))));
+        if ((u32) arg0->m_44 != 0U) {
+            if ((TWindowCtrlMain__sub_8024CE58() != 0) && ((u8) arg0->m_1c == 0x27)) {
+                ((TWindowSubSymbolChat *)(arg0->m_28))->set_flag_bit9((int) (update_selected_item__17TWindowOptionCtrlFv((int) (arg0->m_44))));
             }
-            TWindow__close((int) (((TWindowSubSymbolChat *)arg0)->m_44));
-            ((TWindowSubSymbolChat *)arg0)->m_44 = 0U;
+            TWindow__close((int) (arg0->m_44));
+            arg0->m_44 = 0U;
         }
-        temp_r3_2 = ((TWindowSubSymbolChat *)arg0)->m_40;
+        temp_r3_2 = arg0->m_40;
         if (temp_r3_2 != 0U) {
             ((TWindowSubComCard *)temp_r3_2)->close();
-            ((TWindowSubSymbolChat *)arg0)->m_40 = 0U;
+            arg0->m_40 = 0U;
         }
-        temp_r3_3 = ((TWindowSubSymbolChat *)arg0)->m_54;
+        temp_r3_3 = arg0->m_54;
         if (temp_r3_3 != 0U) {
             TWindow__close(temp_r3_3);
-            ((TWindowSubSymbolChat *)arg0)->m_54 = 0U;
+            arg0->m_54 = 0U;
         }
-        temp_r3_4 = ((TWindowSubSymbolChat *)arg0)->m_48;
+        temp_r3_4 = arg0->m_48;
         if (temp_r3_4 != 0U) {
             TWindow__close(temp_r3_4);
-            ((TWindowSubSymbolChat *)arg0)->m_48 = 0U;
+            arg0->m_48 = 0U;
         }
-        temp_r3_5 = ((TWindowSubSymbolChat *)arg0)->m_50;
+        temp_r3_5 = arg0->m_50;
         if (temp_r3_5 != 0U) {
             TWindow__close(temp_r3_5);
-            ((TWindowSubSymbolChat *)arg0)->m_50 = 0U;
+            arg0->m_50 = 0U;
         }
-        temp_r3_6 = ((TWindowSubSymbolChat *)arg0)->m_4c;
+        temp_r3_6 = arg0->m_4c;
         if (temp_r3_6 != 0U) {
             TWindow__close(temp_r3_6);
-            ((TWindowSubSymbolChat *)arg0)->m_4c = 0U;
+            arg0->m_4c = 0U;
         }
-        temp_r3_7 = ((TWindowSubSymbolChat *)arg0)->m_3c;
+        temp_r3_7 = arg0->m_3c;
         if (temp_r3_7 != 0U) {
             TWindow__close(temp_r3_7);
-            ((TWindowSubSymbolChat *)arg0)->m_3c = 0U;
+            arg0->m_3c = 0U;
         }
-        temp_r3_8 = ((TWindowSubSymbolChat *)arg0)->m_38;
+        temp_r3_8 = arg0->m_38;
         if (temp_r3_8 != 0U) {
             TWindow__close(temp_r3_8);
-            ((TWindowSubSymbolChat *)arg0)->m_38 = 0U;
+            arg0->m_38 = 0U;
         }
-        temp_r3_9 = ((TWindowSubSymbolChat *)arg0)->m_34;
+        temp_r3_9 = arg0->m_34;
         if (temp_r3_9 != 0U) {
             TWindow__close(temp_r3_9);
-            ((TWindowSubSymbolChat *)arg0)->m_34 = 0U;
+            arg0->m_34 = 0U;
         }
-        temp_r3_10 = ((TWindowSubSymbolChat *)arg0)->m_30;
+        temp_r3_10 = arg0->m_30;
         if (temp_r3_10 != 0U) {
             TWindow__close(temp_r3_10);
-            ((TWindowSubSymbolChat *)arg0)->m_30 = 0U;
+            arg0->m_30 = 0U;
         }
-        temp_r3_11 = ((TWindowSubSymbolChat *)arg0)->m_28;
+        temp_r3_11 = arg0->m_28;
         if (temp_r3_11 != 0U) {
             TWindowSubSymbolChat::clear_flag_bit2((s32 *)temp_r3_11);
-            ((TWindowSubSymbolChat *)arg0)->m_28 = 0U;
+            arg0->m_28 = 0U;
         }
-        temp_r3_12 = ((TWindowSubSymbolChat *)arg0)->m_5c;
+        temp_r3_12 = arg0->m_5c;
         if (temp_r3_12 != 0U) {
             TWindow__close(temp_r3_12);
-            ((TWindowSubSymbolChat *)arg0)->m_5c = 0U;
+            arg0->m_5c = 0U;
         }
         (*(s32 *)&TWindowSubSymbolChat__instance) = 0;
         __dt__7TObjectFv(arg0, 0);
@@ -774,34 +774,34 @@ u8 *__dt__20TWindowSubSymbolChatFv(u8 *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
-    return arg0;
+    return (u8 *)arg0;
 }
 
-void *TWindowSubSymbolChat__ct(void *arg0, s32 arg1, s32 arg2) {
+void *TWindowSubSymbolChat__ct(TWindowSubSymbolChat *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TWindowSubSymbolChat;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubSymbolChat__class_name;
-    ((TWindowSubSymbolChat *)arg0)->m_2c = arg1;
-    ((TWindowSubSymbolChat *)arg0)->m_24 = arg2;
-    ((TWindowSubSymbolChat *)arg0)->m_30 = 0;
-    ((TWindowSubSymbolChat *)arg0)->m_34 = 0;
-    ((TWindowSubSymbolChat *)arg0)->m_38 = 0;
-    ((TWindowSubSymbolChat *)arg0)->m_3c = 0;
-    ((TWindowSubSymbolChat *)arg0)->m_48 = 0;
-    ((TWindowSubSymbolChat *)arg0)->m_4c = 0;
-    ((TWindowSubSymbolChat *)arg0)->m_50 = 0;
-    ((TWindowSubSymbolChat *)arg0)->m_54 = 0;
-    ((TWindowSubSymbolChat *)arg0)->m_40 = 0;
-    ((TWindowSubSymbolChat *)arg0)->m_44 = 0;
-    ((TWindowSubSymbolChat *)arg0)->m_58 = 0;
-    ((TWindowSubSymbolChat *)arg0)->m_28 = 0;
+    arg0->m_2c = arg1;
+    arg0->m_24 = arg2;
+    arg0->m_30 = 0;
+    arg0->m_34 = 0;
+    arg0->m_38 = 0;
+    arg0->m_3c = 0;
+    arg0->m_48 = 0;
+    arg0->m_4c = 0;
+    arg0->m_50 = 0;
+    arg0->m_54 = 0;
+    arg0->m_40 = 0;
+    arg0->m_44 = 0;
+    arg0->m_58 = 0;
+    arg0->m_28 = 0;
     TWindowSubSymbolChat__data_805D6494 = 0;
     TWindowSubSymbolChat__data_805D6498 = 0;
     TWindowSubSymbolChat__data_805D649C = 0;
-    ((TWindowSubSymbolChat *)arg0)->m_20 = 0;
+    arg0->m_20 = 0;
     TWindowSubSymbolChat__instance = arg0;
-    ((TWindowSubSymbolChat *)arg0)->m_5c = update_display__20TWindowSubSymbolChatFl(close_child__20TWindowSubSymbolChatFv);
-    ((TWindowSubSymbolChat *)arg0)->m_1c = 0;
+    arg0->m_5c = update_display__20TWindowSubSymbolChatFl(close_child__20TWindowSubSymbolChatFv);
+    arg0->m_1c = 0;
     return arg0;
 }
 typedef char RecoveredGlobal_8028379C_lbl_804FF968_size[sizeof(RecoveredGlobal_8028379C_lbl_804FF968) == 0x58 ? 1 : -1];

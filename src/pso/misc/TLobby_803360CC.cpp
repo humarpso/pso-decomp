@@ -1,4 +1,5 @@
 #include "types.h"
+struct TCameraCtrl;
 #include "pso/player/TObjPlayer_8023E480.h"
 #include "pso/misc/TLobby_803360CC.h"
 #include "pso/unk/text_80203418.h"
@@ -63,11 +64,11 @@ s32 TLobby__sub_803DA16C(void *, s32);
 u64 call_funcs_reverse__6TLobbyFPvUi(void *, int);
 extern RecoveredGlobal_8033670C_lbl_804EE58C lobby_load_callback_table;
 extern u8 *lobby_title_texture_list;
-void disallow_rendering__7TObjectFv(void *arg0);
+void disallow_rendering__7TObjectFv(TObject *arg0);
 void hide_title_layers_and_release(O_8033612C *arg0);
 int TKeyBoardControl__sub_8000F828(void);
 void TKeyBoardControl__sub_8000F90C(int);
-s32 TCameraCtrl__sub_800695A0(u8 *arg0);
+s32 TCameraCtrl__sub_800695A0(TCameraCtrl *arg0);
 s32 create_particle__20TAdLoadQuestPrtTxtGCFPvll(void *, int, int);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *);
@@ -114,13 +115,13 @@ void hide_title_layers_and_release(O_8033612C *arg0) {
     s32 i;
     arg0->flags |= 4;
     if (arg0->f1c != 0) {
-        disallow_rendering__7TObjectFv(arg0->f1c);
+        disallow_rendering__7TObjectFv((TObject *)arg0->f1c);
     }
     if (arg0->f24 != 0) {
-        disallow_rendering__7TObjectFv(arg0->f24);
+        disallow_rendering__7TObjectFv((TObject *)arg0->f24);
     }
     if (arg0->f20 != 0) {
-        disallow_rendering__7TObjectFv(arg0->f20);
+        disallow_rendering__7TObjectFv((TObject *)arg0->f20);
     }
     for (i = 0; i != 3; i++) {
         if (arg0->h[i] != 0) {
@@ -257,7 +258,7 @@ u8 *TUnk_804EEF64::construct_title_scene() {
         cam.f3C = lbl_805DF900;
         cam.f40 = lbl_805DF904;
         cam.f44 = lbl_805DF908;
-        TCameraCtrl__sub_800695A0((u8 *)&cam);
+        TCameraCtrl__sub_800695A0((TCameraCtrl *)((u8 *)&cam));
     }
     {
         V3_80336520 v = lbl_80477818;

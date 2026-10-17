@@ -553,7 +553,7 @@ struct Obj_80238AE8 : VObj_18_acd6eb {
 struct Sub_80238AE8 { u8 pad[0xA4]; u8 *inner; };
 
 extern "C" {
-void run_task__10TTecRaFoieFv(u8 *arg0);
+void run_task__10TTecRaFoieFv(TTecRaFoie *arg0);
 void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern s32 tl_particle;
@@ -652,28 +652,28 @@ void TTecRaFoie::vfunc_6(void *target_arg) {
 
 void TTecRaFoie::render() {  }
 
-void run_task__10TTecRaFoieFv(u8 *arg0) {
+void run_task__10TTecRaFoieFv(TTecRaFoie *arg0) {
     u32 temp_r31;
-    if ((u32) ((TTecRaFoie *)arg0)->m_e8 == 0U) {
+    if ((u32) arg0->m_e8 == 0U) {
         queue_destruction__7TObjectFv((arg0));
         return;
     }
-    ((TTecRaFoie *)arg0)->source = find_entity_by_id((int) (((TTecRaFoie *)arg0)->m_b4));
-    if ((u32) ((TTecRaFoie *)arg0)->source == 0U) {
+    arg0->source = find_entity_by_id((int) (arg0->m_b4));
+    if ((u32) arg0->source == 0U) {
         queue_destruction__7TObjectFv((arg0));
         return;
     }
-    if ((s32) ((TTecRaFoie *)arg0)->m_148 == 1) {
-        ((TTecRaFoie *)arg0)->update_detonation(arg0 + 0x7C);
+    if ((s32) arg0->m_148 == 1) {
+        arg0->update_detonation((u8 *)arg0 + 0x7C);
         return;
     }
-    if ((s32) ((TTecRaFoie *)arg0)->m_ec == 0) {
+    if ((s32) arg0->m_ec == 0) {
         queue_destruction__7TObjectFv((arg0));
         return;
     }
-    temp_r31 = find_entity_by_id((int) (((TTecRaFoie *)arg0)->m_f0));
+    temp_r31 = find_entity_by_id((int) (arg0->m_f0));
     if ((is_parents_unqueued__9TTecLukerFUl() != 0) && (is_valid_and_active__10TObjPlayerFUl(temp_r31) != 0)) {
-        ((TTecRaFoie *)arg0)->update_detonation((void *)(temp_r31 + 0x2FC));
+        arg0->update_detonation((void *)(temp_r31 + 0x2FC));
     }
 }
 

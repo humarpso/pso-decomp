@@ -267,12 +267,12 @@ void *TOMekaFish01__ct(void *arg0, void *arg1) {
 #undef get_bml_motion
 #undef get_bml_model
 void *TOMekaFish00__create(void *arg0);
-u8 *TOMekaFish00__ct(u8 *arg0, s32 arg1);
+u8 *TOMekaFish00__ct(TOMekaFish00 *arg0, s32 arg1);
 
 void *TOMekaFish00__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x100);
     if (o != NULL) {
-        o = TOMekaFish00__ct((u8 *)o, (s32)arg0);
+        o = TOMekaFish00__ct((TOMekaFish00 *)((u8 *)o), (s32)arg0);
     }
     return o;
 }
@@ -328,25 +328,25 @@ extern u32 TBoss6PlotFalz__instance;
 
 #pragma push
 #pragma fp_contract on
-u8 *TOMekaFish00__ct(u8 *arg0, s32 arg1) {
+u8 *TOMekaFish00__ct(TOMekaFish00 *arg0, s32 arg1) {
     TODragonfly__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802AA9DC___vt__12TOMekaFish00 *)&__vt__12TOMekaFish00).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOMekaFish00__name;
     ((TOMekaFish00 *)(arg0))->apply_object_set_data((void *)arg1);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((*(u8 * *)&TOMekaFish00__model_resource), 0);
-    ((TOMekaFish00 *)arg0)->texture_id = TObjFish__sub_8001EDB0((*(u8 * *)&TOMekaFish00__model_resource), 0);
-    ((TOMekaFish00 *)arg0)->m_bc = get_bml_motion((*(u8 * *)&TOMekaFish00__model_resource), 0);
-    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(((TOMekaFish00 *)arg0)->m_bc) + 4) - lbl_805DE068);
-    ((TOMekaFish00 *)arg0)->m_b8 = (f32) lbl_805DE06C;
-    ((TOMekaFish00 *)arg0)->m_c0 = (f32) lbl_805DE070;
+    arg0->texture_id = TObjFish__sub_8001EDB0((*(u8 * *)&TOMekaFish00__model_resource), 0);
+    arg0->m_bc = get_bml_motion((*(u8 * *)&TOMekaFish00__model_resource), 0);
+    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(arg0->m_bc) + 4) - lbl_805DE068);
+    arg0->m_b8 = (f32) lbl_805DE06C;
+    arg0->m_c0 = (f32) lbl_805DE070;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(s32 *)((s8 *)arg0 + 0x34)) + 4)) + 0x14);
-    ((TOMekaFish00 *)arg0)->m_ac = 0;
-    ((TOMekaFish00 *)arg0)->m_f4 = (f32) ((lbl_805DE074 * (f32) ((TOMekaFish00 *)arg0)->m_84) + lbl_805DE068);
-    ((TOMekaFish00 *)arg0)->m_f8 = (s32) (lbl_805DE078 * (lbl_805DE07C / (lbl_805DE080 / ((TOMekaFish00 *)arg0)->m_f4)));
-    ((TOMekaFish00 *)arg0)->m_fc = (s32) (lbl_805DE078 * (lbl_805DE07C * (lbl_805DE084 * (f32) rand())));
-    ((TOMekaFish00 *)arg0)->m_ec = (f32) ((lbl_805DE074 * (f32) *(s32 *)((s8 *)arg0 + 0x88)) + lbl_805DE068);
-    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (((TOMekaFish00 *)arg0)->m_ec * sin_table_lookup(((TOMekaFish00 *)arg0)->m_fc));
-    return arg0;
+    arg0->m_ac = 0;
+    arg0->m_f4 = (f32) ((lbl_805DE074 * (f32) arg0->m_84) + lbl_805DE068);
+    arg0->m_f8 = (s32) (lbl_805DE078 * (lbl_805DE07C / (lbl_805DE080 / arg0->m_f4)));
+    arg0->m_fc = (s32) (lbl_805DE078 * (lbl_805DE07C * (lbl_805DE084 * (f32) rand())));
+    arg0->m_ec = (f32) ((lbl_805DE074 * (f32) *(s32 *)((s8 *)arg0 + 0x88)) + lbl_805DE068);
+    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (arg0->m_ec * sin_table_lookup(arg0->m_fc));
+    return (u8 *)arg0;
 }
 #pragma pop
 

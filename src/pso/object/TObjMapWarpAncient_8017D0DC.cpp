@@ -29,19 +29,19 @@ void *__dt__18TObjMapWarpAncientFv(void *arg0, s16 arg1) {
 extern s32 TObjMapWarpAncient__class_name;
 extern const f32 lbl_805DBAC4;
 
-u8 *TObjMapWarpAncient__ct(u8 *arg0) {
+u8 *TObjMapWarpAncient__ct(TObjMapWarpAncient *arg0) {
     TObjMapWarp__ct();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjMapWarpAncient;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjMapWarpAncient__class_name;
     *(f32 *)((s8 *)arg0 + 0xFC) = (f32) lbl_805DBAC4;
-    ((TObjMapWarpAncient *)arg0)->m_100 = TObjGoalWarpAncient__sub_8017D2D4(2);
-    ((TObjMapWarpAncient *)arg0)->m_104 = TObjGoalWarpAncient__sub_8017D2D4(0);
-    ((TObjMapWarpAncient *)arg0)->m_108 = TObjGoalWarpAncient__sub_8017D2D4(4);
-    ((TObjMapWarpAncient *)arg0)->m_10c = register_warp_object__19TObjGoalWarpAncientFPv(2);
-    ((TObjMapWarpAncient *)arg0)->m_110 = register_warp_object__19TObjGoalWarpAncientFPv(0);
-    ((TObjMapWarpAncient *)arg0)->m_114 = register_warp_object__19TObjGoalWarpAncientFPv(4);
-    ((TObjMapWarpAncient *)arg0)->m_118 = register_warp__19TObjGoalWarpAncientFPv(1);
-    return arg0;
+    arg0->m_100 = TObjGoalWarpAncient__sub_8017D2D4(2);
+    arg0->m_104 = TObjGoalWarpAncient__sub_8017D2D4(0);
+    arg0->m_108 = TObjGoalWarpAncient__sub_8017D2D4(4);
+    arg0->m_10c = register_warp_object__19TObjGoalWarpAncientFPv(2);
+    arg0->m_110 = register_warp_object__19TObjGoalWarpAncientFPv(0);
+    arg0->m_114 = register_warp_object__19TObjGoalWarpAncientFPv(4);
+    arg0->m_118 = register_warp__19TObjGoalWarpAncientFPv(1);
+    return (u8 *)arg0;
 }
 
 extern u32 ancient_warp_shared_resource;

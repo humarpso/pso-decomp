@@ -1593,7 +1593,7 @@ s32 reset_photon_blast_gauge(void *);
 int is_pb_palette_bank_empty(void*);
 s32 get_getup_protection_ticks__10TObjPlayerFv(void *);
 s32 get_hurt_protection_ticks__10TObjPlayerFv(void *);
-s32 TObjPlayer__sub_801D8DCC(u8 *arg0);
+s32 TObjPlayer__sub_801D8DCC(TObjPlayer *arg0);
 void split_capped_value__10TObjPlayerFUcPUcPSc(u8 v, void *a, void *b);
 u8 get_cast_technique_level(void *techs, s16 tech);
 s32 set_technique_level_entry(s32, s32, u8);
@@ -4550,7 +4550,7 @@ void TObjPlayer::update_technique_cast() {
     u8 temp_r31;
     u8 *temp_r3;
     *(s32 *)((s8 *)arg0 + 0x60) = ((s32 (*)(int, int))lerp_angle_half__10TObjPlayerFUsUs)((int) (*(s32 *)((s8 *)arg0 + 0x60)), (int) (*(s32 *)((s8 *)arg0 + 0x3F0)));
-    temp_r3 = (u8 *)(TObjPlayer__sub_801D8DCC(arg0));
+    temp_r3 = (u8 *)(TObjPlayer__sub_801D8DCC((TObjPlayer *)arg0));
     temp_r0 = *(s16 *)((s8 *)arg0 + 0x328);
     switch (temp_r0) {
     case 3:

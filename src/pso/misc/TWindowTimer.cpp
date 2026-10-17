@@ -102,7 +102,7 @@ s32 TWindowTimer::create() {
 
     var_r31 = __nw__7TObjectFUl(0x64);
     if (var_r31 != 0) {
-        var_r31 = ((s32)TWindowTimer__ct((u8 *)((void *)var_r31)));
+        var_r31 = ((s32)TWindowTimer__ct((TWindowTimer *)((u8 *)((void *)var_r31))));
     }
     init_timer_window_layout(var_r31);
     return var_r31;
@@ -113,7 +113,7 @@ s32 TWindowTimer::create_alt() {
 
     var_r31 = __nw__7TObjectFUl(0x64);
     if (var_r31 != 0) {
-        var_r31 = ((s32)TWindowTimer__ct((u8 *)((void *)var_r31)));
+        var_r31 = ((s32)TWindowTimer__ct((TWindowTimer *)((u8 *)((void *)var_r31))));
     }
     init_timer_window_layout_alt(var_r31);
     return var_r31;
@@ -126,12 +126,12 @@ void render__12TWindowTimerFv(s32 arg0) {
     draw_visible_window_entries((void *)arg0, (void *)(arg0 + 0x24), (int)temp_r3);
 }
 
-void run_task__12TWindowTimerFv(u8 *arg0) {
-  if ((((TWindowTimer *)arg0)->m_60) & 1)
+void run_task__12TWindowTimerFv(TWindowTimer *arg0) {
+  if ((arg0->m_60) & 1)
   {
-    ((TWindowTimer *)arg0)->draw((s32)((int) get_timer_value__12TWindowTimerFi(0)), (s32)((int) get_timer_value__12TWindowTimerFi(1)));
+    arg0->draw((s32)((int) get_timer_value__12TWindowTimerFi(0)), (s32)((int) get_timer_value__12TWindowTimerFi(1)));
   }
- do { ((TWindowDD *)arg0)->initialize_subwindow(); ((TWindowTimer *)arg0)->update_chat_parts(); ((TWindowTimer *)arg0)->ease_window_timer_position(); ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24); } while (0);
+ do { ((TWindowDD *)arg0)->initialize_subwindow(); arg0->update_chat_parts(); arg0->ease_window_timer_position(); ((TUnk_804CE018 *)arg0)->update_window_entry_list((u8 *)arg0 + 0x24); } while (0);
 }
 
 void *__dt__12TWindowTimerFv(void *arg0, s16 arg1) {
@@ -146,14 +146,14 @@ void *__dt__12TWindowTimerFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80287FBC_lbl_804D2E74_size[sizeof(RecoveredGlobal_80287FBC_lbl_804D2E74) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80287FBC___vt__12TWindowTimer_size[sizeof(RecoveredGlobal_80287FBC___vt__12TWindowTimer) == 0x18 ? 1 : -1];
-u8 *TWindowTimer__ct(u8 *arg0) {
+u8 *TWindowTimer__ct(TWindowTimer *arg0) {
     ((TWindowDD *)arg0)->construct_base((u8 *)&lbl_804D2E74.value, (s16)4, (u8 *)(get_zero_vec2()));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80287FBC___vt__12TWindowTimer *)&__vt__12TWindowTimer).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowTimer__name;
-    ((TWindowTimer *)arg0)->m_60 = 0;
-    ((TWindowTimer *)arg0)->update_chat_parts();
+    arg0->m_60 = 0;
+    arg0->update_chat_parts();
     ((TUnk_804CE018 *)arg0)->save_position();
-    return arg0;
+    return (u8 *)arg0;
 }
 
 }

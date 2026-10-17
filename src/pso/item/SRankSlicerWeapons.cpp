@@ -1,4 +1,5 @@
 #include "types.h"
+struct TItemEquipBase;
 #include "pso/item/TItem.h"
 #include "pso/misc/TTecSlicer.h"
 #include "pso/TItemAttacker.h"
@@ -254,7 +255,7 @@ void *__dt__13TUnk_804A4338Fv(void *arg0, s16 arg1) {
 
 }
 
-extern "C" s8 TItemEquipBase__sub_8010A77C(u8 *arg0);
+extern "C" s8 TItemEquipBase__sub_8010A77C(TItemEquipBase *arg0);
 extern "C" void TItemWeapon__sub_8011E5C0();
 extern "C" void TItemWeapon__sub_8011E5C4();
 extern "C" void TItemWeapon__sub_8011E5C8();
@@ -275,7 +276,7 @@ extern "C" void TItem__sub_80100648();
 extern "C" int TItem__sub_80100B8C(void *p);
 extern "C" void vfunc_6__13TUnk_804B9870FPsl();
 extern "C" void srank_marker_noop();
-extern "C" void receive_srank_hit(void *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0);
+extern "C" void receive_srank_hit(TItemWeapon *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0);
 extern "C" void add_equip_stats__14TItemEquipBaseFl();
 extern "C" void vfunc_44__11TItemWeaponFv();
 extern "C" void apply_object_set_data__13TUnk_804B9870FPv();

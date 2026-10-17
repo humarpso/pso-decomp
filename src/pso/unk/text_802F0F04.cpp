@@ -12,11 +12,11 @@ void *__nw__7TObjectFUl(int);
 
 void TObjAreaWarpForest::render_if_active() { if (*(int*)((char*)this + 0xdc) != 0) { TObjAreaWarpForest::render(); } }
 
-void TObjAreaWarpForest__sub_802F0F30(void *arg0) {
+void TObjAreaWarpForest__sub_802F0F30(TObjAreaWarpForest *arg0) {
     if (TObjBoss2Tunnel__sub_802F2070() != 0) {
         *(s32 *)((s8 *)arg0 + 0xDC) = 1;
     }
-    ((TObjAreaWarpForest *)arg0)->TObjAreaWarpForest::run_task();
+    arg0->TObjAreaWarpForest::run_task();
 }
 
 extern s32 lbl_804E48D8[];

@@ -3,6 +3,7 @@
 
 #include "types.h"
 
+struct TObjEneLappy;
 extern "C" {
 u8 *TObjEneDarkGunCenter__ct(u8 *arg0, s32 arg1, s32 arg2);
 void TObjPlayer__sub_800A100C(s32 _w0);
@@ -18,9 +19,9 @@ f32 TObjPlayer__sub_800A3200(s32 arg0);
 s32 TObjPlayer__sub_800A3210(s32 i, s32 _w1, s32 _w2);
 u8 *TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 void *__dt__13TUnk_804909C4Fv(void *arg0, s16 arg1);
-void clear_lappy_flag_set_param(u8 *arg0);
+void clear_lappy_flag_set_param(TObjEneLappy *arg0);
 f32 fmax_800A2390(f32 a, f32 b);
-void fn_800A0FDC(u8 *arg0);
+void fn_800A0FDC(TObjEneLappy *arg0);
 void init_scale_global__10TObjPlayerFv(void);
 }
 

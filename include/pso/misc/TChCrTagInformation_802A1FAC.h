@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TChCrTagInformation;
 extern "C" {
-void *TChCrTagInformation__ct(void *arg0);
+void *TChCrTagInformation__ct(TChCrTagInformation *arg0);
 }
 
 #endif

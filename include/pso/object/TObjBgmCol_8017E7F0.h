@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TObjBgmCol;
 extern "C" {
-void *TObjBgmCol__ct(void *arg0, s32 arg1, s32 arg2);
+void *TObjBgmCol__ct(TObjBgmCol *arg0, s32 arg1, s32 arg2);
 void *__dt__10TObjBgmColFv(void *arg0, s16 arg1);
 }
 

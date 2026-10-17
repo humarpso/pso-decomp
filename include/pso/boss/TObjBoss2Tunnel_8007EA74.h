@@ -3,9 +3,10 @@
 
 #include "types.h"
 
+struct TObjPlayer;
 extern "C" {
 void TObjBoss2Tunnel__sub_8007EAE4(u8 *arg0);
-void bswap_6xB2_play_sound(void *arg0);
+void bswap_6xB2_play_sound(TObjPlayer *arg0);
 }
 
 #endif

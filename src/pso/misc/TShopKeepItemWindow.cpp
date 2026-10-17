@@ -336,23 +336,23 @@ void *__dt__19TShopKeepItemWindowFv(void *arg0, s16 arg1) {
 
 extern void *TShopKeepItemWindow__class_name;
 
-void *TShopKeepItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
+void *TShopKeepItemWindow__ct(TShopKeepItemWindow *arg0, void *arg1, void *arg2, void *arg3) {
     __ct__15TShopWindowBaseFv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TShopKeepItemWindow;
-    *(void * *)&((TShopKeepItemWindow *)arg0)->m_name = TShopKeepItemWindow__class_name;
-    ((TShopKeepItemWindow *)arg0)->m_370 = 0;
-    ((TShopKeepItemWindow *)arg0)->m_374 = 0;
-    ((TShopKeepItemWindow *)arg0)->m_378 = 1;
-    ((TShopKeepItemWindow *)arg0)->m_37c = 0;
-    ((TShopKeepItemWindow *)arg0)->m_20 = 0;
+    *(void * *)&arg0->m_name = TShopKeepItemWindow__class_name;
+    arg0->m_370 = 0;
+    arg0->m_374 = 0;
+    arg0->m_378 = 1;
+    arg0->m_37c = 0;
+    arg0->m_20 = 0;
     *(void **)((s8 *)arg0 + 0x380) = arg2;
-    ((TShopKeepItemWindow *)arg0)->m_384 = 0;
-    ((TShopKeepItemWindow *)arg0)->m_388 = 0;
-    ((TShopKeepItemWindow *)arg0)->m_390 = 0;
-    ((TShopKeepItemWindow *)arg0)->m_38c = 0;
+    arg0->m_384 = 0;
+    arg0->m_388 = 0;
+    arg0->m_390 = 0;
+    arg0->m_38c = 0;
     *(void **)((s8 *)arg0 + 0x24) = arg3;
-    ((TShopKeepItemWindow *)arg0)->m_394 = 0;
-    ((TShopKeepItemWindow *)arg0)->m_398 = 0;
+    arg0->m_394 = 0;
+    arg0->m_398 = 0;
     memset((void *)((char *)arg0 + 40), 0, 840);
     return arg0;
 }

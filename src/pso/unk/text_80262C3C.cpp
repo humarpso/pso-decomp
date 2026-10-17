@@ -542,7 +542,7 @@ void *__dt__13TWindowLockOnFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TWindowLockOn__ct(u8 *arg0, s16 arg1, s32 arg2) {
+u8 *TWindowLockOn__ct(TWindowLockOn *arg0, s16 arg1, s32 arg2) {
     construct_base__9TWindowDDFPUcsPUc((void *)arg0, (void *)lbl_804D0268, (void *)arg1, (int) (get_window_layout_position(0x1E)));
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TWindowLockOn;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3948;
@@ -553,13 +553,13 @@ u8 *TWindowLockOn__ct(u8 *arg0, s16 arg1, s32 arg2) {
         *(f32 *)((s8 *)arg0 + 0x68) = (f32) lbl_805DD134;
         *(f32 *)((s8 *)arg0 + 0x6C) = (f32) lbl_805DD134;
     }
-    ((TWindowLockOn *)arg0)->m_60 = 0xFFFF;
-    ((TWindowLockOn *)arg0)->m_20 = arg1;
-    ((TWindowLockOn *)arg0)->m_64 = 0;
+    arg0->m_60 = 0xFFFF;
+    arg0->m_20 = arg1;
+    arg0->m_64 = 0;
     *(PMF_80263944 *)((s8 *)arg0 + 0x70) = 0;
     ((void (*)(void *, s32))bind_target__13TWindowLockOnFv)(arg0, arg2);
-    ((TWindowLockOn *)arg0)->m_50 = 0;
-    return arg0;
+    arg0->m_50 = 0;
+    return (u8 *)arg0;
 }
 
 }

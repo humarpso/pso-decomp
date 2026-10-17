@@ -267,9 +267,9 @@ extern u32 TRaderMapCore__floor_map_resource;
 extern s32 lbl_805D5F2C;
 extern s32 TRaderMapCore__data_805D5F30;
 extern s32 TRaderMapCore__view_mode;
-void disallow_rendering__7TObjectFv(void *);
+void disallow_rendering__7TObjectFv(TObject *);
 extern void *TRaderMapCore__instance;
-void allow_rendering__7TObjectFv(void *);
+void allow_rendering__7TObjectFv(TObject *);
 void TCameraCtrl__sub_801E32D8(f32 farg0, f32 farg1);
 s32 GXSetScissorBoxOffset(int, int);
 extern RecoveredGlobal_801FA964_lbl_804C8784 radar_map_view_scissor_table;
@@ -396,14 +396,14 @@ void TRaderMapCore::reset_counter() { this->m_184 = 0; }
 void TRaderMapCore::hide_radar() {
     if ((void *) (*(u8 * *)&TRaderMapCore__instance) != NULL) {
         ((TRaderMapCore *)(*(u8 * *)&TRaderMapCore__instance))->reset_counter();
-        disallow_rendering__7TObjectFv((*(u8 * *)&TRaderMapCore__instance));
+        disallow_rendering__7TObjectFv((TObject *)(*(u8 * *)&TRaderMapCore__instance));
     }
 }
 
 void TRaderMapCore::show_radar() {
     if ((void *) (*(u8 * *)&TRaderMapCore__instance) != NULL) {
         ((TRaderMapCore *)(*(u8 * *)&TRaderMapCore__instance))->reset_counter();
-        allow_rendering__7TObjectFv((*(u8 * *)&TRaderMapCore__instance));
+        allow_rendering__7TObjectFv((TObject *)(*(u8 * *)&TRaderMapCore__instance));
     }
 }
 

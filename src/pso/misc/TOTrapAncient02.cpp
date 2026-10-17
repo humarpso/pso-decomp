@@ -338,7 +338,7 @@ void * TOTrap__ct(void *, void *, void *);
 void find_target_player__16TOTrapAncient02RFv(Obj_8017A8B0 *self);
 f32 receive_physical_attack__16TOTrapAncient02RFPvf(Obj_8017A988 *self);
 void * __dt__16TOTrapAncient02RFv(void *arg0, s16 arg1);
-void * TOTrapAncient02R__ct(void *arg0, void *arg1, void *arg2);
+void *TOTrapAncient02R__ct(TOTrapAncient02R *arg0, void *arg1, void *arg2);
 void vfunc_84__15TOTrapAncient02Fv(Obj_8017ACA0 *self);
 void render__15TOTrapAncient02Fv(void *arg0);
 void * __dt__15TOTrapAncient02Fv(void *arg0, s16 arg1);
@@ -813,7 +813,7 @@ f32 TOTrapAncient02R::receive_physical_attack(void *, f32) {
 void *TOTrapAncient02R::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x36C);
     if (o != NULL) {
-        o = TOTrapAncient02R__ct(o, tl_05, arg0);
+        o = TOTrapAncient02R__ct((TOTrapAncient02R *)o, tl_05, arg0);
     }
     return o;
 }
@@ -836,37 +836,37 @@ void *__dt__16TOTrapAncient02RFv(void *arg0, s16 arg1) {
 #pragma push
 #pragma fp_contract on
 #pragma fp_contract on
-void *TOTrapAncient02R__ct(void *arg0, void *arg1, void *arg2) {
+void *TOTrapAncient02R__ct(TOTrapAncient02R *arg0, void *arg1, void *arg2) {
     ((s32 (*)(void *, void *))TOTrapAncient02__ct)(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TOTrapAncient02R;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D31B8;
-    ((TOTrapAncient02R *)arg0)->apply_object_set_data(arg2);
+    arg0->apply_object_set_data(arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();
     ((TUnk_804806E8 *)arg0)->calc_attach_pos();
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&TOTrapAncient02__shared_resource) + 0x42C)) + 8);
-    ((TOTrapAncient02R *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&TOTrapAncient02__shared_resource) + 0x42C)) + 0xC);
-    ((TOTrapAncient02R *)arg0)->mode = 0;
-    ((TOTrapAncient02R *)arg0)->phase = 0;
-    ((TOTrapAncient02R *)arg0)->range = lbl_805DBAA0 * ((TOTrapAncient02R *)arg0)->scale + lbl_805DBA9C;
-    ((TOTrapAncient02R *)arg0)->dist = ((TOTrapAncient02R *)arg0)->range;
-    ((TOTrapAncient02R *)arg0)->reset = (s32) (lbl_805DBA9C + (f32) ((TOTrapAncient02R *)arg0)->m_84);
-    if (((TOTrapAncient02R *)arg0)->reset < 0) {
-        ((TOTrapAncient02R *)arg0)->reset = 0;
+    arg0->texture_id = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&TOTrapAncient02__shared_resource) + 0x42C)) + 0xC);
+    arg0->mode = 0;
+    arg0->phase = 0;
+    arg0->range = lbl_805DBAA0 * arg0->scale + lbl_805DBA9C;
+    arg0->dist = arg0->range;
+    arg0->reset = (s32) (lbl_805DBA9C + (f32) arg0->m_84);
+    if (arg0->reset < 0) {
+        arg0->reset = 0;
     }
-    ((TOTrapAncient02R *)arg0)->timer = ((TOTrapAncient02R *)arg0)->reset;
-    ((TOTrapAncient02R *)arg0)->init_trap_object_id();
-    ((TOTrapAncient02R *)arg0)->clamp_trap_level_param();
-    ((TOTrapAncient02R *)arg0)->calc_trap_count();
-    ((TOTrapAncient02R *)arg0)->init_trap_param_clamped();
-    ((TOTrapAncient02R *)arg0)->player = 0xFFFF;
+    arg0->timer = arg0->reset;
+    arg0->init_trap_object_id();
+    arg0->clamp_trap_level_param();
+    arg0->calc_trap_count();
+    arg0->init_trap_param_clamped();
+    arg0->player = 0xFFFF;
     *(s32 *)((s8 *)arg0 + 0x2A8) = 0;
-    ((TOTrapAncient02R *)arg0)->h348 = lbl_805DBA80;
-    ((TOTrapAncient02R *)arg0)->h344 = lbl_805DBA80;
-    *(s32 *)&((TOTrapAncient02R *)arg0)->m_34c = 0;
-    if (((TOTrapAncient02R *)arg0)->rotation_z > 0) {
-        *(s32 *)&((TOTrapAncient02R *)arg0)->m_358 = 1;
+    arg0->h348 = lbl_805DBA80;
+    arg0->h344 = lbl_805DBA80;
+    *(s32 *)&arg0->m_34c = 0;
+    if (arg0->rotation_z > 0) {
+        *(s32 *)&arg0->m_358 = 1;
     } else {
-        *(s32 *)&((TOTrapAncient02R *)arg0)->m_358 = 0;
+        *(s32 *)&arg0->m_358 = 0;
     }
     return arg0;
 }

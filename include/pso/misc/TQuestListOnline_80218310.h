@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TQuestListOnline;
 extern "C" {
-void *TQuestListOnline__ct(void *arg0, void *arg1, void *arg2, void *arg3);
+void *TQuestListOnline__ct(TQuestListOnline *arg0, void *arg1, void *arg2, void *arg3);
 }
 
 #endif

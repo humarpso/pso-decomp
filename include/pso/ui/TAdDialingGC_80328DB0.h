@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TAdDialingGC;
 extern "C" {
-void *TAdDialingGC__ct(void *arg0);
+void *TAdDialingGC__ct(TAdDialingGC *arg0);
 }
 
 #endif

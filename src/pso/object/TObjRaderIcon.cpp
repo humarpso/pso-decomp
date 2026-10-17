@@ -107,7 +107,7 @@ u8 *TObjRaderIcon__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3418;
     ((TObjRaderIcon *)(arg0))->apply_object_set_data((void *)arg2);
     ((TObjRaderIcon *)arg0)->initialize_from_placement();
-    disallow_rendering__7TObjectFv((arg0));
+    disallow_rendering__7TObjectFv((TObject *)(arg0));
     return arg0;
 }
 

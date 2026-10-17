@@ -25,7 +25,7 @@ struct TODoorVoShip : public TUnk_804AFBF8 {
 typedef char TODoorVoShip_size[sizeof(TODoorVoShip) == 0xEC ? 1 : -1];
 
 extern "C" {
-u8 *TODoorVoShip__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TODoorVoShip__ct(TODoorVoShip *arg0, s32 arg1, s32 arg2);
 void *__dt__12TODoorVoShipFv(void *arg0, s16 arg1);
 }
 

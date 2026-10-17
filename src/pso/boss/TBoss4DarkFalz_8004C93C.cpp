@@ -55,7 +55,7 @@ extern const f32 lbl_805D8940;
 void TBoss4DarkFalz__sub_8004C5E8(u8 *arg0);
 void TBoss4DarkFalz__sub_8004C2D8(void *arg0);
 s32 is_ending_or_split_screen__14TBoss4DarkFalzFv();
-void TBoss4DarkFalz__sub_8004C7E8(void *arg0);
+void TBoss4DarkFalz__sub_8004C7E8(TBoss4DarkFalz *arg0);
 int TBoss4DarkFalz__sub_8004C1AC(void);
 s32 TBoss4DarkFalz__sub_8004C1B4(void);
 void TLobby__send_and_handle_60(u8 *arg0);
@@ -219,7 +219,7 @@ void TBoss4DarkFalz::init_state() {
     *(u32 *)((s8 *)this + 0x380) = 114;
 }
 
-void TBoss4DarkFalz__sub_8004C7E8(void *arg0) {
+void TBoss4DarkFalz__sub_8004C7E8(TBoss4DarkFalz *arg0) {
     f32 v;
     s32 t;
     if (is_ending_or_split_screen__14TBoss4DarkFalzFv() != 0) {
@@ -236,10 +236,10 @@ void TBoss4DarkFalz__sub_8004C7E8(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0x380) = t;
     if (t < 0) {
         if (is_ending_or_split_screen__14TBoss4DarkFalzFv() != 0) {
-            ((TBoss4DarkFalz *)arg0)->change_state(0xF);
+            arg0->change_state(0xF);
             return;
         }
-        ((TBoss4DarkFalz *)arg0)->handle_defeat();
+        arg0->handle_defeat();
     }
 }
 
@@ -520,7 +520,7 @@ extern const f32 lbl_805D895C;
 extern const f32 lbl_805D8960;
 extern const f32 lbl_805D8964;
 void TBoss4DarkFalz__sub_8004D29C(void* p);
-void TBoss4DarkFalz__sub_8004B8F8(void *arg0);
+void TBoss4DarkFalz__sub_8004B8F8(TBoss4DarkFalz *arg0);
 void set_dark_falz_music_request(s32 arg0);
 int check_demo_mode__10TObjPlayerFv(void*);
 int create__14TObjDFUsoTowerFPv(void);
@@ -551,7 +551,7 @@ void TBoss4DarkFalz__sub_8004D098(u8 *arg0) {
     }
 }
 
-void TBoss4DarkFalz::start_demo() { TBoss4DarkFalz__sub_8004B8F8((void *)this); TBoss4DarkFalz::push_players_out_of_zone((s32)this, (s32)((void*)1)); freeze_all_players__14TBoss4DarkFalzFPv(this); TObjDFDemoF::create(this); set_dark_falz_music_request((s32)((void*)1)); fn_8036A514((void*)23); *(int*)((char*)this + 0x380) = 120; }
+void TBoss4DarkFalz::start_demo() { TBoss4DarkFalz__sub_8004B8F8((TBoss4DarkFalz *)((void *)this)); TBoss4DarkFalz::push_players_out_of_zone((s32)this, (s32)((void*)1)); freeze_all_players__14TBoss4DarkFalzFPv(this); TObjDFDemoF::create(this); set_dark_falz_music_request((s32)((void*)1)); fn_8036A514((void*)23); *(int*)((char*)this + 0x380) = 120; }
 
 void TBoss4DarkFalz::check_players_near_center(void *self) {
     V_8004D1E4 v;

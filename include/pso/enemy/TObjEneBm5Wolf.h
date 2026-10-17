@@ -118,7 +118,7 @@ void approach_target__14TObjEneBm5WolfFPvf(void *arg0, f32 farg0);
 s32 calc_lunge_aim__14TObjEneBm5WolfFPv(u8 *arg0);
 void calc_rotated_vector__14TObjEneBm5WolfFPviPvPv(void *arg0, s32 arg1, void *arg2, s32 *arg3);
 s32 destroy__14TObjEneBm5WolfFis(s32 arg0, s16 arg1);
-void dispatch_state__14TObjEneBm5WolfFPvUii(u8 *arg0, u32 state, s32 event);
+void dispatch_state__14TObjEneBm5WolfFPvUii(TObjEneBm5Wolf *arg0, u32 state, s32 event);
 int get_flag_bit0__14TObjEneBm5WolfFPv(void *p);
 s32 get_group_id__14TObjEneBm5WolfFPv(void *p);
 void play_footsteps__14TObjEneBm5WolfFPv(u8 *arg0);

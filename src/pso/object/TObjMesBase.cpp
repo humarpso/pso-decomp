@@ -27,7 +27,7 @@ extern Pair_80194AEC lbl_80445D94[];
 extern u8 lbl_80445D9C[];
 extern u8 lbl_80445DAC[];
 s32 TMotorcycle__vt8(s32 arg0, f32 farg0, f32 farg1);
-void *TObjMesBase__ct(void *arg0, s32 arg1, s32 arg2);
+void *TObjMesBase__ct(TObjMesBase *arg0, s32 arg1, s32 arg2);
 void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv();
 void __dl__7TObjectFPv(void *);
@@ -109,21 +109,21 @@ void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1) {
 
 extern s32 TObjMesBase__class_name;
 
-void *TObjMesBase__ct(void *arg0, s32 arg1, s32 arg2) {
+void *TObjMesBase__ct(TObjMesBase *arg0, s32 arg1, s32 arg2) {
     construct_collider_proxy__13TUnk_804AF8A0Fv();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjMesBase;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjMesBase__class_name;
-    ((TObjMesBase *)arg0)->apply_object_set_data((void *)arg2);
-    ((TObjMesBase *)arg0)->messageLabel = (s32) ((TObjMesBase *)arg0)->m_84;
-    ((TObjMesBase *)arg0)->messageBank = (s32) ((TObjMesBase *)arg0)->m_8c;
-    if ((s32) ((TObjMesBase *)arg0)->messageBank < 0) {
-        ((TObjMesBase *)arg0)->messageBank = 0;
+    arg0->apply_object_set_data((void *)arg2);
+    arg0->messageLabel = (s32) arg0->m_84;
+    arg0->messageBank = (s32) arg0->m_8c;
+    if ((s32) arg0->messageBank < 0) {
+        arg0->messageBank = 0;
     }
-    if ((s32) ((TObjMesBase *)arg0)->messageBank > 1) {
-        ((TObjMesBase *)arg0)->messageBank = 1;
+    if ((s32) arg0->messageBank > 1) {
+        arg0->messageBank = 1;
     }
     *(s32 *)((s8 *)arg0 + 0xAC) = 0;
-    ((TObjMesBase *)arg0)->messagePhase = 0;
+    arg0->messagePhase = 0;
     return arg0;
 }
 

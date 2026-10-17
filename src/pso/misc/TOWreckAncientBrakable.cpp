@@ -3,7 +3,7 @@
 
 extern "C" {
 
-void *TOWreckAncientBrakable__ct(void *arg0);
+void *TOWreckAncientBrakable__ct(TOWreckAncientBrakable *arg0);
 void *__dt__22TOWreckAncientBrakableFv(void *arg0, s16 arg1);
 void TOWreckAncient__ct(void *);
 void __dl__7TObjectFPv(void *);
@@ -24,12 +24,12 @@ void *__dt__22TOWreckAncientBrakableFv(void *arg0, s16 arg1) {
 
 extern void *TOWreckAncientBrakable__name;
 
-void *TOWreckAncientBrakable__ct(void *arg0) {
+void *TOWreckAncientBrakable__ct(TOWreckAncientBrakable *arg0) {
     TOWreckAncient__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TOWreckAncientBrakable;
-    *(void * *)&((TOWreckAncientBrakable *)arg0)->m_name = TOWreckAncientBrakable__name;
-    ((TOWreckAncientBrakable *)arg0)->m_b4 = 0;
-    ((TOWreckAncientBrakable *)arg0)->m_b8 = -1;
+    *(void * *)&arg0->m_name = TOWreckAncientBrakable__name;
+    arg0->m_b4 = 0;
+    arg0->m_b8 = -1;
     return arg0;
 }
 

@@ -115,7 +115,7 @@ s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 set_global_param__8TObjFishFl();
 extern u32 TOKeyJungleMain__static_model_resource;
-void render__15TOKeyJungleMainFv(u8 *arg0);
+void render__15TOKeyJungleMainFv(TOKeyJungleMain *arg0);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void *__dt__5TOKeyFv(void *arg0, s16 arg1);
@@ -132,10 +132,10 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8029CFEC_lbl_804DC590 bm_obj_jungle_mkey_resource_descriptor;
 s32 dispatch_by_phase__15TOKeyJungleMainFlUs(void *, int);
 s32 init_collision_body_parts(void *, void *, int);
-void *TOKey__ct(void *arg0);
+void *TOKey__ct(TOKey *arg0);
 extern RecoveredGlobal_8029D438_lbl_804DC5A0 TOKeyJungleMain_collision_body_parts;
 extern s32 lbl_805D3D50;
-u8 *TOKeyJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TOKeyJungleMain__ct(TOKeyJungleMain *arg0, s32 arg1, s32 arg2);
 void debug_printf_at(s32, const char *, ...);
 extern char lbl_80465A2C[];
 void TLobby__sub_8001FE7C(void*, int);
@@ -143,7 +143,7 @@ void TLobby__sub_8001FE7C(void*, int);
 void *TOKeyJungleMain::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF0);
     if (o != NULL) {
-        o = TOKeyJungleMain__ct((u8 *)o, (s32)tl_05, (s32)arg0);
+        o = TOKeyJungleMain__ct((TOKeyJungleMain *)((u8 *)o), (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -179,15 +179,15 @@ void TOKeyJungleMain::debug_draw_key_id() {
     TObjNpcEnemy::set_global_count(0xF0F0F0FF);
 }
 
-void render__15TOKeyJungleMainFv(u8 *arg0) {
-    if (((VObj_8029CF68 *)arg0)->m8(((TOKeyJungleMain *)arg0)->m_c0, *(f32 *)((s8 *)arg0 + 0xC4)) == 1) {
-        switch (((TOKeyJungleMain *)arg0)->m_d4) {
+void render__15TOKeyJungleMainFv(TOKeyJungleMain *arg0) {
+    if (((VObj_8029CF68 *)arg0)->m8(arg0->m_c0, *(f32 *)((s8 *)arg0 + 0xC4)) == 1) {
+        switch (arg0->m_d4) {
         case 0:
             TObjFish__sub_8001EDB0((*(s32 *)&TOKeyJungleMain__static_model_resource), 1);
             set_global_param__8TObjFishFl();
             push_matrix();
-            post_translate_matrix(arg0 + 0x38);
-            rotate_matrix_y(0, ((TOKeyJungleMain *)arg0)->rotation_y);
+            post_translate_matrix((u8 *)arg0 + 0x38);
+            rotate_matrix_y(0, arg0->rotation_y);
             get_bml_model((*(s32 *)&TOKeyJungleMain__static_model_resource), 1);
             draw_ginja_object();
             pop_matrix();
@@ -196,9 +196,9 @@ void render__15TOKeyJungleMainFv(u8 *arg0) {
             TObjFish__sub_8001EDB0((*(s32 *)&TOKeyJungleMain__static_model_resource), 1);
             set_global_param__8TObjFishFl();
             push_matrix();
-            post_translate_matrix(arg0 + 0x38);
-            rotate_matrix_y(0, ((TOKeyJungleMain *)arg0)->rotation_y);
-            draw_ginja_model_with_motion(get_bml_model((*(s32 *)&TOKeyJungleMain__static_model_resource), 1), get_bml_motion((*(s32 *)&TOKeyJungleMain__static_model_resource), 1), ((TOKeyJungleMain *)arg0)->m_e8);
+            post_translate_matrix((u8 *)arg0 + 0x38);
+            rotate_matrix_y(0, arg0->rotation_y);
+            draw_ginja_model_with_motion(get_bml_model((*(s32 *)&TOKeyJungleMain__static_model_resource), 1), get_bml_motion((*(s32 *)&TOKeyJungleMain__static_model_resource), 1), arg0->m_e8);
             TParticleCtrl::begin_effect_render();
             draw_ginja_model_with_motion(get_bml_model((*(s32 *)&TOKeyJungleMain__static_model_resource), 0), get_bml_motion((*(s32 *)&TOKeyJungleMain__static_model_resource), 0), *(f32 *)((s8 *)arg0 + 0xEC));
             TParticleCtrl::end_effect_render();
@@ -270,7 +270,7 @@ void *__dt__15TOKeyJungleMainFv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_8029D438_lbl_804DC5A0_size[sizeof(RecoveredGlobal_8029D438_lbl_804DC5A0) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8029D438___vt__15TOKeyJungleMain_size[sizeof(RecoveredGlobal_8029D438___vt__15TOKeyJungleMain) == 0x74 ? 1 : -1];
-u8 *TOKeyJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TOKeyJungleMain__ct(TOKeyJungleMain *arg0, s32 arg1, s32 arg2) {
     TOKey__ct((arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8029D438___vt__15TOKeyJungleMain *)&__vt__15TOKeyJungleMain).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3D50;
@@ -279,17 +279,17 @@ u8 *TOKeyJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_collision_body_parts(arg0, &TOKeyJungleMain_collision_body_parts.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    ((TOKeyJungleMain *)arg0)->m_d0 = 0;
-    ((TOKeyJungleMain *)arg0)->m_e4 = (s32) ((TOKeyJungleMain *)arg0)->m_84;
-    if ((s32) ((TOKeyJungleMain *)arg0)->m_e4 < 0) {
-        ((TOKeyJungleMain *)arg0)->m_e4 = 0;
+    arg0->m_d0 = 0;
+    arg0->m_e4 = (s32) arg0->m_84;
+    if ((s32) arg0->m_e4 < 0) {
+        arg0->m_e4 = 0;
     }
-    if ((s32) ((TOKeyJungleMain *)arg0)->m_e4 > 2) {
-        ((TOKeyJungleMain *)arg0)->m_e4 = 2;
+    if ((s32) arg0->m_e4 > 2) {
+        arg0->m_e4 = 2;
     }
-    ((TOKeyJungleMain *)arg0)->m_e8 = (f32) lbl_805DDD3C;
+    arg0->m_e8 = (f32) lbl_805DDD3C;
     *(f32 *)((s8 *)arg0 + 0xEC) = (f32) lbl_805DDD3C;
-    return arg0;
+    return (u8 *)arg0;
 }
 
 u8 TObjFish::update_state() {

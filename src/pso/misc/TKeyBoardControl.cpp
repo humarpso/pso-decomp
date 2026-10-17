@@ -82,7 +82,7 @@ s32 calc_key_index__19TWindowKeyBoardSoftFiii(s32 arg1, s32 arg2, s32 arg3);
 f32 TWindowKeyBoardSoft__sub_802606E0(void);
 s32 TWindowKeyBoardSoft__sub_80260760(void *, int, void *, int);
 s32 TWindowKeyBoardSoft__sub_80261134(void *);
-void TKeyBoardControl__sub_802613A4(void *arg0);
+void TKeyBoardControl__sub_802613A4(TKeyBoardControl *arg0);
 f32 TWindowKeyBoardSoft__sub_802614DC(u8 *, u8 *, f32, f32, f32, f32);
 s32 TWindowKeyBoardSoft__sub_802616BC(void *, int);
 s32 TWindowKeyBoardSoft__sub_80261DD8(void *, int);
@@ -304,11 +304,11 @@ void TKeyBoardControl::release_input() {
     }
 }
 
-void TKeyBoardControl__sub_802613A4(void *arg0) {
+void TKeyBoardControl__sub_802613A4(TKeyBoardControl *arg0) {
     *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0x60) | 0x20);
     if (*(void **)((s8 *)arg0 + 0x6C) != NULL) {
         TKeyBoardControl__sub_8025CC04((u8 *)(*(void **)((s8 *)arg0 + 0x6C)));
-        ((TKeyBoardControl *)arg0)->release();
+        arg0->release();
     }
 }
 

@@ -70,14 +70,14 @@ u8 *__dt__12TObjAreaWarpFv(u8 *arg0, s16 arg1);
 
 extern const f32 lbl_805DBAB8;
 
-void render__19TObjGoalWarpAncientFv(u8 *arg0) {
+void render__19TObjGoalWarpAncientFv(TObjGoalWarpAncient *arg0) {
     if (((VObj8017CB60_8017CB60_more_8017cca4_0 *) arg0)->m8(lbl_805DBAB8, lbl_805DBABC) != 0) {
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, ((TObjGoalWarpAncient *)arg0)->rotation_y);
+        post_translate_matrix((u8 *)arg0 + 0x38);
+        rotate_matrix_y(0, arg0->rotation_y);
         TParticleCtrl::begin_effect_render();
         TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xD8));
-        draw_ginja_model_with_motion(((TObjGoalWarpAncient *)arg0)->m_e8, *(s32 *)((s8 *)arg0 + 0xE4), *(f32 *)((s8 *)arg0 + 0xC4));
+        draw_ginja_model_with_motion(arg0->m_e8, *(s32 *)((s8 *)arg0 + 0xE4), *(f32 *)((s8 *)arg0 + 0xC4));
         TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xE0));
         draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0xD4), *(s32 *)((s8 *)arg0 + 0xE8), *(f32 *)((s8 *)arg0 + 0xC8));
         TParticleCtrl::end_effect_render();
@@ -157,7 +157,7 @@ void *__nw__7TObjectFUl(int);
 extern void *tl_05;
 
 typedef char RecoveredGlobal_8017CDB4___vt__19TObjGoalWarpAncient_size[sizeof(RecoveredGlobal_8017CDB4___vt__19TObjGoalWarpAncient) == 0x54 ? 1 : -1];
-u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TObjGoalWarpAncient__ct(TObjGoalWarpAncient *arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
     s32 var_r0;
     TObjAreaWarp__ct((void *)arg0, (void *)arg1, (void *)arg2);
@@ -165,10 +165,10 @@ u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjGoalWarpAncient__class_name;
     *(f32 *)((s8 *)arg0 + 0xC8) = (f32) lbl_805DBAC4;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DBAC4;
-    ((TObjGoalWarpAncient *)arg0)->m_e8 = TObjGoalWarpAncient__sub_8017D2D4(1);
+    arg0->m_e8 = TObjGoalWarpAncient__sub_8017D2D4(1);
     *(s32 *)((s8 *)arg0 + 0xD0) = TObjGoalWarpAncient__sub_8017D2D4(3);
     *(s32 *)((s8 *)arg0 + 0xD4) = TObjGoalWarpAncient__sub_8017D2D4(5);
-    if ((s32) ((TObjGoalWarpAncient *)arg0)->m_8c < 0) {
+    if ((s32) arg0->m_8c < 0) {
         *(s32 *)((s8 *)arg0 + 0xD8) = TObjGoalWarpAncient::get_instance();
     } else {
         *(s32 *)((s8 *)arg0 + 0xD8) = register_warp_object__19TObjGoalWarpAncientFPv(1);
@@ -177,20 +177,20 @@ u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0xE0) = register_warp_object__19TObjGoalWarpAncientFPv(5);
     *(s32 *)((s8 *)arg0 + 0xE4) = register_warp__19TObjGoalWarpAncientFPv(0);
     *(s32 *)((s8 *)arg0 + 0xE8) = register_warp__19TObjGoalWarpAncientFPv(2);
-    if ((get_game_play_mode() == 1) && ((s32) ((TObjGoalWarpAncient *)arg0)->m_8c >= 0)) {
+    if ((get_game_play_mode() == 1) && ((s32) arg0->m_8c >= 0)) {
         queue_destruction__7TObjectFv(arg0);
     }
     if (is_split_screen() == 1) {
         temp_r3 = ((TAdSinglePlyChrSelectGC *)0x88)->alloc();
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = init__13TAdVIConfigGCFf(temp_r3, arg0 + 0x38, lbl_805DBABC);
+            var_r0 = init__13TAdVIConfigGCFf(temp_r3, (u8 *)arg0 + 0x38, lbl_805DBABC);
         }
-        ((TObjGoalWarpAncient *)arg0)->m_dc = var_r0;
+        arg0->m_dc = var_r0;
     } else {
-        ((TObjGoalWarpAncient *)arg0)->m_dc = 0;
+        arg0->m_dc = 0;
     }
-    return arg0;
+    return (u8 *)arg0;
 }
 
 void *TObjMapWarpAncient__create(void *arg0) {

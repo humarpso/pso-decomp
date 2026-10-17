@@ -71,7 +71,7 @@ struct Params_8011EAB8 {
 
 extern "C" {
 f32 * get_weapon_range_record(void *, s16);
-void remap_extra_attack_type(u8 *arg0);
+void remap_extra_attack_type(TItemWeapon *arg0);
 void TObjPlayer__sub_8011E56C(u8 *arg0, u8 *arg1);
 s32 is_active_in_game__11TItemWeaponFv(void *);
 s16 is_status_subsystem_ready__10TObjPlayerFv(s32);
@@ -416,9 +416,9 @@ void TItemWeapon::restore_action_type() {
     }
 }
 
-void remap_extra_attack_type(u8 *arg0) {
-    if ((((TItemWeapon *)arg0)->test_flags_1b8(0x20) != 0U) && (TObjPlayer__sub_801D2F4C((s16 *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC)) == 2)) {
-        if (((TItemWeapon *)arg0)->test_flags_1b8(0x100000) != 0U) {
+void remap_extra_attack_type(TItemWeapon *arg0) {
+    if ((arg0->test_flags_1b8(0x20) != 0U) && (TObjPlayer__sub_801D2F4C((s16 *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC)) == 2)) {
+        if (arg0->test_flags_1b8(0x100000) != 0U) {
             set_action_type__10TObjPlayerFs((int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC), 0);
         } else {
             set_action_type__10TObjPlayerFs((int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC), 1);
@@ -571,7 +571,7 @@ void spawn_pg_effect__10TObjPlayerFPvPvif(u8 *arg0, Vec_8011EAB8 *arg1, s32 item
     if (is_active_in_game__11TItemWeaponFv(arg0) == 0) {
         return;
     }
-    remap_extra_attack_type(arg0);
+    remap_extra_attack_type((TItemWeapon *)arg0);
     ((TItemEffPG *)(&prm))->init_params();
     ((TObjPlayer *)arg0)->fill_status_info(&prm);
     VecCopy((Vec *)&prm.pos, (const Vec *)arg1);
@@ -606,7 +606,7 @@ void fire_shot_at_target__11TItemWeaponFv(u8 *arg0, Vec_8011EB84 *origin, void *
         atk.owner = owner;
         atk.id = *(s32 *)((s8 *)arg0 + 0x24);
         ((Wpn_8011EB84 *)arg0)->m57(&atk);
-        remap_extra_attack_type(arg0);
+        remap_extra_attack_type((TItemWeapon *)arg0);
         hit = ((u8 *(*)(void *, void *))TObjPlayer__sub_8011E56C)(arg0, origin);
         if (hit != NULL) {
             VecCopy((Vec *)&atk, (const Vec *)(*(void **)((s8 *)hit + 4)));

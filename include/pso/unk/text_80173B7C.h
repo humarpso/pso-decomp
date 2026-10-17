@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TORockCaveBL01;
 extern "C" {
-u8 *TORockCaveBL01__ct(u8 *arg0, s32 arg1);
+u8 *TORockCaveBL01__ct(TORockCaveBL01 *arg0, s32 arg1);
 }
 
 #endif

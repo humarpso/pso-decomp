@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TAdSinglePlyChrSelectGC;
 extern "C" {
-void fn_80242C54(void *arg0);
+void fn_80242C54(TAdSinglePlyChrSelectGC *arg0);
 }
 
 #endif

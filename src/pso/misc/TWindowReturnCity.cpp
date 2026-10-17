@@ -52,7 +52,7 @@ s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, int, int, int);
 extern s32 __vt__17TWindowReturnCity[];
 extern s32 TWindowReturnCity__class_name;
 extern const f32 lbl_805DD2E8;
-u8 *TWindowReturnCity__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TWindowReturnCity__ct(TWindowReturnCity *arg0, s32 arg1, s32 arg2);
 void queue_destruction__7TObjectFv(void *arg0);
 u32 __nw__7TObjectFUl(s32);
 void TWindowReturnCity__sub_8024ACA8(s32 arg0);
@@ -149,25 +149,25 @@ void *__dt__17TWindowReturnCityFv(void *arg0, s16 arg1) {
 
 typedef struct RecoveredGlobal_8026D40C___vt__17TWindowReturnCity RecoveredGlobal_8026D40C___vt__17TWindowReturnCity;
 typedef char RecoveredGlobal_8026D40C___vt__17TWindowReturnCity_size[((sizeof(RecoveredGlobal_8026D40C___vt__17TWindowReturnCity)) == 0x18) ? (1) : (-1)];
-u8 *TWindowReturnCity__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TWindowReturnCity__ct(TWindowReturnCity *arg0, s32 arg1, s32 arg2) {
   s32 temp_r31;
   __ct__7TObjectFP7TObject((void *) arg0, (void *) arg1);
   *((s32 **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_8026D40C___vt__17TWindowReturnCity *)&__vt__17TWindowReturnCity).value;
   *((s32 *) (((s8 *) arg0) + 0)) = (s32) TWindowReturnCity__class_name;
-  ((TWindowReturnCity *)arg0)->m_24 = arg2;
-  temp_r31 = create__19TWindowMessageYesNoFPvPvPvPv((void *) arg0, (int) (((TWindowReturnCity *)arg0)->m_24), 0, 0);
-  ((TWindowReturnCity *)arg0)->m_1c = temp_r31;
+  arg0->m_24 = arg2;
+  temp_r31 = create__19TWindowMessageYesNoFPvPvPvPv((void *) arg0, (int) (arg0->m_24), 0, 0);
+  arg0->m_1c = temp_r31;
   if (arg0)
   {
   }
   temp_r31 = get_window_layout_position(0x23);
-  forward_slot_selection__16TAdChrSelASlotGCFPvPv((int) (((TWindowReturnCity *)arg0)->m_1c), (int) TWindowSubStatusDisp::get_message_10(0x43), (int) temp_r31, (f32) lbl_805DD2E8);
-  free_member__17TWindowSubComCardFv((int) (((TWindowReturnCity *)arg0)->m_1c), 1);
-  fn_8024AC64((((TWindowReturnCity *)arg0)->m_24));
+  forward_slot_selection__16TAdChrSelASlotGCFPvPv((int) (arg0->m_1c), (int) TWindowSubStatusDisp::get_message_10(0x43), (int) temp_r31, (f32) lbl_805DD2E8);
+  free_member__17TWindowSubComCardFv((int) (arg0->m_1c), 1);
+  fn_8024AC64((arg0->m_24));
   TWindowCtrl::set_close_flag();
   TWindowCtrl__sub_8026D4E8();
-  ((TWindowReturnCity *)arg0)->m_20 = 0;
-  return arg0;
+  arg0->m_20 = 0;
+  return (u8 *)arg0;
 }
 
 void TWindowReturnCity__sub_8026D4BC(void) {  }

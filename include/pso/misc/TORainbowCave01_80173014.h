@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TORainbowCave01;
 extern "C" {
-u8 *TORainbowCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TORainbowCave01__ct(TORainbowCave01 *arg0, s32 arg1, s32 arg2);
 void *__dt__15TORainbowCave01Fv(void *arg0, s16 arg1);
 }
 

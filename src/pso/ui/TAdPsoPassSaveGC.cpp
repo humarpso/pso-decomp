@@ -34,7 +34,7 @@ struct VObj_8034A6E8_8034A63C : Base_8034A6E8_8034A63C {
 
 extern "C" {
 
-void *TAdYesNoBaseGC__ct(void *arg0);
+void *TAdYesNoBaseGC__ct(TAdYesNoBaseGC *arg0);
 void *__dt__14TAdYesNoBaseGCFv(void *arg0, s16 arg1);
 void *__ct__10TAdTitleGCFP7TObjectl(void *, void *, int);
 void __dl__7TObjectFPv(void *);
@@ -83,7 +83,7 @@ extern void *lbl_805D4310;
 
 void *TAdPsoPassSaveGC__ct(void *parent) {
     void *o;
-    TAdYesNoBaseGC__ct(parent);
+    TAdYesNoBaseGC__ct((TAdYesNoBaseGC *)parent);
     *(s32 **)((s8 *)parent + 0x18) = __vt__16TAdPsoPassSaveGC;
     *(void * *)&((TAdPsoPassSaveGC *)parent)->m_name = lbl_805D4310;
     o = __nw__7TObjectFUl(0x138);

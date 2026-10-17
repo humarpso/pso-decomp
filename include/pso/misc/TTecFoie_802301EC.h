@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TTecFoie;
 extern "C" {
-u8 *TTecFoie__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4);
+u8 *TTecFoie__ct(TTecFoie *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4);
 }
 
 #endif

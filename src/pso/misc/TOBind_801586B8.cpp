@@ -82,7 +82,7 @@ void TOBind::render() {
 void *TOBind::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD8);
     if (o != NULL) {
-        o = TOBind__ct((u8 *)o, (s32)arg0);
+        o = TOBind__ct((TOBind *)((u8 *)o), (s32)arg0);
     }
     return o;
 }
@@ -119,31 +119,31 @@ void *__dt__6TOBindFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80158890_lbl_804AFC54_size[sizeof(RecoveredGlobal_80158890_lbl_804AFC54) == 0x58 ? 1 : -1];
 typedef char RecoveredGlobal_80158890___vt__6TOBind_size[sizeof(RecoveredGlobal_80158890___vt__6TOBind) == 0x3C ? 1 : -1];
-u8 *TOBind__ct(u8 *arg0, s32 arg1) {
+u8 *TOBind__ct(TOBind *arg0, s32 arg1) {
     construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_05);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80158890___vt__6TOBind *)&__vt__6TOBind).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2EA8;
     ((TOBind *)(arg0))->apply_object_set_data((void *)arg1);
-    ((TOBind *)arg0)->m_b0 = 0;
+    arg0->m_b0 = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TOBind__static_model_resource)), 0);
-    ((TOBind *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__static_model_resource)), 0);
-    ((TOBind *)arg0)->m_c4 = get_bml_model((int) ((*(s32 *)&TOBind__static_model_resource)), 1);
-    ((TOBind *)arg0)->m_c8 = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__static_model_resource)), 1);
+    arg0->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__static_model_resource)), 0);
+    arg0->m_c4 = get_bml_model((int) ((*(s32 *)&TOBind__static_model_resource)), 1);
+    arg0->m_c8 = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__static_model_resource)), 1);
     *(u8 **)((s8 *)arg0 + 0xCC) = get_bml_motion((*(s32 *)&TOBind__static_model_resource), 0);
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DB300;
-    ((TOBind *)arg0)->m_bc = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xCC)) + 4) - lbl_805DB304);
+    arg0->m_bc = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xCC)) + 4) - lbl_805DB304);
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB304;
     init_collision_body_parts(arg0, &lbl_804AFC54.value, 2);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    ((TOBind *)arg0)->actorFlags = (s32) (((TOBind *)arg0)->actorFlags | 0x40000000);
-    ((TOBind *)arg0)->m_b4 = (s32) ((TOBind *)arg0)->m_84;
-    if ((s32) ((TOBind *)arg0)->m_b4 < 0) {
-        ((TOBind *)arg0)->m_b4 = 0;
+    arg0->actorFlags = (s32) (arg0->actorFlags | 0x40000000);
+    arg0->m_b4 = (s32) arg0->m_84;
+    if ((s32) arg0->m_b4 < 0) {
+        arg0->m_b4 = 0;
     }
     *(f32 *)((s8 *)arg0 + 0xD0) = (f32) lbl_805DB308;
-    ((TOBind *)arg0)->m_d4 = (f32) lbl_805DB30C;
-    return arg0;
+    arg0->m_d4 = (f32) lbl_805DB30C;
+    return (u8 *)arg0;
 }
 
 }

@@ -8,8 +8,9 @@ struct TWindow
     void close_sub_windows();
 };
 
+class TShopWindowBase;
 extern "C" {
-void handle_confirm_dialog(void *arg0);
+void handle_confirm_dialog(TShopWindowBase *arg0);
 }
 
 #endif
