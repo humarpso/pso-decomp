@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
-#include "pso/unk/TPhotonFarlla.h"
+#include "pso/misc/TPhotonFarlla.h"
 
 #include <stddef.h>
 #include "pso/enemy/TObjEnePanarms.h"

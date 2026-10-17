@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
-#include "pso/unk/TPhotonGolla.h"
+#include "pso/misc/TPhotonGolla.h"
 
 #include <stddef.h>
 #include "pso/player/TObjPlayer.h"

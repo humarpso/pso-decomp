@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/player/TUnk_80491478.h"
 #include "pso/player/TUnk_80491460.h"
-#include "pso/unk/TObjEneDubchik.h"
+#include "pso/enemy/TObjEneDubchik.h"
 #include "pso/enemy/TObjEneShark.h"
 
 #include <stddef.h>

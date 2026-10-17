@@ -1,5 +1,5 @@
 #include "types.h"
-#include "pso/unk/TObjEneDubchik.h"
+#include "pso/enemy/TObjEneDubchik.h"
 
 extern "C" {
 

@@ -1,6 +1,6 @@
 #include "types.h"
 #include "pso/misc/TUnk_804C3248.h"
-#include "pso/unk/TPhotonPilla.h"
+#include "pso/misc/TPhotonPilla.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEnePanarms.h"
 #include "pso/misc/TOKeyMachine01.h"

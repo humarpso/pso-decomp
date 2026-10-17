@@ -1,5 +1,5 @@
 #include "types.h"
-#include "pso/unk/TObjEneDubchik.h"
+#include "pso/enemy/TObjEneDubchik.h"
 
 struct RecoveredGlobal_800AAF78_lbl_805009B8 {
     s32 value;

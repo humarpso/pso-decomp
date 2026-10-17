@@ -1,37 +1,20 @@
 #ifndef PSO_MISC_TPHOTONGOLLA_H
 #define PSO_MISC_TPHOTONGOLLA_H
-
 #include "types.h"
+#include "pso/misc/TUnk_804C3248.h"
 
-struct TPhotonGolla
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0xC];
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x24];
-    u32 m_60;
-    u8 _pad64[0x54];
-    s16 m_b8;
-    u8 _padBA[0x7A];
-    u32 m_134;
-    u32 m_138;
-    u8 _pad13C[0x18];
-    u32 m_154;
-    u16 m_158;
-    u8 _pad15A[0x42];
-    u32 m_19c;
-    u8 _pad1A0[0x4];
-    u32 m_1a4;
-    u32 m_1a8;
-    u8 _pad1AC[0xC];
-    u16 m_1b8;
-    u8 _pad1BA[0x2];
-    u32 m_1bc;
-    u32 m_1c0;
-    u32 m_1c4;
-    u32 m_1c8;
+class TPhotonGolla : public TUnk_804C3248 {
+public:
+    virtual ~TPhotonGolla();
+    void sub_801AB688();
+    virtual void render();
+    virtual void run_task();
+    u8 unk_158[0x60];
+    s16 m_1b8;
+    u8 unk_1BA[0xA];
+    s32 m_1c4;
+    u8 unk_1C8[0x4];
 };
+typedef char TPhotonGolla_size[sizeof(TPhotonGolla) == 0x1CC ? 1 : -1];
 
 #endif

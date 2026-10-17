@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/misc/TBreakUpMdl.h"
 #include "pso/enemy/TObjEnemy.h"
-#include "pso/unk/TObjEneDubchik.h"
+#include "pso/enemy/TObjEneDubchik.h"
 #include "pso/enemy/TObjEnemyCustom.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/TParticleCtrl.h"

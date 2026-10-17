@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/misc/TUnk_804C3248.h"
 #include "pso/object/TObjMotion.h"
-#include "pso/unk/TPhotonPilla.h"
+#include "pso/misc/TPhotonPilla.h"
 
 extern "C" {
 
