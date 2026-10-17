@@ -71,7 +71,7 @@ void TBoss5GryphonLightningWing::render() {  }
 
 #pragma push
 #pragma opt_common_subs off
-void run_task__26TBoss5GryphonLightningWingFv(u8 *arg0) {
+void run_task__26TBoss5GryphonLightningWingFv(TBoss5GryphonLightningWing *arg0) {
     Stack_80351A80 stack;
     *(f32 *)((s8 *)arg0 + 0x88) = (f32) ((f32) *(s32 *)((s8 *)arg0 + 0x94) / (f32) *(s32 *)((s8 *)arg0 + 0x9C));
     if (*(f32 *)((s8 *)arg0 + 0x88) > lbl_805DFED4) {
@@ -81,10 +81,10 @@ void run_task__26TBoss5GryphonLightningWingFv(u8 *arg0) {
     if (*(f32 *)((s8 *)arg0 + 0x8C) > lbl_805DFED4) {
         *(f32 *)((s8 *)arg0 + 0x8C) = (f32) lbl_805DFED4;
     }
-    ((TBoss5GryphonLightningWing *)arg0)->update_wing_segments();
-    ((TBoss5GryphonLightningWing *)arg0)->apply_lightning_effect();
+    arg0->update_wing_segments();
+    arg0->apply_lightning_effect();
     if ((s32) *(s32 *)((s8 *)arg0 + 0x94) == (s32) *(s32 *)((s8 *)arg0 + 0x98)) {
-        ((TBoss5GryphonLightningWing *)arg0)->get_wing_position((s32)&stack.sp8);
+        arg0->get_wing_position((s32)&stack.sp8);
         play_sound_effect(0x40032516, &stack.sp8, 0, 0);
     }
     ((TBoss5GryphonLightning *)arg0)->spawn_gryphon_lightning();

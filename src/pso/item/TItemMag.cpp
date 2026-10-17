@@ -246,7 +246,7 @@ extern "C" void try_pick_up_item__5TItemFl();
 extern "C" void unequip__14TItemEquipBaseFv();
 extern "C" void update_equip__14TItemEquipBaseFv();
 struct TItemMag_801138F0; struct Self_801134CC; struct Self_80113310; struct Self_801135E0;
-extern "C" { void *__dt__8TItemMagFv(void *, s16); void TItemMag__vt12(s32); int TItemMag__vt13(void*); void TItemMag__vt14(Self_80113310*); void serialize_to_item__8TItemMagFPv(TItemMag *, void *); void TItemMag__vt24(Self_801135E0*); void TItemMag__vt25(Self_801134CC*); void TItemMag__vt42(u8*); void TItemMag__vt43(u8*); void TItemMag__vt44(s32); void TItemMag__vt45(TItemMag_801138F0*); }
+extern "C" { void *__dt__8TItemMagFv(void *, s16); void TItemMag__vt12(s32); int TItemMag__vt13(void*); void TItemMag__vt14(Self_80113310*); void serialize_to_item__8TItemMagFPv(TItemMag *, void *); void TItemMag__vt24(Self_801135E0*); void TItemMag__vt25(Self_801134CC*); void TItemMag__vt42(TItemMag *); void TItemMag__vt43(u8*); void TItemMag__vt44(s32); void TItemMag__vt45(TItemMag_801138F0*); }
 void *__vt__8TItemMag[51] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__8TItemMagFv, (void *)&run_task__5TItemFv,
     (void *)&dispatch_state__5TItemFv, (void *)&render_shadows__5TItemFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
@@ -1496,7 +1496,7 @@ void TItemMag__vt12(s32 arg0);
 s16 obj_getS16_32E(void *);
 s32 test_flags_any(void *, int);
 s32 obj_isState7_324(void *);
-void TItemMag__vt42(u8 *arg0);
+void TItemMag__vt42(TItemMag *arg0);
 s32 is_flag_20000_set__10TObjPlayerFv(void *);
 void send_6x3A_clear_photon_blast_ready_flag(u16 *arg0);
 void TItemMag__vt43(u8 *arg0);
@@ -1689,20 +1689,20 @@ void TItemMag__vt43(u8 *arg0) {
   ((TItemMag *)arg0)->apply_feed_delta();
 }
 
-void TItemMag__vt42(u8 *arg0) {
+void TItemMag__vt42(TItemMag *arg0) {
     *(s32 *)((s8 *)arg0 + 0x18C) = 0;
     if (((s32 (*)(void *))obj_isState2_324__13TUnk_804806E8Fv)((void *) (*(u8 **)((s8 *)arg0 + 0xF0))) == 0) {
         *(s32 *)((s8 *)arg0 + 0x18C) = 0x10;
-        ((TItemMag *)arg0)->register_photon_blasts();
+        arg0->register_photon_blasts();
     }
-    ((TItemMag *)arg0)->request_support_action(1);
+    arg0->request_support_action(1);
     *(s16 *)((s8 *)arg0 + 0x1D4) = ((VObj_18 *)(*(u8 **)((s8 *)arg0 + 0xF0)))->m14();
     if ((s16) *(s16 *)((s8 *)arg0 + 0x1D6) == -1) {
         *(s16 *)((s8 *)arg0 + 0x1D6) = TOKeyMachine01::get_global_state();
     }
     *(s16 *)((s8 *)arg0 + 0x1DC) = ((s16 (*)(void *))obj_getS16_32C)((void *) (*(u8 **)((s8 *)arg0 + 0xF0)));
     *(s16 *)((s8 *)arg0 + 0x1DE) = obj_getS16_32E((void *) (*(u8 **)((s8 *)arg0 + 0xF0)));
-    if (test_flags_any(arg0 + 0x178, 1) != 0) {
+    if (test_flags_any((u8 *)arg0 + 0x178, 1) != 0) {
         *(s32 *)((s8 *)arg0 + 0x18C) = (s32) (*(s32 *)((s8 *)arg0 + 0x18C) & 0xFFFFFFDF);
     } else {
         *(s32 *)((s8 *)arg0 + 0x18C) = (s32) (*(s32 *)((s8 *)arg0 + 0x18C) | 0x20);
