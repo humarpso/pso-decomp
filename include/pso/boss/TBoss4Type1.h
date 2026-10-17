@@ -5,6 +5,7 @@
 
 struct TBoss4Type1
 {
+    void sub_80053670();
     void snapshot_position();
     void render_effects();
     void update_boss4_phase_timer();

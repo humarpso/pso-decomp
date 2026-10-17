@@ -6,6 +6,7 @@
 
 struct TObjEneBalClawBody : public TObjEneBalClaw {
     virtual ~TObjEneBalClawBody();
+    void sub_8008FC10();
     virtual void render();
     void sub_800C73F4();
     void sub_8008FF50();

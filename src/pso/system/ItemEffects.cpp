@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemEquipBase.h"
 #include "pso/player/TObjPlayer_80100CC8.h"
 #include "pso/system/ItemEffects.h"
 #include "pso/unk/text_802034B0.h"
@@ -29,10 +30,10 @@ s32 ct__13TUnk_804A0688Fv(s32, u32, s32, s32);
 extern s32 tl_05;
 void run_task__13TUnk_804A2660Fv(void *arg0);
 u8 *find_item_by_id(s32 id);
-s8 TObjPlayer__sub_80102C30();
+s8 sub_80102C30__5TItemFv();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-s32 obj_testFlags30(s32, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(s32, s32);
 void queue_destruction__7TObjectFv(void *);
 
 void render__7TObjectFv();
@@ -50,11 +51,11 @@ void TUnk_804A2660::run_task() {
     var_r31 = 0;
     if ((u32) *(u32 *)&this->unk_24 != 0U) {
         var_r30 = (s32)find_item_by_id(*(s32 *)&this->unk_1C);
-        if ((var_r30 != 0) && (TObjPlayer__sub_80102C30() == 2)) {
+        if ((var_r30 != 0) && (sub_80102C30__5TItemFv() == 2)) {
             var_r31 = 1;
             if (((TObjPlayer *)var_r30)->draw_icon(this->m_20, (s32)sp8) != 0) {
                 ((TNowLoading *)(*(u32 *)&this->unk_24))->copy_pos(sp8);
-                if ((((TItemMag *)var_r30)->get_flag_40() == 0) || (obj_testFlags30(var_r30, 0x08000000) == 0)) {
+                if ((((TItemEquipBase *)var_r30)->get_flag_40() == 0) || (obj_testFlags30__13TUnk_804AF8A0FUl(var_r30, 0x08000000) == 0)) {
                     ((TParticleCtrl *)(*(u32 *)&this->unk_24))->clear_active_flag();
                 } else {
                     ((TParticleCtrl *)(*(u32 *)&this->unk_24))->enable();
@@ -125,7 +126,7 @@ void TObjPlayer::create_pro_armor() {
 void TUnk_804A2678::update_weapon() {
     s32 temp_r3;
     temp_r3 = TOKeyMachine01::get_global_state();
-    if ((temp_r3 != (s32) *(s32 *)&this->unk_1F8) && (item_model_is_shown(this) != 0)) {
+    if ((temp_r3 != (s32) *(s32 *)&this->unk_1F8) && (item_model_is_shown__11TItemWeaponFv(this) != 0)) {
         *(s32 *)&this->unk_1F8 = temp_r3;
         if (is_item_area_enabled(temp_r3) != 0) {
             spawn_item_follow_effect((s32)tl_05, (u32)this, 1, 0x1AE);

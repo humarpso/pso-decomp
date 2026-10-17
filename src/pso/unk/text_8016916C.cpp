@@ -7,7 +7,7 @@ extern const f32 lbl_805DB6B8;
 extern const f32 lbl_805DB6BC;
 s32 add_actor_tp(u8 *arg0, s32 arg1);
 s32 add_actor_hp(u8 *arg0, s16 arg1);
-s32 obj_testFlags30(s32, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(s32, s32);
 f32 horizontal_distance_squared(s32, void *);
 s32 get_player_by_client_id(u32);
 extern const f32 lbl_805DB6C4;
@@ -58,7 +58,7 @@ void TOHealGeneral::apply_heal_to_target() {
     u32 id = this->m_f4;
     if ((id != 0xFFFF) && (id < 0x1000U)) {
         temp_r3_2 = get_player_by_client_id(id);
-        if ((temp_r3_2 != 0) && (obj_testFlags30(temp_r3_2, 0x800) == 0) && (horizontal_distance_squared(temp_r3_2 + 0x38, (u8 *)&this->position) < lbl_805DB6C4)) {
+        if ((temp_r3_2 != 0) && (obj_testFlags30__13TUnk_804AF8A0FUl(temp_r3_2, 0x800) == 0) && (horizontal_distance_squared(temp_r3_2 + 0x38, (u8 *)&this->position) < lbl_805DB6C4)) {
             add_actor_hp((u8 *)temp_r3_2, 9);
             add_actor_tp((u8 *)temp_r3_2, 9);
         }

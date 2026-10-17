@@ -56,7 +56,7 @@ extern "C" {
 s32 construct_actor_base__10TObjPlayerFPvPv(void *);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
+void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_8018BD00_TContainerAncient01__data_804B6DC0 TContainerAncient01__collision_body_parts;
 extern RecoveredGlobal_8018BD00_lbl_804B6DEC TContainerAncient01__anim_table;
@@ -105,10 +105,10 @@ u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(u8 * *)&TContainerAncient01__bml_resource)), 0);
     ((TContainerAncient01 *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(u8 * *)&TContainerAncient01__bml_resource)), 0);
     ((TContainerAncient01 *)arg0)->action_table = &TContainerAncient01__anim_table.value;
-    ((TObjPlayer *)arg0)->set_field_d8((s32)((void *) (((TContainerAncient01 *)arg0)->action_table)));
+    ((TObjMotion *)arg0)->set_field_d8((s32)((void *) (((TContainerAncient01 *)arg0)->action_table)));
     *(s32 *)((s8 *)arg0 + 0xDC) = (s32) *(s32 *)((s8 *)(*(u8 * *)&TContainerAncient01__bml_resource) + 0x430);
     ((TContainerAncient01 *)arg0)->m_b8 = 0;
-    set_animation__10TObjPlayerFPvs((arg0), (((TContainerAncient01 *)arg0)->m_b8));
+    set_animation__10TObjMotionFs((arg0), (((TContainerAncient01 *)arg0)->m_b8));
     ((TObjMotion *)arg0)->set_field_b8((int) (((TContainerAncient01 *)arg0)->m_b8));
     ((TContainerAncient01 *)arg0)->actorFlags = (s32) (((TContainerAncient01 *)arg0)->actorFlags | 0x60000000);
     init_collision_body_parts(arg0, (void *)&TContainerAncient01__collision_body_parts.value, 1);
@@ -547,13 +547,13 @@ void TObjContainerJungEnemy::vfunc_6(s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
             ((TObjContainerJungEnemy *)arg0)->vfunc_79();
-            ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
+            ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 1);
             ((TUnk_804AF8A0 *)arg0)->set_flag8();
             queue_destruction__7TObjectFv((arg0));
             this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
-        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
+        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 1);
         ((TUnk_804AF8A0 *)arg0)->set_flag8();
         queue_destruction__7TObjectFv((arg0));
         this->mode = 1;

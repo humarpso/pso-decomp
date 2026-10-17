@@ -132,7 +132,7 @@ void show_partner_chatter_for_key(s16 key);
 extern struct Slot_8034EDC4 partner_dialogue_table[];
 extern s32 TNpcPlayer__data_805D5864;
 void init_partner_dialogue(void);
-s32 obj_testFlags30(void *, int);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, int);
 int sprintf(char *, const char *, ...);
 char *strcpy(char *, const char *);
 u32 strlen(const char *);
@@ -213,7 +213,7 @@ void quest_player_face_actor(u16 src, u16 dst) {
         return;
     }
     ((TNpcPlayer *)(&pkt))->init_6x3E_packet();
-    obj_testFlags30(a, 0x100000);
+    obj_testFlags30__13TUnk_804AF8A0FUl(a, 0x100000);
     heading = (s32) (lbl_80478CB0[0] * atan2_float(c->x - a->x, c->z - a->z));
     pkt.id = src;
     VecCopy((Vec *)&pkt.x, (const Vec *)&a->x);
@@ -256,7 +256,7 @@ void quest_player_look_at_partner(u16 src) {
     }
     ((TNpcPlayer *)(&pkt))->init_6x3E_packet();
     flag = 0;
-    if (obj_testFlags30(a, 0x100000) != 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(a, 0x100000) != 0) {
         flag = 1;
     }
     heading = (s32) (lbl_80478CB0[0] * atan2_float(c->x - a->x, c->z - a->z));
@@ -279,7 +279,7 @@ void TNpcPlayer::send_stop_at_position(u16 id, void *pos, s16 arg) {
     p = (u8 *) get_player_by_client_id(id);
     flag = 0;
     if (p != NULL) {
-        if (obj_testFlags30(p, 0x100000) != 0) {
+        if (obj_testFlags30__13TUnk_804AF8A0FUl(p, 0x100000) != 0) {
             flag = 1;
         }
         pkt.id = id;
@@ -350,7 +350,7 @@ void TNpcPlayer::send_6x3e_to_all_players(void *pos, s16 arg) {
         p = get_player_by_client_id(i);
         if (p != 0 && obj_isState3_324__13TUnk_804806E8Fv() != 0 && ((TNpcPlayer *)p)->get_action_flags() != 0xFFFF) {
             flag = 0;
-            if (obj_testFlags30((void *)p, 0x100000) != 0) {
+            if (obj_testFlags30__13TUnk_804AF8A0FUl((void *)p, 0x100000) != 0) {
                 flag = 1;
             }
             ((TNpcPlayer *)(&pkt))->init_6x3E_packet();

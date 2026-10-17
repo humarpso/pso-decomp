@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/misc/TODoorAncient06.h"
 #include "pso/TParticleCtrl.h"
@@ -25,7 +26,7 @@ extern const f32 lbl_805DB430;
 extern const f32 lbl_805DB434;
 extern const f32 lbl_805DB438;
 extern const f32 lbl_805DB43C;
-void set_indexed_flags(void *, s32, s32);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *, s32, s32);
 s32 is_any_player_within_radius_xz(u8 *self, f32 radius);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern u8 *TODoorAncient06__texture_lists;
@@ -62,13 +63,13 @@ void TODoorAncient06::vfunc_17() {
         this->texture_id = (s32) *(s32 *)((s8 *)TODoorAncient06__texture_lists + 4);
         if (is_any_player_within_radius_xz(arg0, lbl_805DB440) != 1) {
             this->m_ac = 3;
-            ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
+            ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 8);
             play_sound_effect(0x4004B708, (u8 *)&this->position, 0, 0);
         }
     } else {
         this->m_ac = 3;
         this->texture_id = (s32) *(s32 *)((s8 *)TODoorAncient06__texture_lists + 0);
-        ((TObjPlayer *)arg0)->clear_player_status_flag((s32)NULL, 8);
+        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag((s32)NULL, 8);
         play_sound_effect(0x4004B708, (u8 *)&this->position, 0, 0);
     }
 }
@@ -81,7 +82,7 @@ void TODoorAncient06::play_proximity_sound() {
         this->texture_id = (s32) *(s32 *)((s8 *)TODoorAncient06__texture_lists + 4);
         if (is_any_player_within_radius_xz((u8 *)((s32) arg0), lbl_805DB444) == 1) {
             this->m_ac = 1;
-            set_indexed_flags(arg0, 0, 8);
+            set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 8);
             play_sound_effect(0x4004B708, (u8 *)&this->position, 0, 0);
         }
     } else {

@@ -5,14 +5,14 @@
 
 extern "C" {
 
-u8 get_slot_count__14TItemProShieldFv();
+u8 get_slot_count__5TItemFv();
 
 extern f32 lbl_805DACE4;
 extern f32 lbl_805DACE8;
 
 void TUnk_804A0FA0::update_idle() {
     s32 arg0 = (s32)this;
-    if (get_slot_count__14TItemProShieldFv() == 5) {
+    if (get_slot_count__5TItemFv() == 5) {
         TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1F8), (f32)lbl_805DACE4, (f32)lbl_805DACE8);
     }
 }
@@ -22,7 +22,7 @@ extern f32 lbl_805DACEC;
 
 void TUnk_804A0FA0::update_attack() {
     s32 arg0 = (s32)this;
-    if (get_slot_count__14TItemProShieldFv() == 5) {
+    if (get_slot_count__5TItemFv() == 5) {
         TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x1F8), (f32)lbl_805DACEC, (f32)lbl_805DACE0);
     }
 }

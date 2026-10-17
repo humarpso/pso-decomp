@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemyCustom.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/enemy/TUnk_804909C4.h"
+#include "pso/enemy/TObjEneDarkGunner.h"
 extern "C" void update_movement_status__17TObjEneDarkGunnerFv();
 #include "pso/enemy/TObjEneDarkGunner.h"
 #include "pso/enemy/TObjEneDarkGunCenter.h"
@@ -259,7 +264,7 @@ void move_with_wall_slide(u8 *arg0);
 void calc_velocity_toward_destination(void *, Vec_800A12C0, Vec_800A12C0, f32);
 s32 check_path_obstructed(void *, Vec_800A1D70 *);
 s32 obj_is_hit_receivable();
-s32 obj_testFlags30(s32, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(s32, s32);
 s16 obj_getField1c(void *, f32);
 f32 atan2_float(f32, f32);
 int TObjFish__sub_8001EDB0(void*, void*);
@@ -276,8 +281,8 @@ void fn_800A0FDC(TObjEneLappy *arg0);
 void TObjPlayer__sub_800A100C(s32 _w0);
 s32 update_action_hold_status__17TObjEneDarkGunnerFv(s32 arg0);
 void init_scale_global__10TObjPlayerFv(void);
-void TObjPlayer__sub_800A1520(u8 *arg0);
-void TObjPlayer__sub_800A159C(Obj_800A159C *o);
+void sub_800A1520__17TObjEneDarkGunnerFv(u8 *arg0);
+void sub_800A159C__17TObjEneDarkGunnerFv(Obj_800A159C *o);
 void vfunc_61__17TObjEneDarkGunnerFv(u8 *arg0);
 int TObjPlayer__sub_800A1808(void* p);
 void TObjPlayer__sub_800A1974(void);
@@ -290,7 +295,7 @@ u8 *TObjPlayer__sub_800A2F94(u8 *, s32, u8 *);
 void vfunc_28__17TObjEneDarkGunnerFv(void);
 void vfunc_58__17TObjEneDarkGunnerFv(void);
 void vfunc_59__17TObjEneDarkGunnerFv(void);
-s32 TObjPlayer__sub_800A3290(Obj_800A3290 *self, s32 id);
+s32 sub_800A3290__13TUnk_804909C4Fl(Obj_800A3290 *self, s32 id);
 void * __dt__13TUnk_804909C4Fv(void *arg0, s16 arg1);
 u8 * TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 void TEneEffHamon__sub_800A380C(void);
@@ -336,7 +341,7 @@ void obj_setFlags30(void *, u32);
 void TObjEnemyCustom__ct(void *, s32, void *);
 int initialize_enemy_photon_effect(void *p);
 s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
-void set_animation__10TObjPlayerFPvs(void *, s16);
+void set_animation__10TObjMotionFs(void *, s16);
 extern Atk_800A2F94 dark_gunner_attack_binding_desc;
 extern s32 dark_gunner_class_name_ptr;
 extern s32 lbl_805D4FF8[1];
@@ -709,7 +714,7 @@ u8 *TObjEneDarkGunCenter__ct(u8 *arg0, s32 arg1, s32 arg2) {
     VecCopy((Vec *)o->home, (const Vec *)o->pos);
     o->flags = o->flags | 0x06000000 | 0x800;
     o->f374 = 0;
-    ((TObjEneLappy *)arg0)->set_param(0x22);
+    ((TObjEnemy *)arg0)->set_param(0x22);
     o->sel = -1;
     o->count = 0;
     for (i = 0; i < 16; i++) {
@@ -878,41 +883,42 @@ void TObjPlayer::trigger_action_if_not_flagged() {
     }
 }
 
-void TObjPlayer__sub_800A1520(u8 *arg0_) {
+void TObjEneDarkGunner::sub_800A1520() {
   s16 temp_r0;
-  temp_r0 = *((s16 *) (((0, (s8 *) arg0_)) + 0x326));
+  temp_r0 = *((s16 *) (((0, (s8 *) ((u8 *)this))) + 0x326));
   {
     switch (temp_r0)
     {
       case 0:
-        TObjPlayer__sub_800A27CC((void *) arg0_);
+        TObjPlayer__sub_800A27CC((void *) ((u8 *)this));
         return;
       case 1:
-        TObjPlayer__sub_800A2390(arg0_);
+        TObjPlayer__sub_800A2390(((u8 *)this));
         return;
       case 2:
-        TObjPlayer__sub_800A1FEC((void *)((void *) arg0_));
+        TObjPlayer__sub_800A1FEC((void *)((void *) ((u8 *)this)));
         return;
       case 4:
-        TObjPlayer__sub_800A1D70((u8 *)((void *) arg0_));
+        TObjPlayer__sub_800A1D70((u8 *)((void *) ((u8 *)this)));
         return;
       case 3:
-        TObjPlayer__sub_800A16C4((u8 *)((void *) arg0_));
+        TObjPlayer__sub_800A16C4((u8 *)((void *) ((u8 *)this)));
         return;
       case 5:
-        TObjPlayer__sub_800A1C84((void *) arg0_);
+        TObjPlayer__sub_800A1C84((void *) ((u8 *)this));
         return;
       case 6:
-        ((TObjPlayer *)arg0_)->update_hide_sequence();
+        ((TObjPlayer *)((u8 *)this))->update_hide_sequence();
         return;
       case 8:
-        ((TObjPlayer *)arg0_)->update_move_to_destination();
+        ((TObjPlayer *)((u8 *)this))->update_move_to_destination();
         break;
     }
   }
 }
 
-void TObjPlayer__sub_800A159C(Obj_800A159C *o) {
+void TObjEneDarkGunner::sub_800A159C() {
+    Obj_800A159C *o = (Obj_800A159C *)this;
     f32 v;
     f32 lo;
     s32 i;
@@ -1000,7 +1006,7 @@ extern int fold_flush_1;
 
 void TObjPlayer::render_shadow() {
     s32 arg0 = (s32)this;
-    if (obj_testFlags30(arg0, 0x800) == 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x800) == 0) {
         if (is_flag_set_388_bit26() == 0) {
             TObjFish::set_global_param(lbl_805D5014);
         } else {
@@ -1390,7 +1396,7 @@ u8 *TObjPlayer__sub_800A2F94(u8 *self, s32 arg1, u8 *arg2) {
     ((VObj_18_800A2F94 *)self)->m79(arg2);
     initialize_enemy_photon_effect(self);
     F(s32, 0x368) = 0;
-    ((TObjEneLappy *)self)->set_param(0x22);
+    ((TObjEnemy *)self)->set_param(0x22);
     ((TUnk_804806E8 *)self)->add_flags_2e4(8);
     F(s32, 0x36C) = *(s16 *)(arg2 + 0x3E);
     F(s16, 0x33A) = 0xF;
@@ -1399,12 +1405,12 @@ u8 *TObjPlayer__sub_800A2F94(u8 *self, s32 arg1, u8 *arg2) {
     VecCopy((Vec *)(self + 0x50), (const Vec *)(self + 0x38));
     VecCopy((Vec *)(self + 0x290), (const Vec *)(self + 0x38));
     VecCopy((Vec *)(self + 0x29C), (const Vec *)(self + 0x38));
-    ((TObjPlayer *)self)->set_fields_24_34_from_global((void *)1);
+    ((TObjEneDarkGunner *)self)->set_fields_24_34_from_global((void *)1);
     F(s32, 0xDC) = *(s32 *)(G500C + 0x430);
     F(void *, 0xD8) = lbl_80490668;
-    ((TObjPlayer *)self)->set_field_d8(F(s32, 0xD8));
+    ((TObjMotion *)self)->set_field_d8(F(s32, 0xD8));
     F(s16, 0xB8) = 0;
-    set_animation__10TObjPlayerFPvs(self, F(s16, 0xB8));
+    set_animation__10TObjMotionFs(self, F(s16, 0xB8));
     ((TObjMotion *)self)->set_field_b8(F(s16, 0xB8));
     init_collision_body_parts(self, lbl_80490780, 1);
     F(void *, 0x350) = lbl_80490748;
@@ -1455,13 +1461,13 @@ s32 TObjPlayer__sub_800A3210(s32 i, s32 _w1, s32 _w2) {
 
 int TObjPlayer::is_flag_set_388_bit26() { return (*(u32 *)&this->unk_388 >> 26) & 0x1; }
 
-void TObjPlayer::set_fields_24_34_from_global(void* a1) { *(int *)&this->model = get_bml_model((void*)((*(int *)&player_effect_bml_resource))); *(int *)&this->texture_id = TObjFish__sub_8001EDB0((void*)((*(int *)&player_effect_bml_resource)), a1); }
+void TObjEneDarkGunner::set_fields_24_34_from_global(void*a1) { *(int *)&this->model = get_bml_model((void*)((*(int *)&player_effect_bml_resource))); *(int *)&this->texture_id = TObjFish__sub_8001EDB0((void*)((*(int *)&player_effect_bml_resource)), a1); }
 
 void TObjPlayer::clear_counter() { this->m_340 = 0; }
 
 void TObjPlayer::set_cancel_flag() { *(s32 *)&this->m_340 = 1; }
 
-s32 TObjPlayer__sub_800A3290(Obj_800A3290 *self, s32 id) {
+s32 TUnk_804909C4::sub_800A3290(s32 id) {
     Obj_800A3290 *other;
     s32 result = 0;
     s32 i;
@@ -1472,10 +1478,10 @@ s32 TObjPlayer__sub_800A3290(Obj_800A3290 *self, s32 id) {
     }
     other->sub->flags &= ~1;
     TObjPlayer::init_all_slots();
-    ((TObjPlayer *)self)->check_object_collisions();
-    check_enemy_body_collisions(self);
+    ((TObjPlayer *)((Obj_800A3290 *)this))->check_object_collisions();
+    check_enemy_body_collisions(((Obj_800A3290 *)this));
     other->sub->flags |= 1;
-    if (self->sub->flags & 0x180000) {
+    if (((Obj_800A3290 *)this)->sub->flags & 0x180000) {
         for (i = 0; i < 16; i++) {
             p = get_battle_param__10TObjPlayerFi(i);
             if (p == NULL) {
@@ -1505,7 +1511,7 @@ void TUnk_804909C4::run_task() {
             ((TNowLoading *)p)->copy_pos((u8 *)&this->position);
         }
     }
-    if (TObjPlayer__sub_800A3290((Obj_800A3290 *)(arg0), (s32)((int) (*(u16 *)((s8 *)arg0 + 0xC8)))) != 0) {
+    if (sub_800A3290__13TUnk_804909C4Fl((Obj_800A3290 *)(arg0), (s32)((int) (*(u16 *)((s8 *)arg0 + 0xC8)))) != 0) {
         queue_destruction__7TObjectFv((arg0));
         return;
     }

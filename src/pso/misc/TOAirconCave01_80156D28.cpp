@@ -41,7 +41,7 @@ void TUnk_804AF8D8::set_flags_and_apply_damage_color() {
     (*(s32 *)&lbl_805D5668) = (*(s32 *)&chunk_polygon_flags_or_mask);
     copy_vec4__13TRaderMapCoreFPvPv((&(*(RecoveredGlobal_80156D70_lbl_8050BEC0 *)&saved_model_draw_color).value), (&(*(RecoveredGlobal_80156D70_lbl_8058D4C0 *)&model_material_color).value));
     (*(s32 *)&model_render_flags) |= 0x8021;
-    set_chunk_material_color((f32 *)arg0);
+    set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)arg0);
     set_color_blend_mode(1, 4, 5, 0);
 }
 

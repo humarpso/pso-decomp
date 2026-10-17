@@ -26,9 +26,9 @@ s32 advance_item_id_counter(u16);
 extern s32 local_client_id;
 extern s32 lbl_805D5450;
 extern s32 *TLobby__data_805D6140;
-int clear_item_flags__10TObjPlayerFUl(void*, int);
+int clear_item_flags__5TItemFUl(void*, int);
 
-int TItemObject::set_flag_1024() { return clear_item_flags__10TObjPlayerFUl(this, 1024); }
+int TItemObject::set_flag_1024() { return clear_item_flags__5TItemFUl(this, 1024); }
 void TItem::use_combination_recipe() {
     u8 sp1C[0x14];
     u8 sp8[0x14];

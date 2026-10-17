@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemEquipBase.h"
 #include "pso/item/TItemProShield.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/item/TItem.h"
@@ -205,7 +206,7 @@ void TItem::vfunc_24(s32, s32, s16 *) {  }
 
 typedef struct VBase_18_94668e VBase_18_94668e;
 typedef struct VObj_18_94668e VObj_18_94668e;
-void TItem::refresh_owner_stats() {
+void TItemEquipBase::refresh_owner_stats() {
   s16 temp_r31;
   u8 *temp_r3;
   temp_r3 = (u8 *) (*((u8 **) (((s8 *) ((u8 *)this)) + 0xF0)));

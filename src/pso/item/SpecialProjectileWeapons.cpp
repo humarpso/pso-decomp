@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TItemEquipBase.h"
+#include "pso/item/TItem.h"
 struct TItemEquipBase;
 #include "pso/item/TItemShootParticle.h"
 #include "pso/item/TUnk_804A204C.h"
@@ -98,7 +100,7 @@ const StarLightParameters weapon_star_light_parameters[] = {
 StarLightFollowerView *TObjPlayer__sub_801241D4(StarLightFollowerView *self, void *parent, s32 a, s32 b);
 void __dt__7TObjectFv(void *, int);
 void *TObjPlayer__sub_8012417C(void *arg0, s16 arg1);
-s8 TObjPlayer__sub_80102C30();
+s8 sub_80102C30__5TItemFv();
 s32 copy_position__15TEffStarLight2DFPv(u32, s32 *);
 void queue_destruction__7TObjectFv(void *arg0);
 void run_task__13TUnk_804A2018Fv(void *arg0);
@@ -131,8 +133,8 @@ void TUnk_804A2018::run_task() {
     }
     if ((u32) *(u32 *)&this->unk_24 != 0U) {
         item = ((s32)find_item_by_id(*(s32 *)&this->unk_1C));
-        if ((item != 0) && (TObjPlayer__sub_80102C30() == 2) && (((TObjPlayer *)item)->draw_icon(this->m_20, (s32)&sp8) != 0)) {
-            if (((TItemMag *)item)->get_flag_40() == 0) {
+        if ((item != 0) && (sub_80102C30__5TItemFv() == 2) && (((TObjPlayer *)item)->draw_icon(this->m_20, (s32)&sp8) != 0)) {
+            if (((TItemEquipBase *)item)->get_flag_40() == 0) {
                 copy_position__15TEffStarLight2DFPv(*(u32 *)&this->unk_24, &sp8);
                 return;
             }
@@ -247,7 +249,7 @@ void TUnk_804A204C::reserved_53() {
     s32 temp_r3;
     void *temp_r31;
     void *temp_r5;
-    if (((void *) *(void **)((s8 *)this + 0xF4) != NULL) && (((TItemMag *)this)->get_flag_40() == 0)) {
+    if (((void *) *(void **)((s8 *)this + 0xF4) != NULL) && (((TItemEquipBase *)this)->get_flag_40() == 0)) {
         temp_r5 = *(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)this + 0xF4)) + 0x2C)) + 0x30);
         temp_r31 = *(void **)((s8 *)temp_r5 + 0x30);
         *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) | 0x18);

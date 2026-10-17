@@ -7,6 +7,10 @@
 
 struct TItem : public TUnk_804AF8A0 {
     virtual ~TItem();
+    u8 get_slot_count();
+    s8 sub_80102C30();
+    void clear_item_flags(u32);
+    u16 sub_80100474();
     s32 get_field_d8();
     u8 get_field_ed();
     virtual void vfunc_14();
@@ -92,7 +96,6 @@ struct TItem : public TUnk_804AF8A0 {
     static void push_to_player_list(void* a0);
     void update_owner_visibility();
     void set_owner_client(u16 arg1);
-    void refresh_owner_stats();
     u32 get_usable_action_flags(u32 mask, u32 kind);
     void try_pick_up_item(s32 id);
 };

@@ -55,7 +55,7 @@ struct S801C295C_801C25B4 { s32 f0; s8 f4; s8 pad[0x13]; };
 s32 check_all_battle_flags__6TLobbyFv(void);
 void clear_counter__6TLobbyFPv(void* a0);
 void build_6x7D_set_battle_mode_data(void *p);
-s32 obj_testFlags30(u32, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(u32, s32);
 
 extern "C" {
 __declspec(section ".rodata") char lbl_80446F80[] = "TPlayerBattleCtrl";
@@ -80,7 +80,7 @@ s32 check_all_battle_flags__6TLobbyFv(void) {
     var_r31 = 0;
 loop_1:
     temp_r3 = get_player_by_client_id(var_r31);
-    if ((temp_r3 != 0U) && (obj_testFlags30(temp_r3, 0x02000000) != 0)) {
+    if ((temp_r3 != 0U) && (obj_testFlags30__13TUnk_804AF8A0FUl(temp_r3, 0x02000000) != 0)) {
         return 0;
     }
     var_r31 += 1;
@@ -375,7 +375,7 @@ extern char lbl_80446FF0[];
 extern char lbl_80446FFC[];
 void start_duel_battle__6TLobbyFPv(Lobby_801C2F40 *self);
 void queue_destruction__7TObjectFv(void *arg0);
-s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
+s32 check_value_equals__13TUnk_804B6C24Fl(void *, s32);
 extern s32 lbl_805D2A98;
 void destroy_matching_children__6TLobbyFPv(void *arg0);
 s32 obj_getField1c();
@@ -393,7 +393,7 @@ s32 close_and_play_effect__6TLobbyFii(u16, s32);
 s32 TLobby__sub_801C417C();
 s32 set_slot__23TAdSinglePlyChrSelectGCFi(u16);
 s32 TAdSinglePlyChrSelectGC__sub_801FCE6C();
-void init_battle_round__6TLobbyFPv(void *arg0);
+void init_battle_round__17TPlayerBattleCtrlFv(void *arg0);
 s32 check_all_players_ready__6TLobbyFv(void);
 void init__6TLobbyFPv(void *arg0);
 void TLobby__sub_8020BB18(void);
@@ -447,7 +447,7 @@ void destroy_matching_children__6TLobbyFPv(void *arg0) {
     void *var_r31;
     var_r31 = *(void **)((s8 *)arg0 + 0x14);
 while (var_r31 != NULL) {
-        if (check_value_equals__13TQuestColCtrlFPll(var_r31, lbl_805D2A98) != 0) {
+        if (check_value_equals__13TUnk_804B6C24Fl(var_r31, lbl_805D2A98) != 0) {
             queue_destruction__7TObjectFv(var_r31);
         }
         destroy_matching_children__6TLobbyFPv(var_r31);
@@ -549,15 +549,15 @@ void start_duel_battle__6TLobbyFPv(Lobby_801C2F40 *self) {
 }
 __declspec(section ".rodata") char lbl_80446FF0[] = "duel1.adx";
 __declspec(section ".rodata") char lbl_80446FFC[] = "duel2.adx";
-void init_battle_round__6TLobbyFPv(void *arg0) {
+void TPlayerBattleCtrl::init_battle_round() {
   s32 char_select_slot;
   s32 temp_r3;
   s32 var_ctr;
   s32 var_r3;
   s32 i;
-  ((TPlayerBattleCtrl *)arg0)->m_3c = TLobby__sub_801C417C();
+  ((TPlayerBattleCtrl *)this)->m_3c = TLobby__sub_801C417C();
   TWindowCtrl::create_alt_timer();
-  ((TWindowCtrl *)(((TPlayerBattleCtrl *)arg0)->m_3c))->set_timer_window_time();
+  ((TWindowCtrl *)(((TPlayerBattleCtrl *)this)->m_3c))->set_timer_window_time();
   TOMineTrap::destroy_matching_traps();
   char_select_slot = TAdSinglePlyChrSelectGC::get_char_select_slot();
   char_select_slot = char_select_slot + 1;
@@ -568,7 +568,7 @@ void init_battle_round__6TLobbyFPv(void *arg0) {
   }
   set_slot__23TAdSinglePlyChrSelectGCFi((u16) var_r3);
   TAdSinglePlyChrSelectGC__sub_801FCE6C();
-  apply_game_settings__6TLobbyFii(arg0, 1);
+  apply_game_settings__6TLobbyFii(this, 1);
   close_and_play_effect__6TLobbyFii((u16) local_client_id, 1);
   temp_r3 = update_battle_controller__10TObjPlayerFv();
   if (temp_r3 != 0)
@@ -581,8 +581,8 @@ void init_battle_round__6TLobbyFPv(void *arg0) {
     ((TLobby *)(temp_r3 + 0x79C))->update_child_player();
     ((TPlayerBattleCtrl4P *)(temp_r3 + 0x7AC))->set_battle_mode(0);
   }
-  *((s32 *) (((s8 *) arg0) + 0x60)) = 0x5A;
-  calc_player_rankings__6TLobbyFPv(arg0);
+  *((s32 *) (((s8 *) this) + 0x60)) = 0x5A;
+  calc_player_rankings__6TLobbyFPv(this);
   for (i = 0; i < 4; i++)
   {
     TLobby__battle_team_table[i] = 1;
@@ -1799,7 +1799,7 @@ s32 update_duel_result__6TLobbyFPv(void *);
 s32 update_timed_wait__6TLobbyFPv(void *);
 s32 update_battle_intro__6TLobbyFPv(void *);
 void update_player_battle_ctrl_state(void *arg0);
-s32 init_battle_round__6TLobbyFPv();
+s32 init_battle_round__17TPlayerBattleCtrlFv();
 s32 fn_801C4CE0(TPlayerBattleCtrl *arg0);
 
 s32 fn_801C4CE0(TPlayerBattleCtrl *arg0) {
@@ -1807,7 +1807,7 @@ s32 fn_801C4CE0(TPlayerBattleCtrl *arg0) {
     case -1:
         break;
     case 0:
-        init_battle_round__6TLobbyFPv();
+        init_battle_round__17TPlayerBattleCtrlFv();
         arg0->state_24 = 1;
         break;
     }

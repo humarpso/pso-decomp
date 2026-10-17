@@ -12,10 +12,10 @@ struct Rec_802E4798 { u8 pad[0x18]; s32 flags; u8 pad2[0x2C - 0x1C]; };
 
 extern "C" {
 s32 obj_is_hit_receivable(void *);
-s32 obj_testFlags30(void *, u32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, u32);
 u16 obj_getField1c(void *);
 s32 is_technique_ready__8TTecCtrlFv();
-s32 try_add_hit_target__14TItemAttackColFPvPv(u8 *arg0, Hit_802E4798 *arg1);
+s32 try_add_hit_target__13TUnk_804E355CFPv(u8 *arg0, Hit_802E4798 *arg1);
 s32 queue_destruction__7TObjectFv(void *);
 s32 TObjPlayer__sub_801542F4(void *);
 s32 TObjPlayer__sub_8015431C(void *);
@@ -24,11 +24,13 @@ Hit_802E4798 *get_attack_entry__16TObjOnlineEndingFi(int);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
-s32 try_add_hit_target__14TItemAttackColFPvPv(u8 *arg0, Hit_802E4798 *arg1) {
+s32 TUnk_804E355C::try_add_hit_target(void *arg1_arg) {
+    Hit_802E4798 *arg1 = (Hit_802E4798 *)arg1_arg;
     s32 ok;
     Hit_802E4798 *e;
     s32 i;
     s32 flags;
+    u8 *arg0 = (u8 *)this;
     if (((TUnk_804E355C *)arg0)->m_a0 >= 8) {
         return 0;
     }
@@ -36,11 +38,11 @@ s32 try_add_hit_target__14TItemAttackColFPvPv(u8 *arg0, Hit_802E4798 *arg1) {
         return 0;
     }
     ok = 1;
-    if (is_technique_ready__8TTecCtrlFv() == 0 && obj_testFlags30(arg1->obj, 0x60000000) == 0x20000000
+    if (is_technique_ready__8TTecCtrlFv() == 0 && obj_testFlags30__13TUnk_804AF8A0FUl(arg1->obj, 0x60000000) == 0x20000000
         && *(s16 *)((s8 *)arg0 + 0xAA) != ((TUnk_804B9870 *)(arg1->obj))->get_stat_by_key_state()) {
         ok = 0;
     }
-    if (obj_testFlags30(arg1->obj, 0x04000000) != 0
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(arg1->obj, 0x04000000) != 0
         || ((flags = (*(Rec_802E4798 **)((s8 *)arg1->obj + 0xA4))[arg1->idx].flags) & 0x02000000)
         || (flags & 0x1000) || (flags & 0x80)) {
         ok = 0;
@@ -66,9 +68,10 @@ void TItemAttackCol::copy_pos(void* q) { *(u32 *)&this->m_name = *(u32*)((char*)
 
 extern s32 lbl_804E355C[];
 
-void check_hits__14TItemAttackColFPv(u8 *arg0) {
+void TUnk_804E355C::check_hits() {
     s32 i;
     Hit_802E4798 *e;
+    u8 *arg0 = (u8 *)this;
     reset_global_table();
     TObjPlayer__sub_801542F4(arg0 + 0x1C);
     if (*(s32 *)((s8 *)arg0 + 0xC0) != 0) {
@@ -79,7 +82,7 @@ void check_hits__14TItemAttackColFPv(u8 *arg0) {
     }
     for (i = 0; i != TObjOnlineEnding::get_instance(); i++) {
         e = get_attack_entry__16TObjOnlineEndingFi(i);
-        if (try_add_hit_target__14TItemAttackColFPvPv(arg0, e) != 0) {
+        if (try_add_hit_target__13TUnk_804E355CFPv(arg0, e) != 0) {
             ((TUnk_804E355C *)arg0)->vfunc_6((s32 *)((s32)e));
             ((TUnk_804E355C *)arg0)->m_a4 -= 1;
             if (((TUnk_804E355C *)arg0)->m_a4 == 0) {

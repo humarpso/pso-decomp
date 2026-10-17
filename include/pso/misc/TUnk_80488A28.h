@@ -7,6 +7,7 @@ class TUnk_80488A28 : public TObject {
 public:
     TUnk_80488A28();
     virtual ~TUnk_80488A28();
+    void set_target(u32);
     virtual void vfunc_6();
     virtual void vfunc_7();
     virtual void vfunc_8(void *);

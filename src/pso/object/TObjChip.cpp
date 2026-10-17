@@ -200,7 +200,7 @@ void tick_chips__8TObjChipFPv(u8 *arg0);
 void rotate_matrix_yxz(s32 matrix, s32 arg1, s32 arg2, s32 arg3);
 s32 scale_matrix(int, f32, f32, f32);
 void set_chunk_material_override_pair(s32 arg0, s32 arg1);
-void set_chunk_material_color(f32 *arg);
+void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -236,14 +236,14 @@ void draw_chips__8TObjChipFPv(Obj_8017FE58 *o) {
             for (s32 i = 0; i < o->count; i++, c++) {
                 Color_8017FE58 col = { 0.0f, 0x3F800000, 0x3F800000, 0x3F800000 };
                 col.a = c->alpha;
-                set_chunk_material_color((f32 *)&col);
+                set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&col);
                 push_matrix();
                 post_translate_matrix(c);
                 rotate_matrix_yxz(0, c->rx, c->ry, c->rz);
                 scale_matrix(0, o->scale, o->scale, o->scale);
                 draw_chunk_object((void *)o->model);
                 pop_matrix();
-                set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
+                set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)chunk_material_color_half_alpha_f32);
             }
             model_render_flags = lbl_805D5660;
             chunk_polygon_flags_and_mask = lbl_805D5664;
@@ -267,14 +267,14 @@ void draw_chips__8TObjChipFPv(Obj_8017FE58 *o) {
         for (s32 i = 0; i < o->count; i++, c++) {
             Color_8017FE58 col = { 0.0f, 0x3F800000, 0x3F800000, 0x3F800000 };
             col.a = c->alpha;
-            set_chunk_material_color((f32 *)&col);
+            set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&col);
             push_matrix();
             post_translate_matrix(c);
             rotate_matrix_yxz(0, c->rx, c->ry, c->rz);
             scale_matrix(0, o->scale, o->scale, o->scale);
             draw_chunk_object((void *)o->model);
             pop_matrix();
-            set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
+            set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)chunk_material_color_half_alpha_f32);
         }
         model_render_flags = lbl_805D5660;
         chunk_polygon_flags_and_mask = lbl_805D5664;

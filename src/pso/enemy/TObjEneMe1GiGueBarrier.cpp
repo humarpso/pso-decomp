@@ -41,7 +41,7 @@ s32 advance_animation_playback(void *);
 s32 play_sound_effect(int, void *, int, int);
 s32 is_active_state__22TObjEneMe1GiGueBarrierFv(int);
 u16 obj_getField1c(void *);
-s32 set_field_d8__10TObjPlayerFl(void *, void *, int);
+s32 set_field_d8__10TObjMotionFl(void *, void *, int);
 void TObjEneMe1GiGueBarrier__sub_802CABF4(void *p);
 extern RecoveredGlobal_80325BCC_lbl_804ECD40 TObjEneMe1GiGueBarrier__animation_definitions;
 extern s32 __vt__22TObjEneMe1GiGueBarrier[];
@@ -156,10 +156,10 @@ u8 *TObjEneMe1GiGueBarrier__ct(TObjEneMe1GiGueBarrier *arg0, s32 arg1, u8 *arg2)
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjEneMe1GiGueBarrier__barrier_resource_object) + 0x42C)) + 0x28);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjEneMe1GiGueBarrier__barrier_resource_object) + 0x42C));
     arg0->texture_id = (s32) *(s32 *)((s8 *)temp_r5 + 0x2C);
-    set_field_d8__10TObjPlayerFl((void *)arg0, &TObjEneMe1GiGueBarrier__animation_definitions.value, (int)temp_r5);
-    ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)(*(u8 * *)&TObjEneMe1GiGueBarrier__barrier_resource_object) + 0x430)));
+    set_field_d8__10TObjMotionFl((void *)arg0, &TObjEneMe1GiGueBarrier__animation_definitions.value, (int)temp_r5);
+    ((TObjMotion *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)(*(u8 * *)&TObjEneMe1GiGueBarrier__barrier_resource_object) + 0x430)));
     arg0->m_b8 = 0;
-    set_animation__10TObjPlayerFPvs((arg0), (arg0->m_b8));
+    set_animation__10TObjMotionFs((arg0), (arg0->m_b8));
     ((TObjMotion *)arg0)->set_field_b8(arg0->m_b8);
     return (u8 *)arg0;
 }

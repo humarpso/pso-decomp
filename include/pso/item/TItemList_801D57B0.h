@@ -8,10 +8,10 @@ extern "C" {
 void TItemList__sub_801D5804(s32 *arg0);
 void TItemList__sub_801D5838(void *p);
 int TItemList__sub_801D5844(void *p);
-void TItemList__sub_801D5884(void *p, u8 v);
+void sub_801D5884__13TUnk_804C4498FUc(void *p, u8 v);
 void TItemList__sub_801D58C8(void *p);
-u16 TItemList__sub_801D58DC(void *p);
-void TItemList__sub_801D591C(u8 *arg0);
+u16 sub_801D58DC__13TUnk_804C4468Fv(void *p);
+void sub_801D591C__13TUnk_804C4468Fv(u8 *arg0);
 void TItemList__sub_801D59A0(TItemList *arg0, s32 arg1);
 void *__ct__9TItemListFv(void *arg0);
 int copy_position__9TItemListFPv(void *p);

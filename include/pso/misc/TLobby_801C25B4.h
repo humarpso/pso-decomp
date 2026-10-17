@@ -34,7 +34,7 @@ void handle_battle_result__6TLobbyFii(int arg0, s32 arg1);
 void init__6TLobbyFPv(void *arg0);
 void init_and_set_flag__6TLobbyFv(void);
 void init_battle_ctrl__6TLobbyFii(s32 arg0, s32 arg1);
-void init_battle_round__6TLobbyFPv(void *arg0);
+void init_battle_round__17TPlayerBattleCtrlFv(void *arg0);
 void init_char_slots__6TLobbyFv(void);
 void *init_with_name__6TLobbyFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 s32 record_local_battle_placement(void *arg0);

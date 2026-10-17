@@ -90,7 +90,7 @@ u8 *construct_srank_weapon(void *arg0, s32 arg1, void *arg2) {
     TItemWeapon__ct(self);
     self->vt = s_rank_weapon_vtable;
     ((TObjPlayer *)self)->set_status_flags(2);
-    self->kind = ((TItemProShield *)self)->get_slot_count();
+    self->kind = ((TItem *)self)->get_slot_count();
     p = (Inc_8012A884 *)arg0;
     switch (self->kind) {
     case 0:

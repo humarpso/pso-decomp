@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TObjDoaEx01.h"
 #include "pso/item/TObjContainerJungEx.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -42,7 +43,7 @@ extern const f32 TObjDoaEx01__data_805DBDA8;
 s32 is_any_player_within_radius_xz(u8 *self, f32 radius);
 void play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805DBDA4;
-void set_indexed_flags(void *arg0, s32 index, s32 flags);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 extern const f32 lbl_805DBDAC;
 extern const f32 lbl_805DBDB0;
 void TLobby__sub_8001FE7C(void*, int);
@@ -86,7 +87,7 @@ void TObjDoaEx01::vfunc_18() {
     if (this->m_b0 < TObjDoaEx01__data_805DBDA0) {
         this->m_b0 = (f32) TObjDoaEx01__data_805DBDA0;
         this->m_ac = 0;
-        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
+        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 8);
     }
 }
 #pragma pop
@@ -141,7 +142,7 @@ void TObjDoaEx01::play_proximity_sound() {
     if (self->flags & 1) {
         if (is_any_player_within_radius_xz((u8 *)self, (f32)lbl_805DBDAC) == 1) {
             self->state = 1;
-            set_indexed_flags(self, 0, 8);
+            set_indexed_flags__13TUnk_804AF8A0Fll(self, 0, 8);
             switch (TOKeyMachine01::get_global_state()) {
             case 19:
             case 20:

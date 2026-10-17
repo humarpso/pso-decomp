@@ -6,6 +6,9 @@
 
 struct TBoss6PlotFalz : public TObjEnemy {
     virtual ~TBoss6PlotFalz();
+    void ensure_field384();
+    void set_visible_flag();
+    void call_state_action();
     void sub_802AAC98();
     void vfunc_63();
     u8 unk_374[0x4];

@@ -10,7 +10,7 @@
 
 extern "C" {
 
-s32 get_flag_40__8TItemMagFv();
+s32 get_flag_40__14TItemEquipBaseFv();
 void copy_to_item_data__5TItemFPv(void *, void *);
 void TItemData__sub_8010C738(void *);
 
@@ -24,8 +24,8 @@ u8 fn_80100CC8(void) {
     return (u8)var_r31;
 }
 int TItemWeapon::is_flag_400() { return *(u16*)((char*)this + 0x4) & 0x400; }
-s32 item_model_is_shown(void *arg0) {
-    if ((get_flag_40__8TItemMagFv() == 0) && ((u32) *(u32 *)((s8 *)arg0 + 0xF4) != 0U)) {
+s32 TItemWeapon::item_model_is_shown() {
+    if ((get_flag_40__14TItemEquipBaseFv() == 0) && ((u32) *(u32 *)((s8 *)this + 0xF4) != 0U)) {
         return 1;
     }
     return 0;

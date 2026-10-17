@@ -58,7 +58,7 @@ void TUnk_804CE018::sub_8026CC28() {
     }
 }
 
-void TWindowCtrlMain::resort_window_order() {
+void TUnk_804CE018::resort_window_order() {
     Node_8026CCA4 *n;
     Grp_8026CCA4 *g;
     Node_8026CCA4 *last;

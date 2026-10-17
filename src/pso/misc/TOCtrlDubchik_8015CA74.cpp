@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TOCtrlDubchik.h"
@@ -117,7 +118,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8015D314_lbl_804B0A10 bm_fs_obj_zombie_con_resource_descriptor;
 extern u32 TOCtrlDubchik__shared_resource;
 void apply_actor_gravity(TObjEnemy *arg0, s32 *arg1, f32 farg0);
-void set_indexed_flags(void *, s32, s32);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *, s32, s32);
 extern const f32 TOCtrlDubchik__data_805DB3AC;
 extern const f32 TOCtrlDubchik__data_805DB3B0;
 extern const f32 TOCtrlDubchik__data_805DB3B4;
@@ -135,8 +136,8 @@ extern const f32 lbl_805DB3C8;
 u8 *TOCtrlDubchik__ct(u8 *arg0, s32 arg1, s32 arg2);
 f32 sin_table_lookup(s32);
 int get_player_data__10TObjPlayerFi(int a0);
-s32 obj_testFlags30(void *, s32);
-s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
+s32 check_value_equals__13TUnk_804B6C24Fl(void *, s32);
 extern s32 lbl_805D29F8;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
@@ -168,7 +169,7 @@ void TOCtrlDubchik::sub_8015CA74() {
     }
     for (i = lbl_805D586C; i < lbl_805D586C + lbl_805D5870; i++) {
         p = (u8 *)get_player_data__10TObjPlayerFi(i);
-        if (p != NULL && p != arg0 && check_value_equals__13TQuestColCtrlFPll(p, lbl_805D29F8) != 0 &&
+        if (p != NULL && p != arg0 && check_value_equals__13TUnk_804B6C24Fl(p, lbl_805D29F8) != 0 &&
             *(s32 *)(p + 0x368) == 0 && *(s16 *)(arg0 + 0x28) == *(s16 *)(p + 0x28)) {
             TObjPlayer__sub_800A8C1C(p);
         }
@@ -197,7 +198,7 @@ void TOCtrlDubchik::decay_timer_and_clear_flag() {
     if (*(f32 *)&this->unk_384 < TOCtrlDubchik__data_805DB3A8) {
         *(f32 *)&this->unk_384 = (f32) TOCtrlDubchik__data_805DB3A8;
         this->mode = 0;
-        set_indexed_flags(arg0, 0, 0x08000000);
+        set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 0x08000000);
     }
 }
 #pragma pop
@@ -243,8 +244,8 @@ void TOCtrlDubchik::sub_8015CCF4() {
     new_var2 = (f32) TOCtrlDubchik__data_805DB3AC;
     *((f32 *) (((s8 *) ((u8 *)this)) + 0x388)) = new_var2;
     *((s16 *) (((s8 *) ((u8 *)this)) + 0x326)) = 3;
-    ((TObjPlayer *)((u8 *)this))->clear_player_status_flag(0, 0x08000004);
- do { set_indexed_flags(this, 0, 2); } while (0 != 0U);
+    ((TUnk_804AF8A0 *)((u8 *)this))->clear_player_status_flag(0, 0x08000004);
+ do { set_indexed_flags__13TUnk_804AF8A0Fll(this, 0, 2); } while (0 != 0U);
   }
   new_var4 = new_var4;
 }
@@ -271,8 +272,8 @@ void TOCtrlDubchik::sub_8015CE80() {
     apply_actor_gravity((TObjEnemy *)this, (s32 *)(((u8 *)this) + 0x390), (f32)(*(f32 *)(((u8 *)this) + 0x37C)));
     for (i = lbl_805D586C; i < lbl_805D586C + lbl_805D5870; i++) {
         p = (u8 *)get_player_data__10TObjPlayerFi(i);
-        if (p != NULL && p != ((u8 *)this) && obj_testFlags30(p, 0x800) != 0 &&
-            check_value_equals__13TQuestColCtrlFPll(p, lbl_805D29F8) != 0 &&
+        if (p != NULL && p != ((u8 *)this) && obj_testFlags30__13TUnk_804AF8A0FUl(p, 0x800) != 0 &&
+            check_value_equals__13TUnk_804B6C24Fl(p, lbl_805D29F8) != 0 &&
             *(s32 *)(p + 0x368) == 0 && *(s16 *)(((u8 *)this) + 0x28) == *(s16 *)(p + 0x28)) {
             *(s16 *)(((u8 *)this) + 0x326) = 1;
         }
@@ -285,7 +286,7 @@ void TOCtrlDubchik::run_task() {
         TOCtrlDubchik__sub_8015C9D0(arg0);
         return;
     }
-    if (obj_testFlags30(arg0, 0x800) != 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x800) != 0) {
         *(s16 *)(arg0 + 0x326) = 6;
     } else if (this->update_movement_status() != 0) {
         ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
@@ -372,7 +373,7 @@ u8 *TOCtrlDubchik__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_collision_body_parts(arg0, &TOCtrlDubchik__collision_body.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    set_indexed_flags(arg0, 0, 0x08000000);
+    set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 0x08000000);
     *(s16 *)((s8 *)arg0 + 0x326) = 0;
     *(s16 *)((s8 *)arg0 + 0x32C) = 0x12C;
     *(s16 *)((s8 *)arg0 + 0x2B8) = 0x12C;

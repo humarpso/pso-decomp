@@ -6,6 +6,7 @@
 
 struct TObjWarpBoss : public TObjAreaWarp {
     virtual ~TObjWarpBoss();
+    void close_windows();
     void update();
     virtual void debug_print_area_num();
     s32 update_warp_dialogs();

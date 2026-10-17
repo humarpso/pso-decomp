@@ -85,7 +85,7 @@ struct RecoveredGlobal_80362FB4_lbl_80479FC8 {
 };
 
 extern "C" {
-s32 draw_weapon_model(TItemWeapon *);
+s32 draw_weapon_model__11TItemWeaponFv(TItemWeapon *);
 s16 get_validated_attack_stage(u8 *arg0);
 s32 fire_shot_at_target__11TItemWeaponFv(void *, void *, int, int);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
@@ -161,7 +161,7 @@ void TObjPlayer__sub_80362FB4(u8 *arg0) {
 void TUnk_804F27E0::reserved_53() {
     u8 *arg0 = (u8 *)this;
     if (((TItemWeapon *)arg0)->test_flags_1b8(0x01000000U) == 0U) {
-        draw_weapon_model((TItemWeapon *)arg0);
+        draw_weapon_model__11TItemWeaponFv((TItemWeapon *)arg0);
     }
 }
 

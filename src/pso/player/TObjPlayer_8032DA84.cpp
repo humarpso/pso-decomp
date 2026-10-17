@@ -36,7 +36,7 @@ s32 pop_matrix();
 s32 scale_current_matrix(int);
 s32 post_translate_matrix(int);
 void draw_ginja_object(void *child);
-void set_chunk_material_color(f32 *arg);
+void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 extern RecoveredGlobal_8032DC94_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_8032DC94_lbl_8058D4C0 model_material_color;
 extern s32 lbl_805D5660;
@@ -145,7 +145,7 @@ void TUnk_804EDD20::render() {
         copy_vec4__13TRaderMapCoreFPvPv((&saved_model_draw_color.value), (&model_material_color.value));
         var_r3 = (s32 *)(var_r29 + 0x80);
         model_render_flags |= 0x20;
-        set_chunk_material_color((f32 *)var_r3);
+        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)var_r3);
         var_r3 = (s32 *) var_r31;
         ((TObjPlayer *)var_r3)->get_entity_id();
         notify_fish_if_valid__10TObjPlayerFUl();
@@ -199,7 +199,7 @@ void TUnk_804EDD20::start_card_effect_flash() { *(u32*)((char*)this + 0x70) |= 0
     extern const float lbl_805DF7D8;
     extern const float lbl_805DF7E0;
     extern const float lbl_805DF7E4;
-void TObjPlayer::init_offset_vectors() { (*(int *)&this->m_70) = 0; *(float *)&this->m_74 = lbl_805DF7E4; (*(float *)&this->m_78) = lbl_805DF7E4; *(float *)&this->m_7c = lbl_805DF7E4; (*(float *)&this->m_80) = lbl_805DF7D8; *(float *)&this->m_84 = lbl_805DF7E0; (*(float *)&this->m_88) = lbl_805DF7E0; *(float*)((char*)this + 0x8c) = lbl_805DF7E0; }
+void TUnk_804EDD20::init_offset_vectors() { (*(int *)&(*(u32 *)((u8 *)this + 0x70))) = 0; *(float *)&(*(void * *)((u8 *)this + 0x74)) = lbl_805DF7E4; (*(float *)&(*(u32 *)((u8 *)this + 0x78))) = lbl_805DF7E4; *(float *)&(*(void * *)((u8 *)this + 0x7C)) = lbl_805DF7E4; (*(float *)&this->m_80) = lbl_805DF7D8; *(float *)&(*(s32 *)((u8 *)this + 0x84)) = lbl_805DF7E0; (*(float *)&(*(u8 * *)((u8 *)this + 0x88))) = lbl_805DF7E0; *(float*)((char*)this + 0x8c) = lbl_805DF7E0; }
 
 void *init_offsets_object__13TUnk_804EDD20Fv(void *arg0);
 void *init_effect_object__13TUnk_804EDD20Fv(void *arg0);
@@ -209,14 +209,14 @@ void construct_card_effect_on_target(void *);
 void *TUnk_804EDD20::init_offsets_object() {
     __ct__13TUnk_804EDD44FP7TObjectPfPfll(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804EDD20;
-    ((TObjPlayer *)this)->init_offset_vectors();
+    ((TUnk_804EDD20 *)this)->init_offset_vectors();
     return this;
 }
 
 void *TUnk_804EDD20::init_effect_object() {
     construct_card_effect_on_target(this);
     *(s32 **)((s8 *)this + 0x18) = lbl_804EDD20;
-    ((TObjPlayer *)this)->init_offset_vectors();
+    ((TUnk_804EDD20 *)this)->init_offset_vectors();
     return this;
 }
 
@@ -250,23 +250,23 @@ void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 void *spawn_particle_effect(void *pos, s32 id);
 extern const f32 lbl_805DF7E8;
 void *find_entity_by_id(u16 id);
-void anchor_card_effect(u8 *arg0);
+void anchor_card_effect__13TUnk_804EDD44Fv(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 u8 *find_item_by_id(s32 id);
-s8 TObjPlayer__sub_80102C30();
+s8 sub_80102C30__5TItemFv();
 
-void anchor_card_effect(u8 *arg0) {
+void TUnk_804EDD44::anchor_card_effect() {
   u16 temp_r3;
   u8 *temp_r3_2;
-  temp_r3 = ((TUnk_804EDD44 *)arg0)->m_34;
+  temp_r3 = ((TUnk_804EDD44 *)((u8 *)this))->m_34;
   if (temp_r3 != ((-1U) & 0xFFFFu))
   {
     if (find_entity_by_id(temp_r3) != 0)
     {
-      temp_r3_2 = (u8 *) ((*((s32 *) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x28)))) + 0xA4))) + ((((TUnk_804EDD44 *)arg0)->m_2c) * 0x2C));
-      *((f32 *) (((s8 *) arg0) + 0x64)) = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x1C))) - (((TUnk_804EDD44 *)arg0)->m_44));
-      ((TUnk_804EDD44 *)arg0)->m_68 = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x20))) - (*((f32 *) (((s8 *) arg0) + 0x48))));
-      *((f32 *) (((s8 *) arg0) + 0x6C)) = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x24))) - (((TUnk_804EDD44 *)arg0)->m_4c));
+      temp_r3_2 = (u8 *) ((*((s32 *) (((s8 *) (*((u8 **) (((s8 *) ((u8 *)this)) + 0x28)))) + 0xA4))) + ((((TUnk_804EDD44 *)((u8 *)this))->m_2c) * 0x2C));
+      *((f32 *) (((s8 *) ((u8 *)this)) + 0x64)) = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x1C))) - (((TUnk_804EDD44 *)((u8 *)this))->m_44));
+      ((TUnk_804EDD44 *)((u8 *)this))->m_68 = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x20))) - (*((f32 *) (((s8 *) ((u8 *)this)) + 0x48))));
+      *((f32 *) (((s8 *) ((u8 *)this)) + 0x6C)) = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x24))) - (((TUnk_804EDD44 *)((u8 *)this))->m_4c));
     }
   }
 }
@@ -319,11 +319,11 @@ void TUnk_804EDD44::run_task() {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    if (TObjPlayer__sub_80102C30() != 2) {
+    if (sub_80102C30__5TItemFv() != 2) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    anchor_card_effect(arg0);
+    anchor_card_effect__13TUnk_804EDD44Fv(arg0);
     for (i = 0; i != 3; i++) {
         if (((O_8032DFF8 *)arg0)->o[i] != NULL) {
             ((TNowLoading *)(((O_8032DFF8 *)arg0)->o[i]))->copy_pos((u8 *)&this->unk_64);

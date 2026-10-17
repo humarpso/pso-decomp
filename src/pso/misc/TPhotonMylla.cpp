@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 struct TPhotonYoulla;
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_804C3248.h"
@@ -129,7 +130,7 @@ s32 pop_matrix();
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 void set_material_alpha_compare_reference(s32 reference);
 void set_chunk_material_override_pair(s32 arg0, s32 arg1);
-void set_chunk_material_color(f32 *arg);
+void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 extern Color_801AD4C0 saved_model_draw_color;
 extern Color_801AD4C0 model_material_color;
 extern s32 lbl_805D5660;
@@ -138,7 +139,7 @@ extern s32 lbl_805D5668;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-void set_animation__10TObjPlayerFPvs(void *, s16);
+void set_animation__10TObjMotionFs(void *, s16);
 void spawn_photon_blast_opening_effects(s32 arg0, s32 arg1);
 void *photon_base_ct(void *arg0);
 void sub_801AD4A8__12TPhotonMyllaFv(void* a0);
@@ -195,7 +196,7 @@ void TPhotonMylla::render() {
         TObjPlayer::set_global_flag();
         set_material_alpha_compare_reference(0);
         set_chunk_material_override_pair(-1, 0x800);
-        set_chunk_material_color((f32 *)&self->color);
+        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&self->color);
         ((TUnk_804C3248 *)self)->set_photon_blast_joint_callback();
         ((TObjEneRe7Berura *)self)->draw();
         TObjPlayer::clear_global_state();
@@ -323,10 +324,10 @@ void *TPhotonMylla__ct(Mylla_801AD970 *self, Pkt_801AD970 *pkt) {
     }
     F_801AD970(self, s32, 0x34) = photon_blast_shared_resource->res->fA8;
     F_801AD970(self, s32, 0x24) = photon_blast_shared_resource->res->fAC;
-    ((TObjPlayer *)self)->set_field_d8((s32)lbl_804C39D8);
-    ((TObjPlayer *)self)->set_field_dc(photon_blast_shared_resource->f430);
+    ((TObjMotion *)self)->set_field_d8((s32)lbl_804C39D8);
+    ((TObjMotion *)self)->set_field_dc(photon_blast_shared_resource->f430);
     F_801AD970(self, s16, 0xB8) = 1;
-    set_animation__10TObjPlayerFPvs(self, F_801AD970(self, s16, 0xB8));
+    set_animation__10TObjMotionFs(self, F_801AD970(self, s16, 0xB8));
     ((TObjMotion *)self)->set_field_b8(F_801AD970(self, s16, 0xB8));
     F_801AD970(self, s16, 0x194) = 1;
     F_801AD970(self, s32, 0x198) = pkt->first;

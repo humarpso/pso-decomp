@@ -6,6 +6,7 @@
 
 struct TObjEneSlimeTailAttack : public TObjEnemy {
     virtual ~TObjEneSlimeTailAttack();
+    void sub_800E841C();
     virtual void run_task();
     virtual void render();
     int find_nearest_enemy_with_flag(f32);
@@ -21,7 +22,7 @@ void *TObjEneSlimeWaterBomb__ct(TObjEneSlimeWaterBomb *arg0, void *arg1, void *a
 void TObjPlayer__sub_800E80C0(u8 *dst);
 void TObjPlayer__sub_800E8128(void);
 void TObjPlayer__sub_800E81A8(void);
-void TObjPlayer__sub_800E841C(u8 *arg0);
+void sub_800E841C__22TObjEneSlimeTailAttackFv(u8 *arg0);
 void render__22TObjEneSlimeTailAttackFv(u8 *arg0);
 void run_task__22TObjEneSlimeTailAttackFv(u8 *arg0);
 void TObjPlayer__sub_800E9D7C(void *p);
@@ -46,7 +47,7 @@ void init_slime_display__10TObjPlayerFPv(void *a0);
 void init_slime_state__10TObjPlayerFPv(void *actor);
 void init_split_effect__15TObjEneSlimeOneFPv(u8 *arg0);
 void init_state__15TObjEneSlimeOneFPv(void *a0);
-void initialize_slime_instance_state(u8 *actor);
+void initialize_slime_instance_state__15TObjEneSlimeOneFv(u8 *actor);
 void render__15TObjEneSlimeOneFv(TObjEneSlimeOne *arg0);
 void reset_display__15TObjEneSlimeOneFPv(void *a0);
 void reset_display_state__15TObjEneSlimeOneFPv(void *a0);

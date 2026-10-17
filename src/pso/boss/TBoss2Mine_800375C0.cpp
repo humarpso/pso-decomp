@@ -604,7 +604,7 @@ void rotate_matrix_x(s32, s32);
 void push_matrix(void);
 s32 pop_matrix(void);
 void post_translate_matrix(void *);
-void set_chunk_material_color(f32 *arg);
+void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 void draw_chunk_object(void *);
 extern Vec_80038200 lbl_80435AD0;
 extern Col_80038200 boss2_mine_render_color;
@@ -674,7 +674,7 @@ void TBoss2Mine::render() {
         c.b = f;
         c.g = f;
         c.r = -f;
-        set_chunk_material_color((f32 *)&c);
+        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&c);
         draw_chunk_object(self->model);
     } else {
         draw_chunk_object(self->model);

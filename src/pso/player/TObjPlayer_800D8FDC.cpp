@@ -170,11 +170,11 @@ void TUnk_80494AE0::clear_flag_and_notify() {
     set_chunk_blend(0x2500);
 }
 
-s32 set_chunk_material_color();
+s32 set_chunk_material_color__13TUnk_80494AE0Fv();
 
 void TObjPlayer::set_flags_and_apply_damage_color() {
     model_render_flags |= 0x8820;
-    set_chunk_material_color();
+    set_chunk_material_color__13TUnk_80494AE0Fv();
     set_chunk_material_override_pair(0xFF00, 0x800);
 }
 

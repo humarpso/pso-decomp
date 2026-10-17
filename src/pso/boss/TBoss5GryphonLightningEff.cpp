@@ -49,7 +49,7 @@ struct L1_80325070 { u8 pad[8]; L2_80325070 *a; u8 pad2[8]; L2_80325070 *b; };
 extern "C" {
 void run_task__12TTecZondeEffFv(void *);
 s32 rand(void);
-void randomize_bolt_jitter__12TTecZondeEffFPv(void *);
+void randomize_bolt_jitter__12TTecZondeEffFv(void *);
 void eval_bezier_curve__12TBoss8DragonFPviiPvf(void *, void *, s32, void *, f32);
 void subtract_vector(void *, void *);
 extern s32 __vt__25TBoss5GryphonLightningEff[];
@@ -116,7 +116,7 @@ void TBoss5GryphonLightningEff::render() {
     }
     TObjPlayer::reset_transform_state();
     TParticleCtrl::end_effect_render();
-    set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
+    set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)chunk_material_color_half_alpha_f32);
     model_render_flags = lbl_805D5660;
     restore_saved_depth_alpha_state();
 }
@@ -165,7 +165,7 @@ Self_8032537C *__ct__25TBoss5GryphonLightningEffFv(Self_8032537C *self, void *pa
         subtract_vector(&v, &self->pts[i + 1]);
         self->f34 += ((TObjBoss2Tunnel *)(&v))->update_scale();
     }
-    randomize_bolt_jitter__12TTecZondeEffFPv(self);
+    randomize_bolt_jitter__12TTecZondeEffFv(self);
     for (i = 0; i < self->n; i++) {
         VecCopy((Vec *)&self->pts2[i], (const Vec *)&self->pts[i]);
     }

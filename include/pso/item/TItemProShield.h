@@ -23,7 +23,6 @@ struct TItemProShield : public TItemEquipBase {
     u8 m_19a;
     u8 m_19b;
     u32 m_19c;
-    u8 get_slot_count();
     s16 get_field_2b8();
     static void create_shield_effect(s32 arg0, u16 arg1, u32 arg2);
     u8 *create();

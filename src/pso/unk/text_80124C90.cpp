@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A2260.h"
 #include "pso/player/TObjPlayer_8012121C.h"
 #include "pso/unk/text_80124C90.h"
 #include "pso/unk/text_803D96A8.h"
@@ -35,8 +36,8 @@ s32 transform_point_by_current_matrix(void *, void *);
 f32 xyz_distance(void *, void *);
 extern u8 identity_matrix[];
 extern s32 tl_05;
-void TObjPlayer__sub_80124C90(u8 *owner) {
-    Me_80124C90 *me = (Me_80124C90 *)owner;
+void TUnk_804A2260::sub_80124C90() {
+    Me_80124C90 *me = (Me_80124C90 *)((u8 *)this);
     void *ext;
     Vec_80124C90 *pos;
     void *e;
@@ -64,7 +65,7 @@ void TObjPlayer__sub_80124C90(u8 *owner) {
     if (found == 0) {
         Vec_80124C90 off;
         push_matrix_from(identity_matrix);
-        f32 *r1 = get_weapon_range_record(owner, 2);
+        f32 *r1 = get_weapon_range_record(((u8 *)this), 2);
         off.x = off.y = 0.0f;
         off.z = *r1;
         rotate_matrix_y(0, me->pl->angle);
@@ -88,14 +89,14 @@ void TObjPlayer__sub_80124C90(u8 *owner) {
             atk.b = 1;
             atk.id0 = obj_getField1c(me->pl);
             atk.id1 = obj_getField1c(t);
-            atk.d8 = ((TItem *)owner)->get_field_d8();
+            atk.d8 = ((TItem *)((u8 *)this))->get_field_d8();
             atk.idx = get_captured_target_collider_index(e2);
             atk.f = query_extended_state__10TObjPlayerFv(me->pl);
             spawn_item_attacker((s32)tl_05, (u32)&me->pl->pos38, (s32)(xyz_distance(pos, &part->v) / me->scale), (u8 *)&atk);
         }
     }
     {
-        f32 *rec = get_weapon_range_record(owner, 2);
+        f32 *rec = get_weapon_range_record(((u8 *)this), 2);
         s32 ang = me->pl->angle;
         Vec_80124C90 o;
         Vec_80124C90 v;
@@ -111,7 +112,7 @@ void TObjPlayer__sub_80124C90(u8 *owner) {
             if (hit != NULL) {
                 VecCopy((Vec *)&o, (const Vec *)hit->pos);
             }
-            create_lavis_shot(owner, pos, &o, xyz_distance(pos, &o) / me->scale);
+            create_lavis_shot(((u8 *)this), pos, &o, xyz_distance(pos, &o) / me->scale);
         }
     }
 }

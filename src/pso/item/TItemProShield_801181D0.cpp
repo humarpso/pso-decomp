@@ -22,7 +22,7 @@ s32 __ct__13TUnk_8049F130FP7TObjectsUc(int, int, void *, int);
 s32 __nw__7TObjectFUl(int);
 s32 __nw__15TItemHeapObjectFUl(int);
 s32 construct_timer_event__13TUnk_804A0628Fv(int, int, void *, int);
-s32 get_flag_40__8TItemMagFv(void *);
+s32 get_flag_40__14TItemEquipBaseFv(void *);
 s32 get_id__13TItemProArmorFv(void *);
 s32 init_item_timer_event__13TUnk_804A0648Fv(int, int, void *, int);
 int fn_800F953C(void*);
@@ -54,12 +54,12 @@ void TObjPlayer__sub_80364198(void);
 s32 push_matrix_from();
 s32 pop_matrix();
 s32 get_mag_scale__10TObjPlayerFv(void *);
-s32 obj_testFlags30(void *, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
 
 extern s32 model_render_flags;
 
 void TItemProShield::deactivate_shield_effect(s32 arg1) {
-    if (((u32) this->m_f4 != 0U) && ((u32) this->m_f0 != 0U) && (obj_testFlags30(this, 0x08000000) == 0) && (get_flag_40__8TItemMagFv(this) == 0)) {
+    if (((u32) this->m_f4 != 0U) && ((u32) this->m_f0 != 0U) && (obj_testFlags30__13TUnk_804AF8A0FUl(this, 0x08000000) == 0) && (get_flag_40__14TItemEquipBaseFv(this) == 0)) {
         ((TObjMotion *)(this->m_f0))->get_item_ptr(arg1);
         push_matrix_from();
         TObjPlayer__sub_80364198();
@@ -115,7 +115,7 @@ void TItemProShield::vfunc_44() {
     s32 temp_r3_4;
     s32 temp_r3_5;
     u8 slot_count;
-    if (get_flag_40__8TItemMagFv(this) == 0) {
+    if (get_flag_40__14TItemEquipBaseFv(this) == 0) {
         play_sound_effect(0x4000B20A, this->m_f0 + 0x38, 0, 0);
     }
     if ((u32) this->m_174 != 0U) {
@@ -154,7 +154,7 @@ void TItemProShield::vfunc_44() {
 void TItemProShield::vfunc_30() {
     Status_80118558 st;
     if ((u32) this->m_f0 != 0U) {
-        if (get_flag_40__8TItemMagFv(this) == 0) {
+        if (get_flag_40__14TItemEquipBaseFv(this) == 0) {
             create_shield_effect__14TItemProShieldFlUsUl(tl_05, get_id__13TItemProArmorFv(this), this->m_190);
             ((TObjPlayer *)(&st))->reset_status_block();
             st.a = this->get_field_ed();

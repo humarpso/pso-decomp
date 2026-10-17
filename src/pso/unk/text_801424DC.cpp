@@ -19,7 +19,7 @@ void fn_801424DC(s32 arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
     stack.sp14 = farg3;
     set_global_draw_flag_bits(arg0, 0x810);
     set_chunk_material_override_pair(-1, 0x800);
-    set_chunk_material_color((&stack.sp8));
+    set_chunk_material_color__13TUnk_80494AE0Fv((&stack.sp8));
 }
 
 }

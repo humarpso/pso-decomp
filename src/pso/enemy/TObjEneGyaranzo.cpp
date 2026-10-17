@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemyCustom.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneGyaranzo.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
@@ -303,14 +306,14 @@ extern f32 TObjGyaranzoMissile__max_range;
 void init_params_from_table__15TObjEneGyaranzoFv(u8 *arg0);
 s32 check_path_obstructed(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
-s32 obj_testFlags30(void *, int);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, int);
 u16 obj_getField1c(void *);
 s32 subtract_vector(void *, void *);
 extern Entry_800D20BC TObjGyaranzoMissile_target_slots[];
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 extern const f32 lbl_805DA260;
-void select_targets__19TObjGyaranzoMissileFPv(u8 *arg0);
+void select_targets__15TObjEneGyaranzoFv(u8 *arg0);
 s32 get_gyaranzo_missile_int_parameter(int);
 s32 TObjGyaranzoMissile__ct(void *, void *, void *, u16);
 void *__nw__7TObjectFUl(int);
@@ -355,7 +358,7 @@ void update__19TObjGyaranzoMissileFPv(u8 *arg0) {
     }
 }
 
-void select_targets__19TObjGyaranzoMissileFPv(u8 *arg0) {
+void TObjEneGyaranzo::select_targets() {
     s32 count;
     s32 n;
     s32 best;
@@ -365,11 +368,12 @@ void select_targets__19TObjGyaranzoMissileFPv(u8 *arg0) {
     s32 k;
     f32 dist;
     Vec_800D20BC d;
+    u8 *arg0 = (u8 *)this;
     TObjGyaranzoMissile_target_slots[0].id = 0xFFFF;
     TObjGyaranzoMissile_target_slots[0].dist = lbl_805DA258;
     n = 0;
     best = 0;
-    k = obj_testFlags30(arg0, 0x10);
+    k = obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x10);
     count = lbl_805D586C;
     if (k != 0) {
         count += lbl_805D5870;
@@ -599,7 +603,7 @@ struct Obj_800D30A8 {
 
 extern "C" {
 u16 find_nearest_visible_player(void *, int, int, f32);
-#define select_targets__19TObjGyaranzoMissileFPv ((s32 (*)(void *))select_targets__19TObjGyaranzoMissileFPv)
+#define select_targets__15TObjEneGyaranzoFv ((s32 (*)(void *))select_targets__15TObjEneGyaranzoFv)
 extern const f32 lbl_805DA290;
 void enemy_turn_toward_dest(void *, s32);
 void move_along_ground_avoiding_walls__10TObjPlayerFPviff(void *, Vec_800D3314, void *, f32, f32);
@@ -729,13 +733,13 @@ s32 update_fade_value(int);
 void __dt__13TUnk_804949A8Fv();
 void init_and_activate__10TObjPlayerFv(void *);
 void create_dead_spot__10TObjPlayerFllf(void *, s32, f32);
-s32 set_param__12TObjEneLappyFl(void *, int, int, int);
+s32 set_param__9TObjEnemyFl(void *, int, int, int);
 s32 initialize_enemy_photon_effect(void *);
 void * TObjControl__ct(void *, void *);
 s32 bind_enemy_combat_stats(void *, void *, void *, void *);
 s32 restore_scene_lighting();
 s32 select_actor_lighting(void *);
-s32 set_animation__10TObjPlayerFPvs(void *, int);
+s32 set_animation__10TObjMotionFs(void *, int);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 submit_cursor_candidate(void *, s32);
@@ -1483,7 +1487,7 @@ void TObjEneGyaranzo::sub_800D37F4() {
     case 0:
     case 8:
         if (this->is_actor_cadence_frame(0x1E) != 0) {
-            select_targets__19TObjGyaranzoMissileFPv(this);
+            select_targets__15TObjEneGyaranzoFv(this);
             if (*(s32 *)&this->unk_3CC > 0) {
                 switch (*(s32 *)&this->m_3a8) {
                 case 0:
@@ -1696,14 +1700,14 @@ u8 *TObjEneGyaranzo__ct(TObjEneGyaranzo *arg0, s32 arg1, u8 *arg2) {
     VecCopy((Vec *)((u8 *)arg0 + 0x290), (const Vec *)(VecCopy((Vec *)((u8 *)arg0 + 0x29C), (const Vec *)((u8 *)arg0 + 0x38))));
     *(s32 *)((s8 *)arg0 + 0xDC) = (s32) *(s32 *)((s8 *)(*(u8 * *)&gyaranzo_bml_resource) + 0x430);
     arg0->action_table = (u8 *) gyaranzo_action_table;
-    ((TObjPlayer *)arg0)->set_field_d8((s32)arg0->action_table);
+    ((TObjMotion *)arg0)->set_field_d8((s32)arg0->action_table);
     init_collision_body_parts(arg0, (void *) lbl_804941F8, 1);
     arg0->variant = 0;
     arg0->movementParameters = (u8 *) lbl_804941DC;
     bind_enemy_combat_stats((void *)arg0, (void *)gyaranzo_boss_stats_handle, (void *)gyaranzo_boss_stats_ptr_b, (void *)gyaranzo_object_handle);
     init_params_from_table__15TObjEneGyaranzoFv(arg0);
     arg0->m_b8 = 0;
-    set_animation__10TObjPlayerFPvs(arg0, arg0->m_b8);
+    set_animation__10TObjMotionFs(arg0, arg0->m_b8);
     ((TObjMotion *)arg0)->set_field_b8(arg0->m_b8);
     arg0->hp = (s16) arg0->hpmax;
     arg0->m_32e = (s16) arg0->m_2ba;
@@ -1716,7 +1720,7 @@ u8 *TObjEneGyaranzo__ct(TObjEneGyaranzo *arg0, s32 arg1, u8 *arg2) {
     arg0->m_3ac = 0;
     arg0->m_3b4 = 0;
     arg0->m_3b8 = 0;
-    set_param__12TObjEneLappyFl(arg0, 0x19, temp_r5, temp_r6);
+    set_param__9TObjEnemyFl(arg0, 0x19, temp_r5, temp_r6);
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(4);
     ((TObjEnemy *)arg0)->update_prev_position();
     initialize_enemy_photon_effect(arg0);

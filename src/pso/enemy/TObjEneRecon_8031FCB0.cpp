@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneRecobox.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
@@ -127,7 +128,7 @@ void TObjEneMe3SinowZoa__sub_800D758C(void *);
 void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 void init_and_activate__10TObjPlayerFv();
-void set_animation__10TObjPlayerFPvs(void *, s16);
+void set_animation__10TObjMotionFs(void *, s16);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void TObjEneRecon__sub_8031F408(void *arg0, s32 arg1);
@@ -415,10 +416,10 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     init_model__9TObjEneDDFv(arg0, lbl_804EC684, 1);
     ((TObjEneRecobox *)arg0)->m_300 = lbl_805DF464 + *(f32 *)((s8 *)arg0 + 0x3C);
     ((TObjEneRecobox *)arg0)->vfunc_88();
-    ((TObjPlayer *)arg0)->set_field_d8((s32)TObjEneRecobox__animation_entries);
-    ((TObjPlayer *)arg0)->set_field_dc(*(s32 *)((s8 *)TObjEneRecobox__static_instance + 0x430));
+    ((TObjMotion *)arg0)->set_field_d8((s32)TObjEneRecobox__animation_entries);
+    ((TObjMotion *)arg0)->set_field_dc(*(s32 *)((s8 *)TObjEneRecobox__static_instance + 0x430));
     ((TObjEneRecobox *)arg0)->m_b8 = 0;
-    set_animation__10TObjPlayerFPvs(arg0, ((TObjEneRecobox *)arg0)->m_b8);
+    set_animation__10TObjMotionFs(arg0, ((TObjEneRecobox *)arg0)->m_b8);
     ((TObjMotion *)arg0)->set_field_b8(((TObjEneRecobox *)arg0)->m_b8);
     reset_hp__9TObjEneDDFv(arg0, recobox_boss_register_id, lbl_805D6B14, TObjEneRecobox__shared_object_handle);
     ((TObjEneDD *)arg0)->check_state_flag_4();

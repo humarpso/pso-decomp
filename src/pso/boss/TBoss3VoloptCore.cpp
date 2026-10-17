@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/boss/TUnk_80483A10.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
@@ -442,7 +444,7 @@ struct VObj_80040894 : VBase_80040894 {
 };
 
 void reset_status_effect_row(u8 *arg0);
-s32 obj_testFlags30(void *, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
 s32 obj_setFlags30(void *, s32);
 s32 queue_destruction__7TObjectFv(void *);
 int dispatch_shared_handler_a__6TLobbyFl(void*);
@@ -460,7 +462,7 @@ void TBoss3VoloptCore__sub_80040788(void);
 void cache_volopt_resource_ptrs(void);
 void * TBoss3VoloptCore__sub_800407E0(void *arg0);
 void * destroy__13TUnk_80483A10Fs(void *arg0, s16 arg1);
-void TBoss3VoloptCore__ct(VObj_80040894 *arg0);
+void sub_80040894__13TUnk_80483A10Fv(VObj_80040894 *arg0);
 void * create_TBoss3VoloptCore(void *arg0, void *arg1, s16 arg2, s16 arg3);
 void * TBoss3VoloptCore__sub_80040A7C(void *arg0, void *arg1, void *arg2);
 int is_target_in_attack_range__13TUnk_80483A10Fv(void);
@@ -470,7 +472,7 @@ void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
 s32 TObjEnemyCustom__ct();
 s32 angle_difference_abs(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
-void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
+void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 void * find_entity_by_id(u16);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, s32);
@@ -962,7 +964,7 @@ block_14:
 void TObjPlayer::set_boss_target_pos(s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r4;
 
-    if (obj_testFlags30(this, 0x800) == 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(this, 0x800) == 0) {
         temp_r4 = *(s32 *)&this->unk_388 | 0x20000;
         *(s32 *)&this->unk_388 = temp_r4;
         this->m_3bc = arg1;
@@ -975,7 +977,7 @@ void TObjPlayer::set_boss_target_pos(s32 arg1, s32 arg2, s32 arg3) {
     }
 }
 
-s32 TObjPlayer::calc_hit_zone_index() {
+s32 TUnk_80483A10::calc_hit_zone_index() {
     Obj_8003FBC8 *self = (Obj_8003FBC8 *)this;
     s32 r;
     s32 d;
@@ -1133,7 +1135,7 @@ void TObjPlayer::update_reaction_animation() {
 void TObjPlayer::update_grabbed_state() {
     switch (this->m_37c) {
     case 0:
-        if (obj_testFlags30(this, 0x02000000) != 0) {
+        if (obj_testFlags30__13TUnk_804AF8A0FUl(this, 0x02000000) != 0) {
             *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x40000);
         }
         obj_clearFlags30(0x02200200);
@@ -1282,7 +1284,7 @@ void TUnk_80483A10::run_task() {
     u8 *arg0 = (u8 *)this;
   f32 var_f1;
   s32 temp_r3;
-  vol_opt_active_hit_zone = ((TObjPlayer *)arg0)->calc_hit_zone_index();
+  vol_opt_active_hit_zone = ((TUnk_80483A10 *)arg0)->calc_hit_zone_index();
   if (TObjPlayer::check_demo_mode() == 1)
   {
     TObjPlayer__sub_80040558((void *)((void *)((void *) arg0)));
@@ -1310,7 +1312,7 @@ void TUnk_80483A10::run_task() {
       (this->vfunc_62());
     }
   }
-  if (obj_testFlags30((void *)((void *)((void *) arg0)), 0x4000) != 0)
+  if (obj_testFlags30__13TUnk_804AF8A0FUl((void *)((void *)((void *) arg0)), 0x4000) != 0)
   {
     if (((TObjPlayer *)arg0)->add_status_effect_timer(4, -1) <= 0)
     {
@@ -1374,39 +1376,39 @@ void *TUnk_80483A10::destroy(s16 arg1) {
     return this;
 }
 
-void TBoss3VoloptCore__ct(VObj_80040894 *arg0) {
+void TUnk_80483A10::sub_80040894() {
 
-    *(s32 *)((s8 *)arg0 + 0) = lbl_805D2728;
-    *(s32 *)((s8 *)arg0 + 0xDC) = *(s32 *)((s8 *)(*(void * *)&volopt_resource_table_ptr) + 0x430);
-    ((TUnk_80483A10 *)arg0)->action_table = boss3_volopt_core_hit_table;
-    ((TObjPlayer *)arg0)->set_field_d8((s32)(((TUnk_80483A10 *)arg0)->action_table));
-    init_collision_body_parts(arg0, lbl_804839E4, 1);
-    ((TUnk_80483A10 *)arg0)->variant = 0;
-    ((TUnk_80483A10 *)arg0)->movementParameters = lbl_804839C8;
-    ((TUnk_804806E8 *)arg0)->recalc_combat_stats((void *)(*(s32 *)&lbl_805D4C50), (void *)(*(s32 *)&lbl_805D4C54), (void *)(*(s32 *)&lbl_805D4C58), (f32)lbl_805D86B0, (f32)lbl_805D86B0);
-    ((TUnk_80483A10 *)arg0)->m_b8 = 0;
-    set_animation__10TObjPlayerFPvs(arg0, ((TUnk_80483A10 *)arg0)->m_b8);
-    ((TObjMotion *)arg0)->set_field_b8(((TUnk_80483A10 *)arg0)->m_b8);
-    ((TUnk_80483A10 *)arg0)->hp = ((TUnk_80483A10 *)arg0)->hpmax;
-    ((TUnk_80483A10 *)arg0)->m_32e = ((TUnk_80483A10 *)arg0)->m_2ba;
-    ((TUnk_80483A10 *)arg0)->referenceHp = ((TUnk_80483A10 *)arg0)->hp;
-    ((TObjEneLappy *)arg0)->set_param(0x2E);
-    ((TObjEnemy *)arg0)->update_prev_position();
-    ((TBoss3Volopt *)arg0)->reset_photon_effect();
-    ((TObjPlayer *)arg0)->load_entry_params_volopt(0x18);
-    ((TUnk_80483A10 *)arg0)->m_388 |= 0x10000;
-    ((TUnk_80483A10 *)arg0)->m_390 = 0;
-    *(s32 *)((s8 *)(((TUnk_80483A10 *)arg0)->m_a4) + 0x18) |= 0xC00;
-    arg0->m56();
-    ((TUnk_804806E8 *)arg0)->add_flags_2e4(4);
-    ((TUnk_80483A10 *)arg0)->m_3c8 = 0;
-    obj_setFlags30(arg0, 0x8000);
+    *(s32 *)((s8 *)((VObj_80040894 *)this) + 0) = lbl_805D2728;
+    *(s32 *)((s8 *)((VObj_80040894 *)this) + 0xDC) = *(s32 *)((s8 *)(*(void * *)&volopt_resource_table_ptr) + 0x430);
+    ((TUnk_80483A10 *)((VObj_80040894 *)this))->action_table = boss3_volopt_core_hit_table;
+    ((TObjMotion *)((VObj_80040894 *)this))->set_field_d8((s32)(((TUnk_80483A10 *)((VObj_80040894 *)this))->action_table));
+    init_collision_body_parts(((VObj_80040894 *)this), lbl_804839E4, 1);
+    ((TUnk_80483A10 *)((VObj_80040894 *)this))->variant = 0;
+    ((TUnk_80483A10 *)((VObj_80040894 *)this))->movementParameters = lbl_804839C8;
+    ((TUnk_804806E8 *)((VObj_80040894 *)this))->recalc_combat_stats((void *)(*(s32 *)&lbl_805D4C50), (void *)(*(s32 *)&lbl_805D4C54), (void *)(*(s32 *)&lbl_805D4C58), (f32)lbl_805D86B0, (f32)lbl_805D86B0);
+    ((TUnk_80483A10 *)((VObj_80040894 *)this))->m_b8 = 0;
+    set_animation__10TObjMotionFs(((VObj_80040894 *)this), ((TUnk_80483A10 *)((VObj_80040894 *)this))->m_b8);
+    ((TObjMotion *)((VObj_80040894 *)this))->set_field_b8(((TUnk_80483A10 *)((VObj_80040894 *)this))->m_b8);
+    ((TUnk_80483A10 *)((VObj_80040894 *)this))->hp = ((TUnk_80483A10 *)((VObj_80040894 *)this))->hpmax;
+    ((TUnk_80483A10 *)((VObj_80040894 *)this))->m_32e = ((TUnk_80483A10 *)((VObj_80040894 *)this))->m_2ba;
+    ((TUnk_80483A10 *)((VObj_80040894 *)this))->referenceHp = ((TUnk_80483A10 *)((VObj_80040894 *)this))->hp;
+    ((TObjEnemy *)((VObj_80040894 *)this))->set_param(0x2E);
+    ((TObjEnemy *)((VObj_80040894 *)this))->update_prev_position();
+    ((TBoss3Volopt *)((VObj_80040894 *)this))->reset_photon_effect();
+    ((TUnk_80483A10 *)((VObj_80040894 *)this))->load_entry_params_volopt(0x18);
+    ((TUnk_80483A10 *)((VObj_80040894 *)this))->m_388 |= 0x10000;
+    ((TUnk_80483A10 *)((VObj_80040894 *)this))->m_390 = 0;
+    *(s32 *)((s8 *)(((TUnk_80483A10 *)((VObj_80040894 *)this))->m_a4) + 0x18) |= 0xC00;
+    ((VObj_80040894 *)this)->m56();
+    ((TUnk_804806E8 *)((VObj_80040894 *)this))->add_flags_2e4(4);
+    ((TUnk_80483A10 *)((VObj_80040894 *)this))->m_3c8 = 0;
+    obj_setFlags30(((VObj_80040894 *)this), 0x8000);
     if (TBoss3Volopt__sub_8003F398() != 0) {
         boss3_volopt_turn_angle_limit = 0xA00;
     } else {
         boss3_volopt_turn_angle_limit = 0x200;
     }
-    arg0->m80();
+    ((VObj_80040894 *)this)->m80();
 }
 
 void *create_TBoss3VoloptCore(void *arg0, void *arg1, s16 arg2, s16 arg3) {
@@ -1417,7 +1419,7 @@ void *create_TBoss3VoloptCore(void *arg0, void *arg1, s16 arg2, s16 arg3) {
     *(s32 *)((s8 *)arg0 + 0x80) = 0;
     *(s16 *)((s8 *)arg0 + 0x28) = (s16) *(s16 *)((s8 *)arg1 + 0x28);
     *(s16 *)((s8 *)arg0 + 0x2A) = (s16) *(s16 *)((s8 *)arg1 + 0x2A);
-    ((s32 (*)(void *, s32 *))TBoss3VoloptCore__ct)(arg0, TBoss3VoloptCore__vtable);
+    ((s32 (*)(void *, s32 *))sub_80040894__13TUnk_80483A10Fv)(arg0, TBoss3VoloptCore__vtable);
     return arg0;
 }
 
@@ -1425,7 +1427,7 @@ void *TBoss3VoloptCore__sub_80040A7C(void *arg0, void *arg1, void *arg1_arg) {
     ((s32 (*)(void *, void *))TObjEnemyCustom__ct)(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = TBoss3VoloptCore__vtable;
     ((TUnk_80483A10 *)arg0)->apply_set_data(arg1_arg);
-    ((s32 (*)(void *))TBoss3VoloptCore__ct)(arg0);
+    ((s32 (*)(void *))sub_80040894__13TUnk_80483A10Fv)(arg0);
     return arg0;
 }
 
@@ -1435,7 +1437,7 @@ s32 TObjPlayer__sub_80040AE4(s32 i) {
     return (*(G_80040AE4 * *)&volopt_array_resource_ptr)->arr[i];
 }
 
-void TObjPlayer::load_entry_params_volopt(s32 i) {
+void TUnk_80483A10::load_entry_params_volopt(s32 i) {
     O_80040AF8 *self = (O_80040AF8 *)this;
     self->f34 = (*(G_80040AF8 * *)&volopt_resource_table_ptr)->entries[i].f8;
     self->f24 = (*(G_80040AF8 * *)&volopt_resource_table_ptr)->entries[i].fc;

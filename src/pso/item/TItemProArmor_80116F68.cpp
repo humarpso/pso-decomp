@@ -11,7 +11,7 @@
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-s32 get_slot_count__14TItemProShieldFv(void *);
+s32 get_slot_count__5TItemFv(void *);
 void TItemObject__ct(void *);
 u8 get_tool_pmt_amount_byte__11TItemObjectFv();
 s32 launch_technique__10TObjPlayerFv(s32, s32, s32);
@@ -45,7 +45,7 @@ u8 *create_material_item(u8 *arg0) {
 void TUnk_8049FC90::vfunc_44() {
   u8 temp_r31;
     s32 arg0 = (s32)this;
-  temp_r31 = get_slot_count__14TItemProShieldFv((void *) arg0);
+  temp_r31 = get_slot_count__5TItemFv((void *) arg0);
   set_item_owner_technique_level((void *)arg0, ((s16) (((TItemObject *)arg0)->sub_80115D7C() & 0xFF)), ((s16) (temp_r31 & 0xFFFFFFFFu)));
 }
 

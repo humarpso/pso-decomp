@@ -80,7 +80,7 @@ s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void mem_free(void *p);
-void set_indexed_flags(void *arg0, s32 index, s32 flags);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 
 void TODoorAncient03::vfunc_20() {  }
 
@@ -90,7 +90,7 @@ void TODoorAncient03::vfunc_17() {
     u8 *arg0 = (u8 *)this;
     if (!(this->m_d0 & 1) || (is_any_player_within_radius_xz(lbl_805DB3F0) == 0)) {
         this->m_ac = 3;
-        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
+        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 8);
         play_sound_effect(0x4004B708, (u8 *)&this->position, 0, 0);
     }
 }
@@ -101,7 +101,7 @@ void TODoorAncient03::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
     if ((this->m_d0 & 1) && (is_any_player_within_radius_xz(lbl_805DB3F4) != 0)) {
         this->m_ac = 1;
-        set_indexed_flags(arg0, 0, 8);
+        set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 8);
         play_sound_effect(0x4004B708, (u8 *)&this->position, 0, 0);
     }
 }

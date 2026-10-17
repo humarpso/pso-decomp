@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneSaver.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneMe3Shinowa.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
@@ -1513,7 +1515,7 @@ void vfunc_61__17TObjEneMe3ShinowaFv(void);
 void vfunc_28__17TObjEneMe3ShinowaFv(void);
 void * __dt__17TObjEneMe3ShinowaFv(void *arg0, s16 arg1);
 void * TObjEneMe3Shinowa__ct(void *arg0);
-void set_animation__10TObjPlayerFPvs(void *, s16);
+void set_animation__10TObjMotionFs(void *, s16);
 s32 check_enemy_body_collisions(void *);
 void free_collision_body_parts(void *);
 s32 get_stat_by_key_state__13TUnk_804B9870Fv(int);
@@ -3331,10 +3333,10 @@ void TObjEneMe3Shinowa::init_enemy() {
     self->f34 = *(s32 *)((*(Game_800E7884 * *)&TObjEneMe3ShinowaMirage__data_805D5298)->mdl + 8);
     init_model__9TObjEneDDFv(self, ((void * *)shinowa_mirage_model_init_data), 1);
     self->fB0 = 0;
-    ((TObjPlayer *)self)->set_field_d8((s32)shinowa_mirage_motion_param_table);
-    ((TObjPlayer *)self)->set_field_dc((*(Game_800E7884 * *)&TObjEneMe3ShinowaMirage__data_805D5298)->f430);
+    ((TObjMotion *)self)->set_field_d8((s32)shinowa_mirage_motion_param_table);
+    ((TObjMotion *)self)->set_field_dc((*(Game_800E7884 * *)&TObjEneMe3ShinowaMirage__data_805D5298)->f430);
     self->fB8 = 0;
-    set_animation__10TObjPlayerFPvs(self, self->fB8);
+    set_animation__10TObjMotionFs(self, self->fB8);
     ((TObjMotion *)self)->set_field_b8(self->fB8);
     {
         s32 *a = tbl->t[0];

@@ -17,7 +17,7 @@ typedef char PartisanSecondTranslationOffset[(offsetof(TItemWeaponPartisan,secon
 typedef char PartisanSize[(sizeof(TItemWeaponPartisan)==0x220)?1:-1];
 #endif
 extern "C" {
-u8 get_slot_count__14TItemProShieldFv(TItemWeapon*);
+u8 get_slot_count__5TItemFv(TItemWeapon*);
 s32 is_mode_two_and_ready__10TObjPlayerFv(TItemWeapon*);
 int obj_getPtr2B0_20(u8 *p);
 s32 try_spend_actor_meseta(u8 *arg0, s32 arg1);
@@ -27,7 +27,7 @@ void *spawn_particle_effect(void *pos, s32 id);
 extern const f32 lbl_805DAE80 = 3.0f;
 }
 void TUnk_804A4D70::emit_marker_effects() {
-    switch (get_slot_count__14TItemProShieldFv(this)) {
+    switch (get_slot_count__5TItemFv(this)) {
     case 6:
         if (is_mode_two_and_ready__10TObjPlayerFv(this) && obj_getPtr2B0_20((u8 *)player) >= 10000) {
             try_spend_actor_meseta((u8 *)player, 10000);

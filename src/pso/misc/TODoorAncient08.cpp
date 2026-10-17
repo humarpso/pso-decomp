@@ -82,7 +82,7 @@ u8 *TODoorAncient08__ct(TODoorAncient08 *arg0, s32 arg1, s32 arg2);
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 is_any_player_within_radius_xz(u8 *self, f32 radius);
 extern const f32 lbl_805DB478;
-void set_indexed_flags(void *arg0, s32 index, s32 flags);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 extern const f32 lbl_805DB47C;
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
@@ -306,7 +306,7 @@ void TODoorAncient08::vfunc_17() {
             return;
         }
         *(s32 *)(arg0 + 0xAC) = 3;
-        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
+        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 8);
         *(s32 *)(arg0 + 0xE4) = 0;
         switch ((u32)TOKeyMachine01::get_global_state()) {
         case 3:
@@ -330,7 +330,7 @@ void TODoorAncient08::vfunc_17() {
     } else {
         *(s32 *)(arg0 + 0xAC) = 3;
         *(s32 *)(arg0 + 0x24) = ((s32 *)TODoorAncient08__switch_texture_lists)[1];
-        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
+        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 8);
         *(s32 *)(arg0 + 0xE4) = 0;
     }
 }
@@ -340,7 +340,7 @@ void TODoorAncient08::play_proximity_sound() {
     if ((*(s32 *)(arg0 + 0xD0) & 1) && is_any_player_within_radius_xz(arg0, lbl_805DB47C) == 1) {
         *(s32 *)(arg0 + 0xAC) = 1;
         *(s32 *)(arg0 + 0x24) = ((s32 *)TODoorAncient08__switch_texture_lists)[0];
-        set_indexed_flags(arg0, 0, 8);
+        set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 8);
         *(s32 *)(arg0 + 0xE4) = 1;
         switch ((u32)TOKeyMachine01::get_global_state()) {
         case 3:

@@ -6,6 +6,14 @@
 class TObjEneEpsilonBody : public TObjEneEpsilon {
 public:
     virtual ~TObjEneEpsilonBody();
+    void init_params();
+    void update_guard_flag();
+    void sub_80361D4C(s32);
+    void sub_803606A0(s32);
+    void render_body_effect();
+    void set_guard_state(s32);
+    s16 get_table_value_by_index();
+    s16 sub_8035F8A8();
     virtual void run_task();
     virtual void render();
     virtual f32 receive_physical_attack(void *, f32);

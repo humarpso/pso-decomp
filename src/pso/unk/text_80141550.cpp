@@ -18,7 +18,7 @@ struct Stack_801415BC {
 struct Cfg_80141604 { u32 a; u8 b; u8 c; u8 pad6[2]; u32 d; u8 e; u8 f; u8 pad_e[2]; u32 g; };
 
 extern "C" {
-s32 set_chunk_material_color(void *, f32);
+s32 set_chunk_material_color__13TUnk_80494AE0Fv(void *, f32);
 extern s32 model_render_flags;
 extern const f32 lbl_805DB150;
 extern const f32 lbl_805DB154;
@@ -33,7 +33,7 @@ void set_shadow_material_state(void) {
     stack.sp10 = lbl_805DB150;
     stack.sp14 = lbl_805DB150;
     stack.sp8 = lbl_805DB154;
-    set_chunk_material_color(&stack.sp8, lbl_805DB150);
+    set_chunk_material_color__13TUnk_80494AE0Fv(&stack.sp8, lbl_805DB150);
     model_render_flags |= 0x400;
 }
 u32 saved_model_draw_color[8];

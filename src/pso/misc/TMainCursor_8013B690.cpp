@@ -21,7 +21,7 @@ s32 get_split_screen_view_index__11TCameraCtrlFUs();
 s32 get_mode__11TCameraCtrlFPv(void *);
 s32 render__11TMainCursorFPv(void *);
 extern u8 shared_effect_texture_list[];
-s32 obj_testFlags30(s32, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(s32, s32);
 s32 obj_getField1c(void *);
 s32 test_action_mask__10TObjPlayerFl(void *, s32);
 s32 check_visible__11TMainCursorFv(void *, void *, s32, s32);
@@ -79,7 +79,7 @@ s32 check_can_pickup__11TMainCursorFi(s32 arg0) {
 
     ((TMainCursor *)(arg0 + 0x60))->get_id();
     temp_r3 = find_entity_by_id();
-    if ((temp_r3 != 0) && ((u32) (obj_testFlags30(temp_r3, 0x80000000) + 0x80000000) == 0U) && ((temp_r3b = ((TMainCursor *)arg0)->check_field_24()) != 0U) && (can_pickup_item_by_id__10TObjPlayerFii(temp_r3b, temp_r3) == 0)) {
+    if ((temp_r3 != 0) && ((u32) (obj_testFlags30__13TUnk_804AF8A0FUl(temp_r3, 0x80000000) + 0x80000000) == 0U) && ((temp_r3b = ((TMainCursor *)arg0)->check_field_24()) != 0U) && (can_pickup_item_by_id__10TObjPlayerFii(temp_r3b, temp_r3) == 0)) {
         return 1;
     }
     return 0;
@@ -136,7 +136,7 @@ void TMainCursor::validate_target() {
             this->update_target_sub();
             return;
         }
-        if (check_flag_100__10TObjPlayerFPv(t) == 0 && obj_testFlags30((s32)t, 0x20006) != 0) {
+        if (check_flag_100__10TObjPlayerFPv(t) == 0 && obj_testFlags30__13TUnk_804AF8A0FUl((s32)t, 0x20006) != 0) {
             this->update_target_sub();
             return;
         }

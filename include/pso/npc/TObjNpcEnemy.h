@@ -10,7 +10,6 @@ struct TObjNpcEnemy : public TObjNpcBase {
     virtual void vfunc_88();
     s32 sub_802D7444();
     u32 m_3b8;
-    void draw_model();
     static s16 *get_entry_by_index(s16 arg0);
     static s16 *insert_slot_by_id(s16 arg0);
     static void reset_all_anim_fields();

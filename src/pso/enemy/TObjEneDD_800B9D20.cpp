@@ -33,7 +33,7 @@ int apply_split_screen_view_matrix__11TCameraCtrlFv(void*);
 int restore_scene_lighting(void*);
 int select_actor_lighting(void*);
 int render_with_position_override__9TObjEnemyFPUcl(void*);
-int set_param__12TObjEneLappyFl(void*);
+int set_param__9TObjEnemyFl(void*);
 
     extern int model_render_flags;
 
@@ -84,6 +84,6 @@ void TObjEneDD::reload_stats_keep_hp_tp() {
 void TObjEneDD::reset_hp() { bind_enemy_combat_stats(this); this->referenceHp = this->hp; }
 int TObjEneDD::get_camera_ctrl() { return transform_to_view__11TCameraCtrlFii(this); }
 int TObjEneDD::update_camera_sequence() { return apply_split_screen_view_matrix__11TCameraCtrlFv(this); }
-int TObjEneDD::initialize_enemy_state() { return set_param__12TObjEneLappyFl(this); }
+int TObjEneDD::initialize_enemy_state() { return set_param__9TObjEnemyFl(this); }
 
 }

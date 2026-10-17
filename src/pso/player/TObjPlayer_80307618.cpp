@@ -14,7 +14,7 @@ extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 extern const f32 lbl_805DF0AC;
-u8 get_slot_count__14TItemProShieldFv(void *);
+u8 get_slot_count__5TItemFv(void *);
 u8 * TItemWeapon__ct(void *, void *);
 s32 set_status_flags__10TObjPlayerFUl(void *, s32);
 extern s32 lbl_804E70A8[];
@@ -22,7 +22,7 @@ extern char shared_capture_texture_list[];
 f32 sin_table_lookup(s32);
 void TKeyBoardControl__sub_8000F91C(s32 arg0);
 void TKeyBoardControl__sub_8000F9CC(s32 arg0);
-s32 draw_weapon_model();
+s32 draw_weapon_model__11TItemWeaponFv();
 void draw_weapon_at_joint(s32 arg0, s8 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -32,7 +32,7 @@ void TUnk_804E70A8::reserved_53() {
     s32 temp_r31;
 
     temp_r31 = *(s32 *)((s8 *)((u8 *)this) + 0xF4);
-    draw_weapon_model();
+    draw_weapon_model__11TItemWeaponFv();
     *(s32 *)((s8 *)((u8 *)this) + 0xF4) = (s32) this->projectile;
     draw_weapon_at_joint((s32)this, 0x23);
     *(s32 *)((s8 *)((u8 *)this) + 0xF4) = temp_r31;
@@ -42,7 +42,7 @@ extern f32 lbl_805DF0A8;
 
 void TUnk_804E70A8::update_weapon() {
     if ((s32) *(s32 *)((s8 *)this + 0x1F8) > 0) {
-        if (get_slot_count__14TItemProShieldFv(this) == 1) {
+        if (get_slot_count__5TItemFv(this) == 1) {
             *(s32 *)((s8 *)this + 0x1F8) = (s32) (*(s32 *)((s8 *)this + 0x1F8) - 1);
             if ((s32) *(s32 *)((s8 *)this + 0x1F8) == 0) {
                 set_status_flags__10TObjPlayerFUl(this, 0x800);
@@ -68,7 +68,7 @@ u8 *TObjPlayer__sub_80307784(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80307784_lbl_804E70A8 *)&lbl_804E70A8).value;
     set_status_flags__10TObjPlayerFUl(arg0, 1);
-    if (get_slot_count__14TItemProShieldFv(arg0) == 1) {
+    if (get_slot_count__5TItemFv(arg0) == 1) {
         set_status_flags__10TObjPlayerFUl(arg0, 0x800);
     }
     *(s32 *)((s8 *)arg0 + 0x1F8) = 5;

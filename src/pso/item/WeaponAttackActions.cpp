@@ -333,15 +333,15 @@ struct Self_8011EDFC {
 
 int memcpy(void*, void*, void*);
 s32 TObjectV8047c128_subtract_hp(u8 *arg0, s16 arg1);
-s32 obj_testFlags30(void *, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
 s16 obj_getField1c(void *);
 s32 get_mode__11TCameraCtrlFPv(void *);
 u8 * csnVector(void *, void *, s32);
 s32 test_action_mask__10TObjPlayerFl(void *, s32);
 s32 fn_80100CC8(Pl_8011E87C *);
-s32 item_model_is_shown(void *);
+s32 item_model_is_shown__11TItemWeaponFv(void *);
 void send_6x61_activate_mag_effect__14TItemEquipBaseFl(void *, s32);
-s8 TObjPlayer__sub_80102C30(u8 *arg0);
+s8 sub_80102C30__5TItemFv(u8 *arg0);
 s32 spawn_item_attacker(int, void *, int, void *);
 s32 spawn_land_hit_effect(int, void *, void *, void *, int);
 s32 init__9TItemDataFv(s32 *);
@@ -470,7 +470,7 @@ void TObjPlayer::set_flag_8_if_check_passes() {
     u8 *var_r31;
     if (this != NULL) {
         var_r31 = (u8 *)this;
-        if (TObjPlayer__sub_80102C30(((u8 *)this)) != 0) {
+        if (sub_80102C30__5TItemFv(((u8 *)this)) != 0) {
             ((TObjPlayer *)var_r31)->set_flag_8();
         }
     }
@@ -550,7 +550,7 @@ void TItemWeapon::create_weapon_trail_effects() {
                 }
                 ((Pl_8011E950 *)this)->eff[i] = p;
             }
-            if (((Pl_8011E950 *)this)->eff[i] != NULL && obj_testFlags30(((Pl_8011E950 *)this), 0x2000) != 0) {
+            if (((Pl_8011E950 *)this)->eff[i] != NULL && obj_testFlags30__13TUnk_804AF8A0FUl(((Pl_8011E950 *)this), 0x2000) != 0) {
                 TObjPlayer__sub_80121228(((Pl_8011E950 *)this)->eff[i], 1);
             }
         }
@@ -712,7 +712,7 @@ void TObjPlayer::launch_rare_weapon_special(void *origin, s32 enable, f32 scale)
     if (n < 0) {
         n = 0;
     }
-    if (((Self_8011EDFC *)this)->cb != NULL && item_model_is_shown(((Self_8011EDFC *)this)) == 1) {
+    if (((Self_8011EDFC *)this)->cb != NULL && item_model_is_shown__11TItemWeaponFv(((Self_8011EDFC *)this)) == 1) {
         ((Self_8011EDFC *)this)->cb(((Self_8011EDFC *)this), origin, &pos, (f32)n);
     }
 }
@@ -801,7 +801,7 @@ s32 TItemWeapon::launch_shot(u8 *arg1, s32 i, s32 arg3, s32 arg4) {
                 }
             }
             this->spawn_light_task();
-            if ((((s32 (*)(void *, void *, f32 *, f32)) *(s32 (**)(void *, void *, f32 *, f32))((s8 *)((u8 *)this) + 0x1F0)) != NULL) && (item_model_is_shown(this) == 1)) {
+            if ((((s32 (*)(void *, void *, f32 *, f32)) *(s32 (**)(void *, void *, f32 *, f32))((s8 *)((u8 *)this) + 0x1F0)) != NULL) && (item_model_is_shown__11TItemWeaponFv(this) == 1)) {
                 (*(s32 (**)(void *, void *, f32 *, f32))((s8 *)((u8 *)this) + 0x1F0))(this, arg1, &endpoint.x, var_f31);
             }
         }

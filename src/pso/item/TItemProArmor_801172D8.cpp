@@ -9,13 +9,13 @@ s32 add_actor_tp(u8 *arg0, s32 arg1);
 void *__dt__11TItemObjectFv(void *arg0, s16 arg1);
 s32 calc_armor_value__13TItemProArmorFv(void *);
 s32 calc_scaled_offset__13TItemProArmorFv(void *);
-u8 get_slot_count__14TItemProShieldFv();
+u8 get_slot_count__5TItemFv();
 
 void TItemProArmor::apply_armor_stat() {
     s32 stat_value;
 
     stat_value = 0;
-    switch ((s32) get_slot_count__14TItemProShieldFv()) {
+    switch ((s32) get_slot_count__5TItemFv()) {
     case 0:
         stat_value = calc_armor_value__13TItemProArmorFv(this);
         break;

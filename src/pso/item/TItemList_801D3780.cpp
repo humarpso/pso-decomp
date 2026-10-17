@@ -95,7 +95,7 @@ s32 fn_801D4270(s32);
 s32 load_character_from_card__23TAdSinglePlyChrSelectGCFv(void);
 s32 queue_destruction__7TObjectFv(void *);
 void remove_list_entry_by_id(s32 arg0);
-void TItemList__sub_801D5884(void *p, u8 v);
+void sub_801D5884__13TUnk_804C4498FUc(void *p, u8 v);
 u8 *run_item_count_update__9TItemListFv(void *);
 extern s32 item_drop_search_task_vtable[];
 u8 *TItemList__sub_801D39C8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, s32 arg4, s8 arg5);
@@ -111,8 +111,8 @@ s32 get_item_type_or_default__9TItemListFv(void *);
 void send_6x29_delete_item__10TObjPlayerFPvii(void *, s32, s32);
 void *get_player_by_client_id(u16);
 void *get_ptr_0x44__9TItemListFPv(void *);
-s32 TItemList__sub_801D58DC(void *);
-void TItemList__sub_801D591C(void *);
+s32 sub_801D58DC__13TUnk_804C4468Fv(void *);
+void sub_801D591C__13TUnk_804C4468Fv(void *);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
 s32 *csnVecterUnder(s32 origin, s32 mask);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
@@ -140,17 +140,17 @@ void TUnk_804C4468::run_task() {
         return;
     case 1:
         TItemList__sub_801D59A0(this, *(s32 *)(((u8 *)this) + 0x54));
-        TItemList__sub_801D591C(this);
+        sub_801D591C__13TUnk_804C4468Fv(this);
         r = (Req_801D3780 *)run_item_count_update__9TItemListFv(this);
-        player = get_player_by_client_id(TItemList__sub_801D58DC(this));
+        player = get_player_by_client_id(sub_801D58DC__13TUnk_804C4468Fv(this));
         if (player != NULL) {
             if (r->id == -1) {
                 if (r->source == -1) {
-                    ((TItem *)(r->item))->assign_id_and_init((s32)(TItemList__sub_801D58DC(this)), (s32)(get_ptr_0x44__9TItemListFPv(this)));
+                    ((TItem *)(r->item))->assign_id_and_init((s32)(sub_801D58DC__13TUnk_804C4468Fv(this)), (s32)(get_ptr_0x44__9TItemListFPv(this)));
                     send_6x29_delete_item__10TObjPlayerFPvii(player, r->source, r->extra);
                     TObjPlayer::send_code_45_1((s32)player);
                 } else {
-                    ((TItem *)(r->item))->assign_id_and_init((s32)(TItemList__sub_801D58DC(this)), (s32)(get_ptr_0x44__9TItemListFPv(this)));
+                    ((TItem *)(r->item))->assign_id_and_init((s32)(sub_801D58DC__13TUnk_804C4468Fv(this)), (s32)(get_ptr_0x44__9TItemListFPv(this)));
                     send_6x29_delete_item__10TObjPlayerFPvii(player, r->source, get_item_type_or_default__9TItemListFv(r->item));
                     TObjPlayer::send_code_45_1((s32)player);
                 }
@@ -195,7 +195,7 @@ u8 *TItemList__sub_801D39C8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, s32 arg4, s8
     construct_placement_search_base((u8 *)arg0, (u8 *)arg1, (u8 *)arg3, (u8 *)arg4, arg5);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801D39C8_lbl_804C4468 *)&item_drop_search_task_vtable).value;
     *(s32 *)((s8 *)arg0 + 0x54) = arg2;
-    TItemList__sub_801D5884((arg0), 1);
+    sub_801D5884__13TUnk_804C4498FUc((arg0), 1);
     ((TUnk_804C4498 *)arg0)->reset_placement_search_ring();
     if (check_player_action_allowed() != 0) {
         temp_r3 = (u8 *)(run_item_count_update__9TItemListFv(arg0));
@@ -255,7 +255,7 @@ u8 *TItemList::ct_init_placement_ring(u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8
     construct_placement_search_base((u8 *)this, arg1, arg3, arg4, arg5);
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_801D3BD4_lbl_804C4480 *)&placement_search_task_vtable).value;
     *(s32 *)((s8 *)((u8 *)this) + 0x54) = arg2;
-    TItemList__sub_801D5884((this), (0U));
+    sub_801D5884__13TUnk_804C4498FUc((this), (0U));
     ((TUnk_804C4498 *)((u8 *)this))->reset_placement_search_ring();
     return ((u8 *)this);
 }

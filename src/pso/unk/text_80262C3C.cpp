@@ -158,7 +158,7 @@ extern const f32 lbl_805DD118;
 extern const f32 lbl_805DD11C;
 extern const f32 lbl_805DD120;
 
-s32 obj_testFlags30(s32, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(s32, s32);
 s32 obj_isState3_324__13TUnk_804806E8Fv(void *);
 s32 is_script_controlled__10TObjPlayerFv(void *);
 void calc_row_width__20TWindowSubStatusDispFv(void *);
@@ -193,9 +193,9 @@ void TWindowLockOn::validate_target() {
       }
     }
     else
-      if (((s32 (*)(void *, s32))obj_testFlags30)(item, 0x10000000) == 0)
+      if (((s32 (*)(void *, s32))obj_testFlags30__13TUnk_804AF8A0FUl)(item, 0x10000000) == 0)
     {
-      if (((s32 (*)(void *, s32))obj_testFlags30)(item, 0x20000000) != 0)
+      if (((s32 (*)(void *, s32))obj_testFlags30__13TUnk_804AF8A0FUl)(item, 0x20000000) != 0)
       {
         if (PSO_VCALL_VObj_18_7b8813_m31(item) != 0)
         {
@@ -207,7 +207,7 @@ void TWindowLockOn::validate_target() {
         }
       }
       else
-        if ((((s32 (*)(void *, s32))obj_testFlags30)(item, 0x80000000) != 0) && (TObjPlayer__sub_80102C30(item) != 0))
+        if ((((s32 (*)(void *, s32))obj_testFlags30__13TUnk_804AF8A0FUl)(item, 0x80000000) != 0) && (sub_80102C30__5TItemFv(item) != 0))
       {
         this->m_60 = 0xFFFFU;
         if (((f32) (*(s32 *)&this->m_64)) > lbl_805DD100)
@@ -224,19 +224,19 @@ bool is_lockable_target__13TWindowLockOnFi(s32 arg0) {
     if (arg0 == 0) {
         return 0;
     }
-    if (obj_testFlags30(arg0, 0x10000000) != 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x10000000) != 0) {
         if ((obj_isState3_324__13TUnk_804806E8Fv((void *)arg0) != 0) || (is_script_controlled__10TObjPlayerFv((void *)arg0) != 0)) {
             return 0;
         }
         return 1;
     }
-    if (obj_testFlags30(arg0, 0x20000000) != 0) {
-        if (obj_testFlags30(arg0, 0x40000000) != 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x20000000) != 0) {
+        if (obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x40000000) != 0) {
             return 0;
         }
         return ((TWindowLockOn *)arg0)->get_target_id() != 0;
     }
-    return obj_testFlags30(arg0, (s32)((int) (0x80000000))) != 0;
+    return obj_testFlags30__13TUnk_804AF8A0FUl(arg0, (s32)((int) (0x80000000))) != 0;
 }
 
 void TWindowLockOn::refresh_enemy_statuses() {
@@ -449,15 +449,15 @@ s32 TWindowLockOn__update_for_other_player(s32 a0, s32 a1) {
 
 void update_for_target__13TWindowLockOnFii(s32 arg0, s32 arg1) {
     ((TWindowSubStatusDisp *)(arg0 + 0x24))->destroy_all_items();
-    if (obj_testFlags30(arg1, 0x10000000) != 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(arg1, 0x10000000) != 0) {
         TWindowLockOn__update_for_other_player(arg0, arg1);
         return;
     }
-    if (obj_testFlags30(arg1, 0x80000000) != 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(arg1, 0x80000000) != 0) {
         TWindowLockOn__update_for_item(arg0, arg1);
         return;
     }
-    if (obj_testFlags30(arg1, 0x20000000) != 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(arg1, 0x20000000) != 0) {
         TWindowLockOn__update_for_enemy(arg0, arg1);
     }
 }

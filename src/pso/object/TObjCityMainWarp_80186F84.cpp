@@ -41,7 +41,7 @@ extern s32 local_client_id;
 extern const f32 lbl_805DBCA8;
 s32 is_local_client_floor_leader(s32);
 s32 find_local_player_in_range__16TObjCityMainWarpFf(void *, f32);
-s32 close_windows__16TObjCityMainWarpFv();
+s32 close_windows__25TObjCityMainWarpChallengeFv();
 s32 TObjCityMainWarp__sub_801875F8(void *);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern void *city_common_model_archive;
@@ -120,7 +120,7 @@ void TObjCityMainWarp::update_warp_sequence() {
     case 2:
         break;
     case -1:
-        close_windows__16TObjCityMainWarpFv();
+        close_windows__25TObjCityMainWarpChallengeFv();
         break;
     }
 }
@@ -179,7 +179,7 @@ void TObjCityMainWarpChallenge::update_challenge_state() {
             *(s16 *)((s8 *)arg0 + 0xE0) = 5;
         }
         if (*(s16 *)((s8 *)arg0 + 0xE0) != 2) {
-            ((s32 (*)(void *))close_windows__16TObjCityMainWarpFv)(arg0);
+            ((s32 (*)(void *))close_windows__25TObjCityMainWarpChallengeFv)(arg0);
         }
         break;
     case 3:
@@ -200,7 +200,7 @@ void TObjCityMainWarpChallenge::update_challenge_state() {
     case 5:
         break;
     case -1:
-        close_windows__16TObjCityMainWarpFv();
+        close_windows__25TObjCityMainWarpChallengeFv();
         break;
     }
 }

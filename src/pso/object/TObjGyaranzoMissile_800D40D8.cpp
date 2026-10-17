@@ -83,7 +83,7 @@ void check_enemy_body_collisions(void *arg0);
 s32 play_sound_effect(void *, void *, int, int);
 extern Hit_800D4200 lbl_8043C440[];
 extern const f32 lbl_805DA2A8;
-void TObjGyaranzoMissile__sub_800D4200(u8 *arg0);
+void sub_800D4200__13TUnk_8049442CFv(u8 *arg0);
 s32 rotate_matrix_y(s32, s32);
 s32 pop_matrix();
 s32 push_matrix_from(void *src);
@@ -138,10 +138,11 @@ void TUnk_8049442C::update_ground_fall(s32 *arg1, f32 farg0) {
     this->actorFlags = (s32) (this->actorFlags & 0xFF7FFFFF);
 }
 
-void TObjGyaranzoMissile__sub_800D4200(u8 *arg0) {
+void TUnk_8049442C::sub_800D4200() {
     u8 *self;
     s32 i;
     u8 *t;
+    u8 *arg0 = (u8 *)this;
     self = (u8 *)find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xD8));
     (*(Info_800D4200 * *)&((TUnk_8049442C *)arg0)->m_a4)->xc = lbl_805DA2A8;
     TObjPlayer::init_all_slots();
@@ -221,7 +222,7 @@ void TUnk_8049442C::run_task() {
         } else {
             ((TObjPlayer *)self)->update_collisions();
             if (self->info->flags & 0x380000) {
-                TObjGyaranzoMissile__sub_800D4200((u8 *)self);
+                sub_800D4200__13TUnk_8049442CFv((u8 *)self);
                 break;
             }
         }
@@ -238,7 +239,7 @@ void TUnk_8049442C::run_task() {
     VecCopy(&self->fE0, &self->pos);
     self->fE0.y += lbl_805DA2A8;
     if (self->timer >= 0x96) {
-        TObjGyaranzoMissile__sub_800D4200((u8 *)self);
+        sub_800D4200__13TUnk_8049442CFv((u8 *)self);
     }
 }
 

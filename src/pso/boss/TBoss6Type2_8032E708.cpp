@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -1350,7 +1351,7 @@ u8 *TBoss6Mag__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x32C);
     *(s32 *)((s8 *)arg0 + 0x38C) = *(s16 *)((s8 *)arg0 + 0x32C);
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
-    ((TObjEneLappy *)arg0)->set_param((*(s32 *)((s8 *)arg0 + 0x384) == 1) ? 0x56 : 0x55);
+    ((TObjEnemy *)arg0)->set_param((*(s32 *)((s8 *)arg0 + 0x384) == 1) ? 0x56 : 0x55);
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(*(u32 *)((s8 *)arg2 + 0x58));
     *(s32 *)((s8 *)arg0 + 0x390) = *(s32 *)((s8 *)arg2 + 0x5C);
     ((TBoss6Type2 *)arg0)->init_segment_angle_range();

@@ -80,7 +80,6 @@ struct TCameraCtrl : public TObject {
     void set_mode();
     static void set_player_view_flag(s32 arg0);
     static void set_flag_08000000(s32 arg0);
-    void set_target(u32 arg1);
     void update_target_follow();
     void init_state();
     void reset_behind_player();

@@ -2901,7 +2901,7 @@ s32 TBoss6Type2__ct(s32 arg0_, s32 parent, s32 arg2_) {
     bind_enemy_combat_stats(arg0, (u8 *)(register_boss__6TLobbyFl(0x2C)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(0x2C)), (u8 *)(register_object__6TLobbyFl(0x2C)));
     *(s16 *)((s8 *)arg0 + 0x33E) = *(s32 *)((s8 *)arg0 + 0x4F8) = *(s16 *)((s8 *)arg0 + 0x32C);
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
-    ((TObjEneLappy *)arg0)->set_param(0x4E);
+    ((TObjEnemy *)arg0)->set_param(0x4E);
     id = (s8)((u8 *)arg2)[0x44] % 4;
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(TBoss6Type2__initial_actor_flag_masks[id]);
     *(s32 *)((s8 *)arg0 + 0x428) = id;

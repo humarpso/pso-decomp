@@ -421,7 +421,7 @@ s16 get_attack_params_atp_min(void *);
 s32 TObjPlayer__sub_8001943C(void *, int);
 s16 TObjPlayer__sub_800194E8(void *);
 s16 get_attack_params_atp_max(void *);
-s32 obj_testFlags30(void *, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
 void obj_setFlags30(void *, s32);
 s32 is_split_screen();
 s32 get_current_floor();
@@ -586,11 +586,11 @@ void handle_6x9C_set_enemy_low_game_flags_ultimate(Msg_800F62E0 *arg0) {
     if (((TObject *)e)->all_parents_unqueued_for_destruction() == 0) {
         return;
     }
-    if (obj_testFlags30(e, 0x800) != 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(e, 0x800) != 0) {
         return;
     }
     flags = arg0->flags;
-    if (obj_testFlags30(e, flags) != 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(e, flags) != 0) {
         return;
     }
     obj_setFlags30(e, flags);
@@ -678,16 +678,16 @@ void TObjEnemy::apply_hit_message_flags(void *arg1_arg) {
         flags = arg1->flags & ~0x3F;
     } else {
         flags = arg1->flags;
-        if ((flags & 2) && obj_testFlags30(this, 2) == 0) {
+        if ((flags & 2) && obj_testFlags30__13TUnk_804AF8A0FUl(this, 2) == 0) {
             this->apply_paralysis();
         }
-        if ((flags & 4) && obj_testFlags30(this, 4) == 0) {
+        if ((flags & 4) && obj_testFlags30__13TUnk_804AF8A0FUl(this, 4) == 0) {
             this->apply_shock_status();
         }
-        if ((flags & 0x10) && obj_testFlags30(this, 0x10) == 0) {
+        if ((flags & 0x10) && obj_testFlags30__13TUnk_804AF8A0FUl(this, 0x10) == 0) {
             this->apply_confusion_status();
         }
-        if ((flags & 0x20) && obj_testFlags30(this, 0x20) == 0) {
+        if ((flags & 0x20) && obj_testFlags30__13TUnk_804AF8A0FUl(this, 0x20) == 0) {
             this->apply_movement_ailment(0);
         }
     }
@@ -788,7 +788,7 @@ void TObjEnemy::award_enemy_experience(s32 arg1) {
     Plr_800F6BF0 *p;
 
     if ((u16)arg1 >= 0x1000 || (p = get_player_by_client_id(arg1)) == NULL ||
-        ((s32 (*)(void *, int))obj_testFlags30)(p, 0x800) != 0 || ((TObjPlayer *)p)->get_field_3e4() != get_current_floor()) {
+        ((s32 (*)(void *, int))obj_testFlags30__13TUnk_804AF8A0FUl)(p, 0x800) != 0 || ((TObjPlayer *)p)->get_field_3e4() != get_current_floor()) {
         return;
     }
     val = *(s32 *)(this->m_2b0 + 0x1C);

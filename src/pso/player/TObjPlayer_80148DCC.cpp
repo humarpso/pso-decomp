@@ -109,7 +109,7 @@ struct VObj_18_3eea3b : VBase_18_3eea3b {
 
 extern "C" {
 void copy_position__20TBoss3VoloptHiraisinFi(s32);
-void set_indexed_flags(void *, s32, s32);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *, s32, s32);
 s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1);
 s32 advance_animation_playback(void *);
 s32 submit_cursor_candidate(void *, int);
@@ -179,7 +179,7 @@ void TObjNpcBase::run_task() {
   if ((((s32) (*((s32 *) (((s8 *) ((u8 *)this)) + ((((((((((0x3A0 & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu))))) <= 0) && (((s32)this->m_3a4) <= 0))
   {
     this->m_390 = 1;
-    set_indexed_flags(this, 0, 1);
+    set_indexed_flags__13TUnk_804AF8A0Fll(this, 0, 1);
   }
   else
   {
@@ -197,19 +197,19 @@ void TObjNpcBase::run_task() {
       if (get_register__12TQuestThreadFPvi(var_r31, temp_r4) != 0)
       {
         this->m_390 = 1;
-        set_indexed_flags(this, 0, 1);
+        set_indexed_flags__13TUnk_804AF8A0Fll(this, 0, 1);
       }
       else
       {
         this->m_390 = 0;
-        ((TObjPlayer *)((u8 *)this))->clear_player_status_flag(0, 1U);
+        ((TUnk_804AF8A0 *)((u8 *)this))->clear_player_status_flag(0, 1U);
       }
     }
     temp_r4_2 = this->m_3a4;
     if ((temp_r4_2 > 0) && (get_register__12TQuestThreadFPvi(var_r31, temp_r4_2) != 0))
     {
       this->m_390 = 0;
-      ((TObjPlayer *)((u8 *)this))->clear_player_status_flag(0, 1U);
+      ((TUnk_804AF8A0 *)((u8 *)this))->clear_player_status_flag(0, 1U);
     }
   }
   switch (this->mode)

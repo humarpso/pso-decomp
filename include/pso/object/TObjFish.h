@@ -37,7 +37,6 @@ struct TObjFish : public TUnk_804B9870 {
     void handle_death_state(u32 arg1);
     static void spawn_via_trap(s32 arg0, s32 arg1, s32 arg2);
     static void set_effect_target_position(void* p, void* a1, void* a2);
-    void update_projectile_spawns();
     void set_hooked_effect_target();
     void apply_damage_and_set_effect(s32 arg1);
     void pick_random_target();

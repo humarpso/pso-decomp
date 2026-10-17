@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/misc/TOTrapAncient02.h"
 #include "pso/misc/TOTrapAncient02R.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
@@ -91,7 +93,7 @@ s32 get_current_floor(void);
 f32 atan2_float(f32 y, f32 x);
 void *spawn_particle_effect(void *pos, s32 id);
 f32 horizontal_distance_squared(void *, void *);
-void set_indexed_flags(void *, s32, s32);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *, s32, s32);
 f32 get_collision_body_radius(void *, s32);
 void submit_cursor_candidate(void *, s32);
 void *get_player_by_client_id(s32 i);
@@ -607,7 +609,7 @@ void TOTrapAncient02R::calc_trap_count() {
 void TOTrapAncient02R::vfunc_82() {
     f32 temp_f1;
     f32 temp_f1_2;
-    set_indexed_flags(this, 0, 1);
+    set_indexed_flags__13TUnk_804AF8A0Fll(this, 0, 1);
     submit_cursor_candidate(this, -1);
     switch (this->phase) {
     case 0:
@@ -647,7 +649,7 @@ void TOTrapAncient02R::vfunc_82() {
 void TOTrapAncient02R__vt79(Obj_8017A3C0 *o) {
     f32 d;
     s32 ang;
-    set_indexed_flags(o, 0, 1);
+    set_indexed_flags__13TUnk_804AF8A0Fll(o, 0, 1);
     submit_cursor_candidate(o, -1);
     switch (o->sub) {
     case 0:
@@ -762,7 +764,7 @@ void TOTrapAncient02R__vt79(Obj_8017A3C0 *o) {
 #pragma fp_contract on
 void TOTrapAncient02R::find_target_player() {
     Obj_8017A8B0 *self = (Obj_8017A8B0 *)this;
-    ((TObjPlayer *)self)->clear_player_status_flag(0, 1);
+    ((TUnk_804AF8A0 *)self)->clear_player_status_flag(0, 1);
     ((TUnk_804806E8 *)self)->calc_attach_pos();
     if (self->switchId == -1 || is_current_floor_switch_set(self->switchId) == 1) {
         self->idx = find_nearest_visible_player(self, 0, self->range);

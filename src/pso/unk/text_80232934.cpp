@@ -33,7 +33,7 @@ void scale_matrix(s32, f32, f32, f32);
 void push_matrix(void);
 void post_translate_matrix(void *);
 void draw_ginja_object(void);
-void set_chunk_material_color(void *, s32);
+void set_chunk_material_color__13TUnk_80494AE0Fv(void *, s32);
 extern Vec_80232934 lbl_8044D5A8;
 extern Quad_80232934 grants_flash_quad_vertices;
 extern u8 lbl_804CC868[];
@@ -61,7 +61,7 @@ void TUnk_804CC870::render() {
     id = model_render_flags;
     lbl_805D5660 = id;
     model_render_flags = id | 0x10;
-    set_chunk_material_color(arg0->f38, id);
+    set_chunk_material_color__13TUnk_80494AE0Fv(arg0->f38, id);
     set_depth_buffer_settings_id(3);
     TParticleCtrl::begin_effect_render();
     push_matrix();

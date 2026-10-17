@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe3Stelth.h"
 #include "pso/enemy/TObjEneDD_ST.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
@@ -93,7 +94,7 @@ struct R_80142B3C { u32 r0; u32 val; };
 
 struct O_80142B3C { u8 pad[0xD8]; A_80142B3C *tab; struct { u32 x; R_80142B3C *r; } *tab2; };
 
-int set_field_d8__10TObjPlayerFl(void*);
+int set_field_d8__10TObjMotionFl(void*);
 f32 get_speed__13TUnk_804806E8Fv();
 s32 restore_actor_draw_lighting(s32);
 void setup_actor_draw_lighting(void);
@@ -102,7 +103,7 @@ void serialize_node_flags__10TObjPlayerFPv(u8 *arg0);
 void save_joint_matrix_callback(void);
 void draw_motion_model_saving_joints(TObjPlayer *arg0);
 void apply_animation_transition(void *, s16);
-void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
+void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 void advance_animation_playback(Anim_80143504 *a);
 s32 sub_80143960__10TObjMotionFl(void *, int);
 s32 draw_ginja_model_tree__10TObjPlayerFPv(s32, void *, f32);
@@ -366,7 +367,7 @@ void TObjEneRe7Berura::draw() {
     TObjPlayer::clear_global_state();
 }
 
-void TObjNpcEnemy::draw_model() {
+void TObjEneMe3Stelth::draw_model() {
     TObjPlayer::set_global_flag();
     setup_actor_draw_lighting();
     if (this->animationFlags & 4) {
@@ -444,11 +445,12 @@ void apply_animation_transition(void *arg0, s16 idx) {
 
 #undef self
 
-void TObjPlayer::init_npc_animation(void* a1, void* a2, void* a3) { set_field_d8__10TObjPlayerFl(this); set_field_dc((s32)a2); ((int (*)(void*, void*))set_animation__10TObjPlayerFPvs)(this, a3); }
+void TObjPlayer::init_npc_animation(void* a1, void* a2, void* a3) { set_field_d8__10TObjMotionFl(this); set_field_dc((s32)a2); ((int (*)(void*, void*))set_animation__10TObjMotionFs)(this, a3); }
 
-void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1) {
+void TObjMotion::set_animation(s16 arg1) {
     void *temp_r3;
     f32 conv;
+    void *arg0 = (void *)this;
 
     ((TObjMotion *)arg0)->m_b8 = arg1;
     ((TObjMotion *)arg0)->m_ba = (s16) ((TObjMotion *)arg0)->m_b8;

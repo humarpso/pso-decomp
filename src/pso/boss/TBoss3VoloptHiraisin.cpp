@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/boss/TBoss3VoloptHiraisin.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
@@ -635,7 +637,7 @@ u8 *TObjEnemyCustom__ct(u8 *arg0);
 extern s32 lbl_805D2738;
 u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, s32 arg1, s32 arg2);
 void TBoss3VoloptHiraisin__sub_80041D0C(O_80041D0C *self);
-void set_animation__10TObjPlayerFPvs(void *, s16);
+void set_animation__10TObjMotionFs(void *, s16);
 void init_collision_body_parts(void *, void *, s32);
 void init_params__20TBoss3VoloptHiraisinFv(Hira_800418C8 *self);
 void *find_entity_by_id(u16 id);
@@ -709,18 +711,18 @@ void TBoss3VoloptHiraisin::init_params() {
     copy_position__20TBoss3VoloptHiraisinFi((s32)this);
     ((Hira_800418C8 *)this)->unkDC = *(s32 *)(TBoss3VoloptHiraisin__resource_bundle + 0x430);
     ((Hira_800418C8 *)this)->unkD8 = prm->unk1C;
-    ((TObjPlayer *)((Hira_800418C8 *)this))->set_field_d8((s32)(((Hira_800418C8 *)this)->unkD8));
+    ((TObjMotion *)((Hira_800418C8 *)this))->set_field_d8((s32)(((Hira_800418C8 *)this)->unkD8));
     init_collision_body_parts(this, prm->unk88, 1);
     ((Hira_800418C8 *)this)->unk368 = 0;
     ((Hira_800418C8 *)this)->unk350 = prm->unk6C;
     recalc_combat_stats((void *)lbl_805D4C70, (void *)volopt_hiraisin_shared_handler_b, (void *)volopt_hiraisin_object_handle, (f32)((1.0f)), (f32)((1.0f)));
     ((Hira_800418C8 *)this)->unkB8 = 0;
-    set_animation__10TObjPlayerFPvs(((Hira_800418C8 *)this), ((Hira_800418C8 *)this)->unkB8);
+    set_animation__10TObjMotionFs(((Hira_800418C8 *)this), ((Hira_800418C8 *)this)->unkB8);
     ((TObjMotion *)((Hira_800418C8 *)this))->set_field_b8(((Hira_800418C8 *)this)->unkB8);
     ((Hira_800418C8 *)this)->hp32C = ((Hira_800418C8 *)this)->hp2B8;
     ((Hira_800418C8 *)this)->hp32E = ((Hira_800418C8 *)this)->hp2BA;
     ((Hira_800418C8 *)this)->unk33E = ((Hira_800418C8 *)this)->hp32C;
-    ((TObjEneLappy *)this)->set_param(0x2E);
+    ((TObjEnemy *)this)->set_param(0x2E);
     ((TBoss3Volopt *)this)->reset_photon_effect();
     this->load_params_from_table(0x10);
     sub_800C7860__15TObjEnemyCustomFv(this);

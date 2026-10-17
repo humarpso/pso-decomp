@@ -121,7 +121,7 @@ int reset(void* p) { return memset(p, 0, 28); }
 
 s32 export_inventory_entry__10TObjPlayerFiPv(s32 arg0, u8 *arg1) {
     if (((TItem *)arg0)->copy_to_item_data(arg1 + 8) != 0) {
-        *(s8 *)((s8 *)arg1 + 0) = TObjPlayer__sub_80102C30((u8 *)arg0);
+        *(s8 *)((s8 *)arg1 + 0) = sub_80102C30__5TItemFv((u8 *)arg0);
         *(s32 *)((s8 *)arg1 + 4) = ((TItem *)arg0)->get_item_flags();
         return 1;
     }
@@ -139,7 +139,7 @@ void TObjPlayer__sub_801D45B0(s32 *arg0, s32 arg1) {
     } else {
         *arg0 |= (((TItem *)arg1)->get_field_ed() << 8) & 0xFF00;
     }
-    temp_r3 = ((TItemProShield *)arg1)->get_slot_count();
+    temp_r3 = ((TItem *)arg1)->get_slot_count();
     *arg0 |= temp_r3;
     if (is_item_equipped((void *)arg1, (int)temp_r3) == 0) {
         *arg0 |= 0x10000;

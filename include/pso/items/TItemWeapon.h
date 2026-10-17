@@ -11,6 +11,8 @@ struct WeaponPlayerPrefix { u8 object[0x60]; s32 heading; };
 struct WeaponMotionRecord { u32 unknown; u32 frame_count; };
 
 struct TItemWeapon : WeaponObjectPrefix {
+    s32 draw_weapon_model();
+    s32 item_model_is_shown();
     void create_weapon_trail_effects();
     void apply_model_params();
     void spawn_light_task();

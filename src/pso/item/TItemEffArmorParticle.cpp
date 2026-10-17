@@ -1,4 +1,5 @@
 #include "pso/TItemEffArmorParticle.h"
+#include "pso/item/TItemEquipBase.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/item/TItemMag.h"
 #include "pso/misc/TNowLoading.h"
@@ -13,10 +14,10 @@ typedef char armor_size_check[(sizeof(TItemEffArmorParticle) == 0x2C) ? 1 : -1];
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-s32 obj_testFlags30(int, int);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(int, int);
 u8 *find_item_by_id(s32 id);
 int get_item_system_generation(void);
-s8 TObjPlayer__sub_80102C30();
+s8 sub_80102C30__5TItemFv();
 void *get_player_by_client_id(s32 i);
 }
 
@@ -34,9 +35,9 @@ void TItemEffArmorParticle::run_task() {
         item = (u32)find_item_by_id(m_item_id);
         if (player != 0U) {
             if (item != 0U) {
-                if (TObjPlayer__sub_80102C30() == 2) {
-                    if (obj_testFlags30((int)player, 0x800) == 0) {
-                        if (((TItemMag *)item)->get_flag_40() == 0) {
+                if (sub_80102C30__5TItemFv() == 2) {
+                    if (obj_testFlags30__13TUnk_804AF8A0FUl((int)player, 0x800) == 0) {
+                        if (((TItemEquipBase *)item)->get_flag_40() == 0) {
                             ((TParticleCtrl *)m_20)->clear_active_flag();
                         } else {
                             goto enable_particle;

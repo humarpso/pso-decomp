@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEneSaver.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneShark.h"
 #include "pso/misc/obj_band.h"
 #include "pso/object/TObject_80019A50.h"
@@ -310,15 +313,15 @@ void TObjEneShark::apply_clamped_mode_param() {
     switch (*(s32 *)((s8 *)arg0 + 0x334)) {
     case 2:
         *(s32 *)((s8 *)arg0 + 0x368) = 1;
-        ((TObjEneLappy *)arg0)->set_param(0x12);
+        ((TObjEnemy *)arg0)->set_param(0x12);
         return;
     case 1:
         *(s32 *)((s8 *)arg0 + 0x368) = 0;
-        ((TObjEneLappy *)arg0)->set_param(0x11);
+        ((TObjEnemy *)arg0)->set_param(0x11);
         return;
     default:
         *(s32 *)((s8 *)arg0 + 0x368) = 2;
-        ((TObjEneLappy *)arg0)->set_param(0x10);
+        ((TObjEnemy *)arg0)->set_param(0x10);
         return;
     }
 }
@@ -1028,10 +1031,10 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
     ((TObjEneShark *)self)->apply_clamped_mode_param();
     ((TObjEneShark *)self)->sub_800AC9DC(self->f368);
     self->fD8 = TObjEneShark__action_table;
-    ((TObjPlayer *)self)->set_field_d8((s32)self->fD8);
+    ((TObjMotion *)self)->set_field_d8((s32)self->fD8);
     self->fDC = *(s32 *)(shark_bml_resource + 0x430);
     self->fB8 = 0;
-    set_animation__10TObjPlayerFPvs(self, self->fB8);
+    set_animation__10TObjMotionFs(self, self->fB8);
     ((TObjMotion *)self)->set_field_b8(self->fB8);
     init_collision_body_parts(self, lbl_80491608 + self->f334 * 0x2C, 1);
     bind_enemy_combat_stats(self, ((s32 *)TObjEneShark__resource_node)[self->f334], ((s32 *)TObjEneShark__resource_buf)[self->f334],

@@ -16,7 +16,7 @@ extern "C" {
 void *mem_alloc(u32 size);
 u8 * get_window_layout_position(s32);
 void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2);
-void init_keyboard_text_field(u8 *arg0, u32 arg1, u32 arg2);
+void init_keyboard_text_field__19TWindowKeyBoardBaseFUlUl(u8 *arg0, u32 arg1, u32 arg2);
 extern RecoveredGlobal_8025E9E4_lbl_804CFA70 TWindowKeyBoardBase__window_descriptor;
 extern s32 __vt__19TWindowKeyBoardBase[];
 extern s32 keyboard_base_type_name_pointer;
@@ -70,7 +70,7 @@ u8 *TWindowKeyBoardBase__ct(u8 *arg0) {
     ((TWindowKeyBoardBase *)(arg0 + 0x84))->init_text_buffer_holder();
     *(s32 *)((s8 *)arg0 + 0) = (s32) keyboard_base_type_name_pointer;
     temp_r31 = current_language;
-    init_keyboard_text_field((arg0), 0, 0);
+    init_keyboard_text_field__19TWindowKeyBoardBaseFUlUl((arg0), 0, 0);
     init_keyboard_text_buffer((arg0 + 0x84), 0, 0);
     *(u8 **)((s8 *)arg0 + 0x68) = (unsigned char *) (arg0 + 0x6C);
     *(s32 *)&((TWindowKeyBoardBase *)arg0)->m_b4 = 0;

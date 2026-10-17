@@ -51,7 +51,7 @@ s32 get_field_d8__5TItemFv();
 s32 get_slot_value__10TObjPlayerFPvi(s32 *arg0, s32 arg1);
 void *lookup_inventory_item__10TObjPlayerFv(void *);
 u16 obj_getField1c(void *);
-int set_animation__10TObjPlayerFPvs(void*);
+int set_animation__10TObjMotionFs(void*);
 void set_flag_20000__10TObjPlayerFi(s32 arg0);
 
 void process_trade_target__10TObjPlayerFiPv(s32 arg0, void *arg1) {
@@ -86,7 +86,7 @@ void TObjPlayer__sub_801D8664(s32 arg0, s8 arg1, s8 arg2) {
     process_trade_target__10TObjPlayerFiPv(arg0, &stack.sp8);
 }
 
-s32 obj_testFlags30(void *, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
 s32 draw_model_with_callback__10TObjPlayerFllf(void *, s32, s32, f32);
 void push_matrix(void);
 s32 pop_matrix(void);
@@ -100,7 +100,7 @@ void TObjPlayer__sub_801D877C(u8 *arg0);
 void TObjPlayer__sub_801D8864(void);
 
 int TObjPlayer::query_darkfalz_state() { return set_position_from__14TBoss4DarkFalzFPv(this); }
-int TObjPlayer::set_animation_default() { return set_animation__10TObjPlayerFPvs(this); }
+int TObjPlayer::set_animation_default() { return set_animation__10TObjMotionFs(this); }
 
 struct Player_801D88C8;
 struct Src_801D88C8;
@@ -119,7 +119,7 @@ s32 TObjPlayer::create_ending_player() {
 }
 
 void TObjPlayer__sub_801D877C(u8 *arg0) {
-    if ((obj_testFlags30(arg0, 0x02000000) == 0) && ((s32) ((TUnk_804C4540 *)arg0)->m_cfc == 0)) {
+    if ((obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x02000000) == 0) && ((s32) ((TUnk_804C4540 *)arg0)->m_cfc == 0)) {
         select_actor_lighting((s32)arg0);
         push_matrix();
         translate_matrix_vec3(0, (arg0 + 0x38));

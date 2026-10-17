@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/boss/TBoss1DragonColli.h"
 #include "pso/boss/TBoss7Crawfish_8030908C.h"
 #include "pso/misc/obj_band.h"
@@ -45,14 +46,14 @@ s32 submit_cursor_candidate(void *, int);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 s32 __dl__7TObjectFPv(void *);
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
-s32 obj_testFlags30(void *, int);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, int);
 
 extern const f32 lbl_805DF0FC;
 
 void TBoss7Crawfish::run_task() {
     u8 *arg0 = (u8 *)this;
 
-    if (((s16) this->mode != 5) && (obj_testFlags30(arg0, 0x800) != 0)) {
+    if (((s16) this->mode != 5) && (obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x800) != 0)) {
         ((TBoss7Crawfish *)arg0)->change_state(4);
     }
     switch (this->mode) {
@@ -105,20 +106,20 @@ u8 *TBoss7Crawfish__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TBoss7Crawfish *)arg0)->texture_id = TObjFish__sub_8001EDB0(TBoss7Crawfish__shared_resource, 0);
     fn_8002B630((arg0 + 0x374), (u8 *)crawfish_collision_body_desc);
     ((TUnk_804AF8A0 *)arg0)->initialize_linked_object_reference(arg0 + 0x374);
-    ((TObjPlayer *)arg0)->set_field_d8((s32)lbl_804E7380);
-    ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)((u8 *)TBoss7Crawfish__shared_resource) + 0x430)));
+    ((TObjMotion *)arg0)->set_field_d8((s32)lbl_804E7380);
+    ((TObjMotion *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)((u8 *)TBoss7Crawfish__shared_resource) + 0x430)));
     ((TBoss7Crawfish *)arg0)->set_anim_timer(2);
-    set_animation__10TObjPlayerFPvs((arg0), (((TBoss7Crawfish *)arg0)->m_b8));
+    set_animation__10TObjMotionFs((arg0), (((TBoss7Crawfish *)arg0)->m_b8));
     set_field_b8__10TObjMotionFs(arg0, (int) (((TBoss7Crawfish *)arg0)->m_b8));
     ((TUnk_804806E8 *)arg0)->add_flags_2e4(2);
     ((TBoss7Crawfish *)(arg0))->apply_set_data((void *)arg2);
     if (((TBoss7Crawfish *)arg0)->sub_80308AA8() != 0) {
-        ((TObjEneLappy *)arg0)->set_param(0x4A);
+        ((TObjEnemy *)arg0)->set_param(0x4A);
         bind_enemy_combat_stats((arg0), (u8 *)(register_boss__6TLobbyFl(8)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(8)), (u8 *)(register_object__6TLobbyFl(8)));
         ((TBoss7Crawfish *)arg0)->m_3a0 = dispatch_shared_handler_a__6TLobbyFl(8);
         *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(TBoss7Crawfish__shared_resource, 0);
     } else {
-        ((TObjEneLappy *)arg0)->set_param(0x4B);
+        ((TObjEnemy *)arg0)->set_param(0x4B);
         bind_enemy_combat_stats((arg0), (u8 *)(register_boss__6TLobbyFl(9)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(9)), (u8 *)(register_object__6TLobbyFl(9)));
         ((TBoss7Crawfish *)arg0)->m_3a0 = dispatch_shared_handler_a__6TLobbyFl(9);
         *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(TBoss7Crawfish__shared_resource, 1);

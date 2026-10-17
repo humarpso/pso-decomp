@@ -112,7 +112,7 @@ typedef struct Pl_8012A470
 } Pl_8012A470;
 
 extern "C" {
-s8 TObjPlayer__sub_80102C30();
+s8 sub_80102C30__5TItemFv();
 void receive_srank_hit(TItemWeapon *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0);
 u8 * TObjPlayer__sub_8012A3B4(void *, s32, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
@@ -191,7 +191,7 @@ s32 TUnk_804A4948::send_srank_stat_extra(u32 arg1, s32 arg2) {
 
 void receive_srank_hit(TItemWeapon *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0) {
     u32 f;
-    if (TObjPlayer__sub_80102C30() == 2) {
+    if (sub_80102C30__5TItemFv() == 2) {
         f = *(u32 *)((s8 *)arg0 + 0xF0);
         if ((f != 0U) && (arg2 != 0U)) {
             switch (*(s32 *)((s8 *)arg0 + 0x1F8)) {

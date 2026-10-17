@@ -6,6 +6,7 @@
 class TUnk_804EDD20 : public TUnk_804EDD44 {
 public:
     virtual ~TUnk_804EDD20();
+    void init_offset_vectors();
     virtual void render();
     void *init_effect_object();
     void *init_offsets_object();

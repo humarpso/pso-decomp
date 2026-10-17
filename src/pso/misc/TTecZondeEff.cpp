@@ -152,15 +152,15 @@ extern char lbl_804CC8C8[];
 extern A_8023DBB4 *shared_effect_texture_list[];
 extern s32 TTecZondeEff__beam_vertex_data;
 f32 rand_signed_unit();
-void calc_lightning_scatter_direction(void *, s32, void *);
+void calc_lightning_scatter_direction__12TTecZondeEffFlPv(void *, s32, void *);
 extern const f32 TTecZondeEff__data_805DC990;
 extern const f32 lbl_805DC9A4;
-void randomize_bolt_jitter__12TTecZondeEffFPv(Obj_8023D4A8 *arg0);
+void randomize_bolt_jitter__12TTecZondeEffFv(Obj_8023D4A8 *arg0);
 s32 is_split_screen(void);
 void spawn_particle_effect(Rec_8023D568 *, s32);
 void queue_destruction__7TObjectFv(void *);
 void restore_saved_depth_alpha_state();
-void set_chunk_material_color(f32 *argb);
+void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *argb);
 extern f32 chunk_material_color_half_alpha_f32[];
 extern u32 lbl_805D5660;
 extern u32 model_render_flags;
@@ -305,7 +305,8 @@ s32 project_lightning_points(Obj_8023D128 *self, Vec_8023D128 *out, f32 *a, f32 
 
 #pragma push
 #pragma fp_contract on
-void calc_lightning_scatter_direction(void *arg0, s32 axis, void *arg2) {
+void TTecZondeEff::calc_lightning_scatter_direction(s32 axis, void *arg2) {
+    void *arg0 = (void *)this;
     Obj_8023D294 *o = (Obj_8023D294 *)arg0;
     Vec_8023D294 *out = (Vec_8023D294 *)arg2;
 
@@ -377,15 +378,16 @@ s32 TTecZondeEff::calc_dominant_axis() {
 
 typedef char RecoveredGlobal_8023D988___vt__12TTecZondeEff_size[sizeof(RecoveredGlobal_8023D988___vt__12TTecZondeEff) == 0x18 ? 1 : -1];
 
-void randomize_bolt_jitter__12TTecZondeEffFPv(Obj_8023D4A8 *arg0) {
+void TTecZondeEff::randomize_bolt_jitter() {
     Rec_8023D4A8 *p;
     s32 axis;
     s32 i;
     f32 k;
+    Obj_8023D4A8 *arg0 = (Obj_8023D4A8 *)this;
     axis = ((TTecZondeEff *)arg0)->calc_dominant_axis();
     p = arg0->recs;
     for (i = 0; i < arg0->count; i++, p++) {
-        calc_lightning_scatter_direction(arg0, axis, p);
+        calc_lightning_scatter_direction__12TTecZondeEffFlPv(arg0, axis, p);
     }
     k = lbl_805DC9A4;
     for (i = 1; i < arg0->count - 1; i++) {
@@ -442,7 +444,7 @@ void TTecZondeEff::render() {
         TObjPlayer::reset_transform_state();
     }
     TParticleCtrl::end_effect_render();
-    set_chunk_material_color(chunk_material_color_half_alpha_f32);
+    set_chunk_material_color__13TUnk_80494AE0Fv(chunk_material_color_half_alpha_f32);
     model_render_flags = lbl_805D5660;
     restore_saved_depth_alpha_state();
 }
@@ -522,7 +524,7 @@ u8 *TTecZonde::construct_bolt_effect(u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32
     *(s16 *)((s8 *)((u8 *)this) + 0x25C) = 0;
     *(s32 *)((s8 *)((u8 *)this) + 0x38) = 0xD;
     ((TTecZondeEff *)((u8 *)this))->init_bolt_points();
-    randomize_bolt_jitter__12TTecZondeEffFPv((Obj_8023D4A8 *)(this));
+    randomize_bolt_jitter__12TTecZondeEffFv((Obj_8023D4A8 *)(this));
     *(s32 *)((s8 *)((u8 *)this) + 0x248) = 0;
     *(s32 *)((s8 *)((u8 *)this) + 0x24C) = 0xFF000000;
     *(s16 *)((s8 *)((u8 *)this) + 0x25E) = 0;
@@ -543,7 +545,7 @@ u8 *TTecZondeEff::construct(u8 *arg1, u8 *arg2, u8 *arg3, f32 farg0) {
     *(s16 *)((s8 *)((u8 *)this) + 0x25C) = 0;
     *(s32 *)((s8 *)((u8 *)this) + 0x38) = 0xD;
     this->init_bolt_points();
-    randomize_bolt_jitter__12TTecZondeEffFPv((Obj_8023D4A8 *)(this));
+    randomize_bolt_jitter__12TTecZondeEffFv((Obj_8023D4A8 *)(this));
     *(s32 *)((s8 *)((u8 *)this) + 0x248) = 0;
     *(s32 *)((s8 *)((u8 *)this) + 0x24C) = 0xFF000000;
     *(s16 *)((s8 *)((u8 *)this) + 0x25E) = 0;

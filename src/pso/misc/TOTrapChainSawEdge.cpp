@@ -186,7 +186,7 @@ u16 obj_getField1c(void *);
 s32 obj_setFlags30(void *, int);
 s8 get_current_floor(int);
 f32 fabs_float(f32);
-void set_indexed_flags(void *arg0, s32 index, s32 flags);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 s32 TOTrapAncient02R__sub_80154D78(void *);
 void free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, int, int);
@@ -577,10 +577,10 @@ void TOTrapChainSawDamage::vfunc_25() {
 void TOTrapChainSawDamage::update_state() {
     ((s32 (*)())update_state__14TOTrapChainSawFv)();
     if ((s32) *(s32 *)((s8 *)this + 0xF0) == 1) {
-        ((TObjPlayer *)this)->clear_player_status_flag(1, 0x100);
+        ((TUnk_804AF8A0 *)this)->clear_player_status_flag(1, 0x100);
         return;
     }
-    set_indexed_flags(this, 1, 0x100);
+    set_indexed_flags__13TUnk_804AF8A0Fll(this, 1, 0x100);
 }
 #pragma pop
 

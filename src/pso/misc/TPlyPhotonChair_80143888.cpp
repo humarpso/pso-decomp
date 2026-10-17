@@ -34,7 +34,7 @@ void *__dt__13TUnk_804A7488Fv(void *arg0, s16 arg1) {
 
 f32 TPlyPhotonChair::get_float_c() { return *(f32 *)&this->m_next; }
 
-s32 TPlyPhotonChair__sub_80143930(void* p) { return *(s32*)((char*)p + 0x8); }
+s32 TUnk_804A7478::sub_80143930() { return *(s32*)((char*)this + 0x8); }
 s32 TPlyPhotonChair::get_id() { return *(s32 *)&this->m_name; }
 void TPlyPhotonChair::activate() { *(s32*)((char*)this + 0x18) = 1; }
 

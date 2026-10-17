@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/unk/text_8012B524.h"
 #include "pso/item/TUnk_804A4D70.h"
 #include "pso/player/TObjPlayer.h"
@@ -29,7 +30,7 @@ u8 *TItemWeaponPartisan__ct(u8 *arg0, u8 *arg1, s32 _w2) {
     *(f32 *)((s8 *)arg0 + 0x218) = (f32) lbl_805DAE88;
     ((TUnk_804A4D70 *)arg0)->m_21c = (f32) lbl_805DAE88;
     ((TObjPlayer *)arg0)->set_status_flags(2);
-    if (((TItemProShield *)arg0)->get_slot_count() == 6) {
+    if (((TItem *)arg0)->get_slot_count() == 6) {
         ((TObjPlayer *)arg0)->set_status_flags(0x20);
     }
     return arg0;

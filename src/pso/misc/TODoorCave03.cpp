@@ -68,7 +68,7 @@ s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 extern const f32 lbl_805DB4D0;
 extern const f32 TODoorCave03__data_805DB4D4;
 extern const f32 lbl_805DB4DC;
-void set_indexed_flags(void *arg0, s32 index, s32 flags);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 s32 is_any_player_within_radius_xz(u8 *self, f32 radius);
 extern const f32 lbl_805DB4E0;
 extern const f32 lbl_805DB4E4;
@@ -87,7 +87,7 @@ void push_matrix(void);
 s32 pop_matrix(void);
 void post_translate_matrix(void *);
 void draw_ginja_model(s32);
-void set_chunk_material_color(f32 *arg);
+void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
@@ -123,11 +123,11 @@ void TODoorCave03::vfunc_17() {
     if (*(s32 *)((s8 *)arg0 + 0xD0) & 1) {
         if (is_any_player_within_radius_xz(arg0, lbl_805DB4D8) != 1) {
             *(s32 *)((s8 *)arg0 + 0xAC) = 3;
-            ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8U);
+            ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 8U);
         }
     } else {
         *(s32 *)((s8 *)arg0 + 0xAC) = 3;
-        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8U);
+        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 8U);
     }
 }
 
@@ -156,7 +156,7 @@ void TODoorCave03::play_proximity_sound() {
     if (temp_r4 & 1) {
         if (is_any_player_within_radius_xz(arg0, lbl_805DB4E0) == 1) {
             *(s32 *)((s8 *)arg0 + 0xAC) = 1;
-            set_indexed_flags((arg0), 0, 8);
+            set_indexed_flags__13TUnk_804AF8A0Fll((arg0), 0, 8);
         }
     } else if (temp_r4 & 0x10000) {
         *(f32 *)((s8 *)arg0 + 0xD8) = (f32) (*(f32 *)((s8 *)arg0 + 0xD8) + lbl_805DB4E4);
@@ -185,7 +185,7 @@ void render__12TODoorCave03Fv(u8 *arg0) {
         TParticleCtrl::begin_effect_render();
         lbl_805D5660 = model_render_flags;
         model_render_flags |= 0x10;
-        set_chunk_material_color((f32 *)(arg0 + 0xD4));
+        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)(arg0 + 0xD4));
         if (*(s32 *)(arg0 + 0xD0) & 1) {
             m = (*(Model_801625AC **)(arg0 + 0x34))->child->next;
         } else {
@@ -196,7 +196,7 @@ void render__12TODoorCave03Fv(u8 *arg0) {
         m = m->child;
         post_translate_matrix(m->m8);
         draw_ginja_model(m->m4);
-        set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
+        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)chunk_material_color_half_alpha_f32);
         model_render_flags = lbl_805D5660;
         TParticleCtrl::end_effect_render();
         pop_matrix();

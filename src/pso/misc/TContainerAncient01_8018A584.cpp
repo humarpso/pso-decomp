@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TContainerAncient01R.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
@@ -189,7 +190,7 @@ struct Obj_8018B030 : VBase_8018B030 {
 extern "C" {
 void construct_actor_base__10TObjPlayerFPvPv(void *, void *, void *);
 s32 TObjFish__sub_8001EDB0(int, int);
-void set_animation__10TObjPlayerFPvs(void *, s16);
+void set_animation__10TObjMotionFs(void *, s16);
 void init_collision_body_parts(void *, void *, int);
 extern s32 TContainerAncient01R__name;
 extern const f32 lbl_805DBD5C;
@@ -217,7 +218,7 @@ extern const f32 TContainerAncient01__data_805DBD3C;
 extern const f32 lbl_805DBD40;
 extern const f32 lbl_805DBD48;
 extern s32 TContainerAncient01__open_effect_table[];
-s32 obj_testFlags30(void *, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
 s32 get_current_floor();
 f32 horizontal_distance_squared(void *, void *);
 
@@ -396,7 +397,7 @@ void TContainerAncient01__sub_8018A584(Obj_8018A584 *self, f32 range) {
     for (i = 0; i < 4; i++) {
         pl = (Player_8018A584 *)get_player_by_client_id(i);
         if (pl != NULL) {
-            if (((TObjPlayer *)pl)->get_field_3e4() == get_current_floor() && obj_testFlags30(pl, 1) == 0 &&
+            if (((TObjPlayer *)pl)->get_field_3e4() == get_current_floor() && obj_testFlags30__13TUnk_804AF8A0FUl(pl, 1) == 0 &&
                 horizontal_distance_squared(self->pos, pl->pos) < range) {
                 Atk_8018A584 atk;
                 atk.type = 0xF;
@@ -542,7 +543,7 @@ void TContainerAncient01R::open_container() {
     Obj_8018AB44 *arg0 = (Obj_8018AB44 *)this;
     if (arg0->f360 == 0) {
         arg0->f360 = 1;
-        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
+        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 1);
         TContainerAncient01::trigger_spawn((void *)arg0, (void *)arg0->pos, (void *)TContainerAncient01__open_effect_table[0]);
         TContainerAncient01::trigger_spawn((void *)arg0, (void *)arg0->pos, (void *)TContainerAncient01__open_effect_table[1]);
         if (TContainerAncient01::is_global_state_in_table() == 0) {
@@ -694,10 +695,10 @@ void *TContainerAncient01R__ct(Obj_8018B030 *self, void *arg1, void *parent) {
     self->x34 = get_bml_model(TContainerAncient01R__bml_resource, 0);
     self->x24 = TObjFish__sub_8001EDB0(TContainerAncient01R__bml_resource, 0);
     self->animTbl = (void *)TContainerAncient01__anim_table;
-    ((TObjPlayer *)self)->set_field_d8((s32)self->animTbl);
+    ((TObjMotion *)self)->set_field_d8((s32)self->animTbl);
     self->xdc = ((Res_8018B030 *)TContainerAncient01R__bml_resource)->x430;
     self->anim = 0;
-    set_animation__10TObjPlayerFPvs(self, self->anim);
+    set_animation__10TObjMotionFs(self, self->anim);
     ((TObjMotion *)self)->set_field_b8(self->anim);
     self->flags |= 0x60000000;
     init_collision_body_parts(self, (void *)&TContainerAncient01__collision_body_parts, 1);
@@ -720,7 +721,7 @@ void TContainerAncient01__sub_8018B180(Obj_8018B180 *self, f32 range) {
     for (i = 0; i < 4; i++) {
         pl = (Player_8018B180 *)get_player_by_client_id(i);
         if (pl != NULL) {
-            if (((TObjPlayer *)pl)->get_field_3e4() == get_current_floor() && obj_testFlags30(pl, 1) == 0 &&
+            if (((TObjPlayer *)pl)->get_field_3e4() == get_current_floor() && obj_testFlags30__13TUnk_804AF8A0FUl(pl, 1) == 0 &&
                 horizontal_distance_squared(self->pos, pl->pos) < range) {
                 Atk_8018B180 atk;
                 atk.type = 0xF;
@@ -856,7 +857,7 @@ void TContainerAncient01::sub_8018B700() {
     Obj_8018B700 *arg0 = (Obj_8018B700 *)this;
     if (arg0->f35C == 0) {
         arg0->f35C = 1;
-        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
+        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 1);
         TContainerAncient01::spawn_effect((void*)arg0, (void*)arg0->pos, (void*)TContainerAncient01__effect_id_table[0]);
         TContainerAncient01::spawn_effect((void*)arg0, (void*)arg0->pos, (void*)TContainerAncient01__effect_id_table[1]);
         if (TContainerAncient01::is_global_state_in_table() == 0) {

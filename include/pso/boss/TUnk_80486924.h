@@ -6,6 +6,8 @@
 class TUnk_80486924 : public TObjEnemy {
 public:
     virtual ~TUnk_80486924();
+    void init_hanger();
+    void draw_hanger();
     virtual void render();
     virtual void vfunc_62();
     virtual void vfunc_63();

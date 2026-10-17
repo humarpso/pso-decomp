@@ -18,7 +18,7 @@ typedef struct SlicerLaunchData_8012D9C8 {
 } SlicerLaunchData_8012D9C8;
 
 extern "C" {
-u8 get_slot_count__14TItemProShieldFv();
+u8 get_slot_count__5TItemFv();
 extern const f32 lbl_805DAF38;
 extern const f32 lbl_805DAF3C;
 extern const f32 lbl_805DAF50;
@@ -64,7 +64,7 @@ void launch_slicer_shot(u8 *weapon) {
 void TUnk_804A5B20::update_idle() {
     u8 *arg0 = (u8 *)this;
   int new_var;
-  switch ((s32) get_slot_count__14TItemProShieldFv())
+  switch ((s32) get_slot_count__5TItemFv())
   {
     case 5:
     {
@@ -88,7 +88,7 @@ void TUnk_804A5B20::update_idle() {
 
 void TUnk_804A5B20::update_attack() {
     u8 *arg0 = (u8 *)this;
-  switch ((s32) get_slot_count__14TItemProShieldFv())
+  switch ((s32) get_slot_count__5TItemFv())
   {
     case 5:
       TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x204), (f32)((f32) lbl_805DAF50), (f32)((f32) lbl_805DAF38));

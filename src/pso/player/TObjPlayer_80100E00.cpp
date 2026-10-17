@@ -59,7 +59,7 @@ extern RecoveredGlobal_80101088_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_80101088_lbl_8058D4C0 model_material_color;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-s32 set_chunk_material_color(s32);
+s32 set_chunk_material_color__13TUnk_80494AE0Fv(s32);
 void copy_to_item_data__5TItemFPv(void *, void *);
 void *get_player_by_client_id(s32 i);
 s16 *get_stat_bonus_ptr__14TItemEquipBaseFv();
@@ -154,7 +154,7 @@ void TObjPlayer::enable_flag20(s32 arg0) {
         temp_r0 = (*(volatile s32 *)&model_render_flags) & 0xFFFFFFEF;
         (*(volatile s32 *)&model_render_flags) = temp_r0;
         (*(volatile s32 *)&model_render_flags) = temp_r0 | 0x20;
-        set_chunk_material_color(arg0);
+        set_chunk_material_color__13TUnk_80494AE0Fv(arg0);
         ((TObjPlayer *)(&lbl_805D53EC))->set_flags(1);
     }
 }
@@ -163,7 +163,7 @@ void TObjPlayer::enable_first_time_flag(s32 arg0) {
     if ((arg0 != 0) && (test_flags_any(&lbl_805D53EC, 1) == 0)) {
         model_render_flags &= 0xFFFFFFDF;
         model_render_flags |= 0x10;
-        set_chunk_material_color(arg0);
+        set_chunk_material_color__13TUnk_80494AE0Fv(arg0);
         ((TObjPlayer *)(&lbl_805D53EC))->set_flags(1);
     }
 }

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemyCustom.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/boss/TBoss3VoloptMonitor.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
@@ -88,7 +90,7 @@ extern s32 model_render_flags;
 extern const f32 lbl_805D8738;
 extern const f32 lbl_805D873C;
 void render__19TBoss3VoloptMonitorFv(TBoss3VoloptMonitor *arg0);
-s32 obj_testFlags30(void *, int);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, int);
 void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0);
 void TBoss3VoloptMonitor__sub_800420D8(void);
 s32 submit_cursor_candidate(void *, int);
@@ -325,7 +327,7 @@ void run_task__19TBoss3VoloptMonitorFv(TBoss3VoloptMonitor *arg0) {
     }
     arg0->update_state();
     ((TObjEnemy *)arg0)->update_prev_position();
-    if (obj_testFlags30(arg0, 0x800) == 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x800) == 0) {
         copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
         submit_cursor_candidate(arg0, -1);
         minimap_render_dot((u8 *)arg0 + 0x38, -0x5DB4, 1, 0);
@@ -407,7 +409,7 @@ void TBoss3VoloptMonitor::sub_80042510() {
     this->hp = this->hpmax;
     this->m_32e = this->m_2ba;
     this->referenceHp = this->hp;
-    ((TObjEneLappy *)arg0)->set_param(0x2E);
+    ((TObjEnemy *)arg0)->set_param(0x2E);
     ((TObjEnemy *)arg0)->update_prev_position();
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
     this->m_38e = lbl_805D874C * (lbl_805D8740 * (f32)rand());

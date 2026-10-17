@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/unk/TUnk_804B0BB8.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -9,7 +10,7 @@ s32 is_any_player_within_radius_xz(f32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern s32 enable_v2_features;
 extern const f32 lbl_805DB3D4;
-void set_indexed_flags(void *arg0, s32 index, s32 flags);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 extern const f32 lbl_805DB3D8;
 void TUnk_804B0BB8::vfunc_17() {
     u8 *arg0 = (u8 *)this;
@@ -17,7 +18,7 @@ void TUnk_804B0BB8::vfunc_17() {
         return;
     }
     *(s32 *)(arg0 + 0xAC) = 3;
-    ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
+    ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 8);
     switch ((u32)TOKeyMachine01::get_global_state()) {
     case 0:
         break;
@@ -54,7 +55,7 @@ void TUnk_804B0BB8::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
     if ((*(s32 *)(arg0 + 0xD0) & 1) && is_any_player_within_radius_xz(lbl_805DB3D8) == 1) {
         *(s32 *)(arg0 + 0xAC) = 1;
-        set_indexed_flags(arg0, 0, 8);
+        set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 8);
         switch ((u32)TOKeyMachine01::get_global_state()) {
         case 3:
         case 4:

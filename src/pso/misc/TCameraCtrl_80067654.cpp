@@ -92,7 +92,7 @@ u8 *TCameraCtrl__sub_800677D4(u8 *arg0) {
     __ct__13TUnk_80488A28Fv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800677D4_lbl_804887C8 *)&lbl_804887C8).value;
     ((TUnk_804887C8 *)arg0)->m_38 = 5;
-    ((TCameraCtrl *)arg0)->set_target((u32)get_player_by_client_id(0U));
+    ((TUnk_80488A28 *)arg0)->set_target((u32)get_player_by_client_id(0U));
     return arg0;
 }
 

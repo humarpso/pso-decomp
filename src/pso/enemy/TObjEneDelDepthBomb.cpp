@@ -344,7 +344,7 @@ s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 s32 initialize__9TObjEnemyFPv(void *);
 void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
-void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
+void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, int);
 void __dl__7TObjectFPv(void *);
@@ -1427,9 +1427,9 @@ void TObjEneDelDepth::init() {
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int)TObjEneDelDepth__shared_resource, 0);
     VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(VecCopy((Vec *)(arg0 + 0x50), (const Vec *)(VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38))))));
     *(s32 *)((s8 *)arg0 + 0x380) = init_collision_body_parts(arg0, TObjEneDelDepth_collision_body_parts, 1);
-    ((TObjPlayer *)arg0)->set_field_d8((s32)lbl_804E8194);
-    ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)TObjEneDelDepth__shared_resource + 0x430)));
-    set_animation__10TObjPlayerFPvs((arg0), 0);
+    ((TObjMotion *)arg0)->set_field_d8((s32)lbl_804E8194);
+    ((TObjMotion *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)TObjEneDelDepth__shared_resource + 0x430)));
+    set_animation__10TObjMotionFs((arg0), 0);
     ((TObjMotion *)arg0)->set_field_b8(0);
     VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     this->m_310 = (f32) TObjEneDelDepth__data_805DF258;
@@ -1440,7 +1440,7 @@ void TObjEneDelDepth::init() {
     this->referenceHp = (s16) this->hp;
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
     *(s32 *)((s8 *)arg0 + 0x350) = 0;
-    ((TObjEneLappy *)arg0)->set_param(0x47);
+    ((TObjEnemy *)arg0)->set_param(0x47);
     var_r0 = ((TAdSinglePlyChrSelectGC *)0x2C)->alloc();
     if (var_r0 != 0) {
         var_r0 = fn_80316680(var_r0, arg0);

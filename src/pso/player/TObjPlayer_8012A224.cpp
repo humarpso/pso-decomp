@@ -20,7 +20,7 @@ void TUnk_804A4848::reserved_53() {
         if ((s32) *(s32 *)((s8 *)this + 0x208) == 0) {
             *temp_r31 |= 0x10;
         }
-        draw_weapon_model(this);
+        draw_weapon_model__11TItemWeaponFv(this);
         update_trail_slot__11TItemWeaponFPvi(this, 0);
         if ((s32) *(s32 *)((s8 *)this + 0x208) == 0) {
             *temp_r31 &= 0xFFFFFFEF;

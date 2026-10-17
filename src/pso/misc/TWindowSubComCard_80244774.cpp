@@ -165,7 +165,7 @@ s32 animate_scale__19TWindowKeyBoardSoftFv();
 s32 open_singleton__19TWindowKeyBoardSoftFiiii(void *, void *, void *, int, f32);
 s32 init_window_layout_entries(void *, int, int);
 s32 sub_8026CC28__13TUnk_804CE018Fv();
-s32 resort_window_order__15TWindowCtrlMainFv(void *);
+s32 resort_window_order__13TUnk_804CE018Fv(void *);
 
 extern int lbl_805D3614;
 extern s32 lbl_805D3888;
@@ -352,7 +352,7 @@ s32 TWindowDD::draw_default_entry(s32 arg0) {
 void TLobby::set_field_1c(f32 farg0) {
     sub_8026CC28__13TUnk_804CE018Fv();
     *(f32 *)((s8 *)this + 0x1C) = farg0;
-    resort_window_order__15TWindowCtrlMainFv(this);
+    resort_window_order__13TUnk_804CE018Fv(this);
 }
 
 bool is_balloon_overlapping(u8 *arg0, u8 *arg1, u8 *arg2) {
@@ -412,7 +412,7 @@ void TUnk_804CE018::sub_80244F2C(u8 *arg1, u8 *arg2, s16 arg3) {
     *(f32 *)((s8 *)((u8 *)this) + 0x1C) = temp_f1;
     *(f32 *)((s8 *)((u8 *)this) + 0x54) = (f32) lbl_805DCAE0;
     *(s32 *)((s8 *)((u8 *)this) + 0x2C) = (s32) *(s32 *)((s8 *)arg1 + 0x10);
-    ((s32 (*)(void *, f32))resort_window_order__15TWindowCtrlMainFv)(this, temp_f1);
+    ((s32 (*)(void *, f32))resort_window_order__13TUnk_804CE018Fv)(this, temp_f1);
     *(s32 *)((s8 *)((u8 *)this) + 0x50) = 0;
     *(s16 *)((s8 *)((u8 *)this) + 0x20) = arg3;
     init_window_layout_entries((void *) (((u8 *)this) + 0x24), (int) (*(s32 *)((s8 *)arg1 + 0xC)), (int) (*(s16 *)((s8 *)((u8 *)this) + 0x20)));

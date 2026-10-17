@@ -6,6 +6,7 @@
 
 struct TBoss7DeRolLeC : public TObjEneDD_ST {
     virtual ~TBoss7DeRolLeC();
+    void update_projectile_spawns();
     virtual void run_task();
     virtual void render();
     void update_or_dispatch();

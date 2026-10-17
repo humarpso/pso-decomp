@@ -6,6 +6,7 @@
 
 struct TObjEneMe1GiGue : public TObjEnemyCustom {
     virtual ~TObjEneMe1GiGue();
+    void sub_802CACD8();
     virtual void run_task();
     void sub_802CCF2C();
     void sub_802CB6D4();

@@ -226,7 +226,7 @@ void TBoss7DeRolLeC::run_task() {
             }
             ((VObj_18 *)(this))->m85(this->mode, 0);
         }
-        ((TObjFish *)((u8 *)this))->update_projectile_spawns();
+        ((TBoss7DeRolLeC *)((u8 *)this))->update_projectile_spawns();
     }
     this->sub_800BBA0C();
     this->vfunc_88();

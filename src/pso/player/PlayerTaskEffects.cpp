@@ -74,7 +74,7 @@ extern s32 tl_06;
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #include "pso/player/TPlayerParticleOwner.h"
 #include "pso/TParticleCtrl.h"
-extern "C" int check_value_equals__13TQuestColCtrlFPll(TParticleCtrl*, const char*);
+extern "C" int check_value_equals__13TUnk_804B6C24Fl(TParticleCtrl*, const char*);
 extern "C" const char* TParticleCtrl__class_name_descriptor;
 
 namespace accessors {
@@ -206,7 +206,7 @@ s32 translate_matrix_vec3(s32, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
-void set_chunk_material_color(f32 *arg);
+void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 s32 draw_chunk_object();
 extern u8 player_lobby_marker_color_table[];
 extern u8 shared_effect_texture_list[];
@@ -715,7 +715,7 @@ void TPlayerLobbyMarker::render() {
         translate_matrix_vec3(0, TObjPlayer__sub_801BF914(temp_r3 + 0x84C));
         rotate_matrix_y(0, *(s32 *)((s8 *)camera_ctrl_instance + 0x194) + rotation);
         scale_matrix(0, lbl_805DC358, lbl_805DC358, lbl_805DC358);
-        set_chunk_material_color((f32 *)(player_lobby_marker_color_table + get_material_index() * 0x10));
+        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)(player_lobby_marker_color_table + get_material_index() * 0x10));
         TMainCursor::get_cursor_state();
         draw_chunk_object();
         copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
@@ -905,7 +905,7 @@ TPlayerParticleOwner::~TPlayerParticleOwner() {
 }
 
 TParticleCtrl* TPlayerParticleOwner::get_particle() {
-    if (particle != 0 && check_value_equals__13TQuestColCtrlFPll(particle, TParticleCtrl__class_name_descriptor) == 0) {
+    if (particle != 0 && check_value_equals__13TUnk_804B6C24Fl(particle, TParticleCtrl__class_name_descriptor) == 0) {
         particle = 0;
     }
     return particle;

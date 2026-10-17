@@ -84,7 +84,7 @@ Vec_802A3DE8 *get_shoot_data__12TNeedleShootFv(void *);
 void vector_length(void *);
 int get_player_data__10TObjPlayerFi(int a0);
 s32 obj_getField1c(void *);
-void *find_actor_body_contact(u8 *arg0, u8 *arg1, f32 limit);
+void *find_actor_body_contact__13TUnk_804AF8A0FPUcf(u8 *arg0, u8 *arg1, f32 limit);
 extern const f32 lbl_805DDF60;
 extern const f32 lbl_805DDF64;
 TechniqueContactList *TObjPlayer__sub_802A3DE8(Obj_802A3DE8 *self, void *src);
@@ -175,7 +175,7 @@ TechniqueContactList *TObjPlayer__sub_802A3DE8(Obj_802A3DE8 *self, void *src) {
         if (p == 0) continue;
         if ((p->flags & 0x20000000) || (p->flags & 0x10000000)) {
             if ((u16)obj_getField1c(p) == (u16)obj_getField1c(src)) continue;
-            r = (TechniqueContactBody *)find_actor_body_contact((u8 *)self->body, (u8 *)p, (f32)lbl_805DDF64);
+            r = (TechniqueContactBody *)find_actor_body_contact__13TUnk_804AF8A0FPUcf((u8 *)self->body, (u8 *)p, (f32)lbl_805DDF64);
             if (r == 0) continue;
             L_802A3DE8.bodies[L_802A3DE8.count] = r;
             L_802A3DE8.actors[L_802A3DE8.count] = (TechniqueContactActor *)p;
@@ -184,7 +184,7 @@ TechniqueContactList *TObjPlayer__sub_802A3DE8(Obj_802A3DE8 *self, void *src) {
                 break;
             }
         } else if ((p->flags & 0x40000000) && !(p->flags & 0x80000000)) {
-            if (find_actor_body_contact((u8 *)self->body, (u8 *)p, (f32)lbl_805DDF64) != 0) return 0;
+            if (find_actor_body_contact__13TUnk_804AF8A0FPUcf((u8 *)self->body, (u8 *)p, (f32)lbl_805DDF64) != 0) return 0;
         }
     }
     return &L_802A3DE8;
@@ -220,7 +220,7 @@ TechniqueContactList *TObjPlayer__sub_802A3FDC(Obj_802A3FDC *self, void *src) {
         if (p == 0) continue;
         if (p->flags & 0x20000000) {
             if ((u16)obj_getField1c(p) != (u16)obj_getField1c(src)) {
-                r = (TechniqueContactBody *)find_actor_body_contact((u8 *)self->body, (u8 *)p, (f32)lbl_805DDF64);
+                r = (TechniqueContactBody *)find_actor_body_contact__13TUnk_804AF8A0FPUcf((u8 *)self->body, (u8 *)p, (f32)lbl_805DDF64);
                 if (r != 0) {
                     L_802A3FDC.bodies[L_802A3FDC.count] = r;
                     L_802A3FDC.actors[L_802A3FDC.count] = (TechniqueContactActor *)p;
@@ -231,7 +231,7 @@ TechniqueContactList *TObjPlayer__sub_802A3FDC(Obj_802A3FDC *self, void *src) {
                 }
             }
         } else if ((p->flags & 0x40000000) && !(p->flags & 0x80000000)) {
-            if (find_actor_body_contact((u8 *)self->body, (u8 *)p, (f32)lbl_805DDF64) != 0) return 0;
+            if (find_actor_body_contact__13TUnk_804AF8A0FPUcf((u8 *)self->body, (u8 *)p, (f32)lbl_805DDF64) != 0) return 0;
         }
     }
     return &L_802A3FDC;
@@ -264,7 +264,7 @@ TechniqueContactList *TObjPlayer::collect_technique_contacts(void *src) {
             p = (Pl_802A41CC *)get_player_data__10TObjPlayerFi(i);
             if (p == 0) continue;
             if ((u16)obj_getField1c(p) == (u16)obj_getField1c(src)) continue;
-            r = (TechniqueContactBody *)find_actor_body_contact((u8 *)(((Obj_802A41CC *)this)->body), (u8 *)p, (f32)lbl_805DDF64);
+            r = (TechniqueContactBody *)find_actor_body_contact__13TUnk_804AF8A0FPUcf((u8 *)(((Obj_802A41CC *)this)->body), (u8 *)p, (f32)lbl_805DDF64);
             if (r == 0) continue;
             if ((p->flags & 0x20000000) || (p->flags & 0x10000000)) {
                 L_802A41CC.bodies[L_802A41CC.count] = r;
@@ -281,7 +281,7 @@ TechniqueContactList *TObjPlayer::collect_technique_contacts(void *src) {
             p = (Pl_802A41CC *)find_entity_by_id(j);
             if (p == 0) continue;
             if ((u16)obj_getField1c(p) == (u16)obj_getField1c(src)) continue;
-            r = (TechniqueContactBody *)find_actor_body_contact((u8 *)(((Obj_802A41CC *)this)->body), (u8 *)p, (f32)lbl_805DDF64);
+            r = (TechniqueContactBody *)find_actor_body_contact__13TUnk_804AF8A0FPUcf((u8 *)(((Obj_802A41CC *)this)->body), (u8 *)p, (f32)lbl_805DDF64);
             if (r == 0) continue;
             if (p->flags & 0x10000000) {
                 L_802A41CC.bodies[L_802A41CC.count] = r;

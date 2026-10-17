@@ -113,7 +113,7 @@ struct Ten_802F0A5C;
 
 typedef struct Anim_802F0BE8 { u8 pad0[4]; u32 n; } Anim_802F0BE8;
 
-s32 obj_testFlags30(void *, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
 s32 attach_particle_model(int, int, int, int, int, f32);
 void *spawn_particle_effect(void *pos, s32 id);
 f32 horizontal_distance_squared(void *, void *);
@@ -204,7 +204,7 @@ void damage_nearby_players__14TBoss7TentacleFPv(u8 *arg0) {
             if (*(s32 *)(arg0 + 0x3C) == 0 && ((VObj_18_9935f6 *)p)->m25(*(s32 *)(arg0 + 0x10), 0, lbl_805DEC10) != 0) {
                 ((VObj_18_9935f6 *)p)->m20(*(s32 *)(arg0 + 0x10), TBoss7Tentacle__data_805DEC00);
             }
-            if (obj_testFlags30(p, 0x801) == 0) {
+            if (obj_testFlags30__13TUnk_804AF8A0FUl(p, 0x801) == 0) {
                 Hit_802EF99C b;
                 b.a = 15;
                 b.f = lbl_805DEC0C;
@@ -241,16 +241,16 @@ void update_retract_state__14TBoss7TentacleFPv(TBoss7Tentacle *arg0) {
     }
 }
 
-void advance_needle_timer__20TBoss7TentacleNeedleFPv(void *arg0) {
+void TBoss7TentacleNeedle::advance_needle_timer() {
     s32 temp_r4;
 
-    temp_r4 = *(s32 *)((s8 *)arg0 + 0x3C);
+    temp_r4 = *(s32 *)((s8 *)this + 0x3C);
     if (temp_r4 == 0x1E) {
-        *(s32 *)((s8 *)arg0 + 0x38) = 1;
-        *(f32 *)((s8 *)arg0 + 0x74) = (f32) lbl_805DEC1C;
+        *(s32 *)((s8 *)this + 0x38) = 1;
+        *(f32 *)((s8 *)this + 0x74) = (f32) lbl_805DEC1C;
         return;
     }
-    *(s32 *)((s8 *)arg0 + 0x3C) = (s32) (temp_r4 + 1);
+    *(s32 *)((s8 *)this + 0x3C) = (s32) (temp_r4 + 1);
 }
 
 void TBoss7TentacleNeedle::render() {
@@ -268,7 +268,7 @@ void TBoss7TentacleNeedle::run_task() {
 
     switch (this->m_38) {
     case 0:
-        ((s32 (*)(void))advance_needle_timer__20TBoss7TentacleNeedleFPv)();
+        ((s32 (*)(void))advance_needle_timer__20TBoss7TentacleNeedleFv)();
         return;
     case 1:
         ((s32 (*)(void))update_retract_state__14TBoss7TentacleFPv)();
@@ -387,7 +387,7 @@ void TBoss7Tentacle::switch_state() {
     if (state != (s32) *(s32 *)((s8 *)this + 0x30)) {
         switch (state) {
         case 0:
-            TBoss7Tentacle__sub_802F09EC((void*)(this));
+            sub_802F09EC__14TBoss7TentacleFv((void*)(this));
             break;
         case 1:
             TBoss7Tentacle__sub_802F09C8((void*)(this));
@@ -427,7 +427,7 @@ void run_task__14TBoss7TentacleFv(u8 *arg0) {
     case 2:
         *(s32 *)((s8 *)arg0 + 0x13C) = approach_angle_limited(*(s32 *)((s8 *)arg0 + 0x13C), 0, 0x80);
         if (*(s32 *)((s8 *)arg0 + 0x13C) == 0) {
-            TBoss7Tentacle__sub_802F09FC(arg0);
+            sub_802F09FC__14TBoss7TentacleFv(arg0);
         }
         break;
     case 3: {
@@ -547,11 +547,11 @@ void TBoss7Tentacle__sub_802F09B4(void* p) { *(s32*)((char*)p + 0x13c) = 0; *(s3
 
 void TBoss7Tentacle__sub_802F09C8(void* a0) { *(int*)((char*)a0 + 0x13c) = TBoss7Tentacle__target_angle_table[*(int*)((char*)a0 + 0x4c)]; *(int*)((char*)a0 + 0x140) = 0; }
 
-void TBoss7Tentacle__sub_802F09EC(void* p) { *(s32*)((char*)p + 0x140) = 0; *(s32*)((char*)p + 0x13c) = 0; }
+void TBoss7Tentacle::sub_802F09EC() { *(s32*)((char*)this + 0x140) = 0; *(s32*)((char*)this + 0x13c) = 0; }
 
-void TBoss7Tentacle__sub_802F09FC(u8 *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x34) = 3;
-    *(s32 *)((s8 *)arg0 + 0x3C) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C) & 0xFFFFFFFD);
+void TBoss7Tentacle::sub_802F09FC() {
+    *(s32 *)((s8 *)((u8 *)this) + 0x34) = 3;
+    *(s32 *)((s8 *)((u8 *)this) + 0x3C) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3C) & 0xFFFFFFFD);
 }
 
 void TBoss7Tentacle__sub_802F0A14(u8 *arg0) {

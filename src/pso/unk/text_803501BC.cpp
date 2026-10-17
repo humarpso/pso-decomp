@@ -19,7 +19,7 @@ extern const f32 lbl_805DFE28;
 extern const f32 lbl_805DFE2C;
 void TUnk_804F0C48::vfunc_44() {
     T_803501BC *t;
-    t = get_item_pmt_entry__10TObjPlayerFUc(((TItemProShield *)this)->get_slot_count());
+    t = get_item_pmt_entry__10TObjPlayerFUc(((TItem *)this)->get_slot_count());
     if (t != NULL) {
         s32 r = (s32)(lbl_805DFE28 * (lbl_805DFE2C * (f32)rand()));
         E_803501BC *e = t->e;

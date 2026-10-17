@@ -579,14 +579,14 @@ void TObjPlayer__sub_8008E934(void *arg0_, s32 arg1) {
     s32 j;
     if (arg1 == 1) {
         *(u32 *)((s8 *)arg0 + 0x388) |= 0x01000000;
-        ((TObjEneLappy *)arg0)->set_param(0x28);
+        ((TObjEnemy *)arg0)->set_param(0x28);
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
         ((TObjEneBalClawClaw *)arg0)->sub_80090418(1);
         *(s16 *)((s8 *)arg0 + 0x3DA) = 0;
         ((VObj_18_4841bb *)(arg0))->m53();
     } else {
         *(u32 *)((s8 *)arg0 + 0x388) &= ~0x01000000;
-        ((TObjEneLappy *)arg0)->set_param(0x27);
+        ((TObjEnemy *)arg0)->set_param(0x27);
         *(s16 *)((s8 *)arg0 + 0xB8) = 5;
         ((TObjEneBalClawClaw *)arg0)->sub_80090418(0);
         ((VObj_18_4841bb *)(arg0))->m53();

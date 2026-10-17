@@ -76,14 +76,14 @@ void render__12TEneEffHamonFv(Hamon_800A36A8 *o) {
     model_render_flags |= 0x810;
     set_chunk_material_override_pair(0xFFFF00FF, 0x800);
     TObjFish::set_global_param(TEneEffHamon__fish_effect_param);
-    set_chunk_material_color((f32 *)o->color50);
+    set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)o->color50);
     push_matrix();
     post_translate_matrix(o->mtx1C);
     s = o->f40 * o->scale;
     scale_matrix(0, s, s, s);
     draw_chunk_object((void *)TEneEffHamon__fish_model);
     pop_matrix();
-    set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
+    set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)chunk_material_color_half_alpha_f32);
     chunk_polygon_flags_and_mask = lbl_805D5664;
     chunk_polygon_flags_or_mask = lbl_805D5668;
     copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);

@@ -248,7 +248,7 @@ void *TOHealGeneral__ct(void *arg0, void *arg1) {
     init_collision_body_parts(self, lbl_804B2770, 1, model);
     ((TUnk_804AF8A0 *)self)->refresh_collision_body_centers();
     ((TObjPlayer *)self)->reset_photon_effect();
-    ((TObjPlayer *)self)->clear_player_status_flag(0, 1);
+    ((TUnk_804AF8A0 *)self)->clear_player_status_flag(0, 1);
     self->fCC = 0;
     self->fD0 = lbl_805DB6C0;
     for (i = 0; i < 2; i++) {

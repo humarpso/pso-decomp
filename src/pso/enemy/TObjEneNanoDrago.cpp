@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemyCustom.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneNanoDrago.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
@@ -258,9 +261,9 @@ struct Ene_800DA2A0 : Base_800DA2A0 {
 typedef NanoDragoVector Vec_800DB5A8;
 extern "C" {
 u16 find_nearest_visible_player(void *, s32, f32);
-s32 select_nearest_target__10TObjPlayerFPvf(void *, f32);
+s32 select_nearest_target__15TObjEnemyCustomFf(void *, f32);
 s32 apply_actor_gravity(void *, int, f32);
-s32 enemy_wander_home(void *, int, f32, f32, f32);
+s32 enemy_wander_home__9TObjEnemyFlfff(void *, int, f32, f32, f32);
 void move_with_wall_slide(void *);
 void enemy_set_heading_velocity(void *, f32, s32);
 f32 atan2_float(f32 y, f32 x);
@@ -334,7 +337,7 @@ void TObjEneNanoDrago::sub_800DA2A0() {
     case 0:
         if (this->is_actor_cadence_frame(0x1E) != 0) {
             if (find_nearest_visible_player(((Ene_800DA2A0 *)this), 0, *((Ene_800DA2A0 *)this)->param) != 0xFFFF) {
-                select_nearest_target__10TObjPlayerFPvf(((Ene_800DA2A0 *)this), *((Ene_800DA2A0 *)this)->param);
+                select_nearest_target__15TObjEnemyCustomFf(((Ene_800DA2A0 *)this), *((Ene_800DA2A0 *)this)->param);
                 if (((Ene_800DA2A0 *)this)->f388 & 0x40000) {
                     sub_800DA1F4();
                 } else {
@@ -862,7 +865,7 @@ void TObjPlayer__sub_800DB0F8(Obj_800DB0F8 *o) {
         }
         break;
     case 4:
-        enemy_wander_home(o, o->home->f8, o->f3D8, 100.0f, 100.0f);
+        enemy_wander_home__9TObjEnemyFlfff(o, o->home->f8, o->f3D8, 100.0f, 100.0f);
         advance_animation_playback(o);
         apply_actor_gravity(o, 0, 0.0f);
         ((TObjPlayer *)o)->update_collisions();
@@ -1015,7 +1018,7 @@ void TObjEneNanoDrago::update_circling_state() {
         check_enemy_body_collisions(arg0);
         break;
     case 2:
-        ((s32 (*)(void *, f32, f32, f32, int))enemy_wander_home)(arg0, e->speed, 100.0f, 50.0f, (*(NanoDragoMovementParams * *)&e->movementParameters)->turn);
+        ((s32 (*)(void *, f32, f32, f32, int))enemy_wander_home__9TObjEnemyFlfff)(arg0, e->speed, 100.0f, 50.0f, (*(NanoDragoMovementParams * *)&e->movementParameters)->turn);
         advance_animation_playback(arg0);
         apply_actor_gravity(arg0, 0, 0.0f);
         if (objInBand((GameObj *)arg0, (f32)(4.0f)) != 0 || objInBand((GameObj *)((GameObj *)arg0), (f32)(20.0f)) != 0) {
@@ -1023,7 +1026,7 @@ void TObjEneNanoDrago::update_circling_state() {
         }
         e->t += e->speed;
         if (e->t > 100.0f) {
-            if (select_nearest_target__10TObjPlayerFPvf(arg0, (*(NanoDragoMovementParams * *)&e->movementParameters)->f0) != 0) {
+            if (select_nearest_target__15TObjEnemyCustomFf(arg0, (*(NanoDragoMovementParams * *)&e->movementParameters)->f0) != 0) {
                 e->accum = 0;
                 e->state = 1;
             } else {
@@ -1204,7 +1207,7 @@ void TObjPlayer__sub_800DC444(void);
 int initialize_enemy_photon_effect(void *p);
 void * TObjControl__ct(void *, void *);
 s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
-void set_animation__10TObjPlayerFPvs(void *, s16);
+void set_animation__10TObjMotionFs(void *, s16);
 s32 free_collision_body_parts(void *);
 void init_collision_body_parts(void *, void *, s32);
 s32 submit_cursor_candidate(void *, int);
@@ -1798,14 +1801,14 @@ u8 *TObjEneNanoDrago__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TObjEneNanoDrago *)arg0)->state36C = *(s16 *)((s8 *)arg2 + 0x3E);
     ((TObjEneNanoDrago *)arg0)->load_entry_params_nanodrago(((TObjEneNanoDrago *)arg0)->variant);
     ((TObjEneNanoDrago *)arg0)->action_table = lbl_80494B5C;
-    ((TObjPlayer *)arg0)->set_field_d8((s32)(((TObjEneNanoDrago *)arg0)->action_table));
+    ((TObjMotion *)arg0)->set_field_d8((s32)(((TObjEneNanoDrago *)arg0)->action_table));
     init_collision_body_parts(arg0, lbl_80494C38, 2);
     *(u32 *)((s8 *)(((TObjEneNanoDrago *)arg0)->m_a4) + 0x44) &= ~1;
     ((TObjEneNanoDrago *)arg0)->movementParameters = lbl_80494C1C;
     bind_enemy_combat_stats(arg0, (u8 *)lbl_805D5248, (u8 *)lbl_805D524C, (u8 *)lbl_805D5250);
     ((void (*)(void *))TObjPlayer__sub_800D9E08)(arg0);
     ((TObjEneNanoDrago *)arg0)->m_b8 = 0;
-    set_animation__10TObjPlayerFPvs(arg0, ((TObjEneNanoDrago *)arg0)->m_b8);
+    set_animation__10TObjMotionFs(arg0, ((TObjEneNanoDrago *)arg0)->m_b8);
     ((TObjMotion *)arg0)->set_field_b8(((TObjEneNanoDrago *)arg0)->m_b8);
     ((TObjEneNanoDrago *)arg0)->hp = ((TObjEneNanoDrago *)arg0)->hpmax;
     ((TObjEneNanoDrago *)arg0)->m_32e = ((TObjEneNanoDrago *)arg0)->m_2ba;
@@ -1826,7 +1829,7 @@ u8 *TObjEneNanoDrago__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     }
     ((TObjEneNanoDrago *)arg0)->m_3dc = 0;
     ((TObjEneNanoDrago *)arg0)->toggle = 0;
-    ((TObjEneLappy *)arg0)->set_param(0xF);
+    ((TObjEnemy *)arg0)->set_param(0xF);
     *(f32 *)((s8 *)arg0 + 0x3E4) = 0.0f;
     if (*(s16 *)((s8 *)arg2 + 0xA) != 0 && !(((TObjEneNanoDrago *)arg0)->m_388 & 0x40000)) {
         ((TObjEnemyCustom *)arg0)->sub_800C7860();

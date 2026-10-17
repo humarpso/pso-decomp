@@ -159,7 +159,7 @@ void TCharaMaking__draw_colored_hair(f32 farg0, s32 arg0, CharacterAppearanceFie
         color.r = lbl_805DD934 * (f32) arg1->red;
         color.g = lbl_805DD934 * (f32) arg1->green;
         color.b = lbl_805DD934 * (f32) arg1->blue;
-        set_chunk_material_color(&color.a);
+        set_chunk_material_color__13TUnk_80494AE0Fv(&color.a);
     }
     draw_chunk_object((void *)arg0);
     chunk_polygon_flags_and_mask = lbl_805D5664;

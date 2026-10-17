@@ -158,7 +158,7 @@ Obj_80049430 *TObjVoloptCage__ct(Obj_80049430 *arg0, Obj_80049430 *arg1, u16 arg
     arg0->f28 = arg1->f28;
     arg0->f2a = arg1->f2a;
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
-    ((TObjEneLappy *)arg0)->set_param(0x2E);
+    ((TObjEnemy *)arg0)->set_param(0x2E);
     arg0->f3c = lbl_805D8884;
     ((TUnk_804806E8 *)arg0)->recalc_combat_stats((void *)lbl_805D4D18, (void *)0, (void *)0, (f32)lbl_805D8888, (f32)lbl_805D8888);
     arg0->flags |= 0x40000 | 0x8000;

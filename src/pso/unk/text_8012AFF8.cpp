@@ -22,7 +22,7 @@ void TUnk_804A4C78::reserved_53() {
         sub_8012B1F0(8);
         ((TObjPlayer *)(&lbl_805D53EC))->set_flags(4);
     }
-    draw_weapon_model(this);
+    draw_weapon_model__11TItemWeaponFv(this);
     if (sub_8012B1F8() != 8) {
         update_trail_slot__11TItemWeaponFPvi(this, 0);
     }

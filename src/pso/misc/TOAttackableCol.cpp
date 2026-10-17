@@ -58,7 +58,7 @@ extern s32 tl_00;
 extern const f32 lbl_805DB2C8;
 s32 construct_actor_base__10TObjPlayerFPvPv(void *, int);
 s32 obj_setFlags30(void *, int);
-void set_indexed_flags(void *arg0, s32 index, s32 flags);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_80157AD8_lbl_804AF9A8 TOAttackableCol__collision_parts;
 extern s32 __vt__15TOAttackableCol[];
@@ -76,7 +76,7 @@ s32 free_collision_body_parts(void *);
 s32 submit_cursor_candidate(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 int bswap_header__6TLobbyFv(void*);
-int clear_player_status_flag__10TObjPlayerFlUl(void*, int, int);
+int clear_player_status_flag__13TUnk_804AF8A0FlUl(void*, int, int);
 void queue_destruction__7TObjectFv(void *arg0);
 
 void TOAttackableCol__sub_80157310(void * _w0) {  }
@@ -107,9 +107,9 @@ void TOAttackableCol::init_params() {
         this->m_34c = -1;
     }
     if (this->target_scale < lbl_805DB2C8) {
-        set_indexed_flags(this, 0, 0x08000000);
+        set_indexed_flags__13TUnk_804AF8A0Fll(this, 0, 0x08000000);
     } else {
-        clear_player_status_flag__10TObjPlayerFlUl(this, 0, 0x08000000);
+        clear_player_status_flag__13TUnk_804AF8A0FlUl(this, 0, 0x08000000);
     }
     if ((s32) this->m_344 == 0) {
         *(s32 *)&this->unk_348 = (s32) *(f32 *)&this->m_70;
@@ -171,7 +171,7 @@ void TOAttackableCol::vfunc_6(s16 *arg1, s32 arg2) {
     ((TUnk_804AF8A0 *)arg0)->access_object_saved_state(&sp8, 0);
 }
 
-int TOAttackableCol::handle_6x91_update_state() { return clear_player_status_flag__10TObjPlayerFlUl(this, 0, 1); }
+int TOAttackableCol::handle_6x91_update_state() { return clear_player_status_flag__13TUnk_804AF8A0FlUl(this, 0, 1); }
 
 f32 TOAttackableCol::apply_hit(s32 arg1) {
     u8 *arg0 = (u8 *)this;
@@ -307,7 +307,7 @@ u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1) {
     ((TUnk_804806E8 *)arg0)->calc_attach_pos();
     obj_setFlags30(arg0, 0x60000000);
     init_collision_body_parts(arg0, &TOAttackableCol__collision_parts.value, 1);
-    set_indexed_flags((arg0), 0, 0x718);
+    set_indexed_flags__13TUnk_804AF8A0Fll((arg0), 0, 0x718);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOAttackableCol *)arg0)->mode = 0;
     *(f32 *)((s8 *)arg0 + 0x334) = (f32) lbl_805DB2CC;

@@ -189,7 +189,7 @@ void * __dt__25TOHangceilingCave01NormalFv(void *arg0, s16 arg1);
 void * TOHangceilingCave01Normal__ct(void *arg0);
 f32 TOHangceilingCave01Normal__sub_801681D0(f32 farg0);
 void advance_wrap_offset__13TUnk_804B2578Fv(void *arg0);
-void fn_80168280(Obj_80168280 *self, u32 v);
+void sub_80168280__13TUnk_804B2578FUl(Obj_80168280 *self, u32 v);
 void reset_state(u8 *arg0);
 void sub_801682E4__13TUnk_804B2578Fl(Obj_801682E4 *o, s32 arg1);
 void init_base__27TOHangceilingCave01KeyQuickFll(void *);
@@ -489,7 +489,8 @@ s32 TUnk_804B2578::sub_80168244(u32 v) {
     return 0;
 }
 
-void fn_80168280(Obj_80168280 *self, u32 v) {
+void TUnk_804B2578::sub_80168280(u32 v) {
+    Obj_80168280 *self = (Obj_80168280 *)this;
     if (self->count < 4) {
         self->arr[self->count++] = v;
     }
@@ -583,7 +584,7 @@ void TUnk_804B2578::sub_80168488() {
                 t.b = ((VO_80168488 *)this)->m79(this->m_338);
                 hit_80168488(temp_r3, ((VO_80168488 *)this), t);
                 obj_setFlags30(temp_r3, 0x400);
-                ((s32 (*)(void *, void *))fn_80168280)(this, temp_r3);
+                ((s32 (*)(void *, void *))sub_80168280__13TUnk_804B2578FUl)(this, temp_r3);
             }
         }
         var_r30 += 1;
@@ -592,7 +593,7 @@ void TUnk_804B2578::sub_80168488() {
 #pragma pop
 
 s32 TOHangceilingCave01__create(u8 *arg0);
-bool TOHangceilingCave01__sub_801688C0(u8 *arg0);
+bool sub_801688C0__13TUnk_804B2578Fv(u8 *arg0);
 s32 push_matrix(void);
 s32 pop_matrix(void);
 f32 post_translate_matrix(void *);
@@ -631,7 +632,7 @@ struct VObj_18_26a62c : VBase_18_26a62c {
     virtual s32 m8(f32, f32);
 };
 
-bool TOHangceilingCave01__sub_801688C0(u8 *);
+bool sub_801688C0__13TUnk_804B2578Fv(u8 *);
 void *spawn_particle_effect(void *pos, s32 id);
 f32 xz_distance_squared(void *, void *);
 s32 transform_point_by_current_matrix(void *, void *);
@@ -680,7 +681,7 @@ void TUnk_804B2578::render() {
     s32 temp_r29;
     s32 temp_r30;
     s32 temp_r31;
-    if ((((s32 (*)(u8 *))TOHangceilingCave01__sub_801688C0)(arg0) != 0) || (TObjPlayer::check_demo_mode() == 1)) {
+    if ((((s32 (*)(u8 *))sub_801688C0__13TUnk_804B2578Fv)(arg0) != 0) || (TObjPlayer::check_demo_mode() == 1)) {
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
@@ -735,14 +736,15 @@ void TUnk_804B2578::run_task() {
     if (TObjPlayer::check_demo_mode() == 0) {
         this->vfunc_80();
         ((TUnk_804B2578 *)arg0)->sub_80168398();
-        if ((((s32 (*)(void *))TOHangceilingCave01__sub_801688C0)(arg0) != 0) && ((s16) this->mode != 3) && (objInBand((GameObj *)arg0, (f32)lbl_805DB694) != 0)) {
+        if ((((s32 (*)(void *))sub_801688C0__13TUnk_804B2578Fv)(arg0) != 0) && ((s16) this->mode != 3) && (objInBand((GameObj *)arg0, (f32)lbl_805DB694) != 0)) {
             spawn_particle_effect(&this->position, 0x64);
         }
     }
 }
 
-bool TOHangceilingCave01__sub_801688C0(u8 *arg0) {
+bool TUnk_804B2578::sub_801688C0() {
     f32 sp8[3];
+    u8 *arg0 = (u8 *)this;
 
     if (xz_distance_squared((void *)(arg0 + 0x38), (void *)(camera_ctrl_instance + 0x178)) < lbl_805DB698) {
         ((TUnk_804B2578 *)arg0)->m_1e = 1;

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneBm5GibonU.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
@@ -247,7 +249,7 @@ void * __nw__7TObjectFUl(u32);
 void render__16TObjEneBm5GibonUFv(u8 *arg0);
 void TObjEneBm5GibonU__sub_800D0738(u8 *arg0, u32 arg1, s32 arg2);
 void TObjEneBm5GibonU__sub_800D0AE8(Obj_800D0AE8 *self, Vec_800D0AE8 *dir);
-void TObjEneBm5GibonU__sub_800D10A0(u8 *arg0);
+void sub_800D10A0__16TObjEneBm5GibonUFv(u8 *arg0);
 void vfunc_88__16TObjEneBm5GibonUFv(u8 *arg0);
 void run_task__16TObjEneBm5GibonUFv(u8 *arg0);
 void forward_hit_to_enemy_list__16TObjEneBm5GibonUFi(s32 arg0);
@@ -2291,7 +2293,7 @@ s32 TObjEneBm5GibonU::vfunc_83() {
 
     if (get_target_info__9TObjEneDDFv() != 0) {
         temp_r31 = *(s32 *)((s8 *)this + 0x464);
-        TObjEneBm5GibonU__sub_800D10A0((u8 *)this);
+        sub_800D10A0__16TObjEneBm5GibonUFv((u8 *)this);
         if (temp_r31 != (s32) *(s32 *)((s8 *)this + 0x464)) {
             if (temp_r31 != 0) {
                 forward_hit_to_enemy_list__16TObjEneBm5GibonUFi((s32)this);
@@ -4455,27 +4457,27 @@ void turn_toward_angle__16TObjEneBm5GibonUFPvi(Ene_800D0FDC *arg0, s32 arg1) {
     arg0->turn = (s16)arg0->turn;
 }
 
-void TObjEneBm5GibonU__sub_800D10A0(u8 *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x46C) = (s32) get_random_float__21TObjEneMe3ShinowaRealFv((f32) (*(f32 *)((s8 *)arg0 + 0x354)));
-    if (*(f32 *)((s8 *)arg0 + 0x358) >= TObjEneBm5GibonU__data_805DA168) {
-        *(s32 *)((s8 *)arg0 + 0x470) = 0;
+void TObjEneBm5GibonU::sub_800D10A0() {
+    *(s32 *)((s8 *)((u8 *)this) + 0x46C) = (s32) get_random_float__21TObjEneMe3ShinowaRealFv((f32) (*(f32 *)((s8 *)((u8 *)this) + 0x354)));
+    if (*(f32 *)((s8 *)((u8 *)this) + 0x358) >= TObjEneBm5GibonU__data_805DA168) {
+        *(s32 *)((s8 *)((u8 *)this) + 0x470) = 0;
     } else {
-        *(s32 *)((s8 *)arg0 + 0x470) = 1;
+        *(s32 *)((s8 *)((u8 *)this) + 0x470) = 1;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x368) >= 1) {
-        *(s32 *)((s8 *)arg0 + 0x464) = 1;
-        *(s32 *)((s8 *)arg0 + 0x468) = 1;
-        *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneBm5GibonU__model_archive + 0x42C)) + 0x18);
-        *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneBm5GibonU__model_archive + 0x42C)) + 0x1C);
+    if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x368) >= 1) {
+        *(s32 *)((s8 *)((u8 *)this) + 0x464) = 1;
+        *(s32 *)((s8 *)((u8 *)this) + 0x468) = 1;
+        *(s32 *)((s8 *)((u8 *)this) + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneBm5GibonU__model_archive + 0x42C)) + 0x18);
+        *(s32 *)((s8 *)((u8 *)this) + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneBm5GibonU__model_archive + 0x42C)) + 0x1C);
     } else {
-        *(s32 *)((s8 *)arg0 + 0x464) = 0;
-        *(s32 *)((s8 *)arg0 + 0x468) = 0;
-        *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneBm5GibonU__model_archive + 0x42C)) + 8);
-        *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneBm5GibonU__model_archive + 0x42C)) + 0xC);
+        *(s32 *)((s8 *)((u8 *)this) + 0x464) = 0;
+        *(s32 *)((s8 *)((u8 *)this) + 0x468) = 0;
+        *(s32 *)((s8 *)((u8 *)this) + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneBm5GibonU__model_archive + 0x42C)) + 8);
+        *(s32 *)((s8 *)((u8 *)this) + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneBm5GibonU__model_archive + 0x42C)) + 0xC);
     }
-    *(f32 *)((s8 *)arg0 + 0x4A0) = (f32) (lbl_805DA254 + *(f32 *)((s8 *)arg0 + 0x35C));
-    *(f32 *)((s8 *)arg0 + 0x4A4) = (f32) (TObjEneBm5GibonU__data_805DA194 + *(f32 *)((s8 *)arg0 + 0x360));
-    *(f32 *)((s8 *)arg0 + 0x4A8) = (f32) (TObjEneBm5GibonU__data_805DA194 + *(f32 *)((s8 *)arg0 + 0x364));
+    *(f32 *)((s8 *)((u8 *)this) + 0x4A0) = (f32) (lbl_805DA254 + *(f32 *)((s8 *)((u8 *)this) + 0x35C));
+    *(f32 *)((s8 *)((u8 *)this) + 0x4A4) = (f32) (TObjEneBm5GibonU__data_805DA194 + *(f32 *)((s8 *)((u8 *)this) + 0x360));
+    *(f32 *)((s8 *)((u8 *)this) + 0x4A8) = (f32) (TObjEneBm5GibonU__data_805DA194 + *(f32 *)((s8 *)((u8 *)this) + 0x364));
 }
 
 }
@@ -4819,7 +4821,7 @@ void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
 void init_model__9TObjEneDDFv(void *, void *, s32);
 void invoke_initialization_hook__9TObjEneDDFv(void *, s32);
-void set_animation__10TObjPlayerFPvs(void *, s16);
+void set_animation__10TObjMotionFs(void *, s16);
 void init_collision_body_parts(void *, void *, s32);
 void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, s32);
 void __construct_array(void *, void *, void *, int, int);
@@ -4944,17 +4946,17 @@ u8 *TObjEneBm5GibonU__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjPlayer *)(arg0 + 0x4B0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D2A70;
     invoke_initialization_hook__9TObjEneDDFv(arg0, arg2);
-    TObjEneBm5GibonU__sub_800D10A0(arg0);
+    sub_800D10A0__16TObjEneBm5GibonUFv(arg0);
     ((TObjEneDD *)arg0)->init_position_vectors();
     if (*(s32 *)((s8 *)arg0 + 0x464) == 1) {
         init_model__9TObjEneDDFv(arg0, &gibon_collision_body_templates[1], 1);
     } else {
         init_model__9TObjEneDDFv(arg0, &gibon_collision_body_templates[0], 1);
     }
-    ((TObjPlayer *)arg0)->set_field_d8((s32)gibon_u_action_table);
-    ((TObjPlayer *)arg0)->set_field_dc(*(s32 *)((s8 *)(*(u8 * *)&(*(u32 *)&TObjEneBm5GibonU__model_archive)) + 0x430));
+    ((TObjMotion *)arg0)->set_field_d8((s32)gibon_u_action_table);
+    ((TObjMotion *)arg0)->set_field_dc(*(s32 *)((s8 *)(*(u8 * *)&(*(u32 *)&TObjEneBm5GibonU__model_archive)) + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-    set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    set_animation__10TObjMotionFs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
     ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     b = *(s32 *)((s8 *)arg0 + 0x464) ? 1 : 0;
     reset_hp__9TObjEneDDFv(arg0, ((s32 *)&(*(G_800D1D14 *)&TObjEneBm5GibonU__data_80500E78))[b],

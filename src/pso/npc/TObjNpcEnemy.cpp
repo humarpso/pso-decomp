@@ -72,7 +72,7 @@ void __dl__7TObjectFPv(void *);
 void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 s32 draw__16TObjEneRe7BeruraFv();
-s32 draw_model__12TObjNpcEnemyFv();
+s32 draw_model__16TObjEneMe3StelthFv();
 s32 init_npc_animation__10TObjPlayerFPvPvPv(void *, s32, s32, s16);
 s32 set_global_flag__10TObjPlayerFv(void *);
 
@@ -232,7 +232,7 @@ void TObjNpcEnemy::update_state() {
         TObjPlayer::clear_global_state();
         return;
     case 3:
-        draw_model__12TObjNpcEnemyFv();
+        draw_model__16TObjEneMe3StelthFv();
     case 4:
         return;
     }

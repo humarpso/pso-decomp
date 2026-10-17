@@ -5,8 +5,8 @@
 
 extern "C" {
 void TObjPlayer__sub_80100070(u8 *arg0);
-u16 TObjPlayer__sub_80100474(void *p);
-void TObjPlayer__sub_8010047C(u8 *arg0, s16 arg1);
+u16 sub_80100474__5TItemFv(void *p);
+void sub_8010047C__13TUnk_804A5930Fs(u8 *arg0, s16 arg1);
 }
 
 #endif

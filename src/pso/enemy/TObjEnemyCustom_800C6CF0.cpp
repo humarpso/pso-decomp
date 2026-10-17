@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDubchik.h"
 #include "pso/enemy/TObjEnemyCustom_800C6CF0.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
@@ -53,7 +54,7 @@ struct Pl_800C7168 {
 
 extern "C" {
 u8 *get_player_data__10TObjPlayerFi(int);
-s32 obj_testFlags30(void *, int);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, int);
 u8 *find_active_entity_by_id(int);
 f32 xz_distance_squared(void *, void *);
 extern s32 lbl_805D586C;
@@ -64,7 +65,7 @@ u16 find_nearest_enemy__10TObjPlayerFPvPvf(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out
 f32 calc_boss4_scale__10TObjPlayerFi(s32 arg0);
 s32 find_nearest_visible_player(void *, void *, f32);
 Obj_800C6FFC *find_entity_by_id(int);
-BOOL select_nearest_target__10TObjPlayerFPvf(Obj_800C6FFC *arg0, f32 radius);
+BOOL select_nearest_target__15TObjEnemyCustomFf(Obj_800C6FFC *arg0, f32 radius);
 void calc_velocity_toward_destination(void *, Vec_800C7168, Vec_800C7168);
 Hit_800C7168 *csnVector(void *, void *, s32);
 s32 project_actor_to_ground(void *, void *, int);
@@ -101,7 +102,7 @@ u16 pick_random_nearby_player__10TObjPlayerFPvf(u8 *arg0, f32 radius) {
     u8 *p;
     r2 = radius * radius;
     count = 0;
-    if (obj_testFlags30(arg0, 0x10) != 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x10) != 0) {
         n = lbl_805D586C + lbl_805D5870;
     } else {
         n = lbl_805D586C;
@@ -127,7 +128,7 @@ u16 pick_random_nearby_player__10TObjPlayerFPvf(u8 *arg0, f32 radius) {
     return list[(s32)((f32)count * calc_boss4_scale__10TObjPlayerFi((s32)arg0))];
 }
 
-void TObjPlayer::target_nearest_player(f32 radius) {
+void TObjEneDubchik::target_nearest_player(f32 radius) {
     Plr_800C6E34 *arg0 = (Plr_800C6E34 *)this;
     s32 n;
     u16 best;
@@ -137,7 +138,7 @@ void TObjPlayer::target_nearest_player(f32 radius) {
     Plr_800C6E34 *p;
     bestDist = radius * radius;
     best = 0xFFFF;
-    if (obj_testFlags30(arg0, 0x10) != 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x10) != 0) {
         n = lbl_805D586C + lbl_805D5870;
     } else {
         n = lbl_805D586C;
@@ -193,10 +194,11 @@ u16 find_nearest_enemy__10TObjPlayerFPvPvf(Obj_800C6EF8 *arg0, Vec_800C6EF8 *out
 }
 struct Obj_800C6EF8;
 struct Vec_800C6EF8;
-BOOL select_nearest_target__10TObjPlayerFPvf(Obj_800C6FFC *arg0, f32 radius) {
+BOOL TObjEnemyCustom::select_nearest_target(f32 radius) {
     s32 a;
     s32 b;
     f32 da;
+    Obj_800C6FFC *arg0 = (Obj_800C6FFC *)this;
     a = find_nearest_visible_player(arg0, NULL, radius);
     b = ((s32 (*)(void *, void *, f32))find_nearest_enemy__10TObjPlayerFPvPvf)(arg0, NULL, radius);
     if ((u16)a == 0xFFFF) {
@@ -224,8 +226,8 @@ extern const f32 lbl_805DA080;
 void *get_player_by_client_id(s32 i);
 
 u8 TObjEnemyCustom::find_target_in_range(f32 farg0) {
-    if (obj_testFlags30(this, 0x10) != 0) {
-        return ((u8 (*)(void *, f32))select_nearest_target__10TObjPlayerFPvf)(this, farg0);
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(this, 0x10) != 0) {
+        return ((u8 (*)(void *, f32))select_nearest_target__15TObjEnemyCustomFf)(this, farg0);
     }
     this->targetId = ((u16 (*)(void *, s32, f32))find_nearest_visible_player)(this, 0, farg0);
     (*(s32 *)&this->target) = (s32)get_player_by_client_id(this->targetId);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/unk/text_80126334.h"
 #include "pso/item/TUnk_804A2960.h"
 #include "pso/player/TObjPlayer.h"
@@ -27,7 +28,7 @@ u8 *frozen_shooter_ct(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A2960.value;
     ((TObjPlayer *)arg0)->set_status_flags(0x22);
-    if (((TItemProShield *)arg0)->get_slot_count() == 1) {
+    if (((TItem *)arg0)->get_slot_count() == 1) {
         *(s32 *)((s8 *)arg0 + 0x1F8) = 0xA;
         *(s32 *)((s8 *)arg0 + 0x200) = 0x1F5;
     } else {

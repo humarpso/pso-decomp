@@ -6,6 +6,8 @@
 class TTecZondeEff : public TObject {
 public:
     virtual ~TTecZondeEff();
+    void randomize_bolt_jitter();
+    void calc_lightning_scatter_direction(s32, void *);
     s32 build_lightning_strip(void *, void *, f32 *, f32 *);
     virtual void run_task();
     virtual void render();

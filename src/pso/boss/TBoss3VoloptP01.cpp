@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemyCustom.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/boss/TBoss3VoloptP01.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
@@ -27,7 +30,7 @@ void rotate_matrix_y(s32,s32);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 s32 pop_matrix(void);
 void push_nearby_players__10TObjPlayerFPv(Obj_80042DE8*);
-s32 obj_testFlags30(void*,s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void*,s32);
 s32 update_if_active__15TObjEneMe1GiGueFl(void*,s32);
 s32 update_pulse_scale__15TBoss3VoloptP01FPv(S_8004301C*);
 s32 fire_zonde_at_players__10TObjPlayerFPv(u8*);
@@ -268,11 +271,11 @@ void TObjPlayer__sub_80042ED0(P_80042ED0 *o, s32 idx, s32 arg2);
 void vec3_add_to(Vec_80042DE8 *, Vec_80042DE8 *);
 void push_nearby_players__10TObjPlayerFPv(Obj_80042DE8 *self);
 u8 TObjPlayer__sub_80042EC0(void *arg0);
-s32 obj_testFlags30(void *, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
 s32 update_if_active__15TObjEneMe1GiGueFl(void *, s32);
 
 void TObjPlayer::set_target_id(s32 arg1) {
-    if (obj_testFlags30(this, 0x800) == 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(this, 0x800) == 0) {
         *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 & 0xFFFFFFFE);
         update_if_active__15TObjEneMe1GiGueFl(this, 2);
         this->m_3a8 = arg1;
@@ -323,7 +326,7 @@ void TObjPlayer__sub_80042ED0(P_80042ED0 *o, s32 idx, s32 arg2) {
 #define __nw__7TObjectFUl ((void* (*)(int))__nw__7TObjectFUl)
 #define rotate_matrix_y ((s32 (*)(s32,s32))rotate_matrix_y)
 #define push_nearby_players__10TObjPlayerFPv ((s32 (*)(void*))push_nearby_players__10TObjPlayerFPv)
-#define obj_testFlags30 ((s32 (*)(void*,int))obj_testFlags30)
+#define obj_testFlags30__13TUnk_804AF8A0FUl ((s32 (*)(void*,int))obj_testFlags30__13TUnk_804AF8A0FUl)
 #define update_if_active__15TObjEneMe1GiGueFl ((s32 (*)(void*,int))update_if_active__15TObjEneMe1GiGueFl)
 #define update_pulse_scale__15TBoss3VoloptP01FPv ((s32 (*)(void*))update_pulse_scale__15TBoss3VoloptP01FPv)
 #define sub_80043758__15TBoss3VoloptP01Fv ((void (*)(void*))sub_80043758__15TBoss3VoloptP01Fv)
@@ -527,7 +530,7 @@ u8 *TObjEnemyCustom__ct(u8 *arg0);
 void * collect_and_count__12TBoss3VoloptFUll(s32, s32);
 void restore_scene_lighting(void);
 void select_actor_lighting(s32 obj);
-void set_animation__10TObjPlayerFPvs(void *, s16);
+void set_animation__10TObjMotionFs(void *, s16);
 s32 advance_animation_playback(void *);
 void free_collision_body_parts(void *);
 void init_collision_body_parts(void *, void *, s32);
@@ -676,7 +679,7 @@ void *__vt__15TBoss3VoloptP01[83] = {
 #define __vt__15TBoss3VoloptP01 ((s32 *)__vt__15TBoss3VoloptP01)
 
 void TBoss3VoloptP01__sub_80042F84(u8 *arg0) {
-    if (obj_testFlags30((void *)(arg0), 0x04000800) == 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl((void *)(arg0), 0x04000800) == 0) {
         update_if_active__15TObjEneMe1GiGueFl((void *) (arg0), 9);
     }
 }
@@ -702,7 +705,7 @@ s32 TBoss3VoloptP01__sub_80042FCC(u8 *arg0) {
 #undef __nw__7TObjectFUl
 #undef rotate_matrix_y
 #undef push_nearby_players__10TObjPlayerFPv
-#undef obj_testFlags30
+#undef obj_testFlags30__13TUnk_804AF8A0FUl
 #undef update_if_active__15TObjEneMe1GiGueFl
 #undef update_pulse_scale__15TBoss3VoloptP01FPv
 #undef sub_80043758__15TBoss3VoloptP01Fv
@@ -739,7 +742,7 @@ s32 update_pulse_scale__15TBoss3VoloptP01FPv(S_8004301C *o) {
 #define __nw__7TObjectFUl ((void* (*)(int))__nw__7TObjectFUl)
 #define rotate_matrix_y ((s32 (*)(s32,s32))rotate_matrix_y)
 #define push_nearby_players__10TObjPlayerFPv ((s32 (*)(void*))push_nearby_players__10TObjPlayerFPv)
-#define obj_testFlags30 ((s32 (*)(void*,int))obj_testFlags30)
+#define obj_testFlags30__13TUnk_804AF8A0FUl ((s32 (*)(void*,int))obj_testFlags30__13TUnk_804AF8A0FUl)
 #define update_if_active__15TObjEneMe1GiGueFl ((s32 (*)(void*,int))update_if_active__15TObjEneMe1GiGueFl)
 #define update_pulse_scale__15TBoss3VoloptP01FPv ((s32 (*)(void*))update_pulse_scale__15TBoss3VoloptP01FPv)
 #define sub_80043758__15TBoss3VoloptP01Fv ((void (*)(void*))sub_80043758__15TBoss3VoloptP01Fv)
@@ -996,7 +999,7 @@ void TBoss3VoloptP01::run_state_machine() {
 #undef __nw__7TObjectFUl
 #undef rotate_matrix_y
 #undef push_nearby_players__10TObjPlayerFPv
-#undef obj_testFlags30
+#undef obj_testFlags30__13TUnk_804AF8A0FUl
 #undef update_if_active__15TObjEneMe1GiGueFl
 #undef update_pulse_scale__15TBoss3VoloptP01FPv
 #undef sub_80043758__15TBoss3VoloptP01Fv
@@ -1034,7 +1037,7 @@ void TBoss3VoloptP01::sub_80043758() {
 #define __nw__7TObjectFUl ((void* (*)(int))__nw__7TObjectFUl)
 #define rotate_matrix_y ((s32 (*)(s32,s32))rotate_matrix_y)
 #define push_nearby_players__10TObjPlayerFPv ((s32 (*)(void*))push_nearby_players__10TObjPlayerFPv)
-#define obj_testFlags30 ((s32 (*)(void*,int))obj_testFlags30)
+#define obj_testFlags30__13TUnk_804AF8A0FUl ((s32 (*)(void*,int))obj_testFlags30__13TUnk_804AF8A0FUl)
 #define update_if_active__15TObjEneMe1GiGueFl ((s32 (*)(void*,int))update_if_active__15TObjEneMe1GiGueFl)
 #define update_pulse_scale__15TBoss3VoloptP01FPv ((s32 (*)(void*))update_pulse_scale__15TBoss3VoloptP01FPv)
 #define sub_80043758__15TBoss3VoloptP01Fv ((void (*)(void*))sub_80043758__15TBoss3VoloptP01Fv)
@@ -1204,7 +1207,7 @@ void run_task__15TBoss3VoloptP01Fv(TBoss3VoloptP01 *arg0) {
     } else if ((((TBoss3VoloptP01 *)(arg0))->test_flag30_512() != 0) && !(arg0->actorFlags & 0x04000000)) {
         ((TBoss3VoloptP01 *)(arg0))->vfunc_62();
     }
-    if (obj_testFlags30((void *) (arg0), 0x4000) != 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl((void *) (arg0), 0x4000) != 0) {
         if (((TObjPlayer *)arg0)->add_status_effect_timer(4, -1) <= 0) {
             reset_status_effect_row(((u8 *)arg0 + 0x284));
             ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x4000);
@@ -1279,18 +1282,18 @@ void TBoss3VoloptP01::init_params() {
     void *p;
     F(this, s32, 0xDC) = F(TBoss3VoloptP01__resource_bundle, s32, 0x430);
     F(this, s32, 0xD8) = (s32) volopt_p01_action_table;
-    ((TObjPlayer *)this)->set_field_d8(F(this, s32, 0xD8));
+    ((TObjMotion *)this)->set_field_d8(F(this, s32, 0xD8));
     init_collision_body_parts(this, (void *) lbl_804841EC, 1);
     F(this, s32, 0x368) = 0;
     F(this, s32, 0x350) = (s32) lbl_804841D0;
     recalc_combat_stats((void *)volopt_p01_boss_stat_handle_a, (void *)volopt_p01_shared_handler_b, (void *)volopt_p01_object_handle, (f32)((1.0f)), (f32)((1.0f)));
     F(this, s16, 0xB8) = 0;
-    set_animation__10TObjPlayerFPvs(this, F(this, s16, 0xB8));
+    set_animation__10TObjMotionFs(this, F(this, s16, 0xB8));
     this->set_field_b8(F(this, s16, 0xB8));
     F(this, s16, 0x32C) = F(this, s16, 0x2B8);
     F(this, s16, 0x32E) = F(this, s16, 0x2BA);
     F(this, s16, 0x33E) = F(this, s16, 0x32C);
-    ((TObjEneLappy *)this)->set_param(0x2E);
+    ((TObjEnemy *)this)->set_param(0x2E);
     this->update_prev_position();
     ((TBoss3Volopt *)this)->reset_photon_effect();
     load_volopt_param_entry(0x11);
@@ -1378,7 +1381,7 @@ void TBoss3VoloptP01::init_cursor_record() {
 #undef __nw__7TObjectFUl
 #undef rotate_matrix_y
 #undef push_nearby_players__10TObjPlayerFPv
-#undef obj_testFlags30
+#undef obj_testFlags30__13TUnk_804AF8A0FUl
 #undef update_if_active__15TObjEneMe1GiGueFl
 #undef update_pulse_scale__15TBoss3VoloptP01FPv
 #undef sub_80043758__15TBoss3VoloptP01Fv

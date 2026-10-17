@@ -65,7 +65,7 @@ u8 TAdTrialAgreementGC__sub_80335958(u8 *arg0) {
     return (u8) (*(s32 *)((s8 *)arg0 + 0x24) == 2);
 }
 
-s32 TAdTrialAgreementGC__sub_8033596C(void* p) { return ((TUnk_804EE458 *)p)->m_20; }
+s32 TUnk_804EE458::sub_8033596C() { return ((TUnk_804EE458 *)this)->m_20; }
 
 typedef char RecoveredGlobal_80335A58_lbl_8050E208_size[sizeof(RecoveredGlobal_80335A58_lbl_8050E208) == 0x1B0 ? 1 : -1];
 typedef char RecoveredGlobal_80335A58_lbl_8050E3B8_size[sizeof(RecoveredGlobal_80335A58_lbl_8050E3B8) == 0x1B0 ? 1 : -1];
@@ -120,7 +120,7 @@ void TAdTrialAgreementGC::render_screen() {
         copy_vec4__13TRaderMapCoreFPvPv((&saved_model_draw_color.value), (&model_material_color.value));
         if ((s32) this->m_24 == 0) {
             model_render_flags |= 0x10;
-            set_chunk_material_color((f32 *)(arg0 + 0x28));
+            set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)(arg0 + 0x28));
             bind_title_texture_list();
             TLobby::draw_with_camera((int) (TLobby::get_record(0xA)), 0xA, 0x22, lbl_805DF8B0);
         }
@@ -133,7 +133,7 @@ void TAdTrialAgreementGC::render_screen() {
             } while (var_r31 != 0xF);
             bind_title_texture_list();
             TObjPlayer::init_xyz_limits();
-            temp_r31 = TAdTrialAgreementGC__sub_8033596C(arg0);
+            temp_r31 = sub_8033596C__13TUnk_804EE458Fv(arg0);
             if ((s32) this->m_24 == 1) {
                 draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *)(temp_r31 + 0xF), 0xF);
                 draw_record_with_camera__19TAdTrialAgreementGCFlll(arg0, (void *)(temp_r31 + 0x13), 0x13);

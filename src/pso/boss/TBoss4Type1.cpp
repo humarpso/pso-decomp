@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/boss/TBoss4Type1.h"
 #include "pso/misc/TLobby.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
@@ -309,7 +311,7 @@ void TBoss4Type2__sub_800531BC(void* p);
 void fn_80053440(Obj_80053440 *arg0);
 void TBoss4Type2__sub_80053504(TBoss4Type2 *arg0);
 void TBoss4Type2__sub_800535A8(Boss_800535A8 *arg0);
-void TRaderMapCore__sub_80053670(u8 *arg0);
+void sub_80053670__11TBoss4Type1Fv(u8 *arg0);
 void pick_target_position__13TRaderMapCoreFPvPv(O_80053914 *self, Vec_80053914 *out);
 f32 calc_wave_offset__11TBoss4Type2Ff(f32 farg0);
 void set_pos_from_scaled_offset__11TBoss4Type2FPvPvPv(S_80054224 *o, void *src, V_80054224 *in);
@@ -331,7 +333,7 @@ s32 clear_render_callback__8TObjFishFv(s32);
 s32 TObjControl__ct(s32, s32);
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 s32 angle_diff_s16(s32, s32);
-void set_indexed_flags(void *arg0, s32 index, s32 flags);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 void free_collision_body_parts(void *);
 s32 project_actor_to_ground(void *, void *, int);
 s32 submit_cursor_candidate(void *, s32);
@@ -1151,7 +1153,7 @@ void TBoss4Type2__sub_800535A8(Boss_800535A8 *arg0) {
     }
 }
 
-void TRaderMapCore__sub_80053670(u8 *arg0) {
+void TBoss4Type1::sub_80053670() {
     typedef char sp8_offset[(offsetof(Stack_80053670, sp8) == 0x0) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80053670, sp10) == 0x8) ? 1 : -1];
     Stack_80053670 stack;
@@ -1166,6 +1168,7 @@ void TRaderMapCore__sub_80053670(u8 *arg0) {
     s32 temp_r30;
     s32 var_r29;
     s32 var_r28;
+    u8 *arg0 = (u8 *)this;
 
     add_radar_scaled_marker(arg0 + 0x38, -0x5DB4, 1, 1, lbl_805D8B44);
     add_radar_scaled_marker(arg0 + 0x438, -0x5DB4, 1, 1, lbl_805D8B44);
@@ -1415,7 +1418,7 @@ void TBoss4Type1::push_players_out_of_colliders() {
             if (((f32 (*)(void *, void *))xyz_distance)(get_position_ptr__10TObjPlayerFv(pl), &pos) > lbl_805D8B20) {
                 ((TBoss4DarkFalz *)pl)->set_position_from(&pos);
                 ((TBoss4DarkFalz *)pl)->save_position();
-                set_indexed_flags(pl, 0, 0x900000);
+                set_indexed_flags__13TUnk_804AF8A0Fll(pl, 0, 0x900000);
                 *(u32 *)(pl + 0x30) &= ~0x20;
             }
         }
@@ -1577,7 +1580,7 @@ void TBoss4Type2__sub_80054738(Obj_80054738 *self) {
     ((TBoss4Type1 *)self)->sub_80053D4C();
     ((TObjPlayer *)self)->update_collisions();
     submit_cursor_candidate(self, -1);
-    ((s32 (*)(void *))TRaderMapCore__sub_80053670)(self);
+    ((s32 (*)(void *))sub_80053670__11TBoss4Type1Fv)(self);
     ((s32 (*)(void *))fn_80053440)(self);
     {
         f32 x = self->x3dc;
@@ -1751,7 +1754,7 @@ Self_80054A1C *TBoss4Type1__ct(Self_80054A1C *self, s32 parent, s32 *arg2) {
     bind_enemy_combat_stats((u8 *)self, (u8 *)(TLobby::register_boss(0x36)), (u8 *)(TLobby::dispatch_shared_handler_b(0x36)), (u8 *)(TLobby::register_object(0x36)));
     self->f33E = self->f32C;
     ((TBoss3Volopt *)self)->reset_photon_effect();
-    ((TObjEneLappy *)self)->set_param(0x2F);
+    ((TObjEnemy *)self)->set_param(0x2F);
     self->f3EC = lbl_805D8B84;
     for (i = 0; i < 3; i++) {
         self->a42C[i] = TObjFish__sub_800E3124((u8 *)lbl_804860F0, (s32)&self->a438[i]);

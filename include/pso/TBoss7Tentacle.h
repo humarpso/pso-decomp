@@ -7,6 +7,8 @@ class TBoss7Tentacle : public TObject {
 public:
     TBoss7Tentacle(TObject *arg1, s32 arg2, s32 arg3);
     virtual ~TBoss7Tentacle();
+    void sub_802F09FC();
+    void sub_802F09EC();
     virtual void render();
     virtual void run_task();
 public:

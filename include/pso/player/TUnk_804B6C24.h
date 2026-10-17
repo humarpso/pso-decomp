@@ -6,6 +6,7 @@
 class TUnk_804B6C24 : public TUnk_804806E8 {
 public:
     virtual ~TUnk_804B6C24();
+    u8 check_value_equals(s32);
     virtual void vfunc_79();
     virtual void vfunc_80();
     virtual void vfunc_81();

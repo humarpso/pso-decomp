@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemEquipBase.h"
 #include "pso/unk/TUnk_804A2C90.h"
 #include "pso/item/TItem.h"
 #include "pso/player/TUnk_804A2D88.h"
@@ -6,13 +7,13 @@
 
 extern "C" {
 
-u8 get_slot_count__14TItemProShieldFv();
+u8 get_slot_count__5TItemFv();
 void TItemWeapon__ct(void *);
 
 void TUnk_804A2C90::update_weapon() {
     s32 arg0 = (s32)this;
-    if (get_slot_count__14TItemProShieldFv() == 6) {
-        ((TItem *)arg0)->refresh_owner_stats();
+    if (get_slot_count__5TItemFv() == 6) {
+        ((TItemEquipBase *)arg0)->refresh_owner_stats();
     }
 }
 

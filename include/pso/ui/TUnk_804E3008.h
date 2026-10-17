@@ -6,6 +6,9 @@
 class TUnk_804E3008 : public TObjMotion {
 public:
     virtual ~TUnk_804E3008();
+    void sub_802E0CB0();
+    void sub_802E0784();
+    void set_cursor_index(s32);
     virtual void run_task();
     void *init_player(void *, void *, void *, void *);
     void sub_802E0F58(s32);

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/boss/TUnk_80486924.h"
 #include "pso/misc/TLobby.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
@@ -2205,7 +2207,7 @@ Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 parent, s32 *arg2) {
     bind_enemy_combat_stats((u8 *)self, (u8 *)((int)register_boss__6TLobbyFl(0x38)), (u8 *)(TLobby::dispatch_shared_handler_b(0x38)), (u8 *)(TLobby::register_object(0x38)));
     self->f33E = self->f3E4 = self->f32C;
     ((TBoss3Volopt *)self)->reset_photon_effect();
-    ((TObjEneLappy *)self)->set_param(0x2F);
+    ((TObjEnemy *)self)->set_param(0x2F);
     self->f3F0 = 0;
     self->f3FC = 0;
     self->f3F8 = lbl_805D8CAC;

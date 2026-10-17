@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_80488A28.h"
 #include "pso/misc/TCameraCtrl_8006782C.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_804887F8.h"
@@ -42,7 +43,7 @@ void *__nw__7TObjectFUl(int);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
 s16 obj_getField1c(u32);
 
-void TCameraCtrl::set_target(u32 arg1) {
+void TUnk_80488A28::set_target(u32 arg1) {
     *(u32 *)((s8 *)this + 0x1C) = arg1;
     if (arg1 != 0U) {
         *(s16 *)&this->m_20 = obj_getField1c(arg1);

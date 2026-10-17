@@ -269,8 +269,8 @@ struct V_802D577C { f32 x, y, z; };
 extern "C" {
 s32 send_6x61_activate_mag_effect__14TItemEquipBaseFl(void *, s16);
 void spawn_item__10TObjPlayerFi(s32 arg0);
-s32 get_flag_40__8TItemMagFv(void *);
-void draw_weapon_model(void);
+s32 get_flag_40__14TItemEquipBaseFv(void *);
+void draw_weapon_model__11TItemWeaponFv(void);
 void rotate_matrix_x(s32, s32);
 void push_matrix(void);
 s32 pop_matrix(void);
@@ -331,8 +331,8 @@ void TUnk_804E21F8::emit_marker_effects() {
 void TUnk_804E21F8::reserved_53() {
     E_802D56F0 *p;
     s32 n;
-    draw_weapon_model();
-    if (get_flag_40__8TItemMagFv(this) == 0) {
+    draw_weapon_model__11TItemWeaponFv();
+    if (get_flag_40__14TItemEquipBaseFv(this) == 0) {
         n = *(s16 *)(((u8 *)this) + 0x24A);
         p = ((S_802D56F0 *)((u8 *)this))->e;
         while (n != 0) {
@@ -699,7 +699,7 @@ extern "C" {
 s32 fire_shot_at_target__11TItemWeaponFv(void *, void *, int, int);
 s16 get_validated_attack_stage(u8 *arg0);
 void fire_spread_shot__10TObjPlayerFPv(u8 *arg0);
-s32 draw_weapon_model(TItemWeapon *);
+s32 draw_weapon_model__11TItemWeaponFv(TItemWeapon *);
 void draw_weapon_if_not_hidden__10TObjPlayerFPv(u8 *arg0);
 s32 rotate_matrix_x(int, int);
 s32 push_matrix();
@@ -790,7 +790,7 @@ void TObjPlayer__sub_802D5DE0(u8 *arg0) {
 
 void draw_weapon_if_not_hidden__10TObjPlayerFPv(u8 *arg0) {
     if (((TItemWeapon *)arg0)->test_flags_1b8(0x01000000U) == 0U) {
-        draw_weapon_model((TItemWeapon *)arg0);
+        draw_weapon_model__11TItemWeaponFv((TItemWeapon *)arg0);
     }
 }
 

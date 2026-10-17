@@ -21,7 +21,7 @@ struct Eff_8032E34C {
 };
 
 extern "C" {
-void anchor_card_effect(u8 *arg0);
+void anchor_card_effect__13TUnk_804EDD44Fv(u8 *arg0);
 s32 normalize_vector(int, int);
 extern s32 lbl_805D4218;
 extern const f32 lbl_805DF7E0;
@@ -71,7 +71,7 @@ void TUnk_804EDD44::sub_8032E294() {
     *((f32 *) (((s8 *) var_r31) + 0x4C)) = var_f0;
   }
   var_r3 = (u8 *) var_r31;
-  anchor_card_effect(var_r3);
+  anchor_card_effect__13TUnk_804EDD44Fv(var_r3);
 }
 }
 TUnk_804EDD44::TUnk_804EDD44(TObject *parent, f32 *arg2, f32 *arg3, s32 arg4, s32 arg5) : TObject(parent) {

@@ -1,4 +1,5 @@
 #include "pso/system/ChunkMaterialState.h"
+#include "pso/player/TUnk_80494AE0.h"
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -25,11 +26,11 @@ inline f32 clampMaterialChannel(f32 value, f32 lower, f32 upper) {
     return upper;
 }
 
-void set_chunk_material_color(f32 *arg) {
-    model_material_color.alpha = clampMaterialChannel(arg[0], lbl_805E0FC0, lbl_805E0FBC);
-    model_material_color.red = clampMaterialChannel(arg[1], lbl_805E0FC0, lbl_805E0FBC);
-    model_material_color.green = clampMaterialChannel(arg[2], lbl_805E0FC0, lbl_805E0FBC);
-    model_material_color.blue = clampMaterialChannel(arg[3], lbl_805E0FC0, lbl_805E0FBC);
+void TUnk_80494AE0::set_chunk_material_color() {
+    model_material_color.alpha = clampMaterialChannel(((f32 *)this)[0], lbl_805E0FC0, lbl_805E0FBC);
+    model_material_color.red = clampMaterialChannel(((f32 *)this)[1], lbl_805E0FC0, lbl_805E0FBC);
+    model_material_color.green = clampMaterialChannel(((f32 *)this)[2], lbl_805E0FC0, lbl_805E0FBC);
+    model_material_color.blue = clampMaterialChannel(((f32 *)this)[3], lbl_805E0FC0, lbl_805E0FBC);
 }
 #pragma pop
 }

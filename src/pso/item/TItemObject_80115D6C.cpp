@@ -113,7 +113,7 @@ void TItemObject::vfunc_14() {
 s32 TItemObject__sub_80115DE8(void *item) {
     if (item != NULL) {
         u8 kind = get_field_ed__5TItemFv(item);
-        u8 slots = ((TItemProShield *)item)->get_slot_count();
+        u8 slots = ((TItem *)item)->get_slot_count();
         switch (kind) {
         case 0:
             switch (slots) {
@@ -359,7 +359,7 @@ void *TItemObject__ct(void *arg0, void *arg1, void *item) {
     if (*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF8)) + 0x10) & 1) {
         ((TObjPlayer *)arg0)->add_item_flags(0x10);
     } else {
-        ((TObjPlayer *)arg0)->clear_item_flags(0x10);
+        ((TItem *)arg0)->clear_item_flags(0x10);
     }
     temp_r3 = *(s16 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF8)) + 4);
     if (temp_r3 != 0) {

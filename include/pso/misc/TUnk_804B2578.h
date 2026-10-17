@@ -6,6 +6,8 @@
 class TUnk_804B2578 : public TUnk_804806E8 {
 public:
     virtual ~TUnk_804B2578();
+    bool sub_801688C0();
+    void sub_80168280(u32);
     void init_geometry();
     void sub_80168488();
     void sub_80168398();

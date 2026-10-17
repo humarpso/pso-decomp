@@ -24,7 +24,7 @@ extern const char lbl_804728D0[];
 const char lbl_804728D0[] = "TAdChrSelPlayerGC";
 
 void *get_index__14TAdPlyStatusGCFv();
-void fn_802E0CB0(Obj_802E0CB0 *o);
+void sub_802E0CB0__13TUnk_804E3008Fv(Obj_802E0CB0 *o);
 }
 
 struct Stack_802E0468
@@ -38,7 +38,7 @@ struct Stack_802E0468
 extern "C" {
 void play_phase_transition_sound__10TObjPlayerFl(s32);
 void set_chunk_material_override_pair(s32, s32);
-void set_chunk_material_color(f32 *arg);
+void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -155,54 +155,54 @@ __declspec(section ".sdata2") void *const lbl_805DE8D8[1] = {
 #pragma fp_contract on
 #pragma pool_data off
 
-void fn_802E0CB0(Obj_802E0CB0 *o) {
-    o->f11C = 0;
-    switch (o->mode) {
+void TUnk_804E3008::sub_802E0CB0() {
+    ((Obj_802E0CB0 *)this)->f11C = 0;
+    switch (((Obj_802E0CB0 *)this)->mode) {
     case 0:
-        o->x = lbl_805DE8B0;
-        o->y = lbl_805DE8B4;
-        o->z = lbl_805DE8B8;
-        o->rx = 0;
-        o->ry = 0xF3D5;
-        o->rz = 0;
-        o->f11C = 1;
+        ((Obj_802E0CB0 *)this)->x = lbl_805DE8B0;
+        ((Obj_802E0CB0 *)this)->y = lbl_805DE8B4;
+        ((Obj_802E0CB0 *)this)->z = lbl_805DE8B8;
+        ((Obj_802E0CB0 *)this)->rx = 0;
+        ((Obj_802E0CB0 *)this)->ry = 0xF3D5;
+        ((Obj_802E0CB0 *)this)->rz = 0;
+        ((Obj_802E0CB0 *)this)->f11C = 1;
         break;
     case 1:
     case 2:
-        o->x = lbl_805DE8BC;
-        o->y = lbl_805DE8B4;
-        o->z = lbl_805DE8B8;
-        o->rx = 0;
-        o->ry = 0xF3D5;
-        o->rz = 0;
-        o->f11C = 1;
+        ((Obj_802E0CB0 *)this)->x = lbl_805DE8BC;
+        ((Obj_802E0CB0 *)this)->y = lbl_805DE8B4;
+        ((Obj_802E0CB0 *)this)->z = lbl_805DE8B8;
+        ((Obj_802E0CB0 *)this)->rx = 0;
+        ((Obj_802E0CB0 *)this)->ry = 0xF3D5;
+        ((Obj_802E0CB0 *)this)->rz = 0;
+        ((Obj_802E0CB0 *)this)->f11C = 1;
         break;
     case 3:
-        o->x = lbl_805DE8C4 * o->idx + lbl_805DE8C0;
-        o->y = lbl_805DE8C8;
-        o->z = lbl_805DE8CC;
-        o->rx = 0;
-        o->ry = lbl_805DE8D0 * (lbl_805DE8D4 - lbl_805DE8D8 * o->idx);
-        o->rz = 0;
+        ((Obj_802E0CB0 *)this)->x = lbl_805DE8C4 * ((Obj_802E0CB0 *)this)->idx + lbl_805DE8C0;
+        ((Obj_802E0CB0 *)this)->y = lbl_805DE8C8;
+        ((Obj_802E0CB0 *)this)->z = lbl_805DE8CC;
+        ((Obj_802E0CB0 *)this)->rx = 0;
+        ((Obj_802E0CB0 *)this)->ry = lbl_805DE8D0 * (lbl_805DE8D4 - lbl_805DE8D8 * ((Obj_802E0CB0 *)this)->idx);
+        ((Obj_802E0CB0 *)this)->rz = 0;
         break;
     case 4:
-        o->x = 19.0f * o->idx + -19.0f;
-        o->y = lbl_805DE8C8;
-        o->z = lbl_805DE8CC;
-        o->rx = 0;
-        o->ry = lbl_805DE8D0 * (9.8f - 9.8f * o->idx);
-        o->rz = 0;
+        ((Obj_802E0CB0 *)this)->x = 19.0f * ((Obj_802E0CB0 *)this)->idx + -19.0f;
+        ((Obj_802E0CB0 *)this)->y = lbl_805DE8C8;
+        ((Obj_802E0CB0 *)this)->z = lbl_805DE8CC;
+        ((Obj_802E0CB0 *)this)->rx = 0;
+        ((Obj_802E0CB0 *)this)->ry = lbl_805DE8D0 * (9.8f - 9.8f * ((Obj_802E0CB0 *)this)->idx);
+        ((Obj_802E0CB0 *)this)->rz = 0;
         break;
     case 5: {
         f32 xs[4] = { -21.5f, -8.0f, 7.0f, 23.5f };
         f32 zs[4] = { -110.0f, -118.56f, -110.0f, -118.56f };
         f32 rs[4] = { 11.6f, 3.86f, -3.64f, -11.21f };
-        o->x = xs[o->idx];
-        o->y = lbl_805DE8C8;
-        o->z = zs[o->idx];
-        o->rx = 0;
-        o->ry = lbl_805DE8D0 * rs[o->idx];
-        o->rz = 0;
+        ((Obj_802E0CB0 *)this)->x = xs[((Obj_802E0CB0 *)this)->idx];
+        ((Obj_802E0CB0 *)this)->y = lbl_805DE8C8;
+        ((Obj_802E0CB0 *)this)->z = zs[((Obj_802E0CB0 *)this)->idx];
+        ((Obj_802E0CB0 *)this)->rx = 0;
+        ((Obj_802E0CB0 *)this)->ry = lbl_805DE8D0 * rs[((Obj_802E0CB0 *)this)->idx];
+        ((Obj_802E0CB0 *)this)->rz = 0;
         break;
     }
     }
@@ -211,7 +211,7 @@ void fn_802E0CB0(Obj_802E0CB0 *o) {
 
 void TAdMultiPlyChrSelectGC::set_index_and_close_status(s32 arg1) {
     *(s32 *)((s8 *)this + 0x104) = arg1;
-    ((s32 (*)(void *, s32))fn_802E0CB0)(this, *(s32 *)((s8 *)this + 0x104));
+    ((s32 (*)(void *, s32))sub_802E0CB0__13TUnk_804E3008Fv)(this, *(s32 *)((s8 *)this + 0x104));
     u32 temp_r3 = ((u32)get_index__14TAdPlyStatusGCFv());
     if (temp_r3 != 0U) {
         ((TAdPlyStatusGC *)temp_r3)->close_window(arg1);
@@ -325,7 +325,7 @@ void TUnk_804E3008::run_task() {
             F(0x170, void *) = p;
             break;
         }
-        fn_802E0784(arg0);
+        sub_802E0784__13TUnk_804E3008Fv(arg0);
         F(0xFC, s32) = 2;
         break;
     case 2:
@@ -375,25 +375,25 @@ void TUnk_804E3008::run_task() {
     }
 }
 
-void fn_802E0784(u8 *arg0) {
-    ((TObjPlayer *)arg0)->set_field_d8((s32)&lbl_804E2F78.value);
-    ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)TAdMultiPlyChrSelectGC__resource_bundle + 0x430)));
-    set_cursor_index__17TAdMultiConfirmGCFPvi(arg0, 0);
-    set_animation__10TObjPlayerFPvs((arg0), (((TUnk_804E3008 *)arg0)->m_b8));
+void TUnk_804E3008::sub_802E0784() {
+    ((TObjMotion *)((u8 *)this))->set_field_d8((s32)&lbl_804E2F78.value);
+    ((TObjMotion *)((u8 *)this))->set_field_dc((int) (*(s32 *)((s8 *)TAdMultiPlyChrSelectGC__resource_bundle + 0x430)));
+    set_cursor_index__13TUnk_804E3008Fl(((u8 *)this), 0);
+    set_animation__10TObjMotionFs((((u8 *)this)), (((TUnk_804E3008 *)((u8 *)this))->m_b8));
 }
 
-void set_cursor_index__17TAdMultiConfirmGCFPvi(void *arg0, s32 arg1) {
+void TUnk_804E3008::set_cursor_index(s32 arg1) {
     s16 temp_r4;
 
-    ((TUnk_804E3008 *)arg0)->m_b8 = (s16) (arg1 * 3);
-    temp_r4 = ((TUnk_804E3008 *)arg0)->m_b8;
+    ((TUnk_804E3008 *)this)->m_b8 = (s16) (arg1 * 3);
+    temp_r4 = ((TUnk_804E3008 *)this)->m_b8;
     if ((temp_r4 < 0) || (temp_r4 > 8)) {
-        ((TUnk_804E3008 *)arg0)->m_b8 = 0;
+        ((TUnk_804E3008 *)this)->m_b8 = 0;
     }
-    if (((TUnk_804E3008 *)arg0)->m_154 & 2) {
-        ((TUnk_804E3008 *)arg0)->m_b8 = (s16) (((TUnk_804E3008 *)arg0)->m_b8 + 1);
-        if ((s32) ((TUnk_804E3008 *)arg0)->m_151 == 6) {
-            ((TUnk_804E3008 *)arg0)->m_b8 = (s16) (((TUnk_804E3008 *)arg0)->m_b8 + 1);
+    if (((TUnk_804E3008 *)this)->m_154 & 2) {
+        ((TUnk_804E3008 *)this)->m_b8 = (s16) (((TUnk_804E3008 *)this)->m_b8 + 1);
+        if ((s32) ((TUnk_804E3008 *)this)->m_151 == 6) {
+            ((TUnk_804E3008 *)this)->m_b8 = (s16) (((TUnk_804E3008 *)this)->m_b8 + 1);
         }
     }
 }
@@ -461,7 +461,7 @@ void TObjPlayer__sub_802E0468(long long arg1, u8 *arg2, f32 farg0) {
   stack.spC = lbl_805DE8AC * ((f32) (*((s16 *) (((s8 *) arg2) + 0x42))));
   stack.sp10 = lbl_805DE8AC * ((f32) (*((s16 *) (((s8 *) arg2) + 0x44))));
   stack.sp14 = lbl_805DE8AC * ((f32) (*((s16 *) (((s8 *) arg2) + 0x46))));
-  set_chunk_material_color(&stack.sp8);
+  set_chunk_material_color__13TUnk_80494AE0Fv(&stack.sp8);
   play_phase_transition_sound__10TObjPlayerFl(arg1);
   chunk_polygon_flags_and_mask = lbl_805D5664;
   chunk_polygon_flags_or_mask = lbl_805D5668;
@@ -474,11 +474,11 @@ bool fn_802E0454(u8 *arg0) {
 
 void TAdMultiConfirmGC__sub_802E0448(void* p) { *(s32*)((char*)p + 0x11c) = 1; }
 
-int TAdMultiConfirmGC::reset_cursor(void* p) { return ((int (*)(void *, int))set_cursor_index__17TAdMultiConfirmGCFPvi)(p, 0); }
+int TAdMultiConfirmGC::reset_cursor(void* p) { return ((int (*)(void *, int))set_cursor_index__13TUnk_804E3008Fl)(p, 0); }
 
-int TAdMultiConfirmGC::set_cursor_index_1(void* p) { return ((int (*)(void *, int))set_cursor_index__17TAdMultiConfirmGCFPvi)(p, 1); }
+int TAdMultiConfirmGC::set_cursor_index_1(void* p) { return ((int (*)(void *, int))set_cursor_index__13TUnk_804E3008Fl)(p, 1); }
 
-int TAdMultiConfirmGC::set_cursor_index_2(void* p) { return ((int (*)(void *, int))set_cursor_index__17TAdMultiConfirmGCFPvi)(p, 2); }
+int TAdMultiConfirmGC::set_cursor_index_2(void* p) { return ((int (*)(void *, int))set_cursor_index__13TUnk_804E3008Fl)(p, 2); }
 
 void TAdMultiConfirmGC__sub_802E03D0(void* p) { *(s32*)((char*)p + 0x118) = 0; }
 

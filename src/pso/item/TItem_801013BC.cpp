@@ -21,7 +21,7 @@ void draw_model_node_tree(u8 *arg0);
 u16 obj_getField1c(void *);
 s32 set_item_count__13TUnk_804B9870Fs(s32, s32);
 s32 TLobby__sub_80103B04();
-void set_indexed_flags(void *arg0, s32 index, s32 flags);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 u32 test_item_flags__10TObjPlayerFUl(void *, int);
 void TItem__sub_801013E8(TItem *arg0);
 void claim_ownership__5TItemFii(s32 arg0, s32 arg1);
@@ -84,7 +84,7 @@ void TItem::unregister_from_world() {
     obj_getField1c((void *)((void *) arg0));
     TLobby__sub_80103B04();
     set_item_count__13TUnk_804B9870Fs((s32)((void *) arg0), 0xFFFF);
-    set_indexed_flags((void *)arg0, 0, 1);
+    set_indexed_flags__13TUnk_804AF8A0Fll((void *)arg0, 0, 1);
   }
 }
 
@@ -93,7 +93,7 @@ void claim_ownership__5TItemFii(s32 arg0, s32 arg1) {
         set_item_count__13TUnk_804B9870Fs(arg0, pop_free_id__6TLobbyFv());
         ((TObjPlayer *)arg0)->reset_photon_effect();
         if (arg1 != 0) {
-            ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
+            ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 1);
         }
     }
 }

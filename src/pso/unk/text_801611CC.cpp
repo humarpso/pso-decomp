@@ -38,7 +38,7 @@ struct Door_801615C4 {
 };
 
 extern "C" {
-void set_indexed_flags(void *arg0, s32 index, s32 flags);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 s32 is_any_player_within_radius_xz(f32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805DB494;
@@ -146,7 +146,7 @@ void TODoorCave01::vfunc_17() {
     u8 *arg0 = (u8 *)this;
     if (((u8) ((u32) __cntlzw(this->m_d0 & 1) >> 5) == 1) || (is_any_player_within_radius_xz(lbl_805DB490) != 1)) {
         this->m_ac = 3;
-        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
+        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 8);
         play_sound_effect(0x42807, (u8 *)&this->position, 0, 0);
     }
 }
@@ -154,7 +154,7 @@ void TODoorCave01::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
     if ((this->m_d0 & 1) && (is_any_player_within_radius_xz(lbl_805DB494) == 1)) {
         this->m_ac = 1;
-        set_indexed_flags((arg0), 0, 8);
+        set_indexed_flags__13TUnk_804AF8A0Fll((arg0), 0, 8);
         play_sound_effect(0x42807, (u8 *)&this->position, 0, 0);
     }
     if (this->m_d0 & 0x100000) {

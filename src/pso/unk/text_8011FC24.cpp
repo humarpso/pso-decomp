@@ -32,7 +32,7 @@ void TItemWeapon::update_trails() {
         return;
     }
     if (test_flags_1b8__11TItemWeaponFUl(arg0, 1U) == 0U) {
-        draw_weapon_model((TItemWeapon *)arg0);
+        draw_weapon_model__11TItemWeaponFv((TItemWeapon *)arg0);
         update_trail_slot__11TItemWeaponFPvi(arg0, 0);
         update_trail_slot__11TItemWeaponFPvi(arg0, 1);
     }
@@ -55,7 +55,7 @@ void TItemWeapon::vfunc_27() {
             return;
         }
         if (test_flags_1b8__11TItemWeaponFUl(arg0, 1U) == 0U) {
-            draw_weapon_model((TItemWeapon *)arg0);
+            draw_weapon_model__11TItemWeaponFv((TItemWeapon *)arg0);
         }
     }
 }
@@ -106,7 +106,7 @@ void TItemWeapon::vfunc_16() {
         register_technique_boosts__14TItemEquipBaseFPvPv(self,self->material);
         self->update_weapon();
         if(!obj_isState7_324(self->player)) ((TItemWeapon *)self)->advance_weapon_photon_phase();
-        if(((TItemMag *)self)->get_flag_40()) {
+        if(((TItemEquipBase *)self)->get_flag_40()) {
             count=0;
             do {
                 void* trail=self->trails[count];

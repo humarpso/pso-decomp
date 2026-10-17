@@ -52,6 +52,10 @@ public:
 class TUnk_804AF8A0 : public TUnk_804B9870 {
 public:
     virtual ~TUnk_804AF8A0();
+    void*find_actor_body_contact(u8*, f32);
+    void set_indexed_flags(s32, s32);
+    void clear_player_status_flag(s32, u32);
+    u32 obj_testFlags30(u32);
     s32 access_object_saved_state(void *, s16);
     void sub_80156A68();
     void*initialize_linked_object_reference(void*);
@@ -81,6 +85,9 @@ public:
 class TObjMotion : public TUnk_804AF8A0 {
 public:
     virtual ~TObjMotion();
+    void set_animation(s16);
+    void set_field_d8(s32);
+    void set_field_dc(s32);
     void*get_anim_entry(int);
     u8 sub_80143960(s32);
     s32 get_anim_entry_value(s16);

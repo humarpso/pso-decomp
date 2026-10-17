@@ -124,13 +124,13 @@ void TObjContainerItem::vfunc_6(s16 *arg1, s32 arg2) {
         if ((s16) *arg1 == 1) {
             this->vfunc_79();
             ((TUnk_804806E8 *)arg0)->request_box_item_drop((u8 *)&this->position, 1);
-            ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
+            ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 1);
             ((TUnk_804AF8A0 *)arg0)->set_flag8();
             queue_destruction__7TObjectFv((arg0));
             this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
-        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
+        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 1);
         ((TUnk_804AF8A0 *)arg0)->set_flag8();
         queue_destruction__7TObjectFv((arg0));
         this->mode = 1;

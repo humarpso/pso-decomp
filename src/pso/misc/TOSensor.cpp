@@ -60,7 +60,7 @@ s32 get_current_floor();
 void queue_destruction__7TObjectFv(void *);
 extern s32 local_client_id;
 extern const f32 lbl_805DB980;
-s32 obj_testFlags30(void *, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
 f32 horizontal_distance_squared(void *, void *);
 void *get_player_by_client_id(s32 i);
 void *TOSensor__ct(void *arg0);
@@ -175,7 +175,7 @@ s32 TOSensor::is_confirm_pressed() {
         pl = (Player_801756C4 *)get_player_by_client_id(local_client_id);
         switch (self->mode) {
         case 1:
-            if (pl != NULL && obj_testFlags30(pl, 0x400000) != 0) {
+            if (pl != NULL && obj_testFlags30__13TUnk_804AF8A0FUl(pl, 0x400000) != 0) {
                 if (horizontal_distance_squared(pl->pos, self->pos) < self->range * self->range) {
                     self->state = 1;
                 }

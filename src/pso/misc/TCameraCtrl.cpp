@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_80488A28.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TCameraCtrl.h"
 
@@ -266,7 +267,7 @@ void reset_cameras_to_actor(void *actor, s32 arg1) {
     {
       *((void **) (((s8 *) camera_ctrl_instance) + 0x90)) = actor;
     }
-    ((TCameraCtrl *)c)->set_target((u32)actor);
+    ((TUnk_80488A28 *)c)->set_target((u32)actor);
     c->m6(actor);
     if (is_split_screen() != 0)
     {
@@ -288,7 +289,7 @@ void reset_cameras_to_actor(void *actor, s32 arg1) {
   c = ((Ctrl_8006A410 **) (&camera_controller_registry))[view];
   if (c != 0)
   {
-    ((TCameraCtrl *)c)->set_target((u32)actor);
+    ((TUnk_80488A28 *)c)->set_target((u32)actor);
     c->m6(actor);
   }
   if (camera_ctrl_instance != 0)

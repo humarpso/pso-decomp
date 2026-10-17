@@ -49,7 +49,7 @@ void TItemEffNeedleBase::render() {
         lbl_805D5660 = model_render_flags;
         model_render_flags = lbl_805D5660 | 0x20;
         copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, model_material_color);
-        set_chunk_material_color((f32 *)self->m_1c);
+        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)self->m_1c);
         TObjPlayer::notify_fish_if_valid(self->m_40);
         TParticleCtrl::begin_effect_render();
         push_matrix();

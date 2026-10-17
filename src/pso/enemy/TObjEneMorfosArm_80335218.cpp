@@ -24,7 +24,7 @@ void *TObjEneMorfosArm__sub_803326B4(void *p);
 s32 TObjEneMorfosArm__sub_803326BC(void *);
 s32 advance_animation_playback();
 u16 obj_getField1c(void *);
-s32 set_field_d8__10TObjPlayerFl(void *, void *, int);
+s32 set_field_d8__10TObjMotionFl(void *, void *, int);
 extern RecoveredGlobal_80335354_lbl_804EE3B0 morfos_arm_motion_params;
 extern s32 __vt__16TObjEneMorfosArm[];
 extern s32 TObjEneMorfosArm__name;
@@ -89,10 +89,10 @@ u8 *TObjEneMorfosArm__ct(TObjEneMorfosArm *arg0, s32 arg1, u8 *arg2) {
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjEneMorfosArm__parent_morfos_instance) + 0x42C)) + 8);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjEneMorfosArm__parent_morfos_instance) + 0x42C));
     arg0->texture_id = (s32) *(s32 *)((s8 *)temp_r5 + 0xC);
-    set_field_d8__10TObjPlayerFl((void *)arg0, &morfos_arm_motion_params.value, (int)temp_r5);
-    ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)(*(u8 * *)&TObjEneMorfosArm__parent_morfos_instance) + 0x430)));
+    set_field_d8__10TObjMotionFl((void *)arg0, &morfos_arm_motion_params.value, (int)temp_r5);
+    ((TObjMotion *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)(*(u8 * *)&TObjEneMorfosArm__parent_morfos_instance) + 0x430)));
     arg0->m_b8 = 0;
-    set_animation__10TObjPlayerFPvs((arg0), (arg0->m_b8));
+    set_animation__10TObjMotionFs((arg0), (arg0->m_b8));
     ((TObjMotion *)arg0)->set_field_b8(arg0->m_b8);
     return (u8 *)arg0;
 }

@@ -45,7 +45,7 @@ void TObjPlayer__sub_80326794(void* p);
 void dark_bridge_start_timers(void *arg0);
 s32 rotate_matrix_x(s32, s32);
 s32 add_actor_tp(u8 *arg0, s32 arg1);
-int refresh_owner_stats__5TItemFv(void*);
+int refresh_owner_stats__14TItemEquipBaseFv(void*);
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);
 void draw_weapon_at_joint(s32 arg0, s8 arg1);
 void set_weapon_trail_joints(s32 arg0, s32 arg1, s8 arg2, s8 arg3);
@@ -270,7 +270,7 @@ u8 *TObjPlayer::create_state_1536() {
     return NULL;
 }
 
-void TUnk_804ED1A0::update_weapon() { refresh_owner_stats__5TItemFv(this); }
+void TUnk_804ED1A0::update_weapon() { refresh_owner_stats__14TItemEquipBaseFv(this); }
 void TUnk_804ED1A0::reserved_53() { draw_weapon_at_joint((s32)this, (s8)((void*)48)); update_trail_slot__11TItemWeaponFPvi(this, (void*)0); update_trail_slot__11TItemWeaponFPvi(this, (void*)1); update_trail_slot__11TItemWeaponFPvi(this, (void*)2); }
 
 extern s32 lbl_804ED1A0[];

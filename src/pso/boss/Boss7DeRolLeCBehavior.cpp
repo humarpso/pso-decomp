@@ -3083,7 +3083,7 @@ void TObjFish::set_effect_target_position(void* p, void* a1, void* a2) { play_so
 
 void TObjFish__sub_802EC32C(void) {  }
 
-void TObjFish::update_projectile_spawns() {
+void TBoss7DeRolLeC::update_projectile_spawns() {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r31;
 

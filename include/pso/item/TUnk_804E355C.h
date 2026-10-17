@@ -6,6 +6,8 @@
 class TUnk_804E355C : public TObject {
 public:
     virtual ~TUnk_804E355C();
+    void check_hits();
+    s32 try_add_hit_target(void *);
     virtual void vfunc_6(s32 *);
     void *destroy_attack_collision(s16);
     u8 has_game_join_id();

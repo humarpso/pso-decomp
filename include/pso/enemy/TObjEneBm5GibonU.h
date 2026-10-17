@@ -6,6 +6,7 @@
 
 struct TObjEneBm5GibonU : public TObjEneDD_ST {
     virtual ~TObjEneBm5GibonU();
+    void sub_800D10A0();
     virtual void run_task();
     virtual void render();
     virtual void vfunc_88();
@@ -108,7 +109,7 @@ void TObjEneBm5GibonU__sub_800D0420(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800D0738(u8 *actor, u32 arg1, s32 msg);
 void TObjEneBm5GibonU__sub_800D095C(void *arg0, s32 arg1, s16 arg2);
 s32 TObjEneBm5GibonU__sub_800D0968(u8 *arg0, int _w1);
-void TObjEneBm5GibonU__sub_800D10A0(u8 *arg0);
+void sub_800D10A0__16TObjEneBm5GibonUFv(u8 *arg0);
 void run_task__16TObjEneBm5GibonUFv(u8 *arg0);
 s32 TObjEneBm5GibonU__sub_800D1D70(void *p);
 void *TObjEneBm5GibonU__sub_800D1D78(void *p);

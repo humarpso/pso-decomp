@@ -27,7 +27,7 @@ extern const f32 lbl_805DB0E0;
 s32 target_in_vertical_cone(Vec_8013BF0C *p, Vec_8013BF0C *q, s32 yaw, f32 range, f32 dist);
 extern Vec_8013C0A0 lbl_8050BEE0;
 s32 target_in_xz_cone(Vec_8013C0A0 *p, Vec_8013C0A0 *q, Vec_8013C0A0 *r, s32 yaw, f32 range, f32 dist);
-s32 obj_testFlags30(void *, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
 s32 obj_getField1c(void *);
 s32 set_cursor_id__11TMainCursorFs(s32, int);
 s32 set_size__11TMainCursorFf(f32);
@@ -166,14 +166,14 @@ s32 try_add_target_candidate__11TMainCursorFPvPvPvPv(u8 *cursor, u8 *player, u8 
             return 0;
         }
     }
-    if (obj_testFlags30(target, 0xA00) != 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(target, 0xA00) != 0) {
         return 0;
     }
     if (player == NULL || ((TObject *)player)->all_parents_unqueued_for_destruction() == 0) {
         return 0;
     }
-    if (obj_testFlags30(player, ((TMainCursor *)cursor)->get_actor_include_mask()) == 0 ||
-        obj_testFlags30(player, ((TMainCursor *)cursor)->get_actor_exclude_mask()) != 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(player, ((TMainCursor *)cursor)->get_actor_include_mask()) == 0 ||
+        obj_testFlags30__13TUnk_804AF8A0FUl(player, ((TMainCursor *)cursor)->get_actor_exclude_mask()) != 0) {
         return 0;
     }
     yaw = *(s32 *)(target + 0x60);

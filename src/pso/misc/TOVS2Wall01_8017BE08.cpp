@@ -53,7 +53,7 @@ void obj_setFlags30(void *, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 void activate_and_dispatch__10TObjPlayerFv(void *, s32, f32);
-void set_indexed_flags(void *, s32, s32);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *, s32, s32);
 void init_collision_body_parts(void *, void *, s32);
 extern u8 ovs2wall01_collision_parts[];
 extern s32 __vt__11TOVS2Wall01[];
@@ -159,7 +159,7 @@ void *TOVS2Wall01__ct(TOVS2Wall01 *arg0, void *arg1) {
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(TOVS2Wall01__bml_resource, 6);
     arg0->texture_id = TObjFish__sub_8001EDB0(TOVS2Wall01__bml_resource, 6);
     init_collision_body_parts(arg0, ovs2wall01_collision_parts + 0x108, 1);
-    set_indexed_flags(arg0, 0, 0x08000000);
+    set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 0x08000000);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     arg0->mode = 0;
     *(f32 *)((s8 *)arg0 + 0x334) = lbl_805DBAAC;

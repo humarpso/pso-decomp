@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/unk/text_80126104.h"
 #include "pso/item/TUnk_804A2960.h"
 #include "pso/item/TItemProShield.h"
@@ -179,7 +180,7 @@ void TUnk_804A2960::emit_marker_effects() {
     p = buf;
     if (((TObjPlayer *)this)->is_mode_two_and_ready() != 0) {
         fire_shot_at_target__11TItemWeaponFv(((Pl_801261BC *)this), p, ((Pl_801261BC *)this)->f188, 0);
-    } else if (((TItemProShield *)this)->get_slot_count() == 1) {
+    } else if (((TItem *)this)->get_slot_count() == 1) {
         ((Pl_801261BC *)this)->f1fc = 1;
         fire_shot_at_target__11TItemWeaponFv(((Pl_801261BC *)this), p, ((Pl_801261BC *)this)->f188, 0);
     } else {

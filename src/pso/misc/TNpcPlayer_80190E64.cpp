@@ -47,7 +47,7 @@ s32 __dl__7TObjectFPv(void *);
 Obj_801910F4 *__dt__13TUnk_804B7C1CFv(Obj_801910F4 *arg0, s16 arg1);
 void queue_destruction__7TObjectFv(void *arg0);
 f32 horizontal_distance_squared(void *, void *);
-void set_indexed_flags(void *, s32, s32);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *, s32, s32);
 void *__nw__7TObjectFUl(int);
 extern int npc_proximity_target_id;
 extern s32 local_client_id;
@@ -117,7 +117,7 @@ void TUnk_804B7C1C::run_task() {
         return;
     }
     if (horizontal_distance_squared(arg0->pos, p->pos) <= arg0->f68 * arg0->f68) {
-        set_indexed_flags(arg0, 0, 1);
+        set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 1);
         if (arg0->fB4 == 0) {
             arg0->fB4 = 1;
             o = __nw__7TObjectFUl(0x3C);
@@ -128,7 +128,7 @@ void TUnk_804B7C1C::run_task() {
     } else {
         p = (Ply_80190FDC *)get_player_by_client_id(arg0->fAC);
         if (p != 0 && arg0->fB4 == 1 && ((TObjPlayer *)p)->is_inactive() == 1) {
-            ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
+            ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 1);
             arg0->fB4 = 0;
             p = (Ply_80190FDC *)get_player_by_client_id(arg0->fAC);
             if (p != 0) {

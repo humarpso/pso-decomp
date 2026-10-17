@@ -4,7 +4,7 @@
 
 extern "C" {
 
-u8 get_slot_count__14TItemProShieldFv();
+u8 get_slot_count__5TItemFv();
 
 extern f32 lbl_805DAD80;
 extern f32 lbl_805DAD84;
@@ -17,7 +17,7 @@ void TObjPlayer::apply_shield_scale_to_unit() {
     u8 temp_r3;
 
     var_f31 = lbl_805DAD80;
-    temp_r3 = get_slot_count__14TItemProShieldFv();
+    temp_r3 = get_slot_count__5TItemFv();
     switch ((s32) temp_r3) {
     case 0:
         var_f31 = lbl_805DAD84;

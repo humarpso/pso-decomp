@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/unk/text_801258A0.h"
 #include "pso/player/TUnk_804A2564.h"
 #include "pso/player/TObjPlayer.h"
@@ -28,7 +29,7 @@ u8 *construct_panzer_faust(u8 *arg0, u8 *arg1, s32 _w2) {
     ((TUnk_804A2564 *)arg0)->m_234 = 0;
     *(f32 *)((s8 *)arg0 + 0x1E4) = (f32) lbl_805DAD50;
     ((TObjPlayer *)arg0)->set_status_flags(0x8000);
-    if (((TItemProShield *)arg0)->get_slot_count() == 1) {
+    if (((TItem *)arg0)->get_slot_count() == 1) {
         *(f32 *)((s8 *)arg0 + 0x238) = (f32) lbl_805DAD50;
         ((TUnk_804A2564 *)arg0)->m_23c = 0x80;
     } else {

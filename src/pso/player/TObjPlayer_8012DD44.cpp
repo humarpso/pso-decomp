@@ -4,7 +4,7 @@
 
 extern "C" {
 
-u8 get_slot_count__14TItemProShieldFv(void *);
+u8 get_slot_count__5TItemFv(void *);
 s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
 
@@ -15,7 +15,7 @@ void TObjPlayer::apply_frame_camera_shake() {
     s32 var_r30;
 
     player_list = TObjPlayer::get_player_list();
-    if (get_slot_count__14TItemProShieldFv(this) != 6) {
+    if (get_slot_count__5TItemFv(this) != 6) {
         if (player_list == (s32) this->m_21c) {
             translate_matrix(0, lbl_805DAF58, this->m_224, lbl_805DAF58);
         }

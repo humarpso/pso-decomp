@@ -90,7 +90,7 @@ s32 obj_getField1c(void *);
 s16 calc_stat_bonus_sum__10TObjPlayerFUs();
 s16 calc_equip_bonus__10TObjPlayerFUs();
 s32 check_class_equip_permission(void *, int);
-u8 get_slot_count__14TItemProShieldFv();
+u8 get_slot_count__5TItemFv();
 void vfunc_44__13TUnk_8049FBC0Fv(u8 *arg0);
 void run_task__5TItemFv();
 void dispatch_state__5TItemFv();
@@ -129,7 +129,7 @@ void *lbl_8049FBC0[45] = {
 };
 
 void TUnk_8049FBC0::vfunc_44() {
-    switch (get_slot_count__14TItemProShieldFv()) {
+    switch (get_slot_count__5TItemFv()) {
     case 0:
         add_stat_and_item__10TObjPlayerFiUc(this->m_f0, 2);
         break;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/TObjDoorJung.h"
 #include "pso/object/TObjLazerFence4.h"
 #include "pso/TMainTask.h"
@@ -37,7 +38,7 @@ Node_80193188 *get_bml_model(s32, s32);
 extern s32 lazer_fence_norm_bml_resource;
 f32 xz_distance_squared(void *, s32);
 s16 update_object_view_visibility__13TUnk_804B9870Fff(void *, f32, f32);
-void set_indexed_flags(void *arg0, s32 index, s32 flags);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 
 extern s32 camera_ctrl_instance;
 
@@ -119,7 +120,7 @@ void TObjLazerFence4::draw_model() {
 
 void TObjLazerFence4::reset_if_door_closed() {
     if (is_current_floor_switch_set(this->m_ba) == 0) {
-        set_indexed_flags(this, 0, 1);
+        set_indexed_flags__13TUnk_804AF8A0Fll(this, 0, 1);
         this->m_ac = 0;
     }
 }
@@ -133,7 +134,7 @@ void TObjLazerFence4::sub_801933C8() {
         ((Obj_801933C8 *)this)->fB0 = lbl_805DBE6C;
     }
     if (is_current_floor_switch_set(((Obj_801933C8 *)this)->fBA) == 1) {
-        ((TObjPlayer *)((Obj_801933C8 *)this))->clear_player_status_flag(0, 1);
+        ((TUnk_804AF8A0 *)((Obj_801933C8 *)this))->clear_player_status_flag(0, 1);
         ((Obj_801933C8 *)this)->fAC = 1;
     }
 }

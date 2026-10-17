@@ -75,7 +75,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void *get_player_by_client_id(s32 i);
 s32 push_to_player_list__5TItemFPv();
 void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
-s8 TObjPlayer__sub_80102C30(u8 *);
+s8 sub_80102C30__5TItemFv(u8 *);
 void func_80141618__Fv(void);
 s32 set_depth_buffer_settings_id__FUl(int);
 s32 reset_key_machine_state__10TObjPlayerFv();
@@ -131,7 +131,7 @@ void TItem::render_shadows() {
     u8 *arg0 = (u8 *)this;
     if (((TObject *)arg0)->all_parents_unqueued_for_destruction() != 0) {
         ((TUnk_804AF8A0 *)arg0)->set_shadow_flag();
-        if ((TObjPlayer__sub_80102C30(arg0) == 2) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
+        if ((sub_80102C30__5TItemFv(arg0) == 2) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
             set_depth_buffer_settings_id__FUl(1);
             lbl_805D5660 = model_render_flags;
             lbl_805D5664 = chunk_polygon_flags_and_mask;
@@ -176,7 +176,7 @@ void TItem::dispatch_state() {
             &TItem::render_following_owner,
             0,
         };
-        fn = tbl[TObjPlayer__sub_80102C30((u8 *)this)];
+        fn = tbl[sub_80102C30__5TItemFv((u8 *)this)];
         if (fn) {
             (this->*fn)();
         }
@@ -188,7 +188,7 @@ void TItem::dispatch_state() {
 void TItem::run_task() {
     u8 *arg0 = (u8 *)this;
     u32 temp_r4;
-    switch (TObjPlayer__sub_80102C30(arg0)) {
+    switch (sub_80102C30__5TItemFv(arg0)) {
     case 0:
         ((TItem *)arg0)->update_timer();
         return;
@@ -297,7 +297,7 @@ void advance_item_system_generation(void);
 extern s32 item_registry_count;
 extern u32 item_registry_sorted_entries;
 extern u32 player_rock_objects_handle;
-s8 TObjPlayer__sub_80102C30(u8 *arg0);
+s8 sub_80102C30__5TItemFv(u8 *arg0);
 int get_item_system_generation(void);
 int dispatch_item_by_type__6TLobbyFv(void*);
 void mem_free(void*);
@@ -359,11 +359,11 @@ void TObjPlayer::init_forward_default() {
 int TItem::vfunc_33() { return 0; }
 int TItem::vfunc_43() { return 0; }
 int TObjPlayer::test_item_flags(u32 m) { return *(u32 *)&this->motion_list & m; }
-void TObjPlayer::clear_item_flags(u32 v) { *(u32 *)&this->motion_list &= ~v; }
+void TItem::clear_item_flags(u32 v) { *(u32 *)&(*(void * *)((u8 *)this + 0xDC)) &= ~v; }
 void TObjPlayer::add_item_flags(u32 v) { *(u32 *)&this->motion_list |= v; }
 int TObjPlayer::has_flag_128() { return test_item_flags((u32)((u32)(128))); }
-s8 TObjPlayer__sub_80102C30(u8 *arg0) {
-    return (s8) ((TItem *)arg0)->render_mode;
+s8 TItem::sub_80102C30() {
+    return (s8) ((TItem *)((u8 *)this))->render_mode;
 }
 
 }

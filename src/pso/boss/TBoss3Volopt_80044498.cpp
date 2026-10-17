@@ -549,7 +549,7 @@ f32 sin_table_lookup(s32);
 extern const f32 TBoss3Volopt__data_805D87E4;
 extern const f32 lbl_805D8818;
 void update_state__12TBoss3VoloptFPv(void *arg0);
-s32 obj_testFlags30(void*, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void*, s32);
 s32 post_translate_matrix(void *);
 void draw_chunk_object(void *child);
 void restore_scene_lighting(void);
@@ -739,7 +739,7 @@ void TBoss3Volopt::spawn_sub_objects() {
 }
 
 void TBoss3Volopt::apply_hit_reaction(f32 farg0) {
-    if ((obj_testFlags30(this, 0x800) == 0) && !(this->m_388 & 0x20000) && ((s16) this->mode != 0xC)) {
+    if ((obj_testFlags30__13TUnk_804AF8A0FUl(this, 0x800) == 0) && !(this->m_388 & 0x20000) && ((s16) this->mode != 0xC)) {
         TBoss3Volopt::check_and_notify((s32)this);
         *(f32 *)((s8 *)this + 0x508) = (f32) (lbl_805D87B8 + farg0);
         this->m_388 = (s32) (this->m_388 & 0xFFFFFFFE);
@@ -1651,7 +1651,7 @@ void dispatch_state__12TBoss3VoloptFPv(V_80047408 *self) {
 }
 
 void TBoss3Volopt::set_action_wait(u16 arg1) {
-    if ((obj_testFlags30(this, 0x800) == 0) && !(this->m_388 & 0x80000) && ((s16) this->mode != 0xA)) {
+    if ((obj_testFlags30__13TUnk_804AF8A0FUl(this, 0x800) == 0) && !(this->m_388 & 0x80000) && ((s16) this->mode != 0xA)) {
         TBoss3Volopt::check_and_notify((s32)this);
         if ((u16) arg1 != 0xFFFF) {
             this->targetId = arg1;
@@ -1661,21 +1661,21 @@ void TBoss3Volopt::set_action_wait(u16 arg1) {
     }
 }
 void TBoss3Volopt::set_motion(s16 arg1) {
-    if ((obj_testFlags30(this, 0x800) == 0) && !(this->m_388 & 0x10000) && ((s16) this->mode != 9)) {
+    if ((obj_testFlags30__13TUnk_804AF8A0FUl(this, 0x800) == 0) && !(this->m_388 & 0x10000) && ((s16) this->mode != 9)) {
         this->targetId = arg1;
         this->m_388 = (s32) (this->m_388 & 0xFFFFFFFE);
         ((TObjEneMe1GiGue *)this)->update_if_active(9);
     }
 }
 void TBoss3Volopt::check_and_trigger() {
-    if ((obj_testFlags30(this, 0x800) == 0) && !(this->m_388 & 0x40000)) {
+    if ((obj_testFlags30__13TUnk_804AF8A0FUl(this, 0x800) == 0) && !(this->m_388 & 0x40000)) {
         TBoss3Volopt::check_and_notify((s32)this);
         this->m_388 = (s32) (this->m_388 & 0xFFFFFFFE);
         ((TObjEneMe1GiGue *)this)->update_if_active(0xB);
     }
 }
 void TBoss3Volopt::set_action(s16 arg1) {
-    if ((obj_testFlags30(this, 0x800) == 0) && !(this->m_388 & 0x20000) && ((s16) this->mode != 2)) {
+    if ((obj_testFlags30__13TUnk_804AF8A0FUl(this, 0x800) == 0) && !(this->m_388 & 0x20000) && ((s16) this->mode != 2)) {
         TBoss3Volopt::check_and_notify((s32)this);
         this->targetId = arg1;
         this->m_388 = (s32) (this->m_388 & 0xFFFFFFFE);
@@ -1749,7 +1749,7 @@ void TUnk_80484610::run_task() {
                 this->vfunc_62();
             }
         }
-        if (obj_testFlags30(arg0, 0x4000) != 0) {
+        if (obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x4000) != 0) {
             if (((TObjPlayer *)arg0)->add_status_effect_timer(4, -1) <= 0) {
                 reset_status_effect_row(((u8 *)&this->unk_284));
                 ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x4000);

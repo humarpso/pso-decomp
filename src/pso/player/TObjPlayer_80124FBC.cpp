@@ -14,7 +14,7 @@ void TObjPlayer::launch_double_cannon_extra() {
     if (is_mode_two_and_ready__10TObjPlayerFv() != 0) {
         if (((TObjPlayer *)(*(s32 *)&this->unk_F0 + 0x7CC))->get_stage_strike_count() == 0) {
             drain_owner_hp_fraction(lbl_805DAD3C);
-            TObjPlayer__sub_80124C90((u8 *)this);
+            sub_80124C90__13TUnk_804A2260Fv((u8 *)this);
         }
     } else {
         update_active_game_effect();

@@ -13,7 +13,7 @@ struct Sel_8006A13C { u8 busy; u8 pad1; u16 slot; u8 pad4[0xC]; };
 extern "C" {
 extern void *camera_ctrl_instance;
 s32 queue_event_1D__12TBoss3VoloptFss(s32, s32, void *);
-s32 obj_testFlags30(u32, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(u32, s32);
 s32 is_split_screen();
 s32 reset_cameras_to_actor(u32, s32);
 s32 is_quest_active();
@@ -103,7 +103,7 @@ void TCameraCtrl::cycle_spectate_target() {
         }
         q = get_player_by_client_id(slot);
         if (q != 0) {
-            if (((TObjPlayer *)q)->get_field_3e4() == ((TObjPlayer *)pl)->get_field_3e4() && obj_testFlags30(q, 0x02000000) == 0) {
+            if (((TObjPlayer *)q)->get_field_3e4() == ((TObjPlayer *)pl)->get_field_3e4() && obj_testFlags30__13TUnk_804AF8A0FUl(q, 0x02000000) == 0) {
                 TCameraCtrl__view_state.slot = slot;
                 reset_cameras_to_actor(q, 0);
                 for (i = 0; i < 4; i++) {

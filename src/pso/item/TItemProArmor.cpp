@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemEquipBase.h"
 #include "pso/item/TUnk_804A0688.h"
 #include "pso/item/TUnk_804A0668.h"
 #include "pso/item/TUnk_8049FF88.h"
@@ -68,7 +69,7 @@ void write_item_data__13TItemProArmorFPvPv(TItemProArmor *arg0, void *arg1);
 void TItemObject__ct(void *);
 s32 get_tool_pmt_amount_byte__11TItemObjectFv(void *);
 void TItemTimerEvent__ct(void *);
-s32 refresh_owner_stats__5TItemFv();
+s32 refresh_owner_stats__14TItemEquipBaseFv();
 int spawn_appearance_effect__10TObjPlayerFl(void);
 s32 add_weapon_grind(s32, s32);
 void *__dt__11TItemObjectFv(void *arg0, s16 arg1);
@@ -143,7 +144,7 @@ u8 *create_item_grinder(u8 *arg0) {
 
 void TItemProArmor::init_effect_flags() {
     TItemProArmor_8011781C *self = (TItemProArmor_8011781C *)this;
-    switch (((TItemProShield *)self)->get_slot_count()) {
+    switch (((TItem *)self)->get_slot_count()) {
     case 0x23:
         ((TObjPlayer *)(self->flags178))->set_flags(2);
         break;
@@ -361,7 +362,7 @@ void TItemProArmor::vfunc_44() {
     if (self->owner == NULL) {
         return;
     }
-    switch (((TItemProShield *)self)->get_slot_count()) {
+    switch (((TItem *)self)->get_slot_count()) {
     case 27:
         o = __nw__15TItemHeapObjectFUl(0x2C);
         if (o != NULL) {
@@ -415,11 +416,11 @@ void TItemProArmor::vfunc_44() {
 
 void TItemProArmor::vfunc_16() {
     if (this->m_190 & 1) {
-        refresh_owner_stats__5TItemFv();
+        refresh_owner_stats__14TItemEquipBaseFv();
     }
 }
 
-void TItemProArmor::vfunc_46() { if (((TItemMag *)this)->get_flag_40() == 0) { obj_getField1c(*(void* *)&this->m_f0); spawn_appearance_effect__10TObjPlayerFl(); } }
+void TItemProArmor::vfunc_46() { if (((TItemEquipBase *)this)->get_flag_40() == 0) { obj_getField1c(*(void* *)&this->m_f0); spawn_appearance_effect__10TObjPlayerFl(); } }
 
 typedef char RecoveredGlobal_80117B98___vt__13TItemProArmor_size[sizeof(RecoveredGlobal_80117B98___vt__13TItemProArmor) == 0xCC ? 1 : -1];
 u8 *TItemProArmor__ct(TItemProArmor *arg0, s32 arg1, u8 *item) {

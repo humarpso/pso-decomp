@@ -80,7 +80,7 @@ struct Door_80162D7C : VObj_80162D7C {
 };
 
 extern "C" {
-void set_indexed_flags(void *arg0, s32 index, s32 flags);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 s32 is_any_player_within_radius_xz(f32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805DB4F4;
@@ -105,7 +105,7 @@ int draw_ginja_model_with_motion(void *, int, f32);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 extern s32 *TODoorMachine01__global_param_id_array;
 extern const f32 lbl_805DB504;
-s32 set_chunk_material_color(void *, int);
+s32 set_chunk_material_color__13TUnk_80494AE0Fv(void *, int);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
@@ -132,7 +132,7 @@ void TODoorMachine01::vfunc_17() {
     u8 *arg0 = (u8 *)this;
     if (!(this->m_d0 & 1) || (is_any_player_within_radius_xz(lbl_805DB4F0) != 1)) {
         this->m_ac = 3;
-        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
+        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 8);
         play_sound_effect(0x4004BC01, (u8 *)&this->position, 0, 0);
     }
 }
@@ -143,7 +143,7 @@ void TODoorMachine01::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
     if ((this->m_d0 & 1) && (is_any_player_within_radius_xz(lbl_805DB4F4) == 1)) {
         this->m_ac = 1;
-        set_indexed_flags((arg0), 0, 8);
+        set_indexed_flags__13TUnk_804AF8A0Fll((arg0), 0, 8);
         play_sound_effect(0x4004BC01, (u8 *)&this->position, 0, 0);
     }
     if (this->m_d0 & 0x100000) {
@@ -233,7 +233,7 @@ void TODoorMachine01::draw_part_models(u8 *arg1, s32 arg2) {
         temp_r4 = model_render_flags;
         lbl_805D5660 = temp_r4;
         model_render_flags = temp_r4 | 0x10;
-        set_chunk_material_color((void *)(arg0 + 0xDC), temp_r4);
+        set_chunk_material_color__13TUnk_80494AE0Fv((void *)(arg0 + 0xDC), temp_r4);
     }
     TParticleCtrl::begin_effect_render();
     push_matrix();
@@ -247,7 +247,7 @@ void TODoorMachine01::draw_part_models(u8 *arg1, s32 arg2) {
     pop_matrix();
     TParticleCtrl::end_effect_render();
     if (arg2 != 1) {
-        ((void (*)(void *))set_chunk_material_color)(chunk_material_color_half_alpha_f32);
+        ((void (*)(void *))set_chunk_material_color__13TUnk_80494AE0Fv)(chunk_material_color_half_alpha_f32);
         model_render_flags = lbl_805D5660;
     }
 }

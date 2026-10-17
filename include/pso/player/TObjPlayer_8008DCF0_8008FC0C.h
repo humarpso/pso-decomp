@@ -5,7 +5,7 @@
 
 extern "C" {
 void TObjEneMe1GiGue__sub_8008FC0C(void);
-void TObjEneMe1GiGue__sub_8008FC10(u8 *arg0);
+void sub_8008FC10__18TObjEneBalClawBodyFv(u8 *arg0);
 }
 
 #endif

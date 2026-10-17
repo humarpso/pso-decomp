@@ -355,7 +355,7 @@ void TItemMagSub::apply_node_oscillation(void* _w1) {
     if (TItemMagSub__feed_sequence_index == node_ids[selected_node]) {
         if (test_flags__11TItemMagSubFUl(this, 0x20) == 0) {
             model_render_flags |= 0x10;
-            set_chunk_material_color(material_parameters);
+            set_chunk_material_color__13TUnk_80494AE0Fv(material_parameters);
             TParticleCtrl::begin_effect_render();
             ((s32 (*)(void *, int))set_flags__11TItemMagSubFUl)(this, 0x20);
         }

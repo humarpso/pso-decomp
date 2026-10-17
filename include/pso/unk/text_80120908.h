@@ -6,7 +6,7 @@
 struct TItemWeapon;
 extern "C" {
 void draw_weapon_at_joint(s32 arg0, s8 arg1);
-s32 draw_weapon_model(TItemWeapon *arg0);
+s32 draw_weapon_model__11TItemWeaponFv(TItemWeapon *arg0);
 }
 
 #endif

@@ -91,7 +91,7 @@ void TUnk_804F0BF0::render() {
             lbl_805D5668 = chunk_polygon_flags_or_mask;
             copy_vec4__13TRaderMapCoreFPvPv((saved_model_draw_color), (model_material_color));
             model_render_flags |= 0x20;
-            set_chunk_material_color((f32 *)(arg0 + 0x28));
+            set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)(arg0 + 0x28));
             TParticleCtrl::begin_effect_render();
             TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
             push_matrix();

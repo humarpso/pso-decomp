@@ -39,7 +39,7 @@ void TObjPlayer::push_material_color_override(f32 farg0, f32 farg1, f32 farg2, f
     stack.sp10 = farg2;
     stack.sp8 = lbl_805DA6F8 + farg0;
     stack.sp14 = farg3;
-    set_chunk_material_color((&stack.sp8));
+    set_chunk_material_color__13TUnk_80494AE0Fv((&stack.sp8));
 }
 int TObjEneSlimeTailAttack::find_nearest_enemy_with_flag(f32 farg0) {
     u8 *arg0 = (u8 *)this;

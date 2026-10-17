@@ -153,7 +153,7 @@ void TBreakUpMdl::render() {
         model_render_flags |= 0x810;
         set_chunk_material_override_pair(0xFF00, 0x800);
         color.a = self->alpha;
-        set_chunk_material_color((f32 *)&color);
+        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&color);
     }
     for (i = 0; i < self->count; i++) {
         part = &self->parts[i];

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
 
 struct Stack_8012685C {
@@ -96,7 +97,7 @@ extern s32 knuckle_marker_joint_table[];
 extern s32 tl_05;
 void reflect_knuckle_second_hand(s32 arg0) {
     Stack_8012685C stack;
-    if ((TObjPlayer::get_player_list() == 0) && (((TItemProShield *)arg0)->get_slot_count() == 3) && ((s32) knuckle_second_hand_pass != 0)) {
+    if ((TObjPlayer::get_player_list() == 0) && (((TItem *)arg0)->get_slot_count() == 3) && ((s32) knuckle_second_hand_pass != 0)) {
         stack.sp10 = lbl_805DAD94;
         stack.spC = lbl_805DAD94;
         stack.sp8 = lbl_805DAD94;
@@ -114,7 +115,7 @@ void TItemWeaponFist::emit_marker_effects() {
   s32 k;
   s16 stage;
   s32 index;
-  if (((TItemProShield *)arg0)->get_slot_count() == 3)
+  if (((TItem *)arg0)->get_slot_count() == 3)
   {
     if (((TItemWeapon *)arg0)->get_attack_stage() == 0)
     {

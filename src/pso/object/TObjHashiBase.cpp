@@ -131,7 +131,7 @@ void TObjHashiBase::render() {
     }
 }
 
-extern "C" void set_indexed_flags(void *arg0, s32 index, s32 flags);
+extern "C" void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 }
 typedef char BridgeSize[sizeof(TObjHashiBase)==0xD4?1:-1];
 typedef char BridgePhase[offsetof(TObjHashiBase,phase)==0xAC?1:-1];
@@ -157,7 +157,7 @@ void TObjHashiBase::run_task() {
     case 2:
         index=0;
         while(index<colliderCount) {
-            set_indexed_flags(this,index,8);
+            set_indexed_flags__13TUnk_804AF8A0Fll(this,index,8);
             ++index;
         }
         phase=3;

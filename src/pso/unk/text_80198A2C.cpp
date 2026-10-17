@@ -354,7 +354,7 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
-s32 set_chunk_material_color(void *);
+s32 set_chunk_material_color__13TUnk_80494AE0Fv(void *);
 extern const f32 chunk_material_color_half_alpha_f32[];
 extern u32 blob_shadow_texture_list;
 void TObjPlayer__sub_801994DC(s32 arg0, void *arg1, void *arg2, s32 arg3, void *arg4, f32 farg0);
@@ -584,7 +584,7 @@ void TObjPlayer__sub_801994DC(s32 arg0, void *arg1, void *arg2, s32 arg3, void *
     col.g = 1.0f;
     col.b = 1.0f;
     col.a = 1.0f;
-    set_chunk_material_color(&col);
+    set_chunk_material_color__13TUnk_80494AE0Fv(&col);
     TParticleCtrl::begin_effect_render();
     ((TObjPlayer *)(&fx))->draw_shadow_quad(0, 0x22);
     fx.a = 0.0f;
@@ -597,7 +597,7 @@ void TObjPlayer__sub_801994DC(s32 arg0, void *arg1, void *arg2, s32 arg3, void *
     fx.b = -5.0f;
     ((TObjPlayer *)(&fx))->draw_shadow_quad(0, 0x2E);
     TParticleCtrl::end_effect_render();
-    set_chunk_material_color((void *)chunk_material_color_half_alpha_f32);
+    set_chunk_material_color__13TUnk_80494AE0Fv((void *)chunk_material_color_half_alpha_f32);
     pop_matrix();
 }
 
@@ -822,7 +822,7 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
     translate_matrix_vec3(0, &pos);
     rate = 0.15f * (*(Glob_80199A44 *)&gogo_ball_configuration).scale;
     scale_matrix(0, rate, rate, rate);
-    set_chunk_material_color(&color);
+    set_chunk_material_color__13TUnk_80494AE0Fv(&color);
     if (vec_squared_length(&dir)) {
         rotate_matrix_about_axis(0, &dir, F(s32, 0x338));
     }
@@ -871,7 +871,7 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
             break;
         }
     }
-    set_chunk_material_color((void *)chunk_material_color_half_alpha_f32);
+    set_chunk_material_color__13TUnk_80494AE0Fv((void *)chunk_material_color_half_alpha_f32);
     pop_matrices(1);
     chunk_polygon_flags_and_mask = lbl_805D5664;
     chunk_polygon_flags_or_mask = lbl_805D5668;

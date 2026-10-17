@@ -12,7 +12,7 @@
 struct Trap_8016F704 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x84 - 0x44]; s32 delay; u8 pad88[0x2A8 - 0x88]; void *target; u8 pad2AC[0x34C - 0x2AC]; f32 range; u8 pad350[0x35C - 0x350]; u16 targetId; };
 
 extern "C" {
-s32 obj_testFlags30(void *, u32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, u32);
 s32 get_current_floor(void);
 f32 horizontal_distance_squared(void *, void *);
 extern u8 lobby_rule_settings[];
@@ -101,7 +101,7 @@ struct VObj_18_1da615 : VBase_18_1da615 {
 struct Pair_80170DD8 { s32 a; s32 b; };
 
 extern "C" {
-void set_indexed_flags(void *, s32, s32);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *, s32, s32);
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
 s32 get_localized_text_entry(s32 arg0, s32 arg1);
 s32 get_main_phase();
@@ -126,7 +126,7 @@ extern const f64 lbl_80442200;
 extern const f32 lbl_805DB870;
 void queue_destruction__7TObjectFv(void *arg0);
 int get_player_data__10TObjPlayerFi(int a0);
-s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
+s32 check_value_equals__13TUnk_804B6C24Fl(void *, s32);
 extern s32 TOMineTrap__data_805D3080;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
@@ -160,7 +160,7 @@ s32 TOMineTrap::find_target_in_range() {
     }
     for (i = 0; i < lbl_805D586C + lbl_805D5870; i++) {
         p = (u8 *)get_player_data__10TObjPlayerFi(i);
-        if (p == 0 || p == (u8 *)self || obj_testFlags30(p, 0x800) != 0) {
+        if (p == 0 || p == (u8 *)self || obj_testFlags30__13TUnk_804AF8A0FUl(p, 0x800) != 0) {
             continue;
         }
         id = obj_getField1c(p);
@@ -194,14 +194,14 @@ s32 TOMineTrap::find_target_in_range() {
 void TOMineTrap::set_triggered() {
     u8 *arg0 = (u8 *)this;
     this->mode = 3;
-    set_indexed_flags(arg0, 0, 1);
+    set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 1);
     this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
 }
 
 void TOMineTrap::vfunc_86() {
     u8 *arg0 = (u8 *)this;
     this->mode = 2;
-    set_indexed_flags(arg0, 0, 1);
+    set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 1);
     this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
 }
 
@@ -210,7 +210,7 @@ void TOMineTrap::destroy_matching_traps() {
     s32 i;
     for (i = lbl_805D586C + lbl_805D5870; i < lbl_805D5868; i++) {
         p = (void *)get_player_data__10TObjPlayerFi(i);
-        if (p != 0 && check_value_equals__13TQuestColCtrlFPll(p, TOMineTrap__data_805D3080) != 0) {
+        if (p != 0 && check_value_equals__13TUnk_804B6C24Fl(p, TOMineTrap__data_805D3080) != 0) {
             queue_destruction__7TObjectFv(p);
         }
     }
@@ -393,7 +393,7 @@ void TOMine::vfunc_6(s16 *arg1, s32 arg2) {
     }
     if (temp_r0 == 3) {
         this->mode = temp_r0;
-        set_indexed_flags(this, 0, 1);
+        set_indexed_flags__13TUnk_804AF8A0Fll(this, 0, 1);
         this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
         this->calc_attach_pos();
         refresh_collision_body_centers();
@@ -480,7 +480,7 @@ void TOMine::update_trigger() {
 void TOMine::vfunc_86() {
     u8 *arg0 = (u8 *)this;
     this->mode = 2;
-    set_indexed_flags(arg0, 0, 1);
+    set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 1);
     this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
     ((TUnk_804806E8 *)arg0)->calc_attach_pos();
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
@@ -528,10 +528,10 @@ void TOMine::sub_80170BEC() {
         for (i = lbl_805D5870; i < lbl_805D5868; i++) {
             p = (u8 *)get_player_data__10TObjPlayerFi(i);
             if (p != NULL && p != ((u8 *)this) &&
-                (check_value_equals__13TQuestColCtrlFPll(p, TOMineIcon01__name) != 0 ||
-                 check_value_equals__13TQuestColCtrlFPll(p, TOMineIcon02__name) != 0 ||
-                 check_value_equals__13TQuestColCtrlFPll(p, TOMineIcon03__name) != 0 ||
-                 check_value_equals__13TQuestColCtrlFPll(p, TOMineIcon04__name) != 0) &&
+                (check_value_equals__13TUnk_804B6C24Fl(p, TOMineIcon01__name) != 0 ||
+                 check_value_equals__13TUnk_804B6C24Fl(p, TOMineIcon02__name) != 0 ||
+                 check_value_equals__13TUnk_804B6C24Fl(p, TOMineIcon03__name) != 0 ||
+                 check_value_equals__13TUnk_804B6C24Fl(p, TOMineIcon04__name) != 0) &&
                 *(s32 *)(p + 0x344) == 1 && *(s32 *)(p + 0x348) == *(s32 *)(((u8 *)this) + 0x348)) {
                 ((TOMine *)p)->update_trigger();
             }
@@ -568,7 +568,7 @@ void TOMineTrap::sync_position() { VecCopy((Vec *)((char*)this + 0x38), (const V
 void TOMine::detonate() {
     s32 i;
     u8 *obj;
-    set_indexed_flags(this, 0, 2);
+    set_indexed_flags__13TUnk_804AF8A0Fll(this, 0, 2);
     *(f32 *)(*(u8 * *)&this->m_a4 + 0xC) = this->m_350;
     TObjPlayer::init_all_slots();
     ((TObjPlayer *)((u8 *)this))->check_object_collisions();
@@ -584,7 +584,7 @@ void TOMine::detonate() {
         }
     }
     this->mode = 6;
-    ((TObjPlayer *)((u8 *)this))->clear_player_status_flag(0, 1);
+    ((TUnk_804AF8A0 *)((u8 *)this))->clear_player_status_flag(0, 1);
     this->receive_physical_attack(0, TOMineTrap__data_805DB868);
 }
 

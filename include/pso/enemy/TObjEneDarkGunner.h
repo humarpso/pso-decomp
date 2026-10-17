@@ -5,6 +5,9 @@
 
 struct TObjEneDarkGunner : public TObjEnemyCustom {
     virtual ~TObjEneDarkGunner();
+    void set_fields_24_34_from_global(void*);
+    void sub_800A159C();
+    void sub_800A1520();
     virtual s32 update_movement_status();
     virtual void vfunc_62();
     virtual void vfunc_61();

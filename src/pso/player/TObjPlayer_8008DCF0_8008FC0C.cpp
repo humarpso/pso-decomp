@@ -50,40 +50,40 @@ extern const f32 lbl_805D967C;
 
 void TObjEneMe1GiGue__sub_8008FC0C(void) {  }
 
-#define F(T, o) (*(T *)(arg0 + (o)))
-#define VO ((VObj_18 *)(arg0))
-void TObjEneMe1GiGue__sub_8008FC10(u8 *arg0) {
+#define F(T, o) (*(T *)(((u8 *)this) + (o)))
+#define VO ((VObj_18 *)(((u8 *)this)))
+void TObjEneBalClawBody::sub_8008FC10() {
     f32 d;
     s32 old;
     if (F(s16, 0x326) != 0 && F(s16, 0x326) != 8) {
         F(s32, 0x3D4)++;
     }
-    if (((TObjPlayer *)arg0)->get_flag_0x388_b24() != 0) {
+    if (((TObjPlayer *)((u8 *)this))->get_flag_0x388_b24() != 0) {
         switch (F(s16, 0x326)) {
         case 0:
         case 1:
             if (F(s32, 0x3D4) > 0x708 || F(s16, 0x3DA) >= 2) {
-                ((TObjEneMe1GiGue *)arg0)->update_if_active(0xB);
+                ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active(0xB);
                 return;
             }
             break;
         }
         if (VO->m17(0x1E) != 0) {
-            ((TObjEnemyCustom *)arg0)->find_target_in_range(lbl_805D9644);
+            ((TObjEnemyCustom *)((u8 *)this))->find_target_in_range(lbl_805D9644);
         }
         switch (F(s16, 0x326)) {
         case 0:
         case 8:
             if (F(u32, 0x2A8) != 0) {
-                ((TObjEneMe1GiGue *)arg0)->update_if_active(1);
+                ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active(1);
                 F(s32, 0x38C) = 2;
             } else {
-                ((TObjEneBalClawBody *)arg0)->sub_800C73F4();
+                ((TObjEneBalClawBody *)((u8 *)this))->sub_800C73F4();
             }
             break;
         case 1:
             if (F(u32, 0x2A8) != 0) {
-                d = xz_distance_squared((void *)(F(u32, 0x2A8) + 0x38), arg0 + 0x38);
+                d = xz_distance_squared((void *)(F(u32, 0x2A8) + 0x38), ((u8 *)this) + 0x38);
                 old = F(s32, 0x38C);
                 switch (old) {
                 case 0:
@@ -107,36 +107,36 @@ void TObjEneMe1GiGue__sub_8008FC10(u8 *arg0) {
                 if (old != F(s32, 0x38C)) {
                     switch (F(s32, 0x38C)) {
                     case 0:
-                        ((TObjEneMe1GiGue *)arg0)->update_if_active(9);
+                        ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active(9);
                         break;
                     case 1:
-                        ((TObjEneBalClaw *)arg0)->clear_attack_flag();
+                        ((TObjEneBalClaw *)((u8 *)this))->clear_attack_flag();
                         break;
                     case 2:
-                        ((TObjEneBalClaw *)arg0)->set_attack_distance_flag();
+                        ((TObjEneBalClaw *)((u8 *)this))->set_attack_distance_flag();
                         break;
                     }
                 }
             } else {
-                ((TObjEneMe1GiGue *)arg0)->update_if_active(8);
+                ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active(8);
             }
             break;
         }
     } else {
         if (VO->m17(0x1E) != 0 && F(s16, 0x326) != 2) {
-            ((TObjEnemyCustom *)arg0)->find_target_in_range(lbl_805D9644);
+            ((TObjEnemyCustom *)((u8 *)this))->find_target_in_range(lbl_805D9644);
         }
         switch (F(s16, 0x326)) {
         case 0:
             if (VO->m17(0x1E) != 0 && F(u32, 0x2A8) == 0) {
-                ((TObjEneMe1GiGue *)arg0)->update_if_active(0xA);
+                ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active(0xA);
                 return;
             }
             break;
         case 1:
         case 12:
             if (F(s32, 0x3D4) > 0x708) {
-                ((TObjEneMe1GiGue *)arg0)->update_if_active(0xA);
+                ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active(0xA);
                 return;
             }
             break;
@@ -145,14 +145,14 @@ void TObjEneMe1GiGue__sub_8008FC10(u8 *arg0) {
         case 0:
         case 8:
             if (F(u32, 0x2A8) != 0) {
-                ((TObjEneMe1GiGue *)arg0)->update_if_active(0xC);
+                ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active(0xC);
             } else {
-                ((TObjEneBalClawBody *)arg0)->sub_800C73F4();
+                ((TObjEneBalClawBody *)((u8 *)this))->sub_800C73F4();
             }
             break;
         case 1:
             if (F(u32, 0x2A8) == 0) {
-                ((TObjEneMe1GiGue *)arg0)->update_if_active(8);
+                ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active(8);
             }
             break;
         }

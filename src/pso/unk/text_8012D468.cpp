@@ -10,7 +10,7 @@ extern "C" {
 void TUnk_804A5930::vfunc_31() {
     s32 arg0 = (s32)this;
     TItemData item_data;
-    if (TObjPlayer__sub_80100474((void *)arg0) >= 0x59D8U) {
+    if (sub_80100474__5TItemFv((void *)arg0) >= 0x59D8U) {
         item_data.data1.data_u8[0] = 0;
         item_data.data1.data_u8[1] = 0x32;
         item_data.data1.data_u8[2] = 0;

@@ -5,17 +5,17 @@
 extern "C" {
 
 s32 get_id__13TItemProArmorFv(void *);
-u16 TObjPlayer__sub_80100474(void *);
-s32 TObjPlayer__sub_8010047C(void *, u16);
+u16 sub_80100474__5TItemFv(void *);
+s32 sub_8010047C__13TUnk_804A5930Fs(void *, u16);
 s32 slow_curse_timer_ct(s32, u32, s32, s32, f32);
 s32 __nw__15TItemHeapObjectFUl(s32);
 
 void TObjPlayer::update_weapon_kill_count() {
     if ((s16) *(s16 *)&this->unk_1F8 < ((TObjPlayer *)(*(s32 *)&this->unk_F0))->get_kill_count()) {
-        TObjPlayer__sub_8010047C(this, (u16) (TObjPlayer__sub_80100474(this) + 1));
+        sub_8010047C__13TUnk_804A5930Fs(this, (u16) (sub_80100474__5TItemFv(this) + 1));
         *(s16 *)&this->unk_1F8 = ((TObjPlayer *)(*(s32 *)&this->unk_F0))->get_kill_count();
     }
-    if ((TObjPlayer__sub_80100474(this) >= 0x59D8U) && (test_item_flags(0x200) == 0U)) {
+    if ((sub_80100474__5TItemFv(this) >= 0x59D8U) && (test_item_flags(0x200) == 0U)) {
         add_item_flags(0x200);
     }
 }

@@ -14,6 +14,11 @@ struct TechniqueContactList;
 
 struct TObjPlayer : public TUnk_804806E8 {
     virtual ~TObjPlayer();
+    void update_position_from_target();
+    s32 get_idle_animation();
+    void sub_801BB950();
+    void handle_state2_transitions();
+    void sub_8011E204(s32);
     virtual void vfunc_65(s32, s32);
     virtual u8 *update_actor_ground_y();
     virtual u8 *vfunc_18(u8 *);
@@ -215,14 +220,12 @@ struct TObjPlayer : public TUnk_804806E8 {
     void update_topple_state();
     static void link_photon(u16 arg0);
     void set_boss_target_pos(s32 arg1, s32 arg2, s32 arg3);
-    s32 calc_hit_zone_index();
     s32 calc_spin_value();
     void update_state_spin();
     void run_freeze_state();
     void update_reaction_animation();
     void update_grabbed_state();
     void dispatch_reaction_state();
-    void load_entry_params_volopt(s32 i);
     void set_target_id(s32 arg1);
     int construct_target_cursor_records();
     static void draw_area_chunk_objects();
@@ -239,7 +242,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     static void *create_instance(void *arg0);
     static void cleanup_effects();
     int is_flag_set_388_bit26();
-    void set_fields_24_34_from_global(void* a1);
     void clear_counter();
     void set_cancel_flag();
     static void reset_effect_count();
@@ -256,7 +258,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     static void alloc_game_systems();
     static void init_forward_default();
     int test_item_flags(u32 m);
-    void clear_item_flags(u32 v);
     void add_item_flags(u32 v);
     int has_flag_128();
     s16 get_mag_data();
@@ -381,8 +382,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void*init_forward();
     void clear_id();
     void copy_xyz(void* q);
-    void set_field_dc(s32 v);
-    void set_field_d8(s32 v);
     void reset_lobby_model();
     void reset_type();
     void set_type(s32 v);
@@ -623,7 +622,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void draw_if_visible();
     static void apply_status_effect(s32 a);
     static void add_unique_pair_entry(u32 arg0, s32 arg1);
-    void clear_player_status_flag(s32 arg1, u32 arg2);
     static void clear_item_table();
     void reset_photon_effect();
     static void init_all_slots();
@@ -1165,7 +1163,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     static int get_max_children(void*);
     void scroll_dark_flow_texture();
     void launch_guardianna_colliders();
-    void init_offset_vectors();
     static void alloc_and_init(s32 arg0, s32 arg1, s32 arg2);
     static void create_and_init_effect(s32 arg0, u32 *arg1, s32 arg2);
     void destroy_effect_objects();
@@ -1358,7 +1355,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     s32 hit_area_targets(u8 *arg1, s32 arg2, u32 arg3, f32 farg0);
     static void update_particle_by_phase();
     void draw_blob_shadows();
-    void target_nearest_player(f32 radius);
     static void free_obj_heap(void* a0);
     void set_flag_8_if_check_passes();
     void fill_status_info(void *arg1);
@@ -1370,7 +1366,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     static void *create_child_object(void *arg0);
     static void destroy_instance();
     static void load_kamome_resources();
-    s32 update_path_steering();
     static void free_statics();
     static void load_jungle_bird_resources();
     static void *create_path_obj(void *arg0);

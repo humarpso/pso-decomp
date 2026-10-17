@@ -216,7 +216,7 @@ void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0) {
     s32 temp_r3;
     s32 i;
     if (has_game_join_id__13TUnk_804E355CFv() != 0) {
-        check_hits__14TItemAttackColFPv((arg0));
+        check_hits__13TUnk_804E355CFv((arg0));
     } else {
         queue_destruction__7TObjectFv((arg0));
         disallow_rendering__7TObjectFv((TObject *)(arg0));

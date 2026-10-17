@@ -6,6 +6,9 @@
 class TUnk_80483A10 : public TObjEnemyCustom {
 public:
     virtual ~TUnk_80483A10();
+    void load_entry_params_volopt(s32);
+    void sub_80040894();
+    s32 calc_hit_zone_index();
     void *destroy(s16);
     virtual s32 is_target_in_attack_range();
     virtual void render();

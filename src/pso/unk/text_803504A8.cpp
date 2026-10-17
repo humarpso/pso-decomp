@@ -9,7 +9,7 @@ extern "C" {
 
 void *__nw__7TObjectFUl(s32);
 extern void *tl_05;
-u8 get_slot_count__14TItemProShieldFv();
+u8 get_slot_count__5TItemFv();
 void TItemObject__ct(void *);
 void *__dt__11TItemObjectFv(void *arg0, s16 arg1);
 extern s32 item_object_dispatch_table[];
@@ -30,7 +30,7 @@ void create_quest_bgm_object(s32 arg0, u32 arg1) {
 }
 
 void TUnk_804F0D34::vfunc_44() {
-    ((s32 (*)(s32, int))create_quest_bgm_object)((s32)tl_05, (u8)get_slot_count__14TItemProShieldFv());
+    ((s32 (*)(s32, int))create_quest_bgm_object)((s32)tl_05, (u8)get_slot_count__5TItemFv());
 }
 
 void *__dt__13TUnk_804F0D34Fv(void *arg0, s16 arg1) {

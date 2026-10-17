@@ -84,7 +84,6 @@ struct TItemMag
     static u8 *create(s32 arg0);
     static void cleanup();
     static void load_data_files();
-    int get_flag_40();
     int get_status_flag();
     void copy_record(u8 *arg1);
     s16 get_item_type();

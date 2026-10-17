@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneBm3FlyNest.h"
 #include "pso/enemy/TObjEneBm3FlyNest_CarryFly.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
@@ -1888,7 +1889,7 @@ void __construct_array(void *, void *, void *, int, int);
 void init_and_activate__10TObjPlayerFv(void *);
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 void init_model__9TObjEneDDFv(void *, void *, int);
-void set_animation__10TObjPlayerFPvs(void *, s16);
+void set_animation__10TObjMotionFs(void *, s16);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
 s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
 
@@ -1909,10 +1910,10 @@ void *TObjEneBm3FlyNest__ct(void *arg0, void *arg1, void *arg2) {
     init_model__9TObjEneDDFv(self, &bm3_flynest_collider_params, 1);
     self->f300 = lbl_805D9D20 + self->pos.y;
     ((VObj_800B3EB8 *)self)->m86();
-    ((TObjPlayer *)self)->set_field_d8((s32)bm3_flynest_hit_action_table);
-    ((TObjPlayer *)self)->set_field_dc(*(s32 *)((int)lbl_805D5108 + 0x430));
+    ((TObjMotion *)self)->set_field_d8((s32)bm3_flynest_hit_action_table);
+    ((TObjMotion *)self)->set_field_dc(*(s32 *)((int)lbl_805D5108 + 0x430));
     self->fB8 = 0;
-    set_animation__10TObjPlayerFPvs(self, self->fB8);
+    set_animation__10TObjMotionFs(self, self->fB8);
     ((TObjMotion *)self)->set_field_b8(self->fB8);
     reset_hp__9TObjEneDDFv(self, lbl_805D50F8, lbl_805D50FC, lbl_805D5100);
     ((TObjEneDD *)self)->check_state_flag_1();

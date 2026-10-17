@@ -495,7 +495,7 @@ s32 TBoss6Mine__ct(s32 arg0, s32 parent, s32 arg2) {
     bind_enemy_combat_stats(THIS, (u8 *)(TLobby::register_boss(0x2D)), (u8 *)(TLobby::dispatch_shared_handler_b(0x2D)), (u8 *)(TLobby::register_object(0x2D)));
     *(s16 *)((s8 *)THIS + 0x33E) = *(s16 *)((s8 *)THIS + 0x32C);
     ((TBoss3Volopt *)THIS)->reset_photon_effect();
-    ((TObjEneLappy *)THIS)->set_param(0);
+    ((TObjEnemy *)THIS)->set_param(0);
     *(s32 *)((s8 *)THIS + 0x3A0) = lbl_805DF5D0 * TBoss6Mine::next_random_float((s32 *)(THIS + 0x388)) + lbl_805DF5CC;
     *(s32 *)((s8 *)THIS + 0x3A4) = 0x96 - *(s32 *)((s8 *)THIS + 0x3A0);
     *(s32 *)((s8 *)THIS + 0x3A8) = lbl_805DF5D8 * TBoss6Mine::next_random_float((s32 *)(THIS + 0x388)) + lbl_805DF5D4;

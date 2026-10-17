@@ -107,7 +107,7 @@ void TPhotonFarlla::render() {
         model_render_flags |= 0x200820;
         TObjPlayer::set_global_flag();
         set_chunk_material_override_pair(-1, 0x800);
-        set_chunk_material_color((f32 *)&self->color);
+        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&self->color);
         ((TObjEneRe7Berura *)self)->draw();
         TObjPlayer::clear_global_state();
         chunk_polygon_flags_and_mask = lbl_805D5664;

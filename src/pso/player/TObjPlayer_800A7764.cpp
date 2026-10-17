@@ -267,15 +267,15 @@ void TObjEneDimedian::sub_800A7B54() {
     switch (*(s32 *)((s8 *)arg0 + 0x334)) {
     case 2:
         *(s32 *)((s8 *)arg0 + 0x368) = 0;
-        ((TObjEneLappy *)arg0)->set_param(0x2B);
+        ((TObjEnemy *)arg0)->set_param(0x2B);
         return;
     case 1:
         *(s32 *)((s8 *)arg0 + 0x368) = 1;
-        ((TObjEneLappy *)arg0)->set_param(0x2A);
+        ((TObjEnemy *)arg0)->set_param(0x2A);
         return;
     default:
         *(s32 *)((s8 *)arg0 + 0x368) = 2;
-        ((TObjEneLappy *)arg0)->set_param(0x29);
+        ((TObjEnemy *)arg0)->set_param(0x29);
         return;
     }
 }

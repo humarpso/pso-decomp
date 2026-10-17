@@ -53,7 +53,7 @@ extern char lbl_804414C8[];
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void set_indexed_flags(void *arg0, s32 index, s32 flags);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 
 extern void *tl_05;
 
@@ -174,8 +174,8 @@ s32 TUnk_804B1B80::sub_80166EA8(int _w1) {
 }
 
 void TOFenceAncient02::vfunc_16() {  }
-void TOFenceAncient02::vfunc_15() { *(int *)&this->m_ac = 0; *(int *)&this->unk_D0 = 0; ((TObjPlayer *)this)->clear_player_status_flag((s32)((void*)0), (u32)((void*)8)); }
-void TOFenceAncient02::vfunc_14() { *(int *)&this->m_ac = 1; *(int *)&this->unk_D0 = 1; set_indexed_flags(this, (s32)((void*)0), (s32)((void*)8)); }
+void TOFenceAncient02::vfunc_15() { *(int *)&this->m_ac = 0; *(int *)&this->unk_D0 = 0; ((TUnk_804AF8A0 *)this)->clear_player_status_flag((s32)((void*)0), (u32)((void*)8)); }
+void TOFenceAncient02::vfunc_14() { *(int *)&this->m_ac = 1; *(int *)&this->unk_D0 = 1; set_indexed_flags__13TUnk_804AF8A0Fll(this, (s32)((void*)0), (s32)((void*)8)); }
 
 __declspec(section ".data") const char *bm_fd_obj_n_saku_4x2_model_names[2] = { lbl_80441438, NULL };
 __declspec(section ".data") const char *bm_fd_obj_n_saku_4x2_motion_names[2] = { lbl_80441450, NULL };

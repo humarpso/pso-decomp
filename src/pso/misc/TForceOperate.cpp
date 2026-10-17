@@ -108,7 +108,7 @@ typedef struct Out_801C58CC {
 
 extern "C" {
 void calc_death_pose_height_offset(Out_801C58CC *arg0, Actor_801C58CC *arg1);
-s32 obj_testFlags30(int, int);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(int, int);
 s32 is_inactive__10TObjPlayerFv();
 s32 is_on_current_floor__10TObjPlayerFi(int);
 s32 check_flag_40000__10TObjPlayerFv(int);
@@ -201,7 +201,7 @@ void update_player_appear_fade(u8 *arg0) {
                     }
                     *(s32 *)((s8 *)arg0 + 4) = 1;
                     ((TObjPlayer *)temp_r3)->activate_body_collision();
-                    if (obj_testFlags30((int)temp_r3, 0x800) == 0) {
+                    if (obj_testFlags30__13TUnk_804AF8A0FUl((int)temp_r3, 0x800) == 0) {
                         TObjPlayer::spawn_appearance_effect((int) (*(u16 *)((s8 *)arg0 + 0)));
                     }
                     *(f32 *)((s8 *)temp_r3 + 0x624) = (f32) lbl_805DC32C[0];
@@ -249,7 +249,7 @@ void reset_player_appearance_opacity(void* a0);
 void update_target_lock__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 get_current_floor();
 s32 TObjPlayer__sub_801C6F90();
-void set_chunk_material_color(f32 *arg);
+void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 int clear_flags__11TAdRicoRingFUl(void*, void*);
 s32 clear_target_lock_flag__10TObjPlayerFPv(s32);
 s32 fn_801C6F2C(void *);
@@ -273,7 +273,7 @@ void TObjPlayer::enter_battle_state() {
 
 void reset_player_appearance_opacity(void* a0) { *(float*)((char*)a0 + 0x1c) = lbl_805DC320[0]; }
 
-void TObjPlayer::write_ids() { set_some_id__FUl((s32)this->m_name); set_chunk_material_override_pair((s32)(*(void**)((char*)this + 0x4)), (s32)this->m_prev); set_chunk_material_color((f32 *)((char*)this + 0xc)); }
+void TObjPlayer::write_ids() { set_some_id__FUl((s32)this->m_name); set_chunk_material_override_pair((s32)(*(void**)((char*)this + 0x4)), (s32)this->m_prev); set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)((char*)this + 0xc)); }
 
 typedef char RecoveredGlobal_801C5B68_lbl_8058D4C0_size[sizeof(RecoveredGlobal_801C5B68_lbl_8058D4C0) == 0x10 ? 1 : -1];
 void save_render_material_state(u8 *arg0) {

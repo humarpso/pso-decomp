@@ -710,7 +710,7 @@ void TObjPlayer::load_kamome_resources() {
     (*(u8 * *)&lobby_kamome_texture_gvm_handle) = load_gvm_texture_file((s32) &lbl_80471978.value);
 }
 
-s32 TObjPlayer::update_path_steering() {
+s32 TUnk_804E08D4::update_path_steering() {
     Vec_802C1660 a;
     Vec_802C1660 b;
     Vec_802C1660 d;
@@ -819,7 +819,7 @@ void TUnk_804E08D4::vfunc_13(s32) {
     s32 temp_r0;
 
     this->m_a4 += jungle_seagull_path_profiles[this->m_c8].b;
-    if (((TObjPlayer *)arg0)->update_path_steering() == 0) {
+    if (((TUnk_804E08D4 *)arg0)->update_path_steering() == 0) {
         this->m_a4 = (0.0f);
     }
     this->m_a8 += jungle_seagull_path_profiles[this->m_c8].c;

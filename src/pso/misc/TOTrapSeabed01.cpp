@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -166,7 +167,7 @@ struct Trap_802C9F70 {
 };
 
 extern "C" {
-void set_indexed_flags(void *, s32, s32);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *, s32, s32);
 s32 submit_cursor_candidate(void *, int);
 void vfunc_82__14TOTrapSeabed01Fv(u8 *arg0);
 u16 find_nearest_visible_player(void *, int, f32);
@@ -192,7 +193,7 @@ extern SeabedTrapFragmentSpawn seabed_trap_fragment_spawns[];
 extern s32 TOTrapSeabed01__bml_resource;
 extern s32 TOTrapSeabed01__texture_file;
 void TOTrapSeabed01__vt83(Trap_802C9E3C *self);
-s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
+s32 check_value_equals__13TUnk_804B6C24Fl(void *, s32);
 s32 is_valid_and_active__10TObjPlayerFUl();
 extern s32 lbl_805D3530;
 s32 vfunc_67__14TOTrapSeabed01Fv(Trap_802C9F70 *self);
@@ -245,7 +246,7 @@ int TOTrapSeabed01::vfunc_67() {
     VObj_802C9F70 *o;
     for (i = 0; i < 0x10; i++) {
         o = (VObj_802C9F70 *)TObjPlayer::get_battle_param(i);
-        if (is_valid_and_active__10TObjPlayerFUl() != 0 && check_value_equals__13TQuestColCtrlFPll(o, lbl_805D3530) != 0) {
+        if (is_valid_and_active__10TObjPlayerFUl() != 0 && check_value_equals__13TUnk_804B6C24Fl(o, lbl_805D3530) != 0) {
             Pair_802C9F70 p = ((Trap_802C9F70 *)this)->pair;
             o->m21(this, &p, 0, -1, -1);
             if (((Trap_802C9F70 *)this)->pair.a < 5) {
@@ -293,7 +294,7 @@ void TOTrapSeabed01::vfunc_82() {
     *(s32 *)((s8 *)arg0 + 0x348) = temp_r0;
     if (temp_r0 < 0) {
         *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0xC) = (f32) lbl_805DE64C;
-        set_indexed_flags(arg0, 0, 0x100);
+        set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 0x100);
         TObjPlayer::init_all_slots();
         ((TObjPlayer *)arg0)->check_object_collisions();
         ((VObj_18_f37bb9 *)(arg0))->m65(lbl_805DE640);
@@ -311,8 +312,8 @@ void TOTrapSeabed01::vfunc_81() {
         *(f32 *)((s8 *)arg0 + 0xC0) = (f32) temp_r0;
         *(s16 *)((s8 *)arg0 + 0x326) = 3;
         ((TUnk_804806E8 *)arg0)->calc_attach_pos();
-        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 0x08001F04U);
-        set_indexed_flags(arg0, 0, 0x8003);
+        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 0x08001F04U);
+        set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 0x8003);
         ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x40000U);
         check_hold_player__14TOTrapSeabed01FPv(arg0);
     }

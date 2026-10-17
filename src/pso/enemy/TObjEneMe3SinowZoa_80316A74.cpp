@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneDD_ST.h"
@@ -141,7 +142,7 @@ struct Vec_80316B20 { f32 x, y, z; };
 extern "C" {
 void transition_enemy_state(void *, s16);
 void advance_animation_playback(void *);
-void set_indexed_flags(void *, s32, s32);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *, s32, s32);
 s32 play_sound_effect(s32, u32, s16, s32);
 void TObjEneMe3SinowZoa__sub_80317254(u8 *arg0, s32 arg1);
 void TObjEneMe3SinowZoa__sub_803170F0(u8 *arg0, s32 arg1);
@@ -304,7 +305,7 @@ void TObjEneMe3SinowZoa__sub_80316C3C(Obj_80316C3C *arg0, s32 arg1) {
                     arg0->sub.m3();
                     arg0->flags |= 0x100000;
                     arg0->flags |= 0x40000;
-                    ((TObjPlayer *)arg0)->clear_player_status_flag(0, 0x08000000);
+                    ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 0x08000000);
                     arg0->state = 1;
                 } else {
                     arg0->state = 2;
@@ -371,7 +372,7 @@ void TObjEneMe3SinowZoa__sub_80316C3C(Obj_80316C3C *arg0, s32 arg1) {
             if (arg0->sub.m4() != 0) {
                 arg0->state = 5;
                 arg0->flags |= 0x40000;
-                set_indexed_flags(arg0, 0, 0x08000000);
+                set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 0x08000000);
             }
             break;
         }
@@ -392,7 +393,7 @@ void TObjEneMe3SinowZoa__sub_803170F0(u8 *arg0, s32 arg1) {
         ((VObj_14_0b0741 *)(arg0 + (1044)))->m1(0x1E);
         *(s32 *)((s8 *)arg0 + 0x3C0) = 0;
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 0x40000);
-        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 0x08000000U);
+        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 0x08000000U);
         *(s32 *)((s8 *)arg0 + 0x434) = 0;
         break;
     case 3:
@@ -432,7 +433,7 @@ void TObjEneMe3SinowZoa__sub_80317254(u8 *arg0, s32 arg1) {
             transition_enemy_state(arg0, 6);
             *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & ~5);
             *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) | 0x40000);
-            set_indexed_flags(arg0, 0, 0x08000000);
+            set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 0x08000000);
             break;
         }
     case 5:

@@ -6,6 +6,7 @@
 
 struct TObjEneMe3Stelth : public TObjEneDD_ST {
     virtual ~TObjEneMe3Stelth();
+    void draw_model();
     virtual void vfunc_88();
     virtual void vfunc_95();
     virtual void vfunc_96();

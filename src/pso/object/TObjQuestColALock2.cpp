@@ -42,7 +42,7 @@ u8 *__ct__12TQuestThreadFv(u8 *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
 extern s32 tl_00;
 u8 *TObjQuestColALock2__vt14(TObjQuestColALock2 *arg0);
-void set_indexed_flags(void *, s32, s32);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *, s32, s32);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * TObjQuestColBase__ct(void *, s32);
 extern RecoveredGlobal_80195BEC_lbl_80445E84 TObjQuestColALock__collision_desc;
@@ -166,7 +166,7 @@ u8 *TObjQuestColALock2__ct(TObjQuestColALock2 *arg0, s32 arg1, s32 _w2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80195BEC___vt__18TObjQuestColALock2 *)&__vt__18TObjQuestColALock2).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3408;
     init_collision_body_parts(arg0, (s32) &TObjQuestColALock__collision_desc.value, 1);
-    set_indexed_flags(arg0, 0, 0xF0);
+    set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 0xF0);
     temp_r4 = (u8 *)arg0->m_a4;
     *(f32 *)((s8 *)temp_r4 + 4) = (f32) (*(f32 *)((s8 *)temp_r4 + 4) + arg0->target_scale);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();

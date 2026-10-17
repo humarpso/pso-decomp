@@ -186,7 +186,7 @@ s32 rotate_matrix_x(s32, s32);
 s32 scale_current_matrix(void *);
 s32 post_translate_matrix(void *);
 void draw_ginja_object(void *child);
-void set_chunk_material_color(f32 *arg);
+void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
@@ -339,7 +339,7 @@ void TTecSlicer::render() {
     lbl_805D5660 = model_render_flags;
     if (this->useColorOverride != 0) {
         model_render_flags |= 0x10;
-        set_chunk_material_color((f32 *)&this->argb);
+        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&this->argb);
     }
     if (this->textureHandle != 0U && this->model != 0U) {
         TObjPlayer::notify_fish_if_valid(this->textureHandle);
@@ -351,7 +351,7 @@ void TTecSlicer::render() {
         rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
         scale_current_matrix((u8 *)&this->scale);
         draw_ginja_object(this->model);
-        set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
+        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)chunk_material_color_half_alpha_f32);
         TParticleCtrl::end_effect_render();
     }
     pop_matrix();

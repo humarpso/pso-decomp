@@ -6,6 +6,7 @@
 class TUnk_804CE018 : public TObject {
 public:
     virtual ~TUnk_804CE018();
+    void resort_window_order();
     void calc_inner_rect(u8 *);
     void sub_8026CC28();
     void update_window_entry_list(void *);

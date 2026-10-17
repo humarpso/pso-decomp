@@ -537,7 +537,7 @@ s32 TBoss6MagMine__ct(s32 arg0, s32 parent, s32 arg2) {
     bind_enemy_combat_stats(self, (u8 *)(register_boss__6TLobbyFl(0x2D)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(0x2D)), (u8 *)(register_object__6TLobbyFl(0x2D)));
     *(s16 *)((s8 *)self + 0x33E) = *(s16 *)((s8 *)self + 0x32C);
     ((TBoss3Volopt *)self)->reset_photon_effect();
-    ((TObjEneLappy *)self)->set_param(0);
+    ((TObjEnemy *)self)->set_param(0);
     d = dispatch_shared_handler_a__6TLobbyFl(0x2D);
     *(s32 *)((s8 *)self + 0x39C) = (s32) *(f32 *)((s8 *)d + 4);
     if ((f32) *(s32 *)((s8 *)self + 0x39C) <= 0.0f) {

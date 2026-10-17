@@ -6,7 +6,7 @@
 extern "C" {
 void run_task__13TUnk_804CCC68Fv(void *p);
 void move_ground_technique_projectile(void *p);
-void move_technique_projectile(u8 *arg0);
+void move_technique_projectile__13TUnk_804CCC68Fv(u8 *arg0);
 }
 
 #endif

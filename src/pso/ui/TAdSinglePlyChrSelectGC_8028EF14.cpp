@@ -1045,7 +1045,7 @@ struct Sel_802902CC {
 };
 
 s32 load_resource_from_descriptor(s32, s32, s32, s32, s32, s32);
-void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
+void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 s32 TObjMotion__ct(void *, void *);
 void *mem_alloc(u32 size);
 void reset_character_creation_figure_rotation(void);
@@ -1090,10 +1090,10 @@ void *TCMCharacter__ct(void *arg0, void *arg1) {
     char_select_current_entry = 0;
     ((void (*)(int))TAdSinglePlyChrSelectGC__sub_8028ED54)(0);
     char_select_current_entry = 0;
-    ((TObjPlayer *)arg0)->set_field_d8((s32)((void *)lbl_804D3EE4));
-    ((TObjPlayer *)arg0)->set_field_dc(*(s32 *)((s8 *)creation_menu_main_obj + 0x430));
+    ((TObjMotion *)arg0)->set_field_d8((s32)((void *)lbl_804D3EE4));
+    ((TObjMotion *)arg0)->set_field_dc(*(s32 *)((s8 *)creation_menu_main_obj + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = creation_motion_group(creation_player_character);
-    set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    set_animation__10TObjMotionFs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
     *(s32 *)((s8 *)arg0 + 0xE0) = (s32)mem_alloc(0xC00);
     *(f32 *)((s8 *)arg0 + 0x40) = lbl_805DD940;
     *(f32 *)((s8 *)arg0 + 0x3C) = lbl_805DD940;

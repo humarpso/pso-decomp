@@ -6,6 +6,7 @@
 class TUnk_804C4498 : public TObject {
 public:
     virtual ~TUnk_804C4498();
+    void sub_801D5884(u8);
     s32 reset_placement_search_ring();
     s32 step_placement_search();
     u8 unk_1C[0x1];

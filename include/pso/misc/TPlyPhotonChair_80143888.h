@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-s32 TPlyPhotonChair__sub_80143930(void *p);
+s32 sub_80143930__13TUnk_804A7478Fv(void *p);
 void *__dt__13TUnk_804A7488Fv(void *arg0, s16 arg1);
 }
 

@@ -5,6 +5,10 @@
 
 struct TBoss4Type2
 {
+    s32 sub_80057224();
+    void sub_80056FEC(s32);
+    void sub_80056F90(s32, s32);
+    void sub_80056998();
     u8 _pad1C[0x8];
     u32 m_24;
     u8 _pad28[0x8];
@@ -96,10 +100,8 @@ struct TBoss4Type2
     void set_grid_pos(void *arg1);
     void calc_grid_target_position();
     void send_attack_code(s32 arg1, s32 arg2);
-    void draw_hanger();
     void set_attack_pattern_by_index(s32 arg1);
     void update_phase_timer();
-    void init_hanger();
     void advance_afterimage();
     void update_main();
     static s32 create(s32 arg0);

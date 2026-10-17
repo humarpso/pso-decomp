@@ -71,7 +71,7 @@ struct Door_80163408 {
 };
 
 extern "C" {
-void set_indexed_flags(void *arg0, s32 index, s32 flags);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 s32 is_any_player_within_radius_xz(f32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805DB514;
@@ -92,7 +92,7 @@ s32 pop_matrix();
 s32 post_translate_matrix(void *);
 void draw_ginja_model(s32 model);
 s32 draw_ginja_model_with_motion(void *, int, f32);
-void set_chunk_material_color(f32 *arg);
+void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 extern char chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 *door_machine02_texture_param_table;
@@ -121,7 +121,7 @@ void TODoorMachine02::vfunc_17() {
     u8 *arg0 = (u8 *)this;
     if (!(this->m_d0 & 1) || (is_any_player_within_radius_xz(lbl_805DB510) != 1)) {
         this->m_ac = 3;
-        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
+        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 8);
         play_sound_effect(0x4004BC01, (u8 *)&this->position, 0, 0);
     }
 }
@@ -132,7 +132,7 @@ void TODoorMachine02::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
     if ((this->m_d0 & 1) && (is_any_player_within_radius_xz(lbl_805DB514) == 1)) {
         this->m_ac = 1;
-        set_indexed_flags((arg0), 0, 8);
+        set_indexed_flags__13TUnk_804AF8A0Fll((arg0), 0, 8);
         play_sound_effect(0x4004BC01, (u8 *)&this->position, 0, 0);
     }
     if (this->m_d0 & 0x10000) {
@@ -166,7 +166,7 @@ void TODoorMachine02::render() {
                 s32 id = model_render_flags;
                 lbl_805D5660 = id;
                 model_render_flags = id | 0x10;
-                set_chunk_material_color((f32 *)arg0->fD4);
+                set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)arg0->fD4);
             }
             push_matrix();
             n = n->next2C;
@@ -179,7 +179,7 @@ void TODoorMachine02::render() {
             draw_ginja_model(n->f4);
             pop_matrix();
             if (flag != 1) {
-                set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
+                set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)chunk_material_color_half_alpha_f32);
                 model_render_flags = lbl_805D5660;
             }
             n = arg0->model->root->next30;

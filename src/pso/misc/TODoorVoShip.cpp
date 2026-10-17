@@ -87,7 +87,7 @@ void TODoorVoShip::run_task() {
         }
         if ((get_story_flag(0x2F) != 0) || (get_main_phase() == 0xF)) {
             this->m_cc = (s32) (this->m_cc & 0xFFFFFFF1);
-            ((TObjPlayer *)arg0)->clear_player_status_flag(0, (int)(1U));
+            ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, (int)(1U));
         }
     }
 }
@@ -110,7 +110,7 @@ void TODoorVoShip::render() {
         temp_r4 = model_render_flags;
         lbl_805D5660 = temp_r4;
         model_render_flags = temp_r4 | 0x20;
-        set_chunk_material_color((f32 *)(arg0 + 0xDC));
+        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)(arg0 + 0xDC));
         TParticleCtrl::begin_effect_render();
         temp_r31 = *(u8 * *)&this->m_d4;
         push_matrix();
@@ -138,7 +138,7 @@ void TODoorVoShip::render() {
         }
         pop_matrix();
         TParticleCtrl::end_effect_render();
-        set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
+        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)chunk_material_color_half_alpha_f32);
         model_render_flags = lbl_805D5660;
         pop_matrix();
     }
@@ -221,7 +221,7 @@ u8 *TODoorVoShip__ct(TODoorVoShip *arg0, s32 arg1, s32 arg2) {
     } else {
 block_8:
         arg0->m_cc = (s32) (arg0->m_cc & 0xFFFFFFF1);
-        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
+        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 1);
     }
     return (u8 *)arg0;
 }

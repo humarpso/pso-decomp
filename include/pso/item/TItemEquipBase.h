@@ -6,6 +6,8 @@
 
 struct TItemEquipBase : public TItem {
     virtual ~TItemEquipBase();
+    int get_flag_40();
+    void refresh_owner_stats();
     void request_model_load(s32);
     void sub_8010A948();
     void send_6x61_activate_mag_effect(s32);

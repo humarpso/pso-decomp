@@ -77,10 +77,10 @@ u8 *TPhotonFarlla__ct(u8 *arg0, u8 *arg1) {
     }
     *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x8);
     ((TPhotonFarlla *)arg0)->texture_id = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0xC);
-    ((TObjPlayer *)arg0)->set_field_d8((s32) lbl_804C3518);
-    ((TObjPlayer *)arg0)->set_field_dc(*(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
+    ((TObjMotion *)arg0)->set_field_d8((s32) lbl_804C3518);
+    ((TObjMotion *)arg0)->set_field_dc(*(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
     ((TPhotonFarlla *)arg0)->m_b8 = 1;
-    set_animation__10TObjPlayerFPvs(arg0, ((TPhotonFarlla *)arg0)->m_b8);
+    set_animation__10TObjMotionFs(arg0, ((TPhotonFarlla *)arg0)->m_b8);
     ((TObjMotion *)arg0)->set_field_b8(((TPhotonFarlla *)arg0)->m_b8);
     ((TPhotonFarlla *)arg0)->m_194 = 1;
     ((TPhotonFarlla *)arg0)->m_198 = *(s32 *)((s8 *)arg1 + 0x10);

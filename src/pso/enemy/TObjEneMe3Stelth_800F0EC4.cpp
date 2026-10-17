@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
@@ -432,7 +433,7 @@ void TObjEneMe3Stelth__sub_800F1440(u8 *arg0, s32 arg1) {
         F(s32, 0x3CC) &= 0xFFFFFFF1;
         F(s32, 0x3CC) |= 1;
         F(s32, 0x3CC) |= 0x40000;
-        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 0x08000000);
+        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 0x08000000);
         F(s32, 0x424) = 0;
         play_sound_effect(0x3B23B, arg0 + 0x38, 0, 0);
         break;

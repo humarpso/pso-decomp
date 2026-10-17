@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjCGrass.h"
@@ -250,8 +251,8 @@ u8 *TObjCGrass__ct(Grass_800B8EFC *self, u8 *arg1, s32 arg2, s32 arg3) {
     self->f24 = (*(Mgr_800B8EFC * *)&TObjCGrass_bml_resource)->src->fC;
     self->fDC = (*(Mgr_800B8EFC * *)&TObjCGrass_bml_resource)->f430;
     self->fD8 = cgrass_action_desc;
-    ((TObjPlayer *)self)->set_field_d8((s32)self->fD8);
-    set_animation__10TObjPlayerFPvs(self, 0);
+    ((TObjMotion *)self)->set_field_d8((s32)self->fD8);
+    set_animation__10TObjMotionFs(self, 0);
     self->f100 = self->fC4 - lbl_805D9E6C;
     self->count = arg2;
     if (arg2 != 0) {

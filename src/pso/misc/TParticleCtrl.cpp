@@ -175,7 +175,7 @@ extern Col_80085798 demo_mode_particle_color;
 extern const f32 lbl_805D9478;
 void TObjRoomId__sub_80141CF4(void *dst, Col_80085798 *src, f32 t);
 void set_color_blend_mode(s32 a, s32 b, s32 c, s32 d);
-void set_chunk_material_color(f32 *arg);
+void set_chunk_material_color__13TUnk_80494AE0Fv(f32 *arg);
 s32 find_particle_texture_index(s32 id);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern const f32 TParticleCtrl__data_805D94C4;
@@ -526,7 +526,7 @@ void TUnk_8048E728::apply_particle_model_fade_color(s32 mode) {
         f.g = 0.0f;
         f.b = 0.0f;
     }
-    set_chunk_material_color((f32 *)&f);
+    set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&f);
 }
 
 u8 *__dt__13TUnk_8048E728Fv(u8 *arg0, s16 arg1) {

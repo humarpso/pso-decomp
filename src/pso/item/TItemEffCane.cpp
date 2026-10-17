@@ -21,7 +21,7 @@ void TItemEffCane::run_task() {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    if (TObjPlayer__sub_80102C30((u8 *)item) != 2 ||
+    if (sub_80102C30__5TItemFv((u8 *)item) != 2 ||
         test_flags_1b8__11TItemWeaponFUl(item, 0x10) == 0 || effect == NULL) {
         queue_destruction__7TObjectFv(this);
         return;

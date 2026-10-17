@@ -220,7 +220,7 @@ extern const f32 lbl_805DC028;
 s32 get_main_phase();
 s32 is_local_client_floor_leader();
 s32 TObjWarpBossMulti__sub_8019E570(s32 arg0, f32 farg0);
-void close_windows__17TObjWarpBossMultiFPv(void *arg0);
+void close_windows__12TObjWarpBossFv(void *arg0);
 s32 TWindow__close(void *);
 extern s32 boss_warp_confirmation_model;
 extern s32 warp_boss_motion;
@@ -726,18 +726,18 @@ s32 TObjWarpBossMulti__sub_8019E570(s32 arg0, f32 farg0) {
 }
 #pragma pop
 
-void close_windows__17TObjWarpBossMultiFPv(void *arg0) {
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x168) != 0U) {
-        ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x168)))->close();
-        *(u32 *)((s8 *)arg0 + 0x168) = 0U;
+void TObjWarpBoss::close_windows() {
+    if ((u32) *(u32 *)((s8 *)this + 0x168) != 0U) {
+        ((TWindowSubComCard *)(*(void **)((s8 *)this + 0x168)))->close();
+        *(u32 *)((s8 *)this + 0x168) = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0xB0) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0xB0));
-        *(u32 *)((s8 *)arg0 + 0xB0) = 0U;
+    if ((u32) *(u32 *)((s8 *)this + 0xB0) != 0U) {
+        TWindow__close(*(void **)((s8 *)this + 0xB0));
+        *(u32 *)((s8 *)this + 0xB0) = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x164) != 0U) {
-        TWindow__close(*(void **)((s8 *)arg0 + 0x164));
-        *(u32 *)((s8 *)arg0 + 0x164) = 0U;
+    if ((u32) *(u32 *)((s8 *)this + 0x164) != 0U) {
+        TWindow__close(*(void **)((s8 *)this + 0x164));
+        *(u32 *)((s8 *)this + 0x164) = 0U;
     }
     end_player_keyboard_hold(local_client_id);
     TWindowCtrl::clear_flag();
@@ -921,7 +921,7 @@ void TObjWarpBoss::update_warp_state() {
         }
         break;
     case -1:
-        ((s32 (*)())close_windows__17TObjWarpBossMultiFPv)();
+        ((s32 (*)())close_windows__12TObjWarpBossFv)();
         break;
     }
 }
@@ -986,7 +986,7 @@ void TObjWarpBoss::update_warp_confirmation() {
             *(s16 *)((s8 *)arg0 + 0xE0) = 5;
         }
         if (*(s16 *)((s8 *)arg0 + 0xE0) != 2) {
-            close_windows__17TObjWarpBossMultiFPv(arg0);
+            close_windows__12TObjWarpBossFv(arg0);
         }
         break;
     case 3:
@@ -1004,7 +1004,7 @@ void TObjWarpBoss::update_warp_confirmation() {
         }
         break;
     case -1:
-        close_windows__17TObjWarpBossMultiFPv(arg0);
+        close_windows__12TObjWarpBossFv(arg0);
         break;
     case 5:
         break;
@@ -1220,7 +1220,7 @@ void *__dt__12TObjWarpBossFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjWarpBoss;
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
-        close_windows__17TObjWarpBossMultiFPv(arg0);
+        close_windows__12TObjWarpBossFv(arg0);
         __dt__12TObjAreaWarpFv((u8 *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

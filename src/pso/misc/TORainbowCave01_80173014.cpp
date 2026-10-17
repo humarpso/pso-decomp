@@ -104,14 +104,14 @@ void TORainbowCave01::render() {
         } else {
             c.a = self->fCC;
         }
-        set_chunk_material_color((f32 *)&c);
+        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&c);
         push_matrix();
         post_translate_matrix(self->pos38);
         rotate_matrix_y(0, self->f60);
         scale_current_matrix(self->fD4);
         draw_ginja_object((void *)self->f34);
         pop_matrix();
-        set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
+        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)chunk_material_color_half_alpha_f32);
         model_render_flags = lbl_805D5660;
         TParticleCtrl::end_effect_render();
     }

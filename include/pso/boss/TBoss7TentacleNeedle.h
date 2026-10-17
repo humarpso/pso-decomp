@@ -6,6 +6,7 @@
 
 struct TBoss7TentacleNeedle : public TObject {
     virtual ~TBoss7TentacleNeedle();
+    void advance_needle_timer();
     void* m_1c;
     u8 _pad20[0x8];
     u32 m_28;
@@ -31,8 +32,8 @@ u8 TBoss7Tentacle__sub_802F0904(u8 *arg0);
 void TBoss7Tentacle__sub_802F0918(void *p);
 void TBoss7Tentacle__sub_802F09B4(void *p);
 void TBoss7Tentacle__sub_802F09C8(void *a0);
-void TBoss7Tentacle__sub_802F09EC(void *p);
-void TBoss7Tentacle__sub_802F09FC(u8 *arg0);
+void sub_802F09EC__14TBoss7TentacleFv(void *p);
+void sub_802F09FC__14TBoss7TentacleFv(u8 *arg0);
 void TBoss7Tentacle__sub_802F0A14(u8 *arg0);
 void TBoss7Tentacle__sub_802F0A2C(u8 *arg0);
 void TBoss7Tentacle__sub_802F0A44(u8 *arg0);
@@ -44,7 +45,7 @@ void TBoss7Tentacle__sub_802F0B80(void *p);
 void TObjPlayer__sub_802EFEC4(void);
 void TObjPlayer__sub_802F0D2C(void);
 void *__dt__20TBoss7TentacleNeedleFv(void *arg0, s16 arg1);
-void advance_needle_timer__20TBoss7TentacleNeedleFPv(void *arg0);
+void advance_needle_timer__20TBoss7TentacleNeedleFv(void *arg0);
 void damage_nearby_players__14TBoss7TentacleFPv(u8 *arg0);
 void fn_802EFEA8(void);
 void render__14TBoss7TentacleFv(u8 *arg0);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/unk/text_80108F04.h"
 #include "pso/unk/text_80125F60.h"
 #include "pso/player/TObjPlayer.h"
@@ -48,7 +49,7 @@ u8 *TObjPlayer__sub_80125FD8(u8 *arg0, u8 *arg1, s32 _w2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A2868.value;
     ((TObjPlayer *)arg0)->set_status_flags(0x8000);
     *(f32 *)((s8 *)arg0 + 0x1E4) = (f32) lbl_805DAD68;
-    if (((TItemProShield *)arg0)->get_slot_count() == 1) {
+    if (((TItem *)arg0)->get_slot_count() == 1) {
         *(s32 *)((s8 *)arg0 + 0x1F8) = 0xA;
     } else {
         *(s32 *)((s8 *)arg0 + 0x1F8) = 1;

@@ -189,7 +189,7 @@ struct Cam_8003DA78 { s8 a; s8 b; s16 c; f32 d; f32 e; };
 
 void reset_status_effect_row(u8 *arg0);
 int get_player_data__10TObjPlayerFi(int a0);
-s32 obj_testFlags30(void *, int);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, int);
 u16 obj_getField1c(void *);
 s32 obj_setFlags30(void *, s32);
 int read_be16_field2__10TObjPlayerFv(void* a0 = 0);
@@ -221,7 +221,7 @@ void TBoss3Volopt__sub_8003F384(void* p);
 s32 get_adjusted_angle__12TBoss3VoloptFl(void *, int);
 u16 get_param_offset__12TBoss3VoloptFl(void *, int);
 void clear_volopt_cage_flag(void);
-s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
+s32 check_value_equals__13TUnk_804B6C24Fl(void *, s32);
 s32 is_photon_blast_active__11TCameraCtrlFPv();
 s32 fn_8003F3F8();
 void TBoss3VoloptCore__sub_80040788(void);
@@ -464,8 +464,8 @@ void TBoss3Volopt__sub_8003CE38(s32 arg0) {
         p = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (p == NULL) continue;
         if (*(u8 **)((s8 *)p + 0xA4) == NULL) continue;
-        if (check_value_equals__13TQuestColCtrlFPll(p, lbl_805D2ECC) != 0) continue;
-        if (check_value_equals__13TQuestColCtrlFPll(p, TODoorVoShip__class_name) != 0) continue;
+        if (check_value_equals__13TUnk_804B6C24Fl(p, lbl_805D2ECC) != 0) continue;
+        if (check_value_equals__13TUnk_804B6C24Fl(p, TODoorVoShip__class_name) != 0) continue;
         if (!(*(u32 *)((s8 *)(*(u8 **)((s8 *)p + 0xA4)) + 0x18) & 0x20000)) continue;
         if (fabs_float(*(f32 *)((s8 *)p + 0x40) - base) > lbl_805D865C) {
             V3_8003CC18 pos = *(V3_8003CC18 *)(p + 0x38);
@@ -1156,11 +1156,11 @@ void TBoss3Volopt::update_camera_seq() {
 
 void TBoss3Volopt::run_task() {
     u8 *arg0 = (u8 *)this;
-    if (obj_testFlags30(arg0, 0x800) != 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x800) != 0) {
         queue_destruction__7TObjectFv((arg0));
         return;
     }
-    if (obj_testFlags30(arg0, 0x4000) != 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x4000) != 0) {
         if (((TObjPlayer *)arg0)->add_status_effect_timer(4, -1) <= 0) {
             reset_status_effect_row(((u8 *)&this->unk_284));
             ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x4000);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/unk/text_80120D50.h"
 #include "pso/unk/text_8012712C.h"
 #include "pso/item/TUnk_804A3070.h"
@@ -19,7 +20,7 @@ u8 *TUnk_804A3070::construct_agito(s32 a, void *b) {
     TItemWeapon__ct((TItemWeapon *)((u8 *)self), (void *)a, (u8 *)b);
     self->vt = lbl_804A3070;
     ((TObjPlayer *)self)->set_status_flags(2);
-    if (((TItemProShield *)self)->get_slot_count() == 0) {
+    if (((TItem *)self)->get_slot_count() == 0) {
         ((TObjPlayer *)self)->set_status_flags(0x20);
         self->f1f0 = (void *)create_lavis_shot;
         self->f1e4 = lbl_805DADB8;

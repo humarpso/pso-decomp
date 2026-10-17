@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/unk/TObjEneEpsilonBody.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/object/TObjMotion.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -952,7 +955,7 @@ void TObjEneEpsilonGuard::sub_8035EA90() {
                     t = (u32)find_entity_by_id(*(u16 *)((s8 *)((u8 *)this) + 0x470));
                     if (t != 0 && p->m31() == 0) {
                         Pair_8035EA90 pr;
-                        pr.a = ((TObjEneEpsilonGuard *)t)->get_table_value_by_index();
+                        pr.a = ((TObjEneEpsilonBody *)t)->get_table_value_by_index();
                         pr.b = *(f32 *)((s8 *)TObjEneEpsilonGuard__movement_params + 0xC);
                         p->m21(this, pr, 0, -1, -1);
                         p->m23(this);
@@ -1075,8 +1078,8 @@ s32 get_bml_model(void *, int);
 s32 reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
 s32 init_model__9TObjEneDDFv(void *, void *, int);
-void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
-void set_indexed_flags(void *arg0, s32 index, s32 flags);
+void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 s32 init_collision_body_parts(void *, void *, int);
 void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
 extern s32 epsilon_guard_boss_stat_handle;
@@ -1347,13 +1350,13 @@ void TObjEneEpsilonGuard::init_model_and_state() {
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(lbl_805D6FA0, 2);
     *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0(lbl_805D6FA0, 0);
     init_model__9TObjEneDDFv(arg0, TObjEneEpsilonGuard__model_desc, 1);
-    ((TObjPlayer *)arg0)->set_field_d8((s32)lbl_804F2024);
-    ((TObjPlayer *)arg0)->set_field_dc(*(s32 *)((s8 *)lbl_805D6FA0 + 0x430));
+    ((TObjMotion *)arg0)->set_field_d8((s32)lbl_804F2024);
+    ((TObjMotion *)arg0)->set_field_dc(*(s32 *)((s8 *)lbl_805D6FA0 + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-    set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    set_animation__10TObjMotionFs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
     ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
     reset_hp__9TObjEneDDFv(arg0, epsilon_guard_boss_stat_handle, epsilon_guard_shared_handler_b, epsilon_guard_registered_object_handle);
-    set_indexed_flags(arg0, 0, 0x80020);
+    set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 0x80020);
     ((TObjEneDD *)arg0)->check_state_flag_4();
     *(void **)((s8 *)arg0 + 0x350) = lbl_804F2008;
     initialize_enemy_state__9TObjEneDDFv(arg0, 0x57);

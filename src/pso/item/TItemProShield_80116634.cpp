@@ -22,7 +22,7 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *TItemProShield__sub_80116744(u8 *arg0);
 s32 add_actor_hp(u8 *arg0, s16 arg1);
-s32 get_slot_count__14TItemProShieldFv(void *);
+s32 get_slot_count__5TItemFv(void *);
 extern s32 game_difficulty_selection;
 void vfunc_44__13TUnk_8049F770Fv(Obj_80116634 *arg0);
 void *__dt__13TUnk_8049F770Fv(void *arg0, s16 arg1);
@@ -39,7 +39,7 @@ void TUnk_8049F770::vfunc_44() {
     Obj_80116634 *arg0 = (Obj_80116634 *)this;
   u8 (*new_var2)(void *);
   s32 t;
-  new_var2 = (u8 (*)(void *)) get_slot_count__14TItemProShieldFv;
+  new_var2 = (u8 (*)(void *)) get_slot_count__5TItemFv;
   if (new_var2(arg0) != 2)
   {
     int new_var;
@@ -90,7 +90,7 @@ void TUnk_8049F828::vfunc_44() {
 
     temp_r3 = ((TObjPlayer *)(this->m_f0))->activate_d04_slot();
     if (temp_r3 != 0) {
-        apply_transform_action__8TItemMagFUc(temp_r3, get_slot_count__14TItemProShieldFv(this));
+        apply_transform_action__8TItemMagFUc(temp_r3, get_slot_count__5TItemFv(this));
     }
 }
 
@@ -213,7 +213,7 @@ u8 *create_moon_atomizer_item(u8 *arg0) {
 void TUnk_8049F998::vfunc_44() {
     struct VObj_80116A5C_80116634 *obj;
 
-    switch ((s32) (((u8 (*)())get_slot_count__14TItemProShieldFv)())) {
+    switch ((s32) (((u8 (*)())get_slot_count__5TItemFv)())) {
     case 0:
         obj = *(struct VObj_80116A5C_80116634 * *)&this->m_f0;
         obj->m51();

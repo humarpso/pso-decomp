@@ -43,7 +43,7 @@ extern RecoveredGlobal_80081CD0_lbl_8058D490 identity_matrix;
 extern const f32 lbl_805D9378;
 extern const f32 lbl_805D9388;
 extern const f32 lbl_805D938C;
-s32 obj_testFlags30(s32, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(s32, s32);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
@@ -69,8 +69,8 @@ s32 TUnk_8048E1A4::freeze_shell_hold() {
         return;
     }
     this->rotation_y += 0x10;
-    if (obj_testFlags30(p, 0x800) == 0) {
-        if (obj_testFlags30(p, 0x20) != 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(p, 0x800) == 0) {
+        if (obj_testFlags30__13TUnk_804AF8A0FUl(p, 0x20) != 0) {
             return;
         }
     }
@@ -173,11 +173,11 @@ void TUnk_8048E1A4::render() {
         case 2:
             lbl_805D5660 = model_render_flags;
             model_render_flags = lbl_805D5660 | 0x8820;
-            set_chunk_material_color(&this->m_340);
+            set_chunk_material_color__13TUnk_80494AE0Fv(&this->m_340);
             draw_ginja_object(this->model);
             model_render_flags &= 0xFFFF77DF;
             set_chunk_material_override_pair(0xFF00, 0);
-            set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
+            set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)chunk_material_color_half_alpha_f32);
             model_render_flags = lbl_805D5660;
             break;
         }

@@ -52,7 +52,6 @@ struct TObjEneLappy : public TObjEnemy {
     static void update_idle_state(void *ov);
     static void *create(void *arg0);
     static void load_resources();
-    void set_param(s32 v);
     u8 unk_398[0xC];
 };
 

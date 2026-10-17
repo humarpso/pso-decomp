@@ -1,4 +1,5 @@
 #include "pso/boss/TBoss4Zako.h"
+#include "pso/enemy/TObjEnemy.h"
 #include "pso/misc/TLobby.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
@@ -471,7 +472,7 @@ s32 TBoss4Zako__ct(s32 arg0, s32 parent, s32 arg2) {
     bind_enemy_combat_stats(THIS, (u8 *)(TLobby::register_boss(0x35)), (u8 *)(TLobby::dispatch_shared_handler_b(0x35)), (u8 *)(TLobby::register_object(0x35)));
     *(s16 *)((s8 *)THIS + 0x33E) = *(s16 *)((s8 *)THIS + 0x32C);
     ((TBoss3Volopt *)THIS)->reset_photon_effect();
-    ((TObjEneLappy *)THIS)->set_param(0);
+    ((TObjEnemy *)THIS)->set_param(0);
     *(s32 *)((s8 *)THIS + 0x388) = 0;
     if ((*(u32 *)((s8 *)THIS + 0x3B4) = (u32)create_particle_emitter(THIS + 0x38, 0x103)) != 0) {
         ((TBoss4Type2 *)(*(u32 *)((s8 *)THIS + 0x3B4)))->set_flags(0x40);

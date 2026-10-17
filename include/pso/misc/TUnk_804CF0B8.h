@@ -6,6 +6,16 @@
 class TUnk_804CF0B8 : public TUnk_804CDFE8 {
 public:
     virtual ~TUnk_804CF0B8();
+    void draw_tail(void *, u32, f32 *, f32);
+    void sub_80251DF0(s16, s32, s16, f32);
+    s32 clamp_position(void *, f32);
+    void set_color(u16);
+    void follow_anchor();
+    s32 is_speaker_far_or_offscreen();
+    s32 project_anchor(f32 *, f32 *);
+    void place_rect_at_head_or_slot();
+    void sub_802504A8();
+    void calc_text_size(f32 *);
     virtual void render();
     void clear_flag();
     s16 get_field_20();

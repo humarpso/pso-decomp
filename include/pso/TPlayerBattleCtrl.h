@@ -7,6 +7,7 @@
 class TPlayerBattleCtrl : public TObject {
 public:
     virtual ~TPlayerBattleCtrl();
+    void init_battle_round();
     virtual void run_task();
     s32 state_1c;
     s32 state_20;

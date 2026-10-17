@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void check_hits__14TItemAttackColFPv(u8 *arg0);
+void check_hits__13TUnk_804E355CFv(u8 *arg0);
 }
 
 #endif

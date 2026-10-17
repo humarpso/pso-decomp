@@ -135,7 +135,7 @@ s32 TWindowDuelResult__sub_801C19AC(void *);
 s32 calc_battle_score__19TPlayerBattleCtrl4PFPvPv(void *self, u8 *arg1);
 s32 get_split_screen_battle_timer_limit(u8 *arg0);
 void set_split_screen_battle_phase__19TPlayerBattleCtrl4PFl(u8 *arg0, s32 arg1);
-s32 check_value_equals__13TQuestColCtrlFPll(void *, int);
+s32 check_value_equals__13TUnk_804B6C24Fl(void *, int);
 void queue_destruction__7TObjectFv(void *);
 extern s32 lbl_805D2A98;
 void destroy_matching_children__19TPlayerBattleCtrl4PFPvPv(void *self, Par_80311304 *p);
@@ -202,7 +202,7 @@ void clear_trap_counts(s8 *arg0);
 s32 destroy_children_with_tag(s32);
 
 void begin_player_keyboard_hold(s32 arg0);
-s32 obj_testFlags30(u32, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(u32, s32);
 void play_effect_default__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 release_attached_resource__10TObjPlayerFv();
 void request_active_window_close(void);
@@ -532,7 +532,7 @@ s32 TPlayerBattleCtrl4P::check_all_players_flag() {
     var_r31 = 0;
 loop_1:
     var_r3 = get_player_by_client_id(var_r31);
-    if ((var_r3 != 0U) && (obj_testFlags30(var_r3, 0x02000000) != 0)) {
+    if ((var_r3 != 0U) && (obj_testFlags30__13TUnk_804AF8A0FUl(var_r3, 0x02000000) != 0)) {
         return 0;
     }
     var_r31 += 1;
@@ -751,7 +751,7 @@ void destroy_matching_children__19TPlayerBattleCtrl4PFPvPv(void *self, Par_80311
     while (p->head != 0 && n != 0) {
         cur = n;
         n = cur->next;
-        if (check_value_equals__13TQuestColCtrlFPll(cur, lbl_805D2A98) != 0) {
+        if (check_value_equals__13TUnk_804B6C24Fl(cur, lbl_805D2A98) != 0) {
             queue_destruction__7TObjectFv(cur);
         } else {
             destroy_matching_children__19TPlayerBattleCtrl4PFPvPv(self, (Par_80311304 *)cur);

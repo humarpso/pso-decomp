@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/misc/TOVS2Wall01_8017BCC8.h"
 #include "pso/unk/text_80087278.h"
 #include "pso/misc/TOVS2Wall01.h"
@@ -13,7 +14,7 @@ u16 obj_getField1c(u32);
 void init__11TOVS2Wall01Fi(s32 arg0) {
     s32 var_r31;
 
-    ((TObjPlayer *)arg0)->clear_player_status_flag(0, 1);
+    ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 1);
     var_r31 = 7;
     do {
         ((TOVS2Wall01 *)arg0)->spawn_debris(var_r31);

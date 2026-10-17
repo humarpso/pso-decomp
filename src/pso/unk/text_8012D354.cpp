@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItem.h"
 #include "pso/unk/text_8012D354.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemProShield.h"
@@ -19,7 +20,7 @@ u8 *construct_soul_eater_weapon(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A5838.value;
     *(s32 *)((s8 *)arg0 + 0x1F8) = 0;
-    if (((TItemProShield *)arg0)->get_slot_count() == 1) {
+    if (((TItem *)arg0)->get_slot_count() == 1) {
         ((TObjPlayer *)arg0)->set_status_flags(0x22);
     }
     return arg0;

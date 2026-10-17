@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/object/TObjMotion.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -711,7 +713,7 @@ s32 obj_isState2_324__13TUnk_804806E8Fv(void *);
 s16 get_attack_params_atp_min(void *p);
 s32 obj_is_hit_receivable(void);
 Obj_80098FF4 * get_player_data__10TObjPlayerFi(s32);
-s32 obj_testFlags30(void *, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
 s32 obj_getField1c(void *);
 void obj_setFlags30(void *, s32);
 void queue_destruction__7TObjectFv(void *arg0);
@@ -931,7 +933,7 @@ s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
 s32 init_model__9TObjEneDDFv(void *, void *, int);
 u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
-void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
+void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 s32 init_collision_body_parts(void *, void *, int);
 void *construct_collider_proxy__13TUnk_804AF8A0Fv(void *, s32);
 void *__nw__7TObjectFUl(int);
@@ -2371,7 +2373,7 @@ s32 TObjEneDellBiter__sub_80305C40(u8 *arg0) {
                     atk.val = *(s32 *)((s8 *)TObjEneDellBiter__movement_params + 0x20);
                 }
                 p->m21(arg0, atk, 0, -1, -1);
-                if (obj_testFlags30(p, 0x04000000) == 0) {
+                if (obj_testFlags30__13TUnk_804AF8A0FUl(p, 0x04000000) == 0) {
                     obj_setFlags30(p, 0x600);
                 }
                 n = __nw__7TObjectFUl(0x34);
@@ -2585,10 +2587,10 @@ void TObjEneDellBiter::init_params() {
     self->f24 = ((Glob_80306468 *)TObjEneDellBiter__shared_model_resource)->cfg->fC;
     init_model__9TObjEneDDFv(self, (Part_80306468 *)lbl_804E6B8C, 1);
     *(u32 *)(self->fA4 + 0x18) |= 0x400000;
-    ((TObjPlayer *)self)->set_field_d8((s32)&dell_biter_param_table);
-    ((TObjPlayer *)self)->set_field_dc(((Glob_80306468 *)TObjEneDellBiter__shared_model_resource)->f430);
+    ((TObjMotion *)self)->set_field_d8((s32)&dell_biter_param_table);
+    ((TObjMotion *)self)->set_field_dc(((Glob_80306468 *)TObjEneDellBiter__shared_model_resource)->f430);
     self->fB8 = 0;
-    set_animation__10TObjPlayerFPvs(self, self->fB8);
+    set_animation__10TObjMotionFs(self, self->fB8);
     ((TObjMotion *)self)->set_field_b8(self->fB8);
     reset_hp__9TObjEneDDFv(self, dellbiter_boss_stat_handle, TObjEneDellBiter__shared_handler_param, dellbiter_object_stat_handle);
     ((TObjEneDD *)self)->set_state_8();

@@ -6,6 +6,10 @@
 class TUnk_80488E00 : public TUnk_80488A28 {
 public:
     virtual ~TUnk_80488E00();
+    s32 sub_8006E7FC();
+    void sub_8006DCC8();
+    void sub_8006CF38();
+    s32 sub_8006CDD0();
     virtual void update_follow_flags();
     virtual void select_follow_camera_offsets();
     virtual void vfunc_14(s32);

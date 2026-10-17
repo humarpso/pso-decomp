@@ -1,4 +1,7 @@
 #include <dolphin/mtx.h>
+#include "pso/enemy/TObjEnemyCustom.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneMe1GiGue.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
@@ -53,7 +56,7 @@ f32 receive_attack__15TObjEneMe1GiGueFPviii(S_802CAAF0 *arg0, s32 arg1, V_802CAA
 f32 receive_physical_attack__15TObjEneMe1GiGueFPvf(u8 *arg0);
 void TObjEneMe1GiGueBarrier__sub_802CABF4(void* p);
 s32 check_vector_bit__15TObjEneMe1GiGueFii(s32 arg0, s32 arg1);
-void TObjEneMe1GiGue__sub_802CACD8(u8 *arg0);
+void sub_802CACD8__15TObjEneMe1GiGueFv(u8 *arg0);
 s32 update_action_hold_status__15TObjEneMe1GiGueFv(s32 arg0);
 void find_open_direction__15TObjEneMe1GiGueFPvPv(u8 *arg0, Vec_802CAD98 *arg1);
 void load_params__15TObjEneMe1GiGueFv(s32 arg0);
@@ -642,8 +645,9 @@ s32 check_vector_bit__15TObjEneMe1GiGueFii(s32 arg0, s32 arg1) {
 
 #pragma push
 #pragma fp_contract on
-void TObjEneMe1GiGue__sub_802CACD8(u8 *arg0) {
+void TObjEneMe1GiGue::sub_802CACD8() {
     s32 temp_r4;
+    u8 *arg0 = (u8 *)this;
     temp_r4 = ((TObjEneMe1GiGue *)arg0)->m_388;
     if (temp_r4 & 0x40000) {
         ((TObjEneMe1GiGue *)arg0)->m_388 = (s32) (temp_r4 & 0xFFFBFFFF);
@@ -661,7 +665,7 @@ void TObjEneMe1GiGue__sub_802CACD8(u8 *arg0) {
 s32 TObjEneMe1GiGue::update_action_hold_status() {
     s32 arg0 = (s32)this;
     if (update_action_hold_status__13TUnk_804806E8Fv() != 0) {
-        TObjEneMe1GiGue__sub_802CACD8((u8 *)arg0);
+        sub_802CACD8__15TObjEneMe1GiGueFv((u8 *)arg0);
         return 1;
     }
     return 0;
@@ -944,7 +948,7 @@ s32 check_enemy_body_collisions(void *);
 s32 check_object_collisions__10TObjPlayerFv(void *);
 s32 check_path_obstructed(void *, Vec_802CBA98 *);
 void *find_entity_by_id(u16 id);
-s32 enemy_wander_home(void *, s32, f32, f32, f32);
+s32 enemy_wander_home__9TObjEnemyFlfff(void *, s32, f32, f32, f32);
 #define subtract_vector ((void (*)(void *, void *))subtract_vector)
 u32 get_player_by_client_id(s32);
 
@@ -1195,7 +1199,7 @@ void update_rush_attack__15TObjEneMe1GiGueFPv(Obj_802CBCC0 *o) {
         break;
     case 1:
         o->f30 &= ~0x1000000;
-        enemy_wander_home(o, o->f350->f8, o->f3E4, 100.0f, 50.0f);
+        enemy_wander_home__9TObjEnemyFlfff(o, o->f350->f8, o->f3E4, 100.0f, 50.0f);
         advance_animation_playback(o);
         apply_actor_gravity(o, 0, 0.0f);
         o->f454--;
@@ -1344,7 +1348,7 @@ void action__15TObjEneMe1GiGueFPv(void *arg0) {
         ((TObjPlayer *)arg0)->update_collisions();
         return;
     case 2:
-        enemy_wander_home(arg0, *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x350)) + 8), *(f32 *)((s8 *)arg0 + 0x3E4), 100.0f, 100.0f);
+        enemy_wander_home__9TObjEnemyFlfff(arg0, *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x350)) + 8), *(f32 *)((s8 *)arg0 + 0x3E4), 100.0f, 100.0f);
         advance_animation_playback(arg0);
         apply_actor_gravity(arg0, 0, 0.0f);
         ((TObjPlayer *)arg0)->update_collisions();
@@ -1486,7 +1490,7 @@ void TObjEneMe1GiGue__sub_802CC614(u8 *arg0) {
         }
         break;
     case 4:
-        enemy_wander_home(arg0, *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 8), *(f32 *)((s8 *)arg0 + 0x3E4), 100.0f, 100.0f);
+        enemy_wander_home__9TObjEnemyFlfff(arg0, *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 8), *(f32 *)((s8 *)arg0 + 0x3E4), 100.0f, 100.0f);
         advance_animation_playback(arg0);
         apply_actor_gravity(arg0, 0, 0.0f);
         ((TObjPlayer *)arg0)->update_collisions();
@@ -1689,7 +1693,7 @@ void TObjEneMe1GiGue__sub_802CCBAC(Obj_802CCBAC *o) {
     case -1:
         break;
     case 2:
-        ((s32 (*)(f32, f32, f32, void *, s32))enemy_wander_home)(o->f3E4, 100.0f, 50.0f, o, o->f350->f8);
+        ((s32 (*)(f32, f32, f32, void *, s32))enemy_wander_home__9TObjEnemyFlfff)(o->f3E4, 100.0f, 50.0f, o, o->f350->f8);
         advance_animation_playback(o);
         apply_actor_gravity(o, 0, 0.0f);
         o->f3E0 += o->f3E4;
@@ -2191,7 +2195,7 @@ s32 obj_setFlags30(void *, int);
 s32 TObjEnemyCustom__ct(void *, s32);
 int initialize_enemy_photon_effect(void *p);
 s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
-void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
+void set_animation__10TObjMotionFs(void *arg0, s16 arg1);
 s32 init_collision_body_parts(void *, void *, int);
 extern s32 lbl_805D3F18;
 
@@ -2225,7 +2229,7 @@ u8 *TObjEneMe1GiGue__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TObjEneMe1GiGue *)arg0)->state36C = *(s16 *)((s8 *)arg2 + 0x3E);
     ((TObjEneMe1GiGue *)arg0)->load_params_from_table(((TObjEneMe1GiGue *)arg0)->variant);
     ((TObjEneMe1GiGue *)arg0)->action_table = gigue_enemy_param_table;
-    ((TObjPlayer *)arg0)->set_field_d8((s32)(((TObjEneMe1GiGue *)arg0)->action_table));
+    ((TObjMotion *)arg0)->set_field_d8((s32)(((TObjEneMe1GiGue *)arg0)->action_table));
     init_collision_body_parts(arg0, lbl_804E1304, 2);
     *(u32 *)((s8 *)(((TObjEneMe1GiGue *)arg0)->m_a4) + 0x44) &= ~1;
     ((TObjEneMe1GiGue *)arg0)->movementParameters = lbl_804E12E8;
@@ -2233,7 +2237,7 @@ u8 *TObjEneMe1GiGue__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TObjEneMe1GiGue *)arg0)->update_direction();
     ((void (*)(void *))load_params__15TObjEneMe1GiGueFv)(arg0);
     ((TObjEneMe1GiGue *)arg0)->m_b8 = 0;
-    set_animation__10TObjPlayerFPvs(arg0, ((TObjEneMe1GiGue *)arg0)->m_b8);
+    set_animation__10TObjMotionFs(arg0, ((TObjEneMe1GiGue *)arg0)->m_b8);
     ((TObjMotion *)arg0)->set_field_b8(((TObjEneMe1GiGue *)arg0)->m_b8);
     ((TObjEneMe1GiGue *)arg0)->hp = ((TObjEneMe1GiGue *)arg0)->hpmax;
     ((TObjEneMe1GiGue *)arg0)->m_32e = ((TObjEneMe1GiGue *)arg0)->m_2ba;
@@ -2260,7 +2264,7 @@ u8 *TObjEneMe1GiGue__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     }
     ((TObjEneMe1GiGue *)arg0)->m_3f4 = 0;
     ((TObjEneMe1GiGue *)arg0)->m_3f8 = 0;
-    ((TObjEneLappy *)arg0)->set_param(0x37);
+    ((TObjEnemy *)arg0)->set_param(0x37);
     *(f32 *)((s8 *)arg0 + 0x3E8) = 0.0f;
     ((TObjEneMe1GiGue *)arg0)->m_448 = 0;
     if (((TObjEneMe1GiGue *)arg0)->m_388 & 0x40000) {

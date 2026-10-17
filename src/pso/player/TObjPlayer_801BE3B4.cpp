@@ -312,10 +312,10 @@ struct VObj_801BE614 : Base_801BE614 {
 extern "C" {
 
 void *get_player_by_client_id(s32 i);
-void TObjPlayer__sub_8011E204(TObjPlayer *arg0, s32 arg1);
+void sub_8011E204__10TObjPlayerFl(TObjPlayer *arg0, s32 arg1);
 
 void TObjPlayer::set_flag_400000() {
-    TObjPlayer__sub_8011E204(this, 0x400000);
+    sub_8011E204__10TObjPlayerFl(this, 0x400000);
 }
 
 short TObjPlayer::get_model_field_m25() {

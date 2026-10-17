@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEneSaver.h"
+#include "pso/enemy/TObjEnemy.h"
+#include "pso/object/TObjMotion.h"
 #include "pso/enemy/TObjEneBeast.h"
 #include "pso/misc/obj_band.h"
 #include "pso/object/TObject_80019A50.h"
@@ -443,10 +446,10 @@ void *TObjEneBeast__ct(void *arg0v, void *arg1, void *arg2) {
     ((TObjEneBeast *)arg0)->select_subtype();
     ((TObjEneBeast *)arg0)->select_model_record(F(arg0, s32, 0x368));
     F(arg0, u8 *, 0xD8) = (u8 *)beast_action_table;
-    ((TObjPlayer *)arg0)->set_field_d8((s32)(F(arg0, u8 *, 0xD8)));
+    ((TObjMotion *)arg0)->set_field_d8((s32)(F(arg0, u8 *, 0xD8)));
     F(arg0, u32, 0xDC) = F(ene_beast_bml_resource, u32, 0x430);
     F(arg0, s16, 0xB8) = 0;
-    set_animation__10TObjPlayerFPvs(arg0, F(arg0, s16, 0xB8));
+    set_animation__10TObjMotionFs(arg0, F(arg0, s16, 0xB8));
     ((TObjMotion *)arg0)->set_field_b8(F(arg0, s16, 0xB8));
     init_collision_body_parts(arg0, &((Rec2C_800927DC *)beast_collision_body_table)[F(arg0, s32, 0x334)], 1);
     bind_enemy_combat_stats(arg0, ((u32 *)ene_beast_boss_id_buffer)[F(arg0, s32, 0x334)],

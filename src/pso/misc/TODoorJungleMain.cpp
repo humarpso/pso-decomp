@@ -17,7 +17,7 @@ s32 TODoorJungleMain__vt8(s32 arg0, f32 farg0, f32 farg1);
 f32 xz_distance_squared(s32, s32);
 s32 update_object_view_visibility__13TUnk_804B9870Fff(s32, f32, f32);
 void queue_destruction__7TObjectFv(void *arg0);
-void set_indexed_flags(void *arg0, s32 index, s32 flags);
+void set_indexed_flags__13TUnk_804AF8A0Fll(void *arg0, s32 index, s32 flags);
 
 extern s32 camera_ctrl_instance;
 
@@ -33,7 +33,7 @@ void TODoorJungleMain::vfunc_6(s16 *arg1, s32 arg2) {
         this->m_d0 = (s32) (this->m_d0 | 1);
         if (arg2 == 0) {
             *(f32 *)&this->m_b4 = (f32) (*(u32 *)((s8 *)(*(void * *)&this->m_bc) + 4) - 1);
-            set_indexed_flags(this, 0, 8);
+            set_indexed_flags__13TUnk_804AF8A0Fll(this, 0, 8);
             if ((u32) this->m_dc != 0U) {
                 queue_destruction__7TObjectFv(*(void * *)&this->m_dc);
                 this->m_dc = 0U;
@@ -330,7 +330,7 @@ void TODoorJungleMain::run_task() {
         t = *(f32 *)&this->m_b4;
         if ((f32)(u32)(*(s32 *)((s8 *)(*(u8 * *)&this->m_bc) + 4) - 1) - lbl_805DDCD4 < t &&
             t < (f32)(u32)(*(s32 *)((s8 *)(*(u8 * *)&this->m_bc) + 4) - 1)) {
-            set_indexed_flags(arg0, 0, 8);
+            set_indexed_flags__13TUnk_804AF8A0Fll(arg0, 0, 8);
             if (*(void * *)&this->m_dc != NULL) {
                 queue_destruction__7TObjectFv(*(void * *)&this->m_dc);
                 *(void * *)&this->m_dc = NULL;
@@ -360,7 +360,7 @@ void TODoorJungleMain::run_task() {
         minimap_render_gate((u8 *)&this->position, 0xFF00FF00, this->rotation_y, 0, 0);
     } else {
         minimap_render_gate((u8 *)&this->position, 0xFFFF0000, this->rotation_y, 0, 0);
-        ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
+        ((TUnk_804AF8A0 *)arg0)->clear_player_status_flag(0, 8);
     }
 }
 void *__dt__16TODoorJungleMainFv(void *arg0, s16 arg1) {

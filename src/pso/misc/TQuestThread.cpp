@@ -169,7 +169,7 @@ int memset(void*, void*, void*);
 s32 get_main_phase();
 s32 get_current_floor(void);
 int queue_destruction__7TObjectFv(void*);
-s32 check_value_equals__13TQuestColCtrlFPll(void*, s32);
+s32 check_value_equals__13TUnk_804B6C24Fl(void*, s32);
 void * TQuestVmDownLoadServer__sub_8006EF6C(s32);
 void copy_name(s32 arg0);
 void read_disc_file(void *, s32);
@@ -611,7 +611,7 @@ void destroy_children_with_tag(Node_801F57B4* arg0) {
     while (arg0->child != 0 && n != 0) {
         Node_801F57B4* cur = n;
         n = n->next;
-        if (check_value_equals__13TQuestColCtrlFPll(cur, TQuestThread__class_name) != 0) {
+        if (check_value_equals__13TUnk_804B6C24Fl(cur, TQuestThread__class_name) != 0) {
             ((void (*)(void*))queue_destruction__7TObjectFv)(cur);
         } else {
             destroy_children_with_tag(cur);

@@ -240,7 +240,7 @@ s32 find_active_entity_by_id(u16);
 void TObjPlayer__sub_800AA330(void *);
 s32 submit_cursor_candidate(void *, s32);
 s32 minimap_render_dot(void *, s32, s32, s32);
-s32 obj_testFlags30(void *, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
 void *TObjControl__ct(void *, void *);
 void *TObjEneDubchik__ct(void *, void *, void *);
 extern void *tl_04;
@@ -954,7 +954,7 @@ void TObjEneDubchik::sub_800AA10C() {
                 this->m_390 = (this->m_390 + 1);
                 if ((s16) this->m_390 > 3) {
                     this->m_390 = 0;
-                    ((TObjPlayer *)((u8 *)this))->target_nearest_player(lbl_805D9B20);
+                    ((TObjEneDubchik *)((u8 *)this))->target_nearest_player(lbl_805D9B20);
                 }
                 ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active(2);
                 return;
@@ -1066,7 +1066,7 @@ void TObjPlayer::update_synced_state() {
     ((TObjEneDubchik *)arg0)->sub_800AB068();
     ((TObjEnemy *)arg0)->update_prev_position();
     VecCopy((Vec *)&this->m_74, (const Vec *)&this->m_2fc);
-    if (obj_testFlags30(arg0, 0x04000000) == 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x04000000) == 0) {
         submit_cursor_candidate(arg0, -1);
     }
     minimap_render_dot((u8 *)&this->position, -0x5DB4, 1, 0);

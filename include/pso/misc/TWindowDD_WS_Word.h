@@ -6,6 +6,8 @@
 class TWindowDD_WS_Word : public TUnk_804CE018 {
 public:
     virtual ~TWindowDD_WS_Word();
+    s32 sub_80341AC0();
+    s32 can_scroll(s32);
     void *destroy(s16);
     u8 sub_80342268();
     u8 sub_80342254();

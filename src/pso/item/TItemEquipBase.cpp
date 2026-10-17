@@ -298,7 +298,7 @@ struct VObj_8010B054_8010A710 : Base_8010B054_8010A710 {
 void register_technique_boosts__14TItemEquipBaseFPvPv(void *arg0, Row_8010A89C *row);
 void *__dt__14TItemEquipBaseFv(void *arg0, s16 arg1);
 s32 subtract_s16_stat(void *, void *);
-s8 TObjPlayer__sub_80102C30();
+s8 sub_80102C30__5TItemFv();
 void *__dt__5TItemFv(void *arg0, s16 arg1);
 s32 destroy__5TItemFv(void *);
 s32 fn_8010B7D8(void *, void *);
@@ -548,7 +548,7 @@ void TItemEquipBase::subtract_item_stat_bonus(s32 arg1, s32 arg2, s16 *out) {
 void TItemEquipBase::reset() { memset((char*)this + 0xf8, (void*)0, (void*)36); memset((char*)this + 0x11c, (void*)0, (void*)48); memset((char*)this + 0x14c, (void*)0, (void*)32); memset((char*)this + 0x16c, (void*)0, (void*)4); }
 
 void TItemEquipBase::update_equip() {
-    if (TObjPlayer__sub_80102C30() == 2) {
+    if (sub_80102C30__5TItemFv() == 2) {
         ((VObj_8010B054_8010A710 *)this)->m19();
     }
     destroy__5TItemFv(this);
@@ -586,7 +586,7 @@ void TItemEquipBase::unequip() {
     u8 *arg0 = (u8 *)this;
     if ((u32) this->m_f0 != 0U) {
         ((TItem *)arg0)->set_mode(1);
-        ((TObjPlayer *)arg0)->clear_item_flags(0x28);
+        ((TItem *)arg0)->clear_item_flags(0x28);
         this->vfunc_23(1);
         remove_equip_effects();
         this->vfunc_45();
@@ -674,7 +674,7 @@ void TItemEquipBase::request_model_load(s32 arg1) {
     init__9TItemDataFv(&item_data.data1.data_u8[0]);
     item_data.data1.data_u8[0] = this->get_field_ec();
     item_data.data1.data_u8[1] = arg1;
-    item_data.data1.data_u8[2] = ((TItemProShield *)((u8 *)this))->get_slot_count();
+    item_data.data1.data_u8[2] = ((TItem *)((u8 *)this))->get_slot_count();
     this->m_172 = request_item_model_load((&item_data.data1.data_u8[0]));
 }
 

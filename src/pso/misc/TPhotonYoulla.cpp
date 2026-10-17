@@ -78,7 +78,7 @@ void TPhotonYoulla::render() {
         TObjPlayer::set_global_flag();
         set_material_alpha_compare_reference(0);
         set_chunk_material_override_pair(-1, 0x800);
-        set_chunk_material_color((f32 *)&self->color);
+        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)&self->color);
         ((TUnk_804C3248 *)self)->set_photon_blast_joint_callback();
         ((TObjEneRe7Berura *)self)->draw();
         TObjPlayer::clear_global_state();
@@ -150,10 +150,10 @@ u8 *TPhotonYoulla__ct(TPhotonYoulla *arg0, u8 *arg1) {
     }
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0xB8);
     arg0->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0xBC);
-    ((TObjPlayer *)arg0)->set_field_d8((s32) lbl_804C3B48);
-    ((TObjPlayer *)arg0)->set_field_dc(*(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
+    ((TObjMotion *)arg0)->set_field_d8((s32) lbl_804C3B48);
+    ((TObjMotion *)arg0)->set_field_dc(*(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
     arg0->m_b8 = 1;
-    set_animation__10TObjPlayerFPvs(arg0, arg0->m_b8);
+    set_animation__10TObjMotionFs(arg0, arg0->m_b8);
     ((TObjMotion *)arg0)->set_field_b8(arg0->m_b8);
     arg0->m_194 = 1;
     arg0->m_198 = (s32) *(s32 *)((s8 *)arg1 + 0x10);

@@ -14,7 +14,7 @@ void TObjEneEpsilonBody::run_task() {
         return;
     }
     if (this->vfunc_83() != 4) {
-        ((TObjEneEpsilonGuard *)((u8 *)this))->update_guard_flag();
+        ((TObjEneEpsilonBody *)((u8 *)this))->update_guard_flag();
         this->vfunc_85();
     } else if ((s16) this->mode == 1) {
         transition_enemy_state(this, 0);

@@ -10,14 +10,14 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-s32 obj_testFlags30(void *, s32);
+s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
 extern s32 model_render_flags;
 
-void TObjEneLappy::set_param(s32 v) { *(s32 *)&this->control = v; }
+void TObjEnemy::set_param(s32 v) { *(s32 *)&this->control = v; }
 
 int initialize_enemy_photon_effect(void* p) { return ((TBoss3Volopt *)p)->reset_photon_effect(); }
 void TObjEnemy::render_shadows() {
-    if (obj_testFlags30(this, 0x800) == 0) {
+    if (obj_testFlags30__13TUnk_804AF8A0FUl(this, 0x800) == 0) {
         this->set_shadow_flag();
         model_render_flags |= 0xC10;
         set_chunk_material_override_pair(-1, 0x800);

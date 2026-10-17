@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A5930.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/player/TObjPlayer_800FFFF8.h"
 #include "pso/system/ChunkMaterialState.h"
@@ -50,7 +51,7 @@ s32 PPCSync();
 s32 is_wrapped__9TItemDataFPv(s32);
 s32 find_item_by_id();
 s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
-s8 TObjPlayer__sub_80102C30();
+s8 sub_80102C30__5TItemFv();
 u16 get_packed_value__9TItemDataFPv(void *arg0);
 s32 is_usable__9TItemDataFPv(void *arg0);
 
@@ -90,9 +91,9 @@ void TObjPlayer__sub_80100070(u8 *arg0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, (s32)((int) (*(s32 *)((s8 *)arg0 + 0x60))));
-        set_chunk_material_color((f32 *)((u8 *)&item_box_primary_colors.value + ((s8) *(u8 *)((s8 *)arg0 + 0xEA) * 0x10)));
+        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)((u8 *)&item_box_primary_colors.value + ((s8) *(u8 *)((s8 *)arg0 + 0xEA) * 0x10)));
         draw_ginja_model((*(s32 *)((s8 *)spC + 4)));
-        set_chunk_material_color((f32 *)((u8 *)&item_box_secondary_colors.value + ((s8) *(u8 *)((s8 *)arg0 + 0xEA) * 0x10)));
+        set_chunk_material_color__13TUnk_80494AE0Fv((f32 *)((u8 *)&item_box_secondary_colors.value + ((s8) *(u8 *)((s8 *)arg0 + 0xEA) * 0x10)));
         draw_ginja_model((*(s32 *)((s8 *)(*(u8 **)((s8 *)spC + 0x2C)) + 4)));
         pop_matrix();
         TParticleCtrl::end_effect_render();
@@ -140,11 +141,11 @@ void TItem::sub_8010043C(u8 arg1) {
     this->m_ea = 0;
 }
 
-u16 TObjPlayer__sub_80100474(void* p) { return ((TItem *)p)->m_e8; }
+u16 TItem::sub_80100474() { return ((TItem *)this)->m_e8; }
 
-void TObjPlayer__sub_8010047C(u8 *arg0, s16 arg1) {
-    if (*(s32 *)((s8 *)arg0 + 0xDC) & 0x100) {
-        *(s16 *)((s8 *)arg0 + 0xE8) = arg1;
+void TUnk_804A5930::sub_8010047C(s16 arg1) {
+    if (*(s32 *)((s8 *)((u8 *)this) + 0xDC) & 0x100) {
+        *(s16 *)((s8 *)((u8 *)this) + 0xE8) = arg1;
     }
 }
 
@@ -152,7 +153,7 @@ s32 TObjPlayer::query_game_join_id() {
     s32 temp_r3;
 
     temp_r3 = find_item_by_id();
-    if ((temp_r3 != 0) && (TObjPlayer__sub_80102C30() == 2)) {
+    if ((temp_r3 != 0) && (sub_80102C30__5TItemFv() == 2)) {
         return temp_r3;
     }
     return 0;
