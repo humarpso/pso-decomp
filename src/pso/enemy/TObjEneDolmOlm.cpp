@@ -1116,7 +1116,7 @@ void TObjEneDolmOlm::run_task() {
   s16 temp_r0;
   if (TObjPlayer::check_demo_mode() == 1)
   {
-    (((TObjEneDolmOlm *)(this))->vfunc_101());
+    (this->vfunc_101());
     return;
   }
   temp_r0 = ((RecoveredFields_8030247C_arg0 *) ((u8 *)this))->field_326;
@@ -1124,36 +1124,36 @@ void TObjEneDolmOlm::run_task() {
     switch (temp_r0)
     {
       case 0:
-        (((TObjEneDolmOlm *)(this))->vfunc_83());
+        (this->vfunc_83());
         break;
       case 1:
-        (((TObjEneDolmOlm *)(this))->beast_idle_update());
+        (this->beast_idle_update());
         break;
       case 2:
-        (((TObjEneDolmOlm *)(this))->update_turn_toward_target());
+        (this->update_turn_toward_target());
         break;
       case 3:
-        (((TObjEneDolmOlm *)(this))->beast_update_approach());
+        (this->beast_update_approach());
         this->init_body_sub();
         break;
       case 4:
-        (((TObjEneDolmOlm *)(this))->beast_update_group_chase());
+        (this->beast_update_group_chase());
         this->init_body_sub();
         break;
       case 5:
-        (((TObjEneDolmOlm *)(this))->beast_update_attack());
+        (this->beast_update_attack());
         break;
       case 6:
-        (((TObjEneDolmOlm *)(this))->vfunc_89());
+        (this->vfunc_89());
         break;
       case 7:
-        (((TObjEneDolmOlm *)(this))->beast_update_hurt());
+        (this->beast_update_hurt());
         break;
       case 8:
-        (((TObjEneDolmOlm *)(this))->beast_update_dead());
+        (this->beast_update_dead());
         break;
       case 9:
-        (((TObjEneDolmOlm *)(this))->beast_retire_corpse());
+        (this->beast_retire_corpse());
         break;
       case 10:
         TObjEneDolmOlm__sub_80301C3C((void *) ((u8 *)this));

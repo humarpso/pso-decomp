@@ -215,16 +215,16 @@ void TObjNpcBase::run_task() {
   switch (this->mode)
   {
     case 0:
-      (((TObjNpcBase *)(this))->vfunc_83());
+      (this->vfunc_83());
       break;
     case 1:
-      (((TObjNpcBase *)(this))->update_standing());
+      (this->update_standing());
       break;
     case 2:
-      (((TObjNpcBase *)(this))->update_wandering());
+      (this->update_wandering());
       break;
     case 3:
-      (((TObjNpcBase *)(this))->update_conversation());
+      (this->update_conversation());
       break;
   }
   advance_animation_playback((void *) ((u8 *)this));

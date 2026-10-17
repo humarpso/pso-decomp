@@ -370,18 +370,18 @@ void dispatch_state__12TObjEneReconFiUii(s32 arg0, u32 arg1, s32 arg2) {
 
 void TObjEneRecobox::run_task() {
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((TObjEneRecobox *)(this))->update_if_800BB858();
+        this->update_if_800BB858();
         return;
     }
-    if (((TObjEneRecobox *)(this))->vfunc_83() != 4) {
-        ((TObjEneRecobox *)(this))->vfunc_85();
+    if (this->vfunc_83() != 4) {
+        this->vfunc_85();
     } else if ((s16) this->mode == 1) {
         transition_enemy_state(this, 0);
     }
-    ((TObjEneRecobox *)(this))->vfunc_88();
+    this->vfunc_88();
     ((TObjEneRecon *)((u8 *)this))->restore_position();
     ((TBoss8Dragon *)((u8 *)this))->set_player_state_default();
-    ((TObjEneRecobox *)(this))->vfunc_100();
+    this->vfunc_100();
     this->update_floor_probe();
 }
 

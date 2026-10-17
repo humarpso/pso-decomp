@@ -44,7 +44,7 @@ void TWindowMessageQuest::render() {
             c->scaleX = (f32)((Win_8026B148 *)this)->opening / lbl_805DD260;
             c->scaleY = c->scaleX;
         }
-        ((TUnk_804CE018 *)this)->draw_quest_message_frame(c);
+        this->draw_quest_message_frame(c);
         break;
     case 1:
         draw_window_frame(this, c);

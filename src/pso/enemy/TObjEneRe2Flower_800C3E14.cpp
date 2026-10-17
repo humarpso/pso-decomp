@@ -358,11 +358,11 @@ void dispatch_action__16TObjEneRe2FlowerFiUii(s32 arg0, u32 arg1, s32 arg2) {
 void TObjEneRe2Flower::run_task() {
     s16 temp_r3;
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((TObjEneRe2Flower *)(this))->vfunc_105();
+        this->vfunc_105();
         return;
     }
-    if (((TObjEneRe2Flower *)(this))->vfunc_83() != 4) {
-        ((TObjEneRe2Flower *)(this))->vfunc_85();
+    if (this->vfunc_83() != 4) {
+        this->vfunc_85();
     } else {
         temp_r3 = this->mode;
         if ((temp_r3 == 0) || (temp_r3 == 1)) {
@@ -372,7 +372,7 @@ void TObjEneRe2Flower::run_task() {
     }
     this->sub_800C3DC4();
     ((TBoss8Dragon *)((u8 *)this))->set_player_state_default();
-    ((TObjEneRe2Flower *)(this))->vfunc_100();
+    this->vfunc_100();
 }
 
 void *destroy__16TObjEneRe2FlowerFPvs(void *arg0, s16 arg1) {

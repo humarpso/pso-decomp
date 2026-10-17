@@ -1101,7 +1101,7 @@ void TObjEneBm3FlyNest::render() {
     Nest_800B264C *self = (Nest_800B264C *)this;
     f32 t;
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((TObjEneBm3FlyNest *)(this))->render_with_state_debug();
+        this->render_with_state_debug();
         return;
     }
     cam = 0;
@@ -1815,15 +1815,15 @@ void TObjEneBm3FlyNest::run_task() {
         ((VObj_18_p5 *)(this))->m102();
         return;
     }
-    if (((TObjEneBm3FlyNest *)(this))->vfunc_83() != 4) {
-        ((TObjEneBm3FlyNest *)(this))->vfunc_85();
+    if (this->vfunc_83() != 4) {
+        this->vfunc_85();
     } else if (this->mode == 0) {
         transition_enemy_state(this, 1);
     }
-    ((TObjEneBm3FlyNest *)(this))->vfunc_88();
+    this->vfunc_88();
     this->copy_pos();
     ((TBoss8Dragon *)((u8 *)this))->set_player_state_default();
-    ((TObjEneBm3FlyNest *)(this))->vfunc_100();
+    this->vfunc_100();
 }
 #pragma pop
 

@@ -966,7 +966,7 @@ void TObjEneEpsilonBody::render() {
     s32 var_r31;
     s32 i;
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((TObjEneEpsilonBody *)(this))->vfunc_106();
+        this->vfunc_106();
         return;
     }
     if (!(*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0x02000000)) {

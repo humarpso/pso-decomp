@@ -196,8 +196,8 @@ void TBoss7DeRolLeC::run_task() {
         }
     }
     temp_r30 = query_teammate_state__9TObjEneDDFv();
-    ((TBoss7DeRolLeC *)(this))->vfunc_41();
-    ((TBoss7DeRolLeC *)(this))->vfunc_42();
+    this->vfunc_41();
+    this->vfunc_42();
     if (temp_r30 == 0) {
         if ((this->mode == 0x1C) || (this->mode == 0x1D) || (this->mode == 0x1B)) {
             this->actorFlags = (s32) (this->actorFlags | 0x800);
@@ -215,21 +215,21 @@ void TBoss7DeRolLeC::run_task() {
             } else {
                 this->update_or_dispatch();
             }
-            if (((TBoss7DeRolLeC *)(this))->test_flag30_512() != 0) {
-                ((TBoss7DeRolLeC *)(this))->vfunc_62();
+            if (this->test_flag30_512() != 0) {
+                this->vfunc_62();
             }
             ((VObj_18 *)(this))->m85(this->mode, 8);
             ((VObj_18 *)(this))->m85(this->mode, 0);
         } else {
-            if (((TBoss7DeRolLeC *)(this))->test_flag30_512() != 0) {
-                ((TBoss7DeRolLeC *)(this))->vfunc_62();
+            if (this->test_flag30_512() != 0) {
+                this->vfunc_62();
             }
             ((VObj_18 *)(this))->m85(this->mode, 0);
         }
         ((TObjFish *)((u8 *)this))->update_projectile_spawns();
     }
     this->sub_800BBA0C();
-    ((TBoss7DeRolLeC *)(this))->vfunc_88();
+    this->vfunc_88();
     ((TObjFish *)((u8 *)this))->sync_position_vectors();
     this->flee_if_disturbed();
     TParticleCtrl__sub_802EC550(this);

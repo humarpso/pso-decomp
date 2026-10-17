@@ -1545,7 +1545,7 @@ void TObjEneMerillLia::run_task() {
   s16 temp_r0;
   if (TObjPlayer::check_demo_mode() == 1)
   {
-    (((TObjEneMerillLia *)(this))->vfunc_101());
+    (this->vfunc_101());
     return;
   }
   temp_r0 = this->mode;
@@ -1553,34 +1553,34 @@ void TObjEneMerillLia::run_task() {
     switch (temp_r0)
     {
       case 0:
-        (((TObjEneMerillLia *)(this))->vfunc_83());
+        (this->vfunc_83());
         break;
       case 1:
-        (((TObjEneMerillLia *)(this))->beast_idle_update());
+        (this->beast_idle_update());
         break;
       case 2:
-        (((TObjEneMerillLia *)(this))->update_turn_toward_target());
+        (this->update_turn_toward_target());
         break;
       case 3:
-        (((TObjEneMerillLia *)(this))->beast_update_approach());
+        (this->beast_update_approach());
         break;
       case 4:
-        (((TObjEneMerillLia *)(this))->beast_update_group_chase());
+        (this->beast_update_group_chase());
         break;
       case 5:
-        (((TObjEneMerillLia *)(this))->beast_update_attack());
+        (this->beast_update_attack());
         break;
       case 6:
-        (((TObjEneMerillLia *)(this))->vfunc_89());
+        (this->vfunc_89());
         break;
       case 7:
-        (((TObjEneMerillLia *)(this))->beast_update_hurt());
+        (this->beast_update_hurt());
         break;
       case 8:
-        (((TObjEneMerillLia *)(this))->beast_update_dead());
+        (this->beast_update_dead());
         break;
       case 9:
-        (((TObjEneMerillLia *)(this))->beast_retire_corpse());
+        (this->beast_retire_corpse());
         break;
       case 10:
         TObjEneMerillLia::update_kafun_attack((void *)this);

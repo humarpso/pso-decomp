@@ -3393,15 +3393,15 @@ void TObjEneMe3SinowZoa__sub_8031AC74(u8 *arg0) {
 void TObjEneMe3SinowZoa::run_task() {
     s32 temp_r3;
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((TObjEneMe3SinowZoa *)(this))->vfunc_115();
+        this->vfunc_115();
         return;
     }
-    if (((TObjEneMe3SinowZoa *)(this))->vfunc_83() != 4) {
-        ((TObjEneMe3SinowZoa *)(this))->vfunc_85();
+    if (this->vfunc_83() != 4) {
+        this->vfunc_85();
     }
     TObjEneMe3SinowZoa__sub_8031AC74(((u8 *)this));
     this->copy_pos_with_height_offset();
-    ((TObjEneMe3SinowZoa *)(this))->vfunc_88();
+    this->vfunc_88();
     temp_r3 = *(s32 *)((s8 *)((u8 *)this) + 0x3CC);
     if (temp_r3 & 0x40000) {
         *(s32 *)((s8 *)((u8 *)this) + 0x3CC) = (s32) (temp_r3 & 0xFFFBFFFF);
@@ -3409,7 +3409,7 @@ void TObjEneMe3SinowZoa::run_task() {
         ((TBoss8Dragon *)((u8 *)this))->set_player_state_default();
     }
     if (((s32) *(s32 *)((s8 *)((u8 *)this) + 0x3C0) == 0) || (TObjEneMe3SinowZoa__sub_800D72A4(((u8 *)this) + 0x414) != 0)) {
-        ((TObjEneMe3SinowZoa *)(this))->vfunc_100();
+        this->vfunc_100();
     }
     if (*(s32 *)((s8 *)((u8 *)this) + 0x3D0) & 0x4000) {
         TObjEneRecon::set_active();
