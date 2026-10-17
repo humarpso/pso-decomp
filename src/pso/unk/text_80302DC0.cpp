@@ -6,24 +6,6 @@
 #include "pso/misc/TNowLoading.h"
 #include "pso/player/TObjPlayer.h"
 
-struct VBase_18_3127e4 { char pad[0x18]; };
-
-struct VObj_18_3127e4 : VBase_18_3127e4 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual s32 m12(void *, void *, s32);
-};
-
 typedef struct Vec_80302DC0 { f32 x; f32 y; f32 z; } Vec_80302DC0;
 
 typedef struct Arg_80302DC0 { s32 id; f32 val; } Arg_80302DC0;
@@ -73,7 +55,7 @@ void fn_80302DC0(u8 *arg0) {
         }
         arg.id = lbl_80475124[0];
         arg.val = *(f32 *)((s8 *)arg0 + 0xC8);
-        ((VObj_18_3127e4 *)(arg0))->m12(lbl_8047511C, &arg, ((TObjEneDellBiter_Eff_TpAbsorb1 *)arg0)->m_bc);
+        ((TObjEneDellBiter_Eff_TpAbsorb1 *)(arg0))->call_vt13_with_default(lbl_8047511C, &arg, ((TObjEneDellBiter_Eff_TpAbsorb1 *)arg0)->m_bc);
         return;
     }
     queue_destruction__7TObjectFv(arg0);

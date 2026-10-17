@@ -27,16 +27,6 @@ struct Stack_80096030 {
 
 struct Pair_80096150 { s32 a; s32 b; };
 
-struct VBase_80096150 { char pad[0x18]; };
-
-struct VObj_80096150 : VBase_80096150 {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
-    virtual void m12(); virtual void m13(); virtual void m14();
-    virtual void m15(Pair_80096150 *, s32);
-};
-
 extern "C" {
 extern const f32 lbl_805D979C;
 extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
@@ -182,7 +172,7 @@ s32 TObjEneRe7BeruraPunch::sub_80096150() {
     if (TObjEneDD::check_v2_mode() != 0) {
         p.b &= ~2;
     }
-    ((VObj_80096150 *)this)->m15(&p, *(s32 *)&this->_padD8);
+    this->call_vt16_with_default((void *)&p, (void *)(*(s32 *)&this->_padD8));
     if (entity != 0) {
         TObjEneRe7Berura__sub_80094C68(entity);
     }

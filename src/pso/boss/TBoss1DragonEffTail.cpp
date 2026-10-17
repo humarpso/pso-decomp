@@ -51,27 +51,6 @@ typedef struct EffTail_8002C06C {
     f32 unkC8;
 } EffTail_8002C06C;
 
-struct VBase_18_8002BD38 { char pad[0x18]; };
-
-struct VObj_18_8002BD38 : VBase_18_8002BD38 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15(void *, void *);
-};
-
 struct Pair_8002BD38 { s32 a, b; };
 
 struct Vec_8002BD38 { f32 x, y, z; };
@@ -138,7 +117,7 @@ void run_task__19TBoss1DragonEffTailFv(u8 *arg0) {
     {
         Pair_8002BD38 sp8 = *(Pair_8002BD38 *) lbl_80435454;
         ((TBoss1Dragon *)(*(void **)((s8 *)arg0 + 0xB0)))->reset_tail_hp();
-        ((VObj_18_8002BD38 *) arg0)->m15(&sp8, *(void **)((s8 *)arg0 + 0xB8));
+        ((TBoss1DragonEffTail *)arg0)->call_vt16_with_default(&sp8, *(void **)((s8 *)arg0 + 0xB8));
     }
     ((TBoss1Dragon *)(*(void **)((s8 *)arg0 + 0xB0)))->reload_difficulty_stats();
 }

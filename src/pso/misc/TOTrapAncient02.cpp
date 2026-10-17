@@ -698,7 +698,7 @@ void TOTrapAncient02R__vt79(Obj_8017A3C0 *o) {
                     case 1: {
                         Dmg_8017A3C0 dmg;
                         dmg.type = 3;
-                        dmg.v = ((Trap_8017A3C0 *)o)->m85(lbl_805DBA94 * (f32)o->level + lbl_805DBA90);
+                        dmg.v = ((TOTrapAncient02R *)o)->vfunc_87(lbl_805DBA94 * (f32)o->level + lbl_805DBA90);
                         ((Trap_8017A3C0 *)o->target)->m21(o, dmg, 0, -1, -1);
                         spawn_particle_effect(lbl_8050BEE0, 0xB9);
                         spawn_particle_effect(lbl_8050BEE0, 0xBA);

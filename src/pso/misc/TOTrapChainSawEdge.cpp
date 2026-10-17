@@ -598,7 +598,7 @@ void TOTrapChainSawDamage__vt22(void *arg0) {
 void TOTrapChainSawDamage__vt16(u8 *arg0, u8 *arg1) {
     P_802C8BD0 p;
     p.a = 0;
-    p.b = ((VObj_18_62e3d5 *)(arg0))->m28(*(f32 *)((s8 *)arg0 + 0xFC));
+    p.b = ((TOTrapChainSawDamage *)(arg0))->vfunc_30(*(f32 *)((s8 *)arg0 + 0xFC));
     P_802C8BD0 q = p;
     ((VObj_18_62e3d5 *)(arg1))->m21(arg0, (s32 *)&q, 0, -1, -1);
     obj_setFlags30((void *) (arg1), (int) (0x400));
