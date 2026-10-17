@@ -1987,7 +1987,7 @@ void TBoss4Type3__sub_8005A86C(void* p) { ((TBoss4Type3 *)p)->draw(); }
 #undef TBoss4Type3__anim_state_table
 
  extern const f32 lbl_805D8CAC;
-namespace Type3Tick {
+
 extern "C" {
 s32 TBoss4Type3__sub_8005254C(u16);
 s32 is_field378_zero__14TBoss4DarkFalzFv(void *);
@@ -2003,7 +2003,7 @@ struct Ply_80059ABC;
 void handle_damage_taken__11TBoss4Type3FPv(O_80059618 *o);
 void copy_positions_to_parts__11TBoss4Type3FPv(Obj_8005A1AC *arg0);
 void scroll_strips__11TBoss4Type2Fv(void *);
-Ply_80059ABC * get_player_by_client_id(u16);
+
 void update_target_effect_timer__11TBoss4Type3FPv(void *arg0);
 void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0);
 void draw_motion_trail__11TBoss4Type3Fllll(void *, s32, s32, void *, s32);
@@ -2024,7 +2024,6 @@ s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
 
 }
-}
 
 #pragma push
 #pragma fp_contract on
@@ -2035,13 +2034,13 @@ void TBoss4Type3::run_task() {
     f32 lim;
     u8 *e;
 
-    if (this->m_3ba != 0xFFFF && Type3Tick::TBoss4Type3__sub_8005254C(this->m_3ba) == 0) {
+    if (this->m_3ba != 0xFFFF && TBoss4Type3__sub_8005254C(this->m_3ba) == 0) {
         this->m_3ba = 0xFFFF;
     }
-    if (this->m_3b8 != 0xFFFF && Type3Tick::TBoss4Type3__sub_8005254C(this->m_3b8) == 0) {
+    if (this->m_3b8 != 0xFFFF && TBoss4Type3__sub_8005254C(this->m_3b8) == 0) {
         this->m_3b8 = 0xFFFF;
     }
-    if (Type3Tick::is_field378_zero__14TBoss4DarkFalzFv((void *)this->m_38c)) {
+    if (is_field378_zero__14TBoss4DarkFalzFv((void *)this->m_38c)) {
         fn = boss4_type3_states[this->m_374].advance;
         if (fn) {
             (this->*fn)();
@@ -2051,22 +2050,22 @@ void TBoss4Type3::run_task() {
     if (fn) {
         (this->*fn)();
     }
-    Type3Tick::update_phase_timer__11TBoss4Type3FPv((u8 *)this);
-    Type3Tick::advance_afterimage__11TBoss4Type3FPv((u8 *)this);
+    update_phase_timer__11TBoss4Type3FPv((u8 *)this);
+    advance_afterimage__11TBoss4Type3FPv((u8 *)this);
     if (this->m_3a0 != 17) {
         this->m_394->flags |= 1;
-        Type3Tick::update_collisions__10TObjPlayerFv(this);
-        Type3Tick::submit_cursor_candidate(this, -1);
+        update_collisions__10TObjPlayerFv(this);
+        submit_cursor_candidate(this, -1);
     } else {
         this->m_394->flags &= ~1;
     }
-    Type3Tick::update_radar_markers__11TBoss4Type3FPv((u8 *)this);
-    Type3Tick::update_scale_sound__11TBoss4Type3FPv((u8 *)this);
+    update_radar_markers__11TBoss4Type3FPv((u8 *)this);
+    update_scale_sound__11TBoss4Type3FPv((u8 *)this);
     this->m_394->radius = this->m_3b0 * (f32)(this->m_3cc - this->m_3d0) + (f32)this->m_3d0;
-    Type3Tick::handle_damage_taken__11TBoss4Type3FPv((Type3Tick::O_80059618 *)this);
+    handle_damage_taken__11TBoss4Type3FPv((O_80059618 *)this);
     if (this->m_374 != 2) {
-        Type3Tick::copy_positions_to_parts__11TBoss4Type3FPv((Type3Tick::Obj_8005A1AC *)this);
-        Type3Tick::scroll_strips__11TBoss4Type2Fv(&this->m_378);
+        copy_positions_to_parts__11TBoss4Type3FPv((Obj_8005A1AC *)this);
+        scroll_strips__11TBoss4Type2Fv(&this->m_378);
     }
     if (this->m_3ba == 0xFFFF) {
         if ((this->m_3c8 -= 0.06666667f) < 0.0f) {
@@ -2076,13 +2075,13 @@ void TBoss4Type3::run_task() {
         if ((this->m_3c8 += 0.06666667f) > 1.0f) {
             this->m_3c8 = 1.0f;
         }
-        if (Type3Tick::get_player_by_client_id(this->m_3ba) == 0) {
+        if (get_player_by_client_id(this->m_3ba) == 0) {
             this->m_3c8 = 0.0f;
         }
     }
-    Type3Tick::update_target_effect_timer__11TBoss4Type3FPv(this);
+    update_target_effect_timer__11TBoss4Type3FPv(this);
     this->m_3d4 = this->hp;
-    Type3Tick::request_follow_camera_default_offsets__11TBoss4Type3FPv((u8 *)this);
+    request_follow_camera_default_offsets__11TBoss4Type3FPv((u8 *)this);
     if ((this->m_3dc += 0.022222223f) >= 1.0f) {
         this->m_3dc -= 1.0f;
     }
@@ -2090,32 +2089,32 @@ void TBoss4Type3::run_task() {
     if (lim > lbl_805D8CA0) {
         lim = lbl_805D8CA0;
     }
-    p = Type3Tick::alloc__23TAdSinglePlyChrSelectGCFv(0x18);
+    p = alloc__23TAdSinglePlyChrSelectGCFv(0x18);
     if (p != 0) {
-        p = (void *)Type3Tick::init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lim, lim, lbl_805D8CAC);
+        p = (void *)init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lim, lim, lbl_805D8CAC);
     }
-    Type3Tick::set_global_flag__10TObjPlayerFv();
-    Type3Tick::draw_motion_trail__11TBoss4Type3Fllll(p, Type3Tick::get_bml_model(this->m_390, ((s32 *)lbl_80486FB0)[0]),
-        Type3Tick::get_bml_motion(this->m_390, TBoss4Type3__anim_state_table[this->m_3f0].motions[0]),
+    set_global_flag__10TObjPlayerFv();
+    draw_motion_trail__11TBoss4Type3Fllll(p, get_bml_model(this->m_390, ((s32 *)lbl_80486FB0)[0]),
+        get_bml_motion(this->m_390, TBoss4Type3__anim_state_table[this->m_3f0].motions[0]),
         boss4_type3_run_task_params, 0);
-    Type3Tick::clear_global_state__10TObjPlayerFv();
-    e = ((u8 *(*)(void *, f32))Type3Tick::lookup_entry_by_value__10TObjPlayerFPvf)(p, lim);
-    Type3Tick::push_matrix();
-    Type3Tick::set_matrix_identity(0);
-    Type3Tick::post_translate_matrix(&this->position[0]);
-    Type3Tick::rotate_matrix_y(0, this->rotation_y);
-    Type3Tick::matrix_mult_vec(0, e, v[0]);
-    Type3Tick::matrix_mult_vec(0, e + 0xC, v[1]);
-    Type3Tick::pop_matrix();
+    clear_global_state__10TObjPlayerFv();
+    e = ((u8 *(*)(void *, f32))lookup_entry_by_value__10TObjPlayerFPvf)(p, lim);
+    push_matrix();
+    set_matrix_identity(0);
+    post_translate_matrix(&this->position[0]);
+    rotate_matrix_y(0, this->rotation_y);
+    matrix_mult_vec(0, e, v[0]);
+    matrix_mult_vec(0, e + 0xC, v[1]);
+    pop_matrix();
     if (e != 0) {
         if (this->effect_parts[5] != 0) {
-            Type3Tick::copy_pos__11TNowLoadingFPv(this->effect_parts[5], v[0]);
+            copy_pos__11TNowLoadingFPv(this->effect_parts[5], v[0]);
         }
         if (this->effect_parts[6] != 0) {
-            Type3Tick::copy_pos__11TNowLoadingFPv(this->effect_parts[6], v[1]);
+            copy_pos__11TNowLoadingFPv(this->effect_parts[6], v[1]);
         }
     }
-    Type3Tick::__dt__11TBoss4Type3FPvs(p, 1);
+    __dt__11TBoss4Type3FPvs(p, 1);
     this->m_3e8 += -0.06666667f;
     if (this->m_3e8 < 0.0f) {
         this->m_3e8 = 0.0f;
