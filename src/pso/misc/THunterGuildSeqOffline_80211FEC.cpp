@@ -113,7 +113,6 @@ s32 THunterGuildSeqOffline::check_party_gathered() {
 }
 
 void TMemberCheck::update_member_proximity() {
-    u8 *arg0 = (u8 *)this;
     s32 temp_r31;
     s32 player;
     s32 var_r30;

@@ -59,7 +59,6 @@ void TWindowDD::dispatch_state() {
 }
 
 s32 TWindowDD::get_word_select_context() {
-    u8 *arg0 = (u8 *)this;
     s32 temp_r3;
     temp_r3 = TOKeyMachine01::get_global_state();
     if (temp_r3 == 0 || temp_r3 == 18) {

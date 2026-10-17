@@ -38,7 +38,6 @@ u8 *TWindowSubStatusDisp::construct_type1_heading(s32 arg1, s32 arg2) {
 #pragma push
 #pragma scheduling off
 void TWindowSubStatusDisp::fill_card_text_entries(s32 arg1) {
-    u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     s32 temp_r31;
     u8 *temp_r31_2;

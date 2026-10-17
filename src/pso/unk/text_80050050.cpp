@@ -44,7 +44,7 @@ void TObjDFDemoF::render() {
     }
     else
     {
-      draw_model_motion((int) (*((int *) (((s8 *) temp_r30) + 0x94))), (int) temp_r4, (f32) (*((f32 *) (((s8 *) arg0) + 0xB8))));
+      draw_model_motion((int) (*((int *) (((s8 *) temp_r30) + 0x94))), (int) temp_r4, (f32) (this->m_b8));
     }
     var_r29 += 1;
     var_r31 += 4;
@@ -57,7 +57,6 @@ void TObjDFDemoF::render() {
 #pragma push
 #pragma opt_common_subs off
 void TObjDFDemoF::run_task() {
-    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     s32 temp_r0;
     temp_f1 = this->m_b8 + lbl_805D8A20;

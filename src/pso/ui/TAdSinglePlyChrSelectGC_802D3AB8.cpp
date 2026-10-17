@@ -147,7 +147,6 @@ void finish_character_selection_transition(void *arg0) {
 }
 
 void TAdSinglePlyChrSelectGC::close_and_change_scene() {
-    u8 *arg0 = (u8 *)this;
     s32 temp_r3_3;
     s32 temp_r4;
     u8 *temp_r3;
@@ -289,7 +288,6 @@ typedef char RecoveredGlobal_802D4570_lbl_80472510_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_802D4570_lbl_8050E208_size[sizeof(RecoveredGlobal_802D4570_lbl_8050E208) == 0x1B0 ? 1 : -1];
 
 void TAdSinglePlyChrSelectGC::handle_menu_selection() {
-    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     if (((TAdMultiPlyChrSelectGC *)(*(s32 *)&this->m_28))->get_player_index() == 1) {
         *(s32 *)&this->m_20 = 0;

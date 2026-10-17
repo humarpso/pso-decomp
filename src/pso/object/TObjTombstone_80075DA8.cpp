@@ -77,7 +77,6 @@ s32 TObjTombstone::is_player_nearby() {
 #pragma push
 #pragma opt_common_subs off
 void TObjTombstone::update_rise() {
-    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     f32 temp_f1_2;
     if ((is_other_tombstone_closer__13TObjTombstoneFv() == 0) && (this->m_b0 < TObjTombstone__data_805D917C)) {

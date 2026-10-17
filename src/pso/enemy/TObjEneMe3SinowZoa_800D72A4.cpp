@@ -19,7 +19,6 @@ s32 TObjEneMe3SinowZoa__sub_800D72A4(O_800D72A4 *self) {
 }
 
 s32 TUnk_80494938::vfunc_10() {
-    u8 *arg0 = (u8 *)this;
     return *(f32 *)&this->unk_18 > (*(const f32 *)&lbl_805DA348);
 }
 
@@ -50,7 +49,6 @@ s32 TUnk_80494938::decay_value_toward_floor() {
 }
 
 void TUnk_80494938::sub_800D741C() {
-    u8 *arg0 = (u8 *)this;
     f32 temp_f2;
     temp_f2 = *(f32 *)&this->unk_18;
     if (temp_f2 <= (*(const f32 *)&lbl_805DA348)) {

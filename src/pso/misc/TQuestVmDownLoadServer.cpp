@@ -1044,7 +1044,6 @@ void TQuestVmDownLoadServer::abort_download() {
     }
 }
 void TQuestVmDownLoadServer::write_memcard_file() {
-    u8 *arg0 = (u8 *)this;
     Req_801F7478 req;
     s32 r;
     if (this->m_25c >= 0 && TAdPlayerLoadGC__sub_801E1B50(this->m_25c) == 0) {
@@ -1296,7 +1295,6 @@ void TQuestVmDownLoadServer::sub_801F6C74() {
     }
 }
 void TQuestVmDownLoadServer::check_cancel_input() {
-    u8 *arg0 = (u8 *)this;
     u8 *temp_r31;
     temp_r31 = (u8 *)&(*(RecoveredGlobal_801F6C74_lbl_8050E208 *)&controller_input_state).value + 0x20;
     if ((TWindowShortListCtrl__check_controller_button((void *)(temp_r31), (int) (4)) != 0) || (TWindowShortListCtrl__check_controller_button((void *)(temp_r31), (int) (2)) != 0)) {
@@ -1331,10 +1329,10 @@ void TQuestVmDownLoadServer::clear_field2A0() {
     }
 }
 void TQuestVmDownLoadServer::sub_801F6B00() {
-    if (*(u32*)(((u8*)this) + 0x294) == 0 || ((TMessageWindowController *)(((u8*)this) + 0x1C))->is_ready() != 0) {
+    if (*(u32 *)&this->m_294== 0 || ((TMessageWindowController *)(((u8*)this) + 0x1C))->is_ready() != 0) {
         void* p = (u8 *)&controller_input_state + 0x20;
         if (TWindowShortListCtrl__check_controller_button(p, 4) != 0 || TWindowShortListCtrl__check_controller_button(p, 2) != 0) {
-            *(s32*)(((u8*)this) + 0x2A0) = 0x11;
+            this->state= 0x11;
         }
     }
 }
@@ -1357,7 +1355,6 @@ TMCFormatSequence::~TMCFormatSequence() {
     close_window();
 }
 void TMCFormatSequence::run_task() {
-    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     temp_r0 = this->m_24;
     switch (temp_r0) {

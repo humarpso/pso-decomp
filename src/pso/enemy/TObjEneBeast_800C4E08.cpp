@@ -1231,7 +1231,7 @@ s32 TUnk_80493450::update_movement_status() {
     u8 *arg0 = (u8 *)this;
   if (update_movement_status__10TObjPlayerFv((void *) arg0) != 0)
   {
-    if ((*((s16 *) (((s8 *) arg0) + 0x326))) != 0)
+    if ((this->mode) != 0)
     {
       if (((!arg0) && (!arg0)) && (!arg0))
       {
@@ -1239,10 +1239,10 @@ s32 TUnk_80493450::update_movement_status() {
     }
     else
     {
-      *((s32 *) (((s8 *) arg0) + 0x390)) = 0;
-      *((s16 *) (((s8 *) arg0) + 0x326)) = 1;
-      *((s16 *) (((s8 *) arg0) + 0x328)) = 0;
-      *((s16 *) (((s8 *) arg0) + 0xB8)) = 0;
+      this->m_390 = 0;
+      this->mode = 1;
+      this->phase = 0;
+      this->m_b8 = 0;
       obj_clearFlags30((void *)((void *) arg0), (s32)((int) 0x04040000));
       ((TObjPlayer *)arg0)->clear_player_status_flag((s32)((void*)((int) 0)), (u32)((void*)((int) 0x0A000000)));
     }
@@ -1255,7 +1255,7 @@ s32 TUnk_80493450::update_action_hold_status() {
     u8 *arg0 = (u8 *)this;
   if (update_action_hold_status__10TObjPlayerFv((void *) arg0) != 0)
   {
-    if ((*((s16 *) (((s8 *) arg0) + 0x326))) != 0)
+    if ((this->mode) != 0)
     {
       if (((!arg0) && (!arg0)) && (!arg0))
       {
@@ -1263,10 +1263,10 @@ s32 TUnk_80493450::update_action_hold_status() {
     }
     else
     {
-      *((s32 *) (((s8 *) arg0) + 0x390)) = 0;
-      *((s16 *) (((s8 *) arg0) + 0x326)) = 1;
-      *((s16 *) (((s8 *) arg0) + 0x328)) = 0;
-      *((s16 *) (((s8 *) arg0) + 0xB8)) = 0;
+      this->m_390 = 0;
+      this->mode = 1;
+      this->phase = 0;
+      this->m_b8 = 0;
       obj_clearFlags30((void *)((void *) arg0), (s32)((int) 0x04040000));
       ((TObjPlayer *)arg0)->clear_player_status_flag((s32)((void*)((int) 0)), (u32)((void*)((int) 0x0A000000)));
     }
@@ -1615,7 +1615,7 @@ void TUnk_80493450::run_task() {
     PSO_VCALL_VObj_18_477421_m99(arg0);
     return;
   }
-  temp_r0 = *((s16 *) (((s8 *) arg0) + 0x326));
+  temp_r0 = this->mode;
   {
     switch (temp_r0)
     {
@@ -1654,7 +1654,7 @@ void TUnk_80493450::run_task() {
   ((TObjEnemy *)arg0)->update_prev_position();
   copy_position__20TBoss3VoloptHiraisinFi((void *) arg0);
   submit_cursor_candidate((void *) arg0, (int) (-1));
-  *((f32 *) (((s8 *) arg0) + 0x2B4)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x2B4))) + lbl_805DA048);
+  this->m_2b4 = (f32) ((this->m_2b4) + lbl_805DA048);
 }
 
 void *__dt__13TUnk_80493450Fv(void *arg0, s16 arg1) {

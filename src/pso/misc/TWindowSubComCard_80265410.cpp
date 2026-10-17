@@ -172,7 +172,6 @@ void TWindowSubComCard::clear_flag_and_release2() {
 }
 
 void TWindowSubComCardList::update_scroll_target_position() {
-    u8 *arg0 = (u8 *)this;
     Stack_80265484 stack;
     u8 *temp_r5;
     temp_r5 = (u8 *)(*(u8 * *)&this->m_84);
@@ -486,10 +485,10 @@ void TWindowSubComCard::calc_layout_height(f32 farg0) {
         }
     }
     h -= lbl_805DD16C;
-    if (*(s32 *)(((u8 *)this) + 0x2C) & 0x40) {
+    if (*(s32 *)&this->m_2c& 0x40) {
         h += lbl_805DD158;
     }
-    *(f32 *)(((u8 *)this) + 0x38) = farg0;
+    this->m_38= farg0;
     *(f32 *)(((u8 *)this) + 0x3C) = lbl_805DD154 + h;
     *(f32 *)(((u8 *)this) + 0x7C) = h;
     ((TUnk_804CE018 *)((u8 *)this))->save_position();
@@ -562,7 +561,7 @@ void TWindowMenu::layout_entries() {
     y = 0.0f;
     gap = lbl_805DD16C;
     zero = lbl_8044F330;
-    for (i = 0; i < *(s16 *)(((u8 *)this) + 0x76); i++) {
+    for (i = 0; i < *(s16 *)&this->m_76; i++) {
         e = (u8 *)get_array_entry__13TUnk_804CE018Fi(((u8 *)this), i);
         if (((u32 (*)(void))get_field_20__17TWindowSubComCardFv)() != 0) {
             *(f32 *)(e + 0xC) = y;

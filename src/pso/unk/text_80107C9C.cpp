@@ -10,7 +10,6 @@ s32 get_player_by_client_id(int);
 s32 is_item_area_enabled();
 extern const f32 lbl_805DAAE8;
 void TUnk_8049EFB8::run_task() {
-    u8 *arg0 = (u8 *)this;
     s32 player;
     if (lbl_805DAAE8 <= (f32) *(s32 *)&this->unk_1C) {
         player = get_player_by_client_id((int) (this->m_20));

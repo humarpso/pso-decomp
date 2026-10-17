@@ -9,7 +9,10 @@ struct TShopItemTecSequence : public TShopSequence {
     virtual void vfunc_11();
     u8 unk_1C[0x4];
     u32 m_20;
-    u8 unk_24[0x14];
+    u8 unk_24[0x8];
+    s32 m_2c;
+    u8 unk_30[0x4];
+    s32 m_34;
     s32 handle_select();
     s32 close_if_done();
     void open_sell_window();

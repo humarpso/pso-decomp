@@ -320,7 +320,6 @@ void draw_motion_model_saving_joints(u8 *arg0) {
 }
 
 void TObjPlayer::draw_model_with_callback() {
-    u8 *arg0 = (u8 *)this;
     s32 temp_r3;
     u32 temp_r0;
 
@@ -340,7 +339,6 @@ void TObjPlayer::draw_model_with_callback() {
 }
 
 void TObjPlayer::render_world_model() {
-    u8 *arg0 = (u8 *)this;
     TObjPlayer::set_global_flag();
     if (*(s32 *)&this->animationFlags & 4) {
         draw_model_blend_motion(*(s32 *)&this->model, (u8 *)&this->unk_E4, *(f32 *)&this->m_c0);
@@ -354,7 +352,6 @@ void TObjPlayer::render_world_model() {
 }
 
 void TObjEneRe7Berura::draw() {
-    u8 *arg0 = (u8 *)this;
     TObjPlayer::set_global_flag();
     setup_actor_draw_lighting();
     if (*(s32 *)&this->animationFlags & 4) {
@@ -370,7 +367,6 @@ void TObjEneRe7Berura::draw() {
 }
 
 void TObjNpcEnemy::draw_model() {
-    u8 *arg0 = (u8 *)this;
     TObjPlayer::set_global_flag();
     setup_actor_draw_lighting();
     if (*(s32 *)&this->animationFlags & 4) {

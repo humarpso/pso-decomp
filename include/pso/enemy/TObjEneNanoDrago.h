@@ -44,7 +44,9 @@ struct TObjEneNanoDrago {
     s16 m_2c8;
     u8 unknown2CA[0x32];
     NanoDragoVector m_2fc;
-    u8 unknown308[0x24];
+    u8 unk_308[0x1E];
+    s16 m_326;
+    u8 unk_328[0x4];
     s16 hp;
     u16 m_32e;
     u8 unknown330[0xE];

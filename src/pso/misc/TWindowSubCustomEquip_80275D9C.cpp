@@ -95,7 +95,7 @@ void TWindowSubCustomEquip::update_palette_slot(s32 arg1, s32 kind, s32 arg3) {
     void *pl;
     u8 *a;
     u8 *b;
-    pl = get_player_by_client_id(*(s16 *)(((u8 *)this) + 0x20));
+    pl = get_player_by_client_id(this->m_20);
     if (pl != NULL) {
         a = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), lbl_8044F738[arg1]);
         b = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), lbl_8044F740[arg1]);
@@ -105,7 +105,7 @@ void TWindowSubCustomEquip::update_palette_slot(s32 arg1, s32 kind, s32 arg3) {
             *(s32 *)(a + 0x2C) = 0xFF404040;
         }
         draw_action_palette_icon(a, kind, arg3);
-        update_palette_item_count_label(b, a, kind, arg3, *(s16 *)(((u8 *)this) + 0x20));
+        update_palette_item_count_label(b, a, kind, arg3, this->m_20);
     }
 }
 

@@ -266,7 +266,6 @@ u8 *TBreakUpMdl__ct(u8 *arg0, void *arg1, Model_80096AD8 *arg2, void *arg3, s32 
 #pragma push
 #pragma fp_contract on
 s32 TBreakUpMdl::collect_node_positions(u8 *arg1, s32 arg2) {
-    u8 *arg0 = (u8 *)this;
     u8 *temp_r31;
     s32 temp_r30;
     s32 temp_r4;
@@ -300,7 +299,6 @@ s32 TBreakUpMdl::collect_node_positions(u8 *arg1, s32 arg2) {
 #pragma push
 #pragma fp_contract on
 s32 TBreakUpMdl::build_node_records(u8 *arg1, s32 arg2) {
-    u8 *arg0 = (u8 *)this;
     u8 *temp_r31;
     s32 temp_r30;
     s32 temp_r4;

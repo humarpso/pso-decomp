@@ -1003,7 +1003,6 @@ s32 TBoss6Type1::is_ready() {
 }
 
 s32 TBoss6Type1::check_field4b0_threshold() {
-    u8 *arg0 = (u8 *)this;
     s32 temp_r31;
     temp_r31 = (s32) (this->m_4b4 * (f32) this->m_494);
     if (calc_field4b0_delta() >= temp_r31) {
@@ -1133,7 +1132,6 @@ void TBoss6Type1::reset_param() {
 #pragma opt_common_subs off
 #pragma opt_propagation off
 void TBoss6Type1::decrease_field_clamped_min() {
-    u8 *arg0 = (u8 *)this;
     *(f32 *)&this->unk_4DC = (f32) (*(f32 *)&this->unk_4DC + lbl_805DE370);
     if (*(f32 *)&this->unk_4DC < TBoss6Type1__data_805DE2D0) {
         *(f32 *)&this->unk_4DC = (f32) TBoss6Type1__data_805DE2D0;
@@ -1144,7 +1142,6 @@ void TBoss6Type1::decrease_field_clamped_min() {
 #pragma push
 #pragma opt_common_subs off
 void TBoss6Type1::increase_field_clamped_max() {
-    u8 *arg0 = (u8 *)this;
     *(f32 *)&this->unk_4DC = (f32) (*(f32 *)&this->unk_4DC + lbl_805DE374);
     if (*(f32 *)&this->unk_4DC > TBoss6Type1__data_805DE2E4) {
         *(f32 *)&this->unk_4DC = (f32) TBoss6Type1__data_805DE2E4;
@@ -1624,7 +1621,6 @@ void TBoss6Type1::update_part_positions() {
 }
 
 void TBoss6Type1::update_position() {
-    u8 *arg0 = (u8 *)this;
     VecCopy__FP3VecPC3Vec((u8 *)&this->m_2fc, (u8 *)&this->position);
     if ((s32) this->m_438 != 0) {
         this->m_300 = (f32) (this->m_300 - lbl_805DE3A4);
@@ -1692,7 +1688,7 @@ void TBoss6Type1::update_turn_to_center() {
   s32 var_r31;
   s32 var_r4;
   var_r31 = 0;
-  if (((s32) (*((s32 *) (((s8 *) arg0) + 0x438)))) != 0)
+  if (((s32) (this->m_438)) != 0)
   {
     var_r31 = 0x8000;
   }
@@ -1711,17 +1707,17 @@ void TBoss6Type1::update_turn_to_center() {
   if (!(vector_length((void *) (&stack.sp8), (f32) temp_f1) <= TBoss6Type1__data_805DE310))
   {
     var_r4 = (s32) (TBoss6Type1__data_80471038 * atan2_float((f64) stack.sp8, (f64) stack.sp10));
-    if (((s32) (*((s32 *) (((s8 *) arg0) + 0x438)))) != 0)
+    if (((s32) (this->m_438)) != 0)
     {
       var_r4 += 0x8000;
     }
     var_r5 = 0x1555;
-    new_var = (int) (*((s32 *) (((s8 *) arg0) + 0x60)));
-    if (((s32) (*((s32 *) (((s8 *) arg0) + 0x414)))) == 0)
+    new_var = (int) (this->rotation_y);
+    if (((s32) (this->m_414)) == 0)
     {
       var_r5 = 0x1B4;
     }
-    *((s32 *) (((s8 *) arg0) + 0x60)) = approach_angle_limited(new_var, (int) var_r4, (int) var_r5);
+    this->rotation_y = approach_angle_limited(new_var, (int) var_r4, (int) var_r5);
   }
 }
 
@@ -1735,7 +1731,6 @@ void TBoss6Type1::latch_phase_counter() {
 
 typedef char RecoveredGlobal_802B7E88_lbl_80470CEC_size[sizeof(RecoveredGlobal_802B7E88_lbl_80470CEC) == 0x30 ? 1 : -1];
 void TBoss6Type1::load_params_from_table() {
-    u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     temp_r3 = (u8 *)(TLobby::dispatch_shared_handler_a(0x2B));
     this->m_47c = (s32) *(f32 *)((s8 *)temp_r3 + 0);
@@ -1937,7 +1932,6 @@ void TBoss6Type1::set_action_state(s32 arg1) {
 }
 
 void TBoss6Type1::render_shadows() {
-    u8 *arg0 = (u8 *)this;
     if (this->position[1] >= lbl_805DE3D0) {
         render_actor_shadows_default();
     }

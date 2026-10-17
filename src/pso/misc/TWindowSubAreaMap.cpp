@@ -48,7 +48,6 @@ extern s32 __vt__17TWindowSubAreaMap[];
 
 typedef char RecoveredGlobal_80271480_lbl_8050E208_size[sizeof(RecoveredGlobal_80271480_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void TWindowSubAreaMap::run_task() {
-    u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
         play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
@@ -86,7 +85,6 @@ TWindowSubAreaMap::TWindowSubAreaMap(TObject *arg1, void *arg2) : TObject(arg1) 
 extern "C" {
 typedef char RecoveredGlobal_802715F0_lbl_8050E208_size[sizeof(RecoveredGlobal_802715F0_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void TWindowSubAreaMapDisp::update_manual_scroll() {
-    u8 *arg0 = (u8 *)this;
     u8 *temp_r31;
     if ((s32) *(s32 *)&this->m_6c != 0) {
         temp_r31 = (u8 *)&(*(RecoveredGlobal_802715F0_lbl_8050E208 *)&controller_input_state).value + 0x20;

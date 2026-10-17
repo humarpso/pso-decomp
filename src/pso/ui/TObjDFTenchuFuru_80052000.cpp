@@ -35,7 +35,6 @@ s32 pop_matrix();
 s32 set_color_blend_mode(s32, s32, s32, s32);
 
 void TObjDFUsoTower::render() {
-    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
 
     temp_f1 = *(f32 *)&this->unk_94;

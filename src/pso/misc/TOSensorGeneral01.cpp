@@ -71,8 +71,8 @@ void *__nw__7TObjectFUl(int);
 s32 mem_free(void*);
 
 void TOSensorGeneral01::vfunc_17() {
-    *(s32 *)((s8 *)this + 0x60) = (s32) (*(s32 *)((s8 *)this + 0x60) + 0x147);
-    *(s32 *)((s8 *)this + 0xE8) = (s32) (*(s32 *)((s8 *)this + 0xE8) + 0x28F);
+    this->rotation_y= (s32) (this->rotation_y+ 0x147);
+    this->m_e8= (s32) (this->m_e8+ 0x28F);
 }
 
 extern const f32 lbl_805DB9B0;
@@ -83,29 +83,29 @@ extern const f32 lbl_805DB9BC;
 void TOSensorGeneral01::vfunc_16() {
     s32 temp_r0;
 
-    *(s32 *)((s8 *)this + 0xE8) = (s32) (*(s32 *)((s8 *)this + 0xE8) + 0x28F);
-    *(s32 *)((s8 *)this + 0xF0) = (s32) (*(s32 *)((s8 *)this + 0xF0) - 1);
-    temp_r0 = *(s32 *)((s8 *)this + 0xF0);
+    this->m_e8= (s32) (this->m_e8+ 0x28F);
+    this->m_f0= (s32) (this->m_f0- 1);
+    temp_r0 = this->m_f0;
     if (temp_r0 < 0) {
-        *(s32 *)((s8 *)this + 0xF0) = 0;
+        this->m_f0= 0;
         *(s32 *)((s8 *)this + 0xEC) = 0;
-        *(s32 *)((s8 *)this + 0x60) = (s32) (*(s32 *)((s8 *)this + 0x60) + 0xCCC);
+        this->rotation_y= (s32) (this->rotation_y+ 0xCCC);
         *(f32 *)((s8 *)this + 0x3C) = (f32) (*(f32 *)((s8 *)this + 0x3C) + lbl_805DB9B0);
         return;
     }
     if ((f32) temp_r0 < lbl_805DB9B4) {
         *(s32 *)((s8 *)this + 0xEC) = 1;
-        *(s32 *)((s8 *)this + 0x60) = (s32) (*(s32 *)((s8 *)this + 0x60) + 0x147);
+        this->rotation_y= (s32) (this->rotation_y+ 0x147);
         return;
     }
     if ((f32) temp_r0 < lbl_805DB9B8) {
         *(s32 *)((s8 *)this + 0xEC) = 2;
-        *(s32 *)((s8 *)this + 0x60) = (s32) (*(s32 *)((s8 *)this + 0x60) + 0x147);
+        this->rotation_y= (s32) (this->rotation_y+ 0x147);
         return;
     }
     if ((f32) temp_r0 < lbl_805DB9BC) {
         *(s32 *)((s8 *)this + 0xEC) = 3;
-        *(s32 *)((s8 *)this + 0x60) = (s32) (*(s32 *)((s8 *)this + 0x60) + 0x147);
+        this->rotation_y= (s32) (this->rotation_y+ 0x147);
     }
 }
 
@@ -114,11 +114,11 @@ extern void *tl_05;
 void TOSensorGeneral01::render() {
     u8 *arg0 = (u8 *)this;
     Node_801760A8 *n;
-    if (((VObj_801760A8 *)(arg0))->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
+    if (((VObj_801760A8 *)(arg0))->m8(this->m_c0, *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
         push_matrix();
         post_translate_matrix((void *) ((u8 *)(arg0) + 0x38));
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        n = *(Node_801760A8 **)((s8 *)arg0 + 0x34);
+        rotate_matrix_y(0, this->rotation_y);
+        n = *(Node_801760A8 * *)&this->model;
         translate_matrix(0, n->x, n->y, n->z);
         TObjFish::set_global_param(TOSensorGeneral01__texture_lists[0]);
         draw_ginja_model(n->model);
@@ -139,7 +139,7 @@ void TOSensorGeneral01::render() {
         n = n->next;
         push_matrix();
         translate_matrix(0, n->x, n->y, n->z);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0xE8));
+        rotate_matrix_y(0, this->m_e8);
         TObjFish::set_global_param(TOSensorGeneral01__texture_lists[1]);
         draw_ginja_model(n->model);
         pop_matrix();

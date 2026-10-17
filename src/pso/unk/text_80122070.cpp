@@ -8,7 +8,6 @@ extern const f32 lbl_805DACDC;
 extern "C" {
 
 void TUnk_804A0DB0::update_weapon() {
-    u8 *arg0 = (u8 *)this;
     f32 temp_f2;
     temp_f2 = *(f32 *)&this->m_1fc;
     if (temp_f2 < lbl_805DACDC) {

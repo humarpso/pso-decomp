@@ -147,7 +147,6 @@ void run_task__22TObjFogCollisionSwitchFv(void *arg0) {
 }
 
 s32 TObjFogCollisionSwitch::sub_80153A0C() {
-    u8 *arg0 = (u8 *)this;
     return *(f32 *)&this->m_70 >= lbl_805DB250;
 }
 

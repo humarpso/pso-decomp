@@ -64,16 +64,16 @@ void TUnk_804A3358::emit_marker_effects() {
     draw_icon__10TObjPlayerFll(((u8 *)this), 3, pos);
     spawn_particle_effect(pos, 0x1BE);
     draw_icon__10TObjPlayerFll(((u8 *)this), 0, pos);
-    if (is_status_subsystem_ready__10TObjPlayerFv(*(void **)(((u8 *)this) + 0xF0)) == 2) {
+    if (is_status_subsystem_ready__10TObjPlayerFv(*(void * *)&this->player) == 2) {
         if (((VObj_18 *)((u8 *)this))->m33() == 1) {
-            st = ((TObjPlayer *)(*(void **)(((u8 *)this) + 0xF0)))->get_extended_state();
+            st = ((TObjPlayer *)(*(void * *)&this->player))->get_extended_state();
             if (get_captured_target_count(st) != 0) {
                 void *e = get_captured_target_entry(st, 0);
                 ((TObjPlayer *)(&rec))->construct_target_cursor_records();
                 rec.kind = 1;
                 rec.uid = ((TObjPlayer *)e)->get_uid();
                 rec.sub = get_captured_target_collider_index(e);
-                TObjPlayer::create_tec_zonde((void *)(*(void **)(((u8 *)this) + 0xF0)), (void *)pos, (void *)(&rec), (void *)3);
+                TObjPlayer::create_tec_zonde((void *)(*(void * *)&this->player), (void *)pos, (void *)(&rec), (void *)3);
             }
         }
     } else {

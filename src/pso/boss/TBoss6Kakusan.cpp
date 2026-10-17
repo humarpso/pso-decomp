@@ -126,7 +126,7 @@ void TBoss6Kakusan::check_beam_player_hits() {
     {
       continue;
     }
-    step = *((f32 *) (((s8 *) arg0) + 0x24));
+    step = this->m_24;
     found = 0;
     VecCopy__FP3VecPC3Vec(&p, (u8 *)&this->m_30);
     VecCopy__FP3VecPC3Vec(&dir, (u8 *)&this->m_48);
@@ -143,7 +143,7 @@ void TBoss6Kakusan::check_beam_player_hits() {
     while (t <= len)
     {
       f32 y = *((f32 *) (((s8 *) pl) + 0x3C));
-      f32 ar = *((f32 *) (((s8 *) arg0) + 0x24));
+      f32 ar = this->m_24;
       f32 py = p.y;
       f32 hi = ar + (lbl_805DF520 + y);
       f32 lo = y - ar;
@@ -163,7 +163,7 @@ void TBoss6Kakusan::check_beam_player_hits() {
     }
     if (found != 0)
     {
-      h.f = (f32) TBoss6PlotFalz::rand_vary_count(*((s32 *) (((s8 *) arg0) + 0x1C)), lbl_805DF528);
+      h.f = (f32) TBoss6PlotFalz::rand_vary_count(*(s32 *)&this->m_1c, lbl_805DF528);
       s32 z = 0;
       h.a = z;
       h.c = z;

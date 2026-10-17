@@ -19,7 +19,6 @@ extern "C" {
 u16 obj_getField1c(void *);
 s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
 void TItemEffEquip::spawn_equip_particle_effect(s32 arg1) {
-    u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     temp_r3 = (u8 *)(*(u8 * *)&this->m_1c);
     *(s32 *)&this->m_20 = spawn_continuous_particle_effect_with_flags(((VObj_18_7128e8 *)(temp_r3))->m7(), arg1, 0x10);

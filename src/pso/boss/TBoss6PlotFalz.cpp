@@ -635,7 +635,6 @@ void TBoss6PlotFalz::award_exp_and_destroy() {
 }
 
 void TBoss6PlotFalz::apply_fade_alpha(s32 arg1, f32 farg0) {
-    u8 *arg0 = (u8 *)this;
     f32 var_f1;
     u8 *temp_r3;
     var_f1 = farg0;

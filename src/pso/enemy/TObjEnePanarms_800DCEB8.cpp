@@ -691,8 +691,8 @@ void TObjEnePanarms::update_fall() {
       return;
     }
   }
-  *((s32 *) (((s8 *) arg0) + 0x388)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x388))) + 1);
-  if ((!((*((s32 *) (((s8 *) arg0) + 0x388))) & 7)) && ((*((f32 *) (((s8 *) arg0) + 0x37C))) > TObjEnePanarms__data_805DA4A0))
+  this->m_388 = (s32) ((this->m_388) + 1);
+  if ((!((this->m_388) & 7)) && ((*((f32 *) (((s8 *) arg0) + 0x37C))) > TObjEnePanarms__data_805DA4A0))
   {
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x2FC));
     stack.spC = TObjEnePanarms__data_805DA49C + (*((f32 *) (((s8 *) arg0) + 0x384)));

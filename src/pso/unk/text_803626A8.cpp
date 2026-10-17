@@ -329,7 +329,6 @@ void *TObjEneEpsilon__ct(void *arg0) {
 extern s32 lbl_804F26E0[];
 
 void TUnk_804F26E0::vfunc_62() {
-    u8 *arg0 = (u8 *)this;
     ((TItemProUnit *)(*(s32 *)&this->player + 0x7CC))->set_evp((f32) (lbl_805E0258));
 }
 

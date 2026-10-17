@@ -83,18 +83,18 @@ void TWindowMainMenu1P::update_backdrop_transition() {
       *((u8 *) (((s8 *) arg0) + 0x61)) = 3U;
     }
   }
-  *((f32 *) (((s8 *) arg0) + 0x6C)) = (f32) ((lbl_805DD8AC * ((f32) ((s8) (*((u8 *) (((s8 *) arg0) + 0x60)))))) + lbl_805DD8A8);
+  this->m_6c = (f32) ((lbl_805DD8AC * ((f32) ((s8) (*((u8 *) (((s8 *) arg0) + 0x60)))))) + lbl_805DD8A8);
   *((f32 *) (((s8 *) arg0) + 0x70)) = (f32) (-((lbl_805DD8B4 * ((f32) ((s8) (*((u8 *) (((s8 *) arg0) + 0x61)))))) - lbl_805DD8B0));
   TWindowCtrlMain::set_depth(lbl_805DD8B8 * ((f32) ((s8) (*((u8 *) (((s8 *) arg0) + 0x60))))), *((s32 *) (((s8 *) arg0) + 0x54)));
   TWindowCtrlMain::set_field18(-((lbl_805DD8C0 * ((f32) ((s8) (*((u8 *) (((s8 *) arg0) + 0x61)))))) - lbl_805DD8BC), *((s32 *) (((s8 *) arg0) + 0x54)));
-  *((f32 *) (((s8 *) arg0) + 0xA4)) = (f32) ((lbl_805DD8C4 - (*((f32 *) (((s8 *) arg0) + 0x6C)))) / lbl_805DD8A8);
+  this->m_a4 = (f32) ((lbl_805DD8C4 - (this->m_6c)) / lbl_805DD8A8);
   *((f32 *) (((s8 *) arg0) + 0xA8)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x70))) / lbl_805DD8B0);
   temp_f1 = *((f32 *) (((s8 *) arg0) + 0xA8));
-  if ((*((f32 *) (((s8 *) arg0) + 0xA4))) < (*((f32 *) (((s8 *) arg0) + 0xA8))))
+  if ((this->m_a4) < (*((f32 *) (((s8 *) arg0) + 0xA8))))
   {
-    *((f32 *) (((s8 *) arg0) + 0xA4)) = *((f32 *) (((s8 *) arg0) + 0xA8));
+    this->m_a4 = *((f32 *) (((s8 *) arg0) + 0xA8));
   }
-  *((f32 *) (((s8 *) arg0) + 0xA8)) = (f32) (lbl_805DD8C8 * (*((f32 *) (((s8 *) arg0) + 0xA4))));
+  *((f32 *) (((s8 *) arg0) + 0xA8)) = (f32) (lbl_805DD8C8 * (this->m_a4));
   if ((*((s32 *) (((s8 *) arg0) + 0x4C))) & 2)
   {
     ((TCameraCtrl *)(((u8 *) arg0) + 0x64))->apply_view_params_if_flagged();

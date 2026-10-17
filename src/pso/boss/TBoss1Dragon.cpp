@@ -5256,7 +5256,6 @@ u16 TBoss1Dragon::find_player_on_floor(void *arg0) {
 #pragma pop
 
 void TBoss1Dragon::update_switch_attack() {
-    u8 *arg0 = (u8 *)this;
     spawn_particle_effect_with_flags((u8 *)&this->position, *(s32 *)((s8 *)(*(void * *)&this->effectResource) + 4), 0x40);
 }
 
@@ -6128,7 +6127,6 @@ s32 TBoss1Dragon::select_air_fire_target(void *out_) {
 #undef arg1
 
 f32 TBoss1Dragon::sample_root_height() {
-    u8 *arg0 = (u8 *)this;
     struct Vec_80029238 v;
     v.x = TBoss1Dragon__data_805D7F28;
     v.y = TBoss1Dragon__data_805D7F28;
@@ -6171,7 +6169,6 @@ void prepare_flight_destination__12TBoss1DragonFPv(u8 *arg0) {
 #pragma push
 #pragma fp_contract on
 void TBoss1Dragon::calc_forward_point(f32 *arg1, f32 *arg2) {
-    u8 *arg0 = (u8 *)this;
     *arg1 = (lbl_805D80BC * sin_table_lookup(this->rotation_y)) + this->position[0];
     *arg2 = (lbl_805D80BC * cos_table_lookup(this->rotation_y)) + this->position[2];
 }
@@ -6747,7 +6744,6 @@ s32 TBoss1Dragon::get_instance() {
 }
 
 void TBoss1Dragon::set_child_motion(u8 *arg1) {
-    u8 *arg0 = (u8 *)this;
     ((VObj_18 *)(arg1))->m20(*(s32 *)&this->unknownAC, TBoss1Dragon__data_805D7F40);
     TBoss1Dragon__sub_8002AB6C((u8 *)((void *) (arg1)));
 }

@@ -61,7 +61,6 @@ void TKeyBoardControl::init_char_select() {
 void TWindowSubGameEnd::render() {  }
 
 void TWindowSubGameEnd::run_task() {
-    u8 *arg0 = (u8 *)this;
     s32 slot;
     void *obj;
     switch (*(s32 *)&this->m_1c) {

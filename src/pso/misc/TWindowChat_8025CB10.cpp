@@ -6,7 +6,6 @@
 extern "C" {
 
 bool TWindowKeyBoardBase::sub_8025CB10() {
-    u8 *arg0 = (u8 *)this;
     if ((u32) this->m_7c != 0U) {
         return 1;
     }

@@ -61,7 +61,6 @@ void* get_ptr_0x44__9TItemListFPv(void* p) { return (char*)p + 0x44; }
 void TItemList__sub_801D5884(void* p, u8 v) { *(u8*)((char*)p + 0x1d) = v; }
 
 void TItemList::lookup_entry_by_count(s32 arg1) {
-    u8 *arg0 = (u8 *)this;
     TItemList__sub_801D58C8((void*)(((u8 *)TItemList__sub_801D5868((Arr_801D5868 *)(arg1), (s8)(get_item_count())))));
 }
 

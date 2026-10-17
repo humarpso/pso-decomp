@@ -130,7 +130,6 @@ void TObjPlayer::draw_item_model() {
 }
 
 void TItem::sub_8010043C(u8 arg1) {
-    u8 *arg0 = (u8 *)this;
     u8 temp_r0;
     this->model_index = arg1;
     temp_r0 = this->model_index;

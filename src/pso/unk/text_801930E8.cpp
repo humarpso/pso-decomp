@@ -108,7 +108,7 @@ void TObjLazerFence4::draw_model() {
   TObjFish::set_global_param((s32)((void *)((*(s32 *)&lazer_fence_norm_texture_list))));
   push_matrix();
   post_translate_matrix((u8 *)&this->position);
-  rotate_matrix_y((int)(0), (void *)(*((s32 *) (((s8 *) arg0) + 0x60))));
+  rotate_matrix_y((int)(0), (void *)(this->rotation_y));
   draw_ginja_object((void *)(*((s32 *) (((s8 *) arg0) + 0xC0))));
   TParticleCtrl::begin_effect_render();
   new_var = (s32 *) (((s8 *) arg0) + 0xC4);

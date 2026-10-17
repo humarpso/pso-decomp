@@ -190,12 +190,12 @@ void TUnk_804949F4::vfunc_6() {
   f32 temp_f1;
   s32 temp_r3;
   temp_r3 = TObjPlayer::calc_random_scaled();
-  temp_f1 = (*((f32 *) (((s8 *) arg0) + 0x28))) * sin_table_lookup((int) (temp_r3 & 0xFFFFFFFFu));
+  temp_f1 = (this->m_28) * sin_table_lookup((int) (temp_r3 & 0xFFFFFFFFu));
   stack.spC = lbl_805DA380;
   stack.sp8 = temp_f1;
-  stack.sp10 = (*((f32 *) (((s8 *) arg0) + 0x28))) * cos_table_lookup((int) temp_r3);
+  stack.sp10 = (this->m_28) * cos_table_lookup((int) temp_r3);
   vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x1C));
-  ((TNowLoading *)(*((s32 *) (((s8 *) arg0) + 0x34))))->copy_pos((void *) (&stack.sp8));
+  ((TNowLoading *)(this->m_34))->copy_pos((void *) (&stack.sp8));
 }
 
 void *__dt__13TUnk_804949F4Fv(void *arg0, s16 arg1) {

@@ -234,11 +234,10 @@ s32 TObjPlayer__sub_80082CCC(void *);
 int TBoss8Dragon__sub_8030B80C(void) {  return (local_client_id & 0xffff); }
 
 void TObjLiveCameraCtrl::sub_8030B818(int _w1) {
-    u8 *arg0 = (u8 *)this;
   s32 temp_r0;
   s32 var_r3;
   s32 new_var;
-  new_var = angle_diff_s16((int) (*((s32 *) (((s8 *) arg0) + 0x28))));
+  new_var = angle_diff_s16((int) (this->m_28));
   temp_r0 = (s32) (((f32) new_var) * lbl_805DF17C);
   if (temp_r0 < (-0x280))
   {
@@ -252,7 +251,7 @@ void TObjLiveCameraCtrl::sub_8030B818(int _w1) {
       var_r3 = temp_r0;
     }
   }
-  *((s32 *) (((s8 *) arg0) + 0x28)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x28))) + var_r3);
+  this->m_28 = (s32) ((this->m_28) + var_r3);
 }
 
 #pragma push

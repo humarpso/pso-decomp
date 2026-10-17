@@ -7,7 +7,6 @@ s32 scale_current_matrix(void *);
 s32 rotate_matrix_x(s32, s32);
 
 void TObjPlayer::handle_move_input() {
-    u8 *arg0 = (u8 *)this;
     s32 temp_r3;
 
     temp_r3 = TObjPlayer::get_player_list();

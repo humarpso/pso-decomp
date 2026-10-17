@@ -214,7 +214,6 @@ void render__15TOKeyJungleMainFv(u8 *arg0) {
 
 typedef char RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8_size[sizeof(RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8) == 0xC ? 1 : -1];
 void TOKeyJungleMain::send_switch_on() {
-    u8 *arg0 = (u8 *)this;
     dispatch_by_phase__15TOKeyJungleMainFlUs((void *) (game_difficulty_selection), (int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8 *)&TOKeyJungleMain__data_804653C8).value) + (*(s32 *)&this->m_e4 * 4))));
 }
 
@@ -241,11 +240,11 @@ void TOKeyJungleMain::vfunc_16() {
   u32 temp_r3_2;
   new_var = 0;
   bml_motion = get_bml_motion((s32)((*(u8 * *)&TOKeyJungleMain__static_model_resource)), (s32)(1));
-  *((f32 *) (((s8 *) arg0) + 0xE8)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xE8))) + lbl_805DDD38);
+  this->m_e8 = (f32) ((this->m_e8) + lbl_805DDD38);
   temp_r3_2 = (*((s32 *) (((s8 *) bml_motion) + 4))) - 1;
-  if ((*((f32 *) (((s8 *) arg0) + 0xE8))) > ((f32) temp_r3_2))
+  if ((this->m_e8) > ((f32) temp_r3_2))
   {
-    *((f32 *) (((s8 *) arg0) + 0xE8)) = (f32) temp_r3_2;
+    this->m_e8 = (f32) temp_r3_2;
   }
   temp_r3_3 = get_bml_motion((s32)((*(u8 * *)&TOKeyJungleMain__static_model_resource)), (s32)(new_var));
   *((f32 *) (((s8 *) arg0) + 0xEC)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xEC))) + lbl_805DDD38);

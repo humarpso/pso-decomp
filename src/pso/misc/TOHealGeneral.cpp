@@ -279,7 +279,6 @@ void TUnk_804B27D8::vfunc_16() {  }
 extern f32 lbl_805DB6D8;
 
 void TUnk_804B27D8::vfunc_6(s16 *arg1, s32) {
-    u8 *arg0 = (u8 *)this;
     *(s32 *)&this->m_ac = (s32) *arg1;
 }
 

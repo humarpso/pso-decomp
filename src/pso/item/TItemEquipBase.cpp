@@ -420,7 +420,6 @@ void play_target_impact_effect(s32 arg0, s32 arg1, s32 arg2, s16 arg3) {
 void*TItemEquipBase::get_stat_bonus_ptr() { return (char*)this + 0x16c; }
 
 s8 TItemWeapon::get_attach_joint() {
-    u8 *arg0 = (u8 *)this;
     return (s8) (*(u8 *)((u8 *)this + 0x171));
 }
 
@@ -431,7 +430,6 @@ s8 TItemEquipBase__sub_8010A77C(u8 *arg0) {
 void TItemEquipBase::vfunc_50() {  }
 
 void TItemEquipBase::bind_loaded_resources() {
-    u8 *arg0 = (u8 *)this;
     s16 temp_r3;
     u8 *temp_r3_2;
     if ((u32) this->m_f4 == 0U) {

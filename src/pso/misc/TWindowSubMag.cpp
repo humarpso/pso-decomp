@@ -183,7 +183,6 @@ extern s32 lbl_8044FA00[];
 #pragma push
 #pragma fp_contract on
 void *TWindowSubMag::create_learned_blast_toast() {
-    u8 *arg0 = (u8 *)this;
     Item_8027B424 item;
     Vec2_8027B424 pos;
     Vec2_8027B424 size;

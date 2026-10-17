@@ -569,7 +569,7 @@ void TWindowMenuMainMenu::handle_confirm() {
   int new_var3;
   u8 *temp_r3;
   new_var2 = arg0;
-  new_var2 = new_var2 + (((s8) (*((u8 *) (((s8 *) arg0) + 0x61)))) * 4);
+  new_var2 = new_var2 + (((s8) (this->m_61)) * 4);
   temp_r3 = (unsigned char *) (*((void **) (((s8 *) new_var2) + 0x124)));
   if (temp_r3 != 0)
   {
@@ -581,7 +581,7 @@ void TWindowMenuMainMenu::handle_confirm() {
     }
     new_var3 = (int) 0x52D01;
     play_sound_effect((s32)(new_var3), (s32)((int) 0), (s32)((int) 0), (s32)(new_var));
-    *((u8 *) (((s8 *) arg0) + 0x60)) = (u8) ((*((u8 *) (((s8 *) arg0) + 0x60))) | 1);
+    this->m_60 = (u8) ((this->m_60) | 1);
   }
 }
 

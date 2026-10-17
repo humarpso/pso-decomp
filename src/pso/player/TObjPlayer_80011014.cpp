@@ -1008,7 +1008,6 @@ int TObjPlayer::test_flag30_512(void* p) { return ((int (*)(void*, int))obj_test
 int TObjPlayer::test_flag_256(void* p) { return ((int (*)(void*, int))obj_testFlags30)(p, 256); }
 
 bool TUnk_804806E8::vfunc_29() {
-    u8 *arg0 = (u8 *)this;
     return *(s32 *)&this->target == 0;
 }
 
@@ -1195,7 +1194,7 @@ void TUnk_804806E8::apply_anti_technique(s32 arg1) {
     if (arg1 >= 0) {
         switch (((int (*)(void *, int))obj_getArrWord_254)(((u8 *)this), 0)) {
         case 0xF:
-            *(u32 *)(((u8 *)this) + 0x30) &= ~3;
+            this->actorFlags&= ~3;
             ((void (*)(void *))reset_status_effect_row)(((u8 *)this) + 0x254);
         }
     }
@@ -1203,7 +1202,7 @@ void TUnk_804806E8::apply_anti_technique(s32 arg1) {
         switch (((int (*)(void *, int))obj_getArrWord_254)(((u8 *)this), 1)) {
         case 3:
             sub_800192B4((int)((f32)((TUnk_804806E8 *)((u8 *)this))->get_s16_2c4() * -((f32 (*)(void *, s32))TObjPlayer__sub_800192C4)(((u8 *)this), 1)));
-            *(u32 *)(((u8 *)this) + 0x30) &= ~0x3C;
+            this->actorFlags&= ~0x3C;
             ((void (*)(void *))reset_status_effect_row)(((u8 *)this) + 0x260);
         }
     }
@@ -1211,21 +1210,21 @@ void TUnk_804806E8::apply_anti_technique(s32 arg1) {
         switch (((int (*)(void *, int))obj_getArrWord_254)(((u8 *)this), 0)) {
         case 0x10:
             sub_800192B4((int)((f32)((TUnk_804806E8 *)((u8 *)this))->get_s16_2c4() * -((f32 (*)(void *, s32))TObjPlayer__sub_800192C4)(((u8 *)this), 0)));
-            *(u32 *)(((u8 *)this) + 0x30) &= ~3;
+            this->actorFlags&= ~3;
             ((void (*)(void *))reset_status_effect_row)(((u8 *)this) + 0x254);
         }
     }
     if (arg1 >= 3) {
         switch (((int (*)(void *, int))obj_getArrWord_254)(((u8 *)this), 1)) {
         case 0x12:
-            *(u32 *)(((u8 *)this) + 0x30) &= ~0x3C;
+            this->actorFlags&= ~0x3C;
             ((void (*)(void *))reset_status_effect_row)(((u8 *)this) + 0x260);
         }
     }
     if (arg1 >= 4) {
         switch (((int (*)(void *, int))obj_getArrWord_254)(((u8 *)this), 1)) {
         case 0x11:
-            *(u32 *)(((u8 *)this) + 0x30) &= ~0x3C;
+            this->actorFlags&= ~0x3C;
             ((void (*)(void *))reset_status_effect_row)(((u8 *)this) + 0x260);
         }
     }
@@ -1246,11 +1245,11 @@ void TUnk_804806E8::apply_anti_technique(s32 arg1) {
         switch (((int (*)(void *, int))obj_getArrWord_254)(((u8 *)this), 1)) {
         case 2:
             sub_800192B4((int)((f32)((TUnk_804806E8 *)((u8 *)this))->get_s16_2c4() * -((f32 (*)(void *, s32))TObjPlayer__sub_800192C4)(((u8 *)this), 1)));
-            *(u32 *)(((u8 *)this) + 0x30) &= ~0x3C;
+            this->actorFlags&= ~0x3C;
             ((void (*)(void *))reset_status_effect_row)(((u8 *)this) + 0x260);
         }
     }
-    *(u32 *)(((u8 *)this) + 0x330) = *(u32 *)(((u8 *)this) + 0x30) & 0x3F;
+    *(u32 *)(((u8 *)this) + 0x330) = this->actorFlags& 0x3F;
     ((void (*)(void *, u32))obj_clearFlags30)(((u8 *)this), 0x4000);
     ((void (*)(void *))reset_status_effect_row)(((u8 *)this) + 0x284);
 }
@@ -1520,7 +1519,6 @@ s32 TObjPlayer::add_meseta(s32 amount) {
 s32 get_actor_level_index(void* p) { return *(s32*)((char*)*(void**)((char*)p + 0x2b0) + 0x18); }
 
 s32 TObjPlayer::add_capped_counter_999(s32 arg1) {
-    u8 *arg0 = (u8 *)this;
     this->m_11a = (s16) (this->m_11a + arg1);
     if ((s16) this->m_11a > 0x3E7) {
         this->m_11a = 0x3E7;
@@ -1611,10 +1609,9 @@ s32 check_can_act__10TObjPlayerFii(s32 arg0, s32 arg1) {
 }
 
 int TObjPlayer::get_hp_material_points() {
-    u8 *arg0 = (u8 *)this;
   s16 temp_r0;
   int new_var;
-  new_var = *((s16 *) (((s8 *) arg0) + 0x2BC));
+  new_var = this->m_2bc;
   temp_r0 = new_var;
   if (temp_r0 < 0)
   {
@@ -1637,7 +1634,6 @@ s32 add_actor_hp_bonus(O_80011378 *self, s32 x) {
 }
 
 s32 TObjPlayer::clamp_hp_value(s16 *arg1) {
-    u8 *arg0 = (u8 *)this;
     s16 temp_r0;
     s16 temp_r5;
     temp_r5 = *arg1;
@@ -2805,16 +2801,16 @@ void TUnk_804806E8::apply_knockback_from_attacker(u8 *arg1) {
     ((s32 (*)(void *, void *))subtract_vector)(&diff, ((u8 *)this) + 0x38);
     if ((diff.x * diff.x) + (diff.z * diff.z) < (1e-05f)) {
         *(f32 *)((s8 *)((u8 *)this) + 0x308) = (0.0f);
-        *(f32 *)((s8 *)((u8 *)this) + 0x310) = (0.0f);
+        this->m_310= (0.0f);
         return;
     }
-    scale = 10.0f + (10.0f - *(f32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x2B0)) + 0x14));
+    scale = 10.0f + (10.0f - *(f32 *)((s8 *)(this->m_2b0) + 0x14));
     if (scale < 0.0f) {
         scale = 0.0f;
     }
     ((TObjBoss2Tunnel *)(&diff))->update_scale();
     *(f32 *)((s8 *)((u8 *)this) + 0x308) = -scale * diff.x;
-    *(f32 *)((s8 *)((u8 *)this) + 0x310) = -scale * diff.z;
+    this->m_310= -scale * diff.z;
     }
 }
 
@@ -3129,8 +3125,8 @@ void TUnk_804806E8::clear_all_status_effects() {
         ((TUnk_804806E8 *)((u8 *)this))->sub_800192B4((s32) ((f32) ((TUnk_804806E8 *)((u8 *)this))->get_s16_2c4() * -((f32 (*)(void *, int))TObjPlayer__sub_800192C4)(((u8 *)this), 1)));
         break;
     }
-    *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0xFFFFFFC0);
-    *(s32 *)((s8 *)((u8 *)this) + 0x330) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0x3F);
+    *(s32 *)&this->actorFlags= (s32) (*(s32 *)&this->actorFlags& 0xFFFFFFC0);
+    *(s32 *)((s8 *)((u8 *)this) + 0x330) = (s32) (*(s32 *)&this->actorFlags& 0x3F);
     ((void (*)(void *))reset_status_effect_row)(((u8 *)this) + 0x254);
     ((void (*)(void *))reset_status_effect_row)(((u8 *)this) + 0x260);
     ((TUnk_804806E8 *)((u8 *)this))->add_to_field_2c8((s32) ((f32) ((TUnk_804806E8 *)((u8 *)this))->get_field_2c0() * -((f32 (*)(void *, int))TObjPlayer__sub_800192C4)(((u8 *)this), 2)));
@@ -4677,7 +4673,7 @@ int obj_getPtr2B0_20(u8* p) {
 #pragma scheduling on
 #pragma scheduling off
 int TUnk_804806E8::obj_getPtr2B0_1C() {
-    return *(int*)(*(u8**)(((u8*)this) + 0x2b0) + 0x1c);
+    return *(int*)(*(u8* *)&this->m_2b0+ 0x1c);
 }
 #pragma pop
 
@@ -4704,7 +4700,7 @@ s16 obj_getS16_32C(u8* p) {
 #pragma scheduling on
 #pragma scheduling off
 u8 TUnk_804806E8::obj_testFlag_2E4(u32 mask) {
-    return (*(u32*)(((u8*)this) + 0x2e4) & mask) != 0;
+    return (this->m_2e4& mask) != 0;
 }
 #pragma pop
 
@@ -4722,7 +4718,7 @@ s16 obj_getS16_118(u8* p) {
 #pragma scheduling on
 #pragma scheduling off
 s16 TObjPlayer::obj_getS16_116() {
-    return *(s16*)(((u8*)this) + 0x116);
+    return this->m_116;
 }
 #pragma pop
 
@@ -4762,7 +4758,6 @@ void TObjPlayer__sub_8001941C(O_8001941C *self, s32 i, f32 v) {
 }
 
 s16 TUnk_804806E8::test_immunity_flags(s32 arg1) {
-    u8 *arg0 = (u8 *)this;
     return (s16) (this->m_11c & arg1);
 }
 

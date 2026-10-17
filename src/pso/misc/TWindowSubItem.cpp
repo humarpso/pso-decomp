@@ -204,7 +204,6 @@ s32 has_armor_with_unit_slot(void *arg0, int arg1) {
 #pragma push
 #pragma scheduling off
 void TWindowSubItem::use_selected_item() {
-    u8 *arg0 = (u8 *)this;
     s32 temp_r31;
     s32 player;
     player = get_player_by_client_id((s32)(this->m_24));
@@ -396,7 +395,6 @@ s32 TWindowSubItem::create_count_input(s32 maximum) {
 }
 
 s32 TWindowSubItem::create_menu_window() {
-    u8 *arg0 = (u8 *)this;
     s32 titled_window_menu;
     titled_window_menu = create_titled_window_menu(((int)get_window_layout_position((s32)((int) (6)))), (int) (2), get_message_10__20TWindowSubStatusDispFl((s32)((int) (0x27))), (int) (*(s32 *)&this->m_24));
     forward_trade_action_default__16TObjCityMainWarpFPviii((s32)((int) (titled_window_menu)), (s32)((int) (get_message_10__20TWindowSubStatusDispFl((int) (0x5D)))), (s32)((int) (6)), (s32)((int) (0)));

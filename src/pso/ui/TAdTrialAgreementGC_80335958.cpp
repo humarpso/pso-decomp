@@ -79,14 +79,13 @@ void TAdTrialAgreementGC::update_title_prompt() {
   if ((TWindowShortListCtrl__check_controller_button((int)((void *) (((u8 *) (&(*(RecoveredGlobal_80335974_lbl_8050E3B8 *)&controller_physical_port_bank).value)) + 0x20)), (int)((int) 8)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFv((void *) (((u8 *) (&(*(RecoveredGlobal_80335974_lbl_8050E208 *)&controller_input_state).value)) + 0x160), (int) 4) != 0))
   {
     play_sound_effect((int) 0x52D01, (int) 0, (int) 0, (int) 0);
-    *((s32 *) (((s8 *) arg0) + 0x24)) = 1;
+    *(s32 *)&this->m_24 = 1;
   }
-  new_var = lbl_805DF8B4 + sin_table_lookup((s32) (lbl_805DF8B8 * ((f32) (((*((s32 *) (((s8 *) arg0) + 0x38))) % 120) * 3))));
+  new_var = lbl_805DF8B4 + sin_table_lookup((s32) (lbl_805DF8B8 * ((f32) (((*(s32 *)&this->m_38) % 120) * 3))));
   *((f32 *) (((s8 *) arg0) + 0x28)) = (f32) (new_var * lbl_805DF8BC);
 }
 
 void TAdTrialAgreementGC::handle_cursor_input() {
-    u8 *arg0 = (u8 *)this;
     u8 *temp_r30;
     temp_r30 = (u8 *)&controller_physical_port_bank.value + 0x20;
     *(f32 *)&this->m_28 = (f32) lbl_805DF8B4;

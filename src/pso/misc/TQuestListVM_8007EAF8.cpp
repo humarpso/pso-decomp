@@ -11,7 +11,6 @@ void debug_print__FPCc(void);
 s32 xfree__FPv();
 
 s32 TQuestListVM::get_quest_id() {
-    u8 *arg0 = (u8 *)this;
     return this->m_2b0;
 }
 

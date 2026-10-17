@@ -73,7 +73,6 @@ s32 enable__13TParticleCtrlFv(void *);
 void TObjLobbyMain__sub_803520D8(void) {  }
 
 void TObjLobbyMain::resolve_theme_index() {
-    u8 *arg0 = (u8 *)this;
     u32 temp_r0;
     *(u32 *)&this->_padCC = ((u32)get_theme_lobby_type());
     temp_r0 = *(u32 *)&this->_padCC;
@@ -112,7 +111,6 @@ void TObjLobbyMain::resolve_theme_index() {
 }
 
 void TObjLobbyMain::set_mode_index_from_state() {
-    u8 *arg0 = (u8 *)this;
     u32 temp_r0;
     temp_r0 = *(u32 *)&this->m_84;
     switch (temp_r0) {
@@ -263,7 +261,6 @@ void TObjLobbyMain::advance_motion_frame() {
 }
 
 void TObjLobbyMain::update_fade_in() {
-    u8 *arg0 = (u8 *)this;
     this->m_d4 += 0.1f;
     if (this->m_d4 >= (1.0f)) {
         *(s32 *)&this->m_c8 = 2;

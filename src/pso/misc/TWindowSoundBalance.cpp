@@ -60,7 +60,6 @@ extern const f32 lbl_805DD410;
 
 typedef char RecoveredGlobal_80270ACC_lbl_8050E208_size[sizeof(RecoveredGlobal_80270ACC_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void TWindowSoundBalance::handle_lr_input() {
-    u8 *arg0 = (u8 *)this;
     u8 *temp_r30;
     temp_r30 = (u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x20;
     if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((int) (temp_r30), (int) (0x30), (int) (6), (int) (1)) != 0) || (TWindowChoiceSetting::apply_choice((s32)((void *) ((u8 *)&(*(RecoveredGlobal_80270ACC_lbl_8050E208 *)&controller_input_state).value + 0x160)), (s32)((int) (0x30)), (s32)((int) (6)), (s32)((int) (1))) != 0)) {

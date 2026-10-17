@@ -4,7 +4,6 @@
 extern "C" {
 
 bool TMovie::is_playback_finished() {
-    u8 *arg0 = (u8 *)this;
     void **temp_r3;
     u8 *temp_r4;
     temp_r3 = (void **)(*(void ** *)&this->m_flags);

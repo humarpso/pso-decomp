@@ -10,7 +10,9 @@ public:
     virtual ~TObjLiveCameraCtrl();
     void sub_8030B818(int);
     virtual void run_task();
-    u8 unknown_1c[0x18];
+    u8 unk_1C[0xC];
+    s32 m_28;
+    u8 unk_2C[0x8];
     f32 vector_34[3];
     f32 vector_40[3];
     s32 slot_index;

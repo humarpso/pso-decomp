@@ -200,17 +200,17 @@ f32 TOAttackableCol::apply_hit(s32 arg1) {
   }
   if (var_r30 != 0)
   {
-    temp_r0 = *((s32 *) (((s8 *) arg0) + 0x34C));
+    temp_r0 = this->m_34c;
     if (((temp_r0 >= 0) && (temp_r0 < 0x100)) && (is_current_floor_switch_set((int) ((u16) temp_r0)) == 0))
     {
       return lbl_805DB2C8;
     }
-    *((s32 *) (((s8 *) arg0) + 0x33C)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x33C))) - 1);
-    if (((s32) (*((s32 *) (((s8 *) arg0) + 0x33C)))) <= 0)
+    *(s32 *)&this->m_33c = (s32) ((*(s32 *)&this->m_33c) - 1);
+    if (((s32) (*(s32 *)&this->m_33c)) <= 0)
     {
-      *((s32 *) (((s8 *) arg0) + 0x33C)) = 0;
+      *(s32 *)&this->m_33c = 0;
       send_state_change((u16)((s32)((int) 1)));
-      if (((s32) (*((s32 *) (((s8 *) arg0) + 0x344)))) > 0)
+      if (((s32) (this->m_344)) > 0)
       {
         temp_r0_2 = *((s32 *) (((s8 *) arg0) + 0x340));
         if ((((temp_r0_2 >= 0x64) && (temp_r0_2 < 0x3E8)) && (((u32) quest_mission_manager) != 0U)) && (((TObject *)quest_mission_manager)->all_parents_unqueued_for_destruction() != 0))
@@ -219,7 +219,7 @@ f32 TOAttackableCol::apply_hit(s32 arg1) {
           var_r0 = temp_r3;
           if (var_r0 != 0U)
           {
-            var_r0 = __ct__12TQuestThreadFv((int) temp_r3, (void *) quest_mission_manager, (int) (*((s32 *) (((s8 *) arg0) + 0x344))));
+            var_r0 = __ct__12TQuestThreadFv((int) temp_r3, (void *) quest_mission_manager, (int) (this->m_344));
           }
           if (var_r0 != 0U)
           {
@@ -233,7 +233,7 @@ f32 TOAttackableCol::apply_hit(s32 arg1) {
           var_r0_2 = temp_r3_2;
           if (var_r0_2 != 0U)
           {
-            var_r0_2 = __ct__12TQuestThreadFv((int) temp_r3_2, (void *) quest_area_manager, (int) (*((s32 *) (((s8 *) arg0) + 0x344))));
+            var_r0_2 = __ct__12TQuestThreadFv((int) temp_r3_2, (void *) quest_area_manager, (int) (this->m_344));
           }
           if (var_r0_2 != 0U)
           {

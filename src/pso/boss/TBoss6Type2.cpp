@@ -862,7 +862,7 @@ void TBoss6Type2::update_footstep_effects() {
         *((s32 *) (((s8 *) (((u8 *) arg0) + temp_r4)) + 0)) = 1;
         ((s32 (*)(s32, u32, s16, s32))play_sound_effect)(0x4006A300, (u32) temp_r29, 0, 0);
         spawn_particle_effect_with_flags((s32) temp_r29, 0x220, 0x40);
-        if (((s32) (*((s32 *) (((s8 *) arg0) + 0x418)))) == 0)
+        if (((s32) (*(s32 *)&this->m_418)) == 0)
         {
           spawn_particle_effect((s32) temp_r29, 0x222);
         }

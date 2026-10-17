@@ -54,7 +54,6 @@ void TOHealGeneral::update_opening() {
     }
 }
 void TOHealGeneral::apply_heal_to_target() {
-    u8 *arg0 = (u8 *)this;
     s32 temp_r3_2;
     u32 id = this->m_f4;
     if ((id != 0xFFFF) && (id < 0x1000U)) {

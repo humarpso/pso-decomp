@@ -110,7 +110,6 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
 void TOKurage::check_player_distance() {
-    u8 *arg0 = (u8 *)this;
     if ((xyz_distance((u8 *)&this->m_e4, (u8 *)&this->position) > this->target_scale) && ((u8) this->m_100 != 4)) {
         this->m_100 = 3U;
     }
@@ -134,7 +133,6 @@ void TOKurage::debug_print_ranges() {
 }
 
 void TOKurage::init() {
-    u8 *arg0 = (u8 *)this;
     VecCopy__FP3VecPC3Vec((u8 *)&this->_padCC, (u8 *)&this->position);
     VecCopy__FP3VecPC3Vec((u8 *)&this->m_e4, (u8 *)&this->position);
     *(f32 *)&this->m_d8 = (f32) (0.0f);

@@ -390,7 +390,6 @@ s32 apply_fog_entry(void *arg0) {
 #pragma auto_inline off
 #pragma dont_inline off
 s32 TFogCtrl::restore_fog(s32 arg1) {
-    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     if (get_param() != 0) {
         return 0;
@@ -479,7 +478,6 @@ s32 request_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2) {
 #pragma auto_inline off
 #pragma dont_inline off
 void TFogCtrl::request_transition(s32 arg1, s32 arg2) {
-    u8 *arg0 = (u8 *)this;
     if (arg2 & 1) {
         *(s32 *)&this->m_20 = 1;
     } else {

@@ -1781,7 +1781,7 @@ void render_enemy_with_fade__10TObjPlayerFPv(u8 *arg0) {
 void TObjEneNanoDrago::dispatch_action_state() {
     u8 *arg0 = (u8 *)this;
   s16 temp_r0;
-  temp_r0 = *((s16 *) (((s8 *) arg0) + 0x326));
+  temp_r0 = this->m_326;
   {
     switch (temp_r0)
     {

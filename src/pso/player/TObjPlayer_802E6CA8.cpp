@@ -154,7 +154,6 @@ s32 mem_alloc(s32);
 int TObjPlayer::get_instance() {  return multiplay_texture_f512_handle; }
 
 void TUnk_804E3BA8::render() {
-    u8 *arg0 = (u8 *)this;
     Node_802E6CB0 *node;
     Part_802E6CB0 *part;
     s32 i;
@@ -240,7 +239,6 @@ void TObjPlayer__sub_802E7084(void) {  }
 void TObjPlayer__sub_802E7088(void) {  }
 
 void TUnk_804E3BC0::render() {
-    u8 *arg0 = (u8 *)this;
     Node_802E708C *node;
     Part_802E708C *part;
     u8 *fx = queue_boss_effect__10TObjPlayerFPv(3);

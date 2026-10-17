@@ -4,7 +4,6 @@
 extern "C" {
 s32 test_action_mask__10TObjPlayerFl(int, int);
 s32 TItemWeapon::get_attack_stage() {
-    u8 *arg0 = (u8 *)this;
     u32 temp_r3;
     temp_r3 = *(u32 *)&this->player;
     if (temp_r3 != 0U) {

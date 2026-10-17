@@ -111,7 +111,6 @@ void TItemProShield::set_params(s32 arg0, void *arg1) {
 }
 
 void TItemProShield::vfunc_14() {
-    u8 *arg0 = (u8 *)this;
     if ((u8) this->m_19a < (u8) this->m_198) {
         this->m_198 = 0U;
     }

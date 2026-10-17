@@ -5223,7 +5223,6 @@ Obj_801B4FD8 *init_player_join_record(Obj_801B4FD8 *self) {
 #pragma push
 #pragma fp_contract on
 s32 TObjPlayer::is_outside_movement_hold(f32 *pos) {
-    u8 *self = (u8 *)this;
     f32 *center;
     f32 x, y, z;
     f32 dx, dz;
@@ -5971,7 +5970,7 @@ void TObjPlayer::update_status_effects() {
     TObjPlayer::decrement_clamp((s32 *)(arg0 + 0x644), (s32)1);
     ((s32 (*)(void *, int))obj_setFlags30)((void *) arg0, (int) 0x04000000);
   }
-  if ((*((s16 *) (((s8 *) arg0) + 0x32C))) <= 0)
+  if ((this->hp) <= 0)
   {
     ((s32 (*)(void *, int))obj_setFlags30)((void *) arg0, (int) 0xA00);
   }

@@ -305,7 +305,7 @@ void TAdChrSelBSlotGC::check_cancel_and_close() {
   temp_r31 = (((u8 *) (&(*(RecoveredGlobal_8030ECB8_lbl_8050E3B8 *)&controller_physical_port_bank).value)) + (new_var * 0x50)) + 0x20;
   if ((((TWindowShortListCtrl__check_controller_button((int) temp_r31, (int) 4) != 0) || (TWindowShortListCtrl__check_controller_button((int) temp_r31, (int) 2) != 0)) || (TWindowShortListCtrl__check_controller_button((int) temp_r31, (int) 0x400) != 0)) || (TWindowShortListCtrl__check_controller_button((int) temp_r31, (int) 0x200) != 0))
   {
-    *((s32 *) (((s8 *) arg0) + 0x1C)) = 1;
+    *(s32 *)&this->m_1c = 1;
     return;
   }
   if (get_global_state__16TAdChrSelBSlotGCFv((void *)((void *) arg0)) < 0xC)
@@ -316,7 +316,7 @@ void TAdChrSelBSlotGC::check_cancel_and_close() {
       TWindow__close((void *)((int) temp_r3));
       *((u32 *) (((s8 *) arg0) + 0x40)) = 0U;
     }
-    *((s32 *) (((s8 *) arg0) + 0x1C)) = 1;
+    *(s32 *)&this->m_1c = 1;
   }
 }
 

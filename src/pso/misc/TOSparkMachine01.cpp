@@ -115,7 +115,6 @@ void TOSparkMachine01::update_spark_toggle(s32 i) {
 }
 
 void TOSparkMachine01::run_task() {
-    u8 *arg0 = (u8 *)this;
     s32 var_r31;
     if (TOSparkMachine01__data_805DB9EC < this->target_scale) {
         var_r31 = 0;

@@ -85,7 +85,6 @@ void *__vt__11TObjDFDemo3[13] = {
 };
 
 void TObjDFDemo3::render() {
-    u8 *arg0 = (u8 *)this;
     f32 a = 1.0f;
     s32 t = *(s32 *)&this->m_b0;
     if (t < 5) {

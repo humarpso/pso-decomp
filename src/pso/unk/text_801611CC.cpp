@@ -137,7 +137,6 @@ void TODoorCave01::send_state(void *src_arg) {
 }
 
 void TODoorCave01::vfunc_6(s16 *arg1, s32) {
-    u8 *arg0 = (u8 *)this;
     if ((s16) *arg1 == 1) {
         this->m_d0 = (s32) (this->m_d0 | 0xF0000 | 1);
     }

@@ -194,34 +194,34 @@ void TItemProUnit::vfunc_44() {
   switch (temp_r0)
   {
     case 15:
-      if (((u32) (*((u32 *) (((s8 *) arg0) + 0x174)))) != 0U)
+      if (((u32) (this->m_174)) != 0U)
     {
       temp_r3 = __nw__15TItemHeapObjectFUl((int) 0x2C);
       if (temp_r3 != 0)
       {
-        init_item_timer_event__13TUnk_804A0648Fv((int) temp_r3, (int) (*((u32 *) (((s8 *) arg0) + 0x174))), (void *) get_id__13TItemProArmorFv((void *) arg0), (int) ((s32) (lbl_805DABFC * ((f32) (*((s16 *) (((s8 *) arg0) + 0x18E)))))));
+        init_item_timer_event__13TUnk_804A0648Fv((int) temp_r3, (int) (this->m_174), (void *) get_id__13TItemProArmorFv((void *) arg0), (int) ((s32) (lbl_805DABFC * ((f32) (this->m_18e)))));
       }
     }
       return;
       return;
     case 16:
-      if (((u32) (*((u32 *) (((s8 *) arg0) + 0x174)))) != 0U)
+      if (((u32) (this->m_174)) != 0U)
     {
       temp_r3_2 = __nw__15TItemHeapObjectFUl((int) 0x2C);
       if (temp_r3_2 != 0)
       {
-        construct_timer_event__13TUnk_804A0628Fv((int) temp_r3_2, (int) (*((u32 *) (((s8 *) arg0) + 0x174))), (void *) get_id__13TItemProArmorFv((void *) arg0), (int) ((s32) (lbl_805DABFC * ((f32) (*((s16 *) (((s8 *) arg0) + 0x18E)))))));
+        construct_timer_event__13TUnk_804A0628Fv((int) temp_r3_2, (int) (this->m_174), (void *) get_id__13TItemProArmorFv((void *) arg0), (int) ((s32) (lbl_805DABFC * ((f32) (this->m_18e)))));
         return;
       }
     }
       break;
     case 17:
-      if (((u32) (*((u32 *) (((s8 *) arg0) + 0x174)))) != 0U)
+      if (((u32) (this->m_174)) != 0U)
     {
       temp_r3_3 = __nw__15TItemHeapObjectFUl((int) 0x2C);
       if (temp_r3_3 != 0)
       {
-        init_timer_event__13TUnk_804A0608Fv((int) temp_r3_3, (int) (*((u32 *) (((s8 *) arg0) + 0x174))), (void *) get_id__13TItemProArmorFv((void *) arg0), (int) ((s32) (lbl_805DABFC * ((f32) (*((s16 *) (((s8 *) arg0) + 0x18E)))))));
+        init_timer_event__13TUnk_804A0608Fv((int) temp_r3_3, (int) (this->m_174), (void *) get_id__13TItemProArmorFv((void *) arg0), (int) ((s32) (lbl_805DABFC * ((f32) (this->m_18e)))));
       }
     }
       break;

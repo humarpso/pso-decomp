@@ -14,7 +14,6 @@ extern const f32 lbl_805DAEBC;
 #pragma push
 #pragma fp_contract on
 void TUnk_804A4E68::update_attack() {
-    u8 *self = (u8 *)this;
     s32 flag;
     s32 ok;
     s32 lo;

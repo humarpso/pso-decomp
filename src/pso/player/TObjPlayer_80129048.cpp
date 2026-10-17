@@ -46,7 +46,6 @@ s32 TObjPlayer__sub_801290D0(u8 *arg0) {
 }
 
 void TItemShootModel::sub_80129118(s32 arg1, s32 arg2) {
-    u8 *arg0 = (u8 *)this;
     *(s32 *)&this->m_58 = arg1;
     *(s32 *)&this->m_5C = arg2;
 }

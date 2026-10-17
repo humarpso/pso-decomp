@@ -89,7 +89,6 @@ void TWindowSubMagPhoton::play_open_sound() {
 
 typedef char RecoveredGlobal_8027C2D0_lbl_8050E208_size[sizeof(RecoveredGlobal_8027C2D0_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void TWindowSubMagPhoton::update_selection_input() {
-    u8 *arg0 = (u8 *)this;
     u8 temp_r3;
     u8 temp_r3_2;
     u8 *temp_r30;
@@ -229,7 +228,6 @@ void TUnk_804D1818::update_quest_board_card_flags() {
 extern const f32 lbl_805DD688;
 
 s32 TUnk_804D1818::sub_8027C884(s32 arg1) {
-    u8 *arg0 = (u8 *)this;
     s16 var_r29;
     s32 temp_r31;
     s32 temp_r3;

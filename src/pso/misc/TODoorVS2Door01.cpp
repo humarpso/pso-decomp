@@ -117,7 +117,6 @@ void TODoorVS2Door01::vfunc_20() {  }
 #pragma push
 #pragma opt_common_subs off
 void TODoorVS2Door01::vfunc_18() {
-    u8 *arg0 = (u8 *)this;
     *(f32 *)&this->unk_D4 = (f32) (*(f32 *)&this->unk_D4 - this->m_b8);
     if (*(f32 *)&this->unk_D4 <= (0.0f)) {
         *(f32 *)&this->unk_D4 = (f32) (0.0f);
@@ -136,7 +135,6 @@ void TODoorVS2Door01::vfunc_17() {
 }
 
 void TODoorVS2Door01::vfunc_16() {
-    u8 *arg0 = (u8 *)this;
     f32 lim = 19.0f;
     *(f32 *)&this->unk_D4 = *(f32 *)&this->unk_D4 + this->m_b8;
     if (lim <= *(f32 *)&this->unk_D4) {

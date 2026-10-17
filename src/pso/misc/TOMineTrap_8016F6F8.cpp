@@ -495,13 +495,13 @@ void TOMine::follow_target() {
   Stack_80170AC8 stack;
   f32 temp_f2;
   new_var = -1U;
-  if ((((u16) (*((u16 *) (((s8 *) arg0) + 0x35C)))) == new_var) || (((void *) (*((u8 **) (((s8 *) arg0) + 0x2A8)))) == 0))
+  if ((((u16) (this->m_35c)) == new_var) || (((void *) (this->target)) == 0))
   {
-    *((s16 *) (((s8 *) arg0) + 0x326)) = 2;
+    this->mode = 2;
     return;
   }
   VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
-  VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) ((*((u8 **) (((s8 *) arg0) + 0x2A8))) + 0x38));
+  VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) ((this->target) + 0x38));
   stack.spC = *((f32 *) (((s8 *) arg0) + 0x3C));
   subtract_vector((void *) (&stack.sp8), (void *) (arg0 + 0x38));
   if (lbl_805DB870 < vec_squared_length((void *) (&stack.sp8)))
@@ -513,18 +513,18 @@ void TOMine::follow_target() {
   vec3_add_to((void *) (arg0 + 0x38), (void *) (&stack.sp8));
   ((TObjPlayer *)arg0)->update_enemy_collision_flags();
   temp_f2 = *((f32 *) (((s8 *) arg0) + 0x48));
-  *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) ((lbl_805DB884 * ((lbl_805DB888 + (*((f32 *) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x2A8)))) + 0x3C)))) - temp_f2)) + temp_f2);
+  *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) ((lbl_805DB884 * ((lbl_805DB888 + (*((f32 *) (((s8 *) (this->target)) + 0x3C)))) - temp_f2)) + temp_f2);
   ((TObjPlayer *)arg0)->calc_attach_pos();
-  *((s32 *) (((s8 *) arg0) + 0x60)) = (s32) (lbl_80442200 * atan2_float((f64) stack.sp8, (f64) stack.sp10));
+  this->rotation_y = (s32) (lbl_80442200 * atan2_float((f64) stack.sp8, (f64) stack.sp10));
   ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
 }
 
 void TOMine::sub_80170BEC() {
     u8 *p;
     s32 i;
-    switch (*(s16 *)(((u8 *)this) + 0x328)) {
+    switch (this->phase) {
     case 0:
-        *(s16 *)(((u8 *)this) + 0x328) = 1;
+        this->phase= 1;
         for (i = lbl_805D5870; i < lbl_805D5868; i++) {
             p = (u8 *)get_player_data__10TObjPlayerFi(i);
             if (p != NULL && p != ((u8 *)this) &&
@@ -569,7 +569,7 @@ void TOMine::detonate() {
     s32 i;
     u8 *obj;
     set_indexed_flags(((u8 *)this), 0, 2);
-    *(f32 *)(*(u8 **)(((u8 *)this) + 0xA4) + 0xC) = *(f32 *)(((u8 *)this) + 0x350);
+    *(f32 *)(*(u8 * *)&this->m_a4+ 0xC) = this->m_350;
     TObjPlayer::init_all_slots();
     ((TObjPlayer *)((u8 *)this))->check_object_collisions();
     check_enemy_body_collisions(((u8 *)this));
@@ -578,12 +578,12 @@ void TOMine::detonate() {
         if (TObjPlayer::is_valid_and_active((u32)obj) != 0) {
             Pair_80170DD8 pair = *(Pair_80170DD8 *)(((u8 *)this) + 0x354);
             f32 r = ((VObj_18_1da615 *)obj)->m21(((u8 *)this), &pair, 0, -1, -1);
-            if (*(s32 *)(((u8 *)this) + 0x354) < 5) {
+            if (*(s32 *)&this->m_354< 5) {
                 ((VObj_18_1da615 *)obj)->m23(((u8 *)this), lbl_805DB874 * r);
             }
         }
     }
-    *(s16 *)(((u8 *)this) + 0x326) = 6;
+    this->mode= 6;
     ((TObjPlayer *)((u8 *)this))->clear_player_status_flag(0, 1);
     ((TOMine *)((u8 *)this))->receive_physical_attack(0, TOMineTrap__data_805DB868);
 }

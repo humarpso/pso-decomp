@@ -18,7 +18,6 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
 void TUnk_804E4AD4::run_task() {
-    u8 *arg0 = (u8 *)this;
     f32 temp_f0;
     f32 temp_f1;
     *(f32 *)&this->unk_28 = (f32) (*(f32 *)&this->unk_28 + lbl_805DEC98);

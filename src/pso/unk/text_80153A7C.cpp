@@ -175,7 +175,6 @@ void TObjFogCollision::run_task() {
 }
 
 s32 TObjFogCollision::check_collision(u16 arg1) {
-    u8 *arg0 = (u8 *)this;
     f32 temp_f0;
     f32 temp_f1;
     f32 temp_f31;
@@ -199,7 +198,6 @@ block_5:
 }
 
 void TObjFogCollision::vfunc_13(s32) {
-    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     temp_r0 = this->m_84;
     if (temp_r0 < 0) {

@@ -476,11 +476,11 @@ void TCameraCtrl::update_active_controller() {
       }
       update_shake();
     }
-    set_perspective_projection_from_fov((int) (*((s32 *) (((s8 *) ((u8 *)this)) + 0x19C))), (f32) TCameraCtrl__data_805D8FDC, (f32) TCameraCtrl__data_805D8FAC, (f32) TCameraCtrl__data_805D8FE0);
+    set_perspective_projection_from_fov((int) (*(s32 *)&this->m_19c), (f32) TCameraCtrl__data_805D8FDC, (f32) TCameraCtrl__data_805D8FAC, (f32) TCameraCtrl__data_805D8FE0);
     PSO_VCALL_VObj_18_9639c7_m9(temp_r30);
     if (is_split_screen() == 0)
     {
-      *((s32 *) (((s8 *) ((u8 *)this)) + 0x94)) = (s32) (*((s32 *) (((s8 *) ((u8 *)this)) + 0x194)));
+      *((s32 *) (((s8 *) ((u8 *)this)) + 0x94)) = (s32) (*(s32 *)&this->m_194);
     }
   }
 }

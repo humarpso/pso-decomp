@@ -70,7 +70,6 @@ void TObjRaderIcon::run_task() {
 }
 
 void TObjRaderIcon::initialize_from_placement() {
-    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     *(s32 *)&this->m_90 = 0;
     *(s32 *)&this->m_94 = 1;

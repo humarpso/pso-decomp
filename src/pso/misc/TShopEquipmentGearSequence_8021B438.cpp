@@ -173,7 +173,7 @@ s32 TShopEquipmentGearSequence::open_greeting() {
   stack.spC = lbl_805DC6CC;
   ((TShopSequence *)((u8 *)this))->create_message_window(get_window_layout_position((int) 0x2C, (f32) lbl_805DC6C8), (s32) (&stack.sp8));
   PSO_VCALL_VObj_18_a93f07_m4(((u8 *)this), 0x2b, 1);
-  *((s32 *) (((s8 *) ((u8 *)this)) + 0x30)) = create_meseta_window((s32) get_child_field1c__13TShopSequenceFv(((u8 *)this)));
+  this->m_30 = create_meseta_window((s32) get_child_field1c__13TShopSequenceFv(((u8 *)this)));
   ((TShopWindowBase *)((u8 *)this))->set_field_20(2);
   *((s32 *) (((s8 *) ((u8 *)this)) + 0x34)) = set_service_counter_camera((void *) ((u8 *)this), (int) 0x4);
 }

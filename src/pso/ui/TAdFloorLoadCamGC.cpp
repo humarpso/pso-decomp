@@ -127,12 +127,12 @@ void *__dt__17TAdFloorLoadCamGCFv(void *arg0, s16 arg1) {
 TAdFloorLoadCamGC::TAdFloorLoadCamGC(TObject *arg1, void *arg2) : TObject(arg1) {
     void *new_var;
     new_var = lbl_805D4340;
-    *((void **) (((s8 *) this) + 0x0)) = new_var;
-    *((u32 *) (((s8 *) this) + 0x20)) = 0;
-    *((u32 *) (((s8 *) this) + 0x24)) = 0;
+    *(void * *)&this->m_name = new_var;
+    this->m_20 = 0;
+    this->m_24 = 0;
     *((f32 *) (((s8 *) this) + 0x40)) = lbl_805DFDB8;
     *((f32 *) (((s8 *) this) + 0x44)) = lbl_805DFDB8;
-    *((f32 *) (((s8 *) this) + 0x48)) = lbl_805DFDB8;
+    this->m_48 = lbl_805DFDB8;
     *((void **) (((s8 *) this) + 0x1C)) = arg2;
     set_default_camera__21TAdMultiChgGameModeGCFv(new_var);
 }

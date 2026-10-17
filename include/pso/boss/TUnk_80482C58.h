@@ -8,7 +8,9 @@ public:
     TUnk_80482C58(TObject *parent, s32 arg2, s32 arg3);
     virtual ~TUnk_80482C58();
     virtual void run_task();
-    u8 unk_1C[0x108];
+    u8 unk_1C[0x100];
+    void * m_11c;
+    u8 unk_120[0x4];
 };
 typedef char TUnk_80482C58_size[sizeof(TUnk_80482C58) == 0x124 ? 1 : -1];
 

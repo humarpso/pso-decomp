@@ -347,7 +347,7 @@ void *TObjPlayer::copy_short_fields(void *arg1) {
 
 void TObjPlayer::init_trap_packet() {
   *((s16 *) (((s8 *) this) + 4)) = 0;
-  *((s16 *) (((s8 *) this) + 6)) = 0;
+  *(s16 *)&this->m_id = 0;
   *((s8 *) (((s8 *) this) + 0)) = (double) 0x83;
   *((s8 *) (((s8 *) this) + 1)) = 2;
 }

@@ -1064,7 +1064,6 @@ void TBoss4Type3::advance_capture() {
     }
 }
 void TBoss4Type3::enter_capture() {
-    void *arg0 = (void *)this;
     play_sound_effect((int)(0x4003C12B), (void *)(0), (int)(0), (int)(0));
     *(s32 *)&this->m_52c = 0;
     this->m_398 = 0x62;
@@ -1116,7 +1115,6 @@ extern "C" {
 void TBoss4Type3::advance_dark_magic() {
     void* p = (void*)this; if (*(int *)&this->m_398 == 0) { ((int (*)(void*, void*))TBoss4Type3__sub_80059F64)(p, (void*)12); } }
 void TBoss4Type3::enter_dark_magic() {
-    void *arg0 = (void *)this;
     this->m_3a0 = 0x11;
     *(s32 *)&this->m_3a4 = 0x11;
     *(s32 *)&this->m_3ac = (s32) *(s32 *)&this->m_3a8;
@@ -1166,7 +1164,6 @@ void TBoss4Type3::update_light_magic() {
 void TBoss4Type3::advance_light_magic() {
     void* p = (void*)this; if (*(int *)&this->m_398 == 0) { ((int (*)(void*, void*))TBoss4Type3__sub_80059F64)(p, (void*)10); } }
 void TBoss4Type3::enter_light_magic() {
-    void *arg0 = (void *)this;
     this->m_3a0 = 0x11;
     *(s32 *)&this->m_3a4 = 0x11;
     *(s32 *)&this->m_3ac = (s32) *(s32 *)&this->m_3a8;
@@ -1249,7 +1246,6 @@ void TBoss4Type3::advance_homing() {
     }
 }
 void TBoss4Type3::enter_homing() {
-    void *arg0 = (void *)this;
     this->m_3a0 = 0x11;
     *(s32 *)&this->m_3a4 = 0x11;
     *(s32 *)&this->m_3ac = (s32) *(s32 *)&this->m_3a8;
@@ -1419,7 +1415,6 @@ void TBoss4Type3::update_dead() {
 }
 void TBoss4Type3::advance_dead() {  }
 void TBoss4Type3::enter_dead() {
-    void *arg0 = (void *)this;
     *(f32 *)&this->_pad3F8 = (f32) lbl_805D8C60;
     this->m_398 = 0x31;
 }
@@ -1918,7 +1913,6 @@ void TBoss4Type3::draw_model_set(const s32 *tbl, f32 t) {
 extern "C" {
 
 void TBoss4Type3::set_anim_state(s32 arg1) {
-    u8 *arg0 = (u8 *)this;
     if (arg1 != -1) {
         this->m_3f0 = arg1;
         this->m_3f4 = (f32) TBoss4Type3__data_805D8C40;

@@ -242,7 +242,6 @@ void TTecRaZonde::calc_damage() {
   }
 }
 void TTecRaZonde::vfunc_6(void *arg1_arg) {
-    u8 *arg0 = (u8 *)this;
     u8 *arg1 = (u8 *)arg1_arg;
     Elec_80238E14 d;
     d.type = 3;

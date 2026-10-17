@@ -92,7 +92,7 @@ void TObjEneRe7BeruraPunch::snap_to_ground() {
   else
   {
     *((f32 *) (((s8 *) arg0) + 0x38)) = (f32) (*((f32 *) (((s8 *) arg0) + 0xDC)));
-    *((f32 *) (((s8 *) arg0) + 0x40)) = (f32) (*((f32 *) (((s8 *) arg0) + 0xE4)));
+    *((f32 *) (((s8 *) arg0) + 0x40)) = (f32) (this->m_e4);
   }
   new_var = *((f32 *) (((s8 *) arg0) + 0xE0));
   *((f32 *) (((s8 *) arg0) + 0xCC)) = (f32) (new_var - (*((f32 *) (((s8 *) arg0) + 0x3C))));

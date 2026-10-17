@@ -247,9 +247,9 @@ s32 TShopItemTecSequence::open_greeting() {
   stack.spC = lbl_805DC704;
   ((TShopSequence *)((u8 *)this))->create_message_window(get_window_layout_position((int) 0x2C, (f32) lbl_805DC700), (s32) (&stack.sp8));
   (((VObj_18_a93f07 *)(((u8 *)this)))->m4((0x2E), (1)));
-  *((s32 *) (((s8 *) ((u8 *)this)) + 0x2C)) = create_meseta_window((s32) ((((((TShopSequence *)((u8 *)this))->get_child_field1c() & 0xFFFF) & 0xFFFF) & 0xFFFF) & 0xFFFF));
+  this->m_2c = create_meseta_window((s32) ((((((TShopSequence *)((u8 *)this))->get_child_field1c() & 0xFFFF) & 0xFFFF) & 0xFFFF) & 0xFFFF));
   ((TShopWindowBase *)((u8 *)this))->set_field_20(2);
-  *((s32 *) (((s8 *) ((u8 *)this)) + 0x34)) = set_service_counter_camera((void *) ((u8 *)this), (int) 5);
+  this->m_34 = set_service_counter_camera((void *) ((u8 *)this), (int) 5);
 }
 
 typedef char RecoveredGlobal_802203E4___vt__20TShopItemTecSequence_size[sizeof(RecoveredGlobal_802203E4___vt__20TShopItemTecSequence) == 0x38 ? 1 : -1];

@@ -527,7 +527,7 @@ void TUnk_804B2578::sub_801682E4(s32 arg1) {
 void TUnk_804B2578::sub_80168398() {
     s32 state = TOKeyMachine01::get_global_state();
     s32 id = 0;
-    switch (*(s16 *)(((u8 *)this) + 0x326)) {
+    switch (this->mode) {
     case 2:
         switch (state) {
         case 0x13:

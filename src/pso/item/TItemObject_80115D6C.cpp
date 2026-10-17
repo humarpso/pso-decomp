@@ -100,7 +100,6 @@ void *__vt__11TItemObject[] = {
 u8 TItemObject::sub_80115D7C() { return this->m_100; }
 
 u8 TItemObject::get_tool_pmt_amount_byte() {
-    u8 *arg0 = (u8 *)this;
     return (u8) *(u16 *)((s8 *)(*(void * *)&this->m_f8) + 8);
 }
 
@@ -217,7 +216,6 @@ void send_star_atomizer_targets(void *arg0) {
 }
 
 void*TItemObject::vfunc_9() {
-    u8 *arg0 = (u8 *)this;
     u32 temp_r4;
 
     temp_r4 = this->m_f0;

@@ -207,7 +207,6 @@ void TUnk_804B8DD0::run_task() {
     }
 }
 void TUnk_804B8DD0::update_effects() {
-    u8 *arg0 = (u8 *)this;
     Vec_80198504 v6;
     Vec_80198504 v2a;
     Vec_80198504 v2b;

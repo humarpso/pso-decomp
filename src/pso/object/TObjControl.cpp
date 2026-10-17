@@ -645,10 +645,10 @@ s32 TObjEnemy::vfunc_74(s32 kind) {
     Pkt_800F65D0 pkt;
     s32 ret;
     ret = 0;
-    if (*(u16 *)(((u8 *)this) + 0x1C) >= 0x1000 && *(u16 *)(((u8 *)this) + 0x1C) < 0x4000) {
+    if (this->m_1c>= 0x1000 && this->m_1c< 0x4000) {
         exchange_object_state__9TObjEnemyFls(((u8 *)this), &pkt, 1);
-        pkt.diff = *(s16 *)(((u8 *)this) + 0x2B8) - *(s16 *)(((u8 *)this) + 0x32C);
-        pkt.id = *(s32 *)(((u8 *)this) + 0x30);
+        pkt.diff = this->hpmax- this->hp;
+        pkt.id = *(s32 *)&this->actorFlags;
         switch (kind) {
         case 9:
         case 11:

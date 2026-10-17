@@ -113,7 +113,6 @@ void TWindowShortListCtrl::set_displayed_item(s32 arg1) {
 }
 
 s32 TWindowShortListCtrl::is_technique_usable() {
-    u8 *arg0 = (u8 *)this;
     u32 player;
     u8 *temp_r31;
 

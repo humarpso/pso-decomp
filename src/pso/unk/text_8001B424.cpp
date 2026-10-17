@@ -7,7 +7,6 @@ extern const f32 lbl_805D7E48;
 #pragma push
 #pragma fp_contract on
 void TAdRicoRingCtrl::sub_8001B424(s32 arg1) {
-    u8 *arg0 = (u8 *)this;
     u32 temp_r3;
     u8 *temp_r3_2;
     u8 *temp_r4;

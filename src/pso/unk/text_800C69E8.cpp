@@ -50,7 +50,6 @@ void TObjEnemyCustom::release_destroyed_target() {
     }
 }
 void TObjPlayer::pick_open_direction(f32 *dir, f32 a, f32 b) {
-    u8 *self = (u8 *)this;
     Vec_800C6A48 sp20;
     f32 best;
     s32 ang;

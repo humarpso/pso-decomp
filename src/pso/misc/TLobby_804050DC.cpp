@@ -1247,19 +1247,16 @@ s32 TLobby::shutdown_network_handle() {
 }
 
 void TLobby::init_msg(s32 arg1) {
-    u8 *arg0 = (u8 *)this;
     *(s32 *)&this->m_name = arg1;
     *(s8 *)&this->m_flags = 4;
 }
 
 void TLobby::init_packet_header(s32 arg1) {
-    u8 *arg0 = (u8 *)this;
     *(s32 *)&this->m_name = arg1;
     *(s8 *)&this->m_flags = 3;
 }
 
 void TLobby::set_value_and_enable(s32 arg1) {
-    u8 *arg0 = (u8 *)this;
     *(s32 *)&this->m_name = arg1;
     *(s8 *)&this->m_flags = 1;
 }

@@ -815,7 +815,6 @@ s32 TCameraCtrl__sub_800695A0(u8 *arg0) {
 }
 
 void TCameraCtrl::apply_view_params_if_flagged() {
-    u8 *arg0 = (u8 *)this;
     if (*(s32 *)((s8 *)(&TCameraCtrl__view_state.value) + 8) & 0x400) {
         set_view_params();
     }
@@ -825,7 +824,6 @@ typedef char RecoveredGlobal_8006961C_TCameraCtrl__data_804FF628_size[sizeof(Rec
 typedef char RecoveredGlobal_8006961C_TCameraCtrl__data_804FF634_size[sizeof(RecoveredGlobal_8006961C_TCameraCtrl__data_804FF634) == 0x48 ? 1 : -1];
 typedef char RecoveredGlobal_8006961C_lbl_8058CA60_size[sizeof(RecoveredGlobal_8006961C_lbl_8058CA60) == 0x58 ? 1 : -1];
 void TCameraCtrl::set_view_params() {
-    u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)(&(*(RecoveredGlobal_8006961C_TCameraCtrl__data_804FF628 *)&TCameraCtrl__view_state).value) + 8) = (s32) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8006961C_TCameraCtrl__data_804FF628 *)&TCameraCtrl__view_state).value) + 8) | 0x200);
     *(f32 *)((s8 *)(&(*(RecoveredGlobal_8006961C_TCameraCtrl__data_804FF634 *)&TCameraCtrl__data_804FF634).value) + 0x28) = (f32) *(f32 *)&this->m_28;
     *(f32 *)((s8 *)(&(*(RecoveredGlobal_8006961C_TCameraCtrl__data_804FF634 *)&TCameraCtrl__data_804FF634).value) + 0x2C) = (f32) *(f32 *)&this->unk_2C;
@@ -1006,12 +1004,12 @@ void TCameraCtrl::update_pose_smoothing() {
     approach_camera_vector((void *) temp_r31, (void *) (arg0 + 0x1A0), (f32) (*((f32 *) (((s8 *) arg0) + 0x1B8))));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x178), (int) temp_r31);
     current = (u8 *) (temp_r30 + 0x104);
-    approach_camera_vector((void *) current, (void *) (arg0 + 0x1AC), (f32) (*((f32 *) (((s8 *) arg0) + 0x1BC))));
+    approach_camera_vector((void *) current, (void *) (arg0 + 0x1AC), (f32) (this->m_1bc));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x184), (int) current);
     return;
   }
   approach_camera_vector((void *) (arg0 + 0x178), (void *) (arg0 + 0x1A0), (f32) (*((f32 *) (((s8 *) arg0) + 0x1B8))));
-  approach_camera_vector((void *) (arg0 + 0x184), (void *) (arg0 + 0x1AC), (f32) (*((f32 *) (((s8 *) arg0) + 0x1BC))));
+  approach_camera_vector((void *) (arg0 + 0x184), (void *) (arg0 + 0x1AC), (f32) (this->m_1bc));
 }
 typedef char RecoveredGlobal_80069C94_camera_controller_registry_size[sizeof(RecoveredGlobal_80069C94_camera_controller_registry) == 0x68 ? 1 : -1];
 typedef char RecoveredGlobal_80069C94_TCameraCtrl__data_804FF628_size[sizeof(RecoveredGlobal_80069C94_TCameraCtrl__data_804FF628) == 0xC ? 1 : -1];

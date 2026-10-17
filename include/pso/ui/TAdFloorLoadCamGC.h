@@ -17,7 +17,8 @@ struct TAdFloorLoadCamGC : public TObject {
     void* m_40;
     virtual void render();
     virtual void run_task();
-    u8 unk_44[0x8];
+    u8 unk_44[0x4];
+    f32 m_48;
 };
 
 typedef char TAdFloorLoadCamGC_size[sizeof(TAdFloorLoadCamGC) == 0x4C ? 1 : -1];

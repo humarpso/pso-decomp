@@ -15,7 +15,9 @@ struct TWindowSubCustomSelect : public TUnk_804CDFE8 {
     u32 m_2c;
     u8 _pad30[0x4];
     u32 m_34;
-    u8 _pad38[0x24];
+    u8 unk_38[0x14];
+    f32 m_4c;
+    u8 unk_50[0xC];
     u32 m_5c;
     u8 _pad60[0x8];
     void* m_68;

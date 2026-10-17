@@ -65,7 +65,6 @@ void TAdPlyPltAnimCtrlGC::init(void* a1) { TAdPlyPltAnimCtrlGC__sub_80355168((u8
 extern u32 plyplt_anim_ctrl_instance;
 
 void TAdPlyPltAnimCtrlGC::run_task() {
-    u8 *arg0 = (u8 *)this;
     void *p;
     if (*(s32 *)&this->m_1c == 0) {
         return;

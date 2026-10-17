@@ -162,7 +162,7 @@ void TObjEneMe1GiGue__sub_8008FC10(u8 *arg0) {
 
 void TObjEneBalClawBody::sub_8008FF50() {
   s16 temp_r0;
-  temp_r0 = *((s16 *) (((s8 *) ((u8 *)this)) + 0x326));
+  temp_r0 = this->mode;
   {
     switch (temp_r0)
     {

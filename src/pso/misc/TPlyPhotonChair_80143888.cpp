@@ -41,7 +41,6 @@ s32 TPlyPhotonChair::get_id() { return *(s32 *)&this->m_name; }
 void TPlyPhotonChair::activate() { *(s32*)((char*)this + 0x18) = 1; }
 
 void TObjMotion::set_motion_interpolation_flag() {
-    u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
     temp_r3 = *(u8 * *)&this->unknownF8;
     *(u16 *)((s8 *)temp_r3 + 0xA) = (u16) (*(u16 *)((s8 *)temp_r3 + 0xA) | 0x80);

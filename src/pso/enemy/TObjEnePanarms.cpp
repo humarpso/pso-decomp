@@ -1248,7 +1248,6 @@ s32 try_move_with_detour__14TObjEnePanarmsFPvPv(u8 *arg0, Vec_800E18B0 *arg1) {
 #pragma dont_inline off
 #pragma fp_contract on
 void TObjEnePanarms::update_offset_from_parent() {
-    u8 *arg0 = (u8 *)this;
     f32 x;
     f32 z;
     f32 s;
@@ -1280,7 +1279,6 @@ void calc_default_part_position__14TObjEnePanarmsFPv(u8 *arg0) {
 #pragma dont_inline off
 #pragma fp_contract on
 void TObjEnePanBARA::calc_part_position(u8 *arg1, s32 *arg2) {
-    u8 *arg0 = (u8 *)this;
     f32 x;
     f32 z;
     f32 s;
@@ -1572,7 +1570,7 @@ void TObjMotion::sub_800E2DE4(s32 arg1) {
   int new_var2;
   new_var2 = ~arg1;
   new_var = (s32 *) (((s8 *) this) + 0xB0);
-  *new_var = (s32) ((*((s32 *) (((s8 *) this) + 0xB0))) & new_var2);
+  *new_var = (s32) ((*(s32 *)&this->animationFlags) & new_var2);
 }
 
 u8 is_phase_12__14TObjEnePanarmsFPv(void *arg0) {

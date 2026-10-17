@@ -1046,24 +1046,24 @@ void TObjEneGibbles::update_move_state() {
 void TObjEneGibbles::sub_802D8140() {
   Stack_802D8140 stack;
   s16 temp_r0;
-  temp_r0 = *((s16 *) (((s8 *) ((u8 *)this)) + 0x328));
+  temp_r0 = this->phase;
   switch (temp_r0)
   {
     case 0:
-      *((s16 *) (((s8 *) ((u8 *)this)) + 0x328)) = 1;
+      this->phase = 1;
       *((f32 *) (((s8 *) ((u8 *)this)) + 0x3A0)) = (f32) TObjEneGibbles__data_805DE7E4;
       apply_actor_gravity((void *)((void *) ((u8 *)this)), (int)(0), TObjEneGibbles__data_805DE7E4);
       play_sound_effect((int)((void *) ((s32)((TObjEneGibbles*)((void *)((void *)(((u8 *)this)))))->resolve_sound_id((u32)((int)(0x3A333))))), (void *)(((u8 *)this) + 0x38), (int)(0), (int)(0));
       return;
     case 1:
       advance_animation_playback();
-      if ((*((s32 *) (((s8 *) ((u8 *)this)) + 0xB0))) & 0x10)
+      if ((*(s32 *)&this->animationFlags) & 0x10)
     {
-      *((s16 *) (((s8 *) ((u8 *)this)) + 0x328)) = 4;
+      this->phase = 4;
       stack.sp8 = TObjEneGibbles__data_805DE7E4;
       stack.spC = TObjEneGibbles__data_805DE7E4;
       stack.sp10 = lbl_805DE810;
-      rotate_xz_pair_by_angle(&stack.sp8, &stack.sp10, *((s32 *) (((s8 *) ((u8 *)this)) + 0x60)), TObjEneGibbles__data_805DE7E4);
+      rotate_xz_pair_by_angle(&stack.sp8, &stack.sp10, this->rotation_y, TObjEneGibbles__data_805DE7E4);
       vec3_add_to(&stack.sp8, ((u8 *)this) + 0x38);
       TObjPlayer__sub_800D93C4(&stack.sp8, 0xA);
       ((TObjPlayer *)(&stack.sp8))->spawn_effect_at_ground(0x46);
@@ -1075,7 +1075,7 @@ void TObjEneGibbles::sub_802D8140() {
       *((f32 *) (((s8 *) ((u8 *)this)) + 0x3A0)) = (f32) ((*((f32 *) (((s8 *) ((u8 *)this)) + 0x3A0))) + lbl_805DE7E0);
       if ((*((f32 *) (((s8 *) ((u8 *)this)) + 0x3A0))) > lbl_805DE814)
     {
-      *((s16 *) (((s8 *) ((u8 *)this)) + 0x328)) = 3;
+      this->phase = 3;
       return;
     }
       break;
@@ -1875,58 +1875,58 @@ void TObjEneGibbles::vfunc_59() {
   s32 temp_r4;
   void *temp_r3;
   void *temp_r3_2;
-  temp_r0 = *((s16 *) (((s8 *) this) + 0x326));
+  temp_r0 = this->mode;
   switch (temp_r0)
   {
     default:
-      temp_r4 = *((s32 *) (((s8 *) this) + 0x374));
+      temp_r4 = this->m_374;
       if (temp_r4 & 4)
     {
-      *((s16 *) (((s8 *) this) + 0x326)) = 3;
-      *((s16 *) (((s8 *) this) + 0x328)) = 0;
-      *((s16 *) (((s8 *) this) + 0xB8)) = 1;
-      *((s32 *) (((s8 *) this) + 0x30)) = (s32) ((*((s32 *) (((s8 *) this) + 0x30))) & 0xF9FBFFFF);
+      this->mode = 3;
+      this->phase = 0;
+      this->m_b8 = 1;
+      *(s32 *)&this->actorFlags = (s32) ((*(s32 *)&this->actorFlags) & 0xF9FBFFFF);
     }
     else
       if (temp_r4 & 1)
     {
-      *((s16 *) (((s8 *) this) + 0x326)) = 1;
-      *((s16 *) (((s8 *) this) + 0x328)) = 0;
-      *((s32 *) (((s8 *) this) + 0x30)) = (s32) ((*((s32 *) (((s8 *) this) + 0x30))) | 0x06040000);
+      this->mode = 1;
+      this->phase = 0;
+      *(s32 *)&this->actorFlags = (s32) ((*(s32 *)&this->actorFlags) | 0x06040000);
     }
-      temp_r3 = *((void **) (((s8 *) this) + 0xA4));
+      temp_r3 = this->m_a4;
       *((s32 *) (((s8 *) temp_r3) + 0x18)) = (s32) ((*((s32 *) (((s8 *) temp_r3) + 0x18))) | 1);
       return;
 
     case 1:
-      if ((*((s32 *) (((s8 *) this) + 0x374))) & 2)
+      if ((this->m_374) & 2)
     {
-      *((s16 *) (((s8 *) this) + 0x326)) = 2;
-      *((s16 *) (((s8 *) this) + 0x328)) = 0;
-      *((s32 *) (((s8 *) this) + 0x30)) = (s32) ((*((s32 *) (((s8 *) this) + 0x30))) | 0x06040000);
+      this->mode = 2;
+      this->phase = 0;
+      *(s32 *)&this->actorFlags = (s32) ((*(s32 *)&this->actorFlags) | 0x06040000);
     }
       return;
 
     case 2:
-      if ((*((s32 *) (((s8 *) this) + 0x374))) & 4)
+      if ((this->m_374) & 4)
     {
-      *((s16 *) (((s8 *) this) + 0x326)) = 3;
-      *((s16 *) (((s8 *) this) + 0x328)) = 0;
-      *((s16 *) (((s8 *) this) + 0xB8)) = 1;
-      *((s32 *) (((s8 *) this) + 0x30)) = (s32) ((*((s32 *) (((s8 *) this) + 0x30))) & 0xF9FBFFFF);
+      this->mode = 3;
+      this->phase = 0;
+      this->m_b8 = 1;
+      *(s32 *)&this->actorFlags = (s32) ((*(s32 *)&this->actorFlags) & 0xF9FBFFFF);
       return;
     }
       break;
 
     case 3:
-      if ((*((s32 *) (((s8 *) this) + 0x374))) & 3)
+      if ((this->m_374) & 3)
     {
-      *((s16 *) (((s8 *) this) + 0x326)) = 1;
-      *((s16 *) (((s8 *) this) + 0x328)) = 0;
-      *((s32 *) (((s8 *) this) + 0x30)) = (s32) ((*((s32 *) (((s8 *) this) + 0x30))) | 0x06040000);
-      *((s32 *) (((s8 *) this) + 0x374)) = (s32) ((*((s32 *) (((s8 *) this) + 0x374))) & 0xFFFF0000);
-      *((s32 *) (((s8 *) this) + 0x374)) = (s32) ((*((s32 *) (((s8 *) this) + 0x374))) | 1);
-      temp_r3_2 = *((void **) (((s8 *) this) + 0xA4));
+      this->mode = 1;
+      this->phase = 0;
+      *(s32 *)&this->actorFlags = (s32) ((*(s32 *)&this->actorFlags) | 0x06040000);
+      this->m_374 = (s32) ((this->m_374) & 0xFFFF0000);
+      this->m_374 = (s32) ((this->m_374) | 1);
+      temp_r3_2 = this->m_a4;
       *((s32 *) (((s8 *) temp_r3_2) + 0x18)) = (s32) ((*((s32 *) (((s8 *) temp_r3_2) + 0x18))) | 1);
       return;
     }

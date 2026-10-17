@@ -21,7 +21,6 @@ void enlarge_flight_cutter_slicer(void *arg0) {
 }
 
 void TObjPlayer::setup_item_render() {
-    u8 *arg0 = (u8 *)this;
     s32 player_list;
     s32 temp_r3_3;
     u8 temp_r3;

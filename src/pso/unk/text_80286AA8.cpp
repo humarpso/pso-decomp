@@ -4,7 +4,6 @@
 extern "C" {
 s32 get_selected_menu_value(int);
 s32 TWindowSubTechnique::sub_80286AA8() {
-    u8 *arg0 = (u8 *)this;
     if ((u32) this->m_34 == 0U) {
         return 0;
     }

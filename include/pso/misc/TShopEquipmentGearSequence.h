@@ -9,7 +9,9 @@ struct TShopEquipmentGearSequence : public TShopSequence {
     virtual void vfunc_11();
     u8 unk_1C[0x4];
     u32 m_20;
-    u8 unk_24[0x14];
+    u8 unk_24[0xC];
+    s32 m_30;
+    u8 unk_34[0x4];
     void open_gear_shop();
     void enter_quest_list();
     void handle_confirm();

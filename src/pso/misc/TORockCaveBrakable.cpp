@@ -72,7 +72,6 @@ void TORockCaveBrakable::vfunc_16() {
 }
 
 void TORockCaveBrakable::spawn_break_effect() {
-    u8 *arg0 = (u8 *)this;
     this->vfunc_18();
     spawn_particle_effect((u8 *)&this->position, 0x45);
     spawn_particle_effect((u8 *)&this->position, 0x46);

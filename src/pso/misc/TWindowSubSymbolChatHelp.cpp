@@ -248,7 +248,7 @@ void TWindowSubSymbolChatHelp::handle_page_input() {
   int new_var;
   u8 temp_r3;
   new_var = (int) 0x200;
-  if (((*((u8 *) (((s8 *) arg0) + 0x60))) & 2) && (TWindowShortListCtrl__check_controller_button((void *)((void *) (((u8 *) (&(*(RecoveredGlobal_80284A28_lbl_8050E208 *)&controller_input_state).value)) + 0x20)), (s32)(new_var)) != 0))
+  if (((this->m_60) & 2) && (TWindowShortListCtrl__check_controller_button((void *)((void *) (((u8 *) (&(*(RecoveredGlobal_80284A28_lbl_8050E208 *)&controller_input_state).value)) + 0x20)), (s32)(new_var)) != 0))
   {
     temp_r4 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0x64)));
     *temp_r4 += 1;

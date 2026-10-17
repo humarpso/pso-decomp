@@ -1316,34 +1316,34 @@ void TObjEneGyaranzo::vfunc_62() {
     u8 *arg0 = (u8 *)this;
   s32 temp_r0;
   unsigned long var_r3;
-  if (((s16) (*((s16 *) (((s8 *) arg0) + 0x326)))) != 4)
+  if (((s16) (this->mode)) != 4)
   {
-    if (((s32) (*((s32 *) (((s8 *) arg0) + 0x3B8)))) <= 0)
+    if (((s32) (*(s32 *)&this->m_3b8)) <= 0)
     {
-      *((s32 *) (((s8 *) arg0) + 0x3B8)) = 0x3C;
+      *(s32 *)&this->m_3b8 = 0x3C;
       fn_800D2A68((void *) arg0);
     }
-    temp_r0 = *((s32 *) (((s8 *) arg0) + 0x3A8));
+    temp_r0 = *(s32 *)&this->m_3a8;
     var_r3 = 0;
     switch (temp_r0)
     {
       case 0:
-        var_r3 = (*((s16 *) (((s8 *) arg0) + 0x32C))) <= (((s16) (*((s16 *) (((s8 *) arg0) + 0x2B8)))) / 3);
+        var_r3 = (this->hp) <= (((s16) (this->hpmax)) / 3);
         break;
       case 1:
-        var_r3 = (*((s16 *) (((s8 *) arg0) + 0x32C))) <= (((s16) (*((s16 *) (((s8 *) arg0) + 0x2B8)))) / 4);
+        var_r3 = (this->hp) <= (((s16) (this->hpmax)) / 4);
         break;
     }
     if (((s32) var_r3) != 0)
     {
       ((TObjEneGyaranzo *)arg0)->sub_800D2900();
     }
-    *((s16 *) (((s8 *) arg0) + 0x33E)) = (s16) (*((s16 *) (((s8 *) arg0) + 0x32C)));
+    this->referenceHp = (s16) (this->hp);
     play_sound_effect((void *) copy_target_state__14TObjEnePanarmsFPv((void *) arg0, (int) 0x4003AD0F), (void *) (arg0 + 0x38), (int) 0, (int) 0);
-    if (!((*((s32 *) (((s8 *) arg0) + 0x388))) & 0x40000))
+    if (!((*(s32 *)&this->m_388) & 0x40000))
     {
       ((TObjEneMe1GiGue *)arg0)->set_state((s32)((int) 4));
-      *((s32 *) (((s8 *) arg0) + 0x388)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x388))) | 1);
+      *(s32 *)&this->m_388 = (s32) ((*(s32 *)&this->m_388) | 1);
       return;
     }
     obj_clearFlags30((void *) arg0, (int) 0x200200);
@@ -1542,7 +1542,7 @@ void TObjEneGyaranzo::sub_800D37F4() {
 void TObjPlayer::dispatch_state_update() {
     u8 *arg0 = (u8 *)this;
   s16 temp_r0;
-  temp_r0 = *((s16 *) (((s8 *) arg0) + 0x326));
+  temp_r0 = this->mode;
   {
     switch (temp_r0)
     {

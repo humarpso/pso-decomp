@@ -22,7 +22,8 @@ struct TDLGraph : public TObject {
     void set_graph_param(s32 v);
     static void update_graph(s32 arg0, s32 arg1);
     static void *create();
-    u8 unk_34[0x8];
+    u8 unk_34[0x4];
+    s32 m_38;
     s32 m_3c;
     u8 unk_40[0x24];
 };

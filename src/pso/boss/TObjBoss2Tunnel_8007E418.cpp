@@ -111,7 +111,6 @@ s32 count_active_segments__15TObjBoss2TunnelFPv(void *arg0) {
 extern f32 TObjBoss2Tunnel__data_805D926C;
 
 s32 TObjBoss2Tunnel::count_tree_nodes() {
-    u8 *arg0 = (u8 *)this;
     s32 var_r31;
     u8 *temp_r3;
     u8 *temp_r3_2;

@@ -140,7 +140,7 @@ void TUnk_80484A94::run_task() {
   s32 new_var;
   u8 *temp_r3_2;
   u8 *temp_r3_3;
-  player = (u8 *) get_player_by_client_id(*((s32 *) (((s8 *) arg0) + 0xCC)));
+  player = (u8 *) get_player_by_client_id(this->m_cc);
   if (player)
   {
     temp_r5 = *((s32 *) (((s8 *) player) + 0x2FC));
@@ -156,12 +156,12 @@ void TUnk_80484A94::run_task() {
   VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
   vec3_add_to((void *) (arg0 + 0x38), (void *) (arg0 + 0xB4));
   direction_to_rotation_yx((void *) (arg0 + 0xB4), (void *) (arg0 + 0x60), (void *) (arg0 + 0x64));
-  *((s32 *) (((s8 *) arg0) + 0x64)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x64))) - 0x4000);
-  temp_r3_2 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0xD4)));
+  this->rotation_z = (s32) ((this->rotation_z) - 0x4000);
+  temp_r3_2 = (u8 *) (*(u8 * *)&this->m_d4);
   if (temp_r3_2 != 0)
   {
     ((TNowLoading *)temp_r3_2)->copy_pos((u8 *)&this->position);
-    ((TBoss4Type2 *)(*((u8 **) (((s8 *) arg0) + 0xD4))))->copy_vec3((u8 *)&this->m_5c);
+    ((TBoss4Type2 *)(*(u8 * *)&this->m_d4))->copy_vec3((u8 *)&this->m_5c);
   }
   temp_r3_3 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0xD8)));
   if (temp_r3_3 != 0)
@@ -261,7 +261,6 @@ void explode_and_destroy__12TBoss3VoloptFPv(u8 *arg0) {
 }
 
 void TUnk_80484AFC::render() {
-    u8 *arg0 = (u8 *)this;
     TObjFish::set_global_param(this->m_b0);
     push_matrix();
     post_translate_matrix((u8 *)&this->position);

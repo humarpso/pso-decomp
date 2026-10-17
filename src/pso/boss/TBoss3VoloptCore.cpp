@@ -1294,10 +1294,10 @@ void TUnk_80483A10::run_task() {
     return;
   }
   VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
-  temp_r3 = *((s32 *) (((s8 *) arg0) + 0x3C8));
+  temp_r3 = this->m_3c8;
   if (temp_r3 > 0)
   {
-    *((s32 *) (((s8 *) arg0) + 0x3C8)) = (s32) (temp_r3 - 1);
+    this->m_3c8 = (s32) (temp_r3 - 1);
   }
   if ((this->has_flag_0x800()) != 0)
   {
@@ -1325,15 +1325,15 @@ void TUnk_80483A10::run_task() {
   }
   else
   {
-    if (((s16) (*((s16 *) (((s8 *) arg0) + 0x326)))) != ((s32) (*((s32 *) (((s8 *) arg0) + 0x374)))))
+    if (((s16) (this->mode)) != ((s32) (*(s32 *)&this->next_action)))
     {
-      if (((s32) (*((s32 *) (((s8 *) arg0) + 0x37C)))) != (-1))
+      if (((s32) (*(s32 *)&this->state)) != (-1))
       {
-        *((s32 *) (((s8 *) arg0) + 0x37C)) = -1;
+        *(s32 *)&this->state = -1;
         ((TObjPlayer *)arg0)->dispatch_reaction_state();
       }
-      *((s16 *) (((s8 *) arg0) + 0x326)) = (s16) (*((s32 *) (((s8 *) arg0) + 0x374)));
-      *((s32 *) (((s8 *) arg0) + 0x37C)) = 0;
+      this->mode = (s16) (*(s32 *)&this->next_action);
+      *(s32 *)&this->state = 0;
     }
     ((TObjPlayer *)arg0)->dispatch_reaction_state();
     var_f1 = *((f32 *) (((s8 *) arg0) + 0x3C));

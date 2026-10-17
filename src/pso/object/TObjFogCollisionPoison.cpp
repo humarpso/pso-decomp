@@ -87,7 +87,6 @@ u8 *TObjFogCollisionPoison::init_base(u8 *arg1, s16 arg2) {
 }
 
 void TObjFogCollision_Manager::run_task() {
-    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 var_r4;
     if (TObjPlayer::is_any_teammate_in_state() == 0) {
@@ -238,7 +237,6 @@ void TObjFogCollisionPoison::apply_poison_damage(s32 arg1) {
 }
 
 void TObjFogCollisionPoison::record_poison_hit(u16 arg1) {
-    u8 *arg0 = (u8 *)this;
     record_fog_collision_hit((s32)((void *) (arg1)), (s32)((int) (this->m_84)), (s32)((int) ((u8) (*(s32 *)&this->m_88 == 0))));
 }
 void TObjFogCollisionPoison__sub_80153520(s32 arg0) {

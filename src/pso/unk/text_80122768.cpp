@@ -5,7 +5,6 @@
 extern "C" {
 
 void TUnk_804A1098::update_weapon() {
-    u8 *arg0 = (u8 *)this;
     s32 temp_r0;
     s32 temp_r4;
     s32 temp_r4_2;

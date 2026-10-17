@@ -2445,12 +2445,10 @@ void TLobby::update_receive_check() {
 }
 
 s32 TLobby::get_size() {
-    u8 *arg0 = (u8 *)this;
     return *(s32 *)&this->m_up;
 }
 
 void TLobby::reset_field_0C() {
-    u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)&this->m_next == 3) {
         *(s32 *)&this->m_next = 0;
     }
@@ -2496,7 +2494,6 @@ s32 TLobby::try_post_command(s32 arg1, s32 arg2, s32 arg3) {
 }
 
 s32 TLobby::get_client_count() {
-    u8 *arg0 = (u8 *)this;
     return *(s32 *)&this->m_next;
 }
 

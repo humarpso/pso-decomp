@@ -477,18 +477,18 @@ void TBoss6Rock::update_fall() {
 
 void TBoss6Rock::init_spin_params() {
   s32 temp_r4;
-  if (((s32) (*((s32 *) (((s8 *) this) + 0xC8)))) != 0)
+  if (((s32) (*(s32 *)&this->m_c8)) != 0)
   {
     f32 k = TBoss6Rock__data_805DFF4C;
     f32 s = lbl_805DFF98;
     if ((TBoss6Rock__data_805DFF4C && TBoss6Rock__data_805DFF4C) && TBoss6Rock__data_805DFF4C)
     {
     }
-    temp_r4 = *((s32 *) (((s8 *) this) + 0xAC));
+    temp_r4 = *(s32 *)&this->m_ac;
     *((f32 *) (((s8 *) this) + 0xCC)) = (f32) (s * ((k * (((f32) (temp_r4 & 3)) / TBoss6Rock__data_805DFF48)) + (k * (((f32) temp_r4) * lbl_805DFFA4))));
-    *((s32 *) (((s8 *) this) + 0xC4)) = 1;
-    *((s32 *) (((s8 *) this) + 0xB4)) = (s32) (*((s32 *) (((s8 *) this) + 0xB8)));
-    *((s32 *) (((s8 *) this) + 0xBC)) = (s32) (*((s32 *) (((s8 *) this) + 0xC0)));
+    *(s32 *)&this->m_c4 = 1;
+    *(s32 *)&this->m_b4 = (s32) (*(s32 *)&this->m_b8);
+    *(s32 *)&this->m_bc = (s32) (*(s32 *)&this->m_c0);
   }
 }
 void TBoss6Rock::draw_model() {

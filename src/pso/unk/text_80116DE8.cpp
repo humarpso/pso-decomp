@@ -141,7 +141,6 @@ void *lbl_8049FBC0[45] = {
 };
 
 void TUnk_8049FBC0::vfunc_44() {
-    u8 *arg0 = (u8 *)this;
     u8 temp_r3;
     u8 *temp_r3_2;
     temp_r3 = get_slot_count__14TItemProShieldFv();

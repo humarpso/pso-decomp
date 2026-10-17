@@ -251,7 +251,6 @@ s32 create_menu__19TWindowSubShortMailFv(void) {
 extern s32 lbl_8044FAC4[];
 
 s32 TWindowSubShortMail::refresh_mail_list(void *arg1) {
-    u8 *arg0 = (u8 *)this;
     s32 n;
     u32 id;
     s32 i;

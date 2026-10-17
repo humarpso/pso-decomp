@@ -19,7 +19,6 @@ void TAdDialingGC::draw_if_flag_set() {
     }
 }
 void TAdDialingGC::render_if_flag_set() {
-    u8 *arg0 = (u8 *)this;
     if ((*(s32 *)&this->m_a4 & 1) && ((s32) *(s32 *)&this->m_1c == 0)) {
         TAdDialingGC__sub_80328B24((void *) (lbl_804767A8), (void *) (lbl_804767B0));
     }

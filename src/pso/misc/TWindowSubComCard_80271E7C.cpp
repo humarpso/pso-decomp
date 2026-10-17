@@ -180,8 +180,8 @@ void TWindowSubComCard::set_selected_card(s32 arg1) {
     u8 *temp_r31;
     s32 temp_r30;
     Rec_80272290 *cnt;
-    if (*(s32 *)(((u8 *)this) + 0x28) != arg1) {
-        *(s32 *)(((u8 *)this) + 0x28) = arg1;
+    if (*(s32 *)&this->m_28!= arg1) {
+        *(s32 *)&this->m_28= arg1;
         cnt = get_com_count__17TWindowSubComCardFv();
         temp_r31 = cnt[arg1].f4;
         load_selected_guild_card_record((int)temp_r31, arg1 * 0xD4);
@@ -193,7 +193,7 @@ void TWindowSubComCard::set_selected_card(s32 arg1) {
         text_builder_append(((void* (*)(int))TWindowSubComCard__sub_8027523C)(temp_r30));
         text_builder_append(&lbl_805DD4F8);
         text_builder_append(((TWindowSubComCard *)temp_r30)->get_card_data_ptr());
-        ((TLobby *)(*(s32 *)(((u8 *)this) + 0x6C)))->send_and_handle(((s32 (*)(void))get_shared_text_buffer)(), 0x82);
+        ((TLobby *)(*(s32 *)&this->m_6c))->send_and_handle(((s32 (*)(void))get_shared_text_buffer)(), 0x82);
     }
 }
 

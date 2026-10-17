@@ -51,7 +51,6 @@ void TUnk_804A69DC::update_attack() {
 }
 
 void TUnk_804A69DC::update_weapon() {
-    u8 *arg0 = (u8 *)this;
     advance_angle_wrap((u8 *)&this->unk_1F8, this->m_1fc);
 }
 

@@ -122,7 +122,6 @@ void TOKeyAncient03__vt16(s32 arg0) {
 extern void *tl_05;
 
 void TOKeyAncient03::vfunc_17() {
-    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     if ((s32) this->m_f8 == 1) {
         this->m_ec = (f32) (this->m_ec + lbl_805DB718);
@@ -373,7 +372,6 @@ void TOKeyCave01__vt16(s32 arg0) {
 }
 
 void TOKeyCave01::vfunc_17() {
-    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     s32 temp_r4;
     if ((s32) this->m_f8 == 1) {

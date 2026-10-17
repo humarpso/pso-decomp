@@ -372,7 +372,6 @@ s32 is_card_flag_set__19TWindowKeyBoardHardFv(u16);
 s32 is_technique_ready__8TTecCtrlFv();
 
 s32 TRaderMapCore::is_render_admitted_default() {
-    u8 *arg0 = (u8 *)this;
     return is_render_admitted((void *)((void *)(TRaderMapCore__view_mode)));
 }
 

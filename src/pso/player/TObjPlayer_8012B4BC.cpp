@@ -9,7 +9,6 @@ s32 advance_angle_wrap(void *, s32);
 s32 obj_getPtr2B0_20(s32);
 
 void TUnk_804A4D70::update_weapon() {
-    u8 *arg0 = (u8 *)this;
     s32 var_r4;
 
     if (get_slot_count__14TItemProShieldFv() == 6) {

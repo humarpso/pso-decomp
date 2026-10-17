@@ -113,18 +113,17 @@ s32 TWindowSubCustomSelect::update_list_scroll() {
   f32 *new_var3;
   f32 tgt;
   float new_var2;
-  new_var2 = (TWindowSubCustomSelect__data_805DD5B0 * ((f32) ((s8) (*((u8 *) (((s8 *) arg0) + 0x71)))))) + lbl_805DD5AC;
+  new_var2 = (TWindowSubCustomSelect__data_805DD5B0 * ((f32) ((s8) (this->m_71)))) + lbl_805DD5AC;
   tgt = lbl_805DD5A8 + new_var2;
   tgt -= lbl_805DD5B4;
   new_var3 = (f32 *) (((s8 *) arg0) + 0x6C);
   *new_var3 = (*new_var3) + (tgt - (*((f32 *) (((s8 *) arg0) + 0x6C))));
   stack.sp8 = lbl_805DD5B8;
-  stack.spC = ((*((f32 *) (((s8 *) arg0) + 0x4C))) - lbl_805DD5BC) - lbl_805DD5C0;
+  stack.spC = ((this->m_4c) - lbl_805DD5BC) - lbl_805DD5C0;
   clamp_list_scroll_offset(*((u8 **) (((s8 *) arg0) + 0x80)), (new_var = arg0) + 0x68, &stack.sp8);
 }
 
 void TWindowSubCustomSelect::handle_grid_navigation() {
-    u8 *arg0 = (u8 *)this;
     u8 temp_r3;
     u8 temp_r3_2;
     u8 temp_r3_3;
@@ -169,7 +168,6 @@ void TWindowSubCustomSelect::handle_grid_navigation() {
 #pragma push
 #pragma fp_contract on
 void TWindowSubCustomSelect::draw_cursor(u8 *arg1) {
-    u8 *arg0 = (u8 *)this;
     Stack_80277638 stack;
     stack.sp8 = (lbl_805DD5C8 * (f32) (s8) this->m_70) + lbl_805DD5C4;
     stack.spC = (TWindowSubCustomSelect__data_805DD5B0 * (f32) (s8) this->m_71) + lbl_805DD5CC;

@@ -36,7 +36,6 @@ extern s32 local_client_id;
 
 typedef char RecoveredGlobal_8034CC68_lbl_80478C3C_size[sizeof(RecoveredGlobal_8034CC68_lbl_80478C3C) == 0xC ? 1 : -1];
 void TWindowSubInformationBoard::set_message_index(s32 arg1) {
-    u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)&this->m_24 != arg1) {
         *(s32 *)&this->m_24 = arg1;
         ((TLobby *)(*(u8 * *)&this->m_34))->send_and_handle((s32)(TWindowSubStatusDisp::get_message_10((int) (*(s32 *)((s8 *)(&lbl_80478C3C.value) + (arg1 * 4))))), (s32)(0x80));

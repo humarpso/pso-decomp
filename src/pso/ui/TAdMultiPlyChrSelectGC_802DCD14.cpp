@@ -58,7 +58,6 @@ void TAdMultiPlyChrSelectGC__sub_802DCD14(void *arg0) {
 }
 
 void TAdMultiPlyChrSelectGC::update_idle_timer() {
-    u8 *arg0 = (u8 *)this;
     s32 temp_r4;
     temp_r4 = *(s32 *)&this->m_1c + 1;
     *(s32 *)&this->m_1c = temp_r4;

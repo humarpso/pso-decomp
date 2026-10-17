@@ -89,22 +89,22 @@ void TOMineDisp::draw() {
 }
 
 void TOMineDisp::run_task() {
-    void *mine = *(void **)(((u8 *)this) + 0x10);
+    void *mine = *(void * *)&this->m_up;
     u8 *p;
-    switch (*(s32 *)(((u8 *)this) + 0xA4)) {
+    switch (*(s32 *)&this->m_a4) {
     case 0:
-        p = get_player_by_client_id(*(u16 *)(((u8 *)this) + 0xA8));
+        p = get_player_by_client_id(this->m_a8);
         if (p != NULL && is_locally_controlled__10TObjPlayerFPv() != 0 && fn_80171314(p) != 0) {
             if (horizontal_distance_squared(((u8 *)this) + 0x38, p + 0x38) <= lbl_805DB850 ||
                 ((TUnk_804B9870 *)p)->get_stat_by_key_state() == ((TUnk_804B9870 *)((u8 *)this))->get_stat_by_key_state()) {
-                *(s32 *)(((u8 *)this) + 0xA4) = 2;
+                *(s32 *)&this->m_a4= 2;
             }
         }
         break;
     case 3:
         break;
     case 2:
-        get_player_state__6TOMineFv(mine, *(u16 *)(((u8 *)this) + 0xA8));
+        get_player_state__6TOMineFv(mine, this->m_a8);
         VecCopy__FP3VecPC3Vec(((u8 *)this) + 0x38, ((TOMineTrap *)mine)->get_mine_data_ptr());
         break;
     }

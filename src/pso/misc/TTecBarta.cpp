@@ -227,22 +227,22 @@ void TTecBarta::create_particle_emitters() {
 void TTecBarta::init_parameters() {
     u8 *arg0 = (u8 *)this;
   int new_var;
-  new_var = (int) calc_technique_parameters((int) 3, (int) (*((s16 *) (((s8 *) arg0) + 0xC4))), (int) 0xFFFF);
+  new_var = (int) calc_technique_parameters((int) 3, (int) (this->level), (int) 0xFFFF);
   ((TTecAnti *)(arg0 + 0xCC))->copy_params((u8 *)new_var);
-  if ((((s16) (*((s16 *) (((s8 *) arg0) + 0xC4)))) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
+  if ((((s16) (this->level)) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
-    *((f32 *) (((s8 *) arg0) + 0xCC)) = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0xC))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0xE))) * (*((s16 *) (((s8 *) arg0) + 0xC4)))));
+    this->power = (f32) ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0xC))) + ((*((s16 *) (((s8 *) (&tech_high_level_linear_power_table.value)) + 0xE))) * (this->level)));
   }
   else
   {
-    *((f32 *) (((s8 *) arg0) + 0xCC)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xCC))) + ((f32) ((*((s16 *) (((s8 *) arg0) + 0xF0))) * (*((s16 *) (((s8 *) arg0) + 0xC4))))));
+    this->power = (f32) ((this->power) + ((f32) ((*((s16 *) (((s8 *) arg0) + 0xF0))) * (this->level))));
     if (is_technique_ready__8TTecCtrlFv() != 0)
     {
-      *((f32 *) (((s8 *) arg0) + 0xCC)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xCC))) * (*((f32 *) (((s8 *) (&lbl_804CC55C.value)) + 0x18))));
+      this->power = (f32) ((this->power) * (*((f32 *) (((s8 *) (&lbl_804CC55C.value)) + 0x18))));
     }
   }
-  *((f32 *) (((s8 *) arg0) + 0x64)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xD0))) + ((f32) ((((s16) (*((s16 *) (((s8 *) arg0) + 0xC4)))) / 5) * 2)));
-  *((f32 *) (((s8 *) arg0) + 0x70)) = (f32) (*((f32 *) (((s8 *) arg0) + 0xD4)));
+  *((f32 *) (((s8 *) arg0) + 0x64)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xD0))) + ((f32) ((((s16) (this->level)) / 5) * 2)));
+  this->range = (f32) (*((f32 *) (((s8 *) arg0) + 0xD4)));
 }
 
 void TTecBarta::create(void *arg1, void *arg2, void *arg3) {

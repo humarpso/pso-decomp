@@ -281,7 +281,7 @@ void TBoss4DarkFalz::sub_8004B084() {
   Stack_8004B084 stack;
   u8 *temp_r6;
   temp_r6 = (u8 *) (&TBoss4DarkFalz__data_80485108.value);
-  temp_r6 = temp_r6 + ((*((s32 *) (((s8 *) ((u8 *)this)) + 0x37C))) * 0x34);
+  temp_r6 = temp_r6 + ((*(s32 *)&this->m_37c) * 0x34);
   member_action.words[0] = *((s32 *) (((s8 *) temp_r6) + 0x28));
   member_action.words[1] = *((s32 *) (((s8 *) temp_r6) + 0x2C));
   member_action.words[2] = *((s32 *) (((s8 *) temp_r6) + 0x30));
@@ -298,7 +298,7 @@ void TBoss4DarkFalz::sub_8004B0F8() {
   Stack_8004B0F8 stack;
   u8 *temp_r6;
   temp_r6 = (u8 *) (&(*(RecoveredGlobal_8004B0F8_TBoss4DarkFalz__data_80485108 *)&TBoss4DarkFalz__data_80485108).value);
-  temp_r6 = temp_r6 + ((*((s32 *) (((s8 *) ((u8 *)this)) + 0x37C))) * 0x34);
+  temp_r6 = temp_r6 + ((*(s32 *)&this->m_37c) * 0x34);
   member_action.words[0] = *((s32 *) (((s8 *) temp_r6) + 0x1C));
   member_action.words[1] = *((s32 *) (((s8 *) temp_r6) + 0x20));
   member_action.words[2] = *((s32 *) (((s8 *) temp_r6) + 0x24));

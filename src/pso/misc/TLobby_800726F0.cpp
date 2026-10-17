@@ -374,7 +374,7 @@ void TObjChallengeRetry::sub_8007313C() {
       }
       if (var_r31 != 0)
       {
-        if (((s32) (*((s32 *) (((s8 *) ((u8 *)this)) + 0x20)))) != 0)
+        if (((s32) (this->m_20)) != 0)
         {
           TLobby::send_45_and_close_windows((void *) ((u8 *)this));
           TLobby::show_ctrl_and_play_effect((void *) ((u8 *)this));

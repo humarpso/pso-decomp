@@ -133,7 +133,6 @@ void TObjContainerJungEx::vfunc_6(s16 *arg1, s32 arg2) {
 }
 
 void TObjContainerJungEx::vfunc_81() {
-    u8 *arg0 = (u8 *)this;
     s16 temp_r0;
 
     temp_r0 = this->mode;

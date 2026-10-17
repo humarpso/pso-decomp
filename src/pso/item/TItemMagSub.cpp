@@ -430,17 +430,17 @@ void TItemMagSub::apply_placement_matrix() {
   s32 a3;
   s32 a4;
   post_translate_matrix((void *) (arg0 + 0xA0));
-  if (obj_isState7_324((void *) (*((void **) (((s8 *) arg0) + 0x20)))) != 0)
+  if (obj_isState7_324((void *) (*(void * *)&this->owner)) != 0)
   {
     feed = (void *) ((TItemMagSub *)arg0)->resolve_owner_heading();
     rotate_matrix_y((int) 0, feed);
   }
   else
   {
-    rotate_matrix_y((int) 0, (void *) (*((s32 *) (((s8 *) (*((void **) (((s8 *) arg0) + 0x20)))) + 0x60))));
+    rotate_matrix_y((int) 0, (void *) (*((s32 *) (((s8 *) (*(void * *)&this->owner)) + 0x60))));
   }
   post_translate_matrix((void *) (arg0 + 0xAC));
-  temp_r6 = (unsigned char *) (*((void **) (((s8 *) arg0) + 0x30)));
+  temp_r6 = (unsigned char *) (*(void * *)&this->motion);
   if (temp_r6 != 0)
   {
     a2 = *((s32 *) (((s8 *) temp_r6) + 0x1C));
@@ -449,7 +449,7 @@ void TItemMagSub::apply_placement_matrix() {
     a4 = (*((s32 *) (((s8 *) temp_r6) + 0x24))) + (*((s32 *) (((s8 *) arg0) + 0x3C)));
     rotate_matrix_zyx((int) 0, (int) a2, (int) a3, (int) a4, (int) (*((s32 *) (((s8 *) temp_r6) + 0x20))));
   }
-  temp_f1 = *((f32 *) (((s8 *) arg0) + 0xC8));
+  temp_f1 = this->owner_height_scale;
   scale_matrix((int) 0, (f32) temp_f1, (f32) temp_f1, (f32) temp_f1);
 }
 extern "C" {

@@ -185,19 +185,18 @@ void *__dt__13TWindowLockOnFv(void *arg0, s16 arg1);
 
 #define PSO_VCALL_VObj_18_7b8813_m31(_self) (((VObj_18_7b8813 *)(_self))->m31())
 void TWindowLockOn::validate_target() {
-    u8 *arg0 = (u8 *)this;
   u16 temp_r3;
   u8 *temp_r3_2;
-  temp_r3 = *((u16 *) (((s8 *) arg0) + 0x60));
+  temp_r3 = this->m_60;
   if (temp_r3 != ((-1U) & 0xFFFFu))
   {
     temp_r3_2 = (u8 *) ((u8 *(*)(u16))find_entity_by_id)(temp_r3);
     if ((temp_r3_2 == 0) || (((TObject *)temp_r3_2)->all_parents_unqueued_for_destruction() == 0))
     {
-      *((u16 *) (((s8 *) arg0) + 0x60)) = 0xFFFFU;
-      if (((f32) (*((s32 *) (((s8 *) arg0) + 0x64)))) > lbl_805DD100)
+      this->m_60 = 0xFFFFU;
+      if (((f32) (*(s32 *)&this->m_64)) > lbl_805DD100)
       {
-        *((s32 *) (((s8 *) arg0) + 0x64)) = 0xF;
+        *(s32 *)&this->m_64 = 0xF;
       }
     }
     else
@@ -207,20 +206,20 @@ void TWindowLockOn::validate_target() {
       {
         if (PSO_VCALL_VObj_18_7b8813_m31(temp_r3_2) != 0)
         {
-          *((u16 *) (((s8 *) arg0) + 0x60)) = 0xFFFFU;
-          if (((f32) (*((s32 *) (((s8 *) arg0) + 0x64)))) > lbl_805DD100)
+          this->m_60 = 0xFFFFU;
+          if (((f32) (*(s32 *)&this->m_64)) > lbl_805DD100)
           {
-            *((s32 *) (((s8 *) arg0) + 0x64)) = 0xF;
+            *(s32 *)&this->m_64 = 0xF;
           }
         }
       }
       else
         if ((((s32 (*)(void *, s32))obj_testFlags30)(temp_r3_2, 0x80000000) != 0) && (TObjPlayer__sub_80102C30(temp_r3_2) != 0))
       {
-        *((u16 *) (((s8 *) arg0) + 0x60)) = 0xFFFFU;
-        if (((f32) (*((s32 *) (((s8 *) arg0) + 0x64)))) > lbl_805DD100)
+        this->m_60 = 0xFFFFU;
+        if (((f32) (*(s32 *)&this->m_64)) > lbl_805DD100)
         {
-          *((s32 *) (((s8 *) arg0) + 0x64)) = 0xF;
+          *(s32 *)&this->m_64 = 0xF;
         }
       }
     }
@@ -252,10 +251,10 @@ void TWindowLockOn::refresh_enemy_statuses() {
     Ent_80262E90 *ent;
     s32 mode;
     Gauge_80262E90 *g;
-    if (*(u16 *)(((u8 *)this) + 0x60) == 0xFFFF) {
+    if (this->m_60== 0xFFFF) {
         return;
     }
-    ent = (Ent_80262E90 *)find_entity_by_id(*(u16 *)(((u8 *)this) + 0x60));
+    ent = (Ent_80262E90 *)find_entity_by_id(this->m_60);
     if (ent == NULL) {
         return;
     }

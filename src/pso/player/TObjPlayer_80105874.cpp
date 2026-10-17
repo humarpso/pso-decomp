@@ -33,7 +33,6 @@ void TObjPlayer::init_game_resources() {
 void fn_801058E8(void* p) { *(u8*)((char*)p + 0x7) |= 0x1; }
 
 u8 TObjPlayer::is_script_controlled() {
-    u8 *arg0 = (u8 *)this;
     return (u8) (this->m_324 == 6);
 }
 

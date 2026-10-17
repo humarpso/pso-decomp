@@ -49,7 +49,6 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
 s32 TWindowSubEquip::open_equip_kind_list(u32 arg1) {
-    u8 *arg0 = (u8 *)this;
     s32 temp_r31;
     temp_r31 = create_equip_kind_window(get_window_layout_position(1), (void *) (lbl_8044F920), (int) (*(s32 *)&this->m_28));
     TWindowSubEquip__sub_80263AF8((int) (*(s32 *)&this->m_2c), (int) (1));

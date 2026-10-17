@@ -637,7 +637,6 @@ void TLobby::init_scroll(s32 arg1, s32 arg2) {
 }
 
 s32 TLobby::get_entry_id() {
-    u8 *arg0 = (u8 *)this;
     return *(s32 *)&this->m_flags;
 }
 

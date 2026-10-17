@@ -8,7 +8,6 @@ void text_builder_append(s32);
 void text_builder_reset(void);
 extern s32 lbl_805DCDE0;
 void TWindowHelpItem::format_description_with_price() {
-    u8 *arg0 = (u8 *)this;
     text_builder_reset();
     text_builder_append(format_item_description(*(u8 * *)&this->m_68));
     text_builder_append((s32) &lbl_805DCDE0);

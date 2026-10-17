@@ -163,7 +163,6 @@ void TOKeyMachine01__vt16(s32 arg0) {
 }
 
 void TOKeyMachine01::vfunc_17() {
-    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     if ((s32) this->m_f8 == 1) {
         this->m_ec = (f32) (this->m_ec + lbl_805DB780);

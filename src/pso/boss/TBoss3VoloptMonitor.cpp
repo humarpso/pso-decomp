@@ -618,7 +618,6 @@ u8 *TBoss3VoloptMonitor__ct(u8 *arg0, s32 arg1, s32 arg2) {
 void TObjEnemyCustom::set_flags_30() { this->actorFlags |= 0x4040000; }
 
 void TObjEnemyCustom::sub_8004292C() {
-    u8 *arg0 = (u8 *)this;
     *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFBFBFFFF);
 }
 void TBoss3VoloptMonitor::sub_80042944(s32 i) {

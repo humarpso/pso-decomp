@@ -114,31 +114,31 @@ void TUnk_804B5C08::run_task() {
       if (((s32) (*((s32 *) (((s8 *) arg0) + 0x98)))) <= 0)
     {
       *((s32 *) (((s8 *) arg0) + 0x98)) = 0x12C;
-      if (((s32) (*((s32 *) (((s8 *) arg0) + 0x94)))) == 2)
+      if (((s32) (this->m_94)) == 2)
       {
         *((s32 *) (((s8 *) arg0) + 0x90)) = 1;
-        *((f32 *) (((s8 *) arg0) + 0x9C)) = (f32) city_vertical_model_min_y_offset;
+        *(f32 *)&this->m_9c = (f32) city_vertical_model_min_y_offset;
         return;
         return;
       }
       *((s32 *) (((s8 *) arg0) + 0x90)) = 2;
-      *((f32 *) (((s8 *) arg0) + 0x9C)) = (f32) city_vertical_model_max_y_offset;
+      *(f32 *)&this->m_9c = (f32) city_vertical_model_max_y_offset;
     }
       return;
     case 1:
-      *((f32 *) (((s8 *) arg0) + 0x9C)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x9C))) + city_vertical_model_y_step);
-      if ((*((f32 *) (((s8 *) arg0) + 0x9C))) >= city_vertical_model_max_y_offset)
+      *(f32 *)&this->m_9c = (f32) ((*(f32 *)&this->m_9c) + city_vertical_model_y_step);
+      if ((*(f32 *)&this->m_9c) >= city_vertical_model_max_y_offset)
     {
-      *((s32 *) (((s8 *) arg0) + 0x94)) = 1;
+      this->m_94 = 1;
       *((s32 *) (((s8 *) arg0) + 0x90)) = 0;
       return;
     }
       break;
     case 2:
-      *((f32 *) (((s8 *) arg0) + 0x9C)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x9C))) - city_vertical_model_y_step);
-      if ((*((f32 *) (((s8 *) arg0) + 0x9C))) <= city_vertical_model_min_y_offset)
+      *(f32 *)&this->m_9c = (f32) ((*(f32 *)&this->m_9c) - city_vertical_model_y_step);
+      if ((*(f32 *)&this->m_9c) <= city_vertical_model_min_y_offset)
     {
-      *((s32 *) (((s8 *) arg0) + 0x94)) = 2;
+      this->m_94 = 2;
       *((s32 *) (((s8 *) arg0) + 0x90)) = 0 * 0;
       return;
     }

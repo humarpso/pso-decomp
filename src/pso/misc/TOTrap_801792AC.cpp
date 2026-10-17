@@ -58,7 +58,6 @@ void TOTrap::vfunc_86() {  }
 void TOTrap::vfunc_88() {  }
 
 s32 TOTrap::try_start_action(s32 arg1, s32) {
-    u8 *arg0 = (u8 *)this;
     return (u8) (arg1 != *(s32 *)&this->target);
 }
 

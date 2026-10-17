@@ -767,7 +767,6 @@ s32 TLobby__sub_803F8314(A_803F8314 *arg0) {
 #pragma push
 #pragma opt_common_subs off
 u32 TLobby::compute_range_end(s32 arg1, u32 arg2) {
-    u8 *arg0 = (u8 *)this;
     u32 temp_r3;
     send_ring_buffer_base = arg1;
     lobby_ring_buffer_size = *(s32 *)&this->m_up;

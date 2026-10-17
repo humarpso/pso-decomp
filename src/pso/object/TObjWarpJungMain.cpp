@@ -207,10 +207,10 @@ void TObjWarpJungMain__vt13(void *arg0, s16 arg1) {
 
 void TObjWarpJungMain::run_task() {
     u8 *arg0 = (u8 *)this;
-  *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xC4))) + lbl_805DC048);
-  if ((*((f32 *) (((s8 *) arg0) + 0xC4))) > ((f32) (((*((s32 *) (((s8 *) (*(u8 * *)&warp_jung_beam_motion)) + 4))) - 1) & 0xFFFFFFFF)))
+  this->m_c4 = (f32) ((this->m_c4) + lbl_805DC048);
+  if ((this->m_c4) > ((f32) (((*((s32 *) (((s8 *) (*(u8 * *)&warp_jung_beam_motion)) + 4))) - 1) & 0xFFFFFFFF)))
   {
-    *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) lbl_805DC04C;
+    this->m_c4 = (f32) lbl_805DC04C;
   }
   ((TObjAreaWarp *)arg0)->handle_area_selection();
 }
@@ -290,10 +290,10 @@ void TObjWarpJung::confirm_area_transfer(s32) { confirm_area_transfer__12TObjAre
 
 void TObjWarpJung::run_task() {
     u8 *arg0 = (u8 *)this;
-  *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xC4))) + lbl_805DC048);
-  if ((*((f32 *) (((s8 *) arg0) + 0xC4))) > ((f32) (((*((s32 *) (((s8 *) (*(u8 * *)&warp_jung_beam_motion)) + 4))) - 1) & 0xFFFFFFFF)))
+  this->m_c4 = (f32) ((this->m_c4) + lbl_805DC048);
+  if ((this->m_c4) > ((f32) (((*((s32 *) (((s8 *) (*(u8 * *)&warp_jung_beam_motion)) + 4))) - 1) & 0xFFFFFFFF)))
   {
-    *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) lbl_805DC04C;
+    this->m_c4 = (f32) lbl_805DC04C;
   }
   ((TObjAreaWarp *)arg0)->handle_area_selection();
 }

@@ -98,14 +98,13 @@ s32 TWindowSubTechnique::open_menu() {
 }
 
 void TWindowSubTechnique::update_selected_help(s32 arg1) {
-    u8 *arg0 = (u8 *)this;
   s32 saved_reg_r30;
   s32 player;
   s32 tech;
   s32 cast_technique_level;
   tech = arg1;
-  toggle_help_window_on_button((int) (*((s32 *) (((s8 *) arg0) + 0x3C))), (int) (*((s32 *) (((s8 *) arg0) + 0x28))));
-  player = get_player_by_client_id((int) (*((s32 *) (((s8 *) arg0) + 0x28))));
+  toggle_help_window_on_button((int) (*(s32 *)&this->m_3c), (int) (this->playerIndex));
+  player = get_player_by_client_id((int) (this->playerIndex));
   if (player != 0)
   {
     if (validate_and_clear_slot__10TObjPlayerFv((void *) (player + 0x428), (int) tech) != 0)
@@ -113,12 +112,12 @@ void TWindowSubTechnique::update_selected_help(s32 arg1) {
       tech = 0x13;
       cast_technique_level = saved_reg_r30;
     }
-    if (((s16) tech) != ((s16) (*((s16 *) (((s8 *) arg0) + 0x1E)))))
+    if (((s16) tech) != ((s16) (*(s16 *)&this->m_1e)))
     {
-      *((s16 *) (((s8 *) arg0) + 0x1E)) = (s16) tech;
+      *(s16 *)&this->m_1e = (s16) tech;
       if (((s16) tech) == 0x13)
       {
-        send_and_handle__6TLobbyFii((int) (*((s32 *) (((s8 *) arg0) + 0x3C))), (void *) (&lbl_805DD83C), (int) 0x82);
+        send_and_handle__6TLobbyFii((int) (*(s32 *)&this->m_3c), (void *) (&lbl_805DD83C), (int) 0x82);
         return;
       }
       text_builder_reset();
@@ -131,7 +130,7 @@ void TWindowSubTechnique::update_selected_help(s32 arg1) {
       text_builder_append((int) get_help_text_string((int) 0x2E));
       TWindowSubStatusDisp__sub_80228F5C((void *) ((s32) (*((s16 *) (((s8 *) calc_technique_parameters((s16) tech, (u8) cast_technique_level, 0xFFFF)) + 0x10)))));
       text_builder_append((int) TWindowSubTechnique__sub_8028753C((s32)((int) ((s32) ((s16) tech)))));
-      send_and_handle__6TLobbyFii((int) (*((s32 *) (((s8 *) arg0) + 0x3C))), (void *) get_shared_text_buffer(), (int) 0x82);
+      send_and_handle__6TLobbyFii((int) (*(s32 *)&this->m_3c), (void *) get_shared_text_buffer(), (int) 0x82);
     }
   }
 }

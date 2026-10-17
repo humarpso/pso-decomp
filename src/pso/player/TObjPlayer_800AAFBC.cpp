@@ -376,7 +376,6 @@ s32 TObjPlayer::get_action_priority() {
     return (s32)((u32)__cntlzw(3 - *(s16 *)((s8 *)this + 0xAE)) >> 5);
 }
 void TObjPlayer::draw_model_no_fog() {
-    u8 *arg0 = (u8 *)this;
     TObjFish::set_global_param(lbl_805D5094);
     TObjFish::set_global_param((*(s32 *)&this->action_table));
     push_matrix();

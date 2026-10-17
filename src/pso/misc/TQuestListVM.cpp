@@ -400,11 +400,11 @@ void TQuestListVM::load_selected_slot() {
     s32 i;
     QL_80218AD4 *q = (QL_80218AD4 *)((u8 *)this);
     memset(buf, (void *)0, (void *)0xd);
-    if (*(u32 *)(((u8 *)this) + 0x2374) != 0 && *(u32 *)(((u8 *)this) + 0x2388) != 0) {
-        i = select_cursor_entry__22TWindowSubShortCutListFv(*(u32 *)(((u8 *)this) + 0x2374));
+    if (this->m_2374!= 0 && this->m_2388!= 0) {
+        i = select_cursor_entry__22TWindowSubShortCutListFv(this->m_2374);
         if (TAdPlayerLoadGC__sub_801E1B50(q->recs[i].slot) == 0) {
             sprintf(buf, lbl_8044BF50, lbl_8044BEE8, q->recs[i].num + 1);
-            if (((TAdSinglePlyChrSelectGC *)(q->recs[i].slot))->load_player_slot((int)buf, (int)(*(s32 *)(((u8 *)this) + 0x2388))) == 0) {
+            if (((TAdSinglePlyChrSelectGC *)(q->recs[i].slot))->load_player_slot((int)buf, (int)(*(s32 *)&this->m_2388)) == 0) {
                 ((TShopWindowBase *)((u8 *)this))->set_field_20((s32)((void *)0xc));
                 return;
             }
@@ -463,28 +463,28 @@ void TQuestListVM::handle_confirm_window() {
 }
 
 void TQuestListVM::open_confirm_window() {
-    if (*(u32 *)(((u8 *)this) + 0x2380) == 0U) {
+    if (this->m_2380== 0U) {
         Pair_80218D40 sp8 = lbl_8044BF48[0];
-        u16 id = obj_getField1c(*(s32 *)(((u8 *)this) + 0x24));
-        *(u32 *)(((u8 *)this) + 0x2380) = create_message_window__6TLobbyFllUls(get_window_layout_position(0x2E), &sp8, 1, id);
-        send_and_handle__6TLobbyFii(*(u32 *)(((u8 *)this) + 0x2380), (void *)(TQuestListVM__decrypted_quest_buffer + 0xB4), 1);
-        ((TLobby *)(*(u32 *)(((u8 *)this) + 0x2380)))->set_field_1c(lbl_805DC6B8);
+        u16 id = obj_getField1c(*(s32 *)&this->m_24);
+        this->m_2380= create_message_window__6TLobbyFllUls(get_window_layout_position(0x2E), &sp8, 1, id);
+        send_and_handle__6TLobbyFii(this->m_2380, (void *)(TQuestListVM__decrypted_quest_buffer + 0xB4), 1);
+        ((TLobby *)(this->m_2380))->set_field_1c(lbl_805DC6B8);
         if (TCameraCtrl::get_camera_id() >= 2) {
-            ((TUnk_804CDFE8 *)(*(u32 *)(((u8 *)this) + 0x2380)))->set_position_xy(lbl_805DC6BC, lbl_805DC6BC);
+            ((TUnk_804CDFE8 *)(this->m_2380))->set_position_xy(lbl_805DC6BC, lbl_805DC6BC);
         }
     }
-    if (*(u32 *)(((u8 *)this) + 0x2380) != 0U) {
-        if (*(s32 *)(((u8 *)this) + 0x2370) != 0xA) {
-            ((TShopWindowBase *)((u8 *)this))->set_field_20((s32)((void *)*(s32 *)(((u8 *)this) + 0x2370)));
+    if (this->m_2380!= 0U) {
+        if (*(s32 *)&this->m_2370!= 0xA) {
+            ((TShopWindowBase *)((u8 *)this))->set_field_20((s32)((void *)*(s32 *)&this->m_2370));
             return;
         }
         {
-            u16 id = obj_getField1c(*(s32 *)(((u8 *)this) + 0x24));
-            *(u32 *)(((u8 *)this) + 0x2378) = create_yes_no_window(get_window_layout_position(0x2B), id, 0, 0);
+            u16 id = obj_getField1c(*(s32 *)&this->m_24);
+            this->m_2378= create_yes_no_window(get_window_layout_position(0x2B), id, 0, 0);
         }
-        ((TUnk_804CDFE8 *)(*(u32 *)(((u8 *)this) + 0x2378)))->set_position_xy(get_scale__15TShopWindowBaseFv(((u8 *)this)), get_scale__15TShopWindowBaseFv(((u8 *)this)));
+        ((TUnk_804CDFE8 *)(this->m_2378))->set_position_xy(get_scale__15TShopWindowBaseFv(((u8 *)this)), get_scale__15TShopWindowBaseFv(((u8 *)this)));
         ((VObj_80218D40 *)(((u8 *)this)))->m7(5, 1);
-        ((TShopWindowBase *)((u8 *)this))->set_field_20((s32)((void *)*(s32 *)(((u8 *)this) + 0x2370)));
+        ((TShopWindowBase *)((u8 *)this))->set_field_20((s32)((void *)*(s32 *)&this->m_2370));
     }
 }
 
@@ -537,10 +537,10 @@ void TQuestListVM::poll_quest_download(void *p) {
 void TQuestListVM::sub_80219064() {
     s32 i;
     Q_80219064 *q = (Q_80219064 *)((u8 *)this);
-    if (*(u32 *)(((u8 *)this) + 0x2374) != 0 && *(u32 *)(((u8 *)this) + 0x2388) != 0) {
-        i = select_cursor_entry__22TWindowSubShortCutListFv(*(u32 *)(((u8 *)this) + 0x2374));
+    if (this->m_2374!= 0 && this->m_2388!= 0) {
+        i = select_cursor_entry__22TWindowSubShortCutListFv(this->m_2374);
         if (TAdPlayerLoadGC__sub_801E1B50(q->ents[i].id) == 0) {
-            if (((TAdSinglePlyChrSelectGC *)(q->ents[i].id))->load_player_slot((int)(q->ents[i].data), (int)(*(s32 *)(((u8 *)this) + 0x2388))) == 0) {
+            if (((TAdSinglePlyChrSelectGC *)(q->ents[i].id))->load_player_slot((int)(q->ents[i].data), (int)(*(s32 *)&this->m_2388)) == 0) {
                 ((TShopWindowBase *)((u8 *)this))->set_field_20((s32)((void *)9));
                 return;
             }

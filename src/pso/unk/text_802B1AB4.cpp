@@ -67,7 +67,6 @@ s32 TWindowSubTrade::open_trade_confirm_prompt(s32 arg1) {
     return temp_r29;
 }
 s32 TWindowSubTrade::open_player_message_window(s32 arg1, s32 arg2) {
-    u8 *arg0 = (u8 *)this;
     s32 r;
     VObj_802B1B80 *p;
     p = (VObj_802B1B80 *)get_player_by_client_id(arg1);

@@ -213,7 +213,6 @@ void TLobby::init_floor_item_entry() {
 }
 
 u8 TUnk_804AF8A0::sub_8010319C() {
-    u8 *arg0 = (u8 *)this;
     return (u8) (this->m_94 != 0xFFFF);
 }
 

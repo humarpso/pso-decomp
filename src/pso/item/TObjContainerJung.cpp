@@ -181,7 +181,6 @@ void TObjContainerJung::vfunc_6(s16 *arg1, s32 arg2) {
 }
 
 void TObjContainerJung::vfunc_81() {
-    u8 *arg0 = (u8 *)this;
     if ((void *)(*(u8 **)&TObjContainerJung__bml_model_resource) != NULL) {
         switch (this->mode) {
         case 0:

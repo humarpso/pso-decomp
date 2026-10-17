@@ -95,7 +95,7 @@ void TUnk_804A5B20::update_attack() {
   {
     case 5:
       TItemEffOrgaFlowShot::approach_value((f32 *)(arg0 + 0x204), (f32)((f32) lbl_805DAF50), (f32)((f32) lbl_805DAF38));
-      if (lbl_805DAF38 <= (*((f32 *) (((s8 *) arg0) + 0x204))))
+      if (lbl_805DAF38 <= (this->m_204))
     {
       TObjPlayer::add_angle_clamped((s32 *)(arg0 + 0x1F8), (s32)((int) (-0x2AAA)), (s32)((int) 0));
     }

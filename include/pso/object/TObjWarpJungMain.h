@@ -11,7 +11,8 @@ struct TObjWarpJungMain : public TObjAreaWarp {
     virtual void confirm_area_transfer(s32);
     void render();
     void run_task();
-    u8 unk_AC[0x1C];
+    u8 unk_AC[0x18];
+    f32 m_c4;
 };
 
 typedef char TObjWarpJungMain_size[sizeof(TObjWarpJungMain) == 0xC8 ? 1 : -1];

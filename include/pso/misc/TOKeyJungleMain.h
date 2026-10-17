@@ -14,7 +14,9 @@ struct TOKeyJungleMain : public TOKey {
     virtual void play_activate_sound();
     void render();
     static void init_key_slots(void* _w0);
-    u8 unk_D8[0x18];
+    u8 unk_D8[0x10];
+    f32 m_e8;
+    u8 unk_EC[0x4];
     static void dispatch_by_phase(s32 arg0, u16 arg1);
     static void *create(void *arg0);
     static void release_static_resource();

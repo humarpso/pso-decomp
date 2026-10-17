@@ -12,7 +12,9 @@ public:
     virtual void run_task();
     u8 unk_38C[0xC];
     s32 m_398;
-    u8 unk_39C[0x38];
+    u8 unk_39C[0x2C];
+    s32 m_3c8;
+    u8 unk_3CC[0x8];
 };
 typedef char TUnk_80483A10_size[sizeof(TUnk_80483A10) == 0x3D4 ? 1 : -1];
 

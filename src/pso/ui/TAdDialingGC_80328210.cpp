@@ -182,7 +182,6 @@ s32 TAdDialingGC__sub_803284F8(s32 _w0) {
 }
 
 void TAdDialingGC::update_selection() {
-    u8 *arg0 = (u8 *)this;
     *(s16 *)&this->m_68 = (s16) *(s16 *)&this->m_30;
     if ((s32) TLobby__net_session_mode != 0) {
         *(s16 *)&this->m_30 = 0;

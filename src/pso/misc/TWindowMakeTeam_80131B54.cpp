@@ -11,7 +11,6 @@ extern const f32 lbl_805DB078;
 extern const f32 lbl_805DB07C;
 
 void TWindowMakeTeam::set_sub_position(u8 *arg1) {
-    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     u8 *temp_r4;
     u8 *temp_r5;

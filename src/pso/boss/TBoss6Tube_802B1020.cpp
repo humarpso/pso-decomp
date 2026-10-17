@@ -97,7 +97,6 @@ f32 TBoss6Tube::calc_tube_progress(s32 arg0) {
 }
 
 void TBoss6Tube::sub_802B1218() {
-    u8 *arg0 = (u8 *)this;
     if (((0.0f) == TBoss6Tube__scroll_delta) && ((s32) TBoss6Tube__previous_scroll_phase == 0)) {
         TBoss6Tube__previous_scroll_phase = *(s32 *)&this->m_28;
         return;
@@ -127,7 +126,6 @@ void TBoss6Tube__sub_802B129C(u8 *arg0) {
 #pragma push
 #pragma fp_contract on
 void TBoss6Tube::update_wobble() {
-    u8 *arg0 = (u8 *)this;
     *(s32 *)&this->m_24 = (s32) (*(s32 *)&this->m_24 + (s32) (((-464.0f) * ((3.0517578e-05f) * (f32) rand())) + (-116.0f)));
     if ((f32) *(s32 *)&this->m_24 <= (0.0f)) {
         *(s32 *)&this->m_24 = 0;

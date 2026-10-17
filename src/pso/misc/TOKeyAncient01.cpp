@@ -120,7 +120,6 @@ void TOKeyAncient01::render() {
 }
 
 void TOKeyAncient01::vfunc_17() {
-    u8 *arg0 = (u8 *)this;
     update_anim_phase__13TUnk_804AFBF8Fv();
     this->submit_cursor_target();
 }

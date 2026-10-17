@@ -20,7 +20,11 @@ struct TWindowMainMenu1P : public TWindowMainMenu {
     void create_char_select_slot();
     u8 unk_4C[0x8];
     void * m_54;
-    u8 unk_58[0x54];
+    u8 unk_58[0x14];
+    f32 m_6c;
+    u8 unk_70[0x34];
+    f32 m_a4;
+    u8 unk_A8[0x4];
 };
 
 typedef char TWindowMainMenu1P_size[sizeof(TWindowMainMenu1P) == 0xAC ? 1 : -1];

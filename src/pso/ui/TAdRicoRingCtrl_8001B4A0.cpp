@@ -76,7 +76,6 @@ void TAdRicoRingCtrl::start_fade_all(f32 x) {
 #pragma push
 #pragma opt_common_subs off
 void TAdRicoRingCtrl::run_task() {
-    u8 *arg0 = (u8 *)this;
     f32 temp_f1;
     *(f32 *)&this->unk_24 = (f32) (*(f32 *)&this->unk_24 + this->m_28);
     temp_f1 = *(f32 *)&this->unk_24;

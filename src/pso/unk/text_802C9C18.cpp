@@ -42,7 +42,6 @@ void TOTrapSeabed01::sub_802C9C18(s32 arg1) {
 #pragma push
 #pragma fp_contract on
 void TOTrapSeabed01::sub_802C9D38() {
-    u8 *arg0 = (u8 *)this;
     s32 temp_r3;
     s32 temp_r3_2;
     if (TRaderMapCore::is_not_split_screen() == 1) {

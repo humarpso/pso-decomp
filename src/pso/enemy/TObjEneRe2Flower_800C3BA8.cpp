@@ -12,7 +12,6 @@ void TObjEneRe2Flower__sub_800C3BA8(void);
 
 void TObjEneRe2Flower__sub_800C3BA8(void) {  }
 u8 *TObjEneRe2Flower::find_target_in_range() {
-    u8 *arg0 = (u8 *)this;
     s32 n;
     u8 *result;
     u8 *p;

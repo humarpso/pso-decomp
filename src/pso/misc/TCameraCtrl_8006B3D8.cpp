@@ -264,7 +264,7 @@ void TUnk_80488B08::vfunc_6() {
         *(f32 *)&this->unk_40 = (f32) *(f32 *)((s8 *)temp_r3 + 0x20);
         this->m_44 = (f32) *(f32 *)((s8 *)temp_r3 + 0x24);
         this->m_54 = (s32) (lbl_805D9000 * (f32) *(s32 *)((s8 *)temp_r3 + 0x14));
-        *(f32 *)((s8 *)this + 0x58) = (f32) *(f32 *)((s8 *)temp_r3 + 0x10);
+        this->m_58= (f32) *(f32 *)((s8 *)temp_r3 + 0x10);
     }
 }
 

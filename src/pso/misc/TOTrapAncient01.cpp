@@ -294,7 +294,6 @@ void TOTrapAncient01::vfunc_6(s16 *arg1, s32 arg2) {
 }
 
 void TOTrapAncient01::release_trapped_player() {
-    u8 *arg0 = (u8 *)this;
     s32 temp_r3;
     s32 temp_r3_2;
     if (TRaderMapCore::is_not_split_screen() == 1) {

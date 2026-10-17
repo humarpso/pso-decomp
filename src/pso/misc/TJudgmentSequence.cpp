@@ -130,7 +130,7 @@ void TJudgmentSequence::setup_counter_camera() {
   new_var = (f32) lbl_805DC680;
   ((TShopSequence *)arg0)->create_message_window(get_window_layout_position((int) 0x2C, new_var), (s32) (&stack.sp8));
   (((VObj_18_4a2792 *)(arg0))->m6((1), (1)));
-  *((s32 *) (((s8 *) arg0) + 0x2C)) = create_meseta_window(((s32) ((TShopSequence *)arg0)->get_child_field1c()) & 0xFFFF);
+  this->m_2c = create_meseta_window(((s32) ((TShopSequence *)arg0)->get_child_field1c()) & 0xFFFF);
   ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(2)));
   *((s32 *) (((s8 *) arg0) + 0x30)) = set_service_counter_camera((void *) arg0, (int) 2);
 }

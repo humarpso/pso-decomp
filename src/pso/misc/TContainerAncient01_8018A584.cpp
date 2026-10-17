@@ -458,15 +458,15 @@ s32 TContainerAncient01R::sub_8018A688() {
 void TContainerAncient01R::update_spawning() {
     u8 *arg0 = (u8 *)this;
   advance_animation_playback(arg0);
-  if ((__cvt_fp2unsigned(*((f32 *) (((s8 *) arg0) + 0x2B4))) % 15) == 0)
+  if ((__cvt_fp2unsigned(this->m_2b4) % 15) == 0)
   {
     TContainerAncient01::trigger_spawn(arg0, arg0 + 0x348, (void *) 0x7D);
   }
-  if (TContainerAncient01__data_805DBD34 <= (*((f32 *) (((s8 *) arg0) + 0x2B4))))
+  if (TContainerAncient01__data_805DBD34 <= (this->m_2b4))
   {
-    *((s16 *) (((s8 *) arg0) + 0x326)) = 2;
-    *((s16 *) (((s8 *) arg0) + 0xB8)) = (s16) (*((s16 *) (((s8 *) arg0) + 0x326)));
-    *((f32 *) (((s8 *) arg0) + 0x2B4)) = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD1C);
+    this->mode = 2;
+    this->m_b8 = (s16) (this->mode);
+    this->m_2b4 = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD1C);
   }
 }
 
@@ -784,15 +784,15 @@ void TContainerAncient01::sub_8018B284() {
 void TContainerAncient01::sub_8018B48C() {
     u8 *arg0 = (u8 *)this;
   advance_animation_playback(arg0);
-  if (((__cvt_fp2unsigned(*((f32 *) (((s8 *) arg0) + 0x2B4))) & 0xFFFFFFFF) % 15) == 0)
+  if (((__cvt_fp2unsigned(this->m_2b4) & 0xFFFFFFFF) % 15) == 0)
   {
     TContainerAncient01::spawn_effect((void*)(arg0), (void*)(arg0 + 0x344), (void*)((void *) 0x7D));
   }
-  if (TContainerAncient01__data_805DBD34 <= (*((f32 *) (((s8 *) arg0) + 0x2B4))))
+  if (TContainerAncient01__data_805DBD34 <= (this->m_2b4))
   {
-    *((s16 *) (((s8 *) arg0) + 0x326)) = 2;
-    *((s16 *) (((s8 *) arg0) + 0xB8)) = (s16) (*((s16 *) (((s8 *) arg0) + 0x326)));
-    *((f32 *) (((s8 *) arg0) + 0x2B4)) = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD1C);
+    this->mode = 2;
+    this->m_b8 = (s16) (this->mode);
+    this->m_2b4 = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD1C);
   }
 }
 
@@ -827,7 +827,6 @@ void TContainerAncient01::update_wait_for_player() {
 }
 
 void TContainerAncient01::init_state_vectors() {
-    u8 *arg0 = (u8 *)this;
     *(f32 *)&this->m_338 = (f32) (TContainerAncient01__data_805DBD3C + (this->scale - TContainerAncient01__data_805DBD10));
     this->m_33c = (f32) (lbl_805DBD40 + (this->target_scale - TContainerAncient01__data_805DBD10));
     *(f32 *)&this->unk_340 = (f32) (TContainerAncient01__data_805DBD44 + (*(f32 *)&this->m_70 - TContainerAncient01__data_805DBD10));

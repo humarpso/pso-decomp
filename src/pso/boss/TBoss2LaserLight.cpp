@@ -35,7 +35,7 @@ void queue_destruction__7TObjectFv(void *);
 
 }
 TUnk_80482C58::~TUnk_80482C58() {
-    if (*(void **)((s8 *)this + 0x11C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x11C)); *(s32 *)((s8 *)this + 0x11C) = 0; }
+    if (this->m_11c!= NULL) { queue_destruction__7TObjectFv(this->m_11c); *(s32 *)((s8 *)this + 0x11C) = 0; }
 }
 extern "C" {
 
@@ -117,5 +117,5 @@ void TBoss2LaserLight__sub_80037480(void* p) { *(s32*)((char*)p + 0x24) = 1; }
 
 }
 TBoss2LaserLight::~TBoss2LaserLight() {
-    if (*(void **)((s8 *)this + 0x40) != NULL) { ((TObjLight *)(*(void **)((s8 *)this + 0x40)))->unregister_and_free(); *(s32 *)((s8 *)this + 0x40) = 0; }
+    if (*(void **)((s8 *)this + 0x40) != NULL) { ((TObjLight *)(*(void **)((s8 *)this + 0x40)))->unregister_and_free(); *(s32 *)&this->m_40= 0; }
 }

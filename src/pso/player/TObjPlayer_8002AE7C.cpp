@@ -26,7 +26,6 @@ void TObjPlayer::set_type_dragon() { *(u8*)((char*)this + 0x0) = 18; *(u8*)((cha
 void TObjPlayer::bswap_dragon_boss_fields() { read_be16_field2(); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); bswap_32__FPUl((char*)this + 0x8); }
 void TObjPlayer::bswap_stats() { read_be16_field2(); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); bswap_32__FPUl((char*)this + 0x8); }
 s32 TObjEnemy::exchange_object_state(s32 arg1, s16 arg2) {
-    u8 *arg0 = (u8 *)this;
     s16 temp_r31;
     temp_r31 = *(s16 *)&this->m_2c;
     if ((temp_r31 < 0) || (temp_r31 > 0xB4F)) {

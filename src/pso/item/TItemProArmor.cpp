@@ -188,7 +188,6 @@ void TItemProArmor::init_effect_flags() {
 void TItemProArmor__sub_801178A8(void* p, void* q) { *(u8*)((char*)p + 0x5) = *(u8*)((char*)q + 0x192); }
 
 void TItemProArmor::vfunc_40() {
-    u8 *arg0 = (u8 *)this;
     u8 temp_r4;
     temp_r4 = this->m_192;
     if (temp_r4 < 4U) {
@@ -199,7 +198,6 @@ void TItemProArmor::vfunc_40() {
 int TItemProArmor::vfunc_39() { return this->m_192; }
 
 void TItemProArmor::vfunc_14() {
-    u8 *arg0 = (u8 *)this;
     if ((u8) this->m_195 < (u8) this->m_193) {
         this->m_193 = 0U;
     }

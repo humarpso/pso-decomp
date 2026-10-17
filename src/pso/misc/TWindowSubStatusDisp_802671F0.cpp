@@ -284,7 +284,7 @@ void TUnk_804CE7E8::advance_all_entries(s32 arg1) {
         if (arg1 != 0) {
             play_sound_effect(0x52D01, 0, 0, 0);
         }
-        for (i = 0; i < *(s16 *)(((u8 *)this) + 0x76); i++) {
+        for (i = 0; i < this->m_76; i++) {
             ((s32 (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)(((u8 *)this), i);
             advance_state__20TWindowSubStatusDispFv();
         }
@@ -633,7 +633,7 @@ void TUnk_804D0618::update_scroll_offset() {
   s8 *new_var;
   f32 var_f4;
   u32 n;
-  if ((*((u16 *) (((s8 *) this) + 0x70))) & 0x20)
+  if ((this->m_70) & 0x20)
   {
     new_var = ((s8 *) ((u16 *)get_array_entry__13TUnk_804CE018Fi(this, *((s16 *) (((s8 *) this) + 0x74))))) + 0xC;
     var_f4 = *((f32 *) new_var);
