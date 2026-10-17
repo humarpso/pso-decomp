@@ -707,10 +707,10 @@ void TObjEneDelDepth::start_attack_motion() {
     *(f32 *)((s8 *)((u8 *)this) + 0x3A0) = (f32) TObjEneDelDepth__data_805DF260;
     play_sound_effect(0x4003A321, (void *) (((u8 *)this) + 0x38), 0, 0);
     if (((TObjEneDelDepth *)(this->m_37c))->get_type() < 6) {
-        set_motion__15TObjEneDelDepthFl((void*)(this->m_37c), (void*)(4));
+        set_motion__15TObjEneDelDepthFl((void*)this->m_37c, (void*)(4));
     } else {
         this->m_384 = 0x10;
-        set_motion__15TObjEneDelDepthFl((void*)(this->m_37c), (void*)(8));
+        set_motion__15TObjEneDelDepthFl((void*)this->m_37c, (void*)(8));
     }
     ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)(this, (void*)(0));
 }
@@ -941,7 +941,7 @@ void TObjEneDelDepth::enter_appear_state() {
     this->actorFlags = (s32) (this->actorFlags | 0x04000000);
     *(s32 *)((s8 *)((u8 *)this) + 0x388) = 0x14;
     play_sound_effect(0x4003A820, (void *) (((u8 *)this) + 0x38), 0, 0);
-    set_motion__15TObjEneDelDepthFl((void*)(this->m_37c), (void*)(0xB));
+    set_motion__15TObjEneDelDepthFl((void*)this->m_37c, (void*)(0xB));
     ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)(this, (void*)(1));
 }
 
@@ -960,7 +960,7 @@ void TObjEneDelDepth::enter_state8() {
     u8 *arg0 = (u8 *)this;
     this->actorFlags = (s32) (this->actorFlags | 0x04000000);
     *(s32 *)((s8 *)arg0 + 0x388) = 8;
-    set_motion__15TObjEneDelDepthFl((void*)(this->m_37c), (void*)(0xA));
+    set_motion__15TObjEneDelDepthFl((void*)this->m_37c, (void*)(0xA));
     play_sound_effect(0x4003A820, (u8 *)&this->position, 0, 0);
     ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)(arg0, (void*)(1));
 }
@@ -1141,7 +1141,7 @@ void TObjEneDelDepth::update_scale_pulse() {
 }
 #pragma pop
 
-void TObjEneDelDepth::init_draw_mode_and_motion() { this->m_38c = TObjEneDelDepth__data_805DF260; *(float*)((char*)this + 0x39c) = TObjEneDelDepth__data_805DF258; ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)(this, (void*)(0)); set_motion__15TObjEneDelDepthFl((void*)(this->m_37c), (void*)((void*)0x6)); }
+void TObjEneDelDepth::init_draw_mode_and_motion() { this->m_38c = TObjEneDelDepth__data_805DF260; *(float*)((char*)this + 0x39c) = TObjEneDelDepth__data_805DF258; ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)(this, (void*)(0)); set_motion__15TObjEneDelDepthFl((void*)this->m_37c, (void*)((void*)0x6)); }
 
 #pragma push
 #pragma fp_contract on
