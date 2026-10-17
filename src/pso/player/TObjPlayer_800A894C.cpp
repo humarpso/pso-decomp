@@ -924,12 +924,12 @@ void TObjEneDubchik::sub_800AA10C() {
     switch (this->mode) {
     case 8:
     case 0:
-        if ((((TObjEneDubchik *)(this))->is_actor_cadence_frame(0x1E) != 0) && (find_target_in_range__15TObjEnemyCustomFf(this, this->m_3d0) != 0)) {
+        if ((this->is_actor_cadence_frame(0x1E) != 0) && (find_target_in_range__15TObjEnemyCustomFf(this, this->m_3d0) != 0)) {
             ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active(1);
         }
         break;
     case 1:
-        if (((TObjEneDubchik *)(this))->is_actor_cadence_frame(0x1E) != 0) {
+        if (this->is_actor_cadence_frame(0x1E) != 0) {
             find_target_in_range__15TObjEnemyCustomFf(this, (f32) (lbl_805D9B10 + this->m_3d0));
         }
         temp_r0_2 = *(u32 *)((s8 *)((u8 *)this) + 0x2A8);
@@ -959,7 +959,7 @@ void TObjEneDubchik::sub_800AA10C() {
                 ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active(2);
                 return;
             }
-        } else if (((TObjEneDubchik *)(this))->is_actor_cadence_frame(0x1E) != 0) {
+        } else if (this->is_actor_cadence_frame(0x1E) != 0) {
             find_target_in_range__15TObjEnemyCustomFf(this, (f32) (lbl_805D9B10 + this->m_3d0));
         }
         break;

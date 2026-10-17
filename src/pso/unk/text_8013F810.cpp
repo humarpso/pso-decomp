@@ -67,8 +67,8 @@ s32 TLobby::lz_compress_packet(void *src, s32 size, s32 *hdr) {
     s32 t1;
     out = hdr;
     t0 = TLobby__sub_803DF1CC();
-    ((TLobby *)this)->set_range((int)src, size, (s32)(hdr + 2));
-    ((TLobby *)this)->init_lookup_tables();
+    this->set_range((int)src, size, (s32)(hdr + 2));
+    this->init_lookup_tables();
     code_buf[0] = 0;
     mask = code_buf_ptr = 1;
     ((Lz_8013F99C *)this)->codesize = 0;

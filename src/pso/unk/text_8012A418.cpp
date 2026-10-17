@@ -157,7 +157,7 @@ void TUnk_804A4948::send_srank_stat_extra_to_locks() {
       r = resolve_hittable_target(uid, v = (s16) ((unsigned long long) get_captured_target_collider_index(e)));
       if (r != 0)
       {
-        ((TUnk_804A4948 *)this)->send_srank_stat_extra(r, v);
+        this->send_srank_stat_extra(r, v);
       }
     }
   }

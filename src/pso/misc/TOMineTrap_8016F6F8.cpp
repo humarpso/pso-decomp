@@ -375,8 +375,8 @@ void TOMineTrap::detonate_if_triggered() {
 }
 void TOMine::sub_8017070C() {
     spawn_particle_effect(((void *) (((u8 *)this) + 0x2FC)), 0x47);
-    ((TOMine *)(this))->vfunc_82();
-    ((TOMine *)(this))->vfunc_80();
+    this->vfunc_82();
+    this->vfunc_80();
 }
 
 void TOMine::vfunc_6(s16 *arg1, s32 arg2) {
@@ -397,7 +397,7 @@ void TOMine::vfunc_6(s16 *arg1, s32 arg2) {
         this->actorFlags = (s32) (this->actorFlags & 0xFFFBFFFF);
         this->calc_attach_pos();
         refresh_collision_body_centers();
-        ((TOMine *)(this))->vfunc_81();
+        this->vfunc_81();
         access_object_saved_state(arg1, 0);
         this->queue_destruction_for_each_node();
     }
@@ -463,7 +463,7 @@ f32 TOMine::receive_direct_attack(void *arg1, void *arg2_arg, void *, s32, s32) 
     else
     {
       block_13:
-      (((TOMine *)(this))->receive_physical_attack(0, ((*(const f32 *)&TOMineTrap__data_805DB868))));
+      (this->receive_physical_attack(0, ((*(const f32 *)&TOMineTrap__data_805DB868))));
     }
   }
   return (*(const f32 *)&lbl_805DB85C);

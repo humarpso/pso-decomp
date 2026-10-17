@@ -58,7 +58,7 @@ void TItem::copy_item_data_and_process() {
 u32 TItem::get_usable_action_flags(u32 mask, u32 kind) {
     u8 item[0x14];
     u32 r;
-    ((TItem *)this)->copy_to_item_data(item);
+    this->copy_to_item_data(item);
     if (kind == 0) {
         kind = ((Player_8010147C *)this)->f_F0;
     }

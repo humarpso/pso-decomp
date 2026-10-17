@@ -399,32 +399,32 @@ void TItemEquipBase::vfunc_45() {  }
 void TItemEquipBase::vfunc_44() {  }
 
 void TItemEquipBase::sub_8010A948() {
-    if (((s32)TItemEquipBase__sub_8010AC60((s32)((void *)(this)), 2, 4)) != 0) {
+    if (((s32)TItemEquipBase__sub_8010AC60((s32)this, 2, 4)) != 0) {
         get_id__13TItemProArmorFv(this);
         start_event_by_index__15TItemTimerEventFUs();
     }
-    if (((s32)TItemEquipBase__sub_8010AC60((s32)((void *)(this)), 8, 0x10)) != 0) {
+    if (((s32)TItemEquipBase__sub_8010AC60((s32)this, 8, 0x10)) != 0) {
         apply_equip_slot_effect__14TItemEquipBaseFUsUl(get_id__13TItemProArmorFv(this), 0);
     }
-    if (((s32)TItemEquipBase__sub_8010AC60((s32)((void *)(this)), 0x20, 0x40)) != 0) {
+    if (((s32)TItemEquipBase__sub_8010AC60((s32)this, 0x20, 0x40)) != 0) {
         ((TItemEquipBase *)(this->m_f0 + 0x7CC))->check_flag_32();
     }
-    if (((s32)TItemEquipBase__sub_8010AC60((s32)((void *)(this)), 0x80, 0x100)) != 0) {
+    if (((s32)TItemEquipBase__sub_8010AC60((s32)this, 0x80, 0x100)) != 0) {
         apply_equip_slot_effect__14TItemEquipBaseFUsUl(get_id__13TItemProArmorFv(this), 1);
     }
-    if (((s32)TItemEquipBase__sub_8010AC60((s32)((void *)(this)), 0x200, 0x400)) != 0) {
+    if (((s32)TItemEquipBase__sub_8010AC60((s32)this, 0x200, 0x400)) != 0) {
         apply_equip_slot_effect__14TItemEquipBaseFUsUl(get_id__13TItemProArmorFv(this), 2);
     }
-    if (((s32)TItemEquipBase__sub_8010AC60((s32)((void *)(this)), 0x800, 0x1000)) != 0) {
+    if (((s32)TItemEquipBase__sub_8010AC60((s32)this, 0x800, 0x1000)) != 0) {
         apply_equip_slot_effect__14TItemEquipBaseFUsUl(get_id__13TItemProArmorFv(this), 3);
     }
-    if (((s32)TItemEquipBase__sub_8010AC60((s32)((void *)(this)), 0x2000, 0x4000)) != 0) {
+    if (((s32)TItemEquipBase__sub_8010AC60((s32)this, 0x2000, 0x4000)) != 0) {
         apply_equip_slot_effect__14TItemEquipBaseFUsUl(get_id__13TItemProArmorFv(this), 4);
     }
-    if (((s32)TItemEquipBase__sub_8010AC60((s32)((void *)(this)), 0x8000, 0x10000)) != 0) {
+    if (((s32)TItemEquipBase__sub_8010AC60((s32)this, 0x8000, 0x10000)) != 0) {
         apply_equip_slot_effect__14TItemEquipBaseFUsUl(get_id__13TItemProArmorFv(this), 5);
     }
-    if (((s32)TItemEquipBase__sub_8010AC60((s32)((void *)(this)), 0x20000, 0x40000)) != 0) {
+    if (((s32)TItemEquipBase__sub_8010AC60((s32)this, 0x20000, 0x40000)) != 0) {
         apply_equip_slot_effect__14TItemEquipBaseFUsUl(get_id__13TItemProArmorFv(this), 6);
     }
 }

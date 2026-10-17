@@ -7636,7 +7636,7 @@ void TObjPlayer::unregister() {
 }
 
 s32 TObjPlayer::setup_control_role(s32 role) {
-    ((TObjPlayer *)this)->set_control_role(role);
+    this->set_control_role(role);
     if (role < 4) {
         ((Player_801BB524 *)this)->control = 1;
     } else if (role == 4) {

@@ -1002,7 +1002,7 @@ s32 TObjEneBm9Mericarol::check_attack_hits() {
             if (obj_is_hit_receivable() != 0 && attack_target_history_add(((Ene_802CF6AC *)this)->f488, p) != 0) {
                 Arg_802CF6AC t;
                 t.a = 0;
-                t.b = *(f32 *)mericarol_phase_param_table[((TObjEneBm9Mericarol *)this)->get_phase()];
+                t.b = *(f32 *)mericarol_phase_param_table[this->get_phase()];
                 Arg_802CF6AC arg = t;
                 if (p->m21(this, (s32 *)&arg, 0, -1, -1) > lbl_805DE70C) {
                     obj_setFlags30(p, 0x600);

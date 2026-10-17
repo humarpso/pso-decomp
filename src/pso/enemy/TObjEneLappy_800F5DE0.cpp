@@ -22,7 +22,7 @@ void TObjEnemy::render_shadows() {
         model_render_flags |= 0xC10;
         set_chunk_material_override_pair(-1, 0x800);
         set_shadow_material_state();
-        ((TObjEnemy *)(this))->render();
+        this->render();
         this->clear_shadow_flag();
         model_render_flags &= ~0xC10;
     }

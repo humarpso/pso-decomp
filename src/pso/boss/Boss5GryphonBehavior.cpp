@@ -2326,7 +2326,7 @@ void TBoss5Gryphon::draw_body() {
     ((void (*)(int, int))rotate_matrix_x)(0, ((Obj_8005E0C0 *)this)->f5c);
     ((void (*)(int, int))rotate_matrix_z)(0, ((Obj_8005E0C0 *)this)->f64);
     ((void (*)(int, f32, f32, f32))scale_matrix)(0, lbl_805D8D58, lbl_805D8D58, lbl_805D8D58);
-    ((TObjEneDD_ST *)this)->get_speed_or_default();
+    this->get_speed_or_default();
     ((TBoss8Dragon *)((void *)((Obj_8005E0C0 *)this)->f34))->render_model_tree((void *)((Obj_8005E0C0 *)this)->ff8);
     TObjPlayer::clear_global_state();
     ((void (*)(void))pop_matrix)();
@@ -2895,8 +2895,8 @@ void TBoss5Gryphon::apply_velocity() {
         v.y = lbl_805D8D5C;
         v.z = ((Obj_8005FBC4 *)this)->vel.z;
         len = ((TObjBoss2Tunnel *)(&v))->clamp_velocity();
-        ((TBoss5Gryphon *)this)->calc_shot_position((u8 *)(&shot), (f32)v.x, (f32)v.z, (f32)len);
-        ((TBoss5Gryphon *)this)->try_move_actor_xz_on_ground((u8 *)&shot);
+        this->calc_shot_position((u8 *)(&shot), (f32)v.x, (f32)v.z, (f32)len);
+        this->try_move_actor_xz_on_ground((u8 *)&shot);
     } else {
         ((Obj_8005FBC4 *)this)->pos.x += ((Obj_8005FBC4 *)this)->vel.x;
         ((Obj_8005FBC4 *)this)->pos.y += ((Obj_8005FBC4 *)this)->vel.y;

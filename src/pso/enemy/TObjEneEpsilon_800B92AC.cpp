@@ -251,7 +251,7 @@ void TObjEneDD_ST::enemy_copy_target_destination() {
     u32 temp_r4;
     temp_r4 = *(u32 *)((s8 *)((u8 *)this) + 0x390);
     if (temp_r4 != 0U) {
-        copy_position__14TObjEneEpsilonFPv(((void *)this), ((void *)(temp_r4 + 0x38)));
+        copy_position__14TObjEneEpsilonFPv(this, ((void *)(temp_r4 + 0x38)));
     }
 }
 

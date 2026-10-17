@@ -156,7 +156,7 @@ void TWindowMainMenu::handle_menu_selection() {
                 return;
             }
             close_child_window();
-            ((TWindowMainMenu *)this)->update_submenu();
+            this->update_submenu();
             create_submenu(id);
             return;
         }

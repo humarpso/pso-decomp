@@ -414,7 +414,7 @@ void TBoss6Mag::sub_8032E8DC() {
     case 24:
     case 25:
     case 26:
-        if (((TBoss6Mag *)this)->is_phase_active() != 0) {
+        if (this->is_phase_active() != 0) {
             ((TBoss6Type2 *)this)->ensure_particle_emitter(1);
         } else {
             ((TBoss6Type2 *)this)->destroy_part_object(1);

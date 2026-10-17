@@ -313,7 +313,7 @@ void TObjEneBalClawClaw::enter_hit_state(s16 arg1) {
     *(s32 *)((s8 *)((u8 *)this) + 0x30) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x30) & 0xFFFBFFFF);
     *(f32 *)((s8 *)((u8 *)this) + 0x3C0) = (f32) (1e+05f);
     update_if_active__15TObjEneMe1GiGueFl(this, 0xA);
-    ((TObjEnemyCustom *)(this))->clear_all_status_effects();
+    this->clear_all_status_effects();
 }
 
 s32 TObjEneBalClawClaw::check_active() {

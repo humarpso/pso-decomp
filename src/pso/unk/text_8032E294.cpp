@@ -83,5 +83,5 @@ TUnk_804EDD44::TUnk_804EDD44(TObject *parent, f32 *arg2, f32 *arg3, s32 arg4, s3
     VecCopy((Vec *)(((Eff_8032E34C *)this)->f64), (const Vec *)arg2);
     ((Eff_8032E34C *)this)->f58 = (s32)(lbl_804773A8[0] * atan2_float(arg3[0], arg3[2]));
     ((Eff_8032E34C *)this)->f50 = arg4;
-    ((TUnk_804EDD44 *)this)->sub_8032E294();
+    this->sub_8032E294();
 }

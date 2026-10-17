@@ -1270,7 +1270,7 @@ void TQuestVmDownLoadServer::sub_801F6D24() {
         p = ((u8 *)&controller_input_state) + 0x20;
         if (TWindowShortListCtrl__check_controller_button(p, 4) != 0 || TWindowShortListCtrl__check_controller_button(p, 2) != 0) {
             TAdMcSelectGC::update_state();
-            ((TQuestVmDownLoadServer *)this)->show_status_message((int)(get_localized_text_entry(0x29, 1)), 1);
+            this->show_status_message((int)(get_localized_text_entry(0x29, 1)), 1);
             ((QVm_801F6D24 *)this)->f2A0 = 4;
         }
     }

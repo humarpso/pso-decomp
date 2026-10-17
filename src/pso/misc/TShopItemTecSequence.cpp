@@ -184,7 +184,7 @@ void TShopItemTecSequence::open_sell_window() {
     o->cb0 = (void *)close__20TShopItemTecSequenceFPv;
     o->cb1 = (void *)select_and_advance__20TShopItemTecSequenceFPv;
     reset_controller_input_state();
-    ((TShopWindowBase *)this)->set_field_20(5);
+    this->set_field_20(5);
 }
 
 void TShopItemTecSequence::open_item_list_window() {
@@ -194,7 +194,7 @@ void TShopItemTecSequence::open_item_list_window() {
     }
     o->cb0 = (void *)close__20TShopItemTecSequenceFPv;
     reset_controller_input_state();
-    ((TShopWindowBase *)this)->set_field_20(5);
+    this->set_field_20(5);
 }
 
 void TShopItemTecSequence::update_buy_sell_choice() {

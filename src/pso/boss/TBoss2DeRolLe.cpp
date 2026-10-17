@@ -406,7 +406,7 @@ void TBoss2DeRolLe::render_body() {
     s32 idx;
     f32 frame;
     f32 max;
-    ((TBoss2DeRolLe *)(this))->update_object_view_visibility(lbl_805D8278, lbl_805D8278);
+    this->update_object_view_visibility(lbl_805D8278, lbl_805D8278);
     lbl_805D5660 = model_render_flags;
     TObjEneDD::clear_global_flag_400();
     push_matrix();

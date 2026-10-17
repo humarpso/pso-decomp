@@ -834,7 +834,7 @@ void TUnk_804A69DC::for_each_target_in_range(f32 range) {
                 }
             }
         }
-        ((TItemWeapon *)this)->restore_action_type();
+        this->restore_action_type();
     }
 }
 

@@ -984,7 +984,7 @@ void TBoss6Type2::sub_802BA078() {
                 v.y = v.y + TBoss6Type2__data_805DE434;
                 spawn_particle_effect_with_flags(&v, 0x223, 0x40);
             }
-            if (((TBoss6Type2 *)this)->is_target_valid() == 0) {
+            if (this->is_target_valid() == 0) {
                 ((s32 (*)(s32, u32, s16, s32))play_sound_effect)(0x4000AD13, 0, 0, 0);
             }
         }
@@ -1016,7 +1016,7 @@ void TBoss6Type2::restore_target_player_state() {
     if (id != 0xFFFF) {
         player = get_player_by_client_id(id);
         if (player == NULL) {
-            reset_fish_fields__11TBoss6Type2Fv((Obj_802BA158 *)((void *)(this)));
+            reset_fish_fields__11TBoss6Type2Fv((Obj_802BA158 *)this);
             return;
         }
         ((TBoss6Type2 *)(player + 0xCF4))->copy_vec2((void*)((void *) (((u8 *)this) + 0x574)));
@@ -1025,7 +1025,7 @@ void TBoss6Type2::restore_target_player_state() {
         *(s32 *)((s8 *)player + 0x8B0) = (s32) *(s32 *)((s8 *)((u8 *)this) + 0x590);
         *(s32 *)((s8 *)player + 0x8AC) = (s32) *(s32 *)((s8 *)((u8 *)this) + 0x594);
         *(s32 *)((s8 *)player + 0x8B4) = (s32) *(s32 *)((s8 *)((u8 *)this) + 0x598);
-        reset_fish_fields__11TBoss6Type2Fv((Obj_802BA158 *)((void *)(this)));
+        reset_fish_fields__11TBoss6Type2Fv((Obj_802BA158 *)this);
     }
 }
 #pragma pop
@@ -1529,7 +1529,7 @@ void TBoss6Type2::sub_802BB554() {
     case 3:
     case 6: case 7: case 8: case 9: case 10: case 11:
     case 0x1B: case 0x1C: case 0x1D: case 0x1E: case 0x1F: case 0x20: case 0x21:
-        ((TBoss6Type2 *)this)->update_target();
+        this->update_target();
         break;
     default:
         TBoss6Type2__sub_802BB4DC((void*)(((T2_802BB554 *)this)));
@@ -1621,7 +1621,7 @@ void TBoss6Type2::apply_rock_hits_to_players() {
             if (xyz_distance(rock, &((Obj_802BBAB0 *)this)->v680[TBoss6Type2__player_hit_rock_indices[i]]) >= TBoss6Type2__data_805DE40C) {
                 hit = 1;
             }
-            r = ((TBoss6Type2 *)this)->push_players_away(rock, TBoss6Type2__data_805DE434);
+            r = this->push_players_away(rock, TBoss6Type2__data_805DE434);
             if (hit != 0 && r != 0) {
                 for (mask = 1, j = 0; j < 4; j++, mask <<= 1) {
                     if (mask & r) {

@@ -852,7 +852,7 @@ void TPlayerBattleCtrl4P::start_duel() {
             obj_clear_flag30_20000((void *)p);
         }
     }
-    ((TPlayerBattleCtrl4P *)this)->reset_score_counters();
+    this->reset_score_counters();
     name = TOKeyMachine01::get_global_state() == 0x10 ? lbl_80475BAC : lbl_80475BB8;
     w = __nw__7TObjectFUl(0x40);
     if (w != NULL) {
@@ -875,7 +875,7 @@ void TPlayerBattleCtrl4P::init_battle() {
     TWindowCtrl::create_alt_timer();
     ((TWindowCtrl *)(((Ctl_8031171C *)this)->f244))->set_timer_window_time();
     TOMineTrap::destroy_matching_traps();
-    ((TPlayerBattleCtrl4P *)this)->apply_rule_configuration(1);
+    this->apply_rule_configuration(1);
     for (i = 0; i < 4; i++) {
         TPlayerBattleCtrl4P::remove_player(this, i, 1);
         p = (u8 *)get_player_by_client_id(i);

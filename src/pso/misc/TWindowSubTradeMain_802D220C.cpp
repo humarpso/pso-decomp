@@ -23,7 +23,7 @@ void TLobby::remove_trade_entry(u32 arg1) {
     E_802D2240 *p;
     s32 i;
     if ((arg1 + 0x10000) == 0xFF01) {
-        T_802D2240 *t = (T_802D2240 *)((void *)((TLobby *)this)->get_trade_obj_ptr());
+        T_802D2240 *t = (T_802D2240 *)((void *)this->get_trade_obj_ptr());
         t->b = 0;
         return;
     }

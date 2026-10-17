@@ -422,7 +422,7 @@ void TAdMultiChgGameModeGC::set_state(s32 arg1) {
         member_action.words[1] = *(s32 *)((s8 *)temp_r6 + 4);
         member_action.words[2] = *(s32 *)((s8 *)temp_r6 + 8);
         if (member_action.action != 0) {
-            (((TAdMultiChgGameModeGC *)(this))->*member_action.action)();
+            (this->*member_action.action)();
         }
     }
 }

@@ -2403,7 +2403,7 @@ void TObjEneMe1Gee::state_return_home(s32 arg1) {
         return;
     case 0:
         advance_animation_playback();
-        if (((TObjEneDD_ST *)this)->update_linked_position(TObjEneMe1Gee__data_805DA0A8) != 0) {
+        if (this->update_linked_position(TObjEneMe1Gee__data_805DA0A8) != 0) {
             *(s32 *)((s8 *)this + 0x434) = 2;
         }
         switch (*(s32 *)((s8 *)this + 0x434)) {
@@ -2416,11 +2416,11 @@ void TObjEneMe1Gee::state_return_home(s32 arg1) {
             break;
         case 1:
             copy_position__14TObjEneEpsilonFPv(this, (u8 *)this + 0x50);
-            ((TObjEneDD *)this)->update_velocity();
+            this->update_velocity();
             update_angle();
             set_move_speed_x();
             if (*(f32 *)((s8 *)this + 0x3AC) > lbl_805DA0CC) {
-                ((TObjEneDD *)this)->move_with_wall_slide_commit(*(f32 *)((s8 *)this + 0x3A0), *(f32 *)((s8 *)this + 0x3A8), lbl_805DA0D0);
+                this->move_with_wall_slide_commit(*(f32 *)((s8 *)this + 0x3A0), *(f32 *)((s8 *)this + 0x3A8), lbl_805DA0D0);
             }
             break;
         }

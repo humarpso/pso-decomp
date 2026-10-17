@@ -893,7 +893,7 @@ s32 TObjEnePanarms::find_combine_position(void *p) {
 
 void TObjEnePanarms::turn_toward_target(s32 arg1) {
     f32 sp[3];
-    if (((TObjEnePanarms *)this)->find_nearest_enemy_with_flag((s32)sp, (f32)lbl_805DA4F0) == 0xFFFF) {
+    if (this->find_nearest_enemy_with_flag((s32)sp, (f32)lbl_805DA4F0) == 0xFFFF) {
         if (((Obj_800DE9F0 *)this)->f1C & 1) {
             arg1 *= -1;
         }

@@ -237,7 +237,7 @@ extern void *tl_05;
 void TOTrapAncient01::vfunc_82() {
     s32 i;
     VObj_801797D4 *p;
-    ((TUnk_804806E8 *)this)->calc_attach_pos();
+    this->calc_attach_pos();
     ((Trap_801797D4 *)this)->f354 -= lbl_805DBA48;
     if (((Trap_801797D4 *)this)->f354 < TOTrapAncient01__data_805DBA4C) {
         ((Trap_801797D4 *)this)->fA4->fC = lbl_805DBA54;

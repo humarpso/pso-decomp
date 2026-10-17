@@ -254,7 +254,7 @@ void TShopJudgmentItemWindow::invoke_callback_170_and_destroy() {
 void TShopJudgmentItemWindow::handle_pay_confirm() {
     s32 selected_menu_value;
 
-    if (((TShopWindowBase *)(this))->vfunc_10() != 0) {
+    if (this->vfunc_10() != 0) {
         if ((u32) this->m_158 == 0U) {
             this->m_158 = (s32)create_yes_no_window(get_window_layout_position(0x2B), obj_getField1c(this->m_24), 0, 0);
             ((TWindowSubComCardList *)((void *)this->m_158))->set_selected_index(0);

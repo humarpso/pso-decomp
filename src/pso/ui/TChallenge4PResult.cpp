@@ -184,14 +184,14 @@ void TChallenge4PResult::init() {
 void TChallenge4PResult::sub_8034B8B0() { *(s32*)((char*)this + 0x1c) = 3; }
 
 void TChallenge4PResult::sub_8034B8BC() {
-    ((TChallenge4PResult *)((void *)(this)))->show_message((s32)((s32)((int) (get_localized_text_entry(0x2B, 1)))));
+    ((TChallenge4PResult *)this)->show_message((s32)((s32)((int) (get_localized_text_entry(0x2B, 1)))));
     TLobby__sub_802924B4((s32)(((u8 *)this) + 0x34), (this->slot_index));
     this->wait_frames = 0x5A;
     *(s32 *)((s8 *)((u8 *)this) + 0x1C) = 5;
 }
 
 void TChallenge4PResult::sub_8034B918() {
-    ((TChallenge4PResult *)((void *)(this)))->show_message((s32)((s32)((int) (get_localized_text_entry(0x2B, 2)))));
+    ((TChallenge4PResult *)this)->show_message((s32)((s32)((int) (get_localized_text_entry(0x2B, 2)))));
     TLobby__sub_802924B4((s32)(((u8 *)this) + 0x48), (this->slot_index));
     this->wait_frames = 0x5A;
     *(s32 *)((s8 *)((u8 *)this) + 0x1C) = 5;

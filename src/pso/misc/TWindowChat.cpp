@@ -283,7 +283,7 @@ void TWindowChat::handle_input() {
     player = (s32)get_player_by_client_id(local_client_id);
     if (player != 0) {
         if (this->flags & 2) {
-            ((TWindowChat*)this)->handle_dpad_shortcuts();
+            this->handle_dpad_shortcuts();
             if (this->submit_keyboard_input() != 0) {
                 this->close_all_children();
             }

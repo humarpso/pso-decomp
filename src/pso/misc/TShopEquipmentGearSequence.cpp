@@ -46,7 +46,7 @@ struct VObj_8021B288 : Base_8021B288 {
 void TShopEquipmentGearSequence::open_gear_shop() {
     if (this != NULL) {
         ((struct VObj_8021B288 *)this)->m4(0x1B, 1);
-        ((TShopWindowBase *)this)->set_field_20(7);
+        this->set_field_20(7);
         lbl_805D6218 = 0x1A;
         lbl_805D621C = 2;
     }

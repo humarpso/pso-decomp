@@ -105,7 +105,7 @@ void TJudgmentSequence::open_judgment_window() {
     o->cb0 = (void *)TJudgmentSequence__sub_80215BCC;
     o->cb2 = (void *)TJudgmentSequence__sub_80215BA0;
     o->cb1 = (void *)TJudgmentSequence__sub_80215BF8;
-    ((TShopWindowBase *)this)->set_field_20((s32)((void *)5));
+    this->set_field_20((s32)((void *)5));
 }
 
 void TJudgmentSequence::handle_confirm() {

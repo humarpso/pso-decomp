@@ -66,7 +66,7 @@ void TItemWeapon::vfunc_26() {
             TObjPlayer::push_id_to_list(get_field_d8__5TItemFv(this));
             return;
         }
-        ((TItemWeapon *)(this))->reserved_53();
+        this->reserved_53();
         this->update_trails();
         count = 0;
         do {

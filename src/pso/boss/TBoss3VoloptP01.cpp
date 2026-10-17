@@ -1286,12 +1286,12 @@ void TBoss3VoloptP01::init_params() {
     recalc_combat_stats((void *)volopt_p01_boss_stat_handle_a, (void *)volopt_p01_shared_handler_b, (void *)volopt_p01_object_handle, (f32)((1.0f)), (f32)((1.0f)));
     F(this, s16, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(this, F(this, s16, 0xB8));
-    ((TObjMotion *)this)->set_field_b8(F(this, s16, 0xB8));
+    this->set_field_b8(F(this, s16, 0xB8));
     F(this, s16, 0x32C) = F(this, s16, 0x2B8);
     F(this, s16, 0x32E) = F(this, s16, 0x2BA);
     F(this, s16, 0x33E) = F(this, s16, 0x32C);
     ((TObjEneLappy *)this)->set_param(0x2E);
-    ((TObjEnemy *)this)->update_prev_position();
+    this->update_prev_position();
     ((TBoss3Volopt *)this)->reset_photon_effect();
     load_volopt_param_entry(0x11);
     reset_state__15TBoss3VoloptP01FPv(this);
@@ -1299,7 +1299,7 @@ void TBoss3VoloptP01::init_params() {
     F(p, u32, 0x18) &= ~1;
     F(this, s32, 0x3AC) = 0;
     F(this, s32, 0x3B0) = 0;
-    ((TUnk_804806E8 *)this)->add_flags_2e4(4);
+    this->add_flags_2e4(4);
     obj_setFlags30(this, 0x8000);
     this->clear_lobby_object_state();
 }

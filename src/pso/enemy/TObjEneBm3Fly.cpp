@@ -1607,9 +1607,9 @@ void TObjEneBm3Fly::vfunc_88() {
     f32 temp_f31;
     temp_f31 = *(f32 *)((s8 *)((u8 *)this) + 0x42C) - *(f32 *)((s8 *)((u8 *)this) + 0x3C);
     if (temp_f31 >= (3e+01f)) {
-        ((TObjEneBm3Fly *)(this))->vfunc_97();
+        this->vfunc_97();
     } else {
-        ((TObjEneBm3Fly *)(this))->vfunc_98();
+        this->vfunc_98();
     }
     *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 4) = temp_f31;
 }

@@ -287,7 +287,7 @@ void TBoss4DarkFalz::sub_8004B084() {
   member_action.words[2] = *((s32 *) (((s8 *) temp_r6) + 0x30));
   if (member_action.action != 0)
   {
-    (((TBoss4DarkFalz *)this)->*( member_action.action))();
+    (this->*( member_action.action))();
   }
 }
 
@@ -304,7 +304,7 @@ void TBoss4DarkFalz::sub_8004B0F8() {
   member_action.words[2] = *((s32 *) (((s8 *) temp_r6) + 0x24));
   if (member_action.action != 0)
   {
-    (((TBoss4DarkFalz *)this)->*( member_action.action))();
+    (this->*( member_action.action))();
   }
 }
 

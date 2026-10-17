@@ -103,7 +103,7 @@ s32 TLobby::add_trade_item(u32 arg1, s32 arg2) {
     u32 found;
     s32 i;
     if (arg1 == 0xFFFFFF01) {
-        s32 *t = (s32 *) ((TLobby *)this)->get_trade_obj_ptr();
+        s32 *t = (s32 *) this->get_trade_obj_ptr();
         t[1] += arg2;
         return t[1] > 999999;
     }

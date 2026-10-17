@@ -2445,7 +2445,7 @@ void TObjPlayer::update_warp_relocation() {
             ((TBoss4DarkFalz *)((u8 *)this))->set_position_from(((u8 *)this) + 0x660);
             refresh_equipment_slot();
             this->clear_flag_4000();
-            ((TUnk_804806E8 *)(this))->update_actor_ground_y();
+            this->update_actor_ground_y();
             if (((s32 (*)(void *))is_on_current_floor__10TObjPlayerFi)(this) != 0) {
                 ((s32 (*)(void *, int))send_field_state_if_active__10TObjPlayerFii)(this, 0x40003206);
             }
@@ -7955,7 +7955,7 @@ void TObjPlayer::reset_movement_state() {
     *(f32 *)((s8 *)((u8 *)this) + 0x24) = (f32) lbl_805DC3BC;
     *(f32 *)((s8 *)((u8 *)this) + 0x28) = (f32) lbl_805DC3BC;
     *(f32 *)((s8 *)((u8 *)this) + 0x2C) = (f32) lbl_805DC3C4;
-    clear_lockon_list__10TObjPlayerFPvPvff((s32 *)((void *)(((u8 *)this) + 0x30)), (void *)((void *)(this)), lbl_805DC3C0, lbl_805DC3BC);
+    clear_lockon_list__10TObjPlayerFPvPvff((s32 *)((void *)(((u8 *)this) + 0x30)), (void *)this, lbl_805DC3C0, lbl_805DC3BC);
 }
 extern int fold_flush_47;
 #pragma pop

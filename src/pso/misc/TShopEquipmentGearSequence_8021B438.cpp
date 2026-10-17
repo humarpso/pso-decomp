@@ -115,7 +115,7 @@ void TShopEquipmentGearSequence::open_sell_window() {
     o->cb0 = (void *)enter_quest_list__26TShopEquipmentGearSequenceFv;
     o->cb1 = (void *)open_gear_shop__26TShopEquipmentGearSequenceFv;
     reset_controller_input_state();
-    ((TShopWindowBase *)this)->set_field_20(5);
+    this->set_field_20(5);
 }
 
 void TShopEquipmentGearSequence::open_armor_list_window() {
@@ -125,7 +125,7 @@ void TShopEquipmentGearSequence::open_armor_list_window() {
     }
     o->cb0 = (void *)enter_quest_list__26TShopEquipmentGearSequenceFv;
     reset_controller_input_state();
-    ((TShopWindowBase *)this)->set_field_20(5);
+    this->set_field_20(5);
 }
 
 #define arg0 ((Seq_8021B518 *) self)

@@ -722,9 +722,9 @@ void TBoss3VoloptHiraisin::init_params() {
     ((Hira_800418C8 *)this)->unk33E = ((Hira_800418C8 *)this)->hp32C;
     ((TObjEneLappy *)this)->set_param(0x2E);
     ((TBoss3Volopt *)this)->reset_photon_effect();
-    ((TBoss3VoloptHiraisin *)this)->load_params_from_table(0x10);
+    this->load_params_from_table(0x10);
     sub_800C7860__15TObjEnemyCustomFv(this);
-    ((TUnk_804806E8 *)this)->add_flags_2e4(4);
+    this->add_flags_2e4(4);
     obj_setFlags30(this, 0x8000);
     this->clear_lobby_object_state();
 }

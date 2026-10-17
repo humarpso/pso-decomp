@@ -473,7 +473,7 @@ void TObjEneMe3ShinowaReal::vfunc_116(s32 arg1) {
     case 4:
         this->m_b8 = 7;
         this->set_field_378(0x10);
-        ((TObjEneMe3ShinowaReal *)(this))->vfunc_96();
+        this->vfunc_96();
         *(s32 *)((s8 *)((u8 *)this) + 0x3C4) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3C4) & 0xFFFFFFFD);
         *(s32 *)((s8 *)((u8 *)this) + 0x3C4) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3C4) | 1);
         *(s32 *)((s8 *)((u8 *)this) + 0x404) = 0;
@@ -528,8 +528,8 @@ void TObjEneMe3ShinowaReal::vfunc_116(s32 arg1) {
             }
             break;
         }
-        ((TObjEneMe3ShinowaReal *)(this))->vfunc_102();
-        ((TObjEneMe3ShinowaReal *)(this))->vfunc_89();
+        this->vfunc_102();
+        this->vfunc_89();
         return;
     case 5:
         temp_r3_3 = (u8 *)(*(u8 **)((s8 *)((u8 *)this) + 0x424));

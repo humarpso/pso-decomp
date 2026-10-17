@@ -1183,7 +1183,7 @@ void TObjPlayer::update_aim_and_fire() {
         this->m_37c = 1;
     case 1:
         var_r30 = 0;
-        if (((TObjEnemy *)(this))->is_actor_cadence_frame(0x1E) != 0) {
+        if (this->is_actor_cadence_frame(0x1E) != 0) {
             ((TObjEnemyCustom *)((u8 *)this))->find_target_in_range(lbl_805DA274);
         }
         temp_r6 = this->target;

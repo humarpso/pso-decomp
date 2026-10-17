@@ -732,7 +732,7 @@ void TLobby::tokenize_args(char *s) {
     for (;;) {
         switch (*s) {
         case 0:
-            ((TLobby *)this)->add_token(start);
+            this->add_token(start);
             return;
         case '"':
             if (quoted) {
@@ -752,7 +752,7 @@ void TLobby::tokenize_args(char *s) {
             } else {
                 *s = 0;
                 s++;
-                ((TLobby *)this)->add_token(start);
+                this->add_token(start);
                 start = s;
             }
             break;
@@ -772,7 +772,7 @@ void TLobby::parse_csv_line(char *s) {
     for (;;) {
         switch (*s) {
         case 0:
-            ((TLobby *)this)->add_token(start);
+            this->add_token(start);
             return;
         case '"':
             if (quoted) {
@@ -793,7 +793,7 @@ void TLobby::parse_csv_line(char *s) {
             } else {
                 *s = 0;
                 s++;
-                ((TLobby *)this)->add_token(start);
+                this->add_token(start);
                 start = s;
             }
             break;

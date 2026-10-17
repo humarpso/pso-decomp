@@ -1012,7 +1012,7 @@ void TItemMag::apply_natural_evolution() {
     {
       if (stage < 1)
       {
-        ((TItemMag *)this)->evolve_first_form();
+        this->evolve_first_form();
       }
     }
     else
@@ -1026,11 +1026,11 @@ void TItemMag::apply_natural_evolution() {
     else
       if ((((lbl_8043E534[2] <= level) && ((level % 5) == 0)) && (stage <= 3)) && (((s32 (*)(void *))evolve_rare_form__8TItemMagFPv)(this) == 0))
     {
-      ((TItemMag *)this)->update_feed_anim();
+      this->update_feed_anim();
     }
     if (before != get_field_ed__5TItemFv(new_var))
     {
-      ((TItemMag *)this)->apply_form_change();
+      this->apply_form_change();
     }
   }
 }
