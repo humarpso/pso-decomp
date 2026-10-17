@@ -5,7 +5,7 @@
 
 struct TBoss6Type2;
 extern "C" {
-void TBoss6Type2__sub_802BE648(u8 *arg0);
+void TBoss6Type2__sub_802BE648(TBoss6Type2 *arg0);
 void TBoss6Type2__sub_802BE6A0(u8 *arg0);
 void TBoss6Type2__sub_802BE738(u8 *arg0);
 void TBoss6Type2__sub_802BEB78(u8 *arg0);

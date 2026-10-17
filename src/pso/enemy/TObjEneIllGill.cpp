@@ -380,7 +380,7 @@ void free_collision_body_parts(void *);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 void __dl__7TObjectFPv(void *);
 void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
-void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
+void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 
 #pragma push
 #pragma opt_common_subs off
@@ -1734,7 +1734,7 @@ void *__dt__14TObjEneIllGillFv(void *arg0, s16 arg1) {
         ((TObjEneIllGill *)arg0)->free_resources();
         free_collision_body_parts(arg0);
         __dt__13TUnk_80494938Fv((s8 *)arg0 + 0x374, -1);
-        __dt__9TObjEnemyFv(arg0, 0);
+        __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

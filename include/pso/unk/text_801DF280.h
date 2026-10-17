@@ -3,6 +3,7 @@
 
 #include "types.h"
 
+struct packet_header;
 void bswap_c0_lobby_entries(void *p);
 void bswap_choice_search_config(void *p);
 void bswap_cmd_88_body(void *p);
@@ -12,7 +13,7 @@ int bswap_packet_header_cmd_b1(void *p);
 void bswap_save_packet(s32 arg0);
 extern "C" {
 s32 *copy_entry_table(s32 *arg0, s32 *arg1);
-void fn_801DF280(void *arg0);
+void fn_801DF280(packet_header *arg0);
 s32 fn_801DF2BC(s32 arg0);
 void *fn_801DF3F0(void *p, void *a1);
 void fn_801DF42C(void *p);

@@ -9,21 +9,21 @@ void* construct_actor_base__10TObjPlayerFPvPv(TObjEnemy*,void*);
 extern s32 __vt__9TObjEnemy[];
 extern void* TObjEnemy_class_name;
 extern const f32 lbl_805DA8E0;
-void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
+void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 int unregister_object_by_id__13TUnk_804AF8A0Fv(void*);
 s32 __dl__7TObjectFPv(void *);
 s32 copy_header__6TLobbyFPv(s32);
 
-void *__dt__9TObjEnemyFv(void *arg0, s16 arg1) {
+void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1) {
     u16 temp_r0;
 
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TObjEnemy;
-        ((TObjEnemy *)arg0)->apply_player_54a00();
+        arg0->apply_player_54a00();
         if ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) {
-            temp_r0 = ((TObjEnemy *)arg0)->m_1c;
+            temp_r0 = arg0->m_1c;
             if ((temp_r0 >= 0x1000U) && (temp_r0 < 0x4000U)) {
-                ((TObjEnemy *)arg0)->mask_sub_flags(-3);
+                arg0->mask_sub_flags(-3);
                 *(u32 *)((s8 *)arg0 + 0x80) = 0U;
             }
         }

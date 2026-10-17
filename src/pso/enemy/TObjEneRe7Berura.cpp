@@ -451,7 +451,7 @@ s32 TObjEneRe7Berura__sub_80093470(void *, void *);
 void state_patrol__16TObjEneRe7BeruraFPvi(void *arg0, s32 arg1);
 void TObjEneRe7Berura__sub_80093888(u8 *actor, s32 arg1);
 void TObjEneRe7Berura__sub_80093C80(u8 *arg0, s32 arg1);
-void TObjEneRe7Berura__sub_800940E8(u8 *arg0, s32 arg1);
+void TObjEneRe7Berura__sub_800940E8(TObjEneRe7Berura *arg0, s32 arg1);
 void TObjEneRe7Berura__sub_80094624(u8 *arg0, s32 arg1);
 void TObjEneRe7Berura__sub_8009472C(u8 *arg0, s32 arg1);
 void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 arg2);
@@ -468,7 +468,7 @@ void vfunc_61__16TObjEneRe7BeruraFv(void);
 void vfunc_62__16TObjEneRe7BeruraFv(u8 *arg0);
 void vfunc_63__16TObjEneRe7BeruraFv(void* p);
 void vfunc_28__16TObjEneRe7BeruraFv(void);
-void run_task__16TObjEneRe7BeruraFv(u8 *arg0);
+void run_task__16TObjEneRe7BeruraFv(TObjEneRe7Berura *arg0);
 Berura_800954E8 * __dt__16TObjEneRe7BeruraFv(Berura_800954E8 *self, s16 flag);
 void * TObjEneRe7Berura__ct(void *arg0, void *arg1, void *arg2);
 void fn_80095DD0(u8 *arg0);
@@ -801,7 +801,7 @@ void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 mode) {
         ((TObjEneRe7Berura *)arg0)->handle_state(mode);
         return;
     case 4:
-        TObjEneRe7Berura__sub_800940E8((u8 *)arg0, (mode));
+        TObjEneRe7Berura__sub_800940E8((TObjEneRe7Berura *)((u8 *)arg0), (mode));
         return;
     case 5:
         TObjEneRe7Berura__sub_80093C80((u8 *)arg0, (mode));
@@ -1099,17 +1099,17 @@ void TObjEneRe7Berura::vfunc_63() { if (this->mode != 11) { transition_enemy_sta
 
 void TObjEneRe7Berura::vfunc_28() {  }
 
-void run_task__16TObjEneRe7BeruraFv(u8 *arg0) {
+void run_task__16TObjEneRe7BeruraFv(TObjEneRe7Berura *arg0) {
     if (TObjPlayer::check_demo_mode() != 0) {
         ((TObjEneRe7Berura *)(arg0))->vfunc_83();
         return;
     }
     if (((VObj_18 *)(arg0))->m81() != 4) {
         ((TObjEneRe7Berura *)(arg0))->vfunc_85();
-        ((TObjEneRe7Berura *)arg0)->m_3ec = (s32) (((TObjEneRe7Berura *)arg0)->m_3ec + *(s32 *)((s8 *)arg0 + 0x3CC));
-        ((TObjEneRe7Berura *)arg0)->m_3ec = (s32) (u8) ((TObjEneRe7Berura *)arg0)->m_3ec;
+        arg0->m_3ec = (s32) (arg0->m_3ec + *(s32 *)((s8 *)arg0 + 0x3CC));
+        arg0->m_3ec = (s32) (u8) arg0->m_3ec;
     }
-    ((TObjEneRe7Berura *)arg0)->update_collision_center();
+    arg0->update_collision_center();
     ((TBoss8Dragon *)arg0)->set_player_state_default();
     ((TObjEneRe7Berura *)(arg0))->vfunc_100();
 }

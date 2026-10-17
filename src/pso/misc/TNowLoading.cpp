@@ -51,7 +51,7 @@ TNowLoading_8001D3A8 *TNowLoading__ct(TNowLoading_8001D3A8 *arg0, void *arg1, Ve
 void DCFlushRange(void *, u32);
 void TNowLoading__sub_8001D4D0(void);
 void TNowLoading__sub_8001D4D4(void);
-void *__dt__11TNowLoadingFv(void *arg0, s16 arg1);
+void *__dt__11TNowLoadingFv(TNowLoading *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -117,13 +117,13 @@ void TNowLoading::run_task() {
 }
 #pragma pop
 
-void *__dt__11TNowLoadingFv(void *arg0, s16 arg1) {
+void *__dt__11TNowLoadingFv(TNowLoading *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TNowLoading;
-        if (*(void **)((s8 *)arg0 + 0x1C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x1C)); ((TNowLoading *)arg0)->m_1c = 0; }
-        if (*(void **)((s8 *)arg0 + 0x20) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x20)); ((TNowLoading *)arg0)->m_20 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x24) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x24)); ((TNowLoading *)arg0)->m_24 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x28)); ((TNowLoading *)arg0)->m_28 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x1C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x1C)); arg0->m_1c = 0; }
+        if (*(void **)((s8 *)arg0 + 0x20) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x20)); arg0->m_20 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x24) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x24)); arg0->m_24 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x28)); arg0->m_28 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

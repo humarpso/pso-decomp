@@ -212,7 +212,7 @@ int TCameraCtrl__sub_8003D1E8(void * _w0);
 s32 TCameraCtrl__sub_8003D2C4(void);
 int TBoss3Volopt__sub_8003EA2C(void*);
 S_8003EF38 * __dt__12TBoss3VoloptFv(S_8003EF38 *o, s16 flag);
-u8 * TBoss3Volopt__ct(u8 *arg0, s32 arg1);
+u8 *TBoss3Volopt__ct(TBoss3Volopt *arg0, s32 arg1);
 void bswap_position__12TBoss3VoloptFPv(void* p);
 void TBoss3Volopt__sub_8003F22C(void* p);
 void TBoss3Volopt__sub_8003F33C(void* p);
@@ -1193,7 +1193,7 @@ void TBoss3Volopt::run_task() {
 void *TBoss3Volopt::create(void *arg0) {
     void *o = ((void * (*)(int))__nw__7TObjectFUl)(0x408);
     if (o != NULL) {
-        o = TBoss3Volopt__ct((u8 *)o, (s32)arg0);
+        o = TBoss3Volopt__ct((TBoss3Volopt *)((u8 *)o), (s32)arg0);
     }
     return o;
 }
@@ -1422,25 +1422,25 @@ S_8003EF38 *__dt__12TBoss3VoloptFv(S_8003EF38 *o, s16 flag) {
     return o;
 }
 
-u8 *TBoss3Volopt__ct(u8 *arg0, s32 arg1) {
+u8 *TBoss3Volopt__ct(TBoss3Volopt *arg0, s32 arg1) {
     TObjEnemyCustom__ct(arg0, tl_04);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__12TBoss3Volopt.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2720;
     ((TBoss3Volopt *)(arg0))->apply_set_data((void *)arg1);
-    ((TBoss3Volopt *)arg0)->reset_photon_effect();
+    arg0->reset_photon_effect();
     TBoss3Volopt__sub_8003EA2C((void*)(0));
-    VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(&(*(RecoveredGlobal_8003EFF0_lbl_804FEE68 *)&boss3_volopt_spawn_pos).value))));
-    ((TBoss3Volopt *)arg0)->actorFlags = (s32) (((TBoss3Volopt *)arg0)->actorFlags | 0x06040000);
-    TBoss3Volopt__cage_entity_id = ((TBoss3Volopt *)arg0)->get_param_offset(0x20);
-    lbl_805D2714 = ((TBoss3Volopt *)arg0)->get_adjusted_angle(0x20);
-    ((TBoss3Volopt *)arg0)->next_action = 0;
-    ((TBoss3Volopt *)arg0)->mode = 0;
-    ((TBoss3Volopt *)arg0)->m_3bc = 0;
+    VecCopy((Vec *)((u8 *)arg0 + 0x38), (const Vec *)(VecCopy((Vec *)((u8 *)arg0 + 0x2FC), (const Vec *)(&(*(RecoveredGlobal_8003EFF0_lbl_804FEE68 *)&boss3_volopt_spawn_pos).value))));
+    arg0->actorFlags = (s32) (arg0->actorFlags | 0x06040000);
+    TBoss3Volopt__cage_entity_id = arg0->get_param_offset(0x20);
+    lbl_805D2714 = arg0->get_adjusted_angle(0x20);
+    arg0->next_action = 0;
+    arg0->mode = 0;
+    arg0->m_3bc = 0;
     TBoss4DarkFalz::dispatch_by_main_phase((int) (0x29U));
     (*(s32 *)&lbl_805D4C20) = 0;
     (*(s32 *)&volopt_active_player_id) = -1;
     ((TBoss3Volopt *)(arg0))->clear_lobby_object_state();
-    return arg0;
+    return (u8 *)arg0;
 }
 
 int TBoss3Volopt::reset_photon_effect() { return reset_photon_effect__10TObjPlayerFv(this); }

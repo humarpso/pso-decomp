@@ -61,7 +61,7 @@ extern u8 TWindowGetComCard__window_rect[];
 extern Pad_80252CCC controller_input_state[];
 void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self);
 void TWindowFukidasi__sub_80252C38(void* p);
-void *__dt__17TWindowGetComCardFv(void *arg0, s16 arg1);
+void *__dt__17TWindowGetComCardFv(TWindowGetComCard *arg0, s16 arg1);
 int fn_80252CBC(void* p);
 void TLobby__sub_8024AC20(s32 arg0);
 s32 TWindowCtrl__sub_8024A314();
@@ -149,16 +149,16 @@ void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self) {
     }
 }
 
-void *__dt__17TWindowGetComCardFv(void *arg0, s16 arg1) {
+void *__dt__17TWindowGetComCardFv(TWindowGetComCard *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void **)((s8 *)arg0 + 0x18) = __vt__17TWindowGetComCard;
-        if ((u32) ((TWindowGetComCard *)arg0)->m_20 != 0U) {
+        if ((u32) arg0->m_20 != 0U) {
             TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x20)));
-            ((TWindowGetComCard *)arg0)->m_20 = 0U;
+            arg0->m_20 = 0U;
         }
-        if ((u32) ((TWindowGetComCard *)arg0)->m_1c != 0U) {
+        if ((u32) arg0->m_1c != 0U) {
             TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x1C)));
-            ((TWindowGetComCard *)arg0)->m_1c = 0U;
+            arg0->m_1c = 0U;
         }
         TWindowReturnCity__sub_8024ACA8(local_client_id);
         TLobby__sub_8024AC20(local_client_id);

@@ -528,7 +528,7 @@ s32 TOTrap__ct(void *);
 extern SeabedTrapCollisionBody seabed_trap_collision_body;
 extern void *__vt__14TOTrapSeabed01[];
 extern s32 TOTrapSeabed01_class_name;
-u8 *TOTrapSeabed01__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TOTrapSeabed01__ct(TOTrapSeabed01 *arg0, s32 arg1, s32 arg2);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 u8 *load_gvm_texture_file(s32 arg0);
@@ -612,7 +612,7 @@ void TOTrapSeabed01::clamp_params_and_init() {
 void *TOTrapSeabed01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x35C);
     if (o != NULL) {
-        o = TOTrapSeabed01__ct((u8 *)o, (s32)tl_05, (s32)arg0);
+        o = TOTrapSeabed01__ct((TOTrapSeabed01 *)((u8 *)o), (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -675,23 +675,23 @@ void *__dt__14TOTrapSeabed01Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TOTrapSeabed01__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TOTrapSeabed01__ct(TOTrapSeabed01 *arg0, s32 arg1, s32 arg2) {
     TOTrap__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802CA9AC___vt__14TOTrapSeabed01 *)&__vt__14TOTrapSeabed01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOTrapSeabed01_class_name;
     ((TOTrapSeabed01 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&(*(u32 *)&TOTrapSeabed01__bml_resource))), 0);
-    ((TOTrapSeabed01 *)arg0)->unknownF8 = get_bml_motion((int) ((*(s32 *)&(*(u32 *)&TOTrapSeabed01__bml_resource))), 0);
-    ((TOTrapSeabed01 *)arg0)->m_c8 = (f32) lbl_805DE640;
-    ((TOTrapSeabed01 *)arg0)->m_c0 = (f32) TOTrapSeabed01__data_805DE644[0];
-    ((TOTrapSeabed01 *)arg0)->clamp_params_and_init();
+    arg0->unknownF8 = get_bml_motion((int) ((*(s32 *)&(*(u32 *)&TOTrapSeabed01__bml_resource))), 0);
+    arg0->m_c8 = (f32) lbl_805DE640;
+    arg0->m_c0 = (f32) TOTrapSeabed01__data_805DE644[0];
+    arg0->clamp_params_and_init();
     init_collision_body_parts(arg0, &seabed_trap_collision_body, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    ((TOTrapSeabed01 *)arg0)->actorFlags = (s32) (((TOTrapSeabed01 *)arg0)->actorFlags | 0x60040000);
-    ((TOTrapSeabed01 *)arg0)->m_344 = 0;
-    ((TOTrapSeabed01 *)arg0)->m_358 = -1;
-    return arg0;
+    arg0->actorFlags = (s32) (arg0->actorFlags | 0x60040000);
+    arg0->m_344 = 0;
+    arg0->m_358 = -1;
+    return (u8 *)arg0;
 }
 
 #pragma pop

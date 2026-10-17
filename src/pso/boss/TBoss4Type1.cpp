@@ -331,7 +331,7 @@ void *create_particle_emitter(void *pos, s32 id);
 int toggle_particle_effect__10TObjPlayerFv(void*);
 s32 clear_render_callback__8TObjFishFv(s32);
 s32 TObjControl__ct(s32, s32);
-void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
+void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 s32 angle_diff_s16(s32, s32);
 void free_collision_body_parts(void *);
 s32 project_actor_to_ground(void *, void *, int);
@@ -1628,7 +1628,7 @@ S_80054938 *__dt__11TBoss4Type1Fv(S_80054938 *o, s16 flag) {
         o->f480 = 0;
         free_collision_body_parts(o);
         o->f394 = 0;
-        __dt__9TObjEnemyFv(o, 0);
+        __dt__9TObjEnemyFv((TObjEnemy *)o, 0);
         if (flag > 0) {
             __dl__7TObjectFPv(o);
         }

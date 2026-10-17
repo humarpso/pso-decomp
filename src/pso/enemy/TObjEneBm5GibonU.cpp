@@ -1647,7 +1647,7 @@ void TObjEneMe3SinowZoa__sub_800D758C(void *);
 void TObjEneBm5GibonU__sub_800D02F8(Gibon_800D02F8 *g, s32 arg1);
 void TObjEneBm5GibonU__sub_800CFE30(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800CFA48(u8 *arg0, s32 arg1);
-void action__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1);
+void action__16TObjEneBm5GibonUFPvi(TObjEneBm5GibonU *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800CFE34(u8 *arg0, s32 arg1);
 s32 TBoss8Dragon__sub_800BB7D4(void *, int);
 void TObjEneBm5GibonU__sub_800CE370(u8 *arg0, s32 arg1);
@@ -2413,12 +2413,12 @@ void TObjEneBm5GibonU__sub_800CE370(u8 *arg0, s32 arg1) {
     }
 }
 
-void action__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1) {
+void action__16TObjEneBm5GibonUFPvi(TObjEneBm5GibonU *arg0, s32 arg1) {
     s32 temp_r0;
 
     switch (arg1) {
     case 4:
-        ((TObjEneBm5GibonU *)arg0)->vfunc_96();
+        arg0->vfunc_96();
         ((TObjEneDD *)arg0)->set_field_378(8);
         *(s16 *)((s8 *)arg0 + 0xB8) = 9;
         *(s32 *)((s8 *)arg0 + 0x518) = 0;
@@ -2434,16 +2434,16 @@ void action__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1) {
         advance_animation_playback(arg0);
         turn_toward_angle__16TObjEneBm5GibonUFPvi(arg0, *(s32 *)((s8 *)arg0 + 0x60));
         if (objInBand__FP7GameObjf(arg0, TObjEneBm5GibonU__data_805DA178) != 0) {
-            play_sound_effect((void *)copy_target_state__14TObjEnePanarmsFPv(arg0, 0x3AA22), arg0 + 0x38, 0, 0);
+            play_sound_effect((void *)copy_target_state__14TObjEnePanarmsFPv(arg0, 0x3AA22), (u8 *)arg0 + 0x38, 0, 0);
         }
         *(s32 *)((s8 *)arg0 + 0x518) = (s32) (*(s32 *)((s8 *)arg0 + 0x518) + 1);
         temp_r0 = *(s32 *)((s8 *)arg0 + 0x518);
         if (temp_r0 == 0x1E) {
-            ((TObjEneBm5GibonU *)arg0)->damage_linked_entity_type10();
+            arg0->damage_linked_entity_type10();
         } else if (temp_r0 == 0x28) {
-            ((TObjEneBm5GibonU *)arg0)->damage_linked_entity();
+            arg0->damage_linked_entity();
         }
-        ((TObjEneBm5GibonU *)arg0)->vfunc_89();
+        arg0->vfunc_89();
         ((TObjPlayer *)arg0)->update_enemy_collision_flags();
         break;
     }
@@ -3723,7 +3723,7 @@ void TObjEneBm5GibonU__sub_800D0738(u8 *actor, u32 arg1, s32 msg) {
         TObjEneBm5GibonU__sub_800CE694(actor, msg);
         break;
     case 15:
-        action__16TObjEneBm5GibonUFPvi(actor, msg);
+        action__16TObjEneBm5GibonUFPvi((TObjEneBm5GibonU *)actor, msg);
         break;
     case 16:
         TObjEneBm5GibonU__sub_800CE370(actor, msg);

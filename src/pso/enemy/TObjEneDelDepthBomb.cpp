@@ -336,7 +336,7 @@ s32 get_mode__11TCameraCtrlFPv(void *);
 void draw_blob_shadow(s32 arg0);
 s32 send_6x0A_enemy_state(void *, void *);
 s32 refresh_lobby_state__10TObjPlayerFv();
-void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
+void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 s32 initialize__9TObjEnemyFPv(void *);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, int);
@@ -1396,7 +1396,7 @@ void *__dt__15TObjEneDelDepthFv(void *ene_del_depth, s16 arg1) {
         *(s32 *)((s8 *)ene_del_depth + 0x380) = 0;
         TObjEneDelDepth::conditional_delete(((TObjEneDelDepth *)ene_del_depth)->m_37c, 1);
         ((TObjEneDelDepth *)ene_del_depth)->m_37c = 0;
-        __dt__9TObjEnemyFv(ene_del_depth, 0);
+        __dt__9TObjEnemyFv((TObjEnemy *)ene_del_depth, 0);
         if (arg1 > 0) {
             ((s32 (*)(void *))__dl__7TObjectFPv)(ene_del_depth);
         }

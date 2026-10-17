@@ -1412,7 +1412,7 @@ void TObjPlayer__sub_800C220C(Obj_800C220C *o);
 void *__dt__12TObjEneLappyFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
-void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
+void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 
 s32 add_flags_2e4__13TUnk_804806E8FUl(void *, int, f32, f32);
 s32 initialize__9TObjEnemyFPv(void *, s32, void *);
@@ -1841,7 +1841,7 @@ void *__dt__12TObjEneLappyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_80492F28;
         free_collision_body_parts(arg0);
-        __dt__9TObjEnemyFv(arg0, 0);
+        __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -78,7 +78,7 @@ Obj_801DF61C *fn_801DF61C(Obj_801DF61C *dst, Obj_801DF61C *src);
 s32 __ct__16TPlyGuildCardTagFv(s32);
 int bswap_32__FPUl(void* a0 = 0);
 
-void fn_801DF280(void *arg0) {
+void fn_801DF280(packet_header *arg0) {
     bswap__13packet_headerFv(arg0);
     fn_801E0900(((void *)((char *)arg0 + 68)));
     bswap_32__FPUl((void*)((void *)((char *)arg0 + 76)));

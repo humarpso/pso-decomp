@@ -176,7 +176,7 @@ extern const f32 lbl_805DA4C8;
 extern const f32 lbl_805DA4CC;
 extern const f32 lbl_805DA4D0;
 void TObjEnePanarms__sub_800DDC30(Obj_800DDC30 *o);
-void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
+void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(s32);
 s32 __destroy_arr(void *, void *, int, int);
@@ -1051,7 +1051,7 @@ u8 *__dt__14TObjEnePanarmsFv(u8 *arg0, s16 arg1) {
         ((TObjEnePanarms *)arg0)->m_390 = 0;
         ((TObjEnePanarms *)arg0)->destroy_handles();
         __destroy_arr(arg0 + 0x400, __dt__13TUnk_804949A8Fv, 0x1C, 4);
-        __dt__9TObjEnemyFv(arg0, 0);
+        __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);
         }

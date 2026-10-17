@@ -194,7 +194,7 @@ extern s32 local_client_id;
 extern s32 current_language;
 extern const f32 lbl_805DC708;
 void *TShopJudgmentItemWindow__ct(TShopJudgmentItemWindow *arg0, void *arg1, void *arg2, void *arg3);
-void *__dt__23TShopJudgmentItemWindowFv(void *arg0, s16 arg1);
+void *__dt__23TShopJudgmentItemWindowFv(TShopJudgmentItemWindow *arg0, s16 arg1);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
@@ -668,13 +668,13 @@ void TShopJudgmentItemWindow::vfunc_11() {
     }
 }
 
-void *__dt__23TShopJudgmentItemWindowFv(void *arg0, s16 arg1) {
+void *__dt__23TShopJudgmentItemWindowFv(TShopJudgmentItemWindow *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TShopJudgmentItemWindow;
-        if (*(void **)((s8 *)arg0 + 0x154) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x154))); ((TShopJudgmentItemWindow *)arg0)->m_154 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x160) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x160))); ((TShopJudgmentItemWindow *)arg0)->m_160 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x158) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x158))); ((TShopJudgmentItemWindow *)arg0)->m_158 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x50) != NULL) { queue_destruction__7TObjectFv((*(void **)((s8 *)arg0 + 0x50))); ((TShopJudgmentItemWindow *)arg0)->m_50 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x154) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x154))); arg0->m_154 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x160) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x160))); arg0->m_160 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x158) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x158))); arg0->m_158 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x50) != NULL) { queue_destruction__7TObjectFv((*(void **)((s8 *)arg0 + 0x50))); arg0->m_50 = 0; }
         __dt__15TShopWindowBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

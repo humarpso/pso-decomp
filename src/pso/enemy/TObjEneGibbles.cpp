@@ -2463,7 +2463,7 @@ void TObjEneGibbles::load_resources() {
 }
 
 void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
-void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
+void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
@@ -2500,7 +2500,7 @@ Gib_802DB920 *TObjEneGibbles__sub_802DB920(Gib_802DB920 *self, s16 arg1) {
         free_collision_body_parts(self);
         __destroy_arr((u8 *)self + 0x3DC, (void *)__dt__13TUnk_804949A8Fv, 0x1C, 4);
         __dt__13TUnk_80494938Fv((u8 *)self + 0x3C0, -1);
-        __dt__9TObjEnemyFv(self, 0);
+        __dt__9TObjEnemyFv((TObjEnemy *)self, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(self);
         }

@@ -321,7 +321,7 @@ s32 copy_pos_to_field688__12TBoss8DragonFPv(void* p);
 s32 restore_target_pos__12TBoss8DragonFPv(void* p);
 void spawn_effect_if_in_band__12TBoss8DragonFi(s32 arg0);
 extern s32 lbl_80474B40[];
-void state_roar__12TBoss8DragonFPvUi(u8 *arg0, u32 arg1);
+void state_roar__12TBoss8DragonFPvUi(TBoss8Dragon *arg0, u32 arg1);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 fn_802F2E7C(int, void *, int);
 s32 mask_flags__12TBoss8DragonFiii(s32 arg1, s32 arg2, s32 arg3);
@@ -393,7 +393,7 @@ extern const f32 TBoss8Dragon__data_805DEDB0;
 extern const f32 lbl_805DEED8;
 s32 TBoss8Dragon__sub_802FC674(Obj_802FC674 *self, f32 *out);
 s32 TBoss8Dragon__sub_802F46F4(s32 arg0);
-void TBoss8Dragon__sub_802F5BA0(u8 *arg0, u32 arg1);
+void TBoss8Dragon__sub_802F5BA0(TBoss8Dragon *arg0, u32 arg1);
 extern S_802FB220 lbl_80474ACC;
 void TBoss8Dragon__sub_802FB220(void *o, int x, u32 a);
 struct VBase_18_574b0f { char pad[0x18]; };
@@ -2941,28 +2941,28 @@ void handle_walk_state__12TBoss8DragonFPvUi(u8 *boss8_dragon, u32 arg1) {
 
 #pragma pop
 
-void TBoss8Dragon__sub_802F5BA0(u8 *arg0, u32 arg1) {
+void TBoss8Dragon__sub_802F5BA0(TBoss8Dragon *arg0, u32 arg1) {
     u8 *temp_r3;
     switch (arg1) {
     case 4:
         ((VObj_18_2fe63c *)(arg0))->m94();
-        ((TBoss8Dragon *)arg0)->set_action_state();
-        ((TBoss8Dragon *)arg0)->reset_action();
-        ((TBoss8Dragon *)arg0)->m_3c0 = (s32) (((TBoss8Dragon *)arg0)->m_3c0 | 0x30);
-        ((TBoss8Dragon *)arg0)->m_3c0 = (s32) (((TBoss8Dragon *)arg0)->m_3c0 & 0xFFFFFFF8);
+        arg0->set_action_state();
+        arg0->reset_action();
+        arg0->m_3c0 = (s32) (arg0->m_3c0 | 0x30);
+        arg0->m_3c0 = (s32) (arg0->m_3c0 & 0xFFFFFFF8);
         ((VObj_18_2fe63c *)(arg0))->m89();
         ((VObj_18_2fe63c *)(arg0))->m92();
-        ((TBoss8Dragon *)arg0)->m_84c = 0;
+        arg0->m_84c = 0;
         break;
     case 2:
     case 11:
         temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x6D8));
         if (*(f32 *)((s8 *)temp_r3 + 0x24) > TBoss8Dragon__data_805DEDD4) {
-            send_action_packet__12TBoss8DragonFPvi(arg0, 0x1D);
+            send_action_packet__12TBoss8DragonFPvi((u8 *)arg0, 0x1D);
             break;
         }
         if (*(s32 *)((s8 *)temp_r3 + 8) & 2) {
-            send_action_packet__12TBoss8DragonFPvi(arg0, 0x13);
+            send_action_packet__12TBoss8DragonFPvi((u8 *)arg0, 0x13);
             break;
         }
     default:
@@ -2974,10 +2974,10 @@ void TBoss8Dragon__sub_802F5BA0(u8 *arg0, u32 arg1) {
         ((s32)copy_pos_to_field688__12TBoss8DragonFPv(arg0));
         break;
     case 0:
-        ((TBoss8Dragon *)arg0)->m_84c = (s32) (((TBoss8Dragon *)arg0)->m_84c + 1);
-        if ((s32) ((TBoss8Dragon *)arg0)->m_84c > 0xA) {
-            ((TBoss8Dragon *)arg0)->spawn_effect();
-            ((TBoss8Dragon *)arg0)->m_84c = 0;
+        arg0->m_84c = (s32) (arg0->m_84c + 1);
+        if ((s32) arg0->m_84c > 0xA) {
+            arg0->spawn_effect();
+            arg0->m_84c = 0;
         }
         break;
     }
@@ -4445,23 +4445,23 @@ void TBoss8Dragon__sub_802F7B70(Obj_802F7B70 *arg0, u32 arg1) {
 
 }
 
-void state_roar__12TBoss8DragonFPvUi(u8 *arg0, u32 arg1) {
+void state_roar__12TBoss8DragonFPvUi(TBoss8Dragon *arg0, u32 arg1) {
     s32 temp_r4;
     switch (arg1) {
     case 4:
-        ((TBoss8Dragon *)arg0)->m_b8 = 0x10;
+        arg0->m_b8 = 0x10;
         ((VObj_18_dc1f7f *)(arg0))->m94();
-        ((TBoss8Dragon *)arg0)->set_state();
-        ((TBoss8Dragon *)arg0)->activate_attack();
-        ((TBoss8Dragon *)arg0)->m_3c0 = (s32) (((TBoss8Dragon *)arg0)->m_3c0 | 0x30);
-        ((TBoss8Dragon *)arg0)->m_3c0 = (s32) (((TBoss8Dragon *)arg0)->m_3c0 & 0xFFFFFFF9);
+        arg0->set_state();
+        arg0->activate_attack();
+        arg0->m_3c0 = (s32) (arg0->m_3c0 | 0x30);
+        arg0->m_3c0 = (s32) (arg0->m_3c0 & 0xFFFFFFF9);
         play_cue_stream_file((s32)lbl_80474B40);
         ((VObj_18_dc1f7f *)(arg0))->m89();
-        ((TBoss8Dragon *)arg0)->m_84c = 0;
+        arg0->m_84c = 0;
         break;
     case 9:
-        if ((s32) ((TBoss8Dragon *)arg0)->m_84c >= 0x3C) {
-            ((TBoss8Dragon *)arg0)->pick_next_action();
+        if ((s32) arg0->m_84c >= 0x3C) {
+            arg0->pick_next_action();
         }
         break;
     case 7:
@@ -4472,8 +4472,8 @@ void state_roar__12TBoss8DragonFPvUi(u8 *arg0, u32 arg1) {
         break;
     case 0:
         advance_animation_playback();
-        temp_r4 = ((TBoss8Dragon *)arg0)->m_84c;
-        ((TBoss8Dragon *)arg0)->m_84c = (temp_r4 + 1);
+        temp_r4 = arg0->m_84c;
+        arg0->m_84c = (temp_r4 + 1);
         ((void (*)(void *, int))spawn_effect_if_in_band__12TBoss8DragonFi)(arg0, temp_r4);
         TBoss8Dragon__sub_802FB09C((s32)arg0);
         break;

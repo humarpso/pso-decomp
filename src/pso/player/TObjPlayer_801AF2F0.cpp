@@ -2063,7 +2063,7 @@ s32 is_camera_mode_active__10TObjPlayerFv();
 s32 is_single_screen__10TObjPlayerFv();
 void handle_6x9B_level_up_all_techniques(void *arg0);
 void TObjPlayer__sub_801AF554(void *arg0, s8 arg1);
-void play_voice_pair__10TObjPlayerFPv(void *arg0);
+void play_voice_pair__10TObjPlayerFPv(TObjPlayer *arg0);
 int TObjPlayer__sub_801AF694(void* p);
 void set_flags_a00__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_801AF904(s32 arg0);
@@ -2664,9 +2664,9 @@ void TObjPlayer__sub_801AF554(void *arg0, s8 arg1) {
     }
 }
 
-void play_voice_pair__10TObjPlayerFPv(void *arg0) {
-    set_hp_clamped__10TObjPlayerFs(arg0, ((TObjPlayer *)arg0)->hpmax);
-    set_facing__10TObjPlayerFs(arg0, ((TObjPlayer *)arg0)->m_2ba);
+void play_voice_pair__10TObjPlayerFPv(TObjPlayer *arg0) {
+    set_hp_clamped__10TObjPlayerFs(arg0, arg0->hpmax);
+    set_facing__10TObjPlayerFs(arg0, arg0->m_2ba);
 }
 
 void TObjPlayer::reset_pose() { this->obj_clearFlags30((u32)((void*)2048)); ((int (*)(void*))update_rotation__10TObjPlayerFv)(this); }

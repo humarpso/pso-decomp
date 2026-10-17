@@ -28,7 +28,7 @@ u8 *TShopItemTecSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
 int TShopItemTecSequence__sub_8021FE6C(int a0);
 void TShopItemTecSequence__sub_80220538(void);
 void TShopItemTecSequence__sub_80220560(void);
-u8 *__dt__20TShopItemTecSequenceFv(u8 *arg0, s16 arg1);
+u8 *__dt__20TShopItemTecSequenceFv(TShopItemTecSequence *arg0, s16 arg1);
 void close__20TShopItemTecSequenceFPv(void *arg0);
 void select_and_advance__20TShopItemTecSequenceFPv(void *arg0);
 void set_judgment_target_flag(void *arg0, void *arg1);

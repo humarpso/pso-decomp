@@ -66,7 +66,7 @@ void *create_title_window__19TWindowSubTechniqueFv(void *, s16);
 extern u8 lbl_8044FC54[];
 extern Pad_802870C4 controller_input_state[];
 void *TWindowSubTechnique__ct(TWindowSubTechnique *arg0, s32 arg1, s32 arg2);
-void *__dt__19TWindowSubTechniqueFv(void *arg0, s16 arg1);
+void *__dt__19TWindowSubTechniqueFv(TWindowSubTechnique *arg0, s16 arg1);
 s32 align_menu_entry_positions(s32);
 s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
@@ -217,12 +217,12 @@ void TWindowSubTechnique::run_task() {
     }
 }
 
-void *__dt__19TWindowSubTechniqueFv(void *arg0, s16 arg1) {
+void *__dt__19TWindowSubTechniqueFv(TWindowSubTechnique *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowSubTechnique;
-        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x3C))); ((TWindowSubTechnique *)arg0)->m_3c = 0; }
-        if (*(void **)((s8 *)arg0 + 0x38) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x38))); ((TWindowSubTechnique *)arg0)->m_38 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x34) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x34))); ((TWindowSubTechnique *)arg0)->m_34 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x3C))); arg0->m_3c = 0; }
+        if (*(void **)((s8 *)arg0 + 0x38) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x38))); arg0->m_38 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x34) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x34))); arg0->m_34 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

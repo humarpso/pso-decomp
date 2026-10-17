@@ -486,7 +486,7 @@ extern s32 lbl_805D2AC0;
 void *TObjEnePanarmsAtkColli__ct(Obj_800E37E4 *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void *__dt__22TObjEnePanarmsAtkColliFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
+void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 
 void TObjEnePanarmsAtkColli::run_task() {
@@ -521,7 +521,7 @@ void *TObjEnePanarmsAtkColli::create(void *arg1, void *arg2, void *arg3) {
 void *__dt__22TObjEnePanarmsAtkColliFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TObjEnePanarmsAtkColli;
-        __dt__9TObjEnemyFv(arg0, 0);
+        __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

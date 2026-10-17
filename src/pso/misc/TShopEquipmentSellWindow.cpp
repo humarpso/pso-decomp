@@ -173,7 +173,7 @@ s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, s32, s32);
 u32 create_window_menu(s32, s32, u16);
 s32 get_selected_menu_value(void *);
 void *TShopEquipmentSellWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
-void *__dt__24TShopEquipmentSellWindowFv(void *arg0, s16 arg1);
+void *__dt__24TShopEquipmentSellWindowFv(TShopEquipmentSellWindow *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void memset(void *, int, int);
 
@@ -455,15 +455,15 @@ void TShopEquipmentSellWindow::vfunc_11() {
     }
 }
 
-void *__dt__24TShopEquipmentSellWindowFv(void *arg0, s16 arg1) {
+void *__dt__24TShopEquipmentSellWindowFv(TShopEquipmentSellWindow *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__24TShopEquipmentSellWindow;
-        if (*(void **)((s8 *)arg0 + 0x38C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x38C))); ((TShopEquipmentSellWindow *)arg0)->m_38c = 0; }
-        if (*(void **)((s8 *)arg0 + 0x390) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x390))); ((TShopEquipmentSellWindow *)arg0)->m_390 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x394) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x394))); ((TShopEquipmentSellWindow *)arg0)->m_394 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x39C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x39C))); ((TShopEquipmentSellWindow *)arg0)->m_39c = 0; }
-        if (*(void **)((s8 *)arg0 + 0x398) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x398))); ((TShopEquipmentSellWindow *)arg0)->m_398 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x3A0) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x3A0))); ((TShopEquipmentSellWindow *)arg0)->m_3a0 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x38C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x38C))); arg0->m_38c = 0; }
+        if (*(void **)((s8 *)arg0 + 0x390) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x390))); arg0->m_390 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x394) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x394))); arg0->m_394 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x39C) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x39C))); arg0->m_39c = 0; }
+        if (*(void **)((s8 *)arg0 + 0x398) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x398))); arg0->m_398 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x3A0) != NULL) { TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x3A0))); arg0->m_3a0 = 0; }
         __dt__15TShopWindowBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

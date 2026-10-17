@@ -306,7 +306,7 @@ s32 TBoss4Zako__ct(s32 arg0, s32 arg1, s32 arg2);
 void update_state3__10TBoss4ZakoFPv(void* p);
 s32 free_collision_body_parts(void *);
 
-void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
+void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 
 #define THIS self
 
@@ -426,7 +426,7 @@ void *__dt__10TBoss4ZakoFv(void *arg0, s16 arg1) {
             TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x3B4)));
             *(u32 *)((s8 *)arg0 + 0x3B4) = 0U;
         }
-        __dt__9TObjEnemyFv(arg0, 0);
+        __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

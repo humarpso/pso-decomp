@@ -37,7 +37,7 @@ typedef char TShopKeepItemWindow_size[sizeof(TShopKeepItemWindow) == 0x39C ? 1 :
 
 extern "C" {
 void *TShopKeepItemWindow__ct(TShopKeepItemWindow *arg0, void *arg1, void *arg2, void *arg3);
-void *__dt__19TShopKeepItemWindowFv(void *arg0, s16 arg1);
+void *__dt__19TShopKeepItemWindowFv(TShopKeepItemWindow *arg0, s16 arg1);
 }
 
 #endif

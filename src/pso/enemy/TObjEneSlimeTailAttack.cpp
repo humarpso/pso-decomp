@@ -353,7 +353,7 @@ s32 __dt__15TObjEneSlimeOneFis(s32 arg0, s16 arg1);
 void draw_blob_shadow(s32 arg0);
 void * TObjControl__ct(void *, s32);
 u8 *get_enemy_entity(u16 arg0);
-void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
+void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 s32 initialize__9TObjEnemyFPv(void *);
 f32 horizontal_distance_squared(void *, void *);
 }
@@ -1075,7 +1075,7 @@ void *create__22TObjEneSlimeTailAttackFiiii(s32 arg1, s32 arg2, s32 arg3, s32 ar
 void *dt__22TObjEneSlimeTailAttackFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TObjEneSlimeTailAttack;
-        __dt__9TObjEnemyFv(arg0, 0);
+        __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -1227,7 +1227,7 @@ void *__dt__21TObjEneSlimeWaterBombFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TObjEneSlimeWaterBomb;
         if (*(void **)((s8 *)arg0 + 0x388) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x388))); ((TObjEneSlimeWaterBomb *)arg0)->m_388 = 0; }
-        __dt__9TObjEnemyFv(arg0, 0);
+        __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -1977,7 +1977,7 @@ void *__dt__15TObjEneSlimeOneFv(void *arg0, s16 arg1) {
         if (((TObjEneSlimeOne *)arg0)->m_3e8 != NULL) { TBoss4Type2::request_destroy((u32)(((TObjEneSlimeOne *)arg0)->m_3e8)); *(s32 *)((s8 *)arg0 + 0x3E8) = 0; }
         __dt__15TObjEneSlimeOneFis((s32)(*(void **)((s8 *)arg0 + 0x388)), 1);
         ((TObjEneSlimeOne *)arg0)->m_388 = 0;
-        __dt__9TObjEnemyFv(arg0, 0);
+        __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

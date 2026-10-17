@@ -122,7 +122,7 @@ void run_task__16TObjEneBm5GibonUFv(u8 *arg0);
 s32 TObjEneBm5GibonU__sub_800D1D70(void *p);
 void *TObjEneBm5GibonU__sub_800D1D78(void *p);
 s32 __dt__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1);
-void action__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1);
+void action__16TObjEneBm5GibonUFPvi(TObjEneBm5GibonU *arg0, s32 arg1);
 void calc_rotated_vector__16TObjEneBm5GibonUFPviPvPv(void *arg0, s32 arg1, void *arg2, s32 *arg3);
 void forward_hit_to_enemy_list__16TObjEneBm5GibonUFv(s32 arg0);
 void init_child_from_list__16TObjEneBm5GibonUFv(s32 arg0);

@@ -32,7 +32,7 @@ typedef char TMedicalCenterSequence_size[sizeof(TMedicalCenterSequence) == 0x38 
 extern "C" {
 void TMedicalCenterMes__sub_80216260(void);
 u8 *TMedicalCenterSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
-u8 *__dt__22TMedicalCenterSequenceFv(u8 *arg0, s16 arg1);
+u8 *__dt__22TMedicalCenterSequenceFv(TMedicalCenterSequence *arg0, s16 arg1);
 }
 
 #endif

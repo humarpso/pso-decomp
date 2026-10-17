@@ -91,7 +91,7 @@ extern const f32 lbl_805D9A94;
 void initialize_saver_resources(void);
 void queue_destruction__7TObjectFv(void *arg0);
 void *__dt__13TUnk_80490470Fv(void *, s16);
-void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
+void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 extern void *TObjEneSaver__vtable[83];
@@ -2115,7 +2115,7 @@ Obj_800A73F8 *__dt__12TObjEneSaverFv(Obj_800A73F8 *arg0, s16 arg1) {
         } while (i < 3);
         free_collision_body_parts(arg0);
         __dt__13TUnk_80490470Fv((u8 *)arg0 + 0x3A4, -1);
-        __dt__9TObjEnemyFv(arg0, 0);
+        __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

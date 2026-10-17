@@ -3,9 +3,10 @@
 
 #include "types.h"
 
+struct TShopEquipmentGearSequence;
 extern "C" {
 u8 *TShopEquipmentGearSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
-u8 *__dt__26TShopEquipmentGearSequenceFv(u8 *arg0, s16 arg1);
+u8 *__dt__26TShopEquipmentGearSequenceFv(TShopEquipmentGearSequence *arg0, s16 arg1);
 }
 
 #endif

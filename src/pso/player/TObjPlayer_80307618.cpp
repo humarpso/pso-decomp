@@ -64,7 +64,7 @@ void TObjPlayer__sub_803076F8(u8 *arg0) {
 }
 
 typedef char RecoveredGlobal_80307784_lbl_804E70A8_size[sizeof(RecoveredGlobal_80307784_lbl_804E70A8) == 0xF8 ? 1 : -1];
-u8 *TObjPlayer__sub_80307784(u8 *arg0, u8 *arg1, s32 _w2) {
+u8 *TObjPlayer__sub_80307784(TObjPlayer *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80307784_lbl_804E70A8 *)&lbl_804E70A8).value;
     set_status_flags__10TObjPlayerFUl(arg0, 1);
@@ -74,7 +74,7 @@ u8 *TObjPlayer__sub_80307784(u8 *arg0, u8 *arg1, s32 _w2) {
     *(s32 *)((s8 *)arg0 + 0x1F8) = 5;
     ((TUnk_804E70A8 *)arg0)->m_1fc = 0;
     *(s32 *)((s8 *)arg0 + 0x200) = 0;
-    return arg0;
+    return (u8 *)arg0;
 }
 
 u8 *TObjPlayer__sub_80307800(s32 arg0) {
@@ -84,7 +84,7 @@ u8 *TObjPlayer__sub_80307800(s32 arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x204));
         var_r0 = temp_r3;
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(TObjPlayer__sub_80307784((u8 *)temp_r3, (u8 *)tl_05, (s32)arg0));
+            var_r0 = (u8 *)(TObjPlayer__sub_80307784((TObjPlayer *)((u8 *)temp_r3), (u8 *)((u8 *)tl_05), (s32)((s32)arg0)));
         }
         return var_r0;
     }

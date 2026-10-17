@@ -117,7 +117,7 @@ s32 get_bml_model(s32, s32);
 int rotate_matrix_y(void*, void*);
 int push_matrix(void*);
 void __dl__7TObjectFPv(void *);
-void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
+void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 s32 __nw__7TObjectFUl(s32);
 void queue_destruction__7TObjectFv(void *arg0);
 
@@ -363,7 +363,7 @@ void *__dt__10TBoss6MineFPvs(void *arg0, s16 arg1) {
         if (*(void **)((s8 *)arg0 + 0x3CC) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x3CC))); ((TBoss6Mine *)arg0)->m_3cc = 0; }
         free_collision_body_parts(arg0);
         if (*(void **)((s8 *)arg0 + 0x378) != NULL) { TBoss6Type1__sub_802B5DD4(*(void **)((s8 *)arg0 + 0x378)); }
-        __dt__9TObjEnemyFv(arg0, 0);
+        __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

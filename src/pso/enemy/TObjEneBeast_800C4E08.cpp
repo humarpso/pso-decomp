@@ -561,7 +561,7 @@ int unlink_enemy_group_relations__13TUnk_80493450Fv(void*);
 int send_entity_set_flags__9TObjEnemyFv(void*);
 s32 obj_setFlags30(void *, s32);
 void __dl__7TObjectFPv(void *);
-void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
+void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 extern s32 lbl_80493450[];
 void *__dt__13TUnk_80493450Fv(void *arg0, s16 arg1);
 int initialize__9TObjEnemyFPv(void);
@@ -1203,7 +1203,7 @@ void TUnk_80493450::run_task() {
 void *__dt__13TUnk_80493450Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_80493450;
-        __dt__9TObjEnemyFv(arg0, 0);
+        __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

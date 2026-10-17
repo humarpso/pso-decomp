@@ -39,7 +39,7 @@ typedef char TWindowSubTechnique_size[sizeof(TWindowSubTechnique) == 0x40 ? 1 : 
 extern "C" {
 void *TWindowSubTechnique__ct(TWindowSubTechnique *arg0, s32 arg1, s32 arg2);
 s32 TWindowSubTechnique__sub_8028753C(s32 arg0);
-void *__dt__19TWindowSubTechniqueFv(void *arg0, s16 arg1);
+void *__dt__19TWindowSubTechniqueFv(TWindowSubTechnique *arg0, s16 arg1);
 }
 
 #endif

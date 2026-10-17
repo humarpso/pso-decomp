@@ -80,8 +80,8 @@ typedef char TObjEneMorfos_size[sizeof(TObjEneMorfos) == 0x4D8 ? 1 : -1];
 extern "C" {
 void *TObjEneMorfos__ct(void *arg0, void *arg1, void *arg2);
 void TObjEneMorfos__sub_80332DBC(u8 *arg0, s32 arg1);
-void TObjEneMorfos__sub_80332FD4(u8 *arg0, s32 arg1);
-void TObjEneMorfos__sub_80333690(u8 *arg0, s32 arg1);
+void TObjEneMorfos__sub_80332FD4(TObjEneMorfos *arg0, s32 arg1);
+void TObjEneMorfos__sub_80333690(TObjEneMorfos *arg0, s32 arg1);
 void TObjEneMorfos__sub_80333AD0(u8 *arg0, s32 arg1);
 void TObjEneMorfos__sub_80333E48(u8 *arg0, s32 arg1);
 void TObjEneMorfos__sub_80334030(u8 *arg0, s32 arg1);

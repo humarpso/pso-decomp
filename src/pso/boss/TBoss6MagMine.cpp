@@ -139,7 +139,7 @@ int rotate_matrix_y(void*, void*);
 int push_matrix(void*);
 s32 pop_matrix(void);
 void __dl__7TObjectFPv(void *);
-void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
+void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 s32 __nw__7TObjectFUl(s32);
 void queue_destruction__7TObjectFv(void *arg0);
 
@@ -409,7 +409,7 @@ void *__dt__13TUnk_804F322CFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F322C;
         if (*(void **)((s8 *)arg0 + 0x3B0) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x3B0))); *(s32 *)((s8 *)arg0 + 0x3B0) = 0; }
         free_collision_body_parts(arg0);
-        __dt__9TObjEnemyFv(arg0, 0);
+        __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

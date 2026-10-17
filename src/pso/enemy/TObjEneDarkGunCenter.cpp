@@ -70,7 +70,7 @@ void *__dt__20TObjEneDarkGunCenterFv(void *arg0, s16 arg1);
 void *TObjControl__ct(void *, void *);
 u8 *TObjEneDarkGunCenter__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
-void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
+void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 
 void TObjEneDarkGunCenter__sub_800A0B18(void) {  }
@@ -355,7 +355,7 @@ extern void *__vt__20TObjEneDarkGunCenter[];
 void *__dt__20TObjEneDarkGunCenterFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__20TObjEneDarkGunCenter;
-        __dt__9TObjEnemyFv(arg0, 0);
+        __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

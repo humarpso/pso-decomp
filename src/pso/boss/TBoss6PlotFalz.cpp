@@ -1329,7 +1329,7 @@ void TItemEffOrgaFlowShot__sub_80357210(void);
 void TLobby__sub_8036DDE8(void);
 extern int obj_fish_count;
 s32 restore_player_cameras();
-void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
+void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 void play_area_music(char *name);
 volatile int __dl__7TObjectFPv(void *);
 s32 is_ending_or_split_screen__14TBoss6PlotFalzFv(void *);
@@ -1457,7 +1457,7 @@ u8 *__dt__14TBoss6PlotFalzFv(u8 *arg0, s16 arg1) {
     destroy_static_instance__14TBoss6PlotFalzFv((void *) arg0);
     TBoss6PlotFalz__instance = 0;
     TBoss6PlotFalz__fade_amount = (-1.0f);
-    __dt__9TObjEnemyFv(arg0, 0);
+    __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
     if (arg1 > 0)
     {
       __dl__7TObjectFPv((void *) arg0);

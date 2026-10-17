@@ -113,7 +113,7 @@ void handle_cmd_9B__9TProtocolFR6packet(u8 *arg0, Regist_801DAD38 *arg1) {
         strncpy(pkt.e, (s32)((s32)(arg0 + 0x3EDA)), 0x30);
         strncpy(pkt.f, (s32)((s32)(arg0 + 0x3F0A)), 0x30);
         strncpy(pkt.g, (s32)((s32)(arg0 + 0x3F3A)), 0x30);
-        fn_801DF280(&pkt);
+        fn_801DF280((packet_header *)&pkt);
         ((VObjDAD38 *)arg0)->m8(&pkt, 0xE0);
     } else {
         ((VObjDAD38 *)arg0)->m5();

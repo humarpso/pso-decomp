@@ -16,7 +16,7 @@ void *create_remote_player_object(void *arg0) {
     TItem__sub_80101CF0();
     o = __nw__7TObjectFUl(0xDB8);
     if (o != NULL) {
-        o = __ct__10TObjPlayerFPvPvPv(o, tl_03, arg0);
+        o = __ct__10TObjPlayerFPvPvPv((TObjPlayer *)o, tl_03, arg0);
     }
     return o;
 }

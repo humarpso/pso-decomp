@@ -42,7 +42,7 @@ void TLobby__sub_8001FE7C(void*, int);
 s32 submit_cursor_candidate(void *, int);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 s32 __dl__7TObjectFPv(void *);
-void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
+void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, int);
 
 extern const f32 lbl_805DF0FC;
@@ -87,7 +87,7 @@ void *__dt__14TBoss7CrawfishFv(void *arg0, s16 arg1) {
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         ((TUnk_804AF8A0 *)arg0)->clear_obj_links();
         ((TBoss7Crawfish *)arg0)->free_child();
-        __dt__9TObjEnemyFv(arg0, 0);
+        __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

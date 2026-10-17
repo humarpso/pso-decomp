@@ -37,7 +37,7 @@ extern void *TBoss4DarkFalz__type3_instance;
 void handle_6x19_dark_falz_actions(Msg_8004BFA4 *arg0);
 void queue_destruction__7TObjectFv(void *);
 s32 is_ending_or_split_screen__14TBoss4DarkFalzFv(void);
-void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
+void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 void __dl__7TObjectFPv(s32);
 s32 restore_player_cameras();
 extern s32 __vt__14TBoss4DarkFalz[];
@@ -118,7 +118,7 @@ u8 *__dt__14TBoss4DarkFalzFv(u8 *arg0, s16 arg1) {
             TBoss4DarkFalz__type3_instance = NULL;
         }
         dark_falz_controller_instance = 0;
-        __dt__9TObjEnemyFv(arg0, 0);
+        __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);
         }

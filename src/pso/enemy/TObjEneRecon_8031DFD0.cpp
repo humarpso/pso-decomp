@@ -140,7 +140,7 @@ void TObjEneRecon__sub_8031CCFC(u8 *arg0, s32 arg1);
 void TObjEneRecon__sub_8031CF30(u8 *arg0, s32 arg1);
 void TObjEneRecon__sub_8031D380(u8 *arg0, s32 arg1);
 void TObjEneRecon__vt85(s32 arg0, u32 arg1, s32 arg2);
-void run_task__12TObjEneReconFv(u8 *arg0);
+void run_task__12TObjEneReconFv(TObjEneRecon *arg0);
 void * __dt__12TObjEneReconFv(void *arg0, s16 arg1);
 s32 is_anim_6__12TObjEneReconFv(int);
 f32 sin_table_lookup(int);
@@ -338,7 +338,7 @@ void TObjEneRecon__vt85(s32 arg0, u32 arg1, s32 msg) {
     }
 }
 
-void run_task__12TObjEneReconFv(u8 *arg0) {
+void run_task__12TObjEneReconFv(TObjEneRecon *arg0) {
     f32 temp_f2;
     f32 temp_f31;
     f32 var_f30;
@@ -357,9 +357,9 @@ void run_task__12TObjEneReconFv(u8 *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    temp_r0 = ((TObjEneRecon *)arg0)->mode;
+    temp_r0 = arg0->mode;
     if ((temp_r0 != 8) && (temp_r0 != 7) && (is_anim_6__12TObjEneReconFv(entity) == 1)) {
-        ((TObjEneRecon *)arg0)->m_2dc = (s32) (((TObjEneRecon *)arg0)->m_2dc | 4);
+        arg0->m_2dc = (s32) (arg0->m_2dc | 4);
         ((TObjPlayer *)arg0)->set_hp_clamped(0);
         obj_setFlags30(arg0, 0xA00U);
         ((TObjEneRecon *)(arg0))->vfunc_74(0);
@@ -368,13 +368,13 @@ void run_task__12TObjEneReconFv(u8 *arg0) {
         ((TObjEneRecon *)(arg0))->vfunc_85();
         temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x478));
         if (temp_r3_2 == NULL) {
-            *(u8 **)((s8 *)arg0 + 0x478) = (u8 *)create_particle_emitter(arg0 + 0x2FC, 0x217);
+            *(u8 **)((s8 *)arg0 + 0x478) = (u8 *)create_particle_emitter((u8 *)arg0 + 0x2FC, 0x217);
             temp_r3_3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x478));
             if (temp_r3_3 != NULL) {
                 ((TParticleCtrl *)temp_r3_3)->enable();
             }
         } else {
-            temp_r0_2 = ((TObjEneRecon *)arg0)->mode;
+            temp_r0_2 = arg0->mode;
             if ((temp_r0_2 == 8) || (temp_r0_2 == 7)) {
                 ((TParticleCtrl *)temp_r3_2)->enable();
             } else {
@@ -388,11 +388,11 @@ void run_task__12TObjEneReconFv(u8 *arg0) {
                 if (TObjEneDD::check_v2_mode() != 0) {
                     var_f30 *= lbl_805DF400;
                 }
-                temp_f31 = var_f30 * cos_table_lookup((int) (((TObjEneRecon *)arg0)->rotation_y));
-                temp_f2 = var_f30 * -sin_table_lookup((int) (((TObjEneRecon *)arg0)->rotation_y));
-                *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x478)) + 0x60) = (f32) (((TObjEneRecon *)arg0)->m_2fc + temp_f31);
-                *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x478)) + 0x64) = (f32) (lbl_805DF424 + ((TObjEneRecon *)arg0)->m_300);
-                *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x478)) + 0x68) = (f32) (((TObjEneRecon *)arg0)->m_304 + temp_f2);
+                temp_f31 = var_f30 * cos_table_lookup((int) (arg0->rotation_y));
+                temp_f2 = var_f30 * -sin_table_lookup((int) (arg0->rotation_y));
+                *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x478)) + 0x60) = (f32) (arg0->m_2fc + temp_f31);
+                *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x478)) + 0x64) = (f32) (lbl_805DF424 + arg0->m_300);
+                *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x478)) + 0x68) = (f32) (arg0->m_304 + temp_f2);
             }
         }
     } else {
@@ -401,10 +401,10 @@ void run_task__12TObjEneReconFv(u8 *arg0) {
             ((TParticleCtrl *)temp_r3_4)->enable();
         }
     }
-    ((TObjEneRecon *)arg0)->update_position_from_offsets();
+    arg0->update_position_from_offsets();
     ((TBoss8Dragon *)arg0)->set_player_state_default();
     ((TObjEneRecon *)(arg0))->vfunc_100();
-    ((TObjEneRecon *)arg0)->update_ground_probe();
+    arg0->update_ground_probe();
 }
 
 void *__dt__12TObjEneReconFv(void *arg0, s16 arg1) {

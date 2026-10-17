@@ -1175,7 +1175,7 @@ void TObjFish__sub_802EC32C(void);
 void TObjFish__sub_802EC468(s32 arg0, f32 farg0, f32 farg1);
 void TBoss7DeRolLeC__sub_802EC994(void* p);
 void fn_802EC9A4(void *arg0, void *arg1);
-void fn_802EC9F0(void *arg0, void *arg1);
+void fn_802EC9F0(TObjEneDD *arg0, void *arg1);
 }
 void handle_6xAA_barba_ray_boss_actions(void *arg0);
 void handle_6xA9_barba_ray_boss_actions(void *arg0);
@@ -3298,9 +3298,9 @@ void fn_802EC9A4(void *arg0, void *arg1) {
     ((TObjEneDD *)arg0)->transition_enemy_state(*(s16 *)((s8 *)arg1 + 4));
 }
 
-void fn_802EC9F0(void *arg0, void *arg1) {
+void fn_802EC9F0(TObjEneDD *arg0, void *arg1) {
     *(s32 *)((s8 *)arg0 + 0x6B4) = (s32) *(s16 *)((s8 *)arg1 + 6);
-    ((TObjEneDD *)arg0)->transition_enemy_state(*(s16 *)((s8 *)arg1 + 4));
+    arg0->transition_enemy_state(*(s16 *)((s8 *)arg1 + 4));
 }
 }
 
@@ -3318,7 +3318,7 @@ void handle_6xA9_barba_ray_boss_actions(void *boss7_joint) {
     ((TBoss7Joint *)boss7_joint)->byteswap_action_packet();
     x = get_enemy_entity(*(u16 *)((s8 *)boss7_joint + 0x2));
     if (x != NULL) {
-        fn_802EC9F0(x, boss7_joint);
+        fn_802EC9F0((TObjEneDD *)x, boss7_joint);
     }
 }
 extern "C" {

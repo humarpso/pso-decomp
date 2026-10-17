@@ -145,7 +145,7 @@ void *TObjPlayer__ct(TObjPlayer *player, void *arg1, void *arg2) {
     return player;
 }
 
-void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
+void *__ct__10TObjPlayerFPvPvPv(TObjPlayer *arg0, void *arg1, void *arg2) {
     construct_actor_base__10TObjPlayerFPvPv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjPlayer;
     ((TObjPlayer *)((char *)arg0 + 832))->init_subobject();
@@ -183,23 +183,23 @@ void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
     ((TObjPlayer *)((char *)arg0 + 2136))->init_forward();
     TObjPlayer::reset_and_return((s32)((void *)((char *)arg0 + 3332)));
     ((TObjPlayer *)((char *)arg0 + 3500))->clear_header_struct();
-    *(void * *)&((TObjPlayer *)arg0)->m_name = lbl_805D3530;
-    ((TObjPlayer *)arg0)->init_from_data(arg2);
-    ((TObjPlayer *)arg0)->setup_control_role(4);
+    *(void * *)&arg0->m_name = lbl_805D3530;
+    arg0->init_from_data(arg2);
+    arg0->setup_control_role(4);
     ((Fn_vpvp_801BD570)TObjPlayer__sub_801BD384)(arg0, (void *)((char *)arg2 + 200));
-    ((TObjPlayer *)arg0)->load_char_data((u8 *)arg2);
-    ((TObjPlayer *)arg0)->update_position((s32)arg2);
+    arg0->load_char_data((u8 *)arg2);
+    arg0->update_position((s32)arg2);
     sub_801BBC2C__10TObjPlayerFv(arg0, arg2);
     sub_801BD240__10TObjPlayerFv(arg0, arg2);
     is_flag_set_550__10TObjPlayerFv(arg0, arg2);
     init_session_technique_caps__10TObjPlayerFPvPv(arg0, arg2);
-    ((TObjPlayer *)arg0)->init_from_source((u8 *)arg2);
+    arg0->init_from_source((u8 *)arg2);
     TObjPlayer__sub_801BCAB0(arg0, arg2);
     init_battle__10TObjPlayerFv(arg0, arg2);
     TObjPlayer__sub_801BBB70(arg0, arg2);
-    ((TObjPlayer *)arg0)->init_class_flags((s32)arg2);
+    arg0->init_class_flags((s32)arg2);
     TObjPlayer__sub_801BB85C(arg0, arg2);
-    ((TObjPlayer *)arg0)->hp = *(s16 *)((s8 *)arg2 + 0x22);
+    arg0->hp = *(s16 *)((s8 *)arg2 + 0x22);
     return arg0;
 }
 

@@ -3,9 +3,10 @@
 
 #include "types.h"
 
+struct TObjPlayer;
 extern "C" {
 void *TObjPlayer__sub_8012417C(void *arg0, s16 arg1);
-void *TObjPlayer__sub_80124694(void *arg0);
+void *TObjPlayer__sub_80124694(TObjPlayer *arg0);
 u8 *TObjPlayer__sub_80124708(u8 *arg0);
 void *__dt__13TUnk_804A204CFv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804A2164Fv(void *arg0, s16 arg1);

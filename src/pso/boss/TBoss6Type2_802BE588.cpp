@@ -76,13 +76,13 @@ void TBoss6Type2::update_zako_timer() {
     }
 }
 
-void TBoss6Type2__sub_802BE648(u8 *arg0) {
+void TBoss6Type2__sub_802BE648(TBoss6Type2 *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x460) == 0) {
         if ((s32) *(s32 *)((s8 *)arg0 + 0x374) == 0x1D) {
             send_action_packet__11TBoss6Type2FSc(arg0, (void*)((int) (choose_random_motion__11TBoss6Type2Fv())));
             return;
         }
-        ((TBoss6Type2 *)arg0)->update_attack_target();
+        arg0->update_attack_target();
     }
 }
 

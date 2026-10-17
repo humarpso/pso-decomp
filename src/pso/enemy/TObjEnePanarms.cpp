@@ -307,7 +307,7 @@ int clear_render_callback__8TObjFishFv(void);
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 TObjControl__ct(s32, s32);
 void refresh_lobby_state__10TObjPlayerFv();
-void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
+void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 f32 horizontal_distance_squared(void *, void *);
 s32 angle_difference_abs(s32, s32);
 }
@@ -1540,7 +1540,7 @@ Obj_800E24A4 *fn_800E24A4(Obj_800E24A4 *arg0, s16 arg1) {
         arg0->f37C = 0;
         TObjFish::init_state_1((void *)arg0->f3DC);
         __destroy_arr(arg0->f3EC, __dt__13TUnk_804949A8Fv, 0x1C, 4);
-        __dt__9TObjEnemyFv(arg0, 0);
+        __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

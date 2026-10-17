@@ -3,6 +3,7 @@
 
 #include "types.h"
 
+struct TObjEneDD;
 extern "C" {
 void TBoss7DeRolLeC__dispatch_state(u8 *arg0, u32 arg1, u32 arg2);
 void TBoss7DeRolLeC__handle_crawfish_spawn_state(u8 *self, u32 event, s32 variant);
@@ -35,7 +36,7 @@ void render__14TBoss7DeRolLeCFv(u8 *unused);
 void TObjPlayer__sub_802E8274(void);
 void fn_802EC52C(s32 arg0, s32 arg1);
 void fn_802EC9A4(void *arg0, void *arg1);
-void fn_802EC9F0(void *arg0, void *arg1);
+void fn_802EC9F0(TObjEneDD *arg0, void *arg1);
 void free_laser_light__15TBoss7LaserPtclFv(void *arg0);
 }
 void handle_6xA9_barba_ray_boss_actions(void *arg0);

@@ -3,8 +3,9 @@
 
 #include "types.h"
 
+struct TOWreckAncientBrakable05;
 extern "C" {
-u8 *TOWreckAncientBrakable05__ct(u8 *arg0, s32 arg1);
+u8 *TOWreckAncientBrakable05__ct(TOWreckAncientBrakable05 *arg0, s32 arg1);
 }
 
 #endif

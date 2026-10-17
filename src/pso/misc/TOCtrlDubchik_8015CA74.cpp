@@ -132,7 +132,7 @@ extern s32 lbl_805D2F1C;
 extern const f32 TOCtrlDubchik__data_805DB3A8;
 extern const f32 lbl_805DB3BC;
 extern const f32 lbl_805DB3C8;
-u8 *TOCtrlDubchik__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TOCtrlDubchik__ct(TOCtrlDubchik *arg0, s32 arg1, s32 arg2);
 f32 sin_table_lookup(s32);
 int get_player_data__10TObjPlayerFi(int a0);
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, s32);
@@ -152,7 +152,7 @@ void TLobby__sub_8001FE7C(void*, int);
 s32 free_collision_body_parts(void *);
 s32 select_melee_contact_body__10TObjPlayerFv();
 s32 __dl__7TObjectFPv(void *);
-void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
+void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 
 void TOCtrlDubchik::sub_8015CA74() {
@@ -322,7 +322,7 @@ void TOCtrlDubchik::run_task() {
 void *TOCtrlDubchik::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x3A0);
     if (o != NULL) {
-        o = TOCtrlDubchik__ct((u8 *)o, (s32)tl_05, (s32)arg0);
+        o = TOCtrlDubchik__ct((TOCtrlDubchik *)((u8 *)o), (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -350,7 +350,7 @@ void *__dt__13TOCtrlDubchikFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TOCtrlDubchik;
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        __dt__9TObjEnemyFv(arg0, 0);
+        __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -360,31 +360,31 @@ void *__dt__13TOCtrlDubchikFv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_8015D3CC_lbl_804B0A20_size[sizeof(RecoveredGlobal_8015D3CC_lbl_804B0A20) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik_size[sizeof(RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik) == 0x14C ? 1 : -1];
-u8 *TOCtrlDubchik__ct(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *TOCtrlDubchik__ct(TOCtrlDubchik *arg0, s32 arg1, s32 arg2) {
     initialize__9TObjEnemyFPv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik *)&__vt__13TOCtrlDubchik).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2F1C;
     ((TOCtrlDubchik *)(arg0))->apply_set_data((void *)arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();
-    ((TOCtrlDubchik *)arg0)->model = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCtrlDubchik__shared_resource) + 0x42C)) + 8));
-    ((TOCtrlDubchik *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCtrlDubchik__shared_resource) + 0x42C)) + 0xC);
+    arg0->model = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCtrlDubchik__shared_resource) + 0x42C)) + 8));
+    arg0->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCtrlDubchik__shared_resource) + 0x42C)) + 0xC);
     init_collision_body_parts(arg0, &TOCtrlDubchik__collision_body.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 0x08000000);
-    ((TOCtrlDubchik *)arg0)->mode = 0;
-    ((TOCtrlDubchik *)arg0)->hp = 0x12C;
-    ((TOCtrlDubchik *)arg0)->hpmax = 0x12C;
+    arg0->mode = 0;
+    arg0->hp = 0x12C;
+    arg0->hpmax = 0x12C;
     *(f32 *)((s8 *)arg0 + 0x374) = (f32) lbl_805DB3C8;
-    ((TOCtrlDubchik *)arg0)->m_378 = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(((TOCtrlDubchik *)arg0)->model) + 4)) + 0x14);
-    ((TOCtrlDubchik *)arg0)->m_37c = (f32) lbl_805DB3BC;
-    ((TOCtrlDubchik *)arg0)->m_380 = 0;
+    arg0->m_378 = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(arg0->model) + 4)) + 0x14);
+    arg0->m_37c = (f32) lbl_805DB3BC;
+    arg0->m_380 = 0;
     *(f32 *)((s8 *)arg0 + 0x384) = (f32) TOCtrlDubchik__data_805DB3A8;
-    ((TOCtrlDubchik *)arg0)->m_388 = (f32) TOCtrlDubchik__data_805DB3A8;
-    ((TOCtrlDubchik *)arg0)->m_38c = 0;
-    VecCopy((Vec *)(arg0 + 0x390), (const Vec *)(arg0 + 0x50));
-    ((TOCtrlDubchik *)arg0)->m_39c = 1;
-    return arg0;
+    arg0->m_388 = (f32) TOCtrlDubchik__data_805DB3A8;
+    arg0->m_38c = 0;
+    VecCopy((Vec *)((u8 *)arg0 + 0x390), (const Vec *)((u8 *)arg0 + 0x50));
+    arg0->m_39c = 1;
+    return (u8 *)arg0;
 }
 
 s32 TOCtrlDubchik::select_melee_contact_body(void *, f32) {

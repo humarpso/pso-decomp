@@ -115,7 +115,7 @@ s32 copy_position__15TEffStarLight2DFPv(u32, s32 *);
 void queue_destruction__7TObjectFv(void *arg0);
 void run_task__13TUnk_804A2018Fv(void *arg0);
 void *__dt__13TUnk_804A204CFv(void *arg0, s16 arg1);
-void *TObjPlayer__sub_80124694(void *arg0);
+void *TObjPlayer__sub_80124694(TObjPlayer *arg0);
 u8 *TObjPlayer__sub_80124708(u8 *arg0);
 s32 is_owner_alive__15TItemShootModelFv();
 s32 rotate_matrix_x(int, int);
@@ -411,12 +411,12 @@ void *__dt__13TUnk_804A204CFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void *TObjPlayer__sub_80124694(void *arg0) {
+void *TObjPlayer__sub_80124694(TObjPlayer *arg0) {
     TItemWeapon__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = megid_projectile_weapon_vtable;
     ((TObjPlayer *)((char *)arg0 + 376))->set_flags(32);
-    ((TObjPlayer *)arg0)->set_status_flags(35);
-    ((TObjPlayer *)arg0)->set_effect_state(12);
+    arg0->set_status_flags(35);
+    arg0->set_effect_state(12);
     *(u32 *)((s8 *)arg0 + 0x1F8) = 0;
     *(u32 *)((s8 *)arg0 + 0x200) = 0;
     ((TUnk_804A204C *)arg0)->m_204 = -1;

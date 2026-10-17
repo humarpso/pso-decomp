@@ -208,20 +208,20 @@ void TShopEquipmentGearSequence::vfunc_11() {
     }
 }
 
-u8 *__dt__26TShopEquipmentGearSequenceFv(u8 *arg0, s16 arg1) {
+u8 *__dt__26TShopEquipmentGearSequenceFv(TShopEquipmentGearSequence *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__26TShopEquipmentGearSequence.value;
         if ((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x34));
             *(u32 *)((s8 *)arg0 + 0x34) = 0U;
         }
-        if ((u32) ((TShopEquipmentGearSequence *)arg0)->m_2c != 0U) {
+        if ((u32) arg0->m_2c != 0U) {
             TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x2C)));
-            ((TShopEquipmentGearSequence *)arg0)->m_2c = 0U;
+            arg0->m_2c = 0U;
         }
-        if ((u32) ((TShopEquipmentGearSequence *)arg0)->m_30 != 0U) {
+        if ((u32) arg0->m_30 != 0U) {
             TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x30)));
-            ((TShopEquipmentGearSequence *)arg0)->m_30 = 0U;
+            arg0->m_30 = 0U;
         }
         ((TShopSequence *)arg0)->close_message_window();
         lbl_805D6220 = 0;
@@ -231,7 +231,7 @@ u8 *__dt__26TShopEquipmentGearSequenceFv(u8 *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
-    return arg0;
+    return (u8 *)arg0;
 }
 typedef char RecoveredGlobal_8021B89C___vt__26TShopEquipmentGearSequence_size[sizeof(RecoveredGlobal_8021B89C___vt__26TShopEquipmentGearSequence) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_8021B89C_TShopEquipmentGearSequence__data_80513EB0_size[sizeof(RecoveredGlobal_8021B89C_TShopEquipmentGearSequence__data_80513EB0) == 0x10 ? 1 : -1];
