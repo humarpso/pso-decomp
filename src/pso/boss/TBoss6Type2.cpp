@@ -1258,7 +1258,7 @@ s32 TBoss6Type2::turn_toward_target_position() {
         m_60 = approach_angle_limited((s32)((int) ((s32)m_60)), (s32)((s32) ((s32) (TBoss6Type2__data_804713C0 * atan2_float(sp8.f.x, sp8.f.z)))), var_r31);
         if (var_r31 == angle_difference_abs(temp_r30, (int) ((s32)m_60))) {
             if ((s32) m_508 == 0) {
-                play_sound_effect(0x4006A602, (void *)(&position), 0, 0);
+                play_sound_effect(0x4006A602, &position, 0, 0);
                 m_508 = 1;
             }
         } else {
@@ -1870,7 +1870,7 @@ void TBoss6Type2::play_phase_sound() {
 void TBoss6Type2::play_sound_if_no_target() {
     u8 *arg0 = (u8 *)this;
     if (is_target_valid() == 0) {
-        play_sound_effect((s32)(*(s32 *)((s8 *)&TBoss6Type2__no_target_sound_ids.value + (TBoss6Type2::find_index_in_table(this->m_2e4) * 4))), (void *)((u32)(arg0 + 0x38)), 0, 1);
+        play_sound_effect((s32)(*(s32 *)((s8 *)&TBoss6Type2__no_target_sound_ids.value + (TBoss6Type2::find_index_in_table(this->m_2e4) * 4))), (void *)(arg0 + 0x38), 0, 1);
     }
 }
 
@@ -2632,7 +2632,7 @@ void TBoss6Type2__sub_802BD938(u8 *arg0, u8 *arg1) {
         VecCopy((Vec *)(&stack.sp18), (const Vec *)(arg0 + 0x38));
         stack.sp18 += TBoss6Type2__data_805DE45C * sin_table_lookup(temp_r29);
         stack.sp20 += TBoss6Type2__data_805DE45C * cos_table_lookup(temp_r29);
-        if (xyz_distance((void *)(arg0 + 0x38), (void *)&TBoss6Type2__data_8047105C.value) > lbl_805DE4CC) {
+        if (xyz_distance(arg0 + 0x38, (void *)&TBoss6Type2__data_8047105C.value) > lbl_805DE4CC) {
             temp_r29_2 = (s32) (lbl_805DE46C * (TBoss6Type2__data_805DE468 * (f32) rand()));
             VecCopy((Vec *)(&stack.sp18), (const Vec *)(&TBoss6Type2__data_8047105C.value));
             stack.sp18 += TBoss6Type2__data_805DE45C * sin_table_lookup(temp_r29_2);
@@ -2798,7 +2798,7 @@ void TBoss6Type2::send_action_packet(s8 arg1) {
     Stack_802BDDF8 stack;
     if (((TBoss6Type1 *)(*(s32 *)&this->m_3f8))->is_idle() != 0) {
         ((TBoss6Type2 *)(&stack.sp8))->init_packet();
-        build_state_packet((u8 *)(&stack.sp8));
+        build_state_packet((u8 *)&stack.sp8);
         stack.spC = arg1;
         ((TBoss6Type2 *)(&stack.sp8))->update_and_send();
     }

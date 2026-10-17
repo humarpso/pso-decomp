@@ -927,7 +927,7 @@ void TObjCity_Season_HalloweenPumpkin::render() {
 
 void TObjCity_Season_HalloweenPumpkin::run_task() {
     if ((u32) *(u32 *)((s8 *)&city_season_easter_egg_model_table.value + 0xC) != 0U) {
-        this->rotation_y = (s32)(this->rotation_y + 0x40);
+        this->rotation_y = (this->rotation_y + 0x40);
     }
 }
 

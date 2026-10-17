@@ -246,7 +246,7 @@ void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3) {
         if (var_r0 != 0) {
             var_r0 = (s32)__ct__13TItemAttackerFv((u8 *)var_r0, (s32)arg0, (s32)arg1, (s32)arg2, (s32)arg3);
         }
-        TItemAttacker::spawn_item_timer(var_r0, (s32)(&TItemAttacker__sub_8010349C), arg2);
+        TItemAttacker::spawn_item_timer(var_r0, (s32)&TItemAttacker__sub_8010349C, arg2);
     }
 }
 

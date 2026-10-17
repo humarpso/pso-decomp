@@ -3902,7 +3902,7 @@ void update_projectile_spawns__13TBoss2DeRolLeFPv(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x53C) = 0;
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x53C) <= 0x10) {
-        play_persistent_sound(0x4003AD00, (s32)arg0, (u32)((void *)(arg0 + 0x530)), 0, 0);
+        play_persistent_sound(0x4003AD00, (s32)arg0, (u32)(arg0 + 0x530), 0, 0);
         *(s32 *)((s8 *)arg0 + 0x53C) = (s32) (*(s32 *)((s8 *)arg0 + 0x53C) + 1);
     }
 }
@@ -4164,7 +4164,7 @@ void set_flags_play_sound__13TBoss2DeRolLeFPv(u8 *arg0) {
 
 void apply_hp_damage_with_sound__13TBoss2DeRolLeFPvi(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0x6AC) = (s32) (*(s32 *)((s8 *)arg0 + 0x6AC) - (s32) (TBoss2DeRolLe__data_805D8288 * (f32) arg1));
-    ((s32 (*)(s32, void *))play_sound)(0x4003A80F, (void *)(arg0 + 0x38));
+    ((s32 (*)(s32, void *))play_sound)(0x4003A80F, arg0 + 0x38);
 }
 
 void update_check__13TBoss2DeRolLeFPv(void *arg0) {
@@ -4869,9 +4869,9 @@ void update_colliders_from_offsets__13TBoss2DeRolLeFi(s32 arg0) {
     Vec sp20;
     Vec sp14;
     Vec sp8;
-    VecCopy__FP3VecPC3Vec((s32)&sp8, (s32)(arg0 + 0x440));
-    VecCopy__FP3VecPC3Vec((s32)&sp14, (s32)(arg0 + 0x500));
-    VecCopy__FP3VecPC3Vec((s32)&sp20, (s32)(arg0 + 0x50C));
+    VecCopy__FP3VecPC3Vec((s32)&sp8, arg0 + 0x440);
+    VecCopy__FP3VecPC3Vec((s32)&sp14, arg0 + 0x500);
+    VecCopy__FP3VecPC3Vec((s32)&sp20, arg0 + 0x50C);
     update_local_colliders_from_world(arg0, &sp8);
 }
 #pragma pop

@@ -122,7 +122,7 @@ void TAdChrSelBSlotGC::reset_plate_positions() {
 }
 
 void TAdChrSelBSlotGC__sub_8030E768(u8 *arg0) {
-    if (get_global_state__16TAdChrSelBSlotGCFv((void *)(arg0)) > 0x18) {
+    if (get_global_state__16TAdChrSelBSlotGCFv(arg0) > 0x18) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
             TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x64)));
             *(u32 *)((s8 *)arg0 + 0x64) = 0U;
@@ -130,7 +130,7 @@ void TAdChrSelBSlotGC__sub_8030E768(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x1C) = 0x12;
         return;
     }
-    if (get_global_state__16TAdChrSelBSlotGCFv((void *)(arg0)) < 0xC) {
+    if (get_global_state__16TAdChrSelBSlotGCFv(arg0) < 0xC) {
         if ((u32) *(u32 *)((s8 *)arg0 + 0x40) != 0U) {
             TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x40)));
             *(u32 *)((s8 *)arg0 + 0x40) = 0U;

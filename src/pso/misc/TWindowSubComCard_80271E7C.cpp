@@ -1401,7 +1401,7 @@ void run_task__17TWindowSubComCardFv(u8 *arg0) {
     case 0x37:
         TWindowSubComCard__sub_80249144((void *)(((TWindowSubComCard *)arg0)->m_7c));
         temp_r29_7 = get_character_save_record(0xFFFF);
-        ((TWindowSubComCard *)arg0)->m_64 = ((TWindowSubComCard *)arg0)->create_option_list_window((s32)(temp_r29_7 + 0x22EC), (s32)((int) (update_selected_entry__17TWindowSubComCardFv((int) (((TWindowSubComCard *)arg0)->m_7c)))));
+        ((TWindowSubComCard *)arg0)->m_64 = ((TWindowSubComCard *)arg0)->create_option_list_window(temp_r29_7 + 0x22EC, (s32)((int) (update_selected_entry__17TWindowSubComCardFv((int) (((TWindowSubComCard *)arg0)->m_7c)))));
         ((TWindowSubComCard *)arg0)->m_1c = 0x38U;
     case 0x38:
         if (((TWindowSubComCard *)(((TWindowSubComCard *)arg0)->m_64))->get_status_flag() != 0) {

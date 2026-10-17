@@ -1869,7 +1869,7 @@ void TObjEneSlimeOne::vfunc_62() {
     u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)&this->m_384 != 0xC) {
         if (((s32) this->m_2d4 < (s32) lbl_805D586C) && (((u32 (*)(void))get_player_by_client_id)() != 0U) && (check_player_field_7cc__15TObjEneSlimeOneFv() == 2) && ((u32) this->m_3f0 != 0U) && (((TObject *)((void *) this->m_3f0))->all_parents_unqueued_for_destruction() != 0)) {
-            try_spawn_child__15TObjEneSlimeOneFiPv(this->m_3f0, (void *)(arg0 + 0x38));
+            try_spawn_child__15TObjEneSlimeOneFiPv(this->m_3f0, arg0 + 0x38);
         }
         *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFFFDFF);
         ((TObjEneSlimeOne *)arg0)->set_state((s32)((void*)(0xC)));

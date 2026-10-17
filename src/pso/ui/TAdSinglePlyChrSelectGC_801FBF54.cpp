@@ -427,7 +427,7 @@ s32 TAdSinglePlyChrSelectGC::verify_system_file(void* _w0) {
     }
     if (find_card_file__15TAdPlayerLoadGCFiPv((s32)system_save_card_channel, (s32)pso_system_card_filename) == 0) {
         lbl_805D49B4 = 1;
-        ((TAdSinglePlyChrSelectGC *)system_save_card_channel)->load_player_slot((int)(pso_system_card_filename), (int)(system_save_file_buffer));
+        ((TAdSinglePlyChrSelectGC *)system_save_card_channel)->load_player_slot((int)pso_system_card_filename, (int)system_save_file_buffer);
         TAdSinglePlyChrSelectGC::init_slots();
 loop_4:
         if (TAdPlayerLoadGC__sub_801E1B50((void *)system_save_card_channel) != 0) {
@@ -436,7 +436,7 @@ loop_4:
             goto loop_4;
         }
         lbl_805D49B4 = 0;
-        memcpy((void*)temp_r3, (void*)((void *)(system_save_file_buffer + 0x2048)), (void*)(0x11C));
+        memcpy((void*)temp_r3, (void*)(system_save_file_buffer + 0x2048), (void*)(0x11C));
         var_r30 = ((TAdSinglePlyChrSelectGC *)temp_r3)->fields_equal((void *)system_save_payload);
     }
     ::operator delete((void *)temp_r3);
@@ -3878,8 +3878,8 @@ void reset_save_header__23TAdSinglePlyChrSelectGCFv(void) {
   *((s16 *) (((s8 *) system_save_payload) + 0xE)) = 0;
   TAdPlayerLoadGC::reset_load_state((void *)0, &sp8);
   memmove(system_save_payload + 0x110, &sp8, 8);
-  getDateStamp((DateStamp *)((s32 *)(&sp10)));
-  DateToSeconds((DateStamp *)((s32 *)(&sp10)), (int *)((s32 *)(system_save_payload + 0x118)));
+  getDateStamp((DateStamp *)(&sp10));
+  DateToSeconds((DateStamp *)(&sp10), (int *)(system_save_payload + 0x118));
 }
 
 s32 init_fresh_character_card(void) {

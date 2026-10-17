@@ -98,7 +98,7 @@ u8 *TObjTombstone__ct(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3) {
     stack.sp9 = *(u8 *)((s8 *)arg3 + 1);
     stack.spA = *(u8 *)((s8 *)arg3 + 2);
     VecCopy((Vec *)(&stack.sp18), (const Vec *)(arg3 + 4));
-    ((TObjTombstone *)arg0)->setup(arg2, (s32)(&stack.sp8));
+    ((TObjTombstone *)arg0)->setup(arg2, (s32)&stack.sp8);
     ((TObjTombstone *)arg0)->reset_entries_and_format_name();
     *(s32 *)&((TObjTombstone *)arg0)->m_234 = 0;
     return arg0;

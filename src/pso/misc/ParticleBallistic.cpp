@@ -280,7 +280,7 @@ void TUnk_8048E778::retire_ballistic_particle_if_done() {
         stack.sp8 = this->m_70 - this->m_30;
         stack.spC = *(f32 *)&this->unk_74 - *(f32 *)((s8 *)arg0 + 0x34);
         stack.sp10 = this->m_78 - this->m_38;
-        if (TParticleCtrl__data_805D94F8 == vec_squared_length((u8 *)(&stack.sp8))) {
+        if (TParticleCtrl__data_805D94F8 == vec_squared_length((u8 *)&stack.sp8)) {
             queue_destruction__7TObjectFv((arg0));
             return;
         }

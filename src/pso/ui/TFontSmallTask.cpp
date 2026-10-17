@@ -435,7 +435,7 @@ s32 run_load_callback_table(Ent_800FD6F8 *p, u32 size) {
 }
 
 void TLobby::reset_leader_selection_static() {
-    reset_leader_selection((void*)(&TLobby__data_805011D8.value));
+    reset_leader_selection(&TLobby__data_805011D8.value);
 }
 typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8000F8FC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8FC_lbl_804FE120) == 0x18 ? 1 : -1];

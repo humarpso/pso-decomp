@@ -866,7 +866,7 @@ void TBoss4Type2__vt36(u8 *arg0) {
   *((int *) (((s8 *) arg0) + 0x398)) = temp_r0;
   if (temp_r0 < 0)
   {
-    ((s32 (*)(s32, void *, s32, s32))play_sound_effect)(0x4003AD1A, (void *)(arg0 + 0x38), 0, 1);
+    ((s32 (*)(s32, void *, s32, s32))play_sound_effect)(0x4003AD1A, arg0 + 0x38, 0, 1);
     TTecResta::create((void *)arg0, arg0 + 0x38, (void *)(*((int *) (((s8 *) arg0) + 0x428))));
     TBoss4Type2__sub_80057048((void *) arg0, (int) (*((int *) (((s8 *) arg0) + 0x424))));
   }

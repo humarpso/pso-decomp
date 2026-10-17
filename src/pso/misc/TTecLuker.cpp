@@ -453,7 +453,7 @@ void TTecLuker::init_fields(s16 name) {
 void TTecLuker::send_telepipe_packet() {
     u8 *arg0 = (u8 *)this;
     Stack_802340E4 stack;
-    init_telepipe_packet_header((void*)(&stack.sp8));
+    init_telepipe_packet_header(&stack.sp8);
     stack.spC = *(u16 *)&this->m_name;
     stack.sp10 = *(s32 *)&this->m_flags;
     stack.spE = *(s16 *)((s8 *)arg0 + 2);

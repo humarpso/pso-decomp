@@ -1568,10 +1568,10 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     TBoss4DarkFalz__sub_8004B4F0((arg0 + 0x388), (void *)arg2);
     *(s16 *)((s8 *)arg0 + 0x38A) = 0;
-    if (((TObjEnemy *)arg0)->exchange_object_state((s32)(&sp8), (s16)(1)) != 0) {
+    if (((TObjEnemy *)arg0)->exchange_object_state((s32)&sp8, (s16)(1)) != 0) {
         sp8.a = 0;
         sp8.c = 0;
-        ((TObjEnemy *)arg0)->exchange_object_state((s32)(&sp8), (s16)(0));
+        ((TObjEnemy *)arg0)->exchange_object_state((s32)&sp8, (s16)(0));
     }
     VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(VecCopy((Vec *)(arg0 + 0x50), (const Vec *)(VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38))))));
     VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));

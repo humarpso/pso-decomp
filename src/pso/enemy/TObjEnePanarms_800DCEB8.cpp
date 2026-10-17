@@ -252,8 +252,8 @@ void TObjEnePanarms__sub_800DCFE0(u8 *arg0) {
     *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) & 0xFFFFFFFE);
     ((TUnk_804B9870 *)arg0)->obj_clearFlags30((u32)(0x40000));
     obj_setFlags30(arg0, 0x04000000);
-    play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003BC31)))), (void *)(arg0 + 0x3AC), 0, 0);
-    play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003BC30)))), (void *)(arg0 + 0x3C4), 0, 0);
+    play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003BC31)))), arg0 + 0x3AC, 0, 0);
+    play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003BC30)))), arg0 + 0x3C4, 0, 0);
     ((TObjEnePanarms *)arg0)->init((void*)0xA);
 }
 
@@ -343,7 +343,7 @@ void TObjEnePanarms__sub_800DD368(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x3DC) = 0;
     *(s32 *)((s8 *)arg0 + 0x388) = 0x384;
     *(s32 *)((s8 *)arg0 + 0x3F8) = 1;
-    play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003BC2E)))), (void *)(arg0 + 0x38), 0, 0);
+    play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003BC2E)))), arg0 + 0x38, 0, 0);
     if (TObjEnePanarms__sub_800DFB44((s32)((int) (*(s32 *)((s8 *)arg0 + 0x3E4)))) == 0) {
         TObjEnePanarms__sub_800E1E14((u8 *)(*(s32 *)((s8 *)arg0 + 0x3E4)));
     }
@@ -370,8 +370,8 @@ void TObjEnePanarms__sub_800DD488(u8 *arg0) {
     ((TUnk_804B9870 *)arg0)->obj_clearFlags30((u32)(0x40000));
     obj_setFlags30(arg0, 0x04000000);
     TObjEnePanarms__sub_800DE430((s32)arg0, 0x22, 0x3C);
-    play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003BC2D)))), (void *)(arg0 + 0x3AC), 0, 0);
-    play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003BC2C)))), (void *)(arg0 + 0x3C4), 0, 0);
+    play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003BC2D)))), arg0 + 0x3AC, 0, 0);
+    play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003BC2C)))), arg0 + 0x3C4, 0, 0);
     set_field_b8__10TObjMotionFs(arg0, 0xA);
 }
 

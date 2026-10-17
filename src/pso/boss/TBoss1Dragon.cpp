@@ -5529,7 +5529,7 @@ void apply_landing_attack__12TBoss1DragonFi(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_80027E78, sp8) == 0x0) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80027E78, sp10) == 0x8) ? 1 : -1];
     Stack_80027E78 stack;
-    TBoss1Dragon__sub_80027A80((u8 *)(&stack.sp8), (u8 *)(&boss1_dragon_attack_sphere_params.value));
+    TBoss1Dragon__sub_80027A80((u8 *)&stack.sp8, (u8 *)&boss1_dragon_attack_sphere_params.value);
     stack.sp10 = *(f32 *)((s8 *)((*(RecoveredGlobal_80027E78_TBoss1Dragon__data_804FE17C *)&TBoss1Dragon__data_804FE17C).value) + 0xC);
     ((TBoss1Dragon *)arg0)->reload_stats_for_phase((int) ((*(RecoveredGlobal_80027E78_TBoss1Dragon__data_804FE17C *)&TBoss1Dragon__data_804FE17C).value));
     switch (isV2Mode__12TBoss1DragonFv()) {
@@ -5553,7 +5553,7 @@ void TBoss1Dragon::spawn_impact_crater(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     Vec position;
     s32 temp_r5;
-    VecCopy__FP3VecPC3Vec((s32)(&position.x), arg1);
+    VecCopy__FP3VecPC3Vec((s32)&position.x, arg1);
     temp_r5 = *(s32 *)((s8 *)arg0 + 0x6A4);
     if (temp_r5 < 0xC) {
         position.y += lbl_805D80A8 * (f32) temp_r5;

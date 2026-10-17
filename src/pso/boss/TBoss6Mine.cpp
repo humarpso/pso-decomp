@@ -327,7 +327,7 @@ void TBoss6Mine__vt5(u8 *arg0) {
     typedef char sp1C_offset[(offsetof(Stack_803242C0, sp1C) == 0x14) ? 1 : -1];
     Stack_803242C0 stack;
     f32 temp_f31;
-    VecCopy__FP3VecPC3Vec((s32)(&stack.sp14), (s32)(arg0 + 0x3BC));
+    VecCopy__FP3VecPC3Vec((s32)&stack.sp14, (s32)(arg0 + 0x3BC));
     subtract_vector(&stack.sp14, arg0 + 0x38);
     if (vector_length(&stack.sp14) <= lbl_805DF59C) {
         *(s32 *)((s8 *)arg0 + 0x38C) = 0;
@@ -339,12 +339,12 @@ void TBoss6Mine__vt5(u8 *arg0) {
     stack.sp18 *= lbl_805DF59C;
     stack.sp1C *= lbl_805DF59C;
     vec3_add_to(arg0 + 0x38, &stack.sp14);
-    VecCopy__FP3VecPC3Vec((s32)(&stack.sp8), (s32)(arg0 + 0x38));
+    VecCopy__FP3VecPC3Vec((s32)&stack.sp8, (s32)(arg0 + 0x38));
     temp_f31 = stack.spC - lbl_805DF5A0;
     stack.spC = temp_f31;
     if ((project_actor_to_ground(arg0, &stack.sp8, 0) != 0) && (temp_f31 < stack.spC)) {
         stack.spC += lbl_805DF5A0;
-        VecCopy__FP3VecPC3Vec((s32)(arg0 + 0x38), (s32)(&stack.sp8));
+        VecCopy__FP3VecPC3Vec((s32)(arg0 + 0x38), (s32)&stack.sp8);
         *(s32 *)((s8 *)arg0 + 0x38C) = 0;
         *(s32 *)((s8 *)arg0 + 0x380) = 6;
     }

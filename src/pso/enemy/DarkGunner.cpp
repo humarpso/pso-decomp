@@ -964,7 +964,7 @@ void TObjPlayer__sub_800A16C4(u8 *arg0) {
     case -1:
         break;
     }
-    minimap_render_dot((void *)(arg0 + 0x38), -0x5DB4, 1, 0);
+    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
 }
 
 void TObjEneDarkGunner::vfunc_61() {
@@ -1064,7 +1064,7 @@ void TObjPlayer__sub_800A1D70(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & 0xFFFFFFFE);
         break;
     }
-    minimap_render_dot((void *)(arg0 + 0x38), -0x5DB4, 1, 0);
+    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
     submit_cursor_candidate(arg0, -1);
 }
 

@@ -487,7 +487,7 @@ void TNpcPlayer::send_npc_stop_6x69(s16 arg0) {
 void TNpcPlayer::send_npc_control_create(s16 arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4) {
     Stack_8034EB08 stack;
     s32 var_r31;
-    build_6x69_npc_control((void*)(&stack.sp8));
+    build_6x69_npc_control(&stack.sp8);
     stack.spC = arg0;
     var_r31 = 0;
     stack.spE = 0xFFFF;
@@ -584,7 +584,7 @@ void init_partner_dialogue(void) {
 
 void TNpcPlayer::reset_player_lobby_model(u16 arg0) {
     u32 player;
-    player = ((u32)get_player_by_client_id((s32)(arg0)));
+    player = ((u32)get_player_by_client_id(arg0));
     if (player != 0U) {
         ((TObjPlayer *)(player + 0x644))->reset_lobby_model();
     }
@@ -597,7 +597,7 @@ void TNpcPlayer::update_player_field(u16 arg0, s32 arg1) {
     }
 }
 void TNpcPlayer::end_camera_pan_for_client(u16 arg0) {
-    if (((u32)get_player_by_client_id((s32)(arg0))) != 0U) {
+    if (((u32)get_player_by_client_id(arg0)) != 0U) {
         end_camera_pan__10TObjPlayerFv();
     }
 }

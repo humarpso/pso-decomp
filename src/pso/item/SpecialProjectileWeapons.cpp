@@ -130,7 +130,7 @@ void TUnk_804A2018::run_task() {
     }
     if ((u32) *(u32 *)&this->unk_24 != 0U) {
         item = ((s32)find_item_by_id(*(s32 *)&this->unk_1C));
-        if ((item != 0) && (TObjPlayer__sub_80102C30() == 2) && (((TObjPlayer *)item)->draw_icon(this->m_20, (s32)(&sp8)) != 0)) {
+        if ((item != 0) && (TObjPlayer__sub_80102C30() == 2) && (((TObjPlayer *)item)->draw_icon(this->m_20, (s32)&sp8) != 0)) {
             if (((TItemMag *)item)->get_flag_40() == 0) {
                 copy_position__15TEffStarLight2DFPv(*(u32 *)&this->unk_24, &sp8);
                 return;
@@ -492,7 +492,7 @@ void TUnk_804A2164::emit_marker_effects() {
             var_r30 += 1;
         } while (var_r30 != 2);
     }
-    ((TObjPlayer *)((RecoilWeaponView *)this))->draw_status_icon((s32)(&sp8));
+    ((TObjPlayer *)((RecoilWeaponView *)this))->draw_status_icon((s32)&sp8);
     if (((TObjPlayer *)((RecoilWeaponView *)this))->is_mode_two_and_ready() != 0) {
         launch_rare_weapon_special__10TObjPlayerFPvlf((void *) (((RecoilWeaponView *)this)), &sp8, 1, (f32) (1.0f));
         return;

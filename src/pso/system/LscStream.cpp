@@ -143,7 +143,7 @@ void lsc_stop(LscStream *arg0) {
         return;
     }
     if ((s8) arg0->state != 0) {
-        enter_lock__6TLobbyFv((void *)(&sp8));
+        enter_lock__6TLobbyFv(&sp8);
         arg0->state = 0U;
         if ((u32) (u32)arg0->file_handle != 0U) {
             if ((s32) arg0->read_started == 1) {
@@ -162,7 +162,7 @@ void lsc_stop(LscStream *arg0) {
             arg0->queued_count = 0;
         }
         arg0->field_34 = 0;
-        notify_dvd_read__6TLobbyFv((void *)(&sp8));
+        notify_dvd_read__6TLobbyFv(&sp8);
     }
 }
 

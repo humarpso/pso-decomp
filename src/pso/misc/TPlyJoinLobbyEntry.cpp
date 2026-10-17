@@ -3812,7 +3812,7 @@ u8 *copy_player_data__9TProtocolFPvPv(u8 *arg0, u8 *arg1) {
     temp_r4 = (arg1 + 0x348);
     *(ByteBlock_24 *)((s32) temp_r6 + 4) = *(const ByteBlock_24 *)((s32) temp_r4 + 4);
     *(ByteBlock_50 *)((arg0 + 0x36C) + 4) = *(const ByteBlock_50 *)((arg1 + 0x36C) + 4);
-    TObjPlayer__sub_8013A748((void *)(arg0 + 0x3C0), (void *)(arg1 + 0x3C0));
+    TObjPlayer__sub_8013A748(arg0 + 0x3C0, arg1 + 0x3C0);
     temp_r5 = (arg0 + 0x404);
     temp_r4_2 = (arg1 + 0x404);
     *(ByteBlock_14 *)((s32) temp_r5 + 4) = *(const ByteBlock_14 *)((s32) temp_r4_2 + 4);

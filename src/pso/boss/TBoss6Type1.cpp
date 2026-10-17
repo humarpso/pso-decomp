@@ -2093,7 +2093,7 @@ void send_flow_action_if_idle__11TBoss6Type1FPvc(u8 *arg0, s8 arg1) {
     typedef char spC_offset[(offsetof(Stack_802B9204_boss6_1, spC) == 0x4) ? 1 : -1];
     Stack_802B9204_boss6_1 stack;
     if (((s32)((TBoss6Type1 *)(*(s32 *)((s8 *)arg0 + 0x3F8)))->is_idle()) != 0) {
-        build_6xA4_olga_flow_boss_actions((void*)(&stack.sp8));
+        build_6xA4_olga_flow_boss_actions(&stack.sp8);
         ((TBoss6Type1 *)arg0)->set_sync_data(&stack.sp8);
         stack.spC = arg1;
         ((TBoss6Type1 *)(&stack.sp8))->step_and_send_60();

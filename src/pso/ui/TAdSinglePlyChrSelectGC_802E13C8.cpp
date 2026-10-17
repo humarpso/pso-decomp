@@ -310,7 +310,7 @@ void TAdSinglePlyChrSelectGC__sub_802E1A04(s32 arg0, s32 arg1, s32 arg2, s32 arg
     if (arg4 >= 0) {
         var_r6 = get_localized_text_entry(0x1C, arg4);
     }
-    ((TAdSinglePlyChrSelectGC *)arg0)->open_message_choice((void *)(temp_r31), (s32)(arg2), (void *)(var_r6), (void *)((void*)(0)));
+    ((TAdSinglePlyChrSelectGC *)arg0)->open_message_choice((void *)temp_r31, (s32)arg2, (void *)var_r6, (void *)((void*)(0)));
 }
 
 void TAdSinglePlyChrSelectGC::open_message_choice(void *arg1, s32 sel, void *arg3, void *arg4) {

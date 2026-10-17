@@ -599,7 +599,7 @@ void TWindowKeyBoardBase::sub_8025E6DC(u8 *arg1) {
         temp_r3 = *(u16 *)((s8 *)((u8 *)this) + 0x60);
         if (temp_r3 & 2) {
             if (temp_r3 & 4) {
-                ((TWindowKeyBoardBase *)((u8 *)this))->draw_text_glyphs(arg1, (void *)(&stack.sp10));
+                ((TWindowKeyBoardBase *)((u8 *)this))->draw_text_glyphs(arg1, &stack.sp10);
                 var_r31 = 0;
             } else {
                 TWindowSubStatusDisp__sub_8025E148((void *) (((u8 *)this)), arg1, &stack.sp10, (int) (*(s32 *)((s8 *)((u8 *)this) + 0x84)), (int) (*(s32 *)((s8 *)((u8 *)this) + 0x94)));

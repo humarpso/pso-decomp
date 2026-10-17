@@ -668,9 +668,9 @@ s32 TObjGrass::sub_800BCE44() {
     }
     *((s16 *) (((s8 *) arg0) + 0x33E)) = (s16) (*((s16 *) (((s8 *) arg0) + 0x32C)));
   }
-  play_persistent_sound((s32)((void *) ((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) arg0), 0x4003A801))), (void *)((void *) arg0), (void *)(arg0 + 0x38), (s32)((0) & 0xFFFFu), 0);
+  play_persistent_sound((s32)((void *) ((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) arg0), 0x4003A801))), (void *)((void *) arg0), arg0 + 0x38, (s32)((0) & 0xFFFFu), 0);
   TObjPlayer::play_effect_if_v2(-0x200);
-  minimap_render_dot((void *)(arg0 + 0x38), -0x5DB4, 1, 0);
+  minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
 }
 
 void TObjGrass::vfunc_62() {

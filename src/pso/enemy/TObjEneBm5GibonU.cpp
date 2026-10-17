@@ -2165,20 +2165,20 @@ int spawn_landing_effect__16TObjEneBm5GibonUFPvPv(Ene_800CCC6C *arg0, void *arg1
 #pragma fp_contract on
 void TObjEneBm5GibonU__sub_800CCD8C(u8 *arg0) {
     if ((objInBand__FP7GameObjf(arg0, TObjEneBm5GibonU__data_805DA170) != 0) || (objInBand__FP7GameObjf(arg0, TObjEneBm5GibonU__data_805DA174) != 0)) {
-        spawn_landing_effect__16TObjEneBm5GibonUFPvPv((Ene_800CCC6C *)(arg0), (void *)((void *)(arg0 + 0x38)));
+        spawn_landing_effect__16TObjEneBm5GibonUFPvPv((Ene_800CCC6C *)(arg0), (void *)(arg0 + 0x38));
     }
 }
 #pragma pop
 
 void TObjEneBm5GibonU__sub_800CCDE4(u8 *arg0) {
     if (objInBand__FP7GameObjf(arg0, TObjEneBm5GibonU__data_805DA178) != 0) {
-        ((TObjEneBm5GibonU *)arg0)->get_attack_state((void *)(arg0 + 0x38));
+        ((TObjEneBm5GibonU *)arg0)->get_attack_state(arg0 + 0x38);
     }
 }
 
 void TObjEneBm5GibonU__sub_800CCE28(u8 *arg0) {
     if ((objInBand__FP7GameObjf(arg0, lbl_805DA17C) != 0) || (objInBand__FP7GameObjf(arg0, TObjEneBm5GibonU__data_805DA174) != 0)) {
-        ((TObjEneBm5GibonU *)arg0)->get_attack_state((void *)(arg0 + 0x38));
+        ((TObjEneBm5GibonU *)arg0)->get_attack_state(arg0 + 0x38);
     }
 }
 
@@ -3080,10 +3080,10 @@ void TObjEneBm5GibonU__sub_800CEBD8(u8 *actor, s32 arg1) {
             }
             TObjEneBm5GibonU__sub_800CCD8C(actor);
             if (objInBand__FP7GameObjf(actor, TObjEneBm5GibonU__data_805DA160) != 0) {
-                play_sound_effect((void *)(copy_target_state__14TObjEnePanarmsFPv(actor, 0x3A828)), (void *)(actor + 0x38), 0, 0);
+                play_sound_effect((void *)(copy_target_state__14TObjEnePanarmsFPv(actor, 0x3A828)), actor + 0x38, 0, 0);
             }
             if (objInBand__FP7GameObjf(actor, lbl_805DA1DC) != 0) {
-                play_sound_effect((void *)(copy_target_state__14TObjEnePanarmsFPv(actor, 0x3A529)), (void *)(actor + 0x38), 0, 0);
+                play_sound_effect((void *)(copy_target_state__14TObjEnePanarmsFPv(actor, 0x3A529)), actor + 0x38, 0, 0);
             }
             if (objInBand__FP7GameObjf(actor, lbl_805DA1DC) != 0) {
                 *(s32 *)((s8 *)actor + 0x564) = 0;
@@ -3857,7 +3857,7 @@ void TObjEneBm5GibonU__sub_800CFFBC(u8 *arg0, s32 arg1) {
       advance_animation_playback((void *) arg0);
       if (objInBand__FP7GameObjf((void *) arg0, (f32) TObjEneBm5GibonU__data_805DA184) != 0)
     {
-      play_sound_effect((void *)((void *) ((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) arg0), 0x3A523))), (void *)(arg0 + 0x38), 0, 0);
+      play_sound_effect((void *)((void *) ((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) arg0), 0x3A523))), arg0 + 0x38, 0, 0);
     }
       if (enemy_validate_retained_target((void *) arg0) != 0)
     {

@@ -409,7 +409,7 @@ void TLobby::seek_gvrt_chunk() {
     s32 sp8;
     do {
         spC = *(s32 *)((s8 *)((s32 *)TLobby__sub_803DDD2C(4)) + 0);
-        TLobby::bswap32_in_place((u32 *)(&spC));
+        TLobby::bswap32_in_place((u32 *)&spC);
         switch (spC) {
         case 0x4D4D4F43:
         case 0x564E4F43:
@@ -418,7 +418,7 @@ void TLobby::seek_gvrt_chunk() {
         case 0x4C505647:
         case 0x43474D49:
             sp8 = *(s32 *)((s8 *)((s32 *)TLobby__sub_803DDD2C(4)) + 0);
-            TLobby::bswap32_in_place((u32 *)(&sp8));
+            TLobby::bswap32_in_place((u32 *)&sp8);
             TLobby__sub_803DDD40(sp8, 1);
             break;
         case 0x54525647:
@@ -426,7 +426,7 @@ void TLobby::seek_gvrt_chunk() {
             break;
         default:
             sp8 = *(s32 *)((s8 *)((s32 *)TLobby__sub_803DDD2C(4)) + 0);
-            TLobby::bswap32_in_place((u32 *)(&sp8));
+            TLobby::bswap32_in_place((u32 *)&sp8);
             TLobby__sub_803DDD40(sp8, 1);
             break;
         }

@@ -833,7 +833,7 @@ char *get_quest_name__12TQuestThreadFv(void) {
 }
 
 void clear_thread_state__12TQuestThreadFv(void) {
-    memset((void*)(&quest_board_handlers.value), (void*)(0), (void*)(0xD8));
+    memset(&quest_board_handlers.value, (void*)(0), (void*)(0xD8));
 }
 
 s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1) {

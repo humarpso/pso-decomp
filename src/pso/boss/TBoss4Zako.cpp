@@ -991,7 +991,7 @@ void vt5__9TBoss4UroFv(u8 *arg0) {
 #pragma push
 void vt6__9TBoss4UroFv(u8 *arg0) {
     *(f32 *)((s8 *)arg0 + 0x390) = (f32) ((*(f32 *)((s8 *)arg0 + 0x390)) + lbl_805D8CE4);
-    VecCopy__FP3VecPC3Vec((void *)(arg0 + 0x44), (void *)(arg0 + 0x38));
+    VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
     vec3_add_to(arg0 + 0x38, arg0 + 0x38C);
     if (*(f32 *)((s8 *)arg0 + 0x3C) < lbl_805D8CC8) {
         *(f32 *)((s8 *)arg0 + 0x390) = (f32) lbl_805D8CBC;

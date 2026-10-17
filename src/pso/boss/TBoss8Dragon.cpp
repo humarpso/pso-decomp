@@ -2875,7 +2875,7 @@ void handle_walk_state__12TBoss8DragonFPvUi(u8 *arg0, u32 arg1) {
     u8 *temp_r30;
     u8 *temp_r4;
 
-    temp_r30 = (u8 *)(arg0 + 0x878);
+    temp_r30 = (arg0 + 0x878);
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0x11;
@@ -4760,7 +4760,7 @@ void TBoss8Dragon__sub_802F87EC(u8 *arg0, u32 arg1) {
         v.x = *(f32 *)((s8 *)TBoss8Dragon__data_80541DDC[2] + 0xC) * c + *(f32 *)((s8 *)arg0 + 0x394);
         v.y = TBoss8Dragon__data_805DED9C;
         v.z = *(f32 *)((s8 *)TBoss8Dragon__data_80541DDC[2] + 0xC) * cos_table_lookup(ang) + *(f32 *)((s8 *)arg0 + 0x39C);
-        hit = (u8 *)csnVecterUnder((s32)(&v), 0x16EF);
+        hit = (u8 *)csnVecterUnder((s32)&v, 0x16EF);
         if ((hit != NULL) && (*(f32 *)((s8 *)(*(u8 **)((s8 *)hit + 4)) + 4) <= TBoss8Dragon__data_805DED9C)) {
             *(f32 *)((s8 *)arg0 + 0x394) = v.x;
             *(f32 *)((s8 *)arg0 + 0x39C) = v.z;

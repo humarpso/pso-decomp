@@ -141,7 +141,7 @@ void TUnk_804949D8::vfunc_6() {
     stack.sp8 = temp_f1;
     stack.sp10 = this->m_28 * cos_table_lookup(temp_r3);
     vec3_add_to(&stack.sp8, arg0 + 0x1C);
-    TObjBoss2Tunnel::adjust_to_ground((s32)(&stack.sp8), &stack.sp8);
+    TObjBoss2Tunnel::adjust_to_ground((s32)&stack.sp8, &stack.sp8);
     ((TNowLoading *)(this->m_34))->copy_pos(&stack.sp8);
 }
 #pragma pop

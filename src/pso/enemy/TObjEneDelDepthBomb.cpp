@@ -652,7 +652,7 @@ void TObjEneDelDepth__sub_80313954(u8 *arg0) {
     default:
         sp8 = 0x800;
         send_6x0A_enemy_state(arg0, &sp8);
-        ((TObjEnemy *)arg0)->exchange_object_state((s32)(&sp8), (s16)(0));
+        ((TObjEnemy *)arg0)->exchange_object_state((s32)&sp8, (s16)(0));
         ((VObj_18_65b835 *)(arg0))->m77(&sp8);
         ((TObjEnemy *)arg0)->send_entity_set_flags();
         TObjPlayer::apply_effect_variant_a((s32)(arg0 + 0x38), 0);
@@ -744,7 +744,7 @@ void TObjEneDelDepth::update_attack_cast() {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x388);
     if ((temp_r0 <= 0) && (temp_r0 == 0)) {
         if ((s32) game_difficulty_selection == 3) {
-            TTecMegid::create_ex((s32)arg0, (s32)((void *)(arg0 + 0x38)), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x60))), (s32)((int) (*(s32 *)((s8 *)TObjEneDelDepth__tune_params + 0x18))));
+            TTecMegid::create_ex((s32)arg0, (s32)(arg0 + 0x38), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x60))), (s32)((int) (*(s32 *)((s8 *)TObjEneDelDepth__tune_params + 0x18))));
         } else {
             ((TTecBarta *)arg0)->create_ex(arg0 + 0x38, (void *)(*(s32 *)((s8 *)arg0 + 0x60)), (void *)(*(s32 *)((s8 *)TObjEneDelDepth__tune_params + 0x18)));
         }

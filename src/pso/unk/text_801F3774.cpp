@@ -37,7 +37,7 @@ void TLobby__sub_801F3774(void) {  }
 
 void TLobby::send_6x75_quest_flag(s16 arg0, s16 arg1, s16 arg2) {
     Stack_801F3778 stack;
-    build_6x75_update_quest_flag_dc((void*)(&stack.sp8));
+    build_6x75_update_quest_flag_dc(&stack.sp8);
     stack.spC = arg0;
     stack.spE = arg1;
     stack.sp10 = arg2;
@@ -47,7 +47,7 @@ void TLobby::send_6x75_quest_flag(s16 arg0, s16 arg1, s16 arg2) {
 
 void TLobby::send_6x75_quest_flag_cur_difficulty(s16 arg0, s16 arg1) {
     Stack_801F37CC stack;
-    build_6x75_update_quest_flag_dc((void*)(&stack.sp8));
+    build_6x75_update_quest_flag_dc(&stack.sp8);
     stack.spC = arg0;
     stack.spE = arg1;
     stack.sp10 = (s16) game_difficulty_selection;

@@ -1128,9 +1128,9 @@ void copy_item_to_bank_entry__18TCheckRoomSequenceFPvPv(u8 *arg0, u8 *arg1) {
     *(u8 *)((s8 *)arg0 + 3) = (u8) *(u8 *)((s8 *)arg1 + 3);
     *(u8 *)((s8 *)arg0 + 4) = (u8) *(u8 *)((s8 *)arg1 + 4);
     *(u8 *)((s8 *)arg0 + 5) = (u8) *(u8 *)((s8 *)arg1 + 5);
-    ((TObjPlayer *)(arg0 + 6))->copy_entry_bytes((void*)(arg1 + 6));
-    ((TObjPlayer *)(arg0 + 8))->copy_entry_bytes((void*)(arg1 + 8));
-    ((TObjPlayer *)(arg0 + 0xA))->copy_entry_bytes((void*)(arg1 + 0xA));
+    ((TObjPlayer *)(arg0 + 6))->copy_entry_bytes(arg1 + 6);
+    ((TObjPlayer *)(arg0 + 8))->copy_entry_bytes(arg1 + 8);
+    ((TObjPlayer *)(arg0 + 0xA))->copy_entry_bytes(arg1 + 0xA);
     *(s32 *)((s8 *)arg0 + 0xC) = (s32) *(s32 *)((s8 *)arg1 + 0xC);
     *(s32 *)((s8 *)arg0 + 0x10) = (s32) *(s32 *)((s8 *)arg1 + 0x10);
     *(s16 *)((s8 *)arg0 + 0x14) = 1;

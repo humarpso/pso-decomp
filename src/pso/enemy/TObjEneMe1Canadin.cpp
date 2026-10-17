@@ -2894,7 +2894,7 @@ void TObjEneMe1Canadin::render() {
                 TObjEneMe1Canadin__render_point_cursor = (s32)(arg0 + 0x414);
                 VecCopy((Vec *)(arg0 + 0x438), (const Vec *)(lbl_8043A268));
                 VecCopy((Vec *)(arg0 + 0x420), (const Vec *)(lbl_8043A274));
-                TObjEneRe7Berura::set_global_state((s32)(&fn_8009BD00));
+                TObjEneRe7Berura::set_global_state((s32)&fn_8009BD00);
                 if (var_r30 == 1) {
                     ((TObjEneRe7Berura *)arg0)->draw();
                 } else {
@@ -2907,7 +2907,7 @@ void TObjEneMe1Canadin::render() {
                 TObjEneMe1Canadin__render_point_cursor = (s32)(arg0 + 0x414);
                 VecCopy((Vec *)(arg0 + 0x438), (const Vec *)(lbl_8043A268));
                 VecCopy((Vec *)(arg0 + 0x420), (const Vec *)(lbl_8043A274));
-                TObjEneRe7Berura::set_global_state((s32)(&fn_8009BD00));
+                TObjEneRe7Berura::set_global_state((s32)&fn_8009BD00);
                 ((TObjEneDD_ST *)arg0)->draw_with_alt_model((int) (*(s32 *)((s8 *)arg0 + 0x410)));
                 TObjEneRe7Berura::set_global_state(NULL);
             }
@@ -3941,7 +3941,7 @@ void TObjEneMe1Canadin::pack_color_rgba() {
 void TObjEneMe1Canadin::reset_map_core(void * _w1) { ((int (*)(void*))copy_vec4__13TRaderMapCoreFPvPv)((char*)this + 0x4a4); pack_color_rgba(); }
 
 void TObjEneMe1CanadinLeader__sub_8009E4AC(u8 *arg0, s32 arg1) {
-    ((TObjEneMe1Canadin *)arg0)->reset_map_core((void *)(&canadin_formation_fade_start_color.value));
+    ((TObjEneMe1Canadin *)arg0)->reset_map_core(&canadin_formation_fade_start_color.value);
     *(s32 *)((s8 *)arg0 + 0x4B8) = 3;
     *(s32 *)((s8 *)arg0 + 0x4BC) = arg1;
     *(s32 *)((s8 *)arg0 + 0x4C0) = 2;

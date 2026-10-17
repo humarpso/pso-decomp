@@ -230,7 +230,7 @@ void TWindowMainMenu::set_symbol_chat_parts(void * _w1) { copy_vec2__28TWindowSu
 #pragma dont_inline off
 void init_row_entry__15TWindowMainMenuFPvicc(u8 *arg0, s32 arg1, s8 arg2, s8 arg3) {
     copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *)arg0, (void *)arg1);
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *)((void *)(arg0 + 8)), (void *)arg1);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPv((void *)(arg0 + 8), (void *)arg1);
     *(s8 *)((s8 *)arg0 + 0x10) = arg3;
     *(s8 *)((s8 *)arg0 + 0x11) = arg2;
     *(s8 *)((s8 *)arg0 + 0x12) = 0;

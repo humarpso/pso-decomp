@@ -309,7 +309,7 @@ void replace_item_with_new_code(void *arg0, u32 arg1) {
           TItemProArmor__sub_801178A8((&sp8), (void *)arg1);
           break;
         case 2:
-          TItemProShield::set_params((s32)(&sp8), (void *)arg1);
+          TItemProShield::set_params((s32)&sp8, (void *)arg1);
           break;
         case 3:
           TItem__sub_8011892C((u8 *)&sp8, arg1);

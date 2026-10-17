@@ -70,7 +70,7 @@ void TObjEneMe3Stelth::play_hit_effect() {
 }
 void TObjEneMe3Stelth__sub_800F0C90(u8 *arg0) {
     if ((objInBand((GameObj *)arg0, (f32)lbl_805DA814) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805DA818)) != 0)) {
-        ((TObjEneMe3Stelth *)arg0)->try_spawn_ground_effect((s32)((s32)(arg0 + 0x38)));
+        ((TObjEneMe3Stelth *)arg0)->try_spawn_ground_effect((s32)(arg0 + 0x38));
     }
 }
 

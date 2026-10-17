@@ -280,8 +280,8 @@ void init_work__11TBoss6Type1FPv(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x40C) = 0x3C;
     *(s32 *)((s8 *)arg0 + 0x410) = 0x3C;
     VecCopy((Vec *)(arg0 + 0x420), (const Vec *)(lbl_80470CA4));
-    ((int (*)(void*, void*, void*, void*))play_sound_effect)((void*)(0x39403), (void*)(arg0 + 0x584), (void*)(0), (void*)(1));
-    ((int (*)(void*, void*, void*, void*))play_sound_effect)((void*)(0x4003A811), (void*)(arg0 + 0x38), (void*)(0), (void*)(1));
+    ((int (*)(void*, void*, void*, void*))play_sound_effect)((void*)(0x39403), arg0 + 0x584, (void*)(0), (void*)(1));
+    ((int (*)(void*, void*, void*, void*))play_sound_effect)((void*)(0x4003A811), arg0 + 0x38, (void*)(0), (void*)(1));
     ((TBoss6Type1 *)arg0)->release_effect_slot((s32)((void*)(0)));
     ((TBoss6Type1 *)arg0)->spawn_effect_slot((s32)((void*)(1)));
 }

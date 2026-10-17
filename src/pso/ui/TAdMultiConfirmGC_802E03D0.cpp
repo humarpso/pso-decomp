@@ -376,7 +376,7 @@ void TNpcPlayer::update_model_load() {
 }
 
 void fn_802E0784(u8 *arg0) {
-    ((TObjPlayer *)arg0)->set_field_d8((s32)(&lbl_804E2F78.value));
+    ((TObjPlayer *)arg0)->set_field_d8((s32)&lbl_804E2F78.value);
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)TAdMultiPlyChrSelectGC__resource_bundle + 0x430)));
     set_cursor_index__17TAdMultiConfirmGCFPvi(arg0, 0);
     set_animation__10TObjPlayerFPvs((arg0), (((TUnk_804E3008 *)arg0)->m_b8));
@@ -432,7 +432,7 @@ void TObjPlayer::update_chara_making() {
         ((TAdPlyStatusGC *)(this->m_170))->get_chara_making_data();
         set_global_param__8TObjFishFl();
         TCharaMaking::enable_making();
-        TObjPlayer__sub_802E0580(arg0, (int)((int) (((TAdPlyStatusGC *)(this->m_170))->get_field_498())), (void *)(arg0 + 0x120));
+        TObjPlayer__sub_802E0580(arg0, (int)((int) (((TAdPlyStatusGC *)(this->m_170))->get_field_498())), arg0 + 0x120);
         TCharaMaking::clear_flag_bit0();
         pop_matrix();
     }

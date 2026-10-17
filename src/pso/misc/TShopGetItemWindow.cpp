@@ -147,7 +147,7 @@ void TShopGetItemWindow::handle_withdraw_confirm() {
       if (copy_item_record__18TCheckRoomSequenceFiPvi((int) idx, &stack.sp8, (int) (slot & 0xFFFFFFFFFFFFFFFFu)) != 0)
       {
         stack.sp14 = -1;
-        if (TCheckRoomSequence::get_item_def((u32)(&stack.sp8)) != 0)
+        if (TCheckRoomSequence::get_item_def((u32)&stack.sp8) != 0)
         {
           set_stack_count__24TShopEquipmentListWindowFSc(&stack.sp8, (int) ((s32) ((u8) ((RecoveredFields_8021E5D8_arg0 *) ((u8 *)this))->field_54)));
         }

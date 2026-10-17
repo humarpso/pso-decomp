@@ -1615,7 +1615,7 @@ void TObjFish__sub_802E8EEC(u8 *arg0, u32 arg1, s32 _w2) {
     case 0:
         advance_animation_playback(arg0);
         if (objInBand((GameObj *)(arg0), lbl_805DEA48) != 0) {
-            TObjFish::set_effect_target_position(arg0, (void*)(0x39906), (void*)(arg0 + 0x50C));
+            TObjFish::set_effect_target_position(arg0, (void*)(0x39906), arg0 + 0x50C);
         }
         break;
     }
@@ -1831,7 +1831,7 @@ void TObjFish__sub_802E9458(u8 *arg0, u32 arg1) {
         temp_f1 = *(f32 *)((s8 *)arg0 + 0xC0);
         if ((temp_f1 >= lbl_805DEA50) && (temp_f1 <= lbl_805DEA54) && ((f32) *(s32 *)((s8 *)arg0 + 0x728) >= lbl_805DEA58)) {
             *(s32 *)((s8 *)arg0 + 0x728) = 0;
-            VecCopy__FP3VecPC3Vec((int)&v, (void *)(arg0 + 0x38));
+            VecCopy__FP3VecPC3Vec((int)&v, arg0 + 0x38);
             v.x = lbl_805DEA5C * calc_elapsed_scaled__9TObjEneDDFv(arg0) + v.x;
             v.y = lbl_805DEA60;
             v.z = v.z + lbl_805DEA64;
@@ -3101,14 +3101,14 @@ void TObjFish::update_projectile_spawns() {
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x6BC) <= 0x10) {
         if (*(s32 *)((s8 *)arg0 + 0x628) & 0x400) {
-            TObjFish::spawn_via_trap((s32)arg0, 0x39704, (s32)((void *)(arg0 + 0x524)));
+            TObjFish::spawn_via_trap((s32)arg0, 0x39704, (s32)(arg0 + 0x524));
         } else {
-            TObjFish::spawn_via_trap((s32)arg0, 0x3A303, (s32)((void *)(arg0 + 0x524)));
+            TObjFish::spawn_via_trap((s32)arg0, 0x3A303, (s32)(arg0 + 0x524));
         }
         *(s32 *)((s8 *)arg0 + 0x6BC) = (s32) (*(s32 *)((s8 *)arg0 + 0x6BC) + 1);
     }
     if (*(s32 *)((s8 *)arg0 + 0x628) & 0x200) {
-        TObjFish::spawn_via_trap((s32)arg0, 0x39F08, (s32)((void *)(arg0 + 0x50C)));
+        TObjFish::spawn_via_trap((s32)arg0, 0x39F08, (s32)(arg0 + 0x50C));
     }
 }
 

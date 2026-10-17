@@ -117,7 +117,7 @@ s32 TObjPlayer::check_hit_by_id_431(void* p, int a1) { return TObjPlayer::check_
 
 void emit_idle_water_splash(s32 owner, s32 position) {
     emit_player_sprite_particle(owner, position, 0xA2);
-    emit_player_model_particle((s32)(owner), (s32)(position), 0xA6, 2);
+    emit_player_model_particle(owner, position, 0xA6, 2);
 }
 
 void emit_sand_step_particles(s32 owner, s32 position) {

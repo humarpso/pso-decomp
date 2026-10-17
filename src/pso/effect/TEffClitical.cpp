@@ -152,11 +152,11 @@ void TEffClitical::run_task() {
         *(s32 *)((s8 *)arg0 + 0x74) = 1;
         break;
     }
-    if (approach_alpha_clamped((void *)(arg0 + 0x2C), (void *)&stack.sp20, TEffClitical__alpha_approach_step) != 0) {
+    if (approach_alpha_clamped(arg0 + 0x2C, (void *)&stack.sp20, TEffClitical__alpha_approach_step) != 0) {
         queue_destruction__7TObjectFv((arg0));
         return;
     }
-    approach_vector_in_place((void *)(arg0 + 0x3C), (void *)&stack.sp14, lbl_805D93AC);
+    approach_vector_in_place(arg0 + 0x3C, (void *)&stack.sp14, lbl_805D93AC);
     *(s32 *)((s8 *)arg0 + 0x70) = (s32) (*(s32 *)((s8 *)arg0 + 0x70) + 1);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x70) >= 7) {
         *(s32 *)((s8 *)arg0 + 0x70) = 0;

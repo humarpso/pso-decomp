@@ -224,7 +224,7 @@ void fn_800C2AC4(u8 *arg0, int arg1) {
         vec3_add_to(&stack.sp8, (void *) (arg0 - -0x38));
         if (((TObjEneRe2Flower *)arg0)->get_flag_11() != 0)
         {
-          TObjPlayer::apply_effect_variant_a((s32)(&stack.sp8), 0x32);
+          TObjPlayer::apply_effect_variant_a((s32)&stack.sp8, 0x32);
           ((TObjPlayer *)(&stack.sp8))->request_two_effects();
           ((TObjEneMe3SinowZoa *)(arg0 + 0x3F4))->init_death_params();
         }

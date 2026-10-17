@@ -76,7 +76,7 @@ s32 TObjBoss5PillarDemo::create() {
     temp_r3 = __nw__7TObjectFUl(0x4C);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = ((s32)TObjBoss5PillarDemo__ct((u8 *)temp_r3, (s32)tl_02, (s32)((void *)(temp_r31 + 8))));
+        var_r0 = ((s32)TObjBoss5PillarDemo__ct((u8 *)temp_r3, (s32)tl_02, (s32)(temp_r31 + 8)));
     }
     return var_r0;
 }

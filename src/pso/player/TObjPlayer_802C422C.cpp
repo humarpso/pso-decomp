@@ -154,9 +154,9 @@ void TObjPlayer::set_current_time() {
     s32 arg0 = (s32)this;
     s32 spC;
     s32 sp8;
-    getDateStamp((DateStamp *)((s32 *)(&spC)));
-    DateToSeconds((DateStamp *)((s32 *)(&spC)), (int *)((s32 *)(&sp8)));
-    TObjPlayer__sub_802C4648((Obj_802C4648 *)((void*)(arg0)), (u32)((void*)(sp8)));
+    getDateStamp((DateStamp *)(&spC));
+    DateToSeconds((DateStamp *)(&spC), (int *)(&sp8));
+    TObjPlayer__sub_802C4648((Obj_802C4648 *)(arg0), (u32)(sp8));
 }
 
 void TObjPlayer__sub_802C4648(Obj_802C4648 *self, u32 v) {

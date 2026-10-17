@@ -853,7 +853,7 @@ void init_window__22THunterGuildSeqOfflineFPv(u8 *arg0) {
     u32 temp_r3;
     stack.sp8 = lbl_805DC658;
     stack.spC = lbl_805DC65C;
-    ((TShopSequence *)arg0)->create_message_window((s32)((int) (get_window_layout_position(0x2C))), (s32)(&stack.sp8));
+    ((TShopSequence *)arg0)->create_message_window((s32)((int) (get_window_layout_position(0x2C))), (s32)&stack.sp8);
     if (is_quest_active() == 0) {
         temp_r3 = __nw__7TObjectFUl(0x80);
         if (temp_r3 != 0U) {

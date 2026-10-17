@@ -1540,7 +1540,7 @@ void TObjEneBeast::vfunc_94() {
     pop_matrix();
     vec3_add_to(&stack.sp8, arg0 + 0x38);
     ((TObjPlayer *)(&stack.sp8))->spawn_effect_at_ground(0x23);
-    TObjPlayer::spawn_dead_spot_type2((s32)(&stack.sp8), 0xF);
+    TObjPlayer::spawn_dead_spot_type2((s32)&stack.sp8, 0xF);
 }
 
 void TObjEneBeast::vfunc_93() {

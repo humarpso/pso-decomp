@@ -142,7 +142,7 @@ void TObjPlayer::play_particle_effect_once() {
     }
 }
 void TObjPlayer__sub_80101088(void) {
-    if (test_flags_any((s32 *)(&lbl_805D53EC), 1) != 0) {
+    if (test_flags_any(&lbl_805D53EC, 1) != 0) {
         copy_vec4__13TRaderMapCoreFPvPv(&model_material_color.value, &saved_model_draw_color.value);
         model_render_flags = lbl_805D5660;
         ((TAdRicoRing *)(&lbl_805D53EC))->clear_flags(1);

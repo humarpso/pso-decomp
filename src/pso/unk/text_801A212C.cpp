@@ -94,7 +94,7 @@ s16 TUnk_804B9870::update_object_view_visibility(f32 farg0, f32 farg1) {
     typedef char sp18_offset[(offsetof(Stack_801A2340, sp18) == 0x10) ? 1 : -1];
     Stack_801A2340 stack;
     if (this->m_flags & 0x400) {
-        if (is_in_shadow_range(farg1, (void *)(arg0 + 0x38)) != 0) {
+        if (is_in_shadow_range(farg1, arg0 + 0x38) != 0) {
             this->m_1e = 1;
             return 1;
         }
@@ -104,7 +104,7 @@ s16 TUnk_804B9870::update_object_view_visibility(f32 farg0, f32 farg1) {
     if (TMainTask::get_state_flag() == 1) {
         return this->m_1e;
     }
-    transform_point_by_current_matrix((void *)(arg0 + 0x38), (void *)&stack.sp10);
+    transform_point_by_current_matrix(arg0 + 0x38, (void *)&stack.sp10);
     if (stack.sp18 > lbl_805DC098) {
         this->m_1e = 0;
         return 0;

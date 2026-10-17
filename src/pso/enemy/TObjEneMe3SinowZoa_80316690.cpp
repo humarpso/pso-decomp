@@ -69,7 +69,7 @@ void TObjEneMe3SinowZoa::check_and_notify() {
 }
 void TObjEneMe3SinowZoa__sub_80316840(u8 *arg0) {
     if ((objInBand((GameObj *)arg0, (f32)TObjEneMe3SinowZoa__data_805DF2FC) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805DF300)) != 0)) {
-        ((TObjEneMe3SinowZoa *)arg0)->check_floor_contact((void *)(arg0 + 0x38));
+        ((TObjEneMe3SinowZoa *)arg0)->check_floor_contact(arg0 + 0x38);
     }
 }
 

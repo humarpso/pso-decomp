@@ -246,7 +246,7 @@ void THunterGuildSeqOffline::open_greeting() {
     Stack_802130AC stack;
     stack.sp8 = lbl_805DC650;
     stack.spC = lbl_805DC654;
-    ((TShopSequence *)arg0)->create_message_window((s32)((int) (((u8 *)get_window_layout_position(0x2C)))), (s32)(&stack.sp8));
+    ((TShopSequence *)arg0)->create_message_window((s32)((int) (((u8 *)get_window_layout_position(0x2C)))), (s32)&stack.sp8);
     ((VObj_18_97738d *)(arg0))->m7(1, 1);
     *(s32 *)((s8 *)arg0 + 0x30) = set_service_counter_camera(arg0, 1);
     ((TShopWindowBase *)arg0)->set_field_20((s32)((void*)(2)));

@@ -176,7 +176,7 @@ s32 TLobby__sub_80145A94(void) {
 }
 s32 TLobby__sub_80145DB4(s32 arg0) {
     s32 sp8;
-    TLobby__sub_8042EE4C((s32 *)(&sp8));
+    TLobby__sub_8042EE4C(&sp8);
     switch (sp8) {
     case 0:
     case 1:

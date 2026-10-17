@@ -189,7 +189,7 @@ void TObjBoss2Tunnel__sub_802F23FC(void) {  }
 void TObjBoss2Tunnel__sub_802F2400(u8 *arg0) {
     f32 temp_f1;
     u32 temp_r3;
-    ((TObjBoss2Tunnel *)arg0)->update_spawn_timer((s32)((s32)((s32 *)(&boss2_tunnel_spawn_timer_table_b.value))), 0xA, 1);
+    ((TObjBoss2Tunnel *)arg0)->update_spawn_timer((s32)((s32)(&boss2_tunnel_spawn_timer_table_b.value)), 0xA, 1);
     if ((*(s32 *)&boss2_tunnel_state_flags) & 8) {
         temp_f1 = *(f32 *)((s8 *)arg0 + 0x80);
         if (temp_f1 < lbl_805DEC98) {

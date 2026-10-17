@@ -144,7 +144,7 @@ void TODoorMachine01::play_proximity_sound() {
     if ((this->m_d0 & 1) && (is_any_player_within_radius_xz(lbl_805DB4F4) == 1)) {
         *(s32 *)&this->m_ac = 1;
         set_indexed_flags((arg0), 0, 8);
-        play_sound_effect(0x4004BC01, (void *)(arg0 + 0x38), 0, 0);
+        play_sound_effect(0x4004BC01, arg0 + 0x38, 0, 0);
     }
     if (this->m_d0 & 0x100000) {
         this->m_e0 = (f32) (this->m_e0 + lbl_805DB4F8);

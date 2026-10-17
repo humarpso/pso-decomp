@@ -29,7 +29,7 @@ void TWindowEffectParty::run_task() {
     u8 temp_r3;
 
     temp_r3 = this->m_1e;
-    if (((s8) temp_r3 > 0) && ((((u32)TWindowCtrl__sub_8024FB80((s8)(temp_r3 - 1))) == 0U) || (sub_80244994__13TUnk_804CE018Fv() == 0))) {
+    if (((s8) temp_r3 > 0) && ((((u32)TWindowCtrl__sub_8024FB80(temp_r3 - 1)) == 0U) || (sub_80244994__13TUnk_804CE018Fv() == 0))) {
         queue_destruction__7TObjectFv(this);
         return;
     }

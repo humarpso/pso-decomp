@@ -468,7 +468,7 @@ void TItemEquipBase::remove_equip_effects() {
 }
 
 s32 TItemEquipBase__sub_8010AC60(s32 arg0, s32 arg1, s32 arg2) {
-    if ((test_flags_any((void *)((void *)(arg0 + 0x178)), (void *)arg1) != 0) && (test_flags_any((void *)((void *)(arg0 + 0x178)), (void *)arg2) == 0)) {
+    if ((test_flags_any((void *)(arg0 + 0x178), (void *)arg1) != 0) && (test_flags_any((void *)(arg0 + 0x178), (void *)arg2) == 0)) {
         ((TObjPlayer *)(arg0 + 0x178))->set_flags(arg2);
         return 1;
     }
@@ -646,7 +646,7 @@ void TItemEquipBase::equip() {
         ((TItem *)arg0)->set_mode(2);
         ((TObjPlayer *)arg0)->add_item_flags(8);
         this->vfunc_22(1);
-        if ((TOKeyMachine01::get_global_state() != 0xF) && (test_flags_any((void *)(arg0 + 0x178), (void *)(1)) == 0)) {
+        if ((TOKeyMachine01::get_global_state() != 0xF) && (test_flags_any(arg0 + 0x178, (void *)(1)) == 0)) {
             ((TObjPlayer *)(arg0 + 0x178))->set_flags((u32)((void *)(1)));
             this->vfunc_46();
         }

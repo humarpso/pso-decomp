@@ -162,12 +162,12 @@ void spawn_hit_particles__10TObjPlayerFiPv(s32 pos, const P_802D5478 *arg1) {
 void spawn_hit_particles_at_vec__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 sp8;
     VecCopy__FP3VecPC3Vec(&sp8);
-    spawn_hit_particles__10TObjPlayerFiPv((s32)(&sp8), (const P_802D5478 *)(arg2));
+    spawn_hit_particles__10TObjPlayerFiPv((s32)&sp8, (const P_802D5478 *)(arg2));
 }
 void spawn_hit_particles_at__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 sp8;
     TObjPlayer__sub_802D5B78((void *)arg1, &sp8);
-    spawn_hit_particles__10TObjPlayerFiPv((s32)(&sp8), (const P_802D5478 *)(arg2));
+    spawn_hit_particles__10TObjPlayerFiPv((s32)&sp8, (const P_802D5478 *)(arg2));
 }
 
 }

@@ -371,7 +371,7 @@ extern s32 lbl_805D681C;
 extern s32 seabed01_ginja_mesh_index;
 
 void TOTrapSeabed01::render_effect_layers() {
-    TObjFish::set_global_param((s32)(TOTrapSeabed01__texture_file));
+    TObjFish::set_global_param(TOTrapSeabed01__texture_file);
     if ((s32) actor_frame_tick != (s32) lbl_805D681C) {
         if (((void *) (*(u8 **)&TOTrapSeabed01__ginja_model) != NULL) && ((s32) seabed01_ginja_mesh_index != -1)) {
             scroll_ginja_mesh_uvs((int) (*(s32 *)((s8 *)(*(u8 **)&TOTrapSeabed01__ginja_model) + 4)), 0, -0x14, (void *) ((u16) seabed01_ginja_mesh_index), 1);
@@ -419,7 +419,7 @@ void TOTrapSeabed01::draw_object_tree(u8 *arg1) {
         if (!(temp_r31 & 8)) {
             if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x34C) != 0) {
                 setup_particle_tev(0);
-                TObjFish::set_global_param((s32)(TOTrapSeabed01__texture_file));
+                TObjFish::set_global_param(TOTrapSeabed01__texture_file);
                 ((TOTrapAncient02 *)0x38E)->load_projection_tex_matrix();
                 draw_ginja_model((*(s32 *)((s8 *)var_r30 + 4)));
                 TParticleCtrl::disable_if_single_screen();

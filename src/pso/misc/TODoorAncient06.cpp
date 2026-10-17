@@ -82,7 +82,7 @@ void TODoorAncient06::play_proximity_sound() {
         if (is_any_player_within_radius_xz((u8 *)((s32) arg0), lbl_805DB444) == 1) {
             *(s32 *)&this->m_ac = 1;
             set_indexed_flags(arg0, 0, 8);
-            play_sound_effect(0x4004B708, (void *)(arg0 + 0x38), 0, 0);
+            play_sound_effect(0x4004B708, arg0 + 0x38, 0, 0);
         }
     } else {
         this->texture_id = (s32) *(s32 *)((s8 *)TODoorAncient06__texture_lists + 0);

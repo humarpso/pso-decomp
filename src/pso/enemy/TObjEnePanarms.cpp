@@ -615,7 +615,7 @@ void TObjEnePanarms__sub_800E0344(u8 *arg0) {
         *(f32 *)((s8 *)arg0 + 0x3B0) = (f32) (*(const f32 *)&TObjEnePanarms__data_805DA524);
         *(s32 *)((s8 *)arg0 + 0x3B4) = 0x96;
         *(s32 *)((s8 *)arg0 + 0x3C0) = 1;
-        play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003BC2D)))), (void *)(arg0 + 0x38), 0, 0);
+        play_sound_effect((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003BC2D)))), arg0 + 0x38, 0, 0);
         *(s32 *)((s8 *)arg0 + 0xB0) = (s32) (*(s32 *)((s8 *)arg0 + 0xB0) & 0xFFFFFFFE);
         set_field_b8__10TObjMotionFs(arg0, 2);
     }
@@ -800,7 +800,7 @@ void TObjEnePanarms__sub_800E0950(u8 *arg0) {
     if (temp_r0 <= 0x78) {
         if (temp_r0 == 0x78) {
             ((TObjPlayer *)(arg0 + 0x3A4))->spawn_ground_effect(0x78);
-            TObjPlayer::spawn_dead_spot_default((s32)((void *)(arg0 + 0x3A4)), 6);
+            TObjPlayer::spawn_dead_spot_default((s32)(arg0 + 0x3A4), 6);
         }
         *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + lbl_805DA55C);
         if ((s32) *(s32 *)((s8 *)arg0 + 0x3B4) < 0) {

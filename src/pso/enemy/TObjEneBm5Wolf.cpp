@@ -2876,7 +2876,7 @@ extern f32 lbl_805D9E50;
 
 void play_footsteps__14TObjEneBm5WolfFPv(u8 *arg0) {
     if ((objInBand__FP7GameObjf(arg0, TObjEneBm5Wolf__data_805D9DEC) != 0) || (objInBand__FP7GameObjf(arg0, TObjEneBm5Wolf__data_805D9DE8) != 0)) {
-        play_sound_effect((void *)(((s32)copy_target_state__14TObjEnePanarmsFPv(arg0, 0x3C618))), (void *)(arg0 + 0x38), 0, 0);
+        play_sound_effect((void *)(((s32)copy_target_state__14TObjEnePanarmsFPv(arg0, 0x3C618))), arg0 + 0x38, 0, 0);
         play_effect_if_v2__10TObjPlayerFl(-0x1000);
     }
 }

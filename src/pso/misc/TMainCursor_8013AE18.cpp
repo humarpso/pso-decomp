@@ -22,7 +22,7 @@ extern s32 lbl_804A71C4[];
 u8 *__dt__14TLOC_ListClearFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A71C4;
-        if ((TObjPlayer__sub_801C6DAC((u8 *)(arg0 + 0x1C)) != 0) &&((u32) *(u32 *)((s8 *)(((TMainCursor *)(arg0 + 0x1C))->get_state()) + 0x424) != 0U)) {
+        if ((TObjPlayer__sub_801C6DAC(arg0 + 0x1C) != 0) &&((u32) *(u32 *)((s8 *)(((TMainCursor *)(arg0 + 0x1C))->get_state()) + 0x424) != 0U)) {
             ((TMainCursor *)(*(s32 *)((s8 *)(((TMainCursor *)(arg0 + 0x1C))->get_state()) + 0x424)))->destroy_lock_on(0);
         }
         ((TUnk_804A7260 *)arg0)->destroy_cursor(0);

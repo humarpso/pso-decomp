@@ -18,7 +18,7 @@ void mem_free(void *p);
 
 s32 attack_target_history_add(s32 object, s32 target) {
     if ((fn_800BC758((u8 *)object) != 0) && (((s32)attack_target_history_contains((void*)((void *)((void *)object)), (void*)((void *)((void *)target)))) == 0)) {
-        ((s32)push_attack_target_entry((u8 *)(object), (s32)(target)));
+        ((s32)push_attack_target_entry((u8 *)object, (s32)target));
         return 1;
     }
     return 0;

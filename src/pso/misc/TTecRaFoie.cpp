@@ -403,7 +403,7 @@ void TUnk_804CCB28::run_task() {
     typedef char sp20_offset[(offsetof(Stack_80238388, sp20) == 0x18) ? 1 : -1];
     Stack_80238388 stack;
     f32 temp_f1;
-    this->m_58 = (s32)(this->m_58 + 1);
+    this->m_58 = (this->m_58 + 1);
     *(s32 *)&this->unk_5C = (s32) (*(s32 *)&this->unk_5C + 1);
     if ((s32) *(s32 *)&this->unk_5C >= 0x10) {
         *(s32 *)&this->unk_5C = 0;
@@ -427,7 +427,7 @@ void TUnk_804CCB28::run_task() {
     } else {
         approach_position_if_far(((u8 *)&this->m_34), (u8 *)&stack.sp18, (f32) ((0.15f)));
     }
-    approach_alpha_clamped((void *)(arg0 + 0x48), (void *)&stack.sp8, (f32) ((0.035f)));
+    approach_alpha_clamped(arg0 + 0x48, (void *)&stack.sp8, (f32) ((0.035f)));
 }
 #pragma pop
 

@@ -249,7 +249,7 @@ void TUnk_804A4948::emit_marker_effects() {
   }
   if ((new_var = temp_r3) & 2)
   {
-    ((TObjPlayer *)arg0)->draw_status_icon((s32)(&sp8));
+    ((TObjPlayer *)arg0)->draw_status_icon((s32)&sp8);
     PSO_VCALL_VObj_18_24931d_m49(arg0, &sp8, 0, 0, 1);
   }
 }

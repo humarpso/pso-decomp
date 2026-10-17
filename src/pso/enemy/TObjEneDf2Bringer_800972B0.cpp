@@ -998,7 +998,7 @@ void render__17TObjEneDf2BringerFv(u8 *arg0) {
             push_matrix();
             post_translate_matrix(arg0 + 0x38);
             rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-            TObjEneRe7Berura::set_global_state((s32)(&bringer_render_node_callback));
+            TObjEneRe7Berura::set_global_state((s32)&bringer_render_node_callback);
             TObjPlayer::set_global_flag();
             if (var_r31 == 1) {
                 ((TObjEneRe7Berura *)arg0)->draw();
@@ -2284,7 +2284,7 @@ void update_if_in_band__17TObjEneDf2BringerFi(s32 arg0) {
 
 void spawn_particle_if_in_band__17TObjEneDf2BringerFPv(u8 *arg0) {
     if ((objInBand((GameObj *)arg0, (f32)TObjEneDf2Bringer__data_805D97E0) != 0) || (objInBand((GameObj *)((GameObj *)arg0), (f32)((f32)lbl_805D97E8)) != 0)) {
-        spawn_particle_effect((f32 *)(arg0 + 0x38), 0xF0);
+        spawn_particle_effect(arg0 + 0x38, 0xF0);
     }
 }
 

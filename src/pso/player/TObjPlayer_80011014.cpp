@@ -4314,7 +4314,7 @@ f32 TObjPlayer::calc_distance_to_client(s32 arg0, u16 arg1, u32 arg2) {
         var_f31 = calc_xz_distance_sq__10TObjPlayerFiUiPv(arg0, (u32)((u32) temp_r3), &stack.sp8);
         if (arg2 != 0U)
         {
-          VecCopy__FP3VecPC3Vec((s32)((void *) arg2), (s32)(&stack.sp8));
+          VecCopy__FP3VecPC3Vec((s32)((void *) arg2), (s32)&stack.sp8);
         }
       }
     }

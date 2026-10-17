@@ -19,7 +19,7 @@ extern RecoveredGlobal_80338F3C_lbl_804EF4E0 lbl_804EF4E0;
 typedef char RecoveredGlobal_80338F3C_lbl_804EF4CC_size[sizeof(RecoveredGlobal_80338F3C_lbl_804EF4CC) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80338F3C_lbl_804EF4E0_size[sizeof(RecoveredGlobal_80338F3C_lbl_804EF4E0) == 0x20 ? 1 : -1];
 u8 *fn_80338F3C(u8 *arg0, s32 arg1) {
-    ((TWindowSubStatusDisp *)arg0)->ct_helper((s32)((int) (get_window_layout_position(0xB0))), arg1, 0x40, (s32)(&lbl_804EF4CC.value));
+    ((TWindowSubStatusDisp *)arg0)->ct_helper((s32)((int) (get_window_layout_position(0xB0))), arg1, 0x40, (s32)&lbl_804EF4CC.value);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804EF4E0.value;
     return arg0;
 }

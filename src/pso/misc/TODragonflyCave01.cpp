@@ -207,9 +207,9 @@ s32 TODragonfly::pick_random_destination(f32 farg0) {
     rotate_matrix_y(0, (s32)((int) (*(s32 *)((s8 *)&lbl_8050BFA0.value + 4))));
     rotate_vector_by_matrix(0, (void *)&lbl_8050BEE0.value, (void *)&lbl_8050BEE0.value);
     pop_matrix();
-    vec3_add_to((void *)&lbl_8050BEE0.value, (void *)(arg0 + 0x50));
+    vec3_add_to((void *)&lbl_8050BEE0.value, arg0 + 0x50);
     VecCopy((Vec *)(arg0 + 0xD4), (const Vec *)(&lbl_8050BEE0.value));
-    subtract_vector((void *)&lbl_8050BEE0.value, (void *)(arg0 + 0x38));
+    subtract_vector((void *)&lbl_8050BEE0.value, arg0 + 0x38);
     if (((TObjPlayer *)(&lbl_8050BEE0.value))->check_camera_distance() == 1) {
         *(s32 *)&this->m_ac = 1;
         *(s32 *)&this->m_cc = 0;

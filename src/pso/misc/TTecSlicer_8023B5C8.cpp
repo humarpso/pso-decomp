@@ -318,10 +318,10 @@ s32 TTecSlicer::create(u16 *arg0) {
         if (player != NULL) {
             var_r0 = ((s32)__nw__7TObjectFUl(0x140));
             if (var_r0 != 0) {
-                var_r0 = TTecSlicer__ct((void *)((void *)var_r0), (void *)((void *)arg0), (void *)((void *)player), (void *)(player + 0x38), (int)((int) (*(s32 *)((s8 *)player + 0x60))));
+                var_r0 = TTecSlicer__ct((void *)((void *)var_r0), (void *)((void *)arg0), (void *)((void *)player), player + 0x38, (int)((int) (*(s32 *)((s8 *)player + 0x60))));
             }
             var_r31 = var_r0;
-            TItemAttacker::spawn_item_timer(var_r0, (s32)(&destroy_if_set__10TTecSlicerFv), 0x5A);
+            TItemAttacker::spawn_item_timer(var_r0, (s32)&destroy_if_set__10TTecSlicerFv, 0x5A);
         }
     }
     return var_r31;

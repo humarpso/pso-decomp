@@ -281,7 +281,7 @@ void run_task__30TObjEneMe1Canadin_EffDischargeFv(u8 *arg0) {
     temp_f31 = ((TObjBoss2Tunnel *)(&sp8))->update_scale();
     s32 nw_ret = __nw__7TObjectFUl(0x260);
     if (nw_ret != 0U) {
-        ((TTecZondeEff *)nw_ret)->construct((u8 *)tl_05, (u8 *)(arg0 + 0x38), (u8 *)&sp8, (f32)temp_f31);
+        ((TTecZondeEff *)nw_ret)->construct((u8 *)tl_05, arg0 + 0x38, (u8 *)&sp8, (f32)temp_f31);
     }
     VC_B(arg0 + 0x38, arg0 + 0x50);
     if (var_r31 != 0) {

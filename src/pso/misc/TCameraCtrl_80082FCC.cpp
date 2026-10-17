@@ -119,7 +119,7 @@ void TUnk_8048E5DC::render_shadows() {
         stack.sp24 = *(s32 *)((s8 *)&camera_ctrl_up_vector.value + 4);
         stack.sp28 = *(s32 *)((s8 *)&camera_ctrl_up_vector.value + 8);
         set_perspective_projection_from_fov((int) (*(s32 *)((s8 *)camera_ctrl_instance + 0x19C)), lbl_805D940C, lbl_805D93D8, lbl_805D9410);
-        set_camera_look_at((void *)(arg0 + 0x20), (void *)(arg0 + 0x2C), (void *)&stack.sp20);
+        set_camera_look_at(arg0 + 0x20, arg0 + 0x2C, (void *)&stack.sp20);
         if ((void *) camera_ctrl_instance != NULL) {
             stack.sp14 = *(f32 *)&this->unk_2C - this->m_20;
             stack.sp18 = this->m_30 - *(f32 *)&this->unk_24;

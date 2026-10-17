@@ -4817,7 +4817,7 @@ s32 test_ordered_anim_markers__10TObjPlayerFPvff(u8 *arg0, f32 farg0, f32 farg1)
 void emit_footstep_effect__10TObjPlayerFiff(s32 arg0, f32 farg0, f32 farg1) {
     s32 temp_r3;
     s32 contact_surface_type;
-    if ((((s32 (*)(void))test_flag_2000000__10TObjPlayerFPv)() == 0) && (temp_r3 = ((s32)test_ordered_anim_markers__10TObjPlayerFPvff((u8 *)(arg0), farg0, farg1)), ((temp_r3 == 0) == 0))) {
+    if ((((s32 (*)(void))test_flag_2000000__10TObjPlayerFPv)() == 0) && (temp_r3 = ((s32)test_ordered_anim_markers__10TObjPlayerFPvff((u8 *)arg0, farg0, farg1)), ((temp_r3 == 0) == 0))) {
         contact_surface_type = get_contact_surface_type((void *)(arg0 + 0x360));
         switch (contact_surface_type) {
         case 1:
@@ -5931,7 +5931,7 @@ void check_level_up__10TObjPlayerFPv(u8 *arg0) {
                     var_r31 += 1;
                 } while (var_r31 < 0xD);
                 ((TObjPlayer *)(&sp40))->calc_pos_delta(&sp24, &sp8);
-                TWindowCtrl::create_level_up_window((s32)(&sp8), (s32)((void *) (((u16 (*)(void *))obj_getField1c)(arg0))));
+                TWindowCtrl::create_level_up_window((s32)&sp8, (s32)((void *) (((u16 (*)(void *))obj_getField1c)(arg0))));
                 send_6x30_change_player_level((Player_801B6C30 *)((struct Player_801B6C30 *) (arg0)));
             }
         }
@@ -6560,7 +6560,7 @@ s32 TObjPlayer::count_items_of_type(s8 arg1, s8 arg2, s8 arg3) {
     item_data.data1.data_u8[0] = arg1;
     item_data.data1.data_u8[1] = arg2;
     item_data.data1.data_u8[2] = arg3;
-    return ((TObjPlayer *)(*(u32 *)((s8 *)((u8 *)this) + 0xD00)))->count_items_by_id((s32)(&item_data.data1.data_u8[0]));
+    return ((TObjPlayer *)(*(u32 *)((s8 *)((u8 *)this) + 0xD00)))->count_items_by_id((s32)&item_data.data1.data_u8[0]);
 }
 
 void dispatch_input__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {

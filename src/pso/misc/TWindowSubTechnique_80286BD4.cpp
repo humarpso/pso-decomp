@@ -59,7 +59,7 @@ void draw_technique_row__19TWindowSubTechniqueFiii(s32 id, s32 arg1, s32 arg2) {
         draw_text_gray__17TWindowSubComCardFllll(arg2, technique_name, 6, id);
         return;
     }
-    if (TWindowSubTechnique::is_technique_available((s32)(id), (s32)(arg1)) == 0) {
+    if (TWindowSubTechnique::is_technique_available(id, arg1) == 0) {
         add_text_entry__19TWindowSubTradeMainFllll(arg2, technique_name, 0x16, id, 0xFFFD3901);
         return;
     }

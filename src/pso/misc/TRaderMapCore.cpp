@@ -868,7 +868,7 @@ void TRaderMapCore::draw_player_markers() {
     lbl_805D5668 = chunk_polygon_flags_or_mask;
     model_render_flags |= *(s32 *)&this->m_194;
     set_chunk_material_override_pair(-0xFF01, 0x100);
-    var_r31 = (u8 *)(arg0 + 0x94);
+    var_r31 = (arg0 + 0x94);
     var_r30 = 0;
     do {
         if ((s16) *(s16 *)((s8 *)var_r31 + 0x16) != -1) {
@@ -882,7 +882,7 @@ void TRaderMapCore::draw_player_markers() {
             set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
         }
         var_r30 += 1;
-        var_r31 = (u8 *)(var_r31 + 0x28);
+        var_r31 = (var_r31 + 0x28);
     } while (var_r30 < 4);
     chunk_polygon_flags_and_mask = lbl_805D5664;
     chunk_polygon_flags_or_mask = lbl_805D5668;

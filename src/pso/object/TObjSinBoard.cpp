@@ -132,12 +132,12 @@ void TUnk_804B8DD0::render() {
     u8 *arg0 = (u8 *)this;
     u8 *bml_model;
     if ((s32) *(s32 *)&this->unk_3C != 0) {
-        this->m_38 = (s32)(this->m_38 + 0x38E);
+        this->m_38 = (this->m_38 + 0x38E);
         if ((s32) this->m_38 >= 0x4000) {
             this->m_38 = 0x4000;
         }
     } else {
-        this->m_38 = (s32)(this->m_38 - 0x38E);
+        this->m_38 = (this->m_38 - 0x38E);
         if ((s32) this->m_38 <= 0) {
             this->m_38 = 0;
         }
@@ -150,7 +150,7 @@ void TUnk_804B8DD0::render() {
             TObjFish::set_global_param((int) (*(s32 *)((s8 *)&lobby_gvm_texture_handles.value + 0x20)));
         }
         push_matrix();
-        post_translate_matrix((void *)(arg0 + 0x1C));
+        post_translate_matrix(arg0 + 0x1C);
         ::draw_ginja_model((*(s32 *)((s8 *)bml_model + 4)));
         push_matrix();
         ::draw_ginja_model((*(s32 *)((s8 *)(*(u8 **)((s8 *)bml_model + 0x2C)) + 4)));

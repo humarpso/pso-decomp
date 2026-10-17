@@ -209,7 +209,7 @@ typedef char RecoveredGlobal_80341F9C_TWindowDD__data_804EFC50_size[sizeof(Recov
 void TWindowDD::init_layout_entries() {
     u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)&TWindowDD__data_804EFC50.value + 4) = (s32) *(s32 *)((s8 *)arg0 + 0x78);
-    init_window_layout_entries((void *)(arg0 + 0x24), (void *)&TWindowDD__data_804EFC50.value, (int) (*(s16 *)((s8 *)arg0 + 0x20)));
+    init_window_layout_entries(arg0 + 0x24, (void *)&TWindowDD__data_804EFC50.value, (int) (*(s16 *)((s8 *)arg0 + 0x20)));
 }
 
 void TWindowDD::reset_fields() { *(float*)((char*)this + 0x88) = TWindowDD__data_805DFCA8; *(float*)((char*)this + 0x84) = TWindowDD__data_805DFCA8; *(int*)((char*)this + 0x68) = 0; *(int*)((char*)this + 0x6c) = 0; *(int*)((char*)this + 0x8c) = 1; }

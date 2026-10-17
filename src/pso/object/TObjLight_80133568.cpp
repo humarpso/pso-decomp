@@ -465,7 +465,7 @@ void init_area_lights(void) {
         init_map_lights((u8 *)((void *) ((copy_storage_80133D78.bytes))));
         return;
     }
-    init_map_lights((u8 *)(&default_scene_light_config.value));
+    init_map_lights((u8 *)&default_scene_light_config.value);
 }
 
 void TObjLight::free_shared_data() {

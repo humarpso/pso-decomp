@@ -4082,7 +4082,7 @@ void init_state__13TObjEneMe1GeeFPv(u8 *arg0) {
     *(f32 *)((s8 *)arg0 + 0x45C) = (f32) TObjEneMe1Gee__data_805DA0B4;
     *(s32 *)((s8 *)arg0 + 0x460) = 0;
     *(s32 *)((s8 *)arg0 + 0x464) = 0;
-    copy_vec4__13TRaderMapCoreFPvPv((void *)(arg0 + 0x468), (void *)((void *) (((u8 *)&TObjEneMe1Gee__data_8043BDC0))));
+    copy_vec4__13TRaderMapCoreFPvPv(arg0 + 0x468, (void *)((void *) (((u8 *)&TObjEneMe1Gee__data_8043BDC0))));
     ((Gee_800CC430 *)arg0)->f468 = TObjEneMe1Gee__data_805DA0B4;
     *(s32 *)((s8 *)arg0 + 0x47C) = 0;
     *(s32 *)((s8 *)arg0 + 0x478) = 0;

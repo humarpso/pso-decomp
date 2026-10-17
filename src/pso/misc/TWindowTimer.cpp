@@ -82,11 +82,11 @@ void TWindowTimer::set_time(u32 secs) {
         text_builder_append((u8 *)lbl_8044FCE8);
     } else {
         append_padded_number((hours), 1);
-        text_builder_append((u8 *)(&lbl_805DD888));
+        text_builder_append((u8 *)&lbl_805DD888);
         mins = secs / 60;
         secs %= 60;
         append_padded_number((mins), 2);
-        text_builder_append((u8 *)(&lbl_805DD88C));
+        text_builder_append((u8 *)&lbl_805DD88C);
         append_padded_number((secs), 2);
     }
     set_text_entry_string((u8 *)entry, (u32)(get_shared_text_buffer()), 0x20);
