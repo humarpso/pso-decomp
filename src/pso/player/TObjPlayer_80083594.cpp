@@ -16,15 +16,15 @@ struct Stack_800836E8 {
 extern "C" {
 s32 is_split_screen();
 s32 TCameraCtrl__sub_800689F4();
-}
-void calc_projection_screen_offset(f32 *arg0, f32 *arg1);
-f32 calc_camera_fov_degrees(void);
-extern "C" {
 s32 PSMTXConcat(void *, void *, void *);
 s32 C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
 s32 rotate_matrix_y(int, void *);
 s32 push_matrix();
+s32 GXSetTevOp(s32, s32);
+s32 GXSetTevOrder(s32, s32, s32, s32);
 }
+void calc_projection_screen_offset(f32 *arg0, f32 *arg1);
+f32 calc_camera_fov_degrees(void);
 void load_current_pos_matrix(s32 arg0);
 void load_current_tex_matrix(s32 i);
 extern const f64 lbl_80439358;
@@ -32,10 +32,6 @@ extern s32 current_matrix;
 extern const f32 lbl_805D93DC;
 extern const f32 lbl_805D940C;
 extern const f32 lbl_805D9414;
-extern "C" {
-s32 GXSetTevOp(s32, s32);
-s32 GXSetTevOrder(s32, s32, s32, s32);
-}
 void set_ginja_post_texgen_count(s32 x);
 void set_ginja_post_tev_stage_count(s32 x);
 void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map);

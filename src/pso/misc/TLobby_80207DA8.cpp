@@ -363,11 +363,9 @@ extern "C" {
 
 int link_matching_objects__6TLobbyFPv(void* p);
 int spawn_objects_at_pos__6TLobbyFPv(void* p);
-}
-void request_wave_event_stop(void);
-extern "C" {
 void TLobby__sub_80208648(void);
 }
+void request_wave_event_stop(void);
 void dispatch_wave_event_action(s32 arg0);
 extern "C" {
 int spawn_objects_at_pos__6TLobbyFss(void*);
@@ -526,11 +524,9 @@ struct Grp_802089B0 { u8 pad[8]; s32 count; s32 pad3; Rec_802089B0 recs[1]; };
 extern Fn_80208BD8 floor_event_create_table[];
 extern "C" {
 void activate_triggered_floor_events(void);
-}
-s32 activate_first_floor_event(s32 idx, s32 id);
-extern "C" {
 u8 * heap_alloc__5THeapFUl(void *, s32);
 }
+s32 activate_first_floor_event(s32 idx, s32 id);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lobby_slot_ptr_table;
 extern u8 *area_event_set_heap;
 s32 set_floor_event_flags(s32 arg0, s32 arg1, s32 arg2);

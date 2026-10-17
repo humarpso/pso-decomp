@@ -1425,10 +1425,6 @@ int emit_effect_at_position__9TObjEneDDFPv(void*);
 int emit_enemy_effect__9TObjEneDDFllPUcl(void*);
 int setup_instance__9TObjEneDDFllPUcl(void*);
 s32 is_alive__9TObjEneDDFv(void);
-}
-void set_collider_contact_low(u8 *arg0);
-void set_collider_contact_high(u8 *arg0);
-extern "C" {
 s32 update_local_colliders_from_world(void *, void *);
 s32 transition_enemy_state(void *, s32);
 s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1);
@@ -1484,6 +1480,8 @@ void vfunc_28__12TBoss8DragonFv(void);
 u8 *TBoss8Dragon__ct(u8 *, void *, void *);
 void TBoss8Dragon__sub_802FD9D0(void);
 }
+void set_collider_contact_low(u8 *arg0);
+void set_collider_contact_high(u8 *arg0);
 void build_6xA8_gol_dragon_boss_actions(void *p);
 extern "C" {
 s32 eval_bezier_curve__12TBoss8DragonFPviiPvf(void *, int, int, void *, f32);

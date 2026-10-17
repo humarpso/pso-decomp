@@ -170,11 +170,6 @@ struct Rec_80210F78
 
 extern "C" {
 u8 is_item_record_empty(u8 *arg0);
-}
-u8 bank_has_free_row(s32 i);
-s32 get_bank_meseta_capacity(s32 i);
-s32 bank_credit_meseta(s32 v, s32 i);
-extern "C" {
 void init__9TItemDataFv(void *);
 void init_item_entry__18TCheckRoomSequenceFPv(Obj_80211408 *self);
 void TWindow__close(TWin_8020F070 *);
@@ -195,9 +190,6 @@ extern s32 TCheckRoomSequence__error_return_state;
 extern s32 TCheckRoomSequence__active_instance;
 void reset_slot_state__18TCheckRoomSequenceFv(void);
 void reset_slots__18TCheckRoomSequenceFv(void);
-}
-s32 bank_debit_meseta(s32 v, s32 i);
-extern "C" {
 void finish_room_check__18TCheckRoomSequenceFPv(u8 *arg0);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
@@ -271,6 +263,10 @@ void TCheckRoomSequence__vt10(void* p);
 void TShopWindowBase__sub_802115F0(void);
 int set_quest_list_mode_19__18TCheckRoomSequenceFPv(void* p);
 }
+u8 bank_has_free_row(s32 i);
+s32 get_bank_meseta_capacity(s32 i);
+s32 bank_credit_meseta(s32 v, s32 i);
+s32 bank_debit_meseta(s32 v, s32 i);
 void copy_bank_from_card_window(s32 slot);
 extern "C" {
 s32 get_game_play_mode();

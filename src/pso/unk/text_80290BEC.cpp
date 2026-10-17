@@ -20,12 +20,10 @@ extern "C" {
 s32 delete_all_task_children__9TMainTaskFv(void *);
 s32 TKeyBoardControl__sub_8000F92C();
 s32 TKeyBoardControl__sub_8000F9CC(int);
-}
-void process_async_file_reads(void);
-extern "C" {
 s8 func_801A5E54__Fv();
 s32 run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
 }
+void process_async_file_reads(void);
 void update_sound_request_slots(void);
 extern "C" {
 s32 render_screen_overlay__9TMainTaskFv(void *);

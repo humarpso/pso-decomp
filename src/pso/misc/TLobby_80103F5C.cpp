@@ -59,14 +59,12 @@ int get_item_field_6__10TObjPlayerFPv(void *p);
 extern void *item_tool_factory_table[];
 void create__11TItemObjectFv();
 void *TLobby__sub_8010440C(In_8010440C *arg0);
-}
-extern void *weapon_factory_table[];
-s32 create_common_weapon(s32 arg0);
-extern "C" {
 void *get_weapon_factory_for_item(In_80104438 *arg0);
 int is_quest_active(void);
 s32 TItemDropSub__sub_80107B74();
 }
+extern void *weapon_factory_table[];
+s32 create_common_weapon(s32 arg0);
 extern Tbl_801044B8 item_drop_area_remap_table;
 void normalize_drop_area(s32 *p);
 extern "C" {

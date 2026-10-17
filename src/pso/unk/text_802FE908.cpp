@@ -9,12 +9,10 @@ s32 is_room_enemy_set_cleared(s32, s32);
 void *__nw__7TObjectFUl(s32);
 s32 __ct__18TObjLiveCameraCtrlFP7TObject(void *, s32);
 s32 __ct__17TObjBoss8DemoRoomFv(void *, s32);
+s32 TObjBoss8PillerCtrl__ct(void *, f32, void *, s32, s32);
 }
 extern void *tl_05;
 void create_boss8_demo_objects(void);
-extern "C" {
-s32 TObjBoss8PillerCtrl__ct(void *, f32, void *, s32, s32);
-}
 
 void create_boss8_piller_ctrl(s32 arg0, s32 arg1, f32 farg0) {
     void *obj = __nw__7TObjectFUl(0x38);

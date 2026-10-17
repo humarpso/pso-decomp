@@ -24,15 +24,12 @@ void TLobby__sub_8028D738(s32, s32);
 extern u8 class_appearance_table[];
 void *__ct__12TChCrLoadReqFP7TObjectPv(void *arg0, void *arg1, void *arg2);
 void *__dt__12TChCrLoadReqFv(void *arg0, s16 arg1);
-}
-void * create_ch_cr_load_req(void *arg0, void *arg1);
-extern "C" {
 void sub_8028CEEC__12TChCrLoadReqFPl(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 }
-
+void * create_ch_cr_load_req(void *arg0, void *arg1);
 void TChCrLoadReq::update_load_progress() {
     void *arg0 = this;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x64) > 0x1512) {

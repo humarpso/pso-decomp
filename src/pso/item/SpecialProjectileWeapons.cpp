@@ -50,29 +50,14 @@ s32 launch_rare_weapon_special__10TObjPlayerFPvlf(void *, void *, int, f32);
 void emit_marker_effects__13TUnk_804A2164Fv(RecoilWeaponView *arg0);
 s32 rotate_matrix_z(s32, s32);
 void draw_ginja_object(void *child);
-}
-void drill_launcher_node_callback(void *arg0);
-extern "C" {
 void update_weapon__13TUnk_804A2164Fv(void *arg0);
 void *__dt__11TItemWeaponFv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804A2164Fv(void *arg0, s16 arg1);
 void TItemWeapon__ct(void *);
-}
-s32 drill_launcher_create_shot(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
-
-void* drill_launcher_ct(void* a0, s32, void *);
-extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-}
-extern s32 tl_05;
-u8 *create_drill_launcher(u8 *arg0);
-extern "C" {
 void __dl__7TObjectFPv(void *);
 void *__dt__15TItemShootModelFv(void *self, s16 flag);
 void *dt_item_shoot_model__13TUnk_804A2148Fs(void *arg0, s16 arg1);
-}
-void drill_launcher_return_timer(void *arg0);
-extern "C" {
 void increment_burst_counter(u8 *arg0);
 s32 get_burst_counter(void* p);
 s32 get_id__13TItemProArmorFv(void *);
@@ -99,6 +84,13 @@ s32 __nw__7TObjectFUl(s32);
 void create_icon__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
 u8 *find_item_by_id(s32 id);
 }
+void drill_launcher_node_callback(void *arg0);
+s32 drill_launcher_create_shot(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
+
+void* drill_launcher_ct(void* a0, s32, void *);
+extern s32 tl_05;
+u8 *create_drill_launcher(u8 *arg0);
+void drill_launcher_return_timer(void *arg0);
 int get_item_system_generation(void);
 u8 *spawn_star_light_2d(s32 arg0, s32 arg1, s32 arg2);
 extern "C" {

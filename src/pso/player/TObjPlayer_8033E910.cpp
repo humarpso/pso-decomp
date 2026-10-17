@@ -28,18 +28,26 @@ struct O_8033EB4C { u8 pad[0x1C]; Item_8033EB4C *items; s32 n; };
 
 extern "C" {
 s32 TCameraCtrl__sub_800689F4();
-}
-void calc_projection_screen_offset(f32 *arg0, f32 *arg1);
-f32 calc_camera_fov_degrees(void);
-void set_tex_coord_gen2(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-extern "C" {
 s32 PSMTXConcat(void *, void *, void *);
 s32 C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
 s32 GXSetTevOp(int, int);
 s32 GXSetTevOrder(int, int, int, int);
 s32 push_matrix();
 s32 pop_matrix();
+void setup_projection_tex_matrix__10TObjPlayerFv(void);
+void queue_destruction__7TObjectFv(void *);
+void TLobby__sub_8033EE38(void *);
+void init_particle_effect__10TObjPlayerFv(void);
+void reset_effects__10TObjPlayerFv(void);
+s32 rotate_matrix_by_node_angles(void *, int);
+s32 post_translate_matrix(void *);
+int set_global_param__8TObjFishFl(void);
+void draw_ginja_object(void *child);
+void set_material_alpha_compare_reference(s32 reference);
 }
+void calc_projection_screen_offset(f32 *arg0, f32 *arg1);
+f32 calc_camera_fov_degrees(void);
+void set_tex_coord_gen2(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void set_ginja_post_texgen_count(s32 x);
 void set_ginja_post_tev_stage_count(s32 x);
 void load_current_pos_matrix(s32 arg0);
@@ -50,21 +58,7 @@ extern s32 current_matrix;
 extern const f32 lbl_805DFAC8;
 extern const f32 lbl_805DFACC;
 extern const f32 lbl_805DFAD0;
-extern "C" {
-void setup_projection_tex_matrix__10TObjPlayerFv(void);
-void queue_destruction__7TObjectFv(void *);
-void TLobby__sub_8033EE38(void *);
-}
 void play_indirect_effect_recipe(u8 arg0, u16 sampler, s32 second);
-extern "C" {
-void init_particle_effect__10TObjPlayerFv(void);
-void reset_effects__10TObjPlayerFv(void);
-s32 rotate_matrix_by_node_angles(void *, int);
-s32 post_translate_matrix(void *);
-int set_global_param__8TObjFishFl(void);
-void draw_ginja_object(void *child);
-void set_material_alpha_compare_reference(s32 reference);
-}
 char *get_shared_capture_texture_list(void);
 void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map);
 extern "C" {

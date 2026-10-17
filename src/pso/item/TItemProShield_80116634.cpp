@@ -285,11 +285,9 @@ struct VObj_80116BBC_80116634 : Base_80116BBC_80116634 {
 
 extern "C" {
 void * TItemProShield__sub_80116B28(void *arg0, void *arg1, void *arg2);
-}
-u8 *create_status_cure_item(u8 *arg0);
-extern "C" {
 void * TItemProShield__sub_80116C44(void *arg0, void *arg1, void *arg2);
 }
+u8 *create_status_cure_item(u8 *arg0);
 u8 *create_sol_atomizer_item(u8 *arg0);
 extern "C" {
 void *__dt__13TUnk_8049FA50Fv(void *arg0, s16 arg1);

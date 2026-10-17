@@ -54,6 +54,7 @@ void draw_node_tree__18TObjLaboDesignBaseFiPv(s32 arg0, u8 *arg1);
 s32 init_collision_body_parts(void *, int, int);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv();
 s32 create__10TObjMapCsnFl(void *, f32, f32);
+u8 *TObjLaboDesignBase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 }
 void* get_labo_design_entry(int a0);
 int get_labo_design_object(int a0);
@@ -64,9 +65,6 @@ extern const f32 lbl_805E02A4;
 extern const f32 lbl_805E02A8;
 extern const f32 lbl_805E02AC;
 extern const f32 lbl_805E02B0;
-extern "C" {
-u8 *TObjLaboDesignBase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-}
 void *create_labo_design_base(void *arg0);
 void *create_obj_labo_design_base(void *arg0);
 extern "C" {

@@ -46,27 +46,10 @@ struct RecoveredGlobal_8000F91C_lbl_804FE120 {
 
 extern "C" {
 s32 VISetPreRetraceCallback(s32 *);
-}
-extern RecoveredGlobal_8000F7FC_lbl_80515F48 TLobby__sub_80227A6C;
-void stop_audio_stream(u8 *arg0);
-extern s32 lbl_804CB850[];
-extern f32 music_fade_volumes[];
-extern s32 lbl_805D62E0;
-extern s32 lbl_805D62E4;
-extern s32 music_fade_frames_remaining;
-extern const f32 lbl_805DC764;
-extern "C" {
 s32 get_music_base_gain(void);
 void TLobby__sub_80227AA8(s32);
 void set_field_40_and_notify__6TLobbyFs(s32, s32);
 s32 TLobby__sub_803C9CB0(s32);
-}
-extern s32 lbl_805D62B8;
-extern s32 music_fade_slot_index;
-extern f32 music_fade_step;
-extern s32 lbl_805D6330;
-void update_music_fade(void);
-extern "C" {
 void update_all_zones__14TObjBgmColCtrlFl(void);
 void strncpy(void *, void *, s32);
 void TLobby__sub_803C94DC(u8 *arg0, s32 arg1);
@@ -79,6 +62,19 @@ void play_area_music(char *name);
 void TWindowOptionCtrl__sub_802273B4(s32 arg0);
 void TLobby__sub_803CA194(s32);
 }
+extern RecoveredGlobal_8000F7FC_lbl_80515F48 TLobby__sub_80227A6C;
+void stop_audio_stream(u8 *arg0);
+extern s32 lbl_804CB850[];
+extern f32 music_fade_volumes[];
+extern s32 lbl_805D62E0;
+extern s32 lbl_805D62E4;
+extern s32 music_fade_frames_remaining;
+extern const f32 lbl_805DC764;
+extern s32 lbl_805D62B8;
+extern s32 music_fade_slot_index;
+extern f32 music_fade_step;
+extern s32 lbl_805D6330;
+void update_music_fade(void);
 extern u32 lbl_805D62DC;
 extern u32 lbl_805D62EC;
 void stop_cue_stream(void);

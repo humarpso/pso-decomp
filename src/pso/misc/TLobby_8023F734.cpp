@@ -52,9 +52,6 @@ void clamp_field9c__6TLobbyFPvf(void *voice, f32 scale);
 void set_sound_slot_special_scale(s32 slot, f32 scale);
 s32 start_voice_fade(struct Voice_80241FD8 *v, s32 step);
 void fade_out_sound_slot(s32 slot, s32 step);
-}
-s32 set_voice_pitch_slide(u8 *arg0, s32 arg1, s32 arg2);
-extern "C" {
 void set_sound_slot_pitch(s32 slot, s32 pitch, s32 duration);
 
 s32 resolve_sound_effect_bank(Owner_8023FBBC *owner, s32 kind, s32 bank, s32 index);
@@ -68,6 +65,7 @@ extern u8 selected_guild_card_record[];
 void load_selected_guild_card_record(Src_8024220C *arg0);
 u16 update_crc16_ccitt__6TLobbyFUsUc(u16 crc, u8 c);
 }
+s32 set_voice_pitch_slide(u8 *arg0, s32 arg1, s32 arg2);
 u16 calculate_crc16_ccitt(const u8* bytes, s32 count);
 extern "C" {
 s32 advance_rng__6TLobbyFPv(void *arg0);
@@ -650,9 +648,6 @@ struct Sound_80241798 {
 
 extern "C" {
 s32 sndFXCtrl(int, int, int);
-}
-void send_voice_controller_updates(u8 *arg0);
-extern "C" {
 s32 init_sound_voice__6TLobbyFPviiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 sndFXKeyOff(int);
 s32 OSDisableInterrupts(void);
@@ -669,6 +664,7 @@ extern s32 TLobby__lobby_state_flags;
 void TLobby__sub_80241798(Sound_80241798 *arg0);
 void update_random_flip_flag__6TLobbyFPv(u8 *arg0);
 }
+void send_voice_controller_updates(u8 *arg0);
 
 s32 set_voice_pitch_slide(u8 *arg0, s32 arg1, s32 arg2) {
     s32 var_r5;

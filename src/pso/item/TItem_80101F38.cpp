@@ -25,15 +25,13 @@ extern "C" {
 s32 spawn_dropped_item_from_msg(void *, int);
 s32 TItemData__sub_8010C740(void *, int);
 s32 TItemData__sub_8010CCB0(void *);
-}
-void handle_6x5D_drop_stacked_item(u8 *arg0);
-extern "C" {
 s32 get_current_floor(void);
 void normalize__9TItemDataFv(void *);
 s32 get_player_by_client_id(u16);
 extern s32 lbl_805D5450;
 void send_drop_item_6x5D__5TItemFPviPv(void *item, s32 id, Pos_80101FEC *pos);
 }
+void handle_6x5D_drop_stacked_item(u8 *arg0);
 void handle_6x5D_drop_stacked_item(u8 *arg0) {
     FloorItem drop;
     ((TLobby *)arg0)->bswap_6x5D();

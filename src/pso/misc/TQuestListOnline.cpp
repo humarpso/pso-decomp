@@ -80,14 +80,6 @@ int set_field_20__15TShopWindowBaseFl(void*, int);
 s32 send_and_handle__6TLobbyFii(int, void *, int);
 u32 create_message_window__6TLobbyFllUls(int, void *, int, int);
 s32 get_window_layout_position(int);
-}
-extern RecoveredGlobal_80217EC4_lbl_8044BEDC lbl_8044BEDC;
-extern u32 TQuestListOnline__selected_quest_info;
-extern const f32 lbl_805DC6A4;
-extern const f32 lbl_805DC6A8;
-
-s32 get_guild_text(s32 arg0);
-extern "C" {
 s32 calc_list_content_extent(u32);
 u32 set_window_mode_4__6TLobbyFPvll(s32, void *, int);
 extern Stack_80217EC4 lbl_8044BED4[];
@@ -104,6 +96,12 @@ f32 get_scale__15TShopWindowBaseFv(void *);
 u8 *create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(u32);
 }
+extern RecoveredGlobal_80217EC4_lbl_8044BEDC lbl_8044BEDC;
+extern u32 TQuestListOnline__selected_quest_info;
+extern const f32 lbl_805DC6A4;
+extern const f32 lbl_805DC6A8;
+
+s32 get_guild_text(s32 arg0);
 extern s32 online_quest_list_state;
 
 extern T_80217B30 TQuestListOnline__bin_download_state;

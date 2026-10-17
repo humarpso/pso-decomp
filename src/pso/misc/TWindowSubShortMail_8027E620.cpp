@@ -336,10 +336,6 @@ struct ShortMail_8027EF98 {
 
 extern "C" {
 s32 create_window_menu(s32 arg0, s32 arg1, s32 arg2);
-}
-s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-extern const f32 lbl_805DD6D8;
-extern "C" {
 void queue_destruction__7TObjectFv(void *arg0);
 s32 get_selected_menu_value(s32);
 void *send_cmd_133__17TWindowSubComCardFv(void);
@@ -350,6 +346,8 @@ void free_menu_object(void *);
 void TWindowSubShortMail__sub_80131998(void *);
 void TWindowSubShortMail__sub_8027E620(void *p);
 }
+s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+extern const f32 lbl_805DD6D8;
 void remove_short_mail_by_id(u32 id);
 extern "C" {
 void get_keyboard_field_6c__15TWindowMakeTeamFv(void *, void *);

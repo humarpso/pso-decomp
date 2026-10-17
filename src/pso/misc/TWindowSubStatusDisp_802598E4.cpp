@@ -23,14 +23,6 @@ struct Pos_80259A84
 extern "C" {
 f32 fabs_float(f32, f32);
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
-}
-extern const f32 lbl_805DCF58;
-extern const f32 lbl_805DCF5C;
-extern const f32 lbl_805DCF60;
-extern const f32 lbl_805DCF64;
-void set_status_entry_target(void *arg0, s32 arg1);
-extern s32 lbl_804CF9E0[];
-extern "C" {
 void reset_entry__20TWindowSubStatusDispFPv(void*, int);
 extern s32 lbl_804CF9C8[];
 u8 *TWindowSubStatusDisp__sub_80259D3C(u8 *arg0, u8 *arg1, s32 arg2);
@@ -53,6 +45,12 @@ void begin_screen_draw(s32 arg0);
 s32 draw_textured_quad_at_depth(Pos_80259A84 *, f32);
 void set_draw_texture_and_color(s32 idx, s32 arg1);
 }
+extern const f32 lbl_805DCF58;
+extern const f32 lbl_805DCF5C;
+extern const f32 lbl_805DCF60;
+extern const f32 lbl_805DCF64;
+void set_status_entry_target(void *arg0, s32 arg1);
+extern s32 lbl_804CF9E0[];
 void render_numeric_digit_entries(u8 *arg0, u8 *arg1);
 extern "C" {
 void TWindowSubStatusDisp__sub_80259CE0(void);

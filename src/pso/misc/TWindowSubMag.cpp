@@ -78,20 +78,11 @@ extern "C" {
 u8 *find_item_by_id(s32);
 s32 align_menu_entry_positions(void *);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
-}
-s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-extern "C" {
 s32 *get_shared_text_buffer(void);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 deserialize_mag__9TItemDataFPvPv(s32, s32 *);
 s32 calc_text_width();
-}
-void append_text_space(void);
-extern "C" {
 s32 text_builder_append();
-}
-void text_builder_reset(void);
-extern "C" {
 s32 set_field_1c__6TLobbyFf(void *);
 s32 TWindowSubEquip__sub_80263AF8(s32, s32);
 s32 send_and_handle__6TLobbyFii(s32, s32 *, s32);
@@ -104,9 +95,6 @@ void *__nw__7TObjectFUl(u32);
 void *__ct__15TWindowHelpItemFPvUs(void *, s32, s32);
 void *fn_802628C0(s32, void *, s32);
 void queue_destruction__7TObjectFv(void *arg0);
-}
-void window_request_show(void *arg0);
-extern "C" {
 s32 call_if_split_screen(void *, s32);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
 s32 get_selected_menu_value(void *);
@@ -114,9 +102,6 @@ s32 update_help_item__13TWindowSubMagFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 play_sound_effect(s32, s32, s32, s32);
-}
-void window_request_refresh(u8 *arg0);
-extern "C" {
 s32 are_status_entries_ready__13TWindowSubMagFi(void *);
 s32 fn_8025373C(u8 *self);
 void *TWindowSubMagPhoton__ct(void *, s32, s32, s32);
@@ -133,6 +118,11 @@ s32 __ct__7TObjectFP7TObject();
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 }
+s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void append_text_space(void);
+void text_builder_reset(void);
+void window_request_show(void *arg0);
+void window_request_refresh(u8 *arg0);
 void toggle_help_window_on_button(u32 arg0, s32 arg1);
 
 extern "C" const char lbl_805DD648[] = "";

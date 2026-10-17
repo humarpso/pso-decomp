@@ -89,34 +89,12 @@ void queue_destruction__7TObjectFv(void *arg0);
 f32 vec_squared_length(u8 *arg0);
 u8 *__dt__13TUnk_8048E728Fv(u8 *arg0, s16 arg1);
 u8 *create_radial_particle(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4);
-}
-void * create_random_particle(void *arg0, void *arg1, void *arg2);
-extern const f32 TParticleCtrl__data_805D9558;
-extern const f32 TParticleCtrl__data_805D955C;
-extern s32 TParticleCtrl__data_8048E7A8[];
-extern "C" {
 void *__dt__13TUnk_8048E7A8Fv(void *arg0, s16 arg1);
 void TKeyBoardControl__sub_8000F91C(s32 arg0);
 void TKeyBoardControl__sub_8000F9CC(s32 arg0);
-}
-void stop_cue_stream(void);
-extern "C" {
 void destroy_keyboard_objects(void * _w0);
-}
-void *init_particle_base(void *arg0, void *arg1, s32 arg2);
-extern "C" {
 s32 rand(void);
-}
-extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
-extern const f32 lbl_805D9568;
-extern const f32 lbl_805D956C;
-u8 *construct_radial_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
-extern "C" {
 s32 is_split_screen();
-}
-void setup_particle_tev(s32 arg0);
-void load_projected_texture_matrix(f32 farg0);
-extern "C" {
 s32 is_particle_sprite_additive__13TUnk_8048E728Fv(void *, s32);
 s32 append_node_to_tail__13TParticleCtrlFPvPv(s32, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -133,9 +111,6 @@ extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 f32 atan2_float(f32, f32);
-}
-void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
-extern "C" {
 f32 vector_length(void *);
 void project_world_to_screen(s32, void *, void *);
 extern const Ang_8008BAF8 radial_particle_zero_angles;
@@ -143,7 +118,19 @@ extern const f64 lbl_80439560[];
 extern const f32 lbl_805D9564;
 void __ct__7TObjectFP7TObject(void *, void *);
 }
-
+void * create_random_particle(void *arg0, void *arg1, void *arg2);
+extern const f32 TParticleCtrl__data_805D9558;
+extern const f32 TParticleCtrl__data_805D955C;
+extern s32 TParticleCtrl__data_8048E7A8[];
+void stop_cue_stream(void);
+void *init_particle_base(void *arg0, void *arg1, s32 arg2);
+extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
+extern const f32 lbl_805D9568;
+extern const f32 lbl_805D956C;
+u8 *construct_radial_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
+void setup_particle_tev(s32 arg0);
+void load_projected_texture_matrix(f32 farg0);
+void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
 extern void *__vt__13TParticleCtrl[];
 extern s32 TParticleCtrl__class_name_descriptor;
 extern void *tl_07;

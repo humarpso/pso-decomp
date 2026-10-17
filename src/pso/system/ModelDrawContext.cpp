@@ -48,14 +48,12 @@ void compose_motion_node_matrix(void *arg0);
 s32 push_matrix();
 s32 pop_matrix();
 s32 queue_model_draw_matrix(int, void *);
+void bind_motion_context(void *);
+void init_model_draw_queue(void *);
 }
 extern s32 model_node_callback;
 extern s32 current_matrix;
 void draw_ginja_motion_node_tree(u8 *arg0);
-extern "C" {
-void bind_motion_context(void *);
-void init_model_draw_queue(void *);
-}
 void flush_model_draw_queue(void);
 extern "C" {
 void prepare_ginja_model(void *);

@@ -95,9 +95,6 @@ extern RecoveredCallback_2be3cacebb2e TScene__render_callback;
 extern s32 model_render_flags;
 extern s32 lbl_805D5660;
 void prepare_ginja_model(void);
-}
-void end_ginja_model_draw(void);
-extern "C" {
 void push_matrix(void);
 void post_translate_matrix(f32 *);
 void rotate_matrix_by_node_angles(s32 *, s32);
@@ -130,6 +127,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 
 void subtract_vector(void *, void *);
 }
+void end_ginja_model_draw(void);
 extern W_802043CC lbl_8044A858[];
 extern Tbl_802043CC *TScene__data_805D6020;
 extern const f32 lbl_805DC5E4;

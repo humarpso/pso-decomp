@@ -47,19 +47,14 @@ extern char lbl_805DAAD0;
 void format_drop_table_filename(void *out, s32 arg1);
 u32 roll_channel_below__9TItemDropFPviUi(u8 *arg0, s32 count, u32 arg2);
 void *lookup_item_pmt_record(u8 *item);
-}
-void unload_item_drop_globals(void);
-extern "C" {
 void TItemDrop__sub_80105D10(void);
 u8 is_enabled__9TItemDropFv(void);
 u8 is_not_special__9TItemDropFv(void);
 s8 select_weighted_byte__9TItemDropFiiiii(s32, s32, s32, s32, s32);
-}
-s32 is_unsealable_item(u8 *id);
-extern "C" {
 s32 get_item_star_count(s32 id);
 }
-
+void unload_item_drop_globals(void);
+s32 is_unsealable_item(u8 *id);
 void unload_item_drop_globals(void) {  }
 
     extern int lbl_805D5450;

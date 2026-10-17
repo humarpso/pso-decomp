@@ -1204,18 +1204,8 @@ s32 queue_destruction__7TObjectFv(void *);
 void TLobby__sub_80293218(s32 arg0);
 void TLobby__sub_800703D0(void *, void *);
 void snapshot_player_card_status__6TLobbyFv(void);
-}
-void *create_obj_tag_challenge(void *arg0);
-extern s32 tl_07;
-extern "C" {
 s32 get_current_floor(void);
-}
-void *create_ch_time_win(void *arg0);
-extern "C" {
 void TLobby__sub_802933FC(void *arg0);
-}
-void setup_split_screen(void);
-extern "C" {
 int TAdPlayerLoadGC__sub_801E1510(void);
 #define set_split_screen_name__6TLobbyFi ((s32 (*)(void *))set_split_screen_name__6TLobbyFi)
 s32 export_character_data__10TObjPlayerFPvPv(u32, u32);
@@ -1223,7 +1213,10 @@ s32 export_character_data__10TObjPlayerFPvPv(u32, u32);
 
 u32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
 }
-
+void *create_obj_tag_challenge(void *arg0);
+extern s32 tl_07;
+void *create_ch_time_win(void *arg0);
+void setup_split_screen(void);
 extern s32 lbl_80464E58[];
 extern s32 lbl_805D6584;
 

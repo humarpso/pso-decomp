@@ -25,9 +25,6 @@ struct Vec_8023F22C { f32 x, y, z; };
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *arg0);
-}
-void clear_resource_load_tasks(void);
-extern "C" {
 s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
 s32 delete_all_task_children__9TMainTaskFv(void *);
 extern RecoveredGlobal_8023F1B8_lbl_804CCDA8 lbl_804CCDA8;
@@ -47,6 +44,7 @@ void TWindowCtrlMain__ct(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 }
+void clear_resource_load_tasks(void);
 void set_screen_size(f32, f32);
 extern Vec_8023F22C lbl_8044DCE8;
 extern Vec_8023F22C lbl_8044DCF4;

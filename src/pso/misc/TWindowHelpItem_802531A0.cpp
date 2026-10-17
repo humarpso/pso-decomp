@@ -43,6 +43,10 @@ u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void deserialize_mag__9TItemDataFPvPv(void *, MagData_80253564 *);
 void draw_action_palette_icon(void *, int, u16);
 void init_window_layout_entries(void *, const void *, s16);
+s32 *get_shared_text_buffer(void);
+u8 calc_display_grade__9TItemDataFv(void *);
+void check_equip_requirements(int, void *, void *);
+void text_builder_append();
 }
 extern u8 lbl_804CF4E4[];
 extern Callback_80253564 TWindowHelpItem__photon_blast_update_callback;
@@ -51,15 +55,7 @@ extern V3_802531A4 TWindowHelpItem__description_update_callback;
 void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 extern u8 window_help_item_layout_entries[];
 extern V3_802534B0 item_help_description_idle_callback;
-extern "C" {
-s32 *get_shared_text_buffer(void);
-u8 calc_display_grade__9TItemDataFv(void *);
-void check_equip_requirements(int, void *, void *);
-}
 s32 format_item_description(u8 *item);
-extern "C" {
-void text_builder_append();
-}
 void text_builder_reset();
 extern u8 help_item_tech_disk_window_layout_table[];
 extern V3_802532E8 item_help_tech_disk_stats_callback;

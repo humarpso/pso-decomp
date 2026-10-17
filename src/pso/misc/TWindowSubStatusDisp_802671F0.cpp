@@ -71,10 +71,6 @@ u8 get_font_char_advance();
 u16 map_char_to_font_code(u16 c);
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append(u8 *str);
-}
-void text_builder_reset();
-s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width);
-extern "C" {
 void set_text_draw_params(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
 void draw_window_tab(void *, void *, s32, f32);
 extern const f32 lbl_805DD180;
@@ -123,6 +119,8 @@ u32 construct_type1_heading__20TWindowSubStatusDispFll(u32, s32, s16);
 s32 get_status_flag__13TUnk_804D0618Fv(void *);
 s32 is_flag_4_set__20TWindowSubStatusDispFv();
 }
+void text_builder_reset();
+s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width);
 void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2);
 extern "C" {
 u8 *fn_802683F4(void *, s32, s32, s16);

@@ -141,28 +141,12 @@ void TObjPlayer__sub_80079120(s32 _w0);
 extern u32 lbl_804FFD40[];
 extern s32 lbl_804389E8[];
 s32 *csnVecterUnder(s32 arg0, s32 arg1);
-}
-extern s32 csn_query_map_object[];
-extern s32 lbl_80438988[];
-void *query_prepared_wall_polygons(void *self);
-extern s32 lbl_804389A8[];
-extern "C" {
 void *query_wall_radial(Obj_8007A32C *self);
 void TObjPlayer__sub_80079124(void *, void *);
 u32 TObjPlayer__sub_80079DE0(void *, void *);
 extern s32 lbl_804389C0[];
 s32 *csnLookAt(s32 arg0, s32 arg1);
-}
-void vsub(void *, void *, void *);
-extern "C" {
 s32 intersect_wall_triangle_one_sided(void *, void *, void *, E_80079580 *, u32, s32);
-}
-extern E_80079580 *wall_query_scene_buffer;
-extern f32 csn_query_nearest_hit_t;
-extern s32 wall_query_hit_result;
-extern const f32 lbl_805D91F4;
-s32 query_wall_segment(void *arg0, void *arg1, void *arg2, s32 arg3);
-extern "C" {
 f32 fabs_float(f32);
 extern const f32 lbl_805D9204;
 s32 select_deepest_wall_ray(Query_80079608 *q, Result_80079608 *r);
@@ -183,11 +167,19 @@ extern const f32 lbl_805D91FC;
 extern const f32 lbl_805D9208;
 extern const f32 lbl_805D920C;
 CsnGroup **get_data_ptr__10TObjMapCsnFv();
-}
-CsnGroup *select_ground_query_groups(CsnVector *arg0, u32 arg1);
-extern "C" {
 M_80079C64 *refill_csn_candidate_cache(P_80079C64 *arg0, M_80079C64 **arg1, u32 arg2);
 }
+extern s32 csn_query_map_object[];
+extern s32 lbl_80438988[];
+void *query_prepared_wall_polygons(void *self);
+extern s32 lbl_804389A8[];
+void vsub(void *, void *, void *);
+extern E_80079580 *wall_query_scene_buffer;
+extern f32 csn_query_nearest_hit_t;
+extern s32 wall_query_hit_result;
+extern const f32 lbl_805D91F4;
+s32 query_wall_segment(void *arg0, void *arg1, void *arg2, s32 arg3);
+CsnGroup *select_ground_query_groups(CsnVector *arg0, u32 arg1);
 s32 prepare_wall_query_polygons(void *arg0, f32 r, s32 mask);
 extern "C" {
 f32 newton_sqrtf(f32);

@@ -39,14 +39,11 @@ void submit_chat_text(u8 *arg0) {
 void chat_dispatch_accepted_result(s32 *arg0);
 extern "C" {
 s32 is_submit_cooldown_clear__11TWindowCtrlFv();
-}
-s32 chat_accept_submission(s32 arg0);
-extern "C" {
 int get_chat_shortcut(s32 arg0);
 void send_chat_shortcut(void);
 void TAdSinglePlyChrSelectGC__sub_80076DF4(void* p, void* q);
 }
-
+s32 chat_accept_submission(s32 arg0);
 void chat_dispatch_accepted_result(s32 *arg0) {
 
     switch (*arg0) {

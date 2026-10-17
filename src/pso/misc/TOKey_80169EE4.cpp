@@ -29,12 +29,10 @@ extern s32 local_client_id;
 int get_player_data__10TObjPlayerFi(int a0);
 extern s32 lbl_805D586C;
 void TOKey__sub_80169FB0(void* p);
-}
-void handle_6x05_write_switch_flag(void *arg0);
-extern "C" {
 s32 play_sound_effect(s32, s32, s32, s32);
 void *find_entity_by_id(u16);
 }
+void handle_6x05_write_switch_flag(void *arg0);
 void clear_floor_switch_flag(u32 id, s16 floor);
 void clear_current_floor_switch(s32 id);
 void set_floor_switch_flag(u32 id, s16 floor);

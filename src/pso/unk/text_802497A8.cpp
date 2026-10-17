@@ -15,13 +15,11 @@ s8 TWindowSubComCard__sub_8007B6EC(void *);
 s32 TWindowSubComCard__sub_8007B6F4(void *);
 s32 get_com_card_list__6TLobbyFPv(void *);
 void TWindowSubStatusDisp__sub_80228F5C(int);
-}
-void text_builder_reset();
-extern "C" {
 void refresh_status_display__9TWindowDDFv(void *);
 s8 TWindowComCard__sub_80249C18(void *);
 s8 TWindowComCard__sub_80249C20(void *);
 }
+void text_builder_reset();
 s32 get_class_name_text(s32 arg0);
 void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 extern s32 com_card_status_text_table[];

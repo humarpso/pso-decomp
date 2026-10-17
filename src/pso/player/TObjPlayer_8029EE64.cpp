@@ -33,10 +33,6 @@ struct Sora_8029EFFC {
 
 extern "C" {
 s32 TCameraCtrl__sub_800689F4();
-}
-void calc_projection_screen_offset(f32 *arg0, f32 *arg1);
-f32 calc_camera_fov_degrees(void);
-extern "C" {
 s32 fn_8029F5B0(int, int, int, int);
 s32 PSMTXConcat(void *, void *, void *);
 s32 C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
@@ -45,6 +41,8 @@ s32 GXSetTevOrder(int, int, int, int);
 s32 push_matrix();
 s32 pop_matrix();
 }
+void calc_projection_screen_offset(f32 *arg0, f32 *arg1);
+f32 calc_camera_fov_degrees(void);
 void set_ginja_post_texgen_count(s32 x);
 void set_ginja_post_tev_stage_count(s32 x);
 void load_current_pos_matrix(s32 arg0);

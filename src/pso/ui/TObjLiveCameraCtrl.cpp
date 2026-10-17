@@ -44,11 +44,9 @@ extern const f32 lbl_805DF1DC;
 extern const f32 lbl_805DF1E0;
 s32 TObjLiveMonitor__sub_8030C050(void* p);
 void fn_8030C058(void);
-}
-void reset_globals_805D6A84(void);
-extern "C" {
 s32 memset(s32 *, s32, s32);
 }
+void reset_globals_805D6A84(void);
 
 void TObjLiveCameraCtrl::run_task() {
     update_toggle_state__12TBoss8DragonFv(this);

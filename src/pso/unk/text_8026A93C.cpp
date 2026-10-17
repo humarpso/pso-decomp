@@ -8,15 +8,11 @@ u8 *__nw__7TObjectFUl(s32);
 s32 TLobby__sub_80269DA4(void *, int);
 u8 *create_message_log_window(s32 arg0, s32 arg1, s32 arg2);
 s32 *get_shared_text_buffer(void);
-}
-void append_text_space(void);
-extern "C" {
 void text_builder_append(u8 *str);
-}
-void text_builder_reset(void);
-extern "C" {
 s32 *get_active_photon_object__17TWindowMessageLogFv(u16);
 }
+void append_text_space(void);
+void text_builder_reset(void);
 void cache_last_chat_line(u32 text);
 extern "C" {
 s32 chat_log_add_line();

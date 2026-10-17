@@ -271,30 +271,13 @@ s32 memset(void *, int, int);
 s32 TItem__sub_80100A40(f32 *, f32, f32);
 void run_with_transform_context__10TObjPlayerFii(void *, void (*)(void *));
 u32 mag_owner_has_motion_action(s32);
-}
-s32 mag_owner_freezes_follow(void *arg0);
-extern "C" {
 int set_flags__11TItemMagSubFUl(void*, int);
 u32 test_flags__11TItemMagSubFUl(void *, u32);
 s32 obj_isState7_324(void *);
 s32 mag_node_oscillation_is_disabled(Feed_80114AB4 *);
 void reset_oscillation__11TItemMagSubFv(u8 *arg0);
-}
-void accumulate_mag_axis_oscillation(f32 *arg0, s32 *arg1, void *arg2);
-extern "C" {
 void lerp_follow_anchor(Vec_80114CD8 *target, Vec_80114CD8 *cur, f32 *t);
-}
-void mag_accumulate_drift(f32 *out, s32 *phase, f32 *amplitude, s32 *velocity, s8 *offset);
-extern "C" {
 void reset__11TItemMagSubFv(u8 *arg0);
-}
-int mag_node_oscillation_uses_z(void* p);
-int mag_node_oscillation_uses_y(void* p);
-s32 mag_node_oscillation_angle(void *arg0);
-int mag_node_oscillation_uses_x(void* p);
-int mag_node_oscillation_node_index(void* p);
-int mag_item_tests_flag_20(void* p);
-extern "C" {
 f32 sin_table_lookup(s32);
 void vec3_add_to(void *, void *);
 s32 rotate_matrix_zyx(int, int, int, int, int);
@@ -306,7 +289,15 @@ f32 transform_point_by_current_matrix(void *, void *);
 void push_matrix();
 s32 post_translate_matrix(void *);
 }
-
+s32 mag_owner_freezes_follow(void *arg0);
+void accumulate_mag_axis_oscillation(f32 *arg0, s32 *arg1, void *arg2);
+void mag_accumulate_drift(f32 *out, s32 *phase, f32 *amplitude, s32 *velocity, s8 *offset);
+int mag_node_oscillation_uses_z(void* p);
+int mag_node_oscillation_uses_y(void* p);
+s32 mag_node_oscillation_angle(void *arg0);
+int mag_node_oscillation_uses_x(void* p);
+int mag_node_oscillation_node_index(void* p);
+int mag_item_tests_flag_20(void* p);
 extern void *TItemMagSub__oscillating_instance;
 extern s32 TItemMagSub__feed_sequence_index;
 extern const f32 mag_sub_zero;

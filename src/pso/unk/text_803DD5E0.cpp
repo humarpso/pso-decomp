@@ -62,9 +62,6 @@ typedef void (*Fn_803DD6DC)(struct Obj_803DD6DC *, s32);
 extern Fn_803DD6DC lbl_804FC688[];
 s32 TObjPlayer__sub_803D9E38(s32 *arg0, u32 arg1, s32 *arg2, u32 *arg3);
 s32 TObjPlayer__sub_803DAC48(Obj_803DDA68 *, s32, s32, s32, Desc_803DDA68 *, s32 *);
-}
-u32 *find_gvrt_texture_chunk(TLobby *arg0, u32 *arg1, u32 *arg2);
-extern "C" {
 s32 TObjPlayer__sub_803DD91C(Obj_803DDA68 *obj, s32 idx);
 s32 TObjPlayer__sub_803DDA68(Obj_803DDA68 *obj, s32 idx);
 s32 find_free_slot__10TObjPlayerFPvPv(Slot_803DDB34 **, Rec_803DDB34 **);
@@ -83,7 +80,7 @@ extern char lbl_805D46D8[4];
 extern Slot_803DD784 *record_array_ptr;
 s32 TObjPlayer__sub_803DD784(Obj_803DDA68 *obj, s32 idx);
 }
-
+u32 *find_gvrt_texture_chunk(TLobby *arg0, u32 *arg1, u32 *arg2);
 extern s32 ginja_draw_flags;
 
 void set_ginja_draw_flags(s32 arg0) {

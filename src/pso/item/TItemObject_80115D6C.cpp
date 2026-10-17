@@ -47,13 +47,10 @@ s32 set_hp_clamped__10TObjPlayerFs(void *, s32);
 s32 get_field_2b8__14TItemProShieldFv(void *);
 void *spawn_particle_effect(void *pos, s32 id);
 s32 reset_key_machine_state__10TObjPlayerFv();
-}
-void handle_6x66_use_star_atomizer(u8 *arg0);
-extern "C" {
 void *TObjPlayer__sub_80116620(void *, s32);
 void send_star_atomizer_targets(void *arg0);
 }
-
+void handle_6x66_use_star_atomizer(u8 *arg0);
 void TItemObject::store_encoded_value(s32 value) {
     encoded_value = value ^ (s32)&encoded_value;
 }

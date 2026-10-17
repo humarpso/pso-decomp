@@ -151,13 +151,11 @@ extern s32 city_common_texture_list;
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 * load_gvm_texture_file(s32);
-}
-extern RecoveredGlobal_8019A9B8_lbl_804B8F60 bm_obj_city_common_resource_descriptor;
-void load_city_common_resources(void);
-extern "C" {
 int is_phase_e__9TObjEneDDFPv(void*);
 void render__18TObjCityDoor_LobbyFv(void* p);
 }
+extern RecoveredGlobal_8019A9B8_lbl_804B8F60 bm_obj_city_common_resource_descriptor;
+void load_city_common_resources(void);
 s32 get_city_common_model(s32);
 extern "C" {
 s32 post_translate_matrix(void *);
@@ -510,13 +508,11 @@ void TObjCityDoor_Med::run_task() {
 
 void *TObjCityDoor_Med__create(void *arg0);
 void *dt__16TObjCityDoor_MedFPvs(void *arg0, s16 arg1);
-}
-s32 is_rader_map_active(void);
-extern "C" {
 s32 TLobby__sub_80182E60();
 s32 get_game_play_mode();
 void *TObjCityDoor_Med__ct(void *, void *, void *);
 }
+s32 is_rader_map_active(void);
 u8 *init_city_door(u8 *, s32, s32, u8 *);
 extern "C" {
 void *TObjPlayer__sub_80182D24(void *, s16);

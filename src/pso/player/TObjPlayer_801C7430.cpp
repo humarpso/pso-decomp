@@ -1187,9 +1187,6 @@ s32 set_type__10TObjPlayerFl(void *, s32);
 s32 check_value_equals__13TUnk_804B6C24Fl(int, void *);
 s32 check_flag__10TObjPlayerFl(int, int);
 s32 fn_800660B8(void *);
-}
-void reset_cameras_to_actor(void *actor, s32 arg1);
-extern "C" {
 s32 test_action_mask__10TObjPlayerFl(void *, s32);
 s32 TObjPlayer__sub_80082300(void *);
 s32 is_inactive__10TObjPlayerFv();
@@ -1220,31 +1217,15 @@ f32 sample_attack_root_motion(void *, void *, void *);
 s32 is_anim_finished__10TObjPlayerFv(void *);
 s32 objInBand__FP7GameObjf(void *);
 s32 sub_80143960__10TObjMotionFl(void *, s32);
-}
-void bswap_6x45_packet(void *p);
-extern "C" {
 void init_6x45_attack_packet(u8 *arg0);
-}
-void bswap_6x44_packet(void *p);
-extern "C" {
 void init_6x44_attack_packet(u8 *arg0);
-}
-void bswap_6x43_packet(void *p);
-extern "C" {
 void init_6x43_attack_packet(u8 *arg0);
-}
-void init_6x40_walk_packet(void *cmd);
-extern "C" {
 void *resolve_hittable_target(u16 actorId, s16 collider);
 u8 * find_entity_by_id(s32);
 s32 get_trap_type__10TOMineTrapFv(int);
 void set__10TObjRoomIdFPvs(void *, s16);
 s32 TKeyBoardControl__sub_801A58B0();
 s32 TKeyBoardControl__sub_801A58D8();
-}
-void init_stick_escape_detector(void *arg0, void *arg1);
-void admit_photon_blast_sequence(u8 *players, void *self);
-extern "C" {
 s32 is_final_phase__10TObjPlayerFv();
 s32 is_camera_mode_active__10TObjPlayerFv();
 s32 is_single_screen__10TObjPlayerFv();
@@ -1322,10 +1303,6 @@ void set_photon_blast_kind(void *p, s16 v);
 s32 TObjPlayer__sub_801C1F50(s32);
 s32 send_neg50__6TLobbyFPvPv(void *, int);
 s32 calc_death_pose_height_offset(s32, s32);
-}
-void calc_death_sink_offset(void *arg0);
-void reset_player_appearance_opacity(void *a0);
-extern "C" {
 s32 apply_stat_multipliers_and_reset__10TObjPlayerFPv(void *, void *, f32);
 s32 apply_stats_and_update__10TObjPlayerFPv(void *, void *);
 f32 apply_stat_multipliers_default__10TObjPlayerFv(void *, void *);
@@ -1409,15 +1386,9 @@ void send_object_id_packet__10TObjPlayerFi(s32 arg0);
 void TObjPlayer__sub_801CBB10(void);
 void TObjPlayer__sub_801CBB80(void);
 void run_guard_reaction_phase__10TObjPlayerFis(s32 arg0, s16 arg1);
-}
-void remove_photon_blast_participant(s32 arg0);
-extern "C" {
 void update_active_instance__10TObjPlayerFi(s32 arg0);
 void release_all_players_control_lock(void);
 void release_photon_blast_player_holds(u16 *p);
-}
-void freeze_players_for_photon_blast(s16 arg0, u16 *arg1);
-extern "C" {
 void handle_6x36(void);
 void handle_6x37_photon_blast(s32 arg0);
 void handle_6x49_execute_photon_blast(void *arg0);
@@ -1531,26 +1502,11 @@ void * TObjPlayer__sub_801D1D44(void *arg0, void *arg1);
 void TObjPlayer__sub_801D1D88(u8 *arg0);
 s32 copy_photon_blast_data__10TObjPlayerFiPv(s32 arg0, u8 *arg1);
 void TObjPlayer__sub_801D1F44(void* p);
-}
-void send_photon_blast_targets_packet(u8 *arg0);
-extern "C" {
 u8 TObjPlayer__sub_801D2004(u8 *arg0);
 void* TObjPlayer__sub_801D2058(void* p, void* a1);
-}
-void init_6x48_cast_complete_packet(u8 *arg0);
-extern "C" {
 u8 * TObjPlayer__sub_801D21CC(u8 *arg0, u8 *arg1);
-}
-void init_6x8D_technique_level_packet(u8 *arg0);
-extern "C" {
 void * TObjPlayer__sub_801D2348(void *arg0, void *arg1);
-}
-void send_6x46_attack_finished(u8 *arg0);
-extern "C" {
 void TObjPlayer__sub_801D2448(void* p);
-}
-u8 get_6x46_strike_packet_size(s32 arg0);
-extern "C" {
 void * TObjPlayer__sub_801D24B0(void *arg0, void *arg1);
 u8 * TObjPlayer__sub_801D2540(u8 *arg0, u8 *arg1);
 u8 * TObjPlayer__sub_801D25AC(u8 *arg0, u8 *arg1);
@@ -1561,9 +1517,6 @@ int TObjPlayer__sub_801D2680(void *p);
 int ret_801D26AC(void);
 s16 TObjPlayer__sub_801D2824(void* p);
 s16 TObjPlayer__sub_801D282C(void* p);
-}
-void add_death_sink_progress(u8 *arg0, f32 farg0);
-extern "C" {
 f32 TObjPlayer__sub_801D2858(void* p);
 s32 TObjPlayer__sub_801D2870(void* p);
 s32 TObjPlayer__sub_801D2878(void* p);
@@ -1582,14 +1535,8 @@ s32 TObjPlayer__sub_801D2BB8(s32 arg0, s32 arg1);
 void TObjPlayer__sub_801D2CAC(u8 *arg0);
 void TObjPlayer__sub_801D2CC4(void* p, f32 v);
 void* get_technique_data__10TObjPlayerFPv(void* p);
-}
-f32 get_attack_controller_rate(void* p);
-extern "C" {
 void* get_anim_field_c__10TObjPlayerFPv(void* p);
 int on_attack_finished__10TObjPlayerFPv(void* p);
-}
-void emit_heavy_attack_particles(s32 arg0, s32 arg1);
-extern "C" {
 void clear_lockon_list__10TObjPlayerFPvPvff(s32 *arg0, void * _w1, f32 _w2, f32 _w3);
 s16 get_validated_attack_stage(u8 *arg0);
 s32 TObjPlayer__sub_801D2EE8(s16 arg0);
@@ -1598,9 +1545,6 @@ s16 TObjPlayer__sub_801D2F4C(s16 *arg0);
 s32 TObjPlayer__sub_801D2F8C(s16 arg0);
 void queue_physical_attack_input(PlayerAttackController *self, TObjPlayer *obj, s32 arg2, s16 arg3);
 void apply_anim_action__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
-}
-void begin_player_attack(u8 *arg0, s32 arg1, s16 arg2, s32 arg3);
-extern "C" {
 s32 get_first_target_position__10TObjPlayerFPvPv(void *arg0, Vec_801D3224 *out);
 void * capture_lockon_targets(Self_801D32A0 *self, Pl_801D32A0 *player);
 int TObjPlayer__sub_801D345C(void* p);
@@ -1610,9 +1554,6 @@ void handle_6x65(void);
 void handle_6x8B(void);
 void handle_6x64(void);
 s16 TAdSinglePlyChrSelectGC__sub_801D5DDC(void *);
-}
-void add_photon_blast_charge(u8 *arg0, f32 farg0);
-extern "C" {
 s32 reset_photon_blast_gauge(void *);
 int is_pb_palette_bank_empty(void*);
 s32 get_getup_protection_ticks__10TObjPlayerFv(void *);
@@ -1632,9 +1573,6 @@ u8 * get_character_save_record(u16);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 u32 __nw__7TObjectFUl(s32);
-}
-void create_technique_charge_light(u32 kind, void *owner);
-extern "C" {
 s32 capture_technique_targets__10TObjPlayerFv(void *, void *);
 void launch_technique__10TObjPlayerFv(s32, s32, void *);
 Rec_801CCEDC * calc_technique_parameters(s32 tech, s32 level, s32 id);
@@ -1644,6 +1582,28 @@ s32 TObjPlayer__sub_8024ABDC(void *);
 void TLobby__sub_8024AC20(s32 arg0);
 void dispatch_to_child__11TWindowCtrlFPv(u16, s32);
 }
+void reset_cameras_to_actor(void *actor, s32 arg1);
+void bswap_6x45_packet(void *p);
+void bswap_6x44_packet(void *p);
+void bswap_6x43_packet(void *p);
+void init_6x40_walk_packet(void *cmd);
+void init_stick_escape_detector(void *arg0, void *arg1);
+void admit_photon_blast_sequence(u8 *players, void *self);
+void calc_death_sink_offset(void *arg0);
+void reset_player_appearance_opacity(void *a0);
+void remove_photon_blast_participant(s32 arg0);
+void freeze_players_for_photon_blast(s16 arg0, u16 *arg1);
+void send_photon_blast_targets_packet(u8 *arg0);
+void init_6x48_cast_complete_packet(u8 *arg0);
+void init_6x8D_technique_level_packet(u8 *arg0);
+void send_6x46_attack_finished(u8 *arg0);
+u8 get_6x46_strike_packet_size(s32 arg0);
+void add_death_sink_progress(u8 *arg0, f32 farg0);
+f32 get_attack_controller_rate(void* p);
+void emit_heavy_attack_particles(s32 arg0, s32 arg1);
+void begin_player_attack(u8 *arg0, s32 arg1, s16 arg2, s32 arg3);
+void add_photon_blast_charge(u8 *arg0, f32 farg0);
+void create_technique_charge_light(u32 kind, void *owner);
 void release_photon_blast_requests(void *registry);
 extern "C" {
 u8 * find_by_section_id__10TObjPlayerFl(void *, int);

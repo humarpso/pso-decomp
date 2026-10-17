@@ -222,36 +222,41 @@ void *spawn_continuous_particle_with_direction(void *pos, void *dir, s32 id);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 sin_table_lookup(void *);
 f32 cos_table_lookup(void *);
+s32 rotate_matrix_z(int, int);
+void TObjPlayer__sub_80357954(u8 *arg0);
+void *spawn_particle_effect(void *pos, s32 id);
+u32 __nw__7TObjectFUl(s32);
+u32 create_fire_explosion_effect(u32, s32, s32, s32, f32);
+int rand(void);
+f32 vector_length(void *);
+s32 normalize_vector(void *);
+s32 is_mode_two_and_ready__10TObjPlayerFv();
+void remap_extra_attack_type(TItemWeapon *arg0);
+s32 draw_icon__10TObjPlayerFll(void *, int, void *);
+s32 create__20TItemEffOrgaFlowShotFPvPv(int, void *, int);
+void *__dt__13TUnk_804F14A8Fv(void *arg0, s16 arg1);
+void TObjPlayer__sub_8035776C(void *arg0, void *arg1);
+void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
+s32 get_bml_motion(s32, s32);
+s32 get_bml_model(s32, s32);
+void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 }
 extern RecoveredGlobal_80358048_lbl_804793E4 lbl_804793E4;
 extern s32 inward_orbit_effect_vtable[];
 extern const f32 lbl_805E0068;
 extern const f32 lbl_805E0070;
 u8 *create_inward_orbit_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3);
-extern "C" {
-s32 rotate_matrix_z(int, int);
-void TObjPlayer__sub_80357954(u8 *arg0);
-void *spawn_particle_effect(void *pos, s32 id);
-u32 __nw__7TObjectFUl(s32);
-}
 extern Trip_8035862C lbl_804793D8;
 extern s32 tl_07;
 extern const f32 lbl_805E0048;
 extern const f32 lbl_805E0080;
 void weapon_special_lightning_bolt_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-extern "C" {
-u32 create_fire_explosion_effect(u32, s32, s32, s32, f32);
-}
 extern s32 tl_particle;
 extern const f32 lbl_805E0088;
 extern const f32 lbl_805E008C;
 extern const f32 lbl_805E0090;
 void weapon_fire_explosion_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-extern "C" {
-int rand(void);
-f32 vector_length(void *);
-s32 normalize_vector(void *);
-}
 extern const f32 lbl_805E004C;
 extern const f32 lbl_805E0050;
 extern const f32 lbl_805E0054;
@@ -260,27 +265,12 @@ extern const f32 lbl_805E005C;
 extern const f32 lbl_805E0060;
 extern const f32 lbl_805E0064;
 void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1);
-extern "C" {
-s32 is_mode_two_and_ready__10TObjPlayerFv();
-void remap_extra_attack_type(TItemWeapon *arg0);
-s32 draw_icon__10TObjPlayerFll(void *, int, void *);
-s32 create__20TItemEffOrgaFlowShotFPvPv(int, void *, int);
-void *__dt__13TUnk_804F14A8Fv(void *arg0, s16 arg1);
-void TObjPlayer__sub_8035776C(void *arg0, void *arg1);
-}
 void weapon_fractional_hp_effect(void *arg0, void *arg1, s32 arg2, s32 arg3);
 void prepare_shock_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void prepare_freeze_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void weapon_dim_shadow_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void weapon_hell_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void weapon_dark_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-extern "C" {
-void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
-void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
-s32 get_bml_motion(s32, s32);
-s32 get_bml_model(s32, s32);
-void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
-}
 void *create_timed_particle_emitter_with_flags(void *pos, s32 id, s32 a, s32 b, s32 c);
 extern "C" {
 void TItemWeapon__ct(void *);

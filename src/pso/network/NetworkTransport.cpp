@@ -151,18 +151,14 @@ s16 TLobby__sub_803F96AC(void *);
 void NetResumeThread(s32);
 s16 TLobby__sub_803F9B94(void *, void *);
 void TLobby__sub_803F7A90(void);
-}
-extern s32 TLobby__queue_timeout_remaining;
-void NetYieldThread(void);
-extern "C" {
 void NetSuspendCurrentThread(void);
 s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32 arg0, s32 arg1, s32 arg2);
 s32 TAdSinglePlyChrSelectGC__sub_8042E184(void);
-}
-void subtract_network_queue_timeout(s32 arg0);
-extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_8042E320(s32, s32, void *);
 }
+extern s32 TLobby__queue_timeout_remaining;
+void NetYieldThread(void);
+void subtract_network_queue_timeout(s32 arg0);
 void set_lobby_map_state_code(s32 arg0);
 extern "C" {
 s32 TLobby__sub_803F8090(void);

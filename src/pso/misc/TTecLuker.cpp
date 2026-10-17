@@ -161,19 +161,12 @@ void clear_pipe_interaction_latch(void* p);
 s32 get_pipe_interaction_latch(void* p);
 extern "C" {
 void TLobby__send_and_handle_60(u8 *arg0);
-}
-void init_telepipe_packet_header(void* p);
-extern "C" {
 void TTecLuker__sub_8023503C(void* p);
 void TTecLuker__sub_80235048(void* p);
 int TTecLuker__sub_80235054(void* p);
 void read_be16_field2__10TObjPlayerFv(void *);
 int fn_80235078(void *arg0);
 u32 get_player_by_client_id(s32);
-}
-void create_quest_telepipe_for_client(u16 arg0);
-void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
-extern "C" {
 s32 play_sound_effect(int, void *, int, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 recovery_technique_charge_vtable[];
@@ -221,9 +214,6 @@ u8 *find_entity_by_id(u16);
 extern s32 local_client_id;
 void handle_6x68_set_telepipe_state(Pkt_802341B0 *pkt);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
-}
-void start_placement_search(s32 arg0, s32 arg1, s32 arg2);
-extern "C" {
 s32 construct_area_technique_base(void *, void *, void *);
 s32 matrix_mult_vec(int, void *, void *);
 s32 rotate_matrix_y(int, s32);
@@ -237,19 +227,11 @@ extern const f32 lbl_805DC878;
 void *TTecLuker__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 s32 mark_area_change_pending();
 s32 obj_isState3_324__13TUnk_804806E8Fv(void *);
-}
-s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range);
-extern "C" {
 s32 play_effect_default__10TObjPlayerFii(void *, s32);
 s32 send_6x21_inter_level_warp(void *, s32);
 s32 get_floor_map_terrain(s32);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
 s32 set_area__6TLobbyFl(s32 *, s32, s32);
-}
-void offset_point_toward_camera(u8 *arg0, u8 *arg1, f32 farg0);
-extern s32 lbl_80515BA0[];
-extern const f32 lbl_805DC858;
-extern "C" {
 void run_task__9TTecLukerFv(u8 *arg0);
 f32 horizontal_distance_squared(void *, void *);
 extern s32 camera_ctrl_instance;
@@ -258,6 +240,14 @@ extern const f32 lbl_805DC868;
 Hit_8023453C *csnVecterUnder(void *, s32);
 u32 spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 }
+void init_telepipe_packet_header(void* p);
+void create_quest_telepipe_for_client(u16 arg0);
+void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
+void start_placement_search(s32 arg0, s32 arg1, s32 arg2);
+s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range);
+void offset_point_toward_camera(u8 *arg0, u8 *arg1, f32 farg0);
+extern s32 lbl_80515BA0[];
+extern const f32 lbl_805DC858;
 u8 *create_telepipe_marker(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 arg5, s32 arg6, f32 farg0, f32 farg1);
 extern s32 telepipe_visual_template_table[][3];
 extern s32 telepipe_owner_tint_table[];

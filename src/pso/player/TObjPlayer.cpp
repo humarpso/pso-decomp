@@ -51,14 +51,7 @@ void TObjPlayer__sub_801BEEE0(void* p, void* q);
 void TObjPlayer__sub_801BEF30(void* p, void* q);
 void TObjPlayer__sub_801BEF44(void* p, void* q);
 void TObjPlayer__sub_801BEF60(void* p, s32 v);
-}
-int emit_zalure_support_effect(void* p, int a1);
-extern "C" {
 int create_attached_oneshot_emitter(void*, int, int);
-}
-int emit_deband_support_effect(void* p, int a1);
-void* get_surface_contact_point(void* p);
-extern "C" {
 int emit_player_particle(void*, int, int);
 void* TObjPlayer__sub_801BF31C(void* p);
 int TObjPlayer__sub_801BF3A0(void* p);
@@ -68,21 +61,20 @@ int test_flags_any(void*, int);
 u8 TObjPlayer__sub_801BF460(s32 *arg0, s32 arg1);
 void TObjPlayer__sub_801BF488(s32 *arg0, s32 arg1);
 void TObjPlayer__sub_801BF4A0(s32 *arg0, s32 arg1);
+void emit_idle_water_effect(s32 arg0);
+void TObjPlayer__sub_801BEEAC(u8 *arg0, u8 *arg1);
+s32 obj_getField1c(int);
 }
+int emit_zalure_support_effect(void* p, int a1);
+int emit_deband_support_effect(void* p, int a1);
+void* get_surface_contact_point(void* p);
 void emit_grass_footstep_effect(s32 arg0);
 void emit_water_step_particles(s32 owner, s32 position);
 void emit_water_footstep_effect(s32 arg0);
 void emit_sand_step_particles(s32 owner, s32 position);
 void emit_sand_footstep_effect(s32 arg0);
 void emit_idle_water_splash(s32 owner, s32 position);
-extern "C" {
-void emit_idle_water_effect(s32 arg0);
-void TObjPlayer__sub_801BEEAC(u8 *arg0, u8 *arg1);
-}
 void emit_photon_blast_feedback_effects(s32 arg0, s32 arg1);
-extern "C" {
-s32 obj_getField1c(int);
-}
 void prepare_heavy_attack_particles(u8 *arg0);
 void emit_jellen_support_effect(u8 *arg0);
 void emit_shifta_support_effect(u8 *arg0);

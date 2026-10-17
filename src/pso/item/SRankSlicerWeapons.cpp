@@ -82,13 +82,9 @@ void *__dt__13TUnk_804A4238Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-}
-
-void *construct_s_rank_j_cutter_weapon(void *arg0, s32 task_root, void *owner);
-extern "C" {
 void construct_srank_weapon(void *);
 }
-
+void *construct_s_rank_j_cutter_weapon(void *arg0, s32 task_root, void *owner);
 void *construct_s_rank_j_cutter_weapon(void *arg0, s32 task_root, void *owner) {
     construct_srank_weapon(arg0);
     *(void ***)((s8 *)arg0 + 0x18) = s_rank_j_cutter_weapon_vtable;

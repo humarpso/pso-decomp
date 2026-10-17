@@ -190,24 +190,14 @@ void * create__17TObjItemNameEntryFPv(void *arg0);
 void * TObjItemNameEntry__ct(void *arg0);
 s32 create_instance__17TQuestThreadBoardFi(s32 arg0);
 u8 * TQuestThreadBoard__ct(u8 *arg0, s32 arg1, s32 arg2);
-}
-void copy_quest_script_context(u8 *arg0, u8 *arg1);
-extern "C" {
 void destroy_children_with_tag(Node_801F57B4* arg0);
 u8 * create_floor_quest_thread(void);
 u32 create__12TQuestThreadFi(s32 arg0);
 u8 * create_quest_thread(s32 arg0);
 u8 * __ct__12TQuestThreadFv(u8 *arg0, s32 arg1, s32 arg2);
-}
-void clear_floor_handler(s32 i);
-void set_floor_handler(s32 i, s32 v);
-extern "C" {
 void TQuestThread__sub_801F5D88(void* p);
 void clear_all_floor_handlers(void* _w0);
 void clear_buffer__12TQuestThreadFPv(void* p);
-}
-void handle_6x77_sync_quest_register(u8 *arg0);
-extern "C" {
 char * get_quest_name__12TQuestThreadFv(void);
 void clear_thread_state__12TQuestThreadFv(void);
 s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1);
@@ -215,9 +205,6 @@ void * __dt__13TUnk_804C8678Fv(void *arg0, s16 arg1);
 void destroy_quest_obj__12TQuestThreadFv(void);
 s32 create_by_mode__12TQuestThreadFv(void);
 u8 * init_from_script__12TQuestThreadFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-}
-u8 * load_quest_root_script(u8 *arg0, void *parent, void *arg2, s32 arg3);
-extern "C" {
 QThread_801F6418 * construct_load_quest__12TQuestThreadFPvPvPv(QThread_801F6418 *self, void *unused, void *scene);
 void set_status_flag_80__12TQuestThreadFPv(void* p);
 void set_item_name_selection_index(int a0);
@@ -252,7 +239,11 @@ void * get_window_layout_position(s32);
 s32 strcmp(s32, s32 *);
 s32 strncpy(void *, void *, int);
 }
-
+void copy_quest_script_context(u8 *arg0, u8 *arg1);
+void clear_floor_handler(s32 i);
+void set_floor_handler(s32 i, s32 v);
+void handle_6x77_sync_quest_register(u8 *arg0);
+u8 * load_quest_root_script(u8 *arg0, void *parent, void *arg2, s32 arg3);
 extern s32 TQuestThread__data_804C8678[];
 extern RecoveredGlobal_801F5B5C_TQuestThread__data_80512AD0 TQuestThread__floor_handler_ids;
 extern void *__vt__12TQuestThread[];

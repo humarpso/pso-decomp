@@ -101,10 +101,6 @@ void *TObjLuker__ct(void *arg0, void *arg1, void *arg2);
 f32 horizontal_distance_squared(void *, void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 check_flag_100__10TObjPlayerFPv(void *);
-}
-extern Pad_801A0F34 controller_input_state[];
-s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range);
-extern "C" {
 void queue_destruction__7TObjectFv(void *);
 s32 spawn_particle_effect(void *, int);
 s32 play_effect_default__10TObjPlayerFii(void *, int);
@@ -113,6 +109,8 @@ void *__nw__7TObjectFUl(int);
 s32 TTecLuker__sub_8023401C(void *);
 void *create_telepipe_visual(void *, void *, int, int);
 }
+extern Pad_801A0F34 controller_input_state[];
+s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range);
 void offset_point_toward_camera(u8 *arg0, u8 *arg1, f32 farg0);
 extern s32 local_client_id;
 extern s32 tl_07;

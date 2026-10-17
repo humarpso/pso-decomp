@@ -113,9 +113,6 @@ struct Stack_8034ED58 {
 extern "C" {
 s32 get_player_by_client_id(s32);
 s32 obj_isState3_324__13TUnk_804806E8Fv();
-}
-void quest_remove_npc_player(u16 arg0);
-extern "C" {
 s32 set_arrival_override_coords(s32, s32, f32, f32, f32);
 void send_6x21_inter_level_warp(void *obj, s32 value);
 s32 obj_getField1c(s32);
@@ -130,26 +127,11 @@ void TLobby__send_and_handle_60(u8 *arg0);
 void build_6x69_npc_control(void* p);
 extern E_8034E02C npc_partner_dialogue_state[];
 void clear_partner_dialogue_flags(void);
-}
-void show_partner_chatter_for_key(s16 key);
-extern struct Slot_8034EDC4 partner_dialogue_table[];
-extern s32 TNpcPlayer__data_805D5864;
-void init_partner_dialogue(void);
-extern "C" {
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, int);
 int sprintf(char *, const char *, ...);
 char *strcpy(char *, const char *);
 u32 strlen(const char *);
-}
-extern const char lbl_805DFDF0[4];
-void set_partner_common_remark(s32 kind, const char *text);
-extern "C" {
 f32 atan2_float(f32, f32);
-}
-extern const f64 lbl_80478CB0[];
-void quest_player_look_at_partner(u16 src);
-void notify_partner_room_cleared(s32 arg0);
-extern "C" {
 void TNpcPlayer__ct(void *, u16, u16, s16, s32, s32);
 void construct_partner__10TNpcPlayerFPviisPv(void *, u16, u16, s16, s32);
 s32 load_npc_player_template(s16);
@@ -158,14 +140,22 @@ void *__nw__7TObjectFUl(u32);
 extern s32 local_client_id;
 extern s32 tl_00;
 void handle_6x69_npc_control(Pkt_8034E814 *pkt);
-}
-void quest_player_face_actor(u16 src, u16 dst);
-extern "C" {
 void send_6x55_intra_map_warp(u16 id, void *pos, s32 c);
 void play_effect_default__10TObjPlayerFii(s32 arg0, s32 arg1);
 
 s32 obj_isState2_324__13TUnk_804806E8Fv();
 }
+void quest_remove_npc_player(u16 arg0);
+void show_partner_chatter_for_key(s16 key);
+extern struct Slot_8034EDC4 partner_dialogue_table[];
+extern s32 TNpcPlayer__data_805D5864;
+void init_partner_dialogue(void);
+extern const char lbl_805DFDF0[4];
+void set_partner_common_remark(s32 kind, const char *text);
+extern const f64 lbl_80478CB0[];
+void quest_player_look_at_partner(u16 src);
+void notify_partner_room_cleared(s32 arg0);
+void quest_player_face_actor(u16 src, u16 dst);
 
 void set_partner_common_remark(s32 kind, const char *text) {
     char buf[0x40];

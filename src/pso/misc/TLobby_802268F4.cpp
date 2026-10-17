@@ -57,14 +57,6 @@ int TLobby__sub_80226308(void);
     extern int lbl_805D62B8;
 int TLobby__sub_80226B64(void);
 int set_and_notify__6TLobbyFi(void*);
-}
-void stop_audio_stream(u8 *arg0);
-extern s32 lbl_804CB850[];
-extern s32 lbl_805D6330;
-extern s32 lbl_805D6300;
-extern s32 music_target_id;
-void set_dark_falz_music_request(s32 arg0);
-extern "C" {
 void start_audio_stream_file(void *, s32);
 void play_cue_stream_file(s32 arg0);
 s32 TLobby__sub_803C94DC(int, int);
@@ -72,25 +64,27 @@ s32 TLobby__sub_803C9CB0(int);
 extern s32 lbl_805D62E4;
 extern s32 music_fade_slot_index;
 void TLobby__sub_802272B4(void);
-}
-void stop_cue_stream(void);
-extern "C" {
 s32 set_field_40_and_notify__6TLobbyFs(int, int);
 void set_cue_stream_gain(s32 arg0);
-}
-extern RecoveredGlobal_80226C3C_lbl_80514D00 lbl_80514D00;
-extern u8 *lobby_current_slot_entry;
-void set_music_streams_volume(s32 arg0);
-extern "C" {
 void TLobby__sub_8022733C(void);
 void *get_player_by_client_id(s32 i);
 void stop_sound_request(s32 idx);
 s32 fn_802264B8(int, int);
-}
-void update_music_fade(void);
-extern "C" {
 s32 TLobby__sub_8023F880(s32 arg0);
+s32 TLobby__sub_803C5D00(void *);
+s32 TLobby__sub_803C97B8(u8 *arg0);
 }
+void stop_audio_stream(u8 *arg0);
+extern s32 lbl_804CB850[];
+extern s32 lbl_805D6330;
+extern s32 lbl_805D6300;
+extern s32 music_target_id;
+void set_dark_falz_music_request(s32 arg0);
+void stop_cue_stream(void);
+extern RecoveredGlobal_80226C3C_lbl_80514D00 lbl_80514D00;
+extern u8 *lobby_current_slot_entry;
+void set_music_streams_volume(s32 arg0);
+void update_music_fade(void);
 extern Ent_802269B4 lbl_805145F0[];
 extern f32 lbl_80514C50[];
 extern u32 camera_ctrl_instance;
@@ -98,13 +92,7 @@ extern s32 local_client_id;
 extern s8 lbl_805D6279;
 extern const f32 lbl_805DC74C;
 void update_sound_request_slots(void);
-extern "C" {
-s32 TLobby__sub_803C5D00(void *);
-}
 void append_music_stream_segment(u8 *arg0, s32 arg1, s32 arg2);
-extern "C" {
-s32 TLobby__sub_803C97B8(u8 *arg0);
-}
 extern s32 lbl_805D62E0;
 extern s32 lbl_805D62F0;
 extern s32 lbl_805D62F4;

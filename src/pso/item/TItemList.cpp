@@ -11,9 +11,6 @@ extern "C" {
 void TItemList__sub_801D5A0C(s32 *arg0);
 void TItemList__sub_801D5A64(void* p);
 u8 *TItemList__sub_801D5868(s32, s8);
-}
-void clear_placement_search_slot(TItemList *arg0, s32 arg1);
-extern "C" {
 void* get_ptr_0x44__9TItemListFPv(void* p);
 void copy_position__9TItemListFPv(void *, s32);
 void *TItemList__sub_801D598C(int, int);
@@ -23,6 +20,7 @@ extern s32 lbl_804C4444[];
 u8 *TItemList__sub_801D5CF8(u8 *arg0);
 void TItemList__sub_801D59DC(void* p);
 }
+void clear_placement_search_slot(TItemList *arg0, s32 arg1);
 void decrement_placement_search_pending(void* p, void* a1);
 extern "C" {
 void *TItemList__sub_801D5B10(void *arg0, s16 arg1);

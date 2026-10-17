@@ -22,7 +22,6 @@ extern "C" void render__15TObjIllGillKageFv();
 #include "pso/misc/TNowLoading.h"
 #include "pso/object/TObjFish.h"
 #include "pso/object/TObjIllGillKage.h"
-#include "pso/player/TObjPlayer.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 struct IllGillBase_80367984_8036690C { char pad[0x14]; };
@@ -172,9 +171,6 @@ u8 *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
 void enemy_set_heading_velocity(void *, s32, f32);
 void enemy_turn_toward_dest(void *, s32);
-}
-void move_with_wall_slide(u8 *arg0);
-extern "C" {
 f32 horizontal_distance_squared(void *, void *);
 void TObjEneIllGill__sub_80367DA4(s32 arg0);
 void *create_particle_emitter(void *pos, s32 id);
@@ -202,7 +198,7 @@ extern s32 lbl_805D6FD8;
 extern const f32 lbl_805E0308;
 u8 *TObjEneIllGill__ct(u8 *self, s32 arg1, u8 *arg2);
 }
-
+void move_with_wall_slide(u8 *arg0);
 struct RecoveredGlobal_80367DC8_lbl_8050BF00 {
     s32 value;
     u8 remaining[0x1C];

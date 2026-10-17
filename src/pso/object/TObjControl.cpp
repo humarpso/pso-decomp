@@ -441,9 +441,6 @@ void award_enemy_experience__9TObjEnemyFl(u8 *arg0, s32 arg1);
 void link_chain_nodes__10TObjPlayerFPvPvPv(void *arg0, Node_800F6E2C *arg1, Node_800F6E2C *arg2);
 void apply_by_index__9TObjEnemyFs(s16, void *);
 void clear_flag_3__7TObjectFv(void *arg0);
-}
-void init_6x9C_enemy_low_game_flags_packet(u8 *arg0);
-extern "C" {
 s32 get_attack_credit_slot_count(void *);
 f32 TLobby__sub_800F7A6C();
 f32 TLobby__sub_800F7A7C();
@@ -457,7 +454,7 @@ s32 minimap_render_dot(void *, int, int, int);
 void __ct__7TObjectFP7TObject(void *);
 s32 is_challenge_mode_active();
 }
-
+void init_6x9C_enemy_low_game_flags_packet(u8 *arg0);
 extern Hdr_800F6464 *TLobby__data_805D6144;
 extern s32 __vt__11TObjControl[];
 extern u8 lobby_rule_settings[];

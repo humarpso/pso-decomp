@@ -339,21 +339,16 @@ s32 TBoss4DarkFalz__sub_801D94C0(void* p);
 void *__dt__13TUnk_804C4540Fv(void *arg0, s16 arg1);
 void TObjPlayer__sub_801D8A38(void* a0);
 void TObjPlayer__sub_801D92A4(void);
-}
-void create_player_ending_motion(void);
-void load_ply_level_tbl(void);
-extern "C" {
 void TObjPlayer__sub_801BFF80(u8 *arg0);
 s32 get_contact_surface_type(s32 arg0);
 void __dl__7TObjectFPv(void *);
 void *__dt__10TObjPlayerFv(void *arg0, s16 arg1);
-}
-s32 create_named_object(s32 arg0);
-extern "C" {
 int load_encrypted_archive_data(void*);
 void init__17TPlyInventoryItemFv(u8 *arg0);
 }
-
+void create_player_ending_motion(void);
+void load_ply_level_tbl(void);
+s32 create_named_object(s32 arg0);
     extern unsigned char lbl_80447190[];
 void create_player_ending_motion(void) { TObjPlayer::alloc_shared_buffers(); player_ending_motion_object = create_named_object((s32)lbl_80447190); }
 extern "C" {

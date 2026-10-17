@@ -11,7 +11,6 @@ extern "C" void test_flag_1000__13TUnk_804806E8Fv();
 #include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneRecon.h"
-#include "pso/player/TObjPlayer.h"
 #include "pso/TObject.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/enemy/TUnk_80493450.h"
@@ -514,13 +513,10 @@ void __dt__11TBoss4Type3FPvs(void*, int);
 void *__nw__7TObjectFUl(int);
 void mem_free(void*);
 s32 get_mode__11TCameraCtrlFPv(void *);
-}
-void restore_render_scissor(s32 arg0);
-extern "C" {
-
 s32 init_enemy_base__13TUnk_80493450Fv(void *, s32);
 s32 create__12TObjEneSaverFPvPv(u32, u32);
 }
+void restore_render_scissor(s32 arg0);
 int initialize_enemy_photon_effect(void *p);
 extern "C" {
 s32 bind_enemy_combat_stats(void *, int, int, int);

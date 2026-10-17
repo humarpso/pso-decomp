@@ -1653,9 +1653,6 @@ s32 get_camera_mode__11TCameraCtrlFv();
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 update_obstruction_fade(void *);
 s32 draw_blob_shadow(s32);
-}
-void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
-extern "C" {
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 rotate_matrix_z(s32, s32);
 s32 rotate_matrix_x(s32, s32);
@@ -1666,9 +1663,6 @@ extern const f32 lbl_805D9E88;
 u32 enemy_probe_wall_ahead__13TBoss5GryphonFfff(void *, f32, f32, f32);
 void TObjEneBm5GibonU__sub_800CE694(u8 *arg0, s32 arg1);
 s32 is_vec_xz_cross_negative(void *, void *);
-}
-void enemy_turn_and_move_on_ground(u8 *arg0, s32 arg1, f32 farg0);
-extern "C" {
 void TObjEneBm5GibonU__sub_800CE978(u8 *arg0, s32 arg1);
 void TObjEneBm5GibonU__sub_800D095C(void *arg0, s32 arg1, s16 arg2);
 s32 spawn_dead_spot_scale15(void *, s32);
@@ -1679,6 +1673,8 @@ Pl_800CDB98 *get_battle_param__10TObjPlayerFi(s32);
 s32 obj_is_hit_receivable(void *);
 void TObjEneBm5GibonU__sub_800CDB98(Obj_800CDB98 *arg0, s32 arg1);
 }
+void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
+void enemy_turn_and_move_on_ground(u8 *arg0, s32 arg1, f32 farg0);
 void move_with_wall_slide(u8 *arg0);
 extern "C" {
 void enemy_set_heading_velocity(TObjEnemy *arg0, s32 arg1, f32 farg0);

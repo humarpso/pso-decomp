@@ -44,11 +44,12 @@ s32 GXCopyTex(void *, int);
 s32 GXSetZMode(int, int, int);
 s32 GXSetViewport(f32, f32, f32, f32, f32, f32);
 s32 GXSetScissor(int, int, int, int);
+s32 set_perspective_projection_from_fov(int, f32, f32, f32);
+void VecCopy__FP3VecPC3Vec(void *);
+void __dl__7TObjectFPv(void *);
+void __dt__7TObjectFv(void *, int);
 }
 void set_camera_look_at(u8 *eye, u8 *target, u8 *up);
-extern "C" {
-s32 set_perspective_projection_from_fov(int, f32, f32, f32);
-}
 extern RecoveredGlobal_800830B0_lbl_80439348 camera_ctrl_up_vector;
 extern u8 *camera_ctrl_instance;
 extern u32 camera_render_target_singleton;
@@ -67,12 +68,6 @@ extern const f32 lbl_805D93F8;
 extern const f32 lbl_805D93FC;
 extern const f32 lbl_805D9400;
 void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map);
-extern "C" {
-void VecCopy__FP3VecPC3Vec(void *);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
-}
-
 void calc_projection_screen_offset(f32 *arg0, f32 *arg1) {
     f32 dx = TCameraCtrl__data_804FF634.f8;
     f32 y = TCameraCtrl__data_804FF634.fC;

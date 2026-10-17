@@ -25,12 +25,9 @@ extern "C" {
 char TQuestVmDownLoadServer__data_804C8690[0xC] = "\xB8\xB4\xBD\xC4\xCC\xA7\xB2\xD9";
 s32 TWindowShortListCtrl__check_controller_button(void*, s32);
 struct RecoveredGlobal_801F6C74_lbl_8050E208;
-}
-extern RecoveredGlobal_801F6C74_lbl_8050E208 controller_input_state;
-
-extern "C" {
 void TQuestVmDownLoadServer__sub_801F6B98(void);
 }
+extern RecoveredGlobal_801F6C74_lbl_8050E208 controller_input_state;
 extern s32 TQuestVmDownLoadServer__instance;
 
 struct RecoveredGlobal_801F6C74_lbl_8050E208 {
@@ -47,13 +44,11 @@ struct QVm_801F6D24 {
 };extern "C" {
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32 arg0);
 s32 get_localized_text_entry(s32 arg0, s32 arg1);
-}
-extern s32 quest_download_in_progress;
-extern "C" {
 void return_to_main_menu__6TLobbyFv(void);
 s32 __ct__22TQuestVmDownLoadServerFP7TObject(void *, s32);
 void *__nw__7TObjectFUl(s32);
 }
+extern s32 quest_download_in_progress;
 extern s32 tl_00;
 extern "C" {
 typedef char RecoveredGlobal_801F6C74_lbl_8050E208_size[sizeof(RecoveredGlobal_801F6C74_lbl_8050E208) == 0x1B0 ? 1 : -1];
@@ -63,14 +58,12 @@ typedef char RecoveredGlobal_801F6C74_lbl_8050E208_size[sizeof(RecoveredGlobal_8
 struct Pair_801F6E08 { s32 a; s32 b; };extern "C" {
 s32 create_window__24TMessageWindowControllerFll(void*, s32, void*);
 s32 get_window_layout_position(s32);
-}
-extern s32 lbl_8044A668[];
-extern "C" {
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 void allow_rendering__7TObjectFv(TObject *);
 void queue_destruction__7TObjectFv(void *);
 void set_ready__6TSceneFv(void *);
 }
+extern s32 lbl_8044A668[];
 extern s32 lbl_805D55C0;
 extern u32 lobby_player_construction_window;
 extern s32 lbl_805D49B4;
@@ -159,22 +152,9 @@ struct Src_801F718C {
 struct QVm_801F7890;
 struct QVm_801F6D24;extern "C" {
 void *alloc__22TQuestVmDownLoadServerFv(s32);
-}
-extern RecoveredGlobal_801F84AC_lbl_80512BDC quest_download_file_header;
-s32 *get_quest_download_file_header(void);
-extern "C" {
 void *memset(void *, int, u32);
-}
-extern const char *TQuestVmDownLoadServer__class_name;
-extern "C" {
 int sprintf(char *, const char *, ...);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32 chan, const char *name);
-}
-extern char lbl_8044A68C[];
-extern char lbl_8044BEE8[];
-extern const s32 lbl_805DC6B0;
-extern const s32 lbl_805DC6B4;
-extern "C" {
 void subtractive_rng_seed(SubtractiveRng *, u32);
 void TAdPlayerLoadGC__sub_801E14E4(void *);
 void TAdPlayerLoadGC__sub_801E14E8(u8 *arg0, s32 arg1);
@@ -182,6 +162,13 @@ s32 build_save_file_image__15TAdPlayerLoadGCFPvPv(void *, void *);
 char *strncpy(char *, const char *, u32);
 void *memcpy(void *, const void *, u32);
 }
+extern RecoveredGlobal_801F84AC_lbl_80512BDC quest_download_file_header;
+s32 *get_quest_download_file_header(void);
+extern const char *TQuestVmDownLoadServer__class_name;
+extern char lbl_8044A68C[];
+extern char lbl_8044BEE8[];
+extern const s32 lbl_805DC6B0;
+extern const s32 lbl_805DC6B4;
 extern char TQuestVmDownLoadServer__data_804C8690[];
 extern u8 TQuestVmDownLoadServer__memcard_key[];
 extern char TQuestVmDownLoadServer__data_805DC5B8[];
@@ -215,9 +202,6 @@ SubtractiveRng TQuestVmDownLoadServer__rng_cipher_state;
 __declspec(section ".data") u32 download_rng_seed_pair[2];
 void disallow_rendering__7TObjectFv(TObject *arg0);
 u32 create__13TAdMcSelectGCFPv(s32);
-}
-extern s32 tl_03;
-extern "C" {
 s32 TAdPlayerLoadGC__sub_801E0FA4(s32);
 s32 query_memcard_capacity__15TAdPlayerLoadGCFl(s32, int);
 u8 *init_shop_judgment_window(void *p);
@@ -225,6 +209,7 @@ s32 TQuestVmDownLoadServer__sub_801F8538(void *data, s32 size);
 s32 get_selected_menu_value(u32);
 s32 draw_window_bg__23TAdSinglePlyChrSelectGCFllll(s32, void *, s32, s32);
 }
+extern s32 tl_03;
 extern s32 lbl_8044BEF4[];
 extern "C" {
 typedef char RecoveredGlobal_801F6C74_lbl_8050E208_size[sizeof(RecoveredGlobal_801F6C74_lbl_8050E208) == 0x1B0 ? 1 : -1];

@@ -16,13 +16,7 @@ extern "C" {
 s32 TKeyBoardControl__sub_8000F92C();
 s32 request_queued_main_phase();
 s32 TKeyBoardControl__sub_8000F9CC(int);
-}
-void process_async_file_reads(void);
-extern "C" {
 s8 func_801A5E54__Fv();
-}
-void update_sound_request_slots(void);
-extern "C" {
 s32 render_screen_overlay__9TMainTaskFv(void *);
 s32 some_empty_func__9TMainTaskFv(void *);
 s32 render__9TMainTaskFv(void *);
@@ -39,7 +33,8 @@ s32 set_copy_clear_color_argb(s32, s32, s32);
 u32 __nw__7TObjectFUl(s32);
 s32 create_opening_movie_sequence();
 }
-
+void process_async_file_reads(void);
+void update_sound_request_slots(void);
 extern u8 opening_movie_purpose;
 
 typedef char RecoveredGlobal_802A1180_main_task_size[sizeof(RecoveredGlobal_802A1180_main_task) == 0x34 ? 1 : -1];

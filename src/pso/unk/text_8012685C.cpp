@@ -87,15 +87,13 @@ struct WeaponPlayerAttachmentInterface : WeaponPlayerObjectPrefix {
 
 extern "C" {
 s32 reflect_matrix_in_plane(s32, f32 *, f32);
+void *spawn_particle_effect(void *pos, s32 id);
+s16 get_validated_attack_stage(u8 *arg0);
 }
 extern s32 knuckle_second_hand_pass;
 extern const f32 lbl_805DAD80;
 extern const f32 lbl_805DAD94;
 void reflect_knuckle_second_hand(s32 arg0);
-extern "C" {
-void *spawn_particle_effect(void *pos, s32 id);
-s16 get_validated_attack_stage(u8 *arg0);
-}
 extern s32 knuckle_marker_joint_table[];
 extern s32 tl_05;
 void reflect_knuckle_second_hand(s32 arg0) {

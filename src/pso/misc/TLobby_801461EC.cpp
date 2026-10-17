@@ -146,10 +146,6 @@ extern s32 lbl_805D56EC;
 extern s32 lbl_805D56F0;
 extern s32 lbl_805D56F4;
 int TLobby__sub_80145E40(void);
-}
-s32 init_struct(u8 *arg0);
-s32 init_work(s32 arg0, u8 *arg1);
-extern "C" {
 int TLobby__sub_80146724(void);
 int TLobby__sub_80146740(void);
 int TLobby__sub_8014677C(void);
@@ -157,6 +153,8 @@ s32 TLobby__sub_80145A94(void);
 s32 TLobby__sub_80145DB4(s32 arg0);
 s32 TLobby__sub_80147284();
 }
+s32 init_struct(u8 *arg0);
+s32 init_work(s32 arg0, u8 *arg1);
 s32 get_network_config_buffer_size(s32 mode);
 extern "C" {
 s32 TLobby__sub_804219D0(s32, s32, s32);

@@ -25,12 +25,10 @@ s32 is_split_screen();
 f32 PSMTXConcat(void *, void *, void *);
 s32 C_MTXLightFrustum(void *, f32, f32, f32, f32, f32, f32, f32, f32);
 f32 rotate_matrix_by_node_angles(void *, int);
+f32 rotate_current_matrix_x_ps(int);
 }
 void set_ginja_post_texgen_count(s32 x);
 void set_ginja_post_tev_stage_count(s32 x);
-extern "C" {
-f32 rotate_current_matrix_x_ps(int);
-}
 void load_current_pos_matrix(s32 arg0);
 void load_current_tex_matrix(s32 i);
 extern "C" {

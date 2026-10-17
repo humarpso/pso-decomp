@@ -110,24 +110,9 @@ extern "C" {
 void reset_line_width(void);
 void set_line_width(int a0);
 void TWindowSubComCard__sub_80245A10(u8 *arg0, s32 arg1, void *r, f32 len);
-}
-extern u16 window_ui_theme_index;
-extern s16 lbl_805D63F6;
-void draw_window_scanlines(u8 *arg0, u8 *arg1);
-extern "C" {
 void begin_screen_draw(s32);
 s32 draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(s32, s32);
-}
-extern UVPair_8024503C selection_bar_texture_coordinates;
-extern s32 lbl_805D63F0;
-extern const f32 lbl_805DCAE4;
-extern const f32 lbl_805DCAE8;
-void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2);
-extern const f32 lbl_805DCB48;
-extern const f32 lbl_805DCB28;
-extern const f32 lbl_805DCB2C;
-extern "C" {
 void draw_window_frame_strips(u8 *a, Quad_80245D64 *q, Rect_80245D64 *r);
 extern const f32 lbl_805DCB10;
 void draw_window_frame(Card_80245F98 *a, Rect_80245F98 *r);
@@ -156,17 +141,26 @@ void fn_8024491C(void *arg0);
 void fn_80244958(void *arg0);
 void fn_802449E0(u8 *arg0);
 void TWindow__close(u8 *arg0);
-}
-void window_request_refresh(u8 *arg0);
-void window_request_show(void *arg0);
-bool is_balloon_overlapping(u8 *arg0, u8 *arg1, u8 *arg2);
-extern "C" {
 Win_80244DFC * find_overlapping_balloon__15TWindowFukidasiFPvPvPvPv(Win_80244DFC *self, void *a, void *b, Win_80244DFC *p);
 void draw_message_frame_row(u8 *a, Quad_802455CC *q, Rect_802455CC *r);
 s32 sub_80246948__13TUnk_804CE018Fv();
 int TWindowFukidasi__sub_8024695C(void *p);
 s32 TWindowCtrlMain__sub_8024CE24();
 }
+extern u16 window_ui_theme_index;
+extern s16 lbl_805D63F6;
+void draw_window_scanlines(u8 *arg0, u8 *arg1);
+extern UVPair_8024503C selection_bar_texture_coordinates;
+extern s32 lbl_805D63F0;
+extern const f32 lbl_805DCAE4;
+extern const f32 lbl_805DCAE8;
+void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2);
+extern const f32 lbl_805DCB48;
+extern const f32 lbl_805DCB28;
+extern const f32 lbl_805DCB2C;
+void window_request_refresh(u8 *arg0);
+void window_request_show(void *arg0);
+bool is_balloon_overlapping(u8 *arg0, u8 *arg1, u8 *arg2);
 void apply_window_closing_stretch(u8 *arg0, int arg1);
 extern "C" {
 s32 animate_scale__19TWindowKeyBoardSoftFv();

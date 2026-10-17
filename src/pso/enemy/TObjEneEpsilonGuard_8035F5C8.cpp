@@ -472,9 +472,6 @@ extern const f64 lbl_80479E88;
 extern Tbl_8035FFA8 epsilon_guard_attack_pattern_table[];
 extern const f32 lbl_805E0210;
 f32 receive_weapon_special_attack__10TObjPlayerFv(void *, void *, void *);
-}
-s16 obj_getS16_118(u8 *p);
-extern "C" {
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, int);
 u16 obj_getField1c(void *);
 f32 receive_weapon_special_attack__19TObjEneEpsilonGuardFPvPvPv(Self_8035F5C8 *o, void *src, Hit_8035F5C8 *hit);
@@ -506,6 +503,7 @@ int get_player_data__10TObjPlayerFi(int a0);
 void obj_setFlags30(void *, s32);
 u32 csnVector(void *, void *, s32);
 }
+s16 obj_getS16_118(u8 *p);
 void enemy_turn_and_move_on_ground(u8 *arg0, s32 arg1, f32 farg0);
 extern "C" {
 f32 horizontal_distance_squared(void *, void *);

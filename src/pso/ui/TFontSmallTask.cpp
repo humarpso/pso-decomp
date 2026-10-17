@@ -38,12 +38,6 @@ extern "C" {
 void allow_rendering__7TObjectFv(TObject *arg0);
 void disallow_rendering__7TObjectFv(TObject *arg0);
 void queue_destruction__7TObjectFv(void *arg0);
-}
-extern const f32 lbl_805DAA30;
-extern const f32 lbl_805DAA00;
-extern const f32 lbl_805DAA04;
-f32 calc_small_font_scale(void);
-extern "C" {
 void TBoss3Volopt__sub_800FD344(s32 arg0, s32 arg1, s32 arg2, void *arg3, void *arg4);
 s32 create_font_small_task(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 *arg4, s32 arg5, s32 arg6);
 s32 create_font_small_task_default_color(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 *arg4, s32 arg5);
@@ -53,6 +47,10 @@ s32 *get_shared_text_buffer(void);
 void TWindowSubStatusDisp__sub_80228F5C(s32 arg0);
 void text_builder_append(u8 *str);
 }
+extern const f32 lbl_805DAA30;
+extern const f32 lbl_805DAA00;
+extern const f32 lbl_805DAA04;
+f32 calc_small_font_scale(void);
 void text_builder_reset(void);
 extern "C" {
 s32 __nw__7TObjectFUl(s32);
@@ -357,13 +355,11 @@ int get_player_data__10TObjPlayerFi(int a0);
 u16 obj_getField1c();
 s32 get_actor_section_id__15TPlyPhotonChairFv(void *);
 void find_leader_section_id(struct Out_800FD614 *out, s32 arg1);
-}
-u32 calc_small_font_text_width(const char *s);
-extern "C" {
 void *get_instance__15TWindowCtrlMainFv(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 char *strncpy(char *, const char *, u32);
 }
+u32 calc_small_font_text_width(const char *s);
 extern u8 __vt__14TFontSmallTask[];
 extern s32 TFontSmallTask__name;
 void set_world_section_id(void* p, s32 v);

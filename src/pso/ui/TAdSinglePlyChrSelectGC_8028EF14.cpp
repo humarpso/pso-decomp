@@ -40,12 +40,6 @@ CreationTextureCacheEntry creation_texture_cache[CREATION_TEXTURE_CACHE_CAPACITY
 extern "C" {
 s32 is_entry_equal__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
 s32 creation_motion_group(u32);
-}
-extern u32 creation_player_character;
-extern u32 creation_figure_object;
-void request_creation_motion(s32 arg0);
-extern s32 chara_select_creation_shape_rel_files[];
-extern "C" {
 void load_creation_shape_rel(W_80290250 *arg0);
 void TCharaMaking__sub_8028E3A0();
 void TAdSinglePlyChrSelectGC__sub_80290884(void* p, void* q);
@@ -76,16 +70,18 @@ void rotate_matrix_y(int, u32);
 void push_matrix_from();
 void push_matrix();
 s32 pop_matrix(void);
+int fn_8001ED90(void *p);
+void update_pair__23TAdSinglePlyChrSelectGCFPv(void* p);
 }
+extern u32 creation_player_character;
+extern u32 creation_figure_object;
+void request_creation_motion(s32 arg0);
+extern s32 chara_select_creation_shape_rel_files[];
 extern u32 creation_figure_rotation_y;
 void map_shape_region_samples(s32 region, s32 *samples);
 extern CreationShapeBlend creation_shape_blend;
 s32 clear_creation_shape_eval_masks(f32 *dst, const f32 *a, const f32 *b, const f32 *c);
 s32 scan_creation_resources(void *arg0);
-extern "C" {
-int fn_8001ED90(void *p);
-void update_pair__23TAdSinglePlyChrSelectGCFPv(void* p);
-}
 u32 relocate_data_block_pointers(u32 arg0, u32 arg1);
 extern s32 char_select_active_flag;
 extern "C" {

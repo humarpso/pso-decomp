@@ -72,17 +72,15 @@ s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 TLobby__sub_801C2614();
 void *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 s32 init_window_layout_entries(void *, s32 *, s16);
-}
-void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
-extern s32 TWindowSubStatusDisp__record_summary_layout[];
-extern const f32 TWindowSubStatusDisp__data_805DD708;
-extern s32 TWindowSubStatusDisp__resistance_layout[];
-extern "C" {
 s8 get_type__20TWindowSubStatusDispFv(int);
 Q_80280F14 *get_quest_id__12TQuestListVMFv();
 void *get_player_by_client_id(s32 i);
 void vt11__20TWindowSubStatusDispFv(Wn_80280F14 *arg0);
 }
+void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
+extern s32 TWindowSubStatusDisp__record_summary_layout[];
+extern const f32 TWindowSubStatusDisp__data_805DD708;
+extern s32 TWindowSubStatusDisp__resistance_layout[];
 extern s32 TWindowSubStatusDisp__stat_page_layout[];
 s32 get_class_name_text(s32);
 extern s32 TWindowSubStatusDisp__summary_page_layout[];

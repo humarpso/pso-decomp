@@ -26,9 +26,6 @@ struct Vec_80144778 { s32 x, y, z; };
 
 extern "C" {
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(int);
-}
-u8 *initialize_movie_with_soundtrack(u8 *arg0, s8 *arg1, s32 arg2, s32 arg3, s32 arg4);
-extern "C" {
 u8 *load_rel_module(u8 *arg0, s32 arg1);
 char *strncpy(char *, const char *, u32);
 extern u8 lbl_8043F380[];
@@ -38,6 +35,7 @@ u8 *__ct__10TAdEndTextFv(void *, void *);
 s32 TAdEndText__sub_8001B41C();
 u8 *__nw__7TObjectFUl(s32);
 }
+u8 *initialize_movie_with_soundtrack(u8 *arg0, s8 *arg1, s32 arg2, s32 arg3, s32 arg4);
 void set_camera_look_at(u8 *eye, u8 *target, u8 *up);
 extern "C" {
 void set_perspective_projection_from_fov(s32 arg0, f32 farg0, f32 farg1, f32 farg2);

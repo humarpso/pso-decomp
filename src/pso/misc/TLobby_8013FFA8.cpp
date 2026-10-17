@@ -47,9 +47,6 @@ extern "C" {
 s32 init_music_sequencer(s32);
 s32 load_floor_sound_bank();
 s32 play_area_music(s32 *);
-}
-void init_area_lights(void);
-extern "C" {
 s32 is_split_screen();
 extern s32 lbl_8043F198[];
 extern s32 lbl_8043F1A8[];
@@ -80,6 +77,7 @@ extern s32 lbl_8043F248[];
 extern s32 lbl_8043F1C8[];
 s32 forward_floor_2CB44__6TLobbyFv();
 }
+void init_area_lights(void);
 void init_map_lights(u8 *arg0);
 extern s32 lbl_8043F1B8[];
 extern s32 lbl_8043F1D8[];

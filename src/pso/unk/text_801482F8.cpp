@@ -298,9 +298,6 @@ struct Lim_8014854C { u8 pad0[8]; s32 lim; };
 extern "C" {
 s32 approach_angle_limited(s32, s32, s32);
 f32 calc_boss4_scale__10TObjPlayerFi();
-}
-void move_with_wall_slide(u8 *arg0);
-extern "C" {
 void enemy_set_heading_velocity(TObjEnemy *arg0, s32 arg1, f32 farg0);
 void select_enemy_destination(void *, void *, s32);
 void enemy_turn_toward_dest(void *, s32);
@@ -322,6 +319,7 @@ u16 obj_getField1c(void *);
 f64 atan2_float(f32, f32);
 s32 queue_destruction__7TObjectFv(void *);
 }
+void move_with_wall_slide(u8 *arg0);
 u8 *create_conversation_camera(s32 arg0);
 extern "C" {
 s32 end_conversation_camera(void);

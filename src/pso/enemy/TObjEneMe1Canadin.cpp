@@ -1707,11 +1707,9 @@ s32 copy_vec4__13TRaderMapCoreFPv(void *, void *);
 bool is_vec_xz_cross_negative(u8 *arg0, u8 *arg1);
 f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
 void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
-}
-void bringer_effect_cleanup_noop(void);
-extern "C" {
 void * __dt__26TObjEneDf2Bringer_Eff_RushFv(void *arg0, s16 arg1);
 }
+void bringer_effect_cleanup_noop(void);
 u8 * construct_bringer_rush_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);
 extern "C" {
 void TObjEneMe1CanadinLeader__vt110(Leader_8009AB4C *obj, s32 mode);

@@ -28,11 +28,12 @@ struct Rec_8020AD40 { u8 pad0[2]; s16 f2; u8 pad4[0x40]; };
 
 extern "C" {
 s32 is_area_transfer_pending();
+s32 get_floor_map_selection(int, void *);
+s32 read_disc_file(void *, Rec_8020AD40 *);
+void debug_print__6TLobbyFle(void *, ...);
+void load_object_set_entries__6TLobbyFlPUcUl(s32, Rec_8020AD40 *, s32);
 }
 void advance_enemy_id_counter(s32 arg0);
-extern "C" {
-s32 get_floor_map_selection(int, void *);
-}
 s32 load_area_enemy_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 extern s32 TLobby__next_enemy_set_actor_id;
 extern s32 map_set_enemy_id_counter;
@@ -41,11 +42,6 @@ void advance_object_id_counter(s32 arg0);
 extern s32 map_set_object_id_counter;
 extern s32 map_object_id_counter;
 extern s32 TLobby__data_805D6148;
-extern "C" {
-s32 read_disc_file(void *, Rec_8020AD40 *);
-void debug_print__6TLobbyFle(void *, ...);
-void load_object_set_entries__6TLobbyFlPUcUl(s32, Rec_8020AD40 *, s32);
-}
 extern u8 lbl_8044BBB0[];
 extern u8 lbl_8044BBB8[];
 extern u8 lbl_8044BBDC[];

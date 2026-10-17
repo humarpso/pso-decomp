@@ -60,9 +60,6 @@ struct VObj_80078064 : Base_80078064 {
 };
 
 void *__dt__10TUdpSocketFv(void *arg0, s16 arg1);
-}
-void reset_buffer(u8 *arg0);
-extern "C" {
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TSocketFv(void *, s32);
 
@@ -70,6 +67,7 @@ void run_task__7TObjectFv();
 void render__7TObjectFv();
 void render_shadows__7TObjectFv();
 }
+void reset_buffer(u8 *arg0);
 TTcpSocket *tcp_socket_table[16] = {0};
 extern "C" {
 RecoveredGlobal_80078378_lbl_8048D3B8 udp_socket_slots = {0};

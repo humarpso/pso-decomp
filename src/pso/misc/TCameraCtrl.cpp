@@ -167,9 +167,6 @@ struct Views_8006A410
 
 extern "C" {
 u8 TCameraCtrl__sub_8006A5DC(void);
-}
-void select_camera_controller(s32 arg0);
-extern "C" {
 s32 is_split_screen();
 s32 apply_camera_controller_pose(int);
 s32 resolve_anchor_obstruction__11TCameraCtrlFv(void *, int);
@@ -179,6 +176,7 @@ s32 obj_getField1c(void *);
 s32 *get_character_select_request_buffer(void);
 s32 is_boss_area(void);
 }
+void select_camera_controller(s32 arg0);
 void reset_cameras_to_actor(void *actor, s32 arg1);
 extern "C" {
 void reset__11TCameraCtrlFv(void);

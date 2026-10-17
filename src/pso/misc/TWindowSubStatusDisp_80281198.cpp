@@ -276,11 +276,9 @@ s32 draw_window_frame(void *, s32);
 s32 draw_visible_window_entries(void *, void *, s32);
 s32 draw_list_page_indicator(s32, s32);
 void __dl__7TObjectFPv(void *);
-}
-s32 delete_if_allocated(s32 arg0, s16 arg1);
-extern "C" {
 void destroy_window_base__9TWindowDDFs(void *, int);
 }
+s32 delete_if_allocated(s32 arg0, s16 arg1);
 #pragma defer_codegen on
 void TWindowSubStatusDisp::dispatch_page_init() {
     static void (TWindowSubStatusDisp::*page0[3])() = {

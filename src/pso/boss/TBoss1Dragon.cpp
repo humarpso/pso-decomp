@@ -1257,9 +1257,6 @@ s32 request_state_change__12TBoss1DragonFPvs(void *vself, s16 state32);
 s32 play_sound_effect(s32, s32, s32, s32);
 void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 s32 play_cue_stream_file(void *, int);
-}
-void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
-extern "C" {
 u32 spawn_particle_effect_with_rotation(void *, void *, void *, int);
 s32 queue_destruction__7TObjectFv(void *);
 extern s32 tl_01;
@@ -1345,7 +1342,9 @@ s32 translate_matrix(s32, f32, f32, f32);
 s32 rotate_matrix_x(s32, s32);
 void set_material_alpha_compare_reference(s32);
 void set_chunk_material_override_pair(s32, s32);
+void render__12TBoss1DragonFv(u8 *arg0);
 }
+void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
 void dragon_capture_node_points(void);
 extern Color_80020B54 dragon_boss1_render_color;
 extern u8 lbl_804FE1D0[0xC];
@@ -1362,9 +1361,6 @@ extern s32 lbl_805D5660;
 extern const f32 lbl_805D7F2C;
 extern const f32 lbl_805D7F30;
 extern const f32 lbl_805D7F34;
-extern "C" {
-void render__12TBoss1DragonFv(u8 *arg0);
-}
 struct G_80025C68 { u8 *value; u8 remaining[0x8]; };
 struct Vec_80024314 { f32 x, y, z; };
 struct Vec_80025710 { f32 x; f32 y; f32 z; };
@@ -1761,11 +1757,6 @@ void *lbl_80481280[107] = {
 
 s32 fill_value_array(s32);
 s32 emit_enemy_effect__9TObjEneDDFllPUcl(void *, void *, void *, s32);
-}
-extern const f32 lbl_805D7FD0;
-void set_collider_contact_low(u8 *arg0);
-void set_collider_contact_high(u8 *arg0);
-extern "C" {
 s32 update_local_colliders_from_world(void *, void *);
 void TBoss1Dragon__sub_800274A4(s32 arg0);
 extern const f32 TBoss1Dragon__data_805D7F90;
@@ -1804,16 +1795,9 @@ s32 filter_input_flags__12TBoss1DragonFiii(s32 arg1, s32 arg2, s32 arg3);
 u8 check_attack_ready__12TBoss1DragonFPv(void *arg0);
 void sweep_head_fall_spheres_late__12TBoss1DragonFv(void);
 void update_from_data__12TBoss1DragonFv(void);
-}
-void handle_6x12_dragon_boss_actions(TObjPlayer *arg0);
-extern "C" {
 void sweep_body_attack_spheres__12TBoss1DragonFv(u8 *arg0, f32 a, f32 b, f32 c);
 s32 check_flag_100__10TObjPlayerFPv();
 u8 *get_enemy_entity(u16 arg0);
-}
-void handle_6x11_dragon_boss_actions(void *arg0);
-void handle_6x10_dragon_boss_actions(void *arg0);
-extern "C" {
 s32 angle_diff_s16(s32, s32);
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 void *init_base__13TUnk_80481B34Fv(void *arg0);
@@ -1821,7 +1805,12 @@ void TLobby__sub_8001FE7C(void*, int);
 void construct_collision_body(void *);
 s32 update_linked_position__12TObjEneDD_STFf(f32);
 }
-
+extern const f32 lbl_805D7FD0;
+void set_collider_contact_low(u8 *arg0);
+void set_collider_contact_high(u8 *arg0);
+void handle_6x12_dragon_boss_actions(TObjPlayer *arg0);
+void handle_6x11_dragon_boss_actions(void *arg0);
+void handle_6x10_dragon_boss_actions(void *arg0);
 extern u32 TBoss1Dragon__data_805D4B28;
 extern const f32 lbl_805D7F44;
 extern f32 lbl_805D8088;

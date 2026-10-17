@@ -100,18 +100,14 @@ struct Self_80236A20 { u8 pad[0x128]; Proxy_80236A20 *proxy; f32 f12c; };
 
 extern "C" {
 void *get_player_by_client_id(s32 i);
+int get_player_data__10TObjPlayerFi(int a0);
+u16 obj_getField1c(void *);
 }
 extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
 extern const f32 lbl_805DC89C;
 void resetTechniqueContactQuery();
-extern "C" {
-int get_player_data__10TObjPlayerFi(int a0);
-}
 extern const f32 lbl_805DC898;
 s32 find_support_technique_contact(void *self, int target, void *_w2, void *_w3);
-extern "C" {
-u16 obj_getField1c(void *);
-}
 s32 find_area_technique_contact(void *self, int target, void *_w2, void *arg3);
 extern "C" {
 void *find_entity_by_id(u16 id);

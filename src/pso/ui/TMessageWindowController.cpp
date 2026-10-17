@@ -17,11 +17,9 @@ extern s32 local_client_id;
 const char *get_selected_entry__16TQuestListOnlineFv();
 s32 get_game_play_mode();
 char *get_quest_name__12TQuestThreadFv(void);
-}
-s32 get_guild_text(s32 arg0);
-extern "C" {
 s32 get_shop_text(s32 arg0);
 }
+s32 get_guild_text(s32 arg0);
 s32 get_appraisal_text(s32 arg0);
 extern "C" {
 TWindowMessagePage *create__18TWindowMessagePageFllll(s32, s32, s32, s32);

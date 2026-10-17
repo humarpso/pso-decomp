@@ -19,13 +19,11 @@ struct Ang_8035AAEC { s32 x, y, z; };
 extern "C" {
 
 f32 atan2_float(f32 y, f32 x);
-}
-void *create_oneshot_particle_emitter(void *pos, void *dir, s32 id, s32 flags);
-void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
-extern "C" {
 void vec3_add_to(void *, void *);
 void normalize_vector(void *);
 }
+void *create_oneshot_particle_emitter(void *pos, void *dir, s32 id, s32 flags);
+void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
 extern const f64 lbl_804796D8[];
 extern const f32 lbl_805E0100;
 extern const f32 lbl_805E0104;

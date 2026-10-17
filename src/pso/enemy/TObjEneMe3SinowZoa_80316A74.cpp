@@ -147,9 +147,6 @@ s32 play_sound_effect(s32, u32, s16, s32);
 s32 pack_debug_text_position(s32, s32);
 s32 sub_8031A454__18TObjEneMe3SinowZoaFv(void *);
 s32 is_outside_visible_range__18TObjEneMe3SinowZoaFv(void *);
-}
-void print_float_padded(s32 arg0, s32 prec, f32 val);
-extern "C" {
 void debug_printf_at(s32 id, const char *fmt, ...);
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
@@ -178,6 +175,7 @@ s32 copy_position_if_valid__10TObjPlayerFii(void *, Vec_80316C3C);
 s32 enemy_turn_toward_dest(void *, s32);
 void enemy_set_heading_velocity(void *, s32, f32);
 }
+void print_float_padded(s32 arg0, s32 prec, f32 val);
 void move_with_wall_slide(u8 *arg0);
 extern "C" {
 void subtract_vector(void *, void *);

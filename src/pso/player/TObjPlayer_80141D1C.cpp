@@ -10,16 +10,8 @@ struct DS_80142108 { u16 y; u8 b2; u8 b3; u8 b4; u8 b5; u8 b6; u8 b7; };
 extern "C" {
 f32 atan2_float(f32 y, f32 x);
 f32 newton_sqrtf(f32);
-}
-void direction_to_rotation_yx(u8 *arg0, s32 *arg1, s32 *arg2);
-void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
-void direction_to_rotation_xy(u8 *arg0, s32 *arg1, s32 *arg2);
-extern "C" {
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-}
-f32 vec_distance_squared(u8 *arg0, u8 *arg1);
-extern "C" {
 u16 approach_angle_adaptive(s32 a0, s32 b0);
 f32 TAdSinglePlyChrSelectGC__sub_80141EA0(s32 v);
 s32 TAdSinglePlyChrSelectGC__sub_80141E8C(f32 v);
@@ -28,6 +20,10 @@ s16 angle_diff_s16(s32 a, s32 b);
 u16 approach_angle_limited(s32 arg0, s32 arg1, s32 arg2);
 void fn_80141EB4(void);
 }
+void direction_to_rotation_yx(u8 *arg0, s32 *arg1, s32 *arg2);
+void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
+void direction_to_rotation_xy(u8 *arg0, s32 *arg1, s32 *arg2);
+f32 vec_distance_squared(u8 *arg0, u8 *arg1);
 void setSpriteInverseColorBlend(void);
 void vsub(void *arg0, void *arg1, void *arg2);
 extern "C" {

@@ -288,10 +288,6 @@ void end_conversation_camera(void);
 u8 * csnVector(void *, void *, u32);
 s32 angle_difference_abs(int, void *);
 void begin_conversation_camera(void);
-}
-extern void *local_client_id;
-void reset_cameras_to_actor(void *p, s32 x);
-extern "C" {
 s32 is_split_screen();
 void request_follow_camera_offsets(void *arg0, void *arg1, u16 arg2);
 void push_matrix_from(void *);
@@ -300,12 +296,6 @@ void matrix_mult_vec(s32, void *, void *);
 void pop_matrices(s32);
 extern u8 identity_matrix[];
 int get_camera_mode__11TCameraCtrlFv();
-}
-extern FollowView *camera_ctrl_instance;
-
-s32 conversation_camera_obstructed(FollowController *self,s32 heading);
-void apply_follow_camera_offsets(void *arg0, void *arg1, s32 arg2, u16 arg3);
-extern "C" {
 int __ct__13TUnk_80488A28Fv(void);
 void TCameraCtrl__sub_8006E804(void* a0);
 extern s32 follow_camera_vtable[];
@@ -321,6 +311,12 @@ extern u8 lbl_804FF5E8[];
 FollowVector *get_position_ptr__10TObjPlayerFv(void *);
 FollowVector *get_target_ptr__11TCameraCtrlFv(void *);
 }
+extern void *local_client_id;
+void reset_cameras_to_actor(void *p, s32 x);
+extern FollowView *camera_ctrl_instance;
+
+s32 conversation_camera_obstructed(FollowController *self,s32 heading);
+void apply_follow_camera_offsets(void *arg0, void *arg1, s32 arg2, u16 arg3);
 s32 approach_camera_scalar(f32 *arg0, f32 *target, f32 farg0);
 void get_dragon_follow_camera_offsets(u8 *arg0, u8 *arg1);
 extern "C" {

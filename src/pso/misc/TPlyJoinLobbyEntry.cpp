@@ -53,9 +53,6 @@ struct Hdr_8013566C
 
 extern "C" {
 void send_6x70_player_data__6TLobbyFi(s32 arg0);
-}
-void send_6x6F_quest_flags(s32 arg0);
-extern "C" {
 void send_6x6E_sync_game_state__6TLobbyFi(s32 arg0);
 char * get_seq_phase__6TLobbyFPv(int);
 void lobby_debug_printf_stub(const char *fmt, ...);
@@ -97,6 +94,7 @@ void sync_game_state__6TLobbyFv(void *, u16);
 void import_sync_records__6TLobbyFPs(void *, u16);
 void activate_triggered_floor_events(void);
 }
+void send_6x6F_quest_flags(s32 arg0);
 void restore_switch_table(s32 arg0, s32 arg1);
 extern char lbl_8043EE90[];
 extern s16 TLobby__data_805D5CE8;
@@ -338,15 +336,9 @@ s32 __dt__12TPlyCharDataFv(s32, s32);
 void TLobby__sub_80077798(void *, void *);
 void set_ip_address__7TSocketFUl(void*, u32);
 int bswap_packet_header__6TLobbyFv(void *);
-}
-void set_world_section_id(void *, s32);
-extern "C" {
 void update_idle_timeout__6TLobbyFPv(u8 *arg0);
 u8 * TLobby__sub_80135198(u8 *arg0, s32 arg1);
 void handle_6x70_sync_player_disp_and_inventory(Pkt_801354AC *arg0);
-}
-void handle_6x6F_set_quest_flags_v2(s32 arg0);
-extern "C" {
 void handle_6x6D_sync_game_state(Pkt_8013574C *arg0);
 void handle_6x6C_sync_game_state(Pkt_801357F8 *arg0);
 void handle_6x6B_sync_game_state(Pkt_801358B4 *arg0);
@@ -354,9 +346,6 @@ void TLobby__sub_80135FFC(void);
 void retire_lobby_player__6TLobbyFii(s32 idx, s32 v);
 void on_lobby_player_add__6TLobbyFii(s32 arg0, s32 arg1);
 void remove_player__6TLobbyFUiii(u32 arg0, s32 arg1, s32 arg2);
-}
-void handle_6x72_done_loading_into_game(void);
-extern "C" {
 void handle_lobby_enter__6TLobbyFPviiiiiii(Ent_801368B0 *ents, s32 n, s32 client_id, s32 leader, s32 arg4, s32 arg5, s32 arg6, s32 arg7);
 void handle_game_join__6TLobbyFPv(Pkt_80136C94 *pkt);
 void add_lobby_members__6TLobbyFPvisi(Ent_801368B0 *, s32, s32, s32);
@@ -369,13 +358,7 @@ void set_player_count__6TLobbyFi(s32);
 s32 bswap_and_send_extended_subcommand(int, void *);
 s32 bswap_and_handle_packet__6TLobbyFii(void *, void *);
 s32 TLobby__sub_8013A578(void *);
-}
-void bswap_object_source_record(void *);
-extern "C" {
 void fn_8013ACE4(s32);
-}
-void set_area_random_seed(int a0);
-extern "C" {
 s32 mem_free(int);
 u8 * mem_alloc(s32);
 void clear_enabled_main_warps();
@@ -384,20 +367,21 @@ s32 get_table_entry_by_index__6TLobbyFv(void *);
 VObj_18_80135208 * TPacket__ct(void*, s32);
 s32 fill_player_record__10TObjPlayerFPvPv(void *, void *);
 s32 init_player_join_record(void *);
-}
-void *create_remote_player_object(void *arg0);
-extern "C" {
 void send_player_data_98__9TProtocolFPvPvPvPvPvPvPv(void *, void *, void *, void *, void *, void *, void *);
 void init__23TAdSinglePlyChrSelectGCFv(void);
 u8 * get_character_save_record(u32);
 void * get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
+void set_area__6TLobbyFl(void *, s32, s32);
 }
+void set_world_section_id(void *, s32);
+void handle_6x6F_set_quest_flags_v2(s32 arg0);
+void handle_6x72_done_loading_into_game(void);
+void bswap_object_source_record(void *);
+void set_area_random_seed(int a0);
+void *create_remote_player_object(void *arg0);
 void set_floor_map_variant(s32 arg0, s32 arg1);
 s32 request_story_select_state(s32 arg0);
 int serialize_area_set_flags(void *p);
-extern "C" {
-void set_area__6TLobbyFl(void *, s32, s32);
-}
 u32 copy_switch_table(void *destination);
 extern "C" {
 s32 clear_flag3_all_tasks__9TMainTaskFv(void *);

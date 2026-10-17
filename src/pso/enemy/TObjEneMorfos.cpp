@@ -663,9 +663,6 @@ s32 free_collision_body_parts(void *);
 Pl_8033496C * get_player_by_client_id(s32);
 s32 __dl__7TObjectFPv(void *);
 void TObjPlayer__sub_8023DEE0(s16 *p, s16 a, s16 b, u16 id);
-}
-void restore_render_scissor(s32 arg0);
-extern "C" {
 void TObjEneMorfos__sub_80332DBC(u8 *arg0, s32 arg1);
 void TObjEneMorfos__sub_80333E48(u8 *arg0, s32 arg1);
 void TObjEneMorfos__sub_80334030(u8 *arg0, s32 arg1);
@@ -689,32 +686,6 @@ void subtract_vector(void *, void *);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-}
-void draw_chunk_model(void *arg0);
-
-extern int TObjEneMorfos__instance;
-extern s32 TObjEneMorfos__phase;
-extern s32 TObjEneMorfos__camera_path_cursor;
-extern const f32 TObjEneMorfos__data_805DF89C;
-extern s32 __dt__13TUnk_804949A8Fv[];
-extern s32 init_and_activate__10TObjPlayerFv[];
-extern RecoveredGlobal_80332B7C_lbl_804775D8 lbl_804775D8;
-extern void *morfos_class_name;
-extern s32 actor_frame_tick;
-extern u8 *lbl_805D6D20;
-extern u8 *lbl_805D6D24;
-extern s32 lbl_805D6D28;
-extern s32 lbl_805D6D2C;
-extern float morfos_projectile_speed;
-extern float morfos_param_table_speed_copy;
-extern const f32 lbl_805DF878;
-extern const f32 lbl_805DF894;
-extern const f32 lbl_805DF898;
-extern const f32 lbl_805DF8A0;
-extern const f32 lbl_805DF8A4;
-extern void *tl_04;
-
-extern "C" {
 void vfunc_6__13TUnk_804B9870FPsl();
 void vfunc_103__9TObjEneDDFPUc();
 void vfunc_79__9TObjEneDDFv();
@@ -787,21 +758,6 @@ void vfunc_12__9TObjEnemyFv();
 void get_pos__13TUnk_804806E8Fl();
 void is_actor_cadence_frame__13TUnk_804806E8Fl();
 void is_target_in_attack_range__10TObjPlayerFv();
-}
-extern u8 lbl_804774C0[];
-extern u8 lbl_804774CC[];
-extern u8 lbl_804774DC[];
-extern u8 lbl_804774EC[];
-extern u8 lbl_80477500[];
-extern u8 lbl_80477518[];
-extern u8 lbl_8047752C[];
-extern u8 lbl_80477544[];
-extern u8 lbl_80477558[];
-extern u8 lbl_8047756C[];
-extern u8 lbl_80477580[];
-extern u8 lbl_80477590[];
-extern u8 lbl_804775A0[];
-extern "C" {
 void receive_direct_attack__10TObjPlayerFv();
 void receive_weapon_special_attack__10TObjPlayerFv();
 void render_shadows__9TObjEnemyFv(u8 *arg0);
@@ -821,6 +777,44 @@ void update_movement_status__13TUnk_804806E8Fv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
 void update_poison_status__13TUnk_804806E8Fv();
 }
+void restore_render_scissor(s32 arg0);
+void draw_chunk_model(void *arg0);
+
+extern int TObjEneMorfos__instance;
+extern s32 TObjEneMorfos__phase;
+extern s32 TObjEneMorfos__camera_path_cursor;
+extern const f32 TObjEneMorfos__data_805DF89C;
+extern s32 __dt__13TUnk_804949A8Fv[];
+extern s32 init_and_activate__10TObjPlayerFv[];
+extern RecoveredGlobal_80332B7C_lbl_804775D8 lbl_804775D8;
+extern void *morfos_class_name;
+extern s32 actor_frame_tick;
+extern u8 *lbl_805D6D20;
+extern u8 *lbl_805D6D24;
+extern s32 lbl_805D6D28;
+extern s32 lbl_805D6D2C;
+extern float morfos_projectile_speed;
+extern float morfos_param_table_speed_copy;
+extern const f32 lbl_805DF878;
+extern const f32 lbl_805DF894;
+extern const f32 lbl_805DF898;
+extern const f32 lbl_805DF8A0;
+extern const f32 lbl_805DF8A4;
+extern void *tl_04;
+
+extern u8 lbl_804774C0[];
+extern u8 lbl_804774CC[];
+extern u8 lbl_804774DC[];
+extern u8 lbl_804774EC[];
+extern u8 lbl_80477500[];
+extern u8 lbl_80477518[];
+extern u8 lbl_8047752C[];
+extern u8 lbl_80477544[];
+extern u8 lbl_80477558[];
+extern u8 lbl_8047756C[];
+extern u8 lbl_80477580[];
+extern u8 lbl_80477590[];
+extern u8 lbl_804775A0[];
 extern void *bm_ene_morfos_model_names[4];
 extern void *bm_ene_morfos_motion_names[7];
 extern void *bm_ene_morfos_low_model_names[4];

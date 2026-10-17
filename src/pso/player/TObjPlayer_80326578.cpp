@@ -24,19 +24,10 @@ extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_803265C0(u8 *arg0);
-}
-u8 *dark_bridge_create(u8 *arg0);
-void * morning_glory_ct(void *, s32, void *);
-u8 *create_morning_glory(u8 *arg0);
-extern "C" {
 void TItemWeapon__ct(void *, void *);
 extern s32 lbl_804ECFB0[];
 u8 *TObjPlayer__sub_803268D8(u8 *arg0, u8 *arg1, s32 _w2);
 u8 *TItemTimerEvent__ct(void *, u32, s32, s32);
-}
-extern void *lbl_804A0568[8];
-u8 *paralysis_curse_timer_ct(u8 *self, u32 base_arg, s32 tag, s32 timer, f32 value);
-extern "C" {
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 extern Rec_80326D54 lbl_80476760;
 extern const f32 lbl_805DF660;
@@ -47,6 +38,11 @@ void *__dt__13TUnk_804ED0A8Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804ED1A0Fv(void *arg0, s16 arg1);
 void TObjPlayer__sub_80326794(void* p);
 }
+u8 *dark_bridge_create(u8 *arg0);
+void * morning_glory_ct(void *, s32, void *);
+u8 *create_morning_glory(u8 *arg0);
+extern void *lbl_804A0568[8];
+u8 *paralysis_curse_timer_ct(u8 *self, u32 base_arg, s32 tag, s32 timer, f32 value);
 void dark_bridge_start_timers(void *arg0);
 extern "C" {
 s32 rotate_matrix_x(s32, s32);

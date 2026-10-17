@@ -24,11 +24,9 @@ struct RecoveredGlobal_8008C4F4_main_task {
 extern "C" {
 s32 TKeyBoardControl__sub_8000F92C();
 s32 TKeyBoardControl__sub_8000F9CC(int);
-}
-void process_async_file_reads(void);
-extern "C" {
 s8 func_801A5E54__Fv();
 }
+void process_async_file_reads(void);
 void update_sound_request_slots(void);
 extern "C" {
 s32 render_screen_overlay__9TMainTaskFv(void *);

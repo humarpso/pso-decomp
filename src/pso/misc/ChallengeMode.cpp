@@ -86,14 +86,11 @@ void TLobby__sub_80070358(void);
 void clear_four_slots__6TLobbyFv(void);
 void TLobby__sub_800738F4(void *, s32);
 s32 get_main_phase(void);
-}
-void *create_obj_tag_challenge(void *arg0);
-extern s32 tl_07;
-extern "C" {
-
 void queue_destruction__7TObjectFv(void *);
 s32 get_current_floor(void);
 }
+void *create_obj_tag_challenge(void *arg0);
+extern s32 tl_07;
 void *create_ch_time_win(void *arg0);
 extern "C" {
 void TLobby__sub_80070170(void *arg0);

@@ -109,9 +109,6 @@ s32 __nw__7TObjectFUl(int);
 s32 get_draw_context__11TWindowBaseFPv();
 s32 construct_with_parent__13TUnk_804CDFE8FPv(void *, void *, s16, s32);
 void * get_field_20__17TWindowSubComCardFv(void *e);
-}
-void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2);
-extern "C" {
 s32 draw_window_frame(void *, s32);
 void refresh_status_display__9TWindowDDFv(void *);
 void TWindowChat__sub_80247D2C(void *p);
@@ -119,10 +116,6 @@ s32 is_player_input_active(s32 param_1);
 s32 is_window_display_enabled();
 s32 draw_visible_window_entries(void *, void *, s32);
 void measure_message_text_width(Ent_80265C30 *e, f32 x);
-}
-void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
-void update_chat_window(void* p);
-extern "C" {
 void TWindowSubComCard__sub_80265500(u8 *arg0);
 s32 TWindowSubComCard__sub_80265660(Obj_80265660 *o, s16 i);
 void TWindowSubComCard__sub_80265680(u8 *arg0, s16 arg1);
@@ -134,9 +127,6 @@ void fn_80266378(s32 arg0);
 u8 * create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3);
 u8 * init_shop_judgment_window(void* p);
 s32 create_window_menu(s32 arg0, s32 arg1, s32 arg2);
-}
-s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-extern "C" {
 void render__11TWindowMenuFv(TWindowMenu *arg0);
 void * __dt__11TWindowMenuFv(void *arg0, s16 arg1);
 u8 * TWindowMenu__ct(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
@@ -147,7 +137,10 @@ u32 reset_selection__20TWindowSubStatusDispFv(int, void *);
 s32 forward_render__20TWindowSubStatusDispFv(s32, s32);
 s32 construct_type1_heading__20TWindowSubStatusDispFll(s32, s32, s32);
 }
-
+void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2);
+void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
+void update_chat_window(void* p);
+s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 extern s32 __vt__11TWindowMenu[];
 extern const f64 lbl_8044F330;
 extern RecoveredGlobal_80266378_lbl_804D05A8 lbl_804D05A8;

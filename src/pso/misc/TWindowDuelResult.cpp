@@ -55,9 +55,6 @@ void *get_player_by_client_id(s32 i);
 s32 TWindowDuelResult__sub_801C19AC(f32 *arg0);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void init_window_layout_entries(void *, void *, int);
-}
-void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
-extern "C" {
 void set_default_status__17TWindowDuelResultFPvi(void *, int);
 void sub_8024EF40__17TWindowDuelResultFv(Win_8024EF40 *arg0);
 s32 get_shared_text_buffer(s32);
@@ -65,6 +62,7 @@ s32 *TWindowDuelResult__sub_801C257C(void);
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 s32 text_builder_append(s32);
 }
+void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 void text_builder_reset(void);
 extern "C" {
 void refresh_status_display__9TWindowDDFv(void *);

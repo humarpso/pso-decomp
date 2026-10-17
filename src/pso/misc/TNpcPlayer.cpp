@@ -414,32 +414,16 @@ void TNpcPlayer__sub_8014DC3C(void *, s32);
 void deliver_partner_chatter(Npc_8014E250 *self);
 void partner_compute_stalled_detour(u8 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out);
 s32 partner_route_around_wall(Self_8014EE98 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out, Vec_8014E3B0 *out2);
-}
-s32 partner_find_wall_segment(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-extern "C" {
 s32 partner_probe_obstacles(View_8014F140 *view);
 s32 partition_sort_entries__10TNpcPlayerFiPvii(s32 self, Ent_8014F28C *a, s32 lo, s32 hi);
 s32 find_parts_in_range__10TNpcPlayerFPvPvif(View_8014F424 *view, void *pos, s32 id, f32 range);
 s32 scan_nearby_enemies__10TNpcPlayerFPvPvf(View_8014F57C *view, void *pos, f32 range);
 bool is_target_line_clear__10TNpcPlayerFPvUs(u8 *arg0, u16 arg1);
-}
-s32 refresh_npc_view_actor_lost(void *arg0);
-extern "C" {
 Npc_8014F844 * init_ai_state__10TNpcPlayerFPvi(Npc_8014F844 *self, s32 id);
-}
-s32 partner_view_update_hp_change(void *arg0);
-s32 partner_view_update_conditions(u8 *arg0);
-extern "C" {
 s32 try_update_target_flag__10TNpcPlayerFPvi(void *arg0, s32 arg1);
 s32 check_and_set_reached__10TNpcPlayerFPv(void *arg0);
-}
-s32 partner_view_check_moved(u8 *arg0);
-extern "C" {
 s32 needs_movement__10TNpcPlayerFPvPvi(u8 *arg0, void * _w1, int _w2);
 void select_path_waypoint__10TNpcPlayerFv(Self_801501A0 *self);
-}
-void partner_observe_surroundings(TNpcPlayer *arg0);
-extern "C" {
 void request_technique_cast__10TNpcPlayerFPvi(Npc_80150A34 *self, s32 kind);
 s32 deliver_partner_action__10TNpcPlayerFv(void *);
 s32 select_recovery_action__10TNpcPlayerFv(Npc_801510F8 *self, s32 arg1);
@@ -454,45 +438,20 @@ s32 TNpcPlayer__sub_801528DC(void* p);
 u16 get_npc_type__10TNpcPlayerFPv(void* p);
 int get_partner_counter(s32 arg0, s32 arg1);
 s32 npc_counter_reset_if_reached(s32 arg0, s32 arg1);
-}
-int is_partner_counter_reached(s16 *table, s32 idx, s32 value);
-void set_partner_counter(s32 arg0, s32 arg1, s16 arg2);
-extern "C" {
 s32 TNpcPlayer__sub_80152978(void* p);
 void copy_transform_second__10TNpcPlayerFPvPvPv(void* p, void* a1, void* a2);
 void copy_transform__10TNpcPlayerFPvPv(void* p, void* q);
-}
-s32 clamp_partner_counter(s32 arg0, s32 arg1, s16 arg2);
-extern "C" {
 void TNpcPlayer__sub_80152A30(void);
 void TNpcPlayer__sub_80152A34(u8 *arg0, s32 arg1, s32 arg2);
 void TNpcPlayer__sub_80152A78(s16 *self);
-}
-void bswap_6x45_packet(void* p);
-extern "C" {
 void init_6x45_attack_packet(u8 *arg0);
-}
-void bswap_6x44_packet(void* p);
-extern "C" {
 void init_6x44_attack_packet(u8 *arg0);
-}
-void bswap_6x43_packet(void* p);
-extern "C" {
 void init_6x43_attack_packet(u8 *arg0);
-}
-u8 get_6x47_cast_packet_size(u8 *arg0);
-extern "C" {
 void TNpcPlayer__sub_80152D64(void* p);
-}
-void init_6x40_walk_packet(void* a0);
-extern "C" {
 void set_state__10TNpcPlayerFPvs(void* p, s16 v);
 void set_type__10TNpcPlayerFPvs(void* p, s16 v);
 void* fn_80152EF8(void* p);
 void TFontSmallLobby__sub_80152F28(Obj_80152F28 *self);
-}
-int get_registered_object_count(void);
-extern "C" {
 s32 check_switch__22TObjFogCollisionPoisonFv(s32);
 void TObjFogCollisionPoison__sub_80153520(s32 arg0);
 void TObjFogCollisionPoison__sub_801535D0(s32 arg0);
@@ -514,6 +473,21 @@ s32 __dt__7TObjectFv(void *, int);
 void __ct__7TObjectFP7TObject(void *, void *);
 Tec_80150B90 * calc_technique_parameters(s32, s32, s32);
 }
+s32 partner_find_wall_segment(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+s32 refresh_npc_view_actor_lost(void *arg0);
+s32 partner_view_update_hp_change(void *arg0);
+s32 partner_view_update_conditions(u8 *arg0);
+s32 partner_view_check_moved(u8 *arg0);
+void partner_observe_surroundings(TNpcPlayer *arg0);
+int is_partner_counter_reached(s16 *table, s32 idx, s32 value);
+void set_partner_counter(s32 arg0, s32 arg1, s16 arg2);
+s32 clamp_partner_counter(s32 arg0, s32 arg1, s16 arg2);
+void bswap_6x45_packet(void* p);
+void bswap_6x44_packet(void* p);
+void bswap_6x43_packet(void* p);
+u8 get_6x47_cast_packet_size(u8 *arg0);
+void init_6x40_walk_packet(void* a0);
+int get_registered_object_count(void);
 const char *get_partner_custom_text(s32 kind, u16 player);
 extern "C" {
 s32 is_active__12TTecReverserFv(void *);

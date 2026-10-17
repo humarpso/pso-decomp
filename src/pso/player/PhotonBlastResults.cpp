@@ -54,17 +54,8 @@ s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFv(void *);
 s32 get_photon_blast_chain(void *, s32);
 void *get_player_by_client_id(u32);
-}
-
-extern s32 photon_blast_donation_flags[];
-void clear_photon_blast_donations(void);
-extern "C" {
 s32 is_split_screen();
 s32 get_stat_by_key_state__13TUnk_804B9870Fv(void *);
-}
-extern s32 local_client_id;
-s32 is_photon_blast_presentation_admitted(u32 owner_id, void *records);
-extern "C" {
 u16 obj_getField1c(void *);
 s32 TObjPlayer__sub_801A9E10(void *, int, void *, void *, int, int);
 void set_type__10TObjPlayerFs(void *, s16);
@@ -72,14 +63,15 @@ s32 TObjPlayer__sub_801AA528(s32 arg0, s16 arg1);
 void *TObjPlayer__sub_801AA66C(void *, void *);
 void *__nw__7TObjectFUl(int);
 s16 TObjPlayer__sub_80313114(u8 *arg0);
+int get_player_data__10TObjPlayerFi(int);
 }
+extern s32 photon_blast_donation_flags[];
+void clear_photon_blast_donations(void);
+extern s32 local_client_id;
+s32 is_photon_blast_presentation_admitted(u32 owner_id, void *records);
 extern Counts_801A8868 photon_blast_result_counts_init;
 extern Rec_801A8868 photon_blast_sequence_table[];
 void admit_photon_blast_sequence(u8 *players, void *self);
-extern "C" {
-
-int get_player_data__10TObjPlayerFi(int);
-}
 void apply_photon_blast_action_hold(s32 arg0, s32 arg1, s32 arg2);
 
 #pragma push

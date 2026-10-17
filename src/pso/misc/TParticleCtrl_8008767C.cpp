@@ -123,13 +123,6 @@ u8 *load_gvm_texture_file(s32 arg0);
 int sprintf(char *, const char *, ...);
 char *strcpy(char *, const char *);
 void *memset(void *, int, u32);
-}
-void load_particle_entry_resources(void);
-extern char lbl_80439494[];
-extern char lbl_804394A4[];
-extern char lbl_804394BC[];
-extern char lbl_804394D4[];
-extern "C" {
 s32 is_split_screen();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 extern u8 *camera_ctrl_instance;
@@ -146,7 +139,11 @@ extern void *tl_07;
 extern void *tl_particlemodel;
 void run_task__13TParticleCtrlFv(Ctrl_8008767C *self);
 }
-
+void load_particle_entry_resources(void);
+extern char lbl_80439494[];
+extern char lbl_804394A4[];
+extern char lbl_804394BC[];
+extern char lbl_804394D4[];
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
 #include "pso/object/TObjFish.h"

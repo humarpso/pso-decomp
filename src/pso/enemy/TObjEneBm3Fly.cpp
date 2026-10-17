@@ -148,10 +148,6 @@ s32 is_main_phase_15__9TObjEneDDFv();
 s32 clear_global_flag_400__9TObjEneDDFv();
 s32 update_player_state__9TObjEneDDFv(void *, s32, s32);
 s32 toggle_particle_effect__10TObjPlayerFv();
-}
-void restore_default_scene(void);
-void set_scene_override(u8 scene);
-extern "C" {
 s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(s32, s32);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
@@ -170,6 +166,8 @@ s32 refresh_and_send_entity_flags__12TBoss8DragonFv(void *, s32);
 s32 TBoss8Dragon__sub_800BB7DC(void *);
 s32 transition_enemy_state(void *, s32);
 }
+void restore_default_scene(void);
+void set_scene_override(u8 scene);
 void spawn_landing_dead_spot(s32 point, s32 delay);
 extern "C" {
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);

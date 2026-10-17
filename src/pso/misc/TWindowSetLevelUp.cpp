@@ -63,15 +63,9 @@ void queue_destruction__7TObjectFv(void *);
 s32 *get_shared_text_buffer(void);
 u32 get_quest_id__12TQuestListVMFv(void);
 void __dl__FPv(void);
-}
-u32 calc_pulse_flash_color(u8 r, u8 g, u8 b, s32 frame, s32 period, s32 start, s32 peak, s32 end);
-extern "C" {
 void *get_player_by_client_id(s32 i);
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append(u8 *str);
-}
-void text_builder_reset(void);
-extern "C" {
 void __ct__7TObjectFP7TObject(void *);
 void apply_context_transform_to_rect(void *, Quad_8026D790 *);
 s32 copy_position__11TWindowMenuFPv();
@@ -84,6 +78,8 @@ void begin_screen_draw(s32 arg0);
 void draw_textured_quad_at_depth(f32 *q, f32 depth);
 void set_draw_texture_and_color(s32 idx, s32 arg1);
 }
+u32 calc_pulse_flash_color(u8 r, u8 g, u8 b, s32 frame, s32 period, s32 start, s32 peak, s32 end);
+void text_builder_reset(void);
 void set_constant_material_color(u32 x);
 extern "C" {
 

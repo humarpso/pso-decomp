@@ -105,6 +105,10 @@ void draw_string__14TObjWarpStringFlff(const char *, u32, f32, f32);
 s32 is_active__23TAdSinglePlyChrSelectGCFv();
 void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1);
 f32 sin_table_lookup(s32);
+s32 TAdSinglePlyChrSelectGC__sub_802905B8();
+s32 rand();
+extern const f32 lbl_805DDC10;
+void TObjCMMainMenu__sub_80298DA0(int a0);
 }
 extern Pair_80297B18 lbl_80464FC8[];
 extern s32 creation_resource_ready_state;
@@ -119,12 +123,6 @@ extern const f32 lbl_805DDBA4;
 extern const f32 lbl_805DDBA8;
 extern const f32 lbl_805DDBAC;
 void request_creation_motion(s32 arg0);
-extern "C" {
-s32 TAdSinglePlyChrSelectGC__sub_802905B8();
-s32 rand();
-extern const f32 lbl_805DDC10;
-void TObjCMMainMenu__sub_80298DA0(int a0);
-}
 extern const f32 lbl_805DDBF4;
 extern const f32 lbl_805DDBF8;
 extern const f32 lbl_805DDBFC;
@@ -381,10 +379,6 @@ void __ct__7TObjectFP7TObject(void *);
 Chara_80298B70 * TObjCMMainMenu__sub_8028D9A8(void);
 s32 TObjCMMainMenu__sub_8028D9B4(void *);
 u8 calc_section_id_from_name();
-}
-void reset_character_creation_figure_rotation(void);
-void draw_creation_ruler_lines(f32 farg0);
-extern "C" {
 s32 get_creation_sprite_id__14TObjCMMainMenuFl(int);
 void draw_ui_sprite_scaled(s32, void *, void *, f32, f32);
 void draw_ui_sprite(s32, void *, f32, f32);
@@ -418,6 +412,8 @@ u8 is_not_dressing_room_mode__14TObjCMMainMenuFv(void);
 s32 * TObjCMMainMenu__sub_80298DD4(void);
 s32 get_creation_pad(void);
 }
+void reset_character_creation_figure_rotation(void);
+void draw_creation_ruler_lines(f32 farg0);
 void get_creation_pad_stick(s32*,f32*);
 extern "C" {
 s32 TObjCMProportion__sub_8029914C(int);

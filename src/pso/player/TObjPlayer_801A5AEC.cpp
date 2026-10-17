@@ -69,9 +69,6 @@ extern RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270 TKeyBoardControl
 extern RecoveredGlobal_801A5EC4_lbl_8050E208 controller_input_state;
 s32 TKeyBoardControl__sub_80132310(s32);
 u8 TKeyBoardControl__sub_8013239C(void *, int);
-}
-void reset_system();
-extern "C" {
 s32 DVDCheckDisk();
 extern s32 lbl_805D49B4;
 extern u8 lbl_805D5D09;
@@ -87,6 +84,7 @@ void bind_controller_devices(void);
 void map_c_stick_to_buttons(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
 void map_main_stick_to_buttons(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
 }
+void reset_system();
 extern u8 controller_physical_port_bank[];
 extern s32 lbl_805D34C8;
 extern u8 *camera_ctrl_instance;

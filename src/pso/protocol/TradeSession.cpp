@@ -141,13 +141,9 @@ extern "C" {
 s32 get_shared_text_buffer();
 u8 *find_item_by_id(s32 id);
 s32 text_builder_append();
-}
-void text_builder_reset(void);
-extern "C" {
-
 s32 refresh_player_status__6TLobbyFv(s32);
 }
-
+void text_builder_reset(void);
 s32 format_trade_out_of_range_message(s32 arg0) {
     if ((s32) local_client_id == arg0) {
         return ((s32 (*)(s32))get_message_10__20TWindowSubStatusDispFl)(0xF0);

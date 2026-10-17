@@ -113,16 +113,6 @@ extern MapEnt_8031012C controller_input_state[];
 u8 TLobby__sub_801D7100(void *);
 extern u8 lobby_rule_settings[];
 int sprintf(char *, const char *, ...);
-}
-extern char lbl_80475B90[];
-extern char lbl_80475B98[];
-extern char lbl_80475BA0[];
-extern char *TPlayerBattleCtrl4P_player_name_formats[];
-void request_split_screen_battle_event(void* p);
-extern s16 battle_event_second_table[];
-extern s32 local_client_id;
-extern s32 TLobby__designated_client_id;
-extern "C" {
 s32 TLobby__sub_801C19D0(void *);
 extern P_803109D4 lbl_80475B80[];
 s32 are_split_screen_battle_players_tied(void);
@@ -135,17 +125,11 @@ f32 fn_801C19A4(void *);
 s32 TWindowDuelResult__sub_801C19AC(void *);
 
 s32 calc_battle_score__19TPlayerBattleCtrl4PFPvPv(void *self, u8 *arg1);
-}
-s32 get_split_screen_battle_timer_limit(u8 *arg0);
-extern "C" {
 void set_split_screen_battle_phase__19TPlayerBattleCtrl4PFl(u8 *arg0, s32 arg1);
 s32 check_value_equals__13TUnk_804B6C24Fl(void *, int);
 void queue_destruction__7TObjectFv(void *);
 extern s32 lbl_805D2A98;
 void destroy_matching_children__19TPlayerBattleCtrl4PFPvPv(void *self, Par_80311304 *p);
-}
-void reset_cameras_to_actor(void *actor, s32 arg1);
-extern "C" {
 void TObjPlayer__send_selected_spawn_position(void *self, u16 id);
 extern s32 tl_05;
 s32 obj_set_flag_20000();
@@ -196,6 +180,16 @@ s32 TLobby__sub_801C4FC4(void *p);
 extern Team_801C343C lbl_80475B78[];
 s32 calculate_split_screen_battle_rankings(void *);
 }
+extern char lbl_80475B90[];
+extern char lbl_80475B98[];
+extern char lbl_80475BA0[];
+extern char *TPlayerBattleCtrl4P_player_name_formats[];
+void request_split_screen_battle_event(void* p);
+extern s16 battle_event_second_table[];
+extern s32 local_client_id;
+extern s32 TLobby__designated_client_id;
+s32 get_split_screen_battle_timer_limit(u8 *arg0);
+void reset_cameras_to_actor(void *actor, s32 arg1);
 void refresh_split_screen_battle_alive_flags(void* p);
 extern "C" {
 void TLobby__sub_801B09A4(void);

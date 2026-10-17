@@ -38,9 +38,6 @@ s32 __destroy_arr(void *, void *, int, int);
 extern s32 __dt__13TUnk_804949A8Fv[];
 u8 *__dt__17TObjEneDf2BringerFv(u8 *arg0, s16 arg1);
 void render__17TObjEneDf2BringerFv(u8 *arg0);
-}
-void bringer_render_node_callback(void);
-extern "C" {
 void TObjEneDf2Bringer__sub_80097620(u8 *arg0, s32 arg1);
 void TObjEneDf2Bringer__sub_80097714(Bringer_80097714 *obj, s32 mode);
 void TObjEneDf2Bringer__sub_80097820(u8 *arg0, s32 arg1);
@@ -71,7 +68,7 @@ void vfunc_28__17TObjEneDf2BringerFv(void);
 void run_task__17TObjEneDf2BringerFv(u8 *arg0);
 void * TObjEneDf2Bringer__ct(void *arg0, void *arg1, void *arg2);
 }
-
+void bringer_render_node_callback(void);
 struct RecoveredGlobal_8031B170_lbl_804E8880
 {
   s32 value;

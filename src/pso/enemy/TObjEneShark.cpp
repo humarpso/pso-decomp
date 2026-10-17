@@ -542,7 +542,6 @@ extern "C" {
 
 }
 
-#include "pso/enemy/TObjEneMoja.h"
 #include "pso/misc/TLobby.h"
 #include "pso/enemy/TObjEneBeast.h"
 #include "pso/enemy/TObjEneMe3SinowZoa.h"

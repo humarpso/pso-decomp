@@ -1985,9 +1985,6 @@ s32 obj_getS16_32E(void *);
 int obj_getPtr2B0_20(u8 *p);
 s32 obj_getS16_32C(void *);
 s32 obj_isState3_324__13TUnk_804806E8Fv(void *);
-}
-void obj_copyVec2_0(u8 *d, u8 *s);
-extern "C" {
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(s32, s32);
 s32 obj_setFlags30(void *, s32);
 s32 get_current_floor();
@@ -2005,9 +2002,6 @@ void obj_clear_flag30_20000(void *arg0);
 s32 check_player_flag1__6TLobbyFv(s32);
 s32 check_flag__10TObjPlayerFl(void *, s32);
 s32 get_position_ptr__10TObjPlayerFv();
-}
-void reset_cameras_to_actor(void *actor, s32 arg1);
-extern "C" {
 s32 get_mode__11TCameraCtrlFPv(void *p);
 void copy_player_visual_record(void *, void *);
 u8 * csnVectorUnder(s32 *, void *, s32);
@@ -2018,9 +2012,6 @@ s32 get_field_d8__5TItemFv();
 void draw_blob_shadow(s32);
 void __ct__14TFontSmallHelpFUlUllUl(void *, u16, s32, s32, s32);
 u32 create__15TFontSmallLobbyFPv(void *);
-}
-s32 feed_item_to_mag(u8 *arg0, u32 arg1);
-extern "C" {
 s32 copy_item_data_and_process__5TItemFv(void *);
 s32 set_owner_client__5TItemFUs(void *, s16);
 s32 get_item_info__10TObjPlayerFllPs(s32, Pl_801B0B88 *, s32);
@@ -2051,14 +2042,7 @@ void try_add_target_candidate__11TMainCursorFPvPvPvPv(void *c, void *self, void 
 u32 TLockOnCursor__ct(u32, void *, s32);
 u16 get_id__11TMainCursorFv(void* p);
 s32 fn_8013F264(void *p);
-}
-void set_shadow_material_state(void);
-void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
-extern "C" {
 s32 draw_model_with_callback__10TObjPlayerFllf(void *, s32, s32, f32);
-}
-void draw_motion_model_saving_joints(TObjPlayer *arg0);
-extern "C" {
 s32 set_animation__10TObjMotionFs(s32, s32);
 s32 advance_animation_playback(void *);
 s32 TMainCursor__sub_80154098(int, int, int);
@@ -2070,9 +2054,6 @@ void check_enemy_body_collisions(void *arg0);
 int clear_obj_links__13TUnk_804AF8A0Fv(void*);
 s32 is_state_ec1_ed3__10TObjPlayerFv(void *);
 s32 get_dest_area__17TObjAreaWarpQuestFv(void *);
-}
-void mask_action_buttons(void *p, u32 v);
-extern "C" {
 void fn_8019DD24(void *p, u32 v);
 u16 TObjRoomId__sub_801A1DB8(s32);
 s32 reset_motion_fields__13TUnk_804B9870Fv();
@@ -2293,11 +2274,6 @@ void TObjPlayer__sub_801BEEAC(void *, void *);
 void TObjPlayer__sub_801BEEE0(void *, void *);
 void TObjPlayer__sub_801BEF30(void *, void *);
 void TObjPlayer__sub_801BEF44(void *, void *);
-}
-void emit_sand_footstep_effect(s32 arg0);
-void emit_water_footstep_effect(s32 arg0);
-void emit_grass_footstep_effect(s32 arg0);
-extern "C" {
 s32 TObjPlayer__sub_801BF3A0(void *, void *);
 s32 copy_vec_at_18__10TObjPlayerFv(void *, void *);
 s32 set_material_index__18TPlayerLobbyMarkerFUc(u32 a0 = 0, s32 a1 = 0);
@@ -2365,17 +2341,10 @@ void bswap_pkt_u16x2_u32__10TObjPlayerFPv(void *p);
 void TObjPlayer__sub_801C0C04(u8 *arg0);
 void swap_endian__10TObjPlayerFi(s32 arg0);
 void TObjPlayer__sub_801C0D7C(u8 *arg0);
-}
-void init_6x27_use_item_cmd(u8 *arg0);
-extern "C" {
 void bswap_fields__10TObjPlayerFi(void *);
 void TObjPlayer__sub_801C106C(void *, void *);
 void TObjPlayer__sub_801C1268(void *, void *);
 void TObjPlayer__sub_801C1664(void *, void *);
-}
-void init_6x1F_floor_packet(u8 *arg0);
-void init_6x21_inter_level_warp_packet(u8 *arg0);
-extern "C" {
 void TObjPlayer__sub_801C18E0(void *);
 f32 fn_801C19A4(void *);
 s32 TWindowDuelResult__sub_801C19AC(void *);
@@ -2420,14 +2389,7 @@ s32 TLobby__sub_801C2678();
 void fn_801C5420(void *, s32);
 int fn_801C543C(void*);
 s32 are_trap_counts_full(void *, void *, int);
-}
-void refill_trap_counts(s32 arg0, s32 arg1, s32 arg2);
-extern "C" {
 void TObjPlayer__sub_801C5780(void *, s32, s32);
-}
-void update_player_appear_fade(u8 *arg0);
-void save_render_material_state(u8 *arg0);
-extern "C" {
 int reset_ring__10TObjPlayerFv(void*);
 int clear_target_lock__10TObjPlayerFv(void*);
 void update_target_lock__10TObjPlayerFii(s32 arg0, s32 arg1);
@@ -2457,9 +2419,6 @@ u32 set_mode_and_refresh_object__10TObjPlayerFPvi(s32, s8 *);
 u8 * TPlyItem__ct(void *, void *);
 s32 set_field_1c__10TObjPlayerFl(void *, void *);
 u8 * __ct__9TItemListFv(void *, void *);
-}
-void reinit_photon_blast_gauge(u16 *arg0);
-extern "C" {
 s32 draw_party_label__15TFontSmallLobbyFiUis(s32, s32, s32);
 s32 accumulate_damage_stats(s32, s32, s32);
 s32 TObjPlayer__sub_801D6D28(s32 *);
@@ -2481,9 +2440,6 @@ s32 get_hospital_position__10TObjPlayerFv(void *);
 u8 * TObjPlayer__sub_801D8DCC();
 s32 TObjPlayer__sub_801D91B8(void *, void *);
 s32 get_current_state_field__10TObjPlayerFScl(s32, s32);
-}
-s32 get_ply_level_table_row(s8 arg0, s32 arg1);
-extern "C" {
 s32 get_class_attack_template(void *);
 s32 get_class_defense_template();
 void * get_class_stat_caps();
@@ -2492,9 +2448,6 @@ f32 get_class_technique_boost(s32, s32);
 void split_capped_value__10TObjPlayerFUcPUcPSc(u8, void *, void *);
 void update_all_units__10TObjPlayerFll(void *, u8);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-}
-s32 player_auxiliary_surfaces_enabled();
-extern "C" {
 s32 is_boss_area();
 int is_item_area_enabled(void);
 s32 reset_key_machine_state__10TObjPlayerFv();
@@ -2504,9 +2457,6 @@ s32 play_sound_effect(s32, s32, s32, s32);
 void set_area__6TLobbyFl(void *, int, int);
 void TWindowSubStatusDisp__sub_80228F5C(s32 arg0);
 void text_builder_append(u8 *str);
-}
-void text_builder_reset(void);
-extern "C" {
 u32 __nw__7TObjectFUl(s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 u8 * __ct__7TObjectFP7TObject(void *, void *);
@@ -2514,9 +2464,6 @@ void construct_actor_light_task(void *, Color_801B6964 *, Vec_801B6964 *, s32, s
 void TLobby__sub_8024AC20(s32);
 void dispatch_to_child__11TWindowCtrlFPv(u16, s32);
 u32 TWindowReturnCity__ct(u32, s32, u16);
-}
-void restore_render_scissor(s32 arg0);
-extern "C" {
 s32 get_battle_ctrl_default__6TLobbyFv();
 s32 get_party_yaw();
 u8 *get_party_position(void);
@@ -2524,12 +2471,32 @@ s32 TNpcPlayer__sub_8034DE40();
 void TObjPlayer__sub_80354BE4(s32);
 s32 TObjPlayer__sub_80354D5C(s32);
 void TObjPlayer__sub_80354E7C(void);
-}
-s32 validate_6x0E_clear_negative_status_effects(G_ClientIDHeader *packet);
-extern "C" {
 s32 fn_8036B748(void *);
 s32 fn_8036B770(void *);
+s32 validate_6xAE_set_animation_state(void *);
 }
+void obj_copyVec2_0(u8 *d, u8 *s);
+void reset_cameras_to_actor(void *actor, s32 arg1);
+s32 feed_item_to_mag(u8 *arg0, u32 arg1);
+void set_shadow_material_state(void);
+void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
+void draw_motion_model_saving_joints(TObjPlayer *arg0);
+void mask_action_buttons(void *p, u32 v);
+void emit_sand_footstep_effect(s32 arg0);
+void emit_water_footstep_effect(s32 arg0);
+void emit_grass_footstep_effect(s32 arg0);
+void init_6x27_use_item_cmd(u8 *arg0);
+void init_6x1F_floor_packet(u8 *arg0);
+void init_6x21_inter_level_warp_packet(u8 *arg0);
+void refill_trap_counts(s32 arg0, s32 arg1, s32 arg2);
+void update_player_appear_fade(u8 *arg0);
+void save_render_material_state(u8 *arg0);
+void reinit_photon_blast_gauge(u16 *arg0);
+s32 get_ply_level_table_row(s8 arg0, s32 arg1);
+s32 player_auxiliary_surfaces_enabled();
+void text_builder_reset(void);
+void restore_render_scissor(s32 arg0);
+s32 validate_6x0E_clear_negative_status_effects(G_ClientIDHeader *packet);
 s32 validate_6xA1_revive_player_v3(G_ClientIDHeader *packet);
 s32 validate_6x31_use_medical_center(G_ClientIDHeader *packet);
 s32 validate_6x30_change_player_level(G_ClientIDHeader *packet);
@@ -2546,9 +2513,6 @@ s32 validate_6x27_use_item(G_ClientIDHeader *packet);
 s32 validate_6x26_unequip_item(G_ClientIDHeader *packet);
 s32 validate_6x25_equip_item(G_ClientIDHeader *packet);
 s32 validate_6x24_teleport_player(G_ClientIDHeader *packet);
-extern "C" {
-s32 validate_6xAE_set_animation_state(void *);
-}
 s32 validate_6x21_inter_level_warp(G_ClientIDHeader *packet);
 s32 validate_6x20_set_position(G_ClientIDHeader *packet);
 s32 validate_6x1F_set_player_floor(G_ClientIDHeader *packet);

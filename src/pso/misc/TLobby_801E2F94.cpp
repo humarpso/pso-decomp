@@ -184,19 +184,15 @@ struct Tris_801E3784 {
 extern "C" {
 void GXBegin(s32, s32, u16);
 void GXSetLineWidth(s32, s32);
-}
-void setup_opaque_color_draw(void);
-extern "C" {
 void TObjPlayer__sub_803E21DC(void);
 void draw_color_lines(Lines_801E3330 *l, s32 n, s32 flags, f32 scale);
 void reset_line_width(void);
 extern int current_line_width;
 void draw_line_list(Lines_801E341C *l, s32 n, u32 flags);
-}
-void setup_blended_textured_draw(void);
-extern "C" {
 void TObjPlayer__sub_803E2248(void);
 }
+void setup_opaque_color_draw(void);
+void setup_blended_textured_draw(void);
 void load_context_texture_obj(void);
 extern "C" {
 void set_line_width(int a0);

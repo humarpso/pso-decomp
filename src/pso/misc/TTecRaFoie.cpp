@@ -558,11 +558,6 @@ void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern s32 tl_particle;
 s32 __ct__7TObjectFP7TObject(void *, void *);
-}
-
-u8 *create_rafoie_explosion(u8 *arg0, s32 *arg1, s16 arg2, s16 arg3, s32 arg4, f32 farg0);
-extern "C" {
-
 u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 farg0);
 void copy_technique_target_list(void *, void *);
 extern s32 __vt__10TTecRaFoie[];
@@ -572,6 +567,7 @@ Obj_80238AE8 *TTecRaFoie__ct(Obj_80238AE8 *arg0, void * _w1, void * _w2, void * 
 void *__dt__10TTecRaFoieFv(void *arg0, s16 arg1);
 }
 
+u8 *create_rafoie_explosion(u8 *arg0, s32 *arg1, s16 arg2, s16 arg3, s32 arg4, f32 farg0);
 u8 *create_rafoie_explosion(u8 *arg0, s32 *arg1, s16 arg2, s16 arg3, s32 arg4, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_802384E0, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802384E0, spC) == 0x4) ? 1 : -1];

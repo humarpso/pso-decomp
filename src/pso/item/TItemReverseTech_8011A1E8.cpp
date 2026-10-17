@@ -38,13 +38,7 @@ struct Ent_8011A43C { void (*fn)(); s32 arg; };
 extern "C" {
 s32 TKeyBoardControl__sub_8000F92C();
 s32 TKeyBoardControl__sub_8000F9CC(int);
-}
-void process_async_file_reads(void);
-extern "C" {
 s8 func_801A5E54__Fv();
-}
-void update_sound_request_slots(void);
-extern "C" {
 s32 render_screen_overlay__9TMainTaskFv(void *);
 s32 some_empty_func__9TMainTaskFv(void *);
 s32 render__9TMainTaskFv(void *);
@@ -66,14 +60,14 @@ void TKeyBoardControl__sub_8000F90C(s32);
 void TKeyBoardControl__sub_8000F91C(s32);
 void set_active_camera_pose(u8 *arg0, u8 *arg1);
 u8 *TCameraCtrl__ct(u8 *arg0, void *parent);
-}
-void clear_resource_load_tasks();
-void init_map_lights(u8 *arg0);
-extern "C" {
 void reset_controller_input_state();
 void set_copy_clear_color_argb(s32, s32, s32);
 void * __nw__7TObjectFUl(s32);
 }
+void process_async_file_reads(void);
+void update_sound_request_slots(void);
+void clear_resource_load_tasks();
+void init_map_lights(u8 *arg0);
 void set_screen_size(f32, f32);
 extern const Vec_8011A43C lbl_8043E68C[];
 extern const Vec_8011A43C lbl_8043E698[];

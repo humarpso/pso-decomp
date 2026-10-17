@@ -154,20 +154,6 @@ void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
-}
-void gibbles_render_node_callback(void);
-extern s32 lbl_805D5660;
-extern s32 lbl_805D5664;
-extern s32 lbl_805D5668;
-extern s32 TObjEneGibbles__render_node_index;
-extern s32 TObjEneGibbles__render_rotation_x;
-extern s32 chunk_polygon_flags_or_mask;
-extern s32 chunk_polygon_flags_and_mask;
-extern s32 model_render_flags;
-extern const f32 lbl_805DE87C;
-extern const f32 lbl_805DE880;
-extern const f32 lbl_805DE884;
-extern "C" {
 void draw_model__14TObjEneGibblesFPv(TObjEneGibbles *arg0);
 f32 subtract_vector(void *, void *);
 s32 check_path_obstructed(void *, void *);
@@ -175,14 +161,6 @@ u8 * get_player_data__10TObjPlayerFi(s32);
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, int);
 u16 obj_getField1c(void *);
 s32 is_valid_and_active__10TObjPlayerFUl();
-}
-extern s32 lbl_80472768[];
-extern s32 lbl_80472774[];
-extern s32 lbl_805D586C;
-extern s32 lbl_805D5870;
-extern const f32 lbl_805DE824;
-void move_with_wall_slide(u8 *arg0);
-extern "C" {
 void enemy_set_heading_velocity(void *, s32, f32);
 void calc_velocity_toward_destination(void *, Vec_802DA0BC, Vec_802DA0BC, f32);
 f32 newton_sqrtf(f32);
@@ -206,6 +184,24 @@ extern s32 gibbles_combat_stats_handle;
 extern u32 TObjEneGibbles__resource_bundle;
 void copy_position__20TBoss3VoloptHiraisinFv(s32 arg0);
 }
+void gibbles_render_node_callback(void);
+extern s32 lbl_805D5660;
+extern s32 lbl_805D5664;
+extern s32 lbl_805D5668;
+extern s32 TObjEneGibbles__render_node_index;
+extern s32 TObjEneGibbles__render_rotation_x;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
+extern const f32 lbl_805DE87C;
+extern const f32 lbl_805DE880;
+extern const f32 lbl_805DE884;
+extern s32 lbl_80472768[];
+extern s32 lbl_80472774[];
+extern s32 lbl_805D586C;
+extern s32 lbl_805D5870;
+extern const f32 lbl_805DE824;
+void move_with_wall_slide(u8 *arg0);
 int initialize_enemy_photon_effect(void *p);
 extern "C" {
 s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);

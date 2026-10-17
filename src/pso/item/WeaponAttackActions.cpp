@@ -342,10 +342,6 @@ s32 fn_80100CC8(Pl_8011E87C *);
 s32 item_model_is_shown__11TItemWeaponFv(void *);
 void send_6x61_activate_mag_effect__14TItemEquipBaseFl(void *, s32);
 s8 sub_80102C30__5TItemFv(u8 *arg0);
-}
-void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3);
-void spawn_land_hit_effect(s32 arg0, u32 arg1, u32 arg2, u32 arg3, s32 arg4);
-extern "C" {
 s32 init__9TItemDataFv(s32 *);
 void get_weapon_special_type_amount(u32 x, s16 *a, s16 *b);
 void TItemWeapon__sub_8011E5C0(void);
@@ -354,6 +350,8 @@ void TItemWeapon__sub_8011E5C8(void);
 void TItemWeapon__sub_8011E5CC(void);
 void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot);
 }
+void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3);
+void spawn_land_hit_effect(s32 arg0, u32 arg1, u32 arg2, u32 arg3, s32 arg4);
 u32 pack_weapon_trail_color(void *arg0);
 extern "C" {
 V4_8011EA10 get_weapon_color__11TItemWeaponFPv(void *);

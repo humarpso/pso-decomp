@@ -145,10 +145,6 @@ extern s32 TParticleCtrl__data_8048E778[];
 s32 rand(void);
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 s32 is_split_screen();
-}
-void setup_particle_tev(s32 arg0);
-void load_projected_texture_matrix(f32 farg0);
-extern "C" {
 s32 is_particle_sprite_additive__13TUnk_8048E728Fv(void *, s32);
 s32 append_node_to_tail__13TParticleCtrlFPvPv(s32, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -172,9 +168,6 @@ extern const f32 TParticleCtrl__data_805D950C;
 extern const f32 lbl_805D9520;
 void func_80141618__Fv();
 void restore_saved_depth_alpha_state();
-}
-void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
-extern "C" {
 f32 vec3_dot(void *, void *);
 void project_world_to_screen(int, void *, void *);
 void push_matrix_from(void *);
@@ -188,7 +181,9 @@ extern u8 identity_matrix[];
 extern const f32 lbl_805D951C;
 void __ct__7TObjectFP7TObject(void *, void *);
 }
-
+void setup_particle_tev(s32 arg0);
+void load_projected_texture_matrix(f32 farg0);
+void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
 extern void *__vt__13TParticleCtrl[];
 extern s32 TParticleCtrl__class_name_descriptor;
 extern void *tl_07;

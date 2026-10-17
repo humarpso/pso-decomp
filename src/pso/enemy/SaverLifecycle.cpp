@@ -97,9 +97,6 @@ Obj_800A73F8 *__dt__12TObjEneSaverFv(Obj_800A73F8 *arg0, s16 arg1);
 void* vfunc_9__12TObjEneSaverFv(void* p);
 void copy_position__20TBoss3VoloptHiraisinFv(s32 arg0);
 s32 create__12TObjEneSaverFPvPv(u32, u32);
-}
-int initialize_enemy_photon_effect(void *p);
-extern "C" {
 s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 void initialize__9TObjEnemyFPv(void *, void *, void *);
 void init_collision_body_parts(void *, void *, s32);
@@ -111,6 +108,7 @@ void step_angle_clamped__10TObjPlayerFPvi(void*, s32);
 void turn_toward_target__10TObjPlayerFPv(Obj_800A6B14*);
 void sub_800A62D4__12TObjEneSaverFv(u8*);
 }
+int initialize_enemy_photon_effect(void *p);
 
 struct C_800A4294 { s32 x0; };
 

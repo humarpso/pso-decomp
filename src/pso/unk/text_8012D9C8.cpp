@@ -25,19 +25,7 @@ extern const f32 lbl_805DAF3C;
 extern const f32 lbl_805DAF50;
 extern const f32 lbl_805DAF54;
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
-}
-extern s32 tl_05;
-u8 *create_slicer_weapon(u8 *arg0);
-extern const f32 lbl_805DAF40;
-extern const f32 lbl_805DAF44;
-extern const f32 lbl_805DAF48;
-extern const f32 lbl_805DAF4C;
-extern "C" {
 u8 * TItemWeapon__ct(void *, void *);
-}
-extern RecoveredGlobal_8012DBF4_lbl_804A5B20 lbl_804A5B20;
-u8 *construct_slicer_weapon(u8 *arg0, u8 *arg1, u8 *arg2);
-extern "C" {
 void init_slicer_launch_state(void *arg0);
 u16 obj_getField1c(void *);
 s16 TObjPlayer__sub_801D2F4C(s16 *arg0);
@@ -45,6 +33,14 @@ s16 get_validated_attack_stage(u8 *arg0);
 f32 query_extended_state__10TObjPlayerFv(void *);
 void get_weapon_color__11TItemWeaponFPv(f32 *, void *);
 }
+extern s32 tl_05;
+u8 *create_slicer_weapon(u8 *arg0);
+extern const f32 lbl_805DAF40;
+extern const f32 lbl_805DAF44;
+extern const f32 lbl_805DAF48;
+extern const f32 lbl_805DAF4C;
+extern RecoveredGlobal_8012DBF4_lbl_804A5B20 lbl_804A5B20;
+u8 *construct_slicer_weapon(u8 *arg0, u8 *arg1, u8 *arg2);
 void launch_slicer_shot(u8 *weapon);
 
 void launch_slicer_shot(u8 *weapon) {

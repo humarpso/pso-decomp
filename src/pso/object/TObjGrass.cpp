@@ -14,7 +14,6 @@ extern "C" void render__12TObjGrassWebFv();
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/enemy/TObjEneMe3SinowZoa.h"
-#include "pso/enemy/TObjEnePanarms.h"
 #include "pso/enemy/TObjEneRe7Berura.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"

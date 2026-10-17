@@ -411,9 +411,6 @@ s32 OSLockMutex();
 s32 OSGetCurrentThread();
 void NetStoreCurrentThread(s32 *arg0);
 s32 OSYieldThread();
-}
-void NetYieldThread(void);
-extern "C" {
 s32 OSResumeThread();
 s32 OSSuspendThread();
 void NetSuspendCurrentThread(void);
@@ -479,6 +476,7 @@ B_803FADA0 *init_net_buffer_entry__6TLobbyFUs(s32);
 extern u8 lbl_805D7A74[1];
 void TLobby__sub_803FADA0(B_803FADA0 **arg0, A_803FADA0 *arg1, s32 arg2, s32 arg3, void *arg4);
 }
+void NetYieldThread(void);
 s32 NetSetDefaultThreadPriority(s32 arg0);
 extern "C" {
 void TLobby__sub_803FA234(void);

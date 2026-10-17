@@ -5,20 +5,14 @@
 void clear_current_floor_switch(s32 arg0);
 extern "C" {
 s32 get_current_floor(void);
-}
-void set_current_floor_switch(s32 arg0);
-extern "C" {
 void is_current_floor_switch_set(s32 arg0);
-}
-u8 is_floor_switch_set(u32 id, s16 floor);
-extern "C" {
 s32 memcpy(void *, void *, void *);
-}
-extern u8 TSwitch__floor_switch_table[18][32];
-void restore_switch_table(s32 arg0, s32 arg1);
-extern "C" {
 s32 memset(void *, int, int);
 }
+void set_current_floor_switch(s32 arg0);
+u8 is_floor_switch_set(u32 id, s16 floor);
+extern u8 TSwitch__floor_switch_table[18][32];
+void restore_switch_table(s32 arg0, s32 arg1);
 void clear_switch_table(void);
 void init_switch_table(void);
 u32 copy_switch_table(void* destination);

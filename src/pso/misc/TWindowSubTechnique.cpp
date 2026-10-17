@@ -43,13 +43,7 @@ s32 get_cast_technique_level(void *, int);
 s32 validate_and_clear_slot__10TObjPlayerFv(void *, int);
 void TWindowSubStatusDisp__sub_80228F5C(s32 arg0);
 void text_builder_append(u8 *str);
-}
-void text_builder_reset(void);
-extern "C" {
 s32 get_help_text_string(s32 arg0);
-}
-void toggle_help_window_on_button(u32 arg0, s32 arg1);
-extern "C" {
 s32 send_and_handle__6TLobbyFii(int, void *, int);
 extern s32 lbl_805DD83C;
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
@@ -78,6 +72,8 @@ s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 }
+void text_builder_reset(void);
+void toggle_help_window_on_button(u32 arg0, s32 arg1);
 s32 create_titled_window_menu(s32, s32, s32, s32);
 extern "C" {
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);

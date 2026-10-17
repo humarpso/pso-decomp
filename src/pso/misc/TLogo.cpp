@@ -42,10 +42,6 @@ void queue_destruction__7TObjectFv(void *arg0);
 u32 __ct__11TAdSEGAlogoFv(void *, void *);
 u32 __ct__12TAdSoniclogoFv(void *, void *);
 int TLogo__sub_8013F7E8(int);
-}
-int is_logo_exit_requested(int);
-int is_sega_logo_done(int);
-extern "C" {
 s32 TLogo__sub_8013F800(void* p);
 int TLogo__sub_8013F808(void);
 s32 TLobby__sub_80145DB4(s32 arg0);
@@ -57,11 +53,11 @@ void run_task__5TLogoFv(u8 *arg0);
 s32 TKeyBoardControl__sub_8000F92C();
 s32 set_active_camera_pose(void *, void *);
 s32 activate_camera_mode(int);
-}
-void process_async_file_reads(void);
-extern "C" {
 s8 func_801A5E54__Fv();
 }
+int is_logo_exit_requested(int);
+int is_sega_logo_done(int);
+void process_async_file_reads(void);
 void update_sound_request_slots(void);
 extern "C" {
 s32 func_803DCDFC__Fv();

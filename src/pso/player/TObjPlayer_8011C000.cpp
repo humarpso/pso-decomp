@@ -75,31 +75,17 @@ typedef struct Pmt_8011C234 { u8 pad[0xC]; PmtRow_8011C234 *rows; } Pmt_8011C234
 
 extern "C" {
 s32 select_enemy_drop__9TItemDropFPviiPv(u32, s32, s32, s32);
-}
-void normalize_drop_area(s32 *p);
-extern void *item_mgr;
-extern "C" {
 void select_box_item__9TItemDropFiiPv(s32 arg0, s32 arg1, u8 *item);
 void generate_drop_item__9TItemDropFPviPv(u8 *self, s32 idx, u8 *item);
 s32 get_unit_attribute_index__10TObjPlayerFUc(u8 arg0);
-}
-extern void *item_pmt_tbl;
-s32 get_mag_feed_result(s32 arg0, s32 arg1);
-extern "C" {
 s32 get_text_collection(s32);
 extern s32 lbl_805D2B10;
 u32 roll_channel_below__9TItemDropFPviUi(u8 *arg0, s32 count, u32 arg2);
 s32 __cvt_fp2unsigned(f32);
-}
-void roll_item_channel_below(u32 arg0, s32 arg1);
-extern "C" {
 u8 get_weapon_class_motion_type(u8 arg0);
 u8 get_technique_learn_limit(s8 arg0, u8 arg1);
 s32 get_item_star_count(s32 id);
 Entry_8011CB18 *get_weapon_range_record(Item_8011CB18 *item, s16 mode);
-}
-s32 is_unsealable_item(u8 *id);
-extern "C" {
 void get_weapon_special_type_amount(u32 x, s16 *a, s16 *b);
 void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
@@ -113,6 +99,12 @@ void play_shield_sound_cue(Obj_8011C59C *arg0);
 void *get_item_pmt_record__10TObjPlayerFii(u8, u8);
 void *get_armor_pmt_record(u8, u8);
 }
+void normalize_drop_area(s32 *p);
+extern void *item_mgr;
+extern void *item_pmt_tbl;
+s32 get_mag_feed_result(s32 arg0, s32 arg1);
+void roll_item_channel_below(u32 arg0, s32 arg1);
+s32 is_unsealable_item(u8 *id);
 s32 get_item_stat_boost_record(s32 arg0, s32 arg1, s32 arg2);
 extern "C" {
 void find_tool_pmt_base_id(s32 arg0, u8 *arg1);

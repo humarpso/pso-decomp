@@ -18,6 +18,7 @@ struct Cam_80291784 {
 
 extern "C" {
 s32 TObjCMProportion__sub_8029916C(s32);
+f32 cos_table_lookup(s32);
 }
 extern int creation_camera_mode;
 extern const f32 lbl_805DD990;
@@ -28,9 +29,6 @@ extern CharacterAppearanceFields *creation_player_character;
 extern const f32 lbl_805DD978;
 extern const f32 lbl_805DD99C;
 extern const f32 lbl_805DD9A0;
-extern "C" {
-f32 cos_table_lookup(s32);
-}
 extern const f32 lbl_805DD96C,lbl_805DD978,lbl_805DD998;
 void approach_creation_camera_target(u8 *arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
 extern const f32 lbl_805DD96C;

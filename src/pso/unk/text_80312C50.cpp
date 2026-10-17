@@ -16,9 +16,6 @@ u8 *TObjPlayer__sub_80312FB0(u8 *arg0);
 void append_photon_blast_request(s32 arg0, s16 arg1, s16 arg2);
 void *get_player_by_client_id(s32);
 int TObjPlayer__sub_803131AC(void* a0);
-}
-void release_photon_blast_requests(void *registry);
-extern "C" {
 void TObjPlayer__sub_80312E98(void *o, u16 id);
 void *TObjPlayer__sub_803131B4(void *, int);
 void set_field_0__10TObjPlayerFs(void* p, int v);
@@ -28,6 +25,7 @@ s32 get_section_id__10TObjPlayerFv(void *);
 extern const f32 lbl_805DF248;
 int TObjPlayer__sub_803131AC(void* a0 = 0);
 }
+void release_photon_blast_requests(void *registry);
 
 void release_photon_blast_requests(void *registry) {
     s32 count;

@@ -180,10 +180,6 @@ s32 get_camera_mode__11TCameraCtrlFv();
 s32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 void read_disc_file(void *, void *);
 s32 TFogCtrl__sub_800FAC84(void* p);
-}
-void copy_fog_entry(u8 *arg0, u8 *arg1);
-s32 apply_fog_entry(void *arg0);
-extern "C" {
 s32 request_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
 void TFogCtrl__sub_800FB400(O_800FB400 *self, s32 i, s32 j);
 u8 * __dt__8TFogCtrlFv(u8 *arg0, s16 arg1);
@@ -193,6 +189,8 @@ void TFogCtrl__sub_800FBA58(void);
 void TFogCtrl__sub_800FBAAC(void);
 void create_area_fog_ctrl(void);
 }
+void copy_fog_entry(u8 *arg0, u8 *arg1);
+s32 apply_fog_entry(void *arg0);
 void init_scene_fog_system(void);
 extern "C" {
 void mem_free(void *p);

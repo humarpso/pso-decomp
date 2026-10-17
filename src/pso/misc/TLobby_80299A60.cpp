@@ -17,33 +17,25 @@ extern "C" {
 s32 get_main_phase();
 s32 is_split_screen();
 s32 is_quest_active();
-}
-void init_area_lights(void);
-extern "C" {
 void init_music_sequencer(s32);
 s32 play_area_music(s32 *);
 s32 load_floor_sound_bank();
 extern s32 lbl_804651C0[];
 extern void *tl_05;
 s32 TLobby__sub_80299C7C(void);
-}
-s32 init_scene_delo2(void);
-s32 load_dragon2_scene(void);
-extern "C" {
 s32 TLobby__sub_801403B4(s32);
-}
-void stop_cue_stream(void);
-extern "C" {
 u32 __nw__7TObjectFUl(s32);
-}
-void create_boss8_demo_objects(void);
-extern "C" {
 s32 create_instance__10TSceneSoraFPv(void*, s32);
 void fn_802F105C(void);
 s32 fn_802F1084();
 void fn_802FE9E0(void);
 void fn_802FEA0C(void);
 }
+void init_area_lights(void);
+s32 init_scene_delo2(void);
+s32 load_dragon2_scene(void);
+void stop_cue_stream(void);
+void create_boss8_demo_objects(void);
 void init_scene_boss2_tunnel(void);
 extern "C" {
 

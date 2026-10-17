@@ -50,18 +50,14 @@ void request_active_window_close();
 void obj_clear_flag30_20000(TObjPlayer *);
 void fn_8034BE38(TObjPlayer *);
 void TLobby__sub_8024AC20(u16);
-}
-s32 update_challenge_result_player_locks();
-void resume_challenge_result_processing(void *arg0);
-extern "C" {
-
 void update_entries__18TChallenge4PResultFii(s32 arg0, s32 arg1);
 s32 __ct__18TChallenge4PResultFP7TObjectUsl(void *, s32, int, s32);
 void TWindow__close(u8 *arg0);
 u32 __nw__7TObjectFUl(s32);
 int queue_destruction__7TObjectFv(void*);
 }
-
+s32 update_challenge_result_player_locks();
+void resume_challenge_result_processing(void *arg0);
 void resume_challenge_result_processing(void *arg0) {
     if (arg0 != NULL) {
         *(s32 *)((s8 *)arg0 + 0x1C) = 1;

@@ -852,9 +852,6 @@ void set_state_and_send__14TBoss7DeRolLeCFl(u8 *arg0, s32 arg1);
 #define set_state_and_send__14TBoss7DeRolLeCFl ((s32 (*)(void *, int))set_state_and_send__14TBoss7DeRolLeCFl)
 s32 push_ring_point__15TBoss7LaserPtclFPvPv(void *, void *);
 u32 construct_with_params__16TBoss7LaserLightFlll(void *, void *, int, int);
-}
-void calc_laser_ray_hit_point(u8 *arg0, u8 *arg1);
-extern "C" {
 s32 is_state_2__15TBoss7LaserPtclFv(void *);
 u8 *TBoss7LaserPtcl__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 extern s32 boss7_laser_particle_params[];
@@ -907,6 +904,7 @@ extern f32 lbl_804E3E48[];
 void TParticleCtrl__sub_802EC550(PCtrl_802EC550 *o);
 void assign_slots_from_list(void *arg0, s32 arg1);
 }
+void calc_laser_ray_hit_point(u8 *arg0, u8 *arg1);
 void *create_timed_particle_emitter_with_flags(void *pos, s32 id, s32 a, s32 b, s32 c);
 extern "C" {
 

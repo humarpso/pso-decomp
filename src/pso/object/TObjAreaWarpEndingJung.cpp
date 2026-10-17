@@ -341,9 +341,6 @@ s32 TObjCityMainWarp__sub_80186AF4();
 void * TObjAreaWarpEndingJung__create(void *arg0);
 void * __dt__22TObjAreaWarpEndingJungFv(void *arg0, s16 arg1);
 void * TObjAreaWarpEndingJung__ct(void *arg0);
-}
-void * create_TObjWarpString(void *arg0, void *arg1);
-extern "C" {
 s64 fn_8019B480(void *arg0, void *arg1);
 void fade_and_destroy__14TObjWarpStringFPv(u8 *arg0);
 void TObjWarpString__sub_8019B728(void *arg0);
@@ -377,10 +374,6 @@ int TAdStorySelectGC__sub_8019DC14(void);
 s32 register_area_warp_object__16TAdStorySelectGCFPv(int);
 s32 register_warp__16TObjMapForceWarpFPv(int);
 void TObjAreaWarpQuest__sub_8019DCD8(void *, s32);
-}
-void bswap_6x94_inter_level_warp(void *);
-void mask_action_buttons(void *p, u32 v);
-extern "C" {
 f32 get_static_field4_as_float__12TObjWarpJungFv(f32);
 s32 TObjWarpJung__sub_801A0404(s32);
 s32 check_flag_100__10TObjPlayerFPv();
@@ -390,6 +383,9 @@ void send_6x55_intra_map_warp(u16 id, void *pos, s32 c);
 s32 init__23TAdSinglePlyChrSelectGCFv();
 s32 get_floor_map_terrain(s32);
 }
+void * create_TObjWarpString(void *arg0, void *arg1);
+void bswap_6x94_inter_level_warp(void *);
+void mask_action_buttons(void *p, u32 v);
 s32 should_record_episode1_quest_completion();
 extern "C" {
 s32 play_sound_effect(s32, s32, s32, s32);
