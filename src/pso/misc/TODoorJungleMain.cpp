@@ -191,7 +191,6 @@ extern const f32 lbl_805DDCE4;
 extern const f32 lbl_805DDCE8;
 extern const f32 lbl_805DDCEC;
 extern const f32 lbl_805DDCF0;
-u8 *TODoorJungleMain__ct(TODoorJungleMain *arg0, s32 arg1, s32 arg2);
 void *get_bml_model(u32, int);
 s32 rotate_matrix_y(int, int);
 int push_matrix(void *);
