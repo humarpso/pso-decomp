@@ -39,12 +39,12 @@ void TObjPlayer::on_zone_exit() {
     if (((VObj18_80166970 *) arg0)->m8(*(f32 *)&this->m_c0, *(f32 *)&this->unk_C4) != 0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (this->m_60));
-        TObjFish::set_global_param((int) (*(s32 *)&this->unk_24));
-        if ((s32) this->m_d0 == 0) {
-            draw_ginja_model_with_motion((void *) (*(void * *)&this->_pad34), (int) (*(s32 *)&this->unk_BC), (f32) (*(f32 *)&this->unk_B0));
+        rotate_matrix_y((int) (0), (int) (this->rotation_y));
+        TObjFish::set_global_param((int) (*(s32 *)&this->texture_id));
+        if ((s32) (*(s32 *)&this->m_d0) == 0) {
+            draw_ginja_model_with_motion((void *) (*(void * *)&this->model), (int) (*(s32 *)&this->m_bc), (f32) (*(f32 *)&this->animationFlags));
         } else {
-            temp_r31 = (unsigned char *) (*(void * *)&this->_pad34);
+            temp_r31 = (unsigned char *) (*(void * *)&this->model);
             push_matrix();
             post_translate_matrix((void *) (temp_r31 + 8));
             rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)temp_r31 + 0x1C)));

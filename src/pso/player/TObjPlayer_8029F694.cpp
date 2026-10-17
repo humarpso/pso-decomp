@@ -9,7 +9,7 @@ s32 load_texture_list(void *);
 
 void TObjPlayer::reset_lobby_subobject() {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)&this->unk_24 = 0;
+    *(s32 *)&this->texture_id = 0;
     TLobby__sub_803DA16C(arg0 + 0x1C);
 }
 
@@ -18,10 +18,10 @@ void TObjPlayer::init_render_target() {
     s32 sp8[12];
 
     *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (arg0 + 0x10);
-    this->m_20 = 1;
+    (*(s32 *)&this->m_20) = 1;
     ((TObjPlayer *)sp8)->set_render_rect(0, 4, 0x280, 0x1E0);
     set_texture_name(*(s32 *)((s8 *)arg0 + 0x1C), sp8, 0x901, 0x08800000);
-    *(s32 *)&this->unk_24 = load_texture_list(arg0 + 0x1C);
+    *(s32 *)&this->texture_id = load_texture_list(arg0 + 0x1C);
 }
 
 }

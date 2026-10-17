@@ -31,20 +31,20 @@ void TObjPlayer::update_control_state() {
     } else {
         TObjEneMe1GiGue__sub_8008FC10((void *) (arg0));
     }
-    if ((s16) this->m_326 != (s32) *(s32 *)&this->m_374) {
+    if ((s16) this->mode != (s32) *(s32 *)&this->m_374) {
         if ((s32) this->m_37c != -1) {
             this->m_37c = -1;
             ((TObjEneBalClawBody *)arg0)->sub_8008FF50();
         }
-        this->m_326 = (s16) *(s32 *)&this->m_374;
+        this->mode = (s16) *(s32 *)&this->m_374;
         this->m_37c = 0;
     }
     ((TObjEneBalClawBody *)arg0)->sub_8008FF50();
     ((TObjEneBalClaw *)arg0)->update_wobble();
     ((TObjEneBalClaw *)arg0)->update_claw_angle();
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
-    temp_f2 = *(f32 *)&this->unk_300;
-    *(f32 *)&this->unk_300 = (f32) (temp_f2 + (*(f32 *)&this->m_3b4 + *(f32 *)&this->m_3bc));
+    temp_f2 = *(f32 *)&this->m_300;
+    *(f32 *)&this->m_300 = (f32) (temp_f2 + (*(f32 *)&this->m_3b4 + *(f32 *)&this->m_3bc));
     temp_f1 = *(f32 *)&this->m_3b4;
     temp_r5 = (unsigned char *) (*(void * *)&this->m_a4);
     *(f32 *)((s8 *)temp_r5 + 4) = (f32) (temp_f1 + *(f32 *)&this->m_3bc);

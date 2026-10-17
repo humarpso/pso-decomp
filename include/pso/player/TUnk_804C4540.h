@@ -5,9 +5,7 @@
 
 class TUnk_804C4540 : public TObjPlayer {
 public:
-    virtual ~TUnk_804C4540();
-    u8 unk_DB0[0x8];
-};
+    virtual ~TUnk_804C4540();};
 typedef char TUnk_804C4540_size[sizeof(TUnk_804C4540) == 0xDB8 ? 1 : -1];
 
 #endif

@@ -885,8 +885,8 @@ void TObjPlayer::update_topple_state() {
         break;
     case 0:
         *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x10000);
-        *(s16 *)&this->unk_B8 = 0;
-        if (angle_difference_abs(this->m_60, *(s32 *)&this->unk_398 - 0x4000) <= (s32) boss3_volopt_turn_angle_limit) {
+        *(s16 *)&this->m_b8 = 0;
+        if (angle_difference_abs(this->rotation_y, *(s32 *)&this->unk_398 - 0x4000) <= (s32) boss3_volopt_turn_angle_limit) {
             this->m_37c = 3;
         } else {
             this->m_37c = 1;
@@ -900,8 +900,8 @@ void TObjPlayer::update_topple_state() {
         }
         break;
     case 2:
-        this->m_60 = approach_angle_limited(this->m_60, *(s32 *)&this->unk_398 - 0x4000, boss3_volopt_turn_angle_limit);
-        if (angle_difference_abs(this->m_60, *(s32 *)&this->unk_398 - 0x4000) <= (s32) boss3_volopt_turn_angle_limit) {
+        this->rotation_y = approach_angle_limited(this->rotation_y, *(s32 *)&this->unk_398 - 0x4000, boss3_volopt_turn_angle_limit);
+        if (angle_difference_abs(this->rotation_y, *(s32 *)&this->unk_398 - 0x4000) <= (s32) boss3_volopt_turn_angle_limit) {
             this->m_37c = 3;
         }
         break;
@@ -1150,17 +1150,17 @@ void TObjPlayer::update_state_spin() {
     temp_r0 = this->m_37c;
     switch (temp_r0) {
     case 0:
-        *(s32 *)&this->actor_flags = (s32) (*(s32 *)&this->actor_flags | 0x40000);
+        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x40000);
         *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x20000);
         *(s32 *)&this->unk_390 = 0x4000;
         this->m_394 = -0x1555;
         *(u16 *)((s8 *)this + 0x338) = 0xFFFF;
         *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x10000);
-        *(s16 *)&this->unk_B8 = 0;
-        *(s32 *)&this->unk_5C = 0;
+        *(s16 *)&this->m_b8 = 0;
+        *(s32 *)&this->m_5c = 0;
         TObjPlayer__sub_8003FCD0((u8 *)(this));
         *(s32 *)&this->unk_398 = calc_spin_value();
-        this->m_60 = (s32) *(s32 *)&this->unk_398;
+        this->rotation_y = (s32) *(s32 *)&this->unk_398;
         *(s16 *)&this->unk_33C = 0x5A;
         this->m_37c = 1;
     case 1:
@@ -1168,7 +1168,7 @@ void TObjPlayer::update_state_spin() {
         temp_r3 = *(s16 *)&this->unk_33C - 1;
         *(s16 *)&this->unk_33C = temp_r3;
         if ((s16) temp_r3 <= 0) {
-            *(s32 *)&this->actor_flags = (s32) (*(s32 *)&this->actor_flags & 0xFFFBFFFF);
+            *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
             *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 & 0xFFFFFFFE);
             ((E_V_8003fde8_8003F4C0 *) this)->m56();
         }
@@ -1182,7 +1182,7 @@ s32 TObjPlayer::check_target_collision() {
     s32 found;
     s32 i;
     VObj_18_c44252 *obj;
-    if ((u32) *(u32 *)&this->m_2a8 == 0U) {
+    if ((u32) *(u32 *)&this->target == 0U) {
         return 0;
     }
     found = 0;
@@ -1199,7 +1199,7 @@ s32 TObjPlayer::check_target_collision() {
                     obj->m23(((u8 *)this), lbl_805D86D4);
                     obj->m20(((u8 *)this), lbl_805D86B0);
                 }
-                if ((u32) obj == (u32) *(u32 *)&this->m_2a8) {
+                if ((u32) obj == (u32) *(u32 *)&this->target) {
                     found = 1;
                 }
             }
@@ -1247,8 +1247,8 @@ void TObjPlayer::update_grabbed_state() {
             *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x40000);
         }
         obj_clearFlags30(this, 0x02200200);
-        this->m_33e = (s16) this->m_32c;
-        *(s16 *)&this->unk_B8 = 3;
+        this->m_33e = (s16) this->hp;
+        *(s16 *)&this->m_b8 = 3;
         play_sound_effect(0x4003A81F, 0, 0, 0);
         play_sound_effect(0x4003BC20, 0, 0, 0);
         if ((s32) local_client_id == (s32) this->m_2d4) {

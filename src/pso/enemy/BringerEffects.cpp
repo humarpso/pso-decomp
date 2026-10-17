@@ -199,7 +199,7 @@ f32 post_translate_matrix(void);
 void TObjPlayer::draw_trail_pair() {
     push_matrix();
     ((f32 (*)(void *))post_translate_matrix)(((u8 *)this) + 0x20);
-    rotate_matrix_y(0U, *(s32 *)&this->_pad34);
+    rotate_matrix_y(0U, *(s32 *)&this->model);
     ((TObjPlayer *)(((u8 *)this) + 0x40))->draw_trail_strip((void *)6, (s32)(*(f32 *)((s8 *)((u8 *)this) + 0x2C) < 1.0f));
     ((TObjPlayer *)(((u8 *)this) + 0xA0))->draw_trail_strip((void *)6, (s32)(*(f32 *)((s8 *)((u8 *)this) + 0x2C) < 1.0f));
     pop_matrix();

@@ -68,14 +68,14 @@ s32 *TObjPlayer__sub_800F08AC(s32 arg0, s32 arg1) {
 }
 void TObjPlayer::draw_with_alt_model(s32 arg1) {
     s32 temp_r31;
-    temp_r31 = *(s32 *)&this->_pad34;
+    temp_r31 = *(s32 *)&this->model;
     TObjPlayer::set_alt_model_flag();
     TObjPlayer__sub_800F083C();
-    *(s32 *)&this->_pad34 = ((s32)TObjPlayer__sub_800F08AC(temp_r31, arg1));
+    *(s32 *)&this->model = ((s32)TObjPlayer__sub_800F08AC(temp_r31, arg1));
     draw__16TObjEneRe7BeruraFv(this);
     TObjPlayer::update_lights();
     TObjPlayer::clear_alt_model_flag();
-    *(s32 *)&this->_pad34 = temp_r31;
+    *(s32 *)&this->model = temp_r31;
 }
 s32 is_split_screen__10TObjPlayerFv(void) {
     return is_split_screen() ? 1 : 0;

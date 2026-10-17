@@ -1154,9 +1154,9 @@ void TObjPlayer__sub_8001053C(u8 *arg0) {
 }
 
 void TObjPlayer::apply_velocity() {
-    *(f32 *)&this->m_38 = (f32) (*(f32 *)&this->m_38 + *(f32 *)&this->unk_308);
-    *(f32 *)&this->unk_3C = (f32) (*(f32 *)&this->unk_3C + this->m_30c);
-    this->m_40 = (f32) (this->m_40 + *(f32 *)&this->unk_310);
+    *(f32 *)&this->position[0] = (f32) (*(f32 *)&this->position[0] + *(f32 *)&this->unk_308);
+    *(f32 *)&this->position[1] = (f32) (*(f32 *)&this->position[1] + (*(f32 *)&this->m_30c));
+    this->position[2] = (f32) (this->position[2] + *(f32 *)&this->m_310);
 }
 
 s16 TObjPlayer::clamp_field_32E() {
@@ -1167,7 +1167,7 @@ s16 TObjPlayer::clamp_field_32E() {
     if (temp_r4 < 0) {
         *(s16 *)((s8 *)this + 0x32E) = 0;
     } else {
-        temp_r0 = *(s16 *)&this->unk_2BA;
+        temp_r0 = *(s16 *)&this->m_2ba;
         if (temp_r0 < temp_r4) {
             *(s16 *)((s8 *)this + 0x32E) = temp_r0;
         }
@@ -1645,7 +1645,7 @@ s32 TObjPlayer::clamp_hp_value(s16 *arg1) {
         *arg1 = 0;
         return 0;
     }
-    temp_r0 = this->m_2b8;
+    temp_r0 = this->hpmax;
     if (temp_r5 > temp_r0) {
         *arg1 = temp_r0;
         return 0;
@@ -1655,7 +1655,7 @@ s32 TObjPlayer::clamp_hp_value(s16 *arg1) {
 
 void TObjPlayer::set_hp_clamped(s16 arg1) {
     u8 *arg0 = (u8 *)this;
-    this->m_32c = arg1;
+    this->hp = arg1;
     clamp_hp_value((s16 *)(arg0 + 0x32C));
 }
 
@@ -3555,7 +3555,7 @@ void TUnk_804806E8::show_miss_popup(const float *pos) {
 
 }
 void TObjPlayer::show_miss_for_collider(int collider) {
-    show_miss_popup__13TUnk_804806E8FPCf(this, (const float*)(m_a4 + collider*0x2C + 0x1C));
+    show_miss_popup__13TUnk_804806E8FPCf(this, (const float*)((*(u32 *)&this->m_a4) + collider*0x2C + 0x1C));
 }
 
 extern "C" {
@@ -4265,8 +4265,8 @@ void TObjPlayer::update_angle(s32 arg1, void *arg2) {
     s32 temp_r31;
 
     temp_r31 = (s32) (TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))atan2_float)(*(f32 *)((s8 *)arg2 + 0), *(f32 *)((s8 *)arg2 + 8)));
-    this->m_60 = approach_angle_limited(this->m_60, temp_r31, arg1);
-    angle_difference_abs(this->m_60, temp_r31);
+    this->rotation_y = approach_angle_limited(this->rotation_y, temp_r31, arg1);
+    angle_difference_abs(this->rotation_y, temp_r31);
 }
 
 void enemy_turn_toward_dest(Obj_80018660 *self, s32 turn) {
@@ -4416,9 +4416,9 @@ s32 TUnk_804806E8::recalc_combat_stats(void *motion_arg, void *arg2, void *bonus
 void TObjPlayer::calc_attach_pos() {
     u8 *arg0 = (u8 *)this;
     if ((void *) *(void * *)&this->m_2b0 != NULL) {
-        this->m_2fc = (f32) *(f32 *)&this->m_38;
-        *(f32 *)&this->unk_300 = (f32) (((0.5f) * *(f32 *)((s8 *)(*(void * *)&this->m_2b0) + 0x10)) + *(f32 *)&this->unk_3C);
-        this->m_304 = (f32) this->m_40;
+        this->m_2fc = (f32) *(f32 *)&this->position[0];
+        *(f32 *)&this->m_300 = (f32) (((0.5f) * *(f32 *)((s8 *)(*(void * *)&this->m_2b0) + 0x10)) + *(f32 *)&this->position[1]);
+        this->m_304 = (f32) this->position[2];
         return;
     }
     ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x2FC, arg0 + 0x38);

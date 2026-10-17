@@ -202,7 +202,7 @@ void TUnk_804EDD20::start_card_effect_flash() { *(u32*)((char*)this + 0x70) |= 0
     extern const float lbl_805DF7D8;
     extern const float lbl_805DF7E0;
     extern const float lbl_805DF7E4;
-void TObjPlayer::init_offset_vectors() { this->m_70 = 0; *(float *)&this->unk_74 = lbl_805DF7E4; this->m_78 = lbl_805DF7E4; *(float *)&this->unk_7C = lbl_805DF7E4; this->m_80 = lbl_805DF7D8; *(float *)&this->unk_84 = lbl_805DF7E0; this->m_88 = lbl_805DF7E0; *(float*)((char*)this + 0x8c) = lbl_805DF7E0; }
+void TObjPlayer::init_offset_vectors() { (*(int *)&this->m_70) = 0; *(float *)&this->m_74 = lbl_805DF7E4; (*(float *)&this->m_78) = lbl_805DF7E4; *(float *)&this->m_7c = lbl_805DF7E4; (*(float *)&this->m_80) = lbl_805DF7D8; *(float *)&this->m_84 = lbl_805DF7E0; (*(float *)&this->m_88) = lbl_805DF7E0; *(float*)((char*)this + 0x8c) = lbl_805DF7E0; }
 
 void *init_offsets_object__13TUnk_804EDD20Fv(void *arg0);
 void *init_effect_object__13TUnk_804EDD20Fv(void *arg0);

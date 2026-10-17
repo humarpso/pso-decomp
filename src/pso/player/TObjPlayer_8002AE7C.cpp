@@ -15,8 +15,8 @@ int TLobby__send_and_handle_60(void*);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 
-void TObjPlayer::set_field_dc(s32 v) { *(s32 *)&this->unk_DC = v; }
-void TObjPlayer::set_field_d8(s32 v) { this->m_d8 = v; }
+void TObjPlayer::set_field_dc(s32 v) { *(s32 *)&this->motion_list = v; }
+void TObjPlayer::set_field_d8(s32 v) { (*(s32 *)&this->action_table) = v; }
 void TObjPlayer::reset_lobby_model() { reset_type(); }
 void TObjPlayer::reset_type() { *(s32*)((char*)this + 0x0) = 0; }
 void TObjPlayer::set_type(s32 v) { *(s32*)((char*)this + 0x0) = v; }

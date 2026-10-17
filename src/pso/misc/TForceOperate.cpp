@@ -284,7 +284,7 @@ void save_render_material_state(u8 *arg0) {
     copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xC), (void *) (&model_material_color.value));
 }
 
-void TObjPlayer::set_vec4_const() { *(float*)((char*)this + 0x1c) = lbl_805DC320[0]; *(float *)&this->m_20 = lbl_805DC320[0]; *(float *)&this->unk_24 = lbl_805DC320[0]; *(float *)&this->m_28 = lbl_805DC320[0]; }
+void TObjPlayer::set_vec4_const() { *(float*)((char*)this + 0x1c) = lbl_805DC320[0]; *(float *)&this->m_20 = lbl_805DC320[0]; *(float *)&this->texture_id = lbl_805DC320[0]; *(float *)&this->m_28 = lbl_805DC320[0]; }
 
 void TObjPlayer::reset_ring() { clear_flags__11TAdRicoRingFUl(this, (void*)1); set_lock_timer__10TObjPlayerFPvi((void*)(this), (void*)((void*)-1)); TLobby::set_target_id((s32)((void*)0)); }
 

@@ -294,12 +294,12 @@ void TObjPlayer::collect_body_contacts_for_target(s32 arg1) {
 
 void TObjPlayer::find_support_technique_contact_for_target(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    find_support_technique_contact((void *)((void *) (arg0)), (int)((int) (*(s32 *)&this->unk_DC)), (void *)((void *) (arg0 + 0xb0)), (void *)((void *) (arg1)));
+    find_support_technique_contact((void *)((void *) (arg0)), (int)((int) (*(s32 *)&this->motion_list)), (void *)((void *) (arg0 + 0xb0)), (void *)((void *) (arg1)));
 }
 
 void TObjPlayer::gather_contacts_for_self(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    gather_player_contacts((u32)((int) (*(s32 *)&this->unk_DC)), (s32)((void *) (arg0 + 0xb0)), (s32)((void *) (arg1)));
+    gather_player_contacts((u32)((int) (*(s32 *)&this->motion_list)), (s32)((void *) (arg0 + 0xb0)), (s32)((void *) (arg1)));
 }
 
 u8 *TUnk_804CCC68::query_technique_enemy_contacts(s32 arg) {

@@ -438,7 +438,7 @@ s32 TObjPlayer::hit_area_targets(u8 *arg1, s32 arg2, u32 arg3, f32 range) {
     s32 ok;
     result = 0;
     flags = 0;
-    if (*(u32 *)&this->m_ac == 0) {
+    if (*(u32 *)&this->unknownAC == 0) {
         return 0;
     }
     TObjPlayer::init_all_slots();
@@ -456,9 +456,9 @@ s32 TObjPlayer::hit_area_targets(u8 *arg1, s32 arg2, u32 arg3, f32 range) {
             if (p == 0) {
                 break;
             }
-            if (obj_is_hit_receivable((void *)p) != 0 && (u32)p != *(u32 *)&this->m_ac &&
+            if (obj_is_hit_receivable((void *)p) != 0 && (u32)p != *(u32 *)&this->unknownAC &&
                 is_area_attack_target_eligible((s32)((u8 *)this), *(s32 *)((s8 *)p + 0x30)) != 0 &&
-                !(fabs_float(*(f32 *)&this->unk_B8 - *(f32 *)((s8 *)p + 0x300)) > lbl_805DA000)) {
+                !(fabs_float(*(f32 *)&this->m_b8 - *(f32 *)((s8 *)p + 0x300)) > lbl_805DA000)) {
                 ok = 1;
                 if (arg3 != 0 && attack_target_history_add((s32)arg3, p) == 0) {
                     ok = 0;

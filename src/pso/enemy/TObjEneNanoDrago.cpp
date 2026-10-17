@@ -213,9 +213,9 @@ typedef char RecoveredGlobal_800D9E8C_lbl_8058D490_size[sizeof(RecoveredGlobal_8
 void TObjPlayer::render_model_transformed() {
     f32 temp_f1;
     ((s32 (*)(u32))push_matrix_from)((u32) &identity_matrix.value);
-    translate_matrix((int) (0), (f32) (*(f32 *)&this->m_38), (f32) (this->m_404 + (*(f32 *)&this->unk_3C + *(f32 *)&this->m_3e4)), (f32) (this->m_40));
-    rotate_matrix_y((int) (0), (int) (this->m_60));
-    temp_f1 = this->m_68;
+    translate_matrix((int) (0), (f32) (*(f32 *)&this->position[0]), (f32) (this->m_404 + (*(f32 *)&this->position[1] + *(f32 *)&this->m_3e4)), (f32) (this->position[2]));
+    rotate_matrix_y((int) (0), (int) (this->rotation_y));
+    temp_f1 = this->scale;
     scale_matrix((int) (0), (f32) (temp_f1), (f32) (temp_f1), (f32) (temp_f1));
     ((TObjEnemy *)((u8 *)this))->render_anim_model(*(f32 *)&this->m_c0);
     pop_matrix();
@@ -349,9 +349,9 @@ void TObjPlayer::update_death_state() {
     switch (temp_r0) {
     case 0:
         *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 4);
-        temp_r4 = *(s32 *)&this->actor_flags | 0x04000000;
-        *(s32 *)&this->actor_flags = temp_r4;
-        *(s16 *)&this->unk_B8 = 0;
+        temp_r4 = *(s32 *)&this->actorFlags | 0x04000000;
+        *(s32 *)&this->actorFlags = temp_r4;
+        *(s16 *)&this->m_b8 = 0;
         play_area_sound_effect__12TBoss3VoloptFv(((u8 *)this) + 0x2FC, temp_r4);
         TObjEneMe3SinowZoa__sub_800D758C(((u8 *)this) + 0x3E8);
         this->m_37c = 1;
@@ -365,7 +365,7 @@ void TObjPlayer::update_death_state() {
     case -1:
         temp_r5 = *(s32 *)&this->unk_388;
         *(s32 *)&this->unk_388 = (s32) (temp_r5 & ~5);
-        *(s32 *)&this->actor_flags = (s32) (*(s32 *)&this->actor_flags & 0xFBFFFFFF);
+        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFBFFFFFF);
         update_if_active__15TObjEneMe1GiGueFl(((u8 *)this), 0, temp_r5);
         break;
     }

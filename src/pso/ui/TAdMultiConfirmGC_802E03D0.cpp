@@ -410,7 +410,7 @@ void TObjPlayer::update_chara_making() {
     u8 *arg0 = (u8 *)this;
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y((int) (0), (int) (this->m_60));
+    rotate_matrix_y((int) (0), (int) (this->rotation_y));
     ((TAdPlyStatusGC *)(this->m_170))->get_status_sub();
     set_global_param__8TObjFishFl();
     draw_model_with_arg((void*)((int) (((TAdPlyStatusGC *)(this->m_170))->get_field_4a4())));
@@ -445,7 +445,7 @@ void TObjPlayer::update_chara_making() {
     pop_matrix();
 }
 
-void TObjPlayer::draw_model_with_arg(void* a1) { *(void* *)&this->_pad34 = a1; set_motion_interpolation_flag__10TObjMotionFv(this); draw_model_with_callback(); }
+void TObjPlayer::draw_model_with_arg(void* a1) { *(void* *)&this->model = a1; set_motion_interpolation_flag__10TObjMotionFv(this); draw_model_with_callback(); }
 
 void TObjPlayer__sub_802E0580(void * _w0, int _w1, void * _w2) {
     ((s32 (*)(f32))TObjPlayer__sub_802E0468)(lbl_805DE8A8);

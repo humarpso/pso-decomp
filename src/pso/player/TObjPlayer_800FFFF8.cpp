@@ -120,7 +120,7 @@ void TObjPlayer::draw_item_model() {
         TObjPlayer::notify_fish_if_valid(sp8);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, this->m_60);
+        rotate_matrix_y(0, this->rotation_y);
         draw_ginja_object(spC);
         pop_matrix();
         TParticleCtrl::end_effect_render();

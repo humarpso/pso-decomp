@@ -930,12 +930,12 @@ s32 TObjPlayer::update_hide_sequence() {
         temp_r5 = *(s32 *)&this->unk_388;
         temp_r4 = temp_r5 & 0xFFB7FFFF;
         *(s32 *)&this->unk_388 = temp_r4;
-        *(s16 *)&this->unk_B8 = 8;
+        *(s16 *)&this->m_b8 = 8;
         this->m_39c = TObjPlayer__sub_800A3210((s32)(1), (s32)(temp_r4), (s32)(temp_r5));
         this->m_37c = 1;
     case 1:
         advance_animation_playback(arg0);
-        if (!(*(s32 *)&this->actor_flags & 0x800000)) {
+        if (!(*(s32 *)&this->actorFlags & 0x800000)) {
             apply_actor_gravity(arg0, 0, lbl_805D9984);
         }
         ((TObjPlayer *)arg0)->update_collisions();
@@ -954,7 +954,7 @@ s32 TObjPlayer::update_hide_sequence() {
 }
 
 void TObjPlayer::trigger_action_if_not_flagged() {
-    if (!(*(s32 *)&this->actor_flags & 0x800) && !(*(s32 *)&this->unk_388 & 0x800000)) {
+    if (!(*(s32 *)&this->actorFlags & 0x800) && !(*(s32 *)&this->unk_388 & 0x800000)) {
         update_if_active__15TObjEneMe1GiGueFl(this, 6);
     }
 }
@@ -1402,7 +1402,7 @@ s32 TObjPlayer__sub_800A2390(void *arg0_) {
 #pragma pop
 
 void TObjPlayer::set_hidden_flag() {
-    if (!(*(s32 *)&this->actor_flags & 0x800)) {
+    if (!(*(s32 *)&this->actorFlags & 0x800)) {
         update_if_active__15TObjEneMe1GiGueFl(this, 1);
         *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x20000);
     }
@@ -1542,7 +1542,7 @@ s32 TObjPlayer__sub_800A3210(s32 i, s32 _w1, s32 _w2) {
 
 int TObjPlayer::is_flag_set_388_bit26() { return (*(u32 *)&this->unk_388 >> 26) & 0x1; }
 
-void TObjPlayer::set_fields_24_34_from_global(void* a1) { *(int *)&this->_pad34 = get_bml_model((void*)((*(int *)&player_effect_bml_resource))); *(int *)&this->unk_24 = TObjFish__sub_8001EDB0((void*)((*(int *)&player_effect_bml_resource)), a1); }
+void TObjPlayer::set_fields_24_34_from_global(void* a1) { *(int *)&this->model = get_bml_model((void*)((*(int *)&player_effect_bml_resource))); *(int *)&this->texture_id = TObjFish__sub_8001EDB0((void*)((*(int *)&player_effect_bml_resource)), a1); }
 
 void TObjPlayer::clear_counter() { *(s32 *)&this->m_340 = 0; }
 

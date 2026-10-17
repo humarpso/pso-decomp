@@ -56,7 +56,7 @@ void TObjPlayer::init_action_provider() {
     *(s32 *)&this->unk_370 = 0;
     ((TObjPlayer *)arg0)->reset_entrance_id();
     ((TObjPlayer *)(arg0 + 0x66C))->set_vec3_const();
-    *(f32 *)&this->unk_2B4 = (f32) TObjPlayer__data_805DC278;
+    *(f32 *)&this->m_2b4 = (f32) TObjPlayer__data_805DC278;
     *(s32 *)&this->m_334 = 0;
     ((TObjPlayer *)arg0)->set_input_mode((int) (0));
     ((TObjPlayer *)arg0)->set_move_mode((int) (0));
@@ -66,7 +66,7 @@ void TObjPlayer::init_action_provider() {
     this->m_314 = 0;
     *(s32 *)&this->inventory_objects = 0;
     this->m_424 = 0;
-    this->m_e0 = 0;
+    (*(s32 *)&this->motion_buffer) = 0;
     *(s32 *)((s8 *)arg0 + 0xDB4) = 0;
     ((TObjPlayer *)arg0)->set_floor_index((int) (0xF));
     ((TObjPlayer *)arg0)->set_floor((int) (0xF));

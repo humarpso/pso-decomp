@@ -5,7 +5,7 @@ struct O_80099F00 { u8 pad[0xb0]; s32 xb0; };
 
 extern "C" {
 void fn_80099F00(O_80099F00 *self);
-s32 TObjPlayer::get_field_d8() { return this->m_d8; }
+s32 TObjPlayer::get_field_d8() { return (*(s32 *)&this->action_table); }
 void fn_80099F00(O_80099F00 *self) {
     if (self->xb0 == 0) {
         return;

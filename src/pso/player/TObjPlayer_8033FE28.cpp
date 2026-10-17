@@ -3,6 +3,6 @@
 
 extern "C" {
 
-s32 TObjPlayer::get_plot_state() { return *(s32 *)&this->unk_24; }
+s32 TObjPlayer::get_plot_state() { return *(s32 *)&this->texture_id; }
 
 }

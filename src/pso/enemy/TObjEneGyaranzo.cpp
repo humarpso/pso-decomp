@@ -1183,14 +1183,14 @@ void TObjPlayer::update_aim_and_fire() {
     switch (temp_r0) {
     case 0:
         *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 | 0x40000);
-        *(s16 *)&this->unk_B8 = 0;
+        *(s16 *)&this->m_b8 = 0;
         this->m_37c = 1;
     case 1:
         var_r30 = 0;
         if (((TObjEnemy *)(((u8 *)this)))->vfunc_19(0x1E) != 0) {
             ((TObjEnemyCustom *)((u8 *)this))->find_target_in_range((f32) (lbl_805DA274));
         }
-        temp_r6 = (u8 *)(*(u8 * *)&this->m_2a8);
+        temp_r6 = (u8 *)(*(u8 * *)&this->target);
         if (temp_r6 != NULL) {
             Vec_800D2CE4 v = *(Vec_800D2CE4 *)(temp_r6 + 0x38);
             subtract_vector((void *) (&v), (void *) (((u8 *)this) + 0x38));
@@ -1204,7 +1204,7 @@ void TObjPlayer::update_aim_and_fire() {
         }
         if (var_r30 != 0) {
             *(s16 *)&this->unk_33C = get_gyaranzo_missile_int_parameter((int) (0));
-            *(s16 *)&this->unk_B8 = 2;
+            *(s16 *)&this->m_b8 = 2;
             this->m_37c = 2;
         }
         break;

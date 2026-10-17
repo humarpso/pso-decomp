@@ -153,13 +153,13 @@ void TObjPlayer::draw_model() {
     if ((self->m8(*(f32 *)&this->unk_398, *(f32 *)((s8 *)arg0 + 0x39C)) != 0) && ((s32) *(s32 *)&this->unk_390 == 1)) {
         select_actor_lighting(arg0);
         model_render_flags |= 1;
-        TObjFish::set_global_param(*(s32 *)&this->unk_24);
+        TObjFish::set_global_param(*(s32 *)&this->texture_id);
         push_matrix_from(0);
         translate_matrix_vec3(0, arg0 + 0x38);
-        rotate_matrix_y(0, this->m_60);
+        rotate_matrix_y(0, this->rotation_y);
         TObjPlayer::set_global_flag();
         if ((s32) this->m_394 != 0) {
-            draw_chunk_object(*(s32 *)&this->_pad34);
+            draw_chunk_object(*(s32 *)&this->model);
         } else {
             ((TObjEneRe7Berura *)arg0)->draw();
         }

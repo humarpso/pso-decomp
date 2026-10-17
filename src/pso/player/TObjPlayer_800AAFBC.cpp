@@ -236,13 +236,13 @@ extern s32 lbl_805D5098;
 void TObjPlayer::init_level_stats(s32 arg1) {
     s32 var_r0;
 
-    *(s32 *)&this->_pad34 = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)lbl_805D5090 + 0x42C)) + 8);
+    *(s32 *)&this->model = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)lbl_805D5090 + 0x42C)) + 8);
     if (arg1 == 0) {
         var_r0 = *(s32 *)((s8 *)(*(void **)((s8 *)lbl_805D5090 + 0x42C)) + 0xC);
     } else {
         var_r0 = lbl_805D5098;
     }
-    *(s32 *)&this->unk_24 = var_r0;
+    *(s32 *)&this->texture_id = var_r0;
 }
 
 void TObjPlayer__sub_800AAFF0(void* p, f32 v) { *(f32*)((char*)p + 0x8) = v; }
@@ -333,7 +333,7 @@ void TObjPlayer__sub_800AB1C8(u8 *arg0) {
 void *TObjPlayer::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_80491460;
-        if (*(void * *)&this->unk_5C != NULL) { queue_destruction__7TObjectFv(*(void * *)&this->unk_5C); }
+        if (*(void * *)&this->m_5c != NULL) { queue_destruction__7TObjectFv(*(void * *)&this->m_5c); }
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(this);
@@ -378,13 +378,13 @@ s32 TObjPlayer::get_action_priority() {
 void TObjPlayer::draw_model_no_fog() {
     u8 *arg0 = (u8 *)this;
     TObjFish::set_global_param(lbl_805D5094);
-    TObjFish::set_global_param(this->m_d8);
+    TObjFish::set_global_param((*(s32 *)&this->action_table));
     push_matrix();
     post_translate_matrix(arg0 + 0xF0);
-    rotate_matrix_y(0, this->m_c0);
+    rotate_matrix_y(0, (*(s32 *)&this->m_c0));
     scale_matrix(0, 1.3f, 1.3f, 1.3f);
     model_render_flags &= 0xFFFFFBFF;
-    draw_chunk_object(this->m_c8);
+    draw_chunk_object((*(s32 *)&this->m_c8));
     pop_matrix();
 }
 

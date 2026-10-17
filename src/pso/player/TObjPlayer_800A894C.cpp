@@ -560,14 +560,14 @@ void TObjPlayer::update_timed_state() {
     temp_r0 = this->m_37c;
     switch (temp_r0) {
     case 0:
-        *(s16 *)&this->unk_B8 = (s16) ((*(u32 *)&this->unk_388 & 0x1000000) ? 0 : 5);
+        *(s16 *)&this->m_b8 = (s16) ((*(u32 *)&this->unk_388 & 0x1000000) ? 0 : 5);
         *(u32 *)&this->unk_388 = (u32) (*(u32 *)&this->unk_388 | 0x800000);
         this->m_37c = 1;
     case 1:
-        if (!(*(s32 *)&this->actor_flags & 0x800000)) {
+        if (!(*(s32 *)&this->actorFlags & 0x800000)) {
             apply_actor_gravity(this, 0, lbl_805D9AE0);
         }
-        if (*(s32 *)&this->actor_flags & 0x40000) {
+        if (*(s32 *)&this->actorFlags & 0x40000) {
             temp_r4 = *(s16 *)&this->unk_33C;
             *(s16 *)&this->unk_33C = (s16) (temp_r4 - 1);
             if (temp_r4 < 0) {
@@ -576,7 +576,7 @@ void TObjPlayer::update_timed_state() {
         }
         break;
     case -1:
-        *(s32 *)&this->actor_flags = (s32) (*(s32 *)&this->actor_flags & 0xFFFBFFFF);
+        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
         *(s16 *)&this->unk_33C = (s16) *(s16 *)((s8 *)this + 0x33A);
         break;
     }
@@ -1139,15 +1139,15 @@ void TObjPlayer::update_synced_state() {
         return;
     }
     TObjPlayer__sub_800A8B8C((u8 *)(arg0));
-    this->m_2a8 = find_active_entity_by_id(*(u16 *)((s8 *)arg0 + 0x338));
+    (*(s32 *)&this->target) = find_active_entity_by_id(*(u16 *)((s8 *)arg0 + 0x338));
     ((TObjEnemyCustom *)arg0)->release_destroyed_target();
     TObjPlayer__sub_800AA10C((u8 *)(arg0));
-    if ((s16) this->m_326 != (s32) *(s32 *)&this->m_374) {
+    if ((s16) this->mode != (s32) *(s32 *)&this->m_374) {
         if ((s32) this->m_37c != -1) {
             this->m_37c = -1;
             run_synced_state_handler();
         }
-        this->m_326 = (s16) *(s32 *)&this->m_374;
+        this->mode = (s16) *(s32 *)&this->m_374;
         this->m_37c = 0;
     }
     run_synced_state_handler();

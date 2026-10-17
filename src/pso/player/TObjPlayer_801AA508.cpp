@@ -7,7 +7,7 @@ s32 __destroy_arr(s32, s32 *, s32, s32);
 s32 TObjPlayer__sub_801AA584(s32 arg0, s16 arg1);
 int __dl__FPv(void* a0 = 0);
 
-s16 TObjPlayer::get_hp() { return this->m_2cc; }
+s16 TObjPlayer::get_hp() { return (*(s16 *)&this->m_2cc); }
 u16 TObjPlayer::get_section_id() { return *(u16*)((char*)this + 0x0); }
 void TObjPlayer::set_field_2(s16 v) { *(s16*)((char*)this + 0x2) = v; }
 void TObjPlayer::set_type(s16 v) { *(s16*)((char*)this + 0x0) = v; }

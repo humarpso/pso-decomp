@@ -92,7 +92,7 @@ public:
     u32 animationFlags;
     u32 m_b4;
     s16 m_b8;
-    u8 unk_BA[0x2];
+    short m_ba;
     u32 m_bc;
     f32 m_c0;
     u8 unk_C4[0x4];
@@ -103,7 +103,12 @@ public:
     void* action_table;
     void* motion_list;
     void* motion_buffer;
-    u8 unknownE4[0x14];
+    u8 unk_E4[0x3];
+    u8 m_e7;
+    u8 unk_E8[0x4];
+    s32 m_ec;
+    u8 unk_F0[0x4];
+    void * m_f4;
     u32 unknownF8;
 };
 typedef char TUnk_804B9870Size[sizeof(TUnk_804B9870)==0x90?1:-1];

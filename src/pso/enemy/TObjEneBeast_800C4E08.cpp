@@ -1094,7 +1094,7 @@ void TUnk_80493450::beast_update_dead() {
         ((VObj_18_90ef41 *)(arg0))->m90();
     }
 }
-void TObjPlayer::enter_state_8() { if (*(short *)&this->m_326 != 8) { *(short *)&this->m_326 = 8; *(short *)&this->unk_B8 = 8; unlink_enemy_group_relations__13TUnk_80493450Fv(this); clear_player_status_flag((s32)((void*)0), (u32)((void*)1)); refresh_lobby_state(); send_entity_set_flags__9TObjEnemyFv(this); } }
+void TObjPlayer::enter_state_8() { if (*(short *)&this->mode != 8) { *(short *)&this->mode = 8; *(short *)&this->m_b8 = 8; unlink_enemy_group_relations__13TUnk_80493450Fv(this); clear_player_status_flag((s32)((void*)0), (u32)((void*)1)); refresh_lobby_state(); send_entity_set_flags__9TObjEnemyFv(this); } }
 void TUnk_80493450::beast_update_hurt() {
     u8 *arg0 = (u8 *)this;
     Obj_800C5164 *o = (Obj_800C5164 *)arg0;
@@ -1136,9 +1136,9 @@ void TUnk_80493450::beast_update_hurt() {
     minimap_render_dot(&o->f38, -0x5DB4, 1, 0);
 }
 void TObjPlayer::enter_state7() {
-    if ((s16) this->m_326 != 7) {
-        this->m_326 = 7;
-        *(s16 *)&this->unk_B8 = 6;
+    if ((s16) this->mode != 7) {
+        this->mode = 7;
+        *(s16 *)&this->m_b8 = 6;
     }
     obj_clearFlags30(this, 0x240000);
 }
@@ -1563,30 +1563,30 @@ end:
 
 void TObjPlayer::tick_freeze_state() {
     s16 temp_r0;
-    temp_r0 = this->m_326;
+    temp_r0 = this->mode;
     switch (temp_r0) {
     case 1:
         if ((s32) *(s32 *)&this->unk_390 != 0) {
-            this->m_326 = 0;
-            this->m_328 = 0;
+            this->mode = 0;
+            this->phase = 0;
         }
         break;
     case 0:
-        switch ((s16) this->m_328) {
+        switch ((s16) this->phase) {
         case 2:
             if ((s32) *(s32 *)&this->unk_390 != 0) {
-                this->m_328 = 0;
+                this->phase = 0;
             }
             break;
         }
         break;
     default:
         if ((s32) *(s32 *)&this->unk_390 != 0) {
-            this->m_326 = 0;
+            this->mode = 0;
         } else {
-            this->m_326 = 1;
+            this->mode = 1;
         }
-        this->m_328 = 0;
+        this->phase = 0;
         ((CV_800c63cc *)this)->vf100();
         obj_setFlags30(this, 0x04040000);
         set_indexed_flags(this, 0, 0x0A000000);
