@@ -525,7 +525,7 @@ void TShopJudgmentItemWindow::create_result_windows() {
 void handle_judge_confirm__23TShopJudgmentItemWindowFPv(u8 *arg0) {
     s32 selected_menu_value;
     u8 *temp_r31;
-    if (((VObj_18 *) arg0)->m8() != 0) {
+    if (((TShopJudgmentItemWindow *)arg0)->vfunc_10() != 0) {
         if ((*(void **)((s8 *)arg0 + 0x158) != NULL) && (((TWindowMenu *)(*(void **)((s8 *)arg0 + 0x158)))->is_visible() != 0)) {
             selected_menu_value = get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x158)));
             if ((selected_menu_value == 0) && ((u32) *(u32 *)((s8 *)arg0 + 0x154) != 0U)) {

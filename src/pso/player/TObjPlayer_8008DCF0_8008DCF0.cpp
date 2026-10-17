@@ -75,16 +75,6 @@ struct Obj_8008DE9C {
     s32 state;
 };
 
-struct VBase_8008DE9C { char pad[0x18]; };
-
-struct VObj_8008DE9C : VBase_8008DE9C {
-    virtual s32 m0(); virtual s32 m1(); virtual s32 m2(); virtual s32 m3();
-    virtual s32 m4(); virtual s32 m5(); virtual s32 m6(); virtual s32 m7();
-    virtual s32 m8(); virtual s32 m9(); virtual s32 m10(); virtual s32 m11();
-    virtual s32 m12(); virtual s32 m13(); virtual s32 m14(); virtual s32 m15();
-    virtual s32 m16(); virtual s32 m17(s32);
-};
-
 struct Obj_8008E098;
 struct P_8008E310 {
     u8 pad0[0x38];
@@ -306,7 +296,7 @@ void TObjPlayer::update_move_to_target() {
             reset_enemy_state();
             break;
         }
-        if (((VObj_8008DE9C *)self)->m17(0x5A) != 0) {
+        if (this->vfunc_19(0x5A) != 0) {
             Vec_8008DD14 d2 = self->pos;
             subtract_vector(&d2, &self->target->pos);
             ((TObjPlayer *)self)->pick_open_direction((f32 *)(&d2), (f32)lbl_805D9624, (f32)lbl_805D9628);

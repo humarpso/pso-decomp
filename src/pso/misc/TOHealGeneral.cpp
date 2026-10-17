@@ -46,17 +46,6 @@ typedef struct TOHealGeneral_801697C0 {
 
 struct Vec_80169858 { f32 x, y, z; };
 
-struct VBase_80169858 { char pad[0x18]; };
-
-struct VObj_80169858 : VBase_80169858 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5(void *);
-};
-
 struct Heal_80169858 {
     s32 f0;
     u8 pad4[0x18 - 0x4];
@@ -253,7 +242,7 @@ void *TOHealGeneral__ct(void *arg0, void *arg1) {
     init_map_object_base(self, tl_05);
     self->vtable = __vt__13TOHealGeneral;
     self->f0 = TOHealGeneral__class_name;
-    ((VObj_80169858 *)self)->m5(arg1);
+    ((TOHealGeneral *)self)->vfunc_7(arg1);
     self->f34 = *(s32 *)((s8 *)(*(u8 **)((s8 *)TOHealGeneral__model_archive + 0x42C)) + 8);
     model = *(u8 **)((s8 *)TOHealGeneral__model_archive + 0x42C);
     self->f24 = *(s32 *)((s8 *)model + 0xC);

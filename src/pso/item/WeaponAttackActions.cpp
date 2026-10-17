@@ -136,21 +136,6 @@ struct VObj_8011E2AC : VBase_8011E2AC {
     virtual s32 m30();
 };
 
-struct Base_8011E384 { char pad[0x18]; };
-
-struct VObj_8011E384 : Base_8011E384 {
-    virtual void m0();virtual void m1();virtual void m2();virtual void m3();
-    virtual void m4();virtual void m5();virtual void m6();virtual void m7();
-    virtual void m8();virtual void m9();virtual void m10();virtual void m11();
-    virtual void m12();virtual void m13();virtual void m14();virtual void m15();
-    virtual void m16();virtual void m17();virtual void m18();virtual void m19();
-    virtual void m20();virtual void m21();virtual void m22();virtual void m23();
-    virtual void m24();virtual void m25();virtual void m26();virtual void m27();
-    virtual void m28();virtual void m29();virtual void m30();virtual void m31();
-    virtual void m32();
-    virtual int m35();
-};
-
 struct Stack_8011E56C {
     s32 sp8;
     f32 spC;
@@ -407,7 +392,7 @@ void TObjPlayer::drain_owner_hp_fraction(f32 farg0) {
 
 s32 TObjPlayer::is_mode_two_and_ready() {
     if ((is_status_subsystem_ready__10TObjPlayerFv(*(s32 *)&this->unk_F0) == 2) &&
-        (((VObj_8011E384 *)this)->m35() == 1)) {
+        (this->update_poison_status() == 1)) {
         return 1;
     }
     return 0;

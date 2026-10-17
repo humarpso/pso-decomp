@@ -2277,7 +2277,7 @@ void state_chase_target__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
         return;
     case 3:
         if ((u32) *(u32 *)((s8 *)arg0 + 0x390) == 0U) {
-            ((VObj_18_e66632 *)(arg0))->m109();
+            ((TObjEneMe3Stelth *)(arg0))->vfunc_111();
             transition_enemy_state((void *) (arg0), (int) (0xD));
             return;
         }

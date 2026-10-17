@@ -307,27 +307,6 @@ typedef struct Player_801C851C {
 
 struct Pkt_801C85BC { u16 hdr; s16 id; s16 c; };
 
-struct Base_A { char pad[0x18]; };
-
-struct V_A : public Base_A {
-    virtual void f_801C8AA4_0();
-    virtual void f_801C8AA4_1();
-    virtual void f_801C8AA4_2();
-    virtual void f_801C8AA4_3();
-    virtual void f_801C8AA4_4();
-    virtual void f_801C8AA4_5();
-    virtual void f_801C8AA4_6();
-    virtual void f_801C8AA4_7();
-    virtual void f_801C8AA4_8();
-    virtual void f_801C8AA4_9();
-    virtual void f_801C8AA4_10();
-    virtual void f_801C8AA4_11();
-    virtual void f_801C8AA4_12();
-    virtual void f_801C8AA4_13();
-    virtual void f_801C8AA4_14();
-    virtual void m15();
-};
-
 struct Pkt_801C8CCC { u16 hdr; u16 id; s32 c; f32 x1, y1, z1; f32 x2, y2, z2; };
 
 struct Pkt_801C8BE8 { u16 hdr; s16 id; s32 c; f32 x1, y1, z1; };
@@ -388,65 +367,6 @@ struct Local801C9D3C {
 struct Pkt_801C9FE8 { u16 hdr; u16 id; u16 c; };
 
 struct S801CA274 { s8 b[2]; s16 h; };
-
-struct VBase_18_4841bb { char pad[0x18]; };
-
-struct VObj_18_4841bb : VBase_18_4841bb {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual s32 m53();
-};
 
 struct Cmd_801CA724 {
     u8 cmd;
@@ -2531,7 +2451,7 @@ void TObjPlayer::start_action_21() {
     clear_player_status_flag(0, 1);
     *(f32 *)((s8 *)this + 0x624) = (f32) TObjPlayer__data_805DC36C;
     refresh_equipment_slot();
-    ((V_A *) this)->m15();
+    this->update_actor_ground_y();
     if (is_locally_controlled__10TObjPlayerFPv(this) != 0) {
         send_field_state_if_active__10TObjPlayerFii(this, 0x40003206);
     }
@@ -3363,7 +3283,7 @@ void TObjPlayer::reset_on_death() {
     u8 *arg0 = (u8 *)this;
     obj_setFlags30(arg0, 0x800U);
     *(s16 *)((s8 *)arg0 + 0x32C) = 0;
-    ((VObj_18_4841bb *)(arg0))->m53();
+    this->clear_all_status_effects();
     ((TObjPlayer *)(arg0 + 0x644))->reset_lobby_model();
     ((void (*)(void *))zero_vec3)(arg0 + 0x5FC);
 }

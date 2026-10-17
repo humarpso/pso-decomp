@@ -613,26 +613,6 @@ struct Player_801B21AC {
     u32 prev;
 };
 
-struct VBase_18_eecf68 { char pad[0x18]; };
-
-struct VObj_18_eecf68 : VBase_18_eecf68 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual s32 m14();
-};
-
 struct Eff_801B2D88 { u16 f0; u16 f2; u32 f4; u32 f8; };
 
 struct Pair_801B2D88 { u32 a; u32 b; };
@@ -1054,73 +1034,6 @@ struct VObj_801B6414_801B3FD8 : Base_801B6414_801B3FD8 {
     virtual void m12(s32);
     virtual void m13();
     virtual s32 m14();
-};
-
-struct VObj_18_p57 : VBase_18 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual s32 m63(s32, s32);
 };
 
 struct VBase_18_c0d9f3
@@ -2824,7 +2737,7 @@ s32 TObjPlayer::is_alive_and_ready() {
 }
 
 void TObjPlayer::refill_traps() {
-    refill_trap_counts(((TObjPlayer_801AF7E0 *)this)->slot, ((TObjPlayer_801AF7E0 *)this)->v14(), ((s32 (*)(void))get_class_index__10TObjPlayerFPv)());
+    refill_trap_counts(((TObjPlayer_801AF7E0 *)this)->slot, this->get_actor_level_index(), ((s32 (*)(void))get_class_index__10TObjPlayerFPv)());
 }
 
 void TObjPlayer::update_movement_by_screen() {
@@ -4304,25 +4217,25 @@ void remove_status_effect__10TObjPlayerFUiPv(u32 arg0_, Pair_801B2C04 *arg1_) {
 void dispatch_status_effect_msg__10TObjPlayerFUiPv(u32 arg0, Pair_801B2AE8 *msg) {
     switch (msg->a) {
     case 15:
-        ((VObj_801B2AE8 *)arg0)->m42();
+        ((TObjPlayer *)arg0)->apply_poison_status();
         break;
     case 16:
-        ((VObj_801B2AE8 *)arg0)->m43();
+        ((TObjPlayer *)arg0)->apply_paralysis();
         break;
     case 17:
-        ((VObj_801B2AE8 *)arg0)->m44();
+        ((TObjPlayer *)arg0)->apply_slow_status();
         break;
     case 18:
-        ((VObj_801B2AE8 *)arg0)->m45();
+        ((TObjPlayer *)arg0)->apply_confusion_status();
         break;
     case 3:
-        ((VObj_801B2AE8 *)arg0)->m47();
+        ((TObjPlayer *)arg0)->apply_shock_status();
         break;
     case 2:
-        ((VObj_801B2AE8 *)arg0)->m46(0);
+        ((TObjPlayer *)arg0)->apply_movement_ailment(0);
         break;
     case 7:
-        ((VObj_801B2AE8 *)arg0)->m48();
+        ((TObjPlayer *)arg0)->clear_harmful_statuses();
         break;
     case 9:
     case 11:
@@ -4419,10 +4332,10 @@ s32 TObjPlayer::get_next_level_exp() {
     s32 temp_r31;
     s32 max_level;
     max_level = TObjPlayer::get_max_level();
-    if (((VObj_18_eecf68 *)(((u8 *)this)))->m14() >= max_level) {
+    if (this->get_actor_level_index() >= max_level) {
         return 0;
     }
-    temp_r31 = ((VObj_18_eecf68 *)(((u8 *)this)))->m14();
+    temp_r31 = this->get_actor_level_index();
     return ((s32 (*)(s8, s32))get_current_state_field__10TObjPlayerFScl)(((s8 (*)(void *))get_class_index__10TObjPlayerFPv)(((u8 *)this)), temp_r31 + 1);
 }
 
@@ -6031,7 +5944,7 @@ void TObjPlayer::update_status_effects() {
     u8 *arg0 = (u8 *)this;
   update_player_appear_fade((void *) (arg0 + 0x634));
   update_target_lock();
-  if ((((VObj_18_c0d9f3 *)(arg0))->m17((3))) != 0)
+  if ((this->vfunc_19((3))) != 0)
   {
     if (set_flag_02000000__10TObjPlayerFv((void *) arg0) == 0)
     {
@@ -6040,15 +5953,15 @@ void TObjPlayer::update_status_effects() {
     }
   }
   ((TObjPlayer *)arg0)->set_flag_2000000();
-  (((VObj_18_c0d9f3 *)(arg0))->m41());
-  (((VObj_18_c0d9f3 *)(arg0))->m33());
-  (((VObj_18_c0d9f3 *)(arg0))->m34());
-  (((VObj_18_c0d9f3 *)(arg0))->m35());
-  (((VObj_18_c0d9f3 *)(arg0))->m36());
-  (((VObj_18_c0d9f3 *)(arg0))->m37());
-  (((VObj_18_c0d9f3 *)(arg0))->m38());
-  (((VObj_18_c0d9f3 *)(arg0))->m39());
-  (((VObj_18_c0d9f3 *)(arg0))->m40());
+  (this->vfunc_43());
+  (this->update_poison_status());
+  (this->update_action_hold_status());
+  (this->vfunc_37());
+  (this->update_flag30_timer());
+  (this->update_movement_status());
+  (this->update_shock_clock());
+  (this->vfunc_41());
+  (this->vfunc_42());
   if (((TItemMag *)(arg0 + 0x644))->get_mag_id() <= 0)
   {
     ((s32 (*)(void *, int))obj_clearFlags30)((void *) arg0, (int) 0x04000100);
@@ -6097,7 +6010,7 @@ void TObjPlayer::init_effect_5f0() {
 }
 
 void TObjPlayer::get_hand_joint_position(s32 arg1) {
-    ((VObj_18_p57 *)(((u8 *)this)))->m63(*(s32 *)((s8 *)(TObjPlayer__sub_801D8DCC()) + 0x10), arg1);
+    this->vfunc_65(*(s32 *)((s8 *)(TObjPlayer__sub_801D8DCC()) + 0x10), arg1);
 }
 
 void TObjPlayer::calc_move(void* a1, void* a2) { vector_length(this); ((int (*)(void*, void*))calc_move_velocity__10TObjPlayerFPvPvf)(a1, a2); }
