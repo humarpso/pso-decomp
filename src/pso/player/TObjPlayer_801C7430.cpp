@@ -1804,13 +1804,11 @@ void handle_6xAB(void *arg0) {
 
 void TObjPlayer::send_state_sync() {
     s32 sp8[2];
-    s32 temp_r12;
 
     if (this == NULL || ((s32 (*)(void))obj_isState2_324__13TUnk_804806E8Fv)() == 0) {
         ((s32 (*)(s32 *))TObjPlayer__sub_801D1284)(sp8);
         *(s16 *)((s8 *)sp8 + 2) = obj_getField1c(this);
-        temp_r12 = ((VBase_380_801c77c8*)(*(void **)((s8 *)this + 0x380)))->m66();
-        if ((s16) *(s16 *)((s8 *)this + 0x3C0) == temp_r12) {
+        if ((s16) *(s16 *)((s8 *)this + 0x3C0) == (((VBase_380_801c77c8*)(*(void **)((s8 *)this + 0x380)))->m66())) {
             ((s32 (*)(s32 *))TObjPlayer__sub_801D12E8)(sp8);
         }
         if (TKeyBoardControl__sub_801A58D8() != 0) {
