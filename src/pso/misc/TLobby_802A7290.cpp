@@ -38,24 +38,6 @@ struct RecoveredGlobal_802A74B8_lbl_804DD9F8 {
     u8 remaining[0x14];
 };
 
-struct Base_802A752C_802A7290 { char pad[0x8]; };
-
-struct VObj_802A752C_802A7290 : Base_802A752C_802A7290 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-};
-
 struct Node_802A7378 { u8 pad0[0xA]; u16 flags; };
 
 struct Slot_802A7378 { Node_802A7378 *node; u32 x4; };
@@ -155,7 +137,7 @@ int TUnk_804DDBF0::vfunc_6(s32 arg1, s32 arg2, s32 arg3) {
     TLobby__sub_802A7848(this, arg3);
     temp_r3 = load_action_motion_pairs(arg1, arg2, arg3);
     if (temp_r3 != 0) {
-        ((VObj_802A752C_802A7290 *)this)->m12();
+        this->vfunc_14();
     }
     return temp_r3;
 }
