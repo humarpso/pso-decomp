@@ -28,9 +28,9 @@ void TOWreckAncientBrakable::run_task() {
         temp_r0_2 = *(s32 *)&this->m_b8;
         if ((temp_r0_2 >= 0) && (temp_r0_2 < 0x100) && (is_current_floor_switch_set((u16) temp_r0_2) == 1)) {
             *(s32 *)&this->m_b4 = 1;
-            play_sound_effect(0x43C11, arg0 + 0x38, 0, 0);
-            spawn_particle_effect(arg0 + 0x38, 0x45);
-            spawn_particle_effect(arg0 + 0x38, 0x46);
+            play_sound_effect(0x43C11, (u8 *)&this->position, 0, 0);
+            spawn_particle_effect((u8 *)&this->position, 0x45);
+            spawn_particle_effect((u8 *)&this->position, 0x46);
             ((TOWreckAncientBrakable *)arg0)->spawn_debris();
         }
         return;

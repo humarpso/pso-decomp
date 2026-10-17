@@ -180,9 +180,9 @@ void*TUnk_8049F038::vfunc_9() {
 
     player = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xAC));
     if (player != NULL) {
-        ((VObj80108B5C_80108b5c *)player)->m63(this->m_b0, arg0 + 0x38);
+        ((VObj80108B5C_80108b5c *)player)->m63(this->m_b0, (u8 *)&this->position);
     }
-    return arg0 + 0x38;
+    return (u8 *)&this->position;
 }
 
 struct VBase0x18_2_80108bb0 { char pad[0x18]; };
@@ -259,7 +259,7 @@ void TUnk_8049F038::run_task() {
 
     player = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xAC));
     if (player != NULL) {
-        ((VObj80108BB0_80108bb0 *)player)->m63(this->m_b0, arg0 + 0x38);
+        ((VObj80108BB0_80108bb0 *)player)->m63(this->m_b0, (u8 *)&this->position);
     }
 }
 

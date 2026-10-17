@@ -358,7 +358,7 @@ void TShopJudgmentItemWindow::handle_equip_prompt() {
                 get_item_record__23TShopJudgmentItemWindowFPv(F(0x24, s32), F(0x48, s32), 1);
                 F(0x34, s32) = F(0x48, s32);
                 ((TObjPlayer *)(F(0x24, s32)))->request_inventory_item((TItemData*)(arg0 + 0x28));
-                set_judgment_target_flag(arg0, arg0 + 0x28);
+                set_judgment_target_flag(arg0, (u8 *)&this->unk_28);
                 item = find_item_by_id(F(0x34, s32));
                 if (item != NULL && (eq = get_equip_field_d04__10TObjPlayerFv(F(0x24, s32), item->m31())) != 0) {
                     send_6x26_unequip_item__10TObjPlayerFPvPv(F(0x24, s32), ((TObjPlayer *)eq)->get_field_d8());
@@ -376,7 +376,7 @@ void TShopJudgmentItemWindow::handle_equip_prompt() {
                 get_item_record__23TShopJudgmentItemWindowFPv(F(0x24, s32), F(0x48, s32), 1);
                 F(0x34, s32) = F(0x48, s32);
                 ((TObjPlayer *)(F(0x24, s32)))->request_inventory_item((TItemData*)(arg0 + 0x28));
-                set_judgment_target_flag(arg0, arg0 + 0x28);
+                set_judgment_target_flag(arg0, (u8 *)&this->unk_28);
                 ((VObj_18 *)(arg0))->m6(0xB, 1);
                 if (TLobby::get_shop_value() > 0) {
                     play_cue_stream_file(lbl_8044C1B0);
@@ -390,7 +390,7 @@ void TShopJudgmentItemWindow::handle_equip_prompt() {
             get_item_record__23TShopJudgmentItemWindowFPv(F(0x24, s32), F(0x48, s32), 1);
             F(0x34, s32) = F(0x48, s32);
             ((TObjPlayer *)(F(0x24, s32)))->request_inventory_item((TItemData*)(arg0 + 0x28));
-            set_judgment_target_flag(arg0, arg0 + 0x28);
+            set_judgment_target_flag(arg0, (u8 *)&this->unk_28);
             ((VObj_18 *)(arg0))->m6(0xB, 1);
             if (TLobby::get_shop_value() > 0) {
                 play_cue_stream_file(lbl_8044C1B0);

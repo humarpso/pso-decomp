@@ -131,7 +131,7 @@ void TObjFogCollision::draw_volume() {
         }
         push_matrix();
         s = lbl_805DB264 * this->scale;
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         scale_matrix(0, s, lbl_805DB258, s);
         draw_chunk_object(lbl_805D28BC);
         pop_matrix();
@@ -185,7 +185,7 @@ s32 TObjFogCollision::check_collision(u16 arg1) {
     if (player != 0) {
         temp_f0 = this->scale;
         temp_f31 = temp_f0 * temp_f0;
-        temp_f1 = horizontal_distance_squared(arg0 + 0x38, player + 0x38);
+        temp_f1 = horizontal_distance_squared((u8 *)&this->position, player + 0x38);
         if (temp_f31 > temp_f1) {
             return 1;
         }

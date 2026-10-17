@@ -18,7 +18,7 @@ extern void *TObjNewFloorWin__class_name;
 
 }
 TObjNewFloorWin::TObjNewFloorWin(TObject *arg1, void *arg2) : TObject(arg1) {
-    *(void **)((s8 *)this + 0x0) = TObjNewFloorWin__class_name;
+    *(void * *)&this->m_name = TObjNewFloorWin__class_name;
     *(void **)((s8 *)this + 0x4C) = arg2;
     *(u32 *)((s8 *)this + 0x20) = 0;
     *(u32 *)((s8 *)this + 0x24) = 450;

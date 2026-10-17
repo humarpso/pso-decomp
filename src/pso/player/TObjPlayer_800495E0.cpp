@@ -160,14 +160,14 @@ void TUnk_80484A94::run_task() {
   temp_r3_2 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0xD4)));
   if (temp_r3_2 != 0)
   {
-    ((TNowLoading *)temp_r3_2)->copy_pos(arg0 + 0x38);
-    ((TBoss4Type2 *)(*((u8 **) (((s8 *) arg0) + 0xD4))))->copy_vec3(arg0 + 0x5C);
+    ((TNowLoading *)temp_r3_2)->copy_pos((u8 *)&this->position);
+    ((TBoss4Type2 *)(*((u8 **) (((s8 *) arg0) + 0xD4))))->copy_vec3((u8 *)&this->m_5c);
   }
   temp_r3_3 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0xD8)));
   if (temp_r3_3 != 0)
   {
-    ((TNowLoading *)temp_r3_3)->copy_pos(arg0 + 0x38);
-    ((TBoss4Type2 *)(*((u8 **) (((s8 *) arg0) + 0xD8))))->copy_vec3(arg0 + 0x5C);
+    ((TNowLoading *)temp_r3_3)->copy_pos((u8 *)&this->position);
+    ((TBoss4Type2 *)(*((u8 **) (((s8 *) arg0) + 0xD8))))->copy_vec3((u8 *)&this->m_5c);
   }
   if (csnVector((void *) (arg0 + 0x44), (void *) (arg0 + 0x38), (int) (-1)) != 0U)
   {
@@ -264,7 +264,7 @@ void TUnk_80484AFC::render() {
     u8 *arg0 = (u8 *)this;
     TObjFish::set_global_param(this->m_b0);
     push_matrix();
-    post_translate_matrix(arg0 + 0x38);
+    post_translate_matrix((u8 *)&this->position);
     rotate_matrix_x(0, *(s32 *)&this->m_5c);
     rotate_matrix_y(0, this->rotation_y);
     model_render_flags &= 0xFFFFFBFF;

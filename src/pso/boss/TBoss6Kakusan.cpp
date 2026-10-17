@@ -128,8 +128,8 @@ void TBoss6Kakusan::check_beam_player_hits() {
     }
     step = *((f32 *) (((s8 *) arg0) + 0x24));
     found = 0;
-    VecCopy__FP3VecPC3Vec(&p, arg0 + 0x30);
-    VecCopy__FP3VecPC3Vec(&dir, arg0 + 0x48);
+    VecCopy__FP3VecPC3Vec(&p, (u8 *)&this->m_30);
+    VecCopy__FP3VecPC3Vec(&dir, (u8 *)&this->m_48);
     subtract_vector(&dir, &p);
     len = vector_length(&dir);
     t = TBoss6Kakusan__data_805DF518;
@@ -198,7 +198,7 @@ void TBoss6Kakusan::run_task() {
     u8 *pl;
     if (TObjPlayer::check_demo_mode() != 0) return;
     if (query_teammate_state__9TObjEneDDFv() != 0) return;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x48, arg0 + 0x30);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->m_48, (u8 *)&this->m_30);
     if ((s8)boss6_kakusan_homing_start_initialized == 0) {
         TBoss6Kakusan__homing_start_frame = 7;
         boss6_kakusan_homing_start_initialized = 1;
@@ -208,19 +208,19 @@ void TBoss6Kakusan::run_task() {
         TBoss6Kakusan__homing_end_frame_initialized = 1;
     }
     if (*(s32 *)&this->m_2c >= TBoss6Kakusan__homing_start_frame && *(s32 *)&this->m_2c <= boss6_kakusan_homing_end_frame) {
-        speed = vector_length(arg0 + 0x3C);
+        speed = vector_length((u8 *)&this->m_3c);
         if (!(speed <= TBoss6Kakusan__data_805DF51C)) {
             pl = (u8 *)get_player_by_client_id(this->m_20);
             if (is_active__14TBoss6PlotFalzFv() != 0) {
                 VecCopy__FP3VecPC3Vec(&v, pl + 0x38);
                 v.y += lbl_805DF538;
-                subtract_vector(&v, arg0 + 0x30);
+                subtract_vector(&v, (u8 *)&this->m_30);
                 if (!(vector_length(&v) <= TBoss6Kakusan__data_805DF51C)) {
                     normalize_vector(&v);
                     v.x *= this->m_28;
                     v.y *= this->m_28;
                     v.z *= this->m_28;
-                    VecCopy__FP3VecPC3Vec(&w, arg0 + 0x3C);
+                    VecCopy__FP3VecPC3Vec(&w, (u8 *)&this->m_3c);
                     normalize_vector(&w);
                     vec3_add_to(&v, &w);
                     if (!(vector_length(&v) <= TBoss6Kakusan__data_805DF51C)) {
@@ -228,17 +228,17 @@ void TBoss6Kakusan::run_task() {
                         v.x *= speed;
                         v.y *= speed;
                         v.z *= speed;
-                        VecCopy__FP3VecPC3Vec(arg0 + 0x3C, &v);
+                        VecCopy__FP3VecPC3Vec((u8 *)&this->m_3c, &v);
                     }
                 }
             }
         }
     }
-    vec3_add_to(arg0 + 0x30, arg0 + 0x3C);
+    vec3_add_to((u8 *)&this->m_30, (u8 *)&this->m_3c);
     if (*(void * *)&this->m_54 != NULL) {
-        ((TNowLoading *)(*(void * *)&this->m_54))->copy_pos(arg0 + 0x30);
-        VecCopy__FP3VecPC3Vec(&a, arg0 + 0x30);
-        subtract_vector(&a, arg0 + 0x48);
+        ((TNowLoading *)(*(void * *)&this->m_54))->copy_pos((u8 *)&this->m_30);
+        VecCopy__FP3VecPC3Vec(&a, (u8 *)&this->m_30);
+        subtract_vector(&a, (u8 *)&this->m_48);
         direction_to_rotation_xz(&a, &b.x, &b.z);
         *(s32 *)&b.y = 0;
         ((TBoss4Type2 *)(*(void * *)&this->m_54))->copy_vec3(&b);

@@ -88,23 +88,23 @@ void TODummyKeyCave01::render() {
         (v = *(u32 *)(arg0 + 0x24)) != 0) {
         TObjPlayer::notify_fish_if_valid(v);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_zyx(0, *(s32 *)(arg0 + 0x5C), *(s32 *)(arg0 + 0x60), *(s32 *)(arg0 + 0x64));
-        scale_current_matrix(arg0 + 0x68);
+        scale_current_matrix((u8 *)&this->scale);
         node = *(u8 **)(arg0 + 0x34);
         draw_ginja_model(*(s32 *)(node + 4));
         if (*(u16 *)(arg0 + 0x9A) == 0) {
             id = model_render_flags;
             lbl_805D5660 = id;
             model_render_flags = id | 0x10;
-            set_chunk_material_color(arg0 + 0x9C);
+            set_chunk_material_color((u8 *)&this->m_9c);
         }
         TParticleCtrl::begin_effect_render();
         node = *(u8 **)(node + 0x2C);
         if (*(s32 *)(arg0 + 0xD0) != 0) {
             rotate_matrix_y(0, *(s32 *)(arg0 + 0xCC));
         } else {
-            post_translate_matrix(arg0 + 0xAC);
+            post_translate_matrix((u8 *)&this->m_ac);
         }
         post_translate_matrix(node + 8);
         draw_ginja_model(*(s32 *)(node + 4));

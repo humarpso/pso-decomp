@@ -251,7 +251,7 @@ u8 *TObjContainerItem__ct(u8 *arg0, s32 arg1, s32 arg2) {
 
 void TUnk_804B6C24::spawn_item(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    request_box_item_drop__13TUnk_804806E8FPvs(arg1, arg0 + 0x38, this->m_360, arg0);
+    request_box_item_drop__13TUnk_804806E8FPvs(arg1, (u8 *)&this->position, this->m_360, arg0);
 }
 void play_container_break_sound(s32 arg0) {
     u32 global_state;

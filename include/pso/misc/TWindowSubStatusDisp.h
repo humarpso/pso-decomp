@@ -14,7 +14,9 @@ struct TWindowSubStatusDisp : public TUnk_804CE018 {
     u8 unk_28[0x2];
     s16 m_2a;
     s32 m_2c;
-    u8 unk_30[0xC];
+    u8 unk_30[0x4];
+    s32 m_34;
+    u8 unk_38[0x4];
     f32 m_3c;
     u8 unk_40[0xC];
     f32 m_4c;

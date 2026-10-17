@@ -419,19 +419,19 @@ void TObjLuker::run_task() {
             if (*(s32 *)&this->m_b4 != 0 && *(void * *)&this->m_a4 == NULL) {
                 o = __nw__7TObjectFUl(0x44);
                 if (o != NULL) {
-                    o = create_telepipe_visual(o, arg0 + 0x38, this->m_a8, tl_07);
+                    o = create_telepipe_visual(o, (u8 *)&this->position, this->m_a8, tl_07);
                 }
                 *(void * *)&this->m_a4 = o;
                 *(s32 *)&this->m_b4 = 0;
             }
-            play_persistent_sound(0x4002B219, arg0, arg0 + 0x38, 0, 0);
+            play_persistent_sound(0x4002B219, arg0, (u8 *)&this->position, 0, 0);
             switch (this->m_b0) {
             case 0:
                 sp8 = 0;
                 if (is_player_in_range__9TObjLukerFv((s32)((s32) arg0), lbl_805DC080) != 0) {
                     flag = 0;
                     if (is_split_screen() != 0) {
-                        if (are_players_gathered_near(arg0 + 0x38, &sp8, lbl_805DC080) != 0) {
+                        if (are_players_gathered_near((u8 *)&this->position, &sp8, lbl_805DC080) != 0) {
                             flag = 1;
                             this->m_aa = this->m_a8;
                         }
@@ -444,7 +444,7 @@ void TObjLuker::run_task() {
                     }
                     if (flag != 0) {
                         this->m_b0 = 1;
-                        offset_point_toward_camera(arg0 + 0x38, spC, lbl_805DC080);
+                        offset_point_toward_camera((u8 *)&this->position, spC, lbl_805DC080);
                         spawn_particle_effect(spC, 0xB3);
                         p = PBC_801A1418(local_client_id);
                         if (p != NULL) {

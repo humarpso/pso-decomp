@@ -30,7 +30,7 @@ void TObjEneRecon::vfunc_106() {
         update_player_state__9TObjEneDDFv(arg0, 0, 0);
         TObjFish::set_global_param(this->texture_id);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TObjEneDD::clear_global_flag_400();
         TObjPlayer::toggle_particle_effect();

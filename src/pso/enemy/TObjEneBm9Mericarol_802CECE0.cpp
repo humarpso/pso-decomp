@@ -788,7 +788,7 @@ void TObjEneBm9Mericarol::handle_motion_event(s32 arg1) {
         *(s32 *)&this->m_454 = (s32) (temp_r5 & ~0x28);
         set_field_378__9TObjEneDDFl(arg0, 3, temp_r5);
         *(s32 *)&this->m_4ac = 0;
-        play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x3AD0F), arg0 + 0x38, 0, 0);
+        play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x3AD0F), (u8 *)&this->position, 0, 0);
         return;
     case 3:
         if (objInBand__FP7GameObjf(*(f32 *)&this->unk_C4 - lbl_805DE6F4) != 0) {

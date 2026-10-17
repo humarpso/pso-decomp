@@ -45,7 +45,7 @@ void TObjDFUsoTower::render() {
             set_color_blend_mode(1, 4, 5, 0);
         }
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         TObjFish::set_global_param(this->texture_id);
         draw_ginja_object(*(s32 *)&this->model);
         pop_matrix();

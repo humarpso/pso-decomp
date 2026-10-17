@@ -29,7 +29,7 @@ void TObjPlayer::load_character_state(u8 *arg1) {
         }
         bind_saved_inventory_equipment__10TObjPlayerFPvPvi(this, temp_r30, count);
     }
-    *(s32 *)((s8 *)this + 0xDB4) = (s32) (player_shared_buffer_base + (obj_getField1c(this) * 0x600));
+    this->m_db4 = (s32) (player_shared_buffer_base + (obj_getField1c(this) * 0x600));
 }
 
 }

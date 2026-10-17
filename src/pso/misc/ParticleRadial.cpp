@@ -245,12 +245,12 @@ void TUnk_8048E7A8::render() {
             pos.y = *(f32 *)&this->unk_74 + this->m_80;
             pos.z = this->m_78 + *(f32 *)&this->unk_84;
         } else {
-            VecCopy__FP3VecPC3Vec(&pos, arg0 + 0x70);
+            VecCopy__FP3VecPC3Vec(&pos, (u8 *)&this->m_70);
         }
         end.x = pos.x + this->m_3c;
         end.y = pos.y + *(f32 *)&this->unk_40;
         end.z = pos.z + this->m_44;
-        len = vector_length(arg0 + 0x3C);
+        len = vector_length((u8 *)&this->m_3c);
         if (TParticleCtrl__data_805D955C == len) {
             return;
         }
@@ -272,13 +272,13 @@ void TUnk_8048E7A8::render() {
         if (((is_split_screen() == 0) || !(*(u16 *)((s8 *)arg0 + 0x24) & 0x400)) && (*(u32 *)&this->unk_B4 != 0U) && (this->m_b0 != 0U)) {
             Ang_8008BAF8 ang = radial_particle_zero_angles;
             Vec_8008BAF8 pos2;
-            direction_to_rotation_xz(arg0 + 0x3C, &ang.x, &ang.z);
+            direction_to_rotation_xz((u8 *)&this->m_3c, &ang.x, &ang.z);
             if (*(u8 *)((s8 *)(*(u8 * *)&this->m_20) + 0x88) & 4) {
                 pos2.x = this->m_70 + *(f32 *)&this->unk_7C;
                 pos2.y = *(f32 *)&this->unk_74 + this->m_80;
                 pos2.z = this->m_78 + *(f32 *)&this->unk_84;
             } else {
-                VecCopy__FP3VecPC3Vec(&pos2, arg0 + 0x70);
+                VecCopy__FP3VecPC3Vec(&pos2, (u8 *)&this->m_70);
             }
             ((void (*)(void))push_matrix)();
             post_translate_matrix(&pos2);

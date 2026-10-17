@@ -132,7 +132,7 @@ void TOKey::vfunc_13(s32 arg1) {
     if ((temp_r0 != 2) && ((temp_r0 != 0) || ((s32) *(s32 *)&this->m_d4 != 1))) {
         player = get_player_by_client_id((u16)((u16)arg1));
         if (player != 0) {
-            start_camera_pan__10TObjPlayerFs(player, 0xC, ((TObjPlayer *)(player + 0x38))->calc_angle_to(arg0 + 0x38));
+            start_camera_pan__10TObjPlayerFs(player, 0xC, ((TObjPlayer *)(player + 0x38))->calc_angle_to((u8 *)&this->position));
             *(s32 *)((s8 *)arg0 + 0xDC) = (s32) *(s32 *)((s8 *)arg0 + 0xD8);
             *(s32 *)((s8 *)arg0 + 0xE0) = 1;
         }

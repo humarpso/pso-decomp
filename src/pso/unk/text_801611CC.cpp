@@ -171,7 +171,7 @@ void TODoorCave01::vfunc_17() {
     if (((u8) ((u32) __cntlzw(this->m_d0 & 1) >> 5) == 1) || (is_any_player_within_radius_xz(lbl_805DB490) != 1)) {
         *(s32 *)&this->m_ac = 3;
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
-        play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x42807, (u8 *)&this->position, 0, 0);
     }
 }
 void TODoorCave01::play_proximity_sound() {

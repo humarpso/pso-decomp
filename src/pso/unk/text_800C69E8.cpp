@@ -64,7 +64,7 @@ void TObjPlayer::pick_open_direction(f32 *dir, f32 a, f32 b) {
         ang = (s32) (lbl_8043BCC8[0] * r);
     }
     bestAng = ang;
-    VecCopy__FP3VecPC3Vec(&sp20, self + 0x38);
+    VecCopy__FP3VecPC3Vec(&sp20, (u8 *)&this->position);
     sp20.y += lbl_805DA06C;
     push_matrix_from(identity_matrix);
     {
@@ -72,14 +72,14 @@ void TObjPlayer::pick_open_direction(f32 *dir, f32 a, f32 b) {
         sp14.x = a + b;
         rotate_matrix_y(0, ang);
         for (i = 0; i < 3; i++) {
-            matrix_mult_vec(0, &sp14, self + 0x29C);
-            vec3_add_to(self + 0x29C, &sp20);
-            p = csnVector(&sp20, self + 0x29C, -1);
+            matrix_mult_vec(0, &sp14, (u8 *)&this->m_29c);
+            vec3_add_to((u8 *)&this->m_29c, &sp20);
+            p = csnVector(&sp20, (u8 *)&this->m_29c, -1);
             if (p == NULL) {
                 pop_matrix();
                 return;
             }
-            d = horizontal_distance__10TObjPlayerFPUc(self + 0x38, *(s32 *)((s8 *)p + 4)) - b;
+            d = horizontal_distance__10TObjPlayerFPUc((u8 *)&this->position, *(s32 *)((s8 *)p + 4)) - b;
             if (best < d) {
                 best = d;
                 bestAng = ang;
@@ -94,9 +94,9 @@ void TObjPlayer::pick_open_direction(f32 *dir, f32 a, f32 b) {
         Vec_800C6A48 sp8 = lbl_8043BCB8;
         sp8.x = best;
         rotate_matrix_y(0, bestAng);
-        matrix_mult_vec(0, &sp8, self + 0x29C);
+        matrix_mult_vec(0, &sp8, (u8 *)&this->m_29c);
     }
-    vec3_add_to(self + 0x29C, &sp20);
+    vec3_add_to((u8 *)&this->m_29c, &sp20);
     pop_matrix();
 }
 #pragma push

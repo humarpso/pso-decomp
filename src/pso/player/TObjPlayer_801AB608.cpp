@@ -181,7 +181,7 @@ void create_farlla_photon_blast_model(void) {
     (*(s32 *)&farlla_photon_blast_model_buffers) = var_r0;
 }
 
-void TPhotonGolla::sub_801AB688() { *(float*)((char*)this + 0x15c) = lbl_805DC188; *(float*)((char*)this + 0x160) = lbl_805DC188; *(float*)((char*)this + 0x164) = lbl_805DC188; *(float*)((char*)this + 0x168) = lbl_805DC188; }
+void TPhotonGolla::sub_801AB688() { this->m_15c = lbl_805DC188; *(float*)((char*)this + 0x160) = lbl_805DC188; this->m_164 = lbl_805DC188; *(float*)((char*)this + 0x168) = lbl_805DC188; }
 
 #pragma push
 #pragma fp_contract on

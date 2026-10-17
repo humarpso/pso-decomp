@@ -87,15 +87,15 @@ TItemEffArmorParticle::TItemEffArmorParticle(TObject *arg1, s32 arg2, s32 arg3, 
     u32 p;
     *(s32 *)((s8 *)this + 0) = (s32) TItemEffArmorParticle__class_name;
     disallow_rendering__7TObjectFv(this);
-    *(s32 *)((s8 *)this + 0x1C) = arg2;
-    *(s16 *)((s8 *)this + 0x24) = (s16) arg3;
-    *(s32 *)((s8 *)this + 0x28) = get_item_system_generation();
+    this->m_item_id = arg2;
+    *(s16 *)&this->m_player_id = (s16) arg3;
+    *(s32 *)&this->m_item_ctrl = get_item_system_generation();
     player = get_player_by_client_id((u16) arg3);
     if (player != NULL) {
         *(u32 *)((s8 *)this + 0x20) = spawn_continuous_particle_effect_with_flags(((V_A_80364364 *) player)->m7(), arg4, 0x10);
         p = *(u32 *)((s8 *)this + 0x20);
         if (p != 0U) {
-            ((TParticleCtrl *)p)->set_owner_id(*(u16 *)((s8 *)this + 0x24));
+            ((TParticleCtrl *)p)->set_owner_id(this->m_player_id);
         }
     } else {
         *(u32 *)((s8 *)this + 0x20) = 0U;

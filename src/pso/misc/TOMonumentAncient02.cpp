@@ -157,7 +157,7 @@ void TOMonumentAncient02::run_task() {
         }
         break;
     case 2:
-        play_persistent_sound(*(s32 *)&this->m_d4, arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound(*(s32 *)&this->m_d4, arg0, (u8 *)&this->position, 0, 0);
         break;
     }
 }

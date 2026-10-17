@@ -155,7 +155,7 @@ void TObjPlayer::draw_model() {
         model_render_flags |= 1;
         TObjFish::set_global_param(*(s32 *)&this->texture_id);
         push_matrix_from(0);
-        translate_matrix_vec3(0, arg0 + 0x38);
+        translate_matrix_vec3(0, (u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TObjPlayer::set_global_flag();
         if ((s32) this->m_394 != 0) {

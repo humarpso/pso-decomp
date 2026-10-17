@@ -16,7 +16,7 @@ void TObjPlayer::init_from_source(u8 *arg1) {
     create_inventory__10TObjPlayerFv();
     set_action_provider_variant__10TObjPlayerFPvs(((u8 *)this), (s16) TObjPlayer__sub_801C2114());
     bind_saved_inventory_equipment__10TObjPlayerFPvPvi(((u8 *)this), arg1 + 0x140, *(s32 *)((s8 *)arg1 + 0x13C));
-    *(s32 *)((s8 *)((u8 *)this) + 0xDB4) = (s32) (player_shared_buffer_base + (obj_getField1c(((u8 *)this)) * 0x600));
+    this->m_db4 = (s32) (player_shared_buffer_base + (obj_getField1c(((u8 *)this)) * 0x600));
 }
 
 }

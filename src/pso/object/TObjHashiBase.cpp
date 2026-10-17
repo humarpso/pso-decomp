@@ -118,7 +118,7 @@ void TObjHashiBase::render() {
     void *p;
     if (((VDisp *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->m_60);
         TObjFish::set_global_param(this->m_24);
         p = *(void * *)&this->motion;

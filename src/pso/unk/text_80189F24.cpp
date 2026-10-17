@@ -166,13 +166,13 @@ void TUnk_804B6C24::run_task() {
     u8 *arg0 = (u8 *)this;
     step_laser_fence_fade((void *) (arg0 + 0x340));
     this->vfunc_80();
-    *(s32 *)((s8 *)arg0 + 0x364) = 0;
+    this->m_364 = 0;
 }
 
 f32 TUnk_804B6C24::receive_physical_attack(void *, f32) {
     u8 *arg0 = (u8 *)this;
     s16 sp8;
-    if (((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x1000U) && ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (1)) != 0)) {
+    if (((u16) this->m_1c >= 0x1000U) && ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (1)) != 0)) {
         sp8 = 1;
         ((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (0));
         ((TUnk_804AF8A0 *)arg0)->send_object_state_update((void *) (&sp8));

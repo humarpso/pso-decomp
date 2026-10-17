@@ -30,12 +30,12 @@ void TWindowCtrl__sub_8024B9C0(void *arg0) {
 }
 
 void TWindowCtrl::update_trade_window() {
-    if ((u32) *(u32 *)((s8 *)this + 0x34) != 0U) {
+    if ((u32) this->m_34 != 0U) {
         if ((is_slot_visible__11TWindowCtrlFv(local_client_id) != 0) || (TWindowCtrl__sub_8024B000((void *)(this), (s32)(local_client_id)) != 0) || ((is_split_screen() != 0) && (TRaderMapCore::is_active() == 0))) {
-            ((TWindowLockOn *)(*(u32 *)((s8 *)this + 0x34)))->request_close();
+            ((TWindowLockOn *)(this->m_34))->request_close();
             return;
         }
-        window_request_show(*(u32 *)((s8 *)this + 0x34));
+        window_request_show(this->m_34);
     }
 }
 

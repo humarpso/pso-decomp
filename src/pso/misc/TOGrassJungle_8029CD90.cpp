@@ -59,7 +59,7 @@ void TOGrassJungle::render() {
     if (((VObj_8029CD90 *)arg0)->m8(lbl_805DDD30, lbl_805DDD34) == 1) {
         TObjFish::set_global_param(TOGrassJungle__grass_gvm_texture);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         get_bml_model(TOGrassJungle__bml_resource, *(s32 *)&this->m_90);
         draw_ginja_object();

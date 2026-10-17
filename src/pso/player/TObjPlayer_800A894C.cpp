@@ -434,9 +434,9 @@ void TBoss3Volopt__sub_800A8A7C(Obj_800A8A7C *arg0) {
 void TObjPlayer::render_model_and_set_attach_points() {
     u8 *arg0 = (u8 *)this;
     render_anim_model_at_pos__15TObjEneGyaranzoFv();
-    ((VObj_18 *)(arg0))->m63(0x13, arg0 + 0x3D4);
-    ((VObj_18 *)(arg0))->m63(0x28, arg0 + 0x3E0);
-    ((VObj_18 *)(arg0))->m63(0x29, arg0 + 0x3EC);
+    ((VObj_18 *)(arg0))->m63(0x13, (u8 *)&this->unk_3D4);
+    ((VObj_18 *)(arg0))->m63(0x28, (u8 *)&this->unk_3E0);
+    ((VObj_18 *)(arg0))->m63(0x29, (u8 *)&this->m_3ec);
 }
 
 typedef struct RecoveredGlobal_800A8B8C_lbl_804910F4 RecoveredGlobal_800A8B8C_lbl_804910F4;
@@ -1153,11 +1153,11 @@ void TObjPlayer::update_synced_state() {
     run_synced_state_handler();
     sub_800AB068__14TObjEneDubchikFv(arg0);
     ((TObjEnemy *)arg0)->update_prev_position();
-    VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->m_74, (u8 *)&this->m_2fc);
     if (obj_testFlags30(arg0, 0x04000000) == 0) {
         submit_cursor_candidate(arg0, -1);
     }
-    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
+    minimap_render_dot((u8 *)&this->position, -0x5DB4, 1, 0);
 }
 void *TObjPlayer::create_dubchik(void *arg0) {
     void *o;

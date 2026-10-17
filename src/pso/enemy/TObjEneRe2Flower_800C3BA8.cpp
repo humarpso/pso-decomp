@@ -26,7 +26,7 @@ u8 *TObjEneRe2Flower::find_target_in_range() {
             break;
         }
     }
-    if (is_valid_target__9TObjEneDDFv(result) != 0 && horizontal_distance_squared(arg0 + 0x38, result + 0x38) < lbl_805D9FF4) {
+    if (is_valid_target__9TObjEneDDFv(result) != 0 && horizontal_distance_squared((u8 *)&this->position, result + 0x38) < lbl_805D9FF4) {
         return result;
     }
     return NULL;

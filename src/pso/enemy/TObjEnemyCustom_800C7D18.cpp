@@ -237,7 +237,7 @@ void TObjEnemyCustom::run_task() {
         *(s32 *)&this->state = 0;
     }
     ((TObjEnemy *)arg0)->update_prev_position();
-    VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->m_74, (u8 *)&this->m_2fc);
 }
 
 }

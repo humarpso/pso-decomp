@@ -354,14 +354,14 @@ void TODoorJungleMain::run_task() {
             flag = 0;
             *(f32 *)&this->m_b4 = (f32)(u32)(*(s32 *)((s8 *)(*(u8 * *)&this->m_bc) + 4) - 1);
         } else {
-            play_persistent_sound(0x43220, arg0, arg0 + 0x38, 0, 0);
+            play_persistent_sound(0x43220, arg0, (u8 *)&this->position, 0, 0);
         }
         if (flag != 0) {
             if (++*(s32 *)&this->m_d8 % 30 == 0) {
                 a = lbl_804653E8;
                 b = lbl_804653F4;
                 set_matrix_identity(&mtx);
-                translate_matrix_vec3(&mtx, arg0 + 0x38);
+                translate_matrix_vec3(&mtx, (u8 *)&this->position);
                 rotate_matrix_y((int)&mtx, this->rotation_y);
                 matrix_mult_vec(&mtx, &a, &a);
                 matrix_mult_vec(&mtx, &b, &b);
@@ -369,9 +369,9 @@ void TODoorJungleMain::run_task() {
                 spawn_particle_effect_with_flags(&b, 0x229, 0x800);
             }
         }
-        minimap_render_gate(arg0 + 0x38, 0xFF00FF00, this->rotation_y, 0, 0);
+        minimap_render_gate((u8 *)&this->position, 0xFF00FF00, this->rotation_y, 0, 0);
     } else {
-        minimap_render_gate(arg0 + 0x38, 0xFFFF0000, this->rotation_y, 0, 0);
+        minimap_render_gate((u8 *)&this->position, 0xFFFF0000, this->rotation_y, 0, 0);
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
     }
 }

@@ -79,7 +79,7 @@ void TOChatSensor::handle_chat_message(void *arg1) {
         mode = *(u32 *)(arg0 + 0x98);
         r = -1;
         if (mode == 0) {
-            r = find_chat_keyword(arg1, arg0 + 0xA4, current_language);
+            r = find_chat_keyword(arg1, (u8 *)&this->unk_A4, current_language);
         } else if (mode == 1) {
             r = 0;
         }

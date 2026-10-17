@@ -19,11 +19,11 @@ s32 clamp_to_max__10TObjPlayerFlUcUc(void *, s32, s32);
 s16 TObjPlayer::get_section_clamped() {
     s16 temp_r4;
 
-    temp_r4 = *(s16 *)((s8 *)this + 6);
+    temp_r4 = *(s16 *)&this->m_id;
     if ((temp_r4 < 0) || (temp_r4 > 0xA)) {
-        *(s16 *)((s8 *)this + 6) = 0;
+        *(s16 *)&this->m_id = 0;
     }
-    return *(s16 *)((s8 *)this + 6);
+    return *(s16 *)&this->m_id;
 }
 
 s16 TObjPlayer::get_or_init_field_4() {

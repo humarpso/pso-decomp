@@ -14,7 +14,7 @@ extern void *TWindowSubQuestBoard__class_name;
 }
 TWindowSubQuestBoard::TWindowSubQuestBoard(TObject *arg1, void *arg2) : TObject(arg1) {
     void *o;
-    *(void **)((s8 *)this + 0x0) = TWindowSubQuestBoard__class_name;
+    *(void * *)&this->m_name = TWindowSubQuestBoard__class_name;
     *(void **)((s8 *)this + 0x24) = arg1;
     *(void **)((s8 *)this + 0x20) = arg2;
     o = __nw__7TObjectFUl(0x68);
@@ -22,8 +22,8 @@ TWindowSubQuestBoard::TWindowSubQuestBoard(TObject *arg1, void *arg2) : TObject(
         o = TWindowSubQuestBoardSelect__ct(o);
     }
     *(void **)((s8 *)this + 0x28) = o;
-    *(u32 *)((s8 *)this + 0x2C) = 0;
-    *(u8 *)((s8 *)this + 0x1C) = 0;
+    this->m_2c = 0;
+    this->m_1c = 0;
     TWindowCtrl__sub_8027D214();
 }
 extern "C" {

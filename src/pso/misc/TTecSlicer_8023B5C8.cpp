@@ -344,17 +344,17 @@ void TTecSlicer::render() {
     lbl_805D5660 = model_render_flags;
     if (this->useColorOverride != 0) {
         model_render_flags |= 0x10;
-        set_chunk_material_color(arg0 + 0x128);
+        set_chunk_material_color((u8 *)&this->argb);
     }
     if (this->textureHandle != 0U && *(u32 *)&this->model != 0U) {
         TObjPlayer::notify_fish_if_valid(this->textureHandle);
         TParticleCtrl::begin_effect_render();
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0x64));
         rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
-        scale_current_matrix(arg0 + 0x68);
+        scale_current_matrix((u8 *)&this->scale);
         draw_ginja_object(*(u32 *)&this->model);
         set_chunk_material_color(chunk_material_color_half_alpha_f32);
         TParticleCtrl::end_effect_render();

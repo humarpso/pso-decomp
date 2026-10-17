@@ -24,7 +24,7 @@ void TOMonumentAncient01::render() {
     if (((VObj1_8017262C*)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) == 1) {
         TObjFish::set_global_param(this->texture_id);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         get_bml_model(TOMonumentAncient01__resource_bundle, 2);
         draw_ginja_object();

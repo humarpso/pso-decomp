@@ -490,7 +490,7 @@ void TObjCity_Season_Board::render() {
         TObjFish::set_global_param(lbl_805D5B44);
         scroll_strip_uvs(lbl_805D5B48, (s16) *(s32 *)&this->unk_90, 0);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         draw_chunk_object(lbl_805D5B3C);
         draw_chunk_object(lbl_805D5B40);
@@ -1242,7 +1242,7 @@ void TObjCity_Season_XmasTree::render() {
     if ((temp_r3 != NULL) && (((VObj_80184314_80184210 *)arg0)->m8(lbl_805DBC44, lbl_805DBC40) != 0)) {
         TObjFish::set_global_param(*(s32 *)((s8 *)city_season_xmas_model_table + 8));
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         ((s32 (*)(s32, s32, f32))draw_model_motion)(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x78), *(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x430)) + 0xC), this->m_b0);
         ((s32 (*)(s32, s32, f32))draw_model_motion)(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x68), *(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x430)) + 4), this->m_b0);
@@ -1360,7 +1360,7 @@ void TObjCity_Season_ValentineHeart::render() {
     if ((temp_r3 != NULL) && (((VObj_8018455c_80184408*)arg0)->m8(lbl_805DBC44, lbl_805DBC40) != 0)) {
         TObjFish::set_global_param(*(s32 *)((s8 *)city_season_xmas_model_table + 4));
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         ((s32 (*)(s32, s32, f32))draw_model_motion)(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x28), *(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x430)) + 0x14), this->m_b0);
         pop_matrix();
@@ -1474,7 +1474,7 @@ void TObjCity_Season_EasterEgg::render() {
     if ((temp_r3 != NULL) && (((VObj_8018455c_80184620*)arg0)->m8(lbl_805DBC44, lbl_805DBC40) != 0)) {
         TObjFish::set_global_param(city_season_xmas_model_table[0]);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         draw_chunk_object(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x18));
         draw_chunk_object(*(s32 *)((s8 *)(*(void **)((s8 *)temp_r3 + 0x42C)) + 0x8));

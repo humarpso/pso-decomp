@@ -143,9 +143,9 @@ void TNpcPlayer::partner_request_physical_attack() {
     temp_r31 = TNpcPlayer__sub_80152978(*(s32 *)&this->m_78);
     temp_r3 = get_npc_state__10TNpcPlayerFv(*(s32 *)&this->m_78);
     if (temp_r3 != temp_r31) {
-        set_partner_counter(arg0 + 0x5C, 1, 0);
+        set_partner_counter((u8 *)&this->m_5c, 1, 0);
     }
-    npc_counter_reset_if_reached(arg0 + 0x5C, 1, 3);
+    npc_counter_reset_if_reached((u8 *)&this->m_5c, 1, 3);
     ((TNpcPlayer *)arg0)->send_partner_attack_stage_request();
 }
 #pragma pop

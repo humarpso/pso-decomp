@@ -1746,22 +1746,22 @@ extern void *TWindowSubComCard__class_name;
 
 }
 TWindowSubComCard::TWindowSubComCard(TObject *arg1, void *arg2) : TObject(arg1) {
-    *(void **)((s8 *)this + 0x0) = TWindowSubComCard__class_name;
+    *(void * *)&this->m_name = TWindowSubComCard__class_name;
     *(void **)((s8 *)this + 0x5C) = arg1;
     *(void **)((s8 *)this + 0x20) = arg2;
-    *(u32 *)((s8 *)this + 0x60) = 0;
-    *(u32 *)((s8 *)this + 0x64) = 0;
+    this->m_60 = 0;
+    this->m_64 = 0;
     *(u32 *)((s8 *)this + 0x74) = 0;
-    *(u32 *)((s8 *)this + 0x78) = 0;
-    *(u32 *)((s8 *)this + 0x68) = 0;
-    *(u32 *)((s8 *)this + 0x6C) = 0;
+    this->m_78 = 0;
+    this->m_68 = 0;
+    this->m_6c = 0;
     *(u32 *)((s8 *)this + 0x70) = 0;
     *(u32 *)((s8 *)this + 0x80) = 0;
-    *(u32 *)((s8 *)this + 0x84) = 0;
-    *(u32 *)((s8 *)this + 0x7C) = 0;
-    *(u32 *)((s8 *)this + 0x58) = 0;
-    *(u8 *)((s8 *)this + 0x1D) = 0;
-    *(u32 *)((s8 *)this + 0x24) = -1;
+    this->m_84 = 0;
+    this->m_7c = 0;
+    this->m_58 = 0;
+    this->m_1d = 0;
+    this->m_24 = -1;
     TWindowSubComCard__sub_80077980((void *)((char *)this + 48));
     *(u8 *)((s8 *)this + 0x1C) = 0;
 }

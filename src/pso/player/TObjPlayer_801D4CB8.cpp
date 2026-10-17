@@ -82,7 +82,7 @@ void TObjPlayer::destroy_subobjects(int a1) { item_reduce_target_player = a1; in
 void TObjPlayer::destroy_subobjects_recursive() {
     u8 *p;
     V_801D4E94 *o;
-    p = *(u8 **)((u8 *)this + 0x14);
+    p = *(u8 * *)&this->m_down;
     while (p != NULL) {
         if (is_item_valid__9TItemListFl(p) != 0) {
             o = (V_801D4E94 *)get_owner_if_alive__10TObjPlayerFv(p);

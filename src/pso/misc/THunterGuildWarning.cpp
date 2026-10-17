@@ -11,7 +11,7 @@ extern void * THunterGuildWarning__instance;
 
 }
 THunterGuildWarning::THunterGuildWarning(TObject *arg1, void *arg2) : TObject(arg1) {
-    *(void **)((s8 *)this + 0x0) = lbl_805D3648;
+    *(void * *)&this->m_name = lbl_805D3648;
     *(void **)((s8 *)this + 0x1C) = arg2;
     *(u32 *)((s8 *)this + 0x20) = 90;
     THunterGuildWarning__sub_802119CC(this);

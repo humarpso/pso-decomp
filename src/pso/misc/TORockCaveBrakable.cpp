@@ -60,7 +60,7 @@ void TORockCaveBrakable::vfunc_16() {
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         rotate_vector_by_matrix(0, &v, &v);
         pop_matrix();
-        VecCopy__FP3VecPC3Vec(&init.b[0xC], arg0 + 0x38);
+        VecCopy__FP3VecPC3Vec(&init.b[0xC], (u8 *)&this->position);
         vec3_add_to(&init.b[0xC], &v);
         *(s32 *)((s8 *)(&init) + 0x40) = get_bml_model(rock_cave_model_resource, i);
         *(s32 *)((s8 *)(&init) + 0x44) = TObjFish__sub_8001EDB0(rock_cave_model_resource, i);
@@ -74,8 +74,8 @@ void TORockCaveBrakable::vfunc_16() {
 void TORockCaveBrakable::spawn_break_effect() {
     u8 *arg0 = (u8 *)this;
     this->vfunc_18();
-    spawn_particle_effect(arg0 + 0x38, 0x45);
-    spawn_particle_effect(arg0 + 0x38, 0x46);
+    spawn_particle_effect((u8 *)&this->position, 0x45);
+    spawn_particle_effect((u8 *)&this->position, 0x46);
 }
 
 void TORockCaveBrakable::update_break_state() {

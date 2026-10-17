@@ -514,7 +514,7 @@ void TObjEneRe7Berura::run_flash_warning_state(s32 arg1) {
         this->vfunc_102();
         this->vfunc_89();
         ((void (*)(s32, s32, s32))update_technique_slot__10TTecRaFoieFl)(
-            play_persistent_sound(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003C61E), arg0, arg0 + 0x38, 0, 0),
+            play_persistent_sound(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003C61E), arg0, (u8 *)&this->position, 0, 0),
             0x400, 0);
         break;
     case 5:

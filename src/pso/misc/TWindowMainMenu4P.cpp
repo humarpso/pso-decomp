@@ -23,7 +23,7 @@ s32 close_and_clear_flags__15TWindowMainMenuFv();
 void TWindowMainMenu4P::vfunc_9() { if (close_active_submenu() != 0) { ((TWindowMainMenu4P *)this)->show_child_window(); } }
 
 void TWindowMainMenu4P::vfunc_8() {
-    if (*(s32 *)((s8 *)this + 0x4C) & 1) {
+    if (this->m_4c & 1) {
         close_and_clear_flags__15TWindowMainMenuFv();
     }
 }
@@ -31,8 +31,8 @@ void TWindowMainMenu4P::vfunc_8() {
 void TWindowMainMenu4P::vfunc_6() {
     u8 *arg0 = (u8 *)this;
     u8 *player;
-    if (!(*(s32 *)((s8 *)arg0 + 0x4C) & 1)) {
-        player = (u8 *)(get_player_by_client_id(*(u32 *)((s8 *)arg0 + 0x54)));
+    if (!(this->m_4c & 1)) {
+        player = (u8 *)(get_player_by_client_id(this->m_54));
         if (player != NULL) {
             if (((TObjPlayer *)player)->is_ready() != 0) {
                 ((TWindowMainMenu *)arg0)->open((s32) &lbl_804D0530.value);

@@ -299,23 +299,23 @@ void *__dt__13TUnk_80488A28Fv(void *arg0, s16 arg1) {
 }
 }
 TUnk_80488A28::TUnk_80488A28() : TObject(0) {
-    *(f32 *)((s8 *)this + 0x3C) = (f32) TCameraCtrl__data_805D8F84;
+    this->m_3c = (f32) TCameraCtrl__data_805D8F84;
     *(f32 *)((s8 *)this + 0x40) = (f32) TCameraCtrl__data_805D8F84;
-    *(f32 *)((s8 *)this + 0x44) = (f32) TCameraCtrl__data_805D8F84;
-    *(s32 *)((s8 *)this + 0x2C) = 0;
+    this->m_44 = (f32) TCameraCtrl__data_805D8F84;
+    this->m_2c = 0;
     *(s32 *)((s8 *)this + 0x30) = 0;
-    *(s32 *)((s8 *)this + 0x34) = 0;
+    this->m_34 = 0;
     *(f32 *)((s8 *)this + 0x48) = (f32) TCameraCtrl__data_805D8F84;
-    *(f32 *)((s8 *)this + 0x4C) = (f32) TCameraCtrl__data_805D8F84;
+    this->m_4c = (f32) TCameraCtrl__data_805D8F84;
     *(f32 *)((s8 *)this + 0x50) = (f32) TCameraCtrl__data_805D8F80;
-    *(f32 *)((s8 *)this + 0x60) = (f32) TCameraCtrl__data_805D8F84;
+    this->m_60 = (f32) TCameraCtrl__data_805D8F84;
     *(f32 *)((s8 *)this + 0x64) = (f32) TCameraCtrl__data_805D8F84;
-    *(f32 *)((s8 *)this + 0x68) = (f32) TCameraCtrl__data_805D8F84;
+    this->m_68 = (f32) TCameraCtrl__data_805D8F84;
     *(s32 *)((s8 *)this + 0x28) = 0;
-    *(s32 *)((s8 *)this + 0x24) = 0;
-    *(s32 *)((s8 *)this + 0x38) = 0;
-    *(f32 *)((s8 *)this + 0x58) = (f32) TCameraCtrl__data_805D8F84;
+    this->m_24 = 0;
+    this->m_38 = 0;
+    this->m_58 = (f32) TCameraCtrl__data_805D8F84;
     *(f32 *)((s8 *)this + 0x5C) = (f32) lbl_805D8FA0;
-    *(s32 *)((s8 *)this + 0x54) = 0x36C1;
-    *(u16 *)((s8 *)this + 0x20) = 0xFFFF;
+    this->m_54 = 0x36C1;
+    this->m_20 = 0xFFFF;
 }

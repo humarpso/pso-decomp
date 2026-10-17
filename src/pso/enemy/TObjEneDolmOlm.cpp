@@ -1738,7 +1738,7 @@ void TObjEneDolmOlm::vfunc_60() {
 }
 void TObjEneDolmOlm::advance_position() {
     u8 *arg0 = (u8 *)this;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->m_2fc, (u8 *)&this->position);
     *(f32 *)&this->m_300 = (f32) (*(f32 *)&this->m_300 + TObjEneDolmOlm__data_805DEF6C);
 }
 void TObjEneDolmOlm::request_stand_action() { this->m_b8 = 1; }

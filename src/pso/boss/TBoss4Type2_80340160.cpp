@@ -29,7 +29,7 @@ void TBoss6Demo15_TYPE2_WAIT::run_task() {
         ((TBoss6Demo15_TYPE2_WAIT *)arg0)->sub_8033FE30();
         temp_r3 = (u8 *)(this->m_20);
         if (temp_r3 != NULL) {
-            ((TNowLoading *)temp_r3)->copy_pos(arg0 + 0x40);
+            ((TNowLoading *)temp_r3)->copy_pos((u8 *)&this->m_40);
         }
         ((TBoss6Demo15_TYPE2_WAIT *)arg0)->check_any_player_near();
         play_persistent_sound((int) (0x4003A126), (void *) (arg0), (void *) (arg0 + 0x40), (int) (0), (int) (0));

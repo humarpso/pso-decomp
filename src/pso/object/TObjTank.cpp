@@ -72,7 +72,7 @@ void TObjTank::render() {
     if ((((VObj *)arg0)->m8(lbl_805DBFA0, lbl_805DBFA4) != 0) && (p = (*(void * *)&TObjTank__texture_list))) {
         TObjFish::set_global_param((u32)p);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         get_bml_model((*(s32 *)&tank_bml_resource), 0);
         draw_ginja_object();

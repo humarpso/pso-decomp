@@ -74,7 +74,7 @@ extern void *TWindowSubAreaMap__name;
 }
 TWindowSubAreaMap::TWindowSubAreaMap(TObject *arg1, void *arg2) : TObject(arg1) {
     void *o;
-    *(void **)((s8 *)this + 0x0) = TWindowSubAreaMap__name;
+    *(void * *)&this->m_name = TWindowSubAreaMap__name;
     *(void **)((s8 *)this + 0x20) = arg1;
     *(void **)((s8 *)this + 0x1C) = arg2;
     o = __nw__7TObjectFUl(0x78);

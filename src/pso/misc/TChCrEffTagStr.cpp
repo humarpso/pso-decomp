@@ -78,7 +78,7 @@ void TChCrEffTagStr::run_task() {
 TChCrEffTagStr::~TChCrEffTagStr() {}
 }
 TChCrEffTagStr::TChCrEffTagStr(TObject *arg1, void *arg2, void *arg3) : TObject(arg1) {
-    *(void **)((s8 *)this + 0x0) = TChCrEffTagStr__name;
+    *(void * *)&this->m_name = TChCrEffTagStr__name;
     *(void **)((s8 *)this + 0x20) = arg2;
     ((TWindowSubSymbolChatPartsSet *)((char *)this + 40))->copy_vec2(arg3);
     *(u32 *)((s8 *)this + 0x1C) = 0;

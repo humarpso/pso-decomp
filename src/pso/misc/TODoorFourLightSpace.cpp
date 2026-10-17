@@ -209,7 +209,7 @@ s32 TODoorFourLightSpace::draw_lights() {
     pb = (u8 **)(self + 0xE8);
     push_matrix();
     ((void (*)(s32))set_global_param__8TObjFishFl)(this->texture_id);
-    post_translate_matrix(self + 0x38);
+    post_translate_matrix((u8 *)&this->position);
     rotate_matrix_y(0, this->rotation_y);
     post_translate_matrix(mdl + 8);
     push_matrix();
@@ -262,7 +262,7 @@ void TODoorFourLightSpace::render() {
             push_matrix();
             TBoss8Dragon::get_instance();
             set_global_param__8TObjFishFl();
-            post_translate_matrix(arg0 + 0x38);
+            post_translate_matrix((u8 *)&this->position);
             rotate_matrix_y(0, this->rotation_y);
             draw_ginja_model_with_motion(*(s32 *)&this->m_d4, *(s32 *)&this->m_bc, this->m_b0);
             pop_matrix();
@@ -271,7 +271,7 @@ void TODoorFourLightSpace::render() {
             push_matrix();
             TBoss8Dragon::get_instance();
             set_global_param__8TObjFishFl();
-            post_translate_matrix(arg0 + 0x38);
+            post_translate_matrix((u8 *)&this->position);
             rotate_matrix_y(0, this->rotation_y);
             draw_ginja_model_with_motion(*(s32 *)&this->m_d4, *(s32 *)&this->m_bc, *(f32 *)&this->m_b4);
             pop_matrix();
@@ -285,7 +285,7 @@ void TODoorFourLightSpace::render() {
             push_matrix();
             TBoss8Dragon::get_instance();
             set_global_param__8TObjFishFl();
-            post_translate_matrix(arg0 + 0x38);
+            post_translate_matrix((u8 *)&this->position);
             rotate_matrix_y(0, this->rotation_y);
             draw_ginja_object(*(s32 *)&this->m_d4);
             pop_matrix();
@@ -496,7 +496,7 @@ void TODoorFourLightRuins::render() {
             push_matrix();
             TBoss8Dragon::get_instance();
             set_global_param__8TObjFishFl();
-            post_translate_matrix(arg0 + 0x38);
+            post_translate_matrix((u8 *)&this->position);
             rotate_matrix_y(0, this->rotation_y);
             draw_ginja_model_with_motion(*(s32 *)&this->m_d4, *(s32 *)&this->m_bc, this->m_b0);
             pop_matrix();
@@ -505,7 +505,7 @@ void TODoorFourLightRuins::render() {
             push_matrix();
             TBoss8Dragon::get_instance();
             set_global_param__8TObjFishFl();
-            post_translate_matrix(arg0 + 0x38);
+            post_translate_matrix((u8 *)&this->position);
             rotate_matrix_y(0, this->rotation_y);
             draw_ginja_model_with_motion(*(s32 *)&this->m_d4, *(s32 *)&this->m_bc, *(f32 *)&this->m_b4);
             pop_matrix();
@@ -519,7 +519,7 @@ void TODoorFourLightRuins::render() {
             push_matrix();
             TBoss8Dragon::get_instance();
             set_global_param__8TObjFishFl();
-            post_translate_matrix(arg0 + 0x38);
+            post_translate_matrix((u8 *)&this->position);
             rotate_matrix_y(0, this->rotation_y);
             draw_ginja_object(*(s32 *)&this->m_d4);
             pop_matrix();

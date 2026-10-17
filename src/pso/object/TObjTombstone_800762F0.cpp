@@ -53,14 +53,14 @@ void TObjTombstone::setup(s32 arg1, s32 arg2) {
     *(s32 *)&this->model = get_bml_model(TObjTombstone__shared_resource_object, 0);
     *(s32 *)&this->unk_AC = arg1;
     TObjTombstone::copy_record((void *)(arg0 + 0xC0), (s32)(arg2));
-    VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0xD0);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->position, arg0 + 0xD0);
     this->rotation_y = (s32) (*(s32 *)&this->unk_AC << 0xD);
     this->m_b0 = (f32) TObjTombstone__data_805D9174;
     *(f32 *)&this->unk_B4 = (f32) TObjTombstone__data_805D9174;
     this->m_b8 = (f32) TObjTombstone__data_805D9174;
     *(f32 *)((s8 *)arg0 + 0xBC) = (f32) TObjTombstone__data_805D9174;
     *(s32 *)&this->m_230 = 0;
-    fn_80074E04(*(s32 *)&this->unk_AC, arg0 + 0x38);
+    fn_80074E04(*(s32 *)&this->unk_AC, (u8 *)&this->position);
 }
 
 #define dst ((T_80076390 *)arg0)

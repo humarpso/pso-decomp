@@ -1688,7 +1688,7 @@ void TBoss6Type2::update_parts_flags() {
 
 void TBoss6Type2::advance_position() {
     u8 *arg0 = (u8 *)this;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->unk_2FC, arg0 + 0x38);
     this->m_300 = (f32) (this->m_300 + lbl_805DE4A4);
 }
 

@@ -457,7 +457,7 @@ void TObjEneDD::state_chase_target(s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x414) = 0;
         *(s32 *)((s8 *)arg0 + 0x420) = 0;
         if (((TObjEneRe2Flower *)arg0)->get_flag_11() != 0) {
-            play_sound_effect((void *)0x4003A840, arg0 + 0x38, 0, 0);
+            play_sound_effect((void *)0x4003A840, (u8 *)&this->position, 0, 0);
         }
         break;
     case 3:

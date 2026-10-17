@@ -63,7 +63,7 @@ void TChCrEffWall::render() {
 TChCrEffWall::~TChCrEffWall() {}
 }
 TChCrEffWall::TChCrEffWall(TObject *_w1) : TObject(_w1) {
-    *(void **)((s8 *)this + 0x0) = TChCrEffWall__name;
+    *(void * *)&this->m_name = TChCrEffWall__name;
 }
 extern "C" {
 void *fn_8029AE88(void *arg0) {

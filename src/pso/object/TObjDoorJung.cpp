@@ -145,7 +145,7 @@ void TObjDoorJung::render() {
         }
         TObjFish::set_global_param((s32)((void *)lbl_805D5BD4));
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         draw_ginja_object(get_bml_model(TObjDoorJung__resource_handle, 0));
         TParticleCtrl::begin_effect_render();
@@ -183,10 +183,10 @@ void TObjDoorJung::run_task() {
         this->update_door_switch_state();
     }
     if (this->m_d0 & 1) {
-        minimap_render_gate(arg0 + 0x38, 0xFF00FF00, (u16) this->rotation_y, 0, 0);
+        minimap_render_gate((u8 *)&this->position, 0xFF00FF00, (u16) this->rotation_y, 0, 0);
         return;
     }
-    minimap_render_gate(arg0 + 0x38, 0xFFFF0000, (u16) this->rotation_y, 0, 0);
+    minimap_render_gate((u8 *)&this->position, 0xFFFF0000, (u16) this->rotation_y, 0, 0);
 }
 
 void *__dt__12TObjDoorJungFv(void *arg0, s16 arg1) {

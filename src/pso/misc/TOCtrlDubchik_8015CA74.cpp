@@ -245,11 +245,11 @@ void TOCtrlDubchik::sub_8015CA74() {
     s32 state;
     s32 i;
     u8 *p;
-    spawn_particle_effect(arg0 + 0x38, 0x45);
-    spawn_particle_effect(arg0 + 0x38, 0x46);
+    spawn_particle_effect((u8 *)&this->position, 0x45);
+    spawn_particle_effect((u8 *)&this->position, 0x46);
     state = TOKeyMachine01::get_global_state();
     if (state >= 0x17 || state < 0x13) {
-        play_sound_effect(0x4003AD16, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x4003AD16, (u8 *)&this->position, 0, 0);
     }
     for (i = lbl_805D586C; i < lbl_805D586C + lbl_805D5870; i++) {
         p = get_player_data__10TObjPlayerFi(i);
@@ -408,7 +408,7 @@ void TOCtrlDubchik::run_task() {
         complete_and_destroy();
         break;
     }
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->m_2fc, (u8 *)&this->position);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     submit_cursor_candidate(arg0, -1);
 }

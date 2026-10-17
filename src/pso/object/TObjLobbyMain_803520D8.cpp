@@ -158,7 +158,7 @@ void TObjLobbyMain::update_emitter_positions() {
         ((TBoss4Type2 *)(*(void **)(arg0 + 0xD8)))->set_param_ptr(0x222);
         push_matrix();
         set_matrix_identity(0);
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         matrix_mult_vec(0, &v, &v);
         ((TNowLoading *)(*(void **)(arg0 + 0xD8)))->copy_pos(&v);
@@ -169,7 +169,7 @@ void TObjLobbyMain::update_emitter_positions() {
         ((TBoss4Type2 *)(*(void **)(arg0 + 0xDC)))->set_param_ptr(0x222);
         push_matrix();
         set_matrix_identity(0);
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         matrix_mult_vec(0, &v, &v);
         ((TNowLoading *)(*(void **)(arg0 + 0xDC)))->copy_pos(&v);
@@ -220,7 +220,7 @@ void TObjLobbyMain::render() {
     s32 r;
     if (lobby_main_lobby_type != NULL && ((Obj_8035240C *)arg0)->v8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         if (*(s32 *)&this->m_c8 != 2) {
             scale_matrix(0, this->m_d4, (1.0f), this->m_d4);

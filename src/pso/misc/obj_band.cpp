@@ -330,7 +330,7 @@ void TObjPlayer::draw_model_with_callback() {
         TObjEneRe7Berura::set_global_state((s32)((s32 *)(save_joint_matrix_callback)));
         temp_r3 = *(s32 *)&this->animationFlags;
         if ((temp_r3 & 4) && !(temp_r3 & 0x400)) {
-            draw_model_blend_motion(*(s32 *)&this->model, arg0 + 0xE4, *(f32 *)&this->m_c0);
+            draw_model_blend_motion(*(s32 *)&this->model, (u8 *)&this->unk_E4, *(f32 *)&this->m_c0);
         } else {
             draw_model_motion(*(s32 *)&this->model, *(s32 *)&this->unknownF8, *(f32 *)&this->m_c0);
         }
@@ -343,7 +343,7 @@ void TObjPlayer::render_world_model() {
     u8 *arg0 = (u8 *)this;
     TObjPlayer::set_global_flag();
     if (*(s32 *)&this->animationFlags & 4) {
-        draw_model_blend_motion(*(s32 *)&this->model, arg0 + 0xE4, *(f32 *)&this->m_c0);
+        draw_model_blend_motion(*(s32 *)&this->model, (u8 *)&this->unk_E4, *(f32 *)&this->m_c0);
     } else {
         TObjEneRe7Berura::set_global_state((s32)((s32 *)(chunk_model_node_callback)));
         draw_model_motion(*(s32 *)&this->model, *(s32 *)&this->unknownF8, *(f32 *)&this->m_c0);
@@ -358,7 +358,7 @@ void TObjEneRe7Berura::draw() {
     TObjPlayer::set_global_flag();
     setup_actor_draw_lighting();
     if (*(s32 *)&this->animationFlags & 4) {
-        draw_model_blend_motion(*(s32 *)&this->model, arg0 + 0xE4, this->m_c0);
+        draw_model_blend_motion(*(s32 *)&this->model, (u8 *)&this->unk_E4, this->m_c0);
     } else {
         TObjEneRe7Berura::set_global_state((s32)chunk_model_node_callback);
         draw_model_motion(*(s32 *)&this->model, *(s32 *)&this->unknownF8, this->m_c0);
@@ -374,7 +374,7 @@ void TObjNpcEnemy::draw_model() {
     TObjPlayer::set_global_flag();
     setup_actor_draw_lighting();
     if (*(s32 *)&this->animationFlags & 4) {
-        draw_ginja_model_tree__10TObjPlayerFPv(*(s32 *)&this->model, arg0 + 0xE4, this->m_c0);
+        draw_ginja_model_tree__10TObjPlayerFPv(*(s32 *)&this->model, (u8 *)&this->unk_E4, this->m_c0);
     } else {
         set_model_node_callback(model_node_callback);
         draw_ginja_model__10TObjPlayerFl(*(s32 *)&this->model, *(s32 *)&this->unknownF8, this->m_c0);

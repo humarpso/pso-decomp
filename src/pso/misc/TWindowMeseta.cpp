@@ -50,7 +50,7 @@ void TWindowMeseta::run_task() {
         ((TWindowSubStatusDisp *)(((TUnk_804CE018 *)arg0)->get_array_entry(1)))->set_animated_target(*(s32 *)&this->m_68, lbl_805DD200);
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
-    ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24);
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list((u8 *)&this->m_24);
 }
 
 void *__dt__13TWindowMesetaFv(void *arg0, s16 arg1) {

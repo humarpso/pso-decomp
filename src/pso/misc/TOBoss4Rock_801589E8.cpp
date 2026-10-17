@@ -325,7 +325,7 @@ void TOBoss4Tower::render() {
     u8 *arg0 = (u8 *)this;
     if (((VObj_80159400 *)arg0)->m8(*(f32 *)&this->unk_90, this->m_94) != 0) {
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         set_global_param__8TObjFishFl(this->texture_id);
         draw_ginja_object(*(s32 *)&this->model);

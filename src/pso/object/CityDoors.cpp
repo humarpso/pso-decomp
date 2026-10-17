@@ -194,7 +194,7 @@ void TObjCityDoor_Lobby::process_lobby_action_14() {
     if (((VObj_80181AE8 *)arg0)->m8(lbl_805DBBE0, lbl_805DBBE4) != 0) {
         TObjFish::set_global_param((*(s32 *)&city_common_texture_list));
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         get_city_common_model(0xE);
         draw_ginja_object();
@@ -489,7 +489,7 @@ void TObjCityDoor_Med::render() {
     if (((VObj_80181ff4 *)arg0)->m20() != 0) {
         TObjFish::set_global_param(city_common_texture_list);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         translate_matrix(0, lbl_805DBBE8[0], lbl_805DBBE8[0], lbl_805DBBF4);
         draw_ginja_model_with_motion(get_city_common_model(0x14), get_city_common_motion(0xB), this->m_b4);
@@ -737,7 +737,7 @@ void TObjCityDoor_Guild::render() {
     if (((VObj_8018257c_8018245C *)arg0)->m20() != 0) {
         TObjFish::set_global_param(city_common_texture_list);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         draw_ginja_model_with_motion(get_city_common_model(0x15), get_city_common_motion(0xC), this->m_b4);
         pop_matrix();
@@ -826,7 +826,7 @@ void TObjCityDoor_Shop::render() {
     if (((VObj_8018274C_8018262C *)arg0)->m20() != 0) {
         TObjFish::set_global_param(city_common_texture_list);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         draw_ginja_model_with_motion(*(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x42C)) + 0xB8), *(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x430)) + 0x54), this->m_b4);
         pop_matrix();

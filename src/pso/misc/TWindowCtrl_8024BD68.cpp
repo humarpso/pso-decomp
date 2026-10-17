@@ -35,7 +35,7 @@ void TWindowCtrl::update_window_visibility() {
             return;
         }
         ((TWindowChat *)(this->m_38))->open_input();
-        if ((((TWindowChat *)(this->m_38))->is_mode_bit4() != 0) && (chat_accept_submission(arg0 + 0x94) != 0)) {
+        if ((((TWindowChat *)(this->m_38))->is_mode_bit4() != 0) && (chat_accept_submission((u8 *)&this->m_94) != 0)) {
             TWindowChat__sub_80247E50(this->m_38);
         }
         if (((TWindowChat *)(this->m_38))->is_visible() != 0) {

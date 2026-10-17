@@ -72,7 +72,7 @@ void TKomorebi::render() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
 
-    if ((((VObj_80192174*)arg0)->m8(lbl_805DBE48, lbl_805DBE4C) != 0) && !(xz_distance_squared(arg0 + 0x38, camera_ctrl_instance + 0x178) < lbl_805DBE50)) {
+    if ((((VObj_80192174*)arg0)->m8(lbl_805DBE48, lbl_805DBE4C) != 0) && !(xz_distance_squared((u8 *)&this->position, camera_ctrl_instance + 0x178) < lbl_805DBE50)) {
         TParticleCtrl::begin_effect_render();
         if ((s32) actor_frame_tick != (s32) komorebi_last_uv_update_frame) {
             scroll_ginja_mesh_uvs(*(s32 *)((s8 *)(*(void * *)&this->model) + 4), 0, (s32) this->scale, 0, 1);
@@ -80,7 +80,7 @@ void TKomorebi::render() {
         }
         push_matrix();
         TObjFish::set_global_param(this->texture_id);
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_yxz(0, *(s32 *)&this->m_5c, this->rotation_y, this->rotation_z);
         temp_f1 = *(f32 *)&this->m_70;
         scale_matrix(0, temp_f1, this->target_scale, temp_f1);

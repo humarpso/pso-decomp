@@ -57,14 +57,14 @@ TAdDrawLineCtrl::~TAdDrawLineCtrl() {
 
 TAdDrawLineCtrl::TAdDrawLineCtrl(TObject *arg1, void *arg2, f32 farg0) : TObject(arg1) {
     void *o;
-    *(void **)((s8 *)this + 0x0) = TAdDrawLineCtrl__class_name;
-    *(void **)((s8 *)this + 0x1C) = arg2;
+    *(void * *)&this->m_name = TAdDrawLineCtrl__class_name;
+    this->line_data = arg2;
     o = __nw__7TObjectFUl(0x1C);
     if (o != NULL) {
         o = ((void * (*)(void *, int))__ct__7TObjectFP7TObject)(o, 0);
     }
-    *(void **)((s8 *)this + 0x20) = o;
-    *(u32 *)((s8 *)this + 0x28) = 1;
+    *(void * *)&this->child_root = o;
+    *(u32 *)&this->render_mode = 1;
     this->set_draw_line_param_all_nodes(farg0);
     fn_80019B08(this, -1);
 }

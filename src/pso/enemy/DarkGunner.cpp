@@ -846,8 +846,8 @@ void TObjPlayer::step_along_ground() {
     u8 *hit;
     u8 *q;
 
-    VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
-    VecCopy__FP3VecPC3Vec(&pos, arg0 + 0x2FC);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->m_44, (u8 *)&this->position);
+    VecCopy__FP3VecPC3Vec(&pos, (u8 *)&this->m_2fc);
     vel = *(Raw_800A10A0 *)(arg0 + 0x308);
     ((TObjGyaranzoMissile *)(&vel))->scale_velocity(lbl_805D9978 + ((f32 (*)(int))TObjPlayer__sub_800A3200)(0));
     ((void (*)(void *, void *))vec3_add_to)(&pos, &vel);
@@ -865,19 +865,19 @@ void TObjPlayer::step_along_ground() {
     }
     for (i = 0, ang = 0; i < 15; i++, ang += 0x1000) {
         if (i == 0) {
-            VecCopy__FP3VecPC3Vec(&dir, arg0 + 0x308);
+            VecCopy__FP3VecPC3Vec(&dir, (u8 *)&this->unk_308);
         } else {
             ((void (*)(void *))push_matrix_from)(identity_matrix);
             ((void (*)(int, s32))rotate_matrix_y)(0, sign * ang);
-            rotate_vector_by_matrix(0, arg0 + 0x308, &dir);
+            rotate_vector_by_matrix(0, (u8 *)&this->unk_308, &dir);
             ((void (*)(void))pop_matrix)();
         }
-        VecCopy__FP3VecPC3Vec(&v, arg0 + 0x38);
+        VecCopy__FP3VecPC3Vec(&v, (u8 *)&this->position);
         ((void (*)(void *, void *))vec3_add_to)(&v, &dir);
         if (project_actor_to_ground(arg0, &v, 0) == 1) {
-            VecCopy__FP3VecPC3Vec(arg0 + 0x38, &v);
-            VecCopy__FP3VecPC3Vec(arg0 + 0x308, arg0 + 0x38);
-            ((void (*)(void *, void *))subtract_vector)(arg0 + 0x308, arg0 + 0x44);
+            VecCopy__FP3VecPC3Vec((u8 *)&this->position, &v);
+            VecCopy__FP3VecPC3Vec((u8 *)&this->unk_308, (u8 *)&this->position);
+            ((void (*)(void *, void *))subtract_vector)(arg0 + 0x308, (u8 *)&this->m_44);
             return;
         }
     }
@@ -949,7 +949,7 @@ s32 TObjPlayer::update_hide_sequence() {
         *(s32 *)&this->unk_388 = (s32) (*(s32 *)&this->unk_388 & 0xFF7FFFFF);
         break;
     }
-    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
+    minimap_render_dot((u8 *)&this->position, -0x5DB4, 1, 0);
     submit_cursor_candidate(arg0, -1);
 }
 

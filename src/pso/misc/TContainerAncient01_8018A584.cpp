@@ -505,9 +505,9 @@ void TContainerAncient01::init_positions() {
     *(f32 *)&this->unk_340 = (f32) (lbl_805DBD40 + (this->target_scale - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
     this->m_344 = (f32) (TContainerAncient01__data_805DBD44 + (*(f32 *)&this->m_70 - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
     *(s32 *)((s8 *)arg0 + 0x370) = (s32) (*(s32 *)&this->m_8c + 4);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x348, arg0 + 0x38);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->unk_348, (u8 *)&this->position);
     this->m_34c = (f32) (this->m_34c + *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4));
-    VecCopy__FP3VecPC3Vec(arg0 + 0x354, arg0 + 0x348);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->m_354, (u8 *)&this->unk_348);
     *(f32 *)&this->unk_358 = (f32) ((lbl_805DBD48 * *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4)) + *(f32 *)&this->unk_358);
     *(s32 *)&this->m_360 = 0;
     *(f32 *)&this->unk_364 = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD10);
@@ -589,10 +589,10 @@ void TContainerAncient01R::render() {
     if (((VObj8018AD04_8018A584 *) arg0)->m8(TContainerAncient01__data_805DBD3C, lbl_805DBD4C) != 0) {
         TObjFish::set_global_param(this->texture_id);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         if ((s32) this->m_360 != 0) {
-            scale_current_matrix(arg0 + 0x364);
+            scale_current_matrix((u8 *)&this->unk_364);
         }
         if (TObjPlayer::check_demo_mode() == 1) {
             draw_ginja_object(*(s32 *)&this->model);
@@ -832,9 +832,9 @@ void TContainerAncient01::init_state_vectors() {
     this->m_33c = (f32) (lbl_805DBD40 + (this->target_scale - TContainerAncient01__data_805DBD10));
     *(f32 *)&this->unk_340 = (f32) (TContainerAncient01__data_805DBD44 + (*(f32 *)&this->m_70 - TContainerAncient01__data_805DBD10));
     *(s32 *)&this->unk_36C = (s32) (*(s32 *)&this->m_8c + 4);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x344, arg0 + 0x38);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->m_344, (u8 *)&this->position);
     *(f32 *)&this->unk_348 = (f32) (*(f32 *)&this->unk_348 + *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4));
-    VecCopy__FP3VecPC3Vec(arg0 + 0x350, arg0 + 0x344);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->unk_350, (u8 *)&this->m_344);
     this->m_354 = (f32) ((lbl_805DBD48 * *(f32 *)((s8 *)(&TContainerAncient01__collision_body_parts.value) + 4)) + this->m_354);
     *(s32 *)&this->m_35c = 0;
     *(f32 *)&this->m_360 = (f32) TContainerAncient01__data_805DBD10;

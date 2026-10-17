@@ -53,7 +53,7 @@ void TObjDFDemo5::update_particle_emitters() {
                 ((TBoss4Type2 *)temp_r3_5)->set_flags(0x40U);
             }
         } else {
-            ((TNowLoading *)temp_r3_4)->copy_pos(arg0 + 0x10C);
+            ((TNowLoading *)temp_r3_4)->copy_pos((u8 *)&this->m_10c);
         }
     }
     particle_emitter = (u32 *)((u8 *)(arg0 + 0x9C));

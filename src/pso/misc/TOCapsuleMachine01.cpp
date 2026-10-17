@@ -96,7 +96,7 @@ void TOCapsuleMachine01::render() {
     u8 *arg0 = (u8 *)this;
     if (((VObj_8015A5E8 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) {
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
         draw_ginja_object(*(s32 *)&this->model);

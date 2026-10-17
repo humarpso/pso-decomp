@@ -77,7 +77,7 @@ void TOBind::render() {
     u8 *arg0 = (u8 *)this;
     if (((BindObj_801586B8*)arg0)->m8(*(f32 *)&this->unk_D0, this->m_d4) != 0) {
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
         draw_ginja_object(*(s32 *)&this->model);

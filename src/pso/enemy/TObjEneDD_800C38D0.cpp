@@ -24,7 +24,7 @@ void TObjEneDD::handle_state(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 1;
+        this->m_b8 = 1;
         this->vfunc_95();
         ((TObjEneRe2Flower *)arg0)->clear_child_flags();
         *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) | 8);

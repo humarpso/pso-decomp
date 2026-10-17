@@ -1163,16 +1163,16 @@ s16 TObjPlayer::clamp_field_32E() {
     s16 temp_r0;
     s16 temp_r4;
 
-    temp_r4 = *(s16 *)((s8 *)this + 0x32E);
+    temp_r4 = *(s16 *)&this->m_32e;
     if (temp_r4 < 0) {
-        *(s16 *)((s8 *)this + 0x32E) = 0;
+        *(s16 *)&this->m_32e = 0;
     } else {
         temp_r0 = *(s16 *)&this->m_2ba;
         if (temp_r0 < temp_r4) {
-            *(s16 *)((s8 *)this + 0x32E) = temp_r0;
+            *(s16 *)&this->m_32e = temp_r0;
         }
     }
-    return *(s16 *)((s8 *)this + 0x32E);
+    return *(s16 *)&this->m_32e;
 }
 
 s16 TUnk_804806E8::clamp_value() {
@@ -4421,7 +4421,7 @@ void TObjPlayer::calc_attach_pos() {
         this->m_304 = (f32) this->position[2];
         return;
     }
-    ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x2FC, arg0 + 0x38);
+    ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x2FC, (u8 *)&this->position);
 }
 #pragma pop
 
@@ -4797,7 +4797,7 @@ s16 get_attack_params_atp_max(void* p) { return *(s16*)((char*)p + 0x2); }
 
 void TObjPlayer__sub_8001951C(void* p) { *(s16*)((char*)p + 0x11c) = 0; }
 
-void TUnk_804806E8::add_flags_2e4(u32 v) { (*(u32 *)((u8 *)this + 0x2E4)) |= v; }
+void TUnk_804806E8::add_flags_2e4(u32 v) { (this->m_2e4) |= v; }
 
 void*TObjPlayer::init_192dc_return_self(void* p) { ((int (*)(void*))reset_status_effect_row)(p); return p; }
 

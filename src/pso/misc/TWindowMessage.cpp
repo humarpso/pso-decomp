@@ -30,8 +30,8 @@ void render__14TWindowMessageFv(s32 arg0) {
 
 void TWindowMessage::draw() {
     u8 *arg0 = (u8 *)this;
-    if (!(*(s32 *)((s8 *)arg0 + 0x2C) & 2)) {
-        *(s32 *)((s8 *)arg0 + 0x5C) = 0x01000000;
+    if (!(*(s32 *)&this->m_2c & 2)) {
+        *(s32 *)&this->m_5c = 0x01000000;
     }
     ((TWindowMessage *)arg0)->update_scroll();
     ((TWindowMessage *)arg0)->retire_scrolled_lines();
@@ -39,7 +39,7 @@ void TWindowMessage::draw() {
     ((TWindowMessage *)arg0)->advance_reveal_cursor();
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TUnk_804CE018 *)arg0)->update_fade();
-    ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24);
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list((u8 *)&this->m_24);
 }
 
 void *__dt__14TWindowMessageFv(void *arg0, s16 arg1) {

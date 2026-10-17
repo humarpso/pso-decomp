@@ -147,7 +147,7 @@ void TObjPlayer::create_left_hand_ptcl(void *arg1) {
     if (o != NULL) {
         o = TPlyPtclObjectLeftHand__ct(o, arg1);
     }
-    *(void **)((s8 *)this + 0x0) = o;
+    *(void * *)&this->m_name = o;
 }
 
 s32 TObjPlayer::dt_follow_particle_ctrl(s32 arg0, s16 arg1) {

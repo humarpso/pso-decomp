@@ -159,25 +159,25 @@ void TODoorAncient08::play_open_sound() {
     if (!(*(s32 *)(arg0 + 0xD0) & 1)) {
         switch ((u32)TOKeyMachine01::get_global_state()) {
         case 0:
-            play_sound_effect(0x42A04, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x42A04, (u8 *)&this->position, 0, 0);
             break;
         case 1:
         case 2:
-            play_sound_effect(0x4BC07, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4BC07, (u8 *)&this->position, 0, 0);
             break;
         case 3:
         case 4:
         case 5:
-            play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x42807, (u8 *)&this->position, 0, 0);
             break;
         case 6:
         case 7:
-            play_sound_effect(0x4004BC00, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4004BC00, (u8 *)&this->position, 0, 0);
             break;
         case 8:
         case 9:
         case 10:
-            play_sound_effect(0x4004BC07, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4004BC07, (u8 *)&this->position, 0, 0);
             break;
         case 15:
             break;
@@ -298,7 +298,7 @@ void TODoorAncient08::render() {
         case 1:
         case 3:
             push_matrix();
-            post_translate_matrix(arg0 + 0x38);
+            post_translate_matrix((u8 *)&this->position);
             rotate_matrix_y(0, this->rotation_y);
             TObjFish::set_global_param(this->texture_id);
             draw_ginja_model_with_motion(*(s32 *)&this->model, *(s32 *)&this->m_bc, this->m_b0);
@@ -306,7 +306,7 @@ void TODoorAncient08::render() {
             return;
         case 2:
             push_matrix();
-            post_translate_matrix(arg0 + 0x38);
+            post_translate_matrix((u8 *)&this->position);
             rotate_matrix_y(0, this->rotation_y);
             TObjFish::set_global_param(this->texture_id);
             draw_ginja_model_with_motion(*(s32 *)&this->model, *(s32 *)&this->m_bc, *(f32 *)&this->m_b4 - lbl_805DB474);
@@ -337,16 +337,16 @@ void TODoorAncient08::vfunc_17() {
         case 3:
         case 4:
         case 5:
-            play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x42807, (u8 *)&this->position, 0, 0);
             break;
         case 6:
         case 7:
-            play_sound_effect(0x4004BC01, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4004BC01, (u8 *)&this->position, 0, 0);
             break;
         case 8:
         case 9:
         case 10:
-            play_sound_effect(0x4004B708, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4004B708, (u8 *)&this->position, 0, 0);
             break;
         case 0:
         case 15:
@@ -371,16 +371,16 @@ void TODoorAncient08::play_proximity_sound() {
         case 3:
         case 4:
         case 5:
-            play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x42807, (u8 *)&this->position, 0, 0);
             break;
         case 6:
         case 7:
-            play_sound_effect(0x4004BC01, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4004BC01, (u8 *)&this->position, 0, 0);
             break;
         case 8:
         case 9:
         case 10:
-            play_sound_effect(0x4004B708, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4004B708, (u8 *)&this->position, 0, 0);
             break;
         case 0:
         case 15:

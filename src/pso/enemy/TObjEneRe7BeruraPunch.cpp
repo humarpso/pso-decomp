@@ -142,7 +142,7 @@ void TObjEneRe7BeruraPunch::run_task() {
         s = -sin_table_lookup(this->rotation_y);
         c = -cos_table_lookup(this->rotation_y);
         if (*(void * *)&this->m_d0 == NULL) {
-            *(void * *)&this->m_d0 = create_particle_emitter(arg0 + 0x38, 0xDD);
+            *(void * *)&this->m_d0 = create_particle_emitter((u8 *)&this->position, 0xDD);
             if (*(void * *)&this->m_d0 != NULL) {
                 ((TBoss4Type2 *)(*(void * *)&this->m_d0))->set_flags(2);
                 ((TParticleCtrl *)(*(void * *)&this->m_d0))->enable();
@@ -151,12 +151,12 @@ void TObjEneRe7BeruraPunch::run_task() {
             v.x = lbl_805D97BC * s;
             v.y = lbl_805D97B0;
             v.z = lbl_805D97BC * c;
-            vec3_add_to(&v, arg0 + 0xDC);
+            vec3_add_to(&v, (u8 *)&this->m_dc);
             ((TNowLoading *)(*(void * *)&this->m_d0))->copy_pos(&v);
             ((TBoss4Type2 *)(*(void * *)&this->m_d0))->copy_vec3(&ang);
         }
         if (*(void * *)&this->m_d4 == NULL) {
-            *(void * *)&this->m_d4 = create_particle_emitter(arg0 + 0x38, 0x150);
+            *(void * *)&this->m_d4 = create_particle_emitter((u8 *)&this->position, 0x150);
             if (*(void * *)&this->m_d4 != NULL) {
                 ((TBoss4Type2 *)(*(void * *)&this->m_d4))->set_flags(2);
                 ((TParticleCtrl *)(*(void * *)&this->m_d4))->enable();
@@ -165,7 +165,7 @@ void TObjEneRe7BeruraPunch::run_task() {
             v.x = lbl_805D97C0 * s;
             v.y = lbl_805D97C4;
             v.z = lbl_805D97C0 * c;
-            vec3_add_to(&v, arg0 + 0xDC);
+            vec3_add_to(&v, (u8 *)&this->m_dc);
             ((TNowLoading *)(*(void * *)&this->m_d4))->copy_pos(&v);
             ((TBoss4Type2 *)(*(void * *)&this->m_d4))->copy_vec3(&ang);
         }

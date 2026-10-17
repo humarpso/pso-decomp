@@ -43,7 +43,7 @@ s32 set_global_param__8TObjFishFl();
 
 void TButterfly::init_motion() {
     u8 *arg0 = (u8 *)this;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x90, arg0 + 0x38);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->unk_90, (u8 *)&this->position);
     *(f32 *)&this->m_9c = (f32) (0.0f);
     *(f32 *)&this->unk_A0 = (f32) (0.0f);
     this->m_a4 = (f32) (0.0f);

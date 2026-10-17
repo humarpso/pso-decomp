@@ -85,7 +85,7 @@ void TItemEffArmor::run_task() {
     *(f32 *)((s8 *)arg0 + 0x30) = (f32) (*(f32 *)((s8 *)arg0 + 0x30) + ((this->m_24 * this->m_58) / lbl_805DAAF0));
     temp_r3 = (u8 *)(*(u8 * *)&this->m_1c);
     if (temp_r3 != NULL) {
-        ((TNowLoading *)temp_r3)->copy_pos(arg0 + 0x2C);
+        ((TNowLoading *)temp_r3)->copy_pos((u8 *)&this->m_2c);
     }
     *(f32 *)&this->m_38 = (f32) (TItemEffArmor__data_805DAAEC - (this->m_24 / lbl_805DAAF0));
     temp_r3_2 = (u8 *)(*(u8 * *)&this->m_6c);

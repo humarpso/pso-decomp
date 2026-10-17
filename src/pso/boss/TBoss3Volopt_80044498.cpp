@@ -1133,7 +1133,7 @@ void TBoss3Volopt::update_death_sequence() {
         ((s32 (*)(int, f32))activate_camera_mode)(5, TBoss3Volopt__data_805D87E4);
         ((TCameraCtrl *)(&cam))->cache_target_and_forward(0x160A);
         this->rotation_y = 0;
-        set_scripted_camera_pose(boss3_volopt_spawn_pos, boss3_volopt_spawn_pos, arg0 + 0x5C);
+        set_scripted_camera_pose(boss3_volopt_spawn_pos, boss3_volopt_spawn_pos, (u8 *)&this->m_5c);
         TObjPlayer::freeze_all_players();
         TWindowCtrl::init_all_slots();
         *(s32 *)&this->state = 2;
@@ -1774,7 +1774,7 @@ void TUnk_80484610::run_task() {
             ((TObjEnemy *)arg0)->update_prev_position();
             copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0));
             submit_cursor_candidate((void *) (arg0), (int) (-1));
-            minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
+            minimap_render_dot((u8 *)&this->position, -0x5DB4, 1, 0);
             update_obstruction_fade((void *) (arg0 + 0x490));
             this->clear_all_status_effects();
         }

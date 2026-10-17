@@ -18,7 +18,7 @@ void TUnk_804A4D70::update_weapon() {
         if (var_r4 > 0x1555) {
             var_r4 = 0x1555;
         }
-        advance_angle_wrap(arg0 + 0x1F8, var_r4 + 0x1555);
+        advance_angle_wrap((u8 *)&this->unk_1F8, var_r4 + 0x1555);
     }
 }
 

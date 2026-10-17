@@ -567,7 +567,7 @@ void TBoss6Type1::rotate_around_center(s32 num, s32 den) {
     }
     {
     {
-        VecCopy__FP3VecPC3Vec(&v, self + 0x38);
+        VecCopy__FP3VecPC3Vec(&v, (u8 *)&this->position);
         v.y = TBoss6Type1__data_805DE2D0;
         dist = ((f32 (*)(void *))vector_length)(&v);
         angle = (s32)(TBoss6Type1__data_80471038 * atan2_float(v.x, v.z));
@@ -1625,7 +1625,7 @@ void TBoss6Type1::update_part_positions() {
 
 void TBoss6Type1::update_position() {
     u8 *arg0 = (u8 *)this;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->m_2fc, (u8 *)&this->position);
     if ((s32) this->m_438 != 0) {
         this->m_300 = (f32) (this->m_300 - lbl_805DE3A4);
         return;

@@ -10,7 +10,7 @@ void TObjPlayer::set_tech_level(s16 arg1) {
     if ((var_r4 < 0) || (var_r4 > 0xA)) {
         var_r4 = 0;
     }
-    *(s16 *)((s8 *)this + 6) = var_r4;
+    *(s16 *)&this->m_id = var_r4;
 }
 
 }

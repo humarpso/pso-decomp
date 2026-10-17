@@ -502,14 +502,14 @@ void *__dt__13TUnk_804F3A20Fv(void *arg0, s16 arg1) {
 }
 TUnk_804F3A20::TUnk_804F3A20(TObject *arg1) : TObject(arg1) {
     *(s32 *)((s8 *)this + 0x1C) = -1;
-    *(s32 *)((s8 *)this + 0x20) = 1;
+    this->m_20 = 1;
     *(s32 *)((s8 *)this + 0x24) = current_language;
-    *(s32 *)((s8 *)this + 0x30) = 0;
+    this->m_30 = 0;
     *(s32 *)((s8 *)this + 0x34) = 0;
-    *(s32 *)((s8 *)this + 0x28) = 0;
+    this->m_28 = 0;
     *(s32 *)((s8 *)this + 0x2C) = 0;
-    *(s32 *)((s8 *)this + 0x20) = ((s32 (*)(void *))check_system_file_status__23TAdSinglePlyChrSelectGCFv)(this);
-    if (*(s32 *)((s8 *)this + 0x20) & 1) {
+    this->m_20 = ((s32 (*)(void *))check_system_file_status__23TAdSinglePlyChrSelectGCFv)(this);
+    if (this->m_20 & 1) {
         ((TAdMultiChgGameModeGC *)this)->set_state(0);
     } else {
         ((TAdMultiChgGameModeGC *)this)->set_state(1);

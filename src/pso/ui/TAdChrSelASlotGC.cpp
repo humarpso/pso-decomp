@@ -755,41 +755,41 @@ TAdChrSelASlotGC::~TAdChrSelASlotGC() {
         queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x54));
         *(u32 *)((s8 *)this + 0x54) = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)this + 0x58) != 0U) {
+    if ((u32) this->m_58 != 0U) {
         queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x58));
-        *(u32 *)((s8 *)this + 0x58) = 0U;
+        this->m_58 = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x5C) != 0U) {
         queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x5C));
         *(u32 *)((s8 *)this + 0x5C) = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)this + 0x60) != 0U) {
+    if ((u32) this->m_60 != 0U) {
         queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x60));
-        *(u32 *)((s8 *)this + 0x60) = 0U;
+        this->m_60 = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x64) != 0U) {
         queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x64));
         *(u32 *)((s8 *)this + 0x64) = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)this + 0x68) != 0U) {
+    if ((u32) this->m_68 != 0U) {
         queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x68));
-        *(u32 *)((s8 *)this + 0x68) = 0U;
+        this->m_68 = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x6C) != 0U) {
         queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x6C));
         *(u32 *)((s8 *)this + 0x6C) = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)this + 0x70) != 0U) {
+    if ((u32) this->m_70 != 0U) {
         queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x70));
-        *(u32 *)((s8 *)this + 0x70) = 0U;
+        this->m_70 = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x74) != 0U) {
         queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x74));
         *(u32 *)((s8 *)this + 0x74) = 0U;
     }
-    if ((u32) *(u32 *)((s8 *)this + 0x78) != 0U) {
+    if ((u32) this->m_78 != 0U) {
         queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x78));
-        *(u32 *)((s8 *)this + 0x78) = 0U;
+        this->m_78 = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x7C) != 0U) {
         queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x7C));
@@ -801,7 +801,7 @@ TAdChrSelASlotGC::~TAdChrSelASlotGC() {
 }
 extern void *TAdChrSelASlotGC__name;
 TAdChrSelASlotGC::TAdChrSelASlotGC(TObject *arg1, void *arg2) : TObject(arg1) {
-    *(void **)((s8 *)this + 0x0) = TAdChrSelASlotGC__name;
+    *(void * *)&this->m_name = TAdChrSelASlotGC__name;
     this->init((s32)(arg2));
     this->create_children((s32)(arg2));
 }

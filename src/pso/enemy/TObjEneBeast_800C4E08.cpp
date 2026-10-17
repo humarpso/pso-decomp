@@ -1334,7 +1334,7 @@ void TUnk_80493450::beast_update_approach() {
         if (*(u32 *)&this->target != 0U) {
             if (test_elt_flag__13TUnk_80493450Fll(arg0, 0, 0x300000) != 0) {
                 if ((f32) (this->m_38c)++ < lbl_805DA054) {
-                    VecCopy__FP3VecPC3Vec(&sp14, arg0 + 0x50);
+                    VecCopy__FP3VecPC3Vec(&sp14, (u8 *)&this->m_50);
                 } else {
                     VecCopy__FP3VecPC3Vec(&sp14, (void *) (*(u32 *)&this->target + 0x2FC));
                 }
@@ -1350,7 +1350,7 @@ void TUnk_80493450::beast_update_approach() {
                 enemy_move_toward(arg0, *(s32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 8), &sp8, 0, *(f32 *)&this->unk_394);
             }
             if (this->targetId == 0xFFFF) {
-                if (horizontal_distance_squared(arg0 + 0x29C, arg0 + 0x38) < (r = *(f32 *)&this->unk_394 + *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0xC)) * r ||
+                if (horizontal_distance_squared((u8 *)&this->m_29c, (u8 *)&this->position) < (r = *(f32 *)&this->unk_394 + *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0xC)) * r ||
                     lbl_805DA044 < (f32) (*(s32 *)&this->m_2ac)++) {
                     *(u32 *)&this->target = 0U;
                     *(s32 *)&this->m_2ac = 0;
@@ -1360,7 +1360,7 @@ void TUnk_80493450::beast_update_approach() {
         break;
     }
     ((TObjPlayer *)arg0)->update_collisions();
-    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
+    minimap_render_dot((u8 *)&this->position, -0x5DB4, 1, 0);
     obj_clearFlags30(arg0, 0x200000);
 }
 
@@ -1484,14 +1484,14 @@ void TUnk_80493450::beast_idle_update() {
             *(s32 *)((s8 *)other + 0x37C) = *(s32 *)((s8 *)other + 0x37C) + 1;
         }
     }
-    dist = horizontal_distance_squared(arg0 + 0x38, arg0 + 0x50);
+    dist = horizontal_distance_squared((u8 *)&this->position, (u8 *)&this->m_50);
     range = *(f32 *)((s8 *)arg0 + 0x358) + (*(f32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 4) + *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0xC));
     if (range * range < dist) {
-        VecCopy__FP3VecPC3Vec(arg0 + 0x29C, arg0 + 0x50);
-        VecCopy__FP3VecPC3Vec(arg0 + 0x290, arg0 + 0x2FC);
-        VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
-        VecCopy__FP3VecPC3Vec(&lbl_8050BEE0, arg0 + 0x50);
-        subtract_vector(&lbl_8050BEE0, arg0 + 0x38);
+        VecCopy__FP3VecPC3Vec((u8 *)&this->m_29c, (u8 *)&this->m_50);
+        VecCopy__FP3VecPC3Vec((u8 *)&this->m_290, (u8 *)&this->m_2fc);
+        VecCopy__FP3VecPC3Vec((u8 *)&this->m_44, (u8 *)&this->position);
+        VecCopy__FP3VecPC3Vec(&lbl_8050BEE0, (u8 *)&this->m_50);
+        subtract_vector(&lbl_8050BEE0, (u8 *)&this->position);
         angle = lbl_8043BC88 * atan2_float(lbl_8050BEE0.x, lbl_8050BEE0.z);
         lbl_8050BF00.x = lbl_8050BF00.y = lbl_805DA034;
         lbl_8050BF00.z = *(f32 *)&this->unk_394;
@@ -1499,10 +1499,10 @@ void TUnk_80493450::beast_idle_update() {
         rotate_matrix_y(0, angle);
         rotate_vector_by_matrix(0, &lbl_8050BF00, &lbl_8050BF00);
         pop_matrices(1);
-        vec3_add_to(&lbl_8050BF00, arg0 + 0x38);
+        vec3_add_to(&lbl_8050BF00, (u8 *)&this->position);
         if (project_actor_to_ground(arg0, &lbl_8050BF00, 0) == 1) {
             this->m_b8 = 2;
-            VecCopy__FP3VecPC3Vec(arg0 + 0x38, &lbl_8050BF00);
+            VecCopy__FP3VecPC3Vec((u8 *)&this->position, &lbl_8050BF00);
             this->rotation_y = approach_angle_limited(this->rotation_y, angle, *(s32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 8));
             goto end;
         }
@@ -1518,10 +1518,10 @@ void TUnk_80493450::beast_idle_update() {
         rotate_matrix_y(0, angle);
         rotate_vector_by_matrix(0, &lbl_8050BF00, &lbl_8050BF00);
         pop_matrices(1);
-        vec3_add_to(&lbl_8050BF00, arg0 + 0x38);
+        vec3_add_to(&lbl_8050BF00, (u8 *)&this->position);
         if (project_actor_to_ground(arg0, &lbl_8050BF00, 0) == 1) {
             this->m_b8 = 2;
-            VecCopy__FP3VecPC3Vec(arg0 + 0x38, &lbl_8050BF00);
+            VecCopy__FP3VecPC3Vec((u8 *)&this->position, &lbl_8050BF00);
             this->rotation_y = approach_angle_limited(this->rotation_y, angle, *(s32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 8));
             goto end;
         }
@@ -1537,10 +1537,10 @@ void TUnk_80493450::beast_idle_update() {
         rotate_matrix_y(0, angle2);
         rotate_vector_by_matrix(0, &lbl_8050BF00, &lbl_8050BF00);
         pop_matrices(1);
-        vec3_add_to(&lbl_8050BF00, arg0 + 0x38);
+        vec3_add_to(&lbl_8050BF00, (u8 *)&this->position);
         if (project_actor_to_ground(arg0, &lbl_8050BF00, 0) == 1) {
             this->m_b8 = 2;
-            VecCopy__FP3VecPC3Vec(arg0 + 0x38, &lbl_8050BF00);
+            VecCopy__FP3VecPC3Vec((u8 *)&this->position, &lbl_8050BF00);
             this->rotation_y = approach_angle_limited(this->rotation_y, angle2, *(s32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 8));
         } else {
             this->m_b8 = 2;
@@ -1556,7 +1556,7 @@ end:
         apply_actor_gravity(arg0, 0, lbl_805DA034);
     }
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
+    minimap_render_dot((u8 *)&this->position, -0x5DB4, 1, 0);
     obj_clearFlags30(arg0, 0x04240000);
     ((TObjPlayer *)arg0)->clear_player_status_flag((s32)((void *)0), (u32)((void *)0x0A000000));
 }

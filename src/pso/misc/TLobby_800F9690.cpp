@@ -28,8 +28,8 @@ u32 TLobby::write_packet_header(s32 arg1, s32 arg2, u32 arg3) {
     }
     __ct__14SubtractiveRngFv((s32 *)&sp8);
     subtractive_rng_seed((s32 *)&sp8, v4);
-    subtractive_rng_xor_buffer((s32 *)&sp8, arg0 + 8, arg1 - 8);
-    prs_decompress_buffer(arg0 + 8, arg2);
+    subtractive_rng_xor_buffer((s32 *)&sp8, (u8 *)&this->m_prev, arg1 - 8);
+    prs_decompress_buffer((u8 *)&this->m_prev, arg2);
     return v0;
 }
 
@@ -47,8 +47,8 @@ s32 TLobby::alloc_download_quest(s32 arg1, s32 *arg2) {
     }
     __ct__14SubtractiveRngFv((s32 *)&sp8);
     subtractive_rng_seed((s32 *)&sp8, v4);
-    subtractive_rng_xor_buffer((s32 *)&sp8, arg0 + 8, arg1 - 8);
-    prs_decompress_buffer(arg0 + 8, ret);
+    subtractive_rng_xor_buffer((s32 *)&sp8, (u8 *)&this->m_prev, arg1 - 8);
+    prs_decompress_buffer((u8 *)&this->m_prev, ret);
     if (arg2 != NULL) {
         *arg2 = v0;
     }

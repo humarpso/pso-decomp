@@ -270,16 +270,16 @@ extern void *TWindowSubShortCut__class_name;
 
 }
 TWindowSubShortCut::TWindowSubShortCut(TObject *arg1, void *arg2) : TObject(arg1) {
-    *(void **)((s8 *)this + 0x0) = TWindowSubShortCut__class_name;
+    *(void * *)&this->m_name = TWindowSubShortCut__class_name;
     *(void **)((s8 *)this + 0x28) = arg1;
     *(void **)((s8 *)this + 0x20) = arg2;
-    *(u32 *)((s8 *)this + 0x2C) = 0;
-    *(u32 *)((s8 *)this + 0x30) = 0;
-    *(u32 *)((s8 *)this + 0x34) = 0;
-    *(u32 *)((s8 *)this + 0x38) = 0;
-    *(u32 *)((s8 *)this + 0x3C) = 0;
-    *(u32 *)((s8 *)this + 0x24) = 0;
-    *(u8 *)((s8 *)this + 0x1C) = 0;
+    this->m_2c = 0;
+    this->m_30 = 0;
+    this->m_34 = 0;
+    this->m_38 = 0;
+    this->m_3c = 0;
+    this->m_24 = 0;
+    this->m_1c = 0;
 }
 extern "C" {
 

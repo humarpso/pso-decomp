@@ -456,8 +456,8 @@ TObjChallenge4PRetry::~TObjChallenge4PRetry() {
 }
 TObjChallenge4PRetry::TObjChallenge4PRetry(TObject *parent) : TObject(parent) {
     *(s32 *)((s8 *)this + 0) = (s32) TObjChallenge4PRetry__class_name;
-    *(s32 *)((s8 *)this + 0x20) = ((s32 (*)(void *))TLobby__sub_8029A16C)(this);
-    *(s32 *)((s8 *)this + 0x24) = 0;
+    this->m_20 = ((s32 (*)(void *))TLobby__sub_8029A16C)(this);
+    this->m_24 = 0;
     *(s32 *)((s8 *)this + 0x2C) = 0;
     *(s32 *)((s8 *)this + 0x30) = 0;
     *(s32 *)((s8 *)this + 0x1C) = 0;

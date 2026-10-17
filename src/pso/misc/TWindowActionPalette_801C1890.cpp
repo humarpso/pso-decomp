@@ -92,7 +92,7 @@ void TObjPlayer::byteswap_set_position_cmd() {
 void TObjPlayer::init_set_position_packet() {
     u8 *arg0 = (u8 *)this;
     *(s16 *)((s8 *)arg0 + 4) = 0;
-    *(s16 *)((s8 *)arg0 + 6) = 0;
+    *(s16 *)&this->m_id = 0;
     *(s16 *)((s8 *)arg0 + 8) = -1;
     *(s16 *)((s8 *)arg0 + 0xA) = -1;
     *(s8 *)((s8 *)arg0 + 0) = 0x3F;

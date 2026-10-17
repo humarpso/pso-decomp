@@ -37,7 +37,7 @@ void *__nw__7TObjectFUl(int);
     extern int TCameraCtrl__saved_projection_angle;
     extern int scripted_camera_projection_angle;
     extern const float lbl_805D9028;
-void*TUnk_80488B68::sub_8006C5D8() { __ct__13TUnk_80488A28Fv(); *(int*)((char*)this + 0x18) = (int)lbl_80488B68; *(int *)&this->m_38 = 0; scripted_camera_projection_angle = 0; TCameraCtrl__saved_projection_angle = 0; *(unsigned char*)((char*)this + 0x99) = 0; this->m_98 = 0; this->m_9a = 0; *(float*)((char*)this + 0x9c) = lbl_805D9028; this->m_a0 = lbl_805D9028; *(float*)((char*)this + 0x6c) = lbl_805D9028; this->m_70 = lbl_805D9028; *(float*)((char*)this + 0x74) = lbl_805D9028; this->m_78 = lbl_805D9028; *(float*)((char*)this + 0x7c) = lbl_805D9028; this->m_80 = lbl_805D9028; *(int*)((char*)this + 0x84) = 0; this->m_88 = 0; *(int*)((char*)this + 0x8c) = 0; this->m_90 = 0; *(int*)((char*)this + 0x94) = 0; return this; }
+void*TUnk_80488B68::sub_8006C5D8() { __ct__13TUnk_80488A28Fv(); *(int*)((char*)this + 0x18) = (int)lbl_80488B68; *(int *)&this->m_38 = 0; scripted_camera_projection_angle = 0; TCameraCtrl__saved_projection_angle = 0; *(unsigned char *)&this->unk_99 = 0; this->m_98 = 0; this->m_9a = 0; *(float*)((char*)this + 0x9c) = lbl_805D9028; this->m_a0 = lbl_805D9028; *(float*)((char*)this + 0x6c) = lbl_805D9028; this->m_70 = lbl_805D9028; *(float*)((char*)this + 0x74) = lbl_805D9028; this->m_78 = lbl_805D9028; *(float*)((char*)this + 0x7c) = lbl_805D9028; this->m_80 = lbl_805D9028; *(int*)((char*)this + 0x84) = 0; this->m_88 = 0; *(int*)((char*)this + 0x8c) = 0; this->m_90 = 0; *(int*)((char*)this + 0x94) = 0; return this; }
 
 void TCameraCtrl::free_entries() {
     s32 i;

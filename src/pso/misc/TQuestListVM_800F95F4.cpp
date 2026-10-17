@@ -25,7 +25,7 @@ u32 TQuestListVM::decrypt_quest_data(s32 arg1, s32 arg2, u32 arg3) {
     __ct__14SubtractiveRngFv(&sp10[0]);
     subtractive_rng_seed(&sp10[0], sp8);
     ((TAdSinglePlyChrSelectGC *)(&sp10[0]))->crypt_data_be((u32 *)(arg0 + 8), (s32)(arg1 - 8));
-    prs_decompress_buffer(arg0 + 8, arg2);
+    prs_decompress_buffer((u8 *)&this->m_prev, arg2);
     return spC;
 }
 

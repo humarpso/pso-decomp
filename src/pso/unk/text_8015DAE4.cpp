@@ -64,9 +64,9 @@ void TUnk_804B0BB8::run_task() {
         break;
     }
     if (this->m_d0 & 1) {
-        minimap_render_gate(arg0 + 0x38, 0xFF00FF00, this->rotation_y, 0, 0);
+        minimap_render_gate((u8 *)&this->position, 0xFF00FF00, this->rotation_y, 0, 0);
     } else {
-        minimap_render_gate(arg0 + 0x38, 0xFFFF0000, this->rotation_y, 0, 0);
+        minimap_render_gate((u8 *)&this->position, 0xFFFF0000, this->rotation_y, 0, 0);
     }
 }
 

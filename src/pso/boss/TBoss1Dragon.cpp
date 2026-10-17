@@ -3751,7 +3751,7 @@ void TBoss1Dragon::update_burrow_outward_run(u32 arg1) {
         request_state_change__12TBoss1DragonFPvs(arg0, 0x1B);
         break;
     case 9:
-        ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(sp8, arg0 + 0x38);
+        ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(sp8, (u8 *)&this->position);
         if (((f32 (*)(void *))clamp_velocity__15TObjBoss2TunnelFv)(sp8) > TBoss1Dragon__data_805D7FF0) {
             next_sequence_action__12TBoss1DragonFv(arg0);
         }
@@ -4516,7 +4516,7 @@ void TBoss1Dragon::update_flight_state(u32 arg1) {
         restoreTargetPosition__12TBoss1DragonFv();
         break;
     case 6:
-        prepare_flight_destination__12TBoss1DragonFPv(arg0, arg0 + 0x394);
+        prepare_flight_destination__12TBoss1DragonFPv(arg0, (u8 *)&this->targetX);
         ((TBoss1Dragon *)arg0)->saveTargetDestination();
         break;
     case 0:
@@ -5356,7 +5356,7 @@ u16 TBoss1Dragon::find_player_on_floor(void *arg0) {
 
 void TBoss1Dragon::update_switch_attack() {
     u8 *arg0 = (u8 *)this;
-    spawn_particle_effect_with_flags(arg0 + 0x38, *(s32 *)((s8 *)(*(void * *)&this->effectResource) + 4), 0x40);
+    spawn_particle_effect_with_flags((u8 *)&this->position, *(s32 *)((s8 *)(*(void * *)&this->effectResource) + 4), 0x40);
 }
 
 s32 TBoss1Dragon__sub_80027514(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {

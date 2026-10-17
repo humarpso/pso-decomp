@@ -20,7 +20,7 @@ void TObjPlayer::release_subobjects() {
         TObjPlayer__sub_80052390(0.99f);
         push_matrix();
         TObjPlayer::set_global_flag();
-        post_translate_matrix(arg0 + 0xD4);
+        post_translate_matrix((u8 *)&this->unk_D4);
         rotate_matrix_y(0, (*(s32 *)&this->motion_buffer));
         TObjFish::set_global_param(*(s32 *)&this->unk_CC);
         ((TObjFish *)(this->m_108))->set_draw_callback_list();
@@ -50,7 +50,7 @@ int TObjPlayer::draw_fading_motion() {
     }
     push_matrix();
     TObjPlayer::set_global_flag();
-    post_translate_matrix(arg0 + 0xD4);
+    post_translate_matrix((u8 *)&this->unk_D4);
     rotate_matrix_y(0, (*(s32 *)&this->motion_buffer));
     TObjFish::set_global_param(*(s32 *)&this->unk_A8);
     ((TObjFish *)(this->m_ec))->set_draw_callback_list();

@@ -131,13 +131,13 @@ void TObjEneRe2Flower::handle_event(s32 arg1) {
 
     switch (arg1) {
     case 4:
-        *(s16 *)((s8 *)arg0 + 0xB8) = 6;
+        this->m_b8 = 6;
         this->vfunc_96();
         ((TObjEneRe2Flower *)arg0)->clear_child_flags();
         *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) & 0xFFFFFFF7);
         ((TObjEneDD *)arg0)->set_field_378(3);
         *(s32 *)((s8 *)arg0 + 0x410) = 0;
-        play_sound_effect(fn_800C3A60(arg0, 0x4003A315), arg0 + 0x38, 0, 0);
+        play_sound_effect(fn_800C3A60(arg0, 0x4003A315), (u8 *)&this->position, 0, 0);
         TObjPlayer::play_effect_if_v2(-0x200);
         return;
     case 3:

@@ -172,8 +172,8 @@ void TObjVoloptCage::update_breakup() {
         break;
     case 0:
         play_sound_effect(0x4001C112, (u32)(arg0 + 0x38), 0, 0);
-        create_breakup_mdl__12TBoss3VoloptFlllll(volopt_cage_breakup_model, volopt_cage_breakup_params, TObjVoloptCage__texture_list, arg0 + 0x2FC, this->rotation_y);
-        create_breakup_mdl__12TBoss3VoloptFlllll(volopt_cage_breakup_model, volopt_cage_breakup_params, TObjVoloptCage__texture_list, arg0 + 0x2FC, this->rotation_y);
+        create_breakup_mdl__12TBoss3VoloptFlllll(volopt_cage_breakup_model, volopt_cage_breakup_params, TObjVoloptCage__texture_list, (u8 *)&this->m_2fc, this->rotation_y);
+        create_breakup_mdl__12TBoss3VoloptFlllll(volopt_cage_breakup_model, volopt_cage_breakup_params, TObjVoloptCage__texture_list, (u8 *)&this->m_2fc, this->rotation_y);
         ((TObjPlayer *)(arg0 + 0x2FC))->trigger_dell_biter_events();
         *(s16 *)&this->timer = 0xC;
         disallow_rendering__7TObjectFv(arg0);

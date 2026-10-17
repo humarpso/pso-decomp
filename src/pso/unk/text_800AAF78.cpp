@@ -16,7 +16,7 @@ s32 TObjPlayer__sub_800AAF98(O_800AAF98 *self, s32 i);
 typedef char RecoveredGlobal_800AAF78_lbl_805009B8_size[sizeof(RecoveredGlobal_800AAF78_lbl_805009B8) == 0x138 ? 1 : -1];
 f32 TObjEneDubchik::sub_800AAF78(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    return *(f32 *)((s8 *)(*(s32 *)((s8 *)((u8 *)(&lbl_805009B8.value) + (*(s32 *)((s8 *)arg0 + 0x368) * 4)) + 0) + (arg1 * 4)) + 0);
+    return *(f32 *)((s8 *)(*(s32 *)((s8 *)((u8 *)(&lbl_805009B8.value) + (*(s32 *)&this->variant * 4)) + 0) + (arg1 * 4)) + 0);
 }
 s32 TObjPlayer__sub_800AAF98(O_800AAF98 *self, s32 i) {
     return ((T_800AAF98 * *)&lbl_805009B8)[self->x368]->arr[i];

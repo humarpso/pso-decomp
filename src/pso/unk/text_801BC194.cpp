@@ -52,7 +52,7 @@ void TObjPlayer::place_on_area_entry() {
             TForceOperate__ct(obj, tl_02, obj_getField1c(arg0));
         }
     } else if (obj_isState2_324(arg0) == 0) {
-        p = consume_telepipe_arrival(obj_getField1c(arg0), arg0 + 0x60);
+        p = consume_telepipe_arrival(obj_getField1c(arg0), (u8 *)&this->rotation_y);
         if (p != NULL) {
             ((TBoss4DarkFalz *)arg0)->set_position_from(p);
         } else {
@@ -76,7 +76,7 @@ void TObjPlayer::place_on_area_entry() {
     ((TObjPlayer *)arg0)->calc_attach_pos();
     ((TObjPlayer *)(arg0 + 0x84C))->copy_offset_position(arg0);
     ((TObjPlayer *)arg0)->set_position_history_entry(0, *(f32 *)&this->position[0], this->position[2]);
-    clear_movement_history(arg0 + 0x6AC);
+    clear_movement_history((u8 *)&this->m_6ac);
     if (is_single_screen__10TObjPlayerFv() != 0) {
         reset_cameras_to_actor(arg0, 0);
     } else if (sub_801A1DDC__10TObjPlayerFv(arg0) != 0) {

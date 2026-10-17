@@ -42,7 +42,7 @@ void TObjEnemyCustom::render() {
     if (((VObj_800c76f4 *)arg0)->m8(lbl_805DA084, lbl_805DA088) != 0) {
         TObjFish::set_global_param(this->texture_id);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         model_render_flags &= 0xFFFFFBFF;
         if (TObjPlayer::check_demo_mode() == 1) {

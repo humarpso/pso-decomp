@@ -35,7 +35,7 @@ void TObjGbAdvance::render() {
         TObjFish__sub_8001EDB0(TObjGbAdvance__data_805D5B74, 0);
         set_global_param__8TObjFishFl();
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         get_bml_model(TObjGbAdvance__data_805D5B74, 0);
         draw_ginja_object();

@@ -451,7 +451,7 @@ void TQuestVmDownLoadServer::receive_file_chunk() {
         } else {
             return;
         }
-        memcpy(dst + (arg0[1] << 10), arg0 + 0x14, *(u32 *)(arg0 + 0x414));
+        memcpy(dst + (arg0[1] << 10), (u8 *)&this->m_down, *(u32 *)(arg0 + 0x414));
         TQuestVmDownLoadServer__received_file_bytes += *(u32 *)(arg0 + 0x414);
         TDLGraph::update_graph(TQuestVmDownLoadServer__received_file_bytes, TQuestVmDownLoadServer__total_download_bytes);
         if (*(u32 *)(arg0 + 0x414) < 0x400) {

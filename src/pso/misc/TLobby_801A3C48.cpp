@@ -274,7 +274,7 @@ s32 TLobby::construct_entry_array() {
 void TLobby::bswap_udp_test_header() {
     u8 *arg0 = (u8 *)this;
     *(u32 *)(arg0 + 4) = arg0[0] + (arg0[1] << 8) + (arg0[2] << 16) + (arg0[3] << 24);
-    bswap_32__FPUl(arg0 + 4);
+    bswap_32__FPUl((u8 *)&this->m_flags);
 }
 
 int TLobby__sub_801A3E8C(void) { return 0; }

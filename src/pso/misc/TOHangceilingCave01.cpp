@@ -686,7 +686,7 @@ void TUnk_804B2578::render() {
     s32 temp_r31;
     if ((((s32 (*)(u8 *))TOHangceilingCave01__sub_801688C0)(arg0) != 0) || (TObjPlayer::check_demo_mode() == 1)) {
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y((int) (0), (int) (this->rotation_y));
         TObjFish::set_global_param(*(s32 *)((s8 *)turiten_singo_texture_lists + 8));
         if (*(void * *)&this->model != NULL && *(void * *)&this->unknownF8 != NULL) {
@@ -740,7 +740,7 @@ void TUnk_804B2578::run_task() {
         this->vfunc_80();
         ((TUnk_804B2578 *)arg0)->sub_80168398();
         if ((((s32 (*)(void *))TOHangceilingCave01__sub_801688C0)(arg0) != 0) && ((s16) this->mode != 3) && (objInBand__FP7GameObjf(arg0, lbl_805DB694) != 0)) {
-            spawn_particle_effect(arg0 + 0x38, 0x64);
+            spawn_particle_effect((u8 *)&this->position, 0x64);
         }
     }
 }

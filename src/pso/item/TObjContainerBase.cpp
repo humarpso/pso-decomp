@@ -74,10 +74,10 @@ s32 __dl__7TObjectFPv(void *);
 void TObjContainerBase::vfunc_80() {
     s16 temp_r0;
 
-    temp_r0 = *(s16 *)((s8 *)this + 0x326);
+    temp_r0 = this->mode;
     switch (temp_r0) {
     case 0:
-        if ((s32) *(s32 *)((s8 *)this + 0x364) != 0) {
+        if ((s32) this->m_364 != 0) {
             submit_cursor_candidate(this, -1);
         }
     case 1:
@@ -122,13 +122,13 @@ void TObjContainerNoItem::vfunc_6(s16 *arg1, s32 arg2) {
             ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
             ((TUnk_804AF8A0 *)arg0)->set_flag8();
             queue_destruction__7TObjectFv((void *) (arg0));
-            *(s16 *)((s8 *)arg0 + 0x326) = 1;
+            this->mode = 1;
         }
     } else if ((s16) *arg1 == 1) {
         ((TObjPlayer *)arg0)->clear_player_status_flag((int) (0), (int) (1));
         ((TUnk_804AF8A0 *)arg0)->set_flag8();
         queue_destruction__7TObjectFv((void *) (arg0));
-        *(s16 *)((s8 *)arg0 + 0x326) = 1;
+        this->mode = 1;
     }
 }
 
@@ -165,7 +165,7 @@ void TObjContainerNoItem::vfunc_79() {
 f32 TObjContainerNoItem::receive_physical_attack(void *, f32) {
     u8 *arg0 = (u8 *)this;
     s16 sp8;
-    if (((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x1000U) && ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (1)) != 0)) {
+    if (((u16) this->m_1c >= 0x1000U) && ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (1)) != 0)) {
         sp8 = 1;
         ((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (0));
         ((TUnk_804AF8A0 *)arg0)->send_object_state_update((void *) (&sp8));
@@ -175,14 +175,14 @@ f32 TObjContainerNoItem::receive_physical_attack(void *, f32) {
 void TObjContainerNoItem::vfunc_81() {
     u8 *arg0 = (u8 *)this;
     if (lbl_805D5B78 != 0U) {
-        switch (*(s16 *)((s8 *)arg0 + 0x326)) {
+        switch (this->mode) {
         case 1:
             break;
         case 0:
         TObjFish::set_global_param(lbl_805D5B7C);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        post_translate_matrix((u8 *)&this->position);
+        rotate_matrix_y(0, this->rotation_y);
         scale_matrix(0, lbl_805DBCFC, lbl_805DBCFC, lbl_805DBCFC);
         draw_ginja_box_tree(*(s32 *)((s8 *)arg0 + 0x34));
         pop_matrix();

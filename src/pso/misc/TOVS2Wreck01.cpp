@@ -64,7 +64,7 @@ void TOVS2::render() {
     this->m_cc = ((VObj_8017C640 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4);
     if ((s32) this->m_cc == 1) {
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
         draw_ginja_object(*(s32 *)&this->model);

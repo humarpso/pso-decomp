@@ -224,7 +224,7 @@ void*TItemObject::vfunc_9() {
     if (temp_r4 != 0U) {
         return (unsigned char *) (temp_r4 + 0x38);
     }
-    return arg0 + 0x38;
+    return (u8 *)&this->position;
 }
 
 }

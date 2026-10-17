@@ -92,7 +92,7 @@ void TObjEneRe7BeruraPunch::render() {
         ((TObjEneDD *)(arg0 + 0x38))->draw_oriented_shadow((s32)(arg0 + 0xE8), (s32)0, (u32)0);
         TObjPlayer::toggle_particle_effect();
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         translate_matrix(0, lbl_805D9794, *(f32 *)&this->unk_CC, lbl_805D9794);
         rotate_matrix_y(0, this->rotation_y);
         temp_f1 = this->m_f4;
@@ -194,7 +194,7 @@ void TObjEneRe7BeruraPunch::launch(s32 arg1, s32 arg2) {
     u8 *entity;
 
     *(s32 *)&this->m_b8 = arg1;
-    VecCopy__FP3VecPC3Vec(arg0 + 0xDC, arg2);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->m_dc, arg2);
     ((TObjEneRe7BeruraPunch *)arg0)->snap_to_ground();
     entity = find_entity_by_id(this->m_b0);
     if (entity != NULL) {

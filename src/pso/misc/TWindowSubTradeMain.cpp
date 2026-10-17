@@ -110,14 +110,14 @@ void TObjEneMorfos::update_ground_probe() {
     Stack_80332594 stack;
     u8 *temp_r3;
     if ((actor_frame_tick % 5) == 0) {
-        VecCopy__FP3VecPC3Vec(&stack.sp8, arg0 + 0x38);
+        VecCopy__FP3VecPC3Vec(&stack.sp8, (u8 *)&this->position);
         stack.spC += TObjEneMorfos__data_805DF870;
-        temp_r3 = (u8 *)(csnVectorUnder((s32) &stack.sp8, arg0 + 0x120, 0x4000));
+        temp_r3 = (u8 *)(csnVectorUnder((s32) &stack.sp8, (u8 *)&this->m_120, 0x4000));
         if (temp_r3 != NULL) {
             *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) *(s32 *)((s8 *)temp_r3 + 0);
             VecCopy__FP3VecPC3Vec(arg0 + 0x3C8, *(u8 **)((s8 *)temp_r3 + 4));
         } else {
-            VecCopy__FP3VecPC3Vec(arg0 + 0x3C8, arg0 + 0x38);
+            VecCopy__FP3VecPC3Vec(arg0 + 0x3C8, (u8 *)&this->position);
         }
     }
     if (*(s32 *)((s8 *)arg0 + 0x3C4) & 0x4000) {

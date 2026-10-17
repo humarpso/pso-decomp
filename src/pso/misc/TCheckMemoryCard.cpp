@@ -92,7 +92,7 @@ extern void *TCheckMemoryCard__name;
 
 }
 TCheckMemoryCard::TCheckMemoryCard(TObject *arg1, void *arg2, void *arg3, void *arg4) : TObject(arg1) {
-    *(void **)((s8 *)this + 0x0) = TCheckMemoryCard__name;
+    *(void * *)&this->m_name = TCheckMemoryCard__name;
     *(void **)((s8 *)this + 0x48) = arg2;
     *(void **)((s8 *)this + 0x1C) = arg4;
     *(void **)((s8 *)this + 0x4C) = arg3;

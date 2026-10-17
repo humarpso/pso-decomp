@@ -101,7 +101,7 @@ void TObjDFDemo3::render() {
     }
     push_matrix();
     TObjPlayer::set_global_flag();
-    post_translate_matrix(arg0 + 0xA0);
+    post_translate_matrix((u8 *)&this->m_a0);
     rotate_matrix_y(0, *(s32 *)&this->m_ac);
     TObjFish::set_global_param(*(s32 *)&this->m_98);
     ((TObjFish *)(*(s32 *)&this->m_b8))->set_draw_callback_list();
@@ -135,23 +135,23 @@ void TObjDFDemo3::run_task() {
     } else {
         temp_r3 = this->m_90;
         if (temp_r3 == 0U) {
-            this->m_90 = create_particle_emitter(arg0 + 0xBC, 0x1BD);
+            this->m_90 = create_particle_emitter((u8 *)&this->m_bc, 0x1BD);
             if ((u32) this->m_90 != 0U) {
                 ((TBoss4Type2 *)((void *) this->m_90))->set_flags(0x40);
             }
         } else if (temp_r3 != 0U) {
-            ((TNowLoading *)temp_r3)->copy_pos(arg0 + 0xBC);
+            ((TNowLoading *)temp_r3)->copy_pos((u8 *)&this->m_bc);
         }
     }
     if ((s32) *(s32 *)&this->m_b0 == 0x86) {
-        temp_r3 = spawn_particle_effect(arg0 + 0xA0, 0x9B);
+        temp_r3 = spawn_particle_effect((u8 *)&this->m_a0, 0x9B);
         if (temp_r3 != 0U) {
             ((TBoss4Type2 *)temp_r3)->set_flags(0x40);
         }
     }
     temp_r0 = *(s32 *)&this->m_b0;
     if ((temp_r0 == 0x28) || (temp_r0 == 0x3C)) {
-        play_sound_effect(0x4003D03A, arg0 + 0xA0, 0, 1);
+        play_sound_effect(0x4003D03A, (u8 *)&this->m_a0, 0, 1);
     }
     if ((*(f32 *)&this->_padB4 += 1.0f) > 119.0f) {
         *(f32 *)&this->_padB4 = 119.0f;

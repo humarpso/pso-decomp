@@ -34,7 +34,7 @@ void TOTrap::render() {
         *(s32 *)&this->m_340 = ((TOTrapVObj*)arg0)->m8(lbl_805DBA40, lbl_805DBA44);
         if ((s32) *(s32 *)&this->m_340 == 1) {
             push_matrix();
-            post_translate_matrix(arg0 + 0x38);
+            post_translate_matrix((u8 *)&this->position);
             rotate_matrix_y(0, this->rotation_y);
             TObjFish::set_global_param(this->texture_id);
             if (TObjPlayer::check_demo_mode() == 1) {

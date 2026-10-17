@@ -14,7 +14,7 @@ void TWindowHelpItem::refresh_copied_items() {
     if (temp_r3 != -1) {
         item = (u8 *)(find_item_by_id(temp_r3));
         if (item != NULL) {
-            ((TItem *)item)->copy_to_item_data(arg0 + 0x74);
+            ((TItem *)item)->copy_to_item_data((u8 *)&this->_pad74);
         }
     }
     temp_r3_3 = *(s32 *)&this->m_a4;

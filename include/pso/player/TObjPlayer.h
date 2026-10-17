@@ -103,7 +103,8 @@ struct TObjPlayer : public TUnk_804806E8 {
     s32 m_3c4;
     u8 unk_3C8[0x8];
     s32 m_3d0;
-    u8 unk_3D4[0x8];
+    u8 unk_3D4[0x4];
+    s32 m_3d8;
     s32 m_3dc;
     u8 unk_3E0[0x4];
     s32 m_3e4;
@@ -115,7 +116,8 @@ struct TObjPlayer : public TUnk_804806E8 {
     f32 m_3fc;
     u8 unk_400[0x4];
     f32 m_404;
-    u8 unk_408[0x8];
+    u8 unk_408[0x4];
+    f32 m_40c;
     void* m_410;
     u8 _pad414[0x8];
     void* m_41c;
@@ -152,7 +154,9 @@ struct TObjPlayer : public TUnk_804806E8 {
     void* m_66c;
     u8 _pad670[0x8];
     void* m_678;
-    u8 _pad67C[0x30];
+    u8 unk_67C[0x1C];
+    s32 m_698;
+    u8 unk_69C[0x10];
     void* m_6ac;
     u8 _pad6B0[0x80];
     void* m_730;
@@ -181,7 +185,9 @@ struct TObjPlayer : public TUnk_804806E8 {
     s32 m_890;
     u8 unk_894[0x18];
     void* m_8ac;
-    u8 _pad8B0[0x44C];
+    u8 unk_8B0[0x4];
+    u32 m_8b4;
+    u8 unk_8B8[0x444];
     s32 m_cfc;
     void* inventory_objects;
     void* m_d04;
@@ -1718,7 +1724,8 @@ struct TObjPlayer : public TUnk_804806E8 {
     int is_status_flag_200();
     int start_freeze_self();
     void set_floor_index(s32 v);
-    u8 unk_DB0[0x8];
+    u8 unk_DB0[0x4];
+    s32 m_db4;
 };
 
 #include <stddef.h>

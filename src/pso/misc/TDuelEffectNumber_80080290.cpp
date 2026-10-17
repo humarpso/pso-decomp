@@ -16,7 +16,7 @@ extern Entry_800803D4 duel_number_pair_layout[];
 
 extern void *TDuelEffectNumber__class_name;
 TDuelEffectNumber::TDuelEffectNumber(TObject *arg1, void *arg2, void *arg3) : TObject(arg1) {
-    *(void **)((s8 *)this + 0x0) = TDuelEffectNumber__class_name;
+    *(void * *)&this->m_name = TDuelEffectNumber__class_name;
     *(f32 *)((s8 *)this + 0x1C) = *(f32 *)((s8 *)arg2 + 0x0);
     *(f32 *)((s8 *)this + 0x20) = *(f32 *)((s8 *)arg2 + 0x4);
     *(void **)((s8 *)this + 0x24) = arg3;

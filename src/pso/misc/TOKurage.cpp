@@ -111,7 +111,7 @@ void *__nw__7TObjectFUl(int);
 
 void TOKurage::check_player_distance() {
     u8 *arg0 = (u8 *)this;
-    if ((xyz_distance(arg0 + 0xE4, arg0 + 0x38) > this->target_scale) && ((u8) this->m_100 != 4)) {
+    if ((xyz_distance((u8 *)&this->m_e4, (u8 *)&this->position) > this->target_scale) && ((u8) this->m_100 != 4)) {
         this->m_100 = 3U;
     }
 }
@@ -135,8 +135,8 @@ void TOKurage::debug_print_ranges() {
 
 void TOKurage::init() {
     u8 *arg0 = (u8 *)this;
-    VecCopy__FP3VecPC3Vec(arg0 + 0xCC, arg0 + 0x38);
-    VecCopy__FP3VecPC3Vec(arg0 + 0xE4, arg0 + 0x38);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->_padCC, (u8 *)&this->position);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->m_e4, (u8 *)&this->position);
     *(f32 *)&this->m_d8 = (f32) (0.0f);
     *(f32 *)&this->unk_DC = (f32) (0.0f);
     this->m_e0 = (f32) (0.0f);
@@ -348,7 +348,7 @@ void TOKurage::render() {
     u8 *arg0 = (u8 *)this;
     if (((VObj_18_26a62c *)(arg0))->m8(*(f32 *)(arg0 + 0xC0), *(f32 *)(arg0 + 0xC4)) != 0) {
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_zyx(0, *(s32 *)(arg0 + 0x5C), *(s32 *)(arg0 + 0x60), *(s32 *)(arg0 + 0x64));
         TObjFish::set_global_param(*(s32 *)(arg0 + 0x24));
         switch (*(u8 *)(arg0 + 0x100)) {
@@ -370,7 +370,7 @@ void TOKurage::render() {
             model_render_flags |= 0x10;
             break;
         }
-        set_chunk_material_color(arg0 + 0x104);
+        set_chunk_material_color((u8 *)&this->m_104);
         TObjEneSlimeOne__sub_803E4B54(*(s32 *)(arg0 + 0x34), *(s32 *)(arg0 + 0xBC), *(s32 *)(arg0 + 0xC8), *(f32 *)(arg0 + 0xB0));
         set_chunk_material_color(chunk_material_color_half_alpha_f32);
         model_render_flags = lbl_805D5660;

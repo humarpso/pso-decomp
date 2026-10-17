@@ -170,7 +170,7 @@ void TEffClitical::run_task() {
 TEffClitical::~TEffClitical() {}
 }
 TEffClitical::TEffClitical(void *arg1) : TEffect() {
-    *(void **)((s8 *)this + 0x0) = TEffClitical__class_name;
+    *(void * *)&this->m_name = TEffClitical__class_name;
     VecCopy__FP3VecPC3Vec((void *)((char *)this + 32), arg1);
     *(u32 *)((s8 *)this + 0x70) = 0;
     *(f32 *)((s8 *)this + 0x2C) = lbl_805D93B0;

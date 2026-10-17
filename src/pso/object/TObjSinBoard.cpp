@@ -219,58 +219,58 @@ void TUnk_804B8DD0::update_effects() {
         if (this->m_30 == 1) {
             o = (void *)__nw__7TObjectFUl(0x58);
             if (o != NULL) {
-                TWindowTimer__sub_80198CF8(o, arg0 + 0x1C, *(s16 *)((s8 *)gogo_ball_configuration + 0x14), this->m_28, this->m_40, tl_06);
+                TWindowTimer__sub_80198CF8(o, (u8 *)&this->unk_1C, *(s16 *)((s8 *)gogo_ball_configuration + 0x14), this->m_28, this->m_40, tl_06);
             }
         }
     } else if (*(u16 *)((s8 *)gogo_ball_configuration + 0x48) == 6) {
         (this->m_30)++;
         if (this->m_30 % 5 == 0 && this->m_30 <= 0x1E) {
-            VecCopy__FP3VecPC3Vec(&v6, arg0 + 0x1C);
+            VecCopy__FP3VecPC3Vec(&v6, (u8 *)&this->unk_1C);
             v6.y += lbl_805DBF40;
             spawn_particle_effect_with_flags(&v6, 0x20D, 0x40);
-            play_sound_effect(0x4001A82E, arg0 + 0x1C, 0, 0);
+            play_sound_effect(0x4001A82E, (u8 *)&this->unk_1C, 0, 0);
         }
     } else if (*(u16 *)((s8 *)gogo_ball_configuration + 0x48) == 2) {
         (this->m_30)++;
         if (this->m_28 != 0) {
             if (this->m_30 == 1) {
                 TCameraCtrl::set_shake_preset(2);
-                VecCopy__FP3VecPC3Vec(&v2a, arg0 + 0x1C);
+                VecCopy__FP3VecPC3Vec(&v2a, (u8 *)&this->unk_1C);
                 v2a.y += lbl_805DBF40;
                 spawn_particle_effect_with_flags(&v2a, 0x45, 0x40);
                 spawn_particle_effect_with_flags(&v2a, 0x189, 0x40);
-                play_sound_effect(0x4001C112, arg0 + 0x1C, 0, 0);
+                play_sound_effect(0x4001C112, (u8 *)&this->unk_1C, 0, 0);
             }
         } else {
             if (this->m_30 == 1) {
                 TCameraCtrl::set_shake_preset(2);
-                VecCopy__FP3VecPC3Vec(&v2b, arg0 + 0x1C);
+                VecCopy__FP3VecPC3Vec(&v2b, (u8 *)&this->unk_1C);
                 v2b.y += lbl_805DBF40;
                 spawn_particle_effect_with_flags(&v2b, 0x45, 0x40);
                 spawn_particle_effect_with_flags(&v2b, 0x189, 0x40);
-                play_sound_effect(0x4001C112, arg0 + 0x1C, 0, 0);
+                play_sound_effect(0x4001C112, (u8 *)&this->unk_1C, 0, 0);
             }
         }
     } else if (*(u16 *)((s8 *)gogo_ball_configuration + 0x48) != 0) {
         (this->m_30)++;
         if (this->m_28 != 0) {
             if (this->m_30 % 5 == 0 && this->m_30 <= 0x32) {
-                VecCopy__FP3VecPC3Vec(&vda, arg0 + 0x1C);
+                VecCopy__FP3VecPC3Vec(&vda, (u8 *)&this->unk_1C);
                 vda.y += lbl_805DBF40;
                 spawn_particle_effect_with_flags(&vda, 0x20E, 0x40);
                 o = (void *)__nw__7TObjectFUl(0x28);
                 if (o != NULL) {
-                    construct_timed_sound_voice(o, arg0 + 0x1C, 5, 0x4002A90C, 0, (s32)tl_05);
+                    construct_timed_sound_voice(o, (u8 *)&this->unk_1C, 5, 0x4002A90C, 0, (s32)tl_05);
                 }
             }
         } else {
             if (this->m_30 % 5 == 0 && this->m_30 <= 0x32) {
-                VecCopy__FP3VecPC3Vec(&vdb, arg0 + 0x1C);
+                VecCopy__FP3VecPC3Vec(&vdb, (u8 *)&this->unk_1C);
                 vdb.y += lbl_805DBF40;
                 spawn_particle_effect_with_flags(&vdb, 0x20F, 0x40);
                 o = (void *)__nw__7TObjectFUl(0x28);
                 if (o != NULL) {
-                    construct_timed_sound_voice(o, arg0 + 0x1C, 5, 0x4002A90C, 0, (s32)tl_05);
+                    construct_timed_sound_voice(o, (u8 *)&this->unk_1C, 5, 0x4002A90C, 0, (s32)tl_05);
                 }
             }
         }

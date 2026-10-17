@@ -233,17 +233,17 @@ void TMainCursor::run_task() {
             *(s32 *)&this->m_1c = 1;
             if (((TMainCursor *)arg0)->init_render_flags() == 0) {
                 if (((TMainCursor *)arg0)->update() != 0) {
-                    play_sound_effect(0x3816, arg0 + 0x40, 0, 1);
+                    play_sound_effect(0x3816, (u8 *)&this->m_40, 0, 1);
                     return;
                 }
-                play_sound_effect(0x3111, arg0 + 0x40, 0, 1);
+                play_sound_effect(0x3111, (u8 *)&this->m_40, 0, 1);
             }
         }
     case 1:
         return;
     case 2:
         if ((((TMainCursor *)(arg0 + 0x4C))->get_pos() - lbl_805DB0D0) > TMainCursor__data_805DB0C0) {
-            TMainCursor__sub_8013F180(arg0 + 0x4C);
+            TMainCursor__sub_8013F180((u8 *)&this->m_4c);
             return;
         }
         queue_destruction__7TObjectFv(arg0);

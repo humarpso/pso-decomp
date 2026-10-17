@@ -83,7 +83,7 @@ void TWindowHelpItem::update_display() {
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TUnk_804CE018 *)arg0)->update_fade();
-    ((TUnk_804CE018 *)arg0)->update_window_entry_list(arg0 + 0x24);
+    ((TUnk_804CE018 *)arg0)->update_window_entry_list((u8 *)&this->m_24);
     if (!(this->m_60 & 8)) {
         toggle_help_window_on_button(arg0, this->m_20);
     }

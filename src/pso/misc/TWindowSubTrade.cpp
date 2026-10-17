@@ -146,13 +146,13 @@ u8 *__dt__15TWindowSubTradeFv(u8 *arg0, s16 arg1) {
 
 }
 TWindowSubTrade::TWindowSubTrade(TObject *arg1, void *arg2) : TObject(arg1) {
-    *(void **)((s8 *)this + 0x0) = lbl_805D3EA8;
+    *(void * *)&this->m_name = lbl_805D3EA8;
     *(void **)((s8 *)this + 0x28) = arg1;
     *(void **)((s8 *)this + 0x20) = arg2;
-    *(u32 *)((s8 *)this + 0x24) = 4;
-    *(u32 *)((s8 *)this + 0x2C) = 0;
-    *(u32 *)((s8 *)this + 0x30) = 0;
-    *(u32 *)((s8 *)this + 0x34) = 0;
+    this->m_24 = 4;
+    this->m_2c = 0;
+    this->m_30 = 0;
+    this->m_34 = 0;
     TLobby__sub_802D2A50(this);
-    *(u8 *)((s8 *)this + 0x1C) = 0;
+    this->m_1c = 0;
 }

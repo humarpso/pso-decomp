@@ -107,7 +107,7 @@ void TAdSelectTxtGC::init_slot_entries(void *arg1_arg, void *arg2) {
 
 }
 TAdSelectTxtGC::TAdSelectTxtGC(TObject *arg1, void *arg1_arg, void *arg3) : TObject(arg1) {
-    *(void **)((s8 *)this + 0x0) = lbl_805D3D88;
+    *(void * *)&this->m_name = lbl_805D3D88;
     this->init_slot_entries((Src_802A1838 *)(arg1_arg), (void *)(arg3));
 }
 extern "C" {

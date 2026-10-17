@@ -145,7 +145,7 @@ void TOKey::init_key() {
     u8 *arg0 = (u8 *)this;
     ((VObj0_8016ab58_8016A8D0*)arg0)->m5();
     init_switch_id();
-    VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->m_74, (u8 *)&this->position);
     *(s32 *)((s8 *)arg0 + 0x20) = 2;
 }
 

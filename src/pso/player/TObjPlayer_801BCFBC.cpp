@@ -27,7 +27,7 @@ void TObjPlayer::update_action_animation() {
         TObjPlayer__sub_8011E204(arg0, 4);
         if (obj_testFlags30(arg0, 0x800) != 0) {
             run_action_state_phase__10TObjPlayerFisi(arg0, 0xF, 0);
-            if (test_flags_any(arg0 + 0x858, 1) != 0) {
+            if (test_flags_any((u8 *)&this->m_858, 1) != 0) {
                 *(s16 *)&this->m_b8 = ((TObjPlayer *)arg0)->get_action_animation();
             } else {
                 restart_death_pose__10TObjPlayerFPv(arg0);

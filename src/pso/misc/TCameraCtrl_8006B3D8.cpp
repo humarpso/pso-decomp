@@ -133,10 +133,10 @@ u8 *create_conversation_camera(s32 arg0) {
 typedef char RecoveredGlobal_8006B4A0_lbl_804381E0_size[sizeof(RecoveredGlobal_8006B4A0_lbl_804381E0) == 0x1E0 ? 1 : -1];
 void TUnk_80488AD8::run_task() {
     u8 *arg0 = (u8 *)this;
-    approach_camera_vector(arg0 + 0x1C, (u8 *)&fixed_npc_camera_destination_table.value + (this->m_34 * 0x18), lbl_805D8FF8);
+    approach_camera_vector((u8 *)&this->unk_1C, (u8 *)&fixed_npc_camera_destination_table.value + (this->m_34 * 0x18), lbl_805D8FF8);
     approach_camera_vector(arg0 + 0x28, (u8 *)&fixed_npc_camera_destination_table.value + (this->m_34 * 0x18) + 0xC, lbl_805D8FF8);
     TCameraCtrl__fixed_npc_camera_active = 1;
-    set_active_camera_pose(arg0 + 0x1C, arg0 + 0x28);
+    set_active_camera_pose((u8 *)&this->unk_1C, arg0 + 0x28);
 }
 
 void *__dt__13TUnk_80488AD8Fv(void *arg0, s16 arg1) {

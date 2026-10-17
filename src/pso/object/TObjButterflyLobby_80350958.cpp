@@ -73,7 +73,7 @@ void render__18TObjButterflyLobbyFPv(u8 *arg0) {
 
 void TObjButterflyLobby::init_params() {
     u8 *arg0 = (u8 *)this;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x98, arg0 + 0x38);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x98, (u8 *)&this->position);
     this->m_a4 = 0.0f;
     *(f32 *)&this->unk_A8 = 0.0f;
     this->m_ac = 0.0f;

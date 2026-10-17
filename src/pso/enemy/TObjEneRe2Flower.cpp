@@ -53,9 +53,9 @@ void TObjEneRe2Flower::vfunc_88() {
 
 void TObjEneRe2Flower::sub_800C3DC4() {
     u8 *arg0 = (u8 *)this;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->m_2fc, (u8 *)&this->position);
     this->m_300 = (f32) (this->m_300 + lbl_805D9FF8);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->m_74, (u8 *)&this->m_2fc);
 }
 
 }

@@ -59,7 +59,7 @@ void TObjVoloptCage::render() {
         TObjFish::set_global_param(TObjVoloptCage__texture_list);
         push_matrix();
         model_render_flags &= 0xFFFFFBFF;
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         draw_chunk_object(volopt_cage_break_model_handle);
         pop_matrix();

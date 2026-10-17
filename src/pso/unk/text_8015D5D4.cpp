@@ -38,29 +38,29 @@ void TUnk_804B0BB8::play_door_sound() {
         switch ((u32)TOKeyMachine01::get_global_state()) {
         case 0:
         case 18:
-            play_sound_effect(0x42A04, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x42A04, (u8 *)&this->position, 0, 0);
             break;
         case 1:
         case 2:
-            play_sound_effect(0x4BC07, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4BC07, (u8 *)&this->position, 0, 0);
             break;
         case 3:
         case 4:
         case 5:
-            play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x42807, (u8 *)&this->position, 0, 0);
             break;
         case 6:
         case 7:
-            play_sound_effect(0x4004BC00, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4004BC00, (u8 *)&this->position, 0, 0);
             break;
         case 8:
         case 9:
         case 10:
-            play_sound_effect(0x4004BC07, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4004BC07, (u8 *)&this->position, 0, 0);
             break;
         case 16:
         case 17:
-            play_sound_effect(0x4004BC00, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4004BC00, (u8 *)&this->position, 0, 0);
             break;
         }
     }

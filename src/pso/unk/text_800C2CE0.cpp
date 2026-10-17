@@ -138,7 +138,7 @@ void TObjEneDD::state_damaged(s32 arg1) {
         ((TObjEneRe2Flower *)arg0)->clear_child_flags();
         F(s32, 0x3C4) &= ~8;
         TBoss8Dragon__sub_800BB7D4(arg0, 0xF2);
-        play_sound_effect(fn_800C3A60(arg0, 0x4003AB13), arg0 + 0x38, 0, 0);
+        play_sound_effect(fn_800C3A60(arg0, 0x4003AB13), (u8 *)&this->position, 0, 0);
         TObjPlayer::play_effect_if_v2(-0x200);
         break;
     case 3:

@@ -72,7 +72,7 @@ void TMainCursor::reset_state() {
     this->m_3c = (f32) TMainCursor__data_805DB0C0;
     *(f32 *)((s8 *)arg0 + 0x18) = (f32) TMainCursor__data_805DB0C0;
     ((TMainCursor *)arg0)->set_type(0);
-    fn_80044330(arg0 + 0x40);
+    fn_80044330((u8 *)&this->m_40);
     ((TMainCursor *)(arg0 + 0x9C))->reset_slot();
 }
 s32 canSetMenuCursorAction(PaletteCursorOverride* cursor, TObjPlayer* player, u8 kind, u8 parameter) {

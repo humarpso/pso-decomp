@@ -479,11 +479,11 @@ s32 TObjEneDD::vfunc_83() {
 
 void TObjEneDD::init_position_vectors() {
     u8 *arg0 = (u8 *)this;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x50, arg0 + 0x38);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->m_44, (u8 *)&this->position);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->m_50, (u8 *)&this->position);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->m_74, (u8 *)&this->position);
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->m_2fc, (u8 *)&this->position);
     *(f32 *)((s8 *)arg0 + 0x308) = (f32) TObjEneDD__data_805D9E8C;
     *(f32 *)((s8 *)arg0 + 0x30C) = (f32) TObjEneDD__data_805D9E8C;
     this->m_310 = (f32) TObjEneDD__data_805D9E8C;

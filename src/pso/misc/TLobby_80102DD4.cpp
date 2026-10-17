@@ -209,7 +209,7 @@ void TLobby::init_floor_item_entry() {
     *(f32 *)&this->m_prev = (f32) lbl_805DAA88;
     *(s16 *)&this->m_next = -1;
     *(s16 *)((s8 *)arg0 + 0xE) = 0;
-    init__9TItemDataFv(arg0 + 0x10);
+    init__9TItemDataFv((u8 *)&this->m_up);
 }
 
 u8 TUnk_804AF8A0::sub_8010319C() {

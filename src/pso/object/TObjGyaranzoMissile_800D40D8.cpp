@@ -172,7 +172,7 @@ void TUnk_8049442C::render() {
     u8 *arg0 = (u8 *)this;
     TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xC8));
     push_matrix();
-    post_translate_matrix(arg0 + 0x38);
+    post_translate_matrix((u8 *)&this->position);
     rotate_matrix_y(0, this->m_bc);
     rotate_matrix_x(0, *(s32 *)&this->unk_C0);
     model_render_flags &= 0xFFFFFBFF;

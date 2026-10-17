@@ -96,7 +96,7 @@ void TUnk_804A3260::update_weapon() {
 
 void TUnk_804A3260::reserved_53() {
     u8 *arg0 = (u8 *)this;
-    ((TObjPlayer *)arg0)->draw_status_icons(arg0 + 0x1F8, arg0 + 0x204);
+    ((TObjPlayer *)arg0)->draw_status_icons((u8 *)&this->unk_1F8, arg0 + 0x204);
 }
 
 void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *arg2) {

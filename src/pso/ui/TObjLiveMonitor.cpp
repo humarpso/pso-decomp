@@ -267,7 +267,7 @@ void TBoss8Dragon::choose_next_camera_shot() {
     if (--this->m_1e > 0) {
         return;
     }
-    r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54);
+    r = calc_random_ratio__10TObjPlayerFv((u8 *)&this->unk_54);
     if (r < lbl_805DF180) {
         *(s16 *)&this->unk_1C = 1;
     } else if (r < lbl_805DF184) {
@@ -281,14 +281,14 @@ void TBoss8Dragon::choose_next_camera_shot() {
     case 0:
         break;
     case 1:
-        this->m_1e = lbl_805DF18C * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF18C;
+        this->m_1e = lbl_805DF18C * (r = calc_random_ratio__10TObjPlayerFv((u8 *)&this->unk_54), r) + lbl_805DF18C;
         *(u16 *)((s8 *)arg0 + 0x24) = ((int (*)(void *))TBoss8Dragon__sub_8030B80C)(arg0);
-        *(s32 *)&this->unk_28 = lbl_805DF190 * calc_random_ratio__10TObjPlayerFv(arg0 + 0x54);
-        this->m_2c = lbl_805DF194 * (lbl_805DF198 * (calc_random_ratio__10TObjPlayerFv(arg0 + 0x54) - lbl_805DF19C));
-        *(f32 *)&this->unk_30 = lbl_805DF1A0 * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF174;
+        *(s32 *)&this->unk_28 = lbl_805DF190 * calc_random_ratio__10TObjPlayerFv((u8 *)&this->unk_54);
+        this->m_2c = lbl_805DF194 * (lbl_805DF198 * (calc_random_ratio__10TObjPlayerFv((u8 *)&this->unk_54) - lbl_805DF19C));
+        *(f32 *)&this->unk_30 = lbl_805DF1A0 * (r = calc_random_ratio__10TObjPlayerFv((u8 *)&this->unk_54), r) + lbl_805DF174;
         break;
     case 2:
-        this->m_1e = lbl_805DF18C * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF18C;
+        this->m_1e = lbl_805DF18C * (r = calc_random_ratio__10TObjPlayerFv((u8 *)&this->unk_54), r) + lbl_805DF18C;
         *(u16 *)((s8 *)arg0 + 0x24) = ((int (*)(void *))TBoss8Dragon__sub_8030B80C)(arg0);
         p = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x24));
         if (p != NULL) {
@@ -296,7 +296,7 @@ void TBoss8Dragon::choose_next_camera_shot() {
         }
         break;
     case 3:
-        this->m_1e = lbl_805DF1A4 * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF1A4;
+        this->m_1e = lbl_805DF1A4 * (r = calc_random_ratio__10TObjPlayerFv((u8 *)&this->unk_54), r) + lbl_805DF1A4;
         *(u16 *)((s8 *)arg0 + 0x24) = ((u16 (*)(void *))call_null__12TBoss8DragonFv)(arg0);
         p = get_enemy_entity(*(u16 *)((s8 *)arg0 + 0x24));
         if (p != NULL) {
@@ -304,8 +304,8 @@ void TBoss8Dragon::choose_next_camera_shot() {
         }
         break;
     case 4:
-        this->m_1e = lbl_805DF1A8 * (r = calc_random_ratio__10TObjPlayerFv(arg0 + 0x54), r) + lbl_805DF1A8;
-        *(s32 *)&this->unk_28 = lbl_805DF190 * calc_random_ratio__10TObjPlayerFv(arg0 + 0x54);
+        this->m_1e = lbl_805DF1A8 * (r = calc_random_ratio__10TObjPlayerFv((u8 *)&this->unk_54), r) + lbl_805DF1A8;
+        *(s32 *)&this->unk_28 = lbl_805DF190 * calc_random_ratio__10TObjPlayerFv((u8 *)&this->unk_54);
         *(f32 *)&this->m_34 = lbl_805DF1AC * sin_table_lookup(*(s32 *)&this->unk_28);
         *(f32 *)&this->m_38 = lbl_805DF1B0;
         *(f32 *)&this->unk_3C = lbl_805DF1AC * cos_table_lookup(*(s32 *)&this->unk_28);

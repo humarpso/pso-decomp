@@ -4686,7 +4686,7 @@ void TBoss8Dragon::copy_action_state(u8 *arg1) {
     u8 *arg0 = (u8 *)this;
     *(s16 *)&this->m_0 = (s16) *(s16 *)((s8 *)arg1 + 0);
     *(s16 *)((s8 *)arg0 + 2) = (s16) *(s16 *)((s8 *)arg1 + 2);
-    *(ByteBlock_10 *)((s32) arg0 + 4) = *(const ByteBlock_10 *)((s32) arg1 + 4);
+    *(ByteBlock_10 *)((s32) (u8 *)&this->unk_4) = *(const ByteBlock_10 *)((s32) arg1 + 4);
 }
 #pragma pop
 

@@ -101,10 +101,10 @@ void TContainerAncient01::render() {
     if (((VObj8018B8BC_8018B79C *) arg0)->m8(TContainerAncient01__data_805DBD3C, lbl_805DBD4C) != 0) {
         TObjFish::set_global_param(this->texture_id);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         if ((s32) *(s32 *)&this->m_35c != 0) {
-            scale_current_matrix(arg0 + 0x360);
+            scale_current_matrix((u8 *)&this->m_360);
         }
         if (TObjPlayer::check_demo_mode() == 1) {
             draw_ginja_object(*(s32 *)&this->model);

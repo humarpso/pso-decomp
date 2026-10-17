@@ -677,23 +677,23 @@ extern void *TWindowSubShortMail__class_name;
 
 }
 TWindowSubShortMail::TWindowSubShortMail(TObject *arg1, void *arg2) : TObject(arg1) {
-    *(void **)((s8 *)this + 0x0) = TWindowSubShortMail__class_name;
+    *(void * *)&this->m_name = TWindowSubShortMail__class_name;
     *(void **)((s8 *)this + 0x34) = arg1;
     *(void **)((s8 *)this + 0x20) = arg2;
-    *(u32 *)((s8 *)this + 0x40) = 0;
-    *(u32 *)((s8 *)this + 0x54) = 0;
-    *(u32 *)((s8 *)this + 0x58) = 0;
-    *(u32 *)((s8 *)this + 0x38) = 0;
-    *(u32 *)((s8 *)this + 0x3C) = 0;
-    *(u32 *)((s8 *)this + 0x44) = 0;
-    *(u32 *)((s8 *)this + 0x48) = 0;
-    *(u32 *)((s8 *)this + 0x4C) = 0;
-    *(u32 *)((s8 *)this + 0x5C) = 0;
-    *(u32 *)((s8 *)this + 0x50) = 0;
-    *(u32 *)((s8 *)this + 0x24) = -1;
-    *(u32 *)((s8 *)this + 0x28) = -1;
-    *(u32 *)((s8 *)this + 0x2C) = 0;
-    *(u32 *)((s8 *)this + 0x30) = 0;
+    this->m_40 = 0;
+    this->m_54 = 0;
+    this->m_58 = 0;
+    this->m_38 = 0;
+    this->m_3c = 0;
+    this->m_44 = 0;
+    this->m_48 = 0;
+    this->m_4c = 0;
+    this->m_5c = 0;
+    this->m_50 = 0;
+    this->m_24 = -1;
+    this->m_28 = -1;
+    this->m_2c = 0;
+    this->m_30 = 0;
     *(u8 *)((s8 *)this + 0x1C) = 0;
 }
 extern "C" {

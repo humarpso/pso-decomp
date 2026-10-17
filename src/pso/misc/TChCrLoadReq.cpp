@@ -94,7 +94,7 @@ void TChCrLoadReq::reset_request() {
 
 }
 TChCrLoadReq::TChCrLoadReq(TObject *arg1, void *arg2) : TObject(arg1) {
-    *(void **)((s8 *)this + 0x0) = lbl_805D3B60;
+    *(void * *)&this->m_name = lbl_805D3B60;
     ((TChCrLoadReq *)((char *)this + 56))->copy((void*)(arg2));
     this->reset_request();
 }

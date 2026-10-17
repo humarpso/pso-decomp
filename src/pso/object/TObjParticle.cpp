@@ -80,13 +80,13 @@ void TObjParticle::run_task() {
     if (((s32) *(s32 *)&this->m_8c == 1) && ((s32) this->m_84 == 1)) {
         var_f31 = lbl_805DBEE8;
     }
-    if (xyz_distance_squared(arg0 + 0x38, camera_ctrl_instance + 0x178) > var_f31) {
+    if (xyz_distance_squared((u8 *)&this->position, camera_ctrl_instance + 0x178) > var_f31) {
         queue_destruction__7TObjectFv((void *)(arg0));
         return;
     }
     if ((u32) this->m_90 != 0U) {
-        ((TNowLoading *)(this->m_90))->copy_pos(arg0 + 0x38);
-        ((TBoss4Type2 *)(this->m_90))->copy_vec3(arg0 + 0x5C);
+        ((TNowLoading *)(this->m_90))->copy_pos((u8 *)&this->position);
+        ((TBoss4Type2 *)(this->m_90))->copy_vec3((u8 *)&this->m_5c);
     }
 }
 

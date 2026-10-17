@@ -59,17 +59,17 @@ void TObjEneBm9Mericarol_Bomb::run_task() {
             return;
         }
         this->m_f8 -= lbl_805DE760;
-        VecCopy__FP3VecPC3Vec(&v, arg0 + 0xB4);
+        VecCopy__FP3VecPC3Vec(&v, (u8 *)&this->m_b4);
         vec3_add_to(&v, arg0 + 0xCC);
         v.y += this->m_f8 - lbl_805DE764;
-        if (csnVector(arg0 + 0xB4, &v, 0x1EFF) != 0) {
+        if (csnVector((u8 *)&this->m_b4, &v, 0x1EFF) != 0) {
             queue_destruction__7TObjectFv(arg0);
             return;
         }
         this->m_b4 += *(f32 *)&this->unk_C0;
         *(f32 *)&this->unk_B8 += this->m_c4;
         this->m_bc += *(f32 *)((s8 *)arg0 + 0xC8);
-        hit = csnVecterUnder(arg0 + 0xB4, 0x16EF);
+        hit = csnVecterUnder((u8 *)&this->m_b4, 0x16EF);
         if (hit != NULL) {
             *(f32 *)((s8 *)arg0 + 0x3C) = *(f32 *)((s8 *)hit->tri + 4);
             VecCopy__FP3VecPC3Vec(arg0 + 0xD8, hit->tri + 0xC);
@@ -88,11 +88,11 @@ void TObjEneBm9Mericarol_Bomb::run_task() {
             *(s32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0x18) |= 2;
         }
         *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 4) = d;
-        if (((VObj_18_64db54 *)(arg0))->m14(arg0 + 0xE4, arg0 + 0xF0) != 0) {
+        if (((VObj_18_64db54 *)(arg0))->m14(arg0 + 0xE4, (u8 *)&this->unk_F0) != 0) {
             TObjEneBm9Mericarol__sub_802CED40(find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xB0)));
             if (*(s32 *)((s8 *)arg0 + 0xF0) == 0 && this->m_108 != 0) {
                 *(s32 *)((s8 *)arg0 + 0xF0) = 0x12;
-                this->vfunc_16(arg0 + 0xE4, arg0 + 0xF0);
+                this->vfunc_16(arg0 + 0xE4, (u8 *)&this->unk_F0);
             }
             queue_destruction__7TObjectFv(arg0);
             return;
@@ -103,23 +103,23 @@ void TObjEneBm9Mericarol_Bomb::run_task() {
             r1.x = 0;
             r1.y = this->m_ec + 0x4000;
             r1.z = 0;
-            *(u32 *)&this->m_110 = spawn_particle_effect_with_rotation(arg0 + 0xB4, &r1, 0x207, 0x40);
+            *(u32 *)&this->m_110 = spawn_particle_effect_with_rotation((u8 *)&this->m_b4, &r1, 0x207, 0x40);
             if (this->m_110 != NULL) {
                 ((TParticleCtrl *)(this->m_110))->enable();
             }
         } else {
-            ((TNowLoading *)(this->m_110))->copy_pos(arg0 + 0xB4);
+            ((TNowLoading *)(this->m_110))->copy_pos((u8 *)&this->m_b4);
         }
         if (*(void * *)&this->unk_114 == NULL) {
             r2.x = 0;
             r2.y = this->m_ec + 0x4000;
             r2.z = 0;
-            *(u32 *)&this->unk_114 = spawn_particle_effect_with_rotation(arg0 + 0xB4, &r2, *(s32 *)&this->unk_104, 0x40);
+            *(u32 *)&this->unk_114 = spawn_particle_effect_with_rotation((u8 *)&this->m_b4, &r2, *(s32 *)&this->unk_104, 0x40);
             if (*(void * *)&this->unk_114 != NULL) {
                 ((TParticleCtrl *)(*(void * *)&this->unk_114))->enable();
             }
         } else {
-            ((TNowLoading *)(*(void * *)&this->unk_114))->copy_pos(arg0 + 0xB4);
+            ((TNowLoading *)(*(void * *)&this->unk_114))->copy_pos((u8 *)&this->m_b4);
         }
         break;
     }

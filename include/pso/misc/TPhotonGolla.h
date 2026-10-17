@@ -9,7 +9,11 @@ public:
     void sub_801AB688();
     virtual void render();
     virtual void run_task();
-    u8 unk_158[0x60];
+    u8 unk_158[0x4];
+    float m_15c;
+    u8 unk_160[0x4];
+    float m_164;
+    u8 unk_168[0x50];
     s16 m_1b8;
     u8 unk_1BA[0xA];
     s32 m_1c4;

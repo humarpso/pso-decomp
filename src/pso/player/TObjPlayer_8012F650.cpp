@@ -16,7 +16,7 @@ void TObjPlayer::handle_move_input() {
         rotate_matrix_x(0, this->m_204);
         return;
     case 2:
-        scale_current_matrix(arg0 + 0x1F8);
+        scale_current_matrix((u8 *)&this->unk_1F8);
         return;
     case 3:
         rotate_matrix_x(0, -this->m_204);

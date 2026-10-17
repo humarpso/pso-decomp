@@ -14,16 +14,27 @@ public:
     virtual void vfunc_10();
     virtual void post_update_view();
     virtual void run_task();
-    u8 unk_1C[0x1C];
+    u8 unk_1C[0x4];
+    u16 m_20;
+    u8 unk_22[0x2];
+    s32 m_24;
+    u8 unk_28[0x4];
+    s32 m_2c;
+    u8 unk_30[0x4];
+    s32 m_34;
     s32 m_38;
     f32 m_3c;
     u8 unk_40[0x4];
     f32 m_44;
     u8 unk_48[0x4];
     f32 m_4c;
-    u8 unk_50[0x8];
+    u8 unk_50[0x4];
+    s32 m_54;
     f32 m_58;
-    u8 unk_5C[0x10];
+    u8 unk_5C[0x4];
+    f32 m_60;
+    u8 unk_64[0x4];
+    f32 m_68;
 };
 
 #endif

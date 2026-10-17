@@ -187,7 +187,7 @@ void TObjContainerJung::vfunc_81() {
         case 0:
             TObjFish::set_global_param(TObjContainerJung__bml_aux_handle);
             push_matrix();
-            post_translate_matrix(arg0 + 0x38);
+            post_translate_matrix((u8 *)&this->position);
             rotate_matrix_y(0, this->rotation_y);
             scale_matrix(0, lbl_805DBD9C, lbl_805DBD9C, lbl_805DBD9C);
             get_bml_model(*(u8 **)&TObjContainerJung__bml_model_resource, 0);

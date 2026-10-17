@@ -46,7 +46,7 @@ s16 TObjLazerFence4::update_object_view_visibility(f32 farg0, f32 farg1) {
     if (TMainTask::get_state_flag() == 1) {
         return this->m_1e;
     }
-    if (xz_distance_squared(arg0 + 0x38, camera_ctrl_instance + 0x178) < (farg1 * farg1)) {
+    if (xz_distance_squared((u8 *)&this->position, camera_ctrl_instance + 0x178) < (farg1 * farg1)) {
         this->m_1e = 1;
         return this->m_1e;
     }
@@ -107,7 +107,7 @@ void TObjLazerFence4::draw_model() {
   while (var_r30 < 0xC);
   TObjFish::set_global_param((s32)((void *)((*(s32 *)&lazer_fence_norm_texture_list))));
   push_matrix();
-  post_translate_matrix(arg0 + 0x38);
+  post_translate_matrix((u8 *)&this->position);
   rotate_matrix_y((int)(0), (void *)(*((s32 *) (((s8 *) arg0) + 0x60))));
   draw_ginja_object((void *)(*((s32 *) (((s8 *) arg0) + 0xC0))));
   TParticleCtrl::begin_effect_render();

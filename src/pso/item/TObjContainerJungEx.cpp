@@ -142,7 +142,7 @@ void TObjContainerJungEx::vfunc_81() {
         TObjContainerJungEx__sub_8018D900(0);
         set_global_param__8TObjFishFl();
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         scale_matrix(0, lbl_805DBD9C, lbl_805DBD9C, lbl_805DBD9C);
         get_model__19TObjContainerJungExFl(0);

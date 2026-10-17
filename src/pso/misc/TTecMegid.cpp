@@ -232,7 +232,7 @@ void TTecMegid::update_by_state() {
     s16 temp_r0;
     s32 temp_r3;
 
-    temp_r0 = *(s16 *)((s8 *)arg0 + 0xC6);
+    temp_r0 = this->band;
     switch (temp_r0) {
     case 0:
         temp_r3 = play_sound_effect(0x4002A60B, (int) (arg0 + 0x20), 0, 0);
@@ -469,11 +469,11 @@ u8 *TTecMegid::construct_facing(s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
     for (i = 0; i < 0x20; i++) {
         ((Obj_80235940 *)arg0)->ids[i] = 0xFFFF;
     }
-    *(s32 *)((s8 *)arg0 + 0x174) = 0;
+    this->m_174 = 0;
     spawn_particle_emitters();
     update_by_state();
     if (*(void **)((s8 *)arg0 + 0x1C) != 0) {
-        *(s16 *)((s8 *)arg0 + 0xC8) = obj_getField1c(*(void **)((s8 *)arg0 + 0x1C));
+        *(s16 *)&this->sourceId = obj_getField1c(*(void **)((s8 *)arg0 + 0x1C));
     }
     return arg0;
 }

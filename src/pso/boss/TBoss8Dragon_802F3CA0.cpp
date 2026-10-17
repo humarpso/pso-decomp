@@ -102,7 +102,7 @@ void TBoss8Dragon::draw_motion_model() {
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DED54, TBoss8Dragon__data_805DED58) != 0) {
         TObjFish::set_global_param(*(s32 *)(arg0 + 0x24));
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->m_38);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         push_matrix();
         scale_matrix(0, lbl_805DED5C, TBoss8Dragon__data_805DED60, lbl_805DED5C);

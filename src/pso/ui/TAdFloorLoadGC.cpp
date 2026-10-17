@@ -18,7 +18,7 @@ TAdFloorLoadGC::~TAdFloorLoadGC() {}
 TAdFloorLoadGC::TAdFloorLoadGC(TObject *arg1, void *arg2) : TObject(arg1) {
     void *o;
     void *o2;
-    *(void **)((s8 *)this + 0x0) = lbl_805D4328;
+    *(void * *)&this->m_name = lbl_805D4328;
     o = new TAdFloorLoadCamGC(this, arg2);
     o2 = __nw__7TObjectFUl(0x3A0);
     if (o2 != NULL) {

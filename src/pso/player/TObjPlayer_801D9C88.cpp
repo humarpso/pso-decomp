@@ -5,6 +5,6 @@ extern "C" {
 
 int set_slot_type_state__10TObjPlayerFllss(void*, void*, void*, void*);
 
-void TObjPlayer::reset_slots() { *(short*)((char*)this + 0x6) = 0; { int i; for (i = 0; i < 10; i++) { set_slot_type_state__10TObjPlayerFllss(this, (void*)i, (void*)65535, (void*)0); } } }
+void TObjPlayer::reset_slots() { *(short *)&this->m_id = 0; { int i; for (i = 0; i < 10; i++) { set_slot_type_state__10TObjPlayerFllss(this, (void*)i, (void*)65535, (void*)0); } } }
 
 }

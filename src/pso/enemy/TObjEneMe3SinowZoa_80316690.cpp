@@ -29,16 +29,16 @@ s32 TObjEneMe3SinowZoa::check_floor_contact(void *arg1) {
     void *p;
     VecCopy__FP3VecPC3Vec(&v, arg1);
     v.y += TObjEneMe3SinowZoa__data_805DF2F0;
-    hit = csnVectorUnder(&v, arg0 + 0x120, 0x4007);
+    hit = csnVectorUnder(&v, (u8 *)&this->m_120, 0x4007);
     if (hit != NULL) {
         *(s32 *)(arg0 + 0x3D0) = *(s32 *)(hit->obj + 0x18);
         if (*(s32 *)(arg0 + 0x3D0) & 0x4000) {
             VecCopy__FP3VecPC3Vec(arg0 + 0x3D4, hit->obj);
         } else {
-            VecCopy__FP3VecPC3Vec(arg0 + 0x3D4, arg0 + 0x38);
+            VecCopy__FP3VecPC3Vec(arg0 + 0x3D4, (u8 *)&this->position);
         }
         if (hit->flags & 4) {
-            TObjEneGibbles__sub_800D8988(arg0 + 0x38);
+            TObjEneGibbles__sub_800D8988((u8 *)&this->position);
             p = DELL(hit->obj + 0x38, 0x49);
             if (p != 0) {
                 attach_particle_model(p, TParticleCtrl::get_particle_model(2), TParticleCtrl::get_instance(), 0, 1, TObjEneMe3SinowZoa__data_805DF2F4);
@@ -47,7 +47,7 @@ s32 TObjEneMe3SinowZoa::check_floor_contact(void *arg1) {
             return 1;
         }
         if (hit->flags & 2) {
-            TObjEneGibbles__sub_800D8988(arg0 + 0x38);
+            TObjEneGibbles__sub_800D8988((u8 *)&this->position);
             p = DELL(hit->obj + 0x54, 0x49);
             if (p != 0) {
                 attach_particle_model(p, TParticleCtrl::get_particle_model(2), TParticleCtrl::get_instance(), 0, 1, TObjEneMe3SinowZoa__data_805DF2F4);

@@ -231,13 +231,13 @@ void TItemAttackCol::move_with_collision(void *arg1) {
     u8 *arg0 = (u8 *)this;
     Hit_802E3D8C *hit;
     Cb_802E3D8C cb;
-    hit = csnVector(arg0 + 0x24, arg1, 0x8100);
+    hit = csnVector((u8 *)&this->m_24, arg1, 0x8100);
     if (hit != NULL) {
         ((TObjPlayer *)(arg0 + 0xE0))->set_flags(1);
         VecCopy__FP3VecPC3Vec((s32 *)(arg0 + 0x24), (s32)(hit->pos));
         cb = *(Cb_802E3D8C *)((s8 *)arg0 + 0x138);
         if (cb != NULL) {
-            cb(this->m_ac, arg0 + 0x24, arg0 + 0xD0);
+            cb(this->m_ac, (u8 *)&this->m_24, (u8 *)&this->m_d0);
         }
     } else {
         VecCopy__FP3VecPC3Vec((s32 *)(arg0 + 0x24), (s32)(arg1));

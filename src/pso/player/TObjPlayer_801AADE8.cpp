@@ -74,14 +74,14 @@ void create_estlla_photon_blast_model(void) {
     (*(s32 *)&estlla_photon_blast_model) = var_r0;
 }
 
-void TPhotonFarlla::sub_801AAE6C() { *(float*)((char*)this + 0x184) = lbl_805DC158; *(float*)((char*)this + 0x188) = lbl_805DC158; *(float*)((char*)this + 0x18c) = lbl_805DC158; *(float*)((char*)this + 0x190) = lbl_805DC158; }
+void TPhotonFarlla::sub_801AAE6C() { *(float *)&this->m_184 = lbl_805DC158; *(float*)((char*)this + 0x188) = lbl_805DC158; this->m_18c = lbl_805DC158; *(float*)((char*)this + 0x190) = lbl_805DC158; }
 
 void TPhotonFarlla::update_all_slots() {
     s32 var_r31;
 
     TObjPlayer::init_all_slots();
     mark_enemy_body_contacts();
-    if (*(s32 *)((s8 *)(*(void **)((s8 *)this + 0xA4)) + 0x18) & 0x100000) {
+    if (*(s32 *)((s8 *)(this->m_a4) + 0x18) & 0x100000) {
         var_r31 = 0;
         do {
             if (TObjPlayer::get_battle_param(var_r31) != 0U) {

@@ -24,29 +24,29 @@ void TUnk_804B0BB8::vfunc_17() {
     case 3:
     case 4:
     case 5:
-        play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x42807, (u8 *)&this->position, 0, 0);
         break;
     case 6:
     case 7:
-        play_sound_effect(0x4004BC01, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x4004BC01, (u8 *)&this->position, 0, 0);
         break;
     case 8:
     case 9:
     case 10:
-        play_sound_effect(0x4004B708, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x4004B708, (u8 *)&this->position, 0, 0);
         break;
     case 16:
     case 17:
         if (enable_v2_features == 1) {
-            play_sound_effect(0x4004AA0B, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4004AA0B, (u8 *)&this->position, 0, 0);
         }
         break;
     case 28:
     case 29:
-        play_sound_effect(0x4004A80C, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x4004A80C, (u8 *)&this->position, 0, 0);
         break;
     case 18:
-        play_sound_effect(0x42A05, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x42A05, (u8 *)&this->position, 0, 0);
         break;
     }
 }
@@ -59,37 +59,37 @@ void TUnk_804B0BB8::play_proximity_sound() {
         case 3:
         case 4:
         case 5:
-            play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x42807, (u8 *)&this->position, 0, 0);
             break;
         case 6:
         case 7:
-            play_sound_effect(0x4004BC01, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4004BC01, (u8 *)&this->position, 0, 0);
             break;
         case 8:
         case 9:
         case 10:
-            play_sound_effect(0x4004B708, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4004B708, (u8 *)&this->position, 0, 0);
             break;
         case 16:
         case 17:
             if (enable_v2_features == 1) {
-                play_sound_effect(0x4004AA0B, arg0 + 0x38, 0, 0);
+                play_sound_effect(0x4004AA0B, (u8 *)&this->position, 0, 0);
             }
             break;
         case 19:
         case 20:
-            play_sound_effect(0x4BF0B, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4BF0B, (u8 *)&this->position, 0, 0);
             break;
         case 21:
         case 22:
-            play_sound_effect(0x4004AA0B, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4004AA0B, (u8 *)&this->position, 0, 0);
             break;
         case 18:
-            play_sound_effect(0x42A04, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x42A04, (u8 *)&this->position, 0, 0);
             break;
         case 28:
         case 29:
-            play_sound_effect(0x4004A80C, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4004A80C, (u8 *)&this->position, 0, 0);
             break;
         case 0:
             break;

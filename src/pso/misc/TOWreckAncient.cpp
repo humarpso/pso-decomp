@@ -67,7 +67,7 @@ void TOWreckAncient::render() {
     VObj1_8017dce0 *self = (VObj1_8017dce0 *)arg0;
     if (self->m8(*(f32 *)&this->unk_AC, this->m_b0) != 0) {
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
         draw_ginja_object(*(s32 *)&this->model);

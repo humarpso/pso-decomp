@@ -361,7 +361,7 @@ void TLobby__sub_803C0B3C(u8 *arg0) {
 }
 s32 TLobby::is_riff_wave() {
     u8 *arg0 = (u8 *)this;
-    if (memcmp(arg0, &lbl_805E0CB0, 4) == 0 && memcmp(arg0 + 8, &lbl_805E0CB8, 4) == 0) {
+    if (memcmp(arg0, &lbl_805E0CB0, 4) == 0 && memcmp((u8 *)&this->m_prev, &lbl_805E0CB8, 4) == 0) {
         return 1;
     }
     return 0;

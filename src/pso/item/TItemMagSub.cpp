@@ -328,8 +328,8 @@ void TItemMagSub::clear_optional_oscillation_flag(void* arg0) {
 }
 void TItemMagSub::reset_oscillation() {
     u8* arg0=(u8*)this;
-    memset(arg0 + 0x34, 0, 0xC);
-    memset(arg0 + 0x58, 0, 0xC);
+    memset((u8 *)&this->rotation_delta, 0, 0xC);
+    memset((u8 *)&this->drift_phase, 0, 0xC);
     *(f32 *)((s8 *)arg0 + 0x9C) = (f32) mag_sub_zero;
     *(f32 *)((s8 *)arg0 + 0x98) = (f32) mag_sub_zero;
     *(f32 *)((s8 *)arg0 + 0x94) = (f32) mag_sub_zero;
@@ -660,7 +660,7 @@ TItemMagSub::~TItemMagSub() {}
 TItemHeapObject::~TItemHeapObject() {}
 void TItemMagSub::reset() {
     u8* arg0=(u8*)this;
-    VecCopy__FP3VecPC3Vec(arg0 + 0xAC, *(s32 *)&this->owner + 0x2FC);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->translation_offset, *(s32 *)&this->owner + 0x2FC);
     *(s32 *)((s8 *)arg0 + 0x48) = 0;
     *(s32 *)((s8 *)arg0 + 0x44) = 0;
     *(s32 *)((s8 *)arg0 + 0x40) = 0;

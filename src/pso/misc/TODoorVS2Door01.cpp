@@ -131,7 +131,7 @@ void TODoorVS2Door01::vfunc_17() {
     if (!(this->m_d0 & 1) || (is_any_player_within_radius_xz((1e+04f)) == 0)) {
         *(s32 *)&this->m_ac = 3;
         ((TObjPlayer *)arg0)->clear_player_status_flag(0, 8);
-        play_sound_effect(0x4004AA0B, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x4004AA0B, (u8 *)&this->position, 0, 0);
     }
 }
 
@@ -150,7 +150,7 @@ void TODoorVS2Door01::play_proximity_sound() {
     if ((this->m_d0 & 1) && (is_any_player_within_radius_xz((4.9e+03f)) != 0)) {
         *(s32 *)&this->m_ac = 1;
         set_indexed_flags(arg0, 0, 8);
-        play_sound_effect(0x4004AA0B, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x4004AA0B, (u8 *)&this->position, 0, 0);
     }
 }
 

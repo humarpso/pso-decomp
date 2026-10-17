@@ -176,13 +176,13 @@ u8 *__dt__12TAdMcCheckGCFv(u8 *arg0, s16 arg1) {
 
 }
 TAdMcCheckGC::TAdMcCheckGC(TObject *arg1, void *arg2) : TObject(arg1) {
-    *(void **)((s8 *)this + 0x0) = TAdMcCheckGC__name;
+    *(void * *)&this->m_name = TAdMcCheckGC__name;
     *(void **)((s8 *)this + 0x28) = arg2;
-    *(u32 *)((s8 *)this + 0x1C) = 0;
+    this->m_1c = 0;
     *(void **)((s8 *)this + 0x20) = *(void **)((s8 *)this + 0x1C);
-    *(u32 *)((s8 *)this + 0x24) = 0;
-    *(u32 *)((s8 *)this + 0x2C) = 0;
-    *(u32 *)((s8 *)this + 0x30) = 0;
-    *(u32 *)((s8 *)this + 0x34) = 0;
-    *(u32 *)((s8 *)this + 0x38) = 0;
+    this->m_24 = 0;
+    this->m_2c = 0;
+    this->m_30 = 0;
+    this->m_34 = 0;
+    this->m_38 = 0;
 }

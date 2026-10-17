@@ -165,8 +165,8 @@ s16 TObjContainerIdo::update_object_view_visibility(f32 farg0, f32 farg1) {
     u8 *arg0 = (u8 *)this;
     Vec_8018BEE4 p;
     f32 out[2];
-    matrix_mult_vec(0, arg0 + 0xC0, &p);
-    if (xyz_distance_squared(arg0 + 0x38, camera_ctrl_instance + 0x178) < farg1 * farg1) {
+    matrix_mult_vec(0, (u8 *)&this->m_c0, &p);
+    if (xyz_distance_squared((u8 *)&this->position, camera_ctrl_instance + 0x178) < farg1 * farg1) {
         return 1;
     }
     if (p.z + farg1 * lbl_805DBD60 > 0.0f) {
@@ -692,7 +692,7 @@ void TObjContainerJungEnemy::vfunc_81() {
     case 0:
         TObjFish::set_global_param(this->texture_id);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         scale_matrix(0, lbl_805DBD9C, lbl_805DBD9C, lbl_805DBD9C);
         draw_ginja_object(*(void * *)&this->m_368);

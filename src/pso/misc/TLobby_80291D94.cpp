@@ -1286,7 +1286,7 @@ void TLobby::copy_struct(u8 *arg1) {
     *(u8 *)((s8 *)arg0 + 1) = (u8) *(u8 *)((s8 *)arg1 + 1);
     *(u8 *)((s8 *)arg0 + 2) = (u8) *(u8 *)((s8 *)arg1 + 2);
     *(u8 *)((s8 *)arg0 + 3) = (u8) *(u8 *)((s8 *)arg1 + 3);
-    *(ByteBlock_C *)((s32) arg0 + 4) = *(const ByteBlock_C *)((s32) arg1 + 4);
+    *(ByteBlock_C *)((s32) (u8 *)&this->m_flags) = *(const ByteBlock_C *)((s32) arg1 + 4);
 }
 
 void TLobby::spawn_player_tombstones2() {

@@ -380,7 +380,7 @@ void TObjPlayer::draw_model_no_fog() {
     TObjFish::set_global_param(lbl_805D5094);
     TObjFish::set_global_param((*(s32 *)&this->action_table));
     push_matrix();
-    post_translate_matrix(arg0 + 0xF0);
+    post_translate_matrix((u8 *)&this->unk_F0);
     rotate_matrix_y(0, (*(s32 *)&this->m_c0));
     scale_matrix(0, 1.3f, 1.3f, 1.3f);
     model_render_flags &= 0xFFFFFBFF;

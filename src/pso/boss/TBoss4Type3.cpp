@@ -1007,7 +1007,7 @@ void TBoss4Type3::update_capture() {
         TBoss4Type3::spawn_effect(0xC0, 0xF, (s16)this->m_3b8);
         ((TBoss4Type3 *)arg0)->set_anim_state(5);
     }
-    pos = arg0 + 0x474;
+    pos = (u8 *)&this->m_474;
     if (this->m_398 < 0x12) {
         if (*(void **)((s8 *)arg0 + 0x42C) != NULL) {
             TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x42C)));
@@ -1710,11 +1710,11 @@ void TBoss4Type3::interp_position_between_nodes() {
         }
     }
     ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x38, &pts[1]);
-    subtract_vector(arg0 + 0x38, &pts[0]);
+    subtract_vector((u8 *)&this->position, &pts[0]);
     *(f32 *)&this->position[0] *= this->m_39c;
     *(f32 *)&this->position[1] *= this->m_39c;
     *(f32 *)&this->position[2] *= this->m_39c;
-    vec3_add_to(arg0 + 0x38, &pts[0]);
+    vec3_add_to((u8 *)&this->position, &pts[0]);
 }
 #pragma pop
 

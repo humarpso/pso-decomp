@@ -49,13 +49,13 @@ void TODoorCave02::vfunc_17() {
         if (is_any_player_within_radius_xz(arg0, lbl_805DB4B0) != 1) {
             *(s32 *)&this->m_ac = 3;
             ((TObjPlayer *)arg0)->clear_player_status_flag((s32)0, (s32)8);
-            play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x42807, (u8 *)&this->position, 0, 0);
         }
     } else {
         *(s32 *)&this->m_ac = 3;
         this->texture_id = (s32) *(s32 *)((s8 *)cave_door02_resources + 0);
         ((TObjPlayer *)arg0)->clear_player_status_flag((s32)NULL, (s32)8);
-        play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x42807, (u8 *)&this->position, 0, 0);
     }
 }
 
@@ -115,7 +115,7 @@ void TODoorCave02::render() {
     u8 *arg0 = (u8 *)this;
     if ((((VObj_80161D38 *)arg0)->m8(this->m_c0, *(f32 *)&this->m_c4) != 0) && (((TUnk_804AFBF8 *)arg0)->is_in_view_depth(lbl_805DB4C4) != 0)) {
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         if ((s32) *(s32 *)&this->m_ac == 0) {
             TObjFish::set_global_param(*(s32 *)(cave_door02_resources + ((this->m_d0 * 4) & 4)));

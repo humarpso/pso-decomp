@@ -59,7 +59,7 @@ void TOHealGeneral::apply_heal_to_target() {
     u32 id = this->m_f4;
     if ((id != 0xFFFF) && (id < 0x1000U)) {
         temp_r3_2 = get_player_by_client_id(id);
-        if ((temp_r3_2 != 0) && (obj_testFlags30(temp_r3_2, 0x800) == 0) && (horizontal_distance_squared(temp_r3_2 + 0x38, arg0 + 0x38) < lbl_805DB6C4)) {
+        if ((temp_r3_2 != 0) && (obj_testFlags30(temp_r3_2, 0x800) == 0) && (horizontal_distance_squared(temp_r3_2 + 0x38, (u8 *)&this->position) < lbl_805DB6C4)) {
             add_actor_hp(temp_r3_2, 9);
             add_actor_tp(temp_r3_2, 9);
         }

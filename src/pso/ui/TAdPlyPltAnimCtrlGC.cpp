@@ -77,7 +77,7 @@ void TAdPlyPltAnimCtrlGC::run_task() {
     case 1:
         if (this->m_20 >= ply_plt_anim_time_threshold_table[0]) {
             if ((p = (void *)TAdPlyPltAnimCtrlGC::get_table_value(0)) != NULL) {
-                start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
+                start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, (u8 *)&this->m_24);
             }
             *(s32 *)&this->m_1c = 2;
         }
@@ -85,7 +85,7 @@ void TAdPlyPltAnimCtrlGC::run_task() {
     case 2:
         if (this->m_20 >= ply_plt_anim_time_threshold_table[1]) {
             if ((p = (void *)TAdPlyPltAnimCtrlGC::get_table_value(1)) != NULL) {
-                start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
+                start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, (u8 *)&this->m_24);
             }
             *(s32 *)&this->m_1c = 3;
         }
@@ -93,7 +93,7 @@ void TAdPlyPltAnimCtrlGC::run_task() {
     case 3:
         if (this->m_20 >= ply_plt_anim_time_threshold_table[2]) {
             if ((p = (void *)TAdPlyPltAnimCtrlGC::get_table_value(2)) != NULL) {
-                start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
+                start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, (u8 *)&this->m_24);
             }
             *(s32 *)&this->m_1c = 4;
         }
@@ -101,7 +101,7 @@ void TAdPlyPltAnimCtrlGC::run_task() {
     case 4:
         if (this->m_20 >= ply_plt_anim_time_threshold_table[3]) {
             if ((p = (void *)TAdPlyPltAnimCtrlGC::get_table_value(3)) != NULL) {
-                start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
+                start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, (u8 *)&this->m_24);
             }
             *(s32 *)&this->m_1c = 5;
         }
@@ -109,7 +109,7 @@ void TAdPlyPltAnimCtrlGC::run_task() {
     case 5:
         if (this->m_20 >= ply_plt_anim_time_threshold_table[4]) {
             if ((p = (void *)TAdPlyPltAnimCtrlGC::get_table_value(4)) != NULL) {
-                start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
+                start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, (u8 *)&this->m_24);
             }
             *(s32 *)&this->m_1c = 6;
         }

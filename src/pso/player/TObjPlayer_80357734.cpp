@@ -516,7 +516,7 @@ void TUnk_804F166C::run_task() {
     ((TUnk_804F166C *)arg0)->update_inward_orbit_point();
     temp_r3 = (u8 *)(*(u8 * *)&this->unk_4C);
     if (temp_r3 != NULL) {
-        ((TNowLoading *)temp_r3)->copy_pos(arg0 + 0x34);
+        ((TNowLoading *)temp_r3)->copy_pos((u8 *)&this->m_34);
     }
     temp_r3_2 = this->m_48;
     if (temp_r3_2 > 0) {

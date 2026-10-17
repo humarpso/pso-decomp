@@ -74,7 +74,7 @@ void TOLightMachine01::render() {
     u8 *arg0 = (u8 *)this;
     if (((VObj_8016E9F4_8016E998 *)arg0)->m8(*(f32 *)&this->unk_90, this->m_94) != 0) {
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
         draw_ginja_model(*(s32 *)((s8 *)(*(void * *)&this->model) + 4));

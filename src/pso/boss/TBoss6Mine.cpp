@@ -268,7 +268,7 @@ void TBoss6Mine::update_facing_angles() {
     case 5:
     case 6:
         VecCopy__FP3VecPC3Vec((s32) &v, (s32) (arg0 + 0x38));
-        subtract_vector(&v, arg0 + 0x44);
+        subtract_vector(&v, (u8 *)&this->m_44);
         if (vector_length(&v) <= lbl_805DF588) {
             a = 0;
             b = 0;

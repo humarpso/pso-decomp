@@ -208,7 +208,7 @@ u8 *TWindowSubSymbolChat::get_symbol_chat_data() {
     if ((s8) *(u8 *)&this->m_flags == 0) {
         return get_message_10__20TWindowSubStatusDispFl(0xCD);
     }
-    return arg0 + 4;
+    return (u8 *)&this->m_flags;
 }
 
 s32 is_symbol_chat_preset_in_use(u32 *arg0) {

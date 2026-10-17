@@ -39,7 +39,7 @@ void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1) {
 
 void *TObjPlayer::init_and_activate() {
     TObjPlayer__sub_800D9718(this);
-    *(s32 **)((s8 *)this + 0x14) = lbl_804949A8;
+    *(s32 * *)&this->m_down = lbl_804949A8;
     activate_and_dispatch();
     return this;
 }

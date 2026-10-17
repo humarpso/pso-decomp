@@ -586,9 +586,9 @@ void TObjPlayer::copy_wall_polygon(u8 *arg1) {
     u8 *arg0 = (u8 *)this;
     *(s32 *)((s8 *)arg0 + 0) = (s32) *(s32 *)((s8 *)arg1 + 0);
     *(u16 *)((s8 *)arg0 + 4) = (u16) *(u16 *)((s8 *)arg1 + 4);
-    *(u16 *)((s8 *)arg0 + 6) = (u16) *(u16 *)((s8 *)arg1 + 6);
-    *(ByteBlock_C *)((s32) arg0 + 8) = *(const ByteBlock_C *)((s32) arg1 + 8);
-    *(ByteBlock_C *)((s32) arg0 + 0x14) = *(const ByteBlock_C *)((s32) arg1 + 0x14);
+    this->m_id = (u16) *(u16 *)((s8 *)arg1 + 6);
+    *(ByteBlock_C *)((s32) (u8 *)&this->m_prev) = *(const ByteBlock_C *)((s32) arg1 + 8);
+    *(ByteBlock_C *)((s32) (u8 *)&this->m_down) = *(const ByteBlock_C *)((s32) arg1 + 0x14);
     *(f32 *)&this->m_20 = (f32) *(f32 *)((s8 *)arg1 + 0x20);
 }
 

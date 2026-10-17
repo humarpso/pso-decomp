@@ -72,7 +72,7 @@ void TObjEneMoja::update_death_state() {
 
     advance_animation_playback(arg0);
     if (objInBand__FP7GameObjf(arg0, lbl_805D9BD8) != 0) {
-        play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x3A809), arg0 + 0x38, 0, 0);
+        play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x3A809), (u8 *)&this->position, 0, 0);
     }
     if (objInBand__FP7GameObjf(arg0, lbl_805D9BE4) != 0) {
         v.x = lbl_805D9BD8;
@@ -82,7 +82,7 @@ void TObjEneMoja::update_death_state() {
         rotate_matrix_y(0, this->rotation_y);
         rotate_vector_by_matrix(0, &v, &v);
         pop_matrix();
-        vec3_add_to(&v, arg0 + 0x38);
+        vec3_add_to(&v, (u8 *)&this->position);
         play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x3AD03), &v, 0, 0);
         TObjPlayer::play_effect_if_v2(-0x300);
         spawn_particle_effect((s32) &v, 0xF0);
@@ -1145,7 +1145,7 @@ s32 TObjEneMoja::update_approach_state() {
     case 0:
         ((s32 (*)(void *, s32, f32))apply_actor_gravity)((void *) arg0, 0, lbl_805D9BD8);
         if (objInBand__FP7GameObjf((void *) (arg0), lbl_805D9BD8) != 0) {
-            ((s32 (*)(void *, void *, int, int))play_sound_effect)(((void * (*)(void *, int))copy_target_state__14TObjEnePanarmsFPv)((void *) (arg0), 0x3AD0A), arg0 + 0x38, 0, 0);
+            ((s32 (*)(void *, void *, int, int))play_sound_effect)(((void * (*)(void *, int))copy_target_state__14TObjEnePanarmsFPv)((void *) (arg0), 0x3AD0A), (u8 *)&this->position, 0, 0);
             TObjPlayer::play_effect_if_v2(-0x200);
         }
         if (this->m_b4 != 0x20U) {
@@ -1178,7 +1178,7 @@ s32 TObjEneMoja::update_approach_state() {
             }
         }
         if (objInBand__FP7GameObjf((void *) (arg0), lbl_805D9C34) != 0 || objInBand__FP7GameObjf((void *) (arg0), lbl_805D9C38) != 0) {
-            ((s32 (*)(void *, void *, int, int))play_sound_effect)(((void * (*)(void *, int))copy_target_state__14TObjEnePanarmsFPv)((void *) (arg0), 0x3A801), arg0 + 0x38, 0, 0);
+            ((s32 (*)(void *, void *, int, int))play_sound_effect)(((void * (*)(void *, int))copy_target_state__14TObjEnePanarmsFPv)((void *) (arg0), 0x3A801), (u8 *)&this->position, 0, 0);
             TObjPlayer::play_effect_if_v2(-0x400);
         }
         break;
@@ -1692,8 +1692,8 @@ void TObjEneMoja::run_task() {
         (*(s32 *)&this->actorFlags) = (s32) ((*(s32 *)&this->actorFlags) & 0xFFDFFFFF);
         this->target = NULL;
     }
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0x2B4);
-    *(f32 *)((s8 *)arg0 + 0x2B4) = (f32) (temp_f1 + lbl_805D9BDC);
+    temp_f1 = this->m_2b4;
+    this->m_2b4 = (f32) (temp_f1 + lbl_805D9BDC);
     minimap_render_dot((void *) ((u8 *)(arg0) + 0x38), (int) (-0x5DB4), (int) (1), (int) (0), (f32) (temp_f1));
 }
 

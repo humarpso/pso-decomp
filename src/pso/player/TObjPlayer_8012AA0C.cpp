@@ -26,7 +26,7 @@ void TObjPlayer::update_photon_chair_sit() {
     u8 *arg0 = (u8 *)this;
     if (TObjPlayer::get_player_list() == 2) {
         rotate_matrix_z(0, *(s32 *)&this->unk_1F8);
-        advance_angle_wrap(arg0 + 0x1F8, 0x1999);
+        advance_angle_wrap((u8 *)&this->unk_1F8, 0x1999);
     }
 }
 

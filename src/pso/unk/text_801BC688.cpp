@@ -48,9 +48,9 @@ void TObjPlayer::init_action_provider() {
         *(u8 * *)&this->unk_380 = var_r0_2;
     }
     this->m_33b = 0;
-    *(s8 *)((s8 *)arg0 + 0x33A) = 0;
+    *(s8 *)&this->unk_33A = 0;
     this->m_339 = 0;
-    *(s8 *)((s8 *)arg0 + 0x338) = 0;
+    *(s8 *)&this->unk_338 = 0;
     *(s32 *)&this->unk_33C = 0;
     this->m_36c = 0;
     *(s32 *)&this->unk_370 = 0;
@@ -67,7 +67,7 @@ void TObjPlayer::init_action_provider() {
     *(s32 *)&this->inventory_objects = 0;
     this->m_424 = 0;
     (*(s32 *)&this->motion_buffer) = 0;
-    *(s32 *)((s8 *)arg0 + 0xDB4) = 0;
+    this->m_db4 = 0;
     ((TObjPlayer *)arg0)->set_floor_index((int) (0xF));
     ((TObjPlayer *)arg0)->set_floor((int) (0xF));
     this->m_54c = 0;

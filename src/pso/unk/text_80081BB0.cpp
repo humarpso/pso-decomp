@@ -166,9 +166,9 @@ void TUnk_8048E1A4::render() {
         TObjFish__sub_8001EDB0((s32)((void *)freeze_shell_bml_resource), (s32)(1));
         set_global_param__8TObjFishFl();
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
-        scale_current_matrix(arg0 + 0x68);
+        scale_current_matrix((u8 *)&this->scale);
         switch (*(s32 *)((s8 *)arg0 + 0x334)) {
         case 0:
         case 1:
@@ -177,7 +177,7 @@ void TUnk_8048E1A4::render() {
         case 2:
             lbl_805D5660 = model_render_flags;
             model_render_flags = lbl_805D5660 | 0x8820;
-            set_chunk_material_color(arg0 + 0x340);
+            set_chunk_material_color((u8 *)&this->m_340);
             draw_ginja_object(*(s32 *)&this->model);
             model_render_flags &= 0xFFFF77DF;
             set_chunk_material_override_pair(0xFF00, 0);

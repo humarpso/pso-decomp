@@ -906,7 +906,7 @@ void TObjPlayer::update_topple_state() {
         }
         break;
     case 3:
-        play_persistent_sound(0x4003BC05, arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound(0x4003BC05, arg0, (u8 *)&this->position, 0, 0);
         advance_animation_playback(arg0);
         *(s32 *)&this->unk_390 = (s32) (*(s32 *)&this->unk_390 - TObjPlayer__sub_80040AE4(0));
         this->m_394 = (s32) (this->m_394 - TObjPlayer__sub_80040AE4(0));
@@ -919,7 +919,7 @@ void TObjPlayer::update_topple_state() {
     }
     advance_animation_playback(arg0);
     if ((s32) vol_opt_active_hit_zone >= 0) {
-        minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
+        minimap_render_dot((u8 *)&this->position, -0x5DB4, 1, 0);
     }
 }
 
@@ -1354,7 +1354,7 @@ void TUnk_80483A10::render() {
         TObjFish::set_global_param(this->texture_id);
         push_matrix();
         model_render_flags &= 0xFFFFFBFF;
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_x(0, *(s32 *)&this->m_5c);
         if (*(s32 *)&this->m_388 & 0x10000) {
             rotate_matrix_y(0, this->m_398);

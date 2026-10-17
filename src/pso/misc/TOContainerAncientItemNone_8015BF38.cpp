@@ -38,7 +38,7 @@ void TOContainerAncientItemRare::vfunc_6(s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {
         if (arg2 != 0) {
             ((VObj_8015BF38*)arg0)->m77();
-            ((TUnk_804806E8 *)arg0)->request_box_item_drop(arg0 + 0x38, 1);
+            ((TUnk_804806E8 *)arg0)->request_box_item_drop((u8 *)&this->position, 1);
         }
         this->mode = 1;
         ((TUnk_804AF8A0 *)arg0)->set_flag8();

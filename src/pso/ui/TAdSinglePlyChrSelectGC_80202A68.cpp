@@ -310,7 +310,7 @@ void TAdSinglePlyChrSelectGC::clear_inventory_slot() {
     *(s8 *)&this->m_name = 0;
     *(s8 *)((s8 *)arg0 + 1) = -1;
     *(s32 *)&this->m_flags = 0;
-    init__9TItemDataFv(arg0 + 8);
+    init__9TItemDataFv((u8 *)&this->m_prev);
 }
 
 int fn_8020325C(void *arg0) {

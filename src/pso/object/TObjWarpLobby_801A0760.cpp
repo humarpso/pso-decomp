@@ -77,7 +77,7 @@ void TObjWarpLobby::render() {
     if (((s32) *(s32 *)((s8 *)arg0 + 0xCC) != 0) && (((WarpLobbyVObj_801A07F8*)arg0)->m8(lbl_805DC060, lbl_805DC064) != 0)) {
         TObjFish::set_global_param(lbl_805D5CCC);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TParticleCtrl::begin_effect_render();
         draw_ginja_model_with_motion(*(s32 *)((s8 *)(*(void **)((s8 *)TObjWarpLobby__instance + 0x42C)) + 8), *(s32 *)((s8 *)(*(void **)((s8 *)TObjWarpLobby__instance + 0x430)) + 4), this->m_c8);

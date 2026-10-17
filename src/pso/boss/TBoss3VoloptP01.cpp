@@ -1143,14 +1143,14 @@ void TBoss3VoloptP01::run_state_machine() {
         break;
     case 2:
         if ((void *) this->m_3b0 == NULL) {
-            this->m_3b0 = create_particle_emitter(arg0 + 0x2FC, 0x21);
+            this->m_3b0 = create_particle_emitter((u8 *)&this->m_2fc, 0x21);
             ((TBoss4Type2 *)(this->m_3b0))->set_flags(0x40U);
         }
         *(s32 *)&this->state = 3;
     case 3:
         temp_r3 = (u8 *)(this->m_3b0);
         if (temp_r3 != NULL) {
-            ((TNowLoading *)temp_r3)->copy_pos(arg0 + 0x2FC);
+            ((TNowLoading *)temp_r3)->copy_pos((u8 *)&this->m_2fc);
         }
         this->m_39a = (s16) (this->m_39a - 1);
         if ((s32) this->m_39a <= 0) {
@@ -1267,7 +1267,7 @@ void TBoss3VoloptP01::update_breakup() {
             TBoss3Volopt::create_breakup_mdl((s32)TBoss3VoloptP01__breakup_model, (s32)volopt_p01_breakup_params, (s32)(this->texture_id), (s32)(arg0 + 0x2FC), (s32)(this->rotation_y));
             ((TObjPlayer *)(arg0 + 0x2FC))->trigger_dell_biter_events();
             *(s32 *)&this->m_388 |= 0x40000;
-            play_sound_effect(0x4003AD07, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4003AD07, (u8 *)&this->position, 0, 0);
             *(s32 *)&this->state = 2;
             *(s32 *)&this->actorFlags &= 0xFFFFF7FF;
         }
@@ -1307,7 +1307,7 @@ void TBoss3VoloptP01::update_state() {
                 *(s32 *)&this->m_388 = (s32) (temp_r3 & 0xFFFFFFFE);
                 TBoss3VoloptP01__sub_80042F84((u8 *)(arg0));
             } else {
-                play_sound_effect(0x4003A810, arg0 + 0x38, 0xA, 0);
+                play_sound_effect(0x4003A810, (u8 *)&this->position, 0xA, 0);
                 *(s32 *)&this->state = 2;
             }
         } else {
@@ -1324,7 +1324,7 @@ void TBoss3VoloptP01::update_state() {
                     *(s32 *)&this->m_388 = (s32) (temp_r3_2 & 0xFFFFFFFE);
                     TBoss3VoloptP01__sub_80042F84((u8 *)(arg0));
                 } else {
-                    play_sound_effect(0x4003A810, arg0 + 0x38, 0xA, 0);
+                    play_sound_effect(0x4003A810, (u8 *)&this->position, 0xA, 0);
                     *(s32 *)&this->state = 2;
                 }
             }
@@ -1341,7 +1341,7 @@ void TBoss3VoloptP01::update_state() {
         break;
     }
     submit_cursor_candidate(arg0, -1);
-    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
+    minimap_render_dot((u8 *)&this->position, -0x5DB4, 1, 0);
 }
 
 void render__15TBoss3VoloptP01Fv(u8 *arg0) {

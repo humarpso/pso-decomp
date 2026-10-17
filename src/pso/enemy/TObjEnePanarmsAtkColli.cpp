@@ -496,8 +496,8 @@ void TObjEnePanarmsAtkColli::run_task() {
         queue_destruction__7TObjectFv((void *)(arg0));
         return;
     }
-    VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
-    vec3_add_to(arg0 + 0x38, arg0 + 0x308);
+    VecCopy__FP3VecPC3Vec((u8 *)&this->m_44, (u8 *)&this->position);
+    vec3_add_to((u8 *)&this->position, (u8 *)&this->unk_308);
     *(f32 *)&this->unk_378 = (f32) (*(f32 *)&this->unk_378 + this->m_37c);
     temp_r0_2 = *(s32 *)&this->m_374;
     switch (temp_r0_2) {
@@ -505,7 +505,7 @@ void TObjEnePanarmsAtkColli::run_task() {
         ((void (*)(void *))fn_800E35C8)(arg0);
         return;
     case 1:
-        play_persistent_sound(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003BA2A), arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003BA2A), arg0, (u8 *)&this->position, 0, 0);
         ((void (*)(void *))fn_800E3428)(arg0);
         return;
     }

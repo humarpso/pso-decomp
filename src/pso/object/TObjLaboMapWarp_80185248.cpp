@@ -482,7 +482,7 @@ void TObjCityAreaWarp::do_warp() {
     if (((VObj80185B58_80185AFC *) arg0)->m8(lbl_805DBC80, lbl_805DBC84) != 0) {
         set_global_param__8TObjFishFl(city_common_texture_list);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TParticleCtrl::begin_effect_render();
         draw_ginja_model_with_motion(*(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x42C)) + 0x18), *(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x430)) + 0x34), this->m_c4);
@@ -565,7 +565,7 @@ void TObjCityMainWarp::render() {
     if (((VObj80185EC8_80185EC8 *) arg0)->m8(lbl_805DBC80, lbl_805DBC98) != 0) {
         set_global_param__8TObjFishFl(city_common_texture_list);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         draw_ginja_object(*(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x42C)) + 0xC8));
         TParticleCtrl::begin_effect_render();

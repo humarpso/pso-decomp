@@ -932,7 +932,7 @@ void TObjEneGibbles::update_position() {
     u8 *arg0 = (u8 *)this;
     s16 temp_r0;
 
-    ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x2FC, arg0 + 0x38);
+    ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(arg0 + 0x2FC, (u8 *)&this->position);
     this->m_300 = (f32) (this->m_300 + TObjEneGibbles__data_805DE7E8);
     temp_r0 = this->mode;
     switch (temp_r0) {
@@ -1637,7 +1637,7 @@ void TObjEneGibbles::vfunc_60() {
     case 0:
     default: {
         VecCopy__FP3VecPC3Vec((Vec_800A6B14 *) &v, (Vec_800A6B14 *) (this->target + 0x2FC));
-        subtract_vector(&v, arg0 + 0x2FC);
+        subtract_vector(&v, (u8 *)&this->m_2fc);
         f64 t = atan2_float(v.x, v.z);
         this->mode = 4;
         if ((s32) (TObjEneGibbles__data_80472798 * t) < 0x10) {

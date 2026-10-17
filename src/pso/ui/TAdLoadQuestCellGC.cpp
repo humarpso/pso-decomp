@@ -50,9 +50,9 @@ TAdLoadQuestCellGC::~TAdLoadQuestCellGC() {
 
 extern void *lbl_805D42F8;
 TAdLoadQuestCellGC::TAdLoadQuestCellGC(TObject *arg1, void *arg2) : TObject(arg1) {
-    *(void **)((s8 *)this + 0x0) = lbl_805D42F8;
+    *(void * *)&this->m_name = lbl_805D42F8;
     *(void **)((s8 *)this + 0x1C) = arg2;
-    *(u32 *)((s8 *)this + 0x20) = -1;
+    *(u32 *)&this->m_frameCount = -1;
 }
 extern "C" {
 s32 get_or_create_cell__14TAdLoadQuestGCFii(s32 arg0, s32 arg1) {

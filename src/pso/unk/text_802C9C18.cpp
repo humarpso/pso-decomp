@@ -24,17 +24,17 @@ void TOTrapSeabed01::sub_802C9C18(s32 arg1) {
     case 0x19:
     case 0x1A:
     case 0x1B:
-        *(s32 *)(arg0 + 0x358) = play_sound_effect(s.a[arg1], arg0 + 0x38, 0, 0);
+        *(s32 *)(arg0 + 0x358) = play_sound_effect(s.a[arg1], (u8 *)&this->position, 0, 0);
         break;
     case 0x1C:
     case 0x1D:
-        *(s32 *)(arg0 + 0x358) = play_sound_effect(s.b[arg1], arg0 + 0x38, 0, 0);
+        *(s32 *)(arg0 + 0x358) = play_sound_effect(s.b[arg1], (u8 *)&this->position, 0, 0);
         break;
     case 0x22:
-        *(s32 *)(arg0 + 0x358) = play_sound_effect(s.c[arg1], arg0 + 0x38, 0, 0);
+        *(s32 *)(arg0 + 0x358) = play_sound_effect(s.c[arg1], (u8 *)&this->position, 0, 0);
         break;
     case 0x23:
-        *(s32 *)(arg0 + 0x358) = play_sound_effect(s.d[arg1], arg0 + 0x38, 0, 0);
+        *(s32 *)(arg0 + 0x358) = play_sound_effect(s.d[arg1], (u8 *)&this->position, 0, 0);
         break;
     }
 }

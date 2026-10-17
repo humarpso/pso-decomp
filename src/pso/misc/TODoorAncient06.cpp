@@ -40,7 +40,7 @@ void TODoorAncient06::render() {
     VObj1 *self = (VObj1 *)arg0;
     if ((self->m8(lbl_805DB430, lbl_805DB434) != 0) && (((TUnk_804AFBF8 *)arg0)->is_in_view_depth(lbl_805DB438) != 0)) {
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TObjFish::set_global_param(this->texture_id);
         if (((u32) *(u32 *)&this->m_bc != 0U) && (lbl_805DB43C != this->m_b0)) {
@@ -63,13 +63,13 @@ void TODoorAncient06::vfunc_17() {
         if (is_any_player_within_radius_xz(arg0, lbl_805DB440) != 1) {
             *(s32 *)&this->m_ac = 3;
             ((TObjPlayer *)arg0)->clear_player_status_flag((s32)0, (s32)8);
-            play_sound_effect(0x4004B708, arg0 + 0x38, 0, 0);
+            play_sound_effect(0x4004B708, (u8 *)&this->position, 0, 0);
         }
     } else {
         *(s32 *)&this->m_ac = 3;
         this->texture_id = (s32) *(s32 *)((s8 *)TODoorAncient06__texture_lists + 0);
         ((TObjPlayer *)arg0)->clear_player_status_flag((s32)NULL, (s32)8);
-        play_sound_effect(0x4004B708, arg0 + 0x38, 0, 0);
+        play_sound_effect(0x4004B708, (u8 *)&this->position, 0, 0);
     }
 }
 
