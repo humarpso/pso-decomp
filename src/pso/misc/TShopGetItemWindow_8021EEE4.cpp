@@ -47,10 +47,10 @@ struct ShopPlayerLevel : ShopPlayerHeader {
 
 extern "C" {
 void *get_player_by_client_id(s32);
+}
 void clear_shop_armor_flags(void);
 void clear_shop_tool_flags(void);
 void clear_shop_weapon_flags(void);
-}
 extern s32 TLobby__data_805011D8[];
 extern s32 local_client_id;
 extern s32 game_difficulty_selection;

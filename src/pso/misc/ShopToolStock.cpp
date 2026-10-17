@@ -104,6 +104,7 @@ void TLobby::free_all_rocks() {
         lobby_tool_random_rel = var_r30;
     }
 }
+}
 
 void load_tool_random_rel(void) {
     s32 i;
@@ -119,5 +120,4 @@ void load_tool_random_rel(void) {
         ((s32 *)&shop_tool_stock_buffers)[0] = mem_alloc(0x168);
     }
     (*(s32 *)&shop_tool_stock_level) = 0;
-}
 }

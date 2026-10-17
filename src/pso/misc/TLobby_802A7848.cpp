@@ -55,9 +55,11 @@ extern u32 snapshot_image_buffer;
 void TLobby__sub_802A7BD8(void);
 s32 fn_802A5C3C(u32 *arg0);
 s32 memcpy(s32, s32, s32);
+}
 extern s32 shared_snapshot_capture;
 extern s32 snapshot_buffer_size;
 s32 copy_if_space(void);
+extern "C" {
 s32 fn_802A5B2C(s32);
 s32 fn_802A5B50(s32, s32);
 int rlc_get_directory_offset(void *arg0);
@@ -177,6 +179,7 @@ void TLobby__sub_802A7BD8(void) {
         snapshot_image_buffer = 0U;
     }
 }
+}
 s32 copy_if_space(void) {
     if (fn_802A5C3C((u32 *)shared_snapshot_capture) >= 0x258) {
         return 0;
@@ -184,6 +187,7 @@ s32 copy_if_space(void) {
     memcpy((*(s32 *)&snapshot_image_buffer), ((TWindowSnapShot *)shared_snapshot_capture)->get_size(), snapshot_buffer_size);
     return 1;
 }
+extern "C" {
 
 void TLobby::alloc_snapshot_buffer() {
   s32 temp_r31;
@@ -217,5 +221,4 @@ void set_slot_position__6TLobbyFii(s32 arg0, s32 arg1) {
 void TLobby::send_type2_event(s32 arg0, s32 arg1, s32 arg2) {
     aram_dma_blocking__6TLobbyFllll(2, arg0, arg1, arg2, arg0);
 }
-
 }

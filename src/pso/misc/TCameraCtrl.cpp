@@ -19,10 +19,11 @@ struct Obj_8006AF9C {
     s32 f19c;
 };
 
-extern "C" {
 void set_camera_look_at(u8 *eye, u8 *target, u8 *up);
+extern "C" {
 s32 set_perspective_projection_from_fov(int, f32, f32, f32);
 f32 vec_squared_length(void *);
+}
 extern f32 lbl_804FF5E8[10];
 extern u32 TCameraCtrl__up_vector[3];
 extern const f32 TCameraCtrl__data_805D8FA8;
@@ -41,7 +42,6 @@ u8 TCameraCtrl__view_matrix[0x30];
 C30_8006AD34 TCameraCtrl__view_matrices[4];
 extern void *camera_controller_registry[13];
 extern void *lbl_80488AC0[6];
-}
 
 struct A_8006A35C { s8 f0; u8 pad1; s16 f2; s32 f4; s32 f8; };
 struct B_8006A35C { u8 pad[8]; f32 f8; f32 fc; u8 pad10[8]; f32 f18; u8 pad1c[0xC]; f32 f28; f32 f2c; f32 f30; f32 f34; f32 f38; f32 f3c; f32 f40; f32 f44; };

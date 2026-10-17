@@ -8,12 +8,19 @@ void TCameraCtrl__sub_803D65F8(u8 *_w0);
 s32 TObjPlayer__sub_803D6C1C(s32 arg0);
 s32 TObjPlayer__sub_803D7FD0(void);
 s32 TObjPlayer__sub_803D7FD8(void);
+}
 void advance_motion_row(void);
+extern "C" {
 void bind_motion_blend_channels(u8 *arg0, f32 farg0);
+}
 void bind_motion_channel_samplers(int arg0, f32 farg0);
+extern "C" {
 void bind_motion_context(s32 arg0, f32 farg0);
+}
 s32 blend_motion_poses(void *node, void *arg1, void *unused, void *arg3, void *rot);
+extern "C" {
 void compose_motion_node_matrix(void *arg0);
+}
 void find_motion_key_interval(void *keys, s32 stride, s32 count, f32 t, void *k0, void *k1, void *frac);
 void find_motion_key_interval_u16(u8 *keys, u32 stride, u32 count, f32 t, u16 * *k0, u16 * *k1, f32 *frac);
 u32 find_motion_key_partition_u16(u8 *base, u32 stride, u32 hi, u32 key);
@@ -30,8 +37,9 @@ void select_motion_context(s32 arg0);
 void select_motion_sampler(s32 *arg0, f32 farg0);
 void set_camera_look_at(u8 *eye, u8 *target, u8 *up);
 void set_motion_row_stride(s32 n);
+extern "C" {
 void set_perspective_projection_from_fov(s32 arg0, f32 farg0, f32 farg1, f32 farg2);
-void set_screen_size(f32 farg0, f32 farg1);
 }
+void set_screen_size(f32 farg0, f32 farg1);
 
 #endif

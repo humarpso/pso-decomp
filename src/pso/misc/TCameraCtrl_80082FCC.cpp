@@ -44,7 +44,9 @@ s32 GXCopyTex(void *, int);
 s32 GXSetZMode(int, int, int);
 s32 GXSetViewport(f32, f32, f32, f32, f32, f32);
 s32 GXSetScissor(int, int, int, int);
-s32 set_camera_look_at(void *, void *, void *);
+}
+void set_camera_look_at(u8 *eye, u8 *target, u8 *up);
+extern "C" {
 s32 set_perspective_projection_from_fov(int, f32, f32, f32);
 }
 extern RecoveredGlobal_800830B0_lbl_80439348 camera_ctrl_up_vector;
@@ -123,7 +125,7 @@ void TUnk_8048E5DC::render_shadows() {
         stack.sp24 = *(s32 *)((s8 *)&camera_ctrl_up_vector.value + 4);
         stack.sp28 = *(s32 *)((s8 *)&camera_ctrl_up_vector.value + 8);
         set_perspective_projection_from_fov((int) (*(s32 *)&((TCameraCtrl *)camera_ctrl_instance)->m_19c), lbl_805D940C, lbl_805D93D8, lbl_805D9410);
-        set_camera_look_at((u8 *)&this->m_20, (u8 *)&this->unk_2C, (void *)&stack.sp20);
+        set_camera_look_at((u8 *)&this->m_20, (u8 *)&this->unk_2C, (u8 *)&stack.sp20);
         if ((void *) camera_ctrl_instance != NULL) {
             stack.sp14 = *(f32 *)&this->unk_2C - this->m_20;
             stack.sp18 = this->m_30 - *(f32 *)&this->unk_24;

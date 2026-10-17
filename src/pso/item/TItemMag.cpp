@@ -162,7 +162,9 @@ void try_add_action__8TItemMagFii(s32 arg0, s32 arg1);
 void TItemMag__vt40(TItemMag_80110B94 *self);
 void tick_fullness_timer__8TItemMagFPv(O_80110F04 *self);
 u8 mag_owner_has_motion_action(void *arg0);
+}
 s32 mag_owner_freezes_follow(void *arg0);
+extern "C" {
 int TItemMag__sub_801112B0(void);
 void select_action_motion__8TItemMagFPv(TItemMag_801112B8 *self);
 s32 get_evolution_stage__8TItemMagFPv(void * _w0);
@@ -179,11 +181,17 @@ s16 get_mag_item_percent();
 s32 get_mag_item_stat_percent(s32);
 void TItemMag__sub_80113EDC(s32, s16, s8);
 u32 test_flags__8TItemMagFUl(void *, s32);
+}
 void mag_feed_add_mind(u8 *mag, s16 arg1);
+extern "C" {
 void TItemMag__sub_80114198(u8 *mag, s16 arg1);
+}
 void mag_feed_add_def(u8 *mag, s16 arg1);
+extern "C" {
 s16 get_mag_total_level(void *);
+}
 s32 get_mag_feed_result(s32 arg0, s32 arg1);
+extern "C" {
 u8 * get_pmt_record__10TObjPlayerFi(u8);
 void send_6x26_unequip_item__10TObjPlayerFPvPv(void *self, void *item);
 }
@@ -437,6 +445,7 @@ u8 mag_owner_has_motion_action(void *arg0) {
     }
     return (u8) var_r31;
 }
+}
 
 s32 mag_owner_freezes_follow(void *arg0) {
     s32 var_r31;
@@ -447,6 +456,7 @@ s32 mag_owner_freezes_follow(void *arg0) {
     }
     return var_r31;
 }
+extern "C" {
 
 s32 TItemMag::check_action_probability(s32 arg1) {
     u8 *arg0 = (u8 *)this;

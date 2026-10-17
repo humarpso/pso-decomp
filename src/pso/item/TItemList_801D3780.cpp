@@ -87,9 +87,11 @@ struct Search_801D3C38 {
 extern "C" {
 u16 obj_getField1c(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
+}
 extern s32 placement_search_base_vtable[];
 extern const f32 lbl_805DC3D4;
 u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4);
+extern "C" {
 s32 check_player_action_allowed(void);
 s32 fn_801D4270(s32);
 s32 load_character_from_card__23TAdSinglePlyChrSelectGCFv(void);
@@ -354,6 +356,7 @@ void *__dt__13TUnk_804C4498Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+}
 u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801D401C_lbl_804C4498 *)&placement_search_base_vtable).value;
@@ -373,5 +376,4 @@ u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 a
     ((TUnk_804C4498 *)arg0)->m_44 = (f32) lbl_805DC3D4;
     *(s32 *)((s8 *)arg0 + 0x50) = 0;
     return arg0;
-}
 }

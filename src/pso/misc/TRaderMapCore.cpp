@@ -305,7 +305,9 @@ extern const f32 lbl_805DC564;
 s32 minimap_render_dot(Vec_801F9B8C *arg0, s32 arg1, s16 arg2, s32 arg3);
 s32 add_radar_scaled_marker(Vec_801F9B8C *arg0, s32 arg1, s16 arg2, s32 arg3, f32 scale);
 void update_radar_auto_discovery(s32 arg0, s32 arg1, void *arg2);
+}
 void set_camera_look_at(u8 *eye, u8 *target, u8 *up);
+extern "C" {
 void set_perspective_projection_from_fov(s32, f32, f32, f32);
 void rotate_vector_by_matrix(void *, Vec3_801F9314 *, Vec3_801F9314 *);
 void rotate_matrix_y(void *, s32);
@@ -403,10 +405,9 @@ void TRaderMapCore::show_radar() {
         allow_rendering__7TObjectFv((TObject *)(*(u8 * *)&TRaderMapCore__instance));
     }
 }
+}
 
 #pragma fp_contract on
-
-}
 
 void TRaderMapCore::configure_viewport(const RadarViewportParameters* view) {
     f32 temp_f31;

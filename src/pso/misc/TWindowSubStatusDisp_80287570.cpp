@@ -39,8 +39,8 @@ typedef struct UV_80287580 {
     f32 u, v;
 } UV_80287580;
 
-extern "C" {
 s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width);
+extern "C" {
 s32 set_text_draw_params(void *, int, int, f32, f32, f32, f32, f32, f32);
 u32 calc_text_width(char *s);
 void apply_context_transform_to_rect(void *, Rect_80287580 *);
@@ -207,5 +207,4 @@ u8 *init_heading_entry__20TWindowSubStatusDispFPvPvici(u8 *arg0, u8 *arg1, s32 a
 u8 TWindowSubStatusDisp__sub_80287AC4(u8 *arg0) {
     return (u8) ((u32) __cntlzw(*(u8 *)((s8 *)arg0 + 0x19) & 1) >> 5);
 }
-
 }

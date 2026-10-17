@@ -108,7 +108,9 @@ extern const f32 lbl_805D8164;
 Crater_8002C544 *TObjBoss1Crater__ct(Crater_8002C544 *self, void *arg1, void *arg2, void *arg3);
 f32 TBoss1Dragon__sub_80027634(u32);
 s32 TObjBoss1Crater__sub_8002C7E4(void *);
+}
 void attack_target_list_remove(u8 *arg0, s32 arg1);
+extern "C" {
 s32 post_translate_matrix(void *);
 void draw_chunk_object(void *child);
 s32 rotate_matrix_y(int, int);
@@ -243,5 +245,4 @@ Crater_8002C544 *TObjBoss1Crater__ct(Crater_8002C544 *self, void *arg1, void *ar
 s32 TObjBoss1Crater::is_count_below_limit() {
     return TObjBoss1Crater__instance_count < 0x14;
 }
-
 }

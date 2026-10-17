@@ -9,7 +9,7 @@ void TBoss8Dragon__sub_800BB7D4(void);
 void TBoss8Dragon__sub_800BB7D8(void);
 void TBoss8Dragon__sub_800BB7DC(void);
 void enemy_find_nearest_player_in_range(f32 farg0);
-s32 enemy_nearest_visible_player_sq(u8 *arg0, f32 farg0);
 }
+s32 enemy_nearest_visible_player_sq(u8 *arg0, f32 farg0);
 
 #endif

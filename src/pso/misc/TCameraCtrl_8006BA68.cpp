@@ -181,6 +181,7 @@ struct RecoveredGlobal_8006C140_TCameraCtrl__data_804FF7C0 {
 
 extern "C" {
 void direction_to_pitch_yaw(u8 *arg0, s32 *arg1, s32 *arg2);
+}
 void set_camera_look_at(u8 *eye, u8 *target, u8 *up);
 extern RecoveredGlobal_8006C03C_lbl_804383E0 camera_look_at_up_vec;
 extern RecoveredGlobal_8006C03C_lbl_804FF5E8 lbl_804FF5E8;
@@ -189,7 +190,6 @@ extern void* camera_controller_registry[];
 extern RecoveredGlobal_8006C140_lbl_80488C50 camera_path_bank_table;
 extern RecoveredGlobal_8006C140_TCameraCtrl__data_804FF7C0 TCameraCtrl__camera_banks;
 void* camera_controller_registry[];
-}
 
 struct CameraMotionData;
 struct CameraPathMode { u32 field_00; u32 flags; };
@@ -409,6 +409,7 @@ void *TCameraCtrl__vt5(void) {
     }
     return o;
 }
+}
 
 #pragma push
 #pragma fp_contract on
@@ -444,6 +445,7 @@ struct Stack_8006C28C {
 };
 
 void sample_camera_motion(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
+extern "C" {
 void set_camera_capture_overlay_alpha(int);
 f32 vec_squared_length(u8 *arg0);
 void normalize_vector(Vec_8006C28C *);
@@ -466,7 +468,7 @@ void TUnk_80488B68::run_task() {
     st.ptrs[1] = &st.v;
     st.ptrs[2] = &st.sp54;
     st.ptrs[3] = &st.sp58;
-    sample_camera_motion((u8 *)st.out, (s32)s->motion, (u8 *)st.ptrs, (f32)s->frame);
+    sample_camera_motion((u8 *)st.out, (s32)s->motion, (u8 *)st.ptrs, (f32)((f32)s->frame));
     s->projection = scripted_camera_projection_angle;
     set_camera_capture_overlay_alpha(0x8F);
     if (s->mode->flags & 4) {

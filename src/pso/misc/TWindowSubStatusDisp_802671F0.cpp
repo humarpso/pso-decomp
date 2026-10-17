@@ -73,8 +73,8 @@ void TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append(u8 *str);
 }
 void text_builder_reset();
-extern "C" {
 s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width);
+extern "C" {
 void set_text_draw_params(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
 void draw_window_tab(void *, void *, s32, f32);
 extern const f32 lbl_805DD180;

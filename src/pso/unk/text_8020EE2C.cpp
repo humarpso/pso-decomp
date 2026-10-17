@@ -6,6 +6,7 @@ s32 is_split_screen(void);
 s32 create_named_object(s32 arg0);
 extern "C" {
 s32 mem_alloc(s32);
+}
 extern u8 lbl_8044BC40[];
 extern s32 lbl_80513D78[];
 extern s32 lbl_805D6158;
@@ -24,5 +25,4 @@ void load_armor_random_table(void) {
         lbl_80513D78[0] = mem_alloc(0x1A4);
     }
     lbl_805D615C = 0;
-}
 }

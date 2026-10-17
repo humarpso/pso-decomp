@@ -271,7 +271,9 @@ s32 memset(void *, int, int);
 s32 TItem__sub_80100A40(f32 *, f32, f32);
 void run_with_transform_context__10TObjPlayerFii(void *, void (*)(void *));
 u32 mag_owner_has_motion_action(s32);
-s32 mag_owner_freezes_follow(int);
+}
+s32 mag_owner_freezes_follow(void *arg0);
+extern "C" {
 int set_flags__11TItemMagSubFUl(void*, int);
 u32 test_flags__11TItemMagSubFUl(void *, u32);
 s32 obj_isState7_324(void *);
@@ -411,7 +413,7 @@ s32 TItemMagSub::get_world_position(void* output) {
     typedef char spC_offset[(offsetof(Stack_80114DB8, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80114DB8, sp10) == 0x8) ? 1 : -1];
     Stack_80114DB8 stack;
-    if ((mag_owner_freezes_follow((int)item) == 0) && (output != 0)) {
+    if ((mag_owner_freezes_follow(item) == 0) && (output != 0)) {
         push_matrix_from((void *)&identity_matrix.value);
         apply_placement_matrix();
         stack.sp8 = *(s32 *)((s8 *)&mag_sub_local_origin.value + 0);
@@ -638,7 +640,7 @@ void TItemMagSub::run_task() {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    if (mag_owner_freezes_follow(*(s32 *)&this->item) != 0 ||
+    if (mag_owner_freezes_follow((void *)(*(s32 *)&this->item)) != 0 ||
         ((u32 (*)(void *))mag_item_tests_flag_20)(*(u8 * *)&this->item) != 0U) {
         return;
     }

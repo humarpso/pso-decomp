@@ -28,8 +28,8 @@ struct Tbl_8020E934 { u8 pad[8]; u8 *pairs; u8 count; };
 
 struct Rec_8020E700 { u8 a, b, c, d, e, f; u8 pad[0x14 - 6]; };
 
-extern "C" {
 extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
+extern "C" {
 s32 memset(void *, int, int);
 extern RecoveredGlobal_8020ECA8_lbl_80513D58 shop_armor_stock_generated_flags;
 extern s32 lbl_80513D68[];
@@ -64,6 +64,7 @@ s32 is_duplicate_shop_shield_or_unit(Item_8020E934 *arg0, s32 arg1) {
         }
     }
     return 1;
+}
 }
 
 void generate_shop_shield_pool(s32 arg0) {
@@ -122,6 +123,7 @@ void generate_shop_shield_pool(s32 arg0) {
         }
     }
 }
+extern "C" {
 
 void TLobby::clear_shop_entry_value(s32 i, s32 j) {
     Ent_8020EC68 *e = ((Ent_8020EC68 * *)&lbl_80513D78)[j];
@@ -129,14 +131,15 @@ void TLobby::clear_shop_entry_value(s32 i, s32 j) {
         if (e[i].v != -1) e[i].v = -1;
     }
 }
+}
 
 void clear_shop_armor_flags(void) {
     memset(&shop_armor_stock_generated_flags.value, 0, 0x10);
 }
+extern "C" {
 
 void TLobby::copy_armor_shop_entry(s32 arg1, s32 arg2) {
     s32 arg0 = (s32)this;
     *(ByteBlock_14 *)(arg0) = *(const ByteBlock_14 *)(*(s32 *)((s8 *)&lbl_80513D78.value + (arg2 * 4)) + (arg1 * 0x14));
 }
-
 }

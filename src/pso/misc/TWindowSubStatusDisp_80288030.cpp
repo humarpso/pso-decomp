@@ -9,8 +9,8 @@ s32 *get_shared_text_buffer(void);
 void text_builder_append(u8 *str);
 }
 void text_builder_reset(void);
-extern "C" {
 void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
+extern "C" {
 u8 *get_card_data_ptr__17TWindowSubComCardFv(s32);
 void *TWindowSubComCard__sub_8027523C(void *p);
 s32 strcmp(void *, int);

@@ -606,7 +606,9 @@ typedef struct Row_8025930C {
 
 extern "C" {
 u32 calc_text_width(char *s);
+}
 s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width);
+extern "C" {
 void set_text_draw_params(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
 void draw_item_list_icon(s32, u8 *, s32, s32, f32);
 }
@@ -769,15 +771,15 @@ void draw_item_list_row(ItemListRow *row, ItemListWindowView *win) {
       }
       if (new_var->flags & 0x1000)
       {
-        draw_window_text((f32 *)&pos, (const char *)row->label, (s32)style, 0, (f32)lbl_805DCF28);
+        draw_window_text((f32 *)&pos, (const char *)row->label, style, 0, (f32)lbl_805DCF28);
       }
       else
       {
-        draw_window_text((f32 *)&pos, (const char *)new_var->label, (s32)style, 1, (f32)lbl_805DCF28);
+        draw_window_text((f32 *)&pos, (const char *)new_var->label, style, 1, (f32)lbl_805DCF28);
       }
       f32 width = (f32) calc_text_width((char *)new_var->suffix);
       pos.x = (win->x + win->width) - width;
-      draw_window_text((f32 *)&pos, (const char *)row->suffix, (s32)new_var->suffix_style, 1, (f32)lbl_805DCF28);
+      draw_window_text((f32 *)&pos, (const char *)row->suffix, new_var->suffix_style, 1, (f32)lbl_805DCF28);
     }
   }
 }

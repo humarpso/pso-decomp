@@ -66,6 +66,7 @@ struct TWindowSubMag_8027B888 {
 extern u8 *text_language_group_table;
 extern "C" {
 s32 TWindowSubMag__sub_8027C0B0(s32 arg0);
+}
 bool is_mag_full(u8 *arg0);
 struct TWindowSubMag_8027B62C {
     u8 pad0[0x28];
@@ -73,6 +74,7 @@ struct TWindowSubMag_8027B62C {
     s32 field_0x2c;
     s32 field_0x30;
 };
+extern "C" {
 u8 *find_item_by_id(s32);
 s32 align_menu_entry_positions(void *);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
@@ -580,10 +582,12 @@ s32 TWindowSubMag::get_selected_blast() {
 
 int TWindowSubMagPhoton::get_active_flag() { return this->m_60 & 0x1; }
 int TWindowSubMag__sub_8027C0E8(void* p) { return *(u8*)((char*)p + 0x60) & 0x2; }
+}
 
 bool is_mag_full(u8 *arg0) {
     return (*(f32 *)((s8 *)arg0 + 0x194) < *(const volatile f32 *)&lbl_805DD668) == 0;
 }
+extern "C" {
 
 void TWindowSubMag::set_flag60_bit8() { *(u8*)((char*)this + 0x60) |= 0x8; }
 void TWindowSubMag::clear_flag60_bit8() { *(u8*)((char*)this + 0x60) &= 0xfffffff7; }

@@ -134,8 +134,8 @@ void clear_partner_dialogue_flags(void);
 void show_partner_chatter_for_key(s16 key);
 extern struct Slot_8034EDC4 partner_dialogue_table[];
 extern s32 TNpcPlayer__data_805D5864;
-extern "C" {
 void init_partner_dialogue(void);
+extern "C" {
 s32 obj_testFlags30__13TUnk_804AF8A0FUl(void *, int);
 int sprintf(char *, const char *, ...);
 char *strcpy(char *, const char *);
@@ -583,6 +583,7 @@ void TNpcPlayer::send_npc_create(s16 arg0, s16 arg1) {
 }
 
 void TNpcPlayer__sub_8034EDB8(void) { lbl_805D6EA0 = 0; }
+}
 
 void init_partner_dialogue(void) {
     s32 i;
@@ -597,6 +598,7 @@ void init_partner_dialogue(void) {
         }
     }
 }
+extern "C" {
 
 void TNpcPlayer::reset_player_lobby_model(u16 arg0) {
     u32 player;

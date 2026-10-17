@@ -180,6 +180,7 @@ void TObjPlayer::set_tev_passclr() {
     GXSetTevOrder(0, 0xFF, 0xFF, 4);
     GXSetTevOp(0, 4);
 }
+}
 #pragma pop
 
 #pragma push
@@ -206,6 +207,7 @@ void set_tev_stage_mode(s32 arg0) {
 
 #pragma push
 #pragma scheduling off
+extern "C" {
 s32 TObjPlayer::set_num_tex_gens_zero() { return GXSetNumTexGens(0x0); }
 #pragma push
 #pragma scheduling off

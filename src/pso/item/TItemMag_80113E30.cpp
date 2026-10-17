@@ -118,6 +118,7 @@ void TItemMag::add_stat_clamped(s16 *arg0, s32 arg1) {
         *arg0 = 0xC8;
     }
 }
+}
 
 #pragma push
 #pragma opt_propagation off
@@ -148,6 +149,7 @@ void mag_feed_add_mind(u8 *mag, s16 arg1) {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
+extern "C" {
 void TItemMag__sub_80114198(u8 *mag, s16 arg1) {
     s16 temp_r31;
     s16 mag_total_level;
@@ -196,6 +198,7 @@ void TItemMag::add_stat_level_capped(s16 arg1) {
         }
     }
 }
+}
 #pragma pop
 
 #pragma push
@@ -224,6 +227,7 @@ void mag_feed_add_def(u8 *mag, s16 arg1) {
     }
 }
 #pragma pop
+extern "C" {
 
 s32 TItemMag::is_pb_registered(u8 arg1) {
     s32 slot;
@@ -290,5 +294,4 @@ s32 TItemMag::get_photon_blast_at_slot(s32 slot) {
   }
   return -1;
 }
-
 }

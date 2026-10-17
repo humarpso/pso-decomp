@@ -11,8 +11,8 @@ struct VObj_801193D8 : Base_801193D8 {
     virtual void m0(s32);
 };
 
-extern "C" {
 extern VObj_801193D8 *item_effect_object_table[7];
+extern "C" {
 void *TItemLockCountCtrl__ct(void *, s32, s32, void (*)(int), void (*)(int));
 void *__nw__7TObjectFUl(u32);
 u32 get_player_by_client_id(u16);
@@ -38,6 +38,7 @@ void TItemLockCountCtrl__sub_801192A0(int arg0) {
         ((TObjEneDD_ST *)temp)->sub_800F5874(0x10);
     }
 }
+}
 
 void notify_stealth_enemies_08(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
@@ -52,6 +53,7 @@ void apply_battle_ctrl_effect(int arg0) {
         ((TObjEneDD_ST *)temp)->sub_800F5874(4);
     }
 }
+extern "C" {
 
 void TItemLockCountCtrl__sub_8011933C(int arg0) {
     u32 temp = get_player_by_client_id(arg0);
@@ -98,5 +100,4 @@ void TItemLockCountCtrl::init_effect_table() {
     MK_80119444(5, TItemLockCountCtrl__sub_801192A0, notify_stealth_enemies_10)
     MK_80119444(6, TItemLockCountCtrl__sub_8011926C, TItemEquipBase__sub_80119100)
 }
-
 }

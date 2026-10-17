@@ -53,7 +53,9 @@ struct Hdr_8013566C
 
 extern "C" {
 void send_6x70_player_data__6TLobbyFi(s32 arg0);
+}
 void send_6x6F_quest_flags(s32 arg0);
+extern "C" {
 void send_6x6E_sync_game_state__6TLobbyFi(s32 arg0);
 char * get_seq_phase__6TLobbyFPv(int);
 void lobby_debug_printf_stub(const char *fmt, ...);
@@ -342,7 +344,9 @@ extern "C" {
 void update_idle_timeout__6TLobbyFPv(u8 *arg0);
 u8 * TLobby__sub_80135198(u8 *arg0, s32 arg1);
 void handle_6x70_sync_player_disp_and_inventory(Pkt_801354AC *arg0);
+}
 void handle_6x6F_set_quest_flags_v2(s32 arg0);
+extern "C" {
 void handle_6x6D_sync_game_state(Pkt_8013574C *arg0);
 void handle_6x6C_sync_game_state(Pkt_801357F8 *arg0);
 void handle_6x6B_sync_game_state(Pkt_801358B4 *arg0);
@@ -350,7 +354,9 @@ void TLobby__sub_80135FFC(void);
 void retire_lobby_player__6TLobbyFii(s32 idx, s32 v);
 void on_lobby_player_add__6TLobbyFii(s32 arg0, s32 arg1);
 void remove_player__6TLobbyFUiii(u32 arg0, s32 arg1, s32 arg2);
+}
 void handle_6x72_done_loading_into_game(void);
+extern "C" {
 void handle_lobby_enter__6TLobbyFPviiiiiii(Ent_801368B0 *ents, s32 n, s32 client_id, s32 leader, s32 arg4, s32 arg5, s32 arg6, s32 arg7);
 void handle_game_join__6TLobbyFPv(Pkt_80136C94 *pkt);
 void add_lobby_members__6TLobbyFPvisi(Ent_801368B0 *, s32, s32, s32);
@@ -614,6 +620,7 @@ void TLobby::open_udp_socket_for_player() {
         lobby_debug_printf_stub(lbl_8043EE30, v, p[0x1C], p[0x1D], p[0x1E], p[0x1F]);
     }
 }
+}
 
 void handle_6x71_unblock_game_join(void) {
     LEntry_801352C0 *e;
@@ -653,6 +660,7 @@ void handle_6x71_unblock_game_join(void) {
         TLobby__data_805D5594 = 0xF;
     }
 }
+extern "C" {
 
 void TLobby::send_6x71_to_player() {
     s32 arg0 = (s32)this;
@@ -699,6 +707,7 @@ void send_6x70_player_data__6TLobbyFi(s32 arg0) {
         mem_free((int)temp_r3);
     }
 }
+}
 
 #pragma push
 #pragma peephole off
@@ -711,6 +720,7 @@ void handle_6x6F_set_quest_flags_v2(s32 arg0) {
 
 typedef struct Hdr_8013566C Hdr_8013566C;
 typedef struct Pkt_8013566C Pkt_8013566C;
+extern "C" {
 void handle_6x6E_sync_game_state(Pkt_8013566C *arg0) {
   u8 *new_var;
   u8 *new_var2;
@@ -809,6 +819,7 @@ void handle_6x6B_sync_game_state(Pkt_801358B4 *arg0) {
         }
     }
 }
+}
 
 void send_6x6F_quest_flags(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_80135974, sp8) == 0x0) ? 1 : -1];
@@ -818,6 +829,7 @@ void send_6x6F_quest_flags(s32 arg0) {
     memcpy(&stack.spC, &quest_story_flags_by_difficulty.value, 0x200);
     bswap_and_handle_packet__6TLobbyFii(&stack.sp8, (void *)arg0);
 }
+extern "C" {
 
 void send_6x6E_sync_game_state__6TLobbyFi(s32 arg0) {
     s32 n;
@@ -1075,6 +1087,7 @@ void remove_player__6TLobbyFUiii(u32 arg0, s32 arg1, s32 arg2) {
         clear_flag3_all_tasks__9TMainTaskFv(&(*(RecoveredGlobal_8013630C_main_task *)&main_task).value);
     }
 }
+}
 
 void handle_6x72_done_loading_into_game(void) {
     if ((u32) TLobby__current_dialog_window != 0U) {
@@ -1083,6 +1096,7 @@ void handle_6x72_done_loading_into_game(void) {
     }
     clear_flag3_all_tasks__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8013630C_main_task *)&main_task).value));
 }
+extern "C" {
 
 void on_game_player_add__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     Entry_8013634C e;

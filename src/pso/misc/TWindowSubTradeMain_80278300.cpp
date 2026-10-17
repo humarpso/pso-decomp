@@ -69,7 +69,7 @@ void draw_tab_label__20TWindowSubStatusDispFPvPv(Disp_8027831C *self, Win_802783
         set_text_draw_params((s32)win, 0, 0, (f32)(lbl_805DD60C / (lbl_805DD610 + win->f38)), (f32)lbl_805DD614);
         msg = get_message_10__20TWindowSubStatusDispFl(status_disp_tab_label_message_ids[self->f88]);
         pos.x -= lbl_805DD618 * (f32)calc_text_width();
-        draw_window_text((f32 *)&pos, (const char *)msg, (s32)(0xFF000000), 0, (f32)lbl_805DD614);
+        draw_window_text((f32 *)&pos, (const char *)msg, (0xFF000000), 0, (f32)lbl_805DD614);
     }
 }
 #pragma pop

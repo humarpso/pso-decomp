@@ -75,13 +75,17 @@ typedef struct Pmt_8011C234 { u8 pad[0xC]; PmtRow_8011C234 *rows; } Pmt_8011C234
 
 extern "C" {
 s32 select_enemy_drop__9TItemDropFPviiPv(u32, s32, s32, s32);
+}
 void normalize_drop_area(s32 *p);
 extern void *item_mgr;
+extern "C" {
 void select_box_item__9TItemDropFiiPv(s32 arg0, s32 arg1, u8 *item);
 void generate_drop_item__9TItemDropFPviPv(u8 *self, s32 idx, u8 *item);
 s32 get_unit_attribute_index__10TObjPlayerFUc(u8 arg0);
+}
 extern void *item_pmt_tbl;
 s32 get_mag_feed_result(s32 arg0, s32 arg1);
+extern "C" {
 s32 get_text_collection(s32);
 extern s32 lbl_805D2B10;
 u32 roll_channel_below__9TItemDropFPviUi(u8 *arg0, s32 count, u32 arg2);
@@ -108,7 +112,9 @@ Rule_8011C0B8 *find_item_combination_recipe(u8 *id, void *item);
 void play_shield_sound_cue(Obj_8011C59C *arg0);
 void *get_item_pmt_record__10TObjPlayerFii(u8, u8);
 void *get_armor_pmt_record(u8, u8);
+}
 s32 get_item_stat_boost_record(s32 arg0, s32 arg1, s32 arg2);
+extern "C" {
 void find_tool_pmt_base_id(s32 arg0, u8 *arg1);
 void roll_table_ratio__9TItemDropFPvUi(u8 *arg0, u32 arg1);
 s32 rand();
@@ -256,6 +262,7 @@ void TObjPlayer::drop_meseta_from_slot(s32 arg0, s32 arg1) {
         generate_drop_item__9TItemDropFPviPv((u8 *)(*(u32 *)&item_mgr), (s32)temp_r4, (u8 *)arg1);
     }
 }
+}
 
 s32 get_item_stat_boost_record(s32 arg0, s32 type, s32 id) {
     s32 idx;
@@ -285,6 +292,7 @@ s32 get_item_stat_boost_record(s32 arg0, s32 type, s32 id) {
     }
     return *(s32 *)((s8 *)item_pmt_tbl + 0x38);
 }
+extern "C" {
 
 s32 get_unit_attribute_index__10TObjPlayerFUc(u8 arg0) {
     if ((arg0 & 0x3F) && !(arg0 & 0x80)) {
@@ -362,6 +370,7 @@ s32 get_item_star_count(s32 id) {
     }
     return 0;
 }
+}
 
 s32 get_mag_feed_result(s32 arg0, s32 arg1) {
     if ((arg0 >= 0) && (arg0 < 8)) {
@@ -369,6 +378,7 @@ s32 get_mag_feed_result(s32 arg0, s32 arg1) {
     }
     return 0;
 }
+extern "C" {
 
 u8 roll_weapon_special_for_stars(u8 arg0) {
     u32 n;

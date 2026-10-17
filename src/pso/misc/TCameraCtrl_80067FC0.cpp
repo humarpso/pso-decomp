@@ -69,14 +69,16 @@ struct Hit_8006809C { u8 pad0[4]; void *pos; };
 
 struct Cam_8006809C { u8 pad0[0x1C]; Obj_8006809C *obj; u8 pad20[0x60 - 0x20]; Vec_8006835C out; };
 
-extern "C" {
 extern G_80068018 controller_input_state;
 extern s32 __vt__13TUnk_80488838[];
+extern "C" {
 Vec_8006835C *get_target__11TCameraCtrlFv(void *);
 void direction_to_pitch_yaw(u8 *arg0, s32 *arg1, s32 *arg2);
 void set_viewport_scissor__11TCameraCtrlFiPv(s32, void *);
 void GXSetScissorBoxOffset(s32, s32);
+}
 void set_camera_look_at(u8 *eye, u8 *target, u8 *up);
+extern "C" {
 f32 vector_length(void *);
 void normalize_vector(void *);
 extern Vec_8006835C lbl_804FF5E8;
@@ -122,8 +124,8 @@ void *__dt__13TUnk_80488838Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
 }
+
 TUnk_80488838::TUnk_80488838() : TUnk_80488A28() {
     ((O_80068018 *)this)->x38 = 0;
     ((O_80068018 *)this)->x6c = controller_input_state.sub;

@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void load_armor_random_table(void);
-}
 
 #endif

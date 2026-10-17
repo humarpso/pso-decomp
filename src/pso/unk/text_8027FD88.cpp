@@ -72,10 +72,12 @@ s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 TLobby__sub_801C2614();
 void *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 s32 init_window_layout_entries(void *, s32 *, s16);
-s32 set_text_entry_string(void *, s32, s32);
+}
+void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 extern s32 TWindowSubStatusDisp__record_summary_layout[];
 extern const f32 TWindowSubStatusDisp__data_805DD708;
 extern s32 TWindowSubStatusDisp__resistance_layout[];
+extern "C" {
 s8 get_type__20TWindowSubStatusDispFv(int);
 Q_80280F14 *get_quest_id__12TQuestListVMFv();
 void *get_player_by_client_id(s32 i);
@@ -127,7 +129,7 @@ void vt5__20TWindowSubStatusDispFv(u8 *arg0) {
   new_var = arg0;
   type = ((TWindowSubStatusDisp *)new_var)->get_display_mode();
   e = (u16 *) get_array_entry__13TUnk_804CE018Fi(arg0, 0);
-  set_text_entry_string(e, get_message_10__20TWindowSubStatusDispFl(status_disp_vt5_message_ids[type]), 0);
+  set_text_entry_string((u8 *)e, get_message_10__20TWindowSubStatusDispFl(status_disp_vt5_message_ids[type]), 0);
   n = get_layout_id__20TWindowSubStatusDispFv(type);
   i = 0;
   do
@@ -152,7 +154,7 @@ void vt5__20TWindowSubStatusDispFv(u8 *arg0) {
         append_padded_number(i + 1, 2);
         text_builder_append((u8 *)lbl_805DD6E4);
         TWindowSubStatusDisp::append_play_time(r);
-        set_text_entry_string(e, get_shared_text_buffer(), 0x20);
+        set_text_entry_string((u8 *)e, get_shared_text_buffer(), 0x20);
       }
     }
     i++;
@@ -258,15 +260,15 @@ void vt2__20TWindowSubStatusDispFv(u8 *arg0) {
     }
     init_window_layout_entries(arg0 + 0x24, TWindowSubStatusDisp__resistance_layout, *(s16 *)((s8 *)arg0 + 0x20));
     temp_r30 = ((s32)get_array_entry__13TUnk_804CE018Fi(arg0, 0));
-    set_text_entry_string((void *)temp_r30, (s32)(get_message_10__20TWindowSubStatusDispFl(0x89)), 0x20);
+    set_text_entry_string((u8 *)temp_r30, (get_message_10__20TWindowSubStatusDispFl(0x89)), 0x20);
     temp_r30 = ((s32)get_array_entry__13TUnk_804CE018Fi(arg0, 6));
-    set_text_entry_string((void *)temp_r30, (s32)(get_message_10__20TWindowSubStatusDispFl(0x8A)), 0x20);
+    set_text_entry_string((u8 *)temp_r30, (get_message_10__20TWindowSubStatusDispFl(0x8A)), 0x20);
     temp_r30 = ((s32)get_array_entry__13TUnk_804CE018Fi(arg0, 0xC));
-    set_text_entry_string((void *)temp_r30, (s32)(get_message_10__20TWindowSubStatusDispFl(0x8B)), 0x20);
+    set_text_entry_string((u8 *)temp_r30, (get_message_10__20TWindowSubStatusDispFl(0x8B)), 0x20);
     temp_r30 = ((s32)get_array_entry__13TUnk_804CE018Fi(arg0, 0x12));
-    set_text_entry_string((void *)temp_r30, (s32)(get_message_10__20TWindowSubStatusDispFl(0x8C)), 0x20);
+    set_text_entry_string((u8 *)temp_r30, (get_message_10__20TWindowSubStatusDispFl(0x8C)), 0x20);
     temp_r30 = ((s32)get_array_entry__13TUnk_804CE018Fi(arg0, 0x18));
-    set_text_entry_string((void *)temp_r30, (s32)(get_message_10__20TWindowSubStatusDispFl(0x8D)), 0x20);
+    set_text_entry_string((u8 *)temp_r30, (get_message_10__20TWindowSubStatusDispFl(0x8D)), 0x20);
 }
 
 void vt12__20TWindowSubStatusDispFv(u8 *arg0) {
@@ -319,17 +321,17 @@ void vt1__20TWindowSubStatusDispFv(u8 *arg0) {
     }
     init_window_layout_entries(arg0 + 0x24, TWindowSubStatusDisp__stat_page_layout, *(s16 *)((s8 *)arg0 + 0x20));
     e = get_array_entry__13TUnk_804CE018Fi(arg0, 0);
-    set_text_entry_string(e, get_message_10__20TWindowSubStatusDispFl(0x83), 0x20);
+    set_text_entry_string((u8 *)e, get_message_10__20TWindowSubStatusDispFl(0x83), 0x20);
     e = get_array_entry__13TUnk_804CE018Fi(arg0, 6);
-    set_text_entry_string(e, get_message_10__20TWindowSubStatusDispFl(0x84), 0x20);
+    set_text_entry_string((u8 *)e, get_message_10__20TWindowSubStatusDispFl(0x84), 0x20);
     e = get_array_entry__13TUnk_804CE018Fi(arg0, 0xC);
-    set_text_entry_string(e, get_message_10__20TWindowSubStatusDispFl(0x85), 0x20);
+    set_text_entry_string((u8 *)e, get_message_10__20TWindowSubStatusDispFl(0x85), 0x20);
     e = get_array_entry__13TUnk_804CE018Fi(arg0, 0x12);
-    set_text_entry_string(e, get_message_10__20TWindowSubStatusDispFl(0x86), 0x20);
+    set_text_entry_string((u8 *)e, get_message_10__20TWindowSubStatusDispFl(0x86), 0x20);
     e = get_array_entry__13TUnk_804CE018Fi(arg0, 0x18);
-    set_text_entry_string(e, get_message_10__20TWindowSubStatusDispFl(0x87), 0x20);
+    set_text_entry_string((u8 *)e, get_message_10__20TWindowSubStatusDispFl(0x87), 0x20);
     e = get_array_entry__13TUnk_804CE018Fi(arg0, 0x1E);
-    set_text_entry_string(e, get_message_10__20TWindowSubStatusDispFl(0x88), 0x20);
+    set_text_entry_string((u8 *)e, get_message_10__20TWindowSubStatusDispFl(0x88), 0x20);
 }
 
 void vt11__20TWindowSubStatusDispFv(Wn_80280F14 *arg0) {
@@ -361,23 +363,23 @@ void vt0__20TWindowSubStatusDispFv(u8 *arg0) {
     }
     init_window_layout_entries(arg0 + 0x24, TWindowSubStatusDisp__summary_page_layout, *(s16 *)((s8 *)arg0 + 0x20));
     e = get_array_entry__13TUnk_804CE018Fi(arg0, 6);
-    set_text_entry_string(e, get_message_10__20TWindowSubStatusDispFl(0x80), 0x20);
+    set_text_entry_string((u8 *)e, get_message_10__20TWindowSubStatusDispFl(0x80), 0x20);
     e = get_array_entry__13TUnk_804CE018Fi(arg0, 0xA);
-    set_text_entry_string(e, get_message_10__20TWindowSubStatusDispFl(0x81), 0x20);
+    set_text_entry_string((u8 *)e, get_message_10__20TWindowSubStatusDispFl(0x81), 0x20);
     e = get_array_entry__13TUnk_804CE018Fi(arg0, 0xE);
-    set_text_entry_string(e, get_message_10__20TWindowSubStatusDispFl(0x82), 0x20);
+    set_text_entry_string((u8 *)e, get_message_10__20TWindowSubStatusDispFl(0x82), 0x20);
     e = get_array_entry__13TUnk_804CE018Fi(arg0, 0x11);
-    set_text_entry_string(e, TWindowSubStatusDisp::get_download_server(), 0x20);
+    set_text_entry_string((u8 *)e, TWindowSubStatusDisp::get_download_server(), 0x20);
     pl = (u8 *)get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20));
     if (pl != NULL) {
         st = (s8 *)(pl + 0x85C);
         if (st != NULL) {
             v = ((VObj_80280FD0 *)pl)->m10();
-            set_text_entry_string(get_array_entry__13TUnk_804CE018Fi(arg0, 0), v, 0x20);
+            set_text_entry_string((u8 *)(get_array_entry__13TUnk_804CE018Fi(arg0, 0)), v, 0x20);
             v = get_class_name_text(st[0x31]);
-            set_text_entry_string(get_array_entry__13TUnk_804CE018Fi(arg0, 3), v, 0);
+            set_text_entry_string((u8 *)(get_array_entry__13TUnk_804CE018Fi(arg0, 3)), v, 0);
             v = TObjLuker::get_stat_table_entry(st[0x30]);
-            set_text_entry_string(get_array_entry__13TUnk_804CE018Fi(arg0, 4), v, 0);
+            set_text_entry_string((u8 *)(get_array_entry__13TUnk_804CE018Fi(arg0, 4)), v, 0);
         }
         e = get_array_entry__13TUnk_804CE018Fi(arg0, 5);
         *(u8 **)((s8 *)e + 0x30) = arg0 + 0x64;

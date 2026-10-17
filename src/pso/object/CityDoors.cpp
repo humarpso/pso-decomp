@@ -157,7 +157,9 @@ void load_city_common_resources(void);
 extern "C" {
 int is_phase_e__9TObjEneDDFPv(void*);
 void render__18TObjCityDoor_LobbyFv(void* p);
+}
 s32 get_city_common_model(s32);
+extern "C" {
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object();
 s32 rotate_matrix_y(s32, s32);

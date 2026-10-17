@@ -238,7 +238,9 @@ void draw_visible_window_entries(void *, void *, View_80252764 *);
 s32 init_window_layout_entries(void *, void *, int);
 s32 reset_float_field__15TWindowHelpItemFv();
 s32 measure_message_text_width(int, f32);
+}
 void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
+extern "C" {
 s32 strcmp(s32, s32);
 s32 strncpy(s32, s32, s32);
 f32 vec3_dot(void *, void *);
@@ -1235,5 +1237,4 @@ void TWindowFukidasi::run_task() {
     ((TUnk_804CE018 *)arg0)->update_window_entry_list(((u8 *) arg0) + 0x24);
   }
 }
-
 }

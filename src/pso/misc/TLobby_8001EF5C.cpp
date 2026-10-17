@@ -504,6 +504,7 @@ void increment_ref_and_set_flag__6TLobbyFPv(void *arg0) {
     check_bin_model_loaded__6TLobbyFPvPv((Obj_8001F8D8 *)(*(void **)((s8 *)arg0 + 0)), temp_r4);
     *(*(s32 **)((s8 *)arg0 + 4)) |= 1;
 }
+}
 void load_bin_motion_callback(void *arg0) {
     s32 spC;
     s32 sp8;
@@ -522,6 +523,7 @@ void load_bin_motion_callback(void *arg0) {
 }
 
 struct Obj_8001F8D8;
+extern "C" {
 void TLobby::load_bin_model_callback() {
     Lobby_8001FA1C *self = (Lobby_8001FA1C *)this;
     char name[0x20];

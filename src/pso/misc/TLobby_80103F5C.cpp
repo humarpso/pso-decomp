@@ -66,8 +66,10 @@ extern "C" {
 void *get_weapon_factory_for_item(In_80104438 *arg0);
 int is_quest_active(void);
 s32 TItemDropSub__sub_80107B74();
+}
 extern Tbl_801044B8 item_drop_area_remap_table;
 void normalize_drop_area(s32 *p);
+extern "C" {
 void bswap_sync_item_state_header(G_SyncItemState_6x6D_Decompressed *header);
 void TLobby::clear_object_count() { floor_item_free_id_count = 0; }
 
@@ -192,6 +194,7 @@ void TLobby::handle_select_confirm() {
         }
     }
 }
+}
 
 void normalize_drop_area(s32 *p) {
     s32 v;
@@ -233,6 +236,7 @@ void normalize_drop_area(s32 *p) {
         }
     }
 }
+extern "C" {
 
 void TLobby::forward_to_player(int arg0, void *item) {
     s32 player;

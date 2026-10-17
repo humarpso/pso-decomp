@@ -106,7 +106,9 @@ void * TWindowSubStatusDisp__sub_80259D3C(void *, void *, s32);
 void * init_layout_entry_scaled__20TWindowSubStatusDispFPUcl(void *, void *, s32);
 void * TWindowHelpItem__sub_8025A594(void *, void *, s32);
 void * TWindowHelpItem__sub_8025A95C(void *, void *, s32);
-void * construct_text_entry(void *, void *, s32);
+}
+u8 *construct_text_entry(u8 *arg0, u8 *arg1, s32 arg2);
+extern "C" {
 void * init_part_direct__20TWindowSubStatusDispFPUcl(void *, void *, s32);
 void * init_part_scaled__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
 
@@ -210,7 +212,7 @@ void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 ar
             case 3:
                 o = alloc__23TAdSinglePlyChrSelectGCFv(0x2C);
                 if (o != NULL) {
-                    o = construct_text_entry(o, rec, arg2);
+                    o = construct_text_entry((u8 *)o, (u8 *)rec, arg2);
                 }
                 *out = o;
                 rec += 0x1C / 4;
@@ -307,7 +309,6 @@ void *TWindowSubStatusDisp::deleting_destructor(s16 arg1) {
     }
     return this;
 }
-
 }
 
 #undef draw_status_gauge_bar__13TUnk_804CF930FPvPvff

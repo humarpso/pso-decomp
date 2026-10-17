@@ -281,6 +281,7 @@ void *TObjOnlineEndingHexLine::create(void *arg0, void *arg1) {
     }
     return o;
 }
+}
 
 #define BASE_802E5930 TObjOnlineEndingHexLine__hex_line_params
 
@@ -330,6 +331,7 @@ void handle_6x92(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
+extern "C" {
 s32 calc_rotated_hex_point__23TObjOnlineEndingHexLineFPvPv(V2_802E55B8 *arg0, P2_802E55B8 *arg1) {
     V2_802E5B0C p;
     f32 s;
@@ -422,10 +424,9 @@ void update_line_params__23TObjOnlineEndingHexLineFv(void) {
         }
     }
 }
+}
 
 #undef CUR_802E5CB0
-
-}
 
 void TObjOnlineEndingHexMove::run_task() {
     Self_802E5EFC *self = (Self_802E5EFC *)this;

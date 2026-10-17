@@ -55,7 +55,9 @@ void *get_player_by_client_id(s32 i);
 s32 TWindowDuelResult__sub_801C19AC(f32 *arg0);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void init_window_layout_entries(void *, void *, int);
-void set_text_entry_string(void *, void *, int);
+}
+void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
+extern "C" {
 void set_default_status__17TWindowDuelResultFPvi(void *, int);
 void sub_8024EF40__17TWindowDuelResultFv(Win_8024EF40 *arg0);
 s32 get_shared_text_buffer(s32);
@@ -171,7 +173,7 @@ void sub_8024EF40__17TWindowDuelResultFv(Win_8024EF40 *arg0) {
     set_default_status__17TWindowDuelResultFPvi(c, get_localized_text_entry(0x10, 5));
     pl = (u8 *)get_player_by_client_id(arg0->player);
     if (pl != 0) {
-        set_text_entry_string(get_array_entry__13TUnk_804CE018Fi(arg0, 1), pl + 0x85C, 0x20);
+        set_text_entry_string((u8 *)(get_array_entry__13TUnk_804CE018Fi(arg0, 1)), (u32)(pl + 0x85C), (s32)(0x20));
         vals[0] = TWindowDuelResult__sub_801C19AC((f32 *)(pl + 0x75C));
         vals[1] = TWindowDuelResult__sub_801C19AC((f32 *)(pl + 0x76C));
         vals[2] = TWindowDuelResult__sub_801C19AC((f32 *)(pl + 0x78C));
@@ -233,10 +235,10 @@ void sub_8024F094__17TWindowDuelResultFv(Win_8024F094 *self) {
             } else {
                 set_default_status__17TWindowDuelResultFPvi(a, get_localized_text_entry(0x10, e->rank + 6));
             }
-            set_text_entry_string(c, p + 0x85C, 0x20);
+            set_text_entry_string((u8 *)c, (u32)(p + 0x85C), (s32)(0x20));
             text_builder_reset();
             TWindowSubStatusDisp__sub_80228F5C(e->value);
-            set_text_entry_string(d, (void *)get_shared_text_buffer(text_builder_append(get_localized_text_entry(0x10, 0xD))), 0x20);
+            set_text_entry_string(d, (u32)((void *)get_shared_text_buffer(text_builder_append(get_localized_text_entry(0x10, 0xD)))), 0x20);
             refresh_status_display__9TWindowDDFv(d);
             *(f32 *)(d + 8) = (372.0f) - *(f32 *)(d + 0x10);
         }

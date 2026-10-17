@@ -67,9 +67,9 @@ struct G_803E4F14 {
 };
 struct Key_803E500C { u32 frame; f32 *data; };
 
-extern "C" {
 extern u8 *lbl_805D7818;
 extern RecoveredGlobal_803E5458_lbl_8058DC00 lbl_8058DC00;
+extern "C" {
 void bind_motion_context(s32);
 void draw_motion_node_tree_with_context(s32);
 extern u8 *model_draw_context;
@@ -77,6 +77,7 @@ void compose_motion_node_matrix(void *arg0);
 void push_matrix(void);
 s32 pop_matrix(void);
 void update_render_state__10TObjPlayerFv(s32 *, s32 *);
+}
 void find_motion_key_interval(void *, s32, s32 count, f32 t, void *, void *, void *);
 extern u32 *lbl_805D7778;
 extern const f32 lbl_805E10B8;
@@ -90,6 +91,7 @@ typedef char RecoveredGlobal_803D77C0_lbl_8047E3C8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_803D77C0_lbl_804FA500_size[sizeof(RecoveredGlobal_803D77C0_lbl_804FA500) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_803D77C0_lbl_804FA50C_size[sizeof(RecoveredGlobal_803D77C0_lbl_804FA50C) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_803D77C0_lbl_804FA51C_size[sizeof(RecoveredGlobal_803D77C0_lbl_804FA51C) == 0x24 ? 1 : -1];
+extern "C" {
 
 void draw_motion_bound__10TObjPlayerFiiPvfi(s32 child, s32 arg1, u8 *arg2, f32 farg0, s32 arg3) {
     u8 *p = model_draw_context;
@@ -342,5 +344,4 @@ typedef char RecoveredGlobal_803E5458_lbl_8058DC00_size[sizeof(RecoveredGlobal_8
 void TObjPlayer__sub_803E5458(s32 arg0) {
     lbl_805D7818 = (u8 *)&lbl_8058DC00.value + (arg0 * 0x24);
 }
-
 }

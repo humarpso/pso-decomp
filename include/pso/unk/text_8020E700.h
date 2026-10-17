@@ -3,9 +3,7 @@
 
 #include "types.h"
 
-extern "C" {
 void clear_shop_armor_flags(void);
 void generate_shop_shield_pool(s32 arg0);
-}
 
 #endif

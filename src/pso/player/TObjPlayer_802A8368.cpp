@@ -58,10 +58,8 @@ extern const f32 lbl_805DE024;
 s32 setup_indirect_tev_alternate(s32 arg0, s32 unused, s32 sampler, s32 arg3);
 extern Tbl5_802A8448 indirect_tev_ordinary_scale_table;
 s32 setup_indirect_tev_ordinary(s32 arg0, s32 sampler, s32 scale, s32 second);
-extern "C" {
 void eff_indirect_update_and_flush(TEffIndirectCtrl *arg0);
 void update_eff_indirect(TEffIndirectCtrl *arg0);
-}
 void deform_indirect_texture_wave(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, u8 arg5);
 s32 update_indirect_texture_wave(s32, s32, s32, s32, s32, u8);
 extern "C" {
@@ -159,6 +157,7 @@ void TEffIndirectCtrl::update_scroll_mode() {
     deform_indirect_texture_scroll(self->buf, self->amp, self->period, rate, self->phase);
     DCFlushRange(self->buf, 0x1000);
 }
+}
 
 void update_eff_indirect(TEffIndirectCtrl *arg0) {
     arg0->copy_and_flush_texture(get_indirect_source_pixels(arg0->m_24));
@@ -169,5 +168,4 @@ void eff_indirect_update_and_flush(TEffIndirectCtrl *arg0) {
     arg0->copy_and_flush_texture(get_indirect_source_pixels(arg0->m_24));
     update_indirect_texture_wave(arg0->m_1c, (s32) *(f32 *)((s8 *)arg0 + 0x48), arg0->m_4c, arg0->m_3c, arg0->m_40, *(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x20)) + 6));
     DCFlushRange(arg0->m_1c, 0x1000);
-}
 }

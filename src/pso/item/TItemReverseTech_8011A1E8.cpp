@@ -73,6 +73,7 @@ extern "C" {
 void reset_controller_input_state();
 void set_copy_clear_color_argb(s32, s32, s32);
 void * __nw__7TObjectFUl(s32);
+}
 void set_screen_size(f32, f32);
 extern const Vec_8011A43C lbl_8043E68C[];
 extern const Vec_8011A43C lbl_8043E698[];
@@ -80,6 +81,7 @@ extern u8 default_scene_light_config[];
 extern s32 tl_camera;
 extern const float lbl_805DAC4C;
 extern const f32 lbl_805DAC50;
+extern "C" {
 void TItemReverseTech__sub_8011A54C(void* a0);
 int TItemReverseTech__sub_8011A55C(void);
 int TItemReverseTech__sub_8011A580(void);

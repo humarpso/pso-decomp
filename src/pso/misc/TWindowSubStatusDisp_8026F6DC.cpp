@@ -109,8 +109,8 @@ s32 TWindowSubComCard__sub_80245558(u8 *, Vec2_80270394 *, Vec2_80270394 *);
 s32 get_width__19TWindowSimpleStatusFv();
 s32 apply_context_transform_to_rect(u8 *, Rect_80270394 *);
 s32 start_text_color_transition(void *, s32, f32);
-void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 }
+void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1);
 extern "C" {
 void update_lockon_window(u8 *arg0);

@@ -3,8 +3,8 @@
 
 #include "types.h"
 
-extern "C" {
 void clear_state(void);
+extern "C" {
 u8 *get_serial_text__22TAdEnterSerialAccessGCFii(s32 arg0, s32 arg1);
 s32 has_serial_input__22TAdEnterSerialAccessGCFv(void);
 int validate_input__22TAdEnterSerialAccessGCFPviPv(void *arg0, s32 arg1, char *arg2);

@@ -9,9 +9,7 @@ void TObjPlayer__sub_803E2248(void);
 s32 TObjPlayer__sub_803E24E0(void);
 }
 void load_context_texture_obj(void);
-extern "C" {
 void set_tev_stage_mode(s32 arg0);
-}
 void setup_blended_textured_draw(void);
 void setup_opaque_color_draw(void);
 

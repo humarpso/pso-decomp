@@ -178,9 +178,9 @@ void TWindowSubStatusDisp__sub_80271A6C(s32 arg0, u8 *arg1) {
     set_text_draw_params((s32)arg1, 0, 0, (f32)scale, (f32)lbl_805DD4DC);
     pos.x = lbl_805DD4E0 + *(f32 *)(arg1 + 0x3C);
     pos.y = lbl_805DD4E4 + *(f32 *)(arg1 + 0x40);
-    draw_window_text((f32 *)&pos, (const char *)(TWindowSubStatusDisp::get_message_10(0x11B)), (s32)color, 0, (f32)lbl_805DD4E8);
+    draw_window_text((f32 *)&pos, (const char *)(TWindowSubStatusDisp::get_message_10(0x11B)), color, 0, (f32)lbl_805DD4E8);
     pos.y = lbl_805DD4EC + *(f32 *)(arg1 + 0x40);
-    draw_window_text((f32 *)&pos, (const char *)(TWindowSubStatusDisp::get_message_10(0x11C)), (s32)color, 0, (f32)lbl_805DD4E8);
+    draw_window_text((f32 *)&pos, (const char *)(TWindowSubStatusDisp::get_message_10(0x11C)), color, 0, (f32)lbl_805DD4E8);
 }
 
 void TWindowSubAreaMapDisp::render() {

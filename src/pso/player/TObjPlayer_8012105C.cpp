@@ -29,7 +29,8 @@ int TObjPlayer::is_status_subsystem_ready() { return TObjPlayer__sub_801D2F4C((c
 void*TObjPlayer::get_extended_state() { return ((TObjPlayer *)((char*)this + 0x7cc))->get_state_ptr(); }
 int TObjPlayer::query_extended_state() { return get_attack_damage_scale((char*)this + 0x7cc); }
 void TObjPlayer::test_flag30_bit0x100000() { obj_testFlags30((u32)((void*)1048576)); }
+}
 void* get_model_joint_matrix(void* a0, int a1) {  return (char*)(*(int*)((char*)a0 + 0xdb4)) + a1 * 48; }
+extern "C" {
 void TObjPlayer::set_action_type(s16 v) { *(s16*)((char*)this + 0x0) = v; }
-
 }

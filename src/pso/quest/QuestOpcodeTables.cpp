@@ -34,7 +34,9 @@ void TLobby__sub_801E7CFC();
 void TLobby__sub_801E7D7C();
 void set_handler_entry__6TLobbyFi();
 void TLobby__sub_801E7E50();
+}
 void quest_vm_get_language();
+extern "C" {
 void TLobby__sub_801E819C();
 void get_selected_slot__6TLobbyFPv();
 void destroy__6TLobbyFPv();
@@ -99,11 +101,13 @@ void set_story_select__6TLobbyFl();
 void TLobby__sub_801E9CD0();
 void TLobby__sub_801E9D94();
 void TLobby__sub_801E9DEC();
+}
 void quest_vm_store_s32_indirect();
 void quest_vm_store_s16_indirect();
 void quest_vm_store_s8_indirect();
 void quest_vm_load_s32_indirect();
 void quest_vm_load_s16_indirect();
+extern "C" {
 void set_unit_list_flag__6TLobbyFl();
 void set_unit_name_flag__6TLobbyFl();
 void set_handler__6TLobbyFi();
@@ -238,7 +242,9 @@ void qst_op_warp_on();
 void TLobby__sub_801EE09C();
 void check_item_equippable_by_room__6TLobbyFUcUc();
 void set_camera_from_table__6TLobbyFUc();
+}
 void send_6x77_sync_quest_register();
+extern "C" {
 void TLobby__sub_801EE374();
 void TLobby__sub_801EE3C0();
 void TLobby__sub_801EE48C();
@@ -247,8 +253,10 @@ void TLobby__sub_801EE4D8();
 void notify_guild_offline__6TLobbyFUs();
 void qst_op_get_difficulty_level_v1__6TLobbyFl();
 void TLobby__sub_801EE54C();
+}
 void qst_op_clear_quest_board_handler();
 void qst_op_set_quest_board_handler();
+extern "C" {
 void set_table_entry__6TLobbyFi();
 void qst_op_winset_time();
 void qst_op_winend_time();
@@ -261,31 +269,43 @@ void qst_op_item_delete();
 void qst_op_item_create2();
 void qst_op_item_create();
 void qst_op_del_obj_param();
+}
 void qst_op_pl_add_meseta();
+extern "C" {
 void qst_op_clr_qt_cancel();
 void qst_op_clr_qt_success();
 void qst_op_clr_qt_failure();
 void qst_op_set_qt_cancel();
 void qst_op_set_qt_success();
 void qst_op_set_qt_failure();
+}
 void qst_op_clr_floor_handler();
 void qst_op_set_floor_handler();
+extern "C" {
 void qst_set_camera_offsets__6TLobbyFUc();
 void TLobby__sub_801EF24C();
+}
 void qst_op_set_mainwarp();
 void qst_op_playbgm_epi();
 void qst_op_switch_off();
 void qst_op_switch_on();
 void qst_op_npc_talk_kill();
+extern "C" {
 void qst_op_npc_talk_pl();
+}
 void qst_op_p_talk_guild();
 void qst_op_p_return_guild();
+extern "C" {
 void forward_npc_player__6TLobbyFv();
+}
 void qst_op_nop_A0_debug();
+extern "C" {
 void qst_op_cine_disable();
 void qst_op_cine_enable();
+}
 void qst_op_hud_show();
 void qst_op_hud_hide();
+extern "C" {
 void TLobby__sub_801EF748();
 void TLobby__sub_801EF768();
 void TLobby__sub_801EF788();
@@ -300,50 +320,69 @@ void qst_op_unhide_ene();
 void qst_op_unhide_obj();
 void qst_op_chk_ene_num();
 void qst_op_if_zone_clear();
+}
 void qst_op_p_action_enable();
 void qst_op_p_action_disable();
+extern "C" {
 void qst_op_pos_pipe();
+}
 void qst_op_create_pipe();
 void qst_op_p_setpos();
 void qst_op_p_enablewarp();
 void qst_op_p_disablewarp();
 void qst_op_p_dead();
 void qst_op_p_hpstat();
+extern "C" {
 void qst_op_p_move();
+}
 void qst_op_p_look_at();
+extern "C" {
 void spawn_particle_at_entity__6TLobbyFUc();
 void qst_op_particle_id();
 void TLobby__sub_801F07D8();
 void spawn_stored_particle_emitter__6TLobbyFUc();
 void qst_op_pl_walk();
+}
 void qst_op_p_look();
+extern "C" {
 void qst_op_p_col();
 void qst_op_p_noncol();
+}
 void qst_op_enable_movement1();
 void qst_op_disable_movement1();
+extern "C" {
 void qst_op_npc_talk();
 void qst_op_npc_nont();
+}
 void qst_op_npc_kill();
+extern "C" {
 void qst_op_cam_adj();
 void qst_op_cam_pan();
+}
 void qst_op_game_lev_reset_nop_86();
 void qst_op_game_lev_super_nop_85();
+extern "C" {
 void qst_op_cam_zmout();
 void qst_op_cam_zmin();
 void qst_op_cam_quake();
+}
 void qst_op_npc_play();
 void qst_op_npc_stop();
+extern "C" {
 void qst_op_npc_crp_id();
 void qst_op_npc_crp();
 void quest_construct_selected_scripted_player();
 void qst_op_npc_crptalk();
 void qst_op_npc_crppk();
+}
 void qst_op_npc_crtpk();
 void qst_op_npc_crt();
 void qst_op_winend();
 void qst_op_mesend();
 void qst_op_add_msg();
+extern "C" {
 void close_window__6TLobbyFv();
+}
 void quest_cmd_winend();
 void qst_op_window_msg();
 void qst_op_bgm();
@@ -352,6 +391,7 @@ void qst_op_fadeout();
 void qst_op_fadein();
 void qst_op_list();
 void qst_op_message();
+extern "C" {
 void pop_stack_into_slots__6TLobbyFll();
 void push_op_args_from_table__6TLobbyFll();
 void set_slot__6TLobbyFi();
@@ -414,10 +454,12 @@ void qst_op_leti();
 void qst_op_let();
 void qst_op_thread_stg();
 void qst_op_thread();
+}
 void qst_op_sync();
 void qst_op_exit();
 void qst_op_ret();
 void qst_op_nop();
+extern "C" {
 void qst_getargs_801F26A8(s32 opcode);
 void qst_getargs_801F2700(s32 opcode);
 void qst_getargs_cstring(s32 opcode);
@@ -430,7 +472,9 @@ void qst_getargs_801F2A14(s32 opcode);
 void qst_getargs_801F2A5C(s32 opcode);
 void qst_getargs_801F2AB4(s32 opcode);
 void qst_getargs_801F2B0C(s32 opcode);
+}
 void qst_getargs_801F2B54(s32 opcode);
+extern "C" {
 void qst_getargs_801F2B94(s32 opcode);
 
 extern const char quest_bgm_clear_filename[];

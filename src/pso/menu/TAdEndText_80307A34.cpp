@@ -29,10 +29,12 @@ void reset_controller_input_state(void);
 s32 set_copy_clear_color_argb(s32, s32, s32);
 u32 __nw__7TObjectFUl(s32);
 s32 init_ending_movie();
+}
 void set_screen_size(f32 farg0, f32 farg1);
 extern int ending_sequence_active;
 extern const f32 lbl_805DF0B0;
 extern const f32 lbl_805DF0B4;
+extern "C" {
 int TLobby__sub_800FC3CC(void);
 int delete_all_task_children__9TMainTaskFv(void*);
 

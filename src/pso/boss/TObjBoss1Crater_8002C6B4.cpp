@@ -8,9 +8,9 @@ struct Ent_8002C730 { u8 pad0[0x38]; f32 f38; u8 pad3c[4]; f32 f40; };
 
 struct Obj_8002C730 { f32 x; u8 pad[4]; f32 z; };
 
-extern "C" {
 extern s32 TObjBoss1Crater__instance_count;
 extern s32 TObjBoss1Crater__instance_list[];
+extern "C" {
 f32 newton_sqrtf(f32);
 extern const f32 lbl_805D8168;
 extern const f32 lbl_805D816C;
@@ -77,6 +77,7 @@ void TObjBoss1Crater__sub_8002C7B8(void) {
 }
 
 s32 TObjBoss1Crater__sub_8002C7E4(void* p) { return *(s32*)((char*)p + 0x8); }
+}
 void attack_target_list_remove(u8 *arg0, s32 arg1) {
     s32 temp_r5;
     s32 temp_r5_2;
@@ -89,6 +90,4 @@ void attack_target_list_remove(u8 *arg0, s32 arg1) {
             *(s32 *)((s8 *)(*(s32 *)((s8 *)arg0 + 0)) + (*(s32 *)((s8 *)arg0 + 8) * 4)) = *(s32 *)((s8 *)arg0 + 4);
         }
     }
-}
-
 }

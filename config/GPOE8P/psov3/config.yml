@@ -655,7 +655,7 @@ force_active:
   - advance_position__14TObjEneDolmOlmFv
   - advance_review__14CreationCameraFv
   - advance_scroll__13TRaderMapCoreFv
-  - advance_text_entry_reveal
+  - advance_text_entry_reveal__FPUc
   - advance_thanks_state__12TBoss4ThanksFv
   - advance_thanks_state__12TBoss6ThanksFv
   - advance_to_preparation_phase__20TShopArmorListWindowFv
@@ -679,6 +679,7 @@ force_active:
   - append_title_string__24TMessageWindowControllerFv
   - apply_ad_rico_ring__14TItemEquipBaseFl
   - apply_attack_stat_status__13TObjEneRe4BitFPv
+  - apply_battle_ctrl_effect__Fi
   - apply_blend_mode_1__10TObjPlayerFv
   - apply_clamped_mode_param__12TObjEneSharkFv
   - apply_confusion_status__13TObjEneRe4BitFv
@@ -1337,7 +1338,7 @@ force_active:
   - construct_material__13TUnk_8049FBC0FPvPv
   - construct_nug2000_bazooka__13TUnk_804E71F8FlPv
   - construct_panzer_faust__FPUcPUcl
-  - construct_placement_search_base
+  - construct_placement_search_base__FPUcPUcPUcPUcSc
   - construct_rappys_fan__13TUnk_804F0908FlPv
   - construct_s_rank_j_cutter_weapon__FPvlPv
   - construct_s_rank_slicer_weapon__FPvlPv
@@ -1706,7 +1707,7 @@ force_active:
   - enemy_factories_floors_28_29
   - enemy_freeze_ice_resource_descriptor
   - enemy_nearest_visible_enemy_sq
-  - enemy_nearest_visible_player_sq
+  - enemy_nearest_visible_player_sq__FPUcf
   - enemy_tick_target_acquisition__12TObjEneDD_STFPllf
   - enlarge_s_rank_j_cutter_blade__FPv
   - ensure_field384__14TBoss6PlotFalzFv
@@ -1891,7 +1892,7 @@ force_active:
   - gather_player_contacts__10TObjPlayerFUlll
   - gcrna_error_text
   - generate_shop_inventory__6TLobbyFl
-  - generate_shop_weapon_stock
+  - generate_shop_weapon_stock__Fl
   - get_anim_entry_value__10TObjMotionFs
   - get_anim_frame__13TUnk_804B5E48Fv
   - get_area_event_data__Fl
@@ -2222,7 +2223,7 @@ force_active:
   - is_lockable_target__13TWindowLockOnFi
   - is_locked__11TWindowMenuFl
   - is_logo_exit_requested__Fi
-  - is_mag_full
+  - is_mag_full__FPUc
   - is_mode_bit6__11TWindowChatFv
   - is_no_service_active__14TShopGeneratorFPvl
   - is_open__11TWindowChatFv
@@ -2669,6 +2670,7 @@ force_active:
   - notify__10TTcpSocketFss
   - notify_break__23TObjSeabedSuisoBrakableFUl
   - notify_player__17TObjWarpBossMultiFPvl
+  - notify_stealth_enemies_08__Fi
   - npc_base_collision_body_desc
   - npc_bringer_animation_table
   - npc_hosa2_resource_descriptor
@@ -7767,7 +7769,7 @@ force_active:
   - set_state_ready__15TPlyPhotonChairFv
   - set_symbol_chat_face_sprite__FPvUc
   - set_tev_passclr__10TObjPlayerFv
-  - set_tev_stage_mode
+  - set_tev_stage_mode__Fl
   - set_type__15TPlyPhotonChairFl
   - set_value__6TLobbyFl
   - set_visible_flag__14TBoss6PlotFalzFv

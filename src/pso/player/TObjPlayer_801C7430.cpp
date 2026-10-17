@@ -1415,7 +1415,9 @@ extern "C" {
 void update_active_instance__10TObjPlayerFi(s32 arg0);
 void release_all_players_control_lock(void);
 void release_photon_blast_player_holds(u16 *p);
+}
 void freeze_players_for_photon_blast(s16 arg0, u16 *arg1);
+extern "C" {
 void handle_6x36(void);
 void handle_6x37_photon_blast(s32 arg0);
 void handle_6x49_execute_photon_blast(void *arg0);
@@ -1529,16 +1531,26 @@ void * TObjPlayer__sub_801D1D44(void *arg0, void *arg1);
 void TObjPlayer__sub_801D1D88(u8 *arg0);
 s32 copy_photon_blast_data__10TObjPlayerFiPv(s32 arg0, u8 *arg1);
 void TObjPlayer__sub_801D1F44(void* p);
+}
 void send_photon_blast_targets_packet(u8 *arg0);
+extern "C" {
 u8 TObjPlayer__sub_801D2004(u8 *arg0);
 void* TObjPlayer__sub_801D2058(void* p, void* a1);
+}
 void init_6x48_cast_complete_packet(u8 *arg0);
+extern "C" {
 u8 * TObjPlayer__sub_801D21CC(u8 *arg0, u8 *arg1);
+}
 void init_6x8D_technique_level_packet(u8 *arg0);
+extern "C" {
 void * TObjPlayer__sub_801D2348(void *arg0, void *arg1);
+}
 void send_6x46_attack_finished(u8 *arg0);
+extern "C" {
 void TObjPlayer__sub_801D2448(void* p);
+}
 u8 get_6x46_strike_packet_size(s32 arg0);
+extern "C" {
 void * TObjPlayer__sub_801D24B0(void *arg0, void *arg1);
 u8 * TObjPlayer__sub_801D2540(u8 *arg0, u8 *arg1);
 u8 * TObjPlayer__sub_801D25AC(u8 *arg0, u8 *arg1);
@@ -1549,7 +1561,9 @@ int TObjPlayer__sub_801D2680(void *p);
 int ret_801D26AC(void);
 s16 TObjPlayer__sub_801D2824(void* p);
 s16 TObjPlayer__sub_801D282C(void* p);
+}
 void add_death_sink_progress(u8 *arg0, f32 farg0);
+extern "C" {
 f32 TObjPlayer__sub_801D2858(void* p);
 s32 TObjPlayer__sub_801D2870(void* p);
 s32 TObjPlayer__sub_801D2878(void* p);
@@ -1568,10 +1582,14 @@ s32 TObjPlayer__sub_801D2BB8(s32 arg0, s32 arg1);
 void TObjPlayer__sub_801D2CAC(u8 *arg0);
 void TObjPlayer__sub_801D2CC4(void* p, f32 v);
 void* get_technique_data__10TObjPlayerFPv(void* p);
+}
 f32 get_attack_controller_rate(void* p);
+extern "C" {
 void* get_anim_field_c__10TObjPlayerFPv(void* p);
 int on_attack_finished__10TObjPlayerFPv(void* p);
+}
 void emit_heavy_attack_particles(s32 arg0, s32 arg1);
+extern "C" {
 void clear_lockon_list__10TObjPlayerFPvPvff(s32 *arg0, void * _w1, f32 _w2, f32 _w3);
 s16 get_validated_attack_stage(u8 *arg0);
 s32 TObjPlayer__sub_801D2EE8(s16 arg0);
@@ -1580,7 +1598,9 @@ s16 TObjPlayer__sub_801D2F4C(s16 *arg0);
 s32 TObjPlayer__sub_801D2F8C(s16 arg0);
 void queue_physical_attack_input(PlayerAttackController *self, TObjPlayer *obj, s32 arg2, s16 arg3);
 void apply_anim_action__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
+}
 void begin_player_attack(u8 *arg0, s32 arg1, s16 arg2, s32 arg3);
+extern "C" {
 s32 get_first_target_position__10TObjPlayerFPvPv(void *arg0, Vec_801D3224 *out);
 void * capture_lockon_targets(Self_801D32A0 *self, Pl_801D32A0 *player);
 int TObjPlayer__sub_801D345C(void* p);
@@ -4051,6 +4071,7 @@ void release_photon_blast_player_holds(u16 *p) {
         }
     }
 }
+}
 
 void freeze_players_for_photon_blast(s16 arg0, u16 *arg1) {
     s32 i;
@@ -4074,6 +4095,7 @@ void freeze_players_for_photon_blast(s16 arg0, u16 *arg1) {
         tbl++;
     } while (i < 4);
 }
+extern "C" {
 
 void handle_6x36(void) {  }
 
@@ -6528,12 +6550,14 @@ extern int fold_flush_12;
 #pragma pop
 
 void TObjPlayer__sub_801D1F44(void* p) { *(s16*)((char*)p + 0x6) = 0; *(s16*)((char*)p + 0x4) = 0; *(s16*)((char*)p + 0x2) = 0; *(u8*)((char*)p + 0x1) = 0; *(u8*)((char*)p + 0x0) = 0; }
+}
 
 void send_photon_blast_targets_packet(u8 *arg0) {
     *(s8 *)((s8 *)arg0 + 1) = (s8) ((((u32)TObjPlayer__sub_801D2004((u8 *)(arg0))) >> 2U) & 0x3F);
     ((s32)((TObjPlayer *)arg0)->byteswap_pb_targets_packet());
     ((s32)TLobby__send_and_handle_60((void*)((void *) (arg0))));
 }
+extern "C" {
 
 int TObjPlayer::byteswap_pb_targets_packet() {
     Obj_801D1FA4 *arg0 = (Obj_801D1FA4 *)this;
@@ -6571,6 +6595,7 @@ void *TObjPlayer::copy_6x48_cast_technique_complete_packet(void *arg1) {
     this->m_id = *(s16 *)((s8 *)arg1 + 0x6);
     return this;
 }
+}
 
 void init_6x48_cast_complete_packet(u8 *arg0) {
     *(s16 *)((s8 *)arg0 + 6) = 0;
@@ -6578,6 +6603,7 @@ void init_6x48_cast_complete_packet(u8 *arg0) {
     *(s8 *)((s8 *)arg0 + 0) = 0x48;
     *(s8 *)((s8 *)arg0 + 1) = 2;
 }
+extern "C" {
 
 void TObjPlayer::send_swapped_header() { swap_header(); TLobby__send_and_handle_60(this); }
 
@@ -6603,6 +6629,7 @@ void *TObjPlayer::copy_6x8d_technique_level_packet(void *arg1) {
     this->m_id = *(s16 *)((s8 *)arg1 + 0x6);
     return this;
 }
+}
 
 void init_6x8D_technique_level_packet(u8 *arg0) {
     *(s16 *)((s8 *)arg0 + 6) = 0;
@@ -6611,6 +6638,7 @@ void init_6x8D_technique_level_packet(u8 *arg0) {
     *(u8 *)((s8 *)arg0 + 0) = 0x8D;
     *(s8 *)((s8 *)arg0 + 1) = 2;
 }
+extern "C" {
 
 void TObjPlayer::send_swap_field6() { swap_field6(); TLobby__send_and_handle_60(this); }
 
@@ -6631,14 +6659,17 @@ void *TObjPlayer__sub_801D2348(void *arg0, void *arg1) {
 void TObjPlayer::bswap_field4_sub() { read_be16_field2(); ((TObjPlayer *)((char*)this + 0x4))->bswap_u16_pair_list(); }
 
 void*TObjPlayer::build_packet_header() { TObjPlayer__sub_8012AF00((char*)this + 0x4); *(unsigned char*)(this) = 70; *(unsigned char*)((char*)this + 0x1) = 12; return this; }
+}
 
 void send_6x46_attack_finished(u8 *arg0) {
     *(s8 *)((s8 *)arg0 + 1) = (s8) ((((u32 (*)(void))get_6x46_strike_packet_size)() >> 2U) & 0x3F);
     TObjPlayer__sub_801D2448((void*)((void *) (arg0)));
     TLobby__send_and_handle_60((void*)((void *) (arg0)));
 }
+extern "C" {
 
 void TObjPlayer__sub_801D2448(void* p) { ((TObjPlayer *)p)->read_be16_field2(); ((TObjPlayer *)((char*)p + 0x4))->bswap_entry_list(); }
+}
 
 #pragma push
 #pragma inline_depth(1)
@@ -6666,6 +6697,7 @@ extern int fold_flush_14;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+extern "C" {
 void *TObjPlayer__sub_801D24B0(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228((void*)((void*)((void*)(arg0))));
     *(u16 *)((s8 *)arg0 + 0x4) = *(s16 *)((s8 *)arg1 + 0x4);
@@ -6894,6 +6926,7 @@ s16 TObjPlayer__sub_801D2824(void* p) { return *(s16*)((char*)p + 0x8); }
 #pragma auto_inline off
 #pragma dont_inline off
 s16 TObjPlayer__sub_801D282C(void* p) { return *(s16*)((char*)p + 0x0); }
+}
 #pragma pop
 
 #pragma push
@@ -6926,6 +6959,7 @@ extern int fold_flush_19;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+extern "C" {
 f32 TObjPlayer__sub_801D2858(void* p) { return *(f32*)((char*)p + 0x8); }
 #pragma pop
 
@@ -7454,6 +7488,7 @@ void* get_technique_data__10TObjPlayerFPv(void* p) { return (char*)p + 0x20; }
 #pragma auto_inline off
 #pragma dont_inline off
 void TObjPlayer::set_tech_override(u8 v) { *(u8*)((char*)this + 0x1) = v; }
+}
 #pragma pop
 
 #pragma push
@@ -7479,6 +7514,7 @@ f32 get_attack_controller_rate(void* p) { return *(f32*)((char*)p + 0x4); }
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+extern "C" {
 void TObjPlayer::set_attack_target(s16 v) { *(s16*)((char*)this + 0x2) = v; }
 #pragma pop
 
@@ -7595,6 +7631,7 @@ void TObjPlayer::request_heavy_attack_particles() {
     u16 *arg0 = (u16 *)this;
     emit_heavy_attack_particles((s32)((s8 *)arg0 + 4), (s32)(*arg0));
 }
+}
 extern int fold_flush_31;
 #pragma pop
 
@@ -7625,6 +7662,7 @@ extern int fold_flush_32;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+extern "C" {
 void clear_lockon_list__10TObjPlayerFPvPvff(s32 *arg0, void * _w1, f32 _w2, f32 _w3) {
     s32 var_r31;
     u8 *var_r30;
@@ -7851,6 +7889,7 @@ void apply_anim_action__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0x1C) = (s32) ((TObjPlayer *)arg1)->get_attack_recovery_count();
     TObjPlayer::check_status_flag_128((void*)((void *) (arg1)));
 }
+}
 extern int fold_flush_43;
 #pragma pop
 
@@ -7892,6 +7931,7 @@ extern int fold_flush_44;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+extern "C" {
 s32 get_first_target_position__10TObjPlayerFPvPv(void *arg0, Vec_801D3224 *out) {
     Slot_801D3224 *s = (Slot_801D3224 *)TObjPlayer__sub_801D345C((void*)(arg0));
     u16 uid = ((TObjPlayer *)s)->get_uid();
@@ -8118,6 +8158,5 @@ void handle_6x8B(void) {  }
 #pragma auto_inline off
 #pragma dont_inline off
 void handle_6x64(void) {  }
-#pragma pop
-
 }
+#pragma pop

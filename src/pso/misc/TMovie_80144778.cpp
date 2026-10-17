@@ -37,7 +37,9 @@ void queue_destruction__7TObjectFv(void *arg0);
 u8 *__ct__10TAdEndTextFv(void *, void *);
 s32 TAdEndText__sub_8001B41C();
 u8 *__nw__7TObjectFUl(s32);
+}
 void set_camera_look_at(u8 *eye, u8 *target, u8 *up);
+extern "C" {
 void set_perspective_projection_from_fov(s32 arg0, f32 farg0, f32 farg1, f32 farg2);
 void func_803DCDFC__Fv(void);
 extern Vec_80144778 lbl_8043F2E8;

@@ -46,9 +46,11 @@ void destroy_join_entries__6TLobbyFv(void);
 void destroy_lobby_ui__6TLobbyFv(void);
 void disable_window_flags__6TLobbyFPv(void *a0);
 int get_seq_phase__6TLobbyFPv(void *p);
+}
 void handle_6x6F_set_quest_flags_v2(s32 arg0);
 void handle_6x71_unblock_game_join(void);
 void handle_6x72_done_loading_into_game(void);
+extern "C" {
 void handle_com_card__6TLobbyFv(void);
 void handle_comcard_window__6TLobbyFv(void);
 void handle_create_game_window__6TLobbyFv(void);
@@ -85,7 +87,9 @@ void return_to_main_menu__6TLobbyFv(void);
 void run_join_lobby_connect__6TLobbyFi(s32 arg0);
 void run_task__6TLobbyFv(void *self);
 void send_6x6E_sync_game_state__6TLobbyFi(s32 arg0);
+}
 void send_6x6F_quest_flags(s32 arg0);
+extern "C" {
 void send_6x70_player_data__6TLobbyFi(s32 arg0);
 void send_cmd_6B__6TLobbyFv(s32 arg0);
 void send_compressed_packet_6c__6TLobbyFv(s32 arg0);

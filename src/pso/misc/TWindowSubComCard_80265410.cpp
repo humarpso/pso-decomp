@@ -119,8 +119,8 @@ s32 is_player_input_active(s32 param_1);
 s32 is_window_display_enabled();
 s32 draw_visible_window_entries(void *, void *, s32);
 void measure_message_text_width(Ent_80265C30 *e, f32 x);
-void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 }
+void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 void update_chat_window(void* p);
 extern "C" {
 void TWindowSubComCard__sub_80265500(u8 *arg0);

@@ -3,8 +3,6 @@
 
 #include "types.h"
 
-extern "C" {
 void load_tool_random_rel(void);
-}
 
 #endif

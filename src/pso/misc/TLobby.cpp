@@ -8,9 +8,8 @@ struct TAdScrollWinGC;
 #pragma auto_inline off
 #pragma dont_inline off
 
-extern "C" {
-
 void clear_state(void);
+extern "C" {
 int get_instance__15TAdPlayerLoadGCFv(void*);
 s32 get_option_field_C__17TWindowOptionCtrlFv();
 
@@ -130,5 +129,4 @@ void TLobby::install_game_join_handlers() {
     *(void (**)())(TLobby__protocol_instance + 0xBC04) = handle_game_join__6TLobbyFPv;
     *(void (**)())(TLobby__protocol_instance + 0xBC18) = on_game_player_add__6TLobbyFiii;
 }
-
 }

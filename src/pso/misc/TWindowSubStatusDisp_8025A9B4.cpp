@@ -159,6 +159,7 @@ void measure_message_text_width(Msg_8025A9C0 *msg, f32 maxw) {
     msg->width = maxx;
     msg->height = y;
 }
+}
 #pragma pop
 
 #pragma push
@@ -189,6 +190,7 @@ void set_text_entry_string(u8 *arg0, u32 str, s32 arg2) {
     *(u16 *)((s8 *)arg0 + 0) = (u16) (*(u16 *)((s8 *)arg0 + 0) | (arg2 & 0x2C1));
 }
 #pragma pop
+extern "C" {
 
 int TWindowDuelResult::set_default_status(void* p, int a1) { return ((int (*)(void *, int, int))set_text_entry_string)(p, a1, 0); }
 
@@ -220,9 +222,9 @@ void render_text_entry(Win_8025AD5C *arg0, Ref_8025AD5C *arg1) {
     }
     set_text_draw_params((s32)arg1, (s32)(!(arg0->flags & 0x100)), (s32)(arg0->flags & 0x80), (f32)scale, (f32)alpha);
     if (arg0->flags & 4) {
-        r = draw_small_font_string_clipped((f32 *)&pt, (const char *)arg0->text, (u32)arg0->i24, (f32)len);
+        r = draw_small_font_string_clipped((f32 *)&pt, (const char *)arg0->text, arg0->i24, (f32)len);
     } else {
-        r = draw_window_text((f32 *)&pt, (const char *)arg0->text, (s32)arg0->i24, (s32)((arg0->flags >> 9) & 1), (f32)len);
+        r = draw_window_text((f32 *)&pt, (const char *)arg0->text, arg0->i24, ((arg0->flags >> 9) & 1), (f32)len);
     }
     if (r != 0) {
         arg0->flags |= 0x10;
@@ -230,6 +232,7 @@ void render_text_entry(Win_8025AD5C *arg0, Ref_8025AD5C *arg1) {
         arg0->flags &= ~0x10;
     }
     }
+}
 }
 #pragma pop
 
@@ -244,6 +247,7 @@ void advance_text_entry_reveal(u8 *arg0) {
     }
 }
 #pragma pop
+extern "C" {
 
 void *TWindowSubStatusDisp__sub_8025AF0C(void *arg0, s16 arg1) {
     u16 temp_r3;
@@ -264,6 +268,7 @@ void *TWindowSubStatusDisp__sub_8025AF0C(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+}
 
 u8 *construct_text_entry(u8 *arg0, u8 *arg1, s32 arg2) {
     reset_entry__20TWindowSubStatusDispFPv((void *)arg0, (void *)arg2);
@@ -283,6 +288,4 @@ u8 *construct_text_entry(u8 *arg0, u8 *arg1, s32 arg2) {
     }
     *(s32 *)((s8 *)arg0 + 0x20) = (s32) *(s32 *)((s8 *)arg1 + 0x18);
     return arg0;
-}
-
 }

@@ -151,9 +151,9 @@ struct Bonus_8010BA9C { u8 kind; u8 pad; s16 val; };
 
 struct Stats_8010BA9C { u8 pad0[2]; s16 x2; u8 pad4[2]; s16 x6; u8 pad8[4]; s16 xC; };
 
-extern "C" {
 extern s32 lbl_8043E348;
 extern const f32 lbl_805DAB6C;
+extern "C" {
 void TItemData__sub_8010EDD8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDC8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDA8(void *arg0, s32 arg1);
@@ -163,7 +163,9 @@ void fn_8010B7E8(u8 *arg0, s32 arg1);
 void subtract_s16_stat(s16 *arg0, s32 arg1);
 void TItemData__sub_8010EE1C(void *arg0, s16 arg1);
 void TItemData__sub_8010EE30(s16 *arg0, s32 arg1);
+}
 s32 get_item_stat_boost_record(s32 arg0, s32 type, s32 id);
+extern "C" {
 s32 TItemData__sub_8010B808(void* p);
 s32 TItemData__sub_8010B810(void* p);
 
@@ -517,7 +519,6 @@ u16 TItemData::get_packed_value() {
     }
     return 0U;
 }
-
 }
 #undef get_set_bonus_multiplier__9TItemDataFPvi
 #undef lookup_item_pmt_record
@@ -827,10 +828,10 @@ struct Item_8010E59C {
     s32 meseta;
 };
 
-extern "C" {
 extern f32 TItemData__data_805DAB70;
 extern const f32 lbl_805DAB74;
 extern f32 TItemData__data_805DAB78;
+extern "C" {
 void deserialize_mag__9TItemDataFPvPv(Raw_8010D614 *src, Mag_8010D614 *dst);
 void *get_armor_pmt_record(int type, int id);
 s16 get_mag_total_level(void *mag);
@@ -839,8 +840,10 @@ s32 is_rare_item__9TItemDataFPv(u8 *item);
 int get_item_chunk_buffer(int a0);
 s32 get_item_description_text(s32);
 int sprintf(char *, const char *, ...);
+}
 extern s32 lbl_805D2B10;
 s32 format_item_description(u8 *item);
+extern "C" {
 s32 TObjPlayer__sub_80117E50(s32);
 extern const f32 lbl_805DAB7C;
 s32 get_technique_name(s32 arg0);
@@ -1668,6 +1671,7 @@ s32 TItemData::calc_buy_price() {
     }
     return lbl_805D2B10;
 }
+}
 
 s32 format_item_description(u8 *item) {
     char *format;
@@ -1711,6 +1715,7 @@ s32 format_item_description(u8 *item) {
     }
     return lbl_805D2B10;
 }
+extern "C" {
 
 void TItemData::format_item_name(char *buf) {
     u8 *arg0 = (u8 *)this;
@@ -1936,7 +1941,6 @@ s32 TItemData::check_item_flags() {
     }
     return 1;
 }
-
 }
 #undef calc_clock_bonus__9TItemDataFPv
 #undef add_armor_stat_contribution__9TItemDataFPviiPv

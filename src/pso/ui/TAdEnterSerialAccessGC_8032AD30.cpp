@@ -13,9 +13,9 @@ struct Lim_8032B1A4 { u32 n[4]; };
 
 struct B4_8032AD30 { u8 b[4]; };
 
-extern "C" {
 extern char lbl_80477188[];
 extern char lbl_80477190[];
+extern "C" {
 s32 update_window_mode_from_progress__6TLobbyFPv(void *, void *);
 extern u8 lbl_80477178[];
 extern u8 lbl_80477180[];
@@ -119,6 +119,7 @@ void TAdEnterSerialAccessGC::clear_serial_buffer() {
         memset(instance + 0x1154C, 0, 0x10);
     }
 }
+}
 
 void clear_state(void) {
     s32 instance;
@@ -130,6 +131,7 @@ void clear_state(void) {
         memset(instance + 0x1154C, 0, 0x10);
     }
 }
+extern "C" {
 
 void TAdEnterSerialAccessGC::store_serial_access_key(s32 arg0, s32 arg1, s32 arg2) {
     s32 instance;
@@ -190,5 +192,4 @@ int validate_input__22TAdEnterSerialAccessGCFPviPv(void *arg0, s32 arg1, char *a
 }
 
 int TAdEnterSerialAccessGC::forward_input(void* p) { return ((int (*)(void *))validate_input__22TAdEnterSerialAccessGCFPviPv)(p); }
-
 }

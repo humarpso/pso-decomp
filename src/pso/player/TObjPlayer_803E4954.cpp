@@ -23,8 +23,8 @@ extern B_803E4BDC *current_motion_context;
 void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 void draw_blend_motion_tree__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 bind_motion_blend_channels(void *);
-void select_motion_context(s32 arg0);
 }
+void select_motion_context(s32 arg0);
 void draw_model_blend_motion(void *arg0, void *arg1, f32 farg0);
 extern "C" {
 void draw_motion_bound__10TObjPlayerFiiPvfi(void *, void *, void *, f32, void (*)(void));

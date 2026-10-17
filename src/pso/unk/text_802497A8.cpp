@@ -23,10 +23,10 @@ s8 TWindowComCard__sub_80249C18(void *);
 s8 TWindowComCard__sub_80249C20(void *);
 }
 s32 get_class_name_text(s32 arg0);
-extern "C" {
-void set_text_entry_string(void *, void *, int);
+void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 extern s32 com_card_status_text_table[];
 extern const f32 lbl_805DCBCC;
+extern "C" {
 void update_com_card_display(Win_802497A8 *arg0, void *arg1);
 void update_com_card_display(Win_802497A8 *arg0, void *arg1) {
     Txt_802497A8 *t4;
@@ -45,7 +45,7 @@ void update_com_card_display(Win_802497A8 *arg0, void *arg1) {
     t10 = s->t10;
     t4 = s->t4;
     t14 = s->t14;
-    set_text_entry_string(t0, (void *)get_com_card_list__6TLobbyFPv(arg1), 0x220);
+    set_text_entry_string((u8 *)t0, (u32)((void *)get_com_card_list__6TLobbyFPv(arg1)), 0x220);
     n = TWindowComCard__sub_80249C20(arg1);
     if (n > 5) {
         n = 5;
@@ -68,7 +68,7 @@ void update_com_card_display(Win_802497A8 *arg0, void *arg1) {
         } else {
             text_builder_reset();
             TWindowSubStatusDisp__sub_80228F5C(id);
-            set_text_entry_string(t4, (void *)get_shared_text_buffer(), 0x20);
+            set_text_entry_string((u8 *)t4, (u32)((void *)get_shared_text_buffer()), 0x20);
             refresh_status_display__9TWindowDDFv(t4);
             t4->x = lbl_805DCBCC - t4->w;
             t4->flags &= ~2;
@@ -76,6 +76,6 @@ void update_com_card_display(Win_802497A8 *arg0, void *arg1) {
     } else {
         t4->flags |= 2;
     }
-    set_text_entry_string(t14, (void *)((TWindowComCard *)arg1)->get_kbd_ptr(), 0x220);
+    set_text_entry_string((u8 *)t14, (u32)((void *)((TWindowComCard *)arg1)->get_kbd_ptr()), 0x220);
 }
 }

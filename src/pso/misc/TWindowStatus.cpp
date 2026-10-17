@@ -32,8 +32,10 @@ s16 obj_getS16_2BA(u8 *p);
 u8 *get_player_by_client_id();
 s32 get_width__19TWindowSimpleStatusFv();
 s32 draw_right_aligned_number(void *);
+}
 void set_status_entry_target(void *arg0, s32 arg1);
 extern const f32 lbl_805DD430;
+extern "C" {
 void update_hp_tp_values__20TWindowSubStatusDispFPv(u8 *arg0);
 
 s32 draw_default_entry__9TWindowDDFl(void *, f32, f32);
@@ -191,5 +193,4 @@ void *TWindowStatus__ct(void *arg0) {
     *(void * *)&((TWindowStatus *)arg0)->m_name = TWindowStatus__name;
     return arg0;
 }
-
 }
