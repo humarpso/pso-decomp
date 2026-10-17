@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss1DragonEffBreath.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss1DragonEffBreath.h"
 #include "pso/boss/TBoss1Dragon.h"
@@ -10,7 +11,7 @@ s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__21TBoss1DragonEffBreath[];
 extern s32 TBoss1DragonEffBreath__name;
 extern const f32 lbl_805D8138;
-u8 *TBoss1DragonEffBreath__ct(u8 *arg0, void *arg1, void *arg2, void *arg3);
+u8 *__ct__21TBoss1DragonEffBreathFP7TObjectPvPv(u8 *arg0, void *arg1, void *arg2, void *arg3);
 void *__dt__21TBoss1DragonEffBreathFv(void *arg0, s16 arg1);
 s32 vec3_add_to(void *, void *);
 void delete_buffer__12TBoss8DragonFis(void *, int);
@@ -50,22 +51,21 @@ void *__dt__21TBoss1DragonEffBreathFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TBoss1DragonEffBreath__ct(u8 *arg0, void *arg1, void *arg2, void *arg3) {
+}
+TBoss1DragonEffBreath::TBoss1DragonEffBreath(TObject *arg1, void *arg2, void *arg3) : TObject(arg1) {
     void *p;
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TBoss1DragonEffBreath;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss1DragonEffBreath__name;
-    VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)arg2);
-    VecCopy((Vec *)(arg0 + 0x28), (const Vec *)arg3);
-    *(f32 *)((s8 *)arg0 + 0x28) = (f32) (*(f32 *)((s8 *)arg0 + 0x28) * lbl_805D8138);
-    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) (*(f32 *)((s8 *)arg0 + 0x2C) * lbl_805D8138);
-    *(f32 *)((s8 *)arg0 + 0x30) = (f32) (*(f32 *)((s8 *)arg0 + 0x30) * lbl_805D8138);
+    *(s32 *)((s8 *)this + 0) = (s32) TBoss1DragonEffBreath__name;
+    VecCopy((Vec *)(((u8 *)this) + 0x1C), (const Vec *)arg2);
+    VecCopy((Vec *)(((u8 *)this) + 0x28), (const Vec *)arg3);
+    *(f32 *)((s8 *)this + 0x28) = (f32) (*(f32 *)((s8 *)this + 0x28) * lbl_805D8138);
+    *(f32 *)((s8 *)this + 0x2C) = (f32) (*(f32 *)((s8 *)this + 0x2C) * lbl_805D8138);
+    *(f32 *)((s8 *)this + 0x30) = (f32) (*(f32 *)((s8 *)this + 0x30) * lbl_805D8138);
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
     if (p != NULL) {
         p = TBoss8Dragon__sub_800BC5EC(p, 4);
     }
-    *(void **)((s8 *)arg0 + 0x34) = p;
-    return arg0;
+    *(void **)((s8 *)this + 0x34) = p;
 }
+extern "C" {
 
 }

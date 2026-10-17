@@ -58,7 +58,7 @@ void run_task__12TTecReverserFv(u8 *arg0);
 s32 obj_getField1c(int);
 s32 play_sound_effect(int, void *, int, int);
 s32 copy_technique_target_list(void *, void *);
-s32 init_technique_effect_base(void *, void *, void *, void *);
+s32 __ct__13TUnk_804CC148Flll(void *, void *, void *, void *);
 extern RecoveredGlobal_8023A094_lbl_804CC1CC technique_param_table;
 extern s32 __vt__12TTecReverser[];
 extern s32 lbl_805D3818;
@@ -165,7 +165,7 @@ void *__dt__12TTecReverserFv(void *arg0, s16 arg1) {
 }
 u8 *TTecReverser__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u32 temp_r3;
-    init_technique_effect_base((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg4));
+    __ct__13TUnk_804CC148Flll((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg4));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8023A094___vt__12TTecReverser *)&__vt__12TTecReverser).value;
     ((TObjPlayer *)(arg0 + 0xEC))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3818;

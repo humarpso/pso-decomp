@@ -5,6 +5,7 @@
 
 class TUnk_8048FE7C : public TObject {
 public:
+    TUnk_8048FE7C(TObject *arg1, u8 *arg2, f32 farg0);
     virtual ~TUnk_8048FE7C();
     void sub_8009A640();
     void sub_8009A598();

@@ -1784,7 +1784,7 @@ extern const f32 lbl_805D8064;
 extern const f32 lbl_805D8068;
 extern const f32 lbl_805D806C;
 extern const f32 lbl_805D8070;
-s32 TBoss1DragonEffBreath__ct(void *, void *, void *, void *);
+s32 __ct__21TBoss1DragonEffBreathFP7TObjectPvPv(void *, void *, void *, void *);
 extern const f32 lbl_805D8074;
 void clear_work__12TBoss1DragonFi(s32 arg0);
 void TBoss1Dragon__sub_80028AFC(u8 *arg0);
@@ -4681,7 +4681,7 @@ void TBoss1Dragon::update_breath_attack_state(u32 arg1) {
                 if ((s32) this->impactAge >= 2) {
                     u8 *o = __nw__7TObjectFUl(0x38);
                     if (o != 0) {
-                        TBoss1DragonEffBreath__ct(o, (void *) ((u8 *)(arg0) + 0x3C4), (void *) ((u8 *)(arg0) + 0x40C), (void *) ((u8 *)(arg0) + 0x418));
+                        __ct__21TBoss1DragonEffBreathFP7TObjectPvPv(o, (void *) ((u8 *)(arg0) + 0x3C4), (void *) ((u8 *)(arg0) + 0x40C), (void *) ((u8 *)(arg0) + 0x418));
                     }
                     this->impactAge = 0;
                 }

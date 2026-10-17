@@ -10,7 +10,7 @@ extern const f64 lbl_8044ECF0;
 extern const f32 lbl_805DCCB8;
 extern const f32 lbl_805DCCBC;
 void *__nw__7TObjectFUl(u32);
-void *TWindowEffectParty__ct(void *, void *, u16, u16, s32);
+void *__ct__18TWindowEffectPartyFP7TObjectScScPv(void *, void *, u16, u16, s32);
 extern s32 local_client_id;
 void *TWindowCtrl__sub_8024FB80(s8);
 s32 get_window_layout_position(s32);
@@ -109,7 +109,7 @@ void *TWindowEffectParty::create(void *owner, s32 from, s32 to, u32 kind) {
     }
     w = __nw__7TObjectFUl(0x34);
     if (w != 0) {
-        w = TWindowEffectParty__ct(w, owner, a, b, id);
+        w = __ct__18TWindowEffectPartyFP7TObjectScScPv(w, owner, a, b, id);
     }
     return w;
 }

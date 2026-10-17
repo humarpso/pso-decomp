@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowEffectParty.h"
+#include "pso/misc/TWindowEffectParty.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/misc/TNowLoading.h"
 
@@ -14,7 +15,7 @@ void *__ct__7TObjectFP7TObject(void *);
 s32 spawn_continuous_particle_effect_with_flags(void *, void *, s32);
 extern s32 __vt__18TWindowEffectParty[];
 extern s32 TWindowEffectParty__name;
-u8 *TWindowEffectParty__ct(u8 *arg0, void *arg1, s8 arg2, s8 arg3, void *arg4);
+u8 *__ct__18TWindowEffectPartyFP7TObjectScScPv(u8 *arg0, void *arg1, s8 arg2, s8 arg3, void *arg4);
 void *__dt__18TWindowEffectPartyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -76,20 +77,19 @@ void *__dt__18TWindowEffectPartyFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TWindowEffectParty__ct(u8 *arg0, void *arg1, s8 arg2, s8 arg3, void *arg4) {
-    Pos_8024FAD8 p;
-    __ct__7TObjectFP7TObject(arg0);
-    *(void **)(arg0 + 0x18) = ((u8 *)&__vt__18TWindowEffectParty);
-    *(s32 *)arg0 = TWindowEffectParty__name;
-    *(s8 *)(arg0 + 0x1D) = arg2;
-    TWindowEffectParty::set_slot_position((s32)arg0, (s32)(*(s8 *)(arg0 + 0x1D)), (void *)(arg0 + 0x20));
-    *(s8 *)(arg0 + 0x1E) = arg3;
-    TWindowEffectParty::set_slot_position((s32)arg0, (s32)(*(s8 *)(arg0 + 0x1E)), (void *)(arg0 + 0x28));
-    ((TWindowEffectParty *)arg0)->calc_effect_position((s32 *)(&p));
-    *(s32 *)(arg0 + 0x30) = spawn_continuous_particle_effect_with_flags(&p, arg4, 0xC0);
-    *(s8 *)(arg0 + 0x1C) = 0;
-    return arg0;
 }
+TWindowEffectParty::TWindowEffectParty(TObject *arg1, s8 arg2, s8 arg3, void *arg4) : TObject(arg1) {
+    Pos_8024FAD8 p;
+    *(s32 *)this = TWindowEffectParty__name;
+    *(s8 *)(((u8 *)this) + 0x1D) = arg2;
+    TWindowEffectParty::set_slot_position((s32)((u8 *)this), (s32)(*(s8 *)(((u8 *)this) + 0x1D)), (void *)(((u8 *)this) + 0x20));
+    *(s8 *)(((u8 *)this) + 0x1E) = arg3;
+    TWindowEffectParty::set_slot_position((s32)((u8 *)this), (s32)(*(s8 *)(((u8 *)this) + 0x1E)), (void *)(((u8 *)this) + 0x28));
+    this->calc_effect_position((s32 *)(&p));
+    *(s32 *)(((u8 *)this) + 0x30) = spawn_continuous_particle_effect_with_flags(&p, arg4, 0xC0);
+    *(s8 *)(((u8 *)this) + 0x1C) = 0;
+}
+extern "C" {
 
 void *TWindowCtrl__sub_8024FB80(s8 i) {
     if (TWindowCtrl__active_window == 0) return 0;

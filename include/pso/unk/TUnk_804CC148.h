@@ -5,6 +5,7 @@
 
 class TUnk_804CC148 : public TEffect {
 public:
+    TUnk_804CC148(s32 arg1, s32 arg2, s32 arg4);
     virtual ~TUnk_804CC148();
     virtual void vfunc_6(void *);
     virtual void tick_lifetime();

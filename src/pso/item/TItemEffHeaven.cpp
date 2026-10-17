@@ -60,7 +60,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 __vt__14TItemEffHeaven[];
 extern s32 TItemEffHeaven__class_name;
 extern const f32 lbl_805DAB34;
-Obj_801092A8 *TItemEffHeaven__ct(Obj_801092A8 *self, void *parent, s32 a, s16 b, s32 c);
+Obj_801092A8 *__ct__14TItemEffHeavenFP7TObjectlsl(Obj_801092A8 *self, void *parent, s32 a, s16 b, s32 c);
 }
 
 extern "C" int destroy__14TItemEffHeavenFPv(void* p) { return queue_destruction__7TObjectFv(p); }
@@ -133,24 +133,23 @@ extern "C" {
 
 int destroy__14TItemEffHeavenFPv(void* p);
 
-Obj_801092A8 *TItemEffHeaven__ct(Obj_801092A8 *self, void *parent, s32 a, s16 b, s32 c) {
-    s32 i;
-    __ct__7TObjectFP7TObject(self, parent);
-    self->vt = __vt__14TItemEffHeaven;
-    *(s32 *)self = TItemEffHeaven__class_name;
-    self->f_1C = b;
-    self->f_20 = 0;
-    self->f_3C = a;
-    self->f_24 = c;
-    self->v[2] = lbl_805DAB34;
-    self->v[1] = lbl_805DAB34;
-    self->v[0] = lbl_805DAB34;
-    self->f_28 = 0;
-    for (i = 0; i < 3; i++) {
-        self->arr[i] = 0;
-    }
-    disallow_rendering__7TObjectFv(self);
-    return self;
 }
+TItemEffHeaven::TItemEffHeaven(TObject *parent, s32 a, s16 b, s32 c) : TObject(parent) {
+    s32 i;
+    *(s32 *)this = TItemEffHeaven__class_name;
+    ((Obj_801092A8 *)this)->f_1C = b;
+    ((Obj_801092A8 *)this)->f_20 = 0;
+    ((Obj_801092A8 *)this)->f_3C = a;
+    ((Obj_801092A8 *)this)->f_24 = c;
+    ((Obj_801092A8 *)this)->v[2] = lbl_805DAB34;
+    ((Obj_801092A8 *)this)->v[1] = lbl_805DAB34;
+    ((Obj_801092A8 *)this)->v[0] = lbl_805DAB34;
+    ((Obj_801092A8 *)this)->f_28 = 0;
+    for (i = 0; i < 3; i++) {
+        ((Obj_801092A8 *)this)->arr[i] = 0;
+    }
+    disallow_rendering__7TObjectFv(((Obj_801092A8 *)this));
+}
+extern "C" {
 
 }

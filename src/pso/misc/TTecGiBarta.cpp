@@ -152,7 +152,7 @@ void mem_free(void **);
 void __dl__7TObjectFPv(void *);
 extern void *__vt__11TTecGiBarta[];
 TTecGiBarta_80230B48 *__dt__11TTecGiBartaFv(TTecGiBarta_80230B48 *self, s16 deleting);
-void construct_aimed_technique_projectile();
+void __ct__13TUnk_804CCC68FlPUcPUcl();
 extern s32 tec_gibarta_class_name_ptr;
 extern const f32 lbl_805DC80C;
 TTecGiBarta_80230C58 *TTecGiBarta__ct(TTecGiBarta_80230C58 *self, void * _w1, void * _w2, void * _w3, void * _w4);
@@ -375,7 +375,7 @@ void TTecGiBarta::run_task() {
 
 TTecGiBarta_80230C58 *TTecGiBarta__ct(TTecGiBarta_80230C58 *self, void * _w1, void * _w2, void * _w3, void * _w4) {
     s32 i;
-    construct_aimed_technique_projectile();
+    __ct__13TUnk_804CCC68FlPUcPUcl();
     self->vtable = __vt__11TTecGiBarta;
     self->f0 = tec_gibarta_class_name_ptr;
     ((TTecGiBarta *)self)->calc_params();

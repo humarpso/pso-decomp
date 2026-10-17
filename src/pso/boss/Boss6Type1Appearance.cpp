@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/boss/TBoss6Demo10_TYPE1_APPEAR.h"
+#include "pso/boss/TBoss6Demo10_TYPE1_APPEAR.h"
 #include "pso/boss/TBoss3Volopt.h"
 #include "pso/boss/TBoss4Type2.h"
 #include "pso/boss/TBoss6PlotFalz.h"
@@ -57,7 +58,7 @@ struct AppearanceClassTag { const char *value; u32 padding; };
 __declspec(section ".sdata") extern AppearanceClassTag TBoss6Demo10_TYPE1_APPEAR__name;
 struct AppearanceZero { f32 value; u32 padding; };
 __declspec(section ".sdata2") extern const AppearanceZero lbl_805DFA50;
-Fish_8033CB4C *TBoss6Demo10_TYPE1_APPEAR__ct(Fish_8033CB4C *self, void *parent);
+Fish_8033CB4C *__ct__25TBoss6Demo10_TYPE1_APPEARFP7TObject(Fish_8033CB4C *self, void *parent);
 u8 *__dt__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0, s16 arg1);
 void render__25TBoss6Demo10_TYPE1_APPEARFv(void* p);
 void *TBoss6Demo10_TYPE1_APPEAR__create(void *arg0);
@@ -166,65 +167,58 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
 }
 #pragma pop
 
-u8 *__dt__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = (s32*)&__vt__25TBoss6Demo10_TYPE1_APPEAR;
-        restore_player_cameras();
-        refresh_players_equipment__14TBoss6PlotFalzFPv();
-        ((TBoss6PlotFalz *)(arg0 + 0x40))->free_buffer_pairs();
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x60) != 0U) {
-            TObjFish::init_state_1(*(void **)((s8 *)arg0 + 0x60));
-            *(u32 *)((s8 *)arg0 + 0x60) = 0U;
-        }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
-            TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x64)));
-            *(u32 *)((s8 *)arg0 + 0x64) = 0U;
-        }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TBoss6Demo10_TYPE1_APPEAR::~TBoss6Demo10_TYPE1_APPEAR() {
+    restore_player_cameras();
+    refresh_players_equipment__14TBoss6PlotFalzFPv();
+    ((TBoss6PlotFalz *)(((u8 *)this) + 0x40))->free_buffer_pairs();
+    if ((u32) *(u32 *)((s8 *)this + 0x60) != 0U) {
+        TObjFish::init_state_1(*(void **)((s8 *)this + 0x60));
+        *(u32 *)((s8 *)this + 0x60) = 0U;
+    }
+    if ((u32) *(u32 *)((s8 *)this + 0x64) != 0U) {
+        TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)this + 0x64)));
+        *(u32 *)((s8 *)this + 0x64) = 0U;
+    }
+}
+extern "C" {
 
 #pragma push
 #pragma opt_common_subs off
 typedef struct Ent_8033CB4C Ent_8033CB4C;
 typedef struct Fish_8033CB4C Fish_8033CB4C;
-Fish_8033CB4C *TBoss6Demo10_TYPE1_APPEAR__ct(Fish_8033CB4C *self, void *parent) {
-  s32 k;
-  s32 n;
-  s32 i;
-  __ct__7TObjectFP7TObject(self, parent);
-  self->vt = __vt__25TBoss6Demo10_TYPE1_APPEAR;
-  self->x0 = (s32)TBoss6Demo10_TYPE1_APPEAR__name.value;
-  self->x3C = (s32) parent;
-  n = TObjFish::get_fish_count();
-  for (i = 0; i < 2; i++)
-  {
-    k = lbl_804DF614[i];
-    k = k & 0xFFFFFFFFu;
-    self->tbl[i].a = get_bml_model(n, k);
-    self->tbl[i].b = TObjFish__sub_8001EDB0(n, k);
-    self->tbl[i].c = get_bml_motion(n, boss6_type1_appear_motion_indices[i]);
-  }
-  self->x60 = TObjFish__sub_800E3124(boss6_type1_appear_node_desc, self->x54);
-  self->x64 = 0;
-  build_tables__14TBoss6PlotFalzFPvPvi(self->x40, boss6_type1_appear_model_node_descriptors, 2);
-  activate_camera_mode(5);
-  set_scripted_camera_pose(lbl_80477DEC, lbl_80477DEC, lbl_80477E30);
-  ((TCameraCtrl *)lbl_80477E3C)->cache_target_and_forward(0x416C);
-  self->x34 = lbl_805DFA50.value;
-  self->x38 = 0;
-  return self;
 }
+TBoss6Demo10_TYPE1_APPEAR::TBoss6Demo10_TYPE1_APPEAR(TObject *parent) : TObject(parent) {
+    s32 k;
+    s32 n;
+    s32 i;
+    ((Fish_8033CB4C *)this)->x0 = (s32)TBoss6Demo10_TYPE1_APPEAR__name.value;
+    ((Fish_8033CB4C *)this)->x3C = (s32) parent;
+    n = TObjFish::get_fish_count();
+    for (i = 0; i < 2; i++)
+    {
+      k = lbl_804DF614[i];
+      k = k & 0xFFFFFFFFu;
+      ((Fish_8033CB4C *)this)->tbl[i].a = get_bml_model(n, k);
+      ((Fish_8033CB4C *)this)->tbl[i].b = TObjFish__sub_8001EDB0(n, k);
+      ((Fish_8033CB4C *)this)->tbl[i].c = get_bml_motion(n, boss6_type1_appear_motion_indices[i]);
+    }
+    ((Fish_8033CB4C *)this)->x60 = TObjFish__sub_800E3124(boss6_type1_appear_node_desc, ((Fish_8033CB4C *)this)->x54);
+    ((Fish_8033CB4C *)this)->x64 = 0;
+    build_tables__14TBoss6PlotFalzFPvPvi(((Fish_8033CB4C *)this)->x40, boss6_type1_appear_model_node_descriptors, 2);
+    activate_camera_mode(5);
+    set_scripted_camera_pose(lbl_80477DEC, lbl_80477DEC, lbl_80477E30);
+    ((TCameraCtrl *)lbl_80477E3C)->cache_target_and_forward(0x416C);
+    ((Fish_8033CB4C *)this)->x34 = lbl_805DFA50.value;
+    ((Fish_8033CB4C *)this)->x38 = 0;
+}
+extern "C" {
 #pragma pop
 
 void *TBoss6Demo10_TYPE1_APPEAR__create(void *parent) {
     void *o = __nw__7TObjectFUl(0x68);
     if (o != NULL) {
-        o = TBoss6Demo10_TYPE1_APPEAR__ct((Fish_8033CB4C *)(o), (void *)(parent));
+        o = __ct__25TBoss6Demo10_TYPE1_APPEARFP7TObject((Fish_8033CB4C *)(o), (void *)(parent));
     }
     return o;
 }
@@ -238,11 +232,7 @@ __declspec(section ".rodata") s32 lbl_80477E30[] = {0x00000000, 0x00000000, 0x00
 __declspec(section ".rodata") s32 lbl_80477E3C[] = {0x01020000, 0x00000000, 0x3F333333};
 s32 boss6_type1_appear_motion_indices[] = {35, 36};
 void render_shadows__7TObjectFv();
-__declspec(section ".data") const s32 __vt__25TBoss6Demo10_TYPE1_APPEAR[] = {
-    0, 0, (s32)__dt__25TBoss6Demo10_TYPE1_APPEARFv,
-    (s32)run_task__25TBoss6Demo10_TYPE1_APPEARFv,
-    (s32)render__25TBoss6Demo10_TYPE1_APPEARFv, (s32)render_shadows__7TObjectFv
-};
+extern __declspec(section ".data") const s32 __vt__25TBoss6Demo10_TYPE1_APPEAR[];
 __declspec(section ".sdata") AppearanceClassTag TBoss6Demo10_TYPE1_APPEAR__name = {TBoss6Demo10_TYPE1_APPEAR__class_name, 0};
 __declspec(section ".sdata2") const f32 lbl_805DFA48 = 0.7f;
 __declspec(section ".sdata2") const f32 lbl_805DFA4C = 349.0f;

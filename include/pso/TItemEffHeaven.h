@@ -10,6 +10,7 @@ public:
  void* m_arr[3];
 
 public:
+    TItemEffHeaven(TObject *parent, s32 a, s16 b, s32 c);
     virtual ~TItemEffHeaven();
     virtual void run_task();
 };

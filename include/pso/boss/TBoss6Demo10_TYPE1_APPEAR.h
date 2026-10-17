@@ -5,6 +5,7 @@
 
 class TBoss6Demo10_TYPE1_APPEAR : public TObject {
 public:
+    TBoss6Demo10_TYPE1_APPEAR(TObject *parent);
     virtual ~TBoss6Demo10_TYPE1_APPEAR();
     void sub_8033C7C8();
     virtual void render();

@@ -15,7 +15,7 @@ struct Foie_802301EC { u8 pad[0x1C]; u32 owner; u8 pos[0xA6]; s16 band; u16 owne
 
 extern "C" {
 u16 obj_getField1c(void *);
-u8 * construct_aimed_technique_projectile(void *, s32, void *, void *, s16);
+u8 * __ct__13TUnk_804CCC68FlPUcPUcl(void *, s32, void *, void *, s16);
 extern RecoveredGlobal_802302A0___vt__8TTecFoie __vt__8TTecFoie;
 u8 * construct_facing_technique__10TObjPlayerFPviPvii(void *, s32, void *, s32, s16);
 extern s32 TTecFoie__name;
@@ -47,7 +47,7 @@ void run_task__8TTecFoieFv(Foie_802301EC *self) {
 u8 *TTecFoie::construct_aimed(s32 arg1, u8 *arg2, u8 *arg3, s16 arg4) {
     u8 *arg0 = (u8 *)this;
     u8 *temp_r3;
-    construct_aimed_technique_projectile(arg0, arg1, arg2, arg3, arg4);
+    __ct__13TUnk_804CCC68FlPUcPUcl(arg0, arg1, arg2, arg3, arg4);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__8TTecFoie.value;
     temp_r3 = (u8 *)(*(u8 * *)&this->source);
     if (temp_r3 != NULL) {

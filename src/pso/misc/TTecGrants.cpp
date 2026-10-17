@@ -85,7 +85,7 @@ extern s32 tl_07;
 void run_task__10TTecGrantsFv(u8 *arg0);
 s32 obj_getField1c(int);
 s32 copy_technique_target_list(void *, void *);
-s32 init_technique_effect_base(void *, void *, void *, void *);
+s32 __ct__13TUnk_804CC148Flll(void *, void *, void *, void *);
 extern s32 __vt__10TTecGrants[];
 extern s32 lbl_805D37D0;
 u8 *TTecGrants__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
@@ -159,7 +159,7 @@ void *__dt__10TTecGrantsFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80233350___vt__10TTecGrants_size[sizeof(RecoveredGlobal_80233350___vt__10TTecGrants) == 0x28 ? 1 : -1];
 u8 *TTecGrants__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u32 temp_r3;
-    init_technique_effect_base((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg4));
+    __ct__13TUnk_804CC148Flll((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg4));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80233350___vt__10TTecGrants *)&__vt__10TTecGrants).value;
     ((TObjPlayer *)(arg0 + 0xEC))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D37D0;

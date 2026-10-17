@@ -8,6 +8,7 @@ struct TechniqueContactBody;
 
 class TUnk_804CCC68 : public TEffect {
 public:
+    TUnk_804CCC68(s32 arg1, u8 *arg2, u8 *arg3, s32 arg4);
     virtual ~TUnk_804CCC68();
     virtual void vfunc_6();
     virtual void debug_print_tech_params();

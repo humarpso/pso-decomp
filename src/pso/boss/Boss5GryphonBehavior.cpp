@@ -606,7 +606,7 @@ void advance_animation_playback(void *);
 void * __nw__7TObjectFUl(u32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-u8 *TBoss5GryphonShockWave__ct(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8 *arg4, s32 arg5, s16 arg6);
+u8 *__ct__22TBoss5GryphonShockWaveFP7TObjectlPUcPUcls(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8 *arg4, s32 arg5, s16 arg6);
 extern s32 lbl_80437938[];
 extern const f32 lbl_805D8D50;
 extern const f32 lbl_805D8D54;
@@ -3690,7 +3690,7 @@ void TBoss8Dragon__sub_80063088(Obj_80063088 *self, u32 arg1) {
                 vel.z = lbl_805D8EA0 * cos_table_lookup(self->angle);
                 p = __nw__7TObjectFUl(0x70);
                 if (p != NULL) {
-                    ((void (*)(void *, void *, void *, void *, void *, void *, u16))TBoss5GryphonShockWave__ct)(
+                    ((void (*)(void *, void *, void *, void *, void *, void *, u16))__ct__22TBoss5GryphonShockWaveFP7TObjectlPUcPUcls)(
                         p, self->f4C4, self, &self->fxPos, &pos, &vel, self->f38C);
                 }
                 spawn_particle_effect_with_flags(&self->fxPos, self->res->f10, 0x40);

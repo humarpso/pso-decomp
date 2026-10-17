@@ -9,13 +9,13 @@ extern "C" {
 void spawn_weapon_impact_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 extern const f32 lbl_805DAB38;
 void spawn_particle_effect(void *, int);
-s32 TItemEffHeaven__ct(u32, s32, u32, u16, s32);
+s32 __ct__14TItemEffHeavenFP7TObjectlsl(u32, s32, u32, u16, s32);
 u32 __nw__7TObjectFUl(s32);
 
 void TObjPlayer::spawn_heaven_effect(s32 arg0, u32 arg1, u16 arg2, s32 arg3) {
     u32 obj;
     if ((arg0 != 0) && ((u16) arg2 != 0xFFFF) && (arg1 != 0U) && ((obj = __nw__7TObjectFUl(0x4C)) != 0U)) {
-        TItemEffHeaven__ct(obj, arg0, arg1, arg2, arg3);
+        __ct__14TItemEffHeavenFP7TObjectlsl(obj, arg0, arg1, arg2, arg3);
     }
 }
 

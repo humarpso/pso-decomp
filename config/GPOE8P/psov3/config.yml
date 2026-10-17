@@ -126,7 +126,6 @@ force_active:
   - TBoss4Zako_one_third
   - TBoss6CrushRock__name
   - TBoss6Demo10_TYPE1_APPEAR__class_name
-  - TBoss6Demo10_TYPE1_APPEAR__ct
   - TBoss6Demo20_TYPE2_APPEAR__ct
   - TBoss6Demo21_TYPE2_DEAD__ct
   - TBoss6Demo21_TYPE2_DEAD__name
@@ -407,6 +406,7 @@ force_active:
   - __ct__20TObjChallenge4PRetryFP7TObject
   - __ct__20TPlayerLevelFeedbackFP7TObjectUs
   - __ct__24TObjCity_Season_FireWorkFP7TObjectPvf
+  - __ct__25TBoss6Demo10_TYPE1_APPEARFP7TObject
   - __ct__9TEffGuardFPC3Vec
   - __cvt_sll_dbl
   - __destroy_global_chain_reference

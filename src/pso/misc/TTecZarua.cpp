@@ -148,7 +148,7 @@ s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 obj_getField1c(void *);
 Zarua_8023C420 *init_instance__9TTecZaruaFPviiii(Zarua_8023C420 *self, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
 void copy_technique_target_list(void *, void *);
-void init_technique_effect_base(void *, void *, void *, void *);
+void __ct__13TUnk_804CC148Flll(void *, void *, void *, void *);
 Zarua_8023C2D0 *TTecZarua__ct(Zarua_8023C2D0 *self, void *_w1, void *_w2, void *_w3, void *_w4);
 void *__dt__9TTecZaruaFv(void *arg0, s16 arg1);
 s32 calc_technique_parameters(s32, s16, s32);
@@ -225,7 +225,7 @@ void *__dt__9TTecZaruaFv(void *arg0, s16 arg1) {
 
 Zarua_8023C2D0 *TTecZarua__ct(Zarua_8023C2D0 *self, void *_w1, void *_w2, void *_w3, void *_w4) {
     s32 r;
-    init_technique_effect_base(self, _w1, _w2, _w4);
+    __ct__13TUnk_804CC148Flll(self, _w1, _w2, _w4);
     self->vt = __vt__9TTecZarua;
     ((TObjPlayer *)(self->sub))->construct_target_cursor_records();
     self->f0 = lbl_805D3830;

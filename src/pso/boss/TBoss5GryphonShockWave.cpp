@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss5GryphonShockWave.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss5GryphonShockWave.h"
 #include "pso/boss/TBoss8Dragon.h"
@@ -22,7 +23,7 @@ s32 spawn_gryphon_tornado(s32, s32, void *, u16);
 extern s32 boss5_gryphon_bml_resource;
 extern s32 boss5_gryphon_texture_list;
 extern const f32 lbl_805D8EE8;
-u8 *TBoss5GryphonShockWave__ct(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8 *arg4, s32 arg5, s16 arg6);
+u8 *__ct__22TBoss5GryphonShockWaveFP7TObjectlPUcPUcls(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8 *arg4, s32 arg5, s16 arg6);
 void TBoss8Dragon__sub_80066A4C(void);
 void *__dt__22TBoss5GryphonShockWaveFv(void *arg0, s16 arg1);
 s32 vec3_add_to(void *, s32);
@@ -97,31 +98,29 @@ extern s32 lbl_805D2818;
 extern const f32 lbl_805D8EEC;
 extern const f32 lbl_805D8EF0;
 
-u8 *TBoss5GryphonShockWave__ct(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8 *arg4, s32 arg5, s16 arg6) {
-    s32 sp8[4];
-
-    __ct__7TObjectFP7TObject(arg0, arg1_parent);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TBoss5GryphonShockWave;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2818;
-    VecCopy((Vec *)(arg0 + 0x40), (const Vec *)arg3);
-    VecCopy((Vec *)(arg0 + 0x50), (const Vec *)arg3);
-    vec3_add_to(arg0 + 0x50, arg5);
-    VecCopy((Vec *)(arg0 + 0x60), (const Vec *)arg4);
-    *(f32 *)((s8 *)arg0 + 0x64) = (f32) lbl_805D8EEC;
-    VecCopy((Vec *)(arg0 + 0x2C), (const Vec *)(arg0 + 0x40));
-    *(s16 *)((s8 *)arg0 + 0x28) = arg6;
-    *(s32 *)((s8 *)arg0 + 0x38) = arg2;
-    *(s32 *)((s8 *)arg0 + 0x3C) = 0;
-    VecCopy((Vec *)sp8, (const Vec *)(arg0 + 0x2C));
-    subtract_vector(sp8, arg4);
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) (lbl_805D8EF0 * ((TObjBoss2Tunnel *)sp8)->update_scale());
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x24) < 0x1E) {
-        *(s32 *)((s8 *)arg0 + 0x24) = 0x1E;
-    }
-    *(s32 *)((s8 *)arg0 + 0x20) = 0;
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
-    return arg0;
 }
+TBoss5GryphonShockWave::TBoss5GryphonShockWave(TObject *arg1_parent, s32 arg2, u8 *arg3, u8 *arg4, s32 arg5, s16 arg6) : TObject(arg1_parent) {
+    s32 sp8[4];
+    *(s32 *)((s8 *)this + 0) = (s32) lbl_805D2818;
+    VecCopy((Vec *)(((u8 *)this) + 0x40), (const Vec *)arg3);
+    VecCopy((Vec *)(((u8 *)this) + 0x50), (const Vec *)arg3);
+    vec3_add_to(((u8 *)this) + 0x50, arg5);
+    VecCopy((Vec *)(((u8 *)this) + 0x60), (const Vec *)arg4);
+    *(f32 *)((s8 *)this + 0x64) = (f32) lbl_805D8EEC;
+    VecCopy((Vec *)(((u8 *)this) + 0x2C), (const Vec *)(((u8 *)this) + 0x40));
+    *(s16 *)((s8 *)this + 0x28) = arg6;
+    *(s32 *)((s8 *)this + 0x38) = arg2;
+    *(s32 *)((s8 *)this + 0x3C) = 0;
+    VecCopy((Vec *)sp8, (const Vec *)(((u8 *)this) + 0x2C));
+    subtract_vector(sp8, arg4);
+    *(s32 *)((s8 *)this + 0x24) = (s32) (lbl_805D8EF0 * ((TObjBoss2Tunnel *)sp8)->update_scale());
+    if ((s32) *(s32 *)((s8 *)this + 0x24) < 0x1E) {
+        *(s32 *)((s8 *)this + 0x24) = 0x1E;
+    }
+    *(s32 *)((s8 *)this + 0x20) = 0;
+    *(s32 *)((s8 *)this + 0x1C) = 0;
+}
+extern "C" {
 
 void TBoss8Dragon__sub_80066A4C(void) {  }
 void TBoss8Dragon::set_default_on_state0() {

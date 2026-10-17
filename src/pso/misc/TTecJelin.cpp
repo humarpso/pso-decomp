@@ -148,7 +148,7 @@ s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 obj_getField1c(void *);
 Jelin_80233958 *construct__9TTecJelinFPviiii(Jelin_80233958 *self, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
 void copy_technique_target_list(void *, void *);
-void init_technique_effect_base(void *, void *, void *, void *);
+void __ct__13TUnk_804CC148Flll(void *, void *, void *, void *);
 Jelin_80233808 *TTecJelin__ct(Jelin_80233808 *self, void *_w1, void *_w2, void *_w3, void *_w4);
 void *__dt__9TTecJelinFv(void *arg0, s16 arg1);
 s32 calc_technique_parameters(s32, s16, s32);
@@ -222,7 +222,7 @@ void *__dt__9TTecJelinFv(void *arg0, s16 arg1) {
 
 Jelin_80233808 *TTecJelin__ct(Jelin_80233808 *self, void *_w1, void *_w2, void *_w3, void *_w4) {
     s32 r;
-    init_technique_effect_base(self, _w1, _w2, _w4);
+    __ct__13TUnk_804CC148Flll(self, _w1, _w2, _w4);
     self->vt = __vt__9TTecJelin;
     ((TObjPlayer *)(self->sub))->construct_target_cursor_records();
     self->f0 = tec_jelin_class_name_ptr;

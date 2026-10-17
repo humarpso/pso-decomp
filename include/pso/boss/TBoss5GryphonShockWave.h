@@ -5,6 +5,7 @@
 #include "pso/TObject.h"
 
 struct TBoss5GryphonShockWave : public TObject {
+    TBoss5GryphonShockWave(TObject *arg1_parent, s32 arg2, u8 *arg3, u8 *arg4, s32 arg5, s16 arg6);
     virtual ~TBoss5GryphonShockWave();
     u32 m_1c;
     u32 m_20;

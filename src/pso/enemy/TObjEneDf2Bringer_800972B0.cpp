@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TUnk_8048FE7C.h"
 #include "pso/object/obj_band.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -908,7 +909,7 @@ u32 create_particle_emitter(void *, s32);
 #define TObjEneDf2Bringer__sub_80098EB4 ((s32 (*)(void *))TObjEneDf2Bringer__sub_80098EB4)
 #define attack_visible_players__17TObjEneDf2BringerFPv ((s32 (*)(void *))attack_visible_players__17TObjEneDf2BringerFPv)
 #define TObjEneDf2Bringer__sub_80098FF4 ((s32 (*)(void *))TObjEneDf2Bringer__sub_80098FF4)
-s32 construct_bringer_tp_absorb_ring(void *, void *, void *, f32);
+s32 __ct__13TUnk_8048FE7CFP7TObjectPUcf(void *, void *, void *, f32);
 void *__nw__7TObjectFUl(u32);
 extern const f32 lbl_805D97E8;
 extern const f32 lbl_805D97EC;
@@ -1138,10 +1139,7 @@ void TObjEneDf2Bringer__sub_80097820(u8 *arg0, s32 arg1) {
                     Vec_80097820 v = *(Vec_80097820 *)((s8 *)arg0 + 0x38);
                     void *o;
                     v.y += lbl_805D97E8;
-                    o = __nw__7TObjectFUl(0x100);
-                    if (o != 0) {
-                        construct_bringer_tp_absorb_ring(o, arg0, &v, lbl_805D97EC);
-                    }
+                    o = new TUnk_8048FE7C((TObject *)arg0, (u8 *)&v, lbl_805D97EC);
                 }
                 if (objInBand((GameObj *)arg0, (f32)lbl_805D97F0) != 0) {
                     F_8009(0x4B4, s32) = attack_visible_players__17TObjEneDf2BringerFPv(arg0);

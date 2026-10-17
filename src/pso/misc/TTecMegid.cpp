@@ -197,7 +197,7 @@ extern TTecGiBartaData_80230B48 TTecMegid__emitter_bands[];
 extern void *__vt__9TTecMegid[];
 TTecGiBarta_80230B48 *__dt__9TTecMegidFv(TTecGiBarta_80230B48 *self, s16 deleting);
 u16 obj_getField1c(void *);
-void construct_aimed_technique_projectile();
+void __ct__13TUnk_804CCC68FlPUcPUcl();
 extern s32 lbl_805D37E8;
 extern const f32 lbl_805DC884;
 u8 *TTecMegid__ct(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
@@ -441,7 +441,7 @@ void run_task__9TTecMegidFv(Obj_80235740 *self) {
 
 u8 *TTecMegid__ct(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
     s32 i;
-    construct_aimed_technique_projectile();
+    __ct__13TUnk_804CCC68FlPUcPUcl();
     *(void **)((s8 *)arg0 + 0x18) = __vt__9TTecMegid;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D37E8;
     ((TTecMegid *)arg0)->init_parameters();

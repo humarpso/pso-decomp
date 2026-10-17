@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TUnk_8048FE7C.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneDf2Bringer.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -304,11 +305,11 @@ void TUnk_8048FE7C::sub_8009A640() {
     }
 }
 
-extern s32 bringer_tp_absorb_ring_vtable[];
+extern s32 __vt__13TUnk_8048FE7C[];
 
 void *__dt__13TUnk_8048FE7CFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = bringer_tp_absorb_ring_vtable;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TUnk_8048FE7C;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -325,23 +326,22 @@ struct RecoveredGlobal_8009A704_lbl_8048FE7C {
 };
 
 extern "C" {
-u8 *construct_bringer_tp_absorb_ring(u8 *arg0, u8 *arg1, u8 *arg2, f32 farg0);
+u8 *__ct__13TUnk_8048FE7CFP7TObjectPUcf(u8 *arg0, u8 *arg1, u8 *arg2, f32 farg0);
 typedef char RecoveredGlobal_8009A704_lbl_8048FE7C_size[sizeof(RecoveredGlobal_8009A704_lbl_8048FE7C) == 0x18 ? 1 : -1];
-u8 *construct_bringer_tp_absorb_ring(u8 *arg0, u8 *arg1, u8 *arg2, f32 farg0) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = bringer_tp_absorb_ring_vtable;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) bringer_tp_absorb_effect_name;
-    VecCopy((Vec *)(arg0 + 0x20), (const Vec *)arg2);
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(f32 *)((s8 *)arg0 + 0x38) = (f32) 10.0f;
-    *(f32 *)((s8 *)arg0 + 0x3C) = farg0;
-    *(s32 *)((s8 *)arg0 + 0x34) = 0;
-    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) 1.0f;
-    *(s32 *)((s8 *)arg0 + 0x30) = 0;
-    ((TUnk_8048FE7C *)arg0)->sub_8009A640();
-    ((TUnk_8048FE7C *)arg0)->sub_8009A598();
-    return arg0;
 }
+TUnk_8048FE7C::TUnk_8048FE7C(TObject *arg1, u8 *arg2, f32 farg0) : TObject(arg1) {
+    *(s32 *)((s8 *)this + 0) = (s32) bringer_tp_absorb_effect_name;
+    VecCopy((Vec *)(((u8 *)this) + 0x20), (const Vec *)arg2);
+    *(s32 *)((s8 *)this + 0x1C) = 0;
+    *(f32 *)((s8 *)this + 0x38) = (f32) 10.0f;
+    *(f32 *)((s8 *)this + 0x3C) = farg0;
+    *(s32 *)((s8 *)this + 0x34) = 0;
+    *(f32 *)((s8 *)this + 0x2C) = (f32) 1.0f;
+    *(s32 *)((s8 *)this + 0x30) = 0;
+    this->sub_8009A640();
+    this->sub_8009A598();
+}
+extern "C" {
 
 }
 

@@ -5,6 +5,7 @@
 #include "pso/TObject.h"
 
 struct TBoss1DragonEffBreath : public TObject {
+    TBoss1DragonEffBreath(TObject *arg1, void *arg2, void *arg3);
     virtual ~TBoss1DragonEffBreath();
     void* m_1c;
     u8 _pad20[0x8];

@@ -1,6 +1,7 @@
 #pragma push
 
 #include "types.h"
+#include "pso/unk/TUnk_804CC148.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TTecReverser.h"
 #include "pso/unk/TUnk_804CC148.h"
@@ -20,7 +21,7 @@ extern const f32 lbl_805DC7B0;
 
 void sub_8022C008__13TUnk_804CC148Fv(u8 *arg0);
 void count_if_within_range__13TUnk_804CC148Fv(u8 *arg0);
-extern u8 lbl_804CC148[];
+extern u8 __vt__13TUnk_804CC148[];
 }
 
 struct Stack_8022BF8C_more_8022be64_1 {
@@ -87,7 +88,7 @@ void TUnk_804CC148::sub_8022C008() {
 
 #define sub_8022C008__13TUnk_804CC148Fv ((s32 (*)())sub_8022C008__13TUnk_804CC148Fv)
 #define count_if_within_range__13TUnk_804CC148Fv ((s32 (*)(void *))count_if_within_range__13TUnk_804CC148Fv)
-#define lbl_804CC148 ((s32 *)lbl_804CC148)
+#define __vt__13TUnk_804CC148 ((s32 *)__vt__13TUnk_804CC148)
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TEffectFv(void *, int);
@@ -109,7 +110,7 @@ void TUnk_804CC148::run_task() {
 
 void *TUnk_804CC148::destroy_technique_base(s16 arg1) {
     if (this != NULL) {
-        *(s32 **)((s8 *)this + 0x18) = lbl_804CC148;
+        *(s32 **)((s8 *)this + 0x18) = __vt__13TUnk_804CC148;
         if (*(void * *)&this->m_e8 != NULL) { free_collision_body_parts(*(void * *)&this->m_e8); }
         __dt__7TEffectFv(this, 0);
         if (arg1 > 0) {
@@ -123,11 +124,11 @@ void *TUnk_804CC148::destroy_technique_base(s16 arg1) {
 
 #undef sub_8022C008__13TUnk_804CC148Fv
 #undef count_if_within_range__13TUnk_804CC148Fv
-#undef lbl_804CC148
+#undef __vt__13TUnk_804CC148
 
 #include "pso/player/TObjPlayer.h"
 
-#define lbl_804CC148 ((void * *)lbl_804CC148)
+#define __vt__13TUnk_804CC148 ((void * *)__vt__13TUnk_804CC148)
 
 extern "C" {
 u16 obj_getField1c(s32);
@@ -143,67 +144,66 @@ extern const f32 lbl_805DC7C0;
 extern const f32 lbl_805DC7C4;
 extern const f32 lbl_805DC7C8;
 u8 *construct_area_technique_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-u8 *init_technique_effect_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg4);
+u8 *__ct__13TUnk_804CC148Flll(u8 *arg0, s32 arg1, s32 arg2, s32 arg4);
 
-u8 *init_technique_effect_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg4) {
+}
+TUnk_804CC148::TUnk_804CC148(s32 arg1, s32 arg2, s32 arg4) : TEffect() {
     u32 var_r0;
-    __ct__7TEffectFv(arg0);
-    *(void ***)((s8 *)arg0 + 0x18) = lbl_804CC148;
-    *(u16 *)((s8 *)arg0 + 0xB4) = 0xFFFF;
-    VecCopy((Vec *)(arg0 + 0x20), (const Vec *)arg2);
-    *(f32 *)((s8 *)arg0 + 0x7C) = lbl_805DC7B4;
-    *(f32 *)((s8 *)arg0 + 0x80) = lbl_805DC7B4;
-    *(f32 *)((s8 *)arg0 + 0x84) = lbl_805DC7B4;
-    *(s32 *)((s8 *)arg0 + 0xB8) = 0;
-    *(f32 *)((s8 *)arg0 + 0x3C) = lbl_805DC7B8;
-    *(f32 *)((s8 *)arg0 + 0x40) = lbl_805DC7B8;
-    *(f32 *)((s8 *)arg0 + 0x44) = lbl_805DC7B8;
-    *(s32 *)((s8 *)arg0 + 0x74) = 0;
-    *(s32 *)((s8 *)arg0 + 0x1C) = arg1;
+    *(u16 *)((s8 *)this + 0xB4) = 0xFFFF;
+    VecCopy((Vec *)(((u8 *)this) + 0x20), (const Vec *)arg2);
+    *(f32 *)((s8 *)this + 0x7C) = lbl_805DC7B4;
+    *(f32 *)((s8 *)this + 0x80) = lbl_805DC7B4;
+    *(f32 *)((s8 *)this + 0x84) = lbl_805DC7B4;
+    *(s32 *)((s8 *)this + 0xB8) = 0;
+    *(f32 *)((s8 *)this + 0x3C) = lbl_805DC7B8;
+    *(f32 *)((s8 *)this + 0x40) = lbl_805DC7B8;
+    *(f32 *)((s8 *)this + 0x44) = lbl_805DC7B8;
+    *(s32 *)((s8 *)this + 0x74) = 0;
+    *(s32 *)((s8 *)this + 0x1C) = arg1;
     if (arg4 < 0) {
-        *(s16 *)((s8 *)arg0 + 0x78) = 0;
+        *(s16 *)((s8 *)this + 0x78) = 0;
     } else if (arg4 >= 0x1E) {
-        *(s16 *)((s8 *)arg0 + 0x78) = 0x1E;
+        *(s16 *)((s8 *)this + 0x78) = 0x1E;
     } else {
-        *(s16 *)((s8 *)arg0 + 0x78) = arg4;
+        *(s16 *)((s8 *)this + 0x78) = arg4;
     }
-    *(s16 *)((s8 *)arg0 + 0x7A) = TObjPlayer::get_level_tier(*(s16 *)((s8 *)arg0 + 0x78));
-    *(f32 *)((s8 *)arg0 + 0x2C) = lbl_805DC7BC;
-    *(f32 *)((s8 *)arg0 + 0x30) = lbl_805DC7B8;
-    *(f32 *)((s8 *)arg0 + 0x34) = lbl_805DC7B8;
-    *(f32 *)((s8 *)arg0 + 0x38) = lbl_805DC7B8;
-    *(f32 *)((s8 *)arg0 + 0x64) = lbl_805DC7C0;
-    *(f32 *)((s8 *)arg0 + 0x70) = lbl_805DC7C4;
-    *(f32 *)((s8 *)arg0 + 0xBC) = lbl_805DC7B4;
-    *(f32 *)((s8 *)arg0 + 0xC0) = lbl_805DC7B4;
-    *(f32 *)((s8 *)arg0 + 0xC4) = lbl_805DC7B4;
-    *(f32 *)((s8 *)arg0 + 0xC8) = lbl_805DC7C8;
-    *(f32 *)((s8 *)arg0 + 0xCC) = lbl_805DC7B8;
-    *(s32 *)((s8 *)arg0 + 0xD0) = 0;
-    if (obj_getField1c(*(s32 *)((s8 *)arg0 + 0x1C)) < 4U) {
-        if (get_type__10TObjPlayerFPv(*(s32 *)((s8 *)arg0 + 0x1C) + 0x828) != 0) {
-            *(s32 *)((s8 *)arg0 + 0xD4) = 0x40007;
+    *(s16 *)((s8 *)this + 0x7A) = TObjPlayer::get_level_tier(*(s16 *)((s8 *)this + 0x78));
+    *(f32 *)((s8 *)this + 0x2C) = lbl_805DC7BC;
+    *(f32 *)((s8 *)this + 0x30) = lbl_805DC7B8;
+    *(f32 *)((s8 *)this + 0x34) = lbl_805DC7B8;
+    *(f32 *)((s8 *)this + 0x38) = lbl_805DC7B8;
+    *(f32 *)((s8 *)this + 0x64) = lbl_805DC7C0;
+    *(f32 *)((s8 *)this + 0x70) = lbl_805DC7C4;
+    *(f32 *)((s8 *)this + 0xBC) = lbl_805DC7B4;
+    *(f32 *)((s8 *)this + 0xC0) = lbl_805DC7B4;
+    *(f32 *)((s8 *)this + 0xC4) = lbl_805DC7B4;
+    *(f32 *)((s8 *)this + 0xC8) = lbl_805DC7C8;
+    *(f32 *)((s8 *)this + 0xCC) = lbl_805DC7B8;
+    *(s32 *)((s8 *)this + 0xD0) = 0;
+    if (obj_getField1c(*(s32 *)((s8 *)this + 0x1C)) < 4U) {
+        if (get_type__10TObjPlayerFPv(*(s32 *)((s8 *)this + 0x1C) + 0x828) != 0) {
+            *(s32 *)((s8 *)this + 0xD4) = 0x40007;
         } else {
-            *(s32 *)((s8 *)arg0 + 0xD4) = 0x40107;
+            *(s32 *)((s8 *)this + 0xD4) = 0x40107;
         }
     } else {
-        *(s32 *)((s8 *)arg0 + 0xD4) = 0x40007;
+        *(s32 *)((s8 *)this + 0xD4) = 0x40007;
     }
     var_r0 = __nw__7TObjectFUl(0xAC);
     if (var_r0 != 0U) {
-        var_r0 = construct_collider_proxy__13TUnk_804AF8A0Fv(var_r0, arg0);
+        var_r0 = construct_collider_proxy__13TUnk_804AF8A0Fv(var_r0, ((u8 *)this));
     }
-    *(u32 *)((s8 *)arg0 + 0xE8) = var_r0;
-    if (*(u32 *)((s8 *)arg0 + 0xE8) != 0U) {
-        init_collision_body_parts(*(u32 *)((s8 *)arg0 + 0xE8), arg0 + 0xBC, 1);
+    *(u32 *)((s8 *)this + 0xE8) = var_r0;
+    if (*(u32 *)((s8 *)this + 0xE8) != 0U) {
+        init_collision_body_parts(*(u32 *)((s8 *)this + 0xE8), ((u8 *)this) + 0xBC, 1);
     }
-    return arg0;
 }
+extern "C" {
 
 u8 *construct_area_technique_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u32 var_r0;
     __ct__7TEffectFv(arg0);
-    *(void ***)((s8 *)arg0 + 0x18) = lbl_804CC148;
+    *(void ***)((s8 *)arg0 + 0x18) = __vt__13TUnk_804CC148;
     *(u16 *)((s8 *)arg0 + 0xB4) = 0xFFFF;
     VecCopy((Vec *)(arg0 + 0x20), (const Vec *)arg2);
     VecCopy((Vec *)(arg0 + 0x7C), (const Vec *)arg3);
@@ -255,4 +255,4 @@ u8 *construct_area_technique_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 ar
 
 }
 
-#undef lbl_804CC148
+#undef __vt__13TUnk_804CC148

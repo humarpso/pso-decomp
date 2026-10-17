@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TOBoss4Bird.h"
+#include "pso/misc/TOBoss4Rock.h"
+#include "pso/misc/TOBoss4Tower.h"
 #include "pso/system/vector.h"
 
 struct Vec_8015959C;
@@ -161,22 +164,16 @@ void *TOBoss4Rock::create(void *arg0) {
 
 extern s32 __vt__11TOBoss4Rock[];
 
-void *__dt__11TOBoss4RockFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TOBoss4Rock;
-        if (*(void **)((s8 *)arg0 + 0xA0) != NULL) { mem_free(*(void **)((s8 *)arg0 + 0xA0)); }
-        if (*(void **)((s8 *)arg0 + 0xA4) != NULL) { mem_free(*(void **)((s8 *)arg0 + 0xA4)); }
-        if (*(void **)((s8 *)arg0 + 0xA8) != NULL) { mem_free(*(void **)((s8 *)arg0 + 0xA8)); }
-        if (*(void **)((s8 *)arg0 + 0xAC) != NULL) { mem_free(*(void **)((s8 *)arg0 + 0xAC)); }
-        if (*(void **)((s8 *)arg0 + 0xB0) != NULL) { mem_free(*(void **)((s8 *)arg0 + 0xB0)); }
-        if (*(void **)((s8 *)arg0 + 0xB4) != NULL) { mem_free(*(void **)((s8 *)arg0 + 0xB4)); }
-        __dt__7TOBoss4Fv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TOBoss4Rock::~TOBoss4Rock() {
+    if (*(void **)((s8 *)this + 0xA0) != NULL) { mem_free(*(void **)((s8 *)this + 0xA0)); }
+    if (*(void **)((s8 *)this + 0xA4) != NULL) { mem_free(*(void **)((s8 *)this + 0xA4)); }
+    if (*(void **)((s8 *)this + 0xA8) != NULL) { mem_free(*(void **)((s8 *)this + 0xA8)); }
+    if (*(void **)((s8 *)this + 0xAC) != NULL) { mem_free(*(void **)((s8 *)this + 0xAC)); }
+    if (*(void **)((s8 *)this + 0xB0) != NULL) { mem_free(*(void **)((s8 *)this + 0xB0)); }
+    if (*(void **)((s8 *)this + 0xB4) != NULL) { mem_free(*(void **)((s8 *)this + 0xB4)); }
+}
+extern "C" {
 
 }
 
@@ -333,16 +330,11 @@ void TOBoss4Tower::render() {
     }
 }
 
-void *__dt__12TOBoss4TowerFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TOBoss4Tower;
-        __dt__7TOBoss4Fv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TOBoss4Tower::~TOBoss4Tower() {
+
+}
+extern "C" {
 typedef char RecoveredGlobal_80159514___vt__12TOBoss4Tower_size[sizeof(RecoveredGlobal_80159514___vt__12TOBoss4Tower) == 0x34 ? 1 : -1];
 u8 *TOBoss4Tower__ct(u8 *arg0, s32 arg1) {
     TOBoss4__ct();
@@ -516,18 +508,12 @@ void *TOBoss4Bird::create(void *arg0) {
     return o;
 }
 
-void *__dt__11TOBoss4BirdFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TOBoss4Bird;
-        if (*(void **)((s8 *)arg0 + 0xBC) != NULL) { mem_free(*(void **)((s8 *)arg0 + 0xBC)); }
-        if (*(void **)((s8 *)arg0 + 0xC0) != NULL) { mem_free(*(void **)((s8 *)arg0 + 0xC0)); }
-        __dt__7TOBoss4Fv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
 }
+TOBoss4Bird::~TOBoss4Bird() {
+    if (*(void **)((s8 *)this + 0xBC) != NULL) { mem_free(*(void **)((s8 *)this + 0xBC)); }
+    if (*(void **)((s8 *)this + 0xC0) != NULL) { mem_free(*(void **)((s8 *)this + 0xC0)); }
+}
+extern "C" {
 
 }
 
