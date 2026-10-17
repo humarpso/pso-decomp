@@ -6833,7 +6833,7 @@ u8 *TBoss8Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
     }
     ((TObjEneDD *)arg0)->init_position_vectors();
     *(s32 *)&((TBoss8Dragon *)arg0)->m_34 = *(s32 *)((s8 *)(*(u8 **)((s8 *)TBoss8Dragon__data_805D6988 + 0x42C)) + 8);
-    *(s32 *)((s8 *)arg0 + 0x24) = *(s32 *)((s8 *)(*(u8 **)((s8 *)TBoss8Dragon__data_805D6988 + 0x42C)) + 0xC);
+    *(s32 *)&((TBoss8Dragon *)arg0)->m_24 = *(s32 *)((s8 *)(*(u8 **)((s8 *)TBoss8Dragon__data_805D6988 + 0x42C)) + 0xC);
     ((TBoss8Dragon *)arg0)->m_68 = TBoss8Dragon__data_805DED60;
     *(f32 *)((s8 *)arg0 + 0x6C) = TBoss8Dragon__data_805DED60;
     ((TBoss8Dragon *)arg0)->m_70 = TBoss8Dragon__data_805DED60;

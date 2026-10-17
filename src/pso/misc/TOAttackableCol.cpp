@@ -249,8 +249,8 @@ f32 TOAttackableCol::apply_hit(s32 arg1) {
     goto block_26;
   }
   block_26:
-  spawn_particle_effect((arg0 + 0x38), (int) 0x1D0);
-  spawn_particle_effect((arg0 + 0x38), (int) 1);
+  spawn_particle_effect(((u8 *)&this->position), (int) 0x1D0);
+  spawn_particle_effect(((u8 *)&this->position), (int) 1);
   return lbl_805DB2C8;
 }
 

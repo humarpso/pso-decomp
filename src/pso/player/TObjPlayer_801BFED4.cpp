@@ -31,7 +31,7 @@ extern s32 lbl_804C3E50[];
 
 u8 *TObjPlayer::init_subobject() {
     u8 *arg0 = (u8 *)this;
-    *(s32 **)((s8 *)arg0 + 8) = lbl_804C3E50;
+    *(s32 * *)&this->m_prev = lbl_804C3E50;
     init_gc_tag((s32)(arg0 + 4));
     *(s32 *)((s8 *)arg0 + 0) = 0;
     return arg0;
@@ -50,7 +50,7 @@ s32 TObjPlayer__sub_801BFFA0(void* p) { return *(s32*)((char*)p + 0x0); }
 u8 *TObjPlayer::copy_hold_params(u8 *arg1) {
     TFontSmallLobby__sub_801C0228();
     *(s16 *)((s8 *)((u8 *)this) + 4) = (s16) *(s16 *)((s8 *)arg1 + 4);
-    *(s16 *)((s8 *)((u8 *)this) + 6) = (s16) *(s16 *)((s8 *)arg1 + 6);
+    *(s16 *)&this->m_id = (s16) *(s16 *)((s8 *)arg1 + 6);
     *(ByteBlock_8 *)((s32) ((u8 *)this) + 8) = *(const ByteBlock_8 *)((s32) arg1 + 8);
     *(f32 *)((s8 *)((u8 *)this) + 0x10) = (f32) *(f32 *)((s8 *)arg1 + 0x10);
     return ((u8 *)this);

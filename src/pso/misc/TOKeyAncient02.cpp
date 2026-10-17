@@ -105,7 +105,7 @@ void TOKeyAncient02::render() {
         temp_r31_2 = *(u8 **)((s8 *)temp_r31 + 0x2C);
         push_matrix();
         post_translate_matrix((void *) (temp_r31_2 + 8));
-        scale_matrix_vec3((0), (arg0 + 0x68));
+        scale_matrix_vec3((0), ((u8 *)&this->scale));
         TParticleCtrl::begin_effect_render();
         draw_ginja_model((*(s32 *)((s8 *)temp_r31_2 + 4)));
         TParticleCtrl::end_effect_render();

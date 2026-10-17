@@ -245,7 +245,7 @@ void TMainCursor::reset_cursor_parts() {
     u8 *arg0 = (u8 *)this;
     s32 var_r30;
 
-    TMainCursor__sub_8013F170((arg0 + 0x40), (0));
+    TMainCursor__sub_8013F170(((u8 *)&this->m_40), (0));
     var_r30 = 0;
     *(f32 *)((s8 *)arg0 + 0x18) = (f32) TMainCursor__data_805DB0C0;
     do {

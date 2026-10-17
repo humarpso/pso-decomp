@@ -108,7 +108,7 @@ bool TShopGenerator::is_player_in_service_range(u8 *arg1, f32 farg0) {
     typedef char sp18_offset[(offsetof(Stack_8021DC30, sp18) == 0x10) ? 1 : -1];
     typedef char sp1C_offset[(offsetof(Stack_8021DC30, sp1C) == 0x14) ? 1 : -1];
     Stack_8021DC30 stack;
-    if (xyz_distance_squared((arg1 + 0x38), (arg0 + 0x38)) > (farg0 * farg0)) {
+    if (xyz_distance_squared((arg1 + 0x38), ((u8 *)&this->position)) > (farg0 * farg0)) {
         return 0;
     }
     stack.sp8 = *(s32 *)((s8 *)(&shop_service_facing_vec.value) + 0);

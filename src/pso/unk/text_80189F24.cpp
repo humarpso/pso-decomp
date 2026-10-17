@@ -193,7 +193,7 @@ f32 TUnk_804B6C24::receive_direct_attack(void *arg1, void *arg2_arg, void *, s32
 }
 s32 TObjPlayer::is_within_range(s32 arg1) {
     u8 *arg0 = (u8 *)this;
-    return xyz_distance_squared((u8 *)(arg1 + 0x38), (arg0 + 0x38)) < *(f32 *)((s8 *)arg0 + 0x33C);
+    return xyz_distance_squared((u8 *)(arg1 + 0x38), ((u8 *)&this->position)) < *(f32 *)((s8 *)arg0 + 0x33C);
 }
 
 }

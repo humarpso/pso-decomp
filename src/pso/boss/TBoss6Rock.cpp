@@ -467,8 +467,8 @@ void TBoss6Rock::update_fall() {
         TBoss6Rock__sub_803542E8((void *)((void *) (arg0)), (s32)((int) (1)));
         ((TBoss6Rock *)arg0)->sub_80353F5C();
         play_sound_effect((s32)((int) (0x4006B51E)), (u32)((void *) (arg0 + 0x38)), (int)((int) (0)), (s32)((int) (0)));
-        spawn_particle_effect((arg0 + 0x38), (0x220));
-        spawn_particle_effect((arg0 + 0x38), (0x222));
+        spawn_particle_effect(((u8 *)&this->position), (0x220));
+        spawn_particle_effect(((u8 *)&this->position), (0x222));
         TBoss6PlotFalz::apply_radial_effect_to_players((void *) (arg0 + 0x38), (int) (0xC0), (int) (0xF), (f32) (lbl_805DFF54));
         *(s32 *)&this->m_c4 = 2;
     }

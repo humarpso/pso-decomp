@@ -1323,7 +1323,7 @@ void TUnk_80483A10::run_task() {
   {
     if (((TObjPlayer *)arg0)->add_status_effect_timer((int) 4, (int) (-1)) <= 0)
     {
-      reset_status_effect_row((arg0 + 0x284));
+      reset_status_effect_row(((u8 *)&this->unk_284));
       ((TUnk_804B9870 *)arg0)->obj_clearFlags30((s32)((int) 0x4000));
     }
   }

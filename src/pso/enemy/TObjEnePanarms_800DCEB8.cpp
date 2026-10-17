@@ -686,7 +686,7 @@ void TObjEnePanarms::update_fall() {
     if ((*((f32 *) (((s8 *) arg0) + 0x3C))) <= (*((f32 *) (((s8 *) arg0) + 0x384))))
     {
       *((f32 *) (((s8 *) arg0) + 0x3C)) = *((f32 *) (((s8 *) arg0) + 0x384));
-      spawn_particle_effect((arg0 + 0x38), (int) 0xF0);
+      spawn_particle_effect(((u8 *)&this->position), (int) 0xF0);
       set_state((s32)((void*)((int) 3)));
       return;
     }

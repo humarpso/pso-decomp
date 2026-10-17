@@ -1075,7 +1075,7 @@ void TUnk_80493450::beast_update_dead() {
         ((VObj_18_90ef41 *)(arg0))->m96();
     }
     if (objInBand((GameObj *)(arg0), (f32) (lbl_805DA038)) != 0) {
-        spawn_particle_effect((arg0 + 0x38), (0xF3));
+        spawn_particle_effect(((u8 *)&this->position), (0xF3));
         ((VObj_18_90ef41 *)(arg0))->m92();
     }
     if (this->m_c0 < (lbl_805DA03C * (lbl_805DA040 * this->m_c8))) {

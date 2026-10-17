@@ -290,8 +290,7 @@ void TUnk_804EDD44::vfunc_8() {  }
 #pragma push
 #pragma fp_contract on
 void TUnk_804EDD44::start_card_effect_trail() {
-    u8 *arg0 = (u8 *)this;
-    this->m_24 = (u32)create_particle_emitter((arg0 + 0x64), (0x1B6));
+    this->m_24 = (u32)create_particle_emitter(((u8 *)&this->unk_64), (0x1B6));
     if ((u32) this->m_24 != 0U) {
         ((TParticleCtrl *)(this->m_24))->set_tint_color((int) (-0x78));
     }
@@ -304,7 +303,7 @@ void TUnk_804EDD44::start_card_effect_flash() {
     u8 *arg0 = (u8 *)this;
     u32 p;
     u32 q;
-    *(u32 *)((s8 *)arg0 + 0x1C) = (u32)spawn_particle_effect_with_rotation((arg0 + 0x64), (arg0 + 0x54), (0x1B9), (0x104));
+    *(u32 *)((s8 *)arg0 + 0x1C) = (u32)spawn_particle_effect_with_rotation(((u8 *)&this->unk_64), ((u8 *)&this->unk_54), (0x1B9), (0x104));
     p = *(u32 *)((s8 *)arg0 + 0x1C);
     if (p != 0U) {
         ((TObjPlayer *)p)->set_position_xy((f32) (lbl_805DF7E8), (f32) (lbl_805DF7E8));
@@ -313,7 +312,7 @@ void TUnk_804EDD44::start_card_effect_flash() {
             ((TParticleCtrl *)(*(u32 *)((s8 *)arg0 + 0x1C)))->set_tint_color((int)(q));
         }
     }
-    spawn_particle_effect((arg0 + 0x64), (0x30));
+    spawn_particle_effect(((u8 *)&this->unk_64), (0x30));
 }
 #pragma pop
 

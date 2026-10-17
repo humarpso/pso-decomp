@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804C4468.h"
 #include "pso/system/vector.h"
 #include "pso/item/TUnk_804C4480.h"
 #include "pso/object/TObjMotion.h"
@@ -367,7 +368,7 @@ u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 a
         *(s32 *)((s8 *)arg0 + 0x28) = (s32) *(s32 *)((s8 *)arg2 + 0x60);
     }
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)arg3);
-    *(s8 *)((s8 *)arg0 + 0x1C) = arg4;
+    *(s8 *)&((TUnk_804C4498 *)arg0)->unk_1C = arg4;
     ((TUnk_804C4498 *)arg0)->m_4c = (f32) lbl_805DC3D4;
     *(f32 *)((s8 *)arg0 + 0x48) = (f32) lbl_805DC3D4;
     ((TUnk_804C4498 *)arg0)->m_44 = (f32) lbl_805DC3D4;

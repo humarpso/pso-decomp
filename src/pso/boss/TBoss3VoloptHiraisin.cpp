@@ -875,8 +875,8 @@ void TBoss3VoloptHiraisin::spawn_effects() {
     stack.sp8 = 0;
     stack.spC = this->rotation_y;
     stack.sp10 = 0;
-    spawn_directional_particle((arg0 + 0x2FC), (&stack.sp8), (((u32)__cntlzw(*(s16 *)((s8 *)arg0 + 0x38C) & 3) >> 5) + 0x61));
-    spawn_particle_effect((arg0 + 0x2FC), (0x45));
+    spawn_directional_particle(((u8 *)&this->m_2fc), (&stack.sp8), (((u32)__cntlzw(*(s16 *)((s8 *)arg0 + 0x38C) & 3) >> 5) + 0x61));
+    spawn_particle_effect(((u8 *)&this->m_2fc), (0x45));
 }
 
 void TBoss3VoloptHiraisin::damage_player_if_aligned() {

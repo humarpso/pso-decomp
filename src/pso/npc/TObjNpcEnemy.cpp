@@ -348,7 +348,7 @@ void TObjNpcEnemy::render() {
         }
         TObjFish::set_global_param((int) (this->texture_id));
         push_matrix_from((0));
-        translate_matrix_vec3((0), (arg0 + 0x38));
+        translate_matrix_vec3((0), ((u8 *)&this->position));
         temp_r4 = (unsigned char *) (*(void * *)&this->m_3b8);
         translate_matrix((int) (0), (int) (temp_r4), (f32) (lbl_805DE7D8), (f32) (*(f32 *)((s8 *)temp_r4 + 4)), (f32) (lbl_805DE7D8));
         rotate_matrix_y((int) (0), (int) (this->rotation_y));

@@ -489,7 +489,7 @@ void TShopJudgmentItemWindow::create_result_windows() {
                 this->m_154 = (u32) create_item_list_window((s32)(lbl_8044C1CC), (s32)(1), (s32)(obj_getField1c(*(s32 *)&this->m_24)));
                 break;
             }
-            TItemData__clear_unidentified_flag((arg0 + 0x28));
+            TItemData__clear_unidentified_flag(((u8 *)&this->unk_28));
             this->m_34 = advance_item_id_counter(((u16) local_client_id));
             *(s32 *)&this->m_50 = ((TLobby *)(arg0 + 0x28))->dispatch_item_by_type();
             ((TShopJudgmentItemWindow *)(this->m_154))->add_list_entry((int) (*(s32 *)&this->m_50), (int) (0));

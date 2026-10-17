@@ -295,9 +295,8 @@ void TBoss2Joint::call_36A90_with_1() { init_joint_offset((s32)((int)(1))); }
 
 typedef char RecoveredGlobal_80036A90_lbl_80435A68_size[sizeof(RecoveredGlobal_80036A90_lbl_80435A68) == 0x20 ? 1 : -1];
 void TBoss2Joint::init_joint_offset(s32 arg1) {
-    u8 *arg0 = (u8 *)this;
     this->m_3a8 = (f32) TBoss2Joint__data_805D8474;
-    copy_vec4__13TRaderMapCoreFPvPv((arg0 + 0x3AC), ((u8 *)&TBoss2Joint__joint_offset_vec4_table.value + (arg1 * 0x10)));
+    copy_vec4__13TRaderMapCoreFPvPv(((u8 *)&this->unk_3AC), ((u8 *)&TBoss2Joint__joint_offset_vec4_table.value + (arg1 * 0x10)));
 }
 
 struct Ent_80036ACC { s32 a; s32 b; };

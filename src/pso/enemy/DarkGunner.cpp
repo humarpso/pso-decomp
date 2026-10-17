@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDarkGunCenter.h"
 #include "pso/enemy/TUnk_804909C4.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
@@ -1058,7 +1059,7 @@ void TObjPlayer__sub_800A16C4(u8 *arg0) {
 void TObjEneDarkGunner::vfunc_61() {
     u8 *arg0 = (u8 *)this;
     ((TUnk_804B9870 *)arg0)->obj_clearFlags30((s32)(0x100U));
-    spawn_particle_effect((arg0 + 0x2FC), (0xD7));
+    spawn_particle_effect(((u8 *)&this->m_2fc), (0xD7));
     play_sound_effect((int) (0x4003B22D), (void *) (arg0 + 0x38), (int) (0), (int) (0));
 }
 

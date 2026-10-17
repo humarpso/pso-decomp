@@ -5940,7 +5940,7 @@ void check_level_up__10TObjPlayerFPv(u8 *arg0) {
 
 void TObjPlayer::update_status_effects() {
     u8 *arg0 = (u8 *)this;
-  update_player_appear_fade((arg0 + 0x634));
+  update_player_appear_fade(((u8 *)&this->m_634));
   update_target_lock();
   if ((this->is_actor_cadence_frame((3))) != 0)
   {
