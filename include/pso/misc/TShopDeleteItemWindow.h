@@ -28,6 +28,7 @@ struct TShopDeleteItemWindow : public TShopWindowBase {
     s32 destroy();
     static s32 update_item_select(void *arg0);
     void handle_number_input();
+    void handle_confirm_dialog();
 };
 
 typedef char TShopDeleteItemWindow_size[sizeof(TShopDeleteItemWindow) == 0x68 ? 1 : -1];

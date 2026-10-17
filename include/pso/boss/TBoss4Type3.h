@@ -134,6 +134,9 @@ struct TBoss4Type3 : public TObjEnemy {
     void draw_motion_trail(s32 arg1, s32 arg2, s32 arg3, s32 arg4);
     static u16 pick_random_target_player();
     static void *create_horming(void *arg0, void *arg1, void *arg2);
+    void copy_positions_to_parts();
+    void update_phase_timer();
+    void advance_afterimage();
 };
 
 typedef void (TBoss4Type3::*TBoss4Type3Handler)();

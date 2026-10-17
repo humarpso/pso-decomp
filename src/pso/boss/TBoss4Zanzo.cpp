@@ -66,7 +66,7 @@ struct Obj_80055BC0 { u8 pad[0x450]; Vec_80055BC0 f450; Vec_80055BC0 f45c; };
 
 extern u8 lbl_80487150[];
 extern "C" {
-void copy_positions_to_parts__11TBoss4Type3FPv(Obj_8005A1AC *arg0);
+void copy_positions_to_parts__11TBoss4Type3Fv(Obj_8005A1AC *arg0);
 s32 add_radar_scaled_marker(void *, u32, int, int, f32);
 s32 vec3_add_to(void *, void *);
 f32 vector_length(void *);
@@ -480,8 +480,8 @@ void TBoss4Type3__sub_80059F64(Obj_80059F64 *self, s32 arg1);
 void update_scale_sound__11TBoss4Type3Fv(u8 *arg0);
 void TBoss4Type3__sub_8005A150(void);
 void sub_8005A438__11TBoss4Type3Fv(Obj_8005A438 *self);
-void update_phase_timer__11TBoss4Type3FPv(u8 *arg0);
-void advance_afterimage__11TBoss4Type3FPv(u8 *arg0);
+void update_phase_timer__11TBoss4Type3Fv(u8 *arg0);
+void advance_afterimage__11TBoss4Type3Fv(u8 *arg0);
 void TBoss4Type3__sub_8005A86C(void* p);
 void reset_action_to_3__11TBoss4Type3FPv(Obj_8005ACBC *self);
 void init_effect__11TBoss4Type3FPv(u8 *arg0);

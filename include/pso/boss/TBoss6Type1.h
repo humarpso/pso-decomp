@@ -175,6 +175,7 @@ struct TBoss6Type1 : public TObjEnemy {
     void update_hit_timer();
     void init_state();
     void tick_trap_countdown();
+    void init_work();
 };
 typedef char Boss6EffectPoint_size[(sizeof(Boss6EffectPoint)==0xC)?1:-1];
 typedef char TBoss6Type1_receiver_offset[(offsetof(TBoss6Type1,effect_point_receiver)==0x404)?1:-1];

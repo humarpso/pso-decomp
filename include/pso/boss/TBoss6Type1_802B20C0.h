@@ -18,7 +18,7 @@ void TBoss6Type1__sub_802B343C(TBoss6Type1 *arg0);
 void TBoss6Type1__sub_802B3564(TBoss6Type1 *arg0);
 void TBoss6Type1__sub_802B381C(TBoss6Type1 *arg0);
 void TBoss6Type1__sub_802B3B94(void *arg0);
-void init_work__11TBoss6Type1FPv(u8 *arg0);
+void init_work__11TBoss6Type1Fv(u8 *arg0);
 void release_object__11TBoss6Type1FPv(void *p);
 }
 
