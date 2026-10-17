@@ -593,14 +593,15 @@ struct RecoveredGlobal_801E7084_TLobby__data_80512220
   u8 remaining[0x1C];
 };
 
-extern "C" {
 namespace pf2_p4 { extern "C" { extern int TLobby__quest_argument_stack[]; } }
 #define TLobby__quest_argument_stack pf2_p4::TLobby__quest_argument_stack
 extern s16 TLobby__quest_state_word_170;
 extern s16 TLobby__quest_state_word_172;
 extern s16 TLobby__data_805D5ECC;
+extern "C" {
 void TLobby__sub_801E6F1C(void);
 s32 fn_801D9FA0(int, int, int, int, void *);
+}
 extern s32 TLobby__protocol_instance;
 namespace pf2_p4 { extern "C" { void push_op_arg__6TLobbyFi(s32); } }
 #define push_op_arg__6TLobbyFi pf2_p4::push_op_arg__6TLobbyFi
@@ -614,6 +615,7 @@ extern int TLobby__quest_arg_stack_count;
 void quest_vm_push_u16_argument(u16 a0);
 void quest_vm_push_u8_argument(u8 a0);
 void qst_op_arg_pushs(int a0);
+extern "C" {
 
 void TLobby::create_chat_sensor_capture() { TOChatSensorCapture::create_instance((void*)tl_01); }
 
@@ -628,10 +630,12 @@ typedef char RecoveredGlobal_801E6F40_TLobby__data_80512220_size[sizeof(Recovere
 void TLobby::run_vm_helper_with_regs() {
     fn_801D9FA0(TLobby__protocol_instance, (int) ((*(u16 *)&TLobby__data_805D5ECC)), (int) ((*(u16 *)&TLobby__quest_state_word_170)), (int) ((*(u16 *)&TLobby__quest_state_word_172)), (void *) (&(*(RecoveredGlobal_801E6F40_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value));
 }
+}
 
 void qst_op_arg_pushs(int a0) { int old = TLobby__quest_arg_stack_count; TLobby__quest_arg_stack_count = old + 1; TLobby__quest_argument_stack[old] = a0; }
 typedef struct RecoveredGlobal_801E7084_TLobby__data_80512220 RecoveredGlobal_801E7084_TLobby__data_80512220;
 typedef char RecoveredGlobal_801E7084_TLobby__data_80512220_size[((sizeof(RecoveredGlobal_801E7084_TLobby__data_80512220)) == 0x20) ? (1) : (-1)];
+extern "C" {
 
 void TLobby::push_table_ref_by_index(u16 a0) {
     TLobby__quest_argument_stack[TLobby__quest_arg_stack_count++] = TLobby__data_805D5E74 + a0 * 4;
@@ -639,6 +643,7 @@ void TLobby::push_table_ref_by_index(u16 a0) {
 
 void TLobby::push_reg_ref_by_index(u8 a0) {
     TLobby__quest_argument_stack[TLobby__quest_arg_stack_count++] = (int)(TLobby__script_reg_array + a0 * 4);
+}
 }
 
 void quest_vm_push_u16_argument(u16 a0) {
@@ -660,6 +665,7 @@ void qst_op_arg_pushl(int a0)
   TLobby__quest_arg_stack_count = TLobby__quest_arg_stack_count + 0x1;
   TLobby__quest_argument_stack[new_var] = new_var3;
 }
+extern "C" {
 void TLobby::op_push_reg_to_stack(u8 a0) {
     int v = *(int *)(TLobby__script_reg_array + a0 * 4);
     int old = TLobby__quest_arg_stack_count;
@@ -681,7 +687,6 @@ void TLobby::load_op_arg_window(s32 arg0) {
   new_var = arg0 * 4;
   TLobby__quest_script_pc = *((s32 *) (((s8 *) (TLobby__data_805D5E74 + (new_var & 0x3FFFC))) + 0));
 }
-
 }
 
 #undef push_op_arg__6TLobbyFi
@@ -2129,14 +2134,18 @@ void quest_vm_load_s16_indirect(void);
 extern "C" {
 void TLobby__sub_801EA1B4(s32 arg0);
 void TLobby__sub_801EA274(void);
+}
 void quest_set_player_shrink_size(s32 player_variable, s32 size_variable);
+extern "C" {
 void TLobby__sub_801EA5FC(u8 arg0);
 void TLobby__sub_801EA690(s32 arg0);
 void TLobby__sub_801EA7A0(s32 arg0);
 void TLobby__sub_801EA84C(s32 arg0);
 void TLobby__sub_801EA8E8(void);
+}
 void quest_vm_shift_right_arithmetic_register(s32 arg0, s32 arg1);
 void quest_vm_shift_left_register(s32 arg0, s32 arg1);
+extern "C" {
 void TLobby__sub_801EAB90(s32 arg0);
 void TLobby__sub_801EABEC(s32 arg0);
 void TLobby__sub_801EAC48(int _w0);
@@ -2189,12 +2198,16 @@ void TLobby__sub_801EDABC(void);
 void TLobby__sub_801EDB04(void);
 void TLobby__sub_801EDB4C(void);
 void TLobby__sub_801EDC98(void);
+}
 void qst_op_map_designate_ex(u32 first);
+extern "C" {
 int TLobby__sub_801EDDDC(void);
 int TLobby__sub_801EDE00(void);
+}
 void quest_vm_get_designated_client_id(u8 reg);
 void quest_vm_get_local_client_id(u8 reg);
 int qst_op_warp_on(void* p);
+extern "C" {
 void TLobby__sub_801EE09C(void* p);
 }
 void send_6x77_sync_quest_register(void);
@@ -2210,25 +2223,29 @@ void qst_op_clear_quest_board_handler(void);
 void qst_op_set_quest_board_handler(void);
 extern "C" {
 void qst_op_winset_time(s32 arg0);
+}
 int qst_op_winend_time(void* p);
 void qst_op_map_designate(u32 first);
+extern "C" {
 void TLobby__sub_801EE77C(u8 arg0, u8 arg1);
+}
 void qst_op_item_check(u32 first, u32 destination);
 void qst_op_item_delete2(u32 src, u32 dst);
 void qst_op_item_delete(u32 src, u32 dst);
 void qst_op_item_create2(u8 arg0, u8 arg1);
 void qst_op_item_create(u8 arg0, u8 arg1);
+extern "C" {
 void qst_op_del_obj_param(s32 arg0);
 }
 void qst_op_pl_add_meseta(void);
 extern "C" {
 int qst_op_clr_qt_cancel(void);
 int qst_op_clr_qt_success(void);
+}
 int qst_op_clr_qt_failure(void);
 void qst_op_set_qt_cancel(u16 arg0);
 void qst_op_set_qt_success(u16 arg0);
 void qst_op_set_qt_failure(u16 arg0);
-}
 void qst_op_clr_floor_handler(void);
 void qst_op_set_floor_handler(void);
 extern "C" {
@@ -2242,22 +2259,22 @@ void qst_op_npc_talk_kill(void);
 void qst_op_p_talk_guild(void);
 void qst_op_p_return_guild(void);
 void qst_op_nop_A0_debug(void);
-extern "C" {
 int qst_op_cine_disable(void);
 int qst_op_cine_enable(void);
-}
 void qst_op_hud_show(void);
 void qst_op_hud_hide(void);
 extern "C" {
 int TLobby__sub_801EF748(void* p);
 int TLobby__sub_801EF768(void* p);
 int TLobby__sub_801EF788(void* p);
+}
 void qst_op_gettime(u8 arg0);
+extern "C" {
 void qst_op_unhide_ene(s32 arg0);
 void qst_op_unhide_obj(s32 arg0);
+}
 void qst_op_chk_ene_num(int a0);
 void qst_op_if_zone_clear(s32 arg0, s32 arg1);
-}
 void qst_op_p_action_enable(void);
 void qst_op_p_action_disable(void);
 void qst_op_create_pipe(void);
@@ -2266,27 +2283,19 @@ void qst_op_p_disablewarp(void);
 void qst_op_p_dead(void);
 void qst_op_p_look_at(void);
 void qst_op_p_look(void);
-extern "C" {
 int qst_op_p_col(void* p);
 int qst_op_p_noncol(void* p);
-}
 void qst_op_enable_movement1(void);
 void qst_op_disable_movement1(void);
-extern "C" {
 int qst_op_npc_talk(void* p);
 int qst_op_npc_nont(void* p);
-}
 void qst_op_npc_kill(void);
-extern "C" {
 int qst_op_cam_adj(void* p);
-}
 void qst_op_game_lev_reset_nop_86(void);
 void qst_op_game_lev_super_nop_85(void);
-extern "C" {
 int qst_op_cam_zmout(void* p);
 int qst_op_cam_zmin(void* p);
 int qst_op_cam_quake(void);
-}
 void qst_op_npc_play(void);
 void qst_op_npc_stop(void);
 void qst_op_npc_crtpk(void);
@@ -2307,6 +2316,7 @@ void qst_op_list(void);
 void qst_op_message(void);
 extern "C" {
 void qst_op_nop_42_stack_push(s32 arg0);
+}
 void qst_op_switch_call(s32 arg0, u8 arg1, s32 arg2);
 void qst_op_switch_jmp(s32 arg0, u8 arg1, s32 arg2);
 void qst_op_jmpi_le(s32 arg0, s32 arg1, s32 arg2);
@@ -2329,8 +2339,10 @@ void qst_op_jmpi_ne(s32 arg0, s32 arg1, s32 arg2);
 void qst_op_jmp_ne(s32 arg0, s32 arg1, s32 arg2);
 void qst_op_jmpi_eq(s32 arg0, s32 arg1, s32 arg2);
 void qst_op_jmp_eq(s32 arg0, s32 arg1, s32 arg2);
+extern "C" {
 void qst_op_jmp_off(s32 arg0, u8 arg1, u8 *arg2);
 void qst_op_jmp_on(s32 arg0, u8 arg1, u8 *arg2);
+}
 void qst_op_call(u16 arg0);
 void quest_vm_modulo_unsigned_immediate(s32 arg0, u32 arg1);
 void qst_op_jmp(int a0);
@@ -2350,6 +2362,7 @@ void qst_op_addi(int a0, int a1);
 void qst_op_add(s32 arg0, s32 arg1);
 void qst_op_gget(u16 arg0, s32 arg1);
 void qst_op_glet(u16 arg0, s32 arg1);
+extern "C" {
 namespace pf2_p5 { extern "C" { int pop_stack_value__6TLobbyFv(void); } }
 #define pop_stack_value__6TLobbyFv pf2_p5::pop_stack_value__6TLobbyFv
 namespace pf2_p5 { extern "C" { s32 push_op_arg__6TLobbyFi(int); } }
@@ -4234,6 +4247,7 @@ void TLobby__sub_801EA274(void) {
         *(s16 *)((s8 *)(&(*(RecoveredGlobal_801EA274_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 0x28) = (s16) (*(RecoveredGlobal_801EA274_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value;
     }
 }
+}
 #pragma pop
 
 #pragma push
@@ -4273,6 +4287,7 @@ void quest_set_player_shrink_size(s32 player_variable, s32 size_variable) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+extern "C" {
 void TLobby::spawn_symbolchat_colli(u8 i) {
     Spawn_801EA388 s;
     TLobby__sub_80207F30((Spawn_801EA508 *)&s);
@@ -4599,6 +4614,7 @@ void TLobby::roll_random_in_range(s32 arg1) {
   }
   *((s32 *) (((s8 *) (*(s32 *)&TLobby__script_reg_array)) + ((arg1 * 4) & 0x3FC))) = var_r4;
 }
+}
 #pragma pop
 
 #pragma push
@@ -4654,6 +4670,7 @@ void quest_vm_shift_left_register(s32 arg0, s32 arg1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+extern "C" {
 void TLobby::copy_script_register_from_buffer(u8 a0, u8 a1) {
     s32 v;
     (*(int * *)&TLobby__script_reg_array)[a1] = 0;
@@ -7331,6 +7348,7 @@ void TLobby::send_font_state_if_player_exists(int _w0, int _w1) {
         send_font_state__6TLobbyFl();
     }
 }
+}
 #pragma pop
 
 #pragma push
@@ -7352,6 +7370,7 @@ void qst_op_map_designate_ex(u32 first) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+extern "C" {
 int TLobby__sub_801EDDDC(void) { return set_mode__13TRaderMapCoreFi((void*)(0)); }
 #pragma pop
 
@@ -7419,6 +7438,7 @@ void TLobby::send_switch_changed_from_args(s32 arg0) {
     pkt.e = (*(s32* *)&TLobby__script_reg_array)[(u8)arg0];
     ((TLobby *)(&pkt))->finalize_and_send_60();
 }
+}
 
 void quest_vm_get_designated_client_id(u8 reg) {
     (*(s32 * *)&TLobby__script_reg_array)[reg] = TLobby__designated_client_id;
@@ -7427,10 +7447,13 @@ void quest_vm_get_designated_client_id(u8 reg) {
 void quest_vm_get_local_client_id(u8 reg) {
     (*(s32 * *)&TLobby__script_reg_array)[reg] = local_client_id;
 }
+extern "C" {
 
 int TLobby::forward_801F36E4() { return TLobby__sub_801F36E4(this); }
+}
 
 int qst_op_warp_on(void* p) { return set_cleanup_flag__6TLobbyFv(p); }
+extern "C" {
 
 void TLobby::send_packet_67_04() {
     Pkt_801EE048 pkt;
@@ -7603,14 +7626,17 @@ void TLobby::set_table_entry(int a0) { TLobby__script_reg_array[(unsigned char)(
 void qst_op_winset_time(s32 arg0) {
     set_timer_window_time__11TWindowCtrlFv((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__script_reg_array)));
 }
+}
 
 int qst_op_winend_time(void* p) { return close_timer_window__11TWindowCtrlFv(p); }
+extern "C" {
 
 int TLobby::create_alt_timer() { return create_alt_timer__11TWindowCtrlFv(this); }
 
 void TLobby::open_door() { TLobby::reset_door_state(); TObjDoor::reset_instance(); }
 
 void TLobby::update_doors() { TObjDoor__sub_801F3760(); TObjDoor__sub_801F3754(); }
+}
 
 void qst_op_map_designate(u32 first) {
     u32 i = first;
@@ -7620,6 +7646,7 @@ void qst_op_map_designate(u32 first) {
     s32 extra = (*(s32 * *)&TLobby__script_reg_array)[(u8)i];
     set_quest_floor_designation(mode, floor, terrain, extra);
 }
+extern "C" {
 
 void TLobby__sub_801EE77C(u8 arg0, u8 arg1) {
     Item_801EE77C item;
@@ -7646,6 +7673,7 @@ void TLobby__sub_801EE77C(u8 arg0, u8 arg1) {
     } else {
         (*(int * *)&TLobby__script_reg_array)[arg1] = -1;
     }
+}
 }
 
 void qst_op_item_check(u32 first, u32 destination) {
@@ -7807,6 +7835,7 @@ void qst_op_item_create(u8 arg0, u8 arg1) {
         (*(int * *)&TLobby__script_reg_array)[arg1] = -1;
     }
 }
+extern "C" {
 
 void qst_op_del_obj_param(s32 arg0) {
     delete_by_param__13TQuestColCtrlFl((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__script_reg_array)));
@@ -7838,6 +7867,7 @@ extern "C" {
 int qst_op_clr_qt_cancel(void) { return set_quest_cancel_callback((void*)(-1)); }
 
 int qst_op_clr_qt_success(void) { return set_quest_success_callback((void*)(-1)); }
+}
 
 int qst_op_clr_qt_failure(void) { return THunterGuildSeqOffline__sub_801F3748((void*)(-1)); }
 
@@ -7851,7 +7881,6 @@ void qst_op_set_qt_success(u16 arg0) {
 
 void qst_op_set_qt_failure(u16 arg0) {
     THunterGuildSeqOffline__sub_801F3748((void *)arg0);
-}
 }
 
 void qst_op_clr_floor_handler(void) {
@@ -7912,8 +7941,6 @@ void qst_op_switch_on(void) {
 void qst_op_npc_talk_kill(void) {
     TLobby__sub_80190FD0((*(s32 *)((s8 *)(&(*(RecoveredGlobal_80141730_lbl_8050C028 *)&TLobby__quest_argument_stack).value) + 0x0)));
 }
-extern "C" {
-
 void qst_op_npc_talk_pl(u8 arg0) {
     s32 i;
     NpcSet_801EF3B4 set;
@@ -7929,7 +7956,6 @@ void qst_op_npc_talk_pl(u8 arg0) {
     set.f34 = (*(s32 * *)&TLobby__script_reg_array)[i++];
     set.f38 = (*(s32 * *)&TLobby__script_reg_array)[i];
     TLobby::create_npc(&set);
-}
 }
 
 void qst_op_p_talk_guild(void) {
@@ -7976,12 +8002,9 @@ void qst_op_nop_A0_debug(void) {
         o->m0(1);
     }
 }
-extern "C" {
-
 int qst_op_cine_disable(void) { return reset_state__9TCineCtrlFl((void*)(0)); }
 
 int qst_op_cine_enable(void) { return reset__9TCineCtrlFl((void*)(0)); }
-}
 
 void qst_op_hud_show(void) { ((TWindowCtrl *)(*(int *)&local_client_id))->unsuppress_slot(); TRaderMapCore::show_radar(); }
 
@@ -8014,6 +8037,7 @@ void TLobby__sub_801EF7A8(u8 i) {
         v.z = TLobby__script_reg_array[i];
         ((void (*)(void *, Vec_801EF7A8 *))TLobby__sub_801F3500)(obj, &v);
     }
+}
 }
 
 void qst_op_set_obj_param(u8 arg0, u8 arg1) {
@@ -8096,6 +8120,7 @@ void qst_op_gettime(u8 arg0) {
     ((s32 *) (*(s32 *)&TLobby__script_reg_array))[arg0] = sp8;
 }
 #pragma pop
+extern "C" {
 
 void qst_op_unhide_ene(s32 arg0) {
     s32 v0 = TLobby__script_reg_array[(u8)arg0];
@@ -8110,6 +8135,7 @@ void qst_op_unhide_obj(s32 arg0) {
     s32 v2 = TLobby__script_reg_array[(u8)++arg0];
     unhide_room_set_objects(v0, (s16)v1, (s16)v2, arg0);
 }
+}
 
 void qst_op_chk_ene_num(int a0) { TLobby__script_reg_array[(unsigned char)(a0)] = TLobby::count_quest_enemies_flag8(); }
 
@@ -8119,7 +8145,6 @@ void qst_op_if_zone_clear(s32 arg0, s32 arg1) {
         return;
     }
     *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = 0;
-}
 }
 
 void qst_op_p_action_enable(void) {
@@ -8141,8 +8166,6 @@ void qst_op_p_action_disable(void) {
         ((TObjPlayer *)temp_r3)->release_attached_resource();
     }
 }
-extern "C" {
-
 void qst_op_pos_pipe(u8 arg0) {
     s32 i = arg0;
     Vec_801F0034 point;
@@ -8151,7 +8174,6 @@ void qst_op_pos_pipe(u8 arg0) {
     point.y = (f32)TLobby__script_reg_array[i++];
     point.z = (f32)TLobby__script_reg_array[i++];
     TTecLuker::create_for_player((int)((u16)TLobby__script_reg_array[i]), (s32)(&point));
-}
 }
 
 void qst_op_create_pipe(void) {
@@ -8241,8 +8263,6 @@ void qst_op_p_hpstat(void) {
     (*(int * *)&TLobby__script_reg_array)[reg] = 0;
 }
 #pragma pop
-extern "C" {
-
 void qst_op_p_move(u8 arg0) {
     Vec_801F0458 pos;
     s32 i = arg0;
@@ -8255,7 +8275,6 @@ void qst_op_p_move(u8 arg0) {
     yaw = (s32) (lbl_805DC4CC * (f32) TLobby__script_reg_array[i++]);
     id = TLobby__script_reg_array[i++];
     send_stop_at_position__10TNpcPlayerFUsPvs(id, &pos, yaw);
-}
 }
 
 void qst_op_p_look_at(void) {
@@ -8302,6 +8321,7 @@ void TLobby::probe_character_save() {
     }
     TLobby__script_reg_array[reg] = ok;
 }
+}
 
 void qst_op_particle_id(u8 first) {
     Vec_801F0710 point;
@@ -8317,6 +8337,7 @@ void qst_op_particle_id(u8 first) {
         create_timed_particle_emitter(&point, effect, 0, lifetime);
     }
 }
+extern "C" {
 
 void TLobby__sub_801F07D8(u8 arg0) {
     Vec_801F07D8 v;
@@ -8375,6 +8396,7 @@ void TLobby::spawn_flagged_particle_emitter() {
         ((TBoss4Type2 *)r)->set_flags(0x40);
     }
 }
+}
 
 void qst_op_pl_walk(u8 arg0) {
     WalkCmd_801F09EC cmd;
@@ -8402,17 +8424,13 @@ void qst_op_pl_walk(u8 arg0) {
         ((TNpcPlayer *)(&cmd))->sync_from_lobby();
     }
 }
-}
 
 void qst_op_p_look(void) {
     quest_player_look_at_partner((u16) (*(RecoveredGlobal_801F0ADC_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value);
 }
-extern "C" {
-
 int qst_op_p_col(void* p) { return TObjHashiVersus2__sub_801912A4(p); }
 
 int qst_op_p_noncol(void* p) { return TObjHashiVersus2__sub_801912B0(p); }
-}
 
 void qst_op_enable_movement1(void) {
     TNpcPlayer::send_code_45_to_player((u16) (*(RecoveredGlobal_801F0B48_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value);
@@ -8421,32 +8439,23 @@ void qst_op_enable_movement1(void) {
 void qst_op_disable_movement1(void) {
     TNpcPlayer::play_effect((u16) (*(RecoveredGlobal_801F0B74_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value);
 }
-extern "C" {
-
 int qst_op_npc_talk(void* p) { return enable_partner_chatter__10TNpcPlayerFv(p); }
 
 int qst_op_npc_nont(void* p) { return disable_partner_chatter__10TNpcPlayerFv(p); }
-}
 
 void qst_op_npc_kill(void) {
     quest_remove_npc_player(((u16) (*(RecoveredGlobal_801F0BE0_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value));
 }
-extern "C" {
-
 int qst_op_cam_adj(void* p) { return set_active_camera_flag__11TCameraCtrlFv(p); }
-}
 
 void qst_op_game_lev_reset_nop_86(void) {  }
 
 void qst_op_game_lev_super_nop_85(void) {  }
-extern "C" {
-
 int qst_op_cam_zmout(void* p) { return end_conversation_camera(p); }
 
 int qst_op_cam_zmin(void* p) { return begin_conversation_camera(p); }
 
 int qst_op_cam_quake(void) { return set_shake_preset__11TCameraCtrlFl((void*)(2)); }
-}
 
 void qst_op_npc_play(void) {
     send_npc_control_6x69__10TNpcPlayerFs((int) ((s32) (u16) (*(RecoveredGlobal_801F0D54_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value));
@@ -8455,8 +8464,6 @@ void qst_op_npc_play(void) {
 void qst_op_npc_stop(void) {
     send_npc_stop_6x69__10TNpcPlayerFs((int) ((s32) (u16) (*(RecoveredGlobal_801F0D80_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value));
 }
-extern "C" {
-
 void qst_op_npc_crp_id(u8 first) {
     f32 pos[3];
     int heading;
@@ -8514,7 +8521,6 @@ void qst_op_npc_crppk(u8 arg0) {
     TLobby::free_luker_object();
     send_npc_control_create__10TNpcPlayerFsUssPUcl(a, c, b, &v, angle);
     TLobby::clear_quest_vm_flag();
-}
 }
 
 void qst_op_npc_crtpk(void) {
@@ -8797,6 +8803,7 @@ void TLobby::set_slot(int a0) { TLobby__script_reg_array[(unsigned char)(a0)] = 
 void qst_op_nop_42_stack_push(s32 arg0) {
     push_op_arg__6TLobbyFi((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))));
 }
+}
 
 void qst_op_switch_call(s32 arg0, u8 arg1, s32 arg2) {
     s32 temp_r3;
@@ -8933,6 +8940,7 @@ void qst_op_jmp_eq(s32 arg0, s32 arg1, s32 arg2) {
         (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)(*(s32 *)&TLobby__data_805D5E74) + ((arg2 * 4) & 0x3FFFC));
     }
 }
+extern "C" {
 
 void qst_op_jmp_off(s32 arg0, u8 arg1, u8 *arg2) {
     s32 all_off = 1;
@@ -8956,6 +8964,7 @@ void qst_op_jmp_on(s32 arg0, u8 arg1, u8 *arg2) {
     }
     (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)(*(s32 *)&TLobby__data_805D5E74) + ((arg0 * 4) & 0x3FFFC));
 }
+}
 
 #pragma push
 #pragma fp_contract on
@@ -8970,11 +8979,13 @@ void quest_vm_modulo_unsigned_immediate(s32 arg0, u32 arg1) {
     temp_r5 = (arg0 * 4) & 0x3FC;
     *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) = *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) % arg1;
 }
+extern "C" {
 
 void TLobby::op_mod_reg(s32 arg0, s32 arg1) {
     s32 temp_r5;
     temp_r5 = (arg0 * 4) & 0x3FC;
     *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) = *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + temp_r5) % *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg1 * 4) & 0x3FC));
+}
 }
 
 void qst_op_jmp(int a0) { TLobby__quest_script_pc = TLobby__data_805D5E74[(unsigned short)(a0)]; }
@@ -9069,7 +9080,6 @@ void qst_op_glet(u16 flag, s32 arg1) {
     }
     clear_story_flag((flag));
 }
-}
 
 #undef get_indexed_offset__6TLobbyFi
 #undef pop_stack_value__6TLobbyFv
@@ -9080,7 +9090,6 @@ void qst_op_glet(u16 flag, s32 arg1) {
 
 struct Ent_A { s32 a; s32 (*fn)(s32, s32); };
 
-extern "C" {
 void qst_getargs_801F26A8(s32 arg0);
 struct Ent_A; namespace pf2_p6 { extern "C" { s32 read_be_u16(struct Ent_A *); } }
 #define read_be_u16 pf2_p6::read_be_u16
@@ -9095,8 +9104,11 @@ void qst_op_gset(u16 arg0);
 namespace pf2_p6 { extern "C" { s32 dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32); } }
 #define dispatch_by_main_phase__14TBoss4DarkFalzFUs pf2_p6::dispatch_by_main_phase__14TBoss4DarkFalzFUs
 void qst_op_thread_stg(u16 arg0);
+extern "C" {
 u32 create__12TQuestThreadFi(s32 arg0);
+}
 void qst_op_thread(u16 arg0);
+extern "C" {
 u8 *create_quest_thread(s32 arg0);
 void qst_op_rev(s32 arg0);
 void qst_op_clear(s32 arg0);
@@ -9104,16 +9116,16 @@ void qst_op_set(s32 arg0);
 namespace pf2_p6 { extern "C" { extern s32 TLobby__data_805D5E74; } }
 #define TLobby__data_805D5E74 pf2_p6::TLobby__data_805D5E74
 void TLobby__sub_801F2570(s32 arg0, s32 arg1);
+}
 void quest_vm_get_register_address(s32 arg0, s32 arg1);
 void qst_op_let(s32 arg0, s32 arg1);
 void quest_vm_assign_u16_immediate(int a0, int a1);
-}
 void qst_op_exit(void);
 extern "C" {
 void qst_op_grev(s32 arg0);
+}
 void qst_op_leta_letb(int a0, int a1);
 void qst_op_leti(int a0, int a1);
-}
 void qst_op_nop(void);
 void qst_op_ret(void);
 void qst_op_sync(void);
@@ -9129,6 +9141,7 @@ void qst_op_grev(s32 arg0) {
     }
     dispatch_by_main_phase__14TBoss4DarkFalzFUs(v);
 }
+}
 
 void qst_op_gclear(u16 flag) {
     clear_story_flag((flag));
@@ -9137,6 +9150,7 @@ void qst_op_gclear(u16 flag) {
 void qst_op_gset(u16 arg0) {
     dispatch_by_main_phase__14TBoss4DarkFalzFUs((s32)(arg0));
 }
+extern "C" {
 
 void qst_op_rev(s32 arg0) {
     s32 temp_r3;
@@ -9154,6 +9168,7 @@ void qst_op_set(s32 arg0) {
 
 void TLobby__sub_801F2570(s32 arg0, s32 arg1) {
     *(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC)) = TLobby__data_805D5E74 + ((arg1 * 4) & 0x3FFFC);
+}
 }
 
 void quest_vm_get_register_address(s32 arg0, s32 arg1) {
@@ -9180,7 +9195,6 @@ void qst_op_thread_stg(u16 arg0) {
 void qst_op_thread(u16 arg0) {
     create_quest_thread((arg0));
 }
-}
 
 void qst_op_sync(void) { TLobby__quest_window_state = 1; }
 
@@ -9203,7 +9217,6 @@ void qst_op_ret(void) {
 }
 
 void qst_op_nop(void) {  }
-extern "C" {
 void qst_getargs_801F26A8(s32 arg0) {
     s32 (*temp_r31)(s32, s32);
     s32 temp_r30;
@@ -9213,7 +9226,6 @@ void qst_getargs_801F26A8(s32 arg0) {
     temp_r31 = e->fn;
     temp_r30 = read_be_u16(e);
     temp_r31(temp_r30, read_packet_byte__6TLobbyFv());
-}
 }
 
 #undef dispatch_by_main_phase__14TBoss4DarkFalzFUs
@@ -9241,7 +9253,6 @@ struct Entry804C69D8_801F28AC {
     void (*handler)(s32, s32, s32);
 };
 
-extern "C" {
 struct Entry804C69D8; namespace pf2_p7 { extern "C" { extern struct Entry804C69D8 qst_opcode_table[]; } }
 #define qst_opcode_table pf2_p7::qst_opcode_table
 namespace pf2_p7 { extern "C" { s32 read_packet_byte__6TLobbyFv(void*); } }
@@ -9254,13 +9265,16 @@ namespace pf2_p7 { extern "C" { void append_string_to_buffer(void*); } }
 #define append_string_to_buffer pf2_p7::append_string_to_buffer
 void qst_getargs_cstring(s32 arg0);
 void qst_getargs_801F27A0(s32 op);
+extern "C" {
 void qst_getargs_801F2828(s32 op);
 s32 stream_read_be32();
+}
 void qst_getargs_801F28AC(s32 arg0);
 struct Entry804C69D8 {
     u32 field0;
     s32 (*handler)(s32);
 };
+extern "C" {
 
 void qst_getargs_801F2700(s32 arg0) {
     struct Entry804C69D8 *temp_r3;
@@ -9270,6 +9284,7 @@ void qst_getargs_801F2700(s32 arg0) {
     temp_r3 += arg0;
     temp_r31 = temp_r3->handler;
     temp_r31(read_be_u16(temp_r3));
+}
 }
 void qst_getargs_cstring(s32 arg0) {
     Entry804C69D8_801F2748 *e = (Entry804C69D8_801F2748 *)&qst_opcode_table;
@@ -9294,6 +9309,7 @@ void qst_getargs_801F27A0(s32 op) {
     }
     fn(first, count, buf);
 }
+extern "C" {
 
 void qst_getargs_801F2828(s32 op) {
     u8 buf[16];
@@ -9306,6 +9322,7 @@ void qst_getargs_801F2828(s32 op) {
         buf[i] = ((s32 (*)(void))read_packet_byte__6TLobbyFv)();
     }
     fn(label, count, buf);
+}
 }
 
 void qst_getargs_801F28AC(s32 arg0) {
@@ -9333,6 +9350,7 @@ void qst_getargs_801F2910(s32 arg0) {
 #pragma pop
 
 #pragma push
+extern "C" {
 s32 read_packet_byte__6TLobbyFv(struct Ent_A *);
 
 namespace pf2_p8 { extern "C" { s32 read_be_u16(); } }
@@ -9348,6 +9366,7 @@ void TLobby::dispatch_command(s32 arg0) {
     temp_r31 = e->fn;
     temp_r30 = read_packet_byte__6TLobbyFv(e);
     temp_r31(temp_r30, read_be_u16());
+}
 }
 
 #undef read_be_u16
@@ -9370,8 +9389,6 @@ void qst_getargs_801F29CC(s32 arg0) {
     temp_r31(read_be_u16(temp_r3));
 }
 
-}
-
 #undef read_be_u16
 #undef qst_opcode_table
 #pragma pop
@@ -9387,7 +9404,6 @@ typedef struct Ent_801F2AB4 {
     s32 x0;
     void (*fn)(s32, s32);
 } Ent_801F2AB4;
-extern "C" {
 namespace pf2_p10 { extern "C" { s32 stream_read_be32(void); } }
 namespace pf2_p10 { extern "C" { extern Ent_801F2A14 qst_opcode_table[]; } }
 #define qst_opcode_table pf2_p10::qst_opcode_table
@@ -9421,8 +9437,6 @@ void qst_getargs_801F2AB4(s32 arg0) {
     fn = e->fn;
     a = ((s32 (*)(void))read_packet_byte__6TLobbyFv)();
     fn(a, ((s32 (*)(void))read_packet_byte__6TLobbyFv)());
-}
-
 }
 
 #undef qst_opcode_table
@@ -9474,8 +9488,6 @@ void qst_getargs_801F2B54(s32 arg0) {
     e->fn((s32)e);
     TLobby__quest_arg_stack_count = 0;
 }
-extern "C" {
-
 void qst_getargs_801F2B94(s32 arg0) {
     ((void (*)(void))qst_opcode_table[arg0].fn)();
 }
@@ -9484,6 +9496,7 @@ namespace pf2_p11 { extern "C" { extern int TLobby__quest_data_base; } }
 #define TLobby__quest_data_base pf2_p11::TLobby__quest_data_base
 
 typedef char RecoveredGlobal_801F2BCC_TLobby__data_80512240_size[sizeof(RecoveredGlobal_801F2BCC_TLobby__data_80512240) == 0x100 ? 1 : -1];
+extern "C" {
 s32 pop_stack_value__6TLobbyFv(void) {
     s32 temp_r4;
     if ((s32) (*(s32 *)&TLobby__script_stack_depth) > 0) {
