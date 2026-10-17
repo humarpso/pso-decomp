@@ -2486,7 +2486,7 @@ void TObjEneMe3ShinowaMirage__sub_800E5CE4(u8 *arg0, s32 arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 6;
         ((TObjEneDD *)arg0)->set_field_378(6);
-        ((VObj_18_4f5f2e *)(arg0))->m94();
+        ((TObjEneEpsilon *)(arg0))->vfunc_96();
         *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) & 0xFFFFFFFC);
         *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) | 0x10000);
         *(s32 *)((s8 *)arg0 + 0x404) = 0;
@@ -2523,7 +2523,7 @@ void TObjEneMe3ShinowaMirage__sub_800E5CE4(u8 *arg0, s32 arg1) {
                 info = ((Info_800E5CE4 * *)&TObjEneMe3ShinowaMirage__mirage_info_table)[*(s32 *)((s8 *)arg0 + 0x3C0)];
                 move_to_shot_position__9TObjEneDDFfff(arg0, info, *(f32 *)((s8 *)arg0 + 0x3A0), *(f32 *)((s8 *)arg0 + 0x3A8), info->f8);
             } else {
-                ((VObj_18_4f5f2e *)(arg0))->m100();
+                ((TObjEneEpsilon *)(arg0))->vfunc_102();
             }
             if (*(f32 *)((s8 *)arg0 + 0xC0) >= 25.0f) {
                 *(f32 *)((s8 *)arg0 + 0xC0) = 25.0f;
@@ -2535,10 +2535,10 @@ void TObjEneMe3ShinowaMirage__sub_800E5CE4(u8 *arg0, s32 arg1) {
             if (*(s32 *)((s8 *)arg0 + 0x408) <= ((Info_800E5CE4 * *)&TObjEneMe3ShinowaMirage__mirage_info_table)[*(s32 *)((s8 *)arg0 + 0x3C0)]->f20) {
                 *(f32 *)((s8 *)arg0 + 0xC0) = TObjEneMe3ShinowaMirage__data_805DA5E4;
             }
-            ((VObj_18_4f5f2e *)(arg0))->m100();
+            ((TObjEneEpsilon *)(arg0))->vfunc_102();
             break;
         }
-        ((VObj_18_4f5f2e *)(arg0))->m87();
+        ((TObjEneEpsilon *)(arg0))->vfunc_89();
         break;
     }
 }

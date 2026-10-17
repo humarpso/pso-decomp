@@ -285,38 +285,6 @@ struct VObj_18_8dc821 : VBase_18_8dc821 {
     virtual s32 m113();
 };
 
-struct VBase_8009C91C { char pad[0x18]; };
-
-struct VObj_8009C91C : VBase_8009C91C {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
-    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
-    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
-    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23();
-    virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27();
-    virtual void m28(); virtual void m29(); virtual void m30(); virtual void m31();
-    virtual void m32(); virtual void m33(); virtual void m34(); virtual void m35();
-    virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
-    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43();
-    virtual void m44(); virtual void m45(); virtual void m46(); virtual void m47();
-    virtual void m48(); virtual void m49(); virtual void m50(); virtual void m51();
-    virtual void m52(); virtual void m53(); virtual void m54(); virtual void m55();
-    virtual void m56(); virtual void m57(); virtual void m58(); virtual void m59();
-    virtual void m60(); virtual void m61(); virtual void m62(); virtual void m63();
-    virtual void m64(); virtual void m65(); virtual void m66(); virtual void m67();
-    virtual void m68(); virtual void m69(); virtual void m70(); virtual void m71();
-    virtual void m72(); virtual void m73(); virtual void m74(); virtual void m75();
-    virtual void m76(); virtual void m77(); virtual void m78(); virtual void m79();
-    virtual void m80(); virtual void m81(); virtual void m82(); virtual void m83();
-    virtual void m84(); virtual void m85(); virtual void m86(); virtual void m87();
-    virtual void m88(); virtual void m89(); virtual void m90(); virtual void m91();
-    virtual void m92(); virtual void m93(); virtual void m94(); virtual void m95();
-    virtual void m96(); virtual void m97(); virtual void m98(); virtual void m99();
-    virtual void m100(); virtual void m101(); virtual void m102(); virtual void m103();
-    virtual void m104(); virtual void m105(); virtual s32 m106();
-};
-
 struct Vec_8009C91C { f32 x, y, z; };
 
 struct Can_8009C91C {
@@ -1297,105 +1265,6 @@ struct Canadin_8009E0AC : CanadinBase_8009E0AC {
     virtual void m108(s32);
     virtual void m109(s32);
     virtual void m110(s32);
-};
-
-struct Base_En_8009DE90 { char pad[0x18]; };
-
-struct V_En_8009DE90 : Base_En_8009DE90 {
-    virtual void p0();
-    virtual void p1();
-    virtual void p2();
-    virtual void p3();
-    virtual void p4();
-    virtual void p5();
-    virtual void p6();
-    virtual void p7();
-    virtual void p8();
-    virtual void p9();
-    virtual void p10();
-    virtual void p11();
-    virtual void p12();
-    virtual void p13();
-    virtual void p14();
-    virtual void p15();
-    virtual void p16();
-    virtual void p17();
-    virtual void p18();
-    virtual void p19();
-    virtual void p20();
-    virtual void p21();
-    virtual void p22();
-    virtual void p23();
-    virtual void p24();
-    virtual void p25();
-    virtual void p26();
-    virtual void p27();
-    virtual void p28();
-    virtual void p29();
-    virtual void p30();
-    virtual void p31();
-    virtual void p32();
-    virtual void p33();
-    virtual void p34();
-    virtual void p35();
-    virtual void p36();
-    virtual void p37();
-    virtual void p38();
-    virtual void p39();
-    virtual void p40();
-    virtual void p41();
-    virtual void p42();
-    virtual void p43();
-    virtual void p44();
-    virtual void p45();
-    virtual void p46();
-    virtual void p47();
-    virtual void p48();
-    virtual void p49();
-    virtual void p50();
-    virtual void p51();
-    virtual void p52();
-    virtual void p53();
-    virtual void p54();
-    virtual void p55();
-    virtual void p56();
-    virtual void p57();
-    virtual void p58();
-    virtual void p59();
-    virtual void p60();
-    virtual void p61();
-    virtual void p62();
-    virtual void p63();
-    virtual void p64();
-    virtual void p65();
-    virtual void p66();
-    virtual void p67();
-    virtual void p68();
-    virtual void p69();
-    virtual void p70();
-    virtual void p71();
-    virtual void p72();
-    virtual void p73();
-    virtual void p74();
-    virtual void p75();
-    virtual void p76();
-    virtual void p77();
-    virtual void p78();
-    virtual void p79();
-    virtual void p80();
-    virtual void p81();
-    virtual void p82();
-    virtual void p83();
-    virtual void p84();
-    virtual void p85();
-    virtual void m86();
-    virtual void p87();
-    virtual void p88();
-    virtual void p89();
-    virtual void p90();
-    virtual void p91();
-    virtual void p92();
-    virtual void m93();
 };
 
 struct Base_Sub_8009DE90 { char pad[0x14]; };
@@ -3090,7 +2959,7 @@ void TObjEneMe1Canadin__sub_8009C178(u8 *arg0, s32 arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
         ((TObjEneDD *)arg0)->set_field_378(0xB);
-        ((VObj_18_p4 *)(arg0))->m93();
+        ((TObjEneDD *)(arg0))->vfunc_95();
         *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C8) & 0xFFBFFFFF);
         *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x800);
         if ((s32) *(s32 *)((s8 *)arg0 + 0x3C4) == 1) {
@@ -3120,7 +2989,7 @@ void TObjEneMe1Canadin__sub_8009C2EC(u8 *arg0, s32 arg1) {
     case 4:
         ((TObjEneMe1Canadin *)arg0)->advance_state_4_to_5();
         ((TObjEneDD *)arg0)->set_field_378(0xA);
-        ((VObj_18_p4 *)arg0)->m94();
+        ((TObjEneMe1Canadin *)arg0)->vfunc_96();
         *(s32 *)((s8 *)arg0 + 0x3C8) &= 0xFFBFFFFF;
         *(s32 *)((s8 *)arg0 + 0x3C8) |= 0x200000;
         *(s32 *)((s8 *)arg0 + 0x30) |= 0x01000000;
@@ -3159,7 +3028,7 @@ void TObjEneMe1Canadin__sub_8009C2EC(u8 *arg0, s32 arg1) {
             *(s32 *)((s8 *)arg0 + 0x410) = 0xFF000000;
         }
         play_persistent_sound(0x4003B71D, (s32)arg0, (u32)(arg0 + 0x2FC), 0, 0);
-        ((VObj_18_p4 *)arg0)->m87();
+        ((TObjEneMe1Canadin *)arg0)->vfunc_89();
         break;
     }
     case 5:
@@ -3178,7 +3047,7 @@ void TObjEneMe1Canadin__sub_8009C510(u8 *arg0, s32 arg1) {
         advance_animation_playback();
         fn_8009E378(arg0);
         I_8009C510(0x3C8) &= 0xFFBFFFFF;
-        ((VObj_18_p4 *)arg0)->m94();
+        ((TObjEneDD *)arg0)->vfunc_96();
         I_8009C510(0x30) &= 0xFEFFFFFF;
         I_8009C510(0x470) = 0;
         if (F_8009C510(0x3F8) > TObjEneMe1Canadin__data_805D98AC + (F_8009C510(0x3C) + F_8009C510(0x3EC))) {
@@ -3234,7 +3103,7 @@ void TObjEneMe1Canadin__sub_8009C510(u8 *arg0, s32 arg1) {
             }
             break;
         }
-        ((VObj_18_p4 *)arg0)->m87();
+        ((TObjEneDD *)arg0)->vfunc_89();
         break;
     case 5:
         clear_attack_receipts__9TObjEneDDFv();
@@ -3291,7 +3160,7 @@ void TObjEneMe1Canadin__sub_8009C91C(void *arg0, s32 arg1) {
         ((TObjEneMe1Canadin *)o)->advance_state_4_to_5();
         ((TObjEneDD *)o)->set_field_378(8);
         o->flags &= 0xFFBFFFFF;
-        ((VObj_8009C91C *)o)->m94();
+        ((TObjEneMe1Canadin *)o)->vfunc_96();
         o->f404 = 0;
         o->mode = 1;
         TObjEneMe1Canadin__sub_8009E948((u8 *)o);
@@ -3306,8 +3175,8 @@ void TObjEneMe1Canadin__sub_8009C91C(void *arg0, s32 arg1) {
         dir->z = lbl_805D9898;
         break;
     case 3:
-        if (((VObj_8009C91C *)o)->m106() == 0 && ((TObjEneMe1Canadin *)o)->try_trigger_action() == 0 && o->count >= 4) {
-            ((VObj_8009C91C *)o)->m103();
+        if (((TObjEneMe1Canadin *)o)->vfunc_108() == 0 && ((TObjEneMe1Canadin *)o)->try_trigger_action() == 0 && o->count >= 4) {
+            ((TObjEneMe1Canadin *)o)->vfunc_105();
         }
         break;
     case 0:
@@ -3367,7 +3236,7 @@ void TObjEneMe1Canadin__sub_8009C91C(void *arg0, s32 arg1) {
                 }
                 break;
             }
-            ((VObj_8009C91C *)o)->m87();
+            ((TObjEneMe1Canadin *)o)->vfunc_89();
         }
         break;
     case 5:
@@ -3744,7 +3613,7 @@ void TObjEneMe1Canadin__sub_8009DE90(void *argv0, s32 arg1) {
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
         ((TObjEneDD *)arg0)->set_field_378(2);
         *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C8) & 0xFFBFFFFF);
-        ((V_En_8009DE90 *) arg0)->m93();
+        ((TObjEneMe1Canadin *)arg0)->vfunc_95();
         *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x01000000);
         *(s32 *)((s8 *)arg0 + 0x3FC) = 4;
         *(s32 *)((s8 *)arg0 + 0x4B8) = 1;
@@ -3764,7 +3633,7 @@ void TObjEneMe1Canadin__sub_8009DE90(void *argv0, s32 arg1) {
         } else {
             ((TObjEneMe1Canadin *)arg0)->set_target_speed_z();
         }
-        ((V_En_8009DE90 *) arg0)->m86();
+        ((TObjEneMe1Canadin *)arg0)->vfunc_88();
         break;
     }
 #undef arg0

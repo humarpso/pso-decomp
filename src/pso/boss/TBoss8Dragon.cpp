@@ -5461,7 +5461,7 @@ void TBoss8Dragon__sub_802FA16C(TBoss8Dragon *arg0, u32 arg1) {
     switch (arg1) {
     case 4:
         arg0->m_b8 = 1;
-        ((VObj_18_444bc5 *)(arg0))->m94();
+        ((TObjEneDD_ST *)(arg0))->vfunc_96();
         arg0->reset_timer();
         arg0->set_active_flag();
         *(s32 *)&arg0->m_3c0 = (s32) (*(s32 *)&arg0->m_3c0 & ~0x36);

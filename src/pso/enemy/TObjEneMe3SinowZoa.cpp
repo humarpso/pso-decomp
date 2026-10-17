@@ -53,112 +53,6 @@ struct Stack_80319B8C {
     f32 spC;
 };
 
-struct VBase_18_fd404c { char pad[0x18]; };
-
-struct VObj_18_fd404c : VBase_18_fd404c {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual void m81();
-    virtual void m82();
-    virtual void m83();
-    virtual void m84();
-    virtual void m85();
-    virtual void m86();
-    virtual s32 m87();
-    virtual void m88();
-    virtual void m89();
-    virtual void m90();
-    virtual void m91();
-    virtual void m92();
-    virtual s32 m93();
-    virtual void m94();
-    virtual void m95();
-    virtual void m96();
-    virtual void m97();
-    virtual void m98();
-    virtual void m99();
-    virtual s32 m100();
-};
-
 struct Vec_80319E74 { f32 x, y; };
 
 struct VBase_18_64d9d3 { char pad[0x18]; };
@@ -1441,7 +1335,7 @@ void TObjEneMe3SinowZoa__sub_80317B50(void *arg0_, s32 arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0xC;
         ((TObjEneDD *)arg0)->set_field_378(0xC);
-        ((VObj_18_fd404c *)arg0)->m93();
+        ((TObjEneMe3SinowZoa *)arg0)->vfunc_95();
         *(s32 *)((s8 *)arg0 + 0x3CC) &= 0xFFEFFFF9;
         *(s32 *)((s8 *)arg0 + 0x3CC) |= 1;
         *(s32 *)((s8 *)arg0 + 0x434) = 0;
@@ -1478,8 +1372,8 @@ void TObjEneMe3SinowZoa__sub_80317B50(void *arg0_, s32 arg1) {
                 v.y = *(f32 *)((s8 *)arg0 + 0x3E0) - TObjEneMe3SinowZoa__data_805DF320;
                 *(s32 *)((s8 *)arg0 + 0x434) = 1;
             }
-            ((VObj_18_fd404c *)arg0)->m100();
-            ((VObj_18_fd404c *)arg0)->m87();
+            ((TObjEneMe3SinowZoa *)arg0)->vfunc_102();
+            ((TObjEneMe3SinowZoa *)arg0)->vfunc_89();
             break;
         case 1:
             if (((VObj_14_c5778e *)(arg0 + 0x414))->m4() != 0) {
@@ -2026,7 +1920,7 @@ void TObjEneMe3SinowZoa__sub_8031884C(void *arg0_, s32 arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 3;
         ((TObjEneDD *)arg0)->set_field_378(6);
-        ((VObj_18_347dfc *)(arg0))->m94();
+        ((TObjEneMe3SinowZoa *)(arg0))->vfunc_96();
         zero = 0;
         *(s32 *)((s8 *)arg0 + 0x3CC) &= 0xFFEFFFF8;
         *(s32 *)((s8 *)arg0 + 0x3FC) = zero;
@@ -2072,16 +1966,16 @@ void TObjEneMe3SinowZoa__sub_8031884C(void *arg0_, s32 arg1) {
             *(s32 *)((s8 *)arg0 + 0x60) = approach_angle_limited((int) (*(s32 *)((s8 *)arg0 + 0x60)), (int) (*(s32 *)((s8 *)arg0 + 0x43C)), 0x31C7);
             if ((*(f32 *)((s8 *)arg0 + 0xC0) + *(f32 *)((s8 *)arg0 + 0xC8)) >= TObjEneMe3SinowZoa__data_805DF2F0) {
                 *(s32 *)((s8 *)arg0 + 0x434) = 1;
-                ((VObj_18_347dfc *)(arg0))->m89();
+                ((TObjEneMe3SinowZoa *)(arg0))->vfunc_91();
                 play_sound_effect(0x4003A829, arg0 + 0x38, 0, 0);
             }
-            ((VObj_18_347dfc *)(arg0))->m100();
-            ((VObj_18_347dfc *)(arg0))->m87();
+            ((TObjEneMe3SinowZoa *)(arg0))->vfunc_102();
+            ((TObjEneMe3SinowZoa *)(arg0))->vfunc_89();
             return;
         case 1:
             if ((*(f32 *)((s8 *)arg0 + 0xC0) + *(f32 *)((s8 *)arg0 + 0xC8)) >= lbl_805DF344) {
                 *(s32 *)((s8 *)arg0 + 0x434) = 2;
-                ((VObj_18_347dfc *)(arg0))->m90();
+                ((TObjEneMe3SinowZoa *)(arg0))->vfunc_92();
                 play_sound_effect(0x4003A82A, arg0 + 0x38, 0, 0);
                 ((TObjEneMe3SinowZoa *)arg0)->check_and_notify();
             }
@@ -2091,13 +1985,13 @@ void TObjEneMe3SinowZoa__sub_8031884C(void *arg0_, s32 arg1) {
             if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
                 *(s32 *)((s8 *)arg0 + 0x434) = 3;
             }
-            ((VObj_18_347dfc *)(arg0))->m100();
-            ((VObj_18_347dfc *)(arg0))->m87();
+            ((TObjEneMe3SinowZoa *)(arg0))->vfunc_102();
+            ((TObjEneMe3SinowZoa *)(arg0))->vfunc_89();
             return;
         }
         break;
     case 5:
-        ((VObj_18_347dfc *)(arg0))->m90();
+        ((TObjEneMe3SinowZoa *)(arg0))->vfunc_92();
         ((TObjEneDD *)arg0)->clear_field_388();
         break;
     }
@@ -2240,7 +2134,7 @@ void TObjEneMe3SinowZoa__sub_80318C0C(void *arg0_, s32 arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 7;
         ((TObjEneDD *)arg0)->set_field_378(0xC);
-        ((VObj_18_4f5f2e *)(arg0))->m94();
+        ((TObjEneEpsilon *)(arg0))->vfunc_96();
         *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) & 0xFFEFFFF8);
         *(s32 *)((s8 *)arg0 + 0x3CC) |= 0x10000;
         *(s32 *)((s8 *)arg0 + 0x3CC) |= 0x40000;
@@ -2289,7 +2183,7 @@ void TObjEneMe3SinowZoa__sub_80318C0C(void *arg0_, s32 arg1) {
                 f32 *rec = TObjEneMe3SinowZoa__kind_param_tbls[*(s32 *)((s8 *)arg0 + 0x3C8)];
                 move_to_shot_position__9TObjEneDDFfff(arg0, rec, *(f32 *)((s8 *)arg0 + 0x3A0), *(f32 *)((s8 *)arg0 + 0x3A8), rec[2]);
             } else {
-                ((VObj_18_4f5f2e *)(arg0))->m100();
+                ((TObjEneEpsilon *)(arg0))->vfunc_102();
             }
             if (((TObjEneDD *)arg0)->get_flag_b4() != 0) {
                 *(s32 *)((s8 *)arg0 + 0x434) = 2;
@@ -2304,7 +2198,7 @@ void TObjEneMe3SinowZoa__sub_80318C0C(void *arg0_, s32 arg1) {
                     *(s32 *)((s8 *)arg0 + 0x434) = 4;
                 }
             }
-            ((VObj_18_4f5f2e *)(arg0))->m100();
+            ((TObjEneEpsilon *)(arg0))->vfunc_102();
             break;
         case 3:
             if (((VObj_14_6ea8ee *)(arg0 + 0x414))->m4() != 0) {
@@ -2314,7 +2208,7 @@ void TObjEneMe3SinowZoa__sub_80318C0C(void *arg0_, s32 arg1) {
             }
             break;
         }
-        ((VObj_18_4f5f2e *)(arg0))->m87();
+        ((TObjEneEpsilon *)(arg0))->vfunc_89();
         break;
     case 5:
         break;

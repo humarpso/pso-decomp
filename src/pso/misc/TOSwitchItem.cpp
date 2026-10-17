@@ -15,46 +15,6 @@ struct RecoveredGlobal_801780E0___vt__12TOSwitchItem {
     u8 remaining[0x6C];
 };
 
-struct VBase_18_1753c2 { char pad[0x18]; };
-
-struct VObj_18_1753c2 : VBase_18_1753c2 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual s32 m19();
-    virtual void m20();
-    virtual void m21();
-    virtual s32 m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual s32 m34();
-};
-
 struct Pos_80177E24 { f32 x, y, z; };
 
 struct Obj_80177E24 { u8 pad[0x38]; Pos_80177E24 pos; };
@@ -158,7 +118,7 @@ void run_task__12TOSwitchItemFv(u8 *arg0) {
                 break;
             case 6:
                 if (((TItem *)sorted_item_registry_entry)->get_field_ec() == 3) {
-                    var_r30 += ((VObj_18_1753c2 *)(sorted_item_registry_entry))->m34();
+                    var_r30 += ((TItem *)(sorted_item_registry_entry))->vfunc_36();
                 }
                 break;
             case 7:

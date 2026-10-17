@@ -481,75 +481,6 @@ void*TObjEneMe1GiGueBarrier::update_and_get_pos() { TObjEneMe1GiGue__sub_802CB03
 
 }
 
-struct VBase_18_fe09eb { char pad[0x18]; };
-
-struct VObj_18_fe09eb : VBase_18_fe09eb {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual s32 m63(s32, void *);
-};
-
 struct RecoveredGlobal_802CB03C_lbl_8058D490 {
     s32 value;
     u8 remaining[0x2C];
@@ -737,9 +668,9 @@ void TObjEneMe1GiGue__sub_802CB03C(u8 *arg0) {
     ((TObjEnemy *)arg0)->render_anim_model(((TObjEnemy *)arg0)->m_c0);
     clear_global_state__10TObjPlayerFv();
     pop_matrix();
-    ((VObj_18_fe09eb *)(arg0))->m63(0, arg0 + 0x3B4);
-    ((VObj_18_fe09eb *)(arg0))->m63(0x2A, arg0 + 0x39C);
-    ((VObj_18_fe09eb *)(arg0))->m63(0x16, arg0 + 0x3A8);
+    ((TObjEnemy *)(arg0))->vfunc_65((s32)0, (s32)(arg0 + 0x3B4));
+    ((TObjEnemy *)(arg0))->vfunc_65((s32)0x2A, (s32)(arg0 + 0x39C));
+    ((TObjEnemy *)(arg0))->vfunc_65((s32)0x16, (s32)(arg0 + 0x3A8));
 }
 s32 TObjEneMe1GiGue__sub_802CB10C(S_802CB10C *arg0) {
     s32 i;

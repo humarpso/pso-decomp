@@ -886,7 +886,7 @@ void TObjEneBm9Mericarol__sub_802CF368(u8 *actor, s32 arg1) {
   {
     case 4:
       *((s16 *) (((s8 *) actor) + 0xB8)) = 5;
-      (((VObj_18_9e83f9 *)(actor))->m94());
+      (((TObjEneDD *)(actor))->vfunc_96());
       TObjEneBm9Mericarol__sub_802D093C((void *) actor);
       *((s32 *) (((s8 *) actor) + 0x438)) = (s32) ((*((s32 *) (((s8 *) actor) + 0x438))) & (~0x28));
       TBoss8Dragon__sub_800BB7D4((void *)((void *) actor), 0xF2);
@@ -913,8 +913,8 @@ void TObjEneBm9Mericarol__sub_802CF368(u8 *actor, s32 arg1) {
     return;
     case 0:
       advance_animation_playback(actor);
-      (((VObj_18_9e83f9 *)(actor))->m100());
-      (((VObj_18_9e83f9 *)(actor))->m86());
+      (((TObjEneDD *)(actor))->vfunc_102());
+      (((TObjEneDD *)(actor))->vfunc_88());
       TObjEneBm9Mericarol__sub_802D073C((void *)((void *)((void *) actor)));
       return;
     case 5:
@@ -935,8 +935,8 @@ void TObjEneBm9Mericarol__sub_802CF4F8(u8 *arg0, s32 arg1) {
   {
     case 4:
       *((s16 *) (((s8 *) arg0) + 0xB8)) = 2;
-      (((VObj_18_3b55b6 *)(arg0))->m94());
-      (((VObj_18_3b55b6 *)(arg0))->m89());
+      (((TObjEneBm9Mericarol *)(arg0))->vfunc_96());
+      (((TObjEneBm9Mericarol *)(arg0))->vfunc_91());
       TObjEneBm9Mericarol__sub_802D093C((void *) arg0);
       *((s32 *) (((s8 *) arg0) + 0x438)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x438))) & 0xFFFFFFF7);
       *((s32 *) (((s8 *) arg0) + 0x438)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x438))) | 0x20);
@@ -976,7 +976,7 @@ void TObjEneBm9Mericarol__sub_802CF4F8(u8 *arg0, s32 arg1) {
       temp_r4 = *((s32 *) (((s8 *) arg0) + 0x490));
       *((s32 *) (((s8 *) arg0) + 0x490)) = (temp_r4 + 1);
       (((VObj_18_3b55b6 *)(arg0))->m100((temp_r4)));
-      (((VObj_18_3b55b6 *)(arg0))->m86());
+      (((TObjEneBm9Mericarol *)(arg0))->vfunc_88());
       TObjEneBm9Mericarol__sub_802D073C((void *)((void *) arg0));
       return;
     case 5:

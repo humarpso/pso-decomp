@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemProArmor.h"
 #include "pso/item/TItemEquipBase.h"
 #include "pso/item/TItemProShield.h"
 #include "pso/player/TUnk_804806E8.h"
@@ -273,7 +274,7 @@ s32 consume_item_by_id(s32 arg0) {
   {
     return 0;
   }
-  temp_r31 = (((VObj_18_8a175d *)(item))->m34());
+  temp_r31 = (((TItemProArmor *)(item))->vfunc_36());
   temp_r30 = ((TItem *)item)->get_field_d8();
   ((TObjPlayer *)temp_r3_2)->dispatch_action(arg0, 1);
   if (is_locally_controlled__10TObjPlayerFPv((void *) temp_r3_2) != 0)

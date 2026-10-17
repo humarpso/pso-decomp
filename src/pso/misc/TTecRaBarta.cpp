@@ -350,19 +350,6 @@ typedef struct TObjPlayer_80237FB8 {
     Vec_80237FB8 pos;
 } TObjPlayer_80237FB8;
 
-struct VBase_18_80237BD8 { char pad[0x18]; };
-
-struct VObj_18_80237BD8 : VBase_18_80237BD8 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6(s32);
-    virtual void m7();
-};
-
 struct Eff_80237BD8 { u8 pad[0xc]; f32 scale; };
 
 struct Holder_80237BD8 { u8 pad[0xa4]; Eff_80237BD8 *eff; };
@@ -493,8 +480,8 @@ void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *
         self->ids[i] = 0xFFFF;
     }
     self->f138 = 0;
-    ((VObj_18_80237BD8 *)self)->m6((s32)self->pos);
-    ((VObj_18_80237BD8 *)self)->m7();
+    ((TTecRaBarta *)self)->vfunc_8((void *)((s32)self->pos));
+    ((TTecRaBarta *)self)->vfunc_9();
     if (self->source != 0) {
         self->fb4 = obj_getField1c(self->source);
     }

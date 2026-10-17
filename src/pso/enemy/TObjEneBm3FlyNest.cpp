@@ -1909,7 +1909,7 @@ void *TObjEneBm3FlyNest__ct(void *arg0, void *arg1, void *arg2) {
     self->f24 = *(s32 *)(*(u8 **)((int)lbl_805D5108 + 0x42C) + 0xC);
     init_model__9TObjEneDDFv(self, &bm3_flynest_collider_params, 1);
     self->f300 = lbl_805D9D20 + self->pos.y;
-    ((VObj_800B3EB8 *)self)->m86();
+    ((TObjEneDD *)self)->vfunc_88();
     ((TObjMotion *)self)->set_field_d8((s32)bm3_flynest_hit_action_table);
     ((TObjMotion *)self)->set_field_dc(*(s32 *)((int)lbl_805D5108 + 0x430));
     self->fB8 = 0;

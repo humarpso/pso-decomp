@@ -29,7 +29,6 @@ s32 strncpy(void *, void *, int);
 s32 fill_guild_card_from_player(u8 *arg0, u32 arg1);
 typedef struct VBase_18_26c590 VBase_18_26c590;
 typedef struct VObj_18_26c590 VObj_18_26c590;
-#define PSO_VCALL_VObj_18_26c590_m10(_self) (((VObj_18_26c590 *)(_self))->m10())
 s32 fill_guild_card_from_player(u8 *arg0, u32 arg1) {
   unsigned char new_var;
   s32 player;
@@ -40,7 +39,7 @@ s32 fill_guild_card_from_player(u8 *arg0, u32 arg1) {
     return 0;
   }
   *((u8 *) (((s8 *) arg0) + 0x8C)) = (u8) ((*((u8 *) (((s8 *) arg0) + 0x8C))) | 3);
-  strncpy(arg0 + 8, (void *) PSO_VCALL_VObj_18_26c590_m10(player), 0x17);
+  strncpy(arg0 + 8, (void *) (((TPlyPhotonChair *)(player))->vfunc_12()), 0x17);
   *((s8 *) (((s8 *) arg0) + 0x1F)) = 0;
   *((u8 *) (((s8 *) arg0) + 0x8F)) = (u8) (*((u8 *) (((s8 *) player) + 0x88D)));
   *((s8 *) (((s8 *) arg0) + 0x8E)) = ((TPlyPhotonChair *)player)->get_actor_section_id();

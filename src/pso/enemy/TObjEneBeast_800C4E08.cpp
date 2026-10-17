@@ -12,108 +12,6 @@
 #include "pso/enemy/TObjEneDD.h"
 #include "pso/misc/TNowLoading.h"
 
-struct VBase_18_90ef41 { char pad[0x18]; };
-
-struct VObj_18_90ef41 : VBase_18_90ef41 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual void m81();
-    virtual void m82();
-    virtual void m83();
-    virtual void m84();
-    virtual void m85();
-    virtual void m86();
-    virtual void m87();
-    virtual void m88();
-    virtual void m89();
-    virtual s32 m90();
-    virtual void m91();
-    virtual s32 m92();
-    virtual void m93();
-    virtual void m94();
-    virtual void m95();
-    virtual s32 m96();
-};
-
 struct CBase_800c63cc { char pad[0x18]; };
 
 struct CV_800c63cc : CBase_800c63cc {
@@ -289,129 +187,7 @@ typedef struct Obj_800C55E0 {
     void *f34C;
 } Obj_800C55E0;
 
-struct VBase_18_d4e8d1 { char pad[0x18]; };
-
-struct VObj_18_d4e8d1 : VBase_18_d4e8d1 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual void m81();
-    virtual void m82();
-    virtual void m83();
-    virtual void m84();
-    virtual void m85();
-    virtual void m86();
-    virtual void m87();
-    virtual void m88();
-    virtual void m89();
-    virtual void m90();
-    virtual void m91();
-    virtual void m92();
-    virtual f64 m93();
-};
-
 struct Vec_800C5900 { f32 x, y, z; };
-
-struct VBase_18 { char pad[0x18]; };
-
-struct VObj_18 : VBase_18 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual s32 m17(s32);
-};
 
 struct VBase_800C53DC { char pad[0x18]; };
 
@@ -595,211 +371,7 @@ struct Self_800C57F0 : VObj_800C57F0 {
     f32 f398;
 };
 
-struct VBase_18_965ca6 { char pad[0x18]; };
-struct VObj_18_965ca6 : VBase_18_965ca6 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual void m81();
-    virtual void m82();
-    virtual void m83();
-    virtual void m84();
-    virtual void m85();
-    virtual void m86();
-    virtual void m87();
-    virtual void m88();
-    virtual void m89();
-    virtual void m90();
-    virtual void m91();
-    virtual void m92();
-    virtual void m93();
-    virtual void m94();
-    virtual s32 m95();
-};
 struct Vec_800C5164 { f32 x, y, z; };
-struct VBase_18_f9c8ca { char pad[0x18]; };
-struct VObj_18_f9c8ca : VBase_18_f9c8ca {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual void m81();
-    virtual void m82();
-    virtual void m83();
-    virtual void m84();
-    virtual void m85();
-    virtual void m86();
-    virtual void m87();
-    virtual void m88();
-    virtual void m89();
-    virtual void m90();
-    virtual void m91();
-    virtual void m92();
-    virtual void m93();
-    virtual void m94();
-    virtual void m95();
-    virtual void m96();
-    virtual void m97();
-    virtual void m98();
-    virtual void m99();
-    virtual s32 m100();
-};
-
 struct VBase_18_189925 { char pad[0x18]; };
 
 struct VObj_18_189925 : VBase_18_189925 {
@@ -1041,7 +613,7 @@ s32 TUnk_80493450::update_target_near_flag() {
         obj_clearFlags30(0x100000);
         return;
     }
-    if ((obj_getField1c(temp_r0) < 0x1000U) && (((VObj_18 *)(this))->m17(0x1E) != 0)) {
+    if ((obj_getField1c(temp_r0) < 0x1000U) && (this->is_actor_cadence_frame(0x1E) != 0)) {
         temp_r31 = this->target;
         temp_f31 = horizontal_distance_squared(temp_r31 + 0x38, (void *) ((u8 *)this + 0x38));
         switch (*(s32 *)((s8 *)temp_r31 + 0x890) & 0xE0) {
@@ -1074,11 +646,11 @@ void TUnk_80493450::beast_update_dead() {
     u8 *arg0 = (u8 *)this;
     advance_animation_playback();
     if (objInBand((GameObj *)(arg0), lbl_805DA034) != 0) {
-        ((VObj_18_90ef41 *)(arg0))->m96();
+        this->vfunc_98();
     }
     if (objInBand((GameObj *)(arg0), lbl_805DA038) != 0) {
         spawn_particle_effect(((u8 *)&this->position), 0xF3);
-        ((VObj_18_90ef41 *)(arg0))->m92();
+        this->vfunc_94();
     }
     if (this->m_c0 < (lbl_805DA03C * (lbl_805DA040 * this->m_c8))) {
         move_with_wall_slide((arg0));
@@ -1089,7 +661,7 @@ void TUnk_80493450::beast_update_dead() {
     }
     *(f32 *)((s8 *)arg0 + 0x380) = (f32) (*(f32 *)((s8 *)arg0 + 0x380) - this->m_384);
     if (*(f32 *)((s8 *)arg0 + 0x380) <= *(f32 *)((s8 *)arg0 + 0x388)) {
-        ((VObj_18_90ef41 *)(arg0))->m90();
+        this->beast_retire_corpse();
     }
 }
 void TObjPlayer::enter_state_8() { if (this->mode != 8) { this->mode = 8; this->m_b8 = 8; unlink_enemy_group_relations__13TUnk_80493450Fv(this); clear_player_status_flag((s32)((void*)0), (u32)((void*)1)); refresh_lobby_state(); send_entity_set_flags__9TObjEnemyFv(this); } }
@@ -1118,7 +690,7 @@ void TUnk_80493450::beast_update_hurt() {
     }
     ((TObjPlayer *)o)->update_collisions();
     if (objInBand((GameObj *)o, (f32)lbl_805DA034) != 0) {
-        ((VObj_18_965ca6 *)(arg0))->m95();
+        this->vfunc_97();
     }
     if (o->fB4 != 8) {
         ((TUnk_804B9870 *)o)->obj_clearFlags30(0x600);
@@ -1272,17 +844,6 @@ s32 TUnk_80493450::update_action_hold_status() {
   }
   return 0;
 }
-#define PSO_VCALL_VObj_18_477421_m99(_self) (((VObj_18_477421 *)(_self))->m99())
-#define PSO_VCALL_VObj_18_477421_m81(_self) (((VObj_18_477421 *)(_self))->m81())
-#define PSO_VCALL_VObj_18_477421_m82(_self) (((VObj_18_477421 *)(_self))->m82())
-#define PSO_VCALL_VObj_18_477421_m83(_self) (((VObj_18_477421 *)(_self))->m83())
-#define PSO_VCALL_VObj_18_477421_m84(_self) (((VObj_18_477421 *)(_self))->m84())
-#define PSO_VCALL_VObj_18_477421_m85(_self) (((VObj_18_477421 *)(_self))->m85())
-#define PSO_VCALL_VObj_18_477421_m86(_self) (((VObj_18_477421 *)(_self))->m86())
-#define PSO_VCALL_VObj_18_477421_m87(_self) (((VObj_18_477421 *)(_self))->m87())
-#define PSO_VCALL_VObj_18_477421_m88(_self) (((VObj_18_477421 *)(_self))->m88())
-#define PSO_VCALL_VObj_18_477421_m89(_self) (((VObj_18_477421 *)(_self))->m89())
-#define PSO_VCALL_VObj_18_477421_m90(_self) (((VObj_18_477421 *)(_self))->m90())
 
 void TUnk_80493450::beast_update_group_chase() {
     Self_800C57F0 *arg0 = (Self_800C57F0 *)this;
@@ -1321,7 +882,7 @@ void TUnk_80493450::beast_update_approach() {
         apply_actor_gravity(arg0, 0, lbl_805DA034);
         ((void (*)(void *))advance_animation_playback)(arg0);
         if (objInBand((GameObj *)arg0, (f32)lbl_805DA034) != 0) {
-            ((VObj_18_d4e8d1 *)(arg0))->m93();
+            this->vfunc_95();
         }
         if (this->m_b4 != 0x20U) {
             this->phase = 1;
@@ -1545,7 +1106,7 @@ void TUnk_80493450::beast_idle_update() {
         this->m_b8 = 2;
         ((s32 (*)(void *, f32, int, f32, f32))enemy_wander_home__9TObjEnemyFlfff)(arg0, *(f32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 4), *(s32 *)((s8 *)(*(u8 * *)&this->movementParameters) + 8), *(f32 *)((s8 *)arg0 + 0x358), *(f32 *)((s8 *)arg0 + 0x358));
     } else {
-        ((VObj_18_f9c8ca *)arg0)->m100();
+        this->request_stand_action();
     }
 end:
     if (obj_testFlags30__13TUnk_804AF8A0FUl(arg0, 0x800000) == 0) {
@@ -1590,23 +1151,12 @@ void TObjPlayer::tick_freeze_state() {
 
 typedef struct VBase_18_477421 VBase_18_477421;
 typedef struct VObj_18_477421 VObj_18_477421;
-#define PSO_VCALL_VObj_18_477421_m99(_self) (((VObj_18_477421 *)(_self))->m99())
-#define PSO_VCALL_VObj_18_477421_m81(_self) (((VObj_18_477421 *)(_self))->m81())
-#define PSO_VCALL_VObj_18_477421_m82(_self) (((VObj_18_477421 *)(_self))->m82())
-#define PSO_VCALL_VObj_18_477421_m83(_self) (((VObj_18_477421 *)(_self))->m83())
-#define PSO_VCALL_VObj_18_477421_m84(_self) (((VObj_18_477421 *)(_self))->m84())
-#define PSO_VCALL_VObj_18_477421_m85(_self) (((VObj_18_477421 *)(_self))->m85())
-#define PSO_VCALL_VObj_18_477421_m86(_self) (((VObj_18_477421 *)(_self))->m86())
-#define PSO_VCALL_VObj_18_477421_m87(_self) (((VObj_18_477421 *)(_self))->m87())
-#define PSO_VCALL_VObj_18_477421_m88(_self) (((VObj_18_477421 *)(_self))->m88())
-#define PSO_VCALL_VObj_18_477421_m89(_self) (((VObj_18_477421 *)(_self))->m89())
-#define PSO_VCALL_VObj_18_477421_m90(_self) (((VObj_18_477421 *)(_self))->m90())
 void TUnk_80493450::run_task() {
     u8 *arg0 = (u8 *)this;
   s16 temp_r0;
   if (TObjPlayer::check_demo_mode() == 1)
   {
-    PSO_VCALL_VObj_18_477421_m99(arg0);
+    (this->vfunc_101());
     return;
   }
   temp_r0 = this->mode;
@@ -1614,34 +1164,34 @@ void TUnk_80493450::run_task() {
     switch (temp_r0)
     {
       case 0:
-        PSO_VCALL_VObj_18_477421_m81(arg0);
+        (this->vfunc_83());
         break;
       case 1:
-        PSO_VCALL_VObj_18_477421_m82(arg0);
+        (this->beast_idle_update());
         break;
       case 2:
-        PSO_VCALL_VObj_18_477421_m83(arg0);
+        (this->update_turn_toward_target());
         break;
       case 3:
-        PSO_VCALL_VObj_18_477421_m84(arg0);
+        (this->beast_update_approach());
         break;
       case 4:
-        PSO_VCALL_VObj_18_477421_m85(arg0);
+        (this->beast_update_group_chase());
         break;
       case 5:
-        PSO_VCALL_VObj_18_477421_m86(arg0);
+        (this->beast_update_attack());
         break;
       case 6:
-        PSO_VCALL_VObj_18_477421_m87(arg0);
+        (this->vfunc_89());
         break;
       case 7:
-        PSO_VCALL_VObj_18_477421_m88(arg0);
+        (this->beast_update_hurt());
         break;
       case 8:
-        PSO_VCALL_VObj_18_477421_m89(arg0);
+        (this->beast_update_dead());
         break;
       case 9:
-        PSO_VCALL_VObj_18_477421_m90(arg0);
+        (this->beast_retire_corpse());
         break;
     }
   }

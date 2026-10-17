@@ -51,18 +51,6 @@ struct Eff_80239070 { u8 pad[0xC]; f32 scale; };
 
 struct Holder_80239070 { u8 pad[0xA4]; Eff_80239070 *eff; };
 
-struct VBase_80239070 { char pad[0x18]; };
-
-struct VObj_80239070 : VBase_80239070 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6(s32);
-};
-
 struct Self_80239070 {
     u32 f0;
     u8 pad4[0x18 - 0x4];
@@ -356,7 +344,7 @@ void *TTecRaZonde__ct(void *self_, void *source, void *origin, void *level) {
     if (self->holder != 0) {
         self->holder->eff->scale = (5.0f) + self->range;
     }
-    ((VObj_80239070 *)self)->m6(0);
+    ((TTecRaZonde *)self)->vfunc_8(0);
     r = (0.0f);
     ang = 0;
     for (i = 0; i < 8; i++) {

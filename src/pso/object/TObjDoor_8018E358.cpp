@@ -38,17 +38,6 @@ struct Glob_8018E74C { s32 f0; s32 f4; Node_8018E74C *c; Node_8018E74C *a; Node_
 struct Door_8018E74C { u8 pad0[0x38]; u8 f38[0x28]; s32 f60; u8 pad64[0x50]; f32 fB4; f32 fB8; u8 padBC[0x8]; f32 fC4; u8 padC8[8]; s32 fD0; };
 
 struct Door_8018F15C;
-struct DoorVB_8018F15C { char pad[0x18]; };
-
-struct DoorVt_8018F15C : DoorVB_8018F15C {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5(void *);
-};
-
 struct Door_8018F15C {
     s32 f0;
     u8 pad4[0x18 - 0x4];
@@ -553,7 +542,7 @@ void *TObjDoor__ct(void *arg0, void *arg1, void *arg2) {
     construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, arg1);
     d->vt = __vt__8TObjDoor;
     d->f0 = TObjDoor__name;
-    ((DoorVt_8018F15C *)d)->m5(arg2);
+    ((TObjPlayer *)d)->apply_object_set_data(arg2);
     d->fAC = 0;
     d->fB8 = (0.0f);
     d->fB4 = (0.0f);

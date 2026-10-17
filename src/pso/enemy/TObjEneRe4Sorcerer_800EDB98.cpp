@@ -556,112 +556,6 @@ struct VObj_14_763762 : VBase_14_763762 {
     virtual s32 m5();
 };
 
-struct VBase_18_9c7b63 { char pad[0x18]; };
-
-struct VObj_18_9c7b63 : VBase_18_9c7b63 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual void m8();
-    virtual void m9();
-    virtual void m10();
-    virtual void m11();
-    virtual void m12();
-    virtual void m13();
-    virtual void m14();
-    virtual void m15();
-    virtual void m16();
-    virtual void m17();
-    virtual void m18();
-    virtual void m19();
-    virtual void m20();
-    virtual void m21();
-    virtual void m22();
-    virtual void m23();
-    virtual void m24();
-    virtual void m25();
-    virtual void m26();
-    virtual void m27();
-    virtual void m28();
-    virtual void m29();
-    virtual void m30();
-    virtual void m31();
-    virtual void m32();
-    virtual void m33();
-    virtual void m34();
-    virtual void m35();
-    virtual void m36();
-    virtual void m37();
-    virtual void m38();
-    virtual void m39();
-    virtual void m40();
-    virtual void m41();
-    virtual void m42();
-    virtual void m43();
-    virtual void m44();
-    virtual void m45();
-    virtual void m46();
-    virtual void m47();
-    virtual void m48();
-    virtual void m49();
-    virtual void m50();
-    virtual void m51();
-    virtual void m52();
-    virtual void m53();
-    virtual void m54();
-    virtual void m55();
-    virtual void m56();
-    virtual void m57();
-    virtual void m58();
-    virtual void m59();
-    virtual void m60();
-    virtual void m61();
-    virtual void m62();
-    virtual void m63();
-    virtual void m64();
-    virtual void m65();
-    virtual void m66();
-    virtual void m67();
-    virtual void m68();
-    virtual void m69();
-    virtual void m70();
-    virtual void m71();
-    virtual void m72();
-    virtual void m73();
-    virtual void m74();
-    virtual void m75();
-    virtual void m76();
-    virtual void m77();
-    virtual void m78();
-    virtual void m79();
-    virtual void m80();
-    virtual void m81();
-    virtual void m82();
-    virtual void m83();
-    virtual void m84();
-    virtual void m85();
-    virtual void m86();
-    virtual void m87();
-    virtual void m88();
-    virtual void m89();
-    virtual void m90();
-    virtual void m91();
-    virtual void m92();
-    virtual void m93();
-    virtual s32 m94();
-    virtual void m95();
-    virtual void m96();
-    virtual void m97();
-    virtual void m98();
-    virtual void m99();
-    virtual s32 m100();
-};
-
 struct Sorc_800EEDE4 {
     u8 pad0[0x3E4];
     u16 ids[2];
@@ -1830,7 +1724,7 @@ s32 TObjEneRe4Sorcerer__sub_800EEC00(void *arg0p, void *arg1p) {
     switch ((s32)arg1p) {
     case 4:
         set_field_378__9TObjEneDDFl(arg0, 3);
-        ((VObj_18_9c7b63 *)(arg0))->m94();
+        ((TObjEneRe4Sorcerer *)(arg0))->vfunc_96();
         ((s32 (*)(void *))TObjEneRe4Sorcerer__sub_800EF844)(arg0);
         *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C8) | 2);
         *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C8) & 0xFFFFFFF7);
@@ -1872,7 +1766,7 @@ s32 TObjEneRe4Sorcerer__sub_800EEC00(void *arg0p, void *arg1p) {
             *(s32 *)((s8 *)arg0 + 0x4E4) = (s32) (*(s32 *)((s8 *)arg0 + 0x4E4) + 1);
             break;
         }
-        ((VObj_18_9c7b63 *)(arg0))->m100();
+        ((TObjEneRe4Sorcerer *)(arg0))->vfunc_102();
         break;
     case 5:
         *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C8) & 0xFFFFFFFB);
@@ -1920,7 +1814,7 @@ s32 TObjEneRe4Sorcerer__sub_800EEDE4(void *arg0p, void *arg1p) {
         *(s16 *)((s8 *)arg0 + 0xB8) = 7;
         set_field_378__9TObjEneDDFl(arg0, 3);
         *(s32 *)((s8 *)arg0 + 0x3C8) |= 0xE;
-        ((VObj_18_9c7b63 *)(arg0))->m94();
+        ((TObjEneRe4Sorcerer *)(arg0))->vfunc_96();
         ((s32 (*)(void *))TObjEneRe4Sorcerer__sub_800EF844)(arg0);
         ((VObj_14_763762 *)(arg0 + 0x3FC))->m3();
         for (i = 0; i < 2; i++) {
@@ -1958,10 +1852,10 @@ s32 TObjEneRe4Sorcerer__sub_800EEDE4(void *arg0p, void *arg1p) {
             if (*(f32 *)((s8 *)arg0 + 0x3F8) < 1.0f) {
                 *(f32 *)((s8 *)arg0 + 0x3F8) += lbl_805DA7CC;
             }
-            ((VObj_18_9c7b63 *)(arg0))->m87();
+            ((TObjEneRe4Sorcerer *)(arg0))->vfunc_89();
             break;
         }
-        ((VObj_18_9c7b63 *)(arg0))->m100();
+        ((TObjEneRe4Sorcerer *)(arg0))->vfunc_102();
         TObjEneRe4Sorcerer__sub_800EF214((s32)arg0);
         break;
     case 5:
@@ -1981,7 +1875,7 @@ void TObjEneRe4Sorcerer__sub_800EEFE4(u8 *arg0, s32 arg1) {
       VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0x50);
       VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x50);
       VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x50);
-      (((VObj_18_aab587 *)(arg0))->m93());
+      (((TObjEneRe4Sorcerer *)(arg0))->vfunc_95());
       return;
       return;
     case 3:
@@ -1996,7 +1890,7 @@ void TObjEneRe4Sorcerer__sub_800EEFE4(u8 *arg0, s32 arg1) {
     case 5:
       return;
     case 0:
-      (((VObj_18_aab587 *)(arg0))->m86());
+      (((TObjEneRe4Sorcerer *)(arg0))->vfunc_88());
       break;
   }
 }

@@ -35,17 +35,6 @@ struct RecoveredFields_80182E90_arg0
   f32 field_9C;
 };
 
-struct VBase_18_1a504b { char pad[0x18]; };
-
-struct VObj_18_1a504b : VBase_18_1a504b {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4();
-    virtual s32 m5(s32);
-};
-
 struct RecoveredGlobal_801830BC_lbl_804B5C08 {
     s32 value;
     u8 remaining[0x34];
@@ -75,7 +64,6 @@ typedef struct RecoveredFields_80182E90_arg0 RecoveredFields_80182E90_arg0;
 typedef struct VBase_18_26a62c VBase_18_26a62c;
 typedef struct VObj_18_26a62c VObj_18_26a62c;
 #pragma fp_contract on
-#define PSO_VCALL_VObj_18_26a62c_m8(_self, _arg0, _arg1) (((VObj_18_26a62c *)(_self))->m8((_arg0), (_arg1)))
 void TUnk_804B5C08::render() {
     u8 *arg0 = (u8 *)this;
   u8 *new_var2;
@@ -83,7 +71,7 @@ void TUnk_804B5C08::render() {
   new_var = ((s32) ((RecoveredFields_80182E90_arg0 *) arg0)->field_90) != 0;
   if (new_var)
   {
-    if (PSO_VCALL_VObj_18_26a62c_m8(arg0, lbl_805DBC04, lbl_805DBC08) == 0)
+    if ((((VObj_18_26a62c *)(arg0))->m8((lbl_805DBC04), (lbl_805DBC08))) == 0)
     {
       ((RecoveredFields_80182E90_arg0 *) arg0)->field_9C = ((RecoveredFields_80182E90_arg0 *) arg0)->field_9C;
       return;
@@ -100,7 +88,6 @@ void TUnk_804B5C08::render() {
   }
 }
 #pragma fp_contract on
-#define PSO_VCALL_VObj_18_26a62c_m8(_self, _arg0, _arg1) (((VObj_18_26a62c *)(_self))->m8((_arg0), (_arg1)))
 void TUnk_804B5C08::run_task() {
     u8 *arg0 = (u8 *)this;
   switch (*((s32 *) (((s8 *) arg0) + 0x90)))
@@ -163,7 +150,7 @@ typedef char RecoveredGlobal_801830BC_lbl_804B5C08_size[sizeof(RecoveredGlobal_8
 u8 *construct_city_vertical_model(u8 *arg0, s32 parent, s32 arg2) {
     construct_world_actor_base((void *)arg0, (void *)parent);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801830BC_lbl_804B5C08 *)&city_vertical_model_vtable).value;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    ((TUnk_804B5C08 *)(arg0))->apply_object_set_data((void *)arg2);
     *(s32 *)((s8 *)arg0 + 0x90) = 1;
     ((TUnk_804B5C08 *)arg0)->m_94 = 2;
     *(s32 *)((s8 *)arg0 + 0x98) = 0;
