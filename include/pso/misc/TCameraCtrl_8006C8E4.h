@@ -4,7 +4,6 @@
 #include "types.h"
 
 extern "C" {
-void run_task__13TUnk_80488D70Fv(void);
 void *TCameraCtrl__sub_8006CC30(void *a0);
 void *TCameraCtrl__vt6(void);
 void *__dt__13TUnk_80488DA0Fv(void *arg0, s16 arg1);

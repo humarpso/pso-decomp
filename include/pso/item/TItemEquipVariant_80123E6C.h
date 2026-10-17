@@ -5,7 +5,6 @@
 
 extern "C" {
 void *__dt__13TUnk_804A1E28Fv(void *arg0, s16 arg1);
-void update_idle__13TUnk_804A1E28Fv(void *arg0);
 }
 
 #endif

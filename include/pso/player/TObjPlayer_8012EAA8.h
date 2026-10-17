@@ -6,7 +6,6 @@
 extern "C" {
 void s_red_blade_equip_rolls(void *p);
 void s_red_blade_turn_node(void *p);
-int update_idle__13TUnk_804A5F18Fv(void *p);
 }
 
 #endif

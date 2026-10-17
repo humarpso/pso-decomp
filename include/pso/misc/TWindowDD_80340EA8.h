@@ -5,7 +5,6 @@
 
 extern "C" {
 void *TWindowDD__sub_80340F70(void);
-void render__19TWindowDD_WS_StringFv(s32 arg0);
 }
 
 #endif
