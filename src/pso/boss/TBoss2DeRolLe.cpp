@@ -339,24 +339,18 @@ struct Self_8002EFE8 {
 };
 
 extern "C" {
-extern const f32 lbl_805D8258;
 int alloc__23TAdSinglePlyChrSelectGCFv(void *);
-extern void *lbl_805D4B8C;
 extern u8 *lbl_805D4BA4;
 void TObjPlayer__sub_8002E7C8(void);
-extern struct VObj8002EB88_8002eb88_8002E784 *shared_breakup_model;
 s32 queue_destruction__7TObjectFv(void *);
 s32 create_particle__17TObjBoss2CeilJunkFv(void *, s32);
 f32 vec3_add_to(void *, void *);
-extern const f32 lbl_805D822C;
 void scale_matrix(int, f32, f32, f32);
 void set_matrix_identity(int);
-void rotate_vector_by_matrix(u32 arg0);
 void push_matrix(void);
 s32 pop_matrix(void);
 extern const f32 lbl_805D8260;
 void VecCopy__FP3VecPC3Vec(void *, void *);
-extern s32 lbl_804820A8[];
 void fn_8002F5AC(u8 *arg0);
 void TBoss2Joint__sub_8003688C(u8 *arg0);
 s32 TObjLight__sub_801337F8(s32);
@@ -388,8 +382,6 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
 struct VObj8002EB88_8002eb88_8002E784;
-
-extern s32 lbl_804820C0[];
 
 #pragma push
 #pragma opt_common_subs off
