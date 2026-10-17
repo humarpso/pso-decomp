@@ -1132,10 +1132,10 @@ void TObjEneBm3Fly::execute_action(s32 arg1) {
                 update_height_offset();
             }
             this->update_velocity();
-            *(f32 *)((s8 *)((u8 *)this) + 0x430) = sin_table_lookup((int) (this->rotation_y));
-            *(f32 *)((s8 *)((u8 *)this) + 0x438) = cos_table_lookup((int) (this->rotation_y));
+            *(f32 *)((s8 *)((u8 *)this) + 0x430) = sin_table_lookup(this->rotation_y);
+            *(f32 *)((s8 *)((u8 *)this) + 0x438) = cos_table_lookup(this->rotation_y);
             update_state_flag();
-            *(f32 *)((s8 *)((u8 *)this) + 0x42C) = approach_value__13TObjEneBm3FlyFff(this, (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x42C)), (f32) (this->m_398));
+            *(f32 *)((s8 *)((u8 *)this) + 0x42C) = approach_value__13TObjEneBm3FlyFff(this, (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x42C)), this->m_398);
             clamp_flight_height__13TObjEneBm3FlyFv(this);
             if (can_attack_target() != 0) {
                 this->m_b8 = 0;
@@ -1159,7 +1159,7 @@ void TObjEneBm3Fly::execute_action(s32 arg1) {
                     ((VObjB0_800b07d0 *)((unsigned char *) (this->m_390)))->v20(this, (1.0f));
                     ((VObjB0_800b07d0 *)((unsigned char *) (this->m_390)))->v23(this, (3.0f));
                     if ((TObjEneDD::check_v2_mode() != 0) && (calc_boss4_scale__10TObjPlayerFi((s32)this) < (0.05f))) {
-                        TObjEneDD::inflict_poison((s32)this, (u8 *)(this->m_390));
+                        TObjEneDD::inflict_poison((s32)this, (u8 *)this->m_390);
                     }
                 }
                 play_sound_effect(copy_target_state__14TObjEnePanarmsFPv(this, 0x4003A524), ((u8 *)this) + 0x38, 0, 0);
@@ -2126,7 +2126,7 @@ void TObjEneBm3Fly::store_position() {
 
 void TObjEneBm3Fly::update_state_flag() {
 
-    if (TObjEneEpsilon__sub_800B92F8(this, *(void **)((s8 *)(this->movementParameters) + 8), *(*(f32 **)&lbl_805D50EC)) != 0U) {
+    if (TObjEneEpsilon__sub_800B92F8(this, *(void **)((s8 *)this->movementParameters + 8), *(*(f32 **)&lbl_805D50EC)) != 0U) {
         *(s32 *)((s8 *)this + 0x428) = (s32) (*(s32 *)((s8 *)this + 0x428) | 2);
         return;
     }

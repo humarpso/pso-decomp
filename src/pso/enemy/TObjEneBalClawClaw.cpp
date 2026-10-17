@@ -160,8 +160,8 @@ void TObjEneBalClawClaw::update_chase_state() {
             break;
         }
         *(f32 *)((s8 *)((u8 *)this) + 0x30C) = (0.0f);
-        move_along_ground_avoiding_walls__10TObjPlayerFPviff(this, *(Vec_80090504 *)((s8 *)(this->target) + 0x2FC), this->m_a4, (-0.6f), *(f32 *)((s8 *)(this->m_a4) + 0xC));
-        update_angle__10TObjPlayerFlPv(this, *(s32 *)((s8 *)(this->movementParameters) + 8), ((u8 *)this) + 0x308);
+        move_along_ground_avoiding_walls__10TObjPlayerFPviff(this, *(Vec_80090504 *)((s8 *)this->target + 0x2FC), this->m_a4, (-0.6f), *(f32 *)((s8 *)this->m_a4 + 0xC));
+        update_angle__10TObjPlayerFlPv(this, *(s32 *)((s8 *)this->movementParameters + 8), ((u8 *)this) + 0x308);
         advance_animation_playback(this);
         apply_actor_gravity((TObjEnemy *)this, (s32 *)(0), (0.0f));
         update_collisions__10TObjPlayerFv(this);
@@ -1304,7 +1304,7 @@ void TObjEneBalClawClaw::run_task() {
         this->mode = (s16) *(s32 *)&this->next_action;
         *(s32 *)&this->state = 0;
     }
-    *(s32 *)((s8 *)arg0 + 0x2A8) = find_active_entity_by_id((int) (this->targetId));
+    *(s32 *)((s8 *)arg0 + 0x2A8) = find_active_entity_by_id(this->targetId);
     ((TObjEnemyCustom *)arg0)->release_destroyed_target();
     ((TObjEneBalClawClaw *)arg0)->update_state();
     temp_r3_2 = *(s32 *)&this->m_388;
@@ -1472,9 +1472,9 @@ void TObjEneBeast::vfunc_94() {
     Stack_80091E08 stack;
     stack.sp8 = lbl_805D96D8;
     stack.spC = lbl_805D96DC;
-    stack.sp10 = lbl_805D96E0 * *(f32 *)((s8 *)(this->m_2b0) + 0x10);
+    stack.sp10 = lbl_805D96E0 * *(f32 *)(this->m_2b0 + 0x10);
     push_matrix_from(&identity_matrix.value);
-    rotate_matrix_y(0, (int) (this->rotation_y));
+    rotate_matrix_y(0, this->rotation_y);
     rotate_vector_by_matrix(0, &stack.sp8, &stack.sp8);
     pop_matrix();
     vec3_add_to(&stack.sp8, (u8 *)&this->position);

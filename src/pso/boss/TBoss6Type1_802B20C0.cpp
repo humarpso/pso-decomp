@@ -600,7 +600,7 @@ void TBoss6Type1__sub_802B31E4(TBoss6Type1 *arg0) {
         arg0->release_effect_slot((s32)((void *) (2)));
         arg0->set_motion_set(0x13);
     }
-    arg0->rotate_around_center((int) (*(s32 *)((s8 *)arg0 + 0x410)), (int) (arg0->m_40c));
+    arg0->rotate_around_center((int) (*(s32 *)((s8 *)arg0 + 0x410)), arg0->m_40c);
     temp_r3 = *(s32 *)((s8 *)arg0 + 0x410);
     if ((temp_r3 <= (s32) *(s32 *)((s8 *)arg0 + 0x4A0)) && (temp_r3 >= 0x1E)) {
         arg0->increase_field_clamped_max();

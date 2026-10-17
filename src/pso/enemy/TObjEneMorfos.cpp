@@ -916,10 +916,10 @@ void TObjEneMorfos::draw_body() {
 s32 TObjEneMorfos::render_model_if_visible() {
     if (get_mode__11TCameraCtrlFPv((void *) (((s32 *)&main_task))) & 0x20) {
         if (((TObjEneRecon *)(((u8 *)this) + 0x3C8))->push_reflect_matrix() != 0) {
-            TObjFish::set_global_param((int) (this->texture_id));
+            TObjFish::set_global_param(this->texture_id);
             push_matrix();
             post_translate_matrix((void *) (((u8 *)this) + 0x38));
-            rotate_matrix_y(0, (int) (this->rotation_y));
+            rotate_matrix_y(0, this->rotation_y);
             ((TObjEneRe7Berura *)((u8 *)this))->draw();
             pop_matrix();
             if (*(s32 *)((s8 *)((u8 *)this) + 0x3C0) & 0x10) {
@@ -1147,7 +1147,7 @@ void TObjEneMorfos::state_patrol(s32 arg1) {
         *(s32 *)((s8 *)this + 0x3C0) = (s32) (*(s32 *)((s8 *)this + 0x3C0) & 0xFFFFFFF8);
         set_field_378(8);
         *(s32 *)((s8 *)this + 0x4B0) = 0;
-        this->m_4bc = (s32) (this->rotation_y + 0x3800);
+        this->m_4bc = (this->rotation_y + 0x3800);
         break;
     case 3:
         if ((s32) this->rotation_y >= (s32) this->m_4bc) {
@@ -1829,7 +1829,7 @@ void TObjEneMorfos::init_target_offsets() {
 #pragma pop
 
 void TObjEneMorfos::vfunc_88() {
-    *(f32 *)((s8 *)(this->m_a4) + 4) = (f32) (this->m_300 - *(f32 *)((s8 *)this + 0x3C));
+    *(f32 *)((s8 *)this->m_a4 + 4) = (f32) (this->m_300 - *(f32 *)((s8 *)this + 0x3C));
 }
 
 void TObjEneMorfos::set_hover_target_position() {

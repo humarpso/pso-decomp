@@ -532,7 +532,7 @@ s32 TObjEneBm9Mericarol::try_set_mode8_if_flag2() {
 void TObjEneBm9Mericarol__sub_802D093C(void) {  }
 void TObjEneBm9Mericarol__sub_802D0940(void) {  }
 void TObjEneBm9Mericarol::vfunc_88() {
-    *(f32 *)((s8 *)(this->m_a4) + 4) = (f32) (this->m_300 - *(f32 *)((s8 *)this + 0x3C));
+    *(f32 *)((s8 *)this->m_a4 + 4) = (f32) (this->m_300 - *(f32 *)((s8 *)this + 0x3C));
 }
 
 void TObjEneBm9Mericarol::sync_center_position() {
@@ -806,7 +806,7 @@ s32 TObjPlayer::apply_area_attack_hits(u8 *arg1, s32 arg2, u32 object, f32 range
         this->mark_enemy_body_contacts();
         mask |= 0x100000;
     }
-    if (*(u32 *)((s8 *)(this->m_a4) + 0x18) & mask) {
+    if (*(u32 *)((s8 *)this->m_a4 + 0x18) & mask) {
         for (i = 0; i < 0x10; i++) {
             obj = TObjPlayer::get_battle_param(i);
             if (obj == 0) {

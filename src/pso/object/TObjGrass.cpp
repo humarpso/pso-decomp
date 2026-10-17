@@ -647,12 +647,12 @@ s32 TObjGrass::sub_800BCE44() {
     play_sound_effect((void *) ((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) arg0), 0x4003A603)), (u8 *)&this->position, 0, 0);
     TObjPlayer::play_effect_if_v2(-0x200);
   }
-  if (((u32) (this->m_b4)) != 8U)
+  if ((this->m_b4) != 8U)
   {
     this->actorFlags = (s32) ((this->actorFlags) & 0xFFFFF9FF);
-    temp_r3 = (u8 *) (this->m_a4);
+    temp_r3 = (u8 *)this->m_a4;
     *((s32 *) (((s8 *) temp_r3) + 0x18)) = (s32) ((*((s32 *) (((s8 *) temp_r3) + 0x18))) & 0xFBFFFFFF);
-    if (((f32) (this->hp)) < (((f32) (this->hpmax)) * (*((f32 *) (((s8 *) arg0) + 0x354)))))
+    if ((this->hp) < ((this->hpmax) * (*((f32 *) (((s8 *) arg0) + 0x354)))))
     {
       this->actorFlags = (s32) ((this->actorFlags) | 0x2000);
       *((s32 *) (((s8 *) arg0) + 0x2A8)) = 0;
@@ -661,7 +661,7 @@ s32 TObjGrass::sub_800BCE44() {
       VecCopy((Vec *)(arg0 + 0x29C), (const Vec *)(arg0 + 0x2FC));
       this->m_398 = (f32) (0.0f);
     }
-    this->referenceHp = (s16) (this->hp);
+    this->referenceHp = this->hp;
   }
   play_persistent_sound((s32)((void *) ((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) arg0), 0x4003A801))), (void *)((void *) arg0), (u8 *)&this->position, (s32)((0) & 0xFFFFu), 0);
   TObjPlayer::play_effect_if_v2(-0x200);

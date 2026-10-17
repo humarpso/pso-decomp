@@ -377,8 +377,8 @@ s32 TShopEquipmentListWindow::open_menu_window() {
     if ((u32) this->m_2c == 0U) {
         temp_r31 = obj_getField1c(this->m_24);
         this->m_2c = create_window_menu(get_window_layout_position(0x2B), 2, temp_r31);
-        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(this->m_2c), (int)(get_shop_text(4)), 6, 0);
-        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(this->m_2c), (int)(get_shop_text(5)), 6, 1);
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)this->m_2c, (int)(get_shop_text(4)), 6, 0);
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)this->m_2c, (int)(get_shop_text(5)), 6, 1);
         ((TWindowSubComCard *)(this->m_2c))->calc_window_size();
         align_menu_entry_positions(this->m_2c);
         ((TCheckRoomSequence *)(this->m_2c))->set_ready_flag();

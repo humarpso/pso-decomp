@@ -655,11 +655,11 @@ void TObjWarpBoss::update_warp_boss_visibility() {
         }
         if ((u32) this->m_b0 != 0U) {
             ((TObject *)(*(void **)((s8 *)this + 0xB0)))->set_flag_4();
-            disallow_rendering__7TObjectFv((TObject *)((void *)(this->m_b0)));
+            disallow_rendering__7TObjectFv((TObject *)(this->m_b0));
         }
         if ((u32) this->m_180 != 0U) {
             ((TObject *)(*(void **)((s8 *)this + 0x164)))->set_flag_4();
-            disallow_rendering__7TObjectFv((TObject *)((void *)(this->m_180)));
+            disallow_rendering__7TObjectFv((TObject *)(this->m_180));
         }
     } else {
         if ((u32) *(u32 *)((s8 *)this + 0x168) != 0U) {
@@ -668,11 +668,11 @@ void TObjWarpBoss::update_warp_boss_visibility() {
         }
         if ((u32) this->m_b0 != 0U) {
             ((TQuestVmDownLoadServer *)(*(void **)((s8 *)this + 0xB0)))->clear_flag4_bit4();
-            allow_rendering__7TObjectFv((TObject *)((void *)(this->m_b0)));
+            allow_rendering__7TObjectFv((TObject *)(this->m_b0));
         }
         if ((u32) this->m_180 != 0U) {
             ((TQuestVmDownLoadServer *)(*(void **)((s8 *)this + 0x164)))->clear_flag4_bit4();
-            allow_rendering__7TObjectFv((TObject *)((void *)(this->m_180)));
+            allow_rendering__7TObjectFv((TObject *)(this->m_180));
         }
     }
 }

@@ -904,7 +904,7 @@ void TObjEneIllGill::vfunc_63() {
         this->mode = 8;
         this->phase = 0;
         this->m_b8 = 6;
-        temp_r5 = (u8 *)(this->m_a4);
+        temp_r5 = (u8 *)this->m_a4;
         *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) & 0xFFFF7FFE);
         ((TObjEneIllGill *)arg0)->free_resources();
         spawn_particle_effect(((u8 *)&this->m_2fc), 0xF2);
@@ -1480,7 +1480,7 @@ void TObjEneIllGill__sub_80367DA4(s32 arg0) {
 void TObjEneIllGill::sub_80367DC8(s32 arg1) {
     *(f32 *)((s8 *)&lbl_8050BF00.value + 4) = (f32) TObjEneIllGill__data_805E02BC;
     *(f32 *)((s8 *)&lbl_8050BF00.value + 0) = (f32) TObjEneIllGill__data_805E02BC;
-    *(f32 *)((s8 *)&lbl_8050BF00.value + 8) = (f32) *(f32 *)((s8 *)(this->movementParameters) + 4);
+    *(f32 *)((s8 *)&lbl_8050BF00.value + 8) = (f32) *(f32 *)((s8 *)this->movementParameters + 4);
     push_matrix_from((void *)&identity_matrix.value);
     rotate_matrix_y(0, (void *)arg1);
     rotate_vector_by_matrix(0, (void *)&lbl_8050BF00.value, (void *)&lbl_8050BF00.value);

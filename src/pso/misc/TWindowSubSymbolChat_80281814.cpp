@@ -222,13 +222,13 @@ void TWindowSubSymbolChat::sub_80281CC4() {
   s16 temp_r31;
   s16 temp_r3;
   s32 new_var;
-  temp_r31 = get_cursor_x__20TWindowSubSymbolChatFv((int) (this->m_50));
-  temp_r3 = get_cursor_pos__20TWindowSubSymbolChatFv((int) (this->m_50));
-  add__20TWindowSubSymbolChatFlllll((int) (this->m_28), (int) ((s32) (this->m_1e)), (int) ((s32) temp_r31), (int) ((s32) temp_r3), (int) (*(s32 *)&TWindowSubSymbolChat__data_805D6498), (int) (*(s32 *)&TWindowSubSymbolChat__data_805D649C));
+  temp_r31 = get_cursor_x__20TWindowSubSymbolChatFv(this->m_50);
+  temp_r3 = get_cursor_pos__20TWindowSubSymbolChatFv(this->m_50);
+  add__20TWindowSubSymbolChatFlllll(this->m_28, (int) (this->m_1e), (int) ((s32) temp_r31), (int) ((s32) temp_r3), (int) (*(s32 *)&TWindowSubSymbolChat__data_805D6498), (int) (*(s32 *)&TWindowSubSymbolChat__data_805D649C));
   new_var = (s32) temp_r3;
   if (((s32) TWindowSubSymbolChat__help_window) != 0)
   {
-    add__20TWindowSubSymbolChatFlllll((int) (this->m_28), (int) ((s32) (this->m_1e)), (int) (0x40 - temp_r31), (int) new_var, (int) ((s32) ((u8) ((*(s32 *)&TWindowSubSymbolChat__data_805D6498) == 0))), (int) (*(s32 *)&TWindowSubSymbolChat__data_805D649C));
+    add__20TWindowSubSymbolChatFlllll(this->m_28, (int) (this->m_1e), (int) (0x40 - temp_r31), (int) new_var, (int) ((s32) ((u8) ((*(s32 *)&TWindowSubSymbolChat__data_805D6498) == 0))), (int) (*(s32 *)&TWindowSubSymbolChat__data_805D649C));
   }
 }
 
@@ -256,7 +256,7 @@ s32 TWindowSubSymbolChat::create_confirm_window() {
     ((TUnk_804D0618 *)temp_r31)->ensure_status_display(get_message_10__20TWindowSubStatusDispFl(0xAC));
     TWindowOptionCtrl::add_menu_item(temp_r31, get_message_10__20TWindowSubStatusDispFl(0xBF), 1);
     TWindowOptionCtrl::add_menu_item(temp_r31, get_message_10__20TWindowSubStatusDispFl(0xC0), 0);
-    if (TWindowSubSymbolChat__sub_80076FE0((void *)(this->m_28)) != 0) {
+    if (TWindowSubSymbolChat__sub_80076FE0((void *)this->m_28) != 0) {
         ((TWindowSubStatusDisp *)temp_r31)->set_selected_index(0);
     } else {
         ((TWindowSubStatusDisp *)temp_r31)->set_selected_index(1);

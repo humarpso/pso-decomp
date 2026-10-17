@@ -390,9 +390,9 @@ void TUnk_804E3008::set_cursor_index(s32 arg1) {
         this->m_b8 = 0;
     }
     if (this->m_154 & 2) {
-        this->m_b8 = (s16) (this->m_b8 + 1);
+        this->m_b8 = (this->m_b8 + 1);
         if ((s32) this->m_151 == 6) {
-            this->m_b8 = (s16) (this->m_b8 + 1);
+            this->m_b8 = (this->m_b8 + 1);
         }
     }
 }

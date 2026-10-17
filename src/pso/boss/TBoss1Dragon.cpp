@@ -3269,7 +3269,7 @@ void update_death_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
                 TBoss3Volopt::queue_event_1D(0xA0, 0xF);
             }
             if (F(f32, 0xC0) >= TBoss1Dragon__data_805D7F3C && F(f32, 0xC0) < TBoss1Dragon__data_805D7F68) {
-                direction_to_rotation_xz((u8 *)(arg0 + 0x418), (s32 *)&rot.x, (s32 *)&rot.z);
+                direction_to_rotation_xz(arg0 + 0x418, (s32 *)&rot.x, (s32 *)&rot.z);
                 if (F(u32, 0x8AC) == 0) {
                     F(u32, 0x8AC) = spawn_particle_effect_with_rotation(arg0 + 0x40C, &rot, (void *)*(s32 *)((s8 *)(F(u8 *, 0x778)) + 0x14), 0x40);
                 }
@@ -4272,7 +4272,7 @@ void TBoss1Dragon::update_air_fire_state(u32 arg1) {
             }
             if (*(void **)((s8 *)arg0 + 0x8AC) == NULL) {
                 if (this->m_c0 >= TBoss1Dragon__data_805D7F1C) {
-                    *(u32 *)((s8 *)arg0 + 0x8AC) = (u32)spawn_continuous_particle_effect_with_flags(arg0 + 0x40C, *(s32 *)((s8 *)(this->effectResource) + 0x18), 0x40);
+                    *(u32 *)((s8 *)arg0 + 0x8AC) = (u32)spawn_continuous_particle_effect_with_flags(arg0 + 0x40C, *(s32 *)((s8 *)this->effectResource + 0x18), 0x40);
                 }
             } else if (this->m_c0 <= TBoss1Dragon__data_805D7F68) {
                 ((TNowLoading *)(*(void **)((s8 *)arg0 + 0x8AC)))->copy_pos(arg0 + 0x40C);
@@ -4309,7 +4309,7 @@ void TBoss1Dragon::update_air_fire_state(u32 arg1) {
                 if (obj != NULL) {
                     TBoss1DragonEffBullet__ct((u8 *)obj, (s32)(arg0 + 0x3C4), (s32)(arg0 + 0x40C), (s32)&dest);
                 }
-                spawn_particle_effect_with_flags(arg0 + 0x40C, *(s32 *)((s8 *)(this->effectResource) + 0x1C), 0x40);
+                spawn_particle_effect_with_flags(arg0 + 0x40C, *(s32 *)((s8 *)this->effectResource + 0x1C), 0x40);
                 this->stateStep = 3;
                 *(s32 *)((s8 *)arg0 + 0x86C) = 0;
                 this->flags &= ~0xC00;
@@ -4660,7 +4660,7 @@ void TBoss1Dragon::update_breath_attack_state(u32 arg1) {
             }
             if (!(this->animationFlags & 4)) {
                 spawn_trap__12TBoss1DragonFii((s32)arg0, 0x4003AD0D);
-                direction_to_rotation_xz((u8 *)(arg0 + 0x418), (s32 *)&sp8, (s32 *)sp10);
+                direction_to_rotation_xz(arg0 + 0x418, (s32 *)&sp8, (s32 *)sp10);
                 this->impactAge = (this->impactAge + 1);
                 if ((s32) this->impactAge >= 2) {
                     u8 *o = __nw__7TObjectFUl(0x38);

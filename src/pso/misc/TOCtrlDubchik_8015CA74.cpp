@@ -267,7 +267,7 @@ void TOCtrlDubchik::sub_8015CE80() {
     u8 *p;
     *(s32 *)&this->m_380 = (f32)*(s32 *)&this->m_380 + TOCtrlDubchik__data_805DB3B4;
     this->m_37c = lbl_805DB3BC + sin_table_lookup(*(s32 *)&this->m_380);
-    apply_actor_gravity((TObjEnemy *)this, (s32 *)(((u8 *)this) + 0x390), (f32)(this->m_37c));
+    apply_actor_gravity((TObjEnemy *)this, (s32 *)(((u8 *)this) + 0x390), (f32)this->m_37c);
     for (i = lbl_805D586C; i < lbl_805D586C + lbl_805D5870; i++) {
         p = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (p != NULL && p != ((u8 *)this) && obj_testFlags30__13TUnk_804AF8A0FUl(p, 0x800) != 0 &&

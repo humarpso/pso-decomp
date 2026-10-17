@@ -354,7 +354,7 @@ void TUnk_804999A0::run_task() {
         ((TObject *)arg0)->set_flag_4();
     }
     *(s8 *)((s8 *)arg0 + 0x23) = (s8) *(f32 *)((s8 *)arg0 + 0x1C);
-    TWindowCtrlMain::set_value((s32)(*(s32 *)((s8 *)arg0 + 0x24)), (s32)(this->m_20));
+    TWindowCtrlMain::set_value((s32)(*(s32 *)((s8 *)arg0 + 0x24)), this->m_20);
 }
 
 void *__dt__13TUnk_804999A0Fv(void *arg0, s16 arg1) {

@@ -70,7 +70,7 @@ void TAdMultiPlyChrSelectGC::init_windows() {
         TWindow__close(*(void **)((s8 *)this + 0x7C));
         this->m_7c = 0U;
     }
-    TAdMultiPlyChrSelectGC__sub_802E006C((u8 *)(this->m_5c), 2, 2);
+    TAdMultiPlyChrSelectGC__sub_802E006C((u8 *)this->m_5c, 2, 2);
     ((TAdMultiPlyChrSelectGC *)(this->m_5c))->set_field_4ec((s32)((void*)(2)));
     ((TAdMultiPlyChrSelectGC *)(this->m_5c))->set_state(1);
     ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)this + 0x60)))->set_field_100(1);

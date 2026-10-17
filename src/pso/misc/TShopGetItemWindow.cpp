@@ -198,14 +198,14 @@ void TShopGetItemWindow::update_input_number() {
             ((TUnk_804CDFE8 *)(this->m_2c))->set_position_xy(get_scale__15TShopWindowBaseFv(this), get_scale__15TShopWindowBaseFv(this));
         }
         this->m_54 = ((TShopEquipmentSellWindow *)(this->m_30))->get_result();
-        TWindow__close((void *)(this->m_30));
+        TWindow__close((void *)this->m_30);
         this->m_30 = 0U;
         set_field_20(3);
         return;
     }
     w = this->m_30;
     if ((w != 0U) && (((TShopEquipmentSellWindow *)w)->is_confirmed() != 0)) {
-        TWindow__close((void *)(this->m_30));
+        TWindow__close((void *)this->m_30);
         this->m_30 = 0U;
         set_field_20(4);
     }

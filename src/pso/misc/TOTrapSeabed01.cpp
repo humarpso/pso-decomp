@@ -290,7 +290,7 @@ void TOTrapSeabed01::vfunc_82() {
     temp_r0 = this->m_348 - 1;
     this->m_348 = temp_r0;
     if (temp_r0 < 0) {
-        *(f32 *)((s8 *)(this->m_a4) + 0xC) = (f32) lbl_805DE64C;
+        *(f32 *)((s8 *)this->m_a4 + 0xC) = (f32) lbl_805DE64C;
         ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 0x100);
         TObjPlayer::init_all_slots();
         ((TObjPlayer *)arg0)->check_object_collisions();
@@ -380,16 +380,16 @@ void TOTrapSeabed01::render_effect_layers() {
     set_model_node_callback((s32)TOTrapSeabed01::trigger_by_id);
     push_matrix();
     post_translate_matrix((void *) (((u8 *)this) + 0x38));
-    ((s32 (*)(int, int))rotate_matrix_y)(0, (int)((int) (this->rotation_y)));
+    ((s32 (*)(int, int))rotate_matrix_y)(0, (int)(this->rotation_y));
     set_depth_buffer_settings_3();
     set_depth_buffer_settings_id(1);
-    draw_ginja_model_with_motion((int) (*(s32 *)((s8 *)((u8 *)this) + 0x34)), (int) (this->unknownF8), (f32) (this->m_c0));
+    draw_ginja_model_with_motion((int) (*(s32 *)((s8 *)((u8 *)this) + 0x34)), this->unknownF8, this->m_c0);
     func_80141618__Fv();
     restore_saved_depth_alpha_state();
     TParticleCtrl::begin_effect_render();
     set_depth_buffer_settings_1();
     set_depth_buffer_settings_id(2);
-    draw_ginja_model_with_motion((int) (*(s32 *)((s8 *)((u8 *)this) + 0x34)), (int) (this->unknownF8), (f32) (this->m_c0));
+    draw_ginja_model_with_motion((int) (*(s32 *)((s8 *)((u8 *)this) + 0x34)), this->unknownF8, this->m_c0);
     func_80141618__Fv();
     restore_saved_depth_alpha_state();
     TParticleCtrl::end_effect_render();

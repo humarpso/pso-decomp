@@ -970,7 +970,7 @@ void TObjEneMe1GiGue::break_apart() {
     Vec position;
     VecCopy((Vec *)(&position.x), (const Vec *)(((u8 *)this) + 0x38));
     position.y += 40.0f + this->m_3ec;
-    TBoss3Volopt::create_breakup_mdl((s32)TObjEneMe1GiGue__barrier_obj, 0, (s32)((int) (this->texture_id)), (s32)((void *)&position.x), (s32)((int) (this->rotation_y)));
+    TBoss3Volopt::create_breakup_mdl((s32)TObjEneMe1GiGue__barrier_obj, 0, (s32)(this->texture_id), (s32)((void *)&position.x), (s32)(this->rotation_y));
     ((TObjPlayer *)((u8 *)this))->refresh_lobby_state();
     this->send_entity_set_flags();
     spawn_particle_effect((&position.x), 0x205);

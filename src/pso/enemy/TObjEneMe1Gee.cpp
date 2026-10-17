@@ -2068,10 +2068,10 @@ void TObjEneMe1Gee::vfunc_115() {
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DA0BC, TObjEneMe1Gee__data_805DA0C0) != 0) {
         update_player_state__9TObjEneDDFv(arg0, 0, 0);
         TObjPlayer::toggle_particle_effect();
-        TObjFish::set_global_param((int) (this->texture_id));
+        TObjFish::set_global_param(this->texture_id);
         push_matrix();
         post_translate_matrix((u8 *)&this->position);
-        rotate_matrix_y(0, (int) (this->rotation_y));
+        rotate_matrix_y(0, this->rotation_y);
         TObjEneDD::clear_global_flag_400();
         draw_chunk_object((void *)(*(s32 *)((s8 *)arg0 + 0x34)));
         pop_matrix();
@@ -2212,7 +2212,7 @@ void TObjEneMe1Gee::handle_event(s32 arg1) {
         *(s32 *)((s8 *)this + 0x434) = (s32) (*(s32 *)((s8 *)this + 0x434) + 1);
         if ((s32) *(s32 *)((s8 *)this + 0x434) > 0x5A) {
             *(s32 *)((s8 *)this + 0x434) = 0;
-            this->m_b8 = (s16) (this->m_b8 + 1);
+            this->m_b8 = (this->m_b8 + 1);
             if ((s16) this->m_b8 >= 4) {
                 this->m_b8 = 0;
             }
@@ -2424,7 +2424,7 @@ void run_task__13TObjEneMe1GeeFPvi(TObjEneMe1Gee *arg0, s32 arg1) {
         ((TObjEneDD *)arg0)->update_velocity();
         arg0->update_angle();
         arg0->set_move_speed_x();
-        ((TObjEneDD *)arg0)->move_with_wall_slide_commit((f32) (arg0->m_3a0), (f32) (*(f32 *)((s8 *)arg0 + 0x3A8)), lbl_805DA0D0);
+        ((TObjEneDD *)arg0)->move_with_wall_slide_commit(arg0->m_3a0, (f32) (*(f32 *)((s8 *)arg0 + 0x3A8)), lbl_805DA0D0);
         arg0->vfunc_88();
         break;
     }
@@ -3721,7 +3721,7 @@ void TObjEneMe1Gee::vfunc_88() {
     } else {
         o->m95();
     }
-    *(f32 *)((s8 *)(this->m_a4) + 4) = (f32) *(f32 *)((s8 *)this + 0x3F4);
+    *(f32 *)((s8 *)this->m_a4 + 4) = (f32) *(f32 *)((s8 *)this + 0x3F4);
 }
 
 void TObjEneMe1Gee::copy_pos() {

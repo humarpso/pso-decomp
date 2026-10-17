@@ -5893,7 +5893,7 @@ void TObjPlayer::check_level_up() {
     if ((((s32 (*)(void))is_locally_controlled__10TObjPlayerFPv)() != 0) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
         temp_r30 = ((s32 (*)(void *))clamp_nested_index__10TObjPlayerFv)(arg0) + 1;
         if (temp_r30 <= TObjPlayer::get_max_level()) {
-            if (((s32 (*)(void *, int))get_current_state_field__10TObjPlayerFScl)((void *) (((s32 (*)(void *))get_class_index__10TObjPlayerFv)(arg0)), temp_r30) <= (s32) *(s32 *)((s8 *)(this->m_2b0) + 0x1C)) {
+            if (((s32 (*)(void *, int))get_current_state_field__10TObjPlayerFScl)((void *) (((s32 (*)(void *))get_class_index__10TObjPlayerFv)(arg0)), temp_r30) <= (s32) *(s32 *)(this->m_2b0 + 0x1C)) {
                 ((TObjPlayer *)(&sp40))->reset_sub_status_disp();
                 ((TObjPlayer *)(&sp24))->reset_sub_status_disp();
                 ((TObjPlayer *)(&sp8))->reset_sub_status_disp();
@@ -5905,9 +5905,9 @@ void TObjPlayer::check_level_up() {
                     }
                     var_r30 += 1;
                 } while (var_r30 < 0xD);
-                init_shield_params__10TObjPlayerFl(&sp40, arg0, (void *) (this->m_2b0), (int) (this->m_318), (int) (*(s32 *)((s8 *)arg0 + 0x31C)));
+                init_shield_params__10TObjPlayerFl(&sp40, arg0, this->m_2b0, this->m_318, (int) (*(s32 *)((s8 *)arg0 + 0x31C)));
                 ((TObjPlayer *)arg0)->apply_exp_level_growth();
-                init_shield_params__10TObjPlayerFl(&sp24, arg0, (void *) (this->m_2b0), (int) (this->m_318), (int) (*(s32 *)((s8 *)arg0 + 0x31C)));
+                init_shield_params__10TObjPlayerFl(&sp24, arg0, this->m_2b0, this->m_318, (int) (*(s32 *)((s8 *)arg0 + 0x31C)));
                 var_r31 = 0;
                 do {
                     temp_r30_2 = get_slot_value__10TObjPlayerFPvi((u8 *)&this->m_d04, var_r31);

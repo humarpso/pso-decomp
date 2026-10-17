@@ -602,7 +602,7 @@ void TWindowKeyBoardBase::sub_8025E6DC(u8 *arg1) {
                 this->draw_text_glyphs(arg1, &stack.sp10);
                 var_r31 = 0;
             } else {
-                TWindowSubStatusDisp__sub_8025E148(this, arg1, &stack.sp10, (int) (*(s32 *)((s8 *)((u8 *)this) + 0x84)), (int) (this->m_94));
+                TWindowSubStatusDisp__sub_8025E148(this, arg1, &stack.sp10, (int) (*(s32 *)((s8 *)((u8 *)this) + 0x84)), this->m_94);
             }
         }
         TWindowSubStatusDisp::reset_gauge(0);

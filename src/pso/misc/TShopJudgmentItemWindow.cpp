@@ -517,16 +517,16 @@ void TShopJudgmentItemWindow::handle_judge_confirm() {
     u8 *arg0 = (u8 *)this;
     if (((TShopJudgmentItemWindow *)arg0)->vfunc_10() != 0) {
         if ((*(void **)((s8 *)arg0 + 0x158) != NULL) && (((TWindowMenu *)(*(void **)((s8 *)arg0 + 0x158)))->is_visible() != 0)) {
-            selected_menu_value = get_selected_menu_value((int) (this->m_158));
+            selected_menu_value = get_selected_menu_value(this->m_158);
             if ((selected_menu_value == 0) && ((u32) this->m_154 != 0U)) {
-                if (obj_getPtr2B0_20((u8 *)(this->m_24)) < 0x64) {
+                if (obj_getPtr2B0_20((u8 *)this->m_24) < 0x64) {
                     TWindow__close((u8 *)(*(void **)((s8 *)arg0 + 0x158)));
                     this->m_158 = 0U;
                     ((VObj_18 *) arg0)->m6(5, 1);
                     ((TShopWindowBase *)arg0)->set_field_20(0xB);
                     return;
                 }
-                temp_r31 = arg0 + (select_cursor_entry__22TWindowSubShortCutListFv((int) (this->m_154)) * 8);
+                temp_r31 = arg0 + (select_cursor_entry__22TWindowSubShortCutListFv(this->m_154) * 8);
                 if (((TItem *)(*(s32 *)((s8 *)temp_r31 + 0x54)))->copy_to_item_data(arg0 + 0x3C) != 0) {
                     *(s32 *)((s8 *)arg0 + 0x168) = ((TObjPlayer *)(*(s32 *)((s8 *)temp_r31 + 0x54)))->has_flag_128();
                     ((TLobby *)(arg0 + 0x28))->copy_item_data(arg0 + 0x3C);

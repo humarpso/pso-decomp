@@ -246,13 +246,13 @@ void TShopEquipmentSellWindow::handle_input_window_result() {
             ((TUnk_804CDFE8 *)(this->m_390))->set_position_xy(get_scale__15TShopWindowBaseFv(this), get_scale__15TShopWindowBaseFv(this));
         }
         this->m_37c = ((TShopEquipmentSellWindow *)(this->m_394))->get_result();
-        TWindow__close((u8 *)(this->m_394));
+        TWindow__close((u8 *)this->m_394);
         this->m_394 = 0U;
         set_field_20(2);
         return;
     }
     if (((u32) this->m_394 != 0U) && (((TShopEquipmentSellWindow *)(this->m_394))->is_confirmed() != 0)) {
-        TWindow__close((u8 *)(this->m_394));
+        TWindow__close((u8 *)this->m_394);
         this->m_394 = 0U;
         set_field_20(5);
     }

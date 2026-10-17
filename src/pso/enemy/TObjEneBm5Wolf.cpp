@@ -2266,7 +2266,7 @@ void TObjEneBm5Wolf::standing_state(s32 arg1) {
       this->roamingSubstate = 0;
       return;
     case 3:
-      if (((s32) (this->roamingSubstate)) > 0x3C)
+      if ((this->roamingSubstate) > 0x3C)
     {
       transition_enemy_state(arg0, 7);
     }
@@ -2306,7 +2306,7 @@ void TObjEneBm5Wolf::alerted_state(s32 arg1) {
       this->roamingSubstate = new_var;
       return;
     case 3:
-      if (((s32) (this->roamingSubstate)) <= 0)
+      if ((this->roamingSubstate) <= 0)
     {
       set_anim_state();
     }
@@ -2459,7 +2459,7 @@ void TObjEneBm5Wolf::anchor_state(s32 arg1) {
         } else {
             VecCopy((Vec *)(arg0 + 0x3F4), (const Vec *)(fn_800B8B00((void *)temp_r3)));
         }
-        this->roamingTimer = (s32) (this->roamingTimer + 1);
+        this->roamingTimer = (this->roamingTimer + 1);
         break;
     }
 }
@@ -3166,7 +3166,7 @@ void TObjEneBm5Wolf::select_subtype() {
 }
 
 void TObjEneBm5Wolf::vfunc_88() {
-    *(f32 *)((s8 *)(this->m_a4) + 4) = (f32) ((*(f32 *)&TObjEneBm5Wolf__data_805D9DB4) + *(f32 *)((s8 *)this + 0x40C));
+    *(f32 *)((s8 *)this->m_a4 + 4) = (f32) ((*(f32 *)&TObjEneBm5Wolf__data_805D9DB4) + *(f32 *)((s8 *)this + 0x40C));
 }
 
 }

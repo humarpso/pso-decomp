@@ -2501,7 +2501,7 @@ void TObjEneMe3Stelth::state_chase(s32 arg1) {
         if (update_linked_position__12TObjEneDD_STFf(this, TObjEneMe3Stelth__data_805DA848) != 0) {
             this->enemy_copy_target_destination();
             this->update_velocity();
-            *(f32 *)((s8 *)((u8 *)this) + 0x434) = (f32) ((this->m_3a0 * sin_table_lookup((int) (this->rotation_y))) + (*(f32 *)((s8 *)((u8 *)this) + 0x3A8) * cos_table_lookup((int) (this->rotation_y))));
+            *(f32 *)((s8 *)((u8 *)this) + 0x434) = (f32) ((this->m_3a0 * sin_table_lookup(this->rotation_y)) + (*(f32 *)((s8 *)((u8 *)this) + 0x3A8) * cos_table_lookup(this->rotation_y)));
             if (*(f32 *)((s8 *)((u8 *)this) + 0x434) < cos_table_lookup(0x1000)) {
                 ((TObjEneEpsilon *)((u8 *)this))->update_angle(0x500);
                 ((TObjEneDD *)(this))->vfunc_102();
@@ -3586,7 +3586,7 @@ void TObjEneMe3Stelth::setup_move_bounds() {
 }
 
 void TObjEneMe3Stelth::vfunc_88() {
-    *(f32 *)((s8 *)(this->m_a4) + 4) = (f32) (this->m_300 - *(f32 *)((s8 *)this + 0x3C));
+    *(f32 *)((s8 *)this->m_a4 + 4) = (f32) (this->m_300 - *(f32 *)((s8 *)this + 0x3C));
 }
 
 void TObjEneMe3Stelth::copy_pos_with_height_offset() {

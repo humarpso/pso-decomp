@@ -799,7 +799,7 @@ void run_task__9TTecLukerFv(u8 *arg0) {
             return;
         }
         if ((get_player_by_client_id(((TTecLuker *)arg0)->m_f6) != 0) && (get_pipe_interaction_latch(*(void **)((s8 *)arg0 + 0xF0)) != 0) && (are_players_gathered_near(arg0 + 0xFC, 0, lbl_805DC858) != 0)) {
-            offset_point_toward_camera((u8 *)(arg0 + 0xFC), (u8 *)((s32 *) &sp8), (f32)lbl_805DC858);
+            offset_point_toward_camera(arg0 + 0xFC, (u8 *)((s32 *) &sp8), (f32)lbl_805DC858);
             spawn_particle_effect((float *) &sp8, 0xB3);
             player = (u8 *)get_player_by_client_id(((TTecLuker *)arg0)->m_f6);
             if (player != NULL) {

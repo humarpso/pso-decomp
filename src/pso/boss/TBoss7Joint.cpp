@@ -53,7 +53,7 @@ void TBoss7Joint::vfunc_62() {
     temp_r31 = this->hpmax - temp_r4;
     if (is_part_active__11TBoss7JointFv(this, temp_r4) != 0U) {
         TObjFish__sub_802EC468((s32)(((u8 *)this) + 0x38), lbl_805DEBB0, lbl_805DEBB4);
-        apply_damage_and_set_effect__8TObjFishFl((int) (*(s32 *)((s8 *)((u8 *)this) + 0x10)), temp_r31, (int) (this->m_2d4));
+        apply_damage_and_set_effect__8TObjFishFl((int) (*(s32 *)((s8 *)((u8 *)this) + 0x10)), temp_r31, this->m_2d4);
     } else {
         *(s32 *)((s8 *)((u8 *)this) + 0x3C4) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3C4) - temp_r31);
         if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x3C4) <= 0) {
@@ -73,7 +73,7 @@ void TBoss7Joint::run_task() {
         this->vfunc_83();
         store_position();
         this->vfunc_88();
-        if (*(s32 *)((s8 *)(this->m_a4) + 0x18) & 1) {
+        if (*(s32 *)((s8 *)this->m_a4 + 0x18) & 1) {
             ((TBoss8Dragon *)arg0)->set_player_state_default();
             add_radar_scaled_marker((u8 *)&this->position, -0x5DB4, 1, 1, lbl_805DEBB8);
         }
