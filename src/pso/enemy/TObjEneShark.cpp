@@ -182,7 +182,7 @@ void vfunc_96__12TObjEneSharkFv(s32 arg0);
 void vfunc_98__12TObjEneSharkFv(s32 arg0);
 void vfunc_97__12TObjEneSharkFv(s32 arg0);
 void vfunc_95__12TObjEneSharkFv(s32 arg0);
-s32 TObjPlayer__sub_800D92BC(void *, int);
+void TObjPlayer__sub_800D92BC(s32 point, s32 delay);
 s32 rotate_vector_by_matrix(int, void *, void *);
 extern RecoveredGlobal_800ABA9C_lbl_8058D490 identity_matrix;
 extern const f32 lbl_805D9BA0;
@@ -193,7 +193,7 @@ s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 advance_animation_playback();
 void vfunc_83__12TObjEneSharkFv(Obj_800ABCBC *arg0);
 s32 mult_vec_array__10TObjPlayerFUll(int, int, void *, int);
-s32 set_matrix_identity(int);
+void set_matrix_identity(u8 *arg0);
 extern u32 TObjEneShark__attack_motion_3_trail;
 extern u32 shark_attack4_trail_buffer;
 extern const f32 lbl_805D9BAC;
@@ -262,7 +262,7 @@ void TObjEneShark::vfunc_94() {
     pop_matrix();
     vec3_add_to(&stack.sp8, (u8 *)&this->position);
     ((TObjPlayer *)(&stack.sp8))->spawn_ground_effect(0x23);
-    TObjPlayer__sub_800D92BC(&stack.sp8, 0xF);
+    TObjPlayer__sub_800D92BC((s32)&stack.sp8, 0xF);
 }
 
 void TObjEneShark::vfunc_93() {
@@ -580,10 +580,10 @@ struct Act_800AC318 { s32 a; s32 idx; f32 c; s32 d; };
 extern "C" {
 extern u32 shark_bml_resource;
 extern s32 game_difficulty_selection;
-void __dt__13TUnk_80493450Fv(void *, int);
+void *__dt__13TUnk_80493450Fv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __destroy_arr(void *, void *, int, int);
-void __dt__13TUnk_80494938Fv(void *, int);
+void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
 extern u8 __dt__13TUnk_804949A8Fv[];
 O_800AC5EC *__dt__12TObjEneSharkFv(O_800AC5EC *arg0, s16 arg1);
 s32 dispatch_shared_handler_a__6TLobbyFl(int);
@@ -593,9 +593,9 @@ s32 register_boss__6TLobbyFl(int);
 u8 *load_enemy_bml_resource_named(void *, void *);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-void draw_trail_with_colors(void *, s32, s32, s32, s32);
+void draw_trail_with_colors(u8 *boss4_type3, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void *init_trail_buffer__11TBoss4Type3FPvifff(void *, s32, f32, f32, f32);
-s32 *mem_alloc(s32);
+void *mem_alloc(u32 size);
 void spawn_npc_enemy__6TLobbyFslllff(int, int, int, void *, f32, f32);
 extern u8 lbl_8043AEDC[];
 extern u32 TObjEneShark__resource_node;
@@ -607,7 +607,7 @@ extern const f32 lbl_805D9BCC;
 void vfunc_99__13TUnk_80493450Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
-void __dt__11TBoss4Type3FPvs(void*, int);
+s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1);
 void mem_free(void*);
 
 extern void *tl_04;
@@ -703,13 +703,13 @@ extern "C" void run_task__13TUnk_80493450Fv();
 extern "C" void select_melee_contact_body__10TObjPlayerFv();
 extern "C" void update_movement_status__13TUnk_80493450Fv();
 extern "C" void tick_freeze_state__10TObjPlayerFv();
-extern "C" void trigger_switch_attack__10TObjPlayerFi();
+extern "C" void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 extern "C" void try_start_action__13TUnk_804806E8Fll();
 extern "C" void update_action_hold_status__13TUnk_80493450Fv();
-extern "C" void update_action_timer__10TObjPlayerFPv();
+extern "C" s32 update_action_timer__10TObjPlayerFPv(u8 *player);
 extern "C" void update_actor_ground_y__13TUnk_804806E8Fv();
-extern "C" void update_attack_stat_status();
-extern "C" void update_defense_stat_status();
+extern "C" s32 update_attack_stat_status(u8 *player);
+extern "C" s32 update_defense_stat_status(u8 *player);
 extern "C" void update_flag30_timer__13TUnk_804806E8Fv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 extern "C" void update_poison_status__13TUnk_804806E8Fv();
@@ -825,11 +825,11 @@ void TObjEneShark::free_resources() {
         shark_resource_buffer = 0U;
     }
     if ((u32) shark_attack4_trail_buffer != 0U) {
-        __dt__11TBoss4Type3FPvs((void*)shark_attack4_trail_buffer, 1);
+        __dt__11TBoss4Type3FPvs((s32 *)shark_attack4_trail_buffer, 1);
         shark_attack4_trail_buffer = 0U;
     }
     if ((u32) TObjEneShark__attack_motion_3_trail != 0U) {
-        __dt__11TBoss4Type3FPvs((void*)TObjEneShark__attack_motion_3_trail, 1);
+        __dt__11TBoss4Type3FPvs((s32 *)TObjEneShark__attack_motion_3_trail, 1);
         TObjEneShark__attack_motion_3_trail = 0U;
     }
     if ((u32) shark_bml_resource != 0U) {
@@ -868,12 +868,12 @@ void TLobby::load_shark_resources() {
         p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9BC8, lbl_805D9BAC, lbl_805D9BC0);
     }
     G_C0 = p;
-    draw_trail_with_colors(G_BC, RES->bodies->model, RES->motions[TObjEneShark__action_table[3].idx].b, 5, 8);
-    draw_trail_with_colors(G_C0, RES->bodies->model, RES->motions[TObjEneShark__action_table[4].idx].b, 0xA, 0xD);
-    G_A8 = mem_alloc(0xC);
-    G_AC = mem_alloc(0xC);
-    G_B0 = mem_alloc(0xC);
-    G_B4 = mem_alloc(0xC);
+    draw_trail_with_colors((u8 *)G_BC, RES->bodies->model, RES->motions[TObjEneShark__action_table[3].idx].b, 5, 8);
+    draw_trail_with_colors((u8 *)G_C0, RES->bodies->model, RES->motions[TObjEneShark__action_table[4].idx].b, 0xA, 0xD);
+    G_A8 = (s32 *)mem_alloc(0xC);
+    G_AC = (s32 *)mem_alloc(0xC);
+    G_B0 = (s32 *)mem_alloc(0xC);
+    G_B4 = (s32 *)mem_alloc(0xC);
     G_A8[0] = register_boss__6TLobbyFl(0x4F);
     G_A8[1] = register_boss__6TLobbyFl(0x50);
     G_A8[2] = register_boss__6TLobbyFl(0x51);
@@ -1000,7 +1000,7 @@ struct Shark_800AC6B0 : VObj_800AC6B0 {
 };
 
 extern "C" {
-f32 calc_boss4_scale__10TObjPlayerFi(void *);
+f32 calc_boss4_scale__10TObjPlayerFi(s32 arg0);
 
 void init_enemy_base__13TUnk_80493450Fv(void *);
 }
@@ -1042,7 +1042,7 @@ void *TObjEneShark__ct(void *arg0, void *arg1, void *arg2) {
     ((TObjEnemy *)self)->update_prev_position();
     ((TBoss3VoloptHiraisin *)self)->copy_position();
     initialize_enemy_photon_effect(self);
-    self->f2AC = (s32)(lbl_805D9BD0 * (lbl_805D9BD4 * calc_boss4_scale__10TObjPlayerFi(self)));
+    self->f2AC = (s32)(lbl_805D9BD0 * (lbl_805D9BD4 * calc_boss4_scale__10TObjPlayerFi((s32)self)));
     self->f33A = 0xF;
     self->f33C = self->f33A;
     self->f328 = 0;

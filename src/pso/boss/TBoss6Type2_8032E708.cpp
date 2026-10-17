@@ -255,13 +255,13 @@ void reset_motion_fields__13TUnk_804806E8Fv();
 void reset_pose__13TUnk_804806E8Fv();
 void roll_physical_accuracy__13TUnk_804806E8FPvlf();
 void select_melee_contact_body__10TObjPlayerFv();
-void trigger_switch_attack__10TObjPlayerFi();
+void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 void try_start_action__13TUnk_804806E8Fll();
 void update_action_hold_status__13TUnk_804806E8Fv();
-void update_action_timer__10TObjPlayerFPv();
+s32 update_action_timer__10TObjPlayerFPv(u8 *player);
 void update_actor_ground_y__13TUnk_804806E8Fv();
-void update_attack_stat_status();
-void update_defense_stat_status();
+s32 update_attack_stat_status(u8 *player);
+s32 update_defense_stat_status(u8 *player);
 void update_flag30_timer__13TUnk_804806E8Fv();
 void update_movement_status__13TUnk_804806E8Fv();
 void update_object_view_visibility__13TUnk_804B9870Fff();
@@ -317,7 +317,7 @@ s32 clear_render_callback__8TObjFishFv(s32);
 }
 void draw_model_blend_motion(void *arg0, void *arg1, f32 farg0);
 extern "C" {
-s32 draw_model_motion(s32, s32, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 s32 get_bml_motion(int, int);
 
 extern Ent_8032FFC0 boss6_type2_motion_table[];
@@ -329,7 +329,7 @@ int copy_vec3__11TBoss6Type2Fii(s32 _w0, s32 _w1);
 extern void *TBoss6Type2__instance_slots[];
 void TBoss6Type2__sub_8032F2F0(void* p, void* q);
 
-u32 create_particle_emitter(void *, s32);
+void *create_particle_emitter(void *pos, s32 id);
 
 void spawn_mag_mine_at__13TBoss6MagMineFPvPv(void *, void *);
 void set_path_points__11TBoss6Type2FPvPvi(O_8032F360 *arg0, V3_8032F360 *arg1, s32 arg2);
@@ -342,7 +342,7 @@ f32 atan2_float(f32, f32);
 f32 TBoss5GryphonLightningWing__sub_80324CEC(f32);
 
 s32 calc_dir_angles__11TBoss6Type2FPvPvPvPv(void *arg0, s32 *arg1, s32 *arg2, Vec_8032EF34 *arg3);
-void spawn_particle_effect_with_flags(void *, s32, s32);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 s32 is_active__11TBoss6Type2Fv(int);
 u8 *get_player_by_client_id(s32);
 f32 sin_table_lookup(void *);
@@ -392,7 +392,7 @@ void TBoss6Type2::ensure_particle_emitter(s32 arg1) {
     O_8032E7B4 *arg0 = (O_8032E7B4 *)this;
     if (arg0->arr[arg1] == 0) {
         V3_8032E7B4 v = arg0->pos;
-        arg0->arr[arg1] = create_particle_emitter(&v, TBoss6Type2__effect_emitter_id_table[arg1].a);
+        arg0->arr[arg1] = (u32)create_particle_emitter(&v, TBoss6Type2__effect_emitter_id_table[arg1].a);
         if (arg0->arr[arg1] != 0) {
             ((TBoss4Type2 *)((void *)arg0->arr[arg1]))->set_flags(0x40);
         }
@@ -1038,7 +1038,7 @@ void TBoss6Mag::draw_model_motion_blend() {
     TObjFish::set_global_param(temp_r31);
     if ((0.0f) == *(f32 *)((s8 *)this + 0x3E8)) {
         ((TObjFish *)(*(s32 *)((s8 *)this + 0x458)))->set_draw_callback_list();
-        draw_model_motion(bml_model, *(s32 *)((s8 *)this + 0x3DC), *(f32 *)((s8 *)this + 0x3E0));
+        draw_model_motion((void *)bml_model, (void *)(*(s32 *)((s8 *)this + 0x3DC)), *(f32 *)((s8 *)this + 0x3E0));
         clear_render_callback__8TObjFishFv(*(s32 *)((s8 *)this + 0x458));
     } else {
         stack.sp8 = *(s32 *)((s8 *)this + 0x3F0);
@@ -1195,10 +1195,10 @@ s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_x(int, int);
 s32 push_matrix();
 s32 post_translate_matrix(void *);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *object);
 s32 submit_cursor_candidate(void *, int);
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
-s32 play_persistent_sound(int, void *, void *, int, int);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 
 void TObjPlayer::save_position() {
     s32 arg0 = (s32)this;
@@ -1244,7 +1244,7 @@ void TBoss6Mag::spawn_trap_by_stat() {
             var_r3 = 0x6B518;
         }
     }
-    play_persistent_sound(var_r3, this, ((u8 *)this) + 0x38, 0, 0);
+    play_persistent_sound((s32)var_r3, (s32)this, (u32)(((u8 *)this) + 0x38), (s32)(0), (s32)(0));
 }
 
 void TBoss6Mag::render() { sub_8033040C(); }
@@ -1287,7 +1287,7 @@ void TBoss6Mag::run_task() {
         *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C8) + 1);
     }
 }
-s32 __dt__9TObjEnemyFv(void *, s32);
+void *__dt__9TObjEnemyFv(TObjEnemy *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 
@@ -1301,7 +1301,7 @@ void *fn_8033068C(void *arg0, s16 arg1) {
         }
         free_collision_body_parts(arg0);
         TBoss6Type2__instance_slots[*(s32 *)((s8 *)arg0 + 0x384)] = 0;
-        __dt__9TObjEnemyFv(arg0, 0);
+        __dt__9TObjEnemyFv((TObjEnemy *)arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
@@ -1319,7 +1319,7 @@ s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
 f32 *dispatch_shared_handler_a__6TLobbyFl(int);
-s32 TObjFish__sub_800E3124(void *, void *);
+s32 TObjFish__sub_800E3124(u8 *list, s32 vecs);
 void TBoss6Mag__sub_803309C4(void *, void *);
 
 u8 *TBoss6Mag__ct(u8 *arg0, s32 arg1, u8 *arg2) {
@@ -1360,7 +1360,7 @@ u8 *TBoss6Mag__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s32 *)((s8 *)arg0 + 0x390) = *(s32 *)((s8 *)arg2 + 0x5C);
     ((TBoss6Type2 *)arg0)->init_segment_angle_range();
     TBoss6Type2__sub_803300C8(arg0);
-    *(s32 *)((s8 *)arg0 + 0x458) = TObjFish__sub_800E3124((void *)lbl_804773DC, arg0 + 0x44C);
+    *(s32 *)((s8 *)arg0 + 0x458) = TObjFish__sub_800E3124((u8 *)lbl_804773DC, (s32)(arg0 + 0x44C));
     TBoss6Mag__sub_803309C4(arg0 + 0x408, (void *)lbl_804773FC);
     d = dispatch_shared_handler_a__6TLobbyFl(0x2E);
     *(s32 *)((s8 *)arg0 + 0x3C0) = (s32)d[0];

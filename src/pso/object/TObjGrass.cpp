@@ -309,7 +309,7 @@ s32 register_boss__6TLobbyFl(int);
 u8 *load_resource_from_descriptor(void *, int, void *, int, int, int);
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(int);
 u8 *load_enemy_bml_resource_named(void *, void *);
-s32 draw_trail_with_colors(void *, s32, s32, int, int);
+void draw_trail_with_colors(u8 *boss4_type3, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 u8 *init_trail_buffer__11TBoss4Type3FPvifff(void *, int, f32, f32, f32);
 void *mem_alloc(u32 size);
 extern Quad_800BF66C grass_spawn_descriptor;
@@ -322,7 +322,7 @@ extern u32 lbl_805D5158;
 extern u32 lbl_805D515C;
 void TObjGrass__sub_800BCA2C(void *);
 s32 submit_cursor_candidate(void *, int);
-f32 calc_boss4_scale__10TObjPlayerFi(void *);
+f32 calc_boss4_scale__10TObjPlayerFi(s32 arg0);
 s32 update_angle__10TObjPlayerFlPv(void *, void *, void *);
 u32 lookup_entry_by_value__10TObjPlayerFPvf(void *);
 s32 mult_vec_array__10TObjPlayerFUll(int, int, void *, int);
@@ -1002,7 +1002,7 @@ void TObjGrass::sub_800BDD70() {
             apply_actor_gravity(arg0, 0, (0.0f));
             if (ang < ((TObjPlayer *)(*(s32 *)&this->m_318))->get_field_0c()) {
                 this->phase = 1;
-                if ((0.5f) < calc_boss4_scale__10TObjPlayerFi(arg0)) {
+                if ((0.5f) < calc_boss4_scale__10TObjPlayerFi((s32)arg0)) {
                     this->m_b8 = 2;
                 } else {
                     this->m_b8 = 3;
@@ -1761,8 +1761,8 @@ void TObjGrass::load_resources() {
         p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, (0.0f), (2e+01f), (0.7f));
     }
     lbl_805D515C = (u32) p;
-    draw_trail_with_colors((void *) lbl_805D5158, ((Data_800BF66C *)TObjGrass__resource_bundle)->f42c->f8, ((Data_800BF66C *)TObjGrass__resource_bundle)->f430[TObjGrass__grass_type_param_table[9]].f4, 0x46, 0x48);
-    draw_trail_with_colors((void *) lbl_805D515C, ((Data_800BF66C *)TObjGrass__resource_bundle)->f42c->f8, ((Data_800BF66C *)TObjGrass__resource_bundle)->f430[TObjGrass__grass_type_param_table[13]].f4, 0x3C, 0x3E);
+    draw_trail_with_colors((u8 *)lbl_805D5158, (s32)(((Data_800BF66C *)TObjGrass__resource_bundle)->f42c->f8), (s32)(((Data_800BF66C *)TObjGrass__resource_bundle)->f430[TObjGrass__grass_type_param_table[9]].f4), (s32)(0x46), (s32)(0x48));
+    draw_trail_with_colors((u8 *)lbl_805D515C, (s32)(((Data_800BF66C *)TObjGrass__resource_bundle)->f42c->f8), (s32)(((Data_800BF66C *)TObjGrass__resource_bundle)->f430[TObjGrass__grass_type_param_table[13]].f4), (s32)(0x3C), (s32)(0x3E));
     TObjGrass__bml_resource = (u32) mem_alloc(0xC);
     lbl_805D5140 = register_boss__6TLobbyFl(0x4E);
     ((s32 *) TObjGrass__bml_resource)[0] = dispatch_shared_handler_b__6TLobbyFl(0x51);

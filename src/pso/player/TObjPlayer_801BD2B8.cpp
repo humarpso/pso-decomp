@@ -3,7 +3,7 @@
 
 extern "C" {
 
-s16 TObjPlayer__sub_801C2114();
+int TObjPlayer__sub_801C2114(void);
 s32 reset_key_machine_state__10TObjPlayerFv();
 
 extern "C" {

@@ -30,7 +30,7 @@ struct Ids_8009241C { s16 id[3]; };
 struct O_80092724 { u8 pad0[0x18]; void *vptr; u8 pad1c[0x38c]; void *objs[2]; };
 
 extern "C" {
-void __dt__13TUnk_80493450Fv(void *, int);
+void *__dt__13TUnk_80493450Fv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
@@ -43,16 +43,16 @@ s32 register_boss__6TLobbyFl(int);
 u8 *load_resource_from_descriptor(void *, int, void *, int, int, int);
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(int);
 u8 *load_enemy_bml_resource_named(void *, void *);
-s32 draw_trail_with_colors(void *, s32, s32, int, int);
+void draw_trail_with_colors(u8 *boss4_type3, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 u8 *init_trail_buffer__11TBoss4Type3FPvifff(void *, int, f32, f32, f32);
-s32 *mem_alloc(int);
+void *mem_alloc(u32 size);
 s32 spawn_npc_enemy__6TLobbyFslllff(int, s32, s32, Quad_8009241C *, f32, f32);
 extern Ids_8009241C lbl_80439D68[];
 extern Quad_8009241C lbl_80439D70[];
 extern s32 lbl_80439D80[];
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
-void __dt__11TBoss4Type3FPvs(void*, int);
+s32 *__dt__11TBoss4Type3FPvs(s32 *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 void mem_free(void*);
 
@@ -156,15 +156,15 @@ extern "C" void vfunc_96__12TObjEneBeastFv();
 extern "C" void vfunc_94__12TObjEneBeastFv();
 extern "C" void update_movement_status__13TUnk_80493450Fv();
 extern "C" void tick_freeze_state__10TObjPlayerFv();
-extern "C" void trigger_switch_attack__10TObjPlayerFi();
+extern "C" void trigger_switch_attack__10TObjPlayerFi(s32 arg0);
 extern "C" void try_start_action__13TUnk_804806E8Fll();
 extern "C" void update_action_hold_status__13TUnk_80493450Fv();
-extern "C" void update_action_timer__10TObjPlayerFPv();
+extern "C" s32 update_action_timer__10TObjPlayerFPv(u8 *player);
 extern "C" void update_actor_ground_y__13TUnk_804806E8Fv();
 extern "C" void vfunc_83__12TObjEneBeastFv();
-extern "C" void update_attack_stat_status();
+extern "C" s32 update_attack_stat_status(u8 *player);
 extern "C" void vfunc_93__12TObjEneBeastFv();
-extern "C" void update_defense_stat_status();
+extern "C" s32 update_defense_stat_status(u8 *player);
 extern "C" void update_flag30_timer__13TUnk_804806E8Fv();
 extern "C" void update_object_view_visibility__13TUnk_804B9870Fff();
 extern "C" void update_poison_status__13TUnk_804806E8Fv();
@@ -285,11 +285,11 @@ void free_boss4_rock_pool(void) {
         boss4_rock_shared_handler_ids = 0U;
     }
     if ((u32) boss4_type3_instance != 0U) {
-        __dt__11TBoss4Type3FPvs((void*)boss4_type3_instance, 1);
+        __dt__11TBoss4Type3FPvs((s32 *)boss4_type3_instance, 1);
         boss4_type3_instance = 0U;
     }
     if ((u32) beast_claw_trail_instance != 0U) {
-        __dt__11TBoss4Type3FPvs((void*)beast_claw_trail_instance, 1);
+        __dt__11TBoss4Type3FPvs((s32 *)beast_claw_trail_instance, 1);
         beast_claw_trail_instance = 0U;
     }
     if ((u32) ene_beast_bml_resource != 0U) {
@@ -336,10 +336,8 @@ void TObjEneBeast::load_resources() {
         p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9704, lbl_805D96E4, lbl_805D96F8);
     }
     boss4_type3_instance = (u32)p;
-    draw_trail_with_colors((void *)beast_claw_trail_instance, ((Data_8009241C *)ene_beast_bml_resource)->f42c->f8,
-                           ((Data_8009241C *)ene_beast_bml_resource)->f430[((s32 *)beast_action_table)[13]].f4, 5, 8);
-    draw_trail_with_colors((void *)boss4_type3_instance, ((Data_8009241C *)ene_beast_bml_resource)->f42c->f8,
-                           ((Data_8009241C *)ene_beast_bml_resource)->f430[((s32 *)beast_action_table)[17]].f4, 10, 13);
+    draw_trail_with_colors((u8 *)beast_claw_trail_instance, (s32)(((Data_8009241C *)ene_beast_bml_resource)->f42c->f8), (s32)(((Data_8009241C *)ene_beast_bml_resource)->f430[((s32 *)beast_action_table)[13]].f4), (s32)(5), (s32)(8));
+    draw_trail_with_colors((u8 *)boss4_type3_instance, (s32)(((Data_8009241C *)ene_beast_bml_resource)->f42c->f8), (s32)(((Data_8009241C *)ene_beast_bml_resource)->f430[((s32 *)beast_action_table)[17]].f4), (s32)(10), (s32)(13));
     ene_beast_boss_id_buffer = (u32)mem_alloc(0xC);
     TObjEneBeast__boss4_rock_handler_ids = (u32)mem_alloc(0xC);
     boss4_rock_pool = (u32)mem_alloc(0xC);
@@ -416,7 +414,7 @@ struct VObj_800927DC : VBase_800927DC {
     virtual void m80();
 };
 
-f32 calc_boss4_scale__10TObjPlayerFi(void *);
+f32 calc_boss4_scale__10TObjPlayerFi(s32 arg0);
 void obj_setFlags30(void *, u32);
 void init_enemy_base__13TUnk_80493450Fv(void *, void *);
 void init_collision_body_parts(void *, void *, s32);
@@ -457,7 +455,7 @@ void *TObjEneBeast__ct(void *arg0v, void *arg1, void *arg2) {
     ((TObjEnemy *)arg0)->update_prev_position();
     ((TBoss3VoloptHiraisin *)arg0)->copy_position();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    F(arg0, s32, 0x2AC) = (s32)(lbl_805D970C * (lbl_805D9710 * calc_boss4_scale__10TObjPlayerFi(arg0)));
+    F(arg0, s32, 0x2AC) = (s32)(lbl_805D970C * (lbl_805D9710 * calc_boss4_scale__10TObjPlayerFi((s32)arg0)));
     F(arg0, s16, 0x33A) = 0xF;
     F(arg0, s16, 0x33C) = F(arg0, s16, 0x33A);
     F(arg0, s16, 0x328) = 0;
