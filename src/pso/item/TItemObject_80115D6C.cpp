@@ -344,7 +344,7 @@ extern s32 lbl_805D2C28;
 
 void TItemObject__vt16(u8 *arg0, u8 *item) {
     if (((u8 (*)())get_field_ed__5TItemFv)() == 2) {
-        *(u8 *)((s8 *)item + 4) = (u8) *(u8 *)((s8 *)arg0 + 0x100);
+        *(u8 *)((s8 *)item + 4) = (u8) ((TItemObject *)arg0)->m_100;
     }
     set_stack_count__24TShopEquipmentListWindowFSc((void *) (item), (void *) (((VObj_18 *)(arg0))->m34()));
 }
@@ -356,7 +356,7 @@ void *TItemObject__ct(void *arg0, void *arg1, void *item) {
     *(void **)((s8 *)arg0 + 0x18) = (void *) __vt__11TItemObject;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C28;
     *(void **)((s8 *)arg0 + 0xF8) = lookup_item_pmt_record(item);
-    *(u8 *)((s8 *)arg0 + 0x100) = (u8) *(u8 *)((s8 *)item + 4);
+    ((TItemObject *)arg0)->m_100 = (u8) *(u8 *)((s8 *)item + 4);
     ((TItemObject *)arg0)->store_encoded_value(get_item_type_or_default__9TItemListFv(item));
     if (*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF8)) + 0x10) & 1) {
         ((TObjPlayer *)arg0)->add_item_flags(0x10);

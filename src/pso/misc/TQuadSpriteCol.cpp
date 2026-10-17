@@ -172,7 +172,7 @@ extern void *TQuadSpriteCol__class_name;
 void *TQuadSpriteCol__ct(void *arg0) {
     quad_sprite_base_ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TQuadSpriteCol;
-    *(void **)((s8 *)arg0 + 0x0) = TQuadSpriteCol__class_name;
+    *(void * *)&((TQuadSpriteCol *)arg0)->m_name = TQuadSpriteCol__class_name;
     return arg0;
 }
 

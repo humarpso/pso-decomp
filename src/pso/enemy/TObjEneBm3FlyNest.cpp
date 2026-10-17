@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBm3FlyNest.h"
+#include "pso/enemy/TObjEneBm3FlyNest_CarryFly.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -1924,7 +1926,7 @@ void run_task__17TObjEneBm3FlyNestFPv(u8 *arg0) {
     }
     if (((TObjEneBm3FlyNest *)(arg0))->vfunc_83() != 4) {
         ((TObjEneBm3FlyNest *)(arg0))->vfunc_85();
-    } else if (*(s16 *)((s8 *)arg0 + 0x326) == 0) {
+    } else if (((TObjEneBm3FlyNest *)arg0)->mode == 0) {
         transition_enemy_state((void *)((void *) (arg0)), (s32)((int) (1)));
     }
     ((TObjEneBm3FlyNest *)(arg0))->vfunc_88();
@@ -2140,18 +2142,18 @@ void update_monest_carrier(u8 *self) {
     f32 v;
     f32 spd;
 
-    lim = (f32) (*(u32 *)((s8 *)(*(u8 **)((s8 *)self + 0x48)) + 4) - 1);
+    lim = (f32) (*(u32 *)((s8 *)(((TObjEneBm3FlyNest_CarryFly *)self)->m_48) + 4) - 1);
     *(f32 *)((s8 *)self + 0x4C) += lbl_805D9D54;
     if (*(f32 *)((s8 *)self + 0x4C) > lim) {
         *(f32 *)((s8 *)self + 0x4C) -= lim;
     }
     switch (*(s32 *)((s8 *)self + 0x2C)) {
     case 0:
-        if (**(s32 **)((s8 *)self + 0x38) == *(s32 *)((s8 *)self + 0x28)) {
+        if (*((TObjEneBm3FlyNest_CarryFly *)self)->m_38 == ((TObjEneBm3FlyNest_CarryFly *)self)->m_28) {
             Vec_800B4388 tmp;
             *(s32 *)((s8 *)self + 0x2C) = 1;
             VecCopy((Vec *)&tmp, (const Vec *)(self + 0x1C));
-            ((s32 (*)(void *, s32))vec3_add_to)(&tmp, *(s32 *)((s8 *)self + 0x30));
+            ((s32 (*)(void *, s32))vec3_add_to)(&tmp, ((TObjEneBm3FlyNest_CarryFly *)self)->m_30);
             VecCopy((Vec *)(self + 0x50), (const Vec *)&tmp);
             ((s32 (*)(void *, s32))subtract_vector)(self + 0x50, *(s32 *)((s8 *)self + 0x34));
             *(f32 *)((s8 *)self + 0x54) -= lbl_805D9D1C;
@@ -2161,19 +2163,19 @@ void update_monest_carrier(u8 *self) {
                 ((s32 (*)(void *))queue_destruction__7TObjectFv)(self);
                 break;
             }
-            *(f32 *)((s8 *)self + 0x60) = lbl_805D9D5C / (*(f32 *)((s8 *)self + 0x5C) * *(f32 *)((s8 *)self + 0x5C));
+            ((TObjEneBm3FlyNest_CarryFly *)self)->m_60 = lbl_805D9D5C / (*(f32 *)((s8 *)self + 0x5C) * *(f32 *)((s8 *)self + 0x5C));
             *(f32 *)((s8 *)self + 0x64) = lbl_805D9D60;
         }
-        play_persistent_sound(((s32 (*)(s32, s32))copy_target_state__17TObjEneBm3FlyNestFPv)(*(s32 *)((s8 *)self + 0x10), 0x4003A828), self, *(s32 *)((s8 *)self + 0x30), 0, 0);
+        play_persistent_sound(((s32 (*)(s32, s32))copy_target_state__17TObjEneBm3FlyNestFPv)(*(s32 *)((s8 *)self + 0x10), 0x4003A828), self, ((TObjEneBm3FlyNest_CarryFly *)self)->m_30, 0, 0);
         TObjPlayer::play_effect_if_v2(-0x400);
         break;
     case 1:
-        *(f32 *)((s8 *)self + 0x20) += lbl_805D9D18;
-        if (*(f32 *)((s8 *)self + 0x20) > 0.0f) {
+        ((TObjEneBm3FlyNest_CarryFly *)self)->m_20 += lbl_805D9D18;
+        if (((TObjEneBm3FlyNest_CarryFly *)self)->m_20> 0.0f) {
             *(s32 *)((s8 *)self + 0x2C) = 2;
             *(f32 *)((s8 *)self + 0x54) = lbl_805D9D64 * *(f32 *)((s8 *)self + 0x5C);
         }
-        play_persistent_sound(((s32 (*)(s32, s32))copy_target_state__17TObjEneBm3FlyNestFPv)(*(s32 *)((s8 *)self + 0x10), 0x4003A828), self, *(s32 *)((s8 *)self + 0x30), 0, 0);
+        play_persistent_sound(((s32 (*)(s32, s32))copy_target_state__17TObjEneBm3FlyNestFPv)(*(s32 *)((s8 *)self + 0x10), 0x4003A828), self, ((TObjEneBm3FlyNest_CarryFly *)self)->m_30, 0, 0);
         TObjPlayer::play_effect_if_v2(-0x400);
         break;
     case 2:
@@ -2187,11 +2189,11 @@ void update_monest_carrier(u8 *self) {
             ((s32 (*)(void *))queue_destruction__7TObjectFv)(self);
             break;
         }
-        *(f32 *)((s8 *)self + 0x20) = *(f32 *)((s8 *)self + 0x60) * (v * v) + *(f32 *)((s8 *)self + 0x64);
+        ((TObjEneBm3FlyNest_CarryFly *)self)->m_20 = ((TObjEneBm3FlyNest_CarryFly *)self)->m_60* (v * v) + *(f32 *)((s8 *)self + 0x64);
         *(f32 *)((s8 *)self + 0x54) = v;
         v = lbl_805D9D64 * *(f32 *)((s8 *)self + 0x5C) + v;
-        *(f32 *)((s8 *)self + 0x1C) = *(f32 *)((s8 *)self + 0x50) * v;
-        *(f32 *)((s8 *)self + 0x24) = *(f32 *)((s8 *)self + 0x58) * v;
+        *(f32 *)((s8 *)self + 0x1C) = ((TObjEneBm3FlyNest_CarryFly *)self)->m_50* v;
+        *(f32 *)((s8 *)self + 0x24) = ((TObjEneBm3FlyNest_CarryFly *)self)->m_58* v;
         play_persistent_sound(((s32 (*)(s32, s32))copy_target_state__17TObjEneBm3FlyNestFPv)(*(s32 *)((s8 *)self + 0x10), 0x4003A828), self, *(s32 *)((s8 *)self + 0x34), 0, 0);
         TObjPlayer::play_effect_if_v2(-0x400);
         break;
@@ -2215,27 +2217,27 @@ u8 *TObjEneBm3FlyNest_CarryFly__ct(u8 *self, void *parent, s32 a, s32 b, s32 unu
     __ct__7TObjectFP7TObject(self, parent);
     *(s32 **)((s8 *)self + 0x18) = __vt__26TObjEneBm3FlyNest_CarryFly;
     *(s32 *)((s8 *)self + 0) = TObjEneBm3FlyNest_CarryFly__name;
-    *(s32 *)((s8 *)self + 0x30) = a;
+    ((TObjEneBm3FlyNest_CarryFly *)self)->m_30 = a;
     *(s32 *)((s8 *)self + 0x34) = b;
     *(s32 *)((s8 *)self + 0x38) = c;
-    *(s32 *)((s8 *)self + 0x28) = d;
+    ((TObjEneBm3FlyNest_CarryFly *)self)->m_28 = d;
     VecCopy((Vec *)&v, (const Vec *)(*(void **)((s8 *)self + 0x30)));
     subtract_vector(&v, *(void **)((s8 *)self + 0x34));
     ((TObjBoss2Tunnel *)(&v))->update_scale();
-    *(s32 *)((s8 *)self + 0x40) = (s32) (lbl_8043B398[0] * atan2_float(v.x, v.z));
+    ((TObjEneBm3FlyNest_CarryFly *)self)->m_40 = (s32) (lbl_8043B398[0] * atan2_float(v.x, v.z));
     *(f32 *)((s8 *)self + 0x1C) = lbl_805D9D6C * v.x;
-    *(f32 *)((s8 *)self + 0x20) = lbl_805D9D6C;
+    ((TObjEneBm3FlyNest_CarryFly *)self)->m_20 = lbl_805D9D6C;
     *(f32 *)((s8 *)self + 0x24) = lbl_805D9D6C * v.z;
     *(s32 *)((s8 *)self + 0x48) = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&lbl_805D5108) + 0x430)) + 0x54);
-    *(f32 *)((s8 *)self + 0x4C) = (f32) (*(s32 *)((s8 *)self + 0x28) * 2);
+    *(f32 *)((s8 *)self + 0x4C) = (f32) (((TObjEneBm3FlyNest_CarryFly *)self)->m_28* 2);
     *(f32 *)((s8 *)self + 0x3C) = lbl_805D9D18;
     *(s32 *)((s8 *)self + 0x44) = 0;
-    *(f32 *)((s8 *)self + 0x50) = 0.0f;
+    ((TObjEneBm3FlyNest_CarryFly *)self)->m_50 = 0.0f;
     *(f32 *)((s8 *)self + 0x54) = 0.0f;
-    *(f32 *)((s8 *)self + 0x58) = 0.0f;
+    ((TObjEneBm3FlyNest_CarryFly *)self)->m_58 = 0.0f;
     *(f32 *)((s8 *)self + 0x5C) = 0.0f;
     *(f32 *)((s8 *)self + 0x64) = 0.0f;
-    *(f32 *)((s8 *)self + 0x60) = 0.0f;
+    ((TObjEneBm3FlyNest_CarryFly *)self)->m_60 = 0.0f;
     *(s32 *)((s8 *)self + 0x2C) = 0;
     return self;
 }

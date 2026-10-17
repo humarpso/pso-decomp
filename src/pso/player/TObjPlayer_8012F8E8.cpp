@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A65E0.h"
 #include "pso/items/TItemWeapon.h"
 #include "pso/misc/TTecGiZonde.h"
 #include "pso/player/TObjPlayer.h"
@@ -21,7 +22,7 @@ void cast_gizonde_chain__10TObjPlayerFPv(u8 *arg0) {
         ((TObjPlayer *)arg0)->draw_icon((s32)((int) (0)), (s32)((void *) (arg0 + 0x1F8)));
         temp_r3 = get_extended_state__10TObjPlayerFv((int) (*(s32 *)((s8 *)arg0 + 0xF0)));
         if (temp_r3 != 0) {
-            *(s32 *)((s8 *)arg0 + 0x204) = get_captured_target_count();
+            ((TUnk_804A65E0 *)arg0)->m_204 = get_captured_target_count();
             var_r30 = arg0 + 0x208;
             i = 0;
             do {
@@ -33,7 +34,7 @@ void cast_gizonde_chain__10TObjPlayerFPv(u8 *arg0) {
                 }
                 i += 1;
             } while (i != 0xA);
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x204) != 0) {
+            if ((s32) ((TUnk_804A65E0 *)arg0)->m_204 != 0) {
                 ((TTecGiZonde *)(*(s32 *)((s8 *)arg0 + 0xF0)))->create((void *) (arg0 + 0x1F8), (void *) (arg0 + 0x204), (void *) (((TObjPlayer *)arg0)->get_tp()));
             }
             ((TItemWeapon *)arg0)->roll_technique();

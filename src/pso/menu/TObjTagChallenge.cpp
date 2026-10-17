@@ -31,7 +31,7 @@ extern void *TObjTagChallenge__class_name;
 void *TObjTagChallenge__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjTagChallenge;
-    *(void **)((s8 *)arg0 + 0x0) = TObjTagChallenge__class_name;
+    *(void * *)&((TObjTagChallenge *)arg0)->m_name = TObjTagChallenge__class_name;
     return arg0;
 }
 

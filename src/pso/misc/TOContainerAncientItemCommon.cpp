@@ -137,7 +137,7 @@ extern void *lbl_805D2EFC;
 void *TOContainerAncientItemCommon__ct(void *arg0, void * _w1) {
     init_ancient_container(arg0, _w1);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__28TOContainerAncientItemCommon;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D2EFC;
+    *(void * *)&((TOContainerAncientItemCommon *)arg0)->m_name = lbl_805D2EFC;
     return arg0;
 }
 void TUnk_804B08BC::vfunc_79() {

@@ -32,9 +32,9 @@ void TObjPlayer::set_temp_flag10_and_update() {
 void TObjPlayer__sub_801305E8(void *arg0) {
     s32 temp_r4;
 
-    temp_r4 = *(s32 *)((s8 *)arg0 + 0x1FC);
+    temp_r4 = ((TUnk_804A69DC *)arg0)->m_1fc;
     if (temp_r4 > 0xCCC) {
-        *(s32 *)((s8 *)arg0 + 0x1FC) = (s32) (temp_r4 - 0xB6);
+        ((TUnk_804A69DC *)arg0)->m_1fc = (s32) (temp_r4 - 0xB6);
     }
 }
 

@@ -1329,24 +1329,24 @@ void TQuestVmDownLoadServer::clear_field2A0() {
     }
 }
 void TQuestVmDownLoadServer::sub_801F6B00() {
-    if (*(u32 *)&this->m_294== 0 || ((TMessageWindowController *)(((u8*)this) + 0x1C))->is_ready() != 0) {
+    if (*(u32 *)&this->m_294 == 0 || ((TMessageWindowController *)(((u8*)this) + 0x1C))->is_ready() != 0) {
         void* p = (u8 *)&controller_input_state + 0x20;
         if (TWindowShortListCtrl__check_controller_button(p, 4) != 0 || TWindowShortListCtrl__check_controller_button(p, 2) != 0) {
-            this->state= 0x11;
+            this->state = 0x11;
         }
     }
 }
 void *TMCFormatSequence__ct(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TMCFormatSequence;
-    *(void **)((s8 *)arg0 + 0x0) = TMCFormatSequence__class_name;
-    *(u32 *)((s8 *)arg0 + 0x24) = 0;
+    *(void * *)&((TMCFormatSequence *)arg0)->m_name = TMCFormatSequence__class_name;
+    *(u32 *)&((TMCFormatSequence *)arg0)->m_24 = 0;
     *(void **)((s8 *)arg0 + 0x28) = arg2;
     *(u32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x20) = 0;
-    *(u32 *)((s8 *)arg0 + 0x34) = 0;
+    ((TMCFormatSequence *)arg0)->m_20 = 0;
+    *(u32 *)&((TMCFormatSequence *)arg0)->m_34 = 0;
     *(u32 *)((s8 *)arg0 + 0x38) = 0;
-    *(u32 *)((s8 *)arg0 + 0x2C) = 11;
+    ((TMCFormatSequence *)arg0)->m_2c = 11;
     *(u32 *)((s8 *)arg0 + 0x30) = 101;
     return arg0;
 }

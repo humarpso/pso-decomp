@@ -16,10 +16,10 @@ void fn_80362164(u8 *arg0) {
     if (((TObjEneEpsilonBody *)(arg0))->vfunc_83() != 4) {
         ((TObjEneEpsilonGuard *)arg0)->update_guard_flag();
         ((TObjEneEpsilonBody *)(arg0))->vfunc_85();
-    } else if ((s16) *(s16 *)((s8 *)arg0 + 0x326) == 1) {
+    } else if ((s16) ((TObjEneEpsilonBody *)arg0)->mode == 1) {
         transition_enemy_state((void *) (arg0), (int) (0));
     }
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 9) {
+    if ((s16) ((TObjEneEpsilonBody *)arg0)->mode != 9) {
         play_persistent_sound((int) (0x4003AD43), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     }
     ((TObjEneEpsilonBody *)(arg0))->vfunc_88();

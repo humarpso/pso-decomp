@@ -73,21 +73,21 @@ void render__12TODoorCave01Fv(u8 *arg0) {
     u8 *var_r30;
     s32 var_r29;
 
-    if ((((VObj_801618fc *) arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) && (((TUnk_804AFBF8 *)arg0)->is_in_view_depth((f32) (lbl_805DB4A4)) != 0)) {
+    if ((((VObj_801618fc *) arg0)->m8(((TODoorCave01 *)arg0)->m_c0, *(f32 *)((s8 *)arg0 + 0xC4)) != 0) && (((TUnk_804AFBF8 *)arg0)->is_in_view_depth((f32) (lbl_805DB4A4)) != 0)) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        if ((s32) *(s32 *)((s8 *)arg0 + 0xAC) == 0) {
+        rotate_matrix_y((int) (0), (int) (((TODoorCave01 *)arg0)->rotation_y));
+        if ((s32) *(s32 *)&((TODoorCave01 *)arg0)->m_ac == 0) {
             var_r29 = 0;
-            var_r30 = (unsigned char *) (*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 0x2C));
+            var_r30 = (unsigned char *) (*(void **)((s8 *)(*(void * *)&((TODoorCave01 *)arg0)->model) + 0x2C));
             do {
-                TODoorCave01::draw_door_model((void *)((void *) (arg0)), (int)((int) (var_r30)), (int)(*(s32 *)((s8 *)arg0 + 0xD0) & (1 << (var_r29 + 0x10)) ? 1 : 0));
+                TODoorCave01::draw_door_model((void *)((void *) (arg0)), (int)((int) (var_r30)), (int)(((TODoorCave01 *)arg0)->m_d0& (1 << (var_r29 + 0x10)) ? 1 : 0));
                 var_r29 += 1;
                 var_r30 = (unsigned char *) (*(void **)((s8 *)var_r30 + 0x30));
             } while (var_r29 < 4);
         } else {
             TObjFish::set_global_param((int) (*(s32 *)((s8 *)TODoorCave01__texture_lists + 4)));
-            draw_ginja_model_with_motion((void *) (*(void **)((s8 *)arg0 + 0x34)), (int) (*(s32 *)((s8 *)arg0 + 0xBC)), (f32) (*(f32 *)((s8 *)arg0 + 0xB0)));
+            draw_ginja_model_with_motion((void *) (*(void * *)&((TODoorCave01 *)arg0)->model), (int) (*(s32 *)&((TODoorCave01 *)arg0)->m_bc), (f32) (((TODoorCave01 *)arg0)->m_b0));
         }
         pop_matrix();
     }

@@ -105,8 +105,8 @@ u8 *TObjContainerJungEnemy__ct(u8 *arg0, s32 arg1, s32 _w2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8018CEDC___vt__22TObjContainerJungEnemy *)&__vt__22TObjContainerJungEnemy).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjContainerJungEnemy__name;
     ((TObjContainerJungEnemy *)arg0)->load_models();
-    *(s16 *)((s8 *)arg0 + 0x326) = 0;
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x60000000);
+    ((TObjContainerJungEnemy *)arg0)->mode = 0;
+    *(s32 *)&((TObjContainerJungEnemy *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjContainerJungEnemy *)arg0)->actorFlags| 0x60000000);
     init_collision_body_parts(arg0, (s32) &container_jung_collision_desc.value, 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38));

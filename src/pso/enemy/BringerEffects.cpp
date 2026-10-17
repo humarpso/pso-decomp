@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDf2Bringer_Eff_Rush.h"
+#include "pso/enemy/TUnk_8048FE64.h"
 #include "pso/enemy/TUnk_8048FE7C.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneDf2Bringer.h"
@@ -188,7 +190,7 @@ u8 *fn_8009A398(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3) {
     VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)(arg0 + 0x28));
     VecCopy((Vec *)(arg0 + 0x40), (const Vec *)(arg0 + 0x34));
     subtract_vector((void *) (arg0 + 0x40), (void *) (arg0 + 0x28));
-    *(f32 *)((s8 *)arg0 + 0x4C) = ((TObjBoss2Tunnel *)(arg0 + 0x40))->update_scale();
+    ((TUnk_8048FE64 *)arg0)->m_4c = ((TObjBoss2Tunnel *)(arg0 + 0x40))->update_scale();
     *(f32 *)((s8 *)arg0 + 0x50) = (f32) 0.0f;
     return arg0;
 }
@@ -334,9 +336,9 @@ TUnk_8048FE7C::TUnk_8048FE7C(TObject *arg1, u8 *arg2, f32 farg0) : TObject(arg1)
     VecCopy((Vec *)(((u8 *)this) + 0x20), (const Vec *)arg2);
     *(s32 *)((s8 *)this + 0x1C) = 0;
     *(f32 *)((s8 *)this + 0x38) = (f32) 10.0f;
-    *(f32 *)((s8 *)this + 0x3C) = farg0;
-    *(s32 *)((s8 *)this + 0x34) = 0;
-    *(f32 *)((s8 *)this + 0x2C) = (f32) 1.0f;
+    this->m_3c = farg0;
+    this->m_34 = 0;
+    this->m_2c = (f32) 1.0f;
     *(s32 *)((s8 *)this + 0x30) = 0;
     this->sub_8009A640();
     this->sub_8009A598();
@@ -425,8 +427,8 @@ void update_bringer_rush_effect(u8 *arg0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x308) = (f32) (*(f32 *)((s8 *)arg0 + 0x20) * temp_f1);
-    *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x310) = (f32) (*(f32 *)((s8 *)arg0 + 0x28) * *(f32 *)((s8 *)arg0 + 0x2C));
+    *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x308) = (f32) (((TObjEneDf2Bringer_Eff_Rush *)arg0)->m_20* temp_f1);
+    *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 0x310) = (f32) (((TObjEneDf2Bringer_Eff_Rush *)arg0)->m_28* *(f32 *)((s8 *)arg0 + 0x2C));
     *(f32 *)((s8 *)arg0 + 0x2C) *= 0.8f;
 }
 
@@ -450,13 +452,13 @@ u8 *construct_bringer_rush_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 fa
     *(s32 *)((s8 *)arg0 + 0) = (s32) bringer_rush_effect_name;
     *(s32 *)((s8 *)arg0 + 0x1C) = arg3;
     *(f32 *)((s8 *)arg0 + 0x2C) = farg0;
-    *(s32 *)((s8 *)arg0 + 0x30) = 0;
+    ((TObjEneDf2Bringer_Eff_Rush *)arg0)->m_30 = 0;
     VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg3 + 0x38));
     subtract_vector((void *) (&stack.sp8), (void *) (arg2 + 0x38));
     stack.spC = 0.0f;
-    *(f32 *)((s8 *)arg0 + 0x20) = sin_table_lookup((int) (*(s32 *)((s8 *)arg2 + 0x60)));
+    ((TObjEneDf2Bringer_Eff_Rush *)arg0)->m_20 = sin_table_lookup((int) (*(s32 *)((s8 *)arg2 + 0x60)));
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) 0.0f;
-    *(f32 *)((s8 *)arg0 + 0x28) = cos_table_lookup((int) (*(s32 *)((s8 *)arg2 + 0x60)));
+    ((TObjEneDf2Bringer_Eff_Rush *)arg0)->m_28 = cos_table_lookup((int) (*(s32 *)((s8 *)arg2 + 0x60)));
     if (is_vec_xz_cross_negative((void *) (arg0 + 0x20), (void *) (&stack.sp8)) != 0) {
         rotate_xz_pair_by_angle((void *) (arg0 + 0x20), (void *) (arg0 + 0x28), (int) (-0x1800));
     } else {

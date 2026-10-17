@@ -182,8 +182,8 @@ void TObjEneRe7BeruraPunch::run_task() {
 void *__dt__21TObjEneRe7BeruraPunchFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TObjEneRe7BeruraPunch;
-        if (*(void **)((s8 *)arg0 + 0xD0) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD0)); *(s32 *)((s8 *)arg0 + 0xD0) = 0; }
-        if (*(void **)((s8 *)arg0 + 0xD4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD4)); *(s32 *)((s8 *)arg0 + 0xD4) = 0; }
+        if (*(void **)((s8 *)arg0 + 0xD0) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD0)); *(s32 *)&((TObjEneRe7BeruraPunch *)arg0)->m_d0 = 0; }
+        if (*(void **)((s8 *)arg0 + 0xD4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD4)); *(s32 *)&((TObjEneRe7BeruraPunch *)arg0)->m_d4 = 0; }
         if (*(void **)((s8 *)arg0 + 0xD8) != NULL) { delete_buffer__12TBoss8DragonFis(*(void **)((s8 *)arg0 + 0xD8), 1); *(s32 *)((s8 *)arg0 + 0xD8) = 0; }
         __dt__13TUnk_80490470Fv((s8 *)arg0 + 0xF8, -1);
         ((TUnk_804928CC *)arg0)->destroy_enemy_object(0);
@@ -224,7 +224,7 @@ u8 *TObjEneRe7BeruraPunch__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80096750___vt__21TObjEneRe7BeruraPunch *)&__vt__21TObjEneRe7BeruraPunch).value;
     ((TUnk_80490470 *)(arg0 + 0xF8))->init_vtable_and_field18();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2990;
-    *(u16 *)((s8 *)arg0 + 0xB0) = obj_getField1c((void *) (arg2));
+    ((TObjEneRe7BeruraPunch *)arg0)->m_b0 = obj_getField1c((void *) (arg2));
     ((TObjEneRe7BeruraPunch *)arg0)->init();
     return arg0;
 }

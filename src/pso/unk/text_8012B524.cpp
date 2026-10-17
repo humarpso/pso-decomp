@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A4D70.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemProShield.h"
 
@@ -19,15 +20,15 @@ u8 *TItemWeaponPartisan__ct(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &partisan_weapon_vtable.value;
     *(s32 *)((s8 *)arg0 + 0x1F8) = 0;
-    *(f32 *)((s8 *)arg0 + 0x1FC) = (f32) lbl_805DAEA4;
+    ((TUnk_804A4D70 *)arg0)->m_1fc = (f32) lbl_805DAEA4;
     *(f32 *)((s8 *)arg0 + 0x200) = (f32) lbl_805DAEA4;
-    *(f32 *)((s8 *)arg0 + 0x204) = (f32) lbl_805DAEA4;
+    ((TUnk_804A4D70 *)arg0)->m_204 = (f32) lbl_805DAEA4;
     *(f32 *)((s8 *)arg0 + 0x208) = (f32) lbl_805DAE88;
-    *(f32 *)((s8 *)arg0 + 0x20C) = (f32) lbl_805DAE88;
+    ((TUnk_804A4D70 *)arg0)->m_20c = (f32) lbl_805DAE88;
     *(f32 *)((s8 *)arg0 + 0x210) = (f32) lbl_805DAE88;
-    *(f32 *)((s8 *)arg0 + 0x214) = (f32) lbl_805DAE88;
+    ((TUnk_804A4D70 *)arg0)->m_214 = (f32) lbl_805DAE88;
     *(f32 *)((s8 *)arg0 + 0x218) = (f32) lbl_805DAE88;
-    *(f32 *)((s8 *)arg0 + 0x21C) = (f32) lbl_805DAE88;
+    ((TUnk_804A4D70 *)arg0)->m_21c = (f32) lbl_805DAE88;
     ((TObjPlayer *)arg0)->set_status_flags(2);
     if (((TItemProShield *)arg0)->get_slot_count() == 6) {
         ((TObjPlayer *)arg0)->set_status_flags(0x20);

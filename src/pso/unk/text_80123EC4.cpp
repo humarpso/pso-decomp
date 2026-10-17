@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A1E28.h"
 
 struct RecoveredGlobal_80123EC4_lbl_804A1E28 {
     s32 value;
@@ -19,7 +20,7 @@ u8 *sorcerers_cane_ct(u8 *arg0, u8 *arg1, s32 _w2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A1E28.value;
     *(s16 *)((s8 *)arg0 + 0x1FE) = 3;
     *(s32 *)((s8 *)arg0 + 0x1F8) = 0;
-    *(s16 *)((s8 *)arg0 + 0x1FC) = -1;
+    ((TUnk_804A1E28 *)arg0)->m_1fc = -1;
     return arg0;
 }
 

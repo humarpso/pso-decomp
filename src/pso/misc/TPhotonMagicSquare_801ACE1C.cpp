@@ -177,18 +177,18 @@ u8 *TPhotonMagicSquare__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32
     *(u8 **)((s8 *)arg0 + 0x90) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x430)) + 0x14));
     *(f32 *)((s8 *)arg0 + 0x9C) = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0x94) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x90)) + 4) - (1.0f));
-    *(f32 *)((s8 *)arg0 + 0x98) = (f32) (0.1f);
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x2C);
-    *(f32 *)((s8 *)arg0 + 0x68) = (f32) (0.0f);
-    *(f32 *)((s8 *)arg0 + 0x6C) = (f32) (0.0f);
+    ((TPhotonMagicSquare *)arg0)->m_98 = (f32) (0.1f);
+    ((TPhotonMagicSquare *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x2C);
+    ((TPhotonMagicSquare *)arg0)->scale = (f32) (0.0f);
+    ((TPhotonMagicSquare *)arg0)->target_scale = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0x70) = (f32) (0.0f);
     copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xA0), (void *) ((u8 *)&TPhotonMagicSquare__color_palette.value + (arg2 * 0x10)));
     VecCopy((Vec *)(arg0 + 0xB8), (const Vec *)(arg3));
-    *(s32 *)((s8 *)arg0 + 0xB0) = 0;
-    *(s32 *)((s8 *)arg0 + 0xB4) = 0;
-    *(s32 *)((s8 *)arg0 + 0xC4) = arg4;
+    *(s32 *)&((TPhotonMagicSquare *)arg0)->m_b0 = 0;
+    *(s32 *)&((TPhotonMagicSquare *)arg0)->m_b4 = 0;
+    *(s32 *)&((TPhotonMagicSquare *)arg0)->m_c4 = arg4;
     *(f32 *)((s8 *)arg0 + 0xC8) = farg0;
-    *(s32 *)((s8 *)arg0 + 0xCC) = 0xFFFFFF;
+    *(s32 *)&((TPhotonMagicSquare *)arg0)->m_cc = 0xFFFFFF;
     return arg0;
 }
 u8 *construct_photon_magic_square_normal(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
@@ -199,18 +199,18 @@ u8 *construct_photon_magic_square_normal(u8 *arg0, s32 arg1, s32 arg2, s32 arg3,
     *(u8 **)((s8 *)arg0 + 0x90) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x430)) + 0x14));
     *(f32 *)((s8 *)arg0 + 0x9C) = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0x94) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x90)) + 4) - (1.0f));
-    *(f32 *)((s8 *)arg0 + 0x98) = (f32) (0.1f);
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x2C);
-    *(f32 *)((s8 *)arg0 + 0x68) = (f32) (0.0f);
-    *(f32 *)((s8 *)arg0 + 0x6C) = (f32) (0.0f);
+    ((TPhotonMagicSquare *)arg0)->m_98 = (f32) (0.1f);
+    ((TPhotonMagicSquare *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x2C);
+    ((TPhotonMagicSquare *)arg0)->scale = (f32) (0.0f);
+    ((TPhotonMagicSquare *)arg0)->target_scale = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0x70) = (f32) (0.0f);
     copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xA0), (void *) ((u8 *)&(*(RecoveredGlobal_801AD218_TPhotonMagicSquare__data_804C3940 *)&TPhotonMagicSquare__color_palette).value + (arg2 * 0x10)));
     VecCopy((Vec *)(arg0 + 0xB8), (const Vec *)(arg3));
-    *(s32 *)((s8 *)arg0 + 0xB0) = 0;
-    *(s32 *)((s8 *)arg0 + 0xB4) = 0;
-    *(s32 *)((s8 *)arg0 + 0xC4) = arg4;
+    *(s32 *)&((TPhotonMagicSquare *)arg0)->m_b0 = 0;
+    *(s32 *)&((TPhotonMagicSquare *)arg0)->m_b4 = 0;
+    *(s32 *)&((TPhotonMagicSquare *)arg0)->m_c4 = arg4;
     *(f32 *)((s8 *)arg0 + 0xC8) = (f32) (0.04f);
-    *(s32 *)((s8 *)arg0 + 0xCC) = 0xFFFFFF;
+    *(s32 *)&((TPhotonMagicSquare *)arg0)->m_cc = 0xFFFFFF;
     return arg0;
 }
 u8 *TPhotonMagicSquare::construct_at_owner(s32 arg1, s32 arg2, s32 arg3) {

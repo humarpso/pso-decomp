@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TForceOperate.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TMainCursor.h"
 #include "pso/player/TObjPlayer.h"
@@ -155,7 +156,7 @@ void *TForceOperate__ct(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TForceOperate;
     fn_8013E020(self->f_1C);
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D3560;
+    *(void * *)&((TForceOperate *)arg0)->m_name = lbl_805D3560;
     set_field_0__13TForceOperateFs(self->f_1C, arg2);
     return arg0;
 }

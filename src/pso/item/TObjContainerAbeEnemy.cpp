@@ -97,8 +97,8 @@ u8 *TObjContainerAbeEnemy__ct(u8 *arg0, s32 arg1) {
     init_container_base(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801889B8___vt__21TObjContainerAbeEnemy *)&__vt__21TObjContainerAbeEnemy).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjContainerAbeEnemy__name;
-    *(s16 *)((s8 *)arg0 + 0x326) = 0;
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x60000000);
+    ((TObjContainerAbeEnemy *)arg0)->mode = 0;
+    *(s32 *)&((TObjContainerAbeEnemy *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjContainerAbeEnemy *)arg0)->actorFlags| 0x60000000);
     init_collision_body_parts(arg0, (s32) &forest_box_collision_body_parts.value, 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38));

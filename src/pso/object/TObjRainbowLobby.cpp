@@ -133,13 +133,13 @@ void *TObjRainbowLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D435C;
     ((TObjRainbowLobby803508_80350858 *)arg0)->ct(arg2);
     if (is_lobby_event_active() != 0) {
-        *(s32 *)((s8 *)arg0 + 0xC8) = 0;
+        *(s32 *)&((TObjRainbowLobby *)arg0)->m_c8 = 0;
     } else {
-        *(s32 *)((s8 *)arg0 + 0xC8) = 3;
+        *(s32 *)&((TObjRainbowLobby *)arg0)->m_c8 = 3;
     }
     *(f32 *)((s8 *)arg0 + 0xCC) = 1.0f;
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)((void *)TObjRainbowLobby__shared_model_resource) + 0x42C)) + 8);
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)((void *)TObjRainbowLobby__shared_model_resource) + 0x42C)) + 0xC);
+    ((TObjRainbowLobby *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)((void *)TObjRainbowLobby__shared_model_resource) + 0x42C)) + 0xC);
     return arg0;
 }
 

@@ -137,8 +137,8 @@ void run_task__12TOSwitchItemFv(u8 *arg0) {
     var_r29 = 0;
     while (var_r29 != temp_r31) {
         temp_r27 = (u8 *)(get_sorted_item_registry_entry(var_r29));
-        if ((TObjPlayer__sub_80102C30(temp_r27) == 0) && (horizontal_distance_squared(&((Obj_80177E24 *)temp_r27)->pos, &((Obj_80177E24 *)arg0)->pos) < *(f32 *)((s8 *)arg0 + 0xE8))) {
-            temp_r0 = *(u32 *)((s8 *)arg0 + 0xF0);
+        if ((TObjPlayer__sub_80102C30(temp_r27) == 0) && (horizontal_distance_squared(&((Obj_80177E24 *)temp_r27)->pos, &((Obj_80177E24 *)arg0)->pos) < ((TOSwitchItem *)arg0)->m_e8)) {
+            temp_r0 = *(u32 *)&((TOSwitchItem *)arg0)->m_f0;
             switch (temp_r0) {
             case 0:
                 var_r30 += 1;

@@ -185,13 +185,13 @@ void *TObjTreeLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjTreeLobby__class_name;
     ((TObjTreeLobby80364A_80364A74 *)arg0)->ct(arg2);
     if (is_lobby_event_active() != 0) {
-        *(s32 *)((s8 *)arg0 + 0xC8) = 0;
+        *(s32 *)&((TObjTreeLobby *)arg0)->m_c8 = 0;
     } else {
-        *(s32 *)((s8 *)arg0 + 0xC8) = 3;
+        *(s32 *)&((TObjTreeLobby *)arg0)->m_c8 = 3;
     }
     *(f32 *)((s8 *)arg0 + 0xCC) = 1.0f;
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)((void *)TObjTreeLobby__instance) + 0x42C)) + 8);
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) tree_lobby_type;
+    ((TObjTreeLobby *)arg0)->texture_id = (s32) tree_lobby_type;
     return arg0;
 }
 void TUnk_804F2B60::run_task() {

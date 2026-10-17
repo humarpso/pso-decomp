@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CCD0C.h"
 #include "pso/system/vector.h"
 
 #include "pso/effect/TechniqueChargeEmitter.h"
@@ -60,7 +61,7 @@ u8 *init_from_owner__10TTecSlicerFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CCD0C;
     *(s32 *)((s8 *)arg0 + 0x1C) = arg1;
     VecCopy((Vec *)(arg0 + 0x20), (const Vec *)(*(s32 *)((s8 *)arg0 + 0x1C) + 0x2FC));
-    *(s32 *)((s8 *)arg0 + 0x2C) = 0;
+    ((TUnk_804CCD0C *)arg0)->m_2c = 0;
     *(s32 *)((s8 *)arg0 + 0x30) = play_sound_effect((int) (0x4002B51E), (void *) (arg0 + 0x20), (int) (0), (int) (0));
     return arg0;
 }

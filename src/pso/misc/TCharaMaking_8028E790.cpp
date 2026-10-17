@@ -118,7 +118,7 @@ u8 *TCharaMaking__ct(u8 *arg0, s32 arg1) {
     }
     creation_main_menu_obj = create__14TObjCMMainMenuFv((void *) (arg0));
     *(s32 *)((s8 *)arg0 + 0x1C) = 0x1555;
-    *(s32 *)((s8 *)arg0 + 0x20) = 0x9000;
+    *(s32 *)&((TCharaMaking *)arg0)->m_20 = 0x9000;
     ((TCharaMaking *)arg0)->update_light_direction();
     return arg0;
 }

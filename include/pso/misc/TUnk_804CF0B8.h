@@ -25,9 +25,20 @@ public:
     u16 m_20;
     u8 unk_22[0xA];
     u32 m_2c;
-    u8 unk_30[0x41];
+    u8 unk_30[0x18];
+    f32 m_48;
+    u8 unk_4C[0x24];
+    s8 m_70;
     u8 m_71;
-    u8 unk_72[0x26];
+    u8 unk_72[0x1];
+    s8 m_73;
+    u8 unk_74[0x2];
+    s16 m_76;
+    u8 unk_78[0x4];
+    f32 m_7c;
+    u8 unk_80[0x4];
+    s32 m_84;
+    u8 unk_88[0x10];
 };
 typedef char TUnk_804CF0B8_size[sizeof(TUnk_804CF0B8) == 0x98 ? 1 : -1];
 

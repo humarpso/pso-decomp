@@ -12,7 +12,9 @@ struct TOMonumentAncient02 : public TUnk_804AFBF8 {
     u32 m_d0;
     u32 m_d4;
     void* m_d8;
-    u8 _padDC[0xC];
+    u8 unk_DC[0x4];
+    f32 m_e0;
+    u8 unk_E4[0x4];
     u32 m_e8;
     u32 m_ec;
     virtual void run_task();

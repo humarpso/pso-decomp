@@ -218,9 +218,9 @@ void TWindowSubTechnique::run_task() {
 void *__dt__19TWindowSubTechniqueFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowSubTechnique;
-        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x3C)); *(s32 *)((s8 *)arg0 + 0x3C) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x38) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x38)); *(s32 *)((s8 *)arg0 + 0x38) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x34) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x34)); *(s32 *)((s8 *)arg0 + 0x34) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x3C)); *(s32 *)&((TWindowSubTechnique *)arg0)->m_3c = 0; }
+        if (*(void **)((s8 *)arg0 + 0x38) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x38)); *(s32 *)&((TWindowSubTechnique *)arg0)->m_38 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x34) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x34)); *(s32 *)&((TWindowSubTechnique *)arg0)->m_34 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -235,14 +235,14 @@ void *TWindowSubTechnique__ct(void *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowSubTechnique;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubTechnique__name;
-    *(s32 *)((s8 *)arg0 + 0x30) = arg1;
-    *(s32 *)((s8 *)arg0 + 0x28) = arg2;
-    *(s32 *)((s8 *)arg0 + 0x34) = ((TWindowSubTechnique *)arg0)->open_menu();
-    *(s32 *)((s8 *)arg0 + 0x38) = 0;
-    *(s32 *)((s8 *)arg0 + 0x3C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x2C) = -1;
-    *(s16 *)((s8 *)arg0 + 0x1E) = 0x13;
-    *(s8 *)((s8 *)arg0 + 0x1C) = 0;
+    *(s32 *)&((TWindowSubTechnique *)arg0)->m_30 = arg1;
+    ((TWindowSubTechnique *)arg0)->playerIndex = arg2;
+    *(s32 *)&((TWindowSubTechnique *)arg0)->m_34 = ((TWindowSubTechnique *)arg0)->open_menu();
+    *(s32 *)&((TWindowSubTechnique *)arg0)->m_38 = 0;
+    *(s32 *)&((TWindowSubTechnique *)arg0)->m_3c = 0;
+    *(s32 *)&((TWindowSubTechnique *)arg0)->m_2c = -1;
+    *(s16 *)&((TWindowSubTechnique *)arg0)->m_1e = 0x13;
+    *(s8 *)&((TWindowSubTechnique *)arg0)->m_1c = 0;
     return arg0;
 }
 

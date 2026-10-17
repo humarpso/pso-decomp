@@ -9,7 +9,9 @@ struct TWindowLoadItemTexture : public TUnk_804CE018 {
     virtual void render();
     u8 _pad1C[0x8];
     void* m_24;
-    u8 _pad28[0x38];
+    u8 unk_28[0x10];
+    f32 m_38;
+    u8 unk_3C[0x24];
     u8 m_60;
     u8 m_61;
     u8 _pad62[0x2];

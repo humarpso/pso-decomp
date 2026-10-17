@@ -252,7 +252,7 @@ void render__12TObjEneReconFPv(u8 *arg0) {
                 lbl_805D5660 = model_render_flags;
                 lbl_805D5664 = chunk_polygon_flags_and_mask;
                 lbl_805D5668 = chunk_polygon_flags_or_mask;
-                if ((s16) *(s16 *)((s8 *)arg0 + 0x326) == 1) {
+                if ((s16) ((TObjEneRecobox *)arg0)->mode == 1) {
                     if (((Fade_8031EA70 *)(arg0 + 0x3C0))->m8() != 0) {
                         if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) != 0) {
                             model_render_flags = lbl_805D5660;
@@ -285,11 +285,11 @@ block_18:
                 }
 block_23:
                 ((TObjEneDD *)arg0)->update_secondary_light();
-                TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+                TObjFish::set_global_param((int) (((TObjEneRecobox *)arg0)->texture_id));
                 push_matrix();
                 post_translate_matrix((void *) (arg0 + 0x38));
-                rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-                temp_r0 = *(s32 *)((s8 *)arg0 + 0x3DC);
+                rotate_matrix_y((int) (0), (int) (((TObjEneRecobox *)arg0)->rotation_y));
+                temp_r0 = *(s32 *)&((TObjEneRecobox *)arg0)->m_3f8;
                 switch (temp_r0) {
                 case 1:
                     rotate_matrix_x((int) (0), (int) (0x8000));

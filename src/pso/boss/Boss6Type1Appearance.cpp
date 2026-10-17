@@ -103,10 +103,10 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
         *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805DFA4C;
     }
     ((TBoss6PlotFalz *)(arg0 + 0x40))->scroll_strips_uv((int) (8), (int) (0));
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x38) == 0x78) {
+    if ((s32) ((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38 == 0x78) {
         play_sound_effect((int) (0x4003A105), (int) (0), (int) (0), (int) (0));
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x38);
+    temp_r0 = ((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38;
     switch (temp_r0) {
     case 0x1B8:
     case 0xFA:
@@ -116,7 +116,7 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
         play_sound_effect((int) (0x40031222), (int) (0), (int) (0), (int) (0));
         break;
     }
-    temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x38);
+    temp_r0_2 = ((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38;
     switch (temp_r0_2) {
     case 0x14:
     case 0xC6:
@@ -126,7 +126,7 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
         TBoss3Volopt::queue_event_1D((int) (0xC0), (int) (0xF));
         break;
     }
-    temp_r0_3 = *(s32 *)((s8 *)arg0 + 0x38);
+    temp_r0_3 = ((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38;
     temp_r30 = arg0 + 0x54;
     switch (temp_r0_3) {
     case 0x1:
@@ -160,8 +160,8 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
         ((TNowLoading *)(*(u32 *)((s8 *)arg0 + 0x64)))->copy_pos((void*)temp_r30);
     }
-    *(s32 *)((s8 *)arg0 + 0x38) = (s32) (*(s32 *)((s8 *)arg0 + 0x38) + 1);
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x38) >= 0x1F4) || (((TObjFish *)(*(s32 *)((s8 *)arg0 + 0x3C)))->get_phase() != 1)) {
+    ((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38 = (s32) (((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38+ 1);
+    if (((s32) ((TBoss6Demo10_TYPE1_APPEAR *)arg0)->m_38 >= 0x1F4) || (((TObjFish *)(*(s32 *)((s8 *)arg0 + 0x3C)))->get_phase() != 1)) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }
@@ -172,9 +172,9 @@ TBoss6Demo10_TYPE1_APPEAR::~TBoss6Demo10_TYPE1_APPEAR() {
     restore_player_cameras();
     refresh_players_equipment__14TBoss6PlotFalzFPv();
     ((TBoss6PlotFalz *)(((u8 *)this) + 0x40))->free_buffer_pairs();
-    if ((u32) *(u32 *)((s8 *)this + 0x60) != 0U) {
+    if ((u32) *(u32 *)&this->m_60 != 0U) {
         TObjFish::init_state_1(*(void **)((s8 *)this + 0x60));
-        *(u32 *)((s8 *)this + 0x60) = 0U;
+        *(u32 *)&this->m_60 = 0U;
     }
     if ((u32) *(u32 *)((s8 *)this + 0x64) != 0U) {
         TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)this + 0x64)));

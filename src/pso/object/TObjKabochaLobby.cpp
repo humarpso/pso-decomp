@@ -161,13 +161,13 @@ void *TObjKabochaLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4384;
     ((TObjKabochaLobby803537_803536DC *)arg0)->ct(arg2);
     if (TLobby::get_filtered_event_theme() == 5) {
-        *(s32 *)((s8 *)arg0 + 0xC8) = 3;
+        *(s32 *)&((TObjKabochaLobby *)arg0)->m_c8 = 3;
     } else {
-        *(s32 *)((s8 *)arg0 + 0xC8) = 0;
+        *(s32 *)&((TObjKabochaLobby *)arg0)->m_c8 = 0;
     }
     *(f32 *)((s8 *)arg0 + 0xCC) = 1.0f;
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)((void *)TObjKabochaLobby__model_resource) + 0x42C)) + 8);
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) TObjKabochaLobby__lobby_type;
+    ((TObjKabochaLobby *)arg0)->texture_id = (s32) TObjKabochaLobby__lobby_type;
     return arg0;
 }
 

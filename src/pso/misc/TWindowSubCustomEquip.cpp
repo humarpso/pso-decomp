@@ -282,7 +282,7 @@ void render__21TWindowSubCustomEquipFv(u8 *arg0) {
     draw_window_frame((void *) (arg0), (int) (temp_r3));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
     ((TWindowSubCustomEquip *)arg0)->draw_cursor((u8 *)temp_r3);
-    forward_render__20TWindowSubStatusDispFv((int) (*(s32 *)((s8 *)arg0 + 0x6C)), (int) (temp_r3));
+    forward_render__20TWindowSubStatusDispFv((int) (*(s32 *)&((TWindowSubCustomEquip *)arg0)->m_6c), (int) (temp_r3));
 }
 
 typedef char RecoveredGlobal_80277014_lbl_8050E208_size[sizeof(RecoveredGlobal_80277014_lbl_8050E208) == 0x1B0 ? 1 : -1];

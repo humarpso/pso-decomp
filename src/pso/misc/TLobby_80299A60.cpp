@@ -327,7 +327,7 @@ void giveup_window_handle_select(void *arg0) {
         *(s32 *)((s8 *)arg0 + 0x1C) = 4;
         return;
     default:
-        if (((s32) *(s32 *)((s8 *)arg0 + 0x20) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x24) == 0)) {
+        if (((s32) ((TObjChallenge4PRetry *)arg0)->m_20 != 0) && ((s32) ((TObjChallenge4PRetry *)arg0)->m_24 == 0)) {
             ((s32 (*)(void *))send_giveup_to_all_players__6TLobbyFv)(arg0);
             close_giveup_window__6TLobbyFPv(arg0);
             ((TLobby *)arg0)->close_window_field30();

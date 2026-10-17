@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowDD_WS_String.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/misc/TWindowHelpItem.h"
@@ -82,7 +83,7 @@ u8 *TWindowDD__sub_8034138C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     if ((temp_r0 == 1) || (temp_r0 == 3)) {
         *(s32 *)((s8 *)temp_r3 + 0x24) = (s32) lbl_805DFC18;
     }
-    *(s32 *)((s8 *)arg0 + 0x5C) = 0x01000000;
+    ((TWindowDD_WS_String *)arg0)->m_5c = 0x01000000;
     return arg0;
 }
 typedef char RecoveredGlobal_803414DC_lbl_804EFC00_size[sizeof(RecoveredGlobal_803414DC_lbl_804EFC00) == 0x24 ? 1 : -1];

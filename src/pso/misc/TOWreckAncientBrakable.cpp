@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOWreckAncientBrakable.h"
 
 extern "C" {
 
@@ -26,9 +27,9 @@ extern void *TOWreckAncientBrakable__name;
 void *TOWreckAncientBrakable__ct(void *arg0) {
     TOWreckAncient__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TOWreckAncientBrakable;
-    *(void **)((s8 *)arg0 + 0x0) = TOWreckAncientBrakable__name;
-    *(u32 *)((s8 *)arg0 + 0xB4) = 0;
-    *(u32 *)((s8 *)arg0 + 0xB8) = -1;
+    *(void * *)&((TOWreckAncientBrakable *)arg0)->m_name = TOWreckAncientBrakable__name;
+    ((TOWreckAncientBrakable *)arg0)->m_b4 = 0;
+    ((TOWreckAncientBrakable *)arg0)->m_b8 = -1;
     return arg0;
 }
 

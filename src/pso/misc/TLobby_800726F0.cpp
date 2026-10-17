@@ -435,8 +435,8 @@ void *TObjChallengeRetry__ct(void *arg0, void *parent) {
     __ct__7TObjectFP7TObject(arg0, parent);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjChallengeRetry;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjChallengeRetry__class_name;
-    *(s32 *)((s8 *)arg0 + 0x20) = ((s32 (*)(void *))is_challenge_lobby__6TLobbyFv)(arg0);
-    *(s32 *)((s8 *)arg0 + 0x24) = 0;
+    ((TObjChallengeRetry *)arg0)->m_20 = ((s32 (*)(void *))is_challenge_lobby__6TLobbyFv)(arg0);
+    ((TObjChallengeRetry *)arg0)->m_24 = 0;
     *(s32 *)((s8 *)arg0 + 0x2C) = 0;
     *(s32 *)((s8 *)arg0 + 0x30) = 0;
     *(s32 *)((s8 *)arg0 + 0x1C) = 0;

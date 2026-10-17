@@ -219,16 +219,16 @@ void launch_rappys_fan_slicer__10TObjPlayerFPv(u8 *weapon) {
     SlicerLaunchData_8012D9C8 launch;
     u8 *t;
     init_slicer_launch_state(&launch);
-    launch.player = obj_getField1c(*(u8 **)((s8 *)weapon + 0xF0));
+    launch.player = obj_getField1c(*(u8 * *)&((TUnk_804F0908 *)weapon)->player);
     launch.weapon = ((TItem *)weapon)->get_field_d8();
     launch.textures = *(void **)((s8 *)weapon + 0x24);
     launch.model = *(void **)((s8 *)weapon + 0x188);
-    launch.kind = TObjPlayer__sub_801D2F4C(*(u8 **)((s8 *)weapon + 0xF0) + 0x7CC);
-    launch.stage = get_validated_attack_stage(*(u8 **)((s8 *)weapon + 0xF0) + 0x7CC);
-    launch.multiplier = query_extended_state__10TObjPlayerFv(*(u8 **)((s8 *)weapon + 0xF0));
+    launch.kind = TObjPlayer__sub_801D2F4C(*(u8 * *)&((TUnk_804F0908 *)weapon)->player+ 0x7CC);
+    launch.stage = get_validated_attack_stage(*(u8 * *)&((TUnk_804F0908 *)weapon)->player+ 0x7CC);
+    launch.multiplier = query_extended_state__10TObjPlayerFv(*(u8 * *)&((TUnk_804F0908 *)weapon)->player);
     get_weapon_color__11TItemWeaponFPv(tmp, weapon);
     copy_vec4__13TRaderMapCoreFPvPv(launch.color, tmp);
-    launch.facing = *(s32 *)((s8 *)(*(u8 **)((s8 *)weapon + 0xF0)) + 0x60);
+    launch.facing = *(s32 *)((s8 *)(*(u8 * *)&((TUnk_804F0908 *)weapon)->player) + 0x60);
     launch.spin = 0;
     ((TObjPlayer *)weapon)->draw_icon((s32)3, (s32)launch.first);
     ((TObjPlayer *)weapon)->draw_icon((s32)2, (s32)launch.second);
@@ -354,7 +354,7 @@ u8 *construct_gi_gue_bazooka(u8 *arg0, u8 *arg1, s32 _w2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8034F754_lbl_804F0A00 *)&lbl_804F0A00).value;
     set_status_flags__10TObjPlayerFUl((void *)(arg0), (int)(0x8000));
     *(s32 *)((s8 *)arg0 + 0x1F8) = -0x1C71;
-    *(s32 *)((s8 *)arg0 + 0x1FC) = -0x1555;
+    ((TUnk_804F0A00 *)arg0)->m_1fc = -0x1555;
     *(s32 *)((s8 *)arg0 + 0x200) = 0x238E;
     return arg0;
 }

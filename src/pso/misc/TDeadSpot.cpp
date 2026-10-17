@@ -166,18 +166,18 @@ void *__dt__13TUnk_804949D8Fv(void *arg0, s16 arg1) {
 void *init__9TDeadSpotFPv(void *arg0, u8 * _w1, u8 * _w2, s32 _w3, f32 _w4) {
     construct_fire_base__9TDeadSpotFPvPvPvif((u8 *)(arg0), (u8 *)(_w1), (u8 *)(_w2), (s32)(_w3), _w4);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804949D8;
-    *(u32 *)((s8 *)arg0 + 0x30) = 8;
+    ((TUnk_804949D8 *)arg0)->m_30 = 8;
     return arg0;
 }
 
 void update_lifetime__9TDeadSpotFPv(void *arg0) {
-    u32 tmp34 = *(u32 *)((s8 *)arg0 + 0x34);
+    u32 tmp34 = *(u32 *)&((TUnk_804949F4 *)arg0)->m_34;
     if ((tmp34 == 0U) || (((TObject *)tmp34)->all_parents_unqueued_for_destruction() == 0)) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
     *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (*(s32 *)((s8 *)arg0 + 0x2C) + 1);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x2C) >= (s32) *(s32 *)((s8 *)arg0 + 0x30)) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x2C) >= (s32) *(s32 *)&((TUnk_804949F4 *)arg0)->m_30) {
         *(s32 *)((s8 *)arg0 + 0x2C) = 0;
         ((TUnk_804949F4 *)arg0)->vfunc_6();
     }
@@ -216,10 +216,10 @@ u8 *construct_fire_base__9TDeadSpotFPvPvPvif(u8 *arg0, u8 *arg1, u8 *arg2, s32 a
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800D7F60_lbl_804949F4 *)&lbl_804949F4).value;
     VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)arg2);
-    *(f32 *)((s8 *)arg0 + 0x28) = farg0;
+    ((TUnk_804949F4 *)arg0)->m_28 = farg0;
     *(s32 *)((s8 *)arg0 + 0x2C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x30) = 2;
-    *(s32 *)((s8 *)arg0 + 0x34) = arg3;
+    *(s32 *)&((TUnk_804949F4 *)arg0)->m_30 = 2;
+    ((TUnk_804949F4 *)arg0)->m_34 = arg3;
     return arg0;
 }
 #pragma pop

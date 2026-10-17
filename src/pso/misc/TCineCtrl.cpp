@@ -180,9 +180,9 @@ u8 *__dt__9TCineCtrlFv(u8 *arg0, s16 arg1) {
 void *TCineCtrl__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0, tl_fade);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TCineCtrl;
-    *(void **)((s8 *)arg0 + 0x0) = TCineCtrl__class_name;
+    *(void * *)&((TCineCtrl *)arg0)->m_name = TCineCtrl__class_name;
     *(f32 *)((s8 *)arg0 + 0x1C) = TCineCtrl__data_805D91D0;
-    *(f32 *)((s8 *)arg0 + 0x20) = TCineCtrl__data_805D91D0;
+    ((TCineCtrl *)arg0)->m_20 = TCineCtrl__data_805D91D0;
     *(u32 *)((s8 *)arg0 + 0x24) = 0;
     *(u32 *)((s8 *)arg0 + 0x28) = 0;
     TCineCtrl__instance = arg0;

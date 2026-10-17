@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcNFW01.h"
 #include "pso/npc/TUnk_804A8640.h"
 #include "pso/npc/TObjNpcBase.h"
 #include "pso/npc/TObjNpcFemaleBase.h"
@@ -128,7 +129,7 @@ u8 *TObjNpcNFW01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *TObjNpcNFW01__shared_object_resource;
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) TObjNpcNFW01__texture_gvm;
+    ((TObjNpcNFW01 *)arg0)->texture_id = (s32) TObjNpcNFW01__texture_gvm;
     ((TObjNpcBase *)arg0)->setup_common();
     return arg0;
 }

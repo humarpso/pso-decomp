@@ -10,7 +10,10 @@ public:
     virtual void emit_marker_effects();
     virtual void update_weapon();
     virtual void reserved_53();
-    u8 unk_1F8[0x10];
+    u8 unk_1F8[0x4];
+    float m_1fc;
+    u8 unk_200[0x4];
+    float m_204;
 };
 
 #endif

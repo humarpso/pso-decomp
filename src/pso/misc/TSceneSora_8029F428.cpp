@@ -182,11 +182,11 @@ void *create_instance__10TSceneSoraFPv(void *arg0) {
     }
     *(void **)((s8 *)arg0 + 0x20) = obj;
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805DDD8C;
-    *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805DDD8C;
+    ((TUnk_804DC7C4 *)arg0)->m_28 = (f32) lbl_805DDD8C;
     *(f32 *)((s8 *)arg0 + 0x2C) = (f32) lbl_805DDD8C;
-    *(f32 *)((s8 *)arg0 + 0x30) = (f32) lbl_805DDD8C;
+    ((TUnk_804DC7C4 *)arg0)->m_30 = (f32) lbl_805DDD8C;
     *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805DDD90;
-    *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805DDD8C;
+    ((TUnk_804DC7C4 *)arg0)->m_38 = (f32) lbl_805DDD8C;
     return arg0;
 }
 s32 TSceneSora::get_state() { return *(s32*)((char*)this + 0x20); }

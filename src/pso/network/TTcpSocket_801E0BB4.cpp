@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TTcpSocket.h"
 
 extern "C" {
 
@@ -14,7 +15,7 @@ void *__ct__10TTcpSocketFP7TObject(void *arg0) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TTcpSocket;
     __ct__18PSOV3EncryptionTCPFv((void *)((char *)arg0 + 2180));
     __ct__18PSOV3EncryptionTCPFv((void *)((char *)arg0 + 4284));
-    *(void **)((s8 *)arg0 + 0x0) = TTcpSocket__class_name;
+    *(void * *)&((TTcpSocket *)arg0)->m_name = TTcpSocket__class_name;
     return arg0;
 }
 

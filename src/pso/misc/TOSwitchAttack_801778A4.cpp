@@ -221,8 +221,8 @@ u8 *TOSwitchAttack__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3178;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     ((TOSwitchAttack *)arg0)->init_params();
-    *(s8 *)((s8 *)arg0 + 0xA6) = 0;
-    *(s32 *)((s8 *)arg0 + 0xA8) = 0;
+    *(s8 *)&((TOSwitchAttack *)arg0)->m_a6 = 0;
+    *(s32 *)&((TOSwitchAttack *)arg0)->m_a8 = 0;
     return arg0;
 }
 void TOSwitchItem::send_switch_on() {

@@ -10,7 +10,15 @@ public:
     virtual ~TChCrLoadReq();
     void sub_8028CEEC(s32 *);
 public:
-    u8 unk_1C[0x44];
+    u8 unk_1C[0x1C];
+    s32 m_38;
+    u8 unk_3C[0x4];
+    s32 m_40;
+    u8 unk_44[0x4];
+    s32 m_48;
+    u8 unk_4C[0x4];
+    s32 m_50;
+    u8 unk_54[0xC];
     s32 state;
     s32 timer;
     s32 calc_preview_last_index(s32 display_index, s32 region_index);

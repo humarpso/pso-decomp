@@ -110,20 +110,20 @@ u8 *TAdRicoRingCtrl__ct(u8 *arg0, s32 arg1) {
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__15TAdRicoRingCtrl.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TAdRicoRingCtrl__class_name;
-    *(u32 *)((s8 *)arg0 + 0x1C) = create__15TAdRicoRingCtrlFPv((int) (tl_04));
-    temp_r3 = *(u32 *)((s8 *)arg0 + 0x1C);
+    ((TAdRicoRingCtrl *)arg0)->m_1c = create__15TAdRicoRingCtrlFPv((int) (tl_04));
+    temp_r3 = ((TAdRicoRingCtrl *)arg0)->m_1c;
     if (temp_r3 != 0U) {
         TAdRicoRingCtrl__sub_8001BED0((int) (temp_r3), (f32) (lbl_805D7E4C));
-        ((TAdRicoRingCtrl *)(*(u32 *)((s8 *)arg0 + 0x1C)))->set_scale4((f32) (lbl_805D7E4C));
+        ((TAdRicoRingCtrl *)(((TAdRicoRingCtrl *)arg0)->m_1c))->set_scale4((f32) (lbl_805D7E4C));
     }
-    *(u32 *)((s8 *)arg0 + 0x20) = create__15TAdRicoRingCtrlFPv((int) (tl_04));
-    temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x20);
+    ((TAdRicoRingCtrl *)arg0)->m_20 = create__15TAdRicoRingCtrlFPv((int) (tl_04));
+    temp_r3_2 = ((TAdRicoRingCtrl *)arg0)->m_20;
     if (temp_r3_2 != 0U) {
         TAdRicoRingCtrl__sub_8001BED0((int) (temp_r3_2), (f32) (lbl_805D7E4C));
-        ((TAdRicoRingCtrl *)(*(u32 *)((s8 *)arg0 + 0x20)))->set_scale4((f32) (lbl_805D7E4C));
+        ((TAdRicoRingCtrl *)(((TAdRicoRingCtrl *)arg0)->m_20))->set_scale4((f32) (lbl_805D7E4C));
     }
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) TAdRicoRingCtrl__data_805D7E50;
-    *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805D7E4C;
+    ((TAdRicoRingCtrl *)arg0)->m_28 = (f32) lbl_805D7E4C;
     stack.sp8 = *(s32 *)((s8 *)(&lbl_8043481C.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_8043481C.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_8043481C.value) + 8);

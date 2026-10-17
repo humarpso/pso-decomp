@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjQuestCol2.h"
 #include "pso/player/TObjPlayerSet.h"
 #include "pso/TObject.h"
 #include "pso/TParticleCtrl.h"
@@ -70,11 +71,11 @@ u8 *TObjPlayerSet__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80195720___vt__13TObjPlayerSet *)&__vt__13TObjPlayerSet).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjPlayer__player_set_class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    if (*(f32 *)((s8 *)arg0 + 0x68) < lbl_805DBEF0) {
-        *(f32 *)((s8 *)arg0 + 0x68) = (f32) lbl_805DBEF0;
+    if (((TObjPlayerSet *)arg0)->scale< lbl_805DBEF0) {
+        ((TObjPlayerSet *)arg0)->scale = (f32) lbl_805DBEF0;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x84) < 0) {
-        *(s32 *)((s8 *)arg0 + 0x84) = 0;
+    if ((s32) ((TObjPlayerSet *)arg0)->m_84< 0) {
+        ((TObjPlayerSet *)arg0)->m_84 = 0;
     }
     disallow_rendering__7TObjectFv(arg0);
     return arg0;
@@ -98,7 +99,7 @@ u8 *TObjQuestCol2__vt14(u8 *arg0) {
         temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x194))));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(__ct__12TQuestThreadFv(temp_r3, (s32) *(u32 *)((s8 *)arg0 + 0xBC), *(s32 *)((s8 *)arg0 + 0xB0)));
+            var_r0 = (u8 *)(__ct__12TQuestThreadFv(temp_r3, (s32) *(u32 *)((s8 *)arg0 + 0xBC), *(s32 *)&((TObjQuestCol2 *)arg0)->m_b0));
         }
         var_r31 = (u8 *)(var_r0);
         if (var_r0 != NULL) {

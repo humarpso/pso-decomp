@@ -11,7 +11,12 @@ public:
     virtual void render();
     u8 unk_1C[0x4];
     u32 m_20;
-    u8 unk_24[0x18];
+    u8 unk_24[0x4];
+    f32 m_28;
+    u8 unk_2C[0x4];
+    f32 m_30;
+    u8 unk_34[0x4];
+    f32 m_38;
 };
 typedef char TUnk_804DC7C4_size[sizeof(TUnk_804DC7C4) == 0x3C ? 1 : -1];
 

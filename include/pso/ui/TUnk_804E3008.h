@@ -14,7 +14,11 @@ public:
     void * m_108;
     u8 unk_10C[0x4];
     s32 m_110;
-    u8 unk_114[0x5C];
+    u8 unk_114[0x3D];
+    u8 m_151;
+    u8 unk_152[0x2];
+    s32 m_154;
+    u8 unk_158[0x18];
     s32 m_170;
 };
 typedef char TUnk_804E3008_size[sizeof(TUnk_804E3008) == 0x174 ? 1 : -1];

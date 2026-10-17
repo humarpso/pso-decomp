@@ -10,7 +10,9 @@ public:
     virtual s32 is_target_in_attack_range();
     virtual void render();
     virtual void run_task();
-    u8 unk_38C[0xC];
+    u8 unk_38C[0x4];
+    s32 m_390;
+    u8 unk_394[0x4];
     s32 m_398;
     u8 unk_39C[0x2C];
     s32 m_3c8;

@@ -326,7 +326,7 @@ u8 *TTecGiZonde__ct(u8 *arg0, void *arg1, void *arg2, void *arg3, void * _w4) {
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D37C8;
     ((TTecGiZonde *)arg0)->init_parameters();
     copy_technique_target_list(arg0 + 0x130, arg3);
-    switch (*(s16 *)((s8 *)arg0 + 0xC6)) {
+    switch (((TTecGiZonde *)arg0)->band) {
     case 0:
         if ((h = play_sound_effect(0x4002A509, arg0 + 0x20, 0, 0)) >= 0) {
             update_technique_slot__10TTecRaFoieFl(h, 0x100, 0);
@@ -352,8 +352,8 @@ u8 *TTecGiZonde__ct(u8 *arg0, void *arg1, void *arg2, void *arg3, void * _w4) {
         }
         break;
     }
-    if (*(u32 *)((s8 *)arg0 + 0x1C) != 0U) {
-        *(s16 *)((s8 *)arg0 + 0xC8) = obj_getField1c((void *)*(u32 *)((s8 *)arg0 + 0x1C));
+    if (((TTecGiZonde *)arg0)->source != 0U) {
+        *(s16 *)&((TTecGiZonde *)arg0)->sourceId = obj_getField1c((void *)((TTecGiZonde *)arg0)->source);
     }
     return arg0;
 }

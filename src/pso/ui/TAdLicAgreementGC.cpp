@@ -77,9 +77,9 @@ void *TAdLicAgreementGC__ct(void *arg0) {
     void *o;
     TAdAgreementBaseGC__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TAdLicAgreementGC;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D41C0;
-    *(u32 *)((s8 *)arg0 + 0x34) = 0;
-    *(u32 *)((s8 *)arg0 + 0x38) = 0;
+    *(void * *)&((TAdLicAgreementGC *)arg0)->m_name = lbl_805D41C0;
+    ((TAdLicAgreementGC *)arg0)->m_34 = 0;
+    ((TAdLicAgreementGC *)arg0)->m_38 = 0;
     o = __nw__7TObjectFUl(0x54);
     if (o != NULL) {
         o = TAdScrollWinGC__ct(o, arg0, 0, 0);

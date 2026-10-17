@@ -185,7 +185,7 @@ void TOKeyAncient03::render() {
             temp_r4 = model_render_flags;
             lbl_805D5660 = temp_r4;
             model_render_flags = temp_r4 | 0x10;
-            set_chunk_material_color(arg0 + 0xE8);
+            set_chunk_material_color((u8 *)&this->m_e8);
         }
         temp_r31_2 = *(u8 **)((s8 *)temp_r31 + 0x2C);
         push_matrix();
@@ -265,10 +265,10 @@ u8 *TOKeyAncient03__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKeyAncient03__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     ((TOKey *)arg0)->init_switch_id();
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(*(s32 * *)&TOKeyAncient03__texture_variants);
-    *(u8 **)((s8 *)arg0 + 0x34) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOKeyAncient03__model_archive) + 0x42C)) + 8));
-    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB72C;
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34)) + 4)) + 0x14);
+    ((TOKeyAncient03 *)arg0)->texture_id = (s32) *(*(s32 * *)&TOKeyAncient03__texture_variants);
+    *(u8 * *)&((TOKeyAncient03 *)arg0)->model = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOKeyAncient03__model_archive) + 0x42C)) + 8));
+    ((TOKeyAncient03 *)arg0)->m_c0 = (f32) lbl_805DB72C;
+    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&((TOKeyAncient03 *)arg0)->model) + 4)) + 0x14);
     *(f32 *)((s8 *)arg0 + 0xCC) = (f32) lbl_805DB730;
     if (get_main_phase() != 0xF) {
         if (is_split_screen() == 1) {
@@ -276,25 +276,25 @@ u8 *TOKeyAncient03__ct(u8 *arg0, s32 arg1, s32 arg2) {
         }
     } else {
 block_2:
-        if ((s32) *(s32 *)((s8 *)arg0 + 0xD0) != 2) {
+        if ((s32) *(s32 *)&((TOKeyAncient03 *)arg0)->m_d0 != 2) {
             if ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0) {
-                *(s32 *)((s8 *)arg0 + 0xD0) = 1;
+                *(s32 *)&((TOKeyAncient03 *)arg0)->m_d0 = 1;
             } else {
                 goto block_5;
             }
         } else {
 block_5:
-            *(s32 *)((s8 *)arg0 + 0xD0) = 0;
+            *(s32 *)&((TOKeyAncient03 *)arg0)->m_d0 = 0;
         }
     }
-    *(f32 *)((s8 *)arg0 + 0xE8) = (f32) lbl_805DB71C;
-    *(f32 *)((s8 *)arg0 + 0xEC) = (f32) lbl_805DB71C;
+    ((TOKeyAncient03 *)arg0)->m_e8 = (f32) lbl_805DB71C;
+    ((TOKeyAncient03 *)arg0)->m_ec = (f32) lbl_805DB71C;
     *(f32 *)((s8 *)arg0 + 0xF0) = (f32) lbl_805DB71C;
-    *(f32 *)((s8 *)arg0 + 0xF4) = (f32) lbl_805DB71C;
-    *(s32 *)((s8 *)arg0 + 0xF8) = 0;
+    ((TOKeyAncient03 *)arg0)->m_f4 = (f32) lbl_805DB71C;
+    ((TOKeyAncient03 *)arg0)->m_f8 = 0;
     *(f32 *)((s8 *)arg0 + 0x70) = (f32) lbl_805DB720;
-    *(f32 *)((s8 *)arg0 + 0x6C) = (f32) lbl_805DB720;
-    *(f32 *)((s8 *)arg0 + 0x68) = (f32) lbl_805DB720;
+    ((TOKeyAncient03 *)arg0)->target_scale = (f32) lbl_805DB720;
+    ((TOKeyAncient03 *)arg0)->scale = (f32) lbl_805DB720;
     return arg0;
 }
 

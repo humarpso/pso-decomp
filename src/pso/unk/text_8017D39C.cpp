@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOWreckAncientBrakable05.h"
 #include "pso/player/TObjPlayer.h"
 
 struct VBase_18_1a504b { char pad[0x18]; };
@@ -39,10 +40,10 @@ u8 *TOWreckAncientBrakable05__ct(u8 *arg0, s32 arg1) {
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
     init_collision_body_parts((void *) (arg0), (void *) ((u8 *)&TOWreckAncient__collision_body_templates.value + 0x84), (int) (1));
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    *(s32 *)((s8 *)arg0 + 0xB8) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xB8);
+    *(s32 *)&((TOWreckAncientBrakable05 *)arg0)->m_b8 = (s32) ((TOWreckAncientBrakable05 *)arg0)->m_84;
+    temp_r0 = *(s32 *)&((TOWreckAncientBrakable05 *)arg0)->m_b8;
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
-        *(s32 *)((s8 *)arg0 + 0xB8) = -1;
+        *(s32 *)&((TOWreckAncientBrakable05 *)arg0)->m_b8 = -1;
     }
     return arg0;
 }

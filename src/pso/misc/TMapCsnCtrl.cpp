@@ -18,7 +18,7 @@ TMapCsnCtrl::~TMapCsnCtrl() {}
 void *TMapCsnCtrl__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TMapCsnCtrl;
-    *(void **)((s8 *)arg0 + 0x0) = TMapCsnCtrl__class_name;
+    *(void * *)&((TMapCsnCtrl *)arg0)->m_name = TMapCsnCtrl__class_name;
     ((TMapCsnCtrl *)arg0)->sub_80140F44();
     return arg0;
 }

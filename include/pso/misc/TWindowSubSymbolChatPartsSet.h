@@ -29,7 +29,9 @@ struct TWindowSubSymbolChatPartsSet : public TWindowChatSymbol {
     void toggle_selected_part();
     void handle_cursor_input();
     virtual void run_task();
-    u8 unk_8C[0xC];
+    u8 unk_8C[0x4];
+    f32 m_90;
+    u8 unk_94[0x4];
     static int get_parts_entry(int a0);
     void set_pos(s16 arg1, s16 arg2);
     static void set_part_sprite(void *arg0, s16 id, s32 a, s32 b);

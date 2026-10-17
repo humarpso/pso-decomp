@@ -15,7 +15,9 @@ struct TOKeyGenericSw : public TOKey {
     static void *create(void *arg0);
     static void free_shared_resources();
     static void load_resources();
-    u8 unk_E0[0xC];
+    u8 unk_E0[0x8];
+    u8 m_e8;
+    u8 unk_E9[0x3];
     s32 m_ec;
     u8 unk_F0[0x4];
     s32 m_f4;

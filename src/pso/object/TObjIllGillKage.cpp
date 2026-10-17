@@ -78,11 +78,11 @@ u8 *TObjIllGillKage__ct(u8 *arg0, s32 arg1, u32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D44AC;
     if (arg2 != 0U) {
         VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2 + 0x38));
-        *(u16 *)((s8 *)arg0 + 0x98) = obj_getField1c((void *) (arg2));
-        *(s32 *)((s8 *)arg0 + 0x94) = 0xB4;
-        *(s32 *)((s8 *)arg0 + 0x90) = 0;
+        ((TObjIllGillKage *)arg0)->m_98 = obj_getField1c((void *) (arg2));
+        *(s32 *)&((TObjIllGillKage *)arg0)->m_94 = 0xB4;
+        *(s32 *)&((TObjIllGillKage *)arg0)->m_90 = 0;
     } else {
-        *(u16 *)((s8 *)arg0 + 0x98) = 0xFFFFU;
+        ((TObjIllGillKage *)arg0)->m_98 = 0xFFFFU;
         queue_destruction__7TObjectFv((void*)((void *) (arg0)));
     }
     return arg0;

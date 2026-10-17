@@ -39,10 +39,10 @@ s32 try_add_hit_target__14TItemAttackColFPvPv(u8 *arg0, Hit_802E4798 *arg1) {
     Hit_802E4798 *e;
     s32 i;
     s32 flags;
-    if (*(s32 *)((s8 *)arg0 + 0xA0) >= 8) {
+    if (((TUnk_804E355C *)arg0)->m_a0 >= 8) {
         return 0;
     }
-    if (*(u16 *)((s8 *)arg0 + 0xA8) == obj_getField1c(arg1->obj)) {
+    if (((TUnk_804E355C *)arg0)->m_a8 == obj_getField1c(arg1->obj)) {
         return 0;
     }
     ok = 1;
@@ -57,7 +57,7 @@ s32 try_add_hit_target__14TItemAttackColFPvPv(u8 *arg0, Hit_802E4798 *arg1) {
     }
     if (ok != 0) {
         e = (Hit_802E4798 *) (arg0 + 0x60);
-        for (i = 0; i != *(s32 *)((s8 *)arg0 + 0xA0); i++) {
+        for (i = 0; i != ((TUnk_804E355C *)arg0)->m_a0; i++) {
             if (e->obj == arg1->obj && e->idx == arg1->idx) {
                 return 0;
             }
@@ -65,7 +65,7 @@ s32 try_add_hit_target__14TItemAttackColFPvPv(u8 *arg0, Hit_802E4798 *arg1) {
         }
         if (obj_is_hit_receivable(arg1->obj) != 0) {
             ((TItemAttackCol *)e)->copy_pos(arg1);
-            *(s32 *)((s8 *)arg0 + 0xA0) += 1;
+            ((TUnk_804E355C *)arg0)->m_a0 += 1;
             return 1;
         }
     }
@@ -84,15 +84,15 @@ void check_hits__14TItemAttackColFPv(u8 *arg0) {
     if (*(s32 *)((s8 *)arg0 + 0xC0) != 0) {
         TObjPlayer__sub_8015431C(arg0 + 0x1C);
     }
-    if (*(s32 *)((s8 *)arg0 + 0xBC) != 0) {
+    if (((TUnk_804E355C *)arg0)->m_bc != 0) {
         TObjPlayer::apply_status_effect((s32)(arg0 + 0x1C));
     }
     for (i = 0; i != TObjOnlineEnding::get_instance(); i++) {
         e = get_attack_entry__16TObjOnlineEndingFi(i);
         if (try_add_hit_target__14TItemAttackColFPvPv(arg0, e) != 0) {
             ((VObj_18_909b87 *)arg0)->m4((s32)e);
-            *(s32 *)((s8 *)arg0 + 0xA4) -= 1;
-            if (*(s32 *)((s8 *)arg0 + 0xA4) == 0) {
+            ((TUnk_804E355C *)arg0)->m_a4 -= 1;
+            if (((TUnk_804E355C *)arg0)->m_a4 == 0) {
                 queue_destruction__7TObjectFv(arg0);
                 reset_global_table();
                 return;

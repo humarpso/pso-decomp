@@ -535,7 +535,7 @@ void TWindowMainMenu::draw_entries_reversed(u8 *arg1) {
 Rect_802AE2B0 *setup_content_frame__15TWindowMainMenuFPv(u8 *arg0) {
     f32 v;
     Rect_802AE2B0 *r;
-    r = open_singleton__19TWindowKeyBoardSoftFiiii(arg0 + 0x40, arg0 + 0x48, fn_8026CB68(), *(f32 *)((s8 *)arg0 + 0x54), *(s32 *)((s8 *)arg0 + 0x2C));
+    r = open_singleton__19TWindowKeyBoardSoftFiiii(arg0 + 0x40, arg0 + 0x48, fn_8026CB68(), ((TWindowMenuMainMenu *)arg0)->m_54, ((TWindowMenuMainMenu *)arg0)->m_2c);
     if (((s32 (*)(void *))is_not_split_screen__15TWindowMainMenuFv)(arg0) != 0) {
         v = lbl_805DE15C;
     } else {

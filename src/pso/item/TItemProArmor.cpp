@@ -184,9 +184,9 @@ void TItemProArmor::vfunc_14() {
 }
 
 void write_item_data__13TItemProArmorFPvPv(void *arg0, void *arg1) {
-    *(u8 *)((s8 *)arg1 + 5) = (u8) *(u8 *)((s8 *)arg0 + 0x192);
-    ((TItemData *)arg1)->set_dfp_bonus(*(u8 *)((s8 *)arg0 + 0x193));
-    ((TItemData *)arg1)->set_bswapped_field_8(*(u8 *)((s8 *)arg0 + 0x194));
+    *(u8 *)((s8 *)arg1 + 5) = (u8) ((TItemProArmor *)arg0)->m_192;
+    ((TItemData *)arg1)->set_dfp_bonus(((TItemProArmor *)arg0)->m_193);
+    ((TItemData *)arg1)->set_bswapped_field_8(((TItemProArmor *)arg0)->m_194);
 }
 
 typedef void *(*Ctor4_80117954)(void *, void *, s32, s32);
@@ -427,15 +427,15 @@ u8 *TItemProArmor__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80117B98___vt__13TItemProArmor *)&__vt__13TItemProArmor).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C30;
     ((TItemProArmor *)(arg0))->vfunc_19(2);
-    *(s16 *)((s8 *)arg0 + 0x190) = 0;
-    *(u8 *)((s8 *)arg0 + 0x192) = (u8) *(u8 *)((s8 *)arg2 + 5);
-    *(s8 *)((s8 *)arg0 + 0x193) = getS16_06__9TItemDataFPv(arg2);
-    *(s8 *)((s8 *)arg0 + 0x194) = get_bswap16_field8__9TItemDataFPv(arg2);
-    *(s32 *)((s8 *)arg0 + 0x18C) = lookup_item_pmt_record(arg2);
-    *(u8 *)((s8 *)arg0 + 0x195) = (u8) *(u8 *)((s8 *)(*(s32 *)((s8 *)arg0 + 0x18C)) + 0x16);
-    *(u8 *)((s8 *)arg0 + 0x196) = (u8) *(u8 *)((s8 *)(*(s32 *)((s8 *)arg0 + 0x18C)) + 0x17);
-    if ((u8) *(u8 *)((s8 *)arg0 + 0x192) > 4U) {
-        *(u8 *)((s8 *)arg0 + 0x192) = 4U;
+    *(s16 *)&((TItemProArmor *)arg0)->m_190 = 0;
+    ((TItemProArmor *)arg0)->m_192 = (u8) *(u8 *)((s8 *)arg2 + 5);
+    *(s8 *)&((TItemProArmor *)arg0)->m_193 = getS16_06__9TItemDataFPv(arg2);
+    *(s8 *)&((TItemProArmor *)arg0)->m_194 = get_bswap16_field8__9TItemDataFPv(arg2);
+    *(s32 *)&((TItemProArmor *)arg0)->m_18c = lookup_item_pmt_record(arg2);
+    ((TItemProArmor *)arg0)->m_195 = (u8) *(u8 *)((s8 *)(*(s32 *)&((TItemProArmor *)arg0)->m_18c) + 0x16);
+    ((TItemProArmor *)arg0)->m_196 = (u8) *(u8 *)((s8 *)(*(s32 *)&((TItemProArmor *)arg0)->m_18c) + 0x17);
+    if ((u8) ((TItemProArmor *)arg0)->m_192> 4U) {
+        ((TItemProArmor *)arg0)->m_192 = 4U;
     }
     ((TItemProArmor *)arg0)->init_effect_flags();
     return arg0;

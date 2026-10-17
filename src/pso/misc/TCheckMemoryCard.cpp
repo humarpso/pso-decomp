@@ -69,12 +69,12 @@ void *__dt__16TCheckMemoryCardFv(void *arg0, s16 arg1) {
 
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TCheckMemoryCard;
-        temp_r3 = *(void **)((s8 *)arg0 + 0x30);
+        temp_r3 = ((TCheckMemoryCard *)arg0)->m_30;
         if (temp_r3 != NULL) {
             if (temp_r3 != NULL) {
                 ((VObj_8033C4E0_8033C420 *)temp_r3)->m0(1);
             }
-            *(void **)((s8 *)arg0 + 0x30) = NULL;
+            ((TCheckMemoryCard *)arg0)->m_30 = NULL;
         }
         if ((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U) {
             TWindow__close(*(void **)((s8 *)arg0 + 0x34));

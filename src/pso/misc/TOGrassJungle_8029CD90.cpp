@@ -84,12 +84,12 @@ u8 *TOGrassJungle__ct(u8 *arg0, s32 parent, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8029CE64___vt__13TOGrassJungle *)&__vt__13TOGrassJungle).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) grass_jungle_class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    *(s32 *)((s8 *)arg0 + 0x90) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x90) < 0) {
-        *(s32 *)((s8 *)arg0 + 0x90) = 0;
+    *(s32 *)&((TOGrassJungle *)arg0)->m_90 = (s32) ((TOGrassJungle *)arg0)->m_84;
+    if ((s32) *(s32 *)&((TOGrassJungle *)arg0)->m_90< 0) {
+        *(s32 *)&((TOGrassJungle *)arg0)->m_90 = 0;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x90) > 1) {
-        *(s32 *)((s8 *)arg0 + 0x90) = 1;
+    if ((s32) *(s32 *)&((TOGrassJungle *)arg0)->m_90> 1) {
+        *(s32 *)&((TOGrassJungle *)arg0)->m_90 = 1;
     }
     return arg0;
 }

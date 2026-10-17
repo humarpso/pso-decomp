@@ -70,8 +70,8 @@ void *TAdDialingMessageWindow__ct(void *arg0, void *arg1, void *arg2) {
     void *o2;
     __ct__7TObjectFP7TObject(arg0, tl_fadeafter);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TAdDialingMessageWindow;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D44C8;
-    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
+    *(void * *)&((TAdDialingMessageWindow *)arg0)->m_name = lbl_805D44C8;
+    ((TAdDialingMessageWindow *)arg0)->m_1c = 0;
     *(void **)((s8 *)arg0 + 0x20) = arg1;
     o = __nw__7TObjectFUl(0x24);
     if (o != NULL) {

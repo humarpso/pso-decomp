@@ -88,7 +88,7 @@ u8 *TOJungleDesign__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOJungleDesign__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     ((TOJungleDesign *)arg0)->init_design_variant();
-    init_collision_body_parts((void *) (arg0), (int) ((u8 *)&TOJungleDesign__collision_desc_table.value + (*(s32 *)((s8 *)arg0 + 0xB0) * 0x2C)), (int) (1));
+    init_collision_body_parts((void *) (arg0), (int) ((u8 *)&TOJungleDesign__collision_desc_table.value + (*(s32 *)&((TOJungleDesign *)arg0)->m_b0* 0x2C)), (int) (1));
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
 }

@@ -37,7 +37,7 @@ void render__11TMainCursorFPv(u8 *arg0) {
     TParticleCtrl::begin_effect_render();
     temp_f31 = *(f32 *)((s8 *)arg0 + 0x30);
     push_matrix();
-    offset_point_toward_camera(arg0 + 0x40, &sp8, *(f32 *)((s8 *)arg0 + 0x2C));
+    offset_point_toward_camera(arg0 + 0x40, &sp8, ((TMainCursor *)arg0)->m_2c);
     translate_matrix_vec3(0, &sp8);
     rotate_matrix_y(0, *(s32 *)((s8 *)camera_ctrl_instance + 0x194));
     push_matrix();

@@ -348,18 +348,18 @@ u8 *TOMekaFish00__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOMekaFish00__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((*(u8 * *)&TOMekaFish00__model_resource), 0);
-    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TOMekaFish00__model_resource), 0);
-    *(s32 *)((s8 *)arg0 + 0xBC) = get_bml_motion((*(u8 * *)&TOMekaFish00__model_resource), 0);
-    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(s32 *)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DE068);
-    *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DE06C;
-    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DE070;
+    ((TOMekaFish00 *)arg0)->texture_id = TObjFish__sub_8001EDB0((*(u8 * *)&TOMekaFish00__model_resource), 0);
+    *(s32 *)&((TOMekaFish00 *)arg0)->m_bc = get_bml_motion((*(u8 * *)&TOMekaFish00__model_resource), 0);
+    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(s32 *)&((TOMekaFish00 *)arg0)->m_bc) + 4) - lbl_805DE068);
+    ((TOMekaFish00 *)arg0)->m_b8 = (f32) lbl_805DE06C;
+    ((TOMekaFish00 *)arg0)->m_c0 = (f32) lbl_805DE070;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(s32 *)((s8 *)arg0 + 0x34)) + 4)) + 0x14);
-    *(s32 *)((s8 *)arg0 + 0xAC) = 0;
-    *(f32 *)((s8 *)arg0 + 0xF4) = (f32) ((lbl_805DE074 * (f32) *(s32 *)((s8 *)arg0 + 0x84)) + lbl_805DE068);
-    *(s32 *)((s8 *)arg0 + 0xF8) = (s32) (lbl_805DE078 * (lbl_805DE07C / (lbl_805DE080 / *(f32 *)((s8 *)arg0 + 0xF4))));
-    *(s32 *)((s8 *)arg0 + 0xFC) = (s32) (lbl_805DE078 * (lbl_805DE07C * (lbl_805DE084 * (f32) rand())));
-    *(f32 *)((s8 *)arg0 + 0xEC) = (f32) ((lbl_805DE074 * (f32) *(s32 *)((s8 *)arg0 + 0x88)) + lbl_805DE068);
-    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (*(f32 *)((s8 *)arg0 + 0xEC) * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0xFC)));
+    *(s32 *)&((TOMekaFish00 *)arg0)->m_ac = 0;
+    ((TOMekaFish00 *)arg0)->m_f4 = (f32) ((lbl_805DE074 * (f32) ((TOMekaFish00 *)arg0)->m_84) + lbl_805DE068);
+    *(s32 *)&((TOMekaFish00 *)arg0)->m_f8 = (s32) (lbl_805DE078 * (lbl_805DE07C / (lbl_805DE080 / ((TOMekaFish00 *)arg0)->m_f4)));
+    *(s32 *)&((TOMekaFish00 *)arg0)->m_fc = (s32) (lbl_805DE078 * (lbl_805DE07C * (lbl_805DE084 * (f32) rand())));
+    ((TOMekaFish00 *)arg0)->m_ec = (f32) ((lbl_805DE074 * (f32) *(s32 *)((s8 *)arg0 + 0x88)) + lbl_805DE068);
+    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (((TOMekaFish00 *)arg0)->m_ec* sin_table_lookup(*(s32 *)&((TOMekaFish00 *)arg0)->m_fc));
     return arg0;
 }
 #pragma pop

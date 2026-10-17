@@ -8,7 +8,8 @@ struct TObjBoss5Pillar : public TObject {
     virtual ~TObjBoss5Pillar();
     virtual void run_task();
     u32 m_1c;
-    u8 _pad20[0x8];
+    u8 unk_20[0x4];
+    f32 m_24;
     u32 m_28;
     void* m_2c;
     u8 _pad30[0x8];

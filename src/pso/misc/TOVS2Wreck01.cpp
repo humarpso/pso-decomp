@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOVS2Wreck01.h"
 #include "pso/misc/TOVS2.h"
 #include "pso/misc/TOVS2Wall01.h"
 #include "pso/object/TObjFish.h"
@@ -55,7 +56,7 @@ extern void *lbl_805D31C8;
 void *TOVS2Wreck01__ct(void *arg0, void *arg1) {
     ((TOVS2Wall01 *)arg0)->init_wreck_object((s32)arg1, (s32)0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TOVS2Wreck01;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D31C8;
+    *(void * *)&((TOVS2Wreck01 *)arg0)->m_name = lbl_805D31C8;
     return arg0;
 }
 

@@ -20,9 +20,9 @@ void yasminkov_2000h_idle(u8 *arg0) {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x1F8);
     if (temp_r0 == 1) {
         *(s32 *)((s8 *)arg0 + 0x1F8) = (s32) (u8) (temp_r0 == 0);
-        *(f32 *)((s8 *)arg0 + 0x204) = (f32) lbl_805DB038;
+        ((TUnk_804A6CC8 *)arg0)->m_204 = (f32) lbl_805DB038;
         *(f32 *)((s8 *)arg0 + 0x200) = (f32) lbl_805DB038;
-        *(f32 *)((s8 *)arg0 + 0x1FC) = (f32) lbl_805DB038;
+        ((TUnk_804A6CC8 *)arg0)->m_1fc = (f32) lbl_805DB038;
     }
 }
 void TUnk_804A6CC8::update_attack() {

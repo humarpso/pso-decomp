@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TItemDropSub.h"
 
 extern "C" {
 
@@ -12,7 +13,7 @@ extern void * TItemDropSub__instance;
 void *TItemDropSub__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TItemDropSub;
-    *(void **)((s8 *)arg0 + 0x0) = TItemDropSub__class_name;
+    *(void * *)&((TItemDropSub *)arg0)->m_name = TItemDropSub__class_name;
     TItemDropSub__instance = arg0;
     *(u32 *)((s8 *)arg0 + 0x1C) = 10;
     return arg0;

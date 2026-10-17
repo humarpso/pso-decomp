@@ -97,7 +97,7 @@ void TWindowSubGameEnd::run_task() {
 void *__dt__17TWindowSubGameEndFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TWindowSubGameEnd;
-        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x28)))->close(); *(s32 *)((s8 *)arg0 + 0x28) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x28)))->close(); *(s32 *)&((TWindowSubGameEnd *)arg0)->m_28 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -112,8 +112,8 @@ void *TWindowSubGameEnd__ct(void *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TWindowSubGameEnd;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubGameEnd__class_name;
-    *(s32 *)((s8 *)arg0 + 0x24) = arg1;
-    *(s32 *)((s8 *)arg0 + 0x20) = arg2;
+    *(s32 *)&((TWindowSubGameEnd *)arg0)->m_24 = arg1;
+    *(s32 *)&((TWindowSubGameEnd *)arg0)->m_20 = arg2;
     if (get_main_phase() == 0xF) {
         var_r31 = get_message_10__20TWindowSubStatusDispFl(0x3B);
         var_f31 = lbl_805DD628;
@@ -124,11 +124,11 @@ void *TWindowSubGameEnd__ct(void *arg0, s32 arg1, s32 arg2) {
         var_r31 = get_message_10__20TWindowSubStatusDispFl(0x3A);
         var_f31 = lbl_805DD628;
     }
-    *(s32 *)((s8 *)arg0 + 0x28) = create__19TWindowMessageYesNoFPvPvPvPv(arg0, *(s32 *)((s8 *)arg0 + 0x20), 0, 0);
-    forward_slot_selection__16TAdChrSelASlotGCFPvPv(*(s32 *)((s8 *)arg0 + 0x28), var_r31, get_window_layout_position(0x17), var_f31);
-    free_member__17TWindowSubComCardFv(*(s32 *)((s8 *)arg0 + 0x28), 1);
-    ((TWindowSubShortMail *)(*(s32 *)((s8 *)arg0 + 0x28)))->notify_warp_flag70();
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
+    *(s32 *)&((TWindowSubGameEnd *)arg0)->m_28 = create__19TWindowMessageYesNoFPvPvPvPv(arg0, *(s32 *)&((TWindowSubGameEnd *)arg0)->m_20, 0, 0);
+    forward_slot_selection__16TAdChrSelASlotGCFPvPv(*(s32 *)&((TWindowSubGameEnd *)arg0)->m_28, var_r31, get_window_layout_position(0x17), var_f31);
+    free_member__17TWindowSubComCardFv(*(s32 *)&((TWindowSubGameEnd *)arg0)->m_28, 1);
+    ((TWindowSubShortMail *)(*(s32 *)&((TWindowSubGameEnd *)arg0)->m_28))->notify_warp_flag70();
+    *(s32 *)&((TWindowSubGameEnd *)arg0)->m_1c = 0;
     return arg0;
 }
 

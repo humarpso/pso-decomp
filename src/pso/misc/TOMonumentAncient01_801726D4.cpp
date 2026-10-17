@@ -105,12 +105,12 @@ u8 *TOMonumentAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOMonumentAncient01__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TOMonumentAncient01__resource_bundle)), (int) (2));
-    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOMonumentAncient01__resource_bundle)), (int) (2));
+    ((TOMonumentAncient01 *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOMonumentAncient01__resource_bundle)), (int) (2));
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B38F0.value), (int) (1));
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOHealGeneral *)arg0)->update_heal_gauge_state();
-    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB918;
+    ((TOMonumentAncient01 *)arg0)->m_c0 = (f32) lbl_805DB918;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB91C;
     return arg0;
 }
@@ -138,14 +138,14 @@ void TOMonumentAncient02::vfunc_6(s16 *arg1, s32) {
 void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1) {
     s16 sp8;
     s32 player;
-    switch (*(s32 *)((s8 *)arg0 + 0xAC)) {
+    switch (*(s32 *)&((TOMonumentAncient02 *)arg0)->m_ac) {
     case 1:
         player = get_player_by_client_id((void *) (arg1));
         if (player != 0) {
-            *(s32 *)((s8 *)arg0 + 0xAC) = 2;
+            *(s32 *)&((TOMonumentAncient02 *)arg0)->m_ac = 2;
             start_camera_pan__10TObjPlayerFs((int) (player), (int) (0xC), (void *) (((TObjPlayer *)(player + 0x38))->calc_angle_to((void *) (arg0 + 0x38))));
             if (((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (1)) != 0) {
-                sp8 = (s16) *(s32 *)((s8 *)arg0 + 0xAC);
+                sp8 = (s16) *(s32 *)&((TOMonumentAncient02 *)arg0)->m_ac;
                 ((TUnk_804AF8A0 *)arg0)->access_object_saved_state((void *) (&sp8), (int) (0));
                 ((TUnk_804AF8A0 *)arg0)->send_object_state_update((void *) (&sp8));
             }

@@ -38,13 +38,13 @@ void TObjEneRecon__sub_8031FB6C(u8 *arg0) {
     Stack_8031FB6C stack;
     u8 *temp_r3;
     VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x2FC));
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x3DC) == 1) {
+    if ((s32) *(s32 *)&((TObjEneRecobox *)arg0)->m_3f8 == 1) {
         stack.spC -= lbl_805DF450;
     } else {
         stack.spC += lbl_805DF450;
     }
     temp_r3 = (u8 *)(csnVectorUnder(&stack.sp8, arg0 + 0x120, 0x15));
-    if ((temp_r3 == NULL) || (*(f32 *)((s8 *)arg0 + 0x300) >= (lbl_805DF460 + *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 4)) + 4)))) {
+    if ((temp_r3 == NULL) || (((TObjEneRecobox *)arg0)->m_300 >= (lbl_805DF460 + *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 4)) + 4)))) {
         ((TObjEneRecobox *)(arg0))->vfunc_97();
     }
     set_part_local_pos__9TObjEneDDFPvPvi((void *) (arg0), (void *) (arg0 + 0x2FC), (int) (0));

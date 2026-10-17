@@ -30,10 +30,10 @@ u8 *construct_status_category_window(u8 *arg0, s32 arg1, s32 arg2) {
     if (var_r0 != 0) {
         var_r0 = TWindowSubStatusDisp__ct((int) (storage), (int) (*(s32 *)((s8 *)arg0 + 0x1C)));
     }
-    *(s32 *)((s8 *)arg0 + 0x28) = var_r0;
+    ((TUnk_804D1AD0 *)arg0)->m_28 = var_r0;
     if (TCameraCtrl::get_camera_id() > 2) {
         ((TUnk_804CDFE8 *)(*(s32 *)((s8 *)arg0 + 0x24)))->set_position_xy((f32) (lbl_805DD6DC), (f32) (lbl_805DD6DC));
-        fn_8027FD88((int) (*(s32 *)((s8 *)arg0 + 0x28)), (f32) (lbl_805DD6DC), (f32) (lbl_805DD6DC));
+        fn_8027FD88((int) (((TUnk_804D1AD0 *)arg0)->m_28), (f32) (lbl_805DD6DC), (f32) (lbl_805DD6DC));
     }
     return arg0;
 }

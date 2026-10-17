@@ -1469,19 +1469,19 @@ void acquire_target__11TObjEneMojaFPv(u8 *arg0) {
     f32 d;
     u8 *q;
     u16 tid;
-    if (*(s32 *)((s8 *)arg0 + 0x374) != 1 && ((*(s16 *)((s8 *)arg0 + 0x326) != 0 && *(u8 **)((s8 *)arg0 + 0x2A8) == NULL) || ((TObjEneMoja *)(arg0))->is_actor_cadence_frame(0x1E) != 0)) {
+    if (*(s32 *)((s8 *)arg0 + 0x374) != 1 && ((((TObjEneMoja *)arg0)->mode != 0 && ((TObjEneMoja *)arg0)->target == NULL) || ((TObjEneMoja *)(arg0))->is_actor_cadence_frame(0x1E) != 0)) {
         if (obj_testFlags30((void *) (arg0), 0x10) != 0) {
             i = 0;
             best_id = 0xFFFF;
             Vec_800AEE54 v = *(Vec_800AEE54 *)lbl_8043B0B4;
-            best = *(f32 *)((s8 *)(*(f32 **)((s8 *)arg0 + 0x350)) + 0) * *(f32 *)((s8 *)(*(f32 **)((s8 *)arg0 + 0x350)) + 0);
+            best = *(f32 *)((s8 *)(*(f32 * *)&((TObjEneMoja *)arg0)->movementParameters) + 0) * *(f32 *)((s8 *)(*(f32 * *)&((TObjEneMoja *)arg0)->movementParameters) + 0);
             for (; i < lbl_805D586C + lbl_805D5870; i++) {
                 p = get_player_data__10TObjPlayerFi(i);
                 if (p == NULL) {
                     break;
                 }
                 id = obj_getField1c(p);
-                if ((u16)id < 0x4000 && (u16)id != *(u16 *)((s8 *)arg0 + 0x1C) && !(*(s32 *)((s8 *)p + 0x30) & 0x02000800)) {
+                if ((u16)id < 0x4000 && (u16)id != ((TObjEneMoja *)arg0)->m_1c&& !(*(s32 *)((s8 *)p + 0x30) & 0x02000800)) {
                     f32 xx;
                     f32 zz;
                     VecCopy((Vec *)&v, (const Vec *)(p + 0x2FC));
@@ -1495,28 +1495,28 @@ void acquire_target__11TObjEneMojaFPv(u8 *arg0) {
                     }
                 }
             }
-            *(u16 *)((s8 *)arg0 + 0x338) = best_id;
+            ((TObjEneMoja *)arg0)->targetId = best_id;
         } else {
-            *(u16 *)((s8 *)arg0 + 0x338) = find_nearest_visible_player((void *) (arg0), 0, *(f32 *)((s8 *)(*(f32 **)((s8 *)arg0 + 0x350)) + 0));
+            ((TObjEneMoja *)arg0)->targetId = find_nearest_visible_player((void *) (arg0), 0, *(f32 *)((s8 *)(*(f32 * *)&((TObjEneMoja *)arg0)->movementParameters) + 0));
         }
-        tid = *(u16 *)((s8 *)arg0 + 0x338);
+        tid = ((TObjEneMoja *)arg0)->targetId;
         if (tid < 0x1000U) {
             q = get_player_by_client_id(tid);
             if (q != NULL) {
                 if (((TObjPlayer *)q)->get_field_3e4() == get_current_floor()) {
-                    *(u8 **)((s8 *)arg0 + 0x2A8) = q;
+                    ((TObjEneMoja *)arg0)->target = q;
                     return;
                 }
             }
-            *(u8 **)((s8 *)arg0 + 0x2A8) = NULL;
+            ((TObjEneMoja *)arg0)->target = NULL;
             return;
         }
         if (tid < 0x4000U) {
-            *(u8 **)((s8 *)arg0 + 0x2A8) = get_enemy_entity(tid);
+            ((TObjEneMoja *)arg0)->target = get_enemy_entity(tid);
             return;
         }
-        *(u16 *)((s8 *)arg0 + 0x338) = 0xFFFFU;
-        *(u8 **)((s8 *)arg0 + 0x2A8) = NULL;
+        ((TObjEneMoja *)arg0)->targetId = 0xFFFFU;
+        ((TObjEneMoja *)arg0)->target = NULL;
     }
 }
 
@@ -1536,7 +1536,7 @@ void render__11TObjEneMojaFv(u8 *arg0) {
         return;
     }
     select_actor_lighting(arg0);
-    TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
+    TObjFish::set_global_param(((TObjEneMoja *)arg0)->texture_id);
     id = model_render_flags;
     fade = &((Body_800AF080 *)arg0)->fades[cam];
     lbl_805D5660 = id;
@@ -1556,9 +1556,9 @@ void render__11TObjEneMojaFv(u8 *arg0) {
     if (draw != 0) {
         TObjPlayer::set_global_flag();
         push_matrix();
-        translate_matrix(0, lbl_805D9BD8, *(f32 *)((s8 *)arg0 + 0x38C), lbl_805D9BD8);
+        translate_matrix(0, lbl_805D9BD8, ((TObjEneMoja *)arg0)->sinkOffset, lbl_805D9BD8);
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y((int)(0), (int)(*(s32 *)((s8 *)arg0 + 0x60)));
+        rotate_matrix_y((int)(0), (int)(((TObjEneMoja *)arg0)->rotation_y));
         if (TObjPlayer::check_demo_mode() == 1) {
             draw_chunk_object(*(s32 *)((s8 *)arg0 + 0x34));
         } else {
@@ -1581,7 +1581,7 @@ void render__11TObjEneMojaFv(u8 *arg0) {
     chunk_polygon_flags_or_mask = lbl_805D5668;
     model_render_flags = lbl_805D5660;
     restore_scene_lighting(lbl_805D5668, lbl_805D5664);
-    switch (*(s16 *)((s8 *)arg0 + 0x326)) {
+    switch (((TObjEneMoja *)arg0)->mode) {
     case 0:
     case 1:
     case 9:

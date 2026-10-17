@@ -110,7 +110,7 @@ u8 *__ct__19TAdSelectGameModeGCFv(u8 *arg0, void *parent) {
     void *p;
     __ct__7TObjectFP7TObject(arg0, parent);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TAdSelectGameModeGC;
-    *(void **)((s8 *)arg0 + 0) = TAdSelectGameModeGC__name;
+    *(void * *)&((TAdSelectGameModeGC *)arg0)->m_name = TAdSelectGameModeGC__name;
     TAdSelectGameModeGC__cached_mode_value = 0;
     *(void **)((s8 *)arg0 + 0x1C) = 0;
     *(void **)((s8 *)arg0 + 0x20) = 0;

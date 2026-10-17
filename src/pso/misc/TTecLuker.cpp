@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804CC990.h"
 #include "pso/system/byteswap.h"
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
@@ -288,7 +289,7 @@ u8 *construct_resta_charge_sound(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80233B9C_lbl_804CC990 *)&recovery_technique_charge_vtable).value;
     *(s32 *)((s8 *)arg0 + 0x1C) = arg1;
     VecCopy((Vec *)((void *) (arg0 + 0x20)), (const Vec *)((int) (*(s32 *)((s8 *)arg0 + 0x1C) + 0x2FC)));
-    *(s32 *)((s8 *)arg0 + 0x2C) = 0;
+    ((TUnk_804CC990 *)arg0)->m_2c = 0;
     *(s32 *)((s8 *)arg0 + 0x30) = play_sound_effect((int) (0x4002BC20), (void *) (arg0 + 0x20), (int) (0), (int) (0));
     return arg0;
 }
@@ -750,19 +751,19 @@ void run_task__9TTecLukerFv(u8 *arg0) {
     u8 *owner;
     u8 *tgt;
     u16 st;
-    *(u8 **)((s8 *)arg0 + 0x1C) = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xB4));
+    *(u8 **)((s8 *)arg0 + 0x1C) = find_entity_by_id(((TTecLuker *)arg0)->m_b4);
     owner = *(u8 **)((s8 *)arg0 + 0x1C);
     if (owner == NULL) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x108);
+    temp_r0 = *(s32 *)&((TTecLuker *)arg0)->m_108;
     switch (temp_r0) {
     case 0:
         temp_r3 = obj_getField1c(owner);
         if (temp_r3 != 0xFFFFU) {
             if (temp_r3 > 0xCU) {
-                *(s32 *)((s8 *)arg0 + 0x108) = 4;
+                *(s32 *)&((TTecLuker *)arg0)->m_108 = 4;
                 return;
             }
             tgt = *(u8 **)((s8 *)arg0 + 0xEC);
@@ -772,7 +773,7 @@ void run_task__9TTecLukerFv(u8 *arg0) {
             }
             if (TTecLuker__sub_80235054((void*)(tgt)) != 0) {
                 VecCopy((Vec *)(arg0 + 0xFC), (const Vec *)(*(u8 **)((s8 *)arg0 + 0x1C) + 0x38));
-                if ((telepipe_record_differs((Rec_8023402C *)(*(u8 **)((s8 *)arg0 + 0x1C) + 0x830), *(s16 *)((s8 *)arg0 + 0xF4), (Vec_8023402C *)(arg0 + 0xFC), *(u16 *)((s8 *)arg0 + 0xF6)) == 0) && ((s8) *(TTecLuker__visit_counts + *(u16 *)((s8 *)arg0 + 0xB4)) >= 1)) {
+                if ((telepipe_record_differs((Rec_8023402C *)(*(u8 **)((s8 *)arg0 + 0x1C) + 0x830), ((TTecLuker *)arg0)->m_f4, (Vec_8023402C *)(arg0 + 0xFC), ((TTecLuker *)arg0)->m_f6) == 0) && ((s8) *(TTecLuker__visit_counts + ((TTecLuker *)arg0)->m_b4) >= 1)) {
                     queue_destruction__7TObjectFv(arg0);
                     return;
                 }
@@ -781,52 +782,52 @@ void run_task__9TTecLukerFv(u8 *arg0) {
         }
         break;
     case 1:
-        temp_r5 = *(u16 *)((s8 *)arg0 + 0xB4);
+        temp_r5 = ((TTecLuker *)arg0)->m_b4;
         if (temp_r5 < 4U) {
             *(TTecLuker__visit_counts + temp_r5) = *(TTecLuker__visit_counts + temp_r5) + 1;
         }
-        if (telepipe_record_differs((Rec_8023402C *)(*(u8 **)((s8 *)arg0 + 0x1C) + 0x830), *(s16 *)((s8 *)arg0 + 0xF4), (Vec_8023402C *)(arg0 + 0xFC), *(u16 *)((s8 *)arg0 + 0xF6)) != 0) {
+        if (telepipe_record_differs((Rec_8023402C *)(*(u8 **)((s8 *)arg0 + 0x1C) + 0x830), ((TTecLuker *)arg0)->m_f4, (Vec_8023402C *)(arg0 + 0xFC), ((TTecLuker *)arg0)->m_f6) != 0) {
             queue_destruction__7TObjectFv(arg0);
             return;
         }
         play_persistent_sound(0x4002B219, arg0, arg0 + 0xFC, 0, 0);
-        if ((u32) *(u32 *)((s8 *)arg0 + 0xF0) == 0U) {
+        if ((u32) ((TTecLuker *)arg0)->m_f0 == 0U) {
             queue_destruction__7TObjectFv(arg0);
             return;
         }
-        if ((get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xF6)) != 0) && (get_pipe_interaction_latch(*(void **)((s8 *)arg0 + 0xF0)) != 0) && (are_players_gathered_near(arg0 + 0xFC, 0, lbl_805DC858) != 0)) {
+        if ((get_player_by_client_id(((TTecLuker *)arg0)->m_f6) != 0) && (get_pipe_interaction_latch(*(void **)((s8 *)arg0 + 0xF0)) != 0) && (are_players_gathered_near(arg0 + 0xFC, 0, lbl_805DC858) != 0)) {
             offset_point_toward_camera(arg0 + 0xFC, (s32 *) &sp8, lbl_805DC858);
             spawn_particle_effect((float *) &sp8, 0xB3);
-            player = (u8 *)get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xF6));
+            player = (u8 *)get_player_by_client_id(((TTecLuker *)arg0)->m_f6);
             if (player != NULL) {
                 play_effect_default__10TObjPlayerFii(player, 0xA);
                 play_sound_effect(0x40022D1A, player + 0x38, 0, 0);
             }
             TWindowCtrl::init_all_slots();
-            *(s32 *)((s8 *)arg0 + 0x108) = 2;
+            *(s32 *)&((TTecLuker *)arg0)->m_108 = 2;
             return;
         }
         break;
     case 2:
-        *(s32 *)((s8 *)arg0 + 0x10C) = (s32) (*(s32 *)((s8 *)arg0 + 0x10C) + 1);
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x10C) > 0xA) {
-            *(s32 *)((s8 *)arg0 + 0x108) = 3;
+        *(s32 *)&((TTecLuker *)arg0)->m_10c = (s32) (*(s32 *)&((TTecLuker *)arg0)->m_10c+ 1);
+        if ((s32) *(s32 *)&((TTecLuker *)arg0)->m_10c> 0xA) {
+            *(s32 *)&((TTecLuker *)arg0)->m_108 = 3;
             return;
         }
         break;
     case 3:
         temp_r30 = obj_getField1c(owner);
-        temp_r29 = (u8 *)get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xF6));
+        temp_r29 = (u8 *)get_player_by_client_id(((TTecLuker *)arg0)->m_f6);
         if ((is_split_screen() == 0) && (temp_r29 != NULL)) {
             if (*(s32 *)((s8 *)temp_r29 + 0x30) & 0x800) {
-                *(s32 *)((s8 *)arg0 + 0x108) = 1;
+                *(s32 *)&((TTecLuker *)arg0)->m_108 = 1;
                 TWindowCtrl::init_all_slots2();
-                if ((u32) *(u32 *)((s8 *)arg0 + 0xF0) == 0U) {
+                if ((u32) ((TTecLuker *)arg0)->m_f0 == 0U) {
                     queue_destruction__7TObjectFv(arg0);
                     return;
                 }
                 clear_pipe_interaction_latch((void*)(*(void **)((s8 *)arg0 + 0xF0)));
-                *(s32 *)((s8 *)arg0 + 0x10C) = 0;
+                *(s32 *)&((TTecLuker *)arg0)->m_10c = 0;
                 return;
             }
             ((void (*)(void *, u16))set_state__9TTecLukerFl)(temp_r29 + 0x848, temp_r30);
@@ -884,9 +885,9 @@ void *__dt__9TTecLukerFv(void *arg0, s16 arg1) {
 
     if (arg0 != NULL) {
         *(void **)((s8 *)arg0 + 0x18) = (void *) __vt__9TTecLuker;
-        if ((u32) *(u32 *)((s8 *)arg0 + 0xF8) != 0U) {
+        if ((u32) ((TTecLuker *)arg0)->m_f8 != 0U) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xF8));
-            *(u32 *)((s8 *)arg0 + 0xF8) = 0U;
+            ((TTecLuker *)arg0)->m_f8 = 0U;
         }
         temp_r3 = *(void **)((s8 *)arg0 + 0xEC);
         if (temp_r3 != NULL) {
@@ -895,11 +896,11 @@ void *__dt__9TTecLukerFv(void *arg0, s16 arg1) {
             }
             *(void **)((s8 *)arg0 + 0xEC) = NULL;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) {
+        if ((u32) ((TTecLuker *)arg0)->m_f0 != 0U) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xF0));
-            *(u32 *)((s8 *)arg0 + 0xF0) = 0U;
+            ((TTecLuker *)arg0)->m_f0 = 0U;
         }
-        *(u32 *)((s8 *)arg0 + 0xF0) = 0U;
+        ((TTecLuker *)arg0)->m_f0 = 0U;
         ((TUnk_804CC148 *)arg0)->destroy_technique_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(arg0));

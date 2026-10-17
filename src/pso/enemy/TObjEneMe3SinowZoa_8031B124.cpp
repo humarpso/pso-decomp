@@ -15,7 +15,7 @@ void *TObjEneMe3SinowZoa__ct(void *arg0) {
     ((TObjEneDD_ST *)arg0)->init_object();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjEneMe3SinowZoa;
     ((TUnk_80494938 *)((char *)arg0 + 1044))->init_common();
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D4120;
+    *(void * *)&((TObjEneMe3SinowZoa *)arg0)->m_name = lbl_805D4120;
     return arg0;
 }
 

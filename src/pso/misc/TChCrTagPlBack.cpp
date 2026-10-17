@@ -40,7 +40,7 @@ extern void *TChCrTagPlBack__name;
 void *__ct__14TChCrTagPlBackFv(void *arg0) {
     __ct__8TChCrTagFv(arg0);
     *(void ***)((s8 *)arg0 + 0x18) = __vt__14TChCrTagPlBack;
-    *(void **)((s8 *)arg0 + 0x0) = TChCrTagPlBack__name;
+    *(void * *)&((TChCrTagPlBack *)arg0)->m_name = TChCrTagPlBack__name;
     *(f32 *)((s8 *)arg0 + 0x28) = lbl_805DDFE4;
     *(f32 *)((s8 *)arg0 + 0x2C) = lbl_805DDFE8;
     *(f32 *)((s8 *)arg0 + 0x34) = lbl_805DDFE4;

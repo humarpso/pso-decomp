@@ -358,19 +358,19 @@ u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 a
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801D401C_lbl_804C4498 *)&placement_search_base_vtable).value;
     if (arg2 == NULL) {
-        *(u16 *)((s8 *)arg0 + 0x20) = 0xFFFFU;
-        *(s32 *)((s8 *)arg0 + 0x24) = 0;
+        ((TUnk_804C4498 *)arg0)->m_20 = 0xFFFFU;
+        ((TUnk_804C4498 *)arg0)->m_24 = 0;
         *(s32 *)((s8 *)arg0 + 0x28) = 0;
     } else {
-        *(u16 *)((s8 *)arg0 + 0x20) = obj_getField1c(arg2);
-        *(s32 *)((s8 *)arg0 + 0x24) = (s32) ((TUnk_804B9870 *)arg2)->get_stat_by_key_state();
+        ((TUnk_804C4498 *)arg0)->m_20 = obj_getField1c(arg2);
+        ((TUnk_804C4498 *)arg0)->m_24 = (s32) ((TUnk_804B9870 *)arg2)->get_stat_by_key_state();
         *(s32 *)((s8 *)arg0 + 0x28) = (s32) *(s32 *)((s8 *)arg2 + 0x60);
     }
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)arg3);
     *(s8 *)((s8 *)arg0 + 0x1C) = arg4;
-    *(f32 *)((s8 *)arg0 + 0x4C) = (f32) lbl_805DC3D4;
+    ((TUnk_804C4498 *)arg0)->m_4c = (f32) lbl_805DC3D4;
     *(f32 *)((s8 *)arg0 + 0x48) = (f32) lbl_805DC3D4;
-    *(f32 *)((s8 *)arg0 + 0x44) = (f32) lbl_805DC3D4;
+    ((TUnk_804C4498 *)arg0)->m_44 = (f32) lbl_805DC3D4;
     *(s32 *)((s8 *)arg0 + 0x50) = 0;
     return arg0;
 }

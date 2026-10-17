@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804B6C24.h"
 #include "pso/misc/TUnk_804AF8D8.h"
 #include "pso/misc/TOAirconCave01.h"
 
@@ -34,16 +35,16 @@ u8 *init_container_base(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D32E8;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     *(f32 *)((s8 *)arg0 + 0x334) = (f32) lbl_805DBD00;
-    *(f32 *)((s8 *)arg0 + 0x338) = (f32) lbl_805DBD04;
+    ((TUnk_804B6C24 *)arg0)->m_338 = (f32) lbl_805DBD04;
     *(f32 *)((s8 *)arg0 + 0x33C) = (f32) lbl_805DBD00;
-    if (*(f32 *)((s8 *)arg0 + 0x68) > lbl_805DBCF4) {
-        *(s32 *)((s8 *)arg0 + 0x360) = 1;
+    if (((TUnk_804B6C24 *)arg0)->scale> lbl_805DBCF4) {
+        ((TUnk_804B6C24 *)arg0)->m_360 = 1;
     } else {
-        *(s32 *)((s8 *)arg0 + 0x360) = 0;
+        ((TUnk_804B6C24 *)arg0)->m_360 = 0;
     }
     ((TUnk_804AF8D8 *)(arg0 + 0x340))->sub_80156CEC();
     TLazerFenceSw__sub_8018A554((void *) (arg0 + 0x340), (f32) (lbl_805DBD08));
-    *(s32 *)((s8 *)arg0 + 0x364) = 0;
+    ((TUnk_804B6C24 *)arg0)->m_364 = 0;
     return arg0;
 }
 #pragma pop

@@ -388,7 +388,7 @@ u8 *TObjNpcEnemy__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((VObj_18_cff70e *)(arg0))->m79(arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();
     ((TObjNpcEnemy *)(arg0))->apply_set_params(0, 1);
-    *(s32 **)((s8 *)arg0 + 0x350) = &npc_movement_parameters.value;
+    *(s32 * *)&((TObjNpcEnemy *)arg0)->movementParameters = &npc_movement_parameters.value;
     ((TUnk_804806E8 *)arg0)->set_motion_params((void *) (&npc_default_battle_stats.value));
     init_collision_body_parts((void *) (arg0), (void *) (&TObjNpcEnemy__collision_body_parts.value), (int) (1));
     ((TObjPlayer *)arg0)->reset_photon_effect();

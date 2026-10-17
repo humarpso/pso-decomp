@@ -66,7 +66,7 @@ u8 *TObjTradeCollision__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802C8034___vt__18TObjTradeCollision *)&__vt__18TObjTradeCollision).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjTradeCollision__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    *(f32 *)((s8 *)arg0 + 0xAC) = (f32) *(f32 *)((s8 *)arg0 + 0x68);
+    *(f32 *)((s8 *)arg0 + 0xAC) = (f32) ((TObjTradeCollision *)arg0)->scale;
     disallow_rendering__7TObjectFv((void *) (arg0));
     return arg0;
 }

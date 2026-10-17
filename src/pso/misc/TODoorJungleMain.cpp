@@ -378,7 +378,7 @@ void TODoorJungleMain::run_task() {
 void *__dt__16TODoorJungleMainFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TODoorJungleMain;
-        if (*(void **)((s8 *)arg0 + 0xDC) != NULL) { ((void (*)(void *))queue_destruction__7TObjectFv)(*(void **)((s8 *)arg0 + 0xDC)); *(s32 *)((s8 *)arg0 + 0xDC) = 0; }
+        if (*(void **)((s8 *)arg0 + 0xDC) != NULL) { ((void (*)(void *))queue_destruction__7TObjectFv)(*(void **)((s8 *)arg0 + 0xDC)); *(s32 *)&((TODoorJungleMain *)arg0)->m_dc = 0; }
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804B0BB8 *)arg0)->destroy_ancient_door_base(0);
@@ -398,23 +398,23 @@ u8 *TODoorJungleMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8029B924___vt__16TODoorJungleMain *)&__vt__16TODoorJungleMain).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TODoorJungleMain__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    *(s32 *)((s8 *)arg0 + 0xBC) = get_bml_motion((*(u8 * *)&TODoorJungleMain__bml_resource), 0);
-    *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DDCD8;
+    *(s32 *)&((TODoorJungleMain *)arg0)->m_bc = get_bml_motion((*(u8 * *)&TODoorJungleMain__bml_resource), 0);
+    ((TODoorJungleMain *)arg0)->m_b8 = (f32) lbl_805DDCD8;
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) lbl_805DDCDC;
     init_collision_body_parts(arg0, (s32) &TODoorJungleMain_collision_body_parts.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DDCE0;
+    ((TODoorJungleMain *)arg0)->m_c0 = (f32) lbl_805DDCE0;
     temp_r4 = arg2 - 4;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DDCE4;
-    *(s32 *)((s8 *)arg0 + 0xD4) = 0;
-    *(s32 *)((s8 *)arg0 + 0xD8) = 0;
+    *(s32 *)&((TODoorJungleMain *)arg0)->m_d4 = 0;
+    *(s32 *)&((TODoorJungleMain *)arg0)->m_d8 = 0;
     *(ByteBlock_3C *)(copy_storage_8029B924.bytes) = *(const ByteBlock_3C *)(temp_r4 + 4);
     (*(f32 *)(copy_storage_8029B924.bytes + 0x24)) = lbl_805DDCE8;
     (*(f32 *)(copy_storage_8029B924.bytes + 0x28)) = lbl_805DDCEC;
     (*(f32 *)(copy_storage_8029B924.bytes + 0x2C)) = lbl_805DDCF0;
     (*(s32 *)(copy_storage_8029B924.bytes + 0x30)) = 2;
-    *(s32 *)((s8 *)arg0 + 0xDC) = TObjMapCsn::create((s32) (copy_storage_8029B924.bytes));
+    *(s32 *)&((TODoorJungleMain *)arg0)->m_dc = TObjMapCsn::create((s32) (copy_storage_8029B924.bytes));
     return arg0;
 }
 

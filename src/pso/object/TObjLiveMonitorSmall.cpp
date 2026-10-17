@@ -30,7 +30,7 @@ TObjLiveMonitorSmall::~TObjLiveMonitorSmall() {}
 void *__ct__20TObjLiveMonitorSmallFv(void *arg0, void *arg1, void *arg2) {
     __ct__15TObjLiveMonitorFv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TObjLiveMonitorSmall;
-    *(void **)((s8 *)arg0 + 0x0) = TObjLiveMonitorSmall__name;
+    *(void * *)&((TObjLiveMonitorSmall *)arg0)->m_name = TObjLiveMonitorSmall__name;
     *(void **)((s8 *)arg0 + 0x1C) = arg2;
     return arg0;
 }

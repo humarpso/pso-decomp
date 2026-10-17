@@ -65,8 +65,8 @@ void TWindowMessage::scroll_up_line(u8 *arg1) {
     u8 *e;
     i = 0;
     d = lbl_805DD218 + *(f32 *)(arg1 + 0x14);
-    this->m_84-= d;
-    this->m_6c-= d;
+    this->m_84 -= d;
+    this->m_6c -= d;
     *(f32 *)(((u8 *)this) + 0x80) -= d;
     for (; i < *(s32 *)&this->m_8c; i++) {
         e = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), i);

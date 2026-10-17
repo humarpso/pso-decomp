@@ -167,18 +167,18 @@ u8 *TObjEneMe1GiGueMissile__ct(u8 *arg0, s32 arg1, u8 *from, u8 *to, f32 farg0, 
     TNeedleShoot__ct(arg0, arg1, from, to);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802CE428___vt__22TObjEneMe1GiGueMissile *)&__vt__22TObjEneMe1GiGueMissile).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3F20;
-    *(f32 *)((s8 *)arg0 + 0xC0) = farg1;
+    ((TObjEneMe1GiGueMissile *)arg0)->m_c0 = farg1;
     *(f32 *)((s8 *)arg0 + 0xAC) = farg0;
     play_sound_effect(0x4002A600, (u32) (arg0 + 0x6C), 0, 0);
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C));
     if (temp_r3 != NULL) {
-        *(u16 *)((s8 *)arg0 + 0x34) = obj_getField1c(temp_r3);
+        ((TObjEneMe1GiGueMissile *)arg0)->m_34 = obj_getField1c(temp_r3);
     }
     temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x68));
     if (temp_r3_2 != NULL) {
         *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3_2 + 0xA4)) + 0xC) = (f32) lbl_805DE6DC;
     }
-    *(s32 *)((s8 *)arg0 + 0xB0) = 1;
+    *(s32 *)&((TObjEneMe1GiGueMissile *)arg0)->m_b0 = 1;
     return arg0;
 }
 

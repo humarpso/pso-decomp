@@ -217,8 +217,8 @@ u8 *TObjCamera__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = TObjCamera__name;
     Copy_8017FA9C c = camera_object_init_params;
     ((VObj_8017FA9C *)(arg0))->m5(arg2);
-    *(f32 *)((s8 *)arg0 + 0xB0) = TObjCamera__data_805DBB58;
-    *(f32 *)((s8 *)arg0 + 0xB8) = lbl_805DBB70;
+    ((TObjCamera *)arg0)->m_b0 = TObjCamera__data_805DBB58;
+    ((TObjCamera *)arg0)->m_b8 = lbl_805DBB70;
     *(f32 *)((s8 *)arg0 + 0xB4) = *(u32 *)(get_bml_motion(TObjCamera__bml_resource, 0) + 4);
     if (is_split_screen() != 0) {
         for (i = 0; i < 8; i++) {
@@ -233,7 +233,7 @@ u8 *TObjCamera__ct(u8 *arg0, s32 arg1, s32 arg2) {
             ((Cam_8017FA9C *)arg0)->arr[i] = obj;
         }
     }
-    *(s32 *)((s8 *)arg0 + 0xC8) = 0;
+    *(s32 *)&((TObjCamera *)arg0)->m_c8 = 0;
     fn_8017F550(arg0);
     return arg0;
 }

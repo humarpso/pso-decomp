@@ -49,15 +49,15 @@ void *TWindowLoadItemTexture::create(void *arg1) {
 void render__22TWindowLoadItemTextureFv(u8 *arg0) {
     s32 temp_r31;
 
-    if ((s32) *(u8 *)((s8 *)arg0 + 0x60) == 1) {
-        *(u32 *)((s8 *)arg0 + 0x70) = (u32)(*(TItemTexLoad**)((s8 *)arg0 + 0x6C))->ready_texture_list();
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x70) != 0U) {
+    if ((s32) ((TWindowLoadItemTexture *)arg0)->m_60 == 1) {
+        ((TWindowLoadItemTexture *)arg0)->m_70 = (u32)(*(TItemTexLoad**)((s8 *)arg0 + 0x6C))->ready_texture_list();
+        if ((u32) ((TWindowLoadItemTexture *)arg0)->m_70 != 0U) {
             fn_8026287C(arg0);
-            *(u8 *)((s8 *)arg0 + 0x60) = 1U;
+            ((TWindowLoadItemTexture *)arg0)->m_60 = 1U;
         }
     }
     temp_r31 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)(arg0 + 0x64));
-    if (*(u8 *)((s8 *)arg0 + 0x61) & 1) {
+    if (((TWindowLoadItemTexture *)arg0)->m_61& 1) {
         draw_window_frame(arg0, temp_r31);
     }
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r31);
@@ -94,15 +94,15 @@ void *TWindowLoadItemTexture__ct(void *arg0, void *arg1, void *arg2, void *arg3)
         *(f32 *)((s8 *)arg0 + 0x68) = *(f32 *)((s8 *)arg0 + 0x64) = lbl_805DD0FC;
         break;
     }
-    *(f32 *)((s8 *)arg0 + 0x38) = *(f32 *)((s8 *)arg2 + 0);
+    ((TWindowLoadItemTexture *)arg0)->m_38 = *(f32 *)((s8 *)arg2 + 0);
     *(f32 *)((s8 *)arg0 + 0x3C) = *(f32 *)((s8 *)arg2 + 4);
     ((TUnk_804CE018 *)arg0)->save_position();
     e = ((void *(*)(void *, int))get_array_entry__13TUnk_804CE018Fi)(arg0, 0);
     *(f32 *)((s8 *)e + 0x10) = *(f32 *)((s8 *)arg2 + 0);
     *(f32 *)((s8 *)e + 0x14) = *(f32 *)((s8 *)arg2 + 4);
-    *(s32 *)((s8 *)arg0 + 0x6C) = (s32)TItemTexLoad::create((TObject*)tl_07);
-    *(s8 *)((s8 *)arg0 + 0x61) = 0;
-    *(s8 *)((s8 *)arg0 + 0x60) = 2;
+    *(s32 *)&((TWindowLoadItemTexture *)arg0)->m_6c = (s32)TItemTexLoad::create((TObject*)tl_07);
+    *(s8 *)&((TWindowLoadItemTexture *)arg0)->m_61 = 0;
+    *(s8 *)&((TWindowLoadItemTexture *)arg0)->m_60 = 2;
     return arg0;
 }
 

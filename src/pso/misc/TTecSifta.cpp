@@ -242,15 +242,15 @@ u8 *TTecSifta__sub_8023B17C(u8 *arg0, s32 owner, s32 pos, s32 level) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8023B17C___vt__9TTecSifta *)&__vt__9TTecSifta).value;
     ((TObjPlayer *)(arg0 + 0xE0))->construct_target_cursor_records();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3820;
-    *(s32 *)((s8 *)arg0 + 0x13C) = 0;
+    *(s32 *)&((TTecSifta *)arg0)->m_13c = 0;
     ((TTecSifta *)arg0)->update_effect_params();
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xDC));
     if (temp_r3 != NULL) {
-        *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0xA4)) + 0xC) = (f32) (lbl_805DC940 + *(f32 *)((s8 *)arg0 + 0x7C));
+        *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0xA4)) + 0xC) = (f32) (lbl_805DC940 + ((TTecSifta *)arg0)->m_7c);
     }
-    temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x1C);
+    temp_r3_2 = ((TTecSifta *)arg0)->source;
     if (temp_r3_2 != 0U) {
-        *(s16 *)((s8 *)arg0 + 0xA8) = obj_getField1c((int) (temp_r3_2));
+        *(s16 *)&((TTecSifta *)arg0)->m_a8 = obj_getField1c((int) (temp_r3_2));
     }
     TTecSifta__sub_8023AC88((void*)((void *) (arg0)));
     ((TTecSifta *)arg0)->play_sifta_cast_sound();

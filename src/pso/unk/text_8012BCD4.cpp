@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804A4F60.h"
 #include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_8012BCD4_lbl_804A4F60 { s32 value; u8 remaining[0xF4]; };
@@ -19,12 +20,12 @@ u8 *psycho_wand_ct(u8 *arg0, u8 *arg1, s32 _w2) {
     ((TObjPlayer *)(arg0 + 0x208))->construct_target_cursor_records();
     ((TObjPlayer *)arg0)->set_status_flags(0x22);
     *(s32 *)((s8 *)arg0 + 0x278) = 0;
-    *(f32 *)((s8 *)arg0 + 0x274) = (f32) lbl_805DAEC8;
+    ((TUnk_804A4F60 *)arg0)->m_274 = (f32) lbl_805DAEC8;
     *(s16 *)((s8 *)arg0 + 0x1F8) = -1;
-    *(f32 *)((s8 *)arg0 + 0x204) = (f32) lbl_805DAEC8;
+    ((TUnk_804A4F60 *)arg0)->m_204 = (f32) lbl_805DAEC8;
     *(f32 *)((s8 *)arg0 + 0x200) = (f32) lbl_805DAEC8;
-    *(f32 *)((s8 *)arg0 + 0x1FC) = (f32) lbl_805DAEC8;
-    *(s32 *)((s8 *)arg0 + 0x264) = 0;
+    ((TUnk_804A4F60 *)arg0)->m_1fc = (f32) lbl_805DAEC8;
+    ((TUnk_804A4F60 *)arg0)->m_264 = 0;
     *(s32 *)((s8 *)arg0 + 0x208) = 0;
     return arg0;
 }

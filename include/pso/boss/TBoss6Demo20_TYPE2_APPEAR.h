@@ -26,7 +26,8 @@ public:
     s32 m_dc;
     u8 unk_E0[0x4];
     f32 m_e4;
-    u8 unk_E8[0x8];
+    u8 unk_E8[0x4];
+    s32 m_ec;
 };
 typedef char TBoss6Demo20_TYPE2_APPEAR_size[sizeof(TBoss6Demo20_TYPE2_APPEAR) == 0xF0 ? 1 : -1];
 

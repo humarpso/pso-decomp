@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804B8DE8.h"
 #include "pso/object/TObjFish.h"
 
 struct RecoveredGlobal_80198960_lbl_804B8DAC {
@@ -35,7 +36,7 @@ void TWindowTimer__sub_80198960(u8 *arg0) {
         }
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x1C));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x34)));
+        rotate_matrix_y((int) (0), (int) (((TUnk_804B8DE8 *)arg0)->m_34));
         scale_matrix((int) (0), (f32) (lbl_805DBF44), (f32) (lbl_805DBF44), (f32) (lbl_805DBF44));
         get_bml_model((void *) (gogo_ball_bml_resource), (int) (4));
         draw_chunk_object();

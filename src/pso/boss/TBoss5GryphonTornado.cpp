@@ -149,9 +149,9 @@ void TBoss5GryphonTornado::run_task() {
 void *__dt__20TBoss5GryphonTornadoFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TBoss5GryphonTornado;
-        if (*(void **)((s8 *)arg0 + 0x58) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x58)); *(s32 *)((s8 *)arg0 + 0x58) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x54) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x54)); *(s32 *)((s8 *)arg0 + 0x54) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x50) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x50)); *(s32 *)((s8 *)arg0 + 0x50) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x58) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x58)); *(s32 *)&((TBoss5GryphonTornado *)arg0)->m_58 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x54) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x54)); *(s32 *)&((TBoss5GryphonTornado *)arg0)->m_54 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x50) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x50)); *(s32 *)&((TBoss5GryphonTornado *)arg0)->m_50 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -165,16 +165,16 @@ u8 *TBoss5GryphonTornado__ct(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, s16 arg4) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_803558E4___vt__20TBoss5GryphonTornado *)&__vt__20TBoss5GryphonTornado).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4398;
     VecCopy((Vec *)(arg0 + 0x28), (const Vec *)arg3);
-    *(s16 *)((s8 *)arg0 + 0x24) = arg4;
-    *(s32 *)((s8 *)arg0 + 0x4C) = arg2;
+    *(s16 *)&((TBoss5GryphonTornado *)arg0)->m_24 = arg4;
+    *(s32 *)&((TBoss5GryphonTornado *)arg0)->m_4c = arg2;
     *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805DFFA8;
-    *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805DFFA8;
+    ((TBoss5GryphonTornado *)arg0)->m_38 = (f32) lbl_805DFFA8;
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805DFFA8;
-    *(s32 *)((s8 *)arg0 + 0x50) = 0;
-    *(s32 *)((s8 *)arg0 + 0x54) = 0;
-    *(s32 *)((s8 *)arg0 + 0x58) = 0;
-    *(s32 *)((s8 *)arg0 + 0x20) = 0;
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
+    *(s32 *)&((TBoss5GryphonTornado *)arg0)->m_50 = 0;
+    *(s32 *)&((TBoss5GryphonTornado *)arg0)->m_54 = 0;
+    *(s32 *)&((TBoss5GryphonTornado *)arg0)->m_58 = 0;
+    *(s32 *)&((TBoss5GryphonTornado *)arg0)->m_20 = 0;
+    *(s32 *)&((TBoss5GryphonTornado *)arg0)->m_1c = 0;
     return arg0;
 }
 

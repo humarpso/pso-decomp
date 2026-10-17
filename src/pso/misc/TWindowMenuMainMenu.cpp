@@ -31,9 +31,9 @@ void run_task__19TWindowMenuMainMenuFv(u8 *arg0) {
     u8 temp_r3_2;
     u8 *var_r30;
 
-    temp_r3 = *(u8 *)((s8 *)arg0 + 0x60);
+    temp_r3 = ((TWindowMenuMainMenu *)arg0)->m_60;
     if (temp_r3 & 8) {
-        *(u8 *)((s8 *)arg0 + 0x60) = (u8) (temp_r3 | 4);
+        ((TWindowMenuMainMenu *)arg0)->m_60 = (u8) (temp_r3 | 4);
     }
     var_r30 = arg0 + 0x64;
     var_r31 = 0;
@@ -46,9 +46,9 @@ void run_task__19TWindowMenuMainMenuFv(u8 *arg0) {
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TWindowMainMenu *)arg0)->update_slide_position();
     ((TUnk_804CE018 *)arg0)->update_fade();
-    temp_r3_2 = *(u8 *)((s8 *)arg0 + 0x60);
+    temp_r3_2 = ((TWindowMenuMainMenu *)arg0)->m_60;
     if (temp_r3_2 & 8) {
-        *(u8 *)((s8 *)arg0 + 0x60) = (u8) (temp_r3_2 & 0xFFFFFFF3);
+        ((TWindowMenuMainMenu *)arg0)->m_60 = (u8) (temp_r3_2 & 0xFFFFFFF3);
     }
 }
 
@@ -70,10 +70,10 @@ u8 *TWindowMenuMainMenu__ct(u8 *arg0, s32 arg1, s16 arg2) {
     p = arg0 + 0x64;
     i = 0;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3E68;
-    *(s8 *)((s8 *)arg0 + 0x60) = 4;
-    *(s8 *)((s8 *)arg0 + 0x61) = 0;
-    *(s16 *)((s8 *)arg0 + 0x62) = 0;
-    *(s16 *)((s8 *)arg0 + 0x20) = arg2;
+    *(s8 *)&((TWindowMenuMainMenu *)arg0)->m_60 = 4;
+    *(s8 *)&((TWindowMenuMainMenu *)arg0)->m_61 = 0;
+    *(s16 *)&((TWindowMenuMainMenu *)arg0)->m_62 = 0;
+    *(s16 *)&((TWindowMenuMainMenu *)arg0)->m_20 = arg2;
     do {
         ((TWindowMainMenu *)p)->init_color();
         i++;

@@ -22,7 +22,8 @@ public:
     s32 m_3c;
     u8 unk_40[0x4];
     s32 load_status;
-    u8 unknown_48[8];
+    u8 unk_48[0x4];
+    s32 m_4c;
     TObject *owned_object;
     void *window;
     TObject *queued_object;

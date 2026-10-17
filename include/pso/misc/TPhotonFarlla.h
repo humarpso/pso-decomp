@@ -12,13 +12,16 @@ public:
     virtual void run_task();
     u8 unk_158[0x24];
     u16 m_17c;
-    u8 unk_17E[0x6];
+    u8 unk_17E[0x2];
+    u8 * m_180;
     f32 m_184;
     u8 unk_188[0x4];
     float m_18c;
     u8 unk_190[0x4];
     s16 m_194;
-    u8 unk_196[0xA];
+    u8 unk_196[0x2];
+    s32 m_198;
+    u8 unk_19C[0x4];
     s32 m_1a0;
     u8 unk_1A4[0x4];
 };

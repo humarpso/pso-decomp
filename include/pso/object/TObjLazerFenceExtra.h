@@ -12,7 +12,9 @@ struct TObjLazerFenceExtra : public TUnk_804AF8A0 {
     void init_models();
     void render();
     void run_task();
-    u8 unk_AC[0x10];
+    u8 unk_AC[0x8];
+    s32 m_b4;
+    u8 unk_B8[0x4];
     u32 m_d8;
     u8 unk_C0[0x1C];
 };

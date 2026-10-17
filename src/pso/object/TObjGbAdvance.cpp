@@ -62,7 +62,7 @@ u8 *TObjGbAdvance__ct(u8 *arg0, s32 arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80187F78___vt__13TObjGbAdvance *)&__vt__13TObjGbAdvance).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D32D0;
     init_collision_body_parts(arg0, (s32) &lbl_804B6280.value, 1);
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
+    *(s32 *)&((TObjGbAdvance *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjGbAdvance *)arg0)->actorFlags| 0x40000000);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOKeyAncient01 *)(arg0 + 0x98))->set_type();
     return arg0;

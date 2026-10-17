@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCost.h"
 
 extern "C" {
 
@@ -27,7 +28,7 @@ extern void *TWindowCost__class_name;
 void *TWindowCost__ct(void *arg0) {
     TWindowMeseta__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TWindowCost;
-    *(void **)((s8 *)arg0 + 0x0) = TWindowCost__class_name;
+    *(void * *)&((TWindowCost *)arg0)->m_name = TWindowCost__class_name;
     get_item_count__24TShopEquipmentSellWindowFv(arg0, 0);
     return arg0;
 }

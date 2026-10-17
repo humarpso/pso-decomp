@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOContainerAncientEnemyCommon.h"
 
 extern "C" {
 
@@ -26,7 +27,7 @@ extern void *lbl_805D2F0C;
 void *TOContainerAncientEnemyCommon__ct(void *arg0) {
     TOContainerAncientEnemy__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__29TOContainerAncientEnemyCommon;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D2F0C;
+    *(void * *)&((TOContainerAncientEnemyCommon *)arg0)->m_name = lbl_805D2F0C;
     return arg0;
 }
 

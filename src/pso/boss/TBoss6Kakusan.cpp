@@ -254,7 +254,7 @@ void TBoss6Kakusan::run_task() {
 void *__dt__13TBoss6KakusanFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TBoss6Kakusan;
-        if (*(void **)((s8 *)arg0 + 0x54) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x54))); *(s32 *)((s8 *)arg0 + 0x54) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x54) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x54))); *(s32 *)&((TBoss6Kakusan *)arg0)->m_54 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -271,10 +271,10 @@ u8 *TBoss6Kakusan__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4, f32 farg
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80322994___vt__13TBoss6Kakusan *)&__vt__13TBoss6Kakusan).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss6Kakusan__name;
-    *(s16 *)((s8 *)arg0 + 0x20) = arg4;
-    *(f32 *)((s8 *)arg0 + 0x24) = farg0;
-    if (*(f32 *)((s8 *)arg0 + 0x24) <= TBoss6Kakusan__data_805DF518) {
-        *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805DF53C;
+    *(s16 *)&((TBoss6Kakusan *)arg0)->m_20 = arg4;
+    ((TBoss6Kakusan *)arg0)->m_24 = farg0;
+    if (((TBoss6Kakusan *)arg0)->m_24 <= TBoss6Kakusan__data_805DF518) {
+        ((TBoss6Kakusan *)arg0)->m_24 = (f32) lbl_805DF53C;
     }
     VecCopy((Vec *)(arg0 + 0x3C), (const Vec *)(arg3));
     if (vector_length((void *) (arg0 + 0x3C)) <= TBoss6Kakusan__data_805DF51C) {
@@ -283,20 +283,20 @@ u8 *TBoss6Kakusan__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4, f32 farg
     VecCopy((Vec *)(arg0 + 0x30), (const Vec *)(arg2));
     VecCopy((Vec *)(arg0 + 0x48), (const Vec *)(arg0 + 0x30));
     temp_f2 = *(f32 *)((s8 *)(TLobby::dispatch_shared_handler_a(0x2B)) + 4);
-    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) temp_f2;
+    *(s32 *)&((TBoss6Kakusan *)arg0)->m_1c = (s32) temp_f2;
     if (TBoss6Kakusan__data_805DF518 == temp_f2) {
-        *(s32 *)((s8 *)arg0 + 0x1C) = 0x14;
+        *(s32 *)&((TBoss6Kakusan *)arg0)->m_1c = 0x14;
     }
-    *(f32 *)((s8 *)arg0 + 0x28) = (f32) *(f32 *)((s8 *)(TLobby::dispatch_shared_handler_a(0x2F)) + 0x10);
-    if (*(f32 *)((s8 *)arg0 + 0x28) < TBoss6Kakusan__data_805DF518) {
-        *(f32 *)((s8 *)arg0 + 0x28) = (f32) TBoss6Kakusan__data_805DF518;
+    ((TBoss6Kakusan *)arg0)->m_28 = (f32) *(f32 *)((s8 *)(TLobby::dispatch_shared_handler_a(0x2F)) + 0x10);
+    if (((TBoss6Kakusan *)arg0)->m_28< TBoss6Kakusan__data_805DF518) {
+        ((TBoss6Kakusan *)arg0)->m_28 = (f32) TBoss6Kakusan__data_805DF518;
     }
-    *(u32 *)((s8 *)arg0 + 0x54) = create_particle_emitter((void *) (arg0 + 0x30), (int) (0x214));
-    temp_r3 = *(u32 *)((s8 *)arg0 + 0x54);
+    ((TBoss6Kakusan *)arg0)->m_54 = create_particle_emitter((void *) (arg0 + 0x30), (int) (0x214));
+    temp_r3 = ((TBoss6Kakusan *)arg0)->m_54;
     if (temp_r3 != 0U) {
         ((TBoss4Type2 *)temp_r3)->set_flags((int) (0x40));
     }
-    *(s32 *)((s8 *)arg0 + 0x2C) = 0;
+    *(s32 *)&((TBoss6Kakusan *)arg0)->m_2c = 0;
     return arg0;
 }
 #pragma pop

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804E355C.h"
 #include "pso/system/vector.h"
 
 struct RecoveredGlobal_802E4A4C_lbl_804E355C { s32 value; u8 remaining[0x18]; };
@@ -17,38 +18,38 @@ u8 *construct_attack_collision(u8 *arg0, s32 arg1, u8 *arg2) {
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804E355C.value;
     *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805DE914;
-    *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805DE914;
+    ((TUnk_804E355C *)arg0)->m_38 = (f32) lbl_805DE914;
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805DE914;
-    *(f32 *)((s8 *)arg0 + 0x40) = (f32) *(f32 *)((s8 *)arg2 + 0xC);
+    ((TUnk_804E355C *)arg0)->m_40 = (f32) *(f32 *)((s8 *)arg2 + 0xC);
     *(f32 *)((s8 *)arg0 + 0x44) = (f32) lbl_805DE914;
-    *(s32 *)((s8 *)arg0 + 0x48) = 0;
+    ((TUnk_804E355C *)arg0)->m_48 = 0;
     *(s32 *)((s8 *)arg0 + 0x4C) = 0x41F07;
-    *(f32 *)((s8 *)arg0 + 0x50) = (f32) lbl_805DE914;
+    ((TUnk_804E355C *)arg0)->m_50 = (f32) lbl_805DE914;
     *(f32 *)((s8 *)arg0 + 0x54) = (f32) lbl_805DE914;
-    *(f32 *)((s8 *)arg0 + 0x58) = (f32) lbl_805DE914;
+    ((TUnk_804E355C *)arg0)->m_58 = (f32) lbl_805DE914;
     *(f32 *)((s8 *)arg0 + 0x5C) = (f32) lbl_805DE914;
     *(u8 **)((s8 *)arg0 + 0x1C) = (unsigned char *) ((void *) (arg0 + 0x34));
-    *(s32 *)((s8 *)arg0 + 0x20) = 1;
+    ((TUnk_804E355C *)arg0)->m_20 = 1;
     VecCopy((Vec *)(arg0 + 0x24), (const Vec *)(arg2));
     memset((void *) (arg0 + 0x60), (int) (0), (int) (0x40));
-    *(s32 *)((s8 *)arg0 + 0xA0) = 0;
-    *(s32 *)((s8 *)arg0 + 0xA4) = (s32) *(s32 *)((s8 *)arg2 + 0x10);
-    *(u16 *)((s8 *)arg0 + 0xA8) = (u16) *(u16 *)((s8 *)arg2 + 0x14);
+    ((TUnk_804E355C *)arg0)->m_a0 = 0;
+    ((TUnk_804E355C *)arg0)->m_a4 = (s32) *(s32 *)((s8 *)arg2 + 0x10);
+    ((TUnk_804E355C *)arg0)->m_a8 = (u16) *(u16 *)((s8 *)arg2 + 0x14);
     *(s16 *)((s8 *)arg0 + 0xAA) = (s16) *(s16 *)((s8 *)arg2 + 0x16);
-    *(s32 *)((s8 *)arg0 + 0xAC) = (s32) *(s32 *)((s8 *)arg2 + 0x18);
+    ((TUnk_804E355C *)arg0)->m_ac = (s32) *(s32 *)((s8 *)arg2 + 0x18);
     *(f32 *)((s8 *)arg0 + 0xB0) = (f32) *(f32 *)((s8 *)arg2 + 0x1C);
-    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) *(f32 *)((s8 *)arg2 + 0x20);
+    ((TUnk_804E355C *)arg0)->m_b4 = (f32) *(f32 *)((s8 *)arg2 + 0x20);
     *(s32 *)((s8 *)arg0 + 0xB8) = (s32) *(s32 *)((s8 *)arg2 + 0x24);
     *(s32 *)((s8 *)arg0 + 0xC0) = 1;
     player = get_player_by_client_id((int) ((s32) *(u16 *)((s8 *)arg2 + 0x14)));
     if (player != 0U) {
         if (get_type__10TObjPlayerFPv((void *) (player + 0x828)) != 0) {
-            *(s32 *)((s8 *)arg0 + 0xBC) = 1;
+            ((TUnk_804E355C *)arg0)->m_bc = 1;
         } else {
-            *(s32 *)((s8 *)arg0 + 0xBC) = 0;
+            ((TUnk_804E355C *)arg0)->m_bc = 0;
         }
     } else {
-        *(s32 *)((s8 *)arg0 + 0xBC) = 0;
+        ((TUnk_804E355C *)arg0)->m_bc = 0;
     }
     return arg0;
 }

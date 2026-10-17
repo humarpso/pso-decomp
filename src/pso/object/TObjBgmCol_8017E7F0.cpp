@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjBgmCol.h"
 #include "pso/TParticleCtrl.h"
 
 struct TObjBase8017E8_8017E7F0 { char pad[0x18]; };
@@ -38,11 +39,11 @@ void *TObjBgmCol__ct(void *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjBgmCol;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjBgmCol__name;
     ((TObjBgmCol8017E8_8017E7F0 *)arg0)->ct(arg2);
-    *(s32 *)((s8 *)arg0 + 0x90) = 1;
-    *(f32 *)((s8 *)arg0 + 0x98) = (f32) *(f32 *)((s8 *)arg0 + 0x68);
-    *(s32 *)((s8 *)arg0 + 0x9C) = (s32) (*(s32 *)((s8 *)arg0 + 0x84) % 6);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x9C) < 0) {
-        *(s32 *)((s8 *)arg0 + 0x9C) = 0;
+    *(s32 *)&((TObjBgmCol *)arg0)->m_90 = 1;
+    ((TObjBgmCol *)arg0)->m_98 = (f32) ((TObjBgmCol *)arg0)->scale;
+    *(s32 *)&((TObjBgmCol *)arg0)->m_9c = (s32) (((TObjBgmCol *)arg0)->m_84% 6);
+    if ((s32) *(s32 *)&((TObjBgmCol *)arg0)->m_9c< 0) {
+        *(s32 *)&((TObjBgmCol *)arg0)->m_9c = 0;
     }
     return arg0;
 }

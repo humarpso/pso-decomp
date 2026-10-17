@@ -103,16 +103,16 @@ void TWindowTradeRequest::run_task() {
 u8 *__dt__19TWindowTradeRequestFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__19TWindowTradeRequest.value;
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x20) != 0U) {
+        if ((u32) ((TWindowTradeRequest *)arg0)->m_20 != 0U) {
             ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x20)))->close();
-            *(u32 *)((s8 *)arg0 + 0x20) = 0U;
+            ((TWindowTradeRequest *)arg0)->m_20 = 0U;
         }
         TWindowReturnCity__sub_8024ACA8((void *) (local_client_id));
         TLobby__sub_8024AC20((void *) (local_client_id));
         if (get_player_by_client_id((void *) (local_client_id)) != 0U) {
             init_parts__10TObjPlayerFv();
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 2U) {
+        if ((u32) ((TWindowTradeRequest *)arg0)->m_1c == 2U) {
             fn_8024AADC((void *) (local_client_id), (int) (0x1D));
         }
         __dt__7TObjectFv((void *) (arg0), (int) (0));
@@ -145,11 +145,11 @@ u8 *TWindowTradeRequest__ct(u8 *arg0) {
   }
   TWindowSubStatusDisp::get_message_10((int) 0xD9);
   text_builder_append();
-  *((s32 *) (((s8 *) arg0) + 0x20)) = create__19TWindowMessageYesNoFPvPvPvPv((s32) arg0, local_client_id, 0, 0);
+  *(s32 *)&((TWindowTradeRequest *)arg0)->m_20 = create__19TWindowMessageYesNoFPvPvPvPv((s32) arg0, local_client_id, 0, 0);
   window_layout_position = (u8 *) get_window_layout_position(0xB2);
-  forward_slot_selection__16TAdChrSelASlotGCFPvPv((int) (*((s32 *) (((s8 *) arg0) + 0x20))), (int) get_shared_text_buffer(), (int) window_layout_position, (f32) lbl_805DE8A0);
+  forward_slot_selection__16TAdChrSelASlotGCFPvPv((int) (*(s32 *)&((TWindowTradeRequest *)arg0)->m_20), (int) get_shared_text_buffer(), (int) window_layout_position, (f32) lbl_805DE8A0);
   new_var2 = ((s8 *) arg0) + 0x1C;
-  ((TWindowSubShortMail *)(*((s32 *) (((s8 *) arg0) + 0x20))))->notify_warp_flag70();
+  ((TWindowSubShortMail *)(*(s32 *)&((TWindowTradeRequest *)arg0)->m_20))->notify_warp_flag70();
   if (((s32)get_player_by_client_id((void *)((u32) local_client_id))) != 0U)
   {
     reset_equip_slots__10TObjPlayerFv();

@@ -16,7 +16,8 @@ struct TODoorCave02 : public TUnk_804B0BB8 {
     static void load_resources();
     u8 unk_D4[0x4];
     f32 m_d8;
-    u8 unk_DC[0x8];
+    u8 unk_DC[0x4];
+    f32 m_e0;
 };
 
 typedef char TODoorCave02_size[sizeof(TODoorCave02) == 0xE4 ? 1 : -1];

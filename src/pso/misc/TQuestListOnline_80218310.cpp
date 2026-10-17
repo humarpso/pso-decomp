@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TQuestListOnline.h"
 #include "pso/TShopWindowBase.h"
 #include "pso/misc/TQuestListVM.h"
 
@@ -19,17 +20,17 @@ void *TQuestListOnline__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
     __ct__15TShopWindowBaseFv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TQuestListOnline;
     __ct__13GameListEntryFv(self->f_4C);
-    *(void **)((s8 *)arg0 + 0x0) = TQuestListOnline__class_name;
-    *(u32 *)((s8 *)arg0 + 0x38) = 0;
-    *(u32 *)((s8 *)arg0 + 0x3C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x40) = 0;
-    *(u32 *)((s8 *)arg0 + 0x44) = 0;
-    *(void **)((s8 *)arg0 + 0x6C) = arg2;
-    *(u32 *)((s8 *)arg0 + 0x48) = 0;
+    *(void * *)&((TQuestListOnline *)arg0)->m_name = TQuestListOnline__class_name;
+    ((TQuestListOnline *)arg0)->list_window = 0;
+    ((TQuestListOnline *)arg0)->description_window = 0;
+    ((TQuestListOnline *)arg0)->info_window = 0;
+    ((TQuestListOnline *)arg0)->confirm_window = 0;
+    *(void * *)&((TQuestListOnline *)arg0)->sequence = arg2;
+    *(u32 *)&((TQuestListOnline *)arg0)->selected_index = 0;
     *(u32 *)((s8 *)arg0 + 0x28) = 0;
     *(u32 *)((s8 *)arg0 + 0x2C) = 0;
     *(u32 *)((s8 *)arg0 + 0x34) = 0;
-    *(u32 *)((s8 *)arg0 + 0x68) = 0;
+    *(u32 *)&((TQuestListOnline *)arg0)->selection_stage = 0;
     *(void **)((s8 *)arg0 + 0x24) = arg3;
     memset(self->f_4C, 0, 28);
     ((TShopWindowBase *)arg0)->set_field_20(0);

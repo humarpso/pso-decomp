@@ -519,7 +519,7 @@ extern void *lbl_805D2A30;
 void *TObjEneDD__ct(void *arg0) {
     initialize__9TObjEnemyFPv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TObjEneDD;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D2A30;
+    *(void * *)&((TObjEneDD *)arg0)->m_name = lbl_805D2A30;
     *(u32 *)((s8 *)arg0 + 0x374) = 0;
     *(u32 *)((s8 *)arg0 + 0x378) = 0;
     *(f32 *)((s8 *)arg0 + 0x37C) = lbl_805D9EA8;

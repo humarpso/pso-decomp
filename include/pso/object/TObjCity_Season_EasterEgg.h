@@ -9,7 +9,11 @@ struct TObjCity_Season_EasterEgg : public TUnk_804B5E48 {
     virtual void render();
     virtual void run_task();
 
-    u8 unk_B4[0xC];
+    u8 unk_B4[0x4];
+
+    s32 m_b8;
+
+    u8 unk_BC[0x4];
 };
 
 typedef char TObjCity_Season_EasterEgg_size[sizeof(TObjCity_Season_EasterEgg) == 0xC0 ? 1 : -1];

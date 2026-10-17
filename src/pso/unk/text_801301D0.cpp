@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A68C8.h"
 #include "pso/player/TObjPlayer.h"
 
 struct RecoveredGlobal_801301D0_lbl_804A68C8 {
@@ -20,7 +21,7 @@ u8 *construct_cane_weapon(u8 *arg0, u8 *arg1, u8 *arg2) {
     TItemWeapon__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A68C8.value;
     *(f32 *)((s8 *)arg0 + 0x1F8) = (f32) lbl_805DAFFC;
-    *(s32 *)((s8 *)arg0 + 0x1FC) = 0;
+    ((TUnk_804A68C8 *)arg0)->m_1fc = 0;
     if ((u8) *(u8 *)((s8 *)arg2 + 2) >= 4U) {
         ((TObjPlayer *)arg0)->set_atp(-1);
     }

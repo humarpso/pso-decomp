@@ -95,10 +95,10 @@ u8 *TObjQuestColALock__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) obj_quest_col_alock_class_name;
     init_collision_body_parts(arg0, (s32) &TObjQuestColALock__collision_desc.value, 1);
     set_indexed_flags(arg0, 0, 0xF0);
-    temp_r4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xA4));
-    *(f32 *)((s8 *)temp_r4 + 4) = (f32) (*(f32 *)((s8 *)temp_r4 + 4) + *(f32 *)((s8 *)arg0 + 0x6C));
+    temp_r4 = (u8 *)(*(u8 * *)&((TObjQuestColALock *)arg0)->m_a4);
+    *(f32 *)((s8 *)temp_r4 + 4) = (f32) (*(f32 *)((s8 *)temp_r4 + 4) + ((TObjQuestColALock *)arg0)->target_scale);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
+    *(s32 *)&((TObjQuestColALock *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjQuestColALock *)arg0)->actorFlags| 0x40000000);
     ((TObjPlayer *)arg0)->reset_photon_effect();
     return arg0;
 }

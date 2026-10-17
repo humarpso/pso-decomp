@@ -1896,19 +1896,19 @@ void render__12TBoss1DragonFv(u8 *arg0) {
     TBoss1Dragon__data_805D4B14 = (s32) (arg0 + 0x3E8);
     TBoss1Dragon__data_805D4B18 = 0;
     TBoss1Dragon__data_805D4B1C = (s32) (arg0 + 0x430);
-    TBoss1Dragon__data_805D4B20 = *(s32 *)((s8 *)arg0 + 0x3C0);
+    TBoss1Dragon__data_805D4B20 = *(s32 *)&((TBoss1Dragon *)arg0)->flags;
     SELF->m8(lbl_805D7F30, lbl_805D7F30);
     ch = &((Body_80020B54 *) arg0)->ch[view];
     if (ch->m8() != 0) {
-        if (is_split_screen() != 0 && *(f32 *)((s8 *)arg0 + 0x5DC) - *(f32 *)((s8 *)arg0 + 0x5E0) >= lbl_805D7F2C &&
-            *(s16 *)((s8 *)arg0 + 0x326) != 0x16) {
+        if (is_split_screen() != 0 && ((TBoss1Dragon *)arg0)->heightOffset- ((TBoss1Dragon *)arg0)->defaultHeightOffset >= lbl_805D7F2C &&
+            ((TBoss1Dragon *)arg0)->mode != 0x16) {
             push_matrix();
             post_translate_matrix(arg0 + 0x38);
             translate_matrix(0, TBoss1Dragon__data_805D7F28, TBoss1Dragon__data_805D7F24, TBoss1Dragon__data_805D7F28);
-            rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+            rotate_matrix_y(0, ((TBoss1Dragon *)arg0)->rotation_y);
             scale_matrix(0, TBoss1Dragon__data_805D7F24, lbl_805D7F34, TBoss1Dragon__data_805D7F24);
             rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
-            rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0x64));
+            rotate_matrix_z(0, ((TBoss1Dragon *)arg0)->rotation_z);
             Color_80020B54 color = dragon_boss1_render_color;
             saved = *(s32 *)((s8 *)arg0 + 0x34);
             *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)TBoss1Dragon__data_805D4B08 + 0x42C)) + 0x18);
@@ -1920,11 +1920,11 @@ void render__12TBoss1DragonFv(u8 *arg0) {
             *(s32 *)((s8 *)arg0 + 0x34) = saved;
             pop_matrix();
         }
-        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
+        TObjFish::set_global_param(((TBoss1Dragon *)arg0)->texture_id);
         TObjEneDD::clear_global_flag_400();
         lbl_805D5660 = model_render_flags;
         set_material_alpha_compare_reference(0);
-        state = *(s16 *)((s8 *)arg0 + 0x326);
+        state = ((TBoss1Dragon *)arg0)->mode;
         visible = 1;
         if (state == 0x16) {
             ch->m6();
@@ -1932,7 +1932,7 @@ void render__12TBoss1DragonFv(u8 *arg0) {
         } else {
             hit = 0;
             if (camera_ctrl_instance != NULL && state != 0x1D && state != 0x16 && state != 0x15 &&
-                *(s32 *)((s8 *)arg0 + 0x3E4) == 0) {
+                ((TBoss1Dragon *)arg0)->phase == 0) {
                 ent = find_entity_by_id(TCameraCtrl::get_camera_target_id(-1));
                 if (ent != NULL) {
                     Vec_80020B54 origin;
@@ -1958,11 +1958,11 @@ void render__12TBoss1DragonFv(u8 *arg0) {
                             break;
                         }
                     }
-                    if (*(s16 *)((s8 *)arg0 + 0x326) == 9) {
+                    if (((TBoss1Dragon *)arg0)->mode == 9) {
                         if (hit == 0) {
-                            probe.x = *(f32 *)((s8 *)arg0 + 0x38) - TBoss1Dragon__data_805D7F3C * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
+                            probe.x = *(f32 *)((s8 *)arg0 + 0x38) - TBoss1Dragon__data_805D7F3C * sin_table_lookup(((TBoss1Dragon *)arg0)->rotation_y);
                             probe.y = TBoss1Dragon__data_805D7F28;
-                            probe.z = *(f32 *)((s8 *)arg0 + 0x40) - TBoss1Dragon__data_805D7F3C * cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
+                            probe.z = *(f32 *)((s8 *)arg0 + 0x40) - TBoss1Dragon__data_805D7F3C * cos_table_lookup(((TBoss1Dragon *)arg0)->rotation_y);
                             hit = ((s32 (*)(void *, void *, f32)) is_sphere_visible__12TBoss1DragonFf)(arg0, &probe, TBoss1Dragon__data_805D7F1C);
                         }
                         if (hit == 0) {
@@ -1995,10 +1995,10 @@ void render__12TBoss1DragonFv(u8 *arg0) {
         if (visible != 0) {
             push_matrix();
             post_translate_matrix(arg0 + 0x38);
-            translate_matrix(0, TBoss1Dragon__data_805D7F28, *(f32 *)((s8 *)arg0 + 0x5DC), TBoss1Dragon__data_805D7F28);
-            rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+            translate_matrix(0, TBoss1Dragon__data_805D7F28, ((TBoss1Dragon *)arg0)->heightOffset, TBoss1Dragon__data_805D7F28);
+            rotate_matrix_y(0, ((TBoss1Dragon *)arg0)->rotation_y);
             rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
-            rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0x64));
+            rotate_matrix_z(0, ((TBoss1Dragon *)arg0)->rotation_z);
             scale_matrix(0, TBoss1Dragon__data_805D7F24, TBoss1Dragon__data_805D7F24, TBoss1Dragon__data_805D7F24);
             TObjEneRe7Berura::set_global_state((s32)((s32 *) dragon_capture_node_points));
             TObjPlayer::toggle_particle_effect();
@@ -2512,13 +2512,13 @@ void render_shadows__12TBoss1DragonFPv(u8 *arg0) {
         if (is_split_screen() != 0) {
             var_r31 = get_camera_mode__11TCameraCtrlFv();
         }
-        if ((((Owner_80020A54 *)arg0)->e[var_r31].m8() != 0) && ((*(f32 *)((s8 *)arg0 + 0x5DC) - *(f32 *)((s8 *)arg0 + 0x5E0)) >= lbl_805D7F2C) && ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 0x16)) {
+        if ((((Owner_80020A54 *)arg0)->e[var_r31].m8() != 0) && ((((TBoss1Dragon *)arg0)->heightOffset- ((TBoss1Dragon *)arg0)->defaultHeightOffset) >= lbl_805D7F2C) && ((s16) ((TBoss1Dragon *)arg0)->mode != 0x16)) {
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
-            rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+            rotate_matrix_y((int) (0), (int) (((TBoss1Dragon *)arg0)->rotation_y));
             scale_matrix((int) (0), (f32) (TBoss1Dragon__data_805D7F24), (f32) (TBoss1Dragon__data_805D7F24), (f32) (TBoss1Dragon__data_805D7F24));
             rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x5C)));
-            rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x64)));
+            rotate_matrix_z((int) (0), (int) (((TBoss1Dragon *)arg0)->rotation_z));
             temp_r31 = *(s32 *)((s8 *)arg0 + 0x34);
             temp_r4 = (u8 *)(*(u8 **)((s8 *)TBoss1Dragon__data_805D4B08 + 0x42C));
             *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)temp_r4 + 0x18);
@@ -6212,7 +6212,7 @@ void update_colliders__12TBoss1DragonFPv(u8 *arg0) {
     i = 0;
     off = 0;
     do {
-        c = (Coll_80029408 *)(*(u8 **)((s8 *)arg0 + 0xA4) + off);
+        c = (Coll_80029408 *)(*(u8 * *)&((TBoss1Dragon *)arg0)->m_a4+ off);
         if (c->local.y >= lim) {
             set_collider_contact_high(c);
         } else {
@@ -6221,17 +6221,17 @@ void update_colliders__12TBoss1DragonFPv(u8 *arg0) {
         i++;
         off += 0x2C;
     } while (i < 7);
-    if (*(s16 *)((s8 *)arg0 + 0x326) != 9) {
-        set_collider_contact_high(*(Coll_80029408 **)((s8 *)arg0 + 0xA4) + 3);
-        set_collider_contact_high(*(Coll_80029408 **)((s8 *)arg0 + 0xA4) + 4);
+    if (((TBoss1Dragon *)arg0)->mode != 9) {
+        set_collider_contact_high(*(Coll_80029408 * *)&((TBoss1Dragon *)arg0)->m_a4+ 3);
+        set_collider_contact_high(*(Coll_80029408 * *)&((TBoss1Dragon *)arg0)->m_a4+ 4);
     }
-    (*(Coll_80029408 **)((s8 *)arg0 + 0xA4))[0].defense = *(s32 *)((s8 *)TBoss1Dragon__data_804FE17C.value + 0x20);
-    (*(Coll_80029408 **)((s8 *)arg0 + 0xA4))[1].defense = *(s32 *)((s8 *)TBoss1Dragon__data_804FE17C.value + 0x1C);
-    (*(Coll_80029408 **)((s8 *)arg0 + 0xA4))[2].defense = *(s32 *)((s8 *)TBoss1Dragon__data_804FE17C.value + 0x1C);
-    (*(Coll_80029408 **)((s8 *)arg0 + 0xA4))[3].defense = *(s32 *)((s8 *)TBoss1Dragon__data_804FE17C.value + 0x20);
-    (*(Coll_80029408 **)((s8 *)arg0 + 0xA4))[4].defense = *(s32 *)((s8 *)TBoss1Dragon__data_804FE17C.value + 0x20);
-    (*(Coll_80029408 **)((s8 *)arg0 + 0xA4))[5].defense = *(s32 *)((s8 *)TBoss1Dragon__data_804FE17C.value + 0x18);
-    (*(Coll_80029408 **)((s8 *)arg0 + 0xA4))[6].defense = *(s32 *)((s8 *)TBoss1Dragon__data_804FE17C.value + 0x20);
+    (*(Coll_80029408 * *)&((TBoss1Dragon *)arg0)->m_a4)[0].defense = *(s32 *)((s8 *)TBoss1Dragon__data_804FE17C.value + 0x20);
+    (*(Coll_80029408 * *)&((TBoss1Dragon *)arg0)->m_a4)[1].defense = *(s32 *)((s8 *)TBoss1Dragon__data_804FE17C.value + 0x1C);
+    (*(Coll_80029408 * *)&((TBoss1Dragon *)arg0)->m_a4)[2].defense = *(s32 *)((s8 *)TBoss1Dragon__data_804FE17C.value + 0x1C);
+    (*(Coll_80029408 * *)&((TBoss1Dragon *)arg0)->m_a4)[3].defense = *(s32 *)((s8 *)TBoss1Dragon__data_804FE17C.value + 0x20);
+    (*(Coll_80029408 * *)&((TBoss1Dragon *)arg0)->m_a4)[4].defense = *(s32 *)((s8 *)TBoss1Dragon__data_804FE17C.value + 0x20);
+    (*(Coll_80029408 * *)&((TBoss1Dragon *)arg0)->m_a4)[5].defense = *(s32 *)((s8 *)TBoss1Dragon__data_804FE17C.value + 0x18);
+    (*(Coll_80029408 * *)&((TBoss1Dragon *)arg0)->m_a4)[6].defense = *(s32 *)((s8 *)TBoss1Dragon__data_804FE17C.value + 0x20);
 }
 
 void TBoss1Dragon::update_position_history() {
@@ -6384,14 +6384,14 @@ void run_task__12TBoss1DragonFPv(u8 *arg0) {
         ((TBoss1Dragon *)(arg0))->vfunc_105();
         return;
     }
-    if (*(s32 *)((s8 *)arg0 + 0x3C0) & 0x40) {
+    if (*(s32 *)&((TBoss1Dragon *)arg0)->flags& 0x40) {
         ((TObjEnemy *)arg0)->send_entity_set_flags();
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x760) != 0) {
         ((TBoss1Dragon *)arg0)->hold_captured_player();
-        *(s32 *)((s8 *)arg0 + 0x768) = (s32) (*(s32 *)((s8 *)arg0 + 0x768) + 1);
+        ((TBoss1Dragon *)arg0)->controlTimer = (s32) (((TBoss1Dragon *)arg0)->controlTimer+ 1);
     } else if ((is_main_phase_15__9TObjEneDDFv() != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x6E0) == 0)) {
         temp_r30 = *(s32 *)((s8 *)arg0 + 0x3E0);
         if (((TObjEneDD *)arg0)->update_lobby_state() != 0) {
@@ -6407,18 +6407,18 @@ void run_task__12TBoss1DragonFPv(u8 *arg0) {
     ((TBoss1Dragon *)(arg0))->vfunc_41();
     ((TBoss1Dragon *)(arg0))->vfunc_42();
     if (temp_r30_2 == 0) {
-        temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+        temp_r0 = ((TBoss1Dragon *)arg0)->mode;
         if ((temp_r0 == 0x15) || (temp_r0 == 0x16)) {
-            *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x800);
+            *(s32 *)&((TBoss1Dragon *)arg0)->actorFlags = (s32) (*(s32 *)&((TBoss1Dragon *)arg0)->actorFlags| 0x800);
         } else {
-            *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFFF7FF);
+            *(s32 *)&((TBoss1Dragon *)arg0)->actorFlags = (s32) (*(s32 *)&((TBoss1Dragon *)arg0)->actorFlags& 0xFFFFF7FF);
         }
         if ((s32) *(s32 *)((s8 *)arg0 + 0x760) != 0) {
             if ((s32) *(u16 *)((s8 *)arg0 + 0x764) == (s32) local_client_id) {
                 if ((((TBoss1Dragon *)(arg0))->test_flag30_512() != 0) && (isHpPhasePending__12TBoss1DragonFv((void *) (arg0)) != 0)) {
                     ;
-                    if ((s16) *(s16 *)((s8 *)arg0 + 0x32C) < (s16) *(s16 *)((s8 *)arg0 + 0x682)) {
-                        *(s16 *)((s8 *)arg0 + 0x32C) = *(s16 *)((s8 *)arg0 + 0x682);
+                    if ((s16) ((TBoss1Dragon *)arg0)->hp< (s16) ((TBoss1Dragon *)arg0)->finalHpThreshold) {
+                        ((TBoss1Dragon *)arg0)->hp = ((TBoss1Dragon *)arg0)->finalHpThreshold;
                     }
                     ((TObjEneDD *)arg0)->clear_attack_receipts();
                 }
@@ -6427,47 +6427,47 @@ void run_task__12TBoss1DragonFPv(u8 *arg0) {
                 } else {
                     ((TBoss1Dragon *)arg0)->check_death();
                 }
-                ((VObj_18_8002985C *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 8);
-                ((VObj_18_8002985C *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
+                ((VObj_18_8002985C *)(arg0))->m85(((TBoss1Dragon *)arg0)->mode, 8);
+                ((VObj_18_8002985C *)(arg0))->m85(((TBoss1Dragon *)arg0)->mode, 0);
             } else {
                 if ((((TBoss1Dragon *)(arg0))->test_flag30_512() != 0) && (isHpPhasePending__12TBoss1DragonFv((void *) (arg0)) != 0)) {
                     ;
-                    if ((s16) *(s16 *)((s8 *)arg0 + 0x32C) < (s16) *(s16 *)((s8 *)arg0 + 0x682)) {
-                        *(s16 *)((s8 *)arg0 + 0x32C) = *(s16 *)((s8 *)arg0 + 0x682);
+                    if ((s16) ((TBoss1Dragon *)arg0)->hp< (s16) ((TBoss1Dragon *)arg0)->finalHpThreshold) {
+                        ((TBoss1Dragon *)arg0)->hp = ((TBoss1Dragon *)arg0)->finalHpThreshold;
                     }
                     ((TObjEneDD *)arg0)->clear_attack_receipts();
                 }
                 if ((s32) TBoss1Dragon__data_805D4B38 == 0) {
                     ((TBoss1Dragon *)arg0)->release_held_player();
                 }
-                ((VObj_18_8002985C *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
+                ((VObj_18_8002985C *)(arg0))->m85(((TBoss1Dragon *)arg0)->mode, 0);
             }
         } else {
             temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x3E0);
             if (temp_r0_2 != 1) {
                 if (temp_r0_2 == 2) {
-                    ((VObj_18_8002985C *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 2);
+                    ((VObj_18_8002985C *)(arg0))->m85(((TBoss1Dragon *)arg0)->mode, 2);
                 } else {
                     if ((((TBoss1Dragon *)(arg0))->test_flag30_512() != 0) && (isHpPhasePending__12TBoss1DragonFv((void *) (arg0)) != 0)) {
                         ;
-                        if ((s16) *(s16 *)((s8 *)arg0 + 0x32C) < (s16) *(s16 *)((s8 *)arg0 + 0x682)) {
-                            *(s16 *)((s8 *)arg0 + 0x32C) = *(s16 *)((s8 *)arg0 + 0x682);
+                        if ((s16) ((TBoss1Dragon *)arg0)->hp< (s16) ((TBoss1Dragon *)arg0)->finalHpThreshold) {
+                            ((TBoss1Dragon *)arg0)->hp = ((TBoss1Dragon *)arg0)->finalHpThreshold;
                         }
                         ((TObjEneDD *)arg0)->clear_attack_receipts();
                     }
                     ((TBoss1Dragon *)arg0)->choose_next_action();
                 }
-                ((VObj_18_8002985C *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 8);
-                ((VObj_18_8002985C *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
+                ((VObj_18_8002985C *)(arg0))->m85(((TBoss1Dragon *)arg0)->mode, 8);
+                ((VObj_18_8002985C *)(arg0))->m85(((TBoss1Dragon *)arg0)->mode, 0);
             } else {
                 if ((((TBoss1Dragon *)(arg0))->test_flag30_512() != 0) && (isHpPhasePending__12TBoss1DragonFv((void *) (arg0)) != 0)) {
                     ;
-                    if ((s16) *(s16 *)((s8 *)arg0 + 0x32C) < (s16) *(s16 *)((s8 *)arg0 + 0x682)) {
-                        *(s16 *)((s8 *)arg0 + 0x32C) = *(s16 *)((s8 *)arg0 + 0x682);
+                    if ((s16) ((TBoss1Dragon *)arg0)->hp< (s16) ((TBoss1Dragon *)arg0)->finalHpThreshold) {
+                        ((TBoss1Dragon *)arg0)->hp = ((TBoss1Dragon *)arg0)->finalHpThreshold;
                     }
                     ((TObjEneDD *)arg0)->clear_attack_receipts();
                 }
-                ((VObj_18_8002985C *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
+                ((VObj_18_8002985C *)(arg0))->m85(((TBoss1Dragon *)arg0)->mode, 0);
             }
         }
     }

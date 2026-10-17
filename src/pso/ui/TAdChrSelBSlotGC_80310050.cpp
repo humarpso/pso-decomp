@@ -12,7 +12,7 @@ extern void *TAdChrSelBSlotGC__name;
 void *TAdChrSelBSlotGC__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TAdChrSelBSlotGC;
-    *(void **)((s8 *)arg0 + 0x0) = TAdChrSelBSlotGC__name;
+    *(void * *)&((TAdChrSelBSlotGC *)arg0)->m_name = TAdChrSelBSlotGC__name;
     ((TAdChrSelBSlotGC *)arg0)->sub_8030FE04();
     ((TAdChrSelBSlotGC *)arg0)->create_children();
     return arg0;

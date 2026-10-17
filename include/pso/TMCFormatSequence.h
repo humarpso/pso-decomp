@@ -6,9 +6,12 @@
 
 class TMCFormatSequence : public TObject {
 public:
-    u8 unk_1C[0x8];
+    u8 unk_1C[0x4];
+    u32 m_20;
     s32 m_24;
-    u8 unk_28[0xC];
+    u8 unk_28[0x4];
+    u32 m_2c;
+    u8 unk_30[0x4];
     unsigned int m_34;
  void* m_38;
 public:

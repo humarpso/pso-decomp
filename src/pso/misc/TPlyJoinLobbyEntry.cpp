@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804A7008.h"
 #include "pso/system/date.h"
 #include "pso/system/memory.h"
 #include "pso/system/byteswap.h"
@@ -578,9 +579,9 @@ u8 *TLobby__sub_80135198(u8 *arg0, s32 arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A7008.value;
     getDateStamp((DateStamp *)(&sp8));
     DateToSeconds((DateStamp *)(&sp8), (int *)(arg0 + 0x1C));
-    *(s32 *)((s8 *)arg0 + 0x20) = (s32) *(s32 *)((s8 *)arg0 + 0x1C);
+    ((TUnk_804A7008 *)arg0)->m_20 = (s32) *(s32 *)((s8 *)arg0 + 0x1C);
     *(s32 *)((s8 *)arg0 + 0x24) = get_table_entry_by_index__6TLobbyFv((void *) (local_client_id));
-    *(s8 *)((s8 *)arg0 + 0x28) = 0;
+    ((TUnk_804A7008 *)arg0)->m_28 = 0;
     TLobby__idle_timeout_object = 0;
     return arg0;
 }

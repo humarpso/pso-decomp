@@ -101,11 +101,11 @@ void render__21TWindowSubComCardListFv(u8 *arg0) {
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     ((TWindowMenu *)arg0)->render_selected_entry(temp_r3);
     ((TWindowSubComCardList *)arg0)->draw_card_list_selection((u8 *)temp_r3);
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x88) != 0U) {
-        forward_render__20TWindowSubStatusDispFv(*(s32 *)((s8 *)arg0 + 0x88), temp_r3);
+    if ((u32) ((TWindowSubComCardList *)arg0)->m_88 != 0U) {
+        forward_render__20TWindowSubStatusDispFv(*(s32 *)&((TWindowSubComCardList *)arg0)->m_88, temp_r3);
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x8C) != 0U) {
-        draw_list_page_indicator(*(s32 *)((s8 *)arg0 + 0x8C), temp_r3);
+    if ((u32) ((TWindowSubComCardList *)arg0)->m_8c != 0U) {
+        draw_list_page_indicator(*(s32 *)&((TWindowSubComCardList *)arg0)->m_8c, temp_r3);
     }
 }
 

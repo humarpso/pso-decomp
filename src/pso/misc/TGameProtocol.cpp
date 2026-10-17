@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TGameProtocol.h"
 
 extern "C" {
 
@@ -15,7 +16,7 @@ void *TGameProtocol__ct(void *arg0) {
     void *o;
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TGameProtocol;
-    *(void **)((s8 *)arg0 + 0x0) = TGameProtocol__class_name;
+    *(void * *)&((TGameProtocol *)arg0)->m_name = TGameProtocol__class_name;
     TGameProtocol__instance = arg0;
     *(u32 *)((s8 *)arg0 + 0x1C) = 0;
     o = __nw__7TObjectFUl(0x1C);

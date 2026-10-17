@@ -76,7 +76,7 @@ u8 *TWindowSubItemList__ct(u8 *arg0, s32 arg1, s16 arg2) {
     ((TUnk_804D0618 *)arg0)->ensure_status_display((int) (TWindowSubStatusDisp::get_message_10((int) (0x24))));
     ((TUnk_804D0618 *)arg0)->create_menu_scroll_bar();
     ((TWindowSubItem *)arg0)->reset_selected();
-    *(s32 *)((s8 *)arg0 + 0x8C) = 0;
+    ((TWindowSubItemList *)arg0)->m_8c = 0;
     return arg0;
 }
 

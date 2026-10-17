@@ -129,7 +129,7 @@ void TObjPlayer__sub_8032DC94(u8 *arg0) {
   u8 *var_r29;
   var_f0 = lbl_805DF7D8;
   var_r29 = (u8 *) arg0;
-  var_f1 = *((f32 *) (((s8 *) arg0) + 0x80));
+  var_f1 = ((TUnk_804EDD20 *)arg0)->m_80;
   if ((!(var_f1 <= var_f0)) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0))
   {
     var_r3 = (s32 *) (*((s32 **) (((s8 *) var_r29) + 0x60)));
@@ -262,15 +262,15 @@ void run_card_effect(u8 *arg0);
 void anchor_card_effect(u8 *arg0) {
   u16 temp_r3;
   u8 *temp_r3_2;
-  temp_r3 = *((u16 *) (((s8 *) arg0) + 0x34));
+  temp_r3 = ((TUnk_804EDD44 *)arg0)->m_34;
   if (temp_r3 != ((-1U) & 0xFFFFu))
   {
     if (find_entity_by_id(temp_r3) != 0)
     {
-      temp_r3_2 = (u8 *) ((*((s32 *) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x28)))) + 0xA4))) + ((*((s32 *) (((s8 *) arg0) + 0x2C))) * 0x2C));
-      *((f32 *) (((s8 *) arg0) + 0x64)) = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x1C))) - (*((f32 *) (((s8 *) arg0) + 0x44))));
-      *((f32 *) (((s8 *) arg0) + 0x68)) = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x20))) - (*((f32 *) (((s8 *) arg0) + 0x48))));
-      *((f32 *) (((s8 *) arg0) + 0x6C)) = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x24))) - (*((f32 *) (((s8 *) arg0) + 0x4C))));
+      temp_r3_2 = (u8 *) ((*((s32 *) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x28)))) + 0xA4))) + ((((TUnk_804EDD44 *)arg0)->m_2c) * 0x2C));
+      *((f32 *) (((s8 *) arg0) + 0x64)) = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x1C))) - (((TUnk_804EDD44 *)arg0)->m_44));
+      ((TUnk_804EDD44 *)arg0)->m_68 = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x20))) - (*((f32 *) (((s8 *) arg0) + 0x48))));
+      *((f32 *) (((s8 *) arg0) + 0x6C)) = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x24))) - (((TUnk_804EDD44 *)arg0)->m_4c));
     }
   }
 }
@@ -319,7 +319,7 @@ void TUnk_804EDD44::start_card_effect_flash() {
 
 void run_card_effect(u8 *arg0) {
     s32 i;
-    if (find_item_by_id(*(s32 *)((s8 *)arg0 + 0x60)) == 0U) {
+    if (find_item_by_id(((TUnk_804EDD44 *)arg0)->m_60) == 0U) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }

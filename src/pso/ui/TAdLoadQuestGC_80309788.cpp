@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdLoadQuestGC.h"
 
 extern "C" {
 
@@ -19,7 +20,7 @@ void *TAdLoadQuestGC__ct(void *arg0) {
     void *o;
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TAdLoadQuestGC;
-    *(void **)((s8 *)arg0 + 0x0) = TAdLoadQuestGC__class_name;
+    *(void * *)&((TAdLoadQuestGC *)arg0)->m_name = TAdLoadQuestGC__class_name;
     get_or_create_cell__14TAdLoadQuestGCFii(arg0, 0);
     get_or_create_prt_txt__14TAdLoadQuestGCFii(arg0, 0);
     get_or_create_cell__14TAdLoadQuestGCFii(arg0, 1);
@@ -32,7 +33,7 @@ void *TAdLoadQuestGC__ct(void *arg0) {
     if (o != NULL) {
         o = TAdLdQuestPrtGC__ct(o, arg0);
     }
-    *(void **)((s8 *)arg0 + 0x1C) = o;
+    *(void * *)&((TAdLoadQuestGC *)arg0)->quest_display = o;
     return arg0;
 }
 

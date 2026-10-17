@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TUnk_804EE458.h"
 #include "pso/misc/TWindowChoiceSetting.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
 #include "pso/ui/TAdTrialAgreementGC.h"
@@ -66,7 +67,7 @@ u8 TAdTrialAgreementGC__sub_80335958(u8 *arg0) {
     return (u8) (*(s32 *)((s8 *)arg0 + 0x24) == 2);
 }
 
-s32 TAdTrialAgreementGC__sub_8033596C(void* p) { return *(s32*)((char*)p + 0x20); }
+s32 TAdTrialAgreementGC__sub_8033596C(void* p) { return *(s32 *)&((TUnk_804EE458 *)p)->m_20; }
 
 typedef char RecoveredGlobal_80335A58_lbl_8050E208_size[sizeof(RecoveredGlobal_80335A58_lbl_8050E208) == 0x1B0 ? 1 : -1];
 typedef char RecoveredGlobal_80335A58_lbl_8050E3B8_size[sizeof(RecoveredGlobal_80335A58_lbl_8050E3B8) == 0x1B0 ? 1 : -1];

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TQuadSpriteSclCol.h"
 #include "pso/system/vector.h"
 #include "pso/unk/TUnk_804C57F0.h"
 #include "pso/TParticleCtrl.h"
@@ -177,7 +178,7 @@ extern void *TQuadSpriteSclCol__class_name;
 void *TQuadSpriteSclCol__ct(void *arg0) {
     quad_sprite_base_ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TQuadSpriteSclCol;
-    *(void **)((s8 *)arg0 + 0x0) = TQuadSpriteSclCol__class_name;
+    *(void * *)&((TQuadSpriteSclCol *)arg0)->m_name = TQuadSpriteSclCol__class_name;
     return arg0;
 }
 

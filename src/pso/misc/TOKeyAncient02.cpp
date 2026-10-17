@@ -235,23 +235,23 @@ u8 *TOKeyAncient02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKeyAncient02__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     ((TOKey *)arg0)->init_switch_id();
-    *(u8 **)((s8 *)arg0 + 0x34) = ((u8 *)get_bml_model((void *)((*(s32 *)&TOKeyAncient02__model_archive)), (s32)(1)));
-    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((void *)((void *) ((*(s32 *)&TOKeyAncient02__model_archive))), (s32)((int) (1)));
+    *(u8 * *)&((TOKeyAncient02 *)arg0)->model = ((u8 *)get_bml_model((void *)((*(s32 *)&TOKeyAncient02__model_archive)), (s32)(1)));
+    ((TOKeyAncient02 *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *)((void *) ((*(s32 *)&TOKeyAncient02__model_archive))), (s32)((int) (1)));
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B2A8C.value), (int) (1));
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB710;
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (lbl_805DB714 + *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34)) + 4)) + 0x14));
-    *(s32 *)((s8 *)arg0 + 0xE8) = 0;
-    *(s32 *)((s8 *)arg0 + 0xEC) = 0;
-    if (((s32) *(s32 *)((s8 *)arg0 + 0xD0) != 2) && ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0)) {
-        *(s32 *)((s8 *)arg0 + 0xD0) = 1;
+    ((TOKeyAncient02 *)arg0)->m_c0 = (f32) lbl_805DB710;
+    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (lbl_805DB714 + *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&((TOKeyAncient02 *)arg0)->model) + 4)) + 0x14));
+    ((TOKeyAncient02 *)arg0)->m_e8 = 0;
+    ((TOKeyAncient02 *)arg0)->m_ec = 0;
+    if (((s32) *(s32 *)&((TOKeyAncient02 *)arg0)->m_d0 != 2) && ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0)) {
+        *(s32 *)&((TOKeyAncient02 *)arg0)->m_d0 = 1;
     } else {
-        *(s32 *)((s8 *)arg0 + 0xD0) = 0;
+        *(s32 *)&((TOKeyAncient02 *)arg0)->m_d0 = 0;
     }
     *(f32 *)((s8 *)arg0 + 0x70) = (f32) TOKeyAncient02__data_805DB70C;
-    *(f32 *)((s8 *)arg0 + 0x6C) = (f32) TOKeyAncient02__data_805DB70C;
-    *(f32 *)((s8 *)arg0 + 0x68) = (f32) TOKeyAncient02__data_805DB70C;
+    ((TOKeyAncient02 *)arg0)->target_scale = (f32) TOKeyAncient02__data_805DB70C;
+    ((TOKeyAncient02 *)arg0)->scale = (f32) TOKeyAncient02__data_805DB70C;
     return arg0;
 }
 

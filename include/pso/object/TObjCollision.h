@@ -7,7 +7,10 @@
 struct TObjCollision : public TUnk_804AF8A0 {
     virtual ~TObjCollision();
     void* m_ac;
-    u8 _padB0[0x10];
+    u8 unk_B0[0x4];
+    f32 m_b4;
+    u8 unk_B8[0x4];
+    f32 m_bc;
     u32 m_c0;
     u32 m_c4;
     virtual void render();

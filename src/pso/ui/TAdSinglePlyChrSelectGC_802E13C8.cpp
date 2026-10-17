@@ -484,17 +484,17 @@ int TAdSinglePlyChrSelectGC__sub_802E1F8C(void* p);
 void init__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     ((s32 (*)())sub_802E1F14__12TAdTimeSetGCFv)();
     *(s32 *)((s8 *)arg0 + 0x48) = 0;
-    *(s32 *)((s8 *)arg0 + 0x4C) = 0;
+    ((TAdTimeSetGC *)arg0)->m_4c = 0;
     *(s32 *)((s8 *)arg0 + 0x50) = 0;
     *(s32 *)((s8 *)arg0 + 0x54) = 0;
     *(s32 *)((s8 *)arg0 + 0x58) = ((s32 (*)())create__23TAdSinglePlyChrSelectGCFv)();
     *(s32 *)((s8 *)arg0 + 0x20) = 0;
-    *(s32 *)((s8 *)arg0 + 0x5C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x60) = 0;
+    *(s32 *)&((TAdTimeSetGC *)arg0)->unknown_5c = 0;
+    ((TAdTimeSetGC *)arg0)->timer = 0;
     *(s32 *)((s8 *)arg0 + 0x40) = 0;
-    *(s32 *)((s8 *)arg0 + 0x44) = ((TAdTimeSetGC *)arg0)->poll_load_status();
+    ((TAdTimeSetGC *)arg0)->load_status = ((TAdTimeSetGC *)arg0)->poll_load_status();
     *(s32 *)((s8 *)arg0 + 0x1C) = -1;
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x44) == 0) {
+    if ((s32) ((TAdTimeSetGC *)arg0)->load_status == 0) {
         ((s32 (*)(void *, s32))change_state__12TAdTimeSetGCFl)(arg0, 1);
         return;
     }

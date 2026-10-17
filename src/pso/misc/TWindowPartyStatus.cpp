@@ -131,7 +131,7 @@ u8 *TWindowPartyStatus__ct(u8 *arg0, s16 arg1, s32 arg2) {
     TWindowSimpleStatus__ct((void *) (arg0), (int) (get_window_layout_position((int) (0xAB))), (void *) (local_client_id), (void *) (arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8030C2D8___vt__18TWindowPartyStatus *)&__vt__18TWindowPartyStatus).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowPartyStatus__name;
-    *(s16 *)((s8 *)arg0 + 0x20) = arg1;
+    *(s16 *)&((TWindowPartyStatus *)arg0)->m_20 = arg1;
     return arg0;
 }
 

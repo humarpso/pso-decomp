@@ -430,20 +430,20 @@ void render__8TObjDoorFv(VObj_8018EAF8 *self) {
         ((Pmf_8018EAF8 *)lbl_804B77F0)[5] = *(Pmf_8018EAF8 *)lbl_804B77E4;
         lbl_805D5BCD = 1;
     }
-    saved = *(s32 *)((u8 *)self + 0xAC);
+    saved = ((TObjDoor *)self)->state;
 
     if (TObjDoor__data_805D5BC8 != 0) {
-        *(s32 *)((u8 *)self + 0xAC) = 0;
+        ((TObjDoor *)self)->state = 0;
     }
-    if (*(s32 *)((u8 *)self + 0xAC) == 0 || *(s32 *)((u8 *)self + 0xAC) == 2) {
+    if (((TObjDoor *)self)->state == 0 || ((TObjDoor *)self)->state == 2) {
         if (((TObjDoor *)self)->is_visible((7e+02f), (2.5e+02f)) != 0) {
-            (self->*((Pmf_8018EAF8 *)lbl_804B77F0)[*(s32 *)((u8 *)self + 0xAC)])();
+            (self->*((Pmf_8018EAF8 *)lbl_804B77F0)[((TObjDoor *)self)->state])();
         }
     } else if (self->m8((7e+02f), (2.5e+02f)) != 0) {
-        (self->*((Pmf_8018EAF8 *)lbl_804B77F0)[*(s32 *)((u8 *)self + 0xAC)])();
+        (self->*((Pmf_8018EAF8 *)lbl_804B77F0)[((TObjDoor *)self)->state])();
     }
     if (TObjDoor__data_805D5BC8 != 0) {
-        *(s32 *)((u8 *)self + 0xAC) = saved;
+        ((TObjDoor *)self)->state = saved;
     }
 }
 
@@ -515,22 +515,22 @@ void run_task__8TObjDoorFv(VObj_8018EF70 *self) {
         ((Pmf_8018EF70 *)lbl_804B7760)[5] = *(Pmf_8018EF70 *)lbl_804B7754;
         door_run_task_init_done = 1;
     }
-    saved = *(s32 *)((u8 *)self + 0xAC);
+    saved = ((TObjDoor *)self)->state;
 
     if (TObjDoor__data_805D5BC8 != 0) {
-        *(s32 *)((u8 *)self + 0xAC) = 0;
+        ((TObjDoor *)self)->state = 0;
         set_indexed_flags((TObjDoor *) self, 0, 1);
     } else {
         ((TObjDoor *)self)->update_state();
     }
-    (self->*((Pmf_8018EF70 *)lbl_804B7760)[*(s32 *)((u8 *)self + 0xAC)])();
-    if (*(s32 *)((u8 *)self + 0xAC) == 0) {
-        minimap_render_gate((u8 *)self + 0x38, 0xFFFF0000, *(s32 *)((u8 *)self + 0x60), 0, 0);
+    (self->*((Pmf_8018EF70 *)lbl_804B7760)[((TObjDoor *)self)->state])();
+    if (((TObjDoor *)self)->state == 0) {
+        minimap_render_gate((u8 *)self + 0x38, 0xFFFF0000, ((TObjDoor *)self)->rotation_y, 0, 0);
     } else {
-        minimap_render_gate((u8 *)self + 0x38, 0xFF00FF00, *(s32 *)((u8 *)self + 0x60), 0, 0);
+        minimap_render_gate((u8 *)self + 0x38, 0xFF00FF00, ((TObjDoor *)self)->rotation_y, 0, 0);
     }
     if (TObjDoor__data_805D5BC8 != 0) {
-        *(s32 *)((u8 *)self + 0xAC) = saved;
+        ((TObjDoor *)self)->state = saved;
     }
 }
 void *__dt__8TObjDoorFv(void *arg0, s16 arg1) {

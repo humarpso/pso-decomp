@@ -20,7 +20,10 @@ struct TAdYesNoBaseGC : public TObject {
     u32 m_24;
     u32 m_28;
     u32 m_2c;
-    u8 _pad30[0x10];
+    u8 unk_30[0x4];
+    f32 m_34;
+    u8 unk_38[0x4];
+    f32 m_3c;
     u32 m_40;
     u32 m_44;
     s32 create_menu_window();

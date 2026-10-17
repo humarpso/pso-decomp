@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804A2564.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemProShield.h"
 
@@ -23,17 +24,17 @@ u8 *construct_panzer_faust(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A2564.value;
     *(f32 *)((s8 *)arg0 + 0x200) = (f32) lbl_805DAD58;
-    *(f32 *)((s8 *)arg0 + 0x1FC) = (f32) lbl_805DAD58;
+    ((TUnk_804A2564 *)arg0)->m_1fc = (f32) lbl_805DAD58;
     *(f32 *)((s8 *)arg0 + 0x1F8) = (f32) lbl_805DAD58;
-    *(s32 *)((s8 *)arg0 + 0x234) = 0;
+    ((TUnk_804A2564 *)arg0)->m_234 = 0;
     *(f32 *)((s8 *)arg0 + 0x1E4) = (f32) lbl_805DAD50;
     ((TObjPlayer *)arg0)->set_status_flags(0x8000);
     if (((TItemProShield *)arg0)->get_slot_count() == 1) {
         *(f32 *)((s8 *)arg0 + 0x238) = (f32) lbl_805DAD50;
-        *(s32 *)((s8 *)arg0 + 0x23C) = 0x80;
+        ((TUnk_804A2564 *)arg0)->m_23c = 0x80;
     } else {
         *(f32 *)((s8 *)arg0 + 0x238) = (f32) lbl_805DAD60;
-        *(s32 *)((s8 *)arg0 + 0x23C) = 0;
+        ((TUnk_804A2564 *)arg0)->m_23c = 0;
     }
     return arg0;
 }

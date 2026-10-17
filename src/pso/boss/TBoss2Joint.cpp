@@ -459,7 +459,7 @@ u8 *TBoss2Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5, 
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80036FC8___vt__11TBoss2Joint *)&__vt__11TBoss2Joint).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss2Joint__name;
     ((TObjEneDD *)arg0)->init_common_from(arg1);
-    *(s16 *)((s8 *)arg0 + 0x1C) = arg2;
+    *(s16 *)&((TBoss2Joint *)arg0)->m_1c = arg2;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg3;
     *(s32 *)((s8 *)arg0 + 0x390) = arg4;
     *(s32 *)((s8 *)arg0 + 0x398) = arg5;

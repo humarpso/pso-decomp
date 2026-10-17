@@ -167,15 +167,15 @@ u8 *TOCapsuleLabo__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3E7C;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *)((int) ((*(s32 *)&TOCapsuleLabo__model_resource))), (s32)((int) (0)));
-    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOCapsuleLabo__model_resource)), (int) (0));
+    ((TOCapsuleLabo *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOCapsuleLabo__model_resource)), (int) (0));
     init_collision_body_parts((void *) (arg0), (void *) (&TOCapsuleLabo__collision_parts.value), (int) (1));
     set_indexed_flags((void *) (arg0), (int) (0), (int) (0x1288));
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     ((TOHealGeneral *)arg0)->update_heal_gauge_state();
-    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DE1E8;
+    ((TOCapsuleLabo *)arg0)->m_c0 = (f32) lbl_805DE1E8;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DE1EC;
-    *(s32 *)((s8 *)arg0 + 0xE4) = 0;
+    *(s32 *)&((TOCapsuleLabo *)arg0)->m_e4 = 0;
     if (((s32) enable_v2_features == 1) && (get_game_play_mode() == 1)) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }

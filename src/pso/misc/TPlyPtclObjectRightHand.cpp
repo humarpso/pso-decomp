@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TPlyPtclObjectRightHand.h"
 
 extern "C" {
 
@@ -26,7 +27,7 @@ extern void *TPlyPtclObjectRightHand__class_name;
 void *TPlyPtclObjectRightHand__ct(void *arg0) {
     TPlyFollowParticleCtrl__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TPlyPtclObjectRightHand;
-    *(void **)((s8 *)arg0 + 0x0) = TPlyPtclObjectRightHand__class_name;
+    *(void * *)&((TPlyPtclObjectRightHand *)arg0)->m_name = TPlyPtclObjectRightHand__class_name;
     return arg0;
 }
 

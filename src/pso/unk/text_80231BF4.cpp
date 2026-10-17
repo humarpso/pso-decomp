@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecGiZonde.h"
 
 #include <stddef.h>
 #pragma fp_contract on
@@ -137,8 +138,8 @@ typedef char RecoveredGlobal_80238D10_lbl_804CC55C_size[((sizeof(RecoveredGlobal
 void TTecGiZonde__vt6(u8 *arg0, u8 *arg1) {
     Elec_80238E14 d;
     d.type = 3;
-    d.val = *(f32 *)((s8 *)arg0 + 0xcc);
-    ((VObj_18_9c98dd *)(arg1))->m21(*(s32 *)((s8 *)arg0 + 0x1C), d, 0, 0x7, -1);
+    d.val = ((TTecGiZonde *)arg0)->power;
+    ((VObj_18_9c98dd *)(arg1))->m21(*(s32 *)&((TTecGiZonde *)arg0)->source, d, 0, 0x7, -1);
 }
 #pragma push
 #pragma opt_loop_invariants off

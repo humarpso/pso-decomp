@@ -42,7 +42,7 @@ u8 *construct_helper_effect__11TTecGiZondeFPvPvPvPvi(u8 *arg0, u8 *arg1, u8 *arg
     VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)arg1);
     VecCopy((Vec *)(arg0 + 0x28), (const Vec *)arg2);
     *(s32 *)((s8 *)arg0 + 0x3C) = arg4;
-    *(s32 *)((s8 *)arg0 + 0x38) = 0;
+    ((TUnk_804CCD78 *)arg0)->m_38 = 0;
     spawn_particle_effect_with_flags((s32) (arg0 + 0x1C), *(s32 *)((s8 *)arg0 + 0x3C), 0x40);
     return arg0;
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TShopGenerator.h"
 #include "pso/misc/TRaderMapCore.h"
 
 struct Base_8021E068_8021E010 { char pad[0x18]; };
@@ -142,9 +143,9 @@ void run_task__14TShopGeneratorFv(u8 *self) {
     s32 i;
     s32 p;
     s32 (*fn)(u16);
-    e = (Ent_8021DDB8 *)&TShopGenerator__service_dispatch_table.e[*(s32 *)((s8 *)self + 0x84)];
-    if (*(s32 *)((s8 *)self + 0x94) > 0) {
-        (*(s32 *)((s8 *)self + 0x94))--;
+    e = (Ent_8021DDB8 *)&TShopGenerator__service_dispatch_table.e[((TShopGenerator *)self)->m_84];
+    if (*(s32 *)&((TShopGenerator *)self)->m_94> 0) {
+        (*(s32 *)&((TShopGenerator *)self)->m_94)--;
         return;
     }
     if (lbl_805D55C0 != 0) {
@@ -209,9 +210,9 @@ void *TShopGenerator__ct(void *arg0, s32 arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TShopGenerator;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TShopGenerator__class_name;
     ((VObj_8021E068_8021E010 *)arg0)->m5(arg1);
-    *(s32 *)((s8 *)arg0 + 0x90) = 0;
-    *(s32 *)((s8 *)arg0 + 0x94) = 5;
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x84);
+    *(s32 *)&((TShopGenerator *)arg0)->m_90 = 0;
+    *(s32 *)&((TShopGenerator *)arg0)->m_94 = 5;
+    temp_r0 = ((TShopGenerator *)arg0)->m_84;
     if (temp_r0 < 0) {
         queue_destruction__7TObjectFv(arg0);
         return arg0;

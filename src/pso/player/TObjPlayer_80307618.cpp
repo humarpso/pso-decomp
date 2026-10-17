@@ -64,7 +64,7 @@ void TObjPlayer__sub_803076F8(u8 *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x1F8) == 0) {
         player_list = TObjPlayer::get_player_list();
         ((TObjPlayer *)arg0)->setup_particle_once();
-        TObjPlayer::load_projection_tex((s32)((void *) (arg0)), (s32)((int) ((s32) (lbl_805DF0AC * (f32) (*(s32 *)((s8 *)arg0 + 0x1FC) + (player_list * 3))))));
+        TObjPlayer::load_projection_tex((s32)((void *) (arg0)), (s32)((int) ((s32) (lbl_805DF0AC * (f32) (((TUnk_804E70A8 *)arg0)->m_1fc+ (player_list * 3))))));
     }
 }
 
@@ -77,7 +77,7 @@ u8 *TObjPlayer__sub_80307784(u8 *arg0, u8 *arg1, s32 _w2) {
         set_status_flags__10TObjPlayerFUl((void *)(arg0), (s32)(0x800));
     }
     *(s32 *)((s8 *)arg0 + 0x1F8) = 5;
-    *(s32 *)((s8 *)arg0 + 0x1FC) = 0;
+    ((TUnk_804E70A8 *)arg0)->m_1fc = 0;
     *(s32 *)((s8 *)arg0 + 0x200) = 0;
     return arg0;
 }

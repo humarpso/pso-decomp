@@ -106,13 +106,13 @@ u8 *TChCrLoadReq__sub_8028D360(u8 *arg0, s32 arg1) {
     __ct__7TObjectFP7TObject((void *)((void *) (arg0)), (void *)((void *) (arg1)));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8028D360___vt__12TChCrLoadReq *)&__vt__12TChCrLoadReq).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) (*(s32 *)&lbl_805D3B60);
-    *(s32 *)((s8 *)arg0 + 0x38) = (s32) (arg1 + 0x85C);
+    ((TChCrLoadReq *)arg0)->m_38 = (s32) (arg1 + 0x85C);
     *(s32 *)((s8 *)arg0 + 0x3C) = (s32) (arg1 + 0xCFC);
-    *(s32 *)((s8 *)arg0 + 0x40) = (s32) obj_getField1c((void *) (arg1));
+    ((TChCrLoadReq *)arg0)->m_40 = (s32) obj_getField1c((void *) (arg1));
     *(s32 *)((s8 *)arg0 + 0x44) = (s32) (arg1 + 0x34);
-    *(s32 *)((s8 *)arg0 + 0x48) = (s32) (arg1 + 0x8AC);
+    ((TChCrLoadReq *)arg0)->m_48 = (s32) (arg1 + 0x8AC);
     *(s32 *)((s8 *)arg0 + 0x4C) = (s32) (arg1 + 0xCF4);
-    *(s32 *)((s8 *)arg0 + 0x50) = (s32) (arg1 + 0xB88);
+    ((TChCrLoadReq *)arg0)->m_50 = (s32) (arg1 + 0xB88);
     *(s32 *)((s8 *)arg0 + 0x54) = (s32) (arg1 + 0xA1C);
     ((TChCrLoadReq *)arg0)->reset_request();
     return arg0;

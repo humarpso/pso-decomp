@@ -282,8 +282,8 @@ void TObjLobbyMain::update_fade() {
 
 void reset_state__13TObjLobbyMainFPv(void *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0xCC) != get_theme_lobby_type()) {
-        *(s32 *)((s8 *)arg0 + 0xC8) = 0;
-        *(f32 *)((s8 *)arg0 + 0xD4) = (f32) (1.0f);
+        *(s32 *)&((TObjLobbyMain *)arg0)->m_c8 = 0;
+        ((TObjLobbyMain *)arg0)->m_d4 = (f32) (1.0f);
     }
 }
 
@@ -399,8 +399,8 @@ void TObjLobbyMain::load_resources() {
 void *__dt__13TObjLobbyMainFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjLobbyMain;
-        if (*(void **)((s8 *)arg0 + 0xD8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD8)); *(s32 *)((s8 *)arg0 + 0xD8) = 0; }
-        if (*(void **)((s8 *)arg0 + 0xDC) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xDC)); *(s32 *)((s8 *)arg0 + 0xDC) = 0; }
+        if (*(void **)((s8 *)arg0 + 0xD8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD8)); *(s32 *)&((TObjLobbyMain *)arg0)->m_d8 = 0; }
+        if (*(void **)((s8 *)arg0 + 0xDC) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xDC)); *(s32 *)&((TObjLobbyMain *)arg0)->m_dc = 0; }
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         ((TUnk_804AFBF8 *)arg0)->destroy_key_base(0);
@@ -419,25 +419,25 @@ u8 *TObjLobbyMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80352940___vt__13TObjLobbyMain *)&__vt__13TObjLobbyMain).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4370;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    *(u32 *)((s8 *)arg0 + 0xD8) = create_particle_emitter((void *) (arg0 + 0x38), (int) (0x222));
-    temp_r3 = *(u32 *)((s8 *)arg0 + 0xD8);
+    ((TObjLobbyMain *)arg0)->m_d8 = create_particle_emitter((void *) (arg0 + 0x38), (int) (0x222));
+    temp_r3 = ((TObjLobbyMain *)arg0)->m_d8;
     if (temp_r3 != 0U) {
         ((TBoss4Type2 *)temp_r3)->set_flags((int) (0x40));
-        enable__13TParticleCtrlFv((int) (*(u32 *)((s8 *)arg0 + 0xD8)));
+        enable__13TParticleCtrlFv((int) (((TObjLobbyMain *)arg0)->m_d8));
     }
-    *(u32 *)((s8 *)arg0 + 0xDC) = create_particle_emitter((void *) (arg0 + 0x38), (int) (0x222));
-    temp_r3_2 = *(u32 *)((s8 *)arg0 + 0xDC);
+    ((TObjLobbyMain *)arg0)->m_dc = create_particle_emitter((void *) (arg0 + 0x38), (int) (0x222));
+    temp_r3_2 = ((TObjLobbyMain *)arg0)->m_dc;
     if (temp_r3_2 != 0U) {
         ((TBoss4Type2 *)temp_r3_2)->set_flags((int) (0x40));
-        enable__13TParticleCtrlFv((int) (*(u32 *)((s8 *)arg0 + 0xDC)));
+        enable__13TParticleCtrlFv((int) (((TObjLobbyMain *)arg0)->m_dc));
     }
     set_mode_index_from_state__13TObjLobbyMainFv((void *) (arg0));
     resolve_theme_index__13TObjLobbyMainFv((void *) (arg0));
     update_emitter_positions__13TObjLobbyMainFv((void *) (arg0));
-    *(f32 *)((s8 *)arg0 + 0xD4) = (f32) (1.0f);
-    *(s32 *)((s8 *)arg0 + 0xC8) = 2;
+    ((TObjLobbyMain *)arg0)->m_d4 = (f32) (1.0f);
+    *(s32 *)&((TObjLobbyMain *)arg0)->m_c8 = 2;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (1.2e+02f);
-    *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (0.0f);
+    ((TObjLobbyMain *)arg0)->m_b0 = (f32) (0.0f);
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804F0F34.value), (int) (1));
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();

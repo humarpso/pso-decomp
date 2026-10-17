@@ -12,7 +12,8 @@ struct TBoss8DragonEffBullet : public TObject {
     u8 _pad2C[0x8];
     u32 m_34;
     u32 m_38;
-    u8 _pad3C[0x8];
+    u8 unk_3C[0x4];
+    f32 m_40;
     u32 m_44;
     u16 m_48;
     u8 _pad4A[0x2];

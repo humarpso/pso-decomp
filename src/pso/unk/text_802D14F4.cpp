@@ -60,7 +60,7 @@ void TObjEneBm9Mericarol_Bomb::run_task() {
         }
         this->m_f8 -= lbl_805DE760;
         VecCopy((Vec *)&v, (const Vec *)&this->m_b4);
-        vec3_add_to(&v, arg0 + 0xCC);
+        vec3_add_to(&v, (u8 *)&this->m_cc);
         v.y += this->m_f8 - lbl_805DE764;
         if (csnVector((u8 *)&this->m_b4, &v, 0x1EFF) != 0) {
             queue_destruction__7TObjectFv(arg0);
@@ -88,11 +88,11 @@ void TObjEneBm9Mericarol_Bomb::run_task() {
             *(s32 *)((s8 *)(*(u8 * *)&this->m_a4) + 0x18) |= 2;
         }
         *(f32 *)((s8 *)(*(u8 * *)&this->m_a4) + 4) = d;
-        if (((VObj_18_64db54 *)(arg0))->m14(arg0 + 0xE4, (u8 *)&this->unk_F0) != 0) {
+        if (((VObj_18_64db54 *)(arg0))->m14((u8 *)&this->m_e4, (u8 *)&this->unk_F0) != 0) {
             TObjEneBm9Mericarol__sub_802CED40(find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xB0)));
             if (*(s32 *)((s8 *)arg0 + 0xF0) == 0 && this->m_108 != 0) {
                 *(s32 *)((s8 *)arg0 + 0xF0) = 0x12;
-                this->vfunc_16(arg0 + 0xE4, (u8 *)&this->unk_F0);
+                this->vfunc_16((u8 *)&this->m_e4, (u8 *)&this->unk_F0);
             }
             queue_destruction__7TObjectFv(arg0);
             return;

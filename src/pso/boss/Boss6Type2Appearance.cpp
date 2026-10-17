@@ -337,7 +337,7 @@ u8 *TBoss6Demo20_TYPE2_APPEAR__ct(u8 *arg0, s32 arg1) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__25TBoss6Demo20_TYPE2_APPEAR;
     *(s32 *)((s8 *)arg0 + 0) = (s32)TBoss6Demo20_TYPE2_APPEAR__name.value;
-    *(s32 *)((s8 *)arg0 + 0xEC) = arg1;
+    ((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_ec = arg1;
     count = TObjFish::get_fish_count();
     for (i = 0; i < 2; i++) {
         {
@@ -348,16 +348,16 @@ u8 *TBoss6Demo20_TYPE2_APPEAR__ct(u8 *arg0, s32 arg1) {
         self->t[i].b = TObjFish__sub_8001EDB0(count, v);
         self->t[i].c = get_bml_motion(count, boss6_type2_appear_motion_indices[i]);
     }
-    *(s32 *)((s8 *)arg0 + 0xBC) = get_bml_model(count, 4);
+    ((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_bc = get_bml_model(count, 4);
     *(s32 *)((s8 *)arg0 + 0xC0) = TObjFish__sub_8001EDB0(count, 4);
-    *(s32 *)((s8 *)arg0 + 0xC4) = get_bml_motion(count, 0x20);
+    ((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_c4 = get_bml_motion(count, 0x20);
     *(s32 *)((s8 *)arg0 + 0xC8) = get_bml_model(count, 1);
-    *(s32 *)((s8 *)arg0 + 0xCC) = TObjFish__sub_8001EDB0(count, 1);
+    ((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_cc = TObjFish__sub_8001EDB0(count, 1);
     *(s32 *)((s8 *)arg0 + 0xD0) = get_bml_motion(count, 0x36);
-    *(s32 *)((s8 *)arg0 + 0xD4) = get_bml_model(count, 0xC);
+    ((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_d4 = get_bml_model(count, 0xC);
     *(s32 *)((s8 *)arg0 + 0xD8) = TObjFish__sub_8001EDB0(count, 0xC);
-    *(s32 *)((s8 *)arg0 + 0xDC) = get_bml_motion(count, 0x22);
-    *(s32 *)((s8 *)arg0 + 0x7C) = TObjFish__sub_800E3124((void *)boss6_type2_appear_model_node_descriptors, arg0 + 0x1C);
+    ((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_dc = get_bml_motion(count, 0x22);
+    *(s32 *)&((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_7c = TObjFish__sub_800E3124((void *)boss6_type2_appear_model_node_descriptors, arg0 + 0x1C);
     for (i = 0; i < 9; i++) {
         self->arr[i] = 0;
     }
@@ -365,7 +365,7 @@ u8 *TBoss6Demo20_TYPE2_APPEAR__ct(u8 *arg0, s32 arg1) {
     set_scripted_camera_pose((void *)lbl_80478058, (void *)lbl_80478058, (void *)lbl_80478064);
     ((TCameraCtrl *)boss6_type2_appear_camera_script)->cache_target_and_forward(0x416C);
     *(f32 *)((s8 *)arg0 + 0xE0) = lbl_805DFA70;
-    *(f32 *)((s8 *)arg0 + 0xE4) = lbl_805DFA70;
+    ((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_e4 = lbl_805DFA70;
     *(s32 *)((s8 *)arg0 + 0xE8) = 0;
     return arg0;
 }

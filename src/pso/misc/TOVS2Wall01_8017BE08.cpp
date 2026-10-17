@@ -159,17 +159,17 @@ void *TOVS2Wall01__ct(void *arg0, void *arg1) {
     ((TUnk_804806E8 *)arg0)->calc_attach_pos();
     obj_setFlags30(arg0, 0x60000000);
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(TOVS2Wall01__bml_resource, 6);
-    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0(TOVS2Wall01__bml_resource, 6);
+    ((TOVS2Wall01 *)arg0)->texture_id = TObjFish__sub_8001EDB0(TOVS2Wall01__bml_resource, 6);
     init_collision_body_parts(arg0, ovs2wall01_collision_parts + 0x108, 1);
     set_indexed_flags(arg0, 0, 0x08000000);
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    *(s16 *)((s8 *)arg0 + 0x326) = 0;
+    ((TOVS2Wall01 *)arg0)->mode = 0;
     *(f32 *)((s8 *)arg0 + 0x334) = lbl_805DBAAC;
-    *(f32 *)((s8 *)arg0 + 0x338) = lbl_805DBAB0 + *(f32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 4)) + 0x14);
-    t = *(s32 *)((s8 *)arg0 + 0x84);
-    *(s32 *)((s8 *)arg0 + 0x33C) = t + 0x100;
+    ((TOVS2Wall01 *)arg0)->m_338 = lbl_805DBAB0 + *(f32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&((TOVS2Wall01 *)arg0)->model) + 4)) + 0x14);
+    t = ((TOVS2Wall01 *)arg0)->m_84;
+    *(s32 *)&((TOVS2Wall01 *)arg0)->m_33c = t + 0x100;
     activate_and_dispatch__10TObjPlayerFv((u8 *)arg0 + 0x340, t, lbl_805DBAB0);
-    *(s32 *)((s8 *)arg0 + 0x35C) = 1;
+    *(s32 *)&((TOVS2Wall01 *)arg0)->m_35c = 1;
     return arg0;
 }
 #pragma pop

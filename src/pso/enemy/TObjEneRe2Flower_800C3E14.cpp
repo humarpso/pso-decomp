@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRe2Flower.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -364,7 +365,7 @@ void TObjEneRe2Flower__sub_800C3F70(u8 *arg0) {
     if (((TObjEneRe2Flower *)(arg0))->vfunc_83() != 4) {
         ((TObjEneRe2Flower *)(arg0))->vfunc_85();
     } else {
-        temp_r3 = *(s16 *)((s8 *)arg0 + 0x326);
+        temp_r3 = ((TObjEneRe2Flower *)arg0)->mode;
         if ((temp_r3 == 0) || (temp_r3 == 1)) {
             ((VObj_14_2f517b *)((u8 *)(arg0) + (1012)))->m2();
             transition_enemy_state((void *)((void *) (arg0)), (s32)((int) (2)));

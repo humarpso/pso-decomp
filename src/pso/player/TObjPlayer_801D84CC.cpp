@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TUnk_804C4540.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TLobby.h"
 #include "pso/object/TObjFish.h"
@@ -118,11 +119,11 @@ s32 TObjPlayer::create_ending_player() {
 }
 
 void TObjPlayer__sub_801D877C(u8 *arg0) {
-    if ((obj_testFlags30(arg0, 0x02000000) == 0) && ((s32) *(s32 *)((s8 *)arg0 + 0xCFC) == 0)) {
+    if ((obj_testFlags30(arg0, 0x02000000) == 0) && ((s32) ((TUnk_804C4540 *)arg0)->m_cfc == 0)) {
         select_actor_lighting((void *) (arg0));
         push_matrix();
         translate_matrix_vec3((int) (0), (void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+        rotate_matrix_y((int) (0), (int) (((TUnk_804C4540 *)arg0)->rotation_y));
         save_render_material_state((void *) (arg0 + 0x608));
         ((TObjPlayer *)arg0)->apply_material_color_override();
         TObjFish::set_global_param((s32) (arg0 + 0xCF4));
@@ -138,8 +139,8 @@ void TObjPlayer__sub_801D877C(u8 *arg0) {
     }
     push_matrix();
     translate_matrix_vec3((int) (0), (void *) (arg0 + 0x38));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-    ((s32 (*)(void *, s32, f32, s32))draw_model_with_callback__10TObjPlayerFllf)(arg0, *(s32 *)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0), *(s32 *)((s8 *)arg0 + 0xE0));
+    rotate_matrix_y((int) (0), (int) (((TUnk_804C4540 *)arg0)->rotation_y));
+    ((s32 (*)(void *, s32, f32, s32))draw_model_with_callback__10TObjPlayerFllf)(arg0, *(s32 *)&((TUnk_804C4540 *)arg0)->unknownF8, ((TUnk_804C4540 *)arg0)->m_c0, *(s32 *)((s8 *)arg0 + 0xE0));
     pop_matrix();
 }
 

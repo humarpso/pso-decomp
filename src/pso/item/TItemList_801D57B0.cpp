@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TUnk_804C4468.h"
+#include "pso/item/TUnk_804C4498.h"
 #include "pso/TItemList.h"
 
 struct Arr_801D5868 { s32 n; s32 e[1]; };
@@ -35,7 +37,7 @@ extern void *TItemList__name;
 void *__ct__9TItemListFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TItemList;
-    *(void **)((s8 *)arg0 + 0x0) = TItemList__name;
+    *(void * *)&((TItemList *)arg0)->m_name = TItemList__name;
     *(u32 *)((s8 *)arg0 + 0x1C) = 0;
     disallow_rendering__7TObjectFv(arg0);
     return arg0;
@@ -58,7 +60,7 @@ s32 TItemList__sub_801D5868(Arr_801D5868 *arg0, s32 arg1) {
 }
 
 void* get_ptr_0x44__9TItemListFPv(void* p) { return (char*)p + 0x44; }
-void TItemList__sub_801D5884(void* p, u8 v) { *(u8*)((char*)p + 0x1d) = v; }
+void TItemList__sub_801D5884(void* p, u8 v) { ((TUnk_804C4498 *)p)->m_1d = v; }
 
 void TItemList::lookup_entry_by_count(s32 arg1) {
     TItemList__sub_801D58C8((void*)(((u8 *)TItemList__sub_801D5868((Arr_801D5868 *)(arg1), (s8)(get_item_count())))));
@@ -66,7 +68,7 @@ void TItemList::lookup_entry_by_count(s32 arg1) {
 
 void TItemList__sub_801D58C8(void* p) { *(s32*)((char*)p + 0x0) = 3; }
 u8 TItemList::get_item_count() { return *(u8*)((char*)this + 0x1c); }
-u16 TItemList__sub_801D58DC(void* p) { return *(u16*)((char*)p + 0x20); }
+u16 TItemList__sub_801D58DC(void* p) { return ((TUnk_804C4468 *)p)->m_20; }
 
 void TItemList::run_item_count_update() {
     u8 *arg0 = (u8 *)this;

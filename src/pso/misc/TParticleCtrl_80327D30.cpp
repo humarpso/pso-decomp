@@ -140,11 +140,11 @@ u8 *create_telepipe_marker(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 a
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg4));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80327F88_lbl_804ED598 *)&lbl_804ED598).value;
     *(f32 *)((s8 *)arg0 + 0x1C) = farg0;
-    *(f32 *)((s8 *)arg0 + 0x20) = farg1;
+    ((TUnk_804ED598 *)arg0)->m_20 = farg1;
     VecCopy((Vec *)(arg0 + 0x24), (const Vec *)(arg1));
-    *(s8 *)((s8 *)arg0 + 0x30) = arg2;
+    ((TUnk_804ED598 *)arg0)->m_30 = arg2;
     *(s8 *)((s8 *)arg0 + 0x31) = arg3;
-    *(s32 *)((s8 *)arg0 + 0x34) = arg5;
+    ((TUnk_804ED598 *)arg0)->m_34 = arg5;
     temp_r3 = __nw__7TObjectFUl((int) (0x20));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
@@ -152,7 +152,7 @@ u8 *create_telepipe_marker(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 a
     }
     *(s32 *)((s8 *)arg0 + 0x40) = var_r0;
     *(s32 *)((s8 *)arg0 + 0x38) = 1;
-    *(s32 *)((s8 *)arg0 + 0x3C) = arg6;
+    ((TUnk_804ED598 *)arg0)->m_3c = arg6;
     return arg0;
 }
 

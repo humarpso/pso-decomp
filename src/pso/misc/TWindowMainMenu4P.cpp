@@ -65,7 +65,7 @@ extern void *TWindowMainMenu4P__name;
 void *TWindowMainMenu4P__ct(void *arg0) {
     TWindowMainMenu__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TWindowMainMenu4P;
-    *(void **)((s8 *)arg0 + 0x0) = TWindowMainMenu4P__name;
+    *(void * *)&((TWindowMainMenu4P *)arg0)->m_name = TWindowMainMenu4P__name;
     return arg0;
 }
 

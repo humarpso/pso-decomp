@@ -38,7 +38,8 @@ struct TObjEneGibbles : public TObjEnemy {
     s32 m_39c;
     u8 unk_3A0[0x10];
     u8 * m_3b0;
-    u8 unk_3B4[0x8];
+    u8 unk_3B4[0x4];
+    void * m_3b8;
     s32 m_3bc;
     u8 unk_3C0[0x8C];
     static void set_min_clamped_entry_value(s32 arg0, s32 arg1, f32 farg0);

@@ -356,11 +356,11 @@ u8 *TItemProUnit__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     item_pmt_record = lookup_item_pmt_record(arg2);
     if (item_pmt_record != NULL) {
         *(s16 *)((s8 *)arg0 + 0x18C) = (s16) *(s16 *)((s8 *)item_pmt_record + 8);
-        *(s16 *)((s8 *)arg0 + 0x18E) = (s16) *(s16 *)((s8 *)item_pmt_record + 0xA);
+        ((TItemProUnit *)arg0)->m_18e = (s16) *(s16 *)((s8 *)item_pmt_record + 0xA);
         *(s16 *)((s8 *)arg0 + 0x1BE) = (s16) (*(s16 *)((s8 *)item_pmt_record + 0xC) * 2);
     } else {
         *(s16 *)((s8 *)arg0 + 0x18C) = 0;
-        *(s16 *)((s8 *)arg0 + 0x18E) = 0;
+        ((TItemProUnit *)arg0)->m_18e = 0;
         *(s16 *)((s8 *)arg0 + 0x1BE) = 0;
     }
     *(s16 *)((s8 *)arg0 + 0x1BC) = get_field6_bswap__9TItemDataFPv(arg2);

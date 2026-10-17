@@ -21,9 +21,11 @@ struct TOKeyMachine01 : public TOKey {
     static void load_assets();
     static s32 is_state_active();
     void send_switch_changed(s32 flags);
-    u8 unk_E0[0xC];
+    u8 unk_E0[0x8];
+    f32 m_e8;
     f32 m_ec;
-    u8 unk_F0[0x8];
+    u8 unk_F0[0x4];
+    f32 m_f4;
     s32 m_f8;
 };
 

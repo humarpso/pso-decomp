@@ -143,11 +143,11 @@ void TObjGyaranzoMissile__sub_800D4200(u8 *arg0) {
     s32 i;
     u8 *t;
     self = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xD8));
-    (*(Info_800D4200 **)((s8 *)arg0 + 0xA4))->xc = lbl_805DA2A8;
+    (*(Info_800D4200 * *)&((TUnk_8049442C *)arg0)->m_a4)->xc = lbl_805DA2A8;
     TObjPlayer::init_all_slots();
     ((TObjPlayer *)arg0)->check_object_collisions();
     check_enemy_body_collisions(arg0);
-    if ((*(Info_800D4200 **)((s8 *)arg0 + 0xA4))->flags & 0x180000) {
+    if ((*(Info_800D4200 * *)&((TUnk_8049442C *)arg0)->m_a4)->flags & 0x180000) {
         for (i = 0; i < 0x10; i++) {
             t = get_battle_param__10TObjPlayerFi(i);
             if (t == NULL) {

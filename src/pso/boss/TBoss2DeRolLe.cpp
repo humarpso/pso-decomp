@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss2DeRolLe.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -4184,7 +4185,7 @@ u8 is_ready__13TBoss2DeRolLeFPv(void *arg0) {
     int var_r4;
 
     var_r4 = 0;
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x6AC) <= 0) && !(*(s32 *)((s8 *)arg0 + 0x3C0) & 4)) {
+    if (((s32) *(s32 *)&((TBoss2DeRolLe *)arg0)->m_6c8 <= 0) && !(*(s32 *)((s8 *)arg0 + 0x3C0) & 4)) {
         var_r4 = 1;
     }
     return (u8)var_r4;
@@ -4935,19 +4936,19 @@ void backup_pos__13TBoss2DeRolLeFi(s32 arg0) {
 void TBoss2DeRolLe::vfunc_61() {  }
 void apply_damage_taken__13TBoss2DeRolLeFPv(u8 *arg0) {
     s32 temp_r4;
-    temp_r4 = *(s16 *)((s8 *)arg0 + 0x2B8) - *(s16 *)((s8 *)arg0 + 0x32C);
+    temp_r4 = ((TBoss2DeRolLe *)arg0)->hpmax- ((TBoss2DeRolLe *)arg0)->hp;
     if (*(s32 *)((s8 *)arg0 + 0x3C0) & 8) {
-        *(s32 *)((s8 *)arg0 + 0x6AC) = (s32) (*(s32 *)((s8 *)arg0 + 0x6AC) - temp_r4);
+        *(s32 *)&((TBoss2DeRolLe *)arg0)->m_6c8 = (s32) (*(s32 *)&((TBoss2DeRolLe *)arg0)->m_6c8- temp_r4);
         spawn_offset_particle__13TBoss2DeRolLeFiff(*(s32 *)((s8 *)arg0 + 0xA4) + 0x1C, TBoss2DeRolLe__data_805D82A0, lbl_805D8448);
         play_sound((void *)0x4003A80F, (s32) (arg0 + 0x518));
     } else {
-        *(s32 *)((s8 *)arg0 + 0x6B0) = (s32) (*(s32 *)((s8 *)arg0 + 0x6B0) - temp_r4);
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x6B0) < 0) {
-            *(s32 *)((s8 *)arg0 + 0x6B0) = 0;
+        *(s32 *)&((TBoss2DeRolLe *)arg0)->m_6cc = (s32) (*(s32 *)&((TBoss2DeRolLe *)arg0)->m_6cc- temp_r4);
+        if ((s32) *(s32 *)&((TBoss2DeRolLe *)arg0)->m_6cc< 0) {
+            *(s32 *)&((TBoss2DeRolLe *)arg0)->m_6cc = 0;
             set_flags_play_sound__13TBoss2DeRolLeFPv(arg0);
         }
     }
-    *(s16 *)((s8 *)arg0 + 0x32C) = (s16) *(s16 *)((s8 *)arg0 + 0x2B8);
+    ((TBoss2DeRolLe *)arg0)->hp = (s16) ((TBoss2DeRolLe *)arg0)->hpmax;
     ((TObjEneDD *)arg0)->clear_attack_receipts();
 }
 
@@ -5357,7 +5358,7 @@ void TBoss2DeRolLe__sub_8003508C(void *arg0) {
         TBoss2DeRolLe__sub_80034034(arg0);
         return;
     }
-    o->m85(*(s16 *)((s8 *)arg0 + 0x326), 9);
+    o->m85(((TBoss2DeRolLe *)arg0)->mode, 9);
 }
 
 extern u32 lbl_805D4BA4;
@@ -5426,15 +5427,15 @@ void run_task__13TBoss2DeRolLeFPv(u8 *arg0) {
   (((TBoss2DeRolLe *)(arg0))->vfunc_42());
   if (temp_r30 == 0)
   {
-    temp_r0_2 = *((s16 *) (((s8 *) arg0) + 0x326));
+    temp_r0_2 = ((TBoss2DeRolLe *)arg0)->mode;
     temp_r3 = temp_r0_2;
     if (((temp_r0_2 == 0x1F) || (temp_r3 == 0x20)) || (temp_r0_2 == 0x1E))
     {
-      *((s32 *) (((s8 *) arg0) + 0x30)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x30))) | 0x800);
+      *(s32 *)&((TBoss2DeRolLe *)arg0)->actorFlags = (s32) ((*(s32 *)&((TBoss2DeRolLe *)arg0)->actorFlags) | 0x800);
     }
     else
     {
-      *((s32 *) (((s8 *) arg0) + 0x30)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x30))) & 0xFFFFF7FF);
+      *(s32 *)&((TBoss2DeRolLe *)arg0)->actorFlags = (s32) ((*(s32 *)&((TBoss2DeRolLe *)arg0)->actorFlags) & 0xFFFFF7FF);
     }
     temp_r0_3 = *((s32 *) (((s8 *) arg0) + 0x3F4));
     if (temp_r0_3 != 1)
@@ -5447,7 +5448,7 @@ void run_task__13TBoss2DeRolLeFPv(u8 *arg0) {
         }
         else
         {
-          (((VObj_18_bd2ad6 *)(arg0))->m85((*((s16 *) (((s8 *) arg0) + 0x326))), (2)));
+          (((VObj_18_bd2ad6 *)(arg0))->m85((((TBoss2DeRolLe *)arg0)->mode), (2)));
         }
       }
       else
@@ -5458,8 +5459,8 @@ void run_task__13TBoss2DeRolLeFPv(u8 *arg0) {
       {
         (((TBoss2DeRolLe *)(arg0))->vfunc_62());
       }
-      (((VObj_18_bd2ad6 *)(arg0))->m85((*((s16 *) (((s8 *) arg0) + 0x326))), (8)));
-      (((VObj_18_bd2ad6 *)(arg0))->m85((*((s16 *) (((s8 *) arg0) + 0x326))), (0)));
+      (((VObj_18_bd2ad6 *)(arg0))->m85((((TBoss2DeRolLe *)arg0)->mode), (8)));
+      (((VObj_18_bd2ad6 *)(arg0))->m85((((TBoss2DeRolLe *)arg0)->mode), (0)));
     }
     else
     {
@@ -5467,7 +5468,7 @@ void run_task__13TBoss2DeRolLeFPv(u8 *arg0) {
       {
         (((TBoss2DeRolLe *)(arg0))->vfunc_62());
       }
-      (((VObj_18_bd2ad6 *)(arg0))->m85((*((s16 *) (((s8 *) arg0) + 0x326))), (0)));
+      (((VObj_18_bd2ad6 *)(arg0))->m85((((TBoss2DeRolLe *)arg0)->mode), (0)));
     }
     advance_phase_wrap__13TBoss2DeRolLeFPv((void *) arg0);
     update_projectile_spawns__13TBoss2DeRolLeFPv((void *) arg0);

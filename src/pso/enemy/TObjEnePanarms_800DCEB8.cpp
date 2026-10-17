@@ -1047,7 +1047,7 @@ u8 *__dt__14TObjEnePanarmsFv(u8 *arg0, s16 arg1) {
         queue_destruction__7TObjectFv(*(u8 **)((s8 *)arg0 + 0x3E4));
         queue_destruction__7TObjectFv(*(u8 **)((s8 *)arg0 + 0x3E8));
         free_collision_body_parts(arg0);
-        *(s32 *)((s8 *)arg0 + 0x390) = 0;
+        *(s32 *)&((TObjEnePanarms *)arg0)->m_390 = 0;
         ((TObjEnePanarms *)arg0)->destroy_handles();
         __destroy_arr((void *) ((u8 *)(arg0) + 0x400), (void *) (__dt__13TUnk_804949A8Fv), (int) (0x1C), (int) (4));
         __dt__9TObjEnemyFv(arg0, 0);

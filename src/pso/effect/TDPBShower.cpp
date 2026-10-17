@@ -45,13 +45,13 @@ u8 *TDPBShower__ct(u8 *arg0, u8 *arg1, u8 *arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__10TDPBShower.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TDPBShower__class_name;
-    *(s32 *)((s8 *)arg0 + 0x28) = 5;
+    ((TDPBShower *)arg0)->m_countdown = 5;
     VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)arg2);
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) (*(f32 *)((s8 *)arg0 + 0x20) + lbl_805E01C4);
     particle_emitter = (u8 *)(create_particle_emitter((s32) (arg0 + 0x1C), 0x134));
-    *(u8 **)((s8 *)arg0 + 0x2C) = particle_emitter;
+    *(u8 * *)&((TDPBShower *)arg0)->m_2c = particle_emitter;
     if (particle_emitter != NULL) {
-        ((TBoss4Type2 *)(*(u8 **)((s8 *)arg0 + 0x2C)))->set_flags(0x40);
+        ((TBoss4Type2 *)(*(u8 * *)&((TDPBShower *)arg0)->m_2c))->set_flags(0x40);
     }
     return arg0;
 }

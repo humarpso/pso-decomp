@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOContainerAncientEnemyRare.h"
 #include "pso/misc/TUnk_804B27D8.h"
 
 struct RecoveredGlobal_8015B76C___vt__27TOContainerAncientEnemyRare {
@@ -40,7 +41,7 @@ u8 *TOContainerAncientEnemyRare__ct(u8 *arg0, s32 arg1) {
     TOContainerAncientEnemy__ct(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8015B76C___vt__27TOContainerAncientEnemyRare *)&__vt__27TOContainerAncientEnemyRare).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2F10;
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *ancient_container_fragment_texture_lists;
+    ((TOContainerAncientEnemyRare *)arg0)->texture_id = (s32) *ancient_container_fragment_texture_lists;
     return arg0;
 }
 

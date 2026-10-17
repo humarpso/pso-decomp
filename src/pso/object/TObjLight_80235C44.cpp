@@ -139,13 +139,13 @@ u8 *construct_actor_light_task(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u8 *arg4,
     copy_vec4__13TRaderMapCoreFPvPv(arg0 + 0x24, arg1);
     VecCopy((Vec *)(arg0 + 0x34), (const Vec *)arg2);
     *(s32 *)((s8 *)arg0 + 0x1C) = arg3;
-    *(s32 *)((s8 *)arg0 + 0x4C) = 0;
+    ((TUnk_804CCAA8 *)arg0)->m_4c = 0;
     *(f32 *)((s8 *)arg0 + 0x50) = farg0;
-    *(u8 **)((s8 *)arg0 + 0x54) = arg4;
-    *(s32 *)((s8 *)arg0 + 0x20) = 0;
+    ((TUnk_804CCAA8 *)arg0)->m_54 = arg4;
+    ((TUnk_804CCAA8 *)arg0)->m_20 = 0;
     *(f32 *)((s8 *)arg0 + 0x58) = (f32) lbl_805DC888;
-    *(f32 *)((s8 *)arg0 + 0x5C) = (f32) lbl_805DC888;
-    *(u16 *)((s8 *)arg0 + 0x60) = ((u16)obj_getField1c((int)(*(u8 **)((s8 *)arg0 + 0x54))));
+    ((TUnk_804CCAA8 *)arg0)->m_5c = (f32) lbl_805DC888;
+    *(u16 *)((s8 *)arg0 + 0x60) = ((u16)obj_getField1c((int)(((TUnk_804CCAA8 *)arg0)->m_54)));
     TObjLight::find_light_params((f32 *)(arg0 + 0x40), (f32 *)((s32) &sp8), (u32)((int)((u32) *(u16 *)((s8 *)arg0 + 0x60))));
     return arg0;
 }

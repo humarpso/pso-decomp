@@ -27,10 +27,10 @@ s16 TObjPlayer::get_section_clamped() {
 }
 
 s16 TObjPlayer::get_or_init_field_4() {
-    if (is_valid_technique_id__10TObjPlayerFs(*(s16 *)((s8 *)this + 4)) == 0) {
+    if (is_valid_technique_id__10TObjPlayerFs(*(s16 *)&this->m_flags) == 0) {
         set_technique_id__10TObjPlayerFs(this, 0);
     }
-    return *(s16 *)((s8 *)this + 4);
+    return *(s16 *)&this->m_flags;
 }
 
 void TObjPlayer::split_capped_value(u8 arg0, u8 *arg1, s8 *arg2) {

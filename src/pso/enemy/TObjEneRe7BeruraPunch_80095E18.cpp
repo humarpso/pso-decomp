@@ -23,7 +23,7 @@ void TObjEneRe7BeruraPunch__vt20(void *arg0, s32 target) {
     if (TObjEneDD::check_v2_mode() != 0) {
         obj_getField1c(target);
         if (is_player_entity_id() != 0) {
-            entity = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xB0));
+            entity = find_entity_by_id(((TObjEneRe7BeruraPunch *)arg0)->m_b0);
             if ((entity != 0) && (calc_boss4_scale__10TObjPlayerFi() < lbl_805D9790)) {
                 TObjEneDD__sub_800BA438(entity, target);
             }

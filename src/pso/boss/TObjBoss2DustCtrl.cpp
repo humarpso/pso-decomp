@@ -141,7 +141,7 @@ extern "C" {
 void *TObjBoss2DustCtrl__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjBoss2DustCtrl;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D26F8;
+    *(void * *)&((TObjBoss2DustCtrl *)arg0)->m_name = lbl_805D26F8;
     return arg0;
 }
 

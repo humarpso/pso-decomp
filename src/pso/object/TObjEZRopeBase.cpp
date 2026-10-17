@@ -34,11 +34,11 @@ extern void *TObjEZRopeBase__name;
 void *TObjEZRopeBase__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjEZRopeBase;
-    *(void **)((s8 *)arg0 + 0x0) = TObjEZRopeBase__name;
+    *(void * *)&((TObjEZRopeBase *)arg0)->m_name = TObjEZRopeBase__name;
     *(u32 *)((s8 *)arg0 + 0x1C) = 0;
     *(u32 *)((s8 *)arg0 + 0x20) = 0;
     *(u32 *)((s8 *)arg0 + 0x24) = 0;
-    *(u32 *)((s8 *)arg0 + 0x28) = 0;
+    ((TObjEZRopeBase *)arg0)->m_28 = 0;
     *(u32 *)((s8 *)arg0 + 0x2C) = 0;
     return arg0;
 }

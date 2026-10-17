@@ -184,7 +184,7 @@ void *__dt__19TBoss8DragonEffTailFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TBoss8DragonEffTail;
         delete_buffer__12TBoss8DragonFis(*(void **)((s8 *)arg0 + 0xB8), 1);
-        *(s32 *)((s8 *)arg0 + 0xB8) = 0;
+        *(s32 *)&((TBoss8DragonEffTail *)arg0)->m_b8 = 0;
         ((TUnk_804928CC *)arg0)->destroy_enemy_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

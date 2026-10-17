@@ -8,7 +8,9 @@ public:
     virtual ~TObjEneMe1Canadin_EffLight();
     virtual void render();
     virtual void run_task();
-    u8 unk_1C[0x1C];
+    u8 unk_1C[0xC];
+    void * m_28;
+    u8 unk_2C[0xC];
 };
 typedef char TObjEneMe1Canadin_EffLight_size[sizeof(TObjEneMe1Canadin_EffLight) == 0x38 ? 1 : -1];
 

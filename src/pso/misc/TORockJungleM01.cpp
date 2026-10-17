@@ -179,7 +179,7 @@ void *TORockJungleM01::create(void *arg0) {
 void *__dt__15TORockJungleM01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TORockJungleM01;
-        if (*(void **)((s8 *)arg0 + 0xDC) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xDC)); *(s32 *)((s8 *)arg0 + 0xDC) = 0; }
+        if (*(void **)((s8 *)arg0 + 0xDC) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xDC)); *(s32 *)&((TORockJungleM01 *)arg0)->m_dc = 0; }
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
         __dt__13TUnk_804949A8Fv((s8 *)arg0 + 0xBC, -1);
@@ -204,21 +204,21 @@ u8 *TORockJungleM01__ct(u8 *arg0, s32 arg1) {
     ((TObjPlayer *)(arg0 + 0xBC))->init_and_activate();
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3D40;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    *(u8 **)((s8 *)arg0 + 0x34) = TORockJungleS01::get_model(2);
-    *(s32 *)((s8 *)arg0 + 0x24) = get_jungle_rock_texture_resource((int) (2));
-    *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (lbl_805DDD1C + *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34)) + 4)) + 0x14));
+    *(u8 * *)&((TORockJungleM01 *)arg0)->model = TORockJungleS01::get_model(2);
+    ((TORockJungleM01 *)arg0)->texture_id = get_jungle_rock_texture_resource((int) (2));
+    ((TORockJungleM01 *)arg0)->m_b0 = (f32) (lbl_805DDD1C + *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&((TORockJungleM01 *)arg0)->model) + 4)) + 0x14));
     init_collision_body_parts((void *) (arg0), (void *) ((u8 *)&rock_jungle_collision_body_parts.value + 0x2C), (int) (1));
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    *(s32 *)((s8 *)arg0 + 0xB8) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xB8);
+    *(s32 *)&((TORockJungleM01 *)arg0)->m_b8 = (s32) ((TORockJungleM01 *)arg0)->m_84;
+    temp_r0 = *(s32 *)&((TORockJungleM01 *)arg0)->m_b8;
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
-        *(s32 *)((s8 *)arg0 + 0xB8) = -1;
+        *(s32 *)&((TORockJungleM01 *)arg0)->m_b8 = -1;
     }
     temp_r4 = arg1 - 4;
     *(ByteBlock_3C *)(copy_storage_8029C588.bytes) = *(const ByteBlock_3C *)(temp_r4 + 4);
     VecCopy((Vec *)((copy_storage_8029C588.bytes + 0x24)), (const Vec *)(&rock_jungle_vec3_table.value));
-    *(s32 *)((s8 *)arg0 + 0xDC) = TObjMapCsn::create((s32)((void *) ((copy_storage_8029C588.bytes))));
+    *(s32 *)&((TORockJungleM01 *)arg0)->m_dc = TObjMapCsn::create((s32)((void *) ((copy_storage_8029C588.bytes))));
     ((TObjPlayer *)(arg0 + 0xBC))->activate_and_dispatch();
     return arg0;
 }

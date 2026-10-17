@@ -395,7 +395,7 @@ void *__dt__22TOHangceilingCave01KeyFv(void *arg0, s16 arg1) {
 void *TOHangceilingCave01Key__ct(void *arg0) {
     init_base__27TOHangceilingCave01KeyQuickFll(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TOHangceilingCave01Key;
-    *(void **)((s8 *)arg0 + 0x0) = TOHangceilingCave01Key__class_name;
+    *(void * *)&((TOHangceilingCave01Key *)arg0)->m_name = TOHangceilingCave01Key__class_name;
     ((TUnk_804B2578 *)arg0)->init_geometry();
     return arg0;
 }
@@ -466,7 +466,7 @@ void *__dt__25TOHangceilingCave01NormalFv(void *arg0, s16 arg1) {
 void *TOHangceilingCave01Normal__ct(void *arg0) {
     init_base__27TOHangceilingCave01KeyQuickFll(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__25TOHangceilingCave01Normal;
-    *(void **)((s8 *)arg0 + 0x0) = TOHangceilingCave01Normal__class_name;
+    *(void * *)&((TOHangceilingCave01Normal *)arg0)->m_name = TOHangceilingCave01Normal__class_name;
     ((TUnk_804B2578 *)arg0)->init_geometry();
     return arg0;
 }
@@ -501,7 +501,7 @@ void fn_80168280(Obj_80168280 *self, u32 v) {
 
 void reset_state(u8 *arg0) {
     memset(arg0 + 0x33C, 0, 0x10);
-    *(s32 *)((s8 *)arg0 + 0x34C) = 0;
+    ((TUnk_804B2578 *)arg0)->m_34c = 0;
 }
 
 void TUnk_804B2578::sub_801682E4(s32 arg1) {
@@ -749,7 +749,7 @@ bool TOHangceilingCave01__sub_801688C0(u8 *arg0) {
     f32 sp8[3];
 
     if (xz_distance_squared((void *) (arg0 + 0x38), (void *) (camera_ctrl_instance + 0x178)) < lbl_805DB698) {
-        *(s16 *)((s8 *)arg0 + 0x1E) = 1;
+        ((TUnk_804B2578 *)arg0)->m_1e = 1;
         return 1;
     }
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DB69C, lbl_805DB664) == 0) {

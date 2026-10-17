@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TUnk_804E14E8.h"
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/object/TObjMotion.h"
@@ -187,11 +188,11 @@ u8 *TObjPlayer__sub_802CDEB4(u8 *arg0, Vec_802CDEB4 *arg1, s16 arg2, Rot_802CDEB
     Vec_802CDEB4 *pos;
     construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_04);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E14E8;
-    *(s16 *)((s8 *)arg0 + 0x108) = arg2;
+    ((TUnk_804E14E8 *)arg0)->m_108 = arg2;
     *(s16 *)((s8 *)arg0 + 0x10A) = arg6;
     *(s32 *)((s8 *)arg0 + 0x104) = arg5;
-    *(Vec_802CDEB4 **)((s8 *)arg0 + 0xF0) = arg1;
-    *(f32 *)((s8 *)arg0 + 0xE8) = lbl_805DE6C0;
+    *(Vec_802CDEB4 * *)&((TUnk_804E14E8 *)arg0)->m_f0 = arg1;
+    ((TUnk_804E14E8 *)arg0)->m_e8 = lbl_805DE6C0;
     push_matrix_from(identity_matrix);
     {
         Vec_802CDEB4 v = lbl_804722A8;
@@ -208,14 +209,14 @@ u8 *TObjPlayer__sub_802CDEB4(u8 *arg0, Vec_802CDEB4 *arg1, s16 arg2, Rot_802CDEB
     ang.x = 0;
     ang.y = (s32)(lbl_804722C8[0] * atan2_float(pos->x - arg1->x, pos->z - arg1->z)) + 0x4000;
     ang.z = 0x4000 - (s32)(lbl_804722C8[0] * atan2_float(pos->y - arg1->y, horizontal_distance__10TObjPlayerFPUc(pos, arg1)));
-    *(s32 *)((s8 *)arg0 + 0xF8) = spawn_particle_effect_with_rotation(arg1, &ang, 0x201, 2);
+    ((TUnk_804E14E8 *)arg0)->m_f8 = spawn_particle_effect_with_rotation(arg1, &ang, 0x201, 2);
     *(s32 *)((s8 *)arg0 + 0xFC) = spawn_particle_effect_with_rotation(arg1, &ang, 0x202, 2);
     }
     *(f32 *)((s8 *)arg0 + 0xF4) = lbl_805D6848;
     if (xz_distance_squared(pos, arg1) < lbl_805DE6C4) {
         *(f32 *)((s8 *)arg0 + 0xF4) *= lbl_805DE6C8;
     }
-    *(s32 *)((s8 *)arg0 + 0x100) = 0;
+    ((TUnk_804E14E8 *)arg0)->m_100 = 0;
     return arg0;
 }
 

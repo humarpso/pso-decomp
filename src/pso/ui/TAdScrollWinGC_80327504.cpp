@@ -95,33 +95,33 @@ void *TAdScrollWinGC__ct(void *arg0, void *arg1, s32 arg2, s32 arg3) {
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TAdScrollWinGC.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TAdScrollWinGC__class_name;
     scroll_win_texture_handle = TAdMultiPlyChrSelectGC__sub_802C6FA8();
-    *(s32 *)((s8 *)arg0 + 0x3C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x40) = 0;
-    *(s32 *)((s8 *)arg0 + 0x44) = arg2;
-    *(s32 *)((s8 *)arg0 + 0x48) = 0;
-    *(s32 *)((s8 *)arg0 + 0x4C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x50) = 0;
+    *(s32 *)&((TAdScrollWinGC *)arg0)->m_3c = 0;
+    *(s32 *)&((TAdScrollWinGC *)arg0)->m_40 = 0;
+    *(s32 *)&((TAdScrollWinGC *)arg0)->m_44 = arg2;
+    *(s32 *)&((TAdScrollWinGC *)arg0)->m_48 = 0;
+    *(s32 *)&((TAdScrollWinGC *)arg0)->m_4c = 0;
+    *(s32 *)&((TAdScrollWinGC *)arg0)->m_50 = 0;
     base = ((TAdScrollWinGC *)arg0)->get_scroll_delay_for_mode();
-    *(s32 *)((s8 *)arg0 + 0x40) = create_message_log_window(lbl_80476770, lbl_80476778, 0);
-    switch (*(s32 *)((s8 *)arg0 + 0x44)) {
+    *(s32 *)&((TAdScrollWinGC *)arg0)->m_40 = create_message_log_window(lbl_80476770, lbl_80476778, 0);
+    switch (*(s32 *)&((TAdScrollWinGC *)arg0)->m_44) {
     case 0:
     case 1:
         for (i = 0; i < 10; i++) {
-            ((TLobby *)(*(s32 *)((s8 *)arg0 + 0x40)))->send_and_handle(get_localized_text_entry(0x1A, base + i), 1);
+            ((TLobby *)(*(s32 *)&((TAdScrollWinGC *)arg0)->m_40))->send_and_handle(get_localized_text_entry(0x1A, base + i), 1);
         }
         break;
     case 2:
     case 3:
-        ((TLobby *)(*(s32 *)((s8 *)arg0 + 0x40)))->send_and_handle(arg3, 1);
+        ((TLobby *)(*(s32 *)&((TAdScrollWinGC *)arg0)->m_40))->send_and_handle(arg3, 1);
         break;
     }
-    ((TWindowMessage *)(*(s32 *)((s8 *)arg0 + 0x40)))->complete_reveal();
-    ((TWindowMessageLog *)(*(s32 *)((s8 *)arg0 + 0x40)))->update_scroll_position();
-    TAdScrollWinGC__sub_8026A5F8(*(s32 *)((s8 *)arg0 + 0x40));
+    ((TWindowMessage *)(*(s32 *)&((TAdScrollWinGC *)arg0)->m_40))->complete_reveal();
+    ((TWindowMessageLog *)(*(s32 *)&((TAdScrollWinGC *)arg0)->m_40))->update_scroll_position();
+    TAdScrollWinGC__sub_8026A5F8(*(s32 *)&((TAdScrollWinGC *)arg0)->m_40);
     *(f32 *)((s8 *)arg0 + 0x2C) = lbl_805DF6B4;
-    *(f32 *)((s8 *)arg0 + 0x30) = lbl_805DF6B8;
+    ((TAdScrollWinGC *)arg0)->m_30 = lbl_805DF6B8;
     *(f32 *)((s8 *)arg0 + 0x34) = lbl_805DF6BC;
-    *(f32 *)((s8 *)arg0 + 0x38) = lbl_805DF6C0;
+    ((TAdScrollWinGC *)arg0)->m_38 = lbl_805DF6C0;
     return arg0;
 }
 

@@ -105,19 +105,19 @@ void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A3260;
     ((TObjPlayer *)arg0)->set_status_flags(0x203);
     *(void (**)())((s8 *)arg0 + 0x1EC) = &spawn_weapon_impact_effect;
-    *(s32 *)((s8 *)arg0 + 0x210) = -1;
+    ((TUnk_804A3260 *)arg0)->m_210 = -1;
     *(s32 *)((s8 *)arg0 + 0x214) = 0;
-    *(s32 *)((s8 *)arg0 + 0x218) = -1;
+    ((TUnk_804A3260 *)arg0)->m_218 = -1;
     *(s32 *)((s8 *)arg0 + 0x21C) = 0;
     temp_r0 = *(u8 *)((s8 *)arg2 + 2);
     switch ((s32) temp_r0) {
     case 6:
         break;
     case 5:
-        *(s32 *)((s8 *)arg0 + 0x210) = 2;
+        ((TUnk_804A3260 *)arg0)->m_210 = 2;
         break;
     case 7:
-        *(s32 *)((s8 *)arg0 + 0x210) = 2;
+        ((TUnk_804A3260 *)arg0)->m_210 = 2;
         break;
     }
     if ((u8) *(u8 *)((s8 *)arg2 + 2) >= 5U) {

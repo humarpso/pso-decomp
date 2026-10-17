@@ -143,7 +143,7 @@ void TItem::sub_8010043C(u8 arg1) {
     *(s8 *)&this->m_ea = 0;
 }
 
-u16 TObjPlayer__sub_80100474(void* p) { return *(u16*)((char*)p + 0xe8); }
+u16 TObjPlayer__sub_80100474(void* p) { return ((TItem *)p)->m_e8; }
 
 void TObjPlayer__sub_8010047C(u8 *arg0, s16 arg1) {
     if (*(s32 *)((s8 *)arg0 + 0xDC) & 0x100) {

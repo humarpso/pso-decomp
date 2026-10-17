@@ -14,7 +14,9 @@ struct TBoss5GryphonTornado : public TObject {
     void* m_28;
     u8 unk_2C[0x4];
     f32 m_30;
-    u8 unk_34[0x18];
+    u8 unk_34[0x4];
+    f32 m_38;
+    u8 unk_3C[0x10];
     u32 m_4c;
     u32 m_50;
     u32 m_54;

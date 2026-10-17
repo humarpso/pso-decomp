@@ -34,13 +34,13 @@ u8 *TObjEnemyCustom__ct(u8 *arg0) {
     initialize__9TObjEnemyFPv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800C7F80___vt__15TObjEnemyCustom *)&__vt__15TObjEnemyCustom).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2A60;
-    *(s32 *)((s8 *)arg0 + 0x374) = 0;
-    *(s32 *)((s8 *)arg0 + 0x378) = 0;
-    *(s32 *)((s8 *)arg0 + 0x37C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x380) = 0;
-    *(s16 *)((s8 *)arg0 + 0x33A) = 0xF;
-    *(s16 *)((s8 *)arg0 + 0x33C) = (s16) *(s16 *)((s8 *)arg0 + 0x33A);
-    *(s32 *)((s8 *)arg0 + 0x388) = 0;
+    *(s32 *)&((TObjEnemyCustom *)arg0)->next_action = 0;
+    *(s32 *)&((TObjEnemyCustom *)arg0)->m_378 = 0;
+    *(s32 *)&((TObjEnemyCustom *)arg0)->state = 0;
+    *(s32 *)&((TObjEnemyCustom *)arg0)->m_380 = 0;
+    *(s16 *)&((TObjEnemyCustom *)arg0)->resetTimer = 0xF;
+    *(s16 *)&((TObjEnemyCustom *)arg0)->timer = (s16) *(s16 *)&((TObjEnemyCustom *)arg0)->resetTimer;
+    *(s32 *)&((TObjEnemyCustom *)arg0)->m_388 = 0;
     return arg0;
 }
 

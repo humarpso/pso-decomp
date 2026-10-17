@@ -252,7 +252,7 @@ void TObjLaboMapWarp::render() {
         TObjFish__sub_8001EDB0(TObjLaboMapWarp__resource_bundle, 1);
         ((s32 (*)(void))set_global_param__8TObjFishFl)();
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         if (is_field88_zero() != 0) {
             get_bml_model(TObjLaboMapWarp__resource_bundle, 1);
@@ -285,15 +285,14 @@ void run_task__15TObjLaboMapWarpFv(u8 *arg0) {
 int TObjLaboMapWarp::is_field88_zero() { return *(u32*)((char*)this + 0x88) == 0; }
 
 void TObjLaboMapWarp::clamp_index() {
-    u8 *arg0 = (u8 *)this;
     s32 var_r0;
-    var_r0 = *(s32 *)((s8 *)arg0 + 0x8C);
+    var_r0 = *(s32 *)&this->m_8c;
     if (var_r0 < 0) {
         var_r0 = 0;
     } else if (var_r0 >= 3) {
         var_r0 = 2;
     }
-    *(s32 *)((s8 *)arg0 + 0x8C) = var_r0;
+    *(s32 *)&this->m_8c = var_r0;
 }
 
 #pragma push
@@ -304,7 +303,7 @@ void TObjLaboMapWarp__vt13(u8 *arg0, s32 arg1) {
     if ((u32) *(u32 *)((s8 *)temp_r31 + 0xEC) == 0U) {
         *(u32 *)((s8 *)temp_r31 + 0xEC) = create_window_menu(get_window_layout_position(0x33), 1, arg1);
         ((TObjLaboMapWarp *)arg0)->clamp_index();
-        ((TWindowSubTradeMain *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->add_text_entry(get_localized_text_entry(9, *(s32 *)((s8 *)(&lbl_80444878.value) + (*(s32 *)((s8 *)arg0 + 0x8C) * 4))), 0xA, 0, -1);
+        ((TWindowSubTradeMain *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->add_text_entry(get_localized_text_entry(9, *(s32 *)((s8 *)(&lbl_80444878.value) + (*(s32 *)&((TObjLaboMapWarp *)arg0)->m_8c* 4))), 0xA, 0, -1);
         ((TWindowSubComCardList *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag70_bit10();
         ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag_40();
         ((TWindowSubComCard *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->calc_window_size();
@@ -353,7 +352,7 @@ void *__dt__15TObjLaboMapWarpFv(void *arg0, s16 arg1) {
 void *TObjLaboMapWarp__ct(void *arg0) {
     TObjMapWarp__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjLaboMapWarp;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D32B4;
+    *(void * *)&((TObjLaboMapWarp *)arg0)->m_name = lbl_805D32B4;
     ((TObjLaboMapWarp *)arg0)->clamp_index();
     *(f32 *)((s8 *)arg0 + 0xAC) = lbl_805DBC8C;
     *(f32 *)((s8 *)arg0 + 0xFC) = lbl_805DBC90;
@@ -378,7 +377,7 @@ void TObjCityMapWarp::render() {
     if (((VObj_8018574C*)arg0)->m8(lbl_805DBC80, lbl_805DBC84) != 0) {
         set_global_param__8TObjFishFl(city_common_texture_list);
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         if (is_field88_zero() != 0) {
             draw_ginja_object(*(s32 *)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x42C)) + 0xD8));
@@ -411,15 +410,14 @@ void TObjCityMapWarp::run_task() {
 int TObjCityMapWarp::is_field88_zero() { return *(u32*)((char*)this + 0x88) == 0; }
 
 void TObjCityMapWarp::clamp_destination_index() {
-    u8 *arg0 = (u8 *)this;
     s32 var_r0;
-    var_r0 = *(s32 *)((s8 *)arg0 + 0x8C);
+    var_r0 = *(s32 *)&this->m_8c;
     if (var_r0 < 0) {
         var_r0 = 0;
     } else if (var_r0 >= 3) {
         var_r0 = 1;
     }
-    *(s32 *)((s8 *)arg0 + 0x8C) = var_r0;
+    *(s32 *)&this->m_8c = var_r0;
 }
 
 #pragma push
@@ -430,7 +428,7 @@ void TObjCityMapWarp__vt13(u8 *arg0, s32 arg1) {
     if ((u32) *(u32 *)((s8 *)temp_r31 + 0xEC) == 0U) {
         *(u32 *)((s8 *)temp_r31 + 0xEC) = create_window_menu(get_window_layout_position(0x33), 1, arg1);
         ((TObjCityMapWarp *)arg0)->clamp_destination_index();
-        ((TWindowSubTradeMain *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->add_text_entry(get_localized_text_entry(9, *(s32 *)((s8 *)(&lbl_80444878.value) + (*(s32 *)((s8 *)arg0 + 0x8C) * 4))), 0xA, 0, -1);
+        ((TWindowSubTradeMain *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->add_text_entry(get_localized_text_entry(9, *(s32 *)((s8 *)(&lbl_80444878.value) + (*(s32 *)&((TObjCityMapWarp *)arg0)->m_8c* 4))), 0xA, 0, -1);
         ((TWindowSubComCardList *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag70_bit10();
         ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->set_flag_40();
         ((TWindowSubComCard *)(*(u32 *)((s8 *)temp_r31 + 0xEC)))->calc_window_size();
@@ -461,7 +459,7 @@ void *__dt__15TObjCityMapWarpFv(void *arg0, s16 arg1) {
 void *TObjCityMapWarp__ct(void *arg0) {
     TObjMapWarp__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjCityMapWarp;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D32B0;
+    *(void * *)&((TObjCityMapWarp *)arg0)->m_name = lbl_805D32B0;
     ((TObjCityMapWarp *)arg0)->clamp_destination_index();
     *(f32 *)((s8 *)arg0 + 0xAC) = lbl_805DBC8C;
     *(f32 *)((s8 *)arg0 + 0xFC) = lbl_805DBC90;
@@ -505,14 +503,14 @@ void TObjCityAreaWarp::run_task() {
 }
 
 void TObjCityAreaWarp__vt13(void *arg0, s16 arg1) {
-    if ((u32) *(u32 *)((s8 *)arg0 + 0xB0) == 0U) {
-        *(u32 *)((s8 *)arg0 + 0xB0) = ((u32 (*)(s32, s32, s16))create_window_menu)(get_window_layout_position(0x33), 1, arg1);
-        ((TWindowSubTradeMain *)(*(u32 *)((s8 *)arg0 + 0xB0)))->add_text_entry(get_localized_text_entry(9, 0x24), 0xA, 0, -1);
-        ((TWindowSubComCardList *)(*(u32 *)((s8 *)arg0 + 0xB0)))->set_flag70_bit10();
-        ((TAdChrSelASlotGC *)(*(u32 *)((s8 *)arg0 + 0xB0)))->set_flag_40();
-        ((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0xB0)))->calc_window_size();
-        ((s32 (*)(u32))align_menu_entry_positions)(*(u32 *)((s8 *)arg0 + 0xB0));
-        *(s16 *)((s8 *)arg0 + 0xB8) = arg1;
+    if ((u32) ((TObjCityAreaWarp *)arg0)->m_b0 == 0U) {
+        ((TObjCityAreaWarp *)arg0)->m_b0 = ((u32 (*)(s32, s32, s16))create_window_menu)(get_window_layout_position(0x33), 1, arg1);
+        ((TWindowSubTradeMain *)(((TObjCityAreaWarp *)arg0)->m_b0))->add_text_entry(get_localized_text_entry(9, 0x24), 0xA, 0, -1);
+        ((TWindowSubComCardList *)(((TObjCityAreaWarp *)arg0)->m_b0))->set_flag70_bit10();
+        ((TAdChrSelASlotGC *)(((TObjCityAreaWarp *)arg0)->m_b0))->set_flag_40();
+        ((TWindowSubComCard *)(((TObjCityAreaWarp *)arg0)->m_b0))->calc_window_size();
+        ((s32 (*)(u32))align_menu_entry_positions)(((TObjCityAreaWarp *)arg0)->m_b0);
+        ((TObjCityAreaWarp *)arg0)->m_b8 = arg1;
     }
 }
 
@@ -538,10 +536,10 @@ void *__dt__16TObjCityAreaWarpFv(void *arg0, s16 arg1) {
 void *TObjCityAreaWarp__ct(void *arg0) {
     TObjAreaWarp__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjCityAreaWarp;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D32AC;
+    *(void * *)&((TObjCityAreaWarp *)arg0)->m_name = lbl_805D32AC;
     *(f32 *)((s8 *)arg0 + 0xAC) = lbl_805DBC8C;
-    *(f32 *)((s8 *)arg0 + 0xC4) = lbl_805DBC90;
-    *(u32 *)((s8 *)arg0 + 0xBC) = 15;
+    ((TObjCityAreaWarp *)arg0)->m_c4 = lbl_805DBC90;
+    ((TObjCityAreaWarp *)arg0)->m_bc = 15;
     return arg0;
 }
 
@@ -578,9 +576,9 @@ void TObjCityMainWarp::render() {
 void run_task__16TObjCityMainWarpFv(u8 *arg0) {
     f32 lim = (f32)(*(u32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)city_common_model_archive + 0x430)) + 0x3C)) + 4) - 1);
 
-    *(f32 *)((s8 *)arg0 + 0xC4) += lbl_805DBC88;
-    if (*(f32 *)((s8 *)arg0 + 0xC4) >= lim) {
-        *(f32 *)((s8 *)arg0 + 0xC4) -= lim;
+    ((TObjCityMainWarp *)arg0)->m_c4 += lbl_805DBC88;
+    if (((TObjCityMainWarp *)arg0)->m_c4 >= lim) {
+        ((TObjCityMainWarp *)arg0)->m_c4 -= lim;
     }
     ((TObjAreaWarp *)arg0)->handle_area_selection();
 }

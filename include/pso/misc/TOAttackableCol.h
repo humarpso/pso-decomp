@@ -15,7 +15,8 @@ struct TOAttackableCol : public TUnk_804806E8 {
     virtual f32 receive_physical_attack(void *, f32);
     virtual int calc_distance_accuracy_penalty(void *, void *, void *, float);
     virtual s32 select_melee_contact_body(void *, f32);
-    u8 unk_334[0x8];
+    u8 unk_334[0x4];
+    f32 m_338;
     u32 m_33c;
     void init_params();
     int send_state_change(u16 state);

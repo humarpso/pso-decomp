@@ -213,17 +213,17 @@ u8 *TBoss6RockChase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8036D4E0___vt__15TBoss6RockChase *)&__vt__15TBoss6RockChase).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D44F0;
-    *(s32 *)((s8 *)arg0 + 0xAC) = arg1;
-    *(s32 *)((s8 *)arg0 + 0xB0) = arg3;
-    *(s32 *)((s8 *)arg0 + 0xB4) = (s32) (lbl_805E03CC * (lbl_805E03D0 * (f32) rand()));
+    *(s32 *)&((TBoss6RockChase *)arg0)->m_ac = arg1;
+    *(s32 *)&((TBoss6RockChase *)arg0)->m_b0 = arg3;
+    *(s32 *)&((TBoss6RockChase *)arg0)->m_b4 = (s32) (lbl_805E03CC * (lbl_805E03D0 * (f32) rand()));
     *(s32 *)((s8 *)arg0 + 0x5C) = (s32) (lbl_805E03D4 * ((lbl_805E03D0 * (f32) rand()) - lbl_805E03D8));
-    *(s32 *)((s8 *)arg0 + 0x60) = (s32) (lbl_805E03DC * (lbl_805E03D0 * (f32) rand()));
-    *(s32 *)((s8 *)arg0 + 0x64) = (s32) (lbl_805E03D4 * ((lbl_805E03D0 * (f32) rand()) - lbl_805E03D8));
-    *(s32 *)((s8 *)arg0 + 0xBC) = (s32) (lbl_805E03E0 * ((lbl_805E03D0 * (f32) rand()) - lbl_805E03D8));
+    ((TBoss6RockChase *)arg0)->rotation_y = (s32) (lbl_805E03DC * (lbl_805E03D0 * (f32) rand()));
+    ((TBoss6RockChase *)arg0)->rotation_z = (s32) (lbl_805E03D4 * ((lbl_805E03D0 * (f32) rand()) - lbl_805E03D8));
+    *(s32 *)&((TBoss6RockChase *)arg0)->m_bc = (s32) (lbl_805E03E0 * ((lbl_805E03D0 * (f32) rand()) - lbl_805E03D8));
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) TBoss6RockChase__data_805E03B8;
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2));
-    *(s32 *)((s8 *)arg0 + 0xC0) = get_bml_model((int) (TBoss6Rock__sub_80353A0C()), (int) (*(s32 *)((s8 *)(&boss6_rock_chase_model_radius_table.value) + (arg3 * 8))));
-    *(s32 *)((s8 *)arg0 + 0xC4) = TBoss6Rock__sub_80353A04();
+    *(s32 *)&((TBoss6RockChase *)arg0)->m_c0 = get_bml_model((int) (TBoss6Rock__sub_80353A0C()), (int) (*(s32 *)((s8 *)(&boss6_rock_chase_model_radius_table.value) + (arg3 * 8))));
+    *(s32 *)&((TBoss6RockChase *)arg0)->m_c4 = TBoss6Rock__sub_80353A04();
     return arg0;
 }
 #pragma pop

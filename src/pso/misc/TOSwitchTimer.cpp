@@ -117,8 +117,8 @@ void TOSwitchTimer__sub_80178588(void) {  }
 u8 *__dt__13TOSwitchTimerFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__13TOSwitchTimer.value;
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x98) == 0U) {
-            clear_floor_switch_flag(*(u16 *)((s8 *)arg0 + 0xA8), (s16) *(s32 *)((s8 *)arg0 + 0xB4));
+        if ((u32) ((TOSwitchTimer *)arg0)->m_98 == 0U) {
+            clear_floor_switch_flag(((TOSwitchTimer *)arg0)->m_a8, (s16) ((TOSwitchTimer *)arg0)->m_b4);
         }
         TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {

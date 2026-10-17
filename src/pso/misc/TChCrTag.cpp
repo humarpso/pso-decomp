@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TChCrTag.h"
 extern "C" void render__8TChCrTagFv();
 #include "pso/TChCrTag.h"
 #include "pso/TChCrCharSelect.h"
@@ -98,7 +99,7 @@ void *__dt__8TChCrTagFv(void *self, s16 arg1) {
 void *__ct__8TChCrTagFv(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);
     *(void ***)((s8 *)arg0 + 0x18) = __vt__8TChCrTag;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D3D90;
+    *(void * *)&((TChCrTag *)arg0)->m_name = lbl_805D3D90;
     *(void **)((s8 *)arg0 + 0x20) = arg2;
     *(u32 *)((s8 *)arg0 + 0x1C) = 0;
     *(f32 *)((s8 *)arg0 + 0x24) = lbl_805DDE04;

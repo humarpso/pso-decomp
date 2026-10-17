@@ -221,15 +221,15 @@ u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1) {
     init_container_base((void *) (arg0), (int) (tl_05), (void *) (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8015BD68___vt__23TOContainerAncientEnemy *)&__vt__23TOContainerAncientEnemy).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2F08;
-    *(s16 *)((s8 *)arg0 + 0x326) = 0;
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x60000000);
+    ((TOContainerAncientEnemy *)arg0)->mode = 0;
+    *(s32 *)&((TOContainerAncientEnemy *)arg0)->actorFlags = (s32) (*(s32 *)&((TOContainerAncientEnemy *)arg0)->actorFlags| 0x60000000);
     init_collision_body_parts((void *) (arg0), (void *) (&TOContainerAncientEnemy__collision_body_params.value), (int) (1));
     ((TObjPlayer *)arg0)->reset_photon_effect();
     VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x38));
     VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     *(f32 *)((s8 *)arg0 + 0x78) = (f32) (*(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)(&TOContainerAncientEnemy__collision_body_params.value) + 4));
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *) ((*(s32 *)&ancient_container_resource_bundle)), (int) (0));
-    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&ancient_container_resource_bundle)), (int) (0));
+    ((TOContainerAncientEnemy *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&ancient_container_resource_bundle)), (int) (0));
     return arg0;
 }
 

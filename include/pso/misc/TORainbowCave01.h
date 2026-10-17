@@ -6,7 +6,8 @@
 
 struct TORainbowCave01 : public TUnk_804AFBF8 {
     virtual ~TORainbowCave01();
-    u8 unk_C8[0x8];
+    u8 unk_C8[0x4];
+    f32 m_cc;
     f32 m_d0;
     void* m_d4;
     s32 is_player_in_range(f32 farg0);

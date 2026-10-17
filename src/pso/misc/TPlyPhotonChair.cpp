@@ -277,15 +277,15 @@ u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 parent) {
     TMainCursor__sub_8013F1F0((void *) (arg0 + 0xD0));
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4418;
     ((TPlyPhotonChair *)arg0)->set_field90((s32)((void *) (arg1)));
-    *(s16 *)((s8 *)arg0 + 0x92) = 0;
-    *(s32 *)((s8 *)arg0 + 0x94) = 0;
+    *(s16 *)&((TPlyPhotonChair *)arg0)->m_92 = 0;
+    *(s32 *)&((TPlyPhotonChair *)arg0)->m_94 = 0;
     player = get_player_by_client_id((int)((void *) ((s32) (u16) arg1)));
     if (player == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return arg0;
     }
     get_rader_map__11TMainCursorFv((void *) (arg0 + 0xD0), (void *) ((u8 *)&TPlyPhotonChair__section_id_color_table.value + (get_actor_section_id__15TPlyPhotonChairFv((int) (player)) * 0x10)));
-    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), (int) (1));
+    ((TPlyPhotonChair *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), (int) (1));
     ((TPlyPhotonChair *)(arg0 + 0x98))->set_type((s32)((int) (get_bml_model((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), (int) (1)))));
     ((TPlyPhotonChair *)(arg0 + 0x98))->set_field_8((s32)((int) (get_bml_motion((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), (int) (1)))));
     ((TPlyPhotonChair *)(arg0 + 0x98))->sync_field10_from_child();

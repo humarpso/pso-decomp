@@ -37,7 +37,7 @@ void render__15TWindowShortCutFv(u8 *arg0) {
     temp_r3 = draw_default_entry__9TWindowDDFl();
     draw_window_frame((void *) (arg0), (int) (temp_r3));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
-    forward_render__20TWindowSubStatusDispFv((int) (*(s32 *)((s8 *)arg0 + 0x60)), (int) (temp_r3));
+    forward_render__20TWindowSubStatusDispFv((int) (*(s32 *)&((TWindowShortCut *)arg0)->m_60), (int) (temp_r3));
 }
 
 void TWindowShortCut::run_task() { ((TWindowSubStatusDisp *)(*(void* *)&this->m_60))->update_subwindow(); initialize_subwindow__9TWindowDDFv(this); update_fade(); update_window_entry_list((char*)this + 0x24); }
@@ -45,8 +45,8 @@ void TWindowShortCut::run_task() { ((TWindowSubStatusDisp *)(*(void* *)&this->m_
 void *__dt__15TWindowShortCutFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TWindowShortCut;
-        if (*(void **)((s8 *)arg0 + 0x68) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x68)); *(s32 *)((s8 *)arg0 + 0x68) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x64) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x64)); *(s32 *)((s8 *)arg0 + 0x64) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x68) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x68)); *(s32 *)&((TWindowShortCut *)arg0)->m_68 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x64) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x64)); *(s32 *)&((TWindowShortCut *)arg0)->m_64 = 0; }
         TWindowSubStatusDisp::destroy_status_display((s32)(*(void **)((s8 *)arg0 + 0x60)), (s16)1);
         ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
@@ -64,13 +64,13 @@ u8 *TWindowShortCut__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowShortCut__name;
     var_r31 = ((TAdSinglePlyChrSelectGC *)((void *)0x24))->alloc();
     if (var_r31 != 0) {
-        var_r31 = construct_type1_heading__20TWindowSubStatusDispFll(var_r31, get_message_10__20TWindowSubStatusDispFl((int) (0x35)), (s32) *(s16 *)((s8 *)arg0 + 0x20));
+        var_r31 = construct_type1_heading__20TWindowSubStatusDispFll(var_r31, get_message_10__20TWindowSubStatusDispFl((int) (0x35)), (s32) ((TWindowShortCut *)arg0)->m_20);
     }
-    *(s32 *)((s8 *)arg0 + 0x60) = var_r31;
-    *(s32 *)((s8 *)arg0 + 0x64) = 0;
-    *(s32 *)((s8 *)arg0 + 0x68) = 0;
-    *(s32 *)((s8 *)arg0 + 0x6C) = arg2;
-    *(s32 *)((s8 *)arg0 + 0x70) = arg3;
+    *(s32 *)&((TWindowShortCut *)arg0)->m_60 = var_r31;
+    *(s32 *)&((TWindowShortCut *)arg0)->m_64 = 0;
+    *(s32 *)&((TWindowShortCut *)arg0)->m_68 = 0;
+    *(s32 *)&((TWindowShortCut *)arg0)->m_6c = arg2;
+    *(s32 *)&((TWindowShortCut *)arg0)->m_70 = arg3;
     TWindowSubStatusDisp__sub_8026E1D4((void *) (arg0), (void *) (arg2), (void *) (arg3));
     return arg0;
 }

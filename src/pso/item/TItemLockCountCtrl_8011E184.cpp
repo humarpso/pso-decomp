@@ -32,7 +32,7 @@ void TObjPlayer__sub_8011E204(void *arg0, s32 arg1) {
   int new_var2;
   new_var2 = ~arg1;
   new_var = (s32 *) (((s8 *) arg0) + 0x334);
-  *new_var = (s32) ((*((s32 *) (((s8 *) arg0) + 0x334))) & new_var2);
+  *new_var = (s32) ((*(s32 *)&((TObjPlayer *)arg0)->m_334) & new_var2);
 }
 
 }

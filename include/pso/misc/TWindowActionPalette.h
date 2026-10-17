@@ -28,7 +28,8 @@ struct TWindowActionPalette {
     ChildList children;
     u8 unk_2C[0x28];
     f32 m_54;
-    u8 unk_58[0x8];
+    u8 unk_58[0x4];
+    s32 m_5c;
     u8 resources[3][4];
     u8 state;
     u8 unknown_6d[3];

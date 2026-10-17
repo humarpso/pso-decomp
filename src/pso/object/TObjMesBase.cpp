@@ -126,16 +126,16 @@ void *TObjMesBase__ct(void *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjMesBase;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjMesBase__class_name;
     ((TObjMesBase80194_80194C98 *)arg0)->ct(arg2);
-    *(s32 *)((s8 *)arg0 + 0xB4) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
-    *(s32 *)((s8 *)arg0 + 0xB8) = (s32) *(s32 *)((s8 *)arg0 + 0x8C);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xB8) < 0) {
-        *(s32 *)((s8 *)arg0 + 0xB8) = 0;
+    ((TObjMesBase *)arg0)->messageLabel = (s32) ((TObjMesBase *)arg0)->m_84;
+    ((TObjMesBase *)arg0)->messageBank = (s32) *(s32 *)&((TObjMesBase *)arg0)->m_8c;
+    if ((s32) ((TObjMesBase *)arg0)->messageBank< 0) {
+        ((TObjMesBase *)arg0)->messageBank = 0;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xB8) > 1) {
-        *(s32 *)((s8 *)arg0 + 0xB8) = 1;
+    if ((s32) ((TObjMesBase *)arg0)->messageBank> 1) {
+        ((TObjMesBase *)arg0)->messageBank = 1;
     }
     *(s32 *)((s8 *)arg0 + 0xAC) = 0;
-    *(s32 *)((s8 *)arg0 + 0xB0) = 0;
+    ((TObjMesBase *)arg0)->messagePhase = 0;
     return arg0;
 }
 

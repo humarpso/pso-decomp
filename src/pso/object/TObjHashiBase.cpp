@@ -169,7 +169,7 @@ void TObjHashiBase::run_task() {
 extern "C" {
 void *__dt__13TObjHashiBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjHashiBase;
+        ((TObjHashiBase *)arg0)->m_18 = __vt__13TObjHashiBase;
         ((TUnk_804AFBF8 *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -186,18 +186,18 @@ extern const f32 lbl_805DBE38;
 
 void *TObjHashiBase__ct(void *arg0, s32 arg1, s32 arg2) {
     init_map_object_base();
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjHashiBase;
+    ((TObjHashiBase *)arg0)->m_18 = __vt__13TObjHashiBase;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3374;
     ((VObj_80191BEC_80191B94 *)arg0)->m5(arg2);
-    *(s32 *)((s8 *)arg0 + 0xC8) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
+    ((TObjHashiBase *)arg0)->switchId = (s32) ((TObjHashiBase *)arg0)->m_84;
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DBE24;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DBE28;
-    if (is_current_floor_switch_set((u16) *(s32 *)((s8 *)arg0 + 0xC8), lbl_805DBE24) == 1) {
-        *(s32 *)((s8 *)arg0 + 0xAC) = 2;
+    if (is_current_floor_switch_set((u16) ((TObjHashiBase *)arg0)->switchId, lbl_805DBE24) == 1) {
+        ((TObjHashiBase *)arg0)->phase = 2;
         *(f32 *)((s8 *)arg0 + 0xCC) = (f32) *(f32 *)((s8 *)arg0 + 0x3C);
         *(f32 *)((s8 *)arg0 + 0xD0) = (f32) lbl_805DBE34;
     } else {
-        *(s32 *)((s8 *)arg0 + 0xAC) = 0;
+        ((TObjHashiBase *)arg0)->phase = 0;
         *(f32 *)((s8 *)arg0 + 0xCC) = (f32) *(f32 *)((s8 *)arg0 + 0x3C);
         *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) - lbl_805DBE38);
         *(f32 *)((s8 *)arg0 + 0xD0) = (f32) lbl_805DBE34;

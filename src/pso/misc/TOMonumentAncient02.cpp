@@ -282,37 +282,37 @@ u8 *TOMonumentAncient02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOMonumentAncient02__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOMonumentAncient02__model_resource) + 0x42C)) + 8);
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOMonumentAncient02__model_resource) + 0x42C)) + 0xC);
+    ((TOMonumentAncient02 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOMonumentAncient02__model_resource) + 0x42C)) + 0xC);
     init_collision_body_parts(arg0, (s32) &monument_ancient02_collision_parts.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     global_state = TOKeyMachine01::get_global_state();
     switch (global_state) {
     default:
-        *(s32 *)((s8 *)arg0 + 0xD0) = 0x2C;
-        *(s32 *)((s8 *)arg0 + 0xD4) = 0x4C119;
+        *(s32 *)&((TOMonumentAncient02 *)arg0)->m_d0 = 0x2C;
+        *(s32 *)&((TOMonumentAncient02 *)arg0)->m_d4 = 0x4C119;
         break;
     case 4:
-        *(s32 *)((s8 *)arg0 + 0xD0) = 0x2D;
-        *(s32 *)((s8 *)arg0 + 0xD4) = 0x44116;
+        *(s32 *)&((TOMonumentAncient02 *)arg0)->m_d0 = 0x2D;
+        *(s32 *)&((TOMonumentAncient02 *)arg0)->m_d4 = 0x44116;
         break;
     case 7:
-        *(s32 *)((s8 *)arg0 + 0xD0) = 0x2E;
-        *(s32 *)((s8 *)arg0 + 0xD4) = 0x4004C10F;
+        *(s32 *)&((TOMonumentAncient02 *)arg0)->m_d0 = 0x2E;
+        *(s32 *)&((TOMonumentAncient02 *)arg0)->m_d4 = 0x4004C10F;
         break;
     }
-    *(s32 *)((s8 *)arg0 + 0xAC) = 0;
-    *(s32 *)((s8 *)arg0 + 0xC8) = 0;
-    *(s32 *)((s8 *)arg0 + 0xCC) = 0;
+    *(s32 *)&((TOMonumentAncient02 *)arg0)->m_ac = 0;
+    *(s32 *)&((TOMonumentAncient02 *)arg0)->m_c8 = 0;
+    *(s32 *)&((TOMonumentAncient02 *)arg0)->m_cc = 0;
     ((TOKeyAncient01 *)(arg0 + 0x98))->set_type();
-    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB934;
+    ((TOMonumentAncient02 *)arg0)->m_c0 = (f32) lbl_805DB934;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB938;
     *(f32 *)((s8 *)arg0 + 0xD8) = (f32) lbl_805DB92C;
     *(f32 *)((s8 *)arg0 + 0xDC) = (f32) lbl_805DB92C;
-    *(f32 *)((s8 *)arg0 + 0xE0) = (f32) lbl_805DB92C;
+    ((TOMonumentAncient02 *)arg0)->m_e0 = (f32) lbl_805DB92C;
     *(f32 *)((s8 *)arg0 + 0xE4) = (f32) lbl_805DB92C;
-    *(s32 *)((s8 *)arg0 + 0xE8) = create_particle_emitter((s32) (arg0 + 0x38), 0x7F);
-    *(s32 *)((s8 *)arg0 + 0xEC) = 1;
+    *(s32 *)&((TOMonumentAncient02 *)arg0)->m_e8 = create_particle_emitter((s32) (arg0 + 0x38), 0x7F);
+    *(s32 *)&((TOMonumentAncient02 *)arg0)->m_ec = 1;
     if ((s32) enable_v2_features == 1) {
         if (get_game_play_mode() == 1) {
             queue_destruction__7TObjectFv((void *) (arg0));

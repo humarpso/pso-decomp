@@ -54,7 +54,7 @@ void TWindowDD_WS_String::draw(s32 arg1, s32 arg2, f32 farg0) {
     s32 temp_r31;
 
     temp_r31 = TWindowDD::get_draw_count((void **)(lbl_805D63F0));
-    TWindowDD__sub_80348AD4(*(f32 *)&(*(u32 *)((u8 *)this + 0x54)), farg0);
+    TWindowDD__sub_80348AD4(*(f32 *)&(this->m_54), farg0);
     reset_entries__9TWindowDDFf(&sp8, -1);
     ((TWindowDD *)(&sp8))->copy_point_table((s32)(arg2));
     TWindowDD__sub_80348A2C((void *)(arg1), (void *)(&sp8));

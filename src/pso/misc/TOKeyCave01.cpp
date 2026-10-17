@@ -250,9 +250,9 @@ u8 *TOKeyCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKeyCave01__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     ((TOKey *)arg0)->init_switch_id();
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *TOKeyCave01__texture_lists;
+    ((TOKeyCave01 *)arg0)->texture_id = (s32) *TOKeyCave01__texture_lists;
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOKeyCave01__resource_bundle) + 0x42C)) + 8);
-    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB74C;
+    ((TOKeyCave01 *)arg0)->m_c0 = (f32) lbl_805DB74C;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB750;
     *(f32 *)((s8 *)arg0 + 0xCC) = (f32) lbl_805DB754;
     if (get_main_phase() != 0xF) {
@@ -261,25 +261,25 @@ u8 *TOKeyCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
         }
     } else {
 block_2:
-        if ((s32) *(s32 *)((s8 *)arg0 + 0xD0) != 2) {
+        if ((s32) *(s32 *)&((TOKeyCave01 *)arg0)->m_d0 != 2) {
             if ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0) {
-                *(s32 *)((s8 *)arg0 + 0xD0) = 1;
+                *(s32 *)&((TOKeyCave01 *)arg0)->m_d0 = 1;
             } else {
                 goto block_5;
             }
         } else {
 block_5:
-            *(s32 *)((s8 *)arg0 + 0xD0) = 0;
+            *(s32 *)&((TOKeyCave01 *)arg0)->m_d0 = 0;
         }
     }
-    *(f32 *)((s8 *)arg0 + 0xE8) = (f32) lbl_805DB73C;
-    *(f32 *)((s8 *)arg0 + 0xEC) = (f32) lbl_805DB73C;
+    ((TOKeyCave01 *)arg0)->m_e8 = (f32) lbl_805DB73C;
+    ((TOKeyCave01 *)arg0)->m_ec = (f32) lbl_805DB73C;
     *(f32 *)((s8 *)arg0 + 0xF0) = (f32) lbl_805DB73C;
-    *(f32 *)((s8 *)arg0 + 0xF4) = (f32) lbl_805DB73C;
-    *(s32 *)((s8 *)arg0 + 0xF8) = 0;
+    ((TOKeyCave01 *)arg0)->m_f4 = (f32) lbl_805DB73C;
+    ((TOKeyCave01 *)arg0)->m_f8 = 0;
     *(f32 *)((s8 *)arg0 + 0x70) = (f32) lbl_805DB740;
-    *(f32 *)((s8 *)arg0 + 0x6C) = (f32) lbl_805DB740;
-    *(f32 *)((s8 *)arg0 + 0x68) = (f32) lbl_805DB740;
+    ((TOKeyCave01 *)arg0)->target_scale = (f32) lbl_805DB740;
+    ((TOKeyCave01 *)arg0)->scale = (f32) lbl_805DB740;
     *(s32 *)((s8 *)arg0 + 0xFC) = 0;
     return arg0;
 }

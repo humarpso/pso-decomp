@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneEpsilon.h"
 #include "pso/misc/TBreakUpMdl.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -321,7 +322,7 @@ void *TObjEneEpsilon__ct(void *arg0) {
     ((TObjEneDD_ST *)arg0)->init_object();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjEneEpsilon;
     __construct_array((void *)((char *)arg0 + 960), init_and_activate__10TObjPlayerFv, __dt__13TUnk_804949A8Fv, 28, 4);
-    *(void **)((s8 *)arg0 + 0x0) = TObjEneEpsilon__class_name;
+    *(void * *)&((TObjEneEpsilon *)arg0)->m_name = TObjEneEpsilon__class_name;
     ((TObjEneDD *)arg0)->check_state_flag_4();
     return arg0;
 }

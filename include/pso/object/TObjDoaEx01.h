@@ -14,7 +14,10 @@ struct TObjDoaEx01 : public TUnk_804B0BB8 {
     s32 draw_object_tree(s32 arg1);
     static void free_resource();
     static void load_resources();
-    u8 unk_D4[0x10];
+    u8 unk_D4[0x4];
+    f32 m_d8;
+    u8 unk_DC[0x4];
+    f32 m_e0;
     void try_open();
     void draw_model();
 };

@@ -22,7 +22,13 @@ struct TWindowMainMenu1P : public TWindowMainMenu {
     void * m_54;
     u8 unk_58[0x14];
     f32 m_6c;
-    u8 unk_70[0x34];
+    u8 unk_70[0x1C];
+    f32 m_8c;
+    u8 unk_90[0x4];
+    f32 m_94;
+    u8 unk_98[0x4];
+    f32 m_9c;
+    u8 unk_A0[0x4];
     f32 m_a4;
     u8 unk_A8[0x4];
 };

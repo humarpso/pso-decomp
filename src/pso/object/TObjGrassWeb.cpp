@@ -104,9 +104,9 @@ u8 *TObjGrassWeb__ct(u8 *arg0, s32 arg1, u32 arg2) {
     if (arg2 != 0U) {
         *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2A3C;
         VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2 + 0x38));
-        *(s32 *)((s8 *)arg0 + 0x90) = 0;
-        *(s16 *)((s8 *)arg0 + 0xA4) = obj_getField1c(arg2);
-        *(s32 *)((s8 *)arg0 + 0x84) = 0xB4;
+        *(s32 *)&((TObjGrassWeb *)arg0)->m_90 = 0;
+        *(s16 *)&((TObjGrassWeb *)arg0)->m_a4 = obj_getField1c(arg2);
+        ((TObjGrassWeb *)arg0)->m_84 = 0xB4;
     } else {
         queue_destruction__7TObjectFv((void*)(arg0));
     }

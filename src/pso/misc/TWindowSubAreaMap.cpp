@@ -59,7 +59,7 @@ void TWindowSubAreaMap::run_task() {
 void *__dt__17TWindowSubAreaMapFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TWindowSubAreaMap;
-        if (*(void **)((s8 *)arg0 + 0x24) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x24)); *(s32 *)((s8 *)arg0 + 0x24) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x24) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x24)); *(s32 *)&((TWindowSubAreaMap *)arg0)->m_24 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

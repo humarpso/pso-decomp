@@ -309,11 +309,11 @@ void draw_motion_model_saving_joints(u8 *arg0) {
     s32 temp_r3;
     (*(int *)&player_joint_matrix_write_ptr) = *(s32 *)((s8 *)arg0 + 0xE0);
     TObjEneRe7Berura::set_global_state((s32)((void *) save_joint_matrix_callback));
-    temp_r3 = *(s32 *)((s8 *)arg0 + 0xB0);
+    temp_r3 = *(s32 *)&((TObjPlayer *)arg0)->animationFlags;
     if ((temp_r3 & 4) && !(temp_r3 & 0x400)) {
-        ((s32 (*)(int, void *, f32))draw_model_blend_motion)(*(s32 *)((s8 *)arg0 + 0x34), arg0 + 0xE4, *(f32 *)((s8 *)arg0 + 0xC0));
+        ((s32 (*)(int, void *, f32))draw_model_blend_motion)(*(s32 *)((s8 *)arg0 + 0x34), arg0 + 0xE4, ((TObjPlayer *)arg0)->m_c0);
     } else {
-        ((s32 (*)(int, int, f32))draw_model_motion)(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
+        ((s32 (*)(int, int, f32))draw_model_motion)(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)&((TObjPlayer *)arg0)->unknownF8, ((TObjPlayer *)arg0)->m_c0);
     }
     TObjEneRe7Berura::set_global_state((s32)NULL);
     TObjPlayer::reset_transform_state();
@@ -450,23 +450,23 @@ void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     void *temp_r3;
     f32 conv;
 
-    *(s16 *)((s8 *)arg0 + 0xB8) = arg1;
-    *(s16 *)((s8 *)arg0 + 0xBA) = (s16) *(s16 *)((s8 *)arg0 + 0xB8);
-    ((TObjMotion *)arg0)->update_animation_frame(*(s16 *)((s8 *)arg0 + 0xB8));
-    temp_r3 = ((TObjMotion *)arg0)->get_anim_entry(*(s16 *)((s8 *)arg0 + 0xB8));
-    *(f32 *)((s8 *)arg0 + 0xC8) = (f32) *(f32 *)((s8 *)temp_r3 + 8);
+    ((TObjMotion *)arg0)->m_b8 = arg1;
+    *(s16 *)&((TObjMotion *)arg0)->m_ba = (s16) ((TObjMotion *)arg0)->m_b8;
+    ((TObjMotion *)arg0)->update_animation_frame(((TObjMotion *)arg0)->m_b8);
+    temp_r3 = ((TObjMotion *)arg0)->get_anim_entry(((TObjMotion *)arg0)->m_b8);
+    ((TObjMotion *)arg0)->m_c8 = (f32) *(f32 *)((s8 *)temp_r3 + 8);
     *(s16 *)((s8 *)arg0 + 0xF4) = (s16) *(s16 *)((s8 *)temp_r3 + 0);
     conv = (f32) *(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF8)) + 4);
     *(f32 *)((s8 *)arg0 + 0xC4) = conv;
-    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB168;
-    *(s32 *)((s8 *)arg0 + 0xB0) = (s32) (*(s32 *)((s8 *)arg0 + 0xB0) & 0xFFFFFFFB);
-    *(s32 *)((s8 *)arg0 + 0xB4) = (s32) *(s32 *)((s8 *)temp_r3 + 0xC);
+    ((TObjMotion *)arg0)->m_c0 = (f32) lbl_805DB168;
+    *(s32 *)&((TObjMotion *)arg0)->animationFlags = (s32) (*(s32 *)&((TObjMotion *)arg0)->animationFlags& 0xFFFFFFFB);
+    *(s32 *)&((TObjMotion *)arg0)->m_b4 = (s32) *(s32 *)((s8 *)temp_r3 + 0xC);
     *(void **)((s8 *)arg0 + 0xE4) = (void *) *(void **)((s8 *)arg0 + 0xF8);
     *(f32 *)((s8 *)arg0 + 0xEC) = (f32) lbl_805DB168;
     *(void **)((s8 *)arg0 + 0xE8) = (void *) *(void **)((s8 *)arg0 + 0xF8);
     *(f32 *)((s8 *)arg0 + 0xF0) = (f32) lbl_805DB168;
-    *(s16 *)((s8 *)arg0 + 0xBC) = (s16) *(s16 *)((s8 *)arg0 + 0xB8);
-    if (*(s32 *)((s8 *)arg0 + 0xB4) & 0x20000000) {
+    *(s16 *)((s8 *)arg0 + 0xBC) = (s16) ((TObjMotion *)arg0)->m_b8;
+    if (*(s32 *)&((TObjMotion *)arg0)->m_b4& 0x20000000) {
         ((TObjMotion *)arg0)->set_motion_interpolation_flag();
     }
 }

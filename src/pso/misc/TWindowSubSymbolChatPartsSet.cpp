@@ -270,12 +270,12 @@ void render__28TWindowSubSymbolChatPartsSetFv(u8 *arg0) {
     ((TWindowSubSymbolChatPartsSet *)(&sp10))->copy_vec2((void *) (c_arg + 0x10));
     ((TWindowSubSymbolChatPartsSet *)(&sp8))->copy_vec2((void *) (c_arg + 0x28));
     if ((s32) *(s32 *)((s8 *)c_arg + 0x30) < 0) {
-        *(f32 *)((s8 *)c_arg + 0x28) = (f32) ((f32) *(s32 *)((s8 *)arg0 + 0x5C) / lbl_805DD820);
+        *(f32 *)((s8 *)c_arg + 0x28) = (f32) ((f32) *(s32 *)&((TWindowSubSymbolChatPartsSet *)arg0)->m_5c/ lbl_805DD820);
         *(f32 *)((s8 *)c_arg + 0x2C) = (f32) *(f32 *)((s8 *)c_arg + 0x28);
     }
     ((TUnk_804CE018 *)arg0)->draw_quest_message_frame((void *)c_arg);
     *(f32 *)((s8 *)c_arg + 0x10) = (f32) (*(f32 *)((s8 *)c_arg + 0x10) + *(f32 *)((s8 *)arg0 + 0x8C));
-    *(f32 *)((s8 *)c_arg + 0x14) = (f32) (*(f32 *)((s8 *)c_arg + 0x14) + *(f32 *)((s8 *)arg0 + 0x90));
+    *(f32 *)((s8 *)c_arg + 0x14) = (f32) (*(f32 *)((s8 *)c_arg + 0x14) + ((TWindowSubSymbolChatPartsSet *)arg0)->m_90);
     *(f32 *)((s8 *)c_arg + 0x28) = (f32) (*(f32 *)((s8 *)c_arg + 0x28) * *(f32 *)((s8 *)arg0 + 0x94));
     ctx = *(f32 *)((s8 *)c_arg + 0x2C);
     *(f32 *)((s8 *)c_arg + 0x2C) = (f32) (ctx * *(f32 *)((s8 *)arg0 + 0x94));
@@ -283,7 +283,7 @@ void render__28TWindowSubSymbolChatPartsSetFv(u8 *arg0) {
     ((TWindowSubSymbolChatPartsSet *)arg0)->draw_selected_part_cursor((int)((int) (c_arg)));
     ((TWindowSubSymbolChatPartsSet *)(c_arg + 0x10))->copy_vec2((void *) (&sp10));
     ((TWindowSubSymbolChatPartsSet *)(c_arg + 0x28))->copy_vec2((void *) (&sp8));
-    forward_render__20TWindowSubStatusDispFv((int) (*(s32 *)((s8 *)arg0 + 0x88)), (int) (c_arg));
+    forward_render__20TWindowSubStatusDispFv((int) (*(s32 *)&((TWindowSubSymbolChatPartsSet *)arg0)->m_88), (int) (c_arg));
 }
 
 typedef char RecoveredGlobal_80286824_lbl_8050E208_size[sizeof(RecoveredGlobal_80286824_lbl_8050E208) == 0x1B0 ? 1 : -1];

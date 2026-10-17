@@ -169,17 +169,17 @@ void *TAdYesNoBaseGC__ct(void *arg0) {
     void *o2;
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TAdYesNoBaseGC;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D41F8;
-    *(u32 *)((s8 *)arg0 + 0x28) = 0;
+    *(void * *)&((TAdYesNoBaseGC *)arg0)->m_name = lbl_805D41F8;
+    ((TAdYesNoBaseGC *)arg0)->m_28 = 0;
     *(f32 *)((s8 *)arg0 + 0x30) = lbl_805DF790;
-    *(f32 *)((s8 *)arg0 + 0x34) = lbl_805DF794;
+    ((TAdYesNoBaseGC *)arg0)->m_34 = lbl_805DF794;
     *(f32 *)((s8 *)arg0 + 0x38) = lbl_805DF798;
-    *(f32 *)((s8 *)arg0 + 0x3C) = lbl_805DF79C;
-    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x24) = 0;
-    *(u32 *)((s8 *)arg0 + 0x2C) = 1;
-    *(u32 *)((s8 *)arg0 + 0x40) = 0;
-    *(u32 *)((s8 *)arg0 + 0x44) = 0;
+    ((TAdYesNoBaseGC *)arg0)->m_3c = lbl_805DF79C;
+    ((TAdYesNoBaseGC *)arg0)->m_1c = 0;
+    ((TAdYesNoBaseGC *)arg0)->m_24 = 0;
+    ((TAdYesNoBaseGC *)arg0)->m_2c = 1;
+    ((TAdYesNoBaseGC *)arg0)->m_40 = 0;
+    ((TAdYesNoBaseGC *)arg0)->m_44 = 0;
     o = __nw__7TObjectFUl(0x24);
     if (o != NULL) {
         __ct__9TAdBackGCFv(o, arg0);

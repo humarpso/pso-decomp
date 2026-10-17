@@ -14,11 +14,14 @@ struct TPhotonConcentrate : public TUnk_804AF8A0 {
     u32 m_bc;
     u32 m_c0;
     void* m_c4;
-    u8 _padC8[0x8];
+    u8 unk_C8[0x4];
+    f32 m_cc;
     u32 m_d0;
     u32 m_d4;
     u32 m_d8;
-    u8 _padDC[0x10];
+    u8 unk_DC[0x8];
+    f32 m_e4;
+    u8 unk_E8[0x4];
     u32 m_ec;
     u32 m_f0;
     u8 _padF4[0x4];

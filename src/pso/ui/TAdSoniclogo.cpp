@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TAdSoniclogo.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/misc/TLobby.h"
 
@@ -22,7 +23,7 @@ void *__ct__12TAdSoniclogoFv(void *arg0) {
     void *o;
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TAdSoniclogo;
-    *(void **)((s8 *)arg0 + 0x0) = TAdSoniclogo__class_name;
+    *(void * *)&((TAdSoniclogo *)arg0)->m_name = TAdSoniclogo__class_name;
     *(u32 *)((s8 *)arg0 + 0x1C) = 0;
     TAdSoniclogo__state = 0;
     TLogo__exit_requested_flag = 0;

@@ -8,7 +8,8 @@ class TObjEZRopeBase : public TObject {
 public:
     u8 unk_1C[0x4];
     void * m_20;
-    u8 unk_24[0x8];
+    u8 unk_24[0x4];
+    u32 m_28;
  void* m_2c;
 public:
     virtual ~TObjEZRopeBase();

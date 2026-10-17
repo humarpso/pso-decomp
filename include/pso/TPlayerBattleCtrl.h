@@ -11,7 +11,9 @@ public:
     s32 state_1c;
     s32 state_20;
     s32 state_24;
-    u8 unknown_28[0x24];
+    u8 unk_28[0x14];
+    s32 m_3c;
+    u8 unk_40[0xC];
     void *window_4c;
     void *window_50;
     void *window_54;

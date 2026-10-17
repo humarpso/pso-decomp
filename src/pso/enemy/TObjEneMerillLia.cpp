@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMerillLia.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -1552,7 +1553,7 @@ void run_state_dispatch__16TObjEneMerillLiaFPv(u8 *arg0) {
     (((TObjEneMerillLia *)(arg0))->vfunc_101());
     return;
   }
-  temp_r0 = *((s16 *) (((s8 *) arg0) + 0x326));
+  temp_r0 = ((TObjEneMerillLia *)arg0)->mode;
   {
     switch (temp_r0)
     {
@@ -1603,7 +1604,7 @@ void run_state_dispatch__16TObjEneMerillLiaFPv(u8 *arg0) {
   ((TObjEnemy *)arg0)->update_prev_position();
   copy_position__20TBoss3VoloptHiraisinFi((void *) arg0);
   submit_cursor_candidate((void *) arg0, (int) (-1));
-  *((f32 *) (((s8 *) arg0) + 0x2B4)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x2B4))) + TObjEneMerillLia__data_805DA2F4);
+  ((TObjEneMerillLia *)arg0)->m_2b4 = (f32) ((((TObjEneMerillLia *)arg0)->m_2b4) + TObjEneMerillLia__data_805DA2F4);
 }
 
 void * TObjEneMerillLia__create(void *arg0) {

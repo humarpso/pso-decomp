@@ -123,7 +123,7 @@ u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1) {
     s32 player;
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TObjVoloptCage.value;
-        player = get_player_by_client_id((int) (*(u16 *)((s8 *)arg0 + 0x338)));
+        player = get_player_by_client_id((int) (((TObjVoloptCage *)arg0)->targetId));
         if ((player != 0) && (is_locally_controlled__10TObjPlayerFPv() != 0)) {
             if (((TLobby *)player)->check_player_flag1() != 0) {
                 TObjPlayer::send_code_45_1((int) (player));

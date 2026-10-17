@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneMe1Canadin_EffDischarge.h"
+#include "pso/enemy/TObjEneMe1Canadin_EffLight.h"
 #include "pso/enemy/TObjEneMe1Canadin_EffLine.h"
 #include "pso/TTecZondeEff.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -206,7 +208,7 @@ void *__dt__26TObjEneMe1Canadin_EffLightFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__26TObjEneMe1Canadin_EffLight;
         mem_free(*(void **)((s8 *)arg0 + 0x2C));
         *(s32 *)((s8 *)arg0 + 0x2C) = 0;
-        mem_free(*(void **)((s8 *)arg0 + 0x28));
+        mem_free(((TObjEneMe1Canadin_EffLight *)arg0)->m_28);
         *(s32 *)((s8 *)arg0 + 0x28) = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -259,21 +261,21 @@ void run_task__30TObjEneMe1Canadin_EffDischargeFv(u8 *arg0) {
     s32 var_r31;
 
     var_r31 = 0;
-    *(f32 *)((s8 *)arg0 + 0x28) = (f32) (*(f32 *)((s8 *)arg0 + 0x28) + canadin_discharge_motion_scale);
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0x28);
+    ((TObjEneMe1Canadin_EffDischarge *)arg0)->m_28 = (f32) (((TObjEneMe1Canadin_EffDischarge *)arg0)->m_28+ canadin_discharge_motion_scale);
+    temp_f1 = ((TObjEneMe1Canadin_EffDischarge *)arg0)->m_28;
     if (temp_f1 > *(f32 *)((s8 *)arg0 + 0x34)) {
         VC_B(arg0 + 0x50, arg0 + 0x44);
         var_r31 = 1;
     } else {
-        temp_f0 = *(f32 *)((s8 *)arg0 + 0x30);
+        temp_f0 = ((TObjEneMe1Canadin_EffDischarge *)arg0)->m_30;
         if (temp_f1 < temp_f0) {
             *(f32 *)((s8 *)arg0 + 0x54) = (f32) *(f32 *)((s8 *)arg0 + 0x24);
         } else {
             temp_f2 = temp_f1 - temp_f0;
-            *(f32 *)((s8 *)arg0 + 0x54) = (f32) (temp_f2 * (*(f32 *)((s8 *)arg0 + 0x20) * temp_f2) + *(f32 *)((s8 *)arg0 + 0x24));
+            *(f32 *)((s8 *)arg0 + 0x54) = (f32) (temp_f2 * (((TObjEneMe1Canadin_EffDischarge *)arg0)->m_20* temp_f2) + *(f32 *)((s8 *)arg0 + 0x24));
         }
-        *(f32 *)((s8 *)arg0 + 0x50) = (f32) (*(f32 *)((s8 *)arg0 + 0x50) + *(f32 *)((s8 *)arg0 + 0x5C));
-        *(f32 *)((s8 *)arg0 + 0x58) = (f32) (*(f32 *)((s8 *)arg0 + 0x58) + *(f32 *)((s8 *)arg0 + 0x64));
+        ((TObjEneMe1Canadin_EffDischarge *)arg0)->m_50 = (f32) (((TObjEneMe1Canadin_EffDischarge *)arg0)->m_50+ *(f32 *)((s8 *)arg0 + 0x5C));
+        ((TObjEneMe1Canadin_EffDischarge *)arg0)->m_58 = (f32) (((TObjEneMe1Canadin_EffDischarge *)arg0)->m_58+ ((TObjEneMe1Canadin_EffDischarge *)arg0)->m_64);
     }
     VC_B(&sp8, arg0 + 0x50);
     subtract_vector(&sp8, arg0 + 0x38);
@@ -380,7 +382,7 @@ void *__dt__25TObjEneMe1Canadin_EffLineFv(void *arg0, s16 arg1);
 s32 fn_800A02AC(void *, s32, void *, void *);
 
 void run_task__25TObjEneMe1Canadin_EffLineFv(u8 *arg0) {
-    VC_D(arg0 + 0x28, *(s32 *)((s8 *)arg0 + 0x20));
+    VC_D(arg0 + 0x28, ((TObjEneMe1Canadin_EffLine *)arg0)->m_20);
     VC_D(arg0 + 0x34, *(s32 *)((s8 *)arg0 + 0x24));
     *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) + 1);
     if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) > 5) {
@@ -413,13 +415,13 @@ u8 *TObjEneMe1Canadin_EffLine__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     ((s32 (*)(u8 *, s32))__ct__7TObjectFP7TObject)(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__25TObjEneMe1Canadin_EffLine;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneMe1Canadin_EffLine__name;
-    *(s32 *)((s8 *)arg0 + 0x20) = arg2;
+    ((TObjEneMe1Canadin_EffLine *)arg0)->m_20 = arg2;
     *(s32 *)((s8 *)arg0 + 0x24) = arg3;
-    VC_D(arg0 + 0x28, *(s32 *)((s8 *)arg0 + 0x20));
+    VC_D(arg0 + 0x28, ((TObjEneMe1Canadin_EffLine *)arg0)->m_20);
     VC_D(arg0 + 0x34, *(s32 *)((s8 *)arg0 + 0x24));
     {
         s32 k = (s32) 0xFFFF0000;
-        *(s32 *)((s8 *)arg0 + 0x40) = k + 0x33;
+        ((TObjEneMe1Canadin_EffLine *)arg0)->m_40 = k + 0x33;
         *(s32 *)((s8 *)arg0 + 0x44) = k + 0x33;
         *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (canadin_line_initial_phase_range * (canadin_random_scale.value * (f32) rand(k)));
     }

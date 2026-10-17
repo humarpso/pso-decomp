@@ -89,10 +89,10 @@ u8 *construct_item_follow_effect(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg
     *(s32 **)((s8 *)arg0 + 0x18) = item_follow_effect_vtable;
     disallow_rendering__7TObjectFv((void *) (arg0));
     *(s32 *)((s8 *)arg0 + 0x1C) = ((TItem *)arg2)->get_field_d8();
-    *(s32 *)((s8 *)arg0 + 0x20) = arg3;
-    ((TObjPlayer *)arg2)->draw_icon((s32)((s32)((int) (*(s32 *)((s8 *)arg0 + 0x20)))), (s32)((s32 *)((void *) (&position))));
+    ((TUnk_804A2660 *)arg0)->m_20 = arg3;
+    ((TObjPlayer *)arg2)->draw_icon((s32)((s32)((int) (((TUnk_804A2660 *)arg0)->m_20))), (s32)((s32 *)((void *) (&position))));
     *(s32 *)((s8 *)arg0 + 0x24) = create_particle_emitter((void *) (&position), (void *) (arg4));
-    *(s32 *)((s8 *)arg0 + 0x28) = ((s32)get_item_system_generation());
+    *(s32 *)&((TUnk_804A2660 *)arg0)->m_28 = ((s32)get_item_system_generation());
     return arg0;
 }
 void spawn_item_follow_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {

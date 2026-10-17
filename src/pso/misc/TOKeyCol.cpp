@@ -83,13 +83,13 @@ void *TOKeyCol__ct(void *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOKeyCol__name;
     ((TOKeyCol8016_8016C7FC *)arg0)->ct(arg2);
     ((TOKey *)arg0)->init_switch_id();
-    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB758;
+    ((TOKeyCol *)arg0)->m_c0 = (f32) lbl_805DB758;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB75C;
-    *(f32 *)((s8 *)arg0 + 0xCC) = (f32) (lbl_805DB760 + *(f32 *)((s8 *)arg0 + 0x68));
-    if (((s32) *(s32 *)((s8 *)arg0 + 0xD0) != 2) && ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0)) {
-        *(s32 *)((s8 *)arg0 + 0xD0) = 1;
+    *(f32 *)((s8 *)arg0 + 0xCC) = (f32) (lbl_805DB760 + ((TOKeyCol *)arg0)->scale);
+    if (((s32) *(s32 *)&((TOKeyCol *)arg0)->m_d0 != 2) && ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0)) {
+        *(s32 *)&((TOKeyCol *)arg0)->m_d0 = 1;
     } else {
-        *(s32 *)((s8 *)arg0 + 0xD0) = 0;
+        *(s32 *)&((TOKeyCol *)arg0)->m_d0 = 0;
     }
     return arg0;
 }

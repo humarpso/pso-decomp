@@ -90,27 +90,27 @@ extern s32 __vt__13TObjWarpLobby[];
 
 void run_task__13TObjWarpLobbyFv(VO_801A0894 *arg0) {
     s32 selected_menu_value;
-    *(f32 *)((s8 *)arg0 + 0xC8) = (f32) (*(f32 *)((s8 *)arg0 + 0xC8) + lbl_805DC068);
-    if ((f32) (*(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xD8)) + 4) - 1) < *(f32 *)((s8 *)arg0 + 0xC8)) {
-        *(f32 *)((s8 *)arg0 + 0xC8) = (f32) lbl_805DC06C;
+    ((TObjWarpLobby *)arg0)->m_c8 = (f32) (((TObjWarpLobby *)arg0)->m_c8+ lbl_805DC068);
+    if ((f32) (*(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xD8)) + 4) - 1) < ((TObjWarpLobby *)arg0)->m_c8) {
+        ((TObjWarpLobby *)arg0)->m_c8 = (f32) lbl_805DC06C;
     }
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (*(f32 *)((s8 *)arg0 + 0xC4) + lbl_805DC070);
     if ((find_warp_player_in_range(arg0, (u16) local_client_id, *(f32 *)((s8 *)arg0 + 0xAC)) != 0U) && (arg0->m14() != 0)) {
-        if (((u32) *(u32 *)((s8 *)arg0 + 0xB0) == 0U) && (is_idle__6TLobbyFv() != 0)) {
+        if (((u32) ((TObjWarpLobby *)arg0)->m_cc == 0U) && (is_idle__6TLobbyFv() != 0)) {
             ((TObjWarpLobby *)arg0)->open_lobby_menu();
         }
-        if (((u32) *(u32 *)((s8 *)arg0 + 0xB0) != 0U) && (((TWindowMenu *)(*(u32 *)((s8 *)arg0 + 0xB0)))->is_visible() != 0)) {
-            selected_menu_value = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0xB0));
-            if (*(u32 *)((s8 *)arg0 + 0xB0) != 0U) {
-                queue_destruction__7TObjectFv(*(u32 *)((s8 *)arg0 + 0xB0));
-                *(u32 *)((s8 *)arg0 + 0xB0) = 0U;
+        if (((u32) ((TObjWarpLobby *)arg0)->m_cc != 0U) && (((TWindowMenu *)(((TObjWarpLobby *)arg0)->m_cc))->is_visible() != 0)) {
+            selected_menu_value = get_selected_menu_value(((TObjWarpLobby *)arg0)->m_cc);
+            if (((TObjWarpLobby *)arg0)->m_cc != 0U) {
+                queue_destruction__7TObjectFv(((TObjWarpLobby *)arg0)->m_cc);
+                ((TObjWarpLobby *)arg0)->m_cc = 0U;
                 TWindowCtrl::clear_flag();
             }
             send_room_change__6TLobbyFi(selected_menu_value);
         }
-    } else if ((u32) *(u32 *)((s8 *)arg0 + 0xB0) != 0U) {
+    } else if ((u32) ((TObjWarpLobby *)arg0)->m_cc != 0U) {
         TWindow__close(*(void **)((s8 *)arg0 + 0xB0));
-        *(u32 *)((s8 *)arg0 + 0xB0) = 0U;
+        ((TObjWarpLobby *)arg0)->m_cc = 0U;
         TWindowCtrl::clear_flag();
     }
 }

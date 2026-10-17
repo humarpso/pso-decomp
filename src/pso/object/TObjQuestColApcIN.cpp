@@ -43,8 +43,8 @@ int TObjQuestColApcIN::vfunc_15() {
 void *TObjQuestColApcIN__ct(void *arg0) {
     TObjQuestColBase__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjQuestColApcIN;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D33FC;
-    *(f32 *)((s8 *)arg0 + 0xBC) = *(f32 *)((s8 *)arg0 + 0x6C);
+    *(void * *)&((TObjQuestColApcIN *)arg0)->m_name = lbl_805D33FC;
+    *(f32 *)((s8 *)arg0 + 0xBC) = ((TObjQuestColApcIN *)arg0)->target_scale;
     return arg0;
 }
 

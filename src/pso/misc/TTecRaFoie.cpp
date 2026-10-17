@@ -582,19 +582,19 @@ u8 *create_rafoie_explosion(u8 *arg0, s32 *arg1, s16 arg2, s16 arg3, s32 arg4, f
     s32 var_r0;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg4));
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804CCB28.value;
-    *(s16 *)((s8 *)arg0 + 0x20) = arg2;
+    ((TUnk_804CCB28 *)arg0)->m_20 = arg2;
     *(s16 *)((s8 *)arg0 + 0x22) = arg3;
-    *(s32 *)((s8 *)arg0 + 0x60) = 1;
+    ((TUnk_804CCB28 *)arg0)->m_60 = 1;
     VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(arg1));
     *(f32 *)((s8 *)arg0 + 0x44) = farg0;
-    *(s32 *)((s8 *)arg0 + 0x58) = 0;
+    ((TUnk_804CCB28 *)arg0)->m_58 = 0;
     *(s32 *)((s8 *)arg0 + 0x5C) = 0;
-    *(f32 *)((s8 *)arg0 + 0x34) = (f32) (1.2f);
+    ((TUnk_804CCB28 *)arg0)->m_34 = (f32) (1.2f);
     *(f32 *)((s8 *)arg0 + 0x38) = (f32) (1.2f);
-    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (1.2f);
-    *(f32 *)((s8 *)arg0 + 0x48) = (f32) (1.0f);
+    ((TUnk_804CCB28 *)arg0)->m_3c = (f32) (1.2f);
+    ((TUnk_804CCB28 *)arg0)->m_48 = (f32) (1.0f);
     *(f32 *)((s8 *)arg0 + 0x4C) = (f32) (1.0f);
-    *(f32 *)((s8 *)arg0 + 0x50) = (f32) (1.0f);
+    ((TUnk_804CCB28 *)arg0)->m_50 = (f32) (1.0f);
     *(f32 *)((s8 *)arg0 + 0x54) = (f32) (1.0f);
     VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x28));
     stack.spC += (5.0f);
@@ -605,8 +605,8 @@ u8 *create_rafoie_explosion(u8 *arg0, s32 *arg1, s16 arg2, s16 arg3, s32 arg4, f
     if (var_r0 != 0) {
         var_r0 = fn_802A8210((int) (temp_r3), (int) (0x11), (void *) (arg0));
     }
-    *(s32 *)((s8 *)arg0 + 0x24) = var_r0;
-    *(f32 *)((s8 *)arg0 + 0x40) = (f32) (1.9f);
+    ((TUnk_804CCB28 *)arg0)->m_24 = var_r0;
+    ((TUnk_804CCB28 *)arg0)->m_40 = (f32) (1.9f);
     return arg0;
 }
 
@@ -618,19 +618,19 @@ u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 fa
     s32 var_r0;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg3));
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804CCB28.value;
-    *(s16 *)((s8 *)arg0 + 0x20) = arg2;
+    ((TUnk_804CCB28 *)arg0)->m_20 = arg2;
     *(s16 *)((s8 *)arg0 + 0x22) = 0;
-    *(s32 *)((s8 *)arg0 + 0x60) = 1;
+    ((TUnk_804CCB28 *)arg0)->m_60 = 1;
     VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(arg1));
     *(f32 *)((s8 *)arg0 + 0x44) = farg0;
-    *(s32 *)((s8 *)arg0 + 0x58) = 0;
+    ((TUnk_804CCB28 *)arg0)->m_58 = 0;
     *(s32 *)((s8 *)arg0 + 0x5C) = 0;
-    *(f32 *)((s8 *)arg0 + 0x34) = (f32) (1.2f);
+    ((TUnk_804CCB28 *)arg0)->m_34 = (f32) (1.2f);
     *(f32 *)((s8 *)arg0 + 0x38) = (f32) (1.2f);
-    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (1.2f);
-    *(f32 *)((s8 *)arg0 + 0x48) = (f32) (1.0f);
+    ((TUnk_804CCB28 *)arg0)->m_3c = (f32) (1.2f);
+    ((TUnk_804CCB28 *)arg0)->m_48 = (f32) (1.0f);
     *(f32 *)((s8 *)arg0 + 0x4C) = (f32) (1.0f);
-    *(f32 *)((s8 *)arg0 + 0x50) = (f32) (1.0f);
+    ((TUnk_804CCB28 *)arg0)->m_50 = (f32) (1.0f);
     *(f32 *)((s8 *)arg0 + 0x54) = (f32) (1.0f);
     VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0x28));
     stack.spC += (5.0f);
@@ -641,8 +641,8 @@ u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 fa
     if (var_r0 != 0) {
         var_r0 = fn_802A8210((int) (temp_r3), (int) (0x11), (void *) (arg0));
     }
-    *(s32 *)((s8 *)arg0 + 0x24) = var_r0;
-    *(f32 *)((s8 *)arg0 + 0x40) = (f32) (1.9f);
+    ((TUnk_804CCB28 *)arg0)->m_24 = var_r0;
+    ((TUnk_804CCB28 *)arg0)->m_40 = (f32) (1.9f);
     return arg0;
 }
 
@@ -659,24 +659,24 @@ void TTecRaFoie::render() {  }
 
 void run_task__10TTecRaFoieFv(u8 *arg0) {
     u32 temp_r31;
-    if ((u32) *(u32 *)((s8 *)arg0 + 0xE8) == 0U) {
+    if ((u32) ((TTecRaFoie *)arg0)->m_e8 == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    *(u32 *)((s8 *)arg0 + 0x1C) = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0xB4)));
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 0U) {
+    ((TTecRaFoie *)arg0)->source = find_entity_by_id((int) (((TTecRaFoie *)arg0)->m_b4));
+    if ((u32) ((TTecRaFoie *)arg0)->source == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x148) == 1) {
+    if ((s32) *(s32 *)&((TTecRaFoie *)arg0)->m_148 == 1) {
         ((TTecRaFoie *)arg0)->update_detonation((void *) (arg0 + 0x7C));
         return;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xEC) == 0) {
+    if ((s32) *(s32 *)&((TTecRaFoie *)arg0)->m_ec == 0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    temp_r31 = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0xF0)));
+    temp_r31 = find_entity_by_id((int) (((TTecRaFoie *)arg0)->m_f0));
     if ((is_parents_unqueued__9TTecLukerFUl() != 0) && (is_valid_and_active__10TObjPlayerFUl((int) (temp_r31)) != 0)) {
         ((TTecRaFoie *)arg0)->update_detonation((void *) (temp_r31 + 0x2FC));
     }
@@ -772,13 +772,13 @@ Obj_80238AE8 *TTecRaFoie__ct(Obj_80238AE8 *arg0, void * _w1, void * _w2, void * 
     *(u32 *)((s8 *)arg0 + 0) = (u32)TTecRaFoie_class_name;
     ((TTecRaFoie *)arg0)->calc_area_parameters();
     fn_80044330((u8 *)arg0 + 0xEC);
-    *(s32 *)((s8 *)arg0 + 0x148) = 1;
+    *(s32 *)&((TTecRaFoie *)arg0)->m_148 = 1;
     t = *(Sub_80238AE8 **)((s8 *)arg0 + 0xE8);
     if (t != NULL) {
-        *(f32 *)((s8 *)t->inner + 0xC) = *(f32 *)((s8 *)arg0 + 0x90);
+        *(f32 *)((s8 *)t->inner + 0xC) = ((TTecRaFoie *)arg0)->m_90;
     }
     if (arg0->source != NULL) {
-        *(s16 *)((s8 *)arg0 + 0xB4) = obj_getField1c(arg0->source);
+        *(s16 *)&((TTecRaFoie *)arg0)->m_b4 = obj_getField1c(arg0->source);
     }
     arg0->m6(0);
     arg0->m7();
@@ -793,14 +793,14 @@ u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *ori
     ((TObjPlayer *)(self + 0xEC))->construct_target_cursor_records();
     *(u32 *)((s8 *)self + 0) = (u32)TTecRaFoie_class_name;
     ((TTecRaFoie *)self)->calc_area_parameters();
-    *(s32 *)((s8 *)self + 0x148) = 0;
+    *(s32 *)&((TTecRaFoie *)self)->m_148 = 0;
     copy_technique_target_list(self + 0xEC, targets);
     if (*(void **)((s8 *)self + 0x1C) != NULL) {
-        *(u16 *)((s8 *)self + 0xB4) = obj_getField1c(*(void **)((s8 *)self + 0x1C));
+        ((TTecRaFoie *)self)->m_b4 = obj_getField1c(*(void **)((s8 *)self + 0x1C));
     }
     proxy = *(u8 **)((s8 *)self + 0xE8);
     if (proxy != NULL) {
-        *(f32 *)((s8 *)(*(u8 **)((s8 *)proxy + 0xA4)) + 0xC) = *(f32 *)((s8 *)self + 0x90);
+        *(f32 *)((s8 *)(*(u8 **)((s8 *)proxy + 0xA4)) + 0xC) = ((TTecRaFoie *)self)->m_90;
     }
     ((TTecRaFoie *)self)->vfunc_8(0);
     ((TTecRaFoie *)self)->vfunc_9();

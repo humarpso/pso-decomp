@@ -17,7 +17,9 @@ struct TODoorVoShip : public TUnk_804AFBF8 {
     static void *create(void *arg0);
     static void free_static_data();
     static void load_shared_resource();
-    u8 unk_E0[0xC];
+    u8 unk_E0[0x4];
+    f32 m_e4;
+    u8 unk_E8[0x4];
 };
 
 typedef char TODoorVoShip_size[sizeof(TODoorVoShip) == 0xEC ? 1 : -1];

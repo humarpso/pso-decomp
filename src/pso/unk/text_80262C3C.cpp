@@ -251,7 +251,7 @@ void TWindowLockOn::refresh_enemy_statuses() {
     Ent_80262E90 *ent;
     s32 mode;
     Gauge_80262E90 *g;
-    if (this->m_60== 0xFFFF) {
+    if (this->m_60 == 0xFFFF) {
         return;
     }
     ent = (Ent_80262E90 *)find_entity_by_id(this->m_60);
@@ -515,7 +515,7 @@ void render__13TWindowLockOnFv(u8 *arg0) {
 
     temp_r3 = ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)(arg0 + 0x68));
     draw_window_frame(arg0, temp_r3);
-    if ((*(f32 *)((s8 *)arg0 + 0x30) == *(f32 *)((s8 *)arg0 + 0x40)) && (*(f32 *)((s8 *)arg0 + 0x34) == *(f32 *)((s8 *)arg0 + 0x44)) && (*(f32 *)((s8 *)arg0 + 0x38) == *(f32 *)((s8 *)arg0 + 0x48)) && (*(f32 *)((s8 *)arg0 + 0x3C) == *(f32 *)((s8 *)arg0 + 0x4C))) {
+    if ((((TWindowLockOn *)arg0)->m_30 == ((TWindowLockOn *)arg0)->m_40) && (*(f32 *)((s8 *)arg0 + 0x34) == *(f32 *)((s8 *)arg0 + 0x44)) && (((TWindowLockOn *)arg0)->m_38 == ((TWindowLockOn *)arg0)->m_48) && (*(f32 *)((s8 *)arg0 + 0x3C) == *(f32 *)((s8 *)arg0 + 0x4C))) {
         draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     }
 }
@@ -560,12 +560,12 @@ u8 *TWindowLockOn__ct(u8 *arg0, s16 arg1, s32 arg2) {
         *(f32 *)((s8 *)arg0 + 0x68) = (f32) lbl_805DD134;
         *(f32 *)((s8 *)arg0 + 0x6C) = (f32) lbl_805DD134;
     }
-    *(u16 *)((s8 *)arg0 + 0x60) = 0xFFFF;
-    *(s16 *)((s8 *)arg0 + 0x20) = arg1;
-    *(s32 *)((s8 *)arg0 + 0x64) = 0;
+    ((TWindowLockOn *)arg0)->m_60 = 0xFFFF;
+    *(s16 *)&((TWindowLockOn *)arg0)->m_20 = arg1;
+    *(s32 *)&((TWindowLockOn *)arg0)->m_64 = 0;
     *(PMF_80263944 *)((s8 *)arg0 + 0x70) = 0;
     ((void (*)(void *, s32))bind_target__13TWindowLockOnFv)(arg0, arg2);
-    *(s32 *)((s8 *)arg0 + 0x50) = 0;
+    *(s32 *)&((TWindowLockOn *)arg0)->m_50 = 0;
     return arg0;
 }
 

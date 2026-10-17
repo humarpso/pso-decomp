@@ -63,16 +63,16 @@ u8 *TEneParticleCtrl__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TEneParticleCtrl__name;
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804EF458.value), (int) (1));
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    temp_r4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xA4));
+    temp_r4 = (u8 *)(*(u8 * *)&((TEneParticleCtrl *)arg0)->m_a4);
     *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) & 0xFFFFFFFE);
-    *(u16 *)((s8 *)arg0 + 0xAC) = obj_getField1c((void *) (arg1));
+    ((TEneParticleCtrl *)arg0)->m_ac = obj_getField1c((void *) (arg1));
     ((TBoss4DarkFalz *)arg0)->set_position_from((void *) (arg1 + 0x74));
     VecCopy((Vec *)(arg0 + 0xB4), (const Vec *)(arg1 + 0x2FC));
-    *(s32 *)((s8 *)arg0 + 0xB0) = arg2;
-    *(u32 *)((s8 *)arg0 + 0xC0) = spawn_continuous_particle_effect_with_flags((void *) (arg0 + 0xB4), (int) (*(s32 *)((s8 *)arg0 + 0xB0)), (int) (0x10));
-    temp_r3 = *(u32 *)((s8 *)arg0 + 0xC0);
+    *(s32 *)&((TEneParticleCtrl *)arg0)->m_b0 = arg2;
+    ((TEneParticleCtrl *)arg0)->m_c0 = spawn_continuous_particle_effect_with_flags((void *) (arg0 + 0xB4), (int) (*(s32 *)&((TEneParticleCtrl *)arg0)->m_b0), (int) (0x10));
+    temp_r3 = ((TEneParticleCtrl *)arg0)->m_c0;
     if (temp_r3 != 0U) {
-        ((TParticleCtrl *)temp_r3)->set_owner_id((int) (*(u16 *)((s8 *)arg0 + 0x1C)));
+        ((TParticleCtrl *)temp_r3)->set_owner_id((int) (((TEneParticleCtrl *)arg0)->m_1c));
     }
     return arg0;
 }

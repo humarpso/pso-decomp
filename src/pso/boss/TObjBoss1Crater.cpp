@@ -198,7 +198,7 @@ void TObjBoss1Crater::area_attack_receive_direct(void *self_arg, f32 *arg2, void
 void *__dt__15TObjBoss1CraterFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjBoss1Crater;
-        if (*(void **)((s8 *)arg0 + 0xB4) != NULL) { delete_buffer__12TBoss8DragonFis(*(void **)((s8 *)arg0 + 0xB4), 1); *(s32 *)((s8 *)arg0 + 0xB4) = 0; }
+        if (((TObjBoss1Crater *)arg0)->m_b4 != NULL) { delete_buffer__12TBoss8DragonFis(((TObjBoss1Crater *)arg0)->m_b4, 1); *(s32 *)((s8 *)arg0 + 0xB4) = 0; }
         if (*(void **)((s8 *)arg0 + 0xB0) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xB0)); *(s32 *)((s8 *)arg0 + 0xB0) = 0; }
         ((TUnk_804928CC *)arg0)->destroy_enemy_object(0);
         if (arg1 > 0) {

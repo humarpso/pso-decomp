@@ -136,10 +136,10 @@ void run_task__22TObjFogCollisionSwitchFv(void *arg0) {
     u16 i;
     if (TObjFogCollision__sub_80153F70(arg0) == 0 && TObjFogCollision__sub_80153F68(arg0) == 0) {
         st = ((TObjFogCollisionSwitch *)arg0)->sub_80153A0C();
-        if (st == is_current_floor_switch_set(*(s32 *)((s8 *)arg0 + 0x8C))) {
+        if (st == is_current_floor_switch_set(*(s32 *)&((TObjFogCollisionSwitch *)arg0)->m_8c)) {
             for (i = 0; i != 4; i++) {
                 if (((TObjFogCollision *)arg0)->check_collision(i) != 0) {
-                    record_fog_collision_hit(i, *(s32 *)((s8 *)arg0 + 0x84), *(s32 *)((s8 *)arg0 + 0x88) == 0);
+                    record_fog_collision_hit(i, ((TObjFogCollisionSwitch *)arg0)->m_84, *(s32 *)((s8 *)arg0 + 0x88) == 0);
                 }
             }
         }

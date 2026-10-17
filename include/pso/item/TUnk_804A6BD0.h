@@ -8,7 +8,10 @@ public:
     virtual ~TUnk_804A6BD0();
     virtual void emit_marker_effects();
     virtual void update_weapon();
-    u8 unk_1F8[0x10];
+    u8 unk_1F8[0x4];
+    float m_1fc;
+    u8 unk_200[0x4];
+    int m_204;
 };
 
 #endif

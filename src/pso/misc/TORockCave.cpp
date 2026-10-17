@@ -186,9 +186,9 @@ extern void *TORockCave__class_name;
 void *TORockCave__ct(void *arg0) {
     construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_05);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TORockCave;
-    *(void **)((s8 *)arg0 + 0x0) = TORockCave__class_name;
+    *(void * *)&((TORockCave *)arg0)->m_name = TORockCave__class_name;
     *(f32 *)((s8 *)arg0 + 0xAC) = lbl_805DB974;
-    *(f32 *)((s8 *)arg0 + 0xB0) = lbl_805DB978;
+    ((TORockCave *)arg0)->m_b0 = lbl_805DB978;
     return arg0;
 }
 

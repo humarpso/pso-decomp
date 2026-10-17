@@ -45,7 +45,7 @@ TAdBackGC::~TAdBackGC() {}
 void *__ct__9TAdBackGCFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TAdBackGC;
-    *(void **)((s8 *)arg0 + 0x0) = TAdBackGC__class_name;
+    *(void * *)&((TAdBackGC *)arg0)->m_name = TAdBackGC__class_name;
     *(f32 *)((s8 *)arg0 + 0x1C) = lbl_805DDC68;
     *(u32 *)((s8 *)arg0 + 0x20) = 1;
     return arg0;

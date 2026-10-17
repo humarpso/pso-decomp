@@ -220,27 +220,27 @@ u8 *construct_beam_effect__10TObjPlayerFPvPvPviPv(u8 *arg0, Vec_800DC83C *arg1, 
     f32 s;
     construct_collider_proxy__13TUnk_804AF8A0Fv(arg0, tl_06);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_80494E10;
-    *(s32 *)((s8 *)arg0 + 0xF4) = arg3;
+    ((TUnk_80494E10 *)arg0)->m_f4 = arg3;
     VecCopy((Vec *)(arg0 + 0xAC), (const Vec *)arg1);
-    *(f32 *)((s8 *)arg0 + 0xDC) = lbl_805DA47C;
+    ((TUnk_80494E10 *)arg0)->m_dc = lbl_805DA47C;
     VecCopy((Vec *)(arg0 + 0xB8), (const Vec *)arg2);
     subtract_vector(arg0 + 0xB8, arg1);
     s = lbl_805D525C / vector_length(arg0 + 0xB8);
-    *(f32 *)((s8 *)arg0 + 0xB8) *= s;
+    ((TUnk_80494E10 *)arg0)->m_b8*= s;
     *(f32 *)((s8 *)arg0 + 0xBC) *= s;
-    *(f32 *)((s8 *)arg0 + 0xC0) *= s;
-    *(s16 *)((s8 *)arg0 + 0xFC) = obj_getField1c(arg4);
+    ((TUnk_80494E10 *)arg0)->m_c0*= s;
+    ((TUnk_80494E10 *)arg0)->m_fc = obj_getField1c(arg4);
     ang.x = 0;
     ang.y = (s32)(10430.38043493439 * atan2_float(arg2->x - arg1->x, arg2->z - arg1->z)) + 0x4000;
     ang.z = 0x4000 - (s32)(10430.38043493439 * atan2_float(arg2->y - arg1->y, horizontal_distance__10TObjPlayerFPUc(arg2, arg1)));
     *(s32 *)((s8 *)arg0 + 0xE0) = spawn_particle_effect_with_rotation(arg1, &ang, 0xF5, 2);
-    if (*(s32 *)((s8 *)arg0 + 0xF4) != 0) {
+    if (((TUnk_80494E10 *)arg0)->m_f4 != 0) {
         VecCopy((Vec *)(arg0 + 0xE8), (const Vec *)(arg0 + 0xAC));
         TObjPlayer::snap_to_ground((s32)arg0, (s32)(arg0 + 0xE8));
-        *(s32 *)((s8 *)arg0 + 0xE4) = spawn_continuous_particle_effect_with_flags(arg0 + 0xE8, 0xF9, 2);
+        ((TUnk_80494E10 *)arg0)->m_e4 = spawn_continuous_particle_effect_with_flags(arg0 + 0xE8, 0xF9, 2);
         *(s32 *)((s8 *)arg0 + 0xF8) = 0;
     } else {
-        *(s32 *)((s8 *)arg0 + 0xE4) = 0;
+        ((TUnk_80494E10 *)arg0)->m_e4 = 0;
     }
     return arg0;
 }

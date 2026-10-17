@@ -154,7 +154,7 @@ u8 *TObjNpcHRM00__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(*(s32 * *)&TObjNpcHRM00__named_object_resource);
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) (*(s32 *)&TObjNpcHRM00__body_texture_gvm);
+    ((TObjNpcHRM00 *)arg0)->texture_id = (s32) (*(s32 *)&TObjNpcHRM00__body_texture_gvm);
     ((TObjNpcBase *)arg0)->setup_common();
     return arg0;
 }

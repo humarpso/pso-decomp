@@ -35,7 +35,10 @@ struct TObjEneMe3ShinowaMirage : public TObjEneMe3Shinowa {
     void *create(void *arg1, void *arg2);
     static void set_slot_min_clamped_value(s32 arg0, f32 farg0);
     static void free_shared_resources();
-    u8 unk_418[0x28];
+    u8 unk_418[0x1C];
+    f32 m_434;
+    u8 unk_438[0x4];
+    f32 m_43c;
     void draw_model();
 };
 

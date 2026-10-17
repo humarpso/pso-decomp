@@ -35,7 +35,7 @@ int TObjQuestColApc::vfunc_15() {
 void *TObjQuestColApc__ct(void *arg0) {
     TObjQuestColBase__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjQuestColApc;
-    *(void **)((s8 *)arg0 + 0x0) = obj_quest_col_apc_class_name;
+    *(void * *)&((TObjQuestColApc *)arg0)->m_name = obj_quest_col_apc_class_name;
     return arg0;
 }
 

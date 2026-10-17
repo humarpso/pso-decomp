@@ -87,7 +87,7 @@ TAdTitleTexGC::~TAdTitleTexGC() {}
 void *__ct__13TAdTitleTexGCFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TAdTitleTexGC;
-    *(void **)((s8 *)arg0 + 0x0) = TAdTitleTexGC__name;
+    *(void * *)&((TAdTitleTexGC *)arg0)->m_name = TAdTitleTexGC__name;
     *(u32 *)((s8 *)arg0 + 0x7C) = 51;
     *(u32 *)((s8 *)arg0 + 0x80) = -1;
     *(f32 *)((s8 *)arg0 + 0x34) = lbl_805DDF9C;

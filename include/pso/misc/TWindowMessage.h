@@ -16,7 +16,9 @@ struct TWindowMessage : public TUnk_804CDFE8 {
     void* m_24;
     u8 _pad28[0x4];
     u32 m_2c;
-    u8 unk_30[0x10];
+    u8 unk_30[0x8];
+    f32 m_38;
+    u8 unk_3C[0x4];
     u32 m_40;
     u8 unk_44[0x4];
     f32 m_48;

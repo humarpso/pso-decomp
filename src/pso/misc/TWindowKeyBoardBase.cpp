@@ -73,18 +73,18 @@ u8 *TWindowKeyBoardBase__ct(u8 *arg0) {
     init_keyboard_text_field((void *) (arg0), (int) (0), (int) (0));
     init_keyboard_text_buffer((void *) (arg0 + 0x84), (int) (0), (int) (0));
     *(u8 **)((s8 *)arg0 + 0x68) = (unsigned char *) ((void *) (arg0 + 0x6C));
-    *(s32 *)((s8 *)arg0 + 0xB4) = 0;
-    *(s16 *)((s8 *)arg0 + 0x62) = 0;
-    *(s8 *)((s8 *)arg0 + 0x65) = -1;
-    *(s32 *)((s8 *)arg0 + 0x9C) = 0;
-    *(s32 *)((s8 *)arg0 + 0xA0) = 0;
-    *(s32 *)((s8 *)arg0 + 0xA4) = 0;
-    *(s32 *)((s8 *)arg0 + 0xA8) = 0;
-    *(s32 *)((s8 *)arg0 + 0xAC) = 0;
+    *(s32 *)&((TWindowKeyBoardBase *)arg0)->m_b4 = 0;
+    *(s16 *)&((TWindowKeyBoardBase *)arg0)->m_62 = 0;
+    *(s8 *)&((TWindowKeyBoardBase *)arg0)->m_65 = -1;
+    *(s32 *)&((TWindowKeyBoardBase *)arg0)->m_9c = 0;
+    *(s32 *)&((TWindowKeyBoardBase *)arg0)->m_a0 = 0;
+    *(s32 *)&((TWindowKeyBoardBase *)arg0)->m_a4 = 0;
+    *(s32 *)&((TWindowKeyBoardBase *)arg0)->m_a8 = 0;
+    *(s32 *)&((TWindowKeyBoardBase *)arg0)->m_ac = 0;
     if (temp_r31 == 0) {
         init_keyboard_text_buffer((void *) (arg0 + 0x84), (int) (0x24), (int) (0));
-        *(s32 *)((s8 *)arg0 + 0x9C) = mem_alloc((void *)0x194);
-        *(s32 *)((s8 *)arg0 + 0xB0) = 0x94;
+        *(s32 *)&((TWindowKeyBoardBase *)arg0)->m_9c = mem_alloc((void *)0x194);
+        *(s32 *)&((TWindowKeyBoardBase *)arg0)->m_b0 = 0x94;
     }
     return arg0;
 }

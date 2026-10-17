@@ -16,7 +16,8 @@ struct TBoss1DragonEffTail : public TUnk_804928CC {
     void enable();
     void disable();
     int is_visible();
-    u8 unk_C4[0x8];
+    u8 unk_C4[0x4];
+    f32 m_c8;
 };
 
 typedef char TBoss1DragonEffTail_size[sizeof(TBoss1DragonEffTail) == 0xCC ? 1 : -1];

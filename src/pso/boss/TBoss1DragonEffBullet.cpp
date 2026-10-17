@@ -133,8 +133,8 @@ void TBoss1DragonEffBullet::run_task() {
 void *__dt__21TBoss1DragonEffBulletFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TBoss1DragonEffBullet;
-        if (*(void **)((s8 *)arg0 + 0x48) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x48)); *(s32 *)((s8 *)arg0 + 0x48) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x44) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x44)); *(s32 *)((s8 *)arg0 + 0x44) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x48) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x48)); *(s32 *)&((TBoss1DragonEffBullet *)arg0)->m_48 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x44) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x44)); *(s32 *)&((TBoss1DragonEffBullet *)arg0)->m_44 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -153,12 +153,12 @@ u8 *TBoss1DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)(arg2));
     VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(arg3));
     subtract_vector((void *) (arg0 + 0x28), (void *) (arg0 + 0x1C));
-    *(f32 *)((s8 *)arg0 + 0x40) = ((TObjBoss2Tunnel *)(arg0 + 0x28))->update_scale();
+    ((TBoss1DragonEffBullet *)arg0)->m_40 = ((TObjBoss2Tunnel *)(arg0 + 0x28))->update_scale();
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805D8144;
-    *(s32 *)((s8 *)arg0 + 0x34) = 0;
-    *(s32 *)((s8 *)arg0 + 0x38) = 0;
-    *(s32 *)((s8 *)arg0 + 0x44) = 0;
-    *(s32 *)((s8 *)arg0 + 0x48) = 0;
+    *(s32 *)&((TBoss1DragonEffBullet *)arg0)->m_34 = 0;
+    *(s32 *)&((TBoss1DragonEffBullet *)arg0)->m_38 = 0;
+    *(s32 *)&((TBoss1DragonEffBullet *)arg0)->m_44 = 0;
+    *(s32 *)&((TBoss1DragonEffBullet *)arg0)->m_48 = 0;
     play_sound_effect((int) (0x4003B20B), (void *) (arg0 + 0x1C), (int) (0), (int) (0));
     return arg0;
 }

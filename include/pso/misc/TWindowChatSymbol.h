@@ -12,7 +12,9 @@ struct TWindowChatSymbol : public TUnk_804CE018 {
     void* m_24;
     u8 unk_28[0x4];
     s32 m_2c;
-    u8 unk_30[0x2C];
+    u8 unk_30[0x18];
+    f32 m_48;
+    u8 unk_4C[0x10];
     u32 m_5c;
     u32 m_60;
     u32 m_64;

@@ -20,9 +20,11 @@ struct TOKeyCave01 : public TOKey {
     static void *create(void *arg0);
     static void free_objects();
     static void load_resources();
-    u8 unk_E4[0x8];
+    u8 unk_E4[0x4];
+    f32 m_e8;
     f32 m_ec;
-    u8 unk_F0[0x8];
+    u8 unk_F0[0x4];
+    f32 m_f4;
     s32 m_f8;
     u8 unk_FC[0x4];
 };

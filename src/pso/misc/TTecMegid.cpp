@@ -449,11 +449,11 @@ u8 *TTecMegid__ct(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
     for (i = 0; i < 0x20; i++) {
         ((Obj_8023589C *)arg0)->ids[i] = 0xFFFF;
     }
-    *(s32 *)((s8 *)arg0 + 0x174) = 0;
+    ((TTecMegid *)arg0)->m_174 = 0;
     ((TTecMegid *)arg0)->spawn_particle_emitters();
     ((TTecMegid *)arg0)->update_by_state();
     if (*(void **)((s8 *)arg0 + 0x1C) != 0) {
-        *(s16 *)((s8 *)arg0 + 0xC8) = obj_getField1c(*(void **)((s8 *)arg0 + 0x1C));
+        *(s16 *)&((TTecMegid *)arg0)->sourceId = obj_getField1c(*(void **)((s8 *)arg0 + 0x1C));
     }
     return arg0;
 }

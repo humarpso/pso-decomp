@@ -38,8 +38,8 @@ void render__20TWindowChoiceSettingFv(u8 *arg0) {
     draw_window_frame(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     ((TUnk_804D0658 *)arg0)->draw_setting(temp_r3);
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x78) != 0U) {
-        forward_render__20TWindowSubStatusDispFv(*(u32 *)((s8 *)arg0 + 0x78), temp_r3);
+    if ((u32) ((TWindowChoiceSetting *)arg0)->m_78 != 0U) {
+        forward_render__20TWindowSubStatusDispFv(((TWindowChoiceSetting *)arg0)->m_78, temp_r3);
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0x7C) != 0U) {
         draw_window_scrollbar(*(u32 *)((s8 *)arg0 + 0x7C), temp_r3, arg0 + 0x68);
@@ -114,8 +114,8 @@ extern void *lbl_805D38B8;
 void *TWindowChoiceSetting__ct(void *arg0) {
     fn_80269004(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TWindowChoiceSetting;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D38B8;
-    *(u16 *)((s8 *)arg0 + 0x80) = 0;
+    *(void * *)&((TWindowChoiceSetting *)arg0)->m_name = lbl_805D38B8;
+    ((TWindowChoiceSetting *)arg0)->m_80 = 0;
     return arg0;
 }
 

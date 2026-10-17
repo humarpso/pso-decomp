@@ -12,7 +12,11 @@ struct TChCrTagInformation : public TChCrTag {
     void run_task();
     static void *create(void *arg0);
     static void *create_default();
-    u8 unk_1C[0x20];
+    u8 unk_1C[0xC];
+    f32 m_28;
+    u8 unk_2C[0x8];
+    f32 m_34;
+    u8 unk_38[0x4];
 };
 
 typedef char TChCrTagInformation_size[sizeof(TChCrTagInformation) == 0x3C ? 1 : -1];

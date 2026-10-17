@@ -387,10 +387,10 @@ u8 *TODoorMachine01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TODoorMachine01__class_name;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODoorMachine01__model_resource) + 0x42C)) + 8);
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODoorMachine01__model_resource) + 0x42C)) + 0xC);
+    ((TODoorMachine01 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODoorMachine01__model_resource) + 0x42C)) + 0xC);
     *(u8 **)((s8 *)arg0 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODoorMachine01__model_resource) + 0x430)) + 4));
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB4FC);
-    *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DB508;
+    ((TODoorMachine01 *)arg0)->m_b8 = (f32) lbl_805DB508;
     init_collision_body_parts((void *) (arg0), (void *) (&TODoorMachine01__collision_body_parts.value), (int) (1));
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
@@ -401,12 +401,12 @@ u8 *TODoorMachine01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     } else if (temp_r0 > 4) {
         *(s32 *)((s8 *)arg0 + 0x88) = 4;
     }
-    *(s32 *)((s8 *)arg0 + 0xD4) = (s32) *(s32 *)((s8 *)arg0 + 0x88);
-    *(s32 *)((s8 *)arg0 + 0xD8) = (s32) (4 - *(s32 *)((s8 *)arg0 + 0xD4));
+    *(s32 *)&((TODoorMachine01 *)arg0)->m_d4 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
+    *(s32 *)&((TODoorMachine01 *)arg0)->m_d8 = (s32) (4 - *(s32 *)&((TODoorMachine01 *)arg0)->m_d4);
     *(f32 *)((s8 *)arg0 + 0xDC) = (f32) lbl_805DB4FC;
-    *(f32 *)((s8 *)arg0 + 0xE0) = (f32) lbl_805DB4FC;
+    ((TODoorMachine01 *)arg0)->m_e0 = (f32) lbl_805DB4FC;
     *(f32 *)((s8 *)arg0 + 0xE4) = (f32) lbl_805DB4FC;
-    *(f32 *)((s8 *)arg0 + 0xE8) = (f32) lbl_805DB4FC;
+    ((TODoorMachine01 *)arg0)->m_e8 = (f32) lbl_805DB4FC;
     return arg0;
 }
 

@@ -1,5 +1,6 @@
 #pragma defer_codegen on
 #include "types.h"
+#include "pso/ui/TUnk_804E3008.h"
 #include "pso/TChCrLoadAfs.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TNpcPlayer.h"
@@ -385,21 +386,21 @@ void fn_802E0784(u8 *arg0) {
     ((TObjPlayer *)arg0)->set_field_d8((s32)((void *) (&lbl_804E2F78.value)));
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)TAdMultiPlyChrSelectGC__resource_bundle + 0x430)));
     set_cursor_index__17TAdMultiConfirmGCFPvi((void *) (arg0), (int) (0));
-    set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (*(s16 *)((s8 *)arg0 + 0xB8)));
+    set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (((TUnk_804E3008 *)arg0)->m_b8));
 }
 
 void set_cursor_index__17TAdMultiConfirmGCFPvi(void *arg0, s32 arg1) {
     s16 temp_r4;
 
-    *(s16 *)((s8 *)arg0 + 0xB8) = (s16) (arg1 * 3);
-    temp_r4 = *(s16 *)((s8 *)arg0 + 0xB8);
+    ((TUnk_804E3008 *)arg0)->m_b8 = (s16) (arg1 * 3);
+    temp_r4 = ((TUnk_804E3008 *)arg0)->m_b8;
     if ((temp_r4 < 0) || (temp_r4 > 8)) {
-        *(s16 *)((s8 *)arg0 + 0xB8) = 0;
+        ((TUnk_804E3008 *)arg0)->m_b8 = 0;
     }
-    if (*(s32 *)((s8 *)arg0 + 0x154) & 2) {
-        *(s16 *)((s8 *)arg0 + 0xB8) = (s16) (*(s16 *)((s8 *)arg0 + 0xB8) + 1);
-        if ((s32) *(u8 *)((s8 *)arg0 + 0x151) == 6) {
-            *(s16 *)((s8 *)arg0 + 0xB8) = (s16) (*(s16 *)((s8 *)arg0 + 0xB8) + 1);
+    if (((TUnk_804E3008 *)arg0)->m_154& 2) {
+        ((TUnk_804E3008 *)arg0)->m_b8 = (s16) (((TUnk_804E3008 *)arg0)->m_b8+ 1);
+        if ((s32) ((TUnk_804E3008 *)arg0)->m_151 == 6) {
+            ((TUnk_804E3008 *)arg0)->m_b8 = (s16) (((TUnk_804E3008 *)arg0)->m_b8+ 1);
         }
     }
 }

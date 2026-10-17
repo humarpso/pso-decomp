@@ -9,7 +9,8 @@ struct TObjEneSlimeWaterBomb : public TObjEnemy {
     int find_nearest_enemy_masked(f32);
     virtual void run_task();
     void* m_374;
-    u8 unk_378[0x8];
+    u8 unk_378[0x4];
+    f32 m_37c;
     f32 m_380;
     u8 unk_384[0x4];
     u32 m_388;

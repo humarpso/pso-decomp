@@ -1,4 +1,5 @@
 #include <dolphin/mtx.h>
+#include "pso/boss/TUnk_804ECDC0.h"
 #include "pso/system/vector.h"
 #include "pso/item/TItem.h"
 #include "pso/TBoss5GryphonLightning.h"
@@ -100,16 +101,16 @@ void launch_slicer__10TObjPlayerFPv(u8 *weapon) {
     f32 tmp[4];
     SlicerLaunchData_8012D9C8 launch;
     init_slicer_launch_state(&launch);
-    launch.player = obj_getField1c(*(u8 **)((s8 *)weapon + 0xF0));
+    launch.player = obj_getField1c(*(u8 * *)&((TUnk_804ECDC0 *)weapon)->player);
     launch.weapon = ((TItem *)weapon)->get_field_d8();
     launch.textures = *(void **)((s8 *)weapon + 0x24);
     launch.model = *(void **)((s8 *)weapon + 0x188);
-    launch.kind = TObjPlayer__sub_801D2F4C(*(u8 **)((s8 *)weapon + 0xF0) + 0x7CC);
-    launch.stage = get_validated_attack_stage(*(u8 **)((s8 *)weapon + 0xF0) + 0x7CC);
-    launch.multiplier = query_extended_state__10TObjPlayerFv(*(u8 **)((s8 *)weapon + 0xF0));
+    launch.kind = TObjPlayer__sub_801D2F4C(*(u8 * *)&((TUnk_804ECDC0 *)weapon)->player+ 0x7CC);
+    launch.stage = get_validated_attack_stage(*(u8 * *)&((TUnk_804ECDC0 *)weapon)->player+ 0x7CC);
+    launch.multiplier = query_extended_state__10TObjPlayerFv(*(u8 * *)&((TUnk_804ECDC0 *)weapon)->player);
     get_weapon_color__11TItemWeaponFPv(tmp, weapon);
     copy_vec4__13TRaderMapCoreFPvPv(launch.color, tmp);
-    launch.facing = *(s32 *)((s8 *)(*(u8 **)((s8 *)weapon + 0xF0)) + 0x60);
+    launch.facing = *(s32 *)((s8 *)(*(u8 * *)&((TUnk_804ECDC0 *)weapon)->player) + 0x60);
     ((TObjPlayer *)weapon)->draw_icon((s32)0x2, (s32)launch.first);
     ((TObjPlayer *)weapon)->draw_icon((s32)0x1, (s32)launch.second);
     TTecSlicer::create((u16*)(&launch));

@@ -129,7 +129,7 @@ extern void *lbl_805D3FE0;
 void *TObjBoss7DustCtrl__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjBoss7DustCtrl;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D3FE0;
+    *(void * *)&((TObjBoss7DustCtrl *)arg0)->m_name = lbl_805D3FE0;
     return arg0;
 }
 

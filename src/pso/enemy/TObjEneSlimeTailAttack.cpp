@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/enemy/TObjEneSlimeOne.h"
+#include "pso/enemy/TObjEneSlimeTailAttack.h"
+#include "pso/enemy/TObjEneSlimeWaterBomb.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -1041,12 +1044,12 @@ void draw_stretched_segment__10TObjPlayerFPvPvPvf(u8 *arg0, Vec_800E82B8 *arg1, 
         f32 r = lbl_805DA67C - t;
         scale_matrix(0, lbl_805DA67C, lbl_805DA678, r * len / lbl_805DA66C);
     }
-    TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
+    TObjFish::set_global_param(((TObjEneSlimeTailAttack *)arg0)->texture_id);
     TObjPlayer__sub_800EBE48(lbl_805DA688 * t + lbl_805DA684);
-    saved = *(f32 *)((s8 *)arg0 + 0xC0);
-    *(f32 *)((s8 *)arg0 + 0xC0) = lbl_805DA68C;
+    saved = ((TObjEneSlimeTailAttack *)arg0)->m_c0;
+    ((TObjEneSlimeTailAttack *)arg0)->m_c0 = lbl_805DA68C;
     ((TObjEneRe7Berura *)arg0)->draw();
-    *(f32 *)((s8 *)arg0 + 0xC0) = saved;
+    ((TObjEneSlimeTailAttack *)arg0)->m_c0 = saved;
     TObjPlayer::init_render_globals();
     pop_matrix();
 }
@@ -1059,8 +1062,8 @@ void draw_stretched_segment__10TObjPlayerFPvPvPvf(u8 *arg0, Vec_800E82B8 *arg1, 
 void TObjPlayer__sub_800E841C(u8 *arg0) {
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-    TObjFish::set_global_param((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+    rotate_matrix_y((int) (0), (int) (((TObjEneSlimeTailAttack *)arg0)->rotation_y));
+    TObjFish::set_global_param((int) (((TObjEneSlimeTailAttack *)arg0)->texture_id));
     if ((s32) *(s32 *)((s8 *)arg0 + 0x378) != 0) {
         TObjPlayer__sub_800E81A8();
         TObjEneRe7Berura::set_global_state((s32)((void *) (TObjPlayer__sub_800E8128)));
@@ -1093,7 +1096,7 @@ void TObjPlayer__sub_800E84F8(u8 *arg0) {
   TObjPlayer__sub_800E841C((u8 *)(arg0));
   if (((s32) (*((s32 *) (((s8 *) arg0) + 0x378)))) != 0)
   {
-    temp_f3 = *((f32 *) (((s8 *) arg0) + 0xC0));
+    temp_f3 = ((TObjEneSlimeTailAttack *)arg0)->m_c0;
     temp_f1 = lbl_805DA68C;
     if (temp_f3 < temp_f1)
     {
@@ -1105,7 +1108,7 @@ void TObjPlayer__sub_800E84F8(u8 *arg0) {
       draw_stretched_segment__10TObjPlayerFPvPvPvf((u8 *)((void *) arg0), (Vec_800E82B8 *)((void *) (arg0 + 0x38)), (Vec_800E82B8 *)((void *) ((*((s32 *) (((s8 *) arg0) + 0x374))) + 0x38)), (f32) ((temp_f3 - lbl_805DA690) / temp_f1));
     }
   }
-  temp_f1 = *((f32 *) (((s8 *) arg0) + 0xC0));
+  temp_f1 = ((TObjEneSlimeTailAttack *)arg0)->m_c0;
   if ((temp_f1 >= lbl_805DA698) && (temp_f1 < lbl_805DA69C))
   {
     ((TObjPlayer *)arg0)->draw_blob_shadows();
@@ -1122,7 +1125,7 @@ void TObjPlayer__sub_800E87FC(u8 *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x378) != 0) {
         TObjPlayer__sub_800E85BC();
         advance_animation_playback((void *) (arg0));
-        if (*(s32 *)((s8 *)arg0 + 0xB0) & 0x10) {
+        if (*(s32 *)&((TObjEneSlimeTailAttack *)arg0)->animationFlags& 0x10) {
             queue_destruction__7TObjectFv((void *) (arg0));
             return;
         }
@@ -1130,7 +1133,7 @@ void TObjPlayer__sub_800E87FC(u8 *arg0) {
             *(s32 *)((s8 *)arg0 + 0x378) = 0;
         }
     } else {
-        *(f32 *)((s8 *)arg0 + 0xC0) += lbl_805DA670 * (lbl_805DA68C - *(f32 *)((s8 *)arg0 + 0xC0));
+        ((TObjEneSlimeTailAttack *)arg0)->m_c0 += lbl_805DA670 * (lbl_805DA68C - ((TObjEneSlimeTailAttack *)arg0)->m_c0);
         *(f32 *)((s8 *)arg0 + 0x38C) = (f32) (*(f32 *)((s8 *)arg0 + 0x38C) + lbl_805DA6B8);
         *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + lbl_805DA6BC);
         *(f32 *)((s8 *)arg0 + 0x380) = (f32) (*(f32 *)((s8 *)arg0 + 0x380) + lbl_805DA6C0);
@@ -1180,16 +1183,16 @@ void *TObjEneSlimeTailAttack__ct(void *arg0, void *arg1, s32 arg2, s32 arg3, s32
   *((s32 *) (((s8 *) arg0) - -0x374)) = arg4;
   inst = get_instance__15TObjEneSlimeOneFv();
   id = ((s32 *) lbl_804966F4)[((TObjEneSlimeOne *)(*((s32 *) (((s8 *) arg0) + (0x374 & 0xFFFF)))))->get_attack_target()];
-  *((s32 *) (((s8 *) arg0) + 0x24)) = TObjFish__sub_8001EDB0((s32) inst, id);
+  ((TObjEneSlimeTailAttack *)arg0)->texture_id = TObjFish__sub_8001EDB0((s32) inst, id);
   *((s32 *) (((s8 *) arg0) + 0x34)) = get_bml_model((s32) inst, id);
-  *((u8 **) (((s8 *) arg0) + 0xD8)) = (u8 *) lbl_8049639C;
+  *(u8 * *)&((TObjEneSlimeTailAttack *)arg0)->action_table = (u8 *) lbl_8049639C;
   ((TObjPlayer *)arg0)->set_field_d8((s32) ((u8 *) lbl_8049639C));
   *((s32 *) (((s8 *) arg0) + 0xDC)) = *((s32 *) (((s8 *) inst) + 0x430));
   ((TObjPlayer *)arg0)->set_field_dc(*((s32 *) (((s8 *) inst) + 0x430)));
-  *((s16 *) (((s8 *) arg0) + 0xB8)) = 6;
-  set_animation__10TObjPlayerFPvs((void *)(arg0), (s16)(*((s16 *) (((s8 *) arg0) + 0xB8))));
-  ((TObjMotion *)arg0)->set_field_b8(*((s16 *) (((s8 *) arg0) + 0xB8)));
-  *((s32 *) (((s8 *) arg0) + 0x60)) = arg3;
+  ((TObjEneSlimeTailAttack *)arg0)->m_b8 = 6;
+  set_animation__10TObjPlayerFPvs((void *)(arg0), (s16)(((TObjEneSlimeTailAttack *)arg0)->m_b8));
+  ((TObjMotion *)arg0)->set_field_b8(((TObjEneSlimeTailAttack *)arg0)->m_b8);
+  ((TObjEneSlimeTailAttack *)arg0)->rotation_y = arg3;
   VecCopy((Vec *)(((u8 *) arg0) + 0x38), (const Vec *)arg2);
   *((s32 *) (((s8 *) arg0) + 0x378)) = 1;
   *((s32 *) (((s8 *) arg0) + 0x37C)) = 0xFFFF;
@@ -1214,7 +1217,7 @@ s32 water_bomb_hit_nearby(u8 *target) {
     if (id != 0xFFFF) {
         e = ((Ent_800E8AD0 *(*)(s32))get_player_by_client_id)(id);
         if (e != NULL && !(horizontal_distance_squared(target + 0x2FC, (u8 *)e + 0x2FC) > lbl_805DA6A8)) {
-            if (lbl_805DA6B4 != e->m21(*(s32 *)((s8 *)target + 0x38C), h, 0, -1, -1)) {
+            if (lbl_805DA6B4 != e->m21(*(s32 *)&((TObjEneSlimeWaterBomb *)target)->m_38c, h, 0, -1, -1)) {
                 e->m23(target);
             }
             hit = 1;
@@ -1224,7 +1227,7 @@ s32 water_bomb_hit_nearby(u8 *target) {
     if (id2 != 0xFFFF) {
         e2 = get_enemy_entity(id2);
         if (e2 != NULL && !(horizontal_distance_squared(target + 0x2FC, (u8 *)e2 + 0x2FC) > lbl_805DA6A8)) {
-            if (lbl_805DA6B4 != e2->m21(*(s32 *)((s8 *)target + 0x38C), h, 0, -1, -1)) {
+            if (lbl_805DA6B4 != e2->m21(*(s32 *)&((TObjEneSlimeWaterBomb *)target)->m_38c, h, 0, -1, -1)) {
                 e2->m23(target);
             }
             hit = 1;
@@ -1312,7 +1315,7 @@ void *TObjEneSlimeWaterBomb::create(void *arg1) {
 void *__dt__21TObjEneSlimeWaterBombFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TObjEneSlimeWaterBomb;
-        if (*(void **)((s8 *)arg0 + 0x388) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x388))); *(s32 *)((s8 *)arg0 + 0x388) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x388) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x388))); *(s32 *)&((TObjEneSlimeWaterBomb *)arg0)->m_388 = 0; }
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -1331,23 +1334,23 @@ void *TObjEneSlimeWaterBomb__ct(void *arg0, void *arg1, void *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TObjEneSlimeWaterBomb;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D2AE0;
     *(void **)((s8 *)arg0 + 0x38C) = arg2;
-    *(s32 *)((s8 *)arg0 + 0x60) = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x10)) + 0x60);
-    VecCopy((Vec *)((u8 *) arg0 + 0x38), (const Vec *)(*(u8 **)((s8 *)arg0 + 0x10) + 0x38));
-    s = sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
-    c = cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
+    ((TObjEneSlimeWaterBomb *)arg0)->rotation_y = *(s32 *)((s8 *)(*(u8 * *)&((TObjEneSlimeWaterBomb *)arg0)->m_up) + 0x60);
+    VecCopy((Vec *)((u8 *) arg0 + 0x38), (const Vec *)(*(u8 * *)&((TObjEneSlimeWaterBomb *)arg0)->m_up+ 0x38));
+    s = sin_table_lookup(((TObjEneSlimeWaterBomb *)arg0)->rotation_y);
+    c = cos_table_lookup(((TObjEneSlimeWaterBomb *)arg0)->rotation_y);
     *(f32 *)((s8 *)arg0 + 0x38) += lbl_805DA6E0 * s;
     *(f32 *)((s8 *)arg0 + 0x3C) += lbl_805DA6E4;
     *(f32 *)((s8 *)arg0 + 0x40) += lbl_805DA6E0 * c;
     *(f32 *)((s8 *)arg0 + 0x374) = lbl_805DA6D8 * s;
     *(f32 *)((s8 *)arg0 + 0x378) = lbl_805DA6B4;
-    *(f32 *)((s8 *)arg0 + 0x37C) = lbl_805DA6D8 * c;
+    ((TObjEneSlimeWaterBomb *)arg0)->m_37c = lbl_805DA6D8 * c;
     *(f32 *)((s8 *)arg0 + 0x384) = lbl_805DA6B4;
-    *(s32 *)((s8 *)arg0 + 0x388) = create_particle_emitter((u8 *) arg0 + 0x38, 0xCF);
-    *(f32 *)((s8 *)arg0 + 0x390) = *dispatch_shared_handler_a__6TLobbyFl(TObjEneSlime__attack_target_param_table[((TObjEneSlimeOne *)(*(s32 *)((s8 *)arg0 + 0x38C)))->get_attack_target()]);
+    *(s32 *)&((TObjEneSlimeWaterBomb *)arg0)->m_388 = create_particle_emitter((u8 *) arg0 + 0x38, 0xCF);
+    *(f32 *)((s8 *)arg0 + 0x390) = *dispatch_shared_handler_a__6TLobbyFl(TObjEneSlime__attack_target_param_table[((TObjEneSlimeOne *)(*(s32 *)&((TObjEneSlimeWaterBomb *)arg0)->m_38c))->get_attack_target()]);
     if (*(f32 *)((s8 *)arg0 + 0x390) < lbl_805DA6B4) {
         *(f32 *)((s8 *)arg0 + 0x390) = lbl_805DA6B4;
     }
-    *(s32 *)((s8 *)arg0 + 0x394) = 0;
+    *(s32 *)&((TObjEneSlimeWaterBomb *)arg0)->m_394 = 0;
     return arg0;
 }
 #pragma pop
@@ -2031,10 +2034,10 @@ void TObjEneSlimeOne::set_state(s32 arg1) {
 struct Bomb_800E9090;
 void render__15TObjEneSlimeOneFv(u8 *arg0) {
     s32 temp_r31;
-    if ((TObjPlayer::check_demo_mode() == 0) && !(*(f32 *)((s8 *)arg0 + 0x3A0) <= lbl_805DA6B4) && (((VObj_18_26a62c *)(arg0))->m8(lbl_805DA728, lbl_805DA6E4) != 0)) {
+    if ((TObjPlayer::check_demo_mode() == 0) && !(((TObjEneSlimeOne *)arg0)->m_3a0 <= lbl_805DA6B4) && (((VObj_18_26a62c *)(arg0))->m8(lbl_805DA728, lbl_805DA6E4) != 0)) {
         temp_r31 = toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0));
-        if (*(f32 *)((s8 *)arg0 + 0x3A0) < lbl_805DA67C) {
-            TObjPlayer__sub_800EBE48(*(f32 *)((s8 *)arg0 + 0x3A0));
+        if (((TObjEneSlimeOne *)arg0)->m_3a0< lbl_805DA67C) {
+            TObjPlayer__sub_800EBE48(((TObjEneSlimeOne *)arg0)->m_3a0);
         }
         TObjPlayer::toggle_particle_effect();
         push_matrix();
@@ -2043,12 +2046,12 @@ void render__15TObjEneSlimeOneFv(u8 *arg0) {
             v.y += *(f32 *)((s8 *)arg0 + 0x3A4);
             post_translate_matrix(&v);
         }
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+        rotate_matrix_y((int) (0), (int) (((TObjEneSlimeOne *)arg0)->rotation_y));
         scale_matrix_vec3((int) (0), (void *) (arg0 + 0x3A8));
-        ((TObjEneSlimeOne *)(*(s32 *)((s8 *)arg0 + 0x388)))->draw_part((int) (temp_r31));
+        ((TObjEneSlimeOne *)(*(s32 *)&((TObjEneSlimeOne *)arg0)->m_388))->draw_part((int) (temp_r31));
         pop_matrix();
         TParticleCtrl::end_effect_render();
-        if (*(f32 *)((s8 *)arg0 + 0x3A0) < lbl_805DA67C) {
+        if (((TObjEneSlimeOne *)arg0)->m_3a0< lbl_805DA67C) {
             TObjPlayer::init_render_globals();
         }
         ((TObjEneSlimeOne *)arg0)->sub_800E9090();
@@ -2060,9 +2063,9 @@ void *__dt__15TObjEneSlimeOneFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjEneSlimeOne;
         free_collision_body_parts(arg0);
         *(s32 *)((s8 *)arg0 + 0x38C) = 0;
-        if (*(void **)((s8 *)arg0 + 0x3E8) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x3E8))); *(s32 *)((s8 *)arg0 + 0x3E8) = 0; }
+        if (((TObjEneSlimeOne *)arg0)->m_3e8 != NULL) { TBoss4Type2::request_destroy((u32)(((TObjEneSlimeOne *)arg0)->m_3e8)); *(s32 *)((s8 *)arg0 + 0x3E8) = 0; }
         __dt__15TObjEneSlimeOneFis(*(void **)((s8 *)arg0 + 0x388), 1);
-        *(s32 *)((s8 *)arg0 + 0x388) = 0;
+        *(s32 *)&((TObjEneSlimeOne *)arg0)->m_388 = 0;
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -2076,8 +2079,8 @@ void initialize_slime_instance_state(u8 *actor) {
   s32 id;
   s32 *new_var2;
   u8 *new_var;
-  *((u8 **) (((s8 *) actor) + 0x380)) = get_instance__15TObjEneSlimeOneFv();
-  if ((calc_boss4_scale__10TObjPlayerFi(actor) < lbl_805DA754) || ((*((s32 *) (((s8 *) actor) + 0x36C))) & 1))
+  ((TObjEneSlimeOne *)actor)->m_380 = get_instance__15TObjEneSlimeOneFv();
+  if ((calc_boss4_scale__10TObjPlayerFi(actor) < lbl_805DA754) || ((*(s32 *)&((TObjEneSlimeOne *)actor)->state36C) & 1))
   {
     *((s32 *) (((s8 *) actor) + 0x3F4)) = 1;
   }
@@ -2087,16 +2090,16 @@ void initialize_slime_instance_state(u8 *actor) {
   }
   new_var2 = &(*((s32 *) (((s8 *) actor) + 0x3F4)));
   id = ((s32 *) lbl_804966DC)[*new_var2];
-  *((s32 *) (((s8 *) actor) + 0x24)) = TObjFish__sub_8001EDB0((s32)(*((u8 **) (((s8 *) actor) + 0x380))), (s32)(id));
-  *((s32 *) (((s8 *) actor) + 0x34)) = get_bml_model((s32)(*((u8 **) (((s8 *) actor) + 0x380))), (s32)(id));
+  ((TObjEneSlimeOne *)actor)->texture_id = TObjFish__sub_8001EDB0((s32)(((TObjEneSlimeOne *)actor)->m_380), (s32)(id));
+  *((s32 *) (((s8 *) actor) + 0x34)) = get_bml_model((s32)(((TObjEneSlimeOne *)actor)->m_380), (s32)(id));
   VecCopy((Vec *)(actor + 0x44), (const Vec *)((u8 *)VecCopy((Vec *)(actor + 0x50), (const Vec *)((void *)VecCopy((Vec *)(actor + 0x74), (const Vec *)(actor + 0x38))))));
   *((s32 *) (((s8 *) actor) + 0x38C)) = init_collision_body_parts(actor, lbl_80496370, 1);
   ((TObjPlayer *)actor)->set_field_d8((s32)(lbl_8049639C));
-  ((TObjPlayer *)actor)->set_field_dc(*((s32 *) (((s8 *) (*((u8 **) (((s8 *) actor) + 0x380)))) + 0x430)));
+  ((TObjPlayer *)actor)->set_field_dc(*((s32 *) (((s8 *) (((TObjEneSlimeOne *)actor)->m_380)) + 0x430)));
   set_animation__10TObjPlayerFPvs(actor, 0);
   ((TObjMotion *)actor)->set_field_b8(0);
   VecCopy((Vec *)(new_var = actor + 0x2FC), (const Vec *)(actor + 0x38));
-  *((f32 *) (((s8 *) actor) + 0x310)) = lbl_805DA6B4;
+  ((TObjEneSlimeOne *)actor)->m_310 = lbl_805DA6B4;
   *((f32 *) (((s8 *) actor) + 0x30C)) = lbl_805DA6B4;
   *((f32 *) (((s8 *) actor) + 0x308)) = lbl_805DA6B4;
   *((s32 *) (((s8 *) actor) + 0x2A8)) = 0;
@@ -2108,7 +2111,7 @@ void initialize_slime_instance_state(u8 *actor) {
   {
     bind_enemy_combat_stats(actor, register_boss__6TLobbyFl(0x34), dispatch_shared_handler_b__6TLobbyFl(0x34), register_object__6TLobbyFl(0x34));
   }
-  *((s16 *) (((s8 *) actor) + 0x33E)) = *((s16 *) (((s8 *) actor) + 0x32C));
+  ((TObjEneSlimeOne *)actor)->referenceHp = ((TObjEneSlimeOne *)actor)->hp;
   ((TBoss3Volopt *)actor)->reset_photon_effect();
   *((s32 *) (((s8 *) actor) + 0x350)) = 0;
   if ((*new_var2) == 0)
@@ -2126,7 +2129,7 @@ void initialize_slime_instance_state(u8 *actor) {
   }
   *((void **) (((s8 *) actor) + 0x388)) = p;
   *((s32 *) (((s8 *) actor) + 0x3E8)) = 0;
-  *((s32 *) (((s8 *) actor) + 0x3CC)) = 0xFFFF;
+  ((TObjEneSlimeOne *)actor)->m_3cc = 0xFFFF;
   ((TObjEneSlimeOne *)actor)->copy_position();
 }
 
@@ -2144,7 +2147,7 @@ u8 *TObjEneSlimeOne__ct(u8 *actor, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
         stack.spE = 0;
         exchange_object_state__9TObjEnemyFls((void *) (actor), (void *) (&stack.sp8), (int) (0));
     }
-    *(s32 *)((s8 *)actor + 0x3F0) = arg2;
+    *(s32 *)&((TObjEneSlimeOne *)actor)->m_3f0 = arg2;
     VecCopy((Vec *)(actor + 0x3DC), (const Vec *)(arg4));
     initialize_slime_instance_state((u8 *)((void *) (actor)));
     ((TObjEneSlimeOne *)actor)->set_state((s32)((void*)((int) (0xE))));
@@ -2165,7 +2168,7 @@ u8 *init__15TObjEneSlimeOneFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
         stack.spE = 0;
         exchange_object_state__9TObjEnemyFls((void *) (arg0), (void *) (&stack.sp8), (int) (0));
     }
-    *(s32 *)((s8 *)arg0 + 0x3F0) = arg2;
+    *(s32 *)&((TObjEneSlimeOne *)arg0)->m_3f0 = arg2;
     initialize_slime_instance_state((u8 *)((void *) (arg0)));
     project_actor_to_ground((void *) (arg0), (void *) (arg0 + 0x38), (int) (0));
     ((TObjEneSlimeOne *)arg0)->set_state((s32)((void*)((int) (0))));

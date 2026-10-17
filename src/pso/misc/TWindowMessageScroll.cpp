@@ -51,8 +51,8 @@ u8 *TWindowMessageScroll__ct(u8 *arg0, s32 arg1, s32 *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8035D694___vt__20TWindowMessageScroll *)&__vt__20TWindowMessageScroll).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowMessageScroll__class_name;
     *(f32 *)((s8 *)arg0 + 0x94) = (f32) lbl_805E01B8;
-    *(s32 **)((s8 *)arg0 + 0x98) = arg2;
-    **(s32 **)((s8 *)arg0 + 0x98) = 0;
+    ((TWindowMessageScroll *)arg0)->m_98 = arg2;
+    *((TWindowMessageScroll *)arg0)->m_98 = 0;
     return arg0;
 }
 

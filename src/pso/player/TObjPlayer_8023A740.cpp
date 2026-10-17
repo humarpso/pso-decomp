@@ -52,7 +52,7 @@ TUnk_804CCC68::TUnk_804CCC68(s32 arg1, u8 *arg2, u8 *arg3, s32 arg4) : TEffect()
     s32 ang;
     u32 var_r0;
     ((TObjPlayer *)(((u8 *)this) + 0x84))->register_object();
-    *(u16 *)((s8 *)this + 0xC8) = 0xFFFF;
+    this->sourceId = 0xFFFF;
     dx = *(f32 *)((s8 *)arg3 + 0) - *(f32 *)((s8 *)arg2 + 0);
     dz = *(f32 *)((s8 *)arg3 + 8) - *(f32 *)((s8 *)arg2 + 8);
     dy = *(f32 *)((s8 *)arg3 + 4) - *(f32 *)((s8 *)arg2 + 4);
@@ -64,26 +64,26 @@ TUnk_804CCC68::TUnk_804CCC68(s32 arg1, u8 *arg2, u8 *arg3, s32 arg4) : TEffect()
     *(s32 *)((s8 *)this + 0x54) = 0;
     *(s32 *)((s8 *)this + 0x58) = ang;
     *(s32 *)((s8 *)this + 0x5C) = 0;
-    *(f32 *)((s8 *)this + 0x12C) = lbl_805DC924;
+    this->halfWidth = lbl_805DC924;
     *(f32 *)((s8 *)this + 0x3C) = lbl_805DC928;
     *(f32 *)((s8 *)this + 0x40) = lbl_805DC928;
     *(f32 *)((s8 *)this + 0x44) = lbl_805DC928;
-    *(f32 *)((s8 *)this + 0x74) = lbl_805DC92C;
-    *(s32 *)((s8 *)this + 0x1C) = arg1;
+    this->traveled = lbl_805DC92C;
+    *(s32 *)&this->source = arg1;
     if (arg4 < 0) {
-        *(s16 *)((s8 *)this + 0xC4) = 0;
+        this->level = 0;
     } else if (arg4 >= 0x1E) {
-        *(s16 *)((s8 *)this + 0xC4) = 0x1E;
+        this->level = 0x1E;
     } else {
-        *(s16 *)((s8 *)this + 0xC4) = arg4;
+        this->level = arg4;
     }
-    *(s16 *)((s8 *)this + 0xC6) = TObjPlayer::get_level_tier(*(s16 *)((s8 *)this + 0xC4));
+    this->band = TObjPlayer::get_level_tier(this->level);
     *(f32 *)((s8 *)this + 0x2C) = lbl_805DC928;
     *(f32 *)((s8 *)this + 0x30) = lbl_805DC928;
     *(f32 *)((s8 *)this + 0x34) = lbl_805DC928;
     *(f32 *)((s8 *)this + 0x38) = lbl_805DC928;
     *(f32 *)((s8 *)this + 0x64) = lbl_805DC930;
-    *(f32 *)((s8 *)this + 0x70) = lbl_805DC934;
+    this->range = lbl_805DC934;
     *(f32 *)((s8 *)this + 0x48) = dx;
     *(f32 *)((s8 *)this + 0x4C) = dy;
     *(f32 *)((s8 *)this + 0x50) = dz;
@@ -94,14 +94,14 @@ TUnk_804CCC68::TUnk_804CCC68(s32 arg1, u8 *arg2, u8 *arg3, s32 arg4) : TEffect()
     *(f32 *)((s8 *)this + 0xFC) = lbl_805DC92C;
     *(f32 *)((s8 *)this + 0x100) = lbl_805DC92C;
     *(f32 *)((s8 *)this + 0x104) = lbl_805DC92C;
-    if (obj_getField1c(*(s32 *)((s8 *)this + 0x1C)) < 4U && get_type__10TObjPlayerFPv(*(s32 *)((s8 *)this + 0x1C) + 0x828) != 0) {
+    if (obj_getField1c(*(s32 *)&this->source) < 4U && get_type__10TObjPlayerFPv(*(s32 *)&this->source+ 0x828) != 0) {
         *(f32 *)((s8 *)this + 0x104) = lbl_805DC938;
     }
     *(f32 *)((s8 *)this + 0x108) = lbl_805DC91C;
     *(f32 *)((s8 *)this + 0x10C) = lbl_805DC928;
     *(s32 *)((s8 *)this + 0x110) = 1;
-    if (obj_getField1c(*(s32 *)((s8 *)this + 0x1C)) < 4U) {
-        if (get_type__10TObjPlayerFPv(*(s32 *)((s8 *)this + 0x1C) + 0x828) != 0) {
+    if (obj_getField1c(*(s32 *)&this->source) < 4U) {
+        if (get_type__10TObjPlayerFPv(*(s32 *)&this->source+ 0x828) != 0) {
             *(s32 *)((s8 *)this + 0x114) = 0x40007;
         } else {
             *(s32 *)((s8 *)this + 0x114) = 0x40107;
@@ -125,23 +125,23 @@ u8 *construct_facing_technique__10TObjPlayerFPviPvii(u8 *arg0, s32 arg1, u8 *arg
     __ct__7TEffectFv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TUnk_804CCC68;
     ((TObjPlayer *)(arg0 + 0x84))->register_object();
-    *(u16 *)((s8 *)arg0 + 0xC8) = 0xFFFF;
+    ((TUnk_804CCC68 *)arg0)->sourceId = 0xFFFF;
     *(f32 *)((s8 *)arg0 + 0x20) = *(f32 *)((s8 *)arg2 + 0);
     *(f32 *)((s8 *)arg0 + 0x24) = *(f32 *)((s8 *)arg2 + 4);
     *(f32 *)((s8 *)arg0 + 0x28) = *(f32 *)((s8 *)arg2 + 8);
     *(f32 *)((s8 *)arg0 + 0x3C) = lbl_805DC928;
     *(f32 *)((s8 *)arg0 + 0x40) = lbl_805DC928;
     *(f32 *)((s8 *)arg0 + 0x44) = lbl_805DC928;
-    *(f32 *)((s8 *)arg0 + 0x74) = lbl_805DC92C;
-    *(s32 *)((s8 *)arg0 + 0x1C) = arg1;
+    ((TUnk_804CCC68 *)arg0)->traveled = lbl_805DC92C;
+    *(s32 *)&((TUnk_804CCC68 *)arg0)->source = arg1;
     if (arg4 < 0) {
-        *(s16 *)((s8 *)arg0 + 0xC4) = 0;
+        ((TUnk_804CCC68 *)arg0)->level = 0;
     } else if (arg4 >= 0x1E) {
-        *(s16 *)((s8 *)arg0 + 0xC4) = 0x1E;
+        ((TUnk_804CCC68 *)arg0)->level = 0x1E;
     } else {
-        *(s16 *)((s8 *)arg0 + 0xC4) = arg4;
+        ((TUnk_804CCC68 *)arg0)->level = arg4;
     }
-    *(s16 *)((s8 *)arg0 + 0xC6) = TObjPlayer::get_level_tier(*(s16 *)((s8 *)arg0 + 0xC4));
+    ((TUnk_804CCC68 *)arg0)->band = TObjPlayer::get_level_tier(((TUnk_804CCC68 *)arg0)->level);
     *(f32 *)((s8 *)arg0 + 0x2C) = lbl_805DC928;
     *(f32 *)((s8 *)arg0 + 0x30) = lbl_805DC928;
     *(f32 *)((s8 *)arg0 + 0x34) = lbl_805DC928;
@@ -149,9 +149,9 @@ u8 *construct_facing_technique__10TObjPlayerFPviPvii(u8 *arg0, s32 arg1, u8 *arg
     *(s32 *)((s8 *)arg0 + 0x54) = 0;
     *(s32 *)((s8 *)arg0 + 0x58) = arg3;
     *(s32 *)((s8 *)arg0 + 0x54) = 0;
-    *(f32 *)((s8 *)arg0 + 0x12C) = lbl_805DC924;
+    ((TUnk_804CCC68 *)arg0)->halfWidth = lbl_805DC924;
     *(f32 *)((s8 *)arg0 + 0x64) = lbl_805DC930;
-    *(f32 *)((s8 *)arg0 + 0x70) = lbl_805DC934;
+    ((TUnk_804CCC68 *)arg0)->range = lbl_805DC934;
     *(f32 *)((s8 *)arg0 + 0x48) = sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x58));
     *(f32 *)((s8 *)arg0 + 0x4C) = lbl_805DC92C;
     *(f32 *)((s8 *)arg0 + 0x50) = cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x58));
@@ -162,14 +162,14 @@ u8 *construct_facing_technique__10TObjPlayerFPviPvii(u8 *arg0, s32 arg1, u8 *arg
     *(f32 *)((s8 *)arg0 + 0xFC) = lbl_805DC92C;
     *(f32 *)((s8 *)arg0 + 0x100) = lbl_805DC92C;
     *(f32 *)((s8 *)arg0 + 0x104) = lbl_805DC92C;
-    if (obj_getField1c(*(s32 *)((s8 *)arg0 + 0x1C)) < 4U && get_type__10TObjPlayerFPv(*(s32 *)((s8 *)arg0 + 0x1C) + 0x828) != 0) {
+    if (obj_getField1c(*(s32 *)&((TUnk_804CCC68 *)arg0)->source) < 4U && get_type__10TObjPlayerFPv(*(s32 *)&((TUnk_804CCC68 *)arg0)->source+ 0x828) != 0) {
         *(f32 *)((s8 *)arg0 + 0x104) = lbl_805DC938;
     }
     *(f32 *)((s8 *)arg0 + 0x108) = lbl_805DC91C;
     *(f32 *)((s8 *)arg0 + 0x10C) = lbl_805DC928;
     *(s32 *)((s8 *)arg0 + 0x110) = 1;
-    if (obj_getField1c(*(s32 *)((s8 *)arg0 + 0x1C)) < 4U) {
-        if (get_type__10TObjPlayerFPv(*(s32 *)((s8 *)arg0 + 0x1C) + 0x828) != 0) {
+    if (obj_getField1c(*(s32 *)&((TUnk_804CCC68 *)arg0)->source) < 4U) {
+        if (get_type__10TObjPlayerFPv(*(s32 *)&((TUnk_804CCC68 *)arg0)->source+ 0x828) != 0) {
             *(s32 *)((s8 *)arg0 + 0x114) = 0x40007;
         } else {
             *(s32 *)((s8 *)arg0 + 0x114) = 0x40107;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOVS2Wreck06.h"
 #include "pso/misc/TOVS2Wall01.h"
 
 extern "C" {
@@ -35,7 +36,7 @@ extern void *TOVS2Wreck06__class_name;
 void *TOVS2Wreck06__ct(void *arg0, void *arg1) {
     ((TOVS2Wall01 *)arg0)->init_wreck_object((s32)arg1, (s32)5);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TOVS2Wreck06;
-    *(void **)((s8 *)arg0 + 0x0) = TOVS2Wreck06__class_name;
+    *(void * *)&((TOVS2Wreck06 *)arg0)->m_name = TOVS2Wreck06__class_name;
     return arg0;
 }
 

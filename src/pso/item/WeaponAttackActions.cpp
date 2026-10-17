@@ -600,11 +600,11 @@ void fire_shot_at_target__11TItemWeaponFv(u8 *arg0, Vec_8011EB84 *origin, void *
     u8 *hit;
     s32 off;
     if (((s32 (*)())is_active_in_game__11TItemWeaponFv)() != 0) {
-        scale = ((f32 *(*)(void *, s32))get_weapon_range_record)(arg0, ((s32 (*)(void *))is_status_subsystem_ready__10TObjPlayerFv)(*(void **)((s8 *)arg0 + 0xF0)));
+        scale = ((f32 *(*)(void *, s32))get_weapon_range_record)(arg0, ((s32 (*)(void *))is_status_subsystem_ready__10TObjPlayerFv)(*(void * *)&((TItemWeapon *)arg0)->player));
         TObjPlayer__sub_802E449C(&atk);
         ((TObjPlayer *)arg0)->fill_status_info(&atk);
         VecCopy((Vec *)&atk, (const Vec *)origin);
-        atk.angle = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xF0)) + 0x60) + angle;
+        atk.angle = *(s32 *)((s8 *)(*(u8 * *)&((TItemWeapon *)arg0)->player) + 0x60) + angle;
         atk.f3C = *scale;
         atk.f38 = *(f32 *)((s8 *)arg0 + 0x1E4);
         atk.owner = owner;
@@ -615,7 +615,7 @@ void fire_shot_at_target__11TItemWeaponFv(u8 *arg0, Vec_8011EB84 *origin, void *
         if (hit != NULL) {
             VecCopy((Vec *)&atk, (const Vec *)(*(void **)((s8 *)hit + 4)));
             atk.flags |= 0x800;
-        } else if ((state = (s32)((TObjPlayer *)(*(void **)((s8 *)arg0 + 0xF0)))->get_extended_state()) != 0 && get_captured_target_count((void *)state) > 0) {
+        } else if ((state = (s32)((TObjPlayer *)(*(void * *)&((TItemWeapon *)arg0)->player))->get_extended_state()) != 0 && get_captured_target_count((void *)state) > 0) {
             if ((item = (s32)get_captured_target_entry((void *)state, 0)) != 0) {
                 if ((ph = ((u8 *(*)(s32))find_entity_by_id)(((s32 (*)(s32))get_uid__10TObjPlayerFv)(item))) != NULL && *(u8 **)((s8 *)ph + 0xA4) != NULL) {
                     VecCopy((Vec *)&v, (const Vec *)(&(*(Skel_8011EB84 **)((s8 *)ph + 0xA4))->n[get_captured_target_collider_index((void *)item)]));

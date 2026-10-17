@@ -63,7 +63,7 @@ extern void *TAdTimeSetGC_class_name;
 void *TAdTimeSetGC__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TAdTimeSetGC;
-    *(void **)((s8 *)arg0 + 0x0) = TAdTimeSetGC_class_name;
+    *(void * *)&((TAdTimeSetGC *)arg0)->m_name = TAdTimeSetGC_class_name;
     init__23TAdSinglePlyChrSelectGCFPv(arg0);
     TLobby::stop_audio_streams();
     return arg0;

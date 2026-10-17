@@ -89,7 +89,7 @@ u8 *fn_801C5380(u8 *arg0, s32 arg1) {
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804C3F48.value;
     *(s32 *)((s8 *)arg0 + 0x1C) = 0x3DE;
-    *(s32 *)((s8 *)arg0 + 0x20) = 0x1E;
+    ((TUnk_804C3F48 *)arg0)->m_20 = 0x1E;
     *(s32 *)((s8 *)arg0 + 0x24) = update_battle_controller__10TObjPlayerFv();
     return arg0;
 }

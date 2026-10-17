@@ -14,7 +14,7 @@ extern void *TObjQuestCol__class_name;
 void *TObjQuestCol__ct(void *arg0) {
     TObjQuestColBase__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjQuestCol;
-    *(void **)((s8 *)arg0 + 0x0) = TObjQuestCol__class_name;
+    *(void * *)&((TObjQuestCol *)arg0)->m_name = TObjQuestCol__class_name;
     return arg0;
 }
 

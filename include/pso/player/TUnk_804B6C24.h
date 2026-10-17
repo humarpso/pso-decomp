@@ -22,7 +22,9 @@ public:
     virtual int calc_distance_accuracy_penalty(void *, void *, void *, float);
     virtual void render();
     virtual void run_task();
-    u8 unk_334[0x2C];
+    u8 unk_334[0x4];
+    f32 m_338;
+    u8 unk_33C[0x24];
     s32 m_360;
     s32 m_364;
 };

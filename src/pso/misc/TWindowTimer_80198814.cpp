@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804B8DD0.h"
 #include "pso/system/vector.h"
 
 struct RecoveredGlobal_8019886C_lbl_804B8DD0 {
@@ -35,13 +36,13 @@ u8 *TWindowTimer__sub_8019886C(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4,
     __ct__7TObjectFP7TObject(arg0, arg5);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8019886C_lbl_804B8DD0 *)&lbl_804B8DD0).value;
     VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)arg1);
-    *(s32 *)((s8 *)arg0 + 0x28) = arg2;
+    ((TUnk_804B8DD0 *)arg0)->m_28 = arg2;
     *(s32 *)((s8 *)arg0 + 0x2C) = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = arg4;
-    *(s32 *)((s8 *)arg0 + 0x38) = 0;
-    *(s32 *)((s8 *)arg0 + 0x30) = 0;
+    ((TUnk_804B8DD0 *)arg0)->m_38 = 0;
+    ((TUnk_804B8DD0 *)arg0)->m_30 = 0;
     *(s32 *)((s8 *)arg0 + 0x3C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x40) = arg3;
+    ((TUnk_804B8DD0 *)arg0)->m_40 = arg3;
     return arg0;
 }
 typedef char RecoveredGlobal_801988E8_lbl_804B8DD0_size[sizeof(RecoveredGlobal_801988E8_lbl_804B8DD0) == 0x18 ? 1 : -1];
@@ -49,13 +50,13 @@ u8 *TWindowTimer__sub_801988E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4)
     __ct__7TObjectFP7TObject(arg0, arg4);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801988E8_lbl_804B8DD0 *)&lbl_804B8DD0).value;
     VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)arg1);
-    *(s32 *)((s8 *)arg0 + 0x28) = arg2;
+    ((TUnk_804B8DD0 *)arg0)->m_28 = arg2;
     *(s32 *)((s8 *)arg0 + 0x2C) = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = arg3;
-    *(s32 *)((s8 *)arg0 + 0x38) = 0;
-    *(s32 *)((s8 *)arg0 + 0x30) = 0;
+    ((TUnk_804B8DD0 *)arg0)->m_38 = 0;
+    ((TUnk_804B8DD0 *)arg0)->m_30 = 0;
     *(s32 *)((s8 *)arg0 + 0x3C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x40) = 0;
+    ((TUnk_804B8DD0 *)arg0)->m_40 = 0;
     return arg0;
 }
 

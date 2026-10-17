@@ -687,10 +687,10 @@ void TShopJudgmentItemWindow::vfunc_11() {
 void *__dt__23TShopJudgmentItemWindowFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TShopJudgmentItemWindow;
-        if (*(void **)((s8 *)arg0 + 0x154) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x154)); *(s32 *)((s8 *)arg0 + 0x154) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x160) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x160)); *(s32 *)((s8 *)arg0 + 0x160) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x158) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x158)); *(s32 *)((s8 *)arg0 + 0x158) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x50) != NULL) { queue_destruction__7TObjectFv((void*)(*(void **)((s8 *)arg0 + 0x50))); *(s32 *)((s8 *)arg0 + 0x50) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x154) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x154)); *(s32 *)&((TShopJudgmentItemWindow *)arg0)->m_154 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x160) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x160)); *(s32 *)&((TShopJudgmentItemWindow *)arg0)->m_160 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x158) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x158)); *(s32 *)&((TShopJudgmentItemWindow *)arg0)->m_158 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x50) != NULL) { queue_destruction__7TObjectFv((void*)(*(void **)((s8 *)arg0 + 0x50))); *(s32 *)&((TShopJudgmentItemWindow *)arg0)->m_50 = 0; }
         __dt__15TShopWindowBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -704,20 +704,20 @@ extern void *TShopJudgmentItemWindow__class_name;
 void *TShopJudgmentItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
     __ct__15TShopWindowBaseFv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TShopJudgmentItemWindow;
-    *(void **)((s8 *)arg0 + 0x0) = TShopJudgmentItemWindow__class_name;
-    *(u32 *)((s8 *)arg0 + 0x144) = 0;
-    *(u32 *)((s8 *)arg0 + 0x148) = 0;
-    *(u32 *)((s8 *)arg0 + 0x150) = 0;
+    *(void * *)&((TShopJudgmentItemWindow *)arg0)->m_name = TShopJudgmentItemWindow__class_name;
+    ((TShopJudgmentItemWindow *)arg0)->m_144 = 0;
+    ((TShopJudgmentItemWindow *)arg0)->m_148 = 0;
+    ((TShopJudgmentItemWindow *)arg0)->m_150 = 0;
     *(void **)((s8 *)arg0 + 0x24) = arg3;
-    *(u32 *)((s8 *)arg0 + 0x154) = 0;
-    *(u32 *)((s8 *)arg0 + 0x158) = 0;
-    *(u32 *)((s8 *)arg0 + 0x15C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x160) = 0;
-    *(u32 *)((s8 *)arg0 + 0x50) = 0;
+    ((TShopJudgmentItemWindow *)arg0)->m_154 = 0;
+    ((TShopJudgmentItemWindow *)arg0)->m_158 = 0;
+    ((TShopJudgmentItemWindow *)arg0)->m_15c = 0;
+    ((TShopJudgmentItemWindow *)arg0)->m_160 = 0;
+    ((TShopJudgmentItemWindow *)arg0)->m_50 = 0;
     *(void **)((s8 *)arg0 + 0x164) = arg2;
-    *(u32 *)((s8 *)arg0 + 0x16C) = 0;
-    *(u32 *)((s8 *)arg0 + 0x170) = 0;
-    *(u32 *)((s8 *)arg0 + 0x174) = 0;
+    ((TShopJudgmentItemWindow *)arg0)->m_16c = 0;
+    ((TShopJudgmentItemWindow *)arg0)->m_170 = 0;
+    ((TShopJudgmentItemWindow *)arg0)->m_174 = 0;
     return arg0;
 }
 

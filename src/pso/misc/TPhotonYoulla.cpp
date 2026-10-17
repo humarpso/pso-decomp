@@ -149,33 +149,33 @@ u8 *TPhotonYoulla__ct(u8 *arg0, u8 *arg1) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3528;
     *(s32 *)((s8 *)arg0 + 0x138) = 5;
     VecCopy((Vec *)((u8 *)(arg0) + 0x38), (const Vec *)(arg1));
-    *(u16 *)((s8 *)arg0 + 0x17C) = (u16) *(u16 *)((s8 *)arg1 + 0xC);
-    *(u8 **)((s8 *)arg0 + 0x180) = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x17C));
+    ((TPhotonYoulla *)arg0)->m_17c = (u16) *(u16 *)((s8 *)arg1 + 0xC);
+    *(u8 **)((s8 *)arg0 + 0x180) = find_entity_by_id(((TPhotonYoulla *)arg0)->m_17c);
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x180));
     if (temp_r3 != NULL) {
-        *(s32 *)((s8 *)arg0 + 0x60) = (s32) *(s32 *)((s8 *)temp_r3 + 0x60);
+        ((TPhotonYoulla *)arg0)->rotation_y = (s32) *(s32 *)((s8 *)temp_r3 + 0x60);
     }
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0xB8);
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0xBC);
+    ((TPhotonYoulla *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0xBC);
     ((TObjPlayer *)arg0)->set_field_d8((s32) lbl_804C3B48);
     ((TObjPlayer *)arg0)->set_field_dc(*(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
-    *(s16 *)((s8 *)arg0 + 0xB8) = 1;
-    set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
-    *(s16 *)((s8 *)arg0 + 0x194) = 1;
-    *(s32 *)((s8 *)arg0 + 0x198) = (s32) *(s32 *)((s8 *)arg1 + 0x10);
-    *(s32 *)((s8 *)arg0 + 0x19C) = (s32) *(s32 *)((s8 *)arg1 + 0x14);
-    *(s32 *)((s8 *)arg0 + 0x1A0) = 0;
+    ((TPhotonYoulla *)arg0)->m_b8 = 1;
+    set_animation__10TObjPlayerFPvs(arg0, ((TPhotonYoulla *)arg0)->m_b8);
+    ((TObjMotion *)arg0)->set_field_b8(((TPhotonYoulla *)arg0)->m_b8);
+    *(s16 *)&((TPhotonYoulla *)arg0)->m_194 = 1;
+    *(s32 *)&((TPhotonYoulla *)arg0)->m_198 = (s32) *(s32 *)((s8 *)arg1 + 0x10);
+    *(s32 *)&((TPhotonYoulla *)arg0)->m_19c = (s32) *(s32 *)((s8 *)arg1 + 0x14);
+    *(s32 *)&((TPhotonYoulla *)arg0)->m_1a0 = 0;
     sub_801AE72C__13TPhotonYoullaFv(arg0, *(u8 *)((s8 *)arg1 + 0x1C));
-    *(s32 *)((s8 *)arg0 + 0x1A4) = 0;
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x198) == 0) {
+    *(s32 *)&((TPhotonYoulla *)arg0)->m_1a4 = 0;
+    if ((s32) *(s32 *)&((TPhotonYoulla *)arg0)->m_198 == 0) {
         ((TObjMotion *)arg0)->set_field_b8(0);
-        *(s32 *)((s8 *)arg0 + 0x198) = 1;
-        *(s16 *)((s8 *)arg0 + 0x194) = 0;
-        *(s32 *)((s8 *)arg0 + 0x1A0) = 1;
+        *(s32 *)&((TPhotonYoulla *)arg0)->m_198 = 1;
+        *(s16 *)&((TPhotonYoulla *)arg0)->m_194 = 0;
+        *(s32 *)&((TPhotonYoulla *)arg0)->m_1a0 = 1;
         spawn_photon_blast_attachment_effects(arg0, 6);
     } else {
-        spawn_photon_blast_opening_effects((int) (6), (int) (*(u16 *)((s8 *)arg0 + 0x17C)));
+        spawn_photon_blast_opening_effects((int) (6), (int) (((TPhotonYoulla *)arg0)->m_17c));
     }
     return arg0;
 }

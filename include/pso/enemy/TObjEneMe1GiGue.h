@@ -23,7 +23,11 @@ struct TObjEneMe1GiGue : public TObjEnemyCustom {
     u16 m_38c;
     u8 _pad38E[0x2];
     void* m_390;
-    u8 _pad394[0x60];
+    u8 unk_394[0x50];
+    f32 m_3e4;
+    u8 unk_3E8[0x4];
+    f32 m_3ec;
+    u8 unk_3F0[0x4];
     u32 m_3f4;
     u32 m_3f8;
     void* m_3fc;
@@ -31,7 +35,9 @@ struct TObjEneMe1GiGue : public TObjEnemyCustom {
     void* m_418;
     u8 unk_41C[0x18];
     s32 m_434;
-    u8 unk_438[0xC];
+    u8 unk_438[0x4];
+    f32 m_43c;
+    u8 unk_440[0x4];
     f32 m_444;
     u32 m_448;
     void dispatch_state();

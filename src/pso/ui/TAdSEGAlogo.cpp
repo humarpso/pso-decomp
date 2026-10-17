@@ -23,7 +23,7 @@ void *__ct__11TAdSEGAlogoFv(void *arg0) {
     void *o;
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TAdSEGAlogo;
-    *(void **)((s8 *)arg0 + 0x0) = TAdSEGAlogo__class_name;
+    *(void * *)&((TAdSEGAlogo *)arg0)->m_name = TAdSEGAlogo__class_name;
     *(u32 *)((s8 *)arg0 + 0x1C) = 0;
     TAdSEGAlogo__state = 0;
     sega_logo_done_flag = 0;

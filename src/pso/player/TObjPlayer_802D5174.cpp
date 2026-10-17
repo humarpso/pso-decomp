@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/unk/TUnk_804E1CA8.h"
+#include "pso/player/TUnk_804E20FC.h"
+#include "pso/player/TUnk_804E23F0.h"
 #include "pso/TItemLoad.h"
 #include "pso/items/TItemWeapon.h"
 #include "pso/player/TObjPlayer.h"
@@ -96,7 +99,7 @@ void setup_radar_marker__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     if (((TObjPlayer *)arg0)->is_mode_two_and_ready() != 0) {
         ((TObjPlayer *)arg0)->drain_owner_hp_fraction(lbl_805DE788);
         *(s32 *)((s8 *)arg1 + 0x10) = 0xA;
-        *(s32 *)((s8 *)arg1 + 0x44) = (s32) *(s32 *)((s8 *)arg0 + 0x188);
+        *(s32 *)((s8 *)arg1 + 0x44) = (s32) ((TUnk_804E1CA8 *)arg0)->projectile;
         *(f32 *)((s8 *)arg1 + 0x4C) = lbl_805DE78C;
     }
 }
@@ -105,7 +108,7 @@ void setup_radar_marker__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     extern unsigned char do_action_447_from_packet__10TObjPlayerFPvPv[];
     extern unsigned char lbl_804E1CA8[];
     extern const float lbl_805DE790;
-void* setup_state__10TObjPlayerFPv(void* a0) { init_state_445__10TObjPlayerFPv(); *(int*)((char*)a0 + 0x18) = (int)lbl_804E1CA8; *(float*)((char*)a0 + 0x200) = lbl_805DE790; set_status_flags__10TObjPlayerFUl(a0, (void*)32); *(int*)((char*)a0 + 0x208) = (int)do_action_447_from_packet__10TObjPlayerFPvPv; *(int*)((char*)a0 + 0x204) = (int)fn_80109974; return a0; }
+void* setup_state__10TObjPlayerFPv(void* a0) { init_state_445__10TObjPlayerFPv(); *(int*)((char*)a0 + 0x18) = (int)lbl_804E1CA8; *(float*)((char*)a0 + 0x200) = lbl_805DE790; set_status_flags__10TObjPlayerFUl(a0, (void*)32); ((TUnk_804E1CA8 *)a0)->m_208 = (int)do_action_447_from_packet__10TObjPlayerFPvPv; *(int*)((char*)a0 + 0x204) = (int)fn_80109974; return a0; }
 
 }
 
@@ -143,7 +146,7 @@ void set_radar_marker_flag__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     extern unsigned char create_needle_effect[];
     extern unsigned char lbl_804E20FC[];
     extern const float lbl_805DE78C;
-void* init_needle_effect__10TObjPlayerFPv(void* a0) { init_state_445__10TObjPlayerFPv(); *(int*)((char*)a0 + 0x18) = (int)lbl_804E20FC; *(float*)((char*)a0 + 0x200) = lbl_805DE78C; *(int*)((char*)a0 + 0x204) = (int)fn_80109974; *(int*)((char*)a0 + 0x208) = (int)create_needle_effect; return a0; }
+void* init_needle_effect__10TObjPlayerFPv(void* a0) { init_state_445__10TObjPlayerFPv(); *(int*)((char*)a0 + 0x18) = (int)lbl_804E20FC; *(float*)((char*)a0 + 0x200) = lbl_805DE78C; *(int*)((char*)a0 + 0x204) = (int)fn_80109974; ((TUnk_804E20FC *)a0)->m_208 = (int)create_needle_effect; return a0; }
 
 void spawn_hit_particles__10TObjPlayerFiPv(s32 pos, const P_802D5478 *arg1) {
     s32 v[3];
@@ -441,9 +444,9 @@ f32 TObjPlayer__sub_8017A1A4(s32, s32);
 extern f32 lbl_805DE790;
 
 void reset_animation_state__10TObjPlayerFPv(void *arg0) {
-    *(s16 *)((s8 *)arg0 + 0x248) = 0;
+    ((TUnk_804E21F8 *)arg0)->m_248 = 0;
     *(s16 *)((s8 *)arg0 + 0x24A) = 0;
-    *(f32 *)((s8 *)arg0 + 0x24C) = (f32) (lbl_805DE790 + TObjPlayer__sub_8017A1A4(*(s32 *)((s8 *)arg0 + 0xF0), 0));
+    ((TUnk_804E21F8 *)arg0)->m_24c = (f32) (lbl_805DE790 + TObjPlayer__sub_8017A1A4(*(s32 *)((s8 *)arg0 + 0xF0), 0));
     *(s32 *)((s8 *)arg0 + 0x250) = 0;
     ((TUnk_804E21F8 *)arg0)->sub_802D577C();
 }
@@ -738,7 +741,7 @@ extern s32 tl_05;
 
 void create_cane_effect_from_state__10TObjPlayerFPv(void *item) {
     if (get_attack_stage__11TItemWeaponFv() == 0) {
-        ((TObjPlayer *)tl_05)->create_item_eff_cane((TItem*)item, (s32)(-1), (s32)(*(s32 *)((s8 *)item + 0x1FC)));
+        ((TObjPlayer *)tl_05)->create_item_eff_cane((TItem*)item, (s32)(-1), (s32)(*(s32 *)&((TUnk_804E23F0 *)item)->m_1fc));
     }
 }
 
@@ -750,9 +753,9 @@ void create_cane_effect_from_state__10TObjPlayerFPv(void *item) {
 void fire_spread_shot__10TObjPlayerFPv(u8 *arg0) {
     s32 sp8;
     u8 *temp_r3;
-    temp_r3 = *(u8 **)((s8 *)arg0 + 0xF0);
+    temp_r3 = *(u8 * *)&((TUnk_804E23F0 *)arg0)->player;
     ((VObj_18 *)(temp_r3))->m63(0x30, &sp8);
-    if (get_validated_attack_stage((void *) (*(u8 **)((s8 *)arg0 + 0xF0) + 0x7CC)) == 2) {
+    if (get_validated_attack_stage((void *) (*(u8 * *)&((TUnk_804E23F0 *)arg0)->player+ 0x7CC)) == 2) {
         fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), (int) (0));
         fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), (int) (0x1555));
         fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), (int) (-0x1555));
@@ -793,7 +796,7 @@ void draw_weapon_if_not_hidden__10TObjPlayerFPv(u8 *arg0) {
     }
 }
 
-void* init_state_445__10TObjPlayerFPv(void* a0) { TItemWeapon__ct(); *(int*)((char*)a0 + 0x18) = (int)lbl_804E23F0; set_status_flags__10TObjPlayerFUl(a0, (void*)3); *(int*)((char*)a0 + 0x1f8) = 0; *(int*)((char*)a0 + 0x1fc) = 445; *(int*)((char*)a0 + 0x204) = (int)TObjPlayer__sub_8032E648; *(int*)((char*)a0 + 0x208) = (int)create_network_object__10TObjPlayerFlPUll; *(float*)((char*)a0 + 0x200) = lbl_805DE7A0; return a0; }
+void* init_state_445__10TObjPlayerFPv(void* a0) { TItemWeapon__ct(); *(int*)((char*)a0 + 0x18) = (int)lbl_804E23F0; set_status_flags__10TObjPlayerFUl(a0, (void*)3); *(int*)((char*)a0 + 0x1f8) = 0; *(int *)&((TUnk_804E23F0 *)a0)->m_1fc = 445; *(int*)((char*)a0 + 0x204) = (int)TObjPlayer__sub_8032E648; *(int*)((char*)a0 + 0x208) = (int)create_network_object__10TObjPlayerFlPUll; *(float*)((char*)a0 + 0x200) = lbl_805DE7A0; return a0; }
 
 }
 

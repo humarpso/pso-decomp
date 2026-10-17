@@ -359,18 +359,18 @@ void run_task__10TTecGiFoieFv(u8 *self) {
         queue_destruction__7TObjectFv((int) self);
         return;
     }
-    *(void **)((s8 *)self + 0x1C) = find_entity_by_id(*(u16 *)((s8 *)self + 0xB4));
+    *(void **)((s8 *)self + 0x1C) = find_entity_by_id(((TTecGiFoie *)self)->m_b4);
     if (*(void **)((s8 *)self + 0x1C) == NULL) {
         queue_destruction__7TObjectFv((int) self);
         return;
     }
-    if (TTecLuker::is_parents_unqueued(*(u32 *)((s8 *)self + 0xEC)) != 0) {
+    if (TTecLuker::is_parents_unqueued(((TTecGiFoie *)self)->m_ec) != 0) {
         distance = newton_sqrtf(horizontal_distance_squared(*(u8 **)((s8 *)self + 0xEC) + 0x2C, self + 0x20));
         if (*(u8 **)((s8 *)self + 0xE8) != NULL) {
             *(f32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 **)((s8 *)self + 0xE8)) + 0xA4)) + 0xC) = TTecGiFoie__data_805DC81C + distance;
         }
         ((TUnk_804CC148 *)self)->apply_technique_to_area_targets();
-        if (distance >= *(f32 *)((s8 *)self + 0x90)) {
+        if (distance >= ((TTecGiFoie *)self)->m_90) {
             queue_destruction__7TObjectFv((int) self);
         }
     }

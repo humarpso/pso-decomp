@@ -118,27 +118,27 @@ void run_task__19TBoss1DragonEffTailFv(u8 *arg0) {
     *(f32 *)((s8 *)arg0 + 0x38) *= lbl_805D8148;
     *(f32 *)((s8 *)arg0 + 0x40) *= lbl_805D8148;
     *(f32 *)((s8 *)arg0 + 0x3C) = *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xB0)) + 0x3C);
-    *(s32 *)((s8 *)arg0 + 0x60) = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xB0)) + 0x60);
+    ((TBoss1DragonEffTail *)arg0)->rotation_y = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xB0)) + 0x60);
     src = *(Vec_8002BD38 **)((s8 *)arg0 + 0xB4);
     push_matrix();
     set_matrix_identity(0);
-    rotate_matrix_y(0, -*(s32 *)((s8 *)arg0 + 0x60));
+    rotate_matrix_y(0, -((TBoss1DragonEffTail *)arg0)->rotation_y);
     translate_matrix(0, -*(f32 *)((s8 *)arg0 + 0x38), -*(f32 *)((s8 *)arg0 + 0x3C), -*(f32 *)((s8 *)arg0 + 0x40));
     for (i = 0; i < 0x11; i++) {
-        p = *(u8 **)((s8 *)arg0 + 0xA4) + i * 0x2C;
+        p = *(u8 * *)&((TBoss1DragonEffTail *)arg0)->m_a4+ i * 0x2C;
         VecCopy((Vec *)(p + 0x1C), (const Vec *)src);
         matrix_mult_vec(0, src++, p);
         update_collider_contact_by_height(p, lbl_805D814C);
     }
     pop_matrix();
-    if (*(s32 *)((s8 *)arg0 + 0xBC) == 1) {
-        *(f32 *)((s8 *)arg0 + 0xC0) = lbl_805D8150 * cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
+    if (*(s32 *)&((TBoss1DragonEffTail *)arg0)->m_bc == 1) {
+        *(f32 *)((s8 *)arg0 + 0xC0) = lbl_805D8150 * cos_table_lookup(((TBoss1DragonEffTail *)arg0)->rotation_y);
         *(f32 *)((s8 *)arg0 + 0xC4) = lbl_805D8154;
-        *(f32 *)((s8 *)arg0 + 0xC8) = lbl_805D8150 * -sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
+        ((TBoss1DragonEffTail *)arg0)->m_c8 = lbl_805D8150 * -sin_table_lookup(((TBoss1DragonEffTail *)arg0)->rotation_y);
     } else {
-        *(f32 *)((s8 *)arg0 + 0xC0) = lbl_805D8150 * -cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
+        *(f32 *)((s8 *)arg0 + 0xC0) = lbl_805D8150 * -cos_table_lookup(((TBoss1DragonEffTail *)arg0)->rotation_y);
         *(f32 *)((s8 *)arg0 + 0xC4) = lbl_805D8154;
-        *(f32 *)((s8 *)arg0 + 0xC8) = lbl_805D8150 * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
+        ((TBoss1DragonEffTail *)arg0)->m_c8 = lbl_805D8150 * sin_table_lookup(((TBoss1DragonEffTail *)arg0)->rotation_y);
     }
     {
         Pair_8002BD38 sp8 = *(Pair_8002BD38 *) lbl_80435454;
@@ -153,7 +153,7 @@ void TBoss1DragonEffTail__vt18(s32 arg0, s32 arg1) {
 }
 
 void TBoss1DragonEffTail__vt20(u8 *arg0, u8 *arg1) {
-    ((VObj_18 *)(arg1))->m20(*(s32 *)((s8 *)arg0 + 0xAC), lbl_805D8158);
+    ((VObj_18 *)(arg1))->m20(*(s32 *)&((TBoss1DragonEffTail *)arg0)->m_ac, lbl_805D8158);
     if (TObjEneDD::check_v2_mode() != 0) {
         TBoss1Dragon__sub_8002AB6C((void *) (arg1));
     }
@@ -167,7 +167,7 @@ void *__dt__19TBoss1DragonEffTailFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TBoss1DragonEffTail;
         delete_buffer__12TBoss8DragonFis(*(void **)((s8 *)arg0 + 0xB8), 1);
-        *(s32 *)((s8 *)arg0 + 0xB8) = 0;
+        *(s32 *)&((TBoss1DragonEffTail *)arg0)->m_b8 = 0;
         ((TUnk_804928CC *)arg0)->destroy_enemy_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

@@ -86,7 +86,7 @@ void run_task__19TObjBoss8PillerCtrlFv(Self_8035C03C *self) {
 void *__dt__19TObjBoss8PillerCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TObjBoss8PillerCtrl;
-        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { ::operator delete(*(void **)((s8 *)arg0 + 0x30)); *(s32 *)((s8 *)arg0 + 0x30) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { ::operator delete(*(void **)((s8 *)arg0 + 0x30)); *(s32 *)&((TObjBoss8PillerCtrl *)arg0)->m_30 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -103,9 +103,9 @@ u8 *TObjBoss8PillerCtrl__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3) {
     VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)(arg2));
     TObjBoss8PillerCtrl__sub_8035C034((void *)((void *) (arg0)), (void *)((void *) (arg0 + 0x1C)));
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) lbl_805E017C;
-    *(s32 *)((s8 *)arg0 + 0x28) = 0;
-    *(s16 *)((s8 *)arg0 + 0x2C) = arg3;
-    *(s32 *)((s8 *)arg0 + 0x30) = 0;
+    *(s32 *)&((TObjBoss8PillerCtrl *)arg0)->m_28 = 0;
+    *(s16 *)&((TObjBoss8PillerCtrl *)arg0)->m_2c = arg3;
+    *(s32 *)&((TObjBoss8PillerCtrl *)arg0)->m_30 = 0;
     *(s32 **)((s8 *)arg0 + 0x34) = &boss8_piller_ctrl_params.value;
     return arg0;
 }

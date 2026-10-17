@@ -190,25 +190,25 @@ u8 *TBoss7Crawfish__ct(u8 *arg0, s32 arg1, s32 arg2) {
     initialize__9TObjEnemyFPv();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TBoss7Crawfish;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss7Crawfish__class_name;
-    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((int) (TBoss7Crawfish__shared_resource), (int) (0));
+    ((TBoss7Crawfish *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) (TBoss7Crawfish__shared_resource), (int) (0));
     fn_8002B630((void *) (arg0 + 0x374), (void *) (crawfish_collision_body_desc));
     ((TUnk_804AF8A0 *)arg0)->initialize_linked_object_reference((void *) (arg0 + 0x374));
     ((TObjPlayer *)arg0)->set_field_d8((s32)((void *) (lbl_804E7380)));
     ((TObjPlayer *)arg0)->set_field_dc((int) (*(s32 *)((s8 *)((u8 *)TBoss7Crawfish__shared_resource) + 0x430)));
     ((TBoss7Crawfish *)arg0)->set_anim_timer((int) (2));
-    set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (*(s16 *)((s8 *)arg0 + 0xB8)));
-    set_field_b8__10TObjMotionFs((void *) (arg0), (int) (*(s16 *)((s8 *)arg0 + 0xB8)));
+    set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (((TBoss7Crawfish *)arg0)->m_b8));
+    set_field_b8__10TObjMotionFs((void *) (arg0), (int) (((TBoss7Crawfish *)arg0)->m_b8));
     ((TUnk_804806E8 *)arg0)->add_flags_2e4((int) (2));
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     if (((TBoss7Crawfish *)arg0)->sub_80308AA8() != 0) {
         ((TObjEneLappy *)arg0)->set_param((int) (0x4A));
         bind_enemy_combat_stats((void *) (arg0), register_boss__6TLobbyFl(8), dispatch_shared_handler_b__6TLobbyFl(8), register_object__6TLobbyFl(8));
-        *(s32 *)((s8 *)arg0 + 0x3A0) = dispatch_shared_handler_a__6TLobbyFl((int) (8));
+        *(s32 *)&((TBoss7Crawfish *)arg0)->m_3a0 = dispatch_shared_handler_a__6TLobbyFl((int) (8));
         *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) (TBoss7Crawfish__shared_resource), (int) (0));
     } else {
         ((TObjEneLappy *)arg0)->set_param((int) (0x4B));
         bind_enemy_combat_stats((void *) (arg0), register_boss__6TLobbyFl(9), dispatch_shared_handler_b__6TLobbyFl(9), register_object__6TLobbyFl(9));
-        *(s32 *)((s8 *)arg0 + 0x3A0) = dispatch_shared_handler_a__6TLobbyFl((int) (9));
+        *(s32 *)&((TBoss7Crawfish *)arg0)->m_3a0 = dispatch_shared_handler_a__6TLobbyFl((int) (9));
         *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) (TBoss7Crawfish__shared_resource), (int) (1));
     }
     ((TUnk_804806E8 *)arg0)->get_or_assign_actor_id((int) (0));
@@ -221,14 +221,14 @@ u8 *TBoss7Crawfish__ct(u8 *arg0, s32 arg1, s32 arg2) {
     TBoss7Crawfish__sub_80308ED8((void *) (arg0), (void *) (&v));
     if (((TBoss7Crawfish *)arg0)->sub_80308AA8() != 0) {
         *(f32 *)((s8 *)arg0 + 0x70) = (f32) lbl_805DF100;
-        *(f32 *)((s8 *)arg0 + 0x6C) = (f32) lbl_805DF100;
-        *(f32 *)((s8 *)arg0 + 0x68) = (f32) lbl_805DF100;
+        ((TBoss7Crawfish *)arg0)->target_scale = (f32) lbl_805DF100;
+        ((TBoss7Crawfish *)arg0)->scale = (f32) lbl_805DF100;
     } else {
         *(f32 *)((s8 *)arg0 + 0x70) = (f32) TBoss7Crawfish__data_805DF0DC;
-        *(f32 *)((s8 *)arg0 + 0x6C) = (f32) TBoss7Crawfish__data_805DF0DC;
-        *(f32 *)((s8 *)arg0 + 0x68) = (f32) TBoss7Crawfish__data_805DF0DC;
+        ((TBoss7Crawfish *)arg0)->target_scale = (f32) TBoss7Crawfish__data_805DF0DC;
+        ((TBoss7Crawfish *)arg0)->scale = (f32) TBoss7Crawfish__data_805DF0DC;
     }
-    *(s32 *)((s8 *)arg0 + 0x3CC) = 0;
+    *(s32 *)&((TBoss7Crawfish *)arg0)->m_3cc = 0;
     return arg0;
 }
 

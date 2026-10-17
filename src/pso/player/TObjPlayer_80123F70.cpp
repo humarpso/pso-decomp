@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A1E28.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -8,8 +9,8 @@ void sorcerers_cane_unequip(void* p);
 s32 submit_computer_command__10TObjPlayerFv(s32, s32, s32, s32);
 s32 refresh_owner_stats__5TItemFv();
 
-void sorcerers_cane_equip(void* p) { *(s16*)((char*)p + 0x1fc) = -1; }
-void sorcerers_cane_unequip(void* p) { *(s16*)((char*)p + 0x1fc) = -1; }
+void sorcerers_cane_equip(void* p) { ((TUnk_804A1E28 *)p)->m_1fc = -1; }
+void sorcerers_cane_unequip(void* p) { ((TUnk_804A1E28 *)p)->m_1fc = -1; }
 void TObjPlayer::refresh_inventory_slot() {
     void *temp_r3;
 

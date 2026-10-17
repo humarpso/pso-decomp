@@ -153,8 +153,8 @@ u8 *TObjEneMe3StelthReal__ct(u8 *arg0, s32 arg1, s32 arg2) {
     invoke_initialization_hook__9TObjEneDDFv((void *) (arg0), (void *) (arg2));
     ((TObjEneMe3Stelth *)arg0)->setup_move_bounds();
     ((TObjEneMe3StelthReal *)arg0)->init_common();
-    *(s16 *)((s8 *)arg0 + 0x326) = 0;
-    ((VObj_18_be4a70 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 4);
+    ((TObjEneMe3StelthReal *)arg0)->mode = 0;
+    ((VObj_18_be4a70 *)(arg0))->m85(((TObjEneMe3StelthReal *)arg0)->mode, 4);
     return arg0;
 }
 

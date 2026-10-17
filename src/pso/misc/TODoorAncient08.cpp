@@ -451,28 +451,28 @@ u8 *TODoorAncient08__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016069C___vt__15TODoorAncient08 *)&__vt__15TODoorAncient08).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2F50;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(*(s32 * *)&TODoorAncient08__switch_texture_lists);
+    ((TODoorAncient08 *)arg0)->texture_id = (s32) *(*(s32 * *)&TODoorAncient08__switch_texture_lists);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&door_ancient08_bml_resource) + 0x42C)) + 8);
     *(u8 **)((s8 *)arg0 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&door_ancient08_bml_resource) + 0x430)) + 4));
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB474);
-    *(f32 *)((s8 *)arg0 + 0xB8) = (f32) (*(f32 *)((s8 *)arg0 + 0xB4) / lbl_805DB470);
+    ((TODoorAncient08 *)arg0)->m_b8 = (f32) (*(f32 *)((s8 *)arg0 + 0xB4) / lbl_805DB470);
     init_collision_body_parts((void *) (arg0), (void *) (&TODoorAncient08__collision_body.value), (int) (1));
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x84);
+    temp_r0 = ((TODoorAncient08 *)arg0)->m_84;
     if (temp_r0 < 0) {
-        *(s32 *)((s8 *)arg0 + 0x84) = 0;
+        ((TODoorAncient08 *)arg0)->m_84 = 0;
     } else if (temp_r0 > 0xFC) {
-        *(s32 *)((s8 *)arg0 + 0x84) = 0xFC;
+        ((TODoorAncient08 *)arg0)->m_84 = 0xFC;
     }
     ((TODoorAncient08 *)(arg0))->init_door_switch_binding();
-    *(s16 *)((s8 *)arg0 + 0xD4) = (s16) (*(s32 *)((s8 *)arg0 + 0x84) + 1);
-    *(s16 *)((s8 *)arg0 + 0xD6) = (s16) (*(s32 *)((s8 *)arg0 + 0x84) + 2);
-    *(s16 *)((s8 *)arg0 + 0xD8) = (s16) (*(s32 *)((s8 *)arg0 + 0x84) + 3);
-    *(s32 *)((s8 *)arg0 + 0xDC) = 0;
-    *(s32 *)((s8 *)arg0 + 0xE0) = 0;
-    *(s32 *)((s8 *)arg0 + 0xE4) = 0;
-    *(s32 *)((s8 *)arg0 + 0xE8) = 0;
+    *(s16 *)&((TODoorAncient08 *)arg0)->m_d4 = (s16) (((TODoorAncient08 *)arg0)->m_84+ 1);
+    *(s16 *)&((TODoorAncient08 *)arg0)->m_d6 = (s16) (((TODoorAncient08 *)arg0)->m_84+ 2);
+    *(s16 *)&((TODoorAncient08 *)arg0)->m_d8 = (s16) (((TODoorAncient08 *)arg0)->m_84+ 3);
+    *(s32 *)&((TODoorAncient08 *)arg0)->m_dc = 0;
+    *(s32 *)&((TODoorAncient08 *)arg0)->m_e0 = 0;
+    *(s32 *)&((TODoorAncient08 *)arg0)->m_e4 = 0;
+    *(s32 *)&((TODoorAncient08 *)arg0)->m_e8 = 0;
     return arg0;
 }
 

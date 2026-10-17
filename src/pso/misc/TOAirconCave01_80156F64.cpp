@@ -72,8 +72,8 @@ u8 *TOAirconCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2E8C;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOAirconCave01__model_archive) + 0x42C)) + 8);
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOAirconCave01__model_archive) + 0x42C)) + 0xC);
-    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB2B8;
+    ((TOAirconCave01 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOAirconCave01__model_archive) + 0x42C)) + 0xC);
+    ((TOAirconCave01 *)arg0)->m_c0 = (f32) lbl_805DB2B8;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB2BC;
     return arg0;
 }

@@ -33,10 +33,10 @@ void *quad_sprite_base_ct(void *arg0, void *arg_r4, void *arg2) {
 
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804C57F0;
-    *(void **)((s8 *)arg0 + 0x28) = arg2;
-    temp_r31 = *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x28)) + 0xC);
+    ((TUnk_804C57F0 *)arg0)->m_28 = arg2;
+    temp_r31 = *(s32 *)((s8 *)(((TUnk_804C57F0 *)arg0)->m_28) + 0xC);
     *(s32 *)((s8 *)arg0 + 0x1C) = mem_alloc(temp_r31 * 0x2C);
-    *(s32 *)((s8 *)arg0 + 0x20) = mem_alloc(temp_r31 * 4);
+    ((TUnk_804C57F0 *)arg0)->m_20 = mem_alloc(temp_r31 * 4);
     ((TUnk_804C57F0 *)arg0)->quad_sprite_reset_entries();
     return arg0;
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObject.h"
 #include "pso/ui/TAdDrawLineCtrl.h"
 
 struct Ent_80019B08 { s32 key; s32 val; };
@@ -24,7 +25,7 @@ s32 TBoss8Dragon__sub_8036B088();
 s32 fn_8036B18C();
 
 void queue_destruction__7TObjectFv(void *arg0) {
-    *(u16 *)((s8 *)arg0 + 4) = (u16) (*(u16 *)((s8 *)arg0 + 4) | 1);
+    ((TObject *)arg0)->m_flags = (u16) (((TObject *)arg0)->m_flags| 1);
 }
 
 extern s32 logo_texture_e_handle;

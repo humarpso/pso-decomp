@@ -57,22 +57,22 @@ void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source) {
     *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(void **)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1] + 0x42C)) + 8);
     *(void **)((s8 *)arg0 + 0xBC) = *(void **)((s8 *)(*(void **)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1] + 0x430)) + 4);
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) *(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB768;
-    *(f32 *)((s8 *)arg0 + 0xB8) = lbl_805DB76C;
-    *(u32 *)((s8 *)arg0 + 0x24) = TOKeyGenericSw__texture_lists[1];
+    ((TOKeyGenericSw *)arg0)->m_b8 = lbl_805DB76C;
+    *(u32 *)&((TOKeyGenericSw *)arg0)->texture_id = TOKeyGenericSw__texture_lists[1];
     init_collision_body_parts(arg0, lbl_804B2D30, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    *(f32 *)((s8 *)arg0 + 0xC0) = lbl_805DB770;
+    ((TOKeyGenericSw *)arg0)->m_c0 = lbl_805DB770;
     *(f32 *)((s8 *)arg0 + 0xC4) = lbl_805DB774;
-    if ((*(s32 *)((s8 *)arg0 + 0xD0) != 2) && (*(f32 *)((s8 *)arg0 + 0x68) < lbl_805DB778)) {
-        *(s32 *)((s8 *)arg0 + 0xD0) = 1;
+    if ((*(s32 *)&((TOKeyGenericSw *)arg0)->m_d0 != 2) && (((TOKeyGenericSw *)arg0)->scale< lbl_805DB778)) {
+        *(s32 *)&((TOKeyGenericSw *)arg0)->m_d0 = 1;
     } else {
-        *(s32 *)((s8 *)arg0 + 0xD0) = 0;
+        *(s32 *)&((TOKeyGenericSw *)arg0)->m_d0 = 0;
     }
-    *(u8 *)((s8 *)arg0 + 0xE8) = TOKeyMachine01::get_global_state();
-    *(s32 *)((s8 *)arg0 + 0xEC) = 0;
+    ((TOKeyGenericSw *)arg0)->m_e8 = TOKeyMachine01::get_global_state();
+    ((TOKeyGenericSw *)arg0)->m_ec = 0;
     *(s32 *)((s8 *)arg0 + 0xF0) = 0;
-    *(s32 *)((s8 *)arg0 + 0xF4) = 0;
+    ((TOKeyGenericSw *)arg0)->m_f4 = 0;
     *(s32 *)((s8 *)arg0 + 0xF8) = 0;
     return arg0;
 }

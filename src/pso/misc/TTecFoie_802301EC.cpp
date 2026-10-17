@@ -65,7 +65,7 @@ u8 *TTecFoie__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TTecFoie__name;
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C));
     if (temp_r3 != NULL) {
-        *(u16 *)((s8 *)arg0 + 0xC8) = obj_getField1c(temp_r3);
+        ((TTecFoie *)arg0)->sourceId = obj_getField1c(temp_r3);
     }
     ((TTecFoie *)arg0)->init_projectile_params();
     ((TTecFoie *)arg0)->create_particle_emitters();

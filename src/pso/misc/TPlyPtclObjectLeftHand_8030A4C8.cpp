@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TPlyPtclObjectLeftHand.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/misc/TPlyFollowParticleCtrl.h"
 #include "pso/boss/TBoss4DarkFalz.h"
@@ -37,7 +38,7 @@ extern void *TPlyPtclObjectLeftHand__class_name;
 void *TPlyPtclObjectLeftHand__ct(void *arg0, u8 * _w1) {
     TPlyFollowParticleCtrl__ct((Ctrl_8030A5B8 *)(arg0), (u8 *)(_w1));
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TPlyPtclObjectLeftHand;
-    *(void **)((s8 *)arg0 + 0x0) = TPlyPtclObjectLeftHand__class_name;
+    *(void * *)&((TPlyPtclObjectLeftHand *)arg0)->m_name = TPlyPtclObjectLeftHand__class_name;
     return arg0;
 }
 

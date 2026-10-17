@@ -18,7 +18,8 @@ public:
     void count_if_within_range();
     virtual void render();
     virtual void run_task();
-    u8 unk_70[0x8];
+    u8 unk_70[0x4];
+    s32 m_74;
     s16 m_78;
     u8 unk_7A[0x2];
     f32 m_7c;
@@ -33,7 +34,15 @@ public:
     s32 m_ac;
     u8 unk_B0[0x4];
     u16 m_b4;
-    u8 unk_B6[0x32];
+    u8 unk_B6[0x2];
+    s32 m_b8;
+    u8 unk_BC[0x4];
+    f32 m_c0;
+    u8 unk_C4[0x4];
+    f32 m_c8;
+    u8 unk_CC[0x4];
+    s32 m_d0;
+    u8 unk_D4[0x14];
     u32 m_e8;
 };
 

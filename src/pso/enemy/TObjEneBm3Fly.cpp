@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBm3Fly.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -194,10 +195,10 @@ void TObjEneMoja::bindModel(int index) {
 void TObjEneBm3Fly__vt104(u8 *arg0) {
     if (((VObj800AFB60_800AFB28 *) arg0)->m8((4e+02f), (15.0f)) != 0) {
         update_player_state__9TObjEneDDFv(arg0, 0, 0);
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)arg0 + 0x24));
+        set_global_param__8TObjFishFl(((TObjEneBm3Fly *)arg0)->texture_id);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        rotate_matrix_y(0, ((TObjEneBm3Fly *)arg0)->rotation_y);
         clear_global_flag_400__9TObjEneDDFv();
         toggle_particle_effect__10TObjPlayerFv();
         draw_chunk_object(*(s32 *)((s8 *)arg0 + 0x34));
@@ -228,10 +229,10 @@ void render__13TObjEneBm3FlyFv(VObj_800AFBF0 *o) {
             update_player_state__9TObjEneDDFv(o, (s32)&v, 0);
         }
         ((TObjEneDD *)o)->update_secondary_light();
-        set_global_param__8TObjFishFl(*(s32 *)((s8 *)o + 0x24));
+        set_global_param__8TObjFishFl(((TObjEneBm3Fly *)o)->texture_id);
         push_matrix();
         translate_matrix(0, *(f32 *)((s8 *)o + 0x38), *(f32 *)((s8 *)o + 0x42C), *(f32 *)((s8 *)o + 0x40));
-        rotate_matrix_y(0, *(s32 *)((s8 *)o + 0x60));
+        rotate_matrix_y(0, ((TObjEneBm3Fly *)o)->rotation_y);
         clear_global_flag_400__9TObjEneDDFv();
         toggle_particle_effect__10TObjPlayerFv();
         set_scene_override(0x8F);
@@ -1630,7 +1631,7 @@ void TObjEneBm3Fly__vt86(u8 *arg0) {
     } else {
         ((TObjEneBm3Fly *)(arg0))->vfunc_98();
     }
-    *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 4) = temp_f31;
+    *(f32 *)((s8 *)(*(u8 * *)&((TObjEneBm3Fly *)arg0)->m_a4) + 4) = temp_f31;
 }
 
 void TObjEneBm3Fly__vt87(void* p) { vfunc_89__9TObjEneDDFv(p); clamp_flight_height__13TObjEneBm3FlyFv(p); }
@@ -2161,14 +2162,14 @@ void TObjEneBm3Fly::clamp_flight_height() {
 #define TObjEneBm3Fly__vt86 (*(void (*)())&TObjEneBm3Fly__vt86)
 #define TObjEneBm3Fly__vt87 (*(void (*)())&TObjEneBm3Fly__vt87)
 #define render__13TObjEneBm3FlyFv (*(void (*)())&render__13TObjEneBm3FlyFv)
-    *(f32 *)((s8 *)arg0 + 0x300) = *(f32 *)((s8 *)arg0 + 0x42C);
+    this->m_300 = *(f32 *)((s8 *)arg0 + 0x42C);
 }
 #pragma pop
 
 void TObjEneBm3Fly::store_position() {
     u8 *arg0 = (u8 *)this;
-    *(f32 *)((s8 *)arg0 + 0x2FC) = (f32) *(f32 *)((s8 *)arg0 + 0x38);
-    *(f32 *)((s8 *)arg0 + 0x304) = (f32) *(f32 *)((s8 *)arg0 + 0x40);
+    this->m_2fc = (f32) *(f32 *)((s8 *)arg0 + 0x38);
+    this->m_304 = (f32) *(f32 *)((s8 *)arg0 + 0x40);
     VecCopy((Vec *)(arg0 + 0x74), (const Vec *)(arg0 + 0x2FC));
 }
 
@@ -2304,7 +2305,7 @@ void TObjEneBm3Fly::run_task() {
     temp_r3_2 = (u8 *) (particle_effect);
     if (temp_r3_2 == 0)
     {
-      particle_effect = create_particle_emitter(arg0 + 0x2FC, 0xC7);
+      particle_effect = create_particle_emitter((u8 *)&this->m_2fc, 0xC7);
       temp_r3_3 = (u8 *) (particle_effect);
       if (temp_r3_3 != 0)
       {
@@ -2359,7 +2360,7 @@ extern "C" {
 void *__dt__13TObjEneBm3FlyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjEneBm3Fly;
-        if (*(void **)((s8 *)arg0 + 0x458) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x458)); *(s32 *)((s8 *)arg0 + 0x458) = 0; }
+        if (*(void * *)&((TObjEneBm3Fly *)arg0)->particle_effect != NULL) { queue_destruction__7TObjectFv(*(void * *)&((TObjEneBm3Fly *)arg0)->particle_effect); *(s32 *)((s8 *)arg0 + 0x458) = 0; }
         free_collision_body_parts(arg0);
         __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
@@ -2397,22 +2398,22 @@ void set_animation__10TObjPlayerFPvs(void *, s16);
 s32 TObjEneBm3Fly::init_child_params() {
     init_position_vectors();
     *(s32 *)((s8 *)this + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)bm3_fly_nest_resources + 0x42C)) + 8);
-    *(s32 *)((s8 *)this + 0x24) = *(s32 *)((s8 *)(*(u8 **)((s8 *)bm3_fly_nest_resources + 0x42C)) + 0xC);
+    this->texture_id = *(s32 *)((s8 *)(*(u8 **)((s8 *)bm3_fly_nest_resources + 0x42C)) + 0xC);
     init_model__9TObjEneDDFv(this, &bm3_fly_collider_params, 1);
     set_field_d8__10TObjPlayerFl(this, bm3_fly_action_table);
     set_field_dc__10TObjPlayerFl(this, *(s32 *)((s8 *)bm3_fly_nest_resources + 0x430));
-    *(s16 *)((s8 *)this + 0xB8) = 0;
-    set_animation__10TObjPlayerFPvs(this, *(s16 *)((s8 *)this + 0xB8));
-    set_field_b8(*(s16 *)((s8 *)this + 0xB8));
+    this->m_b8 = 0;
+    set_animation__10TObjPlayerFPvs(this, this->m_b8);
+    set_field_b8(this->m_b8);
     reset_hp__9TObjEneDDFv(this, bm3_fly_boss_stat_handle, TObjEneBm3Fly__attack_params, lbl_805D50E8);
     check_state_flag_1();
-    *(void **)((s8 *)this + 0x350) = bm3_fly_decision_row;
+    *(void * *)&this->movementParameters = bm3_fly_decision_row;
     initialize_enemy_state__9TObjEneDDFv(this, 3);
-    *(f32 *)((s8 *)this + 0x37C) = (5.0f);
+    this->m_37c = (5.0f);
     enemy_init_acquire_period(0xA);
     enemy_init_validate_period(0xA);
     set_active();
-    *(s32 *)((s8 *)this + 0x30) |= 0x01000000;
+    *(s32 *)&this->actorFlags |= 0x01000000;
     *(s32 *)((s8 *)this + 0x428) = 2;
     *(f32 *)((s8 *)this + 0x42C) = *(f32 *)((s8 *)this + 0x3C);
     *(f32 *)((s8 *)this + 0x430) = (0.0f);
@@ -2427,25 +2428,25 @@ s32 TObjEneBm3Fly::init_child_params() {
     *(s32 *)((s8 *)this + 0x454) = 0;
     *(s32 *)&this->particle_effect = 0;
     this->alternate_phase = 0;
-    *(s32 *)((s8 *)this + 0x3C0) = 0;
+    this->m_3c0 = 0;
     *(s32 *)((s8 *)this + 0x3C4) = 0;
-    *(s32 *)((s8 *)this + 0x3C8) = 0;
+    this->m_3c8 = 0;
     *(s32 *)((s8 *)this + 0x3CC) = 0;
-    *(s32 *)((s8 *)this + 0x3D0) = 0;
+    this->m_3d0 = 0;
     *(s32 *)((s8 *)this + 0x3D4) = 0;
-    *(s32 *)((s8 *)this + 0x3D8) = 0;
+    this->m_3d8 = 0;
     *(s32 *)((s8 *)this + 0x3DC) = 0;
-    *(f32 *)((s8 *)this + 0x3E0) = (0.0f);
+    this->m_3e0 = (0.0f);
     *(f32 *)((s8 *)this + 0x3E4) = (0.0f);
-    *(f32 *)((s8 *)this + 0x3E8) = (0.0f);
+    this->m_3e8 = (0.0f);
     *(f32 *)((s8 *)this + 0x3EC) = (0.0f);
-    *(f32 *)((s8 *)this + 0x3F0) = (0.0f);
+    this->m_3f0 = (0.0f);
     *(f32 *)((s8 *)this + 0x3F4) = (0.0f);
-    *(f32 *)((s8 *)this + 0x3F8) = (0.0f);
+    this->m_3f8 = (0.0f);
     *(f32 *)((s8 *)this + 0x3FC) = (0.0f);
-    *(f32 *)((s8 *)this + 0x400) = (0.0f);
+    this->m_400 = (0.0f);
     *(f32 *)((s8 *)this + 0x404) = (0.0f);
-    *(f32 *)((s8 *)this + 0x408) = (0.0f);
+    this->m_408 = (0.0f);
     this->mode = 0;
     return ((VObj_18_800B1F80 *)this)->m85(this->mode, 4);
 }
@@ -2455,9 +2456,9 @@ u8 *TObjEneBm3Fly__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *arg5
     ((TObjEneDD_ST *)arg0)->init_object();
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800B2168___vt__13TObjEneBm3Fly *)__vt__13TObjEneBm3Fly).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneBm3Fly__name;
-    *(u16 *)((s8 *)arg0 + 0x418) = obj_getField1c(arg2);
+    ((TObjEneBm3Fly *)arg0)->owner_id = obj_getField1c(arg2);
     ((TObjEneDD *)arg0)->init_common_from((u8 *)arg2);
-    *(s16 *)((s8 *)arg0 + 0x1C) = arg3;
+    *(s16 *)&((TObjEneBm3Fly *)arg0)->m_1c = arg3;
     *(s16 *)((s8 *)arg0 + 0x2C) = arg4;
     VecCopy((Vec *)((void *) (arg0 + 0x38)), (const Vec *)((void *) (arg5)));
     VecCopy((Vec *)((void *) (arg0 + 0x41C)), (const Vec *)((void *) (arg2 + 0x38)));

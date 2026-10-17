@@ -173,12 +173,12 @@ u8 *TWindowSubMagPhoton__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubMagPhoton__class_name;
     ((TWindowSubSymbolChatPartsSet *)(arg0 + 0x30))->copy_vec2((void *) (arg1));
     ((TUnk_804CE018 *)arg0)->save_position();
-    *(s16 *)((s8 *)arg0 + 0x20) = arg3;
-    *(s32 *)((s8 *)arg0 + 0x70) = arg2;
-    *(s8 *)((s8 *)arg0 + 0x60) = 0;
-    *(s8 *)((s8 *)arg0 + 0x61) = 1;
-    temp_r4 = *(s16 *)((s8 *)arg0 + 0x62);
-    *(s16 *)((s8 *)arg0 + 0x62) = (s16) (temp_r4 + 1);
+    ((TWindowSubMagPhoton *)arg0)->m_20 = arg3;
+    *(s32 *)&((TWindowSubMagPhoton *)arg0)->m_70 = arg2;
+    *(s8 *)&((TWindowSubMagPhoton *)arg0)->m_60 = 0;
+    *(s8 *)&((TWindowSubMagPhoton *)arg0)->m_61 = 1;
+    temp_r4 = ((TWindowSubMagPhoton *)arg0)->m_62;
+    ((TWindowSubMagPhoton *)arg0)->m_62 = (s16) (temp_r4 + 1);
     init_photon_blast_entries__19TWindowSubMagPhotonFv((void *) (arg0), (int) (temp_r4));
     return arg0;
 }

@@ -134,9 +134,9 @@ void *__ct__17TItemEffectWeaponFv(void *self, s32 arg1, s32 param) {
     *(void **)((s8 *)self + 0x18) = __vt__17TItemEffectWeapon;
     *(s32 *)((s8 *)self + 0) = TItemEffectWeapon__class_name;
     *(s32 *)((s8 *)self + 0x1C) = (s32)TItemEffectWeapon::allocate_trail_buffer();
-    *(s32 *)((s8 *)self + 0x24) = param;
-    *(s32 *)((s8 *)self + 0x20) = 0;
-    *(s32 *)((s8 *)self + 0x28) = 0;
+    *(s32 *)&((TItemEffectWeapon *)self)->color = param;
+    ((TItemEffectWeapon *)self)->vertex_count = 0;
+    ((TItemEffectWeapon *)self)->field_28 = 0;
     return self;
 }
 

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TBGLightningCtrl.h"
 #include "pso/TObject.h"
 class TBGLightning : public TObject {
 public:
@@ -118,9 +119,9 @@ void spawn_lightning_at_angle__16TBGLightningCtrlFPvi(u8 *arg0, s32 arg1) {
     typedef char sp10_offset[(offsetof(Stack_802A9A2C, sp10) == 0x8) ? 1 : -1];
     Stack_802A9A2C stack;
 
-    stack.sp8 = *(f32 *)((s8 *)arg0 + 0x68) * sin_table_lookup(arg1);
-    stack.spC = *(f32 *)((s8 *)arg0 + 0x6C);
-    stack.sp10 = *(f32 *)((s8 *)arg0 + 0x68) * cos_table_lookup(arg1);
+    stack.sp8 = ((TBGLightningCtrl *)arg0)->scale* sin_table_lookup(arg1);
+    stack.spC = ((TBGLightningCtrl *)arg0)->target_scale;
+    stack.sp10 = ((TBGLightningCtrl *)arg0)->scale* cos_table_lookup(arg1);
     ((s32 (*)(s32, s32, f32))create__12TBGLightningFiif)((s32) arg0, (s32) &stack.sp8, *(f32 *)((s8 *)arg0 + 0x70) * (((0.3f) * ((3.0517578e-05f) * (f32) rand())) + (1.0f)));
 }
 #pragma pop
@@ -134,13 +135,13 @@ void run_task__16TBGLightningCtrlFv(void *arg0) {
     f32 temp_f2;
     s32 temp_r3;
 
-    temp_r3 = *(s32 *)((s8 *)arg0 + 0x90);
-    *(s32 *)((s8 *)arg0 + 0x90) = (s32) (temp_r3 - 1);
+    temp_r3 = *(s32 *)&((TBGLightningCtrl *)arg0)->m_90;
+    *(s32 *)&((TBGLightningCtrl *)arg0)->m_90 = (s32) (temp_r3 - 1);
     if (temp_r3 <= 0) {
         temp_f2 = (f32) ((int (*)(void))rand)();
         temp_f1 = (3.0517578e-05f) * temp_f2;
         ((void (*)(void *, s32, f32, f32))spawn_lightning_at_angle__16TBGLightningCtrlFPvi)(arg0, (s32) ((65536.0f) * temp_f1), temp_f1, temp_f2);
-        *(s32 *)((s8 *)arg0 + 0x90) = (s32) (((f32) *(s32 *)((s8 *)arg0 + 0x88) * ((3.0517578e-05f) * (f32) ((int (*)(void))rand)())) + (f32) *(s32 *)((s8 *)arg0 + 0x84));
+        *(s32 *)&((TBGLightningCtrl *)arg0)->m_90 = (s32) (((f32) *(s32 *)((s8 *)arg0 + 0x88) * ((3.0517578e-05f) * (f32) ((int (*)(void))rand)())) + (f32) ((TBGLightningCtrl *)arg0)->m_84);
     }
 }
 #pragma pop
@@ -161,7 +162,7 @@ u8 *TBGLightningCtrl__ct(u8 *arg0, s32 parent, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__16TBGLightningCtrl;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBGLightningCtrl__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    *(s32 *)((s8 *)arg0 + 0x90) = 0;
+    *(s32 *)&((TBGLightningCtrl *)arg0)->m_90 = 0;
     return arg0;
 }
 

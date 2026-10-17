@@ -81,13 +81,13 @@ void *__dt__18TWindowEffectPartyFv(void *arg0, s16 arg1) {
 TWindowEffectParty::TWindowEffectParty(TObject *arg1, s8 arg2, s8 arg3, void *arg4) : TObject(arg1) {
     Pos_8024FAD8 p;
     *(s32 *)this = TWindowEffectParty__name;
-    *(s8 *)(((u8 *)this) + 0x1D) = arg2;
-    TWindowEffectParty::set_slot_position((s32)((u8 *)this), (s32)(*(s8 *)(((u8 *)this) + 0x1D)), (void *)(((u8 *)this) + 0x20));
-    *(s8 *)(((u8 *)this) + 0x1E) = arg3;
-    TWindowEffectParty::set_slot_position((s32)((u8 *)this), (s32)(*(s8 *)(((u8 *)this) + 0x1E)), (void *)(((u8 *)this) + 0x28));
+    *(s8 *)&this->m_1d = arg2;
+    TWindowEffectParty::set_slot_position((s32)((u8 *)this), (s32)(*(s8 *)&this->m_1d), (void *)(((u8 *)this) + 0x20));
+    *(s8 *)&this->m_1e = arg3;
+    TWindowEffectParty::set_slot_position((s32)((u8 *)this), (s32)(*(s8 *)&this->m_1e), (void *)(((u8 *)this) + 0x28));
     this->calc_effect_position((s32 *)(&p));
-    *(s32 *)(((u8 *)this) + 0x30) = spawn_continuous_particle_effect_with_flags(&p, arg4, 0xC0);
-    *(s8 *)(((u8 *)this) + 0x1C) = 0;
+    *(s32 *)&this->m_30 = spawn_continuous_particle_effect_with_flags(&p, arg4, 0xC0);
+    *(s8 *)&this->m_1c = 0;
 }
 extern "C" {
 

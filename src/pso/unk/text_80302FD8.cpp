@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TObjEneDellBiter_Eff_TpAbsorb1.h"
 #include "pso/system/vector.h"
 
 #include <stddef.h>
@@ -41,13 +42,13 @@ u8 *fn_80302FD8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneDellBiter_Eff_TpAbsorb1__class_name;
     *(f32 *)((s8 *)arg0 + 0xC8) = farg0;
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DEFAC;
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DEFAC;
+    ((TObjEneDellBiter_Eff_TpAbsorb1 *)arg0)->m_c4 = (f32) lbl_805DEFAC;
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg3));
     *(f32 *)((s8 *)arg0 + 0xB0) = sin_table_lookup((void *) (arg4));
-    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) lbl_805DEFAC;
+    ((TObjEneDellBiter_Eff_TpAbsorb1 *)arg0)->m_b4 = (f32) lbl_805DEFAC;
     *(f32 *)((s8 *)arg0 + 0xB8) = cos_table_lookup((void *) (arg4));
-    *(s32 *)((s8 *)arg0 + 0xBC) = arg5;
-    *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0x14) = 1;
+    ((TObjEneDellBiter_Eff_TpAbsorb1 *)arg0)->m_bc = arg5;
+    *(s32 *)((s8 *)(*(u8 * *)&((TObjEneDellBiter_Eff_TpAbsorb1 *)arg0)->m_a4) + 0x14) = 1;
     stack.spC = *(s32 *)((s8 *)(&lbl_8047512C.value) + 4);
     stack.sp8 = *(s32 *)((s8 *)(&lbl_8047512C.value) + 0);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_8047512C.value) + 8);

@@ -14,7 +14,9 @@ struct TObjEneBalClawBody : public TObjEneBalClaw {
     u32 m_3e0;
     u32 m_3e4;
     u32 m_3e8;
-    u8 unk_3D0[0x34];
+    u8 unk_3D0[0x8];
+    s16 m_3d8;
+    u8 unk_3DA[0x2A];
     static void *create(void *arg0);
 };
 

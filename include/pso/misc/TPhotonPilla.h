@@ -11,7 +11,17 @@ public:
     void sub_801ADC7C();
     virtual void render();
     virtual void run_task();
-    u8 unk_158[0x54];
+    u8 unk_158[0x24];
+    u16 m_17c;
+    u8 unk_17E[0x12];
+    u8 * m_190;
+    u8 unk_194[0x4];
+    s16 m_198;
+    u8 unk_19A[0x2];
+    s32 m_19c;
+    u8 unk_1A0[0x4];
+    s32 m_1a4;
+    u8 unk_1A8[0x4];
 };
 typedef char TPhotonPilla_size[sizeof(TPhotonPilla) == 0x1AC ? 1 : -1];
 

@@ -322,9 +322,9 @@ u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1) {
     init_collision_body_parts((void *) (arg0), (void *) (&TOAttackableCol__collision_parts.value), (int) (1));
     set_indexed_flags((void *)((void *) (arg0)), (s32)((int) (0)), (s32)((int) (0x718)));
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    *(s16 *)((s8 *)arg0 + 0x326) = 0;
+    ((TOAttackableCol *)arg0)->mode = 0;
     *(f32 *)((s8 *)arg0 + 0x334) = (f32) lbl_805DB2CC;
-    *(f32 *)((s8 *)arg0 + 0x338) = (f32) lbl_805DB2D0;
+    ((TOAttackableCol *)arg0)->m_338 = (f32) lbl_805DB2D0;
     ((TOAttackableCol *)arg0)->init_params();
     return arg0;
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjFogCollisionSwitch.h"
 #include "pso/object/TObjFogCollision.h"
 
 extern "C" {
@@ -28,7 +29,7 @@ extern void *lbl_805D2E7C;
 void *TObjFogCollisionSwitch__ct(void *arg0) {
     TObjFogCollision__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TObjFogCollisionSwitch;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D2E7C;
+    *(void * *)&((TObjFogCollisionSwitch *)arg0)->m_name = lbl_805D2E7C;
     return arg0;
 }
 

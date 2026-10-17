@@ -294,8 +294,8 @@ void TObjPlayer__sub_800AB1C8(u8 *arg0) {
   u8 *temp_r3;
   s32 new_var;
   vec3_add_to((void *) (arg0 + 0x1C), (void *) (arg0 + 0x34));
-  *((s32 *) (((s8 *) arg0) + 0x60)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x60))) + 1);
-  if (!((*((s32 *) (((s8 *) arg0) + 0x60))) & 3))
+  ((TUnk_80491460 *)arg0)->m_60 = (s32) ((((TUnk_80491460 *)arg0)->m_60) + 1);
+  if (!((((TUnk_80491460 *)arg0)->m_60) & 3))
   {
     if (csnVector((void *) (arg0 + 0x28), (void *) (arg0 + 0x1C), (int) (-1)) != 0U)
     {
@@ -311,8 +311,8 @@ void TObjPlayer__sub_800AB1C8(u8 *arg0) {
   {
     ((TNowLoading *)temp_r3)->copy_pos(arg0 + 0x1C);
   }
-  *((f32 *) (((s8 *) arg0) + 0x58)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x58))) + lbl_805D9B5C);
-  if ((*((f32 *) (((s8 *) arg0) + 0x58))) >= lbl_805D9B60)
+  ((TUnk_80491460 *)arg0)->m_58 = (f32) ((((TUnk_80491460 *)arg0)->m_58) + lbl_805D9B5C);
+  if ((((TUnk_80491460 *)arg0)->m_58) >= lbl_805D9B60)
   {
     queue_destruction__7TObjectFv(arg0);
     return;
@@ -392,35 +392,35 @@ void TObjPlayer::draw_model_no_fog() {
 void TObjPlayer__sub_800AB4F4(u8 *arg0) {
     f32 t;
     f32 var_f1;
-    switch (*(s16 *)((s8 *)arg0 + 0xAE)) {
+    switch (((TUnk_80491478 *)arg0)->m_ae) {
     case 0: {
         Vec_800AB4F4 v = *(Vec_800AB4F4 *)(arg0 + 0xF0);
         v.x += *(f32 *)((s8 *)arg0 + 0xB0);
         v.z += *(f32 *)((s8 *)arg0 + 0xB8);
         v.y += 5.0f;
         if (project_actor_to_ground((void *) arg0, &v, 0) == 1) {
-            *(f32 *)((s8 *)arg0 + 0xF0) = v.x;
-            *(f32 *)((s8 *)arg0 + 0xF8) = v.z;
+            ((TUnk_80491478 *)arg0)->m_f0 = v.x;
+            ((TUnk_80491478 *)arg0)->m_f8 = v.z;
             if (*(f32 *)((s8 *)arg0 + 0xF4) < v.y) {
                 *(f32 *)((s8 *)arg0 + 0xF4) = v.y;
-                *(f32 *)((s8 *)arg0 + 0xB4) = 0.6f * fabs_float(*(f32 *)((s8 *)arg0 + 0xB4));
+                ((TUnk_80491478 *)arg0)->m_b4 = 0.6f * fabs_float(((TUnk_80491478 *)arg0)->m_b4);
             }
-            if ((v.y - *(f32 *)((s8 *)arg0 + 0xE8)) > 2.0f) {
-                *(s16 *)((s8 *)arg0 + 0xAE) = 1;
+            if ((v.y - ((TUnk_80491478 *)arg0)->m_e8) > 2.0f) {
+                ((TUnk_80491478 *)arg0)->m_ae = 1;
             } else {
-                *(f32 *)((s8 *)arg0 + 0xE8) = v.y;
+                ((TUnk_80491478 *)arg0)->m_e8 = v.y;
             }
         }
         if (xz_distance_squared((void *) (arg0 + 0xF0), (void *) (arg0 + 0xDC)) >= *(f32 *)((s8 *)arg0 + 0xEC) * *(f32 *)((s8 *)arg0 + 0xEC)) {
-            *(s16 *)((s8 *)arg0 + 0xAE) = 1;
+            ((TUnk_80491478 *)arg0)->m_ae = 1;
         }
     }
     case 1:
-        *(f32 *)((s8 *)arg0 + 0xF4) += *(f32 *)((s8 *)arg0 + 0xB4);
-        *(f32 *)((s8 *)arg0 + 0xB4) += -0.10888889f;
-        if (*(f32 *)((s8 *)arg0 + 0xF4) < *(f32 *)((s8 *)arg0 + 0xE8)) {
-            *(f32 *)((s8 *)arg0 + 0xF4) = *(f32 *)((s8 *)arg0 + 0xE8);
-            *(f32 *)((s8 *)arg0 + 0xB4) = 0.0f;
+        *(f32 *)((s8 *)arg0 + 0xF4) += ((TUnk_80491478 *)arg0)->m_b4;
+        ((TUnk_80491478 *)arg0)->m_b4 += -0.10888889f;
+        if (*(f32 *)((s8 *)arg0 + 0xF4) < ((TUnk_80491478 *)arg0)->m_e8) {
+            *(f32 *)((s8 *)arg0 + 0xF4) = ((TUnk_80491478 *)arg0)->m_e8;
+            ((TUnk_80491478 *)arg0)->m_b4 = 0.0f;
         }
         break;
     case 2:
@@ -428,17 +428,17 @@ void TObjPlayer__sub_800AB4F4(u8 *arg0) {
         subtract_vector((void *) (arg0 + 0xB0), (void *) (arg0 + 0xF0));
         if (*(f32 *)((s8 *)arg0 + 0xB0) * *(f32 *)((s8 *)arg0 + 0xB0) + *(f32 *)((s8 *)arg0 + 0xB8) * *(f32 *)((s8 *)arg0 + 0xB8) > 25.0f) {
             t = 0.8f / newton_sqrtf();
-            *(f32 *)((s8 *)arg0 + 0xF0) = *(f32 *)((s8 *)arg0 + 0xB0) * t + *(f32 *)((s8 *)arg0 + 0xF0);
-            *(f32 *)((s8 *)arg0 + 0xF8) = *(f32 *)((s8 *)arg0 + 0xB8) * t + *(f32 *)((s8 *)arg0 + 0xF8);
-        } else if (fabs_float(*(f32 *)((s8 *)arg0 + 0xB4)) > 5.0f) {
-            if (*(f32 *)((s8 *)arg0 + 0xB4) > 0.0f) {
+            ((TUnk_80491478 *)arg0)->m_f0 = *(f32 *)((s8 *)arg0 + 0xB0) * t + ((TUnk_80491478 *)arg0)->m_f0;
+            ((TUnk_80491478 *)arg0)->m_f8 = *(f32 *)((s8 *)arg0 + 0xB8) * t + ((TUnk_80491478 *)arg0)->m_f8;
+        } else if (fabs_float(((TUnk_80491478 *)arg0)->m_b4) > 5.0f) {
+            if (((TUnk_80491478 *)arg0)->m_b4> 0.0f) {
                 var_f1 = 0.8f;
             } else {
                 var_f1 = -0.8f;
             }
             *(f32 *)((s8 *)arg0 + 0xF4) += var_f1;
         } else {
-            *(s16 *)((s8 *)arg0 + 0xAE) = 3;
+            ((TUnk_80491478 *)arg0)->m_ae = 3;
         }
         break;
     case 3:
@@ -470,13 +470,13 @@ u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4) {
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_80491478;
     *(s16 *)((s8 *)arg0 + 0xAC) = arg1;
     *(s16 *)((s8 *)arg0 + 0xD4) = obj_getField1c((void *) (arg2));
-    *(s16 *)((s8 *)arg0 + 0xAE) = 0;
+    ((TUnk_80491478 *)arg0)->m_ae = 0;
     t = player_sub_800ab7a0_id_table[arg1];
-    *(s32 *)((s8 *)arg0 + 0xD8) = arg3;
-    *(s32 *)((s8 *)arg0 + 0xC8) = TBoss3Volopt::collect_and_count((u32)((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D5090 + 0x42C)) + 0x18))), (s32)t);
+    ((TUnk_80491478 *)arg0)->m_d8 = arg3;
+    ((TUnk_80491478 *)arg0)->m_c8 = TBoss3Volopt::collect_and_count((u32)((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D5090 + 0x42C)) + 0x18))), (s32)t);
     *(Vec_800AB7A0 **)((s8 *)arg0 + 0xCC) = &((Arr_800AB7A0 *)arg2)->arr[arg1];
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xF0), (void *) VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xDC), (void *) (arg4)));
-    *(f32 *)((s8 *)arg0 + 0xE8) = 3.0f + *(f32 *)((s8 *)arg2 + 0x3C);
+    ((TUnk_80491478 *)arg0)->m_e8 = 3.0f + *(f32 *)((s8 *)arg2 + 0x3C);
     ((s32 (*)(void *, f32)) push_matrix_from)((void *) &identity_matrix, 3.0f);
     v.x = v.y = 0.0f;
     v.z = -2.0f;
@@ -490,7 +490,7 @@ u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4) {
         *(f32 *)((s8 *)arg0 + 0xEC) = (10.0f > horizontal_distance__10TObjPlayerFPUc(arg0 + 0xF0, *(s32 *)((s8 *)temp_r3 + 4)) - 5.0f) ? 10.0f : horizontal_distance__10TObjPlayerFPUc(arg0 + 0xF0, *(s32 *)((s8 *)temp_r3 + 4)) - 5.0f;
     }
     pop_matrix();
-    *(f32 *)((s8 *)arg0 + 0xB4) = 0.0f;
+    ((TUnk_80491478 *)arg0)->m_b4 = 0.0f;
     obj = __nw__7TObjectFUl(0x348);
     if (obj != NULL) {
         obj = (void *) TObjPlayer__sub_800A4204(obj, arg0, *(void **)((s8 *)arg0 + 0xCC), arg0 + 0xF0, 0x10);

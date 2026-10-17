@@ -325,7 +325,7 @@ u8 *TTecZonde__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4) {
     copy_technique_target_list(arg0 + 0x130, arg3);
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C));
     if (temp_r3 != NULL) {
-        *(u16 *)((s8 *)arg0 + 0xC8) = obj_getField1c(temp_r3);
+        ((TTecZonde *)arg0)->sourceId = obj_getField1c(temp_r3);
     }
     return arg0;
 }

@@ -102,12 +102,12 @@ void *TItemReverseTech__ct(void *arg0) {
     void *o2;
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TItemReverseTech;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D2C48;
+    *(void * *)&((TItemReverseTech *)arg0)->m_name = lbl_805D2C48;
     o = __nw__7TObjectFUl(0x34);
     if (o != NULL) {
         o = TItemReverseTechPart1__ct(o, arg0, TItemReverseTech__texture_archive);
     }
-    *(void **)((s8 *)arg0 + 0x20) = o;
+    *(void * *)&((TItemReverseTech *)arg0)->part_one = o;
     *(u32 *)((s8 *)arg0 + 0x24) = 0;
     o2 = __nw__7TObjectFUl(0x197C);
     if (o2 != NULL) {

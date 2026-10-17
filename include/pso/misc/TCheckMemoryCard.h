@@ -12,7 +12,9 @@ struct TCheckMemoryCard : public TObject {
     u32 m_20;
     u8 _pad24[0x4];
     u32 m_28;
-    u8 _pad2C[0xC];
+    u8 unk_2C[0x4];
+    void * m_30;
+    u8 unk_34[0x4];
     u32 m_38;
     u32 m_3c;
     u8 _pad40[0x8];

@@ -134,7 +134,7 @@ void render__12TWindowTimerFv(s32 arg0) {
 
 void run_task__12TWindowTimerFv(u8 *arg0) {
   int temp_r31;
-  if ((*((s32 *) (((s8 *) arg0) + 0x60))) & 1)
+  if ((*(s32 *)&((TWindowTimer *)arg0)->m_60) & 1)
   {
     temp_r31 = get_timer_value__12TWindowTimerFi((int) 1);
     ((TWindowTimer *)arg0)->draw((s32)((int) get_timer_value__12TWindowTimerFi((int) 0)), (s32)((int) temp_r31));
@@ -158,7 +158,7 @@ u8 *TWindowTimer__ct(u8 *arg0) {
     ((TWindowDD *)arg0)->construct_base((u8 *)(&lbl_804D2E74.value), (s16)4, (u8 *)(get_zero_vec2()));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80287FBC___vt__12TWindowTimer *)&__vt__12TWindowTimer).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowTimer__name;
-    *(s32 *)((s8 *)arg0 + 0x60) = 0;
+    *(s32 *)&((TWindowTimer *)arg0)->m_60 = 0;
     ((TWindowTimer *)arg0)->update_chat_parts();
     ((TUnk_804CE018 *)arg0)->save_position();
     return arg0;

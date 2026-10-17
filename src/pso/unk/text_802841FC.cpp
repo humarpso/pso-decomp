@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubSymbolChatFaceType.h"
 #include "pso/misc/TWindowDD.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -26,15 +27,15 @@ u8 *TWindowSubSymbolChatFaceType__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TWindowDD *)arg0)->construct_base((u8 *)((s32) &lbl_804D2CE0.value), (s16)4, (u8 *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__28TWindowSubSymbolChatFaceType.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubSymbolChatFaceType__name;
-    *(s8 *)((s8 *)arg0 + 0x60) = 0;
-    *(s8 *)((s8 *)arg0 + 0x61) = 0;
-    *(s8 *)((s8 *)arg0 + 0x62) = 0;
-    *(s32 *)((s8 *)arg0 + 0x64) = arg2;
+    *(s8 *)&((TWindowSubSymbolChatFaceType *)arg0)->m_60 = 0;
+    *(s8 *)&((TWindowSubSymbolChatFaceType *)arg0)->m_61 = 0;
+    *(s8 *)&((TWindowSubSymbolChatFaceType *)arg0)->m_62 = 0;
+    *(s32 *)&((TWindowSubSymbolChatFaceType *)arg0)->m_64 = arg2;
     var_r31 = ((TAdSinglePlyChrSelectGC *)((void *)0x24))->alloc();
     if (var_r31 != 0) {
-        var_r31 = construct_type1_heading__20TWindowSubStatusDispFll(var_r31, get_message_10__20TWindowSubStatusDispFl((int) (0x33)), (s32) *(s16 *)((s8 *)arg0 + 0x20));
+        var_r31 = construct_type1_heading__20TWindowSubStatusDispFll(var_r31, get_message_10__20TWindowSubStatusDispFl((int) (0x33)), (s32) ((TWindowSubSymbolChatFaceType *)arg0)->m_20);
     }
-    *(s32 *)((s8 *)arg0 + 0x68) = var_r31;
+    *(s32 *)&((TWindowSubSymbolChatFaceType *)arg0)->m_68 = var_r31;
     return arg0;
 }
 

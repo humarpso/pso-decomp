@@ -100,7 +100,7 @@ void TObjBoss5Pillar::run_task() {
 void *__dt__15TObjBoss5PillarFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjBoss5Pillar;
-        if (*(void **)((s8 *)arg0 + 0x48) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x48)); *(s32 *)((s8 *)arg0 + 0x48) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x48) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x48)); *(s32 *)&((TObjBoss5Pillar *)arg0)->m_48 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -114,15 +114,15 @@ u8 *TObjBoss5Pillar__ct(u8 *arg0, u8 *arg1, u8 *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8028B60C___vt__15TObjBoss5Pillar *)&__vt__15TObjBoss5Pillar).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3B40;
     VecCopy((Vec *)(arg0 + 0x2C), (const Vec *)arg2);
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
+    *(s32 *)&((TObjBoss5Pillar *)arg0)->m_1c = 0;
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) lbl_805DD918;
-    *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805DD91C;
-    *(s32 *)((s8 *)arg0 + 0x28) = 0;
-    *(s32 *)((s8 *)arg0 + 0x48) = 0;
-    *(s32 *)((s8 *)arg0 + 0x38) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x42C)) + 8);
-    *(s32 *)((s8 *)arg0 + 0x3C) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x42C)) + 0x18);
-    *(s32 *)((s8 *)arg0 + 0x40) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x430)) + 0x14);
-    *(s32 *)((s8 *)arg0 + 0x44) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x430)) + 0x1C);
+    ((TObjBoss5Pillar *)arg0)->m_24 = (f32) lbl_805DD91C;
+    *(s32 *)&((TObjBoss5Pillar *)arg0)->m_28 = 0;
+    *(s32 *)&((TObjBoss5Pillar *)arg0)->m_48 = 0;
+    *(s32 *)&((TObjBoss5Pillar *)arg0)->m_38 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x42C)) + 8);
+    *(s32 *)&((TObjBoss5Pillar *)arg0)->m_3c = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x42C)) + 0x18);
+    *(s32 *)&((TObjBoss5Pillar *)arg0)->m_40 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x430)) + 0x14);
+    *(s32 *)&((TObjBoss5Pillar *)arg0)->m_44 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x430)) + 0x1C);
     return arg0;
 }
 

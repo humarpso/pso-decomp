@@ -99,14 +99,14 @@ u8 *TObjDoaEx01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_collision_body_parts((void *) (arg0), (void *) (&TObjDoaEx01__collision_body_parts.value), (int) (1));
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    *(f32 *)((s8 *)arg0 + 0xB0) = (f32) TObjDoaEx01__data_805DBDA0;
-    *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DBDBC;
+    ((TObjDoaEx01 *)arg0)->m_b0 = (f32) TObjDoaEx01__data_805DBDA0;
+    ((TObjDoaEx01 *)arg0)->m_b8 = (f32) lbl_805DBDBC;
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) *(u32 *)((s8 *)(get_bml_motion((*(s32 *)&TObjDoaEx01__resource_bundle), 0)) + 4);
-    *(s32 *)((s8 *)arg0 + 0xD0) = 0x100001;
+    ((TObjDoaEx01 *)arg0)->m_d0 = 0x100001;
     *(f32 *)((s8 *)arg0 + 0xD4) = (f32) TObjDoaEx01__data_805DBDA8;
-    *(f32 *)((s8 *)arg0 + 0xD8) = (f32) TObjDoaEx01__data_805DBDA8;
+    ((TObjDoaEx01 *)arg0)->m_d8 = (f32) TObjDoaEx01__data_805DBDA8;
     *(f32 *)((s8 *)arg0 + 0xDC) = (f32) TObjDoaEx01__data_805DBDA8;
-    *(f32 *)((s8 *)arg0 + 0xE0) = (f32) TObjDoaEx01__data_805DBDA8;
+    ((TObjDoaEx01 *)arg0)->m_e0 = (f32) TObjDoaEx01__data_805DBDA8;
     return arg0;
 }
 

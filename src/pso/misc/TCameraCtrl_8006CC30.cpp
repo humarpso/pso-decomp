@@ -363,13 +363,13 @@ typedef char RecoveredGlobal_8006CDD0_lbl_80488DF4_size[sizeof(RecoveredGlobal_8
 s32 TCameraCtrl__sub_8006CDD0(u8 *arg0) {
     u8 *player;
     if ((u8) TCameraCtrl__override_flags != 0) {
-        *(s32 *)((s8 *)arg0 + 0x38) = 0;
+        ((TUnk_80488E00 *)arg0)->m_38 = 0;
         VecCopy((Vec *)(arg0 + 0x3C), (const Vec *)(&(*(RecoveredGlobal_8006CDD0_TCameraCtrl__data_80488DE8 *)&TCameraCtrl__override_position).value));
         if (TCameraCtrl__override_flags & 2) {
             player = (u8 *)(get_player_by_client_id((u32) TCameraCtrl__camera_override_client_id));
             if (player != NULL) {
                 *(f32 *)((s8 *)arg0 + 0x48) = (f32) *(f32 *)((s8 *)player + 0x38);
-                *(f32 *)((s8 *)arg0 + 0x4C) = (f32) ((19.8f) + *(f32 *)((s8 *)player + 0x3C));
+                ((TUnk_80488E00 *)arg0)->m_4c = (f32) ((19.8f) + *(f32 *)((s8 *)player + 0x3C));
                 *(f32 *)((s8 *)arg0 + 0x50) = (f32) *(f32 *)((s8 *)player + 0x40);
             }
         } else {
@@ -808,7 +808,7 @@ void TUnk_80488E00::update_follow_flags() {
     this->select_follow_camera_offsets();
 }
 
-void TCameraCtrl__sub_8006DCC8(void* p) { *(s32*)((char*)p + 0xfc) = 0; }
+void TCameraCtrl__sub_8006DCC8(void* p) { ((TUnk_80488E00 *)p)->m_fc = 0; }
 
 void TUnk_80488E00::vfunc_9(u8 *arg1, u8 *arg2) {
     struct RecoveredFields_8006DCD4_arg0 *arg0 = (struct RecoveredFields_8006DCD4_arg0 *)this;
@@ -1103,7 +1103,7 @@ void *TCameraCtrl::construct_view_controller(void *arg0) {
 #undef O_8006E714
 
 s32 TCameraCtrl::set_field_100(s32 v) { *(s32 *)&this->unk_100 = v; }
-s32 TCameraCtrl__sub_8006E7FC(void* p) { return *(s32*)((char*)p + 0x10c); }
+s32 TCameraCtrl__sub_8006E7FC(void* p) { return ((TUnk_80488E00 *)p)->m_10c; }
 
 void TCameraCtrl__sub_8006E804(void* a0) { *(int*)((char*)a0 + 0x18) = 0; *(float*)((char*)a0 + 0x0) = (0.0f); *(float*)((char*)a0 + 0x4) = (0.0f); *(float*)((char*)a0 + 0x8) = (0.0f); *(float*)((char*)a0 + 0xc) = (0.0f); *(float*)((char*)a0 + 0x10) = (0.0f); *(float*)((char*)a0 + 0x14) = (0.0f); }
 

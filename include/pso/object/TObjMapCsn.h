@@ -8,7 +8,8 @@ struct TObjMapCsn : public TUnk_804AF8A0 {
     virtual ~TObjMapCsn();
     u32 m_ac;
     void* m_b0;
-    u8 _padB4[0xC];
+    u8 unk_B4[0x8];
+    f32 m_bc;
     u32 m_c0;
     u32 m_c4;
     u32 m_c8;

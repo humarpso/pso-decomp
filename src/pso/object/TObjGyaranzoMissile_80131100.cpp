@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804A6CC8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/object/TUnk_804A6DC0.h"
 
@@ -42,7 +43,7 @@ int get_player_list__10TObjPlayerFv(void*);
     extern const float lbl_805DB038;
     extern const float lbl_805DB044;
     extern const float lbl_805DB04C;
-void* yasminkov_2000h_ct(void* a0, s32 _w1, s32 _w2) { TItemWeapon__ct(); *(int*)((char*)a0 + 0x18) = (int)lbl_804A6CC8; *(int*)((char*)a0 + 0x1f0) = 0; *(int*)((char*)a0 + 0x1ec) = (int)spawn_weapon_impact_effect; *(float*)((char*)a0 + 0x1e4) = lbl_805DB04C; *(int*)((char*)a0 + 0x1f8) = 0; *(float*)((char*)a0 + 0x204) = lbl_805DB038; *(float*)((char*)a0 + 0x200) = lbl_805DB038; *(float*)((char*)a0 + 0x1fc) = lbl_805DB038; *(int*)((char*)a0 + 0x208) = 0; *(float*)((char*)a0 + 0x214) = lbl_805DB044; *(float*)((char*)a0 + 0x210) = lbl_805DB044; *(float*)((char*)a0 + 0x20c) = lbl_805DB044; return a0; }
+void* yasminkov_2000h_ct(void* a0, s32 _w1, s32 _w2) { TItemWeapon__ct(); *(int*)((char*)a0 + 0x18) = (int)lbl_804A6CC8; *(int*)((char*)a0 + 0x1f0) = 0; *(int*)((char*)a0 + 0x1ec) = (int)spawn_weapon_impact_effect; *(float*)((char*)a0 + 0x1e4) = lbl_805DB04C; *(int*)((char*)a0 + 0x1f8) = 0; *(float *)&((TUnk_804A6CC8 *)a0)->m_204 = lbl_805DB038; *(float*)((char*)a0 + 0x200) = lbl_805DB038; *(float *)&((TUnk_804A6CC8 *)a0)->m_1fc = lbl_805DB038; *(int*)((char*)a0 + 0x208) = 0; *(float*)((char*)a0 + 0x214) = lbl_805DB044; *(float *)&((TUnk_804A6CC8 *)a0)->m_210 = lbl_805DB044; ((TUnk_804A6CC8 *)a0)->m_20c = lbl_805DB044; return a0; }
 
 u8 *create_yasminkov_2000h(s32 arg0) {
     u8 *temp_r3;
@@ -120,7 +121,7 @@ void *__dt__13TUnk_804A6DC0Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void* yasminkov_7000v_ct(void* a0, s32 _w1, void * _w2) { TItemWeapon__ct(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_804A6DC0); *(int*)((char*)a0 + 0x1f0) = 0; *(int*)((char*)a0 + 0x1ec) = (int)spawn_weapon_impact_effect; *(float*)((char*)a0 + 0x1e4) = lbl_805DB060; *(int*)((char*)a0 + 0x1f8) = 0; *(float*)((char*)a0 + 0x204) = lbl_805DB054; *(float*)((char*)a0 + 0x200) = lbl_805DB054; *(float*)((char*)a0 + 0x1fc) = lbl_805DB054; return a0; }
+void* yasminkov_7000v_ct(void* a0, s32 _w1, void * _w2) { TItemWeapon__ct(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_804A6DC0); *(int*)((char*)a0 + 0x1f0) = 0; *(int*)((char*)a0 + 0x1ec) = (int)spawn_weapon_impact_effect; *(float*)((char*)a0 + 0x1e4) = lbl_805DB060; *(int*)((char*)a0 + 0x1f8) = 0; *(float*)((char*)a0 + 0x204) = lbl_805DB054; *(float *)&((TUnk_804A6DC0 *)a0)->m_200 = lbl_805DB054; ((TUnk_804A6DC0 *)a0)->m_1fc = lbl_805DB054; return a0; }
 u8 *create_yasminkov_7000v(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;

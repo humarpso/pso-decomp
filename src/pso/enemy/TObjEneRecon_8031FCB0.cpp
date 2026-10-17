@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecobox.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -375,7 +376,7 @@ void fn_8031FD3C(u8 *arg0) {
     }
     if (((TObjEneRecobox *)(arg0))->vfunc_83() != 4) {
         ((TObjEneRecobox *)(arg0))->vfunc_85();
-    } else if ((s16) *(s16 *)((s8 *)arg0 + 0x326) == 1) {
+    } else if ((s16) ((TObjEneRecobox *)arg0)->mode == 1) {
         transition_enemy_state((void *) (arg0), (int) (0));
     }
     ((TObjEneRecobox *)(arg0))->vfunc_88();
@@ -411,29 +412,29 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     invoke_initialization_hook__9TObjEneDDFv(arg0, arg2);
     ((TObjEneDD *)arg0)->init_position_vectors();
     *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneRecobox__static_instance + 0x42C)) + 0x18);
-    *(s32 *)((s8 *)arg0 + 0x24) = *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneRecobox__static_instance + 0x42C)) + 0x1C);
+    ((TObjEneRecobox *)arg0)->texture_id = *(s32 *)((s8 *)(*(u8 **)((s8 *)TObjEneRecobox__static_instance + 0x42C)) + 0x1C);
     init_model__9TObjEneDDFv(arg0, lbl_804EC684, 1);
-    *(f32 *)((s8 *)arg0 + 0x300) = lbl_805DF464 + *(f32 *)((s8 *)arg0 + 0x3C);
+    ((TObjEneRecobox *)arg0)->m_300 = lbl_805DF464 + *(f32 *)((s8 *)arg0 + 0x3C);
     ((TObjEneRecobox *)arg0)->vfunc_88();
     ((TObjPlayer *)arg0)->set_field_d8((s32)TObjEneRecobox__animation_entries);
     ((TObjPlayer *)arg0)->set_field_dc(*(s32 *)((s8 *)TObjEneRecobox__static_instance + 0x430));
-    *(s16 *)((s8 *)arg0 + 0xB8) = 0;
-    set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
+    ((TObjEneRecobox *)arg0)->m_b8 = 0;
+    set_animation__10TObjPlayerFPvs(arg0, ((TObjEneRecobox *)arg0)->m_b8);
+    ((TObjMotion *)arg0)->set_field_b8(((TObjEneRecobox *)arg0)->m_b8);
     reset_hp__9TObjEneDDFv(arg0, recobox_boss_register_id, lbl_805D6B14, TObjEneRecobox__shared_object_handle);
     ((TObjEneDD *)arg0)->check_state_flag_4();
-    *(u8 **)((s8 *)arg0 + 0x350) = TObjEneRecobox__attack_params;
+    *(u8 * *)&((TObjEneRecobox *)arg0)->movementParameters = TObjEneRecobox__attack_params;
     initialize_enemy_state__9TObjEneDDFv(arg0, 0x43);
-    *(f32 *)((s8 *)arg0 + 0x37C) = lbl_805DF468;
+    ((TObjEneRecobox *)arg0)->m_37c = lbl_805DF468;
     ((TObjEneRecobox *)arg0)->sub_8031F800();
     n = *(s16 *)((s8 *)arg2 + 2);
     if (n <= 1) {
-        *(s32 *)((s8 *)arg0 + 0x3F4) = 0;
-    } else if (*(s32 *)((s8 *)arg0 + 0x3F4) >= n) {
-        *(s32 *)((s8 *)arg0 + 0x3F4) = n - 1;
+        *(s32 *)&((TObjEneRecobox *)arg0)->m_410 = 0;
+    } else if (*(s32 *)&((TObjEneRecobox *)arg0)->m_410 >= n) {
+        *(s32 *)&((TObjEneRecobox *)arg0)->m_410 = n - 1;
     }
-    if (*(s32 *)((s8 *)arg0 + 0x3F8) > *(s32 *)((s8 *)arg0 + 0x3F4)) {
-        *(s32 *)((s8 *)arg0 + 0x3F8) = *(s32 *)((s8 *)arg0 + 0x3F4);
+    if (*(s32 *)&((TObjEneRecobox *)arg0)->m_414> *(s32 *)&((TObjEneRecobox *)arg0)->m_410) {
+        *(s32 *)&((TObjEneRecobox *)arg0)->m_414 = *(s32 *)&((TObjEneRecobox *)arg0)->m_410;
     }
     for (i = 0; i < 4; i++) {
         S->f3fc[i] = 0;
@@ -460,9 +461,9 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s32 *)((s8 *)arg0 + 0x4E4) = 0;
     *(s32 *)((s8 *)arg0 + 0x4E8) = 0;
     *(s32 *)((s8 *)arg0 + 0x4EC) = 0;
-    *(f32 *)((s8 *)arg0 + 0x4F0) = lbl_805DF46C;
-    *(s16 *)((s8 *)arg0 + 0x326) = 0;
-    ((VObj_18_b2458f *)arg0)->m85(*(s16 *)((s8 *)arg0 + 0x326), 4);
+    ((TObjEneRecobox *)arg0)->m_4f0 = lbl_805DF46C;
+    ((TObjEneRecobox *)arg0)->mode = 0;
+    ((VObj_18_b2458f *)arg0)->m85(((TObjEneRecobox *)arg0)->mode, 4);
     return arg0;
 }
 

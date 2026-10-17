@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TBoss4CheckEmpty.h"
 
 extern "C" {
 
@@ -11,7 +12,7 @@ extern void *lbl_805D4318;
 void *__ct__16TBoss4CheckEmptyFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TBoss4CheckEmpty;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D4318;
+    *(void * *)&((TBoss4CheckEmpty *)arg0)->m_name = lbl_805D4318;
     *(u32 *)((s8 *)arg0 + 0x1C) = 0;
     return arg0;
 }

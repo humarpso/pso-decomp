@@ -251,22 +251,22 @@ void run_task__20TWindowActionPaletteFv(u8 *arg0) {
     u16 target;
     u8 cnt;
     u8 *help;
-    player = get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20));
+    player = get_player_by_client_id(((TWindowActionPalette *)arg0)->m_20);
     if (player == 0 || (effect = ((TObjPlayer *)player)->refresh_effect()) == 0) {
         return;
     }
     if (!(*(s32 *)((s8 *)arg0 + 0x2C) & 2)) {
-        *(s32 *)((s8 *)arg0 + 0x5C) = 0x01000000;
+        ((TWindowActionPalette *)arg0)->m_5c = 0x01000000;
     }
-    slot = is_player_input_active(*(s16 *)((s8 *)arg0 + 0x20));
-    if (is_on_current_screen__11TCameraCtrlFv(controller_input_state + slot * 0x50 + 0x20, fn_8002AE08(*(s16 *)((s8 *)arg0 + 0x20))) != 0) {
-        *(u8 *)((s8 *)arg0 + 0x6C) = 3;
+    slot = is_player_input_active(((TWindowActionPalette *)arg0)->m_20);
+    if (is_on_current_screen__11TCameraCtrlFv(controller_input_state + slot * 0x50 + 0x20, fn_8002AE08(((TWindowActionPalette *)arg0)->m_20)) != 0) {
+        ((TWindowActionPalette *)arg0)->state = 3;
     }
     help = (u8 *)get_array_entry__13TUnk_804CE018Fi(SELF, 0);
-    set_help_text__15TWindowHelpItemFll(help, *(s16 *)((s8 *)arg0 + 0x20));
-    cnt = *(u8 *)((s8 *)arg0 + 0x6C);
+    set_help_text__15TWindowHelpItemFll(help, ((TWindowActionPalette *)arg0)->m_20);
+    cnt = ((TWindowActionPalette *)arg0)->state;
     if ((s8)cnt > 0) {
-        *(u8 *)((s8 *)arg0 + 0x6C) = cnt - 1;
+        ((TWindowActionPalette *)arg0)->state = cnt - 1;
         *(s32 *)((s8 *)help + 0x2C) = -1;
     } else {
         *(s32 *)((s8 *)help + 0x2C) = 0xFF666666;
@@ -278,7 +278,7 @@ void run_task__20TWindowActionPaletteFv(u8 *arg0) {
     } else {
         ((TWindowActionPalette *)arg0)->update_slot_sprites(0, 7, v);
     }
-    if (TObjPlayer__sub_80354D5C((u16)*(s16 *)((s8 *)arg0 + 0x20)) != 0 && ((TWindowActionPalette *)(player + 0x500))->handle_input_forward() != 0) {
+    if (TObjPlayer__sub_80354D5C((u16)((TWindowActionPalette *)arg0)->m_20) != 0 && ((TWindowActionPalette *)(player + 0x500))->handle_input_forward() != 0) {
         TWindowActionPalette::update_slot_icon((void *)(arg0), (int)(1), (int)(7), (int)(7));
     } else {
         v = get_entry_by_index__20TWindowActionPaletteFPll(effect, 2);
@@ -287,7 +287,7 @@ void run_task__20TWindowActionPaletteFv(u8 *arg0) {
     v = get_entry_by_index__20TWindowActionPaletteFPll(effect, 3);
     ((TWindowActionPalette *)arg0)->update_slot_sprites(2, get_slot_type_for_index__20TWindowActionPaletteFPll(effect, 3), v);
     target = TObjPlayer::get_current_target_id();
-    if (target == 0xFFFF || target == *(s16 *)((s8 *)arg0 + 0x20) || ((TItemMag *)player)->get_sub_value() <= 0) {
+    if (target == 0xFFFF || target == ((TWindowActionPalette *)arg0)->m_20|| ((TItemMag *)player)->get_sub_value() <= 0) {
         if (((TWindowActionPalette *)(player + 0x500))->handle_input_forward() != 0) {
             if (is_split_screen() != 0) {
                 ((TWindowActionPalette *)SELF)->set_bank_panel_art(3);

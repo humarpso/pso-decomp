@@ -81,7 +81,7 @@ void TObjPlayer::set_code_45_1() { *(u8*)((char*)this + 0x0) = 45; *(u8*)((char*
 void TObjPlayer::send_lobby_update_font() { TFontSmallLobby__sub_801C01BC(this); TLobby__send_and_handle_60(this); }
 void bswap_pkt_u16x2_u32__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFv(p); bswap_16((u16 *)((char*)p + 0x4)); bswap_16((u16 *)((char*)p + 0x6)); bswap_32((u32 *)((char*)p + 0x10)); ((TObjPlayer *)((char*)p + 0x8))->bswap_pkt_u32x2(); }
 void TObjPlayer::build_6x2C_impose_hold_packet() {
-    *(s16 *)((s8 *)((u8 *)this) + 4) = 0;
+    *(s16 *)&this->m_flags = 0;
     *(s16 *)&this->m_id = 0;
     *(f32 *)((s8 *)((u8 *)this) + 0xC) = (f32) TObjPlayer__data_805DC278;
     *(f32 *)((s8 *)((u8 *)this) + 8) = (f32) TObjPlayer__data_805DC278;
@@ -141,7 +141,7 @@ void swap_endian__10TObjPlayerFi(s32 arg0) {
 }
 
 void TObjPlayer::build_6x30_change_level_packet() {
-    *(s16 *)((s8 *)((u8 *)this) + 4) = 0;
+    *(s16 *)&this->m_flags = 0;
     *(s16 *)&this->m_id = 0;
     *(s16 *)((s8 *)((u8 *)this) + 8) = 0;
     *(s16 *)((s8 *)((u8 *)this) + 0xA) = 0;
@@ -319,7 +319,7 @@ u8 *TObjPlayer__sub_801C106C(u8 *arg0, u8 *arg1) {
 }
 
 void TObjPlayer::init_6x2A() {
-    *(s16 *)((s8 *)((u8 *)this) + 4) = 0;
+    *(s16 *)&this->m_flags = 0;
     *(s16 *)&this->m_id = 0;
     *(s32 *)((s8 *)((u8 *)this) + 8) = -1;
     *(f32 *)((s8 *)((u8 *)this) + 0x14) = (f32) TObjPlayer__data_805DC278;
@@ -335,13 +335,13 @@ void TObjPlayer::bswap_body_words() { read_be16_field2__10TObjPlayerFv(this); bs
 
 void *TObjPlayer::copy_short_fields(void *arg1) {
     TFontSmallLobby__sub_801C0228((void *)((void *)(this)), (void *)(arg1));
-    *(s16 *)((s8 *)this + 4) = (s16) *(s16 *)((s8 *)arg1 + 4);
+    *(s16 *)&this->m_flags = (s16) *(s16 *)((s8 *)arg1 + 4);
     *(s16 *)&this->m_id = (s16) *(s16 *)((s8 *)arg1 + 6);
     return this;
 }
 
 void TObjPlayer::init_trap_packet() {
-  *((s16 *) (((s8 *) this) + 4)) = 0;
+  *(s16 *)&this->m_flags = 0;
   *(s16 *)&this->m_id = 0;
   *((s8 *) (((s8 *) this) + 0)) = (double) 0x83;
   *((s8 *) (((s8 *) this) + 1)) = 2;
@@ -419,7 +419,7 @@ void bswap_pkt_u16x2_u32x2__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjP
 
 void *TObjPlayer::copy_from(void *arg1) {
     TFontSmallLobby__sub_801C0228((void *)((void *)(this)), (void *)(arg1));
-    *(s16 *)((s8 *)this + 4) = (s16) *(s16 *)((s8 *)arg1 + 4);
+    *(s16 *)&this->m_flags = (s16) *(s16 *)((s8 *)arg1 + 4);
     this->m_id = (u16) *(u16 *)((s8 *)arg1 + 6);
     *(s32 *)((s8 *)this + 8) = (s32) *(s32 *)((s8 *)arg1 + 8);
     *(f32 *)((s8 *)this + 0xC) = (f32) *(f32 *)((s8 *)arg1 + 0xC);
@@ -427,7 +427,7 @@ void *TObjPlayer::copy_from(void *arg1) {
 }
 
 void TObjPlayer::build_6xAE_set_animation_state_packet() {
-    *(s16 *)((s8 *)((u8 *)this) + 4) = 0;
+    *(s16 *)&this->m_flags = 0;
     *(s16 *)&this->m_id = 0;
     *(s32 *)((s8 *)((u8 *)this) + 8) = 0;
     *(f32 *)((s8 *)((u8 *)this) + 0xC) = (f32) TObjPlayer__data_805DC278;

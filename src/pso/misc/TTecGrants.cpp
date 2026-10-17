@@ -121,24 +121,24 @@ void TTecGrants::create(void *arg0, void *arg1, void *arg2, void *arg3) {
 void run_task__10TTecGrantsFv(u8 *arg0) {
     u32 temp_r3;
     u8 *temp_r3_2;
-    *(u8 **)((s8 *)arg0 + 0x1C) = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xB4));
+    *(u8 **)((s8 *)arg0 + 0x1C) = find_entity_by_id(((TTecGrants *)arg0)->m_b4);
     if ((void *) *(u8 **)((s8 *)arg0 + 0x1C) == NULL) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xEC) == 0) {
+    if ((s32) *(s32 *)&((TTecGrants *)arg0)->m_ec == 0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    temp_r3 = (unsigned long) (find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xF0)));
-    if ((TTecLuker::is_parents_unqueued(temp_r3) != 0) && (TObjPlayer::is_valid_and_active(temp_r3) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x148) == 0)) {
+    temp_r3 = (unsigned long) (find_entity_by_id(((TTecGrants *)arg0)->m_f0));
+    if ((TTecLuker::is_parents_unqueued(temp_r3) != 0) && (TObjPlayer::is_valid_and_active(temp_r3) != 0) && ((s32) *(s32 *)&((TTecGrants *)arg0)->m_148 == 0)) {
         temp_r3_2 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x3C))));
         if (temp_r3_2 != NULL) {
-            __ct__13TUnk_804CC888FPUclP7TObject(temp_r3_2, (s32) temp_r3, (s32) *(s16 *)((s8 *)arg0 + 0x78), tl_07);
+            __ct__13TUnk_804CC888FPUclP7TObject(temp_r3_2, (s32) temp_r3, (s32) ((TTecGrants *)arg0)->m_78, tl_07);
         }
     }
-    *(s32 *)((s8 *)arg0 + 0x148) = (s32) (*(s32 *)((s8 *)arg0 + 0x148) + 1);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x148) > 0x1E) {
+    *(s32 *)&((TTecGrants *)arg0)->m_148 = (s32) (*(s32 *)&((TTecGrants *)arg0)->m_148+ 1);
+    if ((s32) *(s32 *)&((TTecGrants *)arg0)->m_148> 0x1E) {
         if ((temp_r3 != 0) && (TTecLuker::is_parents_unqueued(temp_r3) != 0) && (TObjPlayer::is_valid_and_active(temp_r3) != 0)) {
             ((VObj_18_4560ce *)(arg0))->m4(temp_r3);
         }
@@ -165,10 +165,10 @@ u8 *TTecGrants__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D37D0;
     ((TTecGrants *)arg0)->init_parameters();
     copy_technique_target_list((void *) (arg0 + 0xEC), (void *) (arg3));
-    *(s32 *)((s8 *)arg0 + 0x148) = 0;
-    temp_r3 = *(u32 *)((s8 *)arg0 + 0x1C);
+    *(s32 *)&((TTecGrants *)arg0)->m_148 = 0;
+    temp_r3 = ((TTecGrants *)arg0)->source;
     if (temp_r3 != 0U) {
-        *(s16 *)((s8 *)arg0 + 0xB4) = obj_getField1c((int) (temp_r3));
+        *(s16 *)&((TTecGrants *)arg0)->m_b4 = obj_getField1c((int) (temp_r3));
     }
     return arg0;
 }

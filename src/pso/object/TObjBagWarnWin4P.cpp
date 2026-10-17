@@ -96,7 +96,7 @@ TObjBagWarnWin4P::~TObjBagWarnWin4P() {}
 void *__ct__16TObjBagWarnWin4PFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjBagWarnWin4P;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D284C;
+    *(void * *)&((TObjBagWarnWin4P *)arg0)->m_name = lbl_805D284C;
     *(u32 *)((s8 *)arg0 + 0x1C) = 0;
     *(u32 *)((s8 *)arg0 + 0xA0) = 0;
     return arg0;

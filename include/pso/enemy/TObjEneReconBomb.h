@@ -10,9 +10,12 @@ struct TObjEneReconBomb : public TUnk_804806E8 {
     u16 m_338;
     u8 _pad33A[0x2];
     void* m_33c;
-    u8 unk_340[0x8];
+    u8 unk_340[0x4];
+    f32 m_344;
     f32 m_348;
-    u8 unk_34C[0xC];
+    u8 unk_34C[0x4];
+    f32 m_350;
+    u8 unk_354[0x4];
     u32 m_358;
     u32 m_35c;
     u32 m_360;

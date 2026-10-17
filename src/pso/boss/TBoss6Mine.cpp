@@ -459,7 +459,7 @@ void TBoss6Mine__vt0(u8 *arg0) {
 void *__dt__10TBoss6MineFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TBoss6Mine;
-        if (*(void **)((s8 *)arg0 + 0x3CC) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x3CC))); *(s32 *)((s8 *)arg0 + 0x3CC) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x3CC) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x3CC))); *(s32 *)&((TBoss6Mine *)arg0)->m_3cc = 0; }
         free_collision_body_parts(arg0);
         if (*(void **)((s8 *)arg0 + 0x378) != NULL) { TBoss6Type1__sub_802B5DD4(*(void **)((s8 *)arg0 + 0x378)); }
         __dt__9TObjEnemyFv(arg0, 0);

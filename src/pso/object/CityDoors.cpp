@@ -350,7 +350,7 @@ extern s32 __vt__18TObjCityDoor_Lobby[];
 u8 *__dt__18TObjCityDoor_LobbyFPvs(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjCityDoor_Lobby;
-        if (((s32) *(s32 *)((s8 *)arg0 + 0x250) != 0) && (get_map_count__10TObjMapCsnFv() != 0U)) {
+        if (((s32) ((TObjCityDoor_Lobby *)arg0)->m_250 != 0) && (get_map_count__10TObjMapCsnFv() != 0U)) {
             remove_value_from_id_list(get_map_count__10TObjMapCsnFv(), arg0 + 0x90);
         }
         TParticleCtrl::destroy_particle(arg0, 0);
@@ -536,7 +536,7 @@ extern u8 city_door_med_params[]; __declspec(section ".sdata") extern const char
 void *TObjCityDoor_Med__ct(void *o, void *parent, void *set) {
  init_city_door((u8*)o,(s32)parent,(s32)set,city_door_med_params);
  *(s32 **)((u8 *)o + 0x18)=__vt__16TObjCityDoor_Med;*(s32 *)((u8 *)o + 0)=(s32)TObjCityDoor_Med__name;
- *(f32 *)((u8 *)o + 0xB0)=(f32)(*(u32 *)((u8 *)get_city_common_motion(11) + 4)-1);
+ ((TObjCityDoor_Med *)o)->m_b0=(f32)(*(u32 *)((u8 *)get_city_common_motion(11) + 4)-1);
  return o;
 }
 
@@ -884,7 +884,7 @@ u8 *TObjCityDoor_Shop__ct(u8 *arg0, s32 arg1, s32 arg2) {
   *((s32 **) (((s8 *) arg0) + 0x18)) = new_var;
   *((s32 *) (((s8 *) arg0) + 0)) = (s32) TObjCityDoor_Shop__name;
   new_var2 = 1;
-  *((f32 *) (((s8 *) arg0) + 0xB0)) = (f32) ((*((s32 *) (((s8 *) (*((void **) (((s8 *) (*((u8 **) (((s8 *) city_common_model_archive) + 0x430)))) + 0x54)))) + 4))) - new_var2);
+  ((TObjCityDoor_Shop *)arg0)->m_b0 = (f32) ((*((s32 *) (((s8 *) (*((void **) (((s8 *) (*((u8 **) (((s8 *) city_common_model_archive) + 0x430)))) + 0x54)))) + 4))) - new_var2);
   return arg0;
 }
 
@@ -1143,8 +1143,8 @@ u8 *init_city_door(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3) {
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     *(s32 *)((s8 *)arg0 + 0xAC) = 0;
     temp_r4 = (u8 *)&city_door_init_params.value - 4;
-    *(f32 *)((s8 *)arg0 + 0xB0) = lbl_805DBBE8[0];
-    *(f32 *)((s8 *)arg0 + 0xB4) = lbl_805DBBE8[0];
+    ((TUnk_804B5BA8 *)arg0)->m_b0 = lbl_805DBBE8[0];
+    ((TUnk_804B5BA8 *)arg0)->m_b4 = lbl_805DBBE8[0];
     *(u8 **)((s8 *)arg0 + 0xB8) = arg3;
     *(ByteBlock_2C *)(copy_storage_80182D8C.bytes) = *(const ByteBlock_2C *)((s32) temp_r4 + 4);
     count = (u8 *)(*(u8 **)((s8 *)arg0 + 0xB8));

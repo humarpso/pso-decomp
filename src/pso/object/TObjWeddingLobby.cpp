@@ -182,12 +182,12 @@ u8 *TObjWeddingLobby__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjWeddingLobby__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     if (TLobby::get_filtered_event_theme() == 0xA) {
-        *(s32 *)((s8 *)arg0 + 0xC8) = 3;
+        *(s32 *)&((TObjWeddingLobby *)arg0)->m_c8 = 3;
     } else {
-        *(s32 *)((s8 *)arg0 + 0xC8) = 0;
+        *(s32 *)&((TObjWeddingLobby *)arg0)->m_c8 = 0;
     }
     *(f32 *)((s8 *)arg0 + 0xCC) = 1.0f;
-    *(f32 *)((s8 *)arg0 + 0xB0) = 0.0f;
+    ((TObjWeddingLobby *)arg0)->m_b0 = 0.0f;
     return arg0;
 }
 

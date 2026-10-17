@@ -59,7 +59,7 @@ extern void *TObjQuestColA__class_name;
 void *TObjQuestColA__ct(void *arg0) {
     TObjQuestColBase__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjQuestColA;
-    *(void **)((s8 *)arg0 + 0x0) = TObjQuestColA__class_name;
+    *(void * *)&((TObjQuestColA *)arg0)->m_name = TObjQuestColA__class_name;
     return arg0;
 }
 

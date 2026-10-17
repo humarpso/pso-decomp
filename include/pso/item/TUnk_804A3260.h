@@ -8,7 +8,9 @@ public:
     virtual ~TUnk_804A3260();
     virtual void reserved_53();
     virtual void update_weapon();
-    u8 unk_1F8[0x20];
+    u8 unk_1F8[0x18];
+    s32 m_210;
+    u8 unk_214[0x4];
     s32 m_218;
     u8 unk_21C[0x4];
 };

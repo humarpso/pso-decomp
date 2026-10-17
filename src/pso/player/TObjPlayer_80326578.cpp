@@ -136,7 +136,7 @@ void TUnk_804ECFB0::update_weapon() {
     }
     *(s32 *)((s8 *)this + 0x1F8) = (s32) (*(s32 *)((s8 *)this + 0x1F8) + 1);
 }
-void TObjPlayer__sub_80326794(void* p) { *(s16*)((char*)p + 0x1fc) = -1; *(s32*)((char*)p + 0x1f8) = 0; }
+void TObjPlayer__sub_80326794(void* p) { ((TUnk_804ECFB0 *)p)->m_1fc = -1; *(s32*)((char*)p + 0x1f8) = 0; }
 
 extern const f32 lbl_805DF658;
 
@@ -145,7 +145,7 @@ void dark_bridge_start_timers(void *arg0) {
     s32 temp_r3_2;
     s32 temp_r3_3;
 
-    *(s16 *)((s8 *)arg0 + 0x1FC) = obj_getS16_32E(*(s32 *)((s8 *)arg0 + 0xF0));
+    ((TUnk_804ECFB0 *)arg0)->m_1fc = obj_getS16_32E(*(s32 *)((s8 *)arg0 + 0xF0));
     *(s32 *)((s8 *)arg0 + 0x1F8) = 0;
     if ((u32) *(u32 *)((s8 *)arg0 + 0x174) != 0U) {
         temp_r3 = __nw__15TItemHeapObjectFUl(0x30);
@@ -178,7 +178,7 @@ typedef char RecoveredGlobal_803268D8_lbl_804ECFB0_size[sizeof(RecoveredGlobal_8
 u8 *TObjPlayer__sub_803268D8(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct((void *)(arg0), (void *)(arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_803268D8_lbl_804ECFB0 *)&lbl_804ECFB0).value;
-    *(s16 *)((s8 *)arg0 + 0x1FC) = -1;
+    ((TUnk_804ECFB0 *)arg0)->m_1fc = -1;
     *(s32 *)((s8 *)arg0 + 0x1F8) = 0;
     return arg0;
 }

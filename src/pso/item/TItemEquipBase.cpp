@@ -325,7 +325,7 @@ s8 TItemWeapon::get_attach_joint() {
 }
 
 s8 TItemEquipBase__sub_8010A77C(u8 *arg0) {
-    return (s8) *(u8 *)((s8 *)arg0 + 0x170);
+    return (s8) ((TItemEquipBase *)arg0)->m_170;
 }
 
 void TItemEquipBase::vfunc_50() {  }
@@ -704,10 +704,10 @@ u8 *TItemEquipBase__ct(u8 *arg0, s32 parent, s32 item) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8010B684___vt__14TItemEquipBase *)&__vt__14TItemEquipBase).value;
     ((TObjPlayer *)(arg0 + 0x178))->init_forward();
     *(s32 *)((s8 *)arg0 + 0) = (s32) item_equip_base_class_name;
-    *(s8 *)((s8 *)arg0 + 0x170) = 0;
-    *(s8 *)((s8 *)arg0 + 0x171) = 0;
+    *(s8 *)&((TItemEquipBase *)arg0)->m_170 = 0;
+    *(s8 *)&((TItemEquipBase *)arg0)->m_171 = 0;
     ((TItemEquipBase *)arg0)->reset();
-    *(s16 *)((s8 *)arg0 + 0x172) = -1;
+    *(s16 *)&((TItemEquipBase *)arg0)->m_172 = -1;
     ((TObjPlayer *)(arg0 + 0x178))->clear_id();
     ((TObjPlayer *)arg0)->add_item_flags((int) (4));
     temp_r3 = __nw__15TItemHeapObjectFUl((int) (0x1C));
@@ -715,11 +715,11 @@ u8 *TItemEquipBase__ct(u8 *arg0, s32 parent, s32 item) {
     if (var_r0 != 0) {
         var_r0 = __ct__15TItemHeapObjectFP7TObject((int) (temp_r3), (void *) (arg0));
     }
-    *(s32 *)((s8 *)arg0 + 0x174) = var_r0;
-    *(s32 *)((s8 *)arg0 + 0x17C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x188) = 0;
-    *(s32 *)((s8 *)arg0 + 0x180) = 0;
-    *(s32 *)((s8 *)arg0 + 0x184) = 0;
+    *(s32 *)&((TItemEquipBase *)arg0)->m_174 = var_r0;
+    *(s32 *)&((TItemEquipBase *)arg0)->m_17c = 0;
+    *(s32 *)&((TItemEquipBase *)arg0)->m_188 = 0;
+    *(s32 *)&((TItemEquipBase *)arg0)->m_180 = 0;
+    *(s32 *)&((TItemEquipBase *)arg0)->m_184 = 0;
     return arg0;
 }
 

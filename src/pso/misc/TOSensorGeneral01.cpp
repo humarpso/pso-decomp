@@ -71,8 +71,8 @@ void *__nw__7TObjectFUl(int);
 s32 mem_free(void*);
 
 void TOSensorGeneral01::vfunc_17() {
-    this->rotation_y= (s32) (this->rotation_y+ 0x147);
-    this->m_e8= (s32) (this->m_e8+ 0x28F);
+    this->rotation_y = (s32) (this->rotation_y+ 0x147);
+    this->m_e8 = (s32) (this->m_e8+ 0x28F);
 }
 
 extern const f32 lbl_805DB9B0;
@@ -83,29 +83,29 @@ extern const f32 lbl_805DB9BC;
 void TOSensorGeneral01::vfunc_16() {
     s32 temp_r0;
 
-    this->m_e8= (s32) (this->m_e8+ 0x28F);
-    this->m_f0= (s32) (this->m_f0- 1);
+    this->m_e8 = (s32) (this->m_e8+ 0x28F);
+    this->m_f0 = (s32) (this->m_f0- 1);
     temp_r0 = this->m_f0;
     if (temp_r0 < 0) {
-        this->m_f0= 0;
+        this->m_f0 = 0;
         *(s32 *)((s8 *)this + 0xEC) = 0;
-        this->rotation_y= (s32) (this->rotation_y+ 0xCCC);
+        this->rotation_y = (s32) (this->rotation_y+ 0xCCC);
         *(f32 *)((s8 *)this + 0x3C) = (f32) (*(f32 *)((s8 *)this + 0x3C) + lbl_805DB9B0);
         return;
     }
     if ((f32) temp_r0 < lbl_805DB9B4) {
         *(s32 *)((s8 *)this + 0xEC) = 1;
-        this->rotation_y= (s32) (this->rotation_y+ 0x147);
+        this->rotation_y = (s32) (this->rotation_y+ 0x147);
         return;
     }
     if ((f32) temp_r0 < lbl_805DB9B8) {
         *(s32 *)((s8 *)this + 0xEC) = 2;
-        this->rotation_y= (s32) (this->rotation_y+ 0x147);
+        this->rotation_y = (s32) (this->rotation_y+ 0x147);
         return;
     }
     if ((f32) temp_r0 < lbl_805DB9BC) {
         *(s32 *)((s8 *)this + 0xEC) = 3;
-        this->rotation_y= (s32) (this->rotation_y+ 0x147);
+        this->rotation_y = (s32) (this->rotation_y+ 0x147);
     }
 }
 
@@ -203,22 +203,22 @@ void *TOSensorGeneral01__ct(void *arg0, void *arg1, void *arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3154;
     ((TOSensorGeneral01 *)arg0)->apply_object_set_data(arg2);
     ((TOKey *)arg0)->init_switch_id();
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *TOSensorGeneral01__texture_lists;
-    *(void **)((s8 *)arg0 + 0x34) = (void *) *(void **)((s8 *)(*(void **)((s8 *)(*(void * *)&sensor_general_shared_bml_archive) + 0x42C)) + 8);
-    *(f32 *)((s8 *)arg0 + 0xC0) = 400.0f;
-    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 4)) + 0x14);
-    *(f32 *)((s8 *)arg0 + 0xCC) = 50.0f + *(f32 *)((s8 *)arg0 + 0x68);
+    ((TOSensorGeneral01 *)arg0)->texture_id = (s32) *TOSensorGeneral01__texture_lists;
+    *(void * *)&((TOSensorGeneral01 *)arg0)->model = (void *) *(void **)((s8 *)(*(void **)((s8 *)(*(void * *)&sensor_general_shared_bml_archive) + 0x42C)) + 8);
+    ((TOSensorGeneral01 *)arg0)->m_c0 = 400.0f;
+    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&((TOSensorGeneral01 *)arg0)->model) + 4)) + 0x14);
+    *(f32 *)((s8 *)arg0 + 0xCC) = 50.0f + ((TOSensorGeneral01 *)arg0)->scale;
     if (*(f32 *)((s8 *)arg0 + 0xCC) < 0.0f) {
         *(f32 *)((s8 *)arg0 + 0xCC) = 0.0f;
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0) {
-        *(s32 *)((s8 *)arg0 + 0xD0) = 2;
+        *(s32 *)&((TOSensorGeneral01 *)arg0)->m_d0 = 2;
     } else {
-        *(s32 *)((s8 *)arg0 + 0xD0) = 1;
+        *(s32 *)&((TOSensorGeneral01 *)arg0)->m_d0 = 1;
     }
-    *(s32 *)((s8 *)arg0 + 0xE8) = 0;
+    ((TOSensorGeneral01 *)arg0)->m_e8 = 0;
     *(s32 *)((s8 *)arg0 + 0xEC) = 3;
-    *(s32 *)((s8 *)arg0 + 0xF0) = 0x5A;
+    ((TOSensorGeneral01 *)arg0)->m_f0 = 0x5A;
     return arg0;
 }
 

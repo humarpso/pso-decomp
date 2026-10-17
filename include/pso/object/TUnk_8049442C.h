@@ -12,11 +12,21 @@ public:
     virtual void run_task();
     u8 unk_AC[0x4];
     f32 m_b0;
-    u8 unk_B4[0x8];
+    u8 unk_B4[0x4];
+    s32 m_b8;
     s32 m_bc;
     u8 unk_C0[0x4];
     s32 m_c4;
-    u8 unk_C8[0x28];
+    u8 unk_C8[0x4];
+    s32 m_cc;
+    u8 unk_D0[0x4];
+    f32 m_d4;
+    u8 unk_D8[0x4];
+    s32 m_dc;
+    u8 unk_E0[0x4];
+    f32 m_e4;
+    u8 unk_E8[0x4];
+    s32 m_ec;
 };
 typedef char TUnk_8049442C_size[sizeof(TUnk_8049442C) == 0xF0 ? 1 : -1];
 

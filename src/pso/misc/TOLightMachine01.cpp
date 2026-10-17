@@ -136,17 +136,17 @@ u8 *TOLightMachine01__ct(u8 *arg0, s32 arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016EC04___vt__16TOLightMachine01 *)&__vt__16TOLightMachine01).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOLightMachine01__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    *(u8 **)((s8 *)arg0 + 0x34) = ((u8 *)get_bml_model((void *)((*(s32 *)&TOLightMachine01__shared_bml_archive)), (s32)(1)));
-    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((void *)((int) ((*(s32 *)&TOLightMachine01__shared_bml_archive))), (s32)((int) (1)));
+    *(u8 * *)&((TOLightMachine01 *)arg0)->model = ((u8 *)get_bml_model((void *)((*(s32 *)&TOLightMachine01__shared_bml_archive)), (s32)(1)));
+    ((TOLightMachine01 *)arg0)->texture_id = TObjFish__sub_8001EDB0((void *)((int) ((*(s32 *)&TOLightMachine01__shared_bml_archive))), (s32)((int) (1)));
     *(f32 *)((s8 *)arg0 + 0x90) = (f32) lbl_805DB82C;
-    *(f32 *)((s8 *)arg0 + 0x94) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34)) + 4)) + 0x14);
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
-    *(f32 *)((s8 *)arg0 + 0xA0) = (f32) ((lbl_805DB834 * (f32) *(s32 *)((s8 *)arg0 + 0x84)) + lbl_805DB830);
-    *(s32 *)((s8 *)arg0 + 0xA4) = (s32) (lbl_805DB838 * (lbl_805DB83C / (lbl_805DB840 / *(f32 *)((s8 *)arg0 + 0xA0))));
-    *(s32 *)((s8 *)arg0 + 0xA8) = (s32) (lbl_805DB838 * (lbl_805DB83C * (lbl_805DB844 * (f32) rand())));
+    ((TOLightMachine01 *)arg0)->m_94 = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&((TOLightMachine01 *)arg0)->model) + 4)) + 0x14);
+    *(s32 *)&((TOLightMachine01 *)arg0)->actorFlags = (s32) (*(s32 *)&((TOLightMachine01 *)arg0)->actorFlags| 0x40000000);
+    *(f32 *)((s8 *)arg0 + 0xA0) = (f32) ((lbl_805DB834 * (f32) ((TOLightMachine01 *)arg0)->m_84) + lbl_805DB830);
+    *(s32 *)&((TOLightMachine01 *)arg0)->m_a4 = (s32) (lbl_805DB838 * (lbl_805DB83C / (lbl_805DB840 / *(f32 *)((s8 *)arg0 + 0xA0))));
+    *(s32 *)&((TOLightMachine01 *)arg0)->m_a8 = (s32) (lbl_805DB838 * (lbl_805DB83C * (lbl_805DB844 * (f32) rand())));
     *(f32 *)((s8 *)arg0 + 0x98) = (f32) ((lbl_805DB834 * (f32) *(s32 *)((s8 *)arg0 + 0x88)) + lbl_805DB848);
-    *(f32 *)((s8 *)arg0 + 0x9C) = (f32) (*(f32 *)((s8 *)arg0 + 0x98) * sin_table_lookup((s32)((int) (*(s32 *)((s8 *)arg0 + 0xA8)))));
-    *(s32 *)((s8 *)arg0 + 0xAC) = 0;
+    ((TOLightMachine01 *)arg0)->m_9c = (f32) (*(f32 *)((s8 *)arg0 + 0x98) * sin_table_lookup((s32)((int) (*(s32 *)&((TOLightMachine01 *)arg0)->m_a8))));
+    *(s32 *)&((TOLightMachine01 *)arg0)->m_ac = 0;
     return arg0;
 }
 #pragma pop

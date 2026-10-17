@@ -555,7 +555,7 @@ extern "C" {
 void *__ct__10TObjCMNameFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjCMName;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D3CEC;
+    *(void * *)&((TObjCMName *)arg0)->m_name = lbl_805D3CEC;
     *(void **)((s8 *)arg0 + 0x1C) = creation_player_character;
     *(u32 *)((s8 *)arg0 + 0x20) = 0;
     *(u32 *)((s8 *)arg0 + 0x28) = 0;
@@ -687,11 +687,11 @@ void *__dt__16TObjCMProportionFv(void *arg0, s16 arg1) {
 void *TObjCMProportion__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjCMProportion;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D3CE8;
-    *(void **)((s8 *)arg0 + 0x1C) = creation_player_character;
+    *(void * *)&((TObjCMProportion *)arg0)->m_name = lbl_805D3CE8;
+    *(void * *)&((TObjCMProportion *)arg0)->appearance = creation_player_character;
     *(u32 *)((s8 *)arg0 + 0x20) = 0;
     *(u32 *)((s8 *)arg0 + 0x24) = 1;
-    *(f32 *)((s8 *)arg0 + 0x28) = lbl_805DDA90;
+    ((TObjCMProportion *)arg0)->fade = lbl_805DDA90;
     TChCrEffTag::set_eff_tag(9);
     return arg0;
 }

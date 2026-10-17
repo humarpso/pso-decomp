@@ -27,7 +27,7 @@ TWindowCtrlSub::~TWindowCtrlSub() {
 void *TWindowCtrlSub__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TWindowCtrlSub;
-    *(void **)((s8 *)arg0 + 0x0) = TWindowCtrlSub__name;
+    *(void * *)&((TWindowCtrlSub *)arg0)->m_name = TWindowCtrlSub__name;
     return arg0;
 }
 

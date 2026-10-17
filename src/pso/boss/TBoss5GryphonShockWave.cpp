@@ -85,7 +85,7 @@ void TBoss5GryphonShockWave::run_task() {
 void *__dt__22TBoss5GryphonShockWaveFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TBoss5GryphonShockWave;
-        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x3C)); *(s32 *)((s8 *)arg0 + 0x3C) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x3C)); *(s32 *)&((TBoss5GryphonShockWave *)arg0)->m_3c = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -108,17 +108,17 @@ TBoss5GryphonShockWave::TBoss5GryphonShockWave(TObject *arg1_parent, s32 arg2, u
     VecCopy((Vec *)(((u8 *)this) + 0x60), (const Vec *)arg4);
     *(f32 *)((s8 *)this + 0x64) = (f32) lbl_805D8EEC;
     VecCopy((Vec *)(((u8 *)this) + 0x2C), (const Vec *)(((u8 *)this) + 0x40));
-    *(s16 *)((s8 *)this + 0x28) = arg6;
-    *(s32 *)((s8 *)this + 0x38) = arg2;
-    *(s32 *)((s8 *)this + 0x3C) = 0;
+    *(s16 *)&this->m_28 = arg6;
+    *(s32 *)&this->m_38 = arg2;
+    *(s32 *)&this->m_3c = 0;
     VecCopy((Vec *)sp8, (const Vec *)(((u8 *)this) + 0x2C));
     subtract_vector(sp8, arg4);
-    *(s32 *)((s8 *)this + 0x24) = (s32) (lbl_805D8EF0 * ((TObjBoss2Tunnel *)sp8)->update_scale());
-    if ((s32) *(s32 *)((s8 *)this + 0x24) < 0x1E) {
-        *(s32 *)((s8 *)this + 0x24) = 0x1E;
+    *(s32 *)&this->m_24 = (s32) (lbl_805D8EF0 * ((TObjBoss2Tunnel *)sp8)->update_scale());
+    if ((s32) *(s32 *)&this->m_24< 0x1E) {
+        *(s32 *)&this->m_24 = 0x1E;
     }
-    *(s32 *)((s8 *)this + 0x20) = 0;
-    *(s32 *)((s8 *)this + 0x1C) = 0;
+    *(s32 *)&this->m_20 = 0;
+    *(s32 *)&this->m_1c = 0;
 }
 extern "C" {
 

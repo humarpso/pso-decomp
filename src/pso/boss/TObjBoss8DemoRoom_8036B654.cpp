@@ -20,7 +20,7 @@ extern void *lbl_805D44E4;
 void *__ct__17TObjBoss8DemoRoomFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjBoss8DemoRoom;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D44E4;
+    *(void * *)&((TObjBoss8DemoRoom *)arg0)->m_name = lbl_805D44E4;
     return arg0;
 }
 

@@ -260,9 +260,9 @@ void *__dt__11TObjDoorKeyFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjDoorKey;
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        if ((u32) *(u32 *)((s8 *)arg0 + 0xF8) != 0U) {
+        if ((u32) ((TObjDoorKey *)arg0)->m_f8 != 0U) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xF8));
-            *(u32 *)((s8 *)arg0 + 0xF8) = 0U;
+            ((TObjDoorKey *)arg0)->m_f8 = 0U;
         }
         __dt__5TOKeyFv(arg0, 0);
         if (arg1 > 0) {
@@ -279,24 +279,24 @@ void *TObjDoorKey__ct(void *arg0, void *arg1, void *arg2) {
     *(u8 **)((s8 *)arg0 + 0x18) = ((u8 *)&__vt__11TObjDoorKey);
     *(s32 *)((s8 *)arg0 + 0) = TObjDoorKey__class_name;
     init_key__5TOKeyFv(arg0, arg2);
-    *(s32 *)((s8 *)arg0 + 0xE8) = 0;
-    *(s32 *)((s8 *)arg0 + 0xF0) = 0;
+    ((TObjDoorKey *)arg0)->m_e8 = 0;
+    ((TObjDoorKey *)arg0)->m_f0 = 0;
     *(s32 *)((s8 *)arg0 + 0xEC) = 0x14;
     *(s32 *)((s8 *)arg0 + 0xF4) = 0;
-    *(s32 *)((s8 *)arg0 + 0xF8) = 0;
-    *(u16 *)((s8 *)arg0 + 6) = (*(u16 *)&door_key_id_counter)++;
-    if (*(s32 *)((s8 *)arg0 + 0x8C) < 0) {
-        *(s32 *)((s8 *)arg0 + 0x8C) = 0;
+    *(s32 *)&((TObjDoorKey *)arg0)->m_f8 = 0;
+    ((TObjDoorKey *)arg0)->m_id = (*(u16 *)&door_key_id_counter)++;
+    if (*(s32 *)&((TObjDoorKey *)arg0)->m_8c< 0) {
+        *(s32 *)&((TObjDoorKey *)arg0)->m_8c = 0;
     }
-    if (*(s32 *)((s8 *)arg0 + 0x8C) > 9) {
-        *(s32 *)((s8 *)arg0 + 0x8C) = 9;
+    if (*(s32 *)&((TObjDoorKey *)arg0)->m_8c> 9) {
+        *(s32 *)&((TObjDoorKey *)arg0)->m_8c = 9;
     }
     init_collision_body_parts(arg0, TObjDoorKey__collision_body_parts, 1);
-    *(s32 *)((s8 *)arg0 + 0x30) |= 0x40000000;
+    *(s32 *)&((TObjDoorKey *)arg0)->actorFlags |= 0x40000000;
     ((TObjPlayer *)arg0)->reset_photon_effect();
     Vec_80190020 pos = *(Vec_80190020 *)((s8 *)arg0 + 0x38);
     pos.y += lbl_805DBE0C;
-    *(s32 *)((s8 *)arg0 + 0xF8) = spawn_continuous_particle_effect_with_flags(&pos, 0x60, 0x40);
+    *(s32 *)&((TObjDoorKey *)arg0)->m_f8 = spawn_continuous_particle_effect_with_flags(&pos, 0x60, 0x40);
     ((TOKeyAncient01 *)((u8 *)arg0 + 0x98))->set_type();
     return arg0;
 }

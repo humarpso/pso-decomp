@@ -51,7 +51,7 @@ void run_task__6TMovieFv(u8 *arg0);
 void run_task__6TMovieFv(u8 *arg0) {
     VObj_18_a28850 *txt;
     u8 *p;
-    if (*(u32 *)((s8 *)arg0 + 0x1C) == 0 || *(u32 *)((s8 *)arg0 + 0x20) == 0) {
+    if (((TMovie *)arg0)->m_1c == 0 || ((TMovie *)arg0)->m_20 == 0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
@@ -73,9 +73,9 @@ void run_task__6TMovieFv(u8 *arg0) {
         func_803DCDFC__Fv();
         controller_stuff();
         TKeyBoardControl::update_input_frame();
-        ((TMovie *)(*(u32 *)((s8 *)arg0 + 0x20)))->decode_frame();
-        if (*(s32 *)((s8 *)arg0 + 0x48) != 0) {
-            ((TMovie *)(*(u32 *)((s8 *)arg0 + 0x20)))->update_stop();
+        ((TMovie *)(((TMovie *)arg0)->m_20))->decode_frame();
+        if (*(s32 *)&((TMovie *)arg0)->m_48 != 0) {
+            ((TMovie *)(((TMovie *)arg0)->m_20))->update_stop();
             TMovie::run_callback();
         } else {
             Vec_80144778 eye = lbl_8043F2E8;
@@ -83,7 +83,7 @@ void run_task__6TMovieFv(u8 *arg0) {
             Vec_80144778 up = lbl_8043F300;
             set_perspective_projection_from_fov(0x4B, lbl_805DB180, lbl_805DB184, lbl_805DB188);
             set_camera_look_at(&eye, &at, &up);
-            ((TMovie *)(*(u32 *)((s8 *)arg0 + 0x20)))->update_stop();
+            ((TMovie *)(((TMovie *)arg0)->m_20))->update_stop();
             if (txt != NULL) {
                 txt->m1();
                 txt->m2();

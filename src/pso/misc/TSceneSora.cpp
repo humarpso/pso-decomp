@@ -137,15 +137,15 @@ u8 *TSceneSora__ct(u8 *arg0, s32 _w1) {
     construct_world_actor_base((void *) (arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80207340___vt__10TSceneSora *)&__vt__10TSceneSora).value;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3624;
-    *(s32 *)((s8 *)arg0 + 0x90) = get_bml_model((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), (int) (0));
+    *(s32 *)&((TSceneSora *)arg0)->m_90 = get_bml_model((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), (int) (0));
     if (TSceneSora__has_sky_motion != 0) {
-        *(s32 *)((s8 *)arg0 + 0x94) = get_bml_motion((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), (int) (0));
+        *(s32 *)&((TSceneSora *)arg0)->m_94 = get_bml_motion((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), (int) (0));
     } else {
-        *(s32 *)((s8 *)arg0 + 0x94) = 0;
+        *(s32 *)&((TSceneSora *)arg0)->m_94 = 0;
     }
-    *(s32 *)((s8 *)arg0 + 0x98) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), (int) (0));
+    *(s32 *)&((TSceneSora *)arg0)->m_98 = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), (int) (0));
     *(f32 *)((s8 *)arg0 + 0x9C) = lbl_805DC60C;
-    *(f32 *)((s8 *)arg0 + 0xA0) = lbl_805DC608;
+    ((TSceneSora *)arg0)->m_a0 = lbl_805DC608;
     return arg0;
 }
 

@@ -170,9 +170,9 @@ u8 *__dt__17TJudgmentSequenceFv(u8 *arg0, s16 arg1) {
             *(u32 *)((s8 *)arg0 + 0x30) = 0U;
         }
         ((TShopSequence *)arg0)->close_message_window();
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x2C) != 0U) {
+        if ((u32) *(u32 *)&((TJudgmentSequence *)arg0)->m_2c != 0U) {
             TWindow__close(*(void **)((s8 *)arg0 + 0x2C));
-            *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
+            *(u32 *)&((TJudgmentSequence *)arg0)->m_2c = 0U;
         }
         judgment_sequence_instance = 0;
         *(s32 *)((s8 *)(&TJudgmentSequence__slot_flags.value) + (sub_8022397C__15TShopWindowBaseFv((void *) (arg0)) * 4)) = 0;
@@ -195,7 +195,7 @@ u8 *TJudgmentSequence__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__17TJudgmentSequence.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TJudgmentSequence__class_name;
     *(s32 *)((s8 *)arg0 + 0x24) = arg2;
-    *(s32 *)((s8 *)arg0 + 0x2C) = 0;
+    ((TJudgmentSequence *)arg0)->m_2c = 0;
     *(s32 *)((s8 *)arg0 + 0x30) = 0;
     judgment_sequence_instance = (s32) arg0;
     ((TShopWindowBase *)arg0)->set_field_20((s32)((void *) (0)));

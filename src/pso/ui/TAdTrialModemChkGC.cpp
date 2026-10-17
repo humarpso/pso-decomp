@@ -81,7 +81,7 @@ extern void *TAdTrialModemChkGC__name;
 void *TAdTrialModemChkGC__ct(void *arg0) {
     TAdWarningBaseGC__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TAdTrialModemChkGC;
-    *(void **)((s8 *)arg0 + 0x0) = TAdTrialModemChkGC__name;
+    *(void * *)&((TAdTrialModemChkGC *)arg0)->m_name = TAdTrialModemChkGC__name;
     return arg0;
 }
 

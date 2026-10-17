@@ -491,23 +491,23 @@ void *__dt__20TWindowShortListCtrlFv(void *arg0, s16 arg1) {
 
     if (arg0 != NULL) {
         *(void **)((s8 *)arg0 + 0x18) = __vt__20TWindowShortListCtrl;
-        player = get_player_by_client_id((s32)(*(s32 *)((s8 *)arg0 + 0x24)));
-        if ((player != 0) && (has_player_active_menu__11TWindowCtrlFv(*(s32 *)((s8 *)arg0 + 0x24)) == 0) && (TWindowCtrl__sub_8024A1A8() == 0)) {
+        player = get_player_by_client_id((s32)(*(s32 *)&((TWindowShortListCtrl *)arg0)->m_24));
+        if ((player != 0) && (has_player_active_menu__11TWindowCtrlFv(*(s32 *)&((TWindowShortListCtrl *)arg0)->m_24) == 0) && (TWindowCtrl__sub_8024A1A8() == 0)) {
             ((TObjPlayer *)player)->init_parts();
         }
-        end_player_keyboard_hold(*(s32 *)((s8 *)arg0 + 0x24));
+        end_player_keyboard_hold(*(s32 *)&((TWindowShortListCtrl *)arg0)->m_24);
         TWindowCtrl::clear_flag_8();
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U) {
+        if ((u32) ((TWindowShortListCtrl *)arg0)->m_34 != 0U) {
             TWindow__close(*(void **)((s8 *)arg0 + 0x34));
-            *(u32 *)((s8 *)arg0 + 0x34) = 0U;
+            ((TWindowShortListCtrl *)arg0)->m_34 = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) {
+        if ((u32) ((TWindowShortListCtrl *)arg0)->m_30 != 0U) {
             TWindow__close(*(void **)((s8 *)arg0 + 0x30));
-            *(u32 *)((s8 *)arg0 + 0x30) = 0U;
+            ((TWindowShortListCtrl *)arg0)->m_30 = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x2C) != 0U) {
+        if ((u32) ((TWindowShortListCtrl *)arg0)->m_2c != 0U) {
             TWindow__close(*(void **)((s8 *)arg0 + 0x2C));
-            *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
+            ((TWindowShortListCtrl *)arg0)->m_2c = 0U;
         }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

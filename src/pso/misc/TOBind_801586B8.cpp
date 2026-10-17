@@ -136,25 +136,25 @@ u8 *TOBind__ct(u8 *arg0, s32 arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80158890___vt__6TOBind *)&__vt__6TOBind).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2EA8;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    *(s32 *)((s8 *)arg0 + 0xB0) = 0;
+    *(s32 *)&((TOBind *)arg0)->m_b0 = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TOBind__static_model_resource)), (int) (0));
-    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__static_model_resource)), (int) (0));
-    *(s32 *)((s8 *)arg0 + 0xC4) = get_bml_model((int) ((*(s32 *)&TOBind__static_model_resource)), (int) (1));
-    *(s32 *)((s8 *)arg0 + 0xC8) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__static_model_resource)), (int) (1));
+    ((TOBind *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__static_model_resource)), (int) (0));
+    *(s32 *)&((TOBind *)arg0)->m_c4 = get_bml_model((int) ((*(s32 *)&TOBind__static_model_resource)), (int) (1));
+    *(s32 *)&((TOBind *)arg0)->m_c8 = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__static_model_resource)), (int) (1));
     *(u8 **)((s8 *)arg0 + 0xCC) = get_bml_motion((*(s32 *)&TOBind__static_model_resource), 0);
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DB300;
-    *(f32 *)((s8 *)arg0 + 0xBC) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xCC)) + 4) - lbl_805DB304);
+    ((TOBind *)arg0)->m_bc = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xCC)) + 4) - lbl_805DB304);
     *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB304;
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFC54.value), (int) (2));
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
-    *(s32 *)((s8 *)arg0 + 0xB4) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xB4) < 0) {
-        *(s32 *)((s8 *)arg0 + 0xB4) = 0;
+    *(s32 *)&((TOBind *)arg0)->actorFlags = (s32) (*(s32 *)&((TOBind *)arg0)->actorFlags| 0x40000000);
+    *(s32 *)&((TOBind *)arg0)->m_b4 = (s32) ((TOBind *)arg0)->m_84;
+    if ((s32) *(s32 *)&((TOBind *)arg0)->m_b4< 0) {
+        *(s32 *)&((TOBind *)arg0)->m_b4 = 0;
     }
     *(f32 *)((s8 *)arg0 + 0xD0) = (f32) lbl_805DB308;
-    *(f32 *)((s8 *)arg0 + 0xD4) = (f32) lbl_805DB30C;
+    ((TOBind *)arg0)->m_d4 = (f32) lbl_805DB30C;
     return arg0;
 }
 

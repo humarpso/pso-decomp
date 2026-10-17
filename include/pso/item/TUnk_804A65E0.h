@@ -6,7 +6,8 @@
 class TUnk_804A65E0 : public TItemWeapon {
 public:
     virtual ~TUnk_804A65E0();
-    u8 unk_1F8[0x10];
+    u8 unk_1F8[0xC];
+    s32 m_204;
 };
 
 #endif

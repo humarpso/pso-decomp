@@ -104,7 +104,7 @@ u8 *TObjQuestColALock2__vt14(u8 *arg0) {
         temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x194))));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(__ct__12TQuestThreadFv(temp_r3, (s32) *(u32 *)((s8 *)arg0 + 0xBC), *(s32 *)((s8 *)arg0 + 0xB0)));
+            var_r0 = (u8 *)(__ct__12TQuestThreadFv(temp_r3, (s32) *(u32 *)((s8 *)arg0 + 0xBC), *(s32 *)&((TObjQuestColALock2 *)arg0)->m_b0));
         }
         var_r31 = (u8 *)(var_r0);
         if (var_r0 != NULL) {
@@ -168,19 +168,19 @@ u8 *TObjQuestColALock2__ct(u8 *arg0, s32 arg1, s32 _w2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3408;
     init_collision_body_parts(arg0, (s32) &TObjQuestColALock__collision_desc.value, 1);
     set_indexed_flags(arg0, 0, 0xF0);
-    temp_r4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xA4));
-    *(f32 *)((s8 *)temp_r4 + 4) = (f32) (*(f32 *)((s8 *)temp_r4 + 4) + *(f32 *)((s8 *)arg0 + 0x6C));
+    temp_r4 = (u8 *)(*(u8 * *)&((TObjQuestColALock2 *)arg0)->m_a4);
+    *(f32 *)((s8 *)temp_r4 + 4) = (f32) (*(f32 *)((s8 *)temp_r4 + 4) + ((TObjQuestColALock2 *)arg0)->target_scale);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
+    *(s32 *)&((TObjQuestColALock2 *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjQuestColALock2 *)arg0)->actorFlags| 0x40000000);
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    *(s32 *)((s8 *)arg0 + 0xC0) = (s32) *(s32 *)((s8 *)arg0 + 0x88);
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xC0) < 0) {
-        *(s32 *)((s8 *)arg0 + 0xC0) = 0;
+    ((TObjQuestColALock2 *)arg0)->m_c0 = (s32) *(s32 *)((s8 *)arg0 + 0x88);
+    if ((s32) ((TObjQuestColALock2 *)arg0)->m_c0< 0) {
+        ((TObjQuestColALock2 *)arg0)->m_c0 = 0;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xC0) > 1) {
-        *(s32 *)((s8 *)arg0 + 0xC0) = 1;
+    if ((s32) ((TObjQuestColALock2 *)arg0)->m_c0> 1) {
+        ((TObjQuestColALock2 *)arg0)->m_c0 = 1;
     }
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xC0);
+    temp_r0 = ((TObjQuestColALock2 *)arg0)->m_c0;
     switch (temp_r0) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0xBC) = (s32) quest_mission_manager;

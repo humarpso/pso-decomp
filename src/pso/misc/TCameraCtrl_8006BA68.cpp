@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_80488B08.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TUnk_80488B68.h"
@@ -50,7 +51,7 @@ void *__nw__7TObjectFUl(int);
 
     extern unsigned char lbl_80488B08[];
     extern int TCameraCtrl__fixed_npc_camera_active;
-void* TCameraCtrl__sub_8006BA68(void* a0) { __ct__13TUnk_80488A28Fv(); *(int*)((char*)a0 + 0x18) = (int)lbl_80488B08; *(int*)((char*)a0 + 0x38) = 4; TCameraCtrl__fixed_npc_camera_active = 0; return a0; }
+void* TCameraCtrl__sub_8006BA68(void* a0) { __ct__13TUnk_80488A28Fv(); *(int*)((char*)a0 + 0x18) = (int)lbl_80488B08; *(int *)&((TUnk_80488B08 *)a0)->m_38 = 4; TCameraCtrl__fixed_npc_camera_active = 0; return a0; }
 
     extern unsigned char TCameraCtrl__override_flags;
 

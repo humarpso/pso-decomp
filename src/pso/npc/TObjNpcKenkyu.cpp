@@ -156,7 +156,7 @@ u8 *TObjNpcKenkyu__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     ((TObjPlayer *)arg0)->init_position_vectors();
     *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcKenkyu__static_model)), (int) (0));
-    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcKenkyu__static_model)), (int) (0));
+    ((TObjNpcKenkyu *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcKenkyu__static_model)), (int) (0));
     ((TObjNpcBase *)arg0)->setup_common();
     return arg0;
 }

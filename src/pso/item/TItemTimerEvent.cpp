@@ -101,10 +101,10 @@ u8 *TItemTimerEvent__ct(u8 *arg0, s32 arg1, s16 arg2, s32 arg3) {
     __ct__15TItemHeapObjectFP7TObject((void *) (arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8011DC90___vt__15TItemTimerEvent *)&__vt__15TItemTimerEvent).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TItemTimerEvent__class_name;
-    *(s16 *)((s8 *)arg0 + 0x1C) = arg2;
-    *(s32 *)((s8 *)arg0 + 0x28) = 0;
-    *(s32 *)((s8 *)arg0 + 0x20) = arg3;
-    *(s32 *)((s8 *)arg0 + 0x24) = 0;
+    *(s16 *)&((TItemTimerEvent *)arg0)->m_1c = arg2;
+    *(s32 *)&((TItemTimerEvent *)arg0)->m_28 = 0;
+    *(s32 *)&((TItemTimerEvent *)arg0)->m_20 = arg3;
+    *(s32 *)&((TItemTimerEvent *)arg0)->m_24 = 0;
     disallow_rendering__7TObjectFv((void *) (arg0));
     return arg0;
 }

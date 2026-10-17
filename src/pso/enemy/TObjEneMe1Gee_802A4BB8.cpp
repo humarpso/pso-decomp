@@ -72,11 +72,11 @@ u8 *TObjEneMe1Gee_NEEDLE__ct(u8 *arg0, s32 arg1, u8 *from, u8 *to, f32 farg0, f3
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneMe1Gee_NEEDLE__name;
     *(f32 *)((s8 *)arg0 + 0xBC) = farg1;
     *(f32 *)((s8 *)arg0 + 0xAC) = farg0;
-    *(s32 *)((s8 *)arg0 + 0xC0) = 0x96;
-    *(s32 *)((s8 *)arg0 + 0xB0) = 1;
+    ((TObjEneMe1Gee_NEEDLE *)arg0)->m_c0 = 0x96;
+    *(s32 *)&((TObjEneMe1Gee_NEEDLE *)arg0)->m_b0 = 1;
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C));
     if (temp_r3 != NULL) {
-        *(u16 *)((s8 *)arg0 + 0x34) = obj_getField1c(temp_r3);
+        ((TObjEneMe1Gee_NEEDLE *)arg0)->m_34 = obj_getField1c(temp_r3);
     }
     return arg0;
 }

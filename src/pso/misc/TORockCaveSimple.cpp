@@ -53,7 +53,7 @@ extern void *TORockCaveSimple__class_name;
 void *TORockCaveSimple__ct(void *arg0) {
     TORockCave__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TORockCaveSimple;
-    *(void **)((s8 *)arg0 + 0x0) = TORockCaveSimple__class_name;
+    *(void * *)&((TORockCaveSimple *)arg0)->m_name = TORockCaveSimple__class_name;
     return arg0;
 }
 

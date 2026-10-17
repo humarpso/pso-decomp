@@ -204,25 +204,25 @@ u8 *TOKeyAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     } else if (temp_r0 > 3) {
         *(s32 *)((s8 *)arg0 + 0x88) = 3;
     }
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(s32 *)&TOKeyAncient01__texture_lists) + (*(s32 *)((s8 *)arg0 + 0x88) * 4));
+    ((TOKeyAncient01 *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(s32 *)&TOKeyAncient01__texture_lists) + (*(s32 *)((s8 *)arg0 + 0x88) * 4));
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TOKeyAncient01__shared_resource_object + 0x42C)) + 8);
     *(u8 **)((s8 *)arg0 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)TOKeyAncient01__shared_resource_object + 0x430)) + 4));
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB6E8);
-    *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DB6EC;
+    ((TOKeyAncient01 *)arg0)->m_b8 = (f32) lbl_805DB6EC;
     init_collision_body_parts(arg0, (s32) &lbl_804B29D0.value, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB6F0;
+    ((TOKeyAncient01 *)arg0)->m_c0 = (f32) lbl_805DB6F0;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB6F4;
-    if ((s32) *(s32 *)((s8 *)arg0 + 0xD0) != 2) {
-        if (*(f32 *)((s8 *)arg0 + 0x68) < lbl_805DB6F8) {
-            *(s32 *)((s8 *)arg0 + 0xD0) = 1;
+    if ((s32) *(s32 *)&((TOKeyAncient01 *)arg0)->m_d0 != 2) {
+        if (((TOKeyAncient01 *)arg0)->scale< lbl_805DB6F8) {
+            *(s32 *)&((TOKeyAncient01 *)arg0)->m_d0 = 1;
         } else {
             goto block_7;
         }
     } else {
 block_7:
-        *(s32 *)((s8 *)arg0 + 0xD0) = 0;
+        *(s32 *)&((TOKeyAncient01 *)arg0)->m_d0 = 0;
     }
     return arg0;
 }

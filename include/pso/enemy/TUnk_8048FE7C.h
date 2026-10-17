@@ -9,7 +9,13 @@ public:
     virtual ~TUnk_8048FE7C();
     void sub_8009A640();
     void sub_8009A598();
-    u8 unk_1C[0xE4];
+    u8 unk_1C[0x10];
+    f32 m_2c;
+    u8 unk_30[0x4];
+    s32 m_34;
+    u8 unk_38[0x4];
+    f32 m_3c;
+    u8 unk_40[0xC0];
 };
 typedef char TUnk_8048FE7C_size[sizeof(TUnk_8048FE7C) == 0x100 ? 1 : -1];
 

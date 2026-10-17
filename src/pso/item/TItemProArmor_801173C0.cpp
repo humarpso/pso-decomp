@@ -84,7 +84,7 @@ u8 *TItemProArmor__sub_8011751C(u8 *arg0, u8 *arg1, u8 *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8011751C_lbl_8049FEB8 *)&lbl_8049FEB8).value;
     *(u16 *)((s8 *)arg0 + 0x1C) = obj_getField1c(arg2);
     TItemTimerEvent::start_event_by_index(*(u16 *)((s8 *)arg0 + 0x1C));
-    *(s16 *)((s8 *)arg0 + 0x1E) = 3;
+    ((TUnk_8049FEB8 *)arg0)->m_1e = 3;
     return arg0;
 }
 

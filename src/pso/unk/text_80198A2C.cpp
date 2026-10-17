@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804B8DE8.h"
 #include "pso/system/byteswap.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TLanguage.h"
@@ -193,16 +194,16 @@ u8 *TWindowTimer__sub_80198CF8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4,
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80198CF8_lbl_804B8DE8 *)&lbl_804B8DE8).value;
     VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)arg1);
     VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(arg0 + 0x1C));
-    *(f32 *)((s8 *)arg0 + 0x20) = (f32) (*(f32 *)((s8 *)arg0 + 0x20) - (16.0f));
-    *(s32 *)((s8 *)arg0 + 0x3C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x34) = 0;
+    ((TUnk_804B8DE8 *)arg0)->m_20 = (f32) (((TUnk_804B8DE8 *)arg0)->m_20- (16.0f));
+    ((TUnk_804B8DE8 *)arg0)->m_3c = 0;
+    ((TUnk_804B8DE8 *)arg0)->m_34 = 0;
     *(s32 *)((s8 *)arg0 + 0x38) = 0;
     *(s32 *)((s8 *)arg0 + 0x48) = arg2;
-    *(s32 *)((s8 *)arg0 + 0x44) = 0;
+    ((TUnk_804B8DE8 *)arg0)->m_44 = 0;
     *(s32 *)((s8 *)arg0 + 0x40) = 0;
     *(s32 *)((s8 *)arg0 + 0x50) = arg3;
-    *(s32 *)((s8 *)arg0 + 0x54) = arg4;
-    *(s32 *)((s8 *)arg0 + 0x4C) = 0;
+    ((TUnk_804B8DE8 *)arg0)->m_54 = arg4;
+    ((TUnk_804B8DE8 *)arg0)->m_4c = 0;
     return arg0;
 }
 
@@ -1172,33 +1173,33 @@ typedef char RecoveredGlobal_8019A574_lbl_8050DDAC_size[sizeof(RecoveredGlobal_8
 u8 *TWindowTimer__sub_8019A574(u8 *arg0) {
     construct_actor_base__10TObjPlayerFPvPv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8019A574_lbl_804B8E18 *)&lbl_804B8E18).value;
-    *(f32 *)((s8 *)arg0 + 0x390) = (f32) (0.0f);
+    ((TUnk_804B8E18 *)arg0)->m_390 = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0x394) = (f32) (0.0f);
-    *(f32 *)((s8 *)arg0 + 0x398) = (f32) (0.0f);
+    ((TUnk_804B8E18 *)arg0)->m_398 = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0x39C) = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0x344) = (f32) (0.0f);
-    *(f32 *)((s8 *)arg0 + 0x348) = (f32) (0.0f);
+    ((TUnk_804B8E18 *)arg0)->m_348 = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0x34C) = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0x38) = (f32) *(f32 *)((s8 *)(&(*(RecoveredGlobal_8019A574_lbl_8050DD58 *)&gogo_ball_configuration).value) + 0x20);
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) *(f32 *)((s8 *)(&(*(RecoveredGlobal_8019A574_lbl_8050DD58 *)&gogo_ball_configuration).value) + 0x24);
     *(f32 *)((s8 *)arg0 + 0x40) = (f32) *(f32 *)((s8 *)(&(*(RecoveredGlobal_8019A574_lbl_8050DD58 *)&gogo_ball_configuration).value) + 0x28);
-    *(s32 *)((s8 *)arg0 + 0x350) = 0;
-    *(s32 *)((s8 *)arg0 + 0x354) = 0;
+    ((TUnk_804B8E18 *)arg0)->m_350 = 0;
+    ((TUnk_804B8E18 *)arg0)->m_354 = 0;
     *(s32 *)((s8 *)arg0 + 0x334) = 0;
-    *(s32 *)((s8 *)arg0 + 0x338) = 0;
+    ((TUnk_804B8E18 *)arg0)->m_338 = 0;
     *(f32 *)((s8 *)arg0 + 0x33C) = (f32) *(f32 *)((s8 *)(&(*(RecoveredGlobal_8019A574_lbl_8050DD58 *)&gogo_ball_configuration).value) + 0);
-    *(f32 *)((s8 *)arg0 + 0x340) = (f32) *(f32 *)((s8 *)(&(*(RecoveredGlobal_8019A574_lbl_8050DD58 *)&gogo_ball_configuration).value) + 4);
+    ((TUnk_804B8E18 *)arg0)->m_340 = (f32) *(f32 *)((s8 *)(&(*(RecoveredGlobal_8019A574_lbl_8050DD58 *)&gogo_ball_configuration).value) + 4);
     *(s32 *)((s8 *)arg0 + 0x358) = 0;
-    *(f32 *)((s8 *)arg0 + 0x364) = (f32) (0.0f);
+    ((TUnk_804B8E18 *)arg0)->m_364 = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0x368) = (f32) (0.0f);
-    *(f32 *)((s8 *)arg0 + 0x36C) = (f32) (0.0f);
+    ((TUnk_804B8E18 *)arg0)->m_36c = (f32) (0.0f);
     *(f32 *)((s8 *)arg0 + 0x370) = (f32) (2.0f);
-    *(f32 *)((s8 *)arg0 + 0x374) = (f32) (1.0f);
+    ((TUnk_804B8E18 *)arg0)->m_374 = (f32) (1.0f);
     *(s32 *)((s8 *)arg0 + 0x378) = 1;
-    *(s32 *)((s8 *)arg0 + 0x37C) = 0x40107;
+    ((TUnk_804B8E18 *)arg0)->m_37c = 0x40107;
     ((TUnk_804AF8A0 *)arg0)->initialize_linked_object_reference((void*)(arg0 + 0x364));
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    *(s32 *)((s8 *)arg0 + 0x35C) = 0;
+    ((TUnk_804B8E18 *)arg0)->m_35c = 0;
     *(s16 *)((s8 *)(&(*(RecoveredGlobal_8019A574_lbl_8050DDAC *)&gogo_ball_sync_state).value) + 0x10) = 0;
     *(s8 *)((s8 *)(&(*(RecoveredGlobal_8019A574_lbl_8050DDAC *)&gogo_ball_sync_state).value) + 0x18) = 0;
     *(s32 *)((s8 *)arg0 + 0x360) = 0;

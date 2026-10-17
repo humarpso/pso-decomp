@@ -97,8 +97,8 @@ void render__22TWindowSubShortCutListFv(u8 *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) {
         forward_render__20TWindowSubStatusDispFv(*(u32 *)((s8 *)arg0 + 0x80), temp_r3);
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x88) != 0U) {
-        draw_list_page_indicator(*(u32 *)((s8 *)arg0 + 0x88), temp_r3);
+    if ((u32) ((TWindowSubShortCutList *)arg0)->m_88 != 0U) {
+        draw_list_page_indicator(((TWindowSubShortCutList *)arg0)->m_88, temp_r3);
     }
 }
 

@@ -108,9 +108,9 @@ u8 *TObjEvtCollision__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80190DE4___vt__16TObjEvtCollision *)&__vt__16TObjEvtCollision).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEvtCollision__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    *(f32 *)((s8 *)arg0 + 0xAC) = (f32) *(f32 *)((s8 *)arg0 + 0x68);
-    *(s32 *)((s8 *)arg0 + 0xB0) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
-    *(s32 *)((s8 *)arg0 + 0xB4) = 3;
+    *(f32 *)((s8 *)arg0 + 0xAC) = (f32) ((TObjEvtCollision *)arg0)->scale;
+    *(s32 *)&((TObjEvtCollision *)arg0)->m_b0 = (s32) ((TObjEvtCollision *)arg0)->m_84;
+    *(s32 *)&((TObjEvtCollision *)arg0)->m_b4 = 3;
     disallow_rendering__7TObjectFv((void *) (arg0));
     return arg0;
 }

@@ -53,23 +53,23 @@ u8 *TObjCollision__ct(u8 *arg0, s32 arg1, s32 arg2) {
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg2 + 0xC));
     ((TObjPlayer *)(arg0 + 0x5C))->copy_xyz((void *) (arg2 + 0x18));
     VecCopy((Vec *)(arg0 + 0x68), (const Vec *)(arg2 + 0x24));
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x02000000);
+    *(s32 *)&((TObjCollision *)arg0)->actorFlags = (s32) (*(s32 *)&((TObjCollision *)arg0)->actorFlags| 0x02000000);
     *(f32 *)((s8 *)arg0 + 0xAC) = (f32) lbl_805D8F20;
     *(f32 *)((s8 *)arg0 + 0xB0) = (f32) lbl_805D8F20;
-    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) lbl_805D8F20;
-    *(f32 *)((s8 *)arg0 + 0xB8) = (f32) *(f32 *)((s8 *)arg0 + 0x68);
-    *(f32 *)((s8 *)arg0 + 0xBC) = (f32) *(f32 *)((s8 *)arg0 + 0x6C);
+    ((TObjCollision *)arg0)->m_b4 = (f32) lbl_805D8F20;
+    *(f32 *)((s8 *)arg0 + 0xB8) = (f32) ((TObjCollision *)arg0)->scale;
+    ((TObjCollision *)arg0)->m_bc = (f32) ((TObjCollision *)arg0)->target_scale;
     if (*(f32 *)((s8 *)arg0 + 0x70) < lbl_805D8F20) {
         var_r0 = 1;
     } else {
         var_r0 = 0;
     }
-    *(s32 *)((s8 *)arg0 + 0xC0) = var_r0;
-    *(s32 *)((s8 *)arg0 + 0xC4) = 0x10001;
+    *(s32 *)&((TObjCollision *)arg0)->m_c0 = var_r0;
+    *(s32 *)&((TObjCollision *)arg0)->m_c4 = 0x10001;
     if (fabs_float(*(f32 *)((s8 *)arg0 + 0x70)) < lbl_805D8F24) {
-        *(s32 *)((s8 *)arg0 + 0xC4) = (s32) (*(s32 *)((s8 *)arg0 + 0xC4) & 0xFFFFFEFF);
+        *(s32 *)&((TObjCollision *)arg0)->m_c4 = (s32) (*(s32 *)&((TObjCollision *)arg0)->m_c4& 0xFFFFFEFF);
     } else {
-        *(s32 *)((s8 *)arg0 + 0xC4) = (s32) (*(s32 *)((s8 *)arg0 + 0xC4) | 0x100);
+        *(s32 *)&((TObjCollision *)arg0)->m_c4 = (s32) (*(s32 *)&((TObjCollision *)arg0)->m_c4| 0x100);
     }
     init_collision_body_parts(arg0, (s32) (arg0 + 0xAC), 1);
     ((TObjPlayer *)arg0)->reset_photon_effect();

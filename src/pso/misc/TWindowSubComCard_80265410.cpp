@@ -271,11 +271,11 @@ void TWindowSubComCard::set_entry_value_clear_flag(s32 idx, s32 val) {
 
 s32 get_selected_entry__17TWindowSubComCardFPv(u8 *arg0) {
     s16 temp_r4;
-    temp_r4 = *(s16 *)((s8 *)arg0 + 0x78);
+    temp_r4 = *(s16 *)&((TWindowMenu *)arg0)->m_78;
     if (temp_r4 < 0) {
         return 0;
     }
-    if (temp_r4 >= (s16) *(s16 *)((s8 *)arg0 + 0x76)) {
+    if (temp_r4 >= (s16) *(s16 *)&((TWindowMenu *)arg0)->m_76) {
         return 0;
     }
     return ((s32 (*)(void *, s32))get_array_entry__13TUnk_804CE018Fi)((void *)(arg0), (s32)((s32) temp_r4));
@@ -488,7 +488,7 @@ void TWindowSubComCard::calc_layout_height(f32 farg0) {
     if (*(s32 *)&this->m_2c& 0x40) {
         h += lbl_805DD158;
     }
-    this->m_38= farg0;
+    this->m_38 = farg0;
     *(f32 *)(((u8 *)this) + 0x3C) = lbl_805DD154 + h;
     *(f32 *)(((u8 *)this) + 0x7C) = h;
     ((TUnk_804CE018 *)((u8 *)this))->save_position();
@@ -757,15 +757,15 @@ void render__11TWindowMenuFv(u8 *arg0) {
     temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
-    if (!(*(u16 *)((s8 *)arg0 + 0x70) & 0x80)) {
+    if (!(((TWindowMenu *)arg0)->m_70& 0x80)) {
         ((TWindowMenu *)arg0)->render_selected_entry(temp_r3);
         ((TWindowMenu *)arg0)->draw_selected_bar((u8 *)temp_r3);
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x88) != 0U) {
-        forward_render__20TWindowSubStatusDispFv(*(u32 *)((s8 *)arg0 + 0x88), temp_r3);
+    if ((u32) ((TWindowMenu *)arg0)->m_88 != 0U) {
+        forward_render__20TWindowSubStatusDispFv(((TWindowMenu *)arg0)->m_88, temp_r3);
     }
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x84) != 0U) {
-        draw_window_scrollbar(*(u32 *)((s8 *)arg0 + 0x84), temp_r3, arg0 + 0x68);
+    if ((u32) ((TWindowMenu *)arg0)->m_84 != 0U) {
+        draw_window_scrollbar(((TWindowMenu *)arg0)->m_84, temp_r3, arg0 + 0x68);
     }
 }
 

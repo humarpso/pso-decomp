@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TItemReverseTechCtrl.h"
 
 extern "C" {
 
@@ -12,7 +13,7 @@ extern void *lbl_805D2C58;
 void *__ct__20TItemReverseTechCtrlFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TItemReverseTechCtrl;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D2C58;
+    *(void * *)&((TItemReverseTechCtrl *)arg0)->m_name = lbl_805D2C58;
     disallow_rendering__7TObjectFv(arg0);
     *(u32 *)((s8 *)arg0 + 0x1C) = 0;
     *(u32 *)((s8 *)arg0 + 0x20) = 0;

@@ -124,9 +124,9 @@ void *__dt__12TPhotonLaserFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TPhotonLaser;
         ((TUnk_804AF8A0 *)arg0)->unregister_object_by_id();
         free_collision_body_parts(arg0);
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x364) != 0U) {
+        if ((u32) ((TPhotonLaser *)arg0)->m_364 != 0U) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x364));
-            *(u32 *)((s8 *)arg0 + 0x364) = 0U;
+            ((TPhotonLaser *)arg0)->m_364 = 0U;
         }
         ((TUnk_804806E8 *)arg0)->destroy_motion_object(0);
         if (arg1 > 0) {

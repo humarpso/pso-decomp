@@ -45,7 +45,7 @@ void *TObjBoss7TunnelCol__ct(void *arg0) {
     struct VOff_802F1BEC_arg0_802F1B7C *self = (struct VOff_802F1BEC_arg0_802F1B7C *)arg0;
     ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjBoss7TunnelCol;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D3FF0;
+    *(void * *)&((TObjBoss7TunnelCol *)arg0)->m_name = lbl_805D3FF0;
     fn_8002B630(self->f_AC, TObjBoss7TunnelCol__col_desc);
     *(f32 *)((s8 *)arg0 + 0x38) = lbl_805DECA0;
     *(f32 *)((s8 *)arg0 + 0x3C) = lbl_805DEC9C;

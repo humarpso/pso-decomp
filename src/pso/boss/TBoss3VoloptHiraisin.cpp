@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss3VoloptHiraisin.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -481,7 +482,7 @@ void run_task__20TBoss3VoloptHiraisinFv(u8 *arg0) {
   u8 *new_var;
   if (TObjPlayer::check_demo_mode() != 1)
   {
-    if (((s16) (*((s16 *) (((s8 *) arg0) + 0x326)))) != 5)
+    if (((s16) (((TBoss3VoloptHiraisin *)arg0)->mode)) != 5)
     {
       if ((((TBoss3VoloptHiraisin *)(arg0))->has_flag_0x800()) != 0)
       {
@@ -493,21 +494,21 @@ void run_task__20TBoss3VoloptHiraisinFv(u8 *arg0) {
         (((TBoss3VoloptHiraisin *)(arg0))->vfunc_62());
       }
     }
-    if (((s16) (*((s16 *) (((s8 *) arg0) + 0x326)))) != ((s32) (*((s32 *) (((s8 *) arg0) + 0x374)))))
+    if (((s16) (((TBoss3VoloptHiraisin *)arg0)->mode)) != ((s32) (*(s32 *)&((TBoss3VoloptHiraisin *)arg0)->next_action)))
     {
-      if (((s32) (*((s32 *) (((s8 *) arg0) + 0x37C)))) != (-1))
+      if (((s32) (*(s32 *)&((TBoss3VoloptHiraisin *)arg0)->state)) != (-1))
       {
-        *((s32 *) (((s8 *) arg0) + 0x37C)) = -1;
+        *(s32 *)&((TBoss3VoloptHiraisin *)arg0)->state = -1;
         ((TBoss3VoloptHiraisin *)arg0)->dispatch_state();
       }
-      *((s16 *) (((s8 *) arg0) + 0x326)) = (s16) (*((s32 *) (((s8 *) arg0) + 0x374)));
-      *((s32 *) (((s8 *) arg0) + 0x37C)) = 0;
+      ((TBoss3VoloptHiraisin *)arg0)->mode = (s16) (*(s32 *)&((TBoss3VoloptHiraisin *)arg0)->next_action);
+      *(s32 *)&((TBoss3VoloptHiraisin *)arg0)->state = 0;
     }
     ((TBoss3VoloptHiraisin *)arg0)->dispatch_state();
     VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(arg0 + 0x38));
     if (((s16) (*((s16 *) (((s8 *) arg0) + (0x326 & 0xFFFFFFFFu))))) != 5)
     {
-      *((f32 *) (((s8 *) arg0) + 0x300)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x300))) - (3e+01f));
+      ((TBoss3VoloptHiraisin *)arg0)->m_300 = (f32) ((((TBoss3VoloptHiraisin *)arg0)->m_300) - (3e+01f));
     }
     copy_position__20TBoss3VoloptHiraisinFi((void *) arg0);
     submit_cursor_candidate((void *) arg0, (int) (-1));

@@ -15,7 +15,13 @@ public:
     f32 sub_800AAF78(s32);
     virtual void vfunc_59();
     virtual void vfunc_58();
-    u8 unk_38C[0x90];
+    u8 unk_38C[0x4];
+    s16 m_390;
+    u8 unk_392[0x12];
+    f32 m_3a4;
+    u8 unk_3A8[0x28];
+    f32 m_3d0;
+    u8 unk_3D4[0x48];
 };
 typedef char TObjEneDubchik_size[sizeof(TObjEneDubchik) == 0x41C ? 1 : -1];
 

@@ -525,7 +525,7 @@ void TOMine::sub_80170BEC() {
     s32 i;
     switch (this->phase) {
     case 0:
-        this->phase= 1;
+        this->phase = 1;
         for (i = lbl_805D5870; i < lbl_805D5868; i++) {
             p = (u8 *)get_player_data__10TObjPlayerFi(i);
             if (p != NULL && p != ((u8 *)this) &&
@@ -584,7 +584,7 @@ void TOMine::detonate() {
             }
         }
     }
-    this->mode= 6;
+    this->mode = 6;
     ((TObjPlayer *)((u8 *)this))->clear_player_status_flag(0, 1);
     ((TOMine *)((u8 *)this))->receive_physical_attack(0, TOMineTrap__data_805DB868);
 }

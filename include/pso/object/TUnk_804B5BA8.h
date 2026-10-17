@@ -15,7 +15,8 @@ public:
     virtual void city_door_play_open_sound();
     virtual void dispatch_state();
     virtual void vfunc_22();
-    u8 unk_AC[0x8];
+    u8 unk_AC[0x4];
+    f32 m_b0;
     f32 m_b4;
     u8 unk_B8[0x4];
 };

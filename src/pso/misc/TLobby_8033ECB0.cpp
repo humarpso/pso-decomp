@@ -42,7 +42,7 @@ u8 *TLobby__sub_8033ED24(u8 *arg0) {
   s32 var_r30;
   __ct__7TObjectFP7TObject();
   *((s32 **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_8033ED24_lbl_804EFA88 *)&lbl_804EFA88).value;
-  *((s32 *) (((s8 *) arg0) + 0x20)) = 0;
+  ((TUnk_804EFA88 *)arg0)->m_20 = 0;
   *((s32 *) (((s8 *) arg0) + 0x1C)) = mem_alloc((void *) 0x240);
   if (((u32) (*((s32 *) (((s8 *) arg0) + 0x1C)))) != 0U)
   {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneBalClawBody.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/enemy/TObjEneBalClawClaw.h"
@@ -509,12 +510,12 @@ void draw_main__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_r3;
     s32 var_r29;
 
-    if (!(*(s32 *)((s8 *)arg0 + 0x30) & 0x02000000)) {
+    if (!(*(s32 *)&((TObjEneBalClawBody *)arg0)->actorFlags& 0x02000000)) {
         lbl_805D5660 = model_render_flags;
         temp_r3 = ((VObj18_8008e74c_8008DCF0*)arg0)->m9(lbl_805D963C, lbl_805D9640, lbl_805D9628);
         if (temp_r3 != 0) {
             var_r30 = 1;
-            TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
+            TObjFish::set_global_param(((TObjEneBalClawBody *)arg0)->texture_id);
             select_actor_lighting(arg0);
             TObjPlayer::toggle_particle_effect();
             push_matrix();
@@ -523,15 +524,15 @@ void draw_main__10TObjPlayerFPv(u8 *arg0) {
                 TObjPlayer::set_visibility_flags_by_count(arg0, 4);
                 post_translate_matrix(arg0 + 0x38);
                 rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
-                rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+                rotate_matrix_y(0, ((TObjEneBalClawBody *)arg0)->rotation_y);
                 draw_chunk_object(*(s32 *)((s8 *)arg0 + 0x34));
             } else {
-                TObjPlayer::set_visibility_flags_by_count(arg0, *(s16 *)((s8 *)arg0 + 0x3D8));
-                translate_matrix(0, lbl_805D9620, *(f32 *)((s8 *)arg0 + 0x3B4) + *(f32 *)((s8 *)arg0 + 0x3BC), lbl_805D9620);
+                TObjPlayer::set_visibility_flags_by_count(arg0, ((TObjEneBalClawBody *)arg0)->m_3d8);
+                translate_matrix(0, lbl_805D9620, ((TObjEneBalClawBody *)arg0)->m_3b4+ *(f32 *)((s8 *)arg0 + 0x3BC), lbl_805D9620);
                 post_translate_matrix(arg0 + 0x38);
                 rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
-                rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-                if (*(s32 *)((s8 *)arg0 + 0x388) & 4) {
+                rotate_matrix_y(0, ((TObjEneBalClawBody *)arg0)->rotation_y);
+                if (*(s32 *)&((TObjEneBalClawBody *)arg0)->m_388& 4) {
                     if (((VObj390V_8008e74c_8008DCF0*)(arg0 + 0x390))->m8() != 0) {
                         ((VObj390V_8008e74c_8008DCF0*)(arg0 + 0x390))->m6();
                         var_r29 = 1;

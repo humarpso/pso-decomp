@@ -424,15 +424,15 @@ u8 *TObjBoss1MokoHill_SoloM__ct(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3) {
     (*(u8 * *)&dragon_trail_position_source) = arg2;
     dragon_trail_heading_source = arg3;
     VecCopy((Vec *)(arg0 + 0x20), (const Vec *)arg2);
-    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) lbl_805D8198;
+    ((TObjBoss1MokoHill_SoloM *)arg0)->m_2c = (f32) lbl_805D8198;
     *(f32 *)((s8 *)arg0 + 0x30) = (f32) lbl_805D81A0;
-    *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805D81A0;
+    ((TObjBoss1MokoHill_SoloM *)arg0)->m_34 = (f32) lbl_805D81A0;
     if (TObjEneDD::check_v2_mode() != 0) {
         *(s32 *)((s8 *)arg0 + 0x38) = 1;
     } else {
         *(s32 *)((s8 *)arg0 + 0x38) = 0;
     }
-    *(s32 *)((s8 *)arg0 + 0x3C) = 0;
+    ((TObjBoss1MokoHill_SoloM *)arg0)->m_3c = 0;
     return arg0;
 }
 

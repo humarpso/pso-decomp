@@ -144,8 +144,8 @@ u8 *TAdPlyPltAnimCtrlGC__ct(u8 *arg0, s32 arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80355414___vt__19TAdPlyPltAnimCtrlGC *)&__vt__19TAdPlyPltAnimCtrlGC).value;
     var_r31 = 0;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D4390;
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x20) = -1;
+    *(s32 *)&((TAdPlyPltAnimCtrlGC *)arg0)->m_1c = 0;
+    *(s32 *)&((TAdPlyPltAnimCtrlGC *)arg0)->m_20 = -1;
     do {
         get_or_create__15TAdPlyPltAnimGCFii((void *) (arg0), (int) (var_r31));
         var_r31 += 1;

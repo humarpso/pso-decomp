@@ -19,9 +19,11 @@ struct TOKeyAncient03 : public TOKey {
     static void *create(void *arg0);
     static void cleanup_refs();
     static void load_resources();
-    u8 unk_E0[0xC];
+    u8 unk_E0[0x8];
+    f32 m_e8;
     f32 m_ec;
-    u8 unk_F0[0x8];
+    u8 unk_F0[0x4];
+    f32 m_f4;
     s32 m_f8;
 };
 

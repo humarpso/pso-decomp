@@ -276,7 +276,7 @@ void TUnk_804A204C::reserved_53() {
 
 void init_armor__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
-    *(s32 *)((s8 *)arg0 + 0x204) = -1;
+    ((TUnk_804A204C *)arg0)->m_204 = -1;
     if ((u32) *(u32 *)((s8 *)arg0 + 0x174) != 0U) {
         temp_r3 = __nw__15TItemHeapObjectFUl(0x2C);
         if (temp_r3 != 0) {
@@ -406,7 +406,7 @@ void *TObjPlayer__sub_80124694(void *arg0) {
     ((TObjPlayer *)arg0)->set_effect_state(12);
     *(u32 *)((s8 *)arg0 + 0x1F8) = 0;
     *(u32 *)((s8 *)arg0 + 0x200) = 0;
-    *(u32 *)((s8 *)arg0 + 0x204) = -1;
+    *(u32 *)&((TUnk_804A204C *)arg0)->m_204 = -1;
     return arg0;
 }
 
@@ -509,9 +509,9 @@ void drill_launcher_node_callback(void *arg0) {
         return;
     }
     if (player_list == 4) {
-        if (*(u32 *)((s8 *)arg0 + 0x188) != 0U) {
+        if (*(u32 *)&((TUnk_804A2164 *)arg0)->projectile != 0U) {
             if ((s32) *(s32 *)((s8 *)arg0 + 0x1F8) == 1) {
-                draw_ginja_object((void *)(*(u32 *)((s8 *)arg0 + 0x188)));
+                draw_ginja_object((void *)(*(u32 *)&((TUnk_804A2164 *)arg0)->projectile));
             }
         }
     }
@@ -559,7 +559,7 @@ void *__dt__13TUnk_804A2164Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void* drill_launcher_ct(void* a0, s32 _w1, void * _w2) { TItemWeapon__ct((void *)(a0)); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)recoiling_projectile_weapon_vtable); *(int*)((char*)a0 + 0x1f0) = (int)drill_launcher_create_shot; *(float*)((char*)a0 + 0x1e4) = 9.0f; ((TObjPlayer *)a0)->set_status_flags((int)((void*)34)); *(int*)((char*)a0 + 0x1f8) = 1; *(int*)((char*)a0 + 0x1fc) = 0; *(int*)((char*)a0 + 0x200) = 0; return a0; }
+void* drill_launcher_ct(void* a0, s32 _w1, void * _w2) { TItemWeapon__ct((void *)(a0)); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)recoiling_projectile_weapon_vtable); *(int*)((char*)a0 + 0x1f0) = (int)drill_launcher_create_shot; *(float*)((char*)a0 + 0x1e4) = 9.0f; ((TObjPlayer *)a0)->set_status_flags((int)((void*)34)); *(int*)((char*)a0 + 0x1f8) = 1; *(int *)&((TUnk_804A2164 *)a0)->m_1fc = 0; *(int*)((char*)a0 + 0x200) = 0; return a0; }
 u8 *create_drill_launcher(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;

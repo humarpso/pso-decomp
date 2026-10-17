@@ -27,7 +27,7 @@ u8 *construct_collision_body(u8 *arg0, s32 arg1, u32 arg2) {
     if (arg2 != 0U) {
         ((TUnk_804928CC *)arg0)->sub_800BC3E8((u8 *)arg2);
     } else {
-        *(s32 *)((s8 *)arg0 + 0xAC) = 0;
+        *(s32 *)&((TUnk_804928CC *)arg0)->m_ac = 0;
     }
     return arg0;
 }

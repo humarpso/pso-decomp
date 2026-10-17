@@ -105,14 +105,14 @@ void render__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0) {
     ((TWindowSubSymbolChatFaceType *)arg0)->update_parts_entries();
     draw_window_frame((void *) (arg0), (int) (temp_r31));
     TWindowSubSymbolChatFaceType__sub_80283F38((u8 *)((void *) (arg0)), (u8 *)((int) (temp_r31)));
-    forward_render__20TWindowSubStatusDispFv((int) (*(s32 *)((s8 *)arg0 + 0x68)), (int) (temp_r31));
+    forward_render__20TWindowSubStatusDispFv((int) (*(s32 *)&((TWindowSubSymbolChatFaceType *)arg0)->m_68), (int) (temp_r31));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r31));
 }
 typedef char RecoveredGlobal_80284074_lbl_8050E208_size[sizeof(RecoveredGlobal_80284074_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void run_task__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0) {
     u8 *temp_r31;
-    if (!(*(s32 *)((s8 *)arg0 + 0x2C) & 2)) {
-        *(s32 *)((s8 *)arg0 + 0x5C) = 0x01000000;
+    if (!(*(s32 *)&((TWindowSubSymbolChatFaceType *)arg0)->m_2c& 2)) {
+        *(s32 *)&((TWindowSubSymbolChatFaceType *)arg0)->m_5c = 0x01000000;
     }
     if (((TWindowSubSymbolChatFaceType *)arg0)->is_open() == 0) {
         ((TWindowSubSymbolChatFaceType *)arg0)->handle_input();
@@ -124,8 +124,8 @@ void run_task__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0) {
             ((TWindowSubSymbolChatFaceType *)arg0)->close_when_chat_closed();
         }
     }
-    if ((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DD784) {
-        ((TWindowSubStatusDisp *)(*(s32 *)((s8 *)arg0 + 0x68)))->update_subwindow();
+    if ((f32) *(s32 *)&((TWindowSubSymbolChatFaceType *)arg0)->m_5c >= lbl_805DD784) {
+        ((TWindowSubStatusDisp *)(*(s32 *)&((TWindowSubSymbolChatFaceType *)arg0)->m_68))->update_subwindow();
     }
     ((TWindowDD *)arg0)->initialize_subwindow();
     ((TUnk_804CE018 *)arg0)->update_window_entry_list((void *) (arg0 + 0x24));

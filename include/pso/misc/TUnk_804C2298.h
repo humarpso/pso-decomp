@@ -10,7 +10,8 @@ public:
     void sub_801A4CA4();
     virtual void render();
     virtual void run_task();
-    u8 unk_1C[0x4];
+    u8 unk_1C[0x2];
+    u16 m_1e;
     s32 m_20;
     u8 unk_24[0x4];
     void * m_28;

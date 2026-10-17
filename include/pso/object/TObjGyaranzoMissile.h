@@ -8,7 +8,9 @@ struct TObjGyaranzoMissile : public TUnk_804AF8A0 {
     virtual ~TObjGyaranzoMissile();
     void sub_800D47B4();
     void* m_ac;
-    u8 _padB0[0x14];
+    u8 unk_B0[0x4];
+    f32 m_b4;
+    u8 unk_B8[0xC];
     u16 m_c4;
     u8 _padC6[0x2];
     u32 m_c8;

@@ -99,7 +99,7 @@ void *__dt__15TShopWindowBaseFv(void *self, s16 m) {
 void *__ct__15TShopWindowBaseFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TShopWindowBase;
-    *(void **)((s8 *)arg0 + 0x0) = TShopWindowBase__class_name;
+    *(void * *)&((TShopWindowBase *)arg0)->m_name = TShopWindowBase__class_name;
     *(u32 *)((s8 *)arg0 + 0x1C) = 0;
     *(u32 *)((s8 *)arg0 + 0x20) = 0;
     *(u32 *)((s8 *)arg0 + 0x24) = 0;

@@ -1,4 +1,5 @@
 #include "pso/system/TSetEvtDestroy.h"
+#include "pso/TPlayerBattleCtrl.h"
 #include "pso/misc/TCheckRoomSequence.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -574,9 +575,9 @@ void init_battle_round__6TLobbyFPv(void *arg0) {
   s32 var_ctr;
   s32 var_r3;
   s32 i;
-  *((s32 *) (((s8 *) arg0) + 0x3C)) = TLobby__sub_801C417C();
+  ((TPlayerBattleCtrl *)arg0)->m_3c = TLobby__sub_801C417C();
   TWindowCtrl::create_alt_timer();
-  ((TWindowCtrl *)(*((s32 *) (((s8 *) arg0) + 0x3C))))->set_timer_window_time();
+  ((TWindowCtrl *)(((TPlayerBattleCtrl *)arg0)->m_3c))->set_timer_window_time();
   TOMineTrap::destroy_matching_traps();
   char_select_slot = TAdSinglePlyChrSelectGC::get_char_select_slot();
   char_select_slot = char_select_slot + 1;
@@ -1823,12 +1824,12 @@ s32 init_battle_round__6TLobbyFPv();
 s32 fn_801C4CE0(void *arg0);
 
 s32 fn_801C4CE0(void *arg0) {
-    switch (*(s32 *)((s8 *)arg0 + 0x20)) {
+    switch (((TPlayerBattleCtrl *)arg0)->state_20) {
     case -1:
         break;
     case 0:
         init_battle_round__6TLobbyFPv();
-        *(s32 *)((s8 *)arg0 + 0x24) = 1;
+        ((TPlayerBattleCtrl *)arg0)->state_24 = 1;
         break;
     }
 }
@@ -1903,8 +1904,8 @@ void *TPlayerBattleCtrl__ct(void *arg0, s32 _w1) {
     *(u8 **)((s8 *)arg0 + 0x18) = __vt__17TPlayerBattleCtrl;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TPlayerBattleCtrl__name;
     *(s32 *)((s8 *)arg0 + 0x28) = 0;
-    *(s32 *)((s8 *)arg0 + 0x24) = 0;
-    *(s32 *)((s8 *)arg0 + 0x20) = 0;
+    ((TPlayerBattleCtrl *)arg0)->state_24 = 0;
+    ((TPlayerBattleCtrl *)arg0)->state_20 = 0;
     *(s32 *)((s8 *)arg0 + 0x1C) = 0;
     *(s32 *)((s8 *)arg0 + 0x4C) = 0;
     *(s32 *)((s8 *)arg0 + 0x50) = 0;

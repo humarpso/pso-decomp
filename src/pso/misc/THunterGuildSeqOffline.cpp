@@ -292,10 +292,10 @@ u8 *__dt__22THunterGuildSeqOfflineFv(u8 *arg0, s16 arg1) {
             TWindow__close((int) (temp_r3_2));
             *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
         }
-        temp_r3_3 = *(u32 *)((s8 *)arg0 + 0x34);
+        temp_r3_3 = *(u32 *)&((THunterGuildSeqOffline *)arg0)->m_34;
         if (temp_r3_3 != 0U) {
             queue_destruction__7TObjectFv((int) (temp_r3_3));
-            *(u32 *)((s8 *)arg0 + 0x34) = 0U;
+            *(u32 *)&((THunterGuildSeqOffline *)arg0)->m_34 = 0U;
         }
         *(s32 *)((s8 *)(&THunterGuildSeqOffline__instance_table.value) + (sub_8022397C__15TShopWindowBaseFv((void *) (arg0)) * 4)) = 0;
         THunterGuildSeqOffline__active_instance = 0;
@@ -315,9 +315,9 @@ u8 *THunterGuildSeqOffline__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3658;
     *(s32 *)((s8 *)arg0 + 0x20) = 0;
     *(s32 *)((s8 *)arg0 + 0x2C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x24) = arg2;
+    ((THunterGuildSeqOffline *)arg0)->m_24 = arg2;
     *(s32 *)((s8 *)arg0 + 0x30) = 0;
-    *(s32 *)((s8 *)arg0 + 0x34) = 0;
+    ((THunterGuildSeqOffline *)arg0)->m_34 = 0;
     *(s32 *)((s8 *)arg0 + 0x38) = 0;
     (*(u8 * *)&THunterGuildSeqOffline__active_instance) = arg0;
     *(s32 *)((s8 *)(&(*(RecoveredGlobal_802132F0_THunterGuildSeqOffline__data_80513DD8 *)&THunterGuildSeqOffline__instance_table).value) + (sub_8022397C__15TShopWindowBaseFv((void *) (arg0)) * 4)) = 1;

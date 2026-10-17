@@ -175,10 +175,10 @@ u8 *TMedicalCenterSequence__ct(u8 *arg0, s32 arg1, s32 arg2) {
     TShopSequence__ct((void *) (arg0));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80216A70___vt__22TMedicalCenterSequence *)&__vt__22TMedicalCenterSequence).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TMedicalCenterSequence__class_name;
-    *(s32 *)((s8 *)arg0 + 0x20) = 0;
+    *(s32 *)&((TMedicalCenterSequence *)arg0)->m_20 = 0;
     *(s32 *)((s8 *)arg0 + 0x24) = arg2;
-    *(s32 *)((s8 *)arg0 + 0x2C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x30) = 0;
+    ((TMedicalCenterSequence *)arg0)->m_2c = 0;
+    *(s32 *)&((TMedicalCenterSequence *)arg0)->m_30 = 0;
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
     *(s32 *)((s8 *)(&(*(RecoveredGlobal_80216A70_TMedicalCenterSequence__data_80513E90 *)&TMedicalCenterSequence__data_80513E90).value) + (sub_8022397C__15TShopWindowBaseFv((void *) (arg0)) * 4)) = 1;
     return arg0;
@@ -192,13 +192,13 @@ u8 *__dt__22TMedicalCenterSequenceFv(u8 *arg0, s16 arg1) {
             *(u32 *)((s8 *)arg0 + 0x34) = 0U;
         }
         ((TShopSequence *)arg0)->close_message_window();
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x2C) != 0U) {
+        if ((u32) *(u32 *)&((TMedicalCenterSequence *)arg0)->m_2c != 0U) {
             TWindow__close((u32)(*(void **)((s8 *)arg0 + 0x2C)));
-            *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
+            *(u32 *)&((TMedicalCenterSequence *)arg0)->m_2c = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) {
+        if ((u32) ((TMedicalCenterSequence *)arg0)->m_30 != 0U) {
             TWindow__close((u32)(*(void **)((s8 *)arg0 + 0x30)));
-            *(u32 *)((s8 *)arg0 + 0x30) = 0U;
+            ((TMedicalCenterSequence *)arg0)->m_30 = 0U;
         }
         *(s32 *)((s8 *)(&TMedicalCenterSequence__data_80513E90.value) + (sub_8022397C__15TShopWindowBaseFv((void *) (arg0)) * 4)) = 0;
         __dt__13TShopSequenceFv((void *) (arg0), (int) (0));

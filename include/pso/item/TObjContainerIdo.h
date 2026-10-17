@@ -15,7 +15,9 @@ struct TObjContainerIdo : public TUnk_804B97C0 {
     u8 _padC4[0x18];
     u32 m_dc;
     u32 m_e0;
-    u8 _padE4[0xC];
+    u8 unk_E4[0x4];
+    f32 m_e8;
+    u8 unk_EC[0x4];
     void* m_f0;
     u8 _padF4[0x10];
     u32 m_104;

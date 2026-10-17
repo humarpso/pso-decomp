@@ -83,7 +83,7 @@ u8 *TWindowMessageLog__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8026ABA8___vt__17TWindowMessageLog *)&__vt__17TWindowMessageLog).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3990;
     TWindowCtrl__sub_8026AD78((void *) (arg0));
-    temp_f2 = *(f32 *)((s8 *)arg0 + 0x38);
+    temp_f2 = ((TWindowMessageLog *)arg0)->m_38;
     temp_f1 = temp_f2 - lbl_805DD258;
     stack.spC = lbl_805DD240;
     stack.sp8 = temp_f1;
@@ -93,8 +93,8 @@ u8 *TWindowMessageLog__ct(u8 *arg0, s32 arg1, s32 arg2) {
         var_r0 = reset_selection__20TWindowSubStatusDispFv((int) (temp_r3), (void *) (&stack.sp8));
     }
     *(s32 *)((s8 *)arg0 + 0x90) = var_r0;
-    *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (*(s32 *)((s8 *)arg0 + 0x2C) | 0x80);
-    *(f32 *)((s8 *)arg0 + 0x94) = (f32) lbl_805DD240;
+    *(s32 *)&((TWindowMessageLog *)arg0)->m_2c = (s32) (*(s32 *)&((TWindowMessageLog *)arg0)->m_2c| 0x80);
+    ((TWindowMessageLog *)arg0)->m_94 = (f32) lbl_805DD240;
     ((TWindowMessageLog *)arg0)->load_chat_history();
     return arg0;
 }

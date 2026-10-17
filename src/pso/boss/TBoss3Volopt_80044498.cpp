@@ -1688,17 +1688,17 @@ void TBoss3Volopt::set_action(s16 arg1) {
     }
 }
 void render__12TBoss3VoloptFPv(u8 *arg0) {
-    if (!(*(s32 *)((s8 *)arg0 + 0x30) & 0x02000000) && (((VObjA_80044498 *)arg0)->m8(lbl_805D881C, lbl_805D8820) != 0)) {
+    if (!(*(s32 *)&((TUnk_80484610 *)arg0)->actorFlags& 0x02000000) && (((VObjA_80044498 *)arg0)->m8(lbl_805D881C, lbl_805D8820) != 0)) {
         if (((RenderFadeState*)(arg0 + 0x490))->updateFromCamera((const f32*)(arg0 + 0x2FC)) != 0) {
             ((VObjB_80044498 *)(arg0 + 0x490))->n6();
         }
-        TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0x24));
+        TObjFish::set_global_param(((TUnk_80484610 *)arg0)->texture_id);
         select_actor_lighting(arg0);
         TObjPlayer::toggle_particle_effect();
         push_matrix();
         model_render_flags &= 0xFFFFFBFF;
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        rotate_matrix_y(0, ((TUnk_80484610 *)arg0)->rotation_y);
         if (TObjPlayer::check_demo_mode() == 1) {
             draw_chunk_object(*(s32 *)((s8 *)arg0 + 0x34));
         } else {

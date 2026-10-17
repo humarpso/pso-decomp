@@ -37,25 +37,25 @@ typedef char RecoveredGlobal_801A2340_lbl_804FF610_size[sizeof(RecoveredGlobal_8
 s16 TUnk_804B9870::classify_actor_view_detail(f32 farg0, f32 farg1, f32 farg2) {
     Stack_801A2340 stack;
     f32 z;
-    if (*(u16 *)((s8 *)((u8 *)this) + 4) & 0x400) {
+    if (this->m_flags& 0x400) {
         if (is_in_shadow_range(farg2, (void *) (((u8 *)this) + 0x38)) != 0) {
-            *(s16 *)((s8 *)((u8 *)this) + 0x1E) = 1;
+            this->m_1e = 1;
             return 1;
         }
-        *(s16 *)((s8 *)((u8 *)this) + 0x1E) = 0;
+        this->m_1e = 0;
         return 0;
     }
     if (TMainTask::get_state_flag() == 1) {
-        return *(s16 *)((s8 *)((u8 *)this) + 0x1E);
+        return this->m_1e;
     }
     transform_point_by_current_matrix((void *) (((u8 *)this) + 0x38), (void *) (&stack.sp10));
     z = stack.sp18;
     if (z > lbl_805DC098) {
-        *(s16 *)((s8 *)((u8 *)this) + 0x1E) = 0;
+        this->m_1e = 0;
         return 0;
     }
     if (z < -farg1) {
-        *(s16 *)((s8 *)((u8 *)this) + 0x1E) = 0;
+        this->m_1e = 0;
         return 0;
     }
     if (stack.sp10 < lbl_805DC098) {
@@ -64,7 +64,7 @@ s16 TUnk_804B9870::classify_actor_view_detail(f32 farg0, f32 farg1, f32 farg2) {
         stack.sp18 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 8) * farg2) + *(f32 *)((s8 *)((u8 *)this) + 0x40);
         project_world_to_screen(0, (void *) (&stack.sp10), (void *) (&stack.sp8));
         if (stack.sp8 < lbl_805DC098) {
-            *(s16 *)((s8 *)((u8 *)this) + 0x1E) = 0;
+            this->m_1e = 0;
             return 0;
         }
     } else {
@@ -73,15 +73,15 @@ s16 TUnk_804B9870::classify_actor_view_detail(f32 farg0, f32 farg1, f32 farg2) {
         stack.sp18 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 8) * farg2) - *(f32 *)((s8 *)((u8 *)this) + 0x40));
         project_world_to_screen(0, (void *) (&stack.sp10), (void *) (&stack.sp8));
         if (stack.sp8 > lbl_805DC09C) {
-            *(s16 *)((s8 *)((u8 *)this) + 0x1E) = 0;
+            this->m_1e = 0;
             return 0;
         }
     }
     if (z < -farg0) {
-        *(s16 *)((s8 *)((u8 *)this) + 0x1E) = 2;
+        this->m_1e = 2;
         return 2;
     }
-    *(s16 *)((s8 *)((u8 *)this) + 0x1E) = 1;
+    this->m_1e = 1;
     return 1;
 }
 #pragma pop

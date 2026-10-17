@@ -65,9 +65,9 @@ void *construct_option_scene(void *parent) {
         __ct__10TAdTitleGCFP7TObjectl(o3, parent, 3);
     }
     TKeyBoardControl__sub_8000F90C(9);
-    *(u32 *)((s8 *)parent + 0x20) = 4;
+    *(u32 *)&((TUnk_804C2298 *)parent)->m_20 = 4;
     *(u8 *)((s8 *)parent + 0x1C) = 0;
-    *(u16 *)((s8 *)parent + 0x1E) = 0;
+    ((TUnk_804C2298 *)parent)->m_1e = 0;
     o4 = __nw__7TObjectFUl(0x50);
     if (o4 != NULL) {
         o4 = TWindowOptionCtrl__ct(o4, parent);

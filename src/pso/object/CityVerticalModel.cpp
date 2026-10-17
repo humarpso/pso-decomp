@@ -168,9 +168,9 @@ u8 *construct_city_vertical_model(u8 *arg0, s32 parent, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801830BC_lbl_804B5C08 *)&city_vertical_model_vtable).value;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     *(s32 *)((s8 *)arg0 + 0x90) = 1;
-    *(s32 *)((s8 *)arg0 + 0x94) = 2;
+    ((TUnk_804B5C08 *)arg0)->m_94 = 2;
     *(s32 *)((s8 *)arg0 + 0x98) = 0;
-    *(f32 *)((s8 *)arg0 + 0x9C) = (f32) lbl_805DBC00;
+    *(f32 *)&((TUnk_804B5C08 *)arg0)->m_9c = (f32) lbl_805DBC00;
     return arg0;
 }
 

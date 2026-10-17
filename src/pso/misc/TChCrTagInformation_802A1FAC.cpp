@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TChCrTagInformation.h"
 
 extern "C" {
 
@@ -14,10 +15,10 @@ extern void *TChCrTagInformation__class_name;
 void *TChCrTagInformation__ct(void *arg0) {
     __ct__8TChCrTagFv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TChCrTagInformation;
-    *(void **)((s8 *)arg0 + 0x0) = TChCrTagInformation__class_name;
-    *(f32 *)((s8 *)arg0 + 0x28) = lbl_805DDE20;
+    *(void * *)&((TChCrTagInformation *)arg0)->m_name = TChCrTagInformation__class_name;
+    ((TChCrTagInformation *)arg0)->m_28 = lbl_805DDE20;
     *(f32 *)((s8 *)arg0 + 0x2C) = lbl_805DDE24;
-    *(f32 *)((s8 *)arg0 + 0x34) = lbl_805DDE20;
+    ((TChCrTagInformation *)arg0)->m_34 = lbl_805DDE20;
     *(f32 *)((s8 *)arg0 + 0x38) = lbl_805DDE24;
     fn_803098E8();
     return arg0;

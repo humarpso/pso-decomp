@@ -84,7 +84,7 @@ void *TUnk_804F0EA8::destroy_and_clear_instance(s16 arg1) {
 u8 *TLobby__sub_80351FDC(u8 *arg0) {
     __ct__7TObjectFP7TObject(arg0, tl_00);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80351FDC_lbl_804F0EA8 *)&lbl_804F0EA8).value;
-    *(s32 *)((s8 *)arg0 + 0x20) = TLobby::get_filtered_event_theme();
+    ((TUnk_804F0EA8 *)arg0)->m_20 = TLobby::get_filtered_event_theme();
     *(s32 *)((s8 *)arg0 + 0x1C) = 0;
     return arg0;
 }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TUnk_804F1C58.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 
 struct RecoveredGlobal_8035A860_lbl_804F1C58 {
@@ -20,13 +21,13 @@ u8 *fn_8035A860(u8 *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804F1C58.value;
     *(s32 *)((s8 *)arg0 + 0x1C) = arg2;
-    *(s32 *)((s8 *)arg0 + 0x20) = 0;
+    ((TUnk_804F1C58 *)arg0)->m_20 = 0;
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805E00E8;
-    *(s32 *)((s8 *)arg0 + 0x30) = 0;
+    ((TUnk_804F1C58 *)arg0)->m_30 = 0;
     *(s32 *)((s8 *)arg0 + 0x2C) = ((TObjBoss2Tunnel *)arg2)->count_tree_nodes();
     *(s32 *)((s8 *)arg0 + 0x28) = mem_alloc((int) (*(s32 *)((s8 *)arg0 + 0x2C) * 0x30));
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
-    *(s32 *)((s8 *)arg0 + 0x38) = 0;
+    ((TUnk_804F1C58 *)arg0)->m_38 = 0;
     return arg0;
 }
 #pragma push

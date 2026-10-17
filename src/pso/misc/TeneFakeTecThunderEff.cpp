@@ -394,15 +394,15 @@ u8 *TObjPlayer__sub_800A4204(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800A4204_lbl_80490A18 *)&lbl_80490A18).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D29E0;
-    *(s32 *)((s8 *)arg0 + 0x338) = arg2;
+    ((TeneFakeTecThunderEff *)arg0)->m_338 = arg2;
     *(s32 *)((s8 *)arg0 + 0x33C) = arg3;
-    *(s32 *)((s8 *)arg0 + 0x330) = 0;
+    ((TeneFakeTecThunderEff *)arg0)->m_330 = 0;
     *(s32 *)((s8 *)arg0 + 0x334) = 0;
     *(s32 *)((s8 *)arg0 + 0x344) = arg4;
     build_beam_points__12TTecZondeEffFPv((Obj_800A39A8 *)arg0);
-    *(s32 *)((s8 *)arg0 + 0x328) = 0;
+    ((TeneFakeTecThunderEff *)arg0)->m_328 = 0;
     *(s32 *)((s8 *)arg0 + 0x32C) = 0xFF000000;
-    *(s32 *)((s8 *)arg0 + 0x340) = 0;
+    ((TeneFakeTecThunderEff *)arg0)->m_340 = 0;
     return arg0;
 }
 

@@ -56,7 +56,7 @@ void render__19TObjLazerFenceExtraFv(void *arg0) {
     s32 temp_r0;
 
     if ((((LazerFenceExtraVObj_801925F8*)arg0)->m8(lbl_805DBE5C, lbl_805DBE60) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0xD8) != 0)) {
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0xB4);
+        temp_r0 = ((TObjLazerFenceExtra *)arg0)->m_b4;
         switch (temp_r0) {
         case 0:
             ((TObjLazerFenceExtra *)arg0)->draw_lazer_fence_extra_model();
@@ -125,7 +125,7 @@ void *__nw__7TObjectFUl(int);
 void run_task__19TObjLazerFenceExtraFv(void *arg0) {
     s32 temp_r0;
 
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0xB4);
+    temp_r0 = ((TObjLazerFenceExtra *)arg0)->m_b4;
     switch (temp_r0) {
     case 0:
         ((s32 (*)())update_wait_switch__19TObjLazerFenceExtraFv)();

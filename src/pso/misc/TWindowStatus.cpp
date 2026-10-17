@@ -189,7 +189,7 @@ extern void *TWindowStatus__name;
 void *TWindowStatus__ct(void *arg0) {
     TWindowSimpleStatus__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TWindowStatus;
-    *(void **)((s8 *)arg0 + 0x0) = TWindowStatus__name;
+    *(void * *)&((TWindowStatus *)arg0)->m_name = TWindowStatus__name;
     return arg0;
 }
 

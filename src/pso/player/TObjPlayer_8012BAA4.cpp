@@ -59,7 +59,7 @@ void psycho_wand_node_callback(void *arg0) {
         rotate_matrix_z(0, -*(s32 *)((s8 *)arg0 + 0x278));
         return;
     case 1:
-        translate_matrix(0, lbl_805DAEC8, lbl_805DAECC * *(f32 *)((s8 *)arg0 + 0x274), lbl_805DAEC8);
+        translate_matrix(0, lbl_805DAEC8, lbl_805DAECC * ((TUnk_804A4F60 *)arg0)->m_274, lbl_805DAEC8);
         return;
     case 3:
     case 4:

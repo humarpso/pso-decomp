@@ -42,9 +42,9 @@ u8 *TBoss6CrushPtcl__ct(u8 *arg0, void *arg1, Vec_80359EF0 *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TBoss6CrushPtcl;
     *(s32 *)((s8 *)arg0 + 0) = TBoss6CrushPtcl__name;
     Vec_80359EF0 v = *arg2;
-    *(s32 *)((s8 *)arg0 + 0x20) = create_particle_emitter(&v, 0x203);
-    *(s32 *)((s8 *)arg0 + 0x24) = create_particle_emitter(&v, 0x204);
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
+    *(s32 *)&((TBoss6CrushPtcl *)arg0)->m_20 = create_particle_emitter(&v, 0x203);
+    *(s32 *)&((TBoss6CrushPtcl *)arg0)->m_24 = create_particle_emitter(&v, 0x204);
+    ((TBoss6CrushPtcl *)arg0)->m_1C = 0;
     return arg0;
 }
 

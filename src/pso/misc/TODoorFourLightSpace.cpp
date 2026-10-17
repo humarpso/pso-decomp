@@ -316,15 +316,15 @@ u8 *TODoorFourLightSpace__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_collision_body_parts((void *) (arg0), (void *) (TODoorFourLight__collision_body_params), (int) (1));
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    *(s32 *)((s8 *)arg0 + 0xD4) = fn_8028A78C((int) (0));
-    *(s32 *)((s8 *)arg0 + 0x24) = fn_8028A750((int) (0));
+    *(s32 *)&((TODoorFourLightSpace *)arg0)->m_d4 = fn_8028A78C((int) (0));
+    ((TODoorFourLightSpace *)arg0)->texture_id = fn_8028A750((int) (0));
     *(u8 **)((s8 *)arg0 + 0xBC) = fn_8028A714(0);
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DD8F4);
-    *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DD8F8;
+    ((TODoorFourLightSpace *)arg0)->m_b8 = (f32) lbl_805DD8F8;
     {
         Tbl_80289EE0 t = door_four_light_space_index_table;
         for (i = 0; i < 8; i++) {
-            ((Door_80289EE0 *)arg0)->sw[i] = ((TObjSeabedSuisoBrakable *)(*(s32 *)((s8 *)arg0 + 0xD4)))->count_linked_switches(t.v[i]);
+            ((Door_80289EE0 *)arg0)->sw[i] = ((TObjSeabedSuisoBrakable *)(*(s32 *)&((TODoorFourLightSpace *)arg0)->m_d4))->count_linked_switches(t.v[i]);
         }
     }
     return arg0;
@@ -567,15 +567,15 @@ u8 *TODoorFourLightRuins__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_collision_body_parts((void *) (arg0), (void *) (TODoorFourLight__collision_body_params), (int) (1));
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    *(s32 *)((s8 *)arg0 + 0xD4) = fn_8028A78C((int) (0));
-    *(s32 *)((s8 *)arg0 + 0x24) = fn_8028A750((int) (0));
+    *(s32 *)&((TODoorFourLightRuins *)arg0)->m_d4 = fn_8028A78C((int) (0));
+    ((TODoorFourLightRuins *)arg0)->texture_id = fn_8028A750((int) (0));
     *(u8 **)((s8 *)arg0 + 0xBC) = fn_8028A714(0);
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DD8F4);
-    *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DD8F8;
+    ((TODoorFourLightRuins *)arg0)->m_b8 = (f32) lbl_805DD8F8;
     {
         Tbl_8028A5C4 t = door_four_light_ruins_index_table;
         for (i = 0; i < 8; i++) {
-            ((Door_8028A5C4 *)arg0)->sw[i] = ((TObjSeabedSuisoBrakable *)(*(s32 *)((s8 *)arg0 + 0xD4)))->count_linked_switches(t.v[i]);
+            ((Door_8028A5C4 *)arg0)->sw[i] = ((TObjSeabedSuisoBrakable *)(*(s32 *)&((TODoorFourLightRuins *)arg0)->m_d4))->count_linked_switches(t.v[i]);
         }
     }
     return arg0;

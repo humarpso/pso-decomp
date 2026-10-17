@@ -42,7 +42,7 @@ TObjRainCtrl::~TObjRainCtrl() {}
 void *TObjRainCtrl__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjRainCtrl;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D3428;
+    *(void * *)&((TObjRainCtrl *)arg0)->m_name = lbl_805D3428;
     *(u32 *)((s8 *)arg0 + 0x1C) = 2;
     return arg0;
 }

@@ -145,8 +145,8 @@ void TBoss8DragonEffBullet::run_task() {
 void *__dt__21TBoss8DragonEffBulletFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TBoss8DragonEffBullet;
-        if (*(void **)((s8 *)arg0 + 0x50) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x50)); *(s32 *)((s8 *)arg0 + 0x50) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x4C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x4C)); *(s32 *)((s8 *)arg0 + 0x4C) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x50) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x50)); *(s32 *)&((TBoss8DragonEffBullet *)arg0)->m_50 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x4C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x4C)); *(s32 *)&((TBoss8DragonEffBullet *)arg0)->m_4c = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -166,16 +166,16 @@ u8 *TBoss8DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, 
     VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)(arg2));
     VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(arg3));
     subtract_vector((void *) (arg0 + 0x28), (void *) (arg0 + 0x1C));
-    *(f32 *)((s8 *)arg0 + 0x40) = ((TObjBoss2Tunnel *)(arg0 + 0x28))->update_scale();
+    ((TBoss8DragonEffBullet *)arg0)->m_40 = ((TObjBoss2Tunnel *)(arg0 + 0x28))->update_scale();
     *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805DEF04;
-    *(s32 *)((s8 *)arg0 + 0x34) = 0;
-    *(s32 *)((s8 *)arg0 + 0x38) = 0;
-    *(s32 *)((s8 *)arg0 + 0x44) = arg4;
-    *(s16 *)((s8 *)arg0 + 0x48) = arg5;
-    *(s32 *)((s8 *)arg0 + 0x4C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x50) = 0;
+    *(s32 *)&((TBoss8DragonEffBullet *)arg0)->m_34 = 0;
+    *(s32 *)&((TBoss8DragonEffBullet *)arg0)->m_38 = 0;
+    *(s32 *)&((TBoss8DragonEffBullet *)arg0)->m_44 = arg4;
+    *(s16 *)&((TBoss8DragonEffBullet *)arg0)->m_48 = arg5;
+    *(s32 *)&((TBoss8DragonEffBullet *)arg0)->m_4c = 0;
+    *(s32 *)&((TBoss8DragonEffBullet *)arg0)->m_50 = 0;
     play_sound_effect((int) (0x4003B20B), (void *) (arg0 + 0x1C), (int) (0), (int) (0));
-    temp_r0 = *(s32 *)((s8 *)arg0 + 0x44);
+    temp_r0 = *(s32 *)&((TBoss8DragonEffBullet *)arg0)->m_44;
     switch (temp_r0) {
     case 1:
         *(s32 **)((s8 *)arg0 + 0x54) = &lbl_80474B68.value;

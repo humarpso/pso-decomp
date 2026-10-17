@@ -59,7 +59,7 @@ extern void *lbl_805D3E90;
 void *TBoss6EmptyWarp__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TBoss6EmptyWarp;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D3E90;
+    *(void * *)&((TBoss6EmptyWarp *)arg0)->m_name = lbl_805D3E90;
     TBoss6PlotFalz::freeze_all_players();
     *(u32 *)((s8 *)arg0 + 0x1C) = 0;
     return arg0;

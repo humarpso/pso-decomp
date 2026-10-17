@@ -506,7 +506,7 @@ void TUnk_804C3248::setup_photon_blast_camera() {
 void *destroy_photon_motion_object(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = lbl_804C3248;
-        *(s32 *)((s8 *)arg0 + 0x148) = 0;
+        ((TUnk_804C3248 *)arg0)->m_148 = 0;
         __dt__10TObjMotionFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -520,29 +520,29 @@ extern void *tl_06;
 void *photon_base_ct(void *arg0) {
     TObjMotion__ct(arg0, tl_06);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804C3248;
-    *(u32 *)((s8 *)arg0 + 0x134) = 0;
-    *(u32 *)((s8 *)arg0 + 0x100) = 0;
+    *(u32 *)&((TUnk_804C3248 *)arg0)->m_134 = 0;
+    ((TUnk_804C3248 *)arg0)->m_100 = 0;
     *(u32 *)((s8 *)arg0 + 0x138) = 0;
-    *(f32 *)((s8 *)arg0 + 0x150) = 1.0f;
+    ((TUnk_804C3248 *)arg0)->m_150 = 1.0f;
     *(u32 *)((s8 *)arg0 + 0x154) = 0;
-    *(f32 *)((s8 *)arg0 + 0x13C) = 0.0f;
+    ((TUnk_804C3248 *)arg0)->m_13c = 0.0f;
     *(f32 *)((s8 *)arg0 + 0x140) = 0.0f;
-    *(f32 *)((s8 *)arg0 + 0x144) = 0.0f;
-    *(u32 *)((s8 *)arg0 + 0x148) = 0;
+    ((TUnk_804C3248 *)arg0)->m_144 = 0.0f;
+    *(u32 *)&((TUnk_804C3248 *)arg0)->m_148 = 0;
     *(u16 *)((s8 *)arg0 + 0x14C) = 0;
     *(u32 *)((s8 *)arg0 + 0xFC) = 0;
     *(f32 *)((s8 *)arg0 + 0x104) = 0.0f;
-    *(f32 *)((s8 *)arg0 + 0x108) = 0.0f;
+    ((TUnk_804C3248 *)arg0)->m_108 = 0.0f;
     *(f32 *)((s8 *)arg0 + 0x10C) = 0.0f;
-    *(f32 *)((s8 *)arg0 + 0x110) = 0.0f;
+    ((TUnk_804C3248 *)arg0)->m_110 = 0.0f;
     *(f32 *)((s8 *)arg0 + 0x114) = 0.0f;
-    *(f32 *)((s8 *)arg0 + 0x118) = 0.0f;
+    ((TUnk_804C3248 *)arg0)->m_118 = 0.0f;
     *(f32 *)((s8 *)arg0 + 0x11C) = 0.0f;
-    *(f32 *)((s8 *)arg0 + 0x120) = 0.0f;
+    ((TUnk_804C3248 *)arg0)->m_120 = 0.0f;
     *(f32 *)((s8 *)arg0 + 0x124) = 1.0f;
-    *(f32 *)((s8 *)arg0 + 0x128) = 0.0f;
+    ((TUnk_804C3248 *)arg0)->m_128 = 0.0f;
     *(f32 *)((s8 *)arg0 + 0x12C) = 0.0f;
-    *(f32 *)((s8 *)arg0 + 0x130) = 1.0f;
+    ((TUnk_804C3248 *)arg0)->m_130 = 1.0f;
     return arg0;
 }
 

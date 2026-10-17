@@ -19,7 +19,9 @@ struct TObjDoorKey : public TOKey {
     void run_task();
     static void free_key();
     static void load_resources();
-    u8 unk_E0[0x10];
+    u8 unk_E0[0x8];
+    s32 m_e8;
+    u8 unk_EC[0x4];
     s32 m_f0;
     u8 unk_F4[0x4];
     u32 m_f8;

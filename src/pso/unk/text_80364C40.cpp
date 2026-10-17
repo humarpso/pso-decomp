@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TUnk_804F2B60.h"
 
 struct RecoveredGlobal_80364C40_lbl_804F2B60 {
     s32 value;
@@ -14,7 +15,7 @@ u8 *fn_80364C40(u8 *arg0, s16 arg1, u8 *arg2, f32 farg0) {
     __ct__7TObjectFP7TObject(arg0, arg2);
     *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804F2B60.value;
     *(f32 *)((s8 *)arg0 + 0x1C) = farg0;
-    *(s16 *)((s8 *)arg0 + 0x20) = arg1;
+    ((TUnk_804F2B60 *)arg0)->m_20 = arg1;
     return arg0;
 }
 

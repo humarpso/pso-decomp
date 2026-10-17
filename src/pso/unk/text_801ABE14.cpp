@@ -75,25 +75,25 @@ u8 *TPhotonGolla__ct(u8 *arg0, u8 *arg1) {
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
     *(s32 *)((s8 *)arg0 + 0x1A8) = 0;
-    *(u8 **)((s8 *)arg0 + 0x1A4) = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x158));
-    e = *(u8 **)((s8 *)arg0 + 0x1A4);
+    ((TPhotonGolla *)arg0)->m_1a4 = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x158));
+    e = ((TPhotonGolla *)arg0)->m_1a4;
     if (e != NULL) {
-        *(s32 *)((s8 *)arg0 + 0x60) = *(s32 *)((s8 *)e + 0x60);
+        ((TPhotonGolla *)arg0)->rotation_y = *(s32 *)((s8 *)e + 0x60);
     } else {
-        *(s32 *)((s8 *)arg0 + 0x60) = 0;
+        ((TPhotonGolla *)arg0)->rotation_y = 0;
     }
     *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x48);
-    *(s32 *)((s8 *)arg0 + 0x24) = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x4C);
+    ((TPhotonGolla *)arg0)->texture_id = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x4C);
     ((TObjPlayer *)arg0)->set_field_d8((s32) lbl_804C35A8);
     ((TObjPlayer *)arg0)->set_field_dc(*(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
-    *(s16 *)((s8 *)arg0 + 0xB8) = 1;
-    set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    ((TObjMotion *)arg0)->set_field_b8(*(s16 *)((s8 *)arg0 + 0xB8));
-    *(s16 *)((s8 *)arg0 + 0x1B8) = 1;
-    *(s32 *)((s8 *)arg0 + 0x1BC) = *(s32 *)((s8 *)arg1 + 0x10);
+    ((TPhotonGolla *)arg0)->m_b8 = 1;
+    set_animation__10TObjPlayerFPvs(arg0, ((TPhotonGolla *)arg0)->m_b8);
+    ((TObjMotion *)arg0)->set_field_b8(((TPhotonGolla *)arg0)->m_b8);
+    ((TPhotonGolla *)arg0)->m_1b8 = 1;
+    ((TPhotonGolla *)arg0)->m_1bc = *(s32 *)((s8 *)arg1 + 0x10);
     *(s32 *)((s8 *)arg0 + 0x1C0) = *(s32 *)((s8 *)arg1 + 0x14);
-    *(s32 *)((s8 *)arg0 + 0x1C4) = 0;
-    *(s32 *)((s8 *)arg0 + 0x134) = 5;
+    ((TPhotonGolla *)arg0)->m_1c4 = 0;
+    ((TPhotonGolla *)arg0)->m_134 = 5;
     ((TPhotonGolla *)arg0)->enter_scene();
     *(s32 *)((s8 *)arg0 + 0x1C8) = 0;
     switch (TOKeyMachine01::get_global_state()) {
@@ -111,19 +111,19 @@ u8 *TPhotonGolla__ct(u8 *arg0, u8 *arg1) {
         }
         break;
     }
-    *(s32 *)((s8 *)arg0 + 0x19C) = 0;
+    ((TPhotonGolla *)arg0)->m_19c = 0;
     collect_hit_targets__12TPhotonGollaFPv(arg0);
     ((void (*)(void *, int)) sub_801AB688__12TPhotonGollaFv)(arg0, *(u8 *)((s8 *)arg1 + 0x1C));
     if (*(s32 *)((s8 *)arg0 + 0x1C0) == 1) {
         *(s32 *)((s8 *)arg0 + 0x154) |= 1;
     }
-    *(f32 *)((s8 *)arg0 + 0x150) = *(f32 *)((s8 *)arg1 + 0x20);
-    if (*(s32 *)((s8 *)arg0 + 0x1BC) == 0) {
+    ((TPhotonGolla *)arg0)->m_150 = *(f32 *)((s8 *)arg1 + 0x20);
+    if (((TPhotonGolla *)arg0)->m_1bc == 0) {
         ((TObjMotion *)arg0)->set_field_b8(0);
         ((TUnk_804C3248 *)arg0)->begin_photon_summon_camera(5);
-        *(s32 *)((s8 *)arg0 + 0x1BC) = 1;
-        *(s16 *)((s8 *)arg0 + 0x1B8) = 0;
-        *(s32 *)((s8 *)arg0 + 0x1C4) = 1;
+        ((TPhotonGolla *)arg0)->m_1bc = 1;
+        ((TPhotonGolla *)arg0)->m_1b8 = 0;
+        ((TPhotonGolla *)arg0)->m_1c4 = 1;
         e = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x158));
         if (e != NULL) {
             VecCopy((Vec *)&pos, (const Vec *)(e + 0x38));

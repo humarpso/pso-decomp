@@ -14,7 +14,8 @@ public:
     void * m_2c;
     u8 unk_30[0x4];
     s32 m_34;
-    u8 unk_38[0x8];
+    u8 unk_38[0x4];
+    s32 m_3c;
     s32 m_40;
     u8 unk_44[0x34];
 };

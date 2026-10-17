@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A2960.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemProShield.h"
 
@@ -35,7 +36,7 @@ u8 *frozen_shooter_ct(u8 *arg0, u8 *arg1, s32 _w2) {
         *(s32 *)((s8 *)arg0 + 0x1F8) = 1;
         *(s32 *)((s8 *)arg0 + 0x200) = 0x95;
     }
-    *(s32 *)((s8 *)arg0 + 0x1FC) = 0;
+    ((TUnk_804A2960 *)arg0)->m_1fc = 0;
     return arg0;
 }
 

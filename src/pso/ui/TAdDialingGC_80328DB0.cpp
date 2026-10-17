@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdDialingGC.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
@@ -17,19 +18,19 @@ void *TAdDialingGC__ct(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D41B0;
     TAdDialingGC__instance = arg0;
     if (TLobby::is_state_active() != 0) {
-        *(s32 *)((s8 *)arg0 + 0x1C) = 1;
+        *(s32 *)&((TAdDialingGC *)arg0)->m_1c = 1;
     } else if (TLobby__sub_8014618C() == 1) {
-        *(s32 *)((s8 *)arg0 + 0x1C) = 2;
+        *(s32 *)&((TAdDialingGC *)arg0)->m_1c = 2;
     } else {
-        *(s32 *)((s8 *)arg0 + 0x1C) = 0;
+        *(s32 *)&((TAdDialingGC *)arg0)->m_1c = 0;
     }
-    *(s32 *)((s8 *)arg0 + 0x20) = 0;
-    *(s32 *)((s8 *)arg0 + 0x24) = 0;
-    *(s32 *)((s8 *)arg0 + 0x28) = 0;
-    *(s16 *)((s8 *)arg0 + 0x30) = 0;
-    *(s16 *)((s8 *)arg0 + 0x68) = 0;
-    *(s32 *)((s8 *)arg0 + 0xA0) = 0;
-    *(s32 *)((s8 *)arg0 + 0xA4) = 0;
+    *(s32 *)&((TAdDialingGC *)arg0)->m_20 = 0;
+    *(s32 *)&((TAdDialingGC *)arg0)->m_24 = 0;
+    *(s32 *)&((TAdDialingGC *)arg0)->m_28 = 0;
+    *(s16 *)&((TAdDialingGC *)arg0)->m_30 = 0;
+    *(s16 *)&((TAdDialingGC *)arg0)->m_68 = 0;
+    *(s32 *)&((TAdDialingGC *)arg0)->m_a0 = 0;
+    *(s32 *)&((TAdDialingGC *)arg0)->m_a4 = 0;
     return arg0;
 }
 

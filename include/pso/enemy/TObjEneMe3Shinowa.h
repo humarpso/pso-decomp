@@ -34,7 +34,9 @@ struct TObjEneMe3Shinowa : public TObjEneDD_ST {
     void vfunc_61();
     void vfunc_28();
     u32 m_374;
-    u8 unk_378[0x24];
+    u8 unk_378[0x14];
+    u16 m_38c;
+    u8 unk_38E[0xE];
     u32 m_39c;
     u32 m_3a0;
     u8 unk_3A4[0x4];

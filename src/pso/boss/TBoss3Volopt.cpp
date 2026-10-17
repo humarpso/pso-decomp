@@ -1508,12 +1508,12 @@ u8 *TBoss3Volopt__ct(u8 *arg0, s32 arg1) {
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
     TBoss3Volopt__sub_8003EA2C((void*)((int) (0)));
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(&(*(RecoveredGlobal_8003EFF0_lbl_804FEE68 *)&boss3_volopt_spawn_pos).value))));
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x06040000);
+    *(s32 *)&((TBoss3Volopt *)arg0)->actorFlags = (s32) (*(s32 *)&((TBoss3Volopt *)arg0)->actorFlags| 0x06040000);
     TBoss3Volopt__cage_entity_id = get_param_offset__12TBoss3VoloptFl((void *) (arg0), (int) (0x20));
     lbl_805D2714 = get_adjusted_angle__12TBoss3VoloptFl((void *) (arg0), (int) (0x20));
-    *(s32 *)((s8 *)arg0 + 0x374) = 0;
-    *(s16 *)((s8 *)arg0 + 0x326) = 0;
-    *(s32 *)((s8 *)arg0 + 0x3BC) = 0;
+    *(s32 *)&((TBoss3Volopt *)arg0)->next_action = 0;
+    ((TBoss3Volopt *)arg0)->mode = 0;
+    *(s32 *)&((TBoss3Volopt *)arg0)->m_3bc = 0;
     TBoss4DarkFalz::dispatch_by_main_phase((int) (0x29U));
     (*(s32 *)&lbl_805D4C20) = 0;
     (*(s32 *)&volopt_active_player_id) = -1;

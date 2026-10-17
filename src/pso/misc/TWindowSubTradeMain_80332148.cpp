@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubTradeMain.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubLog.h"
@@ -23,50 +24,50 @@ void *__dt__19TWindowSubTradeMainFv(void *arg0, s16 arg1) {
         *(void **)((s8 *)arg0 + 0x18) = (void *) __vt__19TWindowSubTradeMain;
         TLobby__sub_802D29E8(arg0);
         TLobby::check_flags_and_proceed();
-        if (get_player_by_client_id(*(s32 *)((s8 *)arg0 + 0x28)) != 0U) {
+        if (get_player_by_client_id(*(s32 *)&((TWindowSubTradeMain *)arg0)->m_28) != 0U) {
             end_camera_pan__10TObjPlayerFv();
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x50) != 0U) {
+        if ((u32) ((TWindowSubTradeMain *)arg0)->m_50 != 0U) {
             queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x50));
-            *(u32 *)((s8 *)arg0 + 0x50) = 0U;
+            ((TWindowSubTradeMain *)arg0)->m_50 = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x4C) != 0U) {
+        if ((u32) ((TWindowSubTradeMain *)arg0)->m_4c != 0U) {
             TWindow__close(*(void **)((s8 *)arg0 + 0x4C));
-            *(u32 *)((s8 *)arg0 + 0x4C) = 0U;
+            ((TWindowSubTradeMain *)arg0)->m_4c = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x48) != 0U) {
+        if ((u32) ((TWindowSubTradeMain *)arg0)->m_48 != 0U) {
             TWindow__close(*(void **)((s8 *)arg0 + 0x48));
-            *(u32 *)((s8 *)arg0 + 0x48) = 0U;
+            ((TWindowSubTradeMain *)arg0)->m_48 = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x44) != 0U) {
+        if ((u32) ((TWindowSubTradeMain *)arg0)->m_44 != 0U) {
             TWindow__close(*(void **)((s8 *)arg0 + 0x44));
-            *(u32 *)((s8 *)arg0 + 0x44) = 0U;
+            ((TWindowSubTradeMain *)arg0)->m_44 = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x40) != 0U) {
+        if ((u32) ((TWindowSubTradeMain *)arg0)->m_40 != 0U) {
             TWindow__close(*(void **)((s8 *)arg0 + 0x40));
-            *(u32 *)((s8 *)arg0 + 0x40) = 0U;
+            ((TWindowSubTradeMain *)arg0)->m_40 = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x3C) != 0U) {
+        if ((u32) ((TWindowSubTradeMain *)arg0)->m_3c != 0U) {
             TWindow__close(*(void **)((s8 *)arg0 + 0x3C));
-            *(u32 *)((s8 *)arg0 + 0x3C) = 0U;
+            ((TWindowSubTradeMain *)arg0)->m_3c = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x38) != 0U) {
+        if ((u32) ((TWindowSubTradeMain *)arg0)->m_38 != 0U) {
             ((TWindowSubComCard *)(*(void **)((s8 *)arg0 + 0x38)))->close();
-            *(u32 *)((s8 *)arg0 + 0x38) = 0U;
+            ((TWindowSubTradeMain *)arg0)->m_38 = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U) {
+        if ((u32) ((TWindowSubTradeMain *)arg0)->m_34 != 0U) {
             TWindow__close(*(void **)((s8 *)arg0 + 0x34));
-            *(u32 *)((s8 *)arg0 + 0x34) = 0U;
+            ((TWindowSubTradeMain *)arg0)->m_34 = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) {
+        if ((u32) ((TWindowSubTradeMain *)arg0)->m_30 != 0U) {
             TWindow__close(*(void **)((s8 *)arg0 + 0x30));
-            *(u32 *)((s8 *)arg0 + 0x30) = 0U;
+            ((TWindowSubTradeMain *)arg0)->m_30 = 0U;
         }
-        if ((u32) *(u32 *)((s8 *)arg0 + 0x2C) != 0U) {
+        if ((u32) ((TWindowSubTradeMain *)arg0)->m_2c != 0U) {
             ((TWindowSubLog *)(*(void **)((s8 *)arg0 + 0x2C)))->cleanup();
         }
-        TWindowCtrl__sub_8024ADF0(*(s32 *)((s8 *)arg0 + 0x28));
-        TWindowSubComCard__sub_8024AB98(*(s32 *)((s8 *)arg0 + 0x28));
+        TWindowCtrl__sub_8024ADF0(*(s32 *)&((TWindowSubTradeMain *)arg0)->m_28);
+        TWindowSubComCard__sub_8024AB98(*(s32 *)&((TWindowSubTradeMain *)arg0)->m_28);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

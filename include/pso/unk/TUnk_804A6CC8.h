@@ -13,7 +13,8 @@ public:
     f32 m_1fc;
     u8 unk_200[0x4];
     f32 m_204;
-    u8 unk_208[0x8];
+    u8 unk_208[0x4];
+    float m_20c;
     f32 m_210;
     u8 unk_214[0x4];
 };

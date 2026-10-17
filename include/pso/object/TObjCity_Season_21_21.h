@@ -9,7 +9,9 @@ struct TObjCity_Season_21_21 : public TUnk_804B5E48 {
     virtual void render();
     virtual void run_task();
 
-    u8 unk_B4[0x8];
+    u8 unk_B4[0x4];
+
+    s32 m_b8;
 };
 
 typedef char TObjCity_Season_21_21_size[sizeof(TObjCity_Season_21_21) == 0xBC ? 1 : -1];

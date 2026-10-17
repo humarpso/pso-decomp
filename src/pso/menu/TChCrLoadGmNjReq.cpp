@@ -50,7 +50,7 @@ void *TChCrLoadGmNjReq__ct(void *arg0, void *arg1, void *arg2) {
     struct VOff_8028C7BC_arg0_8028C6EC *self = (struct VOff_8028C7BC_arg0_8028C6EC *)arg0;
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TChCrLoadGmNjReq;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D3B58;
+    *(void * *)&((TChCrLoadGmNjReq *)arg0)->m_name = lbl_805D3B58;
     *(void **)((s8 *)arg0 + 0x24) = *(void **)((s8 *)arg2 + 0x8);
     *(void **)((s8 *)arg0 + 0x28) = *(void **)((s8 *)arg2 + 0x10);
     *(void **)((s8 *)arg0 + 0x1C) = *(void **)((s8 *)arg2 + 0x4);

@@ -168,11 +168,11 @@ extern void *TOKey__class_name;
 void *TOKey__ct(void *arg0) {
     init_map_object_base(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__5TOKey;
-    *(void **)((s8 *)arg0 + 0x0) = TOKey__class_name;
-    *(u32 *)((s8 *)arg0 + 0xC8) = -1;
+    *(void * *)&((TOKey *)arg0)->m_name = TOKey__class_name;
+    ((TOKey *)arg0)->m_e4 = -1;
     *(f32 *)((s8 *)arg0 + 0xCC) = lbl_805DB6E0;
-    *(u32 *)((s8 *)arg0 + 0xD0) = 2;
-    *(u32 *)((s8 *)arg0 + 0xD4) = 0;
+    ((TOKey *)arg0)->m_d0 = 2;
+    ((TOKey *)arg0)->m_d4 = 0;
     *(u32 *)((s8 *)arg0 + 0xE0) = 0;
     *(u32 *)((s8 *)arg0 + 0xD8) = 28;
     *(u32 *)((s8 *)arg0 + 0xDC) = 28;

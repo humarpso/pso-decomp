@@ -69,8 +69,8 @@ u8 *TObjRaderHideCol__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80197490___vt__16TObjRaderHideCol *)&__vt__16TObjRaderHideCol).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3414;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    *(f32 *)((s8 *)arg0 + 0x90) = (f32) *(f32 *)((s8 *)arg0 + 0x68);
-    *(s32 *)((s8 *)arg0 + 0x94) = 0;
+    *(f32 *)((s8 *)arg0 + 0x90) = (f32) ((TObjRaderHideCol *)arg0)->scale;
+    *(s32 *)&((TObjRaderHideCol *)arg0)->m_94 = 0;
     disallow_rendering__7TObjectFv((void *) (arg0));
     return arg0;
 }

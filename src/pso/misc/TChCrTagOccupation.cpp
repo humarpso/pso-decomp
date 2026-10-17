@@ -82,7 +82,7 @@ extern void *chcr_tag_occ_header_class_name;
 void *__ct__17TChCrTagOccHeaderFv(void *arg0) {
     ((void (*)(void *))__ct__8TChCrTagFv)(arg0);
     *(void ***)((s8 *)arg0 + 0x18) = __vt__17TChCrTagOccHeader;
-    *(void **)((s8 *)arg0 + 0x0) = chcr_tag_occ_header_class_name;
+    *(void * *)&((TChCrTagOccHeader *)arg0)->m_name = chcr_tag_occ_header_class_name;
     *(f32 *)((s8 *)arg0 + 0x28) = lbl_805DDECC;
     *(f32 *)((s8 *)arg0 + 0x2C) = lbl_805DDED0;
     *(f32 *)((s8 *)arg0 + 0x34) = lbl_805DDECC;

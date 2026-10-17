@@ -1002,48 +1002,48 @@ void TObjEneDubchik::sub_800AA10C() {
     f32 temp_f31_2;
     s16 temp_r0;
     u32 temp_r0_2;
-    temp_r0 = *(s16 *)((s8 *)((u8 *)this) + 0x326);
+    temp_r0 = this->mode;
     switch (temp_r0) {
     case 8:
     case 0:
-        if ((((TObjEneDubchik *)(((u8 *)this)))->is_actor_cadence_frame(0x1E) != 0) && (find_target_in_range__15TObjEnemyCustomFf((void *) (((u8 *)this)), (f32) (*(f32 *)((s8 *)((u8 *)this) + 0x3D0))) != 0)) {
+        if ((((TObjEneDubchik *)(((u8 *)this)))->is_actor_cadence_frame(0x1E) != 0) && (find_target_in_range__15TObjEnemyCustomFf((void *) (((u8 *)this)), (f32) (this->m_3d0)) != 0)) {
             ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active((int) (1));
         }
         break;
     case 1:
         if (((TObjEneDubchik *)(((u8 *)this)))->is_actor_cadence_frame(0x1E) != 0) {
-            find_target_in_range__15TObjEnemyCustomFf((void *) (((u8 *)this)), (f32) (lbl_805D9B10 + *(f32 *)((s8 *)((u8 *)this) + 0x3D0)));
+            find_target_in_range__15TObjEnemyCustomFf((void *) (((u8 *)this)), (f32) (lbl_805D9B10 + this->m_3d0));
         }
         temp_r0_2 = *(u32 *)((s8 *)((u8 *)this) + 0x2A8);
         if (temp_r0_2 == 0U) {
             ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active((int) (8));
             return;
         }
-        if (*(f32 *)((s8 *)((u8 *)this) + 0x3A4) >= lbl_805D9B14) {
-            *(f32 *)((s8 *)((u8 *)this) + 0x3A4) = (f32) lbl_805D9AE0;
+        if (this->m_3a4 >= lbl_805D9B14) {
+            this->m_3a4 = (f32) lbl_805D9AE0;
             if ((*(f32 *)((s8 *)((u8 *)this) + 0x354) >= lbl_805D9AE0) && (calc_boss4_scale__10TObjPlayerFi((void *) (((u8 *)this))) < lbl_805D9B18)) {
-                *(u16 *)((s8 *)((u8 *)this) + 0x338) = pick_random_nearby_player__10TObjPlayerFPvf((void *) (((u8 *)this)), (f32) (lbl_805D9B1C));
-                if (*(u16 *)((s8 *)((u8 *)this) + 0x338) != 0xFFFF) {
-                    *(u32 *)((s8 *)((u8 *)this) + 0x2A8) = find_active_entity_by_id(*(u16 *)((s8 *)((u8 *)this) + 0x338));
+                this->targetId = pick_random_nearby_player__10TObjPlayerFPvf((void *) (((u8 *)this)), (f32) (lbl_805D9B1C));
+                if (this->targetId != 0xFFFF) {
+                    *(u32 *)((s8 *)((u8 *)this) + 0x2A8) = find_active_entity_by_id(this->targetId);
                     ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active((int) (9));
                     return;
                 }
-                find_target_in_range__15TObjEnemyCustomFf((void *) (((u8 *)this)), (f32) (lbl_805D9B10 + *(f32 *)((s8 *)((u8 *)this) + 0x3D0)));
+                find_target_in_range__15TObjEnemyCustomFf((void *) (((u8 *)this)), (f32) (lbl_805D9B10 + this->m_3d0));
                 return;
             }
         } else if (temp_r0_2 != 0U) {
-            temp_f31_2 = ((TObjPlayer *)(*(s32 *)((s8 *)((u8 *)this) + 0x318)))->get_pos_x() * ((TObjPlayer *)(*(s32 *)((s8 *)((u8 *)this) + 0x318)))->get_pos_x();
+            temp_f31_2 = ((TObjPlayer *)(*(s32 *)&this->m_318))->get_pos_x() * ((TObjPlayer *)(*(s32 *)&this->m_318))->get_pos_x();
             if (xz_distance_squared((void *) (((u8 *)this) + 0x38), (void *) (*(u32 *)((s8 *)((u8 *)this) + 0x2A8) + 0x38)) < temp_f31_2) {
-                *(s16 *)((s8 *)((u8 *)this) + 0x390) = (s16) (*(s16 *)((s8 *)((u8 *)this) + 0x390) + 1);
-                if ((s16) *(s16 *)((s8 *)((u8 *)this) + 0x390) > 3) {
-                    *(s16 *)((s8 *)((u8 *)this) + 0x390) = 0;
+                this->m_390 = (s16) (this->m_390+ 1);
+                if ((s16) this->m_390> 3) {
+                    this->m_390 = 0;
                     ((TObjPlayer *)((u8 *)this))->target_nearest_player((f32) (lbl_805D9B20));
                 }
                 ((TObjEneMe1GiGue *)((u8 *)this))->update_if_active((int) (2));
                 return;
             }
         } else if (((TObjEneDubchik *)(((u8 *)this)))->is_actor_cadence_frame(0x1E) != 0) {
-            find_target_in_range__15TObjEnemyCustomFf((void *) (((u8 *)this)), (f32) (lbl_805D9B10 + *(f32 *)((s8 *)((u8 *)this) + 0x3D0)));
+            find_target_in_range__15TObjEnemyCustomFf((void *) (((u8 *)this)), (f32) (lbl_805D9B10 + this->m_3d0));
         }
         break;
     }
@@ -1057,7 +1057,7 @@ void TObjPlayer__sub_800AA334(u8 *arg0) {
     s32 temp_r3;
     s32 var_r30;
     s32 var_r29;
-    if (!(*(s32 *)((s8 *)arg0 + 0x30) & 0x02000000)) {
+    if (!(*(s32 *)&((TObjEneDubchik *)arg0)->actorFlags& 0x02000000)) {
         temp_r3 = ((VObj_18_ca64a0 *)(arg0))->m9(lbl_805D9B24, lbl_805D9B28, lbl_805D9B2C);
         if (temp_r3 != 0) {
             select_actor_lighting((void *) (arg0));
@@ -1065,19 +1065,19 @@ void TObjPlayer__sub_800AA334(u8 *arg0) {
             if (*(s16 *)((s8 *)arg0 + 0x392) != 0) {
                 TObjFish::set_global_param((s32)((void *) (lbl_805D5094)));
             } else {
-                TObjFish::set_global_param((s32)((void *) (*(s32 *)((s8 *)arg0 + 0x24))));
+                TObjFish::set_global_param((s32)((void *) (((TObjEneDubchik *)arg0)->texture_id)));
             }
             var_r30 = 1;
             push_matrix();
             lbl_805D5660 = model_render_flags;
             ((TObjEneDubchik *)arg0)->sub_800A8A7C();
             post_translate_matrix((void *) (arg0 + 0x38));
-            rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+            rotate_matrix_y((int) (0), (int) (((TObjEneDubchik *)arg0)->rotation_y));
             scale_matrix((int) (0), (f32) (lbl_805D9B30), (f32) (lbl_805D9B30), (f32) (lbl_805D9B30));
             model_render_flags &= 0xFFFFFBFF;
             if (TObjPlayer::check_demo_mode() == 1) {
                 draw_chunk_object((int) (*(s32 *)((s8 *)arg0 + 0x34)));
-            } else if (*(s32 *)((s8 *)arg0 + 0x388) & 4) {
+            } else if (*(s32 *)&((TObjEneDubchik *)arg0)->m_388& 4) {
                 if (((Self_800AA334 *)arg0)->sub.m8() != 0) {
                     ((Self_800AA334 *)arg0)->sub.m6();
                     var_r29 = 1;
@@ -1104,7 +1104,7 @@ void TObjPlayer__sub_800AA334(u8 *arg0) {
             pop_matrix();
             restore_scene_lighting();
             TParticleCtrl::end_effect_render();
-            if (!(*(s32 *)((s8 *)arg0 + 0x30) & 0x800) && (var_r30 != 0)) {
+            if (!(*(s32 *)&((TObjEneDubchik *)arg0)->actorFlags& 0x800) && (var_r30 != 0)) {
                 Vec_800AA334 v = *(Vec_800AA334 *)lbl_8043AC78;
                 ((TObjEnemy *)arg0)->render_with_position_override((u8 *)(&v), (s32)0);
             }

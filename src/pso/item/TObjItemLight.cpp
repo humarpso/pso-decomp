@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TObjItemLight.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/boss/TBoss4Type2.h"
@@ -60,7 +61,7 @@ void run_task__13TObjItemLightFv(Light_80191F90 *arg0) {
 void *__dt__13TObjItemLightFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjItemLight;
-        if (*(void **)((s8 *)arg0 + 0x94) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x94))); *(s32 *)((s8 *)arg0 + 0x94) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x94) != NULL) { TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x94))); ((TObjItemLight *)arg0)->m_94 = 0; }
         TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -78,12 +79,12 @@ u8 *TObjItemLight__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjItemLight;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjItemLight__class_name;
     ((VObjItemLight_80192060 *)arg0)->m5(arg2);
-    *(s32 *)((s8 *)arg0 + 0x94) = 0;
-    *(f32 *)((s8 *)arg0 + 0x90) = (f32) *(f32 *)((s8 *)arg0 + 0x68);
+    ((TObjItemLight *)arg0)->m_94 = 0;
+    *(f32 *)((s8 *)arg0 + 0x90) = (f32) ((TObjItemLight *)arg0)->scale;
     if (*(f32 *)((s8 *)arg0 + 0x90) < lbl_805DBE40) {
         *(f32 *)((s8 *)arg0 + 0x90) = (f32) lbl_805DBE44;
     }
-    *(s32 *)((s8 *)arg0 + 0x94) = spawn_particle_effect_with_rotation(arg0 + 0x38, arg0 + 0x5C, 0x1CA, 0x40);
+    ((TObjItemLight *)arg0)->m_94 = spawn_particle_effect_with_rotation(arg0 + 0x38, arg0 + 0x5C, 0x1CA, 0x40);
     return arg0;
 }
 

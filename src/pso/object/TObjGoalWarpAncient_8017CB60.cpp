@@ -77,10 +77,10 @@ void render__19TObjGoalWarpAncientFv(u8 *arg0) {
     if (((VObj8017CB60_8017CB60_more_8017cca4_0 *) arg0)->m8(lbl_805DBAB8, lbl_805DBABC) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        rotate_matrix_y(0, ((TObjGoalWarpAncient *)arg0)->rotation_y);
         TParticleCtrl::begin_effect_render();
         TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xD8));
-        draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0xCC), *(s32 *)((s8 *)arg0 + 0xE4), *(f32 *)((s8 *)arg0 + 0xC4));
+        draw_ginja_model_with_motion(*(s32 *)&((TObjGoalWarpAncient *)arg0)->m_e8, *(s32 *)((s8 *)arg0 + 0xE4), *(f32 *)((s8 *)arg0 + 0xC4));
         TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xE0));
         draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0xD4), *(s32 *)((s8 *)arg0 + 0xE8), *(f32 *)((s8 *)arg0 + 0xC8));
         TParticleCtrl::end_effect_render();
@@ -169,10 +169,10 @@ u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjGoalWarpAncient__class_name;
     *(f32 *)((s8 *)arg0 + 0xC8) = (f32) lbl_805DBAC4;
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DBAC4;
-    *(s32 *)((s8 *)arg0 + 0xCC) = TObjGoalWarpAncient__sub_8017D2D4((int) (1));
+    *(s32 *)&((TObjGoalWarpAncient *)arg0)->m_e8 = TObjGoalWarpAncient__sub_8017D2D4((int) (1));
     *(s32 *)((s8 *)arg0 + 0xD0) = TObjGoalWarpAncient__sub_8017D2D4((int) (3));
     *(s32 *)((s8 *)arg0 + 0xD4) = TObjGoalWarpAncient__sub_8017D2D4((int) (5));
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x8C) < 0) {
+    if ((s32) *(s32 *)&((TObjGoalWarpAncient *)arg0)->m_8c< 0) {
         *(s32 *)((s8 *)arg0 + 0xD8) = TObjGoalWarpAncient::get_instance();
     } else {
         *(s32 *)((s8 *)arg0 + 0xD8) = register_warp_object__19TObjGoalWarpAncientFPv((int) (1));
@@ -181,7 +181,7 @@ u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0xE0) = register_warp_object__19TObjGoalWarpAncientFPv((int) (5));
     *(s32 *)((s8 *)arg0 + 0xE4) = register_warp__19TObjGoalWarpAncientFPv((int) (0));
     *(s32 *)((s8 *)arg0 + 0xE8) = register_warp__19TObjGoalWarpAncientFPv((int) (2));
-    if ((get_game_play_mode() == 1) && ((s32) *(s32 *)((s8 *)arg0 + 0x8C) >= 0)) {
+    if ((get_game_play_mode() == 1) && ((s32) *(s32 *)&((TObjGoalWarpAncient *)arg0)->m_8c >= 0)) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
     if (is_split_screen() == 1) {
@@ -190,9 +190,9 @@ u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2) {
         if (var_r0 != 0) {
             var_r0 = init__13TAdVIConfigGCFf((int) (temp_r3), (void *) (arg0 + 0x38), (f32) (lbl_805DBABC));
         }
-        *(s32 *)((s8 *)arg0 + 0xC0) = var_r0;
+        *(s32 *)&((TObjGoalWarpAncient *)arg0)->m_dc = var_r0;
     } else {
-        *(s32 *)((s8 *)arg0 + 0xC0) = 0;
+        *(s32 *)&((TObjGoalWarpAncient *)arg0)->m_dc = 0;
     }
     return arg0;
 }
@@ -209,7 +209,7 @@ void TObjMapWarpAncient::render() {
     u8 *arg0 = (u8 *)this;
     if (((VObj_8017CED8_more_8017cca4_1*)arg0)->m8(lbl_805DBAB8, lbl_805DBABC) != 0) {
         push_matrix();
-        post_translate_matrix(arg0 + 0x38);
+        post_translate_matrix((u8 *)&this->position);
         rotate_matrix_y(0, this->rotation_y);
         TParticleCtrl::begin_effect_render();
         if ((s32) *(s32 *)((s8 *)arg0 + 0x88) >= 0) {

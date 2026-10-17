@@ -551,11 +551,11 @@ u8 *create_inward_orbit_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80358048_lbl_804F166C *)&inward_orbit_effect_vtable).value;
     VecCopy((Vec *)(arg0 + 0x28), (const Vec *)(arg2));
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) ((lbl_805E0068 * sin_table_lookup((void *) (arg3))) + *(f32 *)((s8 *)arg2 + 0));
-    *(f32 *)((s8 *)arg0 + 0x20) = (f32) *(f32 *)((s8 *)arg2 + 4);
+    ((TUnk_804F166C *)arg0)->m_20 = (f32) *(f32 *)((s8 *)arg2 + 4);
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) ((lbl_805E0068 * cos_table_lookup((void *) (arg3))) + *(f32 *)((s8 *)arg2 + 8));
-    *(f32 *)((s8 *)arg0 + 0x40) = (f32) lbl_805E0070;
+    ((TUnk_804F166C *)arg0)->m_40 = (f32) lbl_805E0070;
     *(s32 *)((s8 *)arg0 + 0x44) = (s32) (arg3 - 0x4000);
-    *(s32 *)((s8 *)arg0 + 0x48) = 0xA;
+    ((TUnk_804F166C *)arg0)->m_48 = 0xA;
     ((TUnk_804F166C *)arg0)->update_inward_orbit_point();
     stack.sp8 = *(s32 *)((s8 *)(&lbl_804793E4.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_804793E4.value) + 4);

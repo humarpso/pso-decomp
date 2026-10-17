@@ -11,7 +11,9 @@ struct TBoss3VoloptP01 : public TObjEnemyCustom {
     void load_volopt_param_entry(s32);
     virtual void render();
     virtual void run_task();
-    u8 unk_38C[0xE];
+    u8 unk_38C[0x4];
+    s8 m_390;
+    u8 unk_391[0x9];
     s16 m_39a;
     u8 unk_39C[0x8];
     s32 m_3a4;

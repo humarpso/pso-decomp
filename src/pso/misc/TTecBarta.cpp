@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TTecBarta.h"
 #include "pso/unk/TUnk_804CC148.h"
 #include "pso/player/TUnk_804CCC68.h"
 
@@ -359,13 +360,13 @@ u8 *construct_tec_barta_facing(u8 *arg0, void * _w1, void * _w2, void * _w3, voi
     for (i = 0; i < 0x20; i++) {
         ((Obj_8022BCB8 *)arg0)->ids[i] = 0xFFFF;
     }
-    *(s32 *)((s8 *)arg0 + 0x174) = 0;
+    ((TTecBarta *)arg0)->hitCursor = 0;
     *(s32 *)((s8 *)arg0 + 0x114) = 0x40003;
     *(f32 *)((s8 *)arg0 + 0x24) = *(f32 *)((s8 *)arg0 + 0x24) + lbl_805DC7A8;
     ((TTecBarta *)arg0)->create_particle_emitters();
     ((TTecBarta *)arg0)->update_technique_by_state();
     if (*(void **)((s8 *)arg0 + 0x1C) != 0) {
-        *(s16 *)((s8 *)arg0 + 0xC8) = obj_getField1c(*(void **)((s8 *)arg0 + 0x1C));
+        *(s16 *)&((TTecBarta *)arg0)->sourceId = obj_getField1c(*(void **)((s8 *)arg0 + 0x1C));
     }
     return arg0;
 }

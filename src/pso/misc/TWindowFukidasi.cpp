@@ -411,8 +411,8 @@ s32 TWindowFukidasi::approach(f32 farg0) {
 }
 
 void TWindowFukidasi__sub_802504A8(void *arg0) {
-    if (!(*(u8 *)((s8 *)arg0 + 0x71) & 0x10)) {
-        *(s8 *)((s8 *)arg0 + 0x70) = 7;
+    if (!(((TUnk_804CF0B8 *)arg0)->m_71& 0x10)) {
+        ((TUnk_804CF0B8 *)arg0)->m_70 = 7;
     }
 }
 
@@ -828,9 +828,9 @@ void TWindowFukidasi::get_boundary_offset(s32 angle, f32 *out) {
 #pragma pop
 
 void set_color__15TWindowFukidasiFPvUs(void *arg0, u16 arg1) {
-    *(s32 *)((s8 *)arg0 + 0x84) = 0xFFF8F8F8;
+    ((TUnk_804CF0B8 *)arg0)->m_84 = 0xFFF8F8F8;
     if (((u32)arg1 < 0xCU) && (get_player_by_client_id((u32)arg1) != 0U) && (obj_isState3_324__13TUnk_804806E8Fv() == 0)) {
-        *(s32 *)((s8 *)arg0 + 0x84) = (s32) TWindowFukidasi__balloon_color_table[(u16)arg1];
+        ((TUnk_804CF0B8 *)arg0)->m_84 = (s32) TWindowFukidasi__balloon_color_table[(u16)arg1];
     }
 }
 
@@ -844,22 +844,22 @@ s32 clamp_position__15TWindowFukidasiFPvPvf(void *arg0, void *arg1, f32 farg0) {
     s32 var_r31;
 
     var_r31 = 0;
-    temp_f1 = TWindowFukidasi__data_805DCCFC + ((TWindowCtrlMain *)(*(s16 *)((s8 *)arg0 + 0x20)))->get_position_z();
+    temp_f1 = TWindowFukidasi__data_805DCCFC + ((TWindowCtrlMain *)(*(s16 *)&((TUnk_804CF0B8 *)arg0)->m_20))->get_position_z();
     if (*(f32 *)((s8 *)arg1 + 0) < temp_f1) {
         *(f32 *)((s8 *)arg1 + 0) = temp_f1;
         var_r31 = 1;
     }
-    temp_f1_2 = (((TWindowCtrlMain *)(*(s16 *)((s8 *)arg0 + 0x20)))->get_ctrl_field14() - TWindowFukidasi__data_805DCCFC) - (*(f32 *)((s8 *)arg0 + 0x48) * farg0);
+    temp_f1_2 = (((TWindowCtrlMain *)(*(s16 *)&((TUnk_804CF0B8 *)arg0)->m_20))->get_ctrl_field14() - TWindowFukidasi__data_805DCCFC) - (((TUnk_804CF0B8 *)arg0)->m_48* farg0);
     if (*(f32 *)((s8 *)arg1 + 0) > temp_f1_2) {
         *(f32 *)((s8 *)arg1 + 0) = temp_f1_2;
         var_r31 = 1;
     }
-    temp_f1_3 = lbl_805DCD44 + ((TWindowCtrlMain *)(*(s16 *)((s8 *)arg0 + 0x20)))->get_field10();
+    temp_f1_3 = lbl_805DCD44 + ((TWindowCtrlMain *)(*(s16 *)&((TUnk_804CF0B8 *)arg0)->m_20))->get_field10();
     if (*(f32 *)((s8 *)arg1 + 4) < temp_f1_3) {
         *(f32 *)((s8 *)arg1 + 4) = temp_f1_3;
         var_r31 = 1;
     }
-    temp_f1_4 = (((TWindowCtrlMain *)(*(s16 *)((s8 *)arg0 + 0x20)))->get_field_18() - lbl_805DCD44) - (*(f32 *)((s8 *)arg0 + 0x4C) * farg0);
+    temp_f1_4 = (((TWindowCtrlMain *)(*(s16 *)&((TUnk_804CF0B8 *)arg0)->m_20))->get_field_18() - lbl_805DCD44) - (*(f32 *)((s8 *)arg0 + 0x4C) * farg0);
     if (*(f32 *)((s8 *)arg1 + 4) > temp_f1_4) {
         *(f32 *)((s8 *)arg1 + 4) = temp_f1_4;
         var_r31 = 1;
@@ -979,12 +979,12 @@ void TWindowFukidasi__ct(void *arg0, s16 arg1, s32 str, s16 arg3, f32 farg0) {
     s32 temp_r3;
 
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3900;
-    *(s8 *)((s8 *)arg0 + 0x70) = 0;
-    *(s8 *)((s8 *)arg0 + 0x71) = 0;
+    ((TUnk_804CF0B8 *)arg0)->m_70 = 0;
+    *(s8 *)&((TUnk_804CF0B8 *)arg0)->m_71 = 0;
     *(s8 *)((s8 *)arg0 + 0x72) = 2;
-    *(s8 *)((s8 *)arg0 + 0x73) = -1;
-    *(s16 *)((s8 *)arg0 + 0x76) = arg1;
-    *(s16 *)((s8 *)arg0 + 0x20) = arg3;
+    ((TUnk_804CF0B8 *)arg0)->m_73 = -1;
+    ((TUnk_804CF0B8 *)arg0)->m_76 = arg1;
+    *(s16 *)&((TUnk_804CF0B8 *)arg0)->m_20 = arg3;
     if (str != 0) {
         temp_r3 = TWindowKeyBoardSoft::strnlen((s8 *)str, (u32)0x18);
         *(s32 *)((s8 *)arg0 + 0x78) = mem_alloc(temp_r3 + 1);
@@ -994,8 +994,8 @@ void TWindowFukidasi__ct(void *arg0, s16 arg1, s32 str, s16 arg3, f32 farg0) {
     }
     ((s32 (*)(void *, s16))set_color__15TWindowFukidasiFPvUs)(arg0, arg1);
     *(f32 *)((s8 *)arg0 + 0x80) = (f32) TWindowFukidasi__data_805DCD30;
-    *(f32 *)((s8 *)arg0 + 0x7C) = farg0;
-    *(f32 *)((s8 *)arg0 + 0x48) = (f32) TWindowFukidasi__data_805DCD30;
+    ((TUnk_804CF0B8 *)arg0)->m_7c = farg0;
+    ((TUnk_804CF0B8 *)arg0)->m_48 = (f32) TWindowFukidasi__data_805DCD30;
     *(f32 *)((s8 *)arg0 + 0x4C) = (f32) TWindowFukidasi__data_805DCD30;
     ((TUnk_804CF0B8 *)arg0)->clear_flag();
     ((TUnk_804CF0B8 *)arg0)->clear_flag2c_bit100();

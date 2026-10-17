@@ -241,10 +241,10 @@ void explode_and_destroy__12TBoss3VoloptFPv(u8 *arg0) {
     }
     play_sound_effect(0x4003AD15, arg0 + 0x38, 0, 0);
     play_sound_effect(0x4001C112, arg0 + 0x38, 0, 0);
-    *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0xC) = lbl_805D88A0;
+    *(f32 *)((s8 *)(*(u8 * *)&((TUnk_80484AFC *)arg0)->m_a4) + 0xC) = lbl_805D88A0;
     TObjPlayer::init_all_slots();
     ((TObjPlayer *)arg0)->check_object_collisions();
-    if (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0x18) & 0x80000) {
+    if (*(s32 *)((s8 *)(*(u8 * *)&((TUnk_80484AFC *)arg0)->m_a4) + 0x18) & 0x80000) {
         for (i = 0; i < 0x10; i++) {
             p = get_battle_param__10TObjPlayerFi(i);
             if (p == NULL) {

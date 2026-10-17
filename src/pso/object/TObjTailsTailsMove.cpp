@@ -37,7 +37,7 @@ TObjTailsTailsMove::~TObjTailsTailsMove() {}
 void *TObjTailsTailsMove__ct(void *arg0, void *arg1) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjTailsTailsMove;
-    *(void **)((s8 *)arg0 + 0x0) = TObjTailsTailsMove__name;
+    *(void * *)&((TObjTailsTailsMove *)arg0)->m_name = TObjTailsTailsMove__name;
     *(void **)((s8 *)arg0 + 0x1C) = arg1;
     *(u32 *)((s8 *)arg0 + 0x24) = 0;
     return arg0;

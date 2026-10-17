@@ -227,8 +227,8 @@ void TWindowSubStatusDisp__sub_80268C80(u8 *arg0) {
     draw_window_frame(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     ((TUnk_804D0658 *)arg0)->draw_setting(temp_r3);
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x78) != 0U) {
-        forward_render__20TWindowSubStatusDispFv(*(u32 *)((s8 *)arg0 + 0x78), temp_r3);
+    if ((u32) ((TUnk_804D0658 *)arg0)->m_78 != 0U) {
+        forward_render__20TWindowSubStatusDispFv(((TUnk_804D0658 *)arg0)->m_78, temp_r3);
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0x7C) != 0U) {
         draw_window_scrollbar(*(u32 *)((s8 *)arg0 + 0x7C), temp_r3, arg0 + 0x68);

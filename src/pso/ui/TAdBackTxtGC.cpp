@@ -58,7 +58,7 @@ extern "C" {
 void *__ct__12TAdBackTxtGCFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(void ***)((s8 *)arg0 + 0x18) = __vt__12TAdBackTxtGC;
-    *(void **)((s8 *)arg0 + 0x0) = TAdBackTxtGC__name;
+    *(void * *)&((TAdBackTxtGC *)arg0)->m_name = TAdBackTxtGC__name;
     *(u32 *)((s8 *)arg0 + 0x1C) = -1;
     *(f32 *)((s8 *)arg0 + 0x20) = lbl_805DDD08;
     *(u32 *)((s8 *)arg0 + 0x24) = 1;

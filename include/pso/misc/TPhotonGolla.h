@@ -13,9 +13,15 @@ public:
     float m_15c;
     u8 unk_160[0x4];
     float m_164;
-    u8 unk_168[0x50];
+    u8 unk_168[0x34];
+    s32 m_19c;
+    u8 unk_1A0[0x4];
+    u8 * m_1a4;
+    u8 unk_1A8[0x10];
     s16 m_1b8;
-    u8 unk_1BA[0xA];
+    u8 unk_1BA[0x2];
+    s32 m_1bc;
+    u8 unk_1C0[0x4];
     s32 m_1c4;
     u8 unk_1C8[0x4];
 };

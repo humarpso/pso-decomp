@@ -179,7 +179,7 @@ u8 *TObjStendGlassLobby__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TObjStendGlassLobby *)arg0)->update_state();
     *(f32 *)((s8 *)arg0 + 0xCC) = 1.0f;
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjStendGlassLobby__static_model_resource) + 0x42C)) + 8);
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) stend_glass_lobby_type;
+    ((TObjStendGlassLobby *)arg0)->texture_id = (s32) stend_glass_lobby_type;
     return arg0;
 }
 

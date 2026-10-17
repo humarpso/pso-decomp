@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TPhotonConcentrate.h"
 #include "pso/system/vector.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
@@ -144,7 +145,7 @@ void run_task__18TPhotonConcentrateFv(PC_801A7E7C *self) {
 void *__dt__18TPhotonConcentrateFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TPhotonConcentrate;
-        if (*(void **)((s8 *)arg0 + 0xF8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xF8)); *(s32 *)((s8 *)arg0 + 0xF8) = 0; }
+        if (*(void **)((s8 *)arg0 + 0xF8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xF8)); *(s32 *)&((TPhotonConcentrate *)arg0)->m_f8 = 0; }
         ((TUnk_804AF8A0 *)arg0)->destroy_particle_controller(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -164,14 +165,14 @@ u8 *TPhotonConcentrate__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     VecCopy((Vec *)(arg0 + 0xC4), (const Vec *)(arg1 + 0x18));
     *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (*(f32 *)((s8 *)arg0 + 0xC4) * *(f32 *)((s8 *)arg1 + 0x28));
     *(f32 *)((s8 *)arg0 + 0xC8) = (f32) (*(f32 *)((s8 *)arg0 + 0xC8) * *(f32 *)((s8 *)arg1 + 0x28));
-    temp_f1 = *(f32 *)((s8 *)arg0 + 0xCC);
-    *(f32 *)((s8 *)arg0 + 0xCC) = (f32) (temp_f1 * *(f32 *)((s8 *)arg1 + 0x28));
-    *(f32 *)((s8 *)arg0 + 0xE4) = (f32) *(f32 *)((s8 *)arg1 + 0x24);
+    temp_f1 = ((TPhotonConcentrate *)arg0)->m_cc;
+    ((TPhotonConcentrate *)arg0)->m_cc = (f32) (temp_f1 * *(f32 *)((s8 *)arg1 + 0x28));
+    ((TPhotonConcentrate *)arg0)->m_e4 = (f32) *(f32 *)((s8 *)arg1 + 0x24);
     *(f32 *)((s8 *)arg0 + 0xE8) = (f32) *(f32 *)((s8 *)arg1 + 0x2C);
-    *(s32 *)((s8 *)arg0 + 0xF0) = (s32) *(s32 *)((s8 *)arg1 + 0x30);
-    *(s32 *)((s8 *)arg0 + 0xEC) = (s32) *(s32 *)((s8 *)arg1 + 0x34);
-    *(s32 *)((s8 *)arg0 + 0xFC) = find_entity_by_id(arg3, temp_f1);
-    *(s32 *)((s8 *)arg0 + 0xF8) = create_particle_emitter(arg0 + 0xB8, 0x135);
+    *(s32 *)&((TPhotonConcentrate *)arg0)->m_f0 = (s32) *(s32 *)((s8 *)arg1 + 0x30);
+    *(s32 *)&((TPhotonConcentrate *)arg0)->m_ec = (s32) *(s32 *)((s8 *)arg1 + 0x34);
+    *(s32 *)&((TPhotonConcentrate *)arg0)->m_fc = find_entity_by_id(arg3, temp_f1);
+    *(s32 *)&((TPhotonConcentrate *)arg0)->m_f8 = create_particle_emitter(arg0 + 0xB8, 0x135);
     return arg0;
 }
 

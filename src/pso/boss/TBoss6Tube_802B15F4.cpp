@@ -29,11 +29,11 @@ u8 *TBoss6Tube__ct(u8 *arg0, u8 *arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802B1654___vt__10TBoss6Tube *)&__vt__10TBoss6Tube).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3E9C;
     *(u8 **)((s8 *)arg0 + 0x2C) = arg1;
-    *(s32 *)((s8 *)arg0 + 0x24) = 0;
-    *(s32 *)((s8 *)arg0 + 0x28) = 0;
+    *(s32 *)&((TBoss6Tube *)arg0)->m_24 = 0;
+    *(s32 *)&((TBoss6Tube *)arg0)->m_28 = 0;
     TBoss6Tube::reset_state();
-    *(s32 *)((s8 *)arg0 + 0x20) = 0;
-    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
+    *(s32 *)&((TBoss6Tube *)arg0)->m_20 = 0;
+    *(s32 *)&((TBoss6Tube *)arg0)->m_1c = 0;
     return arg0;
 }
 

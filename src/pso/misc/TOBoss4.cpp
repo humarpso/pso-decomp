@@ -55,9 +55,9 @@ extern void *lbl_805D2EB0;
 void *TOBoss4__ct(void *arg0) {
     construct_world_actor_base(arg0, tl_05);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__7TOBoss4;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D2EB0;
+    *(void * *)&((TOBoss4 *)arg0)->m_name = lbl_805D2EB0;
     *(f32 *)((s8 *)arg0 + 0x90) = lbl_805DB310;
-    *(f32 *)((s8 *)arg0 + 0x94) = lbl_805DB31C;
+    ((TOBoss4 *)arg0)->m_94 = lbl_805DB31C;
     return arg0;
 }
 

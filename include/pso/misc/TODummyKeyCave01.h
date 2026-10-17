@@ -12,9 +12,12 @@ struct TODummyKeyCave01 : public TUnk_804B9870 {
     u16 m_98;
     u16 m_9a;
     void* m_9c;
-    u8 _padA0[0xC];
+    u8 unk_A0[0x4];
+    f32 m_a4;
+    u8 unk_A8[0x4];
     void* m_ac;
-    u8 _padB0[0x8];
+    u8 unk_B0[0x4];
+    f32 m_b4;
     u32 m_b8;
     u8 _padBC[0x4];
     u32 m_c0;

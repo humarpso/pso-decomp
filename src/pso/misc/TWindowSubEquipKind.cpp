@@ -31,7 +31,7 @@ void render__19TWindowSubEquipKindFv(u8 *arg0) {
     draw_window_frame(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     ((TUnk_804D0618 *)arg0)->draw_selected_list_entry(temp_r3);
-    if ((s16) *(s16 *)((s8 *)arg0 + 0x88) != 4) {
+    if ((s16) ((TWindowSubEquipKind *)arg0)->m_88 != 4) {
         draw_tab_label__20TWindowSubStatusDispFPvPv(arg0, temp_r3);
     }
     if ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) {
@@ -68,8 +68,8 @@ u8 *TWindowSubEquipKind__ct(u8 *arg0, s32 arg1, s16 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80278FE0___vt__19TWindowSubEquipKind *)&__vt__19TWindowSubEquipKind).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubEquipKind__class_name;
     ((TUnk_804D0618 *)arg0)->create_menu_scroll_bar();
-    *(s16 *)((s8 *)arg0 + 0x88) = 4;
-    *(s16 *)((s8 *)arg0 + 0x8A) = 0;
+    ((TWindowSubEquipKind *)arg0)->m_88 = 4;
+    ((TWindowSubEquipKind *)arg0)->m_8a = 0;
     return arg0;
 }
 

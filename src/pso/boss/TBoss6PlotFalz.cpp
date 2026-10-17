@@ -386,7 +386,7 @@ void run_phase_action__14TBoss6PlotFalzFPv(u8 *arg0) {
   Stack_802AB14C stack;
   u8 *temp_r6;
   temp_r6 = (u8 *) (&(*(RecoveredGlobal_802AB14C_TBoss6PlotFalz__data_804DE66C *)&TBoss6PlotFalz__data_804DE66C).value);
-  temp_r6 = temp_r6 + ((*((s32 *) (((s8 *) arg0) + 0x378))) * 0x34);
+  temp_r6 = temp_r6 + ((((TBoss6PlotFalz *)arg0)->m_378) * 0x34);
   member_action.words[0] = *((s32 *) (((s8 *) temp_r6) + 0x28));
   member_action.words[1] = *((s32 *) (((s8 *) temp_r6) + 0x2C));
   member_action.words[2] = *((s32 *) (((s8 *) temp_r6) + 0x30));
@@ -404,7 +404,7 @@ void call_state_action__14TBoss6PlotFalzFPv(u8 *arg0) {
   if (1)
   {
     temp_r6 = (u8 *) (&TBoss6PlotFalz__data_804DE66C.value);
-    temp_r6 = temp_r6 + ((*((s32 *) (((s8 *) arg0) + 0x378))) * 0x34);
+    temp_r6 = temp_r6 + ((((TBoss6PlotFalz *)arg0)->m_378) * 0x34);
     member_action.words[0] = *((s32 *) (((s8 *) temp_r6) + 0x1C));
   }
   member_action.words[1] = *((s32 *) (((s8 *) temp_r6) + 0x20));

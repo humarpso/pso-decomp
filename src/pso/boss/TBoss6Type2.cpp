@@ -2432,7 +2432,7 @@ f32 TBoss6Type2__vt20(void *arg0, u32 att, f32 scale) {
     u8 temp_r0;
 
     var_r31 = 1;
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x418) != 0) && (att != 0U)) {
+    if (((s32) *(s32 *)&((TBoss6Type2 *)arg0)->m_418 != 0) && (att != 0U)) {
         var_r30 = 0;
         var_r29 = 0;
         do {
@@ -2453,7 +2453,7 @@ f32 TBoss6Type2__vt20(void *arg0, u32 att, f32 scale) {
             }
             var_r29 += 1;
         } while (var_r29 < 3);
-        if (!(*(s32 *)((s8 *)arg0 + 0x2E4) & var_r30)) {
+        if (!(*(s32 *)&((TBoss6Type2 *)arg0)->m_2e4& var_r30)) {
             var_r31 = 0;
         }
     }
@@ -2473,7 +2473,7 @@ f32 TBoss6Type2__vt20(void *arg0, u32 att, f32 scale) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TBoss6Type2__vt61(void* p) { if (*(int*)((char*)p + 0x374) != 35) { ((TBoss6Type2 *)p)->set_action_state((void*)((void*)35)); } }
+void TBoss6Type2__vt61(void* p) { if (*(int *)&((TBoss6Type2 *)p)->m_374 != 35) { ((TBoss6Type2 *)p)->set_action_state((void*)((void*)35)); } }
 #pragma pop
 
 #pragma push
@@ -2484,15 +2484,15 @@ void TBoss6Type2__vt61(void* p) { if (*(int*)((char*)p + 0x374) != 35) { ((TBoss
 #pragma auto_inline off
 #pragma dont_inline off
 void TBoss6Type2__vt60(u8 *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFFFDFF);
+    *(s32 *)&((TBoss6Type2 *)arg0)->m_30 = (s32) (*(s32 *)&((TBoss6Type2 *)arg0)->m_30& 0xFFFFFDFF);
     *(f32 *)((s8 *)arg0 + 0x4FC) = (f32) TBoss6Type2__data_805DE40C;
     {
-        int diff = *(s32 *)((s8 *)arg0 + 0x4F8) - *(s16 *)((s8 *)arg0 + 0x32C);
+        int diff = *(s32 *)&((TBoss6Type2 *)arg0)->m_4f8- ((TBoss6Type2 *)arg0)->m_32c;
         if (diff > 0) {
             ((TBoss6Type2 *)arg0)->add_damage((int)(diff));
         }
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x418) != 0) {
+    if ((s32) *(s32 *)&((TBoss6Type2 *)arg0)->m_418 != 0) {
         ((s32 (*)(int, void *, int, int))play_sound_effect)(0x68A24, arg0 + 0x38, 0, 1);
     }
 }

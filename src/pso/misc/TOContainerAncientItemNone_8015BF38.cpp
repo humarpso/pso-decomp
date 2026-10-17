@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOContainerAncientItemNone.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/misc/TOContainerAncientItemRare.h"
@@ -29,7 +30,7 @@ extern void *lbl_805D2F04;
 void *TOContainerAncientItemNone__ct(void *arg0) {
     TOContainerAncientItemRare__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__26TOContainerAncientItemNone;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D2F04;
+    *(void * *)&((TOContainerAncientItemNone *)arg0)->m_name = lbl_805D2F04;
     return arg0;
 }
 

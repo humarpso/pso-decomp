@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOExplosiveMachine02.h"
 
 struct Base_80166194_801660F4 { char pad[0x18]; };
 struct VObj_80166194_801660F4 : Base_80166194_801660F4 {
@@ -47,13 +48,13 @@ void *TOExplosiveMachine02__ct(void *arg0, s32 arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TOExplosiveMachine02;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TOExplosiveMachine02__class_name;
     ((VObj_80166194_801660F4 *)arg0)->m5(arg1);
-    *(void **)((s8 *)arg0 + 0x34) = get_bml_model(explosive_machine_model_archive, 3);
-    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0(explosive_machine_model_archive, 3);
-    *(f32 *)((s8 *)arg0 + 0x94) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 4)) + 0x14);
+    *(void * *)&((TOExplosiveMachine02 *)arg0)->model = get_bml_model(explosive_machine_model_archive, 3);
+    ((TOExplosiveMachine02 *)arg0)->texture_id = TObjFish__sub_8001EDB0(explosive_machine_model_archive, 3);
+    ((TOExplosiveMachine02 *)arg0)->m_94 = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(void * *)&((TOExplosiveMachine02 *)arg0)->model) + 4)) + 0x14);
     *(void **)((s8 *)arg0 + 0x9C) = get_bml_model(explosive_machine_model_archive, 4);
-    *(s32 *)((s8 *)arg0 + 0xA4) = TObjFish__sub_8001EDB0(explosive_machine_model_archive, 4);
+    *(s32 *)&((TOExplosiveMachine02 *)arg0)->m_a4 = TObjFish__sub_8001EDB0(explosive_machine_model_archive, 4);
     *(void **)((s8 *)arg0 + 0xA0) = get_bml_model(explosive_machine_model_archive, 5);
-    *(s32 *)((s8 *)arg0 + 0xA8) = TObjFish__sub_8001EDB0(explosive_machine_model_archive, 5);
+    *(s32 *)&((TOExplosiveMachine02 *)arg0)->m_a8 = TObjFish__sub_8001EDB0(explosive_machine_model_archive, 5);
     return arg0;
 }
 

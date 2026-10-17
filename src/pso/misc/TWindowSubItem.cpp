@@ -183,7 +183,7 @@ s32 has_armor_with_unit_slot(void *arg0, int arg1) {
     ItemData_80279754 d;
     s32 pl;
     u32 item;
-    pl = get_player_by_client_id(*(s32 *)((u8 *)arg0 + 0x24));
+    pl = get_player_by_client_id(*(s32 *)&((TWindowSubItem *)arg0)->m_24);
     if (pl == 0) {
         return 0;
     }
@@ -325,7 +325,7 @@ void add_item_purpose_actions(u8 *arg0, s32 arg1, s32 arg2) {
       }
       else
       {
-        player = get_player_by_client_id((s32)((int) (*((s32 *) (((s8 *) arg0) + 0x24)))));
+        player = get_player_by_client_id((s32)((int) (*(s32 *)&((TWindowSubItem *)arg0)->m_24)));
         if (player != 0)
         {
           if (((get_item_info__10TObjPlayerFllPs((int) item, (int) player, (void *) (&sp8)) != 0) && (has_armor_with_unit_slot((void *)((void *) arg0), (int)((int) item)) != 0)) && (TOKeyMachine01::get_global_state() != 0xF))
@@ -696,11 +696,11 @@ void TWindowSubItem::run_task() {
 void *__dt__14TWindowSubItemFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TWindowSubItem;
-        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { TWindow__close((void *)(*(void **)((s8 *)arg0 + 0x3C))); *(s32 *)((s8 *)arg0 + 0x3C) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x38) != NULL) { TWindow__close((void *)(*(void **)((s8 *)arg0 + 0x38))); *(s32 *)((s8 *)arg0 + 0x38) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x34) != NULL) { TWindow__close((void *)(*(void **)((s8 *)arg0 + 0x34))); *(s32 *)((s8 *)arg0 + 0x34) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x40) != NULL) { TWindow__close((void *)(*(void **)((s8 *)arg0 + 0x40))); *(s32 *)((s8 *)arg0 + 0x40) = 0; }
-        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { TWindow__close((void *)(*(void **)((s8 *)arg0 + 0x30))); *(s32 *)((s8 *)arg0 + 0x30) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { TWindow__close((void *)(*(void **)((s8 *)arg0 + 0x3C))); *(s32 *)&((TWindowSubItem *)arg0)->m_3c = 0; }
+        if (*(void **)((s8 *)arg0 + 0x38) != NULL) { TWindow__close((void *)(*(void **)((s8 *)arg0 + 0x38))); *(s32 *)&((TWindowSubItem *)arg0)->m_38 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x34) != NULL) { TWindow__close((void *)(*(void **)((s8 *)arg0 + 0x34))); *(s32 *)&((TWindowSubItem *)arg0)->m_34 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x40) != NULL) { TWindow__close((void *)(*(void **)((s8 *)arg0 + 0x40))); *(s32 *)&((TWindowSubItem *)arg0)->m_40 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { TWindow__close((void *)(*(void **)((s8 *)arg0 + 0x30))); *(s32 *)&((TWindowSubItem *)arg0)->m_30 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -716,19 +716,19 @@ void *TWindowSubItem__ct(void *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TWindowSubItem;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubItem__class_name;
-    *(s32 *)((s8 *)arg0 + 0x2C) = arg1;
-    *(s32 *)((s8 *)arg0 + 0x24) = arg2;
-    *(s32 *)((s8 *)arg0 + 0x30) = create_sub_item_list_window(get_window_layout_position(3), lbl_8044F998, *(s32 *)((s8 *)arg0 + 0x24));
-    TWindowSubEquip__sub_80263AF8(*(s32 *)((s8 *)arg0 + 0x2C), 0);
-    set_field_1c__6TLobbyFf(*(s32 *)((s8 *)arg0 + 0x30));
-    ((TWindowSubShortCutList *)(*(s32 *)((s8 *)arg0 + 0x30)))->set_flag70_bit10();
-    *(s32 *)((s8 *)arg0 + 0x40) = 0;
-    *(s32 *)((s8 *)arg0 + 0x34) = 0;
-    *(s32 *)((s8 *)arg0 + 0x38) = 0;
-    *(s32 *)((s8 *)arg0 + 0x3C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x20) = -1;
-    *(s32 *)((s8 *)arg0 + 0x28) = 0;
-    *(s8 *)((s8 *)arg0 + 0x1C) = 0;
+    *(s32 *)&((TWindowSubItem *)arg0)->m_2c = arg1;
+    *(s32 *)&((TWindowSubItem *)arg0)->m_24 = arg2;
+    *(s32 *)&((TWindowSubItem *)arg0)->m_30 = create_sub_item_list_window(get_window_layout_position(3), lbl_8044F998, *(s32 *)&((TWindowSubItem *)arg0)->m_24);
+    TWindowSubEquip__sub_80263AF8(*(s32 *)&((TWindowSubItem *)arg0)->m_2c, 0);
+    set_field_1c__6TLobbyFf(*(s32 *)&((TWindowSubItem *)arg0)->m_30);
+    ((TWindowSubShortCutList *)(*(s32 *)&((TWindowSubItem *)arg0)->m_30))->set_flag70_bit10();
+    *(s32 *)&((TWindowSubItem *)arg0)->m_40 = 0;
+    *(s32 *)&((TWindowSubItem *)arg0)->m_34 = 0;
+    *(s32 *)&((TWindowSubItem *)arg0)->m_38 = 0;
+    *(s32 *)&((TWindowSubItem *)arg0)->m_3c = 0;
+    *(s32 *)&((TWindowSubItem *)arg0)->m_20 = -1;
+    *(s32 *)&((TWindowSubItem *)arg0)->m_28 = 0;
+    *(s8 *)&((TWindowSubItem *)arg0)->m_1c = 0;
     return arg0;
 }
 

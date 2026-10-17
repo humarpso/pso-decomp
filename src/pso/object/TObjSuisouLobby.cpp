@@ -76,13 +76,13 @@ void TObjSuisouLobby__sub_80369B5C(void) {  }
 void render__15TObjSuisouLobbyFv(u8 *arg0) {
     f32 temp_f1;
 
-    if (((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 0) && ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U)) {
+    if (((s32) *(s32 *)&((TObjSuisouLobby *)arg0)->m_c8 != 0) && ((u32) *(u32 *)&((TObjSuisouLobby *)arg0)->texture_id != 0U)) {
         TParticleCtrl::begin_effect_render();
-        TObjFish::set_global_param((int) (*(u32 *)((s8 *)arg0 + 0x24)));
+        TObjFish::set_global_param((int) (*(u32 *)&((TObjSuisouLobby *)arg0)->texture_id));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-        if ((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 3) {
+        rotate_matrix_y((int) (0), (int) (((TObjSuisouLobby *)arg0)->rotation_y));
+        if ((s32) *(s32 *)&((TObjSuisouLobby *)arg0)->m_c8 != 3) {
             temp_f1 = *(f32 *)((s8 *)arg0 + 0xCC);
             scale_matrix((int) (0), (f32) (temp_f1), 1.0f, (f32) (temp_f1));
         }
@@ -177,8 +177,8 @@ void TObjSuisouLobby::load_resources() {
 void *__dt__15TObjSuisouLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__15TObjSuisouLobby;
-        if (*(void **)((s8 *)arg0 + 0xD4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD4)); *(s32 *)((s8 *)arg0 + 0xD4) = 0; }
-        if (*(void **)((s8 *)arg0 + 0xD8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD8)); *(s32 *)((s8 *)arg0 + 0xD8) = 0; }
+        if (*(void **)((s8 *)arg0 + 0xD4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD4)); *(s32 *)&((TObjSuisouLobby *)arg0)->m_d4 = 0; }
+        if (*(void **)((s8 *)arg0 + 0xD8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD8)); *(s32 *)&((TObjSuisouLobby *)arg0)->m_d8 = 0; }
         ((TUnk_804AFBF8 *)arg0)->destroy_key_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

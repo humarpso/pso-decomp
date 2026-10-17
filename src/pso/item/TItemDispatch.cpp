@@ -271,19 +271,19 @@ u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
     fn_8002B630(self + 0xAC, item_collider_body);
     TItem__sub_801031C0(self + 0x98);
     ((TUnk_804AF8A0 *)self)->initialize_linked_object_reference(self + 0xAC);
-    *(u16 *)((s8 *)self + 0xE4) = 0xFFFF;
-    *(s32 *)((s8 *)self + 0xD8) = *(s32 *)((s8 *)item + 0xC);
-    *(s32 *)((s8 *)self + 0xDC) = 0;
-    *(s16 *)((s8 *)self + 0xE6) = 0;
-    *(s32 *)((s8 *)self + 0xE0) = 0;
-    *(u8 *)((s8 *)self + 0xEC) = item[0];
-    *(u8 *)((s8 *)self + 0xED) = item[1];
-    *(u8 *)((s8 *)self + 0xEE) = item[2];
-    *(s32 *)((s8 *)self + 0xF0) = 0;
-    *(s32 *)((s8 *)self + 0xF4) = 0;
-    *(s16 *)((s8 *)self + 0xE8) = 0;
+    ((TItem *)self)->m_e4 = 0xFFFF;
+    *(s32 *)&((TItem *)self)->m_d8 = *(s32 *)((s8 *)item + 0xC);
+    *(s32 *)&((TItem *)self)->m_dc = 0;
+    *(s16 *)&((TItem *)self)->m_e6 = 0;
+    *(s32 *)&((TItem *)self)->m_e0 = 0;
+    ((TItem *)self)->m_ec = item[0];
+    ((TItem *)self)->m_ed = item[1];
+    ((TItem *)self)->m_ee = item[2];
+    *(s32 *)&((TItem *)self)->m_f0 = 0;
+    *(s32 *)&((TItem *)self)->m_f4 = 0;
+    *(s16 *)&((TItem *)self)->m_e8 = 0;
     ((TItem *)self)->apply_item_flags((s32)item);
-    *(s8 *)((s8 *)self + 0xEA) = get_type_nibble__9TItemDataFv(item);
+    *(s8 *)&((TItem *)self)->m_ea = get_type_nibble__9TItemDataFv(item);
     if (is_rare_item__9TItemDataFPv(item) != 0) {
         sub_8010043C__5TItemFUc(self, 4);
     } else {
@@ -379,7 +379,7 @@ void TObjPlayer::clear_item_flags(u32 v) { *(u32 *)&this->motion_list &= ~v; }
 void TObjPlayer::add_item_flags(u32 v) { *(u32 *)&this->motion_list |= v; }
 int TObjPlayer::has_flag_128() { return test_item_flags((u32)((u32)(128))); }
 s8 TObjPlayer__sub_80102C30(u8 *arg0) {
-    return (s8) *(u8 *)((s8 *)arg0 + 0xEB);
+    return (s8) ((TItem *)arg0)->render_mode;
 }
 
 }

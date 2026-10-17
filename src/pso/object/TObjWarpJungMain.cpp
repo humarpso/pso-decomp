@@ -179,7 +179,7 @@ s32 TObjWarpJungMain__vt16(u8 *arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xB0));
     if ((temp_r3 != NULL) && (((TWindowMenu *)temp_r3)->is_visible() != 0)) {
-        *(s32 *)((s8 *)arg0 + 0xBC) = (s32) *(s32 *)((s8 *)(&jungle_warp_destination_ids.value) + (get_selected_menu_value(*(u8 **)((s8 *)arg0 + 0xB0)) * 4));
+        ((TObjWarpJungMain *)arg0)->m_bc = (s32) *(s32 *)((s8 *)(&jungle_warp_destination_ids.value) + (get_selected_menu_value(*(u8 **)((s8 *)arg0 + 0xB0)) * 4));
         return 1;
     }
     return 0;
@@ -191,17 +191,17 @@ void TObjWarpJungMain::vfunc_14() { vfunc_14__12TObjWarpBaseFv(this); TWindowCtr
 
 void TObjWarpJungMain__vt13(void *arg0, s16 arg1) {
     s32 i;
-    if ((u32) *(u32 *)((s8 *)arg0 + 0xB0) == 0U) {
-        *(u32 *)((s8 *)arg0 + 0xB0) = create_window_menu(get_window_layout_position(0x32), 3, arg1);
+    if ((u32) ((TObjWarpJungMain *)arg0)->m_b0 == 0U) {
+        ((TObjWarpJungMain *)arg0)->m_b0 = create_window_menu(get_window_layout_position(0x32), 3, arg1);
         for (i = 0; i < 3; i++) {
-            forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)arg0 + 0xB0), get_localized_text_entry(9, jungle_warp_destination_text_ids[i]), 0xE, i);
+            forward_trade_action_default__16TObjCityMainWarpFPviii(((TObjWarpJungMain *)arg0)->m_b0, get_localized_text_entry(9, jungle_warp_destination_text_ids[i]), 0xE, i);
         }
-        ((TWindowSubComCard *)(*(u32 *)((s8 *)arg0 + 0xB0)))->calc_window_size();
-        align_menu_entry_positions(*(u32 *)((s8 *)arg0 + 0xB0));
-        ((TWindowSubComCardList *)(*(u32 *)((s8 *)arg0 + 0xB0)))->set_flag70_bit10();
-        ((TLobby *)(*(u32 *)((s8 *)arg0 + 0xB0)))->set_loss_flag();
+        ((TWindowSubComCard *)(((TObjWarpJungMain *)arg0)->m_b0))->calc_window_size();
+        align_menu_entry_positions(((TObjWarpJungMain *)arg0)->m_b0);
+        ((TWindowSubComCardList *)(((TObjWarpJungMain *)arg0)->m_b0))->set_flag70_bit10();
+        ((TLobby *)(((TObjWarpJungMain *)arg0)->m_b0))->set_loss_flag();
         request_active_window_close();
-        *(s16 *)((s8 *)arg0 + 0xB8) = arg1;
+        ((TObjWarpJungMain *)arg0)->m_b8 = arg1;
     }
 }
 

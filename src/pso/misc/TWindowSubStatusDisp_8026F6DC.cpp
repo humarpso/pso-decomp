@@ -312,11 +312,11 @@ void TWindowSimpleStatus::apply_random_shake() {
     s32 ang;
     f32 dist;
 
-    if (this->m_60!= 0) {
+    if (this->m_60 != 0) {
         (this->m_60)--;
         ang = (s32)(lbl_805DD3A0 * (lbl_805DD3A4 * (f32)rand()));
         dist = lbl_805DD3A8 * (lbl_805DD3A4 * (f32)rand());
-        this->m_40+= dist * cos_table_lookup(ang);
+        this->m_40 += dist * cos_table_lookup(ang);
         *(f32 *)(((u8 *)this) + 0x44) += dist * sin_table_lookup(ang);
     }
 }

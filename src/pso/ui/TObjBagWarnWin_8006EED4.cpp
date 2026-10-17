@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TObjBagWarnWin.h"
 
 extern "C" {
 
@@ -11,7 +12,7 @@ extern void *lbl_805D2848;
 void *__ct__14TObjBagWarnWinFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjBagWarnWin;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D2848;
+    *(void * *)&((TObjBagWarnWin *)arg0)->m_name = lbl_805D2848;
     *(u32 *)((s8 *)arg0 + 0x1C) = 0;
     *(u32 *)((s8 *)arg0 + 0xA0) = 0;
     return arg0;

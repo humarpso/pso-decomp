@@ -26,7 +26,9 @@ struct TObjEneNanoDrago : public TObjEnemyCustom {
     s32 toggle;
     u8 unknown3E4[4];
     void *m_3e8;
-    u8 unknown3EC[0x20];
+    u8 unk_3EC[0x18];
+    f32 m_404;
+    u8 unk_408[0x4];
     void *m_40c;
 
     void update_growth_state();

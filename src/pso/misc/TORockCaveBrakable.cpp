@@ -122,9 +122,9 @@ extern void *lbl_805D3100;
 void *TORockCaveBrakable__ct(void *arg0) {
     TORockCave__ct(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TORockCaveBrakable;
-    *(void **)((s8 *)arg0 + 0x0) = lbl_805D3100;
-    *(u32 *)((s8 *)arg0 + 0xB4) = 0;
-    *(u32 *)((s8 *)arg0 + 0xB8) = -1;
+    *(void * *)&((TORockCaveBrakable *)arg0)->m_name = lbl_805D3100;
+    ((TORockCaveBrakable *)arg0)->m_b4 = 0;
+    ((TORockCaveBrakable *)arg0)->m_b8 = -1;
     return arg0;
 }
 

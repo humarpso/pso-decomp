@@ -90,7 +90,7 @@ void *TAdPsoPassSaveGC__ct(void *parent) {
     void *o;
     TAdYesNoBaseGC__ct(parent);
     *(s32 **)((s8 *)parent + 0x18) = __vt__16TAdPsoPassSaveGC;
-    *(void **)((s8 *)parent + 0x0) = lbl_805D4310;
+    *(void * *)&((TAdPsoPassSaveGC *)parent)->m_name = lbl_805D4310;
     o = __nw__7TObjectFUl(0x138);
     if (o != NULL) {
         __ct__10TAdTitleGCFP7TObjectl(o, parent, 18);

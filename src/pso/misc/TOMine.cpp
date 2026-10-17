@@ -186,7 +186,7 @@ Obj_80171278 *TOMine__ct(Obj_80171278 *arg0) {
     construct_actor_base__10TObjPlayerFPvPv(arg0);
     arg0->vptr = (u32)((s32 *)&__vt__6TOMine);
     arg0->f00 = TOMine__name;
-    *(s16 *)((u8 *)arg0 + 0x328) = 0;
+    ((TOMine *)arg0)->phase = 0;
     arg0->f350 = lbl_805DB85C;
     arg0->f34C = lbl_805DB85C;
     arg0->f358 = lbl_805DB85C;

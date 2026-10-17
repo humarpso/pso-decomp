@@ -43,7 +43,7 @@ void *__dt__21TBoss1DragonEffBreathFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TBoss1DragonEffBreath;
         delete_buffer__12TBoss8DragonFis(*(void **)((s8 *)arg0 + 0x34), 1);
-        *(s32 *)((s8 *)arg0 + 0x34) = 0;
+        *(s32 *)&((TBoss1DragonEffBreath *)arg0)->m_34 = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -59,7 +59,7 @@ TBoss1DragonEffBreath::TBoss1DragonEffBreath(TObject *arg1, void *arg2, void *ar
     VecCopy((Vec *)(((u8 *)this) + 0x28), (const Vec *)arg3);
     *(f32 *)((s8 *)this + 0x28) = (f32) (*(f32 *)((s8 *)this + 0x28) * lbl_805D8138);
     *(f32 *)((s8 *)this + 0x2C) = (f32) (*(f32 *)((s8 *)this + 0x2C) * lbl_805D8138);
-    *(f32 *)((s8 *)this + 0x30) = (f32) (*(f32 *)((s8 *)this + 0x30) * lbl_805D8138);
+    this->m_30 = (f32) (this->m_30* lbl_805D8138);
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x10);
     if (p != NULL) {
         p = TBoss8Dragon__sub_800BC5EC(p, 4);

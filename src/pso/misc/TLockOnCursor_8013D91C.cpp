@@ -247,7 +247,7 @@ void *TLockOnCursor__ct(void *arg0, void *arg1, void *arg2) {
     ((TLockOnCursor *)((char *)arg0 + 1288))->init_forward();
     ((TLockOnCursor *)((char *)arg0 + 1296))->init_cursor();
     ((TLockOnCursor *)((char *)arg0 + 1312))->init_vtable();
-    *(void **)((s8 *)arg0 + 0x0) = lock_on_cursor_class_name;
+    *(void * *)&((TLockOnCursor *)arg0)->m_name = lock_on_cursor_class_name;
     sub_8013EEC0__13TLockOnCursorFs(arg0, arg2);
     ((TObjPlayer *)(self->f_1C))->clear_id();
     return arg0;
