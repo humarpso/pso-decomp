@@ -296,7 +296,7 @@ void TObjPlayer::update_move_to_target() {
             reset_enemy_state();
             break;
         }
-        if (this->vfunc_19(0x5A) != 0) {
+        if (this->is_actor_cadence_frame(0x5A) != 0) {
             Vec_8008DD14 d2 = self->pos;
             subtract_vector(&d2, &self->target->pos);
             ((TObjPlayer *)self)->pick_open_direction((f32 *)(&d2), (f32)lbl_805D9624, (f32)lbl_805D9628);

@@ -985,7 +985,7 @@ void TObjEneMe1GiGue::init_move() {
 void TObjEneMe1GiGue::sub_802CB6D4() {
     switch (this->mode) {
     case 0:
-        if (this->vfunc_19(0x1E) != 0) {
+        if (this->is_actor_cadence_frame(0x1E) != 0) {
             if (find_nearest_visible_player(((u8 *)this), 0, **(f32 * *)&this->movementParameters) != 0xFFFF) {
                 find_target_in_range__15TObjEnemyCustomFf(((u8 *)this), **(f32 * *)&this->movementParameters);
                 if (*(s32 *)&this->m_388 & 0x40000) {

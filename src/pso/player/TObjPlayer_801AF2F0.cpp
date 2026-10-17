@@ -5943,7 +5943,7 @@ void TObjPlayer::update_status_effects() {
     u8 *arg0 = (u8 *)this;
   update_player_appear_fade((void *) (arg0 + 0x634));
   update_target_lock();
-  if ((this->vfunc_19((3))) != 0)
+  if ((this->is_actor_cadence_frame((3))) != 0)
   {
     if (set_flag_02000000__10TObjPlayerFv((void *) arg0) == 0)
     {

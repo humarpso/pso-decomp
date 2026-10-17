@@ -3965,7 +3965,7 @@ s32 is_target_in_attack_range__10TObjPlayerFv(Player_8001745C *p) {
 }
 
 f32 enemy_move_toward(u8 *arg0, s32 arg1, Vec_800180E8 arg2, s32 arg3, f32 farg0) {
-    if (horizontal_distance_squared(arg0 + 0x29C, arg0 + 0x38) < (1e-05f) || ((TObjEnemy *)(arg0))->vfunc_19(0x1E) != 0) {
+    if (horizontal_distance_squared(arg0 + 0x29C, arg0 + 0x38) < (1e-05f) || ((TObjEnemy *)(arg0))->is_actor_cadence_frame(0x1E) != 0) {
         if (((s32 (*)(void *, Vec_800180E8, int)) select_enemy_destination)(arg0, arg2, arg3) != 0) {
             ((s32 (*)(void *, Vec_800180E8)) copy_position_if_valid__10TObjPlayerFii)(arg0, *(Vec_800180E8 *)(arg0 + 0x2FC));
         }
@@ -3994,7 +3994,7 @@ f32 enemy_pursue_point(u8 *arg0, s32 arg1, Vec_800180E8 arg2, f32 farg0, f32 far
     d0 = horizontal_distance_squared(arg0 + 0x2FC, arg0 + 0x290);
     d1 = horizontal_distance_squared(arg0 + 0x290, arg0 + 0x29C);
     d2 = horizontal_distance_squared(arg0 + 0x2FC, arg0 + 0x29C);
-    if (farg1 * farg1 <= d0 || d1 < (1e-05f) || d2 < (1e-05f) || ((TObjEnemy *)(arg0))->vfunc_19(0x96) != 0) {
+    if (farg1 * farg1 <= d0 || d1 < (1e-05f) || d2 < (1e-05f) || ((TObjEnemy *)(arg0))->is_actor_cadence_frame(0x96) != 0) {
         VecCopy__FP3VecPC3Vec((s32)&d, (s32)&arg2);
         subtract_vector(&d, arg0 + 0x2FC);
         a = (s32)(TObjPlayer__data_804340B8 * ((f64 (*)(f32, f32))atan2_float)(d.x, d.z));
@@ -4030,7 +4030,7 @@ f32 enemy_wander_home(u8 *arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2) {
     f32 var_f31;
     s32 ang;
     var_f31 = horizontal_distance_squared((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x29C));
-    if ((var_f31 < (farg0 * farg0)) || (((TObjEnemy *)(arg0))->vfunc_19(0x96) != 0)) {
+    if ((var_f31 < (farg0 * farg0)) || (((TObjEnemy *)(arg0))->is_actor_cadence_frame(0x96) != 0)) {
         v.x = v.y = (0.0f);
         v.z = (1.0f);
         ang = (s32) ((182.04445f) * ((3.6e+02f) * ((f32 (*)(void *))calc_boss4_scale__10TObjPlayerFi)(arg0)));
@@ -4058,7 +4058,7 @@ f32 enemy_wander_home(u8 *arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2) {
 }
 
 f32 update_enemy_wander_move(Obj_80017ABC *arg0, Vec_800180E8 arg1, s32 arg2, f32 farg0) {
-    if (((TObjEneLappy *)(arg0))->vfunc_19(0x1E) != 0) {
+    if (((TObjEneLappy *)(arg0))->is_actor_cadence_frame(0x1E) != 0) {
         if (((s32 (*)(void *, Vec_800180E8, int)) select_enemy_destination)(arg0, arg1, arg2) != 0) {
             ((s32 (*)(void *, Vec_800180E8)) copy_position_if_valid__10TObjPlayerFii)(arg0, arg0->cur);
         }

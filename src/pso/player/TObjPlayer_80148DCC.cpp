@@ -130,7 +130,7 @@ void TObjNpcBase::vfunc_28() {
     f32 *temp_r5;
 
     if ((s16) this->mode != 3) {
-        if (this->vfunc_19(30) != 0) {
+        if (this->is_actor_cadence_frame(30) != 0) {
             temp_r5 = *(f32 * *)&this->movementParameters;
             this->targetId = find_nearest_visible_player(this, 0, temp_r5, *temp_r5);
             {

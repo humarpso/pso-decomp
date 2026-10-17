@@ -1213,6 +1213,7 @@ force_active:
   - city_door_base_vtable
   - city_door_lobby_collision_vertices
   - city_door_lobby_quad_triangle_indices
+  - city_door_play_close_sound__17TObjCityDoor_WarpFv
   - city_door_play_open_sound__13TUnk_804B5BA8Fv
   - city_door_play_open_sound__17TObjCityDoor_WarpFv
   - city_door_tick_closing__13TUnk_804B5BA8Fv
@@ -8473,7 +8474,6 @@ force_active:
   - vfunc_16__17TOTrapChainSawKeyFv
   - vfunc_16__18TOTrapChainSawEdgeFv
   - vfunc_18__17TOTrapChainSawKeyFv
-  - vfunc_19__17TObjCityDoor_WarpFv
   - vfunc_20__17TOBarrierEnergy01Fv
   - vfunc_22__13TUnk_804B5BA8Fv
   - vfunc_25__17TOTrapChainSawKeyFv

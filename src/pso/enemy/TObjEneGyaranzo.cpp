@@ -1187,7 +1187,7 @@ void TObjPlayer::update_aim_and_fire() {
         this->m_37c = 1;
     case 1:
         var_r30 = 0;
-        if (((TObjEnemy *)(((u8 *)this)))->vfunc_19(0x1E) != 0) {
+        if (((TObjEnemy *)(((u8 *)this)))->is_actor_cadence_frame(0x1E) != 0) {
             ((TObjEnemyCustom *)((u8 *)this))->find_target_in_range((f32) (lbl_805DA274));
         }
         temp_r6 = (u8 *)(*(u8 * *)&this->target);
@@ -1486,7 +1486,7 @@ void TObjEneGyaranzo::sub_800D37F4() {
     switch (this->mode) {
     case 0:
     case 8:
-        if (this->vfunc_19(0x1E) != 0) {
+        if (this->is_actor_cadence_frame(0x1E) != 0) {
             select_targets__19TObjGyaranzoMissileFPv(((u8 *)this));
             if (*(s32 *)&this->unk_3CC > 0) {
                 switch (*(s32 *)&this->m_3a8) {
@@ -1518,14 +1518,14 @@ void TObjEneGyaranzo::sub_800D37F4() {
                     }
                     break;
                 }
-            } else if (this->vfunc_19(0x1E) != 0 &&
+            } else if (this->is_actor_cadence_frame(0x1E) != 0 &&
                        xz_distance_squared(((u8 *)this) + 0x38, ((u8 *)this) + 0x50) > lbl_805DA25C) {
                 update_if_active__15TObjEneMe1GiGueFl(((u8 *)this), 8);
             }
         }
         break;
     case 1:
-        if (this->vfunc_19(0x1E) != 0) {
+        if (this->is_actor_cadence_frame(0x1E) != 0) {
             f32 *p = *(f32 * *)&this->movementParameters;
             r = find_nearest_visible_player(((u8 *)this), 0, (int)p, lbl_805DA290 + *p);
             if (this->targetId == 0xFFFF) {

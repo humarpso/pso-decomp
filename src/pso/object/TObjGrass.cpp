@@ -1554,7 +1554,7 @@ void TObjGrass__vt26(u8 *arg0) {
     f32 d;
     u8 *q;
     u16 tid;
-    if (((TObjGrass *)(arg0))->vfunc_19(0x1E) != 0) {
+    if (((TObjGrass *)(arg0))->is_actor_cadence_frame(0x1E) != 0) {
         if (*(s32 *)((s8 *)arg0 + 0x3AC) == 1) {
             *(u16 *)((s8 *)arg0 + 0x338) = 0xFFFFU;
             *(u8 **)((s8 *)arg0 + 0x2A8) = NULL;

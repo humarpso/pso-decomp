@@ -1470,7 +1470,7 @@ void acquire_target__11TObjEneMojaFPv(u8 *arg0) {
     f32 d;
     u8 *q;
     u16 tid;
-    if (*(s32 *)((s8 *)arg0 + 0x374) != 1 && ((*(s16 *)((s8 *)arg0 + 0x326) != 0 && *(u8 **)((s8 *)arg0 + 0x2A8) == NULL) || ((TObjEneMoja *)(arg0))->vfunc_19(0x1E) != 0)) {
+    if (*(s32 *)((s8 *)arg0 + 0x374) != 1 && ((*(s16 *)((s8 *)arg0 + 0x326) != 0 && *(u8 **)((s8 *)arg0 + 0x2A8) == NULL) || ((TObjEneMoja *)(arg0))->is_actor_cadence_frame(0x1E) != 0)) {
         if (obj_testFlags30((void *) (arg0), 0x10) != 0) {
             i = 0;
             best_id = 0xFFFF;

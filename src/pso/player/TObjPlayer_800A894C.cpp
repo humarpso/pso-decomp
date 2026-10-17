@@ -1009,12 +1009,12 @@ void TObjPlayer__sub_800AA10C(u8 *actor) {
     switch (temp_r0) {
     case 8:
     case 0:
-        if ((((TObjEneDubchik *)(actor))->vfunc_19(0x1E) != 0) && (find_target_in_range__15TObjEnemyCustomFf((void *) (actor), (f32) (*(f32 *)((s8 *)actor + 0x3D0))) != 0)) {
+        if ((((TObjEneDubchik *)(actor))->is_actor_cadence_frame(0x1E) != 0) && (find_target_in_range__15TObjEnemyCustomFf((void *) (actor), (f32) (*(f32 *)((s8 *)actor + 0x3D0))) != 0)) {
             ((TObjEneMe1GiGue *)actor)->update_if_active((int) (1));
         }
         break;
     case 1:
-        if (((TObjEneDubchik *)(actor))->vfunc_19(0x1E) != 0) {
+        if (((TObjEneDubchik *)(actor))->is_actor_cadence_frame(0x1E) != 0) {
             find_target_in_range__15TObjEnemyCustomFf((void *) (actor), (f32) (lbl_805D9B10 + *(f32 *)((s8 *)actor + 0x3D0)));
         }
         temp_r0_2 = *(u32 *)((s8 *)actor + 0x2A8);
@@ -1045,7 +1045,7 @@ void TObjPlayer__sub_800AA10C(u8 *actor) {
                 ((TObjEneMe1GiGue *)actor)->update_if_active((int) (2));
                 return;
             }
-        } else if (((TObjEneDubchik *)(actor))->vfunc_19(0x1E) != 0) {
+        } else if (((TObjEneDubchik *)(actor))->is_actor_cadence_frame(0x1E) != 0) {
             find_target_in_range__15TObjEnemyCustomFf((void *) (actor), (f32) (lbl_805D9B10 + *(f32 *)((s8 *)actor + 0x3D0)));
         }
         break;

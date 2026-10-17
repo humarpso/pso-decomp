@@ -1237,14 +1237,14 @@ void TObjEneBalClawClaw::update_attack_distance_state() {
     s32 temp_r31;
     u32 temp_r3;
 
-    if (((TObjEneBalClawClaw *)((u8 *)this))->vfunc_19(0x1E) != 0) {
+    if (((TObjEneBalClawClaw *)((u8 *)this))->is_actor_cadence_frame(0x1E) != 0) {
         find_target_in_range((f32) ((2.5e+02f)));
     }
     temp_r0 = *(s16 *)((s8 *)((u8 *)this) + 0x326);
     switch (temp_r0) {
     case 8:
     case 0:
-        if (((TObjEneBalClawClaw *)((u8 *)this))->vfunc_19(0x1E) != 0) {
+        if (((TObjEneBalClawClaw *)((u8 *)this))->is_actor_cadence_frame(0x1E) != 0) {
             if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x2A8) != 0U) {
                 update_if_active__15TObjEneMe1GiGueFl((void *) (((u8 *)this)), (int) (1));
                 *(s32 *)((s8 *)((u8 *)this) + 0x38C) = 2;

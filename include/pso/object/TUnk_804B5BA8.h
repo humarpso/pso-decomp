@@ -11,7 +11,7 @@ public:
     virtual void city_door_tick_closing();
     virtual void city_door_tick_opening();
     virtual void check_ground_or_fall();
-    virtual void vfunc_19();
+    virtual void city_door_play_close_sound();
     virtual void city_door_play_open_sound();
     virtual void dispatch_state();
     virtual void vfunc_22();
