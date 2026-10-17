@@ -52,9 +52,10 @@ u8 *TOMineDisp__ct(u8 *arg0, s32 arg1, s16 arg2) {
     return arg0;
 }
 
-void TOMineTrap__vt81(s32 arg0) {
+void TOMineTrap::spawn_disp_objects() {
     u32 var_r31;
     u16 i;
+    s32 arg0 = (s32)this;
 
     if (is_split_screen() == 0) {
         var_r31 = __nw__7TObjectFUl(0xB0);

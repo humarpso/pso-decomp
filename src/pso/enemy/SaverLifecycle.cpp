@@ -242,7 +242,7 @@ extern u8 lbl_8043A86C[];
 void receive_direct_attack__10TObjPlayerFv();
 void receive_physical_attack__10TObjPlayerFv();
 void receive_weapon_special_attack__10TObjPlayerFv();
-void render_actor_shadows_default(u8 *arg0);
+void render_shadows__9TObjEnemyFv(u8 *arg0);
 void reset_motion_fields__13TUnk_804806E8Fv();
 void reset_pose__13TUnk_804806E8Fv();
 void roll_physical_accuracy__13TUnk_804806E8FPvlf();
@@ -292,7 +292,7 @@ void *saver_collision_body_part_table[11] = {
 };
 void *TObjEneSaver__vtable[83] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__12TObjEneSaverFv, (void *)&TObjPlayer__sub_800A6EC0,
-    (void *)&TObjPlayer__sub_800A6C54, (void *)&render_actor_shadows_default, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
+    (void *)&TObjPlayer__sub_800A6C54, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__12TObjEneSaverFv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
     (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,

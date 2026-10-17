@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_8049FC90.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/item/TItemObject.h"
 #include "pso/item/TUnk_8049FD48.h"
@@ -14,7 +15,6 @@ u8 *create_technique_disk_item(u8 *arg0);
 u8 *create_telepipe_item(u8 *arg0);
 void set_item_owner_technique_level(void *arg0, s16 i, s16 arg2);
 s32 get_slot_count__14TItemProShieldFv(void *);
-void technique_disk_apply_use(s32 arg0);
 void *__dt__13TUnk_8049FC90Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_8049FD48Fv(void *arg0, s16 arg1);
 void TItemObject__ct(void *);
@@ -47,8 +47,9 @@ u8 *create_material_item(u8 *arg0) {
     return NULL;
 }
 
-void technique_disk_apply_use(s32 arg0) {
+void TUnk_8049FC90::vfunc_44() {
   u8 temp_r31;
+    s32 arg0 = (s32)this;
   temp_r31 = get_slot_count__14TItemProShieldFv((void *) arg0);
   set_item_owner_technique_level((void *)arg0, ((s16) (((TItemObject *)arg0)->sub_80115D7C() & 0xFF)), ((s16) (temp_r31 & 0xFFFFFFFFu)));
 }

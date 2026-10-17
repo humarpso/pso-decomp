@@ -6,6 +6,8 @@
 
 struct TObjEneMe3ShinowaReal : public TObjEneMe3Shinowa {
     virtual ~TObjEneMe3ShinowaReal();
+    virtual void vfunc_114(s32);
+    virtual void vfunc_116(s32);
     virtual void vfunc_107();
     virtual void vfunc_111();
     void sub_800E7250();

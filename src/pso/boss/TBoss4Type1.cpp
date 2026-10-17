@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -609,7 +610,7 @@ extern "C" void is_target_in_attack_range__10TObjPlayerFv();
 extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
-extern "C" void render_actor_shadows_default(u8 *arg0);
+extern "C" void render_shadows__9TObjEnemyFv(u8 *arg0);
 extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__13TUnk_804806E8Fv();
 extern "C" void roll_physical_accuracy__13TUnk_804806E8FPvlf();
@@ -632,7 +633,7 @@ void *boss4_type2_state_motion_index_table[3] = {
 };
 void *__vt__11TBoss4Type1[83] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__11TBoss4Type1Fv, (void *)&TBoss4Type2__sub_80054738,
-    (void *)&render_and_update_effects__10TObjPlayerFPv, (void *)&render_actor_shadows_default, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
+    (void *)&render_and_update_effects__10TObjPlayerFPv, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
     (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
@@ -1715,9 +1716,6 @@ struct Self_80054A1C {
     u8 v484[0xC];
 };
 
-s32 register_object__6TLobbyFl(int);
-s32 dispatch_shared_handler_b__6TLobbyFl(int);
-s32 register_boss__6TLobbyFl(int);
 void init_model_node_tables(void *, void *, int);
 s32 TObjFish__sub_800E3124(u8 *list, s32 vecs);
 s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
@@ -1752,7 +1750,7 @@ Self_80054A1C *TBoss4Type1__ct(Self_80054A1C *self, s32 parent, s32 *arg2) {
     VecCopy__FP3VecPC3Vec(self->v2FC, self->v38);
     self->f308 = self->f30C = self->f310 = lbl_805D8B20;
     self->f2A8 = 0;
-    bind_enemy_combat_stats((u8 *)self, (u8 *)(register_boss__6TLobbyFl(0x36)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(0x36)), (u8 *)(register_object__6TLobbyFl(0x36)));
+    bind_enemy_combat_stats((u8 *)self, (u8 *)(TLobby::register_boss(0x36)), (u8 *)(TLobby::dispatch_shared_handler_b(0x36)), (u8 *)(TLobby::register_object(0x36)));
     self->f33E = self->f32C;
     ((TBoss3Volopt *)self)->reset_photon_effect();
     ((TObjEneLappy *)self)->set_param(0x2F);

@@ -1,4 +1,5 @@
 #include "pso/boss/TBoss4Zako.h"
+#include "pso/misc/TLobby.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -371,9 +372,6 @@ struct VObj_18_fe72f9 : VBase_18_fe72f9 {
 };
 
 f32 *dispatch_shared_handler_a__6TLobbyFl(s32);
-s32 register_object__6TLobbyFl(int);
-s32 dispatch_shared_handler_b__6TLobbyFl(int);
-s32 register_boss__6TLobbyFl(int);
 s32 get_instance_count__9TBoss4UroFv();
 
 void *create_particle_emitter(void *pos, s32 id);
@@ -470,7 +468,7 @@ s32 TBoss4Zako__ct(s32 arg0, s32 parent, s32 arg2) {
     *(f32 *)((s8 *)THIS + 0x30C) = lbl_805D8CBC;
     *(f32 *)((s8 *)THIS + 0x308) = lbl_805D8CBC;
     *(s32 *)((s8 *)THIS + 0x2A8) = 0;
-    bind_enemy_combat_stats(THIS, (u8 *)(register_boss__6TLobbyFl(0x35)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(0x35)), (u8 *)(register_object__6TLobbyFl(0x35)));
+    bind_enemy_combat_stats(THIS, (u8 *)(TLobby::register_boss(0x35)), (u8 *)(TLobby::dispatch_shared_handler_b(0x35)), (u8 *)(TLobby::register_object(0x35)));
     *(s16 *)((s8 *)THIS + 0x33E) = *(s16 *)((s8 *)THIS + 0x32C);
     ((TBoss3Volopt *)THIS)->reset_photon_effect();
     ((TObjEneLappy *)THIS)->set_param(0);
@@ -1250,7 +1248,7 @@ void get_pos__13TUnk_804806E8Fl();
 void vfunc_13__13TUnk_804AF8A0Fl();
 void run_task__10TBoss4ZakoFv();
 void clear_lobby_object_state__9TObjEnemyFv();
-void render_actor_shadows_default(u8 *arg0);
+void render_shadows__9TObjEnemyFv(u8 *arg0);
 void vfunc_12__9TObjEnemyFv();
 void vfunc_74__9TObjEnemyFl();
 void apply_hit_message_flags__9TObjEnemyFPv();
@@ -1266,7 +1264,7 @@ s32 __vt__11TBoss4Bishi[83] = {
     (s32)__dt_deleting__11TBoss4BishiFPvs,
     (s32)TBoss4Zako__sub_8005BC4C,
     (s32)render__9TBoss4UroFv,
-    (s32)render_actor_shadows_default,
+    (s32)render_shadows__9TObjEnemyFv,
     (s32)vfunc_6__13TUnk_804B9870FPsl,
     (s32)apply_object_set_data__13TUnk_804B9870FPv,
     (s32)reset_motion_fields__13TUnk_804806E8Fv,
@@ -1351,7 +1349,7 @@ s32 __vt__9TBoss4Uro[83] = {
     (s32)__dt__9TBoss4UroFv,
     (s32)run_task__9TBoss4UroFv,
     (s32)render__9TBoss4UroFv,
-    (s32)render_actor_shadows_default,
+    (s32)render_shadows__9TObjEnemyFv,
     (s32)vfunc_6__13TUnk_804B9870FPsl,
     (s32)apply_object_set_data__13TUnk_804B9870FPv,
     (s32)reset_motion_fields__13TUnk_804806E8Fv,
@@ -1436,7 +1434,7 @@ s32 __vt__10TBoss4Zako[83] = {
     (s32)__dt__10TBoss4ZakoFv,
     (s32)run_task__10TBoss4ZakoFv,
     (s32)render__9TBoss4UroFv,
-    (s32)render_actor_shadows_default,
+    (s32)render_shadows__9TObjEnemyFv,
     (s32)vfunc_6__13TUnk_804B9870FPsl,
     (s32)apply_object_set_data__13TUnk_804B9870FPv,
     (s32)reset_motion_fields__13TUnk_804806E8Fv,

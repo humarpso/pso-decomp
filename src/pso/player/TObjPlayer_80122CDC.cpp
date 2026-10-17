@@ -10,7 +10,8 @@ void TItemWeapon__ct(void *);
 
 extern s32 tl_05;
 
-void TObjPlayer::spawn_cane(s32 arg0) {
+void TUnk_804A1478::emit_marker_effects() {
+    s32 arg0 = (s32)this;
     if ((get_slot_count__14TItemProShieldFv() < 4U) && (((TItemWeapon *)arg0)->get_attack_stage() == 0)) {
         ((TObjPlayer *)tl_05)->spawn_cane_effects((TItem*)arg0, (s32)1, (s32)2);
     }

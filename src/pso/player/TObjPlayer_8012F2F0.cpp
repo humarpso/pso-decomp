@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TUnk_804A62F8.h"
 #include "pso/item/TItem.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -13,7 +14,8 @@ void TObjPlayer::update_boss2tunnel() {
     }
 }
 
-void TObjPlayer::apply_on_shield_state5(s32 arg0) {
+void TUnk_804A62F8::update_weapon() {
+    s32 arg0 = (s32)this;
     if (get_slot_count__14TItemProShieldFv() == 5) {
         ((TItem *)arg0)->refresh_owner_stats();
     }

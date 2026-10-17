@@ -226,7 +226,7 @@ void vfunc_34__5TItemFv();
 void vfunc_35__5TItemFv();
 void vfunc_36__11TItemObjectFv();
 s32 TItemObject__vt35(void *arg0, s32 arg1);
-s32 TItemObject__vt36(void *arg0, s32 arg1);
+s32 vfunc_38__11TItemObjectFl(void *arg0, s32 arg1);
 int ret_8010064C(void);
 void TItem__sub_80100648();
 int TItem__sub_801005E4(void);
@@ -291,7 +291,7 @@ void *lbl_8049FF88[46] = {
     (void *)vfunc_35__5TItemFv,
     (void *)vfunc_36__11TItemObjectFv,
     (void *)TItemObject__vt35,
-    (void *)TItemObject__vt36,
+    (void *)vfunc_38__11TItemObjectFl,
     (void *)ret_8010064C,
     (void *)TItem__sub_80100648,
     (void *)TItem__sub_801005E4,

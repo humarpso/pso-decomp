@@ -7,6 +7,7 @@
 
 struct TItemObject : public TItem {
     virtual ~TItemObject();
+    virtual int vfunc_38(s32);
     virtual void vfunc_44();
     virtual void vfunc_14();
     virtual int vfunc_36();

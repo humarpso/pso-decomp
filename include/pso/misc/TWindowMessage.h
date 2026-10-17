@@ -6,6 +6,7 @@
 
 struct TWindowMessage : public TUnk_804CDFE8 {
     virtual ~TWindowMessage();
+    virtual void render();
     void update_scroll();
     void retire_scrolled_lines();
     void advance_reveal_cursor();

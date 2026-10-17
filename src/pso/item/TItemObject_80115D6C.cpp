@@ -64,7 +64,7 @@ void *__dt__11TItemObjectFv(void *arg0, s16 arg1);
 void TItemObject__vt16(u8 *arg0, u8 *arg1);
 void vfunc_31__11TItemObjectFv(void *arg0);
 s32 TItemObject__vt35(void *arg0, s32 arg1);
-s32 TItemObject__vt36(void *arg0, s32 arg1);
+s32 vfunc_38__11TItemObjectFl(void *arg0, s32 arg1);
 void vfunc_44__11TItemObjectFv(void *arg0);
 s32 vfunc_36__11TItemObjectFv(void);
 void run_task__5TItemFv(); void dispatch_state__5TItemFv(); void render_shadows__5TItemFv();
@@ -92,7 +92,7 @@ void *__vt__11TItemObject[] = {
     (void *)destroy__5TItemFv, (void *)vfunc_30__5TItemFv, (void *)vfunc_31__11TItemObjectFv,
     (void *)vfunc_32__5TItemFv, (void *)vfunc_33__5TItemFv, (void *)vfunc_34__5TItemFv,
     (void *)vfunc_35__5TItemFv, (void *)vfunc_36__11TItemObjectFv, (void *)TItemObject__vt35,
-    (void *)TItemObject__vt36, (void *)ret_8010064C, (void *)TItem__sub_80100648,
+    (void *)vfunc_38__11TItemObjectFl, (void *)ret_8010064C, (void *)TItem__sub_80100648,
     (void *)TItem__sub_801005E4, (void *)TItem__sub_801005D8, (void *)vfunc_43__5TItemFv,
     (void *)vfunc_44__11TItemObjectFv,
 };
@@ -293,12 +293,12 @@ s32 check_flag_400__20TWindowSubStatusDispFv();
 s32 get_item_type_or_default__9TItemListFv(void *);
 s32 update_pickup_flag__5TItemFl();
 
-s32 TItemObject__vt36(void *arg0, s32 arg1) {
+int TItemObject::vfunc_38(s32 arg1) {
     s32 temp_r31;
 
-    temp_r31 = arg1 + ((TItemObject *)arg0)->vfunc_36();
-    if (temp_r31 <= copy_and_register_item_data__11TItemObjectFv(arg0)) {
-        ((TItemObject *)arg0)->store_encoded_value(temp_r31);
+    temp_r31 = arg1 + ((TItemObject *)this)->vfunc_36();
+    if (temp_r31 <= copy_and_register_item_data__11TItemObjectFv(this)) {
+        ((TItemObject *)this)->store_encoded_value(temp_r31);
         return 1;
     }
     return 0;

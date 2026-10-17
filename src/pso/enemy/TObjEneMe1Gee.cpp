@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TUnk_8049387C.h"
 extern "C" void has_flag_0x800__13TUnk_804806E8Fv();
 extern "C" void test_flag30_512__13TUnk_804806E8Fv();
 extern "C" void test_flag_1000__13TUnk_804806E8Fv();
@@ -49,7 +50,7 @@ void * __nw__7TObjectFUl(u32);
 void * init__13TObjEneMe1GeeFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void vfunc_110__13TUnk_8049387CFl(u8 *arg0, s32 arg1);
 void sub_800C84C8__13TUnk_8049387CFv(u8 *arg0);
-void TObjEneMe1Gee__sub_800C8788(Gee_800C8788 *arg0, u32 arg1);
+void vfunc_117__13TUnk_8049387CFUl(Gee_800C8788 *arg0, u32 arg1);
 void TObjEneMe1Gee__sub_800C8950(Gee_800C8950 *self);
 void vfunc_105__13TUnk_8049387CFv(Obj_800C8B4C *self);
 void vfunc_106__13TUnk_8049387CFv(void* a0);
@@ -77,7 +78,7 @@ extern const Data_800C82A4 TObjEneMe1Gee__data_8043BDB0;
 extern s32 lbl_805D2A68;
 extern s32 gee_resource_bundle_ptr;
 #pragma push
-#define TObjEneMe1Gee__sub_800C8788 ((void (*)())TObjEneMe1Gee__sub_800C8788)
+#define vfunc_117__13TUnk_8049387CFUl ((void (*)())vfunc_117__13TUnk_8049387CFUl)
 #define vfunc_108__13TUnk_8049387CFv ((void (*)())vfunc_108__13TUnk_8049387CFv)
 #define TObjEneMe1Gee__sub_800C8950 ((void (*)())TObjEneMe1Gee__sub_800C8950)
 #define vfunc_105__13TUnk_8049387CFv ((void (*)())vfunc_105__13TUnk_8049387CFv)
@@ -183,7 +184,7 @@ extern "C" u8 lbl_8043BE38[];
 extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
-extern "C" void render_actor_shadows_default(u8 *arg0);
+extern "C" void render_shadows__9TObjEnemyFv(u8 *arg0);
 extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__13TUnk_804806E8Fv();
 extern "C" void roll_physical_accuracy__13TUnk_804806E8FPvlf();
@@ -244,7 +245,7 @@ void *TObjEneMe1Gee__fade_command_streams[5] = {
 };
 void *me1_gee_dispatch_table[118] = {
     (void *)0x0, (void *)0x0, (void *)__dt__13TUnk_8049387CFv, (void *)TObjEneMe1Gee__sub_800C8BCC,
-    (void *)render__13TObjEneMe1GeeFv, (void *)render_actor_shadows_default, (void *)vfunc_6__13TUnk_804B9870FPsl, (void *)apply_object_set_data__13TUnk_804B9870FPv,
+    (void *)render__13TObjEneMe1GeeFv, (void *)render_shadows__9TObjEnemyFv, (void *)vfunc_6__13TUnk_804B9870FPsl, (void *)apply_object_set_data__13TUnk_804B9870FPv,
     (void *)reset_motion_fields__13TUnk_804806E8Fv, (void *)vfunc_9__13TUnk_804806E8Fv, (void *)update_object_view_visibility__13TUnk_804B9870Fff, (void *)classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)vfunc_12__9TObjEnemyFv, (void *)vfunc_13__13TUnk_804AF8A0Fl, (void *)add_actor_exp__13TUnk_804806E8Fl, (void *)consume_timer_field__13TUnk_804806E8Fl,
     (void *)get_actor_level_index__13TUnk_804806E8Fv, (void *)update_actor_ground_y__13TUnk_804806E8Fv, (void *)vfunc_18__13TUnk_804806E8FPUc, (void *)is_actor_cadence_frame__13TUnk_804806E8Fl,
@@ -272,14 +273,14 @@ void *me1_gee_dispatch_table[118] = {
     (void *)TObjEneMe1Gee__vt102, (void *)vfunc_105__13TUnk_8049387CFv, (void *)vfunc_106__13TUnk_8049387CFv, (void *)TObjEneMe1Gee__sub_800C8950,
     (void *)vfunc_108__13TUnk_8049387CFv, (void *)vfunc_109__13TUnk_8049387CFv, (void *)vfunc_110__13TUnk_8049387CFl, (void *)vfunc_111__13TUnk_8049387CFl,
     (void *)vfunc_112__13TUnk_8049387CFl, (void *)vfunc_113__13TUnk_8049387CFv, (void *)vfunc_114__13TObjEneMe1GeeFv, (void *)vfunc_115__13TObjEneMe1GeeFv,
-    (void *)vfunc_116__13TUnk_8049387CFv, (void *)TObjEneMe1Gee__sub_800C8788,
+    (void *)vfunc_116__13TUnk_8049387CFv, (void *)vfunc_117__13TUnk_8049387CFUl,
 };
 s32 gee_boss_stat_handle_table[3];
 s32 lbl_80500E44[3];
 s32 lbl_80500E50[3];
 s32 lbl_80500E5C[3];
 f32 gee_camera_ctrl_vec[4];
-#undef TObjEneMe1Gee__sub_800C8788
+#undef vfunc_117__13TUnk_8049387CFUl
 #undef vfunc_108__13TUnk_8049387CFv
 #undef TObjEneMe1Gee__sub_800C8950
 #undef vfunc_105__13TUnk_8049387CFv
@@ -2263,7 +2264,8 @@ extern const f32 lbl_805DA13C;
 extern const f32 lbl_805DA140;
 extern const f32 lbl_805DA144;
 
-void TObjEneMe1Gee__sub_800C8788(Gee_800C8788 *arg0, u32 arg1) {
+void TUnk_8049387C::vfunc_117(u32 arg1) {
+    Gee_800C8788 *arg0 = (Gee_800C8788 *)this;
     s32 i;
     u32 tmp;
 

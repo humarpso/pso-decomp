@@ -6,6 +6,7 @@
 
 struct TTecGiZonde : public TUnk_804CCC68 {
     virtual ~TTecGiZonde();
+    virtual void vfunc_8(void *);
     s32 find_chain_targets();
     void create(void *arg1, void *arg2, void *arg3);
     void run_task();

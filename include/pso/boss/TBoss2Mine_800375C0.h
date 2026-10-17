@@ -6,7 +6,7 @@
 extern "C" {
 void TBoss2Mine__sub_800375C0(u8 *arg0, s32 arg1);
 void TBoss2Mine__sub_800377E8(u8 *arg0, s32 arg1);
-void TBoss2Mine__sub_80037D4C(u8 *arg0, s32 arg1);
+void vfunc_106__13TUnk_80482EC0Fl(u8 *arg0, s32 arg1);
 void TBoss2Mine__sub_80037EE0(u8 *arg0, s32 arg1);
 void *TBoss2Mine__sub_800381B8(void *arg0, s32 arg1, s16 arg2, s16 arg3);
 void TBoss2Mine__vt102(void *arg0, s32 arg1);

@@ -130,7 +130,7 @@ void is_target_in_attack_range__10TObjPlayerFv();
 void receive_direct_attack__10TObjPlayerFv();
 void receive_physical_attack__10TObjPlayerFv();
 void receive_weapon_special_attack__10TObjPlayerFv();
-void render_actor_shadows_default(u8 *arg0);
+void render_shadows__9TObjEnemyFv(u8 *arg0);
 void reset_motion_fields__13TUnk_804806E8Fv();
 void reset_pose__13TUnk_804806E8Fv();
 void roll_physical_accuracy__13TUnk_804806E8FPvlf();
@@ -153,7 +153,7 @@ void *__vt__20TObjEneDarkGunCenter[83] = {
     (void *)__dt__20TObjEneDarkGunCenterFv,
     (void *)run_task__20TObjEneDarkGunCenterFv,
     (void *)&render__20TObjEneDarkGunCenterFv,
-    (void *)render_actor_shadows_default,
+    (void *)render_shadows__9TObjEnemyFv,
     (void *)vfunc_6__13TUnk_804B9870FPsl,
     (void *)apply_object_set_data__13TUnk_804B9870FPv,
     (void *)reset_motion_fields__13TUnk_804806E8Fv,

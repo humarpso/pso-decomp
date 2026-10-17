@@ -76,12 +76,9 @@ extern "C" {
 int is_valid_player_motion_variant(void* a0);
 int TLobby__sub_802A7278(void* a0);
 extern RecoveredGlobal_802A7444_lbl_804DDBD8 player_motion_clip_roots_b;
-s32 player_motion_provider1_get_clip_indices(s32 arg0, s32 arg1, s32 arg2);
 extern RecoveredGlobal_802A74B8_lbl_804DD9F8 player_motion_category_table;
-s32 player_motion_provider1_get_actions(s32 arg0, s32 arg1, s32 arg2);
 void TLobby__sub_802A7848(void *p, s32 _w1);
 s32 TLobby__sub_802A7868(void *, s32, s32);
-s32 load_action_motion_pairs__13TUnk_804DDD28Flll(void *, s32, s32, s32);
 s32 forward_801C210C__10TObjPlayerFv(void *, s32);
 void mem_free(void*);
 extern s32 player_action_motion_buffer;
@@ -95,8 +92,6 @@ void *__dt__6TLobbyFPvs(void *arg0, s16 arg1);
 u8 *TLobby__sub_802A7B50(u8 *arg0);
 void* TLobby__sub_802A7780(void* p);
 void* TLobby__sub_802A7788(void* p);
-s32 TLobby__sub_802A7420(void *self, s32 a, s32 b, s32 c);
-s32 TLobby__sub_802A75C8(void *arg0, s32 arg1);
 int is_valid_player_motion_variant(void* a0 = 0);
 int TLobby__sub_802A7278(void* a0 = 0);
 
@@ -128,11 +123,11 @@ void TUnk_804DDBF0::vfunc_14() {
     o->slots[o->m17()].node->flags |= 0x80;
 }
 
-s32 TLobby__sub_802A7420(void *self, s32 a, s32 b, s32 c) {
+int TUnk_804DDBF0::vfunc_9(s32 a, s32 b, s32 c) {
     return ((s32 ** *)&player_motion_clip_roots_b)[a][b][c];
 }
 
-s32 player_motion_provider1_get_clip_indices(s32 arg0, s32 arg1, s32 arg2) {
+int TUnk_804DDBF0::vfunc_8(s32 arg1, s32 arg2) {
     if (((s32)TLobby__sub_802A7278((void*)((void *) (arg1)))) == 0) {
         return 0;
     }
@@ -142,7 +137,7 @@ s32 player_motion_provider1_get_clip_indices(s32 arg0, s32 arg1, s32 arg2) {
     return 0;
 }
 typedef char RecoveredGlobal_802A74B8_lbl_804DD9F8_size[sizeof(RecoveredGlobal_802A74B8_lbl_804DD9F8) == 0x18 ? 1 : -1];
-s32 player_motion_provider1_get_actions(s32 arg0, s32 arg1, s32 arg2) {
+int TUnk_804DDBF0::vfunc_7(s32 arg1, s32 arg2) {
     if (((s32)TLobby__sub_802A7278((void*)((void *) (arg1)))) == 0) {
         return 0;
     }
@@ -151,26 +146,26 @@ s32 player_motion_provider1_get_actions(s32 arg0, s32 arg1, s32 arg2) {
     }
     return 0;
 }
-s32 TLobby::handle_message(s32 arg1, s32 arg2, s32 arg3) {
+int TUnk_804DDBF0::vfunc_6(s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r3;
     if (TLobby__sub_802A7868(this, arg2, arg3) != 0) {
         return 1;
     }
     forward_801C210C__10TObjPlayerFv(this, arg2);
     TLobby__sub_802A7848(this, arg3);
-    temp_r3 = load_action_motion_pairs__13TUnk_804DDD28Flll(this, arg1, arg2, arg3);
+    temp_r3 = load_action_motion_pairs(arg1, arg2, arg3);
     if (temp_r3 != 0) {
         ((VObj_802A752C_802A7290 *)this)->m12();
     }
     return temp_r3;
 }
 
-s32 TLobby__sub_802A75C8(void *arg0, s32 arg1) {
-    s32 a = ((TObjPlayer *)arg0)->is_handle_valid();
-    s32 b = ((TObjPlayer *)arg0)->sub_802a7290_fwd();
-    s32 r = load_action_motion_pairs__13TUnk_804DDD28Flll(arg0, arg1, a, b);
+int TUnk_804DDBF0::vfunc_5(s32 arg1) {
+    s32 a = ((TObjPlayer *)this)->is_handle_valid();
+    s32 b = ((TObjPlayer *)this)->sub_802a7290_fwd();
+    s32 r = load_action_motion_pairs(arg1, a, b);
     if (r != 0) {
-        ((TUnk_804DDBF0 *)arg0)->vfunc_14();
+        ((TUnk_804DDBF0 *)this)->vfunc_14();
     }
     return r;
 }

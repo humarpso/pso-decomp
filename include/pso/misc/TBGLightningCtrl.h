@@ -6,8 +6,9 @@
 
 struct TBGLightningCtrl : public TUnk_804B9870 {
     virtual ~TBGLightningCtrl();
+    virtual void run_task();
+    virtual void render();
     u32 m_90;
-    static void render();
     static void destroy_instance();
 };
 

@@ -278,7 +278,7 @@ void fn_802E79B0(Obj_802E79B0 *arg0) {
 #undef VecCopy__FP3VecPC3Vec
 #undef vec3_add_to
 
-void render_actor_shadows_default(u8 *arg0);
+void render_shadows__9TObjEnemyFv(u8 *arg0);
 
 void TBoss7DeRolLeC::set_flag_800() { *(u32*)((char*)this + 0x628) |= 0x800; }
 
@@ -330,7 +330,7 @@ void TObjFish__sub_802E7B94(Fish_802E7B94* o);
 #define queue_boss_effect__10TObjPlayerFPv ((u32 (*)(int))queue_boss_effect__10TObjPlayerFPv)
 void TBoss7DeRolLeC::render_shadows() {
     if (*(s32 *)((s8 *)(this->m_a4) + 0x18) & 1) {
-        render_actor_shadows_default((u8 *)this);
+        render_shadows__9TObjEnemyFv((u8 *)this);
     }
 }
 

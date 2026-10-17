@@ -9,6 +9,12 @@ struct NanoDragoMovementParams { f32 f0; f32 base_speed; s32 turn; };
 
 struct TObjEneNanoDrago : public TObjEnemyCustom {
     virtual ~TObjEneNanoDrago();
+    virtual void vfunc_61();
+    virtual void vfunc_59();
+    virtual void vfunc_60();
+    virtual void vfunc_58();
+    virtual void vfunc_62();
+    virtual void vfunc_63();
     void dispatch_action_state();
     void sub_800DB970();
     void sub_800DA2A0();

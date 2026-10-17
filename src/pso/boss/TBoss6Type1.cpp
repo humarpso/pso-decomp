@@ -1113,7 +1113,7 @@ struct Stack_802B9204_boss6_1 {
 
 extern "C" {
 u8 * TBoss6Type1__sub_802B96C0(s32 arg0, s32 arg1);
-s32 render_actor_shadows_default();
+s32 render_shadows__9TObjEnemyFv();
 extern const f32 lbl_805DE3D0;
 s32 angle_difference_abs(int, int);
 s32 approach_angle_limited(int, int, int);
@@ -1933,7 +1933,7 @@ void TBoss6Type1::set_action_state(s32 arg1) {
 
 void TBoss6Type1::render_shadows() {
     if (this->position[1] >= lbl_805DE3D0) {
-        render_actor_shadows_default();
+        render_shadows__9TObjEnemyFv();
     }
 }
 
@@ -2208,9 +2208,6 @@ struct VObj_18_f05d67 : VBase_18_f05d67 {
 struct Arr_802B93C4 { u8 pad[0x378]; s32 arr[32]; };
 struct Tmp_802B93C4 { s32 a; s16 b; s16 c; u8 pad[0x10]; };
 
-s32 register_object__6TLobbyFl(int);
-s32 dispatch_shared_handler_b__6TLobbyFl(int);
-s32 register_boss__6TLobbyFl(int);
 s32 TObjFish__sub_800E3124(u8 *list, s32 vecs);
 s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 s32 init_collision_body_parts(void *, void *, int);
@@ -2259,7 +2256,7 @@ s32 TBoss6Type1__ct(s32 arg0_, s32 parent, s32 arg2_) {
     *(f32 *)((s8 *)arg0 + 0x30C) = TBoss6Type1__data_805DE2D0;
     *(f32 *)((s8 *)arg0 + 0x308) = TBoss6Type1__data_805DE2D0;
     *(s32 *)((s8 *)arg0 + 0x2A8) = 0;
-    bind_enemy_combat_stats(arg0, (u8 *)(register_boss__6TLobbyFl(0x2B)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(0x2B)), (u8 *)(register_object__6TLobbyFl(0x2B)));
+    bind_enemy_combat_stats(arg0, (u8 *)(TLobby::register_boss(0x2B)), (u8 *)(TLobby::dispatch_shared_handler_b(0x2B)), (u8 *)(TLobby::register_object(0x2B)));
     *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x32C);
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
     ((TObjEneLappy *)arg0)->set_param(0x4E);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby.h"
 #include "pso/enemy/TObjEneSlimeOne.h"
 #include "pso/enemy/TObjEneSlimeTailAttack.h"
 #include "pso/enemy/TObjEneSlimeWaterBomb.h"
@@ -94,9 +95,6 @@ extern const f32 lbl_805DA67C;
 extern const f32 lbl_805DA6E4;
 extern const f32 lbl_805DA728;
 void render__15TObjEneSlimeOneFv(u8 *arg0);
-s32 register_object__6TLobbyFl(int);
-s32 dispatch_shared_handler_b__6TLobbyFl(int);
-s32 register_boss__6TLobbyFl(int);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
@@ -764,7 +762,7 @@ extern "C" {
 void receive_weapon_special_attack__10TObjPlayerFv();
 }
 extern "C" {
-void render_actor_shadows_default(u8 *arg0);
+void render_shadows__9TObjEnemyFv(u8 *arg0);
 }
 extern "C" {
 void reset_motion_fields__13TUnk_804806E8Fv();
@@ -923,7 +921,7 @@ void *slime_tail_attack_transform[3] = {
 };
 void *__vt__22TObjEneSlimeTailAttack[83] = {
     (void *)0x0, (void *)0x0, (void *)&dt__22TObjEneSlimeTailAttackFPvs, (void *)&TObjPlayer__sub_800E87FC,
-    (void *)&TObjPlayer__sub_800E84F8, (void *)&render_actor_shadows_default, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
+    (void *)&TObjPlayer__sub_800E84F8, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
     (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
@@ -2105,11 +2103,11 @@ void initialize_slime_instance_state(u8 *actor) {
   *((s32 *) (((s8 *) actor) + 0x2A8)) = 0;
   if ((*new_var2) == 0)
   {
-    bind_enemy_combat_stats(actor, (u8 *)(register_boss__6TLobbyFl(0x30)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(0x30)), (u8 *)(register_object__6TLobbyFl(0x30)));
+    bind_enemy_combat_stats(actor, (u8 *)(TLobby::register_boss(0x30)), (u8 *)(TLobby::dispatch_shared_handler_b(0x30)), (u8 *)(TLobby::register_object(0x30)));
   }
   else
   {
-    bind_enemy_combat_stats(actor, (u8 *)(register_boss__6TLobbyFl(0x34)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(0x34)), (u8 *)(register_object__6TLobbyFl(0x34)));
+    bind_enemy_combat_stats(actor, (u8 *)(TLobby::register_boss(0x34)), (u8 *)(TLobby::dispatch_shared_handler_b(0x34)), (u8 *)(TLobby::register_object(0x34)));
   }
   ((TObjEneSlimeOne *)actor)->referenceHp = ((TObjEneSlimeOne *)actor)->hp;
   ((TBoss3Volopt *)actor)->reset_photon_effect();

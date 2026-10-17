@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void TTecGiZonde__vt6(u8 *arg0, u8 *arg1);
+void vfunc_8__11TTecGiZondeFPv(u8 *arg0, u8 *arg1);
 }
 
 #endif

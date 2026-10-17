@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/TUnk_804A2C90.h"
 #include "pso/item/TItem.h"
 #include "pso/player/TUnk_804A2D88.h"
 #include "pso/player/TObjPlayer.h"
@@ -8,7 +9,8 @@ extern "C" {
 u8 get_slot_count__14TItemProShieldFv();
 void TItemWeapon__ct(void *);
 
-void TObjPlayer::apply_on_shield_state6(s32 arg0) {
+void TUnk_804A2C90::update_weapon() {
+    s32 arg0 = (s32)this;
     if (get_slot_count__14TItemProShieldFv() == 6) {
         ((TItem *)arg0)->refresh_owner_stats();
     }

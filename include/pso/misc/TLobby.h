@@ -423,7 +423,6 @@ struct TLobby : public TObject {
     s32 get_valid_child();
     static s32 validate_handle(s32 *arg0);
     s32 calc_cell_offset(s32 arg1, s32 arg2);
-    s32 handle_message(s32 arg1, s32 arg2, s32 arg3);
     static void alloc_boss4rock_buffer();
     static void enable_and_refresh();
     static void set_photon_chair_flag(int a0);

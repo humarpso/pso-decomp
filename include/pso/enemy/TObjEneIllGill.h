@@ -6,6 +6,7 @@
 
 struct TObjEneIllGill : public TObjEnemy {
     virtual ~TObjEneIllGill();
+    virtual s32 is_target_in_attack_range();
     void sub_80367DC8(s32);
     virtual void vfunc_28();
     virtual s32 update_action_hold_status();

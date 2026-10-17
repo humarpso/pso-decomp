@@ -1213,6 +1213,7 @@ force_active:
   - city_door_base_vtable
   - city_door_lobby_collision_vertices
   - city_door_lobby_quad_triangle_indices
+  - city_door_play_close_sound__13TUnk_804B5BA8Fv
   - city_door_play_close_sound__17TObjCityDoor_WarpFv
   - city_door_play_open_sound__13TUnk_804B5BA8Fv
   - city_door_play_open_sound__17TObjCityDoor_WarpFv
@@ -8165,6 +8166,7 @@ force_active:
   - synthMasterFaderPauseActiveFlags
   - telepipe_record_differs
   - test_body_collision__16TObjEneMe3StelthFlf
+  - test_flag_256__12TObjEneLappyFv
   - test_immunity_flags__13TUnk_804806E8Fl
   - test_menu_flag__11TWindowMenuFv
   - test_rock_bit__15TBoss6SwordWaveFiUc
@@ -8502,31 +8504,43 @@ force_active:
   - vfunc_45__12TItemProUnitFv
   - vfunc_48__12TItemProUnitFv
   - vfunc_49__12TItemProUnitFv
+  - vfunc_58__12TObjEneLappyFv
   - vfunc_58__14TObjEneDolmOlmFv
   - vfunc_58__15TObjEneMe1GiGueFv
+  - vfunc_58__16TObjEneNanoDragoFv
   - vfunc_58__18TObjEneBalClawClawFv
+  - vfunc_59__12TObjEneLappyFv
   - vfunc_59__14TObjEneDolmOlmFv
   - vfunc_59__15TObjEneMe1GiGueFv
+  - vfunc_59__16TObjEneNanoDragoFv
+  - vfunc_60__12TObjEneLappyFv
   - vfunc_60__14TObjEneDolmOlmFv
   - vfunc_60__15TObjEneMe1GiGueFv
+  - vfunc_60__16TObjEneNanoDragoFv
+  - vfunc_61__12TObjEneLappyFv
   - vfunc_61__13TObjEneBm3FlyFv
   - vfunc_61__13TObjEneRe4BitFv
   - vfunc_61__14TObjEneBm5WolfFv
   - vfunc_61__15TObjEneMe1GiGueFv
+  - vfunc_61__16TObjEneNanoDragoFv
   - vfunc_61__17TObjEneBm3FlyNestFv
   - vfunc_61__18TObjEneRe4SorcererFv
   - vfunc_61__19TObjEneEpsilonGuardFv
+  - vfunc_62__12TObjEneLappyFv
   - vfunc_62__13TObjEneBm3FlyFv
   - vfunc_62__13TObjEneRe4BitFv
   - vfunc_62__14TObjEneBm5WolfFv
   - vfunc_62__15TObjEneMe1GiGueFv
+  - vfunc_62__16TObjEneNanoDragoFv
   - vfunc_62__17TObjEneBm3FlyNestFv
   - vfunc_62__18TObjEneRe4SorcererFv
   - vfunc_62__19TObjEneEpsilonGuardFv
+  - vfunc_63__12TObjEneLappyFv
   - vfunc_63__13TObjEneBm3FlyFv
   - vfunc_63__13TObjEneRe4BitFv
   - vfunc_63__14TObjEneBm5WolfFv
   - vfunc_63__15TObjEneMe1GiGueFv
+  - vfunc_63__16TObjEneNanoDragoFv
   - vfunc_63__17TObjEneBm3FlyNestFv
   - vfunc_63__18TObjEneRe4SorcererFv
   - vfunc_63__19TObjEneEpsilonGuardFv
@@ -8544,11 +8558,13 @@ force_active:
   - vfunc_83__18TObjEneRe4SorcererFv
   - vfunc_84__12TOMineIcon04Fv
   - vfunc_84__14TOTrapSeabed01Fv
+  - vfunc_88__13TObjEneBm3FlyFv
   - vfunc_88__13TObjEneRe4BitFv
   - vfunc_88__14TObjEneBm5WolfFv
   - vfunc_88__17TObjEneBm3FlyNestFv
   - vfunc_88__18TObjEneRe4SorcererFv
   - vfunc_88__19TObjEneEpsilonGuardFv
+  - vfunc_89__13TObjEneBm3FlyFv
   - vfunc_89__19TObjEneEpsilonGuardFv
   - vfunc_93__12TObjEneSharkFv
   - vfunc_93__14TObjEneDolmOlmFv

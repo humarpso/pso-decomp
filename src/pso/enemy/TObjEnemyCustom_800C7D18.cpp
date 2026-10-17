@@ -23,7 +23,7 @@ int update_if_active__15TObjEneMe1GiGueFl(void*, int);
 
 void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
 void render__15TObjEnemyCustomFv();
-void render_actor_shadows_default(u8 *arg0);
+void render_shadows__9TObjEnemyFv(u8 *arg0);
 void vfunc_6__13TUnk_804B9870FPsl();
 void apply_object_set_data__13TUnk_804B9870FPv();
 void reset_motion_fields__13TUnk_804806E8Fv();
@@ -99,7 +99,7 @@ void *__vt__15TObjEnemyCustom[83] = {
     (void *)__dt__15TObjEnemyCustomFv,
     (void *)run_task__15TObjEnemyCustomFv,
     (void *)render__15TObjEnemyCustomFv,
-    (void *)render_actor_shadows_default,
+    (void *)render_shadows__9TObjEnemyFv,
     (void *)vfunc_6__13TUnk_804B9870FPsl,
     (void *)apply_object_set_data__13TUnk_804B9870FPv,
     (void *)reset_motion_fields__13TUnk_804806E8Fv,

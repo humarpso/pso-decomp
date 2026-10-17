@@ -8,6 +8,13 @@ struct LappyVec { f32 x, y, z; };
 
 struct TObjEneLappy : public TObjEnemy {
     virtual ~TObjEneLappy();
+    virtual int test_flag_256();
+    virtual void vfunc_58();
+    virtual void vfunc_59();
+    virtual void vfunc_60();
+    virtual void vfunc_61();
+    virtual void vfunc_62();
+    virtual void vfunc_63();
     void sub_800C20C0();
     void sub_800C20B0();
     void set_speed_params(s32);
@@ -38,7 +45,6 @@ struct TObjEneLappy : public TObjEnemy {
     static void update_idle_state(void *ov);
     static void *create(void *arg0);
     static void load_resources();
-    static int is_lying_down();
     void set_param(s32 v);
     u8 unk_398[0xC];
 };

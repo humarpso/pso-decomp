@@ -86,7 +86,6 @@ struct Obj_8023C6B4 { u8 pad[0x1C]; void *source; u8 pad20[0xCC - 0x20]; f32 pow
 
 extern "C" {
 s32 test_elt_flag__13TUnk_80493450Fll(void *, s32, s32);
-void TTecZonde__vt6(Obj_8023C6B4 *arg0, VObj_18_0c879f *arg1);
 u8 *TTecZonde__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4);
 void *__nw__7TObjectFUl(int);
 
@@ -97,13 +96,14 @@ void TObjPlayer::create_tec_zonde(void *arg0, void *arg1, void *arg2, void *arg3
         ((void *(*)(void *, void *, void *, void *, void *))TTecZonde__ct)(o, arg0, arg1, arg2, arg3);
     }
 }
-void TTecZonde__vt6(Obj_8023C6B4 *arg0, VObj_18_0c879f *arg1) {
+void TTecZonde::vfunc_8(void *arg1_arg) {
+    VObj_18_0c879f *arg1 = (VObj_18_0c879f *)arg1_arg;
     HitInfo_8023C6B4 h;
     h.type = 3;
-    h.power = arg0->power;
+    h.power = ((Obj_8023C6B4 *)this)->power;
     if (test_elt_flag__13TUnk_80493450Fll(arg1, 0, 0x80) == 0) {
         HitInfo_8023C6B4 c = h;
-        arg1->m21(arg0->source, &c, 0, 6, -1);
+        arg1->m21(((Obj_8023C6B4 *)this)->source, &c, 0, 6, -1);
     }
 }
 

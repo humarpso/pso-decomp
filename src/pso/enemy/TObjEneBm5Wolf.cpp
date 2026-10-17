@@ -2483,7 +2483,7 @@ void anchor_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
 }
 
 extern "C" {
-void render_actor_shadows_default(u8 *arg0);
+void render_shadows__9TObjEnemyFv(u8 *arg0);
 void vfunc_6__13TUnk_804B9870FPsl(void);
 void apply_object_set_data__13TUnk_804B9870FPv(void);
 void reset_motion_fields__13TUnk_804806E8Fv(void);
@@ -2580,7 +2580,7 @@ void *lbl_804922F8[107] = {
     (void *)__dt__14TObjEneBm5WolfFv,
     (void *)run_task__14TObjEneBm5WolfFPv,
     (void *)render__14TObjEneBm5WolfFPv,
-    (void *)render_actor_shadows_default,
+    (void *)render_shadows__9TObjEnemyFv,
     (void *)vfunc_6__13TUnk_804B9870FPsl,
     (void *)apply_object_set_data__13TUnk_804B9870FPv,
     (void *)reset_motion_fields__13TUnk_804806E8Fv,

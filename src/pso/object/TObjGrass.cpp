@@ -1204,11 +1204,11 @@ void TObjGrass::vfunc_60() {
 struct Vec_800BE1CC { f32 x, y, z; };
 f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(void *, void *, Vec_800BE1CC *);
 #define TBL ((u32 *)TObjGrass__bml_resource)
-#define T318 (*(u32 *)((s8 *)(arg0) + 0x318))
+#define T318 (*(u32 *)((s8 *)(((u8 *)this)) + 0x318))
 #define IN_RANGE() (dist <= (r + ((TObjPlayer *)T318)->get_pos_x()) * (r + ((TObjPlayer *)T318)->get_pos_x()) && ang <= ((TObjPlayer *)T318)->get_field_0c())
-#define BIND(n) (*(s16 *)((s8 *)(arg0) + 0x39E)) = (n); bind_enemy_combat_stats(arg0, 0, TBL[(*(s16 *)((s8 *)(arg0) + 0x39E))], 0); return 1;
+#define BIND(n) (*(s16 *)((s8 *)(((u8 *)this)) + 0x39E)) = (n); bind_enemy_combat_stats(((u8 *)this), 0, TBL[(*(s16 *)((s8 *)(((u8 *)this)) + 0x39E))], 0); return 1;
 
-s32 TObjGrass__vt28(u8 *arg0) {
+s32 TObjGrass::is_target_in_attack_range() {
     f32 dist;
     u8 *t;
     s32 ang;
@@ -1218,14 +1218,14 @@ s32 TObjGrass__vt28(u8 *arg0) {
     u16 kind;
     Vec_800BE1CC v;
 
-    tgt = *(u8 **)((s8 *)arg0 + 0x2A8);
+    tgt = *(u8 **)((s8 *)((u8 *)this) + 0x2A8);
     if (tgt != NULL && T318 != 0 && !(*(s32 *)((s8 *)tgt + 0x30) & 0x02000800)) {
-    if (obj_testFlags30(arg0, 0x2000) != 0) {
+    if (obj_testFlags30(((u8 *)this), 0x2000) != 0) {
         BIND(2)
     }
-    dist = calc_xz_distance_sq__10TObjPlayerFiUiPv(arg0, *(u8 **)((s8 *)arg0 + 0x2A8), &v);
-    ang = angle_difference_abs(*(s32 *)((s8 *)arg0 + 0x60), (s32)((10430.38043493439) * atan2_float(v.x, v.z)));
-    t = *(u8 **)((s8 *)arg0 + 0x2A8);
+    dist = calc_xz_distance_sq__10TObjPlayerFiUiPv(((u8 *)this), *(u8 **)((s8 *)((u8 *)this) + 0x2A8), &v);
+    ang = angle_difference_abs(*(s32 *)((s8 *)((u8 *)this) + 0x60), (s32)((10430.38043493439) * atan2_float(v.x, v.z)));
+    t = *(u8 **)((s8 *)((u8 *)this) + 0x2A8);
     if (*(u8 **)((s8 *)t + 0xA4) != NULL) {
         r = *(f32 *)((s8 *)(*(u8 **)((s8 *)t + 0xA4)) + 0xC);
     } else {
@@ -1233,7 +1233,7 @@ s32 TObjGrass__vt28(u8 *arg0) {
     }
     kind = obj_getField1c(t);
     if (kind < 0x1000) {
-        t = *(u8 **)((s8 *)arg0 + 0x2A8);
+        t = *(u8 **)((s8 *)((u8 *)this) + 0x2A8);
         if (((TLobby *)t)->check_player_flag1() == 1 || (enable_v2_features == 1 && obj_testFlags30(t, 0x20) != 0)) {
             T318 = TBL[0];
             if (IN_RANGE()) {

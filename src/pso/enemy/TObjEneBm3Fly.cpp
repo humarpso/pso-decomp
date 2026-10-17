@@ -1527,14 +1527,14 @@ typedef struct Fly_800B1684 {
 } Fly_800B1684;
 
 extern "C" {
-void TObjEneBm3Fly__vt86(u8 *arg0);
+void vfunc_88__13TObjEneBm3FlyFv(u8 *arg0);
 f32 fabs_float(f32);
 extern s32 TObjEneBm3Fly__attack_params;
 s32 get_random_scaled__9TObjEneDDFv(void *);
 s32 has_free_attack_slot__17TObjEneBm3FlyNestFUs(void *, u16);
 s32 enemy_set_target_id(void *, u16);
 s32 collect_enemy_target_candidates(void *, Cand_800B1684 *, f32);
-void TObjEneBm3Fly__vt87(void* p);
+void vfunc_89__13TObjEneBm3FlyFv(void* p);
 u16 get_active_id__13TObjEneBm3FlyFPv(void *arg0);
 int vfunc_89__9TObjEneDDFv(void*);
 
@@ -1612,18 +1612,18 @@ f32 approach_value__13TObjEneBm3FlyFff(f32 farg0, f32 farg1) {
     return farg0 + var_f1;
 }
 
-void TObjEneBm3Fly__vt86(u8 *arg0) {
+void TObjEneBm3Fly::vfunc_88() {
     f32 temp_f31;
-    temp_f31 = *(f32 *)((s8 *)arg0 + 0x42C) - *(f32 *)((s8 *)arg0 + 0x3C);
+    temp_f31 = *(f32 *)((s8 *)((u8 *)this) + 0x42C) - *(f32 *)((s8 *)((u8 *)this) + 0x3C);
     if (temp_f31 >= (3e+01f)) {
-        ((TObjEneBm3Fly *)(arg0))->vfunc_97();
+        ((TObjEneBm3Fly *)(((u8 *)this)))->vfunc_97();
     } else {
-        ((TObjEneBm3Fly *)(arg0))->vfunc_98();
+        ((TObjEneBm3Fly *)(((u8 *)this)))->vfunc_98();
     }
-    *(f32 *)((s8 *)(*(u8 * *)&((TObjEneBm3Fly *)arg0)->m_a4) + 4) = temp_f31;
+    *(f32 *)((s8 *)(*(u8 * *)&((TObjEneBm3Fly *)((u8 *)this))->m_a4) + 4) = temp_f31;
 }
 
-void TObjEneBm3Fly__vt87(void* p) { vfunc_89__9TObjEneDDFv(p); clamp_flight_height__13TObjEneBm3FlyFv(p); }
+void TObjEneBm3Fly::vfunc_89() { vfunc_89__9TObjEneDDFv(this); clamp_flight_height__13TObjEneBm3FlyFv(this); }
 
 }
 
@@ -2056,7 +2056,7 @@ extern u8 *bm3_fly_nest_resources;
 extern void *tl_04;
 
 extern "C" void vfunc_83__12TObjEneDD_STFv();
-extern "C" void render_actor_shadows_default(u8 *arg0);
+extern "C" void render_shadows__9TObjEnemyFv(u8 *arg0);
 extern "C" void run_task__13TObjEneBm3FlyFv();
 void *bm3_fly_decision_row[7] = {
     (void *)0x43610000, (void *)0x3f6d097b, (void *)0x600, (void *)0x0,
@@ -2076,7 +2076,7 @@ void *bm3_fly_action_table[20] = {
 };
 void *__vt__13TObjEneBm3Fly[107] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__13TObjEneBm3FlyFv, (void *)&run_task__13TObjEneBm3FlyFv,
-    (void *)&render__13TObjEneBm3FlyFv, (void *)&render_actor_shadows_default, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
+    (void *)&render__13TObjEneBm3FlyFv, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
     (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
@@ -2097,7 +2097,7 @@ void *__vt__13TObjEneBm3Fly[107] = {
     (void *)&vfunc_76__13TUnk_804806E8Fv, (void *)&vfunc_77__13TUnk_804806E8Fv, (void *)&vfunc_78__13TUnk_804806E8Fl, (void *)&vfunc_79__9TObjEneDDFv,
     (void *)&apply_hit_message_flags__9TObjEnemyFPv, (void *)&apply_set_data__9TObjEnemyFPv, (void *)&clear_lobby_object_state__9TObjEnemyFv, (void *)&vfunc_83__12TObjEneDD_STFv,
     (void *)&TObjEneDD__vt82, (void *)&vfunc_85__9TObjEneDDFv, (void *)&vfunc_86__9TObjEneDDFv, (void *)&TObjEneBm3Fly__vt85,
-    (void *)&TObjEneBm3Fly__vt86, (void *)&TObjEneBm3Fly__vt87, (void *)&vfunc_90__9TObjEneDDFv, (void *)&vfunc_91__9TObjEneDDFv,
+    (void *)&vfunc_88__13TObjEneBm3FlyFv, (void *)&vfunc_89__13TObjEneBm3FlyFv, (void *)&vfunc_90__9TObjEneDDFv, (void *)&vfunc_91__9TObjEneDDFv,
     (void *)&vfunc_92__9TObjEneDDFv, (void *)&vfunc_93__9TObjEneDDFv, (void *)&vfunc_94__9TObjEneDDFv, (void *)&vfunc_95__9TObjEneDDFv,
     (void *)&vfunc_96__9TObjEneDDFv, (void *)&vfunc_97__9TObjEneDDFv, (void *)&vfunc_98__9TObjEneDDFv, (void *)&vfunc_99__9TObjEneDDFv,
     (void *)&vfunc_100__9TObjEneDDFv, (void *)&vfunc_101__9TObjEneDDFPUc, (void *)&vfunc_102__9TObjEneDDFv, (void *)&vfunc_103__9TObjEneDDFPUc,

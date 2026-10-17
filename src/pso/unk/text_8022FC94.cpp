@@ -97,7 +97,6 @@ extern RecoveredGlobal_8022FE84_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_8022FE84_lbl_804CC55C lbl_804CC55C;
 s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
 void queue_destruction__7TObjectFv(void *self);
-void TTecFoie__vt6(Tec_80230004 *self, Target_80230004 *target);
 void mem_free(void *p);
 void __dl__7TObjectFPv(void *);
 extern TTecFoieData_80230144 TTecFoie__emitter_profile_table[];
@@ -193,13 +192,14 @@ void TTecFoie::vfunc_6() {
     spawn_particle_effect((void *)(arg0 + 0x20), 0x1DD);
 }
 
-void TTecFoie__vt6(Tec_80230004 *self, Target_80230004 *target) {
+void TTecFoie::vfunc_8(void *target_arg) {
+    Target_80230004 *target = (Target_80230004 *)target_arg;
     Dmg_80230004 d;
     d.kind = 1;
-    d.amount = self->power;
-    target->receive(self->owner, d, self->f8, 0, -1);
+    d.amount = ((Tec_80230004 *)this)->power;
+    target->receive(((Tec_80230004 *)this)->owner, d, ((Tec_80230004 *)this)->f8, 0, -1);
     play_sound_effect(0x4002A828, target->pos, 0, 0);
-    queue_destruction__7TObjectFv(self);
+    queue_destruction__7TObjectFv(((Tec_80230004 *)this));
 }
 
 void TTecFoie::create_ex(void *arg0, void *arg1, void *arg2, void *arg3) {

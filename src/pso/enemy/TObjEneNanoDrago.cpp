@@ -497,7 +497,7 @@ typedef struct Obj_800DB0F8 {
 struct Vec_800DAB98 { f32 x, y, z; };
 
 extern "C" {
-void enter_state_5__10TObjPlayerFPv(u8 *arg0);
+void vfunc_63__16TObjEneNanoDragoFv(u8 *arg0);
 void *spawn_directional_particle(void *pos, void *dir, s32 id);
 void TObjPlayer__sub_800DCD04(void *, void *, int, void *, s32, int);
 void *find_entity_by_id(u16 id);
@@ -1114,21 +1114,21 @@ extern "C" {
 
 #pragma pop
 
-void enter_state_5__10TObjPlayerFPv(u8 *arg0) {
-    ((TObjEneMe1GiGue *)arg0)->set_state(5);
-    *(s32 *)&((TObjEneNanoDrago *)arg0)->m_380 = (s32) *(s32 *)&((TObjEneNanoDrago *)arg0)->m_378;
-    *(s32 *)&((TObjEneNanoDrago *)arg0)->m_378 = 5;
-    *(s32 *)&((TObjEneNanoDrago *)arg0)->m_388 = (s32) (*(s32 *)&((TObjEneNanoDrago *)arg0)->m_388| 1);
+void TObjEneNanoDrago::vfunc_63() {
+    ((TObjEneMe1GiGue *)((u8 *)this))->set_state(5);
+    *(s32 *)&((TObjEneNanoDrago *)((u8 *)this))->m_380 = (s32) *(s32 *)&((TObjEneNanoDrago *)((u8 *)this))->m_378;
+    *(s32 *)&((TObjEneNanoDrago *)((u8 *)this))->m_378 = 5;
+    *(s32 *)&((TObjEneNanoDrago *)((u8 *)this))->m_388 = (s32) (*(s32 *)&((TObjEneNanoDrago *)((u8 *)this))->m_388| 1);
 }
 
 void sub_800DB970__16TObjEneNanoDragoFv(u8 *arg0);
-void begin_action4__10TObjPlayerFPv(void *arg0);
+void vfunc_62__16TObjEneNanoDragoFv(void *arg0);
 
-void begin_action4__10TObjPlayerFPv(void *arg0) {
-    ((TObjEneMe1GiGue *)arg0)->set_state(4);
-    *(s32 *)&((TObjEneNanoDrago *)arg0)->m_380 = (s32) *(s32 *)&((TObjEneNanoDrago *)arg0)->m_378;
-    *(s32 *)&((TObjEneNanoDrago *)arg0)->m_378 = 4;
-    *(s32 *)&((TObjEneNanoDrago *)arg0)->m_388 = (s32) (*(s32 *)&((TObjEneNanoDrago *)arg0)->m_388| 0x10000 | 1);
+void TObjEneNanoDrago::vfunc_62() {
+    ((TObjEneMe1GiGue *)this)->set_state(4);
+    *(s32 *)&((TObjEneNanoDrago *)this)->m_380 = (s32) *(s32 *)&((TObjEneNanoDrago *)this)->m_378;
+    *(s32 *)&((TObjEneNanoDrago *)this)->m_378 = 4;
+    *(s32 *)&((TObjEneNanoDrago *)this)->m_388 = (s32) (*(s32 *)&((TObjEneNanoDrago *)this)->m_388| 0x10000 | 1);
 }
 void TObjEneNanoDrago::sub_800DB970() {
     if ((*(s32 *)&this->m_388) & 0x40000) {
@@ -1304,16 +1304,16 @@ extern "C" {
 void vfunc_6__13TUnk_804B9870FPsl();
 }
 extern "C" {
-void TObjEneNanoDrago__sub_800DC410();
+void vfunc_58__16TObjEneNanoDragoFv();
 }
 extern "C" {
-void TObjEneNanoDrago__sub_800DC414();
+void vfunc_60__16TObjEneNanoDragoFv();
 }
 extern "C" {
-void TObjEneNanoDrago__sub_800DC418();
+void vfunc_59__16TObjEneNanoDragoFv();
 }
 extern "C" {
-void TObjEneNanoDrago__sub_800DC41C();
+void vfunc_61__16TObjEneNanoDragoFv();
 }
 extern "C" {
 void vfunc_28__15TObjEnemyCustomFv();
@@ -1511,7 +1511,7 @@ extern "C" {
 void receive_weapon_special_attack__10TObjPlayerFv();
 }
 extern "C" {
-void render_actor_shadows_default(u8 *arg0);
+void render_shadows__9TObjEnemyFv(u8 *arg0);
 }
 extern "C" {
 void reset_motion_fields__13TUnk_804806E8Fv();
@@ -1597,7 +1597,7 @@ void *lbl_80494C38[22] = {
 };
 void *lbl_80494C90[83] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__16TObjEneNanoDragoFv, (void *)&update__10TObjPlayerFPv,
-    (void *)&render_enemy_with_fade__10TObjPlayerFPv, (void *)&render_actor_shadows_default, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
+    (void *)&render_enemy_with_fade__10TObjPlayerFPv, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
     (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
@@ -1610,8 +1610,8 @@ void *lbl_80494C90[83] = {
     (void *)&apply_poison_status__13TUnk_804806E8Fv, (void *)&apply_paralysis__13TUnk_804806E8Fv, (void *)&apply_slow_status__13TUnk_804806E8Fv, (void *)&apply_confusion_status__13TUnk_804806E8Fv,
     (void *)&apply_movement_ailment__13TUnk_804806E8Fl, (void *)&apply_shock_status__13TUnk_804806E8Fv, (void *)&clear_harmful_statuses__13TUnk_804806E8Fv, (void *)&apply_attack_stat_status__13TUnk_804806E8FPv,
     (void *)&TObjPlayer::apply_defense_stat_status, (void *)&cure_poison_ailment__13TUnk_804806E8Fv, (void *)&cure_paralysis__13TUnk_804806E8Fv, (void *)&clear_all_status_effects__13TUnk_804806E8Fv,
-    (void *)&apply_action_hold_status__13TUnk_804806E8Ff, (void *)&apply_anti_technique__13TUnk_804806E8Fl, (void *)&TObjEneNanoDrago__sub_800DC410, (void *)&TObjEneNanoDrago__sub_800DC418,
-    (void *)&TObjEneNanoDrago__sub_800DC414, (void *)&TObjEneNanoDrago__sub_800DC41C, (void *)&begin_action4__10TObjPlayerFPv, (void *)&enter_state_5__10TObjPlayerFPv,
+    (void *)&apply_action_hold_status__13TUnk_804806E8Ff, (void *)&apply_anti_technique__13TUnk_804806E8Fl, (void *)&vfunc_58__16TObjEneNanoDragoFv, (void *)&vfunc_59__16TObjEneNanoDragoFv,
+    (void *)&vfunc_60__16TObjEneNanoDragoFv, (void *)&vfunc_61__16TObjEneNanoDragoFv, (void *)&vfunc_62__16TObjEneNanoDragoFv, (void *)&vfunc_63__16TObjEneNanoDragoFv,
     (void *)&reset_pose__13TUnk_804806E8Fv, (void *)&vfunc_65__15TObjEnemyCustomFll, (void *)&vfunc_66__13TUnk_804806E8Fv, (void *)&vfunc_67__13TUnk_804806E8Fv,
     (void *)&get_pos__13TUnk_804806E8Fl, (void *)&apply_switch_attack__13TUnk_804806E8Fv, (void *)&enemy_spawn_jellen_effect__13TUnk_804806E8Fv, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect__13TUnk_804806E8Fv, (void *)&vfunc_73__13TUnk_804806E8Fv, (void *)&vfunc_74__9TObjEnemyFl, (void *)&vfunc_75__13TUnk_804806E8Ff,
@@ -1915,14 +1915,14 @@ u8 *TObjEneNanoDrago__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     return arg0;
 }
 
-void TObjEneNanoDrago__sub_800DC410(void);
-void TObjEneNanoDrago__sub_800DC414(void);
-void TObjEneNanoDrago__sub_800DC418(void);
-void TObjEneNanoDrago__sub_800DC41C(void);
+void vfunc_58__16TObjEneNanoDragoFv(void);
+void vfunc_60__16TObjEneNanoDragoFv(void);
+void vfunc_59__16TObjEneNanoDragoFv(void);
+void vfunc_61__16TObjEneNanoDragoFv(void);
 
-void TObjEneNanoDrago__sub_800DC410(void) {  }
-void TObjEneNanoDrago__sub_800DC414(void) {  }
-void TObjEneNanoDrago__sub_800DC418(void) {  }
-void TObjEneNanoDrago__sub_800DC41C(void) {  }
+void TObjEneNanoDrago::vfunc_58() {  }
+void TObjEneNanoDrago::vfunc_60() {  }
+void TObjEneNanoDrago::vfunc_59() {  }
+void TObjEneNanoDrago::vfunc_61() {  }
 
 }

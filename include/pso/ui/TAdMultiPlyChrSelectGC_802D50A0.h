@@ -4,7 +4,7 @@
 #include "types.h"
 
 extern "C" {
-void draw_twin_weapon_trails(s32 arg0);
+void reserved_53__13TUnk_804E1BB0Fv(s32 arg0);
 void fn_802D50B8(void *arg0, void *arg1, void *arg2, void *arg3);
 }
 

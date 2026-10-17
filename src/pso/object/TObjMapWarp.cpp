@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjWarpBase.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubComCardList.h"
 
@@ -60,7 +61,6 @@ struct W_8019D764 {
 extern "C" {
 u8 TWindowShortListCtrl__check_controller_button(void *, int);
 extern RecoveredGlobal_8019D850_lbl_8050E208 controller_input_state;
-void TObjWarpBase__vt14(void);
 void TObjWarpBase__vt15(s32 arg0, s32 arg1);
 void fn_8019DD24(void *p, u32 v);
 void *get_player_by_client_id(u32);
@@ -201,7 +201,7 @@ void TObjWarpBase__vt15(s32 arg0, s32 arg1) {
     TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&(*(RecoveredGlobal_8019D818_lbl_8050E208 *)&controller_input_state).value + (arg1 * 0x50) + 0x20), (int) (4));
 }
 
-void TObjWarpBase__vt14(void) {
+void TObjWarpBase::vfunc_17() {
     TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), (int) (4));
 }
 

@@ -136,8 +136,6 @@ int TLobby__sub_802A7278(void* a0);
 extern RecoveredGlobal_802A7444_lbl_804DDBD8 town_player_motion_clip_index_tables;
 int is_valid_player_motion_variant(void* a0 = 0);
 int TLobby__sub_802A7278(void* a0 = 0);
-s32 player_motion_provider0_get_clip_indices(s32 arg0, s32 arg1, s32 arg2);
-s32 TLobby__sub_803290DC(void *self, s32 a, s32 b, s32 c);
 void check_valid_state__6TLobbyFi(s32 arg0);
 s32 is_handle_valid__10TObjPlayerFv();
 
@@ -194,11 +192,11 @@ s32 *TLobby::get_state_table(s32 _w1) {
 }
 typedef char RecoveredGlobal_802A7444_lbl_804DDBD8_size[sizeof(RecoveredGlobal_802A7444_lbl_804DDBD8) == 0x18 ? 1 : -1];
 
-s32 TLobby__sub_803290DC(void *self, s32 a, s32 b, s32 c) {
+int TUnk_804ED7D0::vfunc_9(s32 a, s32 b, s32 c) {
     return ((s32 ** *)&town_player_motion_clip_index_tables)[a][b][c];
 }
 
-s32 player_motion_provider0_get_clip_indices(s32 arg0, s32 arg1, s32 arg2) {
+int TUnk_804ED7D0::vfunc_8(s32 arg1, s32 arg2) {
     if (((s32)TLobby__sub_802A7278((void*)((void *) (arg1)))) == 0) {
         return 0;
     }

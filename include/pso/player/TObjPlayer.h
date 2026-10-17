@@ -535,7 +535,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void set_action_type(s16 v);
     void*get_state_ptr();
     static int get_player_list();
-    static void update_game_effect_mode(s32 arg0);
     void cast_foie_effect();
     void release_container_if_active();
     void update_freeze_state();
@@ -550,15 +549,11 @@ struct TObjPlayer : public TUnk_804806E8 {
     void update_state_1fc();
     void update_twice();
     void *init_substate_a();
-    static void draw_icon_selected(s32 arg0);
     void cast_foie();
-    static void spawn_cane(s32 arg0);
     void update_effect_if_state1();
     void update_from_owner();
     void update_linked_object();
-    static void spawn_cane_effect_active(s32 arg0);
     void draw_mag();
-    static void try_spawn_cane_effect(s32 arg0);
     void update_1f8_if_ready();
     void*init_state();
     void refresh_inventory_slot();
@@ -569,14 +564,10 @@ struct TObjPlayer : public TUnk_804806E8 {
     void *init_and_configure();
     void draw_faust_loaded_projectile();
     void *init_state_vt2678();
-    static void spawn_cane_effect_if_ready(s32 arg0);
     void apply_shield_scale_to_unit();
-    static void update_shield_ready(s32 arg0);
-    static void apply_on_shield_state6(s32 arg0);
     void handle_tentacle_state_2();
     void update_orga_flow_shot();
     void start_shield_action();
-    static void apply_state_effect(s32 arg0);
     void notify_container_change();
     void cast_jellen_zalure();
     void *init_substate_b();
@@ -585,7 +576,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     static void notify_hit_target(u32 arg0, u32 arg1, u32 arg2, u32 arg3);
     void handle_tunnel_state_0();
     void start_srank_regen_timer();
-    static void update_motion_state(s32 arg0);
     void update_photon_chair_sit();
     static s32 is_rand_below_threshold();
     void update_area_effect_objects();
@@ -596,7 +586,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void approach_shield_effect();
     s32 get_hp_by_flag();
     void *construct_weapon_variant(s32 arg1, void *arg2);
-    static void apply_if_shield_type5(s32 arg0);
     void *init_state(s32 arg1, void *arg2);
     void release_container_if_positive();
     void notify_container_if_mode0();
@@ -612,7 +601,6 @@ struct TObjPlayer : public TUnk_804806E8 {
     void *init_variant_a();
     void update_boss2tunnel_move();
     void update_boss2tunnel();
-    static void apply_on_shield_state5(s32 arg0);
     void *init_from_item(void *arg1, void *arg2);
     void handle_move_input();
     void *initialize_effect_object();

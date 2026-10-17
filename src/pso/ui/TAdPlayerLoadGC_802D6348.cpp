@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TUnk_804E24F0.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/math/MatrixTransforms.h"
 #include "pso/unk/text_80087278.h"
@@ -47,8 +48,9 @@ void TAdPlayerLoadGC__sub_802D6390(A_802D6390 *weapon, B_802D6390 *arg1) {
     arg1->f70 = forward_item_effect_callback__10TObjPlayerFll;
 }
 
-void TAdPlayerLoadGC::send_player_load(s32 arg0) {
+void TUnk_804E24F0::emit_marker_effects() {
     s32 sp8;
+    s32 arg0 = (s32)this;
 
     ((TObjPlayer *)arg0)->draw_status_icon((s32)(&sp8));
     spawn_particle_effect(&sp8, 9);

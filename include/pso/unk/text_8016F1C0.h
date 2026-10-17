@@ -5,7 +5,7 @@
 
 extern "C" {
 u8 *TOMineDisp__ct(u8 *arg0, s32 arg1, s16 arg2);
-void TOMineTrap__vt81(s32 arg0);
+void spawn_disp_objects__10TOMineTrapFv(s32 arg0);
 }
 
 #endif

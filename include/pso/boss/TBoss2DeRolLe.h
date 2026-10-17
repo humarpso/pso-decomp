@@ -134,7 +134,7 @@ void pick_random_target__13TBoss2DeRolLeFi(s32 actor);
 int play_sound(void *p, int a1);
 void reload_stats_for_phase__13TBoss2DeRolLeFPvi(void *self, s32 kind);
 void render__13TBoss2DeRolLeFPv(u8 *arg0);
-void render_body__13TBoss2DeRolLeFPv(u8 *arg0);
+void render_body__13TBoss2DeRolLeFv(u8 *arg0);
 void reset_fields_3d0__13TBoss2DeRolLeFPv(void *p);
 void reset_parts__13TBoss2DeRolLeFv(void);
 void run_task__13TBoss2DeRolLeFPv(u8 *arg0);

@@ -156,7 +156,7 @@ f32 cos_table_lookup(s32);
 extern const f32 lbl_805DF5BC;
 extern const f32 lbl_805DF5C0;
 extern const f32 lbl_805DF5C4;
-s32 render_actor_shadows_default();
+s32 render_shadows__9TObjEnemyFv();
 extern const f32 TBoss6Mine__data_805DF580;
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 s32 project_actor_to_ground(void *, void *, int);
@@ -176,9 +176,6 @@ f64 TBoss5GryphonLightningWing__sub_80324CEC(f32);
 extern const f64 lbl_804766A0[];
 s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 f32 *dispatch_shared_handler_a__6TLobbyFl(s32);
-s32 register_object__6TLobbyFl(int);
-s32 dispatch_shared_handler_b__6TLobbyFl(int);
-s32 register_boss__6TLobbyFl(int);
 s32 exchange_object_state__9TObjEnemyFls(void *, void *, int);
 void *create_particle_emitter(void *pos, s32 id);
 s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
@@ -213,7 +210,7 @@ void queue_destruction__7TObjectFv(void *arg0);
 void TBoss6Mine::render_shadows() {
     u8 *arg0 = (u8 *)this;
     if (*(f32 *)((s8 *)arg0 + 0x3C) >= (*(const f32 *)&TBoss6Mine__data_805DF580)) {
-        render_actor_shadows_default();
+        render_shadows__9TObjEnemyFv();
     }
 }
 
@@ -495,7 +492,7 @@ s32 TBoss6Mine__ct(s32 arg0, s32 parent, s32 arg2) {
     *(f32 *)((s8 *)THIS + 0x30C) = TBoss6Mine__data_805DF580;
     *(f32 *)((s8 *)THIS + 0x308) = TBoss6Mine__data_805DF580;
     *(s32 *)((s8 *)THIS + 0x2A8) = 0;
-    bind_enemy_combat_stats(THIS, (u8 *)(register_boss__6TLobbyFl(0x2D)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(0x2D)), (u8 *)(register_object__6TLobbyFl(0x2D)));
+    bind_enemy_combat_stats(THIS, (u8 *)(TLobby::register_boss(0x2D)), (u8 *)(TLobby::dispatch_shared_handler_b(0x2D)), (u8 *)(TLobby::register_object(0x2D)));
     *(s16 *)((s8 *)THIS + 0x33E) = *(s16 *)((s8 *)THIS + 0x32C);
     ((TBoss3Volopt *)THIS)->reset_photon_effect();
     ((TObjEneLappy *)THIS)->set_param(0);

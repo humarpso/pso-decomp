@@ -135,11 +135,12 @@ typedef char RecoveredGlobal_80238D10_lbl_804CC55C_size[((sizeof(RecoveredGlobal
 #pragma push
 #pragma opt_common_subs off
 #pragma pop
-void TTecGiZonde__vt6(u8 *arg0, u8 *arg1) {
+void TTecGiZonde::vfunc_8(void *arg1_arg) {
+    u8 *arg1 = (u8 *)arg1_arg;
     Elec_80238E14 d;
     d.type = 3;
-    d.val = ((TTecGiZonde *)arg0)->power;
-    ((VObj_18_9c98dd *)(arg1))->m21(*(s32 *)&((TTecGiZonde *)arg0)->source, d, 0, 0x7, -1);
+    d.val = ((TTecGiZonde *)((u8 *)this))->power;
+    ((VObj_18_9c98dd *)(arg1))->m21(*(s32 *)&((TTecGiZonde *)((u8 *)this))->source, d, 0, 0x7, -1);
 }
 #pragma push
 #pragma opt_loop_invariants off

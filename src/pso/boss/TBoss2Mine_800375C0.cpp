@@ -274,62 +274,61 @@ V(80)V(81)V(82)V(83)V(84)V(85)V(86)V(87)V(88)V(89)V(90)V(91)V(92)V(93)V(94)V(95)
 };
 
 extern "C" {
-void TBoss2Mine__sub_80037D4C(u8 *arg0, s32 arg1);
 f32 atan2_float(f32 y, f32 x);
 f32 newton_sqrtf(s32, f32, f32, f32);
 void TBoss2Mine__sub_80037EE0(u8 *arg0, s32 arg1);
 void*TUnk_80482D04::create(int a1, int a2, int a3) { TBoss2Mine__ct(this, a1, a2, a3, 1); *(int*)((char*)this + 0x18) = (int)lbl_80482D04; *(int*)((char*)this + 0x3f0) = 0; *(int*)((char*)this + 0x3f4) = 0; *(float*)((char*)this + 0x3f8) = (0.0f); *(float*)((char*)this + 0x3fc) = (0.0f); *(float*)((char*)this + 0x400) = (0.0f); *(float*)((char*)this + 0x404) = (0.0f); *(float*)((char*)this + 0x408) = (0.0f); *(float*)((char*)this + 0x40c) = (0.0f); return this; }
 #pragma push
 #pragma fp_contract on
-void TBoss2Mine__sub_80037D4C(u8 *arg0, s32 arg1) {
+void TUnk_80482EC0::vfunc_106(s32 arg1) {
     s32 temp_r0;
     s32 temp_r4;
     s32 temp_r5;
     s32 temp_r7;
     switch (arg1) {
     case 4:
-        ((VObj *) arg0)->m94();
-        *(s32 *)((s8 *)arg0 + 0x38C) = (s32) (*(s32 *)((s8 *)arg0 + 0x38C) & ~5);
-        temp_r5 = *(s32 *)((s8 *)arg0 + 0x38C) | 2;
-        *(s32 *)((s8 *)arg0 + 0x38C) = temp_r5;
-        *(s32 *)((s8 *)arg0 + 0x5C) = 0x8000;
-        *(s32 *)((s8 *)arg0 + 0x3B0) = 0;
-        *(s32 *)((s8 *)arg0 + 0x3C8) = 0;
-        temp_r7 = (s32) ((3e+01f) * calc_elapsed_scaled__9TObjEneDDFv((void *) (arg0), (int) (0x8000), (int) (temp_r5)));
-        *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (temp_r7 + 0xB4);
-        play_sound_effect((int) (0x4003A804), (void *) (arg0 + 0x2FC), (int) (0), (int) (0), (int) (temp_r7));
-        init_params__10TBoss2MineFlf((void *) (arg0), (int) (0x1E), (f32) ((0.25f)));
+        ((VObj *) ((u8 *)this))->m94();
+        *(s32 *)((s8 *)((u8 *)this) + 0x38C) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x38C) & ~5);
+        temp_r5 = *(s32 *)((s8 *)((u8 *)this) + 0x38C) | 2;
+        *(s32 *)((s8 *)((u8 *)this) + 0x38C) = temp_r5;
+        *(s32 *)((s8 *)((u8 *)this) + 0x5C) = 0x8000;
+        *(s32 *)((s8 *)((u8 *)this) + 0x3B0) = 0;
+        *(s32 *)((s8 *)((u8 *)this) + 0x3C8) = 0;
+        temp_r7 = (s32) ((3e+01f) * calc_elapsed_scaled__9TObjEneDDFv((void *) (((u8 *)this)), (int) (0x8000), (int) (temp_r5)));
+        *(s32 *)((s8 *)((u8 *)this) + 0x3CC) = (s32) (temp_r7 + 0xB4);
+        play_sound_effect((int) (0x4003A804), (void *) (((u8 *)this) + 0x2FC), (int) (0), (int) (0), (int) (temp_r7));
+        init_params__10TBoss2MineFlf((void *) (((u8 *)this)), (int) (0x1E), (f32) ((0.25f)));
         return;
     case 3:
-        temp_r4 = *(s32 *)((s8 *)arg0 + 0x38C);
+        temp_r4 = *(s32 *)((s8 *)((u8 *)this) + 0x38C);
         if (temp_r4 & 0x100) {
-            *(s32 *)((s8 *)arg0 + 0x38C) = (s32) (temp_r4 & 0xFFFFFEFF);
-            transition_enemy_state((void *) (arg0), (int) (1));
+            *(s32 *)((s8 *)((u8 *)this) + 0x38C) = (s32) (temp_r4 & 0xFFFFFEFF);
+            transition_enemy_state((void *) (((u8 *)this)), (int) (1));
         }
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x3C8) == 2) {
-            transition_enemy_state((void *) (arg0), (int) (3));
+        if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x3C8) == 2) {
+            transition_enemy_state((void *) (((u8 *)this)), (int) (3));
         }
         break;
     case 5:
         break;
     case 0:
-        temp_r0 = *(s32 *)((s8 *)arg0 + 0x3C8);
+        temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x3C8);
         switch (temp_r0) {
         case 0:
-            *(s32 *)((s8 *)arg0 + 0x3A8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3A8) + 0x280);
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x3A8) >= 0x38E3) {
-                *(s32 *)((s8 *)arg0 + 0x3A8) = 0x38E3;
-                *(s32 *)((s8 *)arg0 + 0x3C8) = 1;
+            *(s32 *)((s8 *)((u8 *)this) + 0x3A8) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3A8) + 0x280);
+            if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x3A8) >= 0x38E3) {
+                *(s32 *)((s8 *)((u8 *)this) + 0x3A8) = 0x38E3;
+                *(s32 *)((s8 *)((u8 *)this) + 0x3C8) = 1;
                 return;
             }
             break;
         case 1:
-            *(s32 *)((s8 *)arg0 + 0x3CC) = (s32) (*(s32 *)((s8 *)arg0 + 0x3CC) - 1);
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x3CC) <= 0) {
-                *(s32 *)((s8 *)arg0 + 0x3C8) = 2;
+            *(s32 *)((s8 *)((u8 *)this) + 0x3CC) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3CC) - 1);
+            if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x3CC) <= 0) {
+                *(s32 *)((s8 *)((u8 *)this) + 0x3C8) = 2;
             }
-            ((TBoss2Mine *)arg0)->set_state_by_distance((int) (*(s32 *)((s8 *)arg0 + 0x3CC)));
-            update_pulse_state__10TBoss2MineFv((void *) (arg0));
+            ((TBoss2Mine *)((u8 *)this))->set_state_by_distance((int) (*(s32 *)((s8 *)((u8 *)this) + 0x3CC)));
+            update_pulse_state__10TBoss2MineFv((void *) (((u8 *)this)));
             break;
         }
         break;

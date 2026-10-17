@@ -6,6 +6,7 @@
 
 struct TOMineTrap : public TOMine {
     virtual ~TOMineTrap();
+    virtual void spawn_disp_objects();
     virtual void vfunc_86();
     virtual void vfunc_82();
     void sub_80171348(s16);

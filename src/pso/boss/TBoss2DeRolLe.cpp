@@ -34,7 +34,7 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 #pragma push
 namespace constructor_data {
 extern "C" {
-extern "C" void render_body__13TBoss2DeRolLeFPv(u8 *arg0);
+extern "C" void render_body__13TBoss2DeRolLeFv(u8 *arg0);
 extern "C" void dispatch_action__13TBoss2DeRolLeFiUii(s32 arg0, u32 arg1, s32 arg2);
 extern "C" void update_colliders_from_offsets__13TBoss2DeRolLeFi(s32 arg0);
 extern "C" void vfunc_61__13TBoss2DeRolLeFv();
@@ -142,7 +142,7 @@ extern "C" u8 lbl_80435998[];
 extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
-extern "C" void render_actor_shadows_default(u8 *arg0);
+extern "C" void render_shadows__9TObjEnemyFv(u8 *arg0);
 extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__13TUnk_804806E8Fv();
 extern "C" void roll_physical_accuracy__13TUnk_804806E8FPvlf();
@@ -252,7 +252,7 @@ void *boss2_derolle_particle_limits[3] = {
 };
 void *__vt__13TBoss2DeRolLe[107] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__13TBoss2DeRolLeFv, (void *)&run_task__13TBoss2DeRolLeFPv,
-    (void *)&render__13TBoss2DeRolLeFPv, (void *)&render_actor_shadows_default, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
+    (void *)&render__13TBoss2DeRolLeFPv, (void *)&render_shadows__9TObjEnemyFv, (void *)&vfunc_6__13TUnk_804B9870FPsl, (void *)&apply_object_set_data__13TUnk_804B9870FPv,
     (void *)&reset_motion_fields__13TUnk_804806E8Fv, (void *)&vfunc_9__13TUnk_804806E8Fv, (void *)&update_object_view_visibility__13TUnk_804B9870Fff, (void *)&classify_actor_view_detail__13TUnk_804B9870Ffff,
     (void *)&vfunc_12__9TObjEnemyFv, (void *)&vfunc_13__13TUnk_804AF8A0Fl, (void *)&add_actor_exp__13TUnk_804806E8Fl, (void *)&consume_timer_field__13TUnk_804806E8Fl,
     (void *)&get_actor_level_index__13TUnk_804806E8Fv, (void *)&update_actor_ground_y__13TUnk_804806E8Fv, (void *)&vfunc_18__13TUnk_804806E8FPUc, (void *)&is_actor_cadence_frame__13TUnk_804806E8Fl,
@@ -277,7 +277,7 @@ void *__vt__13TBoss2DeRolLe[107] = {
     (void *)&vfunc_92__9TObjEneDDFv, (void *)&update_check__13TBoss2DeRolLeFPv, (void *)&vfunc_94__9TObjEneDDFv, (void *)&vfunc_95__9TObjEneDDFv,
     (void *)&vfunc_96__9TObjEneDDFv, (void *)&vfunc_97__9TObjEneDDFv, (void *)&vfunc_98__9TObjEneDDFv, (void *)&vfunc_99__9TObjEneDDFv,
     (void *)&vfunc_100__9TObjEneDDFv, (void *)&vfunc_101__9TObjEneDDFPUc, (void *)&vfunc_102__9TObjEneDDFv, (void *)&vfunc_103__9TObjEneDDFPUc,
-    (void *)&TObjEneEpsilon__vt101, (void *)&vfunc_105__13TBoss2DeRolLeFv, (void *)&render_body__13TBoss2DeRolLeFPv,
+    (void *)&TObjEneEpsilon__vt101, (void *)&vfunc_105__13TBoss2DeRolLeFv, (void *)&render_body__13TBoss2DeRolLeFv,
 };
 
 }
@@ -286,14 +286,6 @@ void *__vt__13TBoss2DeRolLe[107] = {
 
 #include <stddef.h>
 #pragma push
-
-struct Rec_8002ECC4 { u8 pad[0x10]; u8 f10[0xC]; };
-
-struct Obj_8002ECC4 { u8 pad[4]; Rec_8002ECC4 *recs; };
-
-struct Rec_8002ED48 { u8 pad[4]; u8 f4[0xC]; u8 tail[0xC]; };
-
-struct Obj_8002ED48 { u8 pad[4]; Rec_8002ED48 *recs; };
 
 typedef struct Vec_8002EA64 {
     f32 x, y, z;
@@ -348,9 +340,7 @@ struct Self_8002EFE8 {
 };
 
 extern "C" {
-extern f32 lbl_805D4B90;
 extern const f32 lbl_805D8258;
-void TObjPlayer__sub_8002EF80(void);
 int alloc__23TAdSinglePlyChrSelectGCFv(void *);
 extern void *lbl_805D4B8C;
 extern u8 *lbl_805D4BA4;
@@ -360,46 +350,25 @@ extern struct VObj8002EB88_8002eb88_8002E784 *shared_breakup_model;
 extern u8 *lbl_805D4BA4;
 s32 queue_destruction__7TObjectFv(void *);
 s32 create_particle__17TObjBoss2CeilJunkFv(void *, s32);
-void TObjPlayer__sub_8002E974(u8 *arg0);
 f32 vec3_add_to(void *, void *);
 extern const f32 lbl_805D822C;
-extern const f32 lbl_805D8230;
-extern const f32 lbl_805D8250;
-extern const f32 lbl_805D8254;
 extern const f32 lbl_805D8258;
-extern const f32 lbl_805D8264;
-extern const f32 lbl_805D8268;
-extern const f32 lbl_805D826C;
-extern const f32 lbl_805D8270;
-extern const f32 lbl_805D8274;
-s32 TObjPlayer__sub_8002EDCC(u8 *arg0);
 void scale_matrix(int, f32, f32, f32);
 void set_matrix_identity(int);
 void rotate_vector_by_matrix(u32 arg0);
 void push_matrix(void);
 s32 pop_matrix(void);
 extern const f32 lbl_805D822C;
-extern const f32 lbl_805D824C;
-void TObjPlayer__sub_8002ECC4(Obj_8002ECC4 *self, s32 n);
 void scale_matrix(int, f32, f32, f32);
 void set_matrix_identity(int);
 void rotate_vector_by_matrix(u32 arg0);
 void push_matrix(void);
 s32 pop_matrix(void);
 extern const f32 lbl_805D8260;
-void TObjPlayer__sub_8002ED48(Obj_8002ED48 *self, s32 n);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-f32 lerp__9TDeadSpotFff(f32, f32);
-f32 rand_signed_unit(void);
 f32 vec3_add_to(void *, void *);
 extern s32 lbl_804820A8[];
 extern struct VObj8002EB88_8002eb88_8002E784 *shared_breakup_model;
-extern const f32 lbl_805D8228;
-extern const f32 lbl_805D8234;
-extern const f32 lbl_805D8238;
-extern const f32 lbl_805D823C;
-extern const f32 lbl_805D8240;
-Obj_8002EA64 *TObjPlayer__sub_8002EA64(Obj_8002EA64 *arg0, void *arg1, Vec_8002EA64 *arg2);
 void fn_8002F5AC(u8 *arg0);
 void TBoss2Joint__sub_8003688C(u8 *arg0);
 s32 TObjLight__sub_801337F8(s32);
@@ -420,19 +389,17 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 lbl_805D8278;
 extern const f32 TBoss2DeRolLe__data_805D827C;
-void render_body__13TBoss2DeRolLeFPv(u8 *arg0);
+void render_body__13TBoss2DeRolLeFv(u8 *arg0);
 struct VObj8002EB88_8002eb88_8002E784 {
     char pad[0xC];
     virtual void m0(int);
 };
 
 int vfunc_105__13TBoss2DeRolLeFv(void* p);
-void *__dt__13TUnk_804820A8Fv(void *arg0, s16 arg1);
 void TObjPlayer__sub_8002EB88(void);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-s32 rand();
 
 extern void *lbl_805D4B8C;
 
@@ -446,10 +413,6 @@ extern s32 lbl_804820C0[];
 
 extern s32 lbl_804820C0[];
 
-extern s32 lbl_80435620;
-extern const f32 lbl_805D8244;
-extern const f32 lbl_805D8248;
-
 #pragma push
 #pragma opt_common_subs off
 #pragma fp_contract on
@@ -458,14 +421,14 @@ extern const f32 lbl_805D8248;
 
 #pragma push
 #pragma opt_common_subs off
-void render_body__13TBoss2DeRolLeFPv(u8 *arg0) {
-    Self_8002EFE8 *self = (Self_8002EFE8 *)arg0;
+void TBoss2DeRolLe::render_body() {
+    Self_8002EFE8 *self = (Self_8002EFE8 *)((u8 *)this);
     s32 i;
     Model_8002EFE8 *model;
     s32 idx;
     f32 frame;
     f32 max;
-    ((TBoss2DeRolLe *)(arg0))->update_object_view_visibility(lbl_805D8278, lbl_805D8278);
+    ((TBoss2DeRolLe *)(((u8 *)this)))->update_object_view_visibility(lbl_805D8278, lbl_805D8278);
     lbl_805D5660 = model_render_flags;
     TObjEneDD::clear_global_flag_400();
     push_matrix();
@@ -5686,7 +5649,7 @@ extern const f32 TBoss2DeRolLe__data_805D8294;
 extern const f32 TBoss2DeRolLe__data_805D82BC;
 extern const f32 TBoss2DeRolLe__data_805D8334;
 
-extern "C" void render_body__13TBoss2DeRolLeFPv(u8 *arg0);
+extern "C" void render_body__13TBoss2DeRolLeFv(u8 *arg0);
 extern "C" void dispatch_action__13TBoss2DeRolLeFiUii(s32 arg0, u32 arg1, s32 arg2);
 extern "C" void update_colliders_from_offsets__13TBoss2DeRolLeFi(s32 arg0);
 extern "C" void vfunc_61__13TBoss2DeRolLeFv();
@@ -5794,7 +5757,7 @@ extern "C" u8 lbl_80435998[];
 extern "C" void receive_direct_attack__10TObjPlayerFv();
 extern "C" void receive_physical_attack__10TObjPlayerFv();
 extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
-extern "C" void render_actor_shadows_default(u8 *arg0);
+extern "C" void render_shadows__9TObjEnemyFv(u8 *arg0);
 extern "C" void reset_motion_fields__13TUnk_804806E8Fv();
 extern "C" void reset_pose__13TUnk_804806E8Fv();
 extern "C" void roll_physical_accuracy__13TUnk_804806E8FPvlf();

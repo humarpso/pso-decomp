@@ -6,6 +6,11 @@
 class TUnk_804DDBF0 : public TUnk_804DDD28 {
 public:
     virtual ~TUnk_804DDBF0();
+    virtual int vfunc_5(s32);
+    virtual int vfunc_6(s32, s32, s32);
+    virtual int vfunc_7(s32, s32);
+    virtual int vfunc_8(s32, s32);
+    virtual int vfunc_9(s32, s32, s32);
     virtual int vfunc_19();
     virtual int vfunc_18();
     virtual int vfunc_16();
