@@ -3,6 +3,7 @@
 
 
 #include "types.h"
+#include "pso/unk/text_803DA798.h"
 #include "pso/player/TObjPlayer_803DF7A8.h"
 #include "pso/player/TObjPlayer.h"
 
@@ -59,7 +60,6 @@ f32 xyz_distance(Vec_803E1A58 *a, Vec_803E1A58 *b);
 extern s32 tex_matrix_id_table[];
 void GXLoadTexMtxImm(void *mtx, u32 id, s32 type);
 void OSPanic(const char *, int, const char *, ...);
-void TObjPlayer__sub_803DAE1C(void *, int, void *);
 extern char lbl_804FC7F8[];
 extern char lbl_805D46F0[4];
 void calc_bounds_min_max__10TObjPlayerFPvPvPv(struct Vec_803E1B1C *pts, struct Vec_803E1B1C *mn, struct Vec_803E1B1C *mx);
@@ -382,7 +382,7 @@ void TObjPlayer::reload_texture(s32 arg1, u32 arg2, void *arg3) {
     } else {
         OSPanic(lbl_804FC7F8, 0x30, lbl_805D46F0);
     }
-    TObjPlayer__sub_803DAE1C(this, size, arg3);
+    TObjPlayer__sub_803DAE1C((s32)this, size, (u32)arg3);
 }
 
 void TObjPlayer::set_effect_active() {

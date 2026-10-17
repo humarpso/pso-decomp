@@ -145,7 +145,7 @@ extern s32 TObjLight__gx_light_objects[];
 s32 rotate_vector_by_matrix(int, void *, void *);
 extern s32 lbl_804A6F90[];
 extern u8 *lbl_805D5558;
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 extern s32 TObjLight__actor_light_count;
 u32 __nw__7TObjectFUl(int);
 f32 vector_length(void *);
@@ -686,7 +686,7 @@ void register_actor_light(s32 arg0, s32 arg1) {
         temp_r5 = (u8 *)TObjLight__data_8050637C + (TObjLight__actor_light_count * 0x2C);
         *(s32 *)((s8 *)temp_r5 + 0x28) = arg0;
         VecCopy((Vec *)(temp_r5), (const Vec *)(arg1 + 0xE4));
-        copy_vec4__13TRaderMapCoreFPvPv((void *) ((u8 *)TObjLight__data_8050637C + (TObjLight__actor_light_count * 0x2C) + 0xC), (void *) (arg1 + 0xF0));
+        copy_vec4__13TRaderMapCoreFPvPv(((u8 *)TObjLight__data_8050637C + (TObjLight__actor_light_count * 0x2C) + 0xC), (void *)(arg1 + 0xF0));
         TObjLight__actor_light_count += 1;
     }
 }

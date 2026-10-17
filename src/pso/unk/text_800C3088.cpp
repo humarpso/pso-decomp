@@ -146,8 +146,8 @@ struct RecoveredFields_800C3088_arg0
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(int);
-u32 create_particle_emitter(void *, int);
+void queue_destruction__7TObjectFv(void *arg0);
+void *create_particle_emitter(void *pos, s32 id);
 s32 transition_enemy_state(void *, int);
 s32 noop__9TObjEneDDFv(void *);
 s32 check_hit_flag__16TObjEneRe2FlowerFv(void *);
@@ -266,7 +266,7 @@ void fn_800C32DC(u8 *owner, s32 arg1) {
     case 0:
         advance_animation_playback((void *) (owner));
         if ((u32) *(u32 *)((s8 *)owner + 0x428) == 0U) {
-            *(u32 *)((s8 *)owner + 0x428) = create_particle_emitter((void *) (owner + 0x3E8), (int) (0xD1));
+            *(u32 *)((s8 *)owner + 0x428) = (u32)create_particle_emitter((owner + 0x3E8), (0xD1));
             temp_r3 = *(u32 *)((s8 *)owner + 0x428);
             if (temp_r3 != 0U) {
                 ((TParticleCtrl *)temp_r3)->enable();
@@ -300,7 +300,7 @@ void fn_800C32DC(u8 *owner, s32 arg1) {
     case 5:
         temp_r3_4 = *(u32 *)((s8 *)owner + 0x428);
         if (temp_r3_4 != 0U) {
-            queue_destruction__7TObjectFv((int) (temp_r3_4));
+            queue_destruction__7TObjectFv((void *)(temp_r3_4));
             *(u32 *)((s8 *)owner + 0x428) = 0U;
         }
         break;

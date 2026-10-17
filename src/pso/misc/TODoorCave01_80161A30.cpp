@@ -65,8 +65,8 @@ extern const f32 lbl_805DB49C;
 extern const f32 lbl_805DB4A8;
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-s32 *mem_alloc(s32);
-s32 load_gvm_texture_file(void *);
+void *mem_alloc(u32 size);
+u8 *load_gvm_texture_file(s32 arg0);
 extern u8 lbl_80440D7C[];
 extern u8 lbl_80440D94[];
 
@@ -93,21 +93,21 @@ void TODoorCave01::free_resources() {
 
 void TODoorCave01::load_resources() {
     void *o;
-    TODoorCave01__texture_lists = mem_alloc(8);
+    TODoorCave01__texture_lists = (s32 *)mem_alloc(8);
     if (enable_v2_features != 0 && TLobby::is_online_ready() != 0) {
         o = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (o != NULL) {
             o = load_resource_from_descriptor(o, 1, &cave_door01_resource_descriptor, 0, 0, 0);
         }
         door_cave_shared_bml_archive = (u32)o;
-        TODoorCave01__texture_lists[0] = load_gvm_texture_file(lbl_80440D7C);
+        TODoorCave01__texture_lists[0] = (s32)load_gvm_texture_file((s32)lbl_80440D7C);
     } else {
         o = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (o != NULL) {
             o = load_resource_from_descriptor(o, 1, &TODoorCave01__resource_descriptor, 0, 0, 0);
         }
         door_cave_shared_bml_archive = (u32)o;
-        TODoorCave01__texture_lists[0] = load_gvm_texture_file(lbl_80440D94);
+        TODoorCave01__texture_lists[0] = (s32)load_gvm_texture_file((s32)lbl_80440D94);
     }
     TODoorCave01__texture_lists[1] = *(s32 *)((s8 *)(*(void **)((s8 *)door_cave_shared_bml_archive + 0x42C)) + 0xC);
 }

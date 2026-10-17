@@ -38,14 +38,14 @@ s32 TWindowDD__sub_803474CC(int, int, int, int, int);
 s32 TWindowDD__sub_80348B70(s32);
 void TWindowDD__sub_80347474(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TWindowDD__sub_80342158(void *);
-s32 TWindowDD__sub_80347FA0(void *, int);
+void TWindowDD__sub_80347FA0(s32 arg0, s32 arg1);
 s32 TWindowDD__sub_80348DD8(void *, int);
 void TWindowDD__sub_80347A4C(u8 *arg0, s32 arg1);
 extern const f32 lbl_805DFB94;
 s32 TWindowDD_is_id_in_range_5AC_5F9(s16 arg0);
 void TWindowDD__sub_80347758(M_80347758 *src, M_80347758 *dst);
 s32 TWindowDD__sub_803412A0(u32);
-u8 *TWindowDD__sub_8034146C(void *, void *, u32, int, f32);
+s32 TWindowDD__sub_8034146C(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
 extern s32 TWindowDD__data_805DFB50;
 extern const f32 lbl_805DFB60;
 extern const f32 lbl_805DFBDC;
@@ -277,7 +277,7 @@ void TWindowDD__sub_80347A4C(u8 *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x9C) = (s32) (s16) temp_r3;
         return;
     }
-    TWindowDD__sub_80347FA0((void *) (arg0), (int) (3));
+    TWindowDD__sub_80347FA0((s32)(arg0), (3));
     *(s32 *)((s8 *)arg0 + 0x98) = 0;
     *(s32 *)((s8 *)arg0 + 0x9C) = (s32) (s16) temp_r3;
 }
@@ -376,7 +376,7 @@ void TWindowDD__sub_80347E04(W_80347E04 *arg0, s32 arg1) {
         }
         b.x = lbl_805DFB60;
         b.y = a.y;
-        o = TWindowDD__sub_8034146C(&a, &b, r, 1, lbl_805DFBE4);
+        o = (u8 *)TWindowDD__sub_8034146C((s32)&a, (s32)&b, (s32)r, (s32)(1), (f32)lbl_805DFBE4);
         if (o != NULL) {
             ((TLobby *)o)->set_field_1c(lbl_805DFC28);
             TWindowDD__sub_803412A0((u32)o);

@@ -137,7 +137,7 @@ struct Ent_802634E8 { u8 pad0[0x10]; f32 w; };
 extern "C" {
 u32 obj_getArrWord_254(Ent_80262E90 *, s32);
 s16 obj_getS16_2BA(Ent_80262E90 *);
-s32 find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 s32 get_status_effect_icon_index(u32);
 u16 obj_getField1c(void *);
 void refresh_status_display__9TWindowDDFv(void *);
@@ -183,7 +183,7 @@ void TWindowLockOn::validate_target() {
   temp_r3 = this->m_60;
   if (temp_r3 != ((-1U) & 0xFFFFu))
   {
-    item = (u8 *) ((u8 *(*)(u16))find_entity_by_id)(temp_r3);
+    item = (u8 *) find_entity_by_id(temp_r3);
     if ((item == 0) || (((TObject *)item)->all_parents_unqueued_for_destruction() == 0))
     {
       this->m_60 = 0xFFFFU;
@@ -469,7 +469,7 @@ void bind_target__13TWindowLockOnFv(Win_8026366C *w, u16 id) {
         queue_destruction__7TObjectFv(w);
         return;
     }
-    actor = find_entity_by_id(id);
+    actor = (s32)find_entity_by_id(id);
     if (((s32 (*)(s32))is_lockable_target__13TWindowLockOnFi)(actor) == 0) {
         return;
     }
@@ -493,7 +493,7 @@ void *TWindowLockOn::create_for_target(s32 arg0, u16 arg1) {
     if (arg1 == 0xFFFF) {
         return NULL;
     }
-    if (((s32 (*)(s32))is_lockable_target__13TWindowLockOnFi)(find_entity_by_id(arg1)) == 0) {
+    if (((s32 (*)(s32))is_lockable_target__13TWindowLockOnFi)((s32)find_entity_by_id(arg1)) == 0) {
         return NULL;
     }
     p = __nw__7TObjectFUl(0x7C);

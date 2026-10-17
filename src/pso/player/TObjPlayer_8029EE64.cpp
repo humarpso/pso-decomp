@@ -57,7 +57,7 @@ void TObjPlayer__sub_8029EE2C(void);
 int set_instance__6TSceneFi(void *f);
 void VecCopy__FP3VecPC3Vec(Vec_8029EFFC *, Vec_8029EFFC *);
 f32 fabs_float(f32);
-Pl_8029EFFC *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 s32 is_boss_area();
 s32 fn_8029E7BC(s32 arg0, u8 *arg1);
 s32 fn_8029EC3C(Vec_8029EFFC *, s32);
@@ -133,7 +133,7 @@ void TUnk_804DC7C4::render_shadows() {
     if (camera_ctrl_instance == 0 || o->f1C == 0) {
         return;
     }
-    p = get_player_by_client_id(local_client_id);
+    p = (Pl_8029EFFC *)get_player_by_client_id(local_client_id);
     if (p == NULL) {
         return;
     }

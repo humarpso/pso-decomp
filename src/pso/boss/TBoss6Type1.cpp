@@ -364,7 +364,7 @@ void TBoss6Type1__sub_802B6C30(Boss_802B6C30 *self);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 void clear_render_callback__8TObjFishFv(u32);
-void draw_model_blend_motion(s32, Blend_802B81A4 *, f32);
+void draw_model_blend_motion(void *arg0, void *arg1, f32 farg0);
 void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern s32 lbl_804DF614[];
 extern const s32 lbl_805DE3C8;
@@ -409,7 +409,7 @@ extern const f32 lbl_805DE2F0;
 extern const f32 lbl_805DE2EC;
 Blk_802B8624 *copy_block__11TBoss6Type1FPvPv(Blk_802B8624 *d, Blk_802B8624 *s);
 void TBoss6Type1__sub_802B5DD4(Obj_802B5DD4 *self);
-u32 create_particle_emitter(void *, int);
+void *create_particle_emitter(void *pos, s32 id);
 extern Tbl_802B4BA8 TBoss6Type1__effect_slot_table[];
 extern u8 lbl_80471014[];
 s32 get_bml_motion(s32, s32);
@@ -424,7 +424,7 @@ void clamp_to_arena_radius__11TBoss6Type1FPvPvf(Boss_802B54F0 *o, Vec_802B54F0 *
 extern const f32 lbl_805DE320;
 extern const f32 lbl_805DE324;
 void calc_grid_cell_position__11TBoss6Type1FPvPv(Boss_802B5648 *o, Vec_802B5648 *out);
-u8 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 extern const f32 TBoss6Type1__data_805DE32C;
 extern const f32 TBoss6Type1__data_805DE360;
 s32 matrix_mult_vec(int, void *, void *);
@@ -436,7 +436,7 @@ extern Tbl_802B79DC TBoss6Type1__part_position_sources[];
 extern Entry_802B865C lbl_804DED14[];
 s32 play_sound_effect(int, void *, int, int, void *);
 
-void fn_8035648C(void *, void *, int, f32);
+u8 *fn_8035648C(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 extern f32 TBoss6Type1__sword_shot_hit_radii[];
 extern s32 game_difficulty_selection;
 extern const f32 lbl_805DE394;
@@ -508,7 +508,7 @@ void TBoss6Type1::spawn_effect_slot(s32 arg1) {
     u8 *p = arg0 + arg1 * 4;
     if (*(u32 *)(p + 0x4F8) == 0U) {
         V3_802B4BA8 v = ((T1_802B4BA8 *)arg0)->pos;
-        *(u32 *)(p + 0x4F8) = create_particle_emitter(&v, TBoss6Type1__effect_slot_table[arg1].a);
+        *(u32 *)(p + 0x4F8) = (u32)create_particle_emitter(&v, TBoss6Type1__effect_slot_table[arg1].a);
         if (*(u32 *)(p + 0x4F8) != 0U) {
             ((TBoss4Type2 *)(*(u32 *)(p + 0x4F8)))->set_flags(0x40);
         }
@@ -1159,7 +1159,7 @@ void TBoss6Type1::spawn_grav_ball() {
     s32 ang;
     f32 r;
     flag = 1;
-    pl = get_player_by_client_id(((Boss_802B683C *)this)->f41C & 3);
+    pl = (u8 *)get_player_by_client_id(((Boss_802B683C *)this)->f41C & 3);
     if (is_active__14TBoss6PlotFalzFv() != 0) {
         VecCopy((Vec *)&v, (const Vec *)(pl + 0x38));
         flag = 0;
@@ -1390,7 +1390,7 @@ void TBoss6Type1__sub_802B73AC(Boss_802B73AC *self) {
         if ((self->f408 & 3) == 0) {
             flag = 1;
         }
-        fn_8035648C(self, &p, flag, sc);
+        fn_8035648C((s32)self, (s32)&p, flag, sc);
         if (flag != 0) {
             ((s32 (*)(int, void *, int, int))play_sound_effect)(0x4003B210, &p, 0, 0);
             TBoss6PlotFalz::apply_radial_effect_to_players(&p, 0xC0, 0xF, TBoss6Type1__data_805DE318);
@@ -1814,7 +1814,7 @@ void TBoss6Type1::draw_part_motions() {
                 b.ids[1] = a->id;
                 b.ts[1] = a->t;
                 ((TObjFish *)cb)->set_draw_callback_list();
-                draw_model_blend_motion(id, &b, a->blend);
+                draw_model_blend_motion((void *)id, &b, a->blend);
                 clear_render_callback__8TObjFishFv(cb);
             }
         }
@@ -2211,8 +2211,8 @@ struct Tmp_802B93C4 { s32 a; s16 b; s16 c; u8 pad[0x10]; };
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
-s32 TObjFish__sub_800E3124(void *, void *);
-void bind_enemy_combat_stats(void *, int, int, int);
+s32 TObjFish__sub_800E3124(u8 *list, s32 vecs);
+s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 s32 init_collision_body_parts(void *, void *, int);
 void build_tables__14TBoss6PlotFalzFPvPvi(void *, void *, int);
 void TBoss6Type1__sub_802B854C(void *);
@@ -2259,13 +2259,13 @@ s32 TBoss6Type1__ct(s32 arg0_, s32 parent, s32 arg2_) {
     *(f32 *)((s8 *)arg0 + 0x30C) = TBoss6Type1__data_805DE2D0;
     *(f32 *)((s8 *)arg0 + 0x308) = TBoss6Type1__data_805DE2D0;
     *(s32 *)((s8 *)arg0 + 0x2A8) = 0;
-    bind_enemy_combat_stats(arg0, register_boss__6TLobbyFl(0x2B), dispatch_shared_handler_b__6TLobbyFl(0x2B), register_object__6TLobbyFl(0x2B));
+    bind_enemy_combat_stats(arg0, (u8 *)(register_boss__6TLobbyFl(0x2B)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(0x2B)), (u8 *)(register_object__6TLobbyFl(0x2B)));
     *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x32C);
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
     ((TObjEneLappy *)arg0)->set_param(0x4E);
     TBoss6Type1__sub_802B854C(arg0);
-    *(s32 *)((s8 *)arg0 + 0x654) = TObjFish__sub_800E3124(boss6_type1_model_node_desc, arg0 + 0x578);
-    *(s32 *)((s8 *)arg0 + 0x650) = TObjFish__sub_800E3124(boss6_type1_model_node_desc_b, arg0 + 0x5FC);
+    *(s32 *)((s8 *)arg0 + 0x654) = TObjFish__sub_800E3124((u8 *)boss6_type1_model_node_desc, (s32)(arg0 + 0x578));
+    *(s32 *)((s8 *)arg0 + 0x650) = TObjFish__sub_800E3124((u8 *)boss6_type1_model_node_desc_b, (s32)(arg0 + 0x5FC));
     build_tables__14TBoss6PlotFalzFPvPvi(arg0 + 0x658, boss6_type1_build_table, 2);
     build_tables__14TBoss6PlotFalzFPvPvi(arg0 + 0x66C, lbl_80470EA0, 1);
     *(s32 *)((s8 *)arg0 + 0x400) = create_zanzo__11TBoss6Type1FPvPvPv(arg0, 7, 0xF);

@@ -517,9 +517,9 @@ void * __dt__13TUnk_804E0988Fv(void *arg0, s16 arg1);
 u8 *TObjPlayer__sub_802C2F04(u8 *arg0, s32 arg1, const void* _w2);
 void *__dt__11TObjPathObjFv(void *arg0, s16 arg1);
 void bind_motion_context(s32 arg0, f32 farg0);
-s32 sample_motion_node_transform(s32, s32, s32 *, s32 *, s32 *);
+s32 sample_motion_node_transform(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void matrix_mult_vec(void *, void *, void *);
-void translate_matrix_vec3(void *, void *);
+void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 void set_matrix_identity(u8 *arg0);
 
 s32 TLobby__sub_803DA16C(void*);
@@ -596,9 +596,9 @@ void TUnk_804E0898::vfunc_13(s32) {
     Mtx_802C0F3C m;
     Vec_802C0F3C v = lobby_pigeon_zero_vec;
     set_matrix_identity((u8 *)&m);
-    translate_matrix_vec3(&m, &self->pos);
+    translate_matrix_vec3((u8 *)&m, (u8 *)&self->pos);
     ((void (*)(void *, s32))rotate_matrix_y)(&m, self->f60);
-    translate_matrix_vec3(&m, &self->bc);
+    translate_matrix_vec3((u8 *)&m, (u8 *)&self->bc);
     matrix_mult_vec(&m, &v, &v);
     self->dc =
         (s32)((3e+01f) * ((4.0f) * ((3.0517578e-05f) * (f32)rand())) +
@@ -831,9 +831,9 @@ void TUnk_804E08D4::vfunc_13(s32) {
     if (temp_r0 < 0) {
         Vec_802C17FC v = lbl_80471908;
         set_matrix_identity((u8 *)&m);
-        ((s32 (*)(void *, void *))translate_matrix_vec3)(&m, (u8 *)&this->position);
+        translate_matrix_vec3((u8 *)&m, (u8 *)&this->position);
         ((s32 (*)(void *, int))rotate_matrix_y)(&m, this->rotation_y);
-        ((s32 (*)(void *, void *))translate_matrix_vec3)(&m, (u8 *)&this->unk_AC);
+        translate_matrix_vec3((u8 *)&m, (u8 *)&this->unk_AC);
         ((s32 (*)(void *, void *, void *))matrix_mult_vec)(&m, &v, &v);
         play_sound_effect(0x4BC04, (u8 *)&this->position, 0x7F, 0);
         *(s32 *)&this->unk_CC = (s32) (((3e+01f) * ((4.0f) * ((3.0517578e-05f) * (f32) rand()))) + (1.5e+02f));
@@ -1503,7 +1503,7 @@ s32 sample_clamped_path_position(void *arg0, s32 arg1, void *arg2, s32 arg3, f32
     var_f1 = (f32)temp_r7;
   }
   bind_motion_context((s32)arg2, var_f1);
-  sample_motion_node_transform(arg1, arg3, sp24, sp18, sp8);
+  sample_motion_node_transform((void *)arg1, (void *)arg3, (void *)sp24, (void *)sp18, (void *)sp8);
   return var_r31;
 }
 }

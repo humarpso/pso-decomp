@@ -138,7 +138,7 @@ struct Jelin_80233808 {
 };
 
 extern "C" {
-u32 find_entity_by_id(int);
+void *find_entity_by_id(u16 id);
 void run_task__9TTecJelinFv(struct Self_802336F0 *self);
 void construct_area_technique_base(void *);
 extern s32 tec_jelin_class_name_ptr;
@@ -191,14 +191,14 @@ void TTecJelin::render() {  }
 void run_task__9TTecJelinFv(struct Self_802336F0 *self) {
     s32 i;
     u32 id;
-    self->target = find_entity_by_id(self->owner);
+    self->target = (u32)find_entity_by_id(self->owner);
     if (self->target == 0) {
         queue_destruction__7TObjectFv((self));
         return;
     }
     if (self->flag != 0) {
         for (i = 0; i < self->count; i++) {
-            id = find_entity_by_id(self->entries[i].id);
+            id = (u32)find_entity_by_id(self->entries[i].id);
             if (TTecLuker::is_parents_unqueued(id) != 0) {
                 ((VObj_18_4560ce *)(self))->m4(id);
             }

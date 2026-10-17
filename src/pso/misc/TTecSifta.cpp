@@ -83,7 +83,7 @@ s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
 s32 is_split_screen();
 s32 is_script_controlled__10TObjPlayerFv(void *);
-u32 find_entity_by_id(int);
+void *find_entity_by_id(u16 id);
 void deliver_technique_to_party_targets(void *);
 void run_task__9TTecSiftaFv(Sifta_8023AF94 *self);
 void copy_technique_target_list(void *, void *);
@@ -177,7 +177,7 @@ typedef char RecoveredGlobal_8023B17C___vt__9TTecSifta_size[sizeof(RecoveredGlob
 void run_task__9TTecSiftaFv(Sifta_8023AF94 *self) {
     u32 target;
     s32 i;
-    self->source = find_entity_by_id(self->source_id);
+    self->source = (u32)find_entity_by_id(self->source_id);
     if (self->source == 0) {
         queue_destruction__7TObjectFv(self);
         return;
@@ -189,7 +189,7 @@ void run_task__9TTecSiftaFv(Sifta_8023AF94 *self) {
             ((VObj_8023AF94 *)self)->m5(self->source);
             if (self->count != 0) {
                 for (i = 0; i < self->count; i++) {
-                    target = find_entity_by_id(self->targets[i].id);
+                    target = (u32)find_entity_by_id(self->targets[i].id);
                     if (TTecLuker::is_parents_unqueued(target) != 0) {
                         ((VObj_8023AF94 *)self)->m5(target);
                     }

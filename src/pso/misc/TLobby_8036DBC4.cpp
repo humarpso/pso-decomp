@@ -6,7 +6,7 @@
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
-s32 load_gvm_texture_file(void *);
+u8 *load_gvm_texture_file(s32 arg0);
 void set_global_param__8TObjFishFl();
 extern u8 lbl_8047AD08[];
 extern u8 lbl_8047AD14[];
@@ -28,7 +28,7 @@ void TBGMulti__ct(void) {
         sp8[0] = TLobby::tmp_buf_use_req((const char *)lbl_8047AD08);
         TLanguage::draw_string(lbl_8047AD14, sp8, 0x4D);
         ((TLobby *)lbl_8047AD08)->tmp_buf_release();
-        (*(s32 *)&TBGMulti__textures) = load_gvm_texture_file(lbl_8047AD20);
+        (*(s32 *)&TBGMulti__textures) = (s32)load_gvm_texture_file((s32)lbl_8047AD20);
         set_global_param__8TObjFishFl();
         TLanguage::set_entry_index(0, 0x4D);
     }

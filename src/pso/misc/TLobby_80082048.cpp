@@ -71,7 +71,7 @@ s32 construct_actor_base__10TObjPlayerFPvPv(void *, void *);
 s16 obj_getField1c(void *);
 s32 get_bml_model(void *, int);
 u8 *get_quest_id__12TQuestListVMFv(void *);
-s32 create_particle_emitter(void *, int);
+void *create_particle_emitter(void *pos, s32 id);
 extern s32 lbl_8048E1A4[];
 extern s32 tl_05;
 extern const f32 lbl_805D9378;
@@ -167,7 +167,7 @@ u8 *TObjPlayer::construct_freeze_shell(u8 *arg1, u8 *arg2) {
         ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_344 = (f32) (*(const f32 *)&lbl_805D9378);
         ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_348 = (f32) (*(const f32 *)&lbl_805D9378);
         ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_34C = (f32) (*(const f32 *)&lbl_805D9378);
-        ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_350 = create_particle_emitter((void *) (((u8 *)this) + 0x38), (int) (0x12E));
+        ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_350 = (s32)create_particle_emitter((((u8 *)this) + 0x38), (0x12E));
         ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_354 = 0;
     } else {
         ((RecoveredFields_8008213C_arg0 *)((u8 *)this))->field_350 = 0;

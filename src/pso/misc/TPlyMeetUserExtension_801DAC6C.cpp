@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TPlySmth.h"
+#include "pso/misc/TRecvPsoRegistConnect.h"
 #include "pso/misc/TPlyMeetUserExtension_801DAC6C.h"
 #include "pso/unk/text_801DF280.h"
 #include "pso/protocol.h"
@@ -48,8 +50,6 @@ struct VObjDAD38 : BaseDAD38 {
 extern "C" {
 Ext_801DAC6C *__as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(Ext_801DAC6C *arg0, const Ext_801DAC6C *arg1);
 void reset__18PSOV3EncryptionTCPFUl(void *, u32);
-void bswap__21TRecvPsoRegistConnectFv(void *);
-void __as__8TPlySmthFRC8TPlySmth(void *, void *);
 s32 strcmp(const char *, const char *);
 s32 strncpy(void *, s32, s32);
 s32 memset(void *, s32, s32);
@@ -95,7 +95,7 @@ void handle_cmd_9A__9TProtocolFR6packet(u8 *arg0, s32 *arg1) {
 void handle_cmd_9B__9TProtocolFR6packet(u8 *arg0, Regist_801DAD38 *arg1) {
     Regist_801DAD38 r = *arg1;
     Pkt_801DAD38 pkt;
-    bswap__21TRecvPsoRegistConnectFv(&r);
+    bswap__21TRecvPsoRegistConnectFv((s32)&r);
     if (strcmp(port_map_copyright, r.copyright) == 0) {
         reset__18PSOV3EncryptionTCPFUl(arg0 + 0x10BC, r.key0);
         reset__18PSOV3EncryptionTCPFUl(arg0 + 0x884, r.key1);
@@ -108,7 +108,7 @@ void handle_cmd_9B__9TProtocolFR6packet(u8 *arg0, Regist_801DAD38 *arg1) {
         strncpy((void *)(pkt.b), (s32)((s32)(arg0 + 0x3EC9)), (s32)(0x10));
         strncpy((void *)(pkt.c), (s32)((s32)(arg0 + 0x3F8A)), (s32)(0x10));
         strncpy((void *)(pkt.d), (s32)((s32)(arg0 + 0x3F9B)), (s32)(0x10));
-        __as__8TPlySmthFRC8TPlySmth(pkt.smth, arg0 + 0x18F8);
+        __as__8TPlySmthFRC8TPlySmth((s32)pkt.smth, (s32)(arg0 + 0x18F8));
         pkt.port = *(u16 *)(arg0 + 0x1908);
         strncpy((void *)(pkt.e), (s32)((s32)(arg0 + 0x3EDA)), (s32)(0x30));
         strncpy((void *)(pkt.f), (s32)((s32)(arg0 + 0x3F0A)), (s32)(0x30));

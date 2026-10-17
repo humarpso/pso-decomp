@@ -198,15 +198,15 @@ u8 *dispatch_shared_handler_a__6TLobbyFl(int);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
-u32 create_particle_emitter(void *, int);
-void bind_enemy_combat_stats(void *, s32, s32, s32);
+void *create_particle_emitter(void *pos, s32 id);
+s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 s32 init_collision_body_parts(void *, void *, int);
 s32 normalize_vector(void *);
 extern s32 lbl_804F322C[];
 extern s32 lbl_805D44B0;
 s32 TBoss6MagMine__ct(s32 arg0, s32 arg1, s32 arg2);
 s32 is_player_in_range__13TBoss6MagMineFPv(void *arg0_);
-void TBoss4DarkFalz__sub_8004B4F0(void *, s32);
+void TBoss4DarkFalz__sub_8004B4F0(void *arg0p, void *arg1p);
 s32 get_phase__8TObjFishFv();
 s32 get_mag_mine_ptr__11TBoss6Type1Fv(u32);
 s32 create__13TBoss6MagMineFi(s32 arg0);
@@ -217,7 +217,7 @@ void *__dt__13TUnk_804F322CFv(void *arg0, s16 arg1);
 void copy_pos__13TBoss6MagMineFi(s32 arg0);
 void TBoss6PlotFalz__sub_802AC008(f32 farg0, f32 farg1);
 int post_translate_matrix(void*);
-int spawn_particle_effect_with_flags(void*, void*, void*);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 s32 TObjControl__ct(s32, s32);
 void free_collision_body_parts(void *);
 void draw_model_motion(void *arg0, void *arg1, f32 farg0);
@@ -230,7 +230,7 @@ s32 pop_matrix(void);
 void __dl__7TObjectFPv(void *);
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 s32 __nw__7TObjectFUl(s32);
-int queue_destruction__7TObjectFv(void*);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TUnk_804F322C::vfunc_63() {
     if ((s32) *(s32 *)((s8 *)this + 0x390) != 4) {
@@ -348,14 +348,14 @@ s32 is_player_in_range__13TBoss6MagMineFPv(void *arg0_) {
     return 0;
 }
 
-void vt4__13TBoss6MagMineFv(void* p) { spawn_particle_effect_with_flags((void*)((char*)p + 0x38), (void*)((void*)252), (void*)((void*)64)); queue_destruction__7TObjectFv((void*)(p)); }
+void vt4__13TBoss6MagMineFv(void* p) { spawn_particle_effect_with_flags(((char*)p + 0x38), (s32)((void*)252), (s32)((void*)64)); queue_destruction__7TObjectFv((void *)(p)); }
 
 void vt3__13TBoss6MagMineFv(s32 arg0) {
     explode__13TBoss6MagMineFPv((Mine_80368C14 *)(arg0));
-    spawn_particle_effect_with_flags((void*)(arg0 + 0x38), (void*)(0xFB), (void*)(0x40));
-    spawn_particle_effect_with_flags((void*)(arg0 + 0x38), (void*)(0xFC), (void*)(0x40));
+    spawn_particle_effect_with_flags((void *)(arg0 + 0x38), (0xFB), (0x40));
+    spawn_particle_effect_with_flags((void *)(arg0 + 0x38), (0xFC), (0x40));
     TBoss6PlotFalz::apply_radial_effect_to_players((void *)(arg0 + 0x38), (s16)0xC0, (s16)0xF, (f32)100.0f);
-    queue_destruction__7TObjectFv((void*)(arg0));
+    queue_destruction__7TObjectFv((void *)(arg0));
 }
 
 #pragma push
@@ -534,7 +534,7 @@ s32 TBoss6MagMine__ct(s32 arg0, s32 parent, s32 arg2) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     *(f32 *)((s8 *)self + 0x308) = *(f32 *)((s8 *)self + 0x30C) = *(f32 *)((s8 *)self + 0x310) = 0.0f;
     *(s32 *)((s8 *)self + 0x2A8) = 0;
-    bind_enemy_combat_stats(self, register_boss__6TLobbyFl(0x2D), dispatch_shared_handler_b__6TLobbyFl(0x2D), register_object__6TLobbyFl(0x2D));
+    bind_enemy_combat_stats(self, (u8 *)(register_boss__6TLobbyFl(0x2D)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(0x2D)), (u8 *)(register_object__6TLobbyFl(0x2D)));
     *(s16 *)((s8 *)self + 0x33E) = *(s16 *)((s8 *)self + 0x32C);
     ((TBoss3Volopt *)self)->reset_photon_effect();
     ((TObjEneLappy *)self)->set_param(0);
@@ -561,7 +561,7 @@ s32 TBoss6MagMine__ct(s32 arg0, s32 parent, s32 arg2) {
     normalize_vector(self + 0x378);
     *(f32 *)((s8 *)self + 0x378) *= 4.166667f;
     *(f32 *)((s8 *)self + 0x380) *= 4.166667f;
-    *(u32 *)((s8 *)self + 0x3B0) = create_particle_emitter(self + 0x38, 0x146);
+    *(u32 *)((s8 *)self + 0x3B0) = (u32)create_particle_emitter(self + 0x38, 0x146);
     if (*(u32 *)((s8 *)self + 0x3B0) != 0U) {
         ((TBoss4Type2 *)(*(void **)((s8 *)self + 0x3B0)))->set_flags(0x40);
     }
@@ -592,7 +592,7 @@ void spawn_mag_mine_at__13TBoss6MagMineFPvPv(void *arg0, void *arg1) {
     if (boss == 0 || get_phase__8TObjFishFv() != 6) {
         return;
     }
-    TBoss4DarkFalz__sub_8004B4F0(&p, get_mag_mine_ptr__11TBoss6Type1Fv(boss));
+    TBoss4DarkFalz__sub_8004B4F0(&p, (void *)(get_mag_mine_ptr__11TBoss6Type1Fv(boss)));
     ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&p.a, arg0);
     ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&p.b, arg1);
     p.f8 = 1;

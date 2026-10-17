@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/boss/TBoss4Type2_800874F4.h"
 #include "pso/misc/TCameraCtrl_800687BC.h"
 #include "pso/object/TObject_80019A50.h"
@@ -20,7 +21,6 @@ struct Vec_8033CDF8 { f32 x, y, z; };
 struct Fish_8033CDF8 { u8 pad[0x4C]; Vec_8033CDF8 vecs[3]; };
 
 extern "C" {
-s32 play_persistent_sound(int, void *, int, int, int);
 s32 play_sound_effect(int, int, int, int);
 extern Range_8033CDF8 fish_spawn_entry_table[];
 int clear_render_callback__8TObjFishFv(void);
@@ -100,7 +100,7 @@ void TBoss6Demo11_TYPE1_DEAD::run_task() {
         break;
     }
     if (F(s32, 0x44) >= 0x89) {
-        play_persistent_sound(0x4003A424, arg0, 0, 0, 0);
+        play_persistent_sound(0x4003A424, (s32)arg0, 0, 0, 0);
     }
     switch (F(s32, 0x44)) {
     case 0xE:

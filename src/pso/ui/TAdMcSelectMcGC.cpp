@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
+#include "pso/ui/TAdMcSelectCursorGC_8032A610.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/TAdMcSelectMcGC.h"
 #include "pso/TMainTask.h"
@@ -19,16 +21,12 @@ struct Mc_8032A7C8 {
 
 extern "C" {
 u32 get_mc_count__13TAdMcSelectGCFv(void);
-s32 TAdMcSelectCursorGC__sub_8032A6D8(void *);
 void *get_cursor_type__19TAdMcSelectCursorGCFi(s32);
 s32 TAdMcSelectMcGC__sub_8032AAC4(void);
 extern const f32 lbl_805DF74C;
 extern const f32 lbl_805DF750;
 extern const f32 lbl_805DF754;
 extern const f32 lbl_805DF758;
-s32 draw_textured_quad_at_depth(void *, f32);
-void begin_screen_draw(s32 arg0);
-void set_draw_texture_and_color(s32 idx, s32 arg1);
 void restore_saved_depth_alpha_state(void);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
@@ -40,7 +38,7 @@ void TAdMcSelectMcGC::draw_status_window() {
     begin_screen_draw((1));
     TObjFish::set_global_param((s32)((void *) (TAdMcSelectMcGC__texture_list_ptr)));
     set_draw_texture_and_color((0), ((*(s32 *)((s8 *)arg0 + 0x120) << 0x18) | 0xFF0000 | 0xFFFF));
-    draw_textured_quad_at_depth((void *) (arg0 + 0x20), (f32) (lbl_805DF748));
+    draw_textured_quad_at_depth((f32 *)(arg0 + 0x20), (f32) (lbl_805DF748));
     TWindowSubStatusDisp::get_player();
 }
 

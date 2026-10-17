@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowChatSymbol_802486A8.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 #include "pso/misc/TLobby.h"
@@ -87,7 +88,6 @@ void *get_parts_entry__28TWindowSubSymbolChatPartsSetFii(void *, s32);
 s32 is_flag_set__11TLoadingCurFv(void *, s32);
 s32 is_on_current_screen__11TCameraCtrlFv(void *, s32);
 s32 update_visibility__28TWindowSubSymbolChatPartsSetFv(void *, s16);
-void TWindowChatSymbol__ct(void *, void *, void *);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
 extern u8 lbl_8044FC30[];
@@ -109,7 +109,6 @@ void render__28TWindowSubSymbolChatPartsSetFv(u8 *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 draw_visible_window_entries(void *, void *, int, f32);
 void __dl__7TObjectFPv(void *);
-void *__dt__17TWindowChatSymbolFv(void *arg0, s16 arg1);
 u8 *draw_default_entry__9TWindowDDFl();
 s32 forward_render__20TWindowSubStatusDispFv(int, int);
 
@@ -325,7 +324,7 @@ void *__dt__28TWindowSubSymbolChatPartsSetFv(void *arg0, s16 arg1) {
 }
 T_802869BC *TWindowSubSymbolChatPartsSet__ct(T_802869BC *self, void *parent, s16 arg2, s32 arg3, s32 arg4) {
     void *h;
-    TWindowChatSymbol__ct(self, parent, lbl_8044FC30);
+    TWindowChatSymbol__ct((u8 *)self, (s32)parent, (s32)lbl_8044FC30);
     self->vt = ((s32 *)&__vt__28TWindowSubSymbolChatPartsSet);
     self->f0 = TWindowSubSymbolChatPartsSet__name;
     ((TLobby *)self)->set_field_1c(lbl_805DD824);

@@ -23,9 +23,9 @@ s32 is_split_screen();
 extern s32 local_client_id;
 extern s32 lbl_805D53A8;
 s32 reset_quest_result_callbacks__22THunterGuildSeqOfflineFPv();
-s32 queue_destruction__7TObjectFv(u32);
+void queue_destruction__7TObjectFv(void *arg0);
 extern u32 quest_mission_manager;
-Ctrl_801A2E00 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 
 void TLobby::reset_keyboard_input() { TKeyBoardControl::reset(); TKeyBoardControl__sub_8000F92C(); clear_keyboard_key_state(); TKeyBoardControl__sub_8000F95C(); TLobby::clear_counter(); }
 void TLobby::shutdown_keyboard_control() { TKeyBoardControl::reset(); TLobby::reset_quest_state(); TKeyBoardControl__sub_8000F92C(); clear_keyboard_key_state(); TKeyBoardControl__sub_8000F95C(); TLobby::clear_counter(); }
@@ -40,7 +40,7 @@ void TLobby__sub_801A2E00(void) {
         case 2: {
             s32 i;
             for (i = 0; i < 4; i++) {
-                Ctrl_801A2E00 *c = get_player_by_client_id(i);
+                Ctrl_801A2E00 *c = (Ctrl_801A2E00 *)get_player_by_client_id(i);
                 if (c != NULL && c != NULL) {
                     c->v0(1);
                 }
@@ -82,7 +82,7 @@ void TLobby::reset_quest_state() {
     TLobby::reset_floor_items();
     TNpcPlayer::enable_all_battle_ctrl();
     if ((u32) quest_mission_manager != 0U) {
-        queue_destruction__7TObjectFv(quest_mission_manager);
+        queue_destruction__7TObjectFv((void *)quest_mission_manager);
     }
     clear_enabled_main_warps();
     reset_quest_result_callbacks__22THunterGuildSeqOfflineFPv();

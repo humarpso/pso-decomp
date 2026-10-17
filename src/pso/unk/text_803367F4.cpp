@@ -1,13 +1,12 @@
 #include "types.h"
+#include "pso/misc/TLobby_80335E08.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
+#include "pso/unk/text_803367F4.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/player/TObjPlayer.h"
 struct Quad_80336874 { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 
 extern "C" {
-void bind_title_texture_list(void);
-void begin_screen_draw(s32 arg0);
-s32 draw_textured_quad_at_depth(void *, f32);
-void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern const f32 lbl_805DF910;
 extern const f32 lbl_805DF914;
 extern const f32 lbl_805DF918;
@@ -20,7 +19,6 @@ extern const f32 lbl_805DF934;
 extern const f32 lbl_805DF938;
 extern const f32 lbl_805DF93C;
 extern const f32 lbl_805DF940;
-void draw_title_background_pulse(s32 arg0, s32 arg1, f32 farg0);
 #pragma push
 #pragma fp_contract on
 void draw_title_background_pulse(s32 arg0, s32 arg1, f32 farg0) {
@@ -46,7 +44,7 @@ void draw_title_background_pulse(s32 arg0, s32 arg1, f32 farg0) {
         q.v0 = lbl_805DF938;
         q.u1 = lbl_805DF93C;
         q.v1 = lbl_805DF940;
-        draw_textured_quad_at_depth(&q, lbl_805DF91C / farg0);
+        draw_textured_quad_at_depth((f32 *)&q, lbl_805DF91C / farg0);
         TWindowSubStatusDisp::get_player();
         TObjPlayer::reset_transform_state();
     }

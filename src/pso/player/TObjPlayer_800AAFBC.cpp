@@ -192,7 +192,7 @@ void queue_destruction__7TObjectFv(void *);
 extern s32 lbl_80491478[];
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 csnVector(void *, void *, int);
-s32 get_player_by_client_id(int);
+void *get_player_by_client_id(s32 i);
 s32 vec3_add_to(void *, void *);
 extern const f32 lbl_805D9B5C;
 extern const f32 lbl_805D9B60;
@@ -202,7 +202,7 @@ extern const f32 lbl_805D9B10;
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 push_matrix_from(void *);
 extern RecoveredGlobal_800ABA9C_lbl_8058D490 identity_matrix;
-s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
+void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern Vec_800AB31C lbl_8043ACE0[];
 extern s32 lbl_80491460[];
@@ -323,7 +323,7 @@ void TObjPlayer__sub_800AB1C8(u8 *arg0) {
     if (!arg0)
     {
     }
-    new_var = get_player_by_client_id((int) var_r31);
+    new_var = (s32)get_player_by_client_id(var_r31);
     ((TUnk_80491460 *)arg0)->try_hit_target((int)((int) new_var));
     var_r31 += 1;
   }
@@ -358,7 +358,7 @@ Obj_800AB31C *TObjPlayer__sub_800AB31C(Obj_800AB31C *arg0, void *arg1, s32 arg2,
     r.x = 0;
     r.y = arg2 + 0x4000;
     r.z = 0x4000;
-    arg0->f5C = spawn_particle_effect_with_rotation(arg1, &r, 0x6D, 2);
+    arg0->f5C = (s32)spawn_particle_effect_with_rotation(arg1, &r, 0x6D, 2);
     arg0->f60 = 0;
     arg0->f68 = arg4;
     return arg0;

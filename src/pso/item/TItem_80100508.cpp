@@ -50,7 +50,7 @@ struct VObj_18_72f473 : VBase_18_72f473 {
 
 extern "C" {
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 spawn_particle_effect_with_flags(s32, s32, s32);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 s32 set_owner_id__13TParticleCtrlFUs(s32, s32);
 s32 get_id__13TItemProArmorFv(void *);
 s32 test_flag_2000000__10TObjPlayerFPv(u32);
@@ -64,7 +64,7 @@ void TItem::apply_switch_attack(s32 arg1) {
     s32 particle_effect_with_flags;
 
     if (((u32) this->m_f0 != 0U) && (test_flag_2000000__10TObjPlayerFPv(this->m_f0) == 0)) {
-        particle_effect_with_flags = spawn_particle_effect_with_flags(this->m_f0 + 0x2FC, arg1, 0x10);
+        particle_effect_with_flags = (s32)spawn_particle_effect_with_flags((void *)(this->m_f0 + 0x2FC), arg1, 0x10);
         if (particle_effect_with_flags != 0) {
             set_owner_id__13TParticleCtrlFUs(particle_effect_with_flags, get_id__13TItemProArmorFv(this));
         }

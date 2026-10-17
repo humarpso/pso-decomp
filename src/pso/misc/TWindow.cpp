@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TShopJudgmentItemWindow_8026DF00.h"
 #include "pso/quest/StoryQuestProgress.h"
 #include "pso/unk/text_801F3774.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -113,7 +114,7 @@ u16 obj_getField1c(void *);
 s32 get_quest_list_text(s32, s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
 void TWindow__close(u8 *arg0);
-void *create_yes_no_window(void *, s32, s32, s32);
+u8 *create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(s32);
 void *create_message_window__6TLobbyFllUls(void *, void *, s32, s32);
 void *get_window_layout_position(s32);
@@ -121,10 +122,9 @@ extern Pos_80216CF8 lbl_8044BEA4[];
 extern const f32 lbl_805DC694;
 extern const f32 lbl_805DC698;
 s32 get_story_flag(s32 flag);
-void *get_guild_text(s32);
+s32 get_guild_text(s32 arg0);
 s32 calc_list_content_extent(void *);
 void *set_window_mode_4__6TLobbyFPvll(void *, void *, s32);
-void *create_item_list_window(void *, s32, s32);
 extern Pos_80216F50 lbl_8044BE9C[];
 extern void *story_quest_list_resource;
 s32 get_selected_menu_value(u32);
@@ -229,7 +229,7 @@ void TQuestListOffline::update_list_navigation() {
             }
         }
         if (((Win_80216CF8 *)this)->f38 == NULL) {
-            ((Win_80216CF8 *)this)->f38 = create_yes_no_window(get_window_layout_position(0x2B), obj_getField1c(((Win_80216CF8 *)this)->f24), 0, 0);
+            ((Win_80216CF8 *)this)->f38 = create_yes_no_window((s32)(get_window_layout_position(0x2B)), obj_getField1c(((Win_80216CF8 *)this)->f24), 0, 0);
             ((TUnk_804CDFE8 *)(((Win_80216CF8 *)this)->f38))->set_position_xy(get_scale__15TShopWindowBaseFv(((Win_80216CF8 *)this)), get_scale__15TShopWindowBaseFv(((Win_80216CF8 *)this)));
             if (((Win_80216CF8 *)this)->f34 != NULL) {
                 ((Win_80216CF8 *)this)->f34->m7(5, 1);
@@ -251,8 +251,8 @@ void TQuestListOffline::init_quest_list_window() {
     }
     refresh_story_quest_availability(story_quest_list_resource);
     if (self->f3C == NULL) {
-        t = get_guild_text(0);
-        self->f3C = create_item_list_window(t, 0x40, obj_getField1c(self->f24));
+        t = (void *)get_guild_text(0);
+        self->f3C = create_item_list_window((s32)t, 0x40, obj_getField1c(self->f24));
         if (are_all_story_quests_complete() == 1) {
             e = self->f54;
             i = 0;

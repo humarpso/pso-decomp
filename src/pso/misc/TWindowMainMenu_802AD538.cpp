@@ -115,7 +115,7 @@ f32 TWindowSubComCard__sub_80244784(void *);
 s32 is_window_reveal_complete__13TUnk_804CE018Fv();
 s32 sub_80246948__13TUnk_804CE018Fv();
 s32 is_player_input_active(s32 param_1);
-s32 try_open__19TWindowKeyBoardSoftFii(void *, Rect_802AD538 *);
+s32 try_open__19TWindowKeyBoardSoftFii(s32 arg0, s32 arg1);
 Rect_802AE2B0 * open_singleton__19TWindowKeyBoardSoftFiiii(void *, void *, s32, f32, s32);
 s32 fn_8026CB68();
 void draw_item_labels__15TWindowMainMenuFv(Item_802AD538 *p, Win_802AD538 *w);
@@ -133,7 +133,7 @@ s32 is_not_split_screen__15TWindowMainMenuFv(void);
 s32 append_child_rows__15TWindowMainMenuFPvi(Menu_802ADD38 *arg0, s32 arg1);
 Rect_802AE2B0 * setup_content_frame__15TWindowMainMenuFPv(u8 *arg0);
 void begin_screen_draw(s32 arg0);
-void draw_textured_quad_at_depth(Rect_802AD538 *, f32);
+void draw_textured_quad_at_depth(f32 *q, f32 depth);
 void set_draw_texture_and_color(s32 idx, s32 arg1);
 
 extern UV_802AD538 main_menu_label_uv_table[];
@@ -195,8 +195,8 @@ void draw_item_labels__15TWindowMainMenuFv(Item_802AD538 *p, Win_802AD538 *w) {
         r.v0 = uv->v / 256.0f;
         r.u1 = (98.0f + uv->u) / 256.0f;
         r.v1 = (16.0f + uv->v) / 256.0f;
-        if (try_open__19TWindowKeyBoardSoftFii(w, &r) != 0) {
-            draw_textured_quad_at_depth(&r, scale);
+        if (try_open__19TWindowKeyBoardSoftFii((s32)w, (s32)&r) != 0) {
+            draw_textured_quad_at_depth((f32 *)&r, scale);
         }
         TWindowSubStatusDisp::get_player();
         TLanguage::set_entry_index(2, 0x4B);

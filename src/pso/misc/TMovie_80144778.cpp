@@ -27,7 +27,7 @@ struct Vec_80144778 { s32 x, y, z; };
 extern "C" {
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(int);
 u8 *initialize_movie_with_soundtrack(u8 *arg0, s8 *arg1, s32 arg2, s32 arg3, s32 arg4);
-u8 *load_rel_module(u8 *, void *);
+u8 *load_rel_module(u8 *arg0, s32 arg1);
 char *strncpy(char *, const char *, u32);
 extern u8 lbl_8043F380[];
 extern s32 TMovie__name;
@@ -35,7 +35,7 @@ void queue_destruction__7TObjectFv(void *arg0);
 u8 *__ct__10TAdEndTextFv(void *, void *);
 s32 TAdEndText__sub_8001B41C();
 u8 *__nw__7TObjectFUl(s32);
-s32 set_camera_look_at(void *, void *, void *);
+void set_camera_look_at(u8 *eye, u8 *target, u8 *up);
 void set_perspective_projection_from_fov(s32 arg0, f32 farg0, f32 farg1, f32 farg2);
 void func_803DCDFC__Fv(void);
 extern Vec_80144778 lbl_8043F2E8;
@@ -82,7 +82,7 @@ void run_task__6TMovieFv(u8 *arg0) {
             Vec_80144778 at = lbl_8043F2F4;
             Vec_80144778 up = lbl_8043F300;
             set_perspective_projection_from_fov(0x4B, lbl_805DB180, lbl_805DB184, lbl_805DB188);
-            set_camera_look_at(&eye, &at, &up);
+            set_camera_look_at((u8 *)&eye, (u8 *)&at, (u8 *)&up);
             ((TMovie *)(((TMovie *)arg0)->m_20))->update_stop();
             if (txt != NULL) {
                 txt->m1();
@@ -105,7 +105,7 @@ TMovie::TMovie(TObject *parent, s8 *name, s32 a3, s32 a4, s32 a5) : TObject(pare
     strncpy(((TMovie_80144910 *)this)->path, (const char *)name, 0x20);
     p = alloc__23TAdSinglePlyChrSelectGCFv(8);
     if (p != 0) {
-        p = load_rel_module(p, lbl_8043F380);
+        p = load_rel_module(p, (s32)lbl_8043F380);
     }
     ((TMovie_80144910 *)this)->obj1C = p;
     p = alloc__23TAdSinglePlyChrSelectGCFv(0xD0);

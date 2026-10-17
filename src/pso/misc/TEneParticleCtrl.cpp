@@ -21,17 +21,15 @@ struct O_80338D58 { u8 pad[0x72]; s16 idx; u8 pad2[2]; s16 count; };
 
 extern "C" {
 u16 obj_getField1c(void *);
-u32 spawn_continuous_particle_effect_with_flags(void *, int, int);
+void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
 s32 init_collision_body_parts(void *, void *, int);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern RecoveredGlobal_80338C88_lbl_804EF458 lbl_804EF458;
 extern s32 __vt__16TEneParticleCtrl[];
 extern s32 TEneParticleCtrl__name;
-u8 *TEneParticleCtrl__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *get_array_entry__13TUnk_804CE018Fi(void *, s16);
 s32 TWindowSubStatusDisp__sub_80338740(void *, void *, void *, void *, void *, void *, void *, void *, void *);
 void fn_80338D58(O_80338D58 *arg0, void *a1, void *a2, void *a3, void *a4, void *a5, void *a6, void *a7, void *a8);
-void *__dt__16TEneParticleCtrlFv(void *arg0, s16 arg1);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 int set_param_ptr__11TBoss4Type2Fl(void*);
@@ -69,7 +67,7 @@ u8 *TEneParticleCtrl__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((TBoss4DarkFalz *)arg0)->set_position_from((void *) (arg1 + 0x74));
     VecCopy((Vec *)(arg0 + 0xB4), (const Vec *)(arg1 + 0x2FC));
     *(s32 *)&((TEneParticleCtrl *)arg0)->m_b0 = arg2;
-    ((TEneParticleCtrl *)arg0)->m_c0 = spawn_continuous_particle_effect_with_flags((void *) (arg0 + 0xB4), (int) (*(s32 *)&((TEneParticleCtrl *)arg0)->m_b0), (int) (0x10));
+    ((TEneParticleCtrl *)arg0)->m_c0 = (u32)spawn_continuous_particle_effect_with_flags((arg0 + 0xB4), (*(s32 *)&((TEneParticleCtrl *)arg0)->m_b0), (0x10));
     temp_r3 = ((TEneParticleCtrl *)arg0)->m_c0;
     if (temp_r3 != 0U) {
         ((TParticleCtrl *)temp_r3)->set_owner_id((int) (((TEneParticleCtrl *)arg0)->m_1c));

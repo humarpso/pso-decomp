@@ -54,7 +54,7 @@ struct Laser_801AC17C {
 
 extern "C" {
 void construct_actor_base__10TObjPlayerFPvPv(void *, void *);
-s32 create_particle_emitter(Vec_801AC36C *, s32);
+void *create_particle_emitter(void *pos, s32 id);
 extern s32 __vt__12TPhotonLaser[];
 extern s32 lbl_805D34F0;
 Laser_801AC36C *TPhotonLaser__ct(Laser_801AC36C *self, Params_801AC36C *p, void *parent, s16 arg3);
@@ -148,7 +148,7 @@ Laser_801AC36C *TPhotonLaser__ct(Laser_801AC36C *self, Params_801AC36C *p, void 
     self->f34C.z *= p->scale;
     self->f358 = p->f24;
     self->f35C = p->f2C;
-    self->f364 = create_particle_emitter(&self->f340, 0x134);
+    self->f364 = (s32)create_particle_emitter(&self->f340, 0x134);
     self->f36C = 0;
     return self;
 }

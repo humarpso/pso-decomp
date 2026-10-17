@@ -208,7 +208,7 @@ extern "C" {
 s32 set_clamped_field27c__6TLobbyFPvf(s32 *);
 void apply_clamped_field_27c__6TLobbyFv(void);
 s32 get_field_0x280__6TLobbyFPv(void *p);
-s32 set_menu_index__6TLobbyFPvi(void *, int);
+void set_menu_index__6TLobbyFPvi(void *p, s32 v);
 s32 is_ready__6TLobbyFPv(s32 *);
 void is_sound_enabled(void);
 s32 is_special_sound_id(u32 x);
@@ -227,7 +227,7 @@ u16 TCameraCtrl__sub_8006A5DC();
 int TLobby__sub_8023F754(void*);
 int fade_out_sound_slot(void*, int);
 int fade_voice_channels__6TLobbyFi(void*);
-s32 get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 s32 bswap_6xB2_play_sound();
 s32 on_set_mode__6TLobbyFv(s32);
 void set_mode__6TLobbyFPvi(void *arg0, s32 arg1);
@@ -267,7 +267,7 @@ void handle_6xB2_play_sound_from_player(void *arg0) {
             play_sound_effect(*(s32 *)((s8 *)arg0 + 8), 0, 0, 0);
             return;
         }
-        player = get_player_by_client_id(local_client_id);
+        player = (s32)get_player_by_client_id(local_client_id);
         if (player != 0) {
             play_sound_effect(*(s32 *)((s8 *)arg0 + 8), player + 0x38, 0, 0);
         }
@@ -304,7 +304,7 @@ typedef char RecoveredGlobal_80069094_camera_controller_registry_size[sizeof(Rec
 typedef char RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4_size[sizeof(RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_800687C8_TCameraCtrl__data_804FF6C4_size[sizeof(RecoveredGlobal_800687C8_TCameraCtrl__data_804FF6C4) == 0xC ? 1 : -1];
 void TLobby::set_menu_index_main(u8 *arg0) {
-    set_menu_index__6TLobbyFPvi((void *)(&(*(RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 *)&sound_control_state).value), (int)(arg0));
+    set_menu_index__6TLobbyFPvi((&(*(RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 *)&sound_control_state).value), (s32)(arg0));
 }
 typedef char RecoveredGlobal_80069024_TCameraCtrl__data_804FF634_size[sizeof(RecoveredGlobal_80069024_TCameraCtrl__data_804FF634) == 0x48 ? 1 : -1];
 typedef char RecoveredGlobal_80069024_lbl_804FF67C_size[sizeof(RecoveredGlobal_80069024_lbl_804FF67C) == 0x48 ? 1 : -1];
@@ -505,12 +505,12 @@ extern s32 floor_sound_bank_table[];
 extern s32 floor_sound_bank_volume_table[];
 void load_floor_sound_bank(s32 arg0);
 s32 get_floor_map_terrain(s32);
-int pop_sound_groups__6TLobbyFPvi(void*, void*);
+s32 pop_sound_groups__6TLobbyFPvi(void *p, s32 arg1);
 void __ct__7TObjectFP7TObject(void *);
 void memset(void *, int, int);
 
     extern float lbl_805DC76C;
-void TLobby::refresh_render_state() { pop_sound_groups__6TLobbyFPvi(sound_control_state, (void*)0); ((int (*)(float))apply_clamped_field_27c__6TLobbyFv)(lbl_805DC76C); render_tick__Fv(); }
+void TLobby::refresh_render_state() { pop_sound_groups__6TLobbyFPvi((void *)sound_control_state, (s32)((void*)0)); ((int (*)(float))apply_clamped_field_27c__6TLobbyFv)(lbl_805DC76C); render_tick__Fv(); }
 
 void load_floor_sound_bank(s32 arg0) {
     s32 temp_r0;

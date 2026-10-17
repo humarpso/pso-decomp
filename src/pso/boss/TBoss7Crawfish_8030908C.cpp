@@ -113,7 +113,7 @@ s32 register_boss__6TLobbyFl(int);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
 s32 set_field_b8__10TObjMotionFs(void *, int);
-s32 bind_enemy_combat_stats(void *, int, int, int);
+s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 s32 initialize__9TObjEnemyFPv();
 s32 TBoss7Crawfish__sub_80308ED8(void *, void *);
 extern s32 crawfish_collision_body_desc[];
@@ -201,12 +201,12 @@ u8 *TBoss7Crawfish__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     if (((TBoss7Crawfish *)arg0)->sub_80308AA8() != 0) {
         ((TObjEneLappy *)arg0)->set_param((int) (0x4A));
-        bind_enemy_combat_stats((void *) (arg0), register_boss__6TLobbyFl(8), dispatch_shared_handler_b__6TLobbyFl(8), register_object__6TLobbyFl(8));
+        bind_enemy_combat_stats((arg0), (u8 *)(register_boss__6TLobbyFl(8)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(8)), (u8 *)(register_object__6TLobbyFl(8)));
         *(s32 *)&((TBoss7Crawfish *)arg0)->m_3a0 = dispatch_shared_handler_a__6TLobbyFl((int) (8));
         *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) (TBoss7Crawfish__shared_resource), (int) (0));
     } else {
         ((TObjEneLappy *)arg0)->set_param((int) (0x4B));
-        bind_enemy_combat_stats((void *) (arg0), register_boss__6TLobbyFl(9), dispatch_shared_handler_b__6TLobbyFl(9), register_object__6TLobbyFl(9));
+        bind_enemy_combat_stats((arg0), (u8 *)(register_boss__6TLobbyFl(9)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(9)), (u8 *)(register_object__6TLobbyFl(9)));
         *(s32 *)&((TBoss7Crawfish *)arg0)->m_3a0 = dispatch_shared_handler_a__6TLobbyFl((int) (9));
         *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) (TBoss7Crawfish__shared_resource), (int) (1));
     }

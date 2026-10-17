@@ -1,11 +1,9 @@
 #include "types.h"
+#include "pso/misc/TLobby_80145E40.h"
+#include "pso/unk/text_803F4D84.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
-s32 TLobby__sub_803F5678(u8 *dst);
-s32 TLobby__sub_80145EE4(void);
-int TLobby__sub_80145E40(void);
-s32 TLobby__sub_803F517C(u8 *);
 
     extern unsigned short lbl_805D56CC;
 int TLobby__sub_80145E40(void) {  return (lbl_805D56CC & 0x1); }
@@ -41,24 +39,6 @@ s32 TLobby__sub_80145EE4(void) {
     return (sp8 == 1) ? 0 : 0;
 }
 
-s32 init_struct(u8 *arg0);
-s32 init_work(s32 arg0, u8 *arg1);
-s32 TLobby__sub_803F4EBC(char *dst, s32 len);
-s32 TLobby__sub_803F4FF4(void *);
-s32 TLobby__sub_803F50B8(void *);
-s32 TLobby__sub_803F524C(char *dst, s32 len);
-s32 TLobby__sub_803F53A0(s32, void *, s32);
-s32 TLobby__sub_803F5748(void *);
-s32 TLobby__sub_803F5824(void *);
-s32 TLobby__sub_803F5900(void *);
-s32 TLobby__sub_803F59DC(char *buf, u32 n);
-s32 TLobby__sub_803F5B20(char *buf, s32 n);
-s32 TLobby__sub_803F5C58(char *buf, s32 n);
-s32 TLobby__sub_803F5D90(char *buf, s32 n);
-s32 TLobby__sub_803F5EC8(char *buf, s32 n);
-s32 TLobby__sub_803F6000(char *buf, s32 n);
-s32 TLobby__sub_803F6138(char *buf, s32 n);
-s32 TLobby__sub_803F6270(u16 *arg0);
 s32 memset(void *, s32, s32);
 
 extern u16 lbl_805D56CC;
@@ -112,9 +92,9 @@ s32 init_work(s32 arg0, u8 *arg1) {
     memset((void *)(dst), (s32)(0), (s32)(0x20));
     memset((void *)(sp28), (s32)(0), (s32)(0x40));
     TLobby__sub_803F524C((char *)((s32 *)dst), 0x20);
-    TLobby__sub_803F53A0(0, arg1 + 0xA4, 0x40);
-    TLobby__sub_803F53A0(1, arg1 + 0xE4, 0x40);
-    TLobby__sub_803F53A0(2, arg1 + 0x124, 0x40);
+    TLobby__sub_803F53A0(0, (char *)(arg1 + 0xA4), 0x40);
+    TLobby__sub_803F53A0(1, (char *)(arg1 + 0xE4), 0x40);
+    TLobby__sub_803F53A0(2, (char *)(arg1 + 0x124), 0x40);
     return 0;
 }
 

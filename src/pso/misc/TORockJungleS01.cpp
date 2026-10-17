@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjChip.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
@@ -80,14 +81,13 @@ extern const f32 lbl_805DDD1C;
 extern u32 TORockJungleS01__texture_resource;
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-s32 load_gvm_texture_file(void *);
+u8 *load_gvm_texture_file(s32 arg0);
 extern u8 lbl_804658EC[];
 extern u8 lbl_80465904[];
 extern u8 lbl_8046591C[];
 extern u8 TORockJungleS01_resource_descriptor[];
 extern const f32 lbl_805DDD20;
 extern const f32 lbl_805DDD24;
-s32 construct_debris__8TObjChipFPvPvPv(void *, s32, void *);
 void *__nw__7TObjectFUl(int);
 s32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
@@ -131,7 +131,7 @@ void TORockJungleS01::vfunc_16() {
         p.f44 = get_jungle_rock_texture_resource(1);
         o = __nw__7TObjectFUl(0x234);
         if (o != NULL) {
-            construct_debris__8TObjChipFPvPvPv(o, tl_05, &p);
+            construct_debris__8TObjChipFPvPvPv((u8 *)o, (u8 *)tl_05, (u8 *)&p);
         }
     }
 }
@@ -220,14 +220,14 @@ void TORockJungleS01::load_resources() {
     TORockJungleS01__bml_resource = (u32)o;
     switch (TOKeyMachine01::get_global_state()) {
     case 27:
-        TORockJungleS01__texture_resource = load_gvm_texture_file(lbl_804658EC);
+        TORockJungleS01__texture_resource = (u32)load_gvm_texture_file((s32)lbl_804658EC);
         break;
     case 26:
-        TORockJungleS01__texture_resource = load_gvm_texture_file(lbl_80465904);
+        TORockJungleS01__texture_resource = (u32)load_gvm_texture_file((s32)lbl_80465904);
         break;
     case 25:
     default:
-        TORockJungleS01__texture_resource = load_gvm_texture_file(lbl_8046591C);
+        TORockJungleS01__texture_resource = (u32)load_gvm_texture_file((s32)lbl_8046591C);
         break;
     }
     TMotorcycle::add_entry((s16)0x3E, (s32)(TORockJungleS01::get_model(0)), (s32)(get_jungle_rock_texture_resource(0)), (f32)lbl_805DDD20, (f32)lbl_805DDD24);

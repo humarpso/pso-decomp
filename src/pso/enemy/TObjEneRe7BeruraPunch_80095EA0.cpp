@@ -41,7 +41,7 @@ extern "C" {
 extern const f32 lbl_805D979C;
 extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
 u8 * csnVector(s32, s32, s32);
-u8 *find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 s32 TObjEneRe7Berura__sub_80094D98();
 extern const f32 lbl_805D97A4;
 extern const f32 lbl_805D97A8;
@@ -164,7 +164,7 @@ void TObjEneRe7BeruraPunch::update_flight() {
 s32 TObjEneRe7BeruraPunch::sub_80096150() {
     u8 *entity;
     void *temp_r4_2;
-    entity = find_entity_by_id(this->m_b0);
+    entity = (u8 *)find_entity_by_id(this->m_b0);
     *(f32 *)((s8 *)(this->m_a4) + 4) = *(f32 *)&this->unk_CC;
     *(f32 *)((s8 *)(this->m_a4) + 0x30) = *(f32 *)&this->unk_CC;
     temp_r4_2 = this->m_a4;
@@ -196,7 +196,7 @@ void TObjEneRe7BeruraPunch::launch(s32 arg1, s32 arg2) {
     *(s32 *)&this->m_b8 = arg1;
     VecCopy((Vec *)&this->m_dc, (const Vec *)arg2);
     ((TObjEneRe7BeruraPunch *)arg0)->snap_to_ground();
-    entity = find_entity_by_id(this->m_b0);
+    entity = (u8 *)find_entity_by_id(this->m_b0);
     if (entity != NULL) {
         this->rotation_y = (s32) *(s32 *)((s8 *)entity + 0x60);
     } else {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803F4D84.h"
 #include "pso/network/NetworkInfoLoader.h"
 #include "pso/network/NetworkInfoRequests.h"
 #include "pso/ui/TAdPlayerLoadGC_803F18B8.h"
@@ -20,7 +21,6 @@ s32 TAdPlayerLoadGC__sub_803F31D8();
 s32 TLobby__sub_803F3BF8(int, s32, u32);
 s32 TAdPlayerLoadGC__sub_803F3CF4();
 s32 request_network_info_load(s32, void *);
-s32 TLobby__sub_803F53A0(int, void *, int);
 s32 memset(void *, int, int);
 extern s32 lbl_8043F3E8[];
 extern s16 disc_error_code;
@@ -167,7 +167,7 @@ s32 TLobby__sub_80145A94(void) {
         }
         memset(&buf, 0, 0x270);
         ((TLobby *)(buf.name))->copy_current_entry_name(0x80);
-        TLobby__sub_803F53A0(0, buf.x, 0x40);
+        TLobby__sub_803F53A0(0, (char *)buf.x, 0x40);
         if (buf.name[0] == 0 || buf.x[0] == 0) {
             return 0;
         }

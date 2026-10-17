@@ -233,9 +233,9 @@ extern s32 TOKeyJungleMain__data_804653C8[3];
 extern s32 game_difficulty_selection;
 void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 s32 minimap_render_gate(void *, u32, u16, s32, s32);
-s32 play_persistent_sound(int, void *, void *, int, int);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 s32 matrix_mult_vec(void *, void *, void *);
-s32 translate_matrix_vec3(void *, void *);
+void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 void set_matrix_identity(u8 *arg0);
 extern Vec_8029B640 lbl_804653E8;
 extern Vec_8029B640 lbl_804653F4;
@@ -354,14 +354,14 @@ void TODoorJungleMain::run_task() {
             flag = 0;
             *(f32 *)&this->m_b4 = (f32)(u32)(*(s32 *)((s8 *)(*(u8 * *)&this->m_bc) + 4) - 1);
         } else {
-            play_persistent_sound(0x43220, arg0, (u8 *)&this->position, 0, 0);
+            play_persistent_sound((s32)(0x43220), (s32)arg0, (u32)&this->position, (s32)(0), (s32)(0));
         }
         if (flag != 0) {
             if (++*(s32 *)&this->m_d8 % 30 == 0) {
                 a = lbl_804653E8;
                 b = lbl_804653F4;
                 set_matrix_identity((u8 *)&mtx);
-                translate_matrix_vec3(&mtx, (u8 *)&this->position);
+                translate_matrix_vec3((u8 *)&mtx, (u8 *)&this->position);
                 rotate_matrix_y((int)&mtx, this->rotation_y);
                 matrix_mult_vec(&mtx, &a, &a);
                 matrix_mult_vec(&mtx, &b, &b);

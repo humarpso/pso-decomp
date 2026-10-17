@@ -21,7 +21,7 @@ extern "C" void update_extension__14TOTrapChainSawFv();
 #pragma readonly_strings on
 
 extern "C" {
-s32 fn_802C9924(s32);
+u8 *fn_802C9924(s32 arg0);
 s32 get_motion__17TOTrapChainSawKeyFl(s32);
 s32 get_model__17TOTrapChainSawKeyFl(int, f32);
 void vfunc_16__17TOTrapChainSawKeyFv(u8 *arg0);
@@ -216,7 +216,7 @@ s32 TOTrapAncient02R__sub_80154D78(void *);
 void free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, int, int);
 s32 init_map_object_base(void *, void *);
-s32 get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 void draw_ginja_model__10TObjPlayerFl(void *, void *, f32);
 s32 play_persistent_sound(void *, void *, void *, int, int);
 u8 is_current_floor_switch_set(u16);
@@ -258,7 +258,7 @@ void run_task__14TOTrapChainSawFv(void *arg0);
 void decode_params__14TOTrapChainSawFv(void *arg0);
 void * __dt__14TOTrapChainSawFv(void *arg0, s16 arg1);
 u8 * TOTrapChainSaw__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 TOTrapChainSawDamage__sub_802C9C00(void *, int);
+void TOTrapChainSawDamage__sub_802C9C00(u8 *arg0, s32 arg1);
 void debug_printf_at(s32, const char *, ...);
 void rotate_matrix_y(int, void *);
 void push_matrix(void);
@@ -335,7 +335,7 @@ void TOTrapChainSawEdge::vfunc_16() {
     *(s32 *)((s8 *)this + 0xFC) = x < 0 ? 0 : (x > 1 ? 1 : x);
     *(s32 *)((s8 *)this + 0xC8) = ((s32 (*)(s32))get_model__17TOTrapChainSawKeyFl)(a.v[*(s32 *)((s8 *)this + 0xFC)]);
     *(s32 *)((s8 *)this + 0xBC) = get_motion__17TOTrapChainSawKeyFl(b.v[*(s32 *)((s8 *)this + 0xFC)]);
-    *(s32 *)((s8 *)this + 0x24) = fn_802C9924(0);
+    *(s32 *)((s8 *)this + 0x24) = (s32)fn_802C9924(0);
     *(f32 *)((s8 *)this + 0xB4) = (0.0f);
     *(f32 *)((s8 *)this + 0xB8) = (1.0f);
 }
@@ -505,7 +505,7 @@ void TOTrapChainSawKey::vfunc_16() {
     *(s32 *)((s8 *)((u8 *)this) + 0xF8) = (x < 0) ? 0 : ((x > 1) ? 1 : x);
     *(s32 *)((s8 *)((u8 *)this) + 0xC8) = ((s32 (*)(int))get_model__17TOTrapChainSawKeyFl)(a.v[*(s32 *)((s8 *)((u8 *)this) + 0xF8)]);
     *(s32 *)((s8 *)((u8 *)this) + 0xBC) = get_motion__17TOTrapChainSawKeyFl((s32)(b.v[*(s32 *)((s8 *)((u8 *)this) + 0xF8)]));
-    *(s32 *)((s8 *)((u8 *)this) + 0x24) = fn_802C9924((s32)(3));
+    *(s32 *)((s8 *)((u8 *)this) + 0x24) = (s32)fn_802C9924((3));
     *(f32 *)((s8 *)((u8 *)this) + 0xB4) = (0.0f);
     *(f32 *)((s8 *)((u8 *)this) + 0xB8) = (1.0f);
     *(s32 *)((s8 *)((u8 *)this) + 0xFC) = get_model__17TOTrapChainSawKeyFl((int)(2), (0.0f));
@@ -564,10 +564,10 @@ void TOTrapChainSawDamage::vfunc_27() {
     *(s32 *)((s8 *)((u8 *)this) + 0x100) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x100) + 1);
     void *p;
     if (((s32) *(s32 *)((s8 *)((u8 *)this) + 0x100) == 5) && ((p = *(void **)((s8 *)((u8 *)this) + 0x104)) != NULL)) {
-        TOTrapChainSawDamage__sub_802C9C00(p, (int) (1));
+        TOTrapChainSawDamage__sub_802C9C00((u8 *)p, (1));
     }
     if (((s32) *(s32 *)((s8 *)((u8 *)this) + 0x100) == 0xA) && ((p = *(void **)((s8 *)((u8 *)this) + 0x108)) != NULL)) {
-        TOTrapChainSawDamage__sub_802C9C00(p, (int) (1));
+        TOTrapChainSawDamage__sub_802C9C00((u8 *)p, (1));
     }
     ((s32 (*)(s32, void *, void *, int, int))play_persistent_sound)(((s32 (*)(void *, int))get_area_table_value__17TOTrapChainSawKeyFii)((void *) (((u8 *)this)), (int) (0)), (void *) (((u8 *)this)), (void *) (((u8 *)this) + 0x38), (int) (0), (int) (0));
 }
@@ -645,7 +645,7 @@ void TOTrapChainSawDamage__vt14(Obj_802C8C60 *arg0, f32 _w1) {
     arg0->fF8 = v < 0 ? 0 : (v > 1 ? 1 : v);
     arg0->fC8 = get_model__17TOTrapChainSawKeyFl((int)(a.v[arg0->fF8]), _w1);
     arg0->fBC = get_motion__17TOTrapChainSawKeyFl(b.v[arg0->fF8]);
-    arg0->f24 = fn_802C9924(0);
+    arg0->f24 = (s32)fn_802C9924(0);
     arg0->fB4 = (0.0f);
     arg0->fB8 = (1.0f);
 }
@@ -812,7 +812,7 @@ int TOTrapChainSaw::check_player_contact() {
     s32 t;
     if (TRaderMapCore::is_not_split_screen() == 1) {
         for (i = 0; i < 4; i++) {
-            p = get_player_by_client_id(i);
+            p = (s32)get_player_by_client_id(i);
             if (p != 0 && ((VObj_802C91DC *)this)->m17(p) == 0) {
                 if (((TObjPlayer *)p)->get_field_3e4() == ((s32 (*)(void))get_current_floor)()) {
                     t = *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0x60);
@@ -828,7 +828,7 @@ int TOTrapChainSaw::check_player_contact() {
     } else {
         s32 q;
         s32 t2;
-        q = get_player_by_client_id(local_client_id);
+        q = (s32)get_player_by_client_id(local_client_id);
         if (q != 0 && ((VObj_802C91DC *)this)->m17(q) == 0) {
             if (((TObjPlayer *)q)->get_field_3e4() == ((s32 (*)(void))get_current_floor)()) {
                 t2 = *(s32 *)((s8 *)((VObj_802C91DC *)this) + 0x60);

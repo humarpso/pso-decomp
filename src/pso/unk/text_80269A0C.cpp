@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_8025A9B4.h"
 #include "pso/misc/TWindowMessage.h"
 #include "pso/misc/TWindowSubComCard.h"
 struct Entry_80269A0C {
@@ -38,7 +39,6 @@ struct Msg_80269A0C {
 extern "C" {
 Entry_80269A0C *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void measure_message_text_width(void *, f32);
-void set_text_entry_string(void *, s32, s32);
 extern const f32 lbl_805DD218;
 extern const f32 lbl_805DD21C;
 extern const f32 lbl_805DD234;
@@ -77,9 +77,9 @@ s32 append_message_window_line(Msg_80269A0C *self, s32 text, s32 flags, s32 arg3
     e->fC = self->f80;
     e->f24 = arg3;
     if (flags & 2) {
-        set_text_entry_string(e, text, 0x20);
+        set_text_entry_string((u8 *)e, text, 0x20);
     } else {
-        set_text_entry_string(e, text, 0);
+        set_text_entry_string((u8 *)e, text, 0);
     }
     if (flags & 0x20) {
         e->flags |= 1;

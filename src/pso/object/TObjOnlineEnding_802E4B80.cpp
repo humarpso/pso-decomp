@@ -215,7 +215,7 @@ struct Obj_802E4C70 {
 extern "C" {
 void *get_player_by_client_id(s32 i);
 s32 activate_camera_mode(s32);
-s32 set_active_camera_pose_from_params(Cam_802E4E44 *);
+void set_active_camera_pose_from_params(u8 *arg0);
 void queue_destruction__7TObjectFv(void *arg0);
 extern Vec_802E4E44 lbl_80472B9C;
 extern Vec_802E4E44 lbl_80472BA8;
@@ -335,7 +335,7 @@ void TObjOnlineEnding::run_task() {
         VecCopy((Vec *)&cam.a, (const Vec *)&t1);
         VecCopy((Vec *)&cam.b, (const Vec *)&t2);
         cam.f14 = 0x1999;
-        set_active_camera_pose_from_params(&cam);
+        set_active_camera_pose_from_params((u8 *)&cam);
         arg0->state = 2;
         break;
     }

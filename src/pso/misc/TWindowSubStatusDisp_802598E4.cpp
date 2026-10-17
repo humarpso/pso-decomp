@@ -21,7 +21,7 @@ struct Pos_80259A84
 
 extern "C" {
 f32 fabs_float(f32, f32);
-s32 play_persistent_sound(int, void *, int, int, int);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 extern const f32 lbl_805DCF58;
 extern const f32 lbl_805DCF5C;
 extern const f32 lbl_805DCF60;
@@ -257,7 +257,7 @@ void TWindowSubStatusDisp::update_pb_counter_approach() {
     f32 temp_f31;
     if (*(f32 *)((s8 *)((u8 *)this) + 0x28) != *(f32 *)((s8 *)((u8 *)this) + 0x24)) {
         if (*(u16 *)((s8 *)((u8 *)this) + 0) & 8) {
-            play_persistent_sound((int) (0x44E03), (void *) (((u8 *)this)), (int) (0), (int) (0), (int) (0));
+            play_persistent_sound((0x44E03), (s32)(((u8 *)this)), (0), (0), (0));
         }
         temp_f2 = *(f32 *)((s8 *)((u8 *)this) + 0x28);
         temp_f30 = temp_f2 - *(f32 *)((s8 *)((u8 *)this) + 0x24);

@@ -1,4 +1,6 @@
 #include "pso/TParticleCtrl.h"
+#include "pso/misc/ParticleOrbit.h"
+#include "pso/misc/TParticleCtrl.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_8048E778.h"
@@ -150,12 +152,8 @@ struct OIVec_8008B060 { s32 x, y, z; };
 extern "C" {
 void *alloc_particle_memory(int);
 void queue_destruction__7TObjectFv(void *arg0);
-u8 *__dt__13TUnk_8048E728Fv(u8 *arg0, s16 arg1);
-u8 *create_orbit_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 extern const f32 TParticleCtrl__data_805D9528;
 extern s32 TParticleCtrl__data_8048E790[];
-void *__dt__13TUnk_8048E790Fv(void *arg0, s16 arg1);
-u8 * init_particle_base(void *, void *, s32);
 s32 rand(void);
 s32 is_split_screen();
 s32 setup_particle_tev(s32);
@@ -183,7 +181,6 @@ extern const f32 lbl_805D9544;
 extern const f32 lbl_805D9548;
 extern const f32 lbl_805D954C;
 extern const f32 lbl_805D9550;
-u8 *init_orbit_sprite_particle(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, u16 arg5, s16 arg6);
 void __ct__7TObjectFP7TObject(void *, void *);
 
 extern void *__vt__13TParticleCtrl[];

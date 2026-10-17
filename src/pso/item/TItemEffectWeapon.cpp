@@ -9,7 +9,7 @@ extern "C" {
 s32 get_mode__11TCameraCtrlFPv(void *p);
 void restore_saved_depth_alpha_state();
 void reset_player_transform();
-void draw_untextured_trail_strip(TItemEffectWeapon::TrailVertex*, s32);
+void draw_untextured_trail_strip(void *arg0, void *arg1);
 void TObjPlayer__sub_803DF768(s32);
 void set_flag_9__7TObjectFv(void*);
 void *mem_alloc(u32 size);
@@ -98,7 +98,7 @@ void TItemEffectWeapon::render_trail() {
             TObjPlayer::init_xyz_limits();
             if (vertex_count > 2) {
                 TObjPlayer__sub_803DF768(1);
-                draw_untextured_trail_strip(vertices, vertex_count);
+                draw_untextured_trail_strip((void *)vertices, (void *)vertex_count);
                 reset_player_transform();
             }
             TObjPlayer::reset_transform_state();

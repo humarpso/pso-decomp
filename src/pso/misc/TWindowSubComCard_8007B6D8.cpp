@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_8007A810.h"
 #include "pso/misc/TWindowSubComCard_8007B6D8.h"
 #include "pso/misc/TWindowSubComCard.h"
 
@@ -8,7 +9,6 @@ extern "C" {
 s32 TWindowSubComCard__sub_8007B6F4(O_8007B6F4 *self);
 int send_subcommand_to_client__6TLobbyFUl(void*, void*);
 int bswap__16TPlyGuildCardTagFv(void*);
-void init_guild_card_tag__17TWindowSubComCardFi(void *);
 int read_be16_field2__10TObjPlayerFv(void*);
 
 s32 TWindowSubComCard::get_card_id() { return *(s32 *)&this->m_flags; }
@@ -30,7 +30,7 @@ void TWindowSubComCard::init_card(void* a1) { bswap_guild_card(); send_subcomman
 int TWindowSubComCard::get_keyboard_mode() {  return com_card_keyboard_mode; }
 
 void *TWindowSubComCard::init_guild_card() {
-    init_guild_card_tag__17TWindowSubComCardFi((void *)((char *)this + 4));
+    init_guild_card_tag__17TWindowSubComCardFi((s32)((char *)this + 4));
     *(u8 *)&this->m_name = 6;
     *(u8 *)((s8 *)this + 0x1) = 37;
     return this;

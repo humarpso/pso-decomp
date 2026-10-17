@@ -79,7 +79,7 @@ s32 clear_creation_shape_eval_masks(f32 *dst, const f32 *a, const f32 *b, const 
 s32 scan_creation_resources(void *arg0);
 int fn_8001ED90(void *p);
 void update_pair__23TAdSinglePlyChrSelectGCFPv(void* p);
-void ***relocate_data_block_pointers(s32, s32);
+u32 relocate_data_block_pointers(u32 arg0, u32 arg1);
 extern s32 char_select_active_flag;
 int TAdSinglePlyChrSelectGC__sub_802905B8(void);
 void close_if_active__23TAdSinglePlyChrSelectGCFv(u8 * _w0);
@@ -1047,7 +1047,7 @@ struct Sel_802902CC {
 s32 load_resource_from_descriptor(s32, s32, s32, s32, s32, s32);
 void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 s32 TObjMotion__ct(void *, void *);
-s32 mem_alloc(s32);
+void *mem_alloc(u32 size);
 void reset_character_creation_figure_rotation(void);
 extern s32 lbl_805D3BBC;
 extern void *creation_menu_main_obj;
@@ -1094,7 +1094,7 @@ void *TCMCharacter__ct(void *arg0, void *arg1) {
     ((TObjPlayer *)arg0)->set_field_dc(*(s32 *)((s8 *)creation_menu_main_obj + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = creation_motion_group(creation_player_character);
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    *(s32 *)((s8 *)arg0 + 0xE0) = mem_alloc(0xC00);
+    *(s32 *)((s8 *)arg0 + 0xE0) = (s32)mem_alloc(0xC00);
     *(f32 *)((s8 *)arg0 + 0x40) = lbl_805DD940;
     *(f32 *)((s8 *)arg0 + 0x3C) = lbl_805DD940;
     *(f32 *)((s8 *)arg0 + 0x38) = lbl_805DD940;
@@ -1323,7 +1323,7 @@ void TCMCharacter::apply_character_appearance() {
     if ((s32)lbl_80540928[head].a == 1) {
         chara_select_head_node = lbl_80540928[head].b;
     }
-    char_creation_data_block = relocate_data_block_pointers(this->shape_rel, this->shape_rel_size);
+    char_creation_data_block = (void ***)relocate_data_block_pointers(this->shape_rel, this->shape_rel_size);
     TCharaMaking__bind_body_shape_nodes((CharacterAppearanceFields *)((CharacterAppearanceFields *)app), (void *)(this->model));
     TCharaMaking__bind_head_shape_nodes((CharacterAppearanceFields *)((CharacterAppearanceFields *)app), (void *)((void *)chara_select_head_node));
     blend_creation_proportion_shapes(&((CharacterAppearanceFields *)creation_player_character)->width);

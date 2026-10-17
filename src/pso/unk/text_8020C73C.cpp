@@ -46,7 +46,7 @@ extern "C" {
 s32 get_current_floor();
 s32 set_flags_on_matching_entries__6TLobbyFlssl(s32, s32, s32, s32);
 Set_8020C73C *resolve_matching_object__6TLobbyFv(s32);
-Obj_8020C73C *construct_enemy_from_set_row(Set_8020C73C *);
+s32 construct_enemy_from_set_row(u8 *row);
 extern u8 *TLobby__data_805D6144;
 s32 TLobby::unhide_enemies_at(s32 arg0, s32 arg1, s32 arg2) {
     s32 n;
@@ -72,7 +72,7 @@ s32 TLobby::unhide_enemies_at(s32 arg0, s32 arg1, s32 arg2) {
         if (set->x != (s16)arg1) continue;
         if (set->z != (s16)arg2) continue;
         if (local != 0) {
-            obj = construct_enemy_from_set_row(set);
+            obj = (Obj_8020C73C *)construct_enemy_from_set_row((u8 *)set);
             if (obj != NULL) {
                 set->obj = obj;
                 set->flags |= 2;

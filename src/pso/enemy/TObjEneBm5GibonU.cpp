@@ -193,7 +193,7 @@ s32 translate_matrix(s32, f32, f32, f32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
-s32 draw_model_motion(s32, Motion_800CCE80 *, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern char lbl_8043C07C[];
 extern char lbl_8043C088[];
 extern char lbl_8043C094[];
@@ -242,7 +242,7 @@ int is_active__16TObjEneBm5GibonUFPv(void* p);
 s32 TObjEneBm5GibonU__sub_800D1D70(void* p);
 s32 obj_getField1c(int);
 s32 update_angle__10TObjPlayerFlPv(void *, s32, void *);
-u8 * find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 void * __nw__7TObjectFUl(u32);
 void TObjEneBm5GibonU__sub_800CD204(u8 *arg0);
 void TObjEneBm5GibonU__sub_800D0738(u8 *arg0, u32 arg1, s32 arg2);
@@ -815,7 +815,6 @@ __declspec(section ".data") u32 TObjEneBm5GibonU__enemy_list[3];
 #pragma pop
 #pragma push
 #define find_enemy_by_id__16TObjEneBm5GibonUFi ((s32 (*)(s32))find_enemy_by_id__16TObjEneBm5GibonUFi)
-#define TObjEneBm5GibonU__sub_800D1D78 ((u8 * (*)(u32))TObjEneBm5GibonU__sub_800D1D78)
 #define is_active__16TObjEneBm5GibonUFPv ((s32 (*)(void *))is_active__16TObjEneBm5GibonUFPv)
 #define gibon_collision_body_templates ((u8 *)&gibon_collision_body_templates)
 #define update_target__16TObjEneBm5GibonUFPv ((s32 (*)(void *))update_target__16TObjEneBm5GibonUFPv)
@@ -826,9 +825,6 @@ __declspec(section ".data") u32 TObjEneBm5GibonU__enemy_list[3];
 #define calc_anim_speed__16TObjEneBm5GibonUFPvf ((f32 (*)(void *, void *, f32))calc_anim_speed__16TObjEneBm5GibonUFPvf)
 #define TObjEneBm5GibonU__node_list ((Node_800CE060 * *)&TObjEneBm5GibonU__node_list)
 #define calc_rotated_vector__16TObjEneBm5GibonUFPviPvPv ((s32 (*)(void *, s32, Vec_800CF4BC *, s32 *))calc_rotated_vector__16TObjEneBm5GibonUFPviPvPv)
-#define TObjEneBm5GibonU__sub_800D10A0 ((s32 (*)(void *))TObjEneBm5GibonU__sub_800D10A0)
-#define forward_hit_to_enemy_list__16TObjEneBm5GibonUFi ((s32 (*)(void *))forward_hit_to_enemy_list__16TObjEneBm5GibonUFi)
-#define init_child_from_list__16TObjEneBm5GibonUFi ((s32 (*)(void *))init_child_from_list__16TObjEneBm5GibonUFi)
 #define update_center_position__16TObjEneBm5GibonUFv ((s32 (*)(void *))update_center_position__16TObjEneBm5GibonUFv)
 
 #define CAT2(a, b) a##b
@@ -2034,9 +2030,9 @@ void TObjEneBm5GibonU__sub_800CFFBC(u8 *arg0, s32 arg1);
 s32 transform_relative_position__9TObjEneDDFPv(void *, int);
 void queue_destruction__7TObjectFv(void *self);
 extern s32 game_difficulty_selection;
-s32 fn_8002B630(Col_800CCB74 *, void *);
+void fn_8002B630(u8 *arg0, u8 *arg1);
 u8 check_hit_sphere__16TObjEneBm5GibonUFPvif(Ene_800CCB74 *arg0, s32 arg1, f32 scale);
-s32 attach_particle_model(void *, s32, s32, s32, s32, f32);
+void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 Hit_800CCC6C *csnVectorUnder(Vec_800CCC6C *, void *, s32);
 void *spawn_particle_effect(void *, s32);
 s32 fn_800D88E4(void *);
@@ -2130,9 +2126,9 @@ u8 check_hit_sphere__16TObjEneBm5GibonUFPvif(Ene_800CCB74 *arg0, s32 arg1, f32 s
     ((TObjPlayer *)arg0)->update_enemy_collision_flags();
     hit = (col->flags & 0x380000) != 0;
     if (arg0->f464 == 1) {
-        fn_8002B630(col, gibon_collision_body_templates + 0x2C);
+        fn_8002B630((u8 *)col, gibon_collision_body_templates + 0x2C);
     } else {
-        fn_8002B630(col, gibon_collision_body_templates);
+        fn_8002B630((u8 *)col, gibon_collision_body_templates);
     }
     col->flags = savedFlags;
     arg0->f60 = saved60;
@@ -2151,7 +2147,7 @@ int spawn_landing_effect__16TObjEneBm5GibonUFPvPv(Ene_800CCC6C *arg0, void *arg1
     if (hit != NULL && (hit->flags & 4)) {
         p = spawn_particle_effect(hit->obj + 0x38, 0x49);
         if (p != NULL) {
-            attach_particle_model(p, TParticleCtrl::get_particle_model(2), TParticleCtrl::get_instance(), 0, 1, TObjEneBm5GibonU__data_805DA168);
+            attach_particle_model((u8 *)p, (s32)(TParticleCtrl::get_particle_model(2)), (s32)(TParticleCtrl::get_instance()), (s32)(0), (s32)(1), (f32)TObjEneBm5GibonU__data_805DA168);
             if (arg0->f464 == 1) {
                 ((TObjPlayer *)p)->set_position_xy(TObjEneBm5GibonU__data_805DA16C, TObjEneBm5GibonU__data_805DA168);
             }
@@ -2275,7 +2271,7 @@ void TObjEneBm5GibonU::render_debug() {
         translate_matrix(0, 0.0f, 0.0f, TObjEneBm5GibonU__data_805DA18C);
         TObjPlayer::toggle_particle_effect();
         TObjPlayer::set_global_flag();
-        draw_model_motion(self->model, motion, frame);
+        draw_model_motion((void *)self->model, motion, frame);
         TObjPlayer::clear_global_state();
         TParticleCtrl::end_effect_render();
         pop_matrix();
@@ -2295,12 +2291,12 @@ s32 TObjEneBm5GibonU::vfunc_83() {
 
     if (get_target_info__9TObjEneDDFv() != 0) {
         temp_r31 = *(s32 *)((s8 *)this + 0x464);
-        TObjEneBm5GibonU__sub_800D10A0(this);
+        TObjEneBm5GibonU__sub_800D10A0((u8 *)this);
         if (temp_r31 != (s32) *(s32 *)((s8 *)this + 0x464)) {
             if (temp_r31 != 0) {
-                forward_hit_to_enemy_list__16TObjEneBm5GibonUFi(this);
+                forward_hit_to_enemy_list__16TObjEneBm5GibonUFi((s32)this);
             } else {
-                init_child_from_list__16TObjEneBm5GibonUFi(this);
+                init_child_from_list__16TObjEneBm5GibonUFi((s32)this);
             }
         }
         update_center_position__16TObjEneBm5GibonUFv(this);
@@ -4080,7 +4076,7 @@ void TObjEneBm5GibonU::handle_state(s32 arg1) {
     }
     else
     {
-      VecCopy((Vec *)(((u8 *)this) + 0x488), (const Vec *)((void *) TObjEneBm5GibonU__sub_800D1D78(temp_r3)));
+      VecCopy((Vec *)(((u8 *)this) + 0x488), (const Vec *)((void *) TObjEneBm5GibonU__sub_800D1D78((void *)temp_r3)));
     }
       *((s32 *) (((s8 *) ((u8 *)this)) + new_var)) = (s32) ((*((s32 *) (((s8 *) ((u8 *)this)) + 0x51C))) + 1);
       break;
@@ -4156,7 +4152,7 @@ void TObjEneBm5GibonU__sub_800D0738(u8 *actor, u32 arg1, s32 msg) {
 }
 
 void TObjEneBm5GibonU::damage_linked_entity() {
-    u8 *r = find_entity_by_id(((Obj_800D086C *)this)->f474);
+    u8 *r = (u8 *)find_entity_by_id(((Obj_800D086C *)this)->f474);
     if (r != 0) {
         Dmg_800D086C d;
         d.kind = 9;
@@ -4166,7 +4162,7 @@ void TObjEneBm5GibonU::damage_linked_entity() {
 }
 
 void TObjEneBm5GibonU::damage_linked_entity_type10() {
-    u8 *r = find_entity_by_id(((Obj_800D08E4 *)this)->f474);
+    u8 *r = (u8 *)find_entity_by_id(((Obj_800D08E4 *)this)->f474);
     if (r != 0) {
         Dmg_800D08E4 d;
         d.kind = 10;
@@ -4214,7 +4210,6 @@ s32 TObjEneBm5GibonU__sub_800D0968(u8 *arg0, int _w1) {
 }
 
 #undef find_enemy_by_id__16TObjEneBm5GibonUFi
-#undef TObjEneBm5GibonU__sub_800D1D78
 #undef is_active__16TObjEneBm5GibonUFPv
 #undef gibon_collision_body_templates
 #undef update_target__16TObjEneBm5GibonUFPv
@@ -4225,9 +4220,6 @@ s32 TObjEneBm5GibonU__sub_800D0968(u8 *arg0, int _w1) {
 #undef calc_anim_speed__16TObjEneBm5GibonUFPvf
 #undef TObjEneBm5GibonU__node_list
 #undef calc_rotated_vector__16TObjEneBm5GibonUFPviPvPv
-#undef TObjEneBm5GibonU__sub_800D10A0
-#undef forward_hit_to_enemy_list__16TObjEneBm5GibonUFi
-#undef init_child_from_list__16TObjEneBm5GibonUFi
 #undef update_center_position__16TObjEneBm5GibonUFv
 #pragma pop
 #pragma push
@@ -4499,9 +4491,7 @@ void TObjEneBm5GibonU__sub_800D10A0(u8 *arg0) {
 #undef clamp_velocity__15TObjBoss2TunnelFv
 #pragma pop
 #pragma push
-#define TObjEneBm5GibonU__sub_800D10A0 ((void (*)(void *))TObjEneBm5GibonU__sub_800D10A0)
 #define transition_enemy_state ((int (*)(void*, void*))transition_enemy_state)
-#define find_entity_by_id ((s32 (*)(int))find_entity_by_id)
 #define lbl_80493F04 ((u8 *)&lbl_80493F04)
 #define update_angle__10TObjPlayerFlPv ((void (*)(void *, s32, void *))update_angle__10TObjPlayerFlPv)
 #define update_collisions__10TObjPlayerFv ((void (*)(void *))update_collisions__10TObjPlayerFv)
@@ -4880,7 +4870,7 @@ void TObjEneBm5GibonU__sub_800D1268(u8 *arg0) {
         ((VObj_18 *)(arg0))->m103();
         return;
     }
-    if (((u32)find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0x474)))) != 0U) {
+    if (((u32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0x474)))) != 0U) {
         all_parents_unqueued_for_destruction__7TObjectFv();
     }
     if (((VObj_18 *)(arg0))->m81() != 4) {
@@ -5225,9 +5215,7 @@ s32 TObjEneBm5GibonU::try_activate() {
 
 }
 
-#undef TObjEneBm5GibonU__sub_800D10A0
 #undef transition_enemy_state
-#undef find_entity_by_id
 #undef lbl_80493F04
 #undef update_angle__10TObjPlayerFlPv
 #undef update_collisions__10TObjPlayerFv

@@ -13,7 +13,7 @@ struct Scene_80327B40 { u8 pad0[4]; s32 count; Entry_80327B40 *entries; };
 
 extern "C" {
 void DCFlushRangeNoSync(void *, u32);
-s32 mem_alloc(s32);
+void *mem_alloc(u32 size);
 s32 visit_model_tree_recursive();
 void mem_free(void *p);
 
@@ -73,8 +73,8 @@ void *TScene::init_buffers(s32 arg1, s32 arg2) {
     *(s32 *)&this->m_next = 0;
     temp_r0 = *(s32 *)&this->m_flags;
     if (temp_r0 > 0) {
-        *(s32 *)&this->m_prev = mem_alloc(temp_r0 * 8);
-        *(s32 *)&this->m_next = mem_alloc(*(s32 *)&this->m_name * 4);
+        *(s32 *)&this->m_prev = (s32)mem_alloc(temp_r0 * 8);
+        *(s32 *)&this->m_next = (s32)mem_alloc(*(s32 *)&this->m_name * 4);
         scroll_uv_entry_write_cursor = *(s32 *)&this->m_prev;
         scroll_uv_coordinate_write_cursor = *(s32 *)&this->m_next;
         visit_matching_models((s32)this, (u8 *)arg1, arg2);

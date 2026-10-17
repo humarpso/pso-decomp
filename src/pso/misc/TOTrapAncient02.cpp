@@ -96,7 +96,7 @@ f32 horizontal_distance_squared(void *, void *);
 void set_indexed_flags(void *, s32, s32);
 f32 get_collision_body_radius(void *, s32);
 void submit_cursor_candidate(void *, s32);
-s32 get_player_by_client_id(u32);
+void *get_player_by_client_id(s32 i);
 void play_sound_effect(s32, void *, s32, s32);
 void * __nw__7TObjectFUl(int);
 void rotate_vector_by_matrix(int, void *, void *);
@@ -346,7 +346,7 @@ void render__15TOTrapAncient02Fv(void *arg0);
 void * __dt__15TOTrapAncient02Fv(void *arg0, s16 arg1);
 void * TOTrapAncient02__ct(void *arg0, void *arg1, void *arg2);
 void submit_cursor_and_notify__16TOTrapAncient02RFv(void *arg0);
-void play_persistent_sound(int, void *, void *, int, int);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 u8 is_current_floor_switch_set(u16);
 void __dl__7TObjectFPv(void *);
 void scroll_ginja_mesh_uvs(u32, s32, s32, u16, s32);
@@ -895,20 +895,20 @@ void TOTrapAncient02::vfunc_84() {
         case 3:
         case 4:
         case 5:
-            play_persistent_sound(0x4461B, self, (u8 *)self + 0x38, 0, 0);
+            play_persistent_sound((s32)(0x4461B), (s32)self, (u32)((u8 *)self + 0x38), (s32)(0), (s32)(0));
             return;
         case 6:
         case 7:
-            play_persistent_sound(0x4004C612, self, (u8 *)self + 0x38, 0, 0);
+            play_persistent_sound((s32)(0x4004C612), (s32)self, (u32)((u8 *)self + 0x38), (s32)(0), (s32)(0));
             return;
         case 8:
         case 9:
         case 10:
-            play_persistent_sound(0x4004C618, self, (u8 *)self + 0x38, 0, 0);
+            play_persistent_sound((s32)(0x4004C618), (s32)self, (u32)((u8 *)self + 0x38), (s32)(0), (s32)(0));
             return;
         case 21:
         case 22:
-            play_persistent_sound(0x4004C610, self, (u8 *)self + 0x38, 0, 0);
+            play_persistent_sound((s32)(0x4004C610), (s32)self, (u32)((u8 *)self + 0x38), (s32)(0), (s32)(0));
         case 0:
             return;
         case 1:
@@ -958,7 +958,7 @@ void TOTrapAncient02::vfunc_82() {
                 self->state = 3;
                 self->timer = self->reset;
                 if (self->target != NULL && local_client_id == obj_getField1c(self->target)) {
-                    p = ((s32 (*)(s32))get_player_by_client_id)(local_client_id);
+                    p = (s32)get_player_by_client_id(local_client_id);
                     if (p != 0 && check_player_flag1__6TLobbyFv() != 0) {
                         TObjPlayer::send_code_45_1(p);
                     }
@@ -1017,7 +1017,7 @@ void TOTrapAncient02::vfunc_81() {
     case 2:
         self->player = find_nearest_visible_player((void *)(self), (int)(0), self->range);
         if (self->player != 0xFFFF) {
-            p = (void *)get_player_by_client_id((u32)(self->player));
+            p = (void *)get_player_by_client_id((self->player));
             self->target = (u8 *)p;
             if (self->target != NULL) {
                 d = horizontal_distance_squared((u8 *)self->target + 0x38, &self->position);

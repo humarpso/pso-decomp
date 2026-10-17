@@ -32,9 +32,9 @@ struct Hit_802D14F4 { u8 pad[4]; u8 *tri; };
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *arg0);
-Hit_802D14F4 *csnVecterUnder(void *, int);
+s32 *csnVecterUnder(s32 origin, s32 mask);
 u32 csnVector(void *, void *, int);
-u32 spawn_particle_effect_with_rotation(void *, void *, int, int);
+void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 void *find_entity_by_id(u16 id);
 void TObjEneBm9Mericarol__sub_802CED40(void *p);
 s32 vec3_add_to(void *, void *);
@@ -69,7 +69,7 @@ void TObjEneBm9Mericarol_Bomb::run_task() {
         this->m_b4 += *(f32 *)&this->unk_C0;
         *(f32 *)&this->unk_B8 += this->m_c4;
         this->m_bc += *(f32 *)((s8 *)arg0 + 0xC8);
-        hit = csnVecterUnder((u8 *)&this->m_b4, 0x16EF);
+        hit = (Hit_802D14F4 *)csnVecterUnder((s32)&this->m_b4, 0x16EF);
         if (hit != NULL) {
             *(f32 *)((s8 *)arg0 + 0x3C) = *(f32 *)((s8 *)hit->tri + 4);
             VecCopy((Vec *)(arg0 + 0xD8), (const Vec *)(hit->tri + 0xC));
@@ -103,7 +103,7 @@ void TObjEneBm9Mericarol_Bomb::run_task() {
             r1.x = 0;
             r1.y = this->m_ec + 0x4000;
             r1.z = 0;
-            *(u32 *)&this->m_110 = spawn_particle_effect_with_rotation((u8 *)&this->m_b4, &r1, 0x207, 0x40);
+            *(u32 *)&this->m_110 = (u32)spawn_particle_effect_with_rotation(&this->m_b4, &r1, 0x207, 0x40);
             if (this->m_110 != NULL) {
                 ((TParticleCtrl *)(this->m_110))->enable();
             }
@@ -114,7 +114,7 @@ void TObjEneBm9Mericarol_Bomb::run_task() {
             r2.x = 0;
             r2.y = this->m_ec + 0x4000;
             r2.z = 0;
-            *(u32 *)&this->unk_114 = spawn_particle_effect_with_rotation((u8 *)&this->m_b4, &r2, *(s32 *)&this->unk_104, 0x40);
+            *(u32 *)&this->unk_114 = (u32)spawn_particle_effect_with_rotation(&this->m_b4, &r2, *(s32 *)&this->unk_104, 0x40);
             if (*(void * *)&this->unk_114 != NULL) {
                 ((TParticleCtrl *)(*(void * *)&this->unk_114))->enable();
             }

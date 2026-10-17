@@ -21,6 +21,7 @@ struct TBoss1DragonEffBullet : public TObject {
 };
 
 typedef char TBoss1DragonEffBullet_size[sizeof(TBoss1DragonEffBullet) == 0x4C ? 1 : -1];
+
 extern "C" {
 u8 *TBoss1DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void *__dt__21TBoss1DragonEffBulletFv(void *arg0, s16 arg1);

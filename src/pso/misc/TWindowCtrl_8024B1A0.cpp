@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl_8024B1A0.h"
+#include "pso/misc/TWindowFukidasi.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/misc/TUnk_804CF0B8.h"
 struct Ctrl_8024B1A0 { u8 pad[0x1C]; u16 flags; };
@@ -86,12 +88,7 @@ struct Ctrl_8024B440 { u8 pad[0x84]; void *win[4]; };
 
 extern "C" {
 s32 acquire_balloon_slot__11TWindowCtrlFPviiPv(s32, u16, s32, s32);
-void open__15TWindowFukidasiFPvPvi(void *, void *, s32);
 void TWindow__close(u8 *arg0);
-void complete_speech_balloon(u8 *arg0);
-void complete_actor_speech_balloons(u16 arg0);
-s32 is_speech_balloon_ready(u8 *arg0);
-s32 is_actor_speech_balloon_done(u16 arg0);
 
 void TWindowCtrl::close_windows_by_flags(u16 arg0) {
     u32 i;
@@ -143,7 +140,7 @@ s32 TWindowCtrl::open_balloon(u16 arg0, u8 *arg1, s32 arg2, s32 arg3) {
     if (temp_r3 == 0) {
         return 0;
     }
-    open__15TWindowFukidasiFPvPvi((void *) temp_r3, arg1, arg2);
+    open__15TWindowFukidasiFPvPvi((u8 *)temp_r3, (u32 *)arg1, arg2);
     return temp_r3;
 }
 

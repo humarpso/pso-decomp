@@ -3096,23 +3096,14 @@ s32 init_model__9TObjEneDDFv(void *, void *, int, int);
 #define clear_attack_receipts__9TObjEneDDFv ((void (*)(void *))clear_attack_receipts__9TObjEneDDFv)
 #define transition_enemy_state ((int (*)(void*, void*))transition_enemy_state)
 void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
-void TObjEneMe3Stelth__sub_800F1098(void *, s32);
-void TObjEneMe3Stelth__sub_800F1440(void *, s32);
+void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1);
+void TObjEneMe3Stelth__sub_800F1440(u8 *arg0, s32 arg1);
 #define exec__16TObjEneMe3StelthFPvi ((void (*)(void *, s32))exec__16TObjEneMe3StelthFPvi)
 #define TObjEneMe3Stelth__sub_800F2270 ((void (*)(void *, s32))TObjEneMe3Stelth__sub_800F2270)
-#define handle_breakup_state__16TObjEneMe3StelthFPvi ((void (*)(void *, s32))handle_breakup_state__16TObjEneMe3StelthFPvi)
-#define TObjEneMe3Stelth__sub_800F290C ((void (*)(void *, s32))TObjEneMe3Stelth__sub_800F290C)
-#define action__16TObjEneMe3StelthFPvi ((void (*)(void *, s32))action__16TObjEneMe3StelthFPvi)
 void handle_message__16TObjEneMe3StelthFPvi(void *, s32);
-#define update_state_resta_cast__16TObjEneMe3StelthFPvi ((void (*)(void *, s32))update_state_resta_cast__16TObjEneMe3StelthFPvi)
 #define run_walk_state__16TObjEneMe3StelthFPvi ((void (*)(void *, s32))run_walk_state__16TObjEneMe3StelthFPvi)
 #define TObjEneMe3Stelth__sub_800F3214 ((void (*)(void *, s32))TObjEneMe3Stelth__sub_800F3214)
 #define TObjEneMe3Stelth__sub_800F348C ((void (*)(void *, s32))TObjEneMe3Stelth__sub_800F348C)
-#define state_chase_target__16TObjEneMe3StelthFPvi ((void (*)(void *, s32))state_chase_target__16TObjEneMe3StelthFPvi)
-#define update_state_drop__16TObjEneMe3StelthFPvi ((void (*)(void *, s32))update_state_drop__16TObjEneMe3StelthFPvi)
-#define update_state_fade_in__16TObjEneMe3StelthFPvi ((void (*)(void *, s32))update_state_fade_in__16TObjEneMe3StelthFPvi)
-#define TObjEneMe3Stelth__sub_800F3FE4 ((void (*)(void *, s32))TObjEneMe3Stelth__sub_800F3FE4)
-#define state_chase__16TObjEneMe3StelthFPvi ((void (*)(void *, s32))state_chase__16TObjEneMe3StelthFPvi)
 #define sub_800F42B8__16TObjEneMe3StelthFl ((void (*)(void *, s32))sub_800F42B8__16TObjEneMe3StelthFl)
 void dispatch_state__16TObjEneMe3StelthFPvii(Obj_800F4598 *self, s32 arg1, s32 arg2);
 int select_and_apply_target__16TObjEneMe3StelthFPv(void* p);
@@ -3360,19 +3351,19 @@ void dispatch_state__16TObjEneMe3StelthFPvii(Obj_800F4598 *self, s32 arg1, s32 a
         sub_800F42B8__16TObjEneMe3StelthFl(self, arg2);
         break;
     case 3:
-        TObjEneMe3Stelth__sub_800F3FE4(self, arg2);
+        TObjEneMe3Stelth__sub_800F3FE4((u8 *)self, arg2);
         break;
     case 2:
-        state_chase__16TObjEneMe3StelthFPvi(self, arg2);
+        state_chase__16TObjEneMe3StelthFPvi((u8 *)self, arg2);
         break;
     case 4:
-        update_state_fade_in__16TObjEneMe3StelthFPvi(self, arg2);
+        update_state_fade_in__16TObjEneMe3StelthFPvi((u8 *)self, (s32)arg2);
         break;
     case 5:
-        update_state_drop__16TObjEneMe3StelthFPvi(self, arg2);
+        update_state_drop__16TObjEneMe3StelthFPvi((u8 *)self, (s32)arg2);
         break;
     case 6:
-        state_chase_target__16TObjEneMe3StelthFPvi(self, arg2);
+        state_chase_target__16TObjEneMe3StelthFPvi((u8 *)self, (s32)arg2);
         break;
     case 7:
         TObjEneMe3Stelth__sub_800F348C(self, arg2);
@@ -3387,28 +3378,28 @@ void dispatch_state__16TObjEneMe3StelthFPvii(Obj_800F4598 *self, s32 arg1, s32 a
         handle_message__16TObjEneMe3StelthFPvi(self, arg2);
         break;
     case 10:
-        action__16TObjEneMe3StelthFPvi(self, arg2);
+        action__16TObjEneMe3StelthFPvi((u8 *)self, arg2);
         break;
     case 11:
-        update_state_resta_cast__16TObjEneMe3StelthFPvi(self, arg2);
+        update_state_resta_cast__16TObjEneMe3StelthFPvi((u8 *)self, (s32)arg2);
         break;
     case 14:
-        TObjEneMe3Stelth__sub_800F290C(self, arg2);
+        TObjEneMe3Stelth__sub_800F290C((u8 *)self, arg2);
         break;
     case 15:
-        handle_breakup_state__16TObjEneMe3StelthFPvi(self, arg2);
+        handle_breakup_state__16TObjEneMe3StelthFPvi((u8 *)self, (s32)arg2);
         break;
     case 12:
         TObjEneMe3Stelth__sub_800F2270(self, arg2);
         break;
     case 16:
-        TObjEneMe3Stelth__sub_800F1098(self, arg2);
+        TObjEneMe3Stelth__sub_800F1098((u8 *)self, arg2);
         break;
     case 17:
         exec__16TObjEneMe3StelthFPvi(self, arg2);
         break;
     case 18:
-        TObjEneMe3Stelth__sub_800F1440(self, arg2);
+        TObjEneMe3Stelth__sub_800F1440((u8 *)self, arg2);
         break;
     }
     if (self->f3C0 != 1 || (arg1 != 1 && arg1 != 2)) {
@@ -3733,18 +3724,9 @@ void TObjEneMe3StelthReal::init_common() {
 #undef transition_enemy_state
 #undef exec__16TObjEneMe3StelthFPvi
 #undef TObjEneMe3Stelth__sub_800F2270
-#undef handle_breakup_state__16TObjEneMe3StelthFPvi
-#undef TObjEneMe3Stelth__sub_800F290C
-#undef action__16TObjEneMe3StelthFPvi
-#undef update_state_resta_cast__16TObjEneMe3StelthFPvi
 #undef run_walk_state__16TObjEneMe3StelthFPvi
 #undef TObjEneMe3Stelth__sub_800F3214
 #undef TObjEneMe3Stelth__sub_800F348C
-#undef state_chase_target__16TObjEneMe3StelthFPvi
-#undef update_state_drop__16TObjEneMe3StelthFPvi
-#undef update_state_fade_in__16TObjEneMe3StelthFPvi
-#undef TObjEneMe3Stelth__sub_800F3FE4
-#undef state_chase__16TObjEneMe3StelthFPvi
 #undef sub_800F42B8__16TObjEneMe3StelthFl
 #undef play_sound_effect
 #undef sin_table_lookup

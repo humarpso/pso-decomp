@@ -152,10 +152,10 @@ TPlayerBattleCtrl4P* TPlayerBattleCtrl4P::destroy(s16 should_free) {
 }
 extern "C" {
 
-s32 get_player_by_client_id(s32);
-s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
+void *get_player_by_client_id(s32 i);
+s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-s32 export_character_data__10TObjPlayerFPvPv(s32, s32);
+void export_character_data__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 s32 clear_split_screen_battle_window_slots(void *);
 extern s32 TPlayerBattleCtrl4P__name;
 extern s32 current_language;
@@ -178,9 +178,9 @@ TPlayerBattleCtrl4P* TPlayerBattleCtrl4P::construct(TObject* parent) {
     }
     *(void ** *)&this->message_table = p;
     for (i = 0; i < 4; i++) {
-        s32 pl = get_player_by_client_id(i);
+        s32 pl = (s32)get_player_by_client_id(i);
         if (pl != 0) {
-            export_character_data__10TObjPlayerFPvPv(pl, get_char_index__23TAdSinglePlyChrSelectGCFUi(i));
+            export_character_data__10TObjPlayerFPvPv((u8 *)pl, (u8 *)(get_char_index__23TAdSinglePlyChrSelectGCFUi((u32)i)));
         }
     }
     TPlayerBattleCtrl4P__instance = (s32)((void *)this);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjChip.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_80087278.h"
 #include "pso/unk/text_803D96A8.h"
@@ -19,7 +20,6 @@ struct Offs_80174CFC { Vec_80174CFC v[6]; };
 extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-void construct_debris__8TObjChipFPvPvPv(void *, s32, void *);
 void *__nw__7TObjectFUl(u32);
 void vec3_add_to(void *, void *);
 void rotate_vector_by_matrix(int, void *, void *);
@@ -65,7 +65,7 @@ void TORockCaveBrakable::vfunc_16() {
         *(s32 *)((s8 *)(&init) + 0x44) = TObjFish__sub_8001EDB0(rock_cave_model_resource, i);
         p = __nw__7TObjectFUl(0x234);
         if (p != NULL) {
-            construct_debris__8TObjChipFPvPvPv(p, tl_05, &init);
+            construct_debris__8TObjChipFPvPvPv((u8 *)p, (u8 *)tl_05, (u8 *)&init);
         }
     }
 }

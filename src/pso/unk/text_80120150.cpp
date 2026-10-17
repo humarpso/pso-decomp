@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/item_param.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/player/TObjPlayer_80100E00.h"
 #include "pso/player/TObjPlayer_801211F0.h"
@@ -89,7 +90,6 @@ extern s16 TObjPlayer__weapon_node_ids[];
 extern u8* weapon_render_callback_object;
 extern u32 lbl_805D53EC;
 s32 test_flags_any(void*,u32);
-WeaponColorDescriptor_80120304 *get_photon_color_record(s16 color_index);
 WeaponArgb get_weapon_color__11TItemWeaponFPv(void *weapon);
 extern u8 lbl_805DACA4;
 void TItemWeapon__write_item_data(Src_80120454 *arg0, Dst_80120454 *arg1);
@@ -142,7 +142,7 @@ WeaponArgb get_weapon_color__11TItemWeaponFPv(void *weapon) {
     WeaponColorDescriptor_80120304 *descriptor;
     f32 override_alpha;
     if (*(s16 *)((s8 *)weapon + 0x1E8) != -1) {
-        descriptor = get_photon_color_record(*(s16 *)((s8 *)weapon + 0x1E8));
+        descriptor = (WeaponColorDescriptor_80120304 *)get_photon_color_record(*(s16 *)((s8 *)weapon + 0x1E8));
         if (descriptor->mode == 1) {
             copy_vec4__13TRaderMapCoreFPvPv(&first, &descriptor->first);
             copy_vec4__13TRaderMapCoreFPvPv(&second, &descriptor->second);

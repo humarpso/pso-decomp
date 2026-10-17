@@ -400,10 +400,10 @@ extern "C" {
 f64 atan2_float(f32, f32);
 s32 set_field_378__9TObjEneDDFl(void *, s32);
 s32 transition_enemy_state(void *, s32);
-s32 TObjEneRe4Sorcerer__sub_800ED498(int);
+int TObjEneRe4Sorcerer__sub_800ED498(u8 *arg0);
 void TObjEneRe4Sorcerer__sub_800EF214(s32 arg0);
 s32 advance_animation_playback(void *);
-u32 find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 extern const f64 TObjEneRe4Sorcerer__data_8043D408;
 void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1);
 s32 is_split_screen();
@@ -419,7 +419,7 @@ extern s32 lbl_805D5660;
 extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
 void render__18TObjEneRe4SorcererFv(u8 *arg0);
-u8 *get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 s16 obj_getField1c(void *);
 s32 *csnLookAt(s32 arg0, s32 arg1);
 s32 enemy_bind_or_clear_target(void *, u16);
@@ -855,7 +855,7 @@ s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
 void TLobby__sub_8001FE7C(void*, int);
 void fn_80044330(void *);
-u32 csnVectorUnder(void *, void *, s32);
+s32 *csnVectorUnder(s32 arg0, u32 *arg1, s32 arg2);
 s32 TObjPlayer__sub_800A04F0(void *);
 void *__dt__13TUnk_80490470Fv(void *arg0, s16 arg1);
 void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1);
@@ -904,7 +904,7 @@ s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
 s32 approach_angle_limited(s32, s32, s32);
 void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
-s32 play_persistent_sound(s32, void *, void *, s32, s32);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 s32 play_sound_effect(void *, void *, int, int);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
@@ -1480,7 +1480,7 @@ void TObjEneRe4Sorcerer__sub_800EE1CC(u8 *arg0, s32 arg1) {
         temp_r0 = *(s32 *)((s8 *)arg0 + 0x4E8);
         switch (temp_r0) {
         case 0:
-            if ((entity != NULL) && (TObjEneRe4Sorcerer__sub_800ED498((int) (entity)) != 0)) {
+            if ((entity != NULL) && (TObjEneRe4Sorcerer__sub_800ED498((entity)) != 0)) {
                 *(s32 *)((s8 *)arg0 + 0x4E4) = 0;
                 if (is_alive__9TObjEneDDFv(*(s32 *)((s8 *)arg0 + 0x390)) != 0) {
                     if ((void *) *(u8 **)((s8 *)arg0 + 0x390) != arg0) {
@@ -1509,13 +1509,13 @@ void TObjEneRe4Sorcerer__sub_800EE1CC(u8 *arg0, s32 arg1) {
             }
             break;
         case 1:
-            if ((entity != NULL) && (TObjEneRe4Sorcerer__sub_800ED498((int) (entity)) == 0)) {
+            if ((entity != NULL) && (TObjEneRe4Sorcerer__sub_800ED498((entity)) == 0)) {
                 *(s32 *)((s8 *)arg0 + 0x4E8) = 5;
             } else if ((f32) *(s32 *)((s8 *)arg0 + 0x4E4) >= lbl_805DA7A8) {
                 *(s16 *)((s8 *)arg0 + 0xB8) = 4;
                 *(s32 *)((s8 *)arg0 + 0x4E8) = 3;
             }
-            play_persistent_sound(copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (int) (0x4003A814)), (void *) arg0, (void *) (arg0 + 0x38), 0, 0);
+            play_persistent_sound((s32)(copy_target_state__14TObjEnePanarmsFPv((void *) (arg0), (int) (0x4003A814))), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
             break;
         case 2:
         case 3:
@@ -1610,7 +1610,7 @@ void TObjEneRe4Sorcerer::update_state_machine(void *arg1p) {
         *t = TObjEneRe4Sorcerer__data_805DA790;
         for (i = 0; i < n; i++)
       {
-        p = get_player_data__10TObjPlayerFi(i);
+        p = (u8 *)get_player_data__10TObjPlayerFi(i);
         mask |= update_farthest_target((s32) p, t);
       }
 
@@ -1642,7 +1642,7 @@ void TObjEneRe4Sorcerer::update_state_machine(void *arg1p) {
         *t = TObjEneRe4Sorcerer__data_805DA790;
         for (; j < n; j++)
       {
-        p = get_player_data__10TObjPlayerFi(j);
+        p = (u8 *)get_player_data__10TObjPlayerFi(j);
         if (p == ((u8 *) this))
         {
           continue;
@@ -1687,7 +1687,7 @@ void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1) {
     s32 temp_r5;
     s32 var_r3;
     u32 entity;
-    entity = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x3E4));
+    entity = (u32)find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x3E4));
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)arg0 + 0xB8) = 0;
@@ -1710,7 +1710,7 @@ void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1) {
         temp_r0 = *(s32 *)((s8 *)arg0 + 0x4E8);
         switch (temp_r0) {
         case 0:
-            if ((entity != 0U) && (TObjEneRe4Sorcerer__sub_800ED498((int) (entity)) != 0)) {
+            if ((entity != 0U) && (TObjEneRe4Sorcerer__sub_800ED498((u8 *)(entity)) != 0)) {
                 *(s32 *)((s8 *)arg0 + 0x4E4) = 0;
                 if (((TObjEneRe4Sorcerer *)arg0)->try_attack((f32) (lbl_805DA7BC), (f32) (lbl_805DA7BC)) == 0) {
                     *(s32 *)((s8 *)arg0 + 0x4E8) = 4;
@@ -1734,7 +1734,7 @@ void TObjEneRe4Sorcerer__sub_800EE7DC(u8 *arg0, s32 arg1) {
             ((TObjEneRe4Sorcerer *)arg0)->create_effect();
             break;
         case 1:
-            if ((entity != 0U) && (TObjEneRe4Sorcerer__sub_800ED498((int) (entity)) == 0)) {
+            if ((entity != 0U) && (TObjEneRe4Sorcerer__sub_800ED498((u8 *)(entity)) == 0)) {
                 *(s32 *)((s8 *)arg0 + 0x4E8) = 5;
             } else if ((s32) *(s32 *)((s8 *)arg0 + 0x4E4) >= 0x5A) {
                 *(s16 *)((s8 *)arg0 + 0xB8) = 3;
@@ -1922,7 +1922,7 @@ s32 TObjEneRe4Sorcerer__sub_800EEDE4(void *arg0p, void *arg1p) {
         ((s32 (*)(void *))TObjEneRe4Sorcerer__sub_800EF844)(arg0);
         ((VObj_14_763762 *)(arg0 + 0x3FC))->m3();
         for (i = 0; i < 2; i++) {
-            if ((r = find_entity_by_id(((Sorc_800EEDE4 *)arg0)->ids[i])) != 0) {
+            if ((r = (u32)find_entity_by_id(((Sorc_800EEDE4 *)arg0)->ids[i])) != 0) {
                 reset_transform__13TObjEneRe4BitFv();
                 ((TObjEneRe4Sorcerer *)r)->clear_state_flag_0x10();
             }
@@ -2054,16 +2054,16 @@ void TObjEneRe4Sorcerer__vt85(s32 arg0p, u32 arg1, s32 arg1p) {
 }
 
 void TObjEneRe4Sorcerer__sub_800EF214(s32 arg0) {
-    play_persistent_sound((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) (arg0)), (s32)((int) (0x4003A81D)))))), (void *)((void *) (arg0)), (void *)((void *) (arg0 + 0x38)), (s32)((int) (0)), (s32)((int) (0)));
+    play_persistent_sound((s32)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPv((void *)((void *) (arg0)), (s32)((int) (0x4003A81D)))))), (s32)((void *) (arg0)), (u32)((void *) (arg0 + 0x38)), ((int) (0)), ((int) (0)));
 }
 
 void TObjEneRe4Sorcerer::create_effect() {
     u8 *arg0 = (u8 *)this;
     if ((s32) *(s32 *)((s8 *)arg0 + 0x3E8) == 0) {
-        play_persistent_sound(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003A812), arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound((s32)(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003A812)), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
         return;
     }
-    play_persistent_sound(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003AB13), arg0, arg0 + 0x38, 0, 0);
+    play_persistent_sound((s32)(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003AB13)), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
 }
 
 s32 TObjEneRe4Sorcerer::cast_resta() {
@@ -2140,7 +2140,7 @@ void TObjEneRe4Sorcerer::calc_orb_positions() {
 
 void TObjEneRe4Sorcerer::apply_mylla_effect() {
     u32 entity;
-    entity = find_entity_by_id(*(u16 *)((s8 *)this + 0x3E6));
+    entity = (u32)find_entity_by_id(*(u16 *)((s8 *)this + 0x3E6));
     if (entity != 0U) {
         ((TObjEneRe4Sorcerer *)entity)->set_state_flag_and_mode((s32)(2));
     }
@@ -2149,12 +2149,12 @@ void TObjEneRe4Sorcerer::apply_mylla_effect() {
 void TObjEneRe4Sorcerer::set_photon_state() {
     u32 entity;
     if ((s32) *(s32 *)((s8 *)this + 0x3E8) == 0) {
-        entity = find_entity_by_id(*(u16 *)((s8 *)this + 0x3E4));
+        entity = (u32)find_entity_by_id(*(u16 *)((s8 *)this + 0x3E4));
         if (entity != 0U) {
             ((TObjEneRe4Sorcerer *)entity)->set_state_flag_and_mode((s32)(0));
         }
     } else {
-        entity = find_entity_by_id(*(u16 *)((s8 *)this + 0x3E4));
+        entity = (u32)find_entity_by_id(*(u16 *)((s8 *)this + 0x3E4));
         if (entity != 0U) {
             ((TObjEneRe4Sorcerer *)entity)->set_state_flag_and_mode((s32)(1));
         }
@@ -2187,7 +2187,7 @@ void TObjEneRe4Sorcerer__sub_800EF7C8(Obj_800EF7C8 *self) {
     self->m90();
     self->m91();
     for (i = 0; i < 2; i++) {
-        u32 p = find_entity_by_id(self->orbs[i]);
+        u32 p = (u32)find_entity_by_id(self->orbs[i]);
         if (p != 0) {
             ((TObjEneRe4Bit *)p)->call_vt_90_91();
         }
@@ -2199,7 +2199,7 @@ void TObjEneRe4Sorcerer__sub_800EF844(Obj_800EF844 *self) {
     self->m89();
     self->m92();
     for (i = 0; i < 2; i++) {
-        u32 p = find_entity_by_id(self->orbs[i]);
+        u32 p = (u32)find_entity_by_id(self->orbs[i]);
         if (p != 0) {
             ((TObjEneRe4Sorcerer *)p)->invoke_state_callbacks();
         }
@@ -2247,7 +2247,7 @@ void TObjEneRe4Sorcerer__sub_800EF95C(Obj_800EF95C *self, f32 speed) {
     t.x = out.x;
     t.y = lbl_805DA7E8 + out.y;
     t.z = out.z;
-    if (csnVectorUnder(&t, self->col, 0xE0) == 0) {
+    if (csnVectorUnder((s32)&t, (u32 *)self->col, 0xE0) == 0) {
         ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&self->pos, &out);
     }
     self->m100();
@@ -2258,7 +2258,7 @@ void TObjEneRe4Sorcerer__sub_800EF95C(Obj_800EF95C *self, f32 speed) {
     self->ang += 0x2AAA;
     ((TObjEneDD *)self)->transform_part_positions();
     for (i = 0; i < 2; i++) {
-        p = find_entity_by_id(self->orbs[i]);
+        p = (u32)find_entity_by_id(self->orbs[i]);
         if (p != 0) {
             ((void (*)(u32))reset_transform__13TObjEneRe4BitFv)(p);
         }
@@ -2290,12 +2290,12 @@ s32 select_attack_target__18TObjEneRe4SorcererFiff(s32 arg0, f32 farg0, f32 farg
     if (self->m97() != 0) {
         best = farg1;
         id = 0xFFFF;
-        o1 = find_entity_by_id(self->orbs[0]);
-        o2 = find_entity_by_id(self->orbs[1]);
+        o1 = (u32)find_entity_by_id(self->orbs[0]);
+        o2 = (u32)find_entity_by_id(self->orbs[1]);
         p = (u8 *)TLobby::get_game_mode();
         n = (s32)p + TObjEneDD::get_enemy_count();
         for (i = (s32)p; i < n; i++) {
-            p = get_player_data__10TObjPlayerFi(i);
+            p = (u8 *)get_player_data__10TObjPlayerFi(i);
             if (p != (u8 *)self && (u32)p != o1 && (u32)p != o2 && is_alive__9TObjEneDDFv((s32)p) != 0) {
                 d = horizontal_distance_squared((void *)(arg0 + 0x2FC), p + 0x38);
                 if (d < best && csnLookAt((arg0 + 0x2FC), (s32)(p + 0x2FC)) == 0) {
@@ -2314,7 +2314,7 @@ s32 select_attack_target__18TObjEneRe4SorcererFiff(s32 arg0, f32 farg0, f32 farg
     tB = tA;
     m = TLobby::get_game_mode();
     for (j = 0; j < m; j++) {
-        q = get_player_data__10TObjPlayerFi(j);
+        q = (u8 *)get_player_data__10TObjPlayerFi(j);
         if (is_alive__9TObjEneDDFv((s32)q) != 0) {
             e = horizontal_distance_squared((void *)(arg0 + 0x2FC), q + 0x2FC);
             if (TObjEneDD__sub_800BA6C4(q) != 0) {
@@ -2399,7 +2399,7 @@ void run_task__18TObjEneRe4SorcererFv(u8 *arg0) {
         return;
     }
     if (((TObjEneRe4Sorcerer *)(arg0))->vfunc_83() != 4) {
-        if (TObjEneDD__sub_800BA804(*(u16 *)((s8 *)arg0 + 0x38C)) != 0 && ((void * (*)(u16))find_entity_by_id)(*(u16 *)((s8 *)arg0 + 0x38C)) == NULL) {
+        if (TObjEneDD__sub_800BA804(*(u16 *)((s8 *)arg0 + 0x38C)) != 0 && find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x38C)) == NULL) {
             enemy_clear_target__12TObjEneDD_STFUs(arg0);
         }
         ((TObjEneRe4Sorcerer *)(arg0))->vfunc_85();
@@ -2412,7 +2412,7 @@ void run_task__18TObjEneRe4SorcererFv(u8 *arg0) {
         }
     } else {
         for (i = 0; i < 2; i++) {
-            if ((p = ((void * (*)(u16))find_entity_by_id)(((Obj_800F0054 *)arg0)->handles[i])) != NULL) {
+            if ((p = find_entity_by_id(((Obj_800F0054 *)arg0)->handles[i])) != NULL) {
                 ((TObjEneRe4Sorcerer *)p)->set_flag3cc_bit2000();
             }
         }
@@ -2428,7 +2428,7 @@ Obj_800F0054 *__dt__18TObjEneRe4SorcererFv(Obj_800F0054 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjEneRe4Sorcerer;
         for (i = 0; i < 2; i++) {
-            if ((p = ((void * (*)(u16))find_entity_by_id)(arg0->handles[i])) != NULL) {
+            if ((p = find_entity_by_id(arg0->handles[i])) != NULL) {
                 queue_destruction__7TObjectFv(p);
             }
             arg0->handles[i] = 0xFFFF;

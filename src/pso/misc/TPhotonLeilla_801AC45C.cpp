@@ -38,8 +38,8 @@ struct Self_801AC45C {
 extern "C" {
 u16 obj_getField1c(void *);
 void *find_entity_by_id(u16 id);
-u8 * construct_photon_magic_square_normal(void *, s32, s32, s32, s32);
-s32 play_persistent_sound(s32, s32, u32, s16, s32);
+u8 *construct_photon_magic_square_normal(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 s32 advance_animation_playback(void *);
 s32 queue_photon_blast_hit(int, int, int, f32);
 s32 spawn_photon_blast_attachment_effects(void *, int);
@@ -121,7 +121,7 @@ void TPhotonLeilla::run_task() {
         stack.spC = temp_f1 + lbl_805DC1C4;
         temp_r3_2 = (u8 *)(__nw__7TObjectFUl(0xD0, temp_f1));
         if (temp_r3_2 != NULL) {
-            construct_photon_magic_square_normal(temp_r3_2, (s32) arg0, 4, (s32) &stack.sp8, 0x78);
+            construct_photon_magic_square_normal((u8 *)temp_r3_2, (s32)arg0, (s32)(4), (s32)&stack.sp8, (s32)(0x78));
         }
     }
     if ((lbl_805DC1C8 == (f32) *(s32 *)&this->m_1ac) && ((s16) this->m_b8 == 1)) {
@@ -149,7 +149,7 @@ void TPhotonLeilla::run_task() {
         }
     }
     if ((s32) *(s32 *)&this->m_19c != 0) {
-        play_persistent_sound(0x4002462F, (s32) arg0, 0U, 0, 0);
+        play_persistent_sound((s32)(0x4002462F), (s32)arg0, (u32)(0U), (s32)(0), (s32)(0));
     }
 }
 

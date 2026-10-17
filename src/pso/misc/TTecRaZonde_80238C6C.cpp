@@ -92,7 +92,7 @@ u16 obj_getField1c(void *);
 void update_technique_slot__10TTecRaFoieFl(s32 handle, s32 pitch, s32 c);
 s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
 void *__nw__7TObjectFUl(int);
-void construct_area_technique_base(void *, void *, void *, void *, int);
+u8 *construct_area_technique_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 f32 vector_length(void *);
@@ -203,7 +203,7 @@ extern "C" {
 void *find_entity_by_id(u16 id);
 void update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
-s32 create_particle_emitter(void *, int);
+void *create_particle_emitter(void *pos, s32 id);
 void *mem_alloc(u32 size);
 
 typedef struct RecoveredFields_80238D10_arg0 RecoveredFields_80238D10_arg0;
@@ -221,7 +221,7 @@ void TTecRaZonde::vfunc_8(void *) {
     u32 i;
     self->emitters = (s32 *)mem_alloc(TTecRaZonde__band_profile_table[self->band].count * 4);
     for (i = 0; i < TTecRaZonde__band_profile_table[self->band].count; i++) {
-        self->emitters[i] = create_particle_emitter(&self->points[i], TTecRaZonde__band_profile_table[self->band].entries[i].entry);
+        self->emitters[i] = (s32)create_particle_emitter(&self->points[i], TTecRaZonde__band_profile_table[self->band].entries[i].entry);
     }
 }
 
@@ -349,7 +349,7 @@ void *TTecRaZonde__ct(void *self_, void *source, void *origin, void *level) {
     f32 len;
     Vec_80239070 a;
     Vec_80239070 b;
-    construct_area_technique_base(self_, source, origin, origin, (int)level);
+    construct_area_technique_base((u8 *)self_, (s32)source, (s32)origin, (s32)origin, (s32)level);
     self->vt = __vt__11TTecRaZonde;
     self->f0 = (u32)TTecRaZonde_class_name;
     ((TTecRaZonde *)self)->calc_damage();

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_803C4698.h"
 #include "pso/misc/TLobby_803BFE50.h"
 #include "pso/misc/TLobby_803C1A58.h"
 #include "pso/system/AdxStreamRuntime.h"
@@ -159,9 +160,6 @@ void TLobby__sub_803C34F4(Obj_803C34F4 *arg0);
 s32 DVDReadPrio(void *, void *, void *);
 s32 TLobby__sub_803C44C0(Hdr_803C44C0 *hdr, s32 arg1, s16 *arg2, s8 *arg3, s8 *arg4, s8 *arg5, s8 *arg6, s32 *arg7, s32 *arg8, s32 *arg9, s16 *arg10);
 u8 *TLobby__sub_803C2388(u8 *, s32 *, s32 *, s32 *, s32 *);
-s32 __DVDPrepareResetAsync(void *, void *, void *, void *, void *, void *, void *, void *, void *);
-s32 TLobby__sub_803C48C8(void *, void *, void *);
-s32 ARStartDMA(void *, void *, void *, void *, void *, void *, void *, void *, void *, void *);
 extern s32 lbl_8047C520[];
 extern s32 lbl_8047C540[];
 u32 adx_allocate_decoder_channel();
@@ -741,7 +739,7 @@ s32 TRK__write_aram(void *arg0p, void *hdr, void *size) {
     s16 temp_r6;
     u8 *temp_r3;
     *(s16 *)((s8 *)arg0 + 2) = 1;
-    if (ARStartDMA((void *) (hdr), (void *) (size), (void *) (&sp10), (void *) (arg0 + 0xC), (void *) (arg0 + 0xD), (void *) (arg0 + 0xF), (void *) (arg0 + 0xE), (void *) (arg0 + 0x14), (void *) (arg0 + 0x18), (void *) (arg0 + 0x10)) < 0) {
+    if (ARStartDMA((u8 *)(hdr), (s32)(size), (s16 *)(&sp10), (u8 *)(arg0 + 0xC), (s8 *)(arg0 + 0xD), (s8 *)(arg0 + 0xF), (u8 *)(arg0 + 0xE), (s32 *)(arg0 + 0x14), (s32 *)(arg0 + 0x18), (s32 *)(arg0 + 0x10)) < 0) {
         return 0;
     }
     if ((s8) *(u8 *)((s8 *)arg0 + 0xC) > 4) {
@@ -755,7 +753,7 @@ s32 TRK__write_aram(void *arg0p, void *hdr, void *size) {
         *(s16 *)((s8 *)arg0 + 0xA8) = 0xA;
         goto block_11;
     }
-    if (TLobby__sub_803C48C8(hdr, size, (void *) (arg0 + 0x1C)) < 0) {
+    if (TLobby__sub_803C48C8((u8 *)hdr, (s32)size, (u16 *)(arg0 + 0x1C)) < 0) {
         return 0;
     }
     if (((TLobby *)hdr)->parse_header_loop_points((s32)((void *) (size)), (u16 *)(&sp18), (u16 *)(&sp14)) < 0) {
@@ -763,7 +761,7 @@ s32 TRK__write_aram(void *arg0p, void *hdr, void *size) {
     }
     ((TLobby *)(*(s32 *)((s8 *)arg0 + 8)))->calc_adx_coeffs_at_offset((void *)(*(s32 *)((s8 *)arg0 + 0x14)), (s32)((int) (*(s16 *)((s8 *)arg0 + 0x1C))));
     TLobby__sub_803CB570((u8 *)(*(s32 *)((s8 *)arg0 + 8)), (u8 *)(&sp18), (s16 *)(&sp14));
-    __DVDPrepareResetAsync((void *) (hdr), (void *) (size), (void *) (arg0 + 0x20), (void *) (arg0 + 0x24), (void *) (arg0 + 0x26), (void *) (arg0 + 0x28), (void *) (arg0 + 0x2C), (void *) (arg0 + 0x30), (void *) (arg0 + 0x34));
+    __DVDPrepareResetAsync((u8 *)(hdr), (s32)(size), (s32 *)(arg0 + 0x20), (s16 *)(arg0 + 0x24), (s16 *)(arg0 + 0x26), (s32 *)(arg0 + 0x28), (s32 *)(arg0 + 0x2C), (s32 *)(arg0 + 0x30), (s32 *)(arg0 + 0x34));
     *(s16 *)((s8 *)arg0 + 0xA8) = 0;
 block_11:
     temp_r3 = (u8 *)(arg0 + 0x4C);

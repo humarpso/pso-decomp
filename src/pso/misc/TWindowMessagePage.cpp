@@ -20,17 +20,15 @@ s32 TLobby__sub_80269DA4(void *, void *);
 u8 *TWindowMessage__ct(u8 *arg0, s32 arg1, u32 arg2, s32 arg3);
 extern s32 __vt__18TWindowMessagePage[];
 extern s32 lbl_805D3998;
-u8 *TWindowMessagePage__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
 s32 draw__14TWindowMessageFv();
 extern RecoveredGlobal_8026AF24_lbl_8050E208 controller_input_state;
-void *__dt__18TWindowMessagePageFv(void *arg0, s16 arg1);
 s32 get_shared_text_buffer();
 u32 copy_message_page_text__20TWindowSubStatusDispFv(u32);
 void __dl__7TObjectFPv(void *);
 void *__dt__14TWindowMessageFv(void *arg0, s16 arg1);
-int render__14TWindowMessageFv(void*);
+void render__14TWindowMessageFv(s32 arg0);
 s32 send_and_handle__6TLobbyFii(void *, s32, s32);
 
 s32 TWindowMessagePage::is_ready() {
@@ -76,7 +74,7 @@ void TWindowMessagePage::set_text(s32 a, s32 b, s32 c) {
     TWindowMessagePage::create((s32)(a), (s32)(b), (s32)(c), local_client_id);
 }
 
-void TWindowMessagePage::render() { { (void)(render__14TWindowMessageFv(this)); return; } }
+void TWindowMessagePage::render() { { (void)(render__14TWindowMessageFv((s32)this)); return; } }
 
 typedef char RecoveredGlobal_8026AF24_lbl_8050E208_size[sizeof(RecoveredGlobal_8026AF24_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void TWindowMessagePage::run_task() {

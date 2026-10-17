@@ -19,7 +19,7 @@ struct Obj_8006AF9C {
 };
 
 extern "C" {
-s32 set_camera_look_at(void *, void *, void *);
+void set_camera_look_at(u8 *eye, u8 *target, u8 *up);
 s32 set_perspective_projection_from_fov(int, f32, f32, f32);
 f32 vec_squared_length(void *);
 extern f32 lbl_804FF5E8[10];
@@ -501,7 +501,7 @@ extern "C" {
 void __dt__7TObjectFv(void *, s32);
 void __dl__7TObjectFPv(void *);
 Ctl_8006AA90 *TCameraCtrl__sub_8006AA90(Ctl_8006AA90 *self, s16 arg1);
-u32 get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 
 extern s32 local_client_id;
 
@@ -513,7 +513,7 @@ void TCameraCtrl::update_target_from_state() {
         }
         if ((*(s32 *)((s8 *)TCameraCtrl__view_state + 8) & 0x20) || (*(s32 *)((s8 *)TCameraCtrl__view_state + 8) & 0x80)) {
             select_camera_controller(*(u8 *)((s8 *)TCameraCtrl__view_state + 1));
-            u32 temp = get_player_by_client_id(local_client_id);
+            u32 temp = (u32)get_player_by_client_id(local_client_id);
             if (temp != 0U) {
                 reset_cameras_to_actor((void *)temp, 0);
             }
@@ -922,7 +922,7 @@ void TCameraCtrl::setup_default_view(void *arg1_arg) {
         pat->z += TCameraCtrl__data_805D8FAC;
     }
     set_perspective_projection_from_fov(((Obj_8006AF9C *)this)->f19c, TCameraCtrl__data_805D8FDC, TCameraCtrl__data_805D8FAC, TCameraCtrl__data_805D8FE0);
-    set_camera_look_at(&eye, &at, TCameraCtrl__up_vector);
+    set_camera_look_at((u8 *)&eye, (u8 *)&at, (u8 *)TCameraCtrl__up_vector);
 }
 
 #pragma push

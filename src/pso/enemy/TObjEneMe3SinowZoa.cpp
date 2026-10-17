@@ -2701,7 +2701,7 @@ void TObjEneMe3SinowZoa__sub_80319748(u8 *arg0, s32 arg1) {
 
 extern "C" {
 
-s32 enemy_validate_retained_target(void *);
+s32 enemy_validate_retained_target(u8 *arg0);
 extern const u32 lbl_805DF368;
 
 void TObjEneMe3SinowZoa::update_state_action(s32 arg1) {
@@ -2735,7 +2735,7 @@ void TObjEneMe3SinowZoa::update_state_action(s32 arg1) {
                 *(s32 *)((s8 *)this + 0x438) = 0xFF;
             }
             *(u32 *)((s8 *)this + 0x3F8) = (*(s32 *)((s8 *)this + 0x438) << 24) | (*(u32 *)((s8 *)this + 0x3F8) & 0xFFFFFF);
-            if (enemy_validate_retained_target(this) == 0) {
+            if (enemy_validate_retained_target((u8 *)this) == 0) {
                 *(s32 *)((s8 *)this + 0x434) = 0;
                 *(s32 *)((s8 *)this + 0x3F8) = 0;
             }

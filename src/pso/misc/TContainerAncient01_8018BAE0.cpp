@@ -18,7 +18,7 @@ extern s32 TContainerAncient01__effect_id_table[];
 extern u32 TContainerAncient01__bml_resource;
 extern const f32 TContainerAncient01__data_805DBD14;
 extern const f32 TContainerAncient01__data_805DBD20;
-void *TContainerAncient01__ct(void *, void *, void *);
+u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void TLobby__sub_8001FE7C(void*, int);
 void *__nw__7TObjectFUl(int);
 
@@ -27,7 +27,7 @@ extern void *tl_05;
 void *TContainerAncient01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x370);
     if (o != NULL) {
-        o = TContainerAncient01__ct(o, tl_05, arg0);
+        o = TContainerAncient01__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

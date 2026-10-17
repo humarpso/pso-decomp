@@ -173,18 +173,18 @@ u16 find_nearest_visible_player(void *, int, f32);
 f32 horizontal_distance_squared(void *, void *);
 f32 TObjPlayer__sub_8017A1A4(int, int);
 s32 send_6x2C_impose_hold(int, void *, int, int, f32);
-u32 get_player_by_client_id(u32);
+void *get_player_by_client_id(s32 i);
 extern s32 local_client_id;
 void check_hold_player__14TOTrapSeabed01FPv(u8 *arg0);
 void vfunc_81__14TOTrapSeabed01Fv(u8 *arg0);
 s32 get_bml_model(int, int);
 s32 set_position_xy__10TObjPlayerFff(f32, f32);
 void *spawn_particle_effect(void *pos, s32 id);
-s32 copy_transform__8TObjChipFPvPv(void *, void *);
+u8 *copy_transform__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
 void *__nw__7TObjectFUl(int);
 s32 __ct__13TObjSuisoChipFv(void *, void *, void *);
 s32 matrix_mult_vec(void *, void *, void *);
-s32 translate_matrix_vec3(void *, void *);
+void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 void set_matrix_identity(u8 *arg0);
 s32 rotate_matrix_y(void *, int);
 extern u8 TOTrapSeabed01__transform_params[];
@@ -215,7 +215,7 @@ void TOTrapSeabed01__vt83(Trap_802C9E3C *self) {
     s32 i;
     f32 y;
     void *o;
-    copy_transform__8TObjChipFPvPv(&p, TOTrapSeabed01__transform_params);
+    copy_transform__8TObjChipFPvPv((u8 *)&p, (u8 *)TOTrapSeabed01__transform_params);
     y = TOTrapSeabed01__data_805DE644;
     p.f44 = TOTrapSeabed01__texture_file;
     for (i = 0; i < 6; i++) {
@@ -230,7 +230,7 @@ void TOTrapSeabed01__vt83(Trap_802C9E3C *self) {
         Vec_802C9E3C v = p.pos;
         v.y = y;
         set_matrix_identity((u8 *)&m);
-        translate_matrix_vec3(&m, &self->pos);
+        translate_matrix_vec3((u8 *)&m, (u8 *)&self->pos);
         rotate_matrix_y(&m, self->rotY);
         matrix_mult_vec(&m, &v, &v);
         if (spawn_particle_effect(&v, 0x8B) != 0) {
@@ -267,7 +267,7 @@ void check_hold_player__14TOTrapSeabed01FPv(u8 *arg0) {
     *(u32 *)((s8 *)arg0 + 0x2A8) = 0U;
     *(u16 *)((s8 *)arg0 + 0x33C) = find_nearest_visible_player((void *) (arg0), (int) (0), (f32) (*(f32 *)((s8 *)arg0 + 0x334)));
     id = *(u16 *)((s8 *)arg0 + 0x33C);
-    if ((id != 0xFFFF) && (temp_r3 = get_player_by_client_id(id), *(u32 *)((s8 *)arg0 + 0x2A8) = temp_r3, temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x2A8), ((temp_r3_2 == 0U) == 0))) {
+    if ((id != 0xFFFF) && (temp_r3 = (u32)get_player_by_client_id(id), *(u32 *)((s8 *)arg0 + 0x2A8) = temp_r3, temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x2A8), ((temp_r3_2 == 0U) == 0))) {
         temp_f31 = horizontal_distance_squared((void *) (temp_r3_2 + 0x38), (void *) (arg0 + 0x38));
         *(f32 *)((s8 *)arg0 + 0x338) = (f32) (*(f32 *)((s8 *)arg0 + 0x338) - TObjPlayer__sub_8017A1A4((int) (temp_r3), (int) (0)));
         temp_f0 = *(f32 *)((s8 *)arg0 + 0x338);
@@ -364,7 +364,7 @@ s32 draw_ginja_model_with_motion(int, int, f32);
 
 void restore_saved_depth_alpha_state(void);
 void func_80141618__Fv(void);
-s32 set_model_node_callback(void *);
+void set_model_node_callback(s32 arg0);
 
 extern s32 actor_frame_tick;
 extern s32 lbl_805D681C;
@@ -379,7 +379,7 @@ void TOTrapSeabed01::render_effect_layers() {
         }
         lbl_805D681C = actor_frame_tick;
     }
-    set_model_node_callback((void *) (trigger_by_id__14TOTrapSeabed01FUi));
+    set_model_node_callback((s32)(trigger_by_id__14TOTrapSeabed01FUi));
     push_matrix();
     post_translate_matrix((void *) (((u8 *)this) + 0x38));
     ((s32 (*)(int, int))rotate_matrix_y)((int)((int) (0)), (int)((int) (*(s32 *)((s8 *)((u8 *)this) + 0x60))));
@@ -396,7 +396,7 @@ void TOTrapSeabed01::render_effect_layers() {
     restore_saved_depth_alpha_state();
     TParticleCtrl::end_effect_render();
     pop_matrix();
-    set_model_node_callback((void *) (NULL));
+    set_model_node_callback((NULL));
 }
 
 void TOTrapSeabed01::draw_object_tree(u8 *arg1) {
@@ -632,7 +632,7 @@ extern s32 TOTrapSeabed01_class_name;
 u8 *TOTrapSeabed01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
-u32 load_gvm_texture_file(void *);
+u8 *load_gvm_texture_file(s32 arg0);
 extern u8 lbl_804720E8[];
 extern u8 lbl_80472100[];
 extern SeabedTrapResourceDescriptor seabed_trap_resource_descriptor;
@@ -736,7 +736,7 @@ void TOTrapSeabed01::load_resources() {
         p = load_resource_from_descriptor(p, 5, (void *)&seabed_trap_resource_descriptor, 0, 0, 0);
     }
     (*(u32 *)&TOTrapSeabed01__bml_resource) = (u32)p;
-    (*(u32 *)&TOTrapSeabed01__texture_file) = load_gvm_texture_file(lbl_804720E8);
+    (*(u32 *)&TOTrapSeabed01__texture_file) = (u32)load_gvm_texture_file((s32)lbl_804720E8);
     s32 n = ((TObjSeabedSuisoBrakable *)(get_bml_model((*(u32 *)&TOTrapSeabed01__bml_resource), 0)))->count_linked_switches(5);
     u32 t = (*(u32 *)&TOTrapSeabed01__texture_file);
     (*(s32 *)&TOTrapSeabed01__ginja_model) = n;

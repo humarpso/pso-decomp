@@ -24,7 +24,7 @@ s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__11TMainCursor[];
 extern s32 main_cursor_class_name;
 u8 *TMainCursor__ct(u8 *arg0, s32 arg1, s32 arg2, u8 arg3, u8 arg4, u8 arg5, s32 arg6, f32 farg0);
-s32 check_can_pickup__11TMainCursorFi(void *);
+s32 check_can_pickup__11TMainCursorFi(s32 arg0);
 s32 check_visible__11TMainCursorFv(void *, int, void *, int);
 s32 check_field_24__11TMainCursorFv();
 u8 update_sub_60__11TMainCursorFv(void *);
@@ -38,7 +38,7 @@ void *__dt__11TMainCursorFv(void *arg0, s16 arg1);
 void *find_entity_by_id();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void destroy__11TMainCursorFis(void *, int);
+s32 destroy__11TMainCursorFis(s32 arg0, s16 arg1);
 
 void TMainCursor::update_position() {
     s32 arg0 = (s32)this;
@@ -75,7 +75,7 @@ void TMainCursor::refresh_target_marker() {
     *(f32 *)&this->unk_30 = *(f32 *)&this->unk_38;
     this->m_3c = lbl_805DB0DC;
     ((TMainCursor *)((u8 *)this))->update_position();
-    if (check_can_pickup__11TMainCursorFi((void *) (((u8 *)this))) != 0) {
+    if (check_can_pickup__11TMainCursorFi((s32)(((u8 *)this))) != 0) {
         ((TMainCursor *)((u8 *)this))->check_flag_4();
     }
     if (((TMainCursor *)((u8 *)this))->update() != 0) {
@@ -88,7 +88,7 @@ void TMainCursor::refresh_target_marker() {
 void *__dt__11TMainCursorFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TMainCursor;
-        destroy__11TMainCursorFis((s8 *)arg0 + 0x60, -1);
+        destroy__11TMainCursorFis((s32)((s8 *)arg0 + 0x60), -1);
         ((TMainCursor *)((s8 *)arg0 + 0x4C))->destroy(-1);
         ((TMainCursor *)((s8 *)arg0 + 0x24))->delete_this(-1);
         __dt__7TObjectFv(arg0, 0);

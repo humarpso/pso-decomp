@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_8024FBA8.h"
 #include "pso/misc/TWindowSubStatusDisp_8025A9B4.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TWindowDuelResult.h"
@@ -37,9 +38,6 @@ u16 map_char_to_font_code(u16);
 extern s32 current_language;
 void measure_message_text_width(Msg_8025A9C0 *msg, f32 maxw);
 s32 reset_entry__20TWindowSubStatusDispFPv(void *, void *);
-s32 draw_small_font_string_clipped(void *, void *, s32, f32);
-s32 draw_window_text(void *, void *, s32, s32, f32);
-void set_text_draw_params(void *, u8, s32, f32, f32);
 void render_text_entry(Win_8025AD5C *arg0, Ref_8025AD5C *arg1);
 s32 deleting_destructor__20TWindowSubStatusDispFs(void *, s32);
 
@@ -220,11 +218,11 @@ void render_text_entry(Win_8025AD5C *arg0, Ref_8025AD5C *arg1) {
     if (len > arg0->f1C) {
         len = arg0->f1C;
     }
-    set_text_draw_params(arg1, !(arg0->flags & 0x100), arg0->flags & 0x80, scale, alpha);
+    set_text_draw_params((s32)arg1, (s32)(!(arg0->flags & 0x100)), (s32)(arg0->flags & 0x80), (f32)scale, (f32)alpha);
     if (arg0->flags & 4) {
-        r = draw_small_font_string_clipped(&pt, arg0->text, arg0->i24, len);
+        r = draw_small_font_string_clipped((f32 *)&pt, (const char *)arg0->text, (u32)arg0->i24, (f32)len);
     } else {
-        r = draw_window_text(&pt, arg0->text, arg0->i24, (arg0->flags >> 9) & 1, len);
+        r = draw_window_text((f32 *)&pt, (const char *)arg0->text, (s32)arg0->i24, (s32)((arg0->flags >> 9) & 1), (f32)len);
     }
     if (r != 0) {
         arg0->flags |= 0x10;

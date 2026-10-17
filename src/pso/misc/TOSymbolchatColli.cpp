@@ -72,12 +72,12 @@ extern s32 lbl_805D3194;
 Obj_80178AD4 *TOSymbolchatColli__ct(Obj_80178AD4 *arg0, void *arg1, s32 arg2);
 s32 is_locally_controlled__10TObjPlayerFPv();
 f32 horizontal_distance_squared(void *, void *);
-Player_80178890 *find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 void fn_8017866C(void *, s32, u16);
 void run_task__17TOSymbolchatColliFv(Obj_80178890 *self);
 u32 prs_decompress_buffer(s32 arg0, s32 arg1);
 s32 set_stream_and_load_file__6TLobbyFi(s32);
-s32 mem_alloc(s32);
+void *mem_alloc(u32 size);
 extern u32 symbolchat_colli_param_table[];
 extern s32 lbl_805D3190;
 extern int symbol_chat_colli_entries;
@@ -167,7 +167,7 @@ void run_task__17TOSymbolchatColliFv(Obj_80178890 *self) {
     u16 i;
     Player_80178890 *pl;
     for (i = 0; i != 4; i++) {
-        pl = find_entity_by_id(i);
+        pl = (Player_80178890 *)find_entity_by_id(i);
         if (pl != NULL && is_locally_controlled__10TObjPlayerFPv() != 0) {
             if (horizontal_distance_squared(pl->pos, self->pos) < self->radiusSq) {
                 if (self->inside[i] == 0) {
@@ -197,7 +197,7 @@ void TOSymbolchatColli::free_rock() { mem_free((void *)(symbol_chat_colli_entrie
 void TOSymbolchatColli::load_symbol_chat_data() {
     s32 h;
     s32 i;
-    symbol_chat_colli_entries = mem_alloc(0x840);
+    symbol_chat_colli_entries = (int)mem_alloc(0x840);
     h = set_stream_and_load_file__6TLobbyFi(lbl_805D3190);
     if (h != 0) {
         prs_decompress_buffer(h, symbol_chat_colli_entries);

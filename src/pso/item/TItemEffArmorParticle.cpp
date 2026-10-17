@@ -14,7 +14,7 @@ typedef char armor_size_check[(sizeof(TItemEffArmorParticle) == 0x2C) ? 1 : -1];
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 s32 obj_testFlags30(int, int);
-u32 find_item_by_id(int);
+u8 *find_item_by_id(s32 id);
 int get_item_system_generation(void);
 s8 TObjPlayer__sub_80102C30();
 void *get_player_by_client_id(s32 i);
@@ -31,7 +31,7 @@ void TItemEffArmorParticle::run_task() {
     active = 0;
     if ((u32)m_20 != 0U) {
         player = (u32)get_player_by_client_id(m_player_id);
-        item = find_item_by_id(m_item_id);
+        item = (u32)find_item_by_id(m_item_id);
         if (player != 0U) {
             if (item != 0U) {
                 if (TObjPlayer__sub_80102C30() == 2) {
@@ -76,7 +76,7 @@ struct V_A_80364364 : Base_A_80364364 {
 
 extern "C" {
 
-u32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
+void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
 void disallow_rendering__7TObjectFv(void *arg0);
 
 extern s32 TItemEffArmorParticle__class_name;
@@ -92,7 +92,7 @@ TItemEffArmorParticle::TItemEffArmorParticle(TObject *arg1, s32 item_id, s32 pla
     *(s32 *)&this->m_item_ctrl = get_item_system_generation();
     player = get_player_by_client_id((u16) player_id);
     if (player != NULL) {
-        *(u32 *)((s8 *)this + 0x20) = spawn_continuous_particle_effect_with_flags(((V_A_80364364 *) player)->m7(), arg4, 0x10);
+        *(u32 *)((s8 *)this + 0x20) = (u32)spawn_continuous_particle_effect_with_flags((void *)(((V_A_80364364 *) player)->m7()), (s32)arg4, (s32)(0x10));
         p = *(u32 *)((s8 *)this + 0x20);
         if (p != 0U) {
             ((TParticleCtrl *)p)->set_owner_id(this->m_player_id);

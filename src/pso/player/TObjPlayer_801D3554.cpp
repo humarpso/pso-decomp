@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemList_801D3780.h"
 #include "pso/item/TItemList_801D57B0.h"
 #include "pso/player/TObjPlayer_801D3554.h"
 #include "pso/misc/TLobby.h"
@@ -14,7 +15,6 @@ typedef struct Rec_801D35FC {
 struct ByteBlock_14 { u8 bytes[0x14]; };
 
 extern "C" {
-int TItemList__sub_801D3B00(void*, void*, void*, void*);
 int TItemList__sub_801D5868(void*, void*);
 void create_drop_nodes__9TItemListFPvPvPvPvi(void *arg0, void *arg1, void *arg2, Rec_801D35FC *arg3, s32 arg4);
 s32 TItemList__sub_801D5854(s32, s32);
@@ -70,7 +70,7 @@ u8 *copy_drop_node(u8 *arg0, u8 *arg1) {
 void fn_801D371C(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); }
 void start_placement_search(s32 arg0, s32 arg1, s32 arg2) {
     TItemList__sub_801D5838(((void *)((s32)TItemList__sub_801D5868((void*)(arg0), (void*)(0)))));
-    TItemList__sub_801D3B00((void*)(arg0), (void*)(arg2), (void*)(arg1), (void*)(0));
+    TItemList__sub_801D3B00((void *)(arg0), (void *)(arg2), (void *)(arg1), (0));
     TItemList__sub_801D5804((s32 *)((void *) (arg0)));
 }
 

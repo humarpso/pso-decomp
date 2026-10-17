@@ -56,7 +56,7 @@ f32 TObjEneRecon__sub_8031C2D4(void);
 extern const f32 lbl_805DF3C8;
 u8 TObjEneRecon__sub_8031C250(T_8031C250 *self);
 s16 get_attack_params_atp_min(void *p);
-u8 *get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 u16 obj_getField1c(void *);
 void *spawn_particle_effect(void *pos, s32 id);
 void enemy_clear_target__12TObjEneDD_STFUs(void *);
@@ -94,7 +94,7 @@ f32 TObjEneRecon__sub_8031C2D4(void) {
     return *(f32 *)((s8 *)TObjEneRecon__data_805D6AFC + 4);
 }
 
-s32 find_entity_by_id(int);
+void *find_entity_by_id(u16 id);
 s32 queue_destruction__7TObjectFv(void *);
 void transition_enemy_state(void *, s32);
 void select_next_target__12TObjEneReconFv(void *, s32);
@@ -104,7 +104,7 @@ void TObjEneRecon::handle_message(s32 arg1) {
     case 4:
         *(s32 *)((s8 *)this + 0x444) = (s32) (*(s32 *)((s8 *)this + 0x444) | 1);
         *(s32 *)((s8 *)this + 0x444) = (s32) (*(s32 *)((s8 *)this + 0x444) & 0xFFFFFFFD);
-        if ((temp = ((u32 (*)(u16)) find_entity_by_id)(*(u16 *)((s8 *)this + 0x434))) != 0U) {
+        if ((temp = (u32)find_entity_by_id(*(u16 *)((s8 *)this + 0x434))) != 0U) {
             ((TObjEneRecon *)temp)->remove_child_entity((u8 *)this);
         }
         break;
@@ -413,7 +413,7 @@ void run_task__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
         create_timed_particle_emitter((arg0 + 0x38), (0x79), (0), (0xF));
         return;
     case 3:
-        temp_r3 = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0x434)));
+        temp_r3 = (s32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0x434)));
         if (temp_r3 == 0) {
             queue_destruction__7TObjectFv((void *) (arg0));
             return;
@@ -705,7 +705,7 @@ extern const f32 lbl_805DF41C;
 s32 approach_angle_limited(s32, s32, s32);
 extern const f32 lbl_805DF3F8;
 void TObjEneRecon__sub_8031CCFC(u8 *arg0, s32 arg1);
-f32 calc_boss4_scale__10TObjPlayerFi(void *);
+f32 calc_boss4_scale__10TObjPlayerFi(s32 arg0);
 extern const f32 lbl_805DF3E8;
 extern const f32 lbl_805DF3EC;
 extern const f32 lbl_805DF3F0;
@@ -759,7 +759,7 @@ void TObjEneRecon__sub_8031C920(u8 *arg0, s32 arg1) {
                 r = F(Prm_8031C920 *, 0x350)->f4;
                 h = TObjEneRecon__data_805DF3C4;
                 if (F(f32, 0x3AC) < k * k) {
-                    if (calc_boss4_scale__10TObjPlayerFi(arg0) > TObjEneRecon__data_805DF3E0) {
+                    if (calc_boss4_scale__10TObjPlayerFi((s32)arg0) > TObjEneRecon__data_805DF3E0) {
                         F(s32, 0x3D4) = (lbl_805DF3EC * r) / (lbl_805DF3F0 * F(f32, 0x468));
                     } else {
                         F(s32, 0x3D4) = (lbl_805DF3F4 * r) / (lbl_805DF3F0 * F(f32, 0x468));
@@ -946,7 +946,7 @@ void TObjEneRecon__sub_8031CF30(u8 *arg0, s32 arg1) {
             }
             if (F(s32, 0x3C8) == 1) {
                 for (i = 0; i < lbl_805D5868; i++) {
-                    p = get_player_data__10TObjPlayerFi(i);
+                    p = (u8 *)get_player_data__10TObjPlayerFi(i);
                     if (is_valid_and_active__10TObjPlayerFUl() != 0 && p != NULL && obj_getField1c(p) < 0x1000 && ((VB_8031CF30 *)p)->m31() == 0) {
                         d = horizontal_distance_squared(p + 0x2FC, arg0 + 0x40C);
                         if (d <= ((TObjEneGibbles *)(F(s32, 0x318)))->get_pos_x() * ((TObjEneGibbles *)(F(s32, 0x318)))->get_pos_x()) {

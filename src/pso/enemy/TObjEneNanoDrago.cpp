@@ -118,7 +118,7 @@ typedef struct Obj_800D9FC4
 
 extern "C" {
 s32 TObjPlayer__sub_800DC420(void *self, s32 i);
-f32 TObjPlayer__sub_800DC434(void *, int);
+f32 TObjPlayer__sub_800DC434(s32 arg0, s32 arg1);
 extern f32 lbl_805D525C;
 extern f32 lbl_805D5260;
 extern f32 lbl_805D5264;
@@ -134,7 +134,7 @@ s32 translate_matrix(int, f32, f32, f32);
 extern RecoveredGlobal_800D9E8C_lbl_8058D490 identity_matrix;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
-void *get_player_data__10TObjPlayerFi(s32 i);
+int get_player_data__10TObjPlayerFi(int a0);
 s32 TObjPlayer__sub_800D9F4C(Obj_800D9F4C *self);
 f32 atan2_float(f32, f32);
 Hit_800D9C7C *csnVector(void *, void *, s32);
@@ -209,10 +209,10 @@ void find_open_direction__10TObjPlayerFPvPv(u8 *arg0, f32 *arg1) {
 #pragma pop
 
 void TObjPlayer__sub_800D9E08(s32 arg0) {
-    lbl_805D525C = TObjPlayer__sub_800DC434((void *) (arg0), (int) (1));
-    lbl_805D5260 = TObjPlayer__sub_800DC434((void *) (arg0), (int) (2));
-    lbl_805D5264 = TObjPlayer__sub_800DC434((void *) (arg0), (int) (3));
-    lbl_805D5268 = TObjPlayer__sub_800DC434((void *) (arg0), (int) (4));
+    lbl_805D525C = TObjPlayer__sub_800DC434((arg0), (1));
+    lbl_805D5260 = TObjPlayer__sub_800DC434((arg0), (2));
+    lbl_805D5264 = TObjPlayer__sub_800DC434((arg0), (3));
+    lbl_805D5268 = TObjPlayer__sub_800DC434((arg0), (4));
     lbl_805D526C = TObjPlayer__sub_800DC420((void *)(arg0), (0));
     lbl_805D5270 = TObjPlayer__sub_800DC420((void *)(arg0), (1));
 }
@@ -234,7 +234,7 @@ s32 TObjPlayer__sub_800D9F4C(Obj_800D9F4C *self) {
     void *p;
     self->f3b4 = 0;
     for (i = 0; i < lbl_805D586C + lbl_805D5870; i++) {
-        p = get_player_data__10TObjPlayerFi(i);
+        p = (void *)get_player_data__10TObjPlayerFi(i);
         if (TObjPlayer::is_valid_and_active((u32)p) != 0) {
             ((TObjPlayer *)self)->add_target_in_front_arc((void *)(p));
         }
@@ -500,7 +500,7 @@ extern "C" {
 void enter_state_5__10TObjPlayerFPv(u8 *arg0);
 void *spawn_directional_particle(void *pos, void *dir, s32 id);
 void TObjPlayer__sub_800DCD04(void *, void *, int, void *, s32, int);
-u32 find_entity_by_id(int);
+void *find_entity_by_id(u16 id);
 u32 __nw__7TObjectFUl(u32);
 void TObjPlayer__sub_800DA414(Obj_800DA414 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
@@ -512,7 +512,7 @@ void update_circle_move__10TObjPlayerFPvPvf(Ene_800DA508 *arg0, Vec_800DA508 *ce
 s32 enemy_turn_half_toward_dest(void *);
 void *spawn_particle_effect(void *pos, s32 id);
 s32 construct_beam_effect__10TObjPlayerFPvPvPviPv(u32, void *, void *, u8, void *);
-s32 play_persistent_sound(int, void *, void *, int, int);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 void TObjPlayer__sub_800DB390(u8 *arg0);
 s32 check_path_obstructed(void *, Vec_800DA7E4 *);
 void TObjPlayer__sub_800DA7E4(u8 *arg0);
@@ -522,7 +522,7 @@ s32 TObjPlayer__sub_800DC478(u8 *arg0, s32 arg1, f32 farg0);
 void project_actor_to_ground(void *, void *, s32);
 void TObjPlayer__sub_800DAB98(u8 *arg0);
 s32 queue_destruction__7TObjectFv();
-s32 TObjPlayer__sub_800D92BC(void *, int);
+void TObjPlayer__sub_800D92BC(s32 point, s32 delay);
 s32 refresh_lobby_state__10TObjPlayerFv();
 void update_death_sequence__10TObjPlayerFPv(u8 *arg0);
 
@@ -637,7 +637,7 @@ void update_death_sequence__10TObjPlayerFPv(u8 *arg0) {
         *(s16 *)((s8 *)arg0 + 0x33C) = (s16) (*(s16 *)((s8 *)arg0 + 0x33C) - 1);
         if (*(s16 *)((s8 *)arg0 + 0x33C) <= 0) {
             ((TObjPlayer *)(arg0 + 0x38))->spawn_ground_effect((int) (0x1E));
-            TObjPlayer__sub_800D92BC((void *) (arg0 + 0x38), (int) (0xF));
+            TObjPlayer__sub_800D92BC((s32)(arg0 + 0x38), (0xF));
             *(s32 *)((s8 *)arg0 + 0x37C) = 4;
             return;
         }
@@ -703,7 +703,7 @@ void TObjPlayer__sub_800DA7E4(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x378) = 1;
         temp_r4 = *(s16 *)((s8 *)arg0 + 0x33E);
         if (((s32) (temp_r4 - *(s16 *)((s8 *)arg0 + 0x32C)) > (s32) (temp_r4 / 4)) && !(*(s32 *)((s8 *)arg0 + 0x30) & 2)) {
-            entity = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x2D4));
+            entity = (u32)find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x2D4));
             if (entity != 0) {
                 var_r30 = 1;
                 if ((*(s32 *)((s8 *)arg0 + 0x30) & 0x01000000) && (xz_distance_squared(arg0 + 0x38, (u8 *)entity + 0x38) > 400.0f)) {
@@ -810,7 +810,7 @@ void TObjPlayer__sub_800DAB98(u8 *arg0) {
         break;
     case 1:
         advance_animation_playback(arg0);
-        calc_velocity_toward_destination(arg0, POS, DEST, TObjPlayer__sub_800DC434(arg0, 0));
+        calc_velocity_toward_destination(arg0, POS, DEST, TObjPlayer__sub_800DC434((s32)arg0, 0));
         if (F(f32, 0x404) < 50.0f) {
             s32 ok = 1;
             if (F(s16, 0xB8) == 6 && F(f32, 0xC0) < 22.0f) {
@@ -916,7 +916,7 @@ void TObjPlayer__sub_800DB0F8(Obj_800DB0F8 *o) {
             }
             break;
         case 2:
-            play_persistent_sound(0x4003AD1E, o, o->pos, 0, 0);
+            play_persistent_sound((s32)(0x4003AD1E), (s32)o, (u32)o->pos, (s32)(0), (s32)(0));
             if (o->frame >= 20.0f) {
                 ((TObjPlayer *)o)->render_model_transformed();
                 for (i = 0; i < o->count; i++) {
@@ -993,7 +993,7 @@ void TObjPlayer__sub_800DB390(u8 *arg0) {
             }
             break;
         case 2:
-            play_persistent_sound((int) (0x4003AD1E), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+            play_persistent_sound((s32)(0x4003AD1E), (s32)(arg0), (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
             if (*(f32 *)((s8 *)arg0 + 0xC0) >= 20.0f) {
                 ((TObjPlayer *)arg0)->render_model_transformed();
                 u32 obj = __nw__7TObjectFUl(0x100);
@@ -1278,7 +1278,7 @@ u8 * TObjEneNanoDrago__ct(u8 *arg0, s32 arg1, u8 *arg2);
 void TObjPlayer__sub_800DC444(void);
 int initialize_enemy_photon_effect(void *p);
 void * TObjControl__ct(void *, void *);
-void bind_enemy_combat_stats(void *, s32, s32, s32);
+s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 s32 free_collision_body_parts(void *);
 void init_collision_body_parts(void *, void *, s32);
@@ -1876,7 +1876,7 @@ u8 *TObjEneNanoDrago__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     init_collision_body_parts(arg0, lbl_80494C38, 2);
     *(u32 *)((s8 *)(*(u8 * *)&((TObjEneNanoDrago *)arg0)->m_a4) + 0x44) &= ~1;
     *(u8 * *)&((TObjEneNanoDrago *)arg0)->movementParameters = lbl_80494C1C;
-    bind_enemy_combat_stats(arg0, lbl_805D5248, lbl_805D524C, lbl_805D5250);
+    bind_enemy_combat_stats(arg0, (u8 *)lbl_805D5248, (u8 *)lbl_805D524C, (u8 *)lbl_805D5250);
     ((void (*)(void *))TObjPlayer__sub_800D9E08)(arg0);
     ((TObjEneNanoDrago *)arg0)->m_b8 = 0;
     set_animation__10TObjPlayerFPvs(arg0, ((TObjEneNanoDrago *)arg0)->m_b8);

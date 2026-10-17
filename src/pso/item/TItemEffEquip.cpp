@@ -41,7 +41,7 @@ void run_task__13TUnk_8049F038Fv(u8 *arg0);
 u8 *vfunc_9__13TUnk_8049F038Fv(u8 *arg0);
 s32 set_item_count__13TUnk_804B9870Fs(void *, s32);
 s32 TLobby__sub_80103B04();
-u8 *get_player_by_client_id(u16);
+void *get_player_by_client_id(s32 i);
 s32 obj_getField1c(void *);
 struct Obj_80108C90 {
     u8 pad0[0x18];
@@ -177,7 +177,7 @@ void*TUnk_8049F038::vfunc_9() {
     u8 *arg0 = (u8 *)this;
     u8 *player;
 
-    player = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xAC));
+    player = (u8 *)get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xAC));
     if (player != NULL) {
         ((VObj80108B5C_80108b5c *)player)->m63(this->m_b0, (u8 *)&this->position);
     }
@@ -256,7 +256,7 @@ void TUnk_8049F038::run_task() {
     u8 *arg0 = (u8 *)this;
     u8 *player;
 
-    player = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xAC));
+    player = (u8 *)get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xAC));
     if (player != NULL) {
         ((VObj80108BB0_80108bb0 *)player)->m63(this->m_b0, (u8 *)&this->position);
     }

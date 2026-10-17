@@ -546,7 +546,7 @@ struct Obj_802A6DA8 : VBase_802A6DA8 {
 };
 
 extern "C" {
-s32 create_particle_emitter(void *, s32);
+void *create_particle_emitter(void *pos, s32 id);
 void init_map_object_base(void *, s32, s32);
 extern Ent18_802A6BD0 TObjSeabedSuiso__kind_param_table[];
 extern Ent2C_802A6DA8 lbl_804DD2D8[];
@@ -602,7 +602,7 @@ Obj_802A6DA8 *TObjSeabedSuiso_CH__ct(Obj_802A6DA8 *self, s32 arg1, s32 arg2) {
     init_collision_body_parts(self, (int)&lbl_804DD2D8[self->kind], 1);
     ((TObjPlayer *)self)->reset_photon_effect();
     if (TObjSeabedSuiso__kind_param_table[self->kind].id >= 0) {
-        self->fd8 = create_particle_emitter(self->pos, TObjSeabedSuiso__kind_param_table[self->kind].id);
+        self->fd8 = (s32)create_particle_emitter(self->pos, TObjSeabedSuiso__kind_param_table[self->kind].id);
     } else {
         self->fd8 = 0;
     }

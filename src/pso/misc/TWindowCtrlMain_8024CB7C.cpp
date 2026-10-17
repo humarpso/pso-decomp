@@ -1,4 +1,6 @@
 #include "pso/misc/WindowControlState.h"
+#include "pso/misc/TWindowCtrlMain_8024CB7C.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 #include "types.h"
 #include "pso/misc/TWindowCtrlMain.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -23,13 +25,6 @@ s32 is_split_screen(void);
 extern s32 TWindowCtrlMain__display_flags;
 extern s32 TWindowCtrlMain__window_task_root;
 extern WindowControlState TWindowCtrlMain__viewport_states[6];
-s32 TWindowCtrlMain__sub_8024CD5C(s32 viewport_index);
-s32 TWindowCtrlMain__sub_8024CDB0(void* p);
-s32 TWindowCtrlMain__sub_8024CDD0(s32 arg0);
-s32 TWindowCtrlMain__sub_8024CE24(void);
-s32 TWindowCtrlMain__sub_8024CE34(void);
-s32 is_window_display_enabled(void);
-bool TWindowCtrlMain__sub_8024CE58(void);
 struct Vec2_8024CE68 { f32 x, y; };
 struct Poly_8024CE68 {
     Vec2_8024CE68 *verts;
@@ -40,9 +35,6 @@ struct Poly_8024CE68 {
 struct Quad_8024CE68 { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 
 void draw_color_lines(void *, int, int, f32);
-void begin_screen_draw(s32 arg0);
-void draw_textured_quad_at_depth(void *, f32);
-void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern void *lbl_805D63F0;
 
 void TWindowCtrlMain__sub_8024CB7C() {
@@ -225,7 +217,7 @@ void draw_menu_backdrop_gradients(s32 viewport_index) {
         q.v0 = 0.93359375f;
         q.u1 = 0.13671875f;
         q.v1 = 0.99609375f;
-        draw_textured_quad_at_depth(&q, 0.1f);
+        draw_textured_quad_at_depth((f32 *)&q, 0.1f);
     }
     for (y = s->field18; y < 480.0f; y += 16.0f) {
         q.x0 = 0.0f;
@@ -236,7 +228,7 @@ void draw_menu_backdrop_gradients(s32 viewport_index) {
         q.v0 = 0.93359375f;
         q.u1 = 0.13671875f;
         q.v1 = 0.99609375f;
-        draw_textured_quad_at_depth(&q, 0.1f);
+        draw_textured_quad_at_depth((f32 *)&q, 0.1f);
     }
     q.x0 = s->field0C;
     q.y0 = s->field18 - 16.0f;
@@ -246,7 +238,7 @@ void draw_menu_backdrop_gradients(s32 viewport_index) {
     q.v0 = 0.93359375f;
     q.u1 = 0.06640625f;
     q.v1 = 0.99609375f;
-    draw_textured_quad_at_depth(&q, 0.1f);
+    draw_textured_quad_at_depth((f32 *)&q, 0.1f);
     TWindowSubStatusDisp::get_player();
 
     line.verts = lverts;

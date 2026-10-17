@@ -99,7 +99,7 @@ extern const f32 lbl_805DBEFC;
 extern const f32 lbl_805DBF00;
 extern s32 quest_col_base_class_name;
 extern u16 quest_collision_next_id;
-u32 get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 
 extern s32 local_client_id;
 
@@ -107,7 +107,7 @@ s32 TObjQuestColBase::is_within_range(f32 farg0) {
     s32 arg0 = (s32)this;
     u32 player;
 
-    player = get_player_by_client_id(local_client_id);
+    player = (u32)get_player_by_client_id(local_client_id);
     if ((player != 0U) && (xyz_distance_squared((u8 *)(player + 0x38), (u8 *)(arg0 + 0x38)) < farg0)) {
         return 1;
     }

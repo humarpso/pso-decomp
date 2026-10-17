@@ -9,7 +9,7 @@ extern "C" {
 void *TObjQuestColA__ct(void *arg0);
 void enable_action_input__10TObjPlayerFPv(void *p);
 void TObjQuestColBase__ct(void *);
-s32 get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 check_flag_100__10TObjPlayerFPv();
 u32 create__12TQuestThreadFi(s32 arg0);
@@ -24,7 +24,7 @@ int TObjQuestColA::vfunc_15() {
     s32 temp_r3;
     s32 temp_r3_2;
 
-    temp_r3 = get_player_by_client_id(local_client_id);
+    temp_r3 = (s32)get_player_by_client_id(local_client_id);
     if (temp_r3 != 0) {
         if (check_flag_100__10TObjPlayerFPv() != 0) {
             enable_action_input__10TObjPlayerFPv((void *)temp_r3);

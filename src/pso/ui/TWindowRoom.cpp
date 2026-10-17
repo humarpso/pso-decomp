@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_8025A9B4.h"
 #include "pso/misc/TWindowSubStatusDisp_80287570.h"
 #include "pso/ui/TWindowRoom.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -28,7 +29,6 @@ int get_array_entry__13TUnk_804CE018Fi(void*, int);
 s32 save_position__13TUnk_804CE018Fv(void *);
 void construct_base__9TWindowDDFPUcsPUc(void *, void *, s16, void *);
 void refresh_status_display__9TWindowDDFv(void *);
-s32 set_text_entry_string(s32, s32, s32);
 s32 get_window_layout_position(int);
 extern RecoveredGlobal_8026D674_lbl_804D08DC room_window_base_parameters;
 extern s32 __vt__11TWindowRoom[];
@@ -52,7 +52,7 @@ void *TWindowRoom::get_title_entry() {
 
 extern "C" {
 void TWindowSubStatusDisp::set_entry_display_value(s32 arg1) {
-    set_text_entry_string(get_array_entry__13TUnk_804CE018Fi((void*)(this), 0), arg1, 0x60);
+    set_text_entry_string((u8 *)(get_array_entry__13TUnk_804CE018Fi((void*)(this), 0)), arg1, 0x60);
 }
 }
 
@@ -91,7 +91,7 @@ TWindowRoom::TWindowRoom(char *title) {
     objectVtable = __vt__11TWindowRoom;
     className = TWindowRoom__class_name;
     entry = (RoomTitleEntry *)get_array_entry__13TUnk_804CE018Fi(this, 0);
-    set_text_entry_string((s32)entry, (s32)title, 0x60);
+    set_text_entry_string((u8 *)entry, (u32)title, 0x60);
     refresh_status_display__9TWindowDDFv(entry);
     width = lbl_805DD2F0 + (entry->positionX + entry->width);
     positionX -= width;

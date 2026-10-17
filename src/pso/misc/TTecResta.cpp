@@ -133,7 +133,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 void set_owner_id__13TParticleCtrlFUs(void *, s32);
 Resta_8023967C *construct_self_recovery__9TTecRestaFPvPviPv(Resta_8023967C *self, Vec_8023967C *pos, s32 owner, void *parent);
 s32 queue_destruction__7TObjectFv();
-u32 find_entity_by_id(int);
+void *find_entity_by_id(u16 id);
 void deliver_technique_to_party_targets(void *);
 void run_task__9TTecRestaFv(Resta_802399F8 *self);
 s32 is_split_screen(void);
@@ -296,7 +296,7 @@ void TTecResta::render() {  }
 void run_task__9TTecRestaFv(Resta_802399F8 *self) {
     u32 target;
     s32 i;
-    self->source = find_entity_by_id(self->source_id);
+    self->source = (u32)find_entity_by_id(self->source_id);
     if (TTecLuker::is_parents_unqueued(self->source) == 0) {
         ((void (*)(void *))queue_destruction__7TObjectFv)(self);
         return;
@@ -308,7 +308,7 @@ void run_task__9TTecRestaFv(Resta_802399F8 *self) {
             ((VObj_802399F8 *)self)->m5(self->source);
             if (self->count != 0) {
                 for (i = 0; i < self->count; i++) {
-                    target = find_entity_by_id(self->targets[i].id);
+                    target = (u32)find_entity_by_id(self->targets[i].id);
                     if (TTecLuker::is_parents_unqueued(target) != 0) {
                         ((VObj_802399F8 *)self)->m5(target);
                     }

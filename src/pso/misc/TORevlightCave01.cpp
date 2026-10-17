@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TORevlightCave01_801736BC.h"
 #include "pso/misc/TORevlightCave01.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
@@ -10,7 +11,6 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_80173614_lbl_804B3A70 bm_fs_obj_yukakaiten01_resource_descriptor;
 extern u32 TORevlightCave01__static_model_resource;
 void TLobby__sub_8001FE7C(void*, int);
-void *TORevlightCave01__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
@@ -18,7 +18,7 @@ extern void *tl_05;
 void *TORevlightCave01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD0);
     if (o != NULL) {
-        o = TORevlightCave01__ct(o, tl_05, arg0);
+        o = TORevlightCave01__ct(o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

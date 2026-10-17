@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 #include "pso/ui/TAdPlyPltAnimGC.h"
 #include "pso/ui/TAdPlyPltAnimCtrlGC.h"
 #include "pso/TMainTask.h"
@@ -44,16 +45,12 @@ struct RecoveredGlobal_803560F0_lbl_804F142C {
 };
 
 extern "C" {
-void begin_screen_draw(s32);
-void draw_textured_quad_at_depth(void *, f32);
-void set_draw_texture_and_color(s32, s32);
 extern s32 player_prate_texture_list_ptr;
 extern const f32 lbl_805DFFC8;
 extern const f32 lbl_805DFFCC;
 extern const V2_80355D5C lbl_80479350[];
 extern const f32 lbl_805DFFD0;
 void start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(Obj_80355D5C *o, V2_80355D5C *p);
-void TAdPlyPltAnimCtrlGC__sub_80355D38(void *arg0);
 extern Pos_80355DE0 ply_plt_anim_target_position_table[];
 extern u32 ply_plt_anim_duration_table[];
 extern const f32 lbl_805DFFD4;
@@ -67,9 +64,6 @@ extern s32 lbl_805D43A0;
 extern const f32 lbl_805DFFDC;
 extern const f32 lbl_805DFFE0;
 s32 __nw__7TObjectFUl(int);
-s32 TAdPlyPltAnimGC__ct(int, void *, void *);
-s32 get_or_create__15TAdPlyPltAnimGCFii(s32 arg0, s32 arg1);
-void TAdPlyPltAnimGC__sub_8035615C(void);
 void TLobby__sub_803DA16C(void*);
 
 #pragma push
@@ -81,7 +75,7 @@ void TAdPlyPltAnimGC::render() {
         begin_screen_draw(1);
         TObjFish::set_global_param(player_prate_texture_list_ptr);
         set_draw_texture_and_color(0, (*(u8 *)((s8 *)arg0 + 0x6C) << 0x18) | 0xFF0000 | 0xFFFF);
-        draw_textured_quad_at_depth((u8 *)(arg0) + 0x1C, (lbl_805DFFCC * (f32) *(s32 *)((s8 *)arg0 + 0x70)) + lbl_805DFFC8);
+        draw_textured_quad_at_depth((f32 *)((u8 *)(arg0) + 0x1C), (lbl_805DFFCC * (f32) *(s32 *)((s8 *)arg0 + 0x70)) + lbl_805DFFC8);
         TWindowSubStatusDisp::get_player();
         TObjPlayer::reset_transform_state();
     }

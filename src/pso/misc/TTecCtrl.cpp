@@ -24,7 +24,7 @@ extern u8 lbl_8044D088[];
 extern u8 lbl_8044D094[];
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 u8 *load_resource_from_descriptor(u8 *, s32, void *, s32, s32, s32);
-void **load_gvm_texture_file(void *);
+u8 *load_gvm_texture_file(s32 arg0);
 void bind_gvm_texture_list(void *, void *);
 void reset_telepipe_visit_counts(void);
 void __ct__7TObjectFP7TObject(void *);
@@ -85,7 +85,7 @@ void load_technique_resources(void) {
         p = load_resource_from_descriptor(p, 1, technique_resource_descriptor, 0, 0, 0);
     }
     technique_effect_bml = p;
-    lbl_805D63B0 = load_gvm_texture_file(lbl_8044D088);
+    lbl_805D63B0 = (void **)load_gvm_texture_file((s32)lbl_8044D088);
     bind_gvm_texture_list(lbl_8044D094, ((u8 *)&technique_ringwave_texture_list));
     TTecZondeEff::init_resources();
 }

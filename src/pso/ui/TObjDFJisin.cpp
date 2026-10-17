@@ -76,8 +76,8 @@ int TBoss4DarkFalz__sub_8004C1AC(void);
 s32 steer_homing_direction(void *);
 int queue_destruction__13TObjDFHormingFPv(void* p);
 s32 query_teammate_state__9TObjEneDDFv();
-s32 direction_to_rotation_xz(void *, void *, void *);
-u8 * get_player_by_client_id(u16);
+void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
+void *get_player_by_client_id(s32 i);
 s32 minimap_render_dot(void *, int, int, int);
 void vec3_add_to(void *, void *);
 void subtract_vector(void *, void *);
@@ -184,8 +184,8 @@ void * create__16TObjDFBeamCursorFPvPv(void *arg0, void *arg1);
 u8 * TObjDFRecBall__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 void * create__13TObjDFRecBallFPvPvPv(void *arg0, void *arg1, void *arg2);
 s32 TBoss4Type3__sub_8005254C(s16);
-u32 spawn_particle_effect(void *, int);
-s32 create_particle_emitter(s32, s32);
+void *spawn_particle_effect(void *pos, s32 id);
+void *create_particle_emitter(void *pos, s32 id);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -243,7 +243,7 @@ void run_task__13TObjDFHormingFv(u8 *arg0) {
     if (query_teammate_state__9TObjEneDDFv() != 0) {
         return;
     }
-    if (*(u16 *)((s8 *)arg0 + 0x334) == 0xFFFF || (p = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x334))) == NULL) {
+    if (*(u16 *)((s8 *)arg0 + 0x334) == 0xFFFF || (p = (u8 *)get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x334))) == NULL) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
@@ -268,7 +268,7 @@ void run_task__13TObjDFHormingFv(u8 *arg0) {
     vec3_add_to(arg0 + 0x2FC, arg0 + 0x348);
     {
         s32 id = find_nearest_visible_player(arg0, 0, lbl_805D8A60);
-        if (id != 0xFFFF && (p = get_player_by_client_id(id)) != NULL) {
+        if (id != 0xFFFF && (p = (u8 *)get_player_by_client_id(id)) != NULL) {
             if (is_boss_active__13TObjDFHormingFv() != 0) {
                 s.a = 0;
                 s.b = *(s32 *)((s8 *)arg0 + 0x360);
@@ -286,7 +286,7 @@ void run_task__13TObjDFHormingFv(u8 *arg0) {
             if (i == 1) {
                 VecCopy((Vec *)&d, (const Vec *)(arg0 + 0x2FC));
                 subtract_vector(&d, arg0 + 0x44);
-                direction_to_rotation_xz(&d, &rot.x, &rot.z);
+                direction_to_rotation_xz((u8 *)&d, &rot.x, &rot.z);
                 rot.y = 0;
                 ((TBoss4Type2 *)((void *)*(u32 *)((s8 *)(arg0 + i * 4) + 0x358)))->copy_vec3(&rot);
             }
@@ -336,7 +336,7 @@ u8 *TObjDFHorming__ct(u8 *arg0, s32 parent, s32 arg2, u16 arg3) {
     VecCopy((Vec *)(arg0 + 0x2FC), (const Vec *)(VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(VecCopy((Vec *)(arg0 + 0x33C), (const Vec *)((const Vec *)arg2))))));
     scale = newton_sqrtf(lbl_805D8A64);
     ang = (s32)(lbl_805D8A68 * (lbl_805D8A6C * (f32)rand() - lbl_805D8A70));
-    p = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x334));
+    p = (u8 *)get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x334));
     if (p != NULL) {
         ang = 0;
     } else {
@@ -353,7 +353,7 @@ u8 *TObjDFHorming__ct(u8 *arg0, s32 parent, s32 arg2, u16 arg3) {
     }
     *(f32 *)((s8 *)arg0 + 0x378) = lbl_805D8A88 * *(f32 *)((s8 *)arg0 + 0x364) + lbl_805D8A84;
     for (i = 0; i < 2; i++) {
-        if ((((Obj_80050AF8 *)arg0)->objs[i] = ((u32 (*)(void *, s32))create_particle_emitter)(arg0 + 0x2FC, TObjDFJisin__particle_emitter_id_table[i])) != 0) {
+        if ((((Obj_80050AF8 *)arg0)->objs[i] = (u32)create_particle_emitter(arg0 + 0x2FC, TObjDFJisin__particle_emitter_id_table[i])) != 0) {
             ((TBoss4Type2 *)(((Obj_80050AF8 *)arg0)->objs[i]))->set_flags(0x40);
         }
     }
@@ -397,7 +397,7 @@ void fn_spawn_particle_f3_with_flags(s32 arg0, s32 arg1) {
     u32 particle_effect;
     VecCopy((Vec *)(&position.x), (const Vec *)(arg1));
     position.y += lbl_805D8A90;
-    particle_effect = spawn_particle_effect((void *) (&position.x), (int) (0xF3));
+    particle_effect = (u32)spawn_particle_effect((&position.x), (0xF3));
     if (particle_effect != 0U) {
         ((TBoss4Type2 *)particle_effect)->set_flags((int) (0x40));
     }
@@ -462,7 +462,7 @@ void run_task__16TObjDFBeamCursorFv(u8 *arg0) {
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C) - 1;
     *(s32 *)((s8 *)arg0 + 0x1C) = temp_r0;
     if (temp_r0 <= 0) {
-        ((s32 (*)(void *, int))spawn_particle_effect)((void *) (arg0 + 0x20), (int) (0x38));
+        spawn_particle_effect((arg0 + 0x20), (0x38));
         ((s32 (*)(void *))queue_destruction__7TObjectFv)((void *) (arg0));
     }
 }
@@ -547,7 +547,7 @@ u8 *TObjDFRecBall__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
     *(f32 *)((s8 *)arg0 + 0x3C) = cos_table_lookup(temp_r31);
     *(f32 *)((s8 *)arg0 + 0x40) = (f32) lbl_805D8A34;
     *(s32 *)((s8 *)arg0 + 0x48) = 0x96;
-    particle_emitter = (u8 *)(create_particle_emitter((s32) (arg0 + 0x1C), 0xAF));
+    particle_emitter = (u8 *)(create_particle_emitter((arg0 + 0x1C), 0xAF));
     *(u8 **)((s8 *)arg0 + 0x44) = particle_emitter;
     if (particle_emitter != NULL) {
         ((TBoss4Type2 *)(*(u8 **)((s8 *)arg0 + 0x44)))->set_flags(0x40);
@@ -776,7 +776,7 @@ void TObjDFRecover::run_task() {
         return;
     }
     id = target_id;
-    if ((id == 0xFFFF) || ((target_address = ((s32 (*)(u16))get_player_by_client_id)(id)) == 0)) {
+    if ((id == 0xFFFF) || ((target_address = (s32)get_player_by_client_id(id)) == 0)) {
         ((s32 (*)(void *))queue_destruction__7TObjectFv)(this);
         return;
     }
@@ -786,7 +786,7 @@ void TObjDFRecover::run_task() {
     switch (current_phase) {
     case 0:
         if (countdown <= 0) {
-            effect_address = ((u32 (*)(void *, int))create_particle_emitter)(position, 0xEB);
+            effect_address = (u32)create_particle_emitter(position, 0xEB);
             effect = (void*)effect_address;
             if (effect_address == 0U) {
                 ((s32 (*)(void *))queue_destruction__7TObjectFv)(this);
@@ -933,7 +933,7 @@ u8 *TObjDFTenchuFuru__ct(u8 *arg0, u8 *arg1, u8 *arg2) {
     *(s32 *)((s8 *)arg0 + 0x28) = 5;
     VecCopy((Vec *)(arg0 + 0x1C), (const Vec *)arg2);
     *(f32 *)((s8 *)arg0 + 0x20) = (f32) (*(f32 *)((s8 *)arg0 + 0x20) + lbl_805D8AA0);
-    particle_emitter = (u8 *)(create_particle_emitter((s32) (arg0 + 0x1C), 0x134));
+    particle_emitter = (u8 *)(create_particle_emitter((arg0 + 0x1C), 0x134));
     *(u8 **)((s8 *)arg0 + 0x2C) = particle_emitter;
     if (particle_emitter != NULL) {
         ((TBoss4Type2 *)(*(u8 **)((s8 *)arg0 + 0x2C)))->set_flags(0x40);

@@ -5,7 +5,7 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-s32 get_player_by_client_id(void *);
+void *get_player_by_client_id(s32 i);
 int draw_ginja_object(void*);
 s32 check_equip_requirements(s32, void *, s32 *);
 s32 init__9TItemDataFv(void *);
@@ -27,7 +27,7 @@ void TItemWeapon::apply_to_child(int a1) { model_node_visit_callback = *(int *)&
 
 void TItem::set_owner_client(u16 arg1) {
     this->m_e4 = arg1;
-    *(s32 *)&this->m_f0 = get_player_by_client_id((void *) (arg1));
+    *(s32 *)&this->m_f0 = (s32)get_player_by_client_id((arg1));
 }
 
 void TObjPlayer::get_item_info(s32 arg0, s32 arg1, s16 *arg2) {

@@ -1,4 +1,5 @@
 #include <dolphin/mtx.h>
+#include "pso/map/CsnQuery.h"
 #include "pso/boss/TBoss5GryphonLightningWing.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
@@ -41,7 +42,6 @@ struct Wing_80351C18 {
 };
 
 extern "C" {
-u8 *csnVecterUnder(s32 *, s32);
 s32 __nw__7TObjectFUl(int);
 extern const f32 lbl_805D8D48;
 s32 play_sound_effect(int, void *, int, int);
@@ -119,7 +119,7 @@ s32 spawn_lightning_wing__12TBoss8DragonFiiiiii(s32 arg0, s32 arg1, s32 mid, s32
     s32 effect;
     u8* collision;
     VecCopy(&position, (const Vec *)arg3);
-    collision = csnVecterUnder((s32*)&position, 0x16EF);
+    collision = (u8 *)csnVecterUnder((s32)((s32*)&position), 0x16EF);
     if (collision == NULL) {
         position.y = lbl_805D8D48;
     } else {

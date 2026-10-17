@@ -30,7 +30,7 @@ struct Load_8011006C { void *buf; s32 f4; s32 f8; s32 fC; s32 f10; void *f14; };
 extern "C" {
 extern u32 TItemLoad__completed_model_load_task_root;
 void *TItemLoad__sub_801107EC(void *p);
-Parm_8011029C *lookup_item_pmt_record(void *);
+void *lookup_item_pmt_record(u8 *item);
 void *__nw__7TObjectFUl(u32);
 extern s16 lbl_8043E4C0[];
 extern s16 lbl_8043E4C8[];
@@ -117,7 +117,7 @@ s32 request_item_model_load(u8 *item) {
     s32 i;
     void *obj;
     if (item != NULL) {
-        parm = lookup_item_pmt_record(item);
+        parm = (Parm_8011029C *)lookup_item_pmt_record(item);
         if (parm != NULL) {
             a = parm->a;
             b = parm->b;

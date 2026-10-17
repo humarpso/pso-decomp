@@ -1,4 +1,5 @@
 #include "pso/TAdMultiChgGameModeGC.h"
+#include "pso/ui/TAdDrawLineCtrl.h"
 #include "pso/misc/TLobby_80132ED0.h"
 #include "pso/ui/TAdMultiChgGameModeGC.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC_801334D4.h"
@@ -46,7 +47,6 @@ s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 extern RecoveredGlobal_802FFCE4_lbl_8050E208 controller_input_state;
 extern s32 lbl_805D69E8;
-void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *);
 void __ct__9TAdBackGCFv(void *, void *);
@@ -187,7 +187,7 @@ Obj_802FFE58 *__ct__21TAdMultiChgGameModeGCFv(Obj_802FFE58 *self) {
         p = __ct__13TAdGuideTxtGCFv(p, self);
     }
     self->f28 = p;
-    create_draw_line_ctrl__13TAdMcSelectGCFiif(self, 0xF, lbl_805DEF38);
+    create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)self, (s32)(0xF), (f32)lbl_805DEF38);
     return self;
 }
 

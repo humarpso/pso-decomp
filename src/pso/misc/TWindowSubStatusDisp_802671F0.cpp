@@ -65,15 +65,15 @@ struct Pt_80267714
 };
 
 extern "C" {
-s32 get_shared_text_buffer();
+s32 *get_shared_text_buffer(void);
 u32 calc_text_width();
 u8 get_font_char_advance();
 u16 map_char_to_font_code(u16 c);
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append(u8 *str);
 void text_builder_reset();
-s32 draw_window_text(void *, s32, s32, s32, f32);
-void set_text_draw_params(void *, u8, s32, f32, f32);
+s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width);
+void set_text_draw_params(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
 void draw_window_tab(void *, void *, s32, f32);
 extern const f32 lbl_805DD180;
 extern const f32 lbl_805DD19C;
@@ -107,8 +107,8 @@ s32 clamp_list_scroll_offset(int, void *, void *);
 s32 get_cursor_pos__14TWindowSubItemFv();
 s32 init_entry__20TWindowSubStatusDispFScScUcUll(s32, u8, u8, int, s32, s32);
 s32 fn_80266BD0(s32, u8 *, u8 *, s16);
-s32 TWindowSubStatusDisp__sub_80258A28(s32, s32, s32);
-u32 get_player_by_client_id(s16);
+void TWindowSubStatusDisp__sub_80258A28(u8 *arg0, s32 arg1, s32 arg2);
+void *get_player_by_client_id(s32 i);
 s8 clamp_char_at__10TObjPlayerFl(s32, s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -120,7 +120,7 @@ u32 reset_selection__20TWindowSubStatusDispFv(int, void *);
 u32 construct_type1_heading__20TWindowSubStatusDispFll(u32, s32, s16);
 s32 get_status_flag__13TUnk_804D0618Fv(void *);
 s32 is_flag_4_set__20TWindowSubStatusDispFv();
-s32 draw_selection_bar(s32, u16 *, s32);
+void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2);
 u8 *fn_802683F4(void *, s32, s32, s16);
 u8 *__nw__7TObjectFUl(s32);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
@@ -227,7 +227,7 @@ void TWindowSubShortCutList::draw_entry(s32 arg1, u8 arg2, s32 arg3, s32 arg4) {
 
 void push_status_disp_entry(void *arg0, s32 arg1, s32 arg2) {
     if ((s16) *(s16 *)((s8 *)arg0 + 0x72) < (s16) *(s16 *)((s8 *)arg0 + 0x76)) {
-        TWindowSubStatusDisp__sub_80258A28(((s32 (*)(void *))get_array_entry__13TUnk_804CE018Fi)(arg0), arg1, arg2);
+        TWindowSubStatusDisp__sub_80258A28((u8 *)(((s32 (*)(void *))get_array_entry__13TUnk_804CE018Fi)(arg0)), arg1, arg2);
         *(s16 *)((s8 *)arg0 + 0x72) = (s16) (*(s16 *)((s8 *)arg0 + 0x72) + 1);
     }
 }
@@ -238,7 +238,7 @@ void add_battle_stat_entry(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 player;
 
     if ((s16) *(s16 *)((s8 *)arg0 + 0x72) < (s16) *(s16 *)((s8 *)arg0 + 0x76)) {
-        player = get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20));
+        player = (u32)get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20));
         if (player != 0U) {
             if (arg1 == 4) {
                 var_r31 = fn_801C5404((s32 *)(player + 0x7C8));
@@ -416,7 +416,7 @@ void draw_item_list_capacity(void *arg0, Win_80267714 *arg1, s32 arg2, s32 arg3)
     draw_window_tab(arg1, &pt, 0, (*(const f32 *)&lbl_805DD1A4));
     pt.x += (*(const f32 *)&lbl_805DD1A8);
     pt.y += (*(const f32 *)&lbl_805DD1AC);
-    set_text_draw_params(arg1, 0, 0, (*(const f32 *)&lbl_805DD1B0) / ((*(const f32 *)&lbl_805DD1B4) + arg1->f38), (*(const f32 *)&lbl_805DD1B8));
+    set_text_draw_params((s32)arg1, (s32)(0), (s32)(0), (f32)((*(const f32 *)&lbl_805DD1B0) / ((*(const f32 *)&lbl_805DD1B4) + arg1->f38)), (f32)(*(const f32 *)&lbl_805DD1B8));
     text_builder_reset();
     TWindowSubStatusDisp__sub_80228F5C(arg2);
     get_shared_text_buffer();
@@ -426,7 +426,7 @@ void draw_item_list_capacity(void *arg0, Win_80267714 *arg1, s32 arg2, s32 arg3)
     pt.x -= (*(const f32 *)&lbl_805DD1BC) * new_var;
     text_builder_append((u8 *)lbl_805DD1C0);
     TWindowSubStatusDisp__sub_80228F5C(arg3);
-    draw_window_text(&pt, get_shared_text_buffer(), -1, 0, (*(const f32 *)&lbl_805DD1B8));
+    draw_window_text((f32 *)&pt, (const char *)(get_shared_text_buffer()), (s32)(-1), (s32)(0), (f32)(*(const f32 *)&lbl_805DD1B8));
   }
 }
 
@@ -640,7 +640,7 @@ void TUnk_804D0618::draw_selected_list_entry(s32 arg1) {
     if (!(this->m_70 & 0x80)) {
         temp_r3 = ((u16 *(*)(void *, s16))get_array_entry__13TUnk_804CE018Fi)((void *)(this), (s16)(*(s16 *)&this->unk_74));
         if (*temp_r3 & 1) {
-            draw_selection_bar(arg1, temp_r3, get_status_flag__13TUnk_804D0618Fv(this));
+            draw_selection_bar((u8 *)arg1, (u8 *)temp_r3, get_status_flag__13TUnk_804D0618Fv(this));
         }
     }
 }

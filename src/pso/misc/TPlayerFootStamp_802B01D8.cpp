@@ -10,11 +10,11 @@ extern "C" {
 
 s32 end_cutscene_camera__14TBoss6PlotFalzFPv();
 int freeze_all_players__14TBoss6PlotFalzFv(void*);
-int load_gvm_texture_file(void*);
+u8 *load_gvm_texture_file(s32 arg0);
 
     extern unsigned char lbl_80470908[];
     extern int player_footstamp_texture_gvm_handle;
-void load_player_footstamp(void) { player_footstamp_texture_gvm_handle = load_gvm_texture_file(lbl_80470908); }
+void load_player_footstamp(void) { player_footstamp_texture_gvm_handle = (int)load_gvm_texture_file((s32)lbl_80470908); }
 
 void TPlayerFootStamp::sub_802B0204(s32 v) {
     Obj_802B0204 *self = (Obj_802B0204 *)this;

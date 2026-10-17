@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TObjContainerJungEx_8018D900.h"
+#include "pso/object/TObjChip.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
@@ -40,18 +42,14 @@ u8 * init_container_base(void *, s32);
 extern RecoveredGlobal_8018D314_lbl_804B7168 container_jung_collision_desc;
 extern s32 __vt__19TObjContainerJungEx[];
 extern s32 TObjContainerJungEx__name;
-u8 *TObjContainerJungEx__ct(u8 *arg0, s32 arg1, s32 _w2);
-s32 spawn_particle_effect_with_flags(void *, int, int);
-s32 construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
-s32 play_container_break_sound(void *);
-s32 TObjContainerJungEx__sub_8018D900(s32);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
+void play_container_break_sound(s32 arg0);
 s32 get_model__19TObjContainerJungExFl(s32);
 void *__nw__7TObjectFUl(int);
 extern Spawn_8018CFD4 container_jung_ex_spawn_params_a;
 extern Spawn_8018CFD4 container_jung_ex_spawn_params_b;
 extern void *tl_05;
 void TObjContainerJungEx__vt77(const Obj_8018CFD4 *self);
-void *__dt__19TObjContainerJungExFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
 s32 scale_matrix(s32, f32, f32, f32);
 s32 draw_ginja_object();
@@ -87,7 +85,7 @@ void TObjContainerJungEx__vt77(const Obj_8018CFD4 *self) {
     a.pos.z = pz;
     a.f38 = py;
     a.f40 = get_model__19TObjContainerJungExFl(1);
-    a.f44 = TObjContainerJungEx__sub_8018D900(0);
+    a.f44 = (s32)TObjContainerJungEx__sub_8018D900(0);
     Spawn_8018CFD4 b = container_jung_ex_spawn_params_b;
     f32 qz;
     f32 qy;
@@ -100,18 +98,18 @@ void TObjContainerJungEx__vt77(const Obj_8018CFD4 *self) {
     b.pos.z = qz;
     b.f38 = qy;
     b.f40 = get_model__19TObjContainerJungExFl(2);
-    b.f44 = TObjContainerJungEx__sub_8018D900(0);
-    spawn_particle_effect_with_flags((void *)&self->pos, 0x45, 0x40);
-    spawn_particle_effect_with_flags((void *)&self->pos, 0x46, 0x40);
+    b.f44 = (s32)TObjContainerJungEx__sub_8018D900(0);
+    spawn_particle_effect_with_flags((void *)&self->pos, (s32)(0x45), (s32)(0x40));
+    spawn_particle_effect_with_flags((void *)&self->pos, (s32)(0x46), (s32)(0x40));
     void *o = __nw__7TObjectFUl(0x234);
     if (o != NULL) {
-        construct_debris__8TObjChipFPvPvPv(o, tl_05, &a);
+        construct_debris__8TObjChipFPvPvPv((u8 *)o, (u8 *)tl_05, (u8 *)&a);
     }
     o = __nw__7TObjectFUl(0x234);
     if (o != NULL) {
-        construct_debris__8TObjChipFPvPvPv(o, tl_05, &b);
+        construct_debris__8TObjChipFPvPvPv((u8 *)o, (u8 *)tl_05, (u8 *)&b);
     }
-    play_container_break_sound((void *)self);
+    play_container_break_sound((s32)self);
 }
 #pragma pop
 

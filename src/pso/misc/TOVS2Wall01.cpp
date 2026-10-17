@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjChip.h"
 #include "pso/misc/TOVS2Wall01.h"
 
 #pragma inline_depth(1)
@@ -13,7 +14,6 @@ struct RecoveredGlobal_8017BC10_lbl_8044311C {
 };
 
 extern "C" {
-s32 construct_debris__8TObjChipFPvPvPv(void *, int, void *);
 s32 TObjFish__sub_8001EDB0(int, void *);
 s32 get_bml_model(int, void *);
 u32 __nw__7TObjectFUl(int);
@@ -57,7 +57,7 @@ void TOVS2Wall01::spawn_debris(s32 arg1) {
     (*(s32 *)(copy_storage_8017BC10.bytes + 0x44)) = TObjFish__sub_8001EDB0((int) (TOVS2Wall01__bml_resource), (void *) (arg1));
     chip = (u8 *) __nw__7TObjectFUl((int) (0x234));
     if (chip != NULL) {
-        construct_debris__8TObjChipFPvPvPv((void *) chip, (int) (tl_05), (void *) ((copy_storage_8017BC10.bytes)));
+        construct_debris__8TObjChipFPvPvPv((u8 *)chip, (u8 *)(tl_05), (u8 *)((copy_storage_8017BC10.bytes)));
     }
 }
 

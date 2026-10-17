@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcSoldierBase.h"
 #include "pso/npc/TUnk_804A8640.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/npc/TObjNpcSecretaryBase.h"
@@ -113,7 +114,6 @@ extern s32 __vt__20TObjNpcSecretaryBase[];
 extern s32 TObjNpcSecretaryBase__name;
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
-void *TObjNpcSoldierBase__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -170,7 +170,7 @@ void * TObjNpcSoldierBase__create(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x3B8);
     if (o2 != NULL) {
-        o2 = TObjNpcSoldierBase__ct(o2, o, arg0);
+        o2 = TObjNpcSoldierBase__ct((u8 *)o2, (s32)o, (s32)arg0);
     }
     return o2;
 }

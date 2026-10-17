@@ -49,7 +49,7 @@ extern s32 TBoss1DragonEffBullet__name;
 extern const f32 lbl_805D8144;
 void queue_destruction__7TObjectFv(void *);
 void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
-u8 * spawn_continuous_particle_effect_with_flags(void *, s32, s32);
+void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
 extern const f32 lbl_805D8140;
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -84,7 +84,7 @@ void TBoss1DragonEffBullet::run_task() {
         arg0->field_20 += arg0->field_2C * var_f2;
         arg0->field_24 += arg0->field_30 * var_f2;
         if ((u8 *) arg0->field_44 == NULL) {
-            arg0->field_44 = spawn_continuous_particle_effect_with_flags(&arg0->field_1C, *(s32 *)((s8 *)(*(u8 * *)&dragon_fireball_particle_ids) + 0), 0x40);
+            arg0->field_44 = (u8 *)spawn_continuous_particle_effect_with_flags(&arg0->field_1C, *(s32 *)((s8 *)(*(u8 * *)&dragon_fireball_particle_ids) + 0), 0x40);
         }
         temp_r3 = (u8 *)(arg0->field_44);
         if (temp_r3 != NULL) {

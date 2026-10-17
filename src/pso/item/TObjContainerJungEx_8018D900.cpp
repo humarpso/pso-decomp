@@ -39,7 +39,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8018D9B0_lbl_804B7158 fe_obj_hako02_resource_descriptor;
 extern const f32 TObjDoaEx01__data_805DBDA0;
 extern const f32 TObjDoaEx01__data_805DBDA8;
-s32 is_any_player_within_radius_xz(void *, f32);
+s32 is_any_player_within_radius_xz(u8 *self, f32 radius);
 void play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805DBDA4;
 void set_indexed_flags(void *arg0, s32 index, s32 flags);
@@ -94,7 +94,7 @@ void TObjDoaEx01::vfunc_18() {
 void TObjDoaEx01::vfunc_17() {
     Obj_8018DA54 *self = (Obj_8018DA54 *)this;
     if (self->flags & 1) {
-        if (is_any_player_within_radius_xz(self, lbl_805DBDA4) == 0) {
+        if (is_any_player_within_radius_xz((u8 *)self, (f32)lbl_805DBDA4) == 0) {
             self->state = 3;
             switch (TOKeyMachine01::get_global_state()) {
             case 19:
@@ -139,7 +139,7 @@ void TObjDoaEx01::vfunc_16() {
 void TObjDoaEx01::play_proximity_sound() {
     Obj_8018DBCC *self = (Obj_8018DBCC *)this;
     if (self->flags & 1) {
-        if (is_any_player_within_radius_xz(self, lbl_805DBDAC) == 1) {
+        if (is_any_player_within_radius_xz((u8 *)self, (f32)lbl_805DBDAC) == 1) {
             self->state = 1;
             set_indexed_flags(self, 0, 8);
             switch (TOKeyMachine01::get_global_state()) {

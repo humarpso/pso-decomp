@@ -6,7 +6,7 @@
 struct Obj_80196448 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0xac - 0x44]; f32 radius; };
 
 extern "C" {
-Obj_80196448 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 s32 obj_isState3_324__13TUnk_804806E8Fv(void *);
 void TObjQuestColBase__ct(void *);
 int destroy_board__17TQuestThreadBoardFv(void*);
@@ -21,7 +21,7 @@ int TObjQuestColApc::vfunc_15() {
     s32 i;
     Obj_80196448 *p;
     for (i = 0; i < 12; i++) {
-        p = get_player_by_client_id(i);
+        p = (Obj_80196448 *)get_player_by_client_id(i);
         if (p != 0 && obj_isState3_324__13TUnk_804806E8Fv(p) == 1) {
             if (xyz_distance_squared((u8 *)p->pos, (u8 *)self->pos) < self->radius * self->radius) {
                 return 1;

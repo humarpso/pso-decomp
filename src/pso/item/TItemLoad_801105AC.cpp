@@ -33,7 +33,7 @@ struct VObj_801105AC : Base_801105AC {
 extern "C" {
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
-u32 mem_alloc(u32);
+void *mem_alloc(u32 size);
 void * __nw__7TObjectFUl(s32);
 void *__ct__7TObjectFP7TObject(void *, void *);
 extern s32 TItemLoad__bml_resource;
@@ -86,7 +86,7 @@ void TItemLoad::init_resources() {
         p = __ct__7TObjectFP7TObject(p, NULL);
     }
     TItemLoad__model_load_task_root = p;
-    buf = mem_alloc(0x30);
+    buf = (u32)mem_alloc(0x30);
     TItemLoad__model_slot_in_use = buf;
     item_load_resource_handle = 0;
     if (buf != 0) {

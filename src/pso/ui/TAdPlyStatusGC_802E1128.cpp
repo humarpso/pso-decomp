@@ -17,7 +17,7 @@ struct Date_802E11D4 { u16 year; u8 month; u8 day; u8 hour; u8 min; u8 sec; u8 w
 struct Clock_802E11D4 { u8 pad0[0x1C]; s32 visible; Pt_802E11D4 pos; };
 
 extern "C" {
-char *get_localized_text_entry(s32, s32);
+s32 get_localized_text_entry(s32 arg0, s32 arg1);
 int sprintf(char *, const char *, ...);
 extern char ply_status_date_format[];
 extern char ply_status_date_format_mdy[];
@@ -68,7 +68,7 @@ void T_ATS_DrawCalendar::render() {
     s32 wd;
     if (self->visible != 0) {
         Pt_802E11D4 pos = self->pos;
-        s = get_localized_text_entry(0x1C, 0xC);
+        s = (char *)get_localized_text_entry(0x1C, 0xC);
         ((TAdSinglePlyChrSelectGC *)s)->render_status_disp(-(lbl_805DE8E8 * (f32)calc_text_width(s) - pos.x), pos.y);
         pos.y += lbl_805DE8EC;
         getDateStamp((DateStamp *)&date);

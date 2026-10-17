@@ -1,5 +1,6 @@
 #pragma defer_codegen on
 #include "types.h"
+#include "pso/boss/TObjBoss5Pillar_8028B810.h"
 #include "pso/boss/TObjBoss5Pillar_8028B714.h"
 #include "pso/misc/obj_band.h"
 #include "pso/ui/TAdMultiConfirmGC_802E03D0.h"
@@ -73,8 +74,7 @@ s32 advance_animation_playback(void *);
 u8 *get_entry__23TAdSinglePlyChrSelectGCFi(int);
 u8 *get_char_table_entry__23TAdSinglePlyChrSelectGCFi(int);
 u8 *get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
-void *init_appearance_load_request__10TNpcPlayerFPvPvii(void *, void *, void *, int);
-void set_load_state__14TAdPlyStatusGCFPvi(void *, int);
+void set_load_state__14TAdPlyStatusGCFPvi(u8 *arg0, s32 arg1);
 #define F(o, t) (*(t *)((s8 *)(arg0) + (o)))
 
 }
@@ -291,7 +291,7 @@ void TNpcPlayer::update_model_load() {
             copy_player_visual_record(arg0 + 0x120, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF) + 0x370);
             p = alloc__23TAdSinglePlyChrSelectGCFv(0x4AC);
             if (p != NULL) {
-                p = init_appearance_load_request__10TNpcPlayerFPvPvii(p, arg0, arg0 + 0x120, 0);
+                p = init_appearance_load_request__10TNpcPlayerFPvPvii((u8 *)p, (u8 *)arg0, (s32)(arg0 + 0x120), (s32)(0));
             }
             F(0x170, void *) = p;
             F(0x60, s32) = 0xF3D5;
@@ -300,7 +300,7 @@ void TNpcPlayer::update_model_load() {
             copy_player_visual_record(arg0 + 0x120, get_entry__23TAdSinglePlyChrSelectGCFi(F(0x110, s32)) + 0x370);
             p = alloc__23TAdSinglePlyChrSelectGCFv(0x4AC);
             if (p != NULL) {
-                p = init_appearance_load_request__10TNpcPlayerFPvPvii(p, arg0, arg0 + 0x120, 0);
+                p = init_appearance_load_request__10TNpcPlayerFPvPvii((u8 *)p, (u8 *)arg0, (s32)(arg0 + 0x120), (s32)(0));
             }
             F(0x170, void *) = p;
             F(0x60, s32) = 0xF3D5;
@@ -309,7 +309,7 @@ void TNpcPlayer::update_model_load() {
             copy_player_visual_record(arg0 + 0x120, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF) + 0x370);
             p = alloc__23TAdSinglePlyChrSelectGCFv(0x4AC);
             if (p != NULL) {
-                p = init_appearance_load_request__10TNpcPlayerFPvPvii(p, arg0, arg0 + 0x120, 0);
+                p = init_appearance_load_request__10TNpcPlayerFPvPvii((u8 *)p, (u8 *)arg0, (s32)(arg0 + 0x120), (s32)(0));
             }
             F(0x170, void *) = p;
             F(0x60, s32) = 0xF3D5;
@@ -320,7 +320,7 @@ void TNpcPlayer::update_model_load() {
             copy_player_visual_record(arg0 + 0x120, get_char_table_entry__23TAdSinglePlyChrSelectGCFi(F(0x10C, s32)) + 0x370);
             p = alloc__23TAdSinglePlyChrSelectGCFv(0x4AC);
             if (p != NULL) {
-                p = init_appearance_load_request__10TNpcPlayerFPvPvii(p, arg0, arg0 + 0x120, F(0x10C, s32));
+                p = init_appearance_load_request__10TNpcPlayerFPvPvii((u8 *)p, (u8 *)arg0, (s32)(arg0 + 0x120), (s32)(F(0x10C, s32)));
             }
             F(0x170, void *) = p;
             break;
@@ -370,7 +370,7 @@ void TNpcPlayer::update_model_load() {
     }
     idx = get_index__14TAdPlyStatusGCFv();
     if (idx != NULL) {
-        set_load_state__14TAdPlyStatusGCFPvi(idx, F(0xFC, s32));
+        set_load_state__14TAdPlyStatusGCFPvi((u8 *)idx, F(0xFC, s32));
         TAdPlyStatusGC::set_status_param((int)idx, (int)(F(0x170, void *)));
     }
 }

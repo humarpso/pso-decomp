@@ -33,7 +33,7 @@ void *__ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8033A34C___vt__9TSaveChCr __vt__9TSaveChCr;
 extern s32 TSaveChCr__name;
-int load_character_from_card__23TAdSinglePlyChrSelectGCFi(void*);
+s32 load_character_from_card__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 int begin_action_from_char_select__10TObjPlayerFv(void*);
 
 void TSaveChCr::close_window() {
@@ -59,8 +59,8 @@ void TSaveChCr::create_backgrounds() {
     *(void **)((s8 *)this + 0x34) = o2;
 }
 
-int TSaveChCr__sub_8033A138(void) { return load_character_from_card__23TAdSinglePlyChrSelectGCFi((void*)(0)); }
-void TSaveChCr::save_character() { begin_action_from_char_select__10TObjPlayerFv(this); load_character_from_card__23TAdSinglePlyChrSelectGCFi((void*)1); }
+int TSaveChCr__sub_8033A138(void) { return load_character_from_card__23TAdSinglePlyChrSelectGCFi((0)); }
+void TSaveChCr::save_character() { begin_action_from_char_select__10TObjPlayerFv(this); load_character_from_card__23TAdSinglePlyChrSelectGCFi((s32)((void*)1)); }
 
 extern void *tl_03;
 

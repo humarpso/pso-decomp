@@ -6,7 +6,7 @@
 extern "C" {
 
 s32 has_game_join_id__13TUnk_804E355CFv();
-s32 check_hits__14TItemAttackColFPv(void *);
+void check_hits__14TItemAttackColFPv(u8 *arg0);
 
 extern f32 lbl_805DAD50;
 
@@ -25,7 +25,7 @@ void TUnk_804A2548::run_task() {
         } else {
             queue_destruction__7TObjectFv(this);
         }
-        check_hits__14TItemAttackColFPv(this);
+        check_hits__14TItemAttackColFPv((u8 *)this);
     }
 }
 

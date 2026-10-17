@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_801E43E4.h"
 #include "pso/boss/TObjBoss2Tunnel_8007EA74.h"
 #include "pso/system/byteswap.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
@@ -6,11 +7,9 @@
 
 extern "C" {
 
-void TLobby__send_and_handle_60(void *);
-
 void TObjBoss2Tunnel::finalize_and_send_60() {
     bswap_6xB2_play_sound((void *)(this));
-    TLobby__send_and_handle_60(this);
+    TLobby__send_and_handle_60((u8 *)this);
 }
 
 void bswap_6xB2_play_sound(void *arg0) {

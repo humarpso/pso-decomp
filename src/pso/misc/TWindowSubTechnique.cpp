@@ -38,7 +38,7 @@ extern u8 *text_language_group_table;
 s32 TWindowSubTechnique__sub_8028753C(s32 arg0);
 u8 *calc_technique_parameters(s16, u8, s32);
 s32 *get_shared_text_buffer();
-s32 get_player_by_client_id(int);
+void *get_player_by_client_id(s32 i);
 s32 get_cast_technique_level(void *, int);
 s32 validate_and_clear_slot__10TObjPlayerFv(void *, int);
 void TWindowSubStatusDisp__sub_80228F5C(s32 arg0);
@@ -57,7 +57,7 @@ void TWindow__close(u8 *arg0);
 s32 set_field_1c__6TLobbyFf(s32);
 s32 is_player_input_active(s32);
 void call_if_split_screen(void *, s32);
-s32 TWindowSubEquip__sub_80263AF8(s32, s32);
+f32 TWindowSubEquip__sub_80263AF8(u8 *arg0, u32 arg1);
 s16 get_selected_menu_value(void *);
 void *create_message_window__6TLobbyFllUls(s32, void *, s32, s32);
 s32 get_window_layout_position(s32);
@@ -74,7 +74,7 @@ s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 create_titled_window_menu(s32, s32, s32, s32);
-s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
+int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
 
 extern const f32 lbl_805DD838;
@@ -83,14 +83,14 @@ s32 TWindowSubTechnique::open_menu() {
     s32 titled_window_menu;
 
     titled_window_menu = create_titled_window_menu(get_window_layout_position(0x12), 5, get_message_10__20TWindowSubStatusDispFl(0x2F), this->playerIndex);
-    TWindowSubEquip__sub_80263AF8(*(s32 *)&this->m_30, 0);
+    TWindowSubEquip__sub_80263AF8((u8 *)(*(s32 *)&this->m_30), 0);
     set_field_1c__6TLobbyFf(titled_window_menu);
     ((TWindowSubComCardList *)titled_window_menu)->set_flag70_bit100();
-    forward_trade_action_default__16TObjCityMainWarpFPviii(titled_window_menu, get_message_10__20TWindowSubStatusDispFl(0x9C), 6, 0);
-    forward_trade_action_default__16TObjCityMainWarpFPviii(titled_window_menu, get_message_10__20TWindowSubStatusDispFl(0x9D), 6, 1);
-    forward_trade_action_default__16TObjCityMainWarpFPviii(titled_window_menu, get_message_10__20TWindowSubStatusDispFl(0x9E), 6, 2);
-    forward_trade_action_default__16TObjCityMainWarpFPviii(titled_window_menu, get_message_10__20TWindowSubStatusDispFl(0x9F), 6, 3);
-    forward_trade_action_default__16TObjCityMainWarpFPviii(titled_window_menu, get_message_10__20TWindowSubStatusDispFl(0xA0), 6, 4);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)(get_message_10__20TWindowSubStatusDispFl(0x9C)), (int)(6), (int)(0));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)(get_message_10__20TWindowSubStatusDispFl(0x9D)), (int)(6), (int)(1));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)(get_message_10__20TWindowSubStatusDispFl(0x9E)), (int)(6), (int)(2));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)(get_message_10__20TWindowSubStatusDispFl(0x9F)), (int)(6), (int)(3));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)titled_window_menu, (int)(get_message_10__20TWindowSubStatusDispFl(0xA0)), (int)(6), (int)(4));
     ((TWindowSubComCardList *)titled_window_menu)->set_flag70_bit10();
     ((TWindowSubComCardList *)titled_window_menu)->update_layout_height(lbl_805DD838);
     align_menu_entry_positions(titled_window_menu);
@@ -104,7 +104,7 @@ void TWindowSubTechnique::update_selected_help(s32 arg1) {
   s32 cast_technique_level;
   tech = arg1;
   toggle_help_window_on_button((*(s32 *)&this->m_3c), (this->playerIndex));
-  player = get_player_by_client_id((int) (this->playerIndex));
+  player = (s32)get_player_by_client_id((this->playerIndex));
   if (player != 0)
   {
     if (validate_and_clear_slot__10TObjPlayerFv((void *) (player + 0x428), (int) tech) != 0)
@@ -142,7 +142,7 @@ extern s32 __vt__19TWindowSubTechnique[];
 void TWindowSubTechnique::run_task() {
     Tech_802870C4 *self = (Tech_802870C4 *)this;
     s32 port = is_player_input_active(self->player);
-    s32 ply = get_player_by_client_id(self->player);
+    s32 ply = (s32)get_player_by_client_id(self->player);
     switch (self->state) {
     case 0:
     case 1:
@@ -177,7 +177,7 @@ void TWindowSubTechnique::run_task() {
     }
     case 3:
         self->help = create_message_window__6TLobbyFllUls(get_window_layout_position(0x14), lbl_8044FC54, 1, self->player);
-        TWindowSubEquip__sub_80263AF8((s32)self->f30, 2);
+        TWindowSubEquip__sub_80263AF8((u8 *)self->f30, 2);
         set_field_1c__6TLobbyFf((s32)self->help);
         call_if_split_screen(self->help, self->player);
         ((TWindowSubTradeMain *)(self->sel))->clear_trade_flag();

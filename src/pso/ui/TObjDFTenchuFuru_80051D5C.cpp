@@ -11,7 +11,7 @@
 
 extern "C" {
 
-u8 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 s32 push_matrix();
 s32 post_translate_matrix(s32 *);
 extern s32 lbl_804FF228[];
@@ -74,7 +74,7 @@ void TObjPlayer::draw_player_model_by_id(s32 arg0, f32 alpha) {
     if ((u16)arg0 == 0xFFFF) {
         return;
     }
-    p = get_player_by_client_id((u16)arg0);
+    p = (u8 *)get_player_by_client_id((u16)arg0);
     if (p == NULL || *(s32 *)((s8 *)p + 0xCFC) != 0) {
         return;
     }

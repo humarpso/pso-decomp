@@ -31,7 +31,7 @@ extern s32 __vt__12TObjRaderCol[];
 extern s32 lbl_805D3410;
 f32 xz_distance_squared(void *, void *);
 int test_flag_2000000__10TObjPlayerFPv(void *);
-Ply_8019750C *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 void check_any_player_in_range__12TObjRaderColFPv(Col_8019750C *arg0);
 extern s32 local_client_id;
 void __dl__7TObjectFPv(void *);
@@ -45,7 +45,7 @@ void check_any_player_in_range__12TObjRaderColFPv(Col_8019750C *arg0) {
     Ply_8019750C *p;
     found = 0;
     for (i = 0; i < 4; i++) {
-        p = get_player_by_client_id(i);
+        p = (Ply_8019750C *)get_player_by_client_id(i);
         if (p != 0 && test_flag_2000000__10TObjPlayerFPv(p) != 0) {
             found = 1;
         }
@@ -55,7 +55,7 @@ void check_any_player_in_range__12TObjRaderColFPv(Col_8019750C *arg0) {
             arg0->f9C--;
         } else {
             for (j = 0; j < 4; j++) {
-                p = get_player_by_client_id(j);
+                p = (Ply_8019750C *)get_player_by_client_id(j);
                 if (p != 0 && xz_distance_squared(p->pos, arg0->pos) < arg0->f90 * arg0->f90) {
                     TRaderMapCore::reveal_region_by_id(arg0->f94);
                     queue_destruction__7TObjectFv(arg0);
@@ -68,7 +68,7 @@ void check_any_player_in_range__12TObjRaderColFPv(Col_8019750C *arg0) {
 
 #define arg0 ((Col_8019750C *)arg0_)
 void TObjRaderCol::check_local_player_in_range(void *arg0_) {
-    Ply_8019750C *p = get_player_by_client_id(local_client_id);
+    Ply_8019750C *p = (Ply_8019750C *)get_player_by_client_id(local_client_id);
     if (p != 0) {
         if (test_flag_2000000__10TObjPlayerFPv(p) != 0) {
             return;

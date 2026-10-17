@@ -29,10 +29,10 @@ struct Gunner_800A0994 {
 };
 
 extern "C" {
-Player_800A0994 *get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 s16 obj_getField1c(void *);
 s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
-Ene_800A0994 *get_enemy_entity(u16);
+u8 *get_enemy_entity(u16 arg0);
 extern s32 dark_gunner_class_name_ptr;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
@@ -47,7 +47,7 @@ void TObjEneDarkGunCenter::sub_800A0994() {
     s32 j;
     self->count = 0;
     for (k = lbl_805D586C; k < lbl_805D586C + lbl_805D5870; k++) {
-        p = get_player_data__10TObjPlayerFi(k);
+        p = (Player_800A0994 *)get_player_data__10TObjPlayerFi(k);
         if (p != NULL && check_value_equals__13TQuestColCtrlFPll(p, dark_gunner_class_name_ptr) != 0 &&
             self->f354 == p->f354 && self->f28 == p->f28) {
             p->f428 = self->f1C;
@@ -62,8 +62,8 @@ void TObjEneDarkGunCenter::sub_800A0994() {
     }
     for (i = 0; i < self->count - 1; i++) {
         for (j = i + 1; j < self->count; j++) {
-            a = get_enemy_entity(self->ids[i]);
-            b = get_enemy_entity(self->ids[j]);
+            a = (Ene_800A0994 *)get_enemy_entity(self->ids[i]);
+            b = (Ene_800A0994 *)get_enemy_entity(self->ids[j]);
             if (a != NULL && b != NULL && a->f358 > b->f358) {
                 u16 t = self->ids[i];
                 self->ids[i] = self->ids[j];

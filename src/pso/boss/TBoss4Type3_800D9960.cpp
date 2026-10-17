@@ -33,7 +33,7 @@ extern "C" {
 extern RecoveredGlobal_800D9960_lbl_80500FA4 lbl_80500FA4;
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
-Vec_800D9ABC *mem_alloc(int);
+void *mem_alloc(u32 size);
 extern const f32 lbl_805DA3EC;
 extern const f32 lbl_805DA3F0;
 Trail_800D9ABC *init_trail_buffer__11TBoss4Type3FPvifff(Trail_800D9ABC *arg0, s32 segs, f32 start, f32 end, f32 step);
@@ -99,7 +99,7 @@ Trail_800D9ABC *init_trail_buffer__11TBoss4Type3FPvifff(Trail_800D9ABC *arg0, s3
     arg0->start *= arg0->step;
     arg0->end *= arg0->step;
     n = arg0->len * arg0->segs;
-    arg0->buf = mem_alloc(n * 0xC);
+    arg0->buf = (Vec_800D9ABC *)mem_alloc(n * 0xC);
     for (i = 0; i < n; i++) {
         arg0->buf[i].x = lbl_805DA3EC;
         arg0->buf[i].y = lbl_805DA3EC;

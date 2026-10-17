@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_802671F0.h"
 #include "pso/unk/text_80268384.h"
 #include "pso/misc/TUnk_804D0618.h"
 #include "pso/misc/TWindowSubEquipList.h"
@@ -16,7 +17,6 @@ u8 *__nw__7TObjectFUl(s32);
 s32 TShopJudgmentItemWindow__sub_80267F9C(void *, int);
 extern s32 __vt__19TWindowSubEquipList[];
 extern s32 TWindowSubEquipList__class_name;
-int update_item_list_window(void*);
 void __dl__7TObjectFPv(void *);
 
 u8 *create_equip_list_window(s32 arg0, s32 arg1, s16 arg2) {
@@ -45,7 +45,7 @@ void TWindowSubEquipList::render() {
 }
 #pragma pop
 
-void TWindowSubEquipList::run_task() { { (void)(update_item_list_window(this)); return; } }
+void TWindowSubEquipList::run_task() { { (void)(update_item_list_window((u8 *)this)); return; } }
 
 void *__dt__19TWindowSubEquipListFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

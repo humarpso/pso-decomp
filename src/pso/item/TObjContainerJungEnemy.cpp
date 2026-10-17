@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TObjContainerJungEx_8018D900.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804B6C24.h"
@@ -21,7 +22,6 @@ u8 * init_container_base(void *, s32);
 extern RecoveredGlobal_8018CEDC_lbl_804B7168 container_jung_collision_desc;
 extern s32 __vt__22TObjContainerJungEnemy[];
 extern s32 TObjContainerJungEnemy__name;
-s32 TObjContainerJungEx__sub_8018D900(s32);
 s32 get_model__19TObjContainerJungExFl(s32);
 s32 TObjContainerJung__sub_8018D3B8(s32);
 s32 get_model_by_index__17TObjContainerJungFl(s32);
@@ -69,7 +69,7 @@ void TObjContainerJungEnemy::load_models() {
         *(s32 *)&this->m_36c = get_model__19TObjContainerJungExFl(1);
         *(s32 *)&this->m_370 = get_model__19TObjContainerJungExFl(2);
         *(s32 *)&this->m_374 = get_model__19TObjContainerJungExFl(3);
-        this->texture_id = TObjContainerJungEx__sub_8018D900(0);
+        this->texture_id = (s32)TObjContainerJungEx__sub_8018D900(0);
         return;
     }
 }

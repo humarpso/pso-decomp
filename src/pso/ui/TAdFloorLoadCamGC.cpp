@@ -21,7 +21,7 @@ extern "C" {
 extern s32 __vt__17TAdFloorLoadCamGC[];
 extern void *lbl_805D4340;
 void set_default_camera__21TAdMultiChgGameModeGCFv(void *);
-void set_active_camera_pose(void *, void *);
+void set_active_camera_pose(u8 *arg0, u8 *arg1);
 s32 activate_camera_mode(s32 arg0);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -97,7 +97,7 @@ void TAdFloorLoadCamGC::run_task() {
         normalize_vector(&up);
     }
     TCameraCtrl::copy_vec_to_default((u8 *)(&up));
-    set_active_camera_pose(&s->pos, &s->target);
+    set_active_camera_pose((u8 *)&s->pos, (u8 *)&s->target);
 }
 #pragma pop
 

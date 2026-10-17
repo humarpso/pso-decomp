@@ -103,7 +103,7 @@ struct Self_80221F08 {
 extern "C" {
 u32 obj_getField1c(s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
-u32 create_yes_no_window(s32, s32, s32, s32);
+u8 *create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3);
 s32 get_window_layout_position(s32);
 s32 handle_deposit_list_select__19TShopKeepItemWindowFv(void *);
 void memset(void *, int, int);
@@ -219,7 +219,7 @@ void TShopKeepItemWindow::update_number_input() {
     if ((w != 0U) && (((TWindowInputNumber *)w)->is_confirmed() != 0)) {
         if ((u32) this->m_388 == 0U) {
             temp_r31 = obj_getField1c(*(s32 *)&this->m_24);
-            this->m_388 = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
+            this->m_388 = (u32)create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
             ((TCheckRoomSequence *)(this->m_388))->set_ready_flag();
             temp_f31 = get_scale__15TShopWindowBaseFv(this);
             ((TUnk_804CDFE8 *)(this->m_388))->set_position_xy(get_scale__15TShopWindowBaseFv(this), temp_f31);

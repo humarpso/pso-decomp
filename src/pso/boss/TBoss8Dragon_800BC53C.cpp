@@ -12,7 +12,7 @@ struct AreaAttackHistory {
 };
 
 extern "C" {
-s32 mem_alloc(s32);
+void *mem_alloc(u32 size);
 s32 fill_value_array(void *);
 void mem_free(void *p);
 
@@ -41,7 +41,7 @@ u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1) {
 
 void *TBoss8Dragon::init_buffer(s32 arg1, s32 arg2) {
     if (arg1 > 0) {
-        this->m_0 = mem_alloc(arg1 * 4);
+        this->m_0 = (s32)mem_alloc(arg1 * 4);
     } else {
         this->m_0 = 0;
     }

@@ -52,7 +52,7 @@ struct Self_80049C10 {
 
 extern "C" {
 f32 TBoss3Volopt__sub_8004812C(s32 arg0);
-s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
+void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 s32 init_collision_body_parts(void *, void *, int);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 s32 matrix_mult_vec(int, int, int);
@@ -68,13 +68,13 @@ extern s32 volopt_homing_projectile_expire_tick;
 extern const f32 lbl_805D88AC;
 extern const f32 lbl_805D88B0;
 u8 *TBoss3Volopt__sub_80049E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-void explode_and_destroy__12TBoss3VoloptFPv(void *);
+void explode_and_destroy__12TBoss3VoloptFPv(u8 *arg0);
 u32 csnVector(void *, void *, s32);
-void direction_to_rotation_yx(void *, void *, void *);
-void direction_to_rotation_xy(void *, void *, void *);
+void direction_to_rotation_yx(u8 *arg0, s32 *arg1, s32 *arg2);
+void direction_to_rotation_xy(u8 *arg0, s32 *arg1, s32 *arg2);
 void check_enemy_body_collisions(void *);
-Tgt_80049C10 *get_player_by_client_id(s32);
-void play_persistent_sound(s32, void *, void *, s32, s32);
+void *get_player_by_client_id(s32 i);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 void vec3_add_to(void *, void *);
 void subtract_vector(void *, void *);
 extern const f32 lbl_805D88A4;
@@ -87,7 +87,7 @@ void queue_destruction__7TObjectFv(void *arg0);
 void TUnk_80484AFC::run_task() {
     Self_80049C10 *self = (Self_80049C10 *)this;
     Tgt_80049C10 *t;
-    t = get_player_by_client_id(self->fcc);
+    t = (Tgt_80049C10 *)get_player_by_client_id(self->fcc);
     if (t != NULL) {
         Vec_80049C10 d = t->pos;
         subtract_vector(&d, &self->pos);
@@ -97,13 +97,13 @@ void TUnk_80484AFC::run_task() {
     }
     VecCopy((Vec *)&self->prev, (const Vec *)&self->pos);
     vec3_add_to(&self->pos, &self->vel);
-    direction_to_rotation_xy(&self->vel, &self->f5c, &self->f60);
+    direction_to_rotation_xy((u8 *)&self->vel, &self->f5c, &self->f60);
     if (self->fe0 != NULL) {
         Vec_80049C10 n = self->vel;
         n.x = -n.x;
         n.y = -n.y;
         n.z = -n.z;
-        direction_to_rotation_yx(&n, &self->fe8, &self->fec);
+        direction_to_rotation_yx((u8 *)&n, &self->fe8, &self->fec);
         self->fec -= 0x4000;
         ((TBoss4Type2 *)(self->fe0))->copy_vec3(self->fe4);
         ((TObjGyaranzoMissile *)(&n))->scale_velocity(lbl_805D88A4);
@@ -111,7 +111,7 @@ void TUnk_80484AFC::run_task() {
         ((TNowLoading *)(self->fe0))->copy_pos(&n);
     }
     if (csnVector(&self->prev, &self->pos, -1) != 0) {
-        explode_and_destroy__12TBoss3VoloptFPv(self);
+        explode_and_destroy__12TBoss3VoloptFPv((u8 *)self);
         return;
     }
     self->fa4->f18 &= ~6;
@@ -123,15 +123,15 @@ void TUnk_80484AFC::run_task() {
     ((TObjPlayer *)self)->check_object_collisions();
     check_enemy_body_collisions(self);
     if (self->fa4->f18 & 0x180000) {
-        explode_and_destroy__12TBoss3VoloptFPv(self);
+        explode_and_destroy__12TBoss3VoloptFPv((u8 *)self);
         return;
     }
     self->fd0++;
     if (self->fd0 > volopt_homing_projectile_expire_tick) {
-        explode_and_destroy__12TBoss3VoloptFPv(self);
+        explode_and_destroy__12TBoss3VoloptFPv((u8 *)self);
         return;
     }
-    play_persistent_sound(0x4003C114, self, &self->pos, 0, 0);
+    play_persistent_sound((s32)(0x4003C114), (s32)self, (u32)&self->pos, (s32)(0), (s32)(0));
 }
 
 void *__dt__13TUnk_80484AFCFv(void *arg0, s16 arg1) {
@@ -176,7 +176,7 @@ u8 *TBoss3Volopt__sub_80049E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
     *(s32 *)((s8 *)arg0 + 0xEC) = 0;
     ((TUnk_80484AFC *)arg0)->m_e8 = 0;
     *(s32 *)((s8 *)arg0 + 0xE4) = 0;
-    ((TUnk_80484AFC *)arg0)->m_e0 = spawn_particle_effect_with_rotation((void *) (arg0 + 0x38), (void *) (arg0 + 0xE4), (int) (0x112), (int) (2));
+    ((TUnk_80484AFC *)arg0)->m_e0 = (s32)spawn_particle_effect_with_rotation((arg0 + 0x38), (arg0 + 0xE4), (0x112), (2));
     volopt_homing_projectile_expire_tick = (s32) TBoss3Volopt__sub_8004812C((3)) + 0xF0;
     return arg0;
 }

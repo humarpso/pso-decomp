@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80263A20.h"
 #include "pso/misc/TWindowHelpItem_80255AB4.h"
 #include "pso/misc/TWindowSubComCardList_8026CB08.h"
 #include "pso/misc/TUnk_804CE018.h"
@@ -31,7 +32,6 @@ s32 draw_visible_window_entries(void *, void *, int);
 s32 draw_list_page_indicator(int, int);
 void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFs(void *, int);
-s32 toggle_help_window_on_button(void *, s16);
 s32 decay_page_arrow_offset(s32);
 
 void TWindowHelpItem::update_cursor_selection() {
@@ -83,7 +83,7 @@ void TWindowHelpItem::update_display() {
     ((TUnk_804CE018 *)arg0)->update_fade();
     ((TUnk_804CE018 *)arg0)->update_window_entry_list((u8 *)&this->m_24);
     if (!(this->m_60 & 8)) {
-        toggle_help_window_on_button(arg0, this->m_20);
+        toggle_help_window_on_button((u32)arg0, this->m_20);
     }
 }
 

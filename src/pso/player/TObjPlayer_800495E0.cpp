@@ -55,9 +55,9 @@ struct VObj_80049A1C : VBase_80049A1C {
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 u32 csnVector(void *, void *, int);
-s32 direction_to_rotation_yx(void *, void *, void *);
+void direction_to_rotation_yx(u8 *arg0, s32 *arg1, s32 *arg2);
 void *get_player_by_client_id(s32 i);
-s32 play_persistent_sound(int, void *, void *, int, int);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 s32 vec3_add_to(void *, void *);
 s32 subtract_vector(void *, void *, int);
 extern const f32 lbl_805D8890;
@@ -65,7 +65,7 @@ extern s32 lbl_805D4D1C;
 f32 TObjPlayer__sub_800499FC(s32 arg0);
 s16 obj_getField1c(void *);
 s32 TBoss3Volopt__sub_8004816C(s32 i);
-s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
+void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 void init_collision_body_parts(void *, void *, int);
 void construct_collider_proxy__13TUnk_804AF8A0Fv();
 void rotate_vector_by_matrix(int, void *, void *);
@@ -155,7 +155,7 @@ void TUnk_80484A94::run_task() {
   }
   VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
   vec3_add_to((void *) (arg0 + 0x38), (void *) (arg0 + 0xB4));
-  direction_to_rotation_yx((void *) (arg0 + 0xB4), (void *) (arg0 + 0x60), (void *) (arg0 + 0x64));
+  direction_to_rotation_yx((u8 *)(arg0 + 0xB4), (s32 *)(arg0 + 0x60), (s32 *)(arg0 + 0x64));
   this->rotation_z = (s32) ((this->rotation_z) - 0x4000);
   temp_r3_2 = (u8 *) (*(u8 * *)&this->m_d4);
   if (temp_r3_2 != 0)
@@ -185,7 +185,7 @@ void TUnk_80484A94::run_task() {
     queue_destruction__7TObjectFv(arg0);
     return;
   }
-  play_persistent_sound((int) 0x4003C11D, (void *) arg0, (void *) (arg0 + 0x38), (int) 0, (int) 0);
+  play_persistent_sound((s32)((int) 0x4003C11D), (s32)arg0, (u32)(arg0 + 0x38), (s32)((int) 0), (s32)((int) 0));
 }
 
 void *TUnk_80484A94::destroy(s16 arg1) {
@@ -211,8 +211,8 @@ Obj_800498E8 *TObjPlayer__sub_800498E8(Obj_800498E8 *arg0, Obj_800498E8 *arg1, v
     VecCopy((Vec *)&arg0->pos, (const Vec *)arg2);
     arg0->fcc = arg3;
     arg0->f5c = 0;
-    arg0->fd4 = spawn_particle_effect_with_rotation(&arg0->pos, &arg0->f5c, 0x11C, 2);
-    arg0->fd8 = spawn_particle_effect_with_rotation(&arg0->pos, &arg0->f5c, 0x11D, 2);
+    arg0->fd4 = (s32)spawn_particle_effect_with_rotation(&arg0->pos, &arg0->f5c, 0x11C, 2);
+    arg0->fd8 = (s32)spawn_particle_effect_with_rotation(&arg0->pos, &arg0->f5c, 0x11D, 2);
     push_matrix_from(identity_matrix);
     Vec_800498E8 v = lbl_804366F8;
     v.z = TObjPlayer__sub_800499FC(0);

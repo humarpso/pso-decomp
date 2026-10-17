@@ -37,7 +37,7 @@ s32 __ct__7TObjectFP7TObject(void *, int);
 extern void *__vt__18TWindowEffectLight[];
 extern s32 lbl_805D3E60;
 extern s32 tl_window;
-s32 draw_textured_quad_at_depth(void *, f32);
+void draw_textured_quad_at_depth(f32 *q, f32 depth);
 void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern const f32 lbl_805DE10C;
 extern const f32 lbl_805DE110;
@@ -66,7 +66,7 @@ void TWindowEffectLight::draw_outline_quad(s32 color) {
     q.v0 = lbl_805DE11C;
     q.u1 = lbl_805DE120;
     q.v1 = lbl_805DE124;
-    draw_textured_quad_at_depth(&q, TWindowEffectLight__data_805DE0E4);
+    draw_textured_quad_at_depth((f32 *)&q, TWindowEffectLight__data_805DE0E4);
 }
 
 u8 *__ct__18TWindowEffectLightFv(u8 *self, void *arg1, s16 arg2, u32 id) {

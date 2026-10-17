@@ -84,13 +84,13 @@ void mem_free(void *p);
 
 void TLobby__sub_801A5478(void) { mem_free((void *)(deferred_packet_buffer)); deferred_packet_buffer = 0; }
 
-s32 mem_alloc(s32);
+void *mem_alloc(u32 size);
 
 void alloc_work_buffer(void) {
     deferred_packet_buffer_used = 0;
     lbl_805D5D00 = 0;
     lbl_805D5D04 = 0;
-    deferred_packet_buffer = mem_alloc(0x10000);
+    deferred_packet_buffer = (s32)mem_alloc(0x10000);
     memset(deferred_packet_buffer, 0, 0x10000);
 }
 

@@ -8,8 +8,8 @@
 
 extern "C" {
 int get_selection__19TWindowSubTechniqueFPsPll(void*, void* a1);
-u32 get_player_by_client_id(s32);
-s32 is_palette_entry_displayable__10TObjPlayerFv(s32, s32, u8);
+void *get_player_by_client_id(s32 i);
+s32 is_palette_entry_displayable__10TObjPlayerFv(u8 *arg0, u8 kind, u8 sub);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 get_message_10__20TWindowSubStatusDispFl(int);
 s32 set_field_1c__6TLobbyFf(int);
@@ -39,13 +39,13 @@ s32 TWindowSubTechnique::is_technique_available(s32 sub, s32 arg1) {
         return 0;
     }
     if (TWindowSubTechnique::lookup_technique(sub, arg1) != 0) {
-        return is_palette_entry_displayable__10TObjPlayerFv(player, 3, (u8) sub);
+        return is_palette_entry_displayable__10TObjPlayerFv((u8 *)player, (u8)(3), (u8)((u8) sub));
     }
     return 0;
 }
 
 s32 TWindowSubTechnique::lookup_technique(s32 arg0, s32 arg1) {
-    u32 temp = get_player_by_client_id(arg1);
+    u32 temp = (u32)get_player_by_client_id(arg1);
     if (temp == 0U) {
         return 0;
     }

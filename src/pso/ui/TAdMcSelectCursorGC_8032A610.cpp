@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8023E480.h"
 #include "pso/ui/TAdMcSelectCursorGC_8032A610.h"
 #include "pso/ui/TAdMcSelectCursorGC.h"
 
@@ -6,7 +7,6 @@ extern "C" {
 s32 TLobby__sub_803DA16C(void *, s32);
 extern int TAdMcSelectCursorGC__texture_entry;
 u32 TAdMcSelectCursorGC__ct(u32, s32);
-int TLobby__sub_8023E4B4(void*, void*);
 u32 __nw__7TObjectFUl(s32);
 
 extern u32 TAdMcSelectCursorGC__instance;
@@ -37,7 +37,7 @@ void TAdMcSelectCursorGC::release_cursor_entry() {
     }
 }
 
-void TAdMcSelectCursorGC::init_resource() { TAdMcSelectCursorGC__texture_entry = (int)lbl_804ED99C; TLobby__sub_8023E4B4(lbl_80477118, lbl_804ED99C); }
+void TAdMcSelectCursorGC::init_resource() { TAdMcSelectCursorGC__texture_entry = (int)lbl_804ED99C; TLobby__sub_8023E4B4((s32)lbl_80477118, (s32)lbl_804ED99C); }
 
 s32 TAdMcSelectCursorGC__sub_8032A6D8(void* p) { return *(s32*)((char*)p + 0x1c); }
 

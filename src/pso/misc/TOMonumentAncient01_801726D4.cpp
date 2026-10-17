@@ -36,7 +36,7 @@ struct RecoveredGlobal_80172810___vt__19TOMonumentAncient01 {
 
 extern "C" {
 s32 start_camera_pan__10TObjPlayerFs(int, int, void *);
-s32 get_player_by_client_id(void *);
+void *get_player_by_client_id(s32 i);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_80172758_lbl_804B38E0 bm_fs_obj_o_sekihi01_resource_descriptor;
 extern u32 TOMonumentAncient01__resource_bundle;
@@ -138,7 +138,7 @@ void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1) {
     s32 player;
     switch (*(s32 *)&((TOMonumentAncient02 *)arg0)->m_ac) {
     case 1:
-        player = get_player_by_client_id((void *) (arg1));
+        player = (s32)get_player_by_client_id((arg1));
         if (player != 0) {
             *(s32 *)&((TOMonumentAncient02 *)arg0)->m_ac = 2;
             start_camera_pan__10TObjPlayerFs((int) (player), (int) (0xC), (void *) (((TObjPlayer *)(player + 0x38))->calc_angle_to((void *) (arg0 + 0x38))));

@@ -61,12 +61,12 @@ typedef struct LvUp_8026DA44 {
 } LvUp_8026DA44;
 
 void queue_destruction__7TObjectFv(void *);
-s32 get_shared_text_buffer(void);
+s32 *get_shared_text_buffer(void);
 char * get_message_10__20TWindowSubStatusDispFl(s32);
 u32 get_quest_id__12TQuestListVMFv(void);
 void __dl__FPv(void);
 u32 calc_pulse_flash_color(u8 r, u8 g, u8 b, s32 frame, s32 period, s32 start, s32 peak, s32 end);
-VObj_8026DA44 * get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append(u8 *str);
 void text_builder_reset(void);
@@ -79,7 +79,7 @@ void render__17TWindowSetLevelUpFv(void);
 void * __ct__17TWindowSetLevelUpFv(void *arg0, void *arg1, void *arg2, void *arg3);
 void TWindowSetLevelUp__sub_8026DE28(void* p, s32 v);
 void begin_screen_draw(s32 arg0);
-void draw_textured_quad_at_depth(Quad_8026D790 *, f32);
+void draw_textured_quad_at_depth(f32 *q, f32 depth);
 void set_draw_texture_and_color(s32 idx, s32 arg1);
 void set_constant_material_color(u32 x);
 
@@ -146,7 +146,7 @@ void draw_window_scrollbar(Scroll_8026D790 *scroll, Ctx_8026D790 *c, f32 *offset
     q.ur = lbl_805DD320;
     q.vb = lbl_805DD324;
     apply_context_transform_to_rect(c, &q);
-    draw_textured_quad_at_depth(&q, depth);
+    draw_textured_quad_at_depth((f32 *)&q, depth);
     set_constant_material_color(calc_pulse_flash_color(0x86, 0xFF, 0x41, scroll->frame, 0x1C2, 0x12C, 0x13B, 0x14A));
     depth = lbl_805DD308 / (lbl_805DD328 + c->x38);
     t = c->height;
@@ -167,7 +167,7 @@ void draw_window_scrollbar(Scroll_8026D790 *scroll, Ctx_8026D790 *c, f32 *offset
     q.ur = lbl_805DD330;
     q.vb = lbl_805DD324;
     apply_context_transform_to_rect(c, &q);
-    draw_textured_quad_at_depth(&q, depth);
+    draw_textured_quad_at_depth((f32 *)&q, depth);
     TWindowSubStatusDisp::get_player();
 }
 
@@ -197,11 +197,11 @@ void TWindowSetLevelUp::update_stat_messages() {
     switch (self->state) {
     case 0:
     case 1:
-        pl = get_player_by_client_id(self->client);
+        pl = (VObj_8026DA44 *)get_player_by_client_id(self->client);
         if (pl != NULL && get_quest_id__12TQuestListVMFv() != 0) {
             text_builder_append((u8 *)lbl_8044F534);
             TWindowSubStatusDisp__sub_80228F5C(pl->get_level() + 1);
-            ((TWindowCtrl *)(self->client))->set_window_flags_off(get_shared_text_buffer());
+            ((TWindowCtrl *)(self->client))->set_window_flags_off((s32)get_shared_text_buffer());
             self->state = 2;
         }
         break;
@@ -209,7 +209,7 @@ void TWindowSetLevelUp::update_stat_messages() {
         if (self->d3a > 0) {
             text_builder_append((u8 *)lbl_8044F53C);
             TWindowSubStatusDisp__sub_80228F5C(self->d3a);
-            ((TWindowCtrl *)(self->client))->set_window_flags_off(get_shared_text_buffer());
+            ((TWindowCtrl *)(self->client))->set_window_flags_off((s32)get_shared_text_buffer());
             self->state = 3;
             break;
         }
@@ -217,7 +217,7 @@ void TWindowSetLevelUp::update_stat_messages() {
         if (self->d3c > 0) {
             text_builder_append((u8 *)lbl_8044F544);
             TWindowSubStatusDisp__sub_80228F5C(self->d3c);
-            ((TWindowCtrl *)(self->client))->set_window_flags_off(get_shared_text_buffer());
+            ((TWindowCtrl *)(self->client))->set_window_flags_off((s32)get_shared_text_buffer());
             self->state = 4;
             break;
         }
@@ -226,7 +226,7 @@ void TWindowSetLevelUp::update_stat_messages() {
             text_builder_append((u8 *)(get_message_10__20TWindowSubStatusDispFl(0x83)));
             text_builder_append((u8 *)lbl_805DD338);
             TWindowSubStatusDisp__sub_80228F5C(self->d24);
-            ((TWindowCtrl *)(self->client))->set_window_flags_off(get_shared_text_buffer());
+            ((TWindowCtrl *)(self->client))->set_window_flags_off((s32)get_shared_text_buffer());
             self->state = 5;
             break;
         }
@@ -235,7 +235,7 @@ void TWindowSetLevelUp::update_stat_messages() {
             text_builder_append((u8 *)(get_message_10__20TWindowSubStatusDispFl(0x84)));
             text_builder_append((u8 *)lbl_805DD338);
             TWindowSubStatusDisp__sub_80228F5C(self->d26);
-            ((TWindowCtrl *)(self->client))->set_window_flags_off(get_shared_text_buffer());
+            ((TWindowCtrl *)(self->client))->set_window_flags_off((s32)get_shared_text_buffer());
             self->state = 6;
             break;
         }
@@ -244,7 +244,7 @@ void TWindowSetLevelUp::update_stat_messages() {
             text_builder_append((u8 *)(get_message_10__20TWindowSubStatusDispFl(0x85)));
             text_builder_append((u8 *)lbl_805DD338);
             TWindowSubStatusDisp__sub_80228F5C(self->d28);
-            ((TWindowCtrl *)(self->client))->set_window_flags_off(get_shared_text_buffer());
+            ((TWindowCtrl *)(self->client))->set_window_flags_off((s32)get_shared_text_buffer());
             self->state = 7;
             break;
         }
@@ -253,7 +253,7 @@ void TWindowSetLevelUp::update_stat_messages() {
             text_builder_append((u8 *)(get_message_10__20TWindowSubStatusDispFl(0x86)));
             text_builder_append((u8 *)lbl_805DD338);
             TWindowSubStatusDisp__sub_80228F5C(self->d2a);
-            ((TWindowCtrl *)(self->client))->set_window_flags_off(get_shared_text_buffer());
+            ((TWindowCtrl *)(self->client))->set_window_flags_off((s32)get_shared_text_buffer());
             self->state = 8;
             break;
         }
@@ -262,7 +262,7 @@ void TWindowSetLevelUp::update_stat_messages() {
             text_builder_append((u8 *)(get_message_10__20TWindowSubStatusDispFl(0x87)));
             text_builder_append((u8 *)lbl_805DD338);
             TWindowSubStatusDisp__sub_80228F5C(self->d2c);
-            ((TWindowCtrl *)(self->client))->set_window_flags_off(get_shared_text_buffer());
+            ((TWindowCtrl *)(self->client))->set_window_flags_off((s32)get_shared_text_buffer());
             self->state = 9;
             break;
         }

@@ -102,7 +102,7 @@ extern u8 lbl_804A7448[];
 extern const f32 lbl_805DBCF8;
 s32 get_bml_model(void *, s32);
 u32 init_collision_body_parts(void *, void *, s32);
-void *TObjMesBase__ct(void *, void *, void *);
+void *TObjMesBase__ct(void *arg0, s32 arg1, s32 arg2);
 extern s32 lbl_804B6254[];
 extern s32 __vt__12TObjComputer[];
 extern s32 lbl_805D32CC;
@@ -112,7 +112,7 @@ extern const f32 lbl_805DBCEC;
 void *TObjComputer__ct(void *arg0, void *parent, void *row);
 void *load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
-s32 load_gvm_texture_file(char *);
+u8 *load_gvm_texture_file(s32 arg0);
 extern char lbl_80444B60[];
 extern char lbl_80444B78[];
 extern s32 fe_obj_tanmatu02_resource_descriptor[];
@@ -129,9 +129,9 @@ extern const f32 lbl_805DBCE4;
 s32 get_current_floor();
 extern s32 local_client_id;
 extern const f32 lbl_805DBCF4;
-int spawn_particle_effect_with_flags(void *, int, int);
-void *construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
-void play_container_break_sound(void *);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
+u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
+void play_container_break_sound(s32 arg0);
 s32 dispatch_fish_event__6TLobbyFPv(void *a0);
 void *__nw__7TObjectFUl(int);
 extern ChipParam_8018860C lbl_80444E5C;
@@ -235,7 +235,7 @@ void load_computer_resources(void) {
             p = load_resource_from_descriptor(p, 5, fs_obj_tanmatu02_resource_descriptor, 0, 0, 0);
         }
         TObjComputer__model_archive = (u32) p;
-        TObjComputer__texture_gvm_handle = load_gvm_texture_file(lbl_80444B60);
+        TObjComputer__texture_gvm_handle = (u32)load_gvm_texture_file((s32)lbl_80444B60);
         computer_uv_scroll_phase = 0;
         break;
     default:
@@ -244,7 +244,7 @@ void load_computer_resources(void) {
             p = load_resource_from_descriptor(p, 5, fe_obj_tanmatu02_resource_descriptor, 0, 0, 0);
         }
         TObjComputer__model_archive = (u32) p;
-        TObjComputer__texture_gvm_handle = load_gvm_texture_file(lbl_80444B78);
+        TObjComputer__texture_gvm_handle = (u32)load_gvm_texture_file((s32)lbl_80444B78);
         computer_uv_scroll_phase = 1;
         break;
     }
@@ -265,7 +265,7 @@ void *__dt__12TObjComputerFv(void *arg0, s16 arg1) {
 
 void *TObjComputer__ct(void *arg0, void *parent, void *row) {
     Obj_801884A0 *self = (Obj_801884A0 *)arg0;
-    TObjMesBase__ct(self, parent, row);
+    TObjMesBase__ct(self, (s32)parent, (s32)row);
     self->vtbl = __vt__12TObjComputer;
     self->unk0 = lbl_805D32CC;
     if (self->selector < 0) {
@@ -335,17 +335,17 @@ void TObjContainerAbeEnemy__vt77(const Obj_8018860C *self) {
         b.y2 = yb;
         b.res = dispatch_fish_event__6TLobbyFPv((void *)1);
         b.x44 = lbl_805D5B8C;
-        spawn_particle_effect_with_flags((void *)&self->pos, 0x45, 0x40);
-        spawn_particle_effect_with_flags((void *)&self->pos, 0x46, 0x40);
+        spawn_particle_effect_with_flags((void *)&self->pos, (s32)(0x45), (s32)(0x40));
+        spawn_particle_effect_with_flags((void *)&self->pos, (s32)(0x46), (s32)(0x40));
         void *o = __nw__7TObjectFUl(0x234);
         if (o != NULL) {
-            construct_debris__8TObjChipFPvPvPv(o, tl_05, &a);
+            construct_debris__8TObjChipFPvPvPv((u8 *)o, (u8 *)tl_05, (u8 *)&a);
         }
         o = __nw__7TObjectFUl(0x234);
         if (o != NULL) {
-            construct_debris__8TObjChipFPvPvPv(o, tl_05, &b);
+            construct_debris__8TObjChipFPvPvPv((u8 *)o, (u8 *)tl_05, (u8 *)&b);
         }
-        play_container_break_sound((void *)self);
+        play_container_break_sound((s32)self);
     }
 }
 #pragma pop

@@ -179,12 +179,12 @@ void close_window__18TCheckRoomSequenceFPv(TCheckRoomSequence_8020F070 *self);
 int set_field_20__15TShopWindowBaseFl(void*, void*);
 int reset_controller_input_state(void *);
 void *__nw__7TObjectFUl(u32);
-void *TShopDeleteItemWindow__ct(void *, s32, void *, s32);
+void *TShopDeleteItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
 void notify_quest_list_vm__18TCheckRoomSequenceFPv(u8 *arg0);
 void init_check__18TCheckRoomSequenceFUi(u32 arg0);
 extern void *tl_05;
 void open_delete_item_window__18TCheckRoomSequenceFPv(Seq_8020F268 *self);
-void *TShopGetItemWindow__ct(void *, s32, void *, s32);
+void *TShopGetItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
 void open_get_item_window__18TCheckRoomSequenceFPv(Seq_8020F2D8 *self);
 extern s32 lbl_805D6160;
 extern s32 TCheckRoomSequence__error_return_text_id;
@@ -234,7 +234,7 @@ s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 u32 create_window_menu(s32, int, u16);
 void handle_root_choice__18TCheckRoomSequenceFv(u8 *arg0);
 s32 get_room_table_entry__18TCheckRoomSequenceFi(s32);
-Win_8020F8C0 *TShopKeepItemWindow__ct(void *, void *, u8 *, s32);
+void *TShopKeepItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
 void init_check_params__18TCheckRoomSequenceFUi(u32 arg0);
 void open_deposit_item_window__18TCheckRoomSequenceFv(u8 *arg0);
 void handle_withdraw_choice__18TCheckRoomSequenceFv(u8 *arg0);
@@ -253,7 +253,7 @@ void remove_bank_item_amount__18TCheckRoomSequenceFiii(s32 idx, s32 amount, s32 
 void *__dt__13TShopSequenceFv(void *arg0, s16 arg1);
 s32 __dl__7TObjectFPv(void *);
 u8 *__dt__18TCheckRoomSequenceFv(u8 *arg0, s16 arg1);
-Card_8021118C *get_character_save_record(s32);
+s32 get_character_save_record(u32 arg0);
 void copy_bank_to_card_window(s32 slot);
 extern u32 bank_item_records_by_slot[4];
 void copy_data__18TCheckRoomSequenceFPvPv(void* p, void* a1);
@@ -347,7 +347,7 @@ void handle_error_ack__18TCheckRoomSequenceFPv(u8 *arg0) {
 void open_delete_item_window__18TCheckRoomSequenceFPv(Seq_8020F268 *self) {
     void *o = __nw__7TObjectFUl(0x68);
     if (o != 0) {
-        o = TShopDeleteItemWindow__ct(o, (s32)tl_05, self, self->f24);
+        o = TShopDeleteItemWindow__ct((void *)o, (void *)tl_05, (void *)self, (void *)self->f24);
     }
     ((Obj_8020F268 *)o)->cb0 = notify_quest_list_vm__18TCheckRoomSequenceFPv;
     ((Obj_8020F268 *)o)->cb1 = init_check__18TCheckRoomSequenceFUi;
@@ -361,7 +361,7 @@ void open_delete_item_window__18TCheckRoomSequenceFPv(Seq_8020F268 *self) {
 void open_get_item_window__18TCheckRoomSequenceFPv(Seq_8020F2D8 *self) {
     void *o = __nw__7TObjectFUl(0x68);
     if (o != 0) {
-        o = TShopGetItemWindow__ct(o, (s32)tl_05, self, self->f24);
+        o = TShopGetItemWindow__ct((void *)o, (void *)tl_05, (void *)self, (void *)self->f24);
     }
     ((Obj_8020F2D8 *)o)->cb0 = notify_quest_list_vm__18TCheckRoomSequenceFPv;
     ((Obj_8020F2D8 *)o)->cb1 = init_check__18TCheckRoomSequenceFUi;
@@ -526,7 +526,7 @@ void open_deposit_item_window__18TCheckRoomSequenceFv(u8 *arg0) {
     mem = __nw__7TObjectFUl(0x39C);
     w = (Win_8020F8C0 *)mem;
     if (mem != NULL) {
-        w = TShopKeepItemWindow__ct(mem, tl_05, arg0, *(s32 *)((s8 *)arg0 + 0x24));
+        w = (Win_8020F8C0 *)TShopKeepItemWindow__ct((void *)mem, (void *)tl_05, (void *)arg0, (void *)(*(s32 *)((s8 *)arg0 + 0x24)));
     }
     w->cb0 = (void *)finish_room_check__18TCheckRoomSequenceFPv;
     w->cb1 = (void *)init_check_params__18TCheckRoomSequenceFUi;
@@ -1075,7 +1075,7 @@ s32 store_item_in_bank(u8 *item, s32 arg1, s32 slot) {
 void copy_bank_to_card_window(s32 slot) {
     Card_8021118C *w;
     if (TAdSinglePlyChrSelectGC::is_ready() != 0) {
-        w = get_character_save_record(slot);
+        w = (Card_8021118C *)get_character_save_record(slot);
         if (w != 0) {
             w->meseta = lbl_80513DA8[slot];
             w->count = lbl_80513D98[slot];
@@ -1088,7 +1088,7 @@ void copy_bank_to_card_window(s32 slot) {
 #pragma push
 #pragma optimization_level 1
 void copy_bank_from_card_window(s32 slot) {
-    Card_8021118C *w = get_character_save_record(slot);
+    Card_8021118C *w = (Card_8021118C *)get_character_save_record(slot);
     if (w != 0) {
         lbl_80513DA8[slot] = w->meseta;
         lbl_80513D98[slot] = w->count;

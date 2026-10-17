@@ -34,7 +34,7 @@ struct Obj2A8_800c7ae4 : ObjPad18_800c7ae4 {
 struct Vec_800C7C30 { s32 x, y, z; };
 
 extern "C" {
-s32 apply_actor_gravity(void *, s32, f32);
+void apply_actor_gravity(u8 *arg0, s32 *arg1, f32 farg0);
 f32 update_enemy_wander_move(void *, void *, int, int, f32);
 s32 advance_animation_playback(void *);
 s32 update_collisions__10TObjPlayerFv(void *);
@@ -55,7 +55,7 @@ void TObjEnemyCustom::update_state_machine() {
     case 1:
         advance_animation_playback(this);
         if (!(*(s32 *)&this->actorFlags & 0x800000)) {
-            apply_actor_gravity(this, 0, lbl_805DA070);
+            apply_actor_gravity((u8 *)this, (s32 *)(0), lbl_805DA070);
         }
         update_collisions__10TObjPlayerFv(this);
         temp_r4 = *(s16 *)&this->timer;
@@ -143,7 +143,7 @@ void TObjEnemyCustom::update_wander_state() {
             }
             ((TObjPlayer *)arg0)->update_angle((s32)((void *) (*(s32 *)((s8 *)(*(void * *)&this->movementParameters) + 8))), (void *)(arg0 + 0x308));
         }
-        apply_actor_gravity((void *)((void *) (arg0)), (s32)((int) (0)), (f32) (lbl_805DA070));
+        apply_actor_gravity((u8 *)((void *) (arg0)), (s32 *)((int) (0)), (f32) (lbl_805DA070));
         update_collisions__10TObjPlayerFv((void *) (arg0));
         return;
     }

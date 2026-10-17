@@ -8,7 +8,7 @@ extern "C" {
 void prs_decompress_alloc(void*, s32, s32);
 void load_gvm_texture_archive(s32, void*);
 u32 adxf_open_afs__6TLobbyFii(int, int);
-s32* lookup_item_pmt_record(void*);
+void *lookup_item_pmt_record(u8 *item);
 s32 TLobby__sub_803CC4C0(s32);
 void mem_free(void*);
 void* mem_alloc(u32);
@@ -70,7 +70,7 @@ s32 TItemTexLoad::load_item_icon(TItemData* item) {
     s32* rec;
     s32 id;
     if (item != NULL) {
-        rec = lookup_item_pmt_record(item);
+        rec = (s32 *)lookup_item_pmt_record((u8 *)item);
         id = *rec;
         if (rec != NULL) {
             switch (item->data1.data_u8[0]) {

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_8036AEF8.h"
+#include "pso/unk/text_8036AE2C.h"
 #include "pso/system/memory.h"
 
 struct RecoveredGlobal_8036AE2C_lbl_804F3628 {
@@ -18,12 +20,8 @@ struct RecoveredGlobal_8036AEA4_lbl_804F3628 {
 };
 
 extern "C" {
-u8 * TBoss8Dragon__sub_8036AEF8(void *, s16);
 s32 memset(void *, int, int);
 extern RecoveredGlobal_8036AE2C_lbl_804F3628 lbl_804F3628;
-u8 *__dt__15PSOV3EncryptionFv(u8 *arg0, s16 arg1);
-void TBoss8Dragon__sub_8036AF40(s32 * *arg0);
-s32 **__ct__15PSOV3EncryptionFv(s32 **arg0);
 typedef char RecoveredGlobal_8036AE2C_lbl_804F3628_size[sizeof(RecoveredGlobal_8036AE2C_lbl_804F3628) == 0x18 ? 1 : -1];
 u8 *__dt__15PSOV3EncryptionFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -31,7 +29,7 @@ u8 *__dt__15PSOV3EncryptionFv(u8 *arg0, s16 arg1) {
         memset((void *) (arg0 + 4), (int) (0), (int) (0x828));
         *(s32 *)((s8 *)arg0 + 0x82C) = 0;
         *(s32 *)((s8 *)arg0 + 0x830) = 0;
-        TBoss8Dragon__sub_8036AEF8(arg0, 0);
+        TBoss8Dragon__sub_8036AEF8((s32 * *)arg0, 0);
         if (arg1 > 0) {
             ::operator delete((arg0));
         }

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TOTrapAncient01_80226534.h"
+#include "pso/object/TObjFish_800E2FFC.h"
 #include "pso/boss/Boss6Type2Appearance.h"
 #include "pso/boss/TBoss4Type2_800874F4.h"
 #include "pso/misc/TCameraCtrl_800687BC.h"
@@ -186,8 +188,7 @@ s32 __dl__7TObjectFPv(void *);
 s32 refresh_players_equipment__14TBoss6PlotFalzFPv();
 extern s32 __vt__25TBoss6Demo20_TYPE2_APPEAR[];
 O_8033D9E4 *__dt__25TBoss6Demo20_TYPE2_APPEARFv(O_8033D9E4 *arg0, s16 arg1);
-void spawn_particle_effect_with_flags(void *, int, int);
-void play_persistent_sound(int, void *, int, int, int);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 void play_sound_effect(int, void *, int, int);
 
 extern const Ent_8033D6DC boss6_type2_appear_particle_schedule[];
@@ -217,15 +218,15 @@ void run_task__25TBoss6Demo20_TYPE2_APPEARFv(O_8033D6DC *self) {
         play_sound_effect(0x40031C2B, 0, 0, 0);
         break;
     }
-    play_persistent_sound(0x4003C627, self, 0, 0, 0);
+    play_persistent_sound(0x4003C627, (s32)self, 0, 0, 0);
     switch (self->frame) {
     case 0xB9:
         spawn_particle_effect_with_flags(self->obj40, 0x220, 0x40);
         spawn_particle_effect_with_flags(self->obj70, 0x220, 0x40);
         break;
     case 0xED:
-        spawn_particle_effect_with_flags((void *)&boss6_type2_appear_origin, 0x221, 0x40);
-        spawn_particle_effect_with_flags((void *)&boss6_type2_appear_origin, 0x225, 0x40);
+        spawn_particle_effect_with_flags((void *)&boss6_type2_appear_origin, (s32)(0x221), (s32)(0x40));
+        spawn_particle_effect_with_flags((void *)&boss6_type2_appear_origin, (s32)(0x225), (s32)(0x40));
         break;
     }
     for (i = 0; i < 9; i++) {
@@ -302,7 +303,6 @@ s32 get_bml_motion(int, int);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
 void set_scripted_camera_pose(void *, void *, void *);
-s32 TObjFish__sub_800E3124(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 extern const u8 boss6_type2_appear_model_node_descriptors[];
 extern const u8 lbl_80478058[];
@@ -354,7 +354,7 @@ u8 *TBoss6Demo20_TYPE2_APPEAR__ct(u8 *arg0, s32 arg1) {
     ((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_d4 = get_bml_model(count, 0xC);
     *(s32 *)((s8 *)arg0 + 0xD8) = TObjFish__sub_8001EDB0(count, 0xC);
     ((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_dc = get_bml_motion(count, 0x22);
-    *(s32 *)&((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_7c = TObjFish__sub_800E3124((void *)boss6_type2_appear_model_node_descriptors, arg0 + 0x1C);
+    *(s32 *)&((TBoss6Demo20_TYPE2_APPEAR *)arg0)->m_7c = TObjFish__sub_800E3124((u8 *)boss6_type2_appear_model_node_descriptors, (s32)(arg0 + 0x1C));
     for (i = 0; i < 9; i++) {
         self->arr[i] = 0;
     }

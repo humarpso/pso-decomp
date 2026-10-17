@@ -60,7 +60,7 @@ struct Obj_800753DC {
 
 extern "C" {
 u16 get_nth_view_player_id__11TCameraCtrlFl();
-u32 get_player_by_client_id(int);
+void *get_player_by_client_id(s32 i);
 f32 xyz_distance(void *, void *);
 extern const f32 TObjTombstone__data_805D9174;
 extern f32 TObjTombstone__data_805D9178;
@@ -136,7 +136,7 @@ s32 TObjTombstone::is_other_tombstone_closer() {
     void *ppos;
     s32 i;
     best = TObjTombstone__data_805D917C;
-    pl = get_player_by_client_id(local_client_id);
+    pl = (u32)get_player_by_client_id(local_client_id);
     if (pl == 0) {
         return 0;
     }
@@ -196,7 +196,7 @@ void TObjTombstone::update_fade_by_distance() {
     f32 temp_f1;
     u32 player;
     TCameraCtrl::get_camera_no();
-    player = get_player_by_client_id((int) (get_nth_view_player_id__11TCameraCtrlFl()));
+    player = (u32)get_player_by_client_id((get_nth_view_player_id__11TCameraCtrlFl()));
     if (player != 0U) {
         temp_f1 = xyz_distance((void *) (player + 0x38), (void *) (arg0 + 0x38));
         if (temp_f1 <= lbl_805D9180) {

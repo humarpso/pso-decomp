@@ -437,7 +437,7 @@ s32 obj_is_hit_receivable();
 void queue_destruction__7TObjectFv(void *arg0);
 VObj_8035EA90 *get_battle_param__10TObjPlayerFi(s32);
 void *create_particle_emitter(void *pos, s32 id);
-u32 find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 extern void *TObjEneEpsilonGuard__model_desc[];
 extern const f32 lbl_805E01F4;
 extern const f32 lbl_805E01F8;
@@ -474,7 +474,7 @@ struct VObj_8035E3B8_8035DD68 : Base_8035E3B8_8035DD68 {
 
 int TObjEneEpsilonGuard__sub_8035DD68(void* p);
 s32 scale_matrix(int, f32, f32, f32);
-s32 TObjEneEpsilonGuard__sub_8035F95C(u32);
+int TObjEneEpsilonGuard__sub_8035F95C(void *p);
 int TObjEneEpsilonGuard__sub_8035F968(void);
 void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 
@@ -794,12 +794,12 @@ void TObjEneEpsilonGuard::state_orbit(s32 arg1) {
             *(s32 *)((s8 *)this + 0x430) = 1;
             break;
         case 1:
-            temp_r3 = find_entity_by_id(*(u16 *)((s8 *)this + 0x470));
+            temp_r3 = (u32)find_entity_by_id(*(u16 *)((s8 *)this + 0x470));
             if (temp_r3 != 0U) {
                 if (TObjEneEpsilonGuard__sub_8035F968() == 1) {
                     *(s32 *)((s8 *)this + 0x46C) = (s32) (*(s32 *)((s8 *)this + 0x46C) & 0xFFFFFFFB);
                     *(s32 *)((s8 *)this + 0x430) = 2;
-                } else if (TObjEneEpsilonGuard__sub_8035F95C(temp_r3) != 1) {
+                } else if (TObjEneEpsilonGuard__sub_8035F95C((void *)temp_r3) != 1) {
                     goto block_23;
                 }
             } else {
@@ -951,7 +951,7 @@ void TObjEneEpsilonGuard::sub_8035EA90() {
                     break;
                 }
                 if (obj_is_hit_receivable() != 0) {
-                    t = find_entity_by_id(*(u16 *)((s8 *)((u8 *)this) + 0x470));
+                    t = (u32)find_entity_by_id(*(u16 *)((s8 *)((u8 *)this) + 0x470));
                     if (t != 0 && p->m31() == 0) {
                         Pair_8035EA90 pr;
                         pr.a = ((TObjEneEpsilonGuard *)t)->get_table_value_by_index();
@@ -972,7 +972,7 @@ void TObjEneEpsilonGuard::sub_8035EA90() {
 void vfunc_88__19TObjEneEpsilonGuardFv(void *);
 int set_part_local_pos__9TObjEneDDFPvPvi(void*, void*, void*);
 void vfunc_89__19TObjEneEpsilonGuardFv(void *);
-s32 play_persistent_sound(int, void *, void *, int, int);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 s32 vfunc_89__9TObjEneDDFv();
 s32 TObjEneEpsilonGuard__sub_8035F950();
 s16 obj_getField1c(int);
@@ -982,7 +982,7 @@ void TObjEneEpsilonGuard::update_guard_state() {
     s32 temp_r3;
 
     if (!(*(s32 *)((s8 *)((u8 *)this) + 0x46C) & 0x40)) {
-        temp_r3 = ((s32 (*)(int))find_entity_by_id)((int) (*(u16 *)((s8 *)((u8 *)this) + 0x470)));
+        temp_r3 = (s32)find_entity_by_id((*(u16 *)((s8 *)((u8 *)this) + 0x470)));
         if ((temp_r3 == 0) || (TObjEneEpsilonGuard__sub_8035F950() == 1)) {
             if (*(s32 *)((s8 *)((u8 *)this) + 0x46C) & 0x10) {
                 ((s32 (*)(void *, int))transition_enemy_state)((void *) (((u8 *)this)), (int) (5));
@@ -996,12 +996,12 @@ void TObjEneEpsilonGuard::update_guard_state() {
             sub_8035EA90();
         }
         if (*(s32 *)((s8 *)((u8 *)this) + 0x46C) & 0x20) {
-            play_persistent_sound((int) (0x4003A846), (void *) (((u8 *)this)), (void *) (((u8 *)this) + 0x38), (int) (0), (int) (0));
+            play_persistent_sound((s32)(0x4003A846), (s32)(((u8 *)this)), (u32)(((u8 *)this) + 0x38), (s32)(0), (s32)(0));
             return;
         }
         temp_r0 = *(s16 *)((s8 *)((u8 *)this) + 0x326);
         if ((temp_r0 != 4) && (temp_r0 != 5)) {
-            play_persistent_sound((int) (0x4003AD43), (void *) (((u8 *)this)), (void *) (((u8 *)this) + 0x38), (int) (0), (int) (0));
+            play_persistent_sound((s32)(0x4003AD43), (s32)(((u8 *)this)), (u32)(((u8 *)this) + 0x38), (s32)(0), (s32)(0));
         }
     }
 }
@@ -1296,7 +1296,7 @@ void run_task__19TObjEneEpsilonGuardFv(u8 *arg0) {
             ((TObjEneEpsilonGuard *)(arg0))->vfunc_100();
             return;
         }
-        temp_r3 = ((s32 (*)(int))find_entity_by_id)((int) (*(u16 *)((s8 *)arg0 + 0x470)));
+        temp_r3 = (s32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0x470)));
         if (temp_r3 != 0) {
             ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *) (arg0 + 0x38), (void *) (temp_r3 + 0x38));
             ((TObjEneEpsilonGuard *)arg0)->update_center_position();

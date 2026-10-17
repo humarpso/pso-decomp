@@ -23,7 +23,6 @@ struct VObj_8021E55C_8021E4C4 : Base_8021E55C_8021E4C4 {
 
 extern "C" {
 
-void *TJudgmentSequence__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
@@ -31,7 +30,7 @@ extern void *tl_05;
 void *TJudgmentSequence::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x34);
     if (o != NULL) {
-        o = TJudgmentSequence__ct(o, tl_05, arg0);
+        o = TJudgmentSequence__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

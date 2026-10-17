@@ -4,7 +4,7 @@
 #include "pso/misc/TLobby.h"
 
 extern "C" {
-u32 get_enemy_entity(u16);
+u8 *get_enemy_entity(u16 arg0);
 
     extern int enemy_custom_camera_active_flag;
 s32 legacy_enemy_kill_received_flags[128];
@@ -20,7 +20,7 @@ void handle_6x09_legacy_kill_enemy(s32 arg0) {
     temp_r5 = (temp_r3 * 4) & 0x3FFFC;
     if ((s32) *(s32 *)((s8 *)legacy_enemy_kill_received_flags + temp_r5) == 0) {
         *(s32 *)((s8 *)legacy_enemy_kill_received_flags + temp_r5) = 1;
-        enemy_entity = get_enemy_entity(temp_r3);
+        enemy_entity = (u32)get_enemy_entity(temp_r3);
         if (enemy_entity != 0) {
             *(s32 *)((s8 *)enemy_entity + 0x30) = (s32) (*(s32 *)((s8 *)enemy_entity + 0x30) | 0x800);
         }

@@ -27,11 +27,11 @@ struct VObj802D1F30 : VBase802D1F30 {
 extern "C" {
 s32 copy_and_register_item_data__11TItemObjectFv(u32);
 u32 find_item_by_id();
-s32 item_identity_matches(void *, void *);
+s32 item_identity_matches(u8 *arg0, u8 *arg1);
 s32 TObjPlayer__sub_801C1AC8();
 Entry_802D20C8 *find_free_trade_slot__6TLobbyFPv(void *);
 u8 *get_quest_id__12TQuestListVMFv(void *);
-u8 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 int TLobby__sub_802D2358(void*);
 
 void TLobby::set_trade_field_4(s32 arg1) {
@@ -50,7 +50,7 @@ void snapshot_player_trade_inventory(s32 arg0, s32 arg1) {
     u8 *temp_r3_3;
     u8 *var_r25;
     ((TLobby *)arg0)->update_both_halves();
-    player = get_player_by_client_id(arg1);
+    player = (u8 *)get_player_by_client_id(arg1);
     if (player != NULL) {
         temp_r29 = ((TObjPlayer *)(*(s32 *)((s8 *)player + 0xD00)))->run_and_get_result((int)((void *) ids));
         var_r25 = (unsigned char *) (arg0 + 0xF8);
@@ -119,7 +119,7 @@ s32 TLobby::add_trade_item(u32 arg1, s32 arg2) {
                 found = ((u32 (*)(u32)) find_item_by_id)(e->id);
                 if (found != 0) {
                     ((TItem *)found)->copy_to_item_data(&b);
-                    if (item_identity_matches(&b, &a) != 0) {
+                    if (item_identity_matches((u8 *)&b, (u8 *)&a) != 0) {
                         e->count += arg2;
                         if (e->count > copy_and_register_item_data__11TItemObjectFv(found)) {
                             return 2;

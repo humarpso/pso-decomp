@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_8024FBA8.h"
 #include "pso/misc/TKeyBoardControl_8025CB70.h"
 #include "pso/misc/TWindowKeyBoardHard.h"
 #include "pso/misc/TWindowDD.h"
@@ -15,8 +16,6 @@ struct State_80260020 { u8 pad0[0xB4]; s32 flags; };
 struct Win_80260020 { u8 pad0[0x70]; State_80260020 *state; };
 
 extern "C" {
-s32 draw_window_text(void *, void *, s32, s32, f32);
-void set_text_draw_params(void *, s32, s32, f32, f32);
 extern s32 lbl_8044F0CC[];
 extern s32 lbl_8044F0D4[];
 extern s32 keyboard_hard_status_text_a[];
@@ -39,22 +38,22 @@ void draw_status_text__19TWindowKeyBoardHardFPvPv(Win_80260020 *self, Ctx_802600
         Pt_80260020 pt;
         pt.x = ctx->pos.x;
         pt.y = ctx->pos.y;
-        set_text_draw_params(ctx, 0, 0, inv, lbl_805DD06C);
+        set_text_draw_params((s32)ctx, (s32)(0), (s32)(0), (f32)inv, (f32)lbl_805DD06C);
         flags = self->state->flags;
         if (!(flags & 1)) {
-            draw_window_text(&pt, lbl_8044F0CC, -1, 0, lbl_805DD070);
+            draw_window_text((f32 *)&pt, (const char *)lbl_8044F0CC, (s32)(-1), (s32)(0), (f32)lbl_805DD070);
         } else if (flags & 2) {
-            draw_window_text(&pt, lbl_8044F0D4, -1, 0, lbl_805DD070);
+            draw_window_text((f32 *)&pt, (const char *)lbl_8044F0D4, (s32)(-1), (s32)(0), (f32)lbl_805DD070);
         } else if (flags & 4) {
             if (flags & 8) {
-                draw_window_text(&pt, keyboard_hard_status_text_a, -1, 0, lbl_805DD070);
+                draw_window_text((f32 *)&pt, (const char *)keyboard_hard_status_text_a, (s32)(-1), (s32)(0), (f32)lbl_805DD070);
             } else {
-                draw_window_text(&pt, keyboard_hard_status_text_b, -1, 0, lbl_805DD070);
+                draw_window_text((f32 *)&pt, (const char *)keyboard_hard_status_text_b, (s32)(-1), (s32)(0), (f32)lbl_805DD070);
             }
         } else if (flags & 8) {
-            draw_window_text(&pt, lbl_8044F0FC, -1, 0, lbl_805DD070);
+            draw_window_text((f32 *)&pt, (const char *)lbl_8044F0FC, (s32)(-1), (s32)(0), (f32)lbl_805DD070);
         } else {
-            draw_window_text(&pt, lbl_8044F104, -1, 0, lbl_805DD070);
+            draw_window_text((f32 *)&pt, (const char *)lbl_8044F104, (s32)(-1), (s32)(0), (f32)lbl_805DD070);
         }
     }
 }

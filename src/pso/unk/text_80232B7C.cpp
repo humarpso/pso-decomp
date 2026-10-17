@@ -58,11 +58,11 @@ extern const f32 lbl_805DC850;
 extern const f32 lbl_805DC854;
 Obj_80232B7C *construct_grants_flash(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C *pos, f32 scale);
 s32 get_bml_model(s32, u32);
-s32 attach_particle_model(s32, s32, s32, int, int, f32);
-s32 spawn_particle_effect(void *, s32);
-u8 *find_entity_by_id(u16);
+void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
+void *spawn_particle_effect(void *pos, s32 id);
+void *find_entity_by_id(u16 id);
 void *__nw__7TObjectFUl(u32);
-s32 construct_timed_sound_voice(void *, void *, int, int, int, void *);
+u8 *construct_timed_sound_voice(u8 *arg0, s32 arg1, s16 arg2, s32 arg3, s32 arg4, s32 arg5);
 extern SGrp_80232C50 technique_effect_entry_table[];
 extern void *tl_07;
 extern s32 technique_effect_bml;
@@ -110,13 +110,13 @@ void grants_presentation_update(Ctl_80232C50 *arg0) {
     }
     if (arg0->timer >= 30) {
         for (i = 0; i < technique_effect_entry_table[arg0->kind].count; i++) {
-            obj = find_entity_by_id(arg0->id);
+            obj = (u8 *)find_entity_by_id(arg0->id);
             if (obj != 0) {
                 SEnt_80232C50 *e = &technique_effect_entry_table[arg0->kind].ents[i];
                 if (e->flags & 0x20) {
-                    r = spawn_particle_effect(obj + 0x38, e->a);
+                    r = (s32)spawn_particle_effect(obj + 0x38, e->a);
                     if (r != 0) {
-                        attach_particle_model(r, get_bml_model(technique_effect_bml, technique_effect_entry_table[arg0->kind].ents[i].flags >> 16), lbl_805D63B0, 0, 1, lbl_805DC854);
+                        attach_particle_model((u8 *)r, (s32)(get_bml_model(technique_effect_bml, technique_effect_entry_table[arg0->kind].ents[i].flags >> 16)), (s32)lbl_805D63B0, (s32)(0), (s32)(1), (f32)lbl_805DC854);
                     }
                 } else {
                     spawn_particle_effect(obj + 0x38, e->a);
@@ -139,7 +139,7 @@ void grants_presentation_update(Ctl_80232C50 *arg0) {
         }
         p = __nw__7TObjectFUl(0x28);
         if (p != 0) {
-            construct_timed_sound_voice(p, arg0->f30, 0xF, 0x4002A60D, dir, tl_07);
+            construct_timed_sound_voice((u8 *)p, (s32)arg0->f30, (s16)(0xF), (s32)(0x4002A60D), (s32)dir, (s32)tl_07);
         }
         queue_destruction__7TObjectFv(arg0);
     }

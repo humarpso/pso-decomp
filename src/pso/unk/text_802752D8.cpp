@@ -4,7 +4,7 @@
 #include "pso/misc/TWindowShortListCtrl.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 extern "C" {
-void draw_selection_bar(void *, void *, s32);
+void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2);
 volatile char get_type__20TWindowSubStatusDispFv(void *);
 extern s32 actor_frame_tick;
 void TWindowSubComCardList::draw_card_list_selection(u8 *arg1) {
@@ -20,7 +20,7 @@ void TWindowSubComCardList::draw_card_list_selection(u8 *arg1) {
       temp_r3 = (u16 *) ((TUnk_804CE018 *)((u8 *)this))->get_array_entry((s32) temp_r0);
       if ((*temp_r3) & 1)
       {
-        draw_selection_bar(arg1, temp_r3, 1);
+        draw_selection_bar(arg1, (u8 *)temp_r3, 1);
       }
     }
   }

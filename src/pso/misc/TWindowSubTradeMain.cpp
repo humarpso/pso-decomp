@@ -52,7 +52,7 @@ void update_player_state__9TObjEneDDFv(void *, V3_803323D8 *, int);
 s32 rotate_matrix_y(int, int);
 void push_matrix(void);
 int post_translate_matrix(void *);
-s32 draw_model_motion(int, Anim_803323D8 *, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern const V3_803323D8 lbl_804775F0;
 extern const f32 TObjEneMorfos__data_805DF86C;
 extern const f32 TObjEneMorfos__data_805DF874;
@@ -96,7 +96,7 @@ void TObjEneMorfos::vfunc_106() {
             frame = (f32)anim->count;
         }
         TObjPlayer::set_global_flag();
-        draw_model_motion(arg0->f34, anim, frame);
+        draw_model_motion((void *)arg0->f34, anim, frame);
         TObjPlayer::clear_global_state();
         pop_matrix();
         TParticleCtrl::end_effect_render();

@@ -366,7 +366,6 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
 #undef play_sound_effect
 #undef TBoss3VoloptHiraisin__init_param_table
 #undef advance_animation_playback
-#define copy_position__20TBoss3VoloptHiraisinFi ((s32 (*)(void *))copy_position__20TBoss3VoloptHiraisinFi)
 #define sub_8004118C__20TBoss3VoloptHiraisinFv ((s32 (*)())sub_8004118C__20TBoss3VoloptHiraisinFv)
 #define update_drop__20TBoss3VoloptHiraisinFPv ((s32 (*)())update_drop__20TBoss3VoloptHiraisinFPv)
 #define TBoss3VoloptHiraisin__sub_80041314 ((s32 (*)())TBoss3VoloptHiraisin__sub_80041314)
@@ -510,7 +509,7 @@ void run_task__20TBoss3VoloptHiraisinFv(u8 *arg0) {
     {
       ((TBoss3VoloptHiraisin *)arg0)->m_300 = (f32) ((((TBoss3VoloptHiraisin *)arg0)->m_300) - (3e+01f));
     }
-    copy_position__20TBoss3VoloptHiraisinFi((void *) arg0);
+    copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
     submit_cursor_candidate((void *) arg0, (int) (-1));
     minimap_render_dot((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) 1, (int) 0);
     temp_r4 = *((s32 *) (((s8 *) volopt_hiraisin_model_data) + 0x18));
@@ -529,7 +528,6 @@ void destroy__20TBoss3VoloptHiraisinFv(void) {
 }
 
 }
-#undef copy_position__20TBoss3VoloptHiraisinFi
 #undef sub_8004118C__20TBoss3VoloptHiraisinFv
 #undef update_drop__20TBoss3VoloptHiraisinFPv
 #undef TBoss3VoloptHiraisin__sub_80041314
@@ -730,7 +728,7 @@ void TBoss3VoloptHiraisin__sub_80041D0C(O_80041D0C *self);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 void init_collision_body_parts(void *, void *, s32);
 void init_params__20TBoss3VoloptHiraisinFv(Hira_800418C8 *self);
-u8 *find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 extern s8 volopt_target_slot_used[];
 extern u16 boss3_volopt_monitor_base_actor_id;
 void TBoss3VoloptHiraisin__sub_80041D3C(Hira_80041D3C *self);
@@ -941,14 +939,14 @@ void TBoss3VoloptHiraisin__sub_80041D3C(Hira_80041D3C *self) {
                 }
             }
             if (all != 0) {
-                p = find_entity_by_id(boss3_volopt_monitor_base_actor_id + base);
+                p = (u8 *)find_entity_by_id(boss3_volopt_monitor_base_actor_id + base);
                 if (p != NULL) {
                     ((TBoss3VoloptHiraisin *)p)->set_hit_flags_and_notify();
                 }
             }
         } else {
             for (j = self->idx + 1; j < self->idx + 4; j++) {
-                p = find_entity_by_id(boss3_volopt_monitor_base_actor_id + j);
+                p = (u8 *)find_entity_by_id(boss3_volopt_monitor_base_actor_id + j);
                 if (p != NULL) {
                     ((TBoss3VoloptHiraisin *)p)->set_hit_flags_and_notify();
                 }

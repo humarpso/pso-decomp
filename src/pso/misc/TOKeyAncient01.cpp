@@ -81,8 +81,8 @@ extern const f32 lbl_805DB6F4;
 extern const f32 lbl_805DB6F8;
 u8 *TOKeyAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
 Big_8016AF84 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-Buf_8016AF84 *mem_alloc(s32);
-s32 load_gvm_texture_file(void *);
+void *mem_alloc(u32 size);
+u8 *load_gvm_texture_file(s32 arg0);
 extern u8 lbl_804419B8[];
 extern u8 lbl_804419D0[];
 extern u8 lbl_804419E8[];
@@ -172,11 +172,11 @@ void TOKeyAncient01::load_resources() {
         v = load_resource_from_descriptor(v, 1, bm_fd_obj_n_switch_resource_descriptor, 0, 0, 0);
     }
     (*(Big_8016AF84 * *)&TOKeyAncient01__shared_resource_object) = v;
-    (*(Buf_8016AF84 * *)&TOKeyAncient01__texture_lists) = mem_alloc(0x10);
+    (*(Buf_8016AF84 * *)&TOKeyAncient01__texture_lists) = (Buf_8016AF84 *)mem_alloc(0x10);
     (*(Buf_8016AF84 * *)&TOKeyAncient01__texture_lists)->a = (*(Big_8016AF84 * *)&TOKeyAncient01__shared_resource_object)->p->f0C;
-    (*(Buf_8016AF84 * *)&TOKeyAncient01__texture_lists)->b = load_gvm_texture_file(lbl_804419B8);
-    (*(Buf_8016AF84 * *)&TOKeyAncient01__texture_lists)->c = load_gvm_texture_file(lbl_804419D0);
-    (*(Buf_8016AF84 * *)&TOKeyAncient01__texture_lists)->d = load_gvm_texture_file(lbl_804419E8);
+    (*(Buf_8016AF84 * *)&TOKeyAncient01__texture_lists)->b = (s32)load_gvm_texture_file((s32)lbl_804419B8);
+    (*(Buf_8016AF84 * *)&TOKeyAncient01__texture_lists)->c = (s32)load_gvm_texture_file((s32)lbl_804419D0);
+    (*(Buf_8016AF84 * *)&TOKeyAncient01__texture_lists)->d = (s32)load_gvm_texture_file((s32)lbl_804419E8);
 }
 
 void *__dt__14TOKeyAncient01Fv(void *arg0, s16 arg1) {

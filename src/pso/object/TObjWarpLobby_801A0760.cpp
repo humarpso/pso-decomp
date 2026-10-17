@@ -31,7 +31,7 @@ struct VO_801A0894 : VB_801A0894 {
 extern "C" {
 void request_active_window_close(void);
 s32 align_menu_entry_positions(s32);
-s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
+int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(f32 *, s32, f32);
 extern s32 warp_lobby_directory_label_table[];
 extern const f32 lbl_805DC058;
@@ -64,7 +64,7 @@ void TObjWarpLobby::open_lobby_menu() {
     sp[1] = lbl_805DC05C;
     *(s32 *)&this->m_cc = check_room_seq_4__16TAdChrSelASlotGCFl(sp, 0xF, lbl_805DC058);
     for (i = 0; i < 0xF; i++) {
-        forward_trade_action_default__16TObjCityMainWarpFPviii(*(s32 *)&this->m_cc, warp_lobby_directory_label_table[i], 6, i);
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(*(s32 *)&this->m_cc), (int)warp_lobby_directory_label_table[i], (int)(6), (int)i);
     }
     ((TWindowSubComCard *)(*(s32 *)&this->m_cc))->calc_window_size();
     align_menu_entry_positions(*(s32 *)&this->m_cc);

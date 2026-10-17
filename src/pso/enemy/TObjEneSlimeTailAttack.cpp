@@ -102,7 +102,7 @@ s32 get_bml_model(s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 u8 *get_instance__15TObjEneSlimeOneFv();
 s32 fn_800ECA28(void *, void *);
-void bind_enemy_combat_stats(void *, int, int, int);
+s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 s32 init_collision_body_parts(void *, void *, int);
 extern const f32 lbl_805DA754;
@@ -391,7 +391,7 @@ u8 * get_bml_motion(s32, s32);
 s32 exchange_object_state__9TObjEnemyFls(void *, void *, int);
 void transform_to_view__11TCameraCtrlFii(s32, s32);
 void *spawn_particle_effect(void *pos, s32 id);
-s32 create_particle_emitter(void *, int);
+void *create_particle_emitter(void *pos, s32 id);
 void TObjPlayer__sub_800E80C0(u8 *arg0);
 S_800E80E8 * TObjPlayer__sub_800E80E8(S_800E80E8 *dst, S_800E80E8 *src);
 void TObjPlayer__sub_800E8128(void);
@@ -446,11 +446,11 @@ s16 check_player_field_7cc__15TObjEneSlimeOneFv();
 s32 __dt__15TObjEneSlimeOneFis(s32 arg0, s16 arg1);
 void draw_blob_shadow(s32 arg0);
 void * TObjControl__ct(void *, s32);
-Ent_800E8AD0 * get_enemy_entity(u16);
+u8 *get_enemy_entity(u16 arg0);
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 s32 initialize__9TObjEnemyFPv(void *);
 f32 horizontal_distance_squared(void *, void *);
-s32 direction_to_rotation_xz(Rot_800E81B4 *, s32 *, s32 *);
+void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
 s32 advance_animation_playback(void *);
 void free_collision_body_parts(void *);
 s32 get_player_by_client_id(void *);
@@ -1006,7 +1006,7 @@ void TObjPlayer::draw_blob_shadows() {
         if (((s32 (*)(void *, Vec_800E81B4 *, Rot_800E81B4 *))project_actor_to_ground)(((Obj_800E81B4 *)this), &v, &rot) != 0) {
             push_matrix();
             translate_matrix(0, v.x, lbl_805DA670 + v.y, v.z);
-            direction_to_rotation_xz(&rot, &spC, &sp8);
+            direction_to_rotation_xz((u8 *)&rot, &spC, &sp8);
             rotate_matrix_z(0, sp8);
             rotate_matrix_x(0, spC + 0x4000);
             scale_matrix(0, lbl_805DA674, lbl_805DA674, lbl_805DA674);
@@ -1225,7 +1225,7 @@ s32 water_bomb_hit_nearby(u8 *target) {
     }
     id2 = ((TObjEneSlimeWaterBomb *)target)->find_nearest_enemy_masked(lbl_805DA6A8);
     if (id2 != 0xFFFF) {
-        e2 = get_enemy_entity(id2);
+        e2 = (Ent_800E8AD0 *)get_enemy_entity(id2);
         if (e2 != NULL && !(horizontal_distance_squared(target + 0x2FC, (u8 *)e2 + 0x2FC) > lbl_805DA6A8)) {
             if (lbl_805DA6B4 != e2->m21(*(s32 *)&((TObjEneSlimeWaterBomb *)target)->m_38c, h, 0, -1, -1)) {
                 e2->m23(target);
@@ -1248,7 +1248,7 @@ void TObjEneSlimeWaterBomb::render() {
     f32 k;
     ((int (*)(void*))push_matrix)(arg0);
     translate_matrix(0, *(f32 *)((s8 *)arg0 + 0x38), lbl_805DA670 + this->m_380, *(f32 *)((s8 *)arg0 + 0x40));
-    ((s32 (*)(void *, s32 *, s32 *))direction_to_rotation_xz)(arg0 + 0x248, &spC, &sp8);
+    direction_to_rotation_xz(arg0 + 0x248, &spC, &sp8);
     rotate_matrix_z(0, sp8);
     rotate_matrix_x(0, spC + 0x4000);
     d = *(f32 *)((s8 *)arg0 + 0x3C) - this->m_380;
@@ -1345,7 +1345,7 @@ void *TObjEneSlimeWaterBomb__ct(void *arg0, void *arg1, void *arg2) {
     *(f32 *)((s8 *)arg0 + 0x378) = lbl_805DA6B4;
     ((TObjEneSlimeWaterBomb *)arg0)->m_37c = lbl_805DA6D8 * c;
     *(f32 *)((s8 *)arg0 + 0x384) = lbl_805DA6B4;
-    *(s32 *)&((TObjEneSlimeWaterBomb *)arg0)->m_388 = create_particle_emitter((u8 *) arg0 + 0x38, 0xCF);
+    *(s32 *)&((TObjEneSlimeWaterBomb *)arg0)->m_388 = (s32)create_particle_emitter((u8 *) arg0 + 0x38, 0xCF);
     *(f32 *)((s8 *)arg0 + 0x390) = *dispatch_shared_handler_a__6TLobbyFl(TObjEneSlime__attack_target_param_table[((TObjEneSlimeOne *)(*(s32 *)&((TObjEneSlimeWaterBomb *)arg0)->m_38c))->get_attack_target()]);
     if (*(f32 *)((s8 *)arg0 + 0x390) < lbl_805DA6B4) {
         *(f32 *)((s8 *)arg0 + 0x390) = lbl_805DA6B4;
@@ -1414,7 +1414,7 @@ void TObjEneSlimeOne::copy_position() {
 }
 
 void fn_800E9538(u8 *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x3E8) = create_particle_emitter((void *) (arg0 + 0x38), (int) (0xE1));
+    *(s32 *)((s8 *)arg0 + 0x3E8) = (s32)create_particle_emitter((arg0 + 0x38), (0xE1));
     *(f32 *)((s8 *)arg0 + 0x3A4) = (f32) lbl_805DA708;
     *(f32 *)((s8 *)arg0 + 0x3B0) = (f32) lbl_805DA6B4;
     *(f32 *)((s8 *)arg0 + 0x3AC) = (f32) lbl_805DA6B4;
@@ -2105,11 +2105,11 @@ void initialize_slime_instance_state(u8 *actor) {
   *((s32 *) (((s8 *) actor) + 0x2A8)) = 0;
   if ((*new_var2) == 0)
   {
-    bind_enemy_combat_stats(actor, register_boss__6TLobbyFl(0x30), dispatch_shared_handler_b__6TLobbyFl(0x30), register_object__6TLobbyFl(0x30));
+    bind_enemy_combat_stats(actor, (u8 *)(register_boss__6TLobbyFl(0x30)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(0x30)), (u8 *)(register_object__6TLobbyFl(0x30)));
   }
   else
   {
-    bind_enemy_combat_stats(actor, register_boss__6TLobbyFl(0x34), dispatch_shared_handler_b__6TLobbyFl(0x34), register_object__6TLobbyFl(0x34));
+    bind_enemy_combat_stats(actor, (u8 *)(register_boss__6TLobbyFl(0x34)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(0x34)), (u8 *)(register_object__6TLobbyFl(0x34)));
   }
   ((TObjEneSlimeOne *)actor)->referenceHp = ((TObjEneSlimeOne *)actor)->hp;
   ((TBoss3Volopt *)actor)->reset_photon_effect();

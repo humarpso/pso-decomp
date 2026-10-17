@@ -299,7 +299,7 @@ struct File_8001DC30
 s32 is_main_phase_15__9TObjEneDDFv(void);
 void read_disc_file(const char *, void *);
 void mem_free(void *);
-u8 *mem_alloc(u32);
+void *mem_alloc(u32 size);
 extern const char lbl_80434A20[];
 extern const char lbl_80434A38[];
 extern const char lbl_80434A50[];
@@ -557,7 +557,7 @@ void set_difficulty__6TLobbyFi(s32 arg0) {
     battle_param_lab_variant = arg0;
 }
 
-u8 *mem_alloc(u32 size);
+void *mem_alloc(u32 size);
 
 extern u32 TLobby__battle_parameter_buffer;
 
@@ -608,7 +608,7 @@ void TLobby::free_boss4_rock() {
 }
 
 void alloc_battle_param_tables(void) {
-    u8 *buf = mem_alloc(0x3d80);
+    u8 *buf = (u8 *)mem_alloc(0x3d80);
     s32 i;
     for (i = 0; i < 0x3d80; i++) {
         buf[i] = 0;
@@ -710,7 +710,7 @@ f32 TLobby::calc_result_offset() {
 
 extern f32 lbl_805D4AC0;
 
-void draw_small_font_text(s32, void *, f32, f32, f32);
+void draw_small_font_text(void *color, const char *s, f32 x, f32 y, f32 scale);
 
 extern const f32 lbl_805D7EEC;
 extern const f32 lbl_805D7EF0;
@@ -788,7 +788,7 @@ void TLobby__sub_8001E998(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
         temp_r31 = TLobby::calc_alpha_shifted(var_f4);
         if (get_main_phase() == 0xF) {
             TLobby::close_result_windows();
-            draw_small_font_text(temp_r31 | 0xFF0000 | 0xFFFF, ((u8* (*)(void))get_shared_text_buffer)(), farg0, lbl_805D7EF0 + farg1, scale);
+            draw_small_font_text((void *)(temp_r31 | 0xFF0000 | 0xFFFF), (const char *)(((u8* (*)(void))get_shared_text_buffer)()), (f32)farg0, (f32)(lbl_805D7EF0 + farg1), (f32)scale);
         }
     }
 }

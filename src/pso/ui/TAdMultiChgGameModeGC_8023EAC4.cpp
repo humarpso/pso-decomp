@@ -5,7 +5,7 @@
 
 extern "C" {
 void *__nw__7TObjectFUl(u32);
-s32 get_or_create__22TAdMultiPlyChrSelectGCFii(s32, s32);
+u8 *get_or_create__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1);
 void *TAdEnterPPPPassGC__ct(void *, s32);
 void *TAdEnterPasswordGC__ct(void *, s32);
 void *TAdEnterSerialAccessGC__ct(void *, s32);
@@ -159,7 +159,7 @@ void TAdMultiChgGameModeGC::create_mode_scene() {
         game_mode_scene_instance = (s32)p;
         break;
     case 7:
-        game_mode_scene_instance = get_or_create__22TAdMultiPlyChrSelectGCFii(tl_01, 0);
+        game_mode_scene_instance = (s32)get_or_create__22TAdMultiPlyChrSelectGCFii(tl_01, 0);
         break;
     case 8:
         p = __nw__7TObjectFUl(0x468);
@@ -204,7 +204,7 @@ void TAdMultiChgGameModeGC::create_mode_scene() {
         game_mode_scene_instance = (s32)p;
         break;
     case 14:
-        game_mode_scene_instance = get_or_create__22TAdMultiPlyChrSelectGCFii(tl_01, 1);
+        game_mode_scene_instance = (s32)get_or_create__22TAdMultiPlyChrSelectGCFii(tl_01, 1);
         break;
     case 15:
         p = __nw__7TObjectFUl(0x68);
@@ -270,7 +270,7 @@ void TAdMultiChgGameModeGC::create_mode_scene() {
         game_mode_scene_instance = (s32)p;
         break;
     case 24:
-        game_mode_scene_instance = get_or_create__22TAdMultiPlyChrSelectGCFii(tl_01, 2);
+        game_mode_scene_instance = (s32)get_or_create__22TAdMultiPlyChrSelectGCFii(tl_01, 2);
         break;
     case 25:
         p = __nw__7TObjectFUl(0x44);

@@ -7,12 +7,9 @@
 
 extern "C" {
 void fn_802898EC(void);
-void TObjBoss5PillarDemo__sub_8028ACE4(void);
 int forward_pillar_2B710__19TObjBoss5PillarCtrlFv(void);
 extern u32 boss5_ctrl_instance;
 void fn_802898E8(void);
-void TObjBoss5PillarDemo__sub_8028AB38(void);
-void TObjBoss5PillarDemo__sub_8028ACE0(void);
 s32 update_pillar__19TObjBoss5PillarCtrlFv();
 
 void TLobby::cleanup_pillar_demo() {

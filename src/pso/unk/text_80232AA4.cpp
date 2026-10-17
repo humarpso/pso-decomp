@@ -4,12 +4,12 @@
 #include "pso/unk/TUnk_804CC870.h"
 
 extern "C" {
-s32 find_entity_by_id(int);
+void *find_entity_by_id(u16 id);
 extern const f32 lbl_805DC844;
 void TUnk_804CC870::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 entity;
-    entity = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0x1C)));
+    entity = (s32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0x1C)));
     if (entity != 0) {
         VecCopy((Vec *)(arg0 + 0x20), (const Vec *)(entity + 0x38));
     }

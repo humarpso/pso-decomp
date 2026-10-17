@@ -4,7 +4,7 @@
 struct Hit_8007A5D8 { u8 pad[0x40]; };
 
 extern "C" {
-int mem_alloc(void*);
+void *mem_alloc(u32 size);
 extern u32 wall_query_scene_buffer;
 s32 TObjPlayer__sub_80079118(s32 *_w0);
 void TObjPlayer__sub_8007911C(void *, void *, u32);
@@ -35,6 +35,6 @@ void TObjButterflyLobby::free_singleton_805D4E6C() {
         wall_query_scene_buffer = 0U;
     }
 }
-void TObjButterflyLobby::alloc_scene_buffer() { (*(int *)&wall_query_scene_buffer) = mem_alloc((void*)20480); }
+void TObjButterflyLobby::alloc_scene_buffer() { (*(int *)&wall_query_scene_buffer) = (int)mem_alloc((u32)((void*)20480)); }
 
 }

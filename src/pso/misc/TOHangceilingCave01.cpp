@@ -182,7 +182,7 @@ void TLobby__sub_8001FE7C(void*, int);
 Big_8016775C * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void * alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void mem_free(void *p);
-Buf_8016775C * mem_alloc(s32);
+void *mem_alloc(u32 size);
 void * __dt__27TOHangceilingCave01KeyQuickFv(void *arg0, s16 arg1);
 u8 * TOHangceilingCave01KeyQuick__ct(u8 *arg0, s32 arg1);
 void * __dt__22TOHangceilingCave01KeyFv(void *arg0, s16 arg1);
@@ -197,8 +197,8 @@ void sub_801682E4__13TUnk_804B2578Fl(Obj_801682E4 *o, s32 arg1);
 void init_base__27TOHangceilingCave01KeyQuickFll(void *);
 void set_scale__13TUnk_804B2578Ff(void *, f32);
 void * get_player_by_client_id(s32);
-s32 load_gvm_texture_file(void *);
-s32 play_persistent_sound(s32, void *, void *, s32, s32);
+u8 *load_gvm_texture_file(s32 arg0);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 u8 is_current_floor_switch_set(int);
 void clear_current_floor_switch(s32 id);
 void __dl__7TObjectFPv(void *);
@@ -561,7 +561,7 @@ void TUnk_804B2578::sub_80168398() {
         break;
     }
     if (id != 0) {
-        play_persistent_sound(id, ((u8 *)this), ((u8 *)this) + 0x38, 0, 0);
+        play_persistent_sound((s32)id, (s32)((u8 *)this), (u32)(((u8 *)this) + 0x38), (s32)(0), (s32)(0));
     }
 }
 
@@ -843,7 +843,7 @@ void load_turiten_singo_resources(void) {
             p = ((void *(*)(void *, int, void *, int, int, int))load_resource_from_descriptor)(p, 5, turiten_singo_resource_descriptor, 0, 0, 0);
         }
         (*(void **)&TOHangceilingCave01__model_archive) = p;
-        (*(Buf_80168AA8 **)&turiten_singo_texture_lists) = ((Buf_80168AA8 *(*)(u32))mem_alloc)(0xC);
+        (*(Buf_80168AA8 **)&turiten_singo_texture_lists) = (Buf_80168AA8 *)mem_alloc(0xC);
         (*(Buf_80168AA8 **)&turiten_singo_texture_lists)->b = 0;
         (*(Buf_80168AA8 **)&turiten_singo_texture_lists)->a = 0;
         (*(Buf_80168AA8 **)&turiten_singo_texture_lists)->c = TObjFish__sub_8001EDB0((*(void **)&TOHangceilingCave01__model_archive), 0);
@@ -858,9 +858,9 @@ void load_turiten_singo_resources(void) {
             p = ((void *(*)(void *, int, void *, int, int, int))load_resource_from_descriptor)(p, 5, fe_obj_turiten_moto_resource_descriptor, 0, 0, 0);
         }
         (*(void **)&TOHangceilingCave01__model_archive) = p;
-        (*(Buf_80168AA8 **)&turiten_singo_texture_lists) = ((Buf_80168AA8 *(*)(u32))mem_alloc)(0xC);
-        (*(Buf_80168AA8 **)&turiten_singo_texture_lists)->a = load_gvm_texture_file((void *)lbl_80441858);
-        (*(Buf_80168AA8 **)&turiten_singo_texture_lists)->b = load_gvm_texture_file((void *)lbl_80441874);
+        (*(Buf_80168AA8 **)&turiten_singo_texture_lists) = (Buf_80168AA8 *)mem_alloc(0xC);
+        (*(Buf_80168AA8 **)&turiten_singo_texture_lists)->a = (s32)load_gvm_texture_file((s32)lbl_80441858);
+        (*(Buf_80168AA8 **)&turiten_singo_texture_lists)->b = (s32)load_gvm_texture_file((s32)lbl_80441874);
         (*(Buf_80168AA8 **)&turiten_singo_texture_lists)->c = TObjFish__sub_8001EDB0((*(void **)&TOHangceilingCave01__model_archive), 1);
         (*(s32 *)&TOHangceilingCave01__model_root) = get_bml_model((*(void **)&TOHangceilingCave01__model_archive), 2);
         turiten_singo_key_model_index = 1;

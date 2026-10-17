@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_8024FBA8.h"
 #include "pso/misc/TWindowSubStatusDisp_80287570.h"
 #include "pso/misc/TWindowSubTradeMain.h"
 
@@ -24,8 +25,6 @@ typedef struct {
 
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
 u32 calc_text_width(void);
-void draw_window_text(V2_8027831C *, s32, u32, s32, f32);
-void set_text_draw_params(Win_8027831C *, s32, s32, f32, f32);
 void draw_window_tab(Win_8027831C *, V2_8027831C *, u8, f32);
 extern s32 status_disp_tab_label_message_ids[];
 extern const u8 lbl_805DD5F8[4];
@@ -67,10 +66,10 @@ void draw_tab_label__20TWindowSubStatusDispFPvPv(Disp_8027831C *self, Win_802783
         draw_window_tab(win, &pos, col, lbl_805DD600);
         pos.x += lbl_805DD604;
         pos.y += lbl_805DD608;
-        set_text_draw_params(win, 0, 0, lbl_805DD60C / (lbl_805DD610 + win->f38), lbl_805DD614);
+        set_text_draw_params((s32)win, (s32)(0), (s32)(0), (f32)(lbl_805DD60C / (lbl_805DD610 + win->f38)), (f32)lbl_805DD614);
         msg = get_message_10__20TWindowSubStatusDispFl(status_disp_tab_label_message_ids[self->f88]);
         pos.x -= lbl_805DD618 * (f32)calc_text_width();
-        draw_window_text(&pos, msg, 0xFF000000, 0, lbl_805DD614);
+        draw_window_text((f32 *)&pos, (const char *)msg, (s32)(0xFF000000), (s32)(0), (f32)lbl_805DD614);
     }
 }
 #pragma pop

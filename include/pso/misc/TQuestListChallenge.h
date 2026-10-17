@@ -19,6 +19,7 @@ struct TQuestListChallenge : public TShopWindowBase {
 };
 
 typedef char TQuestListChallenge_size[sizeof(TQuestListChallenge) == 0x5C ? 1 : -1];
+
 extern "C" {
 void *TObjNpcKenkyu__create(void *arg0);
 u8 *TQuestListChallenge__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);

@@ -13,7 +13,7 @@
 struct Vec_8008C5E8 { s32 x, y, z; };
 
 extern "C" {
-void set_active_camera_pose(void *, void *);
+void set_active_camera_pose(u8 *arg0, u8 *arg1);
 u8 *TCameraCtrl__ct(u8 *arg0, void *parent);
 void __ct__7TEndingFv(void *);
 void run_load_callback_table(void *, int);
@@ -48,7 +48,7 @@ int TEnding::start_ending_scene() {
     Vec_8008C5E8 a = lbl_80439570;
     Vec_8008C5E8 b = lbl_8043957C;
     TCameraCtrl::select_active_controller(9);
-    set_active_camera_pose(&a, &b);
+    set_active_camera_pose((u8 *)&a, (u8 *)&b);
     clear_resource_load_tasks();
     run_load_callback_table(ending_scene_callbacks, 0x68);
     TKeyBoardControl__sub_8000F90C(2);

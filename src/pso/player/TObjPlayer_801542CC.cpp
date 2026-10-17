@@ -196,7 +196,7 @@ void* refresh_actor_body_spheres(CollisionBody_80155FBC, CollisionBody_80155FBC)
 void* find_actor_body_contact(u8* arg0, u8* arg1, f32 limit);
 extern s32 TObjPlayer__data_8050D460[];
 void *mem_alloc(u32 size);
-void fn_8002B630(Part_80156780 *, Part_80156780 *);
+void fn_8002B630(u8 *arg0, u8 *arg1);
 void init_forward__10TObjPlayerFv(void *);
 void *__construct_new_array(void *, void (*)(void *), void *, s32, s32);
 Part_80156780 *init_collision_body_parts(Obj_80156780 *self, Part_80156780 *src, s32 count);
@@ -212,14 +212,14 @@ void free_collision_body_parts(G_80156720 *arg0);
 u16 obj_getField1c(int);
 extern const f32 lbl_805DB29C;
 void *memcpy(void *, const void *, u32);
-Hit_80156844 *csnVectorUnder(Vec_80156844 *, void *, s32);
-Hit_80156844 *csnVecterUnder(Vec_80156844 *, s32);
+s32 *csnVectorUnder(s32 arg0, u32 *arg1, s32 arg2);
+s32 *csnVecterUnder(s32 origin, s32 mask);
 u16 TObjRoomId__sub_801A1DB8(u16);
 extern const f32 lbl_805DB2A0;
 s32 project_actor_to_ground(Obj_80156844 *self, Vec_80156844 *pos, Vec_80156844 *normal);
 s32 test_box_overlap__10TObjPlayerFPvPv(CollisionBox_80155C54*,CollisionBox_80155C54*);
 s32 test_box_sphere_contact(CollisionBox_80155C54*,CollisionSphere_80155C54*);
-s32 spheres_overlap(CollisionSphere_80155C54*,CollisionSphere_80155C54*);
+s32 spheres_overlap(u8 *arg0, u8 *arg1);
 void TOTrapAncient02R__sub_80154D78(void);
 void TObjPlayer__sub_801542F4(s32 a);
 void reset_global_table(void);
@@ -822,7 +822,7 @@ s32 test_player_overlap_with_players(void *arg0, Obj_801559D0 *self, CollisionVe
                 r = refresh_actor_body_spheres(a, b);
                 if (r != 0) {
                     if (out != 0) {
-                        fn_8002B630((Part_80156780 *)out, (Part_80156780 *)r);
+                        fn_8002B630((u8 *)((Part_80156780 *)out), (u8 *)((Part_80156780 *)r));
                     }
                     return 1;
                 }
@@ -922,7 +922,7 @@ void* refresh_actor_body_spheres(CollisionBody_80155FBC a,CollisionBody_80155FBC
                     case 0: default:
                         test_collider_sphere_overlap_xz(worldA,source,&sphereAA);
                         test_collider_sphere_overlap_xz(worldB,destination,&sphereBB);
-                        if (spheres_overlap(&sphereAA,&sphereBB)) return destination;
+                        if (spheres_overlap((u8 *)&sphereAA, (u8 *)&sphereBB)) return destination;
                         break;
                     }
                     break;
@@ -1122,7 +1122,7 @@ Part_80156780 *init_collision_body_parts(Obj_80156780 *self, Part_80156780 *src,
         self->count = count;
         self->parts = (Part_80156780 *)mem_alloc(self->count * 0x2c);
         for (i = 0; i < self->count; i++) {
-            fn_8002B630(&self->parts[i], src++);
+            fn_8002B630((u8 *)&self->parts[i], (u8 *)(src++));
         }
         refresh_collision_body_centers__13TUnk_804AF8A0Fv((Obj_80154E3C *)(self));
     }
@@ -1148,9 +1148,9 @@ s32 project_actor_to_ground(Obj_80156844 *self, Vec_80156844 *pos, Vec_80156844 
     }
     coll = self->f90;
     if (coll != 0) {
-        hit = csnVectorUnder(&v, coll, flags);
+        hit = (Hit_80156844 *)csnVectorUnder((s32)&v, (u32 *)coll, flags);
     } else {
-        hit = csnVecterUnder(&v, flags);
+        hit = (Hit_80156844 *)csnVecterUnder((s32)&v, flags);
     }
     if (hit == NULL) {
         return 0;

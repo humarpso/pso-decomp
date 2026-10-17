@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_801E2F94.h"
 #include "pso/menu/TChCrLoadGmNjReq.h"
 #include "pso/misc/TLobby_8028D714.h"
 #include "pso/object/TObject_80019A50.h"
@@ -88,7 +89,6 @@ extern "C" {
 s32 is_selection_done__23TAdSinglePlyChrSelectGCFPv(void *);
 void start_preview_loads__23TAdSinglePlyChrSelectGCFPv(Gc_8028CB6C *arg0);
 void *create__22TChCrLoadAfsTextureReqFPvPv(void *arg0, void *arg1);
-u32 TLobby__sub_801E38A0(void *, s32 *, s32 *, s32, s32);
 s32 is_node_tree_valid(u32, s32);
 void *get_result__23TAdSinglePlyChrSelectGCFv(void *);
 void blend_creation_proportion_shapes(void *);
@@ -143,10 +143,10 @@ s32 TAdSinglePlyChrSelectGC::load_preview_models() {
     Sel_8028C9B0 *self = (Sel_8028C9B0 *)this;
     for (i = 0; i < 6; i++) {
         len = 0;
-        p = TLobby__sub_801E38A0(get_result__23TAdSinglePlyChrSelectGCFv(self->f74[i]), &len, &tag, 0, 0);
+        p = (u32)TLobby__sub_801E38A0((s32)(get_result__23TAdSinglePlyChrSelectGCFv(self->f74[i])), &len, &tag, (s32 *)(0), (s32 *)(0));
         if (p == 0 || tag != 0x4E4A544C) return;
         TAdSinglePlyChrSelectGC::safe_free(p);
-        bufs[i] = TLobby__sub_801E38A0(get_result__23TAdSinglePlyChrSelectGCFv(self->f74[i]), &len, &tag, 0, 0);
+        bufs[i] = (u32)TLobby__sub_801E38A0((s32)(get_result__23TAdSinglePlyChrSelectGCFv(self->f74[i])), &len, &tag, (s32 *)(0), (s32 *)(0));
         if (bufs[i] == 0 || tag != 0x4E4A434D) {
             for (i = 0; i < 6; i++) TAdSinglePlyChrSelectGC::safe_free(bufs[i]);
             return;

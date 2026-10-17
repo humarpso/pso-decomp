@@ -39,7 +39,7 @@ typedef struct UV_80287580 {
 } UV_80287580;
 
 extern "C" {
-s32 draw_window_text(void *, int, int, int, f32);
+s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width);
 s32 set_text_draw_params(void *, int, int, f32, f32, f32, f32, f32, f32);
 void TWindowSubStatusDisp__sub_802878B8(u8 *arg0, u8 *arg1);
 f32 TWindowSubStatusDisp__sub_802877A4(f32 farg0);
@@ -48,7 +48,7 @@ u8 *init_heading_entry__20TWindowSubStatusDispFPvPvici(u8 *arg0, u8 *arg1, s32 a
 u8 TWindowSubStatusDisp__sub_80287AC4(u8 *arg0);
 void apply_context_transform_to_rect(void *, Rect_80287580 *);
 void begin_screen_draw(s32 arg0);
-void draw_textured_quad_at_depth(Rect_80287580 *, f32);
+void draw_textured_quad_at_depth(f32 *q, f32 depth);
 void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern const UV_80287580 window_tab_uv_table[];
 extern s32 lbl_805D63F0;
@@ -82,7 +82,7 @@ void draw_window_tab(Obj_80287580 *obj, f32 *pos, u8 idx, f32 width) {
     r1.u1 = (40.0f + window_tab_uv_table[idx].u) / 256.0f;
     r1.v1 = (27.0f + window_tab_uv_table[idx].v) / 256.0f;
     apply_context_transform_to_rect(obj, &r1);
-    draw_textured_quad_at_depth(&r1, scale);
+    draw_textured_quad_at_depth((f32 *)&r1, scale);
     r2.x0 = 40.0f + pos[0];
     r2.y0 = pos[1];
     r2.x1 = r2.x0 + w;
@@ -92,7 +92,7 @@ void draw_window_tab(Obj_80287580 *obj, f32 *pos, u8 idx, f32 width) {
     r2.u1 = (20.0f + (40.0f + window_tab_uv_table[idx].u)) / 256.0f;
     r2.v1 = (27.0f + window_tab_uv_table[idx].v) / 256.0f;
     apply_context_transform_to_rect(obj, &r2);
-    draw_textured_quad_at_depth(&r2, scale);
+    draw_textured_quad_at_depth((f32 *)&r2, scale);
     r3.x0 = 40.0f + (pos[0] + w);
     r3.y0 = pos[1];
     r3.x1 = 40.0f + r3.x0;
@@ -102,7 +102,7 @@ void draw_window_tab(Obj_80287580 *obj, f32 *pos, u8 idx, f32 width) {
     r3.u1 = (80.0f + window_tab_uv_table[idx].u) / 256.0f;
     r3.v1 = (27.0f + window_tab_uv_table[idx].v) / 256.0f;
     apply_context_transform_to_rect(obj, &r3);
-    draw_textured_quad_at_depth(&r3, scale);
+    draw_textured_quad_at_depth((f32 *)&r3, scale);
     TWindowSubStatusDisp::get_player();
 }
 
@@ -176,7 +176,7 @@ void TWindowSubStatusDisp__sub_802878B8(u8 *arg0, u8 *arg1) {
     stack.spC = (4.0f) + (temp_f4 + (*((f32 *) (((s8 *) arg0) + 8))));
     set_text_draw_params((void *) arg1, (int) 0, (int) 1, (f32) ((-1.0f) / ((0.0598f) + (*((f32 *) (((s8 *) arg1) + 0x38))))), (f32) (1e+05f), (f32) (-1.0f), (f32) temp_f4, (f32) (4.0f), (f32) (0.5f));
     new_var = *((f32 *) (((s8 *) arg0) + 0x1C));
-    draw_window_text((void *) (&stack.sp8), (int) (*((s32 *) (((s8 *) arg0) + 0))), (int) (*((s32 *) (((s8 *) arg0) + 0x14))), (int) 1, (f32) new_var);
+    draw_window_text((&stack.sp8), (const char *)(*((s32 *) (((s8 *) arg0) + 0))), (*((s32 *) (((s8 *) arg0) + 0x14))), (int) 1, (f32) new_var);
   }
 }
 

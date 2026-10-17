@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/enemy/TObjEneReconBomb.h"
 #include "pso/enemy/TObjEneRecon_8031BC38.h"
 #include "pso/enemy/TObjEneRecon_8031FCB0.h"
 #include "pso/enemy/TObjEneRecon.h"
 
 extern "C" {
 
-void *TObjEneReconBomb__ct(void *, void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 void TObjEneRecon__sub_8031BC38(void) {  }
@@ -14,7 +14,7 @@ void *TObjEneRecon::create_bomb(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x364);
     if (o != NULL) {
-        o = TObjEneReconBomb__ct(o, arg0, arg1, arg2);
+        o = TObjEneReconBomb__ct((u8 *)o, (s32)arg0, (s32)arg1, (s32)arg2);
     }
     return o;
 }

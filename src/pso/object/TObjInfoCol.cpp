@@ -30,14 +30,14 @@ extern "C" {
 s32 is_idle__6TLobbyFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 check_flag_100__10TObjPlayerFPv();
-u32 get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 extern RecoveredGlobal_80191E28_lbl_8050E208 controller_input_state;
 extern s32 local_client_id;
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern s32 __vt__11TObjInfoCol[];
 extern s32 TObjInfoCol__class_name;
 void __dl__7TObjectFPv(void *);
-f32 xyz_distance_squared(const Vec *, const Vec *);
+f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
 int read_be16_field2__10TObjPlayerFv(void*);
 
 void TObjInfoCol::bswap_6x78() { read_be16_field2__10TObjPlayerFv(this); bswap_16((u16 *)((char*)this + 0x4)); bswap_16((u16 *)((char*)this + 0x6)); bswap_32((u32 *)((char*)this + 0x8)); }
@@ -45,9 +45,9 @@ void TObjInfoCol::bswap_6x78() { read_be16_field2__10TObjPlayerFv(this); bswap_1
 }
 
 s32 TObjInfoCol::is_target_in_range(f32 radius_squared) {
-    u32 player = get_player_by_client_id(local_client_id);
+    u32 player = (u32)get_player_by_client_id(local_client_id);
     if (player != 0 &&
-        xyz_distance_squared((const Vec *) (player + 0x38), (const Vec *)&position) < radius_squared) {
+        xyz_distance_squared((u8 *)((const Vec *) (player + 0x38)), (u8 *)((const Vec *)&position)) < radius_squared) {
         return 1;
     }
     return 0;
@@ -63,7 +63,7 @@ void TObjInfoCol::run_task() {
     u32 player;
     if (is_target_in_range(radius * radius) == 1 &&
         TWindowShortListCtrl__check_controller_button((u8 *) &controller_input_state.value + 0x20, 4) != 0 &&
-        ((player = get_player_by_client_id(local_client_id), player == 0) ||
+        ((player = (u32)get_player_by_client_id(local_client_id), player == 0) ||
          check_flag_100__10TObjPlayerFPv() == 0) &&
         (player == 0 || ((TObjPlayer *)player)->is_inactive() != 0) &&
         is_idle__6TLobbyFv() != 0) {

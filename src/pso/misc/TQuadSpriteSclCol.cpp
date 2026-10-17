@@ -52,7 +52,7 @@ void fn_80141EB4(void);
 void setSpriteInverseColorBlend(void);
 void transform_point_by_current_matrix(void *, void *);
 void begin_screen_draw(s32 arg0);
-s32 draw_textured_quad_at_depth(void *, f32);
+void draw_textured_quad_at_depth(f32 *q, f32 depth);
 void set_draw_texture_and_color(s32 idx, s32 arg1);
 void set_constant_material_color(u32 x);
 extern Cam_801E5C24 lbl_8058D4F8;
@@ -150,7 +150,7 @@ void render__17TQuadSpriteSclColFv(Self_801E5C24 *self) {
                 q.x1 = x + w;
                 q.y0 = y - h;
                 q.y1 = y + h;
-                draw_textured_quad_at_depth(&q, d);
+                draw_textured_quad_at_depth((f32 *)&q, d);
             }
             n = n->next;
         }

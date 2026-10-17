@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubComCard_8007A810.h"
+#include "pso/unk/text_80076BC4.h"
 #include "pso/misc/TPlyCharData.h"
 #include "pso/misc/TPlyCharData_8007214C.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC_80202A68.h"
@@ -109,10 +111,8 @@ Ent_80202B1C *TAdSinglePlyChrSelectGC__sub_80202B1C(Obj_80202B1C *self, s32 i);
 void __construct_array(void *, void *, void *, int, int);
 void *TAdSinglePlyChrSelectGC__sub_802115C0(void *p);
 Save_80202C68 *copy_save_data__23TAdSinglePlyChrSelectGCFPvPv(Save_80202C68 *arg0, Save_80202C68 *arg1);
-void TAdSinglePlyChrSelectGC__sub_80076D9C(void *, void *);
 void copy_player_data__9TProtocolFPvPv();
 int copy_item_data__6TLobbyFPv(void*);
-int init_guild_card_tag__17TWindowSubComCardFi(void*);
 
 s32 TAdSinglePlyChrSelectGC__sub_80202A68(u8 *arg0) {
     return *(s32 *)((s8 *)arg0 + 0x194AC);
@@ -264,7 +264,7 @@ u8 *TAdSinglePlyChrSelectGC::copy_character_data(u8 *arg1) {
     p = d->elems;
     q = s->elems;
     do {
-        TAdSinglePlyChrSelectGC__sub_80076D9C(p, q);
+        TAdSinglePlyChrSelectGC__sub_80076D9C((s32)p, (s32)q);
         p++;
         q++;
     } while (p < d->elems + 20);
@@ -295,7 +295,7 @@ u8 *TAdSinglePlyChrSelectGC__sub_80203190(u8 *arg0) {
     return arg0;
 }
 
-void*TAdSinglePlyChrSelectGC::init_guild_card_tag() { init_guild_card_tag__17TWindowSubComCardFi(this); return this; }
+void*TAdSinglePlyChrSelectGC::init_guild_card_tag() { init_guild_card_tag__17TWindowSubComCardFi((s32)this); return this; }
 void TAdSinglePlyChrSelectGC__sub_80203210(void* p) { *(u32*)((char*)p + 0x4) &= 0xfffffff7; }
 
 void TAdSinglePlyChrSelectGC::clear_inventory_slot() {

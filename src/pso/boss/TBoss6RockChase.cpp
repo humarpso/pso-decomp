@@ -104,7 +104,7 @@ s32 play_sound_effect(int, void *, int, int);
 extern const f32 lbl_805E03C0;
 extern const f32 lbl_805E03C4;
 extern const f32 lbl_805E03C8;
-Player_8036D1B4 *get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 Param_8036D1B4 *dispatch_shared_handler_a__6TLobbyFl(s32);
 f32 vector_length(void *);
 int subtract_vector(void *, void *);
@@ -137,7 +137,7 @@ s32 TBoss6RockChase::damage_players_in_range() {
         dmg = 20;
     }
     for (i = 0; i < n; i++) {
-        pl = get_player_data__10TObjPlayerFi(i);
+        pl = (Player_8036D1B4 *)get_player_data__10TObjPlayerFi(i);
         if (((TBoss6PlotFalz *)pl)->is_active() != 0) {
             VecCopy((Vec *)&d, (const Vec *)&pl->pos);
             subtract_vector(&d, &self->pos);

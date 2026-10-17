@@ -10,7 +10,7 @@ struct Base_801BC688 { char pad[8]; };
 struct VObj_801BC688 : Base_801BC688 { virtual void m0(); virtual void m1(int); };
 
 extern "C" {
-s32 set_flag_400000__10TObjPlayerFi(void *);
+void set_flag_400000__10TObjPlayerFi(s32 arg0);
 u8 *heap_alloc__10TObjPlayerFPv(s32);
 extern const f32 TObjPlayer__data_805DC278;
 #pragma push
@@ -75,7 +75,7 @@ void TObjPlayer::init_action_provider() {
     *(s32 *)&this->unk_420 = 0;
     this->m_3d0 = 0;
     ((TObjPlayer *)arg0)->reset_state();
-    set_flag_400000__10TObjPlayerFi((void *) (arg0));
+    set_flag_400000__10TObjPlayerFi((s32)(arg0));
     if (TObjPlayer::get_player_count() == 1) {
         fn_801C19F4((arg0 + 0x828));
     }

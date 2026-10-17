@@ -58,7 +58,7 @@ s32 is_ending_or_split_screen__14TBoss4DarkFalzFv();
 void TBoss4DarkFalz__sub_8004C7E8(void *arg0);
 int TBoss4DarkFalz__sub_8004C1AC(void);
 s32 TBoss4DarkFalz__sub_8004C1B4(void);
-int TLobby__send_and_handle_60(void*);
+void TLobby__send_and_handle_60(u8 *arg0);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int read_be16_field2__10TObjPlayerFv(void*);
@@ -89,7 +89,7 @@ void TBoss4DarkFalz::save_position() {
 
 int TBoss4DarkFalz::set_position_from(void* _w1) { return VecCopy__FP3VecPC3Vec((void*)((char*)this + 0x38), (void*)(_w1)); }
 
-void TBoss4DarkFalz::swap_and_send() { swap_bytes(); TLobby__send_and_handle_60(this); }
+void TBoss4DarkFalz::swap_and_send() { swap_bytes(); TLobby__send_and_handle_60((u8 *)this); }
 void TBoss4DarkFalz::swap_bytes() { read_be16_field2__10TObjPlayerFv(this); bswap_16__FPUs((char*)this + 0x4); bswap_16__FPUs((char*)this + 0x6); bswap_32__FPUl((char*)this + 0x8); bswap_32__FPUl((char*)this + 0xc); }
 void TBoss4DarkFalz::set_code_25_4() { *(u8 *)&this->m_name = 25; *(u8*)((char*)this + 0x1) = 4; }
 
@@ -513,7 +513,7 @@ struct V_8004D1E4 { f32 x, y, z; };
 
 extern "C" {
 u16 obj_getArrU16_FC(void *obj, s32 i);
-void *get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 f32 horizontal_distance_squared(void *, void *);
 extern s32 lbl_805D586C;
 extern const f32 lbl_805D895C;
@@ -562,7 +562,7 @@ void TBoss4DarkFalz::check_players_near_center(void *self) {
     v.z = lbl_805D8960;
     lim = lbl_805D8964;
     for (i = 0; i < lbl_805D586C; i++) {
-        p = get_player_data__10TObjPlayerFi(i);
+        p = (void *)get_player_data__10TObjPlayerFi(i);
         if (p != 0 && horizontal_distance_squared(&v, (u8 *)p + 0x2FC) <= lim) {
             ((TBoss4DarkFalz *)self)->send_action_packet(2);
             return;

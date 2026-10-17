@@ -1,4 +1,5 @@
 #include "pso/TAdSelectGameModeGC.h"
+#include "pso/ui/TAdDrawLineCtrl.h"
 #include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/misc/TLobby_80132ED0.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC_802C50EC.h"
@@ -38,7 +39,6 @@ s32 play_sound_effect(int, int, int, int);
 extern RecoveredGlobal_802C47E8_lbl_8050E208 controller_input_state;
 extern RecoveredGlobal_802C47E8_lbl_8050E3B8 controller_physical_port_bank;
 extern s32 TAdSelectGameModeGC__cached_mode_value;
-void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 void *__nw__7TObjectFUl(int);
 void __ct__7TObjectFP7TObject(void *, void *);
 void *__ct__9TAdBackGCFv(void *, void *);
@@ -153,7 +153,7 @@ u8 *__ct__19TAdSelectGameModeGCFv(u8 *arg0, void *parent) {
     *(void **)((s8 *)arg0 + 0x20) = p;
     ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x20)))->set_entry_value(0, get_localized_text_entry(0x15, 0));
     ((TAdMultiPlyChrSelectGC *)(*(s32 *)((s8 *)arg0 + 0x20)))->set_entry_value(1, get_localized_text_entry(0x15, 1));
-    create_draw_line_ctrl__13TAdMcSelectGCFiif(arg0, 0xA, lbl_805DE538);
+    create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)arg0, (s32)(0xA), (f32)lbl_805DE538);
     return arg0;
 }
 

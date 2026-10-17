@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80120D50.h"
 #include "pso/unk/text_8012712C.h"
 #include "pso/item/TUnk_804A3070.h"
 #include "pso/player/TObjPlayer.h"
@@ -9,14 +10,13 @@ struct Self_8012712C { u8 pad[0x18]; void *vt; u8 pad1c[0x1e4 - 0x1c]; f32 f1e4;
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-void TItemWeapon__ct(void *, s32, void *);
 void create_lavis_shot(void);
 extern void *lbl_804A3070[];
 extern const f32 lbl_805DADB8;
 
 u8 *TUnk_804A3070::construct_agito(s32 a, void *b) {
     Self_8012712C *self = (Self_8012712C *)this;
-    TItemWeapon__ct(self, a, b);
+    TItemWeapon__ct((u8 *)self, (void *)a, (u8 *)b);
     self->vt = lbl_804A3070;
     ((TObjPlayer *)self)->set_status_flags(2);
     if (((TItemProShield *)self)->get_slot_count() == 0) {

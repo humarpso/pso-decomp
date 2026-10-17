@@ -73,7 +73,7 @@ extern const f32 lbl_805D525C;
 extern s32 lbl_805D526C;
 extern s32 local_client_id;
 void hit_object_in_radius__10TObjPlayerFPvPvPv(Src_800DC4B4 *arg0, Obj_800DC4B4 *obj, void *attacker);
-void *get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 void queue_destruction__7TObjectFv(void *);
 u32 csnVector(void *, void *, int);
 void *find_entity_by_id(u16);
@@ -83,8 +83,8 @@ extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 extern const f32 lbl_805DA478;
 f32 atan2_float(f32, f32);
-s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
-s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
+void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
+void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
 f32 horizontal_distance__10TObjPlayerFPUc(void *, void *);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, int);
 f32 vector_length(void *);
@@ -195,7 +195,7 @@ void TUnk_80494E10::run_task() {
     att = find_entity_by_id(arg0->owner);
     if (att != NULL) {
         for (i = 0; i < lbl_805D586C + lbl_805D5870; i++) {
-            pl = get_player_data__10TObjPlayerFi(i);
+            pl = (void *)get_player_data__10TObjPlayerFi(i);
             if (pl != NULL && is_valid_and_active__10TObjPlayerFUl() != 0) {
                 hit_object_in_radius__10TObjPlayerFPvPvPv((Src_800DC4B4 *)arg0, (Obj_800DC4B4 *)pl, att);
             }
@@ -233,11 +233,11 @@ u8 *construct_beam_effect__10TObjPlayerFPvPvPviPv(u8 *arg0, Vec_800DC83C *arg1, 
     ang.x = 0;
     ang.y = (s32)(10430.38043493439 * atan2_float(arg2->x - arg1->x, arg2->z - arg1->z)) + 0x4000;
     ang.z = 0x4000 - (s32)(10430.38043493439 * atan2_float(arg2->y - arg1->y, horizontal_distance__10TObjPlayerFPUc(arg2, arg1)));
-    *(s32 *)((s8 *)arg0 + 0xE0) = spawn_particle_effect_with_rotation(arg1, &ang, 0xF5, 2);
+    *(s32 *)((s8 *)arg0 + 0xE0) = (s32)spawn_particle_effect_with_rotation(arg1, &ang, 0xF5, 2);
     if (((TUnk_80494E10 *)arg0)->m_f4 != 0) {
         VecCopy((Vec *)(arg0 + 0xE8), (const Vec *)(arg0 + 0xAC));
         TObjPlayer::snap_to_ground((s32)arg0, (s32)(arg0 + 0xE8));
-        ((TUnk_80494E10 *)arg0)->m_e4 = spawn_continuous_particle_effect_with_flags(arg0 + 0xE8, 0xF9, 2);
+        ((TUnk_80494E10 *)arg0)->m_e4 = (s32)spawn_continuous_particle_effect_with_flags(arg0 + 0xE8, 0xF9, 2);
         *(s32 *)((s8 *)arg0 + 0xF8) = 0;
     } else {
         ((TUnk_80494E10 *)arg0)->m_e4 = 0;

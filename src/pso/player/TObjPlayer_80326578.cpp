@@ -47,8 +47,8 @@ s32 rotate_matrix_x(s32, s32);
 s32 add_actor_tp(u8 *arg0, s32 arg1);
 int refresh_owner_stats__5TItemFv(void*);
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);
-int draw_weapon_at_joint(void*, void*);
-void set_weapon_trail_joints(void *, int, int, int);
+void draw_weapon_at_joint(s32 arg0, s8 arg1);
+void set_weapon_trail_joints(s32 arg0, s32 arg1, s8 arg2, s8 arg3);
 s32 freeze_curse_timer_ct(s32, u32, s32, s32, f32);
 s32 confusion_curse_timer_ct(s32, u32, s32, s32, f32);
 s32 TObjectV8047c128_subtract_hp(u8 *arg0, s16 arg1);
@@ -271,14 +271,14 @@ u8 *TObjPlayer::create_state_1536() {
 }
 
 void TUnk_804ED1A0::update_weapon() { refresh_owner_stats__5TItemFv(this); }
-void TUnk_804ED1A0::reserved_53() { draw_weapon_at_joint(this, (void*)48); update_trail_slot__11TItemWeaponFPvi(this, (void*)0); update_trail_slot__11TItemWeaponFPvi(this, (void*)1); update_trail_slot__11TItemWeaponFPvi(this, (void*)2); }
+void TUnk_804ED1A0::reserved_53() { draw_weapon_at_joint((s32)this, (s8)((void*)48)); update_trail_slot__11TItemWeaponFPvi(this, (void*)0); update_trail_slot__11TItemWeaponFPvi(this, (void*)1); update_trail_slot__11TItemWeaponFPvi(this, (void*)2); }
 
 extern s32 lbl_804ED1A0[];
 
 void *morning_glory_ct(void *arg0, s32 _w1, void * _w2) {
     TItemWeapon__ct((void *)(arg0), (void *)(_w1));
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804ED1A0;
-    set_weapon_trail_joints(arg0, 2, 6, 5);
+    set_weapon_trail_joints((s32)arg0, 2, 6, 5);
     set_status_flags__10TObjPlayerFUl(arg0, 1);
     return arg0;
 }

@@ -26,7 +26,7 @@ void mem_free(void *);
 void __dl__7TObjectFPv(void *);
 extern s32 __vt__20TObjBoss5PillarSmoke[];
 Smoke_8028AEA4 *__dt__20TObjBoss5PillarSmokeFv(Smoke_8028AEA4 *arg0, s16 arg1);
-void **mem_alloc(s32);
+void *mem_alloc(u32 size);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 lbl_80450CD0[];
 extern s32 lbl_805D3B30;
@@ -73,8 +73,8 @@ Smoke_8028AF6C *TObjBoss5PillarSmoke__ct(Smoke_8028AF6C *arg0, void *arg1, Node_
         queue_destruction__7TObjectFv(arg0);
         return arg0;
     }
-    arg0->a = mem_alloc(arg0->count * 4);
-    arg0->b = mem_alloc(arg0->count * 4);
+    arg0->a = (void **)mem_alloc(arg0->count * 4);
+    arg0->b = (void **)mem_alloc(arg0->count * 4);
     for (i = 0; i < arg0->count; i++) {
         arg0->a[i] = spawn_continuous_particle_effect_with_flags(lbl_80450CD0, 0x213, 0x40);
         arg0->b[i] = spawn_continuous_particle_effect_with_flags(lbl_80450CD0, 0x214, 0x40);

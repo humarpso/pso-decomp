@@ -200,7 +200,7 @@ extern s32 current_language;
 s32 is_downloadable_new_entry__12TQuestListVMFPvPv(QL_802193F0 *q, Ent_802193F0 *e);
 int obj_getField1c(int);
 f32 get_scale__15TShopWindowBaseFv(void *);
-u32 create_yes_no_window(int, u16, int, int);
+u8 *create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3);
 void send_and_handle__6TLobbyFii(u32, void *, int);
 u32 create_message_window__6TLobbyFllUls(int, Pair_80218D40 *, int, u16);
 int get_window_layout_position(int);
@@ -478,7 +478,7 @@ void TQuestListVM::open_confirm_window() {
         }
         {
             u16 id = obj_getField1c(*(s32 *)&this->m_24);
-            this->m_2378 = create_yes_no_window(get_window_layout_position(0x2B), id, 0, 0);
+            this->m_2378 = (u32)create_yes_no_window(get_window_layout_position(0x2B), id, 0, 0);
         }
         ((TUnk_804CDFE8 *)(this->m_2378))->set_position_xy(get_scale__15TShopWindowBaseFv(((u8 *)this)), get_scale__15TShopWindowBaseFv(((u8 *)this)));
         ((VObj_80218D40 *)(((u8 *)this)))->m7(5, 1);

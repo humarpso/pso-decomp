@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8023601C.h"
 #include "pso/math/MatrixTransforms.h"
 #include "pso/math/MatrixVector.h"
 #include "pso/misc/TMainCursor_8013B524.h"
@@ -16,7 +17,6 @@ s32 rotate_matrix_z(s32, s32);
 void draw_chunk_object(void);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
-s32 offset_point_toward_camera(void *, s32 *, f32);
 
 void TMainCursor::update_chair() {
     struct VOff_8013B524_arg0_8013B524 *self = (struct VOff_8013B524_arg0_8013B524 *)this;
@@ -37,7 +37,7 @@ void render__11TMainCursorFPv(u8 *arg0) {
     TParticleCtrl::begin_effect_render();
     temp_f31 = *(f32 *)((s8 *)arg0 + 0x30);
     push_matrix();
-    offset_point_toward_camera(arg0 + 0x40, &sp8, ((TMainCursor *)arg0)->m_2c);
+    offset_point_toward_camera(arg0 + 0x40, (u8 *)&sp8, ((TMainCursor *)arg0)->m_2c);
     translate_matrix_vec3((u8 *)(0), (u8 *)&sp8);
     rotate_matrix_y(0, *(s32 *)((s8 *)camera_ctrl_instance + 0x194));
     push_matrix();

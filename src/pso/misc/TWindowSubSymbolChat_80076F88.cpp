@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80076E84.h"
 #include "pso/misc/TWindowSubSymbolChat_80076F88.h"
 #include "pso/misc/TWindowSubSymbolChat_8007763C.h"
 
@@ -42,7 +43,6 @@ u8 *get_message_10__20TWindowSubStatusDispFl(s32);
 s32 is_initialized__20TWindowSubSymbolChatFv();
 int get_instance__20TWindowSubSymbolChatFv(void*);
 s32 strncpy(void *, void *, int);
-s32 copy_symbol_chat_entry__6TLobbyFPvPv(void *, void *);
 extern s32 local_client_id;
 s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_800773BC_lbl_80438830 symbol_chat_sound_ids;
@@ -54,7 +54,7 @@ void TWindowSubSymbolChat::send_selected_symbol_chat(s32 *arg0) {
     TWindowSubSymbolChat__sub_80077704((&packet.header));
     symbol_chat_preset = ((s32)((int)get_symbol_chat_preset((s32)((void *)((void *) (*arg0))))));
     packet.client_id = local_client_id;
-    copy_symbol_chat_entry__6TLobbyFPvPv((void *) (&packet.data[0]), (void *) (symbol_chat_preset + 0x1C));
+    copy_symbol_chat_entry__6TLobbyFPvPv((void *)(&packet.data[0]), (void *)(symbol_chat_preset + 0x1C));
     ((TWindowSubSymbolChat *)(&packet.header))->send_symbol_chat();
 }
 

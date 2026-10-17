@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_800F7DAC.h"
 #include "pso/misc/TCameraCtrl_803D6538.h"
 #include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/misc/TLobby_800F8AA8.h"
@@ -868,7 +869,6 @@ extern u8 lobby_font_texture_loaded;
 void TLobby__sub_803DA16C(void *p);
 extern const char lbl_8043D9F4[];
 void *tmp_buf_use_req__6TLobbyFPCc(const char *);
-s32 prs_decompress_buffer(void *, void *);
 s32 load_gvm_texture_archive(void *, void *);
 
 void TLobby::set_read_params(int a0, int a1, int a2) { (*(int *)&pending_file_read_handle_ref) = a0; (*(int *)&pending_file_read_sector_count) = a1; (*(int *)&pending_file_read_destination) = a2; }
@@ -903,7 +903,7 @@ void TLobby::load_font_texture() {
     void *file = tmp_buf_use_req__6TLobbyFPCc(lbl_8043D9F4);
     if (file != 0) {
         s32 r;
-        prs_decompress_buffer(lobby_font_texture_prs_data, file);
+        prs_decompress_buffer((s32)lobby_font_texture_prs_data, (s32)file);
         r = load_gvm_texture_archive(file, lbl_8049C61C);
         ((TLobby *)lbl_8043D9F4)->tmp_buf_release();
         lobby_font_texture_loaded = 1;

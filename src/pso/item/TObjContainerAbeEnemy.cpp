@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjChip.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
@@ -49,9 +50,8 @@ void dispatch_fish_event__6TLobbyFPv(void *a0);
 void draw_ginja_box_tree(void);
 extern void *container_breakup_model_archive;
 extern s32 lbl_805D5B8C;
-s32 spawn_particle_effect_with_flags(void *, int, int);
-s32 construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
-s32 play_container_break_sound(void *);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
+void play_container_break_sound(s32 arg0);
 void *__nw__7TObjectFUl(int);
 extern Spawn_80188B3C container_break_particle_parameters;
 extern Spawn_80188B3C container_break_small_debris_parameters;
@@ -160,17 +160,17 @@ void TObjContainerBase__vt77(const Obj_80188B3C *self) {
     b.f38 = yb;
     b.f40 = ((s32 (*)(void *))dispatch_fish_event__6TLobbyFPv)((void *)1);
     b.f44 = lbl_805D5B8C;
-    spawn_particle_effect_with_flags((void *)&self->x, 0x45, 0x40);
-    spawn_particle_effect_with_flags((void *)&self->x, 0x46, 0x40);
+    spawn_particle_effect_with_flags((void *)&self->x, (s32)(0x45), (s32)(0x40));
+    spawn_particle_effect_with_flags((void *)&self->x, (s32)(0x46), (s32)(0x40));
     void *o = __nw__7TObjectFUl(0x234);
     if (o != NULL) {
-        construct_debris__8TObjChipFPvPvPv(o, tl_05, &a);
+        construct_debris__8TObjChipFPvPvPv((u8 *)o, (u8 *)tl_05, (u8 *)&a);
     }
     o = __nw__7TObjectFUl(0x234);
     if (o != NULL) {
-        construct_debris__8TObjChipFPvPvPv(o, tl_05, &b);
+        construct_debris__8TObjChipFPvPvPv((u8 *)o, (u8 *)tl_05, (u8 *)&b);
     }
-    play_container_break_sound((void *)self);
+    play_container_break_sound((s32)self);
 }
 #pragma pop
 

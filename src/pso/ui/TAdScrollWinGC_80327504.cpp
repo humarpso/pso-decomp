@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8026A93C.h"
 #include "pso/misc/TLobby_80132ED0.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/object/TObject_80019A50.h"
@@ -25,7 +26,6 @@ extern const f32 lbl_805DF6A8;
 extern const f32 lbl_805DF6AC;
 extern const f32 lbl_805DF6B0;
 void __ct__7TObjectFP7TObject(void *, void *);
-s32 create_message_log_window(void *, void *, s32);
 extern u8 lbl_80476770[];
 extern u8 lbl_80476778[];
 extern s32 TAdScrollWinGC__class_name;
@@ -100,7 +100,7 @@ void *TAdScrollWinGC__ct(void *arg0, void *arg1, s32 arg2, s32 arg3) {
     *(s32 *)&((TAdScrollWinGC *)arg0)->m_4c = 0;
     *(s32 *)&((TAdScrollWinGC *)arg0)->m_50 = 0;
     base = ((TAdScrollWinGC *)arg0)->get_scroll_delay_for_mode();
-    *(s32 *)&((TAdScrollWinGC *)arg0)->m_40 = create_message_log_window(lbl_80476770, lbl_80476778, 0);
+    *(s32 *)&((TAdScrollWinGC *)arg0)->m_40 = (s32)create_message_log_window((s32)lbl_80476770, (s32)lbl_80476778, (s32)(0));
     switch (*(s32 *)&((TAdScrollWinGC *)arg0)->m_44) {
     case 0:
     case 1:

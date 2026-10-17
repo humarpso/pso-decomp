@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TWindowCtrl.h"
 #include "pso/object/TObjFish.h"
@@ -89,14 +90,11 @@ u32 calc_text_width(char *s);
 u32 TWindowSubStatusDisp__sub_80144E9C(char *s);
 u8 calc_gauge_scale__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 arg2);
 int end_render_forward__20TWindowSubStatusDispFPv(void* p);
-void draw_textured_quad_at_depth(void *, f32);
 extern s32 current_language;
 extern const f32 lbl_805DB1A0;
 extern const f32 lbl_805DB1A4;
 void draw_menu_font_string(const char *s, s32 arg1, u32 flags, f32 x, f32 y, f32 scale);
 void *find_cached_glyph__20TWindowSubStatusDispFUs(u16 code);
-void begin_screen_draw(s32 arg0);
-void set_draw_texture_and_color(s32 idx, s32 arg1);
 int get_player__20TWindowSubStatusDispFv(void*);
 
 char *parse_text_control_codes(char *p, s32 *a, s32 *b) {
@@ -525,7 +523,7 @@ void draw_menu_font_string(const char *s, s32 arg1, u32 flags, f32 x, f32 y, f32
       code = code | lo;
       w = ((u8 (*)(u16, void *, s32)) calc_gauge_scale__20TWindowSubStatusDispFPvPvi)(((u16 (*)(u32)) map_char_to_font_code)(code), &pos, arg1);
       set_glyph_quad_extents(w, (u8 *) (&pos));
-      draw_textured_quad_at_depth(&pos, scale);
+      draw_textured_quad_at_depth((f32 *)&pos, scale);
       pos.x += (f32) w;
     }
   }

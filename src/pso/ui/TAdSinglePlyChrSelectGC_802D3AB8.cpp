@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdPlayerLoadGC_801E0C30.h"
 #include "pso/misc/TLobby_80132ED0.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC_802D3AB8.h"
 #include "pso/unk/text_802A1144.h"
@@ -39,7 +40,6 @@ extern const f32 lbl_805DE780;
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 TAdPlayerLoadGC__sub_801E1B50(int);
-s32 find_card_file__15TAdPlayerLoadGCFiPv(int, void *);
 s32 load_player__23TAdSinglePlyChrSelectGCFv();
 s32 play_sound_effect(int, int, int, int);
 u32 TAdChrSelASlotGC__sub_8030CB08(int, int, int);
@@ -50,7 +50,7 @@ void TKeyBoardControl__sub_8000F91C(s32 arg0);
 void TKeyBoardControl__sub_8000F9CC(s32 arg0);
 s32 get_state_flag__9TMainTaskFv(void);
 s32 get_selected_menu_value(int);
-s32 TAdChrSelASlotGC__sub_8030C978(int, void *, int);
+s32 TAdChrSelASlotGC__sub_8030C978(void *arg0, s32 arg1, s32 arg2);
 extern s32 lbl_80472538[];
 s32 queue_destruction__7TObjectFv(void *);
 s32 TAdSinglePlyChrSelectGC__sub_801334DC(s32);
@@ -72,7 +72,7 @@ s32 clear_entry__23TAdSinglePlyChrSelectGCFi();
 s32 TAdSinglePlyChrSelectGC__sub_802D4D9C();
 s32 align_menu_entry_positions(s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(s32, s32);
-s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
+int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
 
 void TAdSinglePlyChrSelectGC::render() {
     if (get_state_flag__9TMainTaskFv() == 1) return;
@@ -83,15 +83,15 @@ s32 TAdSinglePlyChrSelectGC::create_chr_warp(s32 arg0, s32 arg1) {
 
     if (TAdSinglePlyChrSelectGC__sub_802D4D9C() != 0) {
         var_r31 = check_room_seq_4__16TAdChrSelASlotGCFl(arg1, 4);
-        forward_trade_action_default__16TObjCityMainWarpFPviii(var_r31, get_localized_text_entry(0x1E, 1), 6, 0);
-        forward_trade_action_default__16TObjCityMainWarpFPviii(var_r31, get_localized_text_entry(0x1E, 2), 6, 1);
-        forward_trade_action_default__16TObjCityMainWarpFPviii(var_r31, get_localized_text_entry(0x1E, 3), 6, 2);
-        forward_trade_action_default__16TObjCityMainWarpFPviii(var_r31, get_localized_text_entry(0x1E, 4), 6, 3);
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)var_r31, (int)(get_localized_text_entry(0x1E, 1)), (int)(6), (int)(0));
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)var_r31, (int)(get_localized_text_entry(0x1E, 2)), (int)(6), (int)(1));
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)var_r31, (int)(get_localized_text_entry(0x1E, 3)), (int)(6), (int)(2));
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)var_r31, (int)(get_localized_text_entry(0x1E, 4)), (int)(6), (int)(3));
     } else {
         var_r31 = check_room_seq_4__16TAdChrSelASlotGCFl(arg1, 3);
-        forward_trade_action_default__16TObjCityMainWarpFPviii(var_r31, get_localized_text_entry(0x1E, 1), 6, 0);
-        forward_trade_action_default__16TObjCityMainWarpFPviii(var_r31, get_localized_text_entry(0x1E, 3), 6, 2);
-        forward_trade_action_default__16TObjCityMainWarpFPviii(var_r31, get_localized_text_entry(0x1E, 4), 6, 3);
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)var_r31, (int)(get_localized_text_entry(0x1E, 1)), (int)(6), (int)(0));
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)var_r31, (int)(get_localized_text_entry(0x1E, 3)), (int)(6), (int)(2));
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)var_r31, (int)(get_localized_text_entry(0x1E, 4)), (int)(6), (int)(3));
     }
     ((TWindowSubComCard *)var_r31)->calc_window_size();
     align_menu_entry_positions(var_r31);
@@ -307,7 +307,7 @@ void TAdSinglePlyChrSelectGC::handle_menu_selection() {
             return;
         case 3:
             ((TWindowOptionCtrl *)(*(s32 *)&this->unk_38))->open();
-            *(s32 *)&this->unk_50 = TAdChrSelASlotGC__sub_8030C978((int) (*(s32 *)&this->m_28), (void *) (lbl_80472538), (int) (0));
+            *(s32 *)&this->unk_50 = TAdChrSelASlotGC__sub_8030C978((void *)(*(s32 *)&this->m_28), (s32)(lbl_80472538), (0));
             *(s32 *)&this->m_20 = 0xA;
             return;
         }
@@ -449,7 +449,7 @@ void TAdSinglePlyChrSelectGC__sub_802D4730(u8 *arg0) {
         return;
     }
     if (TAdPlayerLoadGC__sub_801E1B50((int) (0)) == 0) {
-        if (find_card_file__15TAdPlayerLoadGCFiPv((int) (0), (void *) (&lbl_804C89BC.value)) == 0) {
+        if (find_card_file__15TAdPlayerLoadGCFiPv((0), (const char *)(&lbl_804C89BC.value)) == 0) {
             if ((u32) *(u32 *)((s8 *)arg0 + 0x40) != 0U) {
                 TWindow__close(*(void **)((s8 *)arg0 + 0x40));
                 *(u32 *)((s8 *)arg0 + 0x40) = 0U;
@@ -481,7 +481,7 @@ void TAdSinglePlyChrSelectGC__sub_802D486C(void *arg0) {
         return;
     }
     if (TAdPlayerLoadGC__sub_801E1B50(0) == 0) {
-        if ((u32)find_card_file__15TAdPlayerLoadGCFiPv(0, (void *)&lbl_804C89BC.value) != 0xFFFFFF41U) {
+        if ((u32)find_card_file__15TAdPlayerLoadGCFiPv(0, (const char *)&lbl_804C89BC.value) != 0xFFFFFF41U) {
             if (*(u32 *)((s8 *)arg0 + 0x3C) != 0U) {
                 TWindow__close(*(void **)((s8 *)arg0 + 0x3C));
                 *(u32 *)((s8 *)arg0 + 0x3C) = 0U;

@@ -846,7 +846,7 @@ s32 register_boss__6TLobbyFl(int);
 void TLobby__sub_8001FE7C(void*, int);
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 get_flag_b4__9TObjEneDDFv(void *);
-s32 rotate_xz_pair_by_angle(void *, void *, int);
+void rotate_xz_pair_by_angle(f32 *arg0, f32 *arg1, s32 arg2);
 void *spawn_particle_effect(void *pos, s32 id);
 u16 get_active_id__13TObjEneBm3FlyFPv(void *);
 void render_with_state_debug__17TObjEneBm3FlyNestFv(u8 *arg0);
@@ -894,14 +894,14 @@ void *__dt__9TObjEneDDFv(void *arg0, s16 arg1);
 s32 update_obstruction_fade(void *);
 void *__dt__13TUnk_804949A8Fv(void *arg0, s16 arg1);
 s32 set_field_e4__10TObjPlayerFll(void *, int, f32);
-s32 spawn_dead_spot_scale15(void *, int);
+void spawn_dead_spot_scale15(s32 point, s32 delay);
 int copy_target_state__14TObjEnePanarmsFPv(void*);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
-u8 * find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 void free_collision_body_parts(void *);
 s32 send_entity_set_flags__9TObjEnemyFv();
-s32 play_persistent_sound(s32, void *, s32, s32, s32);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 s32 play_sound_effect(void *, void *, int, int);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
@@ -921,7 +921,7 @@ s32 pop_matrix();
 s32 post_translate_matrix(void *);
 void set_global_param__8TObjFishFl(s32);
 void draw_chunk_object(void *child);
-void draw_model_motion(s32, Ent_800B23A0 *, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 
 void vfunc_6__13TUnk_804B9870FPsl();
 void vfunc_103__9TObjEneDDFPUc();
@@ -1184,7 +1184,7 @@ void TObjEneBm3FlyNest::render_with_state_debug() {
         TObjEneDD::clear_global_flag_400();
         TObjPlayer::toggle_particle_effect();
         TObjPlayer::set_global_flag();
-        draw_model_motion(*(s32 *)&this->model, var_r30, var_f31);
+        draw_model_motion((void *)(*(s32 *)&this->model), var_r30, var_f31);
         TObjPlayer::clear_global_state();
         TParticleCtrl::end_effect_render();
         ((void (*)(void))pop_matrix)();
@@ -1331,7 +1331,7 @@ s32 TObjEneBm3FlyNest::has_free_attack_slot(u16 id) {
     s32 n = 0;
     s32 i;
     for (i = 0; i < self->count; i++) {
-        u8 *p = find_entity_by_id(self->ids[i]);
+        u8 *p = (u8 *)find_entity_by_id(self->ids[i]);
         if (p != 0 && id == get_active_id__13TObjEneBm3FlyFPv(p)) {
             n++;
         }
@@ -1392,9 +1392,9 @@ void state_dying__17TObjEneBm3FlyNestFPvi(u8 *actor, s32 arg1) {
                 v.x = lbl_805D9D24;
                 v.y = 0.0f;
                 v.z = lbl_805D9D28;
-                rotate_xz_pair_by_angle(&v, &v.z, *(s32 *)((s8 *)actor + 0x60));
+                rotate_xz_pair_by_angle((f32 *)&v, &v.z, *(s32 *)((s8 *)actor + 0x60));
                 vec3_add_to(&v, actor + 0x38);
-                spawn_dead_spot_scale15(&v, 0x32);
+                spawn_dead_spot_scale15((s32)&v, 0x32);
                 set_field_e4__10TObjPlayerFll(&v, 0x46, lbl_805D9D10);
             }
             if (*(f32 *)((s8 *)actor + 0xC0) < lbl_805D9D08) {
@@ -2129,7 +2129,7 @@ void TObjEneBm3FlyNest::render_parts() {
     post_translate_matrix((u8 *)&this->m_1c);
     ((s32 (*)(s32, s32))rotate_matrix_y)(0, *(s32 *)((s8 *)arg0 + 0x40));
     TObjPlayer::set_global_flag();
-    ((s32 (*)(s32, s32, f32))draw_model_motion)(*(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&lbl_805D5108) + 0x42C)) + 8), *(s32 *)&this->m_48, *(f32 *)&this->m_4c);
+    draw_model_motion((void *)(*(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 * *)&lbl_805D5108) + 0x42C)) + 8)), (void *)(*(s32 *)&this->m_48), *(f32 *)&this->m_4c);
     TObjPlayer::clear_global_state();
     pop_matrix();
 }
@@ -2166,7 +2166,7 @@ void update_monest_carrier(u8 *self) {
             ((TObjEneBm3FlyNest_CarryFly *)self)->m_60 = lbl_805D9D5C / (*(f32 *)((s8 *)self + 0x5C) * *(f32 *)((s8 *)self + 0x5C));
             *(f32 *)((s8 *)self + 0x64) = lbl_805D9D60;
         }
-        play_persistent_sound(((s32 (*)(s32, s32))copy_target_state__17TObjEneBm3FlyNestFPv)(*(s32 *)((s8 *)self + 0x10), 0x4003A828), self, ((TObjEneBm3FlyNest_CarryFly *)self)->m_30, 0, 0);
+        play_persistent_sound((s32)(((s32 (*)(s32, s32))copy_target_state__17TObjEneBm3FlyNestFPv)(*(s32 *)((s8 *)self + 0x10), 0x4003A828)), (s32)self, (u32)(((TObjEneBm3FlyNest_CarryFly *)self)->m_30), (s32)(0), (s32)(0));
         TObjPlayer::play_effect_if_v2(-0x400);
         break;
     case 1:
@@ -2175,7 +2175,7 @@ void update_monest_carrier(u8 *self) {
             *(s32 *)((s8 *)self + 0x2C) = 2;
             *(f32 *)((s8 *)self + 0x54) = lbl_805D9D64 * *(f32 *)((s8 *)self + 0x5C);
         }
-        play_persistent_sound(((s32 (*)(s32, s32))copy_target_state__17TObjEneBm3FlyNestFPv)(*(s32 *)((s8 *)self + 0x10), 0x4003A828), self, ((TObjEneBm3FlyNest_CarryFly *)self)->m_30, 0, 0);
+        play_persistent_sound((s32)(((s32 (*)(s32, s32))copy_target_state__17TObjEneBm3FlyNestFPv)(*(s32 *)((s8 *)self + 0x10), 0x4003A828)), (s32)self, (u32)(((TObjEneBm3FlyNest_CarryFly *)self)->m_30), (s32)(0), (s32)(0));
         TObjPlayer::play_effect_if_v2(-0x400);
         break;
     case 2:
@@ -2194,7 +2194,7 @@ void update_monest_carrier(u8 *self) {
         v = lbl_805D9D64 * *(f32 *)((s8 *)self + 0x5C) + v;
         *(f32 *)((s8 *)self + 0x1C) = ((TObjEneBm3FlyNest_CarryFly *)self)->m_50* v;
         *(f32 *)((s8 *)self + 0x24) = ((TObjEneBm3FlyNest_CarryFly *)self)->m_58* v;
-        play_persistent_sound(((s32 (*)(s32, s32))copy_target_state__17TObjEneBm3FlyNestFPv)(*(s32 *)((s8 *)self + 0x10), 0x4003A828), self, *(s32 *)((s8 *)self + 0x34), 0, 0);
+        play_persistent_sound((s32)(((s32 (*)(s32, s32))copy_target_state__17TObjEneBm3FlyNestFPv)(*(s32 *)((s8 *)self + 0x10), 0x4003A828)), (s32)self, (u32)(*(s32 *)((s8 *)self + 0x34)), (s32)(0), (s32)(0));
         TObjPlayer::play_effect_if_v2(-0x400);
         break;
     }

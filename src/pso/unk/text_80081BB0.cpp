@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_80065C90.h"
 #include "pso/misc/TParticleCtrl_800867E4.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/object/TObject_8001A448.h"
@@ -46,8 +47,7 @@ s32 obj_testFlags30(s32, s32);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-s32 attach_particle_model(s32, s32, s32, s32, s32, f32);
-s32 spawn_particle_effect(void *, s32);
+void *spawn_particle_effect(void *pos, s32 id);
 extern s32 freeze_shell_bml_resource;
 extern s32 technique_effect_bml;
 extern s32 lbl_805D63B0;
@@ -75,13 +75,13 @@ s32 TUnk_8048E1A4::freeze_shell_hold() {
         }
     }
     *(s32 *)((s8 *)this + 0x334) = 2;
-    p = spawn_particle_effect((u8 *)this + 0x35C, 0x153);
+    p = (s32)spawn_particle_effect((u8 *)this + 0x35C, 0x153);
     if (p != 0) {
-        attach_particle_model(p, get_bml_model(technique_effect_bml, 5), lbl_805D63B0, 0, 0, lbl_805D9384);
+        attach_particle_model((u8 *)p, (s32)(get_bml_model(technique_effect_bml, 5)), (s32)lbl_805D63B0, (s32)(0), (s32)(0), (f32)lbl_805D9384);
     }
-    p = spawn_particle_effect((u8 *)this + 0x38, 0x33);
+    p = (s32)spawn_particle_effect((u8 *)this + 0x38, 0x33);
     if (p != 0) {
-        attach_particle_model(p, get_bml_model(freeze_shell_bml_resource, 0), TObjFish__sub_8001EDB0(freeze_shell_bml_resource, 1), get_bml_motion(freeze_shell_bml_resource, 0), 0, lbl_805D9384);
+        attach_particle_model((u8 *)p, (s32)(get_bml_model(freeze_shell_bml_resource, 0)), (s32)(TObjFish__sub_8001EDB0(freeze_shell_bml_resource, 1)), (s32)(get_bml_motion(freeze_shell_bml_resource, 0)), (s32)(0), (f32)lbl_805D9384);
         ((TObjPlayer *)p)->set_position_xy(this->scale, this->target_scale);
     }
     this->m_c0 = lbl_805D9378;

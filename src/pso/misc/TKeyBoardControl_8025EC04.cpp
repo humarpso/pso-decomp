@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TKeyBoardControl_8025CB70.h"
 #include "pso/misc/TKeyBoardControl_8025EC04.h"
 #include "pso/unk/text_8025FF8C.h"
 #include "pso/misc/TWindowKeyBoardBase.h"
@@ -85,9 +86,6 @@ extern s32 TKeyBoardControl__global_key_state[];
 extern s32 current_language;
 u8 TKeyBoardControl__sub_8013239C(void *, u8);
 s32 TKeyBoardControl__sub_801A58B0(void);
-s32 TKeyBoardControl__sub_8025CBC0(u32);
-s32 TKeyBoardControl__sub_8025CBCC(u32);
-s32 TKeyBoardControl__sub_8025CC04(u32);
 s32 set_input_mode__20TWindowSubStatusDispFUc(s32, s32);
 
 void TKeyBoardControl__sub_8025EC04(u8 *arg0) {
@@ -569,7 +567,7 @@ void TWindowKeyBoardHard::update_modifier_flags() {
 void TKeyBoardControl::enable_keyboard_led() {
     if ((u32) *(u32 *)((s8 *)this + 0x70) != 0U) {
         *(s32 *)((s8 *)this + 0x60) = (s32) (*(s32 *)((s8 *)this + 0x60) | 0x1000);
-        TKeyBoardControl__sub_8025CBC0(*(u32 *)((s8 *)this + 0x70));
+        TKeyBoardControl__sub_8025CBC0((void *)(*(u32 *)((s8 *)this + 0x70)));
         fn_8025FF8C(this);
     }
 }
@@ -577,7 +575,7 @@ void TKeyBoardControl::enable_keyboard_led() {
 void TKeyBoardControl::enable_kana_led() {
     if ((u32) *(u32 *)((s8 *)this + 0x70) != 0U) {
         *(s32 *)((s8 *)this + 0x60) = (s32) (*(s32 *)((s8 *)this + 0x60) | 0x800);
-        TKeyBoardControl__sub_8025CBCC(*(u32 *)((s8 *)this + 0x70));
+        TKeyBoardControl__sub_8025CBCC((u8 *)(*(u32 *)((s8 *)this + 0x70)));
         fn_8025FF8C(this);
     }
 }
@@ -585,7 +583,7 @@ void TKeyBoardControl::enable_kana_led() {
 void TKeyBoardControl::enable_caps_led() {
     if ((u32) *(u32 *)((s8 *)this + 0x70) != 0U) {
         *(s32 *)((s8 *)this + 0x60) = (s32) (*(s32 *)((s8 *)this + 0x60) | 0x400);
-        TKeyBoardControl__sub_8025CC04(*(u32 *)((s8 *)this + 0x70));
+        TKeyBoardControl__sub_8025CC04((u8 *)(*(u32 *)((s8 *)this + 0x70)));
         fn_8025FF8C(this);
     }
 }

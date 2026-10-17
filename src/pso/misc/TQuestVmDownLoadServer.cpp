@@ -175,12 +175,12 @@ extern const s32 lbl_805DC6B0;
 extern const s32 lbl_805DC6B4;
 extern "C" {
 void subtractive_rng_seed(SubtractiveRng *, u32);
-void subtractive_rng_make_shuffle(SubtractiveRng *);
-void subtractive_rng_unshuffle(SubtractiveRng *, void *, void *, s32);
-void subtractive_rng_xor_buffer(SubtractiveRng *, u32 *, u32);
+void subtractive_rng_make_shuffle(s32 *stream);
+void subtractive_rng_unshuffle(void *stream, const u8 *source, u8 *destination, u32 size);
+void subtractive_rng_xor_buffer(s32 *self, u32 *data, s32 len);
 s32 subtractive_rng_next(s32 *arg0);
 void TAdPlayerLoadGC__sub_801E14E4(void *);
-void TAdPlayerLoadGC__sub_801E14E8(void *, s32);
+void TAdPlayerLoadGC__sub_801E14E8(u8 *arg0, s32 arg1);
 s32 build_save_file_image__15TAdPlayerLoadGCFPvPv(void *, void *);
 char *strncpy(char *, const char *, u32);
 void *memcpy(void *, const void *, u32);
@@ -216,14 +216,14 @@ Src_801F718C quest_download_file_info;
 RecoveredGlobal_801F84AC_lbl_80512BDC quest_download_file_header;
 SubtractiveRng TQuestVmDownLoadServer__rng_cipher_state;
 __declspec(section ".data") u32 download_rng_seed_pair[2];
-s32 disallow_rendering__7TObjectFv(u32);
+void disallow_rendering__7TObjectFv(void *arg0);
 u32 create__13TAdMcSelectGCFPv(s32);
 }
 extern s32 tl_03;
 extern "C" {
 s32 TAdPlayerLoadGC__sub_801E0FA4(s32);
 s32 query_memcard_capacity__15TAdPlayerLoadGCFl(s32, int);
-u32 init_shop_judgment_window(s32);
+u8 *init_shop_judgment_window(void *p);
 s32 TQuestVmDownLoadServer__sub_801F8538(void *data, s32 size);
 s32 get_selected_menu_value(u32);
 s32 draw_window_bg__23TAdSinglePlyChrSelectGCFllll(s32, void *, s32, s32);
@@ -514,14 +514,14 @@ void TQuestVmDownLoadServer::encrypt_download_data(s32 size) {
     *body = 0;
     *body = TQuestVmDownLoadServer__sub_801F8538((void *)(((u32 *)this)), (s32)(size));
     subtractive_rng_seed(&TQuestVmDownLoadServer__rng_cipher_state, ((u32 *)this)[0]);
-    subtractive_rng_xor_buffer(&TQuestVmDownLoadServer__rng_cipher_state, body, (size - 4) & ~3);
+    subtractive_rng_xor_buffer((s32 *)&TQuestVmDownLoadServer__rng_cipher_state, (u32 *)body, (s32)((size - 4) & ~3));
     subtractive_rng_seed(&TQuestVmDownLoadServer__rng_cipher_state, download_rng_seed_pair[0]);
     ((TAdSinglePlyChrSelectGC *)(&TQuestVmDownLoadServer__rng_cipher_state))->apply_rng_cipher(((u32 *)this), size & ~3);
     src = alloc__22TQuestVmDownLoadServerFv(size);
     dst = alloc__22TQuestVmDownLoadServerFv(size);
     ((TLobby *)src)->move_data((const void *)((u32 *)this), (u32)size);
     subtractive_rng_seed(&TQuestVmDownLoadServer__rng_cipher_state, download_rng_seed_pair[1]);
-    subtractive_rng_make_shuffle(&TQuestVmDownLoadServer__rng_cipher_state);
+    subtractive_rng_make_shuffle((s32 *)&TQuestVmDownLoadServer__rng_cipher_state);
     TAdSinglePlyChrSelectGC::permute_save_blocks((void*)(&TQuestVmDownLoadServer__rng_cipher_state), (const u8*)src, (u8*)dst, (u32)size);
     ((TLobby *)((u32 *)this))->move_data((const void *)dst, (u32)size);
     TAdSinglePlyChrSelectGC::safe_free((u32)dst);
@@ -534,15 +534,15 @@ void TQuestVmDownLoadServer::unshuffle_and_decrypt(s32 size) {
     dst = alloc__22TQuestVmDownLoadServerFv(size);
     ((TLobby *)src)->move_data((const void *)((u32 *)this), (u32)size);
     subtractive_rng_seed(&TQuestVmDownLoadServer__rng_cipher_state, download_rng_seed_pair[1]);
-    subtractive_rng_make_shuffle(&TQuestVmDownLoadServer__rng_cipher_state);
-    subtractive_rng_unshuffle(&TQuestVmDownLoadServer__rng_cipher_state, src, dst, size);
+    subtractive_rng_make_shuffle((s32 *)&TQuestVmDownLoadServer__rng_cipher_state);
+    subtractive_rng_unshuffle((void *)&TQuestVmDownLoadServer__rng_cipher_state, (const u8 *)src, (u8 *)dst, (u32)size);
     ((TLobby *)((u32 *)this))->move_data((const void *)dst, (u32)size);
     TAdSinglePlyChrSelectGC::safe_free((u32)dst);
     TAdSinglePlyChrSelectGC::safe_free((u32)src);
     subtractive_rng_seed(&TQuestVmDownLoadServer__rng_cipher_state, download_rng_seed_pair[0]);
     ((TAdSinglePlyChrSelectGC *)(&TQuestVmDownLoadServer__rng_cipher_state))->apply_rng_cipher(((u32 *)this), size & ~3);
     subtractive_rng_seed(&TQuestVmDownLoadServer__rng_cipher_state, ((u32 *)this)[0]);
-    subtractive_rng_xor_buffer(&TQuestVmDownLoadServer__rng_cipher_state, ((u32 *)this) + 1, (size - 4) & ~3);
+    subtractive_rng_xor_buffer((s32 *)&TQuestVmDownLoadServer__rng_cipher_state, (u32 *)(((u32 *)this) + 1), (s32)((size - 4) & ~3));
 }
 s32 TQuestVmDownLoadServer__sub_801F8538(void *data, s32 size) {
     u32 crc = -1;
@@ -789,7 +789,7 @@ void TQuestVmDownLoadServer::update_mc_select() {
         if ((void *) *(u8 * *)&this->m_29c == NULL) {
             TScene::reset_counter();
             if (lobby_player_construction_window != 0) {
-                disallow_rendering__7TObjectFv(lobby_player_construction_window);
+                disallow_rendering__7TObjectFv((void *)lobby_player_construction_window);
             }
             *(u32 *)&this->m_29c = create__13TAdMcSelectGCFPv(tl_03);
         }
@@ -832,7 +832,7 @@ void TQuestVmDownLoadServer::open() {
         TScene::reset_counter();
         u32 temp_r3 = lobby_player_construction_window;
         if (temp_r3 != 0U) {
-            disallow_rendering__7TObjectFv(temp_r3);
+            disallow_rendering__7TObjectFv((void *)temp_r3);
         }
         *(u32 *)&this->m_29c = create__13TAdMcSelectGCFPv(tl_03);
     }
@@ -894,7 +894,7 @@ void TQuestVmDownLoadServer::check_memcard_slot() {
                 TWindow__close((u8 *)this->m_290);
                 this->m_290 = NULL;
             }
-            *(u32 *)&this->m_290 = init_shop_judgment_window(get_window_layout_position(0x2B));
+            *(u32 *)&this->m_290 = (u32)init_shop_judgment_window((void *)(get_window_layout_position(0x2B)));
             show_status_message(TQuestVmDownLoadServer__sub_8006EF6C(0x40), 1);
             this->m_25c = slot;
             this->state = 6;
@@ -996,7 +996,7 @@ void TQuestVmDownLoadServer::sub_801F770C() {
                 req.h54 = 1;
                 req.w58 = (s32)quest_download_file_slot.f38;
                 req.w5C = quest_download_file_slot.f34;
-                TAdPlayerLoadGC__sub_801E14E8(&req, 3);
+                TAdPlayerLoadGC__sub_801E14E8((u8 *)&req, 3);
                 r = build_save_file_image__15TAdPlayerLoadGCFPvPv(this->m_260, &req);
                 TAdPlayerLoadGC__sub_801E14E4(&req);
                 switch (r) {
@@ -1066,7 +1066,7 @@ void TQuestVmDownLoadServer::write_memcard_file() {
                 req.h54 = 1;
                 req.w58 = (s32)TQuestVmDownLoadServer__download_file_state.f38;
                 req.w5C = TQuestVmDownLoadServer__download_file_state.f34;
-                TAdPlayerLoadGC__sub_801E14E8(&req, 3);
+                TAdPlayerLoadGC__sub_801E14E8((u8 *)&req, 3);
                 r = build_save_file_image__15TAdPlayerLoadGCFPvPv(this->m_260, &req);
                 TAdPlayerLoadGC__sub_801E14E4(&req);
                 switch (r) {
@@ -1144,7 +1144,7 @@ void TQuestVmDownLoadServer::sub_801F718C() {
                     req.h54 = 1;
                     req.w58 = quest_download_file_info.f38;
                     req.w5C = quest_download_file_info.f34;
-                    TAdPlayerLoadGC__sub_801E14E8(&req, 3);
+                    TAdPlayerLoadGC__sub_801E14E8((u8 *)&req, 3);
                     r = build_save_file_image__15TAdPlayerLoadGCFPvPv(this->m_260, &req);
                     TAdPlayerLoadGC__sub_801E14E4(&req);
                     switch (r) {

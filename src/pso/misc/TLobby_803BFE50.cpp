@@ -140,7 +140,7 @@ void EXIGetID(Snd_803C0BE8 *arg0);
 void GXFlush(void);
 s32 TLobby__sub_803C0238();
 s32 TLobby__sub_803C3B68(s32 arg0, u16 *hdr, s32 size);
-s32 TLobby__sub_803D3130(AudioStreamChunk *, s32, AudioStreamChunk *, AudioStreamChunk *);
+void TLobby__sub_803D3130(s32 arg0, s32 arg1, u8 *arg2, u8 *arg3);
 void *memcpy(void *, const void *, u32);
 void process_audio_stream_input(AudioStreamInputState *arg0);
 s32 TLobby::get_offset_58() {
@@ -252,7 +252,7 @@ inline void parse_audio_stream_input_header(AudioStreamInputState *arg0) {
     if (get_field_a8__6TLobbyFv(h) == 10) {
         s->vt->unlock(s, 1, &b);
     } else {
-        TLobby__sub_803D3130(&b, n, &b, &b2);
+        TLobby__sub_803D3130((s32)&b, (s32)n, (u8 *)&b, (u8 *)&b2);
         s->vt->f20(s, 0, &b);
         s->vt->unlock(s, 1, &b2);
     }

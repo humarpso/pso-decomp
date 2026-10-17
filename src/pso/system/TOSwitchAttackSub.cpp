@@ -4,7 +4,7 @@
 
 extern "C" {
 f32 horizontal_distance_squared(const f32*, const f32*);
-u8* get_player_by_client_id(void*);
+void *get_player_by_client_id(s32 i);
 u8 is_current_floor_switch_set(int);
 extern u8* camera_ctrl_instance;
 extern void* local_client_id;
@@ -22,7 +22,7 @@ void TOSwitchAttackSub::run_task() {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    if (particle != 0 && (player = get_player_by_client_id(local_client_id)) != 0 && camera_ctrl_instance != 0) {
+    if (particle != 0 && (player = (u8 *)get_player_by_client_id((s32)local_client_id)) != 0 && camera_ctrl_instance != 0) {
         playerDistance = horizontal_distance_squared((const f32*)(player + 0x38), (const f32*)(camera_ctrl_instance + 0x178));
         if (lbl_805DBA00 * horizontal_distance_squared(position, (const f32*)(camera_ctrl_instance + 0x178)) < playerDistance) {
             ((TParticleCtrl *)particle)->enable();

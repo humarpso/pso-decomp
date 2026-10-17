@@ -11,13 +11,13 @@ extern "C" void test_flag_256__13TUnk_804806E8Fv();
 struct Obj_800C7DF8 { u8 pad0[0x326]; s16 state; };
 
 extern "C" {
-void TObjEnemyCustom__sub_800C77A4(void *);
+void TObjEnemyCustom__sub_800C77A4(u8 *arg0);
 int vfunc_58__15TObjEnemyCustomFv(void* p);
 void vfunc_28__15TObjEnemyCustomFv(void);
 void run_task__15TObjEnemyCustomFv(u8 *arg0);
 int vfunc_59__15TObjEnemyCustomFv(void* p);
 s32 advance_animation_playback(void *);
-s32 apply_actor_gravity(void *, s32, f32);
+void apply_actor_gravity(u8 *arg0, s32 *arg1, f32 farg0);
 s32 TObjVoloptCage__sub_800C76F0(void *);
 int update_if_active__15TObjEneMe1GiGueFl(void*, int);
 
@@ -194,7 +194,7 @@ void TObjEnemyCustom::update_state() {
     case 1:
         advance_animation_playback(this);
         if (!(*(s32 *)&this->actorFlags & 0x800000)) {
-            apply_actor_gravity(this, 0, lbl_805DA070);
+            apply_actor_gravity((u8 *)this, (s32 *)(0), lbl_805DA070);
         }
         break;
     case -1:
@@ -214,7 +214,7 @@ void TObjEnemyCustom::dispatch_state() {
     case 2: ((TObjEnemyCustom *)arg0)->update(); return;
     case 3: ((TObjEnemyCustom *)arg0)->update_state_machine(); return;
     case 4: ((TObjEnemyCustom *)arg0)->update_knockback_state(); return;
-    case 5: TObjEnemyCustom__sub_800C77A4(arg0); return;
+    case 5: TObjEnemyCustom__sub_800C77A4((u8 *)arg0); return;
     case 6: break;
     }
 }

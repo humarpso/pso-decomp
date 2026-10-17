@@ -6,7 +6,7 @@
 #include "pso/player/TObjPlayer.h"
 extern "C" {
 u8 *find_item_by_id(s32 id);
-u8 *get_player_by_client_id(s16);
+void *get_player_by_client_id(s32 i);
 void calc_list_content_extent(void *);
 void fn_802789E0(u8 *arg0) {
     u32 ids[32];
@@ -14,7 +14,7 @@ void fn_802789E0(u8 *arg0) {
     u32 n;
     void *item;
     u32 i;
-    pl = get_player_by_client_id(*(s16 *)(arg0 + 0x20));
+    pl = (u8 *)get_player_by_client_id(*(s16 *)(arg0 + 0x20));
     if (pl != NULL) {
         n = ((TObjPlayer *)(*(void **)(pl + 0xD00)))->run_and_get_result((int)ids);
         for (i = 0; i < n; i++) {

@@ -153,7 +153,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern AntiRow_8022AE10 TTecAnti__self_effect_rows[];
 extern s32 lbl_804CC0E8[];
 Obj_8022AE10 *construct_self_effect__8TTecAntiFPvPvPviPv(Obj_8022AE10 *self, const Vec_8022AE10 *body, const Vec_8022AE10 *ground, s32 actor, void *parent);
-u32 find_entity_by_id(int);
+void *find_entity_by_id(u16 id);
 s32 is_parents_unqueued__9TTecLukerFUl();
 void deliver_technique_to_party_targets(void *);
 void run_task__8TTecAntiFv(Anti_8022B150 *self);
@@ -270,7 +270,7 @@ void *__dt__8TTecAntiFv(void *arg0, s16 arg1) {
 void run_task__8TTecAntiFv(Anti_8022B150 *self) {
     u32 target;
     s32 i;
-    self->source = find_entity_by_id(self->source_id);
+    self->source = (u32)find_entity_by_id(self->source_id);
     if (self->source == 0) {
         queue_destruction__7TObjectFv((self));
         return;
@@ -282,7 +282,7 @@ void run_task__8TTecAntiFv(Anti_8022B150 *self) {
             ((VObj_8022B150 *)self)->m5(self->source);
             if (self->count != 0) {
                 for (i = 0; i < self->count; i++) {
-                    target = find_entity_by_id(self->targets[i].id);
+                    target = (u32)find_entity_by_id(self->targets[i].id);
                     if ((is_parents_unqueued__9TTecLukerFUl() != 0) && (TObjPlayer::is_valid_and_active(target) != 0)) {
                         ((VObj_8022B150 *)self)->m5(target);
                     }

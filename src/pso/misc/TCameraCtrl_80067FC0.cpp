@@ -73,10 +73,10 @@ extern "C" {
 extern G_80068018 controller_input_state;
 extern s32 __vt__13TUnk_80488838[];
 Vec_8006835C *get_target__11TCameraCtrlFv(void *);
-void direction_to_pitch_yaw(void *, void *, void *);
+void direction_to_pitch_yaw(u8 *arg0, s32 *arg1, s32 *arg2);
 void set_viewport_scissor__11TCameraCtrlFiPv(s32, void *);
 void GXSetScissorBoxOffset(s32, s32);
-void set_camera_look_at(void *, void *, void *);
+void set_camera_look_at(u8 *eye, u8 *target, u8 *up);
 f32 vector_length(void *);
 void normalize_vector(void *);
 extern Vec_8006835C lbl_804FF5E8;
@@ -230,12 +230,12 @@ void TCameraCtrl::post_update_view() {
         camera_ctrl_instance->target.z += lbl_805D8F94;
         d.z = TCameraCtrl__data_805D8F80;
     }
-    direction_to_pitch_yaw(&d, camera_ctrl_instance->f190, camera_ctrl_instance->f194);
+    direction_to_pitch_yaw((u8 *)&d, (s32 *)camera_ctrl_instance->f190, (s32 *)camera_ctrl_instance->f194);
     t = get_target__11TCameraCtrlFv(camera_ctrl_instance);
     e.x = camera_ctrl_instance->target.x + t->x;
     e.y = camera_ctrl_instance->target.y + t->y;
     e.z = camera_ctrl_instance->target.z + t->z;
-    set_camera_look_at(&camera_ctrl_instance->pos, &e, TCameraCtrl__up_vector);
+    set_camera_look_at((u8 *)&camera_ctrl_instance->pos, (u8 *)&e, (u8 *)TCameraCtrl__up_vector);
     lbl_804FF5E8.x = camera_ctrl_instance->pos.x;
     lbl_804FF5E8.y = camera_ctrl_instance->pos.y;
     lbl_804FF5E8.z = camera_ctrl_instance->pos.z;

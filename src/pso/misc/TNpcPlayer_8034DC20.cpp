@@ -50,7 +50,7 @@ extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_80478C68;
 s32 __dt__7TObjectFv(void *, int);
 s32 obj_isState3_324__13TUnk_804806E8Fv(int);
 s32 is_script_controlled__10TObjPlayerFv();
-u8 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8034DC24_lbl_804F07C8 lbl_804F07C8;
 void construct_partner__10TNpcPlayerFPviisPv(void *, u16, u16, s32, void *);
@@ -113,7 +113,7 @@ u8 *TNpcPlayer::construct_party_area(void *parent) {
     *(void **)((s8 *)((u8 *)this) + 0x18) = &lbl_804F07C8;
     *(s32 *)&this->m_1c = 0;
     for (slot = 0; slot < 4; slot++) {
-        player = get_player_by_client_id(slot);
+        player = (u8 *)get_player_by_client_id(slot);
         if (player == NULL || ((s32 (*)(u8 *)) obj_isState3_324__13TUnk_804806E8Fv)(player) == 0 || ((TNpcPlayer *)player)->get_action_flags() == 0xFFFF) {
             continue;
         }

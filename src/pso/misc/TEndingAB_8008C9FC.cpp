@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/TEndingAB.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -7,9 +8,6 @@
 
 extern "C" {
 void restore_saved_depth_alpha_state(void);
-void begin_screen_draw(s32 arg0);
-s32 draw_textured_quad_at_depth(void *, f32);
-void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern s32 TEndingAB__fade_sequence_state;
 extern const f32 lbl_805D9580;
 extern s32 game_difficulty_selection;
@@ -89,8 +87,8 @@ void TEndingAB::draw_overlay() {
         set_depth_buffer_settings_2();
         begin_screen_draw(1);
         set_draw_texture_and_color(0, -1);
-        draw_textured_quad_at_depth(arg0 + 0x2C, lbl_805D9580);
-        draw_textured_quad_at_depth(arg0 + 0x4C, lbl_805D9580);
+        draw_textured_quad_at_depth((f32 *)(arg0 + 0x2C), lbl_805D9580);
+        draw_textured_quad_at_depth((f32 *)(arg0 + 0x4C), lbl_805D9580);
         TWindowSubStatusDisp::get_player();
         restore_saved_depth_alpha_state();
         break;
@@ -102,8 +100,8 @@ void TEndingAB::draw_overlay() {
         set_depth_buffer_settings_2();
         begin_screen_draw(1);
         set_draw_texture_and_color(1, -1);
-        draw_textured_quad_at_depth(arg0 + 0x6C, lbl_805D9580);
-        draw_textured_quad_at_depth(arg0 + 0x8C, lbl_805D9580);
+        draw_textured_quad_at_depth((f32 *)(arg0 + 0x6C), lbl_805D9580);
+        draw_textured_quad_at_depth((f32 *)(arg0 + 0x8C), lbl_805D9580);
         TWindowSubStatusDisp::get_player();
         restore_saved_depth_alpha_state();
         break;

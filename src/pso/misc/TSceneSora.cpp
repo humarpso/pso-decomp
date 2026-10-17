@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_80207DA8.h"
 #include "pso/misc/TLobby_80131794.h"
 #include "pso/misc/TLobby_80140FF4.h"
 #include "pso/misc/TLobby_80207644.h"
@@ -73,7 +74,6 @@ s32 set_global_param__8TObjFishFl();
 void *get_current_floor();
 u32 TLobby__sub_8002058C(void *, int, Res_80207478 *, Res_80207478 *, int, int, int);
 s32 lookup_scene_object__6TLobbyFPv(void *, Ref_80207478 *);
-Ent_80207478 *get_floor_scene_table(s32);
 void *adxf_open__6TLobbyFUii(char *, int);
 extern char lbl_8044A9D0[];
 extern char lbl_8044A9D8[];
@@ -186,7 +186,7 @@ void TSceneSora::load_sky_resources() {
     TSceneSora__has_sky_motion = 0;
     if (lookup_scene_object__6TLobbyFPv(get_current_floor(), &ref) != 0) {
         ok = 0;
-        tbl = get_floor_scene_table(ref.id);
+        tbl = (Ent_80207478 *)get_floor_scene_table(ref.id);
         replace_file_extension__6TLobbyFPvPvPv(name1, tbl[ref.idx].name, lbl_8044A9D0);
         if (TRaderMapCore::is_not_split_screen() == 1) {
             replace_file_extension__6TLobbyFPvPvPv(name2, tbl[ref.idx].name, lbl_8044A9D8);

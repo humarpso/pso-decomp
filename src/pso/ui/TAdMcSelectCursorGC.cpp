@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
+#include "pso/ui/TAdMcSelectCursorGC_8032A610.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/misc/TWindowChoiceSetting.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC.h"
@@ -36,7 +38,6 @@ extern const f32 lbl_805DF740;
 extern const f32 lbl_805DF744;
 Obj_8032A574 *TAdMcSelectCursorGC__ct(Obj_8032A574 *arg0);
 void play_sound_effect(s32, s32, s32, s32);
-s32 TAdMcSelectCursorGC__sub_8032A6D8(u32);
 extern u8 controller_input_state[];
 extern u8 controller_physical_port_bank[];
 extern const f32 lbl_805DF72C;
@@ -44,10 +45,6 @@ extern const f32 lbl_805DF730;
 extern const f32 lbl_805DF734;
 extern const f32 lbl_805DF738;
 extern const f32 lbl_805DF73C;
-void *__dt__19TAdMcSelectCursorGCFv(void *arg0, s16 arg1);
-s32 draw_textured_quad_at_depth(void *, f32);
-void begin_screen_draw(s32 arg0);
-void set_draw_texture_and_color(s32 idx, s32 arg1);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
 void restore_saved_depth_alpha_state(void);
@@ -61,7 +58,7 @@ void TAdMcSelectCursorGC::render_cursor() {
     begin_screen_draw((1));
     TObjFish::set_global_param((s32)((void *) (TAdMcSelectCursorGC__texture_entry)));
     set_draw_texture_and_color((0), ((*(s32 *)&this->m_128 << 0x18) | 0xFF0000 | 0xFFFF));
-    draw_textured_quad_at_depth((void *) (arg0 + 0x28), (f32) (lbl_805DF728));
+    draw_textured_quad_at_depth((f32 *)(arg0 + 0x28), (f32) (lbl_805DF728));
     TWindowSubStatusDisp::get_player();
 }
 
@@ -97,7 +94,7 @@ void TAdMcSelectCursorGC::run_task() {
         t = TAdMcSelectCursorGC::get_cursor_type(1 - self->f20);
         if (TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)(controller_physical_port_bank + 0x20), (s32)0x80, (s32)6, (s32)1) != 0 ||
             TWindowChoiceSetting::apply_choice((s32)(controller_input_state + 0x160), (s32)0x80, (s32)6, (s32)1) != 0) {
-            if (TAdMcSelectCursorGC__sub_8032A6D8(t) >= 4) {
+            if (TAdMcSelectCursorGC__sub_8032A6D8((void *)t) >= 4) {
                 self->f20++;
                 if (self->f20 > 1) {
                     self->f20 = 1;
@@ -105,7 +102,7 @@ void TAdMcSelectCursorGC::run_task() {
             }
         } else if ((TAdMultiPlyChrSelectGC::dispatch_draw_command((s32)(controller_physical_port_bank + 0x20), (s32)0x40, (s32)6, (s32)1) != 0 ||
                     TWindowChoiceSetting::apply_choice((s32)(controller_input_state + 0x160), (s32)0x40, (s32)6, (s32)1) != 0) &&
-                   TAdMcSelectCursorGC__sub_8032A6D8(t) >= 4) {
+                   TAdMcSelectCursorGC__sub_8032A6D8((void *)t) >= 4) {
             self->f20--;
             if (self->f20 < 0) {
                 self->f20 = 0;
@@ -114,8 +111,8 @@ void TAdMcSelectCursorGC::run_task() {
     }
     t1 = TAdMcSelectCursorGC::get_cursor_type(self->f20);
     t2 = TAdMcSelectCursorGC::get_cursor_type(1 - self->f20);
-    if (t1 != 0 && TAdMcSelectCursorGC__sub_8032A6D8(t1) == 0) {
-        if (t2 != 0 && TAdMcSelectCursorGC__sub_8032A6D8(t2) == 0) {
+    if (t1 != 0 && TAdMcSelectCursorGC__sub_8032A6D8((void *)t1) == 0) {
+        if (t2 != 0 && TAdMcSelectCursorGC__sub_8032A6D8((void *)t2) == 0) {
             self->f128 = 0;
         } else {
             self->f20 = 1 - self->f20;

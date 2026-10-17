@@ -51,7 +51,7 @@ struct Self_8010900C {
 
 extern "C" {
 int queue_destruction__7TObjectFv(void*);
-VObj_8010900C *resolve_hittable_target(u16, s16);
+void *resolve_hittable_target(u16 actorId, s16 collider);
 void play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805DAB28;
 extern const f32 lbl_805DAB2C;
@@ -72,7 +72,7 @@ void TItemEffHeaven::run_task() {
     s32 j;
 
     if (self->f20 == NULL) {
-        self->f20 = resolve_hittable_target(self->f1C, self->f24);
+        self->f20 = (VObj_8010900C *)resolve_hittable_target(self->f1C, self->f24);
         if (self->f20 != NULL) {
             VecCopy((Vec *)&self->pos, (const Vec *)(&((Src_8010900C *)self->f20)->recs[self->f24].pos));
         }

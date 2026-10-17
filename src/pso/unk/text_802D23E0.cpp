@@ -35,7 +35,7 @@ void build_6xA6_modify_trade_proposal(void *);
 extern u32 local_client_id;
 extern u8 TLobby__trade_proposal_state;
 s32 send_trade_list__6TLobbyFPvPv(s32, s32 *);
-s32 TWindowSubTradeMain__sub_80330A84();
+void TWindowSubTradeMain__sub_80330A84(void *p);
 extern s32 TLobby__protocol_instance;
 extern u16 trade_protocol_flags;
 extern u32 TLobby__trade_main_window;
@@ -83,7 +83,7 @@ void TLobby::update_trade_list_send() {
         send_trade_list__6TLobbyFPvPv(TLobby__protocol_instance, (s32 *)sp8);
         trade_protocol_flags |= 0x400;
         if ((u32) TLobby__trade_main_window != 0U) {
-            ((void (*)(u32))TWindowSubTradeMain__sub_80330A84)(TLobby__trade_main_window);
+            TWindowSubTradeMain__sub_80330A84((void *)TLobby__trade_main_window);
         }
         TLobby__trade_proposal_state = 7;
         break;

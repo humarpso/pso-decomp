@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjChip.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/player/TObjPlayer_800D7BFC.h"
 #include "pso/unk/text_803D96A8.h"
@@ -114,7 +115,6 @@ extern const f32 lbl_805DDD1C;
 s32 isFading__15RenderFadeStateCFv(void *);
 void matrix_mult_vec(s32, void *, void *);
 extern const f32 lbl_805DDD18;
-void *construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 int vec3_add_to(void *, void *);
 int rotate_vector_by_matrix(int, void *, void *);
@@ -159,7 +159,7 @@ void TORockJungleM01::vfunc_16() {
         chip.res2 = get_jungle_rock_texture_resource(3);
         o = __nw__7TObjectFUl(0x234);
         if (o != NULL) {
-            construct_debris__8TObjChipFPvPvPv(o, tl_05, &chip);
+            construct_debris__8TObjChipFPvPvPv((u8 *)o, (u8 *)tl_05, (u8 *)&chip);
         }
     }
 }

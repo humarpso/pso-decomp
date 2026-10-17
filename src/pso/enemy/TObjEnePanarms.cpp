@@ -310,11 +310,11 @@ void refresh_lobby_state__10TObjPlayerFv();
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 f32 horizontal_distance_squared(void *, void *);
 s32 angle_difference_abs(s32, s32);
-s32 direction_to_rotation_xz(void *, void *, void *);
+void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
 s32 approach_angle_limited(s32, s32, s32);
 int draw__16TObjEneRe7BeruraFv(void*);
 void advance_animation_playback(void *);
-u8 * find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 void free_collision_body_parts(void *);
 s32 project_actor_to_ground(void *, void *, int);
 void submit_cursor_candidate(void *, s32);
@@ -627,7 +627,7 @@ void TObjEnePanarms::update_attack() {
     s32 temp_r0;
     u8 *entity;
 
-    entity = find_entity_by_id((u16) *(s32 *)&this->unk_3B8);
+    entity = (u8 *)find_entity_by_id((u16) *(s32 *)&this->unk_3B8);
     if ((entity == NULL) || (*(s32 *)((s8 *)entity + 0x30) & 0x02000800)) {
         TObjEnePanarms__sub_800E1C98((void *)(arg0), (s32)(2));
         return;
@@ -708,7 +708,7 @@ void TObjEnePanarms::update_chase_target() {
     f32 v;
     u8 *p;
 
-    p = find_entity_by_id((u16) *(s32 *)&this->unk_3B8);
+    p = (u8 *)find_entity_by_id((u16) *(s32 *)&this->unk_3B8);
     if (p == NULL || (*(s32 *)((s8 *)p + 0x30) & 0x02000800)) {
         TObjEnePanarms__sub_800E1C98(arg0, 2);
         return;
@@ -1067,7 +1067,7 @@ void TObjEnePanarms__sub_800E10D0(u8 *arg0) {
         return;
     }
     if (TObjEnePanarms__sub_800E1774(arg0) != 0) {
-        e = find_entity_by_id(*(s32 *)((s8 *)arg0 + 0x3B8));
+        e = (u8 *)find_entity_by_id(*(s32 *)((s8 *)arg0 + 0x3B8));
         if (e != NULL && horizontal_distance_squared(e + 0x38, arg0 + 0x38) < lbl_805DA57C) {
             TObjEnePanarms__sub_800E1C98(arg0, 0xA);
             return;
@@ -1415,7 +1415,7 @@ void TObjEnePanarms::update_linked_effect() {
         temp_f1 = this->m_3a8;
         this->m_3a8 = (f32) (temp_f1 + lbl_805DA58C);
         post_translate_matrix((void *) (arg0 + 0x3A4), (f32) (temp_f1));
-        direction_to_rotation_xz((void *) (&sp10), (void *) (&spC), (void *) (&sp8));
+        direction_to_rotation_xz((u8 *)(&sp10), (s32 *)(&spC), (s32 *)(&sp8));
         rotate_matrix_z((int) (0), (int) (sp8));
         rotate_matrix_y((int) (0), (int) (this->rotation_y));
         rotate_matrix_x((int) (0), (void *) (spC + 0x4000));

@@ -242,7 +242,7 @@ void reset_hp__9TObjEneDDFv(void *, s32, s32, s32);
 void init_model__9TObjEneDDFv(void *, void *, s32);
 extern const f32 lbl_805D846C;
 extern const f32 lbl_805D8490;
-s32 spawn_offset_particle__13TBoss2DeRolLeFiff(void *, f32, f32);
+void spawn_offset_particle__13TBoss2DeRolLeFiff(s32 arg0, f32 farg0, f32 farg1);
 s32 apply_hp_damage_with_sound__13TBoss2DeRolLeFPvi(s32, s32, u16);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
@@ -377,7 +377,7 @@ void TBoss2Joint::vfunc_62() {
             ((VTbj_8003688C *)self)->m102();
         }
     } else {
-        spawn_offset_particle__13TBoss2DeRolLeFiff(((u8 *)this) + 0x38, lbl_805D8484, lbl_805D8488);
+        spawn_offset_particle__13TBoss2DeRolLeFiff((s32)(((u8 *)this) + 0x38), (f32)lbl_805D8484, (f32)lbl_805D8488);
         apply_hp_damage_with_sound__13TBoss2DeRolLeFPvi(*(s32 *)((s8 *)self + 0x10), temp_r31, *(u16 *)((s8 *)self + 0x2D4));
     }
     *(s16 *)((s8 *)self + 0x32C) = (s16) *(s16 *)((s8 *)self + 0x2B8);

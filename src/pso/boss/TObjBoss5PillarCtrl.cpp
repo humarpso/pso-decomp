@@ -28,7 +28,7 @@ void mem_free(void *);
 void __dl__7TObjectFPv(void *);
 extern u8 __vt__19TObjBoss5PillarCtrl[];
 Pc_8028B198 *__dt__19TObjBoss5PillarCtrlFv(Pc_8028B198 *arg0, s16 arg1);
-void **mem_alloc(s32);
+void *mem_alloc(u32 size);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_805D3B38;
 extern Game_8028B23C *lbl_805D4DD8;
@@ -76,7 +76,7 @@ Ctrl_8028B23C *TObjBoss5PillarCtrl__ct(Ctrl_8028B23C *arg0, void *arg1) {
         return arg0;
     }
     lst = lbl_805D4DD8->owner->list;
-    arg0->pillars = mem_alloc(arg0->count * 4);
+    arg0->pillars = (void **)mem_alloc(arg0->count * 4);
     for (i = 0, n = lst->head; i < arg0->count; i++) {
         arg0->pillars[i] = TObjBoss5Pillar::create(n->data);
         n = n->next;

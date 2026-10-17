@@ -23,12 +23,12 @@ struct Me_80124C90 { u8 pad0[0xF0]; Pl_80124C90 *pl; u8 padf4[0x1E4 - 0xF4]; f32
 extern "C" {
 s16 obj_getField1c(void *);
 Hit_80124C90 *csnVector(void *, void *, int);
-void spawn_item_attacker(s32, void *, s32, void *);
+void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3);
 void create_lavis_shot(void *, void *, void *, f32);
 f32 *get_weapon_range_record(void *, s32);
 f32 query_extended_state__10TObjPlayerFv(void *);
 void *get_captured_target_entry(void *, s32);
-Tgt_80124C90 *resolve_hittable_target(u16, s16);
+void *resolve_hittable_target(u16 actorId, s16 collider);
 void vec3_add_to(void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 transform_point_by_current_matrix(void *, void *);
@@ -54,7 +54,7 @@ void TObjPlayer__sub_80124C90(u8 *owner) {
     Vec_80124C90 dst = *pos;
     if (get_captured_target_count((s32 *)ext) != 0) {
         e = get_captured_target_entry(ext, get_captured_target_count((s32 *)ext) - 1);
-        t = resolve_hittable_target(((TObjPlayer *)e)->get_uid(), get_captured_target_collider_index(e));
+        t = (Tgt_80124C90 *)resolve_hittable_target(((TObjPlayer *)e)->get_uid(), get_captured_target_collider_index(e));
         if (t != NULL) {
             Part_80124C90 *pp = &t->parts[get_captured_target_collider_index(e)];
             VecCopy((Vec *)&dst, (const Vec *)&pp->v);
@@ -80,7 +80,7 @@ void TObjPlayer__sub_80124C90(u8 *owner) {
     }
     for (i = 0; i != get_captured_target_count((s32 *)ext); i++) {
         e = get_captured_target_entry(ext, i);
-        t = resolve_hittable_target(((TObjPlayer *)e)->get_uid(), get_captured_target_collider_index(e));
+        t = (Tgt_80124C90 *)resolve_hittable_target(((TObjPlayer *)e)->get_uid(), get_captured_target_collider_index(e));
         if (t != NULL) {
             Part_80124C90 *part = &t->parts[get_captured_target_collider_index(e)];
             void *e2 = get_captured_target_entry(ext, i);
@@ -91,7 +91,7 @@ void TObjPlayer__sub_80124C90(u8 *owner) {
             atk.d8 = ((TItem *)owner)->get_field_d8();
             atk.idx = get_captured_target_collider_index(e2);
             atk.f = query_extended_state__10TObjPlayerFv(me->pl);
-            spawn_item_attacker(tl_05, &me->pl->pos38, (s32)(xyz_distance(pos, &part->v) / me->scale), &atk);
+            spawn_item_attacker((s32)tl_05, (u32)&me->pl->pos38, (s32)(xyz_distance(pos, &part->v) / me->scale), (u8 *)&atk);
         }
     }
     {

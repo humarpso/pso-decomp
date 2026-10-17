@@ -326,7 +326,7 @@ struct RecoveredGlobal_80352940___vt__13TObjLobbyMain {
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_803527F0_lbl_804F0F24 bm_obj_lobby_main_resource_descriptor;
-u32 create_particle_emitter(void *, int);
+void *create_particle_emitter(void *pos, s32 id);
 s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_80352940_lbl_804F0F34 lbl_804F0F34;
 extern s32 __vt__13TObjLobbyMain[];
@@ -414,13 +414,13 @@ u8 *TObjLobbyMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80352940___vt__13TObjLobbyMain *)&__vt__13TObjLobbyMain).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4370;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    ((TObjLobbyMain *)arg0)->m_d8 = create_particle_emitter((void *) (arg0 + 0x38), (int) (0x222));
+    ((TObjLobbyMain *)arg0)->m_d8 = (u32)create_particle_emitter((arg0 + 0x38), (0x222));
     temp_r3 = ((TObjLobbyMain *)arg0)->m_d8;
     if (temp_r3 != 0U) {
         ((TBoss4Type2 *)temp_r3)->set_flags((int) (0x40));
         enable__13TParticleCtrlFv((int) (((TObjLobbyMain *)arg0)->m_d8));
     }
-    ((TObjLobbyMain *)arg0)->m_dc = create_particle_emitter((void *) (arg0 + 0x38), (int) (0x222));
+    ((TObjLobbyMain *)arg0)->m_dc = (u32)create_particle_emitter((arg0 + 0x38), (0x222));
     temp_r3_2 = ((TObjLobbyMain *)arg0)->m_dc;
     if (temp_r3_2 != 0U) {
         ((TBoss4Type2 *)temp_r3_2)->set_flags((int) (0x40));

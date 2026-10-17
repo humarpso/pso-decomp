@@ -204,7 +204,7 @@ struct Obj_801A7428 {
 };
 
 extern "C" {
-void set_active_camera_pose_from_params(struct PbCameraParams_801A73B0 *);
+void set_active_camera_pose_from_params(u8 *arg0);
 void approach_vector_fixed_distance(Vec_801A73B0 *, Vec_801A73B0 *, Vec_801A73B0 *, f32);
 void update_photon_blast_camera_pose(struct PbCamera_801A73B0 *self);
 void get_camera_ctrl__9TObjEneDDFv(Vec_801A7578 *, Vec_801A7578 *);
@@ -212,7 +212,7 @@ extern Vec_801A7578 lbl_80446A44;
 extern struct Reg_801A7578 photon_blast_joint_origins[];
 extern s32 photon_blast_joint_index;
 void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
-Obj_801A7428 *find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 void matrix_mult_vec(s32, Vec_801A7428 *, Vec_801A7428 *);
 void rotate_matrix_y(s32, s32);
 s32 push_matrix_from(void *src);
@@ -226,7 +226,7 @@ void update_photon_blast_camera_pose(struct PbCamera_801A73B0 *self) {
     VecCopy((Vec *)&parameters.position, (const Vec *)&self->position);
     VecCopy((Vec *)&parameters.target, (const Vec *)&self->target);
     parameters.projection = 0x4222;
-    set_active_camera_pose_from_params(&parameters);
+    set_active_camera_pose_from_params((u8 *)&parameters);
 }
 
 void spawn_photon_blast_opening_effects(s32 arg0, s32 arg1) {
@@ -237,7 +237,7 @@ void spawn_photon_blast_opening_effects(s32 arg0, s32 arg1) {
     Entry_801A7428 *entries;
     s32 count;
     s32 i;
-    obj = find_entity_by_id(arg1);
+    obj = (Obj_801A7428 *)find_entity_by_id(arg1);
     if (obj == NULL) {
         return;
     }
@@ -435,7 +435,7 @@ struct Vec_801A7B14
 };
 
 s32 activate_camera_mode(s32 arg0);
-u8 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 
 extern Vec_801A7B14 lbl_80446A08;
 extern Vec_801A7B14 lbl_80446A14;
@@ -458,7 +458,7 @@ void TUnk_804C3248::setup_photon_blast_camera() {
     d.y = 39.0f;
     d.x = 0.0f;
   }
-  p = get_player_by_client_id(local_client_id);
+  p = (u8 *)get_player_by_client_id(local_client_id);
   if (p != 0)
   {
     push_matrix_from(identity_matrix);

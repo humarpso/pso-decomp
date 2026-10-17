@@ -13,7 +13,7 @@ struct L_8034CDE0 { u8 f0; u8 n; u8 pad2[2]; I_8034CDE0 items[1]; };
 
 extern "C" {
 s32 draw_text_gray__17TWindowSubComCardFllll(void *, void *, int, int);
-s32 forward_trade_action_default__16TObjCityMainWarpFPviii(void *, void *, int, int);
+int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
 void *draw_card_icon__17TWindowSubComCardFll(s32, int, void *);
 s32 get_window_layout_position(s32);
 extern const f32 lbl_805DFDD8;
@@ -40,7 +40,7 @@ void *TWindowSubComCard__sub_8034CDE0(void) {
     it = ((L_8034CDE0 *)it)->items;
     for (i = 0; i < n; i++, it++) {
         if (it->f10 != 0) {
-            forward_trade_action_default__16TObjCityMainWarpFPviii(w, it, 0x16, i);
+            forward_trade_action_default__16TObjCityMainWarpFPviii((void *)w, (int)it, (int)(0x16), (int)i);
         } else {
             draw_text_gray__17TWindowSubComCardFllll(w, it, 0x16, i);
         }

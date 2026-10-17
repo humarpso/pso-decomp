@@ -23,4 +23,14 @@ struct TShopEquipmentSequence : public TShopSequence {
 };
 
 typedef char TShopEquipmentSequence_size[sizeof(TShopEquipmentSequence) == 0x38 ? 1 : -1];
+extern "C" {
+u8 *TShopEquipmentSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
+s32 TShopEquipmentSequence__sub_8021D65C(void);
+void TShopEquipmentSequence__sub_8021DBE0(void);
+void TShopEquipmentSequence__sub_8021DC08(void);
+u8 *__dt__22TShopEquipmentSequenceFv(u8 *arg0, s16 arg1);
+void exit__22TShopEquipmentSequenceFPv(void *arg0);
+void init_window__22TShopEquipmentSequenceFPv(void *arg0);
+}
+
 #endif

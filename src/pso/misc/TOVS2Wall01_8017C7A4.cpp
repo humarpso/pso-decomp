@@ -55,7 +55,7 @@ extern const f32 lbl_805DBAA8;
 extern const f32 lbl_805DBAB4;
 void TLobby__sub_8001FE7C(void*, int);
 void free_collision_body_parts(void *);
-void *TObjGoalWarpAncient__ct(void *, void *, void *);
+u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 int bswap_header__6TLobbyFv(void*);
@@ -141,7 +141,7 @@ void*TOVS2Wall01::init() { init__17TOBarrierEnergy01Fv(this); *(short *)&this->m
 void *TObjGoalWarpAncient__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xEC);
     if (o != NULL) {
-        o = TObjGoalWarpAncient__ct(o, tl_05, arg0);
+        o = TObjGoalWarpAncient__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

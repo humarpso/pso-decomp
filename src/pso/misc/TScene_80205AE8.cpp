@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_802A8210.h"
 #include "pso/misc/TScene_80205AE8.h"
 #include "pso/misc/TScene.h"
 
@@ -23,7 +24,6 @@ s32 load_texture_sequence_frame(void *task, Cyc_80205D24 *c);
 s32 find_uv_animation__6TSceneFPvPv(void *task, Uv_80205DE4 *uv);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 Info_80205AEC *find_material_entry_by_id__6TSceneFPvUs(void *, u16);
-void *fn_802A8210(void *, u8, void *);
 extern u32 lbl_8044A800[];
 extern u8 lbl_8044A80C[];
 SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
@@ -55,7 +55,7 @@ void TScene::init_material_nodes() {
                         if (info != NULL) {
                             o = __nw__7TObjectFUl(0x20);
                             if (o != NULL) {
-                                o = fn_802A8210(o, info->c, this);
+                                o = fn_802A8210((u8 *)o, info->c, (u8 *)this);
                             }
                             node->obj = o;
                             node->tex = lbl_8044A800[info->tex];
@@ -78,7 +78,7 @@ void TScene::init_material_nodes() {
                         if (info2 != NULL) {
                             o2 = __nw__7TObjectFUl(0x20);
                             if (o2 != NULL) {
-                                o2 = fn_802A8210(o2, info2->c, this);
+                                o2 = fn_802A8210((u8 *)o2, info2->c, (u8 *)this);
                             }
                             node2->obj = o2;
                             node2->tex = lbl_8044A800[info2->tex];

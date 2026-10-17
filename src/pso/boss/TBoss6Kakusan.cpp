@@ -64,7 +64,7 @@ struct VObj_80322438 : Base_80322438 {
 
 extern "C" {
 u8 *__nw__7TObjectFUl(s32);
-u32 create_particle_emitter(void *, int);
+void *create_particle_emitter(void *pos, s32 id);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 vector_length(void *);
 extern s32 __vt__13TBoss6Kakusan[];
@@ -78,7 +78,7 @@ extern const f32 lbl_805DF530;
 extern const f32 lbl_805DF534;
 void queue_destruction__7TObjectFv(void *);
 s32 query_teammate_state__9TObjEneDDFv();
-void direction_to_rotation_xz(void *, void *, void *);
+void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
 void *get_player_by_client_id(s32 i);
 s32 is_active__14TBoss6PlotFalzFv();
 int TBoss6Kakusan__sub_8032263C(void);
@@ -90,7 +90,7 @@ extern u8 boss6_kakusan_homing_start_initialized;
 extern s32 boss6_kakusan_homing_end_frame;
 extern u8 TBoss6Kakusan__homing_end_frame_initialized;
 extern const f32 lbl_805DF538;
-u8 *get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 extern const f32 lbl_805DF520;
 extern const f32 lbl_805DF524;
 extern const f32 lbl_805DF528;
@@ -121,7 +121,7 @@ void TBoss6Kakusan::check_beam_player_hits() {
   n = TLobby::get_game_mode();
   for (i = 0; i < n; i++)
   {
-    pl = get_player_data__10TObjPlayerFi(i);
+    pl = (u8 *)get_player_data__10TObjPlayerFi(i);
     if (pl == 0)
     {
       continue;
@@ -239,7 +239,7 @@ void TBoss6Kakusan::run_task() {
         ((TNowLoading *)(*(void * *)&this->m_54))->copy_pos((u8 *)&this->m_30);
         VecCopy((Vec *)&a, (const Vec *)&this->m_30);
         subtract_vector(&a, (u8 *)&this->m_48);
-        direction_to_rotation_xz(&a, &b.x, &b.z);
+        direction_to_rotation_xz((u8 *)&a, (s32 *)&b.x, (s32 *)&b.z);
         *(s32 *)&b.y = 0;
         ((TBoss4Type2 *)(*(void * *)&this->m_54))->copy_vec3(&b);
     }
@@ -291,7 +291,7 @@ u8 *TBoss6Kakusan__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4, f32 farg
     if (((TBoss6Kakusan *)arg0)->m_28< TBoss6Kakusan__data_805DF518) {
         ((TBoss6Kakusan *)arg0)->m_28 = (f32) TBoss6Kakusan__data_805DF518;
     }
-    ((TBoss6Kakusan *)arg0)->m_54 = create_particle_emitter((void *) (arg0 + 0x30), (int) (0x214));
+    ((TBoss6Kakusan *)arg0)->m_54 = (u32)create_particle_emitter((arg0 + 0x30), (0x214));
     temp_r3 = ((TBoss6Kakusan *)arg0)->m_54;
     if (temp_r3 != 0U) {
         ((TBoss4Type2 *)temp_r3)->set_flags((int) (0x40));

@@ -62,12 +62,8 @@ s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_80215EF8___vt__17TJudgmentSequence __vt__17TJudgmentSequence;
 extern RecoveredGlobal_80215EF8_TJudgmentSequence__data_80513E80 TJudgmentSequence__slot_flags;
 extern s32 judgment_sequence_instance;
-u8 *__dt__17TJudgmentSequenceFv(u8 *arg0, s16 arg1);
 void *__nw__7TObjectFUl(u32);
-void *TShopJudgmentItemWindow__ct(void *, s32, void *, s32);
-void TJudgmentSequence__sub_80215BCC(void *arg0);
-void TJudgmentSequence__sub_80215BA0(void *arg0);
-void TJudgmentSequence__sub_80215BF8(void *arg0);
+void *TShopJudgmentItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
 extern void *tl_05;
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
@@ -104,7 +100,7 @@ void TJudgmentSequence::handle_close_input() {
 void TJudgmentSequence::open_judgment_window() {
     Win_80215CB8 *o = (Win_80215CB8 *)__nw__7TObjectFUl(0x178);
     if (o != 0) {
-        o = (Win_80215CB8 *)TShopJudgmentItemWindow__ct(o, (s32)tl_05, ((Seq_80215CB8 *)this), ((Seq_80215CB8 *)this)->f24);
+        o = (Win_80215CB8 *)TShopJudgmentItemWindow__ct((void *)o, (void *)tl_05, (void *)((Seq_80215CB8 *)this), (void *)(((Seq_80215CB8 *)this)->f24));
     }
     o->cb0 = (void *)TJudgmentSequence__sub_80215BCC;
     o->cb2 = (void *)TJudgmentSequence__sub_80215BA0;
@@ -186,9 +182,6 @@ u8 *__dt__17TJudgmentSequenceFv(u8 *arg0, s16 arg1) {
 
 u8 *TShopSequence__ct(u8 *arg0);
 extern s32 TJudgmentSequence__class_name;
-u8 *TJudgmentSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
-void TJudgmentSequence__sub_80216030(void);
-void TJudgmentSequence__sub_80216058(void);
 
 u8 *TJudgmentSequence__ct(u8 *arg0, s32 arg1, s32 arg2) {
     TShopSequence__ct((arg0));

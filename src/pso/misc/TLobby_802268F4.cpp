@@ -77,7 +77,7 @@ extern RecoveredGlobal_80226C3C_lbl_80514D00 lbl_80514D00;
 extern u8 *lbl_805D3720;
 void set_music_streams_volume(s32 arg0);
 void TLobby__sub_8022733C(void);
-u32 get_player_by_client_id(void *);
+void *get_player_by_client_id(s32 i);
 void stop_sound_request(s32 idx);
 s32 fn_802264B8(int, int);
 void update_music_fade(void);
@@ -90,7 +90,7 @@ extern s8 lbl_805D6279;
 extern const f32 lbl_805DC74C;
 void update_sound_request_slots(void);
 s32 TLobby__sub_803C5D00(void *);
-void append_music_stream_segment(void *, int, int);
+void append_music_stream_segment(u8 *arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_803C97B8(u8 *arg0);
 extern s32 lbl_805D62E0;
 extern s32 lbl_805D62F0;
@@ -115,7 +115,7 @@ void update_sound_request_slots(void) {
     Ent_802269B4 *e;
     s16 *t;
     if (lbl_805D62B0 != 0) {
-        p = get_player_by_client_id((void *) (local_client_id));
+        p = (u32)get_player_by_client_id((local_client_id));
         if (p != 0U) {
             VecCopy((Vec *)lbl_80514C50, (const Vec *)(p + 0x38));
         } else if (camera_ctrl_instance != 0U) {
@@ -273,7 +273,7 @@ void update_music_sequencer(void) {
     }
     lbl_80514CE0[music_fade_slot_index] = lbl_805D62F0;
     lbl_805D6334 = music_fade_slot_index;
-    append_music_stream_segment((void *)((s32 *)&lbl_804CB850)[0], 190, lbl_80514CE0[music_fade_slot_index]);
+    append_music_stream_segment((u8 *)((void *)((s32 *)&lbl_804CB850)[0]), 190, lbl_80514CE0[music_fade_slot_index]);
     music_fade_slot_index = 1 - music_fade_slot_index;
     lbl_80514CE8[music_fade_slot_index] = 0;
     lbl_80514CF0[music_fade_slot_index] = TLobby__sub_803C97B8((u8 *)((void *)((s32 *)&lbl_804CB850)[music_fade_slot_index]));

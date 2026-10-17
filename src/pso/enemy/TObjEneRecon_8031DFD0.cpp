@@ -117,7 +117,7 @@ struct VObj_18_be4a70 : VBase_18_be4a70 {
 
 void obj_setFlags30(void *, u32);
 void queue_destruction__7TObjectFv(void *);
-u8 * create_particle_emitter(void *, s32);
+void *create_particle_emitter(void *pos, s32 id);
 void *__dt__12TObjEneDD_STFv(void *arg0, s16 arg1);
 s32 reset_hp__9TObjEneDDFv(void *, void *, int, void *);
 s32 initialize_enemy_state__9TObjEneDDFv(void *, int);
@@ -125,7 +125,7 @@ f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 s32 init_model__9TObjEneDDFv(void *, void *, int, int);
 void *__dt__13TUnk_80494938Fv(void *arg0, s16 arg1);
 void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
-s32 find_entity_by_id(int);
+void *find_entity_by_id(u16 id);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -349,7 +349,7 @@ void run_task__12TObjEneReconFv(u8 *arg0) {
         ((TObjEneRecon *)(arg0))->vfunc_106();
         return;
     }
-    entity = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0x434)));
+    entity = (s32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0x434)));
     if ((entity == 0) || (all_parents_unqueued_for_destruction__7TObjectFv() == 0)) {
         queue_destruction__7TObjectFv(arg0);
         return;
@@ -365,7 +365,7 @@ void run_task__12TObjEneReconFv(u8 *arg0) {
         ((TObjEneRecon *)(arg0))->vfunc_85();
         temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x478));
         if (temp_r3_2 == NULL) {
-            *(u8 **)((s8 *)arg0 + 0x478) = create_particle_emitter(arg0 + 0x2FC, 0x217);
+            *(u8 **)((s8 *)arg0 + 0x478) = (u8 *)create_particle_emitter(arg0 + 0x2FC, 0x217);
             temp_r3_3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x478));
             if (temp_r3_3 != NULL) {
                 ((TParticleCtrl *)temp_r3_3)->enable();

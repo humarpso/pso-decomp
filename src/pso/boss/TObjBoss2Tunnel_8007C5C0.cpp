@@ -76,9 +76,9 @@ extern const f32 lbl_805D922C;
 extern const f32 lbl_805D9230;
 extern s32 TObjBoss2Tunnel__data_80438A08[];
 void poll_load_status__15TAdPlayerLoadGCFl(s32 a, void *b);
-s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, s32);
+u32 TAdSinglePlyChrSelectGC__sub_80201204(u8 *arg0, u32 arg1);
 void TAdPlayerLoadGC__sub_801E14E4(void *);
-void TAdPlayerLoadGC__sub_801E14E8(void *, s32);
+void TAdPlayerLoadGC__sub_801E14E8(u8 *arg0, s32 arg1);
 void build_save_file_image__15TAdPlayerLoadGCFPvPv(s32, void *, void *);
 s32 load_player__23TAdSinglePlyChrSelectGCFllll(s32, void *, s32, s32);
 char *strcpy(char *, const char *);
@@ -273,7 +273,7 @@ bool TObjBoss2Tunnel::verify_snapshot_checksum() {
     p = ld.data;
     saved = *p;
     *p = 0;
-    sum = TAdSinglePlyChrSelectGC__sub_80201204(ld.data, 0x1818C);
+    sum = TAdSinglePlyChrSelectGC__sub_80201204((u8 *)ld.data, 0x1818C);
     *p = saved;
     return sum == saved;
 }
@@ -319,14 +319,14 @@ s32 TObjBoss2Tunnel::save_snapshot_to_card() {
     strcpy(c.file, lbl_804C8974);
     strcpy(c.title, lbl_80438A28);
     memcpy((int)c.icon, lbl_80438A4C, 0x10);
-    TAdPlayerLoadGC__sub_801E14E8(&c, 4);
+    TAdPlayerLoadGC__sub_801E14E8((u8 *)&c, 4);
     c.f4c = 1;
     p = boss2_tunnel_snapshot_buffer;
     c.f4e = 1;
     c.f50 = 0;
     c.f54 = 0;
     *p = 0;
-    *p = TAdSinglePlyChrSelectGC__sub_80201204(boss2_tunnel_snapshot_buffer, 0x1818C);
+    *p = TAdSinglePlyChrSelectGC__sub_80201204((u8 *)boss2_tunnel_snapshot_buffer, 0x1818C);
     c.size = 0x1818C;
     c.data = boss2_tunnel_snapshot_buffer;
     build_save_file_image__15TAdPlayerLoadGCFPvPv(TObjBoss2Tunnel__snapshot_buffer, &c, boss2_tunnel_snapshot_buffer);

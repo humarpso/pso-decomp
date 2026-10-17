@@ -23,13 +23,13 @@ extern RecoveredGlobal_802302A0___vt__8TTecFoie __vt__8TTecFoie;
 u8 * construct_facing_technique__10TObjPlayerFPviPvii(void *, s32, void *, s32, s16);
 extern s32 TTecFoie__name;
 extern Band_802301EC TTecFoie__emitter_profile_table[];
-u32 find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 void dispatch_technique_contact__13TUnk_804CCC68Fv(void *, s32);
 void run_task__8TTecFoieFv(Foie_802301EC *self);
 
 void run_task__8TTecFoieFv(Foie_802301EC *self) {
     u32 i;
-    self->owner = find_entity_by_id(self->ownerId);
+    self->owner = (u32)find_entity_by_id(self->ownerId);
     if (self->owner == 0) {
         queue_destruction__7TObjectFv(self);
         return;

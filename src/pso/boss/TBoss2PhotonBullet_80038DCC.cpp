@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2Tunnel_8007E418.h"
 #include "pso/boss/TBoss2PhotonBullet_80038DCC.h"
 #include "pso/unk/text_800BC4C8.h"
 #include "pso/system/vector.h"
@@ -47,7 +48,7 @@ extern "C" {
 extern RecoveredGlobal_80038DCC_lbl_80435B6C lbl_80435B6C;
 void queue_destruction__7TObjectFv(void *);
 f32 TBoss2DeRolLe__sub_80034CF8(void);
-u32 spawn_continuous_particle_effect_with_flags(void *, int, int);
+void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
 s32 project_actor_to_ground(void *, void *, void *);
 extern s32 lbl_80435B40[];
 extern const f32 lbl_805D8268;
@@ -88,7 +89,7 @@ void run_task__18TBoss2PhotonBulletFv(u8 *arg0) {
     *(f32 *)((s8 *)arg0 + 0x38) = *(f32 *)((s8 *)arg0 + 0xC0);
     *(f32 *)((s8 *)arg0 + 0x40) = *(f32 *)((s8 *)arg0 + 0xC8);
     if (*(u32 *)((s8 *)arg0 + 0xE4) == 0) {
-        *(u32 *)((s8 *)arg0 + 0xE4) = spawn_continuous_particle_effect_with_flags(arg0 + 0xC0, 0xDF, 0x40);
+        *(u32 *)((s8 *)arg0 + 0xE4) = (u32)spawn_continuous_particle_effect_with_flags(arg0 + 0xC0, 0xDF, 0x40);
     } else {
         ((TNowLoading *)((void *)*(u32 *)((s8 *)arg0 + 0xE4)))->copy_pos(arg0 + 0xC0);
     }
@@ -173,11 +174,10 @@ struct S_80039288 {
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 
-void rotate_xz_pair_by_angle(void *, void *, s32);
 extern Rec_80039288 TBoss2PhotonPad__bullet_level_param_table[];
 extern void *__vt__15TBoss2PhotonPad[];
 extern s32 TBoss2PhotonPad__name;
-void *get_instance__13TBoss2DeRolLeFv(void);
+s32 get_instance__13TBoss2DeRolLeFv(void);
 void *__nw__7TObjectFUl(u32);
 void run_task__15TBoss2PhotonPadFv(Pad_80039140 *self);
 S_80039288 *__ct__15TBoss2PhotonPadFv(S_80039288 *o, void *parent, s32 arg2, void *arg3, s32 arg4);
@@ -192,7 +192,7 @@ void TBoss2PhotonPad::run_task() {
 
     self->timer--;
     if (self->timer <= 0) {
-        inst = get_instance__13TBoss2DeRolLeFv();
+        inst = (void *)get_instance__13TBoss2DeRolLeFv();
         if (inst != NULL) {
             p = __nw__7TObjectFUl(0xE8);
             if (p != NULL) {
@@ -200,7 +200,7 @@ void TBoss2PhotonPad::run_task() {
             }
         }
         self->timer = TBoss2PhotonPad__bullet_level_param_table[self->level].b;
-        rotate_xz_pair_by_angle(self->pos, self->unk28, TBoss2PhotonPad__bullet_level_param_table[self->level].c / TBoss2PhotonPad__bullet_level_param_table[self->level].a);
+        rotate_xz_pair_by_angle((f32 *)self->pos, (f32 *)self->unk28, (s32)(TBoss2PhotonPad__bullet_level_param_table[self->level].c / TBoss2PhotonPad__bullet_level_param_table[self->level].a));
         self->shots--;
         if (self->shots == 0) {
             queue_destruction__7TObjectFv(self);
@@ -224,7 +224,7 @@ S_80039288 *__ct__15TBoss2PhotonPadFv(S_80039288 *o, void *parent, s32 arg2, voi
     o->f1c = arg2;
     o->f2c = arg4;
     VecCopy((Vec *)o->v20, (const Vec *)arg3);
-    rotate_xz_pair_by_angle(o->v20, o->v28, -(TBoss2PhotonPad__bullet_level_param_table[o->f2c].c / 2));
+    rotate_xz_pair_by_angle((f32 *)o->v20, (f32 *)o->v28, (s32)(-(TBoss2PhotonPad__bullet_level_param_table[o->f2c].c / 2)));
     o->f30 = TBoss2PhotonPad__bullet_level_param_table[o->f2c].a;
     o->f34 = 0;
     return o;

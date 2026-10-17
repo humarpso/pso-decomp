@@ -10,7 +10,7 @@ struct Ply_80312D4C : B_80312D4C {
 };
 
 extern "C" {
-u8 * get_element__10TObjPlayerFPvi(void *, int);
+void *get_element__10TObjPlayerFPvi(void *a0, int a1);
 int TObjPlayer__sub_80313218(void* p);
 u8 *TObjPlayer__sub_80312FB0(u8 *arg0);
 void append_photon_blast_request(s32 arg0, s16 arg1, s16 arg2);
@@ -49,7 +49,7 @@ void *TObjPlayer::find_by_section_id(s32 section) {
     u8 *e;
     n = TObjPlayer__sub_803131AC(this);
     for (i = 0; i < n; i++) {
-        e = get_element__10TObjPlayerFPvi(this, i);
+        e = (u8 *)get_element__10TObjPlayerFPvi(this, i);
         if ((u16)section == (u16)get_section_id__10TObjPlayerFv(e)) {
             return TObjPlayer__sub_803131B4(e, 0);
         }
@@ -65,7 +65,7 @@ void TObjPlayer::create_party_effects(s32 id) {
     u8 *e;
     n = TObjPlayer__sub_803131AC((void*)(this));
     for (i = 0; i < n; i++) {
-        e = get_element__10TObjPlayerFPvi(this, i);
+        e = (u8 *)get_element__10TObjPlayerFPvi(this, i);
         sec = get_section_id__10TObjPlayerFv(e);
         ent = (Ply_80312D4C *)get_player_by_client_id((u16)sec);
         if (ent != NULL && (u16)id != (u16)sec && ((TObjPlayer *)((u8 *)ent + 0x4AC))->query_field40() != 0) {
@@ -84,7 +84,7 @@ u16 TObjPlayer::find_first_valid_target_id() {
     u8 *ent;
     n = TObjPlayer__sub_803131AC((void*)(this));
     for (i = 0; i < n; i++) {
-        e = get_element__10TObjPlayerFPvi(this, i);
+        e = (u8 *)get_element__10TObjPlayerFPvi(this, i);
         ent = (u8 *)get_player_by_client_id(((SectionFn_80312E0C)get_section_id__10TObjPlayerFv)(e));
         if (ent != NULL && ((TObjPlayer *)(ent + 0x4AC))->query_field40() != 0) {
             return ((SectionFn_80312E0C)get_section_id__10TObjPlayerFv)(e);

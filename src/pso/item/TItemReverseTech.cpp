@@ -1,4 +1,5 @@
 #include "pso/TItemReverseTech.h"
+#include "pso/item/TItemReverseTechPart2.h"
 #include "pso/item/TItemReverseTech.h"
 #include "pso/misc/TCameraCtrl_800687BC.h"
 #include "pso/misc/TKeyBoardControl_8000F764.h"
@@ -20,7 +21,6 @@ struct Stack_8011A00C {
 };
 extern "C" {
 
-u32 __ct__21TItemReverseTechPart2Fv(int, void *, int);
 void *__nw__7TObjectFUl(int);
 struct RecoveredGlobal_8011A00C_lbl_8043E6A4 {
     s32 value;
@@ -66,7 +66,7 @@ void TItemReverseTech::run_task() {
         temp_r3_2 = (u32)__nw__7TObjectFUl((int) (0x158));
         var_r0 = temp_r3_2;
         if (var_r0 != 0U) {
-            var_r0 = __ct__21TItemReverseTechPart2Fv((int) (temp_r3_2), (void *) (this), (int) (TItemReverseTech__texture_archive));
+            var_r0 = (u32)__ct__21TItemReverseTechPart2Fv((u8 *)(temp_r3_2), (s32)(this), (s32)(TItemReverseTech__texture_archive));
         }
         part_two = (TObject *)var_r0;
     }

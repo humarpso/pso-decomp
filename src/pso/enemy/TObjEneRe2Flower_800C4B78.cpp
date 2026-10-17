@@ -83,7 +83,7 @@ void TLobby__sub_803DA16C(void *);
 void mem_free(void *);
 s32 is_alive__9TObjEneDDFv(s32);
 extern u8 *camera_ctrl_instance;
-s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
+void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
 s32 __ct__7TObjectFP7TObject();
 
 extern const char lbl_8043BC48[0x1C] = "TObjEneRe2Flower_EffCurse3";
@@ -128,7 +128,7 @@ void *TObjEneRe2Flower_EffCurse3::init_target_ref(s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)this + 0x1C) = 0;
     (this->m_20) = arg2;
     if (is_alive__9TObjEneDDFv((this->m_20)) != 0) {
-        *(s32 *)&this->unk_24 = spawn_continuous_particle_effect_with_flags((this->m_20) + 0x38, 0xDE, 0x40);
+        *(s32 *)&this->unk_24 = (s32)spawn_continuous_particle_effect_with_flags((void *)((this->m_20) + 0x38), (s32)(0xDE), (s32)(0x40));
     }
     return this;
 }

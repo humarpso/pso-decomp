@@ -8,7 +8,7 @@ struct Vec_8004AB90 { f32 x, y, z; };
 struct E_8004AB90 { Vec_8004AB90 pos; f32 r; Vec_8004AB90 v; f32 s; };
 
 extern "C" {
-u8 *get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 s32 vec3_add_to(void *, void *);
 f32 vector_length(void *);
 s32 subtract_vector(void *, void *);
@@ -39,7 +39,7 @@ void TBoss4DarkFalz::push_players_out_of_zone(s32 arg0, s32 arg1) {
     sc = dark_falz_push_zone_table[arg1].s;
     ev = &dark_falz_push_zone_table[arg1].v;
     for (i = lbl_805D586C + lbl_805D5870; i < lbl_805D5868; i++) {
-        p = get_player_data__10TObjPlayerFi(i);
+        p = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (p == NULL) continue;
         q = *(u8 **)((s8 *)p + 0xA4);
         if (q == NULL || !(*(s32 *)((s8 *)q + 0x18) & 0x20000)) continue;

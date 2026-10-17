@@ -67,7 +67,7 @@ extern s32 local_client_id;
 extern const f32 lbl_805DB39C;
 s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
 void *spawn_particle_effect(void *pos, s32 id);
-s32 construct_debris__8TObjChipFPvPvPv(void *, s32, void *);
+u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
 void play_container_break_sound(s32 arg0);
 void *__nw__7TObjectFUl(int);
 extern Spawn_8015B94C ancient_enemy_break_debris_desc;
@@ -117,11 +117,11 @@ void TOContainerAncientEnemy::vfunc_79() {
         spawn_particle_effect(&self->x, 0x46);
         o = __nw__7TObjectFUl(0x234);
         if (o != NULL) {
-            construct_debris__8TObjChipFPvPvPv(o, tl_05, &a);
+            construct_debris__8TObjChipFPvPvPv((u8 *)o, (u8 *)tl_05, (u8 *)&a);
         }
         o = __nw__7TObjectFUl(0x234);
         if (o != NULL) {
-            construct_debris__8TObjChipFPvPvPv(o, tl_05, &b);
+            construct_debris__8TObjChipFPvPvPv((u8 *)o, (u8 *)tl_05, (u8 *)&b);
         }
         play_container_break_sound((s32)self);
     }

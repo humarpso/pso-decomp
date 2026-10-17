@@ -22,7 +22,7 @@ extern const f32 lbl_805DF0D0;
 extern const f32 TBoss7Crawfish__data_805DF0D8;
 extern const f32 TBoss7Crawfish__data_805DF0DC;
 s32 register_attack_hits__14TBoss7CrawfishFv(void *, void *, f32, f32);
-s32 TBoss7Crawfish__sub_803087D4(void *, int);
+void TBoss7Crawfish__sub_803087D4(s32 arg0, s32 arg1);
 s32 TBoss7Crawfish__sub_80308ED8(void *, void *);
 
 extern const f32 lbl_805DF0F4;
@@ -45,7 +45,7 @@ void TBoss7Crawfish::update_motion_and_release() {
         ((TBoss7Crawfish *)arg0)->change_state((int) (3));
         return;
     }
-    TBoss7Crawfish__sub_803087D4((void *) (arg0), (int) (0x3A80C));
+    TBoss7Crawfish__sub_803087D4((s32)(arg0), (0x3A80C));
 }
 void TBoss7Crawfish::aim_at_nearest_player() {
     Craw_80308D1C *o = (Craw_80308D1C *)this;

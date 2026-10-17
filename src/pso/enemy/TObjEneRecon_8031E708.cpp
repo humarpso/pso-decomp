@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneRecon_8031FCB0.h"
 #include "pso/enemy/TObjEneRecon_8031BC38.h"
 #include "pso/enemy/TObjEneRecon.h"
 #include "pso/misc/TLobby.h"
@@ -44,7 +45,6 @@ s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
 s32 init_from_model__11TBreakUpMdlFl(int, void *);
-u8 *TObjEneRecobox__sub_803201D0();
 extern RecoveredGlobal_8031E708_lbl_804760EC recon_anim_binding;
 extern RecoveredGlobal_8031E708_lbl_804EC40C TObjEneRecon__collision_body_template;
 extern s32 lbl_805D6AF0;
@@ -68,7 +68,7 @@ void TObjEneRecon::load_resources() {
   s32 temp_r3;
   s32 var_r4;
   u8 *temp_r5;
-  TObjEneRecon__recobox_static_instance = TObjEneRecobox__sub_803201D0();
+  TObjEneRecon__recobox_static_instance = (u8 *)TObjEneRecobox__sub_803201D0();
   temp_r3 = (var_r4 = ((TAdSinglePlyChrSelectGC *)((int) 0x10))->alloc());
   if (var_r4 != 0)
   {

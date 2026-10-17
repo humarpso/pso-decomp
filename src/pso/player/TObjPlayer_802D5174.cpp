@@ -129,8 +129,8 @@ extern const f64 lbl_804725B8[];
 extern const f32 lbl_805DE794;
 f32 atan2_float(f32 y, f32 x);
 void set_position_xy__10TObjPlayerFff(f32, f32);
-void create_timed_particle_emitter(s32, s32, s32, s32);
-u32 create_timed_particle_emitter_with_angles(s32, void *, s32, s32, s32, s32);
+void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
+void *create_timed_particle_emitter_with_angles(void *pos, void *dir, s32 id, s32 a, s32 b, s32 flags);
 void spawn_hit_particles__10TObjPlayerFiPv(s32 arg0, const P_802D5478 *arg1);
 void* init_needle_effect__10TObjPlayerFPv(void* a0);
 void set_radar_marker_flag__10TObjPlayerFPvPv(void *arg0, void *arg1);
@@ -150,11 +150,11 @@ void* init_needle_effect__10TObjPlayerFPv(void* a0) { init_state_445__10TObjPlay
 
 void spawn_hit_particles__10TObjPlayerFiPv(s32 pos, const P_802D5478 *arg1) {
     s32 v[3];
-    create_timed_particle_emitter(pos, 0x1EF, 0, 0xF);
+    create_timed_particle_emitter((void *)pos, 0x1EF, 0, 0xF);
     v[0] = 0;
     v[1] = (s32)(lbl_804725B8[0] * atan2_float(arg1->x, arg1->z));
     v[2] = 0;
-    if (create_timed_particle_emitter_with_angles(pos, v, 0x1B8, 0, 0xF, 4) != 0U) {
+    if (create_timed_particle_emitter_with_angles((void *)pos, (void *)v, (s32)(0x1B8), (s32)(0), (s32)(0xF), (s32)(4)) != 0U) {
         set_position_xy__10TObjPlayerFff(lbl_805DE794, lbl_805DE794);
     }
 }
@@ -515,7 +515,7 @@ extern "C" {
 void* init_vtable_and_field200__10TObjPlayerFPv(void* a0);
 void spawn_item__10TObjPlayerFi(s32 arg0);
 s32 spawn_particle_effect(s32, s32);
-s32 attach_particle_model(s32, s32, s32, s32, s32, f32);
+void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 int init_state_445__10TObjPlayerFPv(void);
 s32 set_position_xy__10TObjPlayerFff(s32, f32, f32);
 
@@ -535,7 +535,7 @@ void spawn_item__10TObjPlayerFi(s32 arg0) {
     if (particle_effect != 0) {
         TItemLoad::lookup_item_data(0xD, &spC);
         TItemLoad::get_data_entry(0xD, &sp8);
-        attach_particle_model(particle_effect, spC, sp8, 0, 0, lbl_805DE78C);
+        attach_particle_model((u8 *)particle_effect, spC, sp8, 0, 0, lbl_805DE78C);
         set_position_xy__10TObjPlayerFff(particle_effect, lbl_805DE79C, lbl_805DE79C);
     }
 }

@@ -112,7 +112,7 @@ s32 update_if_active__15TObjEneMe1GiGueFl(void *, s32);
 void *spawn_particle_effect(void *pos, s32 id);
 s32 TObjPlayer__sub_800A3210(s32 i, s32 _w1, s32 _w2);
 u8 *TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
-void *TObjPlayer__sub_800A4204(void *, void *, void *, void *, s32);
+u8 *TObjPlayer__sub_800A4204(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 submit_cursor_candidate(void *, s32);
 s32 play_sound_effect(int, void *, int, int);
 void * __nw__7TObjectFUl(int);
@@ -351,7 +351,7 @@ int get_bml_model(void*);
 void TLobby__sub_8001FE7C(void*, int);
 VObj_18_4a35f9 * get_battle_param__10TObjPlayerFi(s32);
 u8 * csnVector(void *, Vec_800A34E8 *, s32);
-s32 spawn_particle_effect_with_rotation(void *, void *, int, int);
+void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 void * __dt__13TUnk_80490470Fv(void *, s16);
 s32 trigger_targets_action__10TObjPlayerFv();
 u8 * TObjEneDarkGunCenter__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -419,7 +419,7 @@ extern s32 lbl_80490998[];
 void obj_setFlags30(void *, u32);
 void TObjEnemyCustom__ct(void *, s32, void *);
 int initialize_enemy_photon_effect(void *p);
-void bind_enemy_combat_stats(void *, s32, s32, s32);
+s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 extern Atk_800A2F94 dark_gunner_attack_binding_desc;
 extern s32 dark_gunner_class_name_ptr;
@@ -1200,7 +1200,7 @@ s32 TObjPlayer__sub_800A1FEC(void *arg0) {
             for (i = 0; i < 4; i++) {
                 void *p = __nw__7TObjectFUl(0x348);
                 if (p != NULL) {
-                    p = TObjPlayer__sub_800A4204(p, self, &self->f3B4, &self->f3C0[i], 2);
+                    p = TObjPlayer__sub_800A4204((u8 *)p, (u8 *)self, (s32)&self->f3B4, (s32)&self->f3C0[i], (s32)(2));
                 }
                 self->parts[i] = p;
             }
@@ -1499,7 +1499,7 @@ u8 *TObjPlayer__sub_800A2F94(u8 *self, s32 arg1, u8 *arg2) {
     ((TObjMotion *)self)->set_field_b8(F(s16, 0xB8));
     init_collision_body_parts(self, lbl_80490780, 1);
     F(void *, 0x350) = lbl_80490748;
-    bind_enemy_combat_stats(self, lbl_805D4FF8[F(s32, 0x368)], lbl_805D4FFC[F(s32, 0x368)], lbl_805D5000[F(s32, 0x368)]);
+    bind_enemy_combat_stats(self, (u8 *)lbl_805D4FF8[F(s32, 0x368)], (u8 *)lbl_805D4FFC[F(s32, 0x368)], (u8 *)lbl_805D5000[F(s32, 0x368)]);
     ((void (*)(void *))init_scale_global__10TObjPlayerFv)(self);
     F(s16, 0x32C) = F(s16, 0x2B8);
     F(s16, 0x32E) = F(s16, 0x2BA);
@@ -1645,7 +1645,7 @@ u8 *TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     ((TUnk_804909C4 *)arg0)->m_b8 = 0;
     *(s32 *)((s8 *)arg0 + 0xBC) = (s32) (lbl_8043A6F8[0] * atan2_float(*(f32 *)((s8 *)arg0 + 0xAC), *(f32 *)((s8 *)arg0 + 0xB4))) + 0x4000;
     ((TUnk_804909C4 *)arg0)->m_c0 = 0x4000;
-    *(s32 *)((s8 *)arg0 + 0xD0) = spawn_particle_effect_with_rotation((void *) (arg0 + 0x38), (void *) (arg0 + 0xB8), ((TUnk_804909C4 *)arg0)->m_cc, 0x42);
+    *(s32 *)((s8 *)arg0 + 0xD0) = (s32)spawn_particle_effect_with_rotation((arg0 + 0x38), (arg0 + 0xB8), ((TUnk_804909C4 *)arg0)->m_cc, 0x42);
     {
     Vec_800A34E8 v = *(Vec_800A34E8 *)(arg0 + 0xAC);
     ((TObjGyaranzoMissile *)(&v))->scale_velocity(lbl_805D99DC);

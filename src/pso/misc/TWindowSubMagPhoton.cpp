@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrl_8024A054.h"
+#include "pso/misc/TWindowSubStatusDisp_80248BE8.h"
 #include "pso/misc/TWindowMainMenu.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TUnk_804D0618.h"
@@ -46,7 +48,6 @@ s32 draw_visible_window_entries(void *, void *, int);
 void render__19TWindowSubMagPhotonFv(s32 arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
-s32 is_player_input_active(s32 param_1);
 extern RecoveredGlobal_8027C56C_lbl_8050E208 controller_input_state;
 s32 init_photon_blast_entries__19TWindowSubMagPhotonFv(void *, int);
 s32 construct_base__9TWindowDDFPUcsPUc(void *, void *, void *, void *);
@@ -61,7 +62,6 @@ extern const f32 lbl_805DD680;
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 fn_801A51F0(int);
 s32 set_field_1c__6TLobbyFf(s32);
-s32 TWindowSubStatusDisp__sub_80248BE8(s32, void *, int);
 s32 TWindowSubEquip__sub_80263AF8(s32, s32);
 s32 get_window_layout_position(s32);
 extern u8 lbl_8044FA28[];
@@ -230,7 +230,7 @@ s32 TUnk_804D1818::sub_8027C884(s32 arg1) {
     s16 var_r29;
     s32 temp_r31;
     s32 temp_r3;
-    temp_r31 = TWindowSubStatusDisp__sub_80248BE8(get_window_layout_position(0x16), lbl_8044FA28, this->m_20);
+    temp_r31 = (s32)TWindowSubStatusDisp__sub_80248BE8((s32)(get_window_layout_position(0x16)), (s32)lbl_8044FA28, (s32)this->m_20);
     switch (arg1) {
     case 0:
         ((TUnk_804D0618 *)temp_r31)->ensure_status_display((int) (get_message_10__20TWindowSubStatusDispFl((int) (0x66))));

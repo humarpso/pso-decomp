@@ -43,7 +43,7 @@ s32 text_builder_append();
 void text_builder_reset(void);
 s32 get_window_layout_position(int);
 s32 free_member__17TWindowSubComCardFv(int, int);
-s32 open_yes_no_prompt(int, int, int, int, f32);
+void open_yes_no_prompt(u8 *arg0, u32 arg1, s32 arg2, s32 arg3, f32 farg0);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, int, int, int);
 extern const f32 lbl_805DE298;
 s32 create_message_window__6TLobbyFllUls(s32, void *, int, int);
@@ -61,7 +61,7 @@ s32 TWindowSubTrade::open_trade_confirm_prompt(s32 arg1) {
     TWindowSubStatusDisp::get_message_10((int) (0xD6));
     text_builder_append();
     temp_r29 = create__19TWindowMessageYesNoFPvPvPvPv((void *) (arg0), (int) (*(s32 *)&this->m_20), (int) (0), (int) (0));
-    open_yes_no_prompt((int) (temp_r29), (int) (TWindowSubStatusDisp::get_message_10((int) (0x20))), (int) (get_shared_text_buffer()), (int) (get_window_layout_position((int) (0x5B))), (f32) (lbl_805DE298));
+    open_yes_no_prompt((u8 *)(temp_r29), (u32)(TWindowSubStatusDisp::get_message_10((int) (0x20))), (get_shared_text_buffer()), (get_window_layout_position((int) (0x5B))), (f32) (lbl_805DE298));
     free_member__17TWindowSubComCardFv((int) (temp_r29), (int) (1));
     ((TWindowSubShortMail *)temp_r29)->notify_warp_flag70();
     return temp_r29;

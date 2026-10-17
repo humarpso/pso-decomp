@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TShopGenerator.h"
 #include "pso/misc/THunterGuildSeqOffline_80213788.h"
 #include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/misc/TQuestListOnline_80218310.h"
@@ -130,7 +131,7 @@ extern "C" {
 s32 get_window_layout_position(int, f32);
 extern const f32 lbl_805DC658;
 extern const f32 lbl_805DC65C;
-s32 queue_destruction__7TObjectFv(int);
+void queue_destruction__7TObjectFv(void *arg0);
 void *__dt__13TShopSequenceFv(void *arg0, s16 arg1);
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 __dl__7TObjectFPv(void *);
@@ -148,7 +149,7 @@ extern s32 hunter_guild_seq_online_client_instance;
 Seq_80213D84 *THunterGuildSeqOnline_Client__ct(Seq_80213D84 *arg0, s32 arg1, s32 arg2);
 void THunterGuildSeqOffline__sub_80213BE0(Seq_80213BE0 *arg0);
 int is_quest_active(void);
-s32 create_quest_thread(s32);
+u8 *create_quest_thread(s32 arg0);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 extern s32 THunterGuildSeqOffline__quest_result_callbacks[];
@@ -215,13 +216,13 @@ void THunterGuildSeqOffline__sub_80213980(Obj_80213980 *self) {
             if (get_register__12TQuestThreadFPvi((u8 *)quest_mission_manager, 0xFF) != 0) {
                 self->m7(0xB, 1);
                 if (THunterGuildSeqOffline__quest_result_callbacks[1] != -1) {
-                    self->thread = create_quest_thread(THunterGuildSeqOffline__quest_result_callbacks[1]);
+                    self->thread = (s32)create_quest_thread(THunterGuildSeqOffline__quest_result_callbacks[1]);
                 }
                 ((TShopWindowBase *)self)->set_field_20((s32)((s32)(4)));
             } else if (get_register__12TQuestThreadFPvi((u8 *)quest_mission_manager, 0xFD) != 0) {
                 self->m7(0x12, 1);
                 if (THunterGuildSeqOffline__quest_result_callbacks[0] != -1) {
-                    self->thread = create_quest_thread(THunterGuildSeqOffline__quest_result_callbacks[0]);
+                    self->thread = (s32)create_quest_thread(THunterGuildSeqOffline__quest_result_callbacks[0]);
                 }
                 ((TShopWindowBase *)self)->set_field_20((s32)((s32)(5)));
             } else {
@@ -288,7 +289,7 @@ u8 *__dt__28THunterGuildSeqOnline_ClientFv(u8 *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__28THunterGuildSeqOnline_Client.value;
         temp_r3 = *(u32 *)((s8 *)arg0 + 0x2C);
         if (temp_r3 != 0U) {
-            queue_destruction__7TObjectFv((int) (temp_r3));
+            queue_destruction__7TObjectFv((void *)(temp_r3));
             *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
         }
         ((TShopSequence *)arg0)->close_message_window();
@@ -536,7 +537,6 @@ extern "C" {
 void *obj_getField1c(void *);
 void queue_destruction__7TObjectFv(void *);
 int is_quest_active(void);
-void THunterGuildSeqOffline__sub_8021E180(void *);
 void close_window__13TShopSequenceFv(void *);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
@@ -563,14 +563,14 @@ void handle_random_enemies_choice__6TLobbyFPv(Seq_80214104 *self) {
     case 1:
         mem = __nw__7TObjectFUl(0x28);
         if (mem != NULL) ((THunterGuildSeqOffline *)mem)->init((void *)tl_00, (void *)reset_random_enemies_mode);
-        THunterGuildSeqOffline__sub_8021E180(obj_getField1c(self->player));
+        THunterGuildSeqOffline__sub_8021E180((s32)(obj_getField1c(self->player)));
         close_window__13TShopSequenceFv(self);
         queue_destruction__7TObjectFv(self);
         break;
     case 2:
         mem = __nw__7TObjectFUl(0x28);
         if (mem != NULL) ((THunterGuildSeqOffline *)mem)->init((void *)tl_00, (void *)set_random_enemies_mode);
-        THunterGuildSeqOffline__sub_8021E180(obj_getField1c(self->player));
+        THunterGuildSeqOffline__sub_8021E180((s32)(obj_getField1c(self->player)));
         close_window__13TShopSequenceFv(self);
         queue_destruction__7TObjectFv(self);
         break;
@@ -602,7 +602,7 @@ struct RecoveredGlobal_80214254_THunterGuildSeqOffline__data_80513DC8 {
 };
 
 extern "C" {
-s32 create_quest_thread(s32);
+u8 *create_quest_thread(s32 arg0);
 s32 get_selected_menu_value(void *);
 extern RecoveredGlobal_80214254_THunterGuildSeqOffline__data_80513DC8 THunterGuildSeqOffline__quest_result_callbacks;
 typedef char RecoveredGlobal_80214254_THunterGuildSeqOffline__data_80513DC8_size[sizeof(RecoveredGlobal_80214254_THunterGuildSeqOffline__data_80513DC8) == 0x10 ? 1 : -1];
@@ -620,7 +620,7 @@ void fn_80214254(u8 *arg0) {
             ((VObj_18_97738d *)(arg0))->m7(9, 1);
             *(s32 *)((s8 *)arg0 + 0x34) = 1;
             if ((s32) *(s32 *)((s8 *)(&THunterGuildSeqOffline__quest_result_callbacks.value) + 8) != -1) {
-                *(s32 *)((s8 *)arg0 + 0x3C) = create_quest_thread(*(s32 *)((s8 *)(&THunterGuildSeqOffline__quest_result_callbacks.value) + 8));
+                *(s32 *)((s8 *)arg0 + 0x3C) = (s32)create_quest_thread(*(s32 *)((s8 *)(&THunterGuildSeqOffline__quest_result_callbacks.value) + 8));
             }
             ((TShopWindowBase *)arg0)->set_field_20((s32)0xC);
             break;
@@ -720,16 +720,14 @@ u32 __nw__7TObjectFUl(int);
 s32 get_window_layout_position(s32);
 extern const f32 lbl_805DC658;
 extern const f32 lbl_805DC65C;
-void init_window__22THunterGuildSeqOfflineFPv(u8 *arg0);
 int is_quest_active(void);
-s32 create_quest_thread(s32);
+u8 *create_quest_thread(s32 arg0);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 extern s32 THunterGuildSeqOffline__quest_result_callbacks[];
 extern s32 quest_mission_manager;
-void THunterGuildSeqOffline__sub_802145F8(u8 *arg0);
 s32 set_service_counter_camera(void *, s32);
-s32 create_yes_no_window(s32, u16, s32, s32);
+u8 *create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 s32 get_window_layout_position(s32);
@@ -744,7 +742,7 @@ void create_judgment_item_window__15TShopWindowBaseFPv(void *arg0) {
 
     if ((vobj->m8r() != 0) && ((sub_80223A48__15TShopWindowBaseFv(arg0) != 0) || (sub_802239EC__13TShopSequenceFv(arg0) != 0))) {
         temp_r31 = (u16)obj_getField1c(*(s32 *)((s8 *)arg0 + 0x24));
-        *(s32 *)((s8 *)arg0 + 0x38) = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
+        *(s32 *)((s8 *)arg0 + 0x38) = (s32)create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
         ((TWindowSubComCardList *)(*(s32 *)((s8 *)arg0 + 0x38)))->set_selected_index(1);
         temp_f31 = get_scale__15TShopWindowBaseFv(arg0);
         ((TUnk_804CDFE8 *)(*(s32 *)((s8 *)arg0 + 0x38)))->set_position_xy(get_scale__15TShopWindowBaseFv(arg0), temp_f31);
@@ -834,7 +832,7 @@ void THunterGuildSeqOffline__sub_802145F8(u8 *arg0) {
                     if (get_register__12TQuestThreadFPvi((u8 *)(quest_mission_manager), (0xFF)) != 0) {
                         ((VObj_18 *)(arg0))->m7(0xB, 1);
                         if (THunterGuildSeqOffline__quest_result_callbacks[1] != -1) {
-                            *(s32 *)((s8 *)arg0 + 0x3C) = create_quest_thread(THunterGuildSeqOffline__quest_result_callbacks[1]);
+                            *(s32 *)((s8 *)arg0 + 0x3C) = (s32)create_quest_thread(THunterGuildSeqOffline__quest_result_callbacks[1]);
                         }
                         ((TShopWindowBase *)arg0)->set_field_20((s32)((int) (4)));
                         return;
@@ -842,7 +840,7 @@ void THunterGuildSeqOffline__sub_802145F8(u8 *arg0) {
                     if (get_register__12TQuestThreadFPvi((u8 *)(quest_mission_manager), (0xFD)) != 0) {
                         ((VObj_18 *)(arg0))->m7(0x12, 1);
                         if (THunterGuildSeqOffline__quest_result_callbacks[0] != -1) {
-                            *(s32 *)((s8 *)arg0 + 0x3C) = create_quest_thread(THunterGuildSeqOffline__quest_result_callbacks[0]);
+                            *(s32 *)((s8 *)arg0 + 0x3C) = (s32)create_quest_thread(THunterGuildSeqOffline__quest_result_callbacks[0]);
                         }
                         ((TShopWindowBase *)arg0)->set_field_20((s32)((int) (5)));
                         return;
@@ -924,7 +922,7 @@ struct Seq_80214978 : VObj_80214978 {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(int);
+void queue_destruction__7TObjectFv(void *arg0);
 void *__dt__13TShopSequenceFv(void *arg0, s16 arg1);
 s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 __dl__7TObjectFPv(void *);
@@ -941,15 +939,13 @@ extern s32 lbl_805D3664;
 extern s32 offline_quest_list_vm;
 Seq_80214B3C *THunterGuildSeqOffline__sub_80214B3C(Seq_80214B3C *arg0, s32 arg1, s32 arg2);
 void fn_80214058(void *);
-void THunterGuildSeqOffline__sub_802145F8(void *);
-void init_window__22THunterGuildSeqOfflineFPv(void *);
 void dispatch_state__22THunterGuildSeqOfflineFPv(Seq_80214978 *arg0);
 
 void dispatch_state__22THunterGuildSeqOfflineFPv(Seq_80214978 *arg0) {
     switch (arg0->state) {
     case 0: arg0->m10(); break;
-    case 1: init_window__22THunterGuildSeqOfflineFPv(arg0); break;
-    case 3: THunterGuildSeqOffline__sub_802145F8(arg0); break;
+    case 1: init_window__22THunterGuildSeqOfflineFPv((u8 *)arg0); break;
+    case 3: THunterGuildSeqOffline__sub_802145F8((u8 *)arg0); break;
     case 8: fn_80214058(arg0); break;
     case 4: update_confirm_input__15TShopWindowBaseFPv(arg0); break;
     case 5: update__15TShopWindowBaseFPv(arg0); break;
@@ -984,7 +980,7 @@ u8 *__dt__28THunterGuildSeqOnline_ServerFv(u8 *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804C97F0.value;
         temp_r3 = *(u32 *)((s8 *)arg0 + 0x2C);
         if (temp_r3 != 0U) {
-            queue_destruction__7TObjectFv((int) (temp_r3));
+            queue_destruction__7TObjectFv((void *)(temp_r3));
             *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
         }
         ((TShopSequence *)arg0)->close_message_window();

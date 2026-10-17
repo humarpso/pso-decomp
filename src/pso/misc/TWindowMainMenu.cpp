@@ -68,12 +68,12 @@ s32 TWindowMainMenu__sub_802ADADC(int, int);
 s32 append_child_rows__15TWindowMainMenuFPvi(int, void *);
 u32 create_menu__15TWindowMainMenuFPvPv(void *, int);
 u8 * __dt__7TObjectFv(void *, s16);
-s32 get_player_by_client_id(u32);
+void *get_player_by_client_id(s32 i);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8026492C___vt__15TWindowMainMenu __vt__15TWindowMainMenu;
 void sub_80263D7C__15TWindowMainMenuFv(void *, int);
 void update_keyboard_card_state__15TWindowMainMenuFv(void *, int);
-s16 TWindowMainMenu__sub_802ADB00(u32);
+int TWindowMainMenu__sub_802ADB00(u8 *arg0);
 void populate_menu__15TWindowMainMenuFPvPv(u8 *arg0, Ent_802646E4 *arg1);
 void *__ct__7TObjectFP7TObject(void *);
 extern s32 lbl_805D3950;
@@ -143,7 +143,7 @@ void TWindowMainMenu::handle_menu_selection() {
     u32 node;
     void *e;
     if ((((Menu_802647CC *)this)->flags & 1) && !(((Menu_802647CC *)this)->flags & 4) && (node = ((Menu_802647CC *)this)->node) != 0) {
-        ((Menu_802647CC *)this)->sel = TWindowMainMenu__sub_802ADB00(node);
+        ((Menu_802647CC *)this)->sel = TWindowMainMenu__sub_802ADB00((u8 *)node);
         id = ((TWindowMainMenu *)node)->get_selected_item_type();
         update_description_text(id);
         if (((TWindowMenuMainMenu *)node)->get_menu_flag() != 0) {
@@ -181,7 +181,7 @@ u8 *__dt__15TWindowMainMenuFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__15TWindowMainMenu.value;
         if (*(s32 *)((s8 *)arg0 + 0x4C) & 1) {
-            player = get_player_by_client_id(*(u32 *)((s8 *)arg0 + 0x54));
+            player = (u32)get_player_by_client_id(*(u32 *)((s8 *)arg0 + 0x54));
             if (player != 0U) {
                 ((TObjPlayer *)player)->init_parts();
             }

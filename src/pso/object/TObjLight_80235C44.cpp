@@ -42,7 +42,7 @@ struct Base_80235C44 { u8 pad[0x1C]; f32 f1c; f32 f20; };
 
 extern "C" {
 s32 obj_getField1c(int);
-s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804CCAA8[];
 extern const f32 lbl_805DC888;
@@ -118,7 +118,7 @@ u8 *TObjLight::construct_actor_light(s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32
     Stack_80235E9C stack;
     __ct__7TObjectFP7TObject((void *) (((u8 *)this)), (void *) (arg5));
     *(s32 **)((s8 *)((u8 *)this) + 0x18) = &(*(RecoveredGlobal_80235E9C_lbl_804CCAA8 *)&lbl_804CCAA8).value;
-    copy_vec4__13TRaderMapCoreFPvPv((void *) (((u8 *)this) + 0x24), (void *) (arg1));
+    copy_vec4__13TRaderMapCoreFPvPv((((u8 *)this) + 0x24), (void *)(arg1));
     VecCopy((Vec *)(((u8 *)this) + 0x34), (const Vec *)(arg2));
     *(s32 *)&this->m_1c = arg3;
     *(s32 *)&this->m_4c = 0;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803D853C.h"
 #include "pso/boss/TBoss1DragonColli.h"
 #include "pso/math/MatrixVector.h"
 #include "pso/unk/TUnk_804E4B24.h"
@@ -11,7 +12,6 @@ extern "C" {
 struct VOff_802F1BEC_arg0_802F1B7C { char pad_0[0xAC]; char f_AC[1]; };
 struct VOff_802F1C68_arg0_802f1c68_802F1B7C { char pad_0[0x48]; char f_48[1]; };
 
-void rotate_matrix_yxz(void *, void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 s32 get_mode__11TCameraCtrlFPv(void *p);
 
@@ -56,7 +56,7 @@ void TUnk_804E4B24::update_collision() {
     struct VOff_802F1C68_arg0_802f1c68_802F1B7C *self = (struct VOff_802F1C68_arg0_802f1c68_802F1B7C *)this;
     set_matrix_identity((u8 *)self->f_48);
     translate_matrix_vec3((u8 *)self->f_48, (u8 *)((char *)this + 28));
-    rotate_matrix_yxz(self->f_48, *(void * *)&(*(void * *)((u8 *)this + 0x28)), (this->m_2c), *(void * *)&(*(u32 *)&this->unk_30));
+    rotate_matrix_yxz((s32)self->f_48, (s32)(*(void * *)&(*(void * *)((u8 *)this + 0x28))), (s32)(this->m_2c), (s32)(*(void * *)&(*(u32 *)&this->unk_30)));
 }
 
 extern f32 lbl_805DECA4;

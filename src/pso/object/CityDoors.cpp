@@ -343,7 +343,7 @@ u8 *TObjCityDoor_Lobby__create(s32 arg0) {
 u8 *__dt__18TObjCityDoor_LobbyFPvs(u8 *arg0, s16 arg1);
 u32 get_map_count__10TObjMapCsnFv();
 void __dl__7TObjectFPv(void *);
-s32 remove_value_from_id_list(u32, void *);
+void remove_value_from_id_list(s32 arg0, u32 arg1);
 
 extern s32 __vt__18TObjCityDoor_Lobby[];
 
@@ -351,7 +351,7 @@ u8 *__dt__18TObjCityDoor_LobbyFPvs(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjCityDoor_Lobby;
         if (((s32) ((TObjCityDoor_Lobby *)arg0)->m_250 != 0) && (get_map_count__10TObjMapCsnFv() != 0U)) {
-            remove_value_from_id_list(get_map_count__10TObjMapCsnFv(), arg0 + 0x90);
+            remove_value_from_id_list(get_map_count__10TObjMapCsnFv(), (u32)(arg0 + 0x90));
         }
         TParticleCtrl::destroy_particle(arg0, 0);
         if (arg1 > 0) {
@@ -1011,7 +1011,7 @@ void begin_state_1__13TUnk_804B5BA8Fv(void *arg0);
 void check_ground_or_fall__13TUnk_804B5BA8Fv(void *arg0);
 void dispatch_state__13TUnk_804B5BA8Fv(void *arg0);
 f32 horizontal_distance_squared(s32, s32);
-s32 get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 s32 get_field_3e0__12TBoss3VoloptFv();
 
 void TUnk_804B5BA8::vfunc_22() {
@@ -1107,7 +1107,7 @@ s32 TObjPlayer::is_player_in_range(s32 arg0, s32 arg1, f32 farg0) {
 
     var_r30 = 0;
 loop_1:
-    player = get_player_by_client_id(var_r30);
+    player = (s32)get_player_by_client_id(var_r30);
     if ((player != 0) && ((temp_r3_2 = get_field_3e0__12TBoss3VoloptFv(), ((temp_r3_2 == 0) != 0)) || (temp_r3_2 == 0x12)) && (horizontal_distance_squared(arg1, player + 0x38) < farg0)) {
         return 1;
     }

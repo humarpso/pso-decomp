@@ -13,7 +13,7 @@ void TLobby::dispatch_fish_event(void* a0) { get_bml_model((void*)(container_bre
 
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-u32 load_gvm_texture_file(void *);
+u8 *load_gvm_texture_file(s32 arg0);
 extern u8 seabed_rare_console_texture_filename[];
 extern u8 lbl_80444F48[];
 extern u8 fe_obj_con_hahen1_resource_descriptor[];
@@ -45,7 +45,7 @@ void TLobby::load_console_resources() {
             p = load_resource_from_descriptor(p, 5, bm_obj_seabed_con_rare_resource_descriptor, 0, 0, 0);
         }
         container_breakup_model_archive = (u32)p;
-        lbl_805D5B8C = load_gvm_texture_file(seabed_rare_console_texture_filename);
+        lbl_805D5B8C = (u32)load_gvm_texture_file((s32)seabed_rare_console_texture_filename);
         break;
     case 30:
     default:
@@ -54,7 +54,7 @@ void TLobby::load_console_resources() {
             p = load_resource_from_descriptor(p, 5, fe_obj_con_hahen1_resource_descriptor, 0, 0, 0);
         }
         container_breakup_model_archive = (u32)p;
-        lbl_805D5B8C = load_gvm_texture_file(lbl_80444F48);
+        lbl_805D5B8C = (u32)load_gvm_texture_file((s32)lbl_80444F48);
         break;
     }
 }

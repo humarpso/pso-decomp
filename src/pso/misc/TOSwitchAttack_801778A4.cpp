@@ -77,8 +77,8 @@ s32 get_current_floor();
 u16 obj_getField1c(void *);
 void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 f32 horizontal_distance_squared(void *, void *);
-VObj_801778A8 *resolve_hittable_target(u16, s16);
-Mylla_801778A8 *find_entity_by_id(u16);
+void *resolve_hittable_target(u16 actorId, s16 collider);
+void *find_entity_by_id(u16 id);
 void play_sound_effect(s32, void *, s32, s32);
 u8 is_current_floor_switch_set(u16);
 extern const f32 lbl_805DBA08;
@@ -130,7 +130,7 @@ void TOSwitchAttack::run_task() {
     if (r == 1 && o->fA6 == 0) {
         n = TLobby::get_game_mode();
         for (i = 0; i != n; i++) {
-            p = resolve_hittable_target(i, 0);
+            p = (VObj_801778A8 *)resolve_hittable_target(i, 0);
             if (p != NULL) {
                 if (((TObjPlayer *)p)->get_field_3e4() == get_current_floor() &&
                     horizontal_distance_squared((u8 *)p + 0x38, &o->pos) < o->f94) {
@@ -143,13 +143,13 @@ void TOSwitchAttack::run_task() {
         }
         end = n + TObjEneDD::get_enemy_count();
         for (i = n; i != end; i++) {
-            q = find_entity_by_id(i);
+            q = (Mylla_801778A8 *)find_entity_by_id(i);
             if (q != NULL) {
                 s32 k;
                 rec = q->recs;
                 for (k = 0; k != q->count; k++, rec++) {
                     if (horizontal_distance_squared(&rec->pos, &o->pos) < o->f94) {
-                        VObj_801778A8 *p2 = resolve_hittable_target(i, k);
+                        VObj_801778A8 *p2 = (VObj_801778A8 *)resolve_hittable_target(i, k);
                         if (p2 != NULL) {
                             Atk_801778A8 b;
                             b.a = 0;

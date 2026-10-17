@@ -11,7 +11,6 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_8001BE80_lbl_804809C0 TAdRicoRingCtrl__resource_descriptor;
 extern u32 TAdRicoRing__resource_bundle;
-void TAdRicoRingCtrl__sub_8001BED0(void* p, f32 v);
 void TLobby__sub_8001FE7C(void*, int);
 void *__ct__11TAdRicoRingFv(void *, void *);
 void *__nw__7TObjectFUl(int);

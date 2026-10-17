@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOBarrierEnergy01_80158014.h"
 #include "pso/system/GinjaMaterial.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TOBarrierEnergy01.h"
@@ -20,7 +21,6 @@ struct BarrierObj_80157F30 : BarrierBase_80157F30 {
     virtual s32 m8(f32, f32);
 };
 
-void *TOBarrierEnergy01__ct(void *, void *, void *);
 s32 post_translate_matrix(void *);
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 s32 rotate_matrix_y(s32, s32);
@@ -51,7 +51,7 @@ extern void *tl_05;
 void *TOBarrierEnergy01::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD4);
     if (o != NULL) {
-        o = TOBarrierEnergy01__ct(o, tl_05, arg0);
+        o = TOBarrierEnergy01__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

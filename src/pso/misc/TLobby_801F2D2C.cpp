@@ -100,7 +100,7 @@ extern s16 TLobby__data_805D5ECC;
 void init_quest_script_context(Hdr_801F3124 *h, Ctx_801F3124 *c);
 int test_action_mask__10TObjPlayerFl(void*, int);
 int VecCopy__FP3VecPC3Vec(void*);
-s32 queue_destruction__7TObjectFv(s32);
+void queue_destruction__7TObjectFv(void *arg0);
 int set_flags__10TObjPlayerFUl(void*, int);
 
 unsigned char TLobby::read_packet_byte() { return TLobby__quest_data_base[TLobby__quest_script_pc++]; }
@@ -131,23 +131,23 @@ void TLobby::close_windows() {
         TLobby__quest_choice_window = 0U;
     }
     if ((u32) TLobby__data_805D5EB0 != 0U) {
-        queue_destruction__7TObjectFv(TLobby__data_805D5EB0);
+        queue_destruction__7TObjectFv((void *)TLobby__data_805D5EB0);
         TLobby__data_805D5EB0 = 0U;
     }
     if ((u32) TLobby__quest_window_object != 0U) {
-        queue_destruction__7TObjectFv(TLobby__quest_window_object);
+        queue_destruction__7TObjectFv((void *)TLobby__quest_window_object);
         TLobby__quest_window_object = 0U;
     }
     if ((u32) TLobby__menu_state_object != 0U) {
-        queue_destruction__7TObjectFv(TLobby__menu_state_object);
+        queue_destruction__7TObjectFv((void *)TLobby__menu_state_object);
         TLobby__menu_state_object = 0U;
     }
     if ((u32) TLobby__quest_state_object_168 != 0U) {
-        queue_destruction__7TObjectFv(TLobby__quest_state_object_168);
+        queue_destruction__7TObjectFv((void *)TLobby__quest_state_object_168);
         TLobby__quest_state_object_168 = 0U;
     }
     if ((u32) TLobby__quest_state_object_16c != 0U) {
-        queue_destruction__7TObjectFv(TLobby__quest_state_object_16c);
+        queue_destruction__7TObjectFv((void *)TLobby__quest_state_object_16c);
         TLobby__quest_state_object_16c = 0U;
     }
 }

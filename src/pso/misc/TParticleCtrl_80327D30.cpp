@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803281B8.h"
 #include "pso/misc/TParticleCtrl_80327D30.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/player/TObjPlayer_80083594.h"
@@ -32,7 +33,6 @@ extern s32 lbl_804ED5B0[];
 int register_indirect_effect_ctrl(void*);
 s32 __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-s32 construct_indirect_effect_task(int, int, int, int);
 extern s32 tl_05;
 s32 GXSetNumTexGens(int);
 s32 GXSetNumTevStages(int);
@@ -144,7 +144,7 @@ u8 *create_telepipe_marker(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 a
     temp_r3 = __nw__7TObjectFUl((int) (0x20));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = construct_indirect_effect_task((int) (temp_r3), (int) (0x1F), (int) (0), (int) (tl_05));
+        var_r0 = (s32)construct_indirect_effect_task((u8 *)(temp_r3), (0x1F), (0), (u8 *)(tl_05));
     }
     *(s32 *)((s8 *)arg0 + 0x40) = var_r0;
     *(s32 *)((s8 *)arg0 + 0x38) = 1;

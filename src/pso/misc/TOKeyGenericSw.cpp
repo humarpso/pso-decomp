@@ -77,7 +77,7 @@ void mem_free(void *);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 void *mem_alloc(u32);
-s32 load_gvm_texture_file(void *);
+u8 *load_gvm_texture_file(s32 arg0);
 extern char lbl_80441D04[];
 extern char lbl_80441D24[];
 void *__dt__14TOKeyGenericSwFv(void *arg0, s16 arg1);
@@ -185,7 +185,7 @@ void TOKeyGenericSw::load_resources() {
         TOKeyGenericSw__texture_lists = (s32 *)mem_alloc(0xC);
         TOKeyGenericSw__texture_lists[0] = *(s32 *)((s8 *)TOKeyGenericSw__shared_resource_ptrs[0]->area + 0xC);
         TOKeyGenericSw__texture_lists[1] = *(s32 *)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1]->area + 0xC);
-        TOKeyGenericSw__texture_lists[2] = load_gvm_texture_file(lbl_80441D04);
+        TOKeyGenericSw__texture_lists[2] = (s32)load_gvm_texture_file((s32)lbl_80441D04);
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (p != NULL) {
@@ -200,7 +200,7 @@ void TOKeyGenericSw::load_resources() {
         TOKeyGenericSw__texture_lists = (s32 *)mem_alloc(0xC);
         TOKeyGenericSw__texture_lists[0] = *(s32 *)((s8 *)TOKeyGenericSw__shared_resource_ptrs[0]->area + 0xC);
         TOKeyGenericSw__texture_lists[1] = *(s32 *)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1]->area + 0xC);
-        TOKeyGenericSw__texture_lists[2] = load_gvm_texture_file(lbl_80441D24);
+        TOKeyGenericSw__texture_lists[2] = (s32)load_gvm_texture_file((s32)lbl_80441D24);
     }
 }
 

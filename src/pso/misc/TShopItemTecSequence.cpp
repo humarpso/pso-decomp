@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TShopItemListWindow.h"
 #include "pso/player/TObjPlayer_801A5AEC.h"
 #include "pso/unk/text_8026934C.h"
 #include "pso/misc/TUnk_804CDFE8.h"
@@ -112,16 +113,15 @@ extern s32 lbl_805D6248;
 extern s32 lbl_805D624C;
 s32 restore_player_state__13TShopSequenceFv(void *);
 void *__nw__7TObjectFUl(u32);
-void *TShopEquipmentSellWindow__ct(void *, s32, void *, s32, s32);
+void *TShopEquipmentSellWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 extern void *tl_05;
-void *TShopItemListWindow__ct(void *, s32, void *, s32);
 s32 obj_getField1c(void *);
 s32 get_shop_text(s32 arg0);
 f32 get_scale__15TShopWindowBaseFv(void *);
 s32 get_selected_menu_value(void *);
 int align_menu_entry_positions(void *);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void* p, int a1, int a2, int a3);
-int create_window_menu(void* a0, void* a1, void* a2);
+s32 create_window_menu(s32 arg0, s32 arg1, s32 arg2);
 struct Base_8021FE80_8021FE6C { char pad[0x18]; };
 struct VObj_8021FE80_8021FE6C : Base_8021FE80_8021FE6C {
     virtual void m0();
@@ -131,7 +131,7 @@ struct VObj_8021FE80_8021FE6C : Base_8021FE80_8021FE6C {
     virtual void m4(int, int);
 };
 
-u32 find_item_by_id(s32);
+u8 *find_item_by_id(s32 id);
 s32 sub_802239EC__13TShopSequenceFv(void *);
 s32 sub_80223A48__15TShopWindowBaseFv(void *);
 s32 close_if_single_screen__13TShopSequenceFv(void *);
@@ -179,7 +179,7 @@ typedef struct VObj_18_a93f07 VObj_18_a93f07;
 void TShopItemTecSequence::open_sell_window() {
     W_80220030 *o = (W_80220030 *)__nw__7TObjectFUl(0x3ac);
     if (o != 0) {
-        o = (W_80220030 *)(TShopEquipmentSellWindow__ct(o, (s32)tl_05, ((S_80220030 *)this), ((S_80220030 *)this)->f24, 0x2d));
+        o = (W_80220030 *)(TShopEquipmentSellWindow__ct((void *)o, (void *)tl_05, (void *)((S_80220030 *)this), (void *)(((S_80220030 *)this)->f24), (void *)(0x2d)));
     }
     o->cb0 = (void *)close__20TShopItemTecSequenceFPv;
     o->cb1 = (void *)select_and_advance__20TShopItemTecSequenceFPv;
@@ -190,7 +190,7 @@ void TShopItemTecSequence::open_sell_window() {
 void TShopItemTecSequence::open_item_list_window() {
     W_802200A8 *o = (W_802200A8 *)__nw__7TObjectFUl(0x1c4);
     if (o != 0) {
-        o = (W_802200A8 *)(TShopItemListWindow__ct(o, (s32)tl_05, ((S_802200A8 *)this), ((S_802200A8 *)this)->f24));
+        o = (W_802200A8 *)(TShopItemListWindow__ct((u8 *)o, (s32)tl_05, (s32)((S_802200A8 *)this), (s32)(((S_802200A8 *)this)->f24)));
     }
     o->cb0 = (void *)close__20TShopItemTecSequenceFPv;
     reset_controller_input_state();
@@ -201,7 +201,7 @@ void TShopItemTecSequence::update_buy_sell_choice() {
     s32 r;
     if (((Seq_80220110 *)this)->win == NULL) {
         u16 id = obj_getField1c(((Seq_80220110 *)this)->x24);
-        ((Seq_80220110 *)this)->win = (void *)create_window_menu((void *)((s32 (*)(int))get_window_layout_position)(0x2B), (void *)2, (void *)id);
+        ((Seq_80220110 *)this)->win = (void *)create_window_menu((s32)((void *)((s32 (*)(int))get_window_layout_position)(0x2B)), (s32)((void *)2), id);
         forward_trade_action_default__16TObjCityMainWarpFPviii(((Seq_80220110 *)this)->win, get_shop_text(4), 6, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(((Seq_80220110 *)this)->win, get_shop_text(6), 6, 1);
         ((TWindowSubComCard *)(((Seq_80220110 *)this)->win))->calc_window_size();
@@ -338,7 +338,7 @@ void TShopItemTecSequence__sub_80220560(void) {
 
 void set_judgment_target_flag(void *arg0, void *arg1) {
     u32 temp_r3;
-    if ((TRaderMapCore::is_not_split_screen() == 1) && ((temp_r3 = find_item_by_id(*(s32 *)((s8 *)arg1 + 0xC))) != 0U) && ((s32) *(s32 *)((s8 *)arg0 + 0x168) != 0)) {
+    if ((TRaderMapCore::is_not_split_screen() == 1) && ((temp_r3 = (u32)find_item_by_id(*(s32 *)((s8 *)arg1 + 0xC))) != 0U) && ((s32) *(s32 *)((s8 *)arg0 + 0x168) != 0)) {
         ((TObjPlayer *)temp_r3)->add_item_flags(0x80);
     }
 }

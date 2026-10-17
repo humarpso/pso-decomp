@@ -154,7 +154,7 @@ void TLobby__sub_803F7A90(void);
 extern s32 TLobby__queue_timeout_remaining;
 void NetYieldThread(void);
 void NetSuspendCurrentThread(void);
-s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32, s32, void *);
+s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32 arg0, s32 arg1, s32 arg2);
 s32 TAdSinglePlyChrSelectGC__sub_8042E184(void);
 void subtract_network_queue_timeout(s32 arg0);
 s32 TAdSinglePlyChrSelectGC__sub_8042E320(s32, s32, void *);
@@ -427,7 +427,7 @@ void TLobby::queue_thread_main() {
         TLobby__queue_timeout_remaining = p->b;
         for (;;) {
             if (TAdSinglePlyChrSelectGC__sub_8042E184() == 0) {
-                if (TAdSinglePlyChrSelectGC__sub_8042DD70(p->a, p->b, (void *)subtract_network_queue_timeout) == 1) {
+                if (TAdSinglePlyChrSelectGC__sub_8042DD70((s32)p->a, (s32)p->b, (s32)subtract_network_queue_timeout) == 1) {
                     break;
                 }
             }

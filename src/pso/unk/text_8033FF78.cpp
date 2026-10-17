@@ -31,7 +31,7 @@ struct O_8034009C { u8 pad[0x60]; void *o[10]; };
 
 extern "C" {
 void fn_80340040(O_80340040 *arg0);
-P_8033FF78 *get_player_data__10TObjPlayerFi(int);
+int get_player_data__10TObjPlayerFi(int a0);
 f32 vector_length(void *);
 s32 subtract_vector(void *, void *);
 extern const f32 lbl_805DFAF8;
@@ -53,7 +53,7 @@ void TBoss6Demo15_TYPE2_WAIT::check_any_player_near() {
     y = lbl_805DFAF8;
     lim = lbl_805DFB10;
     for (i = 0; i < n; i++) {
-        p = get_player_data__10TObjPlayerFi(i);
+        p = (P_8033FF78 *)get_player_data__10TObjPlayerFi(i);
         if (((TBoss6PlotFalz *)p)->is_active() != 0) {
             VecCopy((Vec *)&v, (const Vec *)&arg0->pos);
             subtract_vector(&v, &p->pos);

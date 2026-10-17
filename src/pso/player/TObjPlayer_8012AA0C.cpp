@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/item/TItemMenuCtrl_80115AF0.h"
 #include "pso/player/TUnk_804A4A88.h"
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
 
 s32 rotate_matrix_z(s32, s32);
-s32 advance_angle_wrap(void *, s32);
 s32 is_mode_two_and_ready__10TObjPlayerFv();
 int TItemWeapon__ct(void);
 int set_status_flags__10TObjPlayerFUl(void*, void*);
@@ -25,7 +25,7 @@ void TObjPlayer::update_motion_state(s32 arg0) {
 void TObjPlayer::update_photon_chair_sit() {
     if (TObjPlayer::get_player_list() == 2) {
         rotate_matrix_z(0, *(s32 *)&this->unk_1F8);
-        advance_angle_wrap((u8 *)&this->unk_1F8, 0x1999);
+        advance_angle_wrap((s32 *)&this->unk_1F8, 0x1999);
     }
 }
 

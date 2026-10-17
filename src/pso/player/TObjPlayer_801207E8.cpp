@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8012105C.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/player/TObjPlayer.h"
 #include "pso/misc/TCameraCtrl.h"
@@ -8,7 +9,6 @@ extern "C" {
 typedef struct { f32 sp8; f32 spC; f32 sp10; } FloatTriplet;
 
 s32 get_view_matrix__11TCameraCtrlFv();
-s32 get_model_joint_matrix(void *, s32);
 s32 transform_point_by_current_matrix(f32 *, s32);
 s32 push_matrix();
 
@@ -33,7 +33,7 @@ s32 TObjPlayer::draw_icon(s32 arg1, s32 arg2) {
         floats.spC = lbl_805DAC98;
         floats.sp8 = lbl_805DAC98;
         push_matrix();
-        TObjPlayer::copy_matrix(0, get_model_joint_matrix(*(void * *)&this->unk_F0, arg1));
+        TObjPlayer::copy_matrix(0, (u32)get_model_joint_matrix(*(void * *)&this->unk_F0, arg1));
         TCameraCtrl::concat_matrix(0, get_view_matrix__11TCameraCtrlFv());
         transform_point_by_current_matrix(&floats.sp8, arg2);
         pop_matrix();

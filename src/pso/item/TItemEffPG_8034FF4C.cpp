@@ -12,13 +12,11 @@ typedef char RecoveredGlobal_8035007C___vt__10TItemEffPG_size[sizeof(RecoveredGl
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-s32 TItemEffPG__visual_ct(int, void *, void *);
 extern s32 __vt__10TItemEffPG[];
 extern s32 lbl_805D4350;
 extern const float lbl_805DFE14;
 extern const f32 lbl_805DFE18;
-s32 check_hits__14TItemAttackColFPv(void *);
-void TItemEffPG__begin_visual_fade(void *p);
+void check_hits__14TItemAttackColFPv(u8 *arg0);
 int TObjPlayer__sub_802E451C(void);
 void __dl__7TObjectFPv(void *);
 s32 has_game_join_id__13TUnk_804E355CFv();
@@ -44,7 +42,7 @@ void TItemEffPG::run_task() {
                 this->m_40 = temp_f1_2;
             }
         }
-        check_hits__14TItemAttackColFPv(this);
+        check_hits__14TItemAttackColFPv((u8 *)this);
         return;
     }
     if ((u32) *(u32 *)&this->m_down == 0U) {
@@ -85,7 +83,7 @@ u8 *TItemEffPG__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x68)));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = TItemEffPG__visual_ct((int) (temp_r3), (void *) (arg0), (void *) (arg2));
+        var_r0 = (s32)TItemEffPG__visual_ct((u8 *)(temp_r3), (u8 *)(arg0), (u8 *)(arg2));
     }
     *(s32 *)&((TItemEffPG *)arg0)->m_d0 = var_r0;
     return arg0;

@@ -23,7 +23,7 @@ struct RecoveredGlobal_8028E940___vt__12TCharaMaking {
 extern "C" {
 void *__nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-s32 TCMCharacter__ct(int, void *);
+void *TCMCharacter__ct(void *arg0, void *arg1);
 s32 create__14TObjCMMainMenuFv(void *);
 extern RecoveredGlobal_8028E9A4___vt__12TCharaMaking __vt__12TCharaMaking;
 extern s32 lbl_805D3B6C;
@@ -112,7 +112,7 @@ u8 *TCharaMaking__ct(u8 *arg0, s32 arg1) {
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3B6C;
     temp_r3 = ((u32)__nw__7TObjectFUl((int) (0x10C)));
     if (temp_r3 != 0U) {
-        TCMCharacter__ct((int) (temp_r3), (void *) (arg0));
+        TCMCharacter__ct((void *)(temp_r3), (arg0));
     }
     creation_main_menu_obj = create__14TObjCMMainMenuFv((void *) (arg0));
     *(s32 *)((s8 *)arg0 + 0x1C) = 0x1555;

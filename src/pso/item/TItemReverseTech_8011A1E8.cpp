@@ -51,7 +51,7 @@ Hdr_8011A270 *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 s32 prs_decompress_alloc(int, int, int);
 int set_stream_and_load_file__6TLobbyFi(char *);
 void mem_free(void *p);
-int mem_alloc(u32);
+void *mem_alloc(u32 size);
 char *strncpy(char *, const char *, u32);
 void load_gvm_texture_archive(int, int);
 extern Name_8011A270 lbl_8043E714;
@@ -60,7 +60,7 @@ extern int TItemReverseTech__entry_table;
 extern int TItemReverseTech__name_buffer;
 void TKeyBoardControl__sub_8000F90C(s32);
 void TKeyBoardControl__sub_8000F91C(s32);
-void set_active_camera_pose(Vec_8011A43C *, Vec_8011A43C *);
+void set_active_camera_pose(u8 *arg0, u8 *arg1);
 u8 *TCameraCtrl__ct(u8 *arg0, void *parent);
 void clear_resource_load_tasks();
 void init_map_lights(u8 *arg0);
@@ -105,7 +105,7 @@ void TItemReverseTech::load_textures() {
     Hdr_8011A270 *hdr;
     int file;
     int buf;
-    TItemReverseTech__name_buffer = mem_alloc(0x1C);
+    TItemReverseTech__name_buffer = (int)mem_alloc(0x1C);
     strncpy((char *)TItemReverseTech__name_buffer, name->s, 0x1B);
     e = (Ent_8011A270 *)mem_alloc(0xCC);
     TItemReverseTech__entry_table = (int)e;
@@ -119,7 +119,7 @@ void TItemReverseTech::load_textures() {
     hdr->entries = TItemReverseTech__entry_table;
     file = set_stream_and_load_file__6TLobbyFi(name->s);
     if (file != 0) {
-        buf = mem_alloc(0x200000);
+        buf = (int)mem_alloc(0x200000);
         if (buf != 0 && prs_decompress_alloc(file, buf, 0x200000) > 0) {
             load_gvm_texture_archive(buf, TItemReverseTech__texture_archive);
         }
@@ -208,7 +208,7 @@ void TItemReverseTech::init_scene() {
     Vec_8011A43C eye = lbl_8043E68C[0];
     Vec_8011A43C at = lbl_8043E698[0];
     TCameraCtrl::select_active_controller(9);
-    set_active_camera_pose(&eye, &at);
+    set_active_camera_pose((u8 *)&eye, (u8 *)&at);
     TKeyBoardControl__sub_8000F90C(2);
     TKeyBoardControl__sub_8000F91C(2);
     TParticleCtrl::create_quad_sprites();

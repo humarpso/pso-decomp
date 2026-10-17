@@ -35,7 +35,7 @@ struct RecoveredGlobal_800F09E8_lbl_804976B0 {
 };
 
 extern "C" {
-s32 set_chunk_material_override_pair(s32, s32);
+void set_chunk_material_override_pair(s32 arg0, s32 arg1);
 extern s32 model_render_flags;
 extern RecoveredGlobal_800F08AC_lbl_80501080 lbl_80501080;
 extern RecoveredGlobal_800F08AC_lbl_805010D0 lbl_805010D0;

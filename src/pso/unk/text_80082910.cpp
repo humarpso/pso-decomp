@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_800F9B84.h"
 #include "pso/unk/text_80082910.h"
 struct C_80082AA8 { s32 v; };
 
@@ -30,7 +31,6 @@ extern s32 particle_texture_id_table[];
 extern void *lbl_805D4ED8;
 extern char lbl_80438EF8[];
 extern void *lbl_80438EE8[];
-void *create_named_object(const char *name);
 void bind_gvm_texture_list(const char *name, void *data);
 void copy_slot_to_anim_frame(struct Copy_80082954 *c);
 void fn_800829E0(struct Copy_800829E0 *c);
@@ -62,7 +62,7 @@ void fn_800829E0(struct Copy_800829E0 *c) {
 void load_critical_effect_resources(void) {
     E_80082AA8 *e;
     s32 i;
-    lbl_805D4ED8 = create_named_object(lbl_80438EF8);
+    lbl_805D4ED8 = (void *)create_named_object((s32)lbl_80438EF8);
     bind_gvm_texture_list((const char *)lbl_80438EE8[1], lbl_80438EE8[0]);
     e = shared_effect_texture_list[0];
     for (i = 0; i < 0x36; i++) {

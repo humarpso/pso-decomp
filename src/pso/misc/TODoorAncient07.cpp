@@ -26,7 +26,7 @@ extern const f32 lbl_805DB454;
 extern const f32 lbl_805DB458;
 extern const f32 lbl_805DB45C;
 void set_indexed_flags(void *, s32, s32);
-s32 is_any_player_within_radius_xz(void *, f32);
+s32 is_any_player_within_radius_xz(u8 *self, f32 radius);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern u8 *TODoorAncient07__texture_lists;
 extern const f32 lbl_805DB464;
@@ -79,7 +79,7 @@ void TODoorAncient07::play_proximity_sound() {
     u8 *arg0 = (u8 *)this;
     if (this->m_d0 & 1) {
         this->texture_id = (s32) *(s32 *)((s8 *)TODoorAncient07__texture_lists + 4);
-        if (is_any_player_within_radius_xz((void *)((s32) arg0), lbl_805DB464) == 1) {
+        if (is_any_player_within_radius_xz((u8 *)((s32) arg0), lbl_805DB464) == 1) {
             *(s32 *)&this->m_ac = 1;
             set_indexed_flags(arg0, 0, 8);
             play_sound_effect((s32)(0x4004B708), (void *)((u32) (arg0 + 0x38)), (s32)(0), (s32)(0));

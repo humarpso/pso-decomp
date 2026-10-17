@@ -18,7 +18,7 @@ struct Brk_802A6F98 { s32 a[5]; s32 b[3]; s32 *c[3]; };
 void *get_bml_model(u32, int);
 u32 load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
-u32 load_gvm_texture_file(void *);
+u8 *load_gvm_texture_file(s32 arg0);
 extern Tbl_802A6F98 seabed_suiso_texture_name_table;
 extern Tbl_802A6F98 lbl_80466C80;
 extern s32 lbl_80466CE0[];
@@ -64,7 +64,7 @@ void TObjSeabedSuisoBrakable::load_resources() {
             p = (void *)load_resource_from_descriptor(p, 1, bm_obj_seabed_suiso_2_resource_descriptor, 0, 0, 0);
         }
         TObjSeabedSuisoBrakable__resource_bundle = (u32)p;
-        if ((TObjSeabedSuisoBrakable__texture_gvm_handle = load_gvm_texture_file(lbl_80466CE0)) != 0) {
+        if ((TObjSeabedSuisoBrakable__texture_gvm_handle = (u32)load_gvm_texture_file((s32)lbl_80466CE0)) != 0) {
             t1 = seabed_suiso_texture_name_table;
             for (i = 0; i < 5; i++) {
                 TObjSeabedSuisoBrakable__break_model_entries[i] = ((TObjDoorJung *)TObjSeabedSuisoBrakable__texture_gvm_handle)->find_entry_by_name((const char *)(t1.w[i]));
@@ -78,7 +78,7 @@ void TObjSeabedSuisoBrakable::load_resources() {
             p = (void *)load_resource_from_descriptor(p, 1, bm_obj_seabed_suiso_resource_descriptor, 0, 0, 0);
         }
         TObjSeabedSuisoBrakable__resource_bundle = (u32)p;
-        if ((TObjSeabedSuisoBrakable__texture_gvm_handle = load_gvm_texture_file(lbl_80466CF8)) != 0) {
+        if ((TObjSeabedSuisoBrakable__texture_gvm_handle = (u32)load_gvm_texture_file((s32)lbl_80466CF8)) != 0) {
             t2 = lbl_80466C80;
             for (i = 0; i < 5; i++) {
                 TObjSeabedSuisoBrakable__break_model_entries[i] = ((TObjDoorJung *)TObjSeabedSuisoBrakable__texture_gvm_handle)->find_entry_by_name((const char *)(t2.w[i]));

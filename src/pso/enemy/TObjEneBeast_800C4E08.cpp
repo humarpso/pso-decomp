@@ -996,13 +996,13 @@ int initialize__9TObjEnemyFPv(void);
     extern const float lbl_805DA060;
     extern const float lbl_805DA064;
 s32 update_movement_status__13TUnk_804806E8Fv(void *);
-s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
+void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0);
 s32 submit_cursor_candidate(void *, int);
 extern const f32 lbl_805DA048;
 s32 update_action_hold_status__13TUnk_804806E8Fv(void *);
 u16 obj_getField1c(void *);
 int queue_destruction__7TObjectFv(void*);
-f32 calc_boss4_scale__10TObjPlayerFi(void *);
+f32 calc_boss4_scale__10TObjPlayerFi(s32 arg0);
 s32 enemy_move_toward(void *, s32, void *, int, f32);
 s32 test_elt_flag__13TUnk_80493450Fll(void *, int, int);
 extern const f32 lbl_805DA044;
@@ -1012,8 +1012,8 @@ extern const f32 lbl_805DA02C;
 extern const f32 lbl_805DA030;
 s32 enemy_turn_toward_dest(void *, s32);
 s32 get_current_floor(void);
-Tgt_800C53DC *get_enemy_entity(u16);
-Tgt_800C53DC *get_player_by_client_id(u16);
+u8 *get_enemy_entity(u16 arg0);
+void *get_player_by_client_id(s32 i);
 extern const f32 lbl_805DA04C;
 extern const f32 lbl_805DA050;
 void beast_update_attack(Self_800C53DC *arg0);
@@ -1144,14 +1144,14 @@ void TUnk_80493450::vfunc_61() { obj_clearFlags30(256); }
 void beast_update_attack(Self_800C53DC *arg0) {
     Tgt_800C53DC *p;
     if (arg0->f338 < 0x1000) {
-        p = get_player_by_client_id(arg0->f338);
+        p = (Tgt_800C53DC *)get_player_by_client_id(arg0->f338);
         if (p != NULL && ((TObjPlayer *)p)->get_field_3e4() == get_current_floor()) {
             arg0->target = p;
         } else {
             arg0->target = NULL;
         }
     } else if (arg0->f338 < 0x4000) {
-        arg0->target = get_enemy_entity(arg0->f338);
+        arg0->target = (Tgt_800C53DC *)get_enemy_entity(arg0->f338);
     } else {
         arg0->target = NULL;
     }
@@ -1211,7 +1211,7 @@ void TUnk_80493450::vfunc_60() {
     default:
         o->state = 5;
         o->f328 = 1;
-        if (lbl_805DA03C < calc_boss4_scale__10TObjPlayerFi(o)) {
+        if (lbl_805DA03C < calc_boss4_scale__10TObjPlayerFi((s32)o)) {
             o->fB8 = 3;
         } else {
             o->fB8 = 4;
@@ -1648,7 +1648,7 @@ void TUnk_80493450::run_task() {
     }
   }
   ((TObjEnemy *)arg0)->update_prev_position();
-  copy_position__20TBoss3VoloptHiraisinFi((void *) arg0);
+  copy_position__20TBoss3VoloptHiraisinFi((s32)arg0);
   submit_cursor_candidate((void *) arg0, (int) (-1));
   this->m_2b4 = (f32) ((this->m_2b4) + lbl_805DA048);
 }

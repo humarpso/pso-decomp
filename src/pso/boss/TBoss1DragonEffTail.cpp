@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/boss/TBoss1DragonColli.h"
+#include "pso/boss/TBoss8Dragon_800BC53C.h"
+#include "pso/enemy/TObjEneDD_800BA754.h"
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/boss/TBoss1DragonEffTail.h"
@@ -76,16 +79,12 @@ struct Vec_8002BD38 { f32 x, y, z; };
 extern "C" {
 void TBoss1Dragon__sub_8002AB6C(u8 *arg0);
 extern const f32 lbl_805D8158;
-void TBoss1DragonEffTail__vt20(u8 *arg0, u8 *arg1);
-void fn_8002B630(void *, void *);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
 extern u8 TBoss1DragonEffTail__collision_body_templates[];
 extern s32 __vt__19TBoss1DragonEffTail[];
 extern s32 TBoss1DragonEffTail__name;
 extern const f32 lbl_805D8154;
 EffTail_8002C06C *TBoss1DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 arg2);
-void update_collider_contact_by_height(u8 *arg0, f32 farg0);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 s32 vec3_add_to(s32, s32, s32);
@@ -99,10 +98,6 @@ extern u8 lbl_80435454[];
 extern const f32 lbl_805D8148;
 extern const f32 lbl_805D814C;
 extern const f32 lbl_805D8150;
-void run_task__19TBoss1DragonEffTailFv(u8 *arg0);
-void TBoss1DragonEffTail__vt18(s32 arg0, s32 arg1);
-void *__dt__19TBoss1DragonEffTailFv(void *arg0, s16 arg1);
-void delete_buffer__12TBoss8DragonFis(void *, int);
 void __dl__7TObjectFPv(void *);
 int fill_value_array(void*);
 
@@ -166,7 +161,7 @@ int TBoss1DragonEffTail::is_visible() { return fill_value_array(*(void* *)&this-
 void *__dt__19TBoss1DragonEffTailFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TBoss1DragonEffTail;
-        delete_buffer__12TBoss8DragonFis(*(void **)((s8 *)arg0 + 0xB8), 1);
+        delete_buffer__12TBoss8DragonFis((s32)(*(void **)((s8 *)arg0 + 0xB8)), 1);
         *(s32 *)&((TBoss1DragonEffTail *)arg0)->m_b8 = 0;
         ((TUnk_804928CC *)arg0)->destroy_enemy_object(0);
         if (arg1 > 0) {
@@ -184,7 +179,7 @@ EffTail_8002C06C *TBoss1DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 
     data = TBoss1DragonEffTail__collision_body_templates;
     arg0->unk0 = TBoss1DragonEffTail__name;
     for (i = 1; i < 0x11; i++) {
-        fn_8002B630(&arg0->spheres[i], data);
+        fn_8002B630((u8 *)&arg0->spheres[i], (u8 *)data);
     }
     arg0->unkB0 = arg1;
     arg0->unkB4 = arg2;

@@ -173,7 +173,7 @@ s32 check_value_equals__13TQuestColCtrlFPll(void*, s32);
 void * TQuestVmDownLoadServer__sub_8006EF6C(s32);
 void copy_name(s32 arg0);
 void read_disc_file(void *, s32);
-void * get_text_collection(s32);
+s32 get_text_collection(s32 arg0);
 void fn_80131ADC(u8 *arg0, u8 *arg1);
 void fn_80131B18(u8 *arg0, u8 *arg1);
 u32 TKeyBoardControl__ct(void *, void *, s32, s32, s32, s32);
@@ -235,7 +235,7 @@ void TWindowHelpItem__set_displayed_item_by_id(void *, s32);
 void TWindowSubComCard__sub_80265500(u8 *arg0);
 s32 get_selected_menu_value(void *);
 s32 align_menu_entry_positions(u32);
-void forward_trade_action_default__16TObjCityMainWarpFPviii(void *, void *, s32, s32);
+int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
 void * check_room_seq_4__16TAdChrSelASlotGCFl(void *, s32);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(void *);
 void send_and_handle__6TLobbyFii(void *, void *, s32);
@@ -377,7 +377,7 @@ void *TObjItemNameEntry__ct(void *arg0) {
     }
     *(u32 *)((s8 *)arg0 + 0x20) = ((u32 (*)(s32, s32))check_room_seq_4__16TAdChrSelASlotGCFl)(((s32 (*)(s32))get_window_layout_position)(0x56), 1);
     if ((u32) *(u32 *)((s8 *)arg0 + 0x20) != 0U) {
-        ((s32 (*)(u32, s32, s32, s32))forward_trade_action_default__16TObjCityMainWarpFPviii)(*(u32 *)((s8 *)arg0 + 0x20), ((s32 (*)(s32))TQuestVmDownLoadServer__sub_8006EF6C)(0x47), 0x81, 0);
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(*(u32 *)((s8 *)arg0 + 0x20)), (int)(((s32 (*)(s32))TQuestVmDownLoadServer__sub_8006EF6C)(0x47)), (int)(0x81), (int)(0));
     }
     ((TWindowSubComCardList *)(*(u32 *)((s8 *)arg0 + 0x20)))->set_scroll_target(lbl_805DC4EC, lbl_805DC4F0);
     align_menu_entry_positions(*(u32 *)((s8 *)arg0 + 0x20));

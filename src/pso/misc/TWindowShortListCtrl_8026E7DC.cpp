@@ -95,7 +95,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0);
 extern const Buf_8026E884 lbl_8044F5A8;
 void TWindowShortListCtrl__sub_8026E884(s16 *dst);
 void *__dt__20TWindowShortListCtrlFv(void *arg0, s16 arg1);
-void *create_window_menu(s32, s32, s32);
+s32 create_window_menu(s32 arg0, s32 arg1, s32 arg2);
 s32 end_player_keyboard_hold(s32);
 s32 TWindowCtrl__sub_8024A1A8();
 s32 has_player_active_menu__11TWindowCtrlFv(s32);
@@ -285,7 +285,7 @@ void TWindowShortListCtrl::refresh_technique_rows(s32 arg1, void *arg2_arg) {
 void *TWindowShortListCtrl::create_window(s32 arg1, s32 arg2_arg) {
     void *window_menu;
 
-    window_menu = create_window_menu(arg1, 0x13, *(s32 *)&this->m_24);
+    window_menu = (void *)create_window_menu(arg1, 0x13, *(s32 *)&this->m_24);
     set_flag70_bit10__21TWindowSubComCardListFv();
     *(s32 *)((s8 *)window_menu + 0x5C) = 0x01000000;
     ((TWindowSubComCardList *)window_menu)->set_flag70_bit100();

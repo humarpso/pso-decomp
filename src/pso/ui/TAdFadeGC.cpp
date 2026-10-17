@@ -10,7 +10,7 @@ struct Desc_802C79C8 { f32 *pos; u32 *col; s32 a; s32 b; };
 extern "C" {
 s32 get_main_phase(void);
 s32 get_current_floor(void);
-s32 get_player_by_client_id(u32);
+void *get_player_by_client_id(s32 i);
 f32 xz_distance_squared(void *, void *);
 void queue_destruction__7TObjectFv(void *arg0);
 s32 draw_color_lines(void *, int, int, f32);
@@ -165,7 +165,7 @@ bool TObjTradeCollision::is_player_outside_trade_radius(u32 arg1) {
     f32 temp_f31;
     s32 temp_r31;
     s32 player;
-    player = get_player_by_client_id(arg1);
+    player = (s32)get_player_by_client_id(arg1);
     if (player == 0) {
         return 0;
     }

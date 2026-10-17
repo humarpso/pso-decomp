@@ -1,4 +1,7 @@
 #include "pso/TParticleCtrl.h"
+#include "pso/boss/TObjBoss2Tunnel_8007E418.h"
+#include "pso/misc/ParticleBallistic.h"
+#include "pso/misc/TParticleCtrl.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/system/vector.h"
 #include "pso/misc/TUnk_8048E790.h"
@@ -134,15 +137,11 @@ struct Part_800890F4 {
 
 extern "C" {
 void *alloc_particle_memory(int);
-u8 *create_ballistic_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 void queue_destruction__7TObjectFv(void *arg0);
 f32 vec_squared_length(u8 *arg0);
 extern const f32 TParticleCtrl__data_805D94F8;
 extern const f32 TParticleCtrl__data_805D94FC;
-u8 *__dt__13TUnk_8048E728Fv(u8 *arg0, s16 arg1);
 extern s32 TParticleCtrl__data_8048E778[];
-void *__dt__13TUnk_8048E778Fv(void *arg0, s16 arg1);
-u8 * init_particle_base(void *, void *, s32);
 s32 rand(void);
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 s32 is_split_screen();
@@ -165,12 +164,10 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 f64 atan2_float(f32, f32);
 f32 vector_length(void *);
-void rotate_vec_xz(void *, void *, s32);
 extern const f32 TParticleCtrl__data_805D9500;
 extern const f32 TParticleCtrl__data_805D9504;
 extern const f32 TParticleCtrl__data_805D950C;
 extern const f32 lbl_805D9520;
-u8 *construct_ballistic_particle(void *a0, void *a1, void *a2, void *a3, s32 arg4, u16 arg5, s16 arg6);
 void func_80141618__Fv();
 void restore_saved_depth_alpha_state();
 void direction_to_rotation_xz(void *, void *, void *);

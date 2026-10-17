@@ -22,7 +22,7 @@ struct VObj_18_26c590 : VBase_18_26c590 {
 
 extern "C" {
 s32 TObjPlayer__sub_801AFD8C(u8 *arg0);
-s32 get_player_by_client_id(u32);
+void *get_player_by_client_id(s32 i);
 s32 __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *);
 s32 strncpy(void *, void *, int);
 s32 fill_guild_card_from_player(u8 *arg0, u32 arg1);
@@ -33,7 +33,7 @@ s32 fill_guild_card_from_player(u8 *arg0, u32 arg1) {
   unsigned char new_var;
   s32 player;
   u8 *temp_r4;
-  player = get_player_by_client_id(arg1);
+  player = (s32)get_player_by_client_id(arg1);
   if (player == 0)
   {
     return 0;

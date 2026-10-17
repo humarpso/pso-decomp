@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TShopEquipmentGearSequence_8021B438.h"
+#include "pso/misc/TShopItemTecSequence.h"
 #include "pso/misc/TShopEquipmentGearSequence_8021E3A4.h"
 #include "pso/misc/TShopEquipmentGearSequence.h"
 
 extern "C" {
 
-void *TShopEquipmentGearSequence__ct(void *, void *, void *);
-void *TShopItemTecSequence__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
@@ -13,7 +13,7 @@ extern void *tl_05;
 void *TShopEquipmentGearSequence::create_instance(void *arg0) {
     void *o = __nw__7TObjectFUl(0x38);
     if (o != NULL) {
-        o = TShopEquipmentGearSequence__ct(o, tl_05, arg0);
+        o = TShopEquipmentGearSequence__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -24,7 +24,7 @@ int get_equipment_gear_shop_window_slot(int a0) {  return TShopEquipmentGearSequ
 void *create_shop_item_tec_sequence(void *arg0) {
     void *o = __nw__7TObjectFUl(0x38);
     if (o != NULL) {
-        o = TShopItemTecSequence__ct(o, tl_05, arg0);
+        o = TShopItemTecSequence__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

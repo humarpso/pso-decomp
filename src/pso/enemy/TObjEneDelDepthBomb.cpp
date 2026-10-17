@@ -425,7 +425,7 @@ s32 get_mode__11TCameraCtrlFPv(void *);
 void draw_blob_shadow(s32 arg0);
 s32 send_6x0A_enemy_state(void *, void *);
 s32 refresh_lobby_state__10TObjPlayerFv();
-s32 bind_enemy_combat_stats(void *, int, int, int);
+s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 s32 initialize__9TObjEnemyFPv(void *);
 void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
@@ -434,7 +434,7 @@ s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, int);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
-s32 create__11TTecRaBartaFPvPvPvPv(s32, void *, void *, s32);
+void create__11TTecRaBartaFPvPvPvPv(void *source, void *origin, void *pos, void *level);
 void restore_render_scissor(s32 arg0);
 int TObjEneDelDepthBomb__sub_80313268(void);
 void run_task__19TObjEneDelDepthBombFv(Bomb_803133BC *o);
@@ -583,7 +583,7 @@ void run_task__19TObjEneDelDepthBombFv(Bomb_803133BC *o) {
         Vec_803133BC w;
         VecCopy((Vec *)&w, (const Vec *)&o->pos);
         w.y += TObjEneDelDepth__data_805DF268;
-        create__11TTecRaBartaFPvPvPvPv(o->f348, &o->pos, &w, o->f350);
+        create__11TTecRaBartaFPvPvPvPv((void *)o->f348, (void *)&o->pos, (void *)&w, (void *)o->f350);
         queue_destruction__7TObjectFv(o);
     }
 }
@@ -1525,7 +1525,7 @@ void TObjEneDelDepth::init() {
     *(f32 *)((s8 *)arg0 + 0x30C) = (f32) TObjEneDelDepth__data_805DF258;
     *(f32 *)((s8 *)arg0 + 0x308) = (f32) TObjEneDelDepth__data_805DF258;
     *(s32 *)((s8 *)arg0 + 0x2A8) = 0;
-    bind_enemy_combat_stats((void *) (arg0), register_boss__6TLobbyFl(0x30), dispatch_shared_handler_b__6TLobbyFl(0x30), register_object__6TLobbyFl(0x30));
+    bind_enemy_combat_stats((arg0), (u8 *)(register_boss__6TLobbyFl(0x30)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(0x30)), (u8 *)(register_object__6TLobbyFl(0x30)));
     *(s16 *)((s8 *)arg0 + 0x33E) = (s16) *(s16 *)((s8 *)arg0 + 0x32C);
     ((TBoss3Volopt *)arg0)->reset_photon_effect();
     *(s32 *)((s8 *)arg0 + 0x350) = 0;

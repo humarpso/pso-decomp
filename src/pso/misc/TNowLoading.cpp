@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80141D1C.h"
 #include "pso/misc/TLobby_8001D6A0.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
@@ -41,7 +42,6 @@ void DCInvalidateRange(void *, u32);
 void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void *);
 extern s32 aram_dma_pending;
 s32 TLoadingCur__ct(void *, void *, void *);
-s32 direction_to_rotation_xz(void *, void *, void *);
 void *__nw__7TObjectFUl(u32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 TAdLoadNetworkGC__ct(void *, void *, void *);
@@ -151,7 +151,7 @@ TNowLoading_8001D3A8 *TNowLoading__ct(TNowLoading_8001D3A8 *parent, void *arg1, 
     dir.x = -cam->dir.x;
     dir.y = -cam->dir.y;
     dir.z = -cam->dir.z;
-    direction_to_rotation_xz(&dir, &out[0], &out[2]);
+    direction_to_rotation_xz((u8 *)&dir, &out[0], &out[2]);
     parent->pos.x = lbl_805D7EC0 * cam->dir.x + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0);
     parent->pos.y = lbl_805D7EC0 * cam->dir.y + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 4);
     parent->pos.z = lbl_805D7EC0 * cam->dir.z + *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 8);

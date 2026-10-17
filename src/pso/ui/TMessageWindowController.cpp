@@ -1,4 +1,5 @@
 #include "pso/ui/TMessageWindowController.h"
+#include "pso/misc/TQuestListChallenge.h"
 #include "pso/misc/TUnk_804CDFE8.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestVmDownLoadServer.h"
@@ -14,11 +15,10 @@ int strcmp(const char *, const char *);
 const char *get_status_window__20TWindowSubStatusDispFi(u16);
 extern s32 local_client_id;
 const char *get_selected_entry__16TQuestListOnlineFv();
-const char *get_selected_quest_text__19TQuestListChallengeFv();
 s32 get_game_play_mode();
 char *get_quest_name__12TQuestThreadFv(void);
-const char *get_guild_text(s32);
-const char *get_shop_text(s32);
+s32 get_guild_text(s32 arg0);
+s32 get_shop_text(s32 arg0);
 s32 get_appraisal_text(s32 arg0);
 TWindowMessagePage *create__18TWindowMessagePageFllll(s32, s32, s32, s32);
 TWindowMessagePage *set_text__18TWindowMessagePageFlll(s32, s32, s32);
@@ -59,7 +59,7 @@ void TMessageWindowController::append_quest_title() {
         switch (mode) {
         case 1:
         case 2:
-            text = get_selected_quest_text__19TQuestListChallengeFv();
+            text = (const char *)get_selected_quest_text__19TQuestListChallengeFv();
             break;
         }
     } else {
@@ -161,7 +161,7 @@ void TMessageWindowController::send_message(s32 index, s32 flags) {
 void TMessageWindowController::format_guild_message(s32 index, s32 flags) {
     const char *text;
     if (window != NULL) {
-        text = get_guild_text(index);
+        text = (const char *)get_guild_text(index);
         memset(buffer, 0, 0x200);
         parse_message_text(text, buffer);
         ((TWindowMessagePage *)window)->set_message((void *)buffer, (s32)(flags | 0x80));
@@ -177,7 +177,7 @@ void TMessageWindowController::display_message(const char *text, s32 flags) {
 void TMessageWindowController::format_shop_message(s32 index, s32 flags) {
     const char *text;
     if (window != NULL) {
-        text = get_shop_text(index);
+        text = (const char *)get_shop_text(index);
         memset(buffer, 0, 0x200);
         parse_message_text(text, buffer);
         ((TWindowMessagePage *)window)->set_message((void *)buffer, (s32)(flags | 0x80));

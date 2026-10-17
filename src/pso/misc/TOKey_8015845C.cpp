@@ -26,7 +26,7 @@ extern "C" {
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 f32 post_translate_matrix(void *);
-s32 draw_model_motion(int, int, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern const f32 lbl_805DB2E8;
 extern const f32 lbl_805DB2EC;
 int construct_collider_proxy__13TUnk_804AF8A0Fv(void);
@@ -51,9 +51,9 @@ void TUnk_804AFBF8::render() {
         temp_r4 = *(u32 *)&this->m_bc;
         if (temp_r4 != 0U) {
             if (temp_r3 == 1) {
-                draw_model_motion((int) (*(s32 *)&this->model), (int) (temp_r4), (f32) (this->m_b0));
+                draw_model_motion((void *)(*(s32 *)&this->model), (void *)(temp_r4), (f32) (this->m_b0));
             } else {
-                draw_model_motion((int) (*(s32 *)&this->model), (int) (temp_r4), (f32) (this->m_b0));
+                draw_model_motion((void *)(*(s32 *)&this->model), (void *)(temp_r4), (f32) (this->m_b0));
             }
         } else if (temp_r3 == 1) {
             draw_chunk_object((void *)(*(s32 *)&this->model));

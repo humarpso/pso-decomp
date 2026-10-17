@@ -41,7 +41,7 @@ struct O_8031224C { u8 pad[0x20]; s32 w0; u8 pad2[0x240 - 0x24]; s32 timer; u8 p
 extern "C" {
 s64 OSGetTime(void);
 s32 is_battle_decided__19TPlayerBattleCtrl4PFv(void *);
-VObj_18_26c590 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 s32 send_and_handle__6TLobbyFii(s32, void *, int);
 int sprintf(char *, const char *, ...);
 char *strncpy(char *, const char *, u32);
@@ -96,7 +96,7 @@ void TPlayerBattleCtrl4P::begin_battle_results() {
         TPlayerBattleCtrl4P::remove_player(((void *)this), i, 1);
     }
     for (i = 0; i < 4; i++) {
-        p = get_player_by_client_id(i);
+        p = (VObj_18_26c590 *)get_player_by_client_id(i);
         if (p != 0) {
             set_type__10TObjPlayerFl((u8 *)p + 0x644, 0xE10);
         }
@@ -192,7 +192,7 @@ void TPlayerBattleCtrl4P::show_team_matchup() {
         names[i][0] = 0;
     }
     for (i = 0; i < 4; i++) {
-        p = get_player_by_client_id(i);
+        p = (VObj_18_26c590 *)get_player_by_client_id(i);
         if (p != NULL) {
             team = ((O_8031224C *)this)->team[i] != 1 ? 1 : 0;
             if (cnt.n[team] < 2) {

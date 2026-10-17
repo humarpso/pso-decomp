@@ -10,7 +10,7 @@ s32 get_current_slot_entry__6TLobbyFv();
 s32 strcmp(s32, s32);
 void play_area_music(char *name);
 s32 get_main_phase(void);
-s32 set_active_camera_pose(void *, void *);
+void set_active_camera_pose(u8 *arg0, u8 *arg1);
 s32 activate_camera_mode(s32 arg0);
 extern V3_8023E834 lbl_8044DD00;
 extern V3_8023E834 lbl_8044DD0C;
@@ -53,7 +53,7 @@ void TAdMultiChgGameModeGC::set_default_camera() {
     V3_8023E834 a = lbl_8044DD00;
     V3_8023E834 b = lbl_8044DD0C;
     activate_camera_mode(9);
-    set_active_camera_pose(&a, &b);
+    set_active_camera_pose((u8 *)&a, (u8 *)&b);
 }
 
 void TAdMultiChgGameModeGC::set_mode_change_state() {

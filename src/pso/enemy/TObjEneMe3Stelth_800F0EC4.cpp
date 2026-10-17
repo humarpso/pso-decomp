@@ -249,7 +249,7 @@ void TObjEneMe3Stelth__sub_800F1440(u8 *arg0, s32 arg1);
 void move_with_wall_slide(u8 *arg0);
 void enemy_set_heading_velocity(u8 *arg0, s32 arg1, f32 farg0);
 s32 select_enemy_destination(void *, Vec_800F1098 *, int);
-s32 copy_position_if_valid__10TObjPlayerFii(void *, Vec_800F1098 *);
+s32 copy_position_if_valid__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 update_angle__10TObjPlayerFlPv(void *, s32, void *);
 s32 enemy_turn_toward_dest(void *, s32);
 s32 matrix_mult_vec(int, void *, void *);
@@ -266,11 +266,11 @@ extern u8 *anim_model_matrix_array;
 extern const f32 TObjEneMe3Stelth__data_805DA820;
 extern const f32 TObjEneMe3Stelth__data_805DA824;
 void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1);
-f32 calc_boss4_scale__10TObjPlayerFi(void *);
+f32 calc_boss4_scale__10TObjPlayerFi(s32 arg0);
 s32 receive_direct_attack__10TObjPlayerFv(void *, void *, void *, void *, s32, s32);
 u16 obj_getField1c(void *);
 void handle_direct_attack__16TObjEneMe3StelthFPvPviPv(Obj_800F0EC4 *arg0, void *arg1, Pair_800F0EC4 arg2, void *arg3);
-s32 fn_8002B630(void *, void *);
+void fn_8002B630(u8 *arg0, u8 *arg1);
 u32 get_valid_target_player__10TNpcPlayerFv(int);
 extern u8 TObjEneMe3Stelth__collision_body_template[];
 s32 TObjEneMe3Stelth__sub_800F0F84(u8 *arg0, Vec_800F0F84 *arg1);
@@ -280,7 +280,7 @@ s32 TObjEneMe3Stelth__sub_800F0F84(u8 *arg0, Vec_800F0F84 *arg1);
 #define F(T, o) (*(T *)(arg0 + (o)))
 
 void handle_direct_attack__16TObjEneMe3StelthFPvPviPv(Obj_800F0EC4 *actor, void *arg1, Pair_800F0EC4 arg2, void *arg3) {
-    if (actor->f3C0 == 1 && obj_getField1c(arg1) < 0x1000 && calc_boss4_scale__10TObjPlayerFi(actor) <= actor->f3E0) {
+    if (actor->f3C0 == 1 && obj_getField1c(arg1) < 0x1000 && calc_boss4_scale__10TObjPlayerFi((s32)actor) <= actor->f3E0) {
         transition_enemy_state(actor, 0x12);
     } else if (actor->f326 == 2) {
         transition_enemy_state(actor, 6);
@@ -314,7 +314,7 @@ s32 TObjEneMe3Stelth__sub_800F0F84(u8 *arg0, Vec_800F0F84 *arg1) {
     result = (ent->f18 & 0x200000) != 0;
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)&sp);
     TObjPlayer::init_all_slots();
-    fn_8002B630(ent, TObjEneMe3Stelth__collision_body_template);
+    fn_8002B630((u8 *)ent, (u8 *)TObjEneMe3Stelth__collision_body_template);
     ent->f18 = saved;
     return result;
 }
@@ -352,7 +352,7 @@ void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1) {
                 Vec_800F1098 dest = F(Vec_800F1098, 0x394);
                 if (select_enemy_destination(arg0, &dest, 1) != 0) {
                     Vec_800F1098 pos = F(Vec_800F1098, 0x2FC);
-                    copy_position_if_valid__10TObjPlayerFii(arg0, &pos);
+                    copy_position_if_valid__10TObjPlayerFii((s32)arg0, (s32)&pos);
                     F(f32, 0x300) += TObjEneMe3Stelth__data_805DA820;
                     r = enemy_turn_toward_dest(arg0, F(Spd_800F1098 *, 0x350)->turn);
                     enemy_set_heading_velocity(arg0, F(s32, 0x60), F(Spd_800F1098 *, 0x350)->speed);

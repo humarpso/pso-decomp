@@ -64,7 +64,7 @@ s32 is_photon_blast_presentation_admitted(u32 owner_id, void *records);
 u16 obj_getField1c(void *);
 s32 TObjPlayer__sub_801A9E10(void *, int, void *, void *, int, int);
 void set_type__10TObjPlayerFs(void *, s16);
-s32 TObjPlayer__sub_801AA528(void *, int);
+s32 TObjPlayer__sub_801AA528(s32 arg0, s16 arg1);
 void *TObjPlayer__sub_801AA66C(void *, void *);
 void *__nw__7TObjectFUl(int);
 s16 TObjPlayer__sub_80313114(u8 *arg0);
@@ -257,14 +257,14 @@ void admit_photon_blast_sequence(u8 *players, void *self) {
         }
     }
     if (flag != 0) {
-        TObjPlayer__sub_801AA528(&b[3], -1);
-        TObjPlayer__sub_801AA528(&b[2], -1);
-        TObjPlayer__sub_801AA528(&b[1], -1);
-        TObjPlayer__sub_801AA528(&b[0], -1);
-        TObjPlayer__sub_801AA528(&a[3], -1);
-        TObjPlayer__sub_801AA528(&a[2], -1);
-        TObjPlayer__sub_801AA528(&a[1], -1);
-        TObjPlayer__sub_801AA528(&a[0], -1);
+        TObjPlayer__sub_801AA528((s32)&b[3], -1);
+        TObjPlayer__sub_801AA528((s32)&b[2], -1);
+        TObjPlayer__sub_801AA528((s32)&b[1], -1);
+        TObjPlayer__sub_801AA528((s32)&b[0], -1);
+        TObjPlayer__sub_801AA528((s32)&a[3], -1);
+        TObjPlayer__sub_801AA528((s32)&a[2], -1);
+        TObjPlayer__sub_801AA528((s32)&a[1], -1);
+        TObjPlayer__sub_801AA528((s32)&a[0], -1);
         return;
     }
     if (is_photon_blast_presentation_admitted(obj_getField1c(self), b) != 0) {
@@ -286,14 +286,14 @@ void admit_photon_blast_sequence(u8 *players, void *self) {
             TObjPlayer__sub_801A9E10(o, obj_getField1c(self), b, &counts, 0, delay);
         }
     }
-    TObjPlayer__sub_801AA528(&b[3], -1);
-    TObjPlayer__sub_801AA528(&b[2], -1);
-    TObjPlayer__sub_801AA528(&b[1], -1);
-    TObjPlayer__sub_801AA528(&b[0], -1);
-    TObjPlayer__sub_801AA528(&a[3], -1);
-    TObjPlayer__sub_801AA528(&a[2], -1);
-    TObjPlayer__sub_801AA528(&a[1], -1);
-    TObjPlayer__sub_801AA528(&a[0], -1);
+    TObjPlayer__sub_801AA528((s32)&b[3], -1);
+    TObjPlayer__sub_801AA528((s32)&b[2], -1);
+    TObjPlayer__sub_801AA528((s32)&b[1], -1);
+    TObjPlayer__sub_801AA528((s32)&b[0], -1);
+    TObjPlayer__sub_801AA528((s32)&a[3], -1);
+    TObjPlayer__sub_801AA528((s32)&a[2], -1);
+    TObjPlayer__sub_801AA528((s32)&a[1], -1);
+    TObjPlayer__sub_801AA528((s32)&a[0], -1);
 }
 #undef GET_STAT
 #undef SET_TYPE

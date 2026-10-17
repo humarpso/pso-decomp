@@ -18,12 +18,12 @@ struct Pl_8013B0F0 {
 
 extern "C" {
 s32 bind_action_channels__11TMainCursorFv(Cur_8013B0F0 *);
-s32 TMainCursor__sub_8013E03C(void *);
+u16 TMainCursor__sub_8013E03C(void *p);
 s32 set_target_index__11TMainCursorFs(void *, int);
 s32 reset_nearest_target_record(void *);
 s32 test_flag_2000000__10TObjPlayerFPv(Pl_8013B0F0 *);
 s32 submit_cursor_candidate(Pl_8013B0F0 *, int);
-Pl_8013B0F0 *get_player_by_client_id(u16);
+void *get_player_by_client_id(s32 i);
 extern Pl_8013B0F0 *player_slot_table[12];
 int init__13TUnk_804A7260FPvPv(void);
 
@@ -35,7 +35,7 @@ void TLOC_Start::run_task() {
     Pl_8013B0F0 *pl;
     Cur_8013B0F0 *cur;
     s32 i;
-    pl = get_player_by_client_id(TMainCursor__sub_8013E03C((void *)(arg0 + 0x1C)));
+    pl = (Pl_8013B0F0 *)get_player_by_client_id((s32)(TMainCursor__sub_8013E03C((void *)(arg0 + 0x1C))));
     if (pl == NULL) {
         return;
     }

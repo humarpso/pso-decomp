@@ -30,7 +30,7 @@ struct GetCard_80252CCC {
 extern "C" {
 s32 *get_shared_text_buffer(void);
 s32 init_com_card__17TWindowSubComCardFv();
-s32 TWindowGetComCard__sub_8007B594();
+s32 *TWindowGetComCard__sub_8007B594(void);
 s32 reset_equip_slots__10TObjPlayerFv();
 void *get_player_by_client_id(s32 i);
 void *get_com_card_list__6TLobbyFPv(void *p);
@@ -179,7 +179,7 @@ u8 *TWindowGetComCard__ct(u8 *arg0) {
     *(s32 *)&((TWindowGetComCard *)arg0)->m_1c = set_window_mode_4__6TLobbyFPvll((void *) (lbl_8044ED94), (void *) (lbl_8044ED9C), (int) (1));
     *(s32 *)&((TWindowGetComCard *)arg0)->m_20 = 0;
     if (init_com_card__17TWindowSubComCardFv() != 0) {
-        temp_r31 = TWindowGetComCard__sub_8007B594();
+        temp_r31 = (s32)TWindowGetComCard__sub_8007B594();
         text_builder_reset();
         get_com_card_list__6TLobbyFPv((void *)(temp_r31));
         text_builder_append();

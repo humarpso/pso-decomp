@@ -15,10 +15,10 @@ s32 TLobby__sub_803DA16C(int);
 extern u8 *TRaderMapCore__floor_map_resource;
 extern s32 TRaderMapCore__render_mode;
 void copy_name(s32 arg0);
-u8 *create_named_object(char *);
-void replace_file_extension__6TLobbyFPvPvPv(char *, char *, const char *);
+s32 create_named_object(s32 arg0);
+s32 replace_file_extension__6TLobbyFPvPvPv(char *arg0, char *arg1, char *arg2);
 void init_radar_floor_flags(s32, u8 *);
-Ent_801FB798 *get_floor_scene_table(s32);
+s32 get_floor_scene_table(s32 arg0);
 void bind_gvm_texture_list(char *, u8 *);
 extern const char lbl_8044A7B0[];
 extern s32 lbl_805D49B4;
@@ -74,11 +74,11 @@ void TRaderMapCore::load_map_resources() {
     s32 state;
     state = TOKeyMachine01::get_global_state();
     status = TScene::get_status();
-    e = get_floor_scene_table(state);
-    replace_file_extension__6TLobbyFPvPvPv(buf, e[status].name, lbl_8044A7B0);
-    TRaderMapCore__floor_map_resource = create_named_object(buf);
+    e = (Ent_801FB798 *)get_floor_scene_table(state);
+    replace_file_extension__6TLobbyFPvPvPv((char *)buf, (char *)e[status].name, (char *)lbl_8044A7B0);
+    TRaderMapCore__floor_map_resource = (u8 *)create_named_object((s32)buf);
     if (TRaderMapCore__floor_map_resource != NULL && *(u32 *)(TRaderMapCore__floor_map_resource + 4) != 0) {
-        replace_file_extension__6TLobbyFPvPvPv(buf, e[status].name, lbl_805DC5AC);
+        replace_file_extension__6TLobbyFPvPvPv((char *)buf, (char *)e[status].name, (char *)lbl_805DC5AC);
         bind_gvm_texture_list(buf, *(u8 **)(TRaderMapCore__floor_map_resource + 4));
     }
     copy_name((s32)lbl_805DC5B0);

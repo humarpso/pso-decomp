@@ -75,7 +75,7 @@ s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv(void);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 int is_flag_400_set__10TObjPlayerFPv(void *p);
 int check_flag_100__10TObjPlayerFPv(void *p);
-s32 get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 extern u8 controller_input_state[];
 extern s32 local_client_id;
@@ -159,7 +159,7 @@ void run_task__14TShopGeneratorFv(u8 *self) {
     }
     if (TRaderMapCore::is_not_split_screen() == 1) {
         for (i = 0; i < 4; i++) {
-            p = get_player_by_client_id(i);
+            p = (s32)get_player_by_client_id(i);
             if (p == 0) continue;
             if (((s32 (*)(u8 *, u8 *, f32))is_player_in_service_range__14TShopGeneratorFPUcf)(self, (u8 *)p, lbl_805DC6EC) == 0) continue;
             if (((s32 (*)(s32))is_slot_active__14TShopGeneratorFi)(obj_getField1c(p)) == 1) continue;
@@ -174,7 +174,7 @@ void run_task__14TShopGeneratorFv(u8 *self) {
     } else {
         s32 q;
         s32 (*fn2)(u16);
-        q = get_player_by_client_id(local_client_id);
+        q = (s32)get_player_by_client_id(local_client_id);
         if (q == 0) return;
         if (((s32 (*)(s32))is_slot_active__14TShopGeneratorFi)(obj_getField1c(q)) == 1) return;
         if (TMedicalCenterMes::get_slot_flag(obj_getField1c(q)) == 1) return;

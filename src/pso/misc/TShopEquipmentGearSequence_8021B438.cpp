@@ -90,18 +90,18 @@ extern s32 lbl_805D6218;
 extern s32 lbl_805D621C;
 s32 restore_player_state__13TShopSequenceFv(void *);
 void *__nw__7TObjectFUl(u32);
-void *TShopEquipmentSellWindow__ct(void *, s32, void *, s32, s32);
+void *TShopEquipmentSellWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void enter_quest_list__26TShopEquipmentGearSequenceFv(void *);
 void open_gear_shop__26TShopEquipmentGearSequenceFv(void *);
 extern void *tl_05;
-void *TShopArmorListWindow__ct(void *, s32, void *, s32);
+u8 *TShopArmorListWindow__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 obj_getField1c(s32);
 s32 get_shop_text(s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
 s32 get_selected_menu_value(void *);
 s32 align_menu_entry_positions(void *);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
-void *create_window_menu(s32, s32, u16);
+s32 create_window_menu(s32 arg0, s32 arg1, s32 arg2);
 typedef struct Stack_8021D948 Stack_8021D948;
 typedef struct VBase_18_a93f07 VBase_18_a93f07;
 typedef struct VObj_18_a93f07 VObj_18_a93f07;
@@ -110,7 +110,7 @@ typedef struct VObj_18_a93f07 VObj_18_a93f07;
 void TShopEquipmentGearSequence::open_sell_window() {
     W_8021B438 *o = (W_8021B438 *)__nw__7TObjectFUl(0x3ac);
     if (o != 0) {
-        o = (W_8021B438 *)(TShopEquipmentSellWindow__ct(o, (s32)tl_05, ((S_8021B438 *)this), ((S_8021B438 *)this)->f24, 0x2a));
+        o = (W_8021B438 *)(TShopEquipmentSellWindow__ct((void *)o, (void *)tl_05, (void *)((S_8021B438 *)this), (void *)(((S_8021B438 *)this)->f24), (void *)(0x2a)));
     }
     o->cb0 = (void *)enter_quest_list__26TShopEquipmentGearSequenceFv;
     o->cb1 = (void *)open_gear_shop__26TShopEquipmentGearSequenceFv;
@@ -121,7 +121,7 @@ void TShopEquipmentGearSequence::open_sell_window() {
 void TShopEquipmentGearSequence::open_armor_list_window() {
     W_8021B4B0 *o = (W_8021B4B0 *)__nw__7TObjectFUl(0x1f8);
     if (o != 0) {
-        o = (W_8021B4B0 *)(TShopArmorListWindow__ct(o, (s32)tl_05, ((S_8021B4B0 *)this), ((S_8021B4B0 *)this)->f24));
+        o = (W_8021B4B0 *)(TShopArmorListWindow__ct((u8 *)o, (s32)tl_05, (s32)((S_8021B4B0 *)this), (s32)(((S_8021B4B0 *)this)->f24)));
     }
     o->cb0 = (void *)enter_quest_list__26TShopEquipmentGearSequenceFv;
     reset_controller_input_state();
@@ -134,7 +134,7 @@ void TShopEquipmentGearSequence::update_buy_sell_choice(void *self) {
     s32 r;
     if (arg0->win == NULL) {
         id = obj_getField1c(arg0->f24);
-        arg0->win = create_window_menu(((s32 (*)(int)) get_window_layout_position)(0x2B), 2, id);
+        arg0->win = (void *)create_window_menu(((s32 (*)(int)) get_window_layout_position)(0x2B), 2, id);
         forward_trade_action_default__16TObjCityMainWarpFPviii(arg0->win, get_shop_text(4), 6, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(arg0->win, get_shop_text(6), 6, 1);
         ((TWindowSubComCard *)(arg0->win))->calc_window_size();

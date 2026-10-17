@@ -1,4 +1,5 @@
 #include "pso/ui/TWindowSubTradeMessage.h"
+#include "pso/unk/text_802D298C.h"
 #include "pso/misc/TWindowCtrl_8024A054.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
 struct TradeMessageParentBase { u8 base[0x18]; };
@@ -11,8 +12,6 @@ extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(void*,s32);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void*,s32);
 void play_sound_effect(s32,s32,s32,s32);
-void TLobby__sub_802D29B8(void*);
-void TLobby__sub_802D29DC(void*);
 u8* get_window_layout_position(s32);
 TWindowMessage* create_message_window__6TLobbyFllUls(void*,const f32*,s32,s32);
 int send_and_handle__6TLobbyFii(void*,const char*,s32);
@@ -60,7 +59,7 @@ void TWindowSubTradeMessage::run_task() {
 }
 
 TWindowSubTradeMessage::~TWindowSubTradeMessage() {
-    TLobby__sub_802D29B8(this);
+    TLobby__sub_802D29B8((u32)this);
     if (messageWindow != 0) {
         TWindow__close((u8 *)messageWindow);
         messageWindow=0;
@@ -72,6 +71,6 @@ TWindowSubTradeMessage::TWindowSubTradeMessage(TObject* parent, s32 index) : TOb
     parentWindow=parent;
     playerIndex=index;
     messageWindow=0;
-    TLobby__sub_802D29DC(this);
+    TLobby__sub_802D29DC((int)this);
     state=0;
 }

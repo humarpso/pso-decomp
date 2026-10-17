@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80141D1C.h"
 #include "pso/unk/text_800483F8.h"
 #include "pso/boss/TUnk_80484870.h"
 #include "pso/system/vector.h"
@@ -34,7 +35,6 @@ extern "C" {
 s32 draw_line_list(void *, int, int);
 extern RecoveredGlobal_80048560_lbl_80484860 lbl_80484860;
 extern RecoveredGlobal_80048560_lbl_804FF1D0 lbl_804FF1D0;
-void direction_to_rotation_xy(Vec_800483F8 *, s32 *, s32 *);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
 f32 vector_length(Vec_800483F8 *);
@@ -60,7 +60,7 @@ Obj_800483F8 *fn_800483F8(Obj_800483F8 *self, Vec_800483F8 *from, Vec_800483F8 *
         Vec_800483F8 d = *to;
         subtract_vector(&d, from);
         self->f40 = lbl_805D8828 * vector_length(&d);
-        direction_to_rotation_xy(&d, &self->f28, &self->f2c);
+        direction_to_rotation_xy((u8 *)&d, &self->f28, &self->f2c);
     }
     self->f2c -= n * 0x71c + (s32)(lbl_805D882C * (lbl_805D8830 * (f32)rand()));
     self->f38 = n * (s32)(lbl_805D882C * ((lbl_805D8828 * (lbl_805D8830 * (f32)rand()) + lbl_805D8834) / (f32)m));

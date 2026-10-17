@@ -218,7 +218,7 @@ u8 get_field_ec__5TItemFv();
 s32 reset_key_machine_state__10TObjPlayerFv();
 extern RecoveredGlobal_803589F8_lbl_804F15C8 weapon_special_effect_callbacks;
 void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
-s32 spawn_continuous_particle_with_direction(void *, void *, int);
+void *spawn_continuous_particle_with_direction(void *pos, void *dir, s32 id);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 sin_table_lookup(void *);
 f32 cos_table_lookup(void *);
@@ -286,12 +286,12 @@ void prepare_freeze_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void weapon_dim_shadow_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void weapon_hell_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void weapon_dark_effect(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 create_timed_particle_emitter(s32, s32, s32, s32);
-s32 spawn_particle_effect_with_flags(s32, s32, s32);
+void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 s32 get_bml_motion(s32, s32);
 s32 get_bml_model(s32, s32);
-s32 attach_particle_model(s32, s32, s32, s32, s32, f32);
-s32 create_timed_particle_emitter_with_flags(s32, s32, s32, s32, s32);
+void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
+void *create_timed_particle_emitter_with_flags(void *pos, s32 id, s32 a, s32 b, s32 c);
 int add_angle_clamped__10TObjPlayerFPlll(void*, int, int);
 void TItemWeapon__ct(void *);
 s32 TObjPlayer__sub_802E451C();
@@ -560,7 +560,7 @@ u8 *create_inward_orbit_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {
     stack.sp8 = *(s32 *)((s8 *)(&lbl_804793E4.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&lbl_804793E4.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&lbl_804793E4.value) + 8);
-    *(s32 *)((s8 *)arg0 + 0x4C) = spawn_continuous_particle_with_direction((void *) (arg0 + 0x34), (void *) (&stack.sp8), (int) (0xA));
+    *(s32 *)((s8 *)arg0 + 0x4C) = (s32)spawn_continuous_particle_with_direction((arg0 + 0x34), (&stack.sp8), (0xA));
     return arg0;
 }
 #pragma pop
@@ -700,8 +700,8 @@ void weapon_dim_shadow_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
         spawn_particle_effect((s32 *)(&sp8), (0x1A9));
     }
     if (arg3 == 1) {
-        spawn_particle_effect_with_flags(arg2, 0xC8, 0x40);
-        create_timed_particle_emitter_with_flags(arg2, 0x101, 0, 0x1E, 0x40);
+        spawn_particle_effect_with_flags((void *)arg2, 0xC8, 0x40);
+        create_timed_particle_emitter_with_flags((void *)arg2, (s32)(0x101), (s32)(0), (s32)(0x1E), (s32)(0x40));
     }
 }
 
@@ -758,9 +758,9 @@ void TObjPlayer::spawn_effect_by_type(s32 arg1, s32 arg2, s32 arg3) {
         spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0xBD));
     }
     if (arg3 == 1) {
-        temp_a = create_timed_particle_emitter(arg2, 0xBF, 0, 0xF);
+        temp_a = (s32)create_timed_particle_emitter((void *)arg2, 0xBF, 0, 0xF);
         if (temp_a != 0) {
-            attach_particle_model(temp_a, get_bml_model(technique_effect_bml, 0), lbl_805D63B0, get_bml_motion(technique_effect_bml, 0), 0, lbl_805E0084);
+            attach_particle_model((u8 *)temp_a, get_bml_model(technique_effect_bml, 0), lbl_805D63B0, get_bml_motion(technique_effect_bml, 0), 0, lbl_805E0084);
         }
     }
 }
@@ -773,9 +773,9 @@ void TObjPlayer::spawn_hit_effect(s32 arg1, s32 arg2, s32 arg3) {
         spawn_particle_effect((s32 *)(arg0 + 0x2FC), (0xBD));
     }
     if (arg3 == 1) {
-        timed_particle_emitter = create_timed_particle_emitter(arg2, 0x9A, 0, 0xF);
+        timed_particle_emitter = (s32)create_timed_particle_emitter((void *)arg2, 0x9A, 0, 0xF);
         if (timed_particle_emitter != 0) {
-            attach_particle_model(timed_particle_emitter, get_bml_model(technique_effect_bml, 0), lbl_805D63B0, get_bml_motion(technique_effect_bml, 0), 0, lbl_805E0084);
+            attach_particle_model((u8 *)timed_particle_emitter, get_bml_model(technique_effect_bml, 0), lbl_805D63B0, get_bml_motion(technique_effect_bml, 0), 0, lbl_805E0084);
         }
     }
 }
@@ -835,7 +835,7 @@ void TObjPlayer::handle_hit_effect(s32 arg1, s32 arg2, s32 arg3) {
         spawn_particle_effect((s32 *)(&sp8), (0x68));
     }
     if (arg3 == 1) {
-        create_timed_particle_emitter_with_flags(arg2, 0x18, 0, 5, 0x40);
+        create_timed_particle_emitter_with_flags((void *)arg2, (s32)(0x18), (s32)(0), (s32)(5), (s32)(0x40));
     }
 }
 void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {

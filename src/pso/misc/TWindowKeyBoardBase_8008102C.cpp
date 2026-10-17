@@ -11,10 +11,10 @@ u8 * TEF_LensFlare__ct(void *, s32, s32);
 u8 *__nw__7TObjectFUl(s32);
 extern s32 tl_05;
 void mem_free(void *p);
-s16 *mem_alloc(s32);
+void *mem_alloc(u32 size);
 u32 __cvt_fp2unsigned(f32);
 f32 horizontal_distance_squared(s32, s32);
-u32 get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 
 void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2) {
     s16 *temp_r3;
@@ -30,7 +30,7 @@ void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2) {
     }
     temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x14);
     if (temp_r3_2 != 0) {
-        *(s16 **)((s8 *)arg0 + 0) = mem_alloc((temp_r3_2 + 1) * 2);
+        *(s16 **)((s8 *)arg0 + 0) = (s16 *)mem_alloc((temp_r3_2 + 1) * 2);
         **(s16 **)((s8 *)arg0 + 0) = 0;
     } else {
         *(s16 **)((s8 *)arg0 + 0) = NULL;
@@ -66,7 +66,7 @@ int TEF_LensFlare::is_player_near(f32 farg0) {
     s32 arg0 = (s32)this;
     u32 player;
 
-    player = get_player_by_client_id(local_client_id);
+    player = (u32)get_player_by_client_id(local_client_id);
     if (player == 0U) {
         return 0;
     }

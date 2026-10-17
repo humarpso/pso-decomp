@@ -77,7 +77,7 @@ s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 extern s32 __vt__10TTecDeband[];
 extern s32 tec_deband_class_name_ptr;
 extern const f32 lbl_805DC7F0;
-u32 find_entity_by_id(int);
+void *find_entity_by_id(u16 id);
 s32 is_parents_unqueued__9TTecLukerFUl();
 s32 deliver_technique_to_party_targets(void *);
 void run_task__10TTecDebandFv(Deband_8022F73C *self);
@@ -150,7 +150,7 @@ void run_task__10TTecDebandFv(Deband_8022F73C *self) {
         queue_destruction__7TObjectFv(self);
         return;
     }
-    self->source = find_entity_by_id(self->source_id);
+    self->source = (u32)find_entity_by_id(self->source_id);
     if (self->source == 0) {
         queue_destruction__7TObjectFv(self);
         return;
@@ -162,7 +162,7 @@ void run_task__10TTecDebandFv(Deband_8022F73C *self) {
             ((VObj_8022F73C *)self)->m5(self->source);
             if (self->count != 0) {
                 for (i = 0; i < self->count; i++) {
-                    target = find_entity_by_id(self->targets[i].id);
+                    target = (u32)find_entity_by_id(self->targets[i].id);
                     if ((is_parents_unqueued__9TTecLukerFUl() != 0) && (TObjPlayer::is_valid_and_active(target) != 0)) {
                         ((VObj_8022F73C *)self)->m5(target);
                     }

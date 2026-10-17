@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemLoad_8010FC28.h"
 #include "pso/item/TItemLoad_8010F52C.h"
 #include "pso/object/TObjFish_8001ED90.h"
 #include "pso/system/memory.h"
@@ -19,7 +20,7 @@ struct List_8010F68C { Ent_8010F68C *ents; u32 count; };
 struct Load_8010F68C { u8 pad[0x24]; s32 id; List_8010F68C *list; void *f2c[4]; void *f3c; };
 
 extern "C" {
-s32 mem_alloc(int);
+void *mem_alloc(u32 size);
 extern s32 lbl_805D2BE8;
 extern s32 lbl_805D2BEC;
 extern void *item_texture_archive_loader;
@@ -36,7 +37,6 @@ struct VObj_8010F52C : Base_8010F52C {
     virtual void m0(int);
 };
 
-s32 __dt__13TUnk_8049F42CFv(void *, s32);
 s32 load_gvm_texture_archive(s32, s32);
 void mem_free(void *p);
 
@@ -70,7 +70,7 @@ void TItemLoad__sub_8010F5A0(void) {
         var_r0_2 = ((TUnk_8049F40C *)temp_r3_2)->construct_with_vtable((void *)((void *) (lbl_805D2BEC)), (int)((int) (0xB4)), (int)((int) (0x12F)));
     }
     (*(s32 *)&item_model_chunk_loader) = var_r0_2;
-    item_load_model_buffer = mem_alloc((int) (0x21000));
+    item_load_model_buffer = (s32)mem_alloc((0x21000));
 }
 
 void TItemLoad::start_load_with_id(s32 id, s32 arg2) {
@@ -134,7 +134,7 @@ void TUnk_8049F40C::vfunc_3() {
 void *TUnk_8049F40C::dt(s16 arg1) {
     if (this != NULL) {
         *(s32 * *)&(*(TObject * *)((u8 *)this + 0x14)) = lbl_8049F40C;
-        __dt__13TUnk_8049F42CFv(this, 0);
+        __dt__13TUnk_8049F42CFv((u8 *)this, 0);
         if (arg1 > 0) {
             ::operator delete(this);
         }
@@ -181,7 +181,7 @@ extern s32 lbl_8049F41C[];
 void *__dt__13TUnk_8049F41CFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x14) = lbl_8049F41C;
-        __dt__13TUnk_8049F42CFv(arg0, 0);
+        __dt__13TUnk_8049F42CFv((u8 *)arg0, 0);
         if (arg1 > 0) {
             ::operator delete(arg0);
         }

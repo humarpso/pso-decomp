@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_800FBD74.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 #include <stddef.h>
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/TParticleCtrl.h"
@@ -103,17 +105,8 @@ struct FogCtrl_800FB134;
 
 struct Quad_800FC24C { f32 x0; f32 y0; f32 x1; f32 y1; f32 u0; f32 v0; f32 u1; f32 v1; };
 
-void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg2);
-void draw_small_font_text(void *color, const char *s, f32 x, f32 y, f32 scale);
-int get_name_text_width(void* p);
-u32 calc_small_font_text_width(const char *s);
-s32 get_small_font_glyph_width(u8 c);
-void TWindowSubStatusDisp__sub_800FC248(void);
 void build_small_font_glyph_quad(u8 c, Quad_800FC310 *q);
 s32 render_forward__20TWindowSubStatusDispFPv();
-void begin_screen_draw(s32 arg0);
-s32 draw_textured_quad_at_depth(void *, f32);
-void set_draw_texture_and_color(s32 idx, s32 arg1);
 
 extern E_800FC220 *small_font_metrics_table_ptr;
 
@@ -146,7 +139,7 @@ void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg
     stack.sp1C = (0.921875f);
     stack.sp20 = (0.4296875f);
     stack.sp24 = (0.96875f);
-    draw_textured_quad_at_depth((void *) (&stack.sp8), (f32) (farg2));
+    draw_textured_quad_at_depth((&stack.sp8), (f32) (farg2));
     stack.sp8 += (114.0f);
     stack.spC += (-3.0f);
     stack.sp10 = (15.0f) + stack.sp8;
@@ -155,7 +148,7 @@ void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg
     stack.sp1C = (0.92578125f);
     stack.sp20 = (0.50390625f);
     stack.sp24 = (0.98046875f);
-    draw_textured_quad_at_depth((void *) (&stack.sp8), (f32) (farg2));
+    draw_textured_quad_at_depth((&stack.sp8), (f32) (farg2));
     TWindowSubStatusDisp::get_player();
 }
 
@@ -173,7 +166,7 @@ void TWindowSubStatusDisp::draw_number_digits(void *color, s16 value, u16 digits
         pos.x = x;
         pos.y = y;
         ((void (*)(s32, Pos_800FBEA8 *))build_small_font_glyph_quad)(id, &pos);
-        draw_textured_quad_at_depth(&pos, scale);
+        draw_textured_quad_at_depth((f32 *)&pos, scale);
         value /= 10;
     }
     TWindowSubStatusDisp::get_player();
@@ -192,7 +185,7 @@ void draw_small_font_text(void *color, const char *s, f32 x, f32 y, f32 scale) {
         pos.y = y;
         id = ((s32 (*)(s32))TWindowSubStatusDisp__sub_800FC248)(c);
         ((void (*)(s32, Pos_800FBEA8 *))build_small_font_glyph_quad)((s32)(id), (Pos_800FBEA8 *)(&pos));
-        draw_textured_quad_at_depth(&pos, scale);
+        draw_textured_quad_at_depth((f32 *)&pos, scale);
         x += ((u8 (*)(s32))get_small_font_glyph_width)(id);
     }
     TWindowSubStatusDisp::get_player();

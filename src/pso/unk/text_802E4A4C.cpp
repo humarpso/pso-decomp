@@ -8,7 +8,7 @@ typedef char RecoveredGlobal_802E4A4C_lbl_804E355C_size[sizeof(RecoveredGlobal_8
 extern "C" {
 s32 memset(void *, int, int);
 s32 get_type__10TObjPlayerFPv(void *);
-u32 get_player_by_client_id(int);
+void *get_player_by_client_id(s32 i);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_802E4A4C_lbl_804E355C lbl_804E355C;
 extern const f32 lbl_805DE914;
@@ -41,7 +41,7 @@ u8 *construct_attack_collision(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TUnk_804E355C *)arg0)->m_b4 = (f32) *(f32 *)((s8 *)arg2 + 0x20);
     *(s32 *)((s8 *)arg0 + 0xB8) = (s32) *(s32 *)((s8 *)arg2 + 0x24);
     *(s32 *)((s8 *)arg0 + 0xC0) = 1;
-    player = get_player_by_client_id((int) ((s32) *(u16 *)((s8 *)arg2 + 0x14)));
+    player = (u32)get_player_by_client_id(((s32) *(u16 *)((s8 *)arg2 + 0x14)));
     if (player != 0U) {
         if (get_type__10TObjPlayerFPv((void *) (player + 0x828)) != 0) {
             ((TUnk_804E355C *)arg0)->m_bc = 1;

@@ -108,7 +108,7 @@ extern "C" {
 s32 obj_getField1c(void *);
 s8 TObjPlayer__sub_80102C30();
 s32 play_weapon_hit_sound(void *);
-s32 apply_camera_shake__10TObjPlayerFiii(void *, void *, int);
+void apply_camera_shake__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
 extern s32 tl_05;
 extern const f32 lbl_805DAC94;
 extern const f32 lbl_805DAC98;
@@ -189,7 +189,7 @@ void TItemWeapon::deliver_hit(s32 arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0)
                 TObjPlayer::calc_photon_blast_charge((void *) (*(u8 * *)&this->player), (int) (temp_r31_2));
                 temp_r3_2 = (u8 *)(*(u8 * *)&this->player);
                 ((VObj_18_f8c4e0 *)(temp_r3_2))->m73();
-                apply_camera_shake__10TObjPlayerFiii((void *) (*(u8 * *)&this->player), (void *) (arg2), (int) (temp_r31_2));
+                apply_camera_shake__10TObjPlayerFiii((s32)(*(u8 * *)&this->player), (s32)(arg2), (s32)(temp_r31_2));
                 ((TObjPlayer *)(&stack.sp8))->reset_status_block();
                 stack.sp8 = ((TItem *)((u8 *)this))->get_field_ed();
                 stack.sp9 = ((TItemProShield *)((u8 *)this))->get_slot_count();

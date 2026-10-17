@@ -16,7 +16,7 @@ extern "C" void render__10TNpcPlayerFv();
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, int);
-s32 fn_8002B630(void *, void *);
+void fn_8002B630(u8 *arg0, u8 *arg1);
 s32 partner_clip_path_point(void *self, f32 *from, f32 *to, f32 *out);
 void rotate_matrix_y(s32, s32);
 s32 push_matrix_from(void *src);
@@ -393,12 +393,12 @@ struct Line_8014E488 { Vec_8014E3B0 p; Vec_8014E3B0 d; };
 s16 obj_getS16_32E(u8 *p);
 s16 obj_getS16_2BA(u8 *p);
 s16 obj_getS16_32C(u8 *p);
-Actor_8014F140 * get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 s32 obj_getField1c(void *obj);
 int read_be16_field2__10TObjPlayerFv(void*);
 f32 fabs_float(f32);
 f64 atan2_float(int, f32, f32, f32);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 __dt__12TPlyCharDataFv(s32 arg0, s16 arg1);
 void * __ct__12TPlyCharDataFv(void *self);
 u8 * csnVector(s32, s32, s32);
@@ -406,7 +406,7 @@ void * alloc__23TAdSinglePlyChrSelectGCFv(u32);
 s32 is_alive__9TObjEneDDFv(void *);
 s32 find_active_entity_by_id(void *);
 f32 horizontal_distance_squared(void *, void *);
-u32 mem_alloc(s32);
+void *mem_alloc(u32 size);
 void TNpcPlayer__sub_8014DC3C(void *, s32);
 void deliver_partner_chatter(Npc_8014E250 *self);
 void partner_compute_stalled_detour(u8 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out);
@@ -468,13 +468,13 @@ s32 check_switch__22TObjFogCollisionPoisonFv(s32);
 void TObjFogCollisionPoison__sub_80153520(s32 arg0);
 void TObjFogCollisionPoison__sub_801535D0(s32 arg0);
 Actor_8014F424 * find_entity_by_id(s32);
-Contact_8014F140 * find_actor_body_contact(void *, void *, f32);
+void *find_actor_body_contact(u8 *arg0, u8 *arg1, f32 limit);
 s32 free_collision_body_parts(u32);
 void init_collision_body_parts(void *, void *, s32);
 void * construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 s32 is_any_teammate_in_state__10TObjPlayerFv(void *self);
 s32 try_send_6x27_use_item(s32, s32, void *);
-u32 get_player_by_client_id(u16);
+void *get_player_by_client_id(s32 i);
 s8 get_cast_technique_level(void *, s16);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
@@ -485,7 +485,7 @@ void * __nw__7TObjectFUl(u32);
 s32 __dt__7TObjectFv(void *, int);
 void __ct__7TObjectFP7TObject(void *, void *);
 Tec_80150B90 * calc_technique_parameters(s32, s32, s32);
-char * get_partner_custom_text(s32 state, u16 id);
+const char *get_partner_custom_text(s32 kind, u16 player);
 s32 is_active__12TTecReverserFv(void *);
 void __register_global_object(void *obj, void *dtor, void *link);
 void __construct_array(void *, void *, int, int, int);
@@ -526,7 +526,7 @@ extern const f32 lbl_805DB24C;
 extern void *tl_05;
 
 void copy_player_visual_record(void *, void *);
-void bswap__15disp_data_part2Fv(void *);
+void bswap__15disp_data_part2Fv(s32 arg0);
 void mem_free(void *);
 extern s32 game_difficulty_selection;
 extern s32 TNpcPlayer__data_805D5864;
@@ -1786,7 +1786,7 @@ void deliver_partner_chatter(Npc_8014E250 *self) {
     }
     id = obj_getField1c(self->owner->obj);
     if (id != 0xFFFF) {
-        text = get_partner_custom_text(self->state, id);
+        text = (char *)get_partner_custom_text(self->state, id);
         if (text != 0) {
             TWindowCtrl::open((s32)id, (s32)text, (s32)0x1B);
         } else {
@@ -1935,7 +1935,7 @@ s32 route_around_object__10TNpcPlayerFv(Self_8014E7A0 *self, Vec_8014E3B0 *out) 
     Vec_8014E3B0 to;
     Vec_8014E3B0 toSelf;
     f32 r;
-    fn_8002B630(&info, self->f78->shape);
+    fn_8002B630((u8 *)&info, (u8 *)self->f78->shape);
     if (info.type == 0 || info.type == 0 ||
         (info.h <= lbl_805DB1FC && info.type == 1 && info.h == info.w)) {
         Target_8014E7A0 *t = self->f78->obj;
@@ -2174,13 +2174,13 @@ s32 partner_probe_obstacles(View_8014F140 *view) {
     VecCopy__FP3VecPC3Vec(probe->pos38, (int)(*(s32 *)((s8 *)view + 0x94) + 0x38));
     view->probe->field_0x60 = view->field_0x98;
     for (i = TLobby::get_game_mode(); i < TLobby::get_game_mode() + TObjEneDD::get_enemy_count() + ((s32 (*)(void))get_registered_object_count)(); i++) {
-        actor = get_player_data__10TObjPlayerFi(i);
+        actor = (Actor_8014F140 *)get_player_data__10TObjPlayerFi(i);
         if ((actor != NULL) && !(actor->flags30 & 0x80000000)) {
-            contact = find_actor_body_contact(view->probe, actor, lbl_805DB210);
+            contact = (Contact_8014F140 *)find_actor_body_contact((u8 *)view->probe, (u8 *)actor, (f32)lbl_805DB210);
             if (contact != NULL) {
                 if (actor->flags30 & 0x40000000) {
                     if (!(contact->flags18 & 8) && !(contact->flags18 & 0x100) && !(contact->flags18 & 0x200)) {
-                        fn_8002B630(view->hit_d8, contact);
+                        fn_8002B630((u8 *)view->hit_d8, (u8 *)contact);
                         view->field_0x104 = actor->field_0x60;
                         view->flags8c |= 0x20;
                         return 1;
@@ -2331,7 +2331,7 @@ void *TNpcPlayer::dt(s16 arg1) {
     if (this != NULL) {
         if ((u32) *(u32 *)((s8 *)this + 0xA8) != 0U) {
             free_collision_body_parts(*(u32 *)((s8 *)this + 0xA8));
-            ((s32 (*)(u32))queue_destruction__7TObjectFv)(*(u32 *)((s8 *)this + 0xA8));
+            queue_destruction__7TObjectFv((void *)(*(u32 *)((s8 *)this + 0xA8)));
             *(u32 *)((s8 *)this + 0xA8) = 0U;
         }
         if (arg1 > 0) {
@@ -2345,7 +2345,7 @@ void *TNpcPlayer::dt(s16 arg1) {
 #pragma fp_contract on
 s32 refresh_npc_view_actor_lost(void *arg0) {
     u32 v;
-    *(u32 *)((s8 *)arg0 + 0x94) = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x8A));
+    *(u32 *)((s8 *)arg0 + 0x94) = (u32)get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x8A));
     v = *(u32 *)((s8 *)arg0 + 0x94);
     if (v == 0U) {
         return 1;
@@ -3365,11 +3365,11 @@ void TNpcPlayer::run_task() {
     {
         {
         if (refresh_npc_view_actor_lost((void *) (owner)) != 0) {
-            queue_destruction__7TObjectFv((void *) (arg0));
+            queue_destruction__7TObjectFv((arg0));
             return;
         }
         if (refresh_npc_view_actor_lost((void *) (*(u8 **)((s8 *)arg0 + 0x78))) != 0) {
-            queue_destruction__7TObjectFv((void *) (arg0));
+            queue_destruction__7TObjectFv((arg0));
             return;
         }
         if ((((TObjPlayer *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x78)) + 0x94)))->is_inactive() != 0) && (((void *) *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x78)) + 0x94) == NULL) || (((TNpcPlayer *)((void *) *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x78)) + 0x94)))->get_action_flags() != 0xFFFF))) {
@@ -3410,7 +3410,7 @@ u8 *__dt__10TNpcPlayerFv(u8 *arg0, s16 arg1) {
         }
         temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x78));
         if (temp_r3_2 != NULL) {
-            temp_r3_3 = ((u32 (*)(int))get_player_by_client_id)((int) (get_npc_type__10TNpcPlayerFPv((void*)(temp_r3_2))));
+            temp_r3_3 = (u32)get_player_by_client_id((get_npc_type__10TNpcPlayerFPv((void*)(temp_r3_2))));
             if (temp_r3_3 != 0U) {
                 TObjPlayer::send_item_pickup_request((s32) temp_r3_3);
             }
@@ -3537,7 +3537,7 @@ u8 *TNpcPlayer::build_npc_player_record(s32 arg0) {
     } else {
         copy_player_visual_record(lbl_8050CF68, (u8 *)lbl_805D5860 + arg0 * 0x50);
     }
-    bswap__15disp_data_part2Fv(lbl_8050CF68);
+    bswap__15disp_data_part2Fv((s32)lbl_8050CF68);
     mem_free((void *)lbl_805D5860);
     mode = game_difficulty_selection;
     lbl_805D5860 = 0;
@@ -3577,7 +3577,7 @@ u8 *TNpcPlayer::build_npc_player_record(s32 arg0) {
 
 void TNpcPlayer::ensure_rock_singleton() {
     if ((u32) lbl_805D5860 == 0U) {
-        lbl_805D5860 = mem_alloc(0x1400);
+        lbl_805D5860 = (u32)mem_alloc(0x1400);
     }
 }
 

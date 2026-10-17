@@ -31,7 +31,7 @@ struct Vec_8009640C { f32 x, y, z; };
 struct Ang_8009640C { s32 x, y, z; };
 
 extern "C" {
-u8 *csnVecterUnder(s32 *, s32);
+s32 *csnVecterUnder(s32 origin, s32 mask);
 extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
 extern const f32 lbl_805D97B8;
 u16 obj_getField1c(void *);
@@ -64,8 +64,8 @@ struct EneBVObj_800962F4 : EneBBase_800962F4 {
 
 void TObjEneRe7BeruraPunch__sub_800962F4(void* p);
 void *__dt__21TObjEneRe7BeruraPunchFv(void *arg0, s16 arg1);
-void delete_buffer__12TBoss8DragonFis(void *, int);
-s32 TBoss8Dragon__sub_800BC5EC(s32, s32);
+s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1);
+u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
 void *__dt__13TUnk_80490470Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 s32 fill_value_array(s32);
@@ -83,7 +83,7 @@ void TObjEneRe7BeruraPunch::snap_to_ground() {
   u8 *temp_r3;
   VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0 + 0xDC));
   stack.spC = lbl_805D97B8;
-  temp_r3 = csnVecterUnder(&stack.sp8, 0x16EF);
+  temp_r3 = (u8 *)csnVecterUnder((s32)&stack.sp8, 0x16EF);
   if (temp_r3 != 0)
   {
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(*((s32 *) (((s8 *) temp_r3) + 4))));
@@ -184,7 +184,7 @@ void *__dt__21TObjEneRe7BeruraPunchFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TObjEneRe7BeruraPunch;
         if (*(void **)((s8 *)arg0 + 0xD0) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD0)); *(s32 *)&((TObjEneRe7BeruraPunch *)arg0)->m_d0 = 0; }
         if (*(void **)((s8 *)arg0 + 0xD4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD4)); *(s32 *)&((TObjEneRe7BeruraPunch *)arg0)->m_d4 = 0; }
-        if (*(void **)((s8 *)arg0 + 0xD8) != NULL) { delete_buffer__12TBoss8DragonFis(*(void **)((s8 *)arg0 + 0xD8), 1); *(s32 *)((s8 *)arg0 + 0xD8) = 0; }
+        if (*(void **)((s8 *)arg0 + 0xD8) != NULL) { delete_buffer__12TBoss8DragonFis((s32)(*(void **)((s8 *)arg0 + 0xD8)), 1); *(s32 *)((s8 *)arg0 + 0xD8) = 0; }
         __dt__13TUnk_80490470Fv((s8 *)arg0 + 0xF8, -1);
         ((TUnk_804928CC *)arg0)->destroy_enemy_object(0);
         if (arg1 > 0) {
@@ -211,7 +211,7 @@ void TObjEneRe7BeruraPunch::init() {
     var_a = ((TAdSinglePlyChrSelectGC *)0x10)->alloc();
     var_r0 = var_a;
     if (var_r0 != 0) {
-        var_r0 = TBoss8Dragon__sub_800BC5EC(var_a, 9);
+        var_r0 = (s32)TBoss8Dragon__sub_800BC5EC((u8 *)var_a, 9);
     }
     *(s32 *)&this->_padD8 = var_r0;
     ((EneBVObj_800962F4*)(arg0 + 0xF8))->m1(0);

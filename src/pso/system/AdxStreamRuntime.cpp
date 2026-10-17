@@ -2139,7 +2139,7 @@ s32 TLobby__sub_803BFEE8(int);
 s32 notify_field_4_alt__6TLobbyFv(int);
 s32 send_packet_by_id_2__6TLobbyFv(int);
 s32 TLobby__sub_803BFFC0(int);
-s32 TLobby__sub_803BFFFC(int, void *, void *);
+void TLobby__sub_803BFFFC(u8 *arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_803C07E8(int);
 s32 run_step_4430__6TLobbyFv(int, int);
 s32 TLobby__sub_803CBF0C(int, int);
@@ -2201,7 +2201,7 @@ void TLobby__sub_803CAB38(Strm_803CAB38 *self) {
             set_field_3c__6TLobbyFl(t, e);
             set_field_44__6TLobbyFl(t, 0);
             set_field_40__6TLobbyFl(t, 0);
-            TLobby__sub_803BFFFC(t, (void *)adxt_trap_entry_update__6TLobbyFPv, arg0);
+            TLobby__sub_803BFFFC((u8 *)t, (s32)adxt_trap_entry_update__6TLobbyFPv, (s32)arg0);
         } else {
             if (self->f8 != NULL) {
                 ((TLobby *)(self->f8))->set_scroll_position(0x7FFFFFFF);
@@ -2209,7 +2209,7 @@ void TLobby__sub_803CAB38(Strm_803CAB38 *self) {
             set_field_3c__6TLobbyFl(t, send_packet_by_id__6TLobbyFv(t));
             set_field_44__6TLobbyFl(t, 0);
             set_field_40__6TLobbyFl(t, 0);
-            TLobby__sub_803BFFFC(t, (void *)TLobby__sub_803CAEB4, arg0);
+            TLobby__sub_803BFFFC((u8 *)t, (s32)TLobby__sub_803CAEB4, (s32)arg0);
         }
         k = notify_field_4__6TLobbyFv(t);
         n1 = send_with_offset4__6TLobbyFv(t);

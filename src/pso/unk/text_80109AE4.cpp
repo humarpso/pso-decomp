@@ -4,7 +4,7 @@
 
 extern "C" {
 
-u8 *find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 s32 VecCopy__FP3VecPC3Vec(void *, s32, s32);
 
 int TItemEffNeedle::vfunc_6() {
@@ -12,7 +12,7 @@ int TItemEffNeedle::vfunc_6() {
     s32 temp_r5;
     u8 *entity;
 
-    entity = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x50));
+    entity = (u8 *)find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x50));
     if (entity == NULL) {
         queue_destruction__7TObjectFv(arg0);
         return 0;

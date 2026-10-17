@@ -107,7 +107,7 @@ extern s32 model_render_flags;
 void render__8TObjDoorFPv(Door_8018E40C *arg0);
 s32 draw_closed__8TObjDoorFPv(Door_8018E5F4 *arg0);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-s32 load_gvm_texture_file(void *);
+u8 *load_gvm_texture_file(s32 arg0);
 s32 get_bml_model(s32, s32);
 s32 get_bml_motion(s32, s32);
 s32 draw_locked__8TObjDoorFPv(Door_8018E74C *arg0);
@@ -115,9 +115,9 @@ void set_active_camera_pose(u8 *arg0, u8 *arg1);
 s32 restore_player_cameras(void);
 s32 activate_camera_mode(s32);
 void clear_player_status_flag__10TObjPlayerFlUl(TObjDoor*,s32,u32);
-void set_indexed_flags(TObjDoor*,s32,u32);
-s32 check_player_door_proximity(TObjDoor*,s32,f32);
-void play_persistent_sound(s32,TObjDoor*,f32*,s32,s32);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
+s32 check_player_door_proximity(s32 arg0, s32 arg1, f32 farg0);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 u8 is_current_floor_switch_set(u16);
 extern s32 TObjDoor__data_805D5BC8;
 s32 init_collision_body_parts(void *, void *, s32);
@@ -474,25 +474,25 @@ void TObjDoor::update_state() {
         return;
     case 2:
         set_indexed_flags(this,0,1);
-        if(check_player_door_proximity(this,0,(7e+01f))!=0) {
+        if(check_player_door_proximity((s32)this, 0, (7e+01f))!=0) {
             this->frame=(0.0f);this->state=4;clear_player_status_flag__10TObjPlayerFlUl(this,0,1);
         }
         break;
     case 4:
-        play_persistent_sound(0x49e08,this,this->position,0,0);
+        play_persistent_sound(0x49e08, (s32)this, (u32)this->position, 0, 0);
         this->frame+=(1.8f);
         if(this->frame>(f32)(TObjDoor__motion_table[0]->frameCount-1)) {
             this->frame=(f32)(TObjDoor__motion_table[0]->frameCount-1);this->state=5;
         }
         break;
     case 3:
-        play_persistent_sound(0x49e08,this,this->position,0,0);
+        play_persistent_sound(0x49e08, (s32)this, (u32)this->position, 0, 0);
         this->frame-=1.8f;
         if(this->frame<0.0f) {this->frame=0.0f;this->state=2;}
         break;
     case 5:
         clear_player_status_flag__10TObjPlayerFlUl(this,0,1);
-        if(check_player_door_proximity(this,1,100.0f)!=0) {this->state=3;set_indexed_flags(this,0,1);}
+        if(check_player_door_proximity((s32)this, 1, 100.0f)!=0) {this->state=3;set_indexed_flags((void *)this, (s32)(0), (s32)(1));}
         break;
     }
 }
@@ -597,7 +597,7 @@ void TObjDoor::load_resources() {
         p = (s32)load_resource_from_descriptor((void *)p, 5, door_resource_descriptor, 0, 0, 0);
     }
     door_resource_handle = p;
-    TObjDoor__resource_param = load_gvm_texture_file((void *)lbl_80445588);
+    TObjDoor__resource_param = (s32)load_gvm_texture_file((s32)lbl_80445588);
     ((s32 *)&TObjDoor__model_resource_ptrs)[0] = get_bml_model(door_resource_handle, 4);
     ((s32 *)&TObjDoor__model_resource_ptrs)[1] = get_bml_model(door_resource_handle, 3);
     ((s32 *)&TObjDoor__model_resource_ptrs)[2] = get_bml_model(door_resource_handle, 0);

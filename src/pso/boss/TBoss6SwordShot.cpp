@@ -88,7 +88,7 @@ s32 subtract_vector(void *, void *);
 s32 normalize_vector(void *);
 extern const f64 lbl_804793B0;
 extern s32 lbl_805E000C;
-VObj_8035663C *get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 s32 is_active__14TBoss6PlotFalzFv();
 extern const f32 lbl_805DFFEC;
 }
@@ -292,7 +292,7 @@ s32 TBoss6SwordWave::check_player_hits() {
     Vec_8035663C dir;
     n = TLobby::get_game_mode();
     for (i = 0; i < n; i++) {
-        pl = get_player_data__10TObjPlayerFi(i);
+        pl = (VObj_8035663C *)get_player_data__10TObjPlayerFi(i);
         if (is_active__14TBoss6PlotFalzFv() != 0) {
             VecCopy((Vec *)&dir, (const Vec *)((u8 *)pl + 0x38));
             subtract_vector(&dir, arg0 + 0x20);

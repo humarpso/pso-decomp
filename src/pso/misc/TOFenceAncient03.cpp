@@ -55,19 +55,19 @@ extern const f32 lbl_805DB634;
 extern const f32 lbl_805DB638;
 O_801673C4 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 O_801673C4 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-Arr_801673C4 *mem_alloc(s32);
-s32 load_gvm_texture_file(void *);
+void *mem_alloc(u32 size);
+u8 *load_gvm_texture_file(s32 arg0);
 extern char lbl_804415F8[];
 extern char lbl_80441610[];
 extern char lbl_80441628[];
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-int set_indexed_flags(void*, void*, void*);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 
 void TOFenceAncient03::vfunc_16() {  }
 void TOFenceAncient03::vfunc_15() { *(int *)&this->m_ac = 0; *(int *)&this->unk_D0 = 0; { int i; for (i = 0; i < 4; i++) { ((TObjPlayer *)this)->clear_player_status_flag((s32)((void*)i), (u32)((void*)8)); } } }
-void TOFenceAncient03::vfunc_14() { *(int *)&this->m_ac = 1; *(int *)&this->unk_D0 = 1; { int i; for (i = 0; i < 4; i++) { set_indexed_flags(this, (void*)i, (void*)8); } } }
+void TOFenceAncient03::vfunc_14() { *(int *)&this->m_ac = 1; *(int *)&this->unk_D0 = 1; { int i; for (i = 0; i < 4; i++) { set_indexed_flags(this, i, (s32)((void*)8)); } } }
 
 extern void *tl_05;
 
@@ -114,12 +114,12 @@ void TOFenceAncient03::load_resources() {
         o = load_resource_from_descriptor(o, 1, &TOFenceAncient03_resource_descriptor, 0, 0, 0);
     }
     (*(O_801673C4 * *)&TOFenceAncient03__shared_resource_object) = o;
-    r = mem_alloc(0x10);
+    r = (Arr_801673C4 *)mem_alloc(0x10);
     (*(Arr_801673C4 * *)&TOFenceAncient03__texture_lists) = r;
     r->a = (*(O_801673C4 * *)&TOFenceAncient03__shared_resource_object)->sub->c;
-    (*(Arr_801673C4 * *)&TOFenceAncient03__texture_lists)->b = load_gvm_texture_file(lbl_804415F8);
-    (*(Arr_801673C4 * *)&TOFenceAncient03__texture_lists)->c = load_gvm_texture_file(lbl_80441610);
-    (*(Arr_801673C4 * *)&TOFenceAncient03__texture_lists)->d = load_gvm_texture_file(lbl_80441628);
+    (*(Arr_801673C4 * *)&TOFenceAncient03__texture_lists)->b = (s32)load_gvm_texture_file((s32)lbl_804415F8);
+    (*(Arr_801673C4 * *)&TOFenceAncient03__texture_lists)->c = (s32)load_gvm_texture_file((s32)lbl_80441610);
+    (*(Arr_801673C4 * *)&TOFenceAncient03__texture_lists)->d = (s32)load_gvm_texture_file((s32)lbl_80441628);
 }
 
 void *__dt__16TOFenceAncient03Fv(void *arg0, s16 arg1) {

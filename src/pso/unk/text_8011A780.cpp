@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_80102DD4.h"
 #include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/misc/TLobby_80105A2C.h"
 #include "pso/unk/text_8011A780.h"
@@ -60,7 +61,6 @@ extern s32 item_id_counter_table;
 s32 bswap_6xa2_fields__6TLobbyFv();
 s32 handle_box_drop_directive(void *);
 void set_boss_buf_entry__6TLobbyFii(s32 v, u16 idx);
-void bswap_pick_up_item_request__6TLobbyFi(Msg_8011A9D8 *msg);
 void *find_item_condition_entry__6TLobbyFii(s16 a, u32 b);
 void handle_6x5A_pick_up_item_request(Msg_8011A9D8 *msg);
 int is_quest_active(void);
@@ -112,7 +112,7 @@ void handle_6x5C_destroy_floor_item(void *arg0) {
 }
 
 void handle_6x5A_pick_up_item_request(Msg_8011A9D8 *msg) {
-    bswap_pick_up_item_request__6TLobbyFi(msg);
+    bswap_pick_up_item_request__6TLobbyFi((s32)msg);
     if (find_item_condition_entry__6TLobbyFii(msg->s8, msg->u4) != 0) {
         Cmd_8011A9D8 cmd;
         ((TLobby *)(&cmd))->init_6x59_packet();

@@ -46,7 +46,7 @@ void *get_player_by_client_id(s32 i);
 u16 get_lifetime__22TPlyFollowParticleCtrlFv();
 s32 get_position_ptr__10TObjPlayerFv(s32);
 s32 TPlyPtclObjectRightHand__vt7(s32 arg0);
-s32 create_oneshot_particle_emitter(s32, s32, s32, s32);
+void *create_oneshot_particle_emitter(void *pos, void *dir, s32 id, s32 flags);
 s32 set_owner_id__13TParticleCtrlFUs(s32, s32);
 u32 find_entity_by_id(s32);
 s32 create_attached_oneshot_emitter(unsigned long long arg1, s32 arg2);
@@ -56,7 +56,7 @@ void emit_sand_step_particles(s32 arg0, s32 arg1);
 void emit_water_step_particles(s32 arg0, s32 arg1);
 void emit_idle_water_splash(s32 arg0, s32 arg1);
 s32 emit_player_particle(void* p, void* a1, void* a2);
-void attach_particle_model(s32, s32, s32, s32, s32, f32);
+void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 extern f32 lbl_805DF134;
 s32 emit_player_model_particle(s32 owner, s32 position, s32 entry, s32 model);
 extern const f32 lbl_805DF130;
@@ -171,7 +171,7 @@ s32 emit_player_model_particle(s32 owner, s32 position, s32 entry, s32 model) {
   s32 emitter = emit_player_particle((void*)(owner), (void*)(position), (void*)(entry));
   if (emitter)
   {
-    attach_particle_model(emitter, TParticleCtrl::get_particle_model(model), TParticleCtrl::get_instance(), 0, 1, lbl_805DF134);
+    attach_particle_model((u8 *)emitter, TParticleCtrl::get_particle_model(model), TParticleCtrl::get_instance(), 0, 1, lbl_805DF134);
   }
   return emitter;
 }
@@ -188,7 +188,7 @@ s32 create_attached_oneshot_emitter(unsigned long long arg1, s32 arg2) {
   stack.spC = 0;
   stack.sp8 = 0;
   stack.sp10 = -0x8000;
-  oneshot_particle_emitter = create_oneshot_particle_emitter((s32) (entity + 0x74), (s32) (&stack.sp8), arg2, 0x50);
+  oneshot_particle_emitter = (s32)create_oneshot_particle_emitter((entity + 0x74), (&stack.sp8), arg2, 0x50);
   if (oneshot_particle_emitter != 0)
   {
     set_owner_id__13TParticleCtrlFUs((s32)((void *) oneshot_particle_emitter), (s32)(arg1));

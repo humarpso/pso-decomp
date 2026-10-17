@@ -1,4 +1,5 @@
 #include "pso/TAdStorySelectGC.h"
+#include "pso/ui/TAdDrawLineCtrl.h"
 #include "pso/misc/TLobby_80132ED0.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC_801334D4.h"
@@ -31,7 +32,6 @@ s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void play_sound_effect(s32, s32, s32, s32);
 extern u8 controller_input_state[];
 extern s32 lbl_805D67C0;
-void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
 void __ct__9TAdBackGCFv(void *, void *);
@@ -156,7 +156,7 @@ Self_802C3400 *__ct__16TAdStorySelectGCFv(Self_802C3400 *self, void *parent) {
     self->f20 = p;
     ((TAdMultiPlyChrSelectGC *)((s32)self->f20))->set_entry_value(0, get_localized_text_entry(0x14, 0));
     ((TAdMultiPlyChrSelectGC *)((s32)self->f20))->set_entry_value(1, get_localized_text_entry(0x14, 1));
-    create_draw_line_ctrl__13TAdMcSelectGCFiif(self, 0xA, lbl_805DE528);
+    create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)self, (s32)(0xA), (f32)lbl_805DE528);
     return self;
 }
 

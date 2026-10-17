@@ -78,7 +78,7 @@ s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 void *__nw__7TObjectFUl(int);
-Ctrl_80364B6C *get_player_by_client_id(u16);
+void *get_player_by_client_id(s32 i);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 init_map_object_base();
@@ -193,7 +193,7 @@ void *TObjTreeLobby__ct(void *arg0, s32 arg1, s32 arg2) {
 }
 void TUnk_804F2B60::run_task() {
     Obj_80364B6C *arg0 = (Obj_80364B6C *)this;
-    Ctrl_80364B6C *c = get_player_by_client_id(arg0->h20);
+    Ctrl_80364B6C *c = (Ctrl_80364B6C *)get_player_by_client_id(arg0->h20);
     if (c != 0) {
         P_80364B6C sp10;
         sp10.a = 0x15;

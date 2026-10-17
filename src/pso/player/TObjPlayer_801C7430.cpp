@@ -1227,14 +1227,14 @@ void init_6x44_attack_packet(u8 *arg0);
 void bswap_6x43_packet(void *p);
 void init_6x43_attack_packet(u8 *arg0);
 void init_6x40_walk_packet(void *cmd);
-int set_indexed_flags(void*, void*, void*);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 void *resolve_hittable_target(u16 actorId, s16 collider);
 u8 * find_entity_by_id(s32);
 s32 get_trap_type__10TOMineTrapFv(int);
 void set__10TObjRoomIdFPvs(void *, s16);
 s32 TKeyBoardControl__sub_801A58B0();
 s32 TKeyBoardControl__sub_801A58D8();
-void init_stick_escape_detector(void *, s32);
+void init_stick_escape_detector(void *arg0, void *arg1);
 void admit_photon_blast_sequence(u8 *players, void *self);
 s32 is_final_phase__10TObjPlayerFv();
 s32 is_camera_mode_active__10TObjPlayerFv();
@@ -1257,7 +1257,7 @@ s32 is_in_tl03_state__10TObjPlayerFv(void *);
 s32 send_6x2F_change_player_hp(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 int check_flag30_bit20__10TObjPlayerFi(void*);
 s16 calc_scaled_value__10TObjPlayerFii(void *, int);
-s32 apply_speed_scale__10TObjPlayerFif(void *, f32);
+void apply_speed_scale__10TObjPlayerFif(s32 arg0, f32 farg0);
 void complete_deferred_player_death();
 s32 is_flag_400_set__10TObjPlayerFPv(void *);
 s32 enable_action_input__10TObjPlayerFPv(void *);
@@ -1291,13 +1291,13 @@ s32 get_vobj_state_28__10TObjPlayerFv(void *);
 s32 check_flag_4__10TObjPlayerFv(void *);
 s32 clamp_nested_index__10TObjPlayerFv();
 void TObjPlayer__sub_801BE9A8(s32 arg0);
-s32 set_flag_20000__10TObjPlayerFi(void *);
-s32 set_flag_400000__10TObjPlayerFi(void *);
+void set_flag_20000__10TObjPlayerFi(s32 arg0);
+void set_flag_400000__10TObjPlayerFi(s32 arg0);
 s32 is_status_locked__10TObjPlayerFv();
 s32 is_status_flag_200__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_801BEEE0(void *, void *);
 s32 __ct__20TPlayerReadyCallbackFP7TObjectUsPFP10TObjPlayer_v(s32, s32, s32, void (*)(int));
-s32 TObjPlayer__sub_801BF690(void *);
+void TObjPlayer__sub_801BF690(u8 *arg0);
 s32 set_anim_state__10TObjPlayerFl(void *, int);
 s32 set_anim_state__10TObjPlayerFs(void *, int);
 f32 TObjPlayer__sub_801BF814(void *p);
@@ -1606,7 +1606,7 @@ int TLobby__send_and_handle_60(void*);
 void update_players__6TLobbyFi(s32 arg0);
 u8 * get_character_save_record(u16);
 s32 reset_key_machine_state__10TObjPlayerFv();
-s32 play_persistent_sound(int, void *, int, int, int);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 u32 __nw__7TObjectFUl(s32);
 void create_technique_charge_light(u32 kind, void *owner);
 s32 capture_technique_targets__10TObjPlayerFv(void *, void *);
@@ -1617,7 +1617,7 @@ s32 construct_revival_particle_effect(void *, void *, s32);
 s32 TObjPlayer__sub_8024ABDC(void *);
 void TLobby__sub_8024AC20(s32 arg0);
 void dispatch_to_child__11TWindowCtrlFPv(u16, s32);
-s32 release_photon_blast_requests(u32);
+void release_photon_blast_requests(void *registry);
 u8 * find_by_section_id__10TObjPlayerFl(void *, int);
 s32 find_first_valid_target_id__10TObjPlayerFv(void*);
 void TObjPlayer__sub_80312E98(void *, s32);
@@ -2275,17 +2275,17 @@ void TObjPlayer__sub_801C869C(s32 arg0, s16 arg1) {
   }
 }
 
-void TObjPlayer::init_effects() { TObjPlayer__sub_801BE9A8((s32)this); TObjPlayer__sub_8011E204(this, (void*)5); activate_body_collision(); set_indexed_flags(this, (void*)0, (void*)1); reset_player_appearance_opacity((void *)((char*)this + 0x608)); }
+void TObjPlayer::init_effects() { TObjPlayer__sub_801BE9A8((s32)this); TObjPlayer__sub_8011E204(this, (void*)5); activate_body_collision(); set_indexed_flags(this, (s32)((void*)0), (s32)((void*)1)); reset_player_appearance_opacity((void *)((char*)this + 0x608)); }
 
 int TObjPlayer__deactivate_off_floor_body(void* p) { return deactivate_body_collision__10TObjPlayerFv(p); }
 
 void TObjPlayer__enter_off_floor_state(u8 *arg0) {
-    TObjPlayer__sub_801BF690((void *) (arg0 + 0x730));
+    TObjPlayer__sub_801BF690((arg0 + 0x730));
     zero_vec3((void *) (arg0 + 0x5FC));
     ((TObjPlayer *)(arg0 + 0x644))->reset_lobby_model();
     ((TObjPlayer *)arg0)->set_state_flags((int) (4));
     deactivate_body_collision__10TObjPlayerFv((void *) (arg0));
-    set_flag_20000__10TObjPlayerFi((void *) (arg0));
+    set_flag_20000__10TObjPlayerFi((s32)(arg0));
     *(s16 *)((s8 *)arg0 + 0x328) = 0;
     ((s32 (*)(void *, int, int))set_action_state__10TObjPlayerFPvss)((void *) (arg0), (int) (0x16), (int) (((s16 (*)(void))ret_801D26AC)()));
 }
@@ -2334,7 +2334,7 @@ void TObjPlayer__update_off_floor_state(u8 *arg0) {
   {
     ((s32 (*)(int, int))TObjPlayer__sub_8011E204)((int)((void *) arg0), (int)((int) 4));
     ((TObjPlayer *)arg0)->update_active_state();
-    set_flag_400000__10TObjPlayerFi((void *) arg0);
+    set_flag_400000__10TObjPlayerFi((s32)arg0);
     ((TObjPlayer *)(arg0 + 0x634))->enter_battle_state();
     return;
   }
@@ -2534,7 +2534,7 @@ void send_6x55_intra_map_warp(u16 id, void *pos, s32 c) {
     }
 }
 
-void TObjPlayer::init_flags_vec4() { set_indexed_flags(this, (void*)0, (void*)1); ((TObjPlayer *)((char*)this + 0x608))->set_vec4_const(); }
+void TObjPlayer::init_flags_vec4() { set_indexed_flags(this, (s32)((void*)0), (s32)((void*)1)); ((TObjPlayer *)((char*)this + 0x608))->set_vec4_const(); }
 
 void TObjPlayer::update_warp_relocation() {
     s32 sp8;
@@ -2742,7 +2742,7 @@ void TObjPlayer::send_name_and_state() {
     MsgA_801C9400 a;
     MsgB_801C9400 b;
     if (is_active__8TItemMagFv() == 0) {
-        init_stick_escape_detector(arg0 + 0x64C, TObjPlayer__sub_801D2878(arg0 + 0x550));
+        init_stick_escape_detector(arg0 + 0x64C, (void *)(TObjPlayer__sub_801D2878(arg0 + 0x550)));
     }
     if ((arg0 == NULL) || (obj_isState2_324__13TUnk_804806E8Fv(arg0) == 0)) {
         ((TObjPlayer *)(&a))->set_type_53();
@@ -4112,7 +4112,7 @@ void update_active_instance__10TObjPlayerFi(s32 arg0) {
             ((TObjPlayer *)(*(u32 *)&TObjPlayer__shared_photon_blast_state))->process_all_elements();
             return;
         }
-        release_photon_blast_requests((*(u32 *)&TObjPlayer__shared_photon_blast_state));
+        release_photon_blast_requests((void *)(*(u32 *)&TObjPlayer__shared_photon_blast_state));
         admit_photon_blast_sequence((u8 *)(((s32 (*)(s32))get_photon_blast_element__10TObjPlayerFi)(0)), (void *)arg0);
     }
 }
@@ -4256,7 +4256,7 @@ void TObjPlayer::update_photon_blast_action() {
       ((TObjPlayer *)(arg0 + 0x4AC))->set_field8((int) (*((s16 *) (((s8 *) TObjPlayer::get_photon_blast_entry(((TFontSmallLobby *)(arg0 + 0x4AC))->get_valid_index())) + 0x12))));
       ((TObjPlayer *)(arg0 + 0x4AC))->set_field_0c((f32) lbl_805DC398);
     }
-      play_persistent_sound((int) 0x4002A823, (void *) arg0, (int) 0, (int) 0, (int) 0);
+      play_persistent_sound((int) 0x4002A823, (s32)arg0, (int) 0, (int) 0, (int) 0);
       break;
     case 1:
       *((f32 *) (((s8 *) arg0) + 0xC0)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xC0))) + TObjPlayer__sub_801D2A98((void *) (arg0 + 0x4AC)));
@@ -4283,7 +4283,7 @@ void TObjPlayer::update_photon_blast_action() {
       ((TObjPlayer *)arg0)->get_photon_blast_complete_threshold();
       ((s32 (*)(void *))TObjPlayer__sub_801D2A78)((void *) (arg0 + 0x4AC));
     }
-      play_persistent_sound((int) 0x4002A823, (void *) arg0, (int) 0, (int) 0, (int) 0);
+      play_persistent_sound((int) 0x4002A823, (s32)arg0, (int) 0, (int) 0, (int) 0);
       break;
     case 3:
       if (((s32 (*)(void *))TObjPlayer__sub_801D2A50)((void *) (arg0 + 0x4AC)) != 0)
@@ -4873,7 +4873,7 @@ void enter_attack_stage3__10TObjPlayerFPv(u8 *arg0) {
     ((s32 (*)(void *, void *, int, int))begin_player_attack)((void *) (arg0 + 0x7CC), (void *) (arg0), (int) (2), (int) (2));
     ((TObjPlayer *)arg0)->setup_attack_stage();
     ((s32 (*)(void *, int, void *))set_action_state__10TObjPlayerFPvss)((void *) (arg0), (int) (7), (void *) (get_model_state__10TObjPlayerFv((void *) (arg0))));
-    apply_speed_scale__10TObjPlayerFif((void *) (arg0), (f32) (((f32 (*)(void *))get_action_rate_entry)((void *) (arg0)) * get_attack_controller_rate((void *) (arg0 + 0x7CC))));
+    apply_speed_scale__10TObjPlayerFif((s32)(arg0), (f32) (((f32 (*)(void *))get_action_rate_entry)((void *) (arg0)) * get_attack_controller_rate((void *) (arg0 + 0x7CC))));
 }
 
 void handle_6x45_attack(void *src) {
@@ -4998,7 +4998,7 @@ void enter_attack_stage2__10TObjPlayerFPv(u8 *arg0) {
     ((s32 (*)(void *, void *, int, int))begin_player_attack)((void *) (arg0 + 0x7CC), (void *) (arg0), (int) (1), (int) (1));
     ((TObjPlayer *)arg0)->setup_attack_stage();
     ((s32 (*)(void *, int, void *))set_action_state__10TObjPlayerFPvss)((void *) (arg0), (int) (6), (void *) (get_state__10TObjPlayerFv((void *) (arg0))));
-    apply_speed_scale__10TObjPlayerFif((void *) (arg0), (f32) (((f32 (*)(void *))get_action_rate_entry)((void *) (arg0)) * get_attack_controller_rate((void *) (arg0 + 0x7CC))));
+    apply_speed_scale__10TObjPlayerFif((s32)(arg0), (f32) (((f32 (*)(void *))get_action_rate_entry)((void *) (arg0)) * get_attack_controller_rate((void *) (arg0 + 0x7CC))));
 }
 
 void handle_6x44_attack(void *src) {
@@ -5368,7 +5368,7 @@ void enter_attack_stage1__10TObjPlayerFPv(u8 *arg0) {
     ((s32 (*)(void *, void *, int, int))begin_player_attack)((void *) (arg0 + 0x7CC), (void *) (arg0), (int) (0), (int) (0));
     ((TObjPlayer *)arg0)->setup_attack_stage();
     ((s32 (*)(void *, int, void *))set_action_state__10TObjPlayerFPvss)((void *) (arg0), (int) (5), (void *) (call_subobject_m15__10TObjPlayerFv((void *) (arg0))));
-    apply_speed_scale__10TObjPlayerFif((void *) (arg0), (f32) (((f32 (*)(void *))get_action_rate_entry)((void *) (arg0)) * get_attack_controller_rate((void *) (arg0 + 0x7CC))));
+    apply_speed_scale__10TObjPlayerFif((s32)(arg0), (f32) (((f32 (*)(void *))get_action_rate_entry)((void *) (arg0)) * get_attack_controller_rate((void *) (arg0 + 0x7CC))));
 }
 
 void handle_6x43_attack(void *src) {
@@ -6002,7 +6002,7 @@ void handle_6x3F_set_position(void *arg0) {
         p = (Player_801D0634 *)((void * (*)(s32))get_player_by_client_id)(m.id);
         if (p != NULL) {
             ((TBoss4DarkFalz *)p)->set_position_from(m.vec);
-            ((void (*)(void *))set_flag_400000__10TObjPlayerFi)(p);
+            set_flag_400000__10TObjPlayerFi((s32)p);
             if (m.floor >= 0) {
                 ((TObjPlayer *)p)->set_floor(m.floor);
                 ((TObjPlayer *)p)->set_floor_index(TLobby::get_player_floor(m.floor));

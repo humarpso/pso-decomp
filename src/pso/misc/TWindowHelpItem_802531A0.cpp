@@ -38,7 +38,7 @@ struct V3_802532E8 { u8 bytes[0xc]; };
 
 extern "C" {
 s32 build_player_equipment_requirement_stats(int, void *);
-s32 get_player_by_client_id(int);
+void *get_player_by_client_id(s32 i);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void deserialize_mag__9TItemDataFPvPv(void *, MagData_80253564 *);
 void draw_action_palette_icon(void *, int, u16);
@@ -47,10 +47,10 @@ extern u8 lbl_804CF4E4[];
 extern Callback_80253564 TWindowHelpItem__photon_blast_update_callback;
 extern u8 TWindowHelpItem__description_text_layout[];
 extern V3_802531A4 TWindowHelpItem__description_update_callback;
-s32 set_text_entry_string(void *, void *, s32);
+void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
 extern u8 window_help_item_layout_entries[];
 extern V3_802534B0 item_help_description_idle_callback;
-s32 get_shared_text_buffer();
+s32 *get_shared_text_buffer(void);
 u8 calc_display_grade__9TItemDataFv(void *);
 void check_equip_requirements(int, void *, void *);
 s32 format_item_description(u8 *item);
@@ -70,7 +70,7 @@ void TWindowHelpItem::init_text(void *arg1) {
     init_window_layout_entries(((u8 *)this) + 0x24, TWindowHelpItem__description_text_layout, this->m_20);
     *(V3_802531A4 *)(((u8 *)this) + 0xB0) = TWindowHelpItem__description_update_callback;
     e = get_array_entry__13TUnk_804CE018Fi((void *)(((u8 *)this)), (s32)(0));
-    set_text_entry_string(e, arg1, 0x20);
+    set_text_entry_string(e, (u32)arg1, 0x20);
     ((TWindowHelpItem *)e)->reset_float_field();
 }
 
@@ -87,7 +87,7 @@ void TWindowHelpItem__sub_80253268(u8 *arg0) {
     u8 *temp_r31;
     u8 *temp_r31_2;
     ((TWindowSubStatusDisp *)(&stack.sp8))->clear_fields();
-    temp_r3 = get_player_by_client_id((int) (*(s16 *)((s8 *)arg0 + 0x20)));
+    temp_r3 = (s32)get_player_by_client_id((*(s16 *)((s8 *)arg0 + 0x20)));
     if (temp_r3 != 0) {
         temp_r31 = (u8 *)(temp_r3 + 0x85C);
         if (temp_r31 != NULL) {
@@ -109,7 +109,7 @@ void TWindowHelpItem::update_tech_disk_details() {
     u8 *e4;
     u8 *e5;
     u8 *e6;
-    player = get_player_by_client_id(this->m_20);
+    player = (s32)get_player_by_client_id(this->m_20);
     if (player != 0) {
         init_window_layout_entries(((u8 *)this) + 0x24, help_item_tech_disk_window_layout_table, this->m_20);
         *(V3_802532E8 *)(((u8 *)this) + 0xB0) = item_help_tech_disk_stats_callback;
@@ -121,7 +121,7 @@ void TWindowHelpItem::update_tech_disk_details() {
             get_help_text_string(*(*(u8 **)(((u8 *)this) + 0x68) + 4));
             text_builder_append();
         }
-        set_text_entry_string(e0, (void *)get_shared_text_buffer(), 0x20);
+        set_text_entry_string(e0, (u32)((void *)get_shared_text_buffer()), 0x20);
         ((TWindowHelpItem *)e0)->reset_float_field();
         e1 = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), 1);
         e2 = get_array_entry__13TUnk_804CE018Fi(((u8 *)this), 2);
@@ -154,7 +154,7 @@ void TWindowHelpItem::sub_802534B0() {
     *(V3_802534B0 *)(((u8 *)this) + 0xB0) = item_help_description_idle_callback;
     e = get_array_entry__13TUnk_804CE018Fi((void *)(((u8 *)this)), (s32)(0));
     ((TWindowHelpItem *)((u8 *)this))->format_description_with_price();
-    set_text_entry_string((void *)(e), (void *)(get_shared_text_buffer()), (s32)(0x20));
+    set_text_entry_string((e), (u32)(get_shared_text_buffer()), (0x20));
     ((TWindowHelpItem *)e)->reset_float_field();
     e2 = get_array_entry__13TUnk_804CE018Fi((void *)(((u8 *)this)), (s32)(1));
     *(s32 *)(e2 + 0x10) = calc_display_grade__9TItemDataFv(*(void **)(((u8 *)this) + 0x68));

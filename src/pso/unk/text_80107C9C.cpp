@@ -6,13 +6,13 @@ extern "C" {
 s32 obj_getField1c(int);
 s32 get_field_3e0__12TBoss3VoloptFv();
 s32 TObjPlayer__sub_80117E50();
-s32 get_player_by_client_id(int);
+void *get_player_by_client_id(s32 i);
 s32 is_item_area_enabled();
 extern const f32 lbl_805DAAE8;
 void TUnk_8049EFB8::run_task() {
     s32 player;
     if (lbl_805DAAE8 <= (f32) *(s32 *)&this->unk_1C) {
-        player = get_player_by_client_id((int) (this->m_20));
+        player = (s32)get_player_by_client_id((this->m_20));
         if (player != 0) {
             get_field_3e0__12TBoss3VoloptFv();
             if (is_item_area_enabled() == 1) {

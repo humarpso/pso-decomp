@@ -53,7 +53,7 @@ struct Obj_801756C4 { u8 pad[0x38]; f32 pos[3]; u8 pad44[0xCC - 0x44]; f32 range
 struct Player_801756C4 { u8 pad[0x38]; f32 pos[3]; };
 
 extern "C" {
-void play_persistent_sound(int, void *, void *, int, int);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 void TOSensor__sub_8017546C(u8 *arg0);
 void TOSensor__sub_80175514(u8 *arg0);
 s32 get_current_floor();
@@ -62,7 +62,7 @@ extern s32 local_client_id;
 extern const f32 lbl_805DB980;
 s32 obj_testFlags30(void *, s32);
 f32 horizontal_distance_squared(void *, void *);
-Player_801756C4 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 void *TOSensor__ct(void *arg0);
 void *__dt__8TOSensorFv(void *arg0, s16 arg1);
 void render__8TOSensorFv(void);
@@ -79,16 +79,16 @@ void TOSensor__sub_8017546C(u8 *arg0) {
     case 3:
     case 4:
     case 5:
-        play_persistent_sound(0x43C1C, arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound((s32)(0x43C1C), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
         return;
     case 6:
     case 7:
-        play_persistent_sound(0x4004BC13, arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound((s32)(0x4004BC13), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
         return;
     case 8:
     case 9:
     case 10:
-        play_persistent_sound(0x46419, arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound((s32)(0x46419), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
     case 0:
         return;
     case 1:
@@ -113,16 +113,16 @@ void TOSensor__sub_80175514(u8 *arg0) {
     case 3:
     case 4:
     case 5:
-        play_persistent_sound(0x4411D, arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound((s32)(0x4411D), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
         return;
     case 6:
     case 7:
-        play_persistent_sound(0x4004C114, arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound((s32)(0x4004C114), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
         return;
     case 8:
     case 9:
     case 10:
-        play_persistent_sound(0x4641A, arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound((s32)(0x4641A), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
     case 0:
         return;
     case 1:
@@ -172,7 +172,7 @@ s32 TOSensor::is_confirm_pressed() {
     Obj_801756C4 *self = (Obj_801756C4 *)this;
     Player_801756C4 *pl;
     if (self->state != 1) {
-        pl = get_player_by_client_id(local_client_id);
+        pl = (Player_801756C4 *)get_player_by_client_id(local_client_id);
         switch (self->mode) {
         case 1:
             if (pl != NULL && obj_testFlags30(pl, 0x400000) != 0) {
@@ -307,7 +307,7 @@ u8 *TOSensorAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void *mem_alloc(u32 size);
-s32 load_gvm_texture_file(const void *);
+u8 *load_gvm_texture_file(s32 arg0);
 extern void *ancient_sensor_resource_pair_table;
 extern s32 lbl_805D5A90;
 extern s32 lbl_805D5A94;
@@ -448,9 +448,9 @@ void TOSensorAncient01::load_resources() {
     sensor_ancient01_model_resource = (u32)p;
     ancient_sensor_resource_pair_table = mem_alloc(0x10);
     ((Buf_80175D0C *)ancient_sensor_resource_pair_table)->b = ((Obj_80175D0C *)sensor_ancient01_model_resource)->model->c;
-    ((Buf_80175D0C *)ancient_sensor_resource_pair_table)->a = load_gvm_texture_file(lbl_804429E8);
-    ((Buf_80175D0C *)ancient_sensor_resource_pair_table)->d = load_gvm_texture_file(lbl_80442A00);
-    ((Buf_80175D0C *)ancient_sensor_resource_pair_table)->c = load_gvm_texture_file(lbl_80442A18);
+    ((Buf_80175D0C *)ancient_sensor_resource_pair_table)->a = (s32)load_gvm_texture_file((s32)lbl_804429E8);
+    ((Buf_80175D0C *)ancient_sensor_resource_pair_table)->d = (s32)load_gvm_texture_file((s32)lbl_80442A00);
+    ((Buf_80175D0C *)ancient_sensor_resource_pair_table)->c = (s32)load_gvm_texture_file((s32)lbl_80442A18);
     lbl_805D5A90 = 0;
     lbl_805D5A94 = 0;
     lbl_805D5A98 = 0;

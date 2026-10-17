@@ -25,7 +25,7 @@ struct Ctrl_8006EC20 {
 extern "C" {
 s32 TWindow__close(int);
 s32 TWindowCtrlMain__sub_8024CE58();
-Ctrl_8006EC20 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 s32 TLobby__sub_80211C3C();
 extern s32 local_client_id;
 extern const f32 lbl_805D90B8;
@@ -48,7 +48,7 @@ s32 TObjBagWarnWin::should_show_warning(void *arg0) {
     if (fn_8006EF80() != 0) {
         return 0;
     }
-    ctrl = get_player_by_client_id(local_client_id);
+    ctrl = (Ctrl_8006EC20 *)get_player_by_client_id(local_client_id);
     if (ctrl == NULL) {
         return 0;
     }
@@ -64,7 +64,7 @@ s32 TObjBagWarnWin::should_show_warning(void *arg0) {
         }
         break;
     }
-    ctrl = get_player_by_client_id(local_client_id);
+    ctrl = (Ctrl_8006EC20 *)get_player_by_client_id(local_client_id);
     if (ctrl == NULL || ctrl->pD00->v1C < 30) {
         return 0;
     }

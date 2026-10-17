@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_802F3AB4.h"
 #include "pso/boss/TBoss8Dragon.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 
@@ -21,11 +22,10 @@ struct Ent_802F3974 { u8 pad[0x38]; f32 x; f32 y; f32 z; };
 
 extern "C" {
 s32 __nw__7TObjectFUl(int);
-s32 setup_attack_slot__12TBoss8DragonFiUiiiPv(void *, void *, void *, void *, void *);
 s32 ct_attack_object__12TBoss8DragonFlll(int, int, void *, void *);
 extern s32 tl_04;
 u16 obj_getField1c(void *);
-Ent_802F376C *get_enemy_entity(u16);
+u8 *get_enemy_entity(u16 arg0);
 extern u32 boss8_dragon_leader_part;
 extern const f32 lbl_805DED48;
 extern const f32 lbl_805DED4C;
@@ -44,7 +44,7 @@ s32 TBoss8Dragon::is_closest_part() {
     for (i = 1; i < 6; i++) {
         u16 id = ((TBoss8Dragon *)boss8_dragon_leader_part)->get_part_count_plus(i);
         if (id != obj_getField1c(((Ent_802F376C *)this))) {
-            Ent_802F376C *e = get_enemy_entity(id);
+            Ent_802F376C *e = (Ent_802F376C *)get_enemy_entity(id);
             if (e != NULL) {
                 v.x = e->x - ((Ent_802F376C *)this)->x;
                 v.y = lbl_805DED48;
@@ -116,7 +116,7 @@ s32 TBoss8Dragon::spawn_attack_object(s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     Stack_802F3A48 stack;
     s32 temp_r3;
     s32 var_r0;
-    if (setup_attack_slot__12TBoss8DragonFiUiiiPv((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg4), (void *) (&stack.sp8)) != 0) {
+    if (setup_attack_slot__12TBoss8DragonFiUiiiPv((s32)(arg0), (u32)(arg1), (s32)(arg2), (s32)(arg4), (u8 *)(&stack.sp8)) != 0) {
         temp_r3 = __nw__7TObjectFUl((int) (0x8A4));
         var_r0 = temp_r3;
         if (var_r0 != 0) {

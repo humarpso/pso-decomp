@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcMaleChild.h"
 #include "pso/unk/text_8014B8A4.h"
 #include "pso/npc/TUnk_804A9F50.h"
 #include "pso/npc/TObjNpcMaleBase.h"
@@ -111,7 +112,6 @@ void * TObjNpcMaleChild__create(void *arg0);
 void *__dt__15TObjNpcMaleBaseFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
-void *TObjNpcMaleChild__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -168,7 +168,7 @@ void * TObjNpcMaleChild__create(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x3B8);
     if (o2 != NULL) {
-        o2 = TObjNpcMaleChild__ct(o2, o, arg0);
+        o2 = TObjNpcMaleChild__ct((u8 *)o2, (s32)o, (s32)arg0);
     }
     return o2;
 }

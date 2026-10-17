@@ -37,4 +37,9 @@ public:
 };
 typedef char TAdGuideButtonGC_size_check[sizeof(TAdGuideButtonGC)==0x1A8 ? 1 : -1];
 typedef char GuideButtonSpec_size_check[sizeof(GuideButtonSpec)==0x24 ? 1 : -1];
+extern "C" {
+void create_guide_button(TObject *parent, GuideButtonSpec *spec);
+void init_guide_button_params(GuideButtonSpec *spec);
+}
+
 #endif

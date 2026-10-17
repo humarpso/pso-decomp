@@ -14,8 +14,8 @@
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
-s32 TQuestVmDownLoadServer__sub_8006EF6C(int);
-s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
+s32 TQuestVmDownLoadServer__sub_8006EF6C(s32 arg0);
+int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(void *, int);
 extern s32 lbl_80474D90[];
 extern const f32 lbl_805DEF28;
@@ -32,8 +32,8 @@ void TAdMultiSaveGC::queue_destruction() { queue_destruction__7TObjectFv(); TAdM
 s32 TAdMultiSaveGC__sub_802FF170(void) {
     s32 temp_r31;
     temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFl((void *) (lbl_80474D90), (int) (2));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (TQuestVmDownLoadServer__sub_8006EF6C((int) (0xD))), (int) (6), (int) (0));
-    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (TQuestVmDownLoadServer__sub_8006EF6C((int) (0xE))), (int) (6), (int) (1));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(temp_r31), (int)(TQuestVmDownLoadServer__sub_8006EF6C((s32)(0xD))), (int)(6), (int)(0));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(temp_r31), (int)(TQuestVmDownLoadServer__sub_8006EF6C((s32)(0xE))), (int)(6), (int)(1));
     ((TWindowSubComCardList *)temp_r31)->update_layout_height((f32) (lbl_805DEF28));
     return temp_r31;
 }

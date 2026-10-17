@@ -178,7 +178,7 @@ extern RecoveredGlobal_8023B770_lbl_8044DC20 TTecSlicer__launch_angle_table;
 void destroy_if_set__10TTecSlicerFv(u32);
 
 extern const f32 lbl_805DC954;
-s32 resolve_hittable_target(int, int);
+void *resolve_hittable_target(u16 actorId, s16 collider);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 rotate_matrix_y(s32, s32);
 s32 rotate_matrix_z(s32, s32);
@@ -226,7 +226,7 @@ void TTecSlicer::deliver_target_hit() {
         dist = horizontal_distance_squared((s32) (arg0 + 0x9C), (s32) (arg0 + 0x38));
         range = *(f32 *)((s8 *)arg0 + 0xB8) + *(f32 *)((s8 *)arg0 + 0xBC);
         if (dist < range * range) {
-            temp_r3 = resolve_hittable_target(this->targetId, *(s8 *)((s8 *)arg0 + 0xC6));
+            temp_r3 = (s32)resolve_hittable_target(this->targetId, *(s8 *)((s8 *)arg0 + 0xC6));
             if (temp_r3 != 0) {
                 temp_r3_2 = *(u8 * *)&this->currentWeapon;
                 ((VObj_18_ed5691 *)(temp_r3_2))->m59(*(s32 *)&this->currentPlayer, temp_r3, *(s16 *)((s8 *)arg0 + 0x11C), *(s8 *)((s8 *)arg0 + 0xC6), this->damageMultiplier);

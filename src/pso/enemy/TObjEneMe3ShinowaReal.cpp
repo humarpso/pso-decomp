@@ -108,7 +108,7 @@ extern "C" {
 s32 sub_800E7250__21TObjEneMe3ShinowaRealFv();
 void transition_enemy_state(void *, s16);
 s32 create__23TObjEneMe3ShinowaMirageFPvPv(void *, s32, s32, s32);
-s32 find_entity_by_id(s32);
+void *find_entity_by_id(u16 id);
 u16 obj_getField1c();
 void TObjEneMe3Shinowa__ct(void *, void *);
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
@@ -150,7 +150,7 @@ s32 TObjEneMe3ShinowaReal::get_or_create_mirage(s32 arg1) {
             arg0->slots[arg1] = obj_getField1c();
         }
     } else {
-        r = find_entity_by_id(arg0->slots[arg1]);
+        r = (s32)find_entity_by_id(arg0->slots[arg1]);
     }
     return r;
 }

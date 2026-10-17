@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8020CCF4.h"
 #include "pso/misc/TLobby.h"
 
 struct VBase { char pad[0x18]; };
@@ -85,7 +86,6 @@ struct VObj : VBase {
 
 extern "C" {
 
-u8 *construct_enemy_from_set_row(void *);
 u8 *resolve_matching_object__6TLobbyFv();
 
 extern s32 TLobby__data_805D6144;
@@ -103,7 +103,7 @@ void TLobby::create_objects(s32 arg0) {
     for (i = 0; i < count; i++, ptr += 0x48) {
         temp_r3 = *(s16 *)((s8 *)ptr + 2);
         if (!(temp_r3 & 8) && !(temp_r3 & 2) && (*(s16 *)((s8 *)ptr + 0) != -1) && ((temp_r3 & 1) || (*(s16 *)((s8 *)ptr + 0xE) == 0))) {
-            temp_r3_2 = construct_enemy_from_set_row(ptr);
+            temp_r3_2 = (u8 *)construct_enemy_from_set_row(ptr);
             if (temp_r3_2 != NULL) {
                 *(void **)((s8 *)ptr + 0x44) = temp_r3_2;
                 *(s16 *)((s8 *)ptr + 2) = (s16) (*(s16 *)((s8 *)ptr + 2) | 2);

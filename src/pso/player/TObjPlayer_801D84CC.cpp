@@ -43,12 +43,12 @@ struct VObj_84_801d859c_801D84CC : VObj_84Base_801d859c_801D84CC {
 
 int set_position_from__14TBoss4DarkFalzFPv(void*);
 s32 advance_item_id_counter();
-s32 send_6x29_delete_item__10TObjPlayerFPvii(s32, s32, s32);
+void send_6x29_delete_item__10TObjPlayerFPvii(void *obj, s32 a, s32 b);
 void *pickup_item__10TObjPlayerFv(u8 *arg0, u8 *arg1);
 void TObjPlayer__sub_801BE9A8(s32 arg0);
 void set_equip_slot_entry(s32 arg0, s32 arg1, s32 arg2);
 s32 get_field_d8__5TItemFv();
-u32 get_slot_value__10TObjPlayerFPvi(s32, s8);
+s32 get_slot_value__10TObjPlayerFPvi(s32 *arg0, s32 arg1);
 void *lookup_inventory_item__10TObjPlayerFv(void *);
 u16 obj_getField1c(void *);
 int set_animation__10TObjPlayerFPvs(void*);
@@ -63,8 +63,8 @@ void process_trade_target__10TObjPlayerFiPv(s32 arg0, void *arg1) {
     if (temp_r3 != NULL) {
         s8 val = ((VObj_84_801d859c_801D84CC *)temp_r3)->m31();
         s32 val_ext = (s32)val;
-        if (get_slot_value__10TObjPlayerFPvi(arg0 + 0xD04, val_ext) != 0U) {
-            send_6x29_delete_item__10TObjPlayerFPvii(arg0, get_field_d8__5TItemFv(), 1);
+        if (get_slot_value__10TObjPlayerFPvi((s32 *)(arg0 + 0xD04), val_ext) != 0U) {
+            send_6x29_delete_item__10TObjPlayerFPvii((void *)arg0, get_field_d8__5TItemFv(), 1);
             set_equip_slot_entry(arg0 + 0xD04, val_ext, 0);
         }
         if (pickup_item__10TObjPlayerFv((u8 *)arg0, (u8 *)temp_r3) != 0U) {

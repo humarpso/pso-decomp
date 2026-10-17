@@ -1,9 +1,9 @@
 #include "types.h"
+#include "pso/unk/text_8010F168.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 typedef struct Slot_8010F210 { u32 a; u32 b; } Slot_8010F210;
 
 extern "C" {
-s32 TItemDrop__sub_8010F1B8(s32, void *, int);
 s32 fn_8010F210(Slot_8010F210 *arg0);
 s32 fn_8010F210(Slot_8010F210 *arg0) {
     s32 found;
@@ -22,7 +22,7 @@ s32 fn_8010F210(Slot_8010F210 *arg0) {
         if (found != 0) {
             r = ((TAdSinglePlyChrSelectGC *)0x10)->alloc();
             if (r != 0) {
-                r = TItemDrop__sub_8010F1B8(r, arg0, found);
+                r = (s32)TItemDrop__sub_8010F1B8((u8 *)r, (s32)arg0, found);
             }
             return r;
         }

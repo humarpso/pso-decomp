@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_8026B06C.h"
 #include "pso/misc/TWindowMessageQuest_8026B118.h"
 #include "pso/misc/TUnk_804CE018.h"
 
@@ -23,7 +24,6 @@ struct Ctx_8026B148 {
 };
 
 extern "C" {
-s32 create_quest_message_window_at(int, void *);
 s32 get_window_layout_position(int);
 extern RecoveredGlobal_8026B118_lbl_8044F464 lbl_8044F464;
 Ctx_8026B148 *get_draw_context__11TWindowBaseFPv(void *);
@@ -33,7 +33,7 @@ extern const f32 lbl_805DD260;
 void render__19TWindowMessageQuestFPv(Win_8026B148 *w);
 typedef char RecoveredGlobal_8026B118_lbl_8044F464_size[sizeof(RecoveredGlobal_8026B118_lbl_8044F464) == 0xC ? 1 : -1];
 void create_quest_message_window(void) {
-    create_quest_message_window_at((int) (get_window_layout_position((int) (0xAD))), (void *) (&lbl_8044F464.value));
+    create_quest_message_window_at((get_window_layout_position((int) (0xAD))), (s32)(&lbl_8044F464.value));
 }
 void render__19TWindowMessageQuestFPv(Win_8026B148 *w) {
     Ctx_8026B148 *c;

@@ -1,4 +1,8 @@
 #include "types.h"
+#include "pso/misc/TPlyDispConfig.h"
+#include "pso/player/TObjPlayer_801BF978.h"
+#include "pso/player/TObjPlayer_801D6C4C.h"
+#include "pso/player/TObjPlayer_80309D80.h"
 #include "pso/misc/TFontSmallLobby_801C013C.h"
 #include "pso/misc/TPlyDispConfig_80071F1C.h"
 #include "pso/misc/TWindowActionPalette_801C1890.h"
@@ -16,7 +20,7 @@ extern "C" {
 
 void update_body_parts__10TObjPlayerFv(void* p);
 int copy_player_visual_record(void*);
-int TObjWaitEntryHairMoveSim__sub_800FE73C(void*);
+s32 TObjWaitEntryHairMoveSim__sub_800FE73C(s32 arg0);
 int free_loaded_buffers__12TCharaMakingFv(void*);
 int apply_pending_effect__11TBoss6Type2Fv(void*);
 typedef void (*Fn_vpvp_801BD570)(void *, void *);
@@ -24,7 +28,7 @@ typedef void (*Fn_vpvp_801BD570)(void *, void *);
 void TObjPlayer__sub_801BD384(void* p) { update_body_parts__10TObjPlayerFv(p); }
 void TObjPlayer__sub_801BD3A4(void) {  }
 void TObjPlayer::free_chara_making() { apply_pending_effect__11TBoss6Type2Fv(this); free_loaded_buffers__12TCharaMakingFv(this); }
-void TObjPlayer::update_body_parts() { copy_player_visual_record((char*)this + 0x85c); *(int *)&this->m_cfc = 255; ((TCharaMaking *)this)->update_body_parts(); TObjWaitEntryHairMoveSim__sub_800FE73C(this); }
+void TObjPlayer::update_body_parts() { copy_player_visual_record((char*)this + 0x85c); *(int *)&this->m_cfc = 255; ((TCharaMaking *)this)->update_body_parts(); TObjWaitEntryHairMoveSim__sub_800FE73C((s32)this); }
 
 void TObjPlayer__sub_801BCD54(void *);
 void TObjPlayer__sub_801BCC50(void *);
@@ -35,13 +39,8 @@ void TObjPlayer__sub_801BC504(void *);
 void TObjPlayer__sub_801BBC64(void *);
 void TObjPlayer__sub_801BBB94(void *);
 void TObjPlayer__sub_801BB8AC(void *);
-void destroy__10TObjPlayerFis(void *, int);
 void dt__10TObjPlayerFls(void *, int);
-void __dt__14TPlyDispConfigFv(void *, int);
-void TObjPlayer__sub_80309E4C(void *, int);
 void *TObjPlayer__sub_801BEDC0(void *arg0, s16 arg1);
-void TObjPlayer__sub_801BFA4C(void *, int);
-void TObjPlayer__sub_801BF9F0(void *, int);
 void __dl__7TObjectFPv(void *);
 extern s32 __vt__10TObjPlayer[];
 
@@ -63,16 +62,16 @@ void *__dt__10TObjPlayerFv(void *arg0, s16 arg1) {
         TObjPlayer__sub_801BB8AC(arg0);
         ((TObjPlayer *)arg0)->unregister();
         TObjPlayer::free_owned_buffer_b((s32)((s8 *)arg0 + 0x7CC), (s16)(-1));
-        destroy__10TObjPlayerFis((s8 *)arg0 + 0x754, -1);
+        destroy__10TObjPlayerFis((s32)((s8 *)arg0 + 0x754), -1);
         TObjPlayer__sub_801BFAD4((s8 *)arg0 + 0x644, -1);
         dt__10TObjPlayerFls((s8 *)arg0 + 0x550, -1);
-        __dt__14TPlyDispConfigFv((s8 *)arg0 + 0x500, -1);
+        __dt__14TPlyDispConfigFv((s32)((s8 *)arg0 + 0x500), -1);
         TObjPlayer::free_owned_buffer_a((s32)((s8 *)arg0 + 0x4AC), (s16)(-1));
-        TObjPlayer__sub_80309E4C((s8 *)arg0 + 0x384, -1);
+        TObjPlayer__sub_80309E4C((s32)((s8 *)arg0 + 0x384), -1);
         TObjPlayer__sub_801BEDC0((s8 *)arg0 + 0x374, -1);
-        TObjPlayer__sub_801BFA4C((s8 *)arg0 + 0x360, -1);
+        TObjPlayer__sub_801BFA4C((s32)((s8 *)arg0 + 0x360), -1);
         TObjPlayer::conditional_delete_ex((s32)((s8 *)arg0 + 0x34C), (s16)(-1));
-        TObjPlayer__sub_801BF9F0((s8 *)arg0 + 0x340, -1);
+        TObjPlayer__sub_801BF9F0((u8 *)((s8 *)arg0 + 0x340), -1);
         ((TUnk_804806E8 *)arg0)->destroy_motion_object(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

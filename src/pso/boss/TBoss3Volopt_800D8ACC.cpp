@@ -15,7 +15,7 @@ typedef struct Vec_800D8C48 {
 } Vec_800D8C48;
 
 extern "C" {
-s32 create_timed_particle_emitter(void *, int, int, int);
+void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
 s32 spawn_particle_effect(void *, int, f32);
 extern const f32 lbl_805DA3C0;
 s32 play_sound_effect(int, void *, int, int);
@@ -164,7 +164,7 @@ void spawn_particles_at__12TBoss3VoloptFi(s32 arg0) {
     Stack_800D8F78 stack;
     f32 temp_f1;
     VecCopy((Vec *)(&stack.sp8), (const Vec *)(arg0));
-    create_timed_particle_emitter((void *) (arg0), (int) (0xEA), (int) (0xA), (int) (0x1E));
+    create_timed_particle_emitter((void *)(arg0), (0xEA), (0xA), (0x1E));
     temp_f1 = stack.spC;
     stack.spC = temp_f1 + lbl_805DA3C0;
     spawn_particle_effect((void *) (&stack.sp8), (int) (0xE9), (f32) (temp_f1));

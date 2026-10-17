@@ -46,7 +46,7 @@ extern s32 lbl_805D5668;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-u8 * find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 void sub_801AE72C__13TPhotonYoullaFv(void *, u8);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
 extern u8 lbl_804C3B48[];
@@ -143,7 +143,7 @@ u8 *TPhotonYoulla__ct(u8 *arg0, u8 *arg1) {
     *(s32 *)((s8 *)arg0 + 0x138) = 5;
     VecCopy((Vec *)((u8 *)(arg0) + 0x38), (const Vec *)(arg1));
     ((TPhotonYoulla *)arg0)->m_17c = (u16) *(u16 *)((s8 *)arg1 + 0xC);
-    *(u8 **)((s8 *)arg0 + 0x180) = find_entity_by_id(((TPhotonYoulla *)arg0)->m_17c);
+    *(u8 **)((s8 *)arg0 + 0x180) = (u8 *)find_entity_by_id(((TPhotonYoulla *)arg0)->m_17c);
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x180));
     if (temp_r3 != NULL) {
         ((TPhotonYoulla *)arg0)->rotation_y = (s32) *(s32 *)((s8 *)temp_r3 + 0x60);

@@ -24,7 +24,7 @@ struct Arg_800E3074 { Entry_800E3074 *list; Param_800E3074 *params; };
 extern "C" {
 u8 * fn_800E31C4(void *, void *, s32);
 extern State_800E2FFC TObjFish_draw_callback_state;
-int transform_to_view__11TCameraCtrlFii(void *, void *);
+void transform_to_view__11TCameraCtrlFii(s32 arg0, s32 arg1);
 
 void TObjFish::draw_callback_transform_to_view() {
     Entry_800E2FFC *p = TObjFish_draw_callback_state.list;
@@ -32,7 +32,7 @@ void TObjFish::draw_callback_transform_to_view() {
     s32 id;
     while ((id = p->id) != -1) {
         if (id == TObjFish_draw_callback_state.counter) {
-            transform_to_view__11TCameraCtrlFii(p->data, q);
+            transform_to_view__11TCameraCtrlFii((s32)p->data, (s32)q);
         }
         p++;
         q++;

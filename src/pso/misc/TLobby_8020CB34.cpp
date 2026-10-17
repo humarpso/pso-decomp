@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/misc/TLobby_8020B334.h"
 #include "pso/misc/TLobby.h"
 
 extern "C" {
 
 u8 *create_set_object_from_row(void *);
-u8 *get_object_count__6TLobbyFPv(s32);
 
 struct VObj8020 {
     char pad[0x18];
@@ -27,7 +27,7 @@ s32 TLobby::spawn_objects_at_pos(s16 arg0, s16 arg1) {
     u8 *set_object;
 
     var_r30 = 0;
-    var_r29 = get_object_count__6TLobbyFPv(TLobby__data_805D60FC);
+    var_r29 = (u8 *)get_object_count__6TLobbyFPv((void *)TLobby__data_805D60FC);
     obj_table_entry = TLobby::get_obj_table_entry(TLobby__data_805D60FC);
     for (var_r28 = 0; var_r28 < obj_table_entry; var_r28++, var_r29 += 0x44) {
         temp_r3 = *(s16 *)((s8 *)var_r29 + 2);

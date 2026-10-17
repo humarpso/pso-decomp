@@ -10,7 +10,7 @@ extern RecoveredGlobal_801A5228_lbl_80446970 card_window_scale_table;
 
 extern "C" {
 
-void *get_character_save_record(s32);
+s32 get_character_save_record(u32 arg0);
 
 extern s32 local_client_id;
 
@@ -27,7 +27,7 @@ s32 TWindowSubStatusDisp::get_card_window_flags(s32 arg0) {
     if (var_r3 >= 4) {
         var_r3 = local_client_id;
     }
-    character_save_record = get_character_save_record(var_r3);
+    character_save_record = (void *)get_character_save_record(var_r3);
     if (character_save_record == NULL) {
         return 1;
     }

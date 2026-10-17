@@ -115,9 +115,9 @@ typedef struct Anim_802F0BE8 { u8 pad0[4]; u32 n; } Anim_802F0BE8;
 
 s32 obj_testFlags30(void *, s32);
 s32 attach_particle_model(int, int, int, int, int, f32);
-s32 spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 f32 horizontal_distance_squared(void *, void *);
-u8 * get_player_by_client_id(u16);
+void *get_player_by_client_id(s32 i);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 notify_fish_obj__10TObjPlayerFPv(int);
@@ -161,7 +161,7 @@ void TBoss7Tentacle::restart_particle_effect() {
     queue_destruction__7TObjectFv((*((void **) (((s8 *) arg0) + 0x40))));
     *((u32 *) (((s8 *) arg0) + 0x40)) = 0U;
   }
-  particle_effect = spawn_particle_effect((void *) (arg0 + 0x1C), (int) 0x215);
+  particle_effect = (s32)spawn_particle_effect((arg0 + 0x1C), (int) 0x215);
   temp_r3 = particle_effect;
   if (temp_r3 != 0)
   {
@@ -199,7 +199,7 @@ void damage_nearby_players__14TBoss7TentacleFPv(u8 *arg0) {
     u8 *p;
     ((TBoss7Tentacle *)arg0)->advance_anim_time_wrapped(lbl_805DEC08);
     for (i = 0; (u16)i != 12; i++) {
-        p = get_player_by_client_id((u16)i);
+        p = (u8 *)get_player_by_client_id((u16)i);
         if (p != NULL && horizontal_distance_squared(p + 0x38, arg0 + 0x1C) < lbl_805DEC0C) {
             if (*(s32 *)(arg0 + 0x3C) == 0 && ((VObj_18_9935f6 *)p)->m25(*(s32 *)(arg0 + 0x10), 0, lbl_805DEC10) != 0) {
                 ((VObj_18_9935f6 *)p)->m20(*(s32 *)(arg0 + 0x10), TBoss7Tentacle__data_805DEC00);

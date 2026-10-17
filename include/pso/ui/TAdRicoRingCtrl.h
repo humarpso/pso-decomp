@@ -23,4 +23,8 @@ struct TAdRicoRingCtrl : public TObject {
 };
 
 typedef char TAdRicoRingCtrl_size[sizeof(TAdRicoRingCtrl) == 0x2C ? 1 : -1];
+extern "C" {
+void TAdRicoRingCtrl__sub_8001BED0(void *p, f32 v);
+}
+
 #endif

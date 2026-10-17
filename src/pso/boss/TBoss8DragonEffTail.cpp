@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/boss/TBoss1DragonColli.h"
+#include "pso/boss/TBoss8Dragon_800BC53C.h"
+#include "pso/enemy/TObjEneDD_800BA754.h"
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804928CC.h"
 #include "pso/boss/TBoss8DragonEffTail.h"
@@ -91,15 +94,12 @@ struct Obj_802FE494 : VB_802FE494 {
 
 extern "C" {
 extern const f32 lbl_805DEF18;
-void fn_8002B630(void *, void *);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
 extern u8 boss8_dragon_eff_tail_init_data[];
 extern s32 __vt__19TBoss8DragonEffTail[];
 extern s32 TBoss8DragonEffTail__name;
 extern const f32 lbl_805DEF14;
 EffTail_8002C06C *TBoss8DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 arg2);
-void update_collider_contact_by_height(u8 *arg0, f32 farg0);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 s32 vec3_add_to(s32, s32, s32);
@@ -113,11 +113,6 @@ extern P8_802FE494 lbl_80474BBC[];
 extern const f32 lbl_805DEF08;
 extern const f32 lbl_805DEF0C;
 extern const f32 lbl_805DEF10;
-void run_task__19TBoss8DragonEffTailFv(u8 *arg0p);
-void TBoss8DragonEffTail__vt18(s32 arg0, s32 arg1);
-void *__dt__19TBoss8DragonEffTailFv(void *arg0, s16 arg1);
-void fn_802FE48C(void);
-void delete_buffer__12TBoss8DragonFis(void *, int);
 s32 TLobby__sub_8001FE7C(s32, s32);
 s32 TLobby__sub_803DA16C(void*);
 void __dl__7TObjectFPv(void *);
@@ -183,7 +178,7 @@ int TBoss8DragonEffTail::get_state() { return fill_value_array(*(void* *)&this->
 void *__dt__19TBoss8DragonEffTailFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TBoss8DragonEffTail;
-        delete_buffer__12TBoss8DragonFis(*(void **)((s8 *)arg0 + 0xB8), 1);
+        delete_buffer__12TBoss8DragonFis((s32)(*(void **)((s8 *)arg0 + 0xB8)), 1);
         *(s32 *)&((TBoss8DragonEffTail *)arg0)->m_b8 = 0;
         ((TUnk_804928CC *)arg0)->destroy_enemy_object(0);
         if (arg1 > 0) {
@@ -205,7 +200,7 @@ EffTail_8002C06C *TBoss8DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 
     data = boss8_dragon_eff_tail_init_data;
     arg0->unk0 = TBoss8DragonEffTail__name;
     for (i = 1; i < 0x11; i++) {
-        fn_8002B630(&arg0->spheres[i], data);
+        fn_8002B630((u8 *)&arg0->spheres[i], (u8 *)data);
     }
     arg0->unkB0 = arg1;
     arg0->unkB4 = arg2;

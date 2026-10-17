@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8020CCF4.h"
 #include "pso/misc/TLobby.h"
 
 struct CE4C_VBase_8020ce4c { char pad[0x18]; };
@@ -85,8 +86,6 @@ struct CE4C_VObj_8020ce4c : CE4C_VBase_8020ce4c {
 
 extern "C" {
 
-u8 *construct_enemy_from_set_row(void *);
-
 extern s32 TLobby__data_805D6144;
 
 void TLobby::assign_display_objects(u8 *arg0, s32 arg1) {
@@ -100,7 +99,7 @@ void TLobby::assign_display_objects(u8 *arg0, s32 arg1) {
     for (i = 0; i < arg1; i++, ptr += 0x48) {
         temp_r3 = *(s16 *)((s8 *)ptr + 2);
         if (!(temp_r3 & 8) && !(temp_r3 & 2) && (*(s16 *)((s8 *)ptr + 0) != -1) && ((temp_r3 & 1) || (*(s16 *)((s8 *)ptr + 0xE) == 0))) {
-            temp_r3_2 = construct_enemy_from_set_row(ptr);
+            temp_r3_2 = (u8 *)construct_enemy_from_set_row(ptr);
             if (temp_r3_2 != NULL) {
                 *(void **)((s8 *)ptr + 0x44) = temp_r3_2;
                 *(s16 *)((s8 *)ptr + 2) = (s16) (*(s16 *)((s8 *)ptr + 2) | 2);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjChip.h"
 #include "pso/misc/TOWreckAncientBrakable_8017D444.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
@@ -27,7 +28,6 @@ struct Param_8017D448 {
 extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-void construct_debris__8TObjChipFPvPvPv(void *, s32, Param_8017D448 *);
 void *__nw__7TObjectFUl(u32);
 void vec3_add_to(Vec_8017D448 *, Vec_8017D448 *);
 void rotate_vector_by_matrix(int, Vec_8017D448 *, Vec_8017D448 *);
@@ -62,7 +62,7 @@ void TOWreckAncientBrakable::spawn_debris() {
         p.f44 = TObjFish__sub_8001EDB0(wreck_ancient_brakable_bml_resource, i);
         obj = __nw__7TObjectFUl(0x234);
         if (obj != 0) {
-            construct_debris__8TObjChipFPvPvPv(obj, tl_05, &p);
+            construct_debris__8TObjChipFPvPvPv((u8 *)obj, (u8 *)tl_05, (u8 *)&p);
         }
     }
 }

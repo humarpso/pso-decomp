@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TChCrTag.h"
+#include "pso/unk/text_80309890.h"
+#include "pso/unk/text_803098DC.h"
 #include "pso/misc/TChCrTagInformation.h"
 #include "pso/TChCrCharSelect.h"
 
@@ -9,14 +12,8 @@ struct Tag_802A1E8C {
 
 extern "C" {
 s32 get_char_select_class_id();
-void fn_80309890(void *, s32);
 extern const f32 lbl_805DDE1C;
-int TChCrTagInformation__vt4(void);
-void *__dt__19TChCrTagInformationFv(void *arg0, s16 arg1);
-int update_fade__8TChCrTagFPv(void*);
 void __dl__7TObjectFPv(void *);
-void *__dt__8TChCrTagFv(void *self, s16 arg1);
-void fn_803098DC(void);
 
 void TChCrTagInformation::render() { { (void)(draw_char_info_sprites()); return; } }
 
@@ -41,7 +38,7 @@ void TChCrTagInformation::update_selected_char() {
     }
 }
 
-void TChCrTagInformation::run_task() { update_fade__8TChCrTagFPv(this); update_selected_char(); }
+void TChCrTagInformation::run_task() { update_fade__8TChCrTagFPv((u8 *)this); update_selected_char(); }
 int TChCrTagInformation__vt4(void) { return 0; }
 
 extern s32 __vt__19TChCrTagInformation[];

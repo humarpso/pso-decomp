@@ -27,7 +27,7 @@ u8 *__dt__13TUnk_804C3F48Fv(u8 *arg0, s16 arg1);
 f32 newton_sqrtf(f32);
 void queue_destruction__7TObjectFv(void *);
 f32 xz_distance_squared(void *, void *);
-Ply_801C51D4 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 void update_technique_slot__10TTecRaFoieFl(void *, s32, s32);
 void *play_sound_effect(s32, s32, s32, s32, f32);
 extern const f32 lbl_805DC308;
@@ -57,7 +57,7 @@ void TUnk_804C3F48::run_task() {
         if (--self->timer <= 0) {
             min = lbl_805DC308;
             for (i = 0; i < 4; i++) {
-                p = get_player_by_client_id(i);
+                p = (Ply_801C51D4 *)get_player_by_client_id(i);
                 if (p != NULL && p != self->owner && !(p->flags & 0x800)) {
                     d = xz_distance_squared(self->owner->pos, p->pos);
                     min = min < d ? min : d;

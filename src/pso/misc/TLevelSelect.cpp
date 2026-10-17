@@ -1,4 +1,5 @@
 #include "pso/TLevelSelect.h"
+#include "pso/ui/TAdDrawLineCtrl.h"
 #include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/misc/TLevelSelect.h"
 #include "pso/misc/TLobby_80132ED0.h"
@@ -48,7 +49,6 @@ void __ct__13TAdTitleTexGCFv(void *, void *);
 void __ct__14TAdSelectTxtGCFP7TObjectPvPv(void *, void *, void *, int);
 void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
-void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 extern Ents_8013319C level_select_entry_table;
 extern Pos_8013319C lbl_8043ED58[];
 extern Poss_8013319C level_select_position_table;
@@ -178,7 +178,7 @@ Self_8013319C *__ct__12TLevelSelectFv(Self_8013319C *self) {
             }
         }
     }
-    create_draw_line_ctrl__13TAdMcSelectGCFiif(self, 2, lbl_805DB080);
+    create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)self, (s32)(2), (f32)lbl_805DB080);
     return self;
 }
 

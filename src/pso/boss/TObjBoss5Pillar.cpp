@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss5PillarDemo.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_8028ADDC.h"
 #include "pso/unk/text_803D96A8.h"
@@ -35,11 +36,8 @@ extern s32 lbl_805D3B40;
 extern u8 *lbl_805D4DD8;
 extern const f32 lbl_805DD918;
 extern const f32 lbl_805DD91C;
-u8 *TObjBoss5Pillar__ct(u8 *arg0, u8 *arg1, u8 *arg2);
 void fn_8028AE1C(void *);
-void *__dt__15TObjBoss5PillarFv(void *arg0, s16 arg1);
 s32 post_translate_matrix(void *);
-void TObjBoss5PillarDemo__sub_8028ADB0(u32 arg0);
 s32 draw_ginja_model_with_motion(int, int, f32);
 s32 push_matrix();
 void __dl__7TObjectFPv(void *);

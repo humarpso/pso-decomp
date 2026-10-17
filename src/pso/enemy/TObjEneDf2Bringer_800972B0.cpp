@@ -2052,7 +2052,7 @@ struct Obj_80098EFC {
 };
 
 extern "C" {
-s32 get_player_by_client_id(u32);
+void *get_player_by_client_id(s32 i);
 s32 rotate_xz_pair_by_angle(f32 *, f32 *, s32, f32, f32);
 void *spawn_particle_effect(void *pos, s32 id);
 s32 vec3_add_to(f32 *, void *);
@@ -2198,7 +2198,7 @@ void TObjEneDf2Bringer::sub_80098DEC() {
     u16 temp_r3;
     temp_r3 = *(u16 *)((s8 *)arg0 + 0x2D4);
     if (temp_r3 < 0x1000U) {
-        player = get_player_by_client_id((u32) temp_r3);
+        player = (s32)get_player_by_client_id(temp_r3);
         if (player != 0) {
             ((TObjEneDD_ST *)arg0)->set_target_player((void *)player);
         }

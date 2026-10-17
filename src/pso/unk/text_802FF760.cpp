@@ -10,7 +10,7 @@ struct Vec_802FF7EC { f32 x, y, z; };
 struct Cam_802FF7EC { u8 pad[0x14]; s32 v; u8 pad2[4]; Vec_802FF7EC c; Vec_802FF7EC d; u8 pad3[0x10]; };
 
 extern "C" {
-void set_active_camera_pose_from_params(void *);
+void set_active_camera_pose_from_params(u8 *arg0);
 s32 activate_camera_mode(s32 arg0);
 extern Vec_802FF760 lbl_80474DC4[];
 extern Vec_802FF760 lbl_80474DD0[];
@@ -24,7 +24,7 @@ void fn_802FF760(void) {
     VecCopy((Vec *)&cam.d, (const Vec *)&a);
     cam.v = 0x36C1;
     activate_camera_mode(9);
-    set_active_camera_pose_from_params(&cam);
+    set_active_camera_pose_from_params((u8 *)&cam);
 }
 void fn_802FF7EC(void) {
     Cam_802FF7EC cam;
@@ -34,7 +34,7 @@ void fn_802FF7EC(void) {
     VecCopy((Vec *)((Vec_802FF760 *)(&cam.d)), (const Vec *)((Vec_802FF760 *)(&a)));
     cam.v = 0x1999;
     activate_camera_mode(9);
-    set_active_camera_pose_from_params(&cam);
+    set_active_camera_pose_from_params((u8 *)&cam);
 }
 
 }

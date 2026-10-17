@@ -29,7 +29,7 @@ extern "C" {
 s32 construct_world_actor_base(void *);
 extern s32 __vt__16TObjRaderHideCol[];
 extern s32 lbl_805D3414;
-Pl_801973B0 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 extern s32 local_client_id;
 void __dl__7TObjectFPv(void *);
 
@@ -37,7 +37,7 @@ void TObjRaderHideCol::render() {  }
 
 void TObjRaderHideCol::run_task() {
     Hide_801973B0 *arg0 = (Hide_801973B0 *)this;
-    Pl_801973B0 *p = get_player_by_client_id(local_client_id);
+    Pl_801973B0 *p = (Pl_801973B0 *)get_player_by_client_id(local_client_id);
     if (p != 0) {
         if (xyz_distance_squared((u8 *)arg0->pos, (u8 *)p->pos) < arg0->f90 * arg0->f90) {
             if (!(arg0->f94 & 1)) {

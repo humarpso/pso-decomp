@@ -20,7 +20,7 @@ struct RecoveredGlobal_802911E8_lbl_804DAA78 {
 };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 TLobby__sub_803DA16C(void *);
 extern RecoveredGlobal_80291138_lbl_804D9668 creation_sprite_table;
 extern u32 cmicon_instance;
@@ -58,7 +58,7 @@ void TCharaMaking__resolve_creation_sprite_table(u8 **table, s32 *id) {
 
 void fn_80291138(void) {
     if ((u32) cmicon_instance != 0U) {
-        queue_destruction__7TObjectFv((void *) (cmicon_instance));
+        queue_destruction__7TObjectFv((void *)(cmicon_instance));
     }
     cmicon_instance = 0U;
     TLobby__sub_803DA16C((void *) (&creation_sprite_table.value));

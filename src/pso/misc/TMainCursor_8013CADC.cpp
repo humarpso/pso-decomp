@@ -45,8 +45,8 @@ struct Weapon_8013CDE4 { f32 f0; f32 f4; s32 f8; s32 fc; s32 f10; };
 extern "C" {
 s32 check_visible__11TMainCursorFv(void *, int, void *, void *);
 int TLockOnCursor__sub_8013EB34(void);
-u32 get_player_by_client_id(void *);
-s32 offset_point_toward_camera(void *, void *, f32);
+void *get_player_by_client_id(s32 i);
+void offset_point_toward_camera(u8 *arg0, u8 *arg1, f32 farg0);
 void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 s32 rotate_matrix_y(int, int);
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
@@ -462,14 +462,14 @@ void TLockOnCursor::renderSecondaryCursor(u8 *arg1, s32 arg2, s32 arg3) {
     s32 temp_r3_2;
     u32 player;
     if (is_inactive() != 0) {
-        player = get_player_by_client_id((void *) (get_target_id()));
+        player = (u32)get_player_by_client_id((get_target_id()));
         if (player != 0U) {
             temp_r3_2 = check_visible__11TMainCursorFv((void *) (player + 0x500), (int) (player), (void *) (arg2), (void *) (arg3));
             if (temp_r3_2 != -1) {
                 TObjFish::set_global_param((s32)((void *) (&shared_effect_texture_list)));
                 temp_f31 = *(f32 *)((s8 *)arg1 + 0xC);
                 push_matrix();
-                offset_point_toward_camera((void *) (arg1 + 0x1C), (void *) (&sp8), (f32) (temp_f31));
+                offset_point_toward_camera((u8 *)(arg1 + 0x1C), (u8 *)(&sp8), (f32) (temp_f31));
                 translate_matrix_vec3((u8 *)(0), (u8 *)(&sp8));
                 rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)camera_ctrl_instance + 0x194)));
                 TParticleCtrl::begin_effect_render();

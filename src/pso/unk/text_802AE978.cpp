@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
 struct Card_802AE978 { u8 b[0x20]; };
@@ -14,9 +15,6 @@ struct Obj_802AE978 {
 };
 
 extern "C" {
-void begin_screen_draw(s32 arg0);
-void draw_textured_quad_at_depth(void *, f32);
-void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern s32 menu_selection_cursor_texture_list;
 void draw_select_cursor_quads(Obj_802AE978 *o);
 void draw_select_cursor_quads(Obj_802AE978 *o) {
@@ -25,9 +23,9 @@ void draw_select_cursor_quads(Obj_802AE978 *o) {
         begin_screen_draw(1);
         TObjFish::set_global_param(menu_selection_cursor_texture_list);
         set_draw_texture_and_color(0, (o->colors[i] << 24) | 0xFFFFFF);
-        draw_textured_quad_at_depth(&o->cards[i], o->scale);
-        draw_textured_quad_at_depth(&o->cards[i + 16], o->scale);
-        draw_textured_quad_at_depth(&o->cards[i + 32], o->scale);
+        draw_textured_quad_at_depth((f32 *)&o->cards[i], o->scale);
+        draw_textured_quad_at_depth((f32 *)&o->cards[i + 16], o->scale);
+        draw_textured_quad_at_depth((f32 *)&o->cards[i + 32], o->scale);
         TWindowSubStatusDisp::get_player();
     }
 }

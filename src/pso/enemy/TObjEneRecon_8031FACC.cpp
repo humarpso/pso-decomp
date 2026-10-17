@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/map/CsnQuery.h"
 #include "pso/enemy/TObjEneRecon_8031FACC.h"
 #include "pso/system/vector.h"
 #include "pso/enemy/TObjEneRecobox.h"
@@ -12,7 +13,6 @@ struct Stack_8031FB6C {
 struct Obj_8031FACC { u8 pad[0x3F4]; s32 f3F4; s32 f3F8; u8 pad2[0x410 - 0x3FC]; s32 f410; s32 f414; };
 
 extern "C" {
-u8 *csnVectorUnder(s32 *, void *, s32);
 s32 set_part_local_pos__9TObjEneDDFPvPvi(void *, void *, int);
 extern const f32 lbl_805DF450;
 extern const f32 lbl_805DF460;
@@ -43,7 +43,7 @@ void TObjEneRecon__sub_8031FB6C(u8 *arg0) {
     } else {
         stack.spC += lbl_805DF450;
     }
-    temp_r3 = (u8 *)(csnVectorUnder(&stack.sp8, arg0 + 0x120, 0x15));
+    temp_r3 = (u8 *)(csnVectorUnder((s32)&stack.sp8, (u32 *)(arg0 + 0x120), 0x15));
     if ((temp_r3 == NULL) || (((TObjEneRecobox *)arg0)->m_300 >= (lbl_805DF460 + *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 4)) + 4)))) {
         ((TObjEneRecobox *)(arg0))->vfunc_97();
     }

@@ -11,7 +11,7 @@ struct RecoveredGlobal_802A9880___vt__9TTecKafun { s32 value; u8 remaining[0x24]
 typedef char RecoveredGlobal_802A9880___vt__9TTecKafun_size[sizeof(RecoveredGlobal_802A9880___vt__9TTecKafun) == 0x28 ? 1 : -1];
 
 extern "C" {
-u32 find_entity_by_id(int);
+void *find_entity_by_id(u16 id);
 u16 obj_getField1c(void *);
 s32 play_sound_effect(s32, u32, s16, s32);
 u8 * construct_area_technique_base(void *, s32, s32, s32, s16);
@@ -40,7 +40,7 @@ void TTecKafun::run_task() {
         queue_destruction__7TObjectFv((arg0));
         return;
     }
-    this->source = find_entity_by_id((int) (this->m_b4));
+    this->source = (u32)find_entity_by_id((this->m_b4));
     if ((u32) this->source == 0U) {
         queue_destruction__7TObjectFv((arg0));
         return;

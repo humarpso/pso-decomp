@@ -33,7 +33,7 @@ typedef struct Obj_800502FC {
 extern "C" {
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
-u8 *get_player_by_client_id(u16);
+void *get_player_by_client_id(s32 i);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void push_matrix();
@@ -69,7 +69,7 @@ void TObjDFYutai::render() {
     u8 *p;
     f32 s;
     f32 w;
-    p = get_player_by_client_id(arg0->id);
+    p = (u8 *)get_player_by_client_id(arg0->id);
     if (p == NULL || TBoss4Type3__sub_8005254C(arg0->id) == 0) {
         return;
     }

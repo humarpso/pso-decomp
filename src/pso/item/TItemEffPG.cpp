@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/item/TItemEffPG_8034FF4C.h"
 #include "pso/object/TObject_80019A50.h"
@@ -21,16 +22,14 @@ struct RecoveredGlobal_8034FCF0_lbl_804F0BF0 {
 };
 
 extern "C" {
-s32 play_persistent_sound(int, void *, void *, int, int);
 extern const f32 lbl_805DFE08;
 extern const f32 lbl_805DFE0C;
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
-s32 create_particle_emitter(s32, s32);
+void *create_particle_emitter(void *pos, s32 id);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804F0BF0[];
 extern const f32 lbl_805DFE10;
-u8 *TItemEffPG__visual_ct(u8 *arg0, u8 *arg1, u8 *arg2);
 s32 get_state_flag__9TMainTaskFv();
 u32 query_game_join_id__10TObjPlayerFv(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -46,8 +45,6 @@ extern s32 lbl_805D5668;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-void TItemEffPG__begin_visual_fade(void* p);
-void *__dt__13TUnk_804F0BF0Fv(void *arg0, s16 arg1);
 void TItemWeapon__ct(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -148,7 +145,7 @@ void TUnk_804F0BF0::run_task() {
             *(f32 *)((s8 *)arg0 + 0x28) = (f32) (temp_f1_3 - lbl_805DFE0C);
         }
     }
-    play_persistent_sound((int) (0x4001A343), (void *) (arg0), (void *) (arg0 + 0x5C), (int) (0), (int) (0));
+    play_persistent_sound((s32)(0x4001A343), (s32)(arg0), (u32)(arg0 + 0x5C), (s32)(0), (s32)(0));
 }
 
 void *__dt__13TUnk_804F0BF0Fv(void *arg0, s16 arg1) {
@@ -184,7 +181,7 @@ u8 *TItemEffPG__visual_ct(u8 *arg0, u8 *arg1, u8 *arg2) {
     *(f32 *)((s8 *)arg0 + 0x2C) = (f32) lbl_805DFE10;
     *(f32 *)((s8 *)arg0 + 0x30) = (f32) lbl_805DFE10;
     *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805DFE10;
-    *(s32 *)((s8 *)arg0 + 0x38) = create_particle_emitter((s32) (arg0 + 0x5C), 0x83);
+    *(s32 *)((s8 *)arg0 + 0x38) = (s32)create_particle_emitter((arg0 + 0x5C), 0x83);
     *(s32 *)((s8 *)arg0 + 0x58) = 0;
     return arg0;
 }

@@ -1,4 +1,7 @@
 #include "pso/ui/TAdChrSelSlotGC.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
+#include "pso/player/TObjPlayer_8023E480.h"
+#include "pso/system/ModelDrawContext.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/ui/TUnk_804E0B28.h"
 
@@ -104,16 +107,11 @@ extern "C" {
 void TAdChrSelSlotGC__sub_802C754C(O_802C754C *self, s32 i);
 extern const f32 lbl_805DE5CC;
 extern f32 lbl_805D67F4, lbl_805D67F8;
-s32 TLobby__sub_8023E4B4(s32 arg0, s32 arg1);
 extern const s32 chr_sel_slot_resource_name_table[];
 extern const s32 lbl_80471D50[];
 extern const s32 current_language;
 extern u32 lbl_805D67F0;
-void TLobby__sub_802C7920(void);
 extern s32 TAdChrSelSlotGC__name;
-void begin_screen_draw(s32 arg0);
-void draw_textured_quad_at_depth(void *, f32);
-void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern const f32 lbl_805DE5C8;
 s32 get_main_phase();
 extern const f32 lbl_805DE5B4, lbl_805DE5B8, lbl_805DE5BC, lbl_805DE5C0;
@@ -124,13 +122,10 @@ extern s32 __vt__13TUnk_804E0B28[];
 extern s32 lbl_805D67E8;
 extern const f32 lbl_805DE5B8, lbl_805DE5BC, lbl_805DE5C0;
 void TAdChrSelSlotGC__sub_802C7498(struct S802C7498_802C70AC *arg0, s32 arg1);
-void TLobby__sub_802C78EC(void);
-void *__dt__13TUnk_804E0B28Fv(void *arg0, s16 arg1);
 void TLobby__sub_803DA16C(void*);
 void TWindow__close(u8 *arg0);
 s32 __dl__7TObjectFPv(void *);
 s32 __dt__7TObjectFv(void *, s32);
-void set_cached_blend_factor(s32 arg0, s32 arg1);
 void restore_saved_depth_alpha_state(void);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
@@ -220,7 +215,7 @@ void TAdChrSelSlotGC::draw_slot_icons() {
             begin_screen_draw(1);
             TObjFish::set_global_param((s32)((void *)lbl_805D67F0));
             set_draw_texture_and_color(0, self->tex[i]);
-            draw_textured_quad_at_depth(&self->quad[i], lbl_805DE5C8);
+            draw_textured_quad_at_depth((f32 *)&self->quad[i], lbl_805DE5C8);
             TWindowSubStatusDisp::get_player();
         }
     }

@@ -41,7 +41,7 @@ u8 *create_item_grinder(u8 *arg0);
 u8 * TItemEquipBase__ct(void *);
 s16 get_bswap16_field8__9TItemDataFPv(void *);
 s16 getS16_06__9TItemDataFPv(void *);
-s32 lookup_item_pmt_record(void *);
+void *lookup_item_pmt_record(u8 *item);
 extern void *__vt__13TItemProArmor[];
 extern s32 lbl_805D2C30;
 u8 *TItemProArmor__ct(u8 *arg0, s32 arg1, u8 *arg2);
@@ -431,7 +431,7 @@ u8 *TItemProArmor__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TItemProArmor *)arg0)->m_192 = (u8) *(u8 *)((s8 *)arg2 + 5);
     *(s8 *)&((TItemProArmor *)arg0)->m_193 = getS16_06__9TItemDataFPv(arg2);
     *(s8 *)&((TItemProArmor *)arg0)->m_194 = get_bswap16_field8__9TItemDataFPv(arg2);
-    *(s32 *)&((TItemProArmor *)arg0)->m_18c = lookup_item_pmt_record(arg2);
+    *(s32 *)&((TItemProArmor *)arg0)->m_18c = (s32)lookup_item_pmt_record(arg2);
     ((TItemProArmor *)arg0)->m_195 = (u8) *(u8 *)((s8 *)(*(s32 *)&((TItemProArmor *)arg0)->m_18c) + 0x16);
     ((TItemProArmor *)arg0)->m_196 = (u8) *(u8 *)((s8 *)(*(s32 *)&((TItemProArmor *)arg0)->m_18c) + 0x17);
     if ((u8) ((TItemProArmor *)arg0)->m_192> 4U) {
@@ -455,7 +455,7 @@ s32 TItemProArmor::create_armor_object() {
   u8 temp_r0;
   if (arg0 != 0)
   {
-    temp_r0 = *((u8 *) (((s8 *) ((u8 *)lookup_item_pmt_record((void *)(arg0)))) + 0x1A));
+    temp_r0 = *((u8 *) (((s8 *) ((u8 *)lookup_item_pmt_record((u8 *)(arg0)))) + 0x1A));
     if (((s32) temp_r0) != 2)
     {
       if (((s32) temp_r0) < 2)

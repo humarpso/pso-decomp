@@ -243,10 +243,10 @@ void TLobby::free_singleton_805D6C80() {
 }
 
 void alloc_work_buffer__6TLobbyFv(void);
-s32 mem_alloc(s32);
+void *mem_alloc(u32 size);
 
 void alloc_work_buffer__6TLobbyFv(void) {
-    lbl_805D6C80 = mem_alloc(0x1C0000);
+    lbl_805D6C80 = (s32)mem_alloc(0x1C0000);
 }
 
 void *TLobby__sub_80329310(void *arg0, s16 arg1);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowCtrlMain_8024674C.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowBreakIn.h"
 #include "pso/misc/TWindowDD.h"
@@ -18,7 +19,6 @@ u8 * get_window_layout_position(s32);
 extern RecoveredGlobal_80246C58_lbl_804CE1B8 lbl_804CE1B8;
 extern s32 __vt__14TWindowBreakIn[];
 extern s32 lbl_805D3890;
-int update_entry_visibility__20TWindowSubStatusDispFi(void*);
 s32 draw_visible_window_entries(s32, s32, s32);
 void __dl__7TObjectFPv(void *);
 s32 draw_default_entry__9TWindowDDFl();
@@ -30,7 +30,7 @@ void TWindowBreakIn::render() {
     draw_visible_window_entries(arg0, arg0 + 0x24, tmp);
 }
 
-void TWindowBreakIn::run_task() { update_entry_visibility__20TWindowSubStatusDispFi(this); initialize_subwindow__9TWindowDDFv(this); update_window_entry_list((char*)this + 0x24); }
+void TWindowBreakIn::run_task() { update_entry_visibility__20TWindowSubStatusDispFi((s32)this); initialize_subwindow__9TWindowDDFv(this); update_window_entry_list((char*)this + 0x24); }
 
 void *__dt__14TWindowBreakInFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

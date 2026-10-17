@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/item/TItemData_80104D0C.h"
+#include "pso/unk/text_80104F4C.h"
 #include "pso/item/TItem.h"
 #include "pso/item/TItemObject.h"
 #include "pso/misc/TLobby.h"
@@ -15,10 +17,8 @@ union Pk_800FFF68 { s32 w; u16 h[2]; };
 
 extern "C" {
 s32 consume_item_by_id();
-s32 replace_item_with_new_code(u8 *, void *);
-u32 find_item_by_id(s32);
-void *find_eligible_combination_recipe(u32, void *);
-void *find_unique_combination_target(u32, void *);
+void replace_item_with_new_code(void *arg0, u32 arg1);
+u8 *find_item_by_id(s32 id);
 s32 init__9TItemDataFv(u8 *);
 s32 get_main_phase();
 u32 build_item_id(u16);
@@ -39,8 +39,8 @@ void TItem::use_combination_recipe() {
     void *eligible_combination_recipe;
     if ((u32) this->m_f0 != 0U) {
         copy_to_item_data(sp1C);
-        unique_combination_target = find_unique_combination_target(this->m_f0, sp1C);
-        eligible_combination_recipe = find_eligible_combination_recipe(this->m_f0, sp1C);
+        unique_combination_target = find_unique_combination_target((void *)this->m_f0, (void *)sp1C);
+        eligible_combination_recipe = (void *)find_eligible_combination_recipe(this->m_f0, sp1C);
         if ((eligible_combination_recipe != NULL) && (unique_combination_target != NULL)) {
             init__9TItemDataFv(sp8);
             sp8[0] = *(u8 *)((s8 *)eligible_combination_recipe + 6);
@@ -48,8 +48,8 @@ void TItem::use_combination_recipe() {
             sp8[2] = *(u8 *)((s8 *)eligible_combination_recipe + 8);
             temp_r31 = ((TObjPlayer *)unique_combination_target)->has_flag_128();
             temp_r30_2 = ((TItem *)unique_combination_target)->get_field_d8();
-            replace_item_with_new_code(sp8, unique_combination_target);
-            temp_r3_2 = find_item_by_id(temp_r30_2);
+            replace_item_with_new_code((void *)sp8, (u32)unique_combination_target);
+            temp_r3_2 = (u32)find_item_by_id(temp_r30_2);
             if ((temp_r31 != 0) && (temp_r3_2 != 0U)) {
                 ((TObjPlayer *)temp_r3_2)->add_item_flags(0x80);
             }

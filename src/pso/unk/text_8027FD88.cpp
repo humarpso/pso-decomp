@@ -78,12 +78,12 @@ extern const f32 TWindowSubStatusDisp__data_805DD708;
 extern s32 TWindowSubStatusDisp__resistance_layout[];
 s8 get_type__20TWindowSubStatusDispFv(int);
 Q_80280F14 *get_quest_id__12TQuestListVMFv();
-s32 get_player_by_client_id(s16);
+void *get_player_by_client_id(s32 i);
 void vt11__20TWindowSubStatusDispFv(Wn_80280F14 *arg0);
 extern s32 TWindowSubStatusDisp__stat_page_layout[];
 s32 get_class_name_text(s32);
 extern s32 TWindowSubStatusDisp__summary_page_layout[];
-s32 build_player_class_stat_template(int, void *);
+s32 build_player_class_stat_template(s32 arg0, s32 arg1);
 s32 build_player_equipment_requirement_stats(int, void *);
 s32 get_shared_text_buffer();
 s32 get_layout_id__20TWindowSubStatusDispFv(s32);
@@ -235,7 +235,7 @@ void TWindowSubStatusDisp::vt13() {
     void *temp_r31_4;
     void *temp_r31_5;
 
-    player = get_player_by_client_id(this->m_20);
+    player = (s32)get_player_by_client_id(this->m_20);
     if (player != 0) {
         temp_r31 = get_array_entry__13TUnk_804CE018Fi(this, 2);
         *(s32 *)((s8 *)temp_r31 + 0x20) = (s32) ((TWindowSubStatusDisp *)player)->get_stat();
@@ -276,7 +276,7 @@ void vt12__20TWindowSubStatusDispFv(u8 *arg0) {
     u8 *q;
     ((TWindowSubStatusDisp *)(&cur))->clear_fields();
     ((TWindowSubStatusDisp *)(&req))->clear_fields();
-    pl = get_player_by_client_id(*(s16 *)(arg0 + 0x20));
+    pl = (s32)get_player_by_client_id(*(s16 *)(arg0 + 0x20));
     if (pl != 0) {
         e2 = (Entry_80280B1C *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(2));
         e2->value = TObjPlayer__sub_800A776C((void *)pl) + (((TObjPlayer *)pl)->get_field_2c8() + ((TUnk_804806E8 *)pl)->get_actor_attack_params_atp_min());
@@ -295,7 +295,7 @@ void vt12__20TWindowSubStatusDispFv(u8 *arg0) {
         }
     }
     if (build_player_equipment_requirement_stats(pl, &cur) != 0) {
-        build_player_class_stat_template(pl, &req);
+        build_player_class_stat_template(pl, (s32)&req);
 #define ROW(idx, k) \
         e = (Entry_80280B1C *)get_array_entry__13TUnk_804CE018Fi((void *)(arg0), (s32)(idx)); \
         e->value = cur.v[k]; \

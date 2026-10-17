@@ -78,7 +78,7 @@ struct VObj_802386F8 : VBase_802386F8 {
 };
 
 extern "C" {
-u8 * find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 u8 * __ct__13TUnk_804CC888FPUclP7TObject(void *, s32, s32, s32);
 void *__nw__7TObjectFUl(int);
 extern s32 tl_07;
@@ -121,7 +121,7 @@ void TTecGrants::create(void *arg0, void *arg1, void *arg2, void *arg3) {
 void run_task__10TTecGrantsFv(u8 *arg0) {
     u32 temp_r3;
     u8 *temp_r3_2;
-    *(u8 **)((s8 *)arg0 + 0x1C) = find_entity_by_id(((TTecGrants *)arg0)->m_b4);
+    *(u8 **)((s8 *)arg0 + 0x1C) = (u8 *)find_entity_by_id(((TTecGrants *)arg0)->m_b4);
     if ((void *) *(u8 **)((s8 *)arg0 + 0x1C) == NULL) {
         queue_destruction__7TObjectFv((arg0));
         return;

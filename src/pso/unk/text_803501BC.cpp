@@ -12,7 +12,7 @@ struct T_803501BC { s32 n; E_803501BC *e; };
 
 extern "C" {
 s32 consume_item_by_id(s32 arg0);
-s32 replace_item_with_new_code(void *, void *);
+void replace_item_with_new_code(void *arg0, u32 arg1);
 T_803501BC *get_item_pmt_entry__10TObjPlayerFUc(u8);
 s32 rand(void);
 extern const f32 lbl_805DFE28;
@@ -30,7 +30,7 @@ void TUnk_804F0C48::vfunc_44() {
                 d.a = e->a;
                 d.b = e->b;
                 d.c = e->c;
-                replace_item_with_new_code(&d, this);
+                replace_item_with_new_code(&d, (u32)this);
                 return;
             }
             r -= e->w;

@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/unk/text_8007C0CC.h"
+#include "pso/unk/text_800F7DAC.h"
 #include "pso/misc/TLobby_8007C550.h"
 #include "pso/misc/TLobby_800F9690.h"
 #include "pso/object/TObjFish_8001ED90.h"
@@ -12,9 +14,7 @@ s32 alloc_named_object(s32, s32, s32, s32);
 int sprintf(char *, const char *, ...);
 extern char lbl_8043D9FC[];
 extern char lbl_8043DA04[];
-s32 subtractive_rng_xor_buffer(s32 *, void *, s32);
 s32 subtractive_rng_seed(s32 *, s32);
-s32 prs_decompress_buffer(void *, s32);
 
 struct Sp8_800f9690 { s8 data[240]; };
 u32 TLobby::write_packet_header(s32 arg1, s32 arg2, u32 arg3) {
@@ -28,8 +28,8 @@ u32 TLobby::write_packet_header(s32 arg1, s32 arg2, u32 arg3) {
     }
     __ct__14SubtractiveRngFv((s32 *)&sp8);
     subtractive_rng_seed((s32 *)&sp8, v4);
-    subtractive_rng_xor_buffer((s32 *)&sp8, (u8 *)&this->m_prev, arg1 - 8);
-    prs_decompress_buffer((u8 *)&this->m_prev, arg2);
+    subtractive_rng_xor_buffer((s32 *)&sp8, (u32 *)&this->m_prev, arg1 - 8);
+    prs_decompress_buffer((s32)&this->m_prev, arg2);
     return v0;
 }
 
@@ -47,8 +47,8 @@ s32 TLobby::alloc_download_quest(s32 arg1, s32 *arg2) {
     }
     __ct__14SubtractiveRngFv((s32 *)&sp8);
     subtractive_rng_seed((s32 *)&sp8, v4);
-    subtractive_rng_xor_buffer((s32 *)&sp8, (u8 *)&this->m_prev, arg1 - 8);
-    prs_decompress_buffer((u8 *)&this->m_prev, ret);
+    subtractive_rng_xor_buffer((s32 *)&sp8, (u32 *)&this->m_prev, arg1 - 8);
+    prs_decompress_buffer((s32)&this->m_prev, ret);
     if (arg2 != NULL) {
         *arg2 = v0;
     }
@@ -93,8 +93,8 @@ s32 load_encrypted_text_archive(char *name, s32 *arg1) {
         buf = set_stream_and_load_file__6TLobbyFi((s32)name);
         __ct__14SubtractiveRngFv((s32 *)&sel);
         subtractive_rng_seed((s32 *)&sel, h);
-        subtractive_rng_xor_buffer((s32 *)&sel, buf + 8, size - 8);
-        prs_decompress_buffer(buf + 8, ret);
+        subtractive_rng_xor_buffer((s32 *)&sel, (u32 *)(buf + 8), size - 8);
+        prs_decompress_buffer((s32)(buf + 8), ret);
         TAdSinglePlyChrSelectGC::safe_free((u32)buf);
         destroy_gstream((s32 *)&st, -1);
     }

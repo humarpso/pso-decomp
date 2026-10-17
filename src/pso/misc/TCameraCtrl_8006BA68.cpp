@@ -181,7 +181,7 @@ struct RecoveredGlobal_8006C140_TCameraCtrl__data_804FF7C0 {
 
 extern "C" {
 void direction_to_pitch_yaw(u8 *arg0, s32 *arg1, s32 *arg2);
-s32 set_camera_look_at(void *, void *, void *);
+void set_camera_look_at(u8 *eye, u8 *target, u8 *up);
 extern RecoveredGlobal_8006C03C_lbl_804383E0 camera_look_at_up_vec;
 extern RecoveredGlobal_8006C03C_lbl_804FF5E8 lbl_804FF5E8;
 extern void *camera_ctrl_instance;
@@ -346,7 +346,7 @@ void TCameraCtrl::apply_look_at_from_target() {
     stack.sp8 = *(s32 *)((s8 *)(&camera_look_at_up_vec.value) + 0);
     stack.spC = *(s32 *)((s8 *)(&camera_look_at_up_vec.value) + 4);
     stack.sp10 = *(s32 *)((s8 *)(&camera_look_at_up_vec.value) + 8);
-    set_camera_look_at((void *) ((*(u8 * *)&camera_ctrl_instance) + 0x178), (void *) (&stack.sp20), (void *) (&stack.sp8));
+    set_camera_look_at(((*(u8 * *)&camera_ctrl_instance) + 0x178), (u8 *)(&stack.sp20), (u8 *)(&stack.sp8));
     *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0) = (f32) ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_178;
     *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 4) = (f32) ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_17C;
     *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 8) = (f32) ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_180;
@@ -437,7 +437,7 @@ struct Stack_8006C28C {
     u8 out[0x2C];
 };
 
-void sample_camera_motion(void *, Motion_8006C28C *, void **, f32);
+void sample_camera_motion(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
 void set_camera_capture_overlay_alpha(int);
 f32 vec_squared_length(u8 *arg0);
 void normalize_vector(Vec_8006C28C *);
@@ -460,7 +460,7 @@ void TUnk_80488B68::run_task() {
     st.ptrs[1] = &st.v;
     st.ptrs[2] = &st.sp54;
     st.ptrs[3] = &st.sp58;
-    sample_camera_motion(st.out, s->motion, st.ptrs, s->frame);
+    sample_camera_motion((u8 *)st.out, (s32)s->motion, (u8 *)st.ptrs, (f32)s->frame);
     s->projection = scripted_camera_projection_angle;
     set_camera_capture_overlay_alpha(0x8F);
     if (s->mode->flags & 4) {

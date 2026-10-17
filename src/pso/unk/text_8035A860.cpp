@@ -9,7 +9,7 @@ struct RecoveredGlobal_8035A860_lbl_804F1C58 {
 };
 
 extern "C" {
-s32 mem_alloc(int);
+void *mem_alloc(u32 size);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8035A860_lbl_804F1C58 lbl_804F1C58;
 extern const f32 lbl_805E00E8;
@@ -24,7 +24,7 @@ u8 *fn_8035A860(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805E00E8;
     ((TUnk_804F1C58 *)arg0)->m_30 = 0;
     *(s32 *)((s8 *)arg0 + 0x2C) = ((TObjBoss2Tunnel *)arg2)->count_tree_nodes();
-    *(s32 *)((s8 *)arg0 + 0x28) = mem_alloc((int) (*(s32 *)((s8 *)arg0 + 0x2C) * 0x30));
+    *(s32 *)((s8 *)arg0 + 0x28) = (s32)mem_alloc((*(s32 *)((s8 *)arg0 + 0x2C) * 0x30));
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
     ((TUnk_804F1C58 *)arg0)->m_38 = 0;
     return arg0;

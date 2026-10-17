@@ -119,7 +119,7 @@ void send_6x2F_change_player_hp(s32, u16, s32);
 void *__nw__7TObjectFUl(u32);
 extern Pair_800C2E64 lbl_8043BA60[];
 void TObjEneRe2Flower__sub_800C2E64(Obj_800C2E64 *self, s32 state);
-f32 calc_boss4_scale__10TObjPlayerFi(void *);
+f32 calc_boss4_scale__10TObjPlayerFi(s32 arg0);
 s32 get_flag_b4__9TObjEneDDFv();
 s32 TBoss8Dragon__sub_800BB7D4(void *, int);
 s32 transition_enemy_state(void *, s32);
@@ -147,7 +147,7 @@ void TObjEneDD::state_damaged(s32 arg1) {
                 transition_enemy_state(arg0, F(s32, 0x378));
             } else if (F(s16, 0x32C) < F(s16, 0x2B8) / 4) {
                 transition_enemy_state(arg0, 8);
-            } else if (calc_boss4_scale__10TObjPlayerFi(arg0) < lbl_805D9FD0) {
+            } else if (calc_boss4_scale__10TObjPlayerFi((s32)arg0) < lbl_805D9FD0) {
                 transition_enemy_state(arg0, 6);
             } else {
                 transition_enemy_state(arg0, F(s32, 0x378));

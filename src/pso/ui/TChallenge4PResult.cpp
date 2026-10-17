@@ -1,4 +1,5 @@
 #include "pso/ui/TChallenge4PResult.h"
+#include "pso/misc/TLobby_80291D94.h"
 #include "pso/misc/TCameraCtrl.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
@@ -28,7 +29,6 @@ struct Stack_8034B720 {
 #include "pso/misc/TWindowCtrl.h"
 extern "C" {
 s32 get_localized_text_entry(s32, s32);
-s32 TLobby__sub_802924B4(void *, int);
 s32 is_active__11TBoss4Type2Fv();
 
 s32 TWindowShortListCtrl__check_controller_button(void *, s32, s32);
@@ -36,7 +36,6 @@ s32 get_map_id__13TRaderMapCoreFv();
 u32 get_player_by_client_id(int);
 extern u8 controller_input_state[];
 extern s32 TChallenge4PResult__slot_entries[];
-s32 TLobby__sub_80292270(s32 seed, s32 card);
 
 s32 get_window_layout_position(int, int, void *);
 extern s32 lbl_80478BCC[];
@@ -186,14 +185,14 @@ void TChallenge4PResult::sub_8034B8B0() { *(s32*)((char*)this + 0x1c) = 3; }
 
 void TChallenge4PResult::sub_8034B8BC() {
     ((TChallenge4PResult *)((void *)((void *) (((u8 *)this)))))->show_message((s32)((s32)((int) (get_localized_text_entry((int) (0x2B), (int) (1))))));
-    TLobby__sub_802924B4((void *) (((u8 *)this) + 0x34), (int) (this->slot_index));
+    TLobby__sub_802924B4((s32)(((u8 *)this) + 0x34), (this->slot_index));
     this->wait_frames = 0x5A;
     *(s32 *)((s8 *)((u8 *)this) + 0x1C) = 5;
 }
 
 void TChallenge4PResult::sub_8034B918() {
     ((TChallenge4PResult *)((void *)((void *) (((u8 *)this)))))->show_message((s32)((s32)((int) (get_localized_text_entry((int) (0x2B), (int) (2))))));
-    TLobby__sub_802924B4((void *) (((u8 *)this) + 0x48), (int) (this->slot_index));
+    TLobby__sub_802924B4((s32)(((u8 *)this) + 0x48), (this->slot_index));
     this->wait_frames = 0x5A;
     *(s32 *)((s8 *)((u8 *)this) + 0x1C) = 5;
 }
@@ -203,7 +202,7 @@ void TChallenge4PResult::handle_third_reward() {
     TChallenge4PItemSelect *selector;
     if (reward_available[2] != 0) {
         show_message(get_localized_text_entry(0x2B, 0));
-        TLobby__sub_802924B4(&reward_items[2], slot_index);
+        TLobby__sub_802924B4((s32)&reward_items[2], slot_index);
         wait_frames = 90;
         state_1c = 5;
         return;

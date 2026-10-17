@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_800BC4C8.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/player/TUnk_804928CC.h"
@@ -188,7 +189,6 @@ extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DE778;
 extern const f32 lbl_805DE77C;
 s16 obj_getField1c(void *);
-s32 construct_collision_body(void *, void *, void *);
 f32 vector_length(Vec_802D1880 *);
 s32 normalize_vector(Vec_802D1880 *);
 extern s32 lbl_804E18A8[];
@@ -198,7 +198,7 @@ extern const f32 lbl_805DE76C;
 extern const f32 lbl_805DE770;
 extern const f32 lbl_805DE774;
 u8 *TObjEneBm9Mericarol__sub_802D1880(u8 *arg0, u8 *arg1, Vec_802D1880 *arg2, Vec_802D1880 *arg3, s32 arg4, f32 farg0, f32 farg1);
-s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
+void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
 s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -224,7 +224,7 @@ extern s32 lbl_804E1908[];
 u8 *TObjEneBm9Mericarol__sub_802D1880(u8 *arg0, u8 *arg1, Vec_802D1880 *arg2, Vec_802D1880 *arg3, s32 arg4, f32 farg0, f32 farg1) {
     Vec_802D1880 d;
     f32 k;
-    construct_collision_body(arg0, arg1, arg1);
+    construct_collision_body((u8 *)arg0, (s32)arg1, (u32)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E18A8;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3F30;
     if (TObjEneDD::check_v2_mode() != 0) {
@@ -356,7 +356,7 @@ void *TObjEneBm9Mericarol_EffCurse3::construct(s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)this + 0x1C) = 0;
     this->m_20 = arg2;
     if (is_alive__9TObjEneDDFv(this->m_20) != 0) {
-        *(s32 *)&this->unk_24 = spawn_continuous_particle_effect_with_flags(this->m_20 + 0x38, 0x20D, 0x40);
+        *(s32 *)&this->unk_24 = (s32)spawn_continuous_particle_effect_with_flags((void *)(this->m_20 + 0x38), (s32)(0x20D), (s32)(0x40));
     }
     return this;
 }

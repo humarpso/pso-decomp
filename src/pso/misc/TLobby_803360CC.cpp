@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8023E480.h"
 #include "pso/misc/TLobby_803360CC.h"
 #include "pso/unk/text_80203418.h"
 #include "pso/unk/text_802A1144.h"
@@ -88,7 +89,6 @@ void TWindowOptionCtrl__sub_802273B4(s32 arg0);
 extern RecoveredGlobal_80336340_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 void update_title_idle_transition(Obj_80336340 *arg0);
 s32 run_load_callback_table(void *, int);
-s32 TLobby__sub_8023E4B4(void *, void *);
 extern const Tbl_80336750 title_texture_filename_table;
 extern u8 title_texture_list[];
 extern const s32 current_language;
@@ -288,7 +288,7 @@ void initialize_lobby_title_scene(void) {
     TLobby::update_menu_cursor();
     Tbl_80336750 t = title_texture_filename_table;
     lobby_title_texture_list = title_texture_list;
-    TLobby__sub_8023E4B4((void *)t.s[current_language], title_texture_list);
+    TLobby__sub_8023E4B4((s32)t.s[current_language], (s32)title_texture_list);
     run_load_callback_table(&lobby_load_callback_table, 0x20);
     TLobby::reset_counter();
     set_current_floor_area(0);

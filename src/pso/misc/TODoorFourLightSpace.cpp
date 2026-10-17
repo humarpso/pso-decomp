@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8028A714.h"
 #include "pso/misc/TUnk_804AFBF8.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/unk/TUnk_804B0BB8.h"
@@ -61,9 +62,6 @@ struct Door_8028A28C {
 extern "C" {
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base();
-u8 *fn_8028A714(s32);
-s32 fn_8028A750(int);
-s32 fn_8028A78C(int);
 extern Tbl_80289EE0 door_four_light_space_index_table;
 extern s32 TODoorFourLight__collision_body_params[];
 extern s32 __vt__20TODoorFourLightSpace[];
@@ -316,8 +314,8 @@ u8 *TODoorFourLightSpace__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_collision_body_parts((void *) (arg0), (void *) (TODoorFourLight__collision_body_params), (int) (1));
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    *(s32 *)&((TODoorFourLightSpace *)arg0)->m_d4 = fn_8028A78C((int) (0));
-    ((TODoorFourLightSpace *)arg0)->texture_id = fn_8028A750((int) (0));
+    *(s32 *)&((TODoorFourLightSpace *)arg0)->m_d4 = (s32)fn_8028A78C((0));
+    ((TODoorFourLightSpace *)arg0)->texture_id = (s32)fn_8028A750((0));
     *(u8 **)((s8 *)arg0 + 0xBC) = fn_8028A714(0);
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DD8F4);
     ((TODoorFourLightSpace *)arg0)->m_b8 = (f32) lbl_805DD8F8;
@@ -567,8 +565,8 @@ u8 *TODoorFourLightRuins__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_collision_body_parts((void *) (arg0), (void *) (TODoorFourLight__collision_body_params), (int) (1));
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    *(s32 *)&((TODoorFourLightRuins *)arg0)->m_d4 = fn_8028A78C((int) (0));
-    ((TODoorFourLightRuins *)arg0)->texture_id = fn_8028A750((int) (0));
+    *(s32 *)&((TODoorFourLightRuins *)arg0)->m_d4 = (s32)fn_8028A78C((0));
+    ((TODoorFourLightRuins *)arg0)->texture_id = (s32)fn_8028A750((0));
     *(u8 **)((s8 *)arg0 + 0xBC) = fn_8028A714(0);
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DD8F4);
     ((TODoorFourLightRuins *)arg0)->m_b8 = (f32) lbl_805DD8F8;

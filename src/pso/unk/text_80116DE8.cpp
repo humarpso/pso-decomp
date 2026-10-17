@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_801AEB84.h"
 #include "pso/item/TItemObject_80115D6C.h"
 #include "pso/item/TItem_80100508.h"
 #include "pso/item/TItem_80100674.h"
@@ -90,13 +91,6 @@ s16 calc_stat_bonus_sum__10TObjPlayerFUs();
 s16 calc_equip_bonus__10TObjPlayerFUs();
 s32 check_class_equip_permission(void *, int);
 u8 get_slot_count__14TItemProShieldFv();
-s32 apply_luck_reward__10TObjPlayerFiUc(void *, int);
-s32 add_dfp_material__10TObjPlayerFiUc(void *, int);
-s32 add_evp_material__10TObjPlayerFiUc(void *, int);
-s32 add_mst_and_item__10TObjPlayerFiUc(void *, int);
-s32 add_stat_and_item__10TObjPlayerFiUc(void *, int);
-s32 set_speed_scaled_by_camera__10TObjPlayerFiUc(void *, int);
-s32 apply_speed_with_camera_scale__10TObjPlayerFiUc(void *, int);
 void vfunc_44__13TUnk_8049FBC0Fv(u8 *arg0);
 void run_task__5TItemFv();
 void dispatch_state__5TItemFv();
@@ -140,33 +134,33 @@ void TUnk_8049FBC0::vfunc_44() {
     temp_r3 = get_slot_count__14TItemProShieldFv();
     switch (temp_r3) {
     case 0:
-        add_stat_and_item__10TObjPlayerFiUc((void *) (*(u8 * *)&this->m_f0), (int) (2));
+        add_stat_and_item__10TObjPlayerFiUc((s32)(*(u8 * *)&this->m_f0), (2));
         break;
     case 1:
         if (check_class_equip_permission((void *) (*(u8 * *)&this->m_f0), (int) (0xD7)) == 0) {
-            add_mst_and_item__10TObjPlayerFiUc((void *) (*(u8 * *)&this->m_f0), (int) (2));
+            add_mst_and_item__10TObjPlayerFiUc((s32)(*(u8 * *)&this->m_f0), (2));
         }
         break;
     case 2:
-        add_evp_material__10TObjPlayerFiUc((void *) (*(u8 * *)&this->m_f0), (int) (2));
+        add_evp_material__10TObjPlayerFiUc((s32)(*(u8 * *)&this->m_f0), (2));
         break;
     case 3:
         obj_getField1c((void *) (*(u8 * *)&this->m_f0));
         if (calc_equip_bonus__10TObjPlayerFUs() < 0xFA) {
-            apply_speed_with_camera_scale__10TObjPlayerFiUc((void *) (*(u8 * *)&this->m_f0), (int) (2));
+            apply_speed_with_camera_scale__10TObjPlayerFiUc((s32)(*(u8 * *)&this->m_f0), (u8)(2));
         }
         break;
     case 4:
         obj_getField1c((void *) (*(u8 * *)&this->m_f0));
         if ((calc_stat_bonus_sum__10TObjPlayerFUs() < 0xFA) && (check_class_equip_permission((void *) (*(u8 * *)&this->m_f0), (int) (0xD7)) == 0)) {
-            set_speed_scaled_by_camera__10TObjPlayerFiUc((void *) (*(u8 * *)&this->m_f0), (int) (2));
+            set_speed_scaled_by_camera__10TObjPlayerFiUc((s32)(*(u8 * *)&this->m_f0), (u8)(2));
         }
         break;
     case 5:
-        add_dfp_material__10TObjPlayerFiUc((void *) (*(u8 * *)&this->m_f0), (int) (2));
+        add_dfp_material__10TObjPlayerFiUc((s32)(*(u8 * *)&this->m_f0), (2));
         break;
     case 6:
-        apply_luck_reward__10TObjPlayerFiUc((void *) (*(u8 * *)&this->m_f0), (int) (2));
+        apply_luck_reward__10TObjPlayerFiUc((s32)(*(u8 * *)&this->m_f0), (2));
         break;
     }
     temp_r3_2 = (u8 *)(*(u8 * *)&this->m_f0);

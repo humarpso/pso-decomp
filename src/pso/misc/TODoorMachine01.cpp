@@ -135,7 +135,7 @@ extern s32 model_render_flags;
 u32 load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 void *mem_alloc(u32 size);
-s32 load_gvm_texture_file(void *);
+u8 *load_gvm_texture_file(s32 arg0);
 extern u8 lbl_80440F38[];
 extern u8 lbl_80440F50[];
 extern u8 bm_fs_obj_ki_doa_resource_descriptor[];
@@ -354,14 +354,14 @@ void TODoorMachine01::load_resources() {
             p = (void *)load_resource_from_descriptor(p, 1, &todoormachine01_resource_descriptor, 0, 0, 0);
         }
         TODoorMachine01__model_resource = (u32)p;
-        TODoorMachine01__global_param_id_array[0] = load_gvm_texture_file(lbl_80440F38);
+        TODoorMachine01__global_param_id_array[0] = (s32)load_gvm_texture_file((s32)lbl_80440F38);
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
         if (p != NULL) {
             p = (void *)load_resource_from_descriptor(p, 1, bm_fs_obj_ki_doa_resource_descriptor, 0, 0, 0);
         }
         TODoorMachine01__model_resource = (u32)p;
-        TODoorMachine01__global_param_id_array[0] = load_gvm_texture_file(lbl_80440F50);
+        TODoorMachine01__global_param_id_array[0] = (s32)load_gvm_texture_file((s32)lbl_80440F50);
     }
     TODoorMachine01__global_param_id_array[1] = *(s32 *)(*(u8 **)(TODoorMachine01__model_resource + 0x42C) + 0xC);
 }

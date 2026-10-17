@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/ui/TAdDrawLineCtrl.h"
+#include "pso/ui/TAdPlayerLoadGC.h"
 #include "pso/misc/TLobby_80132ED0.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/object/TObject_80019A50.h"
@@ -59,12 +61,10 @@ extern u32 TAdChrSel__global_slot_data;
 u8 *get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1);
 s32 __ct__19TAdPlyChrSelPlateGCFv(int, void *, void *);
 s32 __ct__15TAdChrSelSlotGCFP7TObject(int, void *);
-s32 __ct__15TAdPlayerLoadGCFv(int, void *, int);
 s32 __ct__15TAdSubPlyItemGCFv(int, void *);
 s32 __ct__20TAdChrSelMovePlateGCFv(int, void *);
 extern RecoveredGlobal_8030DE58_lbl_80475808 chr_sel_a_slot_plate_layout;
 extern RecoveredGlobal_8030DE58_lbl_80475848 chr_sel_a_slot_plate_layout_b;
-u32 create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 s32 push_plate_position__19TAdPlyChrSelPlateGCFv(int, void *);
 extern RecoveredGlobal_8030CEEC_lbl_80475818 lbl_80475818;
 extern RecoveredGlobal_8030CEEC_lbl_80475858 lbl_80475858;
@@ -255,8 +255,8 @@ void TAdChrSelASlotGC__sub_8030CEEC(u8 *arg0) {
             push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x38)), (void *) (&lbl_80475878.value));
             push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x38)), (void *) ((u8 *)&lbl_80475878.value + 8));
             push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x38)), (void *) ((u8 *)&lbl_80475878.value + 0x10));
-            *(s32 *)((s8 *)arg0 + 0x4C) = ((s32)create_draw_line_ctrl__13TAdMcSelectGCFiif((void *)((void *) (arg0)), (s32)((int) (0x12)), (f32) (lbl_805DF218)));
-            *(s32 *)((s8 *)arg0 + 0x50) = ((s32)create_draw_line_ctrl__13TAdMcSelectGCFiif((void *)((void *) (arg0)), (s32)((int) (0x13)), (f32) (lbl_805DF218)));
+            *(s32 *)((s8 *)arg0 + 0x4C) = ((s32)create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)((void *) (arg0)), (s32)((int) (0x12)), (f32) (lbl_805DF218)));
+            *(s32 *)((s8 *)arg0 + 0x50) = ((s32)create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)((void *) (arg0)), (s32)((int) (0x13)), (f32) (lbl_805DF218)));
             break;
         case 2:
             push_plate_position__19TAdPlyChrSelPlateGCFv((int) (*(s32 *)((s8 *)arg0 + 0x38)), (void *) (&lbl_80475858.value));
@@ -578,18 +578,18 @@ void TAdChrSelASlotGC::close_windows() {
     temp_r0_2 = *(s32 *)&this->_pad20;
     switch (temp_r0_2) {
     case 0:
-        *(u32 *)&this->unk_4C = create_draw_line_ctrl__13TAdMcSelectGCFiif(this, 0xC, lbl_805DF218);
+        *(u32 *)&this->unk_4C = (u32)create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)this, (s32)(0xC), (f32)lbl_805DF218);
         ((TAdMcSelectGC *)(*(s32 *)&this->_pad2C))->init_slot(0, lbl_80475840);
-        this->m_48 = create_draw_line_ctrl__13TAdMcSelectGCFiif(this, 0xB, lbl_805DF218);
+        this->m_48 = (u32)create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)this, (s32)(0xB), (f32)lbl_805DF218);
         break;
     case 1:
         ((TAdMcSelectGC *)(*(s32 *)&this->_pad2C))->init_slot(0, lbl_80475840);
-        this->m_48 = create_draw_line_ctrl__13TAdMcSelectGCFiif(this, 0xB, lbl_805DF218);
+        this->m_48 = (u32)create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)this, (s32)(0xB), (f32)lbl_805DF218);
         break;
     case 2:
         ((TAdMcSelectGC *)(*(s32 *)&this->_pad2C))->init_slot(0, lbl_804758A0);
-        this->m_48 = create_draw_line_ctrl__13TAdMcSelectGCFiif(this, 0xD, lbl_805DF218);
-        *(u32 *)&this->unk_4C = create_draw_line_ctrl__13TAdMcSelectGCFiif(this, 0x14, lbl_805DF218);
+        this->m_48 = (u32)create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)this, (s32)(0xD), (f32)lbl_805DF218);
+        *(u32 *)&this->unk_4C = (u32)create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)this, (s32)(0x14), (f32)lbl_805DF218);
         break;
     }
     *(s32 *)&this->m_24 = 1;
@@ -636,7 +636,7 @@ void TAdChrSelASlotGC::create_children(s32 arg1) {
         temp_r3_2 = ((s32)__nw__7TObjectFUl((s32)((int) (0x24))));
         var_r0_2 = temp_r3_2;
         if (var_r0_2 != 0) {
-            var_r0_2 = __ct__15TAdPlayerLoadGCFv((int) (temp_r3_2), (void *) (arg0), (int) (0));
+            var_r0_2 = (s32)__ct__15TAdPlayerLoadGCFv((void *)(temp_r3_2), (arg0), (void *)(0));
         }
         *(s32 *)&this->m_30 = var_r0_2;
         temp_r3_3 = ((s32)__nw__7TObjectFUl((s32)((int) (0x3B4))));
@@ -662,7 +662,7 @@ void TAdChrSelASlotGC::create_children(s32 arg1) {
         temp_r3_6 = ((s32)__nw__7TObjectFUl((s32)((int) (0x24))));
         var_r0_6 = temp_r3_6;
         if (var_r0_6 != 0) {
-            var_r0_6 = __ct__15TAdPlayerLoadGCFv((int) (temp_r3_6), (void *) (arg0), (int) (1));
+            var_r0_6 = (s32)__ct__15TAdPlayerLoadGCFv((void *)(temp_r3_6), (arg0), (void *)(1));
         }
         *(s32 *)&this->m_30 = var_r0_6;
         temp_r3_7 = ((s32)__nw__7TObjectFUl((s32)((int) (0x3B4))));
@@ -700,7 +700,7 @@ void TAdChrSelASlotGC::create_children(s32 arg1) {
         temp_r3_12 = ((s32)__nw__7TObjectFUl((s32)((int) (0x24))));
         var_r0_12 = temp_r3_12;
         if (var_r0_12 != 0) {
-            var_r0_12 = __ct__15TAdPlayerLoadGCFv((int) (temp_r3_12), (void *) (arg0), (int) (1));
+            var_r0_12 = (s32)__ct__15TAdPlayerLoadGCFv((void *)(temp_r3_12), (arg0), (void *)(1));
         }
         *(s32 *)&this->m_30 = var_r0_12;
         temp_r3_13 = ((s32)__nw__7TObjectFUl((s32)((int) (0x3B4))));

@@ -1,4 +1,9 @@
 #include "pso/TAdTitleGC.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
+#include "pso/system/ModelDrawContext.h"
+#include "pso/ui/TAdDrawLineCtrl.h"
+#include "pso/ui/TAdTitleGC.h"
+#include "pso/unk/text_802A0A30.h"
 #include "pso/render/depth_buffer.h"
 
 #include "types.h"
@@ -42,19 +47,12 @@ struct Title_802A0C84 {
 
 extern "C" {
 u32 calc_text_width(char *s);
-void begin_screen_draw(s32 arg0);
 s32 get_player__20TWindowSubStatusDispFv();
-s32 draw_textured_quad_at_depth(void *, f32);
-void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern s32 lbl_805D6630;
-u32 create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 extern s32 ad_title_gc_class_name;
 extern f32 title_rect_scale_table[];
-void run_task__10TAdTitleGCFv(u8 *arg0);
 s32 get_localized_text_entry(s32, s32);
-void set_cached_blend_factor(s32 arg0, s32 arg1);
 void restore_saved_depth_alpha_state(void);
-s32 fn_802A0A30(void *, void *, s32, s32, s32);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 s32 TAdTitleGC::draw_title_layer(s32 arg1, s32 arg2) {
@@ -63,7 +61,7 @@ s32 TAdTitleGC::draw_title_layer(s32 arg1, s32 arg2) {
     TObjFish::set_global_param(lbl_805D6630);
     set_draw_texture_and_color(arg1 > 0xB, arg2);
     for (i = 0; i < 8; i++) {
-        draw_textured_quad_at_depth(&((Title_802A0A60 *)this)->recs[i], (-1.0f) / -((113.0f) - (f32)i));
+        draw_textured_quad_at_depth((f32 *)(&((Title_802A0A60 *)this)->recs[i]), (-1.0f) / -((113.0f) - (f32)i));
     }
     return get_player__20TWindowSubStatusDispFv();
 }
@@ -84,7 +82,7 @@ block_5:
         draw_title_layer((s32)(*(s32 *)((s8 *)arg0 + 0x1C)), (s32)(0x1FFFFFFF));
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 6);
-        fn_802A0A30(arg0, arg0 + 0x120, *(s32 *)((s8 *)arg0 + 0x1C), (*(s32 *)((s8 *)arg0 + 0x12C) << 0x18) | 0xFF0000 | 0xFFFF, get_localized_text_entry(0x13, *(s32 *)((s8 *)arg0 + 0x1C)));
+        fn_802A0A30((s32)arg0, (u8 *)(arg0 + 0x120), (s32)(*(s32 *)((s8 *)arg0 + 0x1C)), (s32)((*(s32 *)((s8 *)arg0 + 0x12C) << 0x18) | 0xFF0000 | 0xFFFF), (s32)(get_localized_text_entry(0x13, *(s32 *)((s8 *)arg0 + 0x1C))));
         if ((s32) *(s32 *)((s8 *)arg0 + 0x134) == 0) {
             restore_saved_depth_alpha_state();
         }
@@ -145,7 +143,7 @@ TAdTitleGC::TAdTitleGC(TObject *parent, s32 idx) : TObject(parent) {
         ((TAdTitleGC_802A0E08 *)this)->recs[i].c = 1.0f;
         ((TAdTitleGC_802A0E08 *)this)->recs[i].d = (4e+01f) * (f32)(((TAdTitleGC_802A0E08 *)this)->idx + off + 1) / 512.0f;
     }
-    ((TAdTitleGC_802A0E08 *)this)->f130 = create_draw_line_ctrl__13TAdMcSelectGCFiif(((TAdTitleGC_802A0E08 *)this), 8, (0.0f));
+    ((TAdTitleGC_802A0E08 *)this)->f130 = (u32)create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)((TAdTitleGC_802A0E08 *)this), (s32)(8), (f32)(0.0f));
 }
 extern "C" {
 #pragma pop

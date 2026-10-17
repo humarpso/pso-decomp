@@ -63,7 +63,7 @@ struct Chain_80231C58 {
 };
 
 extern "C" {
-u32 find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 s32 is_parents_unqueued__9TTecLukerFUl();
 s16 obj_getField1c(void *);
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
@@ -76,7 +76,7 @@ u8 *TTecGiZonde__ct(u8 *arg0, void *arg1, void *arg2, void *arg3, void * _w4);
 f32 vector_length(Vec_80231C58 *);
 void normalize_vector(Vec_80231C58 *);
 void *__nw__7TObjectFUl(int);
-void construct_helper_effect__11TTecGiZondeFPvPvPvPvi(void *, void *, void *, s32, s32);
+u8 *construct_helper_effect__11TTecGiZondeFPvPvPvPvi(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4);
 extern s32 tl_07;
 extern const f32 lbl_805DC828;
 extern const f32 lbl_805DC82C;
@@ -118,7 +118,7 @@ s32 TTecGiZonde::find_chain_targets() {
         }
         p = __nw__7TObjectFUl(0x40);
         if (p != NULL) {
-            construct_helper_effect__11TTecGiZondeFPvPvPvPvi(p, &e->parts[self->targets[0].part].pos, &self->pos, tl_07, 0x19F);
+            construct_helper_effect__11TTecGiZondeFPvPvPvPvi((u8 *)p, (u8 *)(&e->parts[self->targets[0].part].pos), (u8 *)&self->pos, (u8 *)tl_07, (s32)(0x19F));
         }
         break;
     case 1:
@@ -129,7 +129,7 @@ s32 TTecGiZonde::find_chain_targets() {
         }
         p = __nw__7TObjectFUl(0x40);
         if (p != NULL) {
-            construct_helper_effect__11TTecGiZondeFPvPvPvPvi(p, &e->parts[self->targets[0].part].pos, &self->pos, tl_07, 0x19F);
+            construct_helper_effect__11TTecGiZondeFPvPvPvPvi((u8 *)p, (u8 *)(&e->parts[self->targets[0].part].pos), (u8 *)&self->pos, (u8 *)tl_07, (s32)(0x19F));
         }
         break;
     case 2:
@@ -140,7 +140,7 @@ s32 TTecGiZonde::find_chain_targets() {
         }
         p = __nw__7TObjectFUl(0x40);
         if (p != NULL) {
-            construct_helper_effect__11TTecGiZondeFPvPvPvPvi(p, &e->parts[self->targets[0].part].pos, &self->pos, tl_07, 0x19F);
+            construct_helper_effect__11TTecGiZondeFPvPvPvPvi((u8 *)p, (u8 *)(&e->parts[self->targets[0].part].pos), (u8 *)&self->pos, (u8 *)tl_07, (s32)(0x19F));
         }
         break;
     case 3:
@@ -151,11 +151,11 @@ s32 TTecGiZonde::find_chain_targets() {
         }
         p = __nw__7TObjectFUl(0x40);
         if (p != NULL) {
-            construct_helper_effect__11TTecGiZondeFPvPvPvPvi(p, &e->parts[self->targets[0].part].pos, &self->pos, tl_07, 0x19F);
+            construct_helper_effect__11TTecGiZondeFPvPvPvPvi((u8 *)p, (u8 *)(&e->parts[self->targets[0].part].pos), (u8 *)&self->pos, (u8 *)tl_07, (s32)(0x19F));
         }
         p = __nw__7TObjectFUl(0x40);
         if (p != NULL) {
-            construct_helper_effect__11TTecGiZondeFPvPvPvPvi(p, &e->parts[self->targets[0].part].pos, &self->pos, tl_07, 0x188);
+            construct_helper_effect__11TTecGiZondeFPvPvPvPvi((u8 *)p, (u8 *)(&e->parts[self->targets[0].part].pos), (u8 *)&self->pos, (u8 *)tl_07, (s32)(0x188));
         }
         break;
     case 4:
@@ -166,11 +166,11 @@ s32 TTecGiZonde::find_chain_targets() {
         }
         p = __nw__7TObjectFUl(0x40);
         if (p != NULL) {
-            construct_helper_effect__11TTecGiZondeFPvPvPvPvi(p, &e->parts[self->targets[0].part].pos, &self->pos, tl_07, 0x19F);
+            construct_helper_effect__11TTecGiZondeFPvPvPvPvi((u8 *)p, (u8 *)(&e->parts[self->targets[0].part].pos), (u8 *)&self->pos, (u8 *)tl_07, (s32)(0x19F));
         }
         p = __nw__7TObjectFUl(0x40);
         if (p != NULL) {
-            construct_helper_effect__11TTecGiZondeFPvPvPvPvi(p, &e->parts[self->targets[0].part].pos, &self->pos, tl_07, 0x188);
+            construct_helper_effect__11TTecGiZondeFPvPvPvPvi((u8 *)p, (u8 *)(&e->parts[self->targets[0].part].pos), (u8 *)&self->pos, (u8 *)tl_07, (s32)(0x188));
         }
         break;
     case 5:
@@ -188,11 +188,11 @@ s32 TTecGiZonde::find_chain_targets() {
         }
         p = __nw__7TObjectFUl(0x40);
         if (p != NULL) {
-            construct_helper_effect__11TTecGiZondeFPvPvPvPvi(p, &e->parts[self->targets[0].part].pos, &self->pos, tl_07, 0x19F);
+            construct_helper_effect__11TTecGiZondeFPvPvPvPvi((u8 *)p, (u8 *)(&e->parts[self->targets[0].part].pos), (u8 *)&self->pos, (u8 *)tl_07, (s32)(0x19F));
         }
         p = __nw__7TObjectFUl(0x40);
         if (p != NULL) {
-            construct_helper_effect__11TTecGiZondeFPvPvPvPvi(p, &e->parts[self->targets[0].part].pos, &self->pos, tl_07, 0x188);
+            construct_helper_effect__11TTecGiZondeFPvPvPvPvi((u8 *)p, (u8 *)(&e->parts[self->targets[0].part].pos), (u8 *)&self->pos, (u8 *)tl_07, (s32)(0x188));
         }
         break;
     }
@@ -296,7 +296,7 @@ void TTecGiZonde::deliver_chain_hits() {
     s32 i;
     u32 actor;
     for (i = 0; i < ((GChain_80232598 *)this)->count; i++) {
-        actor = find_entity_by_id(((GChain_80232598 *)this)->targets[i].id);
+        actor = (u32)find_entity_by_id(((GChain_80232598 *)this)->targets[i].id);
         if (is_parents_unqueued__9TTecLukerFUl() != 0 && TObjPlayer::is_valid_and_active(actor) != 0) {
             ((VObj_80232598 *)((GChain_80232598 *)this))->m6(actor);
         }
@@ -304,7 +304,7 @@ void TTecGiZonde::deliver_chain_hits() {
 }
 
 void TTecGiZonde::run_task() {
-    this->source = find_entity_by_id(this->sourceId);
+    this->source = (u32)find_entity_by_id(this->sourceId);
     if ((u32) this->source == 0U) {
         queue_destruction__7TObjectFv(this);
         return;

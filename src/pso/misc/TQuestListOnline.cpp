@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TShopJudgmentItemWindow_8026DF00.h"
 #include "pso/misc/TPlyGuildCardTag_8007B434.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/object/TObjFish_8001ED90.h"
@@ -84,10 +85,9 @@ extern u32 TQuestListOnline__selected_quest_info;
 extern const f32 lbl_805DC6A4;
 extern const f32 lbl_805DC6A8;
 
-s32 get_guild_text(int);
+s32 get_guild_text(s32 arg0);
 s32 calc_list_content_extent(u32);
 u32 set_window_mode_4__6TLobbyFPvll(s32, void *, int);
-u32 create_item_list_window(s32, int, u16);
 extern Stack_80217EC4 lbl_8044BED4[];
 extern u8 *TQuestListOnline__quest_list_buffer;
 
@@ -99,7 +99,7 @@ extern u8 lbl_805DC6A0;
 
 s32 get_unlocked_tier__16TQuestListOnlineFv(void *);
 f32 get_scale__15TShopWindowBaseFv(void *);
-u32 create_yes_no_window(int, int, int, int);
+u8 *create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3);
 s32 select_cursor_entry__22TWindowSubShortCutListFv(u32);
 extern s32 online_quest_list_state;
 
@@ -275,7 +275,7 @@ void TQuestListOnline::handle_list_selection() {
         } else if (selection_stage == 2) {
             if (confirm_window == 0) {
                 u16 id = obj_getField1c(window_owner);
-                confirm_window = create_yes_no_window(get_window_layout_position(0x2B), id, 0, 0);
+                confirm_window = (u32)create_yes_no_window(get_window_layout_position(0x2B), id, 0, 0);
                 ((TUnk_804CDFE8 *)confirm_window)->set_position_xy(get_scale__15TShopWindowBaseFv(this), get_scale__15TShopWindowBaseFv(this));
                 if (sequence != NULL) {
                     ((VObj_18_80217C1C*)sequence)->m7(5, 1);
@@ -319,7 +319,7 @@ void TQuestListOnline::build_list_window() {
     if (((VObj_18_80217F88 *)*(void * *)&this->sequence)->m8() != 0) {
         if (list_window == 0U) {
             id = obj_getField1c(window_owner);
-            list_window = create_item_list_window(get_guild_text(0), 0x40, id);
+            list_window = (u32)create_item_list_window(get_guild_text((s32)(0)), 0x40, id);
         } else {
             ((TShopArmorListWindow *)list_window)->reset_list();
         }

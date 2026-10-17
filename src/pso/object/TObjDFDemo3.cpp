@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjFish_800E2FFC.h"
 #include "pso/misc/TCameraCtrl_800687BC.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/player/TObjPlayer_80052374.h"
@@ -17,8 +18,8 @@
 #pragma readonly_strings on
 
 extern "C" {
-u32 spawn_particle_effect(void *, s32);
-u32 create_particle_emitter(void *, s32);
+void *spawn_particle_effect(void *pos, s32 id);
+void *create_particle_emitter(void *pos, s32 id);
 s32 play_sound_effect(s32, void *, s32, s32);
 void run_task__11TObjDFDemo3Fv(u8 *arg0);
 s32 clear_render_callback__8TObjFishFv(s32);
@@ -50,7 +51,6 @@ extern "C" {
 s32 is_ending_or_split_screen__14TBoss4DarkFalzFv();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-s32 TObjFish__sub_800E3124(void *, void *);
 s32 vec3_add_to(void *, void *);
 f32 vector_length(void *);
 s32 normalize_vector(void *);
@@ -132,7 +132,7 @@ void TObjDFDemo3::run_task() {
     } else {
         temp_r3 = this->m_90;
         if (temp_r3 == 0U) {
-            this->m_90 = create_particle_emitter((u8 *)&this->m_bc, 0x1BD);
+            this->m_90 = (u32)create_particle_emitter(&this->m_bc, 0x1BD);
             if ((u32) this->m_90 != 0U) {
                 ((TBoss4Type2 *)((void *) this->m_90))->set_flags(0x40);
             }
@@ -141,7 +141,7 @@ void TObjDFDemo3::run_task() {
         }
     }
     if ((s32) *(s32 *)&this->m_b0 == 0x86) {
-        temp_r3 = spawn_particle_effect((u8 *)&this->m_a0, 0x9B);
+        temp_r3 = (u32)spawn_particle_effect(&this->m_a0, 0x9B);
         if (temp_r3 != 0U) {
             ((TBoss4Type2 *)temp_r3)->set_flags(0x40);
         }
@@ -218,7 +218,7 @@ u8 *TObjDFDemo3__ct(u8 *arg0, s32 parent, s32 arg2, s32 arg3) {
         set_scripted_camera_pose(arg0 + 0xA0, arg0 + 0xA0, &c);
     }
     ((TCameraCtrl *)lbl_804856E0)->cache_target_and_forward(0x1555);
-    *(s32 *)((s8 *)arg0 + 0xB8) = TObjFish__sub_800E3124((u8 *)lbl_804856C0, arg0 + 0xBC);
+    *(s32 *)((s8 *)arg0 + 0xB8) = TObjFish__sub_800E3124(lbl_804856C0, (s32)(arg0 + 0xBC));
     *(s32 *)((s8 *)arg0 + 0xB0) = 0;
     return arg0;
 }

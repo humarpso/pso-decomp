@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_800BC53C.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TObjBoss1Crater.h"
 #include "pso/player/TUnk_804928CC.h"
@@ -91,12 +92,11 @@ struct Crater_8002C288 : VBase_8002C288 {
 };
 
 extern "C" {
-s32 TBoss1Dragon__sub_8002AB6C(void *);
+void TBoss1Dragon__sub_8002AB6C(u8 *arg0);
 s32 isV2Mode__12TBoss1DragonFv();
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 create_particle_emitter(void *, int, f32);
 void construct_collision_body(void *);
-u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
 s32 rand();
 extern const V3_8002C544 lbl_80435560;
 extern s32 __vt__15TObjBoss1Crater[];
@@ -109,8 +109,6 @@ Crater_8002C544 *TObjBoss1Crater__ct(Crater_8002C544 *self, void *arg1, void *ar
 f32 TBoss1Dragon__sub_80027634(u32);
 s32 TObjBoss1Crater__sub_8002C7E4(void *);
 void attack_target_list_remove(u8 *arg0, s32 arg1);
-void *__dt__15TObjBoss1CraterFv(void *arg0, s16 arg1);
-void delete_buffer__12TBoss8DragonFis(void *, int);
 s32 post_translate_matrix(void *);
 void draw_chunk_object(void *child);
 s32 rotate_matrix_y(int, int);
@@ -187,7 +185,7 @@ void TObjBoss1Crater::area_attack_receive_direct(void *self_arg, f32 *arg2, void
             V2_8002C3FC sp8 = *(V2_8002C3FC *)arg3;
             self->m21(arg0->fAC, (s32 *)&sp8, e, -1, -1);
             if (arg0->fC8 == 0x13 && !(self->f30 & 0x20)) {
-                TBoss1Dragon__sub_8002AB6C(self);
+                TBoss1Dragon__sub_8002AB6C((u8 *)self);
             }
             return;
         }
@@ -198,7 +196,7 @@ void TObjBoss1Crater::area_attack_receive_direct(void *self_arg, f32 *arg2, void
 void *__dt__15TObjBoss1CraterFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjBoss1Crater;
-        if (((TObjBoss1Crater *)arg0)->m_b4 != NULL) { delete_buffer__12TBoss8DragonFis(((TObjBoss1Crater *)arg0)->m_b4, 1); *(s32 *)((s8 *)arg0 + 0xB4) = 0; }
+        if (((TObjBoss1Crater *)arg0)->m_b4 != NULL) { delete_buffer__12TBoss8DragonFis((s32)(((TObjBoss1Crater *)arg0)->m_b4), 1); *(s32 *)((s8 *)arg0 + 0xB4) = 0; }
         if (*(void **)((s8 *)arg0 + 0xB0) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xB0)); *(s32 *)((s8 *)arg0 + 0xB0) = 0; }
         ((TUnk_804928CC *)arg0)->destroy_enemy_object(0);
         if (arg1 > 0) {

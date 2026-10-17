@@ -47,7 +47,7 @@ void *memset(void *, int, unsigned long);
 extern A_8020DBCC *TLobby__data_805D6140;
 extern B_8020DBCC *TLobby__data_805D6144;
 void read_disc_file(char *, void *);
-void replace_file_extension__6TLobbyFPvPvPv(char *, s32, char *);
+s32 replace_file_extension__6TLobbyFPvPvPv(char *arg0, char *arg1, char *arg2);
 void *mem_alloc(u32);
 void swap_object_row_endian(void *);
 extern char lbl_8044BC24[];
@@ -93,9 +93,9 @@ s32 load_map_decoration_rows(s32 map, s32 grp, s32 room) {
         return 0;
     }
     if (TLobby::is_online_ready() != 0) {
-        replace_file_extension__6TLobbyFPvPvPv(path, r->name, lbl_8044BC24);
+        replace_file_extension__6TLobbyFPvPvPv((char *)path, (char *)r->name, (char *)lbl_8044BC24);
     } else {
-        replace_file_extension__6TLobbyFPvPvPv(path, r->name, lbl_8044BC2C);
+        replace_file_extension__6TLobbyFPvPvPv((char *)path, (char *)r->name, (char *)lbl_8044BC2C);
     }
     size = ((TScene *)path)->update_lobby_scene();
     if (size < 0) {

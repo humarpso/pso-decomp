@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcSoldierMacho.h"
 #include "pso/unk/text_8014B8A4.h"
 #include "pso/npc/TUnk_804A9F50.h"
 #include "pso/npc/TObjNpcSoldierBase.h"
@@ -108,7 +109,6 @@ extern s32 __vt__18TObjNpcSoldierBase[];
 extern s32 TObjNpcSoldierBase__name;
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
-void *TObjNpcSoldierMacho__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -165,7 +165,7 @@ void * TObjNpcSoldierMacho__create(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x3B8);
     if (o2 != NULL) {
-        o2 = TObjNpcSoldierMacho__ct(o2, o, arg0);
+        o2 = TObjNpcSoldierMacho__ct((u8 *)o2, (s32)o, (s32)arg0);
     }
     return o2;
 }

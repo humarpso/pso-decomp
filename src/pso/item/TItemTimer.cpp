@@ -146,7 +146,7 @@ extern "C" {
 void TItemTimer__sub_8011D598(u8 *arg0, s32 arg1, s32 arg2);
 u8 *TItemTimer__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 add_actor_hp(u8 *arg0, s16 arg1);
-s32 spawn_particle_effect_with_flags(s32, s32, s32);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 s32 add_actor_tp(u8 *arg0, s32 arg1);
 s32 set_owner_id__13TParticleCtrlFUs(s32, s32);
 s32 is_item_area_enabled();
@@ -240,7 +240,7 @@ void TUnk_804A05C8::vfunc_6() {
     if ((test_flag_2000000__10TObjPlayerFPv(*(s32 *)&this->m_28) == 0) && (is_flag_20000_set__10TObjPlayerFv(*(s32 *)&this->m_28) == 0)) {
         ((TBoss3Volopt *)(*(s32 *)&this->m_28))->get_field_3e0();
         if ((is_item_area_enabled() == 1) && (obj_testFlags30((void *)(*(s32 *)&this->m_28), (s32)(0x800)) == 0)) {
-            particle_effect_with_flags = spawn_particle_effect_with_flags(*(s32 *)&this->m_28 + 0x2FC, *(s32 *)&this->unk_2C, 0x10);
+            particle_effect_with_flags = (s32)spawn_particle_effect_with_flags((void *)(*(s32 *)&this->m_28 + 0x2FC), *(s32 *)&this->unk_2C, 0x10);
             if (particle_effect_with_flags != 0) {
                 set_owner_id__13TParticleCtrlFUs(particle_effect_with_flags, obj_getField1c(*(s32 *)&this->m_28));
             }

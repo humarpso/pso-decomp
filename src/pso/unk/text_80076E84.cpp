@@ -7,9 +7,9 @@ struct Pkt_80076E98 { u8 pad[4]; s32 f4; u32 f8; };
 extern "C" {
 extern u8 *text_language_group_table;
 s32 obj_getField1c(s32);
-s32 get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 void open_balloon__11TWindowCtrlFUsPUcll(s32, void *, s32, s32);
-void dispatch_by_index__6TLobbyFUsi(u16, void *);
+void dispatch_by_index__6TLobbyFUsi(u16 arg0, s32 src);
 extern u8 symbol_chat_receive_buffer[];
 extern s8 pending_symbol_chat_count;
 extern s32 local_client_id;
@@ -22,9 +22,9 @@ void handle_6x07_symbol_chat(Pkt_80076E98 *arg0) {
     s32 ply;
     ((TWindowSubSymbolChat *)arg0)->bswap_symbol_chat_packet();
     p = &arg0->f8;
-    ply = get_player_by_client_id(arg0->f4);
+    ply = (s32)get_player_by_client_id(arg0->f4);
     if (ply != 0) {
-        dispatch_by_index__6TLobbyFUsi(arg0->f4, p);
+        dispatch_by_index__6TLobbyFUsi(arg0->f4, (s32)p);
         open_balloon__11TWindowCtrlFUsPUcll(obj_getField1c(ply), p, 2, local_client_id);
         if (*p & 0x200) {
             for (; pending_symbol_chat_count >= 1; pending_symbol_chat_count--) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss5Pillar.h"
 #include "pso/system/ModelDrawContext.h"
 #include "pso/boss/TObjBoss5PillarDemo.h"
 #include "pso/misc/TNowLoading.h"
@@ -14,23 +15,14 @@ extern "C" {
 s32 __nw__7TObjectFUl(int);
 extern void *lbl_805D4DD8;
 extern s32 tl_02;
-s32 TObjBoss5Pillar__ct(void *, void *, void *);
 extern s32 __vt__19TObjBoss5PillarDemo[];
 extern s32 lbl_805D3B28;
 extern const f32 lbl_805DD908;
-u8 *TObjBoss5PillarDemo__ct(u8 *arg0, s32 arg1, s32 arg2);
-void transform_to_view__11TCameraCtrlFii(void *, void *);
+void transform_to_view__11TCameraCtrlFii(s32 arg0, s32 arg1);
 extern u8 lbl_80450CDC[];
 extern s32 boss5_pillar_demo_index;
 void TObjBoss5PillarDemo__sub_8028ACE8(Pd_8028ACE8 *arg0, void* _w1);
-void TObjBoss5PillarDemo__sub_8028AB38(void);
-void TObjBoss5PillarDemo__sub_8028ACE0(void);
-void TObjBoss5PillarDemo__sub_8028ACE4(void);
-void TObjBoss5PillarDemo__sub_8028AD88(void* a0);
-void TObjBoss5PillarDemo__sub_8028ADB0(u32 arg0);
-void *__dt__19TObjBoss5PillarDemoFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void *__dt__15TObjBoss5PillarFv(void *arg0, s16 arg1);
 s32 clear_child_target_refs(s32, s32);
 s32 clear_chain_flags(s32, s32);
 
@@ -65,7 +57,7 @@ void *__dt__19TObjBoss5PillarDemoFv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_8028AC00___vt__19TObjBoss5PillarDemo_size[sizeof(RecoveredGlobal_8028AC00___vt__19TObjBoss5PillarDemo) == 0x18 ? 1 : -1];
 u8 *TObjBoss5PillarDemo__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TObjBoss5Pillar__ct((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    TObjBoss5Pillar__ct((arg0), (u8 *)(arg1), (u8 *)(arg2));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8028AC00___vt__19TObjBoss5PillarDemo *)&__vt__19TObjBoss5PillarDemo).value;
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D3B28;
     ((TObjBoss5PillarDemo *)arg0)->m_24 = lbl_805DD908;
@@ -100,7 +92,7 @@ void TObjBoss5PillarDemo__sub_8028ACE8(Pd_8028ACE8 *arg0, void* _w1) {
     idx = boss5_pillar_demo_index - 1;
     boss5_pillar_demo_index += 1;
     if (idx >= 0 && idx < arg0->count) {
-        transform_to_view__11TCameraCtrlFii(lbl_80450CDC, sp);
+        transform_to_view__11TCameraCtrlFii((s32)lbl_80450CDC, (s32)sp);
         if (arg0->a != NULL && arg0->a[idx] != NULL) {
             ((TNowLoading *)(arg0->a[idx]))->copy_pos(sp);
         }

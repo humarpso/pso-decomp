@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_800A02AC.h"
 #include "pso/enemy/CanadinEffects.h"
 #include "pso/enemy/TObjEneMe1Canadin.h"
 #include "pso/object/TObject_80019A50.h"
@@ -374,7 +375,6 @@ void render__25TObjEneMe1Canadin_EffLineFv(s32 arg0) {
 
 void *__dt__25TObjEneMe1Canadin_EffLineFv(void *arg0, s16 arg1);
 #define VC_D ((s32 (*)(void *, s32))VecCopy__FP3VecPC3Vec)
-s32 fn_800A02AC(void *, s32, void *, void *);
 
 void run_task__25TObjEneMe1Canadin_EffLineFv(u8 *arg0) {
     VC_D(arg0 + 0x28, ((TObjEneMe1Canadin_EffLine *)arg0)->m_20);
@@ -384,7 +384,7 @@ void run_task__25TObjEneMe1Canadin_EffLineFv(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x1C) = 0;
         u32 newp = __nw__7TObjectFUl(0x3C);
         if (newp != 0U) {
-            fn_800A02AC((void*)newp, *(s32 *)((s8 *)arg0 + 0x10), arg0 + 0x28, arg0 + 0x34);
+            fn_800A02AC((u8 *)newp, (u8 *)(*(s32 *)((s8 *)arg0 + 0x10)), (u8 *)(arg0 + 0x28), (u8 *)(arg0 + 0x34));
         }
     }
 }

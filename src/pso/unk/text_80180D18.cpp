@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/CityTraffic.h"
 #include "pso/unk/text_80180D18.h"
@@ -75,9 +76,8 @@ struct Car_80181074 {
 };
 
 extern "C" {
-u32 spawn_continuous_particle_effect_with_flags(void *, int, int);
+void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
 s32 update_technique_slot__10TTecRaFoieFl(s32, int, int);
-s32 play_persistent_sound(int, void *, void *, int, int);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern u32 city_air_car_model_resource;
@@ -142,11 +142,11 @@ void run_task__18TObjCityAirCar_CarFv(Car_80180E70 *self) {
     if ((self->path == 1 && self->frame >= lbl_805DBBA8 && self->frame <= lbl_805DBBAC) ||
         (self->path == 2 && self->frame >= lbl_805DBBB0 && self->frame <= lbl_805DBBB4)) {
         if (self->model == 4) {
-            play_persistent_sound(0x4004CB02, self, &self->pos, 0, 0);
+            play_persistent_sound((s32)(0x4004CB02), (s32)self, (u32)&self->pos, (s32)(0), (s32)(0));
         } else if (self->model == 0) {
-            update_technique_slot__10TTecRaFoieFl(play_persistent_sound(0x4004C101, self, &self->pos, 0, 0), -0x200, 0);
+            update_technique_slot__10TTecRaFoieFl(play_persistent_sound((s32)(0x4004C101), (s32)self, (u32)&self->pos, (s32)(0), (s32)(0)), -0x200, 0);
         } else {
-            play_persistent_sound(0x4004C101, self, &self->pos, 0, 0);
+            play_persistent_sound((s32)(0x4004C101), (s32)self, (u32)&self->pos, (s32)(0), (s32)(0));
         }
     }
     if (city_air_car_model_resource != 0) {
@@ -159,7 +159,7 @@ void run_task__18TObjCityAirCar_CarFv(Car_80180E70 *self) {
             self->fa4 = 0;
         }
         if (self->light == 0) {
-            self->light = spawn_continuous_particle_effect_with_flags(&self->pos, 0x8A, 0x40);
+            self->light = (u32)spawn_continuous_particle_effect_with_flags(&self->pos, 0x8A, 0x40);
         }
         if (self->light != 0) {
             if (self->model == 0) {

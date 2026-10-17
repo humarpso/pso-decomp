@@ -63,12 +63,12 @@ typedef char RecoveredGlobal_80167C78___vt__27TOHangceilingCave01KeyQuick_size[s
 void TLobby__sub_8001FE7C(void*, int);
 Big_8016775C * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void mem_free(void *p);
-Buf_8016775C * mem_alloc(s32);
-int set_indexed_flags(void*, void*, void*);
+void *mem_alloc(u32 size);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 s32 free_collision_body_parts(void *);
 s32 init_collision_body_parts(void *, void *, int, int, f32);
 s32 init_fields__13TUnk_804B1B80Fv();
-s32 load_gvm_texture_file(void *);
+u8 *load_gvm_texture_file(s32 arg0);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 
@@ -94,7 +94,7 @@ void TOFenceAncient04::vfunc_16() {  }
 
 void TOFenceAncient04::vfunc_15() { *(int *)&this->m_ac = 0; *(int *)&this->unk_D0 = 0; { int i; for (i = 0; i < 4; i++) { ((TObjPlayer *)this)->clear_player_status_flag((s32)((void*)i), (u32)((void*)8)); } } }
 
-void TOFenceAncient04::vfunc_14() { *(int *)&this->m_ac = 1; *(int *)&this->unk_D0 = 1; { int i; for (i = 0; i < 4; i++) { set_indexed_flags(this, (void*)i, (void*)8); } } }
+void TOFenceAncient04::vfunc_14() { *(int *)&this->m_ac = 1; *(int *)&this->unk_D0 = 1; { int i; for (i = 0; i < 4; i++) { set_indexed_flags(this, i, (s32)((void*)8)); } } }
 
 void *TOFenceAncient04::create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD8);
@@ -126,11 +126,11 @@ void TOFenceAncient04::load_resources() {
         v = load_resource_from_descriptor(v, 1, &TOFenceAncient04_resource_descriptor, 0, 0, 0);
     }
     (*(Big_8016775C * *)&TOFenceAncient04__model_archive) = v;
-    (*(Buf_8016775C * *)&TOFenceAncient04__resource_bundle) = mem_alloc(0x10);
+    (*(Buf_8016775C * *)&TOFenceAncient04__resource_bundle) = (Buf_8016775C *)mem_alloc(0x10);
     (*(Buf_8016775C * *)&TOFenceAncient04__resource_bundle)->a = (*(Big_8016775C * *)&TOFenceAncient04__model_archive)->p->f0C;
-    (*(Buf_8016775C * *)&TOFenceAncient04__resource_bundle)->b = load_gvm_texture_file((void *)lbl_804416A8);
-    (*(Buf_8016775C * *)&TOFenceAncient04__resource_bundle)->c = load_gvm_texture_file((void *)lbl_804416C0);
-    (*(Buf_8016775C * *)&TOFenceAncient04__resource_bundle)->d = load_gvm_texture_file((void *)lbl_804416D8);
+    (*(Buf_8016775C * *)&TOFenceAncient04__resource_bundle)->b = (s32)load_gvm_texture_file((s32)lbl_804416A8);
+    (*(Buf_8016775C * *)&TOFenceAncient04__resource_bundle)->c = (s32)load_gvm_texture_file((s32)lbl_804416C0);
+    (*(Buf_8016775C * *)&TOFenceAncient04__resource_bundle)->d = (s32)load_gvm_texture_file((s32)lbl_804416D8);
 }
 
 __declspec(section ".rodata") extern const char lbl_804416A8[] = "o_fence_ancient_b.gvm";

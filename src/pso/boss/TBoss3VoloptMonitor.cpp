@@ -175,7 +175,7 @@ extern const f32 lbl_805D8738;
 extern const f32 lbl_805D873C;
 void render__19TBoss3VoloptMonitorFv(void *arg0);
 s32 obj_testFlags30(void *, int);
-s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
+void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0);
 void TBoss3VoloptMonitor__sub_800420D8(void);
 s32 submit_cursor_candidate(void *, int);
 s32 minimap_render_dot(void *, int, int, int);
@@ -414,7 +414,7 @@ void run_task__19TBoss3VoloptMonitorFv(u8 *arg0) {
     ((TBoss3VoloptMonitor *)arg0)->update_state();
     ((TObjEnemy *)arg0)->update_prev_position();
     if (obj_testFlags30((void *) (arg0), (int) (0x800)) == 0) {
-        copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0));
+        copy_position__20TBoss3VoloptHiraisinFi((s32)(arg0));
         submit_cursor_candidate((void *) (arg0), (int) (-1));
         minimap_render_dot((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (0));
     }

@@ -18,7 +18,7 @@ struct TItemEffNeedlePos_801097F0 {
 extern "C" {
 f32 atan2_float(f32 y, f32 x);
 f32 newton_sqrtf(f32);
-void __ct__18TItemEffNeedleBaseFv(void *, void *, void *);
+u8 *__ct__18TItemEffNeedleBaseFv(u8 *arg0, void *arg1, u8 *arg2);
 s32 rand();
 extern const f64 lbl_8043E260[];
 extern void *__vt__17TItemEffNeedlePos[];
@@ -29,7 +29,7 @@ TItemEffNeedlePos_801097F0 *__ct__17TItemEffNeedlePosFv(TItemEffNeedlePos_801097
 #pragma push
 #pragma fp_contract on
 TItemEffNeedlePos_801097F0 *__ct__17TItemEffNeedlePosFv(TItemEffNeedlePos_801097F0 *self, void *a1, void *a2, Vec_801097F0 *pos, Vec_801097F0 *dir) {
-    __ct__18TItemEffNeedleBaseFv(self, a1, a2);
+    __ct__18TItemEffNeedleBaseFv((u8 *)self, (void *)a1, (u8 *)a2);
     self->vt = __vt__17TItemEffNeedlePos;
     self->name = TItemEffNeedlePos__class_name;
     VecCopy((Vec *)&self->pos, (const Vec *)pos);

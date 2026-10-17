@@ -444,7 +444,7 @@ void TLobby__sub_8001FE7C(void*, int);
 u32 csnLookAt(void *, void *);
 void * alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 TObjEneRe7Berura__sub_80093470(void *, void *);
-s32 state_patrol__16TObjEneRe7BeruraFPvi(void *, void *);
+void state_patrol__16TObjEneRe7BeruraFPvi(void *arg0, s32 arg1);
 void TObjEneRe7Berura__sub_80093888(u8 *actor, s32 arg1);
 void TObjEneRe7Berura__sub_80093C80(u8 *arg0, s32 arg1);
 void TObjEneRe7Berura__sub_800940E8(u8 *arg0, s32 arg1);
@@ -483,7 +483,7 @@ void init_model__9TObjEneDDFv(void *, void *, int);
 s32 clear_attack_receipts__9TObjEneDDFv();
 void invoke_initialization_hook__9TObjEneDDFv(void *, void *);
 Res_800959F8 * load_enemy_bml_resource_named(void *, void *);
-Res_800959F8 * load_enemy_bml_resource(void *);
+s32 load_enemy_bml_resource(u8 *arg0);
 s32 set_field_378__9TObjEneDDFl(void *, s32, s32);
 int transition_enemy_state(void*, void*);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
@@ -495,7 +495,7 @@ s32 * collect_and_count__12TBoss3VoloptFUll(u32 arg0, s32 arg1);
 s32 angle_diff_s16(s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 void mem_free(void*);
-u8 * mem_alloc(s32);
+void *mem_alloc(u32 size);
 void free_collision_body_parts(void *);
 s32 play_sound_effect(s32, u32, s16, s32);
 void __dl__7TObjectFPv(void *);
@@ -810,7 +810,7 @@ void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 mode) {
         ((TObjEneRe7Berura *)arg0)->run_flash_warning_state((s32)((void *) (mode)));
         return;
     case 9:
-        state_patrol__16TObjEneRe7BeruraFPvi((void *) (arg0), (void *) (mode));
+        state_patrol__16TObjEneRe7BeruraFPvi((void *)(arg0), (mode));
         return;
     case 10:
         TObjEneRe7Berura__sub_80093470((void *) (arg0), (void *) (mode));
@@ -1257,7 +1257,7 @@ void TObjEneRe7Berura::load_static_resources() {
     if (TObjEneDD::check_v2_mode() != 0) {
         r = load_enemy_bml_resource_named(ene_berura_bml_descriptor, lbl_80439EF8);
     } else {
-        r = load_enemy_bml_resource(ene_berura_bml_descriptor);
+        r = (Res_800959F8 *)load_enemy_bml_resource(ene_berura_bml_descriptor);
     }
     TObjEneRe7Berura__shared_resource = (u32)r;
     lbl_805007C8[0] = TObjEneRe7Berura__data_805D972C;
@@ -1270,7 +1270,7 @@ void TObjEneRe7Berura::load_static_resources() {
     re7_berura_demo_flag = 0;
     TObjEneRe7Berura__demo_target = 0;
     m = *(u32 *)(r->f42C + 8);
-    buf = mem_alloc(0x660);
+    buf = (u8 *)mem_alloc(0x660);
     re7_berura_static_buffer = (u32)buf;
     TObjEneRe7Berura__detached_part_states[0].buf = buf;
     TObjEneRe7Berura__detached_part_states[1].buf = buf + 0x330;

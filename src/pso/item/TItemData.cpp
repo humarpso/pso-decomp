@@ -165,7 +165,7 @@ void fn_8010B7E8(u8 *arg0, s32 arg1);
 void subtract_s16_stat(s16 *arg0, s32 arg1);
 void TItemData__sub_8010EE1C(void *arg0, s16 arg1);
 void TItemData__sub_8010EE30(s16 *arg0, s32 arg1);
-Bonus_8010BA9C *get_item_stat_boost_record(u8, u8, u8);
+s32 get_item_stat_boost_record(s32 arg0, s32 type, s32 id);
 s32 TItemData__sub_8010B808(void* p);
 s32 TItemData__sub_8010B810(void* p);
 
@@ -229,7 +229,7 @@ void apply_bonuses(u8 *item, s32 arg1, u8 *a, u8 *b, Stats_8010BA9C *st) {
     switch (t) {
     case 0:
     case 1:
-        bn = get_item_stat_boost_record(t, item[1], item[2]);
+        bn = (Bonus_8010BA9C *)get_item_stat_boost_record(t, item[1], item[2]);
         if (bn != NULL && a != NULL && b != NULL && st != NULL)
         switch (bn->kind) {
         case 1:
@@ -844,7 +844,7 @@ void *get_armor_pmt_record(int type, int id);
 s16 get_mag_total_level(void *mag);
 s32 get_item_star_count(s32);
 s32 is_rare_item__9TItemDataFPv(u8 *item);
-char *get_item_chunk_buffer(s32);
+int get_item_chunk_buffer(int a0);
 s32 get_item_description_text(s32);
 int sprintf(char *, const char *, ...);
 extern s32 lbl_805D2B10;
@@ -852,7 +852,7 @@ s32 format_item_description(u8 *item);
 s32 TObjPlayer__sub_80117E50(s32);
 extern const f32 lbl_805DAB7C;
 s32 get_technique_name(s32 arg0);
-char *get_text_collection(s32);
+s32 get_text_collection(s32 arg0);
 s8 *get_item_by_slot_flag__10TObjPlayerFUc(u8);
 extern char lbl_8043E358[];
 extern char lbl_8043E360[];
@@ -1687,7 +1687,7 @@ s32 format_item_description(u8 *item) {
     char *out;
     s32 name;
     p = (Params_8010E414 *)lookup_item_pmt_record(item);
-    out = get_item_chunk_buffer(0);
+    out = (char *)get_item_chunk_buffer(0);
     if (p != NULL && out != NULL) {
         format = NULL;
         if (((s32 (*)(u8 *))is_wrapped__9TItemDataFPv)(item) != 0) {
@@ -1744,9 +1744,9 @@ void TItemData::format_item_name(char *buf) {
     }
     pmt = (s32 *)lookup_item_pmt_record(arg0);
     if (pmt != NULL) {
-        name = get_text_collection(*pmt);
+        name = (char *)get_text_collection(*pmt);
     } else {
-        name = get_text_collection(0x1F4);
+        name = (char *)get_text_collection(0x1F4);
     }
     if (((s32 (*)(void *))is_wrapped__9TItemDataFPv)(arg0) != 0) {
         sprintf(buf, &lbl_805DAB8C, get_text_collection(0x77));

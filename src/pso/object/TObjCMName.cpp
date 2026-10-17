@@ -99,7 +99,7 @@ extern const f32 lbl_805DDB80;
 void run_task__16TObjCMAssignMenuFv(void *arg0);
 f32 fabs_float(f32);
 void TCameraCtrl__sub_80068EF0(void);
-const char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
+s32 TQuestVmDownLoadServer__sub_8006EF6C(s32 arg0);
 u32 calc_text_width(char *s);
 void draw_string__14TObjWarpStringFlff(const char *, u32, f32, f32);
 s32 is_active__23TAdSinglePlyChrSelectGCFv();
@@ -1637,7 +1637,7 @@ void TObjCMMainMenu::sub_80297B18() {
         step = lbl_805DDBAC * s;
         y = lbl_805DDBA4 * s - step;
         for (i = 0; i < 2; i++) {
-            const char *str = TQuestVmDownLoadServer__sub_8006EF6C(i + 0x3B);
+            const char *str = (const char *)TQuestVmDownLoadServer__sub_8006EF6C(i + 0x3B);
             f32 x = lbl_805DDBA0 - (f32)calc_text_width((char *)str);
             TCameraCtrl::restore_full_screen_view();
             draw_string__14TObjWarpStringFlff(str, color, x, y);

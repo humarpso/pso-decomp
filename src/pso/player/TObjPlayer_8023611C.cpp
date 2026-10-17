@@ -98,12 +98,12 @@ struct Proxy_80236A20 { u8 pad[0xA4]; Sub_80236A20 *a4; };
 struct Self_80236A20 { u8 pad[0x128]; Proxy_80236A20 *proxy; f32 f12c; };
 
 extern "C" {
-u32 find_actor_body_contact(void *, int, f32);
-s32 get_player_by_client_id(int);
+void *find_actor_body_contact(u8 *arg0, u8 *arg1, f32 limit);
+void *get_player_by_client_id(s32 i);
 extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
 extern const f32 lbl_805DC89C;
 void resetTechniqueContactQuery();
-PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 extern const f32 lbl_805DC898;
 s32 find_support_technique_contact(void *self, int target, void *_w2, void *_w3);
 u16 obj_getField1c(void *);
@@ -145,9 +145,9 @@ s32 find_support_technique_contact(void *self, int target, void *_w2, void *_w3)
     }
     VecCopy((Vec *)((u8 *)target + 0x38), (const Vec *)&pos);
     for (i = TLobby::get_game_mode(); i < TLobby::get_lobby_flag(); i++) {
-        pd = get_player_data__10TObjPlayerFi(i);
+        pd = (PlayerData_80236154 *)get_player_data__10TObjPlayerFi(i);
         if (pd != 0 && (pd->flags & 0x20000000)) {
-            c = (Contact_80236154 *)find_actor_body_contact((void *)target, (int)pd, range);
+            c = (Contact_80236154 *)find_actor_body_contact((u8 *)target, (u8 *)pd, range);
             if (c != 0 && ((c->flags & 1) || !(c->flags & 0x02000000))) {
                 ((List_80236154 *)&technique_contact_query_results)->bodies[((List_80236154 *)&technique_contact_query_results)->count] = c;
                 ((List_80236154 *)&technique_contact_query_results)->actors[((List_80236154 *)&technique_contact_query_results)->count] = pd;
@@ -176,8 +176,8 @@ s32 *TObjPlayer::gather_player_contacts(u32 arg1, s32 _w2, s32 _w3) {
     VecCopy((Vec *)(arg1 + 0x38), (const Vec *)(&stack.sp8));
     var_r29 = 0;
 loop_3:
-    temp_r3 = get_player_by_client_id((int) (var_r29));
-    if ((temp_r3 != 0) && (temp_r3_2 = find_actor_body_contact((void *) (arg1), (int) (temp_r3), (f32) (lbl_805DC89C)), ((temp_r3_2 == 0U) == 0)) && (*(u32 *)((s8 *)((u8 *)&technique_contact_query_results.value + (*(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) * 4)) + 0x40) = temp_r3_2, *(s32 *)((s8 *)(&technique_contact_query_results.value) + (*(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) * 4)) = temp_r3, temp_r0 = *(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) + 1, *(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) = temp_r0, ((temp_r0 < 0x10) == 0))) {
+    temp_r3 = (s32)get_player_by_client_id((var_r29));
+    if ((temp_r3 != 0) && (temp_r3_2 = (u32)find_actor_body_contact((u8 *)(arg1), (u8 *)(temp_r3), (f32) (lbl_805DC89C)), ((temp_r3_2 == 0U) == 0)) && (*(u32 *)((s8 *)((u8 *)&technique_contact_query_results.value + (*(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) * 4)) + 0x40) = temp_r3_2, *(s32 *)((s8 *)(&technique_contact_query_results.value) + (*(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) * 4)) = temp_r3, temp_r0 = *(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) + 1, *(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) = temp_r0, ((temp_r0 < 0x10) == 0))) {
         *(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) = 0xF;
     } else {
         var_r29 += 1;
@@ -208,7 +208,7 @@ s32 find_area_technique_contact(void *self, int target, void *_w2, void *arg3) {
     for (i = TLobby::get_game_mode(); i < TLobby::get_lobby_flag(); i++) {
         pd = (PD_80236378 *)get_player_data__10TObjPlayerFi(i);
         if (pd != 0 && (pd->flags & 0x20000000) && obj_getField1c(pd) != obj_getField1c(arg3)) {
-            c = (Contact_80236378 *)find_actor_body_contact((void *)target, (int)pd, range);
+            c = (Contact_80236378 *)find_actor_body_contact((u8 *)target, (u8 *)pd, range);
             if (c != 0 && ((c->flags & 1) || !(c->flags & 0x02000000))) {
                 ((List_80236378 *)&technique_contact_query_results)->bodies[((List_80236378 *)&technique_contact_query_results)->count] = c;
                 ((List_80236378 *)&technique_contact_query_results)->actors[((List_80236378 *)&technique_contact_query_results)->count] = pd;
@@ -251,7 +251,7 @@ s32 TObjPlayer::collect_body_contacts(int target, void *_w2, void *arg3) {
                     }
                 }
                 if (ok != 0 && ((pd->flags & 0x20000000) || (pd->flags & 0x10000000))) {
-                    c = (Contact_802364D8 *)find_actor_body_contact((void *)target, (int)pd, lbl_805DC89C);
+                    c = (Contact_802364D8 *)find_actor_body_contact((u8 *)target, (u8 *)pd, lbl_805DC89C);
                     if (c != 0 && ((c->flags & 1) || !(c->flags & 0x02000000))) {
                         ((List_802364D8 *)&technique_contact_query_results)->bodies[((List_802364D8 *)&technique_contact_query_results)->count] = c;
                         ((List_802364D8 *)&technique_contact_query_results)->actors[((List_802364D8 *)&technique_contact_query_results)->count] = pd;
@@ -267,7 +267,7 @@ s32 TObjPlayer::collect_body_contacts(int target, void *_w2, void *arg3) {
         for (j = 0; j < 4; j++) {
             e = (PD_802364D8 *)find_entity_by_id(j);
             if (e != 0 && obj_getField1c(e) != obj_getField1c(arg3) && (e->flags & 0x10000000)) {
-                c = (Contact_802364D8 *)find_actor_body_contact((void *)target, (int)e, lbl_805DC89C);
+                c = (Contact_802364D8 *)find_actor_body_contact((u8 *)target, (u8 *)e, lbl_805DC89C);
                 if (c != 0) {
                     ((List_802364D8 *)&technique_contact_query_results)->bodies[((List_802364D8 *)&technique_contact_query_results)->count] = c;
                     ((List_802364D8 *)&technique_contact_query_results)->actors[((List_802364D8 *)&technique_contact_query_results)->count] = e;
@@ -340,7 +340,7 @@ u8 *TUnk_804CCC68::query_technique_enemy_contacts(s32 arg) {
         if (pd == 0) continue;
         if (pd->flags & 0x20000000) {
             if (obj_getField1c(pd) == obj_getField1c((void *)arg)) continue;
-            c = (Contact_802367D8 *)find_actor_body_contact(s->proxy, (int)pd, range);
+            c = (Contact_802367D8 *)find_actor_body_contact((u8 *)s->proxy, (u8 *)pd, (f32)range);
             if (c != 0 && ((c->flags & 1) || !(c->flags & 0x02000000))) {
                 ((List_802367D8 *)&technique_contact_query_results)->bodies[((List_802367D8 *)&technique_contact_query_results)->count] = c;
                 ((List_802367D8 *)&technique_contact_query_results)->actors[((List_802367D8 *)&technique_contact_query_results)->count] = pd;
@@ -350,7 +350,7 @@ u8 *TUnk_804CCC68::query_technique_enemy_contacts(s32 arg) {
                 }
             }
         } else if ((pd->flags & 0x40000000) && !(pd->flags & 0x80000000)) {
-            if (find_actor_body_contact(s->proxy, (int)pd, lbl_805DC89C) != 0) {
+            if (find_actor_body_contact((u8 *)s->proxy, (u8 *)pd, (f32)lbl_805DC89C) != 0) {
                 return 0;
             }
         }
@@ -400,7 +400,7 @@ u8 *TUnk_804CCC68::query_technique_player_contacts(s32 arg) {
             pd = (PD_80236A20 *)get_player_data__10TObjPlayerFi(i);
             if (pd == 0) continue;
             if (obj_getField1c(pd) == obj_getField1c((void *)arg)) continue;
-            c = (Contact_80236A20 *)find_actor_body_contact(s->proxy, (int)pd, range);
+            c = (Contact_80236A20 *)find_actor_body_contact((u8 *)s->proxy, (u8 *)pd, (f32)range);
             if (c != 0 && ((pd->flags & 0x20000000) || (pd->flags & 0x10000000)) && ((c->flags & 1) || !(c->flags & 0x02000000))) {
                 ((List_80236A20 *)&technique_contact_query_results)->bodies[((List_80236A20 *)&technique_contact_query_results)->count] = c;
                 ((List_80236A20 *)&technique_contact_query_results)->actors[((List_80236A20 *)&technique_contact_query_results)->count] = pd;
@@ -415,7 +415,7 @@ u8 *TUnk_804CCC68::query_technique_player_contacts(s32 arg) {
             e = (PD_80236A20 *)find_entity_by_id(j);
             if (e == 0) continue;
             if (obj_getField1c(e) == obj_getField1c((void *)arg)) continue;
-            c = (Contact_80236A20 *)find_actor_body_contact(s->proxy, (int)e, lbl_805DC89C);
+            c = (Contact_80236A20 *)find_actor_body_contact((u8 *)s->proxy, (u8 *)e, (f32)lbl_805DC89C);
             if (c != 0 && (e->flags & 0x10000000)) {
                 ((List_80236A20 *)&technique_contact_query_results)->bodies[((List_80236A20 *)&technique_contact_query_results)->count] = c;
                 ((List_80236A20 *)&technique_contact_query_results)->actors[((List_80236A20 *)&technique_contact_query_results)->count] = e;

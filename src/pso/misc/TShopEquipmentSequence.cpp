@@ -103,23 +103,16 @@ s32 sub_8022397C__15TShopWindowBaseFv(void *);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8021DA90___vt__22TShopEquipmentSequence __vt__22TShopEquipmentSequence;
 extern RecoveredGlobal_8021DA90_TShopEquipmentSequence__data_80513EC0 TShopEquipmentSequence__slot_active_flags;
-u8 *__dt__22TShopEquipmentSequenceFv(u8 *arg0, s16 arg1);
 u8 *TShopSequence__ct(u8 *arg0);
 extern s32 TShopEquipmentSequence__class_name;
 extern u8 *lbl_805D6228;
 extern s32 lbl_805D622C;
 extern s32 lbl_805D6230;
-u8 *TShopEquipmentSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 TShopEquipmentSequence__sub_8021D65C(void);
 s32 restore_player_state__13TShopSequenceFv(void *);
-void TShopEquipmentSequence__sub_8021DC08(void);
-void TShopEquipmentSequence__sub_8021DBE0(void);
 void *__nw__7TObjectFUl(u32);
-void *TShopEquipmentSellWindow__ct(void *, s32, void *, s32, s32);
-void exit__22TShopEquipmentSequenceFPv(void *arg0);
-void init_window__22TShopEquipmentSequenceFPv(void *arg0);
+void *TShopEquipmentSellWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 extern void *tl_05;
-void *TShopEquipmentListWindow__ct(void *, s32, void *, s32);
+u8 *TShopEquipmentListWindow__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 u16 obj_getField1c(void *);
 f32 get_scale__15TShopWindowBaseFv(void *);
 s32 get_selected_menu_value(void *);
@@ -178,7 +171,7 @@ typedef struct VObj_18_a93f07 VObj_18_a93f07;
 void TShopEquipmentSequence::open_sell_window() {
     W_8021D6D8 *o = (W_8021D6D8 *)__nw__7TObjectFUl(0x3ac);
     if (o != 0) {
-        o = (W_8021D6D8 *)(TShopEquipmentSellWindow__ct(o, (s32)tl_05, ((S_8021D6D8 *)this), ((S_8021D6D8 *)this)->f24, 0x26));
+        o = (W_8021D6D8 *)(TShopEquipmentSellWindow__ct((void *)o, (void *)tl_05, (void *)((S_8021D6D8 *)this), (void *)(((S_8021D6D8 *)this)->f24), (void *)(0x26)));
     }
     o->cb0 = (void *)exit__22TShopEquipmentSequenceFPv;
     o->cb1 = (void *)init_window__22TShopEquipmentSequenceFPv;
@@ -189,7 +182,7 @@ void TShopEquipmentSequence::open_sell_window() {
 void TShopEquipmentSequence::open_buy_window() {
     W_8021D750 *o = (W_8021D750 *)__nw__7TObjectFUl(0x194);
     if (o != 0) {
-        o = (W_8021D750 *)(TShopEquipmentListWindow__ct(o, (s32)tl_05, ((S_8021D750 *)this), ((S_8021D750 *)this)->f24));
+        o = (W_8021D750 *)(TShopEquipmentListWindow__ct((u8 *)o, (s32)tl_05, (s32)((S_8021D750 *)this), (s32)(((S_8021D750 *)this)->f24)));
     }
     o->cb0 = (void *)exit__22TShopEquipmentSequenceFPv;
     reset_controller_input_state();

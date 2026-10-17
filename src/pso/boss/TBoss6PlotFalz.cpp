@@ -832,7 +832,7 @@ struct RecoveredGlobal_802ABC14_lbl_804705C0 { s32 value; u8 remaining[0x8]; };
 typedef char RecoveredGlobal_802ABC14_lbl_804705C0_size[sizeof(RecoveredGlobal_802ABC14_lbl_804705C0) == 0xC ? 1 : -1];
 
 extern "C" {
-s32 TBoss4DarkFalz__sub_8004B4F0(void *, void *);
+void TBoss4DarkFalz__sub_8004B4F0(void *arg0p, void *arg1p);
 u32 create__11TBoss6Type1Fl(void *, int);
 u32 create__11TBoss6Type2Fl(void *, int);
 extern RecoveredGlobal_802ABBC4_lbl_804705CC lbl_804705CC;
@@ -871,7 +871,7 @@ void TBoss6PlotFalz::spawn_type2() {
     if ((u32) TBoss6PlotFalz__type2_instance == 0U) {
         sp8 = (u8 *)(arg0);
         stack.sp4C = this->m_37c;
-        TBoss4DarkFalz__sub_8004B4F0((void *) (&stack.spC), (void *) (arg0 + 0x388));
+        TBoss4DarkFalz__sub_8004B4F0((&stack.spC), (arg0 + 0x388));
         stack.sp14 = 1;
         stack.spC = *(s16 *)&this->m_2c + 0x1FF;
         temp_r4 = this->m_1c;
@@ -888,7 +888,7 @@ void TBoss6PlotFalz::spawn_type1() {
     if ((u32) TBoss6PlotFalz__type1_instance == 0U) {
         sp8 = (u8 *)(arg0);
         stack.sp4C = this->m_37c;
-        TBoss4DarkFalz__sub_8004B4F0((void *) (&stack.spC), (void *) (arg0 + 0x388));
+        TBoss4DarkFalz__sub_8004B4F0((&stack.spC), (arg0 + 0x388));
         stack.spC = *(s16 *)&this->m_2c + 0x200;
         temp_r4 = this->m_1c;
         stack.sp12 = temp_r4 + 0x200;
@@ -1087,7 +1087,7 @@ void refresh_players_equipment__14TBoss6PlotFalzFPv(void *self);
 void scroll_strip_uvs(u32, s16, s16);
 s32 get_bml_model(s32, s32);
 s32 alloc_tables__6TLobbyFll(s32, s32, s32);
-s32 *mem_alloc(s32);
+void *mem_alloc(u32 size);
 void build_tables__14TBoss6PlotFalzFPvPvi(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 arg2);
 extern u8 lbl_804705B4[];
 extern s32 lbl_805D5868;
@@ -1149,7 +1149,7 @@ void build_tables__14TBoss6PlotFalzFPvPvi(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1
     }
     arg0->count = arg2;
     arg0->items = NULL;
-    arg0->items = mem_alloc(arg0->count * 4);
+    arg0->items = (s32 *)mem_alloc(arg0->count * 4);
     arg0->f8 = 0;
     arg0->fc = 0;
     for (j = 0; j < arg0->count; j++) {
@@ -1425,13 +1425,13 @@ extern RecoveredGlobal_802AC904_lbl_804705E8 lbl_804705E8;
 extern RecoveredGlobal_802AC904___vt__14TBoss6PlotFalz __vt__14TBoss6PlotFalz;
 extern s32 TBoss6PlotFalz__instance;
 u8 *__dt__14TBoss6PlotFalzFv(u8 *arg0, s16 arg1);
-Boss_802AC7E4 *get_enemy_entity(u16);
+u8 *get_enemy_entity(u16 arg0);
 void fn_802ACD40();
 void handle_6xA3_olga_flow_boss_actions(Msg_802AC7E4 *m);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
-s32 bind_enemy_combat_stats(void *, int, int, int);
+s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 s32 initialize__9TObjEnemyFPv();
 u16 register_entity_by_id(void *ov);
 s32 create_boss4_fade();
@@ -1466,7 +1466,7 @@ void handle_6xA3_olga_flow_boss_actions(Msg_802AC7E4 *m) {
     s8 ph;
     s8 mode;
     fn_802ACD40();
-    b = get_enemy_entity(m->id);
+    b = (Boss_802AC7E4 *)get_enemy_entity(m->id);
     if (b != NULL && b == (Boss_802AC7E4 *)TBoss6PlotFalz__instance) {
         ph = m->phase;
         if (ph >= 0 && ph < 9 && ph != ((TObjFish *)b)->get_phase()) {
@@ -1566,7 +1566,7 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     ((TBoss6PlotFalz *)arg0)->sub_802AAC98();
     TBoss6PlotFalz__instance = self;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
-    TBoss4DarkFalz__sub_8004B4F0((void *) (arg0 + 0x388), (void *) (arg2));
+    TBoss4DarkFalz__sub_8004B4F0((arg0 + 0x388), (void *)(arg2));
     *(s16 *)((s8 *)arg0 + 0x38A) = 0;
     if (((TObjEnemy *)arg0)->exchange_object_state((s32)((void *) (&sp8)), (s16)((int) (1))) != 0) {
         sp8.a = 0;
@@ -1582,7 +1582,7 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     temp_r30 = register_boss__6TLobbyFl((int) (0x2C));
     temp_r29 = dispatch_shared_handler_b__6TLobbyFl((int) (0x2C));
     temp_r6 = register_object__6TLobbyFl((int) (0x2C));
-    bind_enemy_combat_stats((void *) (arg0), (int) (temp_r30), (int) (temp_r29), (int) (temp_r6));
+    bind_enemy_combat_stats((arg0), (u8 *)(temp_r30), (u8 *)(temp_r29), (u8 *)(temp_r6));
     register_entity_by_id((arg0));
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x02000000);
     set_visible_flag__14TBoss6PlotFalzFPv((void *) (arg0));

@@ -58,7 +58,7 @@ s32 play_sound_effect(s32, s32, s32, s32);
 s32 apply_choice__20TWindowChoiceSettingFllll(void *, int, int, int);
 s32 get_message_10__20TWindowSubStatusDispFl(int);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
-Big_80277AEC *get_player_by_client_id(int);
+void *get_player_by_client_id(s32 i);
 s32 construct_with_parent__13TUnk_804CDFE8FPv(void *, void *, s16, s32);
 s32 get_window_layout_position(int);
 void *reset_selection__20TWindowSubStatusDispFv(void *, Pos_80277AEC *);
@@ -186,7 +186,7 @@ void TWindowSubCustomSelect::draw_palette_cells(int ctx) {
     f32 y;
     f32 fx;
     f32 fy;
-    p = ((s32)get_player_by_client_id((int)(this->m_20)));
+    p = ((s32)get_player_by_client_id((this->m_20)));
     if (p == 0) {
         return;
     }
@@ -286,7 +286,7 @@ u8 *TWindowSubCustomSelect__ct(u8 *arg0, s32 arg1) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TWindowSubCustomSelect;
     *(s32 *)((s8 *)arg0 + 0) = TWindowSubCustomSelect__class_name;
     ((TWindowSubCustomSelect *)arg0)->m_20 = arg1;
-    p = get_player_by_client_id(((TWindowSubCustomSelect *)arg0)->m_20);
+    p = (Big_80277AEC *)get_player_by_client_id(((TWindowSubCustomSelect *)arg0)->m_20);
     if (p == NULL) {
         return arg0;
     }

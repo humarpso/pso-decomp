@@ -45,7 +45,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern RecoveredGlobal_801711D0_lbl_804B2F2C mine_resource_desc;
 extern u32 lbl_805D5A50;
 u16 find_nearest_visible_player(void *, int, f32);
-s32 get_player_by_client_id(int);
+void *get_player_by_client_id(s32 i);
 void rotate_matrix_y(int, int);
 void push_matrix();
 void post_translate_matrix(void *);
@@ -79,7 +79,7 @@ int TOMine::find_target_player() {
   new_var = -1;
   if (temp_r3 != new_var)
   {
-    ((RecoveredFields_80170F0C_arg0 *) arg0)->field_2A8 = get_player_by_client_id((int) temp_r3);
+    ((RecoveredFields_80170F0C_arg0 *) arg0)->field_2A8 = (s32)get_player_by_client_id(temp_r3);
     ((TOMine *)arg0)->update_trigger();
   }
   return ((RecoveredFields_80170F0C_arg0 *) arg0)->field_35C;

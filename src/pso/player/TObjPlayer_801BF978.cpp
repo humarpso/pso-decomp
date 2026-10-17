@@ -10,7 +10,7 @@ struct RecoveredGlobal_801BF9F0_lbl_804C3E50 {
 };
 
 extern "C" {
-s32 free_if_valid__14TPlyDispConfigFis(void *, int);
+s32 free_if_valid__14TPlyDispConfigFis(s32 arg0, s16 arg1);
 extern RecoveredGlobal_801BF9F0_lbl_804C3E50 lbl_804C3E50;
 s32 clear_id__10TObjPlayerFv();
 
@@ -35,7 +35,7 @@ typedef char RecoveredGlobal_801BF9F0_lbl_804C3E50_size[sizeof(RecoveredGlobal_8
 u8 *TObjPlayer__sub_801BF9F0(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 8) = &lbl_804C3E50.value;
-        free_if_valid__14TPlyDispConfigFis((void *) (arg0 + 4), (int) (-1));
+        free_if_valid__14TPlyDispConfigFis((s32)(arg0 + 4), (-1));
         if (arg1 > 0) {
             ::operator delete(((void *) (arg0)));
         }

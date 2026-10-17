@@ -1,4 +1,7 @@
 #include "pso/TAdEndText.h"
+#include "pso/menu/TAdEndText.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
+#include "pso/unk/text_800F9B84.h"
 
 TAdEndText::~TAdEndText() {}
 
@@ -91,10 +94,6 @@ struct Self_8001B190
 
 extern "C" {
 extern RecoveredGlobal_8001B3BC_lbl_804F5800 lbl_804F5800;
-s32 TAdEndText__sub_8001B3BC(u8 arg0);
-s32 TAdEndText__sub_8001B3EC(u8 arg0);
-s32 TAdEndText__sub_8001B3D4(u8 arg0);
-s32 TAdEndText__sub_8001B404(u8 arg0);
 extern char TAdEndText__ending_font_texture_list[];
 extern char lbl_804347B0[];
 extern char lbl_804347C0[];
@@ -102,20 +101,15 @@ extern u32 TAdEndText__loaded_font_texture_list;
 extern u32 TAdEndText__credit_script_lines;
 extern s32 TAdEndText__font_loaded_flag;
 void bind_gvm_texture_list(const char *name, void *data);
-s32 create_named_object(s32 arg0);
 s32 TAdEndText__sub_8001A998(s32, f32, f32, f32);
 s32 draw_small_font_text(s32, f32, f32, f32);
 u32 __cvt_fp2unsigned(f32);
-void begin_screen_draw(s32 arg0);
-s32 draw_textured_quad_at_depth(void *, f32);
-void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern const f32 lbl_805D7E04;
 extern const f32 lbl_805D7E08;
 extern const f32 lbl_805D7E0C;
 extern const f32 lbl_805D7E10;
 extern const f32 lbl_805D7E14;
 extern const f32 lbl_805D7E18;
-void render__10TAdEndTextFv(u8 *arg0);
 extern const f32 lbl_804345D8[];
 extern const f32 TAdEndText__data_805D7DF8;
 extern const f32 lbl_805D7E1C;
@@ -127,18 +121,13 @@ extern const f32 lbl_805D7E30;
 extern const f32 lbl_805D7E34;
 extern const f32 lbl_805D7E38;
 extern const f32 lbl_805D7E3C;
-void run_task__10TAdEndTextFv(u8 *arg0);
 int TKeyBoardControl__sub_8000F828(void);
-s32 TAdEndText__sub_8001B41C(void);
 s32 __ct__7TObjectFP7TObject(void *);
 extern u8 __vt__10TAdEndText[];
 extern s32 TAdEndText__class_name;
 extern const f32 lbl_805D7DF0;
 extern const f32 lbl_805D7DFC;
 extern const f32 lbl_805D7E40;
-u8 *__ct__10TAdEndTextFv(u8 *arg0);
-s32 get_end_text_font_loaded_flag(void);
-s32 get_ending_scene_active(void);
 void TLobby__sub_803DA16C(void*);
 
 extern s32 ending_scene_active;
@@ -182,14 +171,14 @@ void render__10TAdEndTextFv(u8 *arg0) {
             TObjFish::set_global_param(TAdEndText__loaded_font_texture_list);
             begin_screen_draw(1);
             set_draw_texture_and_color(3, -1);
-            draw_textured_quad_at_depth(&self->box1, lbl_805D7E18);
+            draw_textured_quad_at_depth((f32 *)&self->box1, lbl_805D7E18);
             TWindowSubStatusDisp::get_player();
             break;
         case 0x40:
             TObjFish::set_global_param(TAdEndText__loaded_font_texture_list);
             begin_screen_draw(1);
             set_draw_texture_and_color(4, -1);
-            draw_textured_quad_at_depth(&self->box2, lbl_805D7E18);
+            draw_textured_quad_at_depth((f32 *)&self->box2, lbl_805D7E18);
             TWindowSubStatusDisp::get_player();
             break;
         default:

@@ -1,4 +1,6 @@
 #include "pso/system/TGStream.h"
+#include "pso/misc/TLobby_80131794.h"
+#include "pso/unk/text_800F93B4.h"
 #include "pso/object/TObjFish_8001ED90.h"
 #include "pso/unk/text_800F7DAC.h"
 #include "pso/system/memory.h"
@@ -29,8 +31,6 @@ void debug_print__6TLobbyFle(const char *, ...);
 s32 TLobby__sub_803CC4C0(s32);
 s32 read_checked_align__6TLobbyFlll(s32);
 s32 strcmp(void *, void *);
-s32 fn_800F93B4(void *, GslArchiveEntry *, s32);
-s32 change_file_extension__6TLobbyFPvPvPv(void *, void *, const void *);
 s32 strlen(char *);
 s32 strncpy(char *, char *, s32);
 u32 adxf_open__6TLobbyFUii(char *, s32);
@@ -265,8 +265,8 @@ void close_gsl_archive(void) {
     } else {
         n = strlen(gsl_archive_path_buffer_ptr);
         if (n > 0) {
-            change_file_extension__6TLobbyFPvPvPv(buf, gsl_archive_filename, lbl_805DAA3C);
-            fn_800F93B4(buf, gsl_archive_entries, n);
+            change_file_extension__6TLobbyFPvPvPv((char *)buf, (char *)gsl_archive_filename, (char *)lbl_805DAA3C);
+            fn_800F93B4((s32)buf, (s32)gsl_archive_entries, (void *)n);
         }
         TItemDrop__data_805D53D0 = 0;
         TItemDrop__data_805D53CC = 0;

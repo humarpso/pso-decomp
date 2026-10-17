@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_8001D6A0.h"
+#include "pso/misc/TWindowSubStatusDisp_8025A9B4.h"
 #include "pso/misc/TWindowChallengeResult.h"
 #include "pso/misc/TWindowSubStatusDisp_80228CC0.h"
 #include "pso/misc/TWindowSubStatusDisp_80228F5C.h"
@@ -27,11 +29,9 @@ struct Win_80246DCC {
     f32 f64;
 };
 
-s32 get_shared_text_buffer(void);
 Entry_80246DCC *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void refresh_status_display__9TWindowDDFv(Entry_80246DCC *);
 void draw_right_aligned_number(void);
-void set_text_entry_string(void *, s32, s32);
 s32 get_window_layout_position(s32);
 extern char lbl_8044E7BC[];
 extern s32 lbl_805D3898;
@@ -96,11 +96,11 @@ Win_80246DCC *TWindowChallengeResult__ct(Win_80246DCC *self, s32 arg1, s32 arg2,
     self->f0 = lbl_805D3898;
     for (i = 0; i < 3; i++) {
         e = get_array_entry__13TUnk_804CE018Fi(self, i * 2);
-        set_text_entry_string(e, (s32) lbl_804CE2AC[i], 0);
+        set_text_entry_string((u8 *)e, (u32)lbl_804CE2AC[i], 0);
         refresh_status_display__9TWindowDDFv(e);
         e->f8 = lbl_805DCB60 - e->f10;
     }
-    set_text_entry_string(get_array_entry__13TUnk_804CE018Fi(self, 1), arg1, 0x20);
+    set_text_entry_string((u8 *)(get_array_entry__13TUnk_804CE018Fi(self, 1)), arg1, 0x20);
     e = get_array_entry__13TUnk_804CE018Fi(self, 3);
     text_builder_reset();
     m = arg2 / 3600;
@@ -116,7 +116,7 @@ Win_80246DCC *TWindowChallengeResult__ct(Win_80246DCC *self, s32 arg1, s32 arg2,
         text_builder_append((u8 *)lbl_805DCB64);
         append_padded_number(arg2, 2);
     }
-    set_text_entry_string(e, get_shared_text_buffer(), 0x20);
+    set_text_entry_string((u8 *)e, (u32)(get_shared_text_buffer()), 0x20);
     e = get_array_entry__13TUnk_804CE018Fi(self, 5);
     e->f20 = arg3;
     draw_right_aligned_number();

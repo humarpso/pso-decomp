@@ -16,7 +16,7 @@ typedef struct TObjPlayer_8023B454 {
 } TObjPlayer_8023B454;
 
 extern "C" {
-TObjPlayer_8023B454 *resolve_hittable_target(int, int);
+void *resolve_hittable_target(u16 actorId, s16 collider);
 s32 get_next_captured_target(TTecSlicerTargets_8023B454 *self, Vec_8023B454 *out_pos, u16 *out_id, s8 *out_part, f32 *out_f);
 s32 get_next_captured_target(TTecSlicerTargets_8023B454 *self, Vec_8023B454 *out_pos, u16 *out_id, s8 *out_part, f32 *out_f) {
     TObjPlayer_8023B454 *hit;
@@ -26,7 +26,7 @@ s32 get_next_captured_target(TTecSlicerTargets_8023B454 *self, Vec_8023B454 *out
     }
     while (self->idx < self->count && self->idx < 10) {
         found = 0;
-        hit = resolve_hittable_target(self->ids[self->idx], self->parts[self->idx]);
+        hit = (TObjPlayer_8023B454 *)resolve_hittable_target(self->ids[self->idx], self->parts[self->idx]);
         if (hit != NULL) {
             *out_id = self->ids[self->idx];
             *out_part = self->parts[self->idx];

@@ -45,7 +45,7 @@ void copy_pair__18TObjEnvSoundGlobalFPvPv(void* p, void* q);
 extern RecoveredGlobal_801902D8_lbl_804B7A70 environment_sound_tables_by_area;
 extern const f32 lbl_805DBE18;
 extern const f32 lbl_805DBE1C;
-void play_persistent_sound(s32, void *, f32 *, s32, s32);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 f32 xz_distance_squared(void *, void *);
 extern u8 *camera_ctrl_instance;
 void run_task__14TObjEnvSoundExFv(Env_80190624 *o);
@@ -90,10 +90,10 @@ void TObjEnvSoundGlobal::run_task() {
     case 0:
         break;
     case 1:
-        play_persistent_sound(self->sound, self, self->pos, 0, 0);
+        play_persistent_sound((s32)self->sound, (s32)self, (u32)self->pos, (s32)(0), (s32)(0));
         break;
     case 2:
-        play_persistent_sound(self->sound, self, 0, (s32)self->param, 2);
+        play_persistent_sound((s32)self->sound, (s32)self, (u32)(0), (s32)self->param, (s32)(2));
         break;
     }
 }
@@ -189,10 +189,10 @@ void run_task__14TObjEnvSoundExFv(Env_80190624 *o) {
         case 0:
             break;
         case 1:
-            play_persistent_sound((s32)(o->f9C), (void *)(o), (f32 *)(o->pos), (s32)(0), (s32)(0));
+            play_persistent_sound((s32)(o->f9C), (s32)(o), (u32)((f32 *)(o->pos)), (s32)(0), (s32)(0));
             break;
         case 2:
-            play_persistent_sound((s32)(o->f9C), (void *)(o), (f32 *)(0), (s32)((s32)o->vol), (s32)(2));
+            play_persistent_sound((s32)(o->f9C), (s32)(o), (u32)((f32 *)(0)), (s32)((s32)o->vol), (s32)(2));
             break;
         }
     } else {
@@ -205,10 +205,10 @@ void run_task__14TObjEnvSoundExFv(Env_80190624 *o) {
             case 0:
                 break;
             case 1:
-                play_persistent_sound((s32)(o->f9C), (void *)(o), (f32 *)(o->pos), (s32)(0), (s32)(0));
+                play_persistent_sound((s32)(o->f9C), (s32)(o), (u32)((f32 *)(o->pos)), (s32)(0), (s32)(0));
                 break;
             case 2:
-                play_persistent_sound((s32)(o->f9C), (void *)(o), (f32 *)(0), (s32)((s32)o->vol), (s32)(2));
+                play_persistent_sound((s32)(o->f9C), (s32)(o), (u32)((f32 *)(0)), (s32)((s32)o->vol), (s32)(2));
                 break;
             }
         }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/misc/TOSwitchTimer.h"
 #include "pso/TParticleCtrl.h"
 #include "pso/player/TObjPlayer.h"
@@ -43,7 +44,6 @@ s32 construct_world_actor_base(void *);
 extern s32 lbl_805D3188;
 s32 play_sound_effect(s32, s32, s32, s32);
 u8 is_current_floor_switch_set(u16);
-s32 play_persistent_sound(s32, void *, s32, s32, s32);
 void *__nw__7TObjectFUl(int);
 
 void TOSwitchTimer::render() {
@@ -85,7 +85,7 @@ void TOSwitchTimer::run_task() {
                     play_sound_effect(0x53218, 0, 0, 0);
                 }
             } else {
-                play_persistent_sound(0x53218, this, 0, 0, 0);
+                play_persistent_sound(0x53218, (s32)this, 0, 0, 0);
             }
         }
         temp_r3_2 = *(s32 *)&this->m_94;

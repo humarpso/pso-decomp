@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TNpcPlayer_80190E64.h"
 #include "pso/misc/TLobby_80191218.h"
 #include "pso/misc/TLobby.h"
 #include "pso/player/TObjPlayer.h"
@@ -6,7 +7,6 @@
 extern "C" {
 
 void set_player_quest_control_flag(register s32 r3);
-void *TLobby__sub_8019118C(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
@@ -14,7 +14,7 @@ extern void *tl_05;
 void *TLobby::create_npc(void *arg0) {
     void *o = __nw__7TObjectFUl(0xB8);
     if (o != NULL) {
-        o = TLobby__sub_8019118C(o, tl_05, arg0);
+        o = TLobby__sub_8019118C((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

@@ -57,8 +57,8 @@ struct VObj_8016C280 : VBase_8016C280 {
 extern "C" {
 s32 is_split_screen();
 u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
-u8 *mem_alloc(s32);
-s32 load_gvm_texture_file(void *);
+void *mem_alloc(u32 size);
+u8 *load_gvm_texture_file(s32 arg0);
 extern RecoveredGlobal_8016C474_lbl_80441BE8 lbl_80441BE8;
 extern RecoveredGlobal_8016C474_lbl_80441C04 lbl_80441C04;
 extern RecoveredGlobal_8016C474_lbl_804B2BB8 bm_fs_obj_do_doa_panel_resource_descriptor;
@@ -215,8 +215,8 @@ void TOKeyCave01::load_resources() {
             var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &fs_obj_key_jungle_resource_descriptor.value, 0, 0, 0));
         }
         (*(u8 * *)&TOKeyCave01__resource_bundle) = var_r0;
-        (*(u8 * *)&TOKeyCave01__texture_lists) = mem_alloc(8);
-        *(s32 *)((s8 *)(*(u8 * *)&TOKeyCave01__texture_lists) + 0) = load_gvm_texture_file((void *) (&lbl_80441BE8.value));
+        (*(u8 * *)&TOKeyCave01__texture_lists) = (u8 *)mem_alloc(8);
+        *(s32 *)((s8 *)(*(u8 * *)&TOKeyCave01__texture_lists) + 0) = (s32)load_gvm_texture_file((s32)(&lbl_80441BE8.value));
         *(s32 *)((s8 *)(*(u8 * *)&TOKeyCave01__texture_lists) + 4) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOKeyCave01__resource_bundle) + 0x42C)) + 0xC);
         key_cave_render_state = 1;
         return;
@@ -227,8 +227,8 @@ void TOKeyCave01::load_resources() {
         var_r0_2 = (u8 *)(load_resource_from_descriptor(temp_r3_2, 1, &bm_fs_obj_do_doa_panel_resource_descriptor.value, 0, 0, 0));
     }
     (*(u8 * *)&TOKeyCave01__resource_bundle) = var_r0_2;
-    (*(u8 * *)&TOKeyCave01__texture_lists) = mem_alloc(8);
-    *(s32 *)((s8 *)(*(u8 * *)&TOKeyCave01__texture_lists) + 0) = load_gvm_texture_file((void *) (&lbl_80441C04.value));
+    (*(u8 * *)&TOKeyCave01__texture_lists) = (u8 *)mem_alloc(8);
+    *(s32 *)((s8 *)(*(u8 * *)&TOKeyCave01__texture_lists) + 0) = (s32)load_gvm_texture_file((s32)(&lbl_80441C04.value));
     *(s32 *)((s8 *)(*(u8 * *)&TOKeyCave01__texture_lists) + 4) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOKeyCave01__resource_bundle) + 0x42C)) + 0xC);
     key_cave_render_state = 0;
 }

@@ -218,7 +218,7 @@ void receive_physical_attack__6TOTrapFPvf(void *, void *, f32);
 u16 obj_getField1c(void *);
 void obj_clear_flag30_20000(void *arg0);
 s32 check_player_flag1__6TLobbyFv();
-s32 get_player_by_client_id(void *);
+void *get_player_by_client_id(s32 i);
 extern s32 local_client_id;
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
@@ -297,7 +297,7 @@ void TOTrapAncient01::release_trapped_player() {
     s32 temp_r3_2;
     if (TRaderMapCore::is_not_split_screen() == 1) {
         if (*(void * *)&this->target != NULL) {
-            temp_r3 = get_player_by_client_id((void *) (obj_getField1c(*(void * *)&this->target)));
+            temp_r3 = (s32)get_player_by_client_id((obj_getField1c(*(void * *)&this->target)));
             if (temp_r3 != 0) {
                 if (check_player_flag1__6TLobbyFv() != 0) {
                     TObjPlayer::send_code_45_1((int) (temp_r3));
@@ -306,7 +306,7 @@ void TOTrapAncient01::release_trapped_player() {
             }
         }
     } else if ((*(void * *)&this->target != NULL) && ((s32) local_client_id == (s32) obj_getField1c(*(void * *)&this->target))) {
-        temp_r3_2 = get_player_by_client_id((void *) local_client_id);
+        temp_r3_2 = (s32)get_player_by_client_id(local_client_id);
         if (temp_r3_2 != 0) {
             if (check_player_flag1__6TLobbyFv() != 0) {
                 TObjPlayer::send_code_45_1((int) (temp_r3_2));

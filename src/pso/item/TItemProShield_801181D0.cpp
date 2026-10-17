@@ -15,7 +15,7 @@ extern "C" {
 s32 set_dfp_bonus__9TItemDataFs(s32 a0, int a1);
 s32 set_bswapped_field_8__9TItemDataFs(s32 a0, int a1);
 void TItemProShield__vt16(void *arg0, void *arg1);
-int TItemEquipBase__sub_8010A82C(void*);
+void TItemEquipBase__sub_8010A82C(s32 arg0);
 s32 play_sound_effect(int, int, int, int);
 s32 ct_init__14TItemEffShieldFPUcs(int, int, void *);
 s32 __ct__13TUnk_8049F130FP7TObjectsUc(int, int, void *, int);
@@ -37,7 +37,7 @@ extern s32 tl_05;
 u8 * TItemEquipBase__ct(void *);
 s16 get_bswap16_field8__9TItemDataFPv(void *);
 s16 getS16_06__9TItemDataFPv(void *);
-s32 lookup_item_pmt_record(void *);
+void *lookup_item_pmt_record(u8 *item);
 extern s32 lbl_805D2C38;
 u8 *TItemProShield__ct(u8 *arg0, s32 arg1, u8 *arg2);
 s32 add_actor_tp(u8 *arg0, s32 arg1);
@@ -108,7 +108,7 @@ void TItemProShield__vt16(void *arg0, void *arg1) {
     set_dfp_bonus__9TItemDataFs((s32)(arg1), (int)(((TItemProShield *)arg0)->m_198));
     set_bswapped_field_8__9TItemDataFs((s32)(arg1), (int)(((TItemProShield *)arg0)->m_199));
 }
-void TItemProShield::vfunc_45() { TItemEquipBase__sub_8010A82C(this); }
+void TItemProShield::vfunc_45() { TItemEquipBase__sub_8010A82C((s32)this); }
 void TItemProShield::vfunc_44() {
     s32 temp_r3_2;
     s32 temp_r3_3;
@@ -181,7 +181,7 @@ u8 *TItemProShield__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801186EC___vt__14TItemProShield *)&__vt__14TItemProShield).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C38;
     ((TItemProShield *)(arg0))->vfunc_19(3);
-    *(s32 *)&((TItemProShield *)arg0)->m_18c = lookup_item_pmt_record(arg2);
+    *(s32 *)&((TItemProShield *)arg0)->m_18c = (s32)lookup_item_pmt_record(arg2);
     *(s32 *)&((TItemProShield *)arg0)->m_190 = (s32) ((*(s32 *)&TItemProShield__shield_table) + ((s8) *(u8 *)((s8 *)(*(s32 *)&((TItemProShield *)arg0)->m_18c) + 0xD) * 0x2C));
     *(s32 *)&((TItemProShield *)arg0)->m_194 = TObjPlayer::get_shield_pmt_entry(*(u8 *)((s8 *)(*(s32 *)&((TItemProShield *)arg0)->m_18c) + 0x19));
     ((TItemProShield *)arg0)->m_19a = (u8) *(u8 *)((s8 *)(*(s32 *)&((TItemProShield *)arg0)->m_18c) + 0x17);

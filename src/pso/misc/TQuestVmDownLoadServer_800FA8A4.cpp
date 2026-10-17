@@ -17,7 +17,7 @@ struct RecoveredGlobal_800FA95C_lbl_80515F48 {
 extern "C" {
 void *__nw__7TObjectFUl(int);
 extern u32 fog_ctrl_instance;
-s32 request_fog__8TFogCtrlFPvii(u32, s32, s32);
+s32 request_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
 extern s32 TFogCtrl__fog_instance_table[];
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_8049C700[];
@@ -27,7 +27,7 @@ s32 TFogCtrl__sub_800FAC84(void *p);
 int parse_serial_value__22TAdEnterSerialAccessGCFv(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-s32 queue_destruction__7TObjectFv(void*);
+void queue_destruction__7TObjectFv(void *arg0);
 int update_all__8TFogCtrlFv(void*);
 
 int TQuestVmDownLoadServer::get_serial_access() { return parse_serial_value__22TAdEnterSerialAccessGCFv(this); }
@@ -57,7 +57,7 @@ u8 *TFogCtrl_EOR::init_object() {
 
 void TQuestVmDownLoadServer::destroy_instance() {
     if ((u32) fog_ctrl_instance != 0U) {
-        queue_destruction__7TObjectFv((void*)fog_ctrl_instance);
+        queue_destruction__7TObjectFv((void *)fog_ctrl_instance);
     }
     fog_ctrl_instance = 0U;
 }
@@ -76,7 +76,7 @@ s32 TFogCtrl::update_all(s32 arg0, s32 arg1) {
     do {
         u32 v = (u32)var_r30[var_r31];
         if (v != 0U) {
-            request_fog__8TFogCtrlFPvii(v, arg0, arg1);
+            request_fog__8TFogCtrlFPvii((u8 *)v, arg0, arg1);
         }
         var_r29 += 1;
         var_r31 += 1;

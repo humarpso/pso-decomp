@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjFish_800E2FFC.h"
 #include "pso/boss/Boss6Type2Death.h"
 #include "pso/boss/TBoss4Type2_800874F4.h"
 #include "pso/misc/TCameraCtrl_800687BC.h"
@@ -69,7 +70,6 @@ s32 get_bml_motion(void *, int);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
 void set_scripted_camera_pose(void *, void *, void *);
-s32 TObjFish__sub_800E3124(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 void *get_fish_count__8TObjFishFv(void);
 s32 create_zanzo__11TBoss6Type1FPvPvPv(void *, int, int);
@@ -418,9 +418,9 @@ void *TBoss6Demo21_TYPE2_DEAD__ct(void *arg0p, void *arg1, void *arg2) {
     *(s32 *)((s8 *)arg0 + 0x40) = get_bml_model(count, 0xD);
     *(s32 *)((s8 *)arg0 + 0x44) = TObjFish__sub_8001EDB0(count, 0xD);
     *(s32 *)((s8 *)arg0 + 0x48) = get_bml_motion(count, 0x3D);
-    *(s32 *)((s8 *)arg0 + 0x70) = TObjFish__sub_800E3124(boss6_type2_death_effect_desc_a, arg0 + 0x64);
-    *(s32 *)((s8 *)arg0 + 0x80) = TObjFish__sub_800E3124(boss6_type2_death_effect_desc_b, arg0 + 0x74);
-    *(s32 *)((s8 *)arg0 + 0x9C) = TObjFish__sub_800E3124(boss6_type2_death_effect_desc_c, arg0 + 0x84);
+    *(s32 *)((s8 *)arg0 + 0x70) = TObjFish__sub_800E3124(boss6_type2_death_effect_desc_a, (s32)(arg0 + 0x64));
+    *(s32 *)((s8 *)arg0 + 0x80) = TObjFish__sub_800E3124(boss6_type2_death_effect_desc_b, (s32)(arg0 + 0x74));
+    *(s32 *)((s8 *)arg0 + 0x9C) = TObjFish__sub_800E3124(boss6_type2_death_effect_desc_c, (s32)(arg0 + 0x84));
     activate_camera_mode(5);
     set_scripted_camera_pose(arg0 + 0x58, arg0 + 0x58, lbl_80478134);
     ((TCameraCtrl *)lbl_80478140)->cache_target_and_forward(0x416C);

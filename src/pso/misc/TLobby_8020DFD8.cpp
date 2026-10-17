@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/misc/TLobby_8001D6A0.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 
 void __dt__5THeapFv(void*, int);
-void free_and_delete__6TLobbyFPvs(void*, int);
 
 extern u32 TLobby__data_805D6104;
 extern u32 TLobby__data_805D6108;
@@ -28,7 +28,7 @@ void TLobby::free_resources() {
         TLobby__data_805D6108 = 0U;
     }
     if ((u32) TLobby__data_805D6104 != 0U) {
-        free_and_delete__6TLobbyFPvs((void*)TLobby__data_805D6104, 1);
+        free_and_delete__6TLobbyFPvs((u32 *)TLobby__data_805D6104, 1);
         TLobby__data_805D6104 = 0U;
     }
     if ((u32) TLobby__data_805D613C != 0U) {

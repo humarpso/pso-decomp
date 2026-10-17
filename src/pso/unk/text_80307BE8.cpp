@@ -5,7 +5,7 @@ extern "C" {
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFv();
 f32 xz_distance_squared(void *, void *);
-s32 get_player_by_client_id(int);
+void *get_player_by_client_id(s32 i);
 void update_players_in_range(u8 *arg0);
 #pragma push
 #pragma fp_contract on
@@ -19,7 +19,7 @@ void update_players_in_range(u8 *arg0) {
     if ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) {
         var_r28 = 0;
         do {
-            player = get_player_by_client_id((int) (var_r28));
+            player = (s32)get_player_by_client_id((var_r28));
             if (player != 0) {
                 if ((get_current_floor() == get_field_3e4__10TObjPlayerFv()) && (xz_distance_squared((void *) (player + 0x38), (void *) (arg0 + 8)) <= *(f32 *)((s8 *)arg0 + 0))) {
                     ((THunterGuildSeqOffline *)(*(u32 *)((s8 *)arg0 + 0x24)))->advance_matching_entries((int) (1), (int) (var_r28));

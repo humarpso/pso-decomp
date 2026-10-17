@@ -31,7 +31,7 @@ struct Icon_80243630 {
 struct UV_80243630 { f32 u; f32 v; };
 
 extern "C" {
-u32 get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 s8 clamp_char_at__10TObjPlayerFl(u32, s32);
 extern const f32 lbl_805DCA28;
 extern const f32 lbl_805DCA2C;
@@ -44,7 +44,7 @@ extern const f32 lbl_805DCA44;
 void draw_action_palette_icon(Icon_80243630 *icon, u16 group, u16 index);
 void *find_item_by_id();
 s32 get_palette_consumable_count();
-s32 set_sprite_uv_from_pixels(s32, f32, f32);
+void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1);
 
 extern f32 lbl_805DCA1C;
 extern f32 lbl_805DCA20;
@@ -52,10 +52,10 @@ extern f32 lbl_805DCA24;
 
 void TWindowHelpItem::set_help_text(s32 arg0, s32 arg1) {
     if (((TBoss8Dragon *)arg1)->test_card_flag_2() != 0) {
-        set_sprite_uv_from_pixels(arg0, lbl_805DCA1C, lbl_805DCA20);
+        set_sprite_uv_from_pixels((u8 *)arg0, lbl_805DCA1C, lbl_805DCA20);
         return;
     }
-    set_sprite_uv_from_pixels(arg0, lbl_805DCA1C, lbl_805DCA24);
+    set_sprite_uv_from_pixels((u8 *)arg0, lbl_805DCA1C, lbl_805DCA24);
 }
 
 s32 get_help_value__15TWindowHelpItemFv(void) {
@@ -80,7 +80,7 @@ void update_palette_item_count_label(u8 *arg0, u8 *arg1, u16 arg2, u16 arg3, s32
         return;
     }
     if (arg3 >= 0xD) {
-        p = get_player_by_client_id(arg4);
+        p = (u32)get_player_by_client_id(arg4);
         if (p == 0) {
             v = 0;
         } else {

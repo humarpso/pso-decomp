@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdPlayerLoadGC_801E0C30.h"
 #include "pso/ui/TAdMultiChgGameModeGC_8036DE10.h"
 #include "pso/ui/TObjBagWarnWin_8006EF24.h"
 #include "pso/ui/TUnk_804F3A20.h"
@@ -78,7 +79,6 @@ void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *arg0);
 extern s32 __vt__13TUnk_804F3A20[];
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32);
 extern RecoveredGlobal_8036E8DC_lbl_804C88C0 lbl_804C88C0;
 extern RecoveredGlobal_8036E8DC_lbl_804C8914 pso_system_card_filename;
 extern RecoveredGlobal_8036E8DC_lbl_804C89BC lbl_804C89BC;
@@ -440,7 +440,7 @@ s32 check_system_file_status__23TAdSinglePlyChrSelectGCFv(void) {
     if (TAdPlayerLoadGC::check_memcard_status(0) != 0) {
         return 4;
     }
-    if ((find_card_file__15TAdPlayerLoadGCFiPv(0, (s32) &lbl_804C88C0.value) != 0) || (find_card_file__15TAdPlayerLoadGCFiPv(0, (s32) &lbl_804C89BC.value) != 0) || (find_card_file__15TAdPlayerLoadGCFiPv(0, (s32) &pso_system_card_filename.value) != 0)) {
+    if ((find_card_file__15TAdPlayerLoadGCFiPv(0, (const char *)&lbl_804C88C0.value) != 0) || (find_card_file__15TAdPlayerLoadGCFiPv(0, (const char *)((const char *)&lbl_804C89BC.value)) != 0) || (find_card_file__15TAdPlayerLoadGCFiPv(0, (const char *)((const char *)&pso_system_card_filename.value)) != 0)) {
         return 8;
     }
     return 0;

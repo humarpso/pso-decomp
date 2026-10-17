@@ -1,14 +1,12 @@
 #include "pso/ui/TAdGuideButtonGC.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802C6F88.h"
 #include "pso/TMainTask.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 #include "pso/object/TObjFish.h"
 extern "C" {
 s32 render_status_disp__23TAdSinglePlyChrSelectGCFff(const char *, f32, f32, f32);
-int TAdMultiPlyChrSelectGC__sub_802C6FA8(void);
-void begin_screen_draw(s32);
-void set_draw_texture_and_color(s32, s32);
-void draw_textured_quad_at_depth(void *, f32);
 extern const GuideButtonPoint guide_button_atlas_origins[4] = {
     {212.0f,78.0f},{190.0f,78.0f},{234.0f,78.0f},{190.0f,100.0f},
 };
@@ -30,7 +28,7 @@ void TAdGuideButtonGC::draw_quad(int style) {
         TObjFish::set_global_param(guide_button_texture_handle);
         begin_screen_draw(1);
         set_draw_texture_and_color(0,-1);
-        draw_textured_quad_at_depth(quads,0.5f);
+        draw_textured_quad_at_depth((f32 *)quads, 0.5f);
         TWindowSubStatusDisp::get_player();
     }
 }

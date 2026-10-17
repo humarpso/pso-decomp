@@ -108,7 +108,7 @@ void *__nw__7TObjectFUl(u32);
 Quest_80108164 *get_quest_id__12TQuestListVMFv(Player_80108164 *);
 extern const f32 lbl_805DAB04;
 extern const f32 lbl_805DAB08;
-s32 create_particle_emitter(void *, s32);
+void *create_particle_emitter(void *pos, s32 id);
 void __ct__7TObjectFP7TObject(void *, s32);
 void construct_actor_light_task(void *, void *, void *, s32, u8 *, f32, s32);
 extern u8 lbl_8043E140[];
@@ -137,7 +137,7 @@ Self_80108020 *TItemEffArmor__ct(Self_80108020 *self, u8 *obj, f32 a, f32 b) {
     self->f5C = default_scene_light_config.f20;
     self->f60 = default_scene_light_config.f1C;
     self->f64 = (TItemEffArmor__data_805DAAEC - self->f5C) / lbl_805DAAFC;
-    self->f1C = create_particle_emitter(self->f6C + 0x38, 0x1BA);
+    self->f1C = (s32)create_particle_emitter(self->f6C + 0x38, 0x1BA);
     copy_vec4__13TRaderMapCoreFPvPv(self->v38, lbl_8043E140);
     {
         Vec_80108020 v = lbl_8043E160[0];

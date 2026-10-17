@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TPlySmth.h"
+#include "pso/misc/TRecvPsoRegistConnect.h"
 #include "pso/misc/TLobby_801DA7DC.h"
 #include "pso/misc/TLobby_801DEFC4.h"
 #include "pso/misc/TPlyGuildCardTag_8007B434.h"
@@ -100,12 +102,10 @@ struct Pkt_801DAA70 {
 extern "C" {
 void handle_cmd_C5__9TProtocolFR6packet(u8 *arg0, Pkt_801DA848 *arg1);
 s32 __as__16TPlyClientConfigFRC16TPlyClientConfig(void *, void *);
-s32 __as__8TPlySmthFRC8TPlySmth(void *, void *);
 s32 strncpy(void *, void *, int);
 s32 memset(void *, int, int);
 s32 reset__18PSOV3EncryptionTCPFUl(void *, u32);
 s32 __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(void *, void *);
-s32 bswap__21TRecvPsoRegistConnectFv(void *);
 s32 strcmp(const char *, const char *);
 extern u8 meet_user_settings[];
 extern char *lbl_805D3570;
@@ -140,7 +140,7 @@ s32 send_login_9e_extended__6TLobbyFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
     pkt.flag = *(s32 *)(arg0 + 0x1930);
     pkt.size = 0x150;
     __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(pkt.tag, arg0 + 0x1900);
-    __as__8TPlySmthFRC8TPlySmth(pkt.smth, arg0 + 0x18F8);
+    __as__8TPlySmthFRC8TPlySmth((s32)pkt.smth, (s32)(arg0 + 0x18F8));
     pkt.f14 = *(u16 *)(arg0 + 0x1908);
     pkt.f19 = *(s32 *)(arg0 + 0x1934);
     __as__16TPlyClientConfigFRC16TPlyClientConfig(pkt.config, arg0 + 0x3FAC);
@@ -170,7 +170,7 @@ void handle_cmd_9C__9TProtocolFR6packet(u8 *arg0, s32 *arg1) {
 void handle_cmd_02__9TProtocolFR6packet(u8 *arg0, Recv_801DAA70 *arg1) {
     Recv_801DAA70 r = *arg1;
     Pkt_801DAA70 pkt;
-    bswap__21TRecvPsoRegistConnectFv(&r);
+    bswap__21TRecvPsoRegistConnectFv((s32)&r);
     if (strcmp(lbl_805D3570, r.name) == 0) {
         reset__18PSOV3EncryptionTCPFUl(arg0 + 0x10BC, r.key1);
         reset__18PSOV3EncryptionTCPFUl(arg0 + 0x884, r.key2);
@@ -180,7 +180,7 @@ void handle_cmd_02__9TProtocolFR6packet(u8 *arg0, Recv_801DAA70 *arg1) {
         pkt.cmd = 0x9E;
         pkt.flag = *(s32 *)(arg0 + 0x1930);
         __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(pkt.tag, arg0 + 0x1900);
-        __as__8TPlySmthFRC8TPlySmth(pkt.smth, arg0 + 0x18F8);
+        __as__8TPlySmthFRC8TPlySmth((s32)pkt.smth, (s32)(arg0 + 0x18F8));
         pkt.f14 = *(u16 *)(arg0 + 0x1908);
         pkt.f19 = *(s32 *)(arg0 + 0x1934);
         strncpy(pkt.name1, arg0 + 0x3EB8, 0x10);

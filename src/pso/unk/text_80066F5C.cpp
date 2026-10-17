@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TScene_800838C4.h"
 #include "pso/system/GinjaMaterial.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/TObjBoss5FloorStone.h"
@@ -7,7 +8,6 @@
 #include "pso/object/TObjFish.h"
 
 extern "C" {
-s32 render_projected_shadow_receiver(void *, void *);
 s32 rotate_matrix_by_node_angles(void *, int);
 int push_matrix(void);
 s32 scale_current_matrix(void *);
@@ -22,7 +22,7 @@ void TObjPlayer::draw_shadowed_node_tree() {
         rotate_matrix_by_node_angles((void *) (arg0 + 0x14), (int) (1));
         scale_current_matrix((void *) (arg0 + 0x20));
         if (!(*(s32 *)((s8 *)arg0 + 0) & 8) && ((u32) *(u32 *)((s8 *)arg0 + 4) != 0U)) {
-            render_projected_shadow_receiver((void *) (arg0 + 8), (void *) (arg0 + 0x14));
+            render_projected_shadow_receiver((u8 *)(arg0 + 8), (s32)(arg0 + 0x14));
             ::draw_ginja_model((*(u32 *)((s8 *)arg0 + 4)));
             TScene::apply_single_screen_state();
         }

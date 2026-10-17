@@ -61,13 +61,13 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 s32 set_chunk_material_color(s32);
 void copy_to_item_data__5TItemFPv(void *, void *);
-s32 get_player_by_client_id(u16);
+void *get_player_by_client_id(s32 i);
 s16 *get_stat_bonus_ptr__14TItemEquipBaseFv();
 u32 get_equip_field_d04__10TObjPlayerFv(s32, s32);
 s32 get_stat_bonus__10TObjPlayerFv(s32);
 s32 get_stat__10TObjPlayerFv(s32);
 s32 obj_isState2_324__13TUnk_804806E8Fv(int);
-struct VObj_80101350_80100E00 *find_item_by_id(s32);
+u8 *find_item_by_id(s32 id);
 s32 setup_particle_tev(s32);
 
 extern f32 lbl_805DAA90;
@@ -176,7 +176,7 @@ s16 TObjPlayer::calc_stat_bonus_sum(u16 arg0) {
     s32 temp_r3;
     s32 var_acc;
     s32 var_cnt;
-    temp_r3 = get_player_by_client_id((u16) arg0);
+    temp_r3 = (s32)get_player_by_client_id((u16) arg0);
     var_acc = 0;
     if (temp_r3 != 0) {
         var_cnt = 9;
@@ -194,7 +194,7 @@ s16 TObjPlayer::calc_equip_bonus(u16 arg0) {
     s32 temp_r3;
     s32 var_acc;
     s32 var_cnt;
-    temp_r3 = get_player_by_client_id((u16) arg0);
+    temp_r3 = (s32)get_player_by_client_id((u16) arg0);
     var_acc = 0;
     if (temp_r3 != 0) {
         var_cnt = 9;
@@ -221,7 +221,7 @@ void handle_6x61_activate_mag_effect(void *arg0) {
     struct VObj_80101350_80100E00 *obj;
     if (TOKeyMachine01::get_global_state() != 0xF) {
         ((TObjPlayer *)arg0)->swap_6x61_fields();
-        obj = find_item_by_id(*(s32 *)((s8 *)arg0 + 4));
+        obj = (VObj_80101350_80100E00 *)find_item_by_id(*(s32 *)((s8 *)arg0 + 4));
         if ((obj != NULL) && ((u32) *(u32 *)((s8 *)obj + 0xF0) != 0U)) {
             obj->m17(*(s32 *)((s8 *)arg0 + 8));
         }

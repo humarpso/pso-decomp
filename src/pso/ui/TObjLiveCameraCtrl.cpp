@@ -27,7 +27,7 @@ void choose_next_camera_shot__12TBoss8DragonFv(void *);
 s32 get_current_floor();
 void subtractive_rng_seed(void *, s32);
 s32 __ct__14SubtractiveRngFv(void *);
-void *fn_800832EC(void *, int, int, void *, void *, f32);
+u8 *fn_800832EC(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 s32 is_room_enemy_set_cleared(s32 floor, s16 room);
 void *__nw__7TObjectFUl(u32);
 extern s32 lbl_804757E0[];
@@ -110,7 +110,7 @@ TObjLiveCameraCtrl::TObjLiveCameraCtrl(TObject *parent) : TObject(parent) {
     }
     p = __nw__7TObjectFUl(0x3C);
     if (p != 0) {
-        p = fn_800832EC(p, tl_particlemodel, lbl_804757E0[((Cam_8030BED4 *)this)->f4c], ((Cam_8030BED4 *)this)->f34, ((Cam_8030BED4 *)this)->f40, lbl_805DF19C);
+        p = fn_800832EC((u8 *)p, (s32)tl_particlemodel, (s32)lbl_804757E0[((Cam_8030BED4 *)this)->f4c], (s32)(((Cam_8030BED4 *)this)->f34), (s32)(((Cam_8030BED4 *)this)->f40), (f32)lbl_805DF19C);
     }
     ((Cam_8030BED4 *)this)->f50 = p;
 }

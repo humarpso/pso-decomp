@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6Zanzo.h"
 #include "pso/unk/text_80320358.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TScene.h"
@@ -10,7 +11,6 @@ struct S_80320358 {
 
 extern "C" {
 s32 read_disc_file(void *, void *);
-u8 *fn_803204B0(void *);
 s32 OSLink(void *, void *);
 void OSUnlink(void *);
 S_80320358 *fn_80320358(S_80320358 *arg0, s16 arg1);
@@ -18,7 +18,7 @@ S_80320358 *fn_80320358(S_80320358 *arg0, s16 arg1);
 S_80320358 *fn_80320358(S_80320358 *arg0, s16 arg1) {
     u8 *t;
     if (arg0 != NULL) {
-        t = fn_803204B0(arg0);
+        t = (u8 *)fn_803204B0(arg0);
         if (t != NULL) {
             (*(void (**)(void))(t + 0x38))();
         }
@@ -61,7 +61,7 @@ u8 *load_rel_module(u8 *arg0, s32 arg1) {
             }
         }
         OSLink((void *) (*(void **)((s8 *)arg0 + 4)), (void *) (*(void **)((s8 *)arg0 + 0)));
-        temp_r3 = fn_803204B0(arg0);
+        temp_r3 = (u8 *)fn_803204B0(arg0);
         if (temp_r3 != NULL) {
             (*(s32 (**)())((s8 *)temp_r3 + 0x34))();
         }

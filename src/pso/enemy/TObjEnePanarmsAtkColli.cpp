@@ -98,12 +98,12 @@ extern Pair_800E32C0 lbl_8043CDF8[];
 void fn_800E32C0(Obj_800E32C0 *arg0, V_800E32C0 *arg1);
 extern Pair_800E3374 lbl_8043CDF0[];
 void fn_800E3374(Obj_800E3374 *arg0, V_800E3374 *arg1);
-Player_800E35C8 *get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 f32 horizontal_distance_squared(void *, void *);
 extern s32 lbl_805D586C;
 void fn_800E35C8(Obj_800E35C8 *arg0);
 u16 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, s32, f32);
-u32 get_enemy_entity(u16);
+u8 *get_enemy_entity(u16 arg0);
 void fn_800E322C(void *p, void *t);
 void vec3_add_to(void *, void *);
 f32 vector_length(void *);
@@ -131,7 +131,7 @@ void fn_800E322C(void *p, void *t) {
     u32 ent;
     VecCopy((Vec *)&target->pos, (const Vec *)t);
     if ((r = find_nearest_hittable_enemy__10TObjPlayerFiPvf(target, 0, target->f378)) != 0xFFFF) {
-        if ((ent = get_enemy_entity(r)) != 0 && ent != target->f10) {
+        if ((ent = (u32)get_enemy_entity(r)) != 0 && ent != target->f10) {
             fn_800E32C0((Obj_800E32C0 *)target, (V_800E32C0 *)ent);
         }
     }
@@ -183,7 +183,7 @@ void fn_800E3428(Obj_800E3428 *self) {
     d.x *= self->f378;
     d.z *= self->f378;
     for (i = 0; i < lbl_805D586C; i++) {
-        p = get_player_data__10TObjPlayerFi(i);
+        p = (Player_800E35C8 *)get_player_data__10TObjPlayerFi(i);
         if (p != NULL && !(p->f30 & 0x02000A00)) {
             Vec_800E3428 v = self->pos;
             for (dist = 0.0f; dist < len; ) {
@@ -214,7 +214,7 @@ void fn_800E35C8(Obj_800E35C8 *arg0) {
     Player_800E35C8 *p;
     f32 lim = arg0->f378 * arg0->f378;
     for (i = 0; i < lbl_805D586C; i++) {
-        p = get_player_data__10TObjPlayerFi(i);
+        p = (Player_800E35C8 *)get_player_data__10TObjPlayerFi(i);
         if (p != NULL && !(p->f30 & 0x02000A00) && !(horizontal_distance_squared(&arg0->pos, (u8 *) p + 0x2FC) > lim)) {
             fn_800E3374((Obj_800E3374 *)(arg0), (V_800E3374 *)(p));
         }
@@ -472,7 +472,7 @@ struct Obj_800E37E4 {
 
 extern "C" {
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
-s32 play_persistent_sound(s32, void *, void *, s32, s32);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 s32 set_flag_0x100__23TObjEneMe3ShinowaMirageFv();
 extern f32 TObjEneMe3ShinowaMirage__data_805DA5B8;
 extern const f32 lbl_805DA5BC;
@@ -505,7 +505,7 @@ void TObjEnePanarmsAtkColli::run_task() {
         ((void (*)(void *))fn_800E35C8)(arg0);
         return;
     case 1:
-        play_persistent_sound(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003BA2A), arg0, (u8 *)&this->position, 0, 0);
+        play_persistent_sound((s32)(copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003BA2A)), (s32)arg0, (u32)&this->position, (s32)(0), (s32)(0));
         ((void (*)(void *))fn_800E3428)(arg0);
         return;
     }

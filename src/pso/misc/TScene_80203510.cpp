@@ -171,7 +171,7 @@ SceneDispatchPrefix scene_format_dispatch_tables = {
 };
 s32 TScene__sub_80205874(void*);
 extern s8 TScene__floor_scene_ready_flag;
-u32 get_player_by_client_id(void *);
+void *get_player_by_client_id(s32 i);
 
 }
 
@@ -230,7 +230,7 @@ s32 TScene::find_section_at_position() {
 s32 TScene::get_player_ctrl_field(u16 arg0) {
     u32 player;
 
-    player = get_player_by_client_id((void *) (arg0));
+    player = (u32)get_player_by_client_id((arg0));
     if (player != 0U) {
         return ((TScene *)(player + 0x38))->find_section_at_position();
     }

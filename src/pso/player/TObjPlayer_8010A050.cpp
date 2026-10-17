@@ -93,17 +93,17 @@ extern s32 __vt__13TUnk_8049F130[];
 s32 TObjPlayer__sub_8010A058(void* p);
 void *__dt__13TUnk_8049F130Fv(void *arg0, s16 arg1);
 s32 get_field_3e0__12TBoss3VoloptFv();
-s32 create_timed_particle_emitter(s32, s32, s32, s32);
+void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
 void *spawn_particle_effect(void *pos, s32 id);
 s32 is_item_area_enabled();
-VObj_8010A26C *get_player_by_client_id(u16);
+void *get_player_by_client_id(s32 i);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s16 count_nearby_players_with_shield__10TObjPlayerFUsPUc(u16, s8 *);
 s32 init__9TItemDataFv(s8 *);
 void queue_destruction__7TObjectFv(void *arg0);
 
-u32 create_particle_emitter(s32 *, s32);
+void *create_particle_emitter(void *pos, s32 id);
 s32 get_current_floor();
 int get_item_field_6__10TObjPlayerFPv(void *p);
 u8 get_field_ed__5TItemFv();
@@ -135,7 +135,7 @@ void TUnk_8049F130::run_task() {
                 get_field_3e0__12TBoss3VoloptFv();
                 if (is_item_area_enabled() == 1) {
                     if ((s32) *(s32 *)&this->unk_24 == 0) {
-                        create_timed_particle_emitter(player + 0x2FC, this->m_20, 0, 0xA);
+                        create_timed_particle_emitter((void *)(player + 0x2FC), this->m_20, 0, 0xA);
                     } else {
                         spawn_particle_effect((void *)(player + 0x2FC), this->m_20);
                     }
@@ -178,14 +178,14 @@ void TUnk_8049F148::run_task() {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    temp_r3 = get_player_by_client_id(*(u16 *)((s8 *)this + 0x24));
+    temp_r3 = (VObj_8010A26C *)get_player_by_client_id(*(u16 *)((s8 *)this + 0x24));
     if (temp_r3 != NULL) {
         temp_r3->m63(0x24, sp8);
         temp_r3_2 = get_current_floor();
         if (temp_r3_2 != (s32) this->m_20) {
             this->m_20 = temp_r3_2;
             if ((reset_key_machine_state__10TObjPlayerFv() != 0) && (temp_r3_2 == ((TObjPlayer *)temp_r3)->get_field_3e4())) {
-                *(u32 *)&this->unk_1C = create_particle_emitter(sp8, 0x101);
+                *(u32 *)&this->unk_1C = (u32)create_particle_emitter(sp8, 0x101);
             } else {
                 *(u32 *)&this->unk_1C = 0U;
             }

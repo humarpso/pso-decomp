@@ -72,7 +72,7 @@ struct TItem_80102424 : VObj_18_441505 {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u32 get_player_by_client_id(void *);
+void *get_player_by_client_id(s32 i);
 s32 push_to_player_list__5TItemFPv();
 void copy_vec4__13TRaderMapCoreFPvPv(void *p, void *q);
 s8 TObjPlayer__sub_80102C30(u8 *);
@@ -195,7 +195,7 @@ void TItem::run_task() {
         ((TItem *)arg0)->update_timer();
         return;
     case 1:
-        this->m_f0 = get_player_by_client_id((void *) (((TItemProArmor *)arg0)->get_id()));
+        this->m_f0 = (u32)get_player_by_client_id((((TItemProArmor *)arg0)->get_id()));
         if ((u32) this->m_f0 != 0U) {
             ((TItem *)arg0)->update_owner_visibility();
             this->vfunc_14();
@@ -203,7 +203,7 @@ void TItem::run_task() {
         }
         break;
     case 2:
-        this->m_f0 = get_player_by_client_id((void *) (((TItemProArmor *)arg0)->get_id()));
+        this->m_f0 = (u32)get_player_by_client_id((((TItemProArmor *)arg0)->get_id()));
         temp_r4 = this->m_f0;
         if (temp_r4 != 0U) {
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (temp_r4 + 0x38));
@@ -306,7 +306,7 @@ u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
 #include "pso/item/TItemMag.h"
 
 extern "C" {
-u32 mem_alloc(s32 size);
+void *mem_alloc(u32 size);
 void *memset(void *dst, int c, u32 n);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32 size);
 void advance_item_system_generation(void);
@@ -355,7 +355,7 @@ extern s32 lbl_805D53EC;
 void TObjPlayer::alloc_game_systems() {
     void *p;
     item_registry_count = 0;
-    item_registry_sorted_entries = mem_alloc(0x1000);
+    item_registry_sorted_entries = (u32)mem_alloc(0x1000);
     memset((void *)item_registry_sorted_entries, 0, 0x1000);
     p = alloc__23TAdSinglePlyChrSelectGCFv(1);
     if (p != NULL) {

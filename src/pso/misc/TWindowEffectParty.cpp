@@ -12,7 +12,7 @@ struct Pos_8024FAD8 { s32 a, b, c; };
 extern "C" {
 extern Obj_8024FB80 *TWindowCtrl__active_window;
 void *__ct__7TObjectFP7TObject(void *);
-s32 spawn_continuous_particle_effect_with_flags(void *, void *, s32);
+void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
 extern s32 __vt__18TWindowEffectParty[];
 extern s32 TWindowEffectParty__name;
 u8 *__ct__18TWindowEffectPartyFP7TObjectScScPv(u8 *arg0, void *arg1, s8 arg2, s8 arg3, void *arg4);
@@ -84,7 +84,7 @@ TWindowEffectParty::TWindowEffectParty(TObject *arg1, s8 arg2, s8 arg3, void *ar
     *(s8 *)&this->m_1e = arg3;
     TWindowEffectParty::set_slot_position((s32)((u8 *)this), (s32)(*(s8 *)&this->m_1e), (void *)(((u8 *)this) + 0x28));
     this->calc_effect_position((s32 *)(&p));
-    *(s32 *)&this->m_30 = spawn_continuous_particle_effect_with_flags(&p, arg4, 0xC0);
+    *(s32 *)&this->m_30 = (s32)spawn_continuous_particle_effect_with_flags((void *)&p, (s32)arg4, (s32)(0xC0));
     *(s8 *)&this->m_1c = 0;
 }
 extern "C" {

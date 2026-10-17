@@ -1,9 +1,11 @@
 #include "pso/TAdMultiOkGC.h"
+#include "pso/menu/TAdMultiOkGC.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
+#include "pso/player/TObjPlayer_8023E480.h"
 struct E_80306AC8 { u8 pad[0x1c]; u32 flags; u8 pad2[0xc4 - 0x20]; };
 struct O_80306AC8 { E_80306AC8 e[12]; u8 pad[0x97c - 12 * 0xc4]; s32 count; };
 extern "C" {
 void TLobby__sub_803DA16C(void *);
-int TLobby__sub_8023E4B4(void *, void *);
 extern unsigned char multi_confirm_texture_archive_name[];
 void *multi_confirm_texture_entries[3] = { multi_confirm_texture_archive_name, 0, 0 };
 struct MultiConfirmTextureList { void *entries; u32 count; };
@@ -83,9 +85,6 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 play_sound_effect(int, void *, int, int);
 extern Ports_80306DF4 multi_ok_player_port_index_table;
 extern Pad_80306DF4 controller_physical_port_bank[];
-void begin_screen_draw(s32 arg0);
-s32 draw_textured_quad_at_depth(void *, f32);
-void set_draw_texture_and_color(s32 idx, s32 arg1);
 extern s32 multi_confirm_texture_list;
 extern const f32 lbl_805DF040;
 extern const f32 lbl_805DF044;
@@ -125,7 +124,7 @@ void TAdMultiOkGC::draw_entry(int arg1) {
             set_draw_texture_and_color(0, e->vals[i]);
             if (e->t - (i - 1) >= 0) {
                 f32 t = lbl_805DF048 * (f32)i + lbl_805DF044;
-                draw_textured_quad_at_depth(&e->q[i], t + base);
+                draw_textured_quad_at_depth((f32 *)&e->q[i], t + base);
             }
         }
         TWindowSubStatusDisp::get_player();
@@ -279,5 +278,5 @@ void free_multi_confirm_textures(void) {
         multi_confirm_texture_list = 0U;
     }
 }
-void load_multi_confirm_textures(void) { multi_confirm_texture_list = (int)&multi_confirm_texture_descriptor; TLobby__sub_8023E4B4(multi_confirm_texture_archive_name, &multi_confirm_texture_descriptor); }
+void load_multi_confirm_textures(void) { multi_confirm_texture_list = (int)&multi_confirm_texture_descriptor; TLobby__sub_8023E4B4((s32)multi_confirm_texture_archive_name, (s32)&multi_confirm_texture_descriptor); }
 }

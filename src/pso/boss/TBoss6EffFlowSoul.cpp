@@ -23,8 +23,8 @@ struct Soul_8036A6B0 {
     s32 age;
 };
 
-u8 *get_player_by_client_id(s32);
-s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
+void *get_player_by_client_id(s32 i);
+s32 is_state_1f__14TBoss6PlotFalzFUi(u32 arg0);
 void subtract_vector(Vec_8036A6B0 *, Vec_8036A6B0 *);
 void vec3_add_to(Vec_8036A6B0 *, Vec_8036A6B0 *);
 extern const f32 lbl_805E0370;
@@ -45,8 +45,8 @@ void TBoss6EffFlowSoul::run_task() {
     if (self->player == 0xFFFF) {
         ((TBoss6Type2 *)(self->f1c))->copy_pos_620((s32)(&target));
     } else {
-        p = get_player_by_client_id(self->player);
-        if (p != NULL && is_state_1f__14TBoss6PlotFalzFUi(p) != 0) {
+        p = (u8 *)get_player_by_client_id(self->player);
+        if (p != NULL && is_state_1f__14TBoss6PlotFalzFUi((u32)p) != 0) {
             VecCopy((Vec *)&target, (const Vec *)((Vec_8036A6B0 *)(p + 0x38)));
             target.y += lbl_805E0370;
         } else {

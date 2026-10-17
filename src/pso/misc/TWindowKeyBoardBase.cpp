@@ -13,7 +13,7 @@ struct RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase { s32 value; u8 rema
 typedef char RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase_size[sizeof(RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase) == 0x18 ? 1 : -1];
 
 extern "C" {
-int mem_alloc(void *);
+void *mem_alloc(u32 size);
 u8 * get_window_layout_position(s32);
 void init_keyboard_text_buffer(u8 *arg0, u32 arg1, u32 arg2);
 void init_keyboard_text_field(u8 *arg0, u32 arg1, u32 arg2);
@@ -31,7 +31,7 @@ s32 sub_8025CB10__19TWindowKeyBoardBaseFv(void *);
 s32 sub_8025EB68__19TWindowKeyBoardBaseFv();
 s32 draw_window_frame(void *, s32);
 void __dl__7TObjectFPv(void *);
-void destroy__19TWindowKeyBoardBaseFPvs(void *, int);
+u32 *destroy__19TWindowKeyBoardBaseFPvs(u32 *arg0, s16 arg1);
 void mem_free(void *);
 int initialize_subwindow__9TWindowDDFv(void*);
 
@@ -53,8 +53,8 @@ void *__dt__19TWindowKeyBoardBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowKeyBoardBase;
         mem_free(*(void **)((s8 *)arg0 + 0x9C));
-        destroy__19TWindowKeyBoardBaseFPvs((s8 *)arg0 + 0x84, -1);
-        destroy__19TWindowKeyBoardBaseFPvs((s8 *)arg0 + 0x6C, -1);
+        destroy__19TWindowKeyBoardBaseFPvs((u32 *)((s8 *)arg0 + 0x84), -1);
+        destroy__19TWindowKeyBoardBaseFPvs((u32 *)((s8 *)arg0 + 0x6C), -1);
         ((TWindowDD *)arg0)->destroy_window_base(0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -83,7 +83,7 @@ u8 *TWindowKeyBoardBase__ct(u8 *arg0) {
     *(s32 *)&((TWindowKeyBoardBase *)arg0)->m_ac = 0;
     if (temp_r31 == 0) {
         init_keyboard_text_buffer((arg0 + 0x84), (0x24), (0));
-        *(s32 *)&((TWindowKeyBoardBase *)arg0)->m_9c = mem_alloc((void *)0x194);
+        *(s32 *)&((TWindowKeyBoardBase *)arg0)->m_9c = (s32)mem_alloc((u32)((void *)0x194));
         *(s32 *)&((TWindowKeyBoardBase *)arg0)->m_b0 = 0x94;
     }
     return arg0;

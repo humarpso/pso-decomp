@@ -58,7 +58,7 @@ extern const f32 lbl_805D811C;
 u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1);
 void set_elem_flags__17TBoss1DragonColliFPv(O_8002B42C *self);
 void fn_8002B630(u8 *arg0, u8 *arg1);
-E_8002B4CC *mem_alloc(s32);
+void *mem_alloc(u32 size);
 u16 register_entity_by_id(void *ov);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
 extern u8 TBoss1DragonColli_sphere_chain_desc[];
@@ -191,7 +191,7 @@ s32 TBoss1DragonColli_C__ct(int arg0, void *arg1, int arg2, void *arg3, f32 scal
     VecCopy((Vec *)self->pos, (const Vec *)arg3);
     self->f1c = TLobby::alloc_actor_ids(0);
     self->count = arg2;
-    self->elems = mem_alloc(self->count * 0x2C);
+    self->elems = (E_8002B4CC *)mem_alloc(self->count * 0x2C);
     step = lbl_805D8120 * scale;
     e = self->elems;
     zero = lbl_805D8108;

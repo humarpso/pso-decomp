@@ -16,7 +16,7 @@ struct Bits_80186A3C { s32 v[36]; };
 extern "C" {
 s32 get_current_floor();
 f32 xz_distance_squared(s32, s32);
-s32 get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 extern s32 local_client_id;
 s32 get_main_phase();
 extern s32 lbl_805D55C0;
@@ -163,7 +163,7 @@ s32 TObjCityMainWarp::find_local_player_in_range(f32 farg0) {
     s32 player;
     s32 current_floor;
     s32 temp_r3b;
-    player = get_player_by_client_id(local_client_id);
+    player = (s32)get_player_by_client_id(local_client_id);
     if (player != 0) {
         current_floor = get_current_floor();
         temp_r3b = ((TObjPlayer *)player)->get_field_3e4();

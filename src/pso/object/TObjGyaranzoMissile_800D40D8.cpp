@@ -78,7 +78,7 @@ void queue_destruction__7TObjectFv(void *arg0);
 u8 *get_battle_param__10TObjPlayerFi(s32);
 void *spawn_particle_effect(void *pos, s32 id);
 s32 remap_area_sound_id(s32 arg0, s32 arg1);
-u8 *find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 void check_enemy_body_collisions(void *arg0);
 s32 play_sound_effect(void *, void *, int, int);
 extern Hit_800D4200 lbl_8043C440[];
@@ -142,7 +142,7 @@ void TObjGyaranzoMissile__sub_800D4200(u8 *arg0) {
     u8 *self;
     s32 i;
     u8 *t;
-    self = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xD8));
+    self = (u8 *)find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xD8));
     (*(Info_800D4200 * *)&((TUnk_8049442C *)arg0)->m_a4)->xc = lbl_805DA2A8;
     TObjPlayer::init_all_slots();
     ((TObjPlayer *)arg0)->check_object_collisions();

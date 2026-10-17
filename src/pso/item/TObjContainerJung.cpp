@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjChip.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/system/vector.h"
@@ -62,9 +63,8 @@ s32 push_matrix();
 s32 post_translate_matrix(void *);
 s32 draw_ginja_object();
 extern const f32 lbl_805DBD9C;
-void spawn_particle_effect_with_flags(void *, int, int);
-void construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
-void play_container_break_sound(void *);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
+void play_container_break_sound(s32 arg0);
 void *__nw__7TObjectFUl(int);
 extern Spawn_8018D4DC container_jung_debris_desc;
 extern Spawn_8018D4DC container_jung_spawn_params;
@@ -143,17 +143,17 @@ void TObjContainerJung__vt77(const Obj_8018D4DC *self) {
         b.f38 = qy;
         b.f40 = (s32) get_bml_model((void *) TObjContainerJung__bml_model_resource, 2);
         b.f44 = TObjContainerJung__bml_aux_handle;
-        spawn_particle_effect_with_flags((void *)&self->pos, 0x45, 0x40);
-        spawn_particle_effect_with_flags((void *)&self->pos, 0x46, 0x40);
+        spawn_particle_effect_with_flags((void *)&self->pos, (s32)(0x45), (s32)(0x40));
+        spawn_particle_effect_with_flags((void *)&self->pos, (s32)(0x46), (s32)(0x40));
         o = __nw__7TObjectFUl(0x234);
         if (o != 0) {
-            construct_debris__8TObjChipFPvPvPv(o, tl_05, &a);
+            construct_debris__8TObjChipFPvPvPv((u8 *)o, (u8 *)tl_05, (u8 *)&a);
         }
         o = __nw__7TObjectFUl(0x234);
         if (o != 0) {
-            construct_debris__8TObjChipFPvPvPv(o, tl_05, &b);
+            construct_debris__8TObjChipFPvPvPv((u8 *)o, (u8 *)tl_05, (u8 *)&b);
         }
-        play_container_break_sound((void *)self);
+        play_container_break_sound((s32)self);
     }
 }
 #pragma pop

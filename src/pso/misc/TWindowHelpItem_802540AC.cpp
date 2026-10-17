@@ -226,19 +226,19 @@ extern s8 lbl_805D644B;
 s32 get_array_entry__13TUnk_804CE018Fi(void *, s32);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 check_equip_requirements(s32, s32, s32 *);
-s32 get_player_by_client_id(s16);
+void *get_player_by_client_id(s32 i);
 u32 get_quest_id__12TQuestListVMFv();
-u8 *lookup_item_pmt_record(s32);
+void *lookup_item_pmt_record(u8 *item);
 u8 * find_item_by_id(s32);
 s32 init_window_layout_entries(void *, void *, int);
 s32 set_help_text__15TWindowHelpItemFUl(void *, int);
 void TWindowHelpItem__vt9(HelpItem_80254F18 *self);
 void preview_unequip_stats__10TObjPlayerFv(s32, Stats_802541E0 *, s32);
-void preview_equip_stats__10TObjPlayerFv(s32, Stats_802541E0 *, u32);
+s32 preview_equip_stats__10TObjPlayerFv(u8 *arg0, s16 *out, u8 *incoming);
 void set_flag8_and_field20__15TWindowHelpItemFl(s32, s32);
 void set_flag4_and_field1c__15TWindowHelpItemFl(s32, s32);
 extern Vec3_802541E0 item_help_resistance_stat_callback;
-void set_sprite_uv_from_pixels(s32, f32, f32);
+void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1);
 extern const f32 TWindowHelpItem__data_805DCDE4;
 extern const f32 lbl_805DCE00;
 extern const f32 lbl_805DCE04;
@@ -473,7 +473,7 @@ void TWindowHelpItem::update_stat_disp() {
     s32 e;
     s32 player;
 
-    player = get_player_by_client_id(this->m_20);
+    player = (s32)get_player_by_client_id(this->m_20);
     if (player != 0) {
         a = get_array_entry__13TUnk_804CE018Fi(this, 0);
         b = get_array_entry__13TUnk_804CE018Fi(this, 1);
@@ -508,7 +508,7 @@ void TWindowHelpItem::update_resistance_rows(void *arg0) {
     s32 e;
     s32 pl;
     ((TWindowSubStatusDisp *)(&st))->clear_fields();
-    pl = get_player_by_client_id(self->player);
+    pl = (s32)get_player_by_client_id(self->player);
     if (pl != 0) {
         init_window_layout_entries(self->disp, TWindowHelpItem__resistance_layout_entries, self->player);
         self->pos = item_help_resistance_stat_callback;
@@ -531,7 +531,7 @@ void TWindowHelpItem::update_resistance_rows(void *arg0) {
             if (((TWindowHelpItem *)self)->is_item_already_equipped() != 0) {
                 preview_unequip_stats__10TObjPlayerFv(pl, &st, self->itemId);
             } else {
-                preview_equip_stats__10TObjPlayerFv(pl, &st, self->item);
+                preview_equip_stats__10TObjPlayerFv((u8 *)pl, (s16 *)&st, (u8 *)self->item);
             }
             set_flag8_and_field20__15TWindowHelpItemFl(a, st.atp);
             set_flag8_and_field20__15TWindowHelpItemFl(b, st.dfp);
@@ -610,7 +610,7 @@ void update_stat_disp2__15TWindowHelpItemFPv(void *arg0) {
     s32 temp_r27;
     s32 player;
     u32 temp_r4;
-    player = get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20));
+    player = (s32)get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20));
     if ((player != 0) && (temp_r31 = get_array_entry__13TUnk_804CE018Fi(arg0, 0), temp_r30 = get_array_entry__13TUnk_804CE018Fi(arg0, 1), temp_r29 = get_array_entry__13TUnk_804CE018Fi(arg0, 2), temp_r28 = get_array_entry__13TUnk_804CE018Fi(arg0, 3), temp_r27 = get_array_entry__13TUnk_804CE018Fi(arg0, 4), (temp_r4 = *(u32 *)((s8 *)arg0 + 0x70), (temp_r4 == 0U) == 0))) {
         if (check_equip_requirements((s32)(player), (s32)(temp_r4), (s32 *)(&sp8)) != 0) {
             TWindowHelpItem::set_flag_0x10((u16 *)temp_r31, (s32)1);
@@ -652,7 +652,7 @@ void TWindowHelpItem__vt1(void *arg0) {
     s32 d;
     s32 e;
 
-    player = get_player_by_client_id(self->player);
+    player = (s32)get_player_by_client_id(self->player);
     if (player != 0) {
         init_window_layout_entries(self->disp, lbl_804CF24C, self->player);
         self->pos = lbl_804CF838;
@@ -700,7 +700,7 @@ void update_stat_comparison__15TWindowHelpItemFv(Help_802549B0 *self) {
     Quest_802549B0 *q;
     s32 pl;
     ((TWindowSubStatusDisp *)((struct Stats_802541E0 *)&st))->clear_fields();
-    pl = get_player_by_client_id(self->client);
+    pl = (s32)get_player_by_client_id(self->client);
     if (pl == 0) {
         return;
     }
@@ -726,7 +726,7 @@ void update_stat_comparison__15TWindowHelpItemFv(Help_802549B0 *self) {
     if (((TWindowHelpItem *)self)->is_item_already_equipped() != 0) {
         preview_unequip_stats__10TObjPlayerFv((s32)(pl), (Stats_802541E0 *)((struct Stats_802541E0 *)&st), (s32)(self->slot));
     } else {
-        preview_equip_stats__10TObjPlayerFv((s32)(pl), (Stats_802541E0 *)((struct Stats_802541E0 *)&st), (u32)(self->item));
+        preview_equip_stats__10TObjPlayerFv((u8 *)(pl), (s16 *)((Stats_802541E0 *)((struct Stats_802541E0 *)&st)), (u8 *)(self->item));
     }
     set_flag8_and_field20__15TWindowHelpItemFl(e0, st.atp);
     set_flag8_and_field20__15TWindowHelpItemFl(e3, st.dfp);
@@ -761,7 +761,7 @@ void update_level_requirement__15TWindowHelpItemFPv(u8 *arg0) {
         if (get_quest_id__12TQuestListVMFv() != 0U) {
             update_stat_comparison__15TWindowHelpItemFv((Help_802549B0 *)((void *) (arg0)));
             temp_r30 = (u8 *)(((u8 *)get_array_entry__13TUnk_804CE018Fi(arg0, 0xA)));
-            item_pmt_record = (u8 *)(lookup_item_pmt_record(*(s32 *)((s8 *)arg0 + 0x68)));
+            item_pmt_record = (u8 *)(lookup_item_pmt_record((u8 *)(*(s32 *)((s8 *)arg0 + 0x68))));
             if (check_equip_requirements((s32)((s32)((int) (player))), (s32)((s32)((int) (*(s32 *)((s8 *)arg0 + 0x68)))), (s32 *)((s32 *)((void *) (&sp8)))) == 0) {
                 if (!(sp8 & 1)) {
                     goto block_4;
@@ -784,13 +784,13 @@ void update_requirements__15TWindowHelpItemFv(Help_80254CE4 *self) {
     u8 *entry;
     Pmt_80254CE4 *pmt;
     ((TWindowSubStatusDisp *)((struct Stats_802541E0 *)&st))->clear_fields();
-    pl = get_player_by_client_id(self->client);
+    pl = (s32)get_player_by_client_id(self->client);
     if (pl == 0) {
         return;
     }
     update_stat_comparison__15TWindowHelpItemFv((Help_802549B0 *)(self));
     entry = (u8 *)get_array_entry__13TUnk_804CE018Fi((void *)(self), (s32)(10));
-    pmt = (Pmt_80254CE4 *)lookup_item_pmt_record(self->item);
+    pmt = (Pmt_80254CE4 *)lookup_item_pmt_record((u8 *)self->item);
     if (check_equip_requirements((s32)(pl), (s32)(self->item), (s32 *)(&flags)) == 0 && (flags & 1)) {
         return;
     }
@@ -866,7 +866,7 @@ void TWindowHelpItem__vt3(HelpItem_8025500C *self) {
     s32 e;
     s32 f;
 
-    pl = get_player_by_client_id(self->player);
+    pl = (s32)get_player_by_client_id(self->player);
     if (pl != 0) {
         ((TWindowHelpItem *)self)->init_help_texts();
         self->pos = item_help_level_requirement_callback;
@@ -876,9 +876,9 @@ void TWindowHelpItem__vt3(HelpItem_8025500C *self) {
         d = get_array_entry__13TUnk_804CE018Fi(self, 9);
         e = get_array_entry__13TUnk_804CE018Fi(self, 10);
         f = get_array_entry__13TUnk_804CE018Fi(self, 11);
-        item = lookup_item_pmt_record(self->itemId);
+        item = (u8 *)lookup_item_pmt_record((u8 *)self->itemId);
         if (check_equip_requirements(pl, self->itemId, &flags) == 0 && (flags & 1)) {
-            set_sprite_uv_from_pixels(a, TWindowHelpItem__data_805DCDE4, lbl_805DCE00);
+            set_sprite_uv_from_pixels((u8 *)a, TWindowHelpItem__data_805DCDE4, lbl_805DCE00);
             ((TWindowHelpItem *)b)->set_flag0_bit2();
             ((TWindowHelpItem *)c)->set_flag0_bit2();
             ((TWindowHelpItem *)d)->set_flag0_bit2();
@@ -887,7 +887,7 @@ void TWindowHelpItem__vt3(HelpItem_8025500C *self) {
             return;
         }
         if (item[0x10] != 0) {
-            set_sprite_uv_from_pixels(a, TWindowHelpItem__data_805DCDE4, lbl_805DCE04);
+            set_sprite_uv_from_pixels((u8 *)a, TWindowHelpItem__data_805DCDE4, lbl_805DCE04);
             ((TWindowHelpItem *)b)->reset_float_field();
             ((TWindowHelpItem *)d)->reset_float_field();
             ((TWindowHelpItem *)f)->reset_float_field();
@@ -914,7 +914,7 @@ void TWindowHelpItem__vt0(HelpItem_802551C4 *self) {
     s32 e;
     s32 f;
 
-    pl = get_player_by_client_id(self->player);
+    pl = (s32)get_player_by_client_id(self->player);
     if (pl != 0) {
         ((TWindowHelpItem *)self)->init_help_texts();
         self->pos = TWindowHelpItem__requirements_update_callback;
@@ -924,9 +924,9 @@ void TWindowHelpItem__vt0(HelpItem_802551C4 *self) {
         d = get_array_entry__13TUnk_804CE018Fi(self, 9);
         e = get_array_entry__13TUnk_804CE018Fi(self, 10);
         f = get_array_entry__13TUnk_804CE018Fi(self, 11);
-        item = lookup_item_pmt_record(self->itemId);
+        item = (u8 *)lookup_item_pmt_record((u8 *)self->itemId);
         if (check_equip_requirements(pl, self->itemId, &flags) == 0 && (flags & 1)) {
-            set_sprite_uv_from_pixels(a, TWindowHelpItem__data_805DCDE4, lbl_805DCE00);
+            set_sprite_uv_from_pixels((u8 *)a, TWindowHelpItem__data_805DCDE4, lbl_805DCE00);
             ((TWindowHelpItem *)b)->set_flag0_bit2();
             ((TWindowHelpItem *)c)->set_flag0_bit2();
             ((TWindowHelpItem *)d)->set_flag0_bit2();
@@ -935,7 +935,7 @@ void TWindowHelpItem__vt0(HelpItem_802551C4 *self) {
             return;
         }
         if (*(u16 *)(item + 0xE) != 0) {
-            set_sprite_uv_from_pixels(a, TWindowHelpItem__data_805DCDE4, lbl_805DCE08);
+            set_sprite_uv_from_pixels((u8 *)a, TWindowHelpItem__data_805DCDE4, lbl_805DCE08);
             ((TWindowHelpItem *)b)->reset_float_field();
             ((TWindowHelpItem *)d)->reset_float_field();
             ((TWindowHelpItem *)f)->reset_float_field();
@@ -943,7 +943,7 @@ void TWindowHelpItem__vt0(HelpItem_802551C4 *self) {
             return;
         }
         if (*(u16 *)(item + 0x10) != 0) {
-            set_sprite_uv_from_pixels(a, TWindowHelpItem__data_805DCDE4, lbl_805DCDEC);
+            set_sprite_uv_from_pixels((u8 *)a, TWindowHelpItem__data_805DCDE4, lbl_805DCDEC);
             ((TWindowHelpItem *)b)->reset_float_field();
             ((TWindowHelpItem *)d)->reset_float_field();
             ((TWindowHelpItem *)f)->reset_float_field();
@@ -951,7 +951,7 @@ void TWindowHelpItem__vt0(HelpItem_802551C4 *self) {
             return;
         }
         if (*(u16 *)(item + 0x12) != 0) {
-            set_sprite_uv_from_pixels(a, TWindowHelpItem__data_805DCDE4, lbl_805DCE0C);
+            set_sprite_uv_from_pixels((u8 *)a, TWindowHelpItem__data_805DCDE4, lbl_805DCE0C);
             ((TWindowHelpItem *)b)->reset_float_field();
             ((TWindowHelpItem *)d)->reset_float_field();
             ((TWindowHelpItem *)f)->reset_float_field();

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6Type2_8032E708.h"
 #include "pso/boss/TBoss6Type2_803309D8.h"
 #include "pso/boss/TBoss6Type2.h"
 
@@ -16,7 +17,6 @@ struct VObj_803309D8 : Base_803309D8 {
 
 extern "C" {
 
-s32 TBoss6Mag__ct(s32, s32, s32);
 s32 TObjControl__ct(s32, s32);
 s32 __nw__7TObjectFUl(s32);
 
@@ -32,7 +32,7 @@ s32 TBoss6Type2::create_mag(s32 arg0) {
         if (var_r4 != 0) {
             var_r4 = TObjControl__ct(var_r4, tl_04);
         }
-        var_r31 = TBoss6Mag__ct(var_r31, var_r4, arg0);
+        var_r31 = (s32)TBoss6Mag__ct((u8 *)var_r31, var_r4, (u8 *)arg0);
     }
     return var_r31;
 }

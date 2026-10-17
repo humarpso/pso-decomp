@@ -4,7 +4,7 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-s32 find_item_by_id(s32);
+u8 *find_item_by_id(s32 id);
 s32 TWindowHelpItem::is_item_already_equipped() {
     s32 item;
     s32 field;
@@ -13,7 +13,7 @@ s32 TWindowHelpItem::is_item_already_equipped() {
     if (field == -1) {
         return 0;
     }
-    item = find_item_by_id(field);
+    item = (s32)find_item_by_id(field);
     if (item == 0) {
         return 0;
     }

@@ -104,7 +104,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_8049F148[];
 extern RecoveredGlobal_8010A5E0___vt__14TItemEffShield __vt__14TItemEffShield;
 extern s32 TItemEffShield__class_name;
-Player_8010A4C0 *get_player_by_client_id(u16);
+void *get_player_by_client_id(s32 i);
 void play_sound_effect(s32, void *, s32, s32);
 void run_task__14TItemEffShieldFv(Shield_8010A4C0 *self);
 void __dl__7TObjectFPv(void *);
@@ -158,7 +158,7 @@ void TItemEffShield::spawn_recipe_particles() {
 typedef char RecoveredGlobal_8010A5E0___vt__14TItemEffShield_size[sizeof(RecoveredGlobal_8010A5E0___vt__14TItemEffShield) == 0x18 ? 1 : -1];
 
 void run_task__14TItemEffShieldFv(Shield_8010A4C0 *self) {
-    Player_8010A4C0 *p = get_player_by_client_id(self->m_44);
+    Player_8010A4C0 *p = (Player_8010A4C0 *)get_player_by_client_id(self->m_44);
     Recipe_8010A4C0 *r;
     if (p != NULL) {
         p->get_joint_pos(self->m_40, self->m_1c);

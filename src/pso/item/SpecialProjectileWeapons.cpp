@@ -89,7 +89,7 @@ s32 __nw__7TObjectFUl(s32);
 void create_icon__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
 u8 *find_item_by_id(s32 id);
 int get_item_system_generation(void);
-s32 spawn_star_light_2d(StarLightPosition *, StarLightParameters *, StarLightFollowerView *);
+u8 *spawn_star_light_2d(s32 arg0, s32 arg1, s32 arg2);
 void __ct__7TObjectFP7TObject(void *, void *);
 const StarLightParameters weapon_star_light_parameters[] = {
     { { 0x40400000, 0x40E00000, 0xB4FF0019, 0, 0x41A00000 } }
@@ -165,7 +165,7 @@ StarLightFollowerView *TObjPlayer__sub_801241D4(StarLightFollowerView *self, voi
     p = find_item_by_id(self->f1c);
     if (p != NULL && ((TObjPlayer *)p)->draw_icon((s32)((s32)(self->f20)), (s32)((s32 *)(&v))) != 0) {
         StarLightParameters blk = weapon_star_light_parameters[0];
-        self->f24 = spawn_star_light_2d(&v, &blk, self);
+        self->f24 = (s32)spawn_star_light_2d((s32)&v, (s32)&blk, (s32)self);
     }
     return self;
 }

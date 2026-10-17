@@ -101,7 +101,7 @@ s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8001A8F0_lbl_8043455C lbl_8043455C;
 extern s32 lbl_80480938[];
 extern s8 player_light_index;
-void set_active_camera_pose_from_params(void *);
+void set_active_camera_pose_from_params(u8 *arg0);
 s32 activate_camera_mode(s32 arg0);
 extern Vec_8001A77C lbl_80434568;
 extern Vec_8001A77C lbl_80434574;
@@ -149,7 +149,7 @@ int TObjPlayer__sub_8001A77C(void *p) {
     VecCopy((Vec *)&sp20.v1c, (const Vec *)&sp14);
     VecCopy((Vec *)&sp20.v28, (const Vec *)&sp8);
     sp20.f14 = 0x1693;
-    set_active_camera_pose_from_params(&sp20);
+    set_active_camera_pose_from_params((u8 *)&sp20);
 }
 
 void TObjPlayer::update_flag890_state(s32 arg0) {

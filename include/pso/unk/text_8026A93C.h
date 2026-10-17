@@ -1,0 +1,11 @@
+#ifndef PSO_UNK_TEXT_8026A93C_H
+#define PSO_UNK_TEXT_8026A93C_H
+
+#include "types.h"
+
+extern "C" {
+u8 *create_message_log_window(s32 arg0, s32 arg1, s32 arg2);
+void post_chat_log_message(u16 arg0, s32 *shared_text_buffer);
+}
+
+#endif

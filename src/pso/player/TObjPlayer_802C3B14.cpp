@@ -34,9 +34,9 @@ s32 begin_action_state__10TObjPlayerFPv(u8 *arg0) {
 }
 
 s32 TObjPlayer__sub_802C4668(s32, s32);
-int get_char_index__23TAdSinglePlyChrSelectGCFUi(void*);
+s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
 
-void TObjPlayer::begin_action_from_char_select() { get_char_index__23TAdSinglePlyChrSelectGCFUi((void*)65535); ((int (*)(void))begin_action_state__10TObjPlayerFPv)(); }
+void TObjPlayer::begin_action_from_char_select() { get_char_index__23TAdSinglePlyChrSelectGCFUi((u32)((void*)65535)); ((int (*)(void))begin_action_state__10TObjPlayerFPv)(); }
 
 void TObjPlayer::copy_battle_mode(u8 *arg1) {
     u8 *arg0 = (u8 *)this;

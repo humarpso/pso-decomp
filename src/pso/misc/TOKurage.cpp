@@ -69,7 +69,7 @@ struct TOKurage_8016DB24 {
 extern "C" {
 void push_matrix(void);
 void post_translate_matrix(void *);
-void TObjEneSlimeOne__sub_803E4B54(s32, s32, s32, f32);
+void TObjEneSlimeOne__sub_803E4B54(void *child, void *arg1, void *arg2, f32 farg0);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
@@ -365,7 +365,7 @@ void TOKurage::render() {
             break;
         }
         set_chunk_material_color((f32 *)&this->m_104);
-        TObjEneSlimeOne__sub_803E4B54(*(s32 *)(arg0 + 0x34), *(s32 *)(arg0 + 0xBC), *(s32 *)(arg0 + 0xC8), *(f32 *)(arg0 + 0xB0));
+        TObjEneSlimeOne__sub_803E4B54((void *)(*(s32 *)(arg0 + 0x34)), (void *)(*(s32 *)(arg0 + 0xBC)), (void *)(*(s32 *)(arg0 + 0xC8)), *(f32 *)(arg0 + 0xB0));
         set_chunk_material_color((f32 *)chunk_material_color_half_alpha_f32);
         model_render_flags = lbl_805D5660;
         pop_matrix();

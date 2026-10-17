@@ -35,7 +35,7 @@ void TWindow__close(u8 *arg0);
 extern RecoveredGlobal_8033C024_lbl_804EF940 lbl_804EF940;
 u32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 align_menu_entry_positions(u32);
-s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, u32, s32, s32);
+int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
 s32 create_window_menu(s32 arg0, s32 arg1, s32 arg2);
 u32 check_room_seq_4__16TAdChrSelASlotGCFl(s32 *, s32);
 u32 create_message_window__6TLobbyFllUls(s32 *, s32 *, s32, s32);
@@ -85,13 +85,13 @@ void TWindowSubComCard::create_message_and_menu(u32 arg1, s32 sel, u32 arg3, u32
     if (arg3 == 0U) {
         msg = get_message_10__20TWindowSubStatusDispFl(0x5B);
     }
-    forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)this + 0x34), msg, 5, 0);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(*(u32 *)((s8 *)this + 0x34)), (int)msg, (int)(5), (int)(0));
     if (sel != -2) {
         msg = arg4;
         if (arg4 == 0U) {
             msg = get_message_10__20TWindowSubStatusDispFl(0x5C);
         }
-        forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)this + 0x34), msg, 5, 1);
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(*(u32 *)((s8 *)this + 0x34)), (int)msg, (int)(5), (int)(1));
     }
     ((TWindowSubComCardList *)(*(u32 *)((s8 *)this + 0x34)))->update_layout_height(lbl_805D6D98);
     align_menu_entry_positions(*(u32 *)((s8 *)this + 0x34));

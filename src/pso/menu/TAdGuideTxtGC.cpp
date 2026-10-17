@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdDrawLineCtrl.h"
 #include "pso/menu/TAdGuideTxtGC.h"
 #include "pso/misc/TWindowSubStatusDisp_80144B14.h"
 #include "pso/TObject.h"
@@ -37,7 +38,6 @@ typedef struct TAdGuideTxtGC_802B1878 {
 } TAdGuideTxtGC_802B1878;
 
 extern "C" {
-void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, int, f32);
 void __ct__7TObjectFP7TObject(void *);
 extern void *__vt__13TAdGuideTxtGC[6];
 extern s32 lbl_805D3EA0;
@@ -85,7 +85,7 @@ TAdGuideTxtGC_802B19E8 *__ct__13TAdGuideTxtGCFv(TAdGuideTxtGC_802B19E8 *o) {
         o->b[i] = &lbl_805DE290;
         o->c[i] = 0;
     }
-    create_draw_line_ctrl__13TAdMcSelectGCFiif(o, 9, lbl_805DE294);
+    create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)o, (s32)(9), (f32)lbl_805DE294);
     return o;
 }
 #pragma pop

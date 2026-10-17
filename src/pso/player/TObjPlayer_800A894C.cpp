@@ -112,10 +112,10 @@ extern const f32 lbl_805D9AFC;
 extern const f32 lbl_805D9B04;
 extern const f32 lbl_805D9B08;
 extern const f32 lbl_805D9B0C;
-s32 apply_actor_gravity(void *, s32, f32);
+void apply_actor_gravity(u8 *arg0, s32 *arg1, f32 farg0);
 s32 enemy_turn_toward_dest(void *, s32);
 void queue_destruction__7TObjectFv(void *arg0);
-u32 create_particle_emitter(void *, int);
+void *create_particle_emitter(void *pos, s32 id);
 s32 TObjPlayer__sub_800AB31C(void *, void *, s32, void *, s32);
 s32 render_anim_model_at_pos__15TObjEneGyaranzoFv();
 s32 copy_target_state__14TObjEnePanarmsFPv(void *, s32);
@@ -145,10 +145,10 @@ void *load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
 void TObjPlayer__sub_800A4294(void);
 Res_800AA82C *load_enemy_bml_resource_named(void *, void *);
-void draw_trail_with_colors(void *, s32, s32, int, int);
+void draw_trail_with_colors(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void *init_trail_buffer__11TBoss4Type3FPvifff(void *, int, f32, f32, f32);
 Node_800AA82C *collect_and_count__12TBoss3VoloptFUll(s32, int);
-s32 load_gvm_texture_file(void *);
+u8 *load_gvm_texture_file(s32 arg0);
 void spawn_npc_enemy__6TLobbyFslllff(int, int, int, void *, f32, f32);
 extern u8 lbl_8043ACA4[];
 extern u8 lbl_8043ACBC[];
@@ -340,7 +340,7 @@ extern const f32 lbl_805D9B28;
 extern const f32 lbl_805D9B2C;
 extern const f32 lbl_805D9B30;
 void TObjPlayer__sub_800AA334(u8 *arg0);
-f32 calc_boss4_scale__10TObjPlayerFi(void *);
+f32 calc_boss4_scale__10TObjPlayerFi(s32 arg0);
 u16 pick_random_nearby_player__10TObjPlayerFPvf(u8 *arg0, f32 radius);
 s32 find_target_in_range__15TObjEnemyCustomFf(void *, f32);
 extern const f32 lbl_805D9B14;
@@ -348,7 +348,7 @@ extern const f32 lbl_805D9B18;
 extern const f32 lbl_805D9B1C;
 s32 update_enemy_wander_move(void *, Vec_800A9E9C *, s32, f32);
 s32 sub_8004292C__15TObjEnemyCustomFv();
-s32 play_persistent_sound(s32, void *, void *, int, int);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 void TObjPlayer__sub_800A9E9C(void *arg0_);
 s32 update_shock_clock__13TUnk_804806E8Fv();
 s32 update_movement_status__13TUnk_804806E8Fv();
@@ -499,7 +499,7 @@ void TObjPlayer__sub_800A8C4C(u8 *arg0) {
         return;
     case 1:
         advance_animation_playback((void *) (arg0));
-        apply_actor_gravity((void *)((void *) (arg0)), (s32)((int) (0)), (f32) (lbl_805D9AE0));
+        apply_actor_gravity((u8 *)((void *) (arg0)), (s32 *)((int) (0)), (f32) (lbl_805D9AE0));
         ((TObjPlayer *)arg0)->check_object_collisions();
         check_enemy_body_collisions((arg0));
         if (*(s16 *)((s8 *)arg0 + 0x392) != 0) {
@@ -560,7 +560,7 @@ void TObjPlayer::update_timed_state() {
         this->m_37c = 1;
     case 1:
         if (!(*(s32 *)&this->actorFlags & 0x800000)) {
-            apply_actor_gravity(this, 0, lbl_805D9AE0);
+            apply_actor_gravity((u8 *)this, (s32 *)(0), lbl_805D9AE0);
         }
         if (*(s32 *)&this->actorFlags & 0x40000) {
             temp_r4 = *(s16 *)&this->unk_33C;
@@ -691,7 +691,7 @@ void TObjPlayer__sub_800A8FB4(void *arg0_) {
         if (r != 0) {
             ((s32 (*)(void *))render_anim_model_at_pos__15TObjEneGyaranzoFv)(arg0);
             ((VObj_18_fe09eb *)arg0)->m63(0x22, arg0 + 0x410);
-            *(u32 *)((s8 *)arg0 + 0x3A8) = create_particle_emitter(arg0 + 0x410, 0x119);
+            *(u32 *)((s8 *)arg0 + 0x3A8) = (u32)create_particle_emitter(arg0 + 0x410, 0x119);
             *(s16 *)((s8 *)arg0 + 0x33C) = TObjPlayer__sub_800AAF98(arg0, 1);
             *(s32 *)((s8 *)arg0 + 0x37C) = 3;
         }
@@ -817,7 +817,7 @@ void TObjPlayer__sub_800A93E4(void *arg0_) {
             if (e->target != NULL && e->target->m18(arg0, 1.0f) != 0) {
                 e->target->m20(arg0, 1.0f);
                 e->target->m23(arg0, 3.0f);
-                if (e->f368 != 0 && calc_boss4_scale__10TObjPlayerFi(arg0) <= 0.16666667f) {
+                if (e->f368 != 0 && calc_boss4_scale__10TObjPlayerFi((s32)arg0) <= 0.16666667f) {
                     Pair_800A93E4 p = lbl_8043AC9C[0];
                     e->target->m21(arg0, &p, 0, -1, -1);
                 }
@@ -856,7 +856,7 @@ void TObjPlayer__sub_800A93E4(void *arg0_) {
 void TObjPlayer__sub_800A9C38(void *arg0_) {
     switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case 0:
-        if (TObjEneDD::check_v2_mode() != 0 && calc_boss4_scale__10TObjPlayerFi(arg0) > lbl_805D9B0C) {
+        if (TObjEneDD::check_v2_mode() != 0 && calc_boss4_scale__10TObjPlayerFi((s32)arg0) > lbl_805D9B0C) {
             *(s32 *)((s8 *)arg0 + 0x37C) = -1;
         } else {
             *(s16 *)((s8 *)arg0 + 0xB8) = 3;
@@ -973,7 +973,7 @@ void TObjPlayer__sub_800A9E9C(void *arg0_) {
         } else {
             var_r0 = copy_target_state__14TObjEnePanarmsFPv(arg0, 0x4003B200);
         }
-        play_persistent_sound(var_r0, arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound((s32)var_r0, (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
         if (*(u8 **)((s8 *)arg0 + 0x2A8) != NULL) {
             if (*(s16 *)((s8 *)arg0 + 0x392) != 0) {
                 var_f31 = ((TObjEneDubchik *)arg0)->sub_800AAF78(2);
@@ -1021,7 +1021,7 @@ void TObjEneDubchik::sub_800AA10C() {
         }
         if (this->m_3a4 >= lbl_805D9B14) {
             this->m_3a4 = (f32) lbl_805D9AE0;
-            if ((*(f32 *)((s8 *)((u8 *)this) + 0x354) >= lbl_805D9AE0) && (calc_boss4_scale__10TObjPlayerFi((void *) (((u8 *)this))) < lbl_805D9B18)) {
+            if ((*(f32 *)((s8 *)((u8 *)this) + 0x354) >= lbl_805D9AE0) && (calc_boss4_scale__10TObjPlayerFi((s32)(((u8 *)this))) < lbl_805D9B18)) {
                 this->targetId = pick_random_nearby_player__10TObjPlayerFPvf((((u8 *)this)), (f32) (lbl_805D9B1C));
                 if (this->targetId != 0xFFFF) {
                     *(u32 *)((s8 *)((u8 *)this) + 0x2A8) = find_active_entity_by_id(this->targetId);
@@ -1221,9 +1221,9 @@ void TObjPlayer__sub_800AA82C(void) {
     }
     lbl_805D5094 = *(s32 *)((u8 *)lbl_805D5090->mdl + 0x1C);
     if (TObjEneDD::check_v2_mode() != 0) {
-        lbl_805D5098 = load_gvm_texture_file(lbl_8043ACBC);
+        lbl_805D5098 = (s32)load_gvm_texture_file((s32)lbl_8043ACBC);
     } else {
-        lbl_805D5098 = load_gvm_texture_file(lbl_8043ACD0);
+        lbl_805D5098 = (s32)load_gvm_texture_file((s32)lbl_8043ACD0);
     }
     n = collect_and_count__12TBoss3VoloptFUll(*(s32 *)((u8 *)lbl_805D5090->mdl + 0x18), 0x17);
     n->f30 = 0;
@@ -1241,27 +1241,27 @@ void TObjPlayer__sub_800AA82C(void) {
         p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9B34, lbl_805D9B38, lbl_805D9AF0);
     }
     lbl_80500AF0[0] = (s32)p;
-    draw_trail_with_colors((void *)lbl_80500AF0[0], get_bml_model(lbl_805D5090, 0), get_bml_motion(lbl_805D5090, 6), 0x1C, 0x24);
+    draw_trail_with_colors((u8 *)lbl_80500AF0[0], get_bml_model(lbl_805D5090, 0), get_bml_motion(lbl_805D5090, 6), 0x1C, 0x24);
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x18);
     if (p != NULL) {
         p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9B3C, lbl_805D9B20, lbl_805D9AF0);
     }
     lbl_80500AF8[0] = (s32)p;
-    draw_trail_with_colors((void *)lbl_80500AF8[0], get_bml_model(lbl_805D5090, 0), get_bml_motion(lbl_805D5090, 6), 0x2E, 0x32);
+    draw_trail_with_colors((u8 *)lbl_80500AF8[0], get_bml_model(lbl_805D5090, 0), get_bml_motion(lbl_805D5090, 6), 0x2E, 0x32);
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x18);
     if (p != NULL) {
         p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9B40, lbl_805D9B44, lbl_805D9AF0);
     }
     t = lbl_80500AF0;
     t[1] = (s32)p;
-    draw_trail_with_colors((void *)t[1], get_bml_model(lbl_805D5090, 0), get_bml_motion(lbl_805D5090, 7), 0x1C, 0x24);
+    draw_trail_with_colors((u8 *)t[1], get_bml_model(lbl_805D5090, 0), get_bml_motion(lbl_805D5090, 7), 0x1C, 0x24);
     p = alloc__23TAdSinglePlyChrSelectGCFv(0x18);
     if (p != NULL) {
         p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9B10, lbl_805D9B48, lbl_805D9AF0);
     }
     t = lbl_80500AF8;
     t[1] = (s32)p;
-    draw_trail_with_colors((void *)t[1], get_bml_model(lbl_805D5090, 0), get_bml_motion(lbl_805D5090, 7), 0x2E, 0x32);
+    draw_trail_with_colors((u8 *)t[1], get_bml_model(lbl_805D5090, 0), get_bml_motion(lbl_805D5090, 7), 0x2E, 0x32);
     for (i = 0; i < 2; i++) {
         ((s32 *)lbl_805009A0)[i] = register_boss__6TLobbyFl(i + 0x1B);
         lbl_805009A8[i] = dispatch_shared_handler_b__6TLobbyFl(i + 0x1B);

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdDrawLineCtrl.h"
 #include "pso/misc/TLobby_80132ED0.h"
 #include "pso/misc/TLobby_803FAEA0.h"
 #include "pso/ui/TAdDialingGC_80328210.h"
@@ -35,7 +36,6 @@ void init_dialog__12TAdDialingGCFv(void *);
 void draw_dialing_status__12TAdDialingGCFv(void *);
 void spawn_title_screen__12TAdDialingGCFl(void *arg0, s32);
 s32 update_status_message__12TAdDialingGCFv();
-s32 create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 s32 __ct__10TAdTitleGCFP7TObjectl(u32, void *, s32);
 u32 __nw__7TObjectFUl(s32);
 s8 func_801A5E54__Fv();
@@ -166,7 +166,7 @@ void TAdDialingGC::spawn_title_screen(s32) {
         if (((s32) *(s32 *)&this->m_1c == 0) && ((temp_nw = __nw__7TObjectFUl(0x138)) != 0U)) {
             __ct__10TAdTitleGCFP7TObjectl(temp_nw, this, 5);
         }
-        create_draw_line_ctrl__13TAdMcSelectGCFiif(this, 0x11, lbl_805DF6E0);
+        create_draw_line_ctrl__13TAdMcSelectGCFiif((s32)this, (s32)(0x11), (f32)lbl_805DF6E0);
         *(s32 *)&this->m_a4 = (s32) (*(s32 *)&this->m_a4 | 1);
     }
 }

@@ -23,7 +23,7 @@ struct ObjB_8020BD50 { u8 pad0[2]; s16 flags; u8 pad4[4]; u16 id; u8 pada[0x44 -
 extern "C" {
 void obj_setFlags30(u32, int);
 s32 get_current_floor();
-u32 find_entity_by_id(int);
+void *find_entity_by_id(u16 id);
 Rec_8020BCE4 *resolve_matching_object__6TLobbyFv();
 s32 get_object_type__6TLobbyFi();
 void TLobby__sub_8020BCE4(void);
@@ -70,7 +70,7 @@ void TLobby__sub_8020BCE4(void) {
     get_current_floor();
     n = get_object_type__6TLobbyFi();
     for (i = 0; i < n; i++, p++) {
-        u32 r = find_entity_by_id(p->fA);
+        u32 r = (u32)find_entity_by_id(p->fA);
         if (r != 0) {
             obj_setFlags30(r, 0x800);
         }

@@ -233,7 +233,7 @@ s32 create_window_menu(s32 arg0, s32 arg1, s32 arg2);
 s32 align_menu_entry_positions(u32);
 void __dl__7TObjectFPv(void *);
 void *__dt__15TShopWindowBaseFv(void *self, s16 m);
-s32 forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, s32, s32);
+int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
 
 void TShopArmorListWindow::vfunc_7() {
     struct VObj_8021A394 *o = (struct VObj_8021A394 *)*(void **)((s8 *)this + 0x28);
@@ -373,8 +373,8 @@ s32 TShopArmorListWindow::open_menu_window() {
     if ((u32) *(u32 *)((s8 *)this + 0x30) == 0U) {
         temp_r31 = obj_getField1c(*(s32 *)((s8 *)this + 0x24));
         *(u32 *)((s8 *)this + 0x30) = create_window_menu(get_window_layout_position(0x2B), 2, temp_r31);
-        forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)this + 0x30), get_shop_text(4), 6, 0);
-        forward_trade_action_default__16TObjCityMainWarpFPviii(*(u32 *)((s8 *)this + 0x30), get_shop_text(5), 6, 1);
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(*(u32 *)((s8 *)this + 0x30)), (int)(get_shop_text(4)), (int)(6), (int)(0));
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)(*(u32 *)((s8 *)this + 0x30)), (int)(get_shop_text(5)), (int)(6), (int)(1));
         ((TWindowSubComCard *)(*(u32 *)((s8 *)this + 0x30)))->calc_window_size();
         align_menu_entry_positions(*(u32 *)((s8 *)this + 0x30));
         ((TCheckRoomSequence *)(*(u32 *)((s8 *)this + 0x30)))->set_ready_flag();

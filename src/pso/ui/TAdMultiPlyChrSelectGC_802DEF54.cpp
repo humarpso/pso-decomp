@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802D50A0.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802E0FC8.h"
+#include "pso/unk/text_802C6DD4.h"
 #include "pso/misc/TLobby_80132ED0.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/object/TObject_80019A50.h"
@@ -33,11 +36,8 @@ u32 __ct__13TAdTitleTexGCFv(void *, void *);
 u32 __ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
 s32 set_entry_value__22TAdMultiPlyChrSelectGCFlUl(u32, int, void *);
 u32 __ct__13TAdGuideTxtGCFv(void *, void *);
-s32 fn_802C6F20(s32, void *);
-s32 fn_802D50B8(u32, void *, void *, void *);
-s32 get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(void *, int, int, int);
 u32 __ct__14TAdGameStartGCFv(void *, s32);
-s32 get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(void *, int);
+u8 *get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1);
 s32 create__16TAdChrSelBSlotGCFPv(void *);
 extern V2_802DF9B4 multi_chr_select_widget_layout[];
 extern u8 lbl_80472808[];
@@ -427,15 +427,15 @@ void TAdMultiPlyChrSelectGC::create_widgets() {
         if (p != 0) {
             __ct__10TAdTitleGCFP7TObjectl((void *) p, ((u8 *)this), 0);
         }
-        *(s32 *)&this->unk_68 = get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(((u8 *)this), 1);
-        *(s32 *)&this->unk_60 = get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(((u8 *)this), 1, -1, 0);
+        *(s32 *)&this->unk_68 = (s32)get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii((s32)((u8 *)this), (s32)(1));
+        *(s32 *)&this->unk_60 = get_or_create_player__22TAdMultiPlyChrSelectGCFiiii((s32)((u8 *)this), (s32)(1), (s32)(-1), (s32)(0));
         break;
     case 1: {
         p = __nw__7TObjectFUl(0x138);
         if (p != 0) {
             __ct__10TAdTitleGCFP7TObjectl((void *) p, ((u8 *)this), 8);
         }
-        *(s32 *)&this->unk_68 = get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(((u8 *)this), 2);
+        *(s32 *)&this->unk_68 = (s32)get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii((s32)((u8 *)this), (s32)(2));
         this->m_6c = create__16TAdChrSelBSlotGCFPv(((u8 *)this));
         I2_802DF9B4 pos = lbl_80472828[0];
         p = __nw__7TObjectFUl(0x708);
@@ -443,7 +443,7 @@ void TAdMultiPlyChrSelectGC::create_widgets() {
             p = __ct__14TAdSelectCurGCFv((void *) p, ((u8 *)this), &pos, lbl_80472808);
         }
         *(u32 *)&this->unk_70 = p;
-        *(s32 *)&this->unk_60 = get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(((u8 *)this), 2, -1, 0);
+        *(s32 *)&this->unk_60 = get_or_create_player__22TAdMultiPlyChrSelectGCFiiii((s32)((u8 *)this), (s32)(2), (s32)(-1), (s32)(0));
         break;
     }
     }
@@ -459,7 +459,7 @@ void TAdMultiPlyChrSelectGC::create_widgets() {
         p = __ct__13TAdTitleTexGCFv((void *) p, ((u8 *)this));
     }
     Blk_802DF9B4 blk = multi_chr_select_layout_table[0];
-    fn_802D50B8(p, &blk.a, &blk.b, &blk.c);
+    fn_802D50B8((void *)p, (void *)&blk.a, (void *)&blk.b, (void *)&blk.c);
     p = __nw__7TObjectFUl(0xD4);
     if (p != 0) {
         p = __ct__14TAdGameStartGCFv((void *) p, tl_clipout);
@@ -468,7 +468,7 @@ void TAdMultiPlyChrSelectGC::create_widgets() {
     V2_802DF9B4 v = lbl_80472848[0];
     v.x = multi_chr_select_widget_layout[0].x;
     v.y = multi_chr_select_widget_layout[0].y;
-    this->m_5c = fn_802C6F20(tl_02, &v);
+    this->m_5c = (s32)fn_802C6F20(tl_02, (s32)&v);
     TAdMultiPlyChrSelectGC::get_move_effect(tl_clipout);
 }
 

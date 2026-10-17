@@ -11,7 +11,7 @@
 
 extern "C" {
 
-s32 create_particle_emitter(void *, s32);
+void *create_particle_emitter(void *pos, s32 id);
 s32 construct_collider_proxy__13TUnk_804AF8A0Fv(s32, s32);
 s32 find_entity_by_id(s32, f32);
 void __dl__7TObjectFPv(void *);
@@ -168,7 +168,7 @@ u8 *TPhotonConcentrate__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     *(s32 *)&((TPhotonConcentrate *)arg0)->m_f0 = (s32) *(s32 *)((s8 *)arg1 + 0x30);
     *(s32 *)&((TPhotonConcentrate *)arg0)->m_ec = (s32) *(s32 *)((s8 *)arg1 + 0x34);
     *(s32 *)&((TPhotonConcentrate *)arg0)->m_fc = find_entity_by_id(arg3, temp_f1);
-    *(s32 *)&((TPhotonConcentrate *)arg0)->m_f8 = create_particle_emitter(arg0 + 0xB8, 0x135);
+    *(s32 *)&((TPhotonConcentrate *)arg0)->m_f8 = (s32)create_particle_emitter(arg0 + 0xB8, 0x135);
     return arg0;
 }
 

@@ -168,13 +168,13 @@ s32 obj_is_hit_receivable(void *);
 extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_list;
 Vec_802A3DE8 *get_shoot_data__12TNeedleShootFv(void *);
 void vector_length(void *);
-Pl_802A3DE8 *get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 s32 obj_getField1c(void *);
-TechniqueContactBody *find_actor_body_contact(void *, void *, f32);
+void *find_actor_body_contact(u8 *arg0, u8 *arg1, f32 limit);
 extern const f32 lbl_805DDF60;
 extern const f32 lbl_805DDF64;
 TechniqueContactList *TObjPlayer__sub_802A3DE8(Obj_802A3DE8 *self, void *src);
-Pl_802A41CC *find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 TechniqueContactList *TObjPlayer__sub_802A3FDC(Obj_802A3FDC *self, void *src);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
@@ -257,11 +257,11 @@ TechniqueContactList *TObjPlayer__sub_802A3DE8(Obj_802A3DE8 *self, void *src) {
     VecCopy((Vec *)(self->body + 0x38), (const Vec *)&a);
     ((TObjPlayer *)(self->body + 0x5C))->copy_xyz(&self->fA0);
     for (i = 0; i < TLobby::get_lobby_flag(); i++) {
-        p = get_player_data__10TObjPlayerFi(i);
+        p = (Pl_802A3DE8 *)get_player_data__10TObjPlayerFi(i);
         if (p == 0) continue;
         if ((p->flags & 0x20000000) || (p->flags & 0x10000000)) {
             if ((u16)obj_getField1c(p) == (u16)obj_getField1c(src)) continue;
-            r = find_actor_body_contact(self->body, p, lbl_805DDF64);
+            r = (TechniqueContactBody *)find_actor_body_contact((u8 *)self->body, (u8 *)p, (f32)lbl_805DDF64);
             if (r == 0) continue;
             L_802A3DE8.bodies[L_802A3DE8.count] = r;
             L_802A3DE8.actors[L_802A3DE8.count] = (TechniqueContactActor *)p;
@@ -270,7 +270,7 @@ TechniqueContactList *TObjPlayer__sub_802A3DE8(Obj_802A3DE8 *self, void *src) {
                 break;
             }
         } else if ((p->flags & 0x40000000) && !(p->flags & 0x80000000)) {
-            if (find_actor_body_contact(self->body, p, lbl_805DDF64) != 0) return 0;
+            if (find_actor_body_contact((u8 *)self->body, (u8 *)p, (f32)lbl_805DDF64) != 0) return 0;
         }
     }
     return &L_802A3DE8;
@@ -306,7 +306,7 @@ TechniqueContactList *TObjPlayer__sub_802A3FDC(Obj_802A3FDC *self, void *src) {
         if (p == 0) continue;
         if (p->flags & 0x20000000) {
             if ((u16)obj_getField1c(p) != (u16)obj_getField1c(src)) {
-                r = find_actor_body_contact(self->body, p, lbl_805DDF64);
+                r = (TechniqueContactBody *)find_actor_body_contact((u8 *)self->body, (u8 *)p, (f32)lbl_805DDF64);
                 if (r != 0) {
                     L_802A3FDC.bodies[L_802A3FDC.count] = r;
                     L_802A3FDC.actors[L_802A3FDC.count] = (TechniqueContactActor *)p;
@@ -317,7 +317,7 @@ TechniqueContactList *TObjPlayer__sub_802A3FDC(Obj_802A3FDC *self, void *src) {
                 }
             }
         } else if ((p->flags & 0x40000000) && !(p->flags & 0x80000000)) {
-            if (find_actor_body_contact(self->body, p, lbl_805DDF64) != 0) return 0;
+            if (find_actor_body_contact((u8 *)self->body, (u8 *)p, (f32)lbl_805DDF64) != 0) return 0;
         }
     }
     return &L_802A3FDC;
@@ -350,7 +350,7 @@ TechniqueContactList *TObjPlayer::collect_technique_contacts(void *src) {
             p = (Pl_802A41CC *)get_player_data__10TObjPlayerFi(i);
             if (p == 0) continue;
             if ((u16)obj_getField1c(p) == (u16)obj_getField1c(src)) continue;
-            r = find_actor_body_contact(((Obj_802A41CC *)this)->body, p, lbl_805DDF64);
+            r = (TechniqueContactBody *)find_actor_body_contact((u8 *)(((Obj_802A41CC *)this)->body), (u8 *)p, (f32)lbl_805DDF64);
             if (r == 0) continue;
             if ((p->flags & 0x20000000) || (p->flags & 0x10000000)) {
                 L_802A41CC.bodies[L_802A41CC.count] = r;
@@ -364,10 +364,10 @@ TechniqueContactList *TObjPlayer::collect_technique_contacts(void *src) {
     } else {
         s32 j;
         for (j = 0; j < 4; j++) {
-            p = find_entity_by_id(j);
+            p = (Pl_802A41CC *)find_entity_by_id(j);
             if (p == 0) continue;
             if ((u16)obj_getField1c(p) == (u16)obj_getField1c(src)) continue;
-            r = find_actor_body_contact(((Obj_802A41CC *)this)->body, p, lbl_805DDF64);
+            r = (TechniqueContactBody *)find_actor_body_contact((u8 *)(((Obj_802A41CC *)this)->body), (u8 *)p, (f32)lbl_805DDF64);
             if (r == 0) continue;
             if (p->flags & 0x10000000) {
                 L_802A41CC.bodies[L_802A41CC.count] = r;

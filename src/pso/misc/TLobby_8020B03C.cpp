@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_800F8A0C.h"
 #include "pso/misc/TLobby_8020B03C.h"
 #include "pso/system/TGStream.h"
 #include "pso/unk/text_800F8A18.h"
@@ -33,7 +34,6 @@ s32 TLobby::init_handle(s32 arg0) {
     return 0;
 }
 
-s32 get_player_name_copy_buffer();
 s32 strncmp(s32, s32 *, s32);
 extern s32 map_set_object_id_counter;
 extern s32 TLobby__next_enemy_set_actor_id;
@@ -48,7 +48,7 @@ void clear_map_set_data(void) {
     map_object_id_counter = 0;
     map_set_enemy_id_counter = 0;
     TLobby__map_set_file_buffer_size = 0;
-    s32 temp_r3 = get_player_name_copy_buffer();
+    s32 temp_r3 = (s32)get_player_name_copy_buffer();
     if (strncmp(temp_r3, &lbl_805DC620, 0x10) == 0) {
         copy_name((s32)&lbl_805DC624);
     }

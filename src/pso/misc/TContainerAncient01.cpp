@@ -78,7 +78,7 @@ extern const f32 lbl_805DBD5C;
 u8 *TContainerAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern const f32 TContainerAncient01__data_805DBD10;
 extern const f32 TContainerAncient01__data_805DBD14;
-f32 xyz_distance_squared(void *, void *);
+f32 xyz_distance_squared(u8 *arg0, u8 *arg1);
 void matrix_mult_vec(int, void *, void *);
 void project_world_to_screen(int, void *, void *, void *);
 extern Vec_8018BEE4 lbl_804FF610;
@@ -297,7 +297,7 @@ u8 is_current_floor_switch_set(u16);
 f32 xyz_distance(void *, void *);
 s32 push_matrix_from(void *);
 void rotate_vector_by_matrix(int, void *, void *);
-void play_persistent_sound(s32, void *, void *, s32, s32);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 void play_sound_effect(s32, void *, s32, s32);
 s32 rand();
 void *spawn_particle_effect(void *pos, s32 id);
@@ -356,7 +356,7 @@ void run_task__16TObjContainerIdoFv(Ido_8018C18C *self) {
             self->pos.y -= v.y;
             self->pos.z -= v.z;
             self->e0 |= 0x04000000;
-            play_persistent_sound(0x4B717, self, &self->pos, 0, 0);
+            play_persistent_sound((s32)(0x4B717), (s32)self, (u32)&self->pos, (s32)(0), (s32)(0));
         } else if (!(self->e0 & 0x01000000)) {
             play_sound_effect(0x4C118, &self->pos, 0, 0);
             self->e0 |= 0x01000000;
@@ -374,7 +374,7 @@ void run_task__16TObjContainerIdoFv(Ido_8018C18C *self) {
             self->pos.y += w.y;
             self->pos.z += w.z;
             self->e0 |= 0x04000000;
-            play_persistent_sound(0x4B717, self, &self->pos, 0, 0);
+            play_persistent_sound((s32)(0x4B717), (s32)self, (u32)&self->pos, (s32)(0), (s32)(0));
         } else if (!(self->e0 & 0x01000000)) {
             play_sound_effect(0x4C118, &self->pos, 0, 0);
             self->e0 |= 0x01000000;
@@ -605,9 +605,9 @@ struct Obj_8018C9F0 {
     s32 f370;
 };
 
-void spawn_particle_effect_with_flags(void *, int, int);
-void construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
-void play_container_break_sound(void *);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
+u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
+void play_container_break_sound(s32 arg0);
 extern Spawn_8018C9F0 lbl_80445398;
 extern Spawn_8018C9F0 lbl_804453E4;
 
@@ -641,17 +641,17 @@ void TObjContainerJungEnemy__vt77(const Obj_8018C9F0 *self) {
         b.f38 = yb;
         b.f40 = self->f370;
         b.f44 = self->f24;
-        spawn_particle_effect_with_flags((void *)&self->pos, 0x45, 0x40);
-        spawn_particle_effect_with_flags((void *)&self->pos, 0x46, 0x40);
+        spawn_particle_effect_with_flags((void *)&self->pos, (s32)(0x45), (s32)(0x40));
+        spawn_particle_effect_with_flags((void *)&self->pos, (s32)(0x46), (s32)(0x40));
         void *o = __nw__7TObjectFUl(0x234);
         if (o != 0) {
-            construct_debris__8TObjChipFPvPvPv(o, tl_05, &a);
+            construct_debris__8TObjChipFPvPvPv((u8 *)o, (u8 *)tl_05, (u8 *)&a);
         }
         o = __nw__7TObjectFUl(0x234);
         if (o != 0) {
-            construct_debris__8TObjChipFPvPvPv(o, tl_05, &b);
+            construct_debris__8TObjChipFPvPvPv((u8 *)o, (u8 *)tl_05, (u8 *)&b);
         }
-        play_container_break_sound((void *)self);
+        play_container_break_sound((s32)self);
     }
 }
 #pragma pop

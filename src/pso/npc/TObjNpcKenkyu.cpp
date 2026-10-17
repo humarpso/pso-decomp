@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcSoutokufu.h"
 #include "pso/unk/text_8014B8A4.h"
 #include "pso/npc/TUnk_804A9F50.h"
 #include "pso/npc/TObjNpcKenkyu.h"
@@ -110,7 +111,6 @@ extern s32 __vt__13TObjNpcKenkyu[];
 extern s32 TObjNpcKenkyu__name;
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
-void *TObjNpcSoutokufu__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -167,7 +167,7 @@ void * TObjNpcSoutokufu__create(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x3B8);
     if (o2 != NULL) {
-        o2 = TObjNpcSoutokufu__ct(o2, o, arg0);
+        o2 = TObjNpcSoutokufu__ct((u8 *)o2, (s32)o, (s32)arg0);
     }
     return o2;
 }

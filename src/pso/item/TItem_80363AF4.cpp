@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80363BE0.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/player/TUnk_804F29F8.h"
 #include "pso/item/EquippedItemDrawQueue.h"
@@ -43,9 +44,8 @@ extern u32 model_render_flags, chunk_polygon_flags_and_mask, chunk_polygon_flags
 extern u32 lbl_805D5660, lbl_805D5664, lbl_805D5668;
 extern Color saved_model_draw_color, model_material_color;
 extern EquippedItemDrawQueue *player_item_id_list;
-int push_to_list__10TObjPlayerFPvi(void*, void*);
 
-void TItem::push_to_player_list(void* a0) { push_to_list__10TObjPlayerFPvi((void*)(player_item_id_list), a0); }
+void TItem::push_to_player_list(void* a0) { push_to_list__10TObjPlayerFPvi((u8 *)(player_item_id_list), (s32)a0); }
 void TUnk_804F29F8::render() {
     TObjPlayer::reset_transform_state();
     lbl_805D5660 = model_render_flags;

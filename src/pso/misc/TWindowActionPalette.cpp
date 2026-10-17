@@ -47,7 +47,7 @@ struct Ent_80243968 { u8 pad[0x2c]; s32 color; };
 
 extern "C" {
 void* get_array_entry__13TUnk_804CE018Fi(TWindowActionPalette*,int);
-void set_sprite_uv_from_pixels(void*,float,float);
+void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1);
 extern float TWindowActionPalette__bank_panel_uv_origins[][2];
 s32 is_split_screen();
 s32 fn_8002AE08(s32);
@@ -121,7 +121,7 @@ void __destroy_arr(void *, void *, int, int);
 
 void TWindowActionPalette::set_bank_panel_art(unsigned short state) {
     void* sprite=get_array_entry__13TUnk_804CE018Fi(this,1);
-    set_sprite_uv_from_pixels(sprite,TWindowActionPalette__bank_panel_uv_origins[state][0],TWindowActionPalette__bank_panel_uv_origins[state][1]);
+    set_sprite_uv_from_pixels((u8 *)sprite, TWindowActionPalette__bank_panel_uv_origins[state][0], TWindowActionPalette__bank_panel_uv_origins[state][1]);
 }
 
 extern "C" {

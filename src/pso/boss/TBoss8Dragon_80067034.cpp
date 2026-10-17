@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_8028A8F8.h"
 #include "pso/boss/TBoss8Dragon_80067034.h"
 #include "pso/boss/TBoss8Dragon.h"
 
 extern "C" {
 void TBoss8Dragon__sub_8028B0DC(void *, s32, s32);
 extern u8 *boss5_ctrl_instance;
-s32 TBoss8Dragon__sub_8028A900(int, void *, void *);
 #pragma fp_contract on
 s32 TBoss8Dragon::is_within_xz_distance(u8 *arg1, f32 farg0) {
     u8 *arg0 = (u8 *)this;
@@ -29,7 +29,7 @@ void TBoss8Dragon__sub_80067074(s32 arg0, s32 arg1) {
     if ((void *) boss5_ctrl_instance != NULL) {
         temp_r3 = *(u32 *)((s8 *)boss5_ctrl_instance + 0x1C);
         if (temp_r3 != 0U) {
-            TBoss8Dragon__sub_8028A900((int) (temp_r3), (void *) (arg0), (void *) (arg1));
+            TBoss8Dragon__sub_8028A900((void *)(temp_r3), (arg0), (arg1));
         }
         temp_r3_2 = *(u32 *)((s8 *)boss5_ctrl_instance + 0x20);
         if (temp_r3_2 != 0U) {

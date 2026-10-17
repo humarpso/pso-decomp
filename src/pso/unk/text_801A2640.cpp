@@ -35,15 +35,15 @@ extern u8 lbl_804B9870[];
 extern const f32 lbl_805DC098;
 extern const f32 lbl_805DC0A0;
 Obj_801A2640 *construct_world_actor_base(Obj_801A2640 *self, void *parent);
-void *TODoorFourLightRuins__ct(void *, void *, void *);
+u8 *TODoorFourLightRuins__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *TODoorFourLightSeabedU__ct(void *, void *, void *);
 void *TODoorFourLightSeabed__ct(void *, void *, void *);
-void *TODoorFourLightSpace__ct(void *, void *, void *);
+u8 *TODoorFourLightSpace__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *TODoorLaboNormal__ct(void *, void *, void *);
 void *TODoorLabo__ct(void *, void *, void *);
-void *TObjAreaWarpEnding__ct(void *, void *, void *);
-void *TObjAreaWarpForest__ct(void *, void *, void *);
-void *TObjAreaWarpQuest__ct(void *, void *, void *);
+u8 *TObjAreaWarpEnding__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TObjAreaWarpForest__ct(u8 *arg0, s32 arg1, s32 arg2);
+u8 *TObjAreaWarpQuest__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *TObjMapForceWarp__ct(void *, void *, void *);
 void *TObjMapWarpForest__ct(void *, void *, void *);
 void *TObjWarpLobby__ct(void *, void *, void *);
@@ -116,7 +116,7 @@ void *TODoorLaboNormal__create(void *arg0) {
 void *TODoorFourLightRuins__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF8);
     if (o != NULL) {
-        o = TODoorFourLightRuins__ct(o, tl_05, arg0);
+        o = TODoorFourLightRuins__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -124,7 +124,7 @@ void *TODoorFourLightRuins__create(void *arg0) {
 void *TODoorFourLightSpace__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF8);
     if (o != NULL) {
-        o = TODoorFourLightSpace__ct(o, tl_05, arg0);
+        o = TODoorFourLightSpace__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -148,7 +148,7 @@ void *TObjWarpLobby__create(void *arg0) {
 void *TObjAreaWarpEnding__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xDC);
     if (o != NULL) {
-        o = TObjAreaWarpEnding__ct(o, tl_05, arg0);
+        o = TObjAreaWarpEnding__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -156,7 +156,7 @@ void *TObjAreaWarpEnding__create(void *arg0) {
 void *TObjAreaWarpQuest__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE0);
     if (o != NULL) {
-        o = TObjAreaWarpQuest__ct(o, tl_05, arg0);
+        o = TObjAreaWarpQuest__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -164,7 +164,7 @@ void *TObjAreaWarpQuest__create(void *arg0) {
 void *TObjAreaWarpForest__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xDC);
     if (o != NULL) {
-        o = TObjAreaWarpForest__ct(o, tl_05, arg0);
+        o = TObjAreaWarpForest__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

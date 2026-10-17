@@ -13,7 +13,7 @@
 
 extern "C" {
 void disallow_rendering__7TObjectFv(void *arg0);
-s32 create_particle_emitter(void *, void *);
+void *create_particle_emitter(void *pos, s32 id);
 int get_item_system_generation(void);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 item_follow_effect_vtable[];
@@ -31,7 +31,7 @@ s32 is_item_area_enabled(s32);
 extern s32 tl_05;
 void run_task__13TUnk_804A2660Fv(void *arg0);
 void *destroy_item_follow_effect(void *arg0, s16 arg1);
-s32 find_item_by_id(s32);
+u8 *find_item_by_id(s32 id);
 s8 TObjPlayer__sub_80102C30();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -52,7 +52,7 @@ void TUnk_804A2660::run_task() {
     }
     var_r31 = 0;
     if ((u32) *(u32 *)&this->unk_24 != 0U) {
-        var_r30 = find_item_by_id(*(s32 *)&this->unk_1C);
+        var_r30 = (s32)find_item_by_id(*(s32 *)&this->unk_1C);
         if ((var_r30 != 0) && (TObjPlayer__sub_80102C30() == 2)) {
             var_r31 = 1;
             if (((TObjPlayer *)var_r30)->draw_icon((s32)(this->m_20), (s32)sp8) != 0) {
@@ -91,7 +91,7 @@ u8 *construct_item_follow_effect(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg
     *(s32 *)((s8 *)arg0 + 0x1C) = ((TItem *)arg2)->get_field_d8();
     ((TUnk_804A2660 *)arg0)->m_20 = arg3;
     ((TObjPlayer *)arg2)->draw_icon((s32)((s32)((int) (((TUnk_804A2660 *)arg0)->m_20))), (s32)((s32 *)((void *) (&position))));
-    *(s32 *)((s8 *)arg0 + 0x24) = create_particle_emitter((void *) (&position), (void *) (arg4));
+    *(s32 *)((s8 *)arg0 + 0x24) = (s32)create_particle_emitter((&position), (arg4));
     *(s32 *)&((TUnk_804A2660 *)arg0)->m_28 = ((s32)get_item_system_generation());
     return arg0;
 }

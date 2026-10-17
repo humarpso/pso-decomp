@@ -138,7 +138,7 @@ struct QLC_80288FDC {
 
 s32 get_guild_text(s32);
 void calc_list_content_extent(u32);
-s32 create_item_list_window(s32, s32, s32);
+u8 *create_item_list_window(s32 arg0, s32 arg1, s32 arg2);
 void create_quest_list_window__19TQuestListChallengeFv(QLC_80288FDC *arg0);
 void * TObjNpcKenkyu__create(void *arg0);
 void sub_80288BE4__19TQuestListChallengeFv(void);
@@ -327,7 +327,7 @@ void create_quest_list_window__19TQuestListChallengeFv(QLC_80288FDC *arg0) {
 
     if (arg0->obj->v8() != 0 && arg0->list == 0) {
         id = obj_getField1c(arg0->f24);
-        arg0->list = create_item_list_window(get_guild_text(0), 0x40, id);
+        arg0->list = (u32)create_item_list_window(get_guild_text(0), 0x40, id);
         for (i = 0; i < arg0->count; i++) {
             e = ((s32 (*)(s32, s32))get_quest_list_text)(arg0->f50, arg0->entries[i].id);
             ((TLobby *)(arg0->list))->add_list_entry(0x2C, e, i);

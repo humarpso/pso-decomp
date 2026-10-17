@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDelDepthBomb.h"
+#include "pso/enemy/TObjEneDelDepth_80315AD8.h"
 #include "pso/enemy/TObjEneDelDepth.h"
 #include "pso/misc/TLobby.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
@@ -16,26 +18,16 @@ extern Info_80315B10 deldepth_anim_binding;
 extern Info_80315B10 deldepth_anim_binding_b;
 extern s32 TObjEneDelDepth__tune_params;
 extern const f32 TObjEneDelDepth__data_805DF258;
-s32 TObjEneDelDepth__create(s32 arg0);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TObjControl__ct(s32, s32);
-s32 TObjEneDelDepth__ct(s32, s32, s32);
 s32 __nw__7TObjectFUl(s32);
 
 extern "C" void TObjEneDelDepth__sub_80313740();
-extern "C" void TObjEneDelDepth__sub_803138F8(void *a0);
-extern "C" void TObjEneDelDepth__sub_80313954(u8 *arg0);
-extern "C" void TObjEneDelDepth__sub_80313DE4(void *p);
 extern "C" void update_bomb_drop__15TObjEneDelDepthFv();
-extern "C" void move_toward_target__15TObjEneDelDepthFPv(u8 *arg0);
 extern "C" void TObjEneDelDepth__sub_803141A8();
-extern "C" void TObjEneDelDepth__sub_803142DC(u8 *arg0);
-extern "C" void TObjEneDelDepth__sub_80314500(u8 *actor);
 extern "C" void update_movement__15TObjEneDelDepthFv();
-extern "C" void start_move_toward_player__15TObjEneDelDepthFPv(u8 *actor);
 extern "C" void update_scale_pulse__15TObjEneDelDepthFv();
 extern "C" void init_draw_mode_and_motion__15TObjEneDelDepthFv();
-extern "C" void TObjEneDelDepth__sub_80314EC4(u8 *arg0);
 extern "C" void init_draw_params__15TObjEneDelDepthFv();
 extern "C" void enter_appear_state__15TObjEneDelDepthFv();
 extern "C" void enter_state8__15TObjEneDelDepthFv();
@@ -214,7 +206,7 @@ s32 TObjEneDelDepth__create(s32 arg0) {
         if (var_r4 != 0) {
             var_r4 = TObjControl__ct(var_r4, tl_04);
         }
-        var_r31 = TObjEneDelDepth__ct(var_r31, var_r4, arg0);
+        var_r31 = (s32)TObjEneDelDepth__ct((u8 *)var_r31, var_r4, arg0);
     }
     return var_r31;
 }

@@ -1,4 +1,5 @@
 #include "pso/TItemReverseTechPart1.h"
+#include "pso/ui/TAdRicoRingCtrl_8001B4A0.h"
 #include "pso/item/TItemReverseTechPart1.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/ui/TAdRicoRingCtrl.h"
@@ -18,7 +19,6 @@ struct Self_80119DA0 {
 };
 
 void TAdRicoRingCtrl__sub_8001B4A0(void *, f32);
-void *TAdRicoRingCtrl__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
 void TItemReverseTechPart1::run_task() {
@@ -32,7 +32,7 @@ void TItemReverseTechPart1::run_task() {
         if (self->ring == NULL) {
             p = __nw__7TObjectFUl(0x2C);
             if (p != NULL) {
-                p = TAdRicoRingCtrl__ct(p, self);
+                p = TAdRicoRingCtrl__ct((u8 *)p, (s32)self);
             }
             self->ring = p;
             if (self->ring != NULL) {

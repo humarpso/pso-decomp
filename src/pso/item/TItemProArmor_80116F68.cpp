@@ -12,7 +12,7 @@ u8 *create_material_item(u8 *arg0);
 void * construct_technique_disk_item(void *arg0, void *arg1, void *arg2);
 u8 *create_technique_disk_item(u8 *arg0);
 u8 *create_telepipe_item(u8 *arg0);
-s32 set_item_owner_technique_level(void *, void *, int);
+void set_item_owner_technique_level(void *arg0, s16 i, s16 arg2);
 s32 get_slot_count__14TItemProShieldFv(void *);
 void technique_disk_apply_use(s32 arg0);
 void *__dt__13TUnk_8049FC90Fv(void *arg0, s16 arg1);
@@ -50,7 +50,7 @@ u8 *create_material_item(u8 *arg0) {
 void technique_disk_apply_use(s32 arg0) {
   u8 temp_r31;
   temp_r31 = get_slot_count__14TItemProShieldFv((void *) arg0);
-  set_item_owner_technique_level((void *) arg0, (void *) ((s16) (((TItemObject *)arg0)->sub_80115D7C() & 0xFF)), (int) ((s16) (temp_r31 & 0xFFFFFFFFu)));
+  set_item_owner_technique_level((void *)arg0, ((s16) (((TItemObject *)arg0)->sub_80115D7C() & 0xFF)), ((s16) (temp_r31 & 0xFFFFFFFFu)));
 }
 
 void *__dt__13TUnk_8049FC90Fv(void *arg0, s16 arg1) {

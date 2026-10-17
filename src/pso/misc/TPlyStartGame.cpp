@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TPlyMeetUserExtension.h"
 #include "pso/misc/TPlyStartGame.h"
 #include "pso/unk/text_801E051C.h"
 #include "pso/system/byteswap.h"
@@ -11,7 +12,6 @@ typedef struct TPlyStartGame_801E0580 {
 
 extern "C" {
 void bswap__13packet_headerFv(void *);
-void bswap__21TPlyMeetUserExtensionFv(void *);
 void bswap__13TPlyStartGameFv(TPlyStartGame_801E0580 *self);
 void copy_game_list_entry(void *, const void *);
 int bswap__16TPlyGuildCardTagFv(void*);
@@ -23,7 +23,7 @@ void bswap__13TPlyStartGameFv(TPlyStartGame_801E0580 *self) {
     for (i = 0; i < 4; i++) {
         bswap__13TPlyStartGameFPv(self->entries[i]);
     }
-    bswap__21TPlyMeetUserExtensionFv(self->extension);
+    bswap__21TPlyMeetUserExtensionFv((s32)self->extension);
 }
 
 void bswap__13TPlyStartGameFPv(void* p) { bswap__16TPlyGuildCardTagFv(p); bswap_32((u32 *)((char*)p + 0x8)); bswap_32((u32 *)((char*)p + 0xc)); }

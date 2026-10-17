@@ -28,7 +28,7 @@ extern const f32 lbl_805DDD94;
 s32 reflect_matrix_in_plane(s32, s32 *);
 s32 push_matrix();
 extern const f32 lbl_805DDD90;
-u32 get_player_by_client_id(u32);
+void *get_player_by_client_id(s32 i);
 s32 reset_ind_tev_stages__13TParticleCtrlFPv();
 
 s32 TObjEneRecon::render_player_marker(u16 arg0, s32 arg1) {
@@ -42,7 +42,7 @@ s32 TObjEneRecon::render_player_marker(u16 arg0, s32 arg1) {
     if ((u16) scene_sora_reflect_active == 0) {
         return 1;
     }
-    player = get_player_by_client_id(arg0);
+    player = (u32)get_player_by_client_id(arg0);
     if (player == 0U) {
         return 0;
     }

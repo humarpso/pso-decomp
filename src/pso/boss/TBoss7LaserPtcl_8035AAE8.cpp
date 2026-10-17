@@ -21,7 +21,7 @@ struct Ang_8035AAEC { s32 x, y, z; };
 
 f32 atan2_float(f32 y, f32 x);
 void *create_oneshot_particle_emitter(void *pos, void *dir, s32 id, s32 flags);
-void direction_to_rotation_xz(void *, void *, void *);
+void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
 void vec3_add_to(void *, void *);
 void normalize_vector(void *);
 extern const f64 lbl_804796D8[];
@@ -47,7 +47,7 @@ struct Ptcl_8035AD68 {
 };
 
 extern "C" {
-s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
+void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__15TBoss7LaserPtcl[];
 extern s32 TBoss7LaserPtcl__class_name;
@@ -102,7 +102,7 @@ void TBoss7LaserPtcl::run_task() {
         v.y *= lbl_805E0104;
         v.z *= lbl_805E0104;
         a.y = (s32)(lbl_804796D8[0] * atan2_float(v.x, v.z));
-        direction_to_rotation_xz(&v, &a.x, &a.z);
+        direction_to_rotation_xz((u8 *)&v, (s32 *)&a.x, (s32 *)&a.z);
         for (n = (s32)o->travel_distance / 8; n != 0; n--) {
             create_oneshot_particle_emitter(&w, &a, 0x206, 0x40);
             create_oneshot_particle_emitter(&w, &a, 0x207, 0x40);
@@ -140,8 +140,8 @@ u8 *TBoss7LaserPtcl__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
     VecCopy((Vec *)(arg0 + 0x20), (const Vec *)arg2);
     VecCopy((Vec *)(arg0 + 0x2C), (const Vec *)arg3);
     ((TBoss7LaserPtcl *)arg0)->update_position();
-    *(s32 *)((s8 *)arg0 + 0x44) = spawn_continuous_particle_effect_with_flags((s32) arg2, 0x204, 0x40);
-    *(s32 *)((s8 *)arg0 + 0x48) = spawn_continuous_particle_effect_with_flags((s32) arg2, 0x205, 0x40);
+    *(s32 *)((s8 *)arg0 + 0x44) = (s32)spawn_continuous_particle_effect_with_flags(arg2, 0x204, 0x40);
+    *(s32 *)((s8 *)arg0 + 0x48) = (s32)spawn_continuous_particle_effect_with_flags(arg2, 0x205, 0x40);
     return arg0;
 }
 

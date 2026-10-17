@@ -10,7 +10,7 @@
 #include "pso/player/TObjPlayer.h"
 extern "C" {
 extern u32 lightning_charge_particle_ids[];
-int queue_destruction__7TObjectFv(void*);
+void queue_destruction__7TObjectFv(void *arg0);
 void TTecSlicer__updateLightningTechniqueCharge(TechniqueChargeEmitter* state);
 u8 *init_from_owner__10TTecSlicerFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 play_sound_effect(int, void *, int, int);
@@ -23,7 +23,7 @@ s16 TTecSlicer::get_remain_count() { return *(s16*)((char*)this + 0x11e); }
 void TTecSlicer::destroy_if_set() {
     u32 arg0 = (u32)this;
     if (arg0 != 0U) {
-        queue_destruction__7TObjectFv((void*)(arg0));
+        queue_destruction__7TObjectFv((void *)(arg0));
     }
 }
 s32 TTecSlicer::dt(s32 arg0, s16 arg1) {
@@ -40,8 +40,8 @@ void TTecSlicer__updateLightningTechniqueCharge(TechniqueChargeEmitter* state) {
     if(state->age%10==0) {
         for(int i=0;i<3;++i)spawn_particle_effect(state->position,lightning_charge_particle_ids[i]);
     }
-    if(!((TObjPlayer *)(state->actor))->check_flag_0x80())queue_destruction__7TObjectFv((void*)(state));
-    else if(state->age>=180)queue_destruction__7TObjectFv((void*)(state));
+    if(!((TObjPlayer *)(state->actor))->check_flag_0x80())queue_destruction__7TObjectFv((state));
+    else if(state->age>=180)queue_destruction__7TObjectFv((state));
 }
 
 void *TTecSlicer::dt(s16 arg1) {

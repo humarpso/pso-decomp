@@ -47,8 +47,8 @@ extern const f32 lbl_805DB624;
 extern const f32 lbl_805DB628;
 O_80167020 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 O_80167020 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-Arr_80167020 *mem_alloc(s32);
-s32 load_gvm_texture_file(void *);
+void *mem_alloc(u32 size);
+u8 *load_gvm_texture_file(s32 arg0);
 extern char lbl_80441548[];
 extern char lbl_80441560[];
 extern char lbl_80441578[];
@@ -104,12 +104,12 @@ void TOFenceAncient02::load_assets() {
         o = load_resource_from_descriptor(o, 1, bm_fd_obj_n_saku_6x2_resource_descriptor, 0, 0, 0);
     }
     (*(O_80167020 * *)&TOFenceAncient02__model_resource) = o;
-    r = mem_alloc(0x10);
+    r = (Arr_80167020 *)mem_alloc(0x10);
     (*(Arr_80167020 * *)&TOFenceAncient02__texture_variants) = r;
     r->a = (*(O_80167020 * *)&TOFenceAncient02__model_resource)->sub->c;
-    (*(Arr_80167020 * *)&TOFenceAncient02__texture_variants)->b = load_gvm_texture_file(lbl_80441548);
-    (*(Arr_80167020 * *)&TOFenceAncient02__texture_variants)->c = load_gvm_texture_file(lbl_80441560);
-    (*(Arr_80167020 * *)&TOFenceAncient02__texture_variants)->d = load_gvm_texture_file(lbl_80441578);
+    (*(Arr_80167020 * *)&TOFenceAncient02__texture_variants)->b = (s32)load_gvm_texture_file((s32)lbl_80441548);
+    (*(Arr_80167020 * *)&TOFenceAncient02__texture_variants)->c = (s32)load_gvm_texture_file((s32)lbl_80441560);
+    (*(Arr_80167020 * *)&TOFenceAncient02__texture_variants)->d = (s32)load_gvm_texture_file((s32)lbl_80441578);
 }
 
 void *__dt__16TOFenceAncient02Fv(void *arg0, s16 arg1) {

@@ -52,7 +52,7 @@ s32 is_script_controlled__10TObjPlayerFv(s32);
 s32 obj_isState3_324__13TUnk_804806E8Fv(s32);
 extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
-s32 send_6x26_unequip_item__10TObjPlayerFPvPv(s32, s32);
+void send_6x26_unequip_item__10TObjPlayerFPvPv(void *self, void *item);
 u32 get_equip_field_d04__10TObjPlayerFv(s32, s32);
 s32 get_field_d8__5TItemFv();
 int get_item_field_6__10TObjPlayerFPv(void *p);
@@ -271,7 +271,7 @@ void TLobby::handle_player_event(s32 arg0, s32 arg1) {
             break;
         }
         if (var_r3 != 0U) {
-            send_6x26_unequip_item__10TObjPlayerFPvPv(temp_r3, get_field_d8__5TItemFv());
+            send_6x26_unequip_item__10TObjPlayerFPvPv((void *)temp_r3, (void *)(get_field_d8__5TItemFv()));
         }
     }
 }

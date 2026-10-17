@@ -41,8 +41,8 @@ s32 __dt__7TObjectFv(void *, int);
 Obj_8013DCCC *release_target__13TLockOnCursorFv(void *);
 Obj_8013DCCC *cleanup_field__13TLockOnCursorFv(void *);
 Obj_8013DCCC *cleanup_field_3c__13TLockOnCursorFv(void *);
-s32 __dt__13TLockOnCursorFis(void *, int);
-s32 destroy__13TLockOnCursorFis(void *, int);
+s32 __dt__13TLockOnCursorFis(s32 arg0, s16 arg1);
+s32 destroy__13TLockOnCursorFis(s32 arg0, s16 arg1);
 s32 __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
 extern s32 __dt_deleting__13TLockOnCursorFis[];
@@ -208,10 +208,10 @@ u8 *__dt__13TLockOnCursorFv(u8 *arg0, s16 arg1) {
             delete p;
         }
         ((TLockOnCursor *)(arg0 + 0x520))->destroy(-1);
-        destroy__13TLockOnCursorFis(arg0 + 0x4EC, -1);
+        destroy__13TLockOnCursorFis((s32)(arg0 + 0x4EC), -1);
         __destroy_arr(arg0 + 0x5C, __dt_deleting__13TLockOnCursorFis, 0x124, 4);
         ((TMainCursor *)(arg0 + 0x48))->destroy(-1);
-        __dt__13TLockOnCursorFis(arg0 + 0x3C, -1);
+        __dt__13TLockOnCursorFis((s32)(arg0 + 0x3C), -1);
         TLockOnCursor::dt((s32)(arg0 + 0x24), -1);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

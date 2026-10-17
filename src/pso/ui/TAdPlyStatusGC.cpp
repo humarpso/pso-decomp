@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_8024FBA8.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
+#include "pso/system/ModelDrawContext.h"
 #include "pso/TChCrLoadAfs.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/object/TObjFish.h"
@@ -86,21 +89,19 @@ extern u8 lbl_804783D8[];
 extern const f32 lbl_805DFAEC;
 s32 TAdPlyStatusGC__sub_8033F8B0(void *arg0, void *arg1);
 s32 disallow_rendering__7TObjectFv();
-s32 get_localized_text_entry(int, int);
+s32 get_localized_text_entry(s32 arg0, s32 arg1);
 void __ct__7TObjectFP7TObject(void *, void *);
-void create_guide_button(void *, void *);
 void *__construct_array(void *, void *, void *, u32, u32);
-void init_guide_button_params(GuideButtonSpec *spec);
 extern s32 lbl_805D42C0;
 extern s32 ply_status_chcr_load_afs;
 extern const f32 lbl_805DFAF0;
 extern const f32 lbl_805DFAF4;
 TAdPlyStatusGC_8033FC14 *TAdPlyStatusGC__ct(TAdPlyStatusGC_8033FC14 *self, void *parent, s32 arg2);
-Save_8033F6A8 *TAdSinglePlyChrSelectGC__sub_801FE3E4(u32);
-u8 *get_entry__23TAdSinglePlyChrSelectGCFi(s32);
+s32 *TAdSinglePlyChrSelectGC__sub_801FE3E4(u32 i);
+s32 get_entry__23TAdSinglePlyChrSelectGCFi(s32 i);
 s32 TAdSinglePlyChrSelectGC__sub_801FE800(u32 i);
-Save_8033F6A8 *get_character_save_record(u32);
-u8 *get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
+s32 get_character_save_record(u32 arg0);
+s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
 s32 get_class_name_text(s32 arg0);
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(s32);
 int sprintf(char *, const char *, ...);
@@ -116,7 +117,6 @@ u32 ply_status_index;
 s32 TAdPlyStatusGC__is_shown;
 void close_window__14TAdPlyStatusGCFv(void *arg0);
 void render__14TAdPlyStatusGCFv(void* p);
-void set_cached_blend_factor(s32 arg0, s32 arg1);
 int get_state_flag__9TMainTaskFv(void*);
 
 void *TAdPlyStatusGC__status_window_box[8] = {
@@ -149,12 +149,7 @@ struct Item_8033F3D8 { s8 valid; u8 pad[0xF]; };
 struct Status_8033F3D8 { u8 pad[8]; u32 f8; };
 
 void draw_window_frame(void *);
-void draw_window_text(Vec2_8033F3D8 *, void *, s32, s32, f32);
-void set_text_draw_params(void *, s32, s32, f32, f32);
 Status_8033F3D8 **get_status_sub__14TAdPlyStatusGCFv(s32);
-void begin_screen_draw(s32);
-void draw_textured_quad_at_depth(Box_8033F3D8 *, f32);
-void set_draw_texture_and_color(s32, s32);
 extern const f32 lbl_805DFAE0;
 extern const f32 lbl_805DFAE4;
 extern Vec2_8033F3D8 ply_status_window_offset_table[];
@@ -176,18 +171,18 @@ void draw_status_window__14TAdPlyStatusGCFPvPv(void *arg0, void *arg1) {
         TObjFish::set_global_param((s32)(get_status_sub__14TAdPlyStatusGCFv(ply_status_chcr_load_afs)));
         begin_screen_draw(1);
         set_draw_texture_and_color(0, -1);
-        draw_textured_quad_at_depth(&box, lbl_805DFAE0);
+        draw_textured_quad_at_depth((f32 *)&box, lbl_805DFAE0);
         TWindowSubStatusDisp::get_player();
     }
     format_status_strings__14TAdPlyStatusGCFPv((char *)items);
-    set_text_draw_params(arg1, 1, 1, lbl_805DFAE0, lbl_805DFAE4);
+    set_text_draw_params((s32)arg1, (s32)(1), (s32)(1), (f32)lbl_805DFAE0, (f32)lbl_805DFAE4);
     for (i = 0; i < 3; i++) {
         pts[i].x = lbl_804EFAE0[i].x + OFF_8033F3D8.x;
         pts[i].y = lbl_804EFAE0[i].y + OFF_8033F3D8.y;
     }
-    draw_window_text(&pts[0], (void *)get_localized_text_entry(0x26, 1), -1, 0, lbl_805DFAE4);
-    draw_window_text(&pts[1], (void *)get_localized_text_entry(0x26, 2), -1, 0, lbl_805DFAE4);
-    draw_window_text(&pts[2], (void *)get_localized_text_entry(0x26, 3), -1, 0, lbl_805DFAE4);
+    draw_window_text((f32 *)&pts[0], (const char *)((void *)get_localized_text_entry((s32)(0x26), (s32)(1))), (s32)(-1), (s32)(0), (f32)lbl_805DFAE4);
+    draw_window_text((f32 *)&pts[1], (const char *)((void *)get_localized_text_entry((s32)(0x26), (s32)(2))), (s32)(-1), (s32)(0), (f32)lbl_805DFAE4);
+    draw_window_text((f32 *)&pts[2], (const char *)((void *)get_localized_text_entry((s32)(0x26), (s32)(3))), (s32)(-1), (s32)(0), (f32)lbl_805DFAE4);
     for (i = 0; i < 3; i++) {
         pts2[i].x = lbl_804EFAF8[i].x + OFF_8033F3D8.x;
         pts2[i].y = lbl_804EFAF8[i].y + OFF_8033F3D8.y;
@@ -195,9 +190,9 @@ void draw_status_window__14TAdPlyStatusGCFPvPv(void *arg0, void *arg1) {
     if (items[0].valid == 0 || items[1].valid == 0 || items[2].valid == 0) {
         return;
     }
-    draw_window_text(&pts2[0], &items[0], -1, 0, lbl_805DFAE4);
-    draw_window_text(&pts2[1], &items[1], -1, 0, lbl_805DFAE4);
-    draw_window_text(&pts2[2], &items[2], -1, 0, lbl_805DFAE4);
+    draw_window_text((f32 *)&pts2[0], (const char *)&items[0], (s32)(-1), (s32)(0), (f32)lbl_805DFAE4);
+    draw_window_text((f32 *)&pts2[1], (const char *)&items[1], (s32)(-1), (s32)(0), (f32)lbl_805DFAE4);
+    draw_window_text((f32 *)&pts2[2], (const char *)&items[2], (s32)(-1), (s32)(0), (f32)lbl_805DFAE4);
 }
 #undef OFF_8033F3D8
 #define ply_status_window_offset_table (*(RecoveredGlobal_8033F9DC_lbl_804783E0 *)ply_status_window_offset_table)
@@ -221,21 +216,21 @@ void format_status_strings__14TAdPlyStatusGCFPv(char *buf) {
     switch (TAdPlyStatusGC__window_offset_index) {
     case 0:
     case 2:
-        p = get_character_save_record(0xFFFF);
+        p = (Save_8033F6A8 *)get_character_save_record(0xFFFF);
         if (p != 0) {
             time = p->fC;
         }
-        c = get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF);
+        c = (u8 *)get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF);
         break;
     case 1:
-        p = TAdSinglePlyChrSelectGC__sub_801FE3E4(ply_status_index);
+        p = (Save_8033F6A8 *)TAdSinglePlyChrSelectGC__sub_801FE3E4(ply_status_index);
         if (p != 0) {
             time = p->fC;
         }
         m = TAdMultiPlyChrSelectGC::get_card_instance();
         if (m != 0) {
             if (TAdSinglePlyChrSelectGC__sub_801FE800(TAdMultiPlyChrSelectGC__sub_802DFFE8(m)) != 0) {
-                c = get_entry__23TAdSinglePlyChrSelectGCFi(TAdMultiPlyChrSelectGC__sub_802DFFE8(m));
+                c = (u8 *)get_entry__23TAdSinglePlyChrSelectGCFi(TAdMultiPlyChrSelectGC__sub_802DFFE8(m));
             }
         }
         if (c == 0) {
@@ -409,7 +404,7 @@ TAdPlyStatusGC_8033FC14 *TAdPlyStatusGC__ct(TAdPlyStatusGC_8033FC14 *self, void 
     self->elems[1].f14 = 0;
     self->elems[1].f18 = 8;
     self->elems[1].f1C = 0x1E;
-    create_guide_button(self, self->elems);
+    create_guide_button((TObject *)self, (GuideButtonSpec *)self->elems);
     if (get_player_index__14TAdPlyStatusGCFv() != 0U) {
         disallow_rendering__7TObjectFv();
     }

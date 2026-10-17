@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_80131794.h"
 #include "pso/misc/TLobby_80207DA8.h"
 #include "pso/misc/TLobby_8020B03C.h"
 #include "pso/misc/TLobby_8030A6A8.h"
@@ -39,7 +40,6 @@ extern s32 map_object_id_counter;
 extern s32 TLobby__data_805D6148;
 s32 read_disc_file(void *, Rec_8020AD40 *);
 void debug_print__6TLobbyFle(void *, ...);
-void replace_file_extension__6TLobbyFPvPvPv(void *, s32, void *);
 void load_object_set_entries__6TLobbyFlPUcUl(s32, Rec_8020AD40 *, s32);
 extern u8 lbl_8044BBB0[];
 extern u8 lbl_8044BBB8[];
@@ -72,17 +72,17 @@ s32 load_area_object_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg1 == 0 || arg1 == 0x12) {
         switch (get_game_play_mode()) {
         case 0:
-            replace_file_extension__6TLobbyFPvPvPv(name, id, lbl_8044BBB0);
+            replace_file_extension__6TLobbyFPvPvPv((char *)name, (char *)id, (char *)lbl_8044BBB0);
             break;
         case 1:
-            replace_file_extension__6TLobbyFPvPvPv(name, id, lbl_8044BBDC);
+            replace_file_extension__6TLobbyFPvPvPv((char *)name, (char *)id, (char *)lbl_8044BBDC);
             break;
         case 2:
-            replace_file_extension__6TLobbyFPvPvPv(name, id, lbl_8044BBE8);
+            replace_file_extension__6TLobbyFPvPvPv((char *)name, (char *)id, (char *)lbl_8044BBE8);
             break;
         }
     } else {
-        replace_file_extension__6TLobbyFPvPvPv(name, id, lbl_8044BBB0);
+        replace_file_extension__6TLobbyFPvPvPv((char *)name, (char *)id, (char *)lbl_8044BBB0);
     }
     len = read_disc_file(name, TLobby__map_set_file_buffer);
     if (len < 0) {

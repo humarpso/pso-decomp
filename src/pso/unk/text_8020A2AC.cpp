@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/unk/text_80209584.h"
 #include "pso/unk/text_8020A2AC.h"
 #include "pso/misc/TRaderMapCore.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 
 extern "C" {
 s32 run_step__9TItemDropFl(int, void *);
-s32 TLobby__sub_80209584(int, int);
 s32 __cvt_fp2unsigned(f32);
 s32 rand();
 extern s32 item_drop_rng;
@@ -30,7 +30,7 @@ void TLobby__sub_8020A2AC(void) {
     temp_r3_2 = ((TAdSinglePlyChrSelectGC *)0x14)->alloc();
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != 0) {
-        var_r0_2 = TLobby__sub_80209584((int) (temp_r3_2), (int) (0x20));
+        var_r0_2 = (s32)TLobby__sub_80209584((u8 *)(temp_r3_2), (0x20));
     }
     lbl_805D60A4 = var_r0_2;
 }

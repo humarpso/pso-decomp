@@ -87,7 +87,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *, int);
 s16 obj_getField1c(int);
 f32 horizontal_distance_squared(void *, void *);
 s32 fn_8031B618(Obj_8031B618 *arg0);
-VObj_8031B808 *get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 u32 csnVector(void *, void *, int);
 s32 project_actor_to_ground(void *, void *, void *);
 s32 play_sound_effect(s32, void *, int, int);
@@ -104,7 +104,7 @@ s32 rotate_matrix_x(int, void *);
 s32 push_matrix();
 s32 scale_current_matrix(void *);
 s32 find_nearest_visible_player(void *, int, f32);
-Ctrl_8031B618 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 extern u32 recon_bomb_bml_resource;
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
@@ -123,7 +123,7 @@ s32 fn_8031B618(Obj_8031B618 *arg0) {
     ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&arg0->pos2, &arg0->pos);
     u16 id = find_nearest_visible_player(arg0, 0, (25.0f));
     if (id != 0xFFFF) {
-        c = get_player_by_client_id(id);
+        c = (Ctrl_8031B618 *)get_player_by_client_id(id);
         if (c != 0) {
             if (!(horizontal_distance_squared(&arg0->pos2, &c->pos) > ((1.0f) + c->sub->radius) * ((1.0f) + c->sub->radius))) {
                 var_r30 = 1;
@@ -228,7 +228,7 @@ void TObjEneReconBomb::run_task() {
         spawn_particle_effect_with_flags(&arg0->pos, 0x45, 0x40);
         spawn_particle_effect_with_flags(&arg0->pos, 0x46, 0x40);
         for (i = 0; i < lbl_805D5868; i++) {
-            pl = get_player_data__10TObjPlayerFi(i);
+            pl = (VObj_8031B808 *)get_player_data__10TObjPlayerFi(i);
             if (TObjPlayer::is_valid_and_active((u32)pl) != 0 && pl != 0 && (u16)obj_getField1c((int)pl) < 0x1000 && pl->m31() == 0) {
                 if (horizontal_distance_squared((u8 *)pl + 0x2FC, &arg0->pos2) <= arg0->range * arg0->range) {
                     P_8031B808 d;

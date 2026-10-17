@@ -28,7 +28,7 @@ struct RecoveredGlobal_80369ADC___vt__17TObjParticleLobby {
 struct Self_803696A0 { u8 pad0[0xC8]; s32 state; f32 t; s32 target; void *ctrl; };
 
 extern "C" {
-s32 create_particle_emitter(void *, int);
+void *create_particle_emitter(void *pos, s32 id);
 s32 init_map_object_base(void *, void *);
 extern s32 __vt__17TObjParticleLobby[];
 extern s32 lbl_805D44B8;
@@ -222,7 +222,7 @@ u8 *TObjParticleLobby__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80369ADC___vt__17TObjParticleLobby *)&__vt__17TObjParticleLobby).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D44B8;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    *(s32 *)&((TObjParticleLobby *)arg0)->m_d4 = create_particle_emitter((void *) (arg0 + 0x38), (int) (1));
+    *(s32 *)&((TObjParticleLobby *)arg0)->m_d4 = (s32)create_particle_emitter((arg0 + 0x38), (1));
     ((TObjParticleLobby *)arg0)->setup_emitter();
     *(f32 *)((s8 *)arg0 + 0xCC) = (f32) (1.0f);
     return arg0;

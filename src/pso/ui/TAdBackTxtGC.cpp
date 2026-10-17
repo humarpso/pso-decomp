@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_8023E480.h"
 #include "pso/system/ModelDrawContext.h"
 #include "pso/ui/TAdBackTxtGC.h"
 #include "pso/unk/text_80141A30.h"
@@ -63,7 +64,6 @@ void *__ct__12TAdBackTxtGCFv(void *arg0) {
     return arg0;
 }
 
-    int TLobby__sub_8023E4B4(void*, void*);
     extern unsigned char lbl_80465490[];
     extern unsigned char lbl_80465430[], lbl_80465440[], lbl_80465450[], lbl_80465460[], lbl_80465470[];
     struct TexName_804DC098 { void *name; s32 a; s32 b; };
@@ -82,6 +82,6 @@ void TAdSinglePlyChrSelectGC::free_singleton_805D65C0() {
         TAdBackTxtGC__backtext_texture_list = 0U;
     }
 }
-void register_texture_f256_backtext(void) { (*(int *)&TAdBackTxtGC__backtext_texture_list) = (int)&TAdBackTxtGC_backtext_tex_list; TLobby__sub_8023E4B4(lbl_80465490, &TAdBackTxtGC_backtext_tex_list); }
+void register_texture_f256_backtext(void) { (*(int *)&TAdBackTxtGC__backtext_texture_list) = (int)&TAdBackTxtGC_backtext_tex_list; TLobby__sub_8023E4B4((s32)lbl_80465490, (s32)&TAdBackTxtGC_backtext_tex_list); }
 
 }

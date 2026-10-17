@@ -41,14 +41,14 @@ typedef struct Obj_80049430 {
 } Obj_80049430;
 
 extern "C" {
-s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
+void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0);
 s32 TObjVoloptCage__sub_800C76F0(void *);
 s32 submit_cursor_candidate(void *, int);
 s32 is_locally_controlled__10TObjPlayerFPv();
 void obj_clear_flag30_20000(void *arg0);
 void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
-s32 get_player_by_client_id(int);
+void *get_player_by_client_id(s32 i);
 s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8004938C___vt__14TObjVoloptCage __vt__14TObjVoloptCage;
 u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1);
@@ -115,7 +115,7 @@ void TObjVoloptCage::run_task() {
     }
     update_state();
     ((TObjEnemy *)arg0)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0));
+    copy_position__20TBoss3VoloptHiraisinFi((s32)(arg0));
     submit_cursor_candidate((void *) (arg0), (int) (-1));
 }
 
@@ -123,7 +123,7 @@ u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1) {
     s32 player;
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TObjVoloptCage.value;
-        player = get_player_by_client_id((int) (((TObjVoloptCage *)arg0)->targetId));
+        player = (s32)get_player_by_client_id((((TObjVoloptCage *)arg0)->targetId));
         if ((player != 0) && (is_locally_controlled__10TObjPlayerFPv() != 0)) {
             if (((TLobby *)player)->check_player_flag1() != 0) {
                 TObjPlayer::send_code_45_1((int) (player));

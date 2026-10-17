@@ -1,4 +1,14 @@
 #include "types.h"
+#include "pso/misc/TLobby_801F3A24.h"
+#include "pso/misc/TLobby_80207644.h"
+#include "pso/misc/TLobby_80207DA8.h"
+#include "pso/misc/TLobby_8020A188.h"
+#include "pso/system/TGStream.h"
+#include "pso/unk/text_801A2514.h"
+#include "pso/unk/text_801F43A8.h"
+#include "pso/unk/text_8020A2AC.h"
+#include "pso/unk/text_8020AB50.h"
+#include "pso/unk/text_8020AD40.h"
 #include "pso/system/byteswap.h"
 #include "pso/misc/TLobby.h"
 #include "pso/misc/TQuestListOnline.h"
@@ -18,17 +28,11 @@ struct Ent_801F3A80 {
 };
 
 extern "C" {
-void swap_object_row_endian(void *arg0);
 void convert_quest_object_rows(struct QuestObjRow_801F3AD8 *rows, u32 byte_size);
-void bswap_enemy_set_row(void*);
-bool load_quest_encounter_section(s32 arg0);
-void init_buffers__6TLobbyFii(s32 id, s32 arg1);
 extern s16 quest_floor_designations[];
 extern s32 TLobby__data_805D5EE0;
-void refresh_quest_list__6TLobbyFi(s32 arg0);
 s32 read_disc_file(s32, s32);
 s32 alloc__22TQuestVmDownLoadServerFv();
-void rebuild_all__6TLobbyFi(int a0);
 s32 update_lobby_scene__6TSceneFv();
 
 void refresh_quest_list__6TLobbyFi(s32 arg0) {
@@ -114,23 +118,11 @@ struct Sel_801F3E1C { s32 area; s32 terrain; s32 entities; };
 struct RecoveredGlobal_801F3DEC_TLobby__data_805127D0;
 extern "C" {
 s32 memset(void *, int, int);
-void clear_quest_floor_designations(void);
 extern u8 lbl_80449D08[];
 extern u8 lbl_80449D1C[];
 extern u8 lbl_80449D30[];
-void close_gsl_archive(void);
-void open_gsl_archive(char *name);
-s32 get_floor_map_selection(s32, Sel_801F3E1C *);
-s32 load_area_event_set(s32 floor, s32 area, s32 terrain, s32 entities);
-s32 load_area_enemy_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 load_area_object_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 int init_sub_state__6TLobbyFv(void);
 int rebuild_entry__6TLobbyFv(void);
-void populate_quest_floor_sets(void);
-s32 set_floor_map_selection(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void set_quest_floor_designation(s16 mode, s32 floor, s32 terrain, s32 unused);
-void set_quest_floor_designation_ex(s16 mode, s32 floor, s32 area, s32 layout, s32 entities);
-void TLobby__sub_8020A2AC(void);
 
     extern short TLobby__data_805D6134;
 void rebuild_all__6TLobbyFi(int a0) { TLobby__data_805D5EE0 = a0; TLobby::handle_msg_type1_for_idle_slots(); init_sub_state__6TLobbyFv(); TLobby__sub_8020A2AC(); TLobby::init_floor_encounter_sections(); TLobby::free_boss4rock(); rebuild_entry__6TLobbyFv(); TLobby::init_id_tables(); TLobby__data_805D6134 = 1; TLobby__data_805D5EE0 = 0; }
@@ -195,7 +187,7 @@ void populate_quest_floor_sets(void) {
             break;
         case 1:
         case 2:
-            if (get_floor_map_selection(i, &sel) == 1 && sel.area >= 0) {
+            if (get_floor_map_selection(i, (u8 *)&sel) == 1 && sel.area >= 0) {
                 open_gsl_archive((char *)lbl_80449D08);
                 load_area_object_set(i, sel.area, sel.terrain, sel.entities);
                 close_gsl_archive();
@@ -283,12 +275,7 @@ block_6:
     return 0;
 }
 
-void advance_enemy_id_counter(s32 arg0);
-void advance_object_id_counter(s32 arg0);
 s32 TLobby__sub_8020B308(s32);
-s32 *fn_801F43A8(void);
-void open_session__6TLobbyFi(s32 arg0);
-void update_and_reset__6TLobbyFi(int a0);
 
 s32 TLobby::handle_msg_type1(s32 arg0) {
     s32 sp14;

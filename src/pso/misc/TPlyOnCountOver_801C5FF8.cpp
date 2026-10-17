@@ -13,14 +13,14 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_801C606C___vt__15TPlyOnCountOver __vt__15TPlyOnCountOver;
 extern s32 TPlyOnCountOver__name;
 extern u8 *tl_06;
-u32 get_player_by_client_id(int);
+void *get_player_by_client_id(s32 i);
 typedef char RecoveredGlobal_801C606C___vt__15TPlyOnCountOver_size[sizeof(RecoveredGlobal_801C606C___vt__15TPlyOnCountOver) == 0x18 ? 1 : -1];
 
 void TPlyOnCountOver::run_task() {
     u8 *arg0 = (u8 *)this;
     void (*cb)(u32);
     u32 p;
-    p = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x1C));
+    p = (u32)get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x1C));
     if (p == 0U) {
         queue_destruction__7TObjectFv(arg0);
         return;

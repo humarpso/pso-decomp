@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2Tunnel_8007E418.h"
 #include "pso/boss/TBoss7PhotonBullet_802EF26C.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_800BC4C8.h"
@@ -53,7 +54,7 @@ struct Bullet_802EF2AC {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
+void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
 extern void *__vt__18TBoss7PhotonBullet[];
 extern s32 lbl_805D3FD4;
 s32 project_actor_to_ground(void *, void *, void *);
@@ -145,8 +146,8 @@ u8 *TBoss7PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32
     *(s32 *)((s8 *)arg0 + 0xE4) = 0;
     *(s32 *)((s8 *)arg0 + 0xE8) = 0;
     *(f32 *)((s8 *)arg0 + 0xEC) = (f32) (0.0f);
-    *(s32 *)((s8 *)arg0 + 0xF0) = spawn_continuous_particle_effect_with_flags((void *) (arg0 + 0xC0), (int) (0x202), (int) (0x40));
-    *(s32 *)((s8 *)arg0 + 0xF4) = spawn_continuous_particle_effect_with_flags((void *) (arg0 + 0xC0), (int) (0x203), (int) (0x40));
+    *(s32 *)((s8 *)arg0 + 0xF0) = (s32)spawn_continuous_particle_effect_with_flags((arg0 + 0xC0), (0x202), (0x40));
+    *(s32 *)((s8 *)arg0 + 0xF4) = (s32)spawn_continuous_particle_effect_with_flags((arg0 + 0xC0), (0x203), (0x40));
     return arg0;
 }
 
@@ -167,7 +168,6 @@ typedef struct Pad_802EF604 {
 } Pad_802EF604;
 
 extern "C" {
-s32 rotate_xz_pair_by_angle(void *, void *, int);
 s32 __ct__7TObjectFP7TObject(void *, s32);
 extern Ent_802EF74C boss7_photon_bullet_level_table[];
 extern void *__vt__15TBoss7PhotonPad[];
@@ -195,7 +195,7 @@ void TBoss7PhotonPad::run_task() {
             }
         }
         self->timer = boss7_photon_bullet_level_table[self->level].b;
-        rotate_xz_pair_by_angle(self->pos, self->unk28, boss7_photon_bullet_level_table[self->level].c / boss7_photon_bullet_level_table[self->level].a);
+        rotate_xz_pair_by_angle((f32 *)self->pos, (f32 *)self->unk28, (s32)(boss7_photon_bullet_level_table[self->level].c / boss7_photon_bullet_level_table[self->level].a));
         self->shots--;
         if (self->shots == 0) {
             queue_destruction__7TObjectFv(self);
@@ -219,7 +219,7 @@ u8 *__ct__15TBoss7PhotonPadFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) 
     *(s32 *)((s8 *)arg0 + 0x1C) = arg2;
     *(s32 *)((s8 *)arg0 + 0x2C) = arg4;
     VecCopy__FP3VecPC3Vec(arg0 + 0x20, (void *)arg3);
-    rotate_xz_pair_by_angle(arg0 + 0x20, arg0 + 0x28, -(boss7_photon_bullet_level_table[*(s32 *)((s8 *)arg0 + 0x2C)].c / 2));
+    rotate_xz_pair_by_angle((f32 *)(arg0 + 0x20), (f32 *)(arg0 + 0x28), (s32)(-(boss7_photon_bullet_level_table[*(s32 *)((s8 *)arg0 + 0x2C)].c / 2)));
     *(s32 *)((s8 *)arg0 + 0x30) = boss7_photon_bullet_level_table[*(s32 *)((s8 *)arg0 + 0x2C)].a;
     *(s32 *)((s8 *)arg0 + 0x34) = 0;
     return arg0;

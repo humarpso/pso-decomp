@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjEnvSoundGlobal.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/ChunkMaterialState.h"
 #include "pso/system/GinjaMaterial.h"
@@ -76,7 +77,7 @@ extern u8 lbl_804456C8[];
 extern const f32 lbl_805DBE08;
 s32 get_bml_model(s32, int);
 s32 load_resource_from_descriptor(s32, int, void *, int, int, int);
-s32 load_gvm_texture_file(void *);
+u8 *load_gvm_texture_file(s32 arg0);
 extern u8 lbl_804456D8[];
 extern s32 TObjDoorKey__ginja_model_table[];
 extern u32 door_key_resource_handle;
@@ -94,7 +95,7 @@ extern s32 actor_frame_tick;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 void play_sound_effect(int, void *, int, int);
-s32 spawn_continuous_particle_effect_with_flags(Vec_80190020 *, int, int);
+void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_key__5TOKeyFv(void *, void *);
 void *TOKey__ct(void *arg0);
@@ -105,7 +106,6 @@ extern const f32 lbl_805DBE0C;
 void TLobby__sub_8001FE7C(void*, int);
 int update_armed_switch__5TOKeyFv(void*);
 s32 free_collision_body_parts(void *);
-void *TObjEnvSoundGlobal__ct(void *, void *, void *);
 int submit_cursor_candidate(void*, int);
 s32 __dl__7TObjectFPv(void *);
 void *__dt__5TOKeyFv(void *arg0, s16 arg1);
@@ -290,7 +290,7 @@ void *TObjDoorKey__ct(void *arg0, void *arg1, void *arg2) {
     ((TObjPlayer *)arg0)->reset_photon_effect();
     Vec_80190020 pos = *(Vec_80190020 *)((s8 *)arg0 + 0x38);
     pos.y += lbl_805DBE0C;
-    *(s32 *)&((TObjDoorKey *)arg0)->m_f8 = spawn_continuous_particle_effect_with_flags(&pos, 0x60, 0x40);
+    *(s32 *)&((TObjDoorKey *)arg0)->m_f8 = (s32)spawn_continuous_particle_effect_with_flags(&pos, 0x60, 0x40);
     ((TOKeyAncient01 *)((u8 *)arg0 + 0x98))->set_type();
     return arg0;
 }
@@ -319,7 +319,7 @@ void TObjDoorKey::load_resources() {
         r = load_resource_from_descriptor(r, 5, &TObjDoorKey__resource_descriptor, 0, 0, 0);
     }
     (*(s32 *)&door_key_resource_handle) = r;
-    TObjDoorKey__texture_handle = load_gvm_texture_file(lbl_804456D8);
+    TObjDoorKey__texture_handle = (s32)load_gvm_texture_file((s32)lbl_804456D8);
     TObjDoorKey__ginja_model_table[0] = get_bml_model((*(s32 *)&door_key_resource_handle), 1);
     TObjDoorKey__ginja_model_table[1] = get_bml_model((*(s32 *)&door_key_resource_handle), 2);
     s32 t = get_bml_model((*(s32 *)&door_key_resource_handle), 0);
@@ -335,7 +335,7 @@ void * TObjEnvSoundGlobal__create(void *arg0) {
     }
     o = __nw__7TObjectFUl(0x9C);
     if (o != NULL) {
-        o = TObjEnvSoundGlobal__ct(o, tl_05, arg0);
+        o = TObjEnvSoundGlobal__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }

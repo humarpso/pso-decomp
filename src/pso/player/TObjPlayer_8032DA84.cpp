@@ -248,8 +248,8 @@ void TObjPlayer::create_and_init_effect(s32 arg0, u32 *arg1, s32 arg2) {
 struct O_8032DFF8 { u8 pad[0x1C]; void *o[3]; };
 
 extern "C" {
-u32 create_particle_emitter(void *, int);
-u32 spawn_particle_effect_with_rotation(void *, void *, int, int);
+void *create_particle_emitter(void *pos, s32 id);
+void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 void *spawn_particle_effect(void *pos, s32 id);
 extern const f32 lbl_805DF7E8;
 void *find_entity_by_id(u16 id);
@@ -291,7 +291,7 @@ void TUnk_804EDD44::vfunc_8() {  }
 #pragma fp_contract on
 void TUnk_804EDD44::start_card_effect_trail() {
     u8 *arg0 = (u8 *)this;
-    this->m_24 = create_particle_emitter((void *) (arg0 + 0x64), (int) (0x1B6));
+    this->m_24 = (u32)create_particle_emitter((arg0 + 0x64), (0x1B6));
     if ((u32) this->m_24 != 0U) {
         ((TParticleCtrl *)(this->m_24))->set_tint_color((int) (-0x78));
     }
@@ -304,7 +304,7 @@ void TUnk_804EDD44::start_card_effect_flash() {
     u8 *arg0 = (u8 *)this;
     u32 p;
     u32 q;
-    *(u32 *)((s8 *)arg0 + 0x1C) = spawn_particle_effect_with_rotation((void *) (arg0 + 0x64), (void *) (arg0 + 0x54), (int) (0x1B9), (int) (0x104));
+    *(u32 *)((s8 *)arg0 + 0x1C) = (u32)spawn_particle_effect_with_rotation((arg0 + 0x64), (arg0 + 0x54), (0x1B9), (0x104));
     p = *(u32 *)((s8 *)arg0 + 0x1C);
     if (p != 0U) {
         ((TObjPlayer *)p)->set_position_xy((f32) (lbl_805DF7E8), (f32) (lbl_805DF7E8));

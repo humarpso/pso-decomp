@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_80131794.h"
 #include "pso/misc/TLobby_80207DA8.h"
 #include "pso/unk/text_800F8A18.h"
 #include "pso/unk/text_801A2514.h"
@@ -14,7 +15,6 @@ struct Name_8020A834 { char s[0x20]; };
 
 extern "C" {
 s32 read_disc_file(Name_8020A768 *, void *);
-void replace_file_extension__6TLobbyFPvPvPv(Name_8020A768 *, s32, const void *);
 void reserve_enemy_set_actor_ids(struct SpawnRecord_8020A9C4 *, s32, s32);
 void init_floor_enemy_count__6TLobbyFlPUcUl(s32, Ent_8020A768 *, s32);
 extern u8 lbl_8044BBA8[];
@@ -29,7 +29,7 @@ s32 load_enemy_set_file(s32 idx, s32 arg1) {
     s32 n;
     s32 i;
     s32 floor;
-    replace_file_extension__6TLobbyFPvPvPv(&name, arg1, lbl_8044BBA8);
+    replace_file_extension__6TLobbyFPvPvPv((char *)&name, (char *)arg1, (char *)lbl_8044BBA8);
     size = read_disc_file(&name, TLobby__map_set_file_buffer);
     if (size < 0) {
         return 0;
@@ -55,7 +55,7 @@ s32 load_object_set_file(s32 idx, s32 arg1) {
     s32 n;
     s32 i;
     s32 floor;
-    replace_file_extension__6TLobbyFPvPvPv((Name_8020A768 *)(&name), (s32)(arg1), (const void *)(lbl_8044BBB0));
+    replace_file_extension__6TLobbyFPvPvPv((char *)((Name_8020A768 *)(&name)), (char *)(arg1), (char *)((const void *)(lbl_8044BBB0)));
     size = read_disc_file((Name_8020A768 *)(&name), (void *)((*(Ent_8020A834 * *)&TLobby__map_set_file_buffer)));
     if (size < 0) {
         return 0;

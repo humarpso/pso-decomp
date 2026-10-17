@@ -144,9 +144,9 @@ void TOMineTrap__sub_8017141C(void *);
 s32 check_value_equals__13TQuestColCtrlFPll(u32, int);
 extern s32 TOMineTrap__data_805D3080;
 f32 TOMineTrap__vt20(Obj_8016F5B4 *arg0, u32 arg1);
-u32 spawn_particle_effect(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
 extern const f32 lbl_805DB864;
-VObj_8016F418 *get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 s16 TOMineTrap__sub_80171340(void *);
 u16 TOMineTrap__sub_80171358(void *);
 extern s32 lbl_805D5868;
@@ -176,7 +176,7 @@ void handle_6x80_trigger_trap(Pkt_8016F418 *arg0) {
     }
     ((TOMineTrap *)arg0)->bswap_6x80_trigger_trap();
     for (i = lbl_805D586C + lbl_805D5870; i < lbl_805D5868; i++) {
-        p = get_player_data__10TObjPlayerFi(i);
+        p = (VObj_8016F418 *)get_player_data__10TObjPlayerFi(i);
         if (p == NULL) {
             continue;
         }
@@ -254,7 +254,7 @@ void TOMineTrap::vfunc_82() {
     u32 r;
     switch (arg0->state) {
     default:
-        r = spawn_particle_effect(arg0->sub, 0x45);
+        r = (u32)spawn_particle_effect(arg0->sub, 0x45);
         if (r != 0U) {
             ((TObjPlayer *)r)->set_position_xy(lbl_805DB864, lbl_805DB864);
         }

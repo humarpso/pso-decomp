@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdPlayerLoadGC_801E0C30.h"
 #include "pso/misc/TKeyBoardControl_8000F764.h"
 #include "pso/misc/TSaveChCr_80339B64.h"
 #include "pso/object/TObject_80019A50.h"
@@ -7,7 +8,6 @@
 extern "C" {
 int close_and_advance__9TSaveChCrFPv(void*, int);
 int close_window__9TSaveChCrFv(void*);
-s32 find_card_file__15TAdPlayerLoadGCFiPv(int, void *);
 extern s32 lbl_804C88C0[];
 extern s32 pso_system_card_filename[];
 extern s32 lbl_804C89BC[];
@@ -73,7 +73,7 @@ void fn_80339D78(u8 *arg0) {
     }
 }
 s32 TAdSinglePlyChrSelectGC__sub_80339DBC(void) {
-    if ((find_card_file__15TAdPlayerLoadGCFiPv((int) (0), (void *) (pso_system_card_filename)) != 0) || (find_card_file__15TAdPlayerLoadGCFiPv((int) (0), (void *) (lbl_804C88C0)) != 0) || (find_card_file__15TAdPlayerLoadGCFiPv((int) (0), (void *) (lbl_804C89BC)) != 0)) {
+    if ((find_card_file__15TAdPlayerLoadGCFiPv((0), (const char *)(pso_system_card_filename)) != 0) || (find_card_file__15TAdPlayerLoadGCFiPv((0), (const char *)(lbl_804C88C0)) != 0) || (find_card_file__15TAdPlayerLoadGCFiPv((0), (const char *)(lbl_804C89BC)) != 0)) {
         return 0;
     }
     return 1;

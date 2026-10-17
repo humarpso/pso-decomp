@@ -52,7 +52,7 @@ struct List_8023A244 { u32 objs[16]; s32 vals[16]; s32 count; };
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *arg0);
-u32 find_entity_by_id(int);
+void *find_entity_by_id(u16 id);
 s32 is_active__12TTecReverserFv();
 void run_task__12TTecReverserFv(u8 *arg0);
 s32 obj_getField1c(int);
@@ -129,7 +129,7 @@ void TTecReverser::render() {  }
 
 void run_task__12TTecReverserFv(u8 *arg0) {
     u32 temp_r31;
-    *(u32 *)((s8 *)arg0 + 0x1C) = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0xB4)));
+    *(u32 *)((s8 *)arg0 + 0x1C) = (u32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0xB4)));
     if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 0U) {
         queue_destruction__7TObjectFv((arg0));
         return;
@@ -138,7 +138,7 @@ void run_task__12TTecReverserFv(u8 *arg0) {
         queue_destruction__7TObjectFv((arg0));
         return;
     }
-    temp_r31 = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0xF0)));
+    temp_r31 = (u32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0xF0)));
     if ((is_active__12TTecReverserFv() == 0) && (TObjPlayer::is_valid_and_active((int) (temp_r31)) != 0)) {
         ((VObj_18 *)(arg0))->m4(temp_r31);
     }

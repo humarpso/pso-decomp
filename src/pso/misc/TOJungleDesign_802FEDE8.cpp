@@ -1,11 +1,9 @@
 #include "types.h"
+#include "pso/unk/text_802FF028.h"
 #include "pso/misc/TOJungleDesign.h"
 #pragma fp_contract on
 
 extern "C" {
-
-s32 fn_802FF028(s32);
-s32 fn_802FF064(s32);
 
 extern s32 jungle_design_variant_table[];
 
@@ -17,8 +15,8 @@ void TOJungleDesign::init_design_variant() {
     if ((s32) *(s32 *)&this->m_b0 > 2) {
         *(s32 *)&this->m_b0 = 2;
     }
-    *(s32 *)&this->m_ac = fn_802FF064(jungle_design_variant_table[*(s32 *)&this->m_b0]);
-    this->texture_id = fn_802FF028(0);
+    *(s32 *)&this->m_ac = (s32)fn_802FF064(jungle_design_variant_table[*(s32 *)&this->m_b0]);
+    this->texture_id = (s32)fn_802FF028(0);
 }
 
 }

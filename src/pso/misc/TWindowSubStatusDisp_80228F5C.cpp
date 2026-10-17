@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_80228E98.h"
 #include "pso/misc/TWindowSubStatusDisp_80228F5C.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
 #include "pso/misc/TWindowKeyBoardSoft.h"
@@ -9,14 +10,13 @@ struct RecoveredGlobal_802290E0_lbl_80515BC8 {
 };
 
 extern "C" {
-u8 * fn_80228E98(s32, void *);
 extern u8 *text_builder_write_cursor;
 void strncpy(s32, s32, s32);
 extern RecoveredGlobal_802290E0_lbl_80515BC8 text_builder_buffer;
-s8 *parse_text_control_codes(s8 *, s32 *, s32);
+char *parse_text_control_codes(char *p, s32 *a, s32 *b);
 extern s32 current_language;
 void TWindowSubStatusDisp__sub_80228F5C(s32 arg0) {
-    text_builder_write_cursor = fn_80228E98(arg0, text_builder_write_cursor);
+    text_builder_write_cursor = (u8 *)fn_80228E98(arg0, (char *)text_builder_write_cursor);
 }
 
 s8 *TWindowSubStatusDisp::copy_message_page_text() {
@@ -32,7 +32,7 @@ s8 *TWindowSubStatusDisp::copy_message_page_text() {
         if (*s == 9 && ((u8 *)s)[1] == 'P') {
             break;
         }
-        s = parse_text_control_codes(s, &sjis, 0);
+        s = (s8 *)parse_text_control_codes((char *)s, &sjis, (s32 *)(0));
         s32 t = *(u8 *)s;
         if (t == 9 && ((u8 *)s)[1] == 'P') {
             continue;

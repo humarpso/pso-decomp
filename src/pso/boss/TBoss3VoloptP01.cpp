@@ -16,7 +16,7 @@ struct Obj_80042DE8; typedef struct Obj_80042DE8 Obj_80042DE8;
 struct P_80042ED0;
 struct S_8004301C;
 extern "C" {
-u8* get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 u16 obj_getField1c(void*);
 void TObjPlayer__sub_80042ED0(P_80042ED0*,s32,s32);
 void fn_80044330(void*);
@@ -67,7 +67,7 @@ struct Ent_80042974 { u16 id; s16 flag; s32 pad; };
 struct List_80042974 { s32 count; Ent_80042974 ents[1]; };
 
 extern "C" {
-u8 *get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 u16 obj_getField1c(void *);
 extern s32 volopt_active_player_id;
 extern s32 lbl_805D586C;
@@ -86,7 +86,7 @@ void cast_tech_on_players__10TObjPlayerFPv(u8 *arg0) {
         fn_80044330(arg0 + 0x3BC);
         n = 0;
         for (i = 0; i < lbl_805D586C; i++) {
-            p = get_player_data__10TObjPlayerFi(i);
+            p = (u8 *)get_player_data__10TObjPlayerFi(i);
             if (p != NULL && obj_getField1c(p) < 0x1000 && !(*(s32 *)((s8 *)p + 0x30) & 0x02000800)) {
                 ((List_80042974 *)(arg0 + 0x3BC))->ents[n].id = obj_getField1c(p);
                 ((List_80042974 *)(arg0 + 0x3BC))->ents[n].flag = 1;
@@ -100,7 +100,7 @@ void cast_tech_on_players__10TObjPlayerFPv(u8 *arg0) {
         break;
     case 1:
         for (j = 0; j < lbl_805D586C; j++) {
-            p = get_player_data__10TObjPlayerFi(j);
+            p = (u8 *)get_player_data__10TObjPlayerFi(j);
             if (p != NULL && obj_getField1c(p) < 0x1000 && !(*(s32 *)((s8 *)p + 0x30) & 0x02000800)) {
                 TTecFoie::create_ex((void *)arg0, (void *)(&sp8), (void *)(p + 0x2FC), (void *)0x1D);
             }
@@ -108,7 +108,7 @@ void cast_tech_on_players__10TObjPlayerFPv(u8 *arg0) {
         break;
     case 2:
         for (k = 0; k < lbl_805D586C; k++) {
-            q = get_player_data__10TObjPlayerFi(k);
+            q = (u8 *)get_player_data__10TObjPlayerFi(k);
             if (q != NULL && obj_getField1c(q) < 0x1000 && !(*(s32 *)((s8 *)q + 0x30) & 0x02000800)) {
                 ((TTecGiBarta *)arg0)->create((void *)(&sp8), (void *)(q + 0x2FC), (void *)0x1D);
             }
@@ -155,7 +155,7 @@ extern "C" {
 
 s32 TBoss3Volopt__sub_80040FCC(void *);
 s32 fn_800443DC(void *self, s32 i);
-u8 *find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 s32 play_sound_effect(s32, s32, s32, s32);
 void *__nw__7TObjectFUl(u32);
 s32 subtract_vector(void *, void *);
@@ -182,7 +182,7 @@ s32 fire_zonde_at_players__10TObjPlayerFPv(u8 *arg0) {
     s.b = fn_800443DC(arg0, 0);
     n = 0;
     for (i = 0; i < lbl_805D586C; i++) {
-        p = get_player_data__10TObjPlayerFi(i);
+        p = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (p == NULL || obj_getField1c(p) >= 0x1000) {
             break;
         }
@@ -209,7 +209,7 @@ s32 fire_zonde_at_players__10TObjPlayerFPv(u8 *arg0) {
                 ((VObj_18_b27ba1 *)q)->m21(arg0, &t, 0, -1, -1);
             }
         }
-        e = find_entity_by_id(lbl_805D271A);
+        e = (u8 *)find_entity_by_id(lbl_805D271A);
         if (e != NULL) {
             Vec_80042B34 d2 = *(Vec_80042B34 *)(e + 0x38);
             subtract_vector(&d2, &pos);
@@ -234,7 +234,6 @@ s32 fire_zonde_at_players__10TObjPlayerFPv(u8 *arg0) {
 }
 
 #undef TObjPlayer__sub_80042ED0
-#define get_player_data__10TObjPlayerFi ((Obj_80042DE8* (*)(s32))get_player_data__10TObjPlayerFi)
 #define obj_getField1c ((u16 (*)(void))obj_getField1c)
 #define subtract_vector ((void (*)(Vec_80042DE8*,Vec_80042DE8*))subtract_vector)
 
@@ -290,7 +289,7 @@ void push_nearby_players__10TObjPlayerFPv(Obj_80042DE8 *self) {
     Obj_80042DE8 *pl;
     r2 = (64.0f);
     for (i = 0; i < lbl_805D586C; i++) {
-        pl = get_player_data__10TObjPlayerFi(i);
+        pl = (Obj_80042DE8 *)get_player_data__10TObjPlayerFi(i);
         if (pl == NULL || obj_getField1c() >= 0x1000) {
             break;
         }
@@ -321,7 +320,6 @@ void TObjPlayer__sub_80042ED0(P_80042ED0 *o, s32 idx, s32 arg2) {
     pop_matrix();
 }
 
-#undef get_player_data__10TObjPlayerFi
 #undef obj_getField1c
 #undef subtract_vector
 #define TObjPlayer__sub_80042ED0 ((s32 (*)(void*,int,void*))TObjPlayer__sub_80042ED0)
@@ -685,7 +683,7 @@ s32 TBoss3VoloptP01__sub_80042FCC(u8 *arg0);
 void reset_state__15TBoss3VoloptP01FPv(void *arg0);
 void TBoss3VoloptP01__sub_800430D0(void *);
 typedef struct { f32 x, y, z; } Vec_800430D0;
-s32 play_persistent_sound(int, void *, void *, int, int);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 void render__15TBoss3VoloptP01Fv(u8 *arg0);
 void TBoss3VoloptP01__sub_80043CA8(void * _w0);
 void run_task__15TBoss3VoloptP01Fv(u8 *arg0);
@@ -697,7 +695,7 @@ void* fn_8004438C(void* p);
 void reset_look_state__11TCameraCtrlFv(void *);
 void set_mode__11TCameraCtrlFv(void *);
 u8 *__ct__17TObjVoloptShutterFv(u8 *arg0, s32 arg1);
-u8 * create_particle_emitter(void *, s32);
+void *create_particle_emitter(void *pos, s32 id);
 s32 init_from_model__11TBreakUpMdlFl(s32, s32);
 void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1);
 u8 *TObjEnemyCustom__ct(u8 *arg0);
@@ -949,7 +947,7 @@ void TBoss3VoloptP01__sub_800430D0(void *arg0_) {
             case 5: {
                 Vec_800430D0 v;
                 TObjPlayer__sub_80042ED0(arg0, 5, &v);
-                F430D0(u8 *, 0x3AC) = create_particle_emitter(&v, 0x11A);
+                F430D0(u8 *, 0x3AC) = (u8 *)create_particle_emitter(&v, 0x11A);
                 F430D0(s16, 0xB8) = 2;
                 break;
             }
@@ -1012,12 +1010,12 @@ void TBoss3VoloptP01__sub_800430D0(void *arg0_) {
         Vec_800430D0 v;
         F430D0(s16, 0x398) = 0x19;
         TObjPlayer__sub_80042ED0(arg0, 5, &v);
-        F430D0(u8 *, 0x3AC) = create_particle_emitter(&v, 0x11A);
+        F430D0(u8 *, 0x3AC) = (u8 *)create_particle_emitter(&v, 0x11A);
         F430D0(s32, 0x3A0) = 5;
         F430D0(s32, 0x37C) = 5;
     }
     case 5:
-        play_persistent_sound(0x4002B51E, arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound((s32)(0x4002B51E), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
         if (--F430D0(s16, 0x398) <= 0) {
             if (F430D0(u8 *, 0x3AC) != NULL) {
                 queue_destruction__7TObjectFv(F430D0(u8 *, 0x3AC));
@@ -1130,7 +1128,7 @@ void TBoss3VoloptP01::run_state_machine() {
         break;
     case 2:
         if ((void *) this->m_3b0 == NULL) {
-            this->m_3b0 = create_particle_emitter((u8 *)&this->m_2fc, 0x21);
+            this->m_3b0 = (u8 *)create_particle_emitter(&this->m_2fc, 0x21);
             ((TBoss4Type2 *)(this->m_3b0))->set_flags(0x40U);
         }
         *(s32 *)&this->state = 3;

@@ -167,8 +167,8 @@ extern const f32 lbl_805D8C68;
 extern const f32 lbl_805D8C70;
 extern const f32 lbl_805D8C74;
 void update_radar_markers__11TBoss4Type3FPv(u8 *arg0);
-u32 spawn_particle_effect(void *, int);
-u32 create_particle_emitter(void *, int);
+void *spawn_particle_effect(void *pos, s32 id);
+void *create_particle_emitter(void *pos, s32 id);
 s32 play_sound_effect(int, void *, int, int);
 f64 atan2_float(f32, f32);
 u8 * dispatch_shared_handler_a__6TLobbyFl(s32);
@@ -437,7 +437,7 @@ struct VObj_8005B218 : VBase_8005B218 {
 };
 
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-void * get_player_data__10TObjPlayerFi(s32 i);
+int get_player_data__10TObjPlayerFi(int a0);
 u16 obj_getField1c(void *);
 s32 is_split_screen();
 void queue_destruction__7TObjectFv(void *);
@@ -511,8 +511,8 @@ extern s32 local_client_id;
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 void init_model_node_tables(void *, void *, int);
-s32 TObjFish__sub_800E3124(void *, void *, f32);
-void bind_enemy_combat_stats(void *, int, int, int);
+s32 TObjFish__sub_800E3124(u8 *list, s32 vecs);
+s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 s32 init_collision_body_parts(void *, void *, int);
 extern const f32 lbl_805D8C38;
 extern const f32 lbl_805D8C3C;
@@ -997,7 +997,7 @@ void TBoss4Type3::update_capture() {
             *(void **)((s8 *)arg0 + 0x42C) = NULL;
         }
     } else if (this->m_398 <= 0x21 && *(u32 *)((s8 *)arg0 + 0x42C) == 0) {
-        h = create_particle_emitter(pos, 0x142);
+        h = (u32)create_particle_emitter(pos, 0x142);
         *(u32 *)((s8 *)arg0 + 0x42C) = h;
         if (h != 0) {
             ((TBoss4Type2 *)(*(void **)((s8 *)arg0 + 0x42C)))->set_flags(0x40);
@@ -1010,7 +1010,7 @@ void TBoss4Type3::update_capture() {
         TBoss4Type3::create_yutai((void *)arg0, (void *)0, (void *)((void *)this->m_3b8));
     }
     if (this->m_398 == 0x1C) {
-        h = spawn_particle_effect(&v, 0x38);
+        h = (u32)spawn_particle_effect(&v, 0x38);
         if (h != 0) {
             ((TBoss4Type2 *)h)->set_flags(0x40);
         }
@@ -1027,14 +1027,14 @@ void TBoss4Type3::update_capture() {
         }
     } else if (this->m_398 <= 0x12) {
         if (*(u32 *)((s8 *)arg0 + 0x430) == 0) {
-            h = create_particle_emitter(pos, 0xEA);
+            h = (u32)create_particle_emitter(pos, 0xEA);
             *(u32 *)((s8 *)arg0 + 0x430) = h;
             if (h != 0) {
                 ((TBoss4Type2 *)(*(void **)((s8 *)arg0 + 0x430)))->set_flags(0x40);
             }
         }
         if (*(u32 *)((s8 *)arg0 + 0x434) == 0) {
-            h = create_particle_emitter(pos, 0x139);
+            h = (u32)create_particle_emitter(pos, 0x139);
             *(u32 *)((s8 *)arg0 + 0x434) = h;
             if (h != 0) {
                 ((TBoss4Type2 *)(*(void **)((s8 *)arg0 + 0x434)))->set_flags(0x40);
@@ -1142,7 +1142,7 @@ void TBoss4Type3::update_light_magic() {
         ((TBoss4Type3 *)arg0)->set_anim_state(7);
     }
     if ((s32) *(s32 *)((s8 *)arg0 + 0x398) == 0x49) {
-        p = ((void * (*)(void *, int))spawn_particle_effect)(sub, 0x133);
+        p = spawn_particle_effect(sub, 0x133);
         if (p != 0) {
             ((TBoss4Type2 *)p)->set_flags(0x40);
         }
@@ -1196,10 +1196,10 @@ void TBoss4Type3::update_homing() {
     if (o->f398 > 0x93) {
         ((TBoss4Type3 *)o)->turn_toward_player(id);
     } else if (o->f398 == 0x93) {
-        if ((o->f424 = ((void * (*)(void *, int))create_particle_emitter)(a, 0xF7)) != 0) {
+        if ((o->f424 = create_particle_emitter(a, 0xF7)) != 0) {
             ((TBoss4Type2 *)(o->f424))->set_flags(0x40);
         }
-        if ((o->f428 = ((void * (*)(void *, int))create_particle_emitter)(b, 0xF7)) != 0) {
+        if ((o->f428 = create_particle_emitter(b, 0xF7)) != 0) {
             ((TBoss4Type2 *)(o->f428))->set_flags(0x40);
         }
         ((TBoss4Type3 *)o)->set_anim_state(6);
@@ -1544,7 +1544,7 @@ void handle_damage_taken__11TBoss4Type3FPv(O_80059618 *o) {
     dir.y *= lbl_805D8C68;
     dir.z *= lbl_805D8C68;
     for (i = 0; i < 8; i++) {
-        e = ((u32 (*)(void *, s32))spawn_particle_effect)(&pos, 0x38);
+        e = (u32)spawn_particle_effect(&pos, 0x38);
         if (e != 0) {
             ((TBoss4Type2 *)e)->set_flags(0x40);
         }
@@ -1824,7 +1824,7 @@ void TBoss4Type3::create_particle_emitters() {
     Obj_8005A300 *self = (Obj_8005A300 *)this;
     s32 i;
     for (i = 0; i < 8; i++) {
-        self->f404[i] = ((u32 (*)(void *, s32))create_particle_emitter)(self->f38, boss4_type3_effect_ids[i]);
+        self->f404[i] = (u32)create_particle_emitter(self->f38, boss4_type3_effect_ids[i]);
         if (self->f404[i] != 0) {
             ((TBoss4Type2 *)(self->f404[i]))->set_flags(0x40);
         }
@@ -2180,7 +2180,7 @@ S_8005AD50 *__dt__11TBoss4Type3Fv(S_8005AD50 *o, s16 flag) {
 
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
-void draw_trail_with_colors(s32, s32, s32, s32, s32);
+void draw_trail_with_colors(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 init_trail_buffer__11TBoss4Type3FPvifff(void *, s32, f32, f32, f32);
 
 Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 parent, s32 *arg2) {
@@ -2206,7 +2206,7 @@ Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 parent, s32 *arg2) {
     VecCopy__FP3VecPC3Vec(self->v2FC, self->v38);
     self->f308 = self->f30C = self->f310 = TBoss4Type3__data_805D8C40;
     self->f2A8 = 0;
-    bind_enemy_combat_stats(self, (int)register_boss__6TLobbyFl(0x38), dispatch_shared_handler_b__6TLobbyFl(0x38), register_object__6TLobbyFl(0x38));
+    bind_enemy_combat_stats((u8 *)self, (u8 *)((int)register_boss__6TLobbyFl(0x38)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(0x38)), (u8 *)(register_object__6TLobbyFl(0x38)));
     self->f33E = self->f3E4 = self->f32C;
     ((TBoss3Volopt *)self)->reset_photon_effect();
     ((TObjEneLappy *)self)->set_param(0x2F);
@@ -2215,7 +2215,7 @@ Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 parent, s32 *arg2) {
     self->f3F8 = lbl_805D8CAC;
     self->f3F4 = TBoss4Type3__data_805D8C40;
     for (i = 0; i < 3; i++) {
-        self->a438[i] = ((s32 (*)(void *, void *))TObjFish__sub_800E3124)(((void **)boss4_type3_effect_desc_ptr_table)[i], &self->a444[i]);
+        self->a438[i] = TObjFish__sub_800E3124((u8 *)(((void **)boss4_type3_effect_desc_ptr_table)[i]), (s32)&self->a444[i]);
     }
     set_global_flag__10TObjPlayerFv();
     model = get_bml_model(self->f390, ((s32 *)lbl_80486FB0)[0]);
@@ -2224,14 +2224,14 @@ Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 parent, s32 *arg2) {
         p = init_trail_buffer__11TBoss4Type3FPvifff((void *)p, 2, lbl_805D8C58, lbl_805D8C5C, lbl_805D8CAC);
     }
     *(s32 *)((u8 *)self + 0x51C) = p;
-    draw_trail_with_colors(*(s32 *)((u8 *)self + 0x51C), model, get_bml_motion(self->f390, ((s32 *)&TBoss4Type3__anim_state_table)[0x44 / 4]), 0x16, 0x17);
+    draw_trail_with_colors((u8 *)(*(s32 *)((u8 *)self + 0x51C)), model, get_bml_motion(self->f390, ((s32 *)&TBoss4Type3__anim_state_table)[0x44 / 4]), 0x16, 0x17);
     *(s32 *)((u8 *)self + 0x524) = create__12TObjEneSaverFPvPv(0xA0303030, 0xFFFF0088);
     p = (s32)alloc__23TAdSinglePlyChrSelectGCFv(0x18);
     if (p != 0) {
         p = init_trail_buffer__11TBoss4Type3FPvifff((void *)p, 2, lbl_805D8C58, lbl_805D8C5C, lbl_805D8CAC);
     }
     *(s32 *)((u8 *)self + 0x520) = p;
-    draw_trail_with_colors(*(s32 *)((u8 *)self + 0x520), model, get_bml_motion(self->f390, ((s32 *)&TBoss4Type3__anim_state_table)[0x58 / 4]), 9, 10);
+    draw_trail_with_colors((u8 *)(*(s32 *)((u8 *)self + 0x520)), model, get_bml_motion(self->f390, ((s32 *)&TBoss4Type3__anim_state_table)[0x58 / 4]), 9, 10);
     *(s32 *)((u8 *)self + 0x528) = create__12TObjEneSaverFPvPv(0xA0303030, 0xFFFF0088);
     clear_global_state__10TObjPlayerFv();
     ((TBoss4Type3 *)self)->create_particle_emitters();
@@ -2293,7 +2293,7 @@ void TObjBs4CutAtk::run_task() {
         return;
     }
     for (i = 0; i < TLobby::get_game_mode(); i++) {
-        p = ((VObj_8005B218 * (*)(s32))get_player_data__10TObjPlayerFi)(i);
+        p = (VObj_8005B218 *)get_player_data__10TObjPlayerFi(i);
         if (TBoss4Type3__sub_8005254C(obj_getField1c(p)) == 0) {
             continue;
         }

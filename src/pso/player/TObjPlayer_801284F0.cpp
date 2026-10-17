@@ -6,10 +6,10 @@
 extern "C" {
 
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);
-int draw_weapon_at_joint(void*, void*);
+void draw_weapon_at_joint(s32 arg0, s8 arg1);
 void construct_srank_weapon(void *);
 
-void TUnk_804A3C20::reserved_53() { draw_weapon_at_joint(this, (void*)49); update_trail_slot__11TItemWeaponFPvi(this, (void*)0); update_trail_slot__11TItemWeaponFPvi(this, (void*)1); }
+void TUnk_804A3C20::reserved_53() { draw_weapon_at_joint((s32)this, (s8)((void*)49)); update_trail_slot__11TItemWeaponFPvi(this, (void*)0); update_trail_slot__11TItemWeaponFPvi(this, (void*)1); }
 
 extern s32 lbl_804A3C20[];
 

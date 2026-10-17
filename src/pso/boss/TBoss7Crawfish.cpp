@@ -1,4 +1,5 @@
 #include <dolphin/mtx.h>
+#include "pso/unk/text_803D853C.h"
 #include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_80087278.h"
@@ -104,9 +105,8 @@ s32 play_sound_effect(s32, s32, s32, s32);
 int change_state__14TBoss7CrawfishFl(void*, int);
 int scale_current_matrix(void*);
 int post_translate_matrix(void*);
-int rotate_matrix_yxz(void*, void*, void*, void*);
 int push_matrix(void);
-int pop_matrix(void);
+s32 pop_matrix(void);
 int draw__16TObjEneRe7BeruraFv(void*);
 
 extern f32 lbl_805DF0C8;
@@ -220,7 +220,7 @@ s32 TBoss7Crawfish::sub_80308AA8() {
     return TBoss7Crawfish__data_805DF0D8 == *(f32 *)((s8 *)((u8 *)this) + 0x354);
 }
 
-void TBoss7Crawfish::render() { if (is_visible() != 0) { TObjPlayer::notify_fish_if_valid((u32)(*(void* *)&this->texture_id)); TObjPlayer::set_global_flag(); push_matrix(); post_translate_matrix((char*)this + 0x38); rotate_matrix_yxz((void*)0, this->m_5c, *(void* *)&this->rotation_y, *(void* *)&this->rotation_z); scale_current_matrix((char*)this + 0x68); draw__16TObjEneRe7BeruraFv(this); pop_matrix(); TObjPlayer::clear_global_state(); } }
+void TBoss7Crawfish::render() { if (is_visible() != 0) { TObjPlayer::notify_fish_if_valid((u32)(*(void* *)&this->texture_id)); TObjPlayer::set_global_flag(); push_matrix(); post_translate_matrix((char*)this + 0x38); rotate_matrix_yxz((s32)((void*)0), (s32)this->m_5c, (s32)(*(void* *)&this->rotation_y), (s32)(*(void* *)&this->rotation_z)); scale_current_matrix((char*)this + 0x68); draw__16TObjEneRe7BeruraFv(this); pop_matrix(); TObjPlayer::clear_global_state(); } }
 
 extern const f32 lbl_805DF0EC;
 

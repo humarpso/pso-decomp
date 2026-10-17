@@ -1,9 +1,8 @@
 #include "types.h"
+#include "pso/unk/text_8036A3CC.h"
 #include "pso/unk/text_8036A5B4.h"
 
 extern "C" {
-
-s32 *fn_8036A3CC(s32, s32 *);
 
 u8 check_flag_index_set(s32 arg0) {
     s32 sp8;
@@ -15,7 +14,7 @@ u8 check_flag_index_set(s32 arg0) {
     if (arg0 >= 0x31) {
         return 0U;
     }
-    temp_r3 = fn_8036A3CC(arg0, &sp8);
+    temp_r3 = (s32 *)fn_8036A3CC(arg0, (u32 *)&sp8);
     if (temp_r3 == NULL) {
         return 0U;
     }

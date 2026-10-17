@@ -44,8 +44,8 @@ u16 obj_getField1c(u32);
 List_802370D8 *find_support_technique_contact_for_target__10TObjPlayerFl(void *, u32);
 List_802370D8 *gather_contacts_for_self__10TObjPlayerFl(void *, u32);
 void deliver_technique_to_party_targets(Obj_802370D8 *arg0);
-u32 spawn_particle_effect(void *, int);
-u8 *get_player_by_client_id(u16);
+void *spawn_particle_effect(void *pos, s32 id);
+void *get_player_by_client_id(s32 i);
 u32 classify_distance_band__8TTecCtrlFlll(s16, s16, u16);
 extern s32 support_tec_range_effect_id_table[];
 extern Arr_80236EE8 lbl_8044D908;
@@ -65,7 +65,7 @@ void spawn_support_tec_range_effect(Tec_80236EE8 *self) {
     if (self->slot >= 4) {
         return;
     }
-    pl = get_player_by_client_id(self->slot);
+    pl = (u8 *)get_player_by_client_id(self->slot);
     if (pl == NULL) {
         return;
     }
@@ -90,10 +90,10 @@ void spawn_support_tec_range_effect(Tec_80236EE8 *self) {
         band = classify_distance_band__8TTecCtrlFlll(kind, self->level, self->slot);
         {
             Arr_80236EE8 fx = lbl_8044D908;
-            fx.w[0] = spawn_particle_effect(&pos, support_tec_range_effect_id_table[band]);
+            fx.w[0] = (u32)spawn_particle_effect(&pos, support_tec_range_effect_id_table[band]);
             if (band == 3) {
-                fx.w[1] = spawn_particle_effect(&pos, 0x1F2);
-                fx.w[2] = spawn_particle_effect(&pos, 0x19D);
+                fx.w[1] = (u32)spawn_particle_effect(&pos, 0x1F2);
+                fx.w[2] = (u32)spawn_particle_effect(&pos, 0x19D);
             }
             switch ((s16)kind) {
             case 14:

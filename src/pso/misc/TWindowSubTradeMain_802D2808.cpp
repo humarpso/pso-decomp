@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_802D1EFC.h"
 #include "pso/misc/TWindowSubTradeMain_802D2808.h"
 #include "pso/misc/TWindowSubTradeMain.h"
 #include "pso/misc/TLobby.h"
@@ -10,7 +11,6 @@ struct RecoveredGlobal_802D2870_TLobby__data_80540BD0
 };
 
 extern "C" {
-s32 snapshot_player_trade_inventory(void *, void *);
 extern s32 TLobby__trade_window_state[];
 extern s32 local_client_id;
 extern u8 TLobby__trade_partner_client_id;
@@ -51,9 +51,9 @@ typedef struct RecoveredGlobal_802D2870_TLobby__data_80540BD0 RecoveredGlobal_80
 typedef char RecoveredGlobal_802D2870_TLobby__data_80540BD0_size[((sizeof(RecoveredGlobal_802D2870_TLobby__data_80540BD0)) == 0x3E0) ? (1) : (-1)];
 void TWindowSubTradeMain__sub_802D2870(void) {
   s32 *temp_r31;
-  snapshot_player_trade_inventory((void *) (&(*(RecoveredGlobal_802D2870_TLobby__data_80540BD0 *)&TLobby__trade_window_state).value), (void *) local_client_id);
+  snapshot_player_trade_inventory((s32)(&(*(RecoveredGlobal_802D2870_TLobby__data_80540BD0 *)&TLobby__trade_window_state).value), local_client_id);
   temp_r31 = (s32 *) ((u8 *) ((s32 *) (((u8 *) (&(*(RecoveredGlobal_802D2870_TLobby__data_80540BD0 *)&TLobby__trade_window_state).value)) + 0x1F0)));
-  snapshot_player_trade_inventory((void *) temp_r31, (void *) ((s32) ((s8) (TLobby__trade_partner_client_id & 0xFFFFFFFFFFFFFFFFu))));
+  snapshot_player_trade_inventory((s32)temp_r31, ((s32) ((s8) (TLobby__trade_partner_client_id & 0xFFFFFFFFFFFFFFFFu))));
   ((TLobby *)temp_r31)->set_trade_field_4(TLobby__data_805D688C);
 }
 

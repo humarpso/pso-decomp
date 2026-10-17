@@ -52,8 +52,8 @@ extern const f32 lbl_805DB428;
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void copy_model_node(u8 *arg0, u8 *arg1);
 u8 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-s32 *mem_alloc(s32);
-s32 load_gvm_texture_file(void *);
+void *mem_alloc(u32 size);
+u8 *load_gvm_texture_file(s32 arg0);
 extern u8 lbl_80440B10[];
 extern u8 door_ancient_567_resource_descriptor[];
 extern void *door_ancient05_static_model_nodes;
@@ -92,10 +92,10 @@ void TODoorAncient05::load_resources() {
         p = load_resource_from_descriptor(p, 1, door_ancient_567_resource_descriptor, 0, 0, 0);
     }
     G5918 = p;
-    buf = mem_alloc(8);
+    buf = (s32 *)mem_alloc(8);
     G591C = buf;
     buf[0] = *(s32 *)(NODE(G5918, 0x42C) + 0xC);
-    G591C[1] = load_gvm_texture_file(lbl_80440B10);
+    G591C[1] = (s32)load_gvm_texture_file((s32)lbl_80440B10);
     G5920 = (u8 *)mem_alloc(0xA8);
     if (G5918 != NULL && G5920 != NULL) {
         copy_model_node(G5920, NODE(NODE(G5918, 0x42C), 8));

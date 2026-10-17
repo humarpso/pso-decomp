@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TLobby_8001D6A0.h"
+#include "pso/misc/TWindowSubStatusDisp_8024FBA8.h"
+#include "pso/unk/text_8026C664.h"
 #include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 #include "pso/unk/text_8026C7AC.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -11,17 +14,12 @@ typedef struct Rect_8026C800 { f32 x, y, w, h; u8 pad10[0x20]; s32 f30; u8 pad34
 typedef struct Self_8026C800 { s8 page; s8 count; u8 pad2[6]; f32 phase; } Self_8026C800;
 
 extern "C" {
-s32 get_shared_text_buffer(void);
 u32 calc_text_width(void);
 u8 get_font_char_advance(void);
 u16 map_char_to_font_code(u16 c);
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append(u8 *str);
 void text_builder_reset(void);
-void draw_window_text(void *, s32, s32, s32, f32);
-void set_text_draw_params(void *, s32, s32, f32, f32);
-void fn_8026C664(void *, f32, f32, f32, f32);
-void fn_8026C708(void *, f32, f32, f32, f32);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DD29C;
 extern const f32 lbl_805DD2A0;
@@ -72,10 +70,10 @@ void draw_list_page_indicator(Self_8026C800 *self, Rect_8026C800 *r) {
     begin_screen_draw(1);
     TObjFish::set_global_param(lbl_805D63F0);
     set_draw_texture_and_color(0, -1);
-    fn_8026C708(r, lbl_805DD2AC + pos.x, lbl_805DD2B0 + pos.y, scale, self->phase);
-    fn_8026C664(r, pos.x - lbl_805DD2B4, lbl_805DD2B0 + pos.y, scale, self->phase);
+    fn_8026C708((u8 *)r, (f32)(lbl_805DD2AC + pos.x), (f32)(lbl_805DD2B0 + pos.y), (f32)scale, (f32)self->phase);
+    fn_8026C664((u8 *)r, (f32)(pos.x - lbl_805DD2B4), (f32)(lbl_805DD2B0 + pos.y), (f32)scale, (f32)self->phase);
     TWindowSubStatusDisp::get_player();
-    set_text_draw_params(r, 0, 1, scale, lbl_805DD2B8);
+    set_text_draw_params((s32)r, (s32)(0), (s32)(1), (f32)scale, (f32)lbl_805DD2B8);
     text_builder_reset();
     TWindowSubStatusDisp__sub_80228F5C(self->page + 1);
     get_shared_text_buffer();
@@ -84,7 +82,7 @@ void draw_list_page_indicator(Self_8026C800 *self, Rect_8026C800 *r) {
     { u32 adv = get_font_char_advance(); pos.x -= lbl_805DD2BC * (f32)adv; }
     text_builder_append((u8 *)lbl_805DD2C0);
     TWindowSubStatusDisp__sub_80228F5C(self->count);
-    draw_window_text(&pos, get_shared_text_buffer(), -1, 0, lbl_805DD2B8);
+    draw_window_text((f32 *)&pos, (const char *)(get_shared_text_buffer()), (s32)(-1), (s32)(0), (f32)lbl_805DD2B8);
 }
 #pragma pop
 

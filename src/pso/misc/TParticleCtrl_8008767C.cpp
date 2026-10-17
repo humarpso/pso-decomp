@@ -119,7 +119,7 @@ u8 *create_orbit_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 
 u8 *create_radial_particle(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4);
 void *load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
-u32 load_gvm_texture_file(void *);
+u8 *load_gvm_texture_file(s32 arg0);
 int sprintf(char *, const char *, ...);
 char *strcpy(char *, const char *);
 void *memset(void *, int, u32);
@@ -622,7 +622,7 @@ void load_particle_entry_resources(void) {
         p = load_resource_from_descriptor(p, 1, particle_regular_bml_descriptor, 0, 0, 0);
     }
     TParticleCtrl__regular_bml_resource = (u32)p;
-    TParticleCtrl__texture_list = load_gvm_texture_file(lbl_804394D4);
+    TParticleCtrl__texture_list = (u32)load_gvm_texture_file((s32)lbl_804394D4);
 }
 
 __declspec(section ".rodata") extern char lbl_80439494[] = "particleentrya";

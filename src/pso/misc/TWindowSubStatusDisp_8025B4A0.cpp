@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_8024FBA8.h"
+#include "pso/misc/TWindowSubStatusDisp_8025B4A0.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TWindowSubComCard.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -11,14 +13,9 @@ struct Stack_8025B660 {
 };
 
 extern "C" {
-s32 draw_window_text(void *, void *, s32, s32, f32);
-void set_text_draw_params(s32, s32, s32, f32, f32);
-void draw_label_value__20TWindowSubStatusDispFPvPv(u8 *arg0, u8 *arg1);
-void TWindowSubStatusDisp__sub_8025B760(void *p);
-void *destroy_free_buffers__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1);
 u32 calc_text_width(u32);
 s32 measure_string_len__20TWindowSubStatusDispFv(u32);
-s32 mem_alloc(s32);
+void *mem_alloc(u32 size);
 void mem_free(void *p);
 s32 strncpy(s32, u32, s32);
 s32 deleting_destructor__20TWindowSubStatusDispFs(void *, s32);
@@ -40,7 +37,7 @@ void TWindowSubStatusDisp::set_string(u32 arg1) {
     if (arg1 != 0U) {
         *(f32 *)((s8 *)this + 8) = (f32) (0.0f);
         temp_r3 = measure_string_len__20TWindowSubStatusDispFv(arg1);
-        *(s32 *)((s8 *)this + 0x20) = mem_alloc(temp_r3 + 1);
+        *(s32 *)((s8 *)this + 0x20) = (s32)mem_alloc(temp_r3 + 1);
         strncpy(*(s32 *)((s8 *)this + 0x20), arg1, temp_r3 + 1);
     }
 }
@@ -52,7 +49,7 @@ void TWindowSubStatusDisp::set_text(u32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)((s8 *)this + 0x1C) = 0;
     if (arg1 != 0U) {
         temp_r3 = measure_string_len__20TWindowSubStatusDispFv(arg1);
-        *(s32 *)((s8 *)this + 0x1C) = mem_alloc(temp_r3 + 1);
+        *(s32 *)((s8 *)this + 0x1C) = (s32)mem_alloc(temp_r3 + 1);
         strncpy(*(s32 *)((s8 *)this + 0x1C), arg1, temp_r3 + 1);
     }
     *(s32 *)((s8 *)this + 0x18) = arg3;
@@ -69,7 +66,7 @@ void TWindowSubStatusDisp::set_text(u32 arg1, s32 arg2) {
     *(s32 *)((s8 *)this + 0x1C) = 0;
     if (arg1 != 0U) {
         temp_r3 = measure_string_len__20TWindowSubStatusDispFv(arg1);
-        *(s32 *)((s8 *)this + 0x1C) = mem_alloc(temp_r3 + 1);
+        *(s32 *)((s8 *)this + 0x1C) = (s32)mem_alloc(temp_r3 + 1);
         strncpy(*(s32 *)((s8 *)this + 0x1C), arg1, temp_r3 + 1);
     }
     *(s32 *)((s8 *)this + 0x18) = arg2;
@@ -82,13 +79,13 @@ void draw_label_value__20TWindowSubStatusDispFPvPv(u8 *arg0, u8 *arg1) {
         stack.sp8 = *(f32 *)((s8 *)arg1 + 0x10) + *(f32 *)((s8 *)arg0 + 8);
         stack.spC = *(f32 *)((s8 *)arg1 + 0x14) + *(f32 *)((s8 *)arg0 + 0xC);
         set_text_draw_params((s32) arg1, 1, 1, (-1.0f) / ((0.0897f) + *(f32 *)((s8 *)arg1 + 0x38)), (1e+05f));
-        draw_window_text(&stack.sp8, *(u8 **)((s8 *)arg0 + 0x1C), *(s32 *)((s8 *)arg0 + 0x24), 1, (1e+05f));
+        draw_window_text((f32 *)&stack.sp8, (const char *)(*(u8 **)((s8 *)arg0 + 0x1C)), (s32)(*(s32 *)((s8 *)arg0 + 0x24)), (s32)(1), (f32)(1e+05f));
         if (!(*(u16 *)((s8 *)arg0 + 0) & 0x10)) {
             stack.sp8 += (154.0f);
-            draw_window_text(&stack.sp8,  (void *)":", *(s32 *)((s8 *)arg0 + 0x24), 0, (1e+05f));
+            draw_window_text(&stack.sp8, (const char *)((void *)":"), *(s32 *)((s8 *)arg0 + 0x24), 0, (1e+05f));
         }
         stack.sp8 += (12.0f);
-        draw_window_text(&stack.sp8, *(u8 **)((s8 *)arg0 + 0x20), *(s32 *)((s8 *)arg0 + 0x24), 1, (1e+05f));
+        draw_window_text((f32 *)&stack.sp8, (const char *)(*(u8 **)((s8 *)arg0 + 0x20)), (s32)(*(s32 *)((s8 *)arg0 + 0x24)), (s32)(1), (f32)(1e+05f));
     }
 }
 void TWindowSubStatusDisp__sub_8025B760(void *p) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802E0FC8.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC_802D50A0.h"
@@ -43,8 +44,7 @@ s32 __ct__10TAdTitleGCFP7TObjectl(void *, void *, int);
 void *__ct__13TAdTitleTexGCFv(void *, void *);
 void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
-s32 get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(void *, int, int, int);
-s32 get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(void *, int);
+u8 *get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1);
 extern u8 single_chr_select_item_rect_table[];
 extern u8 lbl_80472530[];
 extern T_802D4F2C single_chr_select_position_table;
@@ -181,8 +181,8 @@ u8 *TAdSinglePlyChrSelectGC__ct(u8 *arg0, void *parent) {
     if (p != NULL) {
         __ct__10TAdTitleGCFP7TObjectl(p, arg0, 0);
     }
-    *(s32 *)((s8 *)arg0 + 0x28) = get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(arg0, 0);
-    *(s32 *)((s8 *)arg0 + 0x30) = get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(arg0, 0, -1, 0);
+    *(s32 *)((s8 *)arg0 + 0x28) = (s32)get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii((s32)arg0, (s32)(0));
+    *(s32 *)((s8 *)arg0 + 0x30) = get_or_create_player__22TAdMultiPlyChrSelectGCFiiii((s32)arg0, (s32)(0), (s32)(-1), (s32)(0));
     p = __nw__7TObjectFUl(0x44);
     if (p != NULL) {
         p = __ct__13TAdGuideTxtGCFv(p, arg0);

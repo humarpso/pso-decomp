@@ -37,7 +37,7 @@ extern "C" {
 s16 obj_getField1c(Obj_80116004 *);
 f32 horizontal_distance_squared(void *, void *);
 s32 sub_801A1DDC__10TObjPlayerFv(void *);
-Obj_80116004 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 void send_nearby_player_ids(Obj_80116004 *self, f32 range);
 u8 get_field_ed__5TItemFv(void *);
 s32 TItemObject__sub_80115DE8(void *item);
@@ -183,7 +183,7 @@ void send_nearby_player_ids(Obj_80116004 *self, f32 range) {
         ((TObjPlayer *)(&msg))->set_type_bytes();
         j = 0;
         for (i = 0; i != 4; i++) {
-            pl = get_player_by_client_id(i);
+            pl = (Obj_80116004 *)get_player_by_client_id(i);
             if (pl != NULL) {
                 if (horizontal_distance_squared(self->pos, pl->pos) < range) {
                     msg.ids[j++] = obj_getField1c(pl);

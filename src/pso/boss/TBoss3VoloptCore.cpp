@@ -134,8 +134,8 @@ s32 minimap_render_dot(void *, s32, s32, s32);
 s32 play_persistent_sound(s32, void *, void *, s32, s32);
 extern s32 vol_opt_active_hit_zone;
 void TObjPlayer__sub_8003F9D4(void *arg0_);
-s32 TBoss3Volopt__sub_8004885C(void *, void *, int, int, void *, f32, f32);
-u32 get_player_by_client_id(int);
+u8 *TBoss3Volopt__sub_8004885C(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4, f32 farg0, f32 farg1);
+void *get_player_by_client_id(s32 i);
 void * __nw__7TObjectFUl(int);
 s32 vec3_add_to(void *, void *);
 s32 subtract_vector(void *, void *);
@@ -1177,7 +1177,7 @@ void TObjPlayer__sub_800401CC(u8 *arg0) {
     f32 temp_f31;
     u32 temp_r4;
     void *obj;
-    *(u32 *)((s8 *)arg0 + 0x2A8) = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x338));
+    *(u32 *)((s8 *)arg0 + 0x2A8) = (u32)get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x338));
     switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0x388) &= ~0x10000;
@@ -1205,7 +1205,7 @@ void TObjPlayer__sub_800401CC(u8 *arg0) {
             sp8.c = 0x4000;
             obj = __nw__7TObjectFUl(0x48);
             if (obj != 0) {
-                TBoss3Volopt__sub_8004885C(obj, (u8 *)volopt_slot_positions + *(s32 *)((s8 *)arg0 + 0x3A8) * 0xC, 0x11B, 8, &sp8, lbl_805D86DC, lbl_805D86D0);
+                TBoss3Volopt__sub_8004885C((u8 *)obj, (u8 *)((u8 *)volopt_slot_positions + *(s32 *)((s8 *)arg0 + 0x3A8) * 0xC), (s32)(0x11B), (s32)(8), (u8 *)&sp8, (f32)lbl_805D86DC, (f32)lbl_805D86D0);
             }
         }
         break;

@@ -53,7 +53,7 @@ extern "C" {
 u32 get_item_field_6__10TObjPlayerFPv(void *);
 s32 get_shared_text_buffer();
 s32 weapon_has_extra_attack();
-u8 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 u8 get_cast_technique_level(void *, s16);
 s32 validate_and_clear_slot__10TObjPlayerFv(void *, s16);
 void TWindowSubStatusDisp__sub_80228F5C(s32);
@@ -63,7 +63,7 @@ u8 *calc_technique_parameters(u16, u8, s32);
 s32 get_palette_consumable_count(u16, s32);
 extern s32 current_language;
 void *alloc__23TAdSinglePlyChrSelectGCFv(u32);
-void TWindowMenu__ct(void *, s32, s32, void *);
+u8 *TWindowMenu__ct(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 void *init__21TWindowSubComCardListFiii(void *, s32, s8, s32);
 s32 TWindowSubComCardList__sub_80275360(void *);
 extern s32 __vt__21TWindowSubComCardList[];
@@ -78,7 +78,7 @@ u8 *TWindowSubComCardList__sub_802757AC(u8 *arg0, void *arg1, s32 arg2, s32 arg3
 void *__nw__7TObjectFUl(u32);
 void TWindow__close(u8 *arg0);
 s32 set_field_1c__6TLobbyFf(void *);
-s32 TWindowSubEquip__sub_80263AF8(void *, s32);
+f32 TWindowSubEquip__sub_80263AF8(u8 *arg0, u32 arg1);
 Ev_802758C8 *calc_equip_index__21TWindowSubCustomEquipFv(void *);
 void *__dt__21TWindowSubComCardListFv(void *arg0, s16 arg1);
 void render__21TWindowSubComCardListFv(u8 *arg0);
@@ -131,7 +131,7 @@ void *__dt__21TWindowSubComCardListFv(void *arg0, s16 arg1) {
 u8 *TWindowSubComCardList__ct(u8 *arg0, void *arg1) {
     void *list;
     s32 n;
-    TWindowMenu__ct(arg0, 7, 4, arg1);
+    TWindowMenu__ct(arg0, 7, 4, (s32)arg1);
     *(s32 **)(arg0 + 0x18) = __vt__21TWindowSubComCardList;
     *(s32 *)(arg0 + 0) = TWindowSubComCardList__class_name;
     n = TWindowSubStatusDisp::round_away_from_zero((f32)TWindowSubComCard::count_active_cards() / lbl_805DD540);
@@ -158,7 +158,7 @@ u8 *TWindowSubComCardList__ct(u8 *arg0, void *arg1) {
 u8 *TWindowSubComCardList__sub_802757AC(u8 *arg0, void *arg1, s32 arg2, s32 arg3, s8 arg4) {
     void *list;
     s32 n;
-    TWindowMenu__ct(arg0, 7, 4, arg1);
+    TWindowMenu__ct(arg0, 7, 4, (s32)arg1);
     *(s32 **)(arg0 + 0x18) = __vt__21TWindowSubComCardList;
     *(s32 *)(arg0 + 0) = TWindowSubComCardList__class_name;
     n = TWindowSubStatusDisp::round_away_from_zero((f32)count_leading_active__17TWindowSubComCardFPvi(arg2, arg3) / lbl_805DD540);
@@ -191,7 +191,7 @@ void TUnk_804D1160::update_customize_help_text(void *ev_arg) {
     if (ev == NULL) {
         return;
     }
-    pl = get_player_by_client_id(self->player);
+    pl = (u8 *)get_player_by_client_id(self->player);
     if (pl == NULL) {
         return;
     }
@@ -275,7 +275,7 @@ void TUnk_804D1160::run_task() {
             p = TWindowSubCustomSelect__ct((u8 *)p, self->f20);
         }
         self->f2c = p;
-        TWindowSubEquip__sub_80263AF8(self->f24, 1);
+        TWindowSubEquip__sub_80263AF8((u8 *)self->f24, 1);
         set_field_1c__6TLobbyFf(self->f2c);
         self->state = 4;
     case 4:

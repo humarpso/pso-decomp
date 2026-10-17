@@ -76,7 +76,7 @@ extern void *TODoorAncient01__texture_lists;
 extern const f32 lbl_805DB3E8;
 u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
 void *mem_alloc(u32 size);
-s32 load_gvm_texture_file(void *);
+u8 *load_gvm_texture_file(s32 arg0);
 extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_804409EC;
 extern RecoveredGlobal_8016BC84_lbl_804B2B30 bm_fe_obj_o_door01l_resource_descriptor;
 extern u32 TODoorAncient01__shared_resource;
@@ -197,7 +197,7 @@ void TODoorAncient01::load_assets() {
     temp_r3_2 = (s32 *)(mem_alloc(8));
     (*(s32 * *)&TODoorAncient01__texture_lists) = temp_r3_2;
     *temp_r3_2 = *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODoorAncient01__shared_resource) + 0x42C)) + 0xC);
-    *(s32 *)((s8 *)(*(s32 * *)&TODoorAncient01__texture_lists) + 4) = load_gvm_texture_file((void *) (&lbl_804409EC.value));
+    *(s32 *)((s8 *)(*(s32 * *)&TODoorAncient01__texture_lists) + 4) = (s32)load_gvm_texture_file((s32)(&lbl_804409EC.value));
 }
 typedef char RecoveredGlobal_8016BF68_lbl_80441B4C_size[sizeof(RecoveredGlobal_8016BF68_lbl_80441B4C) == 0x90 ? 1 : -1];
 typedef char RecoveredGlobal_8016C010_lbl_80441B4C_size[sizeof(RecoveredGlobal_8016C010_lbl_80441B4C) == 0x90 ? 1 : -1];

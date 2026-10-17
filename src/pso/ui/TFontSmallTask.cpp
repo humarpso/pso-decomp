@@ -47,7 +47,7 @@ s32 create_font_small_task(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 *arg4, s3
 s32 create_font_small_task_default_color(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 *arg4, s32 arg5);
 void fn_800FCCC8(s32 arg0, s32 arg1);
 s32 fn_800FCCF4(void* p);
-s32 get_shared_text_buffer();
+s32 *get_shared_text_buffer(void);
 void TWindowSubStatusDisp__sub_80228F5C(s32 arg0);
 void text_builder_append(u8 *str);
 void text_builder_reset(void);
@@ -266,7 +266,7 @@ s32 TObjEneEpsilonGuard::create_damage_font(s32 arg0, s32 arg1, s32 arg2, s32 ar
     TWindowSubStatusDisp__sub_80228F5C(arg3);
     var_r31 = __nw__7TObjectFUl(0x58);
     if (var_r31 != 0) {
-        var_r31 = ((s32 (*)(s32, s32, s32, s32, s32, s32, s32))__ct__14TFontSmallTaskFv)(var_r31, arg0, arg1, arg2, 0, get_shared_text_buffer(), 0xFFFF);
+        var_r31 = ((s32 (*)(s32, s32, s32, s32, s32, s32, s32))__ct__14TFontSmallTaskFv)(var_r31, arg0, arg1, arg2, 0, (s32)get_shared_text_buffer(), 0xFFFF);
     }
     return var_r31;
 }
@@ -278,7 +278,7 @@ s32 TOCtrlDubchik::create_font(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     text_builder_append((u8 *)arg3);
     var_r31 = __nw__7TObjectFUl(0x58);
     if (var_r31 != 0) {
-        var_r31 = ((s32 (*)(s32, s32, s32, s32, s32, s32, s32))__ct__14TFontSmallTaskFv)(var_r31, arg0, arg1, arg2, 0, get_shared_text_buffer(), 0xFFFF);
+        var_r31 = ((s32 (*)(s32, s32, s32, s32, s32, s32, s32))__ct__14TFontSmallTaskFv)(var_r31, arg0, arg1, arg2, 0, (s32)get_shared_text_buffer(), 0xFFFF);
     }
     return var_r31;
 }

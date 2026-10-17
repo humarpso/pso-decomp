@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/TODummyKeyCave01Sound.h"
 #include "pso/system/ChunkMaterialState.h"
 #include "pso/system/GinjaMaterial.h"
 #include "pso/unk/text_803D853C.h"
@@ -68,7 +69,6 @@ s32 post_translate_matrix(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-s32 TODummyKeyCave01Sound__ct(void *, void *, s32, s32);
 u8 is_current_floor_switch_set(u16);
 void *__nw__7TObjectFUl(int);
 void __dl__7TObjectFPv(void *);
@@ -135,7 +135,7 @@ void TODummyKeyCave01::run_task() {
             if (skip == 0) {
                 o = __nw__7TObjectFUl(0x24);
                 if (o != NULL) {
-                    TODummyKeyCave01Sound__ct(o, self, self->fC0, self->fC8);
+                    TODummyKeyCave01Sound__ct((void *)o, (s32)self, (s32)self->fC0, (s32)self->fC8);
                 }
             }
         }

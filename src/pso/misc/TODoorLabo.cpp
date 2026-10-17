@@ -81,7 +81,7 @@ extern const f32 lbl_805DDDBC;
 extern const f32 lbl_805DDDC0;
 Self_8029F7E0 *TODoorLaboNormal__ct(Self_8029F7E0 *self);
 s32 load_resource_from_descriptor(s32, int, void *, int, int, int);
-s32 load_gvm_texture_file(void *);
+u8 *load_gvm_texture_file(s32 arg0);
 extern u8 lbl_80466040[];
 extern u8 lbl_8046605C[];
 
@@ -170,8 +170,8 @@ void TODoorLabo::load_resources() {
         r = load_resource_from_descriptor(r, 5, &labo_door_resource_descriptor_2, 0, 0, 0);
     }
     (*(s32 *)&TODoorLabo__model_archive) = r;
-    (*(s32 *)&TODoorLaboNormal__green_texture_list) = load_gvm_texture_file(lbl_80466040);
-    (*(s32 *)&TODoorLaboNormal__red_texture_list) = load_gvm_texture_file(lbl_8046605C);
+    (*(s32 *)&TODoorLaboNormal__green_texture_list) = (s32)load_gvm_texture_file((s32)lbl_80466040);
+    (*(s32 *)&TODoorLaboNormal__red_texture_list) = (s32)load_gvm_texture_file((s32)lbl_8046605C);
 }
 
 void TODoorLabo::init_model_by_type() {
@@ -261,8 +261,8 @@ void load_labo_door_resources(void) {
         r = load_resource_from_descriptor(r, 5, &labo_door_resource_descriptor, 0, 0, 0);
     }
     TODoorLabo__bml_resource = r;
-    TODoorLabo__green_texture_list = load_gvm_texture_file(lbl_80466074);
-    labo_door_red_textures = load_gvm_texture_file(lbl_80466090);
+    TODoorLabo__green_texture_list = (s32)load_gvm_texture_file((s32)lbl_80466074);
+    labo_door_red_textures = (s32)load_gvm_texture_file((s32)lbl_80466090);
 }
 
 extern s32 seabed_four_light_door_textures;
@@ -374,8 +374,8 @@ void TLanguage__sub_8029FF0C(void) {
             var_r0 = load_resource_from_descriptor(var_r0, (int) (5), (void *) (bm_o_door_seabed01_u_resource_descriptor), (int) (0), (int) (0), (int) (0));
         }
         seabed_four_light_door_bml_resource = var_r0;
-        seabed_four_light_door_textures = load_gvm_texture_file((void *) (lbl_804660AC));
-        TODoorFourLightSeabedU__texture_list = load_gvm_texture_file((void *) (lbl_804660C8));
+        seabed_four_light_door_textures = (s32)load_gvm_texture_file((s32)(lbl_804660AC));
+        TODoorFourLightSeabedU__texture_list = (s32)load_gvm_texture_file((s32)(lbl_804660C8));
         return;
     case 29:
         var_r0_2 = ((TAdSinglePlyChrSelectGC *)0x440)->alloc();
@@ -383,8 +383,8 @@ void TLanguage__sub_8029FF0C(void) {
             var_r0_2 = load_resource_from_descriptor(var_r0_2, (int) (5), (void *) (bm_o_door_seabed01_u_resource_descriptor), (int) (0), (int) (0), (int) (0));
         }
         seabed_four_light_door_bml_resource = var_r0_2;
-        seabed_four_light_door_textures = load_gvm_texture_file((void *) (lbl_804660DC));
-        TODoorFourLightSeabedU__texture_list = load_gvm_texture_file((void *) (lbl_804660FC));
+        seabed_four_light_door_textures = (s32)load_gvm_texture_file((s32)(lbl_804660DC));
+        TODoorFourLightSeabedU__texture_list = (s32)load_gvm_texture_file((s32)(lbl_804660FC));
         return;
     }
 }

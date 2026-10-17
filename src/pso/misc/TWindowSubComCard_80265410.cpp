@@ -100,7 +100,7 @@ typedef char RecoveredGlobal_80266B30_lbl_8050E208_size[sizeof(RecoveredGlobal_8
 
 u32 alloc__23TAdSinglePlyChrSelectGCFv(int, f32, f32);
 void mem_free(void *);
-u8 * mem_alloc(s32);
+void *mem_alloc(u32 size);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 Ent_80265C30 * get_array_entry__13TUnk_804CE018Fi(void *w, s32 i);
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -109,7 +109,7 @@ s32 __nw__7TObjectFUl(int);
 s32 get_draw_context__11TWindowBaseFPv();
 s32 construct_with_parent__13TUnk_804CDFE8FPv(void *, void *, s16, s32);
 void * get_field_20__17TWindowSubComCardFv(void *e);
-s32 draw_selection_bar(s32, u16 *, s32);
+void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2);
 s32 draw_window_frame(void *, s32);
 void refresh_status_display__9TWindowDDFv(void *);
 void TWindowChat__sub_80247D2C(void *p);
@@ -736,7 +736,7 @@ void TWindowMenu::draw_selected_bar(u8 *arg1) {
         if (temp_r4 >= 0) {
             temp_r3 = (u16 *)(((s32)((u16 * (*)(void *, int))get_array_entry__13TUnk_804CE018Fi)(((u8 *)this), (s32) temp_r4)));
             if (*temp_r3 & 1) {
-                draw_selection_bar((s32)(arg1), (u16 *)(temp_r3), (s32)(1));
+                draw_selection_bar((arg1), (u8 *)((u16 *)(temp_r3)), (1));
             }
         }
     }
@@ -747,7 +747,7 @@ void TWindowMenu::render_selected_entry(s32 arg1) {
 
     temp_r3 = ((u16 * (*)(void *, int))get_array_entry__13TUnk_804CE018Fi)(this, *(s16 *)&this->m_78);
     if (*temp_r3 & 1) {
-        draw_selection_bar(arg1, temp_r3, is_visible());
+        draw_selection_bar((u8 *)arg1, (u8 *)temp_r3, is_visible());
     }
 }
 
@@ -851,7 +851,7 @@ u8 *TWindowMenu__ct(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     *(s16 *)(arg0 + 0x70) = 0;
     *(s16 *)(arg0 + 0x20) = arg2;
     ((TWindowMenu *)arg0)->reset_selection();
-    *(u8 **)(arg0 + 0x80) = mem_alloc(arg1 * 8);
+    *(u8 **)(arg0 + 0x80) = (u8 *)mem_alloc(arg1 * 8);
     p = *(u8 **)(arg0 + 0x80);
     for (i = 0; i < arg1; i++) {
         *(s32 *)p = 0;

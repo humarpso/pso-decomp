@@ -79,7 +79,7 @@ extern const f32 lbl_805E01CC;
 extern const f32 lbl_805E01D4;
 f32 receive_direct_attack__10TObjPlayerFv(void *, s32, Msg_8035DD18, void *, s32, s32);
 f32 TObjEneEpsilonGuard__vt21(s32 arg0, s32 arg1, Msg_8035DD18 *msg, void *arg3, s32 arg4, s32 arg5);
-Pl_8035D924 *get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
 extern const f32 lbl_805E01D0;
@@ -104,7 +104,7 @@ void TBoss6DPB::apply_shower_damage_to_players() {
     s32 power;
     n = TLobby::get_game_mode();
     for (i = 0; i < n; i++) {
-        pl = get_player_data__10TObjPlayerFi(i);
+        pl = (Pl_8035D924 *)get_player_data__10TObjPlayerFi(i);
         if (((TBoss6PlotFalz *)pl)->is_active() != 0) {
             VecCopy((Vec *)&v, (const Vec *)((u8 *)pl + 0x38));
             subtract_vector(&v, &arg0->pos);

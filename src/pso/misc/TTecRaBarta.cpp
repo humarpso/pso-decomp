@@ -152,10 +152,9 @@ void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target);
 void *__nw__7TObjectFUl(u32);
 void *get_bml_motion(void *, int);
 void *get_bml_model(void *, int);
-void attach_particle_model(void *, void *, void *, int, int, f32);
-#define attach_particle_model ((void (*)(void *, void *, void *, void *, int, f32))attach_particle_model)
+void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 
-void **mem_alloc(int);
+void *mem_alloc(u32 size);
 extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
 s32 is_technique_ready__8TTecCtrlFv();
@@ -197,7 +196,7 @@ void TTecRaBarta::vfunc_8(void *pos) {
   u32 i;
   Vec_80237494 point;
   Emitter_80237494 *binding;
-  self->emitters = mem_alloc(rabarta_band_emitter_table[self->band].count * 4);
+  self->emitters = (void **)mem_alloc(rabarta_band_emitter_table[self->band].count * 4);
   for (i = 0; i < rabarta_band_emitter_table[self->band].count; i++)
   {
     VecCopy((Vec *)&point, (const Vec *)(self->source + 0x38));
@@ -217,7 +216,7 @@ void TTecRaBarta::vfunc_8(void *pos) {
       if (self && self)
       {
       }
-      attach_particle_model(self->emitters[i], get_bml_model(technique_effect_bml, mid), lbl_805D63B0, 0, 0, (1.0f));
+      attach_particle_model((u8 *)self->emitters[i], (s32)(get_bml_model(technique_effect_bml, mid)), (s32)lbl_805D63B0, (s32)(0), (s32)(0), (f32)(1.0f));
     }
   }
   if (self->band == 5)
@@ -240,7 +239,7 @@ void TTecRaBarta::vfunc_8(void *pos) {
     id = b2->flags >> 16;
     if (emitter != 0)
     {
-      attach_particle_model(emitter, get_bml_model(technique_effect_bml, id), lbl_805D63B0, get_bml_motion(technique_effect_bml, 1), 0, (1.0f));
+      attach_particle_model((u8 *)emitter, (s32)(get_bml_model(technique_effect_bml, id)), (s32)lbl_805D63B0, (s32)(get_bml_motion(technique_effect_bml, 1)), (s32)(0), (f32)(1.0f));
     }
   }
 }
@@ -326,8 +325,6 @@ void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target) {
 
 }
 
-#undef attach_particle_model
-
 #define TTecRaBarta_class_name ((u32)TTecRaBarta_class_name)
 #define __nw__7TObjectFUl ((void * (*)(int))__nw__7TObjectFUl)
 #define rabarta_band_emitter_table ((struct Profile_80237A94 *)rabarta_band_emitter_table)
@@ -394,10 +391,10 @@ struct Self_80237BD8 {
 };
 
 extern "C" {
-u32 find_entity_by_id(int);
+void *find_entity_by_id(u16 id);
 s32 apply_technique_to_area_targets__13TUnk_804CC148Fv(void *, int);
 
-void construct_area_technique_base(void *, void *, void *, void *, void *);
+u8 *construct_area_technique_base(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 
 extern s32 __vt__11TTecRaBarta[];
 struct Profile_80237A94 { void *entries; u32 count; };
@@ -464,7 +461,7 @@ void TTecRaBarta::run_task() {
         queue_destruction__7TObjectFv((arg0));
         return;
     }
-    this->source = find_entity_by_id((int) (this->m_b4));
+    this->source = (u32)find_entity_by_id((this->m_b4));
     if ((u32) this->source == 0U) {
         queue_destruction__7TObjectFv((arg0));
         return;
@@ -485,7 +482,7 @@ struct Vec_80237DAC;
 void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *level) {
     s32 i;
     typedef Vec_80237DAC *(*VecCopyFn_80237BD8)(void *, void *);
-    construct_area_technique_base(self_, source, origin, pos, level);
+    construct_area_technique_base((u8 *)self_, (s32)source, (s32)origin, (s32)pos, (s32)level);
     self->vt = __vt__11TTecRaBarta;
     self->f0 = TTecRaBarta_class_name;
     calc_parameters__11TTecRaBartaFv(self);
@@ -510,7 +507,7 @@ void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *
 
 void *TTecRaBarta::construct_area(void *source, void *origin, void *level) {
     s32 i;
-    construct_area_technique_base(this, source, origin, origin, level);
+    construct_area_technique_base((u8 *)this, (s32)source, (s32)origin, (s32)origin, (s32)level);
     *(s32 **)((s8 *)this + 0x18) = __vt__11TTecRaBarta;
     *(u32 *)&this->m_name = TTecRaBarta_class_name;
     *(s32 *)&this->m_f0 = 0;

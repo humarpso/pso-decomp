@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8026A93C.h"
 #include "pso/misc/TWindowCtrl_8024ADAC.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/object/TObject_80019A50.h"
@@ -42,7 +43,6 @@ extern const f32 lbl_805DD638;
 extern const f32 lbl_805DD63C;
 extern const f32 lbl_805DD640;
 extern const f32 lbl_805DD644;
-s32 create_message_log_window(void *, void *, void *);
 extern u8 lbl_8044F9C8[];
 extern u8 lbl_8044F9D0[];
 extern s32 __vt__13TWindowSubLog[];
@@ -111,7 +111,7 @@ TWindowSubLog::TWindowSubLog(TObject *arg1, void *arg2) : TObject(arg1) {
     TWindowCtrl__sub_8024ADAC((s32)(((Lg_8027B194 *)this)->f1c));
     fn_8027B288((void*)(((Lg_8027B194 *)this)->f20));
     ((TWindowSubLog *)(((Lg_8027B194 *)this)->f20))->set_flag4c_bit8();
-    ((Lg_8027B194 *)this)->f24 = create_message_log_window(lbl_8044F9C8, lbl_8044F9D0, ((Lg_8027B194 *)this)->f1c);
+    ((Lg_8027B194 *)this)->f24 = (s32)create_message_log_window((s32)lbl_8044F9C8, (s32)lbl_8044F9D0, (s32)(((Lg_8027B194 *)this)->f1c));
     w = new TWindowChat((TObject *)((Lg_8027B194 *)this), (void *)((Lg_8027B194 *)this)->f2c);
     ((Lg_8027B194 *)this)->f28 = w;
     fn_8027B2A8((void*)(((Lg_8027B194 *)this)->f28));

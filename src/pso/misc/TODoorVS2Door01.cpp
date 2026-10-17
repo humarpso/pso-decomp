@@ -83,7 +83,7 @@ struct Door_80163FB4 : VObj_80163FB4 {
 extern "C" {
 u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
 void *mem_alloc(u32 size);
-s32 load_gvm_texture_file(void *);
+u8 *load_gvm_texture_file(s32 arg0);
 extern RecoveredGlobal_80176308_lbl_80442A80 lbl_804410E0;
 extern RecoveredGlobal_80176308_lbl_804B4278 fs_obj_o_vs2door01l_resource_descriptor;
 extern u32 door_vs2_shared_bml_archive;
@@ -268,7 +268,7 @@ void TODoorVS2Door01::load_resources() {
     temp_r3_2 = (s32 *)(mem_alloc(8));
     TODoorVS2Door01__texture_lists = temp_r3_2;
     *(s32 *)((s8 *)temp_r3_2 + 4) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&door_vs2_shared_bml_archive) + 0x42C)) + 0xC);
-    *TODoorVS2Door01__texture_lists = load_gvm_texture_file((void *) (&lbl_804410E0.value));
+    *TODoorVS2Door01__texture_lists = (s32)load_gvm_texture_file((s32)(&lbl_804410E0.value));
 }
 
 void *__dt__15TODoorVS2Door01Fv(void *arg0, s16 arg1) {

@@ -51,7 +51,7 @@ extern const f32 lbl_805DF9B0;
 extern "C" u8 lbl_80477B90[];
 extern "C" u8 lbl_80477BA0[];
 extern "C" u8 lbl_80477BB4[];
-int load_gvm_texture_file(void*);
+u8 *load_gvm_texture_file(s32 arg0);
 s32 TLobby__sub_803DA16C(s32 *);
 int free_if_valid__10TObjPlayerFl(void*);
 
@@ -270,6 +270,6 @@ void TLobby::update_pulse_colors(s32 arg0) {
 void TWindowSubStatusDisp__sub_803386F0(void) { free_if_valid__10TObjPlayerFl((void*)(info_icon_texture)); }
 
     extern unsigned char lbl_80477BD4[];
-void load_info_icon(void) { info_icon_texture = load_gvm_texture_file(lbl_80477BD4); }
+void load_info_icon(void) { info_icon_texture = (int)load_gvm_texture_file((s32)lbl_80477BD4); }
 
 }

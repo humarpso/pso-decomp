@@ -19,7 +19,7 @@ struct Craw_80308F8C {
 };
 
 extern "C" {
-s32 create_particle_emitter(void *, s32);
+void *create_particle_emitter(void *pos, s32 id);
 
 extern const f32 lbl_805DF0F8;
 
@@ -67,7 +67,7 @@ void TBoss7Crawfish::change_state(s32 state) {
         }
         o->f3A4 = 0;
         ((TBoss7Crawfish *)o)->free_child();
-        o->f3CC = create_particle_emitter(o->f38, 0x20B);
+        o->f3CC = (s32)create_particle_emitter(o->f38, 0x20B);
         break;
     case 3:
         ((TBoss7Crawfish *)o)->set_anim_timer(4);

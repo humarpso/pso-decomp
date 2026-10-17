@@ -15,7 +15,7 @@ extern void *lbl_805D395C;
 void *TWindowMakeTeam__sub_80264B38(Obj_80264B38 *o);
 void *TWindowMakeTeam__sub_80264B24(Obj_80264B24 *o);
 void align_menu_entry_positions(s32);
-void forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
+int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(void *, s32);
 extern u8 lbl_8044F300[];
 void init_status_disp__15TWindowMakeTeamFc(s8 arg0);
@@ -91,12 +91,12 @@ s32 TWindowMakeTeam::create_status_menu_window() {
     s32 r;
     s32 m;
     r = check_room_seq_4__16TAdChrSelASlotGCFl(lbl_8044F308, 4);
-    forward_trade_action_default__16TObjCityMainWarpFPviii(r, STATUS(0), 6, 0);
-    forward_trade_action_default__16TObjCityMainWarpFPviii(r, STATUS(1), 6, 1);
-    forward_trade_action_default__16TObjCityMainWarpFPviii(r, STATUS(2), 6, 2);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)r, (int)(STATUS(0)), (int)(6), (int)(0));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)r, (int)(STATUS(1)), (int)(6), (int)(1));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)r, (int)(STATUS(2)), (int)(6), (int)(2));
     m = *(s32 *)(arg0 + 0x20);
     if (m == 1 || m == 2) {
-        forward_trade_action_default__16TObjCityMainWarpFPviii(r, STATUS(3), 6, 3);
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)r, (int)(STATUS(3)), (int)(6), (int)(3));
     }
     ((TWindowSubComCard *)r)->calc_window_size();
     align_menu_entry_positions(r);
@@ -108,9 +108,9 @@ s32 TWindowMakeTeam::create_entry_menu_window() {
     u8 *arg0 = (u8 *)this;
     s32 r;
     r = check_room_seq_4__16TAdChrSelASlotGCFl(lbl_8044F300, 3);
-    forward_trade_action_default__16TObjCityMainWarpFPviii(r, TWindowMakeTeam::draw_entry_0x110(0), 6, 0);
-    forward_trade_action_default__16TObjCityMainWarpFPviii(r, TWindowMakeTeam::draw_entry_0x110(1), 6, 1);
-    forward_trade_action_default__16TObjCityMainWarpFPviii(r, TWindowMakeTeam::draw_entry_0x110(2), 6, 2);
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)r, (int)(TWindowMakeTeam::draw_entry_0x110(0)), (int)(6), (int)(0));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)r, (int)(TWindowMakeTeam::draw_entry_0x110(1)), (int)(6), (int)(1));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((void *)r, (int)(TWindowMakeTeam::draw_entry_0x110(2)), (int)(6), (int)(2));
     ((TWindowSubComCard *)r)->calc_window_size();
     align_menu_entry_positions(r);
     ((TWindowSubComCardList *)r)->set_selected_index(*(s8 *)(arg0 + 0x1E));

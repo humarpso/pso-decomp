@@ -9,7 +9,7 @@ struct RecoveredGlobal_803655F8___vt__15TObjIllGillKage { s32 value; u8 remainin
 typedef char RecoveredGlobal_803655F8___vt__15TObjIllGillKage_size[sizeof(RecoveredGlobal_803655F8___vt__15TObjIllGillKage) == 0x34 ? 1 : -1];
 
 extern "C" {
-s32 play_persistent_sound(int, void *, void *, int, int);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 u16 obj_getField1c(void *);
 int queue_destruction__7TObjectFv(void*);
 s32 construct_world_actor_base(void *);
@@ -18,7 +18,7 @@ extern s32 lbl_805D44AC;
 u8 *TObjIllGillKage__ct(u8 *arg0, s32 arg1, u32 arg2);
 void *__dt__15TObjIllGillKageFv(void *arg0, s16 arg1);
 s32 is_locally_controlled__10TObjPlayerFPv();
-s32 get_player_by_client_id(u16);
+void *get_player_by_client_id(s32 i);
 void __dl__7TObjectFPv(void *);
 s32 obj_testFlags30(s32, s32);
 
@@ -26,7 +26,7 @@ int TObjIllGillKage::queue_destruction() { return queue_destruction__7TObjectFv(
 
 void TObjIllGillKage::tick_persistent_sound() {
     s32 temp_r3;
-    play_persistent_sound((int) (0x4003A357), (void *) (((u8 *)this)), (void *) (((u8 *)this) + 0x38), (int) (0), (int) (0));
+    play_persistent_sound((s32)(0x4003A357), (s32)(((u8 *)this)), (u32)(((u8 *)this) + 0x38), (s32)(0), (s32)(0));
     temp_r3 = *(s32 *)&this->m_94;
     *(s32 *)&this->m_94 = (s32) (temp_r3 - 1);
     if (temp_r3 < 0) {
@@ -38,7 +38,7 @@ void TObjIllGillKage::attack_target() {
     s32 temp_r3;
 
     *(s32 *)&this->m_90 = 1;
-    temp_r3 = get_player_by_client_id(this->m_98);
+    temp_r3 = (s32)get_player_by_client_id(this->m_98);
     if ((temp_r3 != 0) && (is_locally_controlled__10TObjPlayerFPv() != 0) && (((TObject *)temp_r3)->all_parents_unqueued_for_destruction() != 0) && (obj_testFlags30(temp_r3, 0x800) == 0)) {
         TObjPlayer::play_effect(temp_r3, *(s32 *)&this->m_94, 3);
     }

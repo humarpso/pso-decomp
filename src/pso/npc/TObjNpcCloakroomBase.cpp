@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcConnoisseur.h"
 #include "pso/npc/TUnk_804A8640.h"
 #include "pso/npc/TObjNpcCloakroomBase.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -109,7 +110,6 @@ extern s32 TObjNpcCloakroomBase__name;
 s32 play_sound_effect(s32, s32, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
-void *TObjNpcConnoisseur__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -195,7 +195,7 @@ void * TObjNpcConnoisseur__create(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x3B8);
     if (o2 != NULL) {
-        o2 = TObjNpcConnoisseur__ct(o2, o, arg0);
+        o2 = TObjNpcConnoisseur__ct((u8 *)o2, (s32)o, (s32)arg0);
     }
     return o2;
 }

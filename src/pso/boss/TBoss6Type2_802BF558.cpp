@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/boss/TBoss6Type2_802BF558.h"
 #include "pso/unk/text_80087278.h"
 #include "pso/boss/TBoss6Type2.h"
@@ -24,7 +25,6 @@ s32 TBoss6Type2__sub_802BA944(void *);
 s32 TBoss6Type2__sub_802BA9E4();
 int TBoss6Type2__sub_802BB694(void);
 s32 TBoss6Type2__sub_802BB768();
-s32 play_persistent_sound(int, void *, void *, int, int);
 
 extern "C" {
 
@@ -197,7 +197,7 @@ void TBoss6Type2::init_timer_and_play_sound() {
 void TBoss6Type2__sub_802BFA1C(u8 *arg0) {
     s32 temp_r0;
 
-    play_persistent_sound((int) (0x4006A612), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (1));
+    play_persistent_sound((s32)(0x4006A612), (s32)(arg0), (u32)(arg0 + 0x38), (s32)(0), (s32)(1));
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x460) - 1;
     *(s32 *)((s8 *)arg0 + 0x460) = temp_r0;
     if (temp_r0 < 0) {

@@ -34,10 +34,10 @@ struct Res_801AC808 { u8 pad[0x18]; s32 f18; s32 f1C; };
 struct Game_801AC808 { u8 pad[0x42C]; Res_801AC808 *res; s32 f430; };
 
 extern "C" {
-u8 *find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 s32 spawn_photon_blast_attachment_effects(void *, int);
 void sub_801AC444__13TPhotonLeillaFv(void *, u8);
-void construct_photon_magic_square_normal(void *, void *, s32, void *, s32);
+u8 *construct_photon_magic_square_normal(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void TPhotonRainbow__ct(void *, void *, void *, s32);
 u8 *__nw__7TObjectFUl(s32, f32);
 extern u8 lbl_80446DF8[];
@@ -58,7 +58,7 @@ void *TPhotonLeilla__ct(Leilla_801AC808 *self, Pkt_801AC808 *pkt) {
     F_801AC808(self, s32, 0x138) = 4;
     VecCopy((Vec *)&self->pos, (const Vec *)pkt);
     F_801AC808(self, u16, 0x17C) = pkt->owner;
-    owner = find_entity_by_id(F_801AC808(self, u16, 0x17C));
+    owner = (u8 *)find_entity_by_id(F_801AC808(self, u16, 0x17C));
     if (owner != NULL) {
         F_801AC808(self, s32, 0x60) = F_801AC808(owner, s32, 0x60);
     }
@@ -104,14 +104,14 @@ void *TPhotonLeilla__ct(Leilla_801AC808 *self, Pkt_801AC808 *pkt) {
         F_801AC808(self, s32, 0x194) = 1;
         F_801AC808(self, s16, 0x190) = 0;
         F_801AC808(self, s32, 0x19C) = 1;
-        owner = find_entity_by_id(F_801AC808(self, u16, 0x17C));
+        owner = (u8 *)find_entity_by_id(F_801AC808(self, u16, 0x17C));
         if (owner != NULL) {
             VecCopy((Vec *)&v, (const Vec *)(owner + 0x38));
         }
         v.y = v.y + lbl_805DC1C4;
         o = NEW_801AC808(0xD0);
         if (o != NULL) {
-            construct_photon_magic_square_normal(o, self, 4, &v, 0x78);
+            construct_photon_magic_square_normal((u8 *)o, (s32)self, (s32)(4), (s32)&v, (s32)(0x78));
         }
         spawn_photon_blast_attachment_effects(self, 4);
         play_cue_stream_file((s32)lbl_80446DF8);

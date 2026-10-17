@@ -55,10 +55,10 @@ extern RecoveredGlobal_802FE378_lbl_80474B80 lbl_80474B80;
 extern s32 __vt__21TBoss8DragonEffBullet[];
 extern s32 TBoss8DragonEffBullet__name;
 extern const f32 lbl_805DEF04;
-s32 spawn_particle_effect_with_flags(void *, void *, int);
-u8 * spawn_continuous_particle_effect_with_flags(void *, s32, s32);
-s32 get_enemy_entity(int);
-s32 TBoss8Dragon__sub_802FB220(int, void *, int);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
+void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
+u8 *get_enemy_entity(u16 arg0);
+void TBoss8Dragon__sub_802FB220(void *o, int x, u32 a);
 extern const f32 lbl_805DEF00;
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -93,10 +93,10 @@ void TBoss8DragonEffBullet::run_task() {
         arg0->field_20 += arg0->field_2C * var_f2;
         arg0->field_24 += arg0->field_30 * var_f2;
         if ((u8 *) arg0->field_4C == NULL) {
-            arg0->field_4C = spawn_continuous_particle_effect_with_flags(&arg0->field_1C, *(s32 *)((s8 *)arg0->field_54 + 0), 0x40);
+            arg0->field_4C = (u8 *)spawn_continuous_particle_effect_with_flags(&arg0->field_1C, *(s32 *)((s8 *)arg0->field_54 + 0), 0x40);
         }
         if (((s32) arg0->field_44 == 3) && ((u8 *) arg0->field_50 == NULL)) {
-            arg0->field_50 = spawn_continuous_particle_effect_with_flags(&arg0->field_1C, 0x204, 0x40);
+            arg0->field_50 = (u8 *)spawn_continuous_particle_effect_with_flags(&arg0->field_1C, 0x204, 0x40);
         }
         temp_r3 = (u8 *)(arg0->field_4C);
         if (temp_r3 != NULL) {
@@ -110,7 +110,7 @@ void TBoss8DragonEffBullet::run_task() {
     case 1:
         arg0->field_34 += 1;
         if ((s32) arg0->field_34 == 1) {
-            spawn_particle_effect_with_flags(&arg0->field_1C, *(u8 **)((s8 *)arg0->field_54 + 4), 0x40);
+            spawn_particle_effect_with_flags((void *)&arg0->field_1C, (s32)(*(u8 **)((s8 *)arg0->field_54 + 4)), (s32)(0x40));
             temp_r3_3 = (u8 *)(arg0->field_50);
             if (temp_r3_3 != NULL) {
                 queue_destruction__7TObjectFv(temp_r3_3);
@@ -122,10 +122,10 @@ void TBoss8DragonEffBullet::run_task() {
                 arg0->field_4C = NULL;
             }
             play_sound_effect(0x4003AD0C, &arg0->field_1C, 0, 0);
-            TBoss8Dragon__sub_802FB220(get_enemy_entity((s32) arg0->field_48), &arg0->field_1C, arg0->field_44);
+            TBoss8Dragon__sub_802FB220(get_enemy_entity((u16)arg0->field_48), (int)&arg0->field_1C, arg0->field_44);
         }
         if ((s32) arg0->field_34 <= 2) {
-            spawn_particle_effect_with_flags(&arg0->field_1C, *(u8 **)((s8 *)arg0->field_54 + 8), 0x40);
+            spawn_particle_effect_with_flags((void *)&arg0->field_1C, (s32)(*(u8 **)((s8 *)arg0->field_54 + 8)), (s32)(0x40));
             return;
         }
         arg0->field_38 = 2;

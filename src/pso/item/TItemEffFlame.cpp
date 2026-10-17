@@ -12,7 +12,7 @@ struct Rec_80108D6C { u8 pad0[0x1C]; Vec_80108D6C pos; u8 pad28[0x4]; };
 struct Photon_80108D6C { u8 pad0[0xA4]; Rec_80108D6C *recs; };
 struct Flame_80108D6C { u8 pad0[0x1C]; void *m_1c; u16 m_20; u8 pad22[2]; s32 m_24; };
 
-Photon_80108D6C *find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 s32 rand();
 extern const f32 lbl_805DAB20;
 extern const f32 lbl_805DAB24;
@@ -24,7 +24,7 @@ void TItemEffFlame::run_task() {
     if (self->m_1c == NULL) {
         return;
     }
-    p = find_entity_by_id(self->m_20);
+    p = (Photon_80108D6C *)find_entity_by_id(self->m_20);
     if (p == NULL) {
         return;
     }

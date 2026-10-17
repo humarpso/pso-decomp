@@ -99,7 +99,7 @@ u8 *run_item_count_update__9TItemListFv(void *);
 extern s32 item_drop_search_task_vtable[];
 u8 *TItemList__sub_801D39C8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, s32 arg4, s8 arg5);
 extern s32 placement_search_task_vtable[];
-Actor_801D3E20 *get_player_data__10TObjPlayerFi(s32 i);
+int get_player_data__10TObjPlayerFi(int a0);
 f32 horizontal_distance_squared(void *, void *);
 void *refresh_actor_body_spheres(Body_801D3E20, Body_801D3E20);
 extern const f32 lbl_805DC3D0;
@@ -115,7 +115,7 @@ s32 TItemList__sub_801D58DC(void *);
 void TItemList__sub_801D591C(void *);
 void run_item_drop_search_task(u8 *arg0);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
-Ground_801D3C38 *csnVecterUnder(Vec_801D3E20 *, s32);
+s32 *csnVecterUnder(s32 origin, s32 mask);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -125,8 +125,8 @@ extern const f32 lbl_805DC3CC;
 void * TItemList__sub_801D3B00(void *arg0, void *arg1, void *arg2, s8 arg3);
 void *__dt__13TUnk_804C4480Fv(void *arg0, s16 arg1);
 void *__dt__13TUnk_804C4498Fv(void *arg0, s16 arg1);
-s32 decrement_placement_search_pending(void *, s32);
-s32 clear_placement_search_slot(void *, s32);
+void decrement_placement_search_pending(void *p, void *a1);
+void clear_placement_search_slot(u8 *arg0, s32 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -180,8 +180,8 @@ void *TItemList::create_node(void *arg0, void *arg1, void *arg2, s8 arg3) {
 void *TItemList::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = item_drop_search_task_vtable;
-        clear_placement_search_slot(this, *(s32 *)((s8 *)this + 0x54));
-        decrement_placement_search_pending(this, *(s32 *)((s8 *)this + 0x54));
+        clear_placement_search_slot((u8 *)this, *(s32 *)((s8 *)this + 0x54));
+        decrement_placement_search_pending(this, (void *)(*(s32 *)((s8 *)this + 0x54)));
         __dt__13TUnk_804C4498Fv((void *)(this), (s16)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(this));
@@ -241,8 +241,8 @@ void * TItemList__sub_801D3B00(void *arg0, void *arg1, void *arg2, s8 arg3) {
 void *__dt__13TUnk_804C4480Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = placement_search_task_vtable;
-        clear_placement_search_slot(arg0, *(s32 *)((s8 *)arg0 + 0x54));
-        decrement_placement_search_pending(arg0, *(s32 *)((s8 *)arg0 + 0x54));
+        clear_placement_search_slot((u8 *)arg0, *(s32 *)((s8 *)arg0 + 0x54));
+        decrement_placement_search_pending(arg0, (void *)(*(s32 *)((s8 *)arg0 + 0x54)));
         __dt__13TUnk_804C4498Fv((void *)(arg0), (s16)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(arg0));
@@ -284,7 +284,7 @@ s32 TUnk_804C4498::step_placement_search() {
     s->candidate.x = s->radius * sin_table_lookup(s->angle) + s->origin.x;
     s->candidate.y = s->origin.y;
     s->candidate.z = s->radius * cos_table_lookup(s->angle) + s->origin.z;
-    g = csnVecterUnder(&s->candidate, 0x41);
+    g = (Ground_801D3C38 *)csnVecterUnder((s32)&s->candidate, 0x41);
     if (g == NULL) {
         s->angle += s->step;
         s->sample++;
@@ -312,7 +312,7 @@ void *find_placement_obstruction(void *self, Body_801D3E20 *s) {
     s32 end = TLobby::get_lobby_flag();
     s32 i;
     for (i = TLobby::get_game_mode() + TObjEneDD::get_enemy_count(); i < end; i++) {
-        Actor_801D3E20 *a = get_player_data__10TObjPlayerFi(i);
+        Actor_801D3E20 *a = (Actor_801D3E20 *)get_player_data__10TObjPlayerFi(i);
         if (a != 0 && a->colliders != 0 && !(a->flags & 0x800)) {
             if (lbl_805DC3D0 > horizontal_distance_squared(&s->position, &a->pos)) {
                 Body_801D3E20 b;

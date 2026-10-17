@@ -29,7 +29,7 @@ s32 TQuestVmDownLoadServer__sub_803F0890(void);
 extern s32 quest_download_initialized;
 extern s32 lbl_805D7834;
 void TQuestVmDownLoadServer__sub_803E6ACC(s32 arg0);
-s32 TQuestVmDownLoadServer__sub_803F08E4(void *);
+s32 TQuestVmDownLoadServer__sub_803F08E4(s8 *arg0);
 extern RecoveredGlobal_803E5EFC_lbl_8058DD88 lbl_8058DD88;
 u8 * TQuestVmDownLoadServer__sub_803EE828(void);
 s32 TQuestVmDownLoadServer__sub_803EE2F4(int, void *);
@@ -55,7 +55,7 @@ s32 OSFillFPUContext(s32 *arg0);
 s32 TQuestVmDownLoadServer__sub_803EDF64(s16 *, s32, u16 *, s32 *);
 extern s16 quest_download_text_buffer[0x200];
 s32 TQuestVmDownLoadServer__sub_803EE870(void *, int);
-s32 TQuestVmDownLoadServer__sub_803EAE84(int, int, int);
+void TQuestVmDownLoadServer__sub_803EAE84(s32 arg0, s32 arg1, void *arg2);
 extern char lbl_8047E68C[];
 extern u8 lbl_8058DC48[80];
 extern u8 lbl_8058DC98[80];
@@ -193,7 +193,7 @@ s32 TQuestVmDownLoadServer__sub_803E5990(u8 *arg0) {
         return 0;
     }
     TQuestVmDownLoadServer::latch_slot_value(lbl_805D78F0);
-    TQuestVmDownLoadServer__sub_803EAE84(lbl_805D78F0, lbl_805D78C0, 1);
+    TQuestVmDownLoadServer__sub_803EAE84(lbl_805D78F0, lbl_805D78C0, (void *)(1));
     lbl_805D78EC -= 1;
     TQuestVmDownLoadServer__sub_803EA9E8(lbl_805D78F0, lbl_805D78C0, 1, lbl_805D78EC);
     TQuestVmDownLoadServer__sub_803EC284((int) (0), (int) (1));
@@ -214,7 +214,7 @@ s32 TQuestVmDownLoadServer__sub_803E5A8C(u8 *arg0) {
         return 0;
     }
     TQuestVmDownLoadServer::latch_slot_value(lbl_805D78F0);
-    TQuestVmDownLoadServer__sub_803EAE84(lbl_805D78F0, lbl_805D78C0, 1);
+    TQuestVmDownLoadServer__sub_803EAE84(lbl_805D78F0, lbl_805D78C0, (void *)(1));
     lbl_805D78EC += 1;
     TQuestVmDownLoadServer__sub_803EA9E8(lbl_805D78F0, lbl_805D78C0, 1, lbl_805D78EC);
     TQuestVmDownLoadServer__sub_803EC284((int) (0), (int) (1));
@@ -365,7 +365,7 @@ s32 TQuestVmDownLoadServer::poll_download_status() {
     if ((s32) quest_download_initialized == 0) {
         return -1;
     }
-    if (TQuestVmDownLoadServer__sub_803F08E4((void *) (&lbl_8058DD88.value)) == -7) {
+    if (TQuestVmDownLoadServer__sub_803F08E4((s8 *)(&lbl_8058DD88.value)) == -7) {
         return 1;
     }
     TQuestVmDownLoadServer__sub_803E6ACC((0));

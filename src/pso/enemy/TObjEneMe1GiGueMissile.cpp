@@ -30,7 +30,7 @@ extern s32 __vt__22TObjEneMe1GiGueMissile[];
 extern s32 lbl_805D3F20;
 extern const f32 lbl_805DE6DC;
 u8 *TObjEneMe1GiGueMissile__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0, f32 farg1);
-u32 find_entity_by_id(int);
+void *find_entity_by_id(u16 id);
 s32 TObjPlayer__sub_802A445C(void *, int);
 extern const f32 lbl_805DE6E0;
 void TObjEneMe1GiGue__sub_802CE4E8(void);
@@ -145,7 +145,7 @@ typedef char RecoveredGlobal_802CE428___vt__22TObjEneMe1GiGueMissile_size[sizeof
 void TObjEneMe1GiGueMissile::run_task() {
     u8 *arg0 = (u8 *)this;
     f32 temp_f1;
-    this->m_1c = find_entity_by_id((int) (this->m_34));
+    this->m_1c = (u32)find_entity_by_id((this->m_34));
     if ((u32) this->m_1c == 0U) {
         queue_destruction__7TObjectFv(((void *) (arg0)));
         return;

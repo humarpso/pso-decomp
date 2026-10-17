@@ -30,7 +30,7 @@ extern u32 boss2_tunnel_state_flags;
 void TObjBoss2Tunnel__sub_802F2278(void);
 s32 TObjBoss2Tunnel__sub_802F22F4(void);
 void TObjBoss2Tunnel__sub_802F23FC(void);
-s32 queue_destruction__7TObjectFv(int);
+void queue_destruction__7TObjectFv(void *arg0);
 extern RecoveredGlobal_802F2400_lbl_804E4A1C boss2_tunnel_spawn_timer_table_b;
 extern const f32 lbl_805DEC68;
 extern const f32 lbl_805DEC98;
@@ -93,7 +93,7 @@ extern const f32 lbl_805DED0C;
 extern const f32 lbl_805DED10;
 void *TObjBoss2Tunnel__sub_802F2A2C(void *arg0p, s32 parent);
 f32 rand_signed_unit();
-s32 __ct__13TObjBoss7DustFv(u32, int, void *);
+u8 *__ct__13TObjBoss7DustFv(u8 *arg0, s32 arg1, s32 arg2);
 s32 rand();
 extern s32 tl_05;
 s32 TObjBoss2Tunnel__sub_802F2070(void);
@@ -198,7 +198,7 @@ void TObjBoss2Tunnel__sub_802F2400(u8 *arg0) {
             *(f32 *)((s8 *)arg0 + 0x54) = (f32) lbl_805DECB8;
             temp_r3 = *(u32 *)((s8 *)arg0 + 0x88);
             if (temp_r3 != 0U) {
-                queue_destruction__7TObjectFv((int) (temp_r3));
+                queue_destruction__7TObjectFv((void *)(temp_r3));
                 *(u32 *)((s8 *)arg0 + 0x88) = 0U;
             }
             (*(s32 *)&boss2_tunnel_state_flags) |= 0x8000;
@@ -244,7 +244,7 @@ void TObjBoss2Tunnel::update_dust_spawn() {
         v.z = 600.0f;
         p = __nw__7TObjectFUl((s32)(0x30));
         if (p != 0U) {
-            __ct__13TObjBoss7DustFv(p, tl_05, &v);
+            __ct__13TObjBoss7DustFv((u8 *)p, (s32)tl_05, (s32)&v);
         }
         *(s32 *)((s8 *)arg0 + 0x74) = 0x1E;
     }
@@ -337,7 +337,7 @@ void TUnk_804E4B3C::update_phase_motion() {
 void *TUnk_804E4B3C::destroy(s16 arg1) {
     if (this != NULL) {
         *(s32 **)((s8 *)this + 0x18) = lbl_804E4B3C;
-        if (*(void **)((s8 *)this + 0x88) != NULL) { queue_destruction__7TObjectFv((int)(*(void **)((s8 *)this + 0x88))); }
+        if (*(void **)((s8 *)this + 0x88) != NULL) { queue_destruction__7TObjectFv((*(void **)((s8 *)this + 0x88))); }
         TObjBoss2Tunnel::dt((s32)((s8 *)this + 0x20), (s16)(-1));
         __dt__7TObjectFv(this, 0);
         if (arg1 > 0) {

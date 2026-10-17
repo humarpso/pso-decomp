@@ -54,8 +54,8 @@ void post_translate_matrix(void *);
 extern const f32 lbl_805D89F4;
 extern const f32 lbl_805D89F8;
 void set_scripted_camera_pose(void *, void *, void *);
-u32 spawn_particle_effect(void *, s32);
-u32 create_particle_emitter(void *, s32);
+void *spawn_particle_effect(void *pos, s32 id);
+void *create_particle_emitter(void *pos, s32 id);
 void play_sound_effect(s32, void *, s32, s32);
 extern Vec_8004F3D4 lbl_804373F4[];
 extern Vec_8004F3D4 boss4_type2_effect_offset_vec[];
@@ -103,24 +103,24 @@ void TObjDFDemo4::run_task() {
   u32 r;
   u32 *p;
   s32 i;
-  if ((self->fF8 <= 0x3C) && ((r = spawn_particle_effect(&self->pos, 0x14E)) != 0))
+  if ((self->fF8 <= 0x3C) && ((r = (u32)spawn_particle_effect(&self->pos, 0x14E)) != 0))
   {
     ((TBoss4Type2 *)r)->set_flags(0x40);
   }
   if (self->fF8 == 0x44)
   {
-    if ((r = spawn_particle_effect(&self->pos, 0x17B)) != 0)
+    if ((r = (u32)spawn_particle_effect(&self->pos, 0x17B)) != 0)
     {
       ((TBoss4Type2 *)r)->set_flags(0x40);
     }
-    if ((r = spawn_particle_effect(&self->pos, 0x17C)) != 0)
+    if ((r = (u32)spawn_particle_effect(&self->pos, 0x17C)) != 0)
     {
       ((TBoss4Type2 *)r)->set_flags(0x40);
     }
   }
   if (self->fF8 == 0x48)
   {
-    if ((r = spawn_particle_effect(&self->pos, 0x17A)) != 0)
+    if ((r = (u32)spawn_particle_effect(&self->pos, 0x17A)) != 0)
     {
       ((TBoss4Type2 *)r)->set_flags(0x40);
     }
@@ -139,7 +139,7 @@ void TObjDFDemo4::run_task() {
       Vec_8004F3D4 *v = &self->vecs[i];
       if ((*p) == 0)
       {
-        *p = create_particle_emitter(v, 0x147);
+        *p = (u32)create_particle_emitter(v, 0x147);
         if ((*p) != 0)
         {
           ((TBoss4Type2 *)(*p))->set_flags(0x40);

@@ -225,7 +225,7 @@ extern const f32 lbl_805D94B8;
 void *TParticleCtrl__sub_80085878(void *arg0, s16 arg1);
 void *TParticleCtrl__sub_80085E20(void *arg0, s16 arg1);
 f32 horizontal_distance_squared(void *, void *);
-u32 get_player_by_client_id(void *);
+void *get_player_by_client_id(s32 i);
 void __dl__7TObjectFPv(void *);
 
 extern s32 local_client_id;
@@ -243,7 +243,7 @@ void TUnk_8048E6A8::run_task() {
     u8 *arg0 = (u8 *)this;
     u32 player;
 
-    player = get_player_by_client_id((void *) (local_client_id));
+    player = (u32)get_player_by_client_id((local_client_id));
     if ((player != 0U) && (horizontal_distance_squared((void *) (player + 0x38), (void *) (arg0 + 0x38)) < lbl_805D947C)) {
         if (this->scale > lbl_805D9480) {
             lbl_805D2930 = 1;

@@ -1,4 +1,5 @@
 #include "pso/TBoss5GryphonLightningEff.h"
+#include "pso/misc/TTecZondeEff.h"
 #include "pso/boss/TBoss5GryphonLightningEff.h"
 #include "pso/system/ChunkMaterialState.h"
 #include "pso/unk/text_80087278.h"
@@ -49,7 +50,6 @@ extern "C" {
 void run_task__12TTecZondeEffFv(void *);
 s32 rand(void);
 void randomize_bolt_jitter__12TTecZondeEffFPv(void *);
-void __ct__12TTecZondeEffFv(void *, void *, s32, s32, f32);
 void eval_bezier_curve__12TBoss8DragonFPviiPvf(void *, void *, s32, void *, f32);
 void subtract_vector(void *, void *);
 extern s32 __vt__25TBoss5GryphonLightningEff[];
@@ -137,7 +137,7 @@ Self_8032537C *__ct__25TBoss5GryphonLightningEffFv(Self_8032537C *self, void *pa
     Vec_8032537C v;
     f32 denom;
     s32 i;
-    __ct__12TTecZondeEffFv(self, parent, 0x30000000, 4, scale);
+    __ct__12TTecZondeEffFv((u8 *)self, (u8 *)parent, (s32)(0x30000000), (s32)(4), (f32)scale);
     self->vt = __vt__25TBoss5GryphonLightningEff;
     self->f0 = lbl_805D4188;
     self->f260 = 0;

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_801C25B4.h"
 #include "pso/misc/TLobby_802268F4.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_80087278.h"
@@ -10,7 +11,6 @@ struct Obj_8007FB14 { u8 pad[0x20]; s32 state; s32 value; };
 extern "C" {
 void *__nw__7TObjectFUl(int);
 void *__ct__17TDuelEffectStringFP7TObjectPvPv(void *p, s32 v, void *s, s32 n);
-void send_neg50__6TLobbyFPvPv(void *a, s32 b);
 extern u8 lbl_80438D48[];
 extern u8 lbl_80438D50[];
 void update_duel_end_effect(Obj_8007FA94 *self);
@@ -26,7 +26,7 @@ void update_duel_end_effect(Obj_8007FA94 *self) {
         if (p != NULL) {
             __ct__17TDuelEffectStringFP7TObjectPvPv(p, self->value, lbl_80438D48, 1);
         }
-        send_neg50__6TLobbyFPvPv(lbl_80438D50, 0x96);
+        send_neg50__6TLobbyFPvPv((void *)lbl_80438D50, (void *)(0x96));
         break;
     }
     case 30:

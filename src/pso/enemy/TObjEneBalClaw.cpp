@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOComputerMachine01_8023DD0C.h"
 #include "pso/player/TObjPlayer_800A0408.h"
 #include "pso/player/TUnk_804806E8.h"
 #include "pso/enemy/TObjEnemy.h"
@@ -27,7 +28,6 @@ extern const f32 lbl_805D960C;
 extern Ent_8008D68C lbl_8048EC1C[];
 extern s32 balclaw_last_shared_update_frame;
 extern s32 actor_frame_tick;
-void TObjPlayer__sub_8023DEE0(void *obj, s32 a, s32 b, u16 c);
 extern V_8008D700 lbl_80439B34;
 extern f32 lbl_805D9600;
 extern const f32 lbl_805D9604;
@@ -43,7 +43,7 @@ void TObjEneBalClaw__sub_8008D68C(void) {
         balclaw_last_shared_update_frame = actor_frame_tick;
         for (i = 0; i < 7; i++) {
             Ent_8008D68C *e = &lbl_8048EC1C[i];
-            TObjPlayer__sub_8023DEE0(e->obj, e->a, e->b, e->c);
+            TObjPlayer__sub_8023DEE0((s16 *)e->obj, e->a, e->b, e->c);
         }
     }
 }

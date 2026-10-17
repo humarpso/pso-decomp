@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_8025B050.h"
+#include "pso/misc/TWindowSubSymbolChatPartsSet_80247EFC.h"
+#include "pso/misc/TWindowSubSymbolChat_80076F88.h"
 #include "pso/misc/TWindowChatSymbol.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowHelpItem.h"
@@ -45,10 +48,6 @@ struct V2_80248374 { f32 x; f32 y; };
 struct Win_80248374 { u8 pad[0x2C]; int f2c; };
 
 extern "C" {
-void swap_sprite_v_edges(u8 *arg0);
-void swap_sprite_u_edges(u8 *arg0);
-void set_sprite_uv_from_pixels(void *, f32, f32);
-void set_sprite_dimensions(void *, f32, f32);
 extern UV_802480EC TWindowSubSymbolChatPartsSet__part_uv_table[];
 extern const f32 lbl_805DCB78;
 extern const f32 lbl_805DCB80;
@@ -62,7 +61,6 @@ extern const Vec2_80247F68 symbol_chat_part_uv_table[];
 extern const Vec2_80247F68 symbol_chat_part_size_table[];
 extern const f32 lbl_805DCB7C;
 extern const V2_80248374 symbol_chat_face_uv_table[];
-int set_symbol_chat_face_sprite(void *arg0, u8 b);
 struct Ctl_80248324 { u8 pad[4]; s32 *tbl; };
 
 struct RecoveredGlobal_80248494_lbl_804CE2E8 {
@@ -74,16 +72,8 @@ typedef char RecoveredGlobal_80248494_lbl_804CE2E8_size[sizeof(RecoveredGlobal_8
 
 void allow_rendering__7TObjectFv(void *arg0);
 void disallow_rendering__7TObjectFv(void *arg0);
-s32 is_symbol_chat_preset_in_use(u32 *arg0);
-u8 *get_symbol_chat_preset(s32 i);
 u8 * draw_default_entry__9TWindowDDFl();
-void TWindowSubSymbolChatPartsSet__sub_802482B8(s32 arg0, s32 arg1);
-void get_parts_entry__28TWindowSubSymbolChatPartsSetFii(s32 arg0, s32 arg1);
 void fn_80248324(Ctl_80248324 *c, s32 arg1, s32 arg2);
-void fn_802483C8(void *arg0, u8 _w1);
-void TWindowSubSymbolChat__sub_802483F0(int a0, void* a1);
-void set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(s32 arg0, void *arg1);
-void render__17TWindowChatSymbolFv(u8 *arg0);
 s32 draw_visible_window_entries(void *, void *, void *, f32, f32, f32);
 s32 init_window_layout_entries(void *, void *, void *);
 
@@ -129,7 +119,7 @@ void TWindowSubSymbolChatPartsSet::set_part_sprite(void *arg0, s16 id, s32 a, s3
     o->w = w;
     o->h = h;
     e = &symbol_chat_part_uv_table[id];
-    set_sprite_uv_from_pixels(o, e->x, e->y);
+    set_sprite_uv_from_pixels((u8 *)o, (f32)e->x, (f32)e->y);
     if (a != 0) {
         swap_sprite_u_edges((u8 *)o);
     }
@@ -176,7 +166,7 @@ void setup_part_sprites__28TWindowSubSymbolChatPartsSetFPvPvPvUsiiii(Part_802480
         arg2->x = arg0->x - lbl_805DCB84;
         arg2->y = arg0->y;
         set_sprite_dimensions(arg2, lbl_805DCB88, lbl_805DCB8C);
-        set_sprite_uv_from_pixels(arg2, uv->u, uv->v);
+        set_sprite_uv_from_pixels((u8 *)arg2, uv->u, uv->v);
         ((TWindowHelpItem *)arg1)->set_flag0_bit2();
     } else {
         set_sprite_dimensions(arg0, lbl_805DCB90, lbl_805DCB90);
@@ -184,7 +174,7 @@ void setup_part_sprites__28TWindowSubSymbolChatPartsSetFPvPvPvUsiiii(Part_802480
         arg1->y = arg0->y;
         ((TWindowHelpItem *)arg2)->set_flag0_bit2();
     }
-    set_sprite_uv_from_pixels(arg0, u, v);
+    set_sprite_uv_from_pixels((u8 *)arg0, u, v);
     if (arg5 != 0) {
         swap_sprite_u_edges((u8 *)arg0);
     }
@@ -214,7 +204,7 @@ void fn_80248324(Ctl_80248324 *c, s32 arg1, s32 cur) {
 int set_symbol_chat_face_sprite(void *arg0, u8 b) {
     const V2_80248374 *e;
     e = &symbol_chat_face_uv_table[b & 3];
-    set_sprite_uv_from_pixels(w, e->x, e->y);
+    set_sprite_uv_from_pixels((u8 *)w, (f32)e->x, (f32)e->y);
     return w->f2c = TWindowSubSymbolChatPartsSet::get_parts_entry((b >> 2) & 7);
 }
 #undef w

@@ -6,10 +6,10 @@
 
 extern "C" {
 
-int get_slot_value__10TObjPlayerFPvi(void*, int);
+s32 get_slot_value__10TObjPlayerFPvi(s32 *arg0, s32 arg1);
 
-int TItemData::test_flag3() { return get_slot_value__10TObjPlayerFPvi((char*)this + 0xd04, 3); }
-int TItemData::get_item_field_2() { return get_slot_value__10TObjPlayerFPvi((char*)this + 0xd04, 2); }
+int TItemData::test_flag3() { return get_slot_value__10TObjPlayerFPvi((s32 *)((char*)this + 0xd04), 3); }
+int TItemData::get_item_field_2() { return get_slot_value__10TObjPlayerFPvi((s32 *)((char*)this + 0xd04), 2); }
 
 void*TItemData::initialize_mag_data() { initialize_mag_item_data(this); return this; }
 

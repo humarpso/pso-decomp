@@ -33,7 +33,7 @@ extern s32 TLoadCtrl__fade_task;
 extern s32 tl_fade;
 u8 *TLoadCtrl__ct(u8 *arg0, s32 arg1);
 u8 * __dt__7TObjectFv(void *, s16);
-s32 queue_destruction__7TObjectFv(u32);
+void queue_destruction__7TObjectFv(void *arg0);
 void __dl__7TObjectFPv(s32);
 extern u32 TLoadCtrl__instance;
 u8 *__dt__9TLoadCtrlFv(u8 *arg0, s16 arg1);
@@ -48,7 +48,7 @@ extern s32 lbl_80515BA0[];
 extern s32 tl_su;
 extern s32 tl_camera;
 s32 TNowLoading__ct(s32, void *, void *);
-s32 set_active_camera_pose(void *, void *);
+void set_active_camera_pose(u8 *arg0, u8 *arg1);
 s32 activate_camera_mode(s32 arg0);
 void update_sound_request_slots(void);
 s32 TAdLoadQuestGC__ct(s32, void *);
@@ -116,7 +116,7 @@ void TLoadCtrl::run_task() {
         Vec_8001C620 a = lbl_804349D8;
         Vec_8001C620 b = lbl_804349E4;
         activate_camera_mode(9);
-        set_active_camera_pose(&a, &b);
+        set_active_camera_pose((u8 *)&a, (u8 *)&b);
     }
 }
 
@@ -124,7 +124,7 @@ u8 *__dt__9TLoadCtrlFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8001C7A0___vt__9TLoadCtrl *)&__vt__9TLoadCtrl).value;
         if ((void *) (*(u8 * *)&TLoadCtrl__fade_task) != NULL) {
-            queue_destruction__7TObjectFv((u32)((*(u8 * *)&TLoadCtrl__fade_task)));
+            queue_destruction__7TObjectFv(((*(u8 * *)&TLoadCtrl__fade_task)));
             (*(u8 * *)&TLoadCtrl__fade_task) = NULL;
         }
         if ((u32) TLoadCtrl__instance != 0U) {
@@ -163,7 +163,7 @@ void TLoadCtrl::cleanup_scene() {
 
     t = TLoadCtrl__instance;
     if (t != 0U) {
-        queue_destruction__7TObjectFv(t);
+        queue_destruction__7TObjectFv((void *)t);
         TLoadCtrl__instance = 0U;
     }
     switch (TLoadCtrl__loading_mode) {

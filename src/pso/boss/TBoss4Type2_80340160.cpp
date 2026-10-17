@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TOTrapAncient01_80226534.h"
+#include "pso/ui/TAdPlyStatusGC_8033FD48.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss6Demo15_TYPE2_WAIT.h"
@@ -8,15 +10,13 @@
 #include "pso/misc/TNowLoading.h"
 
 extern "C" {
-s32 play_persistent_sound(int, void *, void *, int, int);
 void *TObjFish__sub_8034029C(void *, void *);
-int TObjPlayer__sub_8033FDB0(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 void fn_80340040(void *);
 
-void TBoss6Demo15_TYPE2_WAIT::render() { TObjPlayer__sub_8033FDB0(this); }
+void TBoss6Demo15_TYPE2_WAIT::render() { TObjPlayer__sub_8033FDB0((s32)this); }
 
 extern s32 lbl_804EFB78[];
 
@@ -32,7 +32,7 @@ void TBoss6Demo15_TYPE2_WAIT::run_task() {
             ((TNowLoading *)temp_r3)->copy_pos((u8 *)&this->m_40);
         }
         ((TBoss6Demo15_TYPE2_WAIT *)arg0)->check_any_player_near();
-        play_persistent_sound((int) (0x4003A126), (void *) (arg0), (void *) (arg0 + 0x40), (int) (0), (int) (0));
+        play_persistent_sound((s32)(0x4003A126), (s32)(arg0), (u32)(arg0 + 0x40), (s32)(0), (s32)(0));
         if (((TObjFish *)(*(u8 * *)&this->unk_1C))->get_phase() != 4) {
             queue_destruction__7TObjectFv(arg0);
         }

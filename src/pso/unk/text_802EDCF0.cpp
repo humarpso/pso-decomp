@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_800BC53C.h"
 #include "pso/enemy/TObjEneDD_800B9A34.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_802EDCF0.h"
@@ -23,8 +24,7 @@ struct Obj_802EDCF0 {
 
 extern "C" {
 s32 __dt__7TObjectFv(void *, int);
-s32 free_if_positive__13TBoss2DeRolLeFis(void *, int);
-s32 delete_buffer__12TBoss8DragonFis(void *, int);
+s32 free_if_positive__13TBoss2DeRolLeFis(s32 arg0, s16 arg1);
 void mem_free(void *p);
 s32 __dl__7TObjectFPv(void *);
 extern s32 TBoss7DeRolLeC__vtable[];
@@ -55,7 +55,7 @@ u8 *__dt__14TBoss7DeRolLeCFv(u8 *arg0, s16 arg1) {
             o->f720 = 0;
         }
         if (o->f718 != 0) {
-            delete_buffer__12TBoss8DragonFis(o->f718, 1);
+            delete_buffer__12TBoss8DragonFis((s32)o->f718, 1);
             o->f718 = 0;
         }
         if (o->f708 != 0) {
@@ -73,9 +73,9 @@ u8 *__dt__14TBoss7DeRolLeCFv(u8 *arg0, s16 arg1) {
         }
         ((TObjFish *)arg0)->destroy_child();
         __dt__7TObjectFv(arg0 + 0x690, -1);
-        free_if_positive__13TBoss2DeRolLeFis(arg0 + 0x670, -1);
-        free_if_positive__13TBoss2DeRolLeFis(arg0 + 0x650, -1);
-        free_if_positive__13TBoss2DeRolLeFis(arg0 + 0x630, -1);
+        free_if_positive__13TBoss2DeRolLeFis((s32)(arg0 + 0x670), -1);
+        free_if_positive__13TBoss2DeRolLeFis((s32)(arg0 + 0x650), -1);
+        free_if_positive__13TBoss2DeRolLeFis((s32)(arg0 + 0x630), -1);
         __dt__12TObjEneDD_STFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

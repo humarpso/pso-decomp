@@ -107,12 +107,8 @@ extern u32 TObjNpcFemaleTall__instance;
 extern s32 __vt__16TObjNpcFemaleOld[];
 extern s32 TObjNpcFemaleOld__name;
 extern u8 *TObjNpcFemaleOld__static_instance;
-u8 *TObjNpcFemaleOld__ct(u8 *arg0, s32 arg1, s32 arg2);
-void * TObjNpcFemaleTall__create(void *arg0);
-void *__dt__16TObjNpcFemaleOldFv(void *arg0, s16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
-void *TObjNpcFemaleTall__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -151,7 +147,7 @@ void * TObjNpcFemaleTall__create(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x3B8);
     if (o2 != NULL) {
-        o2 = TObjNpcFemaleTall__ct(o2, o, arg0);
+        o2 = TObjNpcFemaleTall__ct((u8 *)o2, (s32)o, (s32)arg0);
     }
     return o2;
 }

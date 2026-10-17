@@ -1,4 +1,5 @@
 #include "pso/TObject.h"
+#include "pso/item/TItemDrop_80105D0C.h"
 #include "pso/item/TItemLoad_8010FDF0.h"
 #include "pso/misc/item_pmt.h"
 #include "types.h"
@@ -12,7 +13,6 @@ extern "C" char* const item_pmt_filename_descriptor;
 
 extern "C" void*    alloc__23TAdSinglePlyChrSelectGCFv(int size);
 extern "C" void*    get_type__8TItemMagFv(void* pmt);
-extern "C" TObject* create_drop__9TItemDropFi(int arg);
 
 extern "C" {
 
@@ -41,7 +41,7 @@ void load_item_pmt() {
 
 void load_items() {
     load_item_pmt();
-    item_mgr = create_drop__9TItemDropFi(0);
+    item_mgr = (TObject *)create_drop__9TItemDropFi(0);
 }
 
 }

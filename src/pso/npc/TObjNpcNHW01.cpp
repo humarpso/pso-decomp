@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/npc/TObjNpcNurseBase.h"
 #include "pso/misc/TLanguage_801E4874.h"
 #include "pso/unk/text_800F9B84.h"
 #include "pso/npc/TUnk_804A8640.h"
@@ -108,7 +109,6 @@ extern char lbl_8043FE38[];
 extern char lbl_8043FE4C[];
 void TLobby__sub_803DA16C(void*);
 void *TObjControl__ct(void *, void *);
-void *TObjNpcNurseBase__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -164,7 +164,7 @@ void * TObjNpcNurseBase__create(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x3B8);
     if (o2 != NULL) {
-        o2 = TObjNpcNurseBase__ct(o2, o, arg0);
+        o2 = TObjNpcNurseBase__ct((u8 *)o2, (s32)o, (s32)arg0);
     }
     return o2;
 }

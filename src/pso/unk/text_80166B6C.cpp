@@ -56,15 +56,15 @@ extern const f32 lbl_805DB614;
 extern const f32 lbl_805DB618;
 O_80166C40 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 O_80166C40 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-Arr_80166C40 *mem_alloc(s32);
-s32 load_gvm_texture_file(void *);
+void *mem_alloc(u32 size);
+u8 *load_gvm_texture_file(s32 arg0);
 extern char lbl_80441498[];
 extern char lbl_804414B0[];
 extern char lbl_804414C8[];
 s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-int set_indexed_flags(void*, void*, void*);
+void set_indexed_flags(void *arg0, s32 index, s32 flags);
 
 extern void *tl_05;
 
@@ -111,12 +111,12 @@ void TOFenceAncient01::load_resources() {
         o = load_resource_from_descriptor(o, 1, &ofence_ancient01_resource_descriptor, 0, 0, 0);
     }
     (*(O_80166C40 * *)&TOFenceAncient01__model_resource) = o;
-    r = mem_alloc(0x10);
+    r = (Arr_80166C40 *)mem_alloc(0x10);
     (*(Arr_80166C40 * *)&TOFenceAncient01__resource_pointer_array) = r;
     r->a = (*(O_80166C40 * *)&TOFenceAncient01__model_resource)->sub->c;
-    (*(Arr_80166C40 * *)&TOFenceAncient01__resource_pointer_array)->b = load_gvm_texture_file(lbl_80441498);
-    (*(Arr_80166C40 * *)&TOFenceAncient01__resource_pointer_array)->c = load_gvm_texture_file(lbl_804414B0);
-    (*(Arr_80166C40 * *)&TOFenceAncient01__resource_pointer_array)->d = load_gvm_texture_file(lbl_804414C8);
+    (*(Arr_80166C40 * *)&TOFenceAncient01__resource_pointer_array)->b = (s32)load_gvm_texture_file((s32)lbl_80441498);
+    (*(Arr_80166C40 * *)&TOFenceAncient01__resource_pointer_array)->c = (s32)load_gvm_texture_file((s32)lbl_804414B0);
+    (*(Arr_80166C40 * *)&TOFenceAncient01__resource_pointer_array)->d = (s32)load_gvm_texture_file((s32)lbl_804414C8);
 }
 
 void *__dt__16TOFenceAncient01Fv(void *arg0, s16 arg1) {
@@ -186,7 +186,7 @@ s32 TUnk_804B1B80::sub_80166EA8(int _w1) {
 
 void TOFenceAncient02::vfunc_16() {  }
 void TOFenceAncient02::vfunc_15() { *(int *)&this->m_ac = 0; *(int *)&this->unk_D0 = 0; ((TObjPlayer *)this)->clear_player_status_flag((s32)((void*)0), (u32)((void*)8)); }
-void TOFenceAncient02::vfunc_14() { *(int *)&this->m_ac = 1; *(int *)&this->unk_D0 = 1; set_indexed_flags(this, (void*)0, (void*)8); }
+void TOFenceAncient02::vfunc_14() { *(int *)&this->m_ac = 1; *(int *)&this->unk_D0 = 1; set_indexed_flags(this, (s32)((void*)0), (s32)((void*)8)); }
 
 __declspec(section ".data") const char *bm_fd_obj_n_saku_4x2_model_names[2] = { lbl_80441438, NULL };
 __declspec(section ".data") const char *bm_fd_obj_n_saku_4x2_motion_names[2] = { lbl_80441450, NULL };

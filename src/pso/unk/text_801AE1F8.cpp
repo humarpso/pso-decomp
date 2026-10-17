@@ -14,10 +14,10 @@
 struct Vec_801AE1F8 { f32 x, y, z; };
 
 extern "C" {
-u8 *find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 s32 init_collision_body_parts(void *, void *, int);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
-s32 TPhotonMagicSquare__ct(void *, void *, int, void *, int, f32);
+u8 *TPhotonMagicSquare__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 void sub_801ADC7C__12TPhotonPillaFv(void *, u8);
 u8 *TPhotonRainbow__ct(void *, void *, void *, s32);
 void *__nw__7TObjectFUl(u32);
@@ -76,7 +76,7 @@ u8 *TPhotonPilla__ct(u8 *arg0, u8 *arg1) {
     init_collision_body_parts(arg0, (void *)lbl_804C3A58, 1);
     ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
     ((TObjPlayer *)arg0)->reset_photon_effect();
-    ((TPhotonPilla *)arg0)->m_190 = find_entity_by_id(((TPhotonPilla *)arg0)->m_17c);
+    ((TPhotonPilla *)arg0)->m_190 = (u8 *)find_entity_by_id(((TPhotonPilla *)arg0)->m_17c);
     temp_r3 = ((TPhotonPilla *)arg0)->m_190;
     if (temp_r3 != NULL) {
         ((TPhotonPilla *)arg0)->rotation_y = *(s32 *)((s8 *)temp_r3 + 0x60);
@@ -130,7 +130,7 @@ u8 *TPhotonPilla__ct(u8 *arg0, u8 *arg1) {
         pos.y += lbl_805DC258;
         mem = __nw__7TObjectFUl(0xD0);
         if (mem != NULL) {
-            TPhotonMagicSquare__ct(mem, arg0, 3, &pos, 0xAA, lbl_805DC234);
+            TPhotonMagicSquare__ct((u8 *)mem, (s32)arg0, (s32)(3), (s32)&pos, (s32)(0xAA), (f32)lbl_805DC234);
         }
         }
         spawn_photon_blast_attachment_effects(arg0, 3);

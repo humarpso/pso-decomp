@@ -127,7 +127,7 @@ struct Self_8016492C { u8 pad[0x38]; u8 pos[0x70 - 0x38]; f32 radius; u8 pad74[0
 struct O_80164A90 { u8 pad[0x38]; u8 pos[0x34]; f32 f6c; f32 f70; u8 pad74[0xAC - 0x74]; s32 st; u8 padb0[0xCC - 0xB0]; s32 cc; u8 padd0[4]; u8 d4[0xC]; u8 e0[0xC]; };
 
 extern "C" {
-s32 is_any_player_within_radius_xz(s32, f32);
+s32 is_any_player_within_radius_xz(u8 *self, f32 radius);
 extern const f32 lbl_805DB588;
 extern const f32 lbl_805DB58C;
 extern const f32 lbl_805DB590;
@@ -240,7 +240,7 @@ void TODragonfly::sub_80164990() {
     temp_r5 = *(s32 *)&this->m_cc;
     *(s32 *)&this->m_cc = (s32) (temp_r5 + 1);
     if (lbl_805DB578 < (f32) temp_r5) {
-        if (is_any_player_within_radius_xz((s32) arg0, lbl_805DB588) == 1) {
+        if (is_any_player_within_radius_xz(arg0, lbl_805DB588) == 1) {
             if (((TODragonfly *)arg0)->pick_random_destination(lbl_805DB578 + this->target_scale) == 1) {
                 *(s32 *)&this->m_ac = 3;
                 *(s32 *)&this->m_cc = 0;
@@ -257,7 +257,7 @@ void TODragonfly::sub_80164A90() {
     O_80164A90 *arg0 = (O_80164A90 *)this;
     f32 t;
     f32 d;
-    if (is_any_player_within_radius_xz((s32)arg0, lbl_805DB590) == 1) {
+    if (is_any_player_within_radius_xz((u8 *)arg0, lbl_805DB590) == 1) {
         if (((TODragonfly *)arg0)->pick_random_destination(lbl_805DB578 + arg0->f6c) == 1) {
             arg0->st = 3;
             arg0->cc = 0;
@@ -278,7 +278,7 @@ void TODragonfly::sub_80164A90() {
 void TODragonfly::update_idle() {
     s32 arg0 = (s32)this;
     s32 temp_r4;
-    if (is_any_player_within_radius_xz(arg0, lbl_805DB590) == 1) {
+    if (is_any_player_within_radius_xz((u8 *)arg0, lbl_805DB590) == 1) {
         if (pick_random_destination(lbl_805DB578 + *(f32 *)((s8 *)arg0 + 0x6C)) == 1) {
             *(s32 *)((s8 *)arg0 + 0xAC) = 3;
             *(s32 *)((s8 *)arg0 + 0xCC) = 0;

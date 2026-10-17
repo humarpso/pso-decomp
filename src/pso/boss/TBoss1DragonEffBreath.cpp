@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_800BC53C.h"
 #include "pso/boss/TBoss1DragonEffBreath.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss1DragonEffBreath.h"
@@ -6,15 +7,12 @@
 
 extern "C" {
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
-u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__21TBoss1DragonEffBreath[];
 extern s32 TBoss1DragonEffBreath__name;
 extern const f32 lbl_805D8138;
 u8 *__ct__21TBoss1DragonEffBreathFP7TObjectPvPv(u8 *arg0, void *arg1, void *arg2, void *arg3);
-void *__dt__21TBoss1DragonEffBreathFv(void *arg0, s16 arg1);
 s32 vec3_add_to(void *, void *);
-void delete_buffer__12TBoss8DragonFis(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *arg0);
@@ -42,7 +40,7 @@ void TBoss1DragonEffBreath::run_task() {
 void *__dt__21TBoss1DragonEffBreathFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TBoss1DragonEffBreath;
-        delete_buffer__12TBoss8DragonFis(*(void **)((s8 *)arg0 + 0x34), 1);
+        delete_buffer__12TBoss8DragonFis((s32)(*(void **)((s8 *)arg0 + 0x34)), 1);
         *(s32 *)&((TBoss1DragonEffBreath *)arg0)->m_34 = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -65,7 +63,4 @@ TBoss1DragonEffBreath::TBoss1DragonEffBreath(TObject *arg1, void *arg2, void *ar
         p = TBoss8Dragon__sub_800BC5EC((u8 *)p, 4);
     }
     *(void **)((s8 *)this + 0x34) = p;
-}
-extern "C" {
-
 }

@@ -139,7 +139,7 @@ extern Parm_800D47B4 lbl_8043C464[];
 extern const f32 lbl_805DA2C0;
 u32 csnVector(void *, void *, int);
 Target_800D4990 *find_active_entity_by_id(u16);
-int direction_to_rotation_xy(void *, void *, void *);
+void direction_to_rotation_xy(u8 *arg0, s32 *arg1, s32 *arg2);
 s32 project_actor_to_ground(void *, void *, int);
 int vec3_add_to(void *, void *);
 f32 vector_length(void *);
@@ -270,7 +270,7 @@ void TObjGyaranzoMissile::run_task() {
     }
     VecCopy((Vec *)&self->prev, (const Vec *)&self->pos);
     vec3_add_to(&self->pos, &self->vel);
-    direction_to_rotation_xy(&self->vel, self->x5C, self->x60);
+    direction_to_rotation_xy((u8 *)&self->vel, (s32 *)self->x5C, (s32 *)self->x60);
     self->xCC += self->xD0;
     if (self->timer >= 10) {
         if (csnVector(&self->prev, &self->pos, -1) != 0) {

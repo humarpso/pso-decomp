@@ -50,7 +50,7 @@ void update_player_state__9TObjEneDDFv(void *, Vec_80092B10 *, s32);
 s32 rotate_matrix_y(int, int);
 void push_matrix(void);
 void post_translate_matrix(void *);
-s32 draw_model_motion(int, Motion_80092B10 *, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern Vec_80092B10 re7_berura_init_vec;
 extern const f32 TObjEneRe7Berura__data_805D9724;
 extern const f32 lbl_805D9728;
@@ -87,7 +87,7 @@ void TObjEneRe7Berura::vfunc_105() {
             frame = (f32)mot->count;
         }
         TObjPlayer::set_global_flag();
-        draw_model_motion(self->f34, mot, frame);
+        draw_model_motion((void *)self->f34, mot, frame);
         TObjPlayer::clear_global_state();
         pop_matrix();
         TParticleCtrl::end_effect_render();

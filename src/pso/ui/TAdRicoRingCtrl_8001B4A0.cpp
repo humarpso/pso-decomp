@@ -30,7 +30,6 @@ struct Obj_8001B534 { u8 pad0[0x1c]; u32 slot[2]; u8 pad24[4]; f32 f28; };
 
 extern "C" {
 u32 create__15TAdRicoRingCtrlFPv(int);
-s32 TAdRicoRingCtrl__sub_8001BED0(int, f32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8001B8AC_lbl_8043481C lbl_8043481C;
 extern RecoveredGlobal_8001B8AC___vt__15TAdRicoRingCtrl __vt__15TAdRicoRingCtrl;
@@ -113,13 +112,13 @@ u8 *TAdRicoRingCtrl__ct(u8 *arg0, s32 arg1) {
     ((TAdRicoRingCtrl *)arg0)->m_1c = create__15TAdRicoRingCtrlFPv((int) (tl_04));
     temp_r3 = ((TAdRicoRingCtrl *)arg0)->m_1c;
     if (temp_r3 != 0U) {
-        TAdRicoRingCtrl__sub_8001BED0((int) (temp_r3), (f32) (lbl_805D7E4C));
+        TAdRicoRingCtrl__sub_8001BED0((void *)(temp_r3), (f32) (lbl_805D7E4C));
         ((TAdRicoRingCtrl *)(((TAdRicoRingCtrl *)arg0)->m_1c))->set_scale4((f32) (lbl_805D7E4C));
     }
     ((TAdRicoRingCtrl *)arg0)->m_20 = create__15TAdRicoRingCtrlFPv((int) (tl_04));
     temp_r3_2 = ((TAdRicoRingCtrl *)arg0)->m_20;
     if (temp_r3_2 != 0U) {
-        TAdRicoRingCtrl__sub_8001BED0((int) (temp_r3_2), (f32) (lbl_805D7E4C));
+        TAdRicoRingCtrl__sub_8001BED0((void *)(temp_r3_2), (f32) (lbl_805D7E4C));
         ((TAdRicoRingCtrl *)(((TAdRicoRingCtrl *)arg0)->m_20))->set_scale4((f32) (lbl_805D7E4C));
     }
     *(f32 *)((s8 *)arg0 + 0x24) = (f32) TAdRicoRingCtrl__data_805D7E50;

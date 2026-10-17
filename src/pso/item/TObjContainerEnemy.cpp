@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjChip.h"
 #include "pso/misc/TWindowKeyBoardHard_801FBA48.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_80087278.h"
@@ -58,7 +59,6 @@ void post_translate_matrix(void *);
 extern u32 lbl_805D5B78;
 extern s32 lbl_805D5B7C;
 extern const f32 lbl_805DBCFC;
-s32 construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
 void play_container_break_sound(s32 arg0);
 void *__nw__7TObjectFUl(int);
 extern Spawn_8018990C *const lbl_805D5B80;
@@ -157,11 +157,11 @@ void TObjContainerItem::vfunc_79() {
         spawn_particle_effect_with_flags(&self->x, 0x46, 0x40);
         o = __nw__7TObjectFUl(0x234);
         if (o != NULL) {
-            construct_debris__8TObjChipFPvPvPv(o, tl_05, &a);
+            construct_debris__8TObjChipFPvPvPv((u8 *)o, (u8 *)tl_05, (u8 *)&a);
         }
         o = __nw__7TObjectFUl(0x234);
         if (o != NULL) {
-            construct_debris__8TObjChipFPvPvPv(o, tl_05, &b);
+            construct_debris__8TObjChipFPvPvPv((u8 *)o, (u8 *)tl_05, (u8 *)&b);
         }
         play_container_break_sound((s32)self);
     }

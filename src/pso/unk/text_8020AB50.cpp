@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_80131794.h"
 #include "pso/misc/TLobby_80207DA8.h"
 #include "pso/misc/TLobby_8030A6A8.h"
 #include "pso/unk/text_8020AB50.h"
@@ -12,7 +13,6 @@ struct E1_8020AB50 { E2_8020AB50 *recs; s32 count; };
 extern "C" {
 s32 read_disc_file(void *, void *);
 void debug_print__6TLobbyFle(const char *, ...);
-s32 replace_file_extension__6TLobbyFPvPvPv(void *, s32, void *);
 s32 reserve_enemy_set_actor_ids(void *, u32, s32);
 s32 init_floor_enemy_count__6TLobbyFlPUcUl(s32, void *, s32);
 extern char lbl_8044BBA8[];
@@ -45,17 +45,17 @@ s32 load_area_enemy_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg1 == 0 || arg1 == 0x12) {
         switch (get_game_play_mode()) {
         case 0:
-            replace_file_extension__6TLobbyFPvPvPv(buf, name, lbl_8044BBA8);
+            replace_file_extension__6TLobbyFPvPvPv((char *)buf, (char *)name, (char *)lbl_8044BBA8);
             break;
         case 1:
-            replace_file_extension__6TLobbyFPvPvPv(buf, name, lbl_8044BBC8);
+            replace_file_extension__6TLobbyFPvPvPv((char *)buf, (char *)name, (char *)lbl_8044BBC8);
             break;
         case 2:
-            replace_file_extension__6TLobbyFPvPvPv(buf, name, lbl_8044BBD4);
+            replace_file_extension__6TLobbyFPvPvPv((char *)buf, (char *)name, (char *)lbl_8044BBD4);
             break;
         }
     } else {
-        replace_file_extension__6TLobbyFPvPvPv(buf, name, lbl_8044BBA8);
+        replace_file_extension__6TLobbyFPvPvPv((char *)buf, (char *)name, (char *)lbl_8044BBA8);
     }
     size = read_disc_file(buf, TLobby__map_set_file_buffer);
     if (size < 0) {

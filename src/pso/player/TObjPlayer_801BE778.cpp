@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TPlyInventoryItem_800721D4.h"
 #include "pso/item/TItemLockCountCtrl_8011E184.h"
 #include "pso/player/TObjPlayer_801BE778.h"
 #include "pso/object/TObjMotion.h"
@@ -38,14 +39,13 @@ struct Item_801BE890 { u8 b[0x1C]; };
 struct Inv_801BE890 { s32 f0; Item_801BE890 items[0x1E]; };
 
 extern "C" {
-void init__17TPlyInventoryItemFv(void *);
 Inv_801BE890 *init_inventory_list__10TObjPlayerFPv(Inv_801BE890 *arg0);
 
 Inv_801BE890 *init_inventory_list__10TObjPlayerFPv(Inv_801BE890 *arg0) {
     s32 i;
     arg0->f0 = 0;
     for (i = 0; i < 0x1E; i++) {
-        init__17TPlyInventoryItemFv(&arg0->items[i]);
+        init__17TPlyInventoryItemFv((u8 *)&arg0->items[i]);
     }
     return arg0;
 }

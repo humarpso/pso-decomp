@@ -76,8 +76,8 @@ void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 extern void *__vt__13TOHealGeneral[];
 TOHealGeneral_801697C0 *__dt__13TOHealGeneralFv(TOHealGeneral_801697C0 *self, s16 flag);
-u32 spawn_continuous_particle_effect_with_flags(void *, s32, s32);
-u32 create_particle_emitter(void *, s32);
+void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
+void *create_particle_emitter(void *pos, s32 id);
 void init_collision_body_parts(void *, void *, s32, void *);
 void init_map_object_base(void *, s32);
 extern u8 lbl_804B2770[];
@@ -88,7 +88,7 @@ extern const f32 lbl_805DB6C0;
 extern const f32 lbl_805DB6CC;
 extern const f32 lbl_805DB6D0;
 void *TOHealGeneral__ct(void *arg0, void *arg1);
-void play_effect_default__10TObjPlayerFii(void *, s32);
+void play_effect_default__10TObjPlayerFii(s32 arg0, s32 arg1);
 void *get_player_by_client_id(s32);
 extern s32 local_client_id;
 void TLobby__sub_8001FE7C(void*, int);
@@ -258,11 +258,11 @@ void *TOHealGeneral__ct(void *arg0, void *arg1) {
     }
     self->pts[0].y += lbl_805DB6D0;
     self->pts[1].y += lbl_805DB6BC;
-    self->handles[0] = create_particle_emitter(&self->pts[0], 0x63);
+    self->handles[0] = (u32)create_particle_emitter(&self->pts[0], 0x63);
     if (self->handles[0] != 0 && ((TObject *)(self->handles[0]))->all_parents_unqueued_for_destruction() == 0) {
         self->handles[0] = 0;
     }
-    self->handles[1] = spawn_continuous_particle_effect_with_flags(&self->pts[1], 0x63, 0x10);
+    self->handles[1] = (u32)spawn_continuous_particle_effect_with_flags(&self->pts[1], 0x63, 0x10);
     if (self->handles[1] != 0 && ((TObject *)(self->handles[1]))->all_parents_unqueued_for_destruction() != 0) {
         ((TParticleCtrl *)(self->handles[1]))->set_owner_id(self->f1c);
     } else {
@@ -292,7 +292,7 @@ void TOHealGeneral::accept_player(u16 arg1) {
             }
             *(s32 *)&this->m_ac = 2;
             this->m_94 = arg1;
-            play_effect_default__10TObjPlayerFii(p, -1);
+            play_effect_default__10TObjPlayerFii((s32)p, -1);
         } else {
             this->m_94 = 0xFFFF;
         }

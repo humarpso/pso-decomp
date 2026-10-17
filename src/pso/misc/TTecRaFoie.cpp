@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/effect/TEffClitical.h"
+#include "pso/unk/text_802A8210.h"
 #include "pso/render/depth_buffer.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjFish.h"
@@ -305,7 +307,6 @@ struct Self_80239070 {
 };
 
 extern "C" {
-s32 approach_position_if_far(void *, void *, f32);
 s32 approach_alpha_clamped(void *, void *, f32);
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
@@ -424,9 +425,9 @@ void TUnk_804CCB28::run_task() {
         if ((s32) this->m_60 != 0) {
             this->m_60 = 0;
         }
-        approach_position_if_far((void *) (arg0 + 0x34), (void *) (&stack.sp18), (f32) ((0.05f)));
+        approach_position_if_far((arg0 + 0x34), (u8 *)(&stack.sp18), (f32) ((0.05f)));
     } else {
-        approach_position_if_far((void *) (arg0 + 0x34), (void *) (&stack.sp18), (f32) ((0.15f)));
+        approach_position_if_far((arg0 + 0x34), (u8 *)(&stack.sp18), (f32) ((0.15f)));
     }
     approach_alpha_clamped((void *) (arg0 + 0x48), (void *) (&stack.sp8), (f32) ((0.035f)));
 }
@@ -561,7 +562,6 @@ s32 play_sound_effect(s32, void *, s32, s32);
 extern s32 tl_particle;
 s32 __ct__7TObjectFP7TObject(void *, void *);
 
-s32 fn_802A8210(int, int, void *);
 u8 *create_rafoie_explosion(u8 *arg0, s32 *arg1, s16 arg2, s16 arg3, s32 arg4, f32 farg0);
 
 u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 farg0);
@@ -601,7 +601,7 @@ u8 *create_rafoie_explosion(u8 *arg0, s32 *arg1, s16 arg2, s16 arg3, s32 arg4, f
     temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x20)));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = fn_802A8210((int) (temp_r3), (int) (0x11), (void *) (arg0));
+        var_r0 = (s32)fn_802A8210((u8 *)(temp_r3), (0x11), (arg0));
     }
     ((TUnk_804CCB28 *)arg0)->m_24 = var_r0;
     ((TUnk_804CCB28 *)arg0)->m_40 = (f32) (1.9f);
@@ -637,7 +637,7 @@ u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 fa
     temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x20)));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = fn_802A8210((int) (temp_r3), (int) (0x11), (void *) (arg0));
+        var_r0 = (s32)fn_802A8210((u8 *)(temp_r3), (0x11), (arg0));
     }
     ((TUnk_804CCB28 *)arg0)->m_24 = var_r0;
     ((TUnk_804CCB28 *)arg0)->m_40 = (f32) (1.9f);

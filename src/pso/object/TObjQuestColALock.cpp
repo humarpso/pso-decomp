@@ -27,7 +27,7 @@ void *__dt__17TObjQuestColALockFv(void *arg0, s16 arg1);
 s32 free_collision_body_parts(void *);
 void enable_action_input__10TObjPlayerFPv(void *p);
 s32 submit_cursor_candidate(void *, s32);
-s32 get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 __dl__7TObjectFPv(void *);
 u8 *__dt__16TObjQuestColBaseFv(u8 *arg0, s16 arg1);
@@ -44,7 +44,7 @@ int TObjQuestColALock::vfunc_15() {
     s32 temp_r3;
     s32 temp_r3_2;
 
-    temp_r3 = get_player_by_client_id(local_client_id);
+    temp_r3 = (s32)get_player_by_client_id(local_client_id);
     if (temp_r3 != 0) {
         if (check_flag_100__10TObjPlayerFPv() != 0) {
             enable_action_input__10TObjPlayerFPv((void *)temp_r3);

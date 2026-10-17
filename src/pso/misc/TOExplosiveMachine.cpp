@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/system/GinjaMaterial.h"
 #include "pso/unk/text_803D96A8.h"
 #include "pso/misc/TOExplosiveMachine.h"
@@ -76,7 +77,6 @@ O_801666E8 *TOExplosiveMachine__ct(O_801666E8 *arg0);
 s32 is_any_player_within_radius_xz(f32);
 u8 is_current_floor_switch_set(u16);
 extern const f32 lbl_805DB600;
-s32 play_persistent_sound(int, void *, void *, int, int);
 extern const f32 lbl_805DB604;
 void TLobby__sub_8001FE7C(void*, int);
 s32 post_translate_matrix(void *);
@@ -181,7 +181,7 @@ s32 TOExplosiveMachine::update_trigger() {
         }
         break;
     }
-    play_persistent_sound((int) (0x4004C10F), (void *) (this), (void *) ((u8 *)this + 0x38), (int) (0), (int) (0));
+    play_persistent_sound((s32)(0x4004C10F), (s32)(this), (u32)((u8 *)this + 0x38), (s32)(0), (s32)(0));
 }
 
 void TOExplosiveMachine::update() {

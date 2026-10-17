@@ -25,7 +25,7 @@ struct T_80323320 { u8 pad[0xD4]; s32 arr[9]; };
 extern "C" {
 extern RecoveredGlobal_80323214_lbl_80476658 TBoss6GravBall__emitter_id_table;
 void TBoss6GravBall__sub_80323320(T_80323320 *self);
-Ctl_80323134 *get_player_by_client_id(int);
+void *get_player_by_client_id(s32 i);
 void fn_80323134(Obj_80323134 *arg0);
 
 void fn_80323134(Obj_80323134 *arg0) {
@@ -36,7 +36,7 @@ void fn_80323134(Obj_80323134 *arg0) {
         if (arg0->items[i] != 0) {
             switch (i) {
             case 5: case 6: case 7: case 8:
-                c = get_player_by_client_id((u16)(i - 5));
+                c = (Ctl_80323134 *)get_player_by_client_id((u16)(i - 5));
                 if (c != 0) {
                     VecCopy((Vec *)&v, (const Vec *)&c->pos);
                     ((TNowLoading *)(arg0->items[i]))->copy_pos(&v);

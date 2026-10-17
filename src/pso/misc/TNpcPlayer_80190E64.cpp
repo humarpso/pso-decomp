@@ -53,7 +53,7 @@ extern s32 lbl_804B7C04[];
 extern s32 lbl_805D5860;
 Npc_80190F3C *TNpcPlayer__sub_80190F3C(Npc_80190F3C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, void *arg6);
 void free_collision_body_parts(void *);
-Ctrl_801910F4 *get_player_by_client_id(u32);
+void *get_player_by_client_id(s32 i);
 s32 __dl__7TObjectFPv(void *);
 Obj_801910F4 *__dt__13TUnk_804B7C1CFv(Obj_801910F4 *arg0, s16 arg1);
 void queue_destruction__7TObjectFv(void *arg0);
@@ -156,7 +156,7 @@ Obj_801910F4 *__dt__13TUnk_804B7C1CFv(Obj_801910F4 *arg0, s16 arg1) {
         free_collision_body_parts(arg0);
         u32 id = arg0->fAC;
         if (id != 0xFFFF) {
-            Ctrl_801910F4 *c = get_player_by_client_id(id);
+            Ctrl_801910F4 *c = (Ctrl_801910F4 *)get_player_by_client_id(id);
             if (c != NULL && c != NULL) {
                 c->v0(1);
             }

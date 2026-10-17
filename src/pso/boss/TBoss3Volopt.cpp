@@ -274,7 +274,7 @@ struct S_8003EF38 { u8 pad0[0x18]; void *vt; };
 struct Cam_8003DA78 { s8 a; s8 b; s16 c; f32 d; f32 e; };
 
 void reset_status_effect_row(u8 *arg0);
-u8 * get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 s32 obj_testFlags30(void *, int);
 u16 obj_getField1c(void *);
 s32 obj_setFlags30(void *, s32);
@@ -325,7 +325,7 @@ void set_motion__12TBoss3VoloptFs(void *, u16);
 void set_action__12TBoss3VoloptFs(void *, u16);
 s32 TBoss3Volopt__sub_800479D0();
 void TBoss3Volopt__sub_80047A60(void);
-s32 set_active_camera_pose(void *, void *);
+void set_active_camera_pose(u8 *arg0, u8 *arg1);
 s32 restore_player_cameras();
 s32 activate_camera_mode(s32 arg0);
 void reset_cameras_to_actor(void *actor, s32 arg1);
@@ -547,7 +547,7 @@ void TBoss3Volopt__sub_8003CE38(s32 arg0) {
 
     base = (f32)((arg0 != 0) ? -5000 : 0);
     for (i = lbl_805D586C + lbl_805D5870; i < lbl_805D5868; i++) {
-        p = get_player_data__10TObjPlayerFi(i);
+        p = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (p == NULL) continue;
         if (*(u8 **)((s8 *)p + 0xA4) == NULL) continue;
         if (check_value_equals__13TQuestColCtrlFPll(p, lbl_805D2ECC) != 0) continue;
@@ -762,7 +762,7 @@ void TCameraCtrl::run_intro_camera_sequence() {
     case 0:
         ((TBoss3Volopt *)arg0)->start_phase2();
         activate_camera_mode((9));
-        set_active_camera_pose((void *) (&boss3_volopt_intro_camera_poses.value), (void *) ((u8 *)&boss3_volopt_intro_camera_poses.value + 0xC));
+        set_active_camera_pose((u8 *)(&boss3_volopt_intro_camera_poses.value), ((u8 *)&boss3_volopt_intro_camera_poses.value + 0xC));
         TObjPlayer::freeze_all_players();
         TWindowCtrl::init_all_slots();
         if (((u32)find_entity_by_id((u16)((void *) (lbl_805D2718)))) != 0U) {

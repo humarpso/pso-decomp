@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjFish_800E2FFC.h"
 #include "pso/boss/Boss6Type1Appearance.h"
 #include "pso/misc/TCameraCtrl_800687BC.h"
 #include "pso/object/TObject_80019A50.h"
@@ -37,7 +38,7 @@ struct Fish_8033CB4C
 };
 
 extern "C" {
-u32 create_particle_emitter(int, int);
+void *create_particle_emitter(void *pos, s32 id);
 s32 play_sound_effect(int, int, int, int);
 extern const f32 lbl_805DFA48;
 extern const f32 lbl_805DFA4C;
@@ -45,7 +46,6 @@ s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 int set_scripted_camera_pose(void *, void *, void *);
-s32 TObjFish__sub_800E3124(void *, void *);
 int __ct__7TObjectFP7TObject(void *, void *);
 int build_tables__14TBoss6PlotFalzFPvPvi(void *, void *, int);
 extern s32 lbl_80477DEC[];
@@ -127,7 +127,7 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
     temp_r30 = arg0 + 0x54;
     switch (temp_r0_3) {
     case 0x1:
-        *(u32 *)((s8 *)arg0 + 0x64) = create_particle_emitter((int) (temp_r30), (int) (0x210));
+        *(u32 *)((s8 *)arg0 + 0x64) = (u32)create_particle_emitter((temp_r30), (0x210));
         if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
             ((TBoss4Type2 *)(*(u32 *)((s8 *)arg0 + 0x64)))->set_flags((int) (0x40));
         }
@@ -138,7 +138,7 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
             TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x64)));
             *(u32 *)((s8 *)arg0 + 0x64) = 0U;
         }
-        *(u32 *)((s8 *)arg0 + 0x64) = create_particle_emitter((int) (temp_r30), (int) (0x211));
+        *(u32 *)((s8 *)arg0 + 0x64) = (u32)create_particle_emitter((temp_r30), (0x211));
         if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
             ((TBoss4Type2 *)(*(u32 *)((s8 *)arg0 + 0x64)))->set_flags((int) (0x40));
         }
@@ -148,7 +148,7 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
             TBoss4Type2::request_destroy((u32)(*(void **)((s8 *)arg0 + 0x64)));
             *(u32 *)((s8 *)arg0 + 0x64) = 0U;
         }
-        *(u32 *)((s8 *)arg0 + 0x64) = create_particle_emitter((int) (temp_r30), (int) (0x210));
+        *(u32 *)((s8 *)arg0 + 0x64) = (u32)create_particle_emitter((temp_r30), (0x210));
         if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
             ((TBoss4Type2 *)(*(u32 *)((s8 *)arg0 + 0x64)))->set_flags((int) (0x40));
         }
@@ -200,7 +200,7 @@ TBoss6Demo10_TYPE1_APPEAR::TBoss6Demo10_TYPE1_APPEAR(TObject *parent) : TObject(
       ((Fish_8033CB4C *)this)->tbl[i].b = TObjFish__sub_8001EDB0(n, k);
       ((Fish_8033CB4C *)this)->tbl[i].c = get_bml_motion(n, boss6_type1_appear_motion_indices[i]);
     }
-    ((Fish_8033CB4C *)this)->x60 = TObjFish__sub_800E3124(boss6_type1_appear_node_desc, ((Fish_8033CB4C *)this)->x54);
+    ((Fish_8033CB4C *)this)->x60 = TObjFish__sub_800E3124((u8 *)boss6_type1_appear_node_desc, (s32)(((Fish_8033CB4C *)this)->x54));
     ((Fish_8033CB4C *)this)->x64 = 0;
     build_tables__14TBoss6PlotFalzFPvPvi(((Fish_8033CB4C *)this)->x40, boss6_type1_appear_model_node_descriptors, 2);
     activate_camera_mode(5);

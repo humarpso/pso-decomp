@@ -38,7 +38,7 @@ s32 delete_all_task_children__9TMainTaskFv(void *);
 void TLogo__sub_8013F5AC();
 s32 TKeyBoardControl__sub_8000F9CC(int);
 u32 __ct__10TAdADXlogoFv(void *, void *);
-s32 queue_destruction__7TObjectFv(int);
+void queue_destruction__7TObjectFv(void *arg0);
 u32 __ct__11TAdSEGAlogoFv(void *, void *);
 u32 __ct__12TAdSoniclogoFv(void *, void *);
 int TLogo__sub_8013F7E8(int);
@@ -169,7 +169,7 @@ void run_task__5TLogoFv(u8 *arg0) {
         return;
     case 4:
         if (((s32)is_sega_logo_done((int)((int) (*(u32 *)((s8 *)arg0 + 0x2C))))) != 0) {
-            queue_destruction__7TObjectFv((int) (*(u32 *)((s8 *)arg0 + 0x2C)));
+            queue_destruction__7TObjectFv((void *)(*(u32 *)((s8 *)arg0 + 0x2C)));
             *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
             var_r0_7 = __nw__7TObjectFUl((int) (0x20));
             if (var_r0_7 != 0U) {
@@ -182,7 +182,7 @@ void run_task__5TLogoFv(u8 *arg0) {
         break;
     case 5:
         if (((s32)is_logo_exit_requested((int)((int) (*(u32 *)((s8 *)arg0 + 0x30))))) != 0) {
-            queue_destruction__7TObjectFv((int) (*(u32 *)((s8 *)arg0 + 0x30)));
+            queue_destruction__7TObjectFv((void *)(*(u32 *)((s8 *)arg0 + 0x30)));
             *(u32 *)((s8 *)arg0 + 0x30) = 0U;
             var_r0_8 = __nw__7TObjectFUl((int) (0x20));
             if (var_r0_8 != 0U) {
@@ -195,7 +195,7 @@ void run_task__5TLogoFv(u8 *arg0) {
         break;
     case 6:
         if (((s32)TLogo__sub_8013F7E8((int)((int) (*(u32 *)((s8 *)arg0 + 0x34))))) != 0) {
-            queue_destruction__7TObjectFv((int) (*(u32 *)((s8 *)arg0 + 0x34)));
+            queue_destruction__7TObjectFv((void *)(*(u32 *)((s8 *)arg0 + 0x34)));
             *(u32 *)((s8 *)arg0 + 0x34) = 0U;
             *(u32 *)((s8 *)arg0 + 0x20) = 7U;
             return;

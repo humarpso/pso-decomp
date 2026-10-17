@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_800BC53C.h"
 #include "pso/system/vector.h"
 #include "pso/object/TObjMotion.h"
 #include "pso/player/TUnk_804928CC.h"
@@ -126,7 +127,6 @@ void area_attack_receive_direct(Actor_800BBF08 *src, Actor_800BBF08 *dst, f32 *r
 s32 obj_is_hit_receivable();
 Tgt_800BC080 *get_battle_param__10TObjPlayerFi(s32);
 s32 is_area_attack_target_eligible(void *, int);
-s32 attack_target_history_add(void *, void *);
 s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg2, f32 farg0);
 s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, void *arg3, f32 farg0);
 struct Base_800bbe90 { char pad[0x18]; };
@@ -224,7 +224,7 @@ s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg
             }
             if (obj_is_hit_receivable() != 0 && t != arg0->self_tgt && is_area_attack_target_eligible(arg0, t->x30) != 0) {
                 ok = 1;
-                if (arg2 != NULL && attack_target_history_add(arg2, t) == 0) {
+                if (arg2 != NULL && attack_target_history_add((s32)arg2, (s32)t) == 0) {
                     ok = 0;
                 }
                 if (ok != 0) {
@@ -280,7 +280,7 @@ s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, v
             }
             if (obj_is_hit_receivable() != 0 && t != arg0->self_tgt && is_area_attack_target_eligible(arg0, t->x30) != 0) {
                 ok = 1;
-                if (arg3 != NULL && attack_target_history_add(arg3, t) == 0) {
+                if (arg3 != NULL && attack_target_history_add((s32)arg3, (s32)t) == 0) {
                     ok = 0;
                 }
                 if (ok != 0) {

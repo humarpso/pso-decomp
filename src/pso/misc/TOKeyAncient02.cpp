@@ -55,7 +55,7 @@ extern void *TOKeyAncient02__texture_lists;
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int mem_alloc(void *);
+void *mem_alloc(u32 size);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8016B5A4_lbl_80441A74 lbl_80441A74;
 extern RecoveredGlobal_8016B5A4_lbl_804B2A7C bm_fs_obj_o_doorswitch01_resource_descriptor;
@@ -210,7 +210,7 @@ void TOKeyAncient02::load_resources() {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_o_doorswitch01_resource_descriptor.value, 0, 0, 0));
     }
     (*(u8 * *)&TOKeyAncient02__model_archive) = (unsigned char *) ((void *) var_r0);
-    (*(s32 *)&TOKeyAncient02__texture_lists) = mem_alloc((void *)8);
+    (*(s32 *)&TOKeyAncient02__texture_lists) = (s32)mem_alloc((u32)((void *)8));
     *(s32 *)((s8 *)(*(s32 *)&TOKeyAncient02__texture_lists) + 0) = TObjFish__sub_8001EDB0((*(u8 * *)&TOKeyAncient02__model_archive), 0);
     *(u8 **)((s8 *)(*(s32 *)&TOKeyAncient02__texture_lists) + 4) = load_gvm_texture_file((s32) &lbl_80441A74.value);
     TOKeyAncient02__model_root = get_bml_model((*(u8 * *)&TOKeyAncient02__model_archive), 0);

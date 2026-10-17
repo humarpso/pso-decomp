@@ -149,7 +149,7 @@ struct En0VObj : En0Base {
 
 extern "C" {
 extern Row_8008ED48 lbl_805006F8[];
-s32 apply_actor_gravity(void *, s32, f32);
+void apply_actor_gravity(u8 *arg0, s32 *arg1, f32 farg0);
 void move_with_wall_slide(u8 *arg0);
 s32 check_path_obstructed(void *, Vec_8008F910 *);
 s32 fn_80090464(void *, int);
@@ -157,18 +157,18 @@ s32 advance_animation_playback(void *);
 extern const f32 lbl_805D9620;
 extern const f32 lbl_805D966C;
 void TObjPlayer__sub_8008F910(u8 *arg0);
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 TObjPlayer__sub_800A04F0(void *);
-u8 *find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 s32 play_sound_effect(int, void *, int, int);
 extern const f32 lbl_805D964C;
 extern const f32 lbl_805D9664;
 extern const f32 lbl_805D9668;
 s32 update_enemy_wander_move(void *, Vec_8008FAD0 *, int, f32);
 s32 reset_enemy_state__10TObjPlayerFv();
-s32 play_persistent_sound(int, void *, void *, int, int);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 void TObjPlayer__sub_8008FAD0(u8 *arg0);
-f32 calc_boss4_scale__10TObjPlayerFi(void *);
+f32 calc_boss4_scale__10TObjPlayerFi(s32 arg0);
 void calc_velocity_toward_destination(void *, Vec_8008F910, Vec_8008F910, f32);
 s32 select_enemy_destination(void *, Vec_8008F910, s32);
 void copy_position_if_valid__10TObjPlayerFii(void *, Vec_8008F910);
@@ -182,7 +182,7 @@ extern const f32 lbl_805D9658;
 void TObjPlayer__sub_8008EDE8(P_8008EDE8 *arg0);
 s16 obj_getS16_32C();
 s32 obj_setFlags30(void *, int);
-u32 spawn_particle_effect_with_rotation(void *, void *, int, int);
+void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 T_8008F1DC *find_active_entity_by_id(u16);
 void check_enemy_body_collisions(void *arg0);
 void send_6x2F_change_player_hp(s32 arg0, s32 arg1, s32 arg2);
@@ -208,7 +208,7 @@ void TObjEneBalClawBody::update_dragon_boss_state() {
         *(s32 *)&this->state = 1;
     case 1:
         advance_animation_playback(this);
-        apply_actor_gravity(this, 0, lbl_805D9620);
+        apply_actor_gravity((u8 *)this, (s32 *)(0), (f32)lbl_805D9620);
         return;
     case -1:
         *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFBFFFF);
@@ -324,7 +324,7 @@ void TObjPlayer__sub_8008EDE8(P_8008EDE8 *arg0) {
             }
             if (objInBand((GameObj *)arg0, (f32)lbl_805D964C) != 0) {
                 if (arg0->target->m18(arg0, lbl_805D9650) != 0) {
-                    if (calc_boss4_scale__10TObjPlayerFi(arg0) <= lbl_805D9654) {
+                    if (calc_boss4_scale__10TObjPlayerFi((s32)arg0) <= lbl_805D9654) {
                         Pair_8008EDE8 q = lbl_80439B54[0];
                         arg0->target->m21(arg0, &q, 0, -1, -1);
                     }
@@ -342,7 +342,7 @@ void TObjPlayer__sub_8008EDE8(P_8008EDE8 *arg0) {
         break;
     }
     advance_animation_playback(arg0);
-    apply_actor_gravity(arg0, 0, lbl_805D9620);
+    apply_actor_gravity((u8 *)arg0, (s32 *)(0), lbl_805D9620);
     ((TObjPlayer *)arg0)->update_collisions();
 }
 
@@ -394,9 +394,9 @@ void TObjPlayer__sub_8008F1DC(void *arg0) {
             if (o->f3C0 <= ((TObjPlayer *)(o->f318))->get_pos_x() * ((TObjPlayer *)(o->f318))->get_pos_x()) {
                 FLD(s16, 0xB8) = 7;
                 o->state = 2;
-                o->p3E4 = spawn_particle_effect_with_rotation(&o->pos, &o->f3F8, 0x12B, 2);
+                o->p3E4 = (u32)spawn_particle_effect_with_rotation(&o->pos, &o->f3F8, 0x12B, 2);
                 ((TParticleCtrl *)(o->p3E4))->enable();
-                o->p3E8 = spawn_particle_effect_with_rotation(&o->pos, &o->f3F8, 0x12C, 2);
+                o->p3E8 = (u32)spawn_particle_effect_with_rotation(&o->pos, &o->f3F8, 0x12C, 2);
                 ((TParticleCtrl *)(o->p3E8))->enable();
             }
         }
@@ -461,7 +461,7 @@ void TObjPlayer__sub_8008F1DC(void *arg0) {
         break;
     }
     advance_animation_playback(o);
-    apply_actor_gravity(o, 0, lbl_805D9620);
+    apply_actor_gravity((u8 *)o, (s32 *)(0), lbl_805D9620);
     ((TObjPlayer *)o)->check_object_collisions();
     check_enemy_body_collisions(o);
 }
@@ -480,7 +480,7 @@ void TObjPlayer::run_death_sequence() {
             this->m_b8 = 4;
             this->m_37c = 1;
             for (i = 0; i < ((P_8008F730 *)arg0)->n; i++) {
-                p = find_entity_by_id(((P_8008F730 *)arg0)->ids[i]);
+                p = (u8 *)find_entity_by_id(((P_8008F730 *)arg0)->ids[i]);
                 if (p != NULL) {
                     ((TObjEnemy *)p)->send_entity_set_flags();
                     queue_destruction__7TObjectFv(p);
@@ -595,7 +595,7 @@ void TObjPlayer__sub_8008FAD0(u8 *arg0) {
             reset_enemy_state__10TObjPlayerFv();
             break;
         }
-        play_persistent_sound(0x4003B235, arg0, arg0 + 0x38, 0, 0);
+        play_persistent_sound((s32)(0x4003B235), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
         *(f32 *)((s8 *)arg0 + 0x30C) = lbl_805D9620;
         {
             Vec_8008FAD0 pos = *(Vec_8008FAD0 *)(*(u8 **)((s8 *)arg0 + 0x2A8) + 0x2FC);

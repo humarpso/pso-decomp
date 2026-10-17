@@ -52,7 +52,7 @@ struct Node_801760A8 {
 extern "C" {
 u8 *load_resource_from_descriptor(void *, s32, BmlResourceDescriptor *, s32, s32, s32);
 void *mem_alloc(u32 size);
-s32 load_gvm_texture_file(void *);
+u8 *load_gvm_texture_file(s32 arg0);
 extern RecoveredGlobal_80176308_lbl_80442A80 lbl_80442A80;
 extern u32 sensor_general_shared_bml_archive;
 extern s32 *TOSensorGeneral01__texture_lists;
@@ -184,7 +184,7 @@ void TOSensorGeneral01::load_assets() {
     temp_r3_2 = (s32 *)(mem_alloc(8));
     TOSensorGeneral01__texture_lists = temp_r3_2;
     *(s32 *)((s8 *)temp_r3_2 + 4) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&sensor_general_shared_bml_archive) + 0x42C)) + 0xC);
-    *TOSensorGeneral01__texture_lists = load_gvm_texture_file((void *) (&lbl_80442A80.value));
+    *TOSensorGeneral01__texture_lists = (s32)load_gvm_texture_file((s32)(&lbl_80442A80.value));
 }
 
 void *__dt__17TOSensorGeneral01Fv(void *arg0, s16 arg1) {

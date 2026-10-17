@@ -124,7 +124,7 @@ void translate_matrix_vec3(u8 *arg0, u8 *arg1);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix_from(void *src);
 s32 pop_matrix();
-s32 get_player_by_client_id(u32);
+void *get_player_by_client_id(s32 i);
 
 void TObjNpcBase::vfunc_28() {
     f32 *temp_r5;
@@ -136,7 +136,7 @@ void TObjNpcBase::vfunc_28() {
             {
                 u32 tmp338 = (u32) this->targetId;
                 if (tmp338 != 0xFFFF) {
-                    *(s32 *)&this->target = get_player_by_client_id(tmp338);
+                    *(s32 *)&this->target = (s32)get_player_by_client_id(tmp338);
                 } else {
                     *(s32 *)&this->target = 0;
                 }

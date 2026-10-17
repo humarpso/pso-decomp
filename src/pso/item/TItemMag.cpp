@@ -158,7 +158,7 @@ s8 TObjPlayer__sub_80102C30(u8 *arg0);
 s32 check_class_equip_permission(void *, int);
 s32 activate_d04_slot__10TObjPlayerFv();
 u8 get_slot_count__14TItemProShieldFv();
-s32 * lookup_item_pmt_record(u8 *);
+void *lookup_item_pmt_record(u8 *item);
 void try_add_action__8TItemMagFii(s32 arg0, s32 arg1);
 void TItemMag__vt40(TItemMag_80110B94 *self);
 void register_photon_blasts__8TItemMagFPv(u8 *arg0);
@@ -185,10 +185,10 @@ void mag_feed_add_mind(u8 *mag, s16 arg1);
 void TItemMag__sub_80114198(u8 *mag, s16 arg1);
 void mag_feed_add_def(u8 *mag, s16 arg1);
 s16 get_mag_total_level(void *);
-u8 * get_mag_feed_result(s32, s32);
+s32 get_mag_feed_result(s32 arg0, s32 arg1);
 u8 * get_pmt_record__10TObjPlayerFi(u8);
-s32 send_6x26_unequip_item__10TObjPlayerFPvPv(int, int);
-void assign_default_photon_blast_palette_slots(s32);
+void send_6x26_unequip_item__10TObjPlayerFPvPv(void *self, void *item);
+void assign_default_photon_blast_palette_slots(u8 *arg0);
 void assign_photon_blast_palette_slot(u8 *arg0, s32 arg1);
 s32 is_boss_area();
 s32 play_sound_effect(int, int, int, int);
@@ -406,7 +406,7 @@ void TItemMag::copy_owner_data() {
 void register_photon_blasts__8TItemMagFPv(u8 *arg0) {
     s32 i;
     s32 slot;
-    assign_default_photon_blast_palette_slots(*(s32 *)((s8 *)arg0 + 0xF0) + 0x500);
+    assign_default_photon_blast_palette_slots((u8 *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x500));
     slot = 0;
     do {
         i = ((TItemMag *)(arg0 + 0x198))->get_photon_blast_at_slot(slot);
@@ -1172,9 +1172,9 @@ s32 TItemMag__vt39(u8 *arg0, u8 *arg1) {
     stats.d = 0;
     stats.c = 0;
     if (*arg1 == 3) {
-        rec = lookup_item_pmt_record(arg1);
+        rec = (s32 *)lookup_item_pmt_record(arg1);
         if (rec != NULL) {
-            tbl = get_mag_feed_result(*(s32 *)((s8 *)arg0 + 0x1B8), *rec);
+            tbl = (u8 *)get_mag_feed_result(*(s32 *)((s8 *)arg0 + 0x1B8), *rec);
             if (tbl != NULL) {
                 stats.c = (s8)tbl[0];
                 stats.d = (s8)tbl[1];
@@ -1253,7 +1253,7 @@ s32 TItemMag::apply_feed_stats(u8 *arg1) {
             if (obj_isState2_324__13TUnk_804806E8Fv((int) (*(s32 *)&this->m_f0)) == 0) {
                 arg1 = (u8 *) get_item_field_6__10TObjPlayerFPv((void *)(*(s32 *)&this->m_f0));
                 if ((arg1 != NULL) && (get_item_info__10TObjPlayerFllPs((int) (arg1), (int) (*(s32 *)&this->m_f0), (int) (0)) == 0)) {
-                    send_6x26_unequip_item__10TObjPlayerFPvPv((int) (*(s32 *)&this->m_f0), (int) (get_field_d8__5TItemFv((int) (arg1))));
+                    send_6x26_unequip_item__10TObjPlayerFPvPv((void *)(*(s32 *)&this->m_f0), (void *)(get_field_d8__5TItemFv((int) (arg1))));
                 }
             }
         }
@@ -1500,7 +1500,7 @@ s32 test_flags_any(void *, int);
 s32 obj_isState7_324(void *);
 void TItemMag__vt42(u8 *arg0);
 s32 is_flag_20000_set__10TObjPlayerFv(void *);
-s32 send_6x3A_clear_photon_blast_ready_flag(void *);
+void send_6x3A_clear_photon_blast_ready_flag(u16 *arg0);
 void TItemMag__vt43(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
@@ -1668,7 +1668,7 @@ void TItemMag__vt43(u8 *arg0) {
   u8 *new_var;
   if (((volatile int)((s32 (*)(void *))obj_isState2_324__13TUnk_804806E8Fv)(*((u8 **) (((s8 *) arg0) + 0xF0)))) == 0)
   {
-    ((s32 (*)(void *))assign_default_photon_blast_palette_slots)((void *) ((*((u8 **) (((s8 *) arg0) + 0xF0))) + 0x500));
+    assign_default_photon_blast_palette_slots(((*((u8 **) (((s8 *) arg0) + 0xF0))) + 0x500));
     slot = 0;
     do
     {
@@ -1685,7 +1685,7 @@ void TItemMag__vt43(u8 *arg0) {
     if (is_flag_20000_set__10TObjPlayerFv((void *) (*((u8 **) (((s8 *) arg0) + 0xF0)))) == 0)
     {
       ((TItemMag *)((*((u8 **) (((s8 *) arg0) + 0xF0))) + 0x4AC))->init_feed_timer();
-      send_6x3A_clear_photon_blast_ready_flag((void *) ((*((u8 **) (((s8 *) arg0) + 0xF0))) + 0x4AC));
+      send_6x3A_clear_photon_blast_ready_flag((u16 *)((*((u8 **) (((s8 *) arg0) + 0xF0))) + 0x4AC));
     }
   }
   ((TItemMag *)arg0)->apply_feed_delta();

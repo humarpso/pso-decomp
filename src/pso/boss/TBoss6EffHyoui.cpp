@@ -6,7 +6,7 @@
 #include "types.h"
 
 extern "C" {
-s32 get_player_by_client_id(int);
+void *get_player_by_client_id(s32 i);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 is_active__14TBoss6PlotFalzFv();
 extern s32 lbl_8047AC70[];
@@ -30,7 +30,7 @@ void TBoss6EffHyoui::run_task() {
     u8 *arg0 = (u8 *)this;
     s32 player;
     if ((u32) *(u32 *)&this->m_1c != 0U) {
-        player = get_player_by_client_id((int) (*(u16 *)((s8 *)arg0 + 0x20)));
+        player = (s32)get_player_by_client_id((*(u16 *)((s8 *)arg0 + 0x20)));
         if ((player != 0) && (is_active__14TBoss6PlotFalzFv() != 0)) {
             ((TNowLoading *)(*(u32 *)&this->m_1c))->copy_pos((void *) (player + 0x38));
         }

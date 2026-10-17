@@ -37,7 +37,7 @@ u8 TWindowComCard__sub_80249C18(void* p);
 u8 TWindowComCard__sub_80249C20(void* p);
 void *__dt__14TWindowComCardFv(void *arg0, s16 arg1);
 void run_task__14TWindowComCardFv(void* p);
-void *get_card_entry__17TWindowSubComCardFi(void *);
+s32 get_card_entry__17TWindowSubComCardFi(s32 arg0);
 void __dl__7TObjectFPv(void *);
 int initialize_subwindow__9TWindowDDFv(void*);
 
@@ -142,7 +142,7 @@ u8 *TWindowComCard::create_for_card(s32 arg0, s32 arg1, s32 arg2) {
 void *TWindowComCard::create(void *arg0, void *arg1) {
     void *x0;
     void *o;
-    x0 = get_card_entry__17TWindowSubComCardFi(arg1);
+    x0 = (void *)get_card_entry__17TWindowSubComCardFi((s32)arg1);
     if (x0 == NULL) {
         return NULL;
     }
@@ -210,7 +210,7 @@ s32 get_class_name_text(s32 arg0) {
 }
 
 s32 get_status_effect_icon_index(u32 arg0);
-s32 set_sprite_uv_from_pixels(void *, f32, f32);
+void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1);
 
 extern u8 com_card_help_panel_rect_table[];
 
@@ -228,7 +228,7 @@ void TWindowComCard::set_help_mode(s32 arg1) {
         this->m_34 = 2;
     }
     temp_r4 = com_card_help_panel_rect_table + (arg1 * 8);
-    set_sprite_uv_from_pixels(this, *(f32 *)((s8 *)temp_r4 + 0), *(f32 *)((s8 *)temp_r4 + 4));
+    set_sprite_uv_from_pixels((u8 *)this, *(f32 *)((s8 *)temp_r4 + 0), *(f32 *)((s8 *)temp_r4 + 4));
 }
 
 void*TWindowComCard::get_card_name_ptr() { return (char*)this + 0xa; }

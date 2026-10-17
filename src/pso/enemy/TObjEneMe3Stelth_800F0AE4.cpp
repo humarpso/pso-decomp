@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_80065C90.h"
 #include "pso/enemy/TObjEneMe3Stelth_800F0AE4.h"
 #include "pso/map/CsnQuery.h"
 #include "pso/unk/text_80087278.h"
@@ -16,10 +17,9 @@ struct Stack_800F0B4C
 };
 
 extern "C" {
-int load_gvm_texture_file(void*);
+u8 *load_gvm_texture_file(s32 arg0);
     extern unsigned char lbl_8043D438[];
 extern u32 blob_shadow_texture_list;
-s32 attach_particle_model(int, int, int, int, int, f32);
 s32 TObjEneGibbles__sub_800D8988(void *);
 extern const f32 TObjEneMe3Stelth__data_805DA808;
 extern const f32 TObjEneMe3Stelth__data_805DA80C;
@@ -35,7 +35,7 @@ void TObjEneMe3Stelth::destroy_resources() {
         blob_shadow_texture_list = 0U;
     }
 }
-void load_ha_u032_kage(void) { (*(int *)&blob_shadow_texture_list) = load_gvm_texture_file(lbl_8043D438); }
+void load_ha_u032_kage(void) { (*(int *)&blob_shadow_texture_list) = (int)load_gvm_texture_file((s32)lbl_8043D438); }
 s32 TObjEneMe3Stelth::try_spawn_ground_effect(s32 arg1) {
     s32 arg0 = (s32)this;
   Stack_800F0B4C stack;
@@ -51,7 +51,7 @@ s32 TObjEneMe3Stelth::try_spawn_ground_effect(s32 arg1) {
     if (particle_effect != 0)
     {
       ;
-      attach_particle_model((int) particle_effect, (int) TParticleCtrl::get_particle_model((int) 2), (int) TParticleCtrl::get_instance(), (int) 0, (int) 1, (f32) TObjEneMe3Stelth__data_805DA80C);
+      attach_particle_model((u8 *)particle_effect, (int) TParticleCtrl::get_particle_model((int) 2), (int) TParticleCtrl::get_instance(), (int) 0, (int) 1, (f32) TObjEneMe3Stelth__data_805DA80C);
     }
     spawn_particle_effect((void *)((int) ((*((s32 *) (((s8 *) temp_r3) + 4))) + 0x38)), ((int) 0xA4));
     TObjEneGibbles__sub_800D8988((void *) (arg0 + 0x38));

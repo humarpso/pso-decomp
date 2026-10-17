@@ -56,7 +56,7 @@ void TEndingAB__sub_8008D5A0(void);
 void TEndingPic__sub_8008D5AC(void);
 int TEnding__sub_8008D5B8(void);
 extern const f32 lbl_805D95D0;
-s32 draw_textured_quad_at_depth(void *, f32);
+void draw_textured_quad_at_depth(f32 *q, f32 depth);
 void begin_screen_draw(s32 arg0);
 s32 set_draw_texture_and_color(s32, s32, f32);
 
@@ -71,10 +71,10 @@ void TEndingC::render() {
     TObjFish::set_global_param((s32)TEndingC__wall_texture_list_entry);
     begin_screen_draw(1);
     set_draw_texture_and_color(1, ((s32) (lbl_805D95C0 * primary_opacity) << 0x18) | 0xFF0000 | 0xFFFF, lbl_805D95C0);
-    draw_textured_quad_at_depth(render_geometry + 0x0, lbl_805D95C4);
-    draw_textured_quad_at_depth(render_geometry + 0x20, lbl_805D95C4);
+    draw_textured_quad_at_depth((f32 *)(render_geometry + 0x0), lbl_805D95C4);
+    draw_textured_quad_at_depth((f32 *)(render_geometry + 0x20), lbl_805D95C4);
     set_draw_texture_and_color(0, ((s32) (lbl_805D95C0 * secondary_opacity) << 0x18) | 0xFF0000 | 0xFFFF, lbl_805D95C0);
-    draw_textured_quad_at_depth(render_geometry + 0x40, lbl_805D95C8);
+    draw_textured_quad_at_depth((f32 *)(render_geometry + 0x40), lbl_805D95C8);
     TWindowSubStatusDisp::get_player();
 }
 

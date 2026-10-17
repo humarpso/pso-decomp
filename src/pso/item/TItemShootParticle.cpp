@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_800870BC.h"
 #include "pso/object/TObject_8001A448.h"
 #include "pso/item/TItemShootParticle.h"
 #include "pso/boss/TBoss4Type2.h"
@@ -8,7 +9,6 @@ struct TItemShootParticle_8011B77C { u8 pad[0x18]; void *vt; u8 pad1c[0x58 - 0x1
 struct TItemShootParticle_8011B7FC { u32 f0; u8 pad4[0x14]; void *vt; u8 pad1c[0x58 - 0x1c]; void *parts[2]; s16 s60; };
 
 extern "C" {
-s32 spawn_particle_effect_with_rotation(s32, s32, s32, s32);
 void __dt__10TItemShootFv(void *self, s32 flag);
 void __dl__7TObjectFPv(void *p);
 extern void *__vt__18TItemShootParticle[];
@@ -23,7 +23,7 @@ s32 TItemShootParticle::spawn_slot_emitter(s32 arg1, s32 arg2) {
     if ((arg2 >= 0) && (arg2 < 2)) {
         temp_r31 = (arg2 * 4) + 0x58;
         TBoss4Type2::request_destroy(*(s32 *)((s8 *)((u8 *)this) + temp_r31));
-        *(s32 *)((s8 *)((u8 *)this) + temp_r31) = spawn_particle_effect_with_rotation((s32) (((u8 *)this) + 0x1C), (s32) (((u8 *)this) + 0x28), arg1, (s32) (u16) (this->m_60 | 0x40));
+        *(s32 *)((s8 *)((u8 *)this) + temp_r31) = (s32)spawn_particle_effect_with_rotation((((u8 *)this) + 0x1C), (((u8 *)this) + 0x28), arg1, (s32) (u16) (this->m_60 | 0x40));
         return *(s32 *)((s8 *)((u8 *)this) + temp_r31);
     }
     return 0;

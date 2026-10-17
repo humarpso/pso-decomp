@@ -108,7 +108,7 @@ s32 get_width__19TWindowSimpleStatusFv();
 s32 apply_context_transform_to_rect(u8 *, Rect_80270394 *);
 s32 start_text_color_transition(void *, s32, f32);
 void set_text_entry_string(u8 *arg0, u32 str, s32 arg2);
-s32 set_sprite_uv_from_pixels(s32, f32, f32);
+void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1);
 s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0);
 void update_lockon_window(u8 *arg0);
 s32 update_photon_blast_player_marker(s32 arg0, s32 arg1);
@@ -396,28 +396,28 @@ s32 update_photon_blast_player_marker(s32 arg0, s32 arg1) {
         }
         switch (type) {
         case 5:
-            set_sprite_uv_from_pixels(arg0, lbl_805DD388, lbl_805DD3AC);
+            set_sprite_uv_from_pixels((u8 *)arg0, lbl_805DD388, lbl_805DD3AC);
             break;
         case 4:
-            set_sprite_uv_from_pixels(arg0, lbl_805DD3B0, lbl_805DD3AC);
+            set_sprite_uv_from_pixels((u8 *)arg0, lbl_805DD3B0, lbl_805DD3AC);
             break;
         case 3:
-            set_sprite_uv_from_pixels(arg0, lbl_805DD3B4, lbl_805DD3AC);
+            set_sprite_uv_from_pixels((u8 *)arg0, lbl_805DD3B4, lbl_805DD3AC);
             break;
         case 1:
-            set_sprite_uv_from_pixels(arg0, lbl_805DD3B8, lbl_805DD3AC);
+            set_sprite_uv_from_pixels((u8 *)arg0, lbl_805DD3B8, lbl_805DD3AC);
             break;
         case 2:
-            set_sprite_uv_from_pixels(arg0, lbl_805DD3BC, lbl_805DD3AC);
+            set_sprite_uv_from_pixels((u8 *)arg0, lbl_805DD3BC, lbl_805DD3AC);
             break;
         case 0:
-            set_sprite_uv_from_pixels(arg0, lbl_805DD3C0, lbl_805DD3AC);
+            set_sprite_uv_from_pixels((u8 *)arg0, lbl_805DD3C0, lbl_805DD3AC);
             break;
         default:
             if (((TLobby *)lobby_rule_settings)->get_rule_field_a() == 1 && (p = ((u8 * (*)(u32))get_player_by_client_id)(key)) != 0) {
                 key = TLobby__sub_801C19D0(p + 0x828) - 1;
             }
-            set_sprite_uv_from_pixels(arg0, lbl_805DD3B0 * key, lbl_805DD3C4);
+            set_sprite_uv_from_pixels((u8 *)arg0, lbl_805DD3B0 * key, lbl_805DD3C4);
             break;
         }
     }

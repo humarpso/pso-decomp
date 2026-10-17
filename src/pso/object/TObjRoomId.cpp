@@ -61,7 +61,7 @@ extern s32 lbl_805D34B0;
 extern const f32 lbl_805DC094;
 u8 *TObjRoomId__ct(u8 *arg0, s32 arg1, s32 arg2);
 u16 TObjRoomId__sub_801A1DB8(u16 x);
-Obj_801A1888 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 f32 horizontal_distance_squared(f32 *a, f32 *b);
 s32 is_player_in_range__10TObjRoomIdFPvUsf(Obj_801A1888 *self, u16 id, f32 range);
 void draw_debug_line__10TObjRoomIdFUllll(void *, int, int, void *);
@@ -92,7 +92,7 @@ void *__nw__7TObjectFUl(int);
 s32 is_split_screen();
 
 s32 is_player_in_range__10TObjRoomIdFPvUsf(Obj_801A1888 *self, u16 id, f32 range) {
-    Obj_801A1888 *p = get_player_by_client_id(id);
+    Obj_801A1888 *p = (Obj_801A1888 *)get_player_by_client_id(id);
     if (p == 0) {
         return 0;
     }
@@ -154,7 +154,7 @@ void TObjRoomId::run_task() {
     matrix_mult_vec(0, &v, &o->normal);
     pop_matrices(1);
     for (s32 i = 0; i < 4; i++) {
-        Obj_801A1888 *p = get_player_by_client_id(i);
+        Obj_801A1888 *p = (Obj_801A1888 *)get_player_by_client_id(i);
         if (p == NULL) {
             continue;
         }

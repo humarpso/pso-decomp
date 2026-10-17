@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TPlySmth.h"
 #include "pso/misc/TChatMessage_801DF918.h"
 #include "pso/unk/text_801DB998.h"
 
@@ -31,7 +32,6 @@ struct Stack_801DB998 {
 };
 
 extern "C" {
-s32 __as__8TPlySmthFRC8TPlySmth(void *, void *);
 s32 strncpy(void *, void *, int);
 s32 memset(void *, int, int);
 void send_register_9c(u8 *arg0) {
@@ -40,7 +40,7 @@ void send_register_9c(u8 *arg0) {
     memset((void *) (&stack.sp8), (int) (0), (int) (0xA4));
     stack.sp8 = 0x9C;
     stack.spA = 0xA4;
-    __as__8TPlySmthFRC8TPlySmth((void *) (&stack.spC), (void *) (arg0 + 0x18F8));
+    __as__8TPlySmthFRC8TPlySmth((s32)(&stack.spC), (s32)(arg0 + 0x18F8));
     stack.sp14 = (s32) *(u16 *)((s8 *)arg0 + 0x1908);
     stack.sp19 = (s8) *(s32 *)((s8 *)arg0 + 0x1934);
     strncpy((void *) (&stack.sp1C), (void *) (arg0 + 0x3EDA), (int) (0x30));

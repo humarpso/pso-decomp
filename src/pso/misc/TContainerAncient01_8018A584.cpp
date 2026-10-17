@@ -224,7 +224,7 @@ f32 horizontal_distance_squared(void *, void *);
 extern const f32 lbl_805DBD18;
 void TContainerAncient01__sub_8018A584(Obj_8018A584 *self, f32 range);
 
-u8 *get_player_by_client_id(int);
+void *get_player_by_client_id(s32 i);
 s32 play_sound_effect(int, void *, int, int);
 extern const f32 TContainerAncient01__data_805DBD20;
 extern const f32 lbl_805DBD24;
@@ -488,7 +488,7 @@ void TContainerAncient01R::check_open_trigger() {
     } else {
         range = lbl_805DBD38;
         for (i = 0; i < lbl_805D586C; i++) {
-            pl = ((Player_8018A914 *(*)(s32))get_player_by_client_id)(i);
+            pl = (Player_8018A914 *)get_player_by_client_id(i);
             if (pl != NULL && horizontal_distance_squared(self->pos, pl->pos) < range) {
                 hit = 1;
             }
@@ -817,7 +817,7 @@ void TContainerAncient01::update_wait_for_player() {
     } else {
         c = lbl_805DBD38;
         for (i = 0; i < 4; i++) {
-            p = get_player_by_client_id(i);
+            p = (u8 *)get_player_by_client_id(i);
             if (p != 0 && horizontal_distance_squared(arg0->pos, p + 0x38) < c) {
                 flag = 1;
             }

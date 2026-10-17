@@ -148,7 +148,7 @@ s32 *init_from_model__11TBreakUpMdlFl(s32 *, s32);
 s32 TObjPlayer__sub_802E75B8(void *, s32 *);
 void __ct__7TObjectFP7TObject(void *);
 s32 *alloc__23TAdSinglePlyChrSelectGCFv(s32);
-s32 mem_alloc(s32);
+void *mem_alloc(u32 size);
 
     extern int multiplay_texture_f512_handle;
 int TObjPlayer::get_instance() {  return multiplay_texture_f512_handle; }
@@ -336,7 +336,7 @@ void TUnk_804E3BD8::alloc_breakup_model(s32 arg1) {
     temp_r4 = *(s32 **)((s8 *)this + 0x1C);
     this->m_24 = (s32) *temp_r4;
     TObjPlayer__sub_802E75B8(this, temp_r4);
-    *(s32 *)&(*(u32 *)&this->unk_28) = mem_alloc(this->m_24 * 0x2C);
+    *(s32 *)&(*(u32 *)&this->unk_28) = (s32)mem_alloc(this->m_24 * 0x2C);
 }
 
 }

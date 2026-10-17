@@ -17,7 +17,7 @@ int TKeyBoardControl__sub_8000F828(void);
 u8 *__ct__10TEndingPicFv(u8 *arg0, u8 *arg1);
 u8 *__ct__9TEndingABFv(u8 *arg0, u8 *arg1);
 u8 *__ct__8TEndingCFv(u8 *arg0, u8 *arg1);
-TAdRicoRingCtrl *TAdRicoRingCtrl__ct(void *, TObject *);
+u8 *TAdRicoRingCtrl__ct(u8 *arg0, s32 arg1);
 void __ct__10TAdEndTextFv(void *, TObject *);
 extern u32 ending_frame_counter;
 extern s32 ending_scene_active;
@@ -87,7 +87,7 @@ TEnding::TEnding() : TObject(tl_window) {
     phase = 0;
     elapsed_ticks = 0;
     TAdRicoRingCtrl *ring = (TAdRicoRingCtrl *)TObject::operator new(0x2C);
-    if (ring != NULL) ring = TAdRicoRingCtrl__ct(ring, this);
+    if (ring != NULL) ring = (TAdRicoRingCtrl *)TAdRicoRingCtrl__ct((u8 *)ring, (s32)this);
     ring_controller = ring;
     if (ring_controller != NULL)
         ((TAdRicoRingCtrl *)ring_controller)->start_fade_all(lbl_805D9578 * (f32)timing_rate);

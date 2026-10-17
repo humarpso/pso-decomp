@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/map/CsnQuery.h"
 #include "pso/unk/text_80325F7C.h"
 #include "pso/system/vector.h"
 #include "pso/TBoss5GryphonLightningWing.h"
@@ -35,7 +36,6 @@ void TObjPlayer__sub_80325D58(void *, void *, void *, void *);
 void project_point_onto_line(void *, void *, void *);
 extern const f32 lbl_805DF630;
 extern const f32 lbl_805DF638;
-Hit_80326074 *csnVecterUnder(void *, s32);
 s32 rand(void);
 void vec3_add_to(void *, void *);
 void subtract_vector(void *, void *);
@@ -97,7 +97,7 @@ void TBoss5GryphonLightningHorn::rebuild_lightning_segments() {
     p.y += self->vel.y;
     p.z += self->vel.z;
     p.y = lbl_805DF63C;
-    hit = csnVecterUnder(&p, 0x16EF);
+    hit = (Hit_80326074 *)csnVecterUnder((s32)&p, 0x16EF);
     if (hit == NULL || (h = hit->pos[1]) > lbl_805D8D48) {
         get_wing_position__26TBoss5GryphonLightningWingFl(self, &p);
         self->vel.x *= lbl_805DF640;

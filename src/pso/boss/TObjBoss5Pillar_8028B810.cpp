@@ -14,7 +14,7 @@ struct Stack_8028B810 {
 };
 
 extern "C" {
-u8 * create_ch_cr_load_req(void *, void *);
+void *create_ch_cr_load_req(void *arg0, void *arg1);
 s32 copy_player_visual_record(void *, void *);
 s32 TCharaMaking__bind_appearance_texture_lists(void *, void *, void *, void *);
 
@@ -39,7 +39,7 @@ u8 *init_appearance_load_request__10TNpcPlayerFPvPvii(u8 *arg0, u8 *arg1, s32 ar
     stack.sp1C = (u8 *)(arg0 + 0x490);
     stack.sp20 = (u8 *)(arg0 + 0x324);
     stack.sp24 = (u8 *)(arg0 + 0x1B8);
-    *(u8 **)((s8 *)arg0 + 0) = create_ch_cr_load_req(arg1, &stack.sp8);
+    *(u8 **)((s8 *)arg0 + 0) = (u8 *)create_ch_cr_load_req(arg1, &stack.sp8);
     return arg0;
 }
 

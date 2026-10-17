@@ -499,13 +499,13 @@ s32 obj_getField1c(void *);
 s32 get_current_floor();
 u32 csnVector(void *, void *, int);
 u8 *get_enemy_entity(u16);
-u8 *get_player_by_client_id(u16);
+void *get_player_by_client_id(s32 i);
 s32 subtract_vector(void *, void *);
 extern s32 lbl_8043B0B4[];
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 void acquire_target__11TObjEneMojaFPv(u8 *arg0);
-s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
+void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0);
 s32 TObjPlayer__sub_800ACA0C(void *);
 
 void update_attack_jump__11TObjEneMojaFv(Obj_800ACFE8 *);
@@ -578,7 +578,7 @@ extern Vec_800AE450 lbl_8050BEE0;
 void update_appearance_drop__11TObjEneMojaFv(Moja_800AE450 *self);
 
 s32 enemy_turn_toward_dest(void *, s32);
-void enemy_set_heading_velocity(void *, s32, f32);
+void enemy_set_heading_velocity(u8 *arg0, s32 arg1, f32 farg0);
 s32 update_angle__10TObjPlayerFlPv(void *, s32, void *);
 
 void *__nw__7TObjectFUl(u32);
@@ -765,7 +765,7 @@ s32 TObjEneMoja::update_technique_state(void *self_800AD3D8) {
     u16 id;
     id = self->target_id;
     if (id < 0x1000) {
-        p = get_player_by_client_id(id);
+        p = (u8 *)get_player_by_client_id(id);
         if (p != NULL && ((TObjPlayer *)p)->get_field_3e4() == get_current_floor() &&
             ((TUnk_804B9870 *)self)->get_stat_by_key_state() == ((TUnk_804B9870 *)p)->get_stat_by_key_state()) {
             self->target = (Tgt_800AD3D8 *) p;
@@ -792,7 +792,7 @@ s32 TObjEneMoja::update_technique_state(void *self_800AD3D8) {
                 Vec_800AE18C cur = self->pos;
                 copy_position_if_valid__10TObjPlayerFii(self, &cur);
                 a = enemy_turn_toward_dest(self, self->info->turn);
-                enemy_set_heading_velocity(self, self->rot_y, self->info->speed);
+                enemy_set_heading_velocity((u8 *)self, self->rot_y, self->info->speed);
                 move_with_wall_slide(self);
             } else {
                 VecCopy((Vec *)&dir, (const Vec *)&self->target->pos);
@@ -1501,7 +1501,7 @@ void acquire_target__11TObjEneMojaFPv(u8 *arg0) {
         }
         tid = ((TObjEneMoja *)arg0)->targetId;
         if (tid < 0x1000U) {
-            q = get_player_by_client_id(tid);
+            q = (u8 *)get_player_by_client_id(tid);
             if (q != NULL) {
                 if (((TObjPlayer *)q)->get_field_3e4() == get_current_floor()) {
                     ((TObjEneMoja *)arg0)->target = q;
@@ -1659,7 +1659,7 @@ void TObjEneMoja::run_task() {
         }
     }
     ((TObjEnemy *)arg0)->update_prev_position();
-    copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0));
+    copy_position__20TBoss3VoloptHiraisinFi((s32)(arg0));
     submit_cursor_candidate((void *) (arg0), (int) (-1));
     temp_r4 = (u8 *)(this->target);
     if ((temp_r4 != NULL) && (*(s32 *)((s8 *)temp_r4 + 0x30) & 0x02000800)) {

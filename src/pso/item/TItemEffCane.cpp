@@ -9,14 +9,14 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-TItem* find_item_by_id(s32 item_id);
+u8 *find_item_by_id(s32 id);
 u32 test_flags_1b8__11TItemWeaponFUl(TItem* item, u32 flags);
 extern const char* TItemEffCane__class_name;
 }
 
 void TItemEffCane::run_task() {
     f32 position[3];
-    TItem* item = find_item_by_id(item_id);
+    TItem* item = (TItem *)find_item_by_id(item_id);
     if (item == NULL) {
         queue_destruction__7TObjectFv(this);
         return;

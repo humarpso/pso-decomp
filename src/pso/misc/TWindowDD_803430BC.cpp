@@ -187,9 +187,9 @@ void set_item_pos__9TWindowDDFl(void *, int);
 u8 *init_last_child__9TWindowDDFv(void *);
 void TWindowDD__sub_80347CC8(void *, void *);
 void setup_entry__9TWindowDDFl(void *, s32);
-void TWindowDD__sub_80347F48(void *);
+void TWindowDD__sub_80347F48(u8 *arg0);
 void init_entry_field_64__9TWindowDDFl(void *, int);
-void TWindowDD__sub_80347FA0(void *, int);
+void TWindowDD__sub_80347FA0(s32 arg0, s32 arg1);
 void pop_entry__9TWindowDDFv(void *);
 extern const s32 TWindowDD__data_805DFB50;
 extern const f32 TWindowDD__data_805DFB74;
@@ -211,7 +211,7 @@ s16 TWindowDD__sub_80344568(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 s16 TWindowDD__sub_80344774(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 s16 TWindowDD__sub_80346434(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 s32 build_player_word_lists__9TWindowDDFv();
-s32 TWindowDD__sub_80347A4C(void *, int);
+void TWindowDD__sub_80347A4C(u8 *arg0, s32 arg1);
 u8 *TWindowDD__sub_80347AD4(void *, s32, s32);
 s32 TWindowDD__sub_80347E04(void *, int);
 s32 dispatch_state__9TWindowDDFv(void *, int, int, int);
@@ -417,11 +417,11 @@ void apply_entry_layout__9TWindowDDFPv(TWindowDD_8034330C *arg0) {
     if (child != NULL) {
         if (*entry & 8) {
             set_item_pos__9TWindowDDFl(arg0, 0);
-            TWindowDD__sub_80347FA0(arg0, 1);
+            TWindowDD__sub_80347FA0((s32)arg0, 1);
         } else if (*entry & 1) {
             set_pos_and_data__9TWindowDDFf(child, TWindowDD__data_805DFC10);
             *(f32 *)((s8 *)child + 0x38) = lbl_805DFB88;
-            TWindowDD__sub_80347F48(arg0);
+            TWindowDD__sub_80347F48((u8 *)arg0);
         } else {
             set_pos_and_data__9TWindowDDFf(child, lbl_805DFB80);
             *(f32 *)((s8 *)child + 0x38) = lbl_805DFB88;
@@ -434,16 +434,16 @@ void apply_entry_layout__9TWindowDDFPv(TWindowDD_8034330C *arg0) {
     }
     set_item_pos__9TWindowDDFl(arg0, 1);
     if (!(*entry & 2)) {
-        TWindowDD__sub_80347FA0(arg0, 3);
+        TWindowDD__sub_80347FA0((s32)arg0, 3);
     }
     if (*entry & 4) {
         if (arg0->fBC > 0) {
-            TWindowDD__sub_80347FA0(arg0, arg0->fBC + 3);
+            TWindowDD__sub_80347FA0((s32)arg0, arg0->fBC + 3);
         }
     }
     id = ((s16 *)entry)[2];
     if (id == -1) {
-        TWindowDD__sub_80347FA0(arg0, 2);
+        TWindowDD__sub_80347FA0((s32)arg0, 2);
     } else {
         setup_entry__9TWindowDDFl(arg0, id);
         init_entry_field_64__9TWindowDDFl(arg0, 2);
@@ -534,7 +534,7 @@ void TWindowDD__sub_803435A0(u8 *arg0) {
             }
         }
         if (*(s32 *)((s8 *)temp_r31 + 0) & 2) {
-            TWindowDD__sub_80347A4C((void *) (arg0), (int) (temp_r3_2));
+            TWindowDD__sub_80347A4C((arg0), (s32)(temp_r3_2));
         }
     }
     temp_r3_5 = *(s32 *)((s8 *)temp_r31 + 0);
@@ -544,7 +544,7 @@ void TWindowDD__sub_803435A0(u8 *arg0) {
             if ((temp_r3 = TWindowDD__sub_80347AD4(arg0, 2, *(s32 *)((s8 *)arg0 + 0x90))) != NULL) {
                 set_pos_and_data__9TWindowDDFf(temp_r3, TWindowDD__data_805DFC10);
             }
-            TWindowDD__sub_80347F48((void *) (arg0));
+            TWindowDD__sub_80347F48((arg0));
         } else {
             *(s32 *)((s8 *)arg0 + 0x90) = dispatch_state__9TWindowDDFv((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0xB4)), (int) (*(s32 *)((s8 *)arg0 + 0x8C)), (int) (0));
             if ((temp_r3 = TWindowDD__sub_80347AD4(arg0, 2, *(s32 *)((s8 *)arg0 + 0x90))) != NULL) {
@@ -553,10 +553,10 @@ void TWindowDD__sub_803435A0(u8 *arg0) {
             init_entry_field_64__9TWindowDDFl((void *) (arg0), (int) (1));
         }
     } else {
-        TWindowDD__sub_80347FA0((void *) (arg0), (int) (1));
+        TWindowDD__sub_80347FA0((s32)(arg0), (1));
     }
     if ((s16) *(s16 *)((s8 *)temp_r31 + 4) == -1) {
-        TWindowDD__sub_80347FA0((void *) (arg0), (int) (2));
+        TWindowDD__sub_80347FA0((s32)(arg0), (2));
     } else {
         setup_entry__9TWindowDDFl((void *) (arg0), *(s16 *)((s8 *)temp_r31 + 4));
         init_entry_field_64__9TWindowDDFl((void *) (arg0), (int) (2));

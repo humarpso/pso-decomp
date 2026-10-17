@@ -165,7 +165,7 @@ f32 subtract_vector(void *, void *);
 f32 normalize_vector(void *);
 extern const f32 lbl_805DF59C;
 extern const f32 lbl_805DF5A0;
-u8 *get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 s32 play_sound_effect(int, void *, int, int);
 extern const f32 lbl_805DF590;
 extern const f32 lbl_805DF594;
@@ -174,14 +174,14 @@ f64 atan2_float(f32, f32);
 s32 approach_angle_limited(s32, s32, s32);
 f64 TBoss5GryphonLightningWing__sub_80324CEC(f32);
 extern const f64 lbl_804766A0[];
-s32 play_persistent_sound(s32, s32, u32, s16, s32);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 f32 *dispatch_shared_handler_a__6TLobbyFl(s32);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
 s32 exchange_object_state__9TObjEnemyFls(void *, void *, int);
-u32 create_particle_emitter(void *, int);
-s32 bind_enemy_combat_stats(void *, int, int, int);
+void *create_particle_emitter(void *pos, s32 id);
+s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
 s32 init_collision_body_parts(void *, void *, int);
 extern u8 TBoss6Mine__collision_body_template[];
 extern s32 __vt__10TBoss6Mine[];
@@ -196,7 +196,7 @@ extern const f32 lbl_805DF5DC;
 void TBoss6PlotFalz__sub_802AC008(f32 farg0, f32 farg1);
 void TBoss6Type1__sub_802B5DD4(void *);
 int post_translate_matrix(void*);
-int spawn_particle_effect_with_flags(void*, void*, void*);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 int rotate_matrix_x(void*, void*);
 s32 TObjControl__ct(s32, s32);
 void free_collision_body_parts(void *);
@@ -208,7 +208,7 @@ int push_matrix(void*);
 void __dl__7TObjectFPv(void *);
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 s32 __nw__7TObjectFUl(s32);
-int queue_destruction__7TObjectFv(void*);
+void queue_destruction__7TObjectFv(void *arg0);
 
 void TBoss6Mine::render_shadows() {
     u8 *arg0 = (u8 *)this;
@@ -289,7 +289,7 @@ void explode_damage_players__10TBoss6MineFPv(u8 *arg0) {
     u8 *pl;
     n = TLobby::get_game_mode();
     for (i = 0; i < n; i++) {
-        pl = get_player_data__10TObjPlayerFi(i);
+        pl = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (((TBoss6PlotFalz *)pl)->is_active() != 0) {
             Vec_803240F8 v = *(Vec_803240F8 *) (arg0 + 0x38);
             subtract_vector(&v, pl + 0x38);
@@ -308,16 +308,16 @@ void explode_damage_players__10TBoss6MineFPv(u8 *arg0) {
     play_sound_effect(0x4003BA1E, arg0 + 0x38, 0, 0);
 }
 
-void TBoss6Mine__vt7(void* p) { spawn_particle_effect_with_flags((void*)((char*)p + 0x38), (void*)((void*)252), (void*)((void*)64)); queue_destruction__7TObjectFv((void*)(p)); }
+void TBoss6Mine__vt7(void* p) { spawn_particle_effect_with_flags(((char*)p + 0x38), (s32)((void*)252), (s32)((void*)64)); queue_destruction__7TObjectFv((void *)(p)); }
 
 extern f32 lbl_805DF598;
 
 void TBoss6Mine__vt6(s32 arg0) {
     explode_damage_players__10TBoss6MineFPv((u8 *)(arg0));
-    spawn_particle_effect_with_flags((void*)(arg0 + 0x38), (void*)(0xFB), (void*)(0x40));
-    spawn_particle_effect_with_flags((void*)(arg0 + 0x38), (void*)(0xFC), (void*)(0x40));
+    spawn_particle_effect_with_flags((void *)(arg0 + 0x38), (0xFB), (0x40));
+    spawn_particle_effect_with_flags((void *)(arg0 + 0x38), (0xFC), (0x40));
     TBoss6PlotFalz::apply_radial_effect_to_players((void *)(arg0 + 0x38), (s16)0xC0, (s16)0xF, (f32)lbl_805DF598);
-    queue_destruction__7TObjectFv((void*)(arg0));
+    queue_destruction__7TObjectFv((void *)(arg0));
 }
 
 #pragma push
@@ -402,7 +402,7 @@ void TBoss6Mine__vt2(u8 *arg0) {
         *(s32 *)((s8 *)arg0 + 0x38C) = 0;
         *(s32 *)((s8 *)arg0 + 0x380) = 3;
     }
-    play_persistent_sound(0x4003B21C, (s32) arg0, (u32) (arg0 + 0x38), 0, 0);
+    play_persistent_sound((s32)(0x4003B21C), (s32)arg0, (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
 }
 
 void TBoss6Mine__vt1(void *arg0) {
@@ -495,7 +495,7 @@ s32 TBoss6Mine__ct(s32 arg0, s32 parent, s32 arg2) {
     *(f32 *)((s8 *)THIS + 0x30C) = TBoss6Mine__data_805DF580;
     *(f32 *)((s8 *)THIS + 0x308) = TBoss6Mine__data_805DF580;
     *(s32 *)((s8 *)THIS + 0x2A8) = 0;
-    bind_enemy_combat_stats(THIS, register_boss__6TLobbyFl(0x2D), dispatch_shared_handler_b__6TLobbyFl(0x2D), register_object__6TLobbyFl(0x2D));
+    bind_enemy_combat_stats(THIS, (u8 *)(register_boss__6TLobbyFl(0x2D)), (u8 *)(dispatch_shared_handler_b__6TLobbyFl(0x2D)), (u8 *)(register_object__6TLobbyFl(0x2D)));
     *(s16 *)((s8 *)THIS + 0x33E) = *(s16 *)((s8 *)THIS + 0x32C);
     ((TBoss3Volopt *)THIS)->reset_photon_effect();
     ((TObjEneLappy *)THIS)->set_param(0);
@@ -516,7 +516,7 @@ s32 TBoss6Mine__ct(s32 arg0, s32 parent, s32 arg2) {
     *(s32 *)((s8 *)THIS + 0x398) = 0;
     *(s32 *)((s8 *)THIS + 0x38C) = 0;
     *(s32 *)((s8 *)THIS + 0x380) = 0;
-    *(u32 *)((s8 *)THIS + 0x3CC) = create_particle_emitter(THIS + 0x38, 0x146);
+    *(u32 *)((s8 *)THIS + 0x3CC) = (u32)create_particle_emitter(THIS + 0x38, 0x146);
     if (*(u32 *)((s8 *)THIS + 0x3CC) != 0) {
         ((TBoss4Type2 *)(*(u32 *)((s8 *)THIS + 0x3CC)))->set_flags(0x40);
     }

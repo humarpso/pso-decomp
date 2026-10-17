@@ -5,7 +5,7 @@
 
 extern "C" {
 s32 obj_isState2_324__13TUnk_804806E8Fv(void *);
-u8 *get_player_data__10TObjPlayerFi(int);
+int get_player_data__10TObjPlayerFi(int a0);
 s32 is_valid_target__9TObjEneDDFv(void *);
 f32 horizontal_distance_squared(void *, void *);
 extern const f32 lbl_805D9FF4;
@@ -19,7 +19,7 @@ u8 *TObjEneRe2Flower::find_target_in_range() {
     result = NULL;
     n = TLobby::get_game_mode();
     for (i = 0; i < n; i++) {
-        p = get_player_data__10TObjPlayerFi(i);
+        p = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (is_valid_target__9TObjEneDDFv(p) != 0 && obj_isState2_324__13TUnk_804806E8Fv(p) == 0) {
             result = p;
             break;

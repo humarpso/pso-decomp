@@ -23,7 +23,7 @@ struct RecoveredGlobal_8023F1B8_main_task {
 struct Vec_8023F22C { f32 x, y, z; };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(void *);
+void queue_destruction__7TObjectFv(void *arg0);
 s32 clear_resource_load_tasks();
 s32 call_funcs_reverse__6TLobbyFPvUi(void *, int);
 s32 delete_all_task_children__9TMainTaskFv(void *);
@@ -59,7 +59,7 @@ void TLobby::release_scene_resources() {
     TLobby::refresh_render_state();
     TLobby::stop_audio_streams();
     if ((u32) game_mode_scene_instance != 0U) {
-        queue_destruction__7TObjectFv((void *) (game_mode_scene_instance));
+        queue_destruction__7TObjectFv((void *)(game_mode_scene_instance));
         game_mode_scene_instance = 0U;
     }
     delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8023F1B8_main_task *)&main_task).value));

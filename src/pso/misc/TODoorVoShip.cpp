@@ -57,7 +57,7 @@ extern const f32 lbl_805DB538;
 s32 rotate_matrix_y(int, int);
 s32 push_matrix();
 s32 post_translate_matrix(void *);
-s32 TObjEneSlimeOne__sub_803E4B54(int, int, int, f32);
+void TObjEneSlimeOne__sub_803E4B54(void *child, void *arg1, void *arg2, f32 farg0);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
@@ -116,7 +116,7 @@ void TODoorVoShip::render() {
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (this->rotation_y));
         TObjFish::set_global_param((int) (this->texture_id));
-        TObjEneSlimeOne__sub_803E4B54((int) (*(s32 *)&this->model), (int) (*(s32 *)&this->m_bc), (int) (*(s32 *)&this->m_d0), (f32) (this->m_b0));
+        TObjEneSlimeOne__sub_803E4B54((void *)(*(s32 *)&this->model), (void *)(*(s32 *)&this->m_bc), (void *)(*(s32 *)&this->m_d0), (f32) (this->m_b0));
         TObjFish::set_global_param((int) (*(s32 *)&this->m_d8));
         temp_r4 = model_render_flags;
         lbl_805D5660 = temp_r4;

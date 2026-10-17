@@ -497,7 +497,7 @@ extern const f32 TObjEneMorfos__data_805DF870;
 void render__13TObjEneMorfosFv(u8 *arg0);
 u8 * get_player_data__10TObjPlayerFi(int);
 s32 queue_destruction__7TObjectFv(void *);
-u32 create_particle_emitter(void *, int);
+void *create_particle_emitter(void *pos, s32 id);
 s32 is_alive__9TObjEneDDFv(void *);
 s32 check_value_in_range__13TObjEneMorfosFPvUsUsUs(void *, int, int, int);
 s32 TObjEneMorfos__sub_803344F0(void *arg0);
@@ -968,7 +968,7 @@ s32 angle_diff_s16(s32);
 s32 free_collision_body_parts(void *);
 Pl_8033496C * get_player_by_client_id(s32);
 s32 __dl__7TObjectFPv(void *);
-void TObjPlayer__sub_8023DEE0(void *, s16, s16, u16);
+void TObjPlayer__sub_8023DEE0(s16 *p, s16 a, s16 b, u16 id);
 void restore_render_scissor(s32 arg0);
 void render_part__13TObjEneMorfosFPvii(Self_803329E4 *self, s32 idx, s32 mode);
 void TObjEneMorfos__sub_80332DBC(u8 *arg0, s32 arg1);
@@ -1782,7 +1782,7 @@ void state_rotating_projectile_burst__13TObjEneMorfosFPvi(u8 *arg0, s32 arg1) {
         F(0x4B0, s32) = 0;
         F(0x4B8, s32) = 0;
         F(0xB8, s16) = 0;
-        F(0x494, u32) = create_particle_emitter(arg0 + 0x498, 0x10A);
+        F(0x494, u32) = (u32)create_particle_emitter(arg0 + 0x498, 0x10A);
         break;
     case 3:
         if (F(0x4B0, s32) == 5 && TObjEneMorfos__sub_803344F0((void *)(arg0)) == 0) {
@@ -2467,11 +2467,11 @@ void run_task__13TObjEneMorfosFv(u8 *arg0) {
         ((TObjEneMorfos *)(arg0))->vfunc_85();
         if ((s32) lbl_805D6D28 != (s32) actor_frame_tick) {
             lbl_805D6D28 = actor_frame_tick;
-            TObjPlayer__sub_8023DEE0(lbl_805D6D20, (s16) *(s32 *)((s8 *)arg0 + 0x3D4), 0, 2U);
+            TObjPlayer__sub_8023DEE0((s16 *)lbl_805D6D20, (s16)((s16) *(s32 *)((s8 *)arg0 + 0x3D4)), (s16)(0), (u16)(2U));
         }
         if ((s32) lbl_805D6D2C != (s32) actor_frame_tick) {
             lbl_805D6D2C = actor_frame_tick;
-            TObjPlayer__sub_8023DEE0(lbl_805D6D24, 0, (s16) ((f32) *(s32 *)((s8 *)arg0 + 0x3D4) * lbl_805DF894), 0U);
+            TObjPlayer__sub_8023DEE0((s16 *)lbl_805D6D24, (s16)(0), (s16) ((f32) *(s32 *)((s8 *)arg0 + 0x3D4) * lbl_805DF894), (u16)(0U));
         }
     }
     ((TObjEneMorfos *)arg0)->set_hover_target_position();

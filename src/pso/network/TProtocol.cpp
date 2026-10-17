@@ -1,4 +1,5 @@
 #include <global_types.h>
+#include "pso/network/TProtocol_801DFCAC.h"
 #include "pso/misc/TPlyJoinLobbyEntry.h"
 #include "pso/network/TProtocol.h"
 #include "pso/unk/text_801DFC3C.h"
@@ -280,7 +281,6 @@ struct Proto_801DC1E4 { u8 pad[0x1910]; s32 connected; u8 pad1914[0x74]; u8 char
 
 void TItem__sub_80101CF8(void *);
 void TProtocol__sub_801DF774(void *, void *);
-void destroy__9TProtocolFis(void *, int);
 s32 validate_player_visual_record(void *arg0);
 
 void send_player_data_98__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC1E4 *self, u8 *char_data, void *challenge, void *choice_search_config,
@@ -308,7 +308,7 @@ void send_player_data_98__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC1E4 *self, u8 *ch
         TItem__sub_80101CF8(tmp.char_data);
         bswap_player_record_upload((u8 *)&tmp);
         ((VObj_801DC1E4 *)self)->send(&tmp, packet_size & ~3);
-        destroy__9TProtocolFis(&tmp, -1);
+        destroy__9TProtocolFis((s32)&tmp, -1);
     }
 }
 
@@ -370,7 +370,7 @@ void send_player_data_61__9TProtocolFPvPvPvPvPvPvPv(Proto_801DC34C *self, u8 *ch
         TItem__sub_80101CF8(tmp.char_data);
         bswap_player_record_upload((u8 *)&tmp);
         ((VObj_801DC34C *)self)->send(&tmp, packet_size & ~3);
-        destroy__9TProtocolFis(&tmp, -1);
+        destroy__9TProtocolFis((s32)&tmp, -1);
     }
 }
 

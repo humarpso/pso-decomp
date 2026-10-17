@@ -150,7 +150,7 @@ struct Obj_800DCD04 {
 
 extern "C" {
 f32 atan2_float(f32, f32);
-s32 spawn_particle_effect_with_rotation(Vec_800DCD04 *, s32 *, s32, s32);
+void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 f32 horizontal_distance__10TObjPlayerFPUc(Vec_800DCD04 *, Vec_800DCD04 *);
 f32 xz_distance_squared(Vec_800DCD04 *, Vec_800DCD04 *);
 void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, void *);
@@ -202,7 +202,7 @@ Obj_800DCD04 *TObjPlayer__sub_800DCD04(Obj_800DCD04 *self, Vec_800DCD04 *pos, s1
         ang[0] = 0;
         ang[1] = (s32)(10430.38043493439 * atan2_float(pp->x - pos->x, pp->z - pos->z)) + 0x4000;
         ang[2] = 0x4000 - (s32)(10430.38043493439 * atan2_float(pp->y - pos->y, horizontal_distance__10TObjPlayerFPUc(pp, pos)));
-        self->ff8 = spawn_particle_effect_with_rotation(pos, ang, 0xf4, 2);
+        self->ff8 = (s32)spawn_particle_effect_with_rotation(pos, ang, 0xf4, 2);
     }
     self->ff4 = lbl_805D5264;
     if (xz_distance_squared(pp, pos) < lbl_805DA484) {

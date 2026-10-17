@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_8024FBA8.h"
 #include "pso/misc/TLobby_80132ED0.h"
 #include "pso/misc/TUnk_804CE018.h"
 #include "pso/misc/TWindowSnapShot.h"
@@ -39,7 +40,6 @@ extern void *shared_snapshot_capture;
 s32 TObjBoss2Tunnel__sub_8007CAE8(f32 *, f32);
 u8 *draw_default_entry__9TWindowDDFl();
 s32 draw_window_frame(void *, void *);
-s32 draw_window_text(void *, s32, s32, s32, f32);
 s32 draw_visible_window_entries(void *, void *, void *);
 extern const f32 lbl_805DE018;
 extern const f32 lbl_805DE01C;
@@ -106,7 +106,7 @@ void render__15TWindowSnapShotFv(u8 *arg0) {
             TObjBoss2Tunnel__sub_8007CAE8(&stack.sp8, lbl_805DE018);
         }
     } else {
-        draw_window_text(temp_r3 + 0x10, get_localized_text_entry(0x24, 7), -1, 0, lbl_805DE01C);
+        draw_window_text((f32 *)(temp_r3 + 0x10), (const char *)(get_localized_text_entry(0x24, 7)), (s32)(-1), (s32)(0), (f32)lbl_805DE01C);
     }
 }
 

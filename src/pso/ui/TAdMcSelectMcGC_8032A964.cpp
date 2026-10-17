@@ -1,4 +1,5 @@
 #include "pso/TObject.h"
+#include "pso/player/TObjPlayer_8023E480.h"
 #include "pso/ui/TAdMcSelectMcGC_8032A964.h"
 class TAdMcSelectMcGC : public TObject {
 public:
@@ -29,7 +30,6 @@ extern s32 lbl_805D41D8;
 extern const f32 lbl_805DF75C;
 extern const f32 lbl_805DF760;
 Obj_8032A9BC *__ct__15TAdMcSelectMcGCFv(Obj_8032A9BC *arg0, void *arg1, s32 arg2);
-int TLobby__sub_8023E4B4(void*, void*);
 
     extern unsigned char lbl_80477150[];
     struct McCardName_804ED9C0 { void *name; s32 a; s32 b; };
@@ -67,7 +67,7 @@ void release_selected_entry__15TAdMcSelectMcGCFv(void) {
     }
 }
 
-void init_memorycard__15TAdMcSelectMcGCFv(void) { TAdMcSelectMcGC__texture_list_ptr = (int)&lbl_804ED9CC; TLobby__sub_8023E4B4(lbl_80477150, &lbl_804ED9CC); }
+void init_memorycard__15TAdMcSelectMcGCFv(void) { TAdMcSelectMcGC__texture_list_ptr = (int)&lbl_804ED9CC; TLobby__sub_8023E4B4((s32)lbl_80477150, (s32)&lbl_804ED9CC); }
 
 s32 TAdMcSelectMcGC__sub_8032AAC4(void* p) { return *(s32*)((char*)p + 0x20); }
 

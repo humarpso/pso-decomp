@@ -272,7 +272,7 @@ int transition_enemy_state(void*, int);
 s32 draw_model__23TObjEneMe3ShinowaMirageFv();
 s32 queue_destruction__7TObjectFv(void *);
 void TObjEneMe3Shinowa__sub_800E7724(u8 *arg0);
-s32 find_entity_by_id(int);
+void *find_entity_by_id(u16 id);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 create_particle_emitter(s32, s32);
 s32 advance_animation_playback(void *, int);
@@ -351,7 +351,7 @@ void TObjEneMe3ShinowaMirage::activate_mirage(s32 arg1) {
     s32 temp_r4;
     s32 temp_r4_2;
 
-    temp_r3 = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0x42C)));
+    temp_r3 = (s32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0x42C)));
     if (temp_r3 != 0) {
         VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(temp_r3 + 0x38));
         VecCopy((Vec *)(arg0 + 0x44), (const Vec *)(arg0 + 0x38));
@@ -397,7 +397,7 @@ void TObjEneMe3ShinowaMirage::vfunc_63() {
 
 void TObjEneMe3ShinowaMirage::run_task() {
     u8 *arg0 = (u8 *)this;
-    if ((find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0x42C))) == 0U) || (all_parents_unqueued_for_destruction__7TObjectFv() == 0)) {
+    if ((find_entity_by_id((*(u16 *)((s8 *)arg0 + 0x42C))) == 0U) || (all_parents_unqueued_for_destruction__7TObjectFv() == 0)) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }

@@ -127,7 +127,7 @@ f32 normalize_vector(void *);
 extern const f64 lbl_80442200;
 extern const f32 lbl_805DB870;
 void queue_destruction__7TObjectFv(void *arg0);
-void *get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 s32 check_value_equals__13TQuestColCtrlFPll(void *, s32);
 extern s32 TOMineTrap__data_805D3080;
 extern s32 lbl_805D586C;
@@ -211,7 +211,7 @@ void TOMineTrap::destroy_matching_traps() {
     void *p;
     s32 i;
     for (i = lbl_805D586C + lbl_805D5870; i < lbl_805D5868; i++) {
-        p = get_player_data__10TObjPlayerFi(i);
+        p = (void *)get_player_data__10TObjPlayerFi(i);
         if (p != 0 && check_value_equals__13TQuestColCtrlFPll(p, TOMineTrap__data_805D3080) != 0) {
             queue_destruction__7TObjectFv(p);
         }

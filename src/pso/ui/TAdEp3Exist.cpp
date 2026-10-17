@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/misc/TQuestListVM_8007EAF8.h"
+#include "pso/ui/TAdAgreementBaseGC.h"
+#include "pso/ui/TAdScrollWinGC_80327504.h"
+#include "pso/ui/TAdSinglePlyChrSelectGC_801334D4.h"
+#include "pso/unk/text_8036F764.h"
 #include "pso/ui/TAdEp3Exist.h"
 #include "pso/TLevelSelect.h"
 #include "pso/misc/TLobby.h"
@@ -54,7 +59,7 @@ struct Prs_8036F5B0 {
 extern "C" {
 void TAdEp3Exist__sub_8036F574(u8 *arg0);
 u8 TAdEp3Exist__sub_8036F590(u8 *arg0);
-s32 get_localized_text_entry(int, int);
+s32 get_localized_text_entry(s32 arg0, s32 arg1);
 u32 calc_text_width(char *s);
 s32 render_status_line__15TAdSubPlyItemGCFi(int, int, f32, f32, f32);
 s32 draw_window_frame(void *, void *);
@@ -71,15 +76,12 @@ int reset_and_set_mode__21TAdMultiChgGameModeGCFv(void*);
 void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);
 u32 __ct__14TAdSelectCurGCFv(void *, s32, void *, void *);
-u32 TAdScrollWinGC__ct(void *, void *, int, s32);
-void fn_80329BAC(void *p);
 extern u8 lbl_8047B8A8[];
 extern u8 lbl_8047B8B0[];
 extern s32 __vt__11TAdEp3Exist[];
 extern s32 lbl_805D4500;
 extern s32 tl_clipout;
 void *TAdEp3Exist__ct(Ep3_8036F354 *o);
-s32 TAdSinglePlyChrSelectGC__sub_801334DC(void *p);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void TWindow__close(u8 *arg0);
@@ -89,13 +91,10 @@ extern u8 controller_physical_port_bank[];
 extern const f32 lbl_805E044C;
 int prs_read_control_bit(Obj_8036F4DC *arg0);
 void TAdEp3Exist__sub_8036F5A4(void* p);
-u8 prs_read_byte_at(u8 *arg0, u32 arg1);
-u8 *prs_next_output_byte(void *);
 void *memmove(void *, const void *, u32);
 s32 prs_decompress(Prs_8036F5B0 *c, u8 *src, s32 arg2, s32 arg3);
 void *__dt__11TAdEp3ExistFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void __dl__FPv(void);
 void __dt__7TObjectFv(void *, int);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 int request_transition__21TAdMultiChgGameModeGCFv(void*);
@@ -104,8 +103,8 @@ void TAdEp3Exist::draw_message_window(s32 arg1) {
     s32 arg0 = (s32)this;
     f32 temp_f31;
     draw_window_frame((void *) (arg0), (void *) (arg1));
-    temp_f31 = lbl_805E0440 - (f32) (calc_text_width((char *)(get_localized_text_entry((int) (0x2C), (int) (0xA)))) >> 1U);
-    render_status_line__15TAdSubPlyItemGCFi((int) (get_localized_text_entry((int) (0x2C), (int) (0xA))), (int) (-1), (f32) (temp_f31), (f32) (lbl_805E0444), (f32) (lbl_805E0448));
+    temp_f31 = lbl_805E0440 - (f32) (calc_text_width((char *)(get_localized_text_entry((0x2C), (0xA)))) >> 1U);
+    render_status_line__15TAdSubPlyItemGCFi((int) (get_localized_text_entry((0x2C), (0xA))), (int) (-1), (f32) (temp_f31), (f32) (lbl_805E0444), (f32) (lbl_805E0448));
 }
 
 void TAdEp3Exist::render() {
@@ -229,7 +228,7 @@ void *TAdEp3Exist__ct(Ep3_8036F354 *o) {
     }
     r = (u32)__nw__7TObjectFUl(0x54);
     if (r != 0) {
-        r = TAdScrollWinGC__ct((void *)r, o, 3, get_localized_text_entry(0x2C, 9));
+        r = (u32)TAdScrollWinGC__ct((void *)r, (void *)o, (s32)(3), (s32)(get_localized_text_entry((s32)(0x2C), (s32)(9))));
     }
     o->win1C = r;
     r = (u32)__nw__7TObjectFUl(0x708);
@@ -298,7 +297,7 @@ s32 prs_decompress(Prs_8036F5B0 *c, u8 *src, s32 arg2, s32 arg3) {
     for (;;) {
         if (c->f2C != 0) break;
         while (BIT(c)) {
-            p = prs_next_output_byte(c);
+            p = (u8 *)prs_next_output_byte(c);
             *p = BYTE(c);
             n++;
         }
@@ -320,7 +319,7 @@ s32 prs_decompress(Prs_8036F5B0 *c, u8 *src, s32 arg2, s32 arg3) {
         }
         off += n;
         while (size-- != 0) {
-            p = prs_next_output_byte(c);
+            p = (u8 *)prs_next_output_byte(c);
             *p = prs_read_byte_at((u8 *)c, off);
             n++;
             off++;

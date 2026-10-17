@@ -9,7 +9,7 @@ struct Wn_80278DA4 { u8 pad0[0x20]; s16 f20; u8 pad22[0x50]; s16 f72; };
 
 extern "C" {
 u8 *find_item_by_id(s32 id);
-u8 *get_player_by_client_id(s16);
+void *get_player_by_client_id(s32 i);
 void calc_list_content_extent(void *);
 void populate_judgment_item_list(Wn_80278DA4 *arg0);
 u8 get_field_ec__5TItemFv();
@@ -20,7 +20,7 @@ void add_armor_equip_candidates(u8 *arg0, u16 kind, u16 sub) {
     u32 n;
     u32 i;
     u8 *pl;
-    pl = get_player_by_client_id(*(s16 *)(arg0 + 0x20));
+    pl = (u8 *)get_player_by_client_id(*(s16 *)(arg0 + 0x20));
     if (pl != NULL) {
         n = ((TObjPlayer *)(*(s32 *)(pl + 0xD00)))->run_and_get_result((int)ids);
         for (i = 0; i < n; i++) {
@@ -43,7 +43,7 @@ void build_mag_item_candidates(void *arg0, u16 arg1) {
     u32 n;
     u32 i;
     u8 *pl;
-    pl = get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20));
+    pl = (u8 *)get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20));
     if (pl != NULL) {
         n = ((TObjPlayer *)(*(s32 *)((s8 *)pl + 0xD00)))->run_and_get_result((int)ids);
         for (i = 0; i < n; i++) {
@@ -65,7 +65,7 @@ void populate_judgment_item_list(Wn_80278DA4 *arg0) {
     u32 i;
     u32 count;
     u8 *p;
-    p = get_player_by_client_id(arg0->f20);
+    p = (u8 *)get_player_by_client_id(arg0->f20);
     if (p != NULL) {
         count = ((TObjPlayer *)(*(s32 *)(p + 0xD00)))->run_and_get_result((int)list);
         for (i = 0; i < count; i++) {

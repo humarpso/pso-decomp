@@ -47,7 +47,7 @@ struct VObj_802A7994 : VBase_802A7994 {
 struct Pair_802A7994 { s32 a; s32 b; };
 
 extern "C" {
-s32 mem_alloc(s32);
+void *mem_alloc(u32 size);
 void mem_free(void *p);
 int TLobby__sub_802A7B8C(void);
 void TLobby__sub_802A7BC8(void* p);
@@ -69,7 +69,7 @@ s32 aram_dma_blocking__6TLobbyFllll(s32, s32, s32, s32, s32);
 void free__10TObjPlayerFPv(void *a0);
 extern RecoveredGlobal_802A7AF8_lbl_804DDD28 lbl_804DDD28;
 u8 *TLobby__sub_802A7B50(u8 *arg0);
-s32 *TItemDrop__sub_800F9448(s32, s32);
+s32 TItemDrop__sub_800F9448(s32 arg0, s32 arg1);
 void TLobby__sub_802A7848(void* p, s32 _w1);
 int TLobby__sub_802A7868(void* p);
 int match_coordinate_pair(void*);
@@ -100,7 +100,7 @@ s32 TLobby::send_packet(s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     s32 temp_r3;
     s32 temp_r0;
     temp_r31_2 = (arg3 + 0x1F) & 0xFFFFFFE0;
-    temp_r3 = mem_alloc(temp_r31_2);
+    temp_r3 = (s32)mem_alloc(temp_r31_2);
     if (temp_r3 == 0) {
         return 0;
     }
@@ -133,7 +133,7 @@ s32 TUnk_804DDD28::load_action_motion_pairs(s32 arg1, s32 arg2, s32 arg3) {
         f4 = ((TLobby *)(&sp8))->get_field_04();
         pkt = ((TLobby *)((VObj_802A7994 *)this))->send_packet(arg1, i, f4, ((TLobby *)(&sp8))->get_param());
         if (pkt != 0) {
-            drop = TItemDrop__sub_800F9448(((VObj_802A7994 *)this)->m0(arg1, i), pkt);
+            drop = (s32 *)TItemDrop__sub_800F9448(((VObj_802A7994 *)this)->m0(arg1, i), pkt);
         }
         ((TUnk_804DDD28 *)dst)->copy_motion_pair(*(void **)drop);
         slots++;
@@ -197,7 +197,7 @@ void TLobby::alloc_snapshot_buffer() {
     max_players = max_players * temp_r31;
     temp_r31 = TWindowSnapShot::get_width();
     temp_r31_3 = (u8 *) (temp_r31 + max_players);
-    temp_r3 = ((int)mem_alloc((s32)(temp_r31_3)));
+    temp_r3 = ((int)mem_alloc((u32)(temp_r31_3)));
     snapshot_image_buffer = temp_r3;
     if (temp_r3 != 0U)
     {

@@ -332,7 +332,7 @@ struct Self_8011EDFC {
 };
 
 int memcpy(void*, void*, void*);
-s32 TObjectV8047c128_subtract_hp(u32, s32);
+s32 TObjectV8047c128_subtract_hp(u8 *arg0, s16 arg1);
 s32 obj_testFlags30(void *, s32);
 s16 obj_getField1c(void *);
 s32 get_mode__11TCameraCtrlFPv(void *);
@@ -386,7 +386,7 @@ void TItemWeapon::set_weapon_category_flags() {
 
 void TObjPlayer::drain_owner_hp_fraction(f32 farg0) {
     if (*(u32 *)&this->unk_F0 != 0U) {
-        TObjectV8047c128_subtract_hp(*(u32 *)&this->unk_F0, (s32) (farg0 * (f32) ((TItemProShield *)(*(u32 *)&this->unk_F0))->get_field_2b8()));
+        TObjectV8047c128_subtract_hp((u8 *)(*(u32 *)&this->unk_F0), (farg0 * (f32) ((TItemProShield *)(*(u32 *)&this->unk_F0))->get_field_2b8()));
     }
 }
 

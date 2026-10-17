@@ -79,7 +79,7 @@ void vfunc_48__12TItemProUnitFv(Unit_80118AD4 *self);
 s32 memset(void *, s32, s32);
 void vfunc_49__12TItemProUnitFv(u8 *arg0);
 void vfunc_45__12TItemProUnitFv(void *arg0);
-u8 *lookup_item_pmt_record(void *);
+void *lookup_item_pmt_record(u8 *item);
 s32 TItemEquipBase__ct();
 s16 get_field6_bswap__9TItemDataFPv(void *);
 
@@ -346,7 +346,7 @@ u8 *TItemProUnit__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     ((TItemProUnit *)arg0)->vfunc_19((s8) (*(u8 *)((s8 *)arg2 + 4) + 9));
     *(s16 *)((s8 *)arg0 + 0x190) = 0;
     *(f32 *)((s8 *)arg0 + 0x1B8) = (f32) TItemProUnit__data_805DABF8;
-    item_pmt_record = lookup_item_pmt_record(arg2);
+    item_pmt_record = (u8 *)lookup_item_pmt_record(arg2);
     if (item_pmt_record != NULL) {
         *(s16 *)((s8 *)arg0 + 0x18C) = (s16) *(s16 *)((s8 *)item_pmt_record + 8);
         ((TItemProUnit *)arg0)->m_18e = (s16) *(s16 *)((s8 *)item_pmt_record + 0xA);

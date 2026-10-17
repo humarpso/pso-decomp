@@ -124,7 +124,7 @@ s32 is_rare_item__9TItemDataFPv(u8 *item);
 s32 TItem__sub_801013E8(void *);
 s32 get_usable_action_flags__5TItemFUlUl(void *, s32, s32);
 s32 is_boss_area();
-s32 get_player_by_client_id(s16);
+void *get_player_by_client_id(s32 i);
 s32 check_equip_requirements(s32, s32, s32 *);
 u8 calc_display_grade__5TItemFv(void *);
 u8 calc_display_grade__9TItemDataFv(s32);
@@ -147,7 +147,7 @@ void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *arg1
         *(s32 *)((s8 *)arg0 + 0x30) = -1;
         return;
     }
-    player = get_player_by_client_id(*(s16 *)((s8 *)arg0 + 2));
+    player = (s32)get_player_by_client_id(*(s16 *)((s8 *)arg0 + 2));
     if (player != 0) {
         temp_r26 = ((TObjPlayer *)arg1)->test_item_flags(8);
         temp_r28 = get_usable_action_flags__5TItemFUlUl(arg1, 0x10, player);
@@ -221,7 +221,7 @@ void update_item_colors__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x30) = -1;
         return;
     }
-    player = get_player_by_client_id(*(s16 *)((s8 *)arg0 + 2));
+    player = (s32)get_player_by_client_id(*(s16 *)((s8 *)arg0 + 2));
     if (player != 0) {
         temp_r29 = check_equip_requirements(player, arg1, &sp8);
         temp_r30 = ((TItemData *)arg1)->check_item_flags();
@@ -558,7 +558,6 @@ void TWindowSubStatusDisp::init_item_row(void *arg1, s32 arg2) {
 #define is_wrapped__9TItemDataFPv ((int (*)(void*))is_wrapped__9TItemDataFPv)
 #define get_shared_text_buffer ((int (*)(void))get_shared_text_buffer)
 #define update_stat_line_if_positive__20TWindowSubStatusDispFPvi ((int (*)(void*, void*))update_stat_line_if_positive__20TWindowSubStatusDispFPvi)
-#define update_item_colors__20TWindowSubStatusDispFPvi ((int (*)(void*, void*))update_item_colors__20TWindowSubStatusDispFPvi)
 #define select_item_icon__20TWindowSubStatusDispFPviUcUci ((int (*)(void*, void*, void*, void*, void*))select_item_icon__20TWindowSubStatusDispFPviUcUci)
 #define replace_owned_string__20TWindowSubStatusDispFPviiii ((int (*)(void*, void*, void*, void*, void*))replace_owned_string__20TWindowSubStatusDispFPviiii)
 int forward_message__6TLobbyFlUl(int, void*);
@@ -578,7 +577,7 @@ void TWindowSubStatusDisp::set_item_info(void* a1, int a2, void* a3) {
     forward_message__6TLobbyFlUl(get_shared_text_buffer(), a1);
     *(int*)((char*)this + 0x20) = replace_owned_string__20TWindowSubStatusDispFPviiii(this, (void*)get_shared_text_buffer(), (void*)(*(int*)((char*)this + 0x20)), (void*)8, (void*)1);
     update_stat_line_if_positive__20TWindowSubStatusDispFPvi(this, a3);
-    update_item_colors__20TWindowSubStatusDispFPvi(this, a1);
+    update_item_colors__20TWindowSubStatusDispFPvi((void *)this, (s32)a1);
     *(int*)((char*)this + 0x34) = *(int*)((char*)this + 0x30);
     *(int*)((char*)this + 0x18) = a2;
     *(short*)((char*)this + 0x0) = (*(unsigned short*)((char*)this + 0x0) | 0x45);
@@ -589,7 +588,6 @@ void TWindowSubStatusDisp::set_item_info(void* a1, int a2, void* a3) {
 #undef is_wrapped__9TItemDataFPv
 #undef get_shared_text_buffer
 #undef update_stat_line_if_positive__20TWindowSubStatusDispFPvi
-#undef update_item_colors__20TWindowSubStatusDispFPvi
 #undef select_item_icon__20TWindowSubStatusDispFPviUcUci
 #undef replace_owned_string__20TWindowSubStatusDispFPviiii
 
@@ -608,8 +606,8 @@ typedef struct Row_8025930C {
 
 extern "C" {
 u32 calc_text_width(char *s);
-void draw_window_text(void *, s32, s32, s32, f32);
-void set_text_draw_params(void *, s32, s32, f32, f32);
+s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width);
+void set_text_draw_params(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
 void draw_item_list_icon(s32, u8 *, s32, s32, f32);
 extern const f32 lbl_805DCF14;
 extern const f32 lbl_805DCF20;
@@ -628,7 +626,6 @@ s32 replace_owned_string__20TWindowSubStatusDispFPviiii(void *arg0, s32 src, s32
 #define select_item_icon__20TWindowSubStatusDispFPviUcUci ((s32 (*)(void *, s32, u8, u8, s32))select_item_icon__20TWindowSubStatusDispFPviUcUci)
 #define forward_message__6TLobbyFlUl ((s32 (*)(s32, void *))forward_message__6TLobbyFlUl)
 #define get_item_data__6TLobbyFUl ((s32 (*)(void *))get_item_data__6TLobbyFUl)
-#define update_item_colors__20TWindowSubStatusDispFPvi ((s32 (*)(void *, void *))update_item_colors__20TWindowSubStatusDispFPvi)
 
 void TWindowSubStatusDisp::set_ground_item(void *it, s32 arg2) {
     s32 temp_r31;
@@ -644,7 +641,7 @@ void TWindowSubStatusDisp::set_ground_item(void *it, s32 arg2) {
         TWindowSubStatusDisp__sub_80228F5C(*(s32 *)((s8 *)it + 0x10));
         *(s32 *)((s8 *)this + 0x24) = replace_owned_string__20TWindowSubStatusDispFPviiii((void *)(this), (s32)(get_shared_text_buffer()), (s32)(*(s32 *)((s8 *)this + 0x24)), (s32)(0x10), (s32)(1));
     }
-    update_item_colors__20TWindowSubStatusDispFPvi(this, it);
+    update_item_colors__20TWindowSubStatusDispFPvi((void *)this, (s32)it);
     *(s32 *)((s8 *)this + 0x18) = arg2;
     *(u16 *)((s8 *)this + 0) = (u16) (*(u16 *)((s8 *)this + 0) | 0x45);
 }
@@ -748,11 +745,11 @@ void draw_item_list_row(ItemListRow *row, ItemListWindowView *win) {
       new_var = row;
       if (new_var->flags & 0x1000)
       {
-        set_text_draw_params(win, 1, 0, depth, win->text_clip);
+        set_text_draw_params((s32)win, (s32)(1), (s32)(0), (f32)depth, (f32)win->text_clip);
       }
       else
       {
-        set_text_draw_params(win, 1, 1, depth, lbl_805DCF28);
+        set_text_draw_params((s32)win, (s32)(1), (s32)(1), (f32)depth, (f32)lbl_805DCF28);
       }
       if (new_var->flags & 0x400)
       {
@@ -769,15 +766,15 @@ void draw_item_list_row(ItemListRow *row, ItemListWindowView *win) {
       }
       if (new_var->flags & 0x1000)
       {
-        draw_window_text(&pos, row->label, style, 0, lbl_805DCF28);
+        draw_window_text((f32 *)&pos, (const char *)row->label, (s32)style, (s32)(0), (f32)lbl_805DCF28);
       }
       else
       {
-        draw_window_text(&pos, new_var->label, style, 1, lbl_805DCF28);
+        draw_window_text((f32 *)&pos, (const char *)new_var->label, (s32)style, (s32)(1), (f32)lbl_805DCF28);
       }
       f32 width = (f32) calc_text_width((char *)new_var->suffix);
       pos.x = (win->x + win->width) - width;
-      draw_window_text(&pos, row->suffix, new_var->suffix_style, 1, lbl_805DCF28);
+      draw_window_text((f32 *)&pos, (const char *)row->suffix, (s32)new_var->suffix_style, (s32)(1), (f32)lbl_805DCF28);
     }
   }
 }
@@ -790,7 +787,6 @@ void TWindowSubStatusDisp::check_flag_4_noop() {
 #undef select_item_icon__20TWindowSubStatusDispFPviUcUci
 #undef forward_message__6TLobbyFlUl
 #undef get_item_data__6TLobbyFUl
-#undef update_item_colors__20TWindowSubStatusDispFPvi
 
 s32 deleting_destructor__20TWindowSubStatusDispFs(void *, s32);
 

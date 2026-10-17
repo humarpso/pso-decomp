@@ -31,7 +31,7 @@ extern const f32 lbl_805DD99C;
 extern const f32 lbl_805DD9A0;
 f32 cos_table_lookup(s32);
 extern const f32 lbl_805DD96C,lbl_805DD978,lbl_805DD998;
-void approach_creation_camera_target(void *, int, int, f32, f32);
+void approach_creation_camera_target(u8 *arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
 extern const f32 lbl_805DD96C;
 extern const f32 lbl_805DD998;
 extern const f32 lbl_805DD9A4;
@@ -269,13 +269,13 @@ void update_creation_camera_auto(Cam_80291784 *arg0) {
         f32 s = calc_character_height(creation_player_character);
         switch (arg0->mode) {
         case 0:
-            approach_creation_camera_target(arg0, 0, 0, lbl_805DD96C * s, lbl_805DD9A4 * s);
+            approach_creation_camera_target((u8 *)arg0, (s32)(0), (s32)(0), (f32)(lbl_805DD96C * s), (f32)(lbl_805DD9A4 * s));
             break;
         case 1:
-            approach_creation_camera_target(arg0, 0, 0, lbl_805DD998, lbl_805DD9A8);
+            approach_creation_camera_target((u8 *)arg0, (s32)(0), (s32)(0), (f32)lbl_805DD998, (f32)lbl_805DD9A8);
             break;
         case 2:
-            approach_creation_camera_target(arg0, 0, 0, lbl_805DD9AC * s, lbl_805DD9B0 * s);
+            approach_creation_camera_target((u8 *)arg0, (s32)(0), (s32)(0), (f32)(lbl_805DD9AC * s), (f32)(lbl_805DD9B0 * s));
             break;
         }
     }

@@ -45,8 +45,8 @@ extern char lbl_805DAAC8;
 extern char lbl_805DAACC;
 extern char lbl_805DAAD0;
 void format_drop_table_filename(void *out, s32 arg1);
-u32 roll_channel_below__9TItemDropFPviUi(void *, u8, s32);
-u8 *lookup_item_pmt_record(u8 *);
+u32 roll_channel_below__9TItemDropFPviUi(u8 *arg0, s32 count, u32 arg2);
+void *lookup_item_pmt_record(u8 *item);
 void unload_item_drop_globals(void);
 void TItemDrop__sub_80105D10(void);
 u8 is_enabled__9TItemDropFv(void);
@@ -223,7 +223,7 @@ void TItemDrop::select_unit_drop(u8 kind, u8 *item) {
     if (cnt == 0) {
         return;
     }
-    pick = roll_channel_below__9TItemDropFPviUi(this, cnt, 0xB);
+    pick = roll_channel_below__9TItemDropFPviUi((u8 *)this, (s32)cnt, (u32)(0xB));
     n = 0;
     for (i = 0; i < 0x88; i++) {
         if (TItemDrop__unit_star_classes[i] == kind) {
@@ -231,7 +231,7 @@ void TItemDrop::select_unit_drop(u8 kind, u8 *item) {
                 if (i < 0x50) {
                     item[2] = i / 5;
                     r = (u8)(i % 5);
-                    data = lookup_item_pmt_record(item);
+                    data = (u8 *)lookup_item_pmt_record(item);
                     if (data == NULL) {
                         return;
                     }
@@ -422,7 +422,7 @@ extern const f32 lbl_805DAADC;
 void generate_drop_item__9TItemDropFPviPv(u8 *self, s32 idx, u8 *item);
 s32 run_step__9TItemDropFl(s32, u32);
 s32 fn_8010F210(void *);
-s32 mem_alloc(s32);
+void *mem_alloc(u32 size);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 __cvt_fp2unsigned(f32);
 s32 rand();
@@ -498,7 +498,7 @@ s32 serialize_mag__9TItemDataFPvPv(void *, s32 *);
 s32 is_rare_item__9TItemDataFPv(void *);
 void roll_armor_bonuses__9TItemDropFv(s32, void *);
 u8 TLobby__sub_801D6DDC(void *arg0);
-s32 mem_alloc(s32);
+void *mem_alloc(u32 size);
 s32 can_drop__9TItemDropFv();
 void mem_free(void *p);
 s32 init__9TItemDataFv(void *);
@@ -518,8 +518,8 @@ extern s32 TItemDrop__unit_star_classes;
 extern s32 TItemDrop__unit_star_bucket_counts;
 
 void __dt__9TItemDropFv(void) {
-    TItemDrop__unit_star_classes = mem_alloc(0x88);
-    TItemDrop__unit_star_bucket_counts = mem_alloc(0xD);
+    TItemDrop__unit_star_classes = (s32)mem_alloc(0x88);
+    TItemDrop__unit_star_bucket_counts = (s32)mem_alloc(0xD);
     TItemDrop::count_unit_star_buckets();
 }
 
@@ -764,7 +764,7 @@ struct Def_80106D0C {
     u8 a;
     u8 b;
 };
-Def_80106D0C *lookup_item_pmt_record(u8 *);
+void *lookup_item_pmt_record(u8 *item);
 void set_dfp_bonus__9TItemDataFs(u8 *, s32);
 void set_bswapped_field_8__9TItemDataFs(u8 *, s32);
 
@@ -779,7 +779,7 @@ void roll_armor_bonuses__9TItemDropFv(s32 rng, void *item_) {
     case 1:
         TItemDrop::set_drop_index((void *)rng, item);
     case 2:
-        def = lookup_item_pmt_record(item);
+        def = (P1_80105D0C::Def_80106D0C *)lookup_item_pmt_record(item);
         if (def != NULL) {
             f32 r;
             r = ((f32 (*)(u8 *, u32))roll_table_ratio__9TItemDropFPvUi)((u8 *)rng, 12);
@@ -798,7 +798,7 @@ void roll_weapon_special__9TItemDropFiPvi(s32 rng, u8 *item, s32 idx) {
     u8 *chance;
     if (item[0] == 0 && is_rare_item__9TItemDataFPv(item) == 0) {
         chance = ((Tbl_80106E04 *)TItemDrop__common_probability_table)->chance;
-        if (chance[idx] != 0 && roll_channel_below__9TItemDropFPviUi((u8 *)((u8 *)rng), (s32)(100), (u32)(9)) < ((Tbl_80106E04 *)TItemDrop__common_probability_table)->rate[idx]) {
+        if (chance[idx] != 0 && roll_channel_below__9TItemDropFPviUi(((u8 *)rng), (100), (9)) < ((Tbl_80106E04 *)TItemDrop__common_probability_table)->rate[idx]) {
             item[4] = roll_weapon_special_for_stars((u8)(s32)((f32)chance[idx] * ((f32 (*)(u8 *, u32)) roll_table_ratio__9TItemDropFPvUi)((u8 *)rng, 10)));
         }
     }
@@ -963,7 +963,7 @@ s32 try_generate_rare_item__9TItemDropFiPvPv(s32 arg0, u8 *arg1, u8 *arg2) {
     if ((arg1 != NULL) && (arg2 != NULL)) {
         temp_r31 = *(u8 *)((s8 *)arg1 + 0);
         if (temp_r31 != 0) {
-            temp_r3 = roll_channel_below__9TItemDropFPviUi((u8 *)((void *) (arg0)), (s32)((int) (-1)), (u32)((int) (6)));
+            temp_r3 = roll_channel_below__9TItemDropFPviUi((u8 *)((void *) (arg0)), ((int) (-1)), ((int) (6)));
             var_r5 = ((temp_r31 >> 3U) & 0x1F) - 4;
             if (var_r5 < 0) {
                 var_r5 = 0;
@@ -975,7 +975,7 @@ s32 try_generate_rare_item__9TItemDropFiPvPv(s32 arg0, u8 *arg1, u8 *arg2) {
                 temp_r0 = *(u8 *)((s8 *)arg2 + 0);
                 switch ((s32) temp_r0) {
                 case 0:
-                    tmp = roll_channel_below__9TItemDropFPviUi((u8 *)((void *) (arg0)), (s32)((int) (0xA)), (u32)((int) (7)));
+                    tmp = roll_channel_below__9TItemDropFPviUi((u8 *)((void *) (arg0)), ((int) (0xA)), ((int) (7)));
                     roll_rare_weapon_attributes__9TItemDropFiPvi((s32)((void *) (arg0)), (Obj_80106F4C *)((void *) (arg2)), (s32)((void *) (tmp)));
                     set_flag__9TItemDropFPvPv((void *) (arg0), (void *) (arg2));
                     break;
@@ -1013,7 +1013,7 @@ u16 roll_meseta_range__9TItemDropFPviiii(void *self, s32 arg1, s32 a, s32 b, s32
         return lo;
     }
     {
-        u16 r = roll_channel_below__9TItemDropFPviUi((u8 *)((u8 *)self), (s32)(hi - lo + 1), (u32)(5));
+        u16 r = roll_channel_below__9TItemDropFPviUi(((u8 *)self), (hi - lo + 1), (5));
         return r + base;
     }
 }
@@ -1030,7 +1030,7 @@ u8 select_weighted_column_u16__9TItemDropFiiiii(s32 rng, s32 base, s32 off, s32 
     if (total == 0) {
         return 0xFF;
     }
-    r = roll_channel_below__9TItemDropFPviUi((u8 *)rng, total, 3);
+    r = roll_channel_below__9TItemDropFPviUi((u8 *)rng, (s32)total, (u32)(3));
     for (i = 0; i != count; i++) {
         u16 w = p[off + i * stride];
         if (w != 0) {
@@ -1056,7 +1056,7 @@ u8 select_weighted_byte__9TItemDropFiiiii(s32 rng, s32 base, s32 off, s32 count,
     if (total == 0) {
         return 0xFF;
     }
-    r = roll_channel_below__9TItemDropFPviUi((u8 *)((u8 *)rng), (s32)(total), (u32)(2));
+    r = roll_channel_below__9TItemDropFPviUi(((u8 *)rng), (total), (2));
     for (i = 0; i != count; i++) {
         u8 w = p[i * stride];
         if (w != 0) {

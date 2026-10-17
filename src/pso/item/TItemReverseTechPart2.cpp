@@ -1,4 +1,5 @@
 #include "pso/TItemReverseTechPart2.h"
+#include "pso/item/TItemReverseTechBG.h"
 #include "pso/item/TItemReverseTechPart2.h"
 #include "pso/item/TItemReverseTech_8011A1E8.h"
 
@@ -10,7 +11,6 @@ struct RecoveredGlobal_80119B28___vt__21TItemReverseTechPart2 { s32 value; u8 re
 typedef char RecoveredGlobal_80119B28___vt__21TItemReverseTechPart2_size[sizeof(RecoveredGlobal_80119B28___vt__21TItemReverseTechPart2) == 0x18 ? 1 : -1];
 
 extern "C" {
-s32 __ct__18TItemReverseTechBGFv(int, void *, void *);
 u32 __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_80119B28___vt__21TItemReverseTechPart2 __vt__21TItemReverseTechPart2;
@@ -117,7 +117,7 @@ u8 *__ct__21TItemReverseTechPart2Fv(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0x14C) = (f32) lbl_805DAC48;
     temp_r3 = __nw__7TObjectFUl((int) (0x64));
     if (temp_r3 != 0U) {
-        __ct__18TItemReverseTechBGFv((int) (temp_r3), (void *) (arg0), (void *) (arg0 + 0x124));
+        __ct__18TItemReverseTechBGFv((void *)(temp_r3), (void *)(arg0), (void *)(arg0 + 0x124));
     }
     *(s32 *)((s8 *)arg0 + 0x150) = 0;
     *(s32 *)((s8 *)arg0 + 0x154) = 0;

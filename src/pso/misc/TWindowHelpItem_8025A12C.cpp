@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TLobby_8001D6A0.h"
+#include "pso/misc/TWindowSubStatusDisp_8024FBA8.h"
 #include "pso/misc/TWindowHelpItem_8025A12C.h"
 #include "pso/misc/TWindowSubStatusDisp_80144B14.h"
 #include "pso/misc/TWindowSubStatusDisp_80228F5C.h"
@@ -40,12 +42,9 @@ typedef struct Vec2_8025A354 { f32 x, y; } Vec2_8025A354;
 extern "C" {
 s32 sub_80256BDC__13TUnk_804CF930Fs(void *, void *);
 void mem_free(void *p);
-s32 mem_alloc(s32);
+void *mem_alloc(u32 size);
 s32 strncpy(s32, u32, s32);
-void set_text_draw_params(void *, s32, s32, f32, f32);
-void draw_window_text(void *, void *, s32, s32, f32);
 void render_summary_row__15TWindowHelpItemFv(Item_8025A354 *self, Win_8025A354 *w);
-s32 get_shared_text_buffer();
 s32 measure_string_len__20TWindowSubStatusDispFv(u32);
 
 void *lbl_804CF9F8[6] = {
@@ -82,7 +81,7 @@ void TWindowHelpItem::draw_number_value(void *entry, f32 *pos, s32 value, s32 co
     }
     xy[0] = pos[0] - (f32)calc_text_width((char *)((void *)get_shared_text_buffer()));
     xy[1] = pos[1];
-    draw_window_text(xy, (void *)get_shared_text_buffer(), color, 0, 1000000.0f);
+    draw_window_text((f32 *)xy, (const char *)((void *)get_shared_text_buffer()), color, 0, 1000000.0f);
 }
 
 void TWindowHelpItem::set_flag_0x10(u16 *arg0, s32 arg1) {
@@ -127,7 +126,7 @@ void TWindowHelpItem::set_help_text(u32 arg1) {
     *(s32 *)&this->m_vtable18 = 0;
     if (arg1 != 0U) {
         temp_r3 = measure_string_len__20TWindowSubStatusDispFv(arg1);
-        *(s32 *)&this->m_vtable18 = mem_alloc(temp_r3 + 1);
+        *(s32 *)&this->m_vtable18 = (s32)mem_alloc(temp_r3 + 1);
         strncpy(*(s32 *)&this->m_vtable18, arg1, temp_r3 + 1);
     }
 }
@@ -143,16 +142,16 @@ void render_summary_row__15TWindowHelpItemFv(Item_8025A354 *self, Win_8025A354 *
     }
     pos.x = w->x + self->x;
     pos.y = w->y + self->y;
-    set_text_draw_params(w, 1, 0, -1.0f / (0.0897f + w->f38), 100000.0f);
-    draw_window_text(&pos, self->label, -1, 1, 100000.0f);
+    set_text_draw_params((s32)w, (s32)(1), (s32)(0), (f32)(-1.0f / (0.0897f + w->f38)), (f32)(100000.0f));
+    draw_window_text((f32 *)&pos, self->label, -1, 1, 100000.0f);
     pos.x += 86.0f;
-    draw_window_text(&pos, (void *)":", -1, 0, 100000.0f);
+    draw_window_text((f32 *)&pos, (const char *)((void *)":"), -1, 0, 100000.0f);
     pos.x += 64.0f;
     if (self->flags & 4) {
         TWindowHelpItem::draw_number_value((void *)(self), (f32 *)(&pos), (s32)(self->cur), (s32)(self->value10), (s32)(TWindowHelpItem__sub_8025A600((void*)(self))));
     }
     if (self->flags & 8) {
-        draw_window_text(&pos, (void *)"\tJ\x81\xA8", -1, 0, 100000.0f);
+        draw_window_text((f32 *)&pos, (const char *)((void *)"\tJ\x81\xA8"), -1, 0, 100000.0f);
         pos.x += 70.0f;
         if (!(self->flags & 0x10)) {
             color = 0xFF909090;

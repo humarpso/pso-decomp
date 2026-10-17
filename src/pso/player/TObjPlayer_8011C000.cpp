@@ -77,14 +77,14 @@ extern "C" {
 s32 select_enemy_drop__9TItemDropFPviiPv(u32, s32, s32, s32);
 void normalize_drop_area(s32 *p);
 extern void *item_mgr;
-s32 select_box_item__9TItemDropFiiPv(u32, s32, s32);
-s32 generate_drop_item__9TItemDropFPviPv(u32, s32, s32);
+void select_box_item__9TItemDropFiiPv(s32 arg0, s32 arg1, u8 *item);
+void generate_drop_item__9TItemDropFPviPv(u8 *self, s32 idx, u8 *item);
 s32 get_unit_attribute_index__10TObjPlayerFUc(u8 arg0);
 extern void *item_pmt_tbl;
 s32 get_mag_feed_result(s32 arg0, s32 arg1);
 s32 get_text_collection(s32);
 extern s32 lbl_805D2B10;
-s32 roll_channel_below__9TItemDropFPviUi(int, void *, void *);
+u32 roll_channel_below__9TItemDropFPviUi(u8 *arg0, s32 count, u32 arg2);
 s32 __cvt_fp2unsigned(f32);
 void roll_item_channel_below(u32 arg0, s32 arg1);
 u8 get_weapon_class_motion_type(u8 arg0);
@@ -209,7 +209,7 @@ f32 TObjPlayer::get_drop_random_float(u32 arg0) {
 
 void roll_item_channel_below(u32 count, s32 arg1) {
     if ((u32) (*(u32 *)&item_mgr) != 0U) {
-        roll_channel_below__9TItemDropFPviUi((int) ((*(u32 *)&item_mgr)), (void *) (count), (void *) (arg1));
+        roll_channel_below__9TItemDropFPviUi((u8 *)((*(u32 *)&item_mgr)), (s32)(count), (u32)(arg1));
         return;
     }
     __cvt_fp2unsigned((f32) count * TObjPlayer::get_drop_random_float((u32)((void *) (arg1))));
@@ -234,7 +234,7 @@ void TObjPlayer::drop_item(s32 arg0, s32 arg1) {
         normalize_drop_area(&sp8);
         temp_r4 = sp8 - 1;
         sp8 = temp_r4;
-        select_box_item__9TItemDropFiiPv((*(u32 *)&item_mgr), temp_r4, arg1);
+        select_box_item__9TItemDropFiiPv((s32)(*(u32 *)&item_mgr), (s32)temp_r4, (u8 *)arg1);
     }
 }
 void TObjPlayer::drop_meseta_from_slot(s32 arg0, s32 arg1) {
@@ -245,7 +245,7 @@ void TObjPlayer::drop_meseta_from_slot(s32 arg0, s32 arg1) {
         normalize_drop_area(&sp8);
         temp_r4 = sp8 - 1;
         sp8 = temp_r4;
-        generate_drop_item__9TItemDropFPviPv((*(u32 *)&item_mgr), temp_r4, arg1);
+        generate_drop_item__9TItemDropFPviPv((u8 *)(*(u32 *)&item_mgr), (s32)temp_r4, (u8 *)arg1);
     }
 }
 

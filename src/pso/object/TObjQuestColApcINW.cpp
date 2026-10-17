@@ -11,7 +11,7 @@ struct Col_801960F8 { u8 pad0[0xAC]; f32 fAC; u8 padB0[0xC]; f32 fBC; f32 fC0[3]
 
 extern "C" {
 f32 xz_distance_squared(void *, void *);
-Pl_801960F8 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 extern u8 quest_col_apc_warp_target_pos[];
 extern s32 local_client_id;
 extern s32 quest_collision_warp_pending;
@@ -27,14 +27,14 @@ extern void *lbl_805D3400;
 int TObjQuestColApcINW::vfunc_15() {
     Col_801960F8 *arg0 = (Col_801960F8 *)this;
     if (((TObjQuestColBase *)arg0)->update_trigger_state(arg0->fAC) == 1) {
-        Pl_801960F8 *p = get_player_by_client_id(local_client_id);
+        Pl_801960F8 *p = (Pl_801960F8 *)get_player_by_client_id(local_client_id);
         if (p == 0) {
             return 0;
         }
         s32 i;
         for (i = 0; i < 12; i++) {
             if (i != local_client_id) {
-                Pl_801960F8 *q = get_player_by_client_id(i);
+                Pl_801960F8 *q = (Pl_801960F8 *)get_player_by_client_id(i);
                 if (q != 0) {
                     if (xz_distance_squared(q->pos, p->pos) > arg0->fBC * arg0->fBC) {
                         quest_collision_warp_pending = 1;

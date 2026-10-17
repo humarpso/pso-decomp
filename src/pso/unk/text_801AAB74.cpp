@@ -15,10 +15,10 @@
 struct Stack_801AAB74 { f32 x, y, z; };
 
 extern "C" {
-u8 *find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
 s32 sub_801AA6F8__13TPhotonEstllaFv(void *, int);
-s32 construct_photon_magic_square_normal(void *, void *, int, void *, int);
+u8 *construct_photon_magic_square_normal(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void *__nw__7TObjectFUl(int);
 extern u8 lbl_80446D10[];
 extern u8 lbl_80446D1C[];
@@ -37,7 +37,7 @@ u8 *TPhotonEstlla__ct(u8 *arg0, u8 *arg1) {
     *(s32 *)((s8 *)arg0 + 0x138) = 1;
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)arg1);
     ((TPhotonEstlla *)arg0)->m_17c = *(u16 *)((s8 *)arg1 + 0xC);
-    e = find_entity_by_id(((TPhotonEstlla *)arg0)->m_17c);
+    e = (u8 *)find_entity_by_id(((TPhotonEstlla *)arg0)->m_17c);
     if (e != NULL) {
         ((TPhotonEstlla *)arg0)->rotation_y = *(s32 *)((s8 *)e + 0x60);
     }
@@ -81,7 +81,7 @@ u8 *TPhotonEstlla__ct(u8 *arg0, u8 *arg1) {
         *(s32 *)&((TPhotonEstlla *)arg0)->m_194 = 1;
         *(s16 *)&((TPhotonEstlla *)arg0)->m_190 = 0;
         *(s32 *)&((TPhotonEstlla *)arg0)->m_19c = 1;
-        e = find_entity_by_id(((TPhotonEstlla *)arg0)->m_17c);
+        e = (u8 *)find_entity_by_id(((TPhotonEstlla *)arg0)->m_17c);
         if (e != NULL) {
             pos.x = *(f32 *)((s8 *)e + 0x38);
             pos.y = lbl_805DC140 + *(f32 *)((s8 *)e + 0x3C);
@@ -89,7 +89,7 @@ u8 *TPhotonEstlla__ct(u8 *arg0, u8 *arg1) {
         }
         p = __nw__7TObjectFUl(0xD0);
         if (p != NULL) {
-            construct_photon_magic_square_normal(p, arg0, 1, &pos, 0x78);
+            construct_photon_magic_square_normal((u8 *)p, (s32)arg0, (s32)(1), (s32)&pos, (s32)(0x78));
         }
         spawn_photon_blast_attachment_effects(arg0, 1);
         play_cue_stream_file((s32)lbl_80446D10);

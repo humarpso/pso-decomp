@@ -41,7 +41,7 @@ extern "C" {
 extern char __vt__14TObjBoss1Floor[];
 extern s32 TObjBoss1Floor__name;
 extern const f32 lbl_805D8174;
-Player_8002C968 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 extern const f32 lbl_805D8170;
 void run_task__14TObjBoss1FloorFv(Floor_8002C968 *self);
 void *__dt__7TObjectFv(void *, int);
@@ -49,7 +49,7 @@ void __dl__7TObjectFPv(void *);
 int TBoss8Dragon__sub_8002D5F8(void);
 void TObjBoss1Floor__sub_8002CB40(void);
 void TObjBoss1Floor__sub_8002CB78(void);
-s32 render_projected_shadow_receiver(void *, void *);
+void render_projected_shadow_receiver(u8 *arg0, s32 arg1);
 s32 push_matrix();
 int create_instance__14TObjBoss1FloorFv(void*);
 s32 end_effect_render__13TParticleCtrlFv(int);
@@ -78,7 +78,7 @@ void render__14TObjBoss1FloorFv(void) {
         TObjPlayer::draw_if_all_ready();
         TObjFish::set_global_param((s32)((void *) (dragon_common_texture_list)));
         temp_r31 = (unsigned char *) (*(void **)((s8 *)(*(void **)((s8 *)lbl_805D4B50 + 0x42C)) + 0x58));
-        render_projected_shadow_receiver((void *) (temp_r31 + 8), (void *) (temp_r31 + 0x14));
+        render_projected_shadow_receiver((u8 *)(temp_r31 + 8), (s32)(temp_r31 + 0x14));
         draw_ginja_model((*(s32 *)((s8 *)temp_r31 + 4)));
         TScene::apply_single_screen_state();
         func_80141618__Fv();
@@ -92,7 +92,7 @@ void run_task__14TObjBoss1FloorFv(Floor_8002C968 *self) {
     Player_8002C968 *pl;
     if (TObjEneDD::check_v2_mode() != 0) {
         for (i = 0; i < 4; i++) {
-            pl = get_player_by_client_id(i);
+            pl = (Player_8002C968 *)get_player_by_client_id(i);
             if (pl != NULL) {
                 Vec_8002C968 pos = pl->pos;
                 pos.y -= lbl_805D8170;

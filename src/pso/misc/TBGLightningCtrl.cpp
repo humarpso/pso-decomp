@@ -74,7 +74,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, s32, s8, f32, f32);
 s32 queue_destruction__7TObjectFv();
 s32 get_state_flag__9TMainTaskFv();
 s32 construct_world_actor_base(void *, void *);
-int load_gvm_texture_file(void*);
+u8 *load_gvm_texture_file(s32 arg0);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(u8 *, void *);
@@ -172,7 +172,7 @@ void TBGLightningCtrl::destroy_instance() {
     }
 }
 
-void load_bg_lightning(void) { bg_lightning_texture_handle = load_gvm_texture_file(lbl_8046FCA0); }
+void load_bg_lightning(void) { bg_lightning_texture_handle = (int)load_gvm_texture_file((s32)lbl_8046FCA0); }
 __declspec(section ".rodata") extern unsigned char lbl_8046FCA0[] = "bg_lightning.gvm";
 
 extern const f32 lbl_805DE040 = 0.0f;

@@ -145,7 +145,7 @@ extern S_800DF634 panarms_npc_spawn_descriptor[];
 extern u8 lbl_80494F10[];
 extern u32 TObjEnePanarms__entry_params_resource;
 extern const f32 lbl_805DA51C;
-f32 calc_boss4_scale__10TObjPlayerFi(void *);
+f32 calc_boss4_scale__10TObjPlayerFi(s32 arg0);
 extern const f32 lbl_805DA4BC;
 extern const f32 lbl_805DA4D4;
 void TObjEnePanarms__sub_800DDED8(u8 *arg0);
@@ -162,7 +162,7 @@ u32 csnLookAt(void *, void *);
 f32 horizontal_distance_squared(void *, void *);
 extern const f32 lbl_805DA4E4;
 s32 try_warp_to_position__14TObjEnePanarmsFPvPv(u8 *arg0, Vec_800DEB48 *arg1);
-u32 create_particle_emitter(void *, s32);
+void *create_particle_emitter(void *pos, s32 id);
 extern s32 lbl_8043CD04[];
 extern s32 lbl_8043CD0C[];
 extern s32 lbl_8043CCF4[];
@@ -426,7 +426,7 @@ void TObjEnePanarms::update_particle_emitters() {
         for (i = 0; i < 2; i++) {
             u32 *slot = &((Obj_800DD690 *)this)->items[i];
             if (*slot == 0) {
-                *slot = create_particle_emitter(&((Obj_800DD690 *)this)->subs[lbl_8043CD0C[i]], lbl_8043CD04[i]);
+                *slot = (u32)create_particle_emitter(&((Obj_800DD690 *)this)->subs[lbl_8043CD0C[i]], lbl_8043CD04[i]);
             }
         }
     }
@@ -487,7 +487,7 @@ void TObjEnePanarms::update_particle_emitters_set2() {
         for (i = 0; i < 2; i++) {
             u32 *it = &((Obj_800DD8AC *)this)->items[i];
             if (*it == 0) {
-                *it = create_particle_emitter(&((Obj_800DD8AC *)this)->subs[lbl_8043CCFC[i]], lbl_8043CCF4[i]);
+                *it = (u32)create_particle_emitter(&((Obj_800DD8AC *)this)->subs[lbl_8043CCFC[i]], lbl_8043CCF4[i]);
             }
         }
     }
@@ -670,7 +670,7 @@ void TObjEnePanarms__sub_800DDED8(u8 *actor) {
     *(u32 *)((s8 *)(*(u8 **)((s8 *)actor + 0x390)) + 0x18) &= ~0x08000000;
     *(u32 *)((s8 *)(*(u8 **)((s8 *)actor + 0x390)) + 0x18) |= 1;
     ((TUnk_804B9870 *)actor)->obj_clearFlags30(0x04040000);
-    *(s32 *)((s8 *)actor + 0x388) = (s32) (lbl_805DA4BC * (f32) ((s32) (lbl_805DA4D4 * calc_boss4_scale__10TObjPlayerFi(actor)) + 1));
+    *(s32 *)((s8 *)actor + 0x388) = (s32) (lbl_805DA4BC * (f32) ((s32) (lbl_805DA4D4 * calc_boss4_scale__10TObjPlayerFi((s32)actor)) + 1));
     set_field_b8__10TObjMotionFs(actor, var_r30);
 }
 

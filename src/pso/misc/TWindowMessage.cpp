@@ -10,7 +10,7 @@ extern "C" {
 s32 get_draw_context__11TWindowBaseFPv();
 s32 draw_window_frame(void *, int);
 s32 draw_visible_window_entries(void *, void *, int);
-u8 *mem_alloc(s32);
+void *mem_alloc(u32 size);
 void *construct_with_parent__13TUnk_804CDFE8FPv(void *, void *, s16, s32);
 extern u8 message_window_settings[];
 extern s32 __vt__14TWindowMessage[];
@@ -66,7 +66,7 @@ u8 *TWindowMessage__ct(u8 *arg0, s32 arg1, u32 arg2, s32 arg3) {
     *(s32 *)(arg0 + 0x78) = 0xB4;
     *(f32 *)(arg0 + 0x84) = lbl_805DD21C;
     *(f32 *)(arg0 + 0x80) = lbl_805DD21C;
-    *(u8 **)(arg0 + 0x7C) = mem_alloc(arg2 * 8);
+    *(u8 **)(arg0 + 0x7C) = (u8 *)mem_alloc(arg2 * 8);
     p = *(u8 **)(arg0 + 0x7C);
     for (i = 0; i < arg2; i++) {
         *(s32 *)p = 0;

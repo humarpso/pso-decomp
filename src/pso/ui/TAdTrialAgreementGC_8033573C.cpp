@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/ui/TAdPlayerLoadGC_801E0C30.h"
+#include "pso/ui/TAdScrollWinGC_80327504.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/ui/TAdAgreementBaseGC.h"
 #include "pso/ui/TAdTrialAgreementGC_8033573C.h"
@@ -28,11 +30,9 @@ struct RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC {
 extern "C" {
 extern const f32 lbl_805DF8B0;
 s32 __nw__7TObjectFUl(int);
-s32 TAdScrollWinGC__ct(int, void *, int, int);
 s32 TAdAgreementBaseGC__ct(void *);
 extern s32 __vt__19TAdTrialAgreementGC[];
 extern s32 TAdTrialAgreementGC__name;
-s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32 *);
 void __dl__7TObjectFPv(void *);
 s32 wait_for_load__19TAdTrialAgreementGCFv(s32);
 
@@ -52,7 +52,7 @@ s32 TAdTrialAgreementGC::check_card_file(s32 arg0) {
         return 0;
     }
     wait_for_load__19TAdTrialAgreementGCFv(arg0);
-    temp_r3 = find_card_file__15TAdPlayerLoadGCFiPv(0, pso_system_card_filename);
+    temp_r3 = find_card_file__15TAdPlayerLoadGCFiPv(0, (const char *)pso_system_card_filename);
     if ((temp_r3 == 0) || ((u32) (temp_r3 + 0x10000) == 0xFF41U)) {
         return 1;
     }
@@ -91,7 +91,7 @@ u8 *TAdTrialAgreementGC__ct(u8 *arg0) {
     temp_r3 = __nw__7TObjectFUl((int) (0x54));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = TAdScrollWinGC__ct((int) (temp_r3), (void *) (arg0), (int) (1), (int) (0));
+        var_r0 = (s32)TAdScrollWinGC__ct((void *)(temp_r3), (arg0), (1), (0));
     }
     *(s32 *)&((TAdTrialAgreementGC *)arg0)->m_38 = var_r0;
     return arg0;

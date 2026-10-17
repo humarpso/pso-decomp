@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/boss/Boss7DeRolLeCBehavior.h"
+#include "pso/boss/TBoss1DragonColli.h"
+#include "pso/enemy/TObjEneDD_800BB804.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss7DeRolLeC.h"
 #include "pso/enemy/TObjEneDD.h"
@@ -18,25 +21,17 @@ extern "C" {
 s32 add_radar_scaled_marker(void *, int, int, int, f32);
 extern const f32 lbl_805DEBB8;
 void initialize_enemy_state__9TObjEneDDFv(void *, s32);
-void *TObjEneDD__ct(void *arg0);
 extern s32 __vt__11TBoss7Joint[];
 extern s32 lbl_805D3FC0;
-u8 *TBoss7Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5);
 s32 register_object__6TLobbyFl(int);
 s32 dispatch_shared_handler_b__6TLobbyFl(int);
 s32 register_boss__6TLobbyFl(int);
-void fn_8002B630(u8 *arg0, u8 *arg1);
 s32 reset_hp__9TObjEneDDFv(void *, int, int, int);
-s32 TBoss7Joint_get_shell_max_hp();
 extern s32 lbl_80473FB8[];
 extern s32 lbl_804E45C8[];
 extern const f32 lbl_805DEBBC;
 struct VOff_802EE9A4_arg0_802EE9A4 { char pad_0[0x2FC]; char f_2FC[1]; };
 
-void TBoss7Joint__vt85(void);
-void *__dt__11TBoss7JointFv(void *arg0, s16 arg1);
-void *__dt__9TObjEneDDFv(void *arg0, s16 arg1);
-s32 TObjFish__sub_802EC468(void *, f32, f32);
 s32 apply_damage_and_set_effect__8TObjFishFl(int, int, int);
 void __dl__7TObjectFPv(void *);
 u32 is_part_active__11TBoss7JointFv(void *, int);
@@ -57,7 +52,7 @@ void TBoss7Joint::vfunc_62() {
     temp_r4 = *(s16 *)((s8 *)((u8 *)this) + 0x32C);
     temp_r31 = *(s16 *)((s8 *)((u8 *)this) + 0x2B8) - temp_r4;
     if (is_part_active__11TBoss7JointFv((void *) (((u8 *)this)), (int) (temp_r4)) != 0U) {
-        TObjFish__sub_802EC468((void *) (((u8 *)this) + 0x38), (f32) (lbl_805DEBB0), (f32) (lbl_805DEBB4));
+        TObjFish__sub_802EC468((s32)(((u8 *)this) + 0x38), (f32) (lbl_805DEBB0), (f32) (lbl_805DEBB4));
         apply_damage_and_set_effect__8TObjFishFl((int) (*(s32 *)((s8 *)((u8 *)this) + 0x10)), (int) (temp_r31), (int) (*(u16 *)((s8 *)((u8 *)this) + 0x2D4)));
     } else {
         *(s32 *)((s8 *)((u8 *)this) + 0x3C4) = (s32) (*(s32 *)((s8 *)((u8 *)this) + 0x3C4) - temp_r31);

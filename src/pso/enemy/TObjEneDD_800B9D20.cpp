@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/TObjPlayer_80141D1C.h"
 #include "pso/math/MatrixTransforms.h"
 #include "pso/player/TObjPlayer_800F0810.h"
 #include "pso/unk/text_803D96A8.h"
@@ -18,7 +19,6 @@ struct Obj_800B9E84 {
 
 extern "C" {
 s32 minimap_render_dot(void *, int, int, int);
-s32 direction_to_rotation_xz(void *, void *, void *);
 s32 rotate_matrix_y(int, void *);
 s32 rotate_matrix_z(int, int);
 s32 rotate_matrix_x(int, int);
@@ -51,7 +51,7 @@ int TObjEneDD::update_player_state() { return render_with_position_override__9TO
 void TObjEneDD::draw_oriented_shadow(s32 arg1, s32 arg2, u32 arg3) {
     s32 arg0 = (s32)this;
     Stack_800B9D94 stack;
-    direction_to_rotation_xz((void *) (arg1), (void *) (&stack.sp8), (void *) (&stack.sp10));
+    direction_to_rotation_xz((u8 *)(arg1), (&stack.sp8), (&stack.sp10));
     push_matrix();
     post_translate_matrix((void *) (arg0));
     translate_matrix((0), (f32) (TObjEneDD__data_805D9E8C), (f32) (lbl_805D9E90), (f32) (TObjEneDD__data_805D9E8C));

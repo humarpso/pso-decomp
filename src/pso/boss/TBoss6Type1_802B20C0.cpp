@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/boss/TBoss6Type1_802B20C0.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss6Type1.h"
@@ -84,13 +85,12 @@ struct Params_802B49A4 {
 typedef char RecoveredGlobal_802B3BEC_lbl_80470CE0_size[sizeof(RecoveredGlobal_802B3BEC_lbl_80470CE0) == 0xC ? 1 : -1];
 
 void queue_destruction__7TObjectFv(void *arg0);
-s32 play_persistent_sound(int, void *, void *, int, int);
 s32 play_sound_effect(s32, void *, s32, s32);
 void TBoss6PlotFalz__sub_802AC008(f32, f32);
 s32 is_normal_difficulty();
 s32 TBoss6Type1__sub_802B4A9C(void *);
 void TBoss6Type1__sub_802B4B04(u8 *arg0);
-s32 TBoss6Type1__sub_802B5140(void *, s32, s32);
+void TBoss6Type1__sub_802B5140(s32 arg0, s32 arg1, s32 arg2);
 int clamp_to_arena_radius__11TBoss6Type1FPvPvf(void*, void*);
 void TBoss6Type1__sub_802B5598(void *arg0, void *arg1);
 s32 calc_grid_cell_position__11TBoss6Type1FPvPv(void *, void *);
@@ -377,7 +377,7 @@ void TBoss6Type1::init_move_attack() {
 void TBoss6Type1::update_hit_timer() {
     s32 temp_r3;
 
-    play_persistent_sound((int)(0x40032614), (void *)(((u8 *)this)), (void *)(0), (int)(0), (int)(0));
+    play_persistent_sound((0x40032614), (s32)(((u8 *)this)), (0), (0), (0));
     if ((s32) *(s32 *)((s8 *)((u8 *)this) + 0x410) == 0x3C) {
         ((int (*)(void*, void*, void*, void*))play_sound_effect)((void*)(0x39403), (void*)(((u8 *)this) + 0x38), (void*)(0), (void*)(1));
     }
@@ -431,7 +431,7 @@ void TBoss6Type1__sub_802B2A94(u8 *arg0) {
             VecCopy((Vec *)(arg0 + 0x420), (const Vec *)&lbl_80470C98.value);
         }
     }
-    play_persistent_sound((int)(0x4003B012), (void *)((s32) arg0), (void *)((u32) (arg0 + 0x38)), (int)(0), (int)(0));
+    play_persistent_sound((0x4003B012), ((s32) arg0), ((u32) (arg0 + 0x38)), (0), (0));
     temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x410) - 1;
     *(s32 *)((s8 *)arg0 + 0x410) = temp_r0_2;
     if (temp_r0_2 < 0) {
@@ -516,7 +516,7 @@ void TBoss6Type1::init_state() {
 void TBoss6Type1::tick_trap_countdown() {
     s32 temp_r0;
 
-    play_persistent_sound((int)(0x40038F0F), (void *)(((u8 *)this)), (void *)(((u8 *)this) + 0x38), (int)(0), (int)(0));
+    play_persistent_sound((s32)(0x40038F0F), (s32)(((u8 *)this)), (u32)(((u8 *)this) + 0x38), (s32)(0), (s32)(0));
     temp_r0 = *(s32 *)((s8 *)((u8 *)this) + 0x410) - 1;
     *(s32 *)((s8 *)((u8 *)this) + 0x410) = temp_r0;
     if (temp_r0 < 0) {
@@ -545,7 +545,7 @@ void TBoss6Type1::update_charge() {
     s32 temp_r0;
 
     ((TBoss6Type1 *)arg0)->interpolate_pos_to_target((s32)(*(s32 *)((s8 *)arg0 + 0x410)), (s32)(*(s32 *)((s8 *)arg0 + 0x40C)));
-    play_persistent_sound((int)(0x40038F0F), (void *)(arg0), (void *)(arg0 + 0x38), (int)(0), (int)(0));
+    play_persistent_sound((s32)(0x40038F0F), (s32)(arg0), (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x410) - 1;
     *(s32 *)((s8 *)arg0 + 0x410) = temp_r0;
     if (temp_r0 < 0) {
@@ -613,7 +613,7 @@ void TBoss6Type1__sub_802B31E4(u8 *arg0) {
         if (*(f32 *)((s8 *)arg0 + 0x4DC) > lbl_805DE2BC) {
             var_r3 = 0x4003AD0D;
         }
-        play_persistent_sound((int) (var_r3), (void *) (arg0), (void *) (arg0 + 0x5CC), (int) (0), (int) (1));
+        play_persistent_sound((s32)(var_r3), (s32)(arg0), (u32)(arg0 + 0x5CC), (s32)(0), (s32)(1));
     }
     if (*(f32 *)((s8 *)arg0 + 0x4DC) > lbl_805DE2BC) {
         TBoss6Type1__sub_802B4B04((arg0));
@@ -873,7 +873,7 @@ void TBoss6Type1__sub_802B3B94(void *arg0) {
     s32 temp_r0;
 
     if ((s32) *(s32 *)((s8 *)arg0 + 0x410) < 0x1E) {
-        TBoss6Type1__sub_802B5140(arg0, *(s32 *)((s8 *)arg0 + 0x410), 0x1E);
+        TBoss6Type1__sub_802B5140((s32)arg0, *(s32 *)((s8 *)arg0 + 0x410), 0x1E);
     }
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x410) - 1;
     *(s32 *)((s8 *)arg0 + 0x410) = temp_r0;

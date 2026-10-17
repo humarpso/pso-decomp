@@ -34,7 +34,7 @@ struct Player_80187438 {
 extern "C" {
 s32 get_current_floor(void);
 f32 xz_distance_squared(void *, void *);
-Player_80187438 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 void TWindow__close(u8 *arg0);
 char *strcpy(char *, const char *);
 extern s32 local_client_id;
@@ -221,7 +221,7 @@ void TObjCityMainWarpChallenge::count_players_in_warp_radius() {
     self->n_inside = 0;
     self->f15c = 0;
     for (i = 0; i < 4; i++) {
-        pl = get_player_by_client_id(i);
+        pl = (Player_80187438 *)get_player_by_client_id(i);
         if (pl != NULL) {
             room = ((TObjPlayer *)pl)->get_field_3e4();
             if (room == self->fbc) {
@@ -246,7 +246,7 @@ void TObjCityMainWarpChallenge::count_players_in_warp_radius() {
         TWindow__close((u8 *)self->window);
         self->window = 0;
     }
-    pl2 = get_player_by_client_id(local_client_id);
+    pl2 = (Player_80187438 *)get_player_by_client_id(local_client_id);
     if (pl2 != NULL && ((TObjPlayer *)pl2)->get_field_3e4() == get_current_floor()) {
         if (xz_distance_squared(pl2->pos, self->pos) <= (lbl_805DBCA8 + self->radius) * (lbl_805DBCA8 + self->radius)) {
             if (TObjWarpBossMulti::is_flag_clear(pl2) != 0) {

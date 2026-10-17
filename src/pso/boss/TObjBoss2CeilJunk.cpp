@@ -128,8 +128,8 @@ extern Holder_8003A1B4 *boss2_tunnel_instance;
 extern s32 lbl_805D4BEC;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-u8 *get_player_data__10TObjPlayerFi(s32);
-s32 forward_switch_phase_stats__13TBoss2DeRolLeFi(void *);
+int get_player_data__10TObjPlayerFi(int a0);
+void forward_switch_phase_stats__13TBoss2DeRolLeFi(s32 arg0);
 s32 create_particle__17TObjBoss2CeilJunkFv(void *, int);
 s32 is_valid_target__9TObjEneDDFv(void *);
 s32 play_sound_effect(int, void *, int, int);
@@ -238,7 +238,7 @@ void run_task__17TObjBoss2CeilJunkFv(Junk_8003A314 *o) {
             bottom = o->pos.y - ((f32 *)&TObjBoss2CeilJunk__height_offset_table)[o->fAC];
             rad = (1e+01f) + TObjBoss2CeilJunk__radius_table[o->fAC];
             for (i = 0; i < n; i++) {
-                pl = get_player_data__10TObjPlayerFi(i);
+                pl = (u8 *)get_player_data__10TObjPlayerFi(i);
                 if (is_valid_target__9TObjEneDDFv(pl) != 0) {
                     h = *(f32 *)((s8 *)pl + 0xD48) + *(f32 *)((s8 *)pl + 0x3C);
                     if (top > h && bottom < h) {
@@ -246,7 +246,7 @@ void run_task__17TObjBoss2CeilJunkFv(Junk_8003A314 *o) {
                         subtract_vector(&d, &o->pos);
                         if (((TObjBoss2Tunnel *)(&d))->clamp_velocity() < rad) {
                             hit = 1;
-                            forward_switch_phase_stats__13TBoss2DeRolLeFi(pl);
+                            forward_switch_phase_stats__13TBoss2DeRolLeFi((s32)pl);
                         }
                     }
                 }

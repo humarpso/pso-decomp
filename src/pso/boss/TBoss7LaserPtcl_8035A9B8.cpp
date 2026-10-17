@@ -9,7 +9,7 @@ extern "C" {
 
 s32 subtract_vector(void *, void *);
 s32 destroy_particles__15TBoss7LaserPtclFv();
-s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
+void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
 void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 f32 atan2_float(f32 y, f32 x);
 
@@ -24,7 +24,7 @@ void TBoss7LaserPtcl::init_laser() {
     *(f32 *)((s8 *)arg0 + 0x30) = (f32) lbl_805E00F4;
     *(s32 *)&this->m_54 = (s32) (lbl_804796D8 * atan2_float((f32) (*(f32 *)((s8 *)arg0 + 0x2C)), (f32) (*(f32 *)((s8 *)arg0 + 0x34))));
     spawn_particle_effect_with_flags((arg0 + 0x20), (0x20A), (0x40));
-    *(s32 *)((s8 *)arg0 + 0x44) = spawn_continuous_particle_effect_with_flags((void *) (arg0 + 0x20), (int) (0x177), (int) (0x40));
+    *(s32 *)((s8 *)arg0 + 0x44) = (s32)spawn_continuous_particle_effect_with_flags((arg0 + 0x20), (0x177), (0x40));
     this->state = 1;
 }
 #pragma push

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon_800BC53C.h"
 #include "pso/system/vector.h"
 #include "pso/boss/TBoss8DragonEffBreath.h"
 #include "pso/boss/TBoss8Dragon.h"
@@ -17,18 +18,15 @@ struct Obj_802FE024 {
 
 extern "C" {
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
-u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
 void *__ct__7TObjectFP7TObject(void *, void *);
 extern s32 __vt__21TBoss8DragonEffBreath[];
 extern s32 TBoss8DragonEffBreath__name;
 extern const f32 lbl_805DEEF8;
 Obj_802FE024 *TBoss8DragonEffBreath__ct(Obj_802FE024 *self, void *parent, void *p, void *v, s32 a, s16 b);
-void *__dt__21TBoss8DragonEffBreathFv(void *arg0, s16 arg1);
 s32 vec3_add_to(void *, void *);
-void delete_buffer__12TBoss8DragonFis(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-u32 get_enemy_entity(int);
+u8 *get_enemy_entity(u16 arg0);
 void queue_destruction__7TObjectFv(void *arg0);
 
 void TBoss8DragonEffBreath::render() {  }
@@ -47,7 +45,7 @@ void TBoss8DragonEffBreath::run_task() {
         queue_destruction__7TObjectFv((arg0));
         return;
     }
-    if ((temp_f1 < lbl_805DEEF4) && ((ent = get_enemy_entity((int) (this->m_38))) != 0U)) {
+    if ((temp_f1 < lbl_805DEEF4) && ((ent = (u32)get_enemy_entity((this->m_38))) != 0U)) {
         TBoss8Dragon::setup_breath_instance((void *)ent, (int)((void *) (arg0 + 0x1C)), (u32)((int) (*(s32 *)&this->m_34)), (int)((int) (*(s32 *)&this->m_3c)));
     }
 }
@@ -55,7 +53,7 @@ void TBoss8DragonEffBreath::run_task() {
 void *__dt__21TBoss8DragonEffBreathFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TBoss8DragonEffBreath;
-        delete_buffer__12TBoss8DragonFis(*(void **)((s8 *)arg0 + 0x3C), 1);
+        delete_buffer__12TBoss8DragonFis((s32)(*(void **)((s8 *)arg0 + 0x3C)), 1);
         *(s32 *)&((TBoss8DragonEffBreath *)arg0)->m_3c = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

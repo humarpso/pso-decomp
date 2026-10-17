@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_801C51D4.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC_801C50A8.h"
 #include "pso/ui/TAdSinglePlyChrSelectGC.h"
 #include "pso/misc/TOKeyMachine01.h"
@@ -6,10 +7,9 @@
 extern "C" {
 extern int active_character_save_record;
     extern int duel_result_window;
-s32 queue_destruction__7TObjectFv(void*);
+void queue_destruction__7TObjectFv(void *arg0);
 extern u32 ad_single_ply_chr_select_instance;
 u32 __nw__7TObjectFUl(s32);
-u32 fn_801C5380(void *, s32);
 extern s32 tl_00;
 void TAdSinglePlyChrSelectGC::set_slot(int a0) { *(short*)((char*)active_character_save_record + 0x21b0) = a0; }
 u16 TAdSinglePlyChrSelectGC::get_char_select_slot() {
@@ -34,7 +34,7 @@ u16 TAdSinglePlyChrSelectGC__sub_801C5114(void) {
 void TAdSinglePlyChrSelectGC__sub_801C5120(void) { duel_result_window = 0; }
 void TAdSinglePlyChrSelectGC::destroy() {
     if ((u32) ad_single_ply_chr_select_instance != 0U) {
-        queue_destruction__7TObjectFv((void*)ad_single_ply_chr_select_instance);
+        queue_destruction__7TObjectFv((void *)ad_single_ply_chr_select_instance);
     }
 }
 void TAdSinglePlyChrSelectGC__sub_801C5158(void) { (*(int *)&ad_single_ply_chr_select_instance) = 0; }
@@ -50,7 +50,7 @@ s32 TAdSinglePlyChrSelectGC::create_if_key_pressed() {
     }
     var_r0 = __nw__7TObjectFUl(0x28);
     if (var_r0 != 0U) {
-        var_r0 = fn_801C5380((void *) var_r0, tl_00);
+        var_r0 = (u32)fn_801C5380((u8 *)var_r0, tl_00);
     }
     ad_single_ply_chr_select_instance = var_r0;
     return 1;

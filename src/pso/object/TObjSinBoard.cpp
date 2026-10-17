@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/unk/text_80198A2C.h"
+#include "pso/unk/text_80235A8C.h"
 #include "pso/math/MatrixTransforms.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/system/GinjaMaterial.h"
@@ -63,10 +65,8 @@ extern Uv_8019806C sin_board_uv_table;
 extern u8 signboard_texture_list[];
 extern u32 TObjSinBoard__texture_buffer;
 extern u8 gogo_ball_sync_state[];
-s32 TWindowTimer__sub_80198CF8(void *, void *, s16, s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
 void *__nw__7TObjectFUl(int);
-s32 construct_timed_sound_voice(void *, void *, int, int, int, s32);
 extern u8 gogo_ball_configuration[];
 extern void *tl_05;
 extern s32 tl_06;
@@ -215,7 +215,7 @@ void TUnk_804B8DD0::update_effects() {
         if (this->m_30 == 1) {
             o = (void *)__nw__7TObjectFUl(0x58);
             if (o != NULL) {
-                TWindowTimer__sub_80198CF8(o, (u8 *)&this->unk_1C, *(s16 *)((s8 *)gogo_ball_configuration + 0x14), this->m_28, this->m_40, tl_06);
+                TWindowTimer__sub_80198CF8((u8 *)o, (u8 *)&this->unk_1C, (s32)(*(s16 *)((s8 *)gogo_ball_configuration + 0x14)), (s32)this->m_28, (s32)this->m_40, (u8 *)tl_06);
             }
         }
     } else if (*(u16 *)((s8 *)gogo_ball_configuration + 0x48) == 6) {
@@ -256,7 +256,7 @@ void TUnk_804B8DD0::update_effects() {
                 spawn_particle_effect_with_flags(&vda, 0x20E, 0x40);
                 o = (void *)__nw__7TObjectFUl(0x28);
                 if (o != NULL) {
-                    construct_timed_sound_voice(o, (u8 *)&this->unk_1C, 5, 0x4002A90C, 0, (s32)tl_05);
+                    construct_timed_sound_voice((u8 *)o, (s32)&this->unk_1C, (s16)(5), (s32)(0x4002A90C), (s32)(0), (s32)tl_05);
                 }
             }
         } else {
@@ -266,7 +266,7 @@ void TUnk_804B8DD0::update_effects() {
                 spawn_particle_effect_with_flags(&vdb, 0x20F, 0x40);
                 o = (void *)__nw__7TObjectFUl(0x28);
                 if (o != NULL) {
-                    construct_timed_sound_voice(o, (u8 *)&this->unk_1C, 5, 0x4002A90C, 0, (s32)tl_05);
+                    construct_timed_sound_voice((u8 *)o, (s32)&this->unk_1C, (s16)(5), (s32)(0x4002A90C), (s32)(0), (s32)tl_05);
                 }
             }
         }

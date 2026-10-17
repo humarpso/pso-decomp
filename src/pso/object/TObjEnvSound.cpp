@@ -24,8 +24,8 @@ struct Obj_80190AA0 {
 
 extern "C" {
 s32 fn_801908F8(f32);
-s32 play_persistent_sound(int, void *, void *, int, int);
-void byteswap_event_packet__6TLobbyFi(Pkt_80190BA0 *pkt);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
+void byteswap_event_packet__6TLobbyFi(s32 arg0);
 s32 get_current_floor(void);
 s32 set_floor_event_flags(s32 arg0, s32 arg1, s32 arg2);
 s32 activate_first_floor_event(s32 idx, s32 id);
@@ -56,10 +56,10 @@ void TObjEnvSound::run_task() {
         case 0:
             break;
         case 1:
-            play_persistent_sound((int) (*(s32 *)&this->m_98), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+            play_persistent_sound((s32)(*(s32 *)&this->m_98), (s32)(arg0), (u32)(arg0 + 0x38), (s32)(0), (s32)(0));
             return;
         case 2:
-            play_persistent_sound((int) (*(s32 *)&this->m_98), (void *) (arg0), (void *) (arg0 + 0x38), (int) (*(s32 *)&this->m_94), (int) (2));
+            play_persistent_sound((s32)(*(s32 *)&this->m_98), (s32)(arg0), (u32)(arg0 + 0x38), (s32)(*(s32 *)&this->m_94), (s32)(2));
             break;
         }
     }
@@ -105,7 +105,7 @@ void *TObjEnvSound__ct(Obj_80190AA0 *self, void *parent, void *arg2) {
 }
 
 void handle_6x67_trigger_set_event(Pkt_80190BA0 *pkt) {
-    byteswap_event_packet__6TLobbyFi(pkt);
+    byteswap_event_packet__6TLobbyFi((s32)pkt);
     if (pkt->target != get_current_floor()) {
         set_floor_event_flags(pkt->target, pkt->event, 4);
     } else {

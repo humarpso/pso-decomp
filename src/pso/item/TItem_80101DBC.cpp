@@ -28,7 +28,7 @@ void TItem::snap_to_ground() {
 
 s32 is_not_matching_lobby_id__10TObjPlayerFv(void *);
 void TItemData__sub_8010CCB0(void *);
-void give_item_to_client(int, void *);
+void give_item_to_client(s32 arg0, s32 arg1);
 struct VOff_80101E2C_arg0 { char pad_0[0x4]; char f_4[1]; };
 
 void handle_6x5E_buy_shop_item(void *arg0) {
@@ -38,7 +38,7 @@ void handle_6x5E_buy_shop_item(void *arg0) {
     x = is_not_matching_lobby_id__10TObjPlayerFv(arg0);
     if (x != 0) {
         TItemData__sub_8010CCB0(self->f_4);
-        give_item_to_client(*(u16 *)((s8 *)arg0 + 0x2), self->f_4);
+        give_item_to_client(*(u16 *)((s8 *)arg0 + 0x2), (s32)self->f_4);
     }
 }
 

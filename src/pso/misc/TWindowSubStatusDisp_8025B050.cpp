@@ -1,4 +1,7 @@
 #include "types.h"
+#include "pso/misc/TWindowKeyBoardSoft_8024E68C.h"
+#include "pso/misc/TWindowSubStatusDisp_8025B050.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 #include "pso/system/memory.h"
 #include "pso/misc/TUnk_804CF930.h"
 #include "pso/misc/TWindowSubStatusDisp.h"
@@ -18,19 +21,8 @@ struct Ref_8025B0D0 { u8 pad0[0x10]; f32 f10; f32 f14; f32 f18; u8 pad1c[0x30 - 
 struct Quad_8025B0D0 { f32 v[8]; };
 
 extern "C" {
-void swap_sprite_v_edges(u8 *arg0);
-void swap_sprite_u_edges(u8 *arg0);
-void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1);
 void apply_context_transform_to_rect(void *, void *);
-s32 try_open__19TWindowKeyBoardSoftFii(void *, void *);
-void begin_screen_draw(s32);
-void draw_textured_quad_at_depth(void *, f32);
-void set_draw_texture_and_color(s32, s32);
 void draw_window_uv_sprite_part(Win_8025B0D0 *arg0, Ref_8025B0D0 *arg1);
-void *TWindowSubStatusDisp__sub_8025B2DC(void *arg0, s16 arg1);
-void set_sprite_dimensions(void* p, f32 a, f32 b);
-void set_sprite_uv_bounds(void* p, f32 a, f32 b, f32 c, f32 d);
-u8 *init_part_scaled__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 s32 sub_80256BDC__13TUnk_804CF930Fs(void *, void *);
 
 void *window_uv_sprite_part_vtable[6] = {
@@ -119,9 +111,9 @@ void draw_window_uv_sprite_part(Win_8025B0D0 *arg0, Ref_8025B0D0 *arg1) {
     q.v[7] = arg0->f28;
     if (arg0->flags & 0x10) {
         apply_context_transform_to_rect(arg1, &q);
-        draw_textured_quad_at_depth(&q, scale);
-    } else if (try_open__19TWindowKeyBoardSoftFii(arg1, &q) != 0) {
-        draw_textured_quad_at_depth(&q, scale);
+        draw_textured_quad_at_depth((f32 *)&q, scale);
+    } else if (try_open__19TWindowKeyBoardSoftFii((s32)arg1, (s32)&q) != 0) {
+        draw_textured_quad_at_depth((f32 *)&q, scale);
     }
     TWindowSubStatusDisp::get_player();
     TObjPlayer::reset_transform_state();

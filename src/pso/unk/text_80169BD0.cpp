@@ -31,8 +31,8 @@ s32 check_player_flag1__6TLobbyFv();
 void end_conversation_camera(void);
 void begin_conversation_camera(void);
 s32 is_any_player_within_radius_xz(u8 *self, f32 radius);
-s32 get_player_by_client_id(void *);
-u32 __ct__12TQuestThreadFv(int, void *, int);
+void *get_player_by_client_id(s32 i);
+u8 *__ct__12TQuestThreadFv(u8 *arg0, s32 arg1, s32 arg2);
 u32 __nw__7TObjectFUl(int);
 extern s32 local_client_id;
 extern u32 quest_mission_manager;
@@ -78,7 +78,7 @@ void TUnk_804B27D8::run_task() {
                 temp_r3 = __nw__7TObjectFUl((int) (0x194));
                 var_r0 = temp_r3;
                 if (var_r0 != 0U) {
-                    var_r0 = __ct__12TQuestThreadFv((int) (temp_r3), (void *) (quest_mission_manager), (int) (*(s32 *)&this->unk_D8));
+                    var_r0 = (u32)__ct__12TQuestThreadFv((u8 *)(temp_r3), (quest_mission_manager), (*(s32 *)&this->unk_D8));
                 }
                 this->m_dc = var_r0;
                 dc = this->m_dc;
@@ -89,7 +89,7 @@ void TUnk_804B27D8::run_task() {
                 temp_r3_3 = __nw__7TObjectFUl((int) (0x194));
                 var_r0_2 = temp_r3_3;
                 if (var_r0_2 != 0U) {
-                    var_r0_2 = __ct__12TQuestThreadFv((int) (temp_r3_3), (void *) (quest_area_manager), (int) (*(s32 *)&this->unk_D8));
+                    var_r0_2 = (u32)__ct__12TQuestThreadFv((u8 *)(temp_r3_3), (quest_area_manager), (*(s32 *)&this->unk_D8));
                 }
                 this->m_dc = var_r0_2;
                 temp_r3_4 = this->m_dc;
@@ -109,7 +109,7 @@ void TUnk_804B27D8::run_task() {
             this->m_dc = 0U;
             end_conversation_camera();
             if ((s32) this->m_94 == (s32) local_client_id) {
-                player = get_player_by_client_id((void *) (local_client_id));
+                player = (s32)get_player_by_client_id((local_client_id));
                 if ((player != 0) && (check_player_flag1__6TLobbyFv() != 0)) {
                     TObjPlayer::send_code_45_1((int) (player));
                 }

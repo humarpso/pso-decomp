@@ -4,7 +4,6 @@
 
 extern "C" {
 
-u8 *TObjBoss5Pillar__ct(u8 *arg0, u8 *arg1, u8 *arg2);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_02;

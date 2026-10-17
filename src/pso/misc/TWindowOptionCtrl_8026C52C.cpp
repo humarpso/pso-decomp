@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/ui/TAdPlayerLoadGC.h"
 #include "pso/misc/TWindowOptionCtrl_8026C52C.h"
 #include "pso/misc/TWindowOptionCtrl.h"
 
 extern "C" {
 
-void *__ct__15TAdPlayerLoadGCFv(void *, void *, int);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -27,7 +27,7 @@ void *TWindowOptionCtrl__ct(void *arg0) {
     ((TWindowOptionCtrl *)arg0)->m_48 = 0;
     o = __nw__7TObjectFUl(0x24);
     if (o != NULL) {
-        o = __ct__15TAdPlayerLoadGCFv(o, arg0, 2);
+        o = __ct__15TAdPlayerLoadGCFv(o, arg0, (void *)(2));
     }
     *(void **)((s8 *)arg0 + 0x4C) = o;
     ((TWindowOptionCtrl *)arg0)->init_selection_indices();

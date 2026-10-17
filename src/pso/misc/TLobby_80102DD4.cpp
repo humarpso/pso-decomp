@@ -163,14 +163,14 @@ struct Tbl_801031CC { u8 pad[0x1c]; Rec_801031CC r[1]; };
 extern "C" {
 void init__9TItemDataFv(void *);
 extern const f32 lbl_805DAA88;
-s32 __ct__13TItemAttackerFv(void *, void *, void *, s32, void *);
+u8 *__ct__13TItemAttackerFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 __nw__7TObjectFUl(int);
 void TItemAttacker__sub_8010349C(u32);
 void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3);
 u8 *find_item_by_id(s32);
 f32 horizontal_distance_squared(void *, void *);
 void *resolve_hittable_target(u16 actorId, s16 collider);
-u32 get_player_by_client_id(int);
+void *get_player_by_client_id(s32 i);
 extern const f32 lbl_805DAAA8;
 void deliver_delayed_weapon_hit(u8 *arg0);
 void TItem__sub_801031C0(void* p);
@@ -228,7 +228,7 @@ void deliver_delayed_weapon_hit(u8 *arg0) {
         temp_r5 = *(u8 **)((s8 *)temp_r3 + 0xA4);
         temp_r30 = (u8 *)&((Tbl_801031CC *)temp_r5)->r[*(s16 *)((s8 *)arg0 + 0x2C)];
         if (horizontal_distance_squared((void *) (arg0 + 0x38), (void *) (temp_r30)) < lbl_805DAAA8) {
-            player = get_player_by_client_id((int) (*(u16 *)((s8 *)arg0 + 0x28)));
+            player = (u32)get_player_by_client_id((*(u16 *)((s8 *)arg0 + 0x28)));
             item = (u8 *)(find_item_by_id(*(s32 *)((s8 *)arg0 + 0x24)));
             if ((player != 0U) && (item != NULL)) {
                 ((AttackWeapon*)item)->m59(player,temp_r3,*(s32*)((s8 *)arg0 + 0x20),*(f32*)((s8 *)arg0 + 0x30),*(s16*)((s8 *)arg0 + 0x2C));
@@ -248,7 +248,7 @@ void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3) {
     if ((arg0 != 0) && (arg3 != NULL) && (arg1 != 0U) && ((u16) *(u16 *)((s8 *)arg3 + 0xC) != 65535U) && ((u16) *(u16 *)((s8 *)arg3 + 0xE) != 65535U)) {
         var_r0 = __nw__7TObjectFUl((int) (0x50));
         if (var_r0 != 0) {
-            var_r0 = __ct__13TItemAttackerFv((void*)var_r0, (void *) (arg0), (void *) (arg1), arg2, (void *) (arg3));
+            var_r0 = (s32)__ct__13TItemAttackerFv((u8 *)var_r0, (s32)(arg0), (s32)(arg1), (s32)arg2, (s32)(arg3));
         }
         TItemAttacker::spawn_item_timer((s32)((int) (var_r0)), (s32)((void *) (&TItemAttacker__sub_8010349C)), (s32)((void *) (arg2)));
     }

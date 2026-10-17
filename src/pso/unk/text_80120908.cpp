@@ -33,7 +33,7 @@ s32 set_model_fade_alpha__10TObjPlayerFf();
 s32 push_matrix_from();
 s32 pop_matrix();
 void draw_chunk_object(void *child);
-s32 draw_model_motion(int, int, f32);
+void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 extern s16 TObjPlayer__weapon_node_ids[];
 extern s32 lbl_805D53EC;
 extern s16 weapon_node_material_index;
@@ -87,7 +87,7 @@ s32 draw_weapon_model(void *arg0) {
                     }
                 } else {
                     TObjPlayer::set_global_flag();
-                    draw_model_motion((int) (*(u32 *)((s8 *)arg0 + 0xF4)), (int) (*(u32 *)((s8 *)arg0 + 0x17C)), (f32) (((TItemWeapon *)arg0)->motion_frame));
+                    draw_model_motion((void *)(*(u32 *)((s8 *)arg0 + 0xF4)), (void *)(*(u32 *)((s8 *)arg0 + 0x17C)), (f32) (((TItemWeapon *)arg0)->motion_frame));
                     TObjPlayer::clear_global_state();
                 }
                 model_render_flags &= 0xFFFF7FEE;
@@ -101,7 +101,7 @@ s32 draw_weapon_model(void *arg0) {
                 }
             } else {
                 TObjPlayer::set_global_flag();
-                draw_model_motion((int) (*(u32 *)((s8 *)arg0 + 0xF4)), (int) (*(u32 *)((s8 *)arg0 + 0x17C)), (f32) (((TItemWeapon *)arg0)->motion_frame));
+                draw_model_motion((void *)(*(u32 *)((s8 *)arg0 + 0xF4)), (void *)(*(u32 *)((s8 *)arg0 + 0x17C)), (f32) (((TItemWeapon *)arg0)->motion_frame));
                 TObjPlayer::clear_global_state();
             }
             TObjPlayer__sub_80101088();

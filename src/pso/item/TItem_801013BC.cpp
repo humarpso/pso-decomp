@@ -26,7 +26,7 @@ u32 test_item_flags__10TObjPlayerFUl(void *, int);
 void TItem__sub_801013E8(void *arg0);
 void claim_ownership__5TItemFii(s32 arg0, s32 arg1);
 int get_item_chunk_buffer(int a0);
-void is_custom_name_srank__9TItemDataFPv(void *);
+s32 is_custom_name_srank__9TItemDataFPv(u8 *arg0);
 s32 is_rare_item__9TItemDataFPv(u8 *item);
 s32 pop_free_id__6TLobbyFv();
 void disallow_rendering__7TObjectFv(void *arg0);
@@ -36,7 +36,7 @@ void TItem::update_item_data() {
     s32 sp8[4];
 
     copy_to_item_data((void *)(&sp8));
-    is_custom_name_srank__9TItemDataFPv(&sp8);
+    is_custom_name_srank__9TItemDataFPv((u8 *)&sp8);
 }
 
 void TItem__sub_801013E8(void *arg0) {

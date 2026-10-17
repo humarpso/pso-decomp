@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/object/TObjCityMainWarp_801867F4.h"
 #include "pso/object/TObjAreaWarp.h"
 #include "pso/misc/TWindowMenu.h"
 #include "pso/misc/TWindowSubComCardList.h"
@@ -205,10 +206,8 @@ extern s32 city_warp_group9_text_table[];
 extern s32 city_warp_group9_text_table_b[];
 extern const f32 lbl_805DBC9C;
 extern const f32 lbl_805DBCA0;
-extern s32 TObjCityMainWarp__sub_80186AF4();
-void update_main_warp_visible_mask(s32 arg0);
 extern void request_active_window_close();
-extern void forward_trade_action_default__16TObjCityMainWarpFPviii(void *, int, int, int);
+int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
 extern s16 TLobby__data_805D5CE8;
 extern s32 TObjCityMainWarp__enabled_destinations;
 extern s32 TObjLaboMapWarp__resource_bundle;
@@ -677,9 +676,9 @@ void TObjCityMainWarp__vt13(Warp_8018615C *w, s16 arg1) {
                 for (j = 0, k = 0; j < 17; j++) {
                     if (TObjCityMainWarp__visible_destination_mask & (1 << j)) {
                         if (get_game_play_mode() == 1) {
-                            ((void (*)(void *, int, int, int))forward_trade_action_default__16TObjCityMainWarpFPviii)(w->win, ((s32 (*)())TObjCityMainWarp__sub_80186AF4)(), 0xE, k);
+                            forward_trade_action_default__16TObjCityMainWarpFPviii((void *)w->win, (int)(TObjCityMainWarp__sub_80186AF4()), (int)(0xE), (int)k);
                         } else {
-                            ((void (*)(void *, int, int, int))forward_trade_action_default__16TObjCityMainWarpFPviii)(w->win, get_localized_text_entry(9, city_warp_group9_text_table[j]), 0xE, k);
+                            forward_trade_action_default__16TObjCityMainWarpFPviii(w->win, get_localized_text_entry(9, city_warp_group9_text_table[j]), 0xE, k);
                         }
                         k++;
                     }
@@ -688,9 +687,9 @@ void TObjCityMainWarp__vt13(Warp_8018615C *w, s16 arg1) {
                 for (j2 = 0, k2 = 0; j2 < 17; j2++) {
                     if (TObjCityMainWarp__visible_destination_mask & (1 << j2)) {
                         if (get_game_play_mode() == 1) {
-                            ((void (*)(void *, int, int, int))forward_trade_action_default__16TObjCityMainWarpFPviii)(w->win, ((s32 (*)())TObjCityMainWarp__sub_80186AF4)(), 0xE, k2);
+                            forward_trade_action_default__16TObjCityMainWarpFPviii((void *)w->win, (int)(TObjCityMainWarp__sub_80186AF4()), (int)(0xE), (int)k2);
                         } else {
-                            ((void (*)(void *, int, int, int))forward_trade_action_default__16TObjCityMainWarpFPviii)(w->win, get_localized_text_entry(9, city_warp_group9_text_table_b[j2]), 0xE, k2);
+                            forward_trade_action_default__16TObjCityMainWarpFPviii(w->win, get_localized_text_entry(9, city_warp_group9_text_table_b[j2]), 0xE, k2);
                         }
                         k2++;
                     }

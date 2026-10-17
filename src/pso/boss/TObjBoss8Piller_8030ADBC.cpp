@@ -6,7 +6,7 @@
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
-u32 get_enemy_entity(int);
+u8 *get_enemy_entity(u16 arg0);
 s32 TBoss8Dragon__sub_802FB1B0(int, f32, void *);
 extern const f32 lbl_805DF150;
 extern const f32 lbl_805DF154;
@@ -42,7 +42,7 @@ void TObjBoss8Piller::run_task() {
     u32 enemy_entity;
     u32 temp_r3_2;
     *(f32 *)((s8 *)arg0 + 0x28) = (f32) (*(f32 *)((s8 *)arg0 + 0x28) + lbl_805DF150);
-    enemy_entity = get_enemy_entity((int) (*(u16 *)((s8 *)arg0 + 0x30)));
+    enemy_entity = (u32)get_enemy_entity((*(u16 *)((s8 *)arg0 + 0x30)));
     if (enemy_entity != 0U) {
         TBoss8Dragon__sub_802FB1B0((int) (enemy_entity), (f32) (lbl_805DF154), (void *) (arg0 + 0x1C));
     }

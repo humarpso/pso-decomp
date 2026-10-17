@@ -43,9 +43,9 @@ struct Slot_802E655C { u8 pad[0x10]; };
 struct GS_802E655C { u8 pad0[0x1C]; Slot_802E655C slots[8]; s32 count; s32 active; s32 subs[8]; };
 
 extern "C" {
-s32 queue_destruction__7TObjectFv(int);
+void queue_destruction__7TObjectFv(void *arg0);
 u32 __nw__7TObjectFUl(int);
-u32 __ct__18TAdGameStartBackGCFv(int, void *);
+u8 *__ct__18TAdGameStartBackGCFv(u8 *arg0, u8 *arg1);
 u32 __ct__20TAdGameStartShadowGCFv(int, void *);
 u32 __ct__18TAdGameStartLineGCFv(int, void *);
 u32 __ct__19TAdGameStartShineGCFv(int, void *);
@@ -74,24 +74,24 @@ void render__14TAdGameStartGCFv(void) {  }
 void destroy_windows__14TAdGameStartGCFPv(Obj_802E6380 *o) {
     u32 i;
     if (o->fC4 != NULL) {
-        queue_destruction__7TObjectFv((int)o->fC4);
+        queue_destruction__7TObjectFv(o->fC4);
         o->fC4 = NULL;
     }
     if (o->fC8 != NULL) {
-        queue_destruction__7TObjectFv((int)o->fC8);
+        queue_destruction__7TObjectFv(o->fC8);
         o->fC8 = NULL;
     }
     if (o->fCC != NULL) {
-        queue_destruction__7TObjectFv((int)o->fCC);
+        queue_destruction__7TObjectFv(o->fCC);
         o->fCC = NULL;
     }
     if (o->fD0 != NULL) {
-        queue_destruction__7TObjectFv((int)o->fD0);
+        queue_destruction__7TObjectFv(o->fD0);
         o->fD0 = NULL;
     }
     for (i = 0; i < 8; i++) {
         if (o->list[i] != NULL) {
-            queue_destruction__7TObjectFv((int)o->list[i]);
+            queue_destruction__7TObjectFv(o->list[i]);
             o->list[i] = NULL;
         }
     }
@@ -115,22 +115,22 @@ void create_effects__14TAdGameStartGCFPv(u8 *parent) {
     *(s32 *)((s8 *)parent + 0xA0) = 1;
     temp_r3 = *(u32 *)((s8 *)parent + 0xC4);
     if (temp_r3 != 0U) {
-        queue_destruction__7TObjectFv((int) (temp_r3));
+        queue_destruction__7TObjectFv((void *)(temp_r3));
         *(u32 *)((s8 *)parent + 0xC4) = 0U;
     }
     temp_r3_2 = *(u32 *)((s8 *)parent + 0xC8);
     if (temp_r3_2 != 0U) {
-        queue_destruction__7TObjectFv((int) (temp_r3_2));
+        queue_destruction__7TObjectFv((void *)(temp_r3_2));
         *(u32 *)((s8 *)parent + 0xC8) = 0U;
     }
     temp_r3_3 = *(u32 *)((s8 *)parent + 0xCC);
     if (temp_r3_3 != 0U) {
-        queue_destruction__7TObjectFv((int) (temp_r3_3));
+        queue_destruction__7TObjectFv((void *)(temp_r3_3));
         *(u32 *)((s8 *)parent + 0xCC) = 0U;
     }
     temp_r3_4 = *(u32 *)((s8 *)parent + 0xD0);
     if (temp_r3_4 != 0U) {
-        queue_destruction__7TObjectFv((int) (temp_r3_4));
+        queue_destruction__7TObjectFv((void *)(temp_r3_4));
         *(u32 *)((s8 *)parent + 0xD0) = 0U;
     }
     temp_r3_5 = __nw__7TObjectFUl((int) (0xC8));
@@ -142,7 +142,7 @@ void create_effects__14TAdGameStartGCFPv(u8 *parent) {
     temp_r3_6 = __nw__7TObjectFUl((int) (0x80));
     var_r0_2 = temp_r3_6;
     if (var_r0_2 != 0U) {
-        var_r0_2 = __ct__18TAdGameStartBackGCFv((int) (temp_r3_6), (void *) (parent));
+        var_r0_2 = (u32)__ct__18TAdGameStartBackGCFv((u8 *)(temp_r3_6), (u8 *)(parent));
     }
     *(u32 *)((s8 *)parent + 0xC8) = var_r0_2;
     temp_r3_7 = __nw__7TObjectFUl((int) (0x160));
@@ -236,10 +236,10 @@ void destroy_instance__17TAdGameStartSubGCFv(void) {
     }
 }
 
-    int TLobby__sub_8023E4B4(void*, void*);
+    s32 TLobby__sub_8023E4B4(s32 arg0, s32 arg1);
     extern const unsigned char lbl_80472C28[];
     extern void *texture_f512_multiplay_descriptor[];
-void register_texture_f512_multiplay(void) { multiplay_texture_f512_handle = (int)texture_f512_multiplay_descriptor; TLobby__sub_8023E4B4((void *)lbl_80472C28, texture_f512_multiplay_descriptor); }
+void register_texture_f512_multiplay(void) { multiplay_texture_f512_handle = (int)texture_f512_multiplay_descriptor; TLobby__sub_8023E4B4((s32)lbl_80472C28, (s32)texture_f512_multiplay_descriptor); }
 __declspec(section ".rodata") extern const unsigned char lbl_80472C28[] = "f512_multiplay";
 __declspec(section ".rodata") extern const char lbl_80472C38[] = "TAdGameStartGC";
 __declspec(section ".rodata") extern const char lbl_80472C48[] = "TAdGameStartSubGC";

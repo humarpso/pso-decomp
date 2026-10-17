@@ -163,7 +163,7 @@ void apply_window_closing_stretch(u8 *arg0, int arg1);
 s32 animate_scale__19TWindowKeyBoardSoftFv();
 s32 open_singleton__19TWindowKeyBoardSoftFiiii(void *, void *, void *, int, f32);
 s32 init_window_layout_entries(void *, int, int);
-s32 fn_8026CB68();
+char *fn_8026CB68(void);
 s32 sub_8026CC28__13TUnk_804CE018Fv();
 s32 resort_window_order__15TWindowCtrlMainFv(void *);
 
@@ -346,7 +346,7 @@ s32 TUnk_804CE018::setup_window_draw_context(s32 arg1) {
 }
 
 s32 TWindowDD::draw_default_entry(s32 arg0) {
-    return ((TUnk_804CE018 *)arg0)->setup_window_draw_context(fn_8026CB68());
+    return ((TUnk_804CE018 *)arg0)->setup_window_draw_context((s32)fn_8026CB68());
 }
 
 void TLobby::set_field_1c(f32 farg0) {

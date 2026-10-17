@@ -36,7 +36,7 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void mem_free(void *);
 void run_task__11TBoss6ZanzoFv(Obj_803208CC *arg0);
-u8 *mem_alloc(s32);
+void *mem_alloc(u32 size);
 extern s32 TBoss6Zanzo__name;
 int TBoss6Zanzo__sub_803205C4(void*);
 int set_depth_buffer_settings_1__Fv(void*);
@@ -124,9 +124,9 @@ TBoss6Zanzo::TBoss6Zanzo(TObject *arg1, s32 arg2, s32 arg3) : TObject(arg1) {
     ((Obj_803209F0 *)this)->arr = (Src_803209F0 *)mem_alloc(((Obj_803209F0 *)this)->m * 8);
     for (p = ((Obj_803209F0 *)this)->arr, end = p + ((Obj_803209F0 *)this)->m; p < end; p++) {
         p->a = 0;
-        p->p = mem_alloc(((Obj_803209F0 *)this)->n * 0x10);
+        p->p = (u8 *)mem_alloc(((Obj_803209F0 *)this)->n * 0x10);
     }
     ((Obj_803209F0 *)this)->last = (Src_803209F0 *)((TAdSinglePlyChrSelectGC *)8)->alloc();
     ((Obj_803209F0 *)this)->last->a = 0;
-    ((Obj_803209F0 *)this)->last->p = mem_alloc(((Obj_803209F0 *)this)->n * 0x10);
+    ((Obj_803209F0 *)this)->last->p = (u8 *)mem_alloc(((Obj_803209F0 *)this)->n * 0x10);
 }

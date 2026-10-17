@@ -311,7 +311,7 @@ void TLobby__sub_801E6AE0(void);
 extern char lbl_805DC4B0[4];
 void append_float_value__6TLobbyFi(s32 arg0);
 s32 TObjItemOKWindow__sub_801F3268();
-s32 fn_801F4C98();
+s32 *fn_801F4C98(void);
 extern char lbl_80449C88[];
 void TLobby__sub_801E6A04(void);
 namespace pf2_p1 { extern "C" { s32 select_download_type__6TLobbyFl(s32); } }
@@ -362,7 +362,7 @@ void TLobby__sub_801E6998(void) {
 
 void TLobby__sub_801E6A04(void) {
     char buf[64];
-    s32 t = fn_801F4C98();
+    s32 t = (s32)fn_801F4C98();
     sprintf(buf, lbl_80449C88, TObjItemOKWindow__sub_801F3268(), t);
     buf[63] = 0;
     append_string((s32)buf);
@@ -1941,7 +1941,7 @@ s16 obj_getS16_32E(u8 *);
 s32 obj_getPtr2B0_20();
 s16 obj_getS16_2BA(u8 *);
 s32 obj_isState3_324__13TUnk_804806E8Fv(int);
-void * get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 u16 obj_getField1c(void *);
 s32 get_current_floor();
 f64 atan2_float(void *, f32, f32);
@@ -1986,10 +1986,10 @@ int reset_state__9TCineCtrlFl(void*);
 int reset__9TCineCtrlFl(void*);
 void * get_state__23TAdSinglePlyChrSelectGCFv();
 volatile unsigned long get_actor_section_id__15TPlyPhotonChairFv(int);
-u32 create_timed_particle_emitter(void* v, s32 a, s32 b, s32 c);
+void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
 void clear_flag_3__7TObjectFv(void *arg0);
 u32 prs_decompress_buffer(s32, s32);
-void TLobby__sub_800F8498(u32, s32, s32, s32, u8, u8, u8, u8);
+void *TLobby__sub_800F8498(void *arg0, void *arg1, s32 arg2, s32 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7);
 u32 get_serial_access__22TQuestVmDownLoadServerFv();
 u32 poll_serial_access__22TQuestVmDownLoadServerFv();
 void * find_item_by_id(s32);
@@ -2009,8 +2009,8 @@ s32 select_download_type__6TLobbyFl(int);
 int TLobby__sub_80142944(void *);
 int TNpcPlayer__sub_8014DC30(void*);
 void init_6x40_walk_packet(void *a0);
-u8 * find_entity_by_id(u16);
-void * TOChatSensor__create(Spawn_801EA508 *);
+void *find_entity_by_id(u16 id);
+u32 TOChatSensor__create(s32 arg0);
 void TOMineTrap__sub_80171368(f32);
 int set_instance__10TOMineTrapFi(void*);
 int set_trap_count__10TOMineTrapFi(void*);
@@ -2054,10 +2054,10 @@ s32 TObjPlayer__sub_801B4044();
 void send_code50_packet__10TObjPlayerFi(s32 arg0);
 s32 send_code_49_1__10TObjPlayerFi();
 void get_item_record__23TShopJudgmentItemWindowFPv(void *, s32, s32);
-s32 send_6x29_delete_item__10TObjPlayerFPvii(u32, s32, s32);
-void send_6x21_inter_level_warp(int, void *);
+void send_6x29_delete_item__10TObjPlayerFPvii(void *obj, s32 a, s32 b);
+void send_6x21_inter_level_warp(void *obj, s32 value);
 u32 TObjPlayer__sub_801BFFA0(void *);
-s32 TFontSmallLobby__sub_801C013C(void *);
+int TFontSmallLobby__sub_801C013C(void *p);
 void init_battle_ctrl__6TLobbyFii(s32, s32);
 void request_player_size_restore(PlayerScaleState *state);
 void request_player_shrink(PlayerScaleState *state);
@@ -2358,7 +2358,7 @@ void clear_story_flag(s32 flag);
 s32 dispatch_by_main_phase__14TBoss4DarkFalzFUs(void *);
 int create__16TObjItemOKWindowFPv(void*);
 int create__18TObjItemNameSelectFPv(void*);
-int create__17TObjItemNameEntryFPv(void*);
+void *create__17TObjItemNameEntryFPv(void *arg0);
 s32 destroy_children_with_tag(s32);
 void clear_floor_handler(s32 i);
 void set_floor_handler(s32 i, s32 v);
@@ -2402,11 +2402,11 @@ s32 close_windows_by_flags__11TWindowCtrlFUs(int, void *);
 void open_default__11TWindowCtrlFi(u16, s32);
 s32 __ct__15TWindowHelpItemFPvUs(s32, s32, s32);
 void align_menu_entry_positions(s32 win);
-void forward_trade_action_default__16TObjCityMainWarpFPviii(s32 win, char *name, s32 kind, s32 i);
+int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
 s32 check_room_seq_4__16TAdChrSelASlotGCFl(s32 a, s32 b);
 u32 update_window_mode_from_progress__6TLobbyFPv(s32, Pair_801F1838 *);
-s32 dispatch_message_window_text(int, int, int);
-void * create_quest_message_window_at(Vec2_801E74D0 *, Vec2_801E74D0 *);
+int dispatch_message_window_text(void *w, int text, int flags);
+s32 create_quest_message_window_at(s32 arg0, s32 arg1);
 u32 create_quest_message_window();
 s32 get_window_layout_position(s32);
 void fn_80278518(void *arg0, s32 arg1);
@@ -2433,7 +2433,7 @@ void update_entries__18TChallenge4PResultFii(ItemData_801E72B4 *, s32);
 s32 update_challenge_result_player_locks();
 s32 fn_8034D3D0(u8 *, f32, s32, s32, s32, Vec3_801E915C *, s32);
 s32 fn_8034D790(u8 *, f32, s32, s32, s32, Vec3_801E9274 *);
-s32 set_partner_dialogue_override(u32, int, int);
+void set_partner_dialogue_override(const char *text, s32 kind, u16 player);
 s32 TLobby__sub_8034DAA0(int, int, void *);
 int notify_all_battle_players__10TObjPlayerFv(void*);
 int update_4p_battle_ctrls__10TObjPlayerFv(void*);
@@ -2569,7 +2569,7 @@ void TLobby::open_scroll_message_window() {
     size.y = (lbl_805DC4BC + (f32)(rows * 0x14)) - lbl_805DC4C0;
     win = open_message_scroll_window__6TLobbyFlll(&pos, &size, (void *)((*(s32 *)&TLobby__script_reg_array) + msg * 4));
     ((TLobby *)win)->set_field_90(field90);
-    ((void (*)(void *, s32, s32))dispatch_message_window_text)(win, arg, 0x13);
+    dispatch_message_window_text(win, arg, 0x13);
     ((TLobby *)win)->set_timer(timer);
     (*(void * *)&TLobby__quest_message_window) = win;
 }
@@ -2628,7 +2628,7 @@ void TLobby__sub_801E7408(void) {
     start = TLobby::get_game_mode();
     end = start + TLobby::get_lobby_flag();
     for (i = start; i < end; i++) {
-        player = get_player_data__10TObjPlayerFi(i);
+        player = (void *)get_player_data__10TObjPlayerFi(i);
         if (player != NULL) {
             win = obj_getField1c(player);
             if (win < 0x4000) {
@@ -2662,9 +2662,9 @@ void TLobby::open_quest_message_window() {
     pos.y = y;
     size.x = lbl_805DC4B8 + (f32)(cols * 0x12);
     size.y = (lbl_805DC4BC + (f32)(rows * 0x14)) - lbl_805DC4C0;
-    (*(void * *)&TLobby__quest_message_window) = create_quest_message_window_at(&pos, &size);
+    (*(void * *)&TLobby__quest_message_window) = (void *)create_quest_message_window_at((s32)&pos, (s32)&size);
     ((TLobby *)(*(void * *)&TLobby__quest_message_window))->set_field_90(field90);
-    ((void (*)(void *, s32, s32))dispatch_message_window_text)((*(void * *)&TLobby__quest_message_window), arg, 3);
+    dispatch_message_window_text((*(void * *)&TLobby__quest_message_window), arg, 3);
     (*(s32 *)&TLobby__quest_window_state) = 4;
     TWindowCtrl::set_flag_bit2();
     close_window_if_active((void *)local_client_id);
@@ -2680,7 +2680,7 @@ void TLobby::spawn_lobby_object() {
     s32 e = (*(Glob_801E75F0 *)&TLobby__quest_argument_stack).f10;
     u32 obj = ((u32 (*)(u32))__nw__7TObjectFUl)(0x30);
     if (obj != 0) {
-        TLobby__sub_800F8498(obj, (*(s32 *)&tl_01), 0, e, (u8)d, (u8)a, (u8)b, (u8)c);
+        TLobby__sub_800F8498((void *)obj, (void *)(*(s32 *)&tl_01), (s32)(0), (s32)e, (u8)((u8)d), (u8)((u8)a), (u8)((u8)b), (u8)((u8)c));
     }
 }
 
@@ -2902,7 +2902,7 @@ void TLobby::wrap_item_as_present() {
     }
     player = get_player_by_client_id(local_client_id);
     if (player != 0) {
-        send_6x29_delete_item__10TObjPlayerFPvii(player, id, 1);
+        send_6x29_delete_item__10TObjPlayerFPvii((void *)player, (s32)id, (s32)(1));
         ((TItemData *)(&item))->set_wrapped();
         ((TItemData *)(&item))->set_present_color(n);
         if (((TObjPlayer *)player)->can_inventory_accept_item((u8 *)((Item_801EEE68 *)&item)) > 0) {
@@ -2925,7 +2925,7 @@ void TLobby::wrap_pending_item() {
     }
     player = get_player_by_client_id(local_client_id);
     if (player != 0) {
-        send_6x29_delete_item__10TObjPlayerFPvii(player, id, 1);
+        send_6x29_delete_item__10TObjPlayerFPvii((void *)player, (s32)id, (s32)(1));
         ((TItemData *)(&item))->set_wrapped();
         if (((TObjPlayer *)player)->can_inventory_accept_item((u8 *)((Item_801EEE68 *)&item)) > 0) {
             ((TObjPlayer *)player)->request_inventory_item((TItemData*)((Item_801EEE68 *)&item));
@@ -2965,7 +2965,7 @@ void TLobby::notify_player_battle() {
     temp_r31 = ((s32 *)&TLobby__quest_argument_stack)[0];
     ret = get_player_by_client_id(local_client_id);
     if (ret != 0U) {
-        send_6x29_delete_item__10TObjPlayerFPvii(ret, temp_r31, 1);
+        send_6x29_delete_item__10TObjPlayerFPvii((void *)ret, (s32)temp_r31, (s32)(1));
     }
 }
 
@@ -3399,7 +3399,7 @@ void TLobby::set_partner_dialogue_for_slot(u8 a0, u8 a1, void *a2) {
     u16 y = x;
     u32 r = get_indexed_offset__6TLobbyFi(a2, x);
     if (r != 0U) {
-        set_partner_dialogue_override(r, v, y);
+        set_partner_dialogue_override((const char *)r, (s32)v, (u16)y);
     }
 }
 #pragma pop
@@ -4241,7 +4241,7 @@ void TLobby::create_chat_sensor(u8 i) {
     s.z = (*(int * *)&TLobby__script_reg_array)[i++];
     s.a = (*(int * *)&TLobby__script_reg_array)[i++];
     s.c = (*(int * *)&TLobby__script_reg_array)[i];
-    TOChatSensor__create(&s);
+    TOChatSensor__create((s32)&s);
 }
 #pragma pop
 
@@ -4765,7 +4765,7 @@ void TLobby::spawn_chat_sensor() {
     s.z = (*(int * *)&TLobby__script_reg_array)[i++];
     s.a = (*(int * *)&TLobby__script_reg_array)[i++];
     s.c = (*(int * *)&TLobby__script_reg_array)[i];
-    sensor = TOChatSensor__create((Spawn_801EA508 *)(&s));
+    sensor = (void *)TOChatSensor__create((s32)((Spawn_801EA508 *)(&s)));
     if (sensor != NULL) {
         ((TOChatSensor *)sensor)->set_trigger_text((void *)arg);
     }
@@ -5473,7 +5473,7 @@ void TLobby::apply_to_player_by_client_id_b(s32 arg0) {
     u32 temp_r3;
     temp_r3 = ((u32 (*)(int, int))get_player_by_client_id)((int)((int)((int) (*(s32 *)((s8 *)(*(s32 *)&TLobby__script_reg_array) + ((arg0 * 4) & 0x3FC))))), (int)((int)((int) ((*(s32 *)&TLobby__script_reg_array)))));
     if (temp_r3 != 0U) {
-        TFontSmallLobby__sub_801C013C((void *) (temp_r3 + 0x428));
+        TFontSmallLobby__sub_801C013C((void *)(temp_r3 + 0x428));
     }
 }
 #pragma pop
@@ -5845,7 +5845,7 @@ void TLobby::init_window() { TLobby__quest_window_object = create__18TObjItemNam
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby::init_state() { TLobby__data_805D5EB0 = create__17TObjItemNameEntryFPv((void*)(tl_01)); TLobby__quest_window_state = 9; }
+void TLobby::init_state() { TLobby__data_805D5EB0 = (int)create__17TObjItemNameEntryFPv((void *)(tl_01)); TLobby__quest_window_state = 9; }
 #pragma pop
 
 #pragma push
@@ -6879,7 +6879,7 @@ void TLobby::warp_player_to_area(s32 a, s32 b) {
         mark_area_change_pending();
         ((TObjAreaWarpQuest *)lbl_80515BA0)->get_dest_area();
         send_inter_level_warp_all__10TNpcPlayerFl();
-        send_6x21_inter_level_warp(r, (void *)((TObjAreaWarpQuest *)lbl_80515BA0)->get_dest_area());
+        send_6x21_inter_level_warp((void *)r, (s32)((void *)((TObjAreaWarpQuest *)lbl_80515BA0)->get_dest_area()));
     }
 }
 #pragma pop
@@ -8179,11 +8179,11 @@ void TLobby::spawn_particle_at_entity(u8 arg0) {
     extra = TLobby__script_reg_array[i++];
     id = TLobby__script_reg_array[i++];
     dy = TLobby__script_reg_array[i];
-    p = find_entity_by_id(id);
+    p = (u8 *)find_entity_by_id(id);
     if (p != NULL) {
         VecCopy__FP3VecPC3Vec(&v, p + 0x38);
         v.y += dy;
-        r = create_timed_particle_emitter(&v, kind, 0, extra);
+        r = (u32)create_timed_particle_emitter(&v, kind, 0, extra);
         if (r != 0) {
             ((TBoss4Type2 *)r)->set_flags(0x40);
         }
@@ -8211,11 +8211,11 @@ void qst_op_particle_id(u8 first) {
     s32 lifetime = TLobby__script_reg_array[i++];
     u16 id = (u16) TLobby__script_reg_array[i++];
     f32 height = (f32) TLobby__script_reg_array[i];
-    s32 actor = ((s32 (*)(int))find_entity_by_id)(id);
+    s32 actor = (s32)find_entity_by_id(id);
     if (actor != 0) {
         ((void (*)(Vec_801F0710 *, const Vec_801F0710 *))VecCopy__FP3VecPC3Vec)(&point, (const Vec_801F0710 *) (actor + 0x38));
         point.y += height;
-        ((void * (*)(Vec_801F0710 *, int, int, int))create_timed_particle_emitter)(&point, effect, 0, lifetime);
+        create_timed_particle_emitter(&point, effect, 0, lifetime);
     }
 }
 
@@ -8238,7 +8238,7 @@ void TLobby__sub_801F07D8(u8 arg0) {
     v.x = x;
     v.y = y;
     v.z = z;
-    r = create_timed_particle_emitter(&v, kind, 0, extra);
+    r = (u32)create_timed_particle_emitter(&v, kind, 0, extra);
     if (r != 0) {
         ((TBoss4Type2 *)r)->set_flags(0x40);
     }
@@ -8271,7 +8271,7 @@ void TLobby::spawn_flagged_particle_emitter() {
     v.x = p[0];
     v.y = p[1];
     v.z = p[2];
-    u32 r = create_timed_particle_emitter(&v, (*(Cfg_801F0970 *)&TLobby__quest_argument_stack).b, 0, (s32)(*(Cfg_801F0970 *)&TLobby__quest_argument_stack).c);
+    u32 r = (u32)create_timed_particle_emitter(&v, (*(Cfg_801F0970 *)&TLobby__quest_argument_stack).b, 0, (s32)(*(Cfg_801F0970 *)&TLobby__quest_argument_stack).c);
     if (r != 0) {
         ((TBoss4Type2 *)r)->set_flags(0x40);
     }
@@ -8506,7 +8506,7 @@ void qst_op_mesend(void) {
     start = TLobby::get_game_mode();
     end = start + TLobby::get_lobby_flag();
     for (i = start; i < end; i++) {
-        p = get_player_data__10TObjPlayerFi(i);
+        p = (void *)get_player_data__10TObjPlayerFi(i);
         if (p != NULL) {
             f = obj_getField1c(p);
             if (f < 0x4000) {
@@ -8525,7 +8525,7 @@ void qst_op_mesend(void) {
 void qst_op_add_msg(void) {
     s32 x = ((s32 *)&TLobby__quest_argument_stack)[0];
     if ((*(u8* *)&TLobby__quest_message_window) != 0) {
-        dispatch_message_window_text((int)(*(u8* *)&TLobby__quest_message_window), x, 3);
+        dispatch_message_window_text((*(u8* *)&TLobby__quest_message_window), x, 3);
         TLobby__quest_window_state = 4;
         return;
     }
@@ -8568,7 +8568,7 @@ void qst_op_window_msg(void) {
     }
     temp_r3 = create_quest_message_window();
     (*(u32 *)&TLobby__quest_message_window) = temp_r3;
-    dispatch_message_window_text((int) (temp_r3), (int) (text), (int) (3));
+    dispatch_message_window_text((void *)(temp_r3), (text), (3));
     (*(s32 *)&TLobby__quest_window_state) = 4;
     TWindowCtrl::set_flag_bit2();
     close_window_if_active((void *)(local_client_id));
@@ -8605,7 +8605,7 @@ void qst_op_list(void) {
     ((TLobby *)list)->tokenize_args(buf);
     TLobby__quest_choice_window = check_room_seq_4__16TAdChrSelASlotGCFl(get_window_layout_position(0x37), list->count);
     for (i = 0; i < list->count; i++) {
-        forward_trade_action_default__16TObjCityMainWarpFPviii(TLobby__quest_choice_window, list->names[i], 7, i);
+        forward_trade_action_default__16TObjCityMainWarpFPviii((void *)TLobby__quest_choice_window, (int)list->names[i], (int)(7), (int)i);
     }
     ((TWindowSubComCard *)TLobby__quest_choice_window)->calc_window_size();
     align_menu_entry_positions(TLobby__quest_choice_window);
@@ -8639,7 +8639,7 @@ void qst_op_message(void) {
         first = TLobby::get_game_mode();
         end = first + TLobby::get_lobby_flag();
         for (i = first; i < end; i++) {
-            actor = get_player_data__10TObjPlayerFi(i);
+            actor = (void *)get_player_data__10TObjPlayerFi(i);
             if (actor != NULL) {
                 s32 identity = obj_getField1c(actor);
                 s32 entity;

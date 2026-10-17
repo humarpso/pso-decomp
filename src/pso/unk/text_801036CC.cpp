@@ -60,7 +60,7 @@ extern s32 floor_item_counts_by_floor;
 extern s32 floor_item_free_id_stack;
 extern s32 floor_item_free_id_count;
 s32 TLobby__sub_80103B04(u16 arg0);
-Player_801036CC *get_player_data__10TObjPlayerFi(s32 i);
+int get_player_data__10TObjPlayerFi(int a0);
 s32 test_elt_flag__13TUnk_80493450Fll(void *p, s32 a, s32 mask);
 void queue_destruction__7TObjectFv(void *);
 extern void *tl_05;
@@ -92,7 +92,7 @@ void TLobby__sub_801036CC(void) {
     s32 i;
     Player_801036CC *p;
     for (i = 0; i != TLobby::get_lobby_flag(); i++) {
-        p = get_player_data__10TObjPlayerFi(i);
+        p = (Player_801036CC *)get_player_data__10TObjPlayerFi(i);
         if (p != NULL && test_elt_flag__13TUnk_80493450Fll(p, 0, 0x20000) != 0 && p->owner == tl_05) {
             queue_destruction__7TObjectFv(p);
         }

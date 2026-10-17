@@ -69,7 +69,7 @@ extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 void TLobby__sub_8001FE7C(void*, int);
 f32 horizontal_distance_squared(s32, s32);
-s32 find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -79,7 +79,7 @@ s32 TORainbowCave01::is_player_in_range(f32 farg0) {
     s32 arg0 = (s32)this;
     s32 entity;
 
-    entity = find_entity_by_id((u16) local_client_id);
+    entity = (s32)find_entity_by_id((u16) local_client_id);
     if ((entity != 0) && (horizontal_distance_squared(arg0 + 0x38, entity + 0x38) < farg0)) {
         return 1;
     }

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
 #include "pso/misc/TWindowSubSymbolChatPartsSet.h"
 #include "pso/misc/TWindowSubSymbolChatHelp.h"
 #include "pso/misc/TWindowDD.h"
@@ -48,21 +49,15 @@ u8 * get_window_layout_position(s32);
 extern RecoveredGlobal_80284B84_lbl_804D2D10 lbl_804D2D10;
 extern s32 __vt__24TWindowSubSymbolChatHelp[];
 extern s32 TWindowSubSymbolChatHelp__name;
-u8 *TWindowSubSymbolChatHelp__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 extern s8 controller_input_state[];
 int TWindowSubSymbolChatHelp__sub_80247EE8(int);
 void apply_context_transform_to_rect(void *, void *);
-void draw_textured_quad_at_depth(void *, f32);
-void set_constant_material_color(u32 x);
 void draw_color_palette__24TWindowSubSymbolChatHelpFPvPv(Self_8028429C *arg0, Win_8028429C *arg1);
 extern UV_802844C8 symbol_chat_help_entry_uv_table[];
 void draw_help_entry__24TWindowSubSymbolChatHelpFPvPvii(Self_802844C8 *arg0, Win_802844C8 *arg1, s32 arg2, s32 arg3);
 extern UV_802845EC symbol_chat_help_icon_uv_table[];
 void draw_help_icon__24TWindowSubSymbolChatHelpFiPvii(s32 arg0, Win_802845EC *arg1, s32 arg2, s32 arg3);
-void *__dt__24TWindowSubSymbolChatHelpFv(void *arg0, s16 arg1);
-void begin_screen_draw(s32 arg0);
-void set_draw_texture_and_color(s32 idx, s32 arg1);
 void __dl__7TObjectFPv(void *);
 s32 begin_render__20TWindowSubStatusDispFl();
 int initialize_subwindow__9TWindowDDFv(void*);
@@ -93,7 +88,7 @@ void draw_color_palette__24TWindowSubSymbolChatHelpFPvPv(Self_8028429C *arg0, Wi
         q.x2 = 14.0f + q.x;
         q.y2 = 14.0f + q.y;
         apply_context_transform_to_rect(arg1, &q);
-        draw_textured_quad_at_depth(&q, scale);
+        draw_textured_quad_at_depth((f32 *)&q, scale);
     }
     if (arg0->flags & 2) {
         set_constant_material_color(-1);
@@ -109,7 +104,7 @@ void draw_color_palette__24TWindowSubSymbolChatHelpFPvPv(Self_8028429C *arg0, Wi
     q.u1 = (0.92578125f);
     q.v1 = (0.20703125f);
     apply_context_transform_to_rect(arg1, &q);
-    draw_textured_quad_at_depth(&q, scale);
+    draw_textured_quad_at_depth((f32 *)&q, scale);
 }
 #pragma pop
 
@@ -136,7 +131,7 @@ void draw_help_entry__24TWindowSubSymbolChatHelpFPvPvii(Self_802844C8 *arg0, Win
     q.u1 = (231.0f + uv->u) / 256.0f;
     q.v1 = ((16.0f) + uv->v) / 256.0f;
     apply_context_transform_to_rect(arg1, &q);
-    draw_textured_quad_at_depth(&q, scale);
+    draw_textured_quad_at_depth((f32 *)&q, scale);
 }
 #pragma pop
 
@@ -158,7 +153,7 @@ void draw_help_icon__24TWindowSubSymbolChatHelpFiPvii(s32 arg0, Win_802845EC *ar
     q.u1 = ((16.0f) + uv->u) / 256.0f;
     q.v1 = ((16.0f) + uv->v) / 256.0f;
     apply_context_transform_to_rect(arg1, &q);
-    draw_textured_quad_at_depth(&q, scale);
+    draw_textured_quad_at_depth((f32 *)&q, scale);
 }
 #pragma pop
 

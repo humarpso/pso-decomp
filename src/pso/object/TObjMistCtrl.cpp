@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_803E29B0.h"
 #include "pso/object/TObject_80019A50.h"
 #include "pso/unk/text_80141A30.h"
 #include "pso/unk/text_803DA798.h"
@@ -40,13 +41,12 @@ struct TPlayerFootStamp_802AF8BC {
 };
 
 extern "C" {
-s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
+void *spawn_continuous_particle_effect_with_flags(void *parent, s32 idx, s32 flags);
 s32 construct_world_actor_base(void *, void *);
 extern s32 __vt__12TObjMistCtrl[];
 extern s32 lbl_805D3E80;
 f32 horizontal_distance_squared(void *, void *);
 void __dl__7TObjectFPv(void *);
-s32 draw_particle_strip(void *, int, int);
 
 void TObjMistCtrl::run_task() { { (void)(sub_802AF64C()); return; } }
 
@@ -76,7 +76,7 @@ u8 *TObjMistCtrl__ct(u8 *arg0, s32 parent, u32 arg2) {
     if (arg2 != 0U) {
         ((VObj_18_023f9f *)(arg0))->m5(arg2);
     }
-    *(s32 *)((s8 *)arg0 + 0x90) = spawn_continuous_particle_effect_with_flags((void *) (arg0 + 0x38), (int) (0x200), (int) (0x800));
+    *(s32 *)((s8 *)arg0 + 0x90) = (s32)spawn_continuous_particle_effect_with_flags((arg0 + 0x38), (0x200), (0x800));
     return arg0;
 }
 
@@ -88,7 +88,7 @@ void TPlayerFootStamp::render() {
         TObjFish::set_global_param((s32)((void *) (player_footstamp_texture_gvm_handle)));
         set_texture_num((*(s16 *)((s8 *)arg0 + 0xBE)));
         set_depth_buffer_settings_1();
-        draw_particle_strip((void *) (arg0 + 0x1C), (int) (4), (int) (1));
+        draw_particle_strip((arg0 + 0x1C), (void *)(4), (void *)(1));
         restore_saved_depth_alpha_state();
         model_render_flags = lbl_805D5660;
     }

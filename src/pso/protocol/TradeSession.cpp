@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/menu/TAdGuideTxtGC.h"
 #include "pso/boss/TBoss6Type2_803309D8.h"
 #include "pso/misc/TLobby_802D3970.h"
 #include "pso/misc/TWindowCtrl_8024A1A8.h"
@@ -142,7 +143,6 @@ s32 text_builder_append();
 void text_builder_reset(void);
 
 s32 refresh_player_status__6TLobbyFv(s32);
-s32 reset__15TLobby_802D2F7CFPv(s32);
 
 s32 format_trade_out_of_range_message(s32 arg0) {
     if ((s32) local_client_id == arg0) {
@@ -222,7 +222,7 @@ void reset__6TLobbyFv(void) {
             fn_80330A40((u8 *)(*(const u32 *)&TLobby__trade_main_window));
         }
         if ((u32) (*(const u32 *)&TLobby__data_805D6894) != 0U) {
-            reset__15TLobby_802D2F7CFPv((*(const u32 *)&TLobby__data_805D6894));
+            reset__15TLobby_802D2F7CFPv((u8 *)(*(const u32 *)&TLobby__data_805D6894));
         }
     }
 }

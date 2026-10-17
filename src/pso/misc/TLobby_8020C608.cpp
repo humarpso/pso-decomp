@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/unk/text_8020CCF4.h"
 #include "pso/unk/text_8020BC50.h"
 #include "pso/enemy/TObjEnemy.h"
 #include "pso/object/TObjMotion.h"
@@ -54,7 +55,6 @@ struct VObj : VBase {
 
 extern "C" {
 
-u8 *construct_enemy_from_set_row(void *);
 u8 *resolve_matching_object__6TLobbyFv(s32);
 s32 append_wave_member(s32, void *);
 
@@ -79,7 +79,7 @@ s32 TLobby::spawn_matching_objects(s16 arg0, s16 arg1, s32 arg2) {
     for (var_r28 = 0; var_r28 < object_type; var_r28 += 1, row += 0x48) {
         temp_r3 = *(s16 *)((s8 *)row + 2);
         if (!(temp_r3 & 8) && !(temp_r3 & 2) && ((s16) *(s16 *)((s8 *)row + 0xC) == arg0) && ((s16) *(s16 *)((s8 *)row + 0xE) == arg1)) {
-            item = construct_enemy_from_set_row(row);
+            item = (u8 *)construct_enemy_from_set_row(row);
             if (item != NULL) {
                 *(void **)((s8 *)row + 0x44) = item;
                 *(s16 *)((s8 *)row + 2) = (s16) (*(s16 *)((s8 *)row + 2) | 2);

@@ -126,8 +126,8 @@ void construct_facing_technique__10TObjPlayerFPviPvii();
 extern const f32 lbl_805DC7A8;
 u8 *construct_tec_barta_facing(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4);
 s32 get_bml_model(s32, s32);
-void attach_particle_model(TechniqueParticleEmitter *, s32, s32, s32, s32, f32);
-TechniqueParticleEmitter *create_timed_particle_emitter(f32 *, s32, s32, s32);
+void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
+void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
 void *find_entity_by_id(u16 id);
 void move_ground_technique_projectile(void *p);
 extern s32 technique_effect_bml;
@@ -135,9 +135,9 @@ extern s32 lbl_805D63B0;
 extern const f32 lbl_805DC7A0;
 extern const f32 lbl_805DC7A4;
 s32 get_bml_motion(s32, s32);
-TechniqueParticleEmitter *spawn_continuous_particle_with_direction(f32 *, s32 *, u32);
-TechniqueParticleEmitter *create_particle_emitter(f32 *, u32);
-TechniqueParticleEmitter **mem_alloc(u32);
+void *spawn_continuous_particle_with_direction(void *pos, void *dir, s32 id);
+void *create_particle_emitter(void *pos, s32 id);
+void *mem_alloc(u32 size);
 s32 get_type__10TObjPlayerFPv(void *);
 List_8022BD74 *find_area_contact__13TUnk_804CC148Fl(Tec_8022BD74 *, void *);
 List_8022BD74 *collect_body_contacts_for_target__10TObjPlayerFl(Tec_8022BD74 *, void *);
@@ -199,24 +199,24 @@ void TTecBarta::create_particle_emitters() {
     angles[0] = self->angles[0];
     angles[1] = 0;
     angles[2] = self->angles[2];
-    self->emitters = mem_alloc(TTecBarta__emitter_bands[self->band].count * 4);
+    self->emitters = (TechniqueParticleEmitter **)mem_alloc(TTecBarta__emitter_bands[self->band].count * 4);
     for (i = 0; i < TTecBarta__emitter_bands[self->band].count; i++) {
         row = &TTecBarta__emitter_bands[self->band].rows[i];
         flags = row->flags;
         if (flags & 2) {
-            self->emitters[i] = spawn_continuous_particle_with_direction((f32 *)(base + 0x20), angles, row->entry);
+            self->emitters[i] = (TechniqueParticleEmitter *)spawn_continuous_particle_with_direction((f32 *)(base + 0x20), angles, row->entry);
         } else if (flags & 1) {
             reverse[0] = self->angles[0] + 0x8000;
             reverse[1] = 0;
             reverse[2] = self->angles[2];
-            self->emitters[i] = spawn_continuous_particle_with_direction((f32 *)(base + 0x20), reverse, TTecBarta__emitter_bands[self->band].rows[i].entry);
+            self->emitters[i] = (TechniqueParticleEmitter *)spawn_continuous_particle_with_direction((f32 *)(base + 0x20), reverse, TTecBarta__emitter_bands[self->band].rows[i].entry);
         } else {
-            self->emitters[i] = create_particle_emitter((f32 *)(base + 0x20), row->entry);
+            self->emitters[i] = (TechniqueParticleEmitter *)create_particle_emitter((f32 *)(base + 0x20), row->entry);
         }
         if (self->emitters[i] != NULL) {
             row = &TTecBarta__emitter_bands[self->band].rows[i];
             if (row->flags & 0x20) {
-                attach_particle_model(self->emitters[i], get_bml_model(technique_effect_bml, 0), lbl_805D63B0, get_bml_motion(technique_effect_bml, 0), 0, lbl_805DC7A0);
+                attach_particle_model((u8 *)self->emitters[i], (s32)(get_bml_model(technique_effect_bml, 0)), (s32)lbl_805D63B0, (s32)(get_bml_motion(technique_effect_bml, 0)), (s32)(0), (f32)lbl_805DC7A0);
             } else {
                 ((TObjPlayer *)(self->emitters[i]))->set_position_xy(row->scale, row->scale);
             }
@@ -320,9 +320,9 @@ void TTecBarta::run_task() {
         }
     }
     if (this->band == 5) {
-        TechniqueParticleEmitter *e = create_timed_particle_emitter(&this->position.x, 0x18A, 0x14, 1);
+        TechniqueParticleEmitter *e = (TechniqueParticleEmitter *)create_timed_particle_emitter(&this->position.x, 0x18A, 0x14, 1);
         if (e != NULL) {
-            attach_particle_model(e, get_bml_model(technique_effect_bml, 5), lbl_805D63B0, 0, 0, lbl_805DC7A0);
+            attach_particle_model((u8 *)e, (s32)(get_bml_model(technique_effect_bml, 5)), (s32)lbl_805D63B0, (s32)(0), (s32)(0), (f32)lbl_805DC7A0);
         }
     }
     move_ground_technique_projectile(this);

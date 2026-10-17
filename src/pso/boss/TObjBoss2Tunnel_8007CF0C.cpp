@@ -1,4 +1,9 @@
 #include "types.h"
+#include "pso/boss/TObjBoss2Tunnel_8007CF0C.h"
+#include "pso/boss/TObjBoss2Tunnel_803E2BAC.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
+#include "pso/player/TObjPlayer_80083B38.h"
+#include "pso/ui/TAdPlayerLoadGC_801E0C30.h"
 #include "pso/boss/TObjBoss2Tunnel.h"
 #include "pso/TAdPlayerLoadGC.h"
 #include "pso/misc/TQuestListVM.h"
@@ -24,20 +29,10 @@ extern u32 TObjBoss2Tunnel__snapshot_buffer;
 extern s32 TObjBoss2Tunnel__snapshot_saved_flag;
 void set_depth_buffer_settings_1__Fv(void);
 void restore_saved_depth_alpha_state(void);
-void begin_screen_draw(s32);
-s32 draw_textured_quad_at_depth(void *, f32);
-void set_draw_texture_and_color(s32, s32);
 void draw_projected_quads__15TObjBoss2TunnelFPvi(Vtx_8007D828 *, s32);
-void TObjBoss2Tunnel__sub_803E2D10(s32);
 extern s32 lbl_805D63F0;
-void draw_snapshot_capture_overlay(void);
-void TObjBoss2Tunnel__sub_8007DD24(void);
-void load_data_buffers(void);
-s32 memcard_check_snapshot(s32 arg0, s32 *arg1);
 s32 TAdPlayerLoadGC__sub_801E0FA4(s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32 *);
-void init_capture_texture(s32 wide);
 s32 memmove(void *, void *, s32);
 s32 memset(void *, s32, s32);
 s32 query_memcard_capacity__15TAdPlayerLoadGCFl(s32, s32);
@@ -115,7 +110,7 @@ s32 memcard_check_snapshot(s32 arg0, s32 *arg1) {
         }
         return 0;
     }
-    temp_r3 = find_card_file__15TAdPlayerLoadGCFiPv(1, TObjBoss2Tunnel__data_80438A08);
+    temp_r3 = find_card_file__15TAdPlayerLoadGCFiPv(1, (const char *)TObjBoss2Tunnel__data_80438A08);
     if (temp_r3 == 0) {
         if (arg1 != NULL) {
             *arg1 = 1;
@@ -214,7 +209,7 @@ void draw_snapshot_capture_overlay(void) {
     q.v0 = 0.494117647f;
     q.u1 = 0.423529416f;
     q.v1 = 0.600000024f;
-    draw_textured_quad_at_depth(&q, 0.5f);
+    draw_textured_quad_at_depth((f32 *)&q, 0.5f);
     q.x0 = TObjBoss2Tunnel__data_8048DF2C.x;
     q.y0 = TObjBoss2Tunnel__data_8048DF2C.y - 27.0f;
     q.x1 = 27.0f + TObjBoss2Tunnel__data_8048DF2C.x;
@@ -225,7 +220,7 @@ void draw_snapshot_capture_overlay(void) {
     q.v1 = 0.600000024f;
     q.u0 = 0.423529416f;
     q.u1 = 0.31764707f;
-    draw_textured_quad_at_depth(&q, 0.5f);
+    draw_textured_quad_at_depth((f32 *)&q, 0.5f);
     q.x0 = TObjBoss2Tunnel__data_8048DF2C.x - 27.0f;
     q.y0 = TObjBoss2Tunnel__data_8048DF2C.y;
     q.x1 = TObjBoss2Tunnel__data_8048DF2C.x;
@@ -236,7 +231,7 @@ void draw_snapshot_capture_overlay(void) {
     q.v1 = 0.600000024f;
     q.v0 = 0.600000024f;
     q.v1 = 0.494117647f;
-    draw_textured_quad_at_depth(&q, 0.5f);
+    draw_textured_quad_at_depth((f32 *)&q, 0.5f);
     q.x0 = TObjBoss2Tunnel__data_8048DF2C.x;
     q.y0 = TObjBoss2Tunnel__data_8048DF2C.y;
     q.x1 = 27.0f + TObjBoss2Tunnel__data_8048DF2C.x;
@@ -249,7 +244,7 @@ void draw_snapshot_capture_overlay(void) {
     q.v1 = 0.494117647f;
     q.u0 = 0.423529416f;
     q.u1 = 0.31764707f;
-    draw_textured_quad_at_depth(&q, 0.5f);
+    draw_textured_quad_at_depth((f32 *)&q, 0.5f);
     TWindowSubStatusDisp::get_player();
     restore_saved_depth_alpha_state();
 }

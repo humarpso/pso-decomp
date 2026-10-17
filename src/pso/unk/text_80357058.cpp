@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TLobby_801E43E4.h"
 #include "pso/item/TItemAttackCol_802E4798.h"
 #include "pso/object/TObjLight_803DF220.h"
 #include "pso/object/TObject_80019A50.h"
@@ -64,7 +65,6 @@ void handle_6xAD_olga_flow_subordinate_boss_actions(Pkt_803570E4 *pkt);
 s32 has_game_join_id__13TUnk_804E355CFv();
 extern const f32 lbl_805E0030;
 extern const f32 lbl_805E0034;
-int TLobby__send_and_handle_60(void*);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 
@@ -144,7 +144,7 @@ void TItemEffOrgaFlowShot__sub_80357204(void) { olga_flow_subordinate_actions_en
 
 void TItemEffOrgaFlowShot__sub_80357210(void) { olga_flow_subordinate_actions_enabled = 1; }
 
-void TItemEffOrgaFlowShot::bswap_6xAD_subordinate_action() { read_be16_field2_forward((void*)(this)); TLobby__send_and_handle_60(this); }
+void TItemEffOrgaFlowShot::bswap_6xAD_subordinate_action() { read_be16_field2_forward((void*)(this)); TLobby__send_and_handle_60((u8 *)this); }
 
 int read_be16_field2_forward(void* p) { return ((TObjPlayer *)p)->read_be16_field2(); }
 void build_6xAD_olga_flow_subordinate_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 173; *(u8*)((char*)p + 0x1) = 17; }

@@ -29,7 +29,7 @@ u8 *TItemTimer__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TLobby__sub_8001EEF4();
 s32 deliver_delayed_weapon_hit();
 u32 __nw__7TObjectFUl(s32);
-s32 mem_alloc(s32);
+void *mem_alloc(u32 size);
 void queue_destruction__7TObjectFv(void *arg0);
 
 u8 *__ct__13TItemAttackerFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
@@ -103,7 +103,7 @@ s32 create_item_buff(s32 arg0) {
         if ((temp_r3 != 0) && (arg0 < 0x40000)) {
             item_buff_buffer = TLobby::tmp_buf_use_req((const char *)lbl_8043E038);
         } else {
-            item_buff_buffer = mem_alloc(arg0);
+            item_buff_buffer = (s32)mem_alloc(arg0);
         }
     }
     return item_buff_buffer;

@@ -1,4 +1,6 @@
 #include "pso/TAdGameStartBackGC.h"
+#include "pso/misc/TWindowSubStatusDisp_803DEE6C.h"
+#include "pso/ui/TAdGameStartBackGC.h"
 #include "pso/items/TItemWeapon.h"
 #include "pso/player/TUnk_804E70A8.h"
 
@@ -26,11 +28,7 @@ extern const f32 lbl_805DF094;
 extern const f32 lbl_805DF098;
 extern const f32 lbl_805DF09C;
 extern const f32 lbl_805DF0A0;
-u8 *__ct__18TAdGameStartBackGCFv(u8 *arg0, u8 *arg1);
 extern const f32 lbl_805DF080;
-s32 draw_textured_quad_at_depth(void *, f32);
-void begin_screen_draw(s32 arg0);
-void set_draw_texture_and_color(s32 idx, s32 arg1);
 int get_state_flag__9TMainTaskFv(void*);
 
 extern const f32 lbl_805DF078;
@@ -40,7 +38,7 @@ void TAdGameStartBackGC::render_background_status() {
     begin_screen_draw((1));
     TObjFish::set_global_param((s32)((void *) (game_start_background_texture_list)));
     set_draw_texture_and_color((0), ((*(s32 *)((s8 *)arg0 + 0x78) << 0x18) | 0xFF0000 | 0xFFFF));
-    draw_textured_quad_at_depth((void *) (arg0 + 0x3C), (f32) (lbl_805DF078));
+    draw_textured_quad_at_depth((f32 *)(arg0 + 0x3C), (f32) (lbl_805DF078));
     TWindowSubStatusDisp::get_player();
 }
 

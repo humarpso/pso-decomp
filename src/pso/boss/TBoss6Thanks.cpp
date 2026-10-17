@@ -70,7 +70,7 @@ int TBoss6Thanks__sub_8035CB40(void);
 u8 *__dt__12TBoss6ThanksFv(u8 *arg0, s16 arg1);
 void TBoss6Thanks__sub_8035CCAC(s32 arg0);
 extern Ent_8035CB88 boss6_thanks_particle_emitter_table[];
-u8 *get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 f32 xyz_distance(void *, void *);
 extern const f32 lbl_805E0198;
 u8 fn_8035CAE0(void);
@@ -137,7 +137,7 @@ int TBoss6Thanks::is_player_near(void *arg0) {
     n = TLobby::get_game_mode();
     r = lbl_805E0198;
     for (i = 0; i < n; i++) {
-        p = get_player_data__10TObjPlayerFi(i);
+        p = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (p != NULL && ((TBoss6PlotFalz *)p)->is_active() != 0 &&
             xyz_distance(p + 0x38, TBoss6Thanks__data_80479BA8) <= r) {
             return 1;

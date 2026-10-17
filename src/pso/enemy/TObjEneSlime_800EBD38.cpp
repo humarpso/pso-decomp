@@ -1,11 +1,11 @@
 #include "types.h"
+#include "pso/enemy/TObjEneSlime_800EBBC8.h"
 #include "pso/enemy/TObjEneSlime.h"
 
 extern "C" {
 
 void *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
 s32 TObjControl__ct(s32, s32);
-s32 TObjEneSlime__ct(s32, s32, s32);
 s32 __nw__7TObjectFUl(s32);
 void *alloc__23TAdSinglePlyChrSelectGCFv(s32);
 
@@ -42,7 +42,7 @@ s32 TObjEneSlime::create(s32 arg0) {
         if (var_r4 != 0) {
             var_r4 = TObjControl__ct(var_r4, tl_04);
         }
-        var_r31 = TObjEneSlime__ct(var_r31, var_r4, arg0);
+        var_r31 = (s32)TObjEneSlime__ct((u8 *)var_r31, var_r4, (u8 *)arg0);
     }
     return var_r31;
 }

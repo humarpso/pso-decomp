@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TOTrapAncient01_80226534.h"
 #include "pso/math/MatrixTransforms.h"
 #include "pso/misc/TLobby_8030A6A8.h"
 #include "pso/misc/TOKey_8015845C.h"
@@ -103,7 +104,7 @@ struct Mon_80172AE0 : VObj_80172AE0 {
 };
 
 extern "C" {
-s32 create_particle_emitter(s32, s32);
+void *create_particle_emitter(void *pos, s32 id);
 u32 init_collision_body_parts(void *, s32, s32);
 extern RecoveredGlobal_80172EA0_lbl_804B39A8 monument_ancient02_collision_parts;
 extern s32 __vt__19TOMonumentAncient02[];
@@ -127,7 +128,6 @@ extern const f32 lbl_805DB924;
 extern const f32 lbl_805DB928;
 extern const f32 lbl_805DB930;
 void TLobby__sub_8001FE7C(void*, int);
-s32 play_persistent_sound(s32, void *, void *, s32, s32);
 void free_collision_body_parts(void *);
 s32 submit_cursor_candidate(void *, s32);
 void __dl__7TObjectFPv(void *);
@@ -155,7 +155,7 @@ void TOMonumentAncient02::run_task() {
         }
         break;
     case 2:
-        play_persistent_sound(*(s32 *)&this->m_d4, arg0, (u8 *)&this->position, 0, 0);
+        play_persistent_sound((s32)(*(s32 *)&this->m_d4), (s32)arg0, (u32)&this->position, (s32)(0), (s32)(0));
         break;
     }
 }
@@ -309,7 +309,7 @@ u8 *TOMonumentAncient02__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xDC) = (f32) lbl_805DB92C;
     ((TOMonumentAncient02 *)arg0)->m_e0 = (f32) lbl_805DB92C;
     *(f32 *)((s8 *)arg0 + 0xE4) = (f32) lbl_805DB92C;
-    *(s32 *)&((TOMonumentAncient02 *)arg0)->m_e8 = create_particle_emitter((s32) (arg0 + 0x38), 0x7F);
+    *(s32 *)&((TOMonumentAncient02 *)arg0)->m_e8 = (s32)create_particle_emitter((arg0 + 0x38), 0x7F);
     *(s32 *)&((TOMonumentAncient02 *)arg0)->m_ec = 1;
     if ((s32) enable_v2_features == 1) {
         if (get_game_play_mode() == 1) {

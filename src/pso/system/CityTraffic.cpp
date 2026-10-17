@@ -1,6 +1,9 @@
 #pragma push
 
 #include "types.h"
+#include "pso/misc/TCameraCtrl_803D6538.h"
+#include "pso/system/CityTraffic.h"
+#include "pso/unk/text_80184C2C.h"
 #include "pso/system/vector.h"
 
 struct Rec_801815F8 { s32 a; s32 b; s32 c[2]; };
@@ -56,28 +59,19 @@ typedef struct
 extern "C" {
 void *destroy_buffer_pair(void *arg0, s16 arg1);
 extern void *air_car_buffer_pair_table[];
-void free_buffer_pair_table(void);
 void __ct__7TObjectFP7TObject(void *);
 extern u8 __vt__19TObjCityAirCar_Ctrl[];
 extern s32 TObjCityAirCar_Ctrl__name;
 extern const f32 lbl_805DBBC8;
 Obj_801815F8 *construct_traffic_manager(Obj_801815F8 *arg0);
-s32 get_city_common_motion(s32 i);
-s32 get_city_common_model(s32 i);
-void bind_motion_context(s32, f32);
-void sample_motion_node_transform(void *, void *, void *, void *, void *);
 extern s32 city_traffic_path_motion_index_table[];
 extern s32 city_aircar_model_indices[];
-s32 sample_aircar_path_position(s32 arg0, void *arg1, f32 farg0);
 s32 alloc_tables__6TLobbyFll(s32, s32, s32, Ent_801817AC *);
-int TLobby__sub_80184C2C(int a0);
-Lob_801817AC *get_season_model_resource(int);
 void subtract_vector(Vec_801817AC *, Vec_801817AC *);
 extern s32 city_traffic_car_chunk_index_table[];
 extern Lob_801817AC *city_air_car_model_resource;
 extern s32 city_air_car_model_handle;
 extern const f32 lbl_805DBBC4;
-void measure_traffic_path_lengths(void);
 
 #pragma push
 #pragma opt_propagation off
@@ -197,7 +191,7 @@ void measure_traffic_path_lengths(void) {
   {
     air_car_buffer_pair_table[i] = 0;
   }
-  city_air_car_model_resource = get_season_model_resource(2);
+  city_air_car_model_resource = (Lob_801817AC *)get_season_model_resource(2);
   if (city_air_car_model_resource != 0)
   {
     city_air_car_model_handle = TLobby__sub_80184C2C(2);

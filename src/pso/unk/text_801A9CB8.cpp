@@ -27,7 +27,7 @@ void __dt__7TObjectFv(void *, int);
 s32 restore_player_cameras(void);
 void reset_cameras_to_actor(void *actor, s32 arg1);
 void *get_player_by_client_id(s32);
-void release_photon_blast_player_holds(void *);
+void release_photon_blast_player_holds(u16 *p);
 void __dl__7TObjectFPv(void *);
 void TLobby__sub_8024AC20(s32);
 extern u8 lbl_804C349C[];
@@ -41,7 +41,7 @@ Obj_801A9CB8 *__dt__13TUnk_804C349CFv(Obj_801A9CB8 *self, s16 flag) {
         self->vt = lbl_804C349C;
         if (self->active != 0) {
             TLobby::set_and_notify_default();
-            release_photon_blast_player_holds((u8 *)self + 0x90);
+            release_photon_blast_player_holds((u16 *)((u8 *)self + 0x90));
             if (get_player_by_client_id(local_client_id) != NULL) {
                 TLobby__sub_8024AC20(local_client_id);
                 TCameraCtrl::release_photon_blast_camera();

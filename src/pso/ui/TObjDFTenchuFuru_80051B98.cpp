@@ -11,7 +11,7 @@
 #include "pso/object/TObjFish.h"
 
 extern "C" {
-u8 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 s32 TCharaMaking__draw_colored_hair(int, void *, int, f32);
 extern s32 df_captured_matrix_pair[];
 extern const f32 lbl_805D8A30;
@@ -35,7 +35,7 @@ void TObjPlayer::draw_player_model_by_client(u16 arg0, s32 arg1, f32 farg0, f32 
     if (arg0 == 0xFFFF) {
         return;
     }
-    p = get_player_by_client_id(arg0);
+    p = (u8 *)get_player_by_client_id(arg0);
     if (p == NULL || *(s32 *)((s8 *)p + 0xCFC) != 0) {
         return;
     }

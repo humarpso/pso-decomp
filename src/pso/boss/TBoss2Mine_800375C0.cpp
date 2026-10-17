@@ -595,8 +595,8 @@ struct Mine_80038200 : Base_80038200 {
 
 extern "C" {
 f32 TBoss2DeRolLe__sub_80034CEC(void);
-s32 create_timed_particle_emitter(s32, s32, s32, s32);
-s32 spawn_particle_effect_with_flags(s32, s32, s32);
+void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 void TObjEneDD__sub_800BA5A4(void *p, void *a1);
 extern RecoveredGlobal_800384C8_lbl_80435AB0 boss2_mine_collision_desc;
 void scale_matrix(s32, f32, f32, f32);
@@ -737,7 +737,7 @@ void TBoss2Mine::vfunc_107(s32 arg1) {
       *((s32 *) (((s8 *) arg0) + 0x3B0)) = 0;
       *((s32 *) (((s8 *) arg0) + 0x3C8)) = 0;
       *((s32 *) (((s8 *) arg0) + 0x3CC)) = 0;
-      create_timed_particle_emitter((*((s32 *) (((s8 *) arg0) + 0xA4))) + 0x1C, 0x16A, 0, 6);
+      create_timed_particle_emitter((void *)((*((s32 *) (((s8 *) arg0) + 0xA4))) + 0x1C), 0x16A, 0, 6);
       return;
     case 3:
       if (((s32) (*((s32 *) (((s8 *) arg0) + 0x3CC)))) == 2)
@@ -755,7 +755,7 @@ void TBoss2Mine::vfunc_107(s32 arg1) {
       *((ByteBlock_14 *) (((s32) (copy_storage_800384C8.bytes - 0x4)) + 4)) = *((const ByteBlock_14 *) (((s32) temp_r4) + 4));
       *((f32 *) (copy_storage_800384C8.bytes + 0x4)) = TBoss2DeRolLe__sub_80034CEC();
       TObjEneDD__sub_800BA5A4(arg0, copy_storage_800384C8.bytes);
-      spawn_particle_effect_with_flags((*((s32 *) (((s8 *) arg0) + 0xA4))) + 0x1C, 0x16B, 0x40);
+      spawn_particle_effect_with_flags((void *)((*((s32 *) (((s8 *) arg0) + 0xA4))) + 0x1C), 0x16B, 0x40);
       *((s32 *) (((s8 *) arg0) + 0x3CC)) = 2;
       play_sound_effect(0x4003AD05, (u32) (arg0 + 0x2FC), 0, 0);
     }

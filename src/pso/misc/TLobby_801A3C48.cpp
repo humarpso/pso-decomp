@@ -104,7 +104,7 @@ extern "C" {
 s32 reset_quest_result_callbacks__22THunterGuildSeqOfflineFPv();
 void clear_enabled_main_warps(void);
 void clear_switch_table(void);
-s32 queue_destruction__7TObjectFv(u32);
+void queue_destruction__7TObjectFv(void *arg0);
 extern u32 quest_mission_manager;
 int is_quest_active(void);
 void send_keepalive(u8 *arg0);
@@ -412,7 +412,7 @@ void TLobby::free_objects() {
     TLobby::reset_floor_items();
     TNpcPlayer::enable_all_battle_ctrl();
     if ((u32) quest_mission_manager != 0U) {
-        queue_destruction__7TObjectFv(quest_mission_manager);
+        queue_destruction__7TObjectFv((void *)quest_mission_manager);
     }
     clear_enabled_main_warps();
     reset_quest_result_callbacks__22THunterGuildSeqOfflineFPv();

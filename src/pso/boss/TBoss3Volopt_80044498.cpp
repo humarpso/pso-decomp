@@ -587,7 +587,7 @@ f32 fabs_float(f32);
 s32 TBoss3Volopt__sub_8003F398(void);
 s32 minimap_render_dot(void *, s32, s16, s32);
 void reset_status_effect_row(u8 *arg0);
-s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
+void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0);
 s32 update_obstruction_fade(void *);
 s32 submit_cursor_candidate(void *, int);
 extern u8 *TBoss3Volopt__data_805D4D00;
@@ -1223,7 +1223,7 @@ void TBoss3Volopt::update_fade_state() {
 #pragma pop
 
 struct Vec_80045EEC { f32 x, y, z; };
-s32 TBoss3Volopt__sub_800FD344(void *, int, int, void *, int);
+void TBoss3Volopt__sub_800FD344(s32 arg0, s32 arg1, s32 arg2, void *arg3, void *arg4);
 extern Vec_80045EEC lbl_80436684[];
 extern u8 *lbl_805D4D04;
 extern const f32 lbl_805D8800;
@@ -1283,7 +1283,7 @@ void TBoss3Volopt::update_pillar_heal_state(void *arg0_) {
                 *(u32 *)((s8 *)arg0 + 0x474) = 0U;
             }
             n = TObjVoloptPillar__sub_80048118(3) / 5;
-            TBoss3Volopt__sub_800FD344(arg0 + 0x2FC, 0xFF00FF00, 0x1E, &lbl_805D880C, n);
+            TBoss3Volopt__sub_800FD344((s32)(arg0 + 0x2FC), (s32)(0xFF00FF00), (s32)(0x1E), (void *)&lbl_805D880C, (void *)n);
             *(s16 *)((s8 *)arg0 + 0x32C) = imin_80045EEC(*(s16 *)((s8 *)arg0 + 0x32C) + n, *(s16 *)((s8 *)arg0 + 0x2B8));
             for (s32 i = 0; i < 4; i++) {
                 s16 c;
@@ -1772,7 +1772,7 @@ void TUnk_80484610::run_task() {
             }
             ((TUnk_80484610 *)arg0)->run_state();
             ((TObjEnemy *)arg0)->update_prev_position();
-            copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0));
+            copy_position__20TBoss3VoloptHiraisinFi((s32)(arg0));
             submit_cursor_candidate((void *) (arg0), (int) (-1));
             minimap_render_dot((u8 *)&this->position, -0x5DB4, 1, 0);
             update_obstruction_fade((void *) (arg0 + 0x490));

@@ -76,7 +76,7 @@ struct TWindowSubMag_8027B62C {
 u8 *find_item_by_id(s32);
 s32 align_menu_entry_positions(void *);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
-void *create_titled_window_menu(s32, s32, s32, s32);
+s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 *get_shared_text_buffer(void);
 s32 get_message_10__20TWindowSubStatusDispFl(s32);
 s32 deserialize_mag__9TItemDataFPvPv(s32, s32 *);
@@ -114,7 +114,7 @@ extern u8 lbl_8044F9E8[];
 extern Pad_8027B888 controller_input_state[];
 void *TWindowSubMag__ct(void *arg0, s32 arg1, s32 arg2);
 void *__dt__13TWindowSubMagFv(void *arg0, s16 arg1);
-s32 TWindowHelpItem__set_displayed_item_by_id(s32, s32);
+void TWindowHelpItem__set_displayed_item_by_id(u8 *arg0, s32 arg1);
 s32 *get_help_text_string(s32);
 s32 create_equip_kind_window(s32, s32 *, s32);
 s32 __ct__7TObjectFP7TObject();
@@ -145,7 +145,7 @@ void TWindowSubMag::update_displayed_item() {
     temp_r3 = select_cursor_entry__22TWindowSubShortCutListFv(*(s32 *)&this->m_34);
     if (temp_r3 != (s32) *(s32 *)&this->m_24) {
         *(s32 *)&this->m_24 = temp_r3;
-        TWindowHelpItem__set_displayed_item_by_id(*(s32 *)&this->m_40, temp_r3);
+        TWindowHelpItem__set_displayed_item_by_id((u8 *)(*(s32 *)&this->m_40), temp_r3);
     }
 }
 
@@ -245,7 +245,7 @@ void *TWindowSubMag::create_action_menu(s32 id) {
     u8 *item;
     ((TItemData *)mag)->initialize_mag_data();
     item = find_item_by_id(id);
-    window = create_titled_window_menu(get_window_layout_position(8), 2, get_message_10__20TWindowSubStatusDispFl(0x1D), menu->field_0x28);
+    window = (void *)create_titled_window_menu(get_window_layout_position(8), 2, get_message_10__20TWindowSubStatusDispFl(0x1D), menu->field_0x28);
     TWindowSubEquip__sub_80263AF8(menu->field_0x30, 1);
     set_field_1c__6TLobbyFf(window);
     if (((s32 (*)(u8 *))is_mag_full)(item) != 0) {

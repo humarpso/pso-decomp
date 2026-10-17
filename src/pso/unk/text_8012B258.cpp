@@ -20,8 +20,8 @@ extern "C" {
 u8 get_slot_count__14TItemProShieldFv(TItemWeapon*);
 s32 is_mode_two_and_ready__10TObjPlayerFv(TItemWeapon*);
 int obj_getPtr2B0_20(u8 *p);
-void try_spend_actor_meseta(WeaponPlayerPrefix*, s32);
-void show_meseta_label(WeaponPlayerPrefix*, WeaponVector*, s32, s32);
+s32 try_spend_actor_meseta(u8 *arg0, s32 arg1);
+void show_meseta_label(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
 void update_active_game_effect__10TObjPlayerFv(TItemWeapon*);
 void *spawn_particle_effect(void *pos, s32 id);
 extern const f32 lbl_805DAE80 = 3.0f;
@@ -30,8 +30,8 @@ void TUnk_804A4D70::emit_marker_effects() {
     switch (get_slot_count__14TItemProShieldFv(this)) {
     case 6:
         if (is_mode_two_and_ready__10TObjPlayerFv(this) && obj_getPtr2B0_20((u8 *)player) >= 10000) {
-            try_spend_actor_meseta(player, 10000);
-            show_meseta_label(player, (WeaponVector*)((u8*)player + 0x2FC), 0, -10000);
+            try_spend_actor_meseta((u8 *)player, 10000);
+            show_meseta_label((s32)player, (u32)((WeaponVector*)((u8*)player + 0x2FC)), (s32)(0), (s32)(-10000));
             apply_scale_if_active(*(const volatile f32 *)&lbl_805DAE80);
             spawn_particle_effect((WeaponVector*)((u8*)player + 0x2FC), 0x66);
             spawn_particle_effect((WeaponVector*)((u8*)player + 0x2FC), 0x66);

@@ -1,4 +1,9 @@
 #include "pso/enemy/EnemyFactoryTables.h"
+#include "pso/npc/TObjNpcFemaleChild.h"
+#include "pso/npc/TObjNpcFemaleDwarf.h"
+#include "pso/npc/TObjNpcFemaleFat.h"
+#include "pso/npc/TObjNpcFemaleMacho.h"
+#include "pso/npc/TObjNpcFemaleOld.h"
 #include "pso/boss/TBoss2DeRolLe.h"
 #include "pso/boss/TBoss3VoloptCore.h"
 #include "pso/boss/TBoss3Volopt_80044498.h"
@@ -85,11 +90,6 @@ void* TObjNpcAHM01__create(void* placement);
 void* create__14TObjNpcBringerFPv(void* placement);
 void* TObjNpcFemaleBase__create(void* placement);
 void* TObjNpcFemaleChild__create(void* placement);
-void* TObjNpcFemaleDwarf__create(void* placement);
-void* TObjNpcFemaleFat__create(void* placement);
-void* TObjNpcFemaleMacho__create(void* placement);
-void* TObjNpcFemaleOld__create(void* placement);
-void* TObjNpcFemaleTall__create(void* placement);
 void* TObjNpcMaleChild__create(void* placement);
 void* TObjNpcNFM00__create(void* placement);
 void* TObjNpcNFM01__create(void* placement);

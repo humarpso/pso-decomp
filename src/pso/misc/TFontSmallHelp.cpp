@@ -14,12 +14,12 @@ typedef char HelpTextPlayerIdentity[offsetof(HelpTextPlayerState, identity) == 0
 
 extern "C" {
 TObject *get_instance__15TWindowCtrlMainFv();
-HelpTextPlayerState *get_player_by_client_id(u32);
+void *get_player_by_client_id(s32 i);
 extern const char *lbl_805D2B20;
 }
 
 void TFontSmallHelp::run_task() {
-    HelpTextPlayerState *player = get_player_by_client_id(player_id);
+    HelpTextPlayerState *player = (HelpTextPlayerState *)get_player_by_client_id(player_id);
     if (player == NULL) {
         queue_destruction__7TObjectFv(this);
         return;
@@ -42,7 +42,7 @@ TFontSmallHelp::~TFontSmallHelp() {}
 TFontSmallHelp::TFontSmallHelp(u32 player, u32 text_color, s32 lifetime, u32 text_id)
     : TObject(get_instance__15TWindowCtrlMainFv()) {
     m_name = lbl_805D2B20;
-    HelpTextPlayerState *owner = get_player_by_client_id(player);
+    HelpTextPlayerState *owner = (HelpTextPlayerState *)get_player_by_client_id(player);
     if (owner == NULL) {
         disallow_rendering__7TObjectFv(this);
         queue_destruction__7TObjectFv(this);

@@ -24,7 +24,7 @@ extern u32 TBoss6Rock__data_805D6EF0;
 extern u32 TBoss6Rock__data_805D6EF4;
 extern int TBoss6Rock__data_805D6EF8;
 u32 load_resource_from_descriptor(u32, s32, void *, s32, s32, s32);
-u32 load_gvm_texture_file(void *);
+u8 *load_gvm_texture_file(s32 arg0);
 void TBoss6Rock__sub_80354188(void);
 extern u8 lbl_80479298[];
 extern s32 lbl_805D6EFC;
@@ -63,7 +63,7 @@ void TBoss6Rock::load_resources() {
         r = load_resource_from_descriptor(r, 5, &boss6_rock_resource_descriptor, 0, 0, 0);
     }
     TBoss6Rock__data_805D6EF0 = r;
-    TBoss6Rock__data_805D6EF4 = load_gvm_texture_file(lbl_80479298);
+    TBoss6Rock__data_805D6EF4 = (u32)load_gvm_texture_file((s32)lbl_80479298);
     if (TBoss6Rock__data_805D6EF0 == 0 || TBoss6Rock__data_805D6EF4 == 0) {
         return;
     }

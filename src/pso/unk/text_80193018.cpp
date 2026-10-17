@@ -27,7 +27,7 @@ extern BmlResourceDescriptor lazer_fence_norm_episode2_resource_descriptor;
 extern "C" {
 void *load_resource_from_descriptor(void *, int, BmlResourceDescriptor *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFv(int);
-s32 load_gvm_texture_file(void *);
+u8 *load_gvm_texture_file(s32 arg0);
 extern u8 lbl_80445BB8[];
 extern u8 lbl_80445BCC[];
 extern s32 lazer_fence_norm_texture_list;
@@ -49,7 +49,7 @@ void load_lazer_fence_norm_resources(void) {
             obj = load_resource_from_descriptor(obj, 5, &lazer_fence_norm_episode2_resource_descriptor, 0, 0, 0);
         }
         lazer_fence_norm_bml_resource = obj;
-        lazer_fence_norm_texture_list = load_gvm_texture_file(lbl_80445BB8);
+        lazer_fence_norm_texture_list = (s32)load_gvm_texture_file((s32)lbl_80445BB8);
         break;
     default:
         obj = alloc__23TAdSinglePlyChrSelectGCFv(0x440);
@@ -57,7 +57,7 @@ void load_lazer_fence_norm_resources(void) {
             obj = load_resource_from_descriptor(obj, 5, &lazer_fence_norm_episode1_resource_descriptor, 0, 0, 0);
         }
         lazer_fence_norm_bml_resource = obj;
-        lazer_fence_norm_texture_list = load_gvm_texture_file(lbl_80445BCC);
+        lazer_fence_norm_texture_list = (s32)load_gvm_texture_file((s32)lbl_80445BCC);
         break;
     }
 }

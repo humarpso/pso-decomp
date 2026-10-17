@@ -12,7 +12,7 @@
 extern "C" {
 
 void *__ct__20TPlayerLevelFeedbackFP7TObjectUs(void *arg0, u16 arg1, u16 arg2);
-u32 spawn_particle_effect_with_flags(s32, s32, s32);
+void *spawn_particle_effect_with_flags(void *pos, s32 id, s32 flags);
 u32 get_player_by_client_id(u16);
 s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
@@ -46,7 +46,7 @@ struct VO_801C6408 : VB_801C6408 {
 };
 
 extern "C" {
-TParticleCtrl* create_particle_emitter(void*, int);
+void *create_particle_emitter(void *pos, s32 id);
 s32 test_action_mask__10TObjPlayerFl(VO_801C6408*, s32);
 s32 is_on_current_floor__10TObjPlayerFi(VO_801C6408*);
 s32 reset_key_machine_state__10TObjPlayerFv();
@@ -132,9 +132,7 @@ extern const f32 lbl_805DC340;
 
 #define TObjPlayer__sub_801C6FDC ((f32* (*)(f32*))TObjPlayer__sub_801C6FDC)
 #define apply_stat_multipliers__10TObjPlayerFiif ((s32 (*)(f32))apply_stat_multipliers__10TObjPlayerFiif)
-#define get_obj_type__10TObjPlayerFPv ((u16 (*)(PlayerScaleState*))get_obj_type__10TObjPlayerFPv)
 #define get_stat_f32__8TItemMagFv ((f32 (*)(PlayerScaleState*))get_stat_f32__8TItemMagFv)
-#define set_ring_action__10TObjPlayerFPvi ((s32 (*)(s32, s32))set_ring_action__10TObjPlayerFPvi)
 #define set_stat_scale__10TObjPlayerFPvf ((s32 (*)(f32))set_stat_scale__10TObjPlayerFPvf)
 
 extern "C" {
@@ -147,7 +145,7 @@ int obj_isState2_324__13TUnk_804806E8Fv(TObjPlayer*);
 void request_player_size_restore(PlayerScaleState* state);
 TObjPlayer* get_player_by_client_id(int);
 int check_camera_mode__10TObjPlayerFv();
-void TObjPlayer__sub_801C7360(PlayerShrinkPacket*, const PlayerShrinkPacket*);
+void *TObjPlayer__sub_801C7360(void *arg0, void *arg1);
 int validate_6x87_shrink_player(PlayerShrinkPacket*);
 void handle_6x87_shrink__10TObjPlayerFPvf(u8 *arg0, f32 farg0);
 void handle_6x87_shrink_player(const PlayerShrinkPacket* input);
@@ -178,9 +176,7 @@ extern const f32 lbl_805DC320;
 }
 #undef TObjPlayer__sub_801C6FDC
 #undef apply_stat_multipliers__10TObjPlayerFiif
-#undef get_obj_type__10TObjPlayerFPv
 #undef get_stat_f32__8TItemMagFv
-#undef set_ring_action__10TObjPlayerFPvi
 #undef set_stat_scale__10TObjPlayerFPvf
 
 #define get_player_by_client_id ((s32 (*)(u16))get_player_by_client_id)
@@ -737,13 +733,13 @@ u8 TPlayerLobbyMarker::get_material_index() {
 namespace accessors {
 extern "C" {
 void request_player_shrink(PlayerScaleState* state) {
-    TObjPlayer* player = get_player_by_client_id(((u16 (*)(PlayerScaleState*))get_obj_type__10TObjPlayerFPv)(state));
+    TObjPlayer* player = get_player_by_client_id(get_obj_type__10TObjPlayerFPv(state));
     if (!player || !obj_isState2_324__13TUnk_804806E8Fv(player)) {
-        if (local_client_id == ((u16 (*)(PlayerScaleState*))get_obj_type__10TObjPlayerFPv)(state))
+        if (local_client_id == get_obj_type__10TObjPlayerFPv(state))
             update_player_scale_camera((PlayerScaleState *)(state));
         PlayerShrinkPacket packet;
         ((TObjPlayer *)(&packet))->init_shrink_effect();
-        packet.actor_id = ((u16 (*)(PlayerScaleState*))get_obj_type__10TObjPlayerFPv)(state);
+        packet.actor_id = get_obj_type__10TObjPlayerFPv(state);
         packet.scalar = state->scalar;
         ((TObjPlayer *)(&packet))->update_and_send_60();
     }
@@ -767,7 +763,7 @@ extern "C" {
 void handle_6x87_shrink_player(const PlayerShrinkPacket* input) {
     PlayerShrinkPacket packet;
     ((TObjPlayer *)(&packet))->init_shrink_effect();
-    TObjPlayer__sub_801C7360(&packet, input);
+    TObjPlayer__sub_801C7360((void *)&packet, (void *)input);
     ((TObjPlayer *)(&packet))->bswap_shrink();
     if (validate_6x87_shrink_player(&packet)) {
         TObjPlayer* player = get_player_by_client_id(packet.actor_id);
@@ -782,11 +778,11 @@ void handle_6x87_shrink_player(const PlayerShrinkPacket* input) {
 namespace accessors {
 extern "C" {
 void request_player_size_restore(PlayerScaleState* state) {
-    TObjPlayer* player = get_player_by_client_id(((u16 (*)(PlayerScaleState*))get_obj_type__10TObjPlayerFPv)(state));
+    TObjPlayer* player = get_player_by_client_id(get_obj_type__10TObjPlayerFPv(state));
     if (!player || !obj_isState2_324__13TUnk_804806E8Fv(player)) {
         PlayerRestoreSizePacket packet;
         ((TObjPlayer *)(&packet))->init_6x88_packet();
-        packet.actor_id = ((u16 (*)(PlayerScaleState*))get_obj_type__10TObjPlayerFPv)(state);
+        packet.actor_id = get_obj_type__10TObjPlayerFPv(state);
         ((TObjPlayer *)(&packet))->send_font_update_60();
     }
 }
@@ -834,7 +830,7 @@ namespace accessors {
 extern "C" {
 void reset_stat_scale_and_ring__10TObjPlayerFi(s32 arg0) {
     ((s32 (*)(f32))set_stat_scale__10TObjPlayerFPvf)(lbl_805DC320);
-    ((s32 (*)(s32, s32))set_ring_action__10TObjPlayerFPvi)(arg0, 0);
+    set_ring_action__10TObjPlayerFPvi((void *)arg0, 0);
 }
 
 }
@@ -939,7 +935,7 @@ TPlayerSoul::TPlayerSoul(TObject* parent, u16 id) : TPlayerParticleOwner(parent)
     set_player_id(id);
     TObjPlayer* player = get_player();
     if (player != 0) {
-        TParticleCtrl* value = create_particle_emitter((char*)player + 0x2FC, 0xAF);
+        TParticleCtrl* value = (TParticleCtrl *)create_particle_emitter((char*)player + 0x2FC, 0xAF);
         if (value != 0) {
             set_particle(value);
         } else {
@@ -985,7 +981,7 @@ TPlayerLevelFeedback::TPlayerLevelFeedback(TObject* parent, u16 id) : TObject(pa
     timer = 10;
     player = get_player_by_client_id(player_id);
     if (player != 0) {
-        player = spawn_particle_effect_with_flags(player + 0x2FC, 0x23, 0x10);
+        player = (u32)spawn_particle_effect_with_flags((void *)(player + 0x2FC), 0x23, 0x10);
         if (player != 0) ((TParticleCtrl *)player)->set_owner_id(player_id);
     }
 }
@@ -1001,7 +997,7 @@ void TPlayerLevelFeedback::run_task() {
     if (remaining < 0) {
         player = get_player_by_client_id(player_id);
         if (player != 0) {
-            emitter = spawn_particle_effect_with_flags(player + 0x2FC, 0x20, 0x10);
+            emitter = (u32)spawn_particle_effect_with_flags((void *)(player + 0x2FC), 0x20, 0x10);
             if (emitter != 0) ((TParticleCtrl *)emitter)->set_owner_id(player_id);
         }
         queue_destruction();

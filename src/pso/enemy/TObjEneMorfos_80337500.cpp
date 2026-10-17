@@ -49,7 +49,7 @@ extern const f32 morfos_param_table_speed_copy;
 extern const f32 lbl_805DF988;
 void hit_target_in_range__13TObjEneMorfosFPvPvPv(O_80337500 *arg0, V_80337500 *arg1, V_80337500 *arg2);
 s16 obj_getField1c(void *);
-s32 spawn_particle_effect_with_rotation(void *, void *, s32, s32);
+void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 void construct_collider_proxy__13TUnk_804AF8A0Fv(void *, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -57,11 +57,11 @@ extern s32 lbl_804EF130[];
 extern s32 tl_06;
 extern const f32 lbl_805DF994;
 O_80337824 *TObjEneMorfos__sub_80337824(O_80337824 *arg0, Vec_80337824 *arg1, s32 arg2, void *arg3);
-u8 *get_player_data__10TObjPlayerFi(s32);
+int get_player_data__10TObjPlayerFi(int a0);
 f32 fabs_float(f32);
 void queue_destruction__7TObjectFv(void *);
 u32 csnVector(void *, void *, int);
-s32 find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 void vec3_add_to(void *, void *);
 extern s32 lbl_805D586C;
 extern const f32 lbl_805DF98C;
@@ -121,10 +121,10 @@ void update_projectile__13TObjEneMorfosFPv(O_80337644 *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    k = find_entity_by_id(arg0->fF8);
+    k = (s32)find_entity_by_id(arg0->fF8);
     if (k != 0) {
         for (i = 0; i < lbl_805D586C; i++) {
-            p = get_player_data__10TObjPlayerFi(i);
+            p = (u8 *)get_player_data__10TObjPlayerFi(i);
             if (TObjPlayer::is_valid_and_active((u32)p) != 0 && fabs_float(arg0->pos.y - *(f32 *)(p + 0x300)) < lbl_805DF990) {
                 hit_target_in_range__13TObjEneMorfosFPvPvPv((O_80337500 *)arg0, (V_80337500 *)p, (V_80337500 *)k);
             }
@@ -156,7 +156,7 @@ O_80337824 *TObjEneMorfos__sub_80337824(O_80337824 *arg0, Vec_80337824 *arg1, s3
     arg0->vel.x = morfos_projectile_speed * sin_table_lookup(arg2);
     arg0->vel.y = lbl_805DF994;
     arg0->vel.z = morfos_projectile_speed * cos_table_lookup(arg2);
-    arg0->fE0 = spawn_particle_effect_with_rotation(arg1, &a, 0x213, 2);
+    arg0->fE0 = (s32)spawn_particle_effect_with_rotation(arg1, &a, 0x213, 2);
     VecCopy((Vec *)(&arg0->pos2), (const Vec *)(&arg0->pos));
     TObjEneMorfos::snap_to_ground((s32)(arg0), (s32)(&arg0->pos2));
     arg0->fF4 = 0;

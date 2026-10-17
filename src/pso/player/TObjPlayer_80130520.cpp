@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemMenuCtrl_80115AF0.h"
 #include "pso/player/TObjPlayer_80130520.h"
 #include "pso/unk/text_80120908.h"
 #include "pso/item/TUnk_804A69DC.h"
@@ -7,7 +8,6 @@
 extern "C" {
 
 int rotate_matrix_x(void*, void*);
-s32 advance_angle_wrap(void *, s32);
 s32 update_trail_slot__11TItemWeaponFPvi(void *, s32);
 int get_player_list__10TObjPlayerFv(void*);
 
@@ -51,7 +51,7 @@ void TUnk_804A69DC::update_attack() {
 }
 
 void TUnk_804A69DC::update_weapon() {
-    advance_angle_wrap((u8 *)&this->unk_1F8, this->m_1fc);
+    advance_angle_wrap((s32 *)&this->unk_1F8, this->m_1fc);
 }
 
 }

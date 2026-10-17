@@ -17,7 +17,7 @@ extern const s32 lbl_804F0EA8[];
 extern void *lobby_event_theme_controller;
 s32 TLobby__sub_803DA16C(void*);
 extern int lobby_main_texture_gvm;
-int load_gvm_texture_file(void*);
+u8 *load_gvm_texture_file(s32 arg0);
     extern unsigned char lbl_80478E20[];
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 *tl_00;
@@ -92,7 +92,7 @@ void TLobby__sub_8035202C(void) {
         (*(u32 *)&lobby_main_texture_gvm) = 0U;
     }
 }
-void load_obj_lobby_main(void) { lobby_main_texture_gvm = load_gvm_texture_file(lbl_80478E20); }
+void load_obj_lobby_main(void) { lobby_main_texture_gvm = (int)load_gvm_texture_file((s32)lbl_80478E20); }
 s32 get_theme_lobby_type(void) {
     s32 r = TLobby::get_filtered_event_theme();
     switch (r) {

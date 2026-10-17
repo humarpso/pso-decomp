@@ -315,7 +315,7 @@ u8 *TObjPlayer__sub_801D84B0(s32 *arg0) {
 }
 
 u32 advance_item_id_counter(s32 client);
-s32 equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(s32, void *);
+void equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 
 int TObjPlayer::bswap_disp_config_field() { return bswap_16__FPUs((char*)this + 0x2); }
 s32 TObjPlayer__sub_801D84F0(void* p) { return *(s32*)((char*)p + 0x4); }
@@ -332,7 +332,7 @@ extern s32 local_client_id;
 void TObjPlayer::assign_lobby_slot_if_flagged(s32 arg0, void *arg1) {
     if (*(s32 *)((s8 *)arg1 + 4) & 8) {
         *(s32 *)((s8 *)arg1 + 0x14) = advance_item_id_counter((u16) local_client_id);
-        equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(arg0, arg1);
+        equip_saved_item_if_slot_empty__10TObjPlayerFPvPv((u8 *)arg0, (u8 *)arg1);
     }
 }
 

@@ -25,8 +25,8 @@ u8 *TLobby__sub_802D298C(void);
 u8 *TLobby__sub_802D299C(void);
 s32 *get_trade_window_state(void);
 s32 try_spend_actor_meseta(u8 *arg0, s32 arg1);
-s32 send_6x29_delete_item__10TObjPlayerFPvii(s32, s32, s32);
-s32 get_player_by_client_id(s32);
+void send_6x29_delete_item__10TObjPlayerFPvii(void *obj, s32 a, s32 b);
+void *get_player_by_client_id(s32 i);
 s32 check_player_action_allowed();
 void remove_list_entry_by_id(s32 arg0);
 s32 fn_801D4270(s32);
@@ -106,7 +106,7 @@ void TLobby::apply_trade_items() {
     s32 count;
     s32 flag;
     if ((s32) TLobby__trade_proposal_state == 7) {
-        player = get_player_by_client_id(local_client_id);
+        player = (s32)get_player_by_client_id(local_client_id);
         if (player != 0) {
             list = (struct E_802D2A70 *)((s32 *)get_trade_window_state());
             if (list != NULL) {
@@ -124,7 +124,7 @@ void TLobby::apply_trade_items() {
                                 remove_list_entry_by_id(id);
                                 flag = 1;
                             }
-                            send_6x29_delete_item__10TObjPlayerFPvii(player, id, count);
+                            send_6x29_delete_item__10TObjPlayerFPvii((void *)player, (s32)id, (s32)count);
                         }
                     }
                 }

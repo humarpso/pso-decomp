@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TAdMultiPlyChrSelectGC_802DBCC4.h"
 #include "pso/misc/TWindowSubComCard_80244774.h"
 #include "pso/object/TObject_8001A448.h"
 #include "pso/ui/TAdMultiPlyChrSelectGC_802DC760.h"
@@ -36,7 +37,6 @@ s32 TAdMultiPlyChrSelectGC__sub_802C5A44(int, void *, int);
 extern RecoveredGlobal_802DCA20_TAdMultiPlyChrSelectGC__data_804727B0 TAdMultiPlyChrSelectGC__character_slot_positions;
 extern RecoveredGlobal_802DCA20_lbl_804727E8 multi_chr_select_item_rect_table;
 extern s32 controller_physical_port_bank[];
-s32 TAdMultiPlyChrSelectGC__sub_802DBD64(void *);
 s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
 void TAdMultiPlyChrSelectGC::update_input_state() {
     s32 temp_r3;
@@ -120,7 +120,7 @@ void TAdMultiPlyChrSelectGC__sub_802DC8A0(void *arg0) {
             ((TLevelSelect *)(*(u32 *)((s8 *)arg0 + 0x70)))->add_item_rect(&((Pair_802DC8A0 *)&TAdMultiPlyChrSelectGC__character_slot_positions)[i]);
             ((TAdEnterSerialAccessGC *)(*(u32 *)((s8 *)arg0 + 0x70)))->set_active();
             *(u32 *)((s8 *)arg0 + 0x58) = i;
-            *(s32 *)((s8 *)arg0 + 0x94) = TAdMultiPlyChrSelectGC__sub_802DBD64(arg0);
+            *(s32 *)((s8 *)arg0 + 0x94) = TAdMultiPlyChrSelectGC__sub_802DBD64((s32)arg0);
             *(s32 *)((s8 *)arg0 + 0x20) = 0x20;
             return;
         }

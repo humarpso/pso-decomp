@@ -55,8 +55,8 @@ s32 set_help_text__15TWindowHelpItemFll(u8 *, s32);
 extern const f32 lbl_805DD570;
 extern const f32 lbl_805DD574;
 s32 select_action_palette__10TObjPlayerFi(u8 *, s32);
-u8 *get_player_by_client_id(s32);
-s32 TWindowActionPalette__sub_801C1D7C(s32, s32, s32);
+void *get_player_by_client_id(s32 i);
+u8 *TWindowActionPalette__sub_801C1D7C(s32 arg0, s32 i, s32 arg2);
 s32 get_slot_type__20TWindowActionPaletteFlll(s32, s32, s32);
 extern const Vec2_802766C8 custom_equip_entry_offset_table[];
 extern const f32 lbl_805DD57C;
@@ -134,16 +134,16 @@ void TWindowSubCustomEquip::reset_selection() { layout_entry_group((void *)((voi
 s32 TWindowSubCustomEquip::refresh_palette_slots() {
     u8 *player;
     s32 pal;
-    player = get_player_by_client_id(this->m_20);
+    player = (u8 *)get_player_by_client_id(this->m_20);
     if (player == NULL || (pal = select_action_palette__10TObjPlayerFi(player, 0)) == 0) {
         return;
     }
-    update_palette_slot(0, get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)&this->m_64, 2), TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)&this->m_64, 2));
-    update_palette_slot(1, get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)&this->m_64, 1), TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)&this->m_64, 1));
-    update_palette_slot(2, get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)&this->m_64, 3), TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)&this->m_64, 3));
-    update_palette_slot(3, get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)&this->m_65, 2), TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)&this->m_65, 2));
-    update_palette_slot(4, get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)&this->m_65, 1), TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)&this->m_65, 1));
-    update_palette_slot(5, get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)&this->m_65, 3), TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)&this->m_65, 3));
+    update_palette_slot(0, get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)&this->m_64, 2), (s32)TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)&this->m_64, 2));
+    update_palette_slot(1, get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)&this->m_64, 1), (s32)TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)&this->m_64, 1));
+    update_palette_slot(2, get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)&this->m_64, 3), (s32)TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)&this->m_64, 3));
+    update_palette_slot(3, get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)&this->m_65, 2), (s32)TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)&this->m_65, 2));
+    update_palette_slot(4, get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)&this->m_65, 1), (s32)TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)&this->m_65, 1));
+    update_palette_slot(5, get_slot_type__20TWindowActionPaletteFlll(pal, *(s8 *)&this->m_65, 3), (s32)TWindowActionPalette__sub_801C1D7C(pal, *(s8 *)&this->m_65, 3));
 }
 
 #pragma push

@@ -157,11 +157,11 @@ struct Vec_802312E4;
 u16 obj_getField1c(void *);
 f32 newton_sqrtf(f32);
 void queue_destruction__7TObjectFv(void *arg0);
-s32 spawn_particle_effect_with_rotation(void *, void *, s32, s32);
-s32 spawn_continuous_particle_with_direction(void *, void *, s32);
+void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
+void *spawn_continuous_particle_with_direction(void *pos, void *dir, s32 id);
 f32 horizontal_distance_squared(void *, void *);
 void mem_free(void *);
-u32 * mem_alloc(s32);
+void *mem_alloc(u32 size);
 void * find_entity_by_id(u16);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 update_technique_slot__10TTecRaFoieFl(s32, s32, s32);
@@ -246,15 +246,15 @@ Task_802312E4 *construct_orbit__10TTecGiFoieFPvPviUciPvUc(Task_802312E4 *self, V
     self->single = single;
     if (self->single != 0) {
         Rot_802312E4 r;
-        self->emitters = mem_alloc(4);
+        self->emitters = (u32 *)mem_alloc(4);
         r.x = 0;
         r.y = 0;
         r.z = 0x4000;
-        self->emitters[0] = spawn_continuous_particle_with_direction(&self->pos, &r, 0x19D);
+        self->emitters[0] = (u32)spawn_continuous_particle_with_direction(&self->pos, &r, 0x19D);
         self->x38 = TTecGiFoie__data_805DC81C;
     } else {
         s32 i;
-        self->emitters = mem_alloc(TTecGiFoie__emitter_profile_table[self->band].count * 4);
+        self->emitters = (u32 *)mem_alloc(TTecGiFoie__emitter_profile_table[self->band].count * 4);
         for (i = 0; i < TTecGiFoie__emitter_profile_table[self->band].count; i++) {
             Rot_802312E4 r;
             Part_802312E4 *p;
@@ -262,7 +262,7 @@ Task_802312E4 *construct_orbit__10TTecGiFoieFPvPviUciPvUc(Task_802312E4 *self, V
             r.y = 0;
             r.z = 0x4000;
             p = &TTecGiFoie__emitter_profile_table[self->band].parts[i];
-            self->emitters[i] = spawn_particle_effect_with_rotation(&self->pos, &r, p->id, (p->flags & 0x1000) ? 0x2000 : 0);
+            self->emitters[i] = (u32)spawn_particle_effect_with_rotation(&self->pos, &r, p->id, (p->flags & 0x1000) ? 0x2000 : 0);
             if (self->band == 2) {
                 if (arg4 >= 0xF && arg4 < 0x19) {
                     if (i <= 1 && self->emitters[i] != 0) {

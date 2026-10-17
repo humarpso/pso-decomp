@@ -1,6 +1,7 @@
 #ifndef PSO_TDEADSPOT_H
 #define PSO_TDEADSPOT_H
 #include "pso/TObject.h"
+#include "pso/unk/text_803E29B0.h"
 #include "pso/boss/TBoss8Dragon_8002CC48.h"
 #include "pso/math/MatrixVector.h"
 #include "pso/misc/TDeadSpot.h"
@@ -121,7 +122,6 @@ f32 horizontal_distance_squared(void *, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void __dt__9TDeadSpotFv(void *, int);
-s32 draw_particle_strip(void *, s32, s32);
 
 extern s32 lbl_804949D8[];
 
@@ -290,7 +290,7 @@ void render__9TDeadSpotFv(u8 *arg0) {
         setup_alpha_test_render_state(0x8F);
         TObjFish::set_global_param(*(s32 *)((s8 *)arg0 + 0xB8));
         set_texture_num(*(s32 *)((s8 *)arg0 + 0xBC));
-        draw_particle_strip(arg0 + 0x1C, 4, 1);
+        draw_particle_strip(arg0 + 0x1C, (void *)(4), (void *)(1));
         restore_saved_depth_alpha_state();
         model_render_flags = lbl_805D5660;
     }

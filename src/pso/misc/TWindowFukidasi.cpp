@@ -202,7 +202,7 @@ s32 is_split_screen();
 void queue_destruction__7TObjectFv(void *);
 s32 get_screen_width__11TCameraCtrlFv();
 s32 get_screen_height__11TCameraCtrlFv();
-s32 mem_alloc(s32);
+void *mem_alloc(u32 size);
 Ent_802511E4 * find_entity_by_id(u16);
 u32 get_battle_ctrl_flag__10TObjPlayerFUs(u16);
 u32 get_player_by_client_id(u32);
@@ -213,8 +213,8 @@ s32 get_field_20__17TWindowSubComCardFv();
 s32 set_field_1c__6TLobbyFf(f32);
 s32 sub_80246948__13TUnk_804CE018Fv(void *);
 s32 refresh_status_display__9TWindowDDFv(int);
-void TWindowSubSymbolChat__sub_802483F0(void *, f32 *);
-s32 set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(void *, u32 *);
+void TWindowSubSymbolChat__sub_802483F0(int a0, void *a1);
+void set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(s32 arg0, void *arg1);
 s32 draw_resolved_window__15TWindowFukidasiFllll(Fuki_80250F70 *, f32 *, f32 *, s32);
 f32 * get_message_by_type__11TWindowCtrlFScl(u8, int);
 void complete_speech_balloon(u8 *arg0);
@@ -389,7 +389,7 @@ void calc_text_size__15TWindowFukidasiFPvPv(Fuki_80250380 *b, f32 *out) {
         out[1] = TWindowFukidasi__data_805DCCF4 + (TWindowFukidasi__data_805DCCFC + e->h);
         break;
     case 1:
-        TWindowSubSymbolChat__sub_802483F0(b->entries, out);
+        TWindowSubSymbolChat__sub_802483F0((int)b->entries, (void *)out);
         break;
     case 2:
         break;
@@ -894,7 +894,7 @@ void open__15TWindowFukidasiFPvPvi(u8 *arg0, u32 *arg1, s32 arg2) {
             *(s32 *)((s8 *)arg0 + 0x5C) = 0;
         }
     }
-    set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(arg0 + 0x24, arg1);
+    set_symbol_chat_parts__20TWindowSubSymbolChatFiPv((s32)(arg0 + 0x24), (void *)arg1);
     TWindowSubSymbolChat::play_symbol_sound(((u32) *arg1 >> 5U) & 0xF);
     *(s16 *)((s8 *)arg0 + 0x74) = 0x5A;
 }
@@ -987,7 +987,7 @@ void TWindowFukidasi__ct(void *arg0, s16 arg1, s32 str, s16 arg3, f32 farg0) {
     *(s16 *)&((TUnk_804CF0B8 *)arg0)->m_20 = arg3;
     if (str != 0) {
         temp_r3 = TWindowKeyBoardSoft::strnlen((s8 *)str, (u32)0x18);
-        *(s32 *)((s8 *)arg0 + 0x78) = mem_alloc(temp_r3 + 1);
+        *(s32 *)((s8 *)arg0 + 0x78) = (s32)mem_alloc(temp_r3 + 1);
         strncpy(*(s32 *)((s8 *)arg0 + 0x78), str, temp_r3 + 1);
     } else {
         *(s32 *)((s8 *)arg0 + 0x78) = 0;

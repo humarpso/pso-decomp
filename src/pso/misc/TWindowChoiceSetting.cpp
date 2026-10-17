@@ -136,14 +136,14 @@ void TUnk_804D0658::clamp_scroll() {
     }
 }
 
-s32 draw_selection_bar(s32, u16 *, s32);
+void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2);
 
 void TUnk_804D0658::draw_setting(s32 arg1) {
     u16 *temp_r3;
 
     temp_r3 = ((u16 * (*)(void *, s16))get_array_entry__13TUnk_804CE018Fi)(this, this->m_74);
     if (*temp_r3 & 1) {
-        draw_selection_bar(arg1, temp_r3, ((s32 (*)(void *))is_open__13TUnk_804D0658Fv)(this));
+        draw_selection_bar((u8 *)arg1, (u8 *)temp_r3, ((s32 (*)(void *))is_open__13TUnk_804D0658Fv)(this));
     }
 }
 

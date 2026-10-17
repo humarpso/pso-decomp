@@ -27,7 +27,7 @@ extern const f32 lbl_805DA068;
 extern const f32 lbl_805DA06C;
 s32 get_main_phase();
 s32 get_current_floor();
-s32 get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
 u8 is_local_client_floor_leader(void);
@@ -107,7 +107,7 @@ u8 is_local_client_floor_leader(void) {
     s32 i;
     s32 n;
     if (get_main_phase() == 0xF) {
-        p = get_player_by_client_id(TLobby__designated_client_id);
+        p = (s32)get_player_by_client_id(TLobby__designated_client_id);
         if (p != 0) {
             if (((TObjPlayer *)p)->get_field_3e4() == get_current_floor()) {
                 return local_client_id == TLobby__designated_client_id;
@@ -117,7 +117,7 @@ u8 is_local_client_floor_leader(void) {
             s32 t = TLobby__designated_client_id;
             n = i + 1;
             id = (t + n) % 4;
-            p = get_player_by_client_id(id);
+            p = (s32)get_player_by_client_id(id);
             if (p != 0) {
                 if (((TObjPlayer *)p)->get_field_3e4() == get_current_floor()) {
                     break;

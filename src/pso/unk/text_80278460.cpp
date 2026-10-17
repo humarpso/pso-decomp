@@ -8,7 +8,7 @@ struct Wn_80278460 { u8 pad0[0x20]; s16 f20; u8 pad22[0x54]; s16 f76; };
 extern "C" {
 s32 get_item_info__10TObjPlayerFllPs(u32, void *, void *);
 u32 find_item_by_id();
-u8 *get_player_by_client_id(s16);
+void *get_player_by_client_id(s32 i);
 u16 *get_array_entry__13TUnk_804CE018Fi(void *, s16);
 s32 is_flag_4_set__20TWindowSubStatusDispFv();
 void mark_unequippable_items(Wn_80278460 *arg0);
@@ -18,7 +18,7 @@ void mark_unequippable_items(Wn_80278460 *arg0) {
     u8 *item;
     u16 *e;
     u32 t;
-    item = get_player_by_client_id(arg0->f20);
+    item = (u8 *)get_player_by_client_id(arg0->f20);
     if (item != NULL) {
         for (i = 0; (s16)i < arg0->f76; i++) {
             e = get_array_entry__13TUnk_804CE018Fi(arg0, i);

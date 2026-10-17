@@ -60,11 +60,11 @@ extern Packet_801ADD10 photon_pilla_laser_packet;
 extern Vec_801ADD10 lbl_804C3A84[];
 extern const f32 lbl_805DC22C;
 s32 advance_animation_playback(void *);
-s32 play_persistent_sound(s32, void *, s32, s32, s32);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 s32 queue_photon_blast_hit(u16, s32, s32, f32);
 s32 spawn_photon_blast_attachment_effects(void *, s32);
-s32 TPhotonMagicSquare__ct(s32, void *, s32, Vec3 *, s32, f32);
-s32 find_entity_by_id(u16);
+u8 *TPhotonMagicSquare__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
+void *find_entity_by_id(u16 id);
 u32 obj_getField1c();
 
     extern int lbl_805D5D50;
@@ -159,14 +159,14 @@ void TPhotonPilla::run_task() {
     if (((s32) *(s32 *)((s8 *)this + 0x1A8) == 0x32) && ((s32) *(s32 *)((s8 *)this + 0x1A4) == 0)) {
         *(s32 *)((s8 *)this + 0x1A4) = 1;
         *(s32 *)((s8 *)this + 0x1A8) = 0;
-        entity = find_entity_by_id(*(u16 *)((s8 *)this + 0x17C));
+        entity = (s32)find_entity_by_id(*(u16 *)((s8 *)this + 0x17C));
         if (entity != 0) {
             VecCopy((Vec *)&sp8, (const Vec *)(entity + 0x38));
         }
         sp8.y = sp8.y + lbl_805DC230;
         entity = __nw__7TObjectFUl(0xD0);
         if (entity != 0U) {
-            TPhotonMagicSquare__ct(entity, this, 3, &sp8, 0xD2, lbl_805DC234);
+            TPhotonMagicSquare__ct((u8 *)entity, (s32)this, (s32)(3), (s32)&sp8, (s32)(0xD2), (f32)lbl_805DC234);
         }
     }
     if ((lbl_805DC238 == (f32) *(s32 *)((s8 *)this + 0x1A8)) && ((s16) *(s16 *)((s8 *)this + 0xB8) == 1) && ((s32) *(s32 *)((s8 *)this + 0x1A4) == 1)) {
@@ -189,7 +189,7 @@ void TPhotonPilla::run_task() {
         ((TPhotonPilla *)this)->apply_photon_blast_effects();
     }
     if ((s32) *(s32 *)((s8 *)this + 0x1A4) != 0) {
-        play_persistent_sound(0x4002462F, this, 0, 0, 0);
+        play_persistent_sound(0x4002462F, (s32)this, 0, 0, 0);
     }
 }
 

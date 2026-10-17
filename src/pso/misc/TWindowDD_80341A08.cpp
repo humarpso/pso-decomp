@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/misc/TWindowDD_803488A8.h"
+#include "pso/misc/TWindowSubStatusDisp_8025A9B4.h"
 #include "pso/misc/TWindowDD_80341A08.h"
 #include "pso/misc/TUnk_804CE018.h"
 
@@ -85,12 +87,10 @@ extern const f32 TWindowDD__data_805DFB20;
 extern const float TWindowDD__data_805DFCA8;
 s32 init_window_layout_entries(void *, void *, int);
 extern RecoveredGlobal_80341F9C_TWindowDD__data_804EFC50 TWindowDD__data_804EFC50;
-s16 *mem_alloc(int);
+void *mem_alloc(u32 size);
 s32 get_array_entry__13TUnk_804CE018Fi(void * a0, s32 a1);
 int refresh_status_display__9TWindowDDFv(void *);
-int set_text_entry_string(void *, s32, int);
 Elem_80341FFC *get_element_ptr__9TWindowDDFl(s32);
-s32 TWindowDD__sub_80348B70(s32);
 void mem_free(void *);
 s32 get_array_entry__13TUnk_804CE018Fi(void * a0 = 0, s32 a1 = 0);
 s32 get_field_20__17TWindowSubComCardFv(void);
@@ -229,7 +229,7 @@ void TWindowDD::load_element_list() {
     e = get_element_ptr__9TWindowDDFl(self->x70);
     if (e != NULL) {
         self->count = e->count;
-        self->buf = mem_alloc(self->count * 2);
+        self->buf = (s16 *)mem_alloc(self->count * 2);
         for (i = 0; i < self->count; i++) {
             self->buf[i] = e->data[i];
         }
@@ -244,7 +244,7 @@ void TWindowDD::load_element_list() {
     self->shown = n;
     for (i = 0; i < self->shown; i++) {
         ent = (Entry_80341FFC *)get_array_entry__13TUnk_804CE018Fi(self, i);
-        set_text_entry_string(ent, TWindowDD__sub_80348B70(self->buf[i]), 0xC0);
+        set_text_entry_string((u8 *)ent, TWindowDD__sub_80348B70((s16)self->buf[i]), 0xC0);
         ent->y = i * 20;
         refresh_status_display__9TWindowDDFv(ent);
     }

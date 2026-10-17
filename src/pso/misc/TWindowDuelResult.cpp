@@ -51,15 +51,15 @@ s32 get_window_layout_position(int);
 extern s32 lbl_805D38F0;
 u8 *TWindowDuelResult__ct(u8 *arg0, s16 arg1);
 s32 get_localized_text_entry(int, int);
-u8 *get_player_by_client_id(int);
-s32 TWindowDuelResult__sub_801C19AC(void *);
+void *get_player_by_client_id(s32 i);
+s32 TWindowDuelResult__sub_801C19AC(f32 *arg0);
 u8 *get_array_entry__13TUnk_804CE018Fi(void *, s32);
 void init_window_layout_entries(void *, void *, int);
 void set_text_entry_string(void *, void *, int);
 void set_default_status__17TWindowDuelResultFPvi(void *, int);
 void sub_8024EF40__17TWindowDuelResultFv(Win_8024EF40 *arg0);
 s32 get_shared_text_buffer(s32);
-Entry_8024F094 *TWindowDuelResult__sub_801C257C(void);
+s32 *TWindowDuelResult__sub_801C257C(void);
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 s32 text_builder_append(s32);
 void text_builder_reset(void);
@@ -167,13 +167,13 @@ void sub_8024EF40__17TWindowDuelResultFv(Win_8024EF40 *arg0) {
     set_default_status__17TWindowDuelResultFPvi(a, get_localized_text_entry(0x10, 0));
     c = get_array_entry__13TUnk_804CE018Fi(arg0, 0xF);
     set_default_status__17TWindowDuelResultFPvi(c, get_localized_text_entry(0x10, 5));
-    pl = get_player_by_client_id(arg0->player);
+    pl = (u8 *)get_player_by_client_id(arg0->player);
     if (pl != 0) {
         set_text_entry_string(get_array_entry__13TUnk_804CE018Fi(arg0, 1), pl + 0x85C, 0x20);
-        vals[0] = TWindowDuelResult__sub_801C19AC(pl + 0x75C);
-        vals[1] = TWindowDuelResult__sub_801C19AC(pl + 0x76C);
-        vals[2] = TWindowDuelResult__sub_801C19AC(pl + 0x78C);
-        vals[3] = TWindowDuelResult__sub_801C19AC(pl + 0x77C);
+        vals[0] = TWindowDuelResult__sub_801C19AC((f32 *)(pl + 0x75C));
+        vals[1] = TWindowDuelResult__sub_801C19AC((f32 *)(pl + 0x76C));
+        vals[2] = TWindowDuelResult__sub_801C19AC((f32 *)(pl + 0x78C));
+        vals[3] = TWindowDuelResult__sub_801C19AC((f32 *)(pl + 0x77C));
         for (i = 0; i < 4; i++) {
             a = get_array_entry__13TUnk_804CE018Fi(arg0, i * 3 + 2);
             b = get_array_entry__13TUnk_804CE018Fi(arg0, i * 3 + 4);
@@ -200,20 +200,20 @@ void sub_8024F094__17TWindowDuelResultFv(Win_8024F094 *self) {
     b = get_array_entry__13TUnk_804CE018Fi(self, 0x12);
     set_default_status__17TWindowDuelResultFPvi(b, get_localized_text_entry(0x10, 5));
     none = 1;
-    e = TWindowDuelResult__sub_801C257C();
+    e = (Entry_8024F094 *)TWindowDuelResult__sub_801C257C();
     for (i = 0; i < 4; i++, e++) {
-        p = (e->id == 0xFFFF) ? NULL : get_player_by_client_id(e->id);
+        p = (e->id == 0xFFFF) ? NULL : (u8 *)get_player_by_client_id(e->id);
         if (p != NULL && e->rank != 0) {
             none = 0;
         }
     }
-    e = TWindowDuelResult__sub_801C257C();
+    e = (Entry_8024F094 *)TWindowDuelResult__sub_801C257C();
     for (i = 0; i < 4; i++, e++) {
         a = get_array_entry__13TUnk_804CE018Fi(self, i * 4 + 1);
         b = get_array_entry__13TUnk_804CE018Fi(self, i * 4 + 2);
         c = get_array_entry__13TUnk_804CE018Fi(self, i * 4 + 3);
         d = get_array_entry__13TUnk_804CE018Fi(self, i * 4 + 4);
-        p = (e->id == 0xFFFF) ? NULL : get_player_by_client_id(e->id);
+        p = (e->id == 0xFFFF) ? NULL : (u8 *)get_player_by_client_id(e->id);
         if (p == NULL) {
             *(u16 *)a |= 2;
             *(u16 *)b |= 2;

@@ -51,7 +51,7 @@ extern "C" {
 void TAdVIConfigGC__vt5(void* p);
 void *VIGetDTVStatus(void *);
 void TAdVIConfigGC__vt4(void *arg0);
-u8 *get_player_by_client_id(s32);
+void *get_player_by_client_id(s32 i);
 s32 get_window_layout_position(s32);
 char *strncpy(char *, const char *, u32);
 extern u8 player_names_window_pos[];
@@ -82,7 +82,7 @@ void TAdVIConfigGC::open_player_names_window() {
         ((TWindowSubTradeMain *)(((Cfg_80307D00 *)this)->win))->set_visible();
         ((TWindowSubTradeMain *)(((Cfg_80307D00 *)this)->win))->set_close_flag();
         for (i = 0; i < 4; i++) {
-            p = get_player_by_client_id(i);
+            p = (u8 *)get_player_by_client_id(i);
             if (p != 0) {
                 strncpy(((Cfg_80307D00 *)this)->names[i].s, (char *)(p + 0x85C), 0x17);
                 ((Cfg_80307D00 *)this)->names[i].s[0x17] = 0;

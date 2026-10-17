@@ -30,7 +30,7 @@ struct VObjItemLight_80192060 {
 
 u8 *TObjItemLight__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__dt__13TObjItemLightFv(void *arg0, s16 arg1);
-s32 spawn_particle_effect_with_rotation(void *, void *, s32, s32);
+void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
 s32 construct_world_actor_base();
 void __dl__7TObjectFPv(void *);
 
@@ -84,7 +84,7 @@ u8 *TObjItemLight__ct(u8 *arg0, s32 arg1, s32 arg2) {
     if (*(f32 *)((s8 *)arg0 + 0x90) < lbl_805DBE40) {
         *(f32 *)((s8 *)arg0 + 0x90) = (f32) lbl_805DBE44;
     }
-    ((TObjItemLight *)arg0)->m_94 = spawn_particle_effect_with_rotation(arg0 + 0x38, arg0 + 0x5C, 0x1CA, 0x40);
+    ((TObjItemLight *)arg0)->m_94 = (s32)spawn_particle_effect_with_rotation(arg0 + 0x38, arg0 + 0x5C, 0x1CA, 0x40);
     return arg0;
 }
 

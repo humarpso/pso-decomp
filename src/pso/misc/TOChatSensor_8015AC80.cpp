@@ -28,14 +28,14 @@ extern const f32 lbl_805DB388;
 extern const f32 lbl_805DB38C;
 void *strncpy(void *, void *, s32);
 s32 get_current_floor(void);
-void *__ct__12TQuestThreadFv(void *, void *, u32);
+u8 *__ct__12TQuestThreadFv(u8 *arg0, s32 arg1, s32 arg2);
 s32 find_chat_keyword(void *, void *, void *);
 void *__nw__7TObjectFUl(u32);
 extern void *current_language;
 extern void *quest_mission_manager;
 extern void *tl_00;
 f32 horizontal_distance_squared(void *, void *);
-u32 get_player_by_client_id(void *);
+void *get_player_by_client_id(s32 i);
 
 extern s32 local_client_id;
 
@@ -43,7 +43,7 @@ void TOChatSensor::check_player_proximity() {
     u8 *arg0 = (u8 *)this;
     u32 player;
 
-    player = get_player_by_client_id((void *) (local_client_id));
+    player = (u32)get_player_by_client_id((local_client_id));
     if (player != 0U) {
         if (horizontal_distance_squared((void *) (player + 0x38), (void *) (arg0 + 0x38)) < *(f32 *)&this->unk_9C) {
             *(s32 *)&this->m_a0 = 1;
@@ -88,7 +88,7 @@ void TOChatSensor::handle_chat_message(void *arg1) {
                 if (quest_mission_manager != NULL) {
                     o = __nw__7TObjectFUl(0x194);
                     if (o != NULL) {
-                        o = __ct__12TQuestThreadFv(o, quest_mission_manager, *(u32 *)(arg0 + 0x94));
+                        o = __ct__12TQuestThreadFv((u8 *)o, (s32)quest_mission_manager, *(u32 *)(arg0 + 0x94));
                     }
                     *(void **)(arg0 + 0xC4) = o;
                     if (*(void **)(arg0 + 0xC4) != NULL) {

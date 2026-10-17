@@ -551,8 +551,8 @@ void *create_particle_emitter(void *, s32);
 void noop__17TObjEneMe1CanadinFv(void);
 void advance_state_5_to_4__17TObjEneMe1CanadinFPv(void *arg0);
 void TObjEneMe1Canadin_EffDischarge__ct(void *, void *, void *, void *);
-void *TObjEneMe1Canadin_EffLine__ct(void *, void *, void *, void *);
-void TObjEneEpsilon__sub_800B92F8(void *, s32, f32);
+u8 *TObjEneMe1Canadin_EffLine__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+void TObjEneEpsilon__sub_800B92F8(u8 *arg0, s32 arg1, f32 farg0);
 s32 transition_enemy_state(void *, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 void * __nw__7TObjectFUl(int);
@@ -2025,10 +2025,10 @@ void TBoss3Volopt__sub_800D8D88(s32 arg0);
 s32 trigger_dell_biter_events__10TObjPlayerFv(void *, f32);
 s32 approach_angle_limited(s32, s32, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
-u8 * find_entity_by_id(u16);
+void *find_entity_by_id(u16 id);
 void free_collision_body_parts(void *);
-u32 get_player_by_client_id(u16);
-s32 play_persistent_sound(int, void *, void *, int, int);
+void *get_player_by_client_id(s32 i);
+s32 play_persistent_sound(s32 id, s32 a1, u32 src, s32 a3, s32 flags);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -2673,7 +2673,7 @@ void TObjEneMe1CanadinLeader__vt115(Leader_8009B274 *self, u32 id) {
     if (self->mode == 3) {
         s32 k = get_status_value_f32__23TObjEneMe1CanadinLeaderFv((f32)self->max / (f32)self->info->f2C);
         if (self->count <= self->max - k) {
-            self->f3C0 = ((s32 (*)(u16))find_entity_by_id)(self->f4C8);
+            self->f3C0 = (s32)find_entity_by_id(self->f4C8);
             ((TObjEneMe1CanadinLeader *)(self->f3C0))->set_flag3c8_bit8();
         }
     }
@@ -3118,7 +3118,7 @@ void TObjEneMe1Canadin::vfunc_112(s32 arg1) {
     switch (arg1) {
     case 4:
         if ((s32) *(s32 *)((s8 *)arg0 + 0x3C4) == 1) {
-            *(u8 **)((s8 *)arg0 + 0x3C0) = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x4C8));
+            *(u8 **)((s8 *)arg0 + 0x3C0) = (u8 *)find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x4C8));
             temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x3C0));
             ((VObj_18_0f49f2 *)(temp_r3))->m115(arg0);
         }
@@ -3196,7 +3196,7 @@ void TObjEneMe1Canadin__sub_8009C178(u8 *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x3C8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C8) & 0xFFBFFFFF);
         *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x800);
         if ((s32) *(s32 *)((s8 *)arg0 + 0x3C4) == 1) {
-            *(u8 **)((s8 *)arg0 + 0x3C0) = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x4C8));
+            *(u8 **)((s8 *)arg0 + 0x3C0) = (u8 *)find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x4C8));
             temp_r3 = *(u8 **)((s8 *)arg0 + 0x3C0);
             ((VObj_18_p4 *)(temp_r3))->m115(arg0);
         } else {
@@ -3261,7 +3261,7 @@ void TObjEneMe1Canadin__sub_8009C2EC(u8 *arg0, s32 arg1) {
         } else {
             *(s32 *)((s8 *)arg0 + 0x410) = 0xFF000000;
         }
-        play_persistent_sound(0x4003B71D, arg0, arg0 + 0x2FC, 0, 0);
+        play_persistent_sound((s32)(0x4003B71D), (s32)arg0, (u32)(arg0 + 0x2FC), (s32)(0), (s32)(0));
         ((VObj_18_p4 *)arg0)->m87();
         break;
     }
@@ -3360,7 +3360,7 @@ void TObjEneMe1Canadin::run_task(s32 arg1) {
         ((VObj_8009c7d8 *) arg0)->m93();
         *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x01000000);
         if ((s32) *(s32 *)((s8 *)arg0 + 0x3C4) == 1) {
-            *(s32 *)((s8 *)arg0 + 0x3C0) = ((s32 (*)(int))find_entity_by_id)((int) (*(u16 *)((s8 *)arg0 + 0x4C8)));
+            *(s32 *)((s8 *)arg0 + 0x3C0) = (s32)find_entity_by_id((*(u16 *)((s8 *)arg0 + 0x4C8)));
             ((TObjEneMe1CanadinLeader *)(*(s32 *)((s8 *)arg0 + 0x3C0)))->set_flag3c8_bit8();
         }
         *(s32 *)((s8 *)arg0 + 0x404) = 0;
@@ -3528,7 +3528,7 @@ void TObjEneMe1Canadin__sub_8009D320(void *arg0, s32 arg1) {
             } else {
                 advance_state_5_to_4__17TObjEneMe1CanadinFPv(o);
             }
-            TObjEneEpsilon__sub_800B92F8(o, 0x200, TObjEneMe1Canadin__data_805D98BC);
+            TObjEneEpsilon__sub_800B92F8((u8 *)o, (s32)(0x200), (f32)TObjEneMe1Canadin__data_805D98BC);
             break;
         case 2:
             ((TObjEneDD *)o)->update_velocity();
@@ -3540,7 +3540,7 @@ void TObjEneMe1Canadin__sub_8009D320(void *arg0, s32 arg1) {
                 VecCopy((Vec *)pos, (const Vec *)&o->base);
                 p = __nw__7TObjectFUl(0x48);
                 if (p != 0) {
-                    p = TObjEneMe1Canadin_EffLine__ct(p, o, o->f414, pos);
+                    p = TObjEneMe1Canadin_EffLine__ct((u8 *)p, (s32)o, (s32)o->f414, (s32)pos);
                 }
                 o->f49C = p;
                 play_sound_effect(0x4002B71B, o->snd, 0, 0);
@@ -4035,7 +4035,7 @@ int TObjEneMe1CanadinLeader__sub_8009E36C(void* p) { return (*(u32*)((char*)p + 
 
 void fn_8009E378(void *arg0) {
     if ((s16) *(s16 *)((s8 *)arg0 + 0x326) == 2) {
-        *(s32 *)((s8 *)arg0 + 0x3C0) = ((s32 (*)(u16))find_entity_by_id)(*(u16 *)((s8 *)arg0 + 0x4C8));
+        *(s32 *)((s8 *)arg0 + 0x3C0) = (s32)find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x4C8));
         fn_8009E2DC((u8 *)((void*)((void*)(*(s32 *)((s8 *)arg0 + 0x3C0)))));
     }
 }
@@ -4169,7 +4169,7 @@ s32 TObjEneMe1Canadin::check_target() {
     var_r31 = 0;
     if (*(f32 *)((s8 *)this + 0x3AC) < lbl_805D98E4) {
         var_r31 = 1;
-        *(void **)((s8 *)this + 0x3C0) = ((void * (*)(u16))find_entity_by_id)(*(u16 *)((s8 *)this + 0x4C8));
+        *(void **)((s8 *)this + 0x3C0) = find_entity_by_id(*(u16 *)((s8 *)this + 0x4C8));
         temp_r3 = *(void **)((s8 *)this + 0x3C0);
         if ((((VObj_8009E7C4_8009E474 *)temp_r3)->m114(*(s32 *)((s8 *)this + 0x390)) == 0) && (TObjEneMe1Canadin__sub_8009E860((Canadin_8009E860 *)(this), (f32 *)(&sp8), lbl_805D9920) != 0) && (sp8 > lbl_805D98E4)) {
             var_r31 = 0;
@@ -4188,9 +4188,9 @@ s32 TObjEneMe1Canadin__sub_8009E860(Canadin_8009E860 *self, f32 *out, f32 _w2) {
     *out = lbl_805D98F4;
     count = collect_enemy_target_candidates(self, list);
     for (i = 0; i < count; i++) {
-        id = get_player_by_client_id(list[i].id);
+        id = (u32)get_player_by_client_id(list[i].id);
         if (id != self->owner) {
-            self->target = (Target_8009E860 *)((void * (*)(u16))find_entity_by_id)(self->target_id);
+            self->target = (Target_8009E860 *)find_entity_by_id(self->target_id);
             if (self->target->m114(id) != 0) {
                 *out = newton_sqrtf(list[i].dist);
                 found = 1;
@@ -4359,7 +4359,7 @@ void TObjEneMe1Canadin::run_task() {
         this->update_if_ready();
         return;
     }
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x3C4) == 1) && ((*(u8 **)((s8 *)arg0 + 0x3C0) = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x4C8)), temp_r3 = *(u8 **)((s8 *)arg0 + 0x3C0), ((temp_r3 == NULL) != 0)) || (((TObject *)temp_r3)->all_parents_unqueued_for_destruction() == 0))) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x3C4) == 1) && ((*(u8 **)((s8 *)arg0 + 0x3C0) = (u8 *)find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x4C8)), temp_r3 = *(u8 **)((s8 *)arg0 + 0x3C0), ((temp_r3 == NULL) != 0)) || (((TObject *)temp_r3)->all_parents_unqueued_for_destruction() == 0))) {
         ((void (*)(void *))queue_destruction__7TObjectFv)(arg0);
         return;
     }

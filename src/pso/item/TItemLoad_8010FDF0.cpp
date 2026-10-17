@@ -30,13 +30,13 @@ struct Sp8Buf_8010fe6c_8010FDF0 {
 s32 apply_rel_relocations(s32 *);
 s32 read_disc_file(u32, s32);
 s32 read_checked_align__6TLobbyFlll(s32, s32, s32, void *);
-int mem_alloc(void*);
+void *mem_alloc(u32 size);
 s32 prs_decompress_alloc(s32, u32, s32);
 void mem_free(void *p);
 
     extern int item_load_compressed_work_buffer;
     extern int item_load_work_buffer_busy;
-void TItemLoad::alloc_work_buffer() { item_load_compressed_work_buffer = mem_alloc((void*)((void*)24576)); item_load_work_buffer_busy = 0; }
+void TItemLoad::alloc_work_buffer() { item_load_compressed_work_buffer = (int)mem_alloc((u32)((void*)24576)); item_load_work_buffer_busy = 0; }
 
 s32 *__dt__9TItemLoadFPvs(s32 *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -56,7 +56,7 @@ void *TItemLoad::load_buffer(u32 arg1, s32 arg2) {
     *(u32 *)&this->m_name = 0U;
     *(s32 *)&this->m_flags = 0;
     if ((arg2 != 0) && (arg1 != 0U)) {
-        *(u32 *)&this->m_name = mem_alloc((void*)(arg2));
+        *(u32 *)&this->m_name = (u32)mem_alloc((arg2));
         item_buff = create_item_buff(arg2);
         if ((item_buff != 0) && ((u32) *(u32 *)&this->m_name != 0U) && (read_disc_file(arg1, item_buff) > 0)) {
             temp_r31 = prs_decompress_alloc(item_buff, *(u32 *)&this->m_name, arg2);

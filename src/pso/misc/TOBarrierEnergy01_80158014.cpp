@@ -52,7 +52,7 @@ extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-int mem_alloc(void *);
+void *mem_alloc(u32 size);
 extern RecoveredGlobal_80158078_lbl_80440200 lbl_80440200;
 extern RecoveredGlobal_80158078_lbl_804AFB24 bm_fs_obj_lazerguard_resource_descriptor;
 extern u32 barrier_energy_shared_bml_archive;
@@ -97,7 +97,7 @@ void TOBarrierEnergy01::load_resources() {
     }
     (*(u8 * *)&barrier_energy_shared_bml_archive) = (unsigned char *) ((void *) var_r0);
     barrier_energy_model = get_bml_model((void *) var_r0, 0);
-    (*(s32 *)&TOBarrierEnergy01__texture_lists) = mem_alloc((void *)0xC);
+    (*(s32 *)&TOBarrierEnergy01__texture_lists) = (s32)mem_alloc((u32)((void *)0xC));
     *(u8 **)((s8 *)(*(s32 *)&TOBarrierEnergy01__texture_lists) + 0) = load_gvm_texture_file((s32) &lbl_80440200.value);
     *(s32 *)((s8 *)(*(s32 *)&TOBarrierEnergy01__texture_lists) + 4) = TObjFish__sub_8001EDB0((*(u8 * *)&barrier_energy_shared_bml_archive), 1);
     *(s32 *)((s8 *)(*(s32 *)&TOBarrierEnergy01__texture_lists) + 8) = TObjFish__sub_8001EDB0((*(u8 * *)&barrier_energy_shared_bml_archive), 0);
