@@ -146,8 +146,8 @@ extern s32 __vt__14TAdYesNoBaseGC[];
 void *__dt__14TAdYesNoBaseGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TAdYesNoBaseGC;
-        if (*(void **)((s8 *)arg0 + 0x40) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x40)); *(s32 *)&((TAdYesNoBaseGC *)arg0)->m_40 = 0; }
-        if (*(void **)((s8 *)arg0 + 0x44) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x44)); *(s32 *)&((TAdYesNoBaseGC *)arg0)->m_44 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x40) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x40)); ((TAdYesNoBaseGC *)arg0)->m_40 = 0; }
+        if (*(void **)((s8 *)arg0 + 0x44) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x44)); ((TAdYesNoBaseGC *)arg0)->m_44 = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

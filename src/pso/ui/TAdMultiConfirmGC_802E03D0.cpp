@@ -243,13 +243,13 @@ u8 *__dt__13TUnk_804E3008Fv(u8 *arg0, s16 arg1) {
             mem_free((void *)temp_r3);
             *(u32 *)((s8 *)arg0 + 0xE0) = 0U;
         }
-        temp_r3_2 = *(u32 *)&((TUnk_804E3008 *)arg0)->m_170;
+        temp_r3_2 = ((TUnk_804E3008 *)arg0)->m_170;
         if (temp_r3_2 != 0U) {
             free_chcr_resources((u8 *)temp_r3_2, 1);
-            *(u32 *)&((TUnk_804E3008 *)arg0)->m_170 = 0U;
+            ((TUnk_804E3008 *)arg0)->m_170 = 0U;
             temp_r3_3 = (u32) get_index__14TAdPlyStatusGCFv();
             if (temp_r3_3 != 0U) {
-                TAdPlyStatusGC::set_status_param((int)temp_r3_3, (int)((void *) (*(u32 *)&((TUnk_804E3008 *)arg0)->m_170)));
+                TAdPlyStatusGC::set_status_param((int)temp_r3_3, (int)((void *) (((TUnk_804E3008 *)arg0)->m_170)));
             }
         }
         __dt__10TObjMotionFv((arg0), 0);

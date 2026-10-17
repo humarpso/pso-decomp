@@ -529,18 +529,18 @@ u8 *TObjEneDelDepthBomb__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     construct_actor_base__10TObjPlayerFPvPv(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_803135B4___vt__19TObjEneDelDepthBomb *)&__vt__19TObjEneDelDepthBomb).value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneDelDepthBomb__name;
-    *(s32 *)&((TObjEneDelDepthBomb *)arg0)->m_348 = arg2;
-    ((TObjEneDelDepthBomb *)arg0)->rotation_y = (s32) *(s32 *)((s8 *)(*(u8 * *)&((TObjEneDelDepthBomb *)arg0)->m_up) + 0x60);
+    ((TObjEneDelDepthBomb *)arg0)->m_348 = arg2;
+    ((TObjEneDelDepthBomb *)arg0)->rotation_y = (s32) *(s32 *)((s8 *)(((TObjEneDelDepthBomb *)arg0)->m_up) + 0x60);
     VecCopy((Vec *)(arg0 + 0x38), (const Vec *)(arg3));
     temp_f30 = ((f32 (*)(int))sin_table_lookup)((int) (((TObjEneDelDepthBomb *)arg0)->rotation_y));
     temp_f31 = ((f32 (*)(int))cos_table_lookup)((int) (((TObjEneDelDepthBomb *)arg0)->rotation_y));
-    *(f32 *)((s8 *)arg0 + 0x354) = ((TObjEneDelDepthBomb *)(*(u8 * *)&((TObjEneDelDepthBomb *)arg0)->m_up))->get_depth_radius();
+    *(f32 *)((s8 *)arg0 + 0x354) = ((TObjEneDelDepthBomb *)(((TObjEneDelDepthBomb *)arg0)->m_up))->get_depth_radius();
     *(f32 *)((s8 *)arg0 + 0x334) = (f32) (*(f32 *)((s8 *)arg0 + 0x354) * temp_f30);
     *(f32 *)((s8 *)arg0 + 0x338) = 0.0f;
     ((TObjEneDelDepthBomb *)arg0)->m_33c = (f32) (*(f32 *)((s8 *)arg0 + 0x354) * temp_f31);
-    *(s32 *)&((TObjEneDelDepthBomb *)arg0)->m_350 = arg4;
+    ((TObjEneDelDepthBomb *)arg0)->m_350 = arg4;
     ((TObjEneDelDepthBomb *)arg0)->m_344 = 0.0f;
-    *(s32 *)&((TObjEneDelDepthBomb *)arg0)->m_34c = 0;
+    ((TObjEneDelDepthBomb *)arg0)->m_34c = 0;
     return arg0;
 }
 
@@ -553,13 +553,13 @@ void TObjEneDelDepth::update_ground_check() {
         stack.spC += TObjEneDelDepth__data_805DF270;
         temp_r3 = (u8 *)(csnVectorUnder((s32) &stack.sp8, (u8 *)&this->m_120, 0x4000));
         if (temp_r3 != NULL) {
-            *(s32 *)&this->m_3e0 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 4)) + 0x18);
+            this->m_3e0 = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 4)) + 0x18);
             VecCopy((Vec *)(arg0 + 0x3E4), (const Vec *)(*(u8 **)((s8 *)temp_r3 + 4)));
         } else {
             VecCopy((Vec *)(arg0 + 0x3E4), (const Vec *)(arg0 + 0x38));
         }
     }
-    if (*(s32 *)&this->m_3e0 & 0x4000) {
+    if (this->m_3e0 & 0x4000) {
         TObjEneRecon::set_active();
     }
 }
@@ -667,12 +667,12 @@ void TObjEneDelDepth::init_move() {
     *(f32 *)((s8 *)this + 0x3A0) = (f32) TObjEneDelDepth__data_805DF260;
     refresh_lobby_state__10TObjPlayerFv();
     *(s32 *)((s8 *)this + 0x378) = 0;
-    if (((TObjEneDelDepth *)(*(s32 *)&this->m_37c))->get_type() < 6) {
+    if (((TObjEneDelDepth *)(this->m_37c))->get_type() < 6) {
         this->m_384 = 0x22;
-        set_motion__15TObjEneDelDepthFl((void*)(*(s32 *)&this->m_37c), (void*)(5));
+        set_motion__15TObjEneDelDepthFl((void*)(this->m_37c), (void*)(5));
     } else {
         this->m_384 = 0x20;
-        set_motion__15TObjEneDelDepthFl((void*)(*(s32 *)&this->m_37c), (void*)(9));
+        set_motion__15TObjEneDelDepthFl((void*)(this->m_37c), (void*)(9));
     }
     ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)(this, (void*)(0));
 }
@@ -682,8 +682,8 @@ void TObjEneDelDepth::update_ai_state() {
     s32 sp8;
     s32 temp_r0;
 
-    if (((TObjEneDelDepth *)(*(s32 *)&this->m_37c))->get_type() < 6) {
-        if (*(s32 *)&this->animationFlags & 0x10) {
+    if (((TObjEneDelDepth *)(this->m_37c))->get_type() < 6) {
+        if (this->animationFlags & 0x10) {
             ((TObjEneDelDepth *)arg0)->set_action_state(5);
         }
     } else {
@@ -701,22 +701,22 @@ void TObjEneDelDepth::update_ai_state() {
 }
 
 void TObjEneDelDepth::start_attack_motion() {
-    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFBFBFFFF);
+    this->actorFlags = (s32) (this->actorFlags & 0xFBFBFFFF);
     this->m_3a8 = (f32) TObjEneDelDepth__data_805DF260;
     *(f32 *)((s8 *)((u8 *)this) + 0x3A4) = (f32) TObjEneDelDepth__data_805DF260;
     *(f32 *)((s8 *)((u8 *)this) + 0x3A0) = (f32) TObjEneDelDepth__data_805DF260;
     play_sound_effect(0x4003A321, (void *) (((u8 *)this) + 0x38), 0, 0);
-    if (((TObjEneDelDepth *)(*(s32 *)&this->m_37c))->get_type() < 6) {
-        set_motion__15TObjEneDelDepthFl((void*)((int) (*(s32 *)&this->m_37c)), (void*)(4));
+    if (((TObjEneDelDepth *)(this->m_37c))->get_type() < 6) {
+        set_motion__15TObjEneDelDepthFl((void*)((int) (this->m_37c)), (void*)(4));
     } else {
         this->m_384 = 0x10;
-        set_motion__15TObjEneDelDepthFl((void*)((int) (*(s32 *)&this->m_37c)), (void*)(8));
+        set_motion__15TObjEneDelDepthFl((void*)((int) (this->m_37c)), (void*)(8));
     }
     ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)((void*)(this), (void*)(0));
 }
 
 void TObjEneDelDepth::update_state_flag() {
-    if (*(s32 *)&this->animationFlags & 0x10) {
+    if (this->animationFlags & 0x10) {
         if (((s32 (*)(void))get_flag_bit4__15TObjEneDelDepthFv)() != 0) {
             set_action_state(7);
             return;
@@ -726,12 +726,12 @@ void TObjEneDelDepth::update_state_flag() {
 }
 
 void TObjEneDelDepth::init_state() {
-    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFBFBFFFF);
+    this->actorFlags = (s32) (this->actorFlags & 0xFBFBFFFF);
     this->m_3a8 = (f32) TObjEneDelDepth__data_805DF260;
     *(f32 *)((s8 *)this + 0x3A4) = (f32) TObjEneDelDepth__data_805DF260;
     *(f32 *)((s8 *)this + 0x3A0) = (f32) TObjEneDelDepth__data_805DF260;
     *(s32 *)((s8 *)this + 0x388) = 0;
-    ((s32 (*)(s32, s32))set_motion__15TObjEneDelDepthFl)(*(s32 *)&this->m_37c, 3);
+    ((s32 (*)(s32, s32))set_motion__15TObjEneDelDepthFl)(this->m_37c, 3);
     ((s32 (*)(void *, s32))set_draw_mode__15TObjEneDelDepthFPvi)(this, 2);
 }
 
@@ -797,7 +797,7 @@ void TObjEneDelDepth::update_bomb_drop() {
     }
 }
 
-void TObjEneDelDepth::init_draw_state() { *(int *)&this->m_384 = 30; *(int*)((char*)this + 0x388) = 8; set_motion__15TObjEneDelDepthFl((void*)(*(void**)((char*)this + 0x37c)), (void*)((void*)2)); ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)(this, (void*)((void*)2)); }
+void TObjEneDelDepth::init_draw_state() { this->m_384 = 30; *(int*)((char*)this + 0x388) = 8; set_motion__15TObjEneDelDepthFl((void*)(*(void**)((char*)this + 0x37c)), (void*)((void*)2)); ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)(this, (void*)((void*)2)); }
 
 void move_toward_target__15TObjEneDelDepthFPv(u8 *arg0) {
     Vec_80313FAC v;
@@ -865,7 +865,7 @@ void TObjEneDelDepth::init_depth() {
     if (calc_boss4_scale__10TObjPlayerFi(this) > TObjEneDelDepth__data_805DF298) {
         this->m_3bc = this->m_3bc * 0xFFFFFFFF;
     }
-    set_motion__15TObjEneDelDepthFl((void*)(*(s32 *)&this->m_37c), (void*)(0));
+    set_motion__15TObjEneDelDepthFl((void*)(this->m_37c), (void*)(0));
     ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)(this, (void*)(2));
 }
 
@@ -930,24 +930,24 @@ void TObjEneDelDepth__sub_80314500(u8 *actor) {
 
 void TObjEneDelDepth::try_enter_appear() {
     u8 *arg0 = (u8 *)this;
-    if (((TObjEneDelDepth *)(*(s32 *)&this->m_37c))->is_state_complete() == 1) {
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x04000000);
+    if (((TObjEneDelDepth *)(this->m_37c))->is_state_complete() == 1) {
+        this->actorFlags = (s32) (this->actorFlags | 0x04000000);
         ((TObjEneDelDepth *)arg0)->set_action_state(3);
         play_sound_effect(0x4003A822, (u8 *)&this->position, 0, 0);
     }
 }
 
 void TObjEneDelDepth::enter_appear_state() {
-    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x04000000);
+    this->actorFlags = (s32) (this->actorFlags | 0x04000000);
     *(s32 *)((s8 *)((u8 *)this) + 0x388) = 0x14;
     play_sound_effect(0x4003A820, (void *) (((u8 *)this) + 0x38), 0, 0);
-    set_motion__15TObjEneDelDepthFl((void*)((int) (*(s32 *)&this->m_37c)), (void*)(0xB));
+    set_motion__15TObjEneDelDepthFl((void*)((int) (this->m_37c)), (void*)(0xB));
     ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)((void*)(this), (void*)(1));
 }
 
 void TObjEneDelDepth::update_state() {
-    if (((TObjEneDelDepth *)(*(s32 *)&this->m_37c))->is_state_complete() == 1) {
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFBFFFFFF);
+    if (((TObjEneDelDepth *)(this->m_37c))->is_state_complete() == 1) {
+        this->actorFlags = (s32) (this->actorFlags & 0xFBFFFFFF);
         if (get_flag_bit4__15TObjEneDelDepthFv(this) != 0) {
             set_action_state(7);
             return;
@@ -958,9 +958,9 @@ void TObjEneDelDepth::update_state() {
 
 void TObjEneDelDepth::enter_state8() {
     u8 *arg0 = (u8 *)this;
-    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags | 0x04000000);
+    this->actorFlags = (s32) (this->actorFlags | 0x04000000);
     *(s32 *)((s8 *)arg0 + 0x388) = 8;
-    set_motion__15TObjEneDelDepthFl((void*)((int) (*(s32 *)&this->m_37c)), (void*)(0xA));
+    set_motion__15TObjEneDelDepthFl((void*)((int) (this->m_37c)), (void*)(0xA));
     play_sound_effect(0x4003A820, (u8 *)&this->position, 0, 0);
     ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)(arg0, (void*)(1));
 }
@@ -1141,7 +1141,7 @@ void TObjEneDelDepth::update_scale_pulse() {
 }
 #pragma pop
 
-void TObjEneDelDepth::init_draw_mode_and_motion() { *(float *)&this->m_38c = TObjEneDelDepth__data_805DF260; *(float*)((char*)this + 0x39c) = TObjEneDelDepth__data_805DF258; ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)(this, (void*)(0)); set_motion__15TObjEneDelDepthFl((void*)((void*)(*(int *)&this->m_37c)), (void*)((void*)0x6)); }
+void TObjEneDelDepth::init_draw_mode_and_motion() { this->m_38c = TObjEneDelDepth__data_805DF260; *(float*)((char*)this + 0x39c) = TObjEneDelDepth__data_805DF258; ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)(this, (void*)(0)); set_motion__15TObjEneDelDepthFl((void*)((void*)(this->m_37c)), (void*)((void*)0x6)); }
 
 #pragma push
 #pragma fp_contract on
@@ -1186,7 +1186,7 @@ void TObjEneDelDepth__sub_80314EC4(u8 *arg0) {
 void TObjEneDelDepth::init_draw_params() {
     u8 *arg0 = (u8 *)this;
     ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)(arg0, (void*)(0));
-    *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFBFBFFFF);
+    this->actorFlags = (s32) (this->actorFlags & 0xFBFBFFFF);
     this->m_38c = (f32) (*(const f32 *)&TObjEneDelDepth__data_805DF258);
     *(f32 *)((s8 *)arg0 + 0x39C) = (f32) TObjEneDelDepth__data_805DF278;
 }
@@ -1215,22 +1215,22 @@ void TObjEneDelDepth::try_relocate_on_timer() {
     }
 }
 
-void TObjEneDelDepth::init_params() { TObjEneDelDepth__sub_80315380((Obj_80315380 *)(this)); *(float*)((char*)this + 0x39c) = TObjEneDelDepth__data_805DF278; *(float *)&this->m_3a8 = TObjEneDelDepth__data_805DF258; *(float*)((char*)this + 0x3a4) = TObjEneDelDepth__data_805DF258; *(float*)((char*)this + 0x3a0) = TObjEneDelDepth__data_805DF258; *(float *)&this->m_398 = TObjEneDelDepth__data_805DF258; *(int*)((char*)this + 0x3c0) = 0; set_motion__15TObjEneDelDepthFl((void*)(*(int *)&this->m_37c), (void*)6); set_draw_mode__15TObjEneDelDepthFPvi(this, (s32)((void*)0)); *(int *)&this->actorFlags = (*(int *)&this->actorFlags | 0x4040000); TObjEneDelDepth::set_default_depth_offset(this); }
+void TObjEneDelDepth::init_params() { TObjEneDelDepth__sub_80315380((Obj_80315380 *)(this)); *(float*)((char*)this + 0x39c) = TObjEneDelDepth__data_805DF278; this->m_3a8 = TObjEneDelDepth__data_805DF258; *(float*)((char*)this + 0x3a4) = TObjEneDelDepth__data_805DF258; *(float*)((char*)this + 0x3a0) = TObjEneDelDepth__data_805DF258; this->m_398 = TObjEneDelDepth__data_805DF258; *(int*)((char*)this + 0x3c0) = 0; set_motion__15TObjEneDelDepthFl((void*)(this->m_37c), (void*)6); set_draw_mode__15TObjEneDelDepthFPvi(this, (s32)((void*)0)); this->actorFlags = (this->actorFlags | 0x4040000); TObjEneDelDepth::set_default_depth_offset(this); }
 
 int TObjEneDelDepth::set_default_depth_offset(void* p) { return ((int (*)(void*, int, int))set_depth_offset__15TObjEneDelDepthFPvii)(p, 15, 15); }
 
 void TObjEneDelDepth::vfunc_61() {
     u8 *arg0 = (u8 *)this;
-    if ((s32) *(s32 *)&this->m_374 != 0xB) {
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFFFEFF);
+    if ((s32) this->m_374 != 0xB) {
+        this->actorFlags = (s32) (this->actorFlags & 0xFFFFFEFF);
         ((TObjEneDelDepth *)arg0)->set_action_state((s32)((void*)(0xB)));
     }
 }
 
 void TObjEneDelDepth::vfunc_62() {
     u8 *arg0 = (u8 *)this;
-    if ((s32) *(s32 *)&this->m_374 != 0xC) {
-        *(s32 *)&this->actorFlags = (s32) (*(s32 *)&this->actorFlags & 0xFFFFFDFF);
+    if ((s32) this->m_374 != 0xC) {
+        this->actorFlags = (s32) (this->actorFlags & 0xFFFFFDFF);
         ((TObjEneDelDepth *)arg0)->set_action_state((s32)((void*)(0xC)));
     }
 }
@@ -1239,7 +1239,7 @@ void TObjEneDelDepth::vfunc_63() { if (*(int *)&this->m_374 != 13) { set_action_
 
 void TObjEneDelDepth::sub_803152A0() {
     u8 *temp_r3;
-    if ((s32) *(s32 *)&this->m_3f0 == 0) {
+    if ((s32) this->m_3f0 == 0) {
         temp_r3 = *(u8 **)((s8 *)((u8 *)this) + 0x380);
         *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) & 0xFFFFFFFE);
     }
@@ -1397,8 +1397,8 @@ void *__dt__15TObjEneDelDepthFv(void *arg0, s16 arg1) {
         *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjEneDelDepth;
         free_collision_body_parts(arg0);
         *(s32 *)((s8 *)arg0 + 0x380) = 0;
-        TObjEneDelDepth::conditional_delete(*(s32 *)&((TObjEneDelDepth *)arg0)->m_37c, 1);
-        *(s32 *)&((TObjEneDelDepth *)arg0)->m_37c = 0;
+        TObjEneDelDepth::conditional_delete(((TObjEneDelDepth *)arg0)->m_37c, 1);
+        ((TObjEneDelDepth *)arg0)->m_37c = 0;
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
             ((s32 (*)(void *))__dl__7TObjectFPv)(arg0);
@@ -1445,9 +1445,9 @@ void TObjEneDelDepth::init() {
     if (var_r0 != 0) {
         var_r0 = fn_80316680(var_r0, arg0);
     }
-    *(s32 *)&this->m_37c = var_r0;
+    this->m_37c = var_r0;
     this->m_3c4 = 0xFFFF;
-    *(s32 *)&this->m_3e0 = 0;
+    this->m_3e0 = 0;
     VecCopy((Vec *)(arg0 + 0x3E4), (const Vec *)(arg0 + 0x38));
     this->clear_lobby_object_state();
 }

@@ -1040,9 +1040,9 @@ extern "C" {
 
 void TObjEneNanoDrago::vfunc_63() {
     ((TObjEneMe1GiGue *)((u8 *)this))->set_state(5);
-    *(s32 *)&this->m_380 = (s32) *(s32 *)&this->m_378;
-    *(s32 *)&this->m_378 = 5;
-    *(s32 *)&this->m_388 = (s32) (*(s32 *)&this->m_388 | 1);
+    this->m_380 = (s32) this->m_378;
+    this->m_378 = 5;
+    this->m_388 = (s32) (this->m_388 | 1);
 }
 
 void sub_800DB970__16TObjEneNanoDragoFv(u8 *arg0);

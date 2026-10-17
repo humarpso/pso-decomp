@@ -140,7 +140,7 @@ void TTecGiZonde::vfunc_8(void *arg1_arg) {
     Elec_80238E14 d;
     d.type = 3;
     d.val = this->power;
-    ((VObj_18_9c98dd *)(arg1))->m21(*(s32 *)&this->source, d, 0, 0x7, -1);
+    ((VObj_18_9c98dd *)(arg1))->m21(this->source, d, 0, 0x7, -1);
 }
 #pragma push
 #pragma opt_loop_invariants off

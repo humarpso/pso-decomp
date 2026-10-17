@@ -603,8 +603,8 @@ void TItemEquipBase::add_equip_stats(s32 arg1) {
     u8 *arg0 = (u8 *)this;
     if (*(void **)((s8 *)arg0 + 0xF0) != NULL) {
         ((TItem *)arg0)->copy_to_item_data(&item);
-        ((TItemData *)(&item))->apply_equip_effects((s32)(*(s32 *)&this->m_f0), (s32)((s32)(arg0 + 0x11C)), (s32)((s32)(arg0 + 0x14C)), (s32)(arg0 + 0xF8), (s32)(arg0 + 0x16C));
-        t = TItemData__sub_8010B810(*(s32 *)&this->m_f0);
+        ((TItemData *)(&item))->apply_equip_effects((s32)(this->m_f0), (s32)((s32)(arg0 + 0x11C)), (s32)((s32)(arg0 + 0x14C)), (s32)(arg0 + 0xF8), (s32)(arg0 + 0x16C));
+        t = TItemData__sub_8010B810(this->m_f0);
         if (t != 0) {
             TItemData::add_s16((s16 *)t, (s32)(get_attack_params_atp_min(arg0 + 0x11C)));
             ((TItemData *)t)->add_stat(get_attack_params_atp_max(arg0 + 0x11C));
