@@ -11,10 +11,10 @@ void *__nw__7TObjectFUl(int);
 void TChCrEffTag::set_eff_tag(int a0) { TChCrEffTag__selected_heading = a0; }
 }
 
-void *create_TChCrEffTag(void *arg0) {
+void *create_TChCrEffTag(void *ch_cr_eff_tag) {
     void *o = __nw__7TObjectFUl(0x2C);
     if (o != NULL) {
-        o = __ct__11TChCrEffTagFv(o, arg0);
+        o = __ct__11TChCrEffTagFv(o, ch_cr_eff_tag);
     }
     return o;
 }

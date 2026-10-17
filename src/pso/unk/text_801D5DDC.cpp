@@ -188,13 +188,13 @@ s16 obj_getField1c(u32);
 
 struct Sp801D6230_801d6230 { s16 f0; s16 fA; s16 fC; };
 
-void draw_party_label__15TFontSmallLobbyFiUis(s32 arg0, u32 arg1, s16 arg2) {
+void draw_party_label__15TFontSmallLobbyFiUis(s32 font_small_lobby, u32 arg1, s16 arg2) {
     Sp801D6230_801d6230 sp8;
 
     set_flag_40_bit5__15TFontSmallLobbyFv();
-    subtract_photon_blast_charge((TFontSmallLobby *)((u8 *)arg0), lbl_805DC3D8);
-    ((TFontSmallLobby *)(arg0 + 0x4C))->set_target_index(8);
-    TFontSmallLobby__sub_801D671C((void *)(arg0 + 0x4C), 1);
+    subtract_photon_blast_charge((TFontSmallLobby *)((u8 *)font_small_lobby), lbl_805DC3D8);
+    ((TFontSmallLobby *)(font_small_lobby + 0x4C))->set_target_index(8);
+    TFontSmallLobby__sub_801D671C((void *)(font_small_lobby + 0x4C), 1);
     create_party_effect__11TWindowCtrlFPvPv(obj_getField1c(arg1), arg2);
     if ((arg1 == 0U) || (((s32 (*)(u32)) obj_isState2_324__13TUnk_804806E8Fv)(arg1) == 0)) {
         TFontSmallLobby__sub_801D698C((void *) &sp8);

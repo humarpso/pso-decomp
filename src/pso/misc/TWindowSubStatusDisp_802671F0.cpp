@@ -634,13 +634,13 @@ void TUnk_804D0618::update_scroll_offset() {
   }
 }
 
-void TUnk_804D0618::draw_selected_list_entry(s32 arg1) {
+void TUnk_804D0618::draw_selected_list_entry(s32 window_key_board_soft) {
     u16 *temp_r3;
 
     if (!(this->m_70 & 0x80)) {
         temp_r3 = ((u16 *(*)(void *, s16))get_array_entry__13TUnk_804CE018Fi)(this, (s16)(*(s16 *)&this->unk_74));
         if (*temp_r3 & 1) {
-            draw_selection_bar((u8 *)arg1, (u8 *)temp_r3, get_status_flag__13TUnk_804D0618Fv(this));
+            draw_selection_bar((u8 *)window_key_board_soft, (u8 *)temp_r3, get_status_flag__13TUnk_804D0618Fv(this));
         }
     }
 }

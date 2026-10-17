@@ -135,83 +135,83 @@ extern s32 boss8_dragon_attack_object_vtable[];
 u8 *__dt__12TBoss8DragonFv(u8 *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 
-void TBoss8Dragon__sub_80359A7C(u8 *arg0) {
+void TBoss8Dragon__sub_80359A7C(u8 *boss8_dragon) {
     s16 temp_r0;
     s32 temp_r0_2;
     s32 temp_r30;
     s32 temp_r30_2;
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((VObj_18 *)(arg0))->m103();
+        ((VObj_18 *)(boss8_dragon))->m103();
         return;
     }
-    if (*(s32 *)((s8 *)arg0 + 0x3C0) & 8) {
-        ((TObjEnemy *)arg0)->send_entity_set_flags();
-        queue_destruction__7TObjectFv((arg0));
+    if (*(s32 *)((s8 *)boss8_dragon + 0x3C0) & 8) {
+        ((TObjEnemy *)boss8_dragon)->send_entity_set_flags();
+        queue_destruction__7TObjectFv((boss8_dragon));
         return;
     }
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x74C) != 0) {
-        ((TBoss8Dragon *)arg0)->freeze_player_at_self();
-        *(s32 *)((s8 *)arg0 + 0x754) = (s32) (*(s32 *)((s8 *)arg0 + 0x754) + 1);
-    } else if ((is_main_phase_15__9TObjEneDDFv() != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x6D4) == 0)) {
-        temp_r30 = *(s32 *)((s8 *)arg0 + 0x3E0);
-        if (((TObjEneDD *)arg0)->update_lobby_state() != 0) {
-            *(s32 *)((s8 *)arg0 + 0x3E0) = 0;
-            if ((s32) *(s32 *)((s8 *)arg0 + 0x3E0) != temp_r30) {
-                *(s32 *)((s8 *)arg0 + 0x8A0) = 1;
+    if ((s32) *(s32 *)((s8 *)boss8_dragon + 0x74C) != 0) {
+        ((TBoss8Dragon *)boss8_dragon)->freeze_player_at_self();
+        *(s32 *)((s8 *)boss8_dragon + 0x754) = (s32) (*(s32 *)((s8 *)boss8_dragon + 0x754) + 1);
+    } else if ((is_main_phase_15__9TObjEneDDFv() != 0) && ((s32) *(s32 *)((s8 *)boss8_dragon + 0x6D4) == 0)) {
+        temp_r30 = *(s32 *)((s8 *)boss8_dragon + 0x3E0);
+        if (((TObjEneDD *)boss8_dragon)->update_lobby_state() != 0) {
+            *(s32 *)((s8 *)boss8_dragon + 0x3E0) = 0;
+            if ((s32) *(s32 *)((s8 *)boss8_dragon + 0x3E0) != temp_r30) {
+                *(s32 *)((s8 *)boss8_dragon + 0x8A0) = 1;
             }
         } else {
-            *(s32 *)((s8 *)arg0 + 0x3E0) = 1;
+            *(s32 *)((s8 *)boss8_dragon + 0x3E0) = 1;
         }
     }
     temp_r30_2 = query_teammate_state__9TObjEneDDFv();
-    ((VObj_18 *)(arg0))->m39();
-    ((VObj_18 *)(arg0))->m40();
+    ((VObj_18 *)(boss8_dragon))->m39();
+    ((VObj_18 *)(boss8_dragon))->m40();
     if (temp_r30_2 == 0) {
-        temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
+        temp_r0 = *(s16 *)((s8 *)boss8_dragon + 0x326);
         if ((temp_r0 == 0x15) || (temp_r0 == 0x17)) {
-            *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x800);
+            *(s32 *)((s8 *)boss8_dragon + 0x30) = (s32) (*(s32 *)((s8 *)boss8_dragon + 0x30) | 0x800);
         } else {
-            *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFFF7FF);
+            *(s32 *)((s8 *)boss8_dragon + 0x30) = (s32) (*(s32 *)((s8 *)boss8_dragon + 0x30) & 0xFFFFF7FF);
         }
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x74C) != 0) {
-            if ((s32) *(u16 *)((s8 *)arg0 + 0x750) == (s32) local_client_id) {
+        if ((s32) *(s32 *)((s8 *)boss8_dragon + 0x74C) != 0) {
+            if ((s32) *(u16 *)((s8 *)boss8_dragon + 0x750) == (s32) local_client_id) {
                 if ((s32) TBoss8Dragon__data_805D69B8 == 0) {
-                    release_grabbed_player__12TBoss8DragonFPv((TBoss8Dragon *)(arg0));
+                    release_grabbed_player__12TBoss8DragonFPv((TBoss8Dragon *)(boss8_dragon));
                 } else {
-                    ((TBoss8Dragon *)arg0)->check_death();
+                    ((TBoss8Dragon *)boss8_dragon)->check_death();
                 }
-                ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 8);
-                ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
+                ((VObj_18 *)(boss8_dragon))->m85(*(s16 *)((s8 *)boss8_dragon + 0x326), 8);
+                ((VObj_18 *)(boss8_dragon))->m85(*(s16 *)((s8 *)boss8_dragon + 0x326), 0);
             } else {
                 if ((s32) TBoss8Dragon__data_805D69B8 == 0) {
-                    release_grabbed_player__12TBoss8DragonFPv((TBoss8Dragon *)(arg0));
+                    release_grabbed_player__12TBoss8DragonFPv((TBoss8Dragon *)(boss8_dragon));
                 }
-                ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
+                ((VObj_18 *)(boss8_dragon))->m85(*(s16 *)((s8 *)boss8_dragon + 0x326), 0);
             }
         } else {
-            temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x3E0);
+            temp_r0_2 = *(s32 *)((s8 *)boss8_dragon + 0x3E0);
             if (temp_r0_2 != 1) {
                 if (temp_r0_2 == 2) {
-                    ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 2);
+                    ((VObj_18 *)(boss8_dragon))->m85(*(s16 *)((s8 *)boss8_dragon + 0x326), 2);
                 } else {
-                    ((TBoss8Dragon *)arg0)->select_next_action();
+                    ((TBoss8Dragon *)boss8_dragon)->select_next_action();
                 }
-                ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 8);
-                ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
+                ((VObj_18 *)(boss8_dragon))->m85(*(s16 *)((s8 *)boss8_dragon + 0x326), 8);
+                ((VObj_18 *)(boss8_dragon))->m85(*(s16 *)((s8 *)boss8_dragon + 0x326), 0);
             } else {
-                ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
+                ((VObj_18 *)(boss8_dragon))->m85(*(s16 *)((s8 *)boss8_dragon + 0x326), 0);
             }
         }
     }
-    ((TObjEneDD *)arg0)->sub_800BBA0C();
-    ((VObj_18 *)(arg0))->m86();
-    ((TBoss8Dragon *)arg0)->store_position();
-    ((TBoss8Dragon *)arg0)->set_player_state_default();
-    add_radar_scaled_marker(arg0 + 0x38, -0x5DB4, 1, 1, lbl_805E00B0);
+    ((TObjEneDD *)boss8_dragon)->sub_800BBA0C();
+    ((VObj_18 *)(boss8_dragon))->m86();
+    ((TBoss8Dragon *)boss8_dragon)->store_position();
+    ((TBoss8Dragon *)boss8_dragon)->set_player_state_default();
+    add_radar_scaled_marker(boss8_dragon + 0x38, -0x5DB4, 1, 1, lbl_805E00B0);
     if (temp_r30_2 == 0) {
-        ((TObject *)(arg0 + 0x3C4))->run_tasks();
+        ((TObject *)(boss8_dragon + 0x3C4))->run_tasks();
     }
-    project_sound_origin_from_camera((s32)(arg0 + 0x38), (u8 *)(arg0 + 0x634), lbl_805E00B4);
+    project_sound_origin_from_camera((s32)(boss8_dragon + 0x38), (u8 *)(boss8_dragon + 0x634), lbl_805E00B4);
 }
 
 void *__dt__13TUnk_804F1A78Fv(void *arg0, s16 arg1) {

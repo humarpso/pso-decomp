@@ -360,31 +360,31 @@ void *__dt__13TOCtrlDubchikFv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_8015D3CC_lbl_804B0A20_size[sizeof(RecoveredGlobal_8015D3CC_lbl_804B0A20) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik_size[sizeof(RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik) == 0x14C ? 1 : -1];
-u8 *TOCtrlDubchik__ct(TOCtrlDubchik *arg0, s32 arg1, s32 arg2) {
-    initialize__9TObjEnemyFPv(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik *)&__vt__13TOCtrlDubchik).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2F1C;
-    ((TOCtrlDubchik *)(arg0))->apply_set_data((void *)arg2);
-    ((TObjPlayer *)arg0)->init_position_vectors();
-    arg0->model = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCtrlDubchik__shared_resource) + 0x42C)) + 8));
-    arg0->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCtrlDubchik__shared_resource) + 0x42C)) + 0xC);
-    init_collision_body_parts(arg0, &TOCtrlDubchik__collision_body.value, 1);
-    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    ((TObjPlayer *)arg0)->reset_photon_effect();
-    ((TUnk_804AF8A0 *)arg0)->set_indexed_flags(0, 0x08000000);
-    arg0->mode = 0;
-    arg0->hp = 0x12C;
-    arg0->hpmax = 0x12C;
-    *(f32 *)((s8 *)arg0 + 0x374) = (f32) lbl_805DB3C8;
-    arg0->m_378 = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(arg0->model) + 4)) + 0x14);
-    arg0->m_37c = (f32) lbl_805DB3BC;
-    arg0->m_380 = 0;
-    *(f32 *)((s8 *)arg0 + 0x384) = (f32) TOCtrlDubchik__data_805DB3A8;
-    arg0->m_388 = (f32) TOCtrlDubchik__data_805DB3A8;
-    arg0->m_38c = 0;
-    VecCopy((Vec *)((u8 *)arg0 + 0x390), (const Vec *)((u8 *)arg0 + 0x50));
-    arg0->m_39c = 1;
-    return (u8 *)arg0;
+u8 *TOCtrlDubchik__ct(TOCtrlDubchik *ctrl_dubchik, s32 arg1, s32 arg2) {
+    initialize__9TObjEnemyFPv(ctrl_dubchik);
+    *(s32 **)((s8 *)ctrl_dubchik + 0x18) = &(*(RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik *)&__vt__13TOCtrlDubchik).value;
+    *(s32 *)((s8 *)ctrl_dubchik + 0) = (s32) lbl_805D2F1C;
+    ((TOCtrlDubchik *)(ctrl_dubchik))->apply_set_data((void *)arg2);
+    ((TObjPlayer *)ctrl_dubchik)->init_position_vectors();
+    ctrl_dubchik->model = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCtrlDubchik__shared_resource) + 0x42C)) + 8));
+    ctrl_dubchik->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCtrlDubchik__shared_resource) + 0x42C)) + 0xC);
+    init_collision_body_parts(ctrl_dubchik, &TOCtrlDubchik__collision_body.value, 1);
+    ((TUnk_804AF8A0 *)ctrl_dubchik)->refresh_collision_body_centers();
+    ((TObjPlayer *)ctrl_dubchik)->reset_photon_effect();
+    ((TUnk_804AF8A0 *)ctrl_dubchik)->set_indexed_flags(0, 0x08000000);
+    ctrl_dubchik->mode = 0;
+    ctrl_dubchik->hp = 0x12C;
+    ctrl_dubchik->hpmax = 0x12C;
+    *(f32 *)((s8 *)ctrl_dubchik + 0x374) = (f32) lbl_805DB3C8;
+    ctrl_dubchik->m_378 = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(ctrl_dubchik->model) + 4)) + 0x14);
+    ctrl_dubchik->m_37c = (f32) lbl_805DB3BC;
+    ctrl_dubchik->m_380 = 0;
+    *(f32 *)((s8 *)ctrl_dubchik + 0x384) = (f32) TOCtrlDubchik__data_805DB3A8;
+    ctrl_dubchik->m_388 = (f32) TOCtrlDubchik__data_805DB3A8;
+    ctrl_dubchik->m_38c = 0;
+    VecCopy((Vec *)((u8 *)ctrl_dubchik + 0x390), (const Vec *)((u8 *)ctrl_dubchik + 0x50));
+    ctrl_dubchik->m_39c = 1;
+    return (u8 *)ctrl_dubchik;
 }
 
 s32 TOCtrlDubchik::select_melee_contact_body(void *, f32) {

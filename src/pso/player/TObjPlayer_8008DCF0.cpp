@@ -216,31 +216,31 @@ void TObjEneBalClawBody::update_dragon_boss_state() {
     }
 }
 
-void TObjPlayer__sub_8008EC3C(u8 *arg0) {
+void TObjPlayer__sub_8008EC3C(u8 *enemy) {
     s32 temp_r4_2;
     s32 temp_r5;
-    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
+    switch (*(s32 *)((s8 *)enemy + 0x37C)) {
     case 0:
-        *(s32 *)((s8 *)arg0 + 0x388) = (*(s32 *)((s8 *)arg0 + 0x388) | 4);
-        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x04000000);
-        *(s16 *)((s8 *)arg0 + 0xB8) = (*(s32 *)((s8 *)arg0 + 0x388) & 0x01000000) ? 0 : 5;
-        ((TBoss3Volopt *)(arg0 + 0x38))->play_area_se_with_particle();
-        TObjPlayer__sub_800A0554(arg0 + 0x390);
-        *(s32 *)((s8 *)arg0 + 0x37C) = 1;
+        *(s32 *)((s8 *)enemy + 0x388) = (*(s32 *)((s8 *)enemy + 0x388) | 4);
+        *(s32 *)((s8 *)enemy + 0x30) = (s32) (*(s32 *)((s8 *)enemy + 0x30) | 0x04000000);
+        *(s16 *)((s8 *)enemy + 0xB8) = (*(s32 *)((s8 *)enemy + 0x388) & 0x01000000) ? 0 : 5;
+        ((TBoss3Volopt *)(enemy + 0x38))->play_area_se_with_particle();
+        TObjPlayer__sub_800A0554(enemy + 0x390);
+        *(s32 *)((s8 *)enemy + 0x37C) = 1;
     case 1:
-        advance_animation_playback(arg0);
-        apply_actor_gravity((TObjEnemy *)arg0, (s32 *)(0), lbl_805D9620);
-        if (((En0VObj*)(arg0 + 0x390))->m5() == 1) {
-            temp_r5 = *(s32 *)((s8 *)arg0 + 0x388);
+        advance_animation_playback(enemy);
+        apply_actor_gravity((TObjEnemy *)enemy, (s32 *)(0), lbl_805D9620);
+        if (((En0VObj*)(enemy + 0x390))->m5() == 1) {
+            temp_r5 = *(s32 *)((s8 *)enemy + 0x388);
             temp_r4_2 = temp_r5 & ~5;
-            *(s32 *)((s8 *)arg0 + 0x388) = temp_r4_2;
-            *(s32 *)((s8 *)arg0 + 0x37C) = -1;
-            ((s32 (*)(void *, s32, s32))reset_enemy_state__10TObjPlayerFv)(arg0, temp_r4_2, temp_r5);
+            *(s32 *)((s8 *)enemy + 0x388) = temp_r4_2;
+            *(s32 *)((s8 *)enemy + 0x37C) = -1;
+            ((s32 (*)(void *, s32, s32))reset_enemy_state__10TObjPlayerFv)(enemy, temp_r4_2, temp_r5);
         }
         return;
     case -1:
-        *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & ~5);
-        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFBFFFFFF);
+        *(s32 *)((s8 *)enemy + 0x388) = (s32) (*(s32 *)((s8 *)enemy + 0x388) & ~5);
+        *(s32 *)((s8 *)enemy + 0x30) = (s32) (*(s32 *)((s8 *)enemy + 0x30) & 0xFBFFFFFF);
         break;
     }
 }

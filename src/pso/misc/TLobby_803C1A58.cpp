@@ -555,20 +555,20 @@ s32 TLobby::is_snd_header() {
     return 0;
 }
 
-void TLobby__sub_803C34F4(Obj_803C34F4 *arg0) {
-    s16 s = arg0->state;
+void TLobby__sub_803C34F4(Obj_803C34F4 *lobby) {
+    s16 s = lobby->state;
     if (s == 0) {
-        TLobby__sub_803C3570(arg0);
+        TLobby__sub_803C3570(lobby);
     } else if (s == 10) {
-        TLobby__sub_803C19D8(arg0);
+        TLobby__sub_803C19D8(lobby);
     } else if (s == 2) {
-        TLobby__sub_803C40D0(arg0);
+        TLobby__sub_803C40D0(lobby);
     } else if (s == 3) {
-        ((TLobby *)arg0)->dispatch_network_state();
+        ((TLobby *)lobby)->dispatch_network_state();
     } else if (s == 4) {
-        ((TLobby *)arg0)->dispatch_by_state();
+        ((TLobby *)lobby)->dispatch_by_state();
     } else if (s == 1) {
-        TLobby__sub_803C0B3C((u8 *)arg0);
+        TLobby__sub_803C0B3C((u8 *)lobby);
     }
 }
 

@@ -264,19 +264,19 @@ void TWindowMainMenu1P::create_char_select_slot() {
 void TWindowMainMenu::create_submenu(u32 arg1) {
     s32 temp_r3;
     s32 temp_r3_10;
-    s32 temp_r3_11;
-    s32 temp_r3_12;
+    s32 window_sub_technique;
+    s32 window_sub_symbol_chat;
     s32 temp_r3_13;
     s32 temp_r3_14;
     s32 temp_r3_15;
     s32 temp_r3_16;
     s32 temp_r3_17;
     s32 temp_r3_18;
-    s32 temp_r3_19;
+    s32 window_sub_game_end;
     s32 temp_r3_2;
-    s32 temp_r3_3;
-    s32 temp_r3_4;
-    s32 temp_r3_5;
+    s32 window_sub_equip;
+    s32 window_sub_item;
+    s32 window_sub_mag;
     s32 temp_r3_6;
     s32 temp_r3_7;
     s32 temp_r3_8;
@@ -323,27 +323,27 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         return;
     case 9:
     case 10:
-        temp_r3_3 = ((s32)__nw__7TObjectFUl(0x3C));
-        var_r0_3 = temp_r3_3;
+        window_sub_equip = ((s32)__nw__7TObjectFUl(0x3C));
+        var_r0_3 = window_sub_equip;
         if (var_r0_3 != 0) {
-            var_r0_3 = (s32)TWindowSubEquip__ct((TWindowSubEquip *)((u8 *)temp_r3_3), (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_3 = (s32)TWindowSubEquip__ct((TWindowSubEquip *)((u8 *)window_sub_equip), (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_3;
         return;
     case 11:
-        temp_r3_4 = ((s32)__nw__7TObjectFUl(0x44));
-        var_r0_4 = temp_r3_4;
+        window_sub_item = ((s32)__nw__7TObjectFUl(0x44));
+        var_r0_4 = window_sub_item;
         if (var_r0_4 != 0) {
-            var_r0_4 = (s32)TWindowSubItem__ct((TWindowSubItem *)((void *)temp_r3_4), (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_4 = (s32)TWindowSubItem__ct((TWindowSubItem *)((void *)window_sub_item), (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_4;
         return;
     case 23:
     case 24:
-        temp_r3_5 = ((s32)__nw__7TObjectFUl(0x50));
-        var_r0_5 = temp_r3_5;
+        window_sub_mag = ((s32)__nw__7TObjectFUl(0x50));
+        var_r0_5 = window_sub_mag;
         if (var_r0_5 != 0) {
-            var_r0_5 = (s32)TWindowSubMag__ct((TWindowSubMag *)((void *)temp_r3_5), (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_5 = (s32)TWindowSubMag__ct((TWindowSubMag *)((void *)window_sub_mag), (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_5;
         return;
@@ -393,18 +393,18 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         return;
     case 3:
     case 4:
-        temp_r3_11 = ((s32)__nw__7TObjectFUl(0x40));
-        var_r0_11 = temp_r3_11;
+        window_sub_technique = ((s32)__nw__7TObjectFUl(0x40));
+        var_r0_11 = window_sub_technique;
         if (var_r0_11 != 0) {
-            var_r0_11 = (s32)TWindowSubTechnique__ct((TWindowSubTechnique *)((void *)temp_r3_11), (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_11 = (s32)TWindowSubTechnique__ct((TWindowSubTechnique *)((void *)window_sub_technique), (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_11;
         return;
     case 18:
-        temp_r3_12 = ((s32)__nw__7TObjectFUl(0x60));
-        var_r0_12 = temp_r3_12;
+        window_sub_symbol_chat = ((s32)__nw__7TObjectFUl(0x60));
+        var_r0_12 = window_sub_symbol_chat;
         if (var_r0_12 != 0) {
-            var_r0_12 = (s32)TWindowSubSymbolChat__ct((TWindowSubSymbolChat *)((void *)temp_r3_12), (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_12 = (s32)TWindowSubSymbolChat__ct((TWindowSubSymbolChat *)((void *)window_sub_symbol_chat), (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_12;
         return;
@@ -459,10 +459,10 @@ void TWindowMainMenu::create_submenu(u32 arg1) {
         return;
     case 7:
     case 8:
-        temp_r3_19 = ((s32)__nw__7TObjectFUl(0x2C));
-        var_r0_19 = temp_r3_19;
+        window_sub_game_end = ((s32)__nw__7TObjectFUl(0x2C));
+        var_r0_19 = window_sub_game_end;
         if (var_r0_19 != 0) {
-            var_r0_19 = (s32)TWindowSubGameEnd__ct((TWindowSubGameEnd *)((void *)temp_r3_19), (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
+            var_r0_19 = (s32)TWindowSubGameEnd__ct((TWindowSubGameEnd *)((void *)window_sub_game_end), (s32)this, (*(s32 *)((s8 *)((u8 *)this) + 0x54)));
         }
         this->m_20 = var_r0_19;
     default:

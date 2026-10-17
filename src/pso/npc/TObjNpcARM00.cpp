@@ -58,16 +58,16 @@ void *__dt__12TObjNpcARM00Fv(void *arg0, s16 arg1) {
 }
 
 typedef char RecoveredGlobal_80147E2C___vt__12TObjNpcARM00_size[sizeof(RecoveredGlobal_80147E2C___vt__12TObjNpcARM00) == 0x178 ? 1 : -1];
-u8 *TObjNpcARM00__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_male_npc_base((arg0));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80147E2C___vt__12TObjNpcARM00 *)&__vt__12TObjNpcARM00).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcARM00__name;
-    ((TObjNpcARM00 *)(arg0))->apply_set_data((void *)arg2);
-    ((TObjPlayer *)arg0)->init_position_vectors();
-    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(*(s32 * *)&TObjNpcARM00__model_resource);
-    ((TObjNpcARM00 *)arg0)->texture_id = (s32) (*(s32 *)&TObjNpcARM00__texture_list);
-    ((TObjNpcBase *)arg0)->setup_common();
-    return arg0;
+u8 *TObjNpcARM00__ct(u8 *player, s32 arg1, s32 arg2) {
+    construct_male_npc_base((player));
+    *(s32 **)((s8 *)player + 0x18) = &(*(RecoveredGlobal_80147E2C___vt__12TObjNpcARM00 *)&__vt__12TObjNpcARM00).value;
+    *(s32 *)((s8 *)player + 0) = (s32) TObjNpcARM00__name;
+    ((TObjNpcARM00 *)(player))->apply_set_data((void *)arg2);
+    ((TObjPlayer *)player)->init_position_vectors();
+    *(s32 *)((s8 *)player + 0x34) = (s32) *(*(s32 * *)&TObjNpcARM00__model_resource);
+    ((TObjNpcARM00 *)player)->texture_id = (s32) (*(s32 *)&TObjNpcARM00__texture_list);
+    ((TObjNpcBase *)player)->setup_common();
+    return player;
 }
 
 void TObjNpcARM00::play_voice() {

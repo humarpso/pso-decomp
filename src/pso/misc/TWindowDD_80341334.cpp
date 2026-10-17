@@ -87,7 +87,7 @@ typedef char RecoveredGlobal_803414DC_lbl_804EFC00_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_803414DC_TWindowDD__data_804EFC24_size[sizeof(RecoveredGlobal_803414DC_TWindowDD__data_804EFC24) == 0x14 ? 1 : -1];
 
 typedef char RecoveredGlobal_8034146C_TWindowDD__data_804EFC24_size[sizeof(RecoveredGlobal_8034146C_TWindowDD__data_804EFC24) == 0x14 ? 1 : -1];
-s32 TWindowDD__sub_8034146C(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
+s32 TWindowDD__sub_8034146C(s32 arg0, s32 arg1, s32 str, s32 arg3, f32 farg0) {
     s32 temp_r3;
     s32 var_r0;
     *(f32 *)((s8 *)(&(*(RecoveredGlobal_8034146C_TWindowDD__data_804EFC24 *)&TWindowDD__data_804EFC24).value) + 0) = farg0;
@@ -95,7 +95,7 @@ s32 TWindowDD__sub_8034146C(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
     temp_r3 = __nw__7TObjectFUl(0x74);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = ((s32)TWindowDD__sub_8034138C((u8 *)temp_r3, (s32)arg0, (s32)arg1, (s32)arg2, (s32)arg3));
+        var_r0 = ((s32)TWindowDD__sub_8034138C((u8 *)temp_r3, (s32)arg0, (s32)arg1, (s32)str, (s32)arg3));
     }
     return var_r0;
 }

@@ -297,7 +297,7 @@ void TBoss8Dragon::choose_next_camera_shot() {
 #pragma fp_contract on
 void TBoss8Dragon::update_live_camera() {
     u8 *arg0 = (u8 *)this;
-    u32 temp_r3_4;
+    u32 boss8_dragon;
     u8 *player;
     u8 *temp_r3_2;
     u8 *enemy_entity;
@@ -341,8 +341,8 @@ void TBoss8Dragon::update_live_camera() {
         }
         break;
     case 5:
-        temp_r3_4 = TBoss8Dragon__sub_802F3348(0);
-        if ((temp_r3_4 != 0U) && (TBoss8Dragon__sub_802FCCBC(temp_r3_4) != 0)) {
+        boss8_dragon = TBoss8Dragon__sub_802F3348(0);
+        if ((boss8_dragon != 0U) && (TBoss8Dragon__sub_802FCCBC(boss8_dragon) != 0)) {
             this->m_1e = 0;
         }
         break;

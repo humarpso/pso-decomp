@@ -406,16 +406,16 @@ void *__dt__13TUnk_804A204CFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void *TObjPlayer__sub_80124694(TObjPlayer *arg0) {
-    TItemWeapon__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = megid_projectile_weapon_vtable;
-    ((TObjPlayer *)((char *)arg0 + 376))->set_flags(32);
-    arg0->set_status_flags(35);
-    arg0->set_effect_state(12);
-    *(u32 *)((s8 *)arg0 + 0x1F8) = 0;
-    *(u32 *)((s8 *)arg0 + 0x200) = 0;
-    ((TUnk_804A204C *)arg0)->m_204 = -1;
-    return arg0;
+void *TObjPlayer__sub_80124694(TObjPlayer *player) {
+    TItemWeapon__ct(player);
+    *(s32 **)((s8 *)player + 0x18) = megid_projectile_weapon_vtable;
+    ((TObjPlayer *)((char *)player + 376))->set_flags(32);
+    player->set_status_flags(35);
+    player->set_effect_state(12);
+    *(u32 *)((s8 *)player + 0x1F8) = 0;
+    *(u32 *)((s8 *)player + 0x200) = 0;
+    ((TUnk_804A204C *)player)->m_204 = -1;
+    return player;
 }
 
 u8 *TObjPlayer__sub_80124708(u8 *arg0) {

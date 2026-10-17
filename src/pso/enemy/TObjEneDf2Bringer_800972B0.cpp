@@ -1717,40 +1717,40 @@ void TObjEneDf2Bringer::handle_state(s32 arg1) {
         return;
     }
 }
-void TObjEneDf2Bringer__vt85(s32 arg0, u32 arg1, s32 mode) {
+void TObjEneDf2Bringer__vt85(s32 ene_dd_st, u32 arg1, s32 mode) {
     switch (arg1) {
     case 0:
-        ((TObjEneDf2Bringer *)arg0)->handle_state(mode);
+        ((TObjEneDf2Bringer *)ene_dd_st)->handle_state(mode);
         return;
     case 1:
-        TObjEneDf2Bringer__sub_80098BAC((u8 *)arg0, (s32)mode);
+        TObjEneDf2Bringer__sub_80098BAC((u8 *)ene_dd_st, (s32)mode);
         return;
     case 2:
-        ((TObjEneDf2Bringer *)arg0)->exec(mode);
+        ((TObjEneDf2Bringer *)ene_dd_st)->exec(mode);
         return;
     case 3:
-        TObjEneDf2Bringer__sub_800987E8((u8 *)arg0, (mode));
+        TObjEneDf2Bringer__sub_800987E8((u8 *)ene_dd_st, (mode));
         return;
     case 4:
-        TObjEneDf2Bringer__sub_8009859C((void *)arg0, (void *)mode);
+        TObjEneDf2Bringer__sub_8009859C((void *)ene_dd_st, (void *)mode);
         return;
     case 5:
-        TObjEneDf2Bringer__sub_8009813C((void *)arg0, (void *)mode);
+        TObjEneDf2Bringer__sub_8009813C((void *)ene_dd_st, (void *)mode);
         return;
     case 6:
-        TObjEneDf2Bringer__sub_80097E9C((u8 *)arg0, (mode));
+        TObjEneDf2Bringer__sub_80097E9C((u8 *)ene_dd_st, (mode));
         return;
     case 7:
-        action__17TObjEneDf2BringerFPvi((u8 *)arg0, (mode));
+        action__17TObjEneDf2BringerFPvi((u8 *)ene_dd_st, (mode));
         return;
     case 8:
-        TObjEneDf2Bringer__sub_80097820((void *)arg0, (void *)mode);
+        TObjEneDf2Bringer__sub_80097820((void *)ene_dd_st, (void *)mode);
         return;
     case 9:
-        TObjEneDf2Bringer__sub_80097714((void *)arg0, (void *)mode);
+        TObjEneDf2Bringer__sub_80097714((void *)ene_dd_st, (void *)mode);
         return;
     case 10:
-        TObjEneDf2Bringer__sub_80097620((u8 *)arg0, (mode));
+        TObjEneDf2Bringer__sub_80097620((u8 *)ene_dd_st, (mode));
     default:
         return;
     }

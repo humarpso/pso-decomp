@@ -29,9 +29,9 @@ void TItem::send_field_state(s16 arg1, s32 arg2) {
     }
 }
 
-void handle_pickup__5TItemFiiUi(s32 arg0, s32 arg1, u32 arg2) {
+void handle_pickup__5TItemFiiUi(s32 arg0, s32 arg1, u32 player) {
     TLobby__sub_8011AA44(arg1, get_field_d8__5TItemFv());
-    if ((arg2 != 0U) && (pickup_item__10TObjPlayerFv(arg2, arg0) != 0U)) {
+    if ((player != 0U) && (pickup_item__10TObjPlayerFv(player, arg0) != 0U)) {
         ((TItem *)arg0)->set_mode(1);
         ((TUnk_804AF8A0 *)arg0)->set_flag8();
     }

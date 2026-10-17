@@ -13,12 +13,12 @@ int run_task__9TItemLoadFv(void* p) { return update__9TItemLoadFv(p); }
 extern s32 __vt__9TItemLoad[];
 extern void *lbl_805D2BF4;
 
-void *__ct__9TItemLoadFv(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TItemLoad;
-    *(void * *)&((TItemLoad *)arg0)->m_name = lbl_805D2BF4;
-    disallow_rendering__7TObjectFv((TObject *)arg0);
-    return arg0;
+void *__ct__9TItemLoadFv(void *item_load) {
+    __ct__7TObjectFP7TObject(item_load);
+    *(s32 **)((s8 *)item_load + 0x18) = __vt__9TItemLoad;
+    *(void * *)&((TItemLoad *)item_load)->m_name = lbl_805D2BF4;
+    disallow_rendering__7TObjectFv((TObject *)item_load);
+    return item_load;
 }
 
 }

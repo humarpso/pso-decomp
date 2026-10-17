@@ -4031,17 +4031,17 @@ void TObjPlayer::sync_status_effect_flags() {
 }
 
 s32 TObjPlayer::vfunc_42() {
-    s32 arg0 = (s32)this;
+    s32 player = (s32)this;
     if (((s32 (*)(void))reset_volopt_state__10TObjPlayerFv)() != 0) {
-        return update_defense_stat_status(arg0);
+        return update_defense_stat_status(player);
     }
     return 0;
 }
 
 s32 TObjPlayer::vfunc_41() {
-    s32 arg0 = (s32)this;
+    s32 player = (s32)this;
     if (((s32 (*)(void))reset_volopt_state__10TObjPlayerFv)() != 0) {
-        return update_attack_stat_status(arg0);
+        return update_attack_stat_status(player);
     }
     return 0;
 }
@@ -4068,11 +4068,11 @@ s32 TObjPlayer__vt36(s32 arg0) {
 }
 
 s32 TObjPlayer::vfunc_37() {
-    s32 arg0 = (s32)this;
-    if ((((s32 (*)(void))reset_volopt_state__10TObjPlayerFv)() == 0) || (((s32 (*)(s32))test_flag_2000000__10TObjPlayerFPv)(arg0) != 0)) {
+    s32 player = (s32)this;
+    if ((((s32 (*)(void))reset_volopt_state__10TObjPlayerFv)() == 0) || (((s32 (*)(s32))test_flag_2000000__10TObjPlayerFPv)(player) != 0)) {
         return 0;
     }
-    return update_action_timer__10TObjPlayerFPv(arg0);
+    return update_action_timer__10TObjPlayerFPv(player);
 }
 
 s32 TObjPlayer__vt34(s32 arg0) {
@@ -6547,8 +6547,8 @@ s32 TObjPlayer::count_items_of_type(s8 arg1, s8 arg2, s8 arg3) {
     return ((TObjPlayer *)(*(u32 *)((s8 *)((u8 *)this) + 0xD00)))->count_items_by_id((s32)&item_data.data1.data_u8[0]);
 }
 
-void dispatch_input__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
-    TObjPlayer__sub_801D49F4(*(s32 *)((s8 *)arg0 + 0xD00), arg0, arg1, arg2, arg0);
+void dispatch_input__10TObjPlayerFPvii(void *player, s32 arg1, s32 arg2) {
+    TObjPlayer__sub_801D49F4(*(s32 *)((s8 *)player + 0xD00), player, arg1, arg2, player);
 }
 
 void handle_6xAC(void *arg0) {
@@ -6701,10 +6701,10 @@ block_7:
 }
 
 void can_pickup_item_by_id__10TObjPlayerFii(s32 arg0, s32 arg1) {
-    s32 sp8[5];
+    s32 item_data[5];
 
-    ((TItem *)arg1)->copy_to_item_data(sp8);
-    can_pickup_item__10TObjPlayerFPvPv((void *)arg0, (u8 *)sp8);
+    ((TItem *)arg1)->copy_to_item_data(item_data);
+    can_pickup_item__10TObjPlayerFPvPv((void *)arg0, (u8 *)item_data);
 }
 
 s32 TObjPlayer::can_inventory_accept_item(u8 *item) {

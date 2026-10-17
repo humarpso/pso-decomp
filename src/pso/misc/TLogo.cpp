@@ -95,7 +95,7 @@ void *__vt__5TLogo[6] = {
     (void *)render_shadows__7TObjectFv,
 };
 }
-void run_task__5TLogoFv(u8 *arg0) {
+void run_task__5TLogoFv(u8 *ad_seg_alogo) {
     u32 var_r0;
     u32 var_r0_2;
     u32 var_r0_3;
@@ -104,41 +104,41 @@ void run_task__5TLogoFv(u8 *arg0) {
     u32 var_r0_6;
     u32 var_r0_7;
     u32 var_r0_8;
-    switch (*(u32 *)((s8 *)arg0 + 0x20)) {
+    switch (*(u32 *)((s8 *)ad_seg_alogo + 0x20)) {
     case 0:
         if (check_progressive_ready__5TLogoFv() != 0) {
             if (((s32)TLogo__sub_8013F808()) != 0) {
                 var_r0 = __nw__7TObjectFUl(0x4C);
                 if (var_r0 != 0U) {
-                    var_r0 = TAdVIConfigGC__ct((void *)var_r0, arg0);
+                    var_r0 = TAdVIConfigGC__ct((void *)var_r0, ad_seg_alogo);
                 }
-                *(u32 *)((s8 *)arg0 + 0x24) = var_r0;
-                *(u32 *)((s8 *)arg0 + 0x20) = 1U;
+                *(u32 *)((s8 *)ad_seg_alogo + 0x24) = var_r0;
+                *(u32 *)((s8 *)ad_seg_alogo + 0x20) = 1U;
                 return;
             }
             var_r0_2 = __nw__7TObjectFUl(0x20);
             if (var_r0_2 != 0U) {
-                var_r0_2 = __ct__11TAdSEGAlogoFv((void *)var_r0_2, arg0);
+                var_r0_2 = __ct__11TAdSEGAlogoFv((void *)var_r0_2, ad_seg_alogo);
             }
-            *(u32 *)((s8 *)arg0 + 0x2C) = var_r0_2;
-            *(u32 *)((s8 *)arg0 + 0x20) = 4U;
+            *(u32 *)((s8 *)ad_seg_alogo + 0x2C) = var_r0_2;
+            *(u32 *)((s8 *)ad_seg_alogo + 0x20) = 4U;
             return;
         }
         var_r0_3 = __nw__7TObjectFUl(0x20);
         if (var_r0_3 != 0U) {
-            var_r0_3 = __ct__11TAdSEGAlogoFv((void *)var_r0_3, arg0);
+            var_r0_3 = __ct__11TAdSEGAlogoFv((void *)var_r0_3, ad_seg_alogo);
         }
-        *(u32 *)((s8 *)arg0 + 0x2C) = var_r0_3;
-        *(u32 *)((s8 *)arg0 + 0x20) = 4U;
+        *(u32 *)((s8 *)ad_seg_alogo + 0x2C) = var_r0_3;
+        *(u32 *)((s8 *)ad_seg_alogo + 0x20) = 4U;
         return;
     case 1:
-        if (((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) && (TLogo__sub_8013F800((void*)(*(void **)((s8 *)arg0 + 0x24))) != 0)) {
+        if (((u32) *(u32 *)((s8 *)ad_seg_alogo + 0x24) != 0U) && (TLogo__sub_8013F800((void*)(*(void **)((s8 *)ad_seg_alogo + 0x24))) != 0)) {
             var_r0_4 = __nw__7TObjectFUl(0x20);
             if (var_r0_4 != 0U) {
-                var_r0_4 = __ct__11TAdSEGAlogoFv((void *)var_r0_4, arg0);
+                var_r0_4 = __ct__11TAdSEGAlogoFv((void *)var_r0_4, ad_seg_alogo);
             }
-            *(u32 *)((s8 *)arg0 + 0x2C) = var_r0_4;
-            *(u32 *)((s8 *)arg0 + 0x20) = 4U;
+            *(u32 *)((s8 *)ad_seg_alogo + 0x2C) = var_r0_4;
+            *(u32 *)((s8 *)ad_seg_alogo + 0x20) = 4U;
             return;
         }
         break;
@@ -146,50 +146,50 @@ void run_task__5TLogoFv(u8 *arg0) {
         if (TLobby__sub_80145DB4(1) == 0) {
             var_r0_5 = __nw__7TObjectFUl(0x30);
             if (var_r0_5 != 0U) {
-                var_r0_5 = TAdTrialModemChkGC__ct((void *)var_r0_5, arg0);
+                var_r0_5 = TAdTrialModemChkGC__ct((void *)var_r0_5, ad_seg_alogo);
             }
-            *(u32 *)((s8 *)arg0 + 0x28) = var_r0_5;
-            *(u32 *)((s8 *)arg0 + 0x20) = 3U;
+            *(u32 *)((s8 *)ad_seg_alogo + 0x28) = var_r0_5;
+            *(u32 *)((s8 *)ad_seg_alogo + 0x20) = 3U;
             return;
         }
         var_r0_6 = __nw__7TObjectFUl(0x20);
         if (var_r0_6 != 0U) {
-            var_r0_6 = __ct__11TAdSEGAlogoFv((void *)var_r0_6, arg0);
+            var_r0_6 = __ct__11TAdSEGAlogoFv((void *)var_r0_6, ad_seg_alogo);
         }
-        *(u32 *)((s8 *)arg0 + 0x2C) = var_r0_6;
-        *(u32 *)((s8 *)arg0 + 0x20) = 4U;
+        *(u32 *)((s8 *)ad_seg_alogo + 0x2C) = var_r0_6;
+        *(u32 *)((s8 *)ad_seg_alogo + 0x20) = 4U;
         return;
     case 4:
-        if (((s32)is_sega_logo_done((int)((int) (*(u32 *)((s8 *)arg0 + 0x2C))))) != 0) {
-            queue_destruction__7TObjectFv((void *)(*(u32 *)((s8 *)arg0 + 0x2C)));
-            *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
+        if (((s32)is_sega_logo_done((int)((int) (*(u32 *)((s8 *)ad_seg_alogo + 0x2C))))) != 0) {
+            queue_destruction__7TObjectFv((void *)(*(u32 *)((s8 *)ad_seg_alogo + 0x2C)));
+            *(u32 *)((s8 *)ad_seg_alogo + 0x2C) = 0U;
             var_r0_7 = __nw__7TObjectFUl(0x20);
             if (var_r0_7 != 0U) {
-                var_r0_7 = __ct__12TAdSoniclogoFv((void *)var_r0_7, arg0);
+                var_r0_7 = __ct__12TAdSoniclogoFv((void *)var_r0_7, ad_seg_alogo);
             }
-            *(u32 *)((s8 *)arg0 + 0x30) = var_r0_7;
-            *(u32 *)((s8 *)arg0 + 0x20) = 5U;
+            *(u32 *)((s8 *)ad_seg_alogo + 0x30) = var_r0_7;
+            *(u32 *)((s8 *)ad_seg_alogo + 0x20) = 5U;
             return;
         }
         break;
     case 5:
-        if (((s32)is_logo_exit_requested((int)((int) (*(u32 *)((s8 *)arg0 + 0x30))))) != 0) {
-            queue_destruction__7TObjectFv((void *)(*(u32 *)((s8 *)arg0 + 0x30)));
-            *(u32 *)((s8 *)arg0 + 0x30) = 0U;
+        if (((s32)is_logo_exit_requested((int)((int) (*(u32 *)((s8 *)ad_seg_alogo + 0x30))))) != 0) {
+            queue_destruction__7TObjectFv((void *)(*(u32 *)((s8 *)ad_seg_alogo + 0x30)));
+            *(u32 *)((s8 *)ad_seg_alogo + 0x30) = 0U;
             var_r0_8 = __nw__7TObjectFUl(0x20);
             if (var_r0_8 != 0U) {
-                var_r0_8 = __ct__10TAdADXlogoFv((void *)var_r0_8, arg0);
+                var_r0_8 = __ct__10TAdADXlogoFv((void *)var_r0_8, ad_seg_alogo);
             }
-            *(u32 *)((s8 *)arg0 + 0x34) = var_r0_8;
-            *(u32 *)((s8 *)arg0 + 0x20) = 6U;
+            *(u32 *)((s8 *)ad_seg_alogo + 0x34) = var_r0_8;
+            *(u32 *)((s8 *)ad_seg_alogo + 0x20) = 6U;
             return;
         }
         break;
     case 6:
-        if (((s32)TLogo__sub_8013F7E8((int)((int) (*(u32 *)((s8 *)arg0 + 0x34))))) != 0) {
-            queue_destruction__7TObjectFv((void *)(*(u32 *)((s8 *)arg0 + 0x34)));
-            *(u32 *)((s8 *)arg0 + 0x34) = 0U;
-            *(u32 *)((s8 *)arg0 + 0x20) = 7U;
+        if (((s32)TLogo__sub_8013F7E8((int)((int) (*(u32 *)((s8 *)ad_seg_alogo + 0x34))))) != 0) {
+            queue_destruction__7TObjectFv((void *)(*(u32 *)((s8 *)ad_seg_alogo + 0x34)));
+            *(u32 *)((s8 *)ad_seg_alogo + 0x34) = 0U;
+            *(u32 *)((s8 *)ad_seg_alogo + 0x20) = 7U;
             return;
         }
         break;

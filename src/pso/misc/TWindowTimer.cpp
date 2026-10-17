@@ -98,14 +98,14 @@ void TWindowTimer::draw_tab(s32 arg0, s32 arg1) {
 }
 
 s32 TWindowTimer::create() {
-    s32 var_r31;
+    s32 window_timer;
 
-    var_r31 = __nw__7TObjectFUl(0x64);
-    if (var_r31 != 0) {
-        var_r31 = ((s32)TWindowTimer__ct((TWindowTimer *)((u8 *)((void *)var_r31))));
+    window_timer = __nw__7TObjectFUl(0x64);
+    if (window_timer != 0) {
+        window_timer = ((s32)TWindowTimer__ct((TWindowTimer *)((u8 *)((void *)window_timer))));
     }
-    init_timer_window_layout(var_r31);
-    return var_r31;
+    init_timer_window_layout(window_timer);
+    return window_timer;
 }
 
 s32 TWindowTimer::create_alt() {

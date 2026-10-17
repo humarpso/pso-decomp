@@ -21,14 +21,14 @@ extern RecoveredGlobal_8017DFB0___vt__16TOWreckAncient02 __vt__16TOWreckAncient0
 extern s32 TOWreckAncient02__name;
 typedef char RecoveredGlobal_8017DFB0_lbl_804B5418_size[sizeof(RecoveredGlobal_8017DFB0_lbl_804B5418) == 0x134 ? 1 : -1];
 typedef char RecoveredGlobal_8017DFB0___vt__16TOWreckAncient02_size[sizeof(RecoveredGlobal_8017DFB0___vt__16TOWreckAncient02) == 0x38 ? 1 : -1];
-u8 *TOWreckAncient02__ct(u8 *arg0, s32 arg1) {
-    TOWreckAncient__ct(arg0, 0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__16TOWreckAncient02.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TOWreckAncient02__name;
-    ((TOWreckAncient02 *)(arg0))->apply_object_set_data((void *)arg1);
-    init_collision_body_parts(arg0, (s32) &TOWreckAncient__collision_body_templates.value, 1);
-    ((TObjPlayer *)arg0)->reset_photon_effect();
-    return arg0;
+u8 *TOWreckAncient02__ct(u8 *wreck_ancient, s32 arg1) {
+    TOWreckAncient__ct(wreck_ancient, 0);
+    *(s32 **)((s8 *)wreck_ancient + 0x18) = &__vt__16TOWreckAncient02.value;
+    *(s32 *)((s8 *)wreck_ancient + 0) = (s32) TOWreckAncient02__name;
+    ((TOWreckAncient02 *)(wreck_ancient))->apply_object_set_data((void *)arg1);
+    init_collision_body_parts(wreck_ancient, (s32) &TOWreckAncient__collision_body_templates.value, 1);
+    ((TObjPlayer *)wreck_ancient)->reset_photon_effect();
+    return wreck_ancient;
 }
 
 }

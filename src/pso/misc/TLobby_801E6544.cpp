@@ -5216,13 +5216,13 @@ void TLobby__sub_801EB5A8(void) {  }
 #pragma auto_inline off
 #pragma dont_inline off
 void TLobby::decompress_indexed_resource() {
-    s32 temp_r31;
+    s32 quest_vm_down_load_server;
     u32 temp_r3;
-    temp_r31 = *(s32 *)((s8 *)(&(*(RecoveredGlobal_801EB5AC_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0);
+    quest_vm_down_load_server = *(s32 *)((s8 *)(&(*(RecoveredGlobal_801EB5AC_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 0);
     temp_r3 = ((int)((u32 (*)(void *))get_indexed_offset__6TLobbyFi)((void *)((s32) (u16) *(s32 *)((s8 *)(&(*(RecoveredGlobal_801EB5AC_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value) + 4))));
     if (temp_r3 != 0U) {
         prs_decompress_buffer((s32) temp_r3, resource_decompress_buffer);
-        fn_80197FD0((void *)resource_decompress_buffer, (void *)temp_r31);
+        fn_80197FD0((void *)resource_decompress_buffer, (void *)quest_vm_down_load_server);
     }
 }
 #pragma pop

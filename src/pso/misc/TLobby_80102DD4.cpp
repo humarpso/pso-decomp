@@ -240,12 +240,12 @@ void deliver_delayed_weapon_hit(u8 *arg0) {
 }
 void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3);
 void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3) {
-    s32 var_r0;
+    s32 object;
     if ((arg0 != 0) && (arg3 != NULL) && (arg1 != 0U) && ((u16) *(u16 *)((s8 *)arg3 + 0xC) != 65535U) && ((u16) *(u16 *)((s8 *)arg3 + 0xE) != 65535U)) {
-        var_r0 = __nw__7TObjectFUl(0x50);
-        if (var_r0 != 0) {
-            var_r0 = (s32)__ct__13TItemAttackerFv((u8 *)var_r0, (s32)arg0, (s32)arg1, (s32)arg2, (s32)arg3);
+        object = __nw__7TObjectFUl(0x50);
+        if (object != 0) {
+            object = (s32)__ct__13TItemAttackerFv((u8 *)object, (s32)arg0, (s32)arg1, (s32)arg2, (s32)arg3);
         }
-        TItemAttacker::spawn_item_timer(var_r0, (s32)&TItemAttacker__sub_8010349C, arg2);
+        TItemAttacker::spawn_item_timer(object, (s32)&TItemAttacker__sub_8010349C, arg2);
     }
 }

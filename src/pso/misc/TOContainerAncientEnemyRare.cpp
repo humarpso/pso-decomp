@@ -42,7 +42,7 @@ u8 *TOContainerAncientEnemyRare__ct(u8 *container_ancient_enemy_rare, s32 arg1) 
     return container_ancient_enemy_rare;
 }
 
-s32 TOContainerAncientEnemyCommon__create(s32 arg0) {
+s32 TOContainerAncientEnemyCommon__create(s32 container_ancient_enemy_common) {
     s32 temp_r3;
     s32 temp_r3_2;
     s32 var_r0;
@@ -51,14 +51,14 @@ s32 TOContainerAncientEnemyCommon__create(s32 arg0) {
         temp_r3 = __nw__7TObjectFUl(0x368);
         var_r0_2 = temp_r3;
         if (var_r0_2 != 0) {
-            var_r0_2 = TOContainerAncientEnemyCommon__ct((int)temp_r3, (void *)arg0);
+            var_r0_2 = TOContainerAncientEnemyCommon__ct((int)temp_r3, (void *)container_ancient_enemy_common);
         }
         return var_r0_2;
     }
     temp_r3_2 = __nw__7TObjectFUl(0x368);
     var_r0 = temp_r3_2;
     if (var_r0 != 0) {
-        var_r0 = TOContainerAncientEnemyCommon__ct((int)temp_r3_2, (void *)arg0);
+        var_r0 = TOContainerAncientEnemyCommon__ct((int)temp_r3_2, (void *)container_ancient_enemy_common);
     }
     return var_r0;
 }

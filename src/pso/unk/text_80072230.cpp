@@ -107,12 +107,12 @@ void TLobby::send_challenge_retry_cmd(s32 arg0) {
 }
 }
 
-void handle_6x97_select_challenge_mode_failure_option(void *arg0) {
+void handle_6x97_select_challenge_mode_failure_option(void *player) {
     s32 var_r0;
 
     if (is_flag_set__6TLobbyFv() != 0) {
-        TLobby__sub_800727A0(arg0);
-        var_r0 = *(s32 *)((s8 *)arg0 + 8);
+        TLobby__sub_800727A0(player);
+        var_r0 = *(s32 *)((s8 *)player + 8);
         if ((var_r0 < 0) || (var_r0 > 1)) {
             var_r0 = 0;
         }

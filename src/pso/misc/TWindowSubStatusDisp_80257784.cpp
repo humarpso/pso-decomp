@@ -135,7 +135,7 @@ s32 get_item_info__10TObjPlayerFllPs(void *, s32, s16 *);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 update_item_data__5TItemFv(void *);
 
-void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *arg1) {
+void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *item) {
     s16 sp8;
     s32 temp_r26;
     s32 temp_r27;
@@ -143,16 +143,16 @@ void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *arg1
     s32 temp_r28_2;
     s32 player;
 
-    if (check_flag_400__20TWindowSubStatusDispFv(arg1) != 0) {
+    if (check_flag_400__20TWindowSubStatusDispFv(item) != 0) {
         *(s32 *)((s8 *)arg0 + 0x30) = -1;
         return;
     }
     player = (s32)get_player_by_client_id(*(s16 *)((s8 *)arg0 + 2));
     if (player != 0) {
-        temp_r26 = ((TObjPlayer *)arg1)->test_item_flags(8);
-        temp_r28 = get_usable_action_flags__5TItemFUlUl(arg1, 0x10, player);
-        temp_r27 = get_item_info__10TObjPlayerFllPs(arg1, player, &sp8);
-        temp_r28_2 = ((VObj18B_802582c4_80257784 *) arg1)->vm8C();
+        temp_r26 = ((TObjPlayer *)item)->test_item_flags(8);
+        temp_r28 = get_usable_action_flags__5TItemFUlUl(item, 0x10, player);
+        temp_r27 = get_item_info__10TObjPlayerFllPs(item, player, &sp8);
+        temp_r28_2 = ((VObj18B_802582c4_80257784 *) item)->vm8C();
         if (temp_r28 != 0) {
             if (temp_r26 != 0) {
                 *(s8 *)((s8 *)arg0 + 0x1C) = 0x30;
@@ -162,7 +162,7 @@ void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *arg1
         } else if (temp_r26 != 0) {
             *(s8 *)((s8 *)arg0 + 0x1C) = 0xC;
         } else {
-            if ((temp_r28_2 == 0) && (TItem__sub_801013E8(arg1) != 0)) {
+            if ((temp_r28_2 == 0) && (TItem__sub_801013E8(item) != 0)) {
                 *(s8 *)((s8 *)arg0 + 0x1C) = 0x19;
             } else if (sp8 & 1) {
                 *(s8 *)((s8 *)arg0 + 0x1C) = 0x13;
@@ -178,23 +178,23 @@ void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *arg1
         }
         if (temp_r27 != 0) {
             *(s32 *)((s8 *)arg0 + 0x2C) = -1;
-            if (update_item_data__5TItemFv(arg1) != 0) {
+            if (update_item_data__5TItemFv(item) != 0) {
                 *(s32 *)((s8 *)arg0 + 0x30) = 0xFFFE3C28;
                 return;
             }
-            if (fn_80100D68(arg1) == 2) {
+            if (fn_80100D68(item) == 2) {
                 *(u16 *)((s8 *)arg0 + 0) = (u16) (*(u16 *)((s8 *)arg0 + 0) | 0x800);
                 return;
             }
-            if (calc_display_grade__5TItemFv(arg1) >= 9U) {
+            if (calc_display_grade__5TItemFv(item) >= 9U) {
                 *(s32 *)((s8 *)arg0 + 0x30) = -0x1600;
                 return;
             }
-            if (copy_item_data_to_icon__10TObjPlayerFv(arg1) != 0) {
+            if (copy_item_data_to_icon__10TObjPlayerFv(item) != 0) {
                 *(s32 *)((s8 *)arg0 + 0x30) = 0xFF61E853;
                 return;
             }
-            if (get_usable_action_flags__5TItemFUlUl(arg1, 0x10000, player) != 0U) {
+            if (get_usable_action_flags__5TItemFUlUl(item, 0x10000, player) != 0U) {
                 *(s32 *)((s8 *)arg0 + 0x30) = 0xFF909090;
                 return;
             }

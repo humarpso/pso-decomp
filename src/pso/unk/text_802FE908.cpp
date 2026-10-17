@@ -14,10 +14,10 @@ s32 TObjBoss8PillerCtrl__ct(void *, f32, void *, s32, s32);
 extern void *tl_05;
 void create_boss8_demo_objects(void);
 
-void create_boss8_piller_ctrl(s32 arg0, s32 arg1, f32 farg0) {
+void create_boss8_piller_ctrl(s32 arg0, s32 arg1, f32 boss8_piller_ctrl) {
     void *obj = __nw__7TObjectFUl(0x38);
     if (obj != 0) {
-        TObjBoss8PillerCtrl__ct(obj, farg0, tl_05, arg0, arg1);
+        TObjBoss8PillerCtrl__ct(obj, boss8_piller_ctrl, tl_05, arg0, arg1);
     }
 }
 void create_boss8_demo_objects(void) {

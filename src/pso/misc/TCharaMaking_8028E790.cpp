@@ -106,13 +106,13 @@ u8 *__dt__12TCharaMakingFv(u8 *arg0, s16 arg1) {
 }
 
 u8 *TCharaMaking__ct(u8 *arg0, s32 arg1) {
-    u32 temp_r3;
+    u32 motion;
     __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__12TCharaMaking.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3B6C;
-    temp_r3 = ((u32)__nw__7TObjectFUl(0x10C));
-    if (temp_r3 != 0U) {
-        TCMCharacter__ct((void *)temp_r3, (arg0));
+    motion = ((u32)__nw__7TObjectFUl(0x10C));
+    if (motion != 0U) {
+        TCMCharacter__ct((void *)motion, (arg0));
     }
     creation_main_menu_obj = create__14TObjCMMainMenuFv(arg0);
     *(s32 *)((s8 *)arg0 + 0x1C) = 0x1555;

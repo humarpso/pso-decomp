@@ -59,13 +59,13 @@ void TWindowMessagePage::set_message(void *msg, s32 flags) {
 }
 
 u8 *TWindowMessagePage::create(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
-    u8 *temp_r3;
+    u8 *window_message_page;
     u8 *var_r0;
     TLobby__sub_80269DA4((void *)arg1, (void *)arg2);
-    temp_r3 = (u8 *)(__nw__7TObjectFUl(0x98));
-    var_r0 = temp_r3;
+    window_message_page = (u8 *)(__nw__7TObjectFUl(0x98));
+    var_r0 = window_message_page;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TWindowMessagePage__ct(temp_r3, arg0, arg2, arg3));
+        var_r0 = (u8 *)(TWindowMessagePage__ct(window_message_page, arg0, arg2, arg3));
     }
     return var_r0;
 }

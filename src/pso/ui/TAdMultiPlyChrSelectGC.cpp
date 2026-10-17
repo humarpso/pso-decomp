@@ -201,15 +201,15 @@ u8 *TAdMultiPlyChrSelectGC__ct(TAdMultiPlyChrSelectGC *ad_multi_ply_chr_select_g
 }
 
 u8 *get_or_create__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1) {
-    u8 *temp_r3;
+    u8 *ad_multi_ply_chr_select_gc;
     u8 *var_r0;
     if ((void *) TAdMultiPlyChrSelectGC__instance != NULL) {
         return TAdMultiPlyChrSelectGC__instance;
     }
-    temp_r3 = (u8 *)(__nw__7TObjectFUl(0xA0));
-    var_r0 = temp_r3;
+    ad_multi_ply_chr_select_gc = (u8 *)(__nw__7TObjectFUl(0xA0));
+    var_r0 = ad_multi_ply_chr_select_gc;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TAdMultiPlyChrSelectGC__ct((TAdMultiPlyChrSelectGC *)((u8 *)temp_r3), (u8 *)((u8 *)arg0), (s32)((s32)arg1)));
+        var_r0 = (u8 *)(TAdMultiPlyChrSelectGC__ct((TAdMultiPlyChrSelectGC *)((u8 *)ad_multi_ply_chr_select_gc), (u8 *)((u8 *)arg0), (s32)((s32)arg1)));
     }
     TAdMultiPlyChrSelectGC__instance = var_r0;
     return var_r0;

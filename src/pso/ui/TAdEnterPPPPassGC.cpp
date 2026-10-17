@@ -230,20 +230,20 @@ void *__dt__17TAdEnterPPPPassGCFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-T_8033954C *TAdEnterPPPPassGC__ct(T_8033954C *arg0) {
+T_8033954C *TAdEnterPPPPassGC__ct(T_8033954C *ad_enter_base_gc) {
     s32 ok;
-    TAdEnterBaseGC__ct(arg0);
-    arg0->vt = __vt__17TAdEnterPPPPassGC;
-    arg0->f0 = TAdEnterPPPPassGC__name;
-    ((TAdEnterBaseGC *)arg0)->sub_8032B460(3);
+    TAdEnterBaseGC__ct(ad_enter_base_gc);
+    ad_enter_base_gc->vt = __vt__17TAdEnterPPPPassGC;
+    ad_enter_base_gc->f0 = TAdEnterPPPPassGC__name;
+    ((TAdEnterBaseGC *)ad_enter_base_gc)->sub_8032B460(3);
     password_entry_dispatch_state = 0;
-    arg0->f40 = 0;
+    ad_enter_base_gc->f40 = 0;
     if (TLobby__sub_80145A94() != 0) {
         TLobby::init_account_entries();
     } else {
         TKeyBoardControl__sub_8000F9CC(0x13);
-        queue_destruction__7TObjectFv(arg0);
-        return arg0;
+        queue_destruction__7TObjectFv(ad_enter_base_gc);
+        return ad_enter_base_gc;
     }
     ok = 0;
     if (TLobby__sub_8014618C() != 0) {
@@ -259,11 +259,11 @@ T_8033954C *TAdEnterPPPPassGC__ct(T_8033954C *arg0) {
     }
     if (ok != 0) {
         ((int (*)(void))reset_mode_state__21TAdMultiChgGameModeGCFv)();
-        queue_destruction__7TObjectFv(arg0);
-        return arg0;
+        queue_destruction__7TObjectFv(ad_enter_base_gc);
+        return ad_enter_base_gc;
     }
-    ((TAdEnterBaseGC *)arg0)->create_parts();
-    return arg0;
+    ((TAdEnterBaseGC *)ad_enter_base_gc)->create_parts();
+    return ad_enter_base_gc;
 }
 
 }

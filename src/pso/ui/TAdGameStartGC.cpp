@@ -99,7 +99,7 @@ void create_effects__14TAdGameStartGCFPv(u8 *parent) {
     u32 temp_r3_3;
     u32 temp_r3_4;
     u32 temp_r3_5;
-    u32 temp_r3_6;
+    u32 object;
     u32 temp_r3_7;
     u32 temp_r3_8;
     u32 var_r0;
@@ -133,10 +133,10 @@ void create_effects__14TAdGameStartGCFPv(u8 *parent) {
         var_r0 = __ct__20TAdGameStartShadowGCFv(temp_r3_5, parent);
     }
     *(u32 *)((s8 *)parent + 0xC4) = var_r0;
-    temp_r3_6 = __nw__7TObjectFUl(0x80);
-    var_r0_2 = temp_r3_6;
+    object = __nw__7TObjectFUl(0x80);
+    var_r0_2 = object;
     if (var_r0_2 != 0U) {
-        var_r0_2 = (u32)__ct__18TAdGameStartBackGCFv((u8 *)temp_r3_6, (u8 *)parent);
+        var_r0_2 = (u32)__ct__18TAdGameStartBackGCFv((u8 *)object, (u8 *)parent);
     }
     *(u32 *)((s8 *)parent + 0xC8) = var_r0_2;
     temp_r3_7 = __nw__7TObjectFUl(0x160);

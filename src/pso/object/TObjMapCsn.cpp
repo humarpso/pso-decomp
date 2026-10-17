@@ -147,13 +147,13 @@ s32 TObjMapCsn::build_box_triangles() {
 }
 
 s32 TObjMapCsn::create(s32 arg0) {
-    s32 var_r31;
+    s32 map_csn;
 
-    var_r31 = __nw__7TObjectFUl(0x254);
-    if (var_r31 != 0) {
-        var_r31 = ((s32)TObjMapCsn__ct((TObjMapCsn *)((u8 *)var_r31), (s32)(TObjMapCsn::get_map_count()), (s32)arg0));
+    map_csn = __nw__7TObjectFUl(0x254);
+    if (map_csn != 0) {
+        map_csn = ((s32)TObjMapCsn__ct((TObjMapCsn *)((u8 *)map_csn), (s32)(TObjMapCsn::get_map_count()), (s32)arg0));
     }
-    return var_r31;
+    return map_csn;
 }
 u8 *__dt__10TObjMapCsnFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {

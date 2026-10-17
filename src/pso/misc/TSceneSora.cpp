@@ -146,14 +146,14 @@ u8 *TSceneSora__ct(TSceneSora *scene_sora, s32 _w1) {
 }
 
 void TSceneSora::create_instance() {
-    s32 var_r3;
+    s32 scene_sora;
 
     if ((u32) TSceneSora__sky_bml_resource != 0U) {
-        var_r3 = __nw__7TObjectFUl(0xA4);
-        if (var_r3 != 0) {
-            var_r3 = ((s32)TSceneSora__ct((TSceneSora *)((u8 *)var_r3), (s32)tl_05));
+        scene_sora = __nw__7TObjectFUl(0xA4);
+        if (scene_sora != 0) {
+            scene_sora = ((s32)TSceneSora__ct((TSceneSora *)((u8 *)scene_sora), (s32)tl_05));
         }
-        TSceneSora__instance = var_r3;
+        TSceneSora__instance = scene_sora;
         return;
     }
     TSceneSora__instance = 0;

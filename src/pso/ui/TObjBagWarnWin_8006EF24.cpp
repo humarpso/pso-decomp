@@ -7,10 +7,10 @@ extern u8 *text_language_group_table;
 void *__ct__14TObjBagWarnWinFv(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void *TObjBagWarnWin::create(void *arg0) {
+void *TObjBagWarnWin::create(void *bag_warn_win) {
     void *o = __nw__7TObjectFUl(0xA4);
     if (o != NULL) {
-        o = __ct__14TObjBagWarnWinFv(o, arg0);
+        o = __ct__14TObjBagWarnWinFv(o, bag_warn_win);
     }
     return o;
 }

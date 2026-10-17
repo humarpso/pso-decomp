@@ -55,7 +55,7 @@ void TPhotonFarlla::run_task() {
     s32 temp_r3_3;
     s32 temp_r3_4;
     s32 temp_r3_5;
-    u32 temp_r3_2;
+    u32 photon_magic_square;
     *(s32 *)&this->unk_1A4 = (s32) (*(s32 *)&this->unk_1A4 + 1);
     if (((s32) *(s32 *)&this->unk_1A4 == 0x32) && ((s32) this->m_1a0 == 0)) {
         this->m_1a0 = 1;
@@ -64,9 +64,9 @@ void TPhotonFarlla::run_task() {
             VecCopy((Vec *)(&stack.sp20), (const Vec *)(entity + 0x38));
             stack.sp24 += lbl_805DC15C;
         }
-        temp_r3_2 = __nw__7TObjectFUl(0xD0);
-        if (temp_r3_2 != 0U) {
-            construct_photon_magic_square_normal((u8 *)temp_r3_2, (s32)arg0, 0, (s32)&stack.sp20, 0x78);
+        photon_magic_square = __nw__7TObjectFUl(0xD0);
+        if (photon_magic_square != 0U) {
+            construct_photon_magic_square_normal((u8 *)photon_magic_square, (s32)arg0, 0, (s32)&stack.sp20, 0x78);
         }
     }
     if (((s32) *(s32 *)&this->unk_1A4 == 0x64) && ((s16) this->m_b8 == 1)) {

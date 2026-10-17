@@ -214,15 +214,15 @@ void *__dt__14TObjEnvSoundExFv(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_8019080C___vt__14TObjEnvSoundEx_size[sizeof(RecoveredGlobal_8019080C___vt__14TObjEnvSoundEx) == 0x34 ? 1 : -1];
-u8 *TObjEnvSoundEx__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    ((s32 (*)(void *))construct_world_actor_base)(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8019080C___vt__14TObjEnvSoundEx *)&__vt__14TObjEnvSoundEx).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEnvSoundEx__class_name;
-    ((TObjEnvSoundEx *)(arg0))->apply_object_set_data((void *)arg2);
-    ((TObjEnvSoundEx *)arg0)->init_sound_params();
-    *(f32 *)((s8 *)arg0 + 0x94) = (f32) (-127.0f);
-    disallow_rendering__7TObjectFv((TObject *)(arg0));
-    return arg0;
+u8 *TObjEnvSoundEx__ct(u8 *env_sound_ex, s32 arg1, s32 arg2) {
+    ((s32 (*)(void *))construct_world_actor_base)(env_sound_ex);
+    *(s32 **)((s8 *)env_sound_ex + 0x18) = &(*(RecoveredGlobal_8019080C___vt__14TObjEnvSoundEx *)&__vt__14TObjEnvSoundEx).value;
+    *(s32 *)((s8 *)env_sound_ex + 0) = (s32) TObjEnvSoundEx__class_name;
+    ((TObjEnvSoundEx *)(env_sound_ex))->apply_object_set_data((void *)arg2);
+    ((TObjEnvSoundEx *)env_sound_ex)->init_sound_params();
+    *(f32 *)((s8 *)env_sound_ex + 0x94) = (f32) (-127.0f);
+    disallow_rendering__7TObjectFv((TObject *)(env_sound_ex));
+    return env_sound_ex;
 }
 
 }

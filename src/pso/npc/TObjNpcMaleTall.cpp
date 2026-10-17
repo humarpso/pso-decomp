@@ -55,16 +55,16 @@ void *__dt__15TObjNpcMaleTallFv(void *arg0, s16 arg1) {
 }
 
 typedef char RecoveredGlobal_8014C55C___vt__15TObjNpcMaleTall_size[sizeof(RecoveredGlobal_8014C55C___vt__15TObjNpcMaleTall) == 0x178 ? 1 : -1];
-u8 *TObjNpcMaleTall__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_male_npc_base((arg0));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8014C55C___vt__15TObjNpcMaleTall *)&__vt__15TObjNpcMaleTall).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcMaleTall__name;
-    ((TObjNpcMaleTall *)(arg0))->apply_set_data((void *)arg2);
-    ((TObjPlayer *)arg0)->init_position_vectors();
-    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjNpcMaleTall__shared_model_resource) + 0x42C)) + 8);
-    ((TObjNpcMaleTall *)arg0)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjNpcMaleTall__shared_model_resource) + 0x42C)) + 0xC);
-    ((TObjNpcBase *)arg0)->setup_common();
-    return arg0;
+u8 *TObjNpcMaleTall__ct(u8 *player, s32 arg1, s32 arg2) {
+    construct_male_npc_base((player));
+    *(s32 **)((s8 *)player + 0x18) = &(*(RecoveredGlobal_8014C55C___vt__15TObjNpcMaleTall *)&__vt__15TObjNpcMaleTall).value;
+    *(s32 *)((s8 *)player + 0) = (s32) TObjNpcMaleTall__name;
+    ((TObjNpcMaleTall *)(player))->apply_set_data((void *)arg2);
+    ((TObjPlayer *)player)->init_position_vectors();
+    *(s32 *)((s8 *)player + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjNpcMaleTall__shared_model_resource) + 0x42C)) + 8);
+    ((TObjNpcMaleTall *)player)->texture_id = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjNpcMaleTall__shared_model_resource) + 0x42C)) + 0xC);
+    ((TObjNpcBase *)player)->setup_common();
+    return player;
 }
 
 void TObjNpcMoja::vfunc_88() {

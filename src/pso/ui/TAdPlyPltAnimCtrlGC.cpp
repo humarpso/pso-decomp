@@ -134,19 +134,19 @@ void *__dt__19TAdPlyPltAnimCtrlGCFv(void *arg0, s16 arg1) {
 }
 
 typedef char RecoveredGlobal_80355414___vt__19TAdPlyPltAnimCtrlGC_size[sizeof(RecoveredGlobal_80355414___vt__19TAdPlyPltAnimCtrlGC) == 0x18 ? 1 : -1];
-u8 *TAdPlyPltAnimCtrlGC__ct(TAdPlyPltAnimCtrlGC *arg0, s32 arg1) {
+u8 *TAdPlyPltAnimCtrlGC__ct(TAdPlyPltAnimCtrlGC *ad_ply_plt_anim_ctrl_gc, s32 arg1) {
     s32 var_r31;
-    __ct__7TObjectFP7TObject((void *)arg0, (void *)arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80355414___vt__19TAdPlyPltAnimCtrlGC *)&__vt__19TAdPlyPltAnimCtrlGC).value;
+    __ct__7TObjectFP7TObject((void *)ad_ply_plt_anim_ctrl_gc, (void *)arg1);
+    *(s32 **)((s8 *)ad_ply_plt_anim_ctrl_gc + 0x18) = &(*(RecoveredGlobal_80355414___vt__19TAdPlyPltAnimCtrlGC *)&__vt__19TAdPlyPltAnimCtrlGC).value;
     var_r31 = 0;
-    *(s32 *)((s8 *)arg0 + 0) = lbl_805D4390;
-    arg0->m_1c = 0;
-    arg0->m_20 = -1;
+    *(s32 *)((s8 *)ad_ply_plt_anim_ctrl_gc + 0) = lbl_805D4390;
+    ad_ply_plt_anim_ctrl_gc->m_1c = 0;
+    ad_ply_plt_anim_ctrl_gc->m_20 = -1;
     do {
-        get_or_create__15TAdPlyPltAnimGCFii(arg0, var_r31);
+        get_or_create__15TAdPlyPltAnimGCFii(ad_ply_plt_anim_ctrl_gc, var_r31);
         var_r31 += 1;
     } while (var_r31 < 5);
-    return (u8 *)arg0;
+    return (u8 *)ad_ply_plt_anim_ctrl_gc;
 }
 
 u32 TAdPlyPltAnimCtrlGC::get_instance(s32 arg0) {

@@ -163,18 +163,18 @@ s32 test_flag_2000000__10TObjPlayerFPv(s32);
 extern s32 __vt__10TItemTimer[];
 extern s32 lbl_805D2C88;
 
-u8 *TItemTimer__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+u8 *TItemTimer__ct(u8 *item_timer, s32 arg1, s32 arg2, s32 arg3) {
     __ct__7TObjectFP7TObject();
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TItemTimer;
-    ((TItemTimer *)(arg0 + 0x20))->reset_fields();
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C88;
-    ((TItemTimer *)arg0)->m_1C = (arg3 - 1);
-    if ((s32) ((TItemTimer *)arg0)->m_1C < 1) {
-        ((TItemTimer *)arg0)->m_1C = 1;
+    *(s32 **)((s8 *)item_timer + 0x18) = __vt__10TItemTimer;
+    ((TItemTimer *)(item_timer + 0x20))->reset_fields();
+    *(s32 *)((s8 *)item_timer + 0) = (s32) lbl_805D2C88;
+    ((TItemTimer *)item_timer)->m_1C = (arg3 - 1);
+    if ((s32) ((TItemTimer *)item_timer)->m_1C < 1) {
+        ((TItemTimer *)item_timer)->m_1C = 1;
     }
-    TItemTimer__sub_8011D598(arg0 + 0x20, arg1, arg2);
-    disallow_rendering__7TObjectFv((TObject *)(arg0));
-    return arg0;
+    TItemTimer__sub_8011D598(item_timer + 0x20, arg1, arg2);
+    disallow_rendering__7TObjectFv((TObject *)(item_timer));
+    return item_timer;
 }
 
 void TItemTimer::invoke_callback() {

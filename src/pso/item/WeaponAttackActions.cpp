@@ -559,30 +559,30 @@ u32 pack_weapon_trail_color(void *weapon) {
     return (__cvt_fp2unsigned(lbl_805DAC90 * w.a) << 24 | __cvt_fp2unsigned(lbl_805DAC90 * w.b) << 16 | __cvt_fp2unsigned(lbl_805DAC90 * w.c) << 8) | __cvt_fp2unsigned(lbl_805DAC90 * w.d);
 }
 
-void spawn_pg_effect__10TObjPlayerFPvPvif(u8 *arg0, Vec_8011EAB8 *arg1, s32 item, f32 farg0) {
+void spawn_pg_effect__10TObjPlayerFPvPvif(u8 *item_weapon, Vec_8011EAB8 *arg1, s32 item, f32 farg0) {
     Params_8011EAB8 prm;
     if (item < 0 || item >= 200) {
         return;
     }
-    if (is_active_in_game__11TItemWeaponFv(arg0) == 0) {
+    if (is_active_in_game__11TItemWeaponFv(item_weapon) == 0) {
         return;
     }
-    remap_extra_attack_type((TItemWeapon *)arg0);
+    remap_extra_attack_type((TItemWeapon *)item_weapon);
     ((TItemEffPG *)(&prm))->init_params();
-    ((TObjPlayer *)arg0)->fill_status_info(&prm);
+    ((TObjPlayer *)item_weapon)->fill_status_info(&prm);
     VecCopy((Vec *)&prm.pos, (const Vec *)arg1);
     prm.f28 = farg0;
-    prm.f34 = *(s32 *)(arg0 + 0x188);
-    prm.f38 = *(s32 *)(arg0 + 0x24);
-    if (is_locally_controlled__10TObjPlayerFPv(*(s32 *)(arg0 + 0xF0)) != 0) {
+    prm.f34 = *(s32 *)(item_weapon + 0x188);
+    prm.f38 = *(s32 *)(item_weapon + 0x24);
+    if (is_locally_controlled__10TObjPlayerFPv(*(s32 *)(item_weapon + 0xF0)) != 0) {
         create__10TItemEffPGFPvPv(tl_05, &prm);
     } else {
         create__10TItemEffPGFPvPvPv(tl_05, &prm, item);
     }
-    ((TItemWeapon *)arg0)->restore_action_type();
+    ((TItemWeapon *)item_weapon)->restore_action_type();
 }
 
-void fire_shot_at_target__11TItemWeaponFv(u8 *arg0, Vec_8011EB84 *origin, void *owner, s32 angle) {
+void fire_shot_at_target__11TItemWeaponFv(u8 *item_weapon, Vec_8011EB84 *origin, void *owner, s32 angle) {
     Vec_8011EB84 v;
     Atk_8011EB84 atk;
     f32 *scale;
@@ -592,22 +592,22 @@ void fire_shot_at_target__11TItemWeaponFv(u8 *arg0, Vec_8011EB84 *origin, void *
     u8 *hit;
     s32 off;
     if (((s32 (*)())is_active_in_game__11TItemWeaponFv)() != 0) {
-        scale = ((f32 *(*)(void *, s32))get_weapon_range_record)(arg0, ((s32 (*)(void *))is_status_subsystem_ready__10TObjPlayerFv)(((TItemWeapon *)arg0)->player));
+        scale = ((f32 *(*)(void *, s32))get_weapon_range_record)(item_weapon, ((s32 (*)(void *))is_status_subsystem_ready__10TObjPlayerFv)(((TItemWeapon *)item_weapon)->player));
         TObjPlayer__sub_802E449C(&atk);
-        ((TObjPlayer *)arg0)->fill_status_info(&atk);
+        ((TObjPlayer *)item_weapon)->fill_status_info(&atk);
         VecCopy((Vec *)&atk, (const Vec *)origin);
-        atk.angle = *(s32 *)((s8 *)(((TItemWeapon *)arg0)->player) + 0x60) + angle;
+        atk.angle = *(s32 *)((s8 *)(((TItemWeapon *)item_weapon)->player) + 0x60) + angle;
         atk.f3C = *scale;
-        atk.f38 = *(f32 *)((s8 *)arg0 + 0x1E4);
+        atk.f38 = *(f32 *)((s8 *)item_weapon + 0x1E4);
         atk.owner = owner;
-        atk.id = *(s32 *)((s8 *)arg0 + 0x24);
-        ((Wpn_8011EB84 *)arg0)->m57(&atk);
-        remap_extra_attack_type((TItemWeapon *)arg0);
-        hit = ((u8 *(*)(void *, void *))TObjPlayer__sub_8011E56C)(arg0, origin);
+        atk.id = *(s32 *)((s8 *)item_weapon + 0x24);
+        ((Wpn_8011EB84 *)item_weapon)->m57(&atk);
+        remap_extra_attack_type((TItemWeapon *)item_weapon);
+        hit = ((u8 *(*)(void *, void *))TObjPlayer__sub_8011E56C)(item_weapon, origin);
         if (hit != NULL) {
             VecCopy((Vec *)&atk, (const Vec *)(*(void **)((s8 *)hit + 4)));
             atk.flags |= 0x800;
-        } else if ((state = (s32)((TObjPlayer *)(((TItemWeapon *)arg0)->player))->get_extended_state()) != 0 && get_captured_target_count((s32 *)state) > 0) {
+        } else if ((state = (s32)((TObjPlayer *)(((TItemWeapon *)item_weapon)->player))->get_extended_state()) != 0 && get_captured_target_count((s32 *)state) > 0) {
             if ((item = (s32)get_captured_target_entry((void *)state, 0)) != 0) {
                 if ((ph = ((u8 *(*)(s32))find_entity_by_id)(((s32 (*)(s32))get_uid__10TObjPlayerFv)(item))) != NULL && *(u8 **)((s8 *)ph + 0xA4) != NULL) {
                     VecCopy((Vec *)&v, (const Vec *)(&(*(Skel_8011EB84 **)((s8 *)ph + 0xA4))->n[get_captured_target_collider_index((void *)item)]));
@@ -620,11 +620,11 @@ void fire_shot_at_target__11TItemWeaponFv(u8 *arg0, Vec_8011EB84 *origin, void *
                 }
             }
         }
-        if (atk.type == 2 && ((Wpn_8011EB84 *)arg0)->m33() == 0) {
+        if (atk.type == 2 && ((Wpn_8011EB84 *)item_weapon)->m33() == 0) {
             atk.scale *= lbl_805DAC94;
         }
         TItemAttackCol::create((void *)tl_05, &atk);
-        ((TItemWeapon *)arg0)->restore_action_type();
+        ((TItemWeapon *)item_weapon)->restore_action_type();
     }
 }
 

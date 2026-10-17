@@ -343,28 +343,28 @@ void *TObjEneRecobox__vtable[107] = {
 #define TObjEneRecobox__animation_entries ((u8 *)TObjEneRecobox__animation_entries)
 #define TObjEneRecobox__vtable ((u8 *)TObjEneRecobox__vtable)
 
-void dispatch_state__12TObjEneReconFiUii(s32 arg0, u32 arg1, s32 arg2) {
+void dispatch_state__12TObjEneReconFiUii(s32 ene_dd, u32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
-        ((TObjEneRecobox *)arg0)->sub_8031F6C0(arg2);
+        ((TObjEneRecobox *)ene_dd)->sub_8031F6C0(arg2);
         return;
     case 1:
-        ((TObjEneRecon *)arg0)->handle_state(arg2);
+        ((TObjEneRecon *)ene_dd)->handle_state(arg2);
         return;
     case 2:
-        TObjEneRecon__sub_8031F600((void *)arg0, (arg2));
+        TObjEneRecon__sub_8031F600((void *)ene_dd, (arg2));
         return;
     case 3:
-        ((TObjEneRecon *)arg0)->update_state(arg2);
+        ((TObjEneRecon *)ene_dd)->update_state(arg2);
         return;
     case 4:
-        ((TObjEneRecon *)arg0)->handle_action_state(arg2);
+        ((TObjEneRecon *)ene_dd)->handle_action_state(arg2);
         return;
     case 5:
-        TObjEneRecon__sub_8031F408((void *)arg0, (arg2));
+        TObjEneRecon__sub_8031F408((void *)ene_dd, (arg2));
         return;
     case 6:
-        ((TObjEneRecon *)arg0)->handle_death_state(arg2);
+        ((TObjEneRecon *)ene_dd)->handle_death_state(arg2);
     default:
         return;
     }

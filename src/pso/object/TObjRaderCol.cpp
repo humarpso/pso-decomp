@@ -97,17 +97,17 @@ void TObjRaderCol::run_task() {
 }
 
 typedef char RecoveredGlobal_801976F4___vt__12TObjRaderCol_size[sizeof(RecoveredGlobal_801976F4___vt__12TObjRaderCol) == 0x38 ? 1 : -1];
-u8 *TObjRaderCol__ct(TObjRaderCol *arg0, s32 arg1, s32 arg2) {
-    construct_world_actor_base(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801976F4___vt__12TObjRaderCol *)&__vt__12TObjRaderCol).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3410;
-    ((TObjRaderCol *)(arg0))->apply_object_set_data((void *)arg2);
-    *(f32 *)((s8 *)arg0 + 0x90) = (f32) arg0->scale;
-    arg0->m_94 = (s32) arg0->m_84;
-    arg0->m_98 = 0;
-    arg0->m_9c = 3;
-    disallow_rendering__7TObjectFv((arg0));
-    return (u8 *)arg0;
+u8 *TObjRaderCol__ct(TObjRaderCol *rader_col, s32 arg1, s32 arg2) {
+    construct_world_actor_base(rader_col);
+    *(s32 **)((s8 *)rader_col + 0x18) = &(*(RecoveredGlobal_801976F4___vt__12TObjRaderCol *)&__vt__12TObjRaderCol).value;
+    *(s32 *)((s8 *)rader_col + 0) = (s32) lbl_805D3410;
+    ((TObjRaderCol *)(rader_col))->apply_object_set_data((void *)arg2);
+    *(f32 *)((s8 *)rader_col + 0x90) = (f32) rader_col->scale;
+    rader_col->m_94 = (s32) rader_col->m_84;
+    rader_col->m_98 = 0;
+    rader_col->m_9c = 3;
+    disallow_rendering__7TObjectFv((rader_col));
+    return (u8 *)rader_col;
 }
 
 void *__dt__12TObjRaderColFv(void *arg0, s16 arg1) {

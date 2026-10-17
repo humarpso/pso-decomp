@@ -109,7 +109,7 @@ void TPhotonLeilla::run_task() {
     f32 temp_f1;
     f32 temp_f1_2;
     u8 *entity;
-    u8 *temp_r3_2;
+    u8 *photon_magic_square;
     u8 *temp_r3_3;
     *(s32 *)&this->m_1ac = (s32) (*(s32 *)&this->m_1ac + 1);
     if (((s32) *(s32 *)&this->m_1ac == 0x32) && ((s32) *(s32 *)&this->m_19c == 0)) {
@@ -121,9 +121,9 @@ void TPhotonLeilla::run_task() {
         }
         temp_f1 = stack.spC;
         stack.spC = temp_f1 + lbl_805DC1C4;
-        temp_r3_2 = (u8 *)(__nw__7TObjectFUl(0xD0, temp_f1));
-        if (temp_r3_2 != NULL) {
-            construct_photon_magic_square_normal((u8 *)temp_r3_2, (s32)arg0, 4, (s32)&stack.sp8, 0x78);
+        photon_magic_square = (u8 *)(__nw__7TObjectFUl(0xD0, temp_f1));
+        if (photon_magic_square != NULL) {
+            construct_photon_magic_square_normal((u8 *)photon_magic_square, (s32)arg0, 4, (s32)&stack.sp8, 0x78);
         }
     }
     if ((lbl_805DC1C8 == (f32) *(s32 *)&this->m_1ac) && ((s16) this->m_b8 == 1)) {

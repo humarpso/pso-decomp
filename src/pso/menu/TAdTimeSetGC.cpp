@@ -57,13 +57,13 @@ void __ct__7TObjectFP7TObject(void *);
 extern s32 __vt__12TAdTimeSetGC[];
 extern void *TAdTimeSetGC_class_name;
 
-void *TAdTimeSetGC__ct(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TAdTimeSetGC;
-    *(void * *)&((TAdTimeSetGC *)arg0)->m_name = TAdTimeSetGC_class_name;
-    init__23TAdSinglePlyChrSelectGCFPv(arg0);
+void *TAdTimeSetGC__ct(void *ad_time_set_gc) {
+    __ct__7TObjectFP7TObject(ad_time_set_gc);
+    *(s32 **)((s8 *)ad_time_set_gc + 0x18) = __vt__12TAdTimeSetGC;
+    *(void * *)&((TAdTimeSetGC *)ad_time_set_gc)->m_name = TAdTimeSetGC_class_name;
+    init__23TAdSinglePlyChrSelectGCFPv(ad_time_set_gc);
     TLobby::stop_audio_streams();
-    return arg0;
+    return ad_time_set_gc;
 }
 
 void TAdTimeSetGC__sub_802E34A4(void) {  }

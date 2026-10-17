@@ -24,13 +24,13 @@ int copy_item_data__6TLobbyFPv(void*);
 extern s32 __vt__9TItemList[];
 extern void *TItemList__name;
 
-void *__ct__9TItemListFv(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TItemList;
-    *(void * *)&((TItemList *)arg0)->m_name = TItemList__name;
-    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
-    disallow_rendering__7TObjectFv((TObject *)arg0);
-    return arg0;
+void *__ct__9TItemListFv(void *item_list) {
+    __ct__7TObjectFP7TObject(item_list);
+    *(s32 **)((s8 *)item_list + 0x18) = __vt__9TItemList;
+    *(void * *)&((TItemList *)item_list)->m_name = TItemList__name;
+    *(u32 *)((s8 *)item_list + 0x1C) = 0;
+    disallow_rendering__7TObjectFv((TObject *)item_list);
+    return item_list;
 }
 
 void TItemList__sub_801D5804(s32 *arg0) {

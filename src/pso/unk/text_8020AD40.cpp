@@ -50,7 +50,7 @@ extern Grp_8020AD40 *TLobby__data_805D6068;
 extern Rec_8020AD40 *TLobby__map_set_file_buffer;
 extern s32 TLobby__map_set_file_buffer_size;
 
-s32 load_area_object_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+s32 load_area_object_set(s32 arg0, s32 lobby, s32 arg2, s32 arg3) {
     char name[0x20];
     Sub_8020AD40 *subs;
     Item_8020AD40 *items;
@@ -59,8 +59,8 @@ s32 load_area_object_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     Rec_8020AD40 *r;
     s32 n;
     s32 i;
-    subs = TLobby__data_805D6068[arg1].subs;
-    if (subs == NULL || TLobby__data_805D6068[arg1].count - 1 < arg2) {
+    subs = TLobby__data_805D6068[lobby].subs;
+    if (subs == NULL || TLobby__data_805D6068[lobby].count - 1 < arg2) {
         debug_print__6TLobbyFle(lbl_8044BBB8);
         return 0;
     }
@@ -70,7 +70,7 @@ s32 load_area_object_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
         return 0;
     }
     id = items[arg3].id;
-    if (arg1 == 0 || arg1 == 0x12) {
+    if (lobby == 0 || lobby == 0x12) {
         switch (get_game_play_mode()) {
         case 0:
             replace_file_extension__6TLobbyFPvPvPv((char *)name, (char *)id, (char *)lbl_8044BBB0);
@@ -98,7 +98,7 @@ s32 load_area_object_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
         swap_object_row_endian(r);
         r->f2 = 0;
     }
-    ((TLobby *)TLobby__map_set_file_buffer)->assign_object_ids((s32)n, (void *)arg1);
+    ((TLobby *)TLobby__map_set_file_buffer)->assign_object_ids((s32)n, (void *)lobby);
     load_object_set_entries__6TLobbyFlPUcUl(arg0, TLobby__map_set_file_buffer, len);
     return 1;
 }

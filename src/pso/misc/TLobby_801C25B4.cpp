@@ -444,14 +444,14 @@ void clear_battle_player_ready_flags(void) {
 }
 
 void TLobby::destroy_matching_children() {
-    void *var_r31;
-    var_r31 = this->m_down;
-while (var_r31 != NULL) {
-        if (check_value_equals__13TUnk_804B6C24Fl(var_r31, lbl_805D2A98) != 0) {
-            queue_destruction__7TObjectFv(var_r31);
+    void *down;
+    down = this->m_down;
+while (down != NULL) {
+        if (check_value_equals__13TUnk_804B6C24Fl(down, lbl_805D2A98) != 0) {
+            queue_destruction__7TObjectFv(down);
         }
-        ((TLobby *)var_r31)->destroy_matching_children();
-        var_r31 = *(void **)((s8 *)var_r31 + 0xC);
+        ((TLobby *)down)->destroy_matching_children();
+        down = *(void **)((s8 *)down + 0xC);
     }
 }
 
@@ -1228,13 +1228,13 @@ void TLobby__sub_801C38E8(void *arg0) {
 }
 
 void init_battle_ctrl__6TLobbyFii(s32 arg0, s32 arg1) {
-    u32 var_r3;
+    u32 player_battle_ctrl;
     if ((u32) (*(u32 *)&TLobby__battle_mode_data_ptr) == 0U) {
-        var_r3 = __nw__7TObjectFUl(0x278);
-        if (var_r3 != 0U) {
-            var_r3 = ((u32)TPlayerBattleCtrl__ct((void *)var_r3, (s32)tl_00));
+        player_battle_ctrl = __nw__7TObjectFUl(0x278);
+        if (player_battle_ctrl != 0U) {
+            player_battle_ctrl = ((u32)TPlayerBattleCtrl__ct((void *)player_battle_ctrl, (s32)tl_00));
         }
-        (*(u32 *)&TLobby__battle_mode_data_ptr) = var_r3;
+        (*(u32 *)&TLobby__battle_mode_data_ptr) = player_battle_ctrl;
     }
     if ((u32) (*(u32 *)&TLobby__battle_mode_data_ptr) != 0U) {
         strncpy((void *)((*(u32 *)&TLobby__battle_mode_data_ptr) + 0x68), (void *)arg1, 0x200);

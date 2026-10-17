@@ -158,7 +158,7 @@ void TPhotonEstlla::run_task() {
     typedef char sp10_offset[(offsetof(Stack_801AA930, sp10) == 0x8) ? 1 : -1];
     Stack_801AA930 stack;
     f32 temp_f1;
-    u32 temp_r3_2;
+    u32 photon_magic_square;
     u8 *entity;
     *(s32 *)&this->m_1a0 = (s32) (*(s32 *)&this->m_1a0 + 1);
     if (((s32) *(s32 *)&this->m_1a0 == 0x32) && ((s32) *(s32 *)&this->m_19c == 0)) {
@@ -169,9 +169,9 @@ void TPhotonEstlla::run_task() {
             stack.spC = lbl_805DC140 + *(f32 *)((s8 *)entity + 0x3C);
             stack.sp10 = *(f32 *)((s8 *)entity + 0x40);
         }
-        temp_r3_2 = __nw__7TObjectFUl(0xD0);
-        if (temp_r3_2 != 0U) {
-            construct_photon_magic_square_normal((u8 *)temp_r3_2, (s32)arg0, 1, (s32)&stack.sp8, 0x78);
+        photon_magic_square = __nw__7TObjectFUl(0xD0);
+        if (photon_magic_square != 0U) {
+            construct_photon_magic_square_normal((u8 *)photon_magic_square, (s32)arg0, 1, (s32)&stack.sp8, 0x78);
         }
     }
     if (((s32) *(s32 *)&this->m_1a0 == 0x64) && ((s16) this->m_b8 == 1)) {

@@ -329,7 +329,7 @@ void init_menu_scene_lights(u8 *arg0) {
     typedef char spC_offset[(offsetof(Stack_80133A04, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80133A04, sp10) == 0x8) ? 1 : -1];
     Stack_80133A04 stack;
-    u32 temp_r3;
+    u32 light;
     u32 temp_r3_2;
     stack.sp8 = *(f32 *)((s8 *)arg0 + 0);
     stack.spC = *(f32 *)((s8 *)arg0 + 4);
@@ -352,9 +352,9 @@ void init_menu_scene_lights(u8 *arg0) {
     *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0xC) = (f32) *(f32 *)((s8 *)arg0 + 0xC);
     *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x10) = (f32) *(f32 *)((s8 *)arg0 + 0x10);
     *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x14) = (f32) *(f32 *)((s8 *)arg0 + 0x14);
-    temp_r3 = __nw__7TObjectFUl(0x1C);
-    if (temp_r3 != 0U) {
-        TObjLight__sub_80133980((u8 *)temp_r3, (int)tl_02);
+    light = __nw__7TObjectFUl(0x1C);
+    if (light != 0U) {
+        TObjLight__sub_80133980((u8 *)light, (int)tl_02);
     }
     temp_r3_2 = __nw__7TObjectFUl(0x1C);
     if (temp_r3_2 != 0U) {
@@ -367,7 +367,7 @@ void init_map_lights(u8 *arg0) {
     typedef char spC_offset[(offsetof(Stack_80133B10, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80133B10, sp10) == 0x8) ? 1 : -1];
     Stack_80133B10 stack;
-    u32 temp_r3;
+    u32 light;
     u32 temp_r3_2;
     u32 temp_r3_3;
     stack.sp8 = *(f32 *)((s8 *)arg0 + 0);
@@ -389,9 +389,9 @@ void init_map_lights(u8 *arg0) {
     *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133B10_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x3C) = (f32) *(f32 *)((s8 *)arg0 + 0x3C);
     *(f32 *)((s8 *)(&(*(RecoveredGlobal_80133B10_TObjLight__data_80506320 *)&TObjLight__scene_light_state).value) + 0x40) = (f32) *(f32 *)((s8 *)arg0 + 0x40);
     TObjLight::init_light_tables();
-    temp_r3 = __nw__7TObjectFUl(0x1C);
-    if (temp_r3 != 0U) {
-        TObjLight__sub_80133980((u8 *)temp_r3, (int)tl_02);
+    light = __nw__7TObjectFUl(0x1C);
+    if (light != 0U) {
+        TObjLight__sub_80133980((u8 *)light, (int)tl_02);
     }
     temp_r3_2 = __nw__7TObjectFUl(0x1C);
     if (temp_r3_2 != 0U) {

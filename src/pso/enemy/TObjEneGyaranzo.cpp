@@ -1279,35 +1279,35 @@ void TObjEneGyaranzo::vfunc_63() {
     this->m_388 = (s32) (this->m_388 | 1);
 }
 
-void TObjPlayer__sub_800D30A8(Obj_800D30A8 *arg0) {
-    switch (arg0->state) {
+void TObjPlayer__sub_800D30A8(Obj_800D30A8 *enemy) {
+    switch (enemy->state) {
     case 0:
-        arg0->f30 &= ~0x200000;
-        arg0->fB8 = 3;
-        arg0->state = 1;
+        enemy->f30 &= ~0x200000;
+        enemy->fB8 = 3;
+        enemy->state = 1;
     case 1: {
-        advance_animation_playback(arg0);
-        Vec_800D30A8 v = arg0->pos;
-        v.x += arg0->vel.x;
-        v.z += arg0->vel.z;
-        if (check_path_obstructed(arg0, &v) == 0) {
-            move_with_wall_slide((u8 *)arg0);
+        advance_animation_playback(enemy);
+        Vec_800D30A8 v = enemy->pos;
+        v.x += enemy->vel.x;
+        v.z += enemy->vel.z;
+        if (check_path_obstructed(enemy, &v) == 0) {
+            move_with_wall_slide((u8 *)enemy);
         } else {
-            arg0->vel.x = arg0->vel.z = lbl_805DA258;
+            enemy->vel.x = enemy->vel.z = lbl_805DA258;
         }
-        arg0->vel.x *= lbl_805DA280;
-        arg0->vel.z *= lbl_805DA280;
-        apply_actor_gravity(arg0, 0, lbl_805DA258);
-        update_collisions__10TObjPlayerFv(arg0);
-        if (arg0->fB4 != 8) {
-            arg0->state = -1;
+        enemy->vel.x *= lbl_805DA280;
+        enemy->vel.z *= lbl_805DA280;
+        apply_actor_gravity(enemy, 0, lbl_805DA258);
+        update_collisions__10TObjPlayerFv(enemy);
+        if (enemy->fB4 != 8) {
+            enemy->state = -1;
         }
         break;
     }
     case -1:
-        arg0->f30 &= ~0x200;
-        arg0->f388 &= ~1;
-        arg0->f374 = 1;
+        enemy->f30 &= ~0x200;
+        enemy->f388 &= ~1;
+        enemy->f374 = 1;
         break;
     }
 }

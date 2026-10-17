@@ -101,15 +101,15 @@ extern s32 __vt__28TOContainerAncientItemCommon[];
 
 s32 TOContainerAncientItemCommon::create() {
     s32 arg0 = (s32)this;
-    s32 temp_r3;
+    s32 container_ancient_item_common;
     s32 temp_r3_2;
     s32 var_r0;
     s32 var_r0_2;
     if (((s32) enable_v2_features == 1) && (get_game_play_mode() == 1) && (is_quest_active() == 1)) {
-        temp_r3 = __nw__7TObjectFUl(0x368);
-        var_r0_2 = temp_r3;
+        container_ancient_item_common = __nw__7TObjectFUl(0x368);
+        var_r0_2 = container_ancient_item_common;
         if (var_r0_2 != 0) {
-            var_r0_2 = ((s32)TOContainerAncientItemCommon__ct((void *)temp_r3, (void *)arg0));
+            var_r0_2 = ((s32)TOContainerAncientItemCommon__ct((void *)container_ancient_item_common, (void *)arg0));
         }
         return var_r0_2;
     }

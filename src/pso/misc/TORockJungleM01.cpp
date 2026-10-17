@@ -179,31 +179,31 @@ void *__dt__15TORockJungleM01Fv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8029C588_lbl_804DC3A0_size[sizeof(RecoveredGlobal_8029C588_lbl_804DC3A0) == 0x84 ? 1 : -1];
 typedef char RecoveredGlobal_8029C588_lbl_804DC424_size[sizeof(RecoveredGlobal_8029C588_lbl_804DC424) == 0x24 ? 1 : -1];
 typedef char RecoveredGlobal_8029C588___vt__15TORockJungleM01_size[sizeof(RecoveredGlobal_8029C588___vt__15TORockJungleM01) == 0x50 ? 1 : -1];
-u8 *TORockJungleM01__ct(u8 *arg0, s32 arg1) {
+u8 *TORockJungleM01__ct(u8 *rock_cave_brakable, s32 arg1) {
     struct CopyStack_8029C588 { u8 bytes[0x3C]; };
     CopyStack_8029C588 copy_storage_8029C588;
     s32 temp_r0;
-    TORockCaveBrakable__ct((arg0));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8029C588___vt__15TORockJungleM01 *)&__vt__15TORockJungleM01).value;
-    ((TObjPlayer *)(arg0 + 0xBC))->init_and_activate();
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TORockJungleM01_name_ref;
-    ((TORockJungleM01 *)(arg0))->apply_object_set_data((void *)arg1);
-    ((TORockJungleM01 *)arg0)->model = TORockJungleS01::get_model(2);
-    ((TORockJungleM01 *)arg0)->texture_id = get_jungle_rock_texture_resource(2);
-    ((TORockJungleM01 *)arg0)->m_b0 = (f32) (lbl_805DDD1C + *(f32 *)((s8 *)(*(void **)((s8 *)(((TORockJungleM01 *)arg0)->model) + 4)) + 0x14));
-    init_collision_body_parts(arg0, (void *) ((u8 *)&rock_jungle_collision_body_parts.value + 0x2C), 1);
-    ((TUnk_804AF8A0 *)arg0)->refresh_collision_body_centers();
-    ((TObjPlayer *)arg0)->reset_photon_effect();
-    ((TORockJungleM01 *)arg0)->m_b8 = (s32) ((TORockJungleM01 *)arg0)->m_84;
-    temp_r0 = ((TORockJungleM01 *)arg0)->m_b8;
+    TORockCaveBrakable__ct((rock_cave_brakable));
+    *(s32 **)((s8 *)rock_cave_brakable + 0x18) = &(*(RecoveredGlobal_8029C588___vt__15TORockJungleM01 *)&__vt__15TORockJungleM01).value;
+    ((TObjPlayer *)(rock_cave_brakable + 0xBC))->init_and_activate();
+    *(s32 *)((s8 *)rock_cave_brakable + 0) = (s32) TORockJungleM01_name_ref;
+    ((TORockJungleM01 *)(rock_cave_brakable))->apply_object_set_data((void *)arg1);
+    ((TORockJungleM01 *)rock_cave_brakable)->model = TORockJungleS01::get_model(2);
+    ((TORockJungleM01 *)rock_cave_brakable)->texture_id = get_jungle_rock_texture_resource(2);
+    ((TORockJungleM01 *)rock_cave_brakable)->m_b0 = (f32) (lbl_805DDD1C + *(f32 *)((s8 *)(*(void **)((s8 *)(((TORockJungleM01 *)rock_cave_brakable)->model) + 4)) + 0x14));
+    init_collision_body_parts(rock_cave_brakable, (void *) ((u8 *)&rock_jungle_collision_body_parts.value + 0x2C), 1);
+    ((TUnk_804AF8A0 *)rock_cave_brakable)->refresh_collision_body_centers();
+    ((TObjPlayer *)rock_cave_brakable)->reset_photon_effect();
+    ((TORockJungleM01 *)rock_cave_brakable)->m_b8 = (s32) ((TORockJungleM01 *)rock_cave_brakable)->m_84;
+    temp_r0 = ((TORockJungleM01 *)rock_cave_brakable)->m_b8;
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
-        ((TORockJungleM01 *)arg0)->m_b8 = -1;
+        ((TORockJungleM01 *)rock_cave_brakable)->m_b8 = -1;
     }
     *(ByteBlock_3C *)(copy_storage_8029C588.bytes) = *(const ByteBlock_3C *)((arg1 - 4) + 4);
     VecCopy((Vec *)((copy_storage_8029C588.bytes + 0x24)), (const Vec *)(&rock_jungle_vec3_table.value));
-    ((TORockJungleM01 *)arg0)->m_dc = TObjMapCsn::create((s32)((void *) ((copy_storage_8029C588.bytes))));
-    ((TObjPlayer *)(arg0 + 0xBC))->activate_and_dispatch();
-    return arg0;
+    ((TORockJungleM01 *)rock_cave_brakable)->m_dc = TObjMapCsn::create((s32)((void *) ((copy_storage_8029C588.bytes))));
+    ((TObjPlayer *)(rock_cave_brakable + 0xBC))->activate_and_dispatch();
+    return rock_cave_brakable;
 }
 
 void TORockJungleM01::vfunc_15() {

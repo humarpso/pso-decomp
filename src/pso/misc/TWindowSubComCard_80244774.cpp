@@ -245,10 +245,10 @@ s32 TUnk_804CE018::sub_80244994() {
 }
 #pragma pop
 
-void fn_802449E0(u8 *arg0) {
-    *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (*(s32 *)((s8 *)arg0 + 0x2C) & 0xFFFFFFF8);
-    *(s16 *)((s8 *)arg0 + 0x22) = 0;
-    disallow_rendering__7TObjectFv((TObject *)arg0);
+void fn_802449E0(u8 *object) {
+    *(s32 *)((s8 *)object + 0x2C) = (s32) (*(s32 *)((s8 *)object + 0x2C) & 0xFFFFFFF8);
+    *(s16 *)((s8 *)object + 0x22) = 0;
+    disallow_rendering__7TObjectFv((TObject *)object);
 }
 
 void TWindow__close(u8 *window_lock_on) {

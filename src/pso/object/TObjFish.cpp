@@ -651,15 +651,15 @@ u8 *TObjFish__ct(u8 *fish, s32 arg1, u8 *arg2) {
 }
 
 u8 *TObjFish__create(u8 *arg0) {
-    u8 *temp_r3;
+    u8 *fish;
     u8 *var_r0;
     if (is_split_screen() != 0) {
         return NULL;
     }
-    temp_r3 = (u8 *)(__nw__7TObjectFUl(0xA4));
-    var_r0 = temp_r3;
+    fish = (u8 *)(__nw__7TObjectFUl(0xA4));
+    var_r0 = fish;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TObjFish__ct(temp_r3, (s32)((*(s32 *)&tl_05)), arg0));
+        var_r0 = (u8 *)(TObjFish__ct(fish, (s32)((*(s32 *)&tl_05)), arg0));
     }
     return var_r0;
 }

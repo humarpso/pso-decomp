@@ -592,7 +592,7 @@ void TAdChrSelASlotGC::create_children(s32 arg1) {
     s32 temp_r3;
     s32 temp_r3_10;
     s32 temp_r3_11;
-    s32 temp_r3_12;
+    s32 object;
     s32 temp_r3_13;
     s32 temp_r3_14;
     s32 temp_r3_2;
@@ -689,10 +689,10 @@ void TAdChrSelASlotGC::create_children(s32 arg1) {
         *(s32 *)&this->unk_44 = var_r0_11;
         return;
     case 2:
-        temp_r3_12 = ((s32)__nw__7TObjectFUl(0x24));
-        var_r0_12 = temp_r3_12;
+        object = ((s32)__nw__7TObjectFUl(0x24));
+        var_r0_12 = object;
         if (var_r0_12 != 0) {
-            var_r0_12 = (s32)__ct__15TAdPlayerLoadGCFv((void *)temp_r3_12, (arg0), (void *)(1));
+            var_r0_12 = (s32)__ct__15TAdPlayerLoadGCFv((void *)object, (arg0), (void *)(1));
         }
         this->m_30 = var_r0_12;
         temp_r3_13 = ((s32)__nw__7TObjectFUl(0x3B4));

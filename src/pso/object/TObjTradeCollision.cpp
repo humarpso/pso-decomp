@@ -46,14 +46,14 @@ void *__dt__18TObjTradeCollisionFv(void *arg0, s16 arg1) {
 extern void *tl_05;
 
 typedef char RecoveredGlobal_802C8034___vt__18TObjTradeCollision_size[sizeof(RecoveredGlobal_802C8034___vt__18TObjTradeCollision) == 0x38 ? 1 : -1];
-u8 *TObjTradeCollision__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    ((TUnk_804AF8A0 *)arg0)->construct_collider_proxy();
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802C8034___vt__18TObjTradeCollision *)&__vt__18TObjTradeCollision).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjTradeCollision__name;
-    ((TObjTradeCollision *)(arg0))->apply_object_set_data((void *)arg2);
-    *(f32 *)((s8 *)arg0 + 0xAC) = (f32) ((TObjTradeCollision *)arg0)->scale;
-    disallow_rendering__7TObjectFv((TObject *)(arg0));
-    return arg0;
+u8 *TObjTradeCollision__ct(u8 *trade_collision, s32 arg1, s32 arg2) {
+    ((TUnk_804AF8A0 *)trade_collision)->construct_collider_proxy();
+    *(s32 **)((s8 *)trade_collision + 0x18) = &(*(RecoveredGlobal_802C8034___vt__18TObjTradeCollision *)&__vt__18TObjTradeCollision).value;
+    *(s32 *)((s8 *)trade_collision + 0) = (s32) TObjTradeCollision__name;
+    ((TObjTradeCollision *)(trade_collision))->apply_object_set_data((void *)arg2);
+    *(f32 *)((s8 *)trade_collision + 0xAC) = (f32) ((TObjTradeCollision *)trade_collision)->scale;
+    disallow_rendering__7TObjectFv((TObject *)(trade_collision));
+    return trade_collision;
 }
 
 void *TObjTradeCollision__create(void *arg0) {

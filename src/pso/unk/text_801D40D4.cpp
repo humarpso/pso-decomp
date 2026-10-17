@@ -129,7 +129,7 @@ s32 export_inventory_entry__10TObjPlayerFiPv(s32 arg0, u8 *arg1) {
 
 void TObjPlayer__sub_801D45B0(s32 *arg0, s32 arg1) {
     s32 temp_r4;
-    u8 temp_r3;
+    u8 player;
     *arg0 = 0;
     temp_r4 = get_field_ec__5TItemFv((void *)arg1, (int)arg1) << 0x19;
     *arg0 |= temp_r4;
@@ -138,9 +138,9 @@ void TObjPlayer__sub_801D45B0(s32 *arg0, s32 arg1) {
     } else {
         *arg0 |= (((TItem *)arg1)->get_field_ed() << 8) & 0xFF00;
     }
-    temp_r3 = ((TItem *)arg1)->get_slot_count();
-    *arg0 |= temp_r3;
-    if (is_item_equipped((void *)arg1, (int)temp_r3) == 0) {
+    player = ((TItem *)arg1)->get_slot_count();
+    *arg0 |= player;
+    if (is_item_equipped((void *)arg1, (int)player) == 0) {
         *arg0 |= 0x10000;
     }
 }

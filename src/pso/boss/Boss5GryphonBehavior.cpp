@@ -3317,22 +3317,22 @@ void TBoss8Dragon__sub_80062550(Obj_80062550 *arg0, s32 arg1) {
     }
 }
 
-void update_active_player_count__19TPlayerBattleCtrl4PFPvi(void *arg0, s32 arg1) {
+void update_active_player_count__19TPlayerBattleCtrl4PFPvi(void *ene_dd, s32 arg1) {
     switch (arg1) {
     case 4:
-        ((TObjEneDD *)arg0)->m_b8 = 0;
-        *(s32 *)((s8 *)arg0 + 0x6DC) = 0;
+        ((TObjEneDD *)ene_dd)->m_b8 = 0;
+        *(s32 *)((s8 *)ene_dd + 0x6DC) = 0;
         return;
     case 3:
-        if ((s32) *(s32 *)((s8 *)arg0 + 0x6DC) > 0x96) {
-            ((TObjEneDD *)arg0)->transition_enemy_state(0xB);
+        if ((s32) *(s32 *)((s8 *)ene_dd + 0x6DC) > 0x96) {
+            ((TObjEneDD *)ene_dd)->transition_enemy_state(0xB);
         }
     case 5:
     case 1:
         return;
     case 0:
         if ((get_player_by_client_id(0) != 0U) || (get_player_by_client_id(1) != 0U) || (get_player_by_client_id(2) != 0U) || (get_player_by_client_id(3) != 0U)) {
-            *(s32 *)((s8 *)arg0 + 0x6DC) = (s32) (*(s32 *)((s8 *)arg0 + 0x6DC) + 1);
+            *(s32 *)((s8 *)ene_dd + 0x6DC) = (s32) (*(s32 *)((s8 *)ene_dd + 0x6DC) + 1);
         }
         break;
     }
@@ -4552,18 +4552,18 @@ void TBoss8Dragon__sub_80064AB0(O_80064AB0 *self) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void apply_remote_action__13TBoss5GryphonFPvPv(u8 *arg0, u8 *arg1) {
+void apply_remote_action__13TBoss5GryphonFPvPv(u8 *ene_dd, u8 *arg1) {
     s16 temp_r4;
-    VecCopy__FP3VecPC3Vec((void*)((void *) (arg0 + 0x484)), (void*)((void *) (arg1 + 4)));
-    ((f32 (*)(void *, void *))subtract_vector)((void *) (arg0 + 0x484), (void *) (arg0 + 0x38));
-    ((TObjEneDD *)arg0)->rotation_y = (s32) *(s32 *)((s8 *)arg1 + 0x10);
-    ((TBoss8Dragon *)(arg0 + 0x494))->copy_action_state((u8 *)((void *) (arg1 + 0x14)));
-    *(s16 **)((s8 *)arg0 + 0x4BC) = (s16 *) (arg0 + 0x494);
-    temp_r4 = **(s16 **)((s8 *)arg0 + 0x4BC);
-    if ((s16) ((TObjEneDD *)arg0)->mode != temp_r4) {
-        ((TObjEneDD *)arg0)->transition_enemy_state(temp_r4);
+    VecCopy__FP3VecPC3Vec((void*)((void *) (ene_dd + 0x484)), (void*)((void *) (arg1 + 4)));
+    ((f32 (*)(void *, void *))subtract_vector)((void *) (ene_dd + 0x484), (void *) (ene_dd + 0x38));
+    ((TObjEneDD *)ene_dd)->rotation_y = (s32) *(s32 *)((s8 *)arg1 + 0x10);
+    ((TBoss8Dragon *)(ene_dd + 0x494))->copy_action_state((u8 *)((void *) (arg1 + 0x14)));
+    *(s16 **)((s8 *)ene_dd + 0x4BC) = (s16 *) (ene_dd + 0x494);
+    temp_r4 = **(s16 **)((s8 *)ene_dd + 0x4BC);
+    if ((s16) ((TObjEneDD *)ene_dd)->mode != temp_r4) {
+        ((TObjEneDD *)ene_dd)->transition_enemy_state(temp_r4);
     }
-    *(s32 *)((s8 *)arg0 + 0x4C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x4C0) | 2);
+    *(s32 *)((s8 *)ene_dd + 0x4C0) = (s32) (*(s32 *)((s8 *)ene_dd + 0x4C0) | 2);
 }
 #pragma pop
 

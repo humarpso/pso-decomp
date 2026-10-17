@@ -1203,113 +1203,113 @@ inline f32 fmax_800A2390(f32 a, f32 b) {
     return b;
 }
 s32 TObjPlayer__sub_800A2390(void *arg0_) {
-    P_800A2390 *arg0 = (P_800A2390 *)arg0_;
-    ((TUnk_804B9870 *)arg0)->obj_clearFlags30(0x40000);
-    switch (arg0->state) {
+    P_800A2390 *enemy = (P_800A2390 *)arg0_;
+    ((TUnk_804B9870 *)enemy)->obj_clearFlags30(0x40000);
+    switch (enemy->state) {
     case 0:
-        arg0->f388 &= ~0x00200000;
-        arg0->f388 |= 0x400000;
-        if (arg0->f388 & 0x10000) {
-            arg0->f388 &= ~0x30000;
-            arg0->f310 = lbl_805D9984;
-            arg0->f30C = lbl_805D9984;
-            arg0->f308 = lbl_805D9984;
-            arg0->state = 1;
+        enemy->f388 &= ~0x00200000;
+        enemy->f388 |= 0x400000;
+        if (enemy->f388 & 0x10000) {
+            enemy->f388 &= ~0x30000;
+            enemy->f310 = lbl_805D9984;
+            enemy->f30C = lbl_805D9984;
+            enemy->f308 = lbl_805D9984;
+            enemy->state = 1;
         } else {
-            arg0->f30 &= 0xFBFBFFFF;
-            arg0->state = 3;
+            enemy->f30 &= 0xFBFBFFFF;
+            enemy->state = 3;
         }
         break;
     case 1:
-        apply_actor_gravity(arg0, 0, lbl_805D9984);
-        arg0->f64 -= 0x1000;
-        if (arg0->f64 < 0) {
-            arg0->f64 = 0;
+        apply_actor_gravity(enemy, 0, lbl_805D9984);
+        enemy->f64 -= 0x1000;
+        if (enemy->f64 < 0) {
+            enemy->f64 = 0;
         }
-        if (arg0->f30 & 0x800000) {
-            arg0->f64 = 0;
-            arg0->fB8 = 2;
-            arg0->state = 2;
-            arg0->f30 &= 0xFBFBFFFF;
-            arg0->fA4->f18 &= ~4;
-            arg0->fA4->f18 |= 2;
-            ((TObjPlayer *)arg0)->spawn_hamon_effects(0xF, 0, lbl_805D99B4);
-            ((TObjPlayer *)arg0)->spawn_hamon_effects(0xF, 3, lbl_805D99B8);
-            ((TObjPlayer *)arg0)->spawn_hamon_effects(0xF, 6, lbl_805D99BC);
+        if (enemy->f30 & 0x800000) {
+            enemy->f64 = 0;
+            enemy->fB8 = 2;
+            enemy->state = 2;
+            enemy->f30 &= 0xFBFBFFFF;
+            enemy->fA4->f18 &= ~4;
+            enemy->fA4->f18 |= 2;
+            ((TObjPlayer *)enemy)->spawn_hamon_effects(0xF, 0, lbl_805D99B4);
+            ((TObjPlayer *)enemy)->spawn_hamon_effects(0xF, 3, lbl_805D99B8);
+            ((TObjPlayer *)enemy)->spawn_hamon_effects(0xF, 6, lbl_805D99BC);
         }
         break;
     case 2:
-        apply_actor_gravity(arg0, 0, lbl_805D9984);
-        if (arg0->fB8 == 0) {
-            arg0->state = 3;
+        apply_actor_gravity(enemy, 0, lbl_805D9984);
+        if (enemy->fB8 == 0) {
+            enemy->state = 3;
         }
         break;
     case 3:
-        arg0->f64 = 0;
-        arg0->fA4->f18 &= ~4;
-        arg0->fA4->f18 |= 2;
-        advance_animation_playback(arg0);
-        if (arg0->f388 & 0x20000) {
-            arg0->f388 &= ~0x20000;
-            arg0->f388 |= 0x80000;
-            if (arg0->f388 & 0x40000) {
-                arg0->f388 &= ~0x40000;
-                arg0->state = 4;
+        enemy->f64 = 0;
+        enemy->fA4->f18 &= ~4;
+        enemy->fA4->f18 |= 2;
+        advance_animation_playback(enemy);
+        if (enemy->f388 & 0x20000) {
+            enemy->f388 &= ~0x20000;
+            enemy->f388 |= 0x80000;
+            if (enemy->f388 & 0x40000) {
+                enemy->f388 &= ~0x40000;
+                enemy->state = 4;
             } else {
-                arg0->f398 = 0;
-                arg0->state = 6;
+                enemy->f398 = 0;
+                enemy->state = 6;
             }
         } else {
-            arg0->f388 &= ~0x80000;
+            enemy->f388 &= ~0x80000;
         }
         break;
     case 6:
-        arg0->f60 += 0x555;
-        arg0->f398++;
-        if (arg0->f398 >= 4) {
-            arg0->state = 4;
+        enemy->f60 += 0x555;
+        enemy->f398++;
+        if (enemy->f398 >= 4) {
+            enemy->state = 4;
         }
         break;
     case 4:
-        arg0->f3A8 = arg0->f60;
-        arg0->f3A0 = TObjPlayer__sub_800A3200(0);
-        arg0->f3A4 = lbl_805D9984;
-        arg0->f3AC = 0;
-        arg0->f39E = 0;
-        arg0->fB8 = 1;
-        arg0->state = 5;
-        arg0->f64 = 0;
-        arg0->fA4->f18 &= ~4;
-        arg0->fA4->f18 |= 2;
+        enemy->f3A8 = enemy->f60;
+        enemy->f3A0 = TObjPlayer__sub_800A3200(0);
+        enemy->f3A4 = lbl_805D9984;
+        enemy->f3AC = 0;
+        enemy->f39E = 0;
+        enemy->fB8 = 1;
+        enemy->state = 5;
+        enemy->f64 = 0;
+        enemy->fA4->f18 &= ~4;
+        enemy->fA4->f18 |= 2;
     case 5:
-        advance_animation_playback(arg0);
-        enemy_set_heading_velocity(arg0, arg0->f3A0, arg0->f3A8);
-        ((TObjPlayer *)arg0)->step_along_ground();
-        arg0->f3A4 += arg0->f3A0;
-        arg0->f3A0 = fmax_800A2390(-0.2f + arg0->f3A0, 0.5f);
-        if (arg0->f3A4 >= TObjPlayer__sub_800A3200(1)) {
-            arg0->f388 &= ~0x80000;
-            arg0->state = 3;
+        advance_animation_playback(enemy);
+        enemy_set_heading_velocity(enemy, enemy->f3A0, enemy->f3A8);
+        ((TObjPlayer *)enemy)->step_along_ground();
+        enemy->f3A4 += enemy->f3A0;
+        enemy->f3A0 = fmax_800A2390(-0.2f + enemy->f3A0, 0.5f);
+        if (enemy->f3A4 >= TObjPlayer__sub_800A3200(1)) {
+            enemy->f388 &= ~0x80000;
+            enemy->state = 3;
         }
-        play_persistent_sound(0x4003AD28, arg0, (u8 *)arg0 + 0x38, 0, 0);
-        if (arg0->f3AC > 0) {
-            arg0->f3AC--;
-            if (arg0->fA4->f18 & 0x300000) {
-                arg0->f3A8 += 0x4000;
-                arg0->f3AC = 5;
+        play_persistent_sound(0x4003AD28, enemy, (u8 *)enemy + 0x38, 0, 0);
+        if (enemy->f3AC > 0) {
+            enemy->f3AC--;
+            if (enemy->fA4->f18 & 0x300000) {
+                enemy->f3A8 += 0x4000;
+                enemy->f3AC = 5;
             }
         }
         if (!(actor_frame_tick & 2)) {
-            ((TObjPlayer *)arg0)->spawn_hamon_effects(0xF, 0, lbl_805D99C4);
+            ((TObjPlayer *)enemy)->spawn_hamon_effects(0xF, 0, lbl_805D99C4);
         }
-        apply_actor_gravity(arg0, 0, lbl_805D9984);
+        apply_actor_gravity(enemy, 0, lbl_805D9984);
         break;
     case -1:
         break;
     }
-    ((TObjPlayer *)arg0)->update_collisions();
-    minimap_render_dot((u8 *)arg0 + 0x38, -0x5DB4, 1, 0);
-    return submit_cursor_candidate(arg0, -1);
+    ((TObjPlayer *)enemy)->update_collisions();
+    minimap_render_dot((u8 *)enemy + 0x38, -0x5DB4, 1, 0);
+    return submit_cursor_candidate(enemy, -1);
 }
 #pragma pop
 

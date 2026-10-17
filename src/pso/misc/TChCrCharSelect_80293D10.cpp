@@ -6,10 +6,10 @@ extern "C" {
 void *__ct__15TChCrCharSelectFv(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void *TChCrCharSelect::create(void *arg0) {
+void *TChCrCharSelect::create(void *object) {
     void *o = __nw__7TObjectFUl(0x20);
     if (o != NULL) {
-        o = __ct__15TChCrCharSelectFv(o, arg0);
+        o = __ct__15TChCrCharSelectFv(o, object);
     }
     return o;
 }

@@ -198,7 +198,7 @@ void TLoadCtrl::cleanup_scene() {
 
 void TLoadCtrl::start_loading(u32 arg0) {
     s32 temp_r3;
-    u8 *var_r0;
+    u8 *load_ctrl;
     u8 *temp_cam;
     u32 var_r31;
     var_r31 = arg0;
@@ -247,11 +247,11 @@ void TLoadCtrl::start_loading(u32 arg0) {
     if (temp_cam != NULL) {
         TCameraCtrl__ct(temp_cam, (void *)tl_camera);
     }
-    var_r0 = (u8 *) __nw__7TObjectFUl(0x24);
-    if (var_r0 != NULL) {
-        var_r0 = TLoadCtrl__ct((TLoadCtrl *)var_r0, tl_su);
+    load_ctrl = (u8 *) __nw__7TObjectFUl(0x24);
+    if (load_ctrl != NULL) {
+        load_ctrl = TLoadCtrl__ct((TLoadCtrl *)load_ctrl, tl_su);
     }
-    TLoadCtrl__instance = (u32) var_r0;
+    TLoadCtrl__instance = (u32) load_ctrl;
 }
 
 void TLoadCtrl::poll_default() { TLoadCtrl::start_loading((u32)((void*)(0))); }

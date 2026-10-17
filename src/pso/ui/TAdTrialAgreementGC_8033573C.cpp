@@ -77,7 +77,7 @@ void *__dt__19TAdTrialAgreementGCFv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC_size[sizeof(RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC) == 0x38 ? 1 : -1];
 u8 *TAdTrialAgreementGC__ct(u8 *ad_trial_agreement_gc) {
-    s32 temp_r3;
+    s32 ad_scroll_win_gc;
     s32 var_r0;
     TAdAgreementBaseGC__ct(ad_trial_agreement_gc);
     *(s32 **)((s8 *)ad_trial_agreement_gc + 0x18) = &(*(RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC *)&__vt__19TAdTrialAgreementGC).value;
@@ -88,10 +88,10 @@ u8 *TAdTrialAgreementGC__ct(u8 *ad_trial_agreement_gc) {
         queue_destruction__7TObjectFv((ad_trial_agreement_gc));
         return ad_trial_agreement_gc;
     }
-    temp_r3 = __nw__7TObjectFUl(0x54);
-    var_r0 = temp_r3;
+    ad_scroll_win_gc = __nw__7TObjectFUl(0x54);
+    var_r0 = ad_scroll_win_gc;
     if (var_r0 != 0) {
-        var_r0 = (s32)TAdScrollWinGC__ct((TAdScrollWinGC *)((void *)temp_r3), (ad_trial_agreement_gc), 1, 0);
+        var_r0 = (s32)TAdScrollWinGC__ct((TAdScrollWinGC *)((void *)ad_scroll_win_gc), (ad_trial_agreement_gc), 1, 0);
     }
     ((TAdTrialAgreementGC *)ad_trial_agreement_gc)->m_38 = var_r0;
     return ad_trial_agreement_gc;

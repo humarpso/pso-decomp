@@ -1625,7 +1625,7 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
     CopyStack_802E8FCC copy_storage_802E8FCC;
     struct { f32 v[3]; } sp8;
     s32 temp_r4_2;
-    u32 var_r0;
+    u32 boss7_laser_ptcl;
     u32 var_r0_2;
     u32 var_r0_3;
     u8 *temp_r30;
@@ -1687,11 +1687,11 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
                 if ((u32) *(u32 *)((s8 *)arg0 + 0x7A8) != 0U) {
                     queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x7A8));
                 }
-                var_r0 = __nw__7TObjectFUl(0x58);
-                if (var_r0 != 0U) {
-                    var_r0 = (u32)TBoss7LaserPtcl__ct((u8 *)var_r0, (u8 *)arg0, (u8 *)((u8 *)arg0 + 0x4DC), (u8 *)temp_r30);
+                boss7_laser_ptcl = __nw__7TObjectFUl(0x58);
+                if (boss7_laser_ptcl != 0U) {
+                    boss7_laser_ptcl = (u32)TBoss7LaserPtcl__ct((u8 *)boss7_laser_ptcl, (u8 *)arg0, (u8 *)((u8 *)arg0 + 0x4DC), (u8 *)temp_r30);
                 }
-                *(u32 *)((s8 *)arg0 + 0x7A8) = var_r0;
+                *(u32 *)((s8 *)arg0 + 0x7A8) = boss7_laser_ptcl;
                 TBoss7LaserPtcl__sub_802ECE28((arg0));
                 ((TBoss7LaserPtcl *)arg0)->free_laser_light();
                 TObjFish::set_effect_target_position((void *)arg0, (void *) (0x39E0F), (void *) ((u8 *)arg0 + 0x50C));
@@ -3288,15 +3288,15 @@ void TBoss7DeRolLeC::advance_action_sequence() {
 
 void TBoss7DeRolLeC__sub_802EC994(void* p) { *(s32*)((char*)p + 0x6b0) = 0; *(s32*)((char*)p + 0x6b4) = 0; }
 
-void fn_802EC9A4(void *arg0, void *arg1) {
-    enemy_set_target_id(arg0, (u16) *(s32 *)((s8 *)arg1 + 8));
-    *(s32 *)((s8 *)arg0 + 0x6B4) = (s32) *(s16 *)((s8 *)arg1 + 6);
-    ((TObjEneDD *)arg0)->transition_enemy_state(*(s16 *)((s8 *)arg1 + 4));
+void fn_802EC9A4(void *ene_dd, void *arg1) {
+    enemy_set_target_id(ene_dd, (u16) *(s32 *)((s8 *)arg1 + 8));
+    *(s32 *)((s8 *)ene_dd + 0x6B4) = (s32) *(s16 *)((s8 *)arg1 + 6);
+    ((TObjEneDD *)ene_dd)->transition_enemy_state(*(s16 *)((s8 *)arg1 + 4));
 }
 
-void fn_802EC9F0(TObjEneDD *arg0, void *arg1) {
-    *(s32 *)((s8 *)arg0 + 0x6B4) = (s32) *(s16 *)((s8 *)arg1 + 6);
-    arg0->transition_enemy_state(*(s16 *)((s8 *)arg1 + 4));
+void fn_802EC9F0(TObjEneDD *ene_dd, void *arg1) {
+    *(s32 *)((s8 *)ene_dd + 0x6B4) = (s32) *(s16 *)((s8 *)arg1 + 6);
+    ene_dd->transition_enemy_state(*(s16 *)((s8 *)arg1 + 4));
 }
 }
 void handle_6xAA_barba_ray_boss_actions(void *arg0);

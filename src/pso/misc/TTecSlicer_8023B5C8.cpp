@@ -356,42 +356,42 @@ void TTecSlicer::render() {
     model_render_flags = lbl_805D5660;
 }
 
-void run_task__10TTecSlicerFv(u8 *arg0) {
+void run_task__10TTecSlicerFv(u8 *object) {
     s32 temp_r4;
     u8 *var_r31;
     void *new_obj;
-    *(u32 *)((s8 *)arg0 + 0x10C) = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x114));
-    *(u32 *)((s8 *)arg0 + 0x108) = query_game_join_id__10TObjPlayerFv(((TTecSlicer *)arg0)->weaponHandle);
-    if (((u32) *(u32 *)((s8 *)arg0 + 0x108) == 0U) || ((u32) *(u32 *)((s8 *)arg0 + 0x10C) == 0U)) {
-        queue_destruction__7TObjectFv((s32)arg0);
+    *(u32 *)((s8 *)object + 0x10C) = get_player_by_client_id(*(u16 *)((s8 *)object + 0x114));
+    *(u32 *)((s8 *)object + 0x108) = query_game_join_id__10TObjPlayerFv(((TTecSlicer *)object)->weaponHandle);
+    if (((u32) *(u32 *)((s8 *)object + 0x108) == 0U) || ((u32) *(u32 *)((s8 *)object + 0x10C) == 0U)) {
+        queue_destruction__7TObjectFv((s32)object);
         return;
     }
-    allow_rendering__7TObjectFv(arg0);
-    if ((s32) ((TTecSlicer *)arg0)->useColorOverride != 0) {
-        var_r31 = arg0 + 0x128;
+    allow_rendering__7TObjectFv(object);
+    if ((s32) ((TTecSlicer *)object)->useColorOverride != 0) {
+        var_r31 = object + 0x128;
     } else {
         var_r31 = NULL;
     }
     new_obj = (void *)__nw__7TObjectFUl(0x60);
     if (new_obj != 0U) {
-        __ct__14TSlicerHistoryFv(new_obj, arg0, ((TTecSlicer *)arg0)->textureHandle, var_r31, ((TTecSlicer *)arg0)->weaponHandle);
+        __ct__14TSlicerHistoryFv(new_obj, object, ((TTecSlicer *)object)->textureHandle, var_r31, ((TTecSlicer *)object)->weaponHandle);
     }
-    if (test_flags_any(arg0 + 0xC0, 1) == 0) {
-        ((TTecSlicer *)arg0)->update();
+    if (test_flags_any(object + 0xC0, 1) == 0) {
+        ((TTecSlicer *)object)->update();
     }
-    ((TTecSlicer *)arg0)->advance_position();
-    if ((u32) *(u32 *)((s8 *)arg0 + 0x124) != 0U) {
-        copy_position__15TEffStarLight2DFPv(((TTecSlicer *)arg0)->star, arg0 + 0x38);
+    ((TTecSlicer *)object)->advance_position();
+    if ((u32) *(u32 *)((s8 *)object + 0x124) != 0U) {
+        copy_position__15TEffStarLight2DFPv(((TTecSlicer *)object)->star, object + 0x38);
     }
-    if (test_flags_any(arg0 + 0xC0, 2) != 0) {
-        queue_destruction__7TObjectFv((s32)arg0);
+    if (test_flags_any(object + 0xC0, 2) != 0) {
+        queue_destruction__7TObjectFv((s32)object);
         return;
     }
-    temp_r4 = *(s32 *)((s8 *)arg0 + 0x5C);
-    *(s32 *)((s8 *)arg0 + 0x5C) = (s32) (temp_r4 + ((TTecSlicer *)arg0)->spinVelocity);
-    destroy_on_collision__10TTecSlicerFi((s32)arg0, (s32)temp_r4);
-    *(u32 *)((s8 *)arg0 + 0x108) = 0U;
-    *(u32 *)((s8 *)arg0 + 0x10C) = 0U;
+    temp_r4 = *(s32 *)((s8 *)object + 0x5C);
+    *(s32 *)((s8 *)object + 0x5C) = (s32) (temp_r4 + ((TTecSlicer *)object)->spinVelocity);
+    destroy_on_collision__10TTecSlicerFi((s32)object, (s32)temp_r4);
+    *(u32 *)((s8 *)object + 0x108) = 0U;
+    *(u32 *)((s8 *)object + 0x10C) = 0U;
 }
 void *__dt__10TTecSlicerFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

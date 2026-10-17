@@ -70,16 +70,16 @@ void *__dt__11TObjNpcHosaFv(void *arg0, s16 arg1) {
 extern void *tl_04;
 
 typedef char RecoveredGlobal_802A3B00___vt__11TObjNpcHosa_size[sizeof(RecoveredGlobal_802A3B00___vt__11TObjNpcHosa) == 0x178 ? 1 : -1];
-u8 *TObjNpcHosa__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_male_npc_base((arg0));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802A3B00___vt__11TObjNpcHosa *)&__vt__11TObjNpcHosa).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcHosa__name;
-    ((TObjNpcHosa *)(arg0))->apply_set_data((void *)arg2);
-    ((TObjPlayer *)arg0)->init_position_vectors();
-    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcHosa__static_model_resource)), 0);
-    ((TObjNpcHosa *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcHosa__static_model_resource)), 0);
-    ((TObjNpcBase *)arg0)->setup_common();
-    return arg0;
+u8 *TObjNpcHosa__ct(u8 *player, s32 arg1, s32 arg2) {
+    construct_male_npc_base((player));
+    *(s32 **)((s8 *)player + 0x18) = &(*(RecoveredGlobal_802A3B00___vt__11TObjNpcHosa *)&__vt__11TObjNpcHosa).value;
+    *(s32 *)((s8 *)player + 0) = (s32) TObjNpcHosa__name;
+    ((TObjNpcHosa *)(player))->apply_set_data((void *)arg2);
+    ((TObjPlayer *)player)->init_position_vectors();
+    *(s32 *)((s8 *)player + 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcHosa__static_model_resource)), 0);
+    ((TObjNpcHosa *)player)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcHosa__static_model_resource)), 0);
+    ((TObjNpcBase *)player)->setup_common();
+    return player;
 }
 
 void * TObjNpcKenkyuW__create(void *arg0) {

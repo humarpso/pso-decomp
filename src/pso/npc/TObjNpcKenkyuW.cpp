@@ -122,16 +122,16 @@ void *__dt__14TObjNpcKenkyuWFv(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_802A3CD8___vt__14TObjNpcKenkyuW_size[sizeof(RecoveredGlobal_802A3CD8___vt__14TObjNpcKenkyuW) == 0x178 ? 1 : -1];
-u8 *TObjNpcKenkyuW__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_male_npc_base((arg0));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802A3CD8___vt__14TObjNpcKenkyuW *)&__vt__14TObjNpcKenkyuW).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcKenkyuW__name;
-    ((TObjNpcKenkyuW *)(arg0))->apply_set_data((void *)arg2);
-    ((TObjPlayer *)arg0)->init_position_vectors();
-    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcKenkyuW__model_resource)), 0);
-    ((TObjNpcKenkyuW *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcKenkyuW__model_resource)), 0);
-    ((TObjNpcBase *)arg0)->setup_common();
-    return arg0;
+u8 *TObjNpcKenkyuW__ct(u8 *player, s32 arg1, s32 arg2) {
+    construct_male_npc_base((player));
+    *(s32 **)((s8 *)player + 0x18) = &(*(RecoveredGlobal_802A3CD8___vt__14TObjNpcKenkyuW *)&__vt__14TObjNpcKenkyuW).value;
+    *(s32 *)((s8 *)player + 0) = (s32) TObjNpcKenkyuW__name;
+    ((TObjNpcKenkyuW *)(player))->apply_set_data((void *)arg2);
+    ((TObjPlayer *)player)->init_position_vectors();
+    *(s32 *)((s8 *)player + 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcKenkyuW__model_resource)), 0);
+    ((TObjNpcKenkyuW *)player)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcKenkyuW__model_resource)), 0);
+    ((TObjNpcBase *)player)->setup_common();
+    return player;
 }
 
 typedef char RecoveredGlobal_80236290_lbl_80516150_size[sizeof(RecoveredGlobal_80236290_lbl_80516150) == 0x88 ? 1 : -1];

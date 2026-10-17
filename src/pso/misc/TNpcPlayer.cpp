@@ -1742,7 +1742,7 @@ void TNpcPlayer::change_ai_state(u32 arg1) {
 }
 
 void TNpcPlayer::handle_action(s32 arg1) {
-    s32 temp_r3;
+    s32 player;
     s32 temp_r3_2;
     s32 temp_r3_3;
     void *temp_r5;
@@ -1751,10 +1751,10 @@ void TNpcPlayer::handle_action(s32 arg1) {
 
     switch (arg1) {
     case 0:
-        temp_r3 = ((TObjPlayer *)(*(s32 *)((s8 *)(*(void **)((s8 *)this + 0x78)) + 0x94)))->find_inventory_item_id(3, 0);
-        if (temp_r3 != -1) {
+        player = ((TObjPlayer *)(*(s32 *)((s8 *)(*(void **)((s8 *)this + 0x78)) + 0x94)))->find_inventory_item_id(3, 0);
+        if (player != -1) {
             temp_r5 = *(void **)((s8 *)this + 0x78);
-            try_send_6x27_use_item(*(s32 *)((s8 *)temp_r5 + 0x94), temp_r3, temp_r5);
+            try_send_6x27_use_item(*(s32 *)((s8 *)temp_r5 + 0x94), player, temp_r5);
             *(s32 *)((s8 *)this + 0x80) = (s32) (*(s32 *)((s8 *)this + 0x80) | 0x10000);
         }
         break;

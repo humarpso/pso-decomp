@@ -32,15 +32,15 @@ void *__dt__16TObjFogCollisionFv(void *arg0, s16 arg1) {
 extern void *tl_05;
 
 typedef char RecoveredGlobal_80153FD0___vt__16TObjFogCollision_size[sizeof(RecoveredGlobal_80153FD0___vt__16TObjFogCollision) == 0x40 ? 1 : -1];
-u8 *TObjFogCollision__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_world_actor_base(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80153FD0___vt__16TObjFogCollision *)&__vt__16TObjFogCollision).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2E78;
-    ((TObjFogCollision *)(arg0))->apply_object_set_data((void *)arg2);
-    ((TObjFogCollision *)arg0)->m_90 = 0;
-    ((TObjFogCollision *)arg0)->m_94 = 0;
-    disallow_rendering__7TObjectFv((TObject *)(arg0));
-    return arg0;
+u8 *TObjFogCollision__ct(u8 *fog_collision, s32 arg1, s32 arg2) {
+    construct_world_actor_base(fog_collision);
+    *(s32 **)((s8 *)fog_collision + 0x18) = &(*(RecoveredGlobal_80153FD0___vt__16TObjFogCollision *)&__vt__16TObjFogCollision).value;
+    *(s32 *)((s8 *)fog_collision + 0) = (s32) lbl_805D2E78;
+    ((TObjFogCollision *)(fog_collision))->apply_object_set_data((void *)arg2);
+    ((TObjFogCollision *)fog_collision)->m_90 = 0;
+    ((TObjFogCollision *)fog_collision)->m_94 = 0;
+    disallow_rendering__7TObjectFv((TObject *)(fog_collision));
+    return fog_collision;
 }
 
 void *TObjFogCollision__create(void *arg0) {

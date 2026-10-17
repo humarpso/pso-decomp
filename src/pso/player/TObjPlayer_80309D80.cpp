@@ -135,11 +135,11 @@ void emit_water_step_particles(s32 owner, s32 position) {
     emit_player_particle((void*)owner, (void*)position, (void*)(0x238));
 }
 
-void TObjPlayer::create_right_hand_ptcl(void *arg1) {
+void TObjPlayer::create_right_hand_ptcl(void *ply_ptcl_object_right_hand) {
     void *o;
     o = __nw__7TObjectFUl(0xB0);
     if (o != NULL) {
-        o = TPlyPtclObjectRightHand__ct(o, arg1);
+        o = TPlyPtclObjectRightHand__ct(o, ply_ptcl_object_right_hand);
     }
     *(void **)((s8 *)this + 0x4) = o;
 }

@@ -341,7 +341,7 @@ void TPhotonGolla::run_task() {
     Stack_801ABBAC stack;
     s32 temp_r0;
     s32 entity;
-    u32 temp_r3_2;
+    u32 photon_magic_square;
     *(s32 *)&this->unk_1C8 = (s32) (*(s32 *)&this->unk_1C8 + 1);
     if (((s32) *(s32 *)&this->unk_1C8 == 0x32) && ((s32) this->m_1c4 == 0)) {
         this->m_1c4 = 1;
@@ -351,9 +351,9 @@ void TPhotonGolla::run_task() {
             VecCopy((Vec *)(&stack.sp8), (const Vec *)(entity + 0x38));
         }
         stack.spC += lbl_805DC1A0;
-        temp_r3_2 = __nw__7TObjectFUl(0xD0);
-        if (temp_r3_2 != 0U) {
-            TPhotonMagicSquare__ct((u8 *)temp_r3_2, (s32)arg0, 3, (s32)&stack.sp8, 0xFA, (f32)lbl_805DC1A4);
+        photon_magic_square = __nw__7TObjectFUl(0xD0);
+        if (photon_magic_square != 0U) {
+            TPhotonMagicSquare__ct((u8 *)photon_magic_square, (s32)arg0, 3, (s32)&stack.sp8, 0xFA, (f32)lbl_805DC1A4);
         }
     }
     if ((lbl_805DC1A8 == (f32) *(s32 *)&this->unk_1C8) && ((s16) this->m_b8 == 1)) {

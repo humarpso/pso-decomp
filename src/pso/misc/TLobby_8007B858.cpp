@@ -270,8 +270,8 @@ void TLobby::collect_active_card_ids() {
 }
 
 void TLobby::send_status_packet() {
-    char sp8[0x84];
+    char lobby[0x84];
 
-    ((TLobby *)sp8)->collect_active_card_ids();
-    ((TLobby *)TLobby__protocol_instance)->send_c6_packet((s32 *) sp8);
+    ((TLobby *)lobby)->collect_active_card_ids();
+    ((TLobby *)TLobby__protocol_instance)->send_c6_packet((s32 *) lobby);
 }

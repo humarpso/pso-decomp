@@ -71,16 +71,16 @@ void *__dt__16TObjNpcSoutokufuFv(void *arg0, s16 arg1) {
 extern s32 boss5_common_texture_list;
 
 typedef char RecoveredGlobal_80289680___vt__16TObjNpcSoutokufu_size[sizeof(RecoveredGlobal_80289680___vt__16TObjNpcSoutokufu) == 0x178 ? 1 : -1];
-u8 *TObjNpcSoutokufu__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_male_npc_base((arg0));
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80289680___vt__16TObjNpcSoutokufu *)&__vt__16TObjNpcSoutokufu).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcSoutokufu__name;
-    ((TObjNpcSoutokufu *)(arg0))->apply_set_data((void *)arg2);
-    ((TObjPlayer *)arg0)->init_position_vectors();
-    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcSoutokufu__shared_model_resource)), 0);
-    ((TObjNpcSoutokufu *)arg0)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcSoutokufu__shared_model_resource)), 0);
-    ((TObjNpcBase *)arg0)->setup_common();
-    return arg0;
+u8 *TObjNpcSoutokufu__ct(u8 *player, s32 arg1, s32 arg2) {
+    construct_male_npc_base((player));
+    *(s32 **)((s8 *)player + 0x18) = &(*(RecoveredGlobal_80289680___vt__16TObjNpcSoutokufu *)&__vt__16TObjNpcSoutokufu).value;
+    *(s32 *)((s8 *)player + 0) = (s32) TObjNpcSoutokufu__name;
+    ((TObjNpcSoutokufu *)(player))->apply_set_data((void *)arg2);
+    ((TObjPlayer *)player)->init_position_vectors();
+    *(s32 *)((s8 *)player + 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcSoutokufu__shared_model_resource)), 0);
+    ((TObjNpcSoutokufu *)player)->texture_id = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcSoutokufu__shared_model_resource)), 0);
+    ((TObjNpcBase *)player)->setup_common();
+    return player;
 }
 
 void TBoss8Dragon::trigger_switches_in_range(void *arg0, void *arg1, void *arg2) {

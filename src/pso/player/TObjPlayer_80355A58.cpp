@@ -62,17 +62,17 @@ void *__dt__13TUnk_804F1320Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *photon_field_weapon_ct(TObjPlayer *arg0, u8 *arg1) {
-    TItemWeapon__ct(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80355BA0_lbl_804F1320 *)&lbl_804F1320).value;
-    arg0->set_status_flags(0x22);
-    if (((TItem *)arg0)->get_field_ed() == 0x3D) {
-        *(f32 *)((s8 *)arg0 + 0x1F8) = (f32) lbl_805DFFC0;
-        arg0->set_status_flags(0x100000);
+u8 *photon_field_weapon_ct(TObjPlayer *player, u8 *arg1) {
+    TItemWeapon__ct(player, arg1);
+    *(s32 **)((s8 *)player + 0x18) = &(*(RecoveredGlobal_80355BA0_lbl_804F1320 *)&lbl_804F1320).value;
+    player->set_status_flags(0x22);
+    if (((TItem *)player)->get_field_ed() == 0x3D) {
+        *(f32 *)((s8 *)player + 0x1F8) = (f32) lbl_805DFFC0;
+        player->set_status_flags(0x100000);
     } else {
-        *(f32 *)((s8 *)arg0 + 0x1F8) = (f32) lbl_805DFFC4;
+        *(f32 *)((s8 *)player + 0x1F8) = (f32) lbl_805DFFC4;
     }
-    return (u8 *)arg0;
+    return (u8 *)player;
 }
 
 }

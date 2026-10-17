@@ -368,13 +368,13 @@ void *__dt__13TUnk_8048E790Fv(void *arg0, s16 arg1) {
 }
 #pragma push
 #pragma fp_contract on
-u8 *init_orbit_sprite_particle(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, u16 arg5, s16 arg6) {
-    Obj_8008AC24 *o = (Obj_8008AC24 *)arg0;
+u8 *init_orbit_sprite_particle(u8 *object, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, u16 arg5, s16 arg6) {
+    Obj_8008AC24 *o = (Obj_8008AC24 *)object;
     Desc_8008AC24 *d = (Desc_8008AC24 *)arg1;
     Vec_8008AC24 *p = (Vec_8008AC24 *)arg2;
     IVec_8008AC24 *v = (IVec_8008AC24 *)arg3;
     s32 temp_r0;
-    init_particle_base(arg0, arg1, arg4);
+    init_particle_base(object, arg1, arg4);
     o->f18 = TParticleCtrl__data_8048E790;
     o->f98 = v->x;
     o->f9C = v->y;
@@ -409,7 +409,7 @@ u8 *init_orbit_sprite_particle(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4,
     if (o->f24 & 0x2000) {
         ((TParticleCtrl *)((void *)0x1F))->get_object();
     }
-    return arg0;
+    return object;
 }
 #pragma pop
 

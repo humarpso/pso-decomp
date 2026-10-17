@@ -191,17 +191,17 @@ void run_task__14TItemEffShieldFv(Shield_8010A4C0 *self) {
     }
 }
 
-u8 *__ct__14TItemEffShieldFv(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TItemEffShield.value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) TItemEffShield__class_name;
-    *(s32 *)((s8 *)arg0 + 0x34) = arg3;
-    *(s16 *)((s8 *)arg0 + 0x44) = arg2;
-    *(s32 *)((s8 *)arg0 + 0x38) = 0;
-    *(s32 *)((s8 *)arg0 + 0x3C) = 0;
-    *(s32 *)((s8 *)arg0 + 0x40) = 0x24;
-    disallow_rendering__7TObjectFv((TObject *)arg0);
-    return arg0;
+u8 *__ct__14TItemEffShieldFv(u8 *object, u8 *arg1, s16 arg2, s32 arg3) {
+    __ct__7TObjectFP7TObject(object, arg1);
+    *(s32 **)((s8 *)object + 0x18) = &__vt__14TItemEffShield.value;
+    *(s32 *)((s8 *)object + 0) = (s32) TItemEffShield__class_name;
+    *(s32 *)((s8 *)object + 0x34) = arg3;
+    *(s16 *)((s8 *)object + 0x44) = arg2;
+    *(s32 *)((s8 *)object + 0x38) = 0;
+    *(s32 *)((s8 *)object + 0x3C) = 0;
+    *(s32 *)((s8 *)object + 0x40) = 0x24;
+    disallow_rendering__7TObjectFv((TObject *)object);
+    return object;
 }
 
 }

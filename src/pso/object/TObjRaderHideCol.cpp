@@ -51,15 +51,15 @@ void *__dt__16TObjRaderHideColFv(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_80197490___vt__16TObjRaderHideCol_size[sizeof(RecoveredGlobal_80197490___vt__16TObjRaderHideCol) == 0x34 ? 1 : -1];
-u8 *TObjRaderHideCol__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_world_actor_base(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80197490___vt__16TObjRaderHideCol *)&__vt__16TObjRaderHideCol).value;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3414;
-    ((TObjRaderHideCol *)(arg0))->apply_object_set_data((void *)arg2);
-    *(f32 *)((s8 *)arg0 + 0x90) = (f32) ((TObjRaderHideCol *)arg0)->scale;
-    ((TObjRaderHideCol *)arg0)->m_94 = 0;
-    disallow_rendering__7TObjectFv((TObject *)(arg0));
-    return arg0;
+u8 *TObjRaderHideCol__ct(u8 *rader_hide_col, s32 arg1, s32 arg2) {
+    construct_world_actor_base(rader_hide_col);
+    *(s32 **)((s8 *)rader_hide_col + 0x18) = &(*(RecoveredGlobal_80197490___vt__16TObjRaderHideCol *)&__vt__16TObjRaderHideCol).value;
+    *(s32 *)((s8 *)rader_hide_col + 0) = (s32) lbl_805D3414;
+    ((TObjRaderHideCol *)(rader_hide_col))->apply_object_set_data((void *)arg2);
+    *(f32 *)((s8 *)rader_hide_col + 0x90) = (f32) ((TObjRaderHideCol *)rader_hide_col)->scale;
+    ((TObjRaderHideCol *)rader_hide_col)->m_94 = 0;
+    disallow_rendering__7TObjectFv((TObject *)(rader_hide_col));
+    return rader_hide_col;
 }
 
 }

@@ -21,10 +21,10 @@ void TOContainerAncientItemNone::vfunc_6(s16 *arg1, s32 arg2) {
     }
 }
 
-void *TOContainerAncientItemNone::create(void *arg0) {
+void *TOContainerAncientItemNone::create(void *container_ancient_item_none) {
     void *o = __nw__7TObjectFUl(0x368);
     if (o != NULL) {
-        o = TOContainerAncientItemNone__ct(o, arg0);
+        o = TOContainerAncientItemNone__ct(o, container_ancient_item_none);
     }
     return o;
 }

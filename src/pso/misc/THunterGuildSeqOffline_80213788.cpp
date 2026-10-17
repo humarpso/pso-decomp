@@ -255,17 +255,17 @@ void restore_and_init_quest_list__22THunterGuildSeqOfflineFPv(void *shop_window_
 
     extern int evt2_random_enemies_mode;
 
-void THunterGuildSeqOffline__sub_80213BE0(Seq_80213BE0 *arg0) {
-    switch (arg0->state) {
-    case 0: arg0->m10(); break;
-    case 1: THunterGuildSeqOffline__sub_80213B18((u8 *)arg0); break;
-    case 2: THunterGuildSeqOffline__sub_80213980((Obj_80213980 *)(arg0)); break;
-    case 11: handle_close__22THunterGuildSeqOfflineFPv(arg0); break;
-    case 4: update_close_shop__22THunterGuildSeqOfflineFPv(arg0); break;
-    case 5: update_shop_close__22THunterGuildSeqOfflineFPv(arg0); break;
-    case 6: ((THunterGuildSeqOffline *)arg0)->open_judgment_item_window(); break;
-    case 7: ((THunterGuildSeqOffline *)arg0)->handle_confirm_window(); break;
-    case 12: arg0->m11(); break;
+void THunterGuildSeqOffline__sub_80213BE0(Seq_80213BE0 *shop_sequence) {
+    switch (shop_sequence->state) {
+    case 0: shop_sequence->m10(); break;
+    case 1: THunterGuildSeqOffline__sub_80213B18((u8 *)shop_sequence); break;
+    case 2: THunterGuildSeqOffline__sub_80213980((Obj_80213980 *)(shop_sequence)); break;
+    case 11: handle_close__22THunterGuildSeqOfflineFPv(shop_sequence); break;
+    case 4: update_close_shop__22THunterGuildSeqOfflineFPv(shop_sequence); break;
+    case 5: update_shop_close__22THunterGuildSeqOfflineFPv(shop_sequence); break;
+    case 6: ((THunterGuildSeqOffline *)shop_sequence)->open_judgment_item_window(); break;
+    case 7: ((THunterGuildSeqOffline *)shop_sequence)->handle_confirm_window(); break;
+    case 12: shop_sequence->m11(); break;
     case 14: return;
     }
 }
@@ -310,25 +310,25 @@ u8 *__dt__28THunterGuildSeqOnline_ClientFv(u8 *arg0, s16 arg1) {
 
 #pragma push
 #pragma opt_propagation off
-Seq_80213D84 *THunterGuildSeqOnline_Client__ct(Seq_80213D84 *arg0, s32 arg1, s32 arg2) {
+Seq_80213D84 *THunterGuildSeqOnline_Client__ct(Seq_80213D84 *shop_window_base, s32 arg1, s32 arg2) {
     s32 one;
-    TShopSequence__ct((u8 *)arg0);
-    arg0->vt = ((u8 *)&__vt__28THunterGuildSeqOnline_Client);
+    TShopSequence__ct((u8 *)shop_window_base);
+    shop_window_base->vt = ((u8 *)&__vt__28THunterGuildSeqOnline_Client);
     one = 1;
-    arg0->f0 = THunterGuildSeqOnline_Client__name;
-    arg0->f20 = 0;
-    arg0->f24 = arg2;
-    arg0->f2c = 0;
-    arg0->f30 = 0;
-    arg0->f34 = 0;
-    arg0->f3c = 0;
-    arg0->f38 = 0;
+    shop_window_base->f0 = THunterGuildSeqOnline_Client__name;
+    shop_window_base->f20 = 0;
+    shop_window_base->f24 = arg2;
+    shop_window_base->f2c = 0;
+    shop_window_base->f30 = 0;
+    shop_window_base->f34 = 0;
+    shop_window_base->f3c = 0;
+    shop_window_base->f38 = 0;
     {
-        s32 idx = sub_8022397C__15TShopWindowBaseFv(arg0);
-        (*(void * *)&hunter_guild_seq_online_client_instance) = arg0;
+        s32 idx = sub_8022397C__15TShopWindowBaseFv(shop_window_base);
+        (*(void * *)&hunter_guild_seq_online_client_instance) = shop_window_base;
         ((s32 *)&lbl_80513E70)[idx] = one;
     }
-    return arg0;
+    return shop_window_base;
 }
 #pragma pop
 
@@ -927,20 +927,20 @@ Seq_80214B3C *THunterGuildSeqOffline__sub_80214B3C(Seq_80214B3C *arg0, s32 arg1,
 void fn_80214058(void *);
 void dispatch_state__22THunterGuildSeqOfflineFPv(Seq_80214978 *arg0);
 
-void dispatch_state__22THunterGuildSeqOfflineFPv(Seq_80214978 *arg0) {
-    switch (arg0->state) {
-    case 0: arg0->m10(); break;
-    case 1: init_window__22THunterGuildSeqOfflineFPv((u8 *)arg0); break;
-    case 3: THunterGuildSeqOffline__sub_802145F8((u8 *)arg0); break;
-    case 8: fn_80214058(arg0); break;
-    case 4: update_confirm_input__15TShopWindowBaseFPv(arg0); break;
-    case 5: update__15TShopWindowBaseFPv(arg0); break;
-    case 6: create_judgment_item_window__15TShopWindowBaseFPv(arg0); break;
-    case 7: fn_80214254((u8 *)arg0); break;
-    case 9: ((TShopWindowBase *)arg0)->set_field_20((s32)((void *)0xC)); break;
-    case 10: ((TShopWindowBase *)arg0)->set_field_20((s32)((void *)0xC)); break;
-    case 12: arg0->m11(); break;
-    case 13: ((TShopWindowBase *)arg0)->confirm_and_close_if_valid(); break;
+void dispatch_state__22THunterGuildSeqOfflineFPv(Seq_80214978 *shop_sequence) {
+    switch (shop_sequence->state) {
+    case 0: shop_sequence->m10(); break;
+    case 1: init_window__22THunterGuildSeqOfflineFPv((u8 *)shop_sequence); break;
+    case 3: THunterGuildSeqOffline__sub_802145F8((u8 *)shop_sequence); break;
+    case 8: fn_80214058(shop_sequence); break;
+    case 4: update_confirm_input__15TShopWindowBaseFPv(shop_sequence); break;
+    case 5: update__15TShopWindowBaseFPv(shop_sequence); break;
+    case 6: create_judgment_item_window__15TShopWindowBaseFPv(shop_sequence); break;
+    case 7: fn_80214254((u8 *)shop_sequence); break;
+    case 9: ((TShopWindowBase *)shop_sequence)->set_field_20((s32)((void *)0xC)); break;
+    case 10: ((TShopWindowBase *)shop_sequence)->set_field_20((s32)((void *)0xC)); break;
+    case 12: shop_sequence->m11(); break;
+    case 13: ((TShopWindowBase *)shop_sequence)->confirm_and_close_if_valid(); break;
     case 14: return;
     }
 }
@@ -986,25 +986,25 @@ u8 *__dt__28THunterGuildSeqOnline_ServerFv(u8 *arg0, s16 arg1) {
 }
 #pragma push
 #pragma opt_propagation off
-Seq_80214B3C *THunterGuildSeqOffline__sub_80214B3C(Seq_80214B3C *arg0, s32 arg1, s32 arg2) {
+Seq_80214B3C *THunterGuildSeqOffline__sub_80214B3C(Seq_80214B3C *shop_window_base, s32 arg1, s32 arg2) {
     s32 one;
-    TShopSequence__ct((u8 *)arg0);
+    TShopSequence__ct((u8 *)shop_window_base);
     one = 1;
-    arg0->vt = ((u8 *)&lbl_804C97F0);
-    arg0->f0 = lbl_805D3664;
-    arg0->f20 = 0;
-    arg0->f24 = arg2;
-    arg0->f2c = 0;
-    arg0->f34 = 0;
-    arg0->f38 = 0;
-    arg0->f3c = 0;
-    arg0->f40 = one;
+    shop_window_base->vt = ((u8 *)&lbl_804C97F0);
+    shop_window_base->f0 = lbl_805D3664;
+    shop_window_base->f20 = 0;
+    shop_window_base->f24 = arg2;
+    shop_window_base->f2c = 0;
+    shop_window_base->f34 = 0;
+    shop_window_base->f38 = 0;
+    shop_window_base->f3c = 0;
+    shop_window_base->f40 = one;
     {
-        s32 idx = sub_8022397C__15TShopWindowBaseFv(arg0);
-        (*(void * *)&offline_quest_list_vm) = arg0;
+        s32 idx = sub_8022397C__15TShopWindowBaseFv(shop_window_base);
+        (*(void * *)&offline_quest_list_vm) = shop_window_base;
         ((s32 *)&lbl_80513E60)[idx] = one;
     }
-    return arg0;
+    return shop_window_base;
 }
 #pragma pop
 

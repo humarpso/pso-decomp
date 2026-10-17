@@ -2858,7 +2858,7 @@ void TObjEneMe3ShinowaMirage__sub_800E66FC(u8 *arg0, s32 arg1) {
 
 void TObjEneMe3ShinowaMirage__sub_800E69F0(u8 *ene_me3_shinowa_mirage, s32 arg1) {
     s32 temp_r3;
-    s32 temp_r4;
+    s32 ene_dd_st;
     switch (arg1) {
     case 4:
         *(s16 *)((s8 *)ene_me3_shinowa_mirage + 0xB8) = 0;
@@ -2891,9 +2891,9 @@ void TObjEneMe3ShinowaMirage__sub_800E69F0(u8 *ene_me3_shinowa_mirage, s32 arg1)
             if ((s32) *(s32 *)((s8 *)ene_me3_shinowa_mirage + 0x408) > 0xFF) {
                 *(s32 *)((s8 *)ene_me3_shinowa_mirage + 0x408) = 0xFF;
             }
-            temp_r4 = *(s32 *)((s8 *)ene_me3_shinowa_mirage + 0x408);
-            *(u32 *)((s8 *)ene_me3_shinowa_mirage + 0x3D0) = (temp_r4 << 24) | (*(u32 *)((s8 *)ene_me3_shinowa_mirage + 0x3D0) & 0x00FFFFFF);
-            if (enemy_validate_retained_target(ene_me3_shinowa_mirage, temp_r4) == 0) {
+            ene_dd_st = *(s32 *)((s8 *)ene_me3_shinowa_mirage + 0x408);
+            *(u32 *)((s8 *)ene_me3_shinowa_mirage + 0x3D0) = (ene_dd_st << 24) | (*(u32 *)((s8 *)ene_me3_shinowa_mirage + 0x3D0) & 0x00FFFFFF);
+            if (enemy_validate_retained_target(ene_me3_shinowa_mirage, ene_dd_st) == 0) {
                 *(s32 *)((s8 *)ene_me3_shinowa_mirage + 0x404) = 0;
                 if (!(*(s32 *)((s8 *)ene_me3_shinowa_mirage + 0x3C4) & 0x1000)) {
                     *(s32 *)((s8 *)ene_me3_shinowa_mirage + 0x3D0) = 0;

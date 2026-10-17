@@ -415,10 +415,10 @@ void *__dt__23TObjEneMe3ShinowaMirageFv(void *arg0, s16 arg1) {
 
 #define arg3 ((s16)(s32)a3)
 #define arg4 ((s16)(s32)a4)
-u8 *TObjEneMe3ShinowaMirage__ct(u8 *ene_me3_shinowa_mirage, void *arg1, u8 *arg2, void *a3, void *a4) {
+u8 *TObjEneMe3ShinowaMirage__ct(u8 *ene_me3_shinowa_mirage, void *ene_me3_shinowa, u8 *arg2, void *a3, void *a4) {
     u8 *temp_r5;
 
-    TObjEneMe3Shinowa__ct(ene_me3_shinowa_mirage, arg1);
+    TObjEneMe3Shinowa__ct(ene_me3_shinowa_mirage, ene_me3_shinowa);
     *(s32 **)((s8 *)ene_me3_shinowa_mirage + 0x18) = __vt__23TObjEneMe3ShinowaMirage;
     *(s32 *)((s8 *)ene_me3_shinowa_mirage + 0) = (s32) lbl_805D2AD0;
     *(s16 *)((s8 *)ene_me3_shinowa_mirage + 0x42C) = obj_getField1c(arg2);

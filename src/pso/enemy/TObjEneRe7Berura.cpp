@@ -1098,19 +1098,19 @@ void TObjEneRe7Berura::vfunc_63() { if (this->mode != 11) { transition_enemy_sta
 
 void TObjEneRe7Berura::vfunc_28() {  }
 
-void run_task__16TObjEneRe7BeruraFv(TObjEneRe7Berura *arg0) {
+void run_task__16TObjEneRe7BeruraFv(TObjEneRe7Berura *ene_re7_berura) {
     if (TObjPlayer::check_demo_mode() != 0) {
-        ((TObjEneRe7Berura *)(arg0))->vfunc_83();
+        ((TObjEneRe7Berura *)(ene_re7_berura))->vfunc_83();
         return;
     }
-    if (((VObj_18 *)(arg0))->m81() != 4) {
-        ((TObjEneRe7Berura *)(arg0))->vfunc_85();
-        arg0->m_3ec = (s32) (arg0->m_3ec + *(s32 *)((s8 *)arg0 + 0x3CC));
-        arg0->m_3ec = (s32) (u8) arg0->m_3ec;
+    if (((VObj_18 *)(ene_re7_berura))->m81() != 4) {
+        ((TObjEneRe7Berura *)(ene_re7_berura))->vfunc_85();
+        ene_re7_berura->m_3ec = (s32) (ene_re7_berura->m_3ec + *(s32 *)((s8 *)ene_re7_berura + 0x3CC));
+        ene_re7_berura->m_3ec = (s32) (u8) ene_re7_berura->m_3ec;
     }
-    arg0->update_collision_center();
-    ((TBoss8Dragon *)arg0)->set_player_state_default();
-    ((TObjEneRe7Berura *)(arg0))->vfunc_100();
+    ene_re7_berura->update_collision_center();
+    ((TBoss8Dragon *)ene_re7_berura)->set_player_state_default();
+    ((TObjEneRe7Berura *)(ene_re7_berura))->vfunc_100();
 }
 
 Berura_800954E8 *__dt__16TObjEneRe7BeruraFv(Berura_800954E8 *self, s16 flag) {

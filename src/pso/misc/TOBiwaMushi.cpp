@@ -128,11 +128,11 @@ extern const f32 lbl_805DE084;
 
 #pragma fp_contract on
 #define self ((Self_802AA3FC *)arg0)
-void *TOBiwaMushi__ct(void *arg0, void *arg1) {
-    TODragonfly__ct(self, arg1);
+void *TOBiwaMushi__ct(void *arg0, void *dragonfly) {
+    TODragonfly__ct(self, dragonfly);
     *(s32 **)((u8 *)self + 0x18) = __vt__11TOBiwaMushi;
     *(s32 *)self = lbl_805D3E48;
-    self->m5(arg1);
+    self->m5(dragonfly);
     self->f34 = get_bml_model(TOBiwaMushi__shared_model_resource, 0);
     self->f24 = TObjFish__sub_8001EDB0(TOBiwaMushi__shared_model_resource, 0);
     self->fBC = get_bml_motion(TOBiwaMushi__shared_model_resource, 0);
@@ -242,11 +242,11 @@ extern s32 TOMekaFish01__name;
 
 #pragma fp_contract on
 #define self ((Self_802AA6EC *)arg0)
-void *TOMekaFish01__ct(void *arg0, void *arg1) {
-    TODragonfly__ct(self, arg1);
+void *TOMekaFish01__ct(void *arg0, void *dragonfly) {
+    TODragonfly__ct(self, dragonfly);
     *(s32 **)((u8 *)self + 0x18) = __vt__12TOMekaFish01;
     *(s32 *)self = TOMekaFish01__name;
-    self->m5(arg1);
+    self->m5(dragonfly);
     self->f34 = get_bml_model(TOMekaFish01__shared_model_resource, 0);
     self->f24 = TObjFish__sub_8001EDB0(TOMekaFish01__shared_model_resource, 0);
     self->fBC = get_bml_motion(TOMekaFish01__shared_model_resource, 0);

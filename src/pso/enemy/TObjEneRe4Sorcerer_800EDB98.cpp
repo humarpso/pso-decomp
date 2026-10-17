@@ -2055,14 +2055,14 @@ void TObjEneRe4Sorcerer::set_photon_state() {
     }
 }
 
-s32 TObjEneRe4Sorcerer::update_farthest_target(s32 arg1, f32 *arg2) {
+s32 TObjEneRe4Sorcerer::update_farthest_target(s32 item_pro_shield, f32 *arg2) {
     f32 temp_f1;
-    if ((((s32 (*)(void *))is_alive__9TObjEneDDFv)((void *)arg1) != 0) && (TObjEneRe4Sorcerer::check_shield((s32)((void *) (((u8 *)this))), (void *)((void *)arg1)) != 0)) {
-        temp_f1 = horizontal_distance_squared((void *) (((u8 *)this) + 0x38), (void *)(arg1 + 0x38));
+    if ((((s32 (*)(void *))is_alive__9TObjEneDDFv)((void *)item_pro_shield) != 0) && (TObjEneRe4Sorcerer::check_shield((s32)((void *) (((u8 *)this))), (void *)((void *)item_pro_shield)) != 0)) {
+        temp_f1 = horizontal_distance_squared((void *) (((u8 *)this) + 0x38), (void *)(item_pro_shield + 0x38));
         if ((temp_f1 <= lbl_805DA7E4) && (temp_f1 > *arg2)) {
             *arg2 = temp_f1;
-            *(s16 *)((s8 *)((u8 *)this) + 0x38C) = obj_getField1c((void *)arg1);
-            *(s32 *)((s8 *)((u8 *)this) + 0x390) = arg1;
+            *(s16 *)((s8 *)((u8 *)this) + 0x38C) = obj_getField1c((void *)item_pro_shield);
+            *(s32 *)((s8 *)((u8 *)this) + 0x390) = item_pro_shield;
             return 1;
         }
     }
@@ -2115,12 +2115,12 @@ void TObjEneRe4Sorcerer::request_death_effect() {
     transition_enemy_state__9TObjEneDDFs(this, 6);
 }
 
-void set_motion_by_state__18TObjEneRe4SorcererFPv(void *arg0) {
-    if ((s32) *(s32 *)((s8 *)arg0 + 0x3E8) != 2) {
-        transition_enemy_state__9TObjEneDDFs(arg0, 5);
+void set_motion_by_state__18TObjEneRe4SorcererFPv(void *ene_dd) {
+    if ((s32) *(s32 *)((s8 *)ene_dd + 0x3E8) != 2) {
+        transition_enemy_state__9TObjEneDDFs(ene_dd, 5);
         return;
     }
-    transition_enemy_state__9TObjEneDDFs(arg0, 7);
+    transition_enemy_state__9TObjEneDDFs(ene_dd, 7);
 }
 
 void TObjEneRe4Sorcerer__sub_800EF95C(Obj_800EF95C *self, f32 speed) {

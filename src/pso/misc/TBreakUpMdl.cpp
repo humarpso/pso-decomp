@@ -353,35 +353,35 @@ void alloc_breakup_piece_records(Brk_80096EBC *arg0, void *boss2_tunnel) {
     }
 }
 
-u8 *TBreakUpMdl::setup_pieces(s32 arg1, s32 arg2, f32 farg0) {
+u8 *TBreakUpMdl::setup_pieces(s32 boss2_tunnel, s32 arg2, f32 farg0) {
     *(s32 * *)&this->m_next = &(*(RecoveredGlobal_80096F54_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__vtable).value;
     *(s32 *)&this->m_prev = 1;
-    alloc_breakup_piece_records((Brk_80096EBC *)(this), (void *)arg1);
+    alloc_breakup_piece_records((Brk_80096EBC *)(this), (void *)boss2_tunnel);
     bind_motion_context(arg2, farg0);
     push_matrix_from(&identity_matrix.value);
-    this->collect_node_positions((u8 *)((void *) arg1), 0);
+    this->collect_node_positions((u8 *)((void *) boss2_tunnel), 0);
     pop_matrix();
     return ((u8 *)this);
 }
 
-u8 *init__11TBreakUpMdlFPviif(u8 *break_up_mdl, s32 arg1, s32 arg2, f32 farg0) {
+u8 *init__11TBreakUpMdlFPviif(u8 *break_up_mdl, s32 boss2_tunnel, s32 arg2, f32 farg0) {
     *(s32 * *)&((TBreakUpMdl *)break_up_mdl)->m_next = &(*(RecoveredGlobal_80096FD8_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__vtable).value;
     *(s32 *)((s8 *)break_up_mdl + 8) = 0;
-    alloc_breakup_piece_records((Brk_80096EBC *)(break_up_mdl), (void *)arg1);
+    alloc_breakup_piece_records((Brk_80096EBC *)(break_up_mdl), (void *)boss2_tunnel);
     bind_motion_context(arg2, farg0);
     push_matrix_from((void *)((u32) &(*(RecoveredGlobal_80096FD8_lbl_8058D490 *)&identity_matrix).value));
-    ((TBreakUpMdl *)break_up_mdl)->collect_node_positions((u8 *)((void *) arg1), 0);
+    ((TBreakUpMdl *)break_up_mdl)->collect_node_positions((u8 *)((void *) boss2_tunnel), 0);
     pop_matrix();
     return break_up_mdl;
 }
 
 typedef char RecoveredGlobal_8009705C_TBreakUpMdl__data_8048FA00_size[sizeof(RecoveredGlobal_8009705C_TBreakUpMdl__data_8048FA00) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_8009705C_lbl_8058D490_size[sizeof(RecoveredGlobal_8009705C_lbl_8058D490) == 0x30 ? 1 : -1];
-u8 *TBreakUpMdl::init_from_model(s32 arg1) {
+u8 *TBreakUpMdl::init_from_model(s32 boss2_tunnel) {
     *(s32 * *)&this->m_next = &(*(RecoveredGlobal_8009705C_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__vtable).value;
-    alloc_breakup_piece_records((Brk_80096EBC *)(this), (void *)arg1);
+    alloc_breakup_piece_records((Brk_80096EBC *)(this), (void *)boss2_tunnel);
     push_matrix_from((void *)((u32) &(*(RecoveredGlobal_8009705C_lbl_8058D490 *)&identity_matrix).value));
-    this->build_node_records((u8 *)((void *) arg1), 0);
+    this->build_node_records((u8 *)((void *) boss2_tunnel), 0);
     pop_matrix();
     this->m_prev = 0;
     return ((u8 *)this);

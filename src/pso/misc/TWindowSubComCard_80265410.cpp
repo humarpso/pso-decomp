@@ -728,7 +728,7 @@ void TWindowSubComCard::draw_card_icon(s32 arg1, s32 arg2) {
     ((int (*)(void*, void*, void*, void*))create_titled_window_menu)((void*)arg0, (void*)arg1, (void*)arg2, (void*)(4));
 }
 
-void TWindowMenu::draw_selected_bar(u8 *arg1) {
+void TWindowMenu::draw_selected_bar(u8 *window_key_board_soft) {
     s16 temp_r4;
     u16 *temp_r3;
     if (!(actor_frame_tick & 0x10)) {
@@ -736,18 +736,18 @@ void TWindowMenu::draw_selected_bar(u8 *arg1) {
         if (temp_r4 >= 0) {
             temp_r3 = (u16 *)(((s32)((u16 * (*)(void *, int))get_array_entry__13TUnk_804CE018Fi)(this, (s32) temp_r4)));
             if (*temp_r3 & 1) {
-                draw_selection_bar((arg1), (u8 *)temp_r3, 1);
+                draw_selection_bar((window_key_board_soft), (u8 *)temp_r3, 1);
             }
         }
     }
 }
 
-void TWindowMenu::render_selected_entry(s32 arg1) {
+void TWindowMenu::render_selected_entry(s32 window_key_board_soft) {
     u16 *temp_r3;
 
     temp_r3 = ((u16 * (*)(void *, int))get_array_entry__13TUnk_804CE018Fi)(this, *(s16 *)&this->m_78);
     if (*temp_r3 & 1) {
-        draw_selection_bar((u8 *)arg1, (u8 *)temp_r3, is_visible());
+        draw_selection_bar((u8 *)window_key_board_soft, (u8 *)temp_r3, is_visible());
     }
 }
 

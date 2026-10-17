@@ -55,28 +55,28 @@ u8 *TOMineDisp__ct(TOMineDisp *mine_disp, s32 arg1, s16 arg2) {
 }
 
 void TOMineTrap::spawn_disp_objects() {
-    u32 var_r31;
+    u32 mine_trap_disp;
     u16 i;
     s32 arg0 = (s32)this;
 
     if (is_split_screen() == 0) {
-        var_r31 = __nw__7TObjectFUl(0xB0);
-        if (var_r31 != 0U) {
-            var_r31 = TOMineTrapDisp__ct(var_r31, arg0, (u16) local_client_id, get_trap_type__10TOMineTrapFv(arg0));
+        mine_trap_disp = __nw__7TObjectFUl(0xB0);
+        if (mine_trap_disp != 0U) {
+            mine_trap_disp = TOMineTrapDisp__ct(mine_trap_disp, arg0, (u16) local_client_id, get_trap_type__10TOMineTrapFv(arg0));
         }
-        if (var_r31 != 0U) {
-            VecCopy((Vec *)(var_r31 + 0x50), (const Vec *)(arg0 + 0x50));
-            VecCopy((Vec *)(var_r31 + 0x38), (const Vec *)(arg0 + 0x38));
+        if (mine_trap_disp != 0U) {
+            VecCopy((Vec *)(mine_trap_disp + 0x50), (const Vec *)(arg0 + 0x50));
+            VecCopy((Vec *)(mine_trap_disp + 0x38), (const Vec *)(arg0 + 0x38));
         }
     } else {
         for (i = 0; i != 4; i++) {
-            var_r31 = __nw__7TObjectFUl(0xB0);
-            if (var_r31 != 0U) {
-                var_r31 = TOMineTrapDisp__ct(var_r31, arg0, i, get_trap_type__10TOMineTrapFv(arg0));
+            mine_trap_disp = __nw__7TObjectFUl(0xB0);
+            if (mine_trap_disp != 0U) {
+                mine_trap_disp = TOMineTrapDisp__ct(mine_trap_disp, arg0, i, get_trap_type__10TOMineTrapFv(arg0));
             }
-            if (var_r31 != 0U) {
-                VecCopy((Vec *)(var_r31 + 0x50), (const Vec *)(arg0 + 0x50));
-                VecCopy((Vec *)(var_r31 + 0x38), (const Vec *)(arg0 + 0x38));
+            if (mine_trap_disp != 0U) {
+                VecCopy((Vec *)(mine_trap_disp + 0x50), (const Vec *)(arg0 + 0x50));
+                VecCopy((Vec *)(mine_trap_disp + 0x38), (const Vec *)(arg0 + 0x38));
             }
         }
     }

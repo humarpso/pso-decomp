@@ -61,12 +61,12 @@ void TObjPlayer::apply_switch_attack() {
 #include "pso/misc/TRaderMapCore.h"
 
 void TObjPlayer::update_movement_effects() {
-    s32 arg0 = (s32)this;
-    if ((is_technique_ready__8TTecCtrlFv() != 0) && (TObjPlayer__sub_801AF868(arg0) == 0) && (update_movement_by_screen__10TObjPlayerFv(arg0) != 0) && (test_action_mask__10TObjPlayerFl(arg0, 0x408000) == 0) && (test_flag_2000000__10TObjPlayerFPv((void*)arg0) == 0) && (check_flag_800000__10TObjPlayerFPv(arg0) == 0)) {
-        ((TObjPlayer *)(arg0 + 0x384))->emit_movement_effect_at();
+    s32 player = (s32)this;
+    if ((is_technique_ready__8TTecCtrlFv() != 0) && (TObjPlayer__sub_801AF868(player) == 0) && (update_movement_by_screen__10TObjPlayerFv(player) != 0) && (test_action_mask__10TObjPlayerFl(player, 0x408000) == 0) && (test_flag_2000000__10TObjPlayerFPv((void*)player) == 0) && (check_flag_800000__10TObjPlayerFPv(player) == 0)) {
+        ((TObjPlayer *)(player + 0x384))->emit_movement_effect_at();
     }
-    if ((test_flag_2000000__10TObjPlayerFPv((void*)arg0) == 0) && (test_action_mask__10TObjPlayerFl(arg0, 2) != 0) && (has_water_ground_flag(arg0 + 0x360) != 0)) {
-        emit_idle_water_effect(arg0 + 0x384);
+    if ((test_flag_2000000__10TObjPlayerFPv((void*)player) == 0) && (test_action_mask__10TObjPlayerFl(player, 2) != 0) && (has_water_ground_flag(player + 0x360) != 0)) {
+        emit_idle_water_effect(player + 0x384);
     }
 }
 int TObjPlayer::get_max_level() { return 199; }

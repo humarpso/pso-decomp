@@ -304,12 +304,12 @@ u8 *TBoss6Kakusan__ct(u8 *boss6_kakusan, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4,
 #pragma pop
 
 u8 *TBoss6Type1::create_kakusan(s32 arg0, u8 *arg1, u8 *arg2, s16 arg3, f32 farg0) {
-    u8 *temp_r3;
+    u8 *boss6_kakusan;
     u8 *var_r0;
-    temp_r3 = (u8 *)(__nw__7TObjectFUl(0x58));
-    var_r0 = temp_r3;
+    boss6_kakusan = (u8 *)(__nw__7TObjectFUl(0x58));
+    var_r0 = boss6_kakusan;
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TBoss6Kakusan__ct(temp_r3, arg0, arg1, arg2, arg3, farg0));
+        var_r0 = (u8 *)(TBoss6Kakusan__ct(boss6_kakusan, arg0, arg1, arg2, arg3, farg0));
     }
     return var_r0;
 }

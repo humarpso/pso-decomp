@@ -33,18 +33,18 @@ void TObjEneSlime::spawn_pair() {
 extern s32 tl_04;
 
 s32 TObjEneSlime::create(s32 arg0) {
-    s32 var_r31;
+    s32 ene_slime;
     s32 var_r4;
 
-    var_r31 = __nw__7TObjectFUl(0x3D8);
-    if (var_r31 != 0) {
+    ene_slime = __nw__7TObjectFUl(0x3D8);
+    if (ene_slime != 0) {
         var_r4 = __nw__7TObjectFUl(0x20);
         if (var_r4 != 0) {
             var_r4 = TObjControl__ct(var_r4, tl_04);
         }
-        var_r31 = (s32)TObjEneSlime__ct((TObjEneSlime *)((u8 *)var_r31), var_r4, (u8 *)arg0);
+        ene_slime = (s32)TObjEneSlime__ct((TObjEneSlime *)((u8 *)ene_slime), var_r4, (u8 *)arg0);
     }
-    return var_r31;
+    return ene_slime;
 }
 
 }

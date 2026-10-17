@@ -57,20 +57,20 @@ s32 unequip_item__10TObjPlayerFiPv(s32, void *);
 
 void TLobby::reduce_item_amount(s32 arg1, s32 arg2, s32 arg3) {
     s16 temp_r4;
-    VObj_801D4AEC *temp_r3;
+    VObj_801D4AEC *player;
 
-    temp_r3 = (VObj_801D4AEC *)((TObjPlayer *)arg2)->get_owner_if_alive();
-    if ((temp_r3 != NULL) && (arg3 >= 0)) {
-        if ((temp_r3->m34() - arg3) > 0) {
-            temp_r3->m35(arg3);
+    player = (VObj_801D4AEC *)((TObjPlayer *)arg2)->get_owner_if_alive();
+    if ((player != NULL) && (arg3 >= 0)) {
+        if ((player->m34() - arg3) > 0) {
+            player->m35(arg3);
             return;
         }
-        if (is_item_equipped(temp_r3) != 0) {
-            unequip_item__10TObjPlayerFiPv(arg1, temp_r3);
+        if (is_item_equipped(player) != 0) {
+            unequip_item__10TObjPlayerFiPv(arg1, player);
         }
         temp_r4 = *(s16 *)((s8 *)this + 0x1C);
         *(s16 *)((s8 *)this + 0x1C) = (temp_r4 - 1);
-        temp_r3->m27(temp_r4);
+        player->m27(temp_r4);
         queue_destruction__7TObjectFv(arg2);
     }
 }

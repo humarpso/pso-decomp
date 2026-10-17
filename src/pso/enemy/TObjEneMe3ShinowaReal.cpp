@@ -181,9 +181,9 @@ void *__dt__21TObjEneMe3ShinowaRealFv(void *arg0, s16 arg1) {
 
 extern void *tl_04;
 
-Obj_800E46D4 *TObjEneMe3ShinowaReal__ct(Obj_800E46D4 *arg0, void *arg1, void *arg2) {
+Obj_800E46D4 *TObjEneMe3ShinowaReal__ct(Obj_800E46D4 *arg0, void *ene_me3_shinowa, void *arg2) {
     s32 i;
-    TObjEneMe3Shinowa__ct(arg0, arg1);
+    TObjEneMe3Shinowa__ct(arg0, ene_me3_shinowa);
     *(void **) ((u8 *) arg0 + 0x18) = ((u8 *)&__vt__21TObjEneMe3ShinowaReal);
     arg0->f0 = TObjEneMe3ShinowaReal_class_name;
     invoke_initialization_hook__9TObjEneDDFv(arg0, arg2);

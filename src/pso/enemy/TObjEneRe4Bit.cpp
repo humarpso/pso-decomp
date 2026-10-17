@@ -702,25 +702,25 @@ void TObjEneRe4Bit::handle_state_message(s32 msg) {
     }
 }
 
-void TObjEneRe4Bit__vt85(s32 arg0, u32 arg1, s32 msg) {
+void TObjEneRe4Bit__vt85(s32 ene_re4_bit, u32 arg1, s32 msg) {
     switch (arg1) {
     case 0:
-        ((TObjEneRe4Bit *)arg0)->handle_state_message(msg);
+        ((TObjEneRe4Bit *)ene_re4_bit)->handle_state_message(msg);
         return;
     case 1:
-        ((TObjEneRe4Bit *)arg0)->handle_event(msg);
+        ((TObjEneRe4Bit *)ene_re4_bit)->handle_event(msg);
         return;
     case 2:
-        TObjEneRe4Bit__sub_800ECED0((TObjEneRe4Bit *)((void *)arg0), (s32)msg);
+        TObjEneRe4Bit__sub_800ECED0((TObjEneRe4Bit *)((void *)ene_re4_bit), (s32)msg);
         return;
     case 3:
-        TObjEneRe4Bit__sub_800ECE04((TObjEneRe4Bit *)((u8 *)arg0), (s32)msg);
+        TObjEneRe4Bit__sub_800ECE04((TObjEneRe4Bit *)((u8 *)ene_re4_bit), (s32)msg);
         return;
     case 5:
-        TObjEneRe4Bit__sub_800ECD28((u8 *)arg0, (s32)msg);
+        TObjEneRe4Bit__sub_800ECD28((u8 *)ene_re4_bit, (s32)msg);
         return;
     case 6:
-        TObjEneRe4Bit__sub_800ECC14((u8 *)arg0, (s32)msg);
+        TObjEneRe4Bit__sub_800ECC14((u8 *)ene_re4_bit, (s32)msg);
     default:
         return;
     }

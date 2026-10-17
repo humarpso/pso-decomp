@@ -146,12 +146,12 @@ s32 TWindowSubSymbolChat::create_symbol_list_card() {
 }
 
 s32 TWindowSubSymbolChat::create_chat_symbol_window(s32 arg0, s32 arg1) {
-    s32 var_r31;
-    var_r31 = __nw__7TObjectFUl(0x68);
-    if (var_r31 != 0) {
-        var_r31 = (s32)TWindowChatSymbol__ct((TWindowChatSymbol *)((u8 *)var_r31), (((s32)get_window_layout_position(arg1 + 0x7B))), (s32)lbl_8044FB20);
+    s32 window_chat_symbol;
+    window_chat_symbol = __nw__7TObjectFUl(0x68);
+    if (window_chat_symbol != 0) {
+        window_chat_symbol = (s32)TWindowChatSymbol__ct((TWindowChatSymbol *)((u8 *)window_chat_symbol), (((s32)get_window_layout_position(arg1 + 0x7B))), (s32)lbl_8044FB20);
     }
-    return var_r31;
+    return window_chat_symbol;
 }
 
 void TWindowSubSymbolChat::render() {  }

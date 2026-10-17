@@ -197,8 +197,8 @@ void *__dt__17TOSensorGeneral01Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void *TOSensorGeneral01__ct(TOSensorGeneral01 *sensor_general01, void *arg1, void *arg2) {
-    TOSensor__ct(sensor_general01, arg1);
+void *TOSensorGeneral01__ct(TOSensorGeneral01 *sensor_general01, void *sensor, void *arg2) {
+    TOSensor__ct(sensor_general01, sensor);
     *(s32 **)((s8 *)sensor_general01 + 0x18) = __vt__17TOSensorGeneral01;
     *(s32 *)((s8 *)sensor_general01 + 0) = (s32) lbl_805D3154;
     sensor_general01->apply_object_set_data(arg2);

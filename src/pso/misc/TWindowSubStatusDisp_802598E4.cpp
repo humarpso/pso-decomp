@@ -272,15 +272,15 @@ void TWindowSubStatusDisp::update_pb_counter_approach() {
 }
 #pragma pop
 
-void *TWindowSubStatusDisp__sub_8025A04C(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 4) = lbl_804CF9E0;
-        TWindowSubStatusDisp__sub_80259CE4(arg0, (s16)((s16)(0)));
+void *TWindowSubStatusDisp__sub_8025A04C(void *window_sub_status_disp, s16 arg1) {
+    if (window_sub_status_disp != NULL) {
+        *(s32 **)((s8 *)window_sub_status_disp + 4) = lbl_804CF9E0;
+        TWindowSubStatusDisp__sub_80259CE4(window_sub_status_disp, (s16)((s16)(0)));
         if (arg1 > 0) {
-            ::operator delete(arg0);
+            ::operator delete(window_sub_status_disp);
         }
     }
-    return arg0;
+    return window_sub_status_disp;
 }
 typedef char RecoveredGlobal_8025A0A4_lbl_804CF9E0_size[sizeof(RecoveredGlobal_8025A0A4_lbl_804CF9E0) == 0x18 ? 1 : -1];
 u8 *TWindowSubStatusDisp::init_layout_entry_scaled(u8 *arg1, s32 arg2) {

@@ -1306,7 +1306,7 @@ void TBoss3VoloptP01::init_params() {
 #pragma fp_contract on
 u8 *TBoss3VoloptP01__ct(TBoss3VoloptP01 *boss3_volopt_p01, u8 *arg1, s32 arg2, s16 arg3, s16 arg4) {
     s32 temp_r29;
-    s32 temp_r3;
+    s32 object;
     s32 var_r0;
     TObjEnemyCustom__ct(((u8 *)boss3_volopt_p01));
     *(s32 **)((s8 *)boss3_volopt_p01 + 0x18) = &(*(RecoveredGlobal_80044174___vt__15TBoss3VoloptP01 *)&*__vt__15TBoss3VoloptP01).value;
@@ -1323,10 +1323,10 @@ u8 *TBoss3VoloptP01__ct(TBoss3VoloptP01 *boss3_volopt_p01, u8 *arg1, s32 arg2, s
     *(f32 *)((s8 *)boss3_volopt_p01 + 0x40) = (f32) (((76.0f) * ((f32 (*)(int))sin_table_lookup)((int) (temp_r29))) + *(f32 *)((s8 *)(&boss3_volopt_spawn_pos.value) + 8));
     *(f32 *)((s8 *)boss3_volopt_p01 + 0x3C) = (f32) (0.0f);
     boss3_volopt_p01->rotation_y = (s32) (-0x4000 - temp_r29);
-    temp_r3 = ((s32)__nw__7TObjectFUl(0x34));
-    var_r0 = temp_r3;
+    object = ((s32)__nw__7TObjectFUl(0x34));
+    var_r0 = object;
     if (var_r0 != 0) {
-        var_r0 = ((s32)__ct__17TObjVoloptShutterFv((u8 *)((int) (temp_r3)), (s32)((void *) (arg2))));
+        var_r0 = ((s32)__ct__17TObjVoloptShutterFv((u8 *)((int) (object)), (s32)((void *) (arg2))));
     }
     boss3_volopt_p01->m_3b8 = var_r0;
     return (u8 *)boss3_volopt_p01;

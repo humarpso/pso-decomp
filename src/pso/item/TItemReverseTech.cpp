@@ -48,7 +48,7 @@ void TItemReverseTech::run_task() {
     Stack_8011A00C stack;
 
     u32 temp_r3;
-    u32 temp_r3_2;
+    u32 object;
     u32 temp_r3_3;
     u32 var_r0;
 
@@ -63,10 +63,10 @@ void TItemReverseTech::run_task() {
     temp_r3 = (u32)part_one;
     if ((temp_r3 != 0U) && (((TObject *)temp_r3)->all_parents_unqueued_for_destruction() == 0)) {
         part_one = NULL;
-        temp_r3_2 = (u32)__nw__7TObjectFUl(0x158);
-        var_r0 = temp_r3_2;
+        object = (u32)__nw__7TObjectFUl(0x158);
+        var_r0 = object;
         if (var_r0 != 0U) {
-            var_r0 = (u32)__ct__21TItemReverseTechPart2Fv((u8 *)temp_r3_2, (s32)this, (s32)TItemReverseTech__texture_archive);
+            var_r0 = (u32)__ct__21TItemReverseTechPart2Fv((u8 *)object, (s32)this, (s32)TItemReverseTech__texture_archive);
         }
         part_two = (TObject *)var_r0;
     }

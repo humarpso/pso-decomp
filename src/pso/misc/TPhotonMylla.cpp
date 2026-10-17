@@ -223,7 +223,7 @@ void TPhotonMylla::run_task() {
     f32 temp_f1;
     f32 temp_f1_2;
     u8 *entity;
-    u8 *temp_r3_2;
+    u8 *photon_magic_square;
     u8 *temp_r3_3;
     u8 *temp_r3_4;
     u8 *temp_r3_5;
@@ -235,9 +235,9 @@ void TPhotonMylla::run_task() {
         }
         temp_f1 = stack.sp30;
         stack.sp30 = temp_f1 + lbl_805DC1FC;
-        temp_r3_2 = (u8 *)(__nw__7TObjectFUl(0xD0, temp_f1));
-        if (temp_r3_2 != NULL) {
-            TPhotonMagicSquare__ct((u8 *)temp_r3_2, (s32)arg0, 5, (s32)&stack.sp2C, 0xAA, (f32)lbl_805DC200);
+        photon_magic_square = (u8 *)(__nw__7TObjectFUl(0xD0, temp_f1));
+        if (photon_magic_square != NULL) {
+            TPhotonMagicSquare__ct((u8 *)photon_magic_square, (s32)arg0, 5, (s32)&stack.sp2C, 0xAA, (f32)lbl_805DC200);
         }
     }
     if ((lbl_805DC204 == (f32) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4) && ((s16) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_B8 == 1)) {
